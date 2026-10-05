@@ -399,21 +399,23 @@ X_QNR is obtained.
   level beyond `X` carries no information about integers `≤X`.
 * **Proposition 3.2 (dimension–range obstruction for V-type majorants;
   PROVED as an optimisation; its relevance to "all sieve methods" is
-  Assessment).** Any bound of the form
-  `count ≤ X·∏_{a∈A}(log z_a)^{−1/2}` (half-dimensional per window,
-  even with `y=1`), subject to `Σ_a log z_a≤ℒ`, is
-  `≥X·exp(−ℒ/(2e))=N^{1−1/(2e)+o(1)}`.
+  Assessment).** Consider any majorant of the form
+  `count ≤ X·∏_a(log z_a)^{−δ_a}`, where window a excludes primes of
+  relative density `δ_a` up to `z_a` (any `δ_a>0`; even with `y=1`),
+  subject to the level constraint `Λ≈Σ_aδ_a log z_a≤ℒ` (Lemma 12.1 needs
+  `ℒ/4`; we allow level X). Then the bound is `≥X·e^{−ℒ/e}=N^{1−1/e+o(1)}`.
 
-  *Proof.* By concavity of `log log`, equal `z_a` are optimal, giving
-  `exp(−(J/2)log(ℒ/J))`; `(J/2)log(ℒ/J)` is maximal at `J=ℒ/e`, with
-  value `ℒ/(2e)`. ∎
+  *Proof.* Put `u_a=log z_a`, `D=Σδ_a`. Maximise `Σδ_a log u_a` subject to
+  `Σδ_au_a≤ℒ`: by concavity (Jensen with weights `δ_a/D`) the maximum is
+  `D log(ℒ/D)`, and `max_D D log(ℒ/D)=ℒ/e` (at `D=ℒ/e`). ∎
 
-  So no window-sieve majorant can reach count-below-one, at any level of
-  distribution: **ES ⇐ X_win cannot be proved by stacking window sieves**,
-  even with per-window exponent 1/2 and full uniformity (H_FAIL+H_STACK
-  would give at most `N^{1−1/(2e)}` from these majorants; notes
-  (71.44)–(71.46)'s requirement `Z>(4+o(1))L` is therefore unattainable
-  within V-type majorants — note `L` there is `log N`).
+  So no window-sieve majorant of this type reaches count-below-one, at
+  any level of distribution and with any per-window densities: **ES via
+  X_win cannot be proved by stacking window sieves**. Even H_FAIL+H_STACK
+  (notes §71.5) would, once the level constraint is imposed, give at best
+  `N^{1−1/e}` from such majorants; notes (71.44)–(71.46) (where `L=log N`)
+  ignore the constraint. The constraint is binding exactly because the
+  dimension grows with the number of windows.
 * **No clean "ES ⇐ standard hypothesis".** X_win is a pointwise
   statement about the factorisations of `≍log p` specific integers
   `(p+a)/4`; GRH, EH, Bateman–Horn/Dickson (which go the *other* way,
