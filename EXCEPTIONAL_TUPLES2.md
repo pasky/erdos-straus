@@ -23,7 +23,7 @@ Prop 2.4, Prop 4.2). Prime family `𝒫_y`, classes `𝓡(ℓ)`, `p_ℓ = F(ℓ)
 | §5 | toy numerics: class −1 forced zeros exceed η_K by 10³–10⁵ at the T1 test parameters; the T1 §5(b) moment deficits are an initial-segment effect (absent on far translates), about one third explained by single-form effects | EVIDENCE |
 | Cor 6.1 | for the pure prime family every CRT majorant of level ≤ A log N saves ≤ C(log N)^{2/3}; so TC^alt_θ for any θ > 2/3 needs CRT accuracy at moduli `exp(c(log N)^{3θ/2})` | PROVED (from T1 Thm 3.1) |
 | Ass. 6.2 | no known theorem (BV/EH/BFI/dispersion, roots-of-congruences equidistribution, fixed-shift correlations, Kubilius) supplies TC^alt_θ for any θ > 2/3 | Assessment |
-| Prop 7.1 | T1 Cor 3.4 gap closed for block-sparse K2 families (≤ r primes per K2 block per modulus): order-k majorants save `≤ C(log N)^{3/4}(log log N)^{3/4} + Ckr(log log N)²` | PROVED (K2 Thm 5.1's proof, d-locality changed) |
+| Prop 7.1 | T1 Cor 3.4 gap closed for block-sparse K2 families (≤ r primes of each modulus in every `(x, x²]`): order-k majorants save `≤ C(log N)^{3/4}(log log N)^{3/4} + Ckr(log log N)²` | PROVED (K2 Thm 5.1's proof, d-locality changed) |
 
 **Verdict.** Task (B) is settled in the following sense. The tuple-count
 hypothesis TC_θ of T1/(D)21, as stated (each moment `S_j` CRT-accurate to

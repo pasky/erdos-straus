@@ -49,7 +49,8 @@ Prop 7.1 as sound, and reproduced the §5 data byte for byte.
 ## (C) T1 Cor 3.4 gap
 
 Prop 7.1 (PROVED, reviewer-checked adaptation of K2 Thm 5.1's proof): for
-K2 families with at most r primes per modulus in each dyadic block,
+K2 families with at most r primes of each modulus in every interval
+(x, x²] (R24-D4),
 order-k majorants save at most `C(log N)^{3/4}(log log N)^{3/4} + Ckr(log log N)²`.
 The real obstruction in general is many primes of one modulus in one
 block, not the weights; the unbounded-r case is open (leak absorption not
