@@ -33,3 +33,13 @@ except where §6 changes their inputs.
   function of the coordinates outside supp E_j only. True if the encoding is
   applied to F^{(j)} as a function of those coordinates (as Lemma 4.1 says).
   Not stated in Lemma 6.1 — see MINOR defect m1.
+* From-scratch numerics (`scripts/review_o8c_spectral.py` →
+  `data/review_o8c/spectral.txt`). Part A: 36 random DNF/p cases on 5–7
+  bits, exhaustive over all restrictions with exact decision-tree depth:
+  restriction identity exact (error 0), `Σp^{|S|}|f̂(S)| ≤ E‖f̂_ρ‖₁ ≤ E2^{DT}`
+  and `‖f̂_ρ‖₁ ≤ 2^{DT(f_ρ)}` pointwise hold in all cases. Part B: q-ary toy
+  (3 coordinates on [3], 2-bit encoding with non-uniform fibres), pulled-back
+  Fourier truncations at d∈{2,3,5}, 24 cases: every χ̃_S satisfies |χ̃_S|≤1,
+  depends only on the blocks touched by S and never on supp E_j; Jensen
+  `E_{π*}(F−g)² ≤ E(F̃−g̃)²` holds; `B≤F` pointwise; cell-expanded
+  `M_1(B) ≤ 1+m+2m²L+m³L²` (L = truncated ℓ¹ norm). No failures.
