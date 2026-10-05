@@ -224,6 +224,22 @@ naive inductive step (v in a minimum-weight edge, Q′ for `𝓗/v`) would need
 (random search: e.g. `𝓐={01}`, link `{0},{1}`), so a proof must use the
 slack in `Q(𝓗/v)`. Conjecture Q is open.
 
+**Matching forms (EVIDENCE).** Strongest form tested, *Conjecture FM*: if
+all `w_E≤2`, then `Q_μ(𝓗) ≤ ∏_E (w_E−1)^{y_E}` for every fractional matching
+y (`y≥0`, `Σ_{E∋v}y_E≤1`). `scripts/omega10_fm.py` (LP over y; 20000 random
+weighted hypergraphs, n≤9): never violated, and **equality** (to `10^{−14}`)
+is frequent. Its integral case, *Conjecture QM*: `Q_μ(𝓗)≤∏_{E∈𝓜}(w_E−1)` for
+every matching `𝓜⊆𝓗`, contains Q (𝓜=∅), Q′ (one edge) and the disjoint
+product (equality).
+*Induction attempt for QM (PROVED reduction).* Take `E_0∈𝓜`, `v∈E_0`. In
+the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
+`Q(𝓗)=λ_vQ(𝓑)+μ_v(Q(𝓐)−2X)`. Applying QM to 𝓑 (matching
+`𝓜−E_0+{E_0∖v}`) and to 𝓐 (matching `𝓜−E_0`) gives
+`Q(𝓗) ≤ (w_{E_0}−1)Π′ − 2μ_vX`, `Π′:=∏_{𝓜−E_0}(w−1)`. So QM follows by
+induction **whenever X≥0**. But X<0 occurs (triangle `{01},{0v},{1v}`,
+`X≈−0.17` at `w=2`; `scripts/omega10_*` search), where QM survives only
+through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. Open.
+
 ## 4. What C-1 would give (PROVED implication)
 
 Assume C-1. In O8 Thm 3.4 keep the events as classes mod their moduli
