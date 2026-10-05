@@ -19,6 +19,9 @@ Status: checkpoint 1 (2026-10-05), not yet reviewed.
 | §3.3–3.4 | block/tree fakes reach only ≈43% of target at θ=1/2 | EVIDENCE (MC) |
 | Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model) | CERTIFIED (residual 2.6e-15) |
 | §3.5 | discrete two-window threshold θ_2∈(0.6,0.7] (coarse grid) | EVIDENCE |
+| §6.1 | bounded reweighting of primes (ν≤Cμ, C≥3.5) still admits the fake | EVIDENCE (residual ≤1e-9) |
+| §6.2 | switching caps ν≤Kμ on large-prime configurations restore positivity at θ=1/2 iff K≲2–3 | EVIDENCE (coarse grid) |
+| §6.3 | slice-separable fakes cannot reach the target; the fake is genuinely mixed-level | Model-PROVED reduction + LP numbers |
 | §4 | Goal 1 (unconditional `a_min≥11`) not reached; routes (ii), (iv), (v) closed, (i) open | Assessment |
 
 ## 1. Exact form of the two-window problem
