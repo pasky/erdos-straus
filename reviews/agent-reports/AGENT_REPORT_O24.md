@@ -63,12 +63,12 @@ give roughly a third of the deficit; this is an uncontrolled estimate.
 
 ## Suggested ledger update ((D)21 amendment)
 
-"TC_θ (momentwise) conflicts with the forced zeros of the class −1 for
-every θ > 2/3 (EXCEPTIONAL_TUPLES2 Thm 2.2/Cor 2.3, PROVED). It is
-expected false there (Assessment). The correct hypothesis is the
-one-sided alternating TC^alt_θ, which still implies the θ bound (Thm 4.1,
-PROVED implication). It is non-CRT for every θ > 2/3 (Cor 6.1), and no
-known theorem supplies it."
+"TC_θ (θ > 2/3) holds only if admissible tuples carry an aggregate CRT
+excess ≥ N(Z_{u₀} − η_K) (EXCEPTIONAL_TUPLES2 Cor 2.3, PROVED); expected
+false (Assessment 3.2). The correct hypothesis is the one-sided alternating
+TC^alt_θ, which still implies the θ bound (Thm 4.1/Cor 4.2, PROVED
+implication; essentially the Bonferroni majorant's conclusion itself). It
+is non-CRT for every θ > 2/3 (Cor 6.1), and no known theorem supplies it."
 
 ## Open / for the parent
 

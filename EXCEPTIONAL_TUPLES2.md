@@ -27,8 +27,8 @@ Prop 2.4, Prop 4.2). Prime family `𝒫_y`, classes `𝓡(ℓ)`, `p_ℓ = F(ℓ)
 
 **Verdict.** Task (B) is settled in the following sense. The tuple-count
 hypothesis TC_θ of T1/(D)21, as stated (each moment `S_j` CRT-accurate to
-absolute precision η_K), conflicts with a rigorous integer constraint
-for **every θ > 2/3**: the class −1 sits in every 𝓡(ℓ), so its hits are
+absolute precision η_K), can hold for θ > 2/3 only if an implausible
+compensating excess occurs (PROVED necessary condition, Cor 2.3): the class −1 sits in every 𝓡(ℓ), so its hits are
 prime divisors of the one integer n+1, and the CRT moments contain a
 forced-zero mass far above η_K (Thm 2.2). TC_θ can then only hold through
 an implausible compensating excess (Cor 2.3, Ass. 3.2). So the expected
