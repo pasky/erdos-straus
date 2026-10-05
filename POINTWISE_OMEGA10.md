@@ -200,3 +200,48 @@ Two facts already PROVED: (a) weights `μ_v∈{0,1}` (each edge meets
 The naive unweighted bound `Q_1(𝓗)≤min_E(2^{|E|}−1)` is **false**
 (`scripts/omega10_q1.py`: ratios up to 423, driven by singleton edges), so
 the averaging over Ξ is essential.
+
+**Stronger form Q′ (EVIDENCE).** Under the same hypothesis,
+`Q_μ(𝓗) ≤ min_{E∈𝓗} w_E − 1` (`scripts/omega10_qmin.py`, 20000 random
+weighted hypergraphs, no violation beyond rounding). Q′ is the hypergraph
+analogue of "C-min" (`G_h ≤ E[h·w_min]`, also numerically supported in §2).
+Two edges A, B (PROVED by direct expansion): with `a=λ^{A∖B}`,
+`b=λ^{B∖A}`, `c=λ^{A∩B}`, `Q = c(a−1)(b−1)+c−1`, and under `ac,bc≤2`
+one checks `Q ≤ c·min(a,b)−1 ≤ 1`.
+
+**Vertex recursion (PROVED).** For a vertex v, with `𝓐:=𝓗−v` (edges not
+containing v) and `𝓑:=𝓗/v={E∖{v}}` (contraction),
+`N_𝓗(V∪v) = N_𝓑(V)−N_𝓐(V)` for `v∉V`, hence
+
+```
+Q_μ(𝓗) = Q_μ(𝓑) + μ_v·Σ_V μ^V (N_𝓑(V)−N_𝓐(V))².
+```
+
+`Q_μ` is a multilinear polynomial in μ with **nonnegative** coefficients
+`N(V)²`, so it suffices to check the boundary of the weight region. The
+naive inductive step (v in a minimum-weight edge, Q′ for `𝓗/v`) would need
+`Σ_Vμ^V(N_𝓑−N_𝓐)² ≤ min_{L∈link(v)} w_L`, which is **false** in general
+(random search: e.g. `𝓐={01}`, link `{0},{1}`), so a proof must use the
+slack in `Q(𝓗/v)`. Conjecture Q is open.
+
+## 4. What C-1 would give (PROVED implication)
+
+Assume C-1. In O8 Thm 3.4 keep the events as classes mod their moduli
+(coordinates: `X_ℓ mod ℓ` and the base-ℓ digits of `X_ℓ mod ℓ^{e_ℓ}`, a
+product space under Haar; an event mod `r_E` is single-value on digit
+coordinates with modulus product `r_E≤T`). Put `λ_v:=2^{log m_v/𝓛}` (`m_v`
+the size of digit coordinate v). Then every event and every restricted event
+of every `F^{(j)}` has `w≤2`, so `G_{F^{(j)}}≤1`, and the modulus-weighted
+Efron–Stein truncation `u_j` of `F^{(j)}` at modulus `e^τ` satisfies
+EL with `τ := 𝓛·⌈log₂(100m²(S+1)e^{3S})⌉ ≪ 𝓛(S+k𝓛)`. Every cell of the
+BRW minorant then has modulus `≤T³e^{2τ}`, so in O9 Thm 1.1
+
+```
+log Z ≤ log Q_Π + O(𝓛(S + k𝓛)) ≪ log Q_Π + 𝓛^5 log𝓛     (under ET)
+```
+
+(was `log Q_Π + C·k·b·k_0·𝓛 ≍ 𝓛^7`). The junta term then drops below the
+quarantine term `log Q_Π ≪ 𝓛^7/log𝓛`; **the exponent improves only together
+with a cheaper quarantine** (task item (2)): with `log Q_Π ≪ 𝓛^5log𝓛` one
+would get `W(p) ≥ exp((log p)^{1/5−o(1)})` i.o. — beyond O9 Cor 4.2's 1/6,
+which (§1) applies to coordinate-counting arguments only.
