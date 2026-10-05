@@ -228,9 +228,11 @@ only 2%. The Lemma 4.1 ratio is the same small-block maximum at all T. The
 Lemma 3.1 profile (mass and mean `h(N)` per c-scale `C=2^j`) shows the
 crude bound `𝓛/log max(C,2)` far above the actual large-q part
 (at `10^6`: `1.65` vs `19.9` at `j=0`; `0.26` vs `1.17` at `j=17`), and the mass
-per scale *decreasing* in j (14.2 at j=0, 0.13 at j=17). Lemma 2.2 bounds each scale by the same
-amount, so the true average of `𝓛/log C` over the mass is larger than
-`log𝓛` would suggest at finite T, but Lemma 3.1 only uses the upper bound.
+per scale *decreasing* in j (14.2 at j=0, 0.13 at j=17). Evaluated on these
+actual masses, Lemma 3.1's two bounds (`log log` small part plus `𝓛/log Y`)
+give a mean `≈8.6` for `h(N)` at `10^6`, against the true `1.85`: at finite T the
+proof is crude, and almost all of the slack is the `j≤1` scales. The asymptotic
+statement only uses Lemma 2.2's uniform bound per scale.
 
 ## Replay
 
