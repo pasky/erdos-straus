@@ -385,3 +385,48 @@ the target is sharper than T1 stated: not "TC_θ with θ > 3/4" (false
 above 2/3 under the natural heuristic) but "Brun's sieve of degree
 (log N)^θ, θ > 2/3, is CRT-accurate on [1,N] for the prime family"
 (TC^alt_θ), with the E(N) gain appearing only for θ > 3/4.
+
+## 7. The gap in T1 Cor 3.4 (T1 §6 item 2)
+
+T1 Cor 3.4 bounds an order-k majorant of a composite-moduli K2 family by
+its level `kA log N`, so it only excludes `k < (log N)^{4θ/3−1}`. The
+prime-slice proof (T1 Thm 3.1) uses that an order-k term depends on ≤ k
+slice primes in *every* scale. For composite moduli this fails: one class
+of modulus `≤ N^A` can have up to `A log N/s` primes in `(e^s, e^{2s}]`.
+That, not the weights, is the real obstruction. It disappears for
+block-sparse families.
+
+**Proposition 7.1 (PROVED, by K2 Thm 5.1's proof with one change).** Let
+𝔊 be a K2 family (Def 2.0 there) with all moduli `≤ N^A`, such that every
+modulus has at most r prime factors in each K2 block
+`V_i = (e^{2^i s₁}, e^{2^{i+1}s₁}]` (K2 §5). Let ν be a majorant of
+`𝒜(𝔊)` each of whose terms has level `≤ λ₀ := A log N` or is an
+intersection of at most k classes of 𝔊. Then
+
+    log(1/Eν) ≤ C λ₀^{3/4}(log λ₀)^{3/4} + C k r (log log N)².
+
+Hence, for methods as in T1 Cor 3.3 (bound `≥ ½N·Eν`), a saving
+`(log N)^θ` with θ > 3/4 needs `k ≥ c(log N)^θ/(r(log log N)²)`; for
+bounded r this closes the gap of T1 Cor 3.4 up to a `log log N` factor.
+
+*Proof.* K2 §1 records that the level enters the proof of K2 Thm 5.1 only
+through d-locality: in block `V_i` every term of ν depends on at most
+`d_i` block primes, and EK Thm 2.5 accepts any arity. Here a term of
+level `≤ λ₀` has `≤ λ₀/s` primes in `V_i` (`s = 2^is₁`), and an
+intersection of ≤ k classes has `≤ kr`. So `d_i ≤ λ₀/s + kr` for every
+block, including blocks above `e^{λ₀/2}` (where low-level terms have at
+most one prime), which we treat as further dyadic blocks up to `N^A`
+instead of K2's linear block and empty tail. Keep K2's base, leak,
+singletons below `e^{s₁}` with `s₁ = λ₀^{1/4}(log λ₀)^{−3/4}`, and block
+step bound `EΦ_i ≤ d_i log(C₀(E M_{V_i} + 4d_i)/d_i) + (4/3)d_i +
+½log(22d_i+22) + 3`, which is increasing in `d_i`. The λ₀/s part
+reproduces K2's sum `Cλ₀^{3/4}(log λ₀)^{3/4}`. The kr part costs, per
+block, `kr·log(C₀(8K₃s³(log 2s)³ + 4kr)/(kr)) + O(kr) ≤ C kr log log N`
+(as `s ≤ A log N`), over `O(log log N)` blocks. ∎
+
+*Scope.* This uses K2 Thm 5.1's proof structure as described in K2 §§1,
+5; the blocks above `e^{λ₀/2}` reuse the generic block step (first
+moments `𝔐(y)` hold for all y, K2 Cor 3.7). Families with unboundedly many
+primes per block per modulus remain open: there one would have to show
+that dense classes (r+1 primes in one block; mass `≲ (log 2)^{r+1}/(r+1)!`
+per block relative) can be absorbed into the leak. Not attempted.
