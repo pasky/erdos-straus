@@ -364,8 +364,9 @@ projection, and Lemmas 3.2–3.4 are purely combinatorial. So C-1 and Cor 4.1
 hold on arbitrary finite product probability spaces, not only uniform ones.
 This is PROVED by the same proof but not separately tested numerically.
 
-**Theorem 4.2 (junta term without the bit factor; PROVED, as an
-implication inside O8 Thm 3.4 / O9 Thm 2.2).** In O8 Thm 3.4 (events split
+**Theorem 4.2 (junta term without the bit factor; PROVED as an
+implication inside O8 Thm 3.4 / O9 Thm 2.2; the rates below are modulo (G)
+and Elsholtz–Tao Prop 1.4, like O9 Thm 2.2).** In O8 Thm 3.4 (events split
 into single values mod `ℓ^{e_ℓ}` as in O8 Setting 3.0, supports `≤k`,
 `m≤T^{k+2}`), take `u_j` to be the Efron–Stein truncation of `F^{(j)}` at
 level
@@ -385,8 +386,20 @@ log Z ≤ log Q_Π + 2(3k+2t+1)𝓛 ≪ log Q_Π + k𝓛(S*+k𝓛) ≪ log Q_Π 
 The rest of O9 Thm 2.2 is unchanged: Lemma 2.1 gives `A≤1.03`, the twist
 uses only `E[F−B]≤δ/100`, and the cells of B lie on `≤3k+2t` free primes.
 
-So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and already
-`log L_h(T) ≪ 𝓛^7/log𝓛`, i.e. `W(p) ≥ exp(c(log p·log log p)^{1/7})` i.o. (a log
+*Proof details (R38 MINOR 3).* O9 Thm 2.2 used O8 Lemma 6.1's minorant
+(bit-level Fourier truncation). Here we return to O8 Lemma 3.1 with the
+Efron–Stein truncations `u_j` (functions of the coordinates off
+`supp E_j`, so `E[A_je_j²]=P(E_j)·energy(F^{(j)};t)`), and O8 **Lemma 3.2**
+shows that B is a combination of unit cells, each on `≤3k+2t` free primes.
+O9 Thm 1.1 uses only the following: the cell form, `B≤1[W>T]` (O2
+Lemma 4.3(I)), `μ>0`, the twist (O8 Lemma 3.3, which needs only
+`E[F−B]≤EF/100`), `A=E|B|/μ≤1.03` (O9 Lemma 2.1, which needs only `B≤F`
+and `E[F−B]≤μ/99`), and `log Z≤log Q_Π+2(3k+2t+1)𝓛`. None of these
+depends on the choice of `u_j` beyond EL and the cell support count, and
+Lemma 3.2's `M_1` bound is not needed.
+
+So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and already, **modulo (G) and ET
+Prop 1.4**, `log L_h(T) ≪ 𝓛^7/log𝓛`, i.e. `W(p) ≥ exp(c(log p·log log p)^{1/7})` i.o. (a log
 gain over O9 Thm 2.2), and
 `log Q_Π≪𝓛^7/log𝓛` is now the **only** term of order `𝓛^7`. With a
 quarantine `log Q_Π≪𝓛^6` (task item (b)), O9 Thm 2.2 would give exponent
@@ -397,9 +410,19 @@ it is now reached on the junta side.
 Suppose every event's modulus satisfies `∏_{ℓ∈supp E}ℓ^{a_ℓ} ≤ T^ρ`, where
 `a_ℓ` is the largest exponent of ℓ used by any event. Take coordinates
 `X_ℓ mod ℓ^{a_ℓ}`, events split to single values there, and
-`λ_ℓ:=2^{a_ℓ log ℓ/(ρ𝓛)}`. Then every `w_E≤2`, so by Cor 3.5 the
-truncation at modulus `e^τ`, `τ:=ρ𝓛·⌈log₂(100m²(S+1)e^{3S})⌉`, satisfies EL,
-and `log Z ≤ log Q_Π + O(ρ𝓛(S+k𝓛))`. If all free primes enter the event
+`λ_ℓ:=2^{a_ℓ log ℓ/(ρ𝓛)}`. Then every `w_E≤2`, and by Cor 3.5
+`Σ_{U∉𝒟}‖F^{(j),=U}‖² ≤ 2^{−τ/(ρ𝓛)}` for the down-closed family
+`𝒟:={W: Σ_{ℓ∈W}a_ℓ log ℓ ≤ τ}`.
+* (a) *Cell moduli (R38 MINOR 5).* Take `u_j:=Σ_{U∈𝒟}F^{(j),=U}`. As in
+  O8 Lemma 3.2, Möbius inversion of
+  `φ^{=U}=Σ_{W⊆U}(−1)^{|U∖W|}E[φ|X_W]` gives `u_j=Σ_{W∈𝒟}c_WE[F^{(j)}|X_W]`
+  with `c_W=Σ_{U∈𝒟,U⊇W}(−1)^{|U∖W|}`. So every cell has modulus `≤e^τ`,
+  and EL holds for `τ:=ρ𝓛·⌈log₂(100m²(S+1)e^{3S})⌉`.
+* (b) Splitting into single values mod `ℓ^{a_ℓ}` multiplies m by at most
+  `T^ρ`, which is harmless inside `log m`.
+
+Hence `log Z ≤ log Q_Π + O(τ+ρ𝓛) = log Q_Π + O(ρ𝓛(S+k𝓛))`. O8's setting
+guarantees only `ℓ^{e_ℓ}≤T` per prime, i.e. `ρ≤k`, which gives back `𝓛^6`. If all free primes enter the event
 moduli to the first power (`ρ=1`), this is `≪ log Q_Π+𝓛^5log𝓛` under ET.
 `W ≥ exp(c(log p/log log p)^{1/5})` would then need `log Q_Π≪𝓛^5log𝓛`. We have **not** checked
 whether the ES events at free primes `>z` use higher prime powers, or
