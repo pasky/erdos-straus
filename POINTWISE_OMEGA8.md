@@ -34,7 +34,11 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    cascade come from (§2.3). Lemma
    2.1 (locally minimal events) shows that the outer inclusion–exclusion
    is codegree-free; the trouble sits in the neighbourhood factors.
-6. **Phase 2 (§6).** Exponent improved to 1/13 (Thm 6.3:
+5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
+   needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
+6. **Phase 2 (§6).** Exponent improved to 1/13 (superseded by
+   POINTWISE_OMEGA9 Thm 2.2, 1/7; the 1/4 ceiling below concerns PO Thm 4.1
+   only) (Thm 6.3:
    `W(p) ≥ exp(c(log p/log log p)^{1/13})`, mod TZ and ET). The cell
    bookkeeping is replaced by spectral norms (Lemma 6.1). §6.1 is a
    ledger of the losses. §6.4 proves that the q-ary decision-tree
@@ -46,8 +50,6 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    bounded by ET's S*, ≈1/6 with the observed S; the supported ceiling is
    1/4 (Prop 6.6: `log(1/δ) ≥ S1 ≫ 𝓛²`). (See POINTWISE_OMEGA9 for a
    transfer that avoids the square.)
-5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
-   needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
 
 Nothing here bears on whether `W(p)<∞`, i.e. on ES. The constants (Håstad,
 TZ) are effective; no numerical instance is claimed.
@@ -407,7 +409,8 @@ Under ET, `S≤S*≪𝓛^4log𝓛` (O2 Lemma 11.1). Then `t≪𝓛^6`,
 infinitely many Mordell-hard p, `log W(p) ≥ (1/(2log 2)−o(1))·log₂p·log₃p`.
 
 *Proof.* As 4.3 with the unconditional `log S* ≤ (log2+o(1))𝓛/log𝓛`
-(Wigert, O2 Lemma 11.1): `t, K, log Q_Π ≤ 𝓛^{O(1)}(S*+1)`, so
+(Wigert, O2 Lemma 11.1; derivation of the constant `log 2` in
+POINTWISE_OMEGA9 Thm 2.3's proof): `t, K, log Q_Π ≤ 𝓛^{O(1)}(S*+1)`, so
 `log₂p ≤ 2log S* + O(log𝓛) ≤ (2log2+o(1))𝓛/log𝓛`. Since `x/log x` is
 increasing, this inverts to `𝓛 ≥ (1/(2log2)−o(1))·log₂p·log₃p`. ∎
 
@@ -682,8 +685,9 @@ representations with `M_1≳1` (as BRW-type ones) K stays `≳𝓛²`, and only
 `log Z` could shrink. (No universal statement over all representations is
 claimed; R34a.) Also
 `log Z ≥ log ℓ_aux > 𝓛`, so PO Thm 4.1's sufficient condition is never met
-below `log p≈𝓛³` on this route. (POINTWISE_OMEGA9 Thm 1.1 makes K enter
-only additively, which changes this accounting.) The data of PO §2 are
+below `log p≈𝓛^4` on this route (with `K≫𝓛²` for BRW as written,
+`K·max(log Z,K) ≥ K²`; R34b m3). (POINTWISE_OMEGA9 Thm 1.1 replaces the
+condition by `log x ≫ (1+log(E|B|/μ))·log Z`, with no `log(1/μ)` or `M_1`.) The data of PO §2 are
 for `y=√T`, where `S_{≥2}=0`.
 
 ## Replay
