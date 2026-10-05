@@ -1781,6 +1781,287 @@ were of order $\Lc^5$ (up to $\log\Lc$).  Section~\ref{sec:ceiling} shows
 that the junta term cannot be reduced within the present architecture.
 \end{remark}
 
+\section{The ceiling of the minorant architecture}\label{sec:ceiling}
+
+The proof of Theorem~\ref{thm:main} passes through a minorant $B\le F$ of
+positive Haar mean whose cells have modulus $e^{O(\Lc S)}$.  Here we show
+that no minorant of smaller level exists, dense or sparse, on any fibre.
+
+\emph{Setting.}  Fix a modulus $Q$ and a unit $r$ modulo $Q$, and consider the
+\emph{fibre} $\{n\in\hat{\mathbb Z}^\times:\ n\equiv r\ (Q)\}$ with its Haar
+probability.  Let $F(n)=\mathbf 1[W(n)>T]$.  A function on the fibre has
+\emph{level} at most $D$ if it is a linear combination of functions
+$n\mapsto\phi(n\bmod qQ)$ with $q\le D$.  Every cell of modulus at most $D$
+and every character of conductor at most $D$ (restricted to the fibre) has
+level at most $D$; the minorant of Theorem~\ref{thm:assembly} has level at
+most $\max_id_i\le T^3e^{2\tau}$.  All functions below depend on $n$ modulo a
+fixed finite modulus, so all probability spaces are finite.
+
+\begin{lemma}[Planting; proved]\label{lem:planting}
+Let $b_1,\dots,b_N$ be independent bits with $\PP(b_i=1)=p_i\in[0,1)$, and law
+$\nu_0$.  Put $r_i=p_i/(1-p_i)$, $R=\sum_ir_i$ and $r^*=\max_ir_i$.  Let $k\ge0$ with
+\begin{equation}\label{eq:plant}
+ R\ \ge\ (k+1)+(2k+1)r^* .
+\end{equation}
+Then there is a probability law $\nu$ on $\{0,1\}^N$ with the same marginals as
+$\nu_0$ on every set of at most $k$ coordinates and $\nu(b=0)=0$.
+\end{lemma}
+
+\begin{proof}
+Write $1_y$ for the configuration with ones exactly on $y\subseteq[N]$, and
+$P_0=\nu_0(1_\emptyset)=\prod(1-p_i)$, so $\nu_0(1_y)=P_0\prod_{i\in y}r_i$.  Let
+$e_a$ denote the elementary symmetric functions.  If $e_{k+1}(r)=0$, at most
+$k$ of the $r_i$ are positive and $R\le kr^*$, contradicting \eqref{eq:plant}.
+For $|J|=k+1$ put $w_J=\prod_{i\in J}r_i/e_{k+1}(r)$, so $\sum_Jw_J=1$, and
+\[
+ \nu=\nu_0+P_0\sum_{|J|=k+1}w_J\sigma_J,\qquad \sigma_J=\sum_{y\subseteq J}(-1)^{|y|+1}\delta_{1_y}.
+\]
+\emph{Marginals.}  For $|K|\le k$ and $z\subseteq K$, the $\sigma_J$-mass of
+$\{x:\ x_K=1_z\}$ is $[z\subseteq J]\sum_{y'\subseteq J\setminus K}(-1)^{|z|+|y'|+1}=0$, as
+$J\setminus K\ne\emptyset$.  In particular ($K=\emptyset$) $\nu$ has total mass $1$.
+\emph{Zero.}  $\nu(1_\emptyset)=P_0-P_0\sum_Jw_J=0$.
+\emph{Positivity.}  Only $y\subseteq J$ with $|y|=j\ge2$ even receives negative
+charge, of total $P_0\sum_{J\supseteq y}w_J=P_0\prod_{i\in y}r_i\,e_{k+1-j}(s)/e_{k+1}(r)$, where
+$s=(r_i)_{i\notin y}$.  So it suffices that $e_{k+1-j}(s)\le e_{k+1}(r)$.  Now
+$e_{k+1}(r)\ge e_{k+1}(s)$, and $e_a(s)\ge e_{a-1}(s)$ for $1\le a\le k+1$: each
+$a$-set arises $a$ times as $I\cup\{i\}$ with $|I|=a-1$, $i\notin I$, so
+$a\,e_a(s)\ge e_{a-1}(s)(\sum s-(a-1)r^*)$, and
+$\sum s-(a-1)r^*\ge R-(j+a-1)r^*\ge R-(2k+1)r^*\ge k+1\ge a$.  Chain
+$a=k+2-j,\dots,k+1$.
+\end{proof}
+
+This is the dual (linear programming) side of lower-bound sieves:
+minorants of degree $k$ of $\mathbf 1[b=0]$ with positive mean exist only if
+no such $\nu$ exists.  It is close in spirit to work on $k$-wise independent
+laws with extremal probabilities \cite{BGP,PYY}; we claim no novelty for
+it.  In the Poisson-like model with $R$ of order $S$, Bonferroni inequalities
+of order $\asymp S$ do give positive minorants, so the order $k\asymp R$ is
+right.
+
+\begin{lemma}[Level barrier; proved]\label{lem:barrier}
+Let independent coordinates be split into small ones $X_s$ and big ones
+$(X_b)_{b\in\mathfrak B}$.  Let $\mathcal F$ be a family of events, each of the
+form $E=\{X_s\in\Sigma_E\}\cap\{X_{b(E)}\in\Gamma_E\}$ with exactly one big
+coordinate $b(E)$, and let $F$ be the indicator that no event of a family
+$\mathcal E\supseteq\mathcal F$ occurs.  For a value $x_s$ put
+$\Omega_b(x_s)=\bigcup_{E:\,b(E)=b,\,x_s\in\Sigma_E}\Gamma_E$,
+$p_b(x_s)=\PP(X_b\in\Omega_b(x_s))$, $r_b=p_b/(1-p_b)$ and $R(x_s)=\sum_br_b(x_s)$.
+Suppose $p_b(x_s)\le p^*<1$ for all $b$, $x_s$, put $r^*=p^*/(1-p^*)$, and
+suppose $R(x_s)\ge(k+1)+(2k+1)r^*$ for \emph{every} $x_s$.  Let $B$ be a linear
+combination of functions each depending on $X_s$ and on at most $k$ big
+coordinates.  If $B\le F$ pointwise, then $\E B\le0$.
+\end{lemma}
+
+\begin{proof}
+Define a law $\nu$: draw $x_s$ from its true law; draw bits $(b_b)_b$ from the
+law of Lemma~\ref{lem:planting} for the independent bits
+$\mathbf 1[X_b\in\Omega_b(x_s)]$ (bits with $p_b=0$ have $w_J=0$ and are never
+set); given the bits, draw each $X_b$ independently from its true law
+conditioned on $X_b\in\Omega_b(x_s)$ (bit $1$) or $X_b\notin\Omega_b(x_s)$ (bit $0$).
+For a function $\phi$ of $x_s$ and of the big coordinates in a set $K$ with
+$|K|\le k$: given $x_s$, the bits on $K$ are independent with the true
+marginals, so $(X_b)_{b\in K}$ has its true product law, and
+$\E_\nu\phi=\E\phi$.  Hence $\E B=\E_\nu B\le\E_\nu F$.  Under $\nu$ some bit is
+$1$, so some event of $\mathcal F$ occurs and $F=0$.
+\end{proof}
+
+\subsection*{The ES instance}
+Fix a small absolute $\varepsilon\in(0,1/10]$ (chosen in Lemma~\ref{lem:cuprimes}), and put
+$X=T^\varepsilon$, $V=X^{1/3}$, $L=\log X=\varepsilon\Lc$ and $y=\Lc^6$.  With
+$D^*$ as in \S\ref{sec:haarlower}, let $\mathcal F^*$ be the set of events
+$E_{v\ell,D}$ with
+\[
+ n_D:=D^*\in[V,X],\quad v\le V\ \text{squarefree and $y$-rough},\quad
+ \ell\in(T^{0.6},T^{0.7}]\ \text{prime},\quad v\ell\equiv-1\ (\mathrm{mod}\ 4n_D).
+\]
+The congruence gives $v\ell\equiv3\pmod4$ and $n_D\mid A_{v\ell}$, i.e.\ $D\mid A_{v\ell}^2$;
+and $D\le n_D^2\le T^{2\varepsilon}$.  On a fibre $n\equiv r\pmod Q$ the \emph{big}
+coordinates are the $X_\ell=n\bmod\ell$ for primes $\ell>T^{0.6}$ with $\ell\nmid Q$;
+everything else is small (coordinates fixed by the fibre are constants).  A
+modulus $q\le D$ has at most $\log D/(0.6\Lc)$ prime factors $>T^{0.6}$, so a
+function of level at most $D$ is a combination of functions of the small
+coordinates and of at most $k=\lfloor\log D/(0.6\Lc)\rfloor$ big ones.
+
+\begin{lemma}[Unique small part; proved]\label{lem:unique}
+For each pair $(\ell,D)$ there is at most one $v$ with $E_{v\ell,D}\in\mathcal F^*$.
+Every event of $\mathcal F^*$ has exactly one big coordinate (if $\ell\nmid Q$),
+$p_\ell(x)\le p^*:=T^{-1/2}$ for all $\ell$ and $x$, and, for every small
+configuration $x$,
+\[
+ \sum_{\ell>T^{0.6}}p_\ell(x)=\sum_v\sum_{\substack{D:\ n_D\in[V,X]\\ 4D\equiv-x\ (v)}}c(v,n_D),\qquad
+ c(v,n)=\sum_{\substack{\ell\in(T^{0.6},T^{0.7}]\\ \ell\equiv-v^{-1}\ (4n)}}\frac1{\ell-1},
+\]
+with $v$ over the $y$-rough squarefree $v\le V$, $c(v,n)=0$ if $\gcd(v,2n)>1$,
+and $p_\ell(x)$ computed with $X_\ell$ uniform on the units modulo $\ell$.
+\end{lemma}
+
+\begin{proof}
+$v\equiv-\ell^{-1}\pmod{4n_D}$ and $1\le v\le V\le n_D<4n_D$, so $v$ is determined by
+$(\ell,n_D)$.  As $v<T^{0.6}<\ell$, $\ell$ is the only prime factor of $v\ell$ above
+$T^{0.6}$.  Given $x$, the events at $\ell$ whose small part holds are the
+$E_{v\ell,D}$ with $x\equiv-4D\pmod v$, and distinct $D$ give distinct classes
+$-4D\bmod\ell$, as $0<|D-D'|<T^{2\varepsilon}<\ell$.  So
+$p_\ell(x)=(\ell-1)^{-1}\#\{D:\ v(\ell,D)\text{ exists},\ x\equiv-4D\ (v)\}$; this is at
+most $X(1+L)/(\ell-1)\le T^{-1/2}$ by (F3).  Sum over $\ell$ and group by $v$.
+\end{proof}
+
+\begin{lemma}[Class-uniform primes; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:cuprimes}
+There is an absolute $\varepsilon_0>0$ such that for $\varepsilon\le\varepsilon_0$ and $T$ large the
+following holds.  Apply Theorem~\ref{thm:G} with $Q_G=4X$, let $q_1$ be the
+conductor of the exceptional character if there is one, and put
+$\mathcal N_{\rm exc}=\{n:\ q_1\mid4n\}$ if $q_1$ exists and $q_1>\Lc^{1.9}$, and
+$\mathcal N_{\rm exc}=\emptyset$ otherwise.  Then $c(v,n)\ge0.13/\varphi(4n)$ for every
+$n\in[V,X]\setminus\mathcal N_{\rm exc}$ and every $v\le V$ with $\gcd(v,2n)=1$.
+\end{lemma}
+
+\begin{proof}
+Put $q=4n\le Q_G$ and $b\equiv-v^{-1}\pmod q$.  Each $\chi\bmod q$ is induced by a
+primitive $\chi^*$, distinct $\chi$ give distinct $\chi^*$, and
+$|\vartheta(x;\chi)-\vartheta(x;\chi^*)|\le\log q$.  By orthogonality and
+Theorem~\ref{thm:G}, for $x\in[T^{0.6},T^{0.7}]$,
+\[
+ \Big|\vartheta(x;q,b)-\frac x{\varphi(q)}+[q_1\mid q]\,\chi_1(b)\frac{x^{\beta_1}}{\beta_1\varphi(q)}\Big|\le\frac{\mathrm{Err}_G(x)}{\varphi(q)}+\log q,
+\]
+where $\mathrm{Err}_G(x)$ is the right-hand side of Theorem~\ref{thm:G} (times
+$C_G$), and the bracket is present only in the exceptional case.  The range
+condition $Q_G^{6c}\le x$ holds for $\varepsilon\le0.05/c$, and
+$\log x/\log Q_G\ge0.6/(\varepsilon+o(1))$.  Without an exceptional zero,
+$\mathrm{Err}_G(x)\le C_Gx(e^{-0.6/(\kappa(\varepsilon+o(1)))}+o(1))$.  With one,
+$(1-\beta_1)\log x\le\log x/(\kappa\log Q_G)\le0.7/(\kappa(\varepsilon+o(1)))$, so
+$\mathrm{Err}_G(x)\le C_Gx(0.7/(\kappa\varepsilon))(e^{-0.6/(\varepsilon+o(1))}+o(1))$.  Both are at most
+$x/16$ for $\varepsilon$ small, and $\log q=o(x/\varphi(q))$.  If $q_1\mid q$ and
+$q_1\le\Lc^{1.9}$, Theorem~\ref{thm:xz} gives $1-\beta_1\gg\Lc^{-0.95}(\log\Lc)^{-2}$, so
+$x^{\beta_1-1}=o(1)$; if $q_1\mid q$ and $q_1>\Lc^{1.9}$, then $n\in\mathcal N_{\rm exc}$.  So
+$\vartheta(t;q,b)\in[\frac78-o(1),\frac98+o(1)]\,t/\varphi(q)$ on $[T^{0.6},T^{0.7}]$, and
+partial summation against $1/(t\log t)$ gives
+$c(v,n)\ge\sum1/\ell\ge\frac78\log\frac76/\varphi(q)-O(1/(\Lc\varphi(q)))\ge0.13/\varphi(q)$.
+\end{proof}
+
+If $q_1>\Lc^{1.9}$, put $q''=q_1/\gcd(q_1,4)\ge q_1/4$; then $n\in\mathcal N_{\rm exc}$ if
+and only if $q''\mid n$, and by the divisor bound
+$\tau(q'')/q''\le q''^{-0.95}\le4\Lc^{-1.8}$ for $T$ large.
+
+\begin{lemma}[Class-uniform $D$; proved]\label{lem:cuD}
+For $T$ large, every odd squarefree $y$-rough $v\le V$ and every unit $a$
+modulo $v$,
+\[
+ W(v,a):=\sum_{\substack{D:\ n_D\in[V,X]\setminus\mathcal N_{\rm exc}\\ D\equiv a\ (v)}}\frac1{\varphi(4n_D)}\ \ge\ \frac{L^2}{200\,v}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $D=\kappa t^2$ with $\kappa$ squarefree, so $n_D=\kappa t$.  Keep only $t\le X^{1/6}$
+with $(t,v)=1$ and $\kappa\in(K_1,K_2]$, $K_1=X^{2/3}$, $K_2=X/t$; then
+$n_D\in[V,X]$, and $D\equiv a\pmod v$ means $\kappa\equiv b:=at^{-2}\pmod v$.  As
+$\varphi(4n)\le2n$, $W(v,a)\ge H_{\rm all}-H_{\rm exc}$, where $H_{\rm all}$ and
+$H_{\rm exc}$ are the sums of $1/(2\kappa t)$ over the kept pairs, with all $n$
+and with $n\in\mathcal N_{\rm exc}$ respectively.  For a unit $b$ modulo $v$, the
+number of squarefree $\kappa\le K$ with $\kappa\equiv b\pmod v$ is
+$\sigma_vK/v+O(\sqrt K)$ with $\sigma_v=\sum_{(d,v)=1}\mu(d)/d^2\ge6/\pi^2$ (write
+$\mu^2(\kappa)=\sum_{d^2\mid\kappa}\mu(d)$).  Partial summation gives
+$\sum_{\kappa\in(K_1,K_2],\,\kappa\equiv b}1/\kappa\ge(\sigma_v/v)\log(X^{1/3}/t)-O(K_1^{-1/2})$.  For
+$y$-rough $v$,
+$\sum_{t\le X^{1/6},(t,v)=1}t^{-1}\log(X^{1/3}/t)\ge L^2/24-O(\omega(v)L^2/y)-O(L)\ge L^2/48$.
+So $H_{\rm all}\ge\frac12\cdot\frac6{\pi^2}\cdot\frac{L^2}{48v}-O(LX^{-1/3})$.  If
+$\mathcal N_{\rm exc}\ne\emptyset$: $q''\mid\kappa t$ forces $q''/(q'',t)\mid\kappa$, which with
+$\kappa\equiv b\pmod v$ is one class modulo $vq''/(q'',t)$ or empty, so by (F4)
+the $1/\kappa$-sum is at most $1/K_1+(q'',t)L/(vq'')$.  Since
+$\sum_{t\le X}(q'',t)/t\le\tau(q'')(1+L)$, we get
+$H_{\rm exc}\le L^2\tau(q'')/(vq'')+O(LX^{-2/3})\le4L^2\Lc^{-1.8}/v$.  As
+$X^{-1/3}\le1/v$, $W(v,a)\ge(L^2/v)(6/(96\pi^2)-o(1))\ge L^2/(200v)$.
+\end{proof}
+
+\begin{theorem}[No positive low-level minorant; proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:ceiling}
+There are absolute constants $c,\varepsilon>0$ such that for $T$ large, every modulus
+$Q$ with $\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$ the following holds.
+If $B$ is a function on the fibre $n\equiv r\pmod Q$ of level at most $D$, with
+$B\le F$ pointwise and $\log D\le c\,\Lc^4/\log\Lc$, then $\E B\le0$.
+\end{theorem}
+
+\begin{proof}
+Use $\mathcal F^*$ without the events whose $\ell$ divides $Q$; each of its events
+has exactly one big coordinate, and $p^*\le T^{-1/2}$ (Lemma~\ref{lem:unique}).
+Fix a small configuration $x$; its entries are units.  By
+Lemma~\ref{lem:unique},
+$R(x)\ge\sum_\ell p_\ell(x)\ge\sum_v\sum_{D\equiv-x/4\ (v),\ n_D\notin\mathcal N_{\rm exc}}c(v,n_D)-\omega(Q)p^*$.
+For $D\equiv-x/4\pmod v$, $D$ is a unit modulo $v$, so $\gcd(v,2n_D)=1$, and
+Lemmas~\ref{lem:cuprimes} and~\ref{lem:cuD} give
+\[
+ R(x)\ \ge\ 0.13\cdot\frac{L^2}{200}\sum_{\substack{v\le V\\ y\text{-rough, squarefree}}}\frac1v-T^{0.05}T^{-1/2}\ \ge\ \mu^*:=c_9\,\varepsilon^3\frac{\Lc^3}{\log\Lc},
+\]
+where the $v$-sum is $\ge c_3\log V/\log y$ by the fundamental lemma (as in
+Lemma~\ref{lem:hmass}; squarefreeness costs $O(\Lc/y)$).  With
+$k=\lfloor\log D/(0.6\Lc)\rfloor$ we have $(k+1)+(2k+1)r^*\le(k+1)(1+4p^*)\le\mu^*$ if
+$c\le0.3c_9\varepsilon^3$.  Lemma~\ref{lem:barrier}, applied with $\mathcal E$ the set of
+all events with $M\le T$, gives $\E B\le0$.
+\end{proof}
+
+The mechanism: conditioned on the coordinates below $T^{0.6}$, what remains
+is a sieve on the big primes with removed classes of total density
+$\gg\Lc^3/\log\Lc$ (the bulk of the ES mass comes from moduli with one large
+prime factor), so a sieve of dimension $\kappa\asymp\Lc^3/\log\Lc$ with all moduli
+above $T^{0.6}$.  Lower-bound sieves of dimension $\kappa$ need level about
+$z^{\kappa}$, here $e^{\asymp\Lc^4/\log\Lc}$.  Lemma~\ref{lem:planting} is the elementary
+form of this, and the uniqueness family makes $R(x)$ large for \emph{every}
+small configuration, not only on average.
+
+\begin{corollary}[The $1/4$ ceiling; proved implication]\label{cor:ceiling}
+Consider any argument that produces a hard prime $p$ with $W(p)>T$ from a
+function $B\le F$ on a fibre $n\equiv r\pmod Q$, of level at most $Z$ and with
+$\E B>0$, through a transfer theorem whose hypothesis requires
+$\log x\ge C\log Z$ for the search bound $x$ (with $Z\ge Q$).  Every such
+argument has $\log x\gg\Lc^4/\log\Lc$.  Theorem~\ref{thm:transfer}, and hence
+the proof of Theorem~\ref{thm:main}, is of this type, whatever the minorant
+(sandwich, Selberg, Bonferroni, dense or sparse, any value of $A$).  So such
+arguments cannot give $W(p)\ge\exp((\log p)^{1/4+\delta})$ for any $\delta>0$, and
+Theorem~\ref{thm:main} is optimal among them up to a factor
+$(\log\log p)^{1/2}$ in $\log W(p)$.
+\end{corollary}
+
+\begin{proof}
+If $\log Q>T^{0.05}$, then $\log x\ge C\log Z\ge C\log Q>e^{0.05\Lc}$.  Otherwise
+Theorem~\ref{thm:ceiling} forces $\log Z>c\Lc^4/\log\Lc$.  In both cases
+$\log p\le\log x$ gives $\Lc\ll(\log p\log\log p)^{1/4}$.
+\end{proof}
+
+\emph{Scope.}  Corollary~\ref{cor:ceiling} says nothing about the true size of
+the least such prime; nothing about prime input other than low-conductor
+minorants (bilinear or Type~II information, parity-sensitive input, or
+mixtures of majorants and minorants); nothing about transfers whose
+positivity comes from an exceptional-character term rather than from
+$\E B>0$ (such transfers can only work at Siegel scales); and nothing about
+functions that are not of bounded level in the above sense.
+
+\begin{corollary}[The energy tail cannot be improved; proved modulo Theorems~\ref{thm:xz}, \ref{thm:G}, \ref{thm:NT} and the fundamental lemma]\label{cor:notail}
+On the fibre of Theorem~\ref{thm:haarupper}, there is no bound
+$\E(F^{(j)}-u_j)^2\le2^{-\tau/\rho}$ for all $j$ and all $\tau$, with $u_j$ as in
+\eqref{eq:uj} and $\rho\le c'\Lc/(\log\Lc)^2$ ($c'$ small absolute).  So the
+weights of Theorem~\ref{thm:filtration} are optimal for this purpose up to a
+factor $(\log\Lc)^2$.
+\end{corollary}
+
+\begin{proof}
+Such a bound gives $\E[F-B]\le m^2S2^{-\tau/\rho}\le\delta/100$ for some
+$\tau\ll\rho(S_1+\Lc)\ll\rho\Lc^3\log\Lc$, so $\E B\ge0.99\delta>0$ (Lemma~\ref{lem:twist}),
+and $B$ has level at most $T^3e^{2\tau}$ (Lemma~\ref{lem:size}).  For $c'$ small
+this contradicts Theorem~\ref{thm:ceiling}.
+\end{proof}
+
+\begin{remark}[The heuristic exponent $1/3$; Assessment]\label{rem:third}
+By Theorems~\ref{thm:haarupper} and~\ref{thm:haarlower},
+$\log(1/\delta^*(T))=\Lc^{3+o(1)}$.  If the least prime in the avoiding set
+behaved like the least prime in a set of Haar density $\delta^*$ (as for a
+single progression, by Linnik's theorem), one would expect a hard prime with
+$W(p)>T$ and $\log p\ll\Lc^{3+o(1)}$, i.e.\ $\log W(p)\approx(\log p)^{1/3}$
+infinitely often.  This is a heuristic, not a claim.  By
+Corollary~\ref{cor:ceiling} it cannot be reached by a level-$Z$ minorant
+with a transfer costing $\log x\gg\log Z$: one would need prime-detecting
+input for a sifted set of sieve dimension $\asymp\Lc^3$ at level well below
+its sieving limit, that is, information beyond minorants of bounded level,
+such as bilinear (Type~II) estimates or other parity-sensitive input
+adapted to the ES system.  We do not know how to provide it.
+\end{remark}
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
