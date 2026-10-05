@@ -146,9 +146,8 @@ error. The positivity of B is never used beyond `E|B| ≤ Aμ`.
 
 *Proof.* `B^-:=max(−B,0) ≤ F−B` since `F≥0`; `E|B| = E B+2E B^-`. ∎
 
-**Theorem 2.2 (PROVED modulo (G), Thorner–Zaman's companion inputs used in
-O8 §3 — the local lemma, O2 Lemmas 4.3(I), 11.1–11.2 — and Elsholtz–Tao
-Prop 1.4).** For infinitely many Mordell-hard primes p,
+**Theorem 2.2 (PROVED modulo (G) and Elsholtz–Tao Prop 1.4; Thorner–Zaman
+is no longer used).** For infinitely many Mordell-hard primes p,
 
 ```
 W(p) ≥ exp( c·(log p)^{1/7} );     uniformly  log L_h(T) ≪ (log T)^7.
@@ -156,11 +155,12 @@ W(p) ≥ exp( c·(log p)^{1/7} );     uniformly  log L_h(T) ≪ (log T)^7.
 
 *Proof.* Take O8 Thm 3.4's system (`z=𝓛²`, `k=⌊𝓛/log z⌋`, Π from O2 Lemma
 11.2 with `c_0=1/(64k)`) and O8 Lemma 6.1's minorant B with
-`k_0:=⌈3S log₂e+log₂(400m²(S+1))⌉`/2 (so that `e^{1/2}·2·4^{−k_0}` meets
-EL(t) of Thm 3.4; the precision is unchanged). O8 Thm 3.4's proof gives:
+`k_0` as in O8 Cor 4.2 (Lemma 6.1's error `e^{1/2}·2·4^{−k_0} ≤ 4·2^{−k_0}`
+meets EL of Thm 3.4). O8 Thm 3.4's proof gives:
 `δ=E F ≥ e^{−2.2S}`, `E[F−B] ≤ δ/100`, `μ ≥ 0.99δ`, `B≤1[W>T]` on
 `n≡1 (Q)` coprime to all `d_i`, the twist condition (Lemma 3.3), and the
-cell conditions, with `Q:=Q_Π·ℓ_aux` as in O4 Thm 2.1. By Lemma 2.1 with
+cell conditions, with `Q:=Q_Π·ℓ_aux` as in O4 Thm 2.1 (`ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`,
+only to force `p>T`). By Lemma 2.1 with
 `η=1/99`: `A ≤ 1.03`. Now apply Theorem 1.1 instead of PO Thm 4.1. Its
 cost terms:
 
@@ -176,7 +176,7 @@ So `log p ≪ log Z`. With `z=𝓛²` and ET (`S≤S*≪𝓛^4log𝓛`, O2 Lemma
 `log Q_Π ≤ (π(z)+64k²S*)𝓛+4 ≪ 𝓛^7/log𝓛`, `d𝓛≪𝓛^7`. Hence
 `log p ≪ 𝓛^7` and `W(p)>T=e^𝓛`. Distinct T give distinct p. ∎
 
-**Theorem 2.3 (PROVED modulo (G) and the same inputs, without ET).**
+**Theorem 2.3 (PROVED modulo (G) only).**
 For infinitely many Mordell-hard p, `log W(p) ≥ (1/log 2 − o(1))·log₂p·log₃p`.
 
 *Proof.* As 2.2 with Wigert's `log S* ≤ (log2+o(1))𝓛/log𝓛`: every cost
