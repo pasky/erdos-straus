@@ -193,6 +193,9 @@ Papers in `paper/`:
 * `es-window-note` (new): the window statistic `a_min(p)` — half-set lemma,
   exact stacking orders for bounded windows (W1/W2 sharp), parity as a
   necessary input (refereed internally, R41 minor revision applied).
+* `energy-dnf-note` (new, 17 pp): the energy bound C-1 on product spaces and
+  sharp-rate DNF Fourier tails `W^{>t} ≤ 4·2^{−(t+1)/k}` (refereed internally,
+  R50 minor revision applied; novelty hedged).
 * `es-subexp-note` v3: `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.
   via a Bazzi–Razborov sandwich minorant, the energy bound C-1 (replacing
   switching lemmas), graded quarantine, H_ω(2) and a Gallagher-type linear
