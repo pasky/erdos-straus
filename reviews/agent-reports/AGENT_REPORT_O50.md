@@ -16,7 +16,7 @@ cd paper && pdflatex energy-dnf-note.tex && pdflatex energy-dnf-note.tex
 
 | Note | Source on main | Label |
 |---|---|---|
-| Thm 1.1 (G_F ≤ 1 if all w_E ≤ 2) | OMEGA10 Cor 3.5; es-subexp Thm 6.? (thm:C1) | PROVED |
+| Thm 1.1 (G_F ≤ 1 if all w_E ≤ 2) | OMEGA10 Cor 3.5; es-subexp-note Thm 6.5 | PROVED |
 | Cor 1.2 energy tail, now with factor `P(F=0)(2−P(F=0))` | OMEGA10 Cor 4.1 (refined: uses `‖F^{=∅}‖²=(EF)²`) | PROVED |
 | Cor 1.3 DNF: `W^{>t} ≤ 4p(2−p)2^{−(t+1)/k}`; `Σ2^{|U|/k}‖g^{=U}‖² ≤ 1+4p`; `I ≤ (4k/ln2)p`; q-ary set-valued literals | OMEGA10 §4 "Boolean form", R38b D3/D4c | PROVED |
 | Lemma 2.2 (identities), Prop 2.3 (single event; threshold 2 necessary) | OMEGA10 §2 | PROVED |
