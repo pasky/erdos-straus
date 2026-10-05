@@ -92,3 +92,33 @@ minors are applied.
   `log Z>𝓛`.
 * R34b: the bottleneck is the junta term `d𝓛` (≈860× `log Q_Π` in the
   tally). Lemma 6.1's ℓ¹ bound is not needed by O9.
+
+## Phase 2 (OMEGA9 §4): the junta term d𝓛 — checkpoint 2 (unreviewed)
+
+* **Lemma 4.1 (PROVED; exact toy check `scripts/omega9_junta_lb.py`).**
+  Take disjoint single-value events of width k on `[q]`. Then
+  `energy(F;t) ≥ (1−π)^{2m}Σ_{j>t/k}binom(m,j)ρ^j`. In the limit
+  `q→∞` this gives `energy(F;t)/δ → Pr[Po(S)>t/k]`.
+* **Cor 4.2 (PROVED).**
+  * Any junta-t approximation with ℓ² error `≤δ/3` needs `t ≥ k(S−1)`.
+  * O8's EL precision needs `t ≥ (3.59−o(1))kS`.
+  * So for general width-k, mass-S systems, an ES-tail argument needs
+    junta `≍kS`. ESW (`d≍k·k_0`) would be optimal, and the bit factor
+    `b≍𝓛` is the only removable loss.
+  * Under ET (worst case: mass `≍S*` at width k), the floor of this method
+    is `d𝓛 ≳ kS*·log z`. **1/6 is the ceiling of width-and-mass-only
+    arguments.** Beating it needs ES-specific structure: where the mass
+    actually sits, and the actual S.
+* **§4.3 (identity PROVED; rest Assessment).** The identity
+  `Σ_U binom(|U|,s)‖F^{=U}‖² = Σ_{|V|=s}‖L_VF‖²` reduces ESW to cube sums.
+  These vanish unless (a) relevant events cover V and (b) no V-avoiding
+  event occurs. A union bound using (a) alone would give ESW
+  (`d≍k(S+log 1/ε)`, no b) if relevance events were independent. Hubs
+  break this: the cover sum is `≈P(H)^{1−s}(2eS_H/s)^s`, while the truth
+  carries `e^{−Θ(S_H/P(H))}` from (b). So ESW needs conditional
+  (local-lemma-type) suppression, the same missing ingredient as O8 §2.4.
+  ESW remains **open**.
+* Quarantine: not attacked in this round. The plan is unchanged: a
+  uniform per-prime bound `w_ℓ≪𝓛^{O(1)}/ℓ` (Shiu-type). It pays off only
+  together with ESW.
+* Stopping here: context is near the limit.
