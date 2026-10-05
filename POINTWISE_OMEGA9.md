@@ -260,6 +260,36 @@ computes exact ES energies for 4 toys (`q≤7`, `k≤3`, `m≤6`); the bound
 holds at every t, with equality at the top levels.) (Assessment for the ES system: its actual
 mass need not sit at width k).
 
+**4.3 A direct q-ary route to ESW, and where it stops (identity PROVED; rest
+Assessment).** For `L_V:=∏_{v∈V}(I−E_v)` (E_v averages out coordinate v) one
+has the standard identity
+
+```
+Σ_U binom(|U|,s)·‖F^{=U}‖² = Σ_{|V|=s} ‖L_V F‖²,
+```
+
+so `energy(F;d)·binom(d,s) ≤ Σ_{|V|=s}‖L_VF‖²`. Here
+`L_VF(x)=E_y Σ_{W⊆V}(−1)^{|W|}F(x^{(W)})`, an alternating sum over the
+`2^s` hybrids `x^{(W)}` (coordinates of W taken from y). It vanishes unless
+(a) the events *relevant on the cube* cover V, where an event is relevant
+when its literals are met by x off V and by x or y on V (probability
+`≤2^{|E∩V|}P(E)`), and (b) no event avoiding V occurs at x. With (a) alone
+and a union bound over minimal covers, one would get
+`energy(F;C·k·s) ≤ 2^{−s}e^{S}` when relevance events are independent. The
+`2^s`, the `binom(kr,s)≤(ek)^s` choices of V and `Σ_r S^r/r!` would give
+**`d≍k(S+log(1/ε))` with no bit factor**, i.e. ESW.
+
+But relevance events of overlapping events are not independent. Take a
+hub: core H (`k−1` literals) plus M completions at distinct coordinates,
+with `M·P(H)/q=:S_H`. Then the union bound over covers of s completion
+coordinates gives `≈P(H)^{1−s}(2eS_H/s)^s`, which is huge. The true value
+carries the factor `e^{−(M−s)/q}=e^{−Θ(S_H/P(H))}` from (b): no other
+completion fires. Small per-prime masses (`S_H≤1/(64k)`) do not help
+without (b). So a q-ary proof of ESW must use (b), i.e. *conditional*
+suppression bounds of local-lemma type. This is exactly the ingredient
+O8 §2.4 identifies as missing from alternating expansions. Completion mass
+alone does not give it (O8 §2.4's counterexample). We leave ESW open.
+
 ## 3. Checks, scope, open items
 
 * `scripts/omega9_charcheck.py` (`data/omega9/charcheck.txt`): toy with
