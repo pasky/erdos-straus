@@ -365,6 +365,10 @@ N = 10⁸; `rand` shows none. So single-form effects account for roughly a
 third of the toy deficit, quadratic-character structure for a further
 part; the rest (≈ 0.5% at j = 8, N = 10⁸) is unexplained, decays with N at
 the same rate as the single-form part, and is also absent on translates.
+Caveat: `tuples2_allforms.py` sums forced-zero events form by form, so
+tuples inadmissible in two forms (and colliding representatives) are
+counted more than once; "about a third" is an uncontrolled estimate, not a
+decomposition of the observed deficit.
 Plausible source (untested): small-height relations between two forms.
 None of this bears on asymptotic θ; it only shows that the deviations of
 §§2–3 are real and visible, and all of the same sign (deficit).
