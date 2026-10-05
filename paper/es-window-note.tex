@@ -22,7 +22,7 @@
 \newcommand{\li}{\operatorname{li}}
 \newcommand{\amin}{a_{\min}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
-\newcommand{\status}[1]{\textsc{#1}}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
 \title[The window statistic for Erd\H{o}s--Straus]{The window statistic for the Erd\H{o}s--Straus equation: exact orders for bounded windows and a parity barrier}
 \author{Anonymous}
 \date{Draft, 5 October 2026; internal checks only, not externally refereed}
@@ -480,7 +480,7 @@ same argument with $p=4t+1$ covers all $p\equiv1\pmod4$; we restrict to
 $p\equiv1\pmod{24}$ because the other primes are settled by Mordell's
 identities.
 
-\subsection{Uniformity in $Z$}
+\subsection{\texorpdfstring{Uniformity in $Z$}{Uniformity in Z}}
 
 The union over selection vectors costs $2^{\beta_{\rm tot}(Z)}$ with
 $\beta_{\rm tot}(Z)=\sum_{a\le Z,\,a\equiv3\,(4)}\beta(a)=O(Z^2)$, which
@@ -653,7 +653,7 @@ The proofs below use the sieve theorems only through
 Lemma~\ref{lem:LS}, which is proved above from Cited
 Theorem~\ref{cit:LS}.
 
-\section{One window: $\amin(p)\ge7$ for $\gg x/(\log x)^{3/2}$ hard primes}\label{sec:W1}
+\section{\texorpdfstring{One window: $\amin(p)\ge7$ for $\gg x/(\log x)^{3/2}$ hard primes}{One window}}\label{sec:W1}
 
 \begin{theorem}[\status{proved} modulo Cited Theorems~\ref{cit:LS}, \ref{cit:mertens}, \ref{cit:BV}, \ref{cit:semi}]\label{thm:W1}
 \[
@@ -1057,3 +1057,198 @@ distinguish $0$ from $2$ or $4$.  Whether Type~I information at level
 $x^{1/2}$ together with the parity of both windows suffices is the
 question addressed, in a model only, in Remark~\ref{rem:LPmodel}.
 \end{remark}
+
+\section{Heuristics, data and a model-level obstruction}\label{sec:model}
+
+Nothing in this section is a theorem about primes unless so labelled.
+
+\begin{remark}[random model; \status{assessment}]\label{rem:model}
+By Lemmas~\ref{lem:F1} and~\ref{lem:halfset}, failure of a fixed window is
+a confinement of the prime factors of $x_a$ to half of the classes, an
+event of probability $\asymp(\log p)^{-1/2}$ for a random integer of size
+$p$; Theorem~\ref{thm:stack} with $|A|=1$ is the corresponding upper bound
+on shifted primes.  Treat the windows as independent, each failing with
+probability $g(p)=c(\log p)^{-1/2}$.  Then
+$\Pr(\amin(p)>Q)\approx g(p)^{(Q+1)/4}$, which gives
+\eqref{eq:model-intro} for fixed $Q$, and
+$\log\Pr(\amin(p)>Q)=-(Q/8)(1+o(1))\log\log p$ for growing $Q$.  This is
+summable over $p$ once $Q\ge(8+\delta)\log p/\log\log p$, so the model
+predicts $\amin(p)\le(8+o(1))\log p/\log\log p$ for all large $p$, while
+congruence-adversarial constructions (Remark~\ref{rem:dickson})
+heuristically produce $p\le N$ with $\amin(p)\ge c\log N/\log\log N$.  The
+model ignores the positive correlation of windows through the
+quadratic-residue pattern of $p$ (by Lemma~\ref{lem:recip}, every prime
+factor of $x_a$ below the least non-residue modulo $p$ is $a$-good), and
+it applies a fixed-window law to windows of growing size, which is not
+justified.  Theorems~A--C show that the model's exponent is a true
+upper bound for each fixed $Z$, and that it is attained for $Z=3$
+(and for $Z=7$ on EH).  For growing $Z$ the proved bounds
+(Theorem~\ref{thm:uniform} and the remark after it) are far from the
+model.
+\end{remark}
+
+\begin{remark}[unboundedness of $\amin$; \status{conditional} on Dickson's conjecture]\label{rem:dickson}
+Fix $K\ge3$ and let $\Lambda_K$ be the set of primes $\le\max(K,5)$.  If
+$p\equiv1\pmod{24}$ is a quadratic residue modulo every $\ell\in\Lambda_K$
+and, for every $a\equiv3\pmod4$ with $a\le K$, $x_a=C_ar_a$ with $r_a$ prime
+and all prime factors of $C_a$ in $\Lambda_K$, then $\amin(p)>K$
+(\status{proved}): the primes of $C_a$ are residues modulo $p$ by
+reciprocity, $\leg{r_a}p=\leg{4x_a}p=\leg ap=\prod_{\ell\mid a}\leg p\ell^{v_\ell(a)}=1$,
+and Lemma~\ref{lem:F1} applies.  Fixing the residue of $p$ modulo a
+suitable power of $\prod_{\ell\in\Lambda_K}\ell$ turns this into the
+simultaneous primality of $J(K)+1$ linear forms, an admissible family
+\cite[Prop.~8.4]{PS}; Dickson's conjecture \cite{Dickson} then gives
+infinitely many such $p$, so $\amin$ would be unbounded.  Unconditionally
+we only know $\amin(p)\ge7$ infinitely often (Theorem~\ref{thm:W1}).
+\end{remark}
+
+\begin{remark}[data; \status{evidence}]\label{rem:data}
+A complete census of the $719781$ primes $p\equiv1\pmod{24}$ below $10^8$
+(among them the $179468$ Mordell-hard ones) gives $\max\amin(p)=107$, attained at
+$p=8803369$, a quadratic residue modulo every prime $\le37$; the ratio
+$\amin(p)/\log p$ is below $6.7$ throughout.  Random samples of $3\cdot10^4$
+Mordell-hard primes near $10^{12}$ and $10^{18}$ have maxima $39$ and $43$,
+and samples near $10^{24}$ also stay below $10\log p$.  For
+$x=10^6,10^7,10^8$ and each $Z\in\{3,7,11,15,19,23\}$ the normalised tail
+$\#\{p<x:\ p\equiv1\ (24),\ \amin(p)>Z\}\cdot(\log x)^{1+J(Z)/2}/x$ is
+constant to within $9\%$, consistent with Corollary~\ref{cor:tail} being
+sharp in the exponent for every fixed~$Z$ (proved only for $Z=3$, and for
+$Z=7$ on EH).  These data and the model motivate the following
+conjecture, which by Theorem~\ref{thm:frame}, Mordell's identities and the
+numerical verification of the Erd\H{o}s--Straus conjecture up to
+$10^{18}$ \cite{MD} would imply the Erd\H{o}s--Straus conjecture.
+\end{remark}
+
+\begin{conjecture}[$X_{\rm win}(10)$; \status{conjecture}]
+For every prime $p\equiv1\pmod{24}$ with $p>10^{18}$, $\amin(p)\le10\log p$.
+\end{conjecture}
+
+\subsection{Type I information plus parity in a discrete model}
+
+The following describes a finite computation in an explicit model.  It
+is recorded because it indicates what kind of input a proof of
+unconditional $\amin(p)\ge11$ infinitely often might need, not as a
+result about primes.
+
+\emph{The model.}  For a prime $p$ let the \emph{configuration}
+$C=(B_3,B_7)$ consist of the multisets of log-sizes $t=\log r/\log x$ of
+the $3$-bad prime factors of $n_3$ and the $7$-bad prime factors of $n_7$.
+\emph{Parity} means $|B_3|,|B_7|$ even (Lemma~\ref{lem:parity} for
+Mordell-hard $p$).  For a pair of finite multisets $S=(S_3,S_7)$ let
+$\rho_\mu(S)$ be the expected number of embeddings of $S$ into $C$ under a
+law $\mu$; the \emph{Type~I data of level $\theta$} are the $\rho_\mu(S)$
+with $\Sigma S\le\theta$ (sum of all entries), corresponding to the counts
+$\#\{p:\ d_1\mid n_3,\ d_2\mid n_7\}$ for bad squarefree $d_1,d_2$ with
+$d_1d_2\le x^\theta$.  A \emph{fake} for $\mu$ at level $\theta$ is a nonnegative
+measure $\nu$ on parity configurations with $\rho_\nu(S)=\rho_\mu(S)$ for
+all $\Sigma S\le\theta$.  If a fake has $\nu(\varnothing,\varnothing)=0$,
+then these data together with parity cannot force a configuration with
+both windows clean.
+
+\begin{remark}[two elementary fakes; \status{model}, proved]\label{rem:blockfake}
+(i) One window, $\theta<1/2$: for $u,v\in(\theta,1/2)$ the signed measure
+$-[\varnothing]+[\{u,v\}]$ has $\rho(S)=0$ whenever $\Sigma S\le\theta$, since
+every nonempty $S\subseteq\{u,v\}$ has $\Sigma S>\theta$.  Hence if the true
+law has at least as much mass on $\{u,v\}$-type configurations as on
+$\varnothing$, a fake without clean mass exists.  For $\theta\ge1/2$ no such
+one-window block fake exists.
+(ii) Two windows: if $U,V$ are disjoint nonempty configurations, each with
+an even number of points in each window and $\min U+\min V>\theta$, then
+$-[\varnothing]-[U\sqcup V]+[U]+[V]$ has $\rho(S)=0$ for $\Sigma S\le\theta$:
+for $S=\varnothing$ the terms cancel, for $\varnothing\ne S\subseteq U$ (or
+$\subseteq V$) the two terms containing $S$ cancel, and an $S$ meeting both
+$U$ and $V$ has $\Sigma S>\theta$.
+\end{remark}
+
+\begin{remark}[a certified fake at level $1/2$; \status{model}, certified in floating point]\label{rem:LPmodel}
+Take the heuristic law in which the two windows are independent, bad
+primes have Mertens density $\frac12\,dt/t$ on $[\varepsilon,1]$ and the
+clean cofactor has weight $(1-\Sigma t)^{-1/2}$, and discretise it with
+$\varepsilon=0.1$ and $8$ log-spaced bins.  In this discrete model a
+linear-programming search, followed by an exact re-solve on its support,
+finds a fake at level $\theta=1/2$ with $\nu(\varnothing,\varnothing)=0$: an
+$89\times89$ system over $12769$ configurations, nonnegative solution,
+relative correlation residual $2.6\cdot10^{-15}$, independently re-solved at
+$60$ digits.  In the same model one window cannot be faked at $\theta=1/2$:
+an exact rational dual certificate gives
+$\min\nu(\varnothing)/\mu(\varnothing)\ge0.744$.  For two windows the
+threshold level lies in $(0.5,0.7]$ on this grid (certified dual bound
+$\ge0.497$ at $\theta=0.7$).
+
+\emph{Scope.}  This is a statement about a coarse discrete model only.
+The law is heuristic and not derived from primes; at $\varepsilon=0.1$ its
+normalised one-window correlations vary over $[0.82,1.87]$ and differ
+between the even and odd laws, whereas for primes Bombieri--Vinogradov
+and the fundamental lemma make them $\approx1$ independently of parity
+(Theorem~\ref{thm:P1}); grid refinement did not remove this; the model
+contains only the data for bad $d$, not for good or mixed $d$; and the fake
+places up to $10^5$ times the true mass on some configurations, with no
+capacity constraint.  Its relevance to actual sieve methods is
+\status{evidence} of the weakest kind.  The indication is that Type~I data
+of level $1/2$ plus parity do not decide two windows, and that a
+Chen-type switching input bounding large-prime configurations would be
+needed; no such statement is proved here.  Computations:
+\texttt{scripts/window2\_lp.py}, \texttt{window2\_feas.py},
+\texttt{window2\_polish.py}, \texttt{window2\_verify.py}; details in
+\cite[\S3]{PW2}.
+\end{remark}
+
+\section*{Acknowledgements and provenance}
+This note collects results first written up in the working notes
+\cite{PS,PW,PX,PW2} of this project, each internally reviewed.  No
+external referee has checked it.
+
+\begin{thebibliography}{99}
+\bibitem{Dickson} L.~E.~Dickson, A new extension of Dirichlet's theorem on
+prime numbers, Messenger of Math.\ 33 (1904), 155--161.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
+(2013), 50--105; arXiv:1107.1010v6.
+\bibitem{FI09} J.~Friedlander and H.~Iwaniec, Hyperbolic prime number
+theorem, Acta Math.\ 202 (2009), 1--19.
+\bibitem{OdC} J.~Friedlander and H.~Iwaniec, \emph{Opera de Cribro}, AMS
+Colloquium Publications 57, 2010.
+\bibitem{FHRSS} E.~Fuchs, C.~Hsu, J.~Rickards, D.~Schindler and
+K.~E.~Stange, Primes represented by shifted quadratic forms: on
+primitivity and congruence classes, arXiv:2504.20289v1 (2025).
+\bibitem{HR} H.~Halberstam and H.-E.~Richert, \emph{Sieve Methods},
+Academic Press, 1974.
+\bibitem{Iw76} H.~Iwaniec, The half dimensional sieve, Acta Arith.\ 29
+(1976), 69--95.
+\bibitem{IK} H.~Iwaniec and E.~Kowalski, \emph{Analytic Number Theory},
+AMS Colloquium Publications 53, 2004.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and
+empirical evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128
+(2025).
+\bibitem{Montgomery68} H.~L.~Montgomery, A note on the large sieve,
+J.\ London Math.\ Soc.\ 43 (1968), 93--98.
+\bibitem{MVLS} H.~L.~Montgomery and R.~C.~Vaughan, The large sieve,
+Mathematika 20 (1973), 119--134.
+\bibitem{MV} H.~L.~Montgomery and R.~C.~Vaughan, \emph{Multiplicative
+Number Theory I.~Classical Theory}, Cambridge University Press, 2007.
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, 1969, Chapter~30.
+\bibitem{NX} K.~Nath and L.~Xie, Almost primes and primes that are sums of
+two squares plus 1, arXiv:2501.16723v3 (2026).
+\bibitem{Notes} \emph{Erd\H{o}s--Straus research notebook},
+\texttt{notes.md}, this repository, \S\S12, 14, 62, 70, 77; internally
+reviewed working notes, 2026.
+\bibitem{PS} Companion note in this repository, \texttt{POINTWISE\_SIZE.md},
+\S8 (the window frame); internally reviewed in
+\texttt{reviews/pointwise-size-step1-review.md}.
+\bibitem{PW} Companion note in this repository,
+\texttt{POINTWISE\_WINDOW.md} (Theorems W1, W2); internally reviewed in
+\texttt{reviews/pointwise-window-review.md}.
+\bibitem{PX} Companion note in this repository, \texttt{POINTWISE\_XWIN.md}
+(half-set lemma, stacking); internally reviewed in
+\texttt{reviews/pointwise-xwin-review.md}.
+\bibitem{PW2} Companion note in this repository,
+\texttt{POINTWISE\_WINDOW2.md} (quadric, Theorem P1, the discrete model);
+internally reviewed in \texttt{reviews/pointwise-window2-review.md}.
+\bibitem{Sed} A.~Sedunova, On the hyperbolic prime number theorem,
+arXiv:2609.28200v1 (2026).
+\bibitem{Ter} J.~Ter\"av\"ainen, The Goldbach problem for primes that are
+sums of two squares plus one, Mathematika 64 (2018), 20--70;
+arXiv:1611.08585.
+\end{thebibliography}
+\end{document}
