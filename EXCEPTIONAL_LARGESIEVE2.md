@@ -572,7 +572,7 @@ abstract class families with **dense bundles** (≍ D classes at a single
 modulus D of high level) a large sieve with frequencies of level
 `≫ λ` saves `≍ log N`, while every level-λ majorant saves 0 (or
 `O(log log N)`). Forced classes are sparse (`≤ D^{o(1)}` classes per
-modulus); §8.3 says what this means for (H_LS∞).
+modulus); §8.2, Consequences 2–3, says what this means for (H_LS∞).
 
 ### 8.1 The band family
 
@@ -599,7 +599,7 @@ a flow exists iff `|R|/ℓ_i ≤ |N(R)|/ℓ'_i` for every row set R. Let
 `C = C(R)` be the columns adjacent to no row of R, i.e. `α + β(y) ∈ B` for
 all `α ∈ α(R)`. If `α(R)` contains two points at circular distance `≥ 2η`,
 the arcs `B − α` are disjoint and `C = ∅`. Otherwise `α(R)` lies in an arc
-of length `< 2η`, so `|R| ≤ 2ηℓ_i + 1`, and `β(C) ⊂ B − α` gives
+of length `< 2η` (pairwise circular distances `< 2η ≤ 1/4` force this), so `|R| ≤ 2ηℓ_i + 1`, and `β(C) ⊂ B − α` gives
 `|C| ≤ 2ηℓ'_i + 1`. Then `|R|/ℓ_i + |C|/ℓ'_i ≤ 4η + 2/5 < 1`, which is the
 condition, since `|N(R)| = ℓ'_i − |C|`. ∎
 
@@ -609,7 +609,8 @@ every term of level `≤ λ` (all `ℓ_i, ℓ'_i > W`).
 * (a) If `L_i > λ` for every i, then `E_U ν ≥ 1`: **no saving at all**.
   Equivalently (Lemma 1.1), the best comparison measure at level λ has
   `S = 0`.
-* (b) If every `ℓ_i, ℓ'_i > e^{λ/d}` (d ≥ 1 an integer) and `η ≤ 1/9`, then
+* (b) If every `ℓ_i, ℓ'_i > max(36, e^{λ/d})` (d ≥ 1 an integer; `ℓ'_i ≥ 36` makes
+  `2η + 1/ℓ'_i ≤ 1/4`, review R27b m1) and `η ≤ 1/9`, then
   `log(1/E_U ν) ≤ d log(C₀(K/4 + 4d)/d) + (4/3)d + ½log(22d+22) + 3`
   (C₀ of EK Cor 2.6), i.e. `O_d(log K)`.
 
