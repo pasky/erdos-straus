@@ -294,7 +294,10 @@ Elsholtz–Tao §2 with `4 ↦ m` (ET: `e(macd−1) = n + m a²d`, i.e. `M = mac
 class `−m a²d`; ET Remark 1.10 notes their analysis extends to numerators
 `m ≠ 4`, "considered first by Sierpiński and Schinzel"; we use only the "if"
 direction (5.1) and do not claim every Type II solution of `m/n` arises this
-way, though for `m = 4` this is ET Prop. 2.x). Define
+way; for `m = 4` ET Prop. 2.6 describes all Type II solutions via their
+variety `Σ_II`, and its proof (which starts from
+`4dx'y'z' = ny'z' + x'y' + x'z'`) looks numerator-independent, but we have not
+checked the `m`-version in detail). Define
 ```
 W_m(n) = min{ M ≡ −1 (m), M ≥ 3 : n mod M ∈ R_m(M) },  R_m(M) = {−mD mod M : D | A_M²}.
 ```
