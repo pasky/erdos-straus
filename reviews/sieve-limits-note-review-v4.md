@@ -101,3 +101,58 @@ Lemma 15.15 (packing): next-fit bins give b_i b_{i+1}>Z, d>Z^{⌊m/2⌋} ⇒ m�
 CRT — correct. Thm 15.3 constants (e+2, 2/e²) and Thm 15.20 constants (e+3, 2e+2) match TU/TU2.
 Git history confirms KA3 Lemma 7.2 postdates R28, so "coordinator-checked only" is accurate.
 Literal TC_θ being false is presented only as an Assessment. Defects in m8–m14 below.
+
+## Defects (numbered; MAJOR = M, MINOR = m)
+
+**M1 (MAJOR, presentation/overclaim; abstract l. 66–72 and intro item 6, l. 221–226).** The
+abstract says "The cap [O_A((log N)^{3/4})] extends to … the large sieve for primes, … to
+majorants positive only at primes, … and to tuple-count input of bounded or prime order." For
+the prime-measure results the note itself proves only C_A(log N)^{3/4}(log log N)^{3/4}
+(Thm 14.6 LSprimes, Thm 14.12 PLcap); the (log N)^{3/4} form is "pointer level only" (§14
+preamble l. 2786–2791, KA3 §4.3 "not re-reviewed"). Intro item 6 likewise says "likewise … the
+large sieve for primes (Theorem 14.6)" right after "capped at C_A(log N)^{3/4}". For prime order k
+the cap is C_A[(log N)^{3/4}+k log log N] (Cor 15.12), not O((log N)^{3/4}). Since the whole
+point of v4 is removing a (log log N)^{3/4} factor, the abstract must not blur it.
+*Repair:* abstract: "…(twisted, multiplicative, hybrid and fibrewise forms); the large sieve
+for primes and majorants positive only at primes are capped at O_A((log N)^{3/4}(log log N)^{3/4})
+(and at O_A((log N)^{3/4}) at pointer level); …; tuple-count input of bounded order, and of prime
+order k at O_A((log N)^{3/4}+k log log N)". Same in intro item 6.
+
+**m1 (§14 preamble l. 2772).** "No review found a fatal or major defect" is false: the IF review
+(reviews/exceptional-interfreq-review.md l. 91) has **D1 (MAJOR, scope)** (hybrids overclaimed;
+repaired by restriction), and the LS review has D1 "moderate". *Repair:* "No review found a
+fatal defect; the IF review found one major scope overclaim (hybrids), repaired by restricting
+the claim (Rem 2.6 of IF, and §14.6 here); the other repairs were minor."
+
+**m2 (Thm 14.7 proof sketch, l. 2988).** "at p≤W, χ²≤7, and Mertens gives 3 log W" does not
+follow (7 per prime would give 7 log W). Source: χ²=(p+1)/(p−1)≤2 for odd p, ≤7 only at p=2,
+plus 12𝔏 log W=o(1). *Repair:* "χ²≤2 for odd p≤W (≤7 at p=2); Mertens and 𝔏 log W=o(1) give
+3 log W+C".
+
+**m3 (citation of the λ^{3/4} substitution; l. 2782–2786 and labels of Lemma 14.4, Thms 14.5,
+14.8, Prop 14.9, Thm 14.17).** Credited to KA3 §4.3, which lists only LS Thm 3.1, IF Cor 2.3, PL
+and TU Cor 3.4. The LS2 upgrades come from LS2's own "Update (KARY3, (D)24)" header; IF Thm 2.5
+only from (D)24. The mathematics is fine (black-box use, see Claim 3). *Repair:* cite
+"[LS2, update note], (D)24" alongside KA3 §4.3; for thm:IFbudget say "substitution checked in
+this note".
+
+**m4 (Thm 14.6 header, l. 2949).** Missing "Case A as in Theorem 14.12" (source: "conditional on
+PL Thm 3.1, i.e. with its Case-A proviso"). *Repair:* add it.
+
+**m5 (Prop 14.9(1), l. 3023).** Source bound is log 2+S(max(λ₀, 2rA log N+λ(Q₀))); the max with
+λ₀ is dropped. *Repair:* restore it.
+
+**m6 (IF2 Cor 5.1 in text, l. 3237–3241).** Inherits IF Thm 2.5's "every prime of 𝒢 ≤ N^A",
+which the §14.6 setup does not state; and S_A without log log is via Thm 14.17, not literally
+IF2 Cor 5.1. *Repair:* add "family primes ≤N^A" and cite "[IF2, Cor 5.1] with Theorem 14.17".
+
+**m7 (proof sketches of Thm 14.5, l. 2939, and Thm 14.17, l. 3193).** Lemma 3.x budget
+(lem:budget) is invoked on a general mixture without first projecting to the family period (as
+LS2 L2.3, IF Thm 2.5 and the proof of Thm 10.14 do); without it non-family primes of ν_c have no
+e^{Λ₀} bound. Thm 14.17's sketch also omits the case split "s≤log(2+12c), or else T_><N/12".
+*Repair:* add "after projection to the family period (as in Theorem 10.14)" and the case split.
+Also Prop 14.22(1) drops IF2's caveat that τ=O(1) rests on Vaaler's bound quoted from the review
+and not re-checked, and that Δ₀ must be bounded; Thm 14.11 discussion (l. 3074) says a proof
+"must use (Sp) or the moment hypotheses" where LS2 says "something like" — soften. Thm 14.12
+sketch (l. 3097): "the square base consists of units, since no forced class contains a unit
+square" is a non sequitur (the no-square lemma gives avoidance, not unit-ness).
