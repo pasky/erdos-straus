@@ -529,34 +529,40 @@ until the junta shrinks. Remark: log-weighted thresholds
 primes `≤√T` still cost `e_ℓlog ℓ≤𝓛`, so `log Q_Π` improves only on the
 part `>√T`; not pursued.
 
-### 6.4 The bit-encoding width (Assessment, with a PROVED example)
+### 6.4 The bit-encoding width (Assessment, with a PROVED counterexample)
 
 The degree is `d ≍ w·k_0` with `w=kb`. The factor `b≍2log₂T` appears
 because a q-ary literal `X_ℓ=c` is a b-bit term. A **q-ary switching
 lemma** of the form `Pr[DT_q(f_ρ)≥s] ≤ (Cpk)^s` would give
 `d ≍ k·k_0`. Here ρ frees each coordinate with probability p and fixes the
 others uniformly; `DT_q` is q-ary decision-tree depth, which bounds the
-Efron–Stein degree. The LMN step works verbatim for Efron–Stein in product
+Efron–Stein degree. (The LMN step works verbatim for Efron–Stein in product
 spaces (`E_z‖(f_{I,z})^{=S}‖² = Σ_{U∩I=S}‖f^{=U}‖²`). The result would
-be `d≪𝓛^5`, `K≪𝓛^5log𝓛`, `log Z≪𝓛^6`, i.e. exponent `1/11`.
+be `d≪𝓛^5`, `K≪𝓛^5log𝓛`, `log Z≪𝓛^6`, i.e. exponent `1/11`.)
 
-*Such a lemma is false without a mass condition (PROVED example).* Take
-coordinates `X_1,…,X_N` uniform on `[q]`, and the DNF of width 2 whose
-terms are `X_i=c ∧ X_j=c` for all `i<j`, `c∈[q]` (f = "two coordinates
-coincide"). Fix `X_1,…,X_{N−1}` to distinct values and leave
-`X_N=:Y` free. Then `f_ρ=1[Y∈{x_1,…,x_{N−1}}]`, a one-query function;
-but if `s` coordinates are free and the fixed ones take `N−s` distinct
-values, `f_ρ` = "the free values coincide with each other or hit a fixed
-value". Its q-ary decision-tree depth is s once `N−s < q−s`. With
-`N=q/2` and `p=1/(Ck)=1/(2C)`, `Pr[DT_q(f_ρ)≥s]` is `≍1` for
-`s≍pN=q/(4C)`, which is not `(Cp·2)^s`. The per-coordinate mass here is
-`Σ_{j,c}q^{−2}=(N−1)/q≍1/2`, far above `1/(64k)`.
+*The decision-tree form is false, even with small masses (PROVED
+example).* Take `N:=⌊q^{1/2}⌋` coordinates uniform on `[q]` and the
+width-2 DNF f = "two coordinates coincide" (terms `X_i=c∧X_j=c`). The
+per-coordinate mass is `(N−1)/q ≤ q^{−1/2}` and the total mass is
+`≤1/2`. Let ρ free each coordinate with probability `p=1/(2C)`. With
+probability `≥e^{−1}−o(1)` the fixed values are distinct, and then, for
+`s` free coordinates, `f_ρ` = "a free value hits a fixed value or another
+free value". An adversary answering fresh distinct values keeps `f_ρ`
+undetermined until the last query (possible since `N+s<q`), so
+`DT_q(f_ρ)=s`. With constant probability `s≥pN/2≍q^{1/2}`, which is not
+`≤(C'(pk+max w_ℓ))^s` for large q. ∎
 
-So any q-ary switching lemma must use the per-prime mass hypothesis. The
-natural statement is `Pr[DT_q(f_ρ)≥s] ≤ (C(pk+max_ℓ w_ℓ))^s` for
-systems with per-prime masses `w_ℓ`. It is plausible (the Razborov
-encoding loses `q` per fixed coordinate, but a mass bound pays exactly
-`1/q` per fixed coordinate of a term), and it is **open**.
+But here `f_ρ` is nearly constant in ℓ²: `Pr[f_ρ=1] ≲ Ns/q`. So decision
+depth is the wrong measure for rare literals. LMN needs only an **energy
+switching** statement,
+
+```
+(ESW)   E_ρ W^{≥s}[f_ρ] ≤ (C(pk+max_ℓ w_ℓ))^s,
+```
+
+where W is the Efron–Stein weight in the q-ary product space and f a
+system's bad-indicator. ESW with LMN would give `d≍k·k_0`. ESW is
+**open**. The example is consistent with it: `W^{≥1}[f_ρ]≤Pr[f_ρ=1]≈Ns/q`.
 
 ### 6.5 Ceilings of this route (Assessment)
 
@@ -573,8 +579,8 @@ encoding loses `q` per fixed coordinate, but a mass bound pays exactly
   `S` itself is `≪𝓛`; the Haar side's true size is
   `−log δ*≍𝓛^{2.3…2.6}` (EVIDENCE).
 * *Remaining losses, ordered by size.*
-  1. The width `kb≍𝓛²/log𝓛` in d. The bit part needs a mass-sensitive
-     q-ary switching lemma (6.4); the k part would need Fourier tails
+  1. The width `kb≍𝓛²/log𝓛` in d. The bit part needs the energy
+     switching statement ESW (6.4; the decision-tree form is false); the k part would need Fourier tails
      sensitive to the event-size distribution rather than to the maximal
      width.
   2. `S*` through ET: `𝓛^4log𝓛` against `𝓛^{2.5}` observed.
