@@ -160,3 +160,13 @@ Defects (MINOR):
   uniform in Y, via `2^{ω_Y}≤2^{ω}`. The proof of Lemma 3.3(B) uses this implicitly
   ("f(p)=O(1)"). *Repair:* state the uniformity in Y explicitly.
 
+## Replay
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 900 uv run --with numpy python review_o13a_lll.py 1)      # Lemma 1.1, also seed 2
+(ulimit -v 8000000; timeout 1500 uv run --with numpy python review_o13a_jacobi.py 3000 100000)  # Lemma 3.1
+(ulimit -v 8000000; timeout 1500 uv run python review_o13a_process.py 3 300 13 1.3 0.3 100)     # Lemma 3.2
+(ulimit -v 8000000; timeout 1500 uv run python review_o13a_process.py 5 1200 23 1.39 1.0 300)
+O13A_NORHO=1 uv run python review_o13a_process.py 3 300 13 1.3 0.3 5   # power check: (d) must fail
+```
