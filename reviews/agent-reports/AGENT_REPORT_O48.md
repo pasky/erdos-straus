@@ -78,3 +78,39 @@ stays below the heuristic.
 
 Ledger and STATUS were not edited. No self-review subagent was run, so the
 parent's hostile review is the first independent check.
+
+## Checkpoint 2 (after hostile reviews R48a, R48b; both branches merged)
+
+No FATAL findings. All repairs are applied in separate commits:
+
+* *Lemma 1.1.* It now has the conditional bound for events outside the family, and the
+  prime-side twist needs `η≤0.19` (D5). The proof of Lemma 3.2(d) has its wording fixed
+  (`N·1[match]`; agreement-depth remark, m1/m2).
+* *Lemma 3.3(A).* The cost weight is now `log M_Y≤logY·τ(M_Y)`, since `(3/2)^{Ω_Y}` violated
+  the Nair–Tenenbaum class (D1). The bookkeeping is `(logY)^β` (D3), with explicit `C_0`.
+  Ξ is uniform in Y (m5).
+* *The process.* It starts with forced square steps at 3, 5 and 7, so `840|Q` and
+  `r≡1 (24)` (m4/D4).
+* *Theorem 3.4.* It is stated in POINTWISE_HAAR's normalisation `n≡1 (24)`, which differs
+  from the `Ẑ^×` version by a factor 2 (m3/D2). The bound is explicit:
+  `log(1/δ*)≪𝓛³(log𝓛)^5`. It needs NT only, not ET (D6).
+* *§2 EVIDENCE.* The wording is fixed (D7).
+
+**New §5: I1–I3 written out**, following the reviewers' sketches.
+* **I1(a) BRW/EL.** `S_res` replaces S in τ, and `δ≥e^{−(4/3)S_res}`.
+* **I1(b) Twist.** `|E[Fψ]|≤β^{−1}w̃_{ℓ_0}EF'≤ηEF'`, so `|μ_ψ|≤μ/4` for `η≤0.19`.
+* **I2 Junta.** The digit filtration only needs uniform digits above the fibre level.
+* **I3 Coset transfer.** Real characters equal 1 at the square r. Property (I) uses Lemma 3.1.
+
+**Theorem 5.1 (PROVED modulo (G), NT, OMEGA10 Thm 3.4; Elsholtz–Tao no longer used).**
+`W(p)≥exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many Mordell-hard p, and
+`log L_h(T)≪𝓛^4log𝓛`. This supersedes O12 Thm 6.3 (exponent 1/5).
+
+*Suggested review focus for §5:*
+* I1(b): Lemma 1.1's conditional bound is applied to the subfamily avoiding `ℓ_0`, and
+  `EF≥(1−η)EF'`.
+* I3 Case A with `χ̄(r)`.
+* I2's claim that the class enters nowhere in O11 Lemma 1.1.
+
+*Next (if continued).* A junta `≪S_res·polylog` (brief item (ii)) would give exponent 1/3
+on the prime side, matching the Haar exponent.
