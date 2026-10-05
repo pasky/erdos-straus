@@ -777,6 +777,38 @@ are huge and the measure is far from the Boolean setting, and the cost of a
 junta must be measured by its modulus rather than by the number of primes
 it involves.
 
+\section{Computational checks}\label{sec:check}
+
+The proofs above are complete; the script \texttt{scripts/energy\_note\_check.py}
+is a sanity check of the statements on small cases.  It uses exact rational
+arithmetic throughout; where a statement involves an irrational number, the
+comparison is rewritten as an exact rational one (for instance
+$W^{>t}\le c\,2^{-(t+1)/k}$ as $(W^{>t})^k2^{t+1}\le c^k$).  With seed $1$ it checks:
+\begin{enumerate}
+\item[(A)] Theorem~\ref{thm:main}, Lemma~\ref{lem:ident}(a) and
+Lemma~\ref{lem:cover} (for every $V$) on $150$ random systems on
+$\prod_v[q_v]$ ($n\le4$ coordinates, $q_v\le5$), with random rational product measures
+and random rational weights in $[1,2]$;
+\item[(B)] the identity of Lemma~\ref{lem:polar}, the two formulas for $N_\Ho$, and
+the matching bounds of Lemma~\ref{lem:theta} and Theorem~\ref{thm:Q}
+(including the equality case) on $300$ random weighted hypergraphs on at most
+$5$ vertices;
+\item[(C)] Corollary~\ref{cor:dnf} for \emph{every} Boolean function on $4$ bits
+under the uniform measure, with $k$ its minimal DNF width, for all $t$, and
+$G_F(\lambda)\le1$ for a rational $\lambda\le2^{1/k}$; the largest value of
+$W^{>t}[g]\,2^{(t+1)/k}/(4p(2-p))$ is $0.680$;
+\item[(D)] Corollary~\ref{cor:dnf} on $150$ random DNFs under biased product
+measures on $\{\pm1\}^n$ and $q$-ary DNFs with set-valued literals;
+\item[(E)] Theorem~\ref{thm:filtration} on $150$ random digit-prefix systems in
+bases $2$ and $3$ with random digit distributions;
+\item[(F)] the level polynomial of Proposition~\ref{prop:sharp} against brute
+force, Corollary~\ref{cor:tail} along that family, the formula of
+Example~\ref{ex:parity} and the growth rate $1/3$, and the exact sign in
+Example~\ref{ex:mono}.
+\end{enumerate}
+The run takes about six minutes on one core; its output is in
+\texttt{data/energy\_note/check\_seed1.txt}.
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
