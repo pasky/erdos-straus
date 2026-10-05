@@ -265,3 +265,97 @@ up to `O(log 𝓛)`. ∎
 So the whole prime-side problem is reduced to an **Efron–Stein tail bound
 for good-indicators of local-lemma systems**. No codegree hypothesis, no
 level structure, and no push-down appear in Theorem 3.4.
+
+## 4. EL holds: the switching lemma does the work (PROVED)
+
+**Lemma 4.1 (bit encoding; PROVED).** Let φ be the good-indicator of a
+system of events with at most k free primes each, on N coordinates
+`X_ℓ` uniform on finite sets `G_ℓ` with `|G_ℓ|≤T`, possibly with some
+coordinates pinned (so `F^{(j)}` is allowed). Let `b:=⌈log₂(4NT)⌉`. Then
+for every integer `k_0≥1`,
+
+```
+energy(φ; 2C_H·k·b·k_0) ≤ 4·2^{−k_0},
+```
+
+where `C_H` is the absolute constant of Håstad's switching lemma in the
+form `Pr_ρ[DT(f_ρ)≥s] ≤ (C_H p w)^s` for p-random restrictions of a
+width-w DNF (Håstad 1986; `C_H=5` in O'Donnell, *Analysis of Boolean
+Functions*, §4.4; any absolute constant suffices).
+
+*Proof.* (a) *Encoding.* Enumerate `G_ℓ={g_0,…,g_{q−1}}` and let
+`π_ℓ(u):=g_{⌊q·int(u)/2^b⌋}` for `u∈{0,1}^b`. Each fibre is an integer
+interval, hence a disjoint union of `≤2b` subcubes of codimension `≤b`; a
+vertex set `V⊆G_ℓ` has preimage a union of such subcubes. With U uniform
+on `({0,1}^b)^N` and `φ̃:=φ∘π`, the function `1−φ̃` is an OR over events of
+ANDs over `≤k` coordinates of ORs of width-`≤b` terms; distributing, it is
+a DNF of width `≤w:=kb` (the number of terms is irrelevant).
+
+(b) *Concentration (LMN with Håstad).* Take `p:=1/(2C_Hw)`. For a
+p-random restriction ρ, `Pr[DT(f_ρ)≥k_0] ≤ 2^{−k_0}`. If `DT(f_ρ)<k_0`
+then `f_ρ` has Fourier degree `<k_0`; and
+`E_ρ W^{≥k_0}[f_ρ] = Σ_U Pr[|U∩I|≥k_0] f̂(U)²`, where for `|U|≥d:=k_0/p`
+we have `Pr[Bin(|U|,p)≥k_0] ≥ Pr[Bin(|U|,p)≥⌊p|U|⌋] ≥ 1/2` (the median of
+a binomial is `⌊np⌋` or `⌈np⌉`). Since `W^{≥k_0}[f_ρ]≤1`, this gives
+`W^{≥d}[1−φ̃] ≤ 2·2^{−k_0}`; the same holds for φ̃. So the Fourier
+truncation g̃ of φ̃ below degree d has `E(φ̃−g̃)² ≤ 2^{1−k_0}`.
+(Standard: Linial–Mansour–Nisan 1993; e.g. Lovett's notes, Lemma 3.3 and
+Cor 3.4.)
+
+(c) *Back to coordinates.* Put `g(x):=E[g̃(U) | π(U)=x]`. A character
+`χ_S` (S a set of bits) involves the blocks of at most `|S|<d`
+coordinates, and since the blocks are independent and π acts blockwise,
+`E[χ_S | π(U)]` is a function of those coordinates. So g is a sum of
+functions of `<d` coordinates. By Jensen (φ̃ is `π(U)`-measurable),
+`E_{x∼π_*}(φ−g)² ≤ E(φ̃−g̃)²`. Finally each fibre has `⌊2^b/q⌋` or
+`⌈2^b/q⌉` points, so the Haar density relative to `π_*` is
+`≤∏_ℓ(1−q_ℓ2^{−b})^{−1} ≤ exp(2NT·2^{−b}) ≤ e^{1/2}`. Hence
+`energy_{Haar}(φ;d) ≤ E_{Haar}(φ−g)² ≤ e^{1/2}2^{1−k_0} ≤ 4·2^{−k_0}`. ∎
+
+**Corollary 4.2 (EL; PROVED).** In Theorem 3.4, EL(t) holds with
+
+```
+t := 2C_H·k·b·k_0,   k_0 := ⌈ 3S log₂e + log₂(400 m²(S+1)) ⌉,   b := ⌈log₂(4T²)⌉,
+```
+
+so `t ≤ C·k·𝓛·(S+𝓛)` (using `N≤T`, `m≤T²`). ∎
+
+**Theorem 4.3 (main; PROVED modulo Thorner–Zaman (PO Thm 3.1) and
+Elsholtz–Tao Prop 1.4; effective if ET's constant is).** For infinitely
+many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/14} ).
+```
+
+Uniformly: for every large T there is a hard prime p with `W(p)>T` and
+`log p ≤ C·𝓛^{14}`, i.e. `log L_h(T) ≪ (log T)^{14}`.
+
+*Proof.* Theorem 3.4 with `z=𝓛²` (so `k≤𝓛/(2log𝓛)`) and Corollary 4.2.
+Under ET, `S≤S*≪𝓛^4log𝓛` (O2 Lemma 11.1). Then `t≪𝓛^6`,
+`K≪t𝓛+S*≪𝓛^7`, `log Q_Π ≤ (π(𝓛²)+64k²S*)𝓛+4 ≪ 𝓛^7/log𝓛`,
+`log Z ≪ log Q_Π+t𝓛 ≪ 𝓛^7`, and PO Thm 4.1 gives `log p ≪ K·max(log Z,K) ≪ 𝓛^{14}`.
+`W(p)>T=e^𝓛`. Distinct T give infinitely many p (`p>T`). ∎
+
+**Theorem 4.4 (PROVED modulo Thorner–Zaman only; effective).** For
+infinitely many Mordell-hard p, `log W(p) ≥ (1/(2log 2)−o(1))·log₂p·log₃p`.
+
+*Proof.* As 4.3 with the unconditional `log S* ≤ (log2+o(1))𝓛/log𝓛`
+(Wigert, O2 Lemma 11.1): `t, K, log Q_Π ≤ S*^{1+o(1)}`, so
+`log₂p ≤ (2log2+o(1))𝓛/log𝓛`, and `log𝓛 ~ log₃p`. ∎
+
+**Comparison.** O4 Cor 3.1: `log W ≥ (1+o(1))log₂p·log₃p/log₄p` (mod TZ,
+ET); O4 Cor 3.2: `log₂p·log₄p/log₅p` (mod TZ). Theorem 4.3 is the third
+target of O4 §4.4 (declared "outside the method" there; it was outside
+the *alternating-expansion* method), and matches the Haar side
+`log(1/δ*)≪𝓛^7log𝓛` (O2 Thm 11.3) up to squaring: the transfer costs
+`log p ≈ K·log Z` with both factors of Haar size. The heuristic truth is
+`log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7).
+
+**Why this escapes §2.** The error of the BRW minorant is an
+*unconstrained* ℓ² error. The optimal junta approximation does not
+alternate; on dense clusters it is small because F is small there
+(suppression), and Håstad's lemma certifies this for *every* DNF of
+bounded width, with no codegree, level or hub hypothesis. The width
+`kb≍k𝓛` enters only linearly in t. Nothing about ES beyond (I), the
+supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
