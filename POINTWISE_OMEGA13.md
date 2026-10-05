@@ -322,3 +322,109 @@ claim is Chebyshev plus a union bound. ∎
 mass is controlled by a Haar pair-correlation sum `B_2(ℓ)`, which is a deterministic
 divisor sum with no g in it. For the class of one, the analogous quantity carries
 the g-inflation.
+
+**Notation.** `H(M):=β^{ω(M)}2^{ω_Y(M)}` and `w(M):=τ(A_M²)H(M)·M/φ(M)`. Summing over D,
+`Σ_{D|A_M²}H(M)P_H(E_{M,D})=w(M)/M`. All sums run over `M≤T`, `M≡3 (4)`.
+
+**Lemma 3.3 (the analytic inputs).**
+
+(A) *PROVED modulo the Nair–Tenenbaum bound NT.* Take `β=1+1/log𝓛` and `Y≤T`. Then
+
+* `S_H^β=Σ_M w(M)/M ≪ 𝓛³logY`;
+* `Σ_E P_H(E)2^{ω_Y}β^{ω}log M_Y ≪ 𝓛³(logY)^4`.
+
+NT is Nair–Tenenbaum's Theorem 1, as quoted in Henriot, arXiv:1102.1643, (1.1). We
+use it with `k=2`, `Q_1(n)=n`, `Q_2(n)=4n−1` (fixed coefficients, no fixed prime
+divisor, `ρ(p)=2` for odd p). The function is `F(n_1,n_2)=τ(n_1²)·f_2(n_2)`, where
+f_2 is multiplicative with `f_2(p^k)≤8^k`.
+
+(B) *PROVED, elementary.* For every `Y≥2`,
+
+```
+Σ_{ℓ>Y prime} B_2(ℓ) ≤ ((𝓛+1)/Y)·Ξ,      Ξ := Σ_M w(M)²τ(M)ω(M)/M ≪ 𝓛^{C_0},
+```
+
+with an absolute `C_0`. For instance `C_0=4.5+36+…`; any fixed value suffices.
+
+*Proof of (A).*
+* *First display.* Write `n=A`, `M=4n−1`, and `f_2(m)=H(m)m/φ(m)`. NT on
+  `x<n≤2x` gives
+  `≪x·∏_{p≤x}(1−ρ(p)/p)·Σ_{n_1≤x}τ(n_1²)/n_1·Σ_{n_2≤x}f_2(n_2)/n_2`. This is
+  `≪x(log x)^{−2}(log x)³·(log x)^{β}logY ≪ x(log x)²logY`, since
+  `(log x)^{β−1}≤e`. Divide by `M≍x` and sum over the `O(𝓛)` dyadic blocks.
+* *Second display.* Use `log M_Y≤logY·Ω_Y(M)≤3logY·(3/2)^{Ω_Y(M)}`. Then repeat
+  with `f_2·(3/2)^{Ω_Y}`, whose Euler factor at `p≤Y` is `1+O(1)/p` with
+  `O(1)≤3+…`. The constants A, B of NT are uniform in T, because `β≤2`. ∎
+
+*Proof of (B).*
+* *Reduce to `V(q)`.* With `M=ℓm`, `M'=ℓm'`, we have
+  `gcd(M,M')/ℓ^{min v}|gcd(m,m')`, so `φ(·)≤gcd(m,m')=Σ_{e|(m,m')}φ(e)`. Hence
+  `B_2(ℓ)≤Σ_eφ(e)V(eℓ)²`, with `V(q):=Σ_{q|M}w(M)/M=Σ_{k≤T/q}w(qk)/(qk)`.
+* *Cauchy–Schwarz in k* gives `V(q)²≤(𝓛+1)Σ_k w(qk)²/(q²k)`.
+* *Regroup by `N=eℓk`.* The term `φ(e)w(N)²/(e²ℓ²k)` equals
+  `(w(N)²/N)·φ(e)/(eℓ)≤(w(N)²/N)/ℓ`. The number of factorisations `N=eℓk` with
+  ℓ fixed is `≤τ(N)`. So
+  `Σ_{ℓ>Y}B_2(ℓ)≤(𝓛+1)Σ_N(w(N)²τ(N)/N)Σ_{ℓ|N,ℓ>Y}1/ℓ≤((𝓛+1)/Y)Ξ`.
+* *Bound Ξ.* Cauchy–Schwarz separates the variables:
+  `Ξ≤(Σ_{n≤T}τ(n²)^4/n)^{1/2}(Σ_{m≤4T}g(m)²/m)^{1/2}`, with
+  `g=H²(m/φ)²τ²` (using `ω≤τ`). Both are mean values of multiplicative functions
+  with `f(p^k)≪(k+1)^{O(1)}` and `f(p)=O(1)`, hence `≪𝓛^{O(1)}`, by the Euler
+  product `∏_{p≤x}(1+f(p)/p+…)`. ∎
+
+**Theorem 3.4 (Haar exponent 3; PROVED modulo NT).** Let `δ*(T)` be the Haar
+probability of `n∈Ẑ^×` avoiding all events with `M≤T` (as in O11 Cor 3.3 and
+POINTWISE_HAAR). Then
+
+```
+log(1/δ*(T)) ≪ 𝓛³(log𝓛)^{O(1)}.
+```
+
+With POINTWISE_HAAR Thm 2.1 (`≫𝓛³/log𝓛`), this gives `log log(1/δ*) = (3+o(1))log𝓛`,
+so the Haar exponent is `a=3`.
+
+*Proof.* Take `β=1+1/log𝓛`, `η=(3/4)logβ≍1/log𝓛` and `Y=𝓛^{C_0+4}`. Run the
+square-class process.
+
+* *Bad events.* By Lemma 3.2(b,c) and Lemma 3.3(A),
+  `E[log Q_end]≪(1/η)𝓛³(logY)^4` and `E[S_res]≪𝓛³logY`. By Lemma 3.2(d) and
+  Lemma 3.3(B), `P(some ℓ>Y has w̃_ℓ>η)≤η^{−2}(𝓛+1)𝓛^{C_0}/Y≤1/4` for large T. By
+  Markov, the events `{log Q_end>4E}` and `{S_res>4E}` each have probability `≤1/4`.
+* *A good realisation.* So some realisation `(Q,r)` avoids all three bad events.
+  In it:
+  * every coordinate satisfies (1.1): coordinates `≤Y` because the process
+    stopped, the others by the choice of realisation;
+  * no event is deterministic (Lemma 3.1).
+* *Conclusion.* Lemma 1.1 on the fibre `n≡r (Q)` gives
+  `δ*≥φ(Q)^{−1}exp(−(4/3)S_res)`. ∎
+
+This is the brief's item (iii), in sharper form than `𝓛^4`. It improves O12
+Thm 6.3's `log(1/δ*)≪𝓛^5log𝓛`, and it settles POINTWISE_HAAR Conj 3.1 up to
+logs.
+
+**Corollary 3.5 (prime side; CONDITIONAL on the interface checks I1–I3).**
+
+* *What changes.* In O11 Thm 3.2's assembly:
+  * the quarantine `(Q,r)` comes from Theorem 3.4's realisation;
+  * `log Q≪𝓛³(log𝓛)^{O(1)}`;
+  * the residual system satisfies (1.1);
+  * the residual mass is `S_res≪𝓛³(log𝓛)^{O(1)}`.
+* *Junta.* O11 Cor 1.2 then gives `O(𝓛(S_res+𝓛))≪𝓛^4(log𝓛)^{O(1)}`.
+* *Conclusion.* `log Z≪𝓛^4(log𝓛)^{O(1)}`. Hence
+  `W(p)≥exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many Mordell-hard p,
+  modulo (G), NT, and OMEGA10 Thm 3.4.
+
+The checks:
+
+* **I1.** O8's BRW minorant (Lemma 3.1 / Thm 3.4) and O8 Lemma 3.3 (twist) run with
+  Lemma 1.1's `x_E=β^sP(E)`, the conditional bound `≤x_E`, and coordinate sums `≤η`,
+  instead of `2P(E)` and 1/32. Note that `η≍1/log𝓛` is *smaller* than 1/32.
+* **I2.** O11 Cor 1.2's junta bound applies to this residual system. Its hypotheses
+  are the edge weights `∏λ^{2v}` and `S`. They do not mention the class.
+* **I3.** O11 Lemma 3.1 holds for the coset `rH` with r a square, `r≡1 (8)`:
+  * every real character χ that is trivial on H has `χ(r)=1`;
+  * cells are consistent with `r` mod `gcd(d_i,Q)` instead of with 1;
+  * p is Mordell-hard because r is a square mod 840.
+
+These are checks of interfaces written for the class of one, not new mathematics. They have not been done.
+The junta `𝓛·S` is now the sole bottleneck. A junta `≪S·(log𝓛)^{O(1)}` (brief item (ii)) would push
+the conditional prime exponent to `1/3`.
