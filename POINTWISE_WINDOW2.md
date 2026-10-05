@@ -127,3 +127,28 @@ small points in a single configuration.
 
 **Assessment.** Block-type fakes do not reach the target at θ=1/2. The remaining
 question is the full LP (§3.5).
+
+### 3.5 The discretised LP (EVIDENCE, model)
+`scripts/window2_lp.py EPS K THETA [--one]` solves the primal LP exactly in a
+discretised model. Points lie on K log-spaced bins in `[ε,1]`, with representative
+values `g_k` and bin masses `½ln(e_{k+1}/e_k)`. The true law is that of §3.3. The
+constraints are all visible correlations, matched exactly. Variables are
+rescaled to `ν/μ` and rows to `ρ(S)`. Rows with `ρ(S)=0` (S contained in no
+configuration) are dropped.
+
+ε=0.1, K=8, bins at 0.115, 0.154, 0.205, 0.274, 0.365, 0.487, 0.649, 0.866:
+
+| θ | one window: min ν(∅)/τ | two windows: min ν(∅)/τ |
+|---|---|---|
+| 0.4 | 0 (fake) | — |
+| 0.5 | 0.744 | **0 (fake)** |
+| 0.6 | 0.828 | **0 (fake)** |
+| 0.7 | — | 0.497 |
+| 0.75 | — | 0.567 |
+| 0.8 | — | 0.728 |
+
+(θ≥0.9: HiGHS reports numerical trouble; not used.) The one-window column
+reproduces the model threshold 1/2 (W1). **For two windows the full LP finds a
+fake at θ=0.5 and 0.6**, although block fakes reach only 43% of the target mass.
+The optimal fake at θ=0.6 removes the target and rearranges one-window
+pair configurations (P,∅) and (∅,Q). It does not need (P,Q) mass.
