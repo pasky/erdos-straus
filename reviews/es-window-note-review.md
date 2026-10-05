@@ -34,6 +34,29 @@ Referee branch `side-agent/referee-window-note`; author branch `side-agent/windo
   value −π²/(64 log 2)=−0.22248. Priority: notes Thm 14.4/14.9 bound E(N) by counting
   p failing all windows C₀<w≤W=(log N)^θ, so the attribution is fair (see minor D-point
   on "internally reviewed").
+* **§5 cited results** — statements checked where a source is archived:
+  semi-linear f(s)=(e^γ/πs)^{1/2}∫₁^s dt/√(t(t−1)), β=1, s∈[1,2] matches Teräväinen
+  (6.4) (`sources/sieve/teravainen-1611.08585.txt` l.1446); FHRSS Thm 1.1(2) matches
+  `sources/sieve/2504.20289.txt` l.34–50 verbatim in hypotheses. Linear-sieve f₁, LS,
+  SW, BV, Mertens-AP: standard, correctly stated as far as I can tell from memory
+  (not checked against a primary source by me either). (eq. fsemi), (eq. flin): re-derived, OK.
+* **Thm 6.1 (W1)** — SOUND. Re-derived every step: n_p≡1 (210); g(ℓ)=1/(ℓ−1) and
+  1−g=(1−1/ℓ)(1−(ℓ−1)⁻²); c₁ independent of ε (V(z)≥c(log x)^{−1/2} because log z≤log x);
+  k<1/(1/2−ε)<3 and parity ⇒ k∈{0,2}; m≤x^{2ε}; a=4mr₁≡2 (3) so 3∤a; LS with two
+  classes, Λ≤(log y)/5+O(1); a/φ(a)=2·(m/φ(m))·r₁/(r₁−1)≤4m/φ(m); Σ1/r₁=−log(1−2ε)+o(1)≤3ε;
+  (1−1/ℓ)(1+ℓ²/(ℓ−1)³)=1+(2ℓ−1)/(ℓ(ℓ−1)²)≤1+3/ℓ² iff ℓ²−5ℓ+3≥0, true for ℓ≥7
+  (all ℓ≡1 (3)). Step 5 arithmetic OK. Checklist points 8, 9 OK.
+* **Remark 6.3 (FHRSS route)** — SOUND (hypotheses verified: a=1, gcd(1,6)=1, 2|AB,
+  gcd(35,24)=1, gcd(l−A,m)=gcd(4,35)=1). Implicit step "3∤n" (else p=4n−3≡0 (3)) should
+  be said; n odd ⇒ p≡1 (8). Minor.
+* **Thm 7.1 (W2, on EH)** — SOUND. e_p is a genuine integer sequence; for
+  ℓ∈P₃∩P₇ two reduced classes, so A_d is a sum of ∏ω(ℓ)≤τ(d) progressions; ω(ℓ)=0
+  for ℓ|840 is consistent (2∤n₃, 2∉P₇; 3,5∤n₇). Cauchy–Schwarz remainder
+  (x(log x)⁴·x(log x)^{−10})^{1/2} OK, the trivial |E|≪x/φ(k) suffices. s→2+2ε/(1−2ε);
+  f₁≥e^γ(s−2)/s≥(e^γ/3)ε. T^{(q)}: classes 0,q/a,(q−q')/a distinct mod ℓ≥11;
+  (1−3/ℓ)⁻¹≤(1−1/ℓ)⁻³(1+6/ℓ²) ⇔ ℓ≥17/3; m even allowed for q=7 and then
+  a/φ(a)≤2m/φ(m); Euler factor at ℓ=2 for q=7 is a bounded constant. Union bound fine.
+  Checklist points 10, 11 OK.
 
 **Brute force (from scratch, `scripts/review_r41_halfset.py`)**: for every a≡3 (4),
 3≤a≤63, the number of selections equals 2^β(a) with β from (eq. beta), every S_σ has
