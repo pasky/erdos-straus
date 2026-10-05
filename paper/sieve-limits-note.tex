@@ -62,12 +62,15 @@ $\cR(M)$-, $(a,D)$- or Case-A class contains a square modulo its
 modulus; and a lossless first moment over smooth moduli, obtained from a
 local moment $Z_y$ of the smooth part with Shiu's theorem in
 progressions.  The majorant of the $3/4$ note lies in the class, so $3/4$
-is sharp for its method.  The cap extends to every CRT-admissible large
-sieve with frequencies of polynomial level (twisted, multiplicative,
-hybrid and fibrewise forms, and the large sieve for primes), to
-Gallagher's larger sieve (which saves only $O(\log\log N)$), to majorants
-positive only at primes, to interval counts of majorants whose moduli are
-at most $N/2$, and to tuple-count input of bounded or prime order.  For
+is sharp for its method.  The cap $O_A((\log N)^{3/4})$ extends to every
+CRT-admissible large sieve with frequencies of polynomial level
+(twisted, multiplicative, hybrid and fibrewise forms), to interval counts
+of majorants whose moduli are at most $N/2$, and to tuple-count input of
+bounded order; tuple input of prime order $k$ saves at most
+$O_A((\log N)^{3/4}+k\log\log N)$.  The large sieve for primes and majorants
+positive only at primes are capped at $O_A((\log N)^{3/4}(\log\log N)^{3/4})$
+(and at $O_A((\log N)^{3/4})$ at pointer level only).  Gallagher's larger
+sieve saves only $O(\log\log N)$.  For
 hybrid methods that count large classes blindly we reduce the cap to a
 combinatorial hypothesis; for super-polynomial large-sieve frequencies we
 show that any cap must use the sparsity of forced classes.  We also show
@@ -114,6 +117,10 @@ Every statement carries one of the following labels.
   heuristics; not a theorem.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
+\lab{proved} for a result resting on Theorem~\ref{thm:noBcap} (or
+Lemma~\ref{lem:firstnoB}) means: given the \cite{KA}/\cite{KA2} framework
+(square base, leak, weighted sequential sieve limit) as reviewed there
+\cite{KArev,KArev2,KA2rev,KA2rev2}; \cite{KA3} does not re-prove it.
 Apart from the classical facts of Section~\ref{sec:forced}, each
 \lab{proved} result below appears in one of eighteen internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
@@ -227,14 +234,17 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   sieve is bounded below by $N\E|g^*|^2$ for a Selberg-square CRT majorant,
   so it is capped at $C_A(\log N)^{3/4}$ for frequencies of polynomial level
   (Theorem~\ref{thm:LScap}); likewise twisted, multiplicative and hybrid
-  Bessel forms (Theorem~\ref{thm:hybrid}) and the large sieve for primes
-  (Theorem~\ref{thm:LSprimes}).  Gallagher's larger sieve with prime-power
+  Bessel forms (Theorem~\ref{thm:hybrid}).  The large sieve for primes
+  (Theorem~\ref{thm:LSprimes}) is capped at
+  $C_A(\log N)^{3/4}(\log\log N)^{3/4}$, and at $C_A(\log N)^{3/4}$ at pointer
+  level only.  Gallagher's larger sieve with prime-power
   kernels saves at most $26\log\log N+C$ over any mixture, unconditionally
   (Theorem~\ref{thm:gallagher}).  For super-polynomial frequencies a dense
   abstract family shows that comparison measures plus large-sieve axioms
   cannot give a cap (Theorem~\ref{thm:band}); the forced-class case is
   Conjecture~\ref{conj:HLS}.  Prime-only majorants are capped for all
-  mixtures (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
+  mixtures, with the same $(\log\log N)^{3/4}$ proviso
+  (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
   modulus $\leq N/2$ are capped however the interval sum is evaluated
   (Corollary~\ref{cor:IFcap}); hybrid methods that count large classes
   blindly are capped conditionally on a flat-minorant hypothesis, which
@@ -3775,8 +3785,8 @@ item, this is said.
   Outside: frequencies of super-polynomial level whose denominators
   carry many family primes (escape (E1), Conjecture~\ref{conj:HLS}).  By
   Theorem~\ref{thm:band} this cannot be closed by comparison measures
-  and large-sieve axioms alone: a proof must use the sparsity of forced
-  classes.  Non-periodic rows (such as $n^{it}$) are non-CRT input.
+  and large-sieve axioms alone: a proof needs family-specific input such
+  as the sparsity of forced classes.  Non-periodic rows (such as $n^{it}$) are non-CRT input.
 \item \emph{The larger sieve with bad composite kernels.}  Gallagher's
   sieve with prime-power kernels saves at most $26\log\log N+C$ over any
   mixture, unconditionally (Theorem~\ref{thm:gallagher}); composite
@@ -3873,12 +3883,14 @@ are themselves classes of the four types and all their primes, those of
 the multiplier included, are $\leq N^A$.  For these,
 Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
 through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family primes.
-\emph{New in this version}: the factor $(\log\log N)^{3/4}$ without $B$
+\emph{New in this version}: the removal of the factor $(\log\log N)^{3/4}$ without $B$
 (Theorem~\ref{thm:noBcap}); the large sieve beyond prime slices at
 polynomial level, its twisted, hybrid and prime forms, and Gallagher's
 larger sieve (Section~\ref{sec:LS}); prime-only majorants for all mixtures;
 interval counts with all moduli $\leq N/2$; bounded-order and
-prime-order tuple input; and the $\Lambda^2$ middle range $r\asymp\log L$ as a
+prime-order tuple input (the prime forms and prime-only majorants with
+the factor $(\log\log N)^{3/4}$, prime order $k$ with a term $k\log\log N$);
+and the $\Lambda^2$ middle range $r\asymp\log L$ as a
 cap (Remark~\ref{rem:L2vsmain}).  For the external input, the Case-A part
 uses Elsholtz--Tao Prop.~1.4 and Thm~7.1, Cor.~7.4 and (7.10) of their
 \S7 (published, not re-proved; Remark~\ref{rem:ETslips}), the latter as
@@ -3955,10 +3967,12 @@ larger than the slice primes (provided the multiplier conditions are
 classes of the four types with all primes $\leq N^A$); unresolved
 $\eta$-twin moduli, item (i) of the list in \cite[\S6]{ET}.  Gone since
 version~3: the large sieve beyond prime slices at polynomial level, in
-twisted, hybrid and prime forms; Gallagher's larger sieve; prime-only
-majorants of mixtures; per-frequency rounding and inter-frequency
-cancellation when all moduli are $\leq N/2$; tuple input of bounded or
-prime order; and the factor $(\log\log N)^{3/4}$.
+twisted, hybrid and prime forms (the prime form with the factor
+$(\log\log N)^{3/4}$, removed at pointer level only); Gallagher's larger
+sieve; prime-only majorants of mixtures (same proviso); per-frequency rounding and inter-frequency
+cancellation when all moduli are $\leq N/2$; tuple input of bounded order,
+and of prime order $k$ up to $k\log\log N$; and the factor $(\log\log N)^{3/4}$
+in Theorem~\ref{thm:main}.
 
 \emph{The exact exponent without $B$} is settled for the class of
 Theorem~\ref{thm:main}: the factor $(\log\lambda)^{3/4}$ of the previous version
