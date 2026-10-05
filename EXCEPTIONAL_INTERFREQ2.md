@@ -406,7 +406,9 @@ for a in "20 100 0.1 1.5" "20 100 0.1 2" "30 150 0.1 1.5" "30 150 0.1 2" "40 200
 for a in "60 480 0.1 2" "100 500 0.1 2" "100 500 0.1 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan2.txt, ~8 min, <1 GB
 for a in "20 100 0 2" "30 150 0 2" "40 200 0 2" "60 300 0 2" "40 200 0 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # SPW (t = 0): flat0_scan.txt, ~1 min
 for a in "100 1000 0.1 2" "100 1000 0.1 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan3.txt, ~45 min each, ~3.2 GB
-uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 1.5 - med                                           # medium sign conditions: margin 0
+uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 1.5 - med   # (short support: truncation artefact)
+for a in "20 2520 0.1 1.5" "20 2520 0.1 1.5 nomed" "20 2520 0.1 2" "20 2520 0.1 2 nomed" "12 420 0.1 2" "16 840 0.1 2" "20 2520 0.1 2 medall" "16 840 0.1 2 medall"; do uv run --with scipy --with sympy python scripts/interfreq2_med_periodic.py $a; done   # med_periodic.txt, seconds each
+for a in "20 300 0.1 2 - med" "30 450 0.1 2 - med" "40 600 0.1 2 - med"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # s0 = 1/3, minutes                                           # medium sign conditions: margin 0
 uv run --with scipy python scripts/interfreq2_phi_lp.py 20 60 0.1                                                     # exact-uniform comparison: infeasible (§3)
 uv run --with scipy --with sympy python scripts/interfreq2_rigid.py 20 2520                                           # mass off [1,N] = N
 uv run --with scipy --with sympy python scripts/interfreq2_rigid_points.py 20 2520                                    # rigid nulls = 21Z (~5 min)
