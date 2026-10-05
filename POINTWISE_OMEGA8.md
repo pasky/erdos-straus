@@ -67,3 +67,75 @@ log K ≤ k^{A}·(log Ŝ)^{O(1)}   for some fixed A   (then η = 1/(A+2) works u
   minorant in absolute terms; it is that the cascade puts the factorial
   in the **exponent of Ŝ**: `log(M_1/μ) ≈ Ŝ^{(k−1)!}` (O4 Thm 1.1), while
   the target needs `Ŝ^{poly(k)}`.
+
+## 2. Anatomy of the gap (what does not transfer, exactly)
+
+**2.1 The Haar argument** (O2 Thm 11.3, O4 Prop 5.1) uses two steps:
+(i) iterated quarantine (O2 Lemma 11.2: per-prime masses `w_ℓ≤c_0`
+after adding `|𝓑|≤kS*/c_0` primes); (ii) the local lemma with
+`x_E=2P(E)`, which needs **only** `w_ℓ≤1/(8k)`: no codegree, no
+truncation. Its proof bounds the conditional probabilities
+`P(E | no earlier event)` and multiplies them.
+
+**2.2 The prime side** needs a *fixed* function `B ≤ F` (pointwise on all
+residue vectors) that is a short combination of congruence cells: few
+primes per cell (log-modulus), small `log(M_1/μ)` (PO Thm 4.1). Step (i)
+transfers verbatim (O4 Thm 2.1). Step (ii) does not: a fixed low-junta
+function cannot condition on "no earlier event". Every minorant used so far
+(PO Brun; O2 support-truncated Bonferroni `B*_L`; O3/O4 multilevel
+compositions) is an alternating expansion of `F=∏_E(1−1_E)`.
+
+**2.3 Three facts about alternating expansions** (the first two PROVED,
+the third PROVED about the parameter recursion).
+
+1. *Precision.* `E F=δ≤1` while the order-j terms have total mass
+   `≍S^j/j!`; so terms up to order `≍S+log(1/δ)` are needed and each must be
+   exact or approximated to absolute precision `≪δ e^{−S}`.
+2. *Reuse.* An order-j term pins the `≤kj` vertices of j events. The error
+   of a truncation at order L is a moment of the active-prime count, and
+   a new event may reuse any i pinned vertices. Bounding this moment
+   needs codegrees `Δ_O ≲ (kL)^{−(|O|−1)}` (O2 Lemma 10.2), and this is
+   real for the truncated moment, not an artefact of its proof (O2 §11.4,
+   reviewer example D12).
+3. *Circularity.* Markov pushes of heavy sets at thresholds
+   `(kL)^{−(i−1)}` add mass `≥ Σ·(kL)^{i−1}/C`, while `L ≥ c·(mass)`;
+   so in one family `S_fin ≥ S·(ckS_fin)^{i−1}/C` has no solution for
+   large S. Hence separate levels, each truncated at its own mass, and
+   exponents multiply along `k→k−1→…→2`: `(k−1)!` (O4 Thm 1.1, §4.1).
+
+**2.4 Where the local lemma differs.** On a *good* configuration, a
+partial cluster with large completion mass M is exponentially unlikely
+(probability factor `≤e^{−M}`: suppression). An alternating expansion
+instead is evaluated on *all* configurations, and on such clusters its
+error grows like `M^L/L!` (Bonferroni) or `C^M` (support truncation):
+amplification. The local lemma's proof uses only upper bounds for
+conditional probabilities (Haeupler–Saha–Srinivasan inflation); a
+minorant needs *lower-tail suppression*, which O2–O4 never use. §§3–4
+build a minorant whose error is controlled by quantities that do see the
+suppression.
+
+**2.5 A codegree-free outer level (Lemma 2.1, PROVED).** Order 𝓔. For
+E∈𝓔 let `𝒩(E)` be the set of earlier events sharing a prime with E, and
+`Φ_E:=∏_{E'∈𝒩(E)}(1−1_{E'})`. Put `N'':=Σ_E 1_EΦ_E` (locally minimal
+occurring events). Then
+
+* `F=1[N''=0]`, and events counted by N'' have pairwise disjoint supports;
+* hence `E binom(N'',j) ≤ Σ_{disjoint j-sets}∏P(E) ≤ S^j/j!` for all j,
+  with **no codegree hypothesis**, and Bonferroni in N'' gives
+  `Σ_{j≤L}(−1)^j binom(N'',j) ≤ F` (L odd) with error `≤(L+1)S^{L+1}/(L+1)!`.
+
+*Proof.* If some event occurs, the first occurring one is counted, so
+`N''≥1`; conversely `N''≥1` implies an event occurs. If E′≺E share a prime
+and both are counted, then `1_{E′}=1` kills `Φ_E`. Disjoint supports give
+independence. Bonferroni is the identity
+`Σ_{j≤L}(−1)^j binom(N,j)=(−1)^L binom(N−1,L)` for `N≥1`. ∎
+
+So in the expansion of F the outer inclusion–exclusion costs nothing; all
+codegree dependence sits in the neighbourhood factors `Φ_E`, which are not
+low-junta. Replacing them by truncations reintroduces 2.3.2 (pinned sets
+of `≍kL` vertices, precision `δe^{−S}` needed) or, with Brun's product
+inequality over small blocks (precision only `1/S` needed), products of
+local errors whose expectation is an event-level exponential moment that
+dense clusters blow up. Both routes were checked and fail for the same
+reason as O2–O4; Lemma 2.1 is recorded because it isolates the problem in
+the neighbourhood factors.
