@@ -1,0 +1,1 @@
+trials 60 worst {'formula_err': np.float64(1.4210854715202004e-14), 'm1_ratio': np.float64(1.0), 'maxc_ratio': 1.0, 'maxBminusF': np.float64(0.0), 'identity': np.float64(8.881784197001252e-16), 'AjEj_vs_Penergy': np.float64(2.7755575615628914e-17)} bound_ok_all True

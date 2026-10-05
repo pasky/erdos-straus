@@ -1,0 +1,16 @@
+ET regime: S* = L^4 log L
+  L=1e3   log(logp)/log L = 15.7978   log t/log L=6.598 log K/log L=7.899 log logZ/log L=7.800
+  L=1e4   log(logp)/log L = 15.3489   log t/log L=6.449 log K/log L=7.674 log logZ/log L=7.600
+  L=1e6   log(logp)/log L = 14.8995   log t/log L=6.299 log K/log L=7.450 log logZ/log L=7.400
+  L=1e9   log(logp)/log L = 14.5997   log t/log L=6.199 log K/log L=7.300 log logZ/log L=7.267
+  L=1e12  log(logp)/log L = 14.4498   log t/log L=6.150 log K/log L=7.225 log logZ/log L=7.200
+  L=1e20  log(logp)/log L = 14.2699   log t/log L=6.090 log K/log L=7.135 log logZ/log L=7.120
+  L=1e30  log(logp)/log L = 14.1799   log t/log L=6.060 log K/log L=7.090 log logZ/log L=7.080
+Unconditional regime: log S* = log2 * L/log L (Wigert main term)
+  L=1e4   L/(log2 p log3 p) = 0.8657   (target 1/(2log2) = 0.7213)
+  L=1e6   L/(log2 p log3 p) = 0.8645   (target 1/(2log2) = 0.7213)
+  L=1e9   L/(log2 p log3 p) = 0.8296   (target 1/(2log2) = 0.7213)
+  L=1e12  L/(log2 p log3 p) = 0.8090   (target 1/(2log2) = 0.7213)
+  L=1e20  L/(log2 p log3 p) = 0.7807   (target 1/(2log2) = 0.7213)
+  L=1e40  L/(log2 p log3 p) = 0.7558   (target 1/(2log2) = 0.7213)
+  L=1e80  L/(log2 p log3 p) = 0.7410   (target 1/(2log2) = 0.7213)

@@ -1,0 +1,42 @@
+trial   0 m=13 t=3 E F=0.4748 E[F-B]=2.654e-08 bound=3.442e-02 max(B-F)=+0.0e+00 identity err=4.3e-19
+trial   1 m=17 t=3 E F=0.3545 E[F-B]=2.685e-04 bound=1.348e-01 max(B-F)=+0.0e+00 identity err=1.7e-16
+trial   2 m=22 t=1 E F=0.0419 E[F-B]=1.180e-01 bound=5.490e+01 max(B-F)=+0.0e+00 identity err=1.8e-15
+trial   3 m=18 t=1 E F=0.1868 E[F-B]=3.118e-02 bound=2.497e+01 max(B-F)=+0.0e+00 identity err=8.9e-16
+trial   4 m=22 t=5 E F=0.1577 E[F-B]=8.870e-32 bound=6.203e-29 max(B-F)=+0.0e+00 identity err=1.3e-31
+trial   5 m=16 t=3 E F=0.1848 E[F-B]=3.301e-04 bound=3.871e-01 max(B-F)=+0.0e+00 identity err=2.8e-17
+trial   6 m= 7 t=1 E F=0.4813 E[F-B]=1.299e-03 bound=1.003e+00 max(B-F)=+0.0e+00 identity err=1.7e-17
+trial   7 m= 9 t=1 E F=0.3584 E[F-B]=6.991e-03 bound=1.762e+00 max(B-F)=+0.0e+00 identity err=4.4e-16
+trial   8 m=18 t=3 E F=0.2262 E[F-B]=4.858e-05 bound=2.523e-01 max(B-F)=+0.0e+00 identity err=5.6e-17
+trial   9 m=20 t=0 E F=0.0762 E[F-B]=3.384e-01 bound=1.332e+02 max(B-F)=+0.0e+00 identity err=2.7e-15
+trial  10 m=15 t=1 E F=0.1229 E[F-B]=3.966e-02 bound=2.136e+01 max(B-F)=+0.0e+00 identity err=4.4e-16
+trial  11 m=12 t=0 E F=0.6422 E[F-B]=2.622e-03 bound=5.066e+00 max(B-F)=+0.0e+00 identity err=2.2e-16
+trial  12 m=22 t=2 E F=0.0989 E[F-B]=5.812e-03 bound=1.043e+01 max(B-F)=+0.0e+00 identity err=3.3e-16
+trial  13 m=24 t=1 E F=0.1541 E[F-B]=4.973e-02 bound=6.021e+01 max(B-F)=+0.0e+00 identity err=6.7e-16
+trial  14 m=13 t=5 E F=0.5821 E[F-B]=1.485e-33 bound=5.195e-30 max(B-F)=+0.0e+00 identity err=6.2e-32
+trial  15 m=23 t=0 E F=0.1142 E[F-B]=2.470e-01 bound=1.600e+02 max(B-F)=+0.0e+00 identity err=5.3e-15
+trial  16 m= 9 t=3 E F=0.3965 E[F-B]=7.973e-05 bound=1.656e-02 max(B-F)=+0.0e+00 identity err=4.9e-17
+trial  17 m=10 t=0 E F=0.7180 E[F-B]=4.780e-04 bound=1.839e+00 max(B-F)=+0.0e+00 identity err=2.2e-16
+trial  18 m= 7 t=1 E F=0.3550 E[F-B]=4.998e-04 bound=8.449e-01 max(B-F)=+0.0e+00 identity err=1.7e-16
+trial  19 m=14 t=5 E F=0.3748 E[F-B]=2.115e-32 bound=1.480e-29 max(B-F)=+0.0e+00 identity err=5.1e-32
+trial  20 m= 8 t=3 E F=0.4659 E[F-B]=2.048e-06 bound=2.490e-02 max(B-F)=+0.0e+00 identity err=6.9e-18
+trial  21 m= 4 t=5 E F=0.7578 E[F-B]=5.404e-34 bound=1.597e-31 max(B-F)=+0.0e+00 identity err=2.0e-32
+trial  22 m=17 t=0 E F=0.2906 E[F-B]=1.656e-02 bound=3.902e+01 max(B-F)=+0.0e+00 identity err=8.9e-16
+trial  23 m= 9 t=3 E F=0.5530 E[F-B]=5.571e-06 bound=1.062e-02 max(B-F)=+0.0e+00 identity err=2.4e-17
+trial  24 m=18 t=2 E F=0.1051 E[F-B]=9.013e-03 bound=7.049e+00 max(B-F)=+0.0e+00 identity err=3.3e-16
+trial  25 m=11 t=1 E F=0.3340 E[F-B]=3.390e-03 bound=3.950e+00 max(B-F)=+0.0e+00 identity err=1.7e-16
+trial  26 m=19 t=2 E F=0.1680 E[F-B]=3.567e-03 bound=3.411e+00 max(B-F)=+0.0e+00 identity err=2.2e-16
+trial  27 m= 3 t=5 E F=0.7603 E[F-B]=3.944e-34 bound=8.963e-32 max(B-F)=+0.0e+00 identity err=0.0e+00
+trial  28 m= 5 t=1 E F=0.5760 E[F-B]=1.085e-03 bound=2.406e-01 max(B-F)=+0.0e+00 identity err=1.7e-16
+trial  29 m=12 t=1 E F=0.3664 E[F-B]=7.758e-03 bound=5.386e+00 max(B-F)=+0.0e+00 identity err=8.9e-16
+trial  30 m= 5 t=5 E F=0.5680 E[F-B]=4.181e-33 bound=1.777e-30 max(B-F)=+0.0e+00 identity err=0.0e+00
+trial  31 m=22 t=2 E F=0.0618 E[F-B]=3.079e-02 bound=2.190e+01 max(B-F)=+0.0e+00 identity err=1.8e-15
+trial  32 m=14 t=2 E F=0.3354 E[F-B]=2.670e-03 bound=1.622e+00 max(B-F)=+0.0e+00 identity err=2.2e-16
+trial  33 m=22 t=4 E F=0.0545 E[F-B]=1.230e-31 bound=5.495e-29 max(B-F)=+0.0e+00 identity err=8.0e-31
+trial  34 m= 9 t=2 E F=0.4303 E[F-B]=1.771e-03 bound=3.241e-01 max(B-F)=+0.0e+00 identity err=4.4e-16
+trial  35 m=13 t=0 E F=0.2655 E[F-B]=9.067e-02 bound=3.690e+01 max(B-F)=+0.0e+00 identity err=3.6e-15
+trial  36 m=15 t=5 E F=0.2771 E[F-B]=4.584e-32 bound=2.454e-29 max(B-F)=+0.0e+00 identity err=2.6e-31
+trial  37 m=22 t=5 E F=0.1119 E[F-B]=1.376e-31 bound=8.056e-29 max(B-F)=+0.0e+00 identity err=2.0e-31
+trial  38 m=11 t=5 E F=0.2964 E[F-B]=8.374e-32 bound=1.411e-29 max(B-F)=+0.0e+00 identity err=2.3e-31
+trial  39 m= 7 t=0 E F=0.3584 E[F-B]=1.405e-02 bound=5.462e+00 max(B-F)=+0.0e+00 identity err=1.1e-16
+SUMMARY trials=40 max(B-F)=0.00e+00 (must be <=1e-9) max identity err=5.33e-15 bound holds in 40/40
+PASS
