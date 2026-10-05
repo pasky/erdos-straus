@@ -114,3 +114,27 @@ Repairs applied:
   sieve fundamental lemma), Monte Carlo consistent with `𝓛³/log𝓛` (evidence), heuristic
   `(log p)^{1/3}` (not a claim). New bib entry [Haar] (internal note). The branch was
   not merged with main; the remark only cites it.
+
+## Response to referee R47 (`reviews/es-subexp-note-review-v3.md`, minor revision)
+
+All points applied; recompiled (3 passes, 28 pp, no warnings/overfull/undefined).
+* **D1 (MAJOR).** Cor 8.2 now defines δ*(T) with the [Haar] normalisation (Haar measure
+  on Ẑ^× relative to the class 1 mod 24; equivalently the proportion among units mod
+  `lcm(24, M≤T)` that are ≡1 mod 24). Proof: class 1 mod Q has relative measure
+  `φ(24)/φ(Q)`, coordinates uniform on Ω_ℓ by CRT, so `log(1/δ*) ≤ log Q + 2.2 S_1`.
+  The all-integer natural density `δ*_ℤ(T)` is kept as a second statement with the old
+  proof (Mertens factor). Remark 8.3 now states the [Haar] lower bound for the unit
+  normalisation only, and says explicitly that it gives no lower bound for `δ*_ℤ`
+  (non-units avoid events at their primes).
+* **D2.** Thm 3.1(d) stated for κ=4 only; text notes ET's standing hypotheses.
+* **D3.** Remark 5.2 headed "Assessment"; Remark 6.8 headed "proved, except the cited
+  constant"; §9 "Proved" list now includes Remark 6.7 and Remark 6.8 (minus the cited
+  switching-lemma constant).
+* **D4.** Lemma 2.2 proof: replaced by `A_M²/D ≡ A_M²(−A_M)^{−1} = −A_M`.
+* **D5.** Thm 8.1: says that B and |B| depend only on X mod D, hence are combinations of
+  consistent point cells mod D, before invoking Lemma 7.1.
+* **D6.** [LT] removed from the TODO(verify) list (verified by R47); OD §4.4 constant
+  flagged as unverified in the TODO comment.
+* **D7.** TODO(novelty) comment lists Håstad 2001, Tal 2017, and the Fourier-growth line
+  (G_F(λ) = noise operator with ρ>1) to check before submission.
+* **D8.** Lemma 2.5 now assumes only `c>0`.
