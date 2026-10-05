@@ -1,6 +1,9 @@
 # EXCEPTIONAL_LARGESIEVE3 — H_LS∞ for forced families via sparsity (task O59)
 
-Status: **in progress** (agent O59, branch `side-agent/hls-sparse`). Labels as
+Status: **checkpoint 1, reviewed** (agent O59, branch `side-agent/hls-sparse`;
+hostile review R59 `reviews/exceptional-largesieve3-review.md`: no FATAL,
+Thm 1.1, Lemma 2.1, Thm 3.1, Lemma 4.1 SOUND; MAJOR D1, D2 and minors D3–D7
+applied). Labels as
 in `DISCOVERIES.md`. Notation: LS = `EXCEPTIONAL_LARGESIEVE.md`, LS2 =
 `EXCEPTIONAL_LARGESIEVE2.md`, K2 = `EXCEPTIONAL_KARY2.md`, K3 =
 `EXCEPTIONAL_KARY3.md`, EK = `EXCEPTIONAL_KARY.md`.
@@ -21,6 +24,7 @@ may and do take π uniform on all CRT digits not resolved by `M₀`, so only
 | Thm 1.1 | **smooth–rough splitting.** For any `z`, the z-smooth CRT coordinates cost only the *density* of a measure on the z-smooth avoider set (no Fourier or level information at all); only the z-rough part needs Fourier control, in the `ℓ^{2+2β}` sense of LS Thm 4.1 | PROVED |
 | Lemma 2.1 | the z-smooth part costs `log ρ ≤ 16𝔐(z) + 2W₁ + log 2`, `𝔐(z) ≪ (log z)³(log log z)³` (sequential law with square base, conditioned on a good set) | PROVED (K2 §§2–4; Case A via ElT Prop 1.4) |
 | Thm 3.1 | **rough-slice mixtures**: if every modulus of 𝔊 has at most one prime factor `> z = exp((log N)^{1/4})`, every CRT-admissible large sieve (any rational frequencies, any denominators, any weights) saves `≤ C(log N)^{3/4}(log log N)³` | PROVED (same inputs) |
+| §4 | (H_rough) on z-rough fibres is a **sufficient** condition (not equivalent) for the cap over all forced mixtures; two-copy form (Lemma 4.1); residue concentration (Lemma 4.2) defeats the plain KP criterion | Lemmas PROVED; (H_rough) CONJECTURE; obstacle discussion Assessment |
 
 ## 1. The smooth–rough splitting
 
@@ -298,6 +302,13 @@ over `ℤ/(3·5·7·11·13)` (max ratio 0.867 ≤ 1; π checked to live on 𝒜)
 (2) the local bound `Σ_{a≠0}|φ|^{p'} ≤ g^{1+2β}` and Parseval `= g`;
 (3) Lemma 4.1's two-copy identity and `𝓡 ≤ Σ_S s_S^{2β}P_S` for a random
 non-product measure mod 105.
+Coverage note (review R59 D7): check (1) uses rough-slice mixtures only.
+The reviewer's from-scratch `scripts/review_ls3_thm11.py` (branch
+`side-agent/review-ls3`) covers Theorem 1.1 with multi-rough-prime classes,
+Dirac fibre laws and spiky `π_s`, and shows the constant ρ is attained
+(ratio 1.000000 for uniform `π_s` and a c-independent fibre law), so ρ is
+sharp; `scripts/review_ls3_lemmas.py` re-checks Lemmas 4.1, 4.2 and the
+Theorem 3.1 local bound with prime powers.
 
 ## Replay
 
