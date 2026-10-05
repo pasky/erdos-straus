@@ -57,3 +57,19 @@ configurations with different cofactor sizes 1−Σt changes the good-divisor co
 model fake is **not** shown to be a fake for "all Type-I data". The §2 axioms (d | P₃(z)) are
 consistent with the model; the wording in §4 ("any weights, any combinatorics") and §5
 ("Methods that provably cannot give a_min≥11 …") is not.
+
+### §3.5 LP values (discrete model ε=0.1, K=8) — SOUND; several upgradable to CERTIFIED
+`scripts/review_w2_lp.py` (own model build + HiGHS + **exact rational dual-feasibility check**, ρ in
+40 digits; a dual y with `Σ_S y_S emb(S,C) ≤ [C=∅]` ∀C proves ν(∅) ≥ y·ρ for every fake):
+
+| case | author (LP) | reviewer primal | reviewer certified lower bound |
+|---|---|---|---|
+| one window θ=0.5 | 0.744 | 0.74412 | **≥ 0.744128** |
+| one window θ=0.6 | 0.828 | — | **≥ 0.827541** |
+| two windows θ=0.5 | 0 | 0 | (fake certified, Prop 3.7) |
+| two windows θ=0.6 | 0 | 0 | — (primal not certified: the 203-column HiGHS support re-solved at 40 digits has negative entries) |
+| two windows θ=0.7 | 0.497 | 0.49695 | **≥ 0.497087** |
+| two windows θ=0.8 | 0.728 | 0.72833 | **≥ 0.728369** |
+
+Since visible sets grow with θ, min ν(∅)/τ is nondecreasing in θ. So in this grid the
+two-window threshold θ₂ ∈ (0.5, 0.7] is *certified*; (0.6, 0.7] remains EVIDENCE (0.6 fake uncertified).
