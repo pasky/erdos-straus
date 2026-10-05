@@ -1,6 +1,6 @@
 # EXCEPTIONAL_KARY3 — removing the `(log log N)^{3/4}` loss from KARY2 Thm 5.1; truncated weights (task O28)
 
-Status: **in progress (checkpoint 0).** Labels follow `DISCOVERIES.md`.
+Status: **checkpoint 1 (unreviewed).** Labels follow `DISCOVERIES.md`.
 Notation follows `EXCEPTIONAL_KARY2.md` (K2), `EXCEPTIONAL_KARY.md` (EK),
 `EXCEPTIONAL_THETA.md` (ET), `EXCEPTIONAL_TUPLES.md` (TU). **ElT** is
 Elsholtz–Tao, arXiv 1107.1010 (J. Aust. Math. Soc. 2013); K2 already uses
@@ -10,7 +10,22 @@ EK Lemma 4.2′, K2 Lemma 4.2).
 
 ## 0. Summary
 
-(filled in at the end)
+| item | statement | label |
+|---|---|---|
+| §1 | the K2 loss is Rankin's: each dyadic block of smooth moduli is bounded by `e^{−u}` times the *whole* smooth sum (`≍ log y`), forcing `u₀ ≍ log log y`; Hölder variants lose the same | Assessment (inspection) |
+| Lemmas 2.1–2.2 | local weight `Z_y(M) = Σ_{p^ν|M, p^ν≤y}Λ(p^ν)/log y`: `≥ u/2` on smooth M of size `y^u` (up to a squarefull part), and its k-th moments against `Γ(D)/D` are `≪_k (log y)^k` | PROVED (elementary) |
+| Lemma 2.3, Cor 2.4 | smooth ℛ(M) blocks: `Σ_{K<M≤2K, P(M)≤y}τ(A_M²)Γ(M) ≪ K(log K)²u^{−4}`; hence `𝔐_R(y) ≪ (log y)³` | PROVED (Shiu) |
+| Lemma 3.1, Cors 3.2–3.3 | the same for Case A (split by `r ≷ K^{1/4}`; ElT Cor 7.4 resp. Thm 7.1 + (7.10)); all four types: `𝔐(y) ≤ K₃′(W)(log y)³` | PROVED (Case A uses ElT §7, published, not re-proved) |
+| **Thm 4.1** | **K2 Thm 5.1 without loss: every mixture of ℛ(M)-, (a,D)-, Case-A and selector classes, arbitrary moduli (no B): `log(1/Eν) ≤ Cλ^{3/4}`** | PROVED (same proviso) |
+| Cor 4.2 | coefficient-sum CRT methods: saving `≤ C_A(log N)^{3/4}`; the `(log log N)^{3/4}` of K2 Cor 6.1 / (D)18 is gone | PROVED (same proviso) |
+| §4.3 | (D)19 LARGESIEVE, (D)20 INTERFREQ, (D)22 PRIMELAW, (D)21 TU Cor 3.4 lose the same factor (pointers; PRIMELAW's Γ* checked to satisfy the hypotheses used) | PROVED modulo the cited files (pointer-level) |
+| **Thm 5.1** | truncated weights `min(log ℓ, L₀)`: `log(1/Eν) ≤ Cλ^{3/4} + 2d₀log(CΛ³/d₀) + O(d₀)`, `d₀ = ⌊λ/L₀⌋`, family primes `≤ e^Λ` | PROVED (same proviso) |
+| Cor 5.2 | TU Cor 3.4 window closed for **prime order**: (A log N, k)-mixed majorants of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` | PROVED (same proviso) |
+| Cor 5.3 | class order k with `≤ r` large primes per modulus: `≤ C_A[(log N)^{3/4} + kr log log N]`; open only for unbounded r (exact scope stated) | PROVED / open part stated |
+| §6 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `u⁴b ≤ 0.25` | EVIDENCE |
+
+Constants are absolute but astronomically large (as in K2); everything
+is asymptotic only.
 
 ## 1. Where the loss comes from, and the idea
 
@@ -392,3 +407,26 @@ not excluded. The obstruction is structural: EK Thm 2.5's locality is
 in prime coordinates; a class-coordinate version would need a k-ary
 comparison for the dependent indicators `1[n ∈ C]`. Not attempted.
 
+## 6. Numerics (EVIDENCE only)
+
+`scripts/kary3_moments.py` enumerates all y-smooth `M ≡ 3 (mod 4)` up to
+`X = 10¹²` for `y ∈ {7, 13, 23, 31}` and factors `A_M`
+(`data/kary3/moments.txt`, ~25 s):
+* the smooth first moment `S(y) = Σ τ(A_M²)/M` has converged (it changes
+  by `< 1%` from `X^{1/2}` to X), and `S/(log y)³ = 0.264, 0.211, 0.200,
+  0.192`; with the K2 weight Γ (W = 16) `1.38, 1.35, 1.17, 1.08`. A
+  `(log log y)³` factor would multiply these by ≈ 6 over this range; they
+  decrease instead. (The range of y is tiny; this is consistent with
+  Cor 2.4, not a test of its constant.)
+* the dyadic block profile `b(K) = Σ_{K<M≤2K smooth}τ(A²)/(K log²K)`
+  satisfies `u⁴b(K) ≤ 0.25` throughout and decays fast for `u ≥ 3`
+  (y = 31: `u⁴b = 0.24` at u = 2, `5·10⁻⁵` at u = 7.7), as Lemma 2.3
+  (k = 4) requires; the true decay is `ρ(u)`-like.
+
+## Replay
+
+```
+mkdir -p data/kary3
+# §6: smooth first moments and block profiles (~25 s, < 1 GB)
+uv run --with sympy python scripts/kary3_moments.py 1e12 7,13,23,31 > data/kary3/moments.txt
+```
