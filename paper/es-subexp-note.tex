@@ -1057,3 +1057,128 @@ $Q_\mu(\Ho)\le\prod_{J\in\cM}[(1-1/w_J)+(w_J-1)^2/w_J]=\prod_{J\in\cM}(w_J-1)$.
 (b) Lemma~\ref{lem:cover} and (a), since $\Ho(x)$ consists of supports of events.
 \end{proof}
 
+\begin{corollary}[Energy tail; proved]\label{cor:tail}
+In the Setting, if every event of $\cE$ has $|\supp E|\le k$ ($k\ge1$), then for
+$f\in\{F,1-F\}$ and every integer $t\ge0$,
+\[
+ \energy(f;t)=\sum_{|U|>t}\|f^{=U}\|^2\ \le\ 2^{-(t+1)/k}.
+\]
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:C1}(b) with $\lambda_v=2^{1/k}$ and \eqref{eq:markov};
+$(1-F)^{=U}=-F^{=U}$ for $U\ne\emptyset$.
+\end{proof}
+
+\begin{remark}[Sharpness]\label{rem:sharp}
+Over general product spaces the base $2^{-1/k}$ cannot be improved.  Take
+$m$ events on pairwise disjoint sets of $k$ coordinates, each fixing values of
+probability $p$.  Then $F^{=U}$ is supported on unions of whole supports, and
+letting $p\to0$ with $m$ chosen optimally one finds numerically
+$\max_m\energy(F;t)\,2^{(t+1)/k}\asymp(t/k)^{-1/2}$.  So at most a factor
+$\sqrt{t/k}$ could be gained.  The condition $\lambda^{\supp E}\le2$ in
+Theorem~\ref{thm:C1} is necessary, by the single-event formula above.
+\end{remark}
+
+\begin{remark}[Boolean form and comparison]\label{rem:boolean}
+A width-$k$ DNF $g:\{\pm1\}^n\to\{\pm1\}$ is $1-2F$ for the family of its terms
+(a term with a literal set is a cylinder event).  As $g^{=U}=-2F^{=U}$ for
+$U\ne\emptyset$, Corollary~\ref{cor:tail} gives, for every product measure on
+$\{\pm1\}^n$ (Efron--Stein weights; Fourier weights for the uniform measure),
+\[
+ \sum_{|S|>t}\hat g(S)^2\ \le\ 4\cdot2^{-(t+1)/k},
+\]
+i.e.\ $g$ is $\varepsilon$-concentrated up to degree $k\log_2(4/\varepsilon)$.  The
+switching-lemma route of Linial, Mansour and Nisan gives
+$\sum_{|S|\ge t}\hat g(S)^2\le2\cdot2^{-t/(20k)}$ \cite[\S4.4]{OD}, \cite{LMN}.  Also
+$\lambda^{|U|}\ge1+|U|\ln\lambda$ gives total influence
+$\sum_U|U|\,\|F^{=U}\|^2\le(k/\ln2)\PP(F=0)$.  The same bounds hold for $q$-ary
+DNFs with literals $x_v\in S_v$ (split each term into single-value cylinders
+on the same support; $F$ and the supports do not change).  On the uniform
+Boolean cube the truth lies between $3^{-t/k}$ (an OR of disjoint
+$k$-parities) and $2^{-t/k}$.  We have not found Theorem~\ref{thm:C1} in the
+literature; see the introduction for what we checked.
+\end{remark}
+
+\emph{Digit filtrations.}  For the application we need weights that grow
+along a filtration of each coordinate.  Suppose that each coordinate
+$X_\ell$ ($\ell\in\cP$, a finite index set) is a tuple of independent
+\emph{digits} $(\delta_{\ell,i})_{i_0(\ell)\le i<f_\ell}$, with arbitrary distributions,
+and that the coordinates are independent; the Efron--Stein decomposition
+$F=\sum_UF^{=U}$ below is taken over the digits, so $U$ is a set of pairs
+$(\ell,i)$.  For such $U$ write $U_\ell=\{i:(\ell,i)\in U\}$.  We say that an
+event $E$ is a \emph{digit-prefix event} if, for some integers $v_\ell(E)\ge0$,
+it fixes exactly the digits $\delta_{\ell,i}$ with $i_0(\ell)\le i<v_\ell(E)$, for each
+$\ell$ (to arbitrary values).  Such an event is a cylinder event on the digits.
+
+\begin{theorem}[Filtration energy bound; proved]\label{thm:filtration}
+In this situation let $\lambda_\ell\ge1$ ($\ell\in\cP$), and suppose that every event
+of $\cE$ is a digit-prefix event with $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.  Then
+\[
+ \sum_U\Big(\prod_{\ell:\ U_\ell\ne\emptyset}\lambda_\ell^{1+\max U_\ell}\Big)\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+\begin{proof}
+Write $\Lambda_{\ell,i}=\lambda_\ell^{i+1}$, $\Lambda_{\ell,i_0(\ell)-1}=1$, and
+$\mu'_{\ell,j}=\Lambda_{\ell,j}-\Lambda_{\ell,j-1}\ge0$ for $i_0(\ell)\le j<f_\ell$.  For such $j$ let
+$P_{\ell,j}=I-\E_{B_{\ell,j}}$, where $\E_{B_{\ell,j}}$ averages over the \emph{tail block}
+$B_{\ell,j}=(\delta_{\ell,i})_{i\ge j}$.  Averaging over a digit in $U$ kills $F^{=U}$, and
+$F^{=U}$ does not depend on digits outside $U$; hence $P_{\ell,j}F^{=U}=F^{=U}$ if
+$U_\ell\ne\emptyset$ and $\max U_\ell\ge j$, and $P_{\ell,j}F^{=U}=0$ otherwise.  Call a set
+$V$ of pairs $(\ell,j)$ a \emph{selection} if it contains at most one pair for
+each $\ell$, and put $L'_V=\prod_{(\ell,j)\in V}P_{\ell,j}$.  Then
+$\|L'_VF\|^2=\sum_{U\succ V}\|F^{=U}\|^2$, where $U\succ V$ means $\max U_\ell\ge j$
+for all $(\ell,j)\in V$.  For fixed $U$, the sum of $\mu'^V$ over the
+selections $V\prec U$ factorises as
+$\prod_\ell\big(1+\sum_{i_0(\ell)\le j\le\max U_\ell}\mu'_{\ell,j}\big)=\prod_{\ell:\,U_\ell\ne\emptyset}\Lambda_{\ell,\max U_\ell}$.
+So the left side of the claim equals $\sum_V\mu'^V\|L'_VF\|^2$, the sum over
+selections.
+
+Fix a selection $V$ and pass to the coarser product space whose coordinates
+are, for $(\ell,j)\in V$, the head $(\delta_{\ell,i})_{i<j}$ and the tail block
+$B_{\ell,j}$, and, for the other $\ell$, the whole $X_\ell$.  There $L'_V$ is the
+operator $L_{V'}$ of the Setting for the set $V'$ of tail blocks.  Each event
+$E$ is a disjoint union of cylinder events on the coarse coordinates with
+the same coarse support (enumerate the unfixed digits of each coarse
+coordinate that $E$ involves), and splitting every event in this way does
+not change $F$.  Exactly one piece of $E$ holds at $x$ if $E$ does.  The
+trace of the coarse support of $E$ on $V'$ is the set of $B_{\ell,j}$ with
+$(\ell,j)\in V$ and $j<v_\ell(E)$.  Identify $B_{\ell,j}$ with the pair $(\ell,j)$ and put
+$\hat E=\{(\ell,j):\ i_0(\ell)\le j<v_\ell(E)\}$.  By Lemma~\ref{lem:cover} and the
+remark on traces,
+\[
+ \|L'_VF\|^2\le\E_x\big[N_{\hat\Ho(x)}(V)^2\big],\qquad \hat\Ho(x)=\{\hat E:\ E\in\cE,\ x\in E\}.
+\]
+Summing over selections and adding the nonnegative terms of all other sets
+$V$ of pairs, the left side of the claim is at most
+$\E_x[Q_{\mu'}(\hat\Ho(x))]$.  By Theorem~\ref{thm:C1}(a) it remains to show
+$\prod_{(\ell,j)\in\hat E}(1+\mu'_{\ell,j})\le2$ for every event.  Fix $\ell$ and write
+$\lambda=\lambda_\ell$, $v=v_\ell(E)$, $i_0=i_0(\ell)$, and assume $v>i_0$.  Here
+$1+\mu'_{\ell,i_0}=\lambda^{i_0+1}$ and $1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$.  The
+hypothesis gives $\lambda^{2v}\le2$, so $\lambda^j\le\lambda^v\le\sqrt2<\lambda+1$ for $j<v$, i.e.\
+$1+\lambda^j(\lambda-1)\le\lambda^2$.  The factor of $\ell$ is therefore at most
+$\lambda^{i_0+1}\lambda^{2(v-1-i_0)}\le\lambda^{2v}$, and the product over $\ell$ is at most
+$\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.
+\end{proof}
+
+\begin{corollary}[Modulus-weighted tail; proved]\label{cor:modtail}
+In Theorem~\ref{thm:filtration} let the $\ell\in\cP$ be primes and
+$\lambda_\ell=2^{\log\ell/(2\Lc)}$, and suppose $\prod_\ell\ell^{v_\ell(E)}\le T$ for every
+event.  For a set $U$ of digits put $m_U=\prod_{\ell:\,U_\ell\ne\emptyset}\ell^{1+\max U_\ell}$.
+Then for every $\tau\ge0$
+\[
+ \sum_{U:\ m_U>e^\tau}\|F^{=U}\|^2\ \le\ 2^{-\tau/(2\Lc)} .
+\]
+\end{corollary}
+
+\begin{proof}
+$\prod_\ell\lambda_\ell^{2v_\ell(E)}=2^{\log\prod_\ell\ell^{v_\ell(E)}/\Lc}\le2$, and the weight of $U$
+in Theorem~\ref{thm:filtration} is $2^{\log m_U/(2\Lc)}$.
+\end{proof}
+
+The cost of a junta is thus measured by the modulus $m_U$ a function of the
+digits in $U$ needs, not by the number of coordinates.  For the
+Erd\H{o}s--Straus events (digits in base $\ell$) this removes both the
+binary width and the support size from the junta modulus.
+
