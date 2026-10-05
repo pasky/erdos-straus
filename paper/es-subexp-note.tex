@@ -677,55 +677,44 @@ include the short proof for completeness.  From now on
 as in Definition~\ref{def:system}.  A \emph{cell} on $I\subseteq\cP$ is a set
 $C=\{X_I=c\}$, $c\in\prod_IG_\ell$.  On integers $n$ (with
 $X_\ell=n\bmod\ell^{e_\ell}$) it is the unit class $n\equiv c\pmod{d_C}$,
-$d_C=\prod_I\ell^{e_\ell}\le T^{|I|}$, and $\PP(C)=1/\varphi(d_C)$.  For a finite
-combination $f=\sum_\alpha c_\alpha\mathbf 1_{C_\alpha}$ put
-$M_1(f)=\sum_\alpha|c_\alpha|\PP(C_\alpha)$; this depends on the representation,
-which will always be the one obtained by expanding products.  If $C,D$ are
-cells on $I,J$, then $\mathbf 1_C\mathbf 1_D=\mathbf 1_{C\cap D}$, where $C\cap D$
-is empty or a cell on $I\cup J$, both as functions on $\prod G_\ell$ and on
-$\mathbb Z$.  Moreover
-$\PP(C\cap D)\le\PP(C)\PP(D)\prod_{I\cap J}|G_\ell|\le\PP(C)\PP(D)T^{\min(|I|,|J|)}$.  Hence
-\begin{equation}\label{eq:M1prod}
- M_1(fg)\le M_1(f)M_1(g)\,T^{\min(a,b)}
-\end{equation}
-if all cells of $f$ (of $g$) lie on at most $a$ (at most $b$) coordinates.
+$d_C=\prod_I\ell^{e_\ell}\le T^{|I|}$, and $\PP(C)=1/\varphi(d_C)$.  If $C,C'$ are
+cells on $I,J$, then $\mathbf 1_C\mathbf 1_{C'}=\mathbf 1_{C\cap C'}$, where
+$C\cap C'$ is empty or a cell on $I\cup J$, both as functions on
+$\prod G_\ell$ and on $\mathbb Z$.  The Haar mean of a function of the
+coordinates is its mean over units modulo any $D$ divisible by the moduli of
+its cells: $\E=\E_D$ in the notation of \S\ref{sec:transfer}.
 
-\begin{lemma}[Size of $B$; proved]\label{lem:size}
-With $u_j$ as in \eqref{eq:uj}, $B$ is a combination of cells, each on at most
-$3k+2t$ coordinates (so each modulus satisfies $d\le T^{3k+2t}$), and
-\[
- \log M_1(B)\le3\log m+4t\log(N+1)+4(3k+2t)\Lc+2 .
-\]
-The identity $B=1-\sum_iA_i(1-v_i)^2$ also holds for the expanded cell
-combination evaluated at any integer $n$.
+\begin{lemma}[Cell structure of $B$; proved]\label{lem:size}
+With $u_j$ as in \eqref{eq:uj}, $B$ is a finite real combination of cells,
+each on at most $3k+2t$ coordinates.  So each modulus satisfies
+$d\le T^{3k+2t}$, it is composed of free primes, and the class is a unit
+class.  The identity $B=1-\sum_iA_i(1-v_i)^2$ also holds for the expanded
+cell combination evaluated at any integer $n$.
 \end{lemma}
 
 \begin{proof}
-For $\varphi=F^{(j)}$, a function of the $N'\le N$ coordinates outside $\supp E_j$,
+For $\varphi=F^{(j)}$, a function of the coordinates outside $\supp E_j$,
 \[
- \varphi^{\le t}=\sum_{|U|\le t}\sum_{W\subseteq U}(-1)^{|U\setminus W|}\E[\varphi\mid X_W]
- =\sum_{|W|\le t}c_W\,\E[\varphi\mid X_W],
+ \varphi^{\le t}=\sum_{|U|\le t}\sum_{W\subseteq U}(-1)^{|U\setminus W|}\E[\varphi\mid X_W],
 \]
-where
-\[
- c_W=\sum_{i=0}^{t-|W|}(-1)^i\binom{N'-|W|}i .
-\]
-Here $|c_W|\le(N+1)^t$, and there are at most $(N+1)^t$ sets $W$.  Further
-$\E[\varphi\mid X_W]=\sum_{C\text{ cell on }W}\E[\varphi\mid C]\,\mathbf 1_C$ has
-$M_1=\E\varphi\le1$, as $0\le\varphi\le1$.  So $M_1(u_j)\le(N+1)^{2t}$, with cells on
-at most $t$ coordinates.  Expanding,
+and $\E[\varphi\mid X_W]=\sum_{C\text{ cell on }W}\E[\varphi\mid C]\,\mathbf 1_C$.  So
+$u_j$ is a combination of cells on at most $t$ coordinates.  Expanding,
 \[
  B=1-\sum_iA_i+2\sum_i\sum_{j<i}A_iA_ju_j-\sum_i\sum_{j,j'<i}A_iA_jA_{j'}u_ju_{j'} .
 \]
-Each term is a product of at most five factors: $A$'s with one cell on
-$\le k$ coordinates and $M_1\le1$, and $u$'s.  So every cell lies on at most
-$3k+2t$ coordinates.  By \eqref{eq:M1prod}, applied four times with
-exponent at most $3k+2t$, a term with two $u$'s has
-$M_1\le(N+1)^{4t}T^{4(3k+2t)}$; terms with fewer factors obey the same bound.
-Counting the terms with coefficient $2$ twice, there are at most
-$1+m+2m^2+m^3\le5m^3$ terms (if $m\ge1$; for $m=0$, $B=1$).  Since $\log5<2$,
-the bound follows.  The last claim holds
-because the cell identities hold on $\mathbb Z$.
+Each term is a product of at most three $A$'s, each a single cell on
+$\le k$ coordinates, and at most two $u$'s.  So every cell lies on at most
+$3k+2t$ coordinates.  The last claim holds because the cell identities hold
+on $\mathbb Z$.
+\end{proof}
+
+\begin{lemma}[$\ell^1$-tightness; proved]\label{lem:l1}
+If $B\le F$ pointwise, $F\ge0$ and $\E[F-B]\le\eta\,\E B$, then
+$\E|B|\le(1+2\eta)\E B$.
+\end{lemma}
+
+\begin{proof}
+$B^-:=\max(-B,0)\le F-B$ since $F\ge0$, and $\E|B|=\E B+2\E B^-$.
 \end{proof}
 
 \begin{lemma}[Twist; proved]\label{lem:twist}
