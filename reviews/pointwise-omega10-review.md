@@ -57,3 +57,18 @@ set|: weights stay ≤2; `𝓜∖E_0∪{E_0∖v}` is a matching *sub-multiset* o
 ### Thm 3.4
 `P(E∩P=∅)=∏_{v∈E}(1/λ_v)=1/w_E`, independent over disjoint E;
 `(1−1/w)+(w−1)²/w=w−1`. OK.
+
+### Numerical, from scratch (all PASS)
+* `scripts/review_o10_q.py` (exact Fractions): all 127 hypergraphs on 3
+  vertices × 3 boundary weightings, plus 40000 random hypergraphs (n≤7,
+  1/3 of them graphs: triangles, stars, hubs), rational weights pushed to
+  `max w_E=2`: Lemma 3.2 identity exact (n≤6), `|Θ|≤∏_𝓜(w−1)` and
+  `Q≤∏_𝓜(w−1)` for **every** matching 𝓜 (enumerated). Max Q = 1 (single edge).
+* `scripts/review_o10_cover.py` (exact Fractions, q∈{2,3}, n≤4, 20000
+  systems incl. equal supports): `G_F ≤ E_xQ(𝓗(x)) ≤ 1` always.
+* `scripts/review_o10_c1.py` (float, q∈{2,3,4}, n≤7, product ≤5000):
+  identity `Σ_Vμ^V‖L_VF‖² = Σ_Uλ^U‖F^{=U}‖²` (Efron–Stein by explicit
+  inclusion–exclusion) to 1e−15; 3000 random systems with very
+  non-uniform λ normalised to `max w_E=2`: max G=0.99971; 300 hill-climbs
+  (60 steps, event add/delete/mutate + λ jitter): max G=0.99991, attained
+  by a single full-width event. No counterexample.
