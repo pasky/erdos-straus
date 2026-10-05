@@ -40,3 +40,31 @@ Status: IN PROGRESS.
   each pair (ℓ,a) at most once; swap sums ⇒ `Σ s·Σ_{ℓ|M}H_{v_ℓ(M)}`. CHECKED.
   `H_v≤log₂(v+1)` (induction, `log₂(1+x)≥x` on [0,1]) and `Σ_ℓlog₂(v_ℓ+1)=log₂τ(M)`. CHECKED.
   Wigert: `log₂τ(M)≤(1+o(1))𝓛/log𝓛` uniformly for `M≤T`. CHECKED.
+
+### Re-derivation notes: Lemma 3.1 (independent, against O9 Thm 1.1 as printed)
+
+* `G=(ℤ/N)^*→(ℤ/Q)^*` is onto (Q|N) with kernel H, so `|H|=φ(N)/φ(Q)` and
+  `c(χ)=E_H[Bχ̄]/φ(Q)`. Items 2 and `c(χ_0)=μ/φ(Q)`: CHECKED.
+* Item 1: consistency `b_i≡1 (gcd(d_i,Q))` makes `1[n≡b_i (d_i)]1[n≡1 (Q)]` one class mod
+  `lcm(d_i,Q)`; its coefficients vanish unless χ is trivial on `1+lcm(d_i,Q)ℤ`, so
+  `cond χ | lcm(d_i,Q) ≤ Z`. CHECKED.
+* Item 3: real primitive conductors are `2^e·(odd squarefree)`, `e∈{0,2,3}`; with `8|Q`
+  every prime-power factor of f at a prime dividing Q divides Q, so `f_1|Q`, `ψ_1≡1` on H,
+  and `χ=ψ_2` on H. `f_2` is odd squarefree (coprime to 8|Q), so `f_2∤d_i` gives a prime
+  `p|f_2`, `p∤d_i`, `p∤Q`; on H the p-coordinate is uniform on units mod `p^{v_p(N)}` and
+  independent of the cell, so the cell's `ψ_2`-mean is 0. `f_2=1`: χ trivial on H, factors
+  through `(ℤ/Q)^*`, Case A with `q_1|Q≤Z` and the Page bound unchanged. `f_2>1`: Case B
+  with `|c(χ)|=|E_H[Bψ_2]|/φ(Q)≤μ/(4φ(Q))`. CHECKED.
+* `log N≤log Q+log D≤log Q+1.04max d_i≤2Z` keeps `R_1` as in O9. CHECKED.
+* Cell consistency for the actual B of Thm 3.2: events `X_ℓ≡−4D (ℓ^v)`, `v>a_ℓ`, have
+  `−4D≡1 (ℓ^{a_ℓ})`; any function of a fibre coordinate is a sum of cells with fibre values;
+  intersections of consistent cells are consistent or empty. So the hypothesis holds, but
+  only if the cell representation of `u_j` uses fibre-valued residues (see defect m3).
+* Twist (O8 Lemma 3.3) in the graded system: for `ℓ_0|f_2`, `a_{ℓ_0}=0` (since
+  `gcd(f_2,Q)=1`) and `ℓ_0≤T` (primes of `d_i` other than `ℓ_aux`, and `ℓ_aux|Q`). The
+  conditional LLL step needs neighbourhood sums of `E∖ℓ_0` `≤2Σ_{ℓ∈supp E}w_ℓ≤2c=1/32`, and
+  `w_{ℓ_0}≤c·logℓ_0/𝓛≤1/64`, so `1.07/64<0.02`. CHECKED.
+* ET Prop 1.4 (checked in sources/elsholtz-tao-1107.1010.pdf, p. 4): `Σ_{a≤A,b≤B}τ(kab²+1)≪AB
+  log(A+B)log(1+k)` for `k≪(AB)^{O(1)}`; with k=4 and dyadic (s,r') blocks this gives
+  `Σ τ(4sr'²+1)/(sr')≪𝓛³`, hence `S♯≪𝓛^4log𝓛`. CHECKED (blocks with A or B ≤1 need the
+  trivial separate treatment; the statement requires A,B>1 — immaterial).
