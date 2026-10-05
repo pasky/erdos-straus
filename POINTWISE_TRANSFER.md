@@ -281,33 +281,54 @@ statement of this form, but our search was limited to the above; no priority
 claim. Novelty audit for the underlying ES application:
 `reviews/novelty-audit-omega8.md`.
 
-**4.6 Benchmark 2: Bonferroni minorant + the same Gallagher transfer
-(Assessment).** The obvious alternative to the sandwich is the odd Bonferroni
-truncation `B_j = Σ_{i≤j}(−1)^i C(N_n,i)` (`N_n` = number of events containing
-`n`), `j` odd. Pointwise `B_j = 1[N=0] − C(N−1,j)1[N≥1] ≤ F`, so
-`𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`, and [SN] `thm:transfer` (cost depends only on
-`A` and the largest modulus, here `≤ T^{jk}`) gives `log p ≪ log Q + jk log T`
-once `𝔼[C(N−1,j);N≥1] ≤ δ/100` and the twist condition hold. For *spread*
-systems (`𝔼C(N,i) ≤ (cS)^i/i!`) this needs `j ≍ S + log(1/δ)` and gives
-`log p ≪ log Q + k(S + ℒ)log T` — **better than Theorem 1.1**, by a factor
-`≈ log(NT)` when the mass/density terms dominate. But `𝔼C(N,i)` is governed by
-codegrees, not by `S` and `w_ℓ`. *Example (many hubs; heuristic
-computation).* Take `H` hub primes `ℓ_h` with `|G_{ℓ_h}| = q₀`, and for each
-`h` a spread cluster `{E'_{h,j}}` on other (fresh) coordinates of total mass
-`S' = q₀/(128k)`, conditioned on the hub value: events
-`E'_{h,j} ∩ {X_{ℓ_h} = σ_h}`. Then `w_{ℓ_h} = 1/(128k)`, all other `w_ℓ` are
-small, `S = H/(128k)`, and `δ ≥ 1 − H/q₀`. Take `3k ≤ H ≤ q₀/100`, so
-`δ ≥ 0.99` and `S ≥ 0.023`. Given `X_{ℓ_h} = σ_h`, `N` is ≈ Poisson(`S'`),
-so `𝔼[C(N−1,j);N≥1] ≈ (H/q₀)·S'^j/j!` (for `1 ≤ j ≪ S'`; at `j = 1` it is
-`≈ S − H/q₀ ≥ 0.015 > δ/100`). Since `H/q₀ ≥ 3k/q₀ ≍ 1/S'` and
-`S'^j/j! ≥ S'` for `1 ≤ j ≤ S' − 1`, the condition `≤ δ/100` forces
-`j ≳ S' ≍ q₀/k`: *for this method* `log p ≫ q₀ log T`, versus polylogarithmic
-in Theorem 1.1, which has no codegree hypothesis ([SN] remark after
-`lem:tail`). Quarantining the hubs costs `H log T`. (This compares methods;
-it is not a lower bound for the least prime.) It is the
-factorial-in-levels loss of the alternating expansion of POINTWISE_OMEGA2
-mentioned in [SN]. (An earlier single-hub version of this example was
-wrong: with `S = 1/(128k)` already `B₁ = 1 − N` works.)
+**4.6 Other benchmarks: coarsening, quarantine, Bonferroni (Assessment).**
+Three cheaper competitors use the same transfer ([SN] `thm:transfer`, cost
+`log Q + log(max modulus)` when `A = O(1)`):
+
+* **(C) Coarsen + union bound.** Replace each event by a superset (e.g. a
+  sub-cell on fewer primes). If the coarsened system has mass `S_c ≤ 1/3`,
+  the minorant `1 − Σ 1_{E^c_i}` has `A ≤ 3` and the transfer gives
+  `log p ≪ log Q + k log T` (no Siegel issue: twisted means are `≤ S_c ≤ μ/2`).
+* **(Q) Quarantine.** Add a prime set `Π'` to `Q` and choose the target class
+  so that the events through `Π'` are decided; cost `Σ_{ℓ∈Π'} e_ℓ log ℓ`.
+* **(B) Bonferroni.** Odd truncation `B_j = Σ_{i≤j}(−1)^iC(N,i)`
+  (`N` = number of events containing `n`). Pointwise
+  `B_j = 1[N=0] − C(N−1,j)1[N≥1] ≤ F`, so `𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`, and
+  the transfer gives `log p ≪ log Q + jk log T` once
+  `𝔼[C(N−1,j);N≥1] ≤ δ/100` (plus twist bounds). For codegree-spread systems
+  (`𝔼C(N,i) ≤ (cS)^i/i!`) `j ≍ S + log(1/δ)` suffices:
+  `log p ≪ log Q + k(S + ℒ)log T`, **better than Theorem 1.1** by `≈ log(NT)`.
+  In general `𝔼C(N,i)` depends on codegrees, not on `S` and `w_ℓ`.
+
+Combinations (Q)+(C)+(B) are the natural benchmark.
+
+*Hub examples do not separate Theorem 1.1 from this benchmark.* (i) Single
+or multiple hubs (events `E'_{h,j} ∩ {X_{ℓ_h} = σ_h}`, cluster mass
+`S' = q₀/(128k)`, `3k ≤ H ≤ q₀/100`): plain Bonferroni needs `j ≳ S' ≍ q₀/k`
+(heuristic Poisson computation), but (Q) on the `H` hubs kills every event
+at cost `H log T`, which beats Corollary 1.3's
+`≳ (H/128)log T log(4NT) + k² log T log²(4NT)` (R42 MAJOR-1; my earlier
+claim that this example shows an advantage was wrong). (ii) Pair-hubs on a
+matching (`H` disjoint prime pairs `(a_h,b_h)`, `|G| = q`, hub cell of mass
+`q^{−2}`, cluster mass `S' ≈ q` so that `S = O(1)`): now (Q) costs `≍ H log T`
+and plain (B) costs `≍ (q²/H)k log T`, so for `H ≍ q ≫ k² log²(NT)` both exceed
+Theorem 1.1's `≍ k² log T log²(NT)` — but (C) wins: replacing each cluster by
+its hub cell gives mass `H/q² ≍ 1/q ≤ 1/3`, hence `log p ≪ k log T`.
+More generally, any heavy cluster sitting on a common sub-cell is beaten by
+coarsening to that sub-cell or quarantining it.
+
+**Status: no system is known to us on which Theorem 1.1 provably beats the
+best combination of (Q), (C), (B).** A separating example would need every
+coarsening to keep mass `≫ 1`, every killing quarantine set to be large, and
+`𝔼C(N,j)` to stay large up to depth `≫ log T·log(NT)·(S + k log NT)/S`; we have
+not constructed or ruled out such a system. For the ES witness system itself
+we have not computed what (Q)+(C)+(B) would give; [SN] reports that the
+alternating (Bonferroni-type) expansion of POINTWISE_OMEGA2, *with* its
+quarantine, was limited to fixed powers of `log p`, which is evidence (not
+proof) that the sandwich helps there. Theorem 1.1's distinguishing feature
+is that it needs **no** codegree information and no choice of coarsening or
+quarantine beyond `w_ℓ ≤ 1/(64k)`; whether that ever buys more than
+bookkeeping convenience is open.
 
 ## 5. Applications
 
