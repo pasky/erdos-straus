@@ -1,0 +1,14 @@
+T=10000 L=9.210 S_haar=34.890 S_g=55.280 S_g/S_haar=1.584
+  Y=L^1=9: S_Y=44.645 (S_Y/S_haar=1.280)  R_Y=27.841 (R_Y/S_haar=0.798)  Omega_Y=44.082  mean h_Y=0.987  det=0
+  Y=L^2=85: S_Y=54.420 (S_Y/S_haar=1.560)  R_Y=16.460 (R_Y/S_haar=0.472)  Omega_Y=93.504  mean h_Y=1.718  det=0
+  Y=L^3=781: S_Y=55.280 (S_Y/S_haar=1.584)  R_Y=6.858 (R_Y/S_haar=0.197)  Omega_Y=112.905  mean h_Y=2.042  det=0
+  Y=L^4=7196: S_Y=55.280 (S_Y/S_haar=1.584)  R_Y=0.661 (R_Y/S_haar=0.019)  Omega_Y=120.074  mean h_Y=2.172  det=0
+  Y=L^5=66279: S_Y=55.280 (S_Y/S_haar=1.584)  R_Y=0.000 (R_Y/S_haar=0.000)  Omega_Y=120.735  mean h_Y=2.184  det=0
+  Y=L^6=610456: S_Y=55.280 (S_Y/S_haar=1.584)  R_Y=0.000 (R_Y/S_haar=0.000)  Omega_Y=120.735  mean h_Y=2.184  det=0
+T=100000 L=11.513 S_haar=63.750 S_g=113.271 S_g/S_haar=1.777
+  Y=L^1=12: S_Y=87.350 (S_Y/S_haar=1.370)  R_Y=51.231 (R_Y/S_haar=0.804)  Omega_Y=97.152  mean h_Y=1.112  det=0
+  Y=L^2=133: S_Y=110.751 (S_Y/S_haar=1.737)  R_Y=34.627 (R_Y/S_haar=0.543)  Omega_Y=204.718  mean h_Y=1.848  det=0
+  Y=L^3=1526: S_Y=113.271 (S_Y/S_haar=1.777)  R_Y=17.411 (R_Y/S_haar=0.273)  Omega_Y=250.218  mean h_Y=2.209  det=0
+  Y=L^4=17569: S_Y=113.271 (S_Y/S_haar=1.777)  R_Y=5.158 (R_Y/S_haar=0.081)  Omega_Y=268.470  mean h_Y=2.370  det=0
+  Y=L^5=202269: S_Y=113.271 (S_Y/S_haar=1.777)  R_Y=0.000 (R_Y/S_haar=0.000)  Omega_Y=273.869  mean h_Y=2.418  det=0
+  Y=L^6=2328703: S_Y=113.271 (S_Y/S_haar=1.777)  R_Y=0.000 (R_Y/S_haar=0.000)  Omega_Y=273.869  mean h_Y=2.418  det=0
