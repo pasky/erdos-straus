@@ -503,7 +503,9 @@ $A\ge1$ we have $L\le C_3(1+\log A)$ for an absolute $C_3$.  If $C_2$ is large
 enough, the hypothesis gives the following, using $A\le Z^{1/4}$ and $Z\ge2$:
 $\log Q_G\ge(C_2/(\kappa C_3))\log Z$, hence $Q_G\ge Z$ and
 $Q_G\ge10^4C_G(A+1)(\kappa L)^2$; $Q_G^{6c}\le x$ (as $\kappa L\ge6c$);
-$\log x\ge16$; and $x\ge C_4AZ^4$, with $C_4$ as large as needed below.
+$\log x\ge16$; $\log x\ge(\kappa L)^2$ (as
+$(1+\log A)^2\le(1+\log A)(1+\tfrac14\log Z)$); and $x\ge C_4AZ^4$, with
+$C_4$ as large as needed below.
 
 \emph{Character expansion.}  As $\gcd(Q,D)=1$, every character $\chi$ modulo
 $QD$ is $\chi=\chi_Q\chi_D$ with $\chi_Q$ modulo $Q$ and $\chi_D$ modulo $D$.  The
@@ -534,7 +536,8 @@ $\sum_{q\le Z}\varphi(q)\le Z^2$ characters have $c(\chi)\ne0$.
 \emph{The prime sum.}  Let
 $S(x)=\sum_{p\le x,\ p\nmid QD}f(p)\log p=\sum_\chi c(\chi)\vartheta(x;\chi)$.  Since
 $|\vartheta(x;\chi)-\vartheta(x;\chi^*)|\le\log(QD)\le2Z$ (as
-$D\mid\lcm(1,\dots,\max d_i)$, so $\log D\le1.04\max d_i$),
+$D\mid\lcm(1,\dots,\max d_i)$, so $\log D\le\psi(\max d_i)<1.04\max d_i$ by
+Rosser--Schoenfeld \cite{RS}),
 \begin{equation}\label{eq:Sx}
  S(x)=\frac{\mu x}{\varphi(Q)}+\sum_{\chi:\,c(\chi)\ne0}c(\chi)\big(\vartheta(x;\chi^*)-E_0(\chi^*)x\big)+R_1,
 \end{equation}
@@ -1100,6 +1103,8 @@ $4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
 Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
 \bibitem{Razborov} A.~Razborov, A simple proof of Bazzi's theorem, ACM Trans.\
 Comput.\ Theory 1 (2009), no.~1, Art.~3.
+\bibitem{RS} J.~B.~Rosser and L.~Schoenfeld, Approximate formulas for some
+functions of prime numbers, Illinois J.\ Math.\ 6 (1962), 64--94.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
 \bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
