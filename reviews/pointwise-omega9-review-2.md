@@ -140,3 +140,42 @@ attributed implicitly to O2 Lemma 11.1, whose statement only says
 in the sum, Wigert's constant) so that the `log2` is checkable; O8 Thm 4.4
 has the same gap in wording.
 
+### (vi) Repaired O8 §6 (commit `f725c2a`) vs O9 — SOUND-AFTER-REPAIRS (MINORs)
+
+Re-checked the repaired text. §6.5 now restricts `K≥1+log(1/μ)≥log(1/δ)≥S1`
+to the BRW expansion as written (constant cell coefficient 1 ⇒ `M_1≥1`;
+the constant cell cannot merge with any other cell since every other term
+carries a factor `A_i` on a nonempty support) — correct, and the disjoint-
+good-cells example (`M_1=μ`, `K=1`) correctly shows that no representation-
+free bound holds. §6.6: re-derived (D') (`τ(n²)=Σ_{d|n}2^{ω(d)}`;
+`d|(p+1)/4⇔p≡−1 (4d)`; BT with `4d≤4x^{1/3}≤x^{1/2}` gives
+`Σ4^{ω(d)}|E|≪x(log x)^3`; BV at `q≤4x^{1/3}` is in range; error
+`x(log x)^{(3−A)/2}`), the class count `(τ(A_ℓ²)+1)/2`, the dyadic sum
+`≍𝓛²`, and `δ≤∏(1−g_ℓ)≤e^{−S1}` (distinct classes at one ℓ are disjoint,
+different ℓ independent). All ✓. §6.5/§6.6 now state that they concern PO
+Thm 4.1, matching O9 §3 "Supersedes". Two wording inconsistencies remain:
+
+**MINOR m3 (O8 §6.6 "Consequence", last sentences).** (a) "POINTWISE_OMEGA9
+Thm 1.1 makes K enter only additively" is wrong: in Thm 1.1, `log(1/μ)`
+does not enter at all, and `log A` enters *multiplicatively*
+(`log x ≥ C_2(1+log A)log Z`). Repair: "makes the condition
+`log x ≫ (1+log(E|B|/μ))·log Z`, with no `log(1/μ)` or `M_1`". (b) "never
+met below `log p≈𝓛³`" understates what the paragraph proves: with
+`K≫𝓛²` (BRW-as-written) PO Thm 4.1's condition `K·max(log Z,K)≥K²` already
+forces `≫𝓛^4`. Repair: say `𝓛^4` (or delete; the bullet in §6.5 already
+gives `𝓛^4·log z` heuristically).
+
+**MINOR m4 (O8 header, "Results at a glance").** Items are numbered
+1,2,3,4,6,5; and item 6 still advertises Thm 6.3's 1/13 and "supported
+ceiling is 1/4" without saying that both are now superseded by / do not
+apply to O9's route. Repair: renumber, and add "(superseded by O9 Thm 2.2,
+1/7; the 1/4 ceiling concerns PO Thm 4.1 only)".
+
+**Observation (Assessment, not a defect; suggested for O9 §3 "Not
+claimed").** O9's own route has a rigorous floor on its certificate:
+`Q_Π=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)` with `ℓ^{e_ℓ}` the largest power `≤T`, so
+`log Q_Π ≥ Σ_{ℓ≤z}(𝓛−log ℓ) ≫ π(z)𝓛 ≍ 𝓛³/log𝓛` for `z=𝓛²`; hence with
+this z the method cannot certify better than exponent ≈1/3 (which
+coincides with the heuristic truth, POINTWISE_SIZE §7), and smaller z
+raises k. Worth one sentence next to "no lower bound for it is claimed".
+
