@@ -386,6 +386,8 @@ PYTHONPATH=scripts uv run --with scipy --with sympy python scripts/interfreq2_ch
 uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 2 data/interfreq2/flatF_N20.npy                     # regenerates the saved F (1 s)
 for a in "20 100 0.1 1.5" "20 100 0.1 2" "30 150 0.1 1.5" "30 150 0.1 2" "40 200 0.1 1.5" "60 300 0.1 1.5" "60 300 0.1 2" "80 400 0.1 2"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan.txt, <2 min
 for a in "60 480 0.1 2" "100 500 0.1 2" "100 500 0.1 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan2.txt, ~8 min, <1 GB
+for a in "20 100 0 2" "30 150 0 2" "40 200 0 2" "60 300 0 2" "40 200 0 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # SPW (t = 0): flat0_scan.txt, ~1 min
+for a in "100 1000 0.1 2" "100 1000 0.1 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan3.txt, ~45 min each, ~3.2 GB
 uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 1.5 - med                                           # medium sign conditions: margin 0
 uv run --with scipy python scripts/interfreq2_phi_lp.py 20 60 0.1                                                     # exact-uniform comparison: infeasible (§3)
 uv run --with scipy --with sympy python scripts/interfreq2_rigid.py 20 2520                                           # mass off [1,N] = N
