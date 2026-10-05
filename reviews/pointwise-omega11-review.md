@@ -23,7 +23,7 @@ scope; I only spot-checked Lemma 1.1's edge-weight inequality (`λ^j≤λ^v≤�
 No FATAL or MAJOR defect found in my scope. The exponent improvement 1/7→1/6 is, as far as
 §2/§3 go, a correct consequence of the inputs listed in Thm 3.2's label.
 
-## Defects
+## Re-derivations and checks
 
 ### Re-derivation notes: Setting 2.0, Lemma 2.1 (independent)
 
