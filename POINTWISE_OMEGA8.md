@@ -39,8 +39,13 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    bookkeeping is replaced by spectral norms (Lemma 6.1). §6.1 is a
    ledger of the losses. §6.4 proves that the q-ary decision-tree
    switching lemma fails even with small masses; the energy form ESW
-   would give 1/11. §6.5: any route through PO Thm 4.1 loses
-   `log p ≳ S²`; ≈1/9 is the ceiling under ET, ≈1/6 with the observed S.
+   would give 1/11 only together with a q-ary ℓ¹ bound and a smaller
+   quarantine (R30c M1; neither is proved). §6.5 (Assessment): for
+   Brun/BRW-type minorants, routes through PO Thm 4.1 lose
+   `log p ≳ S²·log z`; the present bookkeeping gives ≈1/9 with S only
+   bounded by ET's S*, ≈1/6 with the observed S; the supported ceiling is
+   1/4 (Prop 6.6: `log(1/δ) ≥ S1 ≫ 𝓛²`). (See POINTWISE_OMEGA9 for a
+   transfer that avoids the square.)
 5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
    needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
 
@@ -480,7 +485,8 @@ There are four independent losses beyond the Haar side's `𝓛^7/log𝓛`.
 1. The factor 𝓛 in `log M_1`: an artefact of cell bookkeeping
    (Lemma 6.1 removes it).
 2. The factor k in `|𝓑|`, from the crude per-prime threshold `1/(64k)`
-   (Lemma 6.2 removes it).
+   (not removed here: the log-weighted thresholds after Thm 6.3 do not
+   suffice; R30c M1. An earlier draft cited a "Lemma 6.2" that does not exist.)
 3. The factor `b≍𝓛` in the width, from the bit encoding (§6.4).
 4. The square from `K·log Z`, intrinsic to PO Thm 4.1; and S itself,
    through ET.
@@ -545,22 +551,33 @@ lemma** of the form `Pr[DT_q(f_ρ)≥s] ≤ (Cpk)^s` would give
 others uniformly; `DT_q` is q-ary decision-tree depth, which bounds the
 Efron–Stein degree. (The LMN step works verbatim for Efron–Stein in product
 spaces (`E_z‖(f_{I,z})^{=S}‖² = Σ_{U∩I=S}‖f^{=U}‖²`). The result would
-be `d≪𝓛^5`, `K≪𝓛^5log𝓛`, `log Z≪𝓛^6`, i.e. exponent `1/11`.)
+be `d≪𝓛^5`. Exponent `1/11` (`K≪𝓛^5log𝓛`, `log Z≪𝓛^6`) would need in
+addition (a) a q-ary analogue of Lemma 6.1's ℓ¹ bound for Efron–Stein
+truncations, `log M_1 ≪ d log𝓛` (ESW is an energy statement and gives no
+ℓ¹ control; via Lemma 3.2 one gets only `K≍d𝓛≍𝓛^6`), and (b) a
+quarantine with `|𝓑|≪kS*`, so that `log Q_Π≪𝓛^6`; neither is proved. With
+ESW alone the bookkeeping gives `𝓛^{13}/log𝓛`, no real gain (R30c M1).)
 
 *The decision-tree form is false, even with small masses (PROVED
 example).* Take `N:=⌊q^{1/2}⌋` coordinates uniform on `[q]` and the
 width-2 DNF f = "two coordinates coincide" (terms `X_i=c∧X_j=c`). The
 per-coordinate mass is `(N−1)/q ≤ q^{−1/2}` and the total mass is
-`≤1/2`. Let ρ free each coordinate with probability `p=1/(2C)`. With
-probability `≥e^{−1}−o(1)` the fixed values are distinct, and then, for
+`≤1/2`. Let ρ free each coordinate with probability `p=1/(4C)` (any
+`p<1/(2C)`; with `p=1/(2C)` and `k=2` the bound `(Cpk)^s` would be 1; R30c m3).
+With probability `≥e^{−1/2}−o(1)` the fixed values are distinct, and then, for
 `s` free coordinates, `f_ρ` = "a free value hits a fixed value or another
 free value". An adversary answering fresh distinct values keeps `f_ρ`
 undetermined until the last query (possible since `N+s<q`), so
 `DT_q(f_ρ)=s`. With constant probability `s≥pN/2≍q^{1/2}`, which is not
-`≤(C'(pk+max w_ℓ))^s` for large q. ∎
+`≤(C(pk+max w_ℓ))^s` for large q: that bound tends to 0 geometrically in s
+(numerically `Pr[DT_q≥pN/2]≈0.61` against `≤10^{−3.5}` at q=10⁴, C=1;
+R30c). ∎
 
-But here `f_ρ` is nearly constant in ℓ²: `Pr[f_ρ=1] ≲ Ns/q`. So decision
-depth is the wrong measure for rare literals. LMN needs only an **energy
+But the decision depth overstates the complexity: heuristically, the energy
+of `f_ρ` at level `≥s` is `≈(s²/q)^{s/2}`-small (pairwise-collision
+structure), not ≈1 as the depth suggests; the exact Efron–Stein weights for
+`q=49…144` decay in the level (R30c). This is evidence, not an argument
+(R30c m4). So decision depth is the wrong measure for rare literals. LMN needs only an **energy
 switching** statement,
 
 ```
