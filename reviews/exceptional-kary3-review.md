@@ -155,3 +155,91 @@ Scope warning (moving cutoffs) is correct and important.
 `≤ 2×` sieve level; `= 1` on avoiders ✓. Valid provided TW4's "level"
 dominates the K2 level (log of primes above W) — true for any
 product-of-moduli convention. Not re-checked against TW4's text.
+
+### From-scratch numerics (EVIDENCE) — `scripts/review_k3_checks.py`
+Run: `PYTHONPATH=scripts uv run --with numpy --with sympy python scripts/review_k3_checks.py {1..6}`
+(each < 15 min, < 2 GB, run under `ulimit -v 8000000`).
+1. Lemma 2.1 on all y-smooth `M ≤ 10⁹`, y = 7, 13, 31 (5,194 / 27,365 /
+   270,648 numbers): 0 violations; `S_y` always squarefull; for smooth M
+   the inequality is in fact an equality.
+2. Lemma 2.2, exact (exponential formula over primes `≤ y`, W = 16):
+   ratio to `(log y)^k` for y = 10…10⁶ decreases monotonically
+   (k = 4: 145.6, 54.4, 30.3, 21.6, 17.3, 14.9). Bounded in y ✓.
+3. ElT (7.10), A = 60, B = 20,000, k ∈ {1, 4, 9, 12, 100, 3996, 10⁶,
+   4·10⁹+4, 10¹⁵+3} (squares and k ≫ (AB)^{O(1)} included): ratio to
+   `A log B log(1+k)` ≤ 0.93 and decreasing in k. (Ratio to `A log B`
+   alone stays in [0.36, 0.69]: the `log(1+k)` is not even visible here,
+   consistent with ElT Remark 1.5.) ✓
+4. Shiu step of Lemma 2.3, K = 2²²: `max_{q odd ≤ K^{1/2}} qT(q)/(K log²K)
+   = 0.098` (q = 1847), mean 0.073; no growth in q ✓.
+5. Σ₂ of Lemma 2.3 (k = 4, Γ with W = 16), K = 2²¹: `Σ₂/(K log²K)` =
+   0.11, 0.32, 0.91, 1.52, 1.58 for y = 3, 5, 11, 31, 101 — saturating in y,
+   as Lemma 2.2 predicts (y = 101 already violates `D ≤ K^{1/16}`; still
+   bounded).
+6. Smooth block profile, independent re-implementation, X = 10¹²:
+   `S/(log y)³ = 0.264, 0.211, 0.200, 0.192` and `max u⁴b = 0.385, 0.293,
+   0.251, 0.248` for y = 7, 13, 23, 31 — **identical** to the author's §7.
+
+## Verdict table
+
+| claim | verdict |
+|---|---|
+| §1 diagnosis | Assessment, agreed |
+| Lemma 2.1 | SOUND |
+| Lemma 2.2 | SOUND |
+| Lemma 2.3 | SOUND (D4 of self-review correctly applied) |
+| Cor 2.4 | SOUND (body: pointer to EK Lemma 4.2′, unchanged use) |
+| ElT inputs incl. (7.10) uniform in k | SOUND (two slips in ElT's proof, both harmless) |
+| Lemma 3.1 | SOUND |
+| Cor 3.2, 3.3 | SOUND (body: pointer to K2 Lemma 3.6 / ElT Prop 1.4, k = 4 fixed) |
+| **Thm 4.1** | **SOUND** (given the K2/EK framework already reviewed) |
+| Cor 4.2 | SOUND at pointer level (K2 Cor 6.1 not re-opened) |
+| §4.3 | pointer-level, as the author says; not checked |
+| **Thm 5.1** | **SOUND** |
+| Cor 5.2 | SOUND |
+| Cor 5.3 + open window | SOUND |
+| §6 | SOUND (pointer to TW4 level convention) |
+| §7 | EVIDENCE, reproduced exactly |
+
+No FATAL or MAJOR defect found.
+
+## Defects
+
+1. **MINOR — §3 source caveat incomplete.** ElT p. 32, case `q > kA`:
+   `c(q) = (−1)^{(q−1)/2 + m(q²−1)/8}` omits the reciprocity sign
+   `(−1)^{((q−1)/2)((k′a−1)/2)}`, and "mean zero" for `q ↦ c(q)(q/k′a)`
+   needs a justification when `k′a` is a square. Repair: add one sentence
+   — for fixed a the corrected factor is still 8-periodic in q, and
+   `q ↦ (−ka/q)` is the Kronecker character of the negative number −ka,
+   never principal, so the mean-zero/partial-summation step holds with an
+   absolute constant, uniformly in k.
+2. **MINOR — §3 first paragraph vs Lemma 3.1.** The stated general form
+   ("`m ≥ Y`, `S_y(m) ≤ m^{1/2}` ⇒ `Z_y(m) ≥ log Y/(2log y)`") is not the
+   form used: Lemma 3.1 uses fixed thresholds (`r ≥ K^{1/4}`,
+   `S_y(r) ≤ K^{1/8}` ⇒ `Z ≥ u/8`; `h > K^{3/4}`, `S_y(h) ≤ K^{1/4}` ⇒
+   `Z ≥ u/2`). Repair: state "`m ≥ Y`, `S_y(m) ≤ T` ⇒
+   `Z_y(m)log y ≥ log(Y/T)`" and cite it in (i), (ii).
+3. **MINOR — Lemma 3.1(ii) wording.** "`h > K^{3/4}/2`" should be
+   "`h > K^{3/4}`" (from `rh > K`, `r < K^{1/4}`); the factor `(4/u)^k`
+   could be `(2/u)^k`. Cosmetic.
+4. **MINOR — Thm 5.1, case `L₀ > λ/2`.** The top block then has `d₀ = 1`
+   and could be treated by the linear-block bound; the EK price
+   `2log(C₀(K₃′Λ³+4))` is valid but needlessly large. Also say explicitly
+   that ETw Cor 4.3 applies to the sub-block `(e^{λ/2}, e^{L₀}]` (pointer).
+5. **MINOR — pointer-level dependencies to be listed in the status line.**
+   Thm 4.1's PROVED label rests on K2 Thm 5.1's framework (base, leak,
+   EK Thm 4.1/Cor 2.6, ETw Prop 4.1/Cor 4.3) and on the bodies of EK
+   Lemma 4.2′ and K2 Lemma 3.6, none re-proved here. Correct as labelled
+   ("same proviso"), but the DISCOVERIES entry should say "PROVED given
+   K2/EK as reviewed".
+
+## Answers to the brief's hardest checks
+(i) ET (7.10) uniform in k as used: **yes**, absolute constant, all
+`A, B ≥ 2`, `k ≥ 1` (proof re-derived; numerics item 3).
+(ii) EK Thm 4.1 for the truncated class with one wide top block: **yes**.
+(iii) Lemma 2.1/2.3 constants: no hidden u- or y-dependence; Shiu's
+hypotheses (k ≥ 2 reduced residue, `k < y^{1−α}`, `x^β < y ≤ x`,
+`f ∈ M`) all verified against the scanned paper.
+(iv) `u^{−4}` vs `u²`: correct, tail `≤ (C₄/(8log 2))(log y)³`.
+(v) Case-A split `r ≷ K^{1/4}`: both halves correct; Thm 7.1's
+bijection `n ↦ Ln` is what removes the moment modulus.
