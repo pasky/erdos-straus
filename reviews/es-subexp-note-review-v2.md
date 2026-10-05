@@ -69,3 +69,91 @@ D=lcm d_i is a product of full prime powers ℓ^{e_ℓ} of free primes, and the
 reduction map (Z/D)^× → ∏ G_ℓ is a bijection. gcd(d_i,Q_Π)=1 since 2,3 ∈ Π
 (z ≥ 7). Hypothesis "B(n) ≤ 1[W(n)>T] for n≡1 (Q), gcd(n,d_i)=1" follows from
 Lemma 5.4's integer identity + Lemma 5.3 (B≤F on ∏G_ℓ) + Lemma 2.5(iv).
+
+### Thm 7.1 (assembly), A ≤ 1.03, parameter chain to 1/7 — SOUND
+- E[F-B] ≤ δ/100 ≤ μ/99 (μ ≥ 0.99δ) ⇒ A ≤ 1+2/99 ≈ 1.0202 < 1.03 ≤ Z^{1/4}
+  (Z ≥ 1.126 suffices). CORRECT.
+- log Z ≤ log Q_Π + log 2 + 2(3k+2t)𝓛 (log ℓ_aux ≤ log 2 + max(𝓛, log max d_i));
+  |𝓑| ≤ kS*/c_0 = 64k²S*; log 24 + log 2 < 4. CORRECT.
+- ℓ_aux > max d_i ⇒ gcd(d_i,Q)=1; p ≡ 1 (ℓ_aux) ⇒ p > T; 840 | Q_Π ⇒ hard. CORRECT.
+- z=𝓛²: k ≤ 𝓛/(2log𝓛), k_0 ≪ S*+k𝓛 ≪ 𝓛⁴log𝓛, t ≪ k·𝓛·k_0 ≪ 𝓛⁶,
+  k²S*𝓛 ≪ 𝓛⁷/log𝓛, t𝓛 ≪ 𝓛⁷ ⇒ log p ≪ 𝓛⁷ ⇒ W(p) > T ≥ exp(c(log p)^{1/7}). CORRECT.
+
+### Thm 1.2 (constant 1/log 2) — SOUND
+log S* ≤ (log2+o(1))𝓛/log𝓛 (Lemma 2.3(a)); every other factor is 𝓛^{O(1)}, so
+log log p ≤ (log2+o(1))𝓛/log𝓛. L/log L ≥ Y ⇒ L ≥ Y (log L ≥ 1) ⇒ L ≥ Y log Y,
+and log Y = log₃p + O(1). The v1 constant 1/(2 log 2) came from TZ's
+K·max(log Z,K) ≍ (S*)²; with the linear transfer log p ≪ log Z ≍ S*·poly(𝓛),
+so 1/log 2 is the right constant. CORRECT.
+
+### Compilation
+pdflatex (2 passes, out-of-tree build): 18 pages, no warnings, no overfull
+boxes, no undefined references.
+
+## Numbered defects
+
+**M1 (MAJOR, easy repair) — Thm 3.1 as stated is not a theorem.** Location: §3,
+Thm 3.1 ("for every Y ≥ 3, ∏_{q≤Y}∏*L(s,χ) has at most one zero with
+Re s > 1-c_1/log Y"). Without a height restriction this asserts a zero-free
+region of width ≍1/log Y uniformly in |Im s| for every L(s,χ), q ≤ Y — unknown
+(stronger than Vinogradov–Korobov). MV III's "Exceptional Zero Statement"
+(28.61) has the same omission; its cited source (MV I Cor. 11.10, which I could
+not access; MV III p. 193 paraphrases it with |γ| ≤ T and β ≥ 1-c/log 2QT)
+has a height cutoff. This answers the author's flagged point: the issue is
+not the range of Y (any Y ≥ 3 is fine) but the missing |Im s| bound.
+Repair: state "at most one zero in the region σ > 1-c_1/log Y, |t| ≤ Y" (or
+σ > 1-c_1/log(Y(|t|+2))), cite MV I Cor. 11.10 / Davenport Ch. 14 for it, and
+add one sentence: "We use only real zeros." Nothing downstream changes (the
+proof of Thm 4.1 uses only: uniqueness of a real zero with 1-β<1/(κ log Q_G),
+reality/quadraticity of χ_1, and the Page bound).
+
+**m1 (MINOR) — source-caveat paragraph is self-inconsistent.** Location: §3,
+"We fix κ := max(3κ_0,1/c_1)" and "Source caveat ... its two cases match as
+written only for κ=3κ_0. That is why we fix κ ≥ 3κ_0." If the printed proof
+only works for κ=3κ_0, then κ=max(3κ_0,1/c_1) > 3κ_0 (possible when 1/c_1 > 3κ_0)
+is not covered by that sentence. Two repairs, either suffices: (i) note that
+(28.91) only imposes lower bounds on κ_0, so one may enlarge κ_0 to
+max(κ_0, 1/(3c_1)) (MV's "c_1" in (28.91) is presumably a slip for 1/c_1) and
+then take κ = 3κ_0 exactly; or (ii) add the monotonicity argument (verified by
+me): MV's Case 2 works for any real zero with 1-β_1 < 1/(3κ_0 log Q), and if
+such a zero has 1-β_1 ≥ 1/(κ log Q) with κ ≥ 3κ_0, then x^{β_1}/β_1 ≤
+2x e^{-log x/(κ log Q)} and (1-β_1)(log x)x e^{-log x/log Q} ≪ x e^{-log x/(2log Q)},
+so the non-exceptional bound holds; hence the theorem holds for all κ ≥ 3κ_0.
+
+**m2 (MINOR) — uncited explicit Chebyshev bound.** Location: proof of Thm 4.1,
+"log D ≤ 1.04 max d_i". Cite Rosser–Schoenfeld (ψ(y) < 1.03883y), or use the
+cruder log D ≤ π(y)log y ≤ 2y (y=max d_i, elementary), which also gives
+log(QD) ≤ 2Z... (check: log Q + 2y ≤ 2Qy needs Q ≥ 2 and y ≥ 1 — fine for y ≥ 2;
+for D = 1 trivial).
+
+**m3 (MINOR) — Gallagher's original not seen; "Thm 7" number unverified.**
+Location: Thm 3.2 header, bibliography [Gallagher]. The bibliographic data
+(Invent. Math. 11 (1970) 329–339, "A large sieve density estimate near σ=1")
+match my recollection. From memory (UNVERIFIED), Gallagher's Thm 7 may carry a
+range of the form exp(√log x) ≤ T ≤ x^b. The use here is robust to that:
+log x/log Q_G = κL ≪ 1+log A, and log x ≥ (κL)² follows from the hypothesis of
+Thm 4.1, so Q_G ≥ exp(√log x); in the application κL is O(1). Suggest one
+sentence saying so, so that the result does not hinge on the draft's range.
+
+**m4 (MINOR) — novelty paragraph: closest comparators missing.** Location:
+§1 "Relation to the literature", sentence "Here it serves as a transfer device
+for an arbitrary signed combination of progressions". The nearest classical
+analogue is the least prime in a union of residue classes / in a Chebotarev
+class of an abelian extension (Lagarias–Montgomery–Odlyzko 1979;
+Thorner–Zaman, Linnik-type Chebotarev bounds), which also bound the least prime
+by a power of the conductor via a log-free zero-density/Deuring–Heilbronn
+argument. Those are for nonnegative indicators. What is new here (as far as I
+can tell) is a signed minorant whose cost is A = E|B|/E B. Suggest citing
+LMO/TZ-Chebotarev as comparators and keeping the hedge.
+
+**m5 (MINOR) — compressed step in Thm 7.1.** Location: proof of Thm 7.1, "Since
+m² ≤ T^{2k+4} and S ≤ S*, Lemma 6.2 gives the bound of Corollary 6.3 at this
+k_0". Corollary 6.3 is stated with its own k_0 (in terms of m, S), which differs
+from the assembly k_0 (in terms of T^{2k+4}, S*). The step is right (the proof of
+Cor. 6.3 goes through verbatim: 4·2^{-k_0} ≤ e^{-3S*}/(100T^{2k+4}(S*+1)) ≤
+e^{-3S}/(100m²(S+1))), but the sentence should say so. Alternatively, restate
+Cor. 6.3 for any k_0 ≥ its value. (v1 had an explicit monotonicity sentence.)
+
+**m6 (MINOR) — case m=0.** Location: proof of Thm 7.1, "If m=0 put B=1". The
+following sentences (Lemma 6.2, Lemma 5.6) are then vacuous/irrelevant; say
+"(then A=1, D=1, and the twist condition is vacuous)".
