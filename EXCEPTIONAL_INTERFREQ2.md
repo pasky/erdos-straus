@@ -108,3 +108,34 @@ of them. Any comparison measure must therefore deviate from uniform on
 large classes in a way correlated with [1,N]. (LP check:
 `scripts/interfreq2_phi_lp.py`, N = 20, exact mode, d = 21 alone infeasible
 for every t > 0; d = 22 = 2·11, 11 > N/2, feasible.)
+
+## 4. Translates are dual-feasible; what that does and does not give
+
+Let `L₀ = lcm{d : d ≤ N/2}` (or the lcm of the small moduli dividing Q′).
+
+**Lemma 4.1 (PROVED).** For every integer k the window measure
+`μ_k = λ_{[1,N]+kL₀}` lies in 𝔐(Q′). Hence, for every representation,
+
+    B_hyb(ν) ≥ max_k Σ_{n ∈ [1,N]+kL₀} ν(n) ≥ Σ_{n≤N} E[ν(n′) | n′ ≡ n (L₀)].
+
+*Proof.* A small class `b mod d` (d | L₀) meets `[1,N]+kL₀` in
+`c(b − kL₀, d) = c(b,d)` points. A large class meets any N consecutive
+integers in `l(d)` or `u(d)` points. Weak duality (Prop 2.1(a)). ∎
+
+So a hybrid bound is at least the count of ν on every L₀-translate of the
+window: it cannot exploit the position of [1,N] modulo L₀. This does
+**not** give a cap by itself: the average over translates is
+`Σ_{n≤N} f(n)` with `f = E[1_𝒜 | n mod L₀]` for ν ≥ 1_𝒜, i.e. N times
+the CRT density of avoiders in a random translate, which for ES families
+is heuristically `e^{−c(log N)³}`; the squares, which make
+`#(𝒜∩[1,N]) ≥ √N`, are not seen by translates.
+
+**Lemma 4.2 (rigid null classes are L₀-smooth; PROVED).** If a class
+`s = b mod d` has `μ(s) = 0` for every μ ∈ 𝔐(Q′), then
+`e := gcd(d, L₀) > N` and the class `b mod e` misses [1,N].
+
+*Proof.* `μ_k(s) = #{n ∈ [1,N] : n ≡ b − kL₀ (d)}`. As k varies, `kL₀ mod d`
+runs over the multiples of e, so some `μ_k(s) > 0` unless no n ∈ [1,N]
+satisfies `n ≡ b (e)`. If e ≤ N every class mod e meets [1,N]. ∎
+
+Example 3.2 is such a class (e = 21 | L₀ = lcm(1..10)).
