@@ -55,3 +55,60 @@ Status: IN PROGRESS (written incrementally).
 4. MINOR (Remark 7.2). "cf. [Paper1], where log(1/δ*(T)) ≪ Λ^7/logΛ is
    proved": in Paper1 (es-omega-note.tex l. 211) this bound is stated
    *modulo [ET, Prop 1.4]*. Repair: say "proved modulo [ET, Prop 1.4]".
+
+5. MINOR (novelty paragraph, §1 "Relation to the literature"). Two
+   relatives are missing.
+   (i) Filaseta–Ford–Konyagin–Pomerance–Yu, *Sieving by large integers and
+   covering systems of congruences*, J. Amer. Math. Soc. 20 (2007),
+   495–517. To my recollection (not archived, could not check) they already
+   use the Lovász local lemma to lower-bound the uncovered density of a
+   congruence system. This is closer to the Haar side (Cor 5.2) than
+   Hough/BBMST. Cite it next to them.
+   (ii) Even–Goldreich–Luby–Nisan–Velicković ("k-wise independence fools
+   combinatorial rectangles / AND", via Bonferroni). The novelty audit
+   (l. 45) names it, but the paper does not. It is the bridge between
+   [Paper1]'s truncated inclusion–exclusion and the present bounded-
+   independence sandwich, so one sentence citing it makes the "sieve ↔
+   bounded independence" dictionary honest. Neither changes the novelty
+   claim, which is already suitably hedged ("no priority claim").
+
+6. MINOR (bibliography; the four TODO(verify) items). From my own
+   knowledge (no library access in this pass either) the details given for
+   Green (CPC 21 (2012) 942–951), Bourgain (Israel J. Math. 197 (2013)
+   215–235), Hough (Ann. of Math. 181 (2015) 361–382) and BBMST (Invent.
+   Math. 228 (2022) 377–414) match what I remember. I would rate them
+   *probably correct, unverified*. Keep the TODO until someone checks them
+   against MathSciNet/DOI. I also could NOT verify the TZ journal data
+   (Math. Z. 306 (2024), Paper 54). Only the arXiv version is archived,
+   and the paper correctly says it used that. Confirmed against archived
+   sources: TZ Cor 1.4 / Rem 1.5 and the McCurley citation (TZ ref. [10],
+   JNT 19 (1984) 7–32); ET Prop 1.4. Consistent with my memory: Bazzi
+   (SICOMP 38 (2009) 2220–2272), Razborov (ToCT 1 (2009) Art. 3), Braverman
+   (J. ACM 57(5) (2010) Art. 28), LMN (J. ACM 40 (1993) 607–620), Håstad
+   (STOC '86, 6–20), Kaas–Buhrman (Stat. Neerl. 34 (1980) 13–18),
+   Efron–Stein, Hoeffding, HSS (J. ACM 58(6) Art. 28), O'Donnell §4.4
+   (switching lemma, (5δw)^k form) and §8.3 (orthogonal decomposition),
+   HW Thm 317, AS Lemma 5.1.1.
+
+7. MINOR (typesetting). The author's report says "no warnings", but
+   pdflatex (2 passes, my run) reports 8 over-full hboxes, the worst being
+   86.6pt at l. 624 (the expanded B display in Lemma 5.4), 44pt at l. 544
+   (Lemma 5.1 display), 28pt at l. 805 (Thm 7.1 display) and 20pt at
+   l. 675 (Lemma 5.5 display). Break those displays (multline/split).
+   There are no undefined references or citations, and the build gives
+   16 pages.
+
+8. MINOR (wording). (i) Abstract: "equivalently, the least hard prime with
+   W(p)>T is at most exp(O((log T)^14))". This is a strengthening (it
+   implies the Ω-statement), not an equivalence. Say "more precisely".
+   (ii) Notation paragraph: "log_2 denotes the binary logarithm only where
+   explicitly said" is confusing. log_2 is used only as the binary
+   logarithm (l. 152, 772–796), so just say so. (iii) The paragraph after
+   Thm 7.1 ("Distinctness of the events plays no role …") sits oddly next
+   to Def 2.5, which was rewritten precisely to make w_ℓ = w_ℓ(Π) exact.
+   Say once, in Def 2.5, that the pair-then-lift construction is what
+   makes Lemma 2.6(iii) an equality, and that duplicate lifts are counted
+   in w_ℓ on both sides.
+   (iv) Lemma 6.2(b): p = 1/(10w) needs w ≥ 1. This is automatic here
+   (every |G_ℓ| = φ(ℓ^e) ≥ 2), but the abstract Setting allows |G_ℓ| = 1;
+   add "w ≥ 1" or "|G_ℓ| ≥ 2".
