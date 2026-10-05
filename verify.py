@@ -19270,4 +19270,113 @@ print("\n== (da) POINTWISE_OMEGA11: Lemma 1.1 digit-filtration C-1, graded quara
 check_da()
 
 
+
+# ---------------------------------------------------------------- (db)
+# POINTWISE_OMEGA12.md §§1-3, 7 (cf. scripts/omega12_blocks.py, review_o12a_atoms.py,
+# review_o12a_l31.py).  All atoms (M, D), M <= T = 10^4, M = 3 (4), D | A_M^2, D <= A_M:
+# (1) Lemma 2.1 (exact): D = d a^2, A_M = d a b (b >= a), e = g = gcd(M, 4D+1) | P = 4a^2 d + 1,
+#     c = (a+b)/e in Z, N = M/e = 4acd - f, acd <= N <= T, a^2 d <= T, g/M = 1/N; the map
+#     atom -> (a,c,d,f) is injective; the involution D -> A_M^2/D preserves M and g.
+# (2) Lemma 1.1(a)-(c) exact (h(M) = sum_{q | M} 1/i; h(eN) <= h(e) + h(N); sum_{q | N, q > Y} 1/i
+#     <= log N / log Y), and Lemma 3.1's steps: l | 4ad => l !| N; large-q part <= L / log max(C,2).
+# (3) Lemma 2.2 block mass sum_{block} 1/N <= sum_{a,d in block} 2 tau(P)/(ad) on every dyadic block;
+#     regression vs the §7 table at T = 10^4 (35 803 atoms; S_0' = 28.75, Omega_0' = 62.18,
+#     Sigma_I = 18.37, Sigma_II = 45.30).
+
+def check_db():
+    from time import perf_counter
+    from collections import defaultdict
+    t0 = perf_counter()
+    T = 10 ** 4
+    L = log(T)
+    spf = list(range(4 * T + 9))
+    for i in range(2, isqrt(len(spf)) + 1):
+        if spf[i] == i:
+            for j in range(i * i, len(spf), i):
+                if spf[j] == j:
+                    spf[j] = i
+
+    def fac(n):
+        out = {}
+        while n > 1:
+            p = spf[n]
+            out[p] = out.get(p, 0) + 1
+            n //= p
+        return out
+
+    def h(fn, Y=None, large=True):
+        return sum((Fraction(1, i) for p, v in fn.items() for i in range(1, v + 1)
+                    if Y is None or ((p ** i > Y) == large)), Fraction(0))
+
+    seen = set()
+    natoms = 0
+    S0 = Om = SI = SII = 0.0
+    for M in range(3, T + 1, 4):
+        fM = fac(M)
+        hM = h(fM)
+        A = (M + 1) // 4
+        for D in divisors_of_square(A):
+            if D > A:
+                continue
+            natoms += 1
+            g = gcd(M, 4 * D + 1)
+            assert gcd(M, 4 * (A * A // D) + 1) == g, ("OMEGA12 Lemma 2.1 involution preserves g", M, D)
+            d, a = 1, 1
+            for p, v in fac(D).items():
+                d *= p ** (v % 2)
+                a *= p ** (v // 2)
+            assert A % (d * a) == 0, ("OMEGA12 Lemma 2.1: da | A", M, D)
+            b = A // (d * a)
+            P = 4 * a * a * d + 1
+            e = g
+            assert b >= a and a * a * d <= T and P % e == 0 and (a + b) % e == 0, ("OMEGA12 Lemma 2.1", M, D)
+            f, c, N = P // e, (a + b) // e, M // e
+            assert N * e == M and N == 4 * a * c * d - f and a * c * d <= N <= T, ("OMEGA12 Lemma 2.1 N", M, D)
+            assert Fraction(g, M) == Fraction(1, N)
+            key = (a, c, d, f)
+            assert key not in seen, ("OMEGA12 Lemma 2.1 injectivity", M, D, key)
+            seen.add(key)
+            fN, fe = fac(N), fac(e)
+            assert hM == sum((Fraction(1, i) for p in fM for i in range(1, fM[p] + 1) if M % p ** i == 0), Fraction(0))
+            he, hN = h(fe), h(fN)
+            assert hM <= he + hN, ("OMEGA12 Lemma 1.1(b) h(eN) <= h(e) + h(N)", M, D)
+            assert all((4 * a * d) % p for p in fN), ("OMEGA12 Lemma 3.1: l | 4ad => l !| N", M, D)
+            j = c.bit_length() - 1
+            Y = max(1 << j, 2)
+            large = h(fN, Y, True)
+            assert large <= L / log(Y) + 1e-12, ("OMEGA12 Lemma 3.1 large-q pointwise bound", M, D)
+            if N > 1:
+                for Y2 in (2, 3, 10, 100):
+                    assert h(fN, Y2, True) <= log(N) / log(Y2) + 1e-12, ("OMEGA12 Lemma 1.1(c)", N, Y2)
+            w = 1.0 / N
+            S0 += w
+            Om += w * float(hM)
+            SI += w * float(he)
+            SII += w * float(hN)
+    assert natoms == len(seen) == 35803, ("OMEGA12 atom count at T = 10^4", natoms)
+    table = {"S_0'": (S0, 28.75), "Omega_0'": (Om, 62.18), "Sigma_I": (SI, 18.37), "Sigma_II": (SII, 45.30)}
+    for name, (x, ref) in table.items():
+        assert abs(x - ref) < 0.006, ("OMEGA12 §7 table regression", name, x, ref)
+    # Lemma 2.2: sum_{c in [C,2C)} 1/c <= 2 and tau(P) choices of f per (a, d)
+    rhs = defaultdict(float)
+    for a in range(1, isqrt(T) + 1):
+        for d in range(1, T // (a * a) + 1):
+            tP = prod(v + 1 for v in fac(4 * a * a * d + 1).values())
+            rhs[(a.bit_length() - 1, d.bit_length() - 1)] += 2 * tP / (a * d)
+    # per-(A,C,B) block: recompute masses split by c-scale
+    massC = defaultdict(float)
+    for (a, c, d, f) in seen:
+        massC[(a.bit_length() - 1, c.bit_length() - 1, d.bit_length() - 1)] += 1.0 / (4 * a * c * d - f)
+    for (ja, jc, jd), m in massC.items():
+        assert m <= rhs[(ja, jd)] + 1e-12, ("OMEGA12 Lemma 2.2 per (A,C,B) block", ja, jc, jd, m, rhs[(ja, jd)])
+    print(f"db Lemma 2.1 identities + injectivity + involution on all {natoms} atoms (T = 10^4); Lemma 1.1(a)-(c), "
+          f"Lemma 3.1 steps exact; Lemma 2.2 on {len(massC)} (A,C,B) blocks")
+    print(f"db §7 regression: S_0' = {S0:.2f}, Omega_0' = {Om:.2f}, Sigma_I = {SI:.2f}, Sigma_II = {SII:.2f}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (db) POINTWISE_OMEGA12: Lemma 2.1 parametrisation, Lemma 1.1, Lemma 3.1 steps, Lemma 2.2 blocks ==")
+check_db()
+
+
 print("\nall checks passed")
