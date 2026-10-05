@@ -163,11 +163,12 @@ By (1.3) and Cor 2.3, TC_θ holds only if the admissible u₀-tuples
 over-represent [1,N] by at least `N Z_{u₀}`, and (by Lemma 3.1) this excess
 must come from tuples that are **not** pure class −1. Compare with the
 natural fluctuation scale. The sum `S_{u₀}` is a sum over N integers of
-`binom(f(n), u₀)`, whose CRT second moment is `≤ binom(2u₀,u₀) e_{2u₀}`, so
-a square-root-cancellation model gives fluctuations
-`≲ N^{1/2}(2μ)^{u₀}/u₀!·(u₀!/√((2u₀)!))·…`, crudely `≤ N^{1/2}(4μ)^{u₀}/u₀!`.
+`binom(f(n), u₀)`, whose CRT second moment is
+`≤ E f^{2u₀}/u₀!² ≤ (μ+2u₀)^{2u₀}/u₀!² ≤ (2μ)^{2u₀}/u₀!²` (Poisson moment
+bound; `u₀ ≤ μ/2` for large N), so a square-root-cancellation model gives
+fluctuations `≲ N^{1/2}(2μ)^{u₀}/u₀!`.
 Against `N Z_{u₀} ≥ N(σ_y/2)^{u₀}/u₀!` the ratio is
-`N^{1/2}(σ_y/(8μ))^{u₀} = N^{1/2 − o(1)}` (as `u₀ log(μ log y) = o(log N)`).
+`N^{1/2}(σ_y/(4μ))^{u₀} = N^{1/2 − o(1)}` (as `u₀ log(μ log y) = o(log N)`).
 So TC_θ would need the multi-form tuples to conspire to an aggregate
 excess `N^{1/2−o(1)}` times the noise floor, matching (to precision η_K) a
 deficit that comes from the unrelated integer `n + 1`. No mechanism for
@@ -183,3 +184,88 @@ method that "verifies TC_θ" for θ > 2/3 would have to evaluate moments
 whose true value differs from CRT by `≫ η_K`; what Theorem 2.1 of T1
 actually uses is only the alternating sum, where (§4) the single-form
 deviations cancel.
+
+## 4. The repaired door: truncation-aware and alternating forms
+
+**Hypothesis TC^𝔄(N; K, y, η).** For `1 ≤ j ≤ K`,
+`|S_j(N) − N e_j^𝔄| ≤ ηN`. By (1.3) this says exactly that the
+*admissible* j-tuples are CRT-accurate in aggregate. TC^𝔄_θ is TC^𝔄 with
+the T1 calibration `K = K_N`, `y = y_K`, `η = η_K`.
+
+**Hypothesis TC^alt(N; K, y, η)** (K even). `Σ_{j=0}^K (−1)^j S_j(N) ≤
+N(Π_ℓ(1−p_ℓ) + 2e^{−K}) + KηN`. This is the only consequence of TC that
+T1 Thm 2.1 uses; it says that the degree-K Bonferroni (Brun pure-sieve)
+majorant `ν_K(n) = Σ_{j≤K}(−1)^j binom(f_y(n), j)` has interval sum at most
+its CRT mean plus `KηN`.
+
+**Theorem 4.1 (PROVED).** Let K be even, `K ≥ e²μ_y`, and
+`u₁ := ⌊log N/log y⌋ + 1 ≥ 4(1 + log y)`. Put
+`ε := 4(2e(1+log y)/u₁)^{u₁}` and assume ε ≤ 1. Under the CRT law,
+
+    Σ_{j=0}^K (−1)^j e_j^𝔄 ≤ Π_ℓ(1−p_ℓ)(1+2ε) + e^{−K}.               (4.1)
+
+Hence TC^𝔄(N; K, y, η) implies TC^alt(N; K, y, η) (for ε ≤ e^{−K}... or
+directly) `#{n ≤ N : f_y(n) = 0} ≤ N(Π(1−p_ℓ)(1+2ε) + e^{−K} + Kη)`.
+
+*Proof.* Let H be the CRT hit set: independently for each ℓ ∈ 𝒫_y, no
+hit with probability `1 − p_ℓ`, else the pair (ℓ, b) with probability 1/ℓ
+for each `b ∈ 𝓡(ℓ)`. Then `δ_T = P(T ⊆ H)`, so
+`Σ_{j≤K}(−1)^j e_j^𝔄 = E Σ_{T⊆H, T∈𝔄, |T|≤K} (−1)^{|T|}`. Dropping the
+condition |T| ≤ K changes this by at most `E#{T ⊆ H : |T| > K} =
+Σ_{j>K} e_j ≤ Σ_{j>K}(eμ_y/j)^j ≤ e^{−K}`. Now admissibility is a
+condition on each form-group separately, so
+
+    a(H) := Σ_{T⊆H, T∈𝔄} (−1)^{|T|} = Π_φ χ_φ(H_φ),   χ_φ(G) := Σ_{U⊆G admissible} (−1)^{|U|}.
+
+If G is admissible, so are all its subsets and `χ_φ(G) = 1[G = ∅]`; always
+`|χ_φ(G)| ≤ 2^{|G|}`. Hence `a(H) = 1[H = ∅]` unless H ≠ ∅ and *every*
+nonempty group `H_φ` is inadmissible, in which case `|a(H)| ≤ 2^{|H|}`.
+An inadmissible group of form (r,s) has `Π ℓ > Ns + r ≥ N` with all
+`ℓ ≤ y`, so it has at least u₁ elements. For any fixed set H₀ of pairs,
+`P(H = H₀) ≤ Π(1−p_ℓ)·Π_{(ℓ,b)∈H₀} 1/(ℓ(1−p_ℓ))`, and `p_ℓ < 1/2`
+(all classes are non-residues, `F(ℓ) ≤ (ℓ−1)/2`). Therefore
+
+    E a(H) − P(H=∅) ≤ Π(1−p_ℓ) [Π_φ (1 + Σ_{k≥u₁} e_k(w_φ)) − 1],   w_φ = (4/ℓ)_{ℓ≤y, ℓ≡−1 (4rs)},
+
+(over-counting by letting a prime occur in several forms only increases
+the right side). With `4rsk − 1 ≥ 3rsk`,
+`W_φ := Σ w_φ ≤ (4/(3rs))(1 + log y) ≤ 2(1+log y)/(rs) ≤ u₁/2`, so
+`Σ_{k≥u₁} e_k(w_φ) ≤ Σ_{k≥u₁} W_φ^k/k! ≤ 2(eW_φ/u₁)^{u₁} =: t_φ`. Summing
+over forms (`rs ≤ y`), `Σ_φ t_φ ≤ 2(2e(1+log y)/u₁)^{u₁} Σ_m τ(m)m^{−u₁}
+≤ ε` (`ζ(u₁)² ≤ 2` for u₁ ≥ 3), and `Π(1+t_φ) − 1 ≤ e^{ε} − 1 ≤ 2ε`.
+The final claim is T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
+`e_j`. ∎
+
+**Corollary 4.2 (PROVED implication).** For every θ ∈ (0,1), TC^𝔄_θ
+implies `E(N) ≤ (e+3) N exp(−(2/e²)(log N)^θ)` for N ≥ N₀(θ). TC^alt_θ
+(same calibration) implies the same.
+
+*Proof.* In the calibration, `u₁ ≍ (log N)^{1−θ/2}` and
+`log y_K ≍ (log N)^{θ/2}`, so `u₁/log y_K → ∞` and `ε → 0`; then as in T1
+Cor 2.2. For TC^alt this is T1 Cor 2.2's arithmetic directly. ∎
+
+**Status of the repaired hypotheses.**
+* TC ⇒ TC^alt (T1 Thm 2.1's proof); TC^𝔄 ⇒ TC^alt up to the factor
+  `1+2ε` (Thm 4.1). For θ < 2/3 all three hold (T1 Prop 2.4; the
+  termwise bound applies verbatim to admissible tuples).
+* TC^𝔄_θ is **also** expected false for θ > 2/3, for the same reason as
+  §3: admissible pure single-form tuples with `q ≤ N+1` have the exact
+  count `⌊(N+1)/q⌋`, a deficit of `{(N+1)/q} − 1/q` each, and there are
+  `N exp(−(log N)^{1−θ/2+o(1)}) ≫ Nη_K` of them at order
+  `⌊log N/log y⌋` (Lemma 3.1). (Assessment.)
+* TC^alt is immune to every single-form effect: in the alternating sum the
+  Kubilius truncation is an Euler-characteristic term `χ_φ`, which vanishes
+  unless every hit sits in an inadmissible group (proof of Thm 4.1). So
+  **TC^alt_θ is the correct form of the tuple-count door**, and
+  momentwise correlation hypotheses (TC, TC^𝔄, any precision-η statement
+  about individual S_j) are the wrong instrument above 2/3.
+
+**What TC^alt is.** `ν_K` is a CRT majorant of order K (terms = j-tuples,
+j ≤ K), so TC^alt_θ is the statement that the Brun pure sieve of degree
+`K ≍ (log N)^θ` for the prime family is CRT-accurate on [1,N]. Its terms
+have moduli up to `exp(c(log N)^{3θ/2}) ≫ N`. T1 Cor 3.3 does not cap
+order-K majorants, so there is no proved obstruction; but the "tuple-count
+door" is not an independent door. It is precisely *Brun's sieve used
+beyond its level of distribution*, for the pure prime family, whose own
+CRT cap is `(log N)^{2/3}` (T1 Thm 3.1 with mass `Σ p_ℓ ℓ^{−α} ≍ α^{−2}`;
+see §6).
