@@ -194,10 +194,16 @@ correlations of the fibre measures `π_c` between such primes (§4).
 
 ## 4. The residual problem: two or more rough primes per class
 
-By Theorem 1.1 (Hölder form) and Remark 1.1(c) (level-split form), H_LS∞
-for forced families is now equivalent to a statement about the **z-rough
-fibre families** `𝔊_c` (`z = exp((log N)^{1/4})`, all primes `> z`), for
-`c` in a set of `Q'`-probability `≥ 7/8`:
+By Theorem 1.1 (Hölder form) and Remark 1.1(c) (level-split form), the
+3/4-type cap for every large sieve over forced families **is implied by**
+(sufficient condition, not an equivalence — review R59 D1) a statement
+about the **z-rough fibre families** `𝔊_c` (`z = exp((log N)^{1/4})`, all
+primes `> z`), required for every `c` outside an event E of
+`Q'`-probability `≤ 1/8` (absorbed into Lemma 2.1's E; in the level-split
+form the hypotheses must then hold for **every** `c ∈ supp π_s`). Nothing
+shows the converse: a cap, or LS2's H_LS∞ (one π on 𝒜 with sup decay), need
+not yield fibre measures with these properties (LS2 §5 already records that
+Hölder-type and sup-type criteria are incomparable).
 
 > **(H_rough)** there is a probability `π_c` on `𝒜_c` with
 > `log 𝓡_{2+2β}(π_c) ≤ C(log N)^{3/4+o(1)}`, `β = (log N)^{−1/4}`;
@@ -213,7 +219,8 @@ prime ℓ (top-prime order) is at most the increment
 `Σ_{C: P(G_C)=ℓ}Γ(G_C)/G_C` of 𝔐 at ℓ (and `Σ_{ℓ>z}ℓ^{−α}·`increment
 `≪ α^{−3}(log 1/α)³`, as in Theorem 3.1), and the mass of classes divisible
 by a rough `D` is expected to be `≤ D^{−1}(log N)^{O(1)}` ((Sp) of LS2
-§8.2; Assessment, not needed below). The dense-bundle mechanism of LS2 Thm 8.5 is therefore
+§8.2; Assessment, not needed below; it presupposes moduli `≤ N^A` — over
+the whole universe `Σ_{M≡3(4), p|M}τ(A_M²)/M` diverges, review R59 D4). The dense-bundle mechanism of LS2 Thm 8.5 is therefore
 absent; what is missing is a **correlation-decay** statement for a measure
 on `𝒜_c` at many rough primes simultaneously.
 
