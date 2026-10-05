@@ -102,3 +102,67 @@ So η fixed and K quasi-polynomial (`K ≤ e^{S_A}/(2c₀)`) suffice.
 So the hard part of SPW is only: *every class of modulus > CN through a
 point of [1,N] must lose a fixed fraction of its mass*, with sparse classes
 allowed quasi-polynomially large mass.
+
+## 2. Bounded-density pseudo-windows (BDW): true for small N, false for large N
+
+A natural strengthening of SPW: **BDW(A) at N** — a measure ρ ≥ 0 on ℤ/L₀
+with the window profile mod every d ≤ D and *pointwise* density
+`ρ ≤ A·N/L₀`.
+
+**Lemma 2.1 (BDW ⇒ SPW; PROVED).** BDW(A) at N implies SPW(C, 1 − A/C − ε,
+2A + 2) for every C > A. *Proof.* Lift ρ uniformly to ℤ/Q′ (Q′ as in
+Lemma 1.1): ρ′(x) = ρ(x mod L₀)L₀/Q′ keeps (P1) and the density bound, so
+every class mod e | Q′ has ρ′-mass ≤ AN/e (≤ A/C for e > CN, ≤ 2A for
+e > D). Apply Lemma 1.1(b). ∎
+
+**Lemma 2.2 (duality; PROVED).** BDW(A) at N holds iff for every g ∈ V_D
+(the span of indicators of classes mod d ≤ D, as functions on ℤ/L₀)
+
+    (1/N) Σ_{n=1}^{N} g(n) ≤ A · E_{x∈ℤ/L₀}[g(x)⁺].                       (2.1)
+
+*Proof.* With y = ρL₀/N the primal asks for y ∈ [0,A]^{ℤ/L₀} with the
+same V_D-projection as (L₀/N)λ_N. The set of projections of the box is
+compact convex; separation by g ∈ V_D gives exactly the failure of (2.1)
+(max of ⟨g,y⟩ over the box is A·Σg⁺). ∎
+Taking g = indicator of one class gives `A ≥ A*(N) := max_{d≤D,b} c(b,d)d/N`
+(= 3/2 − 3/N for even N ≥ 12, via d = N/2 − 1, c = 3).
+
+**Numerics (EVIDENCE; `scripts/spw_bdw_lp.py`, HiGHS LP on ℤ/L₀).** The
+optimum equals the trivial bound A*(N) exactly for every even N, 12 ≤ N ≤ 24
+(A = 1.250, 1.286, 1.313, 1.333, 1.350, 1.364, 1.375), and the optimal y is
+bang-bang: y ∈ {0, A} except at ≈ #constraints points, i.e. essentially a set
+S ⊂ ℤ/L₀ of density 1/A on which a uniform element has exactly the window
+law mod every d ≤ D. So at small N the window profile is as "un-rigid" as
+possible.
+
+**Proposition 2.3 (BDW fails for large N; PROVED).** Every BDW constant
+satisfies `A(N) ≥ c·√N` for N ≥ N₀ (absolute c > 0, e.g. c = 0.05).
+Rigorous values (`scripts/spw_bdw_l2bound.py`, exact integer arithmetic):
+A(150) ≥ 1.55 > A*(150), A(200) ≥ 1.77, A(300) ≥ 2.20, A(400) ≥ 2.50.
+
+*Proof.* Put E_d(b) = c(b,d) − N/d (so Σ_b E_d = 0) and
+g := Σ_{2≤d≤D} d·E_d(x mod d) ∈ V_D. Then E g = 0, so
+E g⁺ = E|g|/2 ≤ (E g²)^{1/2}/2.
+*Window side.* Σ_{n≤N} E_d(n) d = d Σ_b c(b,d)E_d(b) = d Σ_b E_d(b)²
+= r_d(d − r_d) with r_d = N mod d (E_d = 1 − r/d on r classes, −r/d on
+the others). For d = D − k, 0 ≤ k < D/3, N = 2D or 2D+1 gives
+r_d ≥ 2k, d − r_d ≥ D − 3k − 1, so (1/N)Σ_n g(n) ≥ (1/N)Σ_k 2k(D−3k−1)
+= D³/(27N) − O(D²/N).
+*L² side.* For d, d′ with g₀ = gcd(d,d′), E[d E_d | x mod g₀] = g₀E_{g₀}
+(averaging c(·,d) over the d/g₀ lifts of a class mod g₀ gives c(·,g₀)·g₀/d),
+and x mod d, x mod d′ are independent given x mod g₀ under the uniform
+measure; hence E[dE_d · d′E_{d′}] = g₀² E[E_{g₀}²] = r_{g₀}(g₀ − r_{g₀}) ≤ g₀²/4.
+Summing, E g² ≤ Σ_{g₀≤D} (g₀²/4)·#{(d,d′) : gcd = g₀} ≤ Σ_{g₀} (g₀²/4)(D/g₀)²
+= D³/4. So A ≥ (D³/(27N) − O(D²/N)) / (D^{3/2}/4) ≍ √N. ∎
+
+The Monte-Carlo ratio (1/N)Σg / E g⁺ (`spw_bdw_dualtest.py`, EVIDENCE) is
+0.77, 0.93, 1.31, 1.47, 1.61, 1.95, 2.23 at N = 20, 32, 60, 80, 100, 150,
+200 — the true A(N) exceeds 3/2 already near N ≈ 80.
+
+*Consequence (Assessment).* SPW cannot be obtained from a pointwise-spread
+pseudo-window: any SPW measure must have relative density ≳ √N somewhere
+on ℤ/L₀. The dual of SPW (IF2 (9.1)) is not threatened by this g: its
+negative part is "random-like", and covering a random-like function by
+classes of modulus > CN costs ≍ e·max over a class, not e·mean. So SPW
+needs constructions that are spread *on large classes* but not pointwise —
+consistent with the LP optima, which are sparse.
