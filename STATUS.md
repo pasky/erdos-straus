@@ -120,6 +120,12 @@ moduli are `≤ exp((log p)^{1/14−ε})` can prove ES. The heuristic truth is `
   `uv run --with scipy python verify.py`).
 * `verify.py` blocks (ci)–(co) (O20, ~11 s) add EXCEPTIONAL_TWIN3/TWIN4/KARY/KARY2/NONCRT and
   POINTWISE_OMEGA5/WINDOW checks (KARY B*/Thm 2.5 LPs need scipy; OMEGA3 is (cc)).
+* `verify.py` blocks (cp)–(ct) (O35, ~10–20 s) add EXCEPTIONAL_TUPLES2 (forms, Cor 1.2,
+  Thm 4.1 Euler-characteristic identity), EXCEPTIONAL_KARY3 (Lemmas 2.1–2.3 steps, §8 data),
+  EXCEPTIONAL_LARGESIEVE2 §§1–7 (LP/Bessel parts need scipy; §§8–9 not replayed),
+  POINTWISE_OMEGA8 §§1–5 (BRW Lemma 3.1, c_W formula, exponent bookkeeping) and
+  POINTWISE_TYPEI (Lemma 1.1, Thm 6.1, census spot check). Full run ≈ 4.3 min;
+  use `OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2` on the shared machine.
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 

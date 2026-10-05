@@ -39,6 +39,17 @@ Blocks (ci)..(co) (task O20) replay the later documents in the same way:
   (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2;
   (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data.
 (POINTWISE_OMEGA3's composition inequality is block (cc).)
+Blocks (cp)..(ct) (task O35) replay the documents merged in the next round:
+  (cp) EXCEPTIONAL_TUPLES2: forms Lemma 1.1, Cor 1.2/(1.3), Lemma 3.1, Thm 4.1
+       Euler-characteristic identity (exact rationals, small y, N);
+  (cq) EXCEPTIONAL_KARY3: Lemma 2.1/(2.1'), Lemma 2.2 grouping bound, Lemma 2.3/3.1
+       sub-steps, §8 data regression;
+  (cr) EXCEPTIONAL_LARGESIEVE2 §§1-7 (imports scripts/largesieve2_checks.py; LP parts
+       only if scipy is importable): Lemma 1.1 LP dual, Lemma 2.2, Lemma 4.1, Thm 4.3
+       steps, Prop 6.1;
+  (cs) POINTWISE_OMEGA8 §§1-5 (imports scripts/omega8_brw_check.py): BRW Lemma 3.1,
+       Lemma 3.2 c_W formula, exponent bookkeeping of Thms 4.3-4.4;
+  (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -17487,6 +17498,636 @@ def check_co():
 
 print("\n== (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data ==")
 check_co()
+
+
+# ---------------------------------------------------------------- (cp)
+# EXCEPTIONAL_TUPLES2.md: forms Lemma 1.1, forced zeros Cor 1.2 / (1.3), Lemma 3.1,
+# and the Thm 4.1 Euler-characteristic identity (cf. scripts/review_t2_forms.py,
+# scripts/review_t2_altsum.py).
+# (1) Lemma 1.1: for primes l = 3 (4), l <= 1500, A = (l+1)/4: (r,s,m) -> r^2 m is a
+#     bijection {rsm = A, gcd(r,s) = 1} -> divisors of A^2; n = -4D (l) <=> l | ns + r
+#     (all n mod l); -1 in R(l); 4rs | l+1.
+# (2) On small (y, N): Cor 1.2 (every hit set H(n), n <= N, has all form-groups
+#     admissible) and (1.3) S_j(N) = sum over admissible j-tuples of C_T(N); Lemma 3.1
+#     C_{T_G}(N) = floor((N+1)/q_G) for the pure class -1.
+# (3) Thm 4.1 proof identity, exact rationals: sum_j (-1)^j e_j^A = E_CRT a(H),
+#     a(H) = prod_phi chi_phi(H_phi) (tuple vs configuration enumeration); full
+#     sum_j (-1)^j e_j = prod(1 - p_l); and the intermediate two-sided bound
+#     |E a(H) - P(H = 0)| <= Pi(1-p) [prod_phi (1 + sum_{k >= u1} e_k(w_phi)) - 1].
+
+def check_cp():
+    from time import perf_counter
+    from math import comb
+    from sympy import divisors as _divs
+    t0 = perf_counter()
+
+    # (1) Lemma 1.1
+    nl = 0
+    for l in primerange(3, 1501):
+        if l % 4 != 3:
+            continue
+        nl += 1
+        A = (l + 1) // 4
+        trip = [(r, s, A // (r * s)) for r in _divs(A) for s in _divs(A // r) if gcd(r, s) == 1]
+        Ds = [r * r * m for r, s, m in trip]
+        assert len(set(Ds)) == len(Ds) and set(Ds) == set(_divs(A * A)), ("TUPLES2 Lemma 1.1 bijection", l)
+        assert (l - 1) in {(-4 * D) % l for D in Ds}, ("TUPLES2 -1 in R(l)", l)
+        for r, s, m in trip:
+            assert (l + 1) % (4 * r * s) == 0
+            D = r * r * m
+            for n in range(l):
+                assert ((n + 4 * D) % l == 0) == ((n * s + r) % l == 0), ("TUPLES2 (1.1)", l, r, s, n)
+
+    # (2), (3) small brute force
+    def run(y, N):
+        primes = [l for l in primerange(3, y + 1) if l % 4 == 3]
+        cls = {}
+        for l in primes:
+            A = (l + 1) // 4
+            forms = {}
+            for r in _divs(A):
+                for s in _divs(A // r):
+                    if gcd(r, s) == 1:
+                        forms.setdefault((-r * pow(s, -1, l)) % l, []).append((r, s))
+            cls[l] = sorted((b, (1, 1) if b == l - 1 else min(fl, key=lambda t: (t[0] * t[1], t[0])))
+                            for b, fl in forms.items())
+            assert (1, 1) in forms[l - 1]
+
+        def adm(pairs):
+            g = {}
+            for l, f in pairs:
+                g[f] = g.get(f, 1) * l
+            return all(q <= N * f[1] + f[0] for f, q in g.items())
+
+        J = len(primes)
+        S = [0] * (J + 1)
+        SA = [0] * (J + 1)
+        for n in range(1, N + 1):
+            H = [(l, f) for l in primes for b, f in cls[l] if n % l == b]
+            assert adm(H), ("TUPLES2 Cor 1.2", y, N, n)
+            for k in range(len(H) + 1):
+                S[k] += comb(len(H), k)
+                SA[k] += sum(1 for T in combinations(H, k) if adm(T))
+        assert S == SA, ("TUPLES2 (1.3)", y, N)
+        for k in range(1, J + 1):
+            for G in combinations(primes, k):
+                q = prod(G)
+                c = sum(1 for n in range(1, N + 1) if all(n % l == l - 1 for l in G))
+                assert c == (N + 1) // q, ("TUPLES2 Lemma 3.1", G)
+        opts = [[None] + [(l, f) for b, f in cls[l]] for l in primes]
+        e = [Fraction(0)] * (J + 1)
+        eA = [Fraction(0)] * (J + 1)
+        Ea = Fraction(0)
+        ninadm = 0
+        for cfg in cartesian_product(*opts):
+            T = [c for c in cfg if c is not None]
+            d = Fraction(1, prod(l for l, f in T))
+            e[len(T)] += d
+            if adm(T):
+                eA[len(T)] += d
+            else:
+                ninadm += 1
+            pH = prod(Fraction(1, l) if c is not None else Fraction(l - len(cls[l]), l)
+                      for l, c in zip(primes, cfg))
+            groups = {}
+            for l, f in T:
+                groups.setdefault(f, []).append((l, f))
+            a = 1
+            for G in groups.values():
+                a *= sum((-1) ** k for k in range(len(G) + 1) for U in combinations(G, k) if adm(U))
+            Ea += pH * a
+        P0 = prod(Fraction(l - len(cls[l]), l) for l in primes)
+        assert sum((-1) ** j * eA[j] for j in range(J + 1)) == Ea, ("TUPLES2 Thm 4.1 Euler char", y, N)
+        assert sum((-1) ** j * e[j] for j in range(J + 1)) == P0, ("TUPLES2 full alt sum", y, N)
+        assert ninadm > 0 and Ea != P0, ("TUPLES2 test not exercising inadmissible groups", y, N)
+        u1 = int(log(N) / log(y)) + 1
+        assert y ** (u1 - 1) <= N < y ** u1
+        brk = Fraction(1)
+        for r, s in {f for l in primes for b, f in cls[l]}:
+            c = [Fraction(1)]
+            for w in [Fraction(4, l) for l in primes if (l + 1) % (4 * r * s) == 0]:
+                c = [c[k] + (w * c[k - 1] if k else 0) for k in range(len(c))] + [w * c[-1]]
+            brk *= 1 + sum(c[u1:])
+        assert abs(Ea - P0) <= P0 * (brk - 1), ("TUPLES2 Thm 4.1 intermediate bound", y, N)
+        return len(primes), ninadm, float(Ea), float(P0)
+
+    res = [(y, N) + run(y, N) for y, N in [(20, 50), (24, 300), (32, 200), (44, 1000)]]
+    print(f"cp Lemma 1.1: {nl} primes l = 3 (4) <= 1500 (bijection, (1.1) on all residues, -1 in R(l))")
+    for y, N, J, ni, ea, p0 in res:
+        print(f"cp y={y} N={N}: {J} primes; Cor 1.2, (1.3), Lemma 3.1 exact; {ni} inadmissible configs; "
+              f"sum(-1)^j e_j^A = E a(H) = {ea:.5f} (Pi(1-p) = {p0:.5f}); intermediate bound ok")
+    print(f"cp seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cp) EXCEPTIONAL_TUPLES2: forms Lemma 1.1, Cor 1.2/(1.3), Lemma 3.1, Thm 4.1 identity ==")
+check_cp()
+
+
+# ---------------------------------------------------------------- (cq)
+# EXCEPTIONAL_KARY3.md: Lemma 2.1 / (2.1') local-weight lemma, Lemma 2.2 grouping bound,
+# Lemma 2.3 / 3.1 arithmetic sub-steps, and the §8 data regression (cf.
+# scripts/review_k3_checks.py, scripts/kary3_moments.py).  W = 16 conventions of K2.
+# (1) Lemma 2.1: for every y-smooth M <= 10^9 (y = 7, 13, 23): S_y(M) is squarefull and
+#     M <= S_y(M) * E_y(M), E_y(M) := exp(Z_y(M) log y) = prod_{d in P_y, d | M} Lambda-exp
+#     (exact integers); for every dyadic K >= y with K < M <= 2K: S_y(M)^2 > K or E_y(M)^2 >= K
+#     (i.e. Z_y >= u/2), hence 1[P(M) <= y] <= 1[S > K^1/2] + (2Z/u)^k for k = 1..6.
+# (2) Lemma 2.2 proof: the tuple sum over (P_y)^k, k <= 3, y <= 40 (direct enumeration) is
+#     <= the partition (exponential-formula) bound, and sum_{nu in N^m} p^-max(nu) <=
+#     sum_t m t^{m-1} p^-t <= c_m / p with c_m = sum_t m t^{m-1} 2^{1-t}.
+# (3) Lemma 2.3 sub-steps: tau(A^2) = sum_{d | A} 2^omega(d) (A <= 20000); odd q | M <=> A_M = 4^-1
+#     (q); sum_{e sqfree} h(e) gcd(D,e)/e = prod_{p|D}(1+h(p)) prod_{p !| D}(1+h(p)/p) (exact,
+#     primes <= 13); (1-1/p)^-1 e^{-3/p} <= 1; Lemma 3.1: Gamma(4rh) <= 8 Gamma(r) Gamma(h).
+# (4) §8 regression (data/kary3/moments.txt, X = 10^12): y = 7: 647 smooth M = 3 (4),
+#     S_tau = 1.9424, S_tauGamma = 10.1615, max u^4 b = 0.3848 at K = 128; y = 13: 6954, 3.5528,
+#     22.7143, 0.2932 at K = 128.
+
+def check_cq():
+    from time import perf_counter
+    from math import factorial
+    t0 = perf_counter()
+
+    def gam(p):
+        return 8.0 if p == 2 else (2 * p / (p - 1) if p <= 16 else 1 / (1 - p ** -0.5))
+
+    def smooth(y, X):
+        ps = list(primerange(2, y + 1))
+        out = [{}]
+        vals = [1]
+        for p in ps:
+            n0 = len(vals)
+            for i in range(n0):
+                m, f, e = vals[i] * p, out[i], 1
+                while m <= X:
+                    vals.append(m)
+                    out.append({**f, p: e})
+                    m, e = m * p, e + 1
+        return list(zip(vals, out))
+
+    # (1) Lemma 2.1
+    nM = 0
+    for y in (7, 13, 23):
+        for M, f in smooth(y, 10 ** 9):
+            S = E = 1
+            for p, v in f.items():
+                if p ** v > y:
+                    assert v >= 2, ("KARY3 Lemma 2.1 squarefull", y, M)
+                    S *= p ** v
+                nu = 1
+                while nu <= v and p ** nu <= y:
+                    E *= p
+                    nu += 1
+            assert M <= S * E, ("KARY3 Lemma 2.1 size", y, M)
+            if M > y:
+                K = 1 << ((M - 1).bit_length() - 1)             # K < M <= 2K
+                if K >= y:
+                    assert S * S > K or E * E >= K, ("KARY3 Lemma 2.1 dichotomy", y, M)
+                    u, Z = log(K) / log(y), log(E) / log(y)
+                    for k in range(1, 7):
+                        assert 1 <= (S * S > K) + (2 * Z / u) ** k + 1e-12, ("KARY3 Lemma 2.1 k-bound", y, M, k)
+            nM += 1
+
+    # (2) Lemma 2.2 grouping bound
+    cm = {m: sum(m * t ** (m - 1) * 2.0 ** (1 - t) for t in range(1, 400)) for m in range(1, 4)}
+    for p in (2, 3, 5, 7, 11):
+        for m in range(1, 4):
+            exact = sum((t ** m - (t - 1) ** m) * float(p) ** -t for t in range(1, 200))
+            mid = sum(m * t ** (m - 1) * float(p) ** -t for t in range(1, 200))
+            assert exact <= mid * (1 + 1e-12) and mid <= cm[m] / p * (1 + 1e-12), ("KARY3 Lemma 2.2 c_m", p, m)
+    n22 = 0
+    for y in (10, 20, 40):
+        Py = [(q, log(p)) for p in primerange(2, y + 1) for q in [p ** a for a in range(1, 8)] if q <= y]
+        ps = list(primerange(2, y + 1))
+        poly = [1.0, 0.0, 0.0, 0.0]
+        for p in ps:
+            fp = [1.0] + [gam(p) * log(p) ** m * sum((t ** m - (t - 1) ** m) * float(p) ** -t for t in range(1, 200))
+                          / factorial(m) for m in range(1, 4)]
+            poly = [sum(poly[i] * fp[k - i] for i in range(k + 1)) for k in range(4)]
+        for k in range(1, 4):
+            direct = 0.0
+            for tup in cartesian_product(Py, repeat=k):
+                D = lcm(*[q for q, _ in tup])
+                G = prod(gam(p) for p in factorint(D))
+                direct += prod(L for _, L in tup) * G / D
+            assert direct <= factorial(k) * poly[k] * (1 + 1e-9), ("KARY3 Lemma 2.2 grouping", y, k)
+            n22 += 1
+
+    # (3) Lemma 2.3 / 3.1 sub-steps
+    for A in range(1, 20001):
+        f = factorint(A)
+        t = prod(2 * e + 1 for e in f.values())
+        assert t == sum(2 ** len(factorint(d)) for d in _o9_divisors(f)), ("KARY3 tau(A^2)", A)
+    for q in range(3, 400, 2):
+        inv4 = pow(4, -1, q)
+        for A in range(1, 3 * q):
+            assert ((4 * A - 1) % q == 0) == (A % q == inv4)
+    hP = {p: (Fraction(7) if p == 2 else Fraction(p + 1, p - 1)) for p in (2, 3, 5, 7, 11, 13)}
+    plist = list(hP)
+    for D in (1, 2, 3, 6, 10, 15, 30, 77, 2 * 3 * 5 * 7 * 11 * 13, 1001):
+        lhs = Fraction(0)
+        for r in range(len(plist) + 1):
+            for es in combinations(plist, r):
+                e = prod(es)
+                lhs += prod(hP[p] for p in es) * gcd(D, e) / Fraction(e)
+        rhs = prod((1 + hP[p]) if D % p == 0 else (1 + hP[p] / p) for p in plist)
+        assert lhs == rhs, ("KARY3 Lemma 2.3 Euler product", D)
+    for p in primerange(2, 10 ** 5):
+        assert p / (p - 1) * exp(-3 / p) <= 1
+    G = [1.0] * 1201
+    for n in range(2, 1201):
+        G[n] = prod(gam(p) for p in factorint(n))
+    for r in range(1, 301):
+        for h in range(1, 301):
+            g4 = prod(gam(p) for p in set(factorint(4 * r * h)))
+            assert g4 <= 8 * G[r] * G[h] * (1 + 1e-12), ("KARY3 Lemma 3.1 Gamma submult", r, h)
+
+    # (4) §8 regression
+    for y, cnt, s1, sg, best, Kb in ((7, 647, 1.9424, 10.1615, 0.3848, 128), (13, 6954, 3.5528, 22.7143, 0.2932, 128)):
+        sm = [(M, f) for M, f in smooth(y, 10 ** 12) if M % 4 == 3]
+        S1 = SG = 0.0
+        blocks = {}
+        for M, f in sm:
+            t = prod(2 * e + 1 for e in factorint((M + 1) // 4).values())
+            S1 += t / M
+            SG += t * prod(gam(p) for p in f) / M
+            k = M.bit_length() - 1
+            blocks[k] = blocks.get(k, 0) + t
+        vb = max(((log(2 ** k) / log(y)) ** 4 * b / (2 ** k * log(2 ** k) ** 2), 2 ** k)
+                 for k, b in blocks.items() if 2 ** k >= y and 2 ** (k + 1) <= 10 ** 12)
+        got = (len(sm), round(S1, 4), round(SG, 4), round(vb[0], 4), vb[1])
+        assert got == (cnt, s1, sg, best, Kb), ("KARY3 §8 regression", y, got)
+    print(f"cq Lemma 2.1 on {nM} smooth M <= 1e9 (y = 7, 13, 23): squarefull S_y, M <= S_y E_y, dichotomy, "
+          f"k-indicator bound; Lemma 2.2 grouping bound on {n22} (y, k) cases")
+    print(f"cq Lemma 2.3/3.1 sub-steps exact; §8 regression y = 7, 13 matches data/kary3/moments.txt; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cq) EXCEPTIONAL_KARY3: Lemma 2.1/(2.1'), Lemma 2.2 bound, Lemma 2.3 steps, §8 data ==")
+check_cq()
+
+
+# ---------------------------------------------------------------- (cr)
+# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9 not replayed: under review).  Imports
+# scripts/largesieve2_checks.py (toy family mod L = 24*5*7*11; its functions assert):
+# (1) Lemma 1.1 comparison measure: LP optimum m* = 1/24 (k = 0), 1/140 (k = 2), dual
+#     stationarity, and max{E_pi f : f in V_D, f >= 0, E_U f = 1} <= 1/m* (second LP);
+# (2) Lemma 2.2 / Thm 2.4 type (i): N E_U|H|^2 <= Delta |c|^2 and the twisted R~(pi) bound
+#     (504 Farey rows, N = 60);
+# (3) Lemma 4.1: w~_theta <= h + (W-h)/N on the 6 kernels of check3 (same random stream;
+#     the cvxpy QP for D* is not replayed);
+# (4) Thm 4.3 proof steps on the exact sequential law (full family + 3 thinnings):
+#     chi^2_l(sigma) <= E[p/(1-p); light], 1 + chi^2_q(pi) <= (1+chi^2_q(sigma))(1-leak)^-2,
+#     base chi^2 = 7 (q = 8), 2 (q = 3); family sizes / leaks = data/largesieve2/checks.txt.
+# Plus (cf. scripts/review_ls2_small.py): Thm 4.3 constants (unit squares mod p^v:
+# chi^2 = (p+1)/(p-1) for odd p, <= 7 for p = 2, reduction p^V -> p^v uniform;
+# (1-x)^-2 <= 1+4x on [0,1/4]); Prop 6.1 brute force (N < 400).
+# Skipped (with a note) if scipy is not importable.
+
+def check_cr():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    import random as _random
+    t0 = perf_counter()
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    # Thm 4.3 constants
+    def usq(m):
+        return sorted({(x * x) % m for x in range(m) if gcd(x, m) == 1})
+    for p, vmax in ((2, 7), (3, 5), (5, 4), (7, 3), (11, 2)):
+        Sb = usq(p ** vmax)
+        for v in range(1, vmax + 1):
+            m = p ** v
+            S = usq(m)
+            chi2 = Fraction(m, len(S)) - 1
+            assert chi2 <= 7 and (p == 2 or chi2 == Fraction(p + 1, p - 1)), ("LS2 Thm 4.3 unit-square chi2", m)
+            assert p != 2 or v < 3 or chi2 == 7
+            cnt = Counter(s % m for s in Sb)
+            assert set(cnt) == set(S) and len(set(cnt.values())) == 1, ("LS2 Thm 4.3 reduction uniform", m)
+    assert all((1 - Fraction(i, 4000)) ** -2 <= 1 + 4 * Fraction(i, 4000) for i in range(1001))
+
+    # Prop 6.1 brute force
+    from sympy import nextprime as _nextprime
+    rng = _random.Random(20261005)
+    for N in range(2, 400):
+        primes = list(primerange(2, N + 1))
+        q = _nextprime(N)
+        assert N < q <= 2 * N
+        for _ in range(3):
+            A = [p for p in primes if rng.random() < 0.5]
+            vals = {pp: sum(1 for p in A if (pp - p) % q == 0) for pp in primes}
+            assert all(vals[pp] == (pp in A) for pp in primes) and sum(vals.values()) == len(A), ("LS2 Prop 6.1", N)
+
+    if not have_scipy:
+        print("cr Thm 4.3 constants, Prop 6.1 ok; LP/Bessel replays SKIPPED (scipy not importable; "
+              "run `uv run --with scipy python verify.py`)")
+        return
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "largesieve2_checks.py")
+    spec = importlib.util.spec_from_file_location("largesieve2_checks", path)
+    ls = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ls)                    # seeds random / np.random (20261005)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        cls = ls.toy_family()
+        avoid = ls.avoider(cls)
+        m0, _ = ls.check1(avoid, 0)
+        m2, pi2 = ls.check1(avoid, 2)
+        ls.check2(pi2, m2, 2, N=60)
+        # Lemma 4.1 on check3's kernels (identical random calls, QP omitted)
+        N, k = 40, 2
+        mods = [d for d in ls.divisors(ls.L) if sum(1 for p in ls.BIG if d % p == 0) <= k // 2 and d > 1]
+        for _ in range(6):
+            S = ls.random.sample(mods, 8)
+            w = {q: ls.random.uniform(0.1, 2.0) for q in S}
+            W = sum(w.values())
+            h = max(sum(wq for q, wq in w.items() if mm % q == 0) for mm in range(1, N))
+            wt = {}
+            for q, wq in w.items():
+                for a in range(q):
+                    g = gcd(a, q)
+                    wt[(a // g, q // g)] = wt.get((a // g, q // g), 0.0) + wq / q
+            assert max(wt.values()) <= h + (W - h) / N + 1e-12, ("LS2 Lemma 4.1", S)
+            assert abs(wt[(0, 1)] - sum(wq / q for q, wq in w.items())) < 1e-12
+        ls.check4(cls)
+        for keep in (0.05, 0.1, 0.2):
+            ls.check4({C for C in cls if ls.SMALL % C[1] == 0 or ls.random.random() < keep})
+    out = buf.getvalue()
+    assert abs(m0 - 1 / 24) < 1e-9 and abs(m2 - 1 / 140) < 1e-9, ("LS2 Lemma 1.1 m*", m0, m2)
+    assert "J=504 rows" in out, out
+    fam = [ln for ln in out.splitlines() if ln.startswith("(4)")]
+    sizes = [ln.split("|family|=")[1].split(",")[0] for ln in fam]
+    leaks = [ln.split("leak=")[1].split(";")[0] for ln in fam]
+    assert sizes == ["955", "64", "94", "204"] and leaks == ["0.9117", "0.0000", "0.0000", "0.3175"], (sizes, leaks)
+    assert out.count("q=8: chi2(sigma)=7.0000") == 4 and out.count("q=3: chi2(sigma)=2.0000") == 4
+    print(f"cr Thm 4.3 constants exact; Prop 6.1 brute force N < 400; Lemma 1.1 m* = 1/24, 1/140 with dual "
+          f"certificate; Lemma 2.2/Thm 2.4(i) on 504 Farey rows; Lemma 4.1 on 6 kernels")
+    print(f"cr Thm 4.3 steps on families {sizes} (leaks {leaks}) = data/largesieve2/checks.txt; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cr) EXCEPTIONAL_LARGESIEVE2 §§1-7: Lemma 1.1 LP dual, Lemma 2.2, Lemma 4.1, Thm 4.3, Prop 6.1 ==")
+check_cr()
+
+
+# ---------------------------------------------------------------- (cs)
+# POINTWISE_OMEGA8.md §§1-5.  Imports scripts/omega8_brw_check.py (trial(), es_trunc()).
+# (1) Lemma 3.1 (BRW minorant): on random single-value event systems on (Z/q)^n with
+#     u_j = Efron-Stein truncations of F^(j): B <= F pointwise, the identity
+#     F - B = sum_i A_i (sum_{j<i} A_j e_j)^2 and E[F-B] <= m^2 sum_j P(E_j) energy(F^(j); t)
+#     (n = 6, q = 5, 40 trials, seed 1 = the data/omega8/brw_check.txt run; plus n = 4, q = 3); B <= F with
+#     the identity for ARBITRARY real u_j (the lemma's hypothesis), plus
+#     E[A_j e_j^2] = P(E_j) energy(F^(j); t) for the truncation choice.
+# (2) Lemma 3.2 cell coefficient formula: level-t ES truncation of phi on N coordinates =
+#     sum_{|W| <= t} c_W E[phi | X_W], c_W = sum_{i=0}^{t-|W|} (-1)^i binom(N-|W|, i), |c_W| <= (N+1)^t.
+# (3) Exponent bookkeeping (cf. scripts/review_o8b_exponents.py, review_o8a_bookkeeping.py;
+#     Assessment-level arithmetic of Thm 3.4 + Cor 4.2 with constants 1): in the ET regime
+#     S* = L^4 log L, log(log p)/log L decreases in L towards 14 (Thm 4.3) with
+#     log t/log L -> 6, log K/log L -> 7; Thm 4.4: log2 p/(L/log L) -> 2 log 2.
+
+def check_cs():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import numpy as np
+    from math import comb
+    t0 = perf_counter()
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "omega8_brw_check.py")
+    spec = importlib.util.spec_from_file_location("omega8_brw_check", path)
+    ob = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ob)
+
+    # (1) Lemma 3.1 via the author's trial()
+    ntr = 0
+    for (nn, qq, trials, seed) in ((6, 5, 40, 1), (4, 3, 30, 7)):
+        ob.n, ob.q = nn, qq
+        rng = np.random.default_rng(seed)
+        for _ in range(trials):
+            m = int(rng.integers(3, 25))
+            t = int(rng.integers(0, nn))
+            viol, ident, err, bd, _ = ob.trial(rng, m, 3, t)
+            assert viol <= 1e-9 and ident <= 1e-9 and err <= bd + 1e-12, ("OMEGA8 Lemma 3.1", nn, qq, m, t, viol, ident)
+            ntr += 1
+    # arbitrary u_j, and the energy identity, self-contained on (Z/3)^4
+    rng = np.random.default_rng(2026)
+    n, q = 4, 3
+    shape = (q,) * n
+    narb = 0
+    for _ in range(40):
+        m = int(rng.integers(2, 12))
+        A = []
+        for _ in range(m):
+            a = np.zeros(shape)
+            idx = [slice(None)] * n
+            for l in rng.choice(n, size=int(rng.integers(1, 4)), replace=False):
+                idx[l] = int(rng.integers(q))
+            a[tuple(idx)] = 1.0
+            A.append(a)
+        Flt = [np.ones(shape)]
+        for a in A:
+            Flt.append(Flt[-1] * (1 - a))
+        F = Flt[-1]
+        u = [rng.normal(0, 1.5, shape) for _ in range(m)]
+        B = np.ones(shape)
+        rhs = np.zeros(shape)
+        for i in range(m):
+            v = sum((A[j] * u[j] for j in range(i)), np.zeros(shape))
+            B -= A[i] * (1 - v) ** 2
+            rhs += A[i] * sum((A[j] * (Flt[j] - u[j]) for j in range(i)), np.zeros(shape)) ** 2
+        assert (B - F).max() <= 1e-9 and np.abs(F - B - rhs).max() <= 1e-9, ("OMEGA8 Lemma 3.1 arbitrary u", m)
+        narb += 1
+    ob.n, ob.q = n, q
+    for _ in range(20):
+        ev = [(int(l), int(rng.integers(q))) for l in rng.choice(n, size=2, replace=False)]
+        a = ob.event_indicator(ev)
+        Fj = rng.random(shape) * (rng.random(shape) < 0.7)
+        idx = [slice(None)] * n
+        for l, c in ev:
+            idx[l] = slice(c, c + 1)
+        phi = np.broadcast_to(Fj[tuple(idx)], shape).copy()
+        others = [ax for ax in range(n) if ax not in [l for l, c in ev]]
+        for t in range(len(others) + 1):
+            uj = ob.es_trunc(phi, t, others)
+            energy = ((phi - uj) ** 2).mean()
+            assert abs((a * (Fj - uj) ** 2).mean() - a.mean() * energy) < 1e-12, ("OMEGA8 energy identity", ev, t)
+
+    # (2) Lemma 3.2 coefficient formula
+    ncoef = 0
+    for (N, qq) in ((4, 3), (5, 2), (3, 5)):
+        shape = (qq,) * N
+        for _ in range(3):
+            phi = rng.random(shape)
+            for t in range(N + 1):
+                u = ob.es_trunc(phi, t, list(range(N)))
+                g = np.zeros(shape)
+                for r in range(t + 1):
+                    cW = sum((-1) ** i * comb(N - r, i) for i in range(t - r + 1))
+                    assert abs(cW) <= (N + 1) ** t
+                    for Wset in combinations(range(N), r):
+                        drop = tuple(ax for ax in range(N) if ax not in Wset)
+                        g += cW * (phi.mean(axis=drop, keepdims=True) if drop else phi)
+                assert np.abs(g - u).max() < 1e-10, ("OMEGA8 Lemma 3.2 c_W formula", N, qq, t)
+                ncoef += 1
+
+    # (3) exponent bookkeeping (R30b chain, all constants 1, C_H = 5)
+    def llp_et(L):
+        z = L * L
+        k = max(1, int(L // log(z)))
+        S = L ** 4 * log(L)
+        logm = (k + 2) * L
+        b = ceil(2 + 2 * L / log(2))
+        k0 = ceil(3 * S / log(2) + (log(400) + 2 * logm + log(S + 1)) / log(2))
+        t = 2 * 5 * k * b * k0
+        K = 1 + 3 * logm + 8 * t * L + 8 * (3 * k + 2 * t) * L + 3 + 2.07 * S + 0.02
+        logQ = (1.26 * z / log(z) + 64 * k * k * S) * L + log(24)
+        logmaxd = (3 * k + 2 * t) * L
+        logZ = logQ + log(2) + max(L, logmaxd) + logmaxd
+        return (log(K) + log(max(logZ, K))) / log(L), log(t) / log(L), log(K) / log(L)
+    vals = [llp_et(10.0 ** e) for e in (3, 6, 12, 20, 30)]
+    assert all(a[0] > b[0] > 14 for a, b in zip(vals, vals[1:])) and vals[-1][0] < 14.25, ("OMEGA8 Thm 4.3 exponent", vals)
+    assert 6 < vals[-1][1] < 6.1 and 7 < vals[-1][2] < 7.15 and vals[-1][2] < vals[-2][2], ("OMEGA8 t, K exponents", vals[-1])
+    def lse(*xs):                                   # log(sum exp(x))
+        mx = max(xs)
+        return mx + log(sum(exp(x - mx) for x in xs))
+    r44 = []
+    for e in (8, 20, 80):                           # same chain in log space, log S* = log 2 L/log L
+        L = 10.0 ** e
+        logS = log(2) * L / log(L)
+        k = max(1, int(L // log(L * L)))
+        logm = (k + 2) * L
+        b = ceil(2 + 2 * L / log(2))
+        logk0 = lse(logS + log(3 / log(2)), log((log(400) + 2 * logm) / log(2) + logS / log(2) + 1))
+        logt = log(10 * k * b) + logk0
+        logK = lse(log(1 + 3 * logm + 3.02), log(24 * L) + logt, logS + log(2.07))
+        loglogZ = lse(log((1.26 * L * L / log(L * L)) * L + log(24)), log(64 * k * k * L) + logS,
+                      log(L + log(2)), log(4 * L) + logt, log(6 * k * L + 1))
+        r44.append((logK + max(loglogZ, logK)) / (L / log(L)))
+    assert all(abs(r - 2 * log(2)) < 1e-3 for r in r44), ("OMEGA8 Thm 4.4 rate", r44)
+    print(f"cs Lemma 3.1: {ntr} BRW trials (B <= F, identity, E[F-B] bound) + {narb} with arbitrary u_j; "
+          f"energy identity; Lemma 3.2 c_W formula on {ncoef} (phi, t) cases")
+    print(f"cs bookkeeping: log(log p)/log L = " + ", ".join(f"{v[0]:.3f}" for v in vals)
+          + f" (L = 1e3..1e30, -> 14); Thm 4.4 log2 p/(L/log L) = " + ", ".join(f"{r:.4f}" for r in r44) + f" -> 2 log 2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cs) POINTWISE_OMEGA8 §§1-5: BRW sandwich Lemma 3.1, c_W formula Lemma 3.2, exponent bookkeeping ==")
+check_cs()
+
+
+# ---------------------------------------------------------------- (ct)
+# POINTWISE_TYPEI.md (cf. scripts/review_ti_lemma11.py, review_ti_thm61_cover.py,
+# review_ti_census_sample.py, review_ti_ckmin.py).  ck_min engine copied from R31:
+# ck_min(p) = min{ck : (c,k) in B_p, sf(c) not in {1,2,3,6}, M_{c,k}(p) > 0},
+# M_{c,k}(p) = #{D | p^2 + 4ck^2 : D = -p (4ck)}.
+# (1) Lemma 1.1 (dual parametrisation): M_{c,k}(p) = #{j >= 1 : hj > p, (hj - p) | 4cj^2 + 1},
+#     h = 4ck, all odd primes p < 150, c < 16, k < 8, (p, ck) = 1 (plus no solution in the
+#     next 50 j beyond the bound hj - p <= N).
+# (2) Thm 6.1 (C(5) = 10): the four certificates (c,k,D) = (5,1,3), (5,1,7), (10,1,7), (5,2,7)
+#     cover every class p = 1 (24), p = 2,3 (5), 7 !| p mod 840; directly, every hard prime
+#     p = 1 (24) < 3*10^5 with (5|p) = -1 has ck_min <= 10, = 5 if p = 2 (5); ck_min(193) = 10.
+# (3) Census data/pointwise_typei/ckmin_np_1e7.txt.gz: rows = exactly the primes p = 1 (24)
+#     below 10^7; per-n_p maxima C(5) >= 10, C(7) >= 76, C(11) >= 111, C(13) >= 143,
+#     C(17) >= 166, C(19) >= 218, C(23) >= 222, C(43) >= 883 (§6); recomputation of
+#     (n_p, ck_min) on 200 seeded random rows and the record rows 12289, 92401, 414241, 9033649.
+
+def check_ct():
+    from time import perf_counter
+    import gzip
+    import os
+    import random as _random
+    t0 = perf_counter()
+
+    def M(p, c, k):
+        h, N = 4 * c * k, p * p + 4 * c * k * k
+        return sum(1 for D in _o9_divisors(factorint(N)) if (D + p) % h == 0)
+
+    def sqfree(c):
+        return prod(q for q, e in factorint(c).items() if e % 2)
+
+    def ckmin(p, cap):
+        for m in range(1, cap + 1):
+            for k in range(1, m + 1):
+                if m % k:
+                    continue
+                c = m // k
+                if k > (2 * p) // 3 or c > (2 * p + k) // (4 * k) or m % p == 0 or sqfree(c) in (1, 2, 3, 6):
+                    continue
+                if M(p, c, k) > 0:
+                    return m
+        return None
+
+    def np_(p):
+        q = 2
+        while jacobi_symbol(q, p) == 1:
+            q += 1
+        return q
+
+    # (1) Lemma 1.1
+    n11 = 0
+    for p in primerange(3, 150):
+        for c in range(1, 16):
+            for k in range(1, 8):
+                if (c * k) % p == 0:
+                    continue
+                h, N = 4 * c * k, p * p + 4 * c * k * k
+                M2, j = 0, 1
+                while h * j - p <= N:
+                    if h * j > p and (4 * c * j * j + 1) % (h * j - p) == 0:
+                        M2 += 1
+                    j += 1
+                assert all((4 * c * jj * jj + 1) % (h * jj - p) for jj in range(j, j + 50)), ("TYPEI beyond", p, c, k)
+                assert M(p, c, k) == M2, ("TYPEI Lemma 1.1", p, c, k)
+                n11 += 1
+
+    # (2) Thm 6.1
+    certs = [(5, 1, 3), (5, 1, 7), (10, 1, 7), (5, 2, 7)]
+    ncls = 0
+    for p in range(840):
+        if p % 24 != 1 or p % 5 not in (2, 3) or p % 7 == 0:
+            continue
+        ncls += 1
+        assert any((p + D) % (4 * c * k) == 0 and (p * p + 4 * c * k * k) % D == 0 for c, k, D in certs), ("TYPEI Thm 6.1 cover", p)
+    n61 = 0
+    for p in primerange(25, 300_000):
+        if p % 24 != 1 or jacobi_symbol(5, p) != -1:
+            continue
+        v = ckmin(p, 12)
+        assert np_(p) == 5 and v is not None and v <= 10 and (p % 5 != 2 or v == 5), ("TYPEI Thm 6.1", p, v)
+        n61 += 1
+    assert ckmin(193, 12) == 10
+
+    # (3) census file
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "pointwise_typei", "ckmin_np_1e7.txt.gz")
+    with gzip.open(path, "rt") as fh:
+        rows = [tuple(map(int, ln.split())) for ln in fh]
+    X = 10 ** 7
+    sieve = bytearray([1]) * X
+    sieve[0] = sieve[1] = 0
+    for i in range(2, isqrt(X) + 1):
+        if sieve[i]:
+            sieve[i * i::i] = bytearray(len(range(i * i, X, i)))
+    hard = [p for p in range(25, X, 24) if sieve[p]]
+    assert sorted(r[0] for r in rows) == hard, ("TYPEI census completeness", len(rows), len(hard))
+    mx = {}
+    for p, n, c in rows:
+        mx[n] = max(mx.get(n, 0), c)
+    claims = {5: 10, 7: 76, 11: 111, 13: 143, 17: 166, 19: 218, 23: 222, 43: 883}
+    assert all(mx[r] == v for r, v in claims.items()), ("TYPEI census C(r) lower bounds", {r: mx[r] for r in claims})
+    rng = _random.Random(31)
+    sample = rng.sample(rows, 200) + [r for r in rows if r[0] in (12289, 92401, 414241, 9033649)]
+    for p, n, c in sample:
+        assert (np_(p), ckmin(p, c + 1)) == (n, c), ("TYPEI census row", p, n, c)
+    print(f"ct Lemma 1.1 on {n11} (p, c, k); Thm 6.1: {ncls} classes mod 840 covered by 4 certificates, "
+          f"{n61} hard primes p < 3e5 with (5|p) = -1 have ck_min <= 10 (= 5 if p = 2 (5)), ck_min(193) = 10")
+    print(f"ct census: {len(rows)} rows = all p = 1 (24) < 1e7; C(r) maxima " + ", ".join(f"{r}:{v}" for r, v in claims.items())
+          + f"; {len(sample)} rows recomputed; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check ==")
+check_ct()
 
 
 print("\nall checks passed")
