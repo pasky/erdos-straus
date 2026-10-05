@@ -6,24 +6,27 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment.
 **Model-PROVED** = proved inside an explicitly defined axiomatic model (§3),
 not a statement about the primes.
 
-Status: checkpoint 1 (2026-10-05), not yet reviewed.
+Status: checkpoint 1 (2026-10-05); hostile review R29 (`reviews/pointwise-window2-review.md`)
+repairs M1-M4, m1-m7 applied by O37 (round 3). All model statements (sections 3, 6, 7) concern
+one coarse discrete grid of a heuristic law; none is a statement about primes.
 
 ## 0. Results at a glance
 
 | # | statement | label |
 |---|---|---|
 | Lemma 1.2 | both windows F1-clean ⟺ `n,n+1` are primitive norms from `Q(√−3)`, `Q(√−7)` (an FI09-type quadric) | PROVED |
-| Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary. Jointly only `(+,+)` vs `(+,−)` (not all four classes; R29 M1) | PROVED (mod BV/EH) |
+| Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary. Jointly only `(+,+)` vs `(+,−)` (not all four classes; R29 M1) | PROVED (necessity: BV, resp. EH; A+ lower bound mod W1's S1-S3) |
 | Lemma 3.2, 3.6 | two-block and product fakes in the Type-I+parity model 𝒯𝒫(θ) | Model-PROVED |
 | §3.2 | one window: fakes for θ<1/2; no block fake at θ=1/2 | Model-PROVED |
 | §3.3–3.4 | block/tree fakes reach only ≈40–45% of target at θ=1/2 | EVIDENCE (MC; infinite-variance estimator, no error bar — R29 m3) |
-| Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model) | CERTIFIED (residual 2.6e-15) |
+| Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model eps=0.1, K=8 of a coarse heuristic law; Type-I data of bad d only; relevance to real sieves weakest EVIDENCE, R29 M2/M4) | CERTIFIED in the model (residual 2.6e-15; reviewer 60-digit re-solve) |
 | §3.5 | discrete model ε=0.1, K=8: one-window min ν(∅)/τ ≥0.744128 at θ=1/2; two-window threshold θ_2∈(0.5,0.7] | CERTIFIED (reviewer exact duals, R29 m6; model only) |
 | §3.5 | same grid: θ_2∈(0.6,0.7] | EVIDENCE (θ=0.6 fake uncertified) |
 | §6.1 | bounded reweighting of primes (ν≤Cμ, C≥3.5) still admits the fake (discrete model of a coarse heuristic law; model indication only, not about primes) | EVIDENCE (residual ≤1e-9) |
 | §6.2 | switching caps ν≤Kμ on large-prime configurations restore positivity at θ=1/2 iff K≲2–3 (model indication only; per-configuration caps are stronger than real switched bounds, R29 m4) | EVIDENCE (coarse grid) |
 | §6.3 | slice-separable fakes cannot reach the target; the fake is genuinely mixed-level | Model-PROVED reduction; separable-LP min 0.430>0 on the grid (EVIDENCE, R29 m1) |
 | §4 | Goal 1 (unconditional `a_min≥11`) not reached; routes (ii), (iv), (v) closed, (i) open | Assessment |
+| section 7.1 | required switched cap K* in (2.5, 2.75] vs known ~3.4 (model indication only, not about primes; R29 M2/M4) | Assessment / EVIDENCE (coarse grid) |
 
 ## 1. Exact form of the two-window problem
 
