@@ -12,7 +12,7 @@ Written before reading reviews/pointwise-omega13-review-3.md.
 | I1(b) twist via Lemma 1.1 general conditional bound | SOUND |
 | I2 junta (O11 Lemma 1.1 / Cor 1.2 on fibre `n≡r (ℓ^{a_ℓ})`) | SOUND |
 | I3 coset transfer, property (I), Mordell-hardness | SOUND-AFTER-REPAIRS (D1) |
-| Thm 5.1 (exponent 1/4) | (pending) |
+| Thm 5.1 (exponent 1/4, `log L_h(T)≪𝓛⁴log𝓛`), label PROVED mod (G), NT, OMEGA10 Thm 3.4 | SOUND-AFTER-REPAIRS (D1 needed; D2–D4 editorial). No FATAL, no MAJOR. |
 
 ## 1. The construction, re-derived in my own words (for a given large T)
 
@@ -102,3 +102,51 @@ With `β=1+1/log𝓛`, `η=(3/4)log β≥0.7/log𝓛`, `Y=𝓛^{C_0+4}` (`C_0≈
   `W(p)>T≥exp(c(log p)^{1/4}(log log p)^{−1/4})`. The exponent `−1/4` on `log log p` is correct (not `−B`). ✔
 
 The quarantine contributes `𝓛³(log𝓛)^5`, the junta `≍𝓛·S_res≍𝓛⁴log𝓛`: the bottleneck statement is right.
+
+Lemma 3.1 re-checked independently (`scripts/review_o13d_jacobi.py 30000`, sympy Jacobi): 258 644 atoms with
+`M≤3·10⁴`, 0 failures of (a) or (b).
+
+## 5. Defects
+
+**D1 (MINOR, must fix; I3 and the "infinitely many" step).** *Location:* §5 I3 and Thm 5.1 proof ("the auxiliary
+prime `ℓ_aux∈(R,2R]` appended to Q"; "some hard `p>T`"). After appending `ℓ_aux`, the transfer runs on a coset
+`r'H'`, `H'={x≡1 (Qℓ_aux)}`, but the class `r' mod ℓ_aux` is never specified. Two things depend on it:
+(i) Case A of I3 needs `χ(r')=1` for every real χ mod `Qℓ_aux`, including the Legendre symbol mod `ℓ_aux`, so
+`r'` must be a square mod `ℓ_aux`; (ii) `p>T` (needed for infinitely many *distinct* p — W(p) may be ∞ for a
+hypothetical counterexample, so `W(p)>T` alone does not force distinctness) was automatic for the class of one
+(`p≡1 (ℓ_aux)`, `p≠1` ⇒ `p>ℓ_aux>T`) but not for a general class `r'`, whose least representative may be a prime
+`<T`. *Repair:* state `r'≡r (Q)`, `r'≡1 (ℓ_aux)`; then (i) and (ii) hold exactly as for r=1, and nothing else
+changes (`ℓ_aux>R≥max d_i`, so no cell sees it).
+
+**D2 (MINOR, stale text).** *Location:* Cor 3.5's closing paragraph ("These are checks of interfaces … They have
+not been done.") and its `(log log p)^{−B}`; Prop 1.3(c) "Interface check (OPEN)"; §4 heading "Status
+(checkpoint 1)". These contradict §5/Thm 5.1. *Repair:* mark Cor 3.5 and Prop 1.3(c) "superseded by §5" in
+place, and update the §4 heading.
+
+**D3 (MINOR, definition).** *Location:* §5 I3, "Event cells have residue `−4D≡r (mod gcd(M,Q))` by survival".
+§3 never defines survival for a class r (O11 Setting 2.0 defines it for r=1 as `gcd(M,Q)|4D+1`). *Repair:* add
+to §3's process definition: an atom survives `(Q,r)` iff `−4D≡r (mod gcd(M,Q))` and `M∤Q`; equivalently
+`μ(E)>0` (by Lemma 3.1, `M|Q` never occurs with `μ(E)>0`).
+
+**D4 (MINOR, ledger).** *Location:* Thm 5.1 proof, display `log Z≤…≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)`. The
+`log ℓ_aux` term is listed on the left but dropped on the right; it is `≤log max d_i+1`, so the bound is
+unaffected. Also say explicitly that `log max d_i≤2τ+3𝓛` with `τ` built from the realised `S_res`
+(so `≤4E[S_res]` by the choice of realisation). *Repair:* one line.
+
+**Not defects (checked and rejected).**
+* *Random → deterministic.* The process has finitely many outcomes (finitely many steps, finitely many choices
+  per step); the three bad events have total probability ≤3/4; optional stopping in Lemma 3.2(b) is for bounded
+  times. Mordell-hardness is deterministic (forced steps). Nothing is lost.
+* *Late `ℓ_0` in the twist.* `ℓ_0|f` may be `>Y`; its (1.1) comes from the good realisation. Covered.
+* *Constants depending on T.* β, Y, η enter NT only through `A, B_ε` bounds uniform for `β≤2`; Ξ's bound is
+  uniform in `Y≤T`; C_0 is absolute. No circularity in `Y=𝓛^{C_0+4}`.
+* *Label.* Besides (G), NT and OMEGA10 Thm 3.4, the proof uses the HSS conditional LLL, Landau–Page and the
+  Page bound — all classical and already used under the same label in O8/O9/O11; acceptable.
+
+## 6. Verdict
+
+Thm 5.1 is **SOUND-AFTER-REPAIRS**: the only substantive gap is D1 (the residue at `ℓ_aux`), which has a
+one-line repair; with it, `W(p)≥exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many Mordell-hard p and
+`log L_h(T)≪𝓛⁴log𝓛`, PROVED modulo (G), Nair–Tenenbaum and OMEGA10 Thm 3.4, is justified. I re-derived I1(a),
+I1(b), I2, I3, the ledger, and checked Lemma 3.1, property (I), the LLL bound, the twist inequality and the
+late-prime second moment numerically from scratch on toys (which cannot reach the asymptotic regime `Y≤T`).
