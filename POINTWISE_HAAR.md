@@ -24,7 +24,7 @@ constant ratio 0.069–0.070, explaining the measured exponent 2.3–2.6 as
 
 ## 0. The event system
 
-Haar measure on `Ẑ`, restricted to the class `n ≡ 1 (24)`. For each
+Multiplicative Haar measure on `Ẑ^×`, restricted to the class `n ≡ 1 (24)`. For each
 `M ≤ T`, `M ≡ 3 (4)`, `A_M := (M+1)/4`, and each `D | A_M²`, the **event**
 `E_{M,D} := {n ≡ −4D (mod M)}`. `δ*(T)` = Haar measure (normalised in
 `1 (24)`) of the set where no event occurs. Distinct pairs `(M, −4D mod M)`
@@ -34,21 +34,28 @@ For an odd prime ℓ the **coordinate** is `X_ℓ := n mod ℓ^{f}` (f large);
 the coordinates are independent and uniform on units (and on the fibre
 `X_3 ≡ 1 (3)` at ℓ=3). Since `ℓ | M ⇒ ℓ ∤ A_M ⇒ ℓ ∤ D`, every event is an
 **atomic event** (a partial assignment): `E_{M,D} = ⋂_{ℓ|M} {X_ℓ ≡ −4D (mod ℓ^{v_ℓ(M)})}`.
-For squarefree M only `X_ℓ mod ℓ` matters, and `P(E_{M,D}) = 1/φ(M)`.
+For squarefree M with `3∤M` only `X_ℓ mod ℓ` matters, and `P(E_{M,D}) = 1/φ(M)`
+(through 3 the normalisation `n≡1 (3)` makes an event impossible or doubles
+its probability; §2 only uses `𝓛^5`-rough M).
 
-Two atomic events **share a bit** if they share a coordinate on which they
-prescribe compatible residues and they are compatible on all shared
-coordinates (then `P(E∩E') = P(E)P(E')/P(shared part) > 0`); they
-**conflict** if on some shared coordinate the prescribed residues are
-incompatible (then `E∩E' = ∅`).
+Two atomic events **share a bit** (compatible overlap) if they share a
+coordinate and agree on *all* shared coordinates (then `P(E∩E') = P(E)P(E')/P(shared part) > 0`); they
+**conflict** if on some shared coordinate the prescribed residues differ
+(then `E∩E' = ∅`). Separately, two events **overlap literally** if they
+prescribe the same value on some shared coordinate (they use a common
+one-hot indicator `1[X_v=a]`); e.g. `{X=0,Y=0}`, `{X=0,Y=1}` overlap literally
+but conflict. Literal overlap is what matters for Lemma 1.2 and Prop 1.5;
+compatible overlap is what matters for Theorem 1.4.
 
 ## 1. General tools for atomic events on product spaces (PROVED)
 
 Throughout §1: `(X_v)` independent random variables with arbitrary finite
 (or countable) ranges; atomic events `E = {X_v ∈ a_{E,v} for v ∈ S_E}` where
-each `a_{E,v}` is a single value (or, for prime powers, a residue class —
-the arguments below only use that the restriction of E to `S_E∖S` is again
-atomic and that `E` factorises over coordinates). For a family `𝓕` write
+each `a_{E,v}` is a single value. (Prime-power moduli, where events fix
+different numbers of digits of one coordinate, are *not* covered as stated:
+deleting a whole shared coordinate is then wrong, e.g. `{X≡1 (3)}` vs
+`{X≡1 (9)}`; one would have to split coordinates into independent digits.
+The application in §2 uses squarefree moduli only.) For a family `𝓕` write
 `Av(𝓕) := ⋂_{E∈𝓕} Ē`.
 
 **Lemma 1.1 (compatible events; PROVED).** Let A be atomic and let 𝓒 be a
@@ -62,8 +69,8 @@ independent of `(X_v)_{v∈S_A}` and `C' ⊇ C`. Hence
 `P(Av(𝓒) | A) = P(⋂ C̄') ≤ P(⋂ C̄) = P(Av(𝓒))`. ∎
 
 **Lemma 1.2 (negative association; PROVED, classical input).** Let `𝓕_1, …, 𝓕_r`
-be families of atomic events such that no event of `𝓕_i` shares a bit with
-an event of `𝓕_j` (`i≠j`). Then `P(⋂_i Av(𝓕_i)) ≤ ∏_i P(Av(𝓕_i))`.
+be families of atomic events such that no event of `𝓕_i` overlaps literally
+with an event of `𝓕_j` (`i≠j`). Then `P(⋂_i Av(𝓕_i)) ≤ ∏_i P(Av(𝓕_i))`.
 
 *Proof.* Encode each `X_v` by its one-hot indicator vector `(1[X_v=a])_a`.
 A one-hot vector of a single random variable is negatively associated
@@ -74,10 +81,8 @@ nonincreasing function of the bits of `𝓕_i`, and by hypothesis the bit sets
 of different `𝓕_i` are disjoint. NA gives `E∏f_i ≤ ∏Ef_i` for nonnegative
 nonincreasing `f_i` on disjoint index sets. ∎
 
-(For residue classes mod `ℓ^v` with different v the "bits" are the
-indicators of residues mod `ℓ^{f}`; an event uses the bits of its class.
-Two events share a bit iff their classes intersect, i.e. iff they are
-compatible at ℓ.)
+(Here bits = one-hot indicators; literal non-overlap is exactly
+disjointness of the bit sets.)
 
 **Lemma 1.3 (lopsided local lemma and its inflation bound; PROVED, standard).**
 Let 𝓕 be a family of atomic events, `Γ(E) := {E'∈𝓕: E' conflicts with E}`,
@@ -138,13 +143,16 @@ variables (`P(X=r | X≠r') > P(X=r)`), which is why Lemma 1.3 is needed for
 
 **Proposition 1.5 (the packing barrier: NA alone stops at `𝓛²`; PROVED).**
 Lemma 1.2 bounds `δ* ≤ ∏_{E∈𝓕}(1−P(E))` for every family 𝓕 of pairwise
-bit-disjoint events. For every such family of squarefree-modulus ES events,
+literally non-overlapping events. For every such family of squarefree-modulus ES events,
 `Σ_{E∈𝓕, ω(M_E)≥2} P(E) ≤ Σ_{3≤q≤T} 2/(q−1) ≪ log 𝓛`.
 
-*Proof.* Charge each multi-prime event to its least prime q. Bit-disjoint
-events through q prescribe pairwise distinct residues mod q, so at most
-`q−1` of them, and each has `P(E) = 1/φ(M) ≤ 1/((q−1)·q')` with `q'>q`
-another prime of M, so `≤ 2/(q−1)²` for q≥3. Summing: `≤ Σ_q 2/(q−1)`. ∎
+*Proof.* Charge each multi-prime event to its least prime q. Literally
+non-overlapping events through q prescribe pairwise distinct residues mod q,
+so there are at most `q−1` of them, and each has
+`P(E) ≤ 2/φ(M) ≤ 2/((q−1)(q'−1))` with `q'>q` another prime of M (the factor
+2 covers the normalisation at 3), so `≤ 2/(q−1)²`. Summing: `≤ Σ_q 2/(q−1)`. ∎
+(Pairwise *conflicting* families are not enough: the five events
+`M=35`, `D∈{1,3,9,27,81}` conflict pairwise but `D=1,81` both use `X_5=1`.)
 
 So the single-prime bound `Φ ≫ 𝓛²` of OMEGA8 Prop 6.6 is the limit of
 "independent/negatively correlated subfamily" arguments; going beyond it
@@ -237,7 +245,7 @@ so `Σ_g 1/g ≤ 1/y + 𝓛/(4n)`. Then, ordering `v<v'`,
 Hence
 
 ```
-Δ_a ≤ 16 Σ_{n≥N_0} 2^{ω(n)} (1/y + 𝓛/(4n))(1+𝓛)²/(4n) ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log𝓛.
+Δ_a ≤ 16 Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)} (1/y + 𝓛/(4n))(1+𝓛)²/(4n) ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log𝓛.
 ```
 
 *(b) D ≠ D'.* Now `g | m := |D−D'|`, `0 < m < T^{1/5}`, so `g < T^{1/5}`
@@ -245,7 +253,7 @@ and (2.1) gives `σ(g,n) ≤ 𝓛/(4n) + T^{−3/10}`. Summing over g with (F5)
 (`α=1`, `ω(m) ≤ 𝓛`):
 
 ```
-Δ_b ≤ Σ_{D≠D'} Σ_{g|m} (8/g) (𝓛/(4n) + T^{−3/10})(𝓛/(4n') + T^{−3/10})
+Δ_b ≤ Σ_{D≠D'} Σ_{g|m, g>1, g y-rough sqfree} (8/g) (𝓛/(4n) + T^{−3/10})(𝓛/(4n') + T^{−3/10})
     ≤ (2𝓛/y)·[ (𝓛²/2)(Σ_D 1/n)² + 4T^{−3/10}𝓛·#𝓓·Σ_D1/n + 8T^{−3/5}(#𝓓)² ],
 ```
 
@@ -286,8 +294,8 @@ multilevel-splitting table of POINTWISE_SIZE §7.2 unchanged.
 | 65535 | 11.09 | ~38.5 | 0.0679 | 0.0921 | | 2.58 |
 
 * The ratio `Φ/(𝓛³/log𝓛)` is constant to ±1% (0.0691–0.0699) over
-  `1023 ≤ T ≤ 32767`, the range where the MC is reliable (the last row is
-  biased low, POINTWISE_SIZE §7.2). The shape of Theorem 2.1 has local
+  `1023 ≤ T ≤ 32767` (and 0.0691–0.0699 on `1023 ≤ T ≤ 16383`; POINTWISE_SIZE
+  §7.2 flags the two deepest rows as noisy and biased toward *larger* Φ). The shape of Theorem 2.1 has local
   exponent `3 − 1/log𝓛`, which is 2.48→2.57 here — exactly the measured
   2.3→2.6 drift.
 * Least squares on `T ≥ 127`: `Φ = c𝓛^a` gives `a = 2.39` (max log-residual
@@ -296,13 +304,14 @@ multilevel-splitting table of POINTWISE_SIZE §7.2 unchanged.
   slowly rising ratio, consistent with `I ≍ 𝓛³` (its local exponent 2.8 at
   `2^20`).
 
-**Assessment 3.1.** The measured exponent 2.3–2.6 is not a different
-exponent: it is `a = 3` seen through a `1/log𝓛` correction of exactly the
-type that Theorem 2.1's proof produces. Conjecture: `Φ(T) ≍ 𝓛³/log𝓛`
+**Assessment 3.1.** The measured exponent 2.3–2.6 is *consistent with*
+`a = 3` seen through a `1/log𝓛` correction of the type that Theorem 2.1's
+proof produces. A short fit over one decade of 𝓛-values cannot identify the
+correction or prove the exponent; this is consistency evidence only. Conjecture: `Φ(T) ≍ 𝓛³/log𝓛`
 (CONJECTURE; the lower bound is Theorem 2.1, the upper bound is open —
 best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuristic
-(POINTWISE_SIZE §7.3) this predicts
-`log W(p) ≍ (log p·log log p)^{1/3}` for the record values.
+(POINTWISE_SIZE §7.3) this puts the one-expected-exceedance level at
+`log T_N ≍ (log N·log log N)^{1/3}` (RA does not control individual records).
 
 ## 4. What this means on the prime side (Assessment unless stated)
 
@@ -310,21 +319,19 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
   rigorous link to primes is POINTWISE_SIZE Prop 7.1(a) (fixed T): for every
   fixed `T ≥ T_0`, the proportion of hard primes with `W(p) > T` is
   `δ*(T) ≤ exp(−c𝓛³/log𝓛)` (PROVED, as a fixed-T density statement).
-* **Ceiling under RA.** Under the random-avoider heuristic RA, record values
-  satisfy `log W ≲ (log p·log log p)^{1/3}`; so the prime-side exponent of
-  the Ω-programme cannot exceed 1/3 even heuristically, and the current 1/6
-  (OMEGA11) / 1/5 (OMEGA12, under review) are a factor 2 resp. 5/3 away in
-  the exponent. (Assessment.)
-* **BRW/Thorner–Zaman route (OMEGA8 §6.6 analogue; PROVED bookkeeping).**
-  On a class-of-one fibre `H` (`n ≡ 1 mod Q`, relative Haar density
-  `≍1/φ(Q)` in `1 (24)`), every minorant `B ≤ F` has `μ = E_H B ≤ E_H F`, and
-  `E_H F ≤ O(φ(Q))·δ*(T)`; hence `log φ(Q) + log(1/μ) ≥ Φ(T) − O(1)`. For
-  BRW expansions as written (`M_1 ≥ 1`) one has `K ≥ 1 + log(1/μ)`, so one
-  of `K`, `log Q` is `≥ Φ/3 ≫ 𝓛³/log𝓛`. Through POINTWISE_OMEGA Thm 4.1
-  (`log p ≳ K·max(log Z,K)`, `log Z ≥ log Q`) this caps that route at
-  exponent `≤ 1/6+o(1)`. It is not a cap for the O9 linear transfer, whose
-  condition does not contain `log(1/μ)`. (No universal statement over all
-  representations is claimed, cf. OMEGA8 §6.6, R34a.)
+* **Exceedance level under RA.** Under the random-avoider heuristic RA,
+  the one-expected-exceedance level for `p ≤ N` is
+  `log T_N ≍ (log N·log log N)^{1/3}` (if Conj. 3.1 holds; Thm 2.1 alone gives
+  `≲`). RA does not control individual outliers, so this is not a ceiling on
+  record values; it says the natural target exponent of the Ω-programme is
+  1/3, versus 1/6 (OMEGA11) and 1/5 (OMEGA12, under review). (Assessment.)
+* **Class-of-one constructions (PROVED bookkeeping).** On a class-of-one
+  fibre `H` (`n ≡ 1 mod Q`, relative density `≍1/φ(Q)` in `1 (24)`), every
+  minorant `B ≤ F` has `μ = E_H B ≤ E_H F ≤ O(φ(Q))·δ*(T)`, hence
+  `log φ(Q) + log(1/μ) ≥ Φ(T) − O(1)`. (No exponent ceiling for any transfer
+  route is claimed from this alone: e.g. `K≈1`, `log Q ≈ Φ` is not excluded
+  by it, and POINTWISE_OMEGA Thm 4.1 is a sufficient, not necessary,
+  condition.)
 * **Transfer costs.** Any prime-side use of a Haar improvement passes
   through OMEGA9/OMEGA11: the quarantine `log Q` and the junta modulus. The
   lower bound shows `log Q + log(1/μ) ≥ Φ ≫ 𝓛³/log𝓛` for class-of-one
@@ -344,8 +351,8 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
 | Conj. 3.1 | `Φ ≍ 𝓛³/log𝓛`, i.e. `a = 3` | CONJECTURE |
 | upper bound below `𝓛^5` | — | OPEN (in progress) |
 
-Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^5 log𝓛` (upper bound from OMEGA12, under review;
-`𝓛^6` from OMEGA11, reviewed).
+Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^6` (OMEGA11, reviewed, modulo ET); OMEGA12
+(branch side-agent/homega, under review, not in this tree) claims `𝓛^5 log𝓛`.
 
 ## Replay
 

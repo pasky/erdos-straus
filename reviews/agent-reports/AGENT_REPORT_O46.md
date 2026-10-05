@@ -30,9 +30,17 @@ drift 2.3→2.6. Conjecture 3.1: `Φ ≍ 𝓛³/log𝓛` (a = 3).
 
 ## Prime side
 Haar-only. Rigorous fixed-T density corollary via Prop 7.1(a); under RA the
-prime-side exponent is ≤ 1/3 (Assessment); class-of-one constructions have
-`log φ(Q) + log(1/μ) ≥ Φ − O(1)`, which caps the BRW/Thorner–Zaman route at
-1/6 but not the O9 linear transfer (§4).
+one-exceedance level is `log T_N ≍ (log N log log N)^{1/3}` (Assessment; RA
+does not control records); class-of-one constructions have
+`log φ(Q) + log(1/μ) ≥ Φ − O(1)` (no exponent ceiling claimed from this).
+
+## Self-review (deep reviewer, round 1)
+Core proofs (Thm 1.4 single-value version, Lemmas 2.2–2.4, Thm 2.1): no
+fatal flaw. Repairs applied: literal vs compatible overlap distinguished
+(Lemma 1.2, Prop 1.5); prime-power remark withdrawn (single-value events
+only); BRW ceiling claim withdrawn; RA "record" wording fixed; MC bias
+direction and "consistency only" wording; Haar on `Ẑ^×`, `3∤M`; summation
+cutoffs; OMEGA12 status.
 
 ## Not done / next
 Upper bound below `𝓛^5` (Haar side). Diagnosis so far: class-of-one
