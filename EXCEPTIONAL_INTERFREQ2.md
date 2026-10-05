@@ -492,6 +492,33 @@ the decrease is largely truncation (Flat at N = 100, C = 2: s₀ = 0.167 on
 [−5N, 6N] versus 0.320 on [−10N, 11N]; `flatF_scan3.txt`). The optimal R
 is ≈ 0 on [1,N] and spread at density ≈ 0.1–0.3 over [−5N, 6N].
 
+**Lemma 9.3 (local upper bound for σ; PROVED, due to review R25 C11).**
+If R satisfies (P1)–(P2) of SPW(C, σ, ·) at N, then
+
+    σ ≤ σ_C(N) := min_{q ≤ N/2} ( 1 − ⌈N/q⌉ / k_q ),   k_q = ⌊CN/q⌋ + 1.
+
+*Proof.* Take b with `c(b,q) = ⌈N/q⌉`. The class b mod q is the disjoint
+union of the k_q classes `b + jq mod k_q q`, whose modulus `k_q q > CN`; by
+(P2) each has R-mass ≤ 1 − σ, and by (P1) they sum to `c(b,q)`. ∎
+
+For q ∈ (2N/5, N/2) one gets `⌈N/q⌉ = 3`, `k_q = 5` at C = 2, so σ ≤ 2/5 for
+all N ≥ 12 or so; at C ≤ 1, q ∈ (N/3, N/2) gives k_q = 3 and σ ≤ 0, so
+**SPW with C ≤ 1 is impossible at every N** (a cleaner reason than
+Example 3.2 for the C = 1 failures). As C ↓ 1, σ_C → 0, so the medium range
+cannot be shrunk to (N/2, (1+ε)N] at fixed σ. Review R25's independent LPs
+(C10) attain σ_C(N) exactly (2/5 at C = 2, 4/7 at C = 3, 1/5 or 1/4 at
+C = 1.5) at every tested N once the support is long enough (e.g. N = 60
+needs [−12N, 13N]); our decreasing margins in the table above are
+truncation. The same lifting argument bounds the Flat margin s₀ (some
+lifts are sparse there, so the bound is weaker); the `med` value 1/3 has
+not been explained.
+
+*Assessment.* The pinning of the LP optimum at the purely local bound
+σ_C(N) suggests SPW(2, 2/5 − ε, O(1)) holds for all N, with the optimum
+dictated by single small classes mod q ≈ 0.45N and their lifts. We did not
+find a construction attaining it; the obstruction to the obvious
+constructions is the one described next.
+
 **Why SPW is not yet proved (Assessment, with the proved pieces).**
 * *Translates and twists cannot do it.* Any R built from L₀-translates or
   from the twists of Lemma 6.1 with the identity on primes ≤ N/4 has
