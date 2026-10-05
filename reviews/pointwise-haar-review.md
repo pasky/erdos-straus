@@ -104,8 +104,9 @@ Thm 2.1 is an artefact of the proof (y = 𝓛^5 roughness), not a derived featur
 the family 𝓕 is empty at every T in the table, so the theorem says nothing about those T.
 The ratio-constancy test barely discriminates: over 1023 ≤ T ≤ 32767 the spread of
 Φ/g is 1.16 % for g = 𝓛³/log𝓛 but 1.85 % for g = 𝓛^{2.5} and 3.1 % for 𝓛² log 𝓛
-(`review_haar_fit_check.py`). Moreover I/(𝓛³/log𝓛) rises steadily (0.0856→0.0921) while
-SIZE §7.2 reports Φ ≈ 0.77·I, so the data are equally consistent with Φ ≍ 𝓛³ (no log).
+(`review_haar_fit_check.py`). Moreover I/(𝓛³/log𝓛) rises steadily (0.0856→0.0921) and SIZE §7.2 reports Φ ≈ 0.77·I
+on 4095–16383, so over this short range the data cannot separate 𝓛³/log𝓛 from 𝓛^{2.5}
+or from 𝓛³ times a slowly decaying correction.
 Assessment 3.1 already says "consistency evidence only"; repair: change header (iv) and the
 first §3 bullet from "explaining"/"exactly the measured drift" to "consistent with", and
 state Conj. 3.1 as `a = 3` without committing to the `/log𝓛` factor (or give both options).
