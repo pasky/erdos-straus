@@ -33,7 +33,7 @@
 % internal repository documents.
 \title[Sieve limits for the Erd\H{o}s--Straus exceptional set]{Sieve limits for the Erd\H{o}s--Straus exceptional set:\\ why $3/4$ is sharp for congruence sieves}
 \author{Anonymous}
-\date{Research note, version 3; internally reviewed results only, not externally refereed}
+\date{Research note, version 4; internally reviewed results only, not externally refereed}
 \setlength{\emergencystretch}{2em}
 \begin{document}
 \begin{abstract}
@@ -49,31 +49,33 @@ $N^{O(1)}$.  The main theorem: for every finite family mixing the
 forced classes $\cR(M)$, the $(a,D)$-classes, the Case-A classes and
 selector classes $0\bmod p$, with arbitrary moduli (no size condition, no
 dominant prime, any number of prime factors), every such sieve saves at
-most $O_A((\log N)^{3/4}(\log\log N)^{3/4})$.  So no sieve of this class
-proves $E(N)\ll N\exp\{-(\log N)^\theta\}$ with $\theta>3/4$.  If every modulus
-$G$ satisfies $G\leq P(G)^{1+B}$ with $B$ fixed, the saving is
-$O_{A,B}((\log N)^{3/4})$, and no power of $\log\log N$ can be gained.  The
-Case-A part uses a published divisor-sum estimate of Elsholtz and Tao.
+most $O_A((\log N)^{3/4})$.  So no sieve of this class proves
+$E(N)\ll N\exp\{-(\log N)^{3/4}\omega(N)\}$ with $\omega(N)\to\infty$; the previous
+version of this note lost a factor $(\log\log N)^{3/4}$ here.  The Case-A
+part uses published divisor-sum estimates of Elsholtz and Tao, whose
+uniformity in the multiplier we re-derive (noting two harmless slips).
 The key tools are a weighted $k$-ary comparison theorem for sequential
 conditioned laws, proved by Lagrange extrapolation in artificial
 replacement coins and a supermartingale bound; a base of unit squares,
 which avoids the small classes of all four types because no
 $\cR(M)$-, $(a,D)$- or Case-A class contains a square modulo its
-modulus; and Rankin's trick with Cauchy--Schwarz on
-smooth-dominated moduli.  The majorant of the $3/4$ note lies in the
-class, so $3/4$ is sharp for its method, and the large-sieve argument
-of the $2/3$-loglog note is capped in the same way at its own exponent.  For finite prime-slice families the cap
-extends to per-frequency signed rounding with weights $\geq1$, to majorants
-positive only at primes, and to CRT-evaluated moment methods.  For
-Selberg-type majorants we prove a sieve limit in terms of noise
-stability, and a $\Lambda^2$ cap of order $(\log X)^{3/4+o(1)}$ at level
-$O(\log X)$ for $\cR(M)$-families with a fixed number of prime factors
-above $(\log X)^8$, with no condition relating $M$ to $P(M)$; its
-arithmetic input is a Brun--Titchmarsh bound for rough partners from the
-large sieve.  We list exactly what the theorems exclude.  Every
-statement carries its status label.  All proofs were checked internally
-only; nothing here has been externally refereed.  This is not a proof of
-the Erd\H{o}s--Straus conjecture.
+modulus; and a lossless first moment over smooth moduli, obtained from a
+local moment $Z_y$ of the smooth part with Shiu's theorem in
+progressions.  The majorant of the $3/4$ note lies in the class, so $3/4$
+is sharp for its method.  The cap extends to every CRT-admissible large
+sieve with frequencies of polynomial level (twisted, multiplicative,
+hybrid and fibrewise forms, and the large sieve for primes), to
+Gallagher's larger sieve (which saves only $O(\log\log N)$), to majorants
+positive only at primes, to interval counts of majorants whose moduli are
+at most $N/2$, and to tuple-count input of bounded or prime order.  For
+hybrid methods that count large classes blindly we reduce the cap to a
+combinatorial hypothesis; for super-polynomial large-sieve frequencies we
+show that any cap must use the sparsity of forced classes.  We also show
+that the literal tuple-count hypothesis meets forced zeros above $2/3$ and
+give the repaired alternating form.  We list exactly what the theorems
+exclude.  Every statement carries its status label.  All proofs were
+checked internally only; nothing here has been externally refereed.  This
+is not a proof of the Erd\H{o}s--Straus conjecture.
 \end{abstract}
 \maketitle
 
@@ -113,12 +115,16 @@ Every statement carries one of the following labels.
 \item \lab{conjecture} / \lab{open}: not proved.
 \end{itemize}
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of nine internal working
+\lab{proved} result below appears in one of eighteen internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
-\cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, or is assembled here from such results
-with the short argument given (marked ``observation of this note'').  Each
-document was hostile-reviewed; the reviews
-are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2}.
+\cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, \cite{KA3}, \cite{LS},
+\cite{LS2}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{TU}, \cite{TU2}, or is
+assembled here from such results with the short argument given (marked
+``observation of this note'').  Each document was hostile-reviewed; the
+reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,PLrev,IFrev,IF2rev,TUrev,TU2rev}.
+A few statements were added to these documents after their review and
+were checked by the coordinator of the programme only; this is said
+where they are used.
 
 \emph{Attribution} (literature audit \cite{NovAudit}).  The
 linear-programming duality between upper-bound sieves and measures matching
@@ -136,8 +142,12 @@ comparison theorems, and the applications to Erd\H{o}s--Straus below.
 The arithmetic inputs of Section~\ref{sec:noB} are standard: Mordell's
 Jacobi-symbol obstruction, Rankin's trick, Shiu's theorem \cite{Shiu} and
 a small-divisor domination of $\tau$ (cf.\ \cite{Landreau}); the Case-A
-first moment uses Prop.~1.4 of Elsholtz and Tao \cite{ElsholtzTao},
-published and not re-proved here.  That the $(a,D)$- and Case-A classes
+first moment uses Prop.~1.4, Thm~7.1, Cor.~7.4 and display (7.10) of
+Elsholtz and Tao \cite{ElsholtzTao}, published and not re-proved here
+(we re-derive only the uniformity of (7.10) in the multiplier,
+Remark~\ref{rem:ETslips}).  The local moment $Z_y$ of
+Lemma~\ref{lem:localweight} is an elementary device; we do not know a
+reference for its use in this way.  That the $(a,D)$- and Case-A classes
 contain no squares is in the spirit of the Mordell--Schinzel
 obstructions quoted in \cite{ElsholtzTao}; our proof
 (Lemma~\ref{lem:nosquare}) is direct.
@@ -145,19 +155,20 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
 \subsection*{Results}
 \begin{enumerate}
 \item \emph{The main theorem} (Theorem~\ref{thm:main}, \lab{proved}; the
-  Case-A part \lab{proved mod} Elsholtz--Tao Prop.~1.4).  Take any finite
-  family $\cG$ mixing $\cR(M)$-, $(a,D)$-, Case-A and selector classes
-  $0\bmod p$, with arbitrary moduli: no $B$-hypothesis, no dominant
-  prime, any number and multiplicity of prime factors.  Every method
-  that bounds $\#(\A(\cG)\cap[1,N])$ by $N\E\nu+\sum_i|a_i|<N$, with $\nu$ a
-  CRT majorant $\geq0$ on $\Z$ and $\geq1$ on the whole avoider set, and
-  with family primes $\leq N^{O(1)}$, saves at most
-  $O_A((\log N)^{3/4}(\log\log N)^{3/4})$.  So no method of this class gives
-  $\theta>3/4$.  If every modulus satisfies $G\leq P(G)^{1+B}$, $B$ fixed,
-  the saving is $O_{A,B}((\log N)^{3/4})$ (Theorems~\ref{thm:karycap}
-  and~\ref{thm:Bcapall}).  The underlying majorant caps are
-  Theorems~\ref{thm:noBcap} and~\ref{thm:Bcapall}.  All constants are
-  absolute but astronomically large, so these are asymptotic statements.
+  Case-A part \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4
+  and (7.10)).  Take any finite family $\cG$ mixing $\cR(M)$-, $(a,D)$-,
+  Case-A and selector classes $0\bmod p$, with arbitrary moduli: no
+  $B$-hypothesis, no dominant prime, any number and multiplicity of
+  prime factors.  Every method that bounds $\#(\A(\cG)\cap[1,N])$ by
+  $N\E\nu+\sum_i|a_i|<N$, with $\nu$ a CRT majorant $\geq0$ on $\Z$ and $\geq1$ on
+  the whole avoider set, and with family primes $\leq N^{O(1)}$, saves at
+  most $O_A((\log N)^{3/4})$.  So no method of this class gives
+  $\theta>3/4$, nor a gain $(\log N)^{3/4}\omega(N)$ with $\omega\to\infty$.  The
+  underlying majorant cap is Theorem~\ref{thm:noBcap},
+  $\log(1/\E\nu)\leq C\lambda^{3/4}$ at level $\lambda$.  Version~3 of this note had
+  an extra factor $(\log\log N)^{3/4}$ without $B$; it is removed here
+  following \cite{KA3}.  All constants are absolute but astronomically
+  large, so these are asymptotic statements.
 \item \emph{The tools.}  The sieve-limit theorem for prime-slice systems
   (Theorem~\ref{thm:slice}): every majorant of level $\lambda$ saves at
   most $C\inf_\alpha[\alpha\lambda+\sum_\ell\bar p_\ell\ell^{-\alpha}]$ beyond
@@ -178,11 +189,15 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   (Theorem~\ref{thm:wseq}).  To mix the four class types and drop $B$
   (Section~\ref{sec:noB}): a base of unit squares, which avoids every
   small class because no $\cR(M)$-, $(a,D)$- or Case-A class contains a
-  square (Lemmas~\ref{lem:nosquare} and~\ref{lem:squarebase}); and
-  first and second moments over all moduli, by Rankin's trick and
-  Cauchy--Schwarz on smooth-dominated moduli, at the price of
-  $(\log\log y)^3$ in the mass (Lemmas~\ref{lem:firstnoB}
-  and~\ref{lem:secondnoB}).
+  square (Lemmas~\ref{lem:nosquare} and~\ref{lem:squarebase}); first
+  moments over all moduli with no loss, from the local weight
+  $Z_y(m)=\sum_{p^\nu\mid m,\,p^\nu\leq y}\Lambda(p^\nu)/\log y$, which is $\geq u/2$ on
+  $y$-smooth $m\approx y^u$ and has bounded moments, so that its fourth moment
+  reduces smooth sums to congruences modulo small numbers, where Shiu's
+  theorem (for $\cR(M)$) and Elsholtz--Tao \S7 (for Case A, split by the
+  size of $r$) apply (Lemmas~\ref{lem:localweight}--\ref{lem:firstnoB});
+  and second moments by Rankin's trick and Cauchy--Schwarz
+  (Lemma~\ref{lem:secondnoB}).
 \item \emph{The campaign sieves are in the class}
   (Section~\ref{sec:campaign}, \lab{proved}).  The majorant of the $3/4$
   note is in the class, so $3/4$ is sharp for its architecture; the
@@ -197,26 +212,52 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   condition $M\leq P(M)^{1+B}$ (\lab{proved}).  Their new arithmetic input
   is a Brun--Titchmarsh bound for rough partners from the arithmetic
   large sieve (Lemma~\ref{lem:roughBT}).  As caps they are superseded by
-  Theorem~\ref{thm:karycap} under the $B$-hypothesis and, for
-  majorants $\geq1$ on the whole avoider set, by Theorem~\ref{thm:noBcap}
-  without it; both allow any number of large prime factors
-  (Remark~\ref{rem:L2vsmain}).
+  Theorem~\ref{thm:noBcap}, which gives $C\lambda^{3/4}$ for every $r$ (including
+  the middle range $r\asymp\log L$ that the $\Lambda^2$ method leaves open) and
+  without $B$ (Remark~\ref{rem:L2vsmain}).
 \item \emph{Beyond CRT evaluation} (Section~\ref{sec:noncrt},
   \lab{proved}).  For the finite prime-slice families, the cap extends
   to every rounding bound $\sum_{\theta\neq0}|\hat\nu(\theta)|w(\theta)$ with
   weight $w\geq1$, with no bound on the size of the slice primes
-  (Theorem~\ref{thm:perfreq}); to majorants positive only at primes,
-  hence to prime equidistribution at any level $N^{O(1)}$
+  (Theorem~\ref{thm:perfreq}); to majorants positive only at primes
   (Theorem~\ref{thm:primemaj}); and to moment methods whose moments are
   evaluated through CRT densities.
+\item \emph{Large sieves, prime laws and interval counts}
+  (Section~\ref{sec:LS}).  By exact duality every CRT-admissible large
+  sieve is bounded below by $N\E|g^*|^2$ for a Selberg-square CRT majorant,
+  so it is capped at $C_A(\log N)^{3/4}$ for frequencies of polynomial level
+  (Theorem~\ref{thm:LScap}); likewise twisted, multiplicative and hybrid
+  Bessel forms (Theorem~\ref{thm:hybrid}) and the large sieve for primes
+  (Theorem~\ref{thm:LSprimes}).  Gallagher's larger sieve with prime-power
+  kernels saves at most $26\log\log N+C$ over any mixture, unconditionally
+  (Theorem~\ref{thm:gallagher}).  For super-polynomial frequencies a dense
+  abstract family shows that comparison measures plus large-sieve axioms
+  cannot give a cap (Theorem~\ref{thm:band}); the forced-class case is
+  Conjecture~\ref{conj:HLS}.  Prime-only majorants are capped for all
+  mixtures (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
+  modulus $\leq N/2$ are capped however the interval sum is evaluated
+  (Corollary~\ref{cor:IFcap}); hybrid methods that count large classes
+  blindly are capped conditionally on a flat-minorant hypothesis, which
+  follows from the combinatorial Hypothesis~\ref{hyp:SPW}
+  (Section~\ref{sec:hybrid}).  The results that use
+  Theorem~\ref{thm:noBcap} as a black box are \lab{proved}; labels are
+  given individually there.
+\item \emph{Tuple counts} (Section~\ref{sec:TU}).  Witness correlations of
+  order $K\asymp(\log N)^\theta$ with CRT accuracy would give
+  $E(N)\ll N\exp\{-(2/\e^2)(\log N)^\theta\}$ (Theorem~\ref{thm:TCbrun}, a \lab{proved} implication), but the
+  literal hypothesis meets forced zeros above $\theta=2/3$
+  (Theorem~\ref{thm:forcedmass}); the alternating form
+  (Hypothesis~\ref{hyp:TCalt}) cancels them and still suffices
+  (Theorem~\ref{thm:euler}).  Under CRT-main-term evaluation, input of
+  prime order $k$ saves at most $C_A[(\log N)^{3/4}+k\log\log N]$, by a cap with
+  truncated weights (Theorem~\ref{thm:trunc}, Corollary~\ref{cor:primeorder}).
 \item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
   and~\ref{sec:open}).  A precise list of what lies outside: the large
-  sieve beyond prime slices; cancellation between frequencies in the
-  rounding; per-frequency weights below one; majorants $\geq1$ only on
-  $[1,N]$, on the exceptional set or on exceptional primes; non-CRT
-  input; other class types (and non-selector admissible sets); family
-  primes beyond $N^{O(1)}$.  The factor $(\log\log N)^{3/4}$ without $B$,
-  and $H_{\rm MS}$, are open.
+  sieve at super-polynomial frequency levels; larger-sieve kernels with
+  an uncontrolled factor; direct counts and hybrid accounting above
+  modulus $N/2$; majorants $\geq1$ only on $[1,N]$ or on the exceptional
+  set; non-CRT tuple counts and other non-CRT input; other class types
+  (and non-selector admissible sets); family primes beyond $N^{O(1)}$.
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
@@ -2078,9 +2119,11 @@ when they are $\geq1$ on the whole avoider set (several of them, such
 as Theorems~\ref{thm:gapped} and~\ref{thm:karycap} and the $\Lambda^2$
 majorants of \cite{TW2}, are stated for the avoiders in $R_W$ only; see
 Remark~\ref{rem:L2vsmain}).
-\emph{Not transferred} from the earlier sections: Montgomery's large sieve
-is capped only fibrewise over prime slices (Remark~\ref{rem:LS}), not as a
-pointwise majorant of a mixed family; and the per-frequency rounding of
+\emph{Not covered by Theorem~\ref{thm:main} itself}, but capped in
+Section~\ref{sec:LS}: the large sieve, which is not a pointwise majorant
+with rounding $\sum|a_i|$ but is bounded below by one through duality
+(Theorem~\ref{thm:LScap}); and interval counts of majorants whose moduli
+are $\leq N/2$ (Corollary~\ref{cor:IFcap}).  The per-frequency rounding of
 Theorem~\ref{thm:perfreq} is proved for finite prime-slice families only.
 Theorem~\ref{thm:main} needs the rounding $\sum|a_i|$.
 
