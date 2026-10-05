@@ -97,3 +97,63 @@ Merged `side-agent/review-omega8a-2` and `side-agent/review-omega8b`
 * the auxiliary prime renamed `ℓ_aux` (b-D3);
 * duplicates after splitting are kept (b-D5).
 Phase 2 (exponent optimisation) follows in OMEGA8 §6.
+
+## Phase 2: optimising the exponent (OMEGA8 §6; numbered §6 so that the reviewed §§1–5 keep their numbers)
+
+* **§6.1 ledger.** Under ET, with `z=𝓛²`:
+  * `S*≪𝓛^4log𝓛`, width `w=kb≍𝓛²/log𝓛`, degree `d≍w·S≍𝓛^6`;
+  * `log M_1≍d𝓛` (Lemma 3.2), `log max d_i≍d𝓛`, `log Q_Π≍k²S*𝓛`;
+  * so `log p≍K·log Z≍𝓛^{14}`.
+* **Lemma 6.1 (PROVED).** Use the pulled-back Fourier truncation as
+  `u_j`. Its spectral norm satisfies `Σ_{|S|<d}|ĝ(S)|≤2(4C_Hw)^d`, from
+  `Σ_S p^{|S|}|f̂(S)| ≤ E 2^{DT(f_ρ)}` and Håstad. Products are expanded as
+  bounded functions, so there is no `T^{junta}` overlap inflation. Hence
+  `log M_1 ≤ 3log m+2d log(4C_Hw)+4`, and K loses a factor 𝓛.
+* **Thm 6.3 (PROVED mod TZ+ET):** `W(p) ≥ exp(c(log p/loglog p)^{1/13})`;
+  `log L_h(T)≪𝓛^{13}log𝓛`.
+* **§6.4.** The bit width b≍𝓛 is the next loss. A q-ary decision-tree
+  switching lemma would remove it, but is **false** even with per-prime
+  masses `≤q^{−1/2}`. The proved counterexample is "two of `√q`
+  coordinates coincide": `DT_q(f_ρ)≍√q` with constant probability. The
+  correct open target is the energy form ESW,
+  `E_ρW^{≥s}[f_ρ]≤(C(pk+max w_ℓ))^s`, which with LMN gives exponent 1/11.
+* **§6.5 ceilings (Assessment).** PO Thm 4.1 needs `log p≫K·log Z`, with
+  `K≳S` and junta `≳S`, so `log p≳S²` up to logs for *any* minorant.
+  That is ≈1/9 under ET, ≈1/6 with the observed `S≈𝓛^{2.5}`. The
+  heuristic 1/3 is beyond this transfer unless S is `≪𝓛`.
+* Not pursued: log-weighted quarantine thresholds `c_ℓ=log ℓ/(16𝓛)`.
+  They satisfy the local lemma but save only on bad primes `>√T`, and they
+  are irrelevant while `log Z≍d𝓛` dominates.
+* Review targets for phase 2: the restriction identity
+  `E_z f̂_ρ(S)=f̂(S)` and the spectral-norm bound in Lemma 6.1; that the
+  pulled-back characters are bounded functions of `<d` coordinates; and
+  the counterexample in §6.4.
+
+## Phase 3 (parent's tasks (a), (b)); stopping near the context limit
+
+* **(b) is a dead end, proved (OMEGA8 §6.6, Prop 6.6; modulo a standard
+  BV divisor lower bound for `Σ_p τ(((p+1)/4)²)`).** The `m=1` singles
+  survive every class-of-one quarantine and carry mass `≍𝓛²`, so
+  `S≪𝓛^{1+o(1)}` is impossible, also for the iterated quarantine
+  (`|𝓑|=T^{o(1)}`). With §6.5, the route via PO Thm 4.1 cannot beat
+  roughly `log p≈𝓛^{4…6}` (exponent ≤1/4) even ideally. The one opening:
+  singles are prime-local, so sieve them by Brun and use BRW only for
+  multi-prime events. Then `S_{≥2}` replaces S; its size is unexamined.
+* **(a) ESW: not attempted beyond its formulation (§6.4).** I did no
+  literature check of Tal 2017, p-biased or product-space switching, or
+  O'Donnell ch. 8; there was no context left for it. §6.4's
+  counterexample shows that any q-ary result must bound energy, not
+  decision depth.
+* Phase 2/3 status: Thm 6.3 (exponent 1/13) and Prop 6.6 are unreviewed.
+
+## Round 3: review R30c of §6 (applied by successor O34)
+
+R30c (`reviews/pointwise-omega8-review-3.md`): Thm 6.3 and Lemma 6.1 SOUND.
+MAJOR M1 applied: "ESW ⇒ 1/11" needs in addition a q-ary ℓ¹ bound and a
+quarantine with `|𝓑|≪kS*` (the cited "Lemma 6.2" never existed); without
+them ESW gives no real gain. The phase-2 bullets above that say "ESW would
+give 1/11" and "≈1/9 is the ceiling under ET" are superseded by OMEGA8
+§6.4–6.5 as repaired (1/9 is bookkeeping, the supported ceiling of the
+PO-Thm-4.1 route is 1/4). Minors m1–m8 applied (m7: `K ≥ log(1/δ) ≥ S1 ≫ 𝓛²`
+rigorously for the BRW expansion as written — R34a: not for every cell
+representation; m8: splitting off singles does not lower `log(1/μ)≥S1`).
