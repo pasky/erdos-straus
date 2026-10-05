@@ -301,6 +301,46 @@ needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink 
 Not claimed: anything about ES; anything about arguments that do not pass through a
 bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
 
+## 4. Closing the sparse loophole: no positive minorant at all below level `𝓛^4/log²𝓛` (O49b)
+
+*Idea.* Prop 2.7 leaves room only on `G={R(X_s)<K'}`. If the big odds are bounded below for
+**every** small configuration, then `G=∅` and Theorem 1.3 gives `E B≤0` outright: no
+minorant of that level has positive mean, sparse or not, and A plays no role. Typical-case
+bounds (Lemma 2.3) cannot give this, because `R(x_s)` is a divisor-type sum over the shifts
+`x+4D`. So we pass to a subfamily in which every (ℓ,D) has a *unique* small part v, and
+prove class-uniform equidistribution.
+
+**Lemma 4.1 (deterministic planting; PROVED, from Thm 1.3).** In Setting 1.2, suppose
+`R(x_s)≥(k+1)+(2k+1)r*` for *every* `x_s`. Then every `B∈𝒱_k` with `B≤F` has `E B≤0`.
+
+*Proof.* Theorem 1.3 with `1{R<…}≡0`. ∎
+
+**The uniqueness family.** Fix a small absolute `ε∈(0,1/10]` (chosen in Lemma 4.3), put
+`X:=T^ε`, `V:=X^{1/3}`, `y:=𝓛^6`, and
+
+```
+𝓕* := { E_{vℓ,D} : n:=D*∈[V,X], v≤V y-rough squarefree, ℓ prime ∈(T^{0.6},T^{0.7}],
+                   vℓ≡−1 (mod 4n) }.
+```
+
+As in Lemma 2.2, `vℓ≡−1 (4n)` gives `M=vℓ≡3 (4)` and `n|A_M`, i.e. `D|A_M²`. Also `M` is squarefree
+and y-rough, `√T≤M≤T`, and `D≤n²≤T^{2ε}<M/4`, so 𝓕* is a subfamily of §2's 𝓕 (with v
+restricted further). Lemma 2.1 holds for it.
+
+**Lemma 4.2 (unique small part; PROVED).** For each pair (ℓ,D) there is at most one v with
+`E_{vℓ,D}∈𝓕*`. Hence, for every small configuration x (the coordinates at primes `≤T^{0.6}`),
+
+```
+Σ_ℓ p_ℓ(x) = Σ_{v} Σ_{D: n_D∈[V,X], 4D≡−x (mod v)} c(v,n_D),     c(v,n):=Σ_{ℓ∈(T^{0.6},T^{0.7}], ℓ≡−v^{−1} (4n)} 1/(ℓ−1),
+```
+
+with v over y-rough squarefree `v≤V`, and `c(v,n):=0` if `gcd(v,2n)>1`.
+
+*Proof.* v satisfies `v≡−ℓ^{−1} (mod 4n)` and `1≤v≤V≤n<4n`, so v is determined by (ℓ,n).
+Given x, the events at ℓ whose small part holds are the `E_{vℓ,D}` with
+`x≡−4D (mod v)`. Distinct D give distinct classes `−4D mod ℓ`, since `0<|D−D'|<T^{2ε}<ℓ`. So
+`p_ℓ(x)=(ℓ−1)^{−1}#{D: the v of (ℓ,D) exists and x≡−4D (v)}`. Sum over ℓ, then group by v. ∎
+
 ## Replay
 
 ```
