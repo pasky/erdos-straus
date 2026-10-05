@@ -96,3 +96,78 @@ cases, 0 violations. (d) Full chain on toy good-indicators
 (`q=(3,5),(3,5,7),(7,5)`, b=4,5, every cut-off d): `E(φ̃−g̃)²=W^{≥d}`,
 `E_{π*}(φ−g)²≤W^{≥d}`, g has ES-junta `<d` (projection residual
 `≤5·10^{−15}`), `energy_Haar(φ;d−1)≤E_Haar(φ−g)²≤ρ·E_{π*}(φ−g)²`. All ✓.
+
+### Toy end-to-end logic check (B ≤ F ≤ 1[W>T] on n≡1 mod Q_Π)
+
+`scripts/review_o8a_pipeline.py` (`data/review_o8a/pipeline.txt`) builds
+the real ES atom system (Π = {ℓ≤z}, events `n≡−4D mod r_Π(M)` for atoms
+surviving Π), takes **arbitrary random** `u_j` on 1–2 free coordinates,
+samples `n≡1 (mod Q_Π)` coprime to the free primes (10% of them prime),
+and computes `W(n)>T` by brute force from the definition. T=120, z=7
+(121 events, 20000 samples, 450 with F=1) and T=250, z=11 (334 events,
+5000 samples, 30 with F=1): (I) `F=1⇒W>T` and `B(n)≤F(n)≤1[W(n)>T]`
+never violated; `B(n)>0` exactly on `F=1`; the expanded (cell-type)
+form `1−ΣA_i+2ΣA_iA_ju_j−ΣA_iA_jA_{j'}u_ju_{j'}` equals the closed form.
+This confirms the logic only (not the asymptotics); `F=1⟺W>T` held in
+every sample, as expected (the converse of (I) also holds).
+
+### Lemma 3.3 (twist) — SOUND (minor D2)
+
+Re-derived. Since `B≤F`, `E|B−F|=E[F−B]≤EF/100`. For ψ real primitive
+with `f|d_i` for some i and `gcd(f,Q)=1` (odd squarefree f, all its
+primes free coordinates), `μ_ψ=E[Bψ]` for **any** cell representation
+(a cell with `f∤d_i` has `E[1_cψ]=0` because ψ is primitive). Write
+`F=F'·1[X_{ℓ_0}∉Forb(X_{−ℓ_0})]`; ψ's ℓ_0-factor (Legendre symbol mod
+ℓ_0) has mean 0 over units mod `ℓ_0^{e}`, so
+`|E[Fψ]|≤E[F'·P(Forb|X_{−ℓ_0})]≤Σ_{E∋ℓ_0}p_{ℓ_0}(E)P(E∖ℓ_0∩F')`.
+HSS conditional LLL for the F'-family (`x=2P`, LLL condition holds since
+neighbourhood sums `≤2k/(64k)`): `P(E∖ℓ_0|F')≤P(E∖ℓ_0)∏_{Γ}(1−x)^{−1}≤e^{1/31}P(E∖ℓ_0)`.
+So `|E[Fψ]|≤1.033w_{ℓ_0}EF'≤0.0162EF'`, `EF≥0.983EF'`, and
+`|μ_ψ|≤(0.01+0.0165)EF≤0.027μ/0.99<μ/4`. Only `w_{ℓ_0}≤1/64` and the
+neighbourhood bound are used. Note F is defined over the **split**
+family; splitting leaves `w_ℓ` unchanged, and split events at one prime
+are mutually exclusive (dependent, but included in the neighbourhood
+sum via `w_ℓ`).
+
+### Theorem 3.4 — SOUND (minor D1, D5)
+
+* (I) for the iterated-quarantine Π: re-derived. O2 Lemma 4.3 (I)'s proof
+  uses only that every prime `≤T` is in Π or free, `ℓ^{e_ℓ}≤T`, `24|Q`,
+  and M odd; it is valid for any Π ⊇ {2,3}. Vertex values `−4D` are
+  units mod ℓ (`gcd(A_M,M)=1`). Toy check above.
+* LLL: `x_E=2P(E)`, neighbourhood sums `≤2kc_0=1/32` ⇒
+  `δ≥∏(1−2P(E))≥e^{−2.07S}≥e^{−2.2S}` ✓.
+* EL ⇒ `E[F−B]≤m²·S·e^{−3S}/(100m²(S+1))<e^{−3S}/100≤δ/100` ✓.
+* Counts: atoms `≤T·τ*(A²)≤T²`; splitting at `≤k` primes multiplies by
+  `≤∏ℓ^{e_ℓ}≤T^k`; `m≤T^{k+2}` ✓.
+* `K=1+log(M_1/μ) ≤ 1+log M_1+2.2S+0.01`, with Lemma 3.2 and `N≤T`:
+  `K≤4S*+C'(k+t)𝓛` ✓ (`S=S_tot(Π)≤S*` by O2 Lemma 11.1's max over Π).
+* PO Thm 4.1 hypotheses: unit cells, moduli coprime to `Q_Πℓ_0`
+  (free primes ∉Π, `ℓ_0>T`), `B(n)≤1[W(n)>T]` (for primes `p≡1 (Q)`,
+  which are `>T` and hence units at all free primes; that is all the
+  proof of PO Thm 4.1 evaluates), `μ>0`, twist (Lemma 3.3). Number of
+  cells is irrelevant (TZ's error is uniform in q). `x≥q_i^{12}` follows
+  from `log x≥C_1K log Z` ✓.
+* `log Z ≤ log Q_Π+log(2R)+log max d ≤ log Q_Π+2(3k+2t)𝓛+1`, which is
+  up to a factor 2 the stated `(3k+2t+2)𝓛` (absorbed in C; D5).
+
+### Theorem 4.3 — SOUND (modulo TZ, ET Prop 1.4, and the inherited O2 Lemma 11.1 ET-form)
+
+Bookkeeping redone: `log m≤(k+2)𝓛`; `k_0≤4.33S+2.89(k+2)𝓛+O(log S)`;
+`b≤2.89𝓛+3`; `t=10kbk_0≪k𝓛(S+k𝓛)`. With `z=𝓛²`, `k≤𝓛/(2log𝓛)`,
+`S≤S*≪𝓛⁴log𝓛`: `t≪𝓛^6` (both `k𝓛S≪𝓛^6` and `k²𝓛²≪𝓛^4/log²𝓛`);
+`K≪S*+t𝓛≪𝓛^7`; `log Q_Π≤(π(𝓛²)+64k²S*)𝓛+4≪𝓛^7/log𝓛`;
+`log Z≪𝓛^7`; `log p≪K·max(log Z,K)≪𝓛^{14}`. With `W(p)>T=e^𝓛`:
+`log W(p)≥𝓛≥c(log p)^{1/14}`; `p>ℓ_0>T` gives infinitely many p; `840|Q_Π`
+gives Mordell-hard. No parameter-dependent constant: the switching
+constant 5, the LMN factor 2, the density `e^{1/3}`, the LLL constants
+and TZ's `C_0,c_4` are absolute; `k,t,b,k_0` enter only polynomially.
+
+### Theorem 4.4 — SOUND
+
+Unconditional `S*≤exp((log2+o(1))𝓛/log𝓛)` (O2 Lemma 11.1 + Wigert):
+`t≪𝓛²S*`, `K,log Z≪𝓛³S*`, `log p≪𝓛^6S*²`, so
+`log₂p≤2log S*+O(log𝓛)≤(2log2+o(1))𝓛/log𝓛`. Inverting the increasing
+`x/log x`: `𝓛≥(1/(2log2)−o(1))log₂p·log(log₂p)`, i.e.
+`log W(p)≥(1/(2log2)−o(1))log₂p·log₃p` ✓ (the o(1) is as T→∞ along the
+constructed sequence; p≥T).

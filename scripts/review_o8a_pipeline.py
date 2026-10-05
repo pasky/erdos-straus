@@ -15,6 +15,7 @@ from sympy import divisors, isprime, primerange, factorint
 T = int(sys.argv[1]) if len(sys.argv) > 1 else 120
 z = int(sys.argv[2]) if len(sys.argv) > 2 else 7
 SAMPLES = int(sys.argv[3]) if len(sys.argv) > 3 else 20000
+EXP = int(sys.argv[4]) if len(sys.argv) > 4 else 300
 random.seed(5)
 
 Pi = list(primerange(2, z + 1))
@@ -104,7 +105,7 @@ for it in range(SAMPLES):
     if F and not w: viol_I += 1
     if b > F + 1e-9: viol_B += 1
     if b > 0 and not w: viol_B += 1
-    if it < 300 and abs(B_expanded(n) - b) > 1e-6 * max(1, abs(b)): viol_exp += 1
+    if it < EXP and abs(B_expanded(n) - b) > 1e-6 * max(1, abs(b)): viol_exp += 1
 msg = (f'T={T} z={z} Q={Q} free={len(free)} events={m_ev} samples={SAMPLES} (primes {nprime}); '
        f'#F=1: {nF}, #W>T: {nW}, #B>0: {npos}; viol (I): {viol_I}, viol B<=F<=1[W>T]: {viol_B}, '
        f'viol expansion: {viol_exp}')
