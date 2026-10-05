@@ -243,13 +243,15 @@ factors `≍` the activated mass. The collision side (`Σ_{S⊆T}P_S`) is pure
 density and is controlled by inflation (EK Lemma 2.1(2)); the difficulty is
 the Möbius-inverted, signed quantity `P_S`, and `s_S`.
 
-### 4.2 Why the symmetric (LLL / Kotecký–Preiss) route fails
+### 4.2 Residue concentration: an obstacle to the naive symmetric route (Assessment, with Lemma 4.2 PROVED)
 
 For the uniform measure on `𝒜_c` the natural tool is a cluster expansion
-with polymers = connected sets of classes. Its convergence (KP) needs, for
-each rough prime p and **each** residue b, the *conditional* mass
-`m*(p,b) = Σ_{C ∋ p, b_C ≡ b (p^{v})} p^{v}/G_r(C)` to be small. On average
-over b this is the mass at p, `≪ (log N)^{O(1)}/p`. But:
+with polymers = connected sets of classes. The plain KP criterion for that
+polymer model (uniform activities) needs, for each rough prime p and
+**each** residue b, the *conditional* mass
+`m*(p,b) = Σ_{C ∋ p, b_C ≡ b (p^{v})} p^{v}/G_r(C)` to be small. With
+moduli `≤ N^A` (review R59 D4), on average over b this is the mass at p,
+`≪ (log N)^{O(1)}/p`. But:
 
 **Lemma 4.2 (residue concentration; PROVED).** The class `−4 (mod M)`
 belongs to ℛ(M) for every `M ≡ 3 (mod 4)` (take `D = 1 | A_M²`). Hence for
@@ -259,12 +261,16 @@ z-rough `M'`, half of them in the right class mod 4), which is
 `≍ A(log N)^{3/4}` for `X = N^{A}`.
 
 So a fibre family can be locally **dense at one residue** although sparse
-on average, and every proof must either average over residues or use the
-top-prime (sequential) order, in which the class `−4 mod pM'` is charged
+on average. *Assessment (review R59 D3):* this defeats the plain KP
+criterion for the class-polymer model, which is only one sufficient
+criterion; it does not show that the symmetric route fails (non-uniform
+activities, conditioning first on the concentrated residues, or polymers
+= rough primes might work). It suggests averaging over residues or using
+the top-prime (sequential) order, in which the class `−4 mod pM'` is charged
 at its top prime with activation probability `≍ 1/(cofactor)` and the
 relevant sums run over ℓ-smooth cofactors only (K2 §3). In that order the
 *average* influence of a coordinate `x_p` on all later coordinates is
-`≪ Σ_{C∋p} 1/G_r ≪ (log N)^{O(1)}/p` (sparsity), while its worst-case
+`≪ Σ_{C∋p} 1/G_r ≪ (log N)^{O(1)}/p` (sparsity; moduli `≤ N^A`), while its worst-case
 influence is `≍ p·m(p)`, which is not small (Lemma 4.2 again).
 
 ### 4.3 Why one-step bounds lose (Assessment)
