@@ -124,3 +124,19 @@ Status: IN PROGRESS.
 * Lemma 7.4 (sandwich): identity 1−F=ΣA_iF_{<i}, both cases, F−B=ΣA_i(Σ_{j<i}A_je_j)², CS
   with factor m, independence of A_j and F^{(j)}−u_j ✓. Validity on ℤ for any real u_j ✓.
 * Lemma 7.5: 𝒟_j down-closed, (6.1)+Cor 6.10 per j ⇒ E[F−B]≤m²S·2^{−τ/(2𝓛)} ✓.
+
+### Pass 7: Lemmas 7.6–7.8, Thm 8.1, proof of Thm 1.1 (hand)
+* Lemma 7.6: E[F^{(j)}|δ_W] depends only on X_ℓ mod ℓ^{1+max W_ℓ} ⇒ cells of modulus
+  m_W≤e^τ; expansion of B has ≤3 events and ≤2 u's per term ⇒ modulus ≤T³e^{2τ} ✓;
+  compatibility of cells on Ω ⇔ on ℤ (CRT, consistency) ✓.
+* Lemma 7.7 ✓. Lemma 7.8: f odd squarefree with a_ℓ=0 at its primes ✓; factorisation
+  F=F'·1[X_{ℓ_0}∉Forb], E_{X_{ℓ_0}}ψ_{ℓ_0}=0 ✓; conditional LLL with J=supp E_i∖{ℓ_0} ✓;
+  1.04/64=0.01625≤0.0163, E F'≤δ/0.9837, 0.0163/0.9837=0.01657≤0.0166,
+  (0.01+0.0166)/0.99=0.0269<1/4 ✓.
+* Thm 8.1: 2^{−τ/(2𝓛)}≤1/(100T⁴(S_1+1)e^{3S_1}) ⇒ E[F−B]≤e^{−3S}/100≤δ/100 (δ≥e^{−2.2S}) ✓;
+  E|B|≤(1+2/99)μ≤1.03μ ✓; auxiliary prime ℓ_aux∈(R,2R] (Bertrand) keeps the cells consistent,
+  is outside Q∏_{ℓ∈𝒫}ℓ (ℓ_aux>T), forces p>T ✓; Lemma 7.1 for B and |B| (|B| is a function
+  of X mod D, hence a cell combination) ✓; log Z≤log Q+log2+2(3𝓛+2τ) ✓; m=0 case ✓;
+  p≡1 (840) is the hard class 1² ✓.
+* Proof of Thm 1.1: τ≪𝓛(𝓛+S_1)≪𝓛⁵, log Q≪𝓛Ω_0≪𝓛⁵log𝓛 ⇒ log p≪𝓛⁵log𝓛 ⇒
+  𝓛⁵≥log p/(C log log p) ✓ (uses 𝓛<log p). Exponent 1/5 with (log log p)^{−1/5} ✓.
