@@ -12,7 +12,7 @@ prime input beyond low-conductor minorants (bilinear/Type II, parity), Siegel-ze
 minorants of unbounded level. The brief asks for the weakest extension not covered.
 
 Main finding (§1): the planted law of O14 §4 is not only exact on low-level statistics, it is
-**exponentially pseudorandom against every bounded product function of high level**: its
+**exponentially pseudorandom against every reduced product (Def 1.0) of high level**: its
 deviation from Haar on any residue class, Dirichlet character or additive character, of *any*
 modulus, is `≤(8r*)^{k+1}=exp(−c𝓛^4/log𝓛)`. Consequently the level hypothesis in O14 Thm 4.5 can
 be replaced by a **Wiener-type norm**: every minorant `B≤F` (any level) has
@@ -108,7 +108,7 @@ measure `m_x:=Σ_{p≤x,p∈H,p∤𝒬}δ_p` is nonnegative of mass `N_x`, (ii) 
 𝔈. It is *valid* iff every 𝒽-consistent m has `∫F dm>0`. (Every minorant transfer is one:
 from `B=Σc_ih_i≤F`, `h_i∈𝒽`, it concludes `Σ_pF(p)≥Σ_pB(p)≥N_xE_HB−𝔈Σ|c_i|>0`.)
 
-**Theorem 2.2 (no linear certificate below `𝔈<N_xη`; PROVED, same inputs as Thm 1.2).** In
+**Theorem 2.2 (no linear certificate at accuracy `𝔈≥N_xη`; PROVED, same inputs as Thm 1.2).** In
 the setting of Thm 1.2, if `𝔈≥N_x·(8r*)^{k+1}` (in particular if `𝔈≥N_xη`), then
 `m_ν:=N_xν` is 𝒽-consistent at accuracy 𝔈 for *every* family 𝒽 of reduced products, and
 `∫F dm_ν=0`. Hence every valid linear certificate has `𝔈<N_xη≤x·e^{−c𝓛^4/log𝓛}`; and every
@@ -137,7 +137,7 @@ Additive: `E_He(a·/q)=c_q(a)/φ(q)` (Ramanujan sum). With `S(a):=Σ_{p≤x,p∈
 `Σ_a|c_q(a)|²=qφ(q)`, `Σ_a|S(a)−N_xc_q(a)/φ(q)|²=q(N_x−2N_xN'/φ(q)+N_x²/φ(q))≥qN_x(1−N_x/φ(q))`; the term `a=0`
 vanishes (`c_q(0)=φ(q)`), so some `a≠0` has `|S(a)−N_xc_q(a)/φ(q)|²≥N_x(1−N_x/φ(q))`. ∎
 
-**Corollary 2.4 (oblivious linear transfers are capped at 1/4; PROVED implication).**
+**Corollary 2.4 (full-orbit uniform linear transfers are capped at 1/4; PROVED implication).**
 Certificates through a translation-closed family 𝒽 of reduced products — residue classes
 (e.g. O9/Gallagher-type and sieve transfers), Dirichlet characters (e.g. GRH:
 `|ψ(x,χ)|≪x^{1/2}log²(qx)`), additive characters (e.g. Vinogradov minor-arc bounds, the
@@ -154,17 +154,21 @@ primes — modulus `>T^{0.6(k+1)}=e^{c'𝓛^4/log𝓛}`, so `>x` in the range of
 the positive mean (Thm 1.2). If instead every `h_i` has modulus
 `≤x`, then B is a minorant of level `≤x`, and O14 Thm 4.5 gives `E B≤0` as long as
 `log x≤c𝓛^4/log𝓛`. Either way: **certified `W(p)≥exp((log p)^{1/4+δ})` is impossible by any
-oblivious linear transfer, whatever is assumed about the primes (GRH included).**
+linear transfer with full-orbit uniform accuracy, whatever true statement about the primes
+is used (GRH included).** (Scope: see the Reading below and §6 (N2).)
 
 *Proof.* Let `log x<c'𝓛^4/log𝓛` (else nothing to prove). Split `B=B_sh+B_deep` (h_i with
 `≤k` resp. `≥k+1` big primes). By Lemma 1.1, `E_HB=E_νB−E_ρB_deep≤η·Σ_{deep}|c_i|`; the
 certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with `𝔈_i≥1/2` (classes) or `≥√(N_x/3)`
-(characters) by Lemma 2.3 (applicable: deep moduli are in 𝒬, `>x²` and coprime to Q, so
+(characters) by Lemma 2.3 (applied to the part q′ of q coprime to Q: on H a class mod q is a class mod
+q′ or empty, and a character/additive character mod q restricts to one mod q′ times a constant;
+deep moduli have q′ in 𝒬 up to this reduction, `>x²` and coprime to Q, so
 `N'=N_x`; assume `N_x≥1`, else nothing is certified). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
 deep term, `E_HB=E_νB≤0` (O14 Thm 4.5's argument). ∎
 
 **Proposition 2.5 (averaged accuracy does not help; PROVED, same inputs).** Group the deep
-reduced products into translation orbits O (all classes mod q, `q>x`), and suppose the
+reduced products into translation orbits O (all classes mod q, `q>x`, q∈𝒬 coprime to Q after
+the reduction in Cor 2.4, `N_x≤φ(q)/2`), and suppose the
 certificate bounds `|Σ_{C∈O}c_Ce_C|≤‖c_O‖_{s}‖e_O‖_{s'}` (Hölder, any `1≤s≤∞`, `1/s+1/s'=1`) with
 `e_C:=∫1_Cdm_x−N_xP_H(C)` the true errors. Then it needs `N_x·η>1/2` again. Indeed:
 (i) `‖ν−P‖_TV≤e^{−0.6μ*}`: conditionally on x_s the perturbation has mass
@@ -173,13 +177,17 @@ certificate bounds `|Σ_{C∈O}c_Ce_C|≤‖c_O‖_{s}‖e_O‖_{s'}` (Hölder, 
 (iii) the truth has `‖e_O‖_{s'}≥(1/2)N'^{1/s'}` (N' entries `≥1/2`, Lemma 2.3(a)), `N'≥N_x/2`.
 Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
 `N_xe^{−0.6μ*/s'}η^{1/s}>(1/2)(N_x/2)^{1/s'}`; raising to the power s (`s/s'=s−1`):
-`N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}≥1/2`. ∎
+`N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}≥1/2` (for `s<∞`). For `s=∞` (`s'=1`) the condition reads
+`N_xe^{−0.6μ*}>N_x/4`, impossible. ∎
 
 *Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
 modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
 property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
-"Oblivious" = the error bound does not depend on *which* classes contain primes; a certificate
-that knows which deep classes are prime-free is using the actual primes ≤ x (cf. §4).
+"Full-orbit uniform" = one error bound for all members of each translation orbit used. This
+is a genuine restriction (review R57): for `q>x`, classes whose least positive representative
+exceeds x are empty below x, which is *support* information, not knowledge of the primes, and
+it permits sharper non-uniform error bounds. Certificates exploiting it are equivalent to
+minorants valid only on `H∩[1,x]` (or on primes ≤ x); they are **not** covered (§5, §6 (N2)).
 
 ## 3. Siegel zeros
 
@@ -202,8 +210,13 @@ every residue class, Dirichlet character or additive character h,
 |E_{ν_1}h − E_{P_1}h| ≤ 2(4r*)^{k+1} .
 ```
 
-Hence Thm 1.2, Thm 2.2 and Cor 2.4 hold verbatim for `P_1` (with η doubled): every minorant
-`B≤F` has `E_{P_1}B≤2η‖B‖_×`. Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
+Hence Thm 1.2, Thm 2.2 and Cor 2.4 hold for `P_1` (η doubled) **for representations by these
+atoms** (classes, characters, additive characters; write `‖B‖_atom` for the corresponding
+ℓ¹-infimum): every minorant `B≤F` has `E_{P_1}B≤2η‖B‖_atom`. (Arbitrary reduced products are not
+closed under multiplication by χ_1: locally `h=(3χ+1)/4` is reduced, `χh=(3+χ)/4` is not — R57.)
+Masses: `P_1(H)=1−εE_Hχ_1` and `ν_1(H)−P_1(H)=−εE_ρχ_1`, of size `≤(4r*)^{k+1}`; so the
+information sets of §2 must allow the total mass to vary within the accuracy 𝔈, which they do
+once `𝔈≥N_x(4r*)^{k+1}`. Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
 number of big primes dividing `q_1`, then `E_{P_1}B≤0` exactly. Since Gallagher-range moduli
 have `log q_1≪log x`, `s≤log x/(0.6𝓛)`, so **no minorant of level `log D≤c𝓛^4/log𝓛−log x`
 gets positivity from the exceptional term**; with `log x≪𝓛^4/log𝓛` this closes the "Siegel"
@@ -252,7 +265,10 @@ E_{P_d}B ≤ e^{−c'𝓛^6} + η·Σ|c_i| .
 
 Consequently the integer measure `m^{(d)}:=Σ_{n≤x, n∈H̃_d}δ_n` (mass `X_d=x/(dQ)+O(1)`,
 accuracy `≤1` on every residue class) admits no class-ℓ¹ certificate of `Σ_{n}F dm^{(d)}≥1`
-unless `X_dη≥1/2`, i.e. `log x≥c𝓛^4/log𝓛`; and the Haar-weighted fake `X_dν^{(d)}` below
+**that charges the uniform error 1 to every deep class** unless `X_dη≥1/2`, i.e.
+`log x≥c𝓛^4/log𝓛` (forced as in Lemma 2.3(a) if the orbit is used uniformly; for integers the
+support is known exactly, so support-aware accounting — empty classes cost 0 — is natural and is
+**not** covered: it amounts to minorants valid only on `H̃_d∩[1,x]`, §6 (N2)); and the Haar-weighted fake `X_dν^{(d)}` below
 satisfies every class/character statistic to accuracy `X_d(η+e^{−c'𝓛^6})` while giving F
 mass `≤X_de^{−c'𝓛^6}<1`.
 
@@ -281,14 +297,16 @@ invisible to class-ℓ¹ certificates. (In the Mordell-hard fibre, squares are a
 fibre nonempty.) For primes no such non-periodic avoider family is known; the closest periodic
 one, `∏_{ℓ≤T}1[(n/ℓ)=1]≤F`, has `‖·‖_×/mean=2^{π(T)}`, consistent with Thm 1.2.
 
-**Corollary 4.3 (what Type I/II input would have to supply; Assessment built on Prop 4.1).**
-A Vaughan/Heath-Brown proof of `Σ_{p≤x,p∈H}F(p)>0` at `log x≍𝓛^3` needs, as Type I input,
+**Assessment 4.3 (what Type I/II input would have to supply; heuristic, NOT a consequence of
+Prop 4.1).** A Vaughan/Heath-Brown proof organised in the standard way of `Σ_{p≤x,p∈H}F(p)>0` at `log x≍𝓛^3` needs, as Type I input,
 `Σ_{n≤x,d|n}F(n)1_H(n)=X_dE_{P_d}F·(1+o(1))` for (a weighted majority of) `d≤x^{1/3}`, and
 `E_{P_d}F≈δ` is `e^{−𝓛^{3+o(1)}}`, so the absolute error must be `≤(x/d)·x^{−1/C}` (C large).
-By Prop 4.1 no oblivious class/character/additive-character method can produce even the lower
-half of this at `log x<c𝓛^4/log𝓛`; the Type II sums are then moot. Under a Siegel zero the Type I
+Prop 4.1 shows that full-orbit uniform class-ℓ¹ minorant certificates cannot produce even the
+lower half of this at `log x<c𝓛^4/log𝓛`. It does not exclude signed cancellation across d,
+aggregate estimates, support-aware or non-linear methods; that Type II input cannot compensate is
+our assessment, not a theorem. Under a Siegel zero the Type I
 level rises to `x^{1−ε}` — a constant factor in `log D`, against a required `log D≍𝓛·log x/polylog`
-(superpolynomial level `D=x^{𝓛^{1−o(1)}}`). **The bottleneck is the sieve dimension
+(superpolynomial level `D=x^{𝓛^{1−o(1)}}`). **Our reading: the bottleneck is the sieve dimension
 `κ≍𝓛³/log𝓛` of the big-prime sieve, a property of the integers; prime-specific input (Type II,
 parity, Siegel) addresses the other half of the problem.**
 
@@ -316,9 +334,22 @@ So "valid only at primes" adds nothing unless restricted to a finite range `p≤
 `U:={B>F}` is a union of unit classes mod L containing no prime `≤x`. By Linnik–Xylouris every
 unit class of modulus `≤cx^{1/5}` contains a prime `≤x`, so U contains no class of modulus
 `≤cx^{1/5}`: the extra knowledge is that a set of *deep* classes is prime-free up to x. In the
-language of §2 this is the constraint `m(U)=0` added to the information set; it is non-oblivious
-(it depends on which deep classes the primes ≤ x occupy), exactly the knowledge excluded in
-Cor 2.4. With it the problem is circular (take `U={F=0}`, `B=1`). Same situation as
+language of §2 this is the constraint `m(U)=0` added to the information set — support-aware,
+not full-orbit uniform, hence outside Cor 2.4. It is not necessarily circular (R57): part of it
+is pure support information (classes with no integer in `[1,x]`), which needs no knowledge of the
+primes. What *is* proved: positivity cannot come from moderate single moduli (Prop 5.2).
+
+**Proposition 5.2 (finite-range minorants of a single moderate modulus; PROVED modulo
+Linnik–Xylouris).** Let B be a function of `n mod q` with `B(p)≤F(p)` for every prime `p≤x` in H.
+Suppose there is a prime `ℓ_0≡3 (4)`, `ℓ_0≤T`, `ℓ_0∤qQ`, with `x≥C_L(qQℓ_0)^5` (`C_L` the
+Linnik–Xylouris constant; `(qQℓ_0)^{2+ε}` under GRH). Then `B≤0` on every class of H mod q,
+hence `E_HB≤0`.
+*Proof.* Fix a class c of H mod `q′:=lcm(q,Q)`. The class `{n∈c, n≡−4 (ℓ_0)}` mod `q′ℓ_0` is a
+unit class, so it contains a prime `p≤x`. The event `(M,D)=(ℓ_0,1)` (`M≡3 (4)`, `1|A²`) holds at
+p, so `F(p)=0` and `B(c)=B(p)≤0`. ∎
+So a finite-range prime-only minorant must take its positive values through moduli
+`>x^{1/5}/(QT)`, or through combinations of moduli with large lcm (sieve-type sums), which
+Prop 5.2 does not treat. Same situation as
 EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
 
 ## 6. What is and is not covered
@@ -334,7 +365,8 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
 3. The integer Type I sums that Vaughan / Heath-Brown identities and Heath-Brown's Siegel-zero
    method reduce to (Prop 4.1), for class-ℓ¹ certificates; Type II input is then moot (Cor 4.3,
    Assessment for the "moot" part).
-4. Prime-only minorants (Lemma 5.1) up to non-oblivious knowledge.
+4. Prime-only minorants valid at all primes (Lemma 5.1); finite-range ones of a single moderate
+   modulus (Prop 5.2).
 
 **Not covered (the precise residual).**
 * (N1) *Non-periodic structure.* Certificates that exploit a non-periodic family inside the
@@ -342,8 +374,11 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
   "prime-rich" non-periodic family on which F is automatic; every periodic one costs
   `‖·‖_×/mean≥e^{c𝓛^4/log𝓛}` (Thm 1.2). None is known; Chebotarev-type families
   (`p` split in `ℚ(√ℓ*:ℓ≤T)`) are periodic and cost `2^{π(T)}`.
-* (N2) *Non-oblivious knowledge* of the primes ≤ x in deep classes (§5); equivalently,
-  error bounds that are not translation-uniform.
+* (N2) *Support-aware / finite-range certificates*: minorants valid only on `H∩[1,x]` or on
+  primes `≤x`, i.e. error accounting that is not uniform over translation orbits (e.g. using
+  that classes mod `q>x` with least representative `>x` are empty). Prop 5.2 excludes single
+  moduli `≤x^{1/5}/(QT)`; sieve-type combinations are open. For the integer Type I sums this is
+  the natural accounting, so (N2) is the main gap in §4 (R57).
 * (N3) *Non-linear certificates*: arguments in which F (or the prime measure) enters
   non-linearly — e.g. second-moment / pair-correlation counts `Σ_{p,p'}F(p)F(p')`, entropy or
   density-increment arguments. The fake is a single measure; a joint fake for pair statistics
@@ -354,8 +389,8 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
 
 **Answer to the brief.** (1a) adds nothing (Lemma 5.1). (1b) Type II cannot help on its own: the
 Type I half already needs integer equidistribution of F at superpolynomial level
-`x^{𝓛^{1−o(1)}}`, and every oblivious linear method is blocked there (Prop 4.1); the Maynard
-analogue fails quantitatively (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel zeros do
+`x^{𝓛^{1−o(1)}}`, and every full-orbit uniform linear method is blocked there (Prop 4.1;
+support-aware methods are open, (N2)); the Maynard analogue fails quantitatively (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel zeros do
 not help linear transfers (Thm 3.1), and Heath-Brown's mechanism reduces to (1b). (2) No
 CONDITIONAL improvement was found; the obstruction is theorem-level (Thm 1.2/2.2, Prop 2.5,
 Thm 3.1, Prop 4.1) with the exact scope above. The 1/4 ceiling is a **sieve-dimension**
@@ -370,11 +405,12 @@ property of F, invariant under any strengthening of prime equidistribution.
 | Thm 1.2 | every minorant `B≤F` on any fibre (`log Q≤T^{0.05}`): `E_HB≤e^{−c𝓛^4/log𝓛}‖B‖_×` | PROVED mod (G), effective Page, fundamental lemma (O14 Thm 4.5 inputs) |
 | Thm 2.2 | linear certificates need accuracy `𝔈<N_xη` | PROVED (same) |
 | Lemma 2.3 | forced accuracy on deep orbits: ≥1/2 (classes), `≥√(N_x/3)` (characters, additive) | PROVED (elementary) |
-| Cor 2.4 | oblivious linear transfers (incl. under GRH) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
+| Cor 2.4 | full-orbit uniform linear transfers (incl. under GRH) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
 | Prop 2.5 | `‖ν−P‖_TV≤e^{−0.6μ*}`; Hölder-averaged accuracy also blocked | PROVED (same) |
-| Thm 3.1 | Siegel-model law `(1−εχ_1)P`: same fake; level `≤c𝓛^4/log𝓛−log x` gives `E_{P_1}B≤0` | PROVED (same) |
+| Thm 3.1 | Siegel-model law `(1−εχ_1)P`: same fake (atom norm); level `≤c𝓛^4/log𝓛−log x` gives `E_{P_1}B≤0` | PROVED (same) |
 | Prop 4.1 | integer (Type I) sums: class-ℓ¹ certificates blocked below `log x≍𝓛^4/log𝓛` | PROVED (same + Mertens) |
-| Cor 4.3 | Type II / Siegel (Heath-Brown) / Maynard-type routes need Type I beyond the barrier | Assessment (built on Prop 4.1) |
+| Assessment 4.3 | Type II / Siegel (Heath-Brown) / Maynard-type routes need Type I beyond the barrier | Assessment (heuristic) |
+| Prop 5.2 | finite-range prime-only minorants of one modulus `q≤x^{1/5}/(QT)`: `E_HB≤0` | PROVED mod Linnik–Xylouris |
 | Lemma 5.1 | prime-only minorants = Haar minorants (Dirichlet) | PROVED |
 
 Not claimed: anything about ES; anything about the true size of the least avoider prime;
