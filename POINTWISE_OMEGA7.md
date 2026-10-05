@@ -79,8 +79,8 @@ The terms `2/(ajM_1)` (`M_1≥` least residue of `κjā`, a hub height
 first-term pieces; they are summed over `(a,j)` in §2. The elementary
 linear-in-s count (divisors of `4a²s+1` in a class mod q, switching at
 `√F`; §2) needs instead `S≥max(A²H^{2a},q)·H^{a}𝓛^B`. So Lemma 1.2 adds
-exactly the a-dominant boxes `A≳q`, `AqH^a≤S<A²H^{2a}`. Left open after
-both: `S<A·q·H^{a}` with `A≳qH^{−3a/2}` (quadratic-root regime; §3).
+exactly the a-dominant boxes `A≳q`, `AqH^a≤S<A²H^{2a}`. What is left after both
+is stated exactly in Thm 3.3 and §5.
 
 ## 2. Boxes with a long s-variable (elementary)
 
@@ -231,3 +231,76 @@ or Cor 3.2. The factor `2^k` is O5 Lemma 2.0′ (prime-power patterns). ∎
 No corner or Shiu/Henriot input is used. (O6's corner reduction can be
 applied on top: only corner atoms of residual boxes with
 `min(4sa,4sb,4ab)>yH^{1/4−a}` remain.)
+
+## 4. EVIDENCE (`scripts/omega7_residual.py`)
+
+Exact enumeration of all m>1 atoms (same system as O6 §4). Every atom
+passes the asserts of Lemma 1.1(i)–(iii), Lemma 2.0 (`g_0`-primes divide
+j) and the weight bound `2/n′≤(4/3)q/(j·s·min(a,b))` (14756 atoms at
+T=10⁹, 271490 at T=10¹¹). Classification with the box conditions of
+Thm 3.3 (constants and 𝓛-powers dropped, `Z=1`):
+
+| T | q | atoms / residual | max m>1 mass, h>512: tot / residual / corner-residual |
+|---|---|---|---|
+| 10⁹ | 337·347 | 14756 / 12738 | .0147 / .0147 / .0147 |
+| 10¹¹ | 937·941 | 271490 / 225720 | .0083 / .0072 / .0068 |
+
+At these sizes `q≈T^{0.55}` and most boxes have `S<q`, so §§2–3 remove
+only ~15% of the atoms and almost none of the high-height corner mass.
+The O6 configuration `(s,a)=(341,1)`, `q=116939`, is residual (type R1
+below). The numerics are far from the asymptotic regime and prove
+nothing; they confirm the identities and the honest scope.
+
+## 5. Status and the remaining obstruction
+
+* **PROVED:** Lemma 1.1, Lemma 2.0, Lemma 2.1, Lemma 2.2, Prop 2.3,
+  Cor 2.4, Lemma 2.5 (elementary). **PROVED modulo the Weil–Estermann
+  Kloosterman bound:** Lemma 1.2, Prop 1.3, Lemma 3.1, Cor 3.2,
+  Thm 3.3. Only `h_3>H` (non-hub for the `u/v` family) is used.
+* **New content.** HC_Π(a), `a≤1/6`, holds (with loss `2^k𝓛⁴`) for all
+  atoms outside the residual boxes of Thm 3.3, **without** O6's corner
+  reduction or Shiu/Henriot. Mechanism: the complementary divisor
+  `m*=F/m` lies in the class `κjā (mod q)` (Lemma 1.1), so the first-term
+  problem becomes "divisors of `4a²s+1` in a fixed class mod q", which a
+  long linear s-range settles (Lemma 2.1), and, for a dominant a, the
+  modular hyperbola `mm*≡1 (mod 4a²)` with Weil (Lemma 1.2). The case
+  `gcd(j,q)>1` is closed (Lemma 2.5).
+* **Open (exact residual).** Atoms with `a≤b` in `(s,a)`-boxes (and
+  symmetrically) with `S<H^{2a}𝓛^9·max(q, min(A²,Aq))`:
+  * **(R1) short s:** `S<qH^{2a}𝓛^9`. For each a, s takes `≪H^{2a}𝓛^9`
+    values, `s≡κ(4a²)^{−1} (q)`. This contains O6's (b1), the small-s part
+    of (b2), and the numerically heaviest corner configurations.
+  * **(R2) a-dominant:** `A>q^{1/2}`, `qH^{2a}≤S<𝓛^9H^{2a}min(A²,Aq)`.
+  It occurs for every q in `[y²,T]`. So no family of vertex sets is
+  fully closed, and **HC_Π, HC* and the `(log₂p)^{3/2}` rate remain open.
+  The proved rate stays O4 Cor 3.1.**
+* *Assessment (the obstruction).* In (R1) with `A<q` the family is
+  one-dimensional, `a↦s(a)=` least residue of `κ(4a²)^{−1}` mod q (plus
+  `≪H^{2a}` shifts by q). One needs the divisors of `4s(a)a²+1` to
+  avoid the class `κjā (mod q)` on average over a: a divisor problem for
+  a Kloosterman-type family. In (R1) with `A≥q`, and in (R2), fixing s
+  and switching at `√F` leaves the divisors `d∈[A/(qH^a),A√S]`. For
+  these one needs the roots ω of `4sq²ω²+1≡0 (mod d)` to be
+  equidistributed at scale `A/(qd)`, for d **restricted to a residue class
+  mod q**, with the polynomial's discriminant `−16sq²` growing with q.
+  The known equidistribution theorems for roots of quadratic congruences
+  (Hooley 1964; Duke–Friedlander–Iwaniec 1995; Tóth 2000) average over
+  all moduli `d≤D` for a fixed polynomial. I do not know a version
+  uniform in a modulus-q progression with `q≥D^{θ}`. Such a version would
+  need spectral (Kuznetsov-type) Kloosterman-sum bounds of level q,
+  uniform in the discriminant. The citations here are from memory and were
+  not checked against PDFs.
+* *Weaker variants.* §§2–3 give savings `H^{−a}` exactly where a linear
+  or hyperbolic variable is long. A variant of HC restricted to such
+  boxes does not feed O4 Thm 4.2, which needs all `|O|≤k−1`, and (R1)
+  is present for every q. No intermediate rate follows. The
+  `(log p)^{1/3}` heuristic is not approached.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+uv run --with sympy python scripts/omega7_residual.py 1000000000 331 337 347 1024 1     # ~2 s
+uv run --with sympy python scripts/omega7_residual.py 100000000000 933 937 941 2048 1  # ~10 s
+```
+Outputs: `data/omega7/residual_1e9.txt`, `data/omega7/residual_1e11.txt`.
