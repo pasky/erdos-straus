@@ -127,3 +127,25 @@ implication" under H_ω, ET, (G), O10 Thm 3.4 is accurate. **SOUND.**
 
 **Thm 3.2 verdict: SOUND** (modulo (G), ET Prop 1.4, O10 Thm 3.4, and the other §2–3 lemmas, which are reviewer
 1's scope).
+
+### E. H_ω(B) and its EVIDENCE (`scripts/review_o11b_hmoment.py`, `data/review_o11b/hmoment.txt`)
+
+From-scratch recomputation over all atoms (`M≤T`, `M≡3 (4)`, `D|A²`, weight `g/M`, `g=gcd(M,4D+1)`), extended
+one decade beyond the author:
+
+| T | Σ g/M | mean h (g/M) | mean h (exact s) | log log T | 𝓛/log𝓛 |
+|---|---|---|---|---|---|
+| 10⁴ | 55.28 | 2.1840 | 2.3240 | 2.2203 | 4.148 |
+| 10⁵ | 113.27 | 2.4178 | 2.5718 | 2.4435 | 4.712 |
+| 10⁶ | 206.68 | 2.6282 | 2.7935 | 2.6258 | 5.262 |
+| 10⁷ | 347.65 | 2.8195 | 2.9936 | 2.7799 | 5.798 |
+
+The author's numbers (2.18/2.42/2.63; 2.32/2.57/2.79) are reproduced exactly. At 10⁷ the step is 0.19 vs
+`Δlog log T=0.15` vs `Δ(𝓛/log𝓛)=0.54`: still tracking `log log T+O(1)`. Caveats (Assessment): the range is far
+from the asymptotic regime (`Σg/M` grows like `≈𝓛^{3.3}` here, not yet `𝓛^4log𝓛`), and `log𝓛` vs
+`(log𝓛)^{1+ε}` cannot be separated numerically. The label "OPEN; EVIDENCE (B=2)" is appropriate, and Cor 4.1 is
+correctly stated as an implication. The reduction in "What H_ω needs" (`ω(M)≤ω_{≤y}(M)+𝓛/log y`,
+`y=T^{1/log𝓛}`; the identity `M=4sr'mu−n=m(4sr'u−n/m)` from `D=sr'²`, `A=sr'k`, `k=mu−r'`) checks out; it is
+correctly labelled Assessment. `h(M)≤ω(M)+Σ_{ℓ²|M}log₂(v_ℓ+1)` is valid (`H_v≤log₂(v+1)`, `H_1=1`).
+
+**Verdict on H_ω labels: SOUND.**
