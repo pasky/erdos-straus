@@ -208,6 +208,55 @@ cells are now irrelevant, so R30c M1(i)
 Remaining losses: the bit width `b≍𝓛` in d; the quarantine budget `|𝓑|≤64k²S*`;
 S* through ET; and the per-prime cost `𝓛` of every modulus prime.
 
+## 4. Phase 2: the junta term `d𝓛`
+
+After Thm 1.1 the certificate is `log p ≪ log Q_Π + d𝓛`, and `d𝓛` is the
+larger term (R34b tally): `d=4C_H·kb·k_0`. Here we ask what any proof of
+an Efron–Stein (ES) tail bound, the EL hypothesis of O8 Thm 3.4, could
+give for general systems.
+
+**Lemma 4.1 (junta lower bound for ES approximation; PROVED).** Let
+`E_1,…,E_m` be single-value events with pairwise disjoint supports, each
+on k coordinates uniform on `[q]` (`π:=q^{−k}=P(E_i)`, `S=mπ`), and
+`F=∏(1−A_i)`, `δ=E F=(1−π)^m`. Then for every t,
+
+```
+energy(F;t) ≥ (1−π)^{2m} Σ_{j>t/k} binom(m,j) ρ^j,     ρ := π(1−1/q)^k/(1−π)².
+```
+
+Consequently, as `q→∞` with k, S fixed and `m=S/π`:
+`energy(F;t)/δ → e^{−S}Σ_{j>t/k}S^j/j! = Pr[Po(S)>t/k]`.
+
+*Proof.* `1−A_i` depends only on `X_{E_i}`, and the supports are disjoint,
+so `F^{=U}=∏_i(1−A_i)^{=U∩E_i}`. Hence
+`‖F^{=U}‖²=∏_i‖(1−A_i)^{=U∩E_i}‖²`. Keep only the sets
+`U=⋃_{i∈J}E_i`. Then `‖(1−A_i)^{=∅}‖²=(1−π)²`, and for `i∈J`
+`‖(1−A_i)^{=E_i}‖²=‖A_i^{=E_i}‖²=∏_{ℓ∈E_i}q^{−1}(1−q^{−1})=π(1−1/q)^k`,
+since `A_i` is a product of the independent indicators `1[X_ℓ=c_ℓ]`, whose
+nonconstant parts have variance `q^{−1}(1−q^{−1})`. Such U have
+`|U|=k|J|`, so summing over `|J|>t/k` gives the bound. For the limit,
+`binom(m,j)ρ^j → S^j/j!` and `(1−π)^m → e^{−S}`. ∎
+
+**Corollary 4.2 (the method needs junta `≳k·S`; PROVED).** In the
+setting of Lemma 4.1 (limit `q→∞`):
+* every junta-t function g with `E(F−g)² ≤ δ/3` has `t ≥ k(S−1)`.
+  (`Pr[Po(S)>S−1] ≥ 1/2` for `S≥1`; the median of `Po(S)` is
+  `≥S−log2`.)
+* O8's EL level `energy ≤ e^{−3S}/poly` forces `Pr[Po(S)>t/k] ≤ e^{−2S}`,
+  i.e. `t ≥ c_*kS` with `c_*log c_*−c_*+1=2` (`c_*≈4.3`).
+
+The F^{(j)} of O8 Lemma 3.1 are of the same form (the restriction of F to
+`E_j` for a disjoint system is the good-indicator of the other events). So
+for general systems of width k and mass S, any argument that certifies EL
+needs junta `≍kS` at least. ESW (`d≍k·k_0≍kS`) would therefore be optimal
+up to constants. The bit factor `b≍𝓛` is the only removable loss in
+`d=4C_H·kb·k_0`. Under ET with mass `≍S*` at width `≍k` (the worst case
+the present bookkeeping allows), the method's floor is
+`d𝓛 ≳ kS*·log z`. That is `𝓛^5` up to logs if junta primes are small and
+`𝓛^6/log𝓛` if they are `≈T`. Hence **1/6 is the ceiling of
+width-and-mass-only arguments** (Assessment for the ES system: its actual
+mass need not sit at width k).
+
 ## 3. Checks, scope, open items
 
 * `scripts/omega9_charcheck.py` (`data/omega9/charcheck.txt`): toy with
