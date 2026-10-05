@@ -193,7 +193,7 @@ deviations cancel.
 the T1 calibration `K = K_N`, `y = y_K`, `η = η_K`.
 
 **Hypothesis TC^alt(N; K, y, η)** (K even). `Σ_{j=0}^K (−1)^j S_j(N) ≤
-N(Π_ℓ(1−p_ℓ) + 2e^{−K}) + KηN`. This is the only consequence of TC that
+N(2Π_ℓ(1−p_ℓ) + 2e^{−K}) + KηN`. This is the only consequence of TC that
 T1 Thm 2.1 uses; it says that the degree-K Bonferroni (Brun pure-sieve)
 majorant `ν_K(n) = Σ_{j≤K}(−1)^j binom(f_y(n), j)` has interval sum at most
 its CRT mean plus `KηN`.
@@ -204,8 +204,9 @@ its CRT mean plus `KηN`.
 
     Σ_{j=0}^K (−1)^j e_j^𝔄 ≤ Π_ℓ(1−p_ℓ)(1+2ε) + e^{−K}.               (4.1)
 
-Hence TC^𝔄(N; K, y, η) implies TC^alt(N; K, y, η) (for ε ≤ e^{−K}... or
-directly) `#{n ≤ N : f_y(n) = 0} ≤ N(Π(1−p_ℓ)(1+2ε) + e^{−K} + Kη)`.
+Hence, under TC^𝔄(N; K, y, η),
+`#{n ≤ N : f_y(n) = 0} ≤ Σ_{j≤K}(−1)^j S_j(N) ≤ N(Π(1−p_ℓ)(1+2ε) + e^{−K} + Kη)`;
+in particular TC^𝔄 ⇒ TC^alt when ε ≤ 1/2. (TC ⇒ TC^alt by T1 Thm 2.1.)
 
 *Proof.* Let H be the CRT hit set: independently for each ℓ ∈ 𝒫_y, no
 hit with probability `1 − p_ℓ`, else the pair (ℓ, b) with probability 1/ℓ
