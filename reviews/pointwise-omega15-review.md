@@ -8,9 +8,9 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 | (pending) |
-| Thm 1.2 | (pending) |
-| Def 2.1 / Thm 2.2 | (pending) |
+| Lemma 1.1 | SOUND (re-derived; brute-forced) |
+| Thm 1.2 | SOUND (labels match O14 Thm 4.5 inputs) |
+| Def 2.1 / Thm 2.2 | SOUND (Def 2.1 is narrow by design, see D-notes) |
 | Lemma 2.3 | (pending) |
 | Cor 2.4 | (pending) |
 | Prop 2.5 | (pending) |
@@ -21,5 +21,40 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | §0, §6, §7 scope and labels | (pending) |
 
 ## Per-claim notes
+
+### Lemma 1.1 — SOUND
+Re-derived line by line. Conditional on x_s and on the bit pattern, the X_b are independent, so
+`E_{δ_{1_y}}∏h_b=∏_{b∈y}β_b∏_{b∉y}γ_b`; the alternating sum over `y⊆J` factorises to
+`−∏_{J}(γ_b−β_b)∏_{I∖J}γ_b` (factors with `b∈J∖I` vanish since `h_b≡1`). Bounds checked:
+`|γ_b|≤(1/4+p*)/(1−p*)≤3/7<1/2` (needs p*≤1/8, stated); `e_{k+1}(r)≥1` from the O14 chain
+(`n e_n≥e_{n−1}(R−(n−1)r*)≥(k+1)e_{n−1}` uses only (1.0)); `C(m,k+1)2^{−(m−k−1)}≤2^{k+1}`.
+Bits with `p_b=0` (β_b undefined) carry `w_J=0`, harmless. Result `(4r*)^{k+1}` is correct.
+
+From scratch: `scripts/review_o15_lemma11.py` builds ν from its *definition* (O14 Lemma 1.1 law
+on bits, X_b uniform on ℤ/m_b conditioned on the bit, Ω_b depending on a small coordinate s),
+computes `E_ρh` by summing over all bit patterns and residues (not via the closed form), exact
+rationals. Seeds 1–3, 2360 instances (k∈{0,1}, n≤26 bits, random and adversarial h_b with
+`|E h_b|=1/4`, `β_b=±1`): ν is a probability law with exact k-wise marginals and `ν(0)=0`
+(n≤11), `E_ρh=0` whenever `|I|≤k` (47 cases), `|E_ρh|≤(4r*)^{k+1}` always (worst ratio 0.081),
+and `|ρ|≤P_0 2^{k+1}≤e^{−(1−p*)R}2^{k+1}` (ratio 1.000: the σ_J charges never cancel at the
+bit level for k≤1 — the TV bound is attained, see Prop 2.5).
+Caveat (not a defect): toys reach only k≤1; the identity is k-independent and was checked.
+
+### Thm 1.2 — SOUND
+Checked against O14 Thm 4.5's proof: it does give `R(x)≥μ*=c_9ε³𝓛³/log𝓛` for *every* small
+configuration (unit x) with `p*≤T^{−0.09}`, ε absolute (fixed in O14 Lemma 4.3), so η is
+uniform in Q (log Q≤T^{0.05}), r and B. `k+1=⌊μ*/2⌋` satisfies (1.0) for T large;
+`E_νB≤E_νF=0` needs only `B≤F` P-a.e. (`dν/dP≤2`, O14 m1(b)). `8r*≤T^{−0.08}` and
+`(k+1)≥μ*/2−1` give `η=exp(−c𝓛^4/log𝓛)` with `c≍c_9ε³`. Remark (i): the level-D part lies in
+`𝒱_k` and `E_ρ=0` there by O14 Thm 1.3 directly (no reducedness needed) — correct. Remark (ii)
+fine (F is periodic, so `‖F‖_×<∞`). No hidden parameter dependence found.
+
+### Def 2.1 / Thm 2.2 — SOUND
+`m_ν=N_xν` is nonnegative, has mass N_x, accuracy `N_x|E_ρh|≤N_x(4r*)^{k+1}` on every reduced
+product, and `ν(F=1)=0`. Correct. Note (feeds D-notes below): Def 2.1 lets a certificate use
+*only* nonnegativity, total mass and the accuracy bounds; it may not use that `m_x` is a sum of
+unit point masses at integers `≤x` (atomicity/integrality/support). The fake `N_xν` is a
+diffuse measure. This is a legitimate modelling choice but it is exactly where (N2) lives, and
+it should be said at Def 2.1, not only in the Reading after Cor 2.4.
 
 ## Defects
