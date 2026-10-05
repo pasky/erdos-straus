@@ -196,10 +196,9 @@ Papers in `paper/`:
 * `energy-dnf-note` (new, 17 pp): the energy bound C-1 on product spaces and
   sharp-rate DNF Fourier tails `W^{>t} ≤ 4·2^{−(t+1)/k}` (refereed internally,
   R50 minor revision applied; novelty hedged).
-* `es-subexp-note` v3: `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.
-  via a Bazzi–Razborov sandwich minorant, the energy bound C-1 (replacing
-  switching lemmas), graded quarantine, H_ω(2) and a Gallagher-type linear
-  transfer (refereed internally three times: R33, R33b, R47; novelty audit
-  `reviews/novelty-audit-omega8.md`).
+* `es-subexp-note` v4: `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o.,
+  the Haar avoider exponent is 3, and 1/4 is the ceiling of the
+  Haar-minorant + transfer architecture (refereed internally four times:
+  R33, R33b, R47, R56; novelty audit `reviews/novelty-audit-omega8.md`).
 
 Authorship and the citation form for astra are still undecided.
