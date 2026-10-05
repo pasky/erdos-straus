@@ -1,0 +1,1326 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{introthm}{Theorem}
+\newtheorem{introprop}[introthm]{Proposition}
+\renewcommand{\theintrothm}{\Alph{introthm}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{citedthm}[theorem]{Cited theorem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Rat}{\operatorname{Rat}}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\amin}{a_{\min}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\title[The window statistic for Erd\H{o}s--Straus]{The window statistic for the Erd\H{o}s--Straus equation: exact orders for bounded windows and the role of parity}
+\author{Anonymous}
+\date{Draft, 5 October 2026; internal checks only, not externally refereed}
+\begin{document}
+\begin{abstract}
+For a prime $p\equiv1\pmod 4$ and a positive integer $a\equiv3\pmod4$ put
+$x_a=(p+a)/4$.  The equation $4/p=1/x+1/y+1/z$ has a solution with
+denominator $x=x_a$ exactly when $-1$ or $-p$ is a ratio $u/v$ modulo $a$
+of coprime $u,v$ with $uv\mid x_a$.  The least such $a$, the \emph{window
+statistic} $\amin(p)$, is finite for every $p$ if and only if the
+Erd\H{o}s--Straus conjecture holds.  We study how often $\amin(p)$ is
+large.  For every fixed $Z$ the number of primes $p\le N$ with
+$\amin(p)>Z$ is $\ll_Z N/(\log N)^{1+J(Z)/2}$, where $J(Z)$ is the number of
+$a\le Z$ with $a\equiv3\pmod4$; this is the exponent of the natural random
+model.  The bound is attained for $Z=3$: at least $\gg x/(\log x)^{3/2}$
+primes $p\le x$ in Mordell's hard classes have $\amin(p)\ge7$ (modulo
+cited sieve theorems).  On the Elliott--Halberstam conjecture it is also
+attained for $Z=7$.  The parity of the number of bad prime factors, a
+congruence condition on $p$, is a necessary input: we exhibit two explicit
+sets of primes with the same sieve data at every level allowed by
+Bombieri--Vinogradov, of which one has window~3 failing for
+$\gg x/(\log x)^{3/2}$ elements and the other for none.  For two windows our
+method needs a level of distribution close to~$1$.  A model computation
+suggesting that Type~I information of level $1/2$ plus parity may not
+suffice for two windows is recorded as a remark, with its limited scope;
+it is not a statement about primes.
+Nothing here proves the Erd\H{o}s--Straus conjecture.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+The Erd\H{o}s--Straus conjecture asserts that for every integer $n\ge2$
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  It suffices to treat primes $n=p$,
+and Mordell's polynomial identities \cite{Mordell} settle every prime
+outside the six classes
+\[
+ p\equiv1,\ 121,\ 169,\ 289,\ 361,\ 529\pmod{840}.
+\]
+We call these primes \emph{Mordell-hard}.  Each of the six classes is a
+square modulo $3$, $5$, $7$ and $8$, so Mordell-hard primes satisfy
+$p\equiv1\pmod{24}$ and $\leg p3=\leg p5=\leg p7=1$.
+
+\subsection{The window statistic}
+Fix a prime $p\equiv1\pmod4$.  For an integer $x$ coprime to an odd modulus
+$a$ let
+\begin{align*}
+ \Rat_a(x)&=\Bigl\{\textstyle\prod_{r\mid x}r^{f_r}\bmod a:\ |f_r|\le v_r(x)\Bigr\}\\
+ &=\{u v^{-1}\bmod a:\ u,v\ge1,\ \gcd(u,v)=1,\ uv\mid x\}\subseteq(\Z/a\Z)^\times
+\end{align*}
+(the product is over primes $r$; the two descriptions agree by putting the
+positive exponents into $u$ and the negative ones into $v$).  For
+$a\equiv3\pmod4$, $a\ge3$, put
+\[
+ x_a=\frac{p+a}4,
+\]
+an integer.  We say that the \emph{window} $a$ \emph{succeeds} if
+$p\nmid x_a$ and $\Rat_a(x_a)\cap\{-1,-p\}\ne\varnothing$, and that it
+\emph{fails} otherwise.  (For $a<3p$ we have $x_a<p$, so $p\nmid x_a$
+automatically.)  Define
+\[
+ \amin(p)=\min\{a\equiv3\ (\mathrm{mod}\ 4):\ \text{window $a$ succeeds}\}
+ \in\{3,7,11,\dots\}\cup\{\infty\}.
+\]
+Theorem~\ref{thm:frame} below shows that \eqref{eq:ES} is solvable for
+$n=p$ if and only if $\amin(p)<\infty$; the window $a$ is the denominator
+$x=x_a$ of a solution coprime to $p$, and the two targets $-1$, $-p$
+correspond to the two classical solution types.  Thus the
+Erd\H{o}s--Straus conjecture is the statement that the search
+$a=3,7,11,\dots$ always terminates, and $\amin(p)$ is its length.
+Numerically $\amin(p)$ is small: for every Mordell-hard $p<10^8$ one has
+$\amin(p)\le107$ (Remark~\ref{rem:data}).
+
+\subsection{Results}
+Write $J(Z)=\#\{a\le Z:\ a\equiv3\pmod4\}=\lfloor(Z+1)/4\rfloor$.
+In the natural random model (Remark~\ref{rem:model}) each window fails
+with probability of order $(\log p)^{-1/2}$, roughly independently, so
+one expects
+\begin{equation}\label{eq:model-intro}
+ \#\{p\le N:\ \amin(p)>Z\}\approx \pi(N)\,(\log N)^{-J(Z)/2}.
+\end{equation}
+
+\begin{introthm}[Theorem~\ref{thm:stack}, Corollary~\ref{cor:tail}; \status{proved}]\label{thmA}
+For every fixed finite set $A$ of positive integers $a\equiv3\pmod4$,
+\begin{multline*}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}\\
+ \ll_A\frac N{(\log N)^{1+|A|/2}}.
+\end{multline*}
+In particular $\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\ll_Z N/(\log N)^{1+J(Z)/2}$
+for every fixed $Z\ge3$.  A uniform version holds for $Z=o(\log\log N)$
+(Theorem~\ref{thm:uniform}).
+\end{introthm}
+
+The key input is a \emph{half-set lemma} (Lemma~\ref{lem:halfset}): if a
+window fails, all prime factors of $x_a$ lie in one of boundedly many
+explicit sets of exactly half of the reduced classes modulo $a$.  Theorem~A
+is then a fixed-dimension upper-bound sieve.
+
+\begin{introthm}[Theorem~\ref{thm:W1}; \status{proved} modulo cited sieve theorems]\label{thmB}
+\begin{multline*}
+ \#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}\\
+ \gg\frac{x}{(\log x)^{3/2}},
+\end{multline*}
+and every prime counted is Mordell-hard with $\amin(p)\ge7$.
+\end{introthm}
+
+\begin{introthm}[Theorem~\ref{thm:W2}; \status{conditional} on Elliott--Halberstam]\label{thmC}
+Assume the Elliott--Halberstam conjecture.  Then $\gg x/(\log x)^2$
+Mordell-hard primes $p\le x$ have $\amin(p)\ge11$.
+\end{introthm}
+
+Together with Theorem~A these give the exact orders
+\begin{gather*}
+ \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp\frac{x}{(\log x)^{3/2}},\\
+ \#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge11\}\asymp\frac{x}{(\log x)^{2}},
+\end{gather*}
+the first modulo the cited sieve theorems, the second (lower bound only)
+on Elliott--Halberstam (Corollary~\ref{cor:orders}).
+
+The proofs of Theorems~B and~C rest on a congruence fact
+(Lemma~\ref{lem:parity}): the number of prime factors of $x_a$ that are
+non-residues modulo $a$, counted with multiplicity, has parity
+$\leg pa$.  For one window and a sieve of dimension $1/2$ this removes the
+parity obstruction.  The next result shows that this congruence input is
+not optional.
+
+\begin{introprop}[Proposition~\ref{thm:P1}; \status{proved}]\label{thmD}
+Let $\mathcal A^{\pm}=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\}$
+and $P_3=\{\ell\ \text{prime}:\ \ell\equiv2\ (3)\}$.  The two sequences
+$\{(p+3)/4:\ p\in\mathcal A^{\pm}\}$ have the same sieve data with respect
+to $P_3$ up to remainders admissible at level $x^{1/2}(\log x)^{-B}$
+(Bombieri--Vinogradov), yet window~$3$ fails for no $p\in\mathcal A^-$
+and for $\gg x/(\log x)^{3/2}$ primes $p\in\mathcal A^+$.
+\end{introprop}
+
+Proposition~D is a direct instance of Selberg's parity example; it shows
+that parity is necessary, not that it is insufficient.  Two windows (3
+and 7) form a sieve problem of dimension one, for which our method needs
+a level of distribution close to~$1$; this is why our proof of
+Theorem~C is conditional.  We do not prove that unconditional methods
+must fail for two windows.  The problem is a window analogue of the
+Friedlander--Iwaniec hyperbolic prime number theorem \cite{FI09}, whose
+lower bound is likewise conditional (Lemma~\ref{lem:quadric},
+Remark~\ref{rem:FI}).  Section~\ref{sec:model} records, with an explicit
+\status{model-only} label, a finite linear-programming computation in a
+coarse discretised model in which Type~I information of level $1/2$ plus
+parity does not force any configuration with both windows clean.
+
+\subsection{Relation to known results}
+The exceptional set of the Erd\H{o}s--Straus equation is known to be
+small on average: Vaughan \cite{Vaughan} proved
+$E(N)\ll N\exp(-c(\log N)^{2/3})$ by a large-sieve argument over many
+moduli, which is the classical form of the window sieve of
+Section~\ref{sec:stack}.  Such bounds concern $\{\amin(p)=\infty\}$.  This
+note concerns the much larger sets $\{\amin(p)>Z\}$ for fixed or slowly
+growing $Z$; the comparison is made precise in Remark~\ref{rem:compare}.
+The lower bounds (Theorems~B, C) follow the half-dimensional sieve
+method of Iwaniec \cite{Iw76} and Friedlander--Iwaniec \cite{FI09}; we
+claim no novelty of sieve technique.
+
+\subsection{Status and conventions}
+Labels: \status{proved} means a complete proof is given here, possibly
+using cited theorems that are listed explicitly; \status{conditional}
+names the hypothesis; \status{evidence} is numerical; \status{model}
+statements concern an explicit heuristic model and not the primes.  All
+cited external theorems are collected in Section~\ref{sec:cited}, each with a
+note on whether its exact statement was checked against a source.  The
+arguments have had internal checks only; they have not been externally
+refereed.  The Erd\H{o}s--Straus conjecture is not proved here, and
+none of the results bounds $\amin(p)$ for every $p$.
+
+Throughout, $p$ denotes a prime, $r,\ell$ denote primes, $\leg{\cdot}{a}$
+is the Jacobi symbol, $\Omega(n)$ counts prime factors with multiplicity,
+and implied constants depend only on the indicated parameters.
+
+\section{The window frame}\label{sec:frame}
+
+\subsection{The window criterion}
+
+\begin{lemma}[two unit fractions]\label{lem:two}
+Let $r,s$ be coprime positive integers.  Then $r/s=1/y+1/z$ has a solution
+in positive integers if and only if there are coprime positive integers
+$d_1,d_2$ with $d_1d_2\mid s$ and $r\mid d_1+d_2$; the solution is then
+$y=s(d_1+d_2)/(rd_1)$, $z=s(d_1+d_2)/(rd_2)$.
+\end{lemma}
+
+\begin{proof}
+Sufficiency is the identity $1/y+1/z=r(d_1+d_2)/(s(d_1+d_2))$; both
+denominators are integers because $d_1d_2\mid s$, $\gcd(d_1,d_2)=1$ and
+$r\mid d_1+d_2$, $\gcd(r,d_i)\mid\gcd(r,s)=1$.  Conversely, write $y=gy_1$,
+$z=gz_1$ with $\gcd(y_1,z_1)=1$.  Then $rgy_1z_1=s(y_1+z_1)$.  As
+$\gcd(y_1+z_1,y_1z_1)=1$, we get $y_1z_1\mid s$; and as $\gcd(r,s)=1$, we
+get $r\mid y_1+z_1$.  Take $d_1=z_1$, $d_2=y_1$.
+\end{proof}
+
+\begin{theorem}[window criterion; \status{proved}]\label{thm:frame}
+Let $p\equiv1\pmod4$ be prime, let $a\equiv3\pmod4$ be positive, put
+$x=x_a=(p+a)/4$ and suppose $p\nmid x$.  Then $\gcd(a,x)=1$, and:
+\begin{enumerate}
+\item If $u,v\ge1$ are coprime, $uv\mid x$ and $u\equiv-v\pmod a$, then
+ \begin{equation}\label{eq:typeII}
+ \frac4p=\frac1x+\frac{au}{px(u+v)}+\frac{av}{px(u+v)}
+ \end{equation}
+ is a solution of \eqref{eq:ES} in positive integers.
+\item If $u,v\ge1$ are coprime, $uv\mid x$ and $u\equiv-pv\pmod a$, then
+ \begin{equation}\label{eq:typeI}
+ \frac4p=\frac1x+\frac{au}{px(u+pv)}+\frac{av}{x(u+pv)}
+ \end{equation}
+ is a solution of \eqref{eq:ES} in positive integers.
+\item Conversely, if $4/p=1/x+1/y+1/z$ with $p\nmid x$, then $x=x_a$ for
+ $a=4x-p$, which is a positive integer $\equiv3\pmod4$, and
+ $\Rat_a(x)\cap\{-1,-p\}\neq\varnothing$.
+\end{enumerate}
+Consequently \eqref{eq:ES} is solvable for $n=p$ if and only if
+$\amin(p)<\infty$.
+\end{theorem}
+
+\begin{proof}
+Since $4x-a=p$, $\gcd(a,x)=\gcd(p,x)=1$.  Also $a$ is odd and coprime to
+$p$, so $4/p-1/x=a/(px)$ is in lowest terms.  By Lemma~\ref{lem:two} with
+$(r,s)=(a,px)$, $a/(px)=1/y+1/z$ is solvable if and only if there are coprime
+$d_1,d_2$ with $d_1d_2\mid px$ and $a\mid d_1+d_2$.  Taking $(d_1,d_2)=(u,v)$
+gives \eqref{eq:typeII}, and $(d_1,d_2)=(u,pv)$ gives \eqref{eq:typeI}; in
+both cases the denominators $px(d_1+d_2)/(ad_i)$ are integers by
+Lemma~\ref{lem:two}, and one checks that the two displayed fractions are
+$1/y,1/z$.  This proves (1) and (2).
+
+For (3): $1/x<4/p$ gives $a=4x-p>0$, and $a\equiv-p\equiv3\pmod4$.
+Lemma~\ref{lem:two} gives coprime $d_1,d_2$ with $d_1d_2\mid px$ and
+$a\mid d_1+d_2$.  Since $\gcd(d_1,d_2)=1$ and $p\,\|\,px$, the prime $p$
+divides at most one of them.  If $p\nmid d_1d_2$, then $d_1d_2\mid x$ and
+$d_1\equiv-d_2\pmod a$, so $-1\in\Rat_a(x)$.  If $p\mid d_2$, say
+$d_2=pv$, then $d_1v\mid x$, $\gcd(d_1,v)=1$ and $d_1\equiv-pv$, so $d_1v^{-1}\equiv-p$ and
+$-p\in\Rat_a(x)$; the case $p\mid d_1$ is the same with $d_1,d_2$
+exchanged.
+
+Finally, if \eqref{eq:ES} holds for $n=p$, not all of $x,y,z$ are
+divisible by $p$: otherwise multiplying by $p$ would write $4$ as a sum of
+three unit fractions.  Relabel so that $p\nmid x$ and apply (3); then
+window $a=4x-p$ succeeds.  The converse is (1)--(2).
+\end{proof}
+
+Solutions from \eqref{eq:typeII} have two denominators divisible by $p$
+and those from \eqref{eq:typeI} exactly one; these are the Type~II and
+Type~I solutions of the literature \cite{ET}.  The criterion is a
+reformulation of the classical parametrisations of these two types
+(compare \cite[\S2]{ET}); we use it only in the form of
+Theorem~\ref{thm:frame}.  We do not use the targets $-p$ in any upper
+bound below: all upper bounds concern the larger event that $-1\notin
+\Rat_a(x_a)$.
+
+\subsection{Window reciprocity and the parity of the bad part}
+
+\begin{lemma}[window reciprocity; \status{proved}]\label{lem:recip}
+Let $p\equiv1\pmod8$ be prime, $a\equiv3\pmod4$ with $0<a<3p$, and
+$x=x_a$.  Every prime $r\mid x$ is coprime to $a$ and satisfies
+$\leg ra=\leg rp$.
+\end{lemma}
+
+\begin{proof}
+If $r\mid a$ then $r\mid4x-a=p$, so $r=p$; but $r\le x<p$.  If $r$ is odd,
+Jacobi reciprocity with $(a-1)/2$ odd gives
+$\leg ra=\leg{-1}r\leg ar=\leg{-a}r$; since $r\mid p+a$ this is $\leg pr$,
+which equals $\leg rp$ as $p\equiv1\pmod4$.  If $r=2$ then $8\mid p+a$, so
+$a\equiv7\pmod8$ and $\leg2a=1=\leg2p$.
+\end{proof}
+
+Call a prime $r\nmid a$ \emph{$a$-bad} if $\leg ra=-1$ and \emph{$a$-good}
+otherwise, and let $\Omega_a^-(n)$ be the number of $a$-bad prime factors
+of $n$ counted with multiplicity.  Since $\leg ra$ depends only on $r$
+modulo $a$, and $\leg\cdot a$ is a non-principal character of
+$(\Z/a\Z)^\times$ ($a\equiv3\pmod4$ is not a square), the set of $a$-bad
+primes is a union of half of the reduced classes modulo $a$, of relative
+density $1/2$, and does not depend on~$p$.
+
+\begin{lemma}[clean windows fail; \status{proved}]\label{lem:F1}
+Let $p\equiv1\pmod 8$, $a\equiv3\pmod4$, $0<a<3p$.  If $x_a$ has no
+$a$-bad prime factor, window $a$ fails.
+\end{lemma}
+
+\begin{proof}
+$u\mapsto\leg ua$ is a character of $(\Z/a\Z)^\times$, so every element of
+$\Rat_a(x_a)$ has symbol $+1$.  But $\leg{-1}a=-1$ as $a\equiv3\pmod4$, and
+$\leg{-p}a=-\leg{4x_a}a=-\prod_{r\mid x_a}\leg ra^{v_r(x_a)}=-1$.
+\end{proof}
+
+By Lemma~\ref{lem:recip}, ``$x_a$ has no $a$-bad prime factor'' is the same as
+``every prime factor of $x_a$ is a quadratic residue modulo $p$''.  We call
+such a window \emph{clean}.  Writing the condition through $\leg\cdot a$
+rather than $\leg\cdot p$ makes it a sifting condition on the shifted prime
+$x_a$ by a fixed set of primes of density $1/2$.
+
+\begin{lemma}[parity of the bad part; \status{proved}]\label{lem:parity}
+If $\gcd(x_a,a)=1$ then $(-1)^{\Omega_a^-(x_a)}=\leg{x_a}a=\leg pa$.
+\end{lemma}
+
+\begin{proof}
+Multiplicativity gives $\leg{x_a}a=\prod_r\leg ra^{v_r(x_a)}=(-1)^{\Omega_a^-(x_a)}$,
+and $4x_a\equiv p\pmod a$ with $\leg4a=1$.
+\end{proof}
+
+\begin{lemma}[window 3]\label{lem:w3}
+Let $p\equiv1\pmod{24}$.  Window $3$ fails if and only if $x_3=(p+3)/4$ has
+no prime factor $\equiv2\pmod3$.  Hence $\amin(p)\ge7$ exactly in this case.
+\end{lemma}
+
+\begin{proof}
+Modulo $3$ both targets equal $2$ ($-p\equiv-1$).  The prime $3$ does not
+divide $x_3$ as $p\equiv1\pmod3$.  $\Rat_3(x_3)$ is generated by the classes
+of the prime factors of $x_3$, so it contains $2$ if and only if some prime
+factor is $\equiv2\pmod3$.  (The ``if'' direction is also Lemma~\ref{lem:F1}.)
+\end{proof}
+
+\section{The half-set lemma}\label{sec:halfset}
+
+Let $a\equiv3\pmod4$, $a\ge3$, and $G=(\Z/a\Z)^\times$.  Since some prime
+factor of $a$ is $\equiv3\pmod4$, $-1$ is not a square in $G$; and $g\ne-g$
+as $a$ is odd.  The Klein four-group
+$\{g\mapsto g,\ g\mapsto g^{-1},\ g\mapsto-g,\ g\mapsto-g^{-1}\}$ acts on~$G$,
+and its orbits are of two kinds:
+\begin{itemize}
+\item $4$-orbits $\{g,g^{-1},-g,-g^{-1}\}$ when $g^2\ne1$ (the four
+ elements are distinct because $g^2\neq\pm1$);
+\item $2$-orbits $\{g,-g\}$ when $g^2=1$; one of them is $\{1,-1\}$.
+\end{itemize}
+Split every $4$-orbit as $\{g,g^{-1}\}\sqcup\{-g,-g^{-1}\}$ and every
+$2$-orbit as $\{g\}\sqcup\{-g\}$.  A \emph{selection} $\sigma$ chooses one
+half of every orbit, subject to choosing $\{1\}$ from $\{1,-1\}$; let
+$S_\sigma\subseteq G$ be the union of the chosen halves.  Since $a$ is odd,
+$g^2=1$ has exactly $2^{\omega(a)}$ solutions, so there are
+$(\varphi(a)-2^{\omega(a)})/4$ orbits of size four and $2^{\omega(a)-1}$ of
+size two.  Hence
+\begin{equation}\label{eq:beta}
+ \begin{gathered}
+ |S_\sigma|=\tfrac12\varphi(a)\ \text{for every }\sigma,\qquad
+ \#\{\sigma\}=2^{\beta(a)},\\
+ \beta(a)=\frac{\varphi(a)-2^{\omega(a)}}4+2^{\omega(a)-1}-1\le\frac{\varphi(a)}4+2^{\omega(a)-2}.
+ \end{gathered}
+\end{equation}
+For $x$ coprime to $a$ let $C(x)\subseteq G$ be the set of classes of the
+prime factors of~$x$.
+
+\begin{lemma}[half-set lemma; \status{proved}]\label{lem:halfset}
+Let $a\equiv3\pmod4$, $a\ge3$, and $\gcd(x,a)=1$.  If $-1\notin\Rat_a(x)$,
+then $C(x)\subseteq S_\sigma$ for some selection~$\sigma$.  In particular this
+holds whenever window $a$ fails and $p\nmid x_a$, with $x=x_a$.
+\end{lemma}
+
+\begin{proof}
+For distinct primes $r,s\mid x$ the set $\Rat_a(x)$ contains $r$, $rs$ and
+$rs^{-1}$ (take $(u,v)=(r,1),(rs,1),(r,s)$).  Let $g,h\in C(x)$, possibly
+equal.  If $g,h$ are the classes of distinct primes, then $-1\notin\Rat_a(x)$
+gives $gh\ne-1$ and $gh^{-1}\ne-1$.  If $g=h$, then $gh=g^2\ne-1$ because
+$-1$ is not a square, and $gh^{-1}=1\neq-1$.  Also $-1\notin C(x)$.  Hence
+\[
+ C(x)\cap(-C(x))=\varnothing,\qquad C(x)\cap(-C(x)^{-1})=\varnothing,\qquad -1\notin C(x).
+\]
+In a $4$-orbit, an element $g\in C(x)$ excludes $-g$ and $-g^{-1}$ from
+$C(x)$, and so does $g^{-1}\in C(x)$; so $C(x)$ meets the orbit inside one
+half.  In a $2$-orbit $\{g,-g\}$ the two elements exclude each other, and
+in $\{1,-1\}$ the element $-1$ is excluded.  Choose $\sigma$ accordingly,
+arbitrarily on orbits that $C(x)$ misses.
+\end{proof}
+
+\begin{remark}\label{rem:halfset}
+(i) For prime $a$ the selection with $S_\sigma$ equal to the squares is the
+clean case of Lemma~\ref{lem:F1}.  Failures need not be clean: for
+$a=7$, $x=17$, $p=4\cdot17-7=61$ one has $C(x)=\{3\}$ and
+$\Rat_7(17)=\{1,3,5\}$, which contains neither $-1\equiv6$ nor
+$-p\equiv2$, although $\leg{17}7=-1$.  Such a failure is confined to the
+non-subgroup half-set $\{1,3,5\}$.
+(ii) The lemma has no exceptions coming from exponent multiplicities and
+holds for composite $a$.  Every failure is a confinement of all prime
+factors to a set of exactly half of the classes; this is what makes the
+exponent in Theorem~\ref{thm:stack} exact.
+(iii) Only the target $-1$ and products of at most two primes were used.
+\end{remark}
+
+\section{Upper bounds: fixed-set stacking}\label{sec:stack}
+
+\subsection{A large-sieve lemma}
+
+\begin{lemma}\label{lem:LS}
+Let $I$ be an interval containing $X\ge2$ integers, $\mathcal P$ a finite set of
+primes, and for $\ell\in\mathcal P$ let $\Omega_\ell$ be a set of $\nu(\ell)<\ell$
+residue classes modulo~$\ell$.  Let $S\subseteq I$ avoid $\Omega_\ell$ modulo $\ell$
+for every $\ell\in\mathcal P$.  Put
+$V=\prod_{\ell\in\mathcal P}(1-\nu(\ell)/\ell)$ and
+$\Lambda=\sum_{\ell\in\mathcal P}\nu(\ell)\log\ell/\ell$.  If
+$\Lambda\le(\log X)/4$, then $|S|\le4XV$.
+\end{lemma}
+
+\begin{proof}
+By the arithmetic large sieve (Cited Theorem~\ref{cit:LS}), for every
+$Q\ge1$,
+\[
+ |S|\le\frac{X+Q^2}{H(Q)},\qquad H(Q)=\sum_{q\le Q}g(q),\qquad
+ g(q)=\mu^2(q)\prod_{\ell\mid q}\frac{\nu(\ell)}{\ell-\nu(\ell)},
+\]
+the sum being over $q$ composed of primes of $\mathcal P$.  The full sum is
+$\sum_q g(q)=\prod_{\ell\in\mathcal P}(1+\nu(\ell)/(\ell-\nu(\ell)))=V^{-1}$.
+The weights $Vg(q)$ are the law of the random squarefree number
+$q=\prod_{\ell\in\mathcal P,\ \xi_\ell=1}\ell$, where the $\xi_\ell$ are
+independent Bernoulli variables with $\Pr(\xi_\ell=1)=\nu(\ell)/\ell$.  Then
+$\mathbb E\log q=\Lambda$, and Markov's inequality gives
+$\Pr(\log q>\log Q)\le\Lambda/\log Q\le\frac12$ for $Q=X^{1/2}$.  Hence
+$H(X^{1/2})\ge V^{-1}/2$ and $|S|\le 2X\cdot2V$.
+\end{proof}
+
+\subsection{The stacking theorem}
+
+\begin{theorem}[fixed-set stacking; \status{proved}]\label{thm:stack}
+Let $A$ be a fixed finite set of positive integers $a\equiv3\pmod4$, and
+$J=|A|$.  Then (the restriction $p>3\max A$ ensures $\gcd(x_a,a)=1$, so that $\Rat_a(x_a)$ is defined)
+\begin{multline*}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \forall a\in A\}\\
+ \ll_A\frac{N}{(\log N)^{1+J/2}}.
+\end{multline*}
+\end{theorem}
+
+\begin{proof}
+It suffices to count $p\in(N/2,N]$ with $N$ large and sum over dyadic
+ranges.  For $p>3\max A$ we have $x_a<p$ and $\gcd(x_a,a)=\gcd(p,a)=1$, so
+Lemma~\ref{lem:halfset} applies: each counted $p$ has a selection vector
+$\sigma=(\sigma_a)_{a\in A}$ with $C(x_a)\subseteq S_{\sigma_a}$ for every
+$a\in A$.  There are $\prod_{a\in A}2^{\beta(a)}=O_A(1)$ vectors; fix one.
+
+Write $p=24t+1$; then $t$ runs over an interval $I$ with
+$X\asymp N$ integers.  Put $y=2\max A+24$, $\log z=(\log X)/(5(J+1))$,
+$\mathcal P=\{\ell\ \text{prime}:\ y<\ell\le z\}$, and let $\Omega_\ell$
+consist of the class $24t+1\equiv0\pmod\ell$ and, for every $a\in A$ with
+$(\ell\bmod a)\notin S_{\sigma_a}$, the class $24t+1+a\equiv0\pmod\ell$.
+Every counted $t$ avoids $\Omega_\ell$: $\ell\le z<N/2<p$ gives $\ell\nmid p$;
+and if $\ell\mid p+a$ then, $\ell$ being odd, $\ell\mid x_a$, so
+$(\ell\bmod a)\in C(x_a)\subseteq S_{\sigma_a}$.  The listed classes are
+distinct, since $\ell>y$ exceeds every $a$ and every $|a-a'|$, and
+$\ell\nmid24$.  Thus $\nu(\ell)=1+\#\{a\in A:\ (\ell\bmod a)\notin
+S_{\sigma_a}\}\le J+1<\ell$, and
+$\Lambda\le(J+1)\sum_{\ell\le z}\log\ell/\ell\le(J+1)(\log z+O(1))\le(\log X)/4$
+for large $N$.
+
+Each $G\setminus S_{\sigma_a}$ is a union of $\varphi(a)/2$ reduced classes
+modulo $a$, so Mertens' theorem in arithmetic progressions to the fixed
+moduli $a\in A$ (Cited Theorem~\ref{cit:mertens}) gives
+\[
+ \sum_{\ell\in\mathcal P}\frac{\nu(\ell)}\ell
+ =\Bigl(1+\frac J2\Bigr)\log\log z+O_A(1)
+ =\Bigl(1+\frac J2\Bigr)\log\log N+O_A(1).
+\]
+By Lemma~\ref{lem:LS},
+$|S|\le4XV\le4X\exp(-\sum_{\ell\in\mathcal P}\nu(\ell)/\ell)\ll_A N(\log N)^{-1-J/2}$.
+Summing over the $O_A(1)$ vectors $\sigma$ and over dyadic ranges
+(primes $p\le\sqrt N$ contribute trivially) proves the theorem.
+\end{proof}
+
+\begin{corollary}[tail of $\amin$; \status{proved}]\label{cor:tail}
+For every fixed $Z\ge3$,
+\begin{align*}
+ \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ \amin(p)>Z\}&\ll_Z\frac N{(\log N)^{1+J(Z)/2}}\\
+ &=\pi(N)(\log N)^{-J(Z)/2}\cdot O_Z(1).
+\end{align*}
+\end{corollary}
+
+\begin{proof}
+For $p>3Z$ every window $a\le Z$ has $p\nmid x_a$; $\amin(p)>Z$ means
+that all of them fail, in particular $-1\notin\Rat_a(x_a)$.  Apply
+Theorem~\ref{thm:stack} with $A=\{a\le Z:\ a\equiv3\ (4)\}$.
+\end{proof}
+
+For example, the number of $p\le N$, $p\equiv1\pmod{24}$, with
+$\amin(p)>7$, $>11$, $>23$ is $\ll N/(\log N)^{2}$,
+$\ll N/(\log N)^{5/2}$, $\ll N/(\log N)^{4}$ respectively.  Running the
+same argument with $p=4t+1$ covers all $p\equiv1\pmod4$; we restrict to
+$p\equiv1\pmod{24}$ because the other primes are settled by Mordell's
+identities.
+
+\subsection{\texorpdfstring{Uniformity in $Z$}{Uniformity in Z}}
+
+The union over selection vectors costs $2^{\beta_{\rm tot}(Z)}$ with
+$\beta_{\rm tot}(Z)=\sum_{a\le Z,\,a\equiv3\,(4)}\beta(a)=O(Z^2)$, which
+is affordable while $Z\ll\log\log N$.
+
+\begin{theorem}[uniform stacking; \status{proved} modulo Siegel--Walfisz]\label{thm:uniform}
+Let $L=\log\log N$, $\mathcal L=\log N$, and fix $C_0\ge1$.  Uniformly for
+$3\le Z\le C_0L$ and $N\ge N_0(C_0)$, with $J=J(Z)$,
+\begin{multline*}
+ \#\{N/2<p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\\
+ \le\frac N{\mathcal L}\exp\Bigl(-\frac J2\bigl(L-3\log L-C\bigr)+\beta_{\rm tot}(Z)\log2+O(\log L)\Bigr),
+\end{multline*}
+where $C$ and the implied constant depend only on $C_0$.  In particular the
+left side is $\pi(N)(\log N)^{-(1/2-o(1))J(Z)}$ uniformly for $Z=o(L)$.
+\end{theorem}
+
+\begin{proof}
+Repeat the proof of Theorem~\ref{thm:stack} with $y=\exp(L^2)$ and
+$\log z=\mathcal L/(5(J+1))$.  Now $y>2Z+24$, so the classes are distinct
+and $\nu(\ell)\le J+1<\ell$; and $\Lambda\le(J+1)(\log z+O(1))\le\mathcal L/4$
+because $J\le C_0L$.  The moduli satisfy $a\le C_0L=C_0(\log y)^{1/2}$, so
+the Siegel--Walfisz theorem (Cited Theorem~\ref{cit:SW}) and partial summation give
+\[
+ \sum_{\substack{y<\ell\le z\\ \ell\equiv c\ (a)}}\frac1\ell
+ =\frac1{\varphi(a)}\log\frac{\log z}{\log y}+O\bigl(e^{-c_1L}\bigr)
+\]
+uniformly in $a\le Z$ and $\gcd(c,a)=1$, with $c_1=c_1(C_0)>0$.  Summing over
+at most $\sum_{a\le Z}\varphi(a)/2=O(L^2)$ classes, the total error is
+$o(1)$, and
+$\sum_{\ell\in\mathcal P}\nu(\ell)/\ell=(1+J/2)\log(\log z/\log y)+o(1)$.
+Here $\log(\log z/\log y)=L-2\log L-\log(5(J+1))\ge L-3\log L-C$.  Lemma~\ref{lem:LS}
+bounds the count for one selection vector by
+$4X\exp(-(1+J/2)(L-3\log L-C)+o(1))$, and $e^{-(L-3\log L-C)}=e^{C}L^3/\mathcal L$.
+Summing over the $2^{\beta_{\rm tot}(Z)}$ selection vectors gives the
+bound.  For the last claim note $\beta_{\rm tot}(Z)=O(Z^2)=o(JL)$ when $Z=o(L)$.
+\end{proof}
+
+\begin{remark}[comparison with the literature]\label{rem:compare}
+Since $\sum_{a\le Z,\,a\equiv3\,(4)}\varphi(a)=(1+o(1))Z^2/\pi^2$, one has
+$\beta_{\rm tot}(Z)=(1+o(1))Z^2/(4\pi^2)$, and optimising the exponent
+$-(Z/8)L+(\log2/4\pi^2)Z^2$ at $Z\approx\pi^2L/(4\log2)\approx3.56L$ (inside the
+range with $C_0=4$) gives
+$\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\le N\exp\bigl(-(\pi^2/(64\log2)-o(1))(\log\log N)^2\bigr)$.
+
+The mechanism of this section --- sieving the shifted primes $p+a$ by
+residue conditions modulo many windows $a$ at once --- is classical.
+Vaughan \cite{Vaughan} used the large sieve in this way to prove that the
+number $E(N)$ of $n\le N$ for which \eqref{eq:ES} is unsolvable satisfies
+$E(N)\ll N\exp(-c(\log N)^{2/3})$; see \cite{ET} for counts of
+solutions.  (Vaughan's paper could not be consulted in this project; we
+use only its published bound.)  The set $\{p:\ \amin(p)=\infty\}$ of
+counterexamples is therefore far sparser than anything proved here, and
+an unpublished argument in this project's notes obtains the shape
+$N\exp(-c(\log\log N)^2)$ for that set from windows up to $\delta\log N$
+\cite[Thm.~12.2]{Notes}, and tails $N\exp(-c(\log N)^\theta\log\log N)$
+for the failure of all windows up to $(\log N)^\theta$,
+$\theta<\log3/(1+\log3)$ \cite[Thms.~14.4, 14.9]{Notes}; the review
+status of these notes sections is not recorded, and we do not reproduce
+them.  The sets $\{\amin(p)>Z\}$ studied here, with $Z$ fixed or slowly
+growing, are much larger, and what is new, as far as we know, is the
+exact exponent $1+J(Z)/2$ in Theorem~\ref{thm:stack}, together with its
+sharpness for $Z=3$ (and $Z=7$ on EH).  The ingredient that makes the
+exponent exact is the half-set lemma, which removes the exponent-budget
+exceptions that limited earlier window majorants in this project to a
+single excluded class per window \cite[\S71]{Notes}.  None of these bounds approaches $\amin(p)<\infty$ for
+all $p$.
+\end{remark}
+
+\section{Cited results}\label{sec:cited}
+
+We list every external result used, with a note on what was checked.
+``Checked'' means that the exact statement was compared with an archived
+copy of the source; ``from memory'' means it was not, and a referee should
+compare it with the reference given.
+
+For a finite sequence of nonnegative weights $(a_n)$, a set of primes
+$\mathcal P$ and $z\ge2$, put $P(z)=\prod_{\ell\in\mathcal P,\,\ell<z}\ell$,
+$S(\mathcal A,\mathcal P,z)=\sum_{(n,P(z))=1}a_n$ and
+$A_d=\sum_{d\mid n}a_n$.  Suppose that for squarefree $d\mid P(z)$
+\begin{equation}\label{eq:sievedata}
+ A_d=g(d)X+r_d,
+\end{equation}
+with $g$ multiplicative, $0\le g(\ell)<1$, and put
+$V(z)=\prod_{\ell\in\mathcal P,\,\ell<z}(1-g(\ell))$.  The \emph{dimension
+condition} $(\Omega_\kappa)$ is
+\[
+ \prod_{\substack{w\le\ell<z\\ \ell\in\mathcal P}}(1-g(\ell))^{-1}
+ \le\Bigl(\frac{\log z}{\log w}\Bigr)^{\kappa}\Bigl(1+\frac K{\log w}\Bigr)
+ \qquad(2\le w<z).
+\]
+
+\begin{citedthm}[arithmetic large sieve]\label{cit:LS}
+Let $S$ be a set of integers in an interval of length $X$ which, for every
+prime $\ell$ in a finite set $\mathcal P$, avoids $\nu(\ell)<\ell$ residue
+classes modulo $\ell$.  Then for $Q\ge1$, $|S|\le(X+Q^2)/H(Q)$ with $H(Q)$
+as in the proof of Lemma~\ref{lem:LS}.
+\end{citedthm}
+\noindent Montgomery \cite{Montgomery68}, with the constant $X+Q^2$ from the
+Montgomery--Vaughan form of the analytic large sieve \cite{MVLS}; see also
+\cite[\S9.4]{OdC}.  \emph{From memory}; it is the standard form and is
+used in the same way in \cite[Lemma 12.1]{Notes}.
+
+\begin{citedthm}[Mertens in progressions]\label{cit:mertens}
+For fixed $a\ge1$ and $\gcd(c,a)=1$,
+$\sum_{\ell\le z,\ \ell\equiv c\,(a)}1/\ell=\varphi(a)^{-1}\log\log z+M(a,c)+O_a(1/\log z)$.
+Consequently, if $\mathcal P$ is a union of $k$ reduced classes modulo $a$,
+then
+\[
+ \prod_{\ell<w,\ \ell\in\mathcal P}(1-1/\ell)^{-1}=c_{\mathcal P}(\log w)^{k/\varphi(a)}\bigl(1+O(1/\log w)\bigr)
+\]
+with $c_{\mathcal P}>0$.
+\end{citedthm}
+\noindent Standard consequence of the prime number theorem in
+arithmetic progressions; e.g.\ \cite[\S4.2]{MV}.
+
+\begin{citedthm}[Siegel--Walfisz]\label{cit:SW}
+For every $B>0$ there is $c_B>0$ such that
+$\pi(t;a,c)=\li(t)/\varphi(a)+O_B(t\exp(-c_B\sqrt{\log t}))$ uniformly for
+$a\le(\log t)^B$ and $\gcd(c,a)=1$.
+\end{citedthm}
+\noindent \cite[Cor.~11.21]{MV}.  Standard; \emph{from memory} as to the
+numbering.  The constants are ineffective.
+
+\begin{citedthm}[Bombieri--Vinogradov]\label{cit:BV}
+For every $A>0$ there is $B=B(A)$ such that
+$\sum_{k\le x^{1/2}(\log x)^{-B}}\max_{\gcd(b,k)=1}|\pi(x;k,b)-\li(x)/\varphi(k)|\ll_A x(\log x)^{-A}$.
+\end{citedthm}
+\noindent Standard (e.g.\ \cite[Thm.~17.1]{IK}); the version with
+$\max_{y\le x}$ is not needed.
+
+\begin{definition}[Elliott--Halberstam conjecture, EH]\label{def:EH}
+For every $\eta,A>0$:
+$\sum_{k\le x^{1-\eta}}\max_{\gcd(b,k)=1}|\pi(x;k,b)-\li(x)/\varphi(k)|\ll_{\eta,A}x(\log x)^{-A}$.
+\end{definition}
+
+\begin{citedthm}[semi-linear sieve, lower bound]\label{cit:semi}
+Assume \eqref{eq:sievedata} and $(\Omega_{1/2})$.  Let $D=z^s$ with
+$1\le s\le2$.  Then
+\begin{gather*}
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,\\
+ f(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\int_1^s\frac{dt}{\sqrt{t(t-1)}},
+\end{gather*}
+where $o(1)\to0$ as $D\to\infty$, uniformly for $s\in[1,2]$, depending
+only on~$K$.
+\end{citedthm}
+\noindent Iwaniec \cite{Iw76}; in the $\beta$-sieve form
+\cite[Thm.~11.13]{OdC} with $\kappa=1/2$, $\beta=1$.  \emph{Partly checked:}
+the archived paper of Ter\"av\"ainen \cite[(6.4)]{Ter} applies
+\cite[Thm.~11.13]{OdC} with exactly this $f$ and $s\in[1,2]$ (with error
+$O((\log N)^{-0.1})$ and the remainder weighted by the lower-bound sieve
+weights, which are bounded by $1$).  The general hypotheses as stated
+above are the standard ones and were \emph{not} compared with
+\cite{OdC} or \cite{Iw76}.  We use only that, for $1<s\le2$,
+\begin{equation}\label{eq:fsemi}
+ f(s)\ge c_f(s-1)^{1/2},\qquad c_f=(e^\gamma/\pi)^{1/2},
+\end{equation}
+which follows from $t(t-1)\le2(t-1)$ on $[1,2]$, whence
+\[
+ \int_1^s\frac{dt}{\sqrt{t(t-1)}}\ge\int_1^s\frac{dt}{\sqrt{2(t-1)}}=\sqrt2\,(s-1)^{1/2},
+\]
+and from $(e^\gamma/(\pi s))^{1/2}\ge(e^\gamma/(2\pi))^{1/2}$.
+
+\begin{citedthm}[linear sieve, lower bound]\label{cit:lin}
+Assume \eqref{eq:sievedata} and $(\Omega_1)$.  Let $D=z^s$ with $2\le s\le3$.
+Then
+\begin{gather*}
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f_1(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,\\
+ f_1(s)=\frac{2e^\gamma\log(s-1)}{s},
+\end{gather*}
+with $o(1)\to0$ as $D\to\infty$, uniformly in $s\in[2,3]$, depending only on~$K$.
+\end{citedthm}
+\noindent Jurkat--Richert; \cite[Thm.~8.4]{HR}, \cite[Thm.~11.13]{OdC}
+with $\kappa=1$, $\beta=2$.  \emph{From memory} (the archived source
+\cite[(6.6)]{Ter} quotes only the upper linear bound).  We use only
+$\log(1+u)\ge u/2$ on $[0,1]$, whence
+\begin{equation}\label{eq:flin}
+ f_1(s)\ge\tfrac{e^\gamma}3(s-2)\qquad(2<s\le3).
+\end{equation}
+
+\begin{citedthm}[Fuchs--Hsu--Rickards--Schindler--Stange]\label{cit:FHRSS}
+Let $f=ax^2+bxy+cy^2$ be a primitive positive definite integral form of
+discriminant $D$ with $\gcd(a,2D)=1$; let $A\ne0$, $B\ge1$ be integers with
+$\gcd(A,B)=1$, and assume $2\mid AB$ or $D\not\equiv5\pmod8$.  Let $m\ge1$,
+$\gcd(l,m)=1$, $\gcd(m,2DB)=1$, $\gcd(l-A,m)=1$.  Then the number of primes
+$p\le N$, $p\equiv l\pmod m$, primitively represented by $Bf(x,y)+A$ is
+$\gg N/(\log N)^{3/2}$.
+\end{citedthm}
+\noindent \cite[Thm.~1.1(2)]{FHRSS}.  \emph{Checked} against the
+archived preprint (statement only; the proof was not checked).  Used only
+in Remark~\ref{rem:FHRSS} as a cross-check.
+
+The proofs below use the sieve theorems only through
+\eqref{eq:fsemi} and \eqref{eq:flin}; all upper-bound sieving is done with
+Lemma~\ref{lem:LS}, which is proved above from Cited
+Theorem~\ref{cit:LS}.
+
+\section{\texorpdfstring{One window: $\amin(p)\ge7$ for $\gg x/(\log x)^{3/2}$ hard primes}{One window}}\label{sec:W1}
+
+\begin{theorem}[\status{proved} modulo Cited Theorems~\ref{cit:LS}, \ref{cit:mertens}, \ref{cit:BV}, \ref{cit:semi}]\label{thm:W1}
+\begin{multline*}
+ N_3(x):=\#\{p\le x:\ p\equiv1\ (\mathrm{mod}\ 840),\\
+ \text{$(p+3)/4$ has no prime factor $\equiv2$ (mod 3)}\}
+ \gg\frac{x}{(\log x)^{3/2}}.
+\end{multline*}
+Every prime counted by $N_3(x)$ is Mordell-hard and has $\amin(p)\ge7$.
+\end{theorem}
+
+The second sentence holds because $1$ is one of Mordell's classes and by
+Lemma~\ref{lem:w3}.  The proof sifts the shifted primes $(p+3)/4$ by the
+$3$-bad primes up to $z=x^{1/2-\varepsilon}$ with the semi-linear sieve,
+whose sifting limit $\beta=1$ allows this at the Bombieri--Vinogradov
+level.  At most two large bad primes then survive, the parity lemma
+removes the case of one, and the case of two is small.
+
+\begin{proof}
+Fix $0<\varepsilon\le1/20$, to be chosen at the end as an absolute
+constant; $x\ge x_0(\varepsilon)$ is large.  Let $B=B(2)$ be as in
+Cited Theorem~\ref{cit:BV}, and put
+\[
+ z=x^{1/2-\varepsilon},\qquad D=\frac{x^{1/2}(\log x)^{-B}}{840},\qquad s=\frac{\log D}{\log z}.
+\]
+Then $s\to1/(1-2\varepsilon)$, so $1+\varepsilon\le s\le2$ for large $x$.
+
+\emph{Sieve data.}  Let $\mathcal A$ be the sequence $n_p=(p+3)/4$, $p\le x$,
+$p\equiv1\pmod{840}$, and $\mathcal P=\{\ell:\ \ell\equiv2\pmod3\}$, the
+$3$-bad primes.  From $p\equiv1\pmod{840}$ we get $n_p\equiv1\pmod{210}$,
+so $2,3,5,7\nmid n_p$; put $g(2)=g(5)=0$ (then $A_d=0$ and $r_d=0$ when
+$2\mid d$ or $5\mid d$).  For squarefree $d\mid P(z)$ with $\gcd(d,10)=1$
+we have $\gcd(d,840)=1$ and $d\mid n_p\iff p\equiv-3\pmod d$; together
+with $p\equiv1\pmod{840}$ this is one reduced class $b_d\bmod 840d$.  So
+\eqref{eq:sievedata} holds with
+\[
+ X=\frac{\li(x)}{\varphi(840)}=\frac{\li(x)}{192},\qquad g(d)=\frac1{\varphi(d)},\qquad
+ r_d=\pi(x;840d,b_d)-\frac{\li(x)}{\varphi(840d)}.
+\]
+For $\ell\in\mathcal P$, $\ell\ge11$, one has
+$1-g(\ell)=(1-1/\ell)(1-(\ell-1)^{-2})$, so Cited
+Theorem~\ref{cit:mertens} (modulus $3$) gives $(\Omega_{1/2})$ with an
+absolute $K$, and $V(z)\ge c_V(\log x)^{-1/2}$ with an absolute $c_V>0$.
+The moduli $840d$, $d<D$, are distinct and at most
+$x^{1/2}(\log x)^{-B}$, so Cited Theorem~\ref{cit:BV} gives
+$\sum_{d<D}|r_d|\ll x(\log x)^{-2}$.
+
+\emph{Step 1 (lower bound).}  By Cited Theorem~\ref{cit:semi} and
+\eqref{eq:fsemi}, $f(s)\ge c_f\varepsilon^{1/2}$ and
+\begin{align*}
+ S(\mathcal A,\mathcal P,z)&\ge\frac{\li(x)}{192}\,c_V(\log x)^{-1/2}\bigl(c_f\varepsilon^{1/2}-o(1)\bigr)-O\Bigl(\frac x{(\log x)^2}\Bigr)\\
+ &\ge c_1\varepsilon^{1/2}\frac{x}{(\log x)^{3/2}}
+\end{align*}
+for $x\ge x_0(\varepsilon)$, where $c_1>0$ is absolute.
+
+\emph{Step 2 (survivors).}  Let $n=n_p$ be counted by $S(\mathcal A,\mathcal P,z)$
+and $k=\Omega_3^-(n)$.  All $3$-bad prime factors of $n$ are $\ge z$, so
+$z^k\le n<x$ and $k<1/(1/2-\varepsilon)<3$.  Since $\leg p3=1$,
+Lemma~\ref{lem:parity} says that $k$ is even; so $k\in\{0,2\}$.  If $k=0$
+then $p$ is counted by $N_3(x)$.  If $k=2$ then $n=mr_1r_2$ with $3$-bad
+primes $z\le r_1\le r_2$ and $m$ composed of primes $\equiv1\pmod3$.  Hence
+\[
+ N_3(x)\ge S(\mathcal A,\mathcal P,z)-T_1-T_2,
+\]
+where $T_1$ counts the case $r_1=r_2$ and $T_2$ the case $r_1<r_2$.
+
+\emph{Step 3.}  At most $x/(4r^2)+1$ values $n_p$ are divisible by $r^2$, and
+only $r\le\sqrt x$ occur, so $T_1\le\sum_{z\le r\le\sqrt x}(x/r^2+1)\le2x/z+\sqrt x\le3x^{1/2+\varepsilon}$.
+
+\emph{Step 4.}  In $T_2$ we have $p=4mr_1r_2-3$.  Fix $m$ and $r_1$, and
+put $a=4mr_1$, $y=(x+3)/a$.  Then $r_2$ is a prime with $r_1<r_2\le y$ and
+$ar_2-3=p$ prime.  Consequently $r_1<\sqrt x$, $m\le(x+3)/(4z^2)\le
+x^{2\varepsilon}$, and $y>z$, so $\log y\ge(\log x)/3$.  Note $2\mid a$ and
+$3\nmid a$.  Apply Lemma~\ref{lem:LS} to the integers $t\le y$ with the
+primes $5\le\ell\le\xi=y^{1/10}$, $\ell\nmid a$, and
+$\Omega_\ell=\{0,\,3a^{-1}\}$ (two classes as $\ell\ne3$).  Every $r_2>\xi$
+counted avoids them, $\Lambda\le2\log\xi+O(1)\le(\log y)/4$, and
+\[
+ \prod_{\substack{5\le\ell\le\xi\\ \ell\nmid a}}\Bigl(1-\frac2\ell\Bigr)
+ \le C\Bigl(\frac a{\varphi(a)}\Bigr)^2\prod_{5\le\ell\le\xi}\Bigl(1-\frac2\ell\Bigr)
+ \le C\Bigl(\frac a{\varphi(a)}\Bigr)^2(\log y)^{-2},
+\]
+using $(1-2/\ell)^{-1}=(1-1/\ell)^{-2}(1+O(\ell^{-2}))$ for the removed primes
+$\ell\mid a$; here and below $C,C',\dots$ are absolute constants.
+Adding the at most $\xi$ primes $r_2\le\xi$, the number of admissible $r_2$
+is $\le C'(a/\varphi(a))^2y/(\log y)^2$, with $C'$ absolute.  Here $m$ is odd
+and coprime to $r_1$, so $a/\varphi(a)\le4\,m/\varphi(m)$, and
+\[
+ T_2\le C''\frac{x}{(\log x)^2}
+ \sum_{z\le r_1<\sqrt x}\frac1{r_1}
+ \sum_{\substack{m\le x^{2\varepsilon}\\ \ell\mid m\Rightarrow\ell\equiv1\,(3)}}\frac{(m/\varphi(m))^2}m .
+\]
+By Mertens, $\sum_{z\le r_1<\sqrt x}1/r_1=\log\frac{1/2}{1/2-\varepsilon}+o(1)\le3\varepsilon$.
+The $m$-sum is at most
+$\prod_{\ell\le x^{2\varepsilon},\,\ell\equiv1\,(3)}(1+\ell^2/(\ell-1)^3)$, and
+$(1-1/\ell)(1+\ell^2/(\ell-1)^3)=1+(2\ell-1)/(\ell(\ell-1)^2)\le1+3/\ell^2$ for
+$\ell\ge7$; so by Cited Theorem~\ref{cit:mertens} it is
+$\le C_2(2\varepsilon\log x)^{1/2}$.  Therefore
+$T_2\le C_3\varepsilon^{3/2}x/(\log x)^{3/2}$ with $C_3$ absolute.
+
+\emph{Step 5.}  $N_3(x)\ge(c_1\varepsilon^{1/2}-C_3\varepsilon^{3/2})x(\log x)^{-3/2}-2x^{1/2+\varepsilon}$.
+With $\varepsilon=\min(1/20,c_1/(2C_3))$ the bracket is
+$\ge\frac{c_1}2\varepsilon^{1/2}$, and $N_3(x)\ge\frac{c_1}4\varepsilon^{1/2}x(\log x)^{-3/2}$
+for $x\ge x_0$.
+\end{proof}
+
+\begin{remark}\label{rem:W1}
+(i) The main term has size $\varepsilon^{1/2}$ and the two-prime
+configurations $\varepsilon^{3/2}$; the gain is the factor
+$\sum1/r_1\asymp\varepsilon$.  This is the classical route of Iwaniec for
+primes $x^2+y^2+1$ (compare \cite[\S6]{Ter}, which treats the analogous
+term with a linear upper sieve and a numerical inequality).
+(ii) The constant $x_0$ is ineffective, through Siegel's theorem in
+Bombieri--Vinogradov.
+(iii) The parity input is the congruence $\leg p3=1$.  Without it the
+statement is false: see Proposition~\ref{thm:P1}.
+\end{remark}
+
+\begin{remark}[a second route]\label{rem:FHRSS}
+Cited Theorem~\ref{cit:FHRSS} with $f=x^2+xy+y^2$ ($D=-3$, $a=1$), $B=4$,
+$A=-3$, $m=35$, $l=1$ (all hypotheses hold: $2\mid AB$, $\gcd(35,24)=1$,
+$\gcd(4,35)=1$) gives $\gg N/(\log N)^{3/2}$ primes $p=4f(x,y)-3\equiv1\pmod{35}$
+with $\gcd(x,y)=1$.  A primitive value $n=f(x,y)$ has no prime factor
+$r\equiv2\pmod3$: for odd such $r$, $-3$ is a non-residue and
+$(2x+y)^2+3y^2\equiv0$ forces $r\mid x,y$; and $n$ is odd, since
+$x^2+xy+y^2$ is even only if $x,y$ are both even.  As $n$ is odd,
+$4n\equiv4\pmod8$ and $p=4n-3\equiv1\pmod8$.  Further $3\nmid n$, since
+otherwise $3\mid4n-3=p$; and $n\equiv(x-y)^2\pmod3$, so $n\equiv1\pmod3$
+and $p\equiv1\pmod3$.  Hence $p\equiv1\pmod{24}$, and with
+$p\equiv1\pmod{35}$, $p\equiv1\pmod{840}$.  So
+\cite[Thm.~1.1(2)]{FHRSS} implies Theorem~\ref{thm:W1}.  Its proof runs
+Iwaniec's half-dimensional sieve; we cite it as a cross-check, not as an
+independent proof.
+\end{remark}
+
+\begin{remark}[numerics; \status{evidence}]\label{rem:W1num}
+A segmented sieve over $p=840k+1<x$ gives
+$N_3(x)/(x(\log x)^{-3/2})\in[0.0123,0.0126]$ for $10^6\le x\le10^{11}$,
+with a slow drift (a slight rise from $10^6$ to $10^7$, then a decrease;
+about $-2.5\%$ overall)
+(\texttt{scripts/window\_w1.py}).
+\end{remark}
+
+\begin{corollary}[exact order for one window]\label{cor:orders1}
+One has
+$\#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge7\}\asymp x/(\log x)^{3/2}$; the
+upper bound is \status{proved} (Corollary~\ref{cor:tail} with $Z=3$), the lower
+bound \status{proved} modulo the cited theorems of Theorem~\ref{thm:W1}.
+\end{corollary}
+
+\section{Two windows on Elliott--Halberstam}\label{sec:W2}
+
+Windows $3$ and $7$ together give a sieve problem of dimension one on the
+primes: for $\ell\nmid840$ the forbidden classes of $p$ are $-3$ if $\ell$ is
+$3$-bad and $-7$ if $\ell$ is $7$-bad, each of density $1/2$ among primes.
+The linear sieve has sifting limit $\beta=2$, so sifting up to
+$z=x^{1/2-\varepsilon}$, which is what the parity argument needs, requires
+a level close to $x$.
+
+\begin{theorem}[\status{conditional} on EH]\label{thm:W2}
+Assume EH (Definition~\ref{def:EH}).  Let $N_{3,7}(x)$ be the number of
+primes $p\le x$, $p\equiv1\pmod{840}$, such that $(p+3)/4$ has no prime
+factor $\equiv2\pmod3$ and $(p+7)/4$ has no prime factor $r$ with
+$\leg r7=-1$.  Then
+\[
+ N_{3,7}(x)\gg\frac x{(\log x)^2},
+\]
+and every prime counted is Mordell-hard with $\amin(p)\ge11$.
+\end{theorem}
+
+The second sentence is Lemma~\ref{lem:F1} at $a=3$ and $a=7$.  Only a level
+$x^{1-\varepsilon_0}$ for one fixed small $\varepsilon_0$ is used, with a
+saving of $(\log x)^{-3}$.  The proof also uses Cited Theorems~\ref{cit:LS},
+\ref{cit:mertens} and~\ref{cit:lin}.
+
+\begin{proof}
+Write $n_3=(p+3)/4$, $n_7=(p+7)/4=n_3+1$, so $\gcd(n_3,n_7)=1$.  Let
+$P_3=\{\ell\equiv2\ (3)\}$ and $P_7=\{\ell:\ \leg\ell7=-1\}$ be the $3$-bad
+and $7$-bad primes, and $\mathcal P=P_3\cup P_7$.  For $p\equiv1\pmod{840}$
+we have $n_3\equiv1$, $n_7\equiv2\pmod{210}$; so no prime $\ell\mid840$
+divides $n_3$ or $n_7$ except $2\mid n_7$, and $2\notin P_7$.  Associate to
+$p$ the integer
+\[
+ e_p=\prod_{\ell\in P_3}\ell^{v_\ell(n_3)}\prod_{\ell\in P_7}\ell^{v_\ell(n_7)} .
+\]
+For squarefree $d$ composed of primes of $\mathcal P$ with $\gcd(d,840)=1$,
+$d\mid e_p$ if and only if, for each $\ell\mid d$, $p\equiv-3$ (if
+$\ell\in P_3$) or $p\equiv-7$ (if $\ell\in P_7$) modulo $\ell$, since
+$\gcd(n_3,n_7)=1$.  Let $\omega(\ell)=[\ell\in P_3]+[\ell\in P_7]\in\{1,2\}$
+for $\ell\in\mathcal P$, $\ell\nmid840$, and $\omega(\ell)=0$ for
+$\ell\mid840$; the classes $-3,-7$ are distinct modulo $\ell\nmid840$.
+Then the sequence $\mathcal A=(e_p)_{p\le x,\,p\equiv1\,(840)}$ satisfies
+\eqref{eq:sievedata} with
+\[
+ X=\frac{\li(x)}{192},\qquad g(d)=\prod_{\ell\mid d}\frac{\omega(\ell)}{\ell-1},\qquad
+ |r_d|\le\tau(d)\max_{\gcd(b,840d)=1}|E(x;840d,b)|,
+\]
+where $E(x;k,b)=\pi(x;k,b)-\li(x)/\varphi(k)$ and $\tau$ is the divisor
+function.  Sifting $\mathcal A$ by $\mathcal P$ up to $z$ removes exactly
+the $p$ for which $n_3$ has a $3$-bad or $n_7$ a $7$-bad prime factor
+below~$z$.
+
+\emph{Dimension and remainder.}  By Cited Theorem~\ref{cit:mertens} for
+the moduli $3$ and $7$,
+$\sum_{w\le\ell<z}\omega(\ell)/\ell=(\tfrac12+\tfrac12)\log\frac{\log z}{\log w}+O(1/\log w)$,
+and $-\log(1-g(\ell))=\omega(\ell)/\ell+O(\ell^{-2})$; so $(\Omega_1)$ holds with
+an absolute $K$, and $V(z)\ge c_V/\log x$.  Let $\varepsilon\le1/20$,
+$z=x^{1/2-\varepsilon}$, $D=x^{1-\varepsilon}/840$.  Using
+$\max_b|E(x;k,b)|\ll x/\varphi(k)$ for $k\le x$, Cauchy--Schwarz and EH
+with $A=10$,
+\begin{align*}
+ \sum_{d<D}\mu^2(d)|r_d|
+ &\le\Bigl(\sum_{d<D}\tau(d)^2\frac{x}{\varphi(840d)}\Bigr)^{1/2}
+ \Bigl(\sum_{k\le x^{1-\varepsilon}}\max_b|E(x;k,b)|\Bigr)^{1/2}\\
+ &\ll_\varepsilon\bigl(x(\log x)^4\cdot x(\log x)^{-10}\bigr)^{1/2}=\frac x{(\log x)^3}.
+\end{align*}
+
+\emph{Lower bound.}  Here $s=\log D/\log z\to(1-\varepsilon)/(1/2-\varepsilon)=2+2\varepsilon/(1-2\varepsilon)$,
+so $2+\varepsilon\le s\le3$ for large $x$, and \eqref{eq:flin} gives
+$f_1(s)\ge(e^\gamma/3)\varepsilon$.  Cited Theorem~\ref{cit:lin} yields
+$S(\mathcal A,\mathcal P,z)\ge c_1\varepsilon\,x/(\log x)^2$ for
+$x\ge x_0(\varepsilon)$, with $c_1>0$ absolute.
+
+\emph{Survivors.}  For a sifted $p$ and $q\in\{3,7\}$, every $q$-bad prime
+factor of $n_q$ is $\ge z$, so there are at most two (counted with
+multiplicity), and their number is even by Lemma~\ref{lem:parity}, since
+$\leg p3=\leg p7=1$.  Hence
+\[
+ N_{3,7}(x)\ge S(\mathcal A,\mathcal P,z)-T_1-T^{(3)}-T^{(7)},
+\]
+where $T_1\le2\sum_{z\le r\le\sqrt x}(x/r^2+1)\le6x^{1/2+\varepsilon}$ counts sifted $p$
+with $r^2\mid n_3n_7$ for some $r\ge z$, and $T^{(q)}$ counts sifted $p$ with
+$n_q=mr_1r_2$, $z\le r_1<r_2$ both $q$-bad, $m$ composed of $q$-good primes.
+
+\emph{The terms $T^{(q)}$.}  Let $q'$ be the other window.  Fix $m$ and
+$r_1$ and put $a=4mr_1$, $y=(x+q)/a$.  Then $r_2\le y$ is prime, $p=ar_2-q$
+is prime, and since $4n_{q'}=ar_2+q'-q$, the integer $ar_2+q'-q$ has no
+$q'$-bad prime factor $\ell<z$.  As in Theorem~\ref{thm:W1}, $r_1<\sqrt x$,
+$m\le x^{2\varepsilon}$ and $\log y\ge(\log x)/3$.  Apply
+Lemma~\ref{lem:LS} to the integers $t\le y$, the primes
+$11\le\ell\le\xi=y^{1/20}$ with $\ell\nmid a$, and
+\[
+ \Omega_\ell=\{0,\ qa^{-1}\}\cup\{(q-q')a^{-1}:\ \text{if $\ell$ is $q'$-bad}\}.
+\]
+These classes are distinct since $q,q',q-q'=\pm4$ are nonzero modulo
+$\ell\ge11$; $\nu(\ell)\le3$; every counted $r_2>\xi$ avoids them (note
+$\xi\le x^{1/20}<z$); and $\Lambda\le3\log\xi+O(1)\le(\log y)/4$.  By
+Cited Theorem~\ref{cit:mertens}, $\sum_{\ell\le\xi}\nu(\ell)/\ell=\frac52\log\log\xi+O(1)$
+when $\ell\mid a$ is not excluded, and excluding $\ell\mid a$ costs at most
+a factor $C(a/\varphi(a))^3$, because
+$(1-3/\ell)^{-1}\le(1-1/\ell)^{-3}(1+6/\ell^2)$ for $\ell\ge11$.  So the number
+of admissible $r_2$ is $\le C(a/\varphi(a))^3y(\log y)^{-5/2}$.  With
+$a/\varphi(a)\le4m/\varphi(m)$,
+\[
+ T^{(q)}\le C'\frac x{(\log x)^{5/2}}\sum_{z\le r_1<\sqrt x}\frac1{r_1}
+ \sum_{\substack{m\le x^{2\varepsilon}\\ m\ q\text{-good}}}\frac{(m/\varphi(m))^3}m
+ \le C''\varepsilon^{3/2}\frac x{(\log x)^2},
+\]
+by $\sum1/r_1\le3\varepsilon$ and
+$\sum_m(m/\varphi(m))^3/m\le\prod_{\ell\le x^{2\varepsilon},\ \ell\ q\text{-good}}(1+\ell^3/(\ell-1)^4)\le C(2\varepsilon\log x)^{1/2}$
+(the $q$-good primes have density $1/2$, and
+$(1-1/\ell)(1+\ell^3/(\ell-1)^4)=1+O(\ell^{-2})$).
+
+\emph{Conclusion.}  $N_{3,7}(x)\ge(c_1\varepsilon-2C''\varepsilon^{3/2})x(\log x)^{-2}-O(x^{1/2+\varepsilon})$,
+which is $\gg x/(\log x)^2$ once $\varepsilon$ is a small absolute constant.
+\end{proof}
+
+The essential point beyond Theorem~\ref{thm:W1} is that the other window's
+half-dimensional condition is kept inside the upper bound for
+$T^{(q)}$.  Without it, $T^{(q)}$ would be of order
+$\varepsilon^{3/2}x/(\log x)^{3/2}$ and would swamp the main term.
+
+\begin{corollary}[exact order for two windows]\label{cor:orders}
+One has
+$\#\{p\le x:\ p\equiv1\ (24),\ \amin(p)\ge11\}\ll x/(\log x)^2$
+(\status{proved}, Corollary~\ref{cor:tail} with $Z=7$), and on EH it is
+$\asymp x/(\log x)^2$ (Theorem~\ref{thm:W2}).
+\end{corollary}
+
+\begin{remark}[precedent]\label{rem:FI}
+The shape of Theorem~\ref{thm:W2} is that of Friedlander and Iwaniec's
+hyperbolic prime number theorem \cite{FI09}, which counts, with
+multiplicity, the representations $p=x_1^2+x_2^2+x_3^2+x_4^2$ with
+$x_1x_4-x_2x_3=1$, so that $p-2$ and $p+2$ are both sums of two squares
+--- two half-dimensional absence conditions on shifted primes --- and
+whose lower bound assumes a level of distribution close to~$1$.  The
+final step is the same (removal of two-prime configurations using
+parity), but the sieve differs: \cite{FI09} sift one condition with the
+semi-linear sieve and carry the other as a representation-number weight,
+while Theorem~\ref{thm:W2} sifts both absence conditions at once with the
+linear sieve at level $x^{1-\varepsilon}$.  We claim no novelty of
+technique.  The lower bound
+of \cite{FI09} assumes a level $x^\theta$ with $\theta<1$ sufficiently close
+to $1$ (\cite[Thm.~2 and Assumption $A(\theta)$]{FI09}); Sedunova
+\cite{Sed} (2026) recalls that it still rests on such a hypothesis and
+proves unconditional results for square-free distances instead.  An
+unconditional result of the type ``one complete absence and one
+almost-prime condition'' is Nath--Xie \cite[Thm.~1.1]{NX}: $\gg x/(\log x)^{5/2}$
+primes $p=m^2+n^2+1\le x$ with $\Omega(p+2)\le9$.
+\end{remark}
+
+\section{The parity barrier}\label{sec:parity}
+
+\subsection{The two-window problem as a quadric}
+
+\begin{lemma}[\status{proved}]\label{lem:quadric}
+Let $p$ be Mordell-hard and $n=(p+3)/4$, so that $(p+7)/4=n+1$.  Windows
+$3$ and $7$ are both clean (no $3$-bad prime factor of $n$, no $7$-bad
+prime factor of $n+1$) if and only if $n=a^2+ab+b^2$ and $n+1=c^2+cd+2d^2$
+with $\gcd(a,b)=\gcd(c,d)=1$.  Thus such $p$ correspond to integral
+points of the quaternary quadric $c^2+cd+2d^2-(a^2+ab+b^2)=1$ with
+$4(a^2+ab+b^2)-3$ prime.
+\end{lemma}
+
+\begin{proof}
+The forms are the norm forms $N(a-b\omega)$ of $\Z[\omega]$,
+$\omega=e^{2\pi i/3}$, and $N(c+d\theta)$ of $\Z[\theta]$,
+$\theta=(1+\sqrt{-7})/2$; both rings are principal, and $a-b\omega$
+(resp.\ $c+d\theta$) is not divisible by any rational integer $>1$ iff
+$\gcd(a,b)=1$ (resp.\ $\gcd(c,d)=1$).  For $m$ coprime to the
+discriminant, $m$ is the norm of such a primitive element iff no inert
+prime divides $m$: an inert $r\mid N(\alpha)=\alpha\bar\alpha$ divides
+$\alpha$; conversely, if every $r\mid m$ splits as $r=\pi_r\bar\pi_r$, then
+$\alpha=\prod\pi_r^{v_r(m)}$ is primitive of norm~$m$.  The inert primes are
+$r\equiv2\pmod3$ (including $2$) for $\Q(\sqrt{-3})$, and the $r$ with
+$\leg r7=-1$ for $\Q(\sqrt{-7})$ ($2$ splits as $-7\equiv1\pmod8$, and
+$\leg{-7}r=\leg r7$ for odd $r$).  These are the $3$-bad and $7$-bad
+primes.  Finally $3\nmid n$ and $7\nmid n+1$ since $p\equiv1\pmod3$ and
+$\leg p7=1$.
+\end{proof}
+
+In \cite{FI09} the corresponding object is $p=x_1^2+x_2^2+x_3^2+x_4^2$ on
+the quadric $x_1x_4-x_2x_3=1$, i.e.\ $p\mp2$ both sums of two squares.
+
+\subsection{Parity is necessary}
+
+\begin{proposition}[\status{proved}]\label{thm:P1}
+Let $x$ be large and
+\[
+ \mathcal A^\pm=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\},
+\]
+and consider the sequences $n_3=(p+3)/4$, $p\in\mathcal A^\pm$, sifted by
+$P_3=\{\ell\equiv2\ (3)\}$.
+\begin{enumerate}
+\item (Same sieve data.)  For every squarefree $d$ composed of primes of
+ $P_3$,
+ \[
+ \#\{p\in\mathcal A^\pm:\ d\mid n_3\}=g(d)X+r_d^\pm,\qquad X=\frac{\li(x)}{192},
+ \]
+ \[
+ g(d)=\begin{cases}1/\varphi(d),&\gcd(d,10)=1,\\0,&\text{otherwise},\end{cases}
+ \]
+ with the same $X$ and $g$ for both signs, and for every $A$ there is $B$
+ with $\sum_{d\le x^{1/2}(\log x)^{-B}}|r_d^\pm|\ll_A x(\log x)^{-A}$ (the moduli
+ $840d$ are $\le x^{1/2}(\log x)^{-B+1}$, so take $B=B'(A)+1$ with $B'$ from
+ Cited Theorem~\ref{cit:BV}).  On
+ EH the same holds for $d\le x^{1-\eta}$, any fixed $\eta>0$.
+\item ($\mathcal A^-$.)  For every $p\in\mathcal A^-$, $n_3$ has a prime factor
+ $\equiv2\pmod3$, so window $3$ succeeds and $S(\mathcal A^-,P_3,z)=0$ for
+ $z>(x+3)/4$.
+\item ($\mathcal A^+$.)  Window $3$ fails for $\gg x/(\log x)^{3/2}$ primes
+ $p\in\mathcal A^+$ (modulo the cited theorems of Theorem~\ref{thm:W1}).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) As $p\equiv1\pmod8$, $n_3$ is odd, and $p\equiv1\pmod5$ gives
+$n_3\equiv1\pmod5$; so $A_d^\pm=0$ if $2\mid d$ or $5\mid d$.  Otherwise
+$\gcd(d,840)=1$ (as $3,7\notin P_3$), and the conditions $p\equiv1\ (8)$,
+$p\equiv1\ (35)$, $p\equiv\pm1\ (3)$, $p\equiv-3\ (d)$ define one reduced
+class $b^\pm_d$ modulo $840d$.  So $A_d^\pm=\pi(x;840d,b_d^\pm)$ and
+$r_d^\pm=\pi(x;840d,b^\pm_d)-\li(x)/\varphi(840d)$, and Cited
+Theorem~\ref{cit:BV} (resp.\ EH) bounds the remainders.
+(2) $4n_3=p+3\equiv p\pmod3$ gives $n_3\equiv p\equiv2\pmod3$, so some prime
+factor of $n_3$ is $\equiv2\pmod3$, and window $3$ succeeds by
+Lemma~\ref{lem:w3}'s argument ($u=r$, $v=1$).
+(3) $\mathcal A^+$ contains the primes $p\equiv1\pmod{840}$ counted by
+Theorem~\ref{thm:W1}.
+\end{proof}
+
+Consequently, any lower-bound method for $S(\mathcal A,P_3,z)$ whose input
+is only $X$, $g$, the level $D$ and a bound for $\sum_{d<D}|r_d|$ (the
+axioms of \cite[Ch.~11]{OdC}) returns a non-positive lower bound for
+$z>(x+3)/4$ on the data of $\mathcal A^+$, at every level $D\le x^{1/2}(\log x)^{-B}$
+unconditionally and every $D\le x^{1-\eta}$ on EH.  A proof that window~$3$
+fails for some $p$ must use $\leg p3=+1$, i.e.\ Lemma~\ref{lem:parity}.
+This is Selberg's parity example, with the Liouville function of the bad
+part realised as the Dirichlet character $\leg p3$ of the prime itself.
+Because it is a character of $p$, the barrier is removed by a congruence
+condition, which is exactly what Step~2 of Theorem~\ref{thm:W1} does.
+
+\begin{remark}[two windows jointly]\label{rem:P1joint}
+For windows $3$ and $7$ jointly, the four sign classes
+$(\leg p3,\leg p7)$ do \emph{not} all have the same joint sieve data:
+$3$ is $7$-bad, and $3\mid n_7=(p+7)/4$ for every $p\equiv2\pmod3$ and for
+no $p\equiv1\pmod3$.  The barrier holds for the pair of classes
+\[
+ \mathcal B^\pm=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (5),\ p\equiv1\ (3),\ \leg p7=\pm1\}.
+\]
+For coprime squarefree $d_1$ (composed of $3$-bad primes) and $d_2$
+(composed of $7$-bad primes), $\#\{p\in\mathcal B^\pm:\ d_1\mid n_3,\ d_2\mid n_7\}$
+vanishes if $\gcd(d_1d_2,30)>1$ (as $n_3$ is odd, $3\nmid n_7$ and
+$5\nmid n_3n_7$), and otherwise is a sum of three prime counts in
+reduced classes modulo $840d_1d_2$, with main term
+$3\li(x)/\varphi(840d_1d_2)$ for both signs.  (For $\gcd(d_1,d_2)>1$ both
+counts vanish since $\gcd(n_3,n_7)=1$.)  Yet no $p\in\mathcal B^-$ has
+window $7$ clean, since $(-1)^{\Omega_7^-(n_7)}=\leg p7=-1$, while on EH
+Theorem~\ref{thm:W2} gives $\gg x/(\log x)^2$ primes of $\mathcal B^+$ with
+both windows clean.  So the parity of window~$7$ is also necessary input.
+\end{remark}
+
+\begin{remark}[why two windows are harder]\label{rem:whytwo}
+Two windows form a dimension-one problem.  At the
+Bombieri--Vinogradov level $x^{1/2}$ the linear sieve reaches only
+$z<x^{1/4}$, so each window can carry two or four large bad primes, and
+the configurations with two bad primes are no longer of lower order.
+Lemma~\ref{lem:parity} still removes odd counts, but it does not
+distinguish $0$ from $2$ or $4$.  Whether Type~I information at level
+$x^{1/2}$ together with the parity of both windows suffices is the
+question addressed, in a model only, in Remark~\ref{rem:LPmodel}.
+\end{remark}
+
+\section{Heuristics, data and a model-level obstruction}\label{sec:model}
+
+Nothing in this section is a theorem about primes unless so labelled.
+
+\begin{remark}[random model; \status{assessment}]\label{rem:model}
+By Lemmas~\ref{lem:F1} and~\ref{lem:halfset}, failure of a fixed window is
+a confinement of the prime factors of $x_a$ to half of the classes, an
+event of probability $\asymp(\log p)^{-1/2}$ for a random integer of size
+$p$; Theorem~\ref{thm:stack} with $|A|=1$ is the corresponding upper bound
+on shifted primes.  Treat the windows as independent, each failing with
+probability $g(p)=c(\log p)^{-1/2}$.  Then
+$\Pr(\amin(p)>Q)\approx g(p)^{(Q+1)/4}$, which gives
+\eqref{eq:model-intro} for fixed $Q$, and
+$\log\Pr(\amin(p)>Q)=-(Q/8)(1+o(1))\log\log p$ for growing $Q$.  This is
+summable over $p$ once $Q\ge(8+\delta)\log p/\log\log p$, so the model
+predicts $\amin(p)\le(8+o(1))\log p/\log\log p$ for all large $p$, while
+congruence-adversarial constructions (Remark~\ref{rem:dickson})
+heuristically produce $p\le N$ with $\amin(p)\ge c\log N/\log\log N$.  The
+model ignores the positive correlation of windows through the
+quadratic-residue pattern of $p$ (by Lemma~\ref{lem:recip}, every prime
+factor of $x_a$ below the least non-residue modulo $p$ is $a$-good), and
+it applies a fixed-window law to windows of growing size, which is not
+justified.  Theorems~A--C show that the model's exponent is a true
+upper bound for each fixed $Z$, and that it is attained for $Z=3$
+(and for $Z=7$ on EH).  For growing $Z$ the proved bounds
+(Theorem~\ref{thm:uniform} and the remark after it) are far from the
+model.
+\end{remark}
+
+\begin{remark}[unboundedness of $\amin$; \status{conditional} on Dickson's conjecture]\label{rem:dickson}
+Fix $K\ge3$ and let $\Lambda_K$ be the set of primes $\le\max(K,5)$.  If
+$p\equiv1\pmod{24}$ is a quadratic residue modulo every $\ell\in\Lambda_K$
+and, for every $a\equiv3\pmod4$ with $a\le K$, $x_a=C_ar_a$ with $r_a$ prime
+and all prime factors of $C_a$ in $\Lambda_K$, then $\amin(p)>K$
+(\status{proved}): the primes of $C_a$ are residues modulo $p$ by
+reciprocity, $\leg{r_a}p=\leg{4x_a}p=\leg ap=\prod_{\ell\mid a}\leg p\ell^{v_\ell(a)}=1$,
+and Lemma~\ref{lem:F1} applies.  Fixing the residue of $p$ modulo a
+suitable power of $\prod_{\ell\in\Lambda_K}\ell$ turns this into the
+simultaneous primality of $J(K)+1$ linear forms, an admissible family
+\cite[Prop.~8.4]{PS}; Dickson's conjecture \cite{Dickson} then gives
+infinitely many such $p$, so $\amin$ would be unbounded.  The only
+unconditional result of this kind that we know of is $\amin(p)\ge7$
+infinitely often (Theorem~\ref{thm:W1}).
+\end{remark}
+
+\begin{remark}[data; \status{evidence}]\label{rem:data}
+A complete census of the $719781$ primes $p\equiv1\pmod{24}$ below $10^8$
+(among them the $179468$ Mordell-hard ones) gives $\max\amin(p)=107$, attained at
+$p=8803369$, a quadratic residue modulo every prime $\le37$; the ratio
+$\amin(p)/\log p$ is below $6.7$ throughout.  Random samples of $3\cdot10^4$
+Mordell-hard primes near $10^{12}$ and $10^{18}$ have maxima $39$ and $43$,
+and samples near $10^{24}$ also stay below $10\log p$.  For
+$x=10^6,10^7,10^8$ and each $Z\in\{3,7,11,15,19,23\}$ the normalised tail
+$\#\{p<x:\ p\equiv1\ (24),\ \amin(p)>Z\}\cdot(\log x)^{1+J(Z)/2}/x$ is
+constant to within $9\%$, consistent with Corollary~\ref{cor:tail} being
+sharp in the exponent for every fixed~$Z$ (proved only for $Z=3$, and for
+$Z=7$ on EH).  These data and the model motivate the following
+conjecture, which by Theorem~\ref{thm:frame}, Mordell's identities and the
+numerical verification of the Erd\H{o}s--Straus conjecture up to
+$10^{18}$ \cite{MD} would imply the Erd\H{o}s--Straus conjecture.
+\end{remark}
+
+\begin{conjecture}[$X_{\rm win}(10)$; \status{conjecture}]
+For every prime $p\equiv1\pmod{24}$ with $p>10^{18}$, $\amin(p)\le10\log p$.
+\end{conjecture}
+
+\subsection{Type I information plus parity in a discrete model}
+
+The following describes a finite computation in an explicit model.  It
+is recorded because it indicates what kind of input a proof of
+unconditional $\amin(p)\ge11$ infinitely often might need, not as a
+result about primes.
+
+\emph{The model.}  For a prime $p$ let the \emph{configuration}
+$C=(B_3,B_7)$ consist of the multisets of log-sizes $t=\log r/\log x$ of
+the $3$-bad prime factors of $n_3$ and the $7$-bad prime factors of $n_7$.
+\emph{Parity} means $|B_3|,|B_7|$ even (Lemma~\ref{lem:parity} for
+Mordell-hard $p$).  For a pair of finite multisets $S=(S_3,S_7)$ let
+$\rho_\mu(S)$ be the expected number of embeddings of $S$ into $C$ under a
+law $\mu$; the \emph{Type~I data of level $\theta$} are the $\rho_\mu(S)$
+with $\Sigma S\le\theta$ (sum of all entries), corresponding to the counts
+$\#\{p:\ d_1\mid n_3,\ d_2\mid n_7\}$ for bad squarefree $d_1,d_2$ with
+$d_1d_2\le x^\theta$.  A \emph{fake} for $\mu$ at level $\theta$ is a nonnegative
+measure $\nu$ on parity configurations with $\rho_\nu(S)=\rho_\mu(S)$ for
+all $\Sigma S\le\theta$.  If a fake has $\nu(\varnothing,\varnothing)=0$,
+then these data together with parity cannot force a configuration with
+both windows clean.
+
+\begin{remark}[two elementary fakes; \status{model}, proved]\label{rem:blockfake}
+(i) One window, $\theta<1/2$: for $u,v\in(\theta,1/2)$ the signed measure
+$-[\varnothing]+[\{u,v\}]$ has $\rho(S)=0$ whenever $\Sigma S\le\theta$, since
+every nonempty $S\subseteq\{u,v\}$ has $\Sigma S>\theta$.  Hence for any
+true law $\mu$ the measure $\mu+\mu(\varnothing)(-[\varnothing]+[\{u,v\}])$ is a
+fake without clean mass.  For $\theta\ge1/2$ there is no such pair, since
+$u,v>\theta$ would force $u+v>1$.
+(ii) Two windows: if $U,V$ are disjoint nonempty configurations, each with
+an even number of points in each window and $\min U+\min V>\theta$, then
+$-[\varnothing]-[U\sqcup V]+[U]+[V]$ has $\rho(S)=0$ for $\Sigma S\le\theta$:
+for $S=\varnothing$ the terms cancel, for $\varnothing\ne S\subseteq U$ (or
+$\subseteq V$) the two terms containing $S$ cancel, and an $S$ meeting both
+$U$ and $V$ has $\Sigma S>\theta$.  Adding $c$ times this signed measure to
+$\mu$ keeps it nonnegative only if $c\le\mu(U\sqcup V)$, so a fake without
+clean mass arises this way if $\mu(U\sqcup V)\ge\mu(\varnothing)$, or from a
+combination of several such blocks whose removable masses add up to
+$\mu(\varnothing)$.
+\end{remark}
+
+\begin{remark}[a certified fake at level $1/2$; \status{model}, certified in floating point]\label{rem:LPmodel}
+Take the heuristic law in which the two windows are independent, bad
+primes have Mertens density $\frac12\,dt/t$ on $[\varepsilon,1]$ and the
+clean cofactor has weight $(1-\Sigma t)^{-1/2}$, and discretise it with
+$\varepsilon=0.1$ and $8$ log-spaced bins.  In this discrete model a
+linear-programming search, followed by an exact re-solve on its support,
+finds a fake at level $\theta=1/2$ with $\nu(\varnothing,\varnothing)=0$: an
+$89\times89$ system over $12769$ configurations, nonnegative solution,
+relative correlation residual $2.6\cdot10^{-15}$, independently re-solved at
+$60$ digits.  In the same model one window cannot be faked at $\theta=1/2$:
+an exact rational dual certificate gives
+$\min\nu(\varnothing)/\mu(\varnothing)\ge0.744$.  For two windows the
+threshold level lies in $(0.5,0.7]$ on this grid (certified dual bound
+$\ge0.497$ at $\theta=0.7$).
+
+\emph{Scope.}  This is a statement about a coarse discrete model only.
+The law is heuristic and not derived from primes; at $\varepsilon=0.1$ its
+normalised one-window correlations vary over $[0.82,1.87]$ and differ
+between the even and odd laws, whereas for primes Bombieri--Vinogradov
+and the fundamental lemma make them $\approx1$ independently of parity
+(Proposition~\ref{thm:P1}); grid refinement did not remove this; the model
+contains only the data for bad $d$, not for good or mixed $d$; and the fake
+places up to $10^5$ times the true mass on some configurations, with no
+capacity constraint.  Its relevance to actual sieve methods is
+\status{evidence} of the weakest kind.  The indication is that Type~I data
+of level $1/2$ plus parity do not decide two windows, and that a
+Chen-type switching input bounding large-prime configurations would be
+needed; no such statement is proved here.  Computations:
+\texttt{scripts/window2\_lp.py}, \texttt{window2\_feas.py},
+\texttt{window2\_polish.py}, \texttt{window2\_verify.py}; details in
+\cite[\S3]{PW2}.
+\end{remark}
+
+\section*{Acknowledgements and provenance}
+This note collects results first written up in the working notes
+\cite{PS,PW,PX,PW2} of this project, each internally reviewed.  No
+external referee has checked it.
+
+\begin{thebibliography}{99}
+\bibitem{Dickson} L.~E.~Dickson, A new extension of Dirichlet's theorem on
+prime numbers, Messenger of Math.\ 33 (1904), 155--161.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
+(2013), 50--105; arXiv:1107.1010v6.
+\bibitem{FI09} J.~Friedlander and H.~Iwaniec, Hyperbolic prime number
+theorem, Acta Math.\ 202 (2009), 1--19.
+\bibitem{OdC} J.~Friedlander and H.~Iwaniec, \emph{Opera de Cribro}, AMS
+Colloquium Publications 57, 2010.
+\bibitem{FHRSS} E.~Fuchs, C.~Hsu, J.~Rickards, D.~Schindler and
+K.~E.~Stange, Primes represented by shifted quadratic forms: on
+primitivity and congruence classes, arXiv:2504.20289v1 (2025).
+\bibitem{HR} H.~Halberstam and H.-E.~Richert, \emph{Sieve Methods},
+Academic Press, 1974.
+\bibitem{Iw76} H.~Iwaniec, The half dimensional sieve, Acta Arith.\ 29
+(1976), 69--95.
+\bibitem{IK} H.~Iwaniec and E.~Kowalski, \emph{Analytic Number Theory},
+AMS Colloquium Publications 53, 2004.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and
+empirical evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128
+(2025).
+\bibitem{Montgomery68} H.~L.~Montgomery, A note on the large sieve,
+J.\ London Math.\ Soc.\ 43 (1968), 93--98.
+\bibitem{MVLS} H.~L.~Montgomery and R.~C.~Vaughan, The large sieve,
+Mathematika 20 (1973), 119--134.
+\bibitem{MV} H.~L.~Montgomery and R.~C.~Vaughan, \emph{Multiplicative
+Number Theory I.~Classical Theory}, Cambridge University Press, 2007.
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, 1969, Chapter~30.
+\bibitem{NX} K.~Nath and L.~Xie, Almost primes and primes that are sums of
+two squares plus 1, arXiv:2501.16723v3 (2026).
+\bibitem{Notes} \emph{Erd\H{o}s--Straus research notebook},
+\texttt{notes.md}, this repository, \S\S12, 14, 62, 70, 71, 77; working
+notes, 2026.  The review status of \S\S12 and 14 is not recorded in the
+project ledger.
+\bibitem{PS} Companion note in this repository, \texttt{POINTWISE\_SIZE.md},
+\S8 (the window frame); internally reviewed in
+\texttt{reviews/pointwise-size-step1-review.md}.
+\bibitem{PW} Companion note in this repository,
+\texttt{POINTWISE\_WINDOW.md} (Theorems W1, W2); internally reviewed in
+\texttt{reviews/pointwise-window-review.md}.
+\bibitem{PX} Companion note in this repository, \texttt{POINTWISE\_XWIN.md}
+(half-set lemma, stacking); internally reviewed in
+\texttt{reviews/pointwise-xwin-review.md}.
+\bibitem{PW2} Companion note in this repository,
+\texttt{POINTWISE\_WINDOW2.md} (quadric, Theorem P1, the discrete model);
+internally reviewed in \texttt{reviews/pointwise-window2-review.md}.
+\bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
+Schinzel, Mathematika 17 (1970), 193--198.
+\bibitem{Sed} A.~Sedunova, On the hyperbolic prime number theorem,
+arXiv:2609.28200v1 (2026).
+\bibitem{Ter} J.~Ter\"av\"ainen, The Goldbach problem for primes that are
+sums of two squares plus one, Mathematika 64 (2018), 20--70;
+arXiv:1611.08585.
+\end{thebibliography}
+\end{document}
