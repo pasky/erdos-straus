@@ -87,7 +87,19 @@ taken as independent. `scripts/window2_blockfake.py 2e6 0.02 1`:
 |---|---|---|---|---|---|---|---|
 | R(θ)/τ | 1.53 | 0.83 | **0.42** | 0.24 | 0.13 | 0.04 | 0.007 |
 
-So at BV level (θ=1/2), two-block fakes remove only ≈42% of the target mass. They
+ε-stability (4·10⁶ samples, seed 2):
+
+| ε | P(clean,clean) | θ=0.40 | 0.45 | **0.50** | 0.55 | 0.60 | 0.70 |
+|---|---|---|---|---|---|---|---|
+| 0.05 | 0.114 | 0.98 | 0.63 | **0.40** | 0.23 | 0.13 | 0.04 |
+| 0.02 | 0.045 | 1.53 | 0.83 | **0.42** | 0.24 | 0.13 | 0.04 |
+| 0.01 | 0.023 | 2.27 | 1.05 | **0.48** | 0.28 | 0.19 | 0.05 |
+| 0.005 | 0.011 | 3.35 | 1.30 | **0.42** | 0.22 | 0.14 | 0.06 |
+
+For θ<1/2 the ratio grows as ε→0, as the trivial range predicts. For θ≥1/2 it is
+stable within the Monte Carlo noise; the weight `(1−Σt)^{−1/2}` has a heavy
+tail. At θ=1/2, R/τ≈0.43±0.05.
+So at BV level (θ=1/2), two-block fakes remove only ≈43% of the target mass. They
 do **not** give an obstruction there. The ε-stability and multi-block fakes
 (m blocks, `Σ min U_j>θ`) are still to be checked. If no fake exists at θ=1/2,
 the LP dual is a Type-I sieve at BV level, i.e. a candidate unconditional route
