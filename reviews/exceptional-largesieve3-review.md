@@ -10,8 +10,8 @@ Reviewer branch `side-agent/review-ls3`; author branch `side-agent/hls-sparse`
 | Thm 1.1 | SOUND |
 | Lemma 2.1 | SOUND (minor D1) |
 | Thm 3.1 | SOUND (conditional on reviewed internal K2 inputs + ElT Prop 1.4, as labelled) |
-| Lemma 4.1 | (pending) |
-| Lemma 4.2 | (pending) |
+| Lemma 4.1 | SOUND |
+| Lemma 4.2 | SOUND (computation); "symmetric route fails" is Assessment (D4) |
 | §4.3 | (pending) |
 
 ## Claim-by-claim
@@ -87,6 +87,50 @@ see D3).
 * Assembly: `β log N = (log N)^{3/4}`, `16𝔐(z) ≤ 16K₃(log N)^{3/4}((1/4)log log N)³`,
   `64J`. Correct. N must be large enough that `z ≥ max(W₁, y₀)` and
   `Q'(E₁) ≤ 1/16`; implicit in "C".
+
+### Lemma 4.1 (two-copy form): SOUND
+
+`Σ_{a mod ℓ^E, a≢0}e(a(x−y)/ℓ^E) = ℓ^E1[x≡y (ℓ^E)] − 1` is right; the
+product over S and the σ⊗σ average give `P_S`; Möbius/Parseval mod `M_T`
+gives the collision identity; `|σ̂|^{2+2β} ≤ s_S^{2β}|σ̂|²` termwise.
+Verified from scratch on random non-product measures mod `9·5·7` and
+`4·3·5·7` (prime powers included), all S, β ∈ {0.05, 0.25, 0.5}:
+`scripts/review_ls3_lemmas.py` (b).
+
+### Lemma 4.2 (residue concentration): SOUND as a computation; the heading claim is an Assessment (D4)
+
+* `−4 ∈ ℛ(M)`: definitional (K2 Def 2.0 / notes Lemma 18.1, `D = 1 | A²`).
+  Re-verified forcedness from scratch through notes (16.1) with
+  `u = w = 1, v = A`: for `n ≡ −4 (M)`, `s = (nA+1)/M ∈ ℤ` and
+  `4/n = 1/s + 1/(nsA) + 1/(nA)` exactly, 959 pairs `(M,n)`, `M ≤ 159`.
+  (A naive `x = kA` identity fails, e.g. `M = 3, n = 5` — irrelevant to
+  the doc, noted only because it shows the check is not vacuous.)
+* `m*(p,−4) = Σ_{M'}1/M' ≍ log X/log z`: correct up to the constant
+  (`Σ_{M'≤X, z-rough}1/M' ~ e^{−γ}log X/log z`; the "half in the right class
+  mod 4" is fine at the ≍ level). Numerically `1.91` vs `log X/log z = 4.27`
+  for z = 30, X = 2·10⁶, p = 10007 — consistent with a constant `≈ 0.45`.
+  Note: requires `M'` composite with many rough primes; with `X = N^A` this is
+  allowed in the family.
+
+## Numerics (from scratch, reviewer)
+
+    ulimit -v 8000000
+    timeout 600 uv run --with numpy python scripts/review_ls3_thm11.py
+    timeout 900 uv run --with numpy python scripts/review_ls3_lemmas.py
+
+* `review_ls3_thm11.py`: `M_s = 60`, `M_r = 7·11·13`; 180 random families
+  of classes `b mod G`, `G | M₀` (**including multi-rough-prime classes**,
+  which the author's check omits), correlated non-product π_s (random,
+  heavy-tailed "spiky", uniform), fibre laws random or Dirac (worst case).
+  Core inequality `𝓡_{p'}(π) ≤ ρE_{π_s}𝓡_{p'}(π_c)`: max ratio 0.970
+  (spiky), **equality 1.000000** attained for π_s uniform on `ℤ/M_s` and a
+  c-independent fibre law (so the constant ρ is sharp). π supported on 𝒜
+  always. Hölder step with random weights (`w ≤ 1/N`, `Σw ≤ 1`): max ratio
+  0.475.
+* `review_ls3_lemmas.py`: (a) Lemma 4.2 forcedness + Mertens number; (b)
+  Lemma 4.1; (c) Thm 3.1 local bound (`|φ| ≤ g`, Parseval `= g`,
+  `Σ|φ|^{p'} ≤ g^{1+2β} ≤ 4pℓ^{−α}` for unions of classes mod `ℓ^v` in
+  `ℤ/ℓ^E`, E ≤ 2): worst ratio 0.797.
 
 ## Defects
 
