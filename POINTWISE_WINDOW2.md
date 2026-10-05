@@ -516,6 +516,10 @@ Required constant (coarse grid ε=0.1, K=8, θ=1/2, α=0.6; `window2_feas.py
 numerical gap is a factor ≈1.25–1.35, under the generous assumption that the caps
 need hold only *bin-wise* and only on configurations with a prime factor ≥x^{0.6}.
 The real switched counts also carry the other window's half-dimensional
-conditions, which makes them no easier. **No unconditional `a_min≥11` follows.**
+conditions, which makes them no easier. *Caveat (R29 M2, M4):* K* is computed in the discrete
+model (coarse heuristic law, eps=0.1, K=8 bins), whose own Type-I data are far from those of
+the primes, and with per-configuration caps (stronger than real aggregate switched bounds, see
+the m4 note in section 6.2). The bracket for K* and the gap factor are model indications only,
+not statements about primes. **No unconditional `a_min≥11` follows.**
 Not done (context limit): the K*(α) curve for α<0.6, a finer grid, and a check
 of the exact Wu constant in the source.
