@@ -106,7 +106,10 @@ theorem, Nair–Tenenbaum and the campaign's energy bound; chain:
 `POINTWISE_OMEGA12.md` 1/5 → 1/4; each step doubly reviewed; ledger
 (H)16–(H)26). The profinite (Haar) avoider exponent is exactly 3 up to logs
 (`POINTWISE_HAAR.md` + `POINTWISE_OMEGA13.md` Thm 3.4), so the heuristic
-prime-side truth is 1/3.
+prime-side truth is 1/3. Exponent 1/4 is provably the ceiling of this
+Haar-minorant + Gallagher-transfer architecture (`POINTWISE_OMEGA14.md`
+Thm 4.5, Cor 4.6; ledger (H)27); 1/3 would need bilinear/parity-type prime
+input.
 This supersedes the polylogarithmic results (`POINTWISE_OMEGA3.md`, every
 fixed power of log p). So no pointwise multiplier mechanism whose witness
 moduli are `≤ exp((log p)^{1/4−ε})` can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
