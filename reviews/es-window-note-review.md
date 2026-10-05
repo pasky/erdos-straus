@@ -143,3 +143,62 @@ novelty is the half-set lemma that makes the exponent exact. *Repair:* add a par
 stating precisely what is new. Note Vaughan's paper could not be accessed in this project
 (`sources/vaughan-1970-access-log.md`), so the comparison must be stated at the level of
 the published bound only.
+
+### MINOR
+
+**m1 (Remark 7.3, FI09 description).** "counts primes p with p−2 and p+2 both sums of two
+squares": FI09's π_Γ(x) counts orbit points γi (≈ matrices in SL₂(Z)), i.e. primes
+weighted by their number of representations (FI09 l.60–80: π_Γ≍x/log x, whereas the
+unweighted prime count would be of order x/(log x)²·(log)^{O(1)}). Say "counts, with
+multiplicity, the representations p=x₁²+…+x₄², x₁x₄−x₂x₃=1, so that p∓2 are sums of two
+squares". The §8 sentence after Lemma 8.1 is fine.
+
+**m2 (Remark 7.3, "same route").** FI09 sieve one condition (b(n−2)) with the
+*semi-linear* sieve, carrying the other as the weight r(n+2) (FI09 §6, l.536–560), and
+remove two-prime configurations (§7). Thm 7.1 instead sifts both absence conditions at
+once with the *linear* sieve at level x^{1−ε}. The "semi-linear type sieve to x^{1/2−ε}"
+parenthesis is inaccurate for W2 (it describes W1). Rephrase: "the same final step
+(removal of two-prime configurations with parity), but a linear sieve on both conditions
+where FI09 use a semi-linear sieve with a representation-number weight".
+
+**m3 (Thm 8.2 label).** Thm 8.2 is a direct instance of Selberg's parity example; its
+proof is five lines. "Theorem" (and "Theorem D" in the intro) overstates its depth;
+"Proposition" is more appropriate. Not a correctness issue.
+
+**m4 (Thm 8.2(1), BV range).** The moduli are 840d with d≤x^{1/2}(log x)^{−B}, which
+exceed BV's range by the factor 840; say "with B replaced by B+1" (W1 handles this
+correctly via D=x^{1/2}(log x)^{−B}/840).
+
+**m5 (Remark 6.3).** The step "3∤n" (else p=4n−3 is divisible by 3) and "n odd ⇒ p≡1 (8)"
+should be written out.
+
+**m6 (Remark 6.4).** "slow monotone drift": the normalised count rises from 10⁶ to 10⁷
+(0.01253→0.01259, my recount) and falls afterwards; drop "monotone" or say "from 10⁷".
+
+**m7 (Remark 9.4(i)).** The hypothesis "if the true law has at least as much mass on
+{u,v}-type configurations as on ∅" is superfluous: ν=μ+μ(∅)(−[∅]+[{u,v}]) is ≥0 for any μ.
+(Conversely in (ii) an actual fake needs μ(U⊔V)≥μ(∅) or a convex combination; worth saying.)
+
+**m8 (Steps 3 of Thm 6.1 / T₁ of Thm 7.1).** #{p≤x: r²|n} ≤ x/(4r²)+1, not x/r²; the
+"+1" terms add ≤π(√x). Harmless; write ≤2x/z+√x.
+
+**m9 (§2.2 after Lemma 2.3).** "(r/a) … union of reduced classes modulo 4a": since the
+Jacobi symbol (r/a) depends only on r mod a, "modulo a" is correct and simpler (the
+non-principal character (·/a) of (Z/aZ)^× gives density 1/2 as a≡3 (4) is not a square).
+
+**m10 (Thm 4.2 statement).** For p≤3 max A, Rat_a(x_a) may be undefined (gcd(x_a,a)=p
+possible). Add "p>3max A" or "with the convention that the condition holds if p|x_a".
+
+**m11 (bibliography, Notes).** `\bibitem{Notes}` calls notes.md "internally reviewed";
+DISCOVERIES.md (items 1–5) records the review status of notes Thms 12.2, 14.4, 14.9 as
+"not stated". Remark 4.5 attributes the (log N)^θ window tails to §14; state that this
+material's review status is not recorded.
+
+**m12 (typesetting).** The author report says "pdflatex clean: no warnings". My compile
+(pdflatex ×2, 20 pp, no undefined refs) gives **19 overfull hboxes**, several large
+(132 pt at l.75 — the Rat_a display; 123 pt at l.141; 97 pt at l.345; others at l.113,
+128, 424, 467, 495, 568–573, 603, 617–621, 628, 662, 707, 794–797, 815, 864, 922–925,
+992). Break the displays (e.g. `multline`/`split`) before circulation.
+
+**m13 (intro, "Unconditionally we only know a_min≥7 infinitely often", Remark 9.2).** This
+is a claim about the literature; qualify as "the only unconditional result we know of".
