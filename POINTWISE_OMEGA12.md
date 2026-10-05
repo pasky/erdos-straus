@@ -1,6 +1,6 @@
 # H_ω(2): the charge moment is `≪𝓛^4(log𝓛)^2` (task O45)
 
-Status: IN PROGRESS. Labels as in DISCOVERIES.md.
+Status: checkpoint (O45). Labels as in DISCOVERIES.md.
 
 Notation as in POINTWISE_OMEGA11.md (O11): `𝓛=log T`, atoms `(M,D)`,
 `M≤T`, `M≡3 (4)`, `A_M=(M+1)/4`, `D|A_M²`, `g=g(M,D):=gcd(M,4D+1)`,
@@ -63,7 +63,7 @@ occur; there are `O(𝓛²)` pairs `(A,B)` (`A≤√T`, `B≤T`) and `≤𝓛/lo
 
 **Lemma 2.2 (block mass; PROVED modulo ET Prop 1.4).** For every block,
 `Σ_{(a,c,d,f)∈(A,C,B)} 1/N ≤ Σ_{a,d} 2τ(P)/(ad) ≪ log(A+B+2)`.
-Consequently `S_0≪𝓛^4`.
+Consequently (with Lemma 2.1's factor 2) `S_0≪𝓛^4`.
 
 *Proof.* `1/N≤1/(acd)`, `Σ_{c∈[C,2C)}1/c≤2`, and for fixed `(a,d)` there
 are `τ(P)` choices of f. ET Prop 1.4 (with ET's `(k,a,b)=(4,d,a)`) gives
@@ -258,6 +258,24 @@ has `a_{ℓ_0}=0`, hence `ℓ_0>𝓛`; O8 Lemma 3.3 needs only `w_{ℓ_0}≤c`. 
 mean of the charge `h(M)≥ω(M)`. Its true size is `≍log𝓛` (EVIDENCE, O11 §4,
 §7 here), so Theorem 6.3 is the limit of O11 Lemma 2.2's per-event charging.
 Removing it would need a different threshold rule, not a better bound on Ω.
+
+## 6B. Status and scope
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | `h=Σ_{q|M}1/i`, subadditive, `Σ_{q|N,q>Y}1/i≤log N/log Y` | PROVED |
+| Lemma 2.1 | atoms ↔ Type I `(a,c,d,f)`, `g/M=1/N`, `N≥acd` | PROVED |
+| Lemma 2.2 | block mass `≪log(A+B)`, `S_0≪𝓛^4` | PROVED mod ET Prop 1.4 |
+| Lemma 3.1 | `Σ_II=Σh(N)/N≪𝓛^4log𝓛` | PROVED mod ET Prop 1.4 |
+| Lemma 4.1, Cor 4.2 | `Σ_I=Σh(e)/N≪𝓛^4log𝓛` | PROVED mod ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10) |
+| Thm 5.1 | `Ω_0≪𝓛^4log𝓛`; **H_ω(2)** | PROVED mod ET |
+| Thm 6.1 | `W(p)≥exp(c(log p)^{1/5}(log log p)^{−2/5})` i.o. | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
+| Lemma 6.2, Thm 6.3 | `s_1=e³g/M`; `W(p)≥exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.; `log(1/δ*)≪𝓛^5log𝓛` | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
+| §6A last para | `log𝓛` is the limit of Lemma 2.2's charging | Assessment |
+
+Here ET means results proved in Elsholtz–Tao (published, Proc. LMS 2013);
+nothing in ET is re-proved here. Not claimed: anything about ES itself;
+optimality of 1/5.
 
 ## 7. Checks (EVIDENCE; exact identities asserted)
 
