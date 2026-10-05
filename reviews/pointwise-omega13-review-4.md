@@ -56,3 +56,18 @@ Legendre symbols at odd `p|Q` and characters mod 8; all are 1 at r. Case B, item
 claimed. Property (I): re-derived (reduce `n≡−4D (M)` mod `gcd(M,Q)`; `M|Q` excluded by Lemma 3.1(b); else the
 event occurs; all primes of M are either coordinates or have `ℓ^{v_ℓ(M)}|Q`). Mordell-hardness: the unit squares
 mod 840 are exactly {1,121,169,289,361,529} (script check below). **But see D1** (class at `ℓ_aux`).
+
+## 3. Toy end-to-end check (`scripts/review_o13d_toy.py`, from scratch)
+
+Toy parameters: `β=1.25` (`η=0.167`; the theorem's `β=1+1/log𝓛` exceeds `e^{1/3}` at toy T), all atoms
+`M≤T`, the square-class process with forced steps at 3,5,7, eligible primes `≤Y`.
+
+* `T=600, Y=T` (seeds 1, 2; 7 realisations): every run ends with `840|Q`, `r≡1 (24)`, `r mod 840` a unit
+  square, no deterministic atom (Lemma 3.1 assert never fires), `log Q≈79.8`, `S_res≈3.5`, no late violation.
+  Sampling `n≡r (Q)` coprime to all `ℓ≤T` (10⁵ samples): property (I) `F(n)=1[W(n)>T]` with **0
+  mismatches** (W computed from the definition `n mod M∈𝓡(M)`); empirical `δ=0.065 ≥ exp(−(4/3)S_res)=0.009`;
+  twist at the heaviest unstepped prime `ℓ_0=479` (`w̃=0.165`): `|E[F·(n|ℓ_0)]|=0.0084 ≤ ηEF'=0.0124`
+  (s.d. ≈0.003).
+* `T=600, Y=20`: 6/6 realisations have late violations (15 primes `ℓ∈(Y,T]` with `w̃_ℓ>η`). Expected: the
+  theorem needs `Y=𝓛^{C_0+4}≈𝓛^{52.5}`, which is `≤T` only once `𝓛≳300`. The toy cannot see the late-prime
+  Chebyshev step; it confirms only the algebra (Lemma 3.1, (I), Mordell classes, LLL bound, twist sign).
