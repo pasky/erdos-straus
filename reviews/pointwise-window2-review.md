@@ -94,3 +94,12 @@ two-window threshold θ₂ ∈ (0.5, 0.7] is *certified*; (0.6, 0.7] remains EVI
 ### Lemma 3.6 (product fakes) — SOUND
 ρ_{γ₃⊗γ₇}(S)=ρ_{γ₃}(S₃)ρ_{γ₇}(S₇); s₃+s₇≤a+b ⇒ s₃≤a or s₇≤b (S_q=∅ is included in "zero correlations",
 so total masses vanish); ν(∅,∅)=0; positivity termwise. Correct.
+
+### §3.3–3.4 block-fake MC — SOUND as EVIDENCE; error bars not valid (m3)
+`scripts/review_w2_blockmc.py 1e6 0.02 SEED θ…` (own Poisson-process sampler, brute-force optimal
+split over all V, no author rule): R/τ at θ=0.5 = 0.448, 0.449, 0.413 (seeds 7,8,9); θ=0.6: 0.139,
+0.145, 0.121; θ=0.55: 0.242; θ=0.7: 0.047. Agrees with the author's ≈0.42–0.45.
+But θ=0.4 gives 3.48 / 1.53 / 1.46 across seeds: the weight (1−Σt)^{−1/2} has **infinite second
+moment** (∫(1−s)^{−1}ds diverges), so the MC estimator has infinite variance and "R/τ≈0.43±0.05"
+is not a statistically valid error bar. Repair: compute R(θ) by quadrature / in the discrete model
+(exact), or importance-sample Σt near 1; drop the ±. (Conclusion unaffected: superseded by the LP.)
