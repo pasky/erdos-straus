@@ -186,3 +186,24 @@ occurs once per c. So `Σ_I≤Σ_C Σ_{(A,B)} 2R(A,B)`. Lemma 4.1 with
 
 So the s-weighted mean of the charge h is `≪log𝓛` (against `S_0≪𝓛^4`), as
 the O11 EVIDENCE suggested (`2.32, 2.57, 2.79` at `T=10^{4,5,6}`).
+
+## 6. Exponent 1/5
+
+**Theorem 6.1 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), and
+OMEGA10 Thm 3.4).** For infinitely many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/5}·(log log p)^{−2/5} ),     uniformly  log L_h(T) ≪ 𝓛^5 (log𝓛)^2.
+```
+
+*Proof.* O11 Corollary 4.1 with `B=2` (Theorem 5.1). In detail: O11
+Lemma 2.2 with `c=1/64` gives `log Q≤9+64𝓛Ω♯≪𝓛^5(log𝓛)^2`. O11 Cor 1.2
+gives the junta term `O(𝓛(S+𝓛))` with `S≤S♯≪𝓛^4log𝓛` (O2 Lemma 9.2 under ET; also Lemma 2.2
+here). The rest is O11 Thm 3.2's proof verbatim, with Cor 1.2's
+modulus-weighted truncation in place of OMEGA10 Thm 4.2's coordinate count.
+So `log Z≪𝓛^5(log𝓛)^2`, and some hard `p>T` with `W(p)>T` has
+`log p≪𝓛^5(log𝓛)^2`, i.e. `𝓛≫(log p)^{1/5}(log log p)^{−2/5}`. ∎
+
+Thus the "1/5 natural limit of the present ES-modulus route" (O11 §4,
+Assessment) is reached, up to `(log log p)^{2/5}`. Unconditionally (without
+ET) nothing changes: O9 Thm 2.3 stands.
