@@ -81,3 +81,34 @@ linear-in-s count (divisors of `4a²s+1` in a class mod q, switching at
 `√F`; §2) needs instead `S≥max(A²H^{2a},q)·H^{a}𝓛^B`. So Lemma 1.2 adds
 exactly the a-dominant boxes `A≳q`, `AqH^a≤S<A²H^{2a}`. Left open after
 both: `S<A·q·H^{a}` with `A≳qH^{−3a/2}` (quadratic-root regime; §3).
+
+## 2. Boxes with a long s-variable (elementary)
+
+Fix a dyadic `(s,a)`-box `[S,2S)×[A,2A)` and consider its atoms with
+`a≤b`. Write `d:=m*`, so `m=F/d`. Put `g_0:=gcd(κ+1,q)`.
+
+**Lemma 2.0 (PROVED).** For an atom, every prime `ℓ|g_0` divides j. In
+particular, if `gcd(j,q)=1` then `g_0=1`; and `gcd(j,q)>1` forces `j>y`.
+
+*Proof.* `mm*=F≡κ+1≡0 (ℓ)`, and `gcd(m,q)=1` (m is a Π-number prime
+to q), so `ℓ|m*`. By Lemma 1.1(ii) `a·m*≡κj (q)` with `a,κ` units, so
+`ℓ|j`. The primes of q exceed y. ∎
+
+**Lemma 2.1 (linear count; PROVED).** Fix a and j with `gcd(j,q)=1`, and
+let `c:=κjā (q)`, `d_0∈[1,q)` its least residue, `X:=3a√S`. Then
+
+```
+N(a,j) := #{(s,d): s∈[S,2S), 4sa²≡κ (q), d|F, d≡c (q), F/d>μ}
+       ≤ (S/q)·(1/d_0 + 1/μ + 2(1+log X)/q) + 2(X/q+1).
+```
+
+*Proof.* By Lemma 2.0, `g_0=1`, so `e:=(κ+1)c^{−1}` is a unit and
+`d′:=F/d≡e (q)`. Since `F≤8a²S+1≤X²`, `d≤X` or `d′≤X`. For a fixed
+`d≤X` with `d≡c`: `d|4a²s+1` fixes s mod d (`gcd(d,2a)=1`), and
+`4sa²≡κ` fixes s mod q; d is a unit mod q, so s lies in one class mod
+qd: `≤S/(qd)+1` values. Summing over `d≡c (q)`, `d≤X`:
+`Σ1/d≤1/d_0+Σ_{1≤i≤X/q}1/(iq)`, and there are `≤X/q+1` terms. The d′
+side is identical with `d′>μ`, so its first term is `≤1/μ`. ∎
+
+*Remark.* The error `2(X/q+1)` is the only place where "first terms"
+enter. It is `≪(S/q)H^{−a}` iff `S≥max(9A²H^{2a}, qH^{a})·O(1)`.
