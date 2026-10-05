@@ -9,7 +9,23 @@ O8 §6. Theorem 1.1's analytic core and the Gallagher quotation are reviewer
 
 ## Summary verdicts
 
-(filled in claim by claim below; final table at the end)
+| item | claim | verdict |
+|---|---|---|
+| (i) | Thm 1.1 items 1–3: `c(χ_Qχ_D)=E_D[Bχ̄_D]/φ(Q)`, conductor support, `μ_ψ=E_D[Bψ]` | **SOUND** (from-scratch brute force incl. even/non-squarefree conductors) |
+| (ii) | Lemma 2.1, `A≤1.03` | **SOUND** |
+| (iii) | O8 Thm 3.4 / Lemma 6.1 / Lemma 3.3 / O4 `ℓ_aux` → Thm 1.1 hypotheses | **SOUND** (MINOR m1) |
+| (iv) | `log Z≪𝓛^7`, exponent 1/7 (Thm 2.2) | **SOUND**; bottleneck is the junta term `d𝓛`, `log Q_Π` is `log𝓛` smaller |
+| (v) | Thm 2.3, constant `1/log2` | **SOUND** (MINOR m2) |
+| (vi) | repaired O8 §6 vs O9 | **SOUND-AFTER-REPAIRS** (MINOR m3, m4) |
+
+No FATAL or MAJOR defect found in the assembly. Thm 2.2 and Thm 2.3 stand
+as labelled, *conditional on reviewer 1's verdict on Thm 1.1's analytic
+core and the (G) quotation* (not re-reviewed here beyond the interface).
+
+**Defects:** m1 (Thm 1.1 proof: `x≥C·A·Z^3` too weak for Case A's `R_1`;
+say `x≥Z^5`), m2 (Thm 2.3: derive Wigert's `log2` explicitly), m3 (O8 §6.6
+Consequence: "additively" wrong; "𝓛³" should be "𝓛^4"), m4 (O8 header
+numbering and stale 1/13 / 1/4 advertisement). Details below.
 
 ## Claim-by-claim
 
