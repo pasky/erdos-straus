@@ -292,6 +292,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * **PROVED modulo Gallagher's theorem (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4** (the last is proved and doubly reviewed). Two independent hostile reviews, both SOUND with minors applied: `reviews/pointwise-omega11-review.md` (graded quarantine, local lemma with partial quarantine, fibre-cell transfer; toy exact-Haar checks) and `reviews/pointwise-omega11-review-2.md` (filtration lemma, exponent chain).
     * The heuristic truth remains `log W ≍ (log p)^{1/3}`; 1/6 is the ceiling of coordinate-counting arguments in this architecture (POINTWISE_OMEGA9 Cor 4.2; modulus-weighted arguments could reach ≈1/5).
 
+23. **An abstract avoidance transfer and the m/n analogues (POINTWISE_TRANSFER.md).**
+    * Thm 1.1 (PROVED modulo Gallagher's theorem, Landau–Page and Håstad): for any system of unit-class events on ≤ k free primes (prime powers ≤ T, Haar mass S, local-lemma weights, and a twist hypothesis on real characters), there is a prime `p ≡ a (Q)`, `p > T`, avoiding every event with `log p ≤ C(log Q + (3k+2t)log T + 1)`, t polynomial in k, log(NT), log(S/δ). No single-value or codegree hypothesis. Cor 1.3 gives `log p ≪ log Q + k log T·log(4NT)·(S + k log(4NT))` when every per-prime mass is ≤ 1/(64k). (The switching-lemma step can now be replaced by (H)21's energy bound.)
+    * Cor 5.2: for each fixed m ≥ 4 (Sierpiński's 5/n included), the m/n witness modulus satisfies `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. (modulo Gallagher, Landau–Page, ET Prop 1.4 with κ=m) and `log W_m ≥ (1/log 2 − o(1))log₂p·log₃p` without ET; Type II solutions of m/n are exactly the stated family for every m (reviewer's proof + brute force). Cor 5.3: generic witness families of mass ≤ 𝓛^α give exponent `1/max(α+3,5)`.
+    * No example is known where Thm 1.1 beats quarantine + Bonferroni + Gallagher (the §4.6 comparison was corrected after review).
+    * **PROVED as labelled** (internal; review `reviews/pointwise-transfer-review.md`, SOUND; one MAJOR (an over-claimed comparison) and minors repaired). No novelty claim beyond the ES-type applications.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
