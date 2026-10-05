@@ -1,6 +1,6 @@
 # EXCEPTIONAL_TUPLES2 — TC_θ above 3/4 (task O24, branch `side-agent/tc-theta`)
 
-Status: **in progress (O24).** Labels follow `DISCOVERIES.md`. PROVED means
+Status: **checkpoint (O24); hostile review R24 (`reviews/exceptional-tuples2-review.md`, branch `side-agent/review-tuples2`) SOUND, minor repairs D1–D7 applied.** Labels follow `DISCOVERIES.md`. PROVED means
 proved in this file (internal, unrefereed). ES is not solved. No θ > 3/4 is
 claimed unconditionally.
 

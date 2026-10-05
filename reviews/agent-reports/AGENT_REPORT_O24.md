@@ -2,7 +2,9 @@
 
 Deliverable: `EXCEPTIONAL_TUPLES2.md` (§§0–7 + Replay), scripts
 `scripts/tuples2_{forced,allforms,translates}.py`, data `data/tuples2/`.
-Self-review (deep reviewer subagent): verdict "needs revision"; all six
+Hostile review R24 (`reviews/exceptional-tuples2-review.md`): SOUND, no
+FATAL/MAJOR; minor repairs D1–D7 applied (one commit each).
+Earlier self-review (deep reviewer subagent): verdict "needs revision"; all six
 defects and the smaller items have been repaired (commits after 8882481).
 The reviewer checked Lemma 1.1, Cor 1.2, Thms 2.1–2.2, Thm 4.1, Cor 6.1 and
 Prop 7.1 as sound, and reproduced the §5 data byte for byte.
