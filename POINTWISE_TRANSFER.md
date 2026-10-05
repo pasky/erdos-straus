@@ -119,7 +119,7 @@ supported on `𝒫`. [SN] `lem:l1` with `η = 1/99`: `μ := 𝔼B ≥ 0.99δ > 0
 for some `i`. Then `f | ∏ℓ^{e_ℓ}`, `ψ` is a product of characters `ψ_ℓ` of the
 coordinates `X_ℓ`, `ℓ | f`, and as in [SN] `lem:twist`,
 `μ_ψ := Σ_{i: f|d_i} c_iψ(b_i)/φ(d_i) = 𝔼[Bψ]`. So
-`|μ_ψ| ≤ 𝔼[F−B] + |𝔼[Fψ]| ≤ δ/100 + δ/5 ≤ 0.21δ/0.99·… < μ/4`
+`|μ_ψ| ≤ 𝔼[F−B] + |𝔼[Fψ]| ≤ δ/100 + δ/5 = 0.21δ ≤ 0.2122μ < μ/4`
 (explicitly `0.21δ ≤ 0.2122μ`). (The paper's "`f` odd squarefree" is not
 needed: one only uses that `ψ` factors over the coordinates.)
 
@@ -187,9 +187,11 @@ The possible exceptional real character `χ₁` (unique for conductors
 `λ = 1 ∓ x^{β₁−1}/β₁`; `λ ≥ min(u,1)/2` and the effective Page bound
 `1−β₁ ≫ q₁^{−1/2}(log q₁)^{−2}` only serve to absorb the conductor-drop error
 `R₁ ≪ AZ³μ`. (B) if `χ₁` has a component on the free primes, its coefficient
-is the twisted mean `μ_ψ/φ(Q')`, and (Tw) makes it `≤ μ/4`. Case B **cannot**
-be treated like Case A: that would need `A − 1 ≪ x^{β₁−1} − ... ≪ Z^{−1/2}`
-(Page-scale), i.e. `2^{−k₀} ≤ Z^{−1/2}`, i.e. `k₀ ≫ t log T = 10kbk₀ log T`,
+is the twisted mean `μ_ψ/φ(Q')`, and (Tw) makes it `≤ μ/4`. Case B cannot
+be treated like Case A *by this argument*: the error `(A−1)μ` from `|c(χ)| ≤ Aμ/φ(Q')` would have to be `≤ λμ`
+with `λ` possibly as small as `≍ Z^{−1/2}` (Page scale)
+; since `A−1` is only controlled through `𝔼[F−B] ≈ 2^{−k₀}`, this needs
+`2^{−k₀} ≤ Z^{−1/2}`, i.e. `k₀ ≫ log Z ≍ t log T = 10kbk₀ log T`,
 impossible. So (Tw) is the price of not assuming "no exceptional zero". If
 one assumes that no real primitive character of conductor `≤ x` has a zero
 in `[1 − 1/(κ log Q_G), 1)` (e.g. GRH for quadratic characters), (Tw) can be
@@ -210,6 +212,7 @@ binary encoding before the switching lemma; (iii) the factor `k` (DNF width
 the BRW sandwich after splitting into atoms). Loss (ii) would disappear with a
 switching lemma for product spaces with alphabet `T` directly (not checked;
 we do not claim such a lemma is available). For `k = 1` (sifted sets) the
-theorem is far from optimal: a prime-local system is a sifted set, for which
-Linnik/sieve arguments give `log p ≪ log Q + log T + ℒ`-type bounds
-directly ([SN] cites EGLNV for the "combinatorial rectangle" analogue).
+theorem is presumably far from optimal: a prime-local system is a sifted set,
+and we expect (but have not worked out) a bound of the shape
+`log Q + log T + ℒ` from sieve + Linnik-type arguments ([SN] cites EGLNV for
+the "combinatorial rectangle" analogue on the independence side).
