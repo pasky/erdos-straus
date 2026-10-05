@@ -14,8 +14,8 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | Lemma 2.3 | SOUND (minor bookkeeping) |
 | Cor 2.4 | SOUND-AFTER-REPAIRS (proof OK; Q-reduction wrong in general; headline oversold) |
 | Prop 2.5 | SOUND |
-| Thm 3.1 | (pending) |
-| Prop 4.1 | (pending) |
+| Thm 3.1 | SOUND-AFTER-REPAIRS (Gauss-sum bound misstated; conclusion survives) |
+| Prop 4.1 | SOUND as a Haar statement; certificate clause covers an accounting nobody uses for integers (scope MAJOR) |
 | Remark 4.2 / Assessment 4.3 | (pending) |
 | Lemma 5.1 / Prop 5.2 | (pending) |
 | §0, §6, §7 scope and labels | (pending) |
@@ -98,5 +98,32 @@ thing a sieve theorist would try.
 `|ρ|=P_02^{k+1}` exactly (no cancellation), so (i) cannot be improved via cancellation.
 (ii)–(iii) and the exponent algebra `N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}` re-derived; the `s=∞` case is
 right. The model (Hölder with the *true* error vector) dominates any valid Hölder certificate.
+
+### Thm 3.1 — SOUND-AFTER-REPAIRS
+`ν_1=(1−εχ_1)ν≥0`, `ν_1≪ν`, `E_{ν_1}h−E_{P_1}h=E_ρh−εE_ρ[χ_1h]`; for an atom h, `χ_1h` is again a
+reduced product up to a unimodular constant: at big b, class×χ_{1,b} has mean `≤1/(b−1)`,
+character×character is a character (dropped if trivial), additive×nontrivial multiplicative
+is a normalised Gauss sum. **The stated bound `|τ|/φ(b^v)≤√(b^v)/φ(b^v)` is false for imprimitive
+data** (e.g. b=3, v=2, χ of conductor 3, a=3: value 0.866 > 0.5); my script
+(`review_o15_lemma23.py`, part B, all b≤13, v≤3, all χ, a) finds 13256 violations. The correct
+bound is: if `e(a·/b^v)` has conductor `b^g` and χ has conductor `b^f`, the sum vanishes unless
+`f=g` (or f=0), and then `|·|/φ(b^v)=b^{1−g/2}/(b−1)≤√b/(b−1)` — verified tight in part B — which is
+`≤1/4` for `b≥19`, true for big b. So the conclusion stands (m1). The exact statement
+(`B∈𝒱_{k−s}` ⇒ `χ_1B∈𝒱_k` ⇒ `E_{P_1}B=E_{ν_1}B≤0`) is correct. Side remark: if `s≤k` then
+`E_ρχ_1=0`, so the mass discrepancy `ν_1(H)−P_1(H)` is exactly 0 in the relevant regime.
+
+### Prop 4.1 — Haar part SOUND; certificate clause of limited relevance
+Re-derived: union bound `Σ'1/v≥(c_3−C_6σ(x))log V/log y`; planting off `G'={σ>λ}` with
+`k+1=⌊μ*/4⌋` satisfies (1.0) since `R≥μ*/2`; Lemma 1.1 is pointwise in x_s, so `ρ=0` on G' is
+harmless; Chernoff bound `P(Σξ_p/p≥λ/2)≤e^{3−λy/2}` with `t=y`, `e^{u}−1≤(e−1)u` for u≤1, and
+`Σ_{p>y}y/p²≪1/log y` — correct; `y=𝓛^6` is O14 §4's choice, so μ* is unchanged. ξ_p independent
+of probability 1/p for `p∤dQ` under P_d — correct.
+Slip: with `X_d:=` the actual count, `|m^{(d)}(C)−X_dP_d(C)|≤1+P_d(C)<2`, not `≤1` (exact AP count
+is within 1 of `(x/dQ)P_d(C)`, and `X_d` is within 1 of `x/(dQ)`); constants only (m2).
+Relevance: the certificate clause requires charging error 1 to *every* deep class. For integers
+the support of `m^{(d)}` is known exactly; nobody evaluates `Σ_{n≤x,d|n}F(n)` by charging 1 to
+classes mod `q>x` whose least representative exceeds x. The author concedes this in the
+statement, but §6 item 3, §7 and the Answer (1b) then list "integer Type I sums" as **Covered**
+and "Type II input is then moot" — overclaim (M3).
 
 ## Defects
