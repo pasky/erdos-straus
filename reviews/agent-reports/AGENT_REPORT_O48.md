@@ -114,3 +114,32 @@ No FATAL findings. All repairs are applied in separate commits:
 
 *Next (if continued).* A junta `≪S_res·polylog` (brief item (ii)) would give exponent 1/3
 on the prime side, matching the Haar exponent.
+
+## Checkpoint 3 (R48c/R48d repairs, applied by O51)
+
+Reviews: reviews/pointwise-omega13-review-3.md (R48c) and reviews/pointwise-omega13-review-4.md (R48d).
+Both independently find §5 / Thm 5.1 SOUND after MINOR repairs, with no FATAL or MAJOR findings.
+Branch side-agent/omega13-repairs; O48 had quit, so O51 applied the repairs. Each repair is a
+separate commit, and no new mathematics was added.
+
+* **R48c m1 = R48d D1 (needed for "infinitely many").** Thm 5.1's proof now fixes the class at the
+  auxiliary prime: `r'≡r (Q)`, `r'≡1 (ℓ_aux)`, on the coset `r'H'` with `H'={x≡1 (Qℓ_aux)}`.
+  I3's hypotheses hold for `(Qℓ_aux, r')`. Since `ℓ_aux>max d_i`, no cell sees it.
+  `p≡1 (ℓ_aux)` gives `p>ℓ_aux>T`, so the p's are distinct as T→∞.
+* **R48d D3.** Survival for a class r is defined in §3: `−4D≡r (mod gcd(M,Q))` and `M∤Q`,
+  equivalently `μ(E)>0` via Lemma 3.1. A stale "checked in §4" became "§5 (I3)".
+* **R48c m2.** I3's cell-consistency bullet now says that `E[F|X_W]` for a non-initial digit set
+  is a function of `n mod m_W`. Here `m_W` is the absolute modulus, so its cells are consistent
+  with r and the `u_j`-moduli are `≤e^τ`.
+* **R48c m3.** The range is explicit: `η≤0.19` holds once `𝓛≥32.1` (`T≥e^{33}`). The exact
+  requirement is `η≤0.1919`. There is a pointer in the §5 Setting.
+* **R48c m5.** Lemma 1.1's general conditional LLL bound has a one-line proof in the text. The HSS
+  theorem number is flagged as unverified, and the source is not archived.
+* **R48c m4 = R48d D2.** Prop 1.3(c) and Cor 3.5 (with its `(loglog p)^{−B}`) are marked superseded
+  by §5 / Thm 5.1. The "have not been done" text is updated, and §4 is retitled.
+* **R48d D4.** The Thm 5.1 ledger now has the `log ℓ_aux≤max(𝓛,log max d_i)+1` term. It also says
+  that τ uses the realised `S_res≤4E[S_res]`.
+* The status line and the §4 table are updated.
+
+The labels are unchanged. Thm 5.1 is PROVED modulo (G), NT and OMEGA10 Thm 3.4, with the
+classical inputs Landau–Page, the Page bound and the conditional LLL. ES itself is not claimed.
