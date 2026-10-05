@@ -224,3 +224,8 @@ rational dual feasibility (`scripts/review_w2_lp.py`); hence θ₂∈(0.5,0.7] i
 
 **m7 (MINOR, §4 route (ii)).** Add the mixed-level test (one-window data to T₁ with joint data at
 1/2): fake persists for T₁≤0.6, positivity at T₁=0.7 (certified ≥0.163). Supports "closed".
+
+*M1 repair check* (`scripts/review_w2_p1joint.py 3e6`): joint counts |A_{d₁,d₂}| for
+d₁|d₂ ∈ {1|1, 1|3, 11|1, 1|5, 1|13, 11|13, 17|3, 23|17, 1|19, 29|31}: (+,+) 3309, 0, 331, 0, 268, 22, 0, 8,
+185, 7 vs (+,−) 3417, 0, 348, 0, 275, 37, 0, 11, 179, 2 — same pattern (zeros at 3|d₂, 5|d₂), noise-level
+differences; (−,±) have |A_{1,3}|=N. So the repaired joint statement ((+,+) vs (+,−)) holds.
