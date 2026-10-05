@@ -18,7 +18,8 @@ Status: checkpoint 1 (2026-10-05), not yet reviewed.
 | §3.2 | one window: fakes for θ<1/2; no block fake at θ=1/2 | Model-PROVED |
 | §3.3–3.4 | block/tree fakes reach only ≈40–45% of target at θ=1/2 | EVIDENCE (MC; infinite-variance estimator, no error bar — R29 m3) |
 | Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model) | CERTIFIED (residual 2.6e-15) |
-| §3.5 | discrete two-window threshold θ_2∈(0.6,0.7] (coarse grid) | EVIDENCE |
+| §3.5 | discrete model ε=0.1, K=8: one-window min ν(∅)/τ ≥0.744128 at θ=1/2; two-window threshold θ_2∈(0.5,0.7] | CERTIFIED (reviewer exact duals, R29 m6; model only) |
+| §3.5 | same grid: θ_2∈(0.6,0.7] | EVIDENCE (θ=0.6 fake uncertified) |
 | §6.1 | bounded reweighting of primes (ν≤Cμ, C≥3.5) still admits the fake | EVIDENCE (residual ≤1e-9) |
 | §6.2 | switching caps ν≤Kμ on large-prime configurations restore positivity at θ=1/2 iff K≲2–3 | EVIDENCE (coarse grid) |
 | §6.3 | slice-separable fakes cannot reach the target; the fake is genuinely mixed-level | Model-PROVED reduction + LP numbers |
@@ -207,7 +208,17 @@ configuration) are dropped.
 | 0.8 | — | 0.728 |
 
 (θ≥0.9: HiGHS reports numerical trouble; not used.) The one-window column
-reproduces the model threshold 1/2 (W1). **For two windows the full LP finds a
+is positive at θ=1/2 on this grid (a model fact; it is *not* derived from W1, which uses
+switching — R29 M3).
+
+*Certified values (R29 m6).* The reviewer's `scripts/review_w2_lp.py` (own model build,
+HiGHS, then an **exact rational dual-feasibility check**, ρ to 40 digits; a dual y with
+`Σ_S y_S emb(S,C) ≤ [C=∅]` for all C proves `ν(∅) ≥ y·ρ` for every fake) gives CERTIFIED lower
+bounds on this grid: one window θ=0.5: **≥0.744128**; θ=0.6: **≥0.827541**; two windows
+θ=0.7: **≥0.497087**; θ=0.8: **≥0.728369**. The two-window θ=0.6 fake is *not* certified
+(the 203-column support re-solved at 40 digits has negative entries). Since visible sets grow
+with θ, min ν(∅)/τ is nondecreasing in θ; with Prop 3.7 this makes θ_2∈(0.5,0.7] CERTIFIED
+on the grid ε=0.1, K=8, while θ_2∈(0.6,0.7] remains EVIDENCE. **For two windows the full LP finds a
 fake at θ=0.5 and 0.6**, although block fakes reach only ≈40–45% of the target mass (MC).
 The optimal fake at θ=0.6 removes the target and rearranges one-window
 pair configurations (P,∅) and (∅,Q). It does not need (P,Q) mass.
