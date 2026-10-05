@@ -36,9 +36,11 @@ Case A. I explain why Case B cannot be handled Case-A-style by this argument.
 * Per-cell Thorner–Zaman (OMEGA8 v1) pays the ℓ¹ mass; Gallagher transfer pays
   only `𝔼|B|/𝔼B`.
 * §4.6 (Assessment, worth a look): Bonferroni + the same Gallagher transfer
-  would be *better* by `log T·log(NT)` for codegree-spread systems, but its
-  cost is governed by `𝔼C(N,j)`, not by `S, w_ℓ`; a "hub" example forces
-  depth `≍ q₀/k` for that method. BRW has no codegree hypothesis — this is
+  would be *better* by `≈ log(NT)` for codegree-spread systems, but its
+  cost is governed by `𝔼C(N,j)`, not by `S, w_ℓ`; a multi-hub example
+  (`3k ≤ H ≤ q₀/100` hubs) forces depth `≳ q₀/k` for that method (heuristic
+  Poisson computation; the first single-hub version was wrong and was
+  replaced after self-review). BRW has no codegree hypothesis — this is
   the real reason the sandwich wins (matches [SN]'s "factorial in levels").
 * Jacobsthal/covering literature (Iwaniec, FKMPT, FFKPY, Hough, BBMST): all
   Haar-side or integer statements; only Costello–Watts/FGKMT/FKMPT are in
@@ -54,7 +56,9 @@ Case A. I explain why Case B cannot be handled Case-A-style by this argument.
   `m ≠ 4` (ET Prop 2.6's proof looks numerator-independent).
 * **Cor 5.3 (generic witness families):** any `R(M)` of unit classes with
   `1 ∉ R(M)` and mass `S^♮(T) = Σ_{M≤T}Σ_{r∈R(M)} gcd(M,r−1)/φ(M) ≤ ℒ^α` has
-  `W_R(p) ≥ exp(c(log p)^{1/(α+3)})` i.o. ES is `α = 4`(+log) → `1/7`.
+  `W_R(p) ≥ exp(c(log p)^{1/β})` i.o., `β = max(α+3, 5)` (the floor 5 comes
+  from the `log m_a` term in `k₀`; fixed after self-review). ES is
+  `α = 4`(+log) → `1/7`.
 * **Cor 5.4 (prime Jacobsthal-type, composite moduli)** with an honest scope
   paragraph: for `k = 1` / monotone ("`d | p+h`") events, sieves are far
   better; for `S ≤ 1/3` the union bound suffices; the theorem's range is
@@ -72,3 +76,13 @@ Most delicate points: Step 1 (atoms vs. LLL on original events), Step 6
 (target class `a ≠ 1` in the transfer proof, Case A with `χ₁(a') = −1`),
 Lemma 1.2's use of the conditional LLL on the subfamily, and the claim in §2
 Step 3 that [SN] `lem:tail` holds for arbitrary (non-cell) events.
+
+## Self-review (deep reviewer subagent) — applied
+Fixed: Cor 5.3 exponent (`β = max(α+3,5)`); hub example (single hub was
+refuted by `B₁ = 1 − N`; now multi-hub); empty events excluded; (Tw)
+criteria stated as sufficient only; Chebotarev comparison (discriminant vs
+conductor); small-`Q` qualifier for sieve claims; non-unit-class wording;
+toy-output misreport; script cutoff handling. Confirmed sound by the
+reviewer: Steps 1/3 (arbitrary events, atom count, DNF width), Step 6
+(general target class, `χ₁(a') = −1`, aux prime, `log Z`), Lemmas 1.2/3.2,
+Cor 1.3 arithmetic, Cor 5.2.

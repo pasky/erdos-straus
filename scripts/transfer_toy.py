@@ -119,7 +119,7 @@ def run(seed, t):
             break
     return dict(seed=seed, atoms=ma, S=sum(len(vs) / np.prod([shape[i] for i in s]) for s, vs in events),
                 delta=round(delta, 4), gap=round(gap, 5), A=round(np.abs(B).mean() / B.mean(), 4) if B.mean() > 0 else None,
-                max_twist=round(worst, 3), least_p=p if delta > 0 else None)
+                max_twist=round(worst, 3), least_p=(p if p < 10**7 else "not found") if delta > 0 else None)
 
 if __name__ == "__main__":
     for seed in range(6):

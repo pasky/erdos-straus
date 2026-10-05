@@ -18,7 +18,7 @@ with Landau–Page (= [SN] Thms `thm:G`, `thm:xz`), Håstad's switching lemma
   `n` coprime to `ℓ`. **Haar measure** `ℙ`: the `X_ℓ` independent uniform on
   `G_ℓ` (= the uniform measure on units mod `∏ ℓ^{e_ℓ}`).
 * A *congruence event* `E` is a nonempty set `supp E ⊆ 𝒫` with `|supp E| ≤ k`
-  together with an **arbitrary** subset of `∏_{ℓ∈supp E} G_ℓ`; equivalently a
+  together with an **arbitrary nonempty** subset of `∏_{ℓ∈supp E} G_ℓ`; equivalently a
   set of unit classes modulo `d_E = ∏_{ℓ∈supp E} ℓ^{e_ℓ}`. An integer `n`
   coprime to `d_E` *lies in* `E` if `(X_ℓ(n))_{ℓ∈supp E} ∈ E`.
   Typical case: `E = {n ≡ b (mod d)}` with `d | ∏ℓ^{e_ℓ}`, `gcd(b,d)=1`,
@@ -56,7 +56,8 @@ log p ≤ C₇ · ( log Q + (3k+2t)·log T + 1 ),
 number of events (only `log m_a ≤ k log(NT)+1` enters), or the size of `∏ℓ^{e_ℓ}`; no single-value,
 codegree, or Siegel-zero hypothesis is needed. Coprimality: events are sets of
 *unit* classes; a non-unit class `n ≡ b (d)`, `g = gcd(b,d) > 1`, contains no
-prime `> T ≥ g` and may simply be deleted. Moduli must be supported on free
+prime `> T` (a prime in it is divisible by, hence equal to, a prime
+factor of `g`, and those are free primes, hence `≤ T`) and may simply be deleted. Moduli must be supported on free
 primes (prime-power parts dividing `Q` must first be decided by the target
 class — the "survival" reduction of [SN] §2).
 
@@ -88,8 +89,8 @@ atom). The local lemma is used only through `δ ≥ δ_L` and (Tw), which are
 properties of `F`; so the LLL weights are attached to the *original* events,
 while the sandwich below runs over atoms. Splitting into single values is
 needed for exactly one step: [SN] `lem:brw` requires, for `u_j` a function of
-the coordinates off `supp C_j`, that conditioning on `C_j` *fixes* those
-coordinates (so `F^{(j)}` is defined and `𝔼[A_j e_j²] = ℙ(C_j)𝔼(F^{(j)}−u_j)²`).
+the coordinates off `supp C_j`, that conditioning on `C_j` *fixes* the
+coordinates inside `supp C_j`, leaving the others uniform (so `F^{(j)}` is defined and `𝔼[A_j e_j²] = ℙ(C_j)𝔼(F^{(j)}−u_j)²`).
 Its cost is `log m_a ≤ k log(NT) + 1` in `k₀`.
 
 **Step 2 (sandwich).** With `A_j = 1_{C_j}`, `F_{<j} = ∏_{i<j}(1−A_i)`,
@@ -176,7 +177,7 @@ verbatim with `δ_L` replaced by *any* `δ_* ∈ (0, δ]` in `k₀` (still assum
 *Proof.* In the proof of Lemma 1.2 the first chain gives
 `|𝔼[Fψ]| ≤ 𝔼[F'·ℙ_{X_{ℓ₀}}(Forb)] = 𝔼F' − 𝔼F = δ^{(ℓ₀)} − δ ≤ δ/5`. ∎
 (Lemma 1.2 is the special case where the local lemma certifies this.) So
-(Tw) says: *no single free prime carries more than a 1/6 share of the
+(Tw) is implied by: *no single free prime carries more than a 1/6 share of the
 avoidance constraint.* It is a Haar statement, checkable exactly by computer
 for toy systems (`scripts/transfer_toy.py`, §6).
 
@@ -240,8 +241,10 @@ primes) is much larger than the local complexity.
 **4.2 Least prime in a union of classes / Chebotarev** *[memory]*
 (Lagarias–Montgomery–Odlyzko 1979; Thorner–Zaman 2017 explicit). The set
 avoiding the system is a union of classes mod `Q·D₀`, i.e. a union of
-Frobenius classes in `ℚ(ζ_{QD₀})/ℚ`. These bounds are powers of the
-discriminant/conductor, hence again `log p ≪ log(QD₀)`; we do not know a
+Frobenius classes in `ℚ(ζ_{QD₀})/ℚ`. LMO-type bounds are powers of the
+*discriminant*; for cyclotomic fields `log d_L ≍ φ(q) log q`, so they give only
+`log p ≪ φ(QD₀)log(QD₀)` — worse than Linnik. Conductor-based (abelian, Hecke
+= Dirichlet) versions give `log p ≪ log(QD₀)`. We do not know a
 version of them whose exponent improves with the *structure* (bounded-width
 events) of the set rather than its density. We could not check whether such
 structure-sensitive bounds exist in the literature.
@@ -267,7 +270,7 @@ any such lower bound `δ_*` can be fed into Theorem 1.1 — subject to (Tw), to
 working on units (non-unit classes deleted; the *unit* density is what
 matters), and to `k ≤ log₂ X`, `T ≤ X` for moduli `≤ X`. We did not check the
 exact hypotheses/forms of these density bounds, so we state no corollary
-quoting them; Cor. 5.3 below states the generic form with `δ_*` as input.
+quoting them; Remark 3.1 is the generic form with `δ_*` as input.
 
 **4.5 Independence side.** The sandwich is Bazzi/Razborov; "polylog
 independence fools DNF/AC⁰" (Bazzi, Razborov, Braverman) *[memory]*. The
@@ -367,7 +370,7 @@ Reduction (`lem:system`(iv)) uses Lemma 5.1(i),(ii) in place of
 *Remarks.* (a) For `m = 4` this is [SN] Thm 1 (the hard-prime condition
 `p ≡ 1 (840)` is automatic as `840 | lcm(1..ℒ²)`). (b) The only `m`-specific
 inputs are Lemma 5.1 and the `κ = m` case of ET Prop 1.4; the `log(1+κ)` factor
-there makes the constants polynomial in `log m` (not tracked). (c) As for
+affects the `m`-dependence of the constants, which we do not track. (c) As for
 `m = 4`, this is an Ω-result for *one explicit family*; it says nothing about
 solvability of `m/p` (other representations may exist). The heuristic
 truth for `m = 4` is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7); we have not
@@ -383,8 +386,8 @@ S^♮(T) = Σ_{M ≤ T} Σ_{r ∈ R(M)} gcd(M, r−1)/φ(M).
 **Corollary 5.3 (proved modulo G+H).** If `S^♮(T) ≤ (log T)^α` for all large
 `T` (some fixed `α ≥ 0`), then for every large `T` there is a prime
 `p ≡ 1 (mod lcm(1..⌊(log T)²⌋))`, `p > T`, with `W_R(p) > T` and
-`log p ≪_α (log T)^{α+3}/log log T`. Hence
-`W_R(p) ≥ exp(c_α (log p log log p)^{1/(α+3)})` ≥ `exp(c(log p)^{1/(α+3)})`
+`log p ≪_α (log T)^β/log log T`, where `β = max(α+3, 5)`. Hence
+`W_R(p) ≥ exp(c_α (log p log log p)^{1/β})` ≥ `exp(c(log p)^{1/β})`
 for infinitely many primes. If only `log S^♮(T) ≤ σ(T)`, then
 `log log p ≤ σ(T) + O(log log T)`.
 
@@ -398,8 +401,9 @@ of `lem:qmass`). Iterated quarantine (`lem:iterq`, verbatim) gives `Π` with
 `n mod M ∈ R(M)`, `M ≤ T`, then `r := n mod M ≡ 1 (m_Π)`; `r_Π = 1` would give
 `1 ∈ R(M)`; so `n` lies in a surviving event. Corollary 1.3 with
 `Q = Q_Π`, `a = 1`: `log p ≪ (π(z) + k²S^♮)ℒ + kℒ²(S^♮ + kℒ)
-≪ ℒ^{α+3}/log ℒ` (`α ≥ 0`; the `π(z)ℒ ≪ ℒ³/log ℒ` term is dominated). Then
-`ℒ^{α+3} ≫ log p·log ℒ ≫ log p·log log p`. ∎
+≪ ℒ^{α+3}/log ℒ + ℒ⁵/(log ℒ)² ≪ ℒ^β/log ℒ` (the `π(z)ℒ ≪ ℒ³/log ℒ` term is
+dominated; the `ℒ⁵` term is `kℒ²·kℒ`, from `log m_a` in `k₀`, and dominates
+for `α < 2`). Then `ℒ^β ≫ log p·log ℒ ≫ log p·log log p`. ∎
 
 *Remarks.* (i) ES: `R(M) = {−4D : D | A_M²}` for `M ≡ 3 (4)` (empty
 otherwise). The proof of [SN] `lem:qmass` bounds exactly `S^♮`:
@@ -433,11 +437,11 @@ factor `q ≡ 1 (4)`, `q ∈ (y,T]`, of `p + h` (`k = 1`, `R_q = {−h}`).
 with Brun–Titchmarsh already gives a prime with `log p ≪ log Q + k log T`
 (for large `Q` the Linnik-range lower bound for `π(x;Q,a)` may lose a
 Siegel factor; not pursued); Corollary 5.4 is only of
-interest for `S ≫ 1`, where the avoiding set has density `e^{−Θ(S)}`.
+interest for `S ≫ 1`, where the avoiding set may have density as small as `e^{−Θ(S)}`.
 (b) For `k = 1` (instance 2, and any "`p + h_i` free of primes from a set"
 condition), the avoiding set is a sifted set and classical lower-bound sieves
 with Bombieri–Vinogradov (Halberstam–Richert-type almost-prime results,
-*[memory]*) give `p ≤ T^{O(1)}` for bounded `r`, i.e. `log p ≪ log T`, far
+*[memory]*) give, for small fixed `Q` and bounded `r`, `p ≤ T^{O(1)}`, i.e. `log p ≪ log T`, far
 better than `(log T)³`. *Monotone* events ("`d | p + h`") reduce to `k = 1`
 (avoid one prime factor of each `d`) and are likewise sieve territory.
 (c) The theorem's genuine range is **non-monotone, composite-modulus
@@ -460,11 +464,11 @@ on the local data; see §4 for what we could not check.
   `F − B = Σ_i A_i(Σ_{j<i}A_je_j)²`; `𝔼[F−B] ≤ m_a²Σ_jℙ(C_j)En(F^{(j)};t)`;
   `𝔼|B| ≤ 𝔼B + 2𝔼[F−B]`; and the Lemma 3.2 chain
   `|𝔼[Fψ]| ≤ δ^{(ℓ₀)} − δ` for all 31 real primitive `ψ` and all `ℓ₀ | f`.
-  Observed `A = 𝔼|B|/𝔼B ∈ [1, 1.23]` at `t = 1`, `= 1.000` at `t ≥ 2` (the
+  Observed `A = 𝔼|B|/𝔼B ∈ [1, 1.23]` at `t = 1`, `∈ [1, 1.0022]` at `t ≥ 2` (the
   toy has only 5 coordinates). Seed 2 has `max_ψ |𝔼[Fψ]|/δ = 1.0`: a width-1
   event forbidding both non-residues mod 5 puts `F` on `ψ₅ = +1` — (Tw)
-  fails there, as it must when one prime carries half the constraint
-  (`w₅ = 1/2`); this is the situation Lemma 3.2 excludes. The least-prime
+  fails there. Heavy local mass (`w₅ = 1/2`) can, but need not, break (Tw)
+  (forbidding `{1,2}` mod 5 keeps the quadratic twist 0); Lemmas 1.2/3.2 are sufficient conditions only. The least-prime
   column is a sanity check only (all systems are tiny).
 
 Replay:
