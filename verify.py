@@ -19735,4 +19735,88 @@ print("\n== (de) POINTWISE_TRANSFER §5.1: Lemma 5.1 (atoms, class of one, invol
 check_de()
 
 
+
+# ---------------------------------------------------------------- (df)
+# EXCEPTIONAL_SPW.md §3 (Lemma 3.1 + "Exact certificates"; cf. scripts/spw_local_cert.py,
+# review_spw_cert.py).  The certificate sigma <= 72/185 at N = 300, C = 2, e = 630 = 2*3^2*5*7,
+# D = N/2 = 150, embedded (scipy-free) as g = h/185 on Z/630 with h in {-1, 0, 1, 2} (runs below;
+# symmetric under x -> 302 - x).  Checked exactly:
+# (1) g lies in the span of the class indicators mod d | e, d <= D: g-hat(k) = 0 for every k with
+#     gcd(k, e) < e/D, i.e. gcd in {1, 2, 3}, tested as Phi_{e/c}(t) | sum_x h(x) t^(x mod e/c)
+#     (Galois conjugates); a one-point perturbation fails the test (control);
+# (2) the only divisor e' | e with e' > CN is e itself, so z = g^+ (point patches) and for every SPW
+#     measure R: sum_{n <= N} g(n) = <g, R> <= (1 - sigma) sum g^+, giving
+#     sigma <= 1 - sum_{n<=300} g(n) / sum_x g(x)^+ = 72/185 < 2/5;
+# (3) [scipy] scripts/spw_local_cert.py 300 2 630 re-derives the same exact bound from the LP.
+
+def check_df():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    from sympy import Poly, cyclotomic_poly, symbols
+    t0 = perf_counter()
+    N, C, e = 300, 2, 630
+    D = N // 2
+    runs = {1: [(2, 8), (12, 19), (24, 30), (69, 73), (128, 128), (134, 137), (139, 143), (146, 156), (159, 163),
+                (165, 168), (174, 174), (229, 233), (272, 278), (283, 290), (294, 300), (369, 378), (380, 389),
+                (398, 398), (417, 426), (429, 433), (499, 503), (506, 515), (534, 534), (543, 552), (554, 563)],
+            -1: [(309, 318), (614, 623)],
+            2: [(9, 11), (20, 23), (279, 282), (291, 293)]}
+    h = [0] * e
+    for val, rr in runs.items():
+        for a, b in rr:
+            for x in range(a, b + 1):
+                assert h[x] == 0
+                h[x] = val
+    assert all(h[x] == h[(302 - x) % e] for x in range(e)), "SPW certificate: symmetry x -> 302 - x"
+    t = symbols("t")
+    bad_c = [c for c in range(1, e + 1) if e % c == 0 and c * D < e]       # gcd(k, e) = c < e/D
+    assert bad_c == [1, 2, 3], ("SPW certificate: unexpected gcd list", bad_c)
+
+    def in_span(hv):
+        for c in bad_c:
+            m = e // c
+            coef = [0] * m
+            for x, v in enumerate(hv):
+                coef[x % m] += v
+            P = Poly(list(reversed(coef)), t)
+            if not P.rem(Poly(cyclotomic_poly(m, t), t)).is_zero:
+                return False
+        return True
+    assert in_span(h), "SPW certificate: g not in the span of classes mod d | e, d <= D"
+    h2 = list(h)
+    h2[0] += 1
+    assert not in_span(h2), "SPW certificate control: perturbed g should leave the span"
+    big = [d for d in range(1, e + 1) if e % d == 0 and d > C * N]
+    assert big == [e], ("SPW certificate: large divisors", big)
+    W = sum(h[n % e] for n in range(1, N + 1))
+    Z = sum(max(v, 0) for v in h)
+    bound = 1 - Fraction(W, Z)
+    assert bound == Fraction(72, 185) and bound < Fraction(2, 5), ("SPW certificate bound", W, Z, bound)
+    msg = "LP re-derivation skipped (no scipy)"
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+    if have_scipy:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "spw_local_cert.py")
+        spec = importlib.util.spec_from_file_location("spw_local_cert", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            b2 = mod.main(N, Fraction(C), e)
+        assert b2 == Fraction(72, 185), ("SPW spw_local_cert.py re-derivation", b2)
+        msg = "spw_local_cert.py re-derives 72/185 from the LP"
+    print(f"df SPW certificate at N = {N}, e = {e}: g in span (Phi_630, Phi_315, Phi_210 divisibility; control fails), "
+          f"sum_W g = {W}/185, sum g+ = {Z}/185 => sigma <= {bound} < 2/5; {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (df) EXCEPTIONAL_SPW §3: exact local certificate sigma <= 72/185 at N = 300, e = 630 ==")
+check_df()
+
+
 print("\nall checks passed")
