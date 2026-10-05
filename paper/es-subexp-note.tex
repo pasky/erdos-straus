@@ -680,6 +680,110 @@ $\E F'\le\delta/0.98$.  Altogether
 $|\mu_\psi|\le0.01\delta+0.0205\,\delta\le0.031\,\mu/0.99<\mu/4$.
 \end{proof}
 
+\section{The Efron--Stein tail via the switching lemma}\label{sec:tail}
+
+For $f:\{0,1\}^n\to\mathbb R$ write $f=\sum_{S\subseteq[n]}\hat f(S)\chi_S$ with
+$\chi_S(x)=(-1)^{\sum_{s\in S}x_s}$, and $\mathrm W^{\ge d}[f]=\sum_{|S|\ge d}\hat f(S)^2$.
+A \emph{$p$-random restriction} $\rho=(J,z)$ chooses each coordinate
+independently to be free (in $J$) with probability $p$, and fixes the others
+to independent uniform bits $z$.  The restricted function $f_\rho$ is a
+function of $x_J$.  $\DT(g)$ is the decision-tree depth of $g$.  A
+decision tree of depth $<s$ computes a function of Fourier degree $<s$.
+
+\begin{theorem}[Håstad's switching lemma {\cite{Hastad}}; cited in the form of {\cite[\S4.4]{OD}}]\label{thm:hastad}
+Let $f:\{0,1\}^n\to\{0,1\}$ be computed by a DNF of width at most $w$, and let
+$\rho$ be a $p$-random restriction.  Then $\Pr_\rho[\DT(f_\rho)\ge s]\le(5pw)^s$
+for every $s\ge0$.
+\end{theorem}
+
+Any absolute constant in place of $5$ would do.  We also use two classical
+facts.  (1) For fixed $J$ and $S\subseteq J$, the coefficient of $f_{(J,z)}$ at $S$
+is $\sum_{U\cap J=S}\hat f(U)\chi_{U\setminus J}(z)$.  By Parseval in $z$, therefore,
+$\E_z\big[\widehat{f_{(J,z)}}(S)^2\big]=\sum_{U\cap J=S}\hat f(U)^2$.  (2) A median of
+the binomial law $\mathrm{Bin}(n,p)$ is $\lfloor np\rfloor$ or $\lceil np\rceil$
+\cite{KB}, so $\Pr[\mathrm{Bin}(n,p)\ge\lfloor np\rfloor]\ge1/2$.
+
+\begin{lemma}[Fourier tail; proved modulo Theorem~\ref{thm:hastad}]\label{lem:tail}
+In the Setting of \S\ref{sec:brw}, let $\varphi$ be the avoidance indicator of
+a family of events, each on at most $k$ coordinates, on a set of $N'\le N$
+coordinates.  Let $b=\lceil\log_2(4NT)\rceil$ ($\log_2$ the binary
+logarithm).  Then for every integer $k_0\ge1$,
+\[
+ \energy\big(\varphi;\,10\,k\,b\,k_0\big)\ \le\ 4\cdot2^{-k_0}.
+\]
+\end{lemma}
+
+\begin{proof}
+If some event has empty support then $\varphi\equiv0$, and there is nothing to
+prove.  Otherwise:
+
+\emph{(a) Encoding.}  For each coordinate $\ell$ enumerate
+$G_\ell=\{g_0,\dots,g_{q-1}\}$ ($q=q_\ell\le T$) and put
+$\pi_\ell(u)=g_{\lfloor q\cdot\mathrm{int}(u)/2^b\rfloor}$ for $u\in\{0,1\}^b$, where
+$\mathrm{int}(u)\in[0,2^b)$ is the integer with binary digits $u$.  Each fibre
+$\pi_\ell^{-1}(g_a)$ corresponds to an interval of integers.  Since $2^b\ge q$,
+the fibre is nonempty, and it has $\lfloor2^b/q\rfloor$ or $\lceil2^b/q\rceil$
+elements.  An interval in $[0,2^b)$ is a disjoint union of at most $2b$
+dyadic intervals, i.e.\ of subcubes of $\{0,1\}^b$ given by fixing at most $b$
+bits.  Let $U=(U_\ell)$ be uniform on $(\{0,1\}^b)^{N'}$, put
+$\pi(U)=(\pi_\ell(U_\ell))_\ell$ and $\tilde\varphi=\varphi\circ\pi$.  The event
+$\{X_\ell=\sigma_\ell\ (\ell\in\supp E)\}$ pulls back to a conjunction over
+$\ell\in\supp E$ of disjunctions of conjunctions of at most $b$ literals in the
+bits of $U_\ell$.  Distributing, it is a DNF of width $\le kb$.  Hence
+$f:=1-\tilde\varphi$, the OR of these over all events, is a DNF of width
+$w\le kb$.
+
+\emph{(b) Concentration} (Linial--Mansour--Nisan \cite{LMN}).  Take
+$p=1/(10w)$ and $d=k_0/p=10wk_0$.  By Theorem~\ref{thm:hastad},
+$\Pr_\rho[\DT(f_\rho)\ge k_0]\le2^{-k_0}$.  Since
+$\mathrm W^{\ge k_0}[f_\rho]\le\E f_\rho^2\le1$ always, and
+$\mathrm W^{\ge k_0}[f_\rho]=0$ when $\DT(f_\rho)<k_0$, fact (1) gives
+\[
+ 2^{-k_0}\ \ge\ \E_\rho\mathrm W^{\ge k_0}[f_\rho]=\sum_U\hat f(U)^2\,\Pr[|U\cap J|\ge k_0]
+ \ \ge\ \tfrac12\sum_{|U|\ge d}\hat f(U)^2 .
+\]
+In the last step, $|U\cap J|\sim\mathrm{Bin}(|U|,p)$ and $\lfloor p|U|\rfloor\ge k_0$,
+so fact (2) applies.  As $\hat{\tilde\varphi}(U)=-\hat f(U)$ for $U\ne\emptyset$, the
+function $\tilde g=\sum_{|S|<d}\hat{\tilde\varphi}(S)\chi_S$ satisfies
+$\E(\tilde\varphi-\tilde g)^2\le2^{1-k_0}$.
+
+\emph{(c) Back to residues.}  Put $g(x)=\E[\tilde g(U)\mid\pi(U)=x]$.  The
+blocks $U_\ell$ are independent and $\pi$ acts blockwise.  Hence
+$\E[\chi_S(U)\mid\pi(U)=x]$ is the product over the blocks $\ell$ met by $S$ of
+$\E[\chi_{S\cap\text{block }\ell}(U_\ell)\mid\pi_\ell(U_\ell)=x_\ell]$, a function of
+fewer than $d$ coordinates.  So $g$ is a sum of functions of at most
+$d=10wk_0\le10kbk_0$ coordinates.  Let $\pi_*$ be the law of $\pi(U)$.  As
+$\tilde\varphi$ is a function of $\pi(U)$, Jensen gives
+$\E_{\pi_*}(\varphi-g)^2=\E\big[\E[\tilde\varphi-\tilde g\mid\pi(U)]^2\big]\le2^{1-k_0}$.
+Finally, the density of the uniform law relative to $\pi_*$ is
+$\prod_\ell2^b/(q_\ell|\pi_\ell^{-1}(x_\ell)|)\le\prod_\ell(1-q_\ell2^{-b})^{-1}\le
+(1-1/(4N'))^{-N'}\le4/3$.  So by \eqref{eq:energy},
+$\energy(\varphi;d)\le\E(\varphi-g)^2\le\frac43\cdot2^{1-k_0}\le4\cdot2^{-k_0}$.
+\end{proof}
+
+The width $kb$ enters $t$ only linearly.  Nothing about the events is used
+beyond their support size; in particular there is no codegree hypothesis.
+
+\begin{corollary}[Proved modulo Theorem~\ref{thm:hastad}]\label{cor:el}
+In the Setting of \S\ref{sec:brw} with $N\le T$, assume $w_\ell\le1/(64k)$ for all
+$\ell$.  Let
+\[
+ b=\lceil\log_2(4T^2)\rceil,\qquad
+ k_0=\big\lceil3S\log_2e+\log_2\big(400\,m^2(S+1)\big)\big\rceil,\qquad
+ t=10\,k\,b\,k_0 ,
+\]
+and define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  Then
+$\E[F-B]\le\delta/100$.
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:tail} to each $F^{(j)}$: it is the avoidance indicator of
+events on at most $k$ coordinates.  This gives
+$\energy(F^{(j)};t)\le4\cdot2^{-k_0}\le e^{-3S}/(100m^2(S+1))$.  By
+\eqref{eq:uj}, $\E[F-B]\le m^2S\,e^{-3S}/(100m^2(S+1))\le e^{-3S}/100$, and
+$\delta\ge e^{-2.2S}$ by Corollary~\ref{cor:lll}.
+\end{proof}
+
 %BODY
 
 \end{document}
