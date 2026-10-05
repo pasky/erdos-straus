@@ -150,3 +150,7 @@ one-line repair; with it, `W(p)≥exp(c(log p)^{1/4}(log log p)^{−1/4})` for i
 `log L_h(T)≪𝓛⁴log𝓛`, PROVED modulo (G), Nair–Tenenbaum and OMEGA10 Thm 3.4, is justified. I re-derived I1(a),
 I1(b), I2, I3, the ledger, and checked Lemma 3.1, property (I), the LLL bound, the twist inequality and the
 late-prime second moment numerically from scratch on toys (which cannot reach the asymptotic regime `Y≤T`).
+
+*Post-hoc comparison (read only after all verdicts above were committed).* reviews/pointwise-omega13-review-3.md
+(R48c) reaches the same verdicts independently: its m1 = my D1 (class at `ℓ_aux`), its m4 = my D2 (stale text);
+no FATAL/MAJOR in either review.
