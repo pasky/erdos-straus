@@ -83,6 +83,34 @@ def main():
             G.append(sp.kron(I[i], e_, format="csr"))
             G.append(sp.kron(e_, I[i], format="csr"))   # window 7 config i fixed
         G = sp.vstack(G).tocsr()
+    elif arg("swz") and not one:
+        # families F(q, C_q, Z): C_q fixed (!= empty), C_q' has no point in cell set Z.
+        # mode prefix: Z = cells [0, j) for j = 0..jmax (j=0: marginal caps);  mode all: every Z.
+        s = arg("swz").split(":"); Kcap = float(s[0]); mode = s[1] if len(s) > 1 else "prefix"
+        jmax = int(s[2]) if len(s) > 2 else K
+        p1 = mu1 / mu1.sum()
+        occ = np.array([[C[k] > 0 for k in range(K)] for C in W])
+        Zs = []
+        if mode == "prefix":
+            for j in range(jmax + 1):
+                Zs.append(np.arange(K) < j)
+        else:
+            import itertools
+            for bits in itertools.product([0, 1], repeat=jmax):
+                Zs.append(np.array(list(bits) + [0] * (K - jmax), dtype=bool))
+        I = sp.identity(nW, format="csr")
+        sel = [i for i in range(nW) if i != z]
+        G, b = [], []
+        for Z in Zs:
+            okZ = ~(occ & Z[None, :]).any(axis=1)
+            pz = p1 * okZ
+            e_ = sp.csr_matrix(pz.reshape(1, -1))
+            Ri = sp.csr_matrix((np.ones(len(sel)), (np.arange(len(sel)), sel)), shape=(len(sel), nW))
+            G.append(sp.kron(Ri, e_, format="csr")); G.append(sp.kron(e_, Ri, format="csr"))
+            b += [pz.sum()] * (2 * len(sel))
+        G = sp.vstack(G).tocsr(); b = np.array(b)
+        G = (sp.diags(1 / b) @ G).tocsr()
+        out_z = len(Zs)
     else:
         G = None
     c = np.zeros(n); c[j0] = 1
@@ -100,7 +128,7 @@ def main():
     if res.status == 0:
         res.x = res.x / cm; res.fun = res.x[j0]
     out = {"eps": eps, "K": K, "theta": theta, "vis": vis, "N": N, "one": one, "nW": nW, "cols": n,
-           "rows": A.shape[0], "swm": arg("swm"), "swpc": arg("swpc"), "cap": arg("cap"),
+           "rows": A.shape[0], "swm": arg("swm"), "swz": arg("swz"), "swpc": arg("swpc"), "cap": arg("cap"),
            "status": int(res.status), "msg": res.message[:60]}
     if res.status == 0:
         x = res.x

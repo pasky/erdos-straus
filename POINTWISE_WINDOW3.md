@@ -117,3 +117,40 @@ configurations `(C_3,∅)` and `(∅,C_7)` (pairs of window-3 bad primes, window
 A switched sieve on `n_3=m·r` cannot tell "n_7 clean" from "n_7 has two large bad primes",
 so (SW_K) cannot block this. Only a switched bound that *also sifts n_7 to a high level* can
 (§4).
+
+## 4. Switched bounds that also sift the other window
+
+### 4.1 Families and their real constants
+For window q, a fixed `C_q≠∅` and a set Z of cells, the family
+`F(q,C_q,Z)={(C_q,C_{q'}): C_{q'} has no point in Z}` is exactly what a switched upper sieve
+can bound: sift `E_q` for primality of `p` *and* sift `n_{q'}=mr+(q'−q)/4` by the q'-bad primes
+in Z. Constraint: `ν(F)≤K(Z)μ(F)`. (`Z=∅`: the marginal caps of §3; `Z`=all cells: per-config
+cap on `(C_q,∅)`.) `--swz=K:prefix` uses `Z=[ε,ζ)` for every cell edge ζ; `--swz=K:all:j`
+every subset of the first j cells.
+
+Real constants, prefix `Z=[ε,ζ)` (`scripts/window3_kz.py 0.1 8`): compose the linear upper
+sieve for primality at level `x^{θ_1}` (constant `2/θ_1`) with Iwaniec's semi-linear upper sieve
+for `n_{q'}` at level `x^{θ_2}`, `θ_1+θ_2=1/2`:
+`K(ζ)=min_{θ_2}(2/θ_1)F_{1/2}(θ_2/ζ)/σ_even(ζ)`, `F_{1/2}(s)=2(e^γ/(πs))^{1/2}` on `(0,2]`
+(the function consistent, via the β-sieve delay equations, with the f(s) quoted in
+Teräväinen (6.4); F_{1/2}(3)=1.0037, F_{1/2}(4)=1.0001), σ_even(ζ)=model truth relative to
+`V(x^ζ)` (≈1.00 for ζ≤0.42, 1.13 at 0.56). Result: K(ε)=4 (the marginal, fundamental lemma taken
+as free), **K(0.133)=8.1, K(0.178)=9.3, K(0.237)=10.8, K(0.316)=12.4, K(0.422)=14.1,
+K(≥0.56)=14.7** (optimum θ_2=1/6 throughout). A joint Selberg Λ² of mixed dimension would do
+somewhat better (for ζ≥1/4 its constant is `4Γ(5/2)e^{γ/2}(4ζ)^{1/2}/σ ≈ 7.1(4ζ)^{1/2}/σ`), but
+no sieve can beat the prime-pair constant: **every K(Z)≥4 at BV level** with present technology
+(≥3.4 if Wu-type improvements transferred, §5). (Assessment: these are standard sieve-constant
+computations; the semi-linear F is derived, not read in a primary source.)
+
+### 4.2 LP with generous uniform constants (ε=0.1, K=8, θ=1/2)
+Giving *every* family the same constant K (far more generous than §4.1):
+
+| families | K=1.2 | K=2 | K=2.5 | K=3 | K=4 |
+|---|---|---|---|---|---|
+| prefix Z (all ζ, incl. ζ=1) | 0.720 | 0.084 | 0 | 0 | 0 |
+| all Z ⊂ first 6 cells | — | — | — | — | 0 |
+
+(0 = fake, residual ≤2e-8; positive values: primal only, dual not certified.)
+**So even if every switched family — sifting the other window to any depth — were bounded
+with the prime-pair constant 4 (or 2.5), Type-I + parity + switching would not prove a single
+two-window failure in this model.** Threshold for uniform constants: `K*∈(2,2.5)`.
