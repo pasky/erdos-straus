@@ -210,3 +210,46 @@ theorem `y ∼ π(y) log π(y) ∼ (1/(2 log 2)) log x·log log x`. Every split
   i.e. congruences on p modulo `hD` up to `h·p` (Lemma 1.1). GRH gives
   equidistribution of primes ≤x only to moduli `≤x^{1/2−o(1)}`. Section 4
   quantifies why this (and even Elliott–Halberstam) is insufficient.
+
+## 4. Goal (1): what a proof of `ck_min ≥ g(p)·n_p` (g→∞) must do
+
+Throughout, p is hard with `n_p=n`, and `1<G<n`.
+
+**Proposition 4.1 (the exact event list; PROVED).** `ck_min(p)>G·n` iff
+for every slice in
+
+```
+𝓤_p(G) = { (qc', k) : q a non-residue prime mod p, q∤c', every prime of sf(c') a residue mod p, qc'k ≤ G n }
+```
+
+and every j with `p < 4qc'k·j ≤ p+√N`, `(4qc'k·j − p) ∤ 4qc'j²+1`.
+
+*Proof.* Lemma 8.1's computation gives `χ_s(p)=(−1/p)∏_{ℓ|s}(ℓ/p)`, so the
+unforced slices are those whose core has an odd number of non-residue
+primes; all non-residues are `≥n`, and `ck≤Gn<n²` allows exactly one, to
+the first power. Forced slices vanish (notes Thm 48.1). For unforced ones
+apply Lemma 1.1 and the `D↔N/D` pairing (only `D≤√N` is needed). ∎
+
+So beyond `n_p` the event is a conjunction, over
+`|𝓤_p(G)| ≍ Σ_{q nonres, n≤q≤Gn} (Gn/q)log(Gn/q)` slices, of
+"`p²+4ck²` has no divisor `≤√N≈p` in the class `−p mod 4ck`".
+
+**Proposition 4.2 (every hard class has primes with `ck_min=n_p`; PROVED,
+a sharpening of POINTWISE_OMEGA Prop 8.3).** Let `24|L` and let `a mod L` be
+reduced with `a≡1 (24)`. Then infinitely many primes `p≡a (L)` satisfy
+`ck_min(p)=n_p`. Consequently no finite congruence combination B (as in
+POINTWISE_OMEGA Cor 8.4) with `0≤B(p)≤1[ck_min(p)>G·n_p]` for all large
+primes `p≡1 (24)` can be positive anywhere, for any `G≥1`: congruence input
+gives exactly the factor `g=1`, and every gain `g>1` needs factorisation
+input on the unforced slices.
+
+*Proof.* Let ℓ be the least prime `≥5` with `ℓ∤L` or `(a/ℓ)=−1` (it exists
+since L is finite). Run the proof of POINTWISE_OMEGA Prop 8.3 with this ℓ:
+it produces infinitely many primes `p≡a (L)`, `p≡c_0 (4ℓ)` with
+`(c_0/ℓ)=−1`, and `M_{ℓ,1}(p)≥1`, so `ck_min(p)≤ℓ`. For such p:
+`(ℓ/p)=(p/ℓ)=(c_0/ℓ)=−1`; for primes `5≤ℓ'<ℓ` we have `ℓ'|L`, `(a/ℓ')=1`,
+so `(ℓ'/p)=1`; and `(2/p)=(3/p)=1`. Hence `n_p=ℓ`, and
+Lemma 8.1 gives `ck_min(p)≥n_p=ℓ`. So `ck_min(p)=n_p`. For the consequence:
+B is L'-periodic; if `B(a)>0` on a reduced class `a mod L'` (necessarily
+`a≡1 (24)` if it contains large hard primes), the first part gives primes
+in it with `ck_min=n_p≤G·n_p`, contradicting `B≤1[ck_min>G n_p]`. ∎
