@@ -19048,4 +19048,226 @@ print("\n== (cz) POINTWISE_OMEGA10: Lemma 3.2, Thm 3.4 (QM), C-1 / Lemma 3.1 (bi
 check_cz()
 
 
+
+# ---------------------------------------------------------------- (da)
+# POINTWISE_OMEGA11.md §§1-2 (cf. scripts/omega11_filtration.py, review_o11b_filtration.py,
+# review_o11a_toy.py, omega11_graded.py, review_o11a_graded.py).  Exact integer arithmetic.
+# (1) Lemma 1.1 (digit-filtration C-1): on random digit systems (<= 3 "primes", <= 3 digits
+#     each, digits uniform on [2] or [3], events fixing initial digit segments, rational lam
+#     with prod_l lam_l^(2 v_l(E)) <= 2) G'_F = sum_U prod_l lam_l^(1 + max U_l) ||F^{=U}||^2 <= 1,
+#     also for conditioned systems (F of events 2.. restricted to event 1's cylinder, absolute
+#     digit weights; Remark (ii)); and the proof identity G'_F = sum_V mu'^V ||L_V F||^2 over
+#     selections V (tail-block projections P_{>=j}).
+# (2) Graded-quarantine toy (exact Haar on fibres n = 1 (l^a) mod l^f, l in {3,5,7,11}):
+#     Lemma 2.1 fibre probabilities 1/phi(l^v) (a = 0), l^-(v-a) (a >= 1); fibre uniformity /
+#     independence by CRT on {n mod 1800 : n = 1 (Q)}; if every event has sum_{l in supp} w_l <= 1/8
+#     then P(no event) >= prod(1 - 2P(E)) (exact).
+# (3) Lemma 2.2 (atomic iteration, T = 3000, c = 1/8 and 1/64): at the end every surviving event
+#     has sum_{l in supp} w_l <= c log M / log T; each raise satisfies the charging inequality
+#     log l < L w_l / (c(a+1)) with w_l <= sum_{v_l(M) > a} s(M,D), P(E) <= s(M,D) = g/M prod l/(l-1)
+#     (Lemma 2.1); log(Q/840) <= (L/c) sum s(M,D) h(M), h(M) <= log2 tau(M).
+
+def check_da():
+    from time import perf_counter
+    import random as _random
+    import numpy as np
+    t0 = perf_counter()
+    rng = _random.Random(5411)
+    F1 = Fraction(1)
+    LAMS = [F1, Fraction(17, 16), Fraction(9, 8), Fraction(6, 5), Fraction(5, 4), Fraction(4, 3)]
+
+    def es_scaled(F, U, qs):
+        # prod_v q_v * F^{=U} as an exact integer array (q_v E_v = sum over axis v)
+        g = F.astype(np.int64)
+        for v, q in enumerate(qs):
+            s = g.sum(axis=v, keepdims=True)
+            g = (q * g - s) if U >> v & 1 else np.broadcast_to(s, g.shape).copy()
+        return g
+
+    def gprime(F, digs, qs, lam):
+        n, size = len(digs), F.size
+        den = size * prod(qs) ** 2
+        G = Fraction(0)
+        for U in range(1 << n):
+            e = int((es_scaled(F, U, qs) ** 2).sum())
+            if e == 0:
+                continue
+            w = F1
+            mx = {}
+            for b, (l, i) in enumerate(digs):
+                if U >> b & 1:
+                    mx[l] = max(mx.get(l, -1), i)
+            for l, i in mx.items():
+                w *= lam[l] ** (i + 1)
+            G += w * Fraction(e, den)
+        return G
+
+    def sel_form(F, digs, qs, lam, P):
+        # sum over selections V = {(l, j_l)} of mu'^V ||L_V F||^2, L_V = prod P_{>=j}
+        size = F.size
+        tot = Fraction(0)
+        levels = [[None] + sorted(i for (ll, i) in digs if ll == l) for l in range(P)]
+        for sel in cartesian_product(*levels):
+            g, scale, w = F.astype(np.int64), 1, F1
+            for l, j in enumerate(sel):
+                if j is None:
+                    continue
+                w *= lam[l] ** (j + 1) - (lam[l] ** j if j > 0 else 1)
+                axes = tuple(b for b, (ll, i) in enumerate(digs) if ll == l and i >= j)
+                m = prod(qs[b] for b in axes)
+                g = m * g - np.broadcast_to(g.sum(axis=axes, keepdims=True), g.shape)
+                scale *= m
+            if w:
+                tot += w * Fraction(int((g ** 2).sum()), size * scale ** 2)
+        return tot
+
+    nsys = ncond = nid = 0
+    worst = Fraction(0)
+    for trial in range(500):
+        P = rng.randint(1, 3)
+        f = [rng.randint(1, 3) for _ in range(P)]
+        q = [rng.choice([2, 3]) for _ in range(P)]
+        digs = [(l, i) for l in range(P) for i in range(f[l])]
+        qs = [q[l] for (l, i) in digs]
+        if prod(qs) > 400:
+            continue
+        lam = [rng.choice(LAMS) for _ in range(P)]
+        events = []
+        for _ in range(rng.randint(1, 6)):
+            supp = [l for l in range(P) if rng.random() < 0.6] or [rng.randrange(P)]
+            v = {l: rng.randint(1, f[l]) for l in supp}
+            if prod((lam[l] ** (2 * v[l]) for l in supp), start=F1) <= 2:
+                events.append({(l, i): rng.randrange(q[l]) for l in supp for i in range(v[l])})
+        if not events:
+            continue
+        grids = np.indices(qs)
+        cond = trial % 3 == 2 and len(events) >= 2
+        F = np.ones(qs, dtype=np.int64)
+        for val in (events[1:] if cond else events):
+            hit = np.ones(qs, dtype=bool)
+            for d, c in val.items():
+                hit &= grids[digs.index(d)] == c
+            F[hit] = 0
+        if cond:
+            idx = tuple(events[0].get(d, slice(None)) for d in digs)
+            keep = [b for b, d in enumerate(digs) if d not in events[0]]
+            if not keep:
+                continue
+            F, digs, qs = F[idx], [digs[b] for b in keep], [qs[b] for b in keep]
+        G = gprime(F, digs, qs, lam)
+        assert G <= 1, ("OMEGA11 Lemma 1.1 G' <= 1 violated", cond, f, q, lam, events, G)
+        worst = worst if cond else max(worst, G)
+        nsys += 1
+        ncond += cond
+        if not cond and trial % 4 == 0:
+            assert sel_form(F, digs, qs, lam, P) == G, ("OMEGA11 Lemma 1.1 proof identity (selections)", f, q, events)
+            nid += 1
+    assert nsys >= 320 and ncond >= 60 and nid >= 60, ("OMEGA11 (1): too few systems", nsys, ncond, nid)
+
+    # (2) graded quarantine toy, exact Haar
+    def fibre(l, fl, a):
+        m = l ** fl
+        return [x for x in range(m) if x % l] if a == 0 else [x for x in range(1, m, l ** a)]
+
+    PR = [3, 5, 7, 11]
+    ntoy = nlll = 0
+    for trial in range(600):
+        prs = rng.sample(PR, rng.randint(1, 3))
+        fl = {l: rng.randint(1, 3 if l <= 5 else 2) for l in prs}
+        a = {l: rng.randint(0, fl[l] - 1) for l in prs}
+        fib = {l: fibre(l, fl[l], a[l]) for l in prs}
+
+        def Pr(l, v, r):
+            return Fraction(sum(1 for x in fib[l] if x % l ** v == r), len(fib[l]))
+        for l in prs:
+            for v in range(a[l] + 1, fl[l] + 1):
+                r = rng.choice(fib[l]) % l ** v
+                pred = Fraction(1, l ** (v - 1) * (l - 1)) if a[l] == 0 else Fraction(1, l ** (v - a[l]))
+                assert Pr(l, v, r) == pred, ("OMEGA11 Lemma 2.1 fibre probability", l, fl[l], a[l], v)
+        ev = []
+        for _ in range(rng.randint(1, 8)):
+            e = []
+            for l in rng.sample(prs, rng.randint(1, len(prs))):
+                v = rng.randint(a[l] + 1, fl[l])
+                e.append((l, v, rng.choice(fib[l]) % l ** v))
+            ev.append(e)
+        Ps = [prod((Pr(l, v, r) for l, v, r in e), start=F1) for e in ev]
+        w = {l: sum((p for e, p in zip(ev, Ps) if any(x[0] == l for x in e)), Fraction(0)) for l in prs}
+        ntoy += 1
+        if max(sum(w[x[0]] for x in e) for e in ev) > Fraction(1, 8):
+            continue
+        good = tot = 0
+        for pt in cartesian_product(*(fib[l] for l in prs)):
+            X = dict(zip(prs, pt))
+            tot += 1
+            good += not any(all(X[l] % l ** v == r for l, v, r in e) for e in ev)
+        assert Fraction(good, tot) >= prod((1 - 2 * p for p in Ps), start=F1), ("OMEGA11 LLL toy", ev, good, tot)
+        nlll += 1
+    assert nlll >= 70, ("OMEGA11 (2): too few LLL toy systems", nlll)
+    for a3 in range(3):
+        for a5 in range(3):
+            Q, N = 8 * 3 ** a3 * 5 ** a5, 8 * 9 * 25
+            cnt = Counter((n % 9, n % 25) for n in range(1, N, Q) if gcd(n, N) == 1)
+            fib2 = [fibre(3, 2, a3) if a3 < 2 else [1], fibre(5, 2, a5) if a5 < 2 else [1]]
+            assert set(cnt) == set(cartesian_product(*fib2)) and len(set(cnt.values())) == 1, \
+                ("OMEGA11 CRT fibre uniformity", a3, a5)
+
+    # (3) Lemma 2.2, atomic iteration
+    T = 3000
+    L = log(T)
+    atoms = []
+    for M in range(3, T + 1, 4):
+        fM = factorint(M)
+        A = (M + 1) // 4
+        h = sum(sum(Fraction(1, i) for i in range(1, e + 1)) for e in fM.values())
+        tau = prod(e + 1 for e in fM.values())
+        assert h <= log(tau, 2) + 1e-12, ("OMEGA11 h(M) <= log2 tau(M)", M)
+        euler = prod(Fraction(p, p - 1) for p in fM)
+        for D in divisors_of_square(A):
+            g = gcd(M, 4 * D + 1)
+            assert g < M, ("OMEGA11 Fact 1.1: M | 4D+1", M, D)
+            atoms.append((M, fM, D, float(euler * g / M), float(h)))
+    results = []
+    for c in (1 / 8, 1 / 64):
+        a = {3: 1, 5: 1, 7: 1}
+        rounds = 0
+        while True:
+            rounds += 1
+            w, surv = {}, []
+            for M, fM, D, s, h in atoms:
+                if any((4 * D + 1) % p ** min(e, a.get(p, 0)) for p, e in fM.items()):
+                    continue
+                supp = [(p, e) for p, e in fM.items() if e > a.get(p, 0)]
+                if not supp:
+                    continue
+                pr = prod((1 / ((p - 1) * p ** (e - 1)) if a.get(p, 0) == 0 else p ** (-(e - a[p])) for p, e in supp))
+                assert pr <= s * (1 + 1e-12), ("OMEGA11 Lemma 2.1 P(E) <= s(M,D)", M, D, a)
+                surv.append((M, supp))
+                for p, e in supp:
+                    w[p] = w.get(p, 0.0) + pr
+            viol = [p for p, x in w.items() if x > c * (a.get(p, 0) + 1) * log(p) / L
+                    and a.get(p, 0) < int(L / log(p))]
+            if not viol:
+                break
+            for p in viol:
+                ap = a.get(p, 0)
+                ssum = sum(s for M, fM, D, s, h in atoms if fM.get(p, 0) > ap)
+                assert w[p] <= ssum * (1 + 1e-12) and log(p) < L * w[p] / (c * (ap + 1)), \
+                    ("OMEGA11 Lemma 2.2 charging step", c, p, ap)
+                a[p] = ap + 1
+        for M, supp in surv:
+            assert sum(w[p] for p, e in supp) <= c * log(M) / L + 1e-12, ("OMEGA11 Lemma 2.2 (LLL)", c, M)
+        logQ = log(8) + sum(e * log(p) for p, e in a.items())
+        bound = (L / c) * sum(s * h for M, fM, D, s, h in atoms)
+        assert logQ - log(840) <= bound, ("OMEGA11 Lemma 2.2 (cost)", c, logQ, bound)
+        results.append(f"c = 1/{round(1 / c)}: {rounds} rounds, log Q = {logQ:.0f} <= 6.7 + {bound:.0f}")
+    print(f"da Lemma 1.1: {nsys} digit systems ({ncond} conditioned) G' <= 1 exactly (max unconditioned {float(worst):.4f}), "
+          f"selection identity on {nid}; toy: {ntoy} fibre systems, LLL bound on {nlll}, CRT 9 cases")
+    print(f"da Lemma 2.2 (T = {T}, {len(atoms)} atoms): " + "; ".join(results) + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (da) POINTWISE_OMEGA11: Lemma 1.1 digit-filtration C-1, graded quarantine toy, Lemma 2.2 ==")
+check_da()
+
+
 print("\nall checks passed")
