@@ -13,7 +13,7 @@ Status: checkpoint 1 (2026-10-05), not yet reviewed.
 | # | statement | label |
 |---|---|---|
 | Lemma 1.2 | both windows F1-clean ⟺ `n,n+1` are primitive norms from `Q(√−3)`, `Q(√−7)` (an FI09-type quadric) | PROVED |
-| Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary | PROVED (mod BV/EH) |
+| Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary. Jointly only `(+,+)` vs `(+,−)` (not all four classes; R29 M1) | PROVED (mod BV/EH) |
 | Lemma 3.2, 3.6 | two-block and product fakes in the Type-I+parity model 𝒯𝒫(θ) | Model-PROVED |
 | §3.2 | one window: fakes for θ<1/2; no block fake at θ=1/2 | Model-PROVED |
 | §3.3–3.4 | block/tree fakes reach only ≈43% of target at θ=1/2 | EVIDENCE (MC) |
@@ -75,9 +75,18 @@ same main term and `Σ_{d≤x^{1/2}(log x)^{-B}}|r^±_d|≪x/(log x)^A` (BV). Ye
 
 Hence no argument that uses only the sieve data (at any level D at which both
 satisfy the remainder bound, so `D≤x^{1−ε}` under EH) can prove that window 3
-fails. A proof must use `(p/3)=+1`, i.e. Lemma 1.2's parity. The same holds jointly for windows
-3 and 7 with the four sign classes `((p/3),(p/7))`; three of them have no
-both-clean element.
+fails. A proof must use `(p/3)=+1`, i.e. Lemma 1.2's parity.
+
+*Joint version (restricted after review R29, M1).* For windows 3 and 7 jointly,
+the four sign classes `((p/3),(p/7))` do **not** all have identical joint sieve data:
+3 is window-7 bad (`(3/7)=−1`) and `3|n_7=(p+7)/4` for *every* p with `(p/3)=−1` and for
+*no* p with `(p/3)=+1`, so `|A_{d_1·3}|` separates `(p/3)=−1` from `+1`. The joint
+barrier holds only for the pair `(+,+)` vs `(+,−)` (sets `{p≤x: p≡1 (8), p≡1 (5), (p/3)=+1,
+(p/7)=±1}`): these have identical joint data
+`|A_{d_1,d_2}|` (main terms equal by the same BV argument; `3∤n_7` and `5∤n_3n_7` in both),
+and `(+,−)` has no both-clean element since `(−1)^{Ω_7^−(n_7)}=(p/7)`. (Reviewer
+check `scripts/review_w2_p1joint.py 3e6`: same zero pattern at `3|d_2`, `5|d_2`, noise-level
+differences elsewhere; (+,−): 0 both-clean of 3417.)
 *Proof.* For `p≡1 (8)`, `n_3` is odd, and `n_3≡p·4^{−1}≡p (3)`. By Lemma 1.2 of
 POINTWISE_WINDOW, `(−1)^{Ω_3^−(n_3)}=(p/3)`. Conditions mod 8, 3, 35 and `d|n_3`
 (i.e. `p≡−3 (d)`, `(d,840)=1`) are independent residue conditions, so BV applies
