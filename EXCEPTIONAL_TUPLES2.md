@@ -182,8 +182,10 @@ fractional part `{(N+1)/q}` (≈ ½ on average over N, Assessment) below that.
 These are the Kubilius truncation and rounding effects of the single
 integer `n + 1`. The floor deficit has the same order of magnitude as the
 forced-zero mass: the number of j-sets of primes of 𝒬 with product
-`≤ N+1` at `j = ⌊log(N+1)/log y⌋` is `≥ (|𝒬|−j)^j/j! = N·exp(−(log N)^{1−θ/2+o(1)})`
-in the TC_θ calibration, again `≫ Nη_K` for θ > 2/3.
+`≤ N+1` at `j = ⌊log(N+1)/log y⌋ ≤ |𝒬|` is `≥ (|𝒬|−j)^j/j!`, which in the
+TC_θ calibration is `≥ N·exp(−(log N)^{1−θ/2+o(1)})` (as `y^j ≥ (N+1)/y`
+loses only `exp((log N)^{θ/2})` and `θ/2 < 1 − θ/2`), again `≫ Nη_K` for
+θ > 2/3.
 
 **Assessment 3.2 (literal TC_θ is false for every θ ∈ (2/3, 1); heuristic).**
 By (1.3) and Cor 2.3, TC_θ holds only if the admissible u₀-tuples
@@ -351,7 +353,13 @@ test parameters (`K` = first even integer ≥ e²μ_y):
 
 (`data/tuples2/forced_*.txt`.) So the class −1 forced zeros alone violate
 the TC precision by factors 10³–10⁵ at these parameters; the multi-form
-tuples would have to compensate.
+tuples would have to compensate. Caveat (R24-D6): T1 §5(c) found that
+even the `rand` control fails the TC test for y ≥ 300, so at toy scale
+exceeding η_K is not ES-specific, and toy data cannot show that the
+compensation is absent beyond noise. The statement here concerns a
+deterministic CRT mass. (Consistent with Ass. 3.2: at (10⁸, 1000), j = 8,
+the observed T1 deficit, 0.90%, has the same sign as and exceeds the
+pure-(1,1) forced-zero share `Z^{(1,1)}_8/e_8 = 2.1·10⁻³`.)
 
 **(b) The T1 §5(b) moment deficits are an initial-segment effect.** Ratios
 `S_j/(N e_j)` at N = 10⁷, y = 1000 (`data/tuples2/translates_1e7_1000.txt`):
