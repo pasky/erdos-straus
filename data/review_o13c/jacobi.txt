@@ -1,0 +1,7 @@
+atoms with M<=40000: 363982; Lemma3.1(b) failures 0; (a) failures 0; consequence failures 0
+unit squares mod 840: [1, 121, 169, 289, 361, 529] == Mordell list: True
+Q=840: #r=6, #real chars listed=32, #(2-torsion)=32
+Q=9240: #r=30, #real chars listed=64, #(2-torsion)=64
+Q=163800: #r=540, #real chars listed=64, #(2-torsion)=64
+Q=9896040: #r=15120, #real chars listed=128, #(2-torsion)=128
+real-char(r)!=1 failures: 0
