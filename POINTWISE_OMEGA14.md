@@ -259,7 +259,7 @@ minorant is known, and the natural candidate (Bonferroni on big primes, restrict
 lives outside the level-D space and has `log A≍μ`. Whether `log A·log Z≫𝓛^4/polylog` holds for
 all level-D minorants is **open** (target O49b). So "1/4 is the ceiling of minorant-based
 transfers" is an **Assessment**, proved only for dense minorants (mean `≥e^{−c𝓛^4/(log𝓛)²}`
-relative to the fibre).
+relative to the fibre). *[Superseded: §4, Thm 4.5/Cor 4.6 close this loophole within the scope stated there.]*
 
 **Numerics (`scripts/omega14_planting.py`, `data/omega14/planting.txt`).** (1) Lemma 1.1's
 explicit ν verified in exact rationals on 100 random instances satisfying (1.1), 25 for each

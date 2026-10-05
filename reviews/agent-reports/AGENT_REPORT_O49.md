@@ -95,3 +95,33 @@ Replay: `PYTHONPATH=scripts uv run --with scipy python scripts/omega14_planting.
   to transfers requiring `log x≳log Z` and stated as a limit on the certified bound. Minors
   fixed: the surrogate weight in Lemma 4.4, the Gallagher prefactor and `ε≤0.05/c`, `9/8+o(1)`,
   the heading, the O9 §1 reference, and section numbering.
+
+## Checkpoint 3 (R49/R49b repairs, applied by O55)
+
+Reviews: R49 (`reviews/pointwise-omega14-review.md`, §§1–3) and R49b
+(`reviews/pointwise-omega14-review-2.md`, §4). Neither found a FATAL or MAJOR defect. All minors are
+applied in POINTWISE_OMEGA14.md, one commit each. No new mathematics.
+
+* **D1.** Deleted the stale duplicate §5/§4 copy (pre-self-review Cor 4.6).
+* **m1 (Thm 1.3).** Added a remark: only finitely many b have `p_b>0`; `dν/dP≤2`, so `B≤F` a.e.
+  suffices and integrability is preserved; measurability.
+* **m2 (§2 numerics).** The toy-LP values 1.1/1.8/3.0 are now called grid values. R49's
+  bisected thresholds 1.11/1.25/2.51 are cited.
+* **m3 (Cor 2.5).** Selberg/β-sieve/Bonferroni are blocked only "when used as dense minorants".
+* **m4 (§0, after Thm 2.6).** The dense-minorant obstruction needs
+  `log(1/δ_fibre)≤c″𝓛^4/(log𝓛)²` (true on O13's fibre by I1(a)).
+* **m5 (Lemma 2.3).** Added a separate bound on the unconditional
+  `w_ℓ=Σ_{ℓ(E)=ℓ}P(E)≤T^{−0.49}`; the display now uses T^{−0.49}.
+* **D2 (Lemma 4.3).** The (G) error terms are written separately for (G-a) no exceptional
+  zero and (G-b) exceptional zero (no κ in the exponent), as in O9 §1. Both are `≤x/16` for small ε.
+* **D3 (Lemma 4.3/4.4).** `τ(q'')/q''≤q''^{−0.95}≤4𝓛^{−1.8}`, via the divisor bound `τ(m)≤m^{1/20}`.
+* **D4 (Cor 4.6).** For O9-type transfers, `log Q≤T^{0.05}` is vacuous (`log x≥C_2log Z≥log Q`),
+  so the corollary covers every fibre.
+* **D5 (Cor 4.6 "Not claimed").** Added three exclusions: transfers whose positivity comes from
+  the Siegel-zero term rather than `E_Haar B>0`; minorants of unbounded O14-level; and
+  majorant/minorant mixtures.
+* **Status bookkeeping.**
+  * §0 now points to §4 for the sparse case.
+  * Prop 2.7's scope note is marked superseded.
+  * The §5 table is updated with Cor 4.6's scope "(positivity from `E_Haar B>0`, transfer needs
+    `log x≫log Z`)", and the header now reads CHECKPOINT 3.
