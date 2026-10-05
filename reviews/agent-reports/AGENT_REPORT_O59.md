@@ -1,4 +1,8 @@
-# AGENT REPORT O59 — H_LS∞ for forced families via sparsity (checkpoint 1)
+# AGENT REPORT O59 — H_LS∞ for forced families via sparsity (checkpoint 1, post-review)
+
+Review R59 (`reviews/exceptional-largesieve3-review.md`): no FATAL; Thm 1.1,
+Lemma 2.1, Thm 3.1, Lemma 4.1 SOUND. MAJOR D1 (equivalence → sufficiency),
+D2 (Rem 1.1(a) scope) and minors D3–D7 applied in the document and below.
 
 Branch `side-agent/hls-sparse`. Document: `EXCEPTIONAL_LARGESIEVE3.md`.
 Script: `scripts/largesieve3_checks.py` (EVIDENCE only; replay in the doc).
@@ -24,20 +28,29 @@ Script: `scripts/largesieve3_checks.py` (EVIDENCE only; replay in the doc).
    modulus has at most one prime factor `> exp((log N)^{1/4})` (any number
    of smaller primes, any modulus size, no B), **every** CRT-admissible
    large sieve — any rational frequencies, any denominators, any level —
-   saves `≤ C(log N)^{3/4}(log log N)³`. This strictly extends LS Cor 4.2
-   (ET Cor 3.4 slices) and closes (E1) for all frequencies whose
-   high level comes from primes `≤ exp((log N)^{1/4})`.
-4. **§4: the exact residual.** H_LS∞ for forced families ⇔ (H_rough): a
+   saves `≤ C(log N)^{3/4}(log log N)³`. This extends the **scope** of LS
+   Cor 4.2 (no `q₀ ≤ ℓ^C`, no `ℓ₀'`) at the price of `(log log N)³`; on
+   Cor 4.2's own families it is weaker. What is closed (R59 D2): (i) all
+   frequencies for rough-slice mixtures; (ii) for arbitrary mixtures, the
+   frequencies with z-smooth denominators only, provided every fibre
+   `𝒜_c` (c in supp π_s) is nonempty. Mixed frequencies in general
+   mixtures are **not** closed (they need a fibre-wise K2-type comparison,
+   unproved; part of (H_rough)).
+4. **§4: a sufficient residual condition.** The cap over forced families
+   ⇐ (H_rough) (sufficiency only; no converse is proved — R59 D1): a
    correlation-decay statement for the fibre measures at primes
    `> exp((log N)^{1/4})`, needed only for classes with **≥ 2** such
    primes. Lemma 4.1 (two-copy form, PROVED): it suffices to have product
    decay of the two-copy correlations `P_S = E_{σ⊗σ}Π_{ℓ∈S}h_ℓ` and of the
-   sup `s_S`. Lemma 4.2 (PROVED): the symmetric LLL/Kotecký–Preiss route
-   fails for forced families because of **residue concentration** — the
+   sup `s_S`. Lemma 4.2 (PROVED computation; the conclusion about the
+   symmetric route is Assessment, R59 D3): the plain Kotecký–Preiss
+   criterion for the class-polymer model fails because of **residue
+   concentration** — the
    class `−4 mod M` lies in ℛ(M) for every `M ≡ 3 (4)`, so the
    conditional mass at residue −4 mod p is `≍ (log N)^{3/4}`, not small,
-   although the average mass is `p^{−1+o(1)}`. Any proof must use the
-   top-prime (sequential) order or average over residues. §4.3
+   although the average mass is `p^{−1+o(1)}` (moduli `≤ N^A`, R59 D4).
+   This suggests the top-prime (sequential) order or averaging over
+   residues; other polymer models are not excluded. §4.3
    (Assessment): every one-step operator bound we tried (Young,
    Riesz–Thorin, global Hausdorff–Young) loses; the π-average must stay
    inside the `ℓ^{p'}` norm.
@@ -57,9 +70,12 @@ Script: `scripts/largesieve3_checks.py` (EVIDENCE only; replay in the doc).
 (D)27 candidate: "Large sieve over mixtures: small primes cost only density
 (LS3 Thm 1.1, Lemma 2.1); rough-slice mixtures (≤ 1 prime above
 `exp((log N)^{1/4})` per modulus) capped at `C(log N)^{3/4}(log log N)³`
-for every large sieve (Thm 3.1). PROVED (internal, unreviewed). H_LS∞
-reduced to (H_rough) for classes with ≥ 2 rough primes; symmetric cluster
-expansion obstructed by residue concentration (Lemma 4.2)."
+for every large sieve (Thm 3.1); for arbitrary mixtures, frequencies with
+z-smooth denominators are capped when all fibres are nonempty. PROVED
+(internal; review R59 SOUND; Case A via ElT Prop 1.4). The general cap is
+**implied by** (H_rough) (CONJECTURE) for classes with ≥ 2 rough primes;
+the plain KP criterion is defeated by residue concentration (Lemma 4.2;
+consequence Assessment)."
 
 Points for a hostile reviewer: Theorem 1.1's HY step with a non-uniform
 base (density factor exactly ρ, via `(p−1)p'/p = 1`); Lemma 2.1's use of
