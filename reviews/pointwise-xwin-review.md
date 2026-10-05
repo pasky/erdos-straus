@@ -150,3 +150,43 @@ acknowledged; the "not a new frontier" label is honest.
 * **MINOR-5** (Lemma 2.1 Remark): "(e.g. the squares, a prime)" — the lower bound
   `2^{−k}` holds for all `a≡3 (4)` via `ker(·/a)`; worth saying since §2 is
   applied to composite a.
+
+## §1.3 census (EVIDENCE) — reproduced exactly
+
+`scripts/review_xw_census.py` (own sieve, own Rat enumeration, both targets −1
+and −p, admissibility `p∤x_a`) reproduces every entry of the §1.3 table
+bit-for-bit at `x=10^6,10^7,10^8` (e.g. `10^8`: 289372, 54226, 18868, 11250,
+5125, 1742; normalised 0.229, 0.184, 0.275, 0.703, 1.375, 2.006). "Flat within
+9%" ✔ (worst: Z=19, 1.313→1.427, 8.7%). Runtime 6 s.
+
+## §3 — Goals 2–4, Proposition 3.2
+
+* **§3.1 (Goal 2).** "Almost every W1 prime has `a_min=7`" follows from
+  `T(x,7)≪x/(log x)^2=o(|𝒲_1|)` ✔ (inherits W1's "modulo cited sieve theorems");
+  W2 analogue on EH with `T(x,11)≪x/(log x)^{5/2}` ✔. The "≤N/(log N)^A for every A"
+  deduction ✔. "Not a finite union of classes" ✔ (a density-1 finite union of
+  classes is cofinite in `p≡1 (24)`, contradicted by W1).
+* **Prop 3.2: SOUND as scoped.** Jensen with weights `δ_a/D`:
+  `Σδ_a log u_a≤D log(ℒ/D)≤ℒ/e` ✔. The scope paragraph is honest; the statement
+  is essentially a one-line inequality about a chosen majorant shape, and the
+  label "PROVED (scope limited)" is acceptable.
+* **§3.2** is explicitly "no theorem" ✔.
+* **MINOR-6** (§3.3, GRH and EH bullets): these are unlabeled claims. The GRH
+  bullet is a proof sketch I find plausible (with `y=ℒ^C`, need `C>2θ` both for
+  `(J+1)MJ/y=o(1)` and for the GRH error `φ(a)y^{−1/2}log y→0`); the EH bullet
+  ("levels beyond X carry no information about integers ≤X") is an Assessment
+  about this argument only. Repair: label both "Assessment (sketch)" and record
+  the constraint `C>2θ`.
+
+## Cross-checks of citations / priority
+
+* notes Lemma 12.1 (many-root large sieve): statement and proof as used ✔.
+* notes Lemma 12.5: same second moment as Lemma 2.1 ✔ ("= up to presentation" fair).
+* notes Thm 70.9 is for **prime** a only; Thm 1.2 covers composite a too (new) ✔.
+* notes Cor 71.4 / (71.26): uses prime moduli 3,7,11,19,23,31 and exponents
+  `δ_J`; the author's comparisons (`T(N,11)`: 3/2 vs 23/30; `T(N,23)`: 3 vs
+  859/990 for the extra exponent) are like-for-like on the counted event
+  (`a_1(p)>a_J` is implied by `a_min>a_J`) ✔. The improvement claim is correct.
+* notes Thm 14.9: `θ_*=log3/(1+log3)=0.5234946…` ✔; priority acknowledged ✔.
+* External sieve theorems for W1/W2 were not re-read here (outside scope; see
+  POINTWISE_WINDOW review).
