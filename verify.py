@@ -18130,4 +18130,158 @@ print("\n== (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census
 check_ct()
 
 
+# ---------------------------------------------------------------- (cu)
+# POINTWISE_OMEGA9.md (cf. scripts/omega9_charcheck.py, review_o9b_chars.py, review_o9b_exponents.py).
+# (1) Thm 1.1 character expansion, from scratch on a toy with prime-power moduli: Q = 5,
+#     D = 8*9*7 = 504, B = sum_i c_i 1[n = b_i (d_i)] (24 random cells d_i | D, real c_i of both
+#     signs); f = B 1[n = 1 (Q)] on (Z/QD)^*, c(chi) = phi(QD)^-1 sum f conj(chi).  Checks:
+#     item 0 c(chi_Q chi_D) = E_D[B conj chi_D]/phi(Q); item 1 c != 0 => cond chi_D | some d_i;
+#     item 2 |c| <= E_D|B|/phi(Q), c(chi_0) = mu/phi(Q); item 3 real chi, chi_D nontrivial induced
+#     by psi: c = mu_psi/phi(Q) with mu_psi = sum_{f | d_i} c_i psi(b_i)/phi(d_i); chi -> chi*
+#     injective; S(x) = sum_chi c(chi) theta_QD(x; chi) exactly (x = 20000).
+# (2) Lemma 2.1: B <= F, 0 <= F <= 1 => E|B| <= E B + 2 E[F - B] (random arrays).
+# (3) Case A: lambda = 1 - x^(beta-1)/beta >= min(u,1)/2 for log x >= 16, u = (1-beta) log x
+#     (grid; doc: min ratio 1.215).
+# (4) Exponent bookkeeping (Assessment arithmetic, constants 1, C_H = 5; review_o9b_exponents.py):
+#     Thm 2.2 log log Z/log L decreases towards 7 under ET (S* = L^4 log L); Thm 2.3 with
+#     log S* = log 2 L/log L: log2 p/(L/log L) -> log 2 (O8 Thm 4.4 had 2 log 2).
+
+def check_cu():
+    from time import perf_counter
+    import numpy as np
+    import random as _random
+    t0 = perf_counter()
+    rng = _random.Random(9)
+
+    def phi(n):
+        return prod((p - 1) * p ** (e - 1) for p, e in factorint(n).items())
+
+    def pp_chars(p, e):                      # all characters mod p^e as tables over 0..p^e-1
+        m = p ** e
+        if p == 2:                           # (Z/8)^* = <-1> x <5> (e = 3)
+            assert e == 3
+            logs = {(-1) ** a * pow(5, b, m) % m: (a, b) for a in range(2) for b in range(2)}
+            return [{n: (-1) ** (a * s) * (-1) ** (b * t) for n, (a, b) in logs.items()}
+                    for s in range(2) for t in range(2)]
+        o = phi(m)
+        g = next(g for g in range(2, m) if g % p and len({pow(g, k, m) for k in range(o)}) == o)
+        logs = {pow(g, k, m): k for k in range(o)}
+        return [{n: cmath.exp(2j * cmath.pi * k * t / o) for n, k in logs.items()} for t in range(o)]
+
+    Q, DPP = 5, [(2, 3), (3, 2), (7, 1)]
+    D = prod(p ** e for p, e in DPP)
+    N = Q * D
+    facs = [(Q, 1)] + DPP
+    mods = [p ** e for p, e in facs]
+    tabs = [pp_chars(p, e) for p, e in facs]
+    U = [n for n in range(N) if gcd(n, N) == 1]
+    UD = [n for n in range(D) if gcd(n, D) == 1]
+    G = len(U)
+    idxs = list(cartesian_product(*[range(len(t)) for t in tabs]))
+    assert len(idxs) == G == phi(N)
+    X = np.array([[prod(tabs[f][ix[f]][n % mods[f]] for f in range(4)) for n in U] for ix in idxs])
+    XD = np.array([[prod(tabs[f][ix[f]][n % mods[f]] for f in range(1, 4)) for n in UD] for ix in idxs])
+    divD = [d for d in range(2, D + 1) if D % d == 0]
+    cells = [(1, 0, 1.0)]
+    for _ in range(24):
+        d = rng.choice(divD)
+        cells.append((d, rng.choice([b for b in range(d) if gcd(b, d) == 1]), rng.gauss(0, 1)))
+    Bf = lambda n: sum(c for d, b, c in cells if n % d == b % d)
+    BD = np.array([Bf(n) for n in UD])
+    mu, EabsB = BD.mean(), np.abs(BD).mean()
+    assert abs(mu - sum(c / phi(d) for d, b, c in cells)) < 1e-12
+    fv = np.array([Bf(n) * (n % Q == 1) for n in U])
+    cdir = X.conj() @ fv / G
+    pred = XD.conj() @ BD / len(UD) / phi(Q)
+    assert np.abs(cdir - pred).max() < 1e-12, ("OMEGA9 Thm 1.1 c(chi) = E_D[B conj chi_D]/phi(Q)", np.abs(cdir - pred).max())
+    assert np.abs(cdir).max() <= EabsB / phi(Q) + 1e-12, "OMEGA9 item 2 |c| <= E|B|/phi(Q)"
+    r0 = idxs.index((0, 0, 0, 0))
+    assert abs(cdir[r0] - mu / phi(Q)) < 1e-12, "OMEGA9 item 2 c(chi_0)"
+    Ua = np.array(U)
+    divN = [f for f in range(1, N + 1) if N % f == 0]
+    UDa = np.array(UD)
+    nnz = nreal = 0
+    prims = set()
+    for r in range(G):
+        fchi = next(f for f in divN if np.allclose(X[r][Ua % f == 1 % f], 1))
+        fD = next(f for f in divN if D % f == 0 and np.allclose(XD[r][UDa % f == 1 % f], 1))
+        assert fD == fchi // gcd(fchi, Q)
+        vals = {}
+        for n, v in zip(U, X[r]):
+            vals.setdefault(n % fchi, complex(np.round(v, 8)))
+        prims.add((fchi, tuple(sorted(vals.items(), key=lambda kv: kv[0]))))
+        if abs(cdir[r]) > 1e-12:
+            nnz += 1
+            assert any(d % fD == 0 for d, b, c in cells) and fchi <= Q * max(d for d, b, c in cells), ("OMEGA9 item 1", r, fchi)
+        if np.allclose(X[r].imag, 0) and not np.allclose(XD[r], 1):
+            nreal += 1
+            psi = {}
+            for n, v in zip(UD, XD[r]):
+                psi.setdefault(n % fD, v.real)
+            mupsi = sum(c * psi[b % fD] / phi(d) for d, b, c in cells if d % fD == 0)
+            assert abs(cdir[r] - mupsi / phi(Q)) < 1e-12, ("OMEGA9 item 3 c = mu_psi/phi(Q)", r)
+    assert len(prims) == G, "OMEGA9 chi -> chi* injective"
+    x = 20000
+    pos = {n: j for j, n in enumerate(U)}
+    lhs = 0.0
+    theta = np.zeros(G, complex)
+    for p in primerange(2, x + 1):
+        if N % p:
+            theta += X[:, pos[p % N]] * log(p)
+            if p % Q == 1:
+                lhs += Bf(p) * log(p)
+    rhs = cdir @ theta
+    assert abs(rhs - lhs) < 1e-7 * max(1, abs(lhs)), ("OMEGA9 S(x) expansion", lhs, rhs)
+
+    # (2) Lemma 2.1
+    nprng = np.random.default_rng(21)
+    for _ in range(200):
+        F = nprng.random(500) * (nprng.random(500) < 0.6)
+        B = F - nprng.random(500) ** int(nprng.integers(1, 6)) * nprng.random()
+        if B.mean() > 0:
+            assert np.abs(B).mean() <= B.mean() + 2 * (F - B).mean() + 1e-12, "OMEGA9 Lemma 2.1"
+
+    # (3) Case A lambda bound
+    worst = 1e9
+    for lx in (16, 17, 20, 30, 50, 100, 1e3, 1e6):
+        for k in range(-160, 41):
+            u = 10 ** (k / 40)
+            if u >= 0.9 * lx:
+                continue
+            beta = 1 - u / lx
+            lam = 1 - exp(-u) / beta
+            worst = min(worst, lam / (min(u, 1) / 2))
+    assert 1.2 < worst < 1.23, ("OMEGA9 Case A lambda >= min(u,1)/2", worst)
+
+    # (4) bookkeeping
+    def lse(*xs):
+        mx = max(xs)
+        return mx + log(sum(exp(t - mx) for t in xs))
+
+    def loglogZ(L, logS):                    # Thm 2.2 terms of review_o9b_exponents.py, in log space
+        k = max(1, int(L // log(L * L)))
+        b = ceil(2 + 2 * L / log(2))
+        logm = (k + 2) * L
+        logk0 = lse(logS + log(3 / log(2)), log(log(400) / log(2) + 2 * logm / log(2) + logS / log(2) + 1))
+        logd = log(20 * k * b) + logk0
+        return lse(log(L) + log(L * L / log(L * L)), log(64 * k * k * L) + logS, log(4),
+                   log(2 * (3 * k + 1) * L), log(4 * L) + logd)
+    r22 = [loglogZ(10.0 ** e, log(10.0 ** (4 * e) * log(10.0 ** e))) / log(10.0 ** e) for e in (3, 6, 12, 24, 60)]
+    assert all(a > b > 7 for a, b in zip(r22, r22[1:])) and r22[-1] < 7.1, ("OMEGA9 Thm 2.2 exponent 7", r22)
+    r23 = []
+    for e in (8, 20, 80):
+        L = 10.0 ** e
+        r23.append(loglogZ(L, log(2) * L / log(L)) / (L / log(L)))
+    assert all(abs(r - log(2)) < 1e-3 for r in r23), ("OMEGA9 Thm 2.3 rate log 2", r23)
+    print(f"cu Thm 1.1 on (Z/{N})^*: {G} characters, c(chi) = E_D[B conj chi_D]/phi(Q), {nnz} nonzero (cond | d_i), "
+          f"|c| <= E|B|/phi(Q) (A = {EabsB / mu:.2f}), {nreal} real twists = mu_psi/phi(Q), chi* injective, S(20000) exact")
+    print(f"cu Lemma 2.1 (200 random); Case A min lambda/(min(u,1)/2) = {worst:.3f}; log log Z/log L = "
+          + ", ".join(f"{v:.3f}" for v in r22) + " (L = 1e3..1e60, -> 7); Thm 2.3 log2 p/(L/log L) = "
+          + ", ".join(f"{v:.4f}" for v in r23) + f" -> log 2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cu) POINTWISE_OMEGA9: Thm 1.1 character coefficients, Lemma 2.1, Case A, exponent bookkeeping ==")
+check_cu()
+
+
 print("\nall checks passed")
