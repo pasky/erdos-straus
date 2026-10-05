@@ -267,6 +267,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * **PROVED modulo Gallagher's theorem (G) and Elsholtz–Tao Prop 1.4** (internal). Two independent hostile reviews, both SOUND: `reviews/pointwise-omega9-review.md` (Thm 1.1 and the (G) quotation, checked against the archived MV III text) and `reviews/pointwise-omega9-review-2.md` (coefficient identity brute-forced, Lemma 2.1, interface with OMEGA8, exponent chain). Gallagher's original paper was not obtained; MV III is an unpublished draft (its proof of 28.19 has visible slips; the statement is the standard Gallagher 1970 Thm 7 shape).
     * Bottleneck now: the junta term `d𝓛` in `log Z` (about 860× `log Q_Π`), i.e. the bit-width/switching-lemma degree; then the quarantine `log Q_Π`, which with `z=𝓛²` is ≳ `𝓛³/log 𝓛`, so this route cannot pass ≈1/3 (the heuristic truth is `log W ≍ (log p)^{1/3}`). OMEGA8 §6 (1/13, ceilings for the old transfer, Prop 6.6 `S ≫ 𝓛²` modulo a standard BV lower bound) reviewed in `reviews/pointwise-omega8-review-3.md` and repaired.
 
+20. **Two windows and parity (POINTWISE_WINDOW2.md).** Unconditional `a_min(p) ≥ 11` was **not** reached. Proved / certified:
+    * Both windows 3 and 7 are F1-clean iff `n, n+1` are primitive norms from `ℚ(√−3)`, `ℚ(√−7)` — an FI09 (hyperbolic-PNT) shaped quadric (Lemma 1.2, PROVED).
+    * Thm P1 (PROVED, necessity modulo BV resp. EH): the sign classes `(p/3)=±1` have identical sieve data and the −1 class never has window 3 clean, so parity input is necessary (Selberg's example realised by primes); jointly only `(+,+)` vs `(+,−)`.
+    * In a discrete model of Type-I correlations of level θ plus parity (coarse heuristic law, ε=0.1, K=8), there is a fake with no both-clean mass at θ=1/2 (Prop 3.7, CERTIFIED in the model, re-solved at 60 digits by the reviewer); the two-window threshold lies in (0.5, 0.7] (CERTIFIED on the grid). So Type-I + parity at BV level does not yield two windows in the model. Relevance to real sieves is weak EVIDENCE only.
+    * Model indication (not about primes): Chen-type switching caps with constant K* ∈ (2.5, 2.75] on large-prime configurations would restore positivity, versus a recalled known switched-count constant ≈3.4 (§§6–7.1). A follow-up (POINTWISE_WINDOW3, in progress) is testing this with a faithful model.
+    * Labels as stated; review `reviews/pointwise-window2-review.md` (no FATAL; M1–M4 and minors applied by a repair agent).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
