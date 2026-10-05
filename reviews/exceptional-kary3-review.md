@@ -111,3 +111,47 @@ Diffed against K2 Thm 5.1's proof (K2 l. 463–509): the only place
 `(E M_{V_i} + 4d_i)/d_i ≤ 16K₃′16^i + 4` ✓ and the ledger sums to
 `Cλ^{3/4} + O(log²λ)` ✓. Base (K2 Lemma 2.3) and leak (K2 Lemma 4.3) are
 independent of 𝔐 ✓. `y₀(W)` is absorbed into λ₀ ✓.
+
+### Thm 5.1 — SOUND (hard check (ii))
+EK Thm 4.1's induction (EK l. 262–288) uses the level only in "given h,
+`f = g_{j+1}(h,·)` is λ-level, ≥ 0", and (S_w) for that f. Re-derived for
+truncated level: under U the coordinates (base, `n mod ℓ^{E_ℓ}`) are
+independent by CRT, so `E_U[1[n≡b (d)] | H_{<j+1}]` is an indicator on
+the known coordinates of T = primes of d, times a constant; restricted to
+`V_j` it depends on `T ∩ V_j` only. Signs of the `a_i` are irrelevant
+(EK Lemma 2.2 needs only `f ≥ 0` and the decomposition `f = Σ_T f_T`).
+So 𝓕 is closed and the top block is `d₀`-local with `d₀ = ⌊λ/L₀⌋`
+(`|T ∩ V_top|·L₀ ≤ λ`). ✓
+* The top block may be arbitrarily wide: EK Thm 2.5 / Cor 2.6 are
+  arithmetic-free (no condition on the range of the block), and the
+  only arithmetic input is `m̄ = 𝔐(e^Λ) ≥ E[M_top|h]` (K2 §3, Step 1 of
+  EK Lemma 4.2′ holds for any block, the bound not using its lower end). ✓
+* Jensen over histories: `m ↦ log(C₀(m+4d)/d)` concave ✓, t chosen per
+  history before the block ✓.
+* Leak: per prime, increasing order ✓ (K2 Lemma 4.3 does not use the
+  block shapes).
+* Case `L₀ > λ/2`: the linear block `(e^{λ/2}, e^{L₀}]` is a subset of
+  K2's `(e^{λ/2}, e^λ]`; I did not re-open ETw Cor 4.3 (pointer-level;
+  same use as K2/EK). The top block then has `d₀ = 1` and pays the EK
+  price `≈ 2 log(C₀(K₃′Λ³+4))` — weaker than necessary but valid.
+* Arithmetic of the displayed bound: `2·[d₀log(C₀(K₃′Λ³+4d₀)/d₀) +
+  (4/3)d₀ + ½log(22d₀+22) + 3]` = the displayed terms ✓.
+
+### Cor 5.2 — SOUND
+Both term types have truncated level `≤ λ = Λ` with `L₀ = λ/k` ✓;
+`k > λ` (L₀ < 1): all primes `> W` in the top block, `d₀ = k` ✓;
+`k ≤ Λ³` ⇒ `log((K₃′Λ³+4k)/k) ≪ log Λ ≍_A log log N` ✓. Projection to
+the family lcm preserves `ν ≥ 1` on 𝒜 (𝒜 periodic mod the lcm) and Eν,
+and shrinks prime sets ✓.
+
+### Cor 5.3 — SOUND (statement and open window)
+Prime order of a k-fold intersection `≤ kr` ✓. If `kr > Λ³` the top-block
+term is `O(kr)`, so no size condition is needed ✓. Open-window algebra:
+`(kL)^{3/4} ≳ L^θ ⇔ k ≳ L^{4θ/3−1}` ✓; window nonempty only for r → ∞ ✓.
+Scope warning (moving cutoffs) is correct and important.
+
+### §6 — SOUND as a pointer-level corollary
+`(Σλ_S1[∩S])²` expands into single classes (or ∅) with moduli lcm's, level
+`≤ 2×` sieve level; `= 1` on avoiders ✓. Valid provided TW4's "level"
+dominates the K2 level (log of primes above W) — true for any
+product-of-moduli convention. Not re-checked against TW4's text.
