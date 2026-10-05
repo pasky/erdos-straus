@@ -138,3 +138,56 @@ every character is bounded by `E|B|/φ(Q)`, not by `M_1/φ(Q)`, and (G)
 controls all characters of conductor `≤Q_G` *simultaneously*, so the number
 of moduli `d_i` and the spectral size of B never multiply the zero-density
 error. The positivity of B is never used beyond `E|B| ≤ Aμ`.
+
+## 2. Application: exponent 1/7
+
+**Lemma 2.1 (BRW minorants are ℓ¹-tight; PROVED).** If `B≤F` pointwise,
+`0≤F≤1` and `E[F−B] ≤ η·E B`, then `E|B| ≤ (1+2η)E B`.
+
+*Proof.* `B^-:=max(−B,0) ≤ F−B` since `F≥0`; `E|B| = E B+2E B^-`. ∎
+
+**Theorem 2.2 (PROVED modulo (G), Thorner–Zaman's companion inputs used in
+O8 §3 — the local lemma, O2 Lemmas 4.3(I), 11.1–11.2 — and Elsholtz–Tao
+Prop 1.4).** For infinitely many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/7} );     uniformly  log L_h(T) ≪ (log T)^7.
+```
+
+*Proof.* Take O8 Thm 3.4's system (`z=𝓛²`, `k=⌊𝓛/log z⌋`, Π from O2 Lemma
+11.2 with `c_0=1/(64k)`) and O8 Lemma 6.1's minorant B with
+`k_0:=⌈3S log₂e+log₂(400m²(S+1))⌉`/2 (so that `e^{1/2}·2·4^{−k_0}` meets
+EL(t) of Thm 3.4; the precision is unchanged). O8 Thm 3.4's proof gives:
+`δ=E F ≥ e^{−2.2S}`, `E[F−B] ≤ δ/100`, `μ ≥ 0.99δ`, `B≤1[W>T]` on
+`n≡1 (Q)` coprime to all `d_i`, the twist condition (Lemma 3.3), and the
+cell conditions, with `Q:=Q_Π·ℓ_aux` as in O4 Thm 2.1. By Lemma 2.1 with
+`η=1/99`: `A ≤ 1.03`. Now apply Theorem 1.1 instead of PO Thm 4.1. Its
+cost terms:
+
+* `log Z ≤ log Q_Π + 2(3k+2d+1)𝓛` (as in O8 Thm 3.4/6.3);
+* `log N`: B is a sum of at most `1+m+m²+m³` products, each expanded over
+  the cells of its `≤3k+2d` coordinates (at most `T^{3k+2d}` cells), times
+  the at most `(2Tb)^{2d}` pairs `(S,S')` of bit sets of size `<d`; so
+  `log N ≤ 3log m + 2d log(2Tb) + (3k+2d)𝓛 + 2 ≪ (k+d)𝓛 ≪ log Z`;
+* `log log(QD) ≤ log(log Q + 2T) ≪ 𝓛`.
+
+So `log p ≪ log Z`. With `z=𝓛²` and ET (`S≤S*≪𝓛^4log𝓛`, O2 Lemma 11.1):
+`w=kb≪𝓛²/log𝓛`, `k_0≪S*+k𝓛≪𝓛^4log𝓛`, `d=4C_Hwk_0≪𝓛^6`,
+`log Q_Π ≤ (π(z)+64k²S*)𝓛+4 ≪ 𝓛^7/log𝓛`, `d𝓛≪𝓛^7`. Hence
+`log p ≪ 𝓛^7` and `W(p)>T=e^𝓛`. Distinct T give distinct p. ∎
+
+**Theorem 2.3 (PROVED modulo (G) and the same inputs, without ET).**
+For infinitely many Mordell-hard p, `log W(p) ≥ (1/log 2 − o(1))·log₂p·log₃p`.
+
+*Proof.* As 2.2 with Wigert's `log S* ≤ (log2+o(1))𝓛/log𝓛`: every cost
+term is `≤ 𝓛^{O(1)}(S*+1)`, so `log₂p ≤ log S* + O(log𝓛) ≤
+(log2+o(1))𝓛/log𝓛`, which inverts to `𝓛 ≥ (1/log2−o(1))log₂p·log₃p`. ∎
+
+(O8 Thm 4.4 had `1/(2log2)`: the square `K·log Z` doubled `log S*`.)
+
+**Ledger after Thm 1.1 (under ET).** `log p ≍ log Z ≍ max(log Q_Π, d𝓛)`,
+with `log Q_Π ≍ k²S*𝓛 ≍ 𝓛^7/log𝓛` and `d𝓛 ≍ k·b·S*·𝓛 ≍ 𝓛^7`. K is now
+irrelevant (it enters only through `log N ≪ log Z`), so R30c M1(i)
+(the missing q-ary ℓ¹ bound) is **no longer needed** for the ESW route.
+Remaining losses: the bit width `b≍𝓛` in d; the quarantine `|𝓑|≍k²S*`;
+S* through ET; and the per-prime cost `𝓛` of every modulus prime.
