@@ -11,7 +11,33 @@ Setting 5.0: independent coordinates `X_ℓ` (uniform on units mod
 its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
 `w_ℓ:=Σ_{E∋ℓ}P(E)` (per-prime mass).
 
-**Status: work in progress (checkpoint 1 being written).**
+**Results at a glance (checkpoint 1; not yet reviewed).**
+
+1. **Theorem 4.3** (PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop
+   1.4): `W(p) ≥ exp(c(log p)^{1/14})` for infinitely many Mordell-hard p;
+   uniformly `log L_h(T) ≪ (log T)^{14}`. This replaces O4 Cor 3.1
+   (`log W ≥ (1+o(1))log₂p·log₃p/log₄p`) and reaches the third target of
+   O4 §4.4. The Haar side is `log(1/δ*) ≪ 𝓛^7log𝓛`; the prime side now
+   costs its square.
+2. **Theorem 4.4** (PROVED modulo Thorner–Zaman only): `log W(p) ≥
+   (1/(2log2)−o(1))log₂p·log₃p` i.o. (was `log₂p·log₄p/log₅p`).
+3. **Mechanism (§§3–4).** No push-down cascade, no levels, no codegree
+   or hub hypothesis. The minorant is the Bazzi–Razborov–Wigderson
+   one-sided ℓ² scheme (Lemma 3.1). Its error is an Efron–Stein tail
+   (Thm 3.4), and a bit encoding plus Håstad's switching lemma (LMN)
+   bounds that tail for every system of width `≤k` (Lemma 4.1).
+4. **Diagnosis (§2).** The Haar local lemma uses *suppression* (on good
+   configurations, partial clusters with large completion mass are
+   unlikely). Every alternating expansion (PO, O2–O4) *amplifies* on such
+   clusters. That is exactly why codegree thresholds `(kL)^{−(i−1)}`, the
+   circularity, and hence the `(k−1)!` cascade appear (Facts 2.3). Lemma
+   2.1 (locally minimal events) shows that the outer inclusion–exclusion
+   is codegree-free; the trouble sits in the neighbourhood factors.
+5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
+   needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
+
+Nothing here bears on whether `W(p)<∞`, i.e. on ES. The constants (Håstad,
+TZ) are effective; no numerical instance is claimed.
 
 ## 0. Plan
 
@@ -359,3 +385,44 @@ alternate; on dense clusters it is small because F is small there
 bounded width, with no codegree, level or hub hypothesis. The width
 `kb≍k𝓛` enters only linearly in t. Nothing about ES beyond (I), the
 supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
+
+## 5. Checks, scope, and what is not claimed
+
+* `scripts/omega8_brw_check.py` (`data/omega8/brw_check.txt`): random
+  systems on `(ℤ/5)^6`, `u_j` = Efron–Stein truncations. Over 40 trials,
+  pointwise `B≤F` (max of `B−F` is 0), the identity of Lemma 3.1 holds to
+  `5·10^{−15}`, and the bound `E[F−B] ≤ m²ΣP(E_j)energy_j` holds in all
+  40.
+* `scripts/omega8_levels.py` (`data/omega8/levels.txt`): exact level
+  weights of toy good-indicators against event-level Bonferroni errors.
+  In the hub toy the Bonferroni ℓ² error at full junta exceeds `δ`, while
+  the optimal junta-3 error is `0.027δ`. This only illustrates §2.4
+  (suppression against amplification); the toys are far too small to
+  test asymptotics and nothing rests on them.
+* **Inputs used:** PO Thm 4.1 (Thorner–Zaman), O2 Lemmas 11.1–11.2 and
+  Lemma 4.3 (I), the local lemma with its conditional form
+  (Haeupler–Saha–Srinivasan), Håstad's switching lemma with the
+  Linial–Mansour–Nisan argument (textbook; constants as in O'Donnell
+  §4.4 / Lovett's notes), and Razborov's form of Bazzi's reduction (with
+  Wigderson's choice). Elsholtz–Tao Prop 1.4 enters only through
+  `S*≪𝓛^4log𝓛`.
+* **Not claimed:** anything about ES; any optimality of the exponent
+  1/14 (it is bookkeeping: `log p ≈ K·log Z`, each `≍𝓛^7`); a
+  numerical instance (`T` would have to be astronomically large for
+  `exp(3𝓛/…)`-type conditions; here the only size condition is that `z=𝓛²`
+  exceeds 7 and Lemma 11.2 runs).
+* **Literature status of the method:** the Bazzi–Razborov–Braverman
+  theory is standard in pseudorandomness ("bounded independence fools
+  DNF/AC0"). Its use here is a transfer: Thorner–Zaman makes the primes
+  `≡1 (Q)` a multiplicatively almost-t-wise-independent distribution on
+  residue cells, and the BRW sandwich is exactly what PO Thm 4.1 consumes.
+  We found no prior use of it in Erdős–Straus or in Ω-results of this
+  type (not a literature search).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; uv run python scripts/omega8_brw_check.py 40 1)   # ~1 min -> data/omega8/brw_check.txt
+(ulimit -v 8000000; uv run python scripts/omega8_levels.py all)       # ~1 min -> data/omega8/levels.txt
+```
