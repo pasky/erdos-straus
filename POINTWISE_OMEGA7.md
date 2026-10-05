@@ -190,7 +190,7 @@ In an `(s,a)`-box `[S,2S)×[A,2A)`, all atoms with `a≤b`, `m>μ` have
 total weight
 
 ```
-≤ C·[ 𝓛²(H^{−1/3}+q^{−1}) + 𝓛/μ + 𝓛²q/(A²S) + 𝓛^{11}·A·q/S ]      (C absolute).
+≤ C·[ 𝓛²(H^{−1/3}+q^{−1}) + 𝓛/μ + 𝓛²q/(A²S) + 𝓛^{12}·A·q/S ]      (C absolute).
 ```
 
 *Proof.* Fix a, j with `gcd(j,q)=1`. For `m∈[M_0,2M_0)`, F confines
@@ -200,7 +200,7 @@ Weil term occur `≤6𝓛` times. The terms `2/(ajM_1)` sum to
 `≤24/(ajd_0(a,j))` (geometric, `M_1≥d_0/2` since `m*≡κjā`), and the
 `2/(ajM_0)` to `≤24/(ajμ)`. Now sum over `j≤2T` (`Σ1/j≤2𝓛`) and
 `a∈[A,2A)`: the `1/d_0` terms give `24E(A)` (Lemma 2.2); the Weil terms
-give `≤12C𝓛²(q/S)log²(8T²q)Σ_{a<2A}τ(4a²)²`, and
+give `≤12C𝓛(q/S)log²(8T²q)Σ_{a<2A}τ(4a²)²≪𝓛^{12}Aq/S`, and
 `Σ_{a≤x}τ(a²)²≪x(log x)^8` (τ(p^{2e})² is `(2e+1)²`, so the Dirichlet
 series is `ζ(s)^9` times a convergent product), while
 `τ(4a²)≤3τ(a²)`. For `gcd(j,q)=g>1` (so `g=g_0≥y`, Lemma 2.5) the same
@@ -209,7 +209,7 @@ in one class mod q; the factor g is cancelled by `Σ_{g|j}1/j≤2𝓛/g`,
 except in the `1/d_0` term, which becomes `≤2𝓛/g≤2𝓛/y`. ∎
 
 **Corollary 3.2.** With `μ=H^{1/3−a}`, `0<a≤1/6`, `q>H²`: every
-`(s,a)`-box with `S≥𝓛^{9}·A·q·H^{a}` contributes `≪𝓛²H^{−a}` from
+`(s,a)`-box with `S≥𝓛^{10}·A·q·H^{a}` contributes `≪𝓛²H^{−a}` from
 atoms with `a≤b` (the term `q/(A²S)` is `≤H^{−a}` once `S≥qH^a`). This
 improves Cor 2.4 exactly when `A>q`: there it needs `S≥A²H^{2a}`.
 
@@ -221,7 +221,7 @@ saturated H-hub, `4^k≤H≤y`. Then `Σ^{>H^{1/3−a}} ≪ 2^k𝓛^{4}H^{−a}`
 `a≤b` (resp. symmetrically `(s,b)` for `a≥b`),
 
 ```
-S < H^{2a}·𝓛^{9}·max( q , min(A², A·q) ).
+S < H^{2a}·𝓛^{10}·max( q , min(A², A·q) ).
 ```
 
 *Proof.* Cut atoms by `a≤b` / `a>b` into `≤4𝓛²` dyadic `(s,a)`- resp.
@@ -266,11 +266,11 @@ nothing; they confirm the identities and the honest scope.
   modular hyperbola `mm*≡1 (mod 4a²)` with Weil (Lemma 1.2). The case
   `gcd(j,q)>1` is closed (Lemma 2.5).
 * **Open (exact residual).** Atoms with `a≤b` in `(s,a)`-boxes (and
-  symmetrically) with `S<H^{2a}𝓛^9·max(q, min(A²,Aq))`:
-  * **(R1) short s:** `S<qH^{2a}𝓛^9`. For each a, s takes `≪H^{2a}𝓛^9`
+  symmetrically) with `S<H^{2a}𝓛^{10}·max(q, min(A²,Aq))`:
+  * **(R1) short s:** `S<qH^{2a}𝓛^{10}`. For each a, s takes `≪H^{2a}𝓛^{10}`
     values, `s≡κ(4a²)^{−1} (q)`. This contains O6's (b1), the small-s part
     of (b2), and the numerically heaviest corner configurations.
-  * **(R2) a-dominant:** `A>q^{1/2}`, `qH^{2a}≤S<𝓛^9H^{2a}min(A²,Aq)`.
+  * **(R2) a-dominant:** `A>q^{1/2}`, `qH^{2a}𝓛^{10}≤S<𝓛^{10}H^{2a}min(A²,Aq)`.
   It occurs for every q in `[y²,T]`. So no family of vertex sets is
   fully closed, and **HC_Π, HC* and the `(log₂p)^{3/2}` rate remain open.
   The proved rate stays O4 Cor 3.1.**
