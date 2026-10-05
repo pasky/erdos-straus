@@ -380,70 +380,71 @@ Apply Theorem 2.2 in the block with `A={a≤(log N')^θ, a≡3 (4)}`,
   union of classes of relative density 1 would be cofinite). But it is
   certified by a *bounded* procedure (window 3), so it is not what
   POINTWISE_SIZE §10 asks for.
-* **Meaningful version: sets where every bounded window search fails
-  on a positive proportion.** Let `F_K={p: a_min(p)>K}`.
+* **Within thin hard families the bounded search still wins.** Theorem
+  1.2 gives `#{p∈𝒲_1: a_min(p)>7}≤T(x,7)≪x/(log x)^2=o(|𝒲_1|)` for the
+  W1 family `𝒲_1` (`|𝒲_1|≫x/(log x)^{3/2}`, window 3 failing): almost
+  every W1 prime has `a_min=7`; on EH almost every W2 prime has
+  `a_min=11`. More generally, for each fixed K, whenever
+  `|F_K|≫N/(log N)^{1+J(K)/2}` (known for K=3, and K=7 on EH), almost
+  all of `F_K` lies in `F_K∖F_{K+4}`. So a family on which *every*
+  bounded window search fails on a positive proportion would have to be
+  of size `≤N/(log N)^{A}` for every A, and then Cor 2.3 still puts
+  almost all of it below `(log p)^{θ_*−ε}` provided it is larger than
+  `N exp(−c(log N)^{θ_*−ε}log log N)`. No such family with a proved
+  lower bound is known (POINTWISE_WINDOW §7.3: lower bounds stop at K=7,
+  11 on EH). **Verdict on Goal 2:** in the window frame the question
+  reduces to Ω-type lower bounds for `|F_K|` (the O29 side), not to
+  upper-bound technology.
 
-  **Corollary 3.1 (PROVED modulo SW and the W1/W2 inputs).** Let
-  `𝒲_1={p≤x: p≡1 (840), window 3 fails by F1}` (W1: `|𝒲_1|≫x/(log x)^{3/2}`).
-  Then all but `O(x·exp(−(log x)^{2/5−ε}))` primes of `𝒲_1` have
-  `7≤a_min(p)≤(log p)^{2/5−ε}`. CONDITIONAL on EH, the same holds for
-  the W2 family (`a_min≥11`, size `≫x/(log x)^2`).
+### 3.2 Goal 3: seeded windows on average (proposed adaptation; no theorem)
 
-  *Proof.* Cor 2.3 with θ close to 2/5, compared with the W1/W2 lower
-  bounds (any `N exp(−cℒ^θ log ℒ)` is `o(N/(log N)^A)` for all A). ∎
-
-  So on a set of primes of size `≍x/(log x)^{3/2}`, on which the bounded
-  search "window 3" fails identically, the unbounded window search is
-  proved to succeed within `(log p)^{2/5}` for relative density 1. Beyond
-  `K=7` (EH: 11) no lower bound for `|F_K|` is known (POINTWISE_WINDOW
-  §7.3), and that — not the upper side — is what blocks the analogous
-  statement for larger K.
-
-### 3.2 Goal 3: seeded windows on average (Assessment; no new theorem)
-
-Theorem 2.2 applies verbatim to the seeded windows `q≡−p (4n)` after
-conditioning on `n_p=n` (drop all but the conditions `(ℓ/p)=1`, `ℓ≤w`,
-and `(n/p)=−1`, a congruence mod `4n∏_{ℓ≤w}ℓ`; Brun–Titchmarsh bounds
-`#{p≤N: n_p>m}≤(2+o(1))π(N)2^{−π(m)}` for `log m=o(L)`... ). Because the
-seeded moduli are `≈4n_pj`, the usable number of windows is
-`J≲ℒ^{2/5}/n_p`, and the result is weaker than Cor 2.3 (balance at
-`n_p≈ℒ^{1/5}` gives a saving `exp(−ℒ^{1/5−o(1)})`). The second-moment
-lemma cannot see the advantage of seeding (no F1 at prime seeded
-windows): Lemma 2.1 bounds all bad tuples, including F3-type half-sets
-containing the planted non-residue. So nothing unconditional specific to
-X_QNR is obtained.
+The seeded windows `q≡−p (mod 4n_p)` depend on p through `n_p` and
+`p mod 4n_p`. A proof would split p by `n_p=n` (keeping `(n/p)=−1` and
+`(ℓ/p)=1` for primes `ℓ≤w`, a congruence modulo `4n∏_{ℓ≤w}ℓ`) and by
+`p mod 4n`, apply a progression-uniform version of Theorem 2.2 on each
+class (not stated or checked here), and bound `#{p≤N: n_p>m}` by
+Brun–Titchmarsh (`≤(2+o(1))π(N)2^{−π(m)}` for `m=o(log N)`, primorial
+modulus `≤N^{o(1)}`). Because the seeded moduli are `≈4n_pj`, only
+`J≲ℒ^{θ}/n_p` seeded windows fit below `ℒ^θ`, so the expected outcome
+is *weaker* than Cor 2.3. The second-moment lemma does not see the
+advantage of seeding (no F1 at prime seeded windows; Lemma 2.1 bounds all
+bad tuples). Nothing unconditional specific to X_QNR is obtained.
 
 ### 3.3 Goal 4: conditional statements
 
-* **GRH** makes Theorem 2.2 effective (Siegel–Walfisz → GRH-PNT in APs)
-  and allows `log y≍(log L)^2`, i.e. δ→0 at no cost; it does **not**
-  change the range `θ<2/5` or the per-window constant.
-* **EH / higher level**: no help. The binding constraint is
-  `Λ=Σν(ℓ)log ℓ/ℓ≲log X` (dimension × log sifting range ≤ level), and a
-  level beyond `X` carries no information about integers `≤X`.
-* **Proposition 3.2 (dimension–range obstruction for V-type majorants;
-  PROVED as an optimisation; its relevance to "all sieve methods" is
-  Assessment).** Consider any majorant of the form
-  `count ≤ X·∏_a(log z_a)^{−δ_a}`, where window a excludes primes of
-  relative density `δ_a` up to `z_a` (any `δ_a>0`; even with `y=1`),
-  subject to the level constraint `Λ≈Σ_aδ_a log z_a≤ℒ` (Lemma 12.1 needs
-  `ℒ/4`; we allow level X). Then the bound is `≥X·e^{−ℒ/e}=N^{1−1/e+o(1)}`.
+* **GRH** makes Theorem 2.2 effective (Siegel–Walfisz → GRH-PNT in APs,
+  with the floor e.g. `y=ℒ^C`, C large, which keeps `y>Z` so that roots
+  stay distinct and `(J+1)MJ/y=o(1)`); this removes the δ-loss
+  (`c=1−θ−O(log L/L)`). It does **not** change the range `θ<θ_*` or the
+  form of `d(θ)`.
+* **EH / higher level**: no help to *this* argument. Its binding
+  constraint is Lemma 12.1's `Λ=Σν(ℓ)log ℓ/ℓ≤(log X)/4`, i.e. dimension ×
+  log(sifting range) ≲ level, and levels beyond X carry no information
+  about integers `≤X`.
+* **Proposition 3.2 (optimisation for one majorant class; PROVED as
+  stated, scope limited).** Consider bounds of the constant-free form
+  `X·∏_a(log z_a)^{−δ_a}` with `X=N^{1+o(1)}`, where window a contributes
+  excluded primes of relative density `δ_a` up to `z_a`, under the
+  *explicitly imposed* constraint `Σ_aδ_a log z_a≤ℒ`. Then every such
+  bound is `≥X·e^{−ℒ/e}=N^{1−1/e+o(1)}`.
 
-  *Proof.* Put `u_a=log z_a`, `D=Σδ_a`. Maximise `Σδ_a log u_a` subject to
-  `Σδ_au_a≤ℒ`: by concavity (Jensen with weights `δ_a/D`) the maximum is
-  `D log(ℒ/D)`, and `max_D D log(ℒ/D)=ℒ/e` (at `D=ℒ/e`). ∎
+  *Proof.* Put `u_a=log z_a`, `D=Σδ_a`. By Jensen (weights `δ_a/D`),
+  `Σδ_a log u_a≤D log(ℒ/D)≤ℒ/e`. ∎
 
-  So no window-sieve majorant of this type reaches count-below-one, at
-  any level of distribution and with any per-window densities: **ES via
-  X_win cannot be proved by stacking window sieves**. Even H_FAIL+H_STACK
-  (notes §71.5) would, once the level constraint is imposed, give at best
-  `N^{1−1/e}` from such majorants; notes (71.44)–(71.46) (where `L=log N`)
-  ignore the constraint. The constraint is binding exactly because the
-  dimension grows with the number of windows.
+  *Scope.* This says only that the Lemma-12.1-type window-sieve majorants
+  used in §§1–2 cannot be pushed to count-below-one by choosing ranges.
+  It is not a theorem about sieve methods in general: the Λ-condition is
+  sufficient for Lemma 12.1, not necessary for every sieve; real sieve
+  bounds carry per-dimension constants (`e^{O(D)}` at `D≍ℒ`), and the
+  optimiser has `log z_a=e`, outside any Mertens regime. It says nothing
+  against the *conditional* implications of notes Thm 71.6 / (71.44)–(71.46),
+  which assume the stacking estimate H_STACK rather than derive it from
+  Lemma 12.1. (Assessment: any proof of count-below-one by window
+  stacking must use correlation information beyond a level-constrained
+  upper sieve — which is what H_STACK postulates.)
 * **No clean "ES ⇐ standard hypothesis".** X_win is a pointwise
   statement about the factorisations of `≍log p` specific integers
   `(p+a)/4`; GRH, EH, Bateman–Horn/Dickson (which go the *other* way,
-  Prop 8.4) and Hooley-type hypotheses control averages over p or over
-  moduli. We found no standard hypothesis implying X_win; Prop 3.2 shows
-  that sieve-averaging cannot even give the "count below one" route.
-
+  POINTWISE_SIZE Prop 8.4) and Hooley-type hypotheses control averages
+  over p or over moduli. We found no standard hypothesis implying X_win
+  (Assessment).
