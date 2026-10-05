@@ -210,3 +210,53 @@ The remark "the ceiling is a theorem for this architecture" (≈ l. 1321–1350)
 * The 1.3pt overfull box in §15 is left as is.
 * DISCOVERIES (D)24 cites "§§7–8 (Lemmas 7.1, 7.2, 8.1)", but the KA3 file has no Lemma 8.1 (§8 is
   numerics). The note cites KA3 §§6–7 and Lemma 7.1. The ledger wording may need a fix.
+
+## Response to referee R36 (reviews/sieve-limits-note-review-v4.md; minor revision)
+
+All points addressed; both papers recompile (sieve-limits: no undefined refs; the 1.3pt overfull
+box in §15 remains; numbering of Thm 10.14 / Rem 10.15 / Thm 14.2 / §16 unchanged, so the 3/4
+note's cross-references stay valid). Commits ffe4c02, ef99ede, e61954a (+ compile fix 9f393c0),
+acae6a9, R36 m18 commit, b6ce75e (KARY3).
+
+* **M1** — abstract: the lossless cap `O_A((log N)^{3/4})` is now claimed only for polynomial-level
+  large sieves (twisted/multiplicative/hybrid/fibrewise), interval counts ≤ N/2 and bounded-order
+  tuple input; prime order k gets `O_A((log N)^{3/4}+k log log N)`; the large sieve for primes and
+  prime-only majorants get `O_A((log N)^{3/4}(log log N)^{3/4})` (lossless only at pointer level).
+  Intro item 6 likewise (LSprimes and PLcap with the loglog proviso). §16 "New in this version" and
+  §17 "Gone since version 3" carry the same provisos.
+* **m1** — §14 preamble: "no fatal defect; the IF review found one major scope overclaim (hybrids),
+  repaired by restriction; other repairs minor".
+* **m2** — Gallagher sketch: χ² = (p+1)/(p−1) ≤ 2 at odd p ≤ W, ≤ 7 at p = 2; Mertens and
+  𝔏 log W = o(1).
+* **m3** — substitution sources: KA3 §4.3 for LS Thm 3.1 / IF Cor 2.3; LS2's update note and (D)24 for
+  LS2; IF Thm 2.5 "checked in this note".
+* **m4** — Thm 14.6 header: "Case A as in Theorem 14.12".
+* **m5** — Prop 14.9(1): `max(λ₀, 2rA log N + λ(Q₀))` restored.
+* **m6** — IF2 Cor 5.1 in text: family primes ≤ N^A added; cited as "[IF2, Cor 5.1] with Theorem 14.17".
+* **m7** — Thm 14.5 type (ii) and Thm 14.17: projection to the family period first; Thm 14.17 case
+  split (s ≤ log(2+12c), else T_> < N/12) added. Prop 14.22: Vaaler-bound caveat (quoted from review,
+  numbering not re-checked) and bounded Δ₀ noted. (Sp) wording softened in §14 ("needs something
+  like"/"family-specific input such as"), and in the abstract and §16 item 1 (m17). Thm 14.12 sketch:
+  "the base is the set of unit squares, which avoids every W-smooth class by Lemma 10.2" (non
+  sequitur removed).
+* **m8** — §15 opening cites the non-CRT item via `\label{it:nonCRT}` (item 6).
+* **m9** — "for θ > 3/4" inserted.
+* **m10** — Cor 15.8: k ≥ 1; header "proof given here; KA3 §4.3 only points to it; given KA/KA2 as
+  reviewed".
+* **m11** — Cor 15.13: hypotheses spelled out (family primes ≤ N^A, W fixed, term types, λ₀ = A log N).
+* **m12** — window: "for family moduli ≤ N^A … except as narrowed by Prop 15.14"; the ledger
+  inspection claim marked Assessment, "for k ≤ L³". KARY3 §0 table and §7 item 1 reworded to
+  "would require a better level cap" (separate commit b6ce75e). DISCOVERIES (D)24 still says "cannot be
+  closed from it alone" — **for the parent** (ledger is main-owned; I did not edit it).
+* **m13** — "tuples that are not pure class −1 (heuristically, multi-form tuples)".
+* **m14** — open list: literal TC_θ / TC^𝔄_θ on (2/3,1) and θ = 1; removing (log λ₀)^{3/4} from
+  Prop 15.14. ℓ₀ in Cor 15.21 defined (τ(A_ℓ²)/ℓ ≤ 1/4 for ℓ ≥ ℓ₀). Def 15.10's notion renamed
+  "(λ₀,k)-mixed over W".
+* **m15** — Rem 12.8: the v3 bounded-B half (R_W reading, "still gives … removal of B") deleted; one
+  reading remains (whole-avoider Λ² majorants, KA3 L7.1), one "still gives" sentence. §10 "What the
+  class contains" no longer lists TW2's Λ² majorants as R_W-only.
+* **m16** — Status-labels paragraph: "PROVED for results resting on Thm 10.12 / Lemma 10.9 means given
+  the KA/KA2 framework as reviewed".
+* **m17** — "the removal of the factor"; item-1 softening; §17 pointer-level proviso for prime-only
+  majorants and the k log log N term for prime order.
+* **m18** — 3/4 note "Not covered" list ends "…, and the other items of [SL, §16]".
