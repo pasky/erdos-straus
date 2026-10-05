@@ -1516,19 +1516,20 @@ binary width and the support size from the junta modulus.
 
 \section{The residual system and the sandwich minorant}\label{sec:brw}
 
-Throughout this section $Q$ is a graded quarantine as in
-Definition~\ref{def:system}, $E_1,\dots,E_m$ ($m\le T^2$) are the events of the
-surviving atoms, in some order, $A_i=\mathbf 1_{E_i}$,
-$F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$, $w_\ell=w_\ell(Q)$, $S=S(Q)$ and
-$\delta=\E F$.  We assume
+Throughout this section $T$ is large, $\beta=1+1/\log\Lc$, $\eta=\frac34\log\beta$,
+and $(Q,r)$ is the square-class quarantine of Theorem~\ref{thm:haarupper};
+$E_1,\dots,E_m$ ($m\le T^2$) are the events of the surviving atoms, in some
+order, $A_i=\mathbf 1_{E_i}$, $F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$,
+$S=\sum_i\PP(E_i)\le S_\beta$ and $\delta=\E F$.  By \eqref{eq:goodQ} and
+Lemma~\ref{lem:betalll}, every subfamily of $\{E_i\}$ satisfies the hypothesis
+of Lemma~\ref{lem:betalll}, $\delta\ge e^{-4S_\beta/3}$, and for $T$ large
 \begin{equation}\label{eq:lllhyp}
- \sum_{\ell\in\supp E_i}w_\ell\le\frac1{64}\quad(i\le m),\qquad w_\ell\le\frac1{64}\quad(\ell\in\cP),
+ \eta\le0.19\qquad(\text{as soon as }\Lc\ge33).
 \end{equation}
-which holds for the output of Lemma~\ref{lem:gradedq} with $c=1/64$.
 
 \emph{Digits.}  For $\ell\in\cP$ write $x\in\Omega_\ell$ in base $\ell$ as
 $x=\sum_{i<f_\ell}\delta_{\ell,i}\ell^i$.  The digits $\delta_{\ell,i}$ with $i<a_\ell$ are those of
-$1$, hence constant on $\Omega_\ell$.  The others are independent and uniform:
+$r$, hence constant on $\Omega_\ell$.  The others are independent and uniform:
 $\delta_{\ell,0}$ on $\{1,\dots,\ell-1\}$ if $a_\ell=0$, and $\delta_{\ell,i}$ on $\{0,\dots,\ell-1\}$
 for $\max(a_\ell,1)\le i<f_\ell$; indeed $x\mapsto(\delta_{\ell,i})_{i\ge a_\ell}$ is a bijection
 from $\Omega_\ell$ onto the product of these ranges.  So the free digits are
@@ -1539,74 +1540,33 @@ $\ell^{1+i_\ell}$.
 
 \emph{Cells.}  A \emph{consistent unit cell} is a class $b\bmod d$ with $d$
 composed of primes of $\cP$, $d\mid\prod_{\ell\in\cP}\ell^{f_\ell}$, $\gcd(b,d)=1$ and
-$b\equiv1\pmod{\gcd(d,Q)}$; on $\Omega$ it is the event
+$b\equiv r\pmod{\gcd(d,Q)}$; on $\Omega$ it is the event
 $\{X_\ell\equiv b\ (\mathrm{mod}\ \ell^{v_\ell(d)})\ \forall\ell\mid d\}$, and on $\mathbb Z$ the
 class itself.  The events $E_{M,D}$ are consistent unit cells (by survival).
 The intersection of two consistent unit cells is empty or a consistent unit
 cell whose modulus is the lcm of the two, both on $\Omega$ and on $\mathbb Z$.
 A function on $\Omega$ that depends only on $(X_\ell\bmod\ell^{b_\ell})_\ell$ is a linear
 combination of consistent unit cells of modulus $\prod_\ell\ell^{b_\ell}$ (the
-indicators of its level sets' points).
+indicators of the points of its level sets).
 
 \begin{lemma}[Haar means; proved]\label{lem:haar}
-Let $Q'=Q\ell'$ with $\ell'$ a prime not dividing $Q\prod_{\ell\in\cP}\ell$ (or $Q'=Q$), and
-let $\varphi$ be a combination of consistent unit cells with $\lcm$ of moduli
-$D$.  With $H$ as in Theorem~\ref{thm:transfer} for $Q'$ and $D$, $\E_H\varphi=\E\varphi$.
-The same holds for $\varphi\psi$, where $\psi$ is a character modulo a squarefree
-$f\mid D$ coprime to $Q$, viewed on $\Omega$ through $X_\ell\bmod\ell$ for $\ell\mid f$.
+Let $Q'=Q\ell'$ with $\ell'$ a prime not dividing $Q\prod_{\ell\in\cP}\ell$, and $r'$
+the class modulo $Q'$ with $r'\equiv r\pmod Q$ and $r'\equiv1\pmod{\ell'}$ (or
+$Q'=Q$, $r'=r$).  Let $\varphi$ be a combination of consistent unit cells with
+$\lcm$ of moduli $D$.  With $H$ as in Theorem~\ref{thm:transfer} for $Q'$,
+$r'$ and $D$, $\E_H\varphi=\E\varphi$.  The same holds for $\varphi\psi$, where $\psi$
+is a character modulo a squarefree $f\mid D$ coprime to $Q$, viewed on $\Omega$
+through $X_\ell\bmod\ell$ for $\ell\mid f$.
 \end{lemma}
 
 \begin{proof}
 Let $N_0=\lcm(Q',D)$.  By the Chinese remainder theorem the uniform measure on
 $H$ is the product of the uniform measures on
-$H_p=\{x\in(\mathbb Z/p^{v_p(N_0)})^\times:\ x\equiv1\ (p^{v_p(Q')})\}$.  For $\ell\in\cP$ with
+$H_p=\{x\in(\mathbb Z/p^{v_p(N_0)})^\times:\ x\equiv r'\ (p^{v_p(Q')})\}$.  For $\ell\in\cP$ with
 $\ell\mid D$, $v_\ell(Q')=a_\ell$ and $v_\ell(N_0)\le f_\ell$, and reduction maps the uniform
 measure on $\Omega_\ell$ to the uniform measure on $H_\ell$ (all fibres have the
 same size).  The other primes of $N_0$ do not divide $D$, and $\varphi$, $\psi$ do
 not depend on them.
-\end{proof}
-
-\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
-Let $\mathcal A$ be a finite family of events in a product space, each
-depending on a finite set of coordinates; write $A'\sim A$ if they share a
-coordinate.  Suppose $x_A\in[0,1)$ satisfy
-$\PP(A)\le x_A\prod_{A'\sim A,\,A'\ne A}(1-x_{A'})$.  Then
-$\PP(\bigcap_{\mathcal A}\bar A)\ge\prod_{\mathcal A}(1-x_A)$.  Moreover, for every
-event $B$ depending on a set $J$ of coordinates,
-$\PP(B\mid\bigcap_{\mathcal A}\bar A)\le\PP(B)\prod_{A\in\Gamma(B)}(1-x_A)^{-1}$, where
-$\Gamma(B)$ is the set of $A\in\mathcal A$ depending on some coordinate in $J$.
-\end{lemma}
-
-\begin{proof}
-The first statement is \cite[Lemma~5.1.1]{AS}.  Its proof shows
-$\PP(A\mid\bigcap_{A'\in\mathcal S}\bar A')\le x_A$ for every
-$\mathcal S\subseteq\mathcal A$ with $A\notin\mathcal S$.  For the second
-(cf.\ \cite[Thm.~2.1]{HSS}), note that $B$ is independent of
-$\bigcap_{A\notin\Gamma(B)}\bar A$, so
-\[
- \PP\Big(B\ \Big|\ \bigcap_{\mathcal A}\bar A\Big)
- \le\frac{\PP(B)\,\PP(\bigcap_{A\notin\Gamma(B)}\bar A)}{\PP(\bigcap_{\mathcal A}\bar A)}
- =\frac{\PP(B)}{\PP(\bigcap_{\Gamma(B)}\bar A\mid\bigcap_{A\notin\Gamma(B)}\bar A)}.
-\]
-The chain rule and the displayed claim bound the denominator below by
-$\prod_{\Gamma(B)}(1-x_A)$.
-\end{proof}
-
-\begin{corollary}[Proved]\label{cor:lll}
-Assume \eqref{eq:lllhyp}.  Then $\delta=\E F\ge e^{-2.2S}$.  Moreover, for every
-subfamily $\mathcal A$ of $\{E_1,\dots,E_m\}$ and every event $B$ depending on
-the coordinates $X_\ell$, $\ell\in J$, where $\sum_{\ell\in J}w_\ell\le1/64$,
-$\PP(B\mid\text{no }A\in\mathcal A\text{ occurs})\le1.04\,\PP(B)$.
-\end{corollary}
-
-\begin{proof}
-Apply Lemma~\ref{lem:lll} with the coordinates $X_\ell$ and
-$x_{E_i}=2\PP(E_i)\le2w_\ell\le1/32$ for any $\ell\in\supp E_i$.  For an event $B$ on $J$,
-$\sum_{A\in\Gamma(B)}x_A\le2\sum_{\ell\in J}w_\ell$.  With $B=E_i$ this is at most $1/32$,
-so $\prod_{A\sim E_i,\,A\ne E_i}(1-x_A)\ge31/32$, and the hypothesis of
-Lemma~\ref{lem:lll} holds for every subfamily.  Since $1-x\ge e^{-1.1x}$ for
-$0\le x\le1/32$, we get $\delta\ge\prod_i(1-2\PP(E_i))\ge e^{-2.2S}$, and
-$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.1/32}\le1.04$ when $\sum_{\ell\in J}w_\ell\le1/64$.
 \end{proof}
 
 For $j\le m$ let $F^{(j)}$ be the function of the digits not fixed by $E_j$
@@ -1704,11 +1664,11 @@ $B^-:=\max(-B,0)\le F-B$ since $F\ge0$, and $\E|B|=\E B+2\E B^-$.
 \end{proof}
 
 \begin{lemma}[Twist; proved]\label{lem:twist}
-Assume \eqref{eq:lllhyp} and $\E[F-B]\le\delta/100$, and write $B$ as in
-Lemma~\ref{lem:size}, with $\mu=\E B$.  Let $\psi$ be a real primitive character of
-conductor $f>1$ with $\gcd(f,Q)=1$ and $f\mid d_i$ for some cell modulus $d_i$.
-Then $\mu\ge0.99\,\delta$ and $|\E[B\psi]|\le\mu/4$, where $\psi$ is viewed on $\Omega$
-through $X_\ell\bmod\ell$, $\ell\mid f$.
+Assume $\E[F-B]\le\delta/100$, and write $B$ as in Lemma~\ref{lem:size}, with
+$\mu=\E B$.  Let $\psi$ be a real primitive character of conductor $f>1$ with
+$\gcd(f,Q)=1$ and $f\mid d_i$ for some cell modulus $d_i$.  Then $\mu\ge0.99\,\delta$
+and $|\E[B\psi]|\le\mu/4$, where $\psi$ is viewed on $\Omega$ through
+$X_\ell\bmod\ell$, $\ell\mid f$.
 \end{lemma}
 
 \begin{proof}
@@ -1730,13 +1690,16 @@ so that $\PP(E_i)=\PP(E_i\setminus\ell_0)\pi_i$.  Since $\E_{X_{\ell_0}}\psi_{\e
  |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_{\ell_0}\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|\\
  &\le\sum_{i:\,\ell_0\in\supp E_i}\PP(F'=1,\ E_i\setminus\ell_0)\,\pi_i .
 \end{align*}
-The coordinates of $E_i\setminus\ell_0$ lie in $\supp E_i$, so by \eqref{eq:lllhyp}
-and Corollary~\ref{cor:lll} applied to the family defining $F'$,
-$\PP(E_i\setminus\ell_0\mid F'=1)\le1.04\,\PP(E_i\setminus\ell_0)$.  Hence
-$|\E[F\psi]|\le1.04\,w_{\ell_0}\E F'\le0.0163\,\E F'$.  Likewise
-$\E F'-\E F=\E[F'\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]]\le0.0163\,\E F'$, so
-$\E F'\le\delta/0.9837$.  Altogether
-$|\E[B\psi]|\le0.01\,\delta+0.0166\,\delta\le0.027\,\mu/0.99<\mu/4$.
+The event $E_i\setminus\ell_0$ is determined by the $s(E_i)-1$ coordinates of
+$\supp E_i\setminus\{\ell_0\}$, so Lemma~\ref{lem:betalll}, applied to the family
+defining $F'$, gives
+$\PP(E_i\setminus\ell_0\mid F'=1)\le\beta^{s(E_i)-1}\PP(E_i\setminus\ell_0)$.  Hence
+\[
+ |\E[F\psi]|\le\beta^{-1}\sum_{i:\,\ell_0\in\supp E_i}\beta^{s(E_i)}\PP(E_i)\,\E F'=\beta^{-1}\tilde w_{\ell_0}\E F'\le\eta\,\E F' .
+\]
+The same bound gives $\E F'-\E F=\E[F'\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]]\le\eta\,\E F'$, so
+$\E F'\le\delta/(1-\eta)$.  By \eqref{eq:lllhyp},
+$|\E[B\psi]|\le(0.01+\eta/(1-\eta))\delta\le0.245\,\delta\le0.245\,\mu/0.99<\mu/4$.
 \end{proof}
 
 \section{Proof of the main theorems}\label{sec:proof}
