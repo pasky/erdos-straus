@@ -12,20 +12,20 @@ POINTWISE_SIZE §8: for a prime `p≡1 (4)` and `a≡3 (4)`, `x_a=(p+a)/4`,
 | # | statement | status |
 |---|---|---|
 | 0.1 | `T(N,3)≪N/(log N)^{3/2}=o(π(N))`: "almost all p have `a_min(p)=3`" | PROVED (this is notes Thm 70.9; recorded so that Goal 1's "o(π)" form is seen to be trivial) |
-| 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite) | PROVED |
-| 1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: all a∈A fail}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` | PROVED (fixed-dimension upper sieve) |
+| 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite); no budget exceptions | PROVED |
+| 1.2–1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: −1∉Rat_a(x_a) ∀a∈A}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` — the random-model exponent, for each fixed Z | PROVED (fixed-dimension upper sieve). New: improves notes Cor 71.4 (`δ_J≈½log log Z`) and makes POINTWISE_WINDOW §6's joint "dimension ≥J/2" Assessment a theorem |
+| 1.4 | `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2` (lower bound on EH) | PROVED / CONDITIONAL (lower bounds = POINTWISE_WINDOW W1/W2) |
+| §1.3 | `T(x,Z)·(log x)^{1+J/2}/x` flat (±9%) for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
+| 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` | PROVED (= notes Lemma 12.5) |
+| 2.2 | Pattern-summed prime-side sieve for windows `a≤(log N)^θ` | PROVED modulo Siegel–Walfisz |
+| 2.3 | `T(N,(log N)^θ) ≤ N exp(−(d(θ)/4−ε)(log N)^θ log log N)` for `θ<θ_*=log3/(1+log3)`, explicit `d(θ)` (`≥4(1−θ)/9` for θ≤2/11) | PROVED modulo SW; **independent re-proof** of the window form of notes Thm 14.4/14.9 (same range θ_*), not a new frontier |
+| 3.2 | Optimisation: V-type window-sieve majorants under the level constraint are `≥N^{1−1/e}` | PROVED as stated (scope: that majorant class only) |
 
-| 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` in any finite abelian G of order n (second moment) | PROVED |
-| 2.2 | Pattern-summed sieve: for any set A of windows `a≤(log N)^θ`, the joint failure count is `≤2N(log N)^{δ−1}∏_{a∈A}F_a`, `F_a≈3φ(a)e^{−2λ/3}+(9/4)2^{ω(a)}e^{−4λ/9}`, `λ≈(1−θ−δ)log log N` | PROVED modulo Siegel–Walfisz |
-| 2.3 | `#{p≤N: a_min(p)>(log N)^θ} ≤ N exp(−(κ(θ)−ε)(log N)^θ log log N)` for `0<θ<2/5`, `κ=(1−θ)/9` (θ≤2/11) | PROVED modulo Siegel–Walfisz |
-| 1.3 (EVIDENCE) | `T(x,Z)·(log x)^{1+J/2}/x` flat for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
-
-Cor 2.3 is an unconditional (modulo SW) version of the *conclusion* of
-the open stacking hypothesis H_STACK (notes Thm 71.6), with per-window
-saving `(4/9)(1−θ)` instead of `1/2`, and it improves notes Thm 12.2's
-`exp(−c(log log N)²)` tail for the small-window statistic to
-`exp(−c(log N)^θ log log N)`. It does not approach ES (needs θ=1).
-Sections 3–4: Goals 2–4 and what blocks further progress.
+Goal-1 summary: `f=3` already gives `o(π)`; the best known window tail is
+`f=(log x)^{θ_*−σ}` with exceptional set `x·exp(−c(log x)^{θ_*−σ}log log x)`,
+implicit in notes Thm 14.9 and re-proved here (Cor 2.3). Genuinely new
+here: the fixed-Z exact exponent (Thm 1.2/Cor 1.3) and its sharpness
+consequences (Cor 1.4). Nothing approaches ES (needs θ=1).
 
 ## 1. Fixed window sets: the random-model exponent is an upper bound
 
