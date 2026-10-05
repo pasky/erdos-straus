@@ -69,3 +69,39 @@ Consequently `S_0≪𝓛^4`.
 are `τ(P)` choices of f. ET Prop 1.4 (with ET's `(k,a,b)=(4,d,a)`) gives
 `Σ_{a<2A,d<2B}τ(4a²d+1)≪AB log(A+B+2)`, and `1/(ad)≤1/(AB)` in the block.
 Summing over `≤(𝓛+1)²(𝓛/log 2+1)` blocks, with `log(A+B+2)≪𝓛`, gives `S_0`. ∎
+
+## 3. The rough part: `Σ_II≪𝓛^4 log𝓛` (cut the primes at the c-scale)
+
+**Lemma 3.1 (PROVED modulo ET Prop 1.4).** For every block `(A,C,B)`, with
+`Y:=max(C,2)`,
+
+```
+Σ_{(a,c,d,f)∈(A,C,B)} h(N)/N ≪ log(A+B+2)·( log log(C+2) + 𝓛/log Y ).
+```
+
+Hence `Σ_II ≪ 𝓛^4 log𝓛`.
+
+*Proof.* Split `h(N)=Σ_{q|N}1/i` (Lemma 1.1(a)) at `q≤C` / `q>Y`
+(for `C=1` the first part is empty).
+
+*Small q (`q≤C`).* Fix `(a,d,f)` and `q=ℓ^i≤C`. If `ℓ|4ad` then `ℓ∤N`:
+`N≡−f (ℓ)` and `f|P≡1 (ℓ)` (P is odd, so `ℓ=2` is also excluded). Otherwise
+`q|N=4ad·c−f` puts c in one class mod q, which has `≤C/q+1≤2C/q` elements in
+`[C,2C)`. Each term has `1/N≤1/(adC)`. So the contribution is
+`≤(2/(ad))Σ_{q≤C}1/(iq) ≤ (2/(ad))(log log(C+2)+O(1))` (Mertens for prime
+powers). Summing over the `τ(P)` choices of f and over `(a,d)` with ET
+Prop 1.4 as in Lemma 2.2 gives `≪log(A+B+2)·log log(C+2)`.
+
+*Large q (`q>Y`).* By Lemma 1.1(c) and `N≤T`, `Σ_{q|N,q>Y}1/i≤𝓛/log Y`
+pointwise. Lemma 2.2 gives `≪log(A+B+2)·𝓛/log Y`.
+
+*Sum.* With `C=2^j`, `Σ_{0≤j≤𝓛/log2}(log log(2^j+2)+𝓛/log max(2^j,2)) ≪ 𝓛 log𝓛`,
+and `Σ_{(A,B)}log(A+B+2)≪𝓛³`. ∎
+
+*Why this avoids O11's obstruction.* O11 §4 summed `q|N` along the whole
+c-progression for every q, and the first term of each progression (c below
+q) has no usable bound. Here progressions are used only for `q≤C`, where a
+block contains a full period. The primes `q>C` are paid pointwise by Lemma
+1.1(c), at a cost `𝓛/log C`. This is large only when c is small, and Lemma
+2.2 gives every dyadic c-scale the same mass, so the cost averages to
+`(1/𝓛)Σ_j𝓛/j≍log𝓛`.
