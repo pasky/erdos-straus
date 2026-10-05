@@ -92,9 +92,9 @@ odds `<k+1+o(k)`. If the avoiders are (conditionally on F=1) still typical for R
 
 ## 2. The ES instance: any bounded-level minorant needs `log D ≫ 𝓛^4/log𝓛`
 
-**Setting 2.0.** Haar measure on `Ẑ^×`, restricted to a fibre `n≡r (Q)` (Q arbitrary but
-*y-smooth*: all its prime factors are `≤y`; this covers O13 Thm 3.4's square-class
-quarantine, whose primes are `≤Y=𝓛^{C_0+4}`, once `y≥Y`). F = indicator that no ES event
+**Setting 2.0.** Haar measure on `Ẑ^×`, restricted to a fibre `n≡r (Q)` (first, Q has
+no prime factor in `(y,T]`; this covers O13 Thm 5.1's `Q'=Q·ℓ_aux`, whose primes are
+`≤Y=𝓛^{C_0+4}` or equal to `ℓ_aux>T`, once `y≥Y`; general Q in Theorem 2.6). F = indicator that no ES event
 with `M≤T` holds. *Level:* a function on the fibre has level `≤D` if it is a linear
 combination of functions `n↦φ(n mod qQ)` with `q≤D`; this contains every character of
 conductor `≤D` and every cell of modulus `≤D` (times the fibre). *Big* coordinates: the
@@ -113,7 +113,7 @@ Fix `y∈[𝓛^5, 𝓛^A]` (A fixed) and `N_0:=𝓛²`. Write `D*:=∏p^{⌈v_p(
 with `𝓛^5` replaced by `y≥𝓛^5`; its Lemmas 2.3–2.4 only improve when y grows). So:
 (F1) distinct `(M,D)` give distinct events, `P(E)=1/φ(M)`; HAAR Lemma 2.3 (local-lemma
 loads `w_q:=Σ_{E∋q}P(E) ≤ 𝓛³/(2q)+4𝓛T^{−2/5}` for `q>y`) and HAAR Lemma 2.4
-(`Δ(𝓕)≤C𝓛²`) hold for 𝓕. Every prime of every M exceeds `y≥` every prime of Q, so on the
+(`Δ(𝓕)≤C𝓛²`) hold for 𝓕. No prime of any M divides Q (they lie in `(y,T]`), so on the
 fibre the coordinates used by 𝓕 are still independent and Haar.
 
 **Lemma 2.1 (big family: one big coordinate, small big-odds; PROVED).** Each `E∈𝓕` has
@@ -198,14 +198,41 @@ are independent Haar, so `E[F|x_s]≤∏_ℓ(1−p_ℓ)≤e^{−P}`, `P:=Σ_ℓp
 `E B ≤ exp(m(1+p*)K' − mμ + C_5m²𝓛²) ≤ exp(m(μ/2 − μ + μ/8))`, using
 `(1+p*)K'≤(k+1)(1+6p*)≤μ/2` and `C_5m𝓛²≤μ/8`. ∎
 
-**Corollary 2.5 (the transfer ceiling; PROVED implication).** On the fibre of O13 Thm 3.4
-(`Q` Y-smooth, `log(1/δ_fibre)≪𝓛³(log𝓛)^{O(1)}` modulo NT), every minorant B of F of level
+**Corollary 2.5 (the transfer ceiling; PROVED implication).** On the fibre of O13 Thm 5.1
+(`Q'=Qℓ_aux`, Q Y-smooth, `ℓ_aux>T`, `log(1/δ_fibre)≪𝓛³(log𝓛)^{O(1)}` modulo NT), every minorant B of F of level
 `log D≤c𝓛^4/log𝓛` has `E B ≤ δ_fibre·exp(−𝓛^{4−o(1)})`. In particular BRW (O8 Lemma 3.1,
 needing `E B≥0.99δ`), Selberg-type quadratic minorants, β-sieve/Bonferroni truncations
 and any choice of `u_j` or weights in C-1 (brief items (i)–(iii)) all need cell/conductor
-level `log Z ≥ log D ≫ 𝓛^4/log𝓛`. So O13 Cor 3.5's `log Z≪𝓛^4(log𝓛)^{O(1)}` is optimal
+level `log Z ≥ log D ≫ 𝓛^4/log𝓛`. So O13 Thm 5.1's `log Z≪𝓛^4log𝓛` is optimal
 up to logs **for every transfer that certifies primes through a level-D minorant of F** (a
 function of n in the span of characters of conductor `≤D`), and such transfers cannot give
 exponent better than `1/4` (up to logs) for `W(p)`, on these fibres.
 
 *Proof.* Theorem 2.4 with `δ_fibre≥exp(−C𝓛³(log𝓛)^C)`. ∎
+
+**Theorem 2.6 (any quarantine; PROVED, same inputs).** Let Q be any modulus with
+`log Q≤𝓛^5`, r any unit class, and take `y:=𝓛^6`. Every B of level `≤D` with `B≤F` on `rH`
+and `log D≤c𝓛^4/log𝓛` has `E_{rH}B≤exp(−c'𝓛^4/(log𝓛)²)`.
+
+*Proof.* Replace 𝓕 by `𝓕_Q:={E∈𝓕: gcd(M,Q)=1}`; its coordinates are free and Haar on the
+fibre, F is still `≤` its avoidance indicator, and all upper bounds (Lemma 2.1, local lemma,
+Δ, Δ_×) are inherited by the subfamily. The lost mass is `≤Σ_{q|Q, q>y}w_q ≤
+(log Q/log y)(𝓛³/(2y)+4𝓛T^{−2/5})+ω(Q)T^{−0.09} ≪ 𝓛²/log𝓛`, so `μ(𝓕_Q)≥μ/2≫𝓛³/log𝓛`.
+Run Theorem 2.4 with `m≍𝓛/log𝓛 ≤ y/𝓛^4`. ∎
+
+*Reading (Assessment for the last step).* A quarantine+minorant certificate (O9 Thm 1.1 shape)
+counts primes `p≡r (Q)` with main term `E_{rH}B·π(x)/φ(Q)`. By Theorem 2.6, either
+`log Q>𝓛^5`, or the level satisfies `log Z≥log D≫𝓛^4/log𝓛`, or the main term is
+`≤exp(−c'𝓛^4/(log𝓛)²)π(x)`. Gallagher/BV-type transfers need `log x≫log Z` in the second
+case and `log x≫log(1/E B)` in the third (main term ≥ error ≥ 1 in any counting argument).
+Either way `log p≫𝓛^4/(log𝓛)²`. So **exponent `1/4` is the ceiling, up to logs, of every
+argument that certifies a hard prime through a bounded-level Haar minorant of F**; the
+heuristic truth `1/3` (Haar exponent 3) lies beyond it, as twin primes lie beyond sieve level.
+
+**Numerics (`scripts/omega14_planting.py`, `data/omega14/planting.txt`).** (1) Lemma 1.1's
+explicit ν verified in exact rationals on 300 random instances satisfying (1.1) (`n≤9`,
+`k≤3`): `ν≥0`, `ν(0)=0`, all `≤k`-marginals equal μ; 0 failures. (2) Toy LP (n iid bits,
+`F=1[all zero]`, B any sum of `≤k`-bit functions with `B≤F`): the optimum `E B/E F` vanishes
+already at `R≈1.1 (k=1)`, `1.8 (k=2)`, `3.0 (k=3)` (n=10,10,12), below the sufficient
+threshold `(k+1)+(2k+1)r*` (2.3, 3.9, 5.8). So (1.1) is conservative by a constant factor only;
+the order `k≍R` is right (Remark (ii)).
