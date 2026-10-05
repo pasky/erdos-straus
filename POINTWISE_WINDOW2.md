@@ -126,8 +126,9 @@ splittable C up to its true mass. Add U and V; adding is unconstrained.) Here C 
 U and takes for V the two largest points of one window (Lemma 3.3: any V has
 two points in some window, so `min V≤` that window's second largest).
 
-*Trivial range (Model-PROVED).* For θ<1/2, a single window already admits
-`U={a,b}` with `a,b∈(θ,1−θ)`. So a fake exists even for one window. For θ≥1/2 the
+*Trivial range (Model-PROVED).* For θ<1/2, a single window already admits the
+fake `δ=−[∅]+[{a,b}]` with `a,b>θ` and `a+b<1` (each nonempty S⊂{a,b} has ΣS>θ).
+This is not an instance of Lemma 3.2 (there V=∅). So a fake exists even for one window. For θ≥1/2 the
 one-window block fakes are impossible: four points with `min U+min V>1/2`
 would have sum >1. This matches W1 (one window at BV level).
 
