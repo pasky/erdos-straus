@@ -32,22 +32,29 @@ re-derived, two slips noted, Rem 10.7). Change list for referees:
   refereed and merged.
 * v4 refereed in R36 (`reviews/sieve-limits-note-review-v4.md`, MINOR REVISION; M1, m1–m18 applied). Internal results only; not a proof of ES.
 
-**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v3** (task O47, 27 pages).
-It proves `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{-1/5})` for infinitely many hard
-primes (mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4,
-Thm 7.1, Cor 7.4, (7.10)); `log W ≥ (1/log2−o(1))·log log p·log log log p` (mod Gallagher
-only); Haar side `log(1/δ*(T)) ≪ 𝓛^5 log 𝓛` (mod ET only). Håstad's switching
-lemma is no longer used. Sources: `POINTWISE_OMEGA10.md` (energy bound C-1 /
-Conjecture Q, Thm 3.4, Cor 3.5, Cor 4.1; ledger (H)21), `POINTWISE_OMEGA11.md`
-(graded quarantine, fibre-cell transfer, digit-filtration Lemma 1.1; (H)22),
-`POINTWISE_OMEGA12.md` (H_ω(2) mod ET, pre-quarantine Lemma 6.2, Thm 6.3; (H)24),
-plus `POINTWISE_OMEGA8.md`/`POINTWISE_OMEGA9.md` for the sandwich and the transfer.
-Change list for the referee: `reviews/agent-reports/AGENT_REPORT_O47.md`.
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v4** (task O56, 39 pages).
+It proves `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{-1/4})` for infinitely many hard
+primes, `log L_h(T) ≪ 𝓛^4 log 𝓛` (mod Gallagher's theorem [MV III draft Thm 28.19] and
+Nair–Tenenbaum Thm 1 as quoted by Henriot (1.1); Elsholtz–Tao no longer used); the Haar
+exponent 3: `𝓛³/log 𝓛 ≪ log(1/δ*(T)) ≪ 𝓛³(log 𝓛)^5` (upper mod NT, lower mod the sieve
+fundamental lemma); and the ceiling: on every fibre with `log Q ≤ T^{0.05}`, no minorant of
+`1[W>T]` of level `log D ≤ c𝓛^4/log 𝓛` has positive Haar mean (mod Gallagher, effective Page,
+fundamental lemma), so 1/4 is the limit of the minorant + transfer architecture. Sources:
+`POINTWISE_OMEGA13.md` (β-weighted LLL, Jacobi lemma, square-class process, NT masses, Haar
+upper bound, Thm 5.1; ledger (H)26), `POINTWISE_HAAR.md` (Janson-type inequality, Haar lower
+bound; (H)25), `POINTWISE_OMEGA14.md` (planting lemma, Thm 4.5, Cor 4.6; (H)27), plus
+`POINTWISE_OMEGA10.md` (energy bound C-1), `POINTWISE_OMEGA11.md` (digit filtration, fibre
+cells) and `POINTWISE_OMEGA8.md`/`POINTWISE_OMEGA9.md` (sandwich, transfer). The v3 graded
+class-of-one quarantine and the ET moment section are removed (Remark 2.6 explains why), as
+is v3's unconditional loglog·logloglog theorem. Change list for the referee:
+`reviews/agent-reports/AGENT_REPORT_O56.md`.
 * v1 (exponent 1/14, Thorner–Zaman transfer) was refereed in R33 (MINOR
   REVISION, repairs applied) and merged.
 * v2 (exponent 1/7, Gallagher transfer + Håstad switching lemma) refereed in
   R33b (`reviews/es-subexp-note-review-v2.md`, MINOR REVISION; M1 and minors applied) and merged.
-* v3 not yet refereed.
+* v3 (exponent 1/5) refereed in `reviews/es-subexp-note-review-v3.md` (change list
+  `reviews/agent-reports/AGENT_REPORT_O47.md`).
+* v4 not yet refereed.
 
 The rate supersedes `es-omega-note.tex` (v3). That note remains the
 reference for the slice parameter and the Haar Type I material. Novelty
