@@ -57,6 +57,21 @@ Referee branch `side-agent/referee-window-note`; author branch `side-agent/windo
   (1−3/ℓ)⁻¹≤(1−1/ℓ)⁻³(1+6/ℓ²) ⇔ ℓ≥17/3; m even allowed for q=7 and then
   a/φ(a)≤2m/φ(m); Euler factor at ℓ=2 for q=7 is a bounded constant. Union bound fine.
   Checklist points 10, 11 OK.
+* **Remark 7.3 (FI09 precedent)** — GAP (wording; MINOR defects D2, D3 below). FI09
+  Assumption A(θ) and Thm 2 (θ<1 "sufficiently close to 1") are quoted correctly
+  (`sources/window2/fi09-hyperbolic-pnt.txt` l.103–125); Nath–Xie Thm 1.1 (x/(log x)^{5/2},
+  Ω(p+2)≤9) and Sedunova's abstract match the archived txt.
+* **Lemma 8.1 (quadric)** — SOUND. Norms a²+ab+b²=N(a−bω), c²+cd+2d²=N(c+dθ);
+  primitive element ⇔ gcd=1 in the bases {1,ω}, {1,θ}; split-prime construction gives a
+  primitive element (π_q, π̄_q non-associate for unramified split q); (−7/r)=(r/7);
+  2 splits in Q(√−7) and is 3-bad (inert in Q(√−3)). 3∤n, 7∤n+1 OK. Checklist 14 OK.
+* **Thm 8.2 (P1)** — SOUND (but see D4 on the label/strength). n₃ odd, n₃≡1 (5);
+  one class mod 840d per sign; φ(840)=192; for A⁻, n₃≡p≡2 (3). The "consequently"
+  paragraph is the standard Selberg-parity logic and is correct: the A⁻ data are
+  admissible inputs with true value 0. Checklist 12 OK (modulus 840d vs BV range: D5).
+* **Remark 8.3 (joint)** — SOUND. Checked: for p≡1 (3), n₇≡2 (3), n₃≡1, n₇≡2 (5),
+  n₃ odd, 2∉P₇, 7∉P₃∪P₇; (p/7)=±1 is 3 classes mod 7 ⇒ main term 3li(x)/φ(840d₁d₂)
+  for both signs; for p≡2 (3), 3|n₇ (so the 4 sign classes really differ). Checklist 13 OK.
 
 **Brute force (from scratch, `scripts/review_r41_halfset.py`)**: for every a≡3 (4),
 3≤a≤63, the number of selections equals 2^β(a) with β from (eq. beta), every S_σ has
