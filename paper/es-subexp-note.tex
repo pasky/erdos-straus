@@ -404,19 +404,27 @@ let $E_0(\chi)=1$ if $\chi$ is the trivial character modulo $1$ and
 $E_0(\chi)=0$ otherwise.  $\sum^*_{\chi\bmod q}$ is a sum over primitive
 characters.
 
-\begin{theorem}[Exceptional zero statement; cited, {\cite[(28.61)--(28.62)]{MV3}}]\label{thm:xz}
-There are absolute positive constants $c_1,c_2$ such that, for every $Y\ge3$,
-$\prod_{q\le Y}\prod^*_{\chi\bmod q}L(s,\chi)$ has at most one zero with
-$\Re s>1-c_1/\log Y$.  If this zero $\beta_1$ exists, it is real and simple, its
-character $\chi_1$ is quadratic, and $\delta_1=1-\beta_1$ satisfies
-$\delta_1\ge c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}$, where $q_1$ is the conductor of
-$\chi_1$.
+\begin{theorem}[Landau--Page; classical, {\cite[Ch.~14]{Dav}}, {\cite[Cor.~11.10]{MV1}}]\label{thm:xz}
+There are absolute effective positive constants $c_1,c_2$ such that, for
+every $Y\ge3$, $\prod_{q\le Y}\prod^*_{\chi\bmod q}L(s,\chi)$ has at most one zero
+in the region $\Re s>1-c_1/\log Y$, $|\Im s|\le Y$.  If this zero $\beta_1$
+exists, it is real and simple, and its character $\chi_1$ is quadratic.
+Moreover, every real zero $\beta$ of $L(s,\chi)$, for $\chi$ a real primitive
+character of conductor $q\ge3$, satisfies
+$1-\beta\ge c_2^{-1}q^{-1/2}(\log q)^{-2}$.
 \end{theorem}
 
-The lower bound for $\delta_1$ is the classical effective (Page-type)
-bound; see also \cite[Ch.~14]{Dav}.
+The first part is the classical zero-free region with the Landau--Page
+theorem.  The height restriction matters: without it the statement would be
+a zero-free region of width $\asymp1/\log Y$ uniformly in $|\Im s|$, which is
+not known.  The ``Exceptional Zero Statement'' (28.61)--(28.62) of
+\cite{MV3}, which refers to \cite[Cor.~11.10]{MV1}, omits the height
+restriction.  The second part is the effective Page-type bound
+\cite[Ch.~14]{Dav}, \cite[(28.62)]{MV3}.  We use Theorem~\ref{thm:xz} only
+for \emph{real} zeros: for the uniqueness of a real zero close to $1$, for the
+quadraticity of its character, and for the lower bound for $1-\beta$.
 
-\begin{theorem}[Gallagher {\cite[Thm.~7]{Gallagher}}; cited in the form of {\cite[Thm.~28.19]{MV3}}]\label{thm:G}
+\begin{theorem}[Gallagher {\cite{Gallagher}}; cited in the form of {\cite[Thm.~28.19]{MV3}}]\label{thm:G}
 There are absolute constants $c\ge1$ and $\kappa_0\ge3$ with the following
 property.  Let $\kappa\ge\kappa_0$ be fixed and $1<Q_G^{6c}\le x$.  Then
 \[
@@ -432,18 +440,34 @@ $|\vartheta(x;\chi_1)+x^{\beta_1}/\beta_1|$, and the right-hand side by
 \]
 \end{theorem}
 
-We fix $\kappa:=\max(3\kappa_0,1/c_1)$.  Then an exceptional zero as in
-Theorem~\ref{thm:G} lies in the region of Theorem~\ref{thm:xz} with $Y=Q_G$, so
-it is unique, and $\chi_1$ is real.  Write $C_G$ for the implied constant in
-Theorem~\ref{thm:G} with this $\kappa$.
-
 \emph{Source caveat.}  We quote \cite{MV3}, an unpublished draft (third volume
 of Montgomery--Vaughan), archived by us.  We have not seen Gallagher's paper
-\cite{Gallagher}.  The printed proof of \cite[Thm.~28.19]{MV3} has visible
-slips: its two cases match as written only for $\kappa=3\kappa_0$.  That is
-why we fix $\kappa\ge3\kappa_0$.  The statement itself is the standard form of
-Gallagher's prime number theorem for the whole family of characters of
-conductor $\le Q_G$, which underlies the usual proofs of Linnik's theorem.
+\cite{Gallagher}, so we cite it without a theorem number.  The printed proof
+of \cite[Thm.~28.19]{MV3} has visible slips.  Its case split is at
+$1-\beta_1<1/(3\kappa_0\log Q_G)$, so it establishes the statement for
+$\kappa=3\kappa_0$.  The statement for every larger $\kappa$ follows from that
+case.  Let $\kappa\ge3\kappa_0$, and suppose a real zero satisfies
+$1/(\kappa\log Q_G)\le1-\beta_1<1/(3\kappa_0\log Q_G)$.  Then
+$x^{\beta_1}/\beta_1\le2x\exp(-\log x/(\kappa\log Q_G))$, and
+$(1-\beta_1)(\log x)\,x\exp(-\log x/\log Q_G)\ll x\exp(-\log x/(2\log Q_G))$.
+So the exceptional form of the bound implies the non-exceptional one with
+parameter $\kappa$.  We therefore fix
+\[
+ \kappa:=\max(3\kappa_0,\,1/c_1).
+\]
+An exceptional zero as in Theorem~\ref{thm:G} is then a real zero in the
+region of Theorem~\ref{thm:xz} with $Y=Q_G$, so it is unique and $\chi_1$ is
+real.  Write $C_G$ for the implied constant in Theorem~\ref{thm:G} with this
+$\kappa$.
+
+Gallagher's original statement may carry a range condition of the form
+$\exp(\sqrt{\log x})\le Q_G\le x^{b}$; we have not checked this.  Our use is
+robust to such a condition.  In the proof of Theorem~\ref{thm:transfer},
+$\log x/\log Q_G=\kappa L\ge6c$, and $\log x\ge(\kappa L)^2$ by the
+hypothesis of that theorem, so $Q_G\ge\exp(\sqrt{\log x})$.  The statement
+itself is the standard form of Gallagher's prime number theorem for the
+whole family of characters of conductor $\le Q_G$, which underlies the usual
+proofs of Linnik's theorem.
 
 \section{A linear transfer theorem}\label{sec:transfer}
 
@@ -1058,6 +1082,9 @@ normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
 distributions, Statist.\ Neerlandica 34 (1980), 13--18.
 \bibitem{LMN} N.~Linial, Y.~Mansour and N.~Nisan, Constant depth circuits,
 Fourier transform, and learnability, J.\ ACM 40 (1993), 607--620.
+\bibitem{MV1} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
+Theory I. Classical Theory, Cambridge Stud.\ Adv.\ Math.\ 97, Cambridge
+University Press, 2007.
 \bibitem{MV3} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
 Theory III, unpublished draft (course notes, R.~C.~Vaughan's Penn State web
 page, accessed 5 October 2026), \S28.7--28.8.
