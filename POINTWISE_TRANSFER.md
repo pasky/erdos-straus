@@ -426,9 +426,10 @@ to `∏_{ℓ|d}G_ℓ`; same Haar weight). ∎
 (2) "p + h avoids small prime factors in prescribed classes", e.g. no prime
 factor `q ≡ 1 (4)`, `q ∈ (y,T]`, of `p + h` (`k = 1`, `R_q = {−h}`).
 
-**Honest scope.** (a) If `S ≤ 1/3`, the union bound plus Brun–Titchmarsh in
-the Linnik range — or plainly Bombieri–Vinogradov when `Q` is small — already
-gives a prime with `log p ≪ log Q + k log T`; Corollary 5.4 is only of
+**Honest scope.** (a) If `S ≤ 1/3` and `Q` is small (Siegel–Walfisz range), the union bound
+with Brun–Titchmarsh already gives a prime with `log p ≪ log Q + k log T`
+(for large `Q` the Linnik-range lower bound for `π(x;Q,a)` may lose a
+Siegel factor; not pursued); Corollary 5.4 is only of
 interest for `S ≫ 1`, where the avoiding set has density `e^{−Θ(S)}`.
 (b) For `k = 1` (instance 2, and any "`p + h_i` free of primes from a set"
 condition), the avoiding set is a sifted set and classical lower-bound sieves
