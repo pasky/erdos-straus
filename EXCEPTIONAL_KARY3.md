@@ -306,3 +306,89 @@ should re-check each pointer.
   `(log N)^θ` needs `k ≥ c(log N)^{4θ/3−1}` exactly (no `−o(1)`). The
   remaining gap is §5.
 
+## 5. Truncated weights: closing the TUPLES Cor 3.4 window (TU §6 item 2)
+
+**Definition 5.0.** Fix `L₀ > 0` and weights `s_ℓ = min(log ℓ, L₀)` on
+primes `ℓ > W`. A term `a·1[n ≡ b (mod d)]` has *truncated level*
+`Σ_{ℓ|d, ℓ>W} s_ℓ` and *prime order* `ω_{>W}(d)`. ν has truncated level
+`≤ λ` if every term does. ν is *(λ₀, k)-mixed* (TU Def 3.0, for K2
+families) if every term has level `≤ λ₀` or prime order `≤ k`. With
+`L₀ = λ₀/k`, a (λ₀,k)-mixed ν has truncated level `≤ λ₀`.
+
+**Theorem 5.1 (truncated-weight cap; PROVED; Case A via ElT §7).** Let
+W, λ₀ (the threshold), `K₃′` be as in Theorem 4.1. Let 𝔊 be any finite
+K2 family whose moduli have all prime factors `≤ e^Λ`, and ν ≥ 0 on ℤ,
+`≥ 1` on `𝒜(𝔊)`, of truncated level `≤ λ` with `λ₀ ≤ λ ≤ Λ` and
+`L₀ < λ`. Put `d₀ = ⌊λ/L₀⌋ ≥ 1`. Then
+
+    log(1/Eν) ≤ C λ^{3/4} + 2d₀ log(C₀(K₃′Λ³ + 4d₀)/d₀) + (8/3)d₀ + log(22d₀+22) + 6.
+
+In particular, if `d₀ ≤ Λ³`, `log(1/Eν) ≤ Cλ^{3/4} + C′d₀ log(Λ+2)`.
+(For `L₀ ≥ λ` truncation is vacuous and Theorem 4.1 applies.)
+
+*Proof.* EK Thm 4.1 holds for any class 𝓕 of functions that is closed
+under `f ↦ E_U[f | coordinates before a block]` and under fixing earlier
+coordinates, provided (S_w) holds for every `f ≥ 0` in 𝓕. Take 𝓕 = sums
+of terms each depending on the coordinates of a prime set T with
+`Σ_{ℓ∈T} s_ℓ ≤ λ`. Conditioning on coordinates only shrinks T, so 𝓕 is
+closed; the induction of EK Thm 4.1 (ETw Thm 2.3′) uses nothing else
+about "λ-level". Order the primes increasingly:
+* singletons `W < ℓ ≤ e^{min(s₁,L₀)}`, `s₁ = λ^{1/4}`;
+* sequential blocks `V_i = {ℓ : 2^is₁ < log ℓ ≤ min(2^{i+1}s₁, L₀, λ/2)}`
+  (nonempty ones only); for `ℓ ∈ V_i`, `s_ℓ = log ℓ > 2^is₁ = s`, so
+  every `f ∈ 𝓕` is `⌊λ/s⌋`-local on `V_i`;
+* if `L₀ > λ/2`, the linear block `(e^{λ/2}, e^{L₀}]` (every f is 1-local
+  there; ETw Cor 4.3);
+* one **top block** `V_top = {ℓ : log ℓ > L₀}` (all remaining primes);
+  there `s_ℓ = L₀`, so every `f ∈ 𝓕` is `d₀`-local on `V_top`.
+
+The costs of the first three kinds are bounded by Theorem 4.1's ledger
+(only a subset of its blocks occurs, with the same d's):
+`≤ Cλ^{3/4} + O(log²λ)`. The top block is an EK sequential step
+(Thm 2.5 is arithmetic-free: any ordered block, any d-local f) with
+`d = d₀`, `m̄ = 𝔐(e^Λ) ≥ E M_{V_top}` (K2 §3: `E Σ_{ℓ∈V}p_ℓ ≤ 𝔐(max V)`;
+primes above `e^Λ` carry no class and add nothing),
+and `𝔐(e^Λ) ≤ K₃′Λ³` (Cor 3.3); EK Cor 2.6 gives
+`EΦ_top ≤ d₀log(C₀(K₃′Λ³+4d₀)/d₀) + (4/3)d₀ + ½log(22d₀+22) + 3`, doubled
+by EK Thm 4.1. The leak bound K2 Lemma 4.3 is per prime (`𝔏 ≤ Σ_{ℓ>W}
+ℓ^{1/2}E p_ℓ²`, every class decided at its top prime under any
+increasing-order block structure with caps `ℓ^{−1/2}`), so `𝔏 ≤ 1/2` still.
+The base adds `2W + log 2`. ∎
+
+**Corollary 5.2 (TU Cor 3.4 at full strength for prime order; PROVED).**
+Let 𝔊 be any finite K2 family with all family primes `≤ N^A`, and ν a
+majorant of `𝒜(𝔊)` every term of which has level `≤ A log N` or prime
+order `≤ k` (`1 ≤ k ≤ (A log N)^3`). Then
+
+    log(1/Eν) ≤ C_A [ (log N)^{3/4} + k log log N ].
+
+So for methods with `B ≥ ½N·Eν` (CRT-main-term evaluation, TU Cor 3.3),
+a saving `(log N)^θ`, θ > 3/4, needs prime order `k ≥ c_A(log N)^θ/log log N`:
+the TU Cor 3.2/3.3 conclusion, now for **all** K2 families
+(ℛ(M), (a,D), Case A, selector; arbitrary composite moduli), with no
+selector term `log(P/φ(P))`.
+
+*Proof.* Theorem 5.1 with `λ = Λ = A log N` (projection as in K2 Cor 6.1
+first, so that all moduli divide the family lcm), `L₀ = λ/k`,
+`d₀ = k`. If `k > λ` then `L₀ < 1 < log W` and every prime is in the
+top block; the bound still holds. ∎
+
+**Corollary 5.3 (class order; PROVED).** If every modulus of 𝔊 has at
+most r prime factors `> W`, then an intersection of k classes of 𝔊 (and
+of any residue classes whose moduli have `≤ r` primes `> W`) has prime
+order `≤ kr`. Hence (λ₀ = A log N, class order k) majorants satisfy
+`log(1/Eν) ≤ C_A[(log N)^{3/4} + kr log log N]`, and saving `(log N)^θ`
+needs `kr ≥ c(log N)^θ/log log N`. This closes the TU §6 item 2 window for
+every family with `r = (log N)^{o(1)}` per modulus, up to that factor; for
+bounded r (twin moduli, `ℛ(kℓ)` atoms of the 3/4 note, η-twins, any
+fixed number of large primes) it closes it completely.
+
+**What is still open (exact scope).** For families whose moduli have
+unboundedly many primes `> W`, an intersection of k classes can have
+prime order up to `kA log N/log W`. Then only the level bound applies:
+`log(1/Eν) ≤ C(kA log N)^{3/4}` (§4.3), and the window
+`(log N)^{4θ/3−1} ≲ k ≲ (log N)^θ/(r log log N)` in *class* order is
+not excluded. The obstruction is structural: EK Thm 2.5's locality is
+in prime coordinates; a class-coordinate version would need a k-ary
+comparison for the dependent indicators `1[n ∈ C]`. Not attempted.
+
