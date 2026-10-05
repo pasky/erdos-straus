@@ -255,7 +255,9 @@ up to constants. The bit factor `b≍𝓛` is the only removable loss in
 the present bookkeeping allows), the method's floor is
 `d𝓛 ≳ kS*·log z`. That is `𝓛^5` up to logs if junta primes are small and
 `𝓛^6/log𝓛` if they are `≈T`. Hence **1/6 is the ceiling of
-width-and-mass-only arguments** (Assessment for the ES system: its actual
+width-and-mass-only arguments**. (Check: `scripts/omega9_junta_lb.py`
+computes exact ES energies for 4 toys (`q≤7`, `k≤3`, `m≤6`); the bound
+holds at every t, with equality at the top levels.) (Assessment for the ES system: its actual
 mass need not sit at width k).
 
 ## 3. Checks, scope, open items
@@ -292,4 +294,5 @@ mass need not sit at width k).
 ```
 export PYTHONPATH=scripts
 (ulimit -v 8000000; timeout 900 uv run python scripts/omega9_charcheck.py 1 3e6)  # ~2 min -> data/omega9/charcheck.txt
+(ulimit -v 8000000; timeout 600 uv run python scripts/omega9_junta_lb.py)         # ~10 s -> data/omega9/junta_lb.txt
 ```
