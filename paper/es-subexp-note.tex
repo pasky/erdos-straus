@@ -366,143 +366,191 @@ a lift of the pair $(r_\Pi,-4D\bmod r_\Pi)$ occurs, contradicting $F(n)=1$.  Con
 Lemma~\ref{lem:atoms}.
 \end{proof}
 
-\section{The analytic input and the transfer theorem}\label{sec:analytic}
+\section{The analytic input: Gallagher's theorem}\label{sec:analytic}
 
-\begin{theorem}[Thorner--Zaman {\cite[Cor.~1.4 and Rem.~1.5]{TZ}}; cited]\label{thm:TZ}
-There are absolute effectively computable constants $c_4>0$, $C_0$ such
-that for coprime $a,q$ with $q\ge2$ and $x\ge q^{12}$,
-\begin{gather*}
- \sum_{\substack{p\le x\\ p\equiv a\,(q)}}\log p=\frac{\lambda x}{\varphi(q)}\,(1+\varepsilon),\\
- |\varepsilon|\le C_0\Big(e^{-c_4\log x/\log q}+e^{-c_4(\log x)^{3/5}/(\log\log x)^{1/5}}\Big),
-\end{gather*}
-where $\lambda=1-\chi_1(a)x^{\beta_1-1}/\beta_1$ if the exceptional zero $\beta_1$
-for the modulus $q$ exists and $\lambda=1$ otherwise.  Here, following
-McCurley \cite{McC} as quoted in \cite[p.~1]{TZ}, $\prod_{\chi\bmod q}L(s,\chi)$
-has no zero in $\Re s\ge1-1/(13\log(q(|\Im s|+3)))$ apart from at most one
-real zero $\beta_1$, which is simple and belongs to a unique real character
+For a Dirichlet character $\chi$ put $\vartheta(x;\chi)=\sum_{p\le x}\chi(p)\log p$, and
+let $E_0(\chi)=1$ if $\chi$ is the trivial character modulo $1$ and
+$E_0(\chi)=0$ otherwise.  $\sum^*_{\chi\bmod q}$ is a sum over primitive
+characters.
+
+\begin{theorem}[Exceptional zero statement; cited, {\cite[(28.61)--(28.62)]{MV3}}]\label{thm:xz}
+There are absolute positive constants $c_1,c_2$ such that, for every $Y\ge3$,
+$\prod_{q\le Y}\prod^*_{\chi\bmod q}L(s,\chi)$ has at most one zero with
+$\Re s>1-c_1/\log Y$.  If this zero $\beta_1$ exists, it is real and simple, its
+character $\chi_1$ is quadratic, and $\delta_1=1-\beta_1$ satisfies
+$\delta_1\ge c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}$, where $q_1$ is the conductor of
 $\chi_1$.
 \end{theorem}
 
-In Theorem~\ref{thm:TZ} one has $0<\lambda<2$ (this is not part of the cited
-statement).  Indeed $\beta_1\ge1-1/(13\log6)>1/2$ and $\log x\ge12\log2>2$, so
-$\log\beta_1\ge1-1/\beta_1>2(\beta_1-1)>(\beta_1-1)\log x$, i.e.\
-$x^{\beta_1-1}/\beta_1<1$; and $|\chi_1(a)|\le1$.
+The lower bound for $\delta_1$ is the classical effective (Page-type)
+bound; see also \cite[Ch.~14]{Dav}.
 
-We used the arXiv version; we did not compare the numbering with the
-published version.  We also use the quoted McCurley statement for moduli
-other than those of Theorem~\ref{thm:TZ}; alternatively the classical
-Landau--Page theorem \cite[Ch.~14]{Dav} with a constant $c\le1/13$ in place
-of $1/13$ works verbatim.
+\begin{theorem}[Gallagher {\cite[Thm.~7]{Gallagher}}; cited in the form of {\cite[Thm.~28.19]{MV3}}]\label{thm:G}
+There are absolute constants $c\ge1$ and $\kappa_0\ge3$ with the following
+property.  Let $\kappa\ge\kappa_0$ be fixed and $1<Q_G^{6c}\le x$.  Then
+\[
+ \sum_{q\le Q_G}\ \sideset{}{^*}\sum_{\chi\bmod q}\big|\vartheta(x;\chi)-E_0(\chi)x\big|
+ \ \ll_\kappa\ x\exp\Big(-\frac{\log x}{\kappa\log Q_G}\Big)+\Big(\frac{\log x}{\log Q_G}\Big)^2\frac x{Q_G},
+\]
+unless $\prod_{q\le Q_G}\prod^*_{\chi\bmod q}L(s,\chi)$ has a real zero $\beta_1$ with
+$1-\beta_1<1/(\kappa\log Q_G)$.  In that case the term of the exceptional
+character $\chi_1$ on the left is replaced by
+$|\vartheta(x;\chi_1)+x^{\beta_1}/\beta_1|$, and the right-hand side by
+\[
+ (1-\beta_1)(\log x)\Big(x\exp\Big(-\frac{\log x}{\log Q_G}\Big)+\frac{x\log x}{Q_G\log Q_G}\Big).
+\]
+\end{theorem}
 
-\begin{lemma}[One severe character per family; proved modulo the McCurley statement]\label{lem:severe}
-Let $\cQ$ be a finite set of moduli, all $\le Z$.  Call $(\chi^*,\beta)$
-\emph{severe} if $\chi^*$ is a real primitive character whose conductor $q^*$
-divides some $q\in\cQ$, $L(\beta,\chi^*)=0$ and $\beta\ge1-1/(13\log(3Z^2))$.
-Then there is at most one severe pair.  If $(\chi^*,\beta^*)$ is severe and
-$q^*\mid q\in\cQ$, then $\beta_1=\beta^*$ and $\chi_1$ is induced by $\chi^*$ for
-the modulus $q$.  If $q\in\cQ$ and no severe pair has $q^*\mid q$, then any exceptional
-$\beta_1$ of $q$ satisfies $x^{\beta_1-1}/\beta_1\le2\exp(-\log x/(13\log3Z^2))$.
-\end{lemma}
+We fix $\kappa:=\max(3\kappa_0,1/c_1)$.  Then an exceptional zero as in
+Theorem~\ref{thm:G} lies in the region of Theorem~\ref{thm:xz} with $Y=Q_G$, so
+it is unique, and $\chi_1$ is real.  Write $C_G$ for the implied constant in
+Theorem~\ref{thm:G} with this $\kappa$.
 
-\begin{proof}
-If $(\chi_a,\beta_a),(\chi_b,\beta_b)$ are severe with conductors dividing
-$q_a,q_b\in\cQ$, put $q'=\lcm(q_a,q_b)\le Z^2$.  Both characters induce
-characters mod $q'$ with the same zeros in $\Re s>0$, and both $\beta$ lie in
-McCurley's region for $q'$; uniqueness there gives $\beta_a=\beta_b$ and
-$\chi_a=\chi_b$.  The second claim holds because $\beta^*$ lies in McCurley's
-region for $q\le Z$.  For the third, an exceptional zero of $q$ in
-$[1-1/(13\log 3Z^2),1)$ would be severe; also $\beta_1\ge1-1/(13\log6)>1/2$.
-\end{proof}
+\emph{Source caveat.}  We quote \cite{MV3}, an unpublished draft (third volume
+of Montgomery--Vaughan), archived by us.  We have not seen Gallagher's paper
+\cite{Gallagher}.  The printed proof of \cite[Thm.~28.19]{MV3} has visible
+slips: its two cases match as written only for $\kappa=3\kappa_0$.  That is
+why we fix $\kappa\ge3\kappa_0$.  The statement itself is the standard form of
+Gallagher's prime number theorem for the whole family of characters of
+conductor $\le Q_G$, which underlies the usual proofs of Linnik's theorem.
 
-\section{A transfer theorem}\label{sec:transfer}
+\section{A linear transfer theorem}\label{sec:transfer}
 
-\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; from {\cite{Paper1}}]\label{thm:transfer}
-Let $T\ge1$, $Q\ge2$, and let $B(n)=\sum_{i\in I}c_i\,\mathbf 1[n\equiv b_i\ (d_i)]$
-be a finite real combination with $\gcd(d_i,Q)=\gcd(b_i,d_i)=1$ and
-$B(n)\le\mathbf 1[W(n)>T]$ for all $n\equiv1\pmod Q$.  Put
-$Z=Q\max d_i$, $\mu=\sum c_i/\varphi(d_i)$, $M_1=\sum|c_i|/\varphi(d_i)$, and assume
-$\mu>0$ and the \emph{twist condition}: for every real primitive character
-$\psi$ of conductor $f>1$ with $\gcd(f,Q)=1$ and $f\mid d_i$ for some $i$,
+For a modulus $D$ write $\E_D$ for the mean over the units modulo $D$.
+
+\begin{theorem}[Linear transfer; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{thm:transfer}
+Let $T\ge1$ and $Q\ge2$.  Let $B(n)=\sum_{i\in I}c_i\mathbf 1[n\equiv b_i\ (d_i)]$ be a
+finite real combination with $\gcd(d_i,Q)=\gcd(b_i,d_i)=1$, and assume that
+$B(n)\le\mathbf 1[W(n)>T]$ for every $n\equiv1\pmod Q$ coprime to all $d_i$.  Put
+\[
+ D=\lcm_id_i,\qquad Z=Q\max_id_i,\qquad \mu=\E_D B=\sum_i\frac{c_i}{\varphi(d_i)},\qquad
+ A=\frac{\E_D|B|}{\mu},
+\]
+and assume $\mu>0$, $A\le Z^{1/4}$, and the \emph{twist condition}: for every
+real primitive character $\psi$ of conductor $f>1$ with $\gcd(f,Q)=1$ and
+$f\mid d_i$ for some $i$,
 \[
  |\mu_\psi|\le\mu/4,\qquad \mu_\psi=\sum_{i:\,f\mid d_i}c_i\psi(b_i)/\varphi(d_i).
 \]
-Let $K=1+\log(M_1/\mu)$.  There is an absolute $C_1$ such that if
-$\log x\ge C_1K\max(\log Z,K)$, then some prime $p\le x$, $p\equiv1\pmod Q$,
-has $W(p)>T$.
+There is an absolute effective constant $C_2$ such that, if
+\[
+ \log x\ \ge\ C_2(1+\log A)\log Z,
+\]
+then some prime $p\le x$ with $p\equiv1\pmod Q$ and $p\nmid D$ has $W(p)>T$.
 \end{theorem}
 
+Neither the $\ell^1$ mass $\sum_i|c_i|/\varphi(d_i)$ nor the number of cells
+enters; only the Haar quantity $A\ge1$ does.
+
 \begin{proof}
-Let $q_i=Qd_i$ and let $a_i$ be the class $\equiv1\ (Q)$, $\equiv b_i\ (d_i)$;
-it is a unit class.  Then
-$\sum_{p\le x,\,p\equiv1(Q)}\log p\,B(p)=\sum_ic_i\theta(x;q_i,a_i)$.  Since
-$M_1\ge\mu$ we have $K\ge1$, so taking $C_1\ge12$ gives
-$\log x\ge12\log Z$, i.e.\ $x\ge Z^{12}\ge q_i^{12}$, and
-Theorem~\ref{thm:TZ} applies to every term.  Put
-$E_1=e^{-c_4\log x/\log Z}+e^{-c_4(\log x)^{3/5}/(\log\log x)^{1/5}}$ and
-$E_2=e^{-\log x/(13\log3Z^2)}$.  Since $\gcd(Q,d_i)=1$ we have
-$\varphi(q_i)=\varphi(Q)\varphi(d_i)$, and $q_i\le Z$, so
+\emph{Parameters.}  Put $L=2c+\log(400C_G(A+1))$ and $Q_G=x^{1/(\kappa L)}$.  Since
+$A\ge1$ we have $L\le C_3(1+\log A)$ for an absolute $C_3$.  If $C_2$ is large
+enough, the hypothesis gives the following, using $A\le Z^{1/4}$ and $Z\ge2$:
+$\log Q_G\ge(C_2/(\kappa C_3))\log Z$, hence $Q_G\ge Z$ and
+$Q_G\ge10^4C_G(A+1)(\kappa L)^2$; $Q_G^{6c}\le x$ (as $\kappa L\ge6c$);
+$\log x\ge16$; and $x\ge C_4AZ^4$, with $C_4$ as large as needed below.
+
+\emph{Character expansion.}  As $\gcd(Q,D)=1$, every character $\chi$ modulo
+$QD$ is $\chi=\chi_Q\chi_D$ with $\chi_Q$ modulo $Q$ and $\chi_D$ modulo $D$.  The
+function $f(n)=B(n)\mathbf 1[n\equiv1\ (Q)]$ on units modulo $QD$ satisfies
+$f(n)=\sum_{\chi\bmod QD}c(\chi)\chi(n)$, where, summing over the class $1\bmod Q$,
 \[
- \sum_ic_i\theta(x;q_i,a_i)=\frac{x}{\varphi(Q)}\sum_i\frac{c_i\lambda_i(1+\varepsilon_i)}{\varphi(d_i)},\qquad
- |\varepsilon_i|\le C_0E_1,
+ c(\chi)=\frac1{\varphi(QD)}\sum_{n\in(\mathbb Z/QD)^\times}f(n)\bar\chi(n)=\frac{\E_D[B\bar\chi_D]}{\varphi(Q)} .
 \]
-with $\lambda_i$ the factor of Theorem~\ref{thm:TZ} for $(q_i,a_i)$.  Apply
-Lemma~\ref{lem:severe} to $\cQ=\{q_i\}$; a severe $\beta$ satisfies
-$\beta\ge1-1/(13\log 6)>1/2$.  Write the conductor of a severe $\chi^*$ as $q^*=q^*_Qq^{*\prime}$ with
-$q^*_Q$ supported on the primes of $Q$ and $\gcd(q^{*\prime},Q)=1$, and
-$\chi^*=\chi^*_Q\chi^{*\prime}$.
+Consequently:
+\begin{enumerate}
+\item[(a)] $c(\chi)=0$ unless the conductor of $\chi_D$ divides some $d_i$.
+Indeed, the mean of $\mathbf 1[n\equiv b_i\ (d_i)]\bar\chi_D(n)$ over units mod
+$D$ vanishes unless $\chi_D$ is trivial on $\{n\equiv1\ (d_i)\}$.  So
+$c(\chi)\ne0$ implies that the conductor of $\chi$ is at most $Qd_i\le Z\le Q_G$.
+\item[(b)] $|c(\chi)|\le\E_D|B|/\varphi(Q)=A\mu/\varphi(Q)$, and
+$c(\chi_0)=\mu/\varphi(Q)$ for the principal character $\chi_0$.
+\item[(c)] If $\chi$ is real and $\chi_D$ is induced by a primitive $\psi$ of
+conductor $f>1$, then $c(\chi)=\E_D[B\psi]/\varphi(Q)=\mu_\psi/\varphi(Q)$.  For
+the last equality: a cell with $f\nmid d_i$ has $\psi$-mean $0$ by the
+argument in (a).  If moreover $c(\chi)\ne0$, then $f\mid d_i$ for some $i$
+by (a), $\gcd(f,Q)=1$ as $f\mid D$, and the twist condition applies to
+$\psi$.
+\end{enumerate}
+Let $\chi^*$ be the primitive character inducing $\chi$.  For a fixed modulus
+the map $\chi\mapsto\chi^*$ is injective, so by (a) at most
+$\sum_{q\le Z}\varphi(q)\le Z^2$ characters have $c(\chi)\ne0$.
 
-\emph{Case A: a severe pair exists with $q^*\mid Q$.}  Then $q^*\mid q_i$ for
-every $i$.  By the second claim of Lemma~\ref{lem:severe}, every $\lambda_i$ is
-formed with the same pair $(\chi^*,\beta^*)$, so
-$\lambda_i=1-\chi^*(a_i)x^{\beta^*-1}/\beta^*=1-x^{\beta^*-1}/\beta^*=:\lambda_*$,
-because $a_i\equiv1\pmod{q^*}$.  Moreover $\lambda_*>0$: since $\log x\ge12\log Z>2$ and
-$1/2<\beta^*<1$,
-$\log\beta^*\ge1-1/\beta^*>2(\beta^*-1)>(\beta^*-1)\log x$, i.e.\
-$x^{\beta^*-1}/\beta^*<1$.
-So
-$\sum c_i\theta\ge(x\lambda_*/\varphi(Q))(\mu-C_0E_1M_1)$.
+\emph{The prime sum.}  Let
+$S(x)=\sum_{p\le x,\ p\nmid QD}f(p)\log p=\sum_\chi c(\chi)\vartheta(x;\chi)$.  Since
+$|\vartheta(x;\chi)-\vartheta(x;\chi^*)|\le\log(QD)\le2Z$ (as
+$D\mid\lcm(1,\dots,\max d_i)$, so $\log D\le1.04\max d_i$),
+\begin{equation}\label{eq:Sx}
+ S(x)=\frac{\mu x}{\varphi(Q)}+\sum_{\chi:\,c(\chi)\ne0}c(\chi)\big(\vartheta(x;\chi^*)-E_0(\chi^*)x\big)+R_1,
+\end{equation}
+where $|R_1|\le Z^2\cdot(A\mu/\varphi(Q))\cdot2Z=2AZ^3\mu/\varphi(Q)$.  Here
+$E_0(\chi^*)=1$ only for $\chi=\chi_0$, and $|R_1|\le\mu x/(400\varphi(Q))$ as
+$x\ge800AZ^3$.
 
-\emph{Case B: otherwise.}  If a severe $\chi^*$ exists, then $q^*$ divides some
-$Qd_j$ with $\gcd(d_j,Q)=1$, so $q^*_Q\mid Q$.  Hence $q^*\mid q_i$ iff
-$q^{*\prime}\mid d_i$, and in Case~B we have $q^{*\prime}>1$.  For such $i$,
-$\chi_1=\chi^*$ on units mod $q_i$ (Lemma~\ref{lem:severe}), and, as
-$a_i\equiv1\pmod{q^*_Q}$ and $a_i\equiv b_i\pmod{q^{*\prime}}$,
-$\chi^*(a_i)=\chi^*_Q(1)\chi^{*\prime}(b_i)=\psi(b_i)$ with $\psi=\chi^{*\prime}$.  So
-$\lambda_i=1-\psi(b_i)x^{\beta^*-1}/\beta^*$.  This $\psi$ is real primitive (the
-coprime-conductor factors of a real primitive character are real primitive), of
-conductor $q^{*\prime}>1$ coprime to $Q$ and dividing some $d_i$, so the twist
-condition applies to it.  For all other $i$ (and for all $i$ if there is no
-severe pair), $|\lambda_i-1|\le x^{\beta_1-1}/\beta_1\le2E_2$ by the third claim of
-Lemma~\ref{lem:severe}.  Since $\lambda_i<2$ and
-$x^{\beta^*-1}/\beta^*\le1$, splitting $\lambda_i=1+(\lambda_i-1)$ gives
-\begin{align*}
- \sum c_i\theta&\ge\frac{x}{\varphi(Q)}\big(\mu-2|\mu_\psi|-M_1(2C_0E_1+2E_2)\big)\\
- &\ge\frac{x}{\varphi(Q)}\big(\mu/2-M_1(2C_0E_1+2E_2)\big),
-\end{align*}
-using $|\mu_\psi|\le\mu/4$.  Both brackets are positive once
-$E_1,E_2\le\mu/(8(C_0+1)M_1)=e^{1-K}/(8(C_0+1))$.  This holds if $C_1$ is large:
-$\log x/\log Z\ge C_1K$, $(\log x)^{3/5}/(\log\log x)^{1/5}\ge(\log x)^{1/2}\ge
-C_1^{1/2}K$ and $\log x/(13\log3Z^2)\ge C_1K/52$ (as $Z\ge2$), so each of the
-three exponentials is at most $e^{-cC_1^{1/2}K}$ with $c>0$ absolute.  Hence
-$\sum_p\log p\,\mathbf 1[W(p)>T]\ge\sum_p\log p\,B(p)>0$.
+\emph{Case 0: no exceptional zero} in the sense of Theorem~\ref{thm:G}.  The
+$\chi^*$ in \eqref{eq:Sx} are distinct primitive characters of conductor
+$\le Q_G$.  By (b) and Theorem~\ref{thm:G}, the middle sum is at most
+\[
+ \frac{A\mu}{\varphi(Q)}\,C_Gx\Big(e^{-L}+\frac{(\kappa L)^2}{Q_G}\Big)
+ \le\frac{\mu x}{\varphi(Q)}\Big(\frac1{400}+\frac1{10^4}\Big)\le\frac{\mu x}{200\,\varphi(Q)},
+\]
+using $\log x/\log Q_G=\kappa L\ge L$.  So $S(x)>0$.
+
+\emph{Exceptional case:} a zero $\beta_1$ with character $\chi_1$ and
+$1-\beta_1<1/(\kappa\log Q_G)$.  Put $u=(1-\beta_1)\log x$; then
+$u<\log x/(\kappa\log Q_G)=L$, and $\beta_1>1/2$.  The replaced right-hand side
+of Theorem~\ref{thm:G} is $C_Gux(e^{-\kappa L}+\kappa L/Q_G)$.  Since
+$u\le\min(u,1)\,L$ (recall $L\ge2$), its product with $A\mu/\varphi(Q)$ is at
+most
+\[
+ \frac{\mu x}{\varphi(Q)}\min(u,1)\cdot C_GAL\Big(e^{-\kappa L}+\frac{\kappa L}{Q_G}\Big)
+ \le\frac{\mu x}{200\,\varphi(Q)}\min(u,1).
+\]
+Here $C_GALe^{-3L}\le C_GAe^{-L}\le1/400$, and
+$C_GA\kappa L^2/Q_G\le10^{-4}$.  If no $\chi$ with $c(\chi)\ne0$ has
+$\chi^*=\chi_1$, this bounds the middle sum of \eqref{eq:Sx}, and $S(x)>0$
+as in Case~0.  Otherwise, by injectivity, exactly one such $\chi$ exists.  It
+is real, because $\chi_1$ is; hence $c(\chi)$ is real, as $B$ and $\chi_D$ are.
+Its term is
+$c(\chi)\big(\vartheta(x;\chi_1)+x^{\beta_1}/\beta_1\big)-c(\chi)x^{\beta_1}/\beta_1$.
+The first part is covered by the bound just proved.
+
+\emph{Case A: $\chi_D$ is principal.}  Then $c(\chi)=\mu/\varphi(Q)$, and the
+conductor $q_1$ of $\chi_1$ divides $Q$, so $q_1\le Z$.  The main terms combine
+to $\lambda\mu x/\varphi(Q)$ with $\lambda=1-x^{\beta_1-1}/\beta_1$.  Since
+$1/\beta_1\le1+2(1-\beta_1)$, $1-e^{-u}\ge(1-e^{-1})\min(u,1)$ and
+$2(1-\beta_1)e^{-u}=2ue^{-u}/\log x\le2\min(u,1)/\log x$,
+\[
+ \lambda\ \ge\ 1-e^{-u}-2(1-\beta_1)e^{-u}\ \ge\ (0.63-2/16)\min(u,1)\ \ge\ \min(u,1)/2 .
+\]
+So the error from Theorem~\ref{thm:G} is at most $\lambda\mu x/(100\varphi(Q))$.
+By Theorem~\ref{thm:xz}, $u\ge16(1-\beta_1)\ge16/(c_2Z^{1/2}(\log Z)^2)$, so
+$1/\lambda\le2+c_2Z^{1/2}(\log Z)^2/8\le C_5Z$.  Hence
+$|R_1|\le2AZ^3\mu/\varphi(Q)\le\lambda\mu x/(100\varphi(Q))$ once
+$x\ge200C_5AZ^4$.  Altogether $S(x)\ge(1-2/100)\lambda\mu x/\varphi(Q)>0$.
+
+\emph{Case B: $\chi_D$ is not principal.}  Then $\chi_D$ is real and is induced by a
+real primitive $\psi$ of conductor $f>1$.  By (c) and the twist condition,
+$|c(\chi)x^{\beta_1}/\beta_1|\le(\mu/(4\varphi(Q)))\cdot2x=\mu x/(2\varphi(Q))$, and
+$S(x)\ge(1-1/2-1/200-1/400)\mu x/\varphi(Q)>0$.
+
+In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid QD$ and
+$p\equiv1\pmod Q$ has $B(p)>0$, and then $W(p)>T$.
 \end{proof}
 
-No lower bound for $1-\beta^*$ is used: in Case~A the exceptional factor
-$\lambda_*$ multiplies main term and error alike.  The theorem and its proof
-are taken verbatim from \cite{Paper1}.
-
-\begin{remark}[Assessment]\label{rem:linnik}
-In \cite{Paper1} the Linnik-range uniformity was essential, because there
-$K\le T^{o(1)}$ while $\log Z\ge T^{1/k}$.  In the present application $K$
-and $\log Z$ are both of order $(\log T)^7$
-(\S\ref{sec:proof}).  So a classical prime number theorem of Page type, with error
-$O(xe^{-c\sqrt{\log x}})$ uniformly for $q\le e^{c\sqrt{\log x}}$ and with
-the exceptional zero treated as above, would require
-$\log x\gg(\log Z+K)^2$.  That is the same order
-$(\log T)^{14}$.  We have not written out this variant and do not
-use it.
+\begin{remark}\label{rem:linear}
+This is Linnik's theorem with weights.  Every character coefficient is
+bounded by $\E_D|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
+representation.  Theorem~\ref{thm:G} controls all characters of conductor
+$\le Q_G$ simultaneously, so the number of moduli $d_i$ never multiplies the
+error.  In \cite{Paper1} and in the first version of this note, each
+progression was instead treated separately with the Thorner--Zaman theorem
+\cite{TZ}.  That costs $\log x\gg K\max(\log Z,K)$ with
+$K=1+\log(\sum|c_i|/\varphi(d_i)\,/\,\mu)$, which here is of order
+$(\log T)^{14}$ instead of $(\log T)^7$.  No lower bound for $1-\beta_1$ is
+needed in Case~B.  In Case~A we use the effective bound of
+Theorem~\ref{thm:xz} only to absorb the term $R_1$.
 \end{remark}
-
 
 \section{Product systems and the sandwich minorant}\label{sec:brw}
 
