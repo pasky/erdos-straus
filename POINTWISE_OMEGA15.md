@@ -1,6 +1,6 @@
 # Beyond low-conductor minorants? A Wiener-norm barrier at `𝓛^4` (task O57)
 
-Status: CHECKPOINT 1 (for review). Labels as in DISCOVERIES.md. Notation as in
+Status: CHECKPOINT 1 (for parent review; self-review R57 by a deep reviewer subagent: no FATAL, MAJOR scope issues repaired). Labels as in DISCOVERIES.md. Notation as in
 POINTWISE_OMEGA14.md (O14) and POINTWISE_OMEGA13.md (O13): `𝓛=log T`; Haar measure P on the
 fibre `H={n≡r (Q)}⊂Ẑ^×`; F = indicator that no ES event `E_{M,D}={n≡−4D (M)}`, `M≤T`, holds;
 *big* coordinates `X_ℓ`, ℓ prime, `ℓ>T^{0.6}`, `ℓ∤Q`; *small* coordinates = all others (x_s).
