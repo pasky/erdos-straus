@@ -91,5 +91,5 @@ for rs in range(restarts):
             overall = cur
             best = (dims, [np.round(p, 3).tolist() for p in probs], [dict(sorted(e.items())) for e in events])
     print(f"restart {rs}: final {cur:.6f} overall {overall:.6f}", flush=True)
-print(f"MODE={mode} n={n} k={k} OBJ={obj} OVERALL MAX = {overall:.8f}")
+print(f"MODE={mode} n={n} k={k} OBJ={obj} OVERALL MAX = {overall:.8f}  (max-1 = {overall-1:.3e})")
 print("best:", best)

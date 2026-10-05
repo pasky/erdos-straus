@@ -95,3 +95,21 @@ the boundary `max w_E=2`): `|N(V)|=|τ̂(V)|` exact; Lemma 3.2 identity
 `G_F−E_xQ(𝓗(x)) ≤ −3e−5 < 0` on 500 random single-value systems with
 **biased** measures on alphabets {2,3} (outside the document's uniform
 hypothesis — confirms D1 below), and `E_xQ ≤ 1` there. All consistent.
+
+**2.3 Adversarial search** (`review_o10b_hill.py`, simulated-annealing-style
+hill climbing over term sets, literals, widths, and — in modes bb/qa —
+per-coordinate measures; `review_o10b_random.py`, 1200 random DNFs on
+n∈{14,15,16}, up to 200 width-≤k terms drawn from a small variable pool to
+force heavy overlap, 40% p-biased). Results (`reviews/agent-reports/r38b_hill.txt`):
+
+| setting | max G (C-1: ≤1) | max tail ratio (Cor 4.1: ≤1) | max ratio for t≥2k−1 |
+|---|---|---|---|
+| uniform bits, n=10–12, k=1..4 | 0.930 (k=3, single AND) | 0.5 | 0.25 (k=1,2), 0.089 (k=3), 0.024 (k=4) |
+| p-biased bits (measure climbed), n=9–10 | 1 − O(ε), excess ≤ +1.6e−15 | 0.354 | 0.078 (k=3) |
+| q-ary (q≤4) random measures, n=6–7 | 1 − O(ε), excess ≤ +2.2e−15 | 0.4995 | 0.069 (k=3) |
+| random overlapping DNFs n=14–16 | 0.999999 | 0.5 | 0.295 |
+
+The G-maximisers are always a single event whose fixed values have
+vanishing probability (`G=1−π(2−∏_v(λ−(λ−1)p_v))↑1`), i.e. C-1 is tight only
+in this degenerate limit, as the document says. Excesses of order 1e−15
+are float rounding. **No violation of C-1 or Cor 4.1 found.**
