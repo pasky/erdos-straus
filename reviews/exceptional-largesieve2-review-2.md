@@ -117,3 +117,64 @@ genuine: no argument whose only inputs are "a comparison measure at level
 λ" + Facts 1.1/4.0 + duality can cap CRT-admissible large sieves whose
 frequencies have level > λ. Density remark: exponent
 `log(9/7)/log 649 = 0.0388` ✓, `0.00572` ✓.
+
+**Thm 8.5 Consequences.** (1) ✓: `E_πP(nθ_i) = Σ_m c_mπ̂(mθ_i) ≥ 1`,
+`c₀ = ∫P ≤ (∫P²)^{1/2} < 1`, so some `0 < |m| ≤ R` has
+`|π̂(mθ_i)| ≥ (1−c₀)/Σ_{m≠0}|c_m|`; `mθ_i` has denominator `D_i` (as
+`R < ℓ_i`), level `L_i`; Prop 5.2 needs (a) at level `2λ'`, so `λ' < L_i/2`
+and (b) is violated at level `L_i > λ'` ✓. (2) The (Sp) sentence is stated
+as a fact "by the divisor bounds of K2 §3", but K2 §3 proves only *total*
+first moments `𝔐(y) ≪ (log y)³…`; the per-D restricted sum is not written
+anywhere, and "for every D … ≤ D^{−1+o(1)}" is false as literally read for
+small D (the `(log N)^{O(1)}` factor is not `D^{o(1)}` when D is bounded).
+It is only needed for D of level `> λ ≥ log N`, where it is plausible
+(defect m2). (3) labelled Assessment ✓.
+
+**Thm 9.1.** Re-derived. Prefix `q°`: the prefix before the last step is
+`< N`, hence level `≤ log N`; the last step adds one prime `≤ e^{Λ₀}` (level
+counts distinct primes once) ✓; a W-smooth part `≥ N` gives level 0 ✓.
+`coll_q ≤ max_b π(b mod q) ≤ max_b π(b mod q°) ≤ e^S/q°` (q° | q, q° ∈ 𝒟) ✓.
+𝒮_<: `|H_c|²` is a real combination of class indicators mod
+`lcm(q,q')`, `q,q' ∈ 𝒮_<`, level `≤ 2log N` ✓; Lemma 4.1 for `K_< ≤ K`
+(pointwise, w ≥ 0) with the same h ✓. Summation: the 𝒮_≥ part is
+`≤ e^S W_≥/N`, the 𝒮_< part `≤ D_u^< + e^S(h + W_</N)`, total
+`≤ D_u + e^S(h + W_K/N)` ✓ (the doc's write-up "w̃^<_θ ≤ h + W_</N" then
+"W_K" is right only because `W_< + W_≥ = W_K`; fine). Final algebra:
+`2W_K − h = 2(W_K−h) + h` and `h ≤ Nh` ✓. The case `D(π) ≤ h` makes
+the kernel bound void ✓.
+*From scratch* (`review_ls2b_kernel.py`): the proof uses only (1.1) for
+the given π, so I tested the inequality chain for **arbitrary** A ⊂ ℤ/13860
+and arbitrary π on A, with S computed exactly by LP as the best constant
+in (1.1) over the 𝒟 of the proof, and random kernels (moduli | 13860,
+some ≥ N, N ∈ {6,…,40}): 23 nontrivial trials, all satisfy both
+`D(π) − h ≤ (W_K−h)/N + e^S(h + W_K/N)` and the stated B-bound (min slack
+ratio 4.4). ✓
+*Hypothesis bookkeeping:* "no hypothesis on the levels of the kernel
+moduli" is true, but the theorem does need every **prime** of the kernel
+moduli to be `≤ e^{Λ₀}` (§9 preamble), and λ grows with Λ₀; the summary
+table omits this (defect m3). Remark (not a defect; possible
+strengthening): kernel primes not dividing `M₀` can be removed from the
+hypothesis — 𝒜 is invariant under those digits, so the LP-dual π may be
+averaged to be uniform on them, and then `π(b mod q) = π(b mod q_{M₀})/(q/q_{M₀})`.
+
+**Prop 9.2.** Re-derived. T-rough q avoids the base; `n mod ℓ^v` is a
+function of `y_ℓ` (or a uniform lift), so EK Lemma 2.1(2) gives
+`q·σ(b mod q) ≤ Π_{ℓ|q}(1−ℓ^{−1/2})^{−1} ≤ e^{2ω(q)T^{−1/2}} ≤ e^{2T^{−1/4}}` ✓;
+`1+χ²_q = qΣσ(b)² ≤ q·max σ(b)` ✓. Conditioning: `1+χ²(π) ≤ (1+χ²(σ))(1−𝔏)^{−2}`,
+`(1−x)^{−2} ≤ 1+4x` on `[0,1/4]` ✓; `𝔏 ≤ C(log T)^cT^{−1/4}` is Thm 4.3's
+W-uniform estimate with W = T ✓ (T ≥ W₀). `X ≤ ε_T D_u`, LS Lemma 6.1 and
+LS Thm 6.2 (checked against LS §6) give the stated bound ✓. Unconditional
+as claimed (no K2 Thm 5.1) ✓.
+
+**§9 Status / "Open precisely".** Band-family remark: correct
+conclusion, but the stated route ("once every `L_i > 2log N + Λ₀`, e.g.
+ℓ ∈ [N³,2N³]") only works if Λ₀ (which bounds the *kernel* primes too)
+is ≈ 3 log N, i.e. it silently restricts the kernels to primes ≤ 2N³.
+For "every kernel with h = 0" one should argue directly: `𝒮_< = ∅`, each
+`q°` contains no prime ≥ N before its last step, hence at most one band
+prime, so `μ` of Prop 8.2(a) (uniform on foreign digits) has
+`μ(b mod q°) = 1/q°` and `B ≥ N` (defect m4). "Open precisely" omits
+(i) Prop 9.2's hypothesis `ω(q) ≤ T^{1/4}` (T-rough kernels with
+`ω(q) > T^{1/4}` are covered by neither 9.1 nor 9.2 when the factor is
+large), (ii) that the closed side rests on K2 Thm 5.1/KARY3 (conditional)
+and on family primes `≤ N^{O(1)}` (defect m5).
