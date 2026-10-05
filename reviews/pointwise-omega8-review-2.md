@@ -12,7 +12,7 @@ interface. From-scratch scripts: `scripts/review_o8b_*.py`.
 
 | Claim | Verdict |
 |---|---|
-| (1) PO Thm 4.1 (Thorner–Zaman, λ, Lemma 3.2) applies to the OMEGA8 minorant (Thm 3.4 interface, Lemma 3.3 twist, Lemma 3.2 sizes) | **SOUND** (minor D1–D3) |
+| (1) PO Thm 4.1 (Thorner–Zaman, λ, Lemma 3.2) applies to the OMEGA8 minorant (Thm 3.4 interface, Lemma 3.3 twist, Lemma 3.2 sizes) | **SOUND** (minor D1–D3, D5) |
 | (2) O2 Lemma 4.3 (I), Lemmas 11.1–11.2, Thm 11.3, ET Prop 1.4 ⇒ `S*≪𝓛^4log𝓛`; iterated-quarantine Π supplies what OMEGA8 needs | **SOUND** (minor D4) |
 | (3) W(p) / Mordell-hard / L_h chain; `log L_h(T)≪𝓛^{14}` ⇒ `W(p)≥exp(c(log p)^{1/14})` | **SOUND** |
 | (4) Thm 4.4 `(1/(2log2)−o(1))log₂p·log₃p`, modulo TZ only | **SOUND** |
@@ -63,7 +63,7 @@ cells, only on `M_1, μ, Z`; so the astronomically many cells of B are harmless.
   through d). So Lemma 3.3's `μ_ψ` is PO's `μ_ψ`. f is odd (840|Q) and all
   its primes are free, so a free ℓ_0|f exists with `ψ_{ℓ_0}` = Legendre mod
   ℓ_0 lifted to `(ℤ/ℓ_0^{e})^×`, mean zero. ✓ (Numerically checked on toys,
-  §5.)
+  §6.)
 * *Lemma 3.3 constants.* Conditional LLL (HSS): neighbours of `E∖ℓ_0`
   (≤k−1 primes) have `Σx ≤ 2(k−1)/(64k) < 1/32`, `∏(1−x)^{−1} ≤ e^{0.033}
   ≤ e^{1/16}` ✓; `1.07·w_{ℓ_0} ≤ 1.07/64 ≤ 0.017` ✓; `0.01+0.021<1/4` ✓.
