@@ -56,6 +56,7 @@ def main():
     eps, K, theta = float(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3])
     one = "--one" in sys.argv
     CAP = None
+    METHOD = "highs-ds" if "--ds" in sys.argv else "highs"
     for a in sys.argv:
         if a.startswith("--cap="):
             CAP = float(a[6:])          # nu <= CAP*mu (2 = 'bounded fake', Lemma 3.6)
@@ -109,12 +110,14 @@ def main():
     vis = [v for v, k in zip(vis, keep) if k]
     As = sp.diags(1.0 / rho) @ A @ sp.diags(mu)
     cs = c * mu
-    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=(0, CAP), method="highs")
+    res = linprog(cs, A_eq=As, b_eq=np.ones(len(vis)), bounds=(0, CAP), method=METHOD,
+                  options={"primal_feasibility_tolerance": 1e-10, "dual_feasibility_tolerance": 1e-10})
     nu = res.x * mu if res.status == 0 else None
+    resid = float(np.max(np.abs(As @ res.x - 1.0))) if res.status == 0 else None
     out = {"eps": eps, "K": K, "theta": theta, "one_window": one,
            "n_configs": len(configs), "n_visible": len(vis), "nnz": int(A.nnz),
            "status": res.status, "message": res.message,
-           "tau": float(mu[j0]), "P_target": float(mu[j0] / mu.sum()),
+           "tau": float(mu[j0]), "max_rel_residual": resid, "P_target": float(mu[j0] / mu.sum()),
            "min_fake_target_over_tau": (float(res.fun) / float(mu[j0])) if res.status == 0 else None}
     if nu is not None and "--show" in sys.argv:
         dif = nu - mu
@@ -123,6 +126,11 @@ def main():
             return [[round(float(g[k]), 3) for k in range(K) for _ in range(m[k])] for m in C]
         out["most_removed"] = [(fmt(configs[j]), float(dif[j] / mu[j0])) for j in order[:12]]
         out["most_added"] = [(fmt(configs[j]), float(dif[j] / mu[j0])) for j in order[::-1][:12]]
+    for a in sys.argv:
+        if a.startswith("--dump=") and nu is not None:
+            json.dump({"eps": eps, "K": K, "theta": theta, "g": list(map(float, g)), "w": list(map(float, w)),
+                       "configs": [list(map(list, C)) for C in configs], "nu": list(map(float, nu)),
+                       "mu": list(map(float, mu))}, open(a[7:], "w"))
     print(json.dumps(out, indent=1))
 
 

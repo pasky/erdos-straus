@@ -187,3 +187,25 @@ The hypothesis asks for a 2-bounded one-window fake (`0≤μ+γ≤2μ`). In the
 coarse grid (ε=0.1, K=8), `--one --cap=2` gives min ν(∅)/τ = 0.45, 0.54, 0.63
 at a = 0.2, 0.25, 0.3. So no 2-bounded fake exists there, and the LP fakes of
 §3.5 are not of product type.
+
+### 3.7 Certified fake at θ=1/2 in the discrete model (CERTIFIED, floating point)
+Pipeline: `window2_feas.py` (L∞-residual feasibility LP with ν(∅)=0), then
+`window2_polish.py` (NNLS on the LP support, giving a square 89×89 system), then
+`window2_verify.py`. The verifier is independent: it rebuilds bins, weights and
+parity, and recomputes every visible correlation by brute force.
+For ε=0.1, K=8, θ=0.5 (12769 configurations, 89 visible correlations):
+ν≥0, **ν(∅,∅)=0**, max relative correlation residual **2.6·10⁻¹⁵**. The
+support has 89 configurations, all with `ν/μ≥0.154`, so the solution is
+interior and robust under small perturbations of the data. Total removed
+true mass is 3.15τ. Some configurations carry up to 9.3·10⁴ times their true mass. (The
+model has no capacity bound; for integers the available capacity is ≍log x
+times the prime mass, so realisability as an integer sequence would need this
+factor to stay bounded. Not checked.) Dump: `data/window2/fake_eps0.1_K8_theta0.5.json.gz`.
+θ=0.6: the LP is feasible to residual 5·10⁻⁴, but the polish stalls at
+1.5·10⁻⁴ (not certified). θ=0.7: infeasible (best residual 4.2%).
+
+**Proposition 3.7 (discrete model; CERTIFIED).** In the discrete 𝒯𝒫(1/2) model with
+ε=0.1, K=8, the Type-I correlations of level 1/2 together with the parity of both
+windows do not imply that any configuration has both windows clean. In the
+same model the one-window LP gives min ν(∅)/τ=0.744>0 at θ=1/2. So one
+window is decided by Type-I + parity at level 1/2 and two windows are not.
