@@ -1,0 +1,32 @@
+q=5 k=2 m=3 t=0: energy=1.019782e-01 lower_bound=6.705853e-02
+q=5 k=2 m=3 t=1: energy=6.936330e-02 lower_bound=6.705853e-02
+q=5 k=2 m=3 t=2: energy=3.680502e-03 lower_bound=1.828717e-03
+q=5 k=2 m=3 t=3: energy=1.866465e-03 lower_bound=1.828717e-03
+q=5 k=2 m=3 t=4: energy=4.194304e-05 lower_bound=1.677722e-05
+q=5 k=2 m=3 t=5: energy=1.677722e-05 lower_bound=1.677722e-05
+q=5 k=2 m=3 t=6: energy=0.000000e+00 lower_bound=0.000000e+00
+  delta=0.884736 total=0.884736 ok=True
+q=4 k=3 m=2 t=0: energy=3.004450e-02 lower_bound=1.281828e-02
+q=4 k=3 m=2 t=1: energy=2.578622e-02 lower_bound=1.281828e-02
+q=4 k=3 m=2 t=2: energy=1.300657e-02 lower_bound=1.281828e-02
+q=4 k=3 m=2 t=3: energy=2.027750e-04 lower_bound=4.345179e-05
+q=4 k=3 m=2 t=4: energy=1.303554e-04 lower_bound=4.345179e-05
+q=4 k=3 m=2 t=5: energy=4.345179e-05 lower_bound=4.345179e-05
+q=4 k=3 m=2 t=6: energy=0.000000e+00 lower_bound=0.000000e+00
+  delta=0.968994 total=0.968994 ok=True
+q=7 k=1 m=6 t=0: energy=2.393021e-01 lower_bound=2.393021e-01
+q=7 k=1 m=6 t=1: energy=8.203479e-02 lower_bound=8.203479e-02
+q=7 k=1 m=6 t=2: energy=1.650673e-02 lower_bound=1.650673e-02
+q=7 k=1 m=6 t=3: energy=1.944943e-03 lower_bound=1.944943e-03
+q=7 k=1 m=6 t=4: energy=1.247190e-04 lower_bound=1.247190e-04
+q=7 k=1 m=6 t=5: energy=3.370785e-06 lower_bound=3.370785e-06
+q=7 k=1 m=6 t=6: energy=0.000000e+00 lower_bound=0.000000e+00
+  delta=0.396569 total=0.396569 ok=True
+q=3 k=2 m=3 t=0: energy=2.090618e-01 lower_bound=9.838910e-02
+q=3 k=2 m=3 t=1: energy=1.165736e-01 lower_bound=9.838910e-02
+q=3 k=2 m=3 t=2: energy=1.830495e-02 lower_bound=5.900937e-03
+q=3 k=2 m=3 t=3: energy=6.623501e-03 lower_bound=5.900937e-03
+q=3 k=2 m=3 t=4: energy=4.817092e-04 lower_bound=1.204273e-04
+q=3 k=2 m=3 t=5: energy=1.204273e-04 lower_bound=1.204273e-04
+q=3 k=2 m=3 t=6: energy=0.000000e+00 lower_bound=0.000000e+00
+  delta=0.702332 total=0.702332 ok=True

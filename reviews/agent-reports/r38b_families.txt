@@ -1,0 +1,128 @@
+tribes w=1 s=1                           n= 1 k=1 m=    1 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=0
+tribes w=1 s=2                           n= 2 k=1 m=    2 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=0
+tribes w=1 s=3                           n= 3 k=1 m=    3 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=1
+tribes w=1 s=4                           n= 4 k=1 m=    4 P(h)=0.9375 G=0.316406 tailratio=0.1719@t=1
+tribes w=1 s=5                           n= 5 k=1 m=    5 P(h)=0.9688 G=0.237305 tailratio=0.1250@t=2
+tribes w=1 s=6                           n= 6 k=1 m=    6 P(h)=0.9844 G=0.177979 tailratio=0.0859@t=3
+tribes w=1 s=7                           n= 7 k=1 m=    7 P(h)=0.9922 G=0.133484 tailratio=0.0625@t=3
+tribes w=1 s=8                           n= 8 k=1 m=    8 P(h)=0.9961 G=0.100113 tailratio=0.0454@t=4
+tribes w=1 s=9                           n= 9 k=1 m=    9 P(h)=0.9980 G=0.075085 tailratio=0.0317@t=5
+tribes w=1 s=10                          n=10 k=1 m=   10 P(h)=0.9990 G=0.056314 tailratio=0.0236@t=5
+tribes w=1 s=11                          n=11 k=1 m=   11 P(h)=0.9995 G=0.042235 tailratio=0.0172@t=6
+tribes w=1 s=12                          n=12 k=1 m=   12 P(h)=0.9998 G=0.031676 tailratio=0.0121@t=7
+tribes w=1 s=13                          n=13 k=1 m=   13 P(h)=0.9999 G=0.023757 tailratio=0.0091@t=7
+tribes w=1 s=14                          n=14 k=1 m=   14 P(h)=0.9999 G=0.017818 tailratio=0.0066@t=8
+tribes w=1 s=15                          n=15 k=1 m=   15 P(h)=1.0000 G=0.013363 tailratio=0.0047@t=8
+tribes w=1 s=16                          n=16 k=1 m=   16 P(h)=1.0000 G=0.010023 tailratio=0.0036@t=9
+tribes w=2 s=1                           n= 2 k=2 m=    1 P(h)=0.2500 G=0.864277 tailratio=0.2652@t=0
+tribes w=2 s=2                           n= 4 k=2 m=    2 P(h)=0.4375 G=0.746974 tailratio=0.3480@t=0
+tribes w=2 s=3                           n= 6 k=2 m=    3 P(h)=0.5781 G=0.645592 tailratio=0.3449@t=0
+tribes w=2 s=4                           n= 8 k=2 m=    4 P(h)=0.6836 G=0.557970 tailratio=0.3059@t=0
+tribes w=2 s=5                           n=10 k=2 m=    5 P(h)=0.7627 G=0.482241 tailratio=0.2560@t=0
+tribes w=2 s=6                           n=12 k=2 m=    6 P(h)=0.8220 G=0.416790 tailratio=0.2081@t=1
+tribes w=2 s=7                           n=14 k=2 m=    7 P(h)=0.8665 G=0.360221 tailratio=0.1759@t=1
+tribes w=2 s=8                           n=16 k=2 m=    8 P(h)=0.8999 G=0.311331 tailratio=0.1445@t=1
+tribes w=3 s=1                           n= 3 k=3 m=    1 P(h)=0.1250 G=0.930343 tailratio=0.1378@t=0
+tribes w=3 s=2                           n= 6 k=3 m=    2 P(h)=0.2344 G=0.865539 tailratio=0.2261@t=0
+tribes w=3 s=3                           n= 9 k=3 m=    3 P(h)=0.3301 G=0.805248 tailratio=0.2786@t=0
+tribes w=3 s=4                           n=12 k=3 m=    4 P(h)=0.4138 G=0.749157 tailratio=0.3056@t=0
+tribes w=3 s=5                           n=15 k=3 m=    5 P(h)=0.4871 G=0.696973 tailratio=0.3148@t=0
+tribes w=4 s=1                           n= 4 k=4 m=    1 P(h)=0.0625 G=0.964724 tailratio=0.0697@t=0
+tribes w=4 s=2                           n= 8 k=4 m=    2 P(h)=0.1211 G=0.930692 tailratio=0.1266@t=0
+tribes w=4 s=3                           n=12 k=4 m=    3 P(h)=0.1760 G=0.897861 tailratio=0.1725@t=0
+tribes w=4 s=4                           n=16 k=4 m=    4 P(h)=0.2275 G=0.866187 tailratio=0.2090@t=0
+tribes w=5 s=1                           n= 5 k=5 m=    1 P(h)=0.0312 G=0.982228 tailratio=0.0348@t=0
+tribes w=5 s=2                           n=10 k=5 m=    2 P(h)=0.0615 G=0.964771 tailratio=0.0663@t=0
+tribes w=5 s=3                           n=15 k=5 m=    3 P(h)=0.0909 G=0.947625 tailratio=0.0949@t=0
+thr>= 1 ones                             n= 8 k=1 m=    8 P(h)=0.9961 G=0.100113 tailratio=0.0454@t=4
+thr>= 2 ones                             n= 8 k=2 m=   28 P(h)=0.9648 G=0.139167 tailratio=0.0612@t=5
+thr>= 3 ones                             n= 8 k=3 m=   56 P(h)=0.8555 G=0.288265 tailratio=0.1558@t=0
+thr>= 4 ones                             n= 8 k=4 m=   70 P(h)=0.6367 G=0.513596 tailratio=0.2751@t=0
+thr>= 5 ones                             n= 8 k=5 m=   56 P(h)=0.3633 G=0.745030 tailratio=0.2657@t=0
+thr>= 6 ones                             n= 8 k=6 m=   28 P(h)=0.1445 G=0.906033 tailratio=0.1388@t=0
+thr>= 1 ones                             n=12 k=1 m=   12 P(h)=0.9998 G=0.031676 tailratio=0.0121@t=7
+thr>= 2 ones                             n=12 k=2 m=   66 P(h)=0.9968 G=0.029834 tailratio=0.0136@t=7
+thr>= 3 ones                             n=12 k=3 m=  220 P(h)=0.9807 G=0.069117 tailratio=0.0266@t=1
+thr>= 4 ones                             n=12 k=4 m=  495 P(h)=0.9270 G=0.158131 tailratio=0.0805@t=0
+thr>= 5 ones                             n=12 k=5 m=  792 P(h)=0.8062 G=0.309951 tailratio=0.1795@t=0
+thr>= 6 ones                             n=12 k=6 m=  924 P(h)=0.6128 G=0.509284 tailratio=0.2663@t=0
+thr>= 1 ones                             n=14 k=1 m=   14 P(h)=0.9999 G=0.017818 tailratio=0.0066@t=8
+thr>= 2 ones                             n=14 k=2 m=   91 P(h)=0.9991 G=0.013239 tailratio=0.0062@t=9
+thr>= 3 ones                             n=14 k=3 m=  364 P(h)=0.9935 G=0.031181 tailratio=0.0128@t=10
+thr>= 4 ones                             n=14 k=4 m= 1001 P(h)=0.9713 G=0.077675 tailratio=0.0334@t=1
+thr>= 5 ones                             n=14 k=5 m= 2002 P(h)=0.9102 G=0.170877 tailratio=0.0939@t=0
+thr>= 6 ones                             n=14 k=6 m= 3003 P(h)=0.7880 G=0.319569 tailratio=0.1875@t=0
+thr ones|zeros k=2                       n= 9 k=2 m=   72 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=3                       n= 9 k=3 m=  168 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=4                       n= 9 k=4 m=  252 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=5                       n= 9 k=5 m=  252 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=6                       n= 9 k=6 m=  168 P(h)=0.5078 G=0.647880 tailratio=0.3149@t=1
+thr ones|zeros k=2                       n=12 k=2 m=  132 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=3                       n=12 k=3 m=  440 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=4                       n=12 k=4 m=  990 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=5                       n=12 k=5 m= 1584 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+thr ones|zeros k=6                       n=12 k=6 m= 1848 P(h)=1.0000 G=0.000000 tailratio=0.0000@t=None
+OR of 1 parities_1                       n= 1 k=1 m=    1 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=0
+OR of 2 parities_1                       n= 2 k=1 m=    2 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=0
+OR of 3 parities_1                       n= 3 k=1 m=    3 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=1
+OR of 4 parities_1                       n= 4 k=1 m=    4 P(h)=0.9375 G=0.316406 tailratio=0.1719@t=1
+OR of 5 parities_1                       n= 5 k=1 m=    5 P(h)=0.9688 G=0.237305 tailratio=0.1250@t=2
+OR of 6 parities_1                       n= 6 k=1 m=    6 P(h)=0.9844 G=0.177979 tailratio=0.0859@t=3
+OR of 7 parities_1                       n= 7 k=1 m=    7 P(h)=0.9922 G=0.133484 tailratio=0.0625@t=3
+OR of 8 parities_1                       n= 8 k=1 m=    8 P(h)=0.9961 G=0.100113 tailratio=0.0454@t=4
+OR of 9 parities_1                       n= 9 k=1 m=    9 P(h)=0.9980 G=0.075085 tailratio=0.0317@t=5
+OR of 10 parities_1                      n=10 k=1 m=   10 P(h)=0.9990 G=0.056314 tailratio=0.0236@t=5
+OR of 11 parities_1                      n=11 k=1 m=   11 P(h)=0.9995 G=0.042235 tailratio=0.0172@t=6
+OR of 12 parities_1                      n=12 k=1 m=   12 P(h)=0.9998 G=0.031676 tailratio=0.0121@t=7
+OR of 13 parities_1                      n=13 k=1 m=   13 P(h)=0.9999 G=0.023757 tailratio=0.0091@t=7
+OR of 14 parities_1                      n=14 k=1 m=   14 P(h)=0.9999 G=0.017818 tailratio=0.0066@t=8
+OR of 15 parities_1                      n=15 k=1 m=   15 P(h)=1.0000 G=0.013363 tailratio=0.0047@t=8
+OR of 16 parities_1                      n=16 k=1 m=   16 P(h)=1.0000 G=0.010023 tailratio=0.0036@t=9
+OR of 1 parities_2                       n= 2 k=2 m=    2 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=1
+OR of 2 parities_2                       n= 4 k=2 m=    4 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=1
+OR of 3 parities_2                       n= 6 k=2 m=    6 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=3
+OR of 4 parities_2                       n= 8 k=2 m=    8 P(h)=0.9375 G=0.316406 tailratio=0.1719@t=3
+OR of 5 parities_2                       n=10 k=2 m=   10 P(h)=0.9688 G=0.237305 tailratio=0.1250@t=5
+OR of 6 parities_2                       n=12 k=2 m=   12 P(h)=0.9844 G=0.177979 tailratio=0.0859@t=7
+OR of 7 parities_2                       n=14 k=2 m=   14 P(h)=0.9922 G=0.133484 tailratio=0.0625@t=7
+OR of 8 parities_2                       n=16 k=2 m=   16 P(h)=0.9961 G=0.100113 tailratio=0.0454@t=9
+OR of 1 parities_3                       n= 3 k=3 m=    4 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=2
+OR of 2 parities_3                       n= 6 k=3 m=    8 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=2
+OR of 3 parities_3                       n= 9 k=3 m=   12 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=5
+OR of 4 parities_3                       n=12 k=3 m=   16 P(h)=0.9375 G=0.316406 tailratio=0.1719@t=5
+OR of 5 parities_3                       n=15 k=3 m=   20 P(h)=0.9688 G=0.237305 tailratio=0.1250@t=8
+OR of 1 parities_4                       n= 4 k=4 m=    8 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=3
+OR of 2 parities_4                       n= 8 k=4 m=   16 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=3
+OR of 3 parities_4                       n=12 k=4 m=   24 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=7
+OR of 4 parities_4                       n=16 k=4 m=   32 P(h)=0.9375 G=0.316406 tailratio=0.1719@t=7
+OR of 1 parities_5                       n= 5 k=5 m=   16 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=4
+OR of 2 parities_5                       n=10 k=5 m=   32 P(h)=0.7500 G=0.562500 tailratio=0.3750@t=4
+OR of 3 parities_5                       n=15 k=5 m=   48 P(h)=0.8750 G=0.421875 tailratio=0.2500@t=9
+parity_2                                 n= 2 k=2 m=    2 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=1
+parity_3                                 n= 3 k=3 m=    4 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=2
+parity_4                                 n= 4 k=4 m=    8 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=3
+parity_5                                 n= 5 k=5 m=   16 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=4
+parity_6                                 n= 6 k=6 m=   32 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=5
+parity_7                                 n= 7 k=7 m=   64 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=6
+parity_8                                 n= 8 k=8 m=  128 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=7
+parity_9                                 n= 9 k=9 m=  256 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=8
+parity_10                                n=10 k=10 m=  512 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=9
+parity_11                                n=11 k=11 m= 1024 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=10
+parity_12                                n=12 k=12 m= 2048 P(h)=0.5000 G=0.750000 tailratio=0.5000@t=11
+majority                                 n= 3 k=2 m=    3 P(h)=0.5000 G=0.691942 tailratio=0.3536@t=0
+majority                                 n= 5 k=3 m=   10 P(h)=0.5000 G=0.661210 tailratio=0.3150@t=0
+majority                                 n= 7 k=4 m=   35 P(h)=0.5000 G=0.641612 tailratio=0.2973@t=0
+majority                                 n= 9 k=5 m=  126 P(h)=0.5000 G=0.627750 tailratio=0.2872@t=0
+majority                                 n=11 k=6 m=  462 P(h)=0.5000 G=0.617287 tailratio=0.2806@t=0
+majority                                 n=13 k=7 m= 1716 P(h)=0.5000 G=0.609031 tailratio=0.2760@t=0
+majority                                 n=15 k=8 m= 6435 P(h)=0.5000 G=0.602302 tailratio=0.2726@t=0
+multiplexer a=1                          n= 3 k=2 m=    2 P(h)=0.5000 G=0.676777 tailratio=0.3536@t=0
+multiplexer a=2                          n= 6 k=3 m=    4 P(h)=0.5000 G=0.652170 tailratio=0.3150@t=0
+multiplexer a=3                          n=11 k=4 m=    8 P(h)=0.5000 G=0.639913 tailratio=0.3094@t=1
+sunflower core=1 petal=1                 n=16 k=2 m=   15 P(h)=0.5000 G=0.603857 tailratio=0.3536@t=0
+sunflower core=1 petal=2                 n=15 k=3 m=    7 P(h)=0.4333 G=0.687518 tailratio=0.3094@t=0
+sunflower core=2 petal=1                 n=16 k=3 m=   14 P(h)=0.2500 G=0.819302 tailratio=0.2362@t=0
+sunflower core=2 petal=2                 n=16 k=4 m=    7 P(h)=0.2166 G=0.848879 tailratio=0.2018@t=0
+sunflower core=3 petal=1                 n=16 k=4 m=   13 P(h)=0.1250 G=0.913994 tailratio=0.1301@t=0
+sunflower core=3 petal=2                 n=15 k=5 m=    6 P(h)=0.1028 G=0.931593 tailratio=0.1059@t=0
+MAX G 0.9822277755671673 MAX tailratio 0.5
