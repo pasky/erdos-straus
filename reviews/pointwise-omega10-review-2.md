@@ -228,3 +228,40 @@ number of vertices" — say the ground set is `∪𝒞` and the base case is a
 family of empty edges (`Θ∈{0,1}`). (c) Cor 4.1 also applies verbatim to
 DNFs with set-valued literals `x_v∈S_v` (split into single-value cylinders on
 the same support); worth one sentence since it is the natural q-ary DNF notion.
+
+## 6. Comparison with R38a (read only after §§1–5 were written)
+
+Agreement on every verdict for §3–Cor 4.1, and R38a's MINORs 1, 2, 6 coincide
+with my D3 (±1 form), D3 (Lecomte–Tan), D1 (general product measures).
+New here: (i) D1 is now **numerically confirmed** for biased q-ary
+measures; (ii) the exponential rate of Cor 4.1 is **sharp** over general
+product spaces (§3.1, D2) — so the "possibly new" Boolean statement is
+optimal in its base outside the uniform cube; (iii) on the uniform cube the
+truth is bracketed between `3^{−t/k}` and `2^{−t/k}` (§3.2); (iv) exact
+checks at n=14–16 with heavily overlapping, many-term DNFs.
+
+## 7. Final verdict
+
+**Cor 4.1 is correct** (PROVED; independently re-derived, no gap found;
+no counterexample in exhaustive structured families, adversarial
+hill-climbing over uniform/biased/q-ary spaces, and 1200 random dense DNFs
+at n≤16; maximum observed tail ratio 0.5 vs the claimed bound 1).
+Boolean form: every width-k DNF `g:{±1}^n→{±1}`, under any product measure,
+satisfies `W^{>t}[g] ≤ 4·2^{−(t+1)/k}`. **Assessment:** this is possibly
+new as stated (exponent constant 1, no switching lemma, general product
+spaces, base sharp there); the closest prior art I found is Lecomte–Tan's
+cover-probability bound and the standard `Cw log(1/ε)` concentration.
+A targeted literature search should be done before any external claim.
+
+## Replay (R38b scripts, all from scratch)
+
+```
+export PYTHONPATH=scripts OMP_NUM_THREADS=1
+uv run python scripts/review_o10b_sanity.py                     # library vs brute force
+(ulimit -v 8000000; timeout 1800 uv run python scripts/review_o10b_families.py)
+(ulimit -v 8000000; timeout 1500 uv run python scripts/review_o10b_hyper.py 2000 7)
+(ulimit -v 8000000; timeout 3000 uv run python scripts/review_o10b_hill.py bu 12 3 T2 3000 4 9)  # etc., see r38b_hill.txt
+(ulimit -v 8000000; timeout 2400 uv run python scripts/review_o10b_random.py 600 31)
+(ulimit -v 8000000; timeout 1500 uv run python scripts/review_o10b_sharp.py)
+(ulimit -v 8000000; timeout 1500 uv run --with mpmath python scripts/review_o10b_sharp_mp.py)
+```
