@@ -484,6 +484,38 @@ it no longer bears on any ES cap. Not pursued. ("Saving" here is the
 mean saving `log(1/Eν)`, TW4's convention; the exceptional-set reading
 still needs Cor 4.2's evaluation hypotheses.)
 
+## 8. Goal (3) continued: §6 at text level, and the class-order window
+
+**Lemma 8.1 (§6 checked against TW2/TW4's definitions; PROVED).** In TW4
+Setting 3.0^{(r)} (= TW2 Setting 3.0 with "at most two" replaced by "at
+most r" large primes, any r), every admissible g (`g ∈ V_{λ/2}`, `g ≥ 1`
+on the avoiders, `λ ≤ A₀L`) gives a K2 majorant `ν = g²` of level `≤ λ`
+of the avoider set of a family of ℛ(M)-classes, and TW's
+`saving(g²) = log(1/E g²)`. Hence Theorem 4.1 gives
+`saving(g²) ≤ Cλ^{3/4} ≤ C A₀^{3/4} L^{3/4}` for **every** r, every B,
+and also without B (TW4's families need `M ≤ P(M)^{1+B}`; Thm 4.1 does not).
+
+*Proof.* (i) *Family.* TW2 Setting 3.0's classes are Case-B classes
+`−4D mod M`, `M ≡ 3 (4)`, `D | A²`: ℛ(M)-classes (K2 Def 2.0). TW4
+changes only the number of primes above `w₂ = L^8`. (ii) *Level.* TW2
+Setting 3.0: "All primes are charged (`s_ℓ = log ℓ`)", so `g ∈ V_{λ/2}`
+is a CRT combination of residue classes whose moduli have
+`Σ_{ℓ|d} log ℓ ≤ λ/2` over **all** primes, in particular over primes
+`> W`. A product of two such indicators is 0 or one residue class modulo
+the lcm, whose prime set is the union; so `g²` is a CRT combination of
+level `≤ λ` in K2's sense (which charges only primes `> W`). (iii) *Sign
+and majorisation.* `g² ≥ 0` on ℤ, and `g² ≥ 1` wherever `g ≥ 1`, i.e. on
+the whole (periodic) avoider set. (iv) *Saving.* TW Lemma 6.6 / TW2
+Lemma 2.1 measure `saving(g²) = log(1/E_U g²)` under the uniform law on
+`ℤ/Q`, which is K2's Eν. So Theorem 4.1 applies with `λ ≤ A₀L`. ∎
+
+So TW4 Thm 7.1 (`L^{3/4}(log L)^{3r+O(1)}`), Prop 9.1, Cor 9.3 and the
+open middle window `r ≍ log L` are all superseded, as caps, by
+`C A₀^{3/4}L^{3/4}`. The only thing Theorem 4.1 does not reproduce is
+TW4's *mechanism* (fibre tilting + star sums, per-prime efficient); the
+TW4 §12 hub-count question is a question about that mechanism and has no
+consequence for any cap.
+
 ## 7. Numerics (EVIDENCE only)
 
 `scripts/kary3_moments.py` enumerates all y-smooth `M ≡ 3 (mod 4)` up to
