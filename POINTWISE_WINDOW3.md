@@ -45,3 +45,26 @@ Refinements a sieve *can* add (to be tested, §3): (a) restrict I to one bin and
 𝓜 to a fixed factorisation type (already in SW_K: C_q is fixed); (b) impose
 "no q'-bad prime `<z'`" with larger `z'` in the switched upper sieve, a dimension
 `1+1/2` upper sieve with its own constant `K(z')`.
+
+## 2. Model fidelity (repairing R29-M4)
+
+### 2.1 The continuum heuristic law is parity-blind; the K=8 bias is a binning artefact (EVIDENCE, quadrature)
+Continuum law of one window: Poisson points of intensity `dt/(2t)` on `[ε,1]`, cofactor weight
+`(u−Σt)^{−1/2}`. The Type-I data of a visible S (sum s) are `∏(dt/2t)·½(F_+(1−s)±F_−(1−s))`,
+sign `(−1)^{|S|}`, where `F_±(u)=Σ_k (±1)^k/k!∫∏dt_i/(2t_i)(u−Σt)^{−1/2}`. Real data
+(BV + fundamental lemma, Thm P1) are `∝∏g(d)`, parity-blind: they need `F_+` constant and `F_−≈0`.
+`/tmp`-free replay: `scripts/window3_cont.py EPS 4000` (grid quadrature, step 1/4000):
+
+| ε | F_+(0.5) | F_+(1) | F_−(0.5)/F_+(0.5) | F_−(1)/F_+(1) |
+|---|---|---|---|---|
+| 0.10 | 4.145 | 4.161 | 3.1e-3 | 1.0e-3 |
+| 0.05 | 5.864 | 5.887 | 1.4e-3 | 4.8e-4 |
+| 0.02 | 9.287 | 9.325 | 5.3e-4 | 1.8e-4 |
+| 0.01 | 13.17 | 13.23 | 2.6e-4 | 9e-5 |
+
+So the continuum heuristic's data are product-form to 0.4% and parity-blind to 0.3% **already at
+ε=0.1**. The R29 spread `r(S)∈[0.82,1.87]` comes from the discretisation of WINDOW2 (point
+masses at bin centres, cofactor weight evaluated at the centre sum), not from ε.
+**Repair adopted:** μ(C) := exact cell integral of the continuum law over the bin cell of C
+(sub-grid quadrature, `scripts/window3_model.py`). Then ρ(S)=Σ_C emb(S,C)μ(C) are the exact
+cell-aggregated continuum data, product-form and parity-blind to the accuracy above.
