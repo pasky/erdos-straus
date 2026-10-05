@@ -50,6 +50,15 @@ Blocks (cp)..(ct) (task O35) replay the documents merged in the next round:
   (cs) POINTWISE_OMEGA8 §§1-5 (imports scripts/omega8_brw_check.py): BRW Lemma 3.1,
        Lemma 3.2 c_W formula, exponent bookkeeping of Thms 4.3-4.4;
   (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check.
+Blocks (cu)..(cy) (task O43) replay the documents merged after that:
+  (cu) POINTWISE_OMEGA9: Thm 1.1 character coefficients c(chi) = E_D[B conj chi_D]/phi(Q)
+       (items 1-3, S(x) expansion) on a toy mod 2520, Lemma 2.1, Case A lambda bound,
+       exponent bookkeeping of Thms 2.2-2.3;
+  (cv) POINTWISE_XWIN: Klein orbits / beta(a), half-set Lemma 1.1 by brute force;
+  (cw) POINTWISE_WINDOW2: Lemma 1.2 norm forms; Prop 3.7 certified fake (60-digit re-solve);
+  (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma 9.3 (LPs need scipy);
+  (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 (Gale, exact max-flow), Prop 8.2(a) exact
+       measure; check (5), contrast LP and Thm 9.1 chain need scipy.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -17766,7 +17775,7 @@ check_cq()
 
 
 # ---------------------------------------------------------------- (cr)
-# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9 not replayed: under review).  Imports
+# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9: block (cy)).  Imports
 # scripts/largesieve2_checks.py (toy family mod L = 24*5*7*11; its functions assert):
 # (1) Lemma 1.1 comparison measure: LP optimum m* = 1/24 (k = 0), 1/140 (k = 2), dual
 #     stationarity, and max{E_pi f : f in V_D, f >= 0, E_U f = 1} <= 1/m* (second LP);
