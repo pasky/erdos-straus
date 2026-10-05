@@ -181,7 +181,7 @@ O9's hub (core H plus M completions at distinct coordinates) one gets
 `|N|≤1` and a contribution `O(P(H)·min(1,M/q))=O(S_hub)`, with no
 `e^{M/q}`.
 
-**Conjecture Q (EVIDENCE).** If every `E∈𝓗` has `w_E=∏_{v∈E}(1+μ_v)≤2`,
+**Conjecture Q (now PROVED, Thm 3.4 below).** If every `E∈𝓗` has `w_E=∏_{v∈E}(1+μ_v)≤2`,
 then `Q_μ(𝓗)≤1`.
 
 By Lemma 3.1, Conjecture Q implies C-1 (`G_F≤1` for every single-value
@@ -201,7 +201,7 @@ The naive unweighted bound `Q_1(𝓗)≤min_E(2^{|E|}−1)` is **false**
 (`scripts/omega10_q1.py`: ratios up to 423, driven by singleton edges), so
 the averaging over Ξ is essential.
 
-**Stronger form Q′ (EVIDENCE).** Under the same hypothesis,
+**Stronger form Q′ (now PROVED, Thm 3.4).** Under the same hypothesis,
 `Q_μ(𝓗) ≤ min_{E∈𝓗} w_E − 1` (`scripts/omega10_qmin.py`, 20000 random
 weighted hypergraphs, no violation beyond rounding). Q′ is the hypergraph
 analogue of "C-min" (`G_h ≤ E[h·w_min]`, also numerically supported in §2).
@@ -222,14 +222,14 @@ Q_μ(𝓗) = Q_μ(𝓑) + μ_v·Σ_V μ^V (N_𝓑(V)−N_𝓐(V))².
 naive inductive step (v in a minimum-weight edge, Q′ for `𝓗/v`) would need
 `Σ_Vμ^V(N_𝓑−N_𝓐)² ≤ min_{L∈link(v)} w_L`, which is **false** in general
 (random search: e.g. `𝓐={01}`, link `{0},{1}`), so a proof must use the
-slack in `Q(𝓗/v)`. Conjecture Q is open.
+slack in `Q(𝓗/v)`. (Resolved in §3.1.)
 
-**Matching forms (EVIDENCE).** Strongest form tested, *Conjecture FM*: if
+**Matching forms.** Strongest form tested, *Conjecture FM* (EVIDENCE; open): if
 all `w_E≤2`, then `Q_μ(𝓗) ≤ ∏_E (w_E−1)^{y_E}` for every fractional matching
 y (`y≥0`, `Σ_{E∋v}y_E≤1`). `scripts/omega10_fm.py` (LP over y; 20000 random
 weighted hypergraphs, n≤9): never violated, and **equality** (to `10^{−14}`)
 is frequent. Its integral case, *Conjecture QM*: `Q_μ(𝓗)≤∏_{E∈𝓜}(w_E−1)` for
-every matching `𝓜⊆𝓗`, contains Q (𝓜=∅), Q′ (one edge) and the disjoint
+every matching `𝓜⊆𝓗` (now PROVED, Thm 3.4), contains Q (𝓜=∅), Q′ (one edge) and the disjoint
 product (equality).
 *Induction attempt for QM (PROVED reduction).* Take `E_0∈𝓜`, `v∈E_0`. In
 the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
@@ -238,7 +238,7 @@ the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
 `Q(𝓗) ≤ (w_{E_0}−1)Π′ − 2μ_vX`, `Π′:=∏_{𝓜−E_0}(w−1)`. So QM follows by
 induction **whenever X≥0**. But X<0 occurs (triangle `{01},{0v},{1v}`,
 `X≈−0.17` at `w=2`; `scripts/omega10_*` search), where QM survives only
-through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. Open.
+through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. (Superseded by §3.1: the right induction is on Θ, not on Q.)
 
 ### 3.1 Proof of Conjecture Q (PROVED)
 
