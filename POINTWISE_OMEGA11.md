@@ -125,3 +125,11 @@ log Z ≤ log Q_Π + O(𝓛(S+𝓛)) ≪ log Q_Π + 𝓛^5 log𝓛     (ET: S≤
 independently of z and k. This is Remark 4.3's conclusion with `ρ=2`,
 obtained without its hypothesis. The remaining 𝓛-powers are now all in
 `log Q_Π`.
+
+*Check* (`scripts/omega11_filtration.py 2 600`, `data/omega11/filtration.txt`):
+exact digit-level Efron–Stein on random systems (≤3 primes, ≤3 digits each,
+digits on [2] or [3], ≤6 events, weights scaled so the hypothesis is tight):
+max `G'=0.9972` (600 systems); conditioned systems (F of events 2.., restricted
+to event 1's cylinder, as `F^{(j)}`): max `1` (attained by constant F);
+with the weaker scaling `∏λ^{v}≤2` (ρ=1) also max `0.9971`, so ρ=1 may well
+be true (not claimed).
