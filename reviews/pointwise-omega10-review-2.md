@@ -85,3 +85,13 @@ sunflowers. **Max G = 0.9822** (single AND of width 5; equals
 `1−2^{−5}(2−((1+2^{1/5})/2)^5)=0.98223`, §2's single-event formula), **max tail ratio = 0.5**
 (attained by parity_k at t=k−1 and a single literal). No violation; the
 Boolean bound has a factor ≥2 slack on all of these.
+
+**2.2 Hypergraph lemmas** (`review_o10b_hyper.py 2000 7`, own brute force,
+`n≤6` vertices, ≤5 edges, random weights with all `w_E≤2`, 60% of cases at
+the boundary `max w_E=2`): `|N(V)|=|τ̂(V)|` exact; Lemma 3.2 identity
+`Q=E_PΘ(𝓗_P)²` (exact sum over all P) to 1.1e−15; Lemma 3.3
+`|Θ(𝒞)|−∏_𝓜(w−1) ≤ 2.7e−15` (rounding at equality cases) over every matching
+𝓜 and random 𝒞⊇𝓜; Thm 3.4 `Q−∏_𝓜(w−1) ≤ 4.4e−16`; Lemma 3.1
+`G_F−E_xQ(𝓗(x)) ≤ −3e−5 < 0` on 500 random single-value systems with
+**biased** measures on alphabets {2,3} (outside the document's uniform
+hypothesis — confirms D1 below), and `E_xQ ≤ 1` there. All consistent.
