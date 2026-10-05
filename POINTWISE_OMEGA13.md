@@ -571,6 +571,17 @@ W(p) ≥ exp( c·(log p)^{1/4}·(log log p)^{−1/4} ),     uniformly  log L_h(T
 * I3 with O9 Lemma 2.1 and the auxiliary prime `ℓ_aux∈(R,2R]` appended to Q, for the
   transfer.
 
+*The class at `ℓ_aux` (R48c m1 = R48d D1).* The transfer runs on `Q':=Qℓ_aux` and the class
+`r'` with `r'≡r (Q)` and `r'≡1 (ℓ_aux)` (CRT), on the coset `r'H'`, `H':={x≡1 (Q')}`. I3's
+hypotheses hold for `(Q',r')`:
+* `r'` is a square mod every odd prime of `Q'`; at `ℓ_aux` it is 1;
+* `r'≡1 (8)`;
+* cells are consistent: `ℓ_aux>R≥max d_i` is prime, so `gcd(d_i,Q')=gcd(d_i,Q)`.
+
+The last point also shows that no atom or cell sees `ℓ_aux`. The transfer gives a prime
+`p≡r' (Q')`, so `p≡1 (ℓ_aux)`. As `p≠1`, `p>ℓ_aux>R≥T`, exactly as in O9 Thm 2.2. This is
+needed for infinitely many *distinct* p as `T→∞`: `W(p)>T` alone does not force `p>T`.
+
 Then `log Z≤log Q+log ℓ_aux+log max d_i≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)≪𝓛^4log𝓛`. So some hard
 `p>T` with `W(p)>T` has `log p≪𝓛^4log𝓛`. ∎
 
