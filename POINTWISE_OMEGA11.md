@@ -221,7 +221,7 @@ cell with `f_2∤d_i` has zero `ψ_2`-mean (average over a free prime
 condition applies to `ψ_2`, and Case B is unchanged. The rest of O9 Thm
 1.1's proof does not use coprimality (`log N≤log Q+1.04 max d_i`). ∎
 
-**Theorem 3.2 (PROVED modulo (G) and Elsholtz–Tao Prop 1.4).** For
+**Theorem 3.2 (PROVED modulo (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4 (internal, under review); with O9's junta d𝓛≍𝓛^7 instead, the exponent stays 1/7).** For
 infinitely many Mordell-hard primes p,
 
 ```
@@ -253,3 +253,120 @@ O9 Thm 2.3 (`log W≥(1/log2−o(1))log₂p·log₃p`) stands.
 `≍𝓛^6` if `S♯≍𝓛^4log𝓛`; junta `≪𝓛(S+𝓛)≪𝓛^5log𝓛` (Cor 1.2). **The quarantine is
 again the bottleneck**, now by a factor ≈`𝓛/log²𝓛`. The lossy step is the
 worst-case charge `h(M)≤log₂τ(M)≤𝓛/log𝓛` per atom in Lemma 2.2 (§4).
+
+**Corollary 3.3 (Haar side; PROVED modulo ET).** Lemma 2.2 with `c=1/8` and
+the local lemma (neighbourhood sums `≤1/4`) give
+`log(1/δ*(T)) ≤ log φ(Q)+4S♯ ≪ 𝓛²S♯/log𝓛 ≪ 𝓛^6`. This improves O2 Thm 11.3's
+`𝓛^7/log𝓛`.
+
+## 4. Below `𝓛^6`: the charge moment, EVIDENCE, and the floor of the architecture
+
+The only lossy step in Lemma 2.2 is the worst-case bound
+`h(M)≤log₂τ(M)≤𝓛/log𝓛`. The proof actually gives
+
+```
+log Q ≤ 9 + (𝓛/c)·Ω♯,     Ω♯ := Σ_{(M,D)} s(M,D)·h(M),   h(M)=Σ_{ℓ|M}H_{v_ℓ(M)} ≤ ω(M)+Σ_{ℓ²|M}log₂(v_ℓ+1).
+```
+
+**Hypothesis H_ω(B).** `Ω♯ ≪ 𝓛^4(log𝓛)^B`, i.e. the s-weighted mean of
+`h(M)` is `≪(log𝓛)^{B−1}` given `S♯≍𝓛^4log𝓛`. (Heuristically `B=2`: `ω(M)` has
+mean `log log T` under any reasonable weighting.)
+
+**Corollary 4.1 (PROVED implication).** Under H_ω(B), ET, (G) and OMEGA10 Thm
+3.4: `log Q≪𝓛^5(log𝓛)^B`, `log Z≪𝓛^5(log𝓛)^{max(B,1)}`, hence
+`W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−max(B,1)/5})` for infinitely many
+Mordell-hard p. (Proof: Theorem 3.2's proof with the displayed cost and
+Cor 1.2's junta.) ∎
+
+**EVIDENCE for H_ω** (`scripts/omega11_hmoment.py`, `data/omega11/hmoment.txt`;
+s without the `C loglog` factor). The s-weighted mean of h at
+`T=10^4,10^5,10^6` is `2.32, 2.57, 2.79`. This tracks `log log T`
+(`2.22, 2.44, 2.63`; steps `0.25, 0.22` against `0.22, 0.19`), while the worst-case charge
+`𝓛/log𝓛` is `4.15, 4.71, 5.26` (steps `0.56, 0.55`). So the mean charge is
+consistent with `log𝓛+O(1)`, i.e. `B=2`. Most of `Ω♯` comes from primes
+`ℓ≤𝓛²` (`141/172, 308/389, 593/770`). This is not a proof.
+
+*What H_ω needs (Assessment).* Write `ω(M) ≤ ω_{≤y}(M)+𝓛/log y` with
+`y=T^{1/log𝓛}`. Then H_ω(2) follows from the averaged per-prime bound
+
+```
+Σ_{ℓ≤y} V(ℓ) ≪ 𝓛^4(log𝓛)^2,      V(ℓ) := Σ_{(M,D): ℓ|M} s(M,D),
+```
+
+plus the analogous sum over `ℓ²|M`. That is ET Prop 1.4 in arithmetic
+progressions to moduli `ℓ≤T^{o(1)}`, *on average over ℓ*. In the
+parametrisation of O2 Lemma 4.1 (`D=sr'²`, `A=sr'k`, `m|r'+k`,
+`m|n:=4sr'²+1`) one has the identity
+
+```
+M = m·N,     N = 4sr'u − n/m,   u := (k+r')/m,   and  s(M,D) ≍ 1/N  (up to loglog),
+```
+
+so `V(ℓ)` counts `ℓ|m` or `ℓ|N`. The main terms are `≪S♯/ℓ`. The obstruction
+is the *first term* of each u-progression: for fixed `(s,r',m)` the least u
+with `ℓ|N(u)` has weight `≤1/max(ℓ,N_min)`, and there are `≍T` triples. An
+upper bound needs these first elements to be equidistributed over
+`(s,r',m)` (or over ℓ). For a single ℓ this is a uniform Shiu/Henriot-type
+bound for divisors of `4sr'²+1` in residue classes. We did not prove it,
+even on average over `ℓ≤y`.
+
+**The floor of this architecture (Assessment).** Any graded class-of-one
+quarantine feeding the local lemma needs at least `w_ℓ ≤ 1/8` at every
+coordinate. If the fibre masses behave like `w_ℓ(a)≈κS/ℓ^{a+1}` (as the
+main terms suggest), this alone forces `ℓ^{a_ℓ+1}≳S` for all `ℓ≲S`, so
+`log Q ≳ Σ_{ℓ≤S}log(S/ℓ) ≍ S/log S`, which is `≍𝓛^4` under ET with `S≍S♯`.
+Lemma 2.2's per-event rule (thresholds `∝log ℓ^{a+1}/𝓛`) costs
+`≍S𝓛/log(S𝓛)` under the same model. That is `𝓛^5` up to logs, and
+`𝓛^5log𝓛·…` is what Cor 4.1 gets. Junta (`𝓛S`) and quarantine are then
+balanced, so **1/5 is the natural limit of the present ES-modulus route**.
+Going further would need both a smaller junta modulus than `𝓛·S` (O9 Lemma
+4.1's floor in modulus form, OMEGA10 §1) and a quarantine cheaper than
+`S𝓛`. No lower bound for `S` beyond O8 Prop 6.6 (`S≫𝓛²`, modulo a
+standard BV lower bound) is known here, so these floors are not theorems.
+
+**Finite-T EVIDENCE for Lemma 2.2** (`scripts/omega11_graded.py`;
+`data/omega11/graded*.txt`). The local-lemma quantity
+`max_E Σ_{ℓ∈E}w_ℓ` stays below c in every run.
+
+| T | c | rounds | log Q (graded) | #primes in Q | largest | max exponent | `max_EΣw` | proven cost bound |
+|---|---|---|---|---|---|---|---|---|
+| 10⁴ | 1/64 | 2 | 1900 | 287 | 9239 | 2 | 0.0144 | 1.0·10⁵ |
+| 10⁵ | 1/64 | 3 | 4054 | 557 | 21839 | 3 | 0.0136 | 2.9·10⁵ |
+| 10⁶ | 1/64 | 4 | 7531 | 960 | 34319 | 4 | 0.0129 | 6.8·10⁵ |
+| 10⁵ | 1/8 | 3 | 690 | 126 | 1439 | 3 | 0.0711 | 3.6·10⁴ |
+
+For comparison, O2 Lemma 11.2 at `T=10^5`, `z=20` with the matching per-prime
+threshold `c_0=1/(64k)=0.0052` gives `log Q_Π=8942`
+(`scripts/omega2_iterq.py 100000 20 0.0052`). With `c=1/8` the Haar
+certificate is `log(1/δ*(10^5)) ≤ 764`, against O2's 1479 (`c_0=1/(8k)`).
+At these T the asymptotic gain (`≈𝓛/log²𝓛`) is small, and the ratios
+(≈2) are illustrative only.
+
+## 5. Status and scope
+
+| item | statement | label |
+|---|---|---|
+| §1.1 | Remark 4.3's literal hypothesis holds for ES only with `ρ≍k` | Assessment (mechanism proved) |
+| Lemma 1.1, Cor 1.2 | digit-filtration C-1; ES junta modulus `≪𝓛(S+𝓛)`, i.e. Remark 4.3's conclusion with ρ=2 | PROVED (from OMEGA10 Thm 3.4) |
+| Lemma 2.1–2.2 | graded quarantine, log-weighted thresholds: `log Q ≤ 9+(𝓛/c)Ω♯ ≤ 9+(1+o(1))𝓛²S♯/(c log𝓛)` | PROVED |
+| Lemma 3.1 | O9 Thm 1.1 with fibre cells | PROVED modulo (G) |
+| Thm 3.2 | `W(p)≥exp(c(log p)^{1/6})` i.o. | PROVED modulo (G), ET Prop 1.4, OMEGA10 Thm 3.4 |
+| Cor 3.3 | `log(1/δ*)≪𝓛^6` | PROVED modulo ET |
+| Cor 4.1 | exponent `1/5` up to `(log log p)^{O(1)}` under H_ω | PROVED implication |
+| H_ω | `Ω♯≪𝓛^4(log𝓛)^B` | OPEN; EVIDENCE (B=2) |
+| §4 floor | `≈1/5` for this route | Assessment |
+
+Not claimed: anything about ES itself; optimality of 1/6; H_ω.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega11_filtration.py 2 600)        # Lemma 1.1 check, ~3 min -> data/omega11/filtration.txt
+(ulimit -v 8000000; timeout 1200 uv run python scripts/omega11_graded.py 10000)           # Lemma 2.2, seconds
+(ulimit -v 8000000; timeout 1200 uv run python scripts/omega11_graded.py 100000)          # ~1 min -> data/omega11/graded.txt
+(ulimit -v 8000000; timeout 5400 uv run python scripts/omega11_graded.py 1000000)         # ~10 min -> data/omega11/graded_1e6.txt
+(ulimit -v 8000000; timeout 1200 uv run python scripts/omega11_graded.py 100000 0.125)    # -> data/omega11/graded_c8.txt
+(ulimit -v 8000000; timeout 600 uv run python scripts/omega2_iterq.py 100000 20 0.0052)   # O2 comparison row
+(ulimit -v 4000000; timeout 1800 uv run python scripts/omega11_hmoment.py 10000 100000 1000000)  # §4, ~5 min -> data/omega11/hmoment.txt
+```
