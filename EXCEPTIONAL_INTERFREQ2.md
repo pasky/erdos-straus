@@ -12,22 +12,22 @@ as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
 | Prop 2.1 | LP dual: `min B_hyb = max μ(𝒜)` over μ ≥ 0 on ℤ/Q′ agreeing with λ_N on small classes and with `⌊N/d⌋ ≤ μ(s) ≤ ⌈N/d⌉` on large ones | PROVED |
 | Lemma 3.1 | **sign rule**: `B_hyb = Σ_{n≤N}ν + (wrong-sign mass)`; positive terms on classes meeting [1,N] maximally ("full") and negative terms on "sparse" classes are counted exactly | PROVED |
 | Ex 3.2 | N = 20: `1[0 mod 21]` has a representation with hybrid charge 0 (12 full patches mod 21 + classes mod 3, 7). Hence no bound `B_hyb(ν) ≥ c·N·Eν` (c > 0) holds for ν ≥ 0, and IF Thm 2.5's Selberg accounting cannot extend to hybrids as is | PROVED |
-| Lemma 4.1, 6.1 | `B_hyb(ν) ≥ Σ_{n∈W}ν` for every *twisted window* W = φ([1,N]), φ componentwise affine preserving the small-class profile (translates by lcm(1..N/2)-multiples, reflections on primes in (N/4, N/2], any affine map on primes > N/2). Averaging over them does **not** give the cap | PROVED |
-| Lemma 4.2 + numerics | classes forced to have dual mass 0 (counted exactly as 0 by every hybrid) have L₀-smooth modulus just above N; scan N ≤ 40, e ≤ 3N: summed density ≤ 0.14 | PROVED / EVIDENCE |
+| Lemma 4.1, 6.1 | `B_hyb(ν) ≥ Σ_{n∈W}ν` for every *twisted window* W = φ([1,N]), φ componentwise affine preserving the small-class profile (translates by lcm(1..N/2)-multiples, reflections on primes in (N/4, N/2], any affine map on primes > N/2) | PROVED (that averaging over them cannot give the cap: Assessment only) |
+| Lemma 4.2 + numerics | a class on which every dual μ vanishes (equivalently, some representation of it has hybrid charge 0) has `gcd(d, L₀) > N` with `b mod gcd` missing [1,N]; sampled scan (N ≤ 40, e ≤ 3N, e | L₀): such e occur only just above N, summed density ≤ 0.14 | PROVED / EVIDENCE |
 | Cor 5.1 | cap `S_A + O(log(1+c))` for hybrids whose free mass (patches through [1,N] with d > N, right-signed terms with N/2 < d ≤ N) is ≤ c·B, c ≤ e^{O(S_A)}; wrong-signed and free negative terms unrestricted | PROVED (from IF Thm 2.5) |
 | Thm 5.2 | **conditional cap**: if a *flat minorant* exists (Flat: F ≤ 1_{[1,N]}, uniform on classes mod d ≤ N/2, F(s) ≥ M/d + s₀ on classes mod d > CN through [1,N], ≥ M/d − 1 on the others, bounded deviation on (N/2, CN]), then every hybrid with right-signed mass on (N/2, CN] at most c·B saves `≤ C(log N)^{3/4}(log log N)^{3/4} + log((1+Δ(1+c))/t)`; patches above CN are unrestricted | PROVED implication |
-| §5 numerics | Flat holds for N ≤ 100 (LP; t = 0.1, C = 1.5, 2; s₀ ≥ 0.04, Δ ≤ 1.5); fails for C = 1 (rigidity); medium moduli cannot be freed by the same device | EVIDENCE |
+| §5 numerics | finitely supported F satisfying Flat found by LP at the sampled parameters N ∈ {20,30,40,60,80,100}, t = 0.1, C ∈ {1.5, 2} (s₀ ≥ 0.04, Δ ≤ 1.5); C = 1 infeasible at N = 20 (rigidity); with sign conditions on medium moduli the finite-support LP forces s₀ ≤ 0 | EVIDENCE (floating-point LP, finite support) |
 
 **Verdict.** The hybrid gap of IF Rem 2.6 is *not* closed unconditionally.
 It is narrowed to two precisely stated pieces:
 1. (Flat) — an extremal-function statement about a single explicit LP
-   (no arithmetic, no 𝒜), verified for N ≤ 100. Under Flat, hybrids that
+   (no arithmetic, no 𝒜), checked by LP at sampled N ≤ 100. Under Flat, hybrids that
    charge large classes blindly are capped at 3/4 (with the K2 log log
    loss) *whatever they do above modulus CN*.
 2. Right-signed mass at moduli in (N/2, CN]. This is a genuine phenomenon:
    Example 3.2 shows that hybrids count some classes of modulus N + 1
    exactly, and imposing cost-free accounting there contradicts Flat
-   numerically. No hybrid beating 3/4 is known; in the toy LPs the
+   numerically (finite-support LPs only). No hybrid beating 3/4 is known; in the toy LPs the
    optimal hybrid uses free mass ≈ B/2 (Cor 5.1 regime).
 (H_eq) of IF §4 plays no role here: hybrids never evaluate per-frequency
 sums. No θ > 3/4 is claimed or suggested.
@@ -124,18 +124,27 @@ and the 12 classes in the last sum each meet [1,20] once (full). So the
 hybrid charge of this representation is `2 − 7 − 7 + 12 = 0`, the exact count,
 although the class is sparse (charged 1 if written as itself).
 
-**Consequence (PROVED).** The natural route — a measure μ = λ_N − φ + tρ
-with ρ the dual of a capped comparison problem that is *exactly* uniform on
-classes of modulus ≤ N^K — is impossible already at d = N + 1 when
-N + 1 = d₁d₂ with coprime d₁, d₂ ≤ N/2. In the dual of (2.1), Example 3.2's
-identity forces `μ(0 mod 21) = λ_N(0 mod 21) = 0` for μ uniform-tested on all
-classes mod 21 meeting [1,N] (each `≤ u = 1 = λ_N`, summing with the small
-constraints to equality). In general: if a small class r mod e is a disjoint
-union of full large classes, every μ ∈ 𝔐 has `μ(s) = u(d) = λ_N(s)` on each
-of them. Any comparison measure must therefore deviate from uniform on
-large classes in a way correlated with [1,N]. (LP check:
-`scripts/interfreq2_phi_lp.py`, N = 20, exact mode, d = 21 alone infeasible
-for every t > 0; d = 22 = 2·11, 11 > N/2, feasible.)
+**Rigidity (PROVED).** If a small class r mod e is the disjoint union of
+large classes s_1, …, s_k that are all full, then every μ ∈ 𝔐(Q′) has
+`μ(s_j) = u(d) = λ_N(s_j)` for all j (the `μ(s_j) ≤ u` sum to `μ(r mod e) =
+λ_N(r mod e) = Σ_j u`). In Example 3.2 this gives `μ(r mod 21) = 1` for every
+r ∈ [1,20] (via the classes mod 7 with r ≢ 0 and mod 3), hence
+`μ(0 mod 21) = λ_N(0 mod 7) − μ(7) − μ(14) = 0`: every μ ∈ 𝔐(Q′) vanishes on
+`0 mod 21` (N = 20, 21 | Q′).
+
+**Consequence (PROVED).** Let `μ = λ_N − φ + tρ` with `φ ≤ λ_N` pointwise,
+`t > 0`, ρ ≥ 0, `tρ − φ` of zero mass on every small class, and ρ exactly
+uniform (mass `N/d` per class) on all classes of modulus ≤ N^K (K ≥ 2), the
+form produced by dualising a capped comparison problem. Then μ ∉ 𝔐(Q′)
+whenever N + 1 = d₁d₂ with coprime d₁, d₂ ≤ N/2 (and N+1 | Q′): off [1,N]
+we have `μ ≥ tρ`, so `μ(0 mod (N+1)) ≥ tN/(N+1) > 0`, contradicting the
+rigidity above (the argument for N = 20 uses only that the rows mod d₁ and
+d₂ other than the one through 0 are full; this holds for d = N+1 because
+every class mod N+1 except 0 meets [1,N] exactly once). Any comparison
+measure must deviate from uniform on large classes in a way correlated
+with [1,N]. (LP check: `scripts/interfreq2_phi_lp.py`, N = 20, exact mode,
+d = 21 alone infeasible for every t > 0; d = 22 = 2·11, 11 > N/2,
+feasible.)
 
 ## 4. Translates are dual-feasible; what that does and does not give
 
@@ -158,7 +167,7 @@ the CRT density of avoiders in a random translate, which for ES families
 is heuristically `e^{−c(log N)³}`; the squares, which make
 `#(𝒜∩[1,N]) ≥ √N`, are not seen by translates.
 
-**Lemma 4.2 (rigid null classes are L₀-smooth; PROVED).** If a class
+**Lemma 4.2 (where rigid-null classes can live; PROVED).** If a class
 `s = b mod d` has `μ(s) = 0` for every μ ∈ 𝔐(Q′), then
 `e := gcd(d, L₀) > N` and the class `b mod e` misses [1,N].
 
@@ -166,7 +175,11 @@ is heuristically `e^{−c(log N)³}`; the squares, which make
 runs over the multiples of e, so some `μ_k(s) > 0` unless no n ∈ [1,N]
 satisfies `n ≡ b (e)`. If e ≤ N every class mod e meets [1,N]. ∎
 
-Example 3.2 is such a class (e = 21 | L₀ = lcm(1..10)).
+Example 3.2 is such a class (e = 21 | L₀ = lcm(1..10)). Note that d itself
+need not be L₀-smooth or close to N: every subclass `0 mod 21p` (p any
+prime) inherits rigid-nullity. "Rigid-null" means every μ ∈ 𝔐 vanishes on
+the class, i.e. *some* representation has hybrid charge 0; writing the class
+as itself still costs 1.
 
 **Numerics (EVIDENCE; `scripts/interfreq2_rigid.py`, `interfreq2_rigid_points.py`,
 `interfreq2_rigid_scan.py`).**
@@ -200,12 +213,12 @@ hybrid bound B saves at most `S_A + log(2 + 12(1 + c))` whenever
 `W⁺ + T_mid ≤ c·B` (C = 1), and at most `S_A + log 48` whenever
 `W⁺ + T_mid ≤ (N/48)e^{−S_A}`. ∎
 
-So the uncapped hybrids are exactly those whose *free* large mass — positive
-terms on classes through [1,N], or right-signed terms at moduli in
-(N/2, N] — exceeds the bound by more than `e^{O(S_A)}`. By (3.1) and
-`B ≥ Σ_{n≤N}ν`, this forces the small part to have a very negative exact
-count: `Σ_{n≤N}ν_𝒮 ≤ B − W⁺ − (medium counts)`. Example 3.2 is of this
-kind (W⁺ = 12, B = 0); the Selberg-minorant accounting of IF Thm 2.5 cannot
+So Corollary 5.1 does not cover representations whose *free* large mass —
+positive terms on classes through [1,N], or right-signed terms at moduli
+in (N/2, N] — exceeds the bound by more than `e^{O(S_A)}`. (Large free mass
+alone is harmless: `ν = (1+K) − K·Σ_{b mod N} 1[b mod N] ≡ 1` has B = N and
+right-signed medium mass KN. It is only a gap in the proof.) Example 3.2
+is a representation with W⁺ = 12 and B = 0; the Selberg-minorant accounting of IF Thm 2.5 cannot
 handle it because Selberg's F is ≈ 0 near the ends of [1,N] (a patch at
 an edge point costs 1 but has F-weight ≈ 0), and by Example 3.2 *no*
 inequality `B_hyb(ν) ≥ c·N·Eν` holds for all ν ≥ 0.
@@ -233,7 +246,7 @@ Patches of modulus > CN, wrong-signed terms and free negatives are
 unrestricted.
 
 *Proof.* Lemma 5.0: WLOG `T⁻_sp = 0`. Since ν ≥ 0 and (F1),
-`B = Σ_{n≤N}ν + T_wr ≥ Σ_n F(n)ν(n) + T_wr`. Expand ν termwise; (F2) gives
+`B ≥ B_hyb = Σ_{n≤N}ν + T_wr ≥ Σ_n F(n)ν(n) + T_wr`. Expand ν termwise; (F2) gives
 `Σ_n F·ν_𝒮 = M·Eν_𝒮`. So
 
     B ≥ M·Eν + Σ_{i∈𝓛} [ a_i(F(s_i) − M/d_i) + |a_i|·1[i wrong] ].
@@ -247,15 +260,15 @@ positive sparse (wrong): `≥ a_i(F(s) − M/d + 1) ≥ 0` by (F4); negative ful
 
     (1 + Δ)B ≥ M·Eν − Δ·T_mid + s₀·W⁺_{>CN}.                       (5.1)
 
-*Mass of high terms.* Terms with d > CN are patches, wrong-signed, or
-dropped; by (5.1) and `T_mid ≤ cB`, their mass is
-`T_{>CN} ≤ W⁺_{>CN} + T_wr ≤ (1 + Δ(1+c))B/s₀ + B` (using Eν ≥ 0). If
-`T_{>CN} > N^{A₁+2}` then `B ≥ s₀N^{A₁+2}/(2 + 2Δ(1+c)) ≥ N` for N large
-(Δ ≤ e^{S_A}), and there is nothing to prove. Otherwise run IF Thm 2.5's mean side (projection to the family
+*Mass of high terms.* Put `K = 1 + Δ(1+c)`. If `KB ≥ tN` the claimed bound
+holds trivially. Otherwise (5.1) and `T_mid ≤ cB` give `M·Eν < KB < tN`,
+so `Eν < 1`, and the terms with d > CN (patches, wrong-signed, or dropped)
+have mass `T_{>CN} ≤ W⁺_{>CN} + T_wr ≤ KB/s₀ + B < tN/s₀ + N ≤ N^{A₁+1} + N`.
+Now run IF Thm 2.5's mean side (projection to the family
 modulus, ET Lemma 2.9 coarsening at
 `λ = max{λ₀, log(CN), Λ₀ + log max(T_{>CN},1) + S}`, `Λ₀ = A log N`; terms of
 the projection with level > log(CN) come from terms with d > CN), now with
-`λ ≤ (A + A₁ + 3)log N + S + λ₀`. K2 Thm 5.1 and the case analysis of K2
+`λ ≤ (A + A₁ + 2)log N + S + λ₀`. K2 Thm 5.1 and the case analysis of K2
 Cor 6.1 give `S = log(1/Eν) ≤ S′`. Then (5.1) with `T_mid ≤ cB` gives
 `(1 + Δ + Δc)B ≥ tN e^{−S′}`. ∎
 
@@ -279,11 +292,12 @@ length (pointwise beyond), with (F1)–(F2) exact; Δ is then measured.
 | 40 | 0.200 / 1.23 | 0.380 / 1.15 (L = 5N) | 0.62 |
 | 60 | 0.187 / 1.10 | 0.326 / 1.17 | 0.55 |
 | 80 | — | 0.255 / 1.40 | 0.45 |
+| 100 | 0.044 / 1.15 | 0.167 / 1.48 | 0.35 |
 
 Support matters: at N = 60, C = 2 the margin rises from 0.326 (support
 [−5N, 6N]) to 0.372 ([−8N, 9N]), so much of the decrease is truncation.
 With C = 1 the LP is infeasible at N = 20 (rigidity, Example 3.2).
-*Medium moduli cannot be freed this way:* adding the sign conditions that
+*Medium moduli are not freed this way (finite-support evidence):* adding the sign conditions that
 would make right-signed terms with `N/2 < d ≤ N` cost nothing (option
 `med`, margin 0 there) forces the margin for d > CN down to 0 (N = 20, 30)
 or below (−0.15 at N = 40, C = 1.5). So T_mid in Theorem 5.2 is not an
@@ -310,15 +324,18 @@ every d, and for small d it equals `c(b,d)` because `c(·,d) = l(d) + 1_{I_d}`
 is φ_d-invariant (for d | N it is constant). ∎
 
 The admissible φ form a group G_N. It contains: translations by multiples
-of L₀ (Lemma 4.1); the reflection `x ↦ N+1−x` on any prime p with
-`N/4 < p ≤ N/2` (p divides no other small modulus), chosen independently
-per such p; and arbitrary affine maps on primes `p > N/2`. So the hybrid
-bound is blind to these twists of [1,N]. Averaging over G_N gives
-`Σ_{n≤N} Pr_φ(φ(n) ∈ 𝒜)`, which conditions on n modulo the N/4-smooth
-part of L₀; for ES families this is again (heuristically) CRT-small. So
-G_N-averaging alone does not give the cap: a cap needs *fractional*
-pseudo-windows that spread across L₀-smooth large moduli, which is what
-Flat provides.
+of L₀ (Lemma 4.1); the global reflection `x ↦ N+1−x` (which maps [1,N]
+onto itself while permuting residue classes, e.g. 1 ↔ 2 mod 3 at N = 20);
+the reflection on a single prime p with `N/4 < p ≤ N/2` (p divides no other
+small modulus), chosen independently per such p; and arbitrary affine maps
+on primes `p > N/2`. So the hybrid bound is blind to these twists of
+[1,N]. *Assessment (not proved):* the subgroup generated by the listed
+elements maps [1,N] to sets with the same multiset of residues as [1,N]
+modulo every d dividing the part of L₀ built from primes ≤ N/4, so
+averaging over it conditions on n modulo that part and is, for ES
+families, heuristically CRT-small. We have not determined the full G_N or
+its orbits, so we do not claim that twisted windows cannot give the cap;
+we only found no way to make them do so.
 
 ## 7. Toy LPs (EVIDENCE only)
 
@@ -326,14 +343,15 @@ Flat provides.
 non-residues mod p ∈ {3,5,7,11,13} (squares avoid), all classes mod divisors
 of Q. Values are optimal bounds.
 
-| N | exact #𝒜∩[1,N] | H* (hybrid) | IF Thm 2.5 functional `Σν + T_>` | small moduli only | N·Eν, d ≤ N |
+| N | exact #𝒜∩[1,N] | H_{Q′} (hybrid, moduli \| Q′ = Q) | IF Thm 2.5 functional `Σν + T_>` | small moduli only | N·Eν, d ≤ N |
 |---|---|---|---|---|---|
 | 20 | 4 | 7 | 10 | 11 | 8 |
 | 30 | 5 | 11 | 12 | 12 | 11.4 |
 | 40 | 6 | 13 | 17 | 17 | 11.4 |
 | 60 | 7 | 17.7 | 23 | 23 | 16.7 |
 
-At the H* optimum (N = 20, 30) the patch mass W⁺ is 3 and 4, i.e. below B:
+H_{Q′} is the optimum for the fixed Q′ = 30030, an upper bound for H*.
+At the H_{Q′} optimum (N = 20, 30) the patch mass W⁺ is 3 and 4, i.e. below B:
 the optimum sits in Cor 5.1's regime. The toys are far too small to say
 anything about exponents.
 
@@ -343,11 +361,13 @@ anything about exponents.
   statement about functions on ℤ with prescribed sums over all residue
   classes of modulus ≤ N/2 and one-sided bounds above CN. Selberg's
   band-limited minorant is useless (it vanishes at the ends of [1,N]);
-  the LP optima are spread-spectrum. An equivalent form: a nonnegative
-  measure R with the small-class profile of `λ_N − M·(uniform)` that puts
-  mass `≤ 1 − θ` on every class of modulus > CN (then `F = 1_{[1,N]} − R`).
-  Twisted windows (Lemma 6.1) do not suffice, because they never move mass
-  between classes of N/4-smooth modulus.
+  the LP optima are spread-spectrum. Equivalent form: with
+  `R = 1_{[1,N]} − F`, Flat asks for R ≥ 0 on ℤ with `R(b mod d) = c(b,d) − M/d`
+  for d ≤ N/2, `R(s) ≤ 1 − M/d − s₀` on full classes and `R(s) ≤ 1 − M/d` on
+  sparse classes of modulus > CN, and `|c(s) − R(s) − M/d| ≤ Δ` for
+  N/2 < d ≤ CN. The LP optima have R ≈ 0 on [1,N] and R spread outside:
+  a "copy" of the window's small-class profile that no large class
+  concentrates. We found no way to build it from (twisted) windows.
 * **Medium moduli** (N/2, CN]: either a separate argument or a hybrid that
   exploits rigidity (Example 3.2) at scale. A natural first test is the
   exact-evaluation class with moduli ≤ CN (𝓘_spec(CN), C > 1), to which

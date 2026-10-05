@@ -18,7 +18,7 @@ minorant vanishes, and moduli just above N. Theorem 5.2 proves the 3/4 cap
 (with K2's log log loss) for every hybrid whose right-signed mass at moduli
 in (N/2, CN] is O(e^{O(S)}·B), *conditional on* a purely analytic, 𝒜-free
 hypothesis Flat (a spread-spectrum "flat" minorant of 1_{[1,N]}). Flat is
-verified by LP for N ≤ 100 (C = 1.5, 2) and is false for C = 1.
+found by LP at sampled N ≤ 100 (C = 1.5, 2; finite support) and is infeasible for C = 1 at N = 20.
 
 ## Items and labels
 
@@ -28,11 +28,11 @@ verified by LP for N ≤ 100 (C = 1.5, 2) and is false for C = 1.
 2. Lemma 3.1 sign rule; Example 3.2 (identity checked by script). PROVED.
 3. Lemma 4.1 / Lemma 6.1: every twisted window φ([1,N]) (componentwise
    affine, small-profile preserving) is dual feasible, so
-   `B_hyb(ν) ≥ Σ_{n∈φ([1,N])} ν(n)`. Averaging over these does **not** give a
-   cap (it conditions on n mod the N/4-smooth part of lcm(1..N/2)). PROVED.
-4. Lemma 4.2: classes with forced dual mass 0 have lcm(1..N/2)-smooth
-   modulus > N; numerics: they are rare and sit just above N. PROVED /
-   EVIDENCE.
+   `B_hyb(ν) ≥ Σ_{n∈φ([1,N])} ν(n)`. PROVED. That averaging over them cannot
+   give a cap is only an Assessment (full group G_N not determined).
+4. Lemma 4.2: a class on which every dual μ vanishes has
+   gcd(d, lcm(1..N/2)) > N; sampled numerics: such e | L₀ occur just above N.
+   PROVED / EVIDENCE.
 5. Cor 5.1: cap when free mass ≤ c·B (direct from IF Thm 2.5 + sign rule +
    dropping free negatives, Lemma 5.0). PROVED.
 6. Thm 5.2: conditional cap under Flat; patches above CN, wrong-signed and
@@ -54,6 +54,16 @@ verified by LP for N ≤ 100 (C = 1.5, 2) and is false for C = 1.
   0.326 → 0.372 at N = 60 when the support grows from 11N to 17N).
 * Medium moduli (N/2, CN]. Neither a cap nor a beating hybrid.
 
+## Self-review (reviewer subagent, deep) — repairs applied
+
+Thm 5.2 large-mass branch redone with K = 1+Δ(1+c) (c unrestricted);
+symmetry claim downgraded to Assessment (global reflection moves classes);
+Flat's R-form stated exactly; "uncapped hybrids are exactly…" replaced by
+"not covered by Cor 5.1" (large free mass alone is harmless); rigidity
+wording (gcd condition, "some representation has charge 0"); hypotheses of
+the comparison-measure obstruction made explicit; numerics qualified as
+sampled / finite-support; toy H renamed H_{Q′}; assertions in checks.
+
 ## Hostile-review targets
 
 * Prop 2.1 / Thm 5.2: the weak-duality bookkeeping, the sign cases in the
@@ -73,7 +83,7 @@ exactly (Ex 3.2), so no `B ≥ cNEν` holds. PROVED: cap when the free large
 mass is ≤ e^{O(S)}B (Cor 5.1); every twisted window bounds the hybrid from
 below (Lemma 6.1). CONDITIONAL: cap `C(log N)^{3/4}(log log N)^{3/4}` for all
 hybrids with bounded right-signed mass on (N/2, CN], under the analytic
-hypothesis Flat (Thm 5.2); Flat verified by LP for N ≤ 100 (EVIDENCE). Open:
+hypothesis Flat (Thm 5.2); Flat checked by LP at sampled N ≤ 100 (EVIDENCE). Open:
 Flat; medium moduli (N/2, CN].
 
 ## Replay

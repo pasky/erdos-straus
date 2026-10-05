@@ -26,6 +26,7 @@ for a, b, d in terms:
     c = sum(1 for m in range(1, N + 1) if (m - b) % d == 0)
     if 2 * d <= N: charge += a * c
     else: charge += a * (u_(N, d) if a > 0 else l_(N, d))
+assert charge == 0
 print("(1) Example 3.2 identity ok; hybrid charge =", charge, "; #patches =", len(terms) - 3)
 
 # (2)
@@ -44,6 +45,7 @@ for N, Qp in [(20, 2520 * 11), (12, 60 * 7 * 11)]:
                 ok &= np.allclose(sums, ref)
             else:
                 ok &= (sums >= l_(N, d) - 1e-9).all() and (sums <= u_(N, d) + 1e-9).all()
+    assert ok
     print(f"(2) N={N} Q'={Qp}: translates feasible: {ok}")
 
 # (3)
@@ -65,6 +67,7 @@ if len(sys.argv) > 1:
     s0 = min((Fcls[d] - M / d)[ccls[d] > 0].min() for d in divs if d > C * N)
     f4 = min((Fcls[d] - M / d + 1)[ccls[d] == 0].min() for d in divs if d > C * N)
     f2 = max(abs(Fcls[d] - M / d).max() for d in divs if 2 * d <= N)
+    assert f2 < 1e-8 and s0 > 0 and f4 > -1e-9 and (Fq <= lam + 1e-9).all()
     print(f"(3) on Z/{Qp}: (F2) err {f2:.2e}, Delta={Delta:.3f}, s0={s0:.4f}, (F4) min {f4:.4f}, F<=1_[1,N]: {(Fq <= lam + 1e-9).all()}")
     rng = random.Random(1)
     worst = 1e9
@@ -90,4 +93,5 @@ if len(sys.argv) > 1:
         # Lemma 5.0 drop of free negatives is implicit: they only increase the RHS slack
         lhs = (1 + Delta) * B; rhs = M * Enu - Delta * Tmid + s0 * Wp
         worst = min(worst, lhs - rhs)
+    assert worst > -1e-9
     print(f"(3) random nu >= 0 (200 trials): min[(1+Delta)B - (M E nu - Delta T_mid + s0 W+)] = {worst:.4f}")
