@@ -3349,7 +3349,7 @@ certificates show $(N/2,N]$ cannot be freed at $C=1.5$
 
 \section{Tuple counts and truncated weights}\label{sec:TU}
 
-Among the non-CRT inputs of Section~\ref{sec:excluded}, item~5, the most
+Among the non-CRT inputs of Section~\ref{sec:excluded}, item~\ref{it:nonCRT}, the most
 natural is tuple counting: aggregate control of witness correlations of
 growing order, with combined moduli far above $N$.  The sources are
 \cite{TU} and \cite{TU2}, whose reviews \cite{TUrev,TU2rev} found them sound
@@ -3487,13 +3487,13 @@ main term up to half of it.  Hypotheses ``order-$j$ correlation sums equal
 their CRT values up to a small error'', $j\leq k$, are of this kind; a
 low-level part evaluated exactly with a large favourable deficit is not.
 For such methods (and $\log(P/\varphi(P))=o((\log N)^\theta)$) bounded order gives no
-$\theta>3/4$, and a saving $(\log N)^\theta$ needs order $k\geq c(\log N)^\theta/\log\log N$
+$\theta>3/4$, and for $\theta>3/4$ a saving $(\log N)^\theta$ needs order $k\geq c(\log N)^\theta/\log\log N$
 \lab{proved}.  Order $2\lceil(\log N)^\theta\rceil$ suffices under
 Hypothesis~\ref{hyp:TC} (Theorem~\ref{thm:TCbrun}) \lab{conditional}.
 
-\begin{corollary}[class order, all four types; {\cite[Cor.~3.4]{TU}}, {\cite[\S4.3]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:classorder}
+\begin{corollary}[class order, all four types; {\cite[Cor.~3.4]{TU}}, {\cite[\S4.3]{KA3}}; \lab{proved} (proof given here; \cite[\S4.3]{KA3} only points to it), given \cite{KA}/\cite{KA2} as reviewed; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:classorder}
 Let $\cG$ be as in Definition~\ref{def:types}, and let every term of a
-majorant $\nu$ of $\A(\cG)$ be an intersection of at most $k$ residue classes
+majorant $\nu$ of $\A(\cG)$ be an intersection of at most $k\geq1$ residue classes
 of modulus $\leq N^A$, or have level $\leq A\log N$.  Then
 $\log(1/\E\nu)\leq C(kA\log N)^{3/4}$ for $N\geq N_0(A)$.  So for CRT-main-term
 methods a saving $(\log N)^\theta$ needs $k\geq c(\log N)^{4\theta/3-1}$.
@@ -3539,8 +3539,9 @@ Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10).
 \begin{definition}[{\cite[Def.~5.0]{KA3}}]\label{def:trunc}
 Fix $L_0>0$ and put $s_\ell=\min(\log\ell,L_0)$ for primes $\ell>W$.  A term
 $a\ind[n\equiv b\pmod d]$ has \emph{truncated level} $\sum_{\ell\mid d,\,\ell>W}s_\ell$ and
-\emph{prime order} $\omega_{>W}(d)$; $\nu$ is \emph{$(\lambda_0,k)$-mixed} if every term
-has level $\leq\lambda_0$ or prime order $\leq k$.  With $L_0=\lambda_0/k$ such a $\nu$
+\emph{prime order} $\omega_{>W}(d)$; $\nu$ is \emph{$(\lambda_0,k)$-mixed over $W$} if every term
+has level $\leq\lambda_0$ or prime order $\leq k$ (Definition~\ref{def:mixed} with
+all primes $>W$ in place of the slice primes).  With $L_0=\lambda_0/k$ such a $\nu$
 has truncated level $\leq\lambda_0$.
 \end{definition}
 
@@ -3589,9 +3590,13 @@ $L_0=\lambda/k$, $d_0=k$.
 \end{proof}
 
 \begin{corollary}[boundedly many large primes; {\cite[Cor.~5.3]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:boundedr}
-If every modulus of $\cG$ has at most $r$ prime factors $>W$, an intersection
-of $k$ classes of $\cG$ has prime order $\leq kr$; so the corresponding mixed
-majorants have $\log(1/\E\nu)\leq C_A[(\log N)^{3/4}+kr\log\log N]$.
+Let all family primes of $\cG$ be $\leq N^A$, and let every modulus of $\cG$ have
+at most $r$ prime factors $>W$ ($W$ the absolute constant of
+Theorem~\ref{thm:noBcap}).  An intersection of $k$ classes of $\cG$ (or of
+any residue classes whose moduli have $\leq r$ primes $>W$) has prime order
+$\leq kr$.  Hence every majorant $\nu$ of $\A(\cG)$ each of whose terms has level
+$\leq A\log N$ or is such an intersection has
+$\log(1/\E\nu)\leq C_A[(\log N)^{3/4}+kr\log\log N]$.
 \end{corollary}
 \emph{Scope.}  $W$ is fixed, not a moving cutoff: the twin moduli of
 \cite{TW2,TW4} and the atoms $\cR(k\ell)$ of \cite{TQ} may have cofactors with many
@@ -3634,8 +3639,9 @@ $\log d_i\leq(k-1)AL/2$ satisfy the hypothesis of Corollary~\ref{cor:classorder}
 which in turn forces level $\leq kAL$.  So, up to a factor $2$ in $k$, it is a
 level hypothesis at $\lambda\asymp kL$.  Closing the window from it alone would
 require $C[L^{3/4}+(\lambda/L)\,\mathrm{polylog}\,L]$ in place of $C\lambda^{3/4}$ for all such
-majorants; the $k$-ary ledger cannot give this (it is optimal at
-$s_1=\lambda^{1/4}\leq AL$, where truncation at $\e^{AL}$ is invisible), and whether
+majorants.  By inspection the $k$-ary ledger cannot give this for $k\leq L^3$
+(it is optimal at $s_1=\lambda^{1/4}\leq AL$, where truncation at $\e^{AL}$ is
+invisible; \emph{Assessment}), and whether
 $\lambda^{3/4}$ is attained there is \lab{open} (\lab{evidence} only, \cite[\S2.5]{ET}).
 The window is meaningful for structured orders: prime order (closed,
 Corollary~\ref{cor:primeorder}) and intersections of $k$ \emph{family}
@@ -3644,6 +3650,9 @@ For the latter the open window is
 \begin{equation}\label{eq:window}
  \max\bigl(L^{4\theta/3-1},\,L^\theta/(r\log L)\bigr)\lesssim k\lesssim L^\theta/\log L,
 \end{equation}
+for family moduli $\leq N^A$ (needed for the lower end, which comes from
+Corollary~\ref{cor:classorder}), and except as narrowed by
+Proposition~\ref{prop:blocksparse} for block-sparse families; it is
 nonempty only when $r\to\infty$ \cite[\S5]{KA3} \lab{open}.
 
 \emph{Assessment} \cite[\S7]{KA3}.  In the pattern model of
@@ -3692,7 +3701,8 @@ $u_0$-tuples carry an aggregate excess over their CRT values.
 \end{corollary}
 \emph{Assessment} \cite[Ass.~3.2]{TU2}.  For the class $-1$ the count
 $\lfloor(N+1)/q\rfloor$ is never above $(N+1)/q$ \cite[Lemma~3.1]{TU2}, so the
-excess must come from multi-form tuples.  It is $N^{1/2-o(1)}$ times a
+excess must come from tuples that are not pure class $-1$ (heuristically,
+multi-form tuples).  It is $N^{1/2-o(1)}$ times a
 square-root noise scale, and no mechanism for it is known.  We expect
 Hypothesis~\ref{hyp:TC} to be false for every $\theta\in(2/3,1)$; this is not
 proved.  Toy moments on $[1,N]$ fall below CRT but not on far translates
@@ -3745,7 +3755,8 @@ deficits heuristically do; $\mathrm{TC}^{\mathfrak A}_\theta$ is expected false 
 \subsection{The prime family at \texorpdfstring{$2/3$}{2/3}}
 \begin{corollary}[{\cite[Cor.~6.1]{TU2}}; \lab{proved}]\label{cor:prime23}
 Fix $A\geq1$ and $y\leq N^A$.  Let $\nu$ be a CRT majorant of $\{f_y=0\}$ whose
-terms have $\sum_{\ell\in\cP_y,\,\ell\mid d_i,\,\ell\geq\ell_0}\log\ell\leq\lambda$, $\lambda\geq\log N$.  Then
+terms have $\sum_{\ell\in\cP_y,\,\ell\mid d_i,\,\ell\geq\ell_0}\log\ell\leq\lambda$, $\lambda\geq\log N$, where $\ell_0$ is an
+absolute constant such that $\tau(A_\ell^2)/\ell\leq1/4$ for all primes $\ell\geq\ell_0$.  Then
 $\log(1/\E\nu)\leq C_A\lambda^{2/3}$.  So CRT-main-term methods at level
 $\leq A'\log N$ save at most $C(\log N)^{2/3}$, the order of Brun's pure sieve
 (Proposition~\ref{prop:TCrange}(1)).
@@ -3771,6 +3782,12 @@ $\theta>3/4$, by \cite{TQ}).  That no known theorem reaches this level is an
   structured obstruction below $\theta=1$ is known.
 \item The window \eqref{eq:window}: a $k$-ary comparison in class
   coordinates, for the dependent indicators $\ind[n\in C]$.
+\item Deciding the literal Hypothesis~\ref{hyp:TC} and
+  $\mathrm{TC}^{\mathfrak A}_\theta$ on $(2/3,1)$ (only an \emph{Assessment} so far), and at
+  $\theta=1$.
+\item Removing the factor $(\log\lambda_0)^{3/4}$ from
+  Proposition~\ref{prop:blocksparse}, e.g.\ via Lemma~\ref{lem:firstnoB}
+  (unchecked).
 \item Interval deficits (the second branch of the dichotomy of
   Section~\ref{sec:noncrt}); fixed-shift statements combined over all
   shift tuples; non-witness information along shifts; bounded-order
@@ -3838,7 +3855,7 @@ item, this is said.
   exceptional set; $\nu\geq0$ only at primes $\leq N$ (with $\nu\geq1$ at all
   primes of $\A$), which is open (\emph{Assessment}); unconditional
   signed error terms for prime laws (\emph{Assessment}).
-\item \emph{Non-CRT input.}  The theorems see only the CRT law of
+\item\label{it:nonCRT} \emph{Non-CRT input.}  The theorems see only the CRT law of
   residues.  Covered: CRT-evaluated moment methods
   (Section~\ref{sec:noncrt}), correlation input of bounded order or of
   prime order $o((\log N)^\theta/\log\log N)$ under CRT-main-term evaluation
