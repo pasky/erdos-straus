@@ -20,7 +20,7 @@ author code imported).
 | Thm 5.2 | SOUND as an implication; constants independent of N and of the family (see C7) |
 | Prop 9.1 | SOUND (algebra of θ re-derived; τ = O(1) via Vaaler's K-bound) |
 | Lemma 9.2 | SOUND for the proved direction; the 'converse by Farkas' and the §5/§10 readings of it overclaim (M1) |
-| SPW plausibility | (pending) |
+| SPW plausibility | Reviewer opinion: plausible, with σ* = (C−1)/(C+½) exactly at all tested N (EVIDENCE, C10–C11); the author's N-decay is truncation |
 
 ## Line-by-line checks
 
@@ -136,4 +136,68 @@ opinion on SPW: **plausible (EVIDENCE only)** — no sign of N-dependence;
 the obstruction to σ > (C−1)/(C+½) looks like a fixed local one, not the
 smooth-modulus phenomenon of §9.
 
+**C11 (why 2/5: a simple universal upper bound, PROVED here).** The LP dual
+at N = 13, C = 2 on ℤ/60 is supported on one small class and five large
+ones: `1 mod 6` has c = 3 points in [1,13] and is the disjoint union of the
+five classes 1, 7, 13, 19, 25 mod 30 (30 > 2N), so (P1)+(P2) give
+3 ≤ 5(1−σ). In general, for N ≥ 7 pick q ∈ (N/3, N/2) with
+c(1,q) = 3 and k = ⌈(CN+1)/q⌉ (≈ 2C+1 for q near N/2): (P1)–(P2) force
+**σ ≤ 1 − 3/k**, i.e. σ ≤ (C−1)/(C+½) + o(1) for suitable q. Consequences:
+(a) SPW with C ≤ 1 is impossible at every N ≥ 7 (k ≤ 3), independently of
+Example 3.2 — a cleaner reason for the author's "C = 1 infeasible";
+(b) σ → 0 as C ↓ 1, so the medium range (N/2, CN] cannot be shrunk to
+(N/2, (1+ε)N] at fixed σ; (c) the LP optima in C10 attain this bound
+exactly, so nothing beyond this local obstruction is visible up to N = 60.
+The same argument applies to Flat ((F2)+(F3) on the same five classes).
+
 ## Defects
+
+No FATAL or MAJOR defect found. Every PROVED item was re-derived; the
+conditional chain SPW ⇒ Flat ⇒ (3/4 cap for hybrids with T_mid ≤ e^{O(S)}B)
+is correct, with constants independent of N and of the family.
+
+**M1 (MINOR, overclaim from Farkas on truncated LPs).** §5 ("*Medium moduli
+are not freed this way*"), §10 bullet 2 ("By Farkas (finite truncations)
+this means there are nonnegative ν whose patches above CN *are* cancelled by
+medium-modulus terms"), Lemma 9.2 ("converse holds by Farkas") and
+AGENT_REPORT_O25 l.71–72 ("a cap there must use ν ≥ 1 on 𝒜"). A Farkas
+certificate of the finite-support LP (R or F supported on [−aN,(a+1)N]) is
+a combination ν that is ≥ 0 *only on the support window*, not on ℤ; it is
+not a nonnegative function, let alone a majorant. And C10 shows truncation
+changes the optimum substantially (0.378 → 0.400 at N = 60). So the `med`
+infeasibility does not establish the existence of a nonnegative ν, nor that
+a medium-moduli cap "must" use arithmetic. Repair: either rerun `med` in a
+*periodic* formulation on ℤ/L₀ (or ℤ/L₀·m) — its infeasibility does give a
+periodic ν ≥ 0 on all of ℤ — or weaken the sentences to "finite-support
+evidence suggests". (Note that C11 already gives a genuine ν ≥ 0 on ℤ —
+1[1 mod 6] − Σ five classes mod 30 ≥ 0? no: it is ≡ 0 — of the patch-
+cancellation type at modulus 2N+4, so medium-type cancellation by *small*
+classes is real; the question is only whether the `med` claim is.)
+
+**m1 (MINOR, scope of Def 1.2).** Def 1.2 is per-term blind charging, which
+matches IF Rem 2.6. A method that charges a *group* of same-modulus large
+classes by its worst-case count over shifts (shift-blind but not term-blind)
+can pay less than Σβ*; it is not covered. Repair: one sentence in §1 saying
+such grouped charges are outside the hybrid class (or that Lemma 4.1-type
+duals cover them only when the group is shift-invariant).
+
+**m2 (MINOR, presentation).** §0 row Thm 5.2 should repeat that Flat is
+needed at every large N with s₀ ≥ N^{−A₁}, t ≥ e^{−S_A}, Δ ≤ e^{S_A}
+(the body states this; the table does not). Also add C11's necessary bound
+σ ≤ (C−1)/(C+½) (resp. its Flat analogue) to §9, since it explains the
+pinned LP values 0.4 / 0.25 and the C = 1 failure.
+
+**m3 (MINOR, citation).** Prop 9.1's decay `|F_S(x)| ≤ c₁/(1+δ²dist²)` should
+cite the precise statement (Vaaler 1985, Lemma 5 / Thm 6: 0 ≤ B − sgn ≤ 2K,
+K(x) = (sin πx/πx)²); not in sources/, so I checked it from memory of the
+standard construction only.
+
+Not checked: Lemma 4.2's sampled density "≤ 0.14" and the §7 toy LP table
+(both EVIDENCE, not load-bearing).
+
+## Overall
+
+SOUND-AFTER-REPAIRS (M1 wording only). Labels are honest except the Farkas
+reading in §5/§10/report. My independent LPs support SPW more strongly than
+the author's (no N-decay once support is long enough), and identify the
+exact local obstruction σ ≤ (C−1)/(C+½).
