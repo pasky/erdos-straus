@@ -442,6 +442,51 @@ certificates with B-smooth D, then the construction of Thm 2.1 steps 3–5
 of a finite Type-I covering of `S_r` (∞ if none). Thm 2.1 says this height
 is `≥r^{2−ε}` for large r.
 
+
+### 6.1 Literature: which coverings are known (task check)
+
+* **Our certificates are a known family.** In Elsholtz–Tao
+  (arXiv:1107.1010, Prop 1.9), the third Type-I family is
+  `{n≡−f (mod 4cd)} ∩ {n²≡−4c²d (mod f)}`, `(4cd,f)=1`. This is exactly
+  the certificate `(c_ours,k_ours,D)=(d,c,f)` of Remark 6.2. It is also
+  Salez's modular equation (15d) (arXiv:1406.6307, Prop 3: `C,D,F`
+  constant, `p+F≡0 (4CD)`, `p²+4C²D≡0 (F)`, with `(A,B,C,D)=(a,b,k,c)` in
+  our Type-I equation `4abck=p(a+b)+k`).
+* **Which families bound `ck_min`.** The other three Type-I families
+  (Salez 15a–c / ET families 4, 2, 1) are also Type-I identities. But in
+  each of them c or k grows linearly in p:
+  * (15a): `D=c=(pE+1)/4AB`;
+  * (15b): `D=c=(p+F)/4BC`;
+  * (15c): `C=k=(p+F)/4BD`.
+
+  Salez's equations (14a–c) are the other ET type, where p divides two
+  denominators, so they are not Type-I.
+  Hence: **`C(r)≤X` is witnessed by a finite covering of `S_r` by ET
+  family-3 / Salez-(15d) classes with `ck≤X`** (Remark 6.2), and only
+  those classes count.
+* **Known coverings.** The classical "Mordell" covering of all non-square
+  classes mod 840 (Rosati; Mordell 1967, pp. 287–290; ET p. 8) and Salez's
+  filters (`S_5={0,2,3}`, `S_7={0,3,5,6}`, so all non-residues mod 5 and
+  mod 7 are covered for `p≡1 (24)`) use all seven equation types. For
+  primes 11–37 Salez's single-prime filters do **not** contain all
+  non-residues; e.g. `S_11={0,7,8,10}` misses the non-residues 2 and 6. So
+  for `p≡1 (24)` the literature has full single-prime coverings exactly for
+  `r=5,7`.
+* **What these coverings give for `C(r)`.**
+  * For `r=7` the classical covering does not bound `C(7)`. No
+    (15d)-certificate is decided modulo `168=[7,24]` on a non-residue class
+    mod 7. With F built from `{3,7}`, the condition `F≡−p (mod 4ck)` and
+    `p≡1 (24)` force `ck|2` (core in `{1,2}`) or a residue class mod 7.
+    The mod-7 identities are therefore of the growing types (15a–c) or of
+    the non-Type-I type (14).
+  * For `r=5`, Salez's Example 1 [15d] is a (15d) identity for
+    `p≡2 (5)`, with `C=1, D=5`, i.e. slice `(5,1)` with target divisor 3
+    (our Thm 6.1, first case). The second case of Thm 6.1 (`p≡3 (5)`,
+    mod-7 split over three slices) is not listed there.
+
+  I found no published statement on Type-I coverings with bounded ck
+  for any r.
+
 **EVIDENCE 6.3 (r=7).** `typei_smallD.py 7 3000000 2000 400`: all 6495
 hard primes in `(10^5,3·10^6)` with `n_p=7` have a positive unforced slice
 with `ck≤194` witnessed by a target divisor `D≤2000` (most frequent D: 11,
