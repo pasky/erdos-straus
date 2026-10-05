@@ -4,7 +4,7 @@ Task O38 (branch `esw-suppression`). Labels as in the house rules. ES is not
 touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O2, O8, O9 likewise; `𝓛=log T`.
 
-**Status: work in progress (not reviewed).**
+**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a (deep): no FATAL/MAJOR in the mathematics, minors applied.**
 
 ## 0. Notation
 
@@ -181,7 +181,7 @@ O9's hub (core H plus M completions at distinct coordinates) one gets
 `|N|≤1` and a contribution `O(P(H)·min(1,M/q))=O(S_hub)`, with no
 `e^{M/q}`.
 
-**Conjecture Q (EVIDENCE).** If every `E∈𝓗` has `w_E=∏_{v∈E}(1+μ_v)≤2`,
+**Conjecture Q (now PROVED, Thm 3.4 below).** If every `E∈𝓗` has `w_E=∏_{v∈E}(1+μ_v)≤2`,
 then `Q_μ(𝓗)≤1`.
 
 By Lemma 3.1, Conjecture Q implies C-1 (`G_F≤1` for every single-value
@@ -201,7 +201,7 @@ The naive unweighted bound `Q_1(𝓗)≤min_E(2^{|E|}−1)` is **false**
 (`scripts/omega10_q1.py`: ratios up to 423, driven by singleton edges), so
 the averaging over Ξ is essential.
 
-**Stronger form Q′ (EVIDENCE).** Under the same hypothesis,
+**Stronger form Q′ (now PROVED, Thm 3.4).** Under the same hypothesis,
 `Q_μ(𝓗) ≤ min_{E∈𝓗} w_E − 1` (`scripts/omega10_qmin.py`, 20000 random
 weighted hypergraphs, no violation beyond rounding). Q′ is the hypergraph
 analogue of "C-min" (`G_h ≤ E[h·w_min]`, also numerically supported in §2).
@@ -222,14 +222,14 @@ Q_μ(𝓗) = Q_μ(𝓑) + μ_v·Σ_V μ^V (N_𝓑(V)−N_𝓐(V))².
 naive inductive step (v in a minimum-weight edge, Q′ for `𝓗/v`) would need
 `Σ_Vμ^V(N_𝓑−N_𝓐)² ≤ min_{L∈link(v)} w_L`, which is **false** in general
 (random search: e.g. `𝓐={01}`, link `{0},{1}`), so a proof must use the
-slack in `Q(𝓗/v)`. Conjecture Q is open.
+slack in `Q(𝓗/v)`. (Resolved in §3.1.)
 
-**Matching forms (EVIDENCE).** Strongest form tested, *Conjecture FM*: if
+**Matching forms.** Strongest form tested, *Conjecture FM* (EVIDENCE; open): if
 all `w_E≤2`, then `Q_μ(𝓗) ≤ ∏_E (w_E−1)^{y_E}` for every fractional matching
 y (`y≥0`, `Σ_{E∋v}y_E≤1`). `scripts/omega10_fm.py` (LP over y; 20000 random
 weighted hypergraphs, n≤9): never violated, and **equality** (to `10^{−14}`)
 is frequent. Its integral case, *Conjecture QM*: `Q_μ(𝓗)≤∏_{E∈𝓜}(w_E−1)` for
-every matching `𝓜⊆𝓗`, contains Q (𝓜=∅), Q′ (one edge) and the disjoint
+every matching `𝓜⊆𝓗` (now PROVED, Thm 3.4), contains Q (𝓜=∅), Q′ (one edge) and the disjoint
 product (equality).
 *Induction attempt for QM (PROVED reduction).* Take `E_0∈𝓜`, `v∈E_0`. In
 the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
@@ -238,29 +238,146 @@ the vertex recursion write `X:=Σ_Vμ^V N_𝓐(V)N_𝓑(V)`; then
 `Q(𝓗) ≤ (w_{E_0}−1)Π′ − 2μ_vX`, `Π′:=∏_{𝓜−E_0}(w−1)`. So QM follows by
 induction **whenever X≥0**. But X<0 occurs (triangle `{01},{0v},{1v}`,
 `X≈−0.17` at `w=2`; `scripts/omega10_*` search), where QM survives only
-through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. Open.
+through slack in the bounds for `Q(𝓐)`, `Q(𝓑)`. (Superseded by §3.1: the right induction is on Θ, not on Q.)
 
-## 4. What C-1 would give (PROVED implication)
+### 3.1 Proof of Conjecture Q (PROVED)
 
-Assume C-1. In O8 Thm 3.4 keep the events as classes mod their moduli
-(coordinates: `X_ℓ mod ℓ` and the base-ℓ digits of `X_ℓ mod ℓ^{e_ℓ}`, a
-product space under Haar; an event mod `r_E` is single-value on digit
-coordinates with modulus product `r_E≤T`). Put `λ_v:=2^{log m_v/𝓛}` (`m_v`
-the size of digit coordinate v). Then every event and every restricted event
-of every `F^{(j)}` has `w≤2`, so `G_{F^{(j)}}≤1`, and the modulus-weighted
-Efron–Stein truncation `u_j` of `F^{(j)}` at modulus `e^τ` satisfies
-EL with `τ := 𝓛·⌈log₂(100m²(S+1)e^{3S})⌉ ≪ 𝓛(S+k𝓛)`. Every cell of the
-BRW minorant then has modulus `≤T³e^{2τ}`, so in O9 Thm 1.1
+For a finite multiset 𝒞 of vertex sets ("edges", possibly empty) and
+weights `λ_v≥1`, put
 
 ```
-log Z ≤ log Q_Π + O(𝓛(S + k𝓛)) ≪ log Q_Π + 𝓛^5 log𝓛     (under ET)
+Θ_λ(𝒞) := Σ_{𝒥⊆𝒞} (−1)^{|𝒥|} λ^{∪𝒥}        (λ^U:=∏_{v∈U}λ_v; Θ(∅)=1).
 ```
 
-(was `log Q_Π + C·k·b·k_0·𝓛 ≍ 𝓛^7`). The junta term then drops below the
-quarantine term `log Q_Π ≪ 𝓛^7/log𝓛`; **the exponent improves only together
-with a cheaper quarantine** (task item (2)): with `log Q_Π ≪ 𝓛^5log𝓛` one
-would get `W(p) ≥ exp((log p)^{1/5−o(1)})` i.o. — beyond O9 Cor 4.2's 1/6,
-which (§1) applies to coordinate-counting arguments only.
+**Lemma 3.2 (polarization; PROVED).** Let `μ_v=λ_v−1≥0` and let P be a random
+vertex set with `P(v∈P)=μ_v/λ_v` independently. Then for every hypergraph 𝓗
+
+```
+Q_μ(𝓗) = E_P[ Θ_λ(𝓗_P)² ],     𝓗_P := {E∈𝓗 : E∩P=∅}.
+```
+
+*Proof.* Let `T(p):=Σ_Vτ̂(V)p^V` be the multilinear extension of `τ=τ_𝓗`.
+If the `p_v` are independent with mean 0 and variance `μ_v`, then distinct
+monomials are orthogonal and `E[T(p)²]=Σ_Vμ^Vτ̂(V)²=Q_μ(𝓗)`, whatever the
+law of `p_v`. Take `p_v=1` with probability `μ_v/λ_v` and `p_v=−μ_v`
+otherwise (mean `μ/λ−μ/λ=0`, variance `μ/λ+μ²/λ=μ`); `P:={p_v=1}`. Since
+`T(p)=Σ_Rτ(R)∏_{v∈R}p_v∏_{v∉R}(1−p_v)`, only `R⊇P` survive, and with
+`R=P∪B`, `B⊆P^c`: `T=Σ_{B⊆P^c}(−μ)^Bλ^{P^c∖B}τ(P∪B)`. Here
+`τ(P∪B)=τ_{𝓗_P}(B)=Σ_{𝒥⊆𝓗_P}(−1)^{|𝒥|}1[B∩∪𝒥=∅]` (inclusion–exclusion),
+and `Σ_{B⊆P^c}(−μ)^Bλ^{P^c∖B}1[B∩U=∅]=λ^U∏_{v∈P^c∖U}(λ_v−μ_v)=λ^U` for
+`U⊆P^c`. Hence `T=Θ_λ(𝓗_P)`. ∎
+(`scripts/omega10_qtheta.py`: exact enumeration, 300 random cases,
+`μ` up to 3, max discrepancy `5·10^{−13}`.)
+
+**Lemma 3.3 (matching bound for Θ; PROVED).** If every edge of 𝒞 has
+`w_E=λ^E≤2`, then for every matching `𝓜⊆𝒞` (pairwise disjoint edges)
+
+```
+|Θ_λ(𝒞)| ≤ ∏_{E∈𝓜}(w_E−1)          (in particular |Θ_λ(𝒞)|≤1).
+```
+
+*Proof.* Deletion–contraction: for a vertex v let `𝒞−v` be the edges not
+containing v and `𝒞/v:={E∖{v}:E∈𝒞}`. Splitting `𝒥` according to whether
+it contains an edge through v,
+
+```
+Θ(𝒞) = Θ(𝒞−v) + λ_v[Θ(𝒞/v) − Θ(𝒞−v)] = λ_v Θ(𝒞/v) − μ_v Θ(𝒞−v).
+```
+
+Both families again have all weights `≤2` (`w_{E∖v}=w_E/λ_v` for `E∋v`, unchanged otherwise), and
+vertex sets smaller by one. Induct on the number of vertices.
+If `∅∈𝒞`, then `Θ(𝒞)=0` (toggling the empty edge pairs the terms), so the
+claim holds. If `𝒞=∅`, `Θ=1` and `𝓜=∅`. If `𝓜=∅` and `𝒞≠∅`, it
+suffices to prove the bound for `𝓜={E}`, since `w_E−1≤1`. So let
+`E_0∈𝓜` be nonempty, `v∈E_0`, `Π′:=∏_{𝓜∖E_0}(w−1)`. In `𝒞/v` the family
+`𝓜∖{E_0}∪{E_0∖v}` is a matching, so `|Θ(𝒞/v)|≤(w_{E_0}/λ_v−1)Π′`
+(if `E_0={v}` this reads `0`, consistent with `∅∈𝒞/v`). In `𝒞−v` the
+family `𝓜∖{E_0}` is a matching, so `|Θ(𝒞−v)|≤Π′`. Therefore
+`|Θ(𝒞)| ≤ (w_{E_0}−λ_v)Π′+μ_vΠ′ = (w_{E_0}−1)Π′`. ∎
+
+**Theorem 3.4 (Conjectures Q and QM; PROVED).** If every edge of 𝓗 has
+`w_E≤2`, then `Q_μ(𝓗) ≤ ∏_{E∈𝓜}(w_E−1)` for every matching `𝓜⊆𝓗`; in
+particular `Q_μ(𝓗)≤1` and `Q_μ(𝓗)≤min_E w_E−1`.
+
+*Proof.* Lemma 3.2, then Lemma 3.3 for `𝓗_P` with the matching
+`𝓜∩𝓗_P`. The edges of 𝓜 are disjoint, so the events `{E∩P=∅}` are
+independent, with probability `∏_{v∈E}λ_v^{−1}=1/w_E`. Hence
+`Q ≤ ∏_{E∈𝓜}[(1−1/w_E)+(w_E−1)²/w_E] = ∏_{E∈𝓜}(w_E−1)`. ∎
+
+**Corollary 3.5 (C-1; PROVED).** For every single-value system on a finite
+product of uniform spaces, and all weights `λ_v≥1` with
+`w_E=∏_{v∈supp E}λ_v≤2` for every event,
+
+```
+G_F(λ) = Σ_U (∏_{v∈U}λ_v)·‖F^{=U}‖² ≤ 1 .
+```
+
+*Proof.* Lemma 3.1 and Theorem 3.4 (𝓗(x) consists of event supports). ∎
+
+So C-1, and with it the modulus-weighted EL of §4, holds with **no** mass,
+codegree, quarantine or width hypothesis. (FM, the fractional-matching form,
+remains open, but nothing below needs it.)
+
+## 4. Consequences: ESW in energy form and the junta term (PROVED)
+
+**Corollary 4.1 (q-ary energy concentration; PROVED).** Let f be the
+bad- or good-indicator of a single-value system whose events have support
+`≤k`, on any finite product of uniform spaces (any alphabet sizes). Then
+
+```
+energy(f; t) = Σ_{|U|>t}‖f^{=U}‖² ≤ 2^{−(t+1)/k}     for all integers t≥0 (k≥1).
+```
+
+*Proof.* Corollary 3.5 with `λ_v=2^{1/k}`, and `f^{=U}=−F^{=U}` for `U≠∅`. ∎
+
+This is the energy form of ESW (O8 §6.4) with no dependence on the alphabet
+size, on masses or on codegrees. It is the q-ary analogue of the Boolean
+fact "width-w DNFs are ε-concentrated up to degree `O(w log 1/ε)`", here
+with the threshold `λ^k=2` of Cor 3.5 sharp as the alphabet sizes grow (a single
+event has `G=1−π(2−∏(λ_v−(λ_v−1)/q_v))`, §2). The tail rate itself is not claimed sharp.
+
+**Theorem 4.2 (junta term without the bit factor; PROVED, as an
+implication inside O8 Thm 3.4 / O9 Thm 2.2).** In O8 Thm 3.4 (events split
+into single values mod `ℓ^{e_ℓ}` as in O8 Setting 3.0, supports `≤k`,
+`m≤T^{k+2}`), take `u_j` to be the Efron–Stein truncation of `F^{(j)}` at
+level
+
+```
+t := k·⌈log₂(100 m²(S+1) e^{3S})⌉ ≤ C·k(S + k𝓛).
+```
+
+Then EL(t) holds. Each restricted event of `F^{(j)}` again has support
+`≤k`, so Corollary 4.1 applies. In O9 Thm 2.2 this replaces
+`d=4C_H·k·b·k_0`, so
+
+```
+log Z ≤ log Q_Π + 2(3k+2t+1)𝓛 ≪ log Q_Π + k𝓛(S*+k𝓛) ≪ log Q_Π + 𝓛^6     (z=𝓛², under ET).
+```
+
+The rest of O9 Thm 2.2 is unchanged: Lemma 2.1 gives `A≤1.03`, the twist
+uses only `E[F−B]≤δ/100`, and the cells of B lie on `≤3k+2t` free primes.
+
+So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and already
+`log L_h(T) ≪ 𝓛^7/log𝓛`, i.e. `W(p) ≥ exp(c(log p·log log p)^{1/7})` i.o. (a log
+gain over O9 Thm 2.2), and
+`log Q_Π≪𝓛^7/log𝓛` is now the **only** term of order `𝓛^7`. With a
+quarantine `log Q_Π≪𝓛^6` (task item (b)), O9 Thm 2.2 would give exponent
+1/6. That is O9 Cor 4.2's ceiling for coordinate-counting arguments, and
+it is now reached on the junta side.
+
+**Remark 4.3 (modulus weighting; PROVED under a stated hypothesis).**
+Suppose every event's modulus satisfies `∏_{ℓ∈supp E}ℓ^{a_ℓ} ≤ T^ρ`, where
+`a_ℓ` is the largest exponent of ℓ used by any event. Take coordinates
+`X_ℓ mod ℓ^{a_ℓ}`, events split to single values there, and
+`λ_ℓ:=2^{a_ℓ log ℓ/(ρ𝓛)}`. Then every `w_E≤2`, so by Cor 3.5 the
+truncation at modulus `e^τ`, `τ:=ρ𝓛·⌈log₂(100m²(S+1)e^{3S})⌉`, satisfies EL,
+and `log Z ≤ log Q_Π + O(ρ𝓛(S+k𝓛))`. If all free primes enter the event
+moduli to the first power (`ρ=1`), this is `≪ log Q_Π+𝓛^5log𝓛` under ET.
+`W ≥ exp(c(log p/log log p)^{1/5})` would then need `log Q_Π≪𝓛^5log𝓛`. We have **not** checked
+whether the ES events at free primes `>z` use higher prime powers, or
+whether those can be quarantined cheaply. (Digit coordinates do not
+help: a junta function of the i-th base-ℓ digit alone needs modulus
+`ℓ^{i+1}`.)
 
 ## 5. Status summary, scope
 
@@ -269,13 +386,11 @@ which (§1) applies to coordinate-counting arguments only.
   arguments only); §2 identities and the single-coordinate case of MONO; the
   counterexample to MONO; **Lemma 3.1** (`G_F ≤ E_x Q_μ(𝓗(x))`, suppression
   built in); the vertex recursion; the two-edge formula; §4's implication.
-* CONJECTURE (strong EVIDENCE, no counterexample in ~10⁵ random and
-  hill-climbed instances): Q, Q′, QM, FM; hence C-1 and C-exp.
-* Not claimed: ESW in the form `E_ρW^{≥s}[f_ρ]≤(C(pk+max w))^s` (not
-  addressed directly; C-1 with `λ=2^{1/k}` would imply the energy form
-  `energy(F;t)≤2^{−t/k}` for every single-value system, with no mass
-  hypothesis); any exponent improvement (needs C-1 **and** a cheaper
-  quarantine); anything about ES.
+* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2).
+* CONJECTURE (EVIDENCE): FM (fractional matchings), C-exp (`w_E>2` allowed).
+* Not claimed: the random-restriction form of ESW (not needed: Cor 4.1 is
+  the energy statement LMN would have produced); any exponent improvement
+  by itself (needs a cheaper quarantine); anything about ES.
 
 ## Replay
 
@@ -290,4 +405,6 @@ export PYTHONPATH=scripts
 (ulimit -v 8000000; timeout 900 uv run python scripts/omega10_qmin.py 1 20000 9)    # Q'
 (ulimit -v 8000000; timeout 900 uv run --with scipy python scripts/omega10_fm.py 1 20000 9)  # FM
 (ulimit -v 8000000; timeout 900 uv run python scripts/omega10_xsign.py 1 20000 8)   # X<0 cases
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_qtheta.py 1 300 7)    # Lemma 3.2 identity (exact enumeration)
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_theta.py 1 30000 10)  # |Theta|<=1 (Lemma 3.3)
 ```
