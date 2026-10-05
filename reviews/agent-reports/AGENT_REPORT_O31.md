@@ -92,9 +92,10 @@ H-generic escape class.
 1. **Literature (§6.1).** Our certificates `(c,k,D)` are exactly
    Elsholtz–Tao Prop 1.9 Type-I family 3, which is Salez's (15d). The other
    Type-I families (Salez 15a–c) have c or k growing with p, so (15d) is
-   the only family that bounds `ck_min`. So `C(r)≤X` iff a (15d)-covering
-   of `{n_p=r}` of height X exists (unconditional direction; under H also
-   the converse, Remark 6.2). The literature has full single-prime
+   the only family that bounds `ck_min`. A (15d)-covering of `{n_p=r}` of height X gives `C(r)≤X`
+   (unconditional). An uncovered fixing class gives `C(r)>X` under H. The
+   exact equivalence needs a compactness step (R31-D6), which is sketched
+   only. The literature has full single-prime
    coverings for `p≡1 (24)` exactly for non-residues mod 5 and mod 7
    (Rosati/Mordell; Salez `S_5`, `S_7`). Salez's `S_11`, …, `S_37` miss
    some non-residues. Those coverings use all equation types. For r=7, no
@@ -130,3 +131,32 @@ Items for review: the soundness of `typei_formal.py`'s determinacy asserts
 (an earlier run without the `4ck`-exponent assert gave a spurious
 `>2000`; that assert was then added), and the refinement argument in the
 proof of Cor 6.4.
+
+## Round 3: repairs after hostile review R31 (SOUND-AFTER-REPAIRS, no FATAL/MAJOR)
+
+* **D1.** In the Cor 6.4 unconditional proof, the refinement now runs only
+  over the unforced slices below `X_0` (319 for r=7, 1491 for r=11). It
+  excludes `≤2·#+1` residues, which is `<B`. Heights are stated as `<X_0`.
+* **D2.** T3.1 condition repaired:
+  `2^{π(y)} ≤ x^{1/2}/(C log²x·log log x)` and
+  `π(y) ≤ (log x−4log₂x−2log₃x−2log C)/(2log2)`. The constant
+  `1/(2log2)` is unchanged.
+* **D3.** A4.6: for `G=1+η` the mass is linear in η (only slices
+  `(q,1)`), so the union bound gives `η≪log₂p/log p`. The cube formula is
+  the large-G asymptotic. The conclusion ("no fixed G>1") is unchanged.
+* **D4.** L4.5: the CRT description is PROVED. "Needs moduli >x" is now
+  labelled Assessment.
+* **D5.** P4.1 is intersected with `𝓑_p`. This is automatic for
+  `n_p²≤p/2` (checked to 10^6; Burgess/Treviño beyond).
+* **D6.** R6.2(ii): only the two directions are claimed. The
+  exact-equivalence compactness step is sketched and flagged.
+* **D7.** "Full single-prime coverings exactly for r=5,7" is now scoped to
+  Salez's listed filters `ℓ≤37`.
+* **D8.** `typei_formal.py`'s determinacy is stated as required and
+  checked only for unforced slices up to the hit, with the reviewer's
+  examples of failure beyond the hit.
+
+No mathematical conclusion changed. Final status: L1.1, P4.1, P4.2, L4.3,
+T6.1 and the unconditional part of C6.4 are PROVED. T2.1 and the H part
+of C6.4 are CONDITIONAL on H. T3.1 is CONDITIONAL on GRH. A4.4–A4.6 are
+Assessments, and §5 is EVIDENCE.
