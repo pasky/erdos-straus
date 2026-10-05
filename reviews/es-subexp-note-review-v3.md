@@ -3,15 +3,102 @@
 Referee: hostile side agent R47 (branch `side-agent/referee-subexp-v3`).
 Author branch: `side-agent/subexp-paper-v3` @ 67cda1e (merged non-ff into referee branch; ff-only failed because main moved).
 
-Status: IN PROGRESS.
+Status: COMPLETE (round 1).
+
+**Recommendation: minor revision.** I found no FATAL defect and no gap in the chain to
+Theorem 1.1 (exponent 1/5 with the (log log p)^{−1/5} factor) or Theorem 1.2. Every proof in
+§§2–8 was re-derived line by line; C-1 (Thm 6.5), its corollary, and the filtration form
+(Thm 6.9) were brute-forced from scratch on random non-uniform product spaces and never
+exceed 1 (max 0.9991 / 0.9990 — the constant 1 is essentially attained). The ET inputs match
+the archived arXiv text and Thm 4.2 matches the archived MV III draft. One isolated MAJOR
+defect: Remark 8.3 cites a lower bound for a *different* density (units, Haar) as a lower
+bound for the paper's δ*(T) (all integers). The rest are labelling/wording points.
 
 ## Summary verdicts per claim
 
-(to be filled)
+| Claim | Verdict |
+|---|---|
+| Lemmas 2.1, 2.2 (atoms, class of one) | SOUND (wording, D4) |
+| Lemma 2.4 (reduction, weights, C_1=e²) | SOUND |
+| Lemma 2.5 (graded iterated quarantine, cost 1.02𝓛+7+(C_1𝓛/c)Ω_0) | SOUND |
+| Thm 3.1 (ET inputs) vs source | SOUND-AFTER-REPAIRS (D2: κ range of (d)) |
+| Lemmas 3.2–3.6, Thm 3.7 (S_0≪𝓛⁴, Ω_0≪𝓛⁴log𝓛; unconditional parts) | SOUND (mod ET) |
+| Remark 3.8 numerics | reproduced from scratch (2.163, 2.402) |
+| Thms 4.1, 4.2 + source caveat | SOUND (statement matches MV III 28.19) |
+| Thm 5.1 (linear transfer incl. new (c) split f=f_1f_2) | SOUND |
+| Lemmas 6.2–6.4, Thm 6.5 (C-1), Cor 6.6 | SOUND (+ brute force) |
+| Remark 6.7 (sharpness) | SOUND |
+| Remark 6.8 (Boolean form, influence) | SOUND; LMN/OD constant not checked |
+| Thm 6.9, Cor 6.10 (filtration) | SOUND (+ brute force) |
+| Lemma 7.1 (Haar means) | SOUND |
+| Lemma 7.2, Cor 7.3 (LLL) | SOUND |
+| Lemmas 7.4–7.8 (sandwich, error, cells, ℓ¹, twist) | SOUND |
+| Thm 8.1 (assembly), proofs of Thms 1.1 and 1.2 | SOUND (D5 wording) |
+| Cor 8.2 (Haar side upper bound) | SOUND |
+| Remark 8.3 (two-sided Haar bound) | GAP (D1) |
+| Remark 8.4, §9 status, labels | SOUND-AFTER-REPAIRS (D3) |
+| Bibliography / novelty wording | SOUND-AFTER-REPAIRS (D6, D7) |
+| Compile | clean (27 pp, no warnings) |
 
 ## Numbered defects
 
-(to be filled)
+**D1 (MAJOR, isolated; does not affect Thms 1.1/1.2/Cor 8.2). Remark 8.3 compares two different
+densities.** Cor 8.2 defines δ*(T) as the natural density of *all integers* n with W(n)>T.
+[Haar] (`POINTWISE_HAAR.md` on main, §0) defines δ*(T) as the Haar measure on **Ẑ^× restricted
+to n≡1 (24)**, i.e. on units. The two are not comparable in the direction needed: non-units
+avoid every event at a prime dividing n (R(M) consists of unit classes), so the all-integer
+density can only be larger, and a lower bound for log(1/δ*_unit) does not give one for
+log(1/δ*_all). (Upper bounds do transfer, which is why Cor 8.2 is fine.) The displayed
+"𝓛³/log𝓛 ≪ log(1/δ*(T)) ≪ 𝓛⁵log𝓛" is therefore unsupported as written.
+*Repair:* either define δ*(T) in Cor 8.2 as the Haar density among units in the class
+1 mod 24 (the proof of Cor 8.2 only produces units ≡1 mod Q, 24|Q, so the upper bound holds
+verbatim for that normalisation, with a harmless change of the log𝓛+O(1) term), and then
+Remark 8.3 is consistent; or keep the all-integer δ* and state the [Haar] bound for the unit
+density only, without the two-sided display.
+
+**D2 (MINOR). Thm 3.1(d) is stated more generally than ET.** ET derive (7.10) inside the
+proof of Prop. 1.4, case A≤B, under the standing hypotheses A,B>1 and k≪(AB)^{O(1)}
+(arXiv v6 p. 30). The paper's (d) says "for 2≤A≤B and κ≥1" with no size condition on κ.
+Only κ=4 is used, so nothing breaks. *Repair:* write "for 2≤A≤B and κ=4" (or add
+κ≪(AB)^{O(1)}).
+
+**D3 (MINOR). Labels and §9 out of sync with the stated convention "every theorem header
+carries a label".** (i) Remark 6.7 is headed "Sharpness; proved" but is not in the §9
+"Proved" list. (ii) Remark 5.2 (`rem:linear`) has no header label at all, yet §9 lists it as
+Assessment; Remark 6.8 has a header ("Boolean form and comparison") but no label, although
+it contains proved statements (Boolean tail 4·2^{−(t+1)/k}, total influence (k/ln2)P(F=0),
+q-ary literals) and one unchecked citation (the LMN/OD constant). (iii) Lemma 7.2 (classical)
+and Thm 4.1 are fine. *Repair:* add "Assessment" to the header of Remark 5.2, "proved"
+to Remark 6.8 (marking the LMN constant as cited), and add Remarks 6.7, 6.8 to §9.
+
+**D4 (MINOR). Lemma 2.2, proof.** "Since 4A_M²≡A_M, the map D↦A_M²/D preserves this
+congruence" — the fact used is that A_M is a unit and (−A_M)² = A_M², so
+A_M²/D ≡ A_M²(−A_M)^{−1} = −A_M. The cited congruence 4A_M²≡A_M is true but not the reason.
+*Repair:* replace by the one-line computation.
+
+**D5 (MINOR). Thm 8.1, transfer step.** "By Lemma 7.1, E_H B=μ and E_H|B|/μ≤1.03": Lemma 7.1
+is stated for cell combinations; |B| is not given as one. It is one (|B| is a function of
+X mod D, hence a combination of point cells of modulus D, all consistent), but say so.
+Likewise for Bψ the lemma's second clause is used; fine.
+
+**D6 (MINOR). Bibliography.** [LT] can be taken off the TODO(verify) list: I verified
+authors, title, arXiv 2109.04525 (v2, 15 Oct 2021) and "to appear at FOCS 2021" on arxiv.org.
+The remaining TODO(verify) entries ([BBMST], [Bourgain], [Green], [Hough], [FFKPY], [LMO],
+[TZcheb], [MV1], [RS], [TZ] journal data) and "Anonymous" are still open; fine for internal
+circulation, must be closed before submission. The OD §4.4 constant 2·2^{−t/(20k)} in Remark
+6.8 and the intro is unverified (O'Donnell's book is not in `sources/`).
+
+**D7 (MINOR). Novelty wording.** The wording ("new to us … literature search partial …
+no priority claim") is appropriately cautious, and the description of [LT] is accurate (LT
+Fact 9: |f̂(S)|≤2^{|S|}Pr[S covered], unsigned, uniform measure, not used by LT; LT Fact 6:
+unspecified C via the switching lemma). Before submission, specifically check: Håstad,
+"A slight sharpening of LMN" (JCSS 2001); Tal, "Tight bounds on the Fourier spectrum of AC0"
+(CCC 2017); the Fourier-growth line (Chattopadhyay–Hatami–Lovett–Tal and successors), since
+G_F(λ) with constant λ is ‖T_{√λ}F‖² (noise operator with ρ>1), exactly the kind of quantity
+studied there.
+
+**D8 (MINOR, cosmetic).** Lemma 2.5 assumes c≤1/8, which is not used in its proof (only
+c=1/64 is applied). Harmless; drop or explain.
 
 ## Checks performed
 
