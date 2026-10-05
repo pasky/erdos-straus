@@ -16,9 +16,9 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | Prop 2.5 | SOUND |
 | Thm 3.1 | SOUND-AFTER-REPAIRS (Gauss-sum bound misstated; conclusion survives) |
 | Prop 4.1 | SOUND as a Haar statement; certificate clause covers an accounting nobody uses for integers (scope MAJOR) |
-| Remark 4.2 / Assessment 4.3 | (pending) |
-| Lemma 5.1 / Prop 5.2 | (pending) |
-| §0, §6, §7 scope and labels | (pending) |
+| Remark 4.2 / Assessment 4.3 | SOUND as labelled (heuristic); its conclusion is restated as fact in §6/Answer (M3) |
+| Lemma 5.1 / Prop 5.2 | SOUND (Linnik–Xylouris used correctly; modest scope, honestly stated) |
+| §0, §6, §7 scope and labels | GAP (headline omits the full-orbit qualifier; "Covered" list overclaims) |
 
 ## Per-claim notes
 
@@ -125,5 +125,36 @@ the support of `m^{(d)}` is known exactly; nobody evaluates `Σ_{n≤x,d|n}F(n)`
 classes mod `q>x` whose least representative exceeds x. The author concedes this in the
 statement, but §6 item 3, §7 and the Answer (1b) then list "integer Type I sums" as **Covered**
 and "Type II input is then moot" — overclaim (M3).
+
+### Remark 4.2 / Assessment 4.3
+Remark 4.2 checked: by O13 Lemma 3.1 every event class has Jacobi symbol −1 mod M, so `m²` with
+`(m,P(T))=1` avoids all events; the count `≫_Q√x/𝓛` for `√x≥T²Q` (m with all prime factors >T)
+is right when r is a square mod Q. At `log x≍C𝓛³` this is `√x≪xδ_H`, so it does not contradict
+Assessment 4.3's premise. Assessment 4.3 is correctly labelled heuristic, but (i) the requirement
+"relative precision o(1) for (a weighted majority of) d≤x^{1/3}" is not how Vaughan Type I sums
+are used (one needs `Σ_{d≤U}μ(d)·(error_d)` small, with sign cancellation; the author does list
+this as not excluded); (ii) the sentence "the bottleneck is the sieve dimension … prime-specific
+input addresses the other half" is then promoted in the Answer to "The 1/4 ceiling is a
+sieve-dimension barrier … invariant under any strengthening of prime equidistribution" without
+the heuristic/full-orbit qualifiers (M1, M3). The Maynard comparison is fine as a reading
+(additive characters are reduced products, so the additive-Fourier ℓ¹ norm dominates `‖F‖_×`);
+the exponent `c_b<1/2` is flagged as from memory — acceptable.
+
+### Lemma 5.1 / Prop 5.2 — SOUND
+Lemma 5.1: Dirichlet on each unit class mod `lcm(L,Q)` — correct. Prop 5.2: the class
+`{n∈c, n≡−4 (ℓ_0)}` is a unit class of modulus `≤qQℓ_0`; Linnik with Xylouris's exponent L=5
+(Xylouris 2011 thesis; 5.18 in Acta Arith. 2011 — I could not access either here; the exponent 5
+is the standard citation) gives a prime `≤C_L(qQℓ_0)^5`, effective (Linnik's theorem does not use
+Siegel); GRH gives `≪(φ(m)log m)²` (Bach–Sorenson / Lamzouri–Li–Soundararajan), i.e. `m^{2+ε}` —
+as stated. The atom `(ℓ_0,1)` (`ℓ_0≡3 (4)`, `1|A²`) holds at `n≡−4 (ℓ_0)`, so `F(p)=0` and
+`B(c)≤0` on every *unit* class (non-unit classes are Haar-null; "every class" should read "every
+unit class", m5). The §7 table drops `C_L^{1/5}` and the existence of `ℓ_0` (trivial since
+`qQ<∏_{ℓ≤T,ℓ≡3(4)}ℓ` in range). Note the result is stronger than advertised in one way (B≤0
+pointwise, B≤F not used beyond the ℓ_0-event) and weak in another (a single modulus); honest.
+
+### §0, §6, §7, Answer — GAP (presentation/scope)
+See M1, M3, m6. Missing from (N1)–(N4): certificates using *atomicity/integrality* of the prime
+measure (`m` is a sum of unit masses at integers `≤x`), which Def 2.1 forbids and which is
+broader than "support-aware" — e.g. `m(C)∈ℤ_{≥0}` for every class; this should be named in (N2).
 
 ## Defects
