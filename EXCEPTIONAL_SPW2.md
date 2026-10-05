@@ -124,3 +124,47 @@ O_C(M^{−1/3}), O_C(M^{−2/3}), O(m₀²M^{−1/3}/C²). ∎
 
 So RSPW with fixed η is false for large N even with K = ∞, but the decay is
 only (log N)^{−1/3}; weak forms (η_N ≥ e^{−(log N)^{3/4}}) are untouched.
+
+## 4. Dual picture and where a proof (or refutation) must act
+
+**Lemma 4.1 (dual of RSPW with K = ∞; PROVED, finite LP duality on ℤ/Q′
+plus SPW1 Lemma 1.1).** On the periodic model, the optimal η is
+
+    η* = 1 − sup { −Σ_{n≤N} g(n) / Z : g ∈ V_D, z ≥ 0 on full classes of
+                    modulus > CN, g + Σ z_s 1_s ≥ 0,  Z = Σ z_s }.
+
+In particular η* = 0 iff there is ν = g + P ≥ 0 (g a small-modulus
+combination, P ≠ 0 a nonnegative combination of *full* large classes)
+with ν ≡ 0 on [1,N]. (IF2 Example 3.2 is such a ν, but at the medium
+modulus N + 1.) Weak duality direction is elementary:
+Σ_x R ν = Σ_W g + Σ z_s R(s) ≥ 0.
+
+Consequences for certificates (PROVED, by Lemma 2.2): ν must vanish on W and
+be ≥ 0 on the near zone Z, where P ≡ 0; so g ≥ 0 on Z, g = −P ≤ 0 on W.
+
+**Assessment 4.2 (heuristic dichotomy; not proved).** Write R = R_Z + R_F
+(near / far, R ≈ 0 on W as in all LP optima).
+* *Near part.* R_Z − W has Fourier transform E(α), a trigonometric
+  polynomial of degree ≲ 2CN. Farey points of order D are a sampling set at
+  that scale except within ≍ 1/(qD) of a/q, q ≲ 8C. The η-jump of R − W at
+  each edge puts ≍ η²D energy of E into the dense part, hence (large-sieve
+  heuristic, ≈ 0.3D² samples per unit frequency) Σ_{F_D}|E|² ≳ cη²D³.
+  So the far part must carry F_D-content of ℓ²-size ≳ ηN^{3/2}.
+* *Spread far part.* A far part with density profile "smooth envelope ×
+  bounded weights" carries F_D-content of ℓ²-size ≲ (its mass) ≤ N
+  (random-design/min-norm computation; the same mechanism as SPW1 Prop 2.3).
+  This alone would force η ≲ N^{−1/2}.
+* *Structured far part.* Content can also be carried coherently (mass at x
+  with x ≡ edge mod many d); but coherence mod d and d′ puts x on the full
+  line through the edge point of modulus lcm(d,d′) > CN, and a
+  Cauchy–Schwarz count over pairs (d,d′) again gives η ≲ √(λ/D) (λ = line
+  capacity) for *exact* coherence. Partial coherence (x ≡ edge + small mod d)
+  escapes this count — it is exactly what near-zone mass does, and far
+  points can do it only with a bias of size ≍ η in Σ_d cos(2π(x−c)/d), whose
+  positivity again costs ≍ 1/√D.
+
+So all *natural* construction mechanisms point to a barrier at η ≍ N^{−1/2},
+which would **refute** weak SPW (Lemma 1.1 needs η_N/K_N ≥ e^{−O((log N)^{3/4})}).
+The LP values (η ≈ 0.9, 0.82, ≥ 0.73 at N = 30, 50, 80) are not in
+conflict (the heuristic constants give ≈ 6/√D ≥ 0.9 there). Nothing here is
+proved; the rigorous obstruction is only Thm 3.1 ((log N)^{−1/3}).
