@@ -39,6 +39,17 @@ Blocks (ci)..(co) (task O20) replay the later documents in the same way:
   (cn) POINTWISE_OMEGA5: squarefree lifting Lemma 1.1, Cor 1.2;
   (co) POINTWISE_WINDOW: parity Lemma 1.2, Lemma 1.1, W1 congruence data.
 (POINTWISE_OMEGA3's composition inequality is block (cc).)
+Blocks (cp)..(ct) (task O35) replay the documents merged in the next round:
+  (cp) EXCEPTIONAL_TUPLES2: forms Lemma 1.1, Cor 1.2/(1.3), Lemma 3.1, Thm 4.1
+       Euler-characteristic identity (exact rationals, small y, N);
+  (cq) EXCEPTIONAL_KARY3: Lemma 2.1/(2.1'), Lemma 2.2 grouping bound, Lemma 2.3/3.1
+       sub-steps, §8 data regression;
+  (cr) EXCEPTIONAL_LARGESIEVE2 §§1-7 (imports scripts/largesieve2_checks.py; LP parts
+       only if scipy is importable): Lemma 1.1 LP dual, Lemma 2.2, Lemma 4.1, Thm 4.3
+       steps, Prop 6.1;
+  (cs) POINTWISE_OMEGA8 §§1-5 (imports scripts/omega8_brw_check.py): BRW Lemma 3.1,
+       Lemma 3.2 c_W formula, exponent bookkeeping of Thms 4.3-4.4;
+  (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -18004,6 +18015,119 @@ def check_cs():
 
 print("\n== (cs) POINTWISE_OMEGA8 §§1-5: BRW sandwich Lemma 3.1, c_W formula Lemma 3.2, exponent bookkeeping ==")
 check_cs()
+
+
+# ---------------------------------------------------------------- (ct)
+# POINTWISE_TYPEI.md (cf. scripts/review_ti_lemma11.py, review_ti_thm61_cover.py,
+# review_ti_census_sample.py, review_ti_ckmin.py).  ck_min engine copied from R31:
+# ck_min(p) = min{ck : (c,k) in B_p, sf(c) not in {1,2,3,6}, M_{c,k}(p) > 0},
+# M_{c,k}(p) = #{D | p^2 + 4ck^2 : D = -p (4ck)}.
+# (1) Lemma 1.1 (dual parametrisation): M_{c,k}(p) = #{j >= 1 : hj > p, (hj - p) | 4cj^2 + 1},
+#     h = 4ck, all odd primes p < 150, c < 16, k < 8, (p, ck) = 1 (plus no solution in the
+#     next 50 j beyond the bound hj - p <= N).
+# (2) Thm 6.1 (C(5) = 10): the four certificates (c,k,D) = (5,1,3), (5,1,7), (10,1,7), (5,2,7)
+#     cover every class p = 1 (24), p = 2,3 (5), 7 !| p mod 840; directly, every hard prime
+#     p = 1 (24) < 3*10^5 with (5|p) = -1 has ck_min <= 10, = 5 if p = 2 (5); ck_min(193) = 10.
+# (3) Census data/pointwise_typei/ckmin_np_1e7.txt.gz: rows = exactly the primes p = 1 (24)
+#     below 10^7; per-n_p maxima C(5) >= 10, C(7) >= 76, C(11) >= 111, C(13) >= 143,
+#     C(17) >= 166, C(19) >= 218, C(23) >= 222, C(43) >= 883 (§6); recomputation of
+#     (n_p, ck_min) on 200 seeded random rows and the record rows 12289, 92401, 414241, 9033649.
+
+def check_ct():
+    from time import perf_counter
+    import gzip
+    import os
+    import random as _random
+    t0 = perf_counter()
+
+    def M(p, c, k):
+        h, N = 4 * c * k, p * p + 4 * c * k * k
+        return sum(1 for D in _o9_divisors(factorint(N)) if (D + p) % h == 0)
+
+    def sqfree(c):
+        return prod(q for q, e in factorint(c).items() if e % 2)
+
+    def ckmin(p, cap):
+        for m in range(1, cap + 1):
+            for k in range(1, m + 1):
+                if m % k:
+                    continue
+                c = m // k
+                if k > (2 * p) // 3 or c > (2 * p + k) // (4 * k) or m % p == 0 or sqfree(c) in (1, 2, 3, 6):
+                    continue
+                if M(p, c, k) > 0:
+                    return m
+        return None
+
+    def np_(p):
+        q = 2
+        while jacobi_symbol(q, p) == 1:
+            q += 1
+        return q
+
+    # (1) Lemma 1.1
+    n11 = 0
+    for p in primerange(3, 150):
+        for c in range(1, 16):
+            for k in range(1, 8):
+                if (c * k) % p == 0:
+                    continue
+                h, N = 4 * c * k, p * p + 4 * c * k * k
+                M2, j = 0, 1
+                while h * j - p <= N:
+                    if h * j > p and (4 * c * j * j + 1) % (h * j - p) == 0:
+                        M2 += 1
+                    j += 1
+                assert all((4 * c * jj * jj + 1) % (h * jj - p) for jj in range(j, j + 50)), ("TYPEI beyond", p, c, k)
+                assert M(p, c, k) == M2, ("TYPEI Lemma 1.1", p, c, k)
+                n11 += 1
+
+    # (2) Thm 6.1
+    certs = [(5, 1, 3), (5, 1, 7), (10, 1, 7), (5, 2, 7)]
+    ncls = 0
+    for p in range(840):
+        if p % 24 != 1 or p % 5 not in (2, 3) or p % 7 == 0:
+            continue
+        ncls += 1
+        assert any((p + D) % (4 * c * k) == 0 and (p * p + 4 * c * k * k) % D == 0 for c, k, D in certs), ("TYPEI Thm 6.1 cover", p)
+    n61 = 0
+    for p in primerange(25, 300_000):
+        if p % 24 != 1 or jacobi_symbol(5, p) != -1:
+            continue
+        v = ckmin(p, 12)
+        assert np_(p) == 5 and v is not None and v <= 10 and (p % 5 != 2 or v == 5), ("TYPEI Thm 6.1", p, v)
+        n61 += 1
+    assert ckmin(193, 12) == 10
+
+    # (3) census file
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "pointwise_typei", "ckmin_np_1e7.txt.gz")
+    with gzip.open(path, "rt") as fh:
+        rows = [tuple(map(int, ln.split())) for ln in fh]
+    X = 10 ** 7
+    sieve = bytearray([1]) * X
+    sieve[0] = sieve[1] = 0
+    for i in range(2, isqrt(X) + 1):
+        if sieve[i]:
+            sieve[i * i::i] = bytearray(len(range(i * i, X, i)))
+    hard = [p for p in range(25, X, 24) if sieve[p]]
+    assert sorted(r[0] for r in rows) == hard, ("TYPEI census completeness", len(rows), len(hard))
+    mx = {}
+    for p, n, c in rows:
+        mx[n] = max(mx.get(n, 0), c)
+    claims = {5: 10, 7: 76, 11: 111, 13: 143, 17: 166, 19: 218, 23: 222, 43: 883}
+    assert all(mx[r] == v for r, v in claims.items()), ("TYPEI census C(r) lower bounds", {r: mx[r] for r in claims})
+    rng = _random.Random(31)
+    sample = rng.sample(rows, 200) + [r for r in rows if r[0] in (12289, 92401, 414241, 9033649)]
+    for p, n, c in sample:
+        assert (np_(p), ckmin(p, c + 1)) == (n, c), ("TYPEI census row", p, n, c)
+    print(f"ct Lemma 1.1 on {n11} (p, c, k); Thm 6.1: {ncls} classes mod 840 covered by 4 certificates, "
+          f"{n61} hard primes p < 3e5 with (5|p) = -1 have ck_min <= 10 (= 5 if p = 2 (5)), ck_min(193) = 10")
+    print(f"ct census: {len(rows)} rows = all p = 1 (24) < 1e7; C(r) maxima " + ", ".join(f"{r}:{v}" for r, v in claims.items())
+          + f"; {len(sample)} rows recomputed; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check ==")
+check_ct()
 
 
 print("\nall checks passed")
