@@ -334,6 +334,138 @@ a lift of the pair $(r_\Pi,-4D\bmod r_\Pi)$ occurs, contradicting $F(n)=1$.  Con
 Lemma~\ref{lem:atoms}.
 \end{proof}
 
+\section{The analytic input and the transfer theorem}\label{sec:analytic}
+
+\begin{theorem}[Thorner--Zaman {\cite[Cor.~1.4 and Rem.~1.5]{TZ}}; cited]\label{thm:TZ}
+There are absolute effectively computable constants $c_4>0$, $C_0$ such
+that for coprime $a,q$ with $q\ge2$ and $x\ge q^{12}$,
+\begin{gather*}
+ \sum_{\substack{p\le x\\ p\equiv a\,(q)}}\log p=\frac{\lambda x}{\varphi(q)}\,(1+\varepsilon),\\
+ |\varepsilon|\le C_0\Big(e^{-c_4\log x/\log q}+e^{-c_4(\log x)^{3/5}/(\log\log x)^{1/5}}\Big),
+\end{gather*}
+where $\lambda=1-\chi_1(a)x^{\beta_1-1}/\beta_1$ if the exceptional zero $\beta_1$
+for the modulus $q$ exists and $\lambda=1$ otherwise.  Here, following
+McCurley \cite{McC} as quoted in \cite[p.~1]{TZ}, $\prod_{\chi\bmod q}L(s,\chi)$
+has no zero in $\Re s\ge1-1/(13\log(q(|\Im s|+3)))$ apart from at most one
+real zero $\beta_1$, which is simple and belongs to a unique real character
+$\chi_1$; also $0<\lambda<2$.
+\end{theorem}
+
+We used the arXiv version; we did not compare the numbering with the
+published version.  We also use the quoted McCurley statement for moduli
+other than those of Theorem~\ref{thm:TZ}; alternatively the classical
+Landau--Page theorem \cite[Ch.~14]{Dav} with a constant $c\le1/13$ in place
+of $1/13$ works verbatim.
+
+\begin{lemma}[One severe character per family; proved modulo the McCurley statement]\label{lem:severe}
+Let $\cQ$ be a finite set of moduli, all $\le Z$.  Call $(\chi^*,\beta)$
+\emph{severe} if $\chi^*$ is a real primitive character whose conductor $q^*$
+divides some $q\in\cQ$, $L(\beta,\chi^*)=0$ and $\beta\ge1-1/(13\log(3Z^2))$.
+Then there is at most one severe pair.  If $(\chi^*,\beta^*)$ is severe and
+$q^*\mid q\in\cQ$, then $\beta_1=\beta^*$ and $\chi_1$ is induced by $\chi^*$ for
+the modulus $q$.  If $q\in\cQ$ and no severe pair has $q^*\mid q$, then any exceptional
+$\beta_1$ of $q$ satisfies $x^{\beta_1-1}/\beta_1\le2\exp(-\log x/(13\log3Z^2))$.
+\end{lemma}
+
+\begin{proof}
+If $(\chi_a,\beta_a),(\chi_b,\beta_b)$ are severe with conductors dividing
+$q_a,q_b\in\cQ$, put $q'=\lcm(q_a,q_b)\le Z^2$.  Both characters induce
+characters mod $q'$ with the same zeros in $\Re s>0$, and both $\beta$ lie in
+McCurley's region for $q'$; uniqueness there gives $\beta_a=\beta_b$ and
+$\chi_a=\chi_b$.  The second claim holds because $\beta^*$ lies in McCurley's
+region for $q\le Z$.  For the third, an exceptional zero of $q$ in
+$[1-1/(13\log 3Z^2),1)$ would be severe; also $\beta_1\ge1-1/(13\log6)>1/2$.
+\end{proof}
+
+\section{A transfer theorem}\label{sec:transfer}
+
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}; from {\cite{Paper1}}]\label{thm:transfer}
+Let $T\ge1$, $Q\ge2$, and let $B(n)=\sum_{i\in I}c_i\,\mathbf 1[n\equiv b_i\ (d_i)]$
+be a finite real combination with $\gcd(d_i,Q)=\gcd(b_i,d_i)=1$ and
+$B(n)\le\mathbf 1[W(n)>T]$ for all $n\equiv1\pmod Q$.  Put
+$Z=Q\max d_i$, $\mu=\sum c_i/\varphi(d_i)$, $M_1=\sum|c_i|/\varphi(d_i)$, and assume
+$\mu>0$ and the \emph{twist condition}: for every real primitive character
+$\psi$ of conductor $f>1$ with $\gcd(f,Q)=1$ and $f\mid d_i$ for some $i$,
+\[
+ |\mu_\psi|\le\mu/4,\qquad \mu_\psi=\sum_{i:\,f\mid d_i}c_i\psi(b_i)/\varphi(d_i).
+\]
+Let $K=1+\log(M_1/\mu)$.  There is an absolute $C_1$ such that if
+$\log x\ge C_1K\max(\log Z,K)$, then some prime $p\le x$, $p\equiv1\pmod Q$,
+has $W(p)>T$.
+\end{theorem}
+
+\begin{proof}
+Let $q_i=Qd_i$ and let $a_i$ be the class $\equiv1\ (Q)$, $\equiv b_i\ (d_i)$;
+it is a unit class.  Then
+$\sum_{p\le x,\,p\equiv1(Q)}\log p\,B(p)=\sum_ic_i\theta(x;q_i,a_i)$.  Since
+$M_1\ge\mu$ we have $K\ge1$, so taking $C_1\ge12$ gives
+$\log x\ge12\log Z$, i.e.\ $x\ge Z^{12}\ge q_i^{12}$, and
+Theorem~\ref{thm:TZ} applies to every term.  Put
+$E_1=e^{-c_4\log x/\log Z}+e^{-c_4(\log x)^{3/5}/(\log\log x)^{1/5}}$ and
+$E_2=e^{-\log x/(13\log3Z^2)}$.  Since $\gcd(Q,d_i)=1$ we have
+$\varphi(q_i)=\varphi(Q)\varphi(d_i)$, and $q_i\le Z$, so
+\[
+ \sum_ic_i\theta(x;q_i,a_i)=\frac{x}{\varphi(Q)}\sum_i\frac{c_i\lambda_i(1+\varepsilon_i)}{\varphi(d_i)},\qquad
+ |\varepsilon_i|\le C_0E_1,
+\]
+with $\lambda_i$ the factor of Theorem~\ref{thm:TZ} for $(q_i,a_i)$.  Apply
+Lemma~\ref{lem:severe} to $\cQ=\{q_i\}$; a severe $\beta$ satisfies
+$\beta\ge1-1/(13\log 6)>1/2$.  Write the conductor of a severe $\chi^*$ as $q^*=q^*_Qq^{*\prime}$ with
+$q^*_Q$ supported on the primes of $Q$ and $\gcd(q^{*\prime},Q)=1$, and
+$\chi^*=\chi^*_Q\chi^{*\prime}$.
+
+\emph{Case A: a severe pair exists with $q^*\mid Q$.}  Then $q^*\mid q_i$ for
+every $i$.  By the second claim of Lemma~\ref{lem:severe}, every $\lambda_i$ is
+formed with the same pair $(\chi^*,\beta^*)$, so
+$\lambda_i=1-\chi^*(a_i)x^{\beta^*-1}/\beta^*=1-x^{\beta^*-1}/\beta^*=:\lambda_*$,
+because $a_i\equiv1\pmod{q^*}$.  Moreover $\lambda_*>0$: since $\log x\ge12\log Z>2$ and
+$1/2<\beta^*<1$,
+$\log\beta^*\ge1-1/\beta^*>2(\beta^*-1)>(\beta^*-1)\log x$, i.e.\
+$x^{\beta^*-1}/\beta^*<1$.
+So
+$\sum c_i\theta\ge(x\lambda_*/\varphi(Q))(\mu-C_0E_1M_1)$.
+
+\emph{Case B: otherwise.}  If a severe $\chi^*$ exists, then $q^*$ divides some
+$Qd_j$ with $\gcd(d_j,Q)=1$, so $q^*_Q\mid Q$.  Hence $q^*\mid q_i$ iff
+$q^{*\prime}\mid d_i$, and in Case~B we have $q^{*\prime}>1$.  For such $i$,
+$\chi_1=\chi^*$ on units mod $q_i$ (Lemma~\ref{lem:severe}), and, as
+$a_i\equiv1\pmod{q^*_Q}$ and $a_i\equiv b_i\pmod{q^{*\prime}}$,
+$\chi^*(a_i)=\chi^*_Q(1)\chi^{*\prime}(b_i)=\psi(b_i)$ with $\psi=\chi^{*\prime}$.  So
+$\lambda_i=1-\psi(b_i)x^{\beta^*-1}/\beta^*$.  This $\psi$ is real primitive (the
+coprime-conductor factors of a real primitive character are real primitive), of
+conductor $q^{*\prime}>1$ coprime to $Q$ and dividing some $d_i$, so the twist
+condition applies to it.  For all other $i$ (and for all $i$ if there is no
+severe pair), $|\lambda_i-1|\le x^{\beta_1-1}/\beta_1\le2E_2$ by the third claim of
+Lemma~\ref{lem:severe}.  Since $\lambda_i<2$ and
+$x^{\beta^*-1}/\beta^*\le1$, splitting $\lambda_i=1+(\lambda_i-1)$ gives
+\begin{align*}
+ \sum c_i\theta&\ge\frac{x}{\varphi(Q)}\big(\mu-2|\mu_\psi|-M_1(2C_0E_1+2E_2)\big)\\
+ &\ge\frac{x}{\varphi(Q)}\big(\mu/2-M_1(2C_0E_1+2E_2)\big),
+\end{align*}
+using $|\mu_\psi|\le\mu/4$.  Both brackets are positive once
+$E_1,E_2\le\mu/(8(C_0+1)M_1)=e^{1-K}/(8(C_0+1))$.  This holds if $C_1$ is large:
+$\log x/\log Z\ge C_1K$, $(\log x)^{3/5}/(\log\log x)^{1/5}\ge(\log x)^{1/2}\ge
+C_1^{1/2}K$ and $\log x/(13\log3Z^2)\ge C_1K/52$ (as $Z\ge2$), so each of the
+three exponentials is at most $e^{-cC_1^{1/2}K}$ with $c>0$ absolute.  Hence
+$\sum_p\log p\,\mathbf 1[W(p)>T]\ge\sum_p\log p\,B(p)>0$.
+\end{proof}
+
+No lower bound for $1-\beta^*$ is used: in Case~A the exceptional factor
+$\lambda_*$ multiplies main term and error alike.  The theorem and its proof
+are taken verbatim from \cite{Paper1}.
+
+\begin{remark}[Assessment]\label{rem:linnik}
+In \cite{Paper1} the Linnik-range uniformity was essential, because there
+$K\le T^{o(1)}$ while $\log Z\ge T^{1/k}$.  In the present application $K$
+and $\log Z$ are both of order $(\log T)^7$
+(\S\ref{sec:proof}).  So a prime number theorem with relative error
+$e^{-c\sqrt{\log x}}$, valid for $q\le e^{c\sqrt{\log x}}$ and with the
+exceptional zero treated as above, would give the same order
+$\log p\ll(\log T)^{14}$.  We have not written out this variant and do not
+use it.
+\end{remark}
+
+
 %BODY
 
 \end{document}
