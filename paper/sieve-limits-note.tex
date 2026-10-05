@@ -2720,6 +2720,995 @@ heuristic ($m\asymp(\log N)^3$, \lab{evidence}).  Numerically, for polynomials o
 count of a prime-modulus subfamily, the exact interval optimum saves less
 than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 
+\section{Large sieves, prime laws and interval counts}\label{sec:LS}
+
+This section summarises four further internal documents: \cite{LS}
+(review \cite{LSrev}), \cite{LS2} (reviews \cite{LS2rev} of \S\S1--7 and
+\cite{LS2revb} of \S\S8--9), \cite{PL} (review \cite{PLrev}) and \cite{IF}
+(review \cite{IFrev}).  No review found a fatal or major defect; the minor
+repairs are applied in the sources.  Throughout, $\cG$ is a finite mixture
+of the four types of Definition~\ref{def:types} with arbitrary moduli,
+$\A=\A(\cG)\subseteq\Z$, and $M_0$ is the lcm of its moduli.  The \emph{level}
+of a modulus $d$, or of a rational frequency of denominator $d$, is
+$\lambda(d)=\sum_{\ell\mid d,\,\ell>W}\log\ell$, with $W$ from
+Theorem~\ref{thm:noBcap}.  For a common period $M'$ fixed in each statement,
+$\mathcal M(\A)$ is the set of probability measures on $\Z/M'$ supported on
+$\A\bmod M'$, and $\hat\rho(\theta)=\sum_n\rho(n)\e(n\theta)$.
+
+The sources cite \cite[Thm~5.1]{KA2}, with cap $C\lambda^{3/4}(\log\lambda)^{3/4}$.  The
+integer-measure results use it only as a black-box lower bound for $\E\nu$,
+so Theorem~\ref{thm:noBcap} may be substituted, giving $C\lambda^{3/4}$ and the
+reading $C_A(\log N)^{3/4}$ (\cite[\S4.3]{KA3}, pointer level; below it is a
+one-line step in each proof).  The unit-measure results
+(Theorem~\ref{thm:PLcap} and its consequences) rerun the proof instead; for
+them the improvement is pointer-level only, and both forms are stated.  Case-A classes enter only through the cap
+used (Theorem~\ref{thm:noBcap}, Theorem~\ref{thm:PLcap} or
+Corollary~\ref{cor:sliceCap}) and carry its dependence on
+\cite{ElsholtzTao}; Theorem~\ref{thm:gallagher} and
+Theorem~\ref{thm:compkernel}(3) have none.
+
+\subsection{Duality and the cap}
+A finite $\Theta\subset\mathbb R/\Z$ with weights $w_\theta>0$ is an
+\emph{$N$-large-sieve system} if
+$\sum_\theta w_\theta|\sum_{n\in I}a_n\e(n\theta)|^2\leq\sum_{n\in I}|a_n|^2$ for every
+interval $I$ of $N$ consecutive integers: Montgomery--Vaughan \cite{MV}, the
+Farey form \cite{Montgomery} with any prime, prime-power or composite
+moduli, weighted forms.  Always $w_\theta\leq1/N$ (take $a_n=\e(-n\theta)$) and
+$\sum_\theta w_\theta\leq1$ (random signs).  Let $A\subseteq\A\cap I$, $Z=|A|$, $\Theta_{\mathbb Q}$ the
+rational points of $\Theta$, $M'$ a common multiple of $M_0$ and their
+denominators, and $F_w(\rho)=\sum_{\theta\in\Theta_{\mathbb Q}}w_\theta|\hat\rho(\theta)|^2$.
+With $a_n=\ind_A$ the inequality gives $Z^2F_w(\rho_A)\leq Z$, $\rho_A$ the law of
+$A\bmod M'$.  A bound $Z\leq1/L$ is \emph{CRT-admissible} if $L\leq F_w(\rho)$
+for every $\rho\in\mathcal M(\A)$, as in every arithmetic large sieve in use.
+Irrational frequencies are excluded by definition.
+
+\begin{theorem}[duality; {\cite[Thm~2.1, Cor.~2.2]{LS}}; standard; \lab{proved}]\label{thm:LSdual}
+Put $F^*_w=\min_{\rho\in\mathcal M(\A)}F_w(\rho)$ and
+$m_w=\inf\{\sum_\theta|\gamma_\theta|^2/w_\theta:\ g=\sum_{\theta\in\Theta_{\mathbb Q}}\gamma_\theta\e(-n\theta),\ \mathrm{Re}\,g\geq1\text{ on }\A\}$.
+Then $F^*_w=1/m_w$, attained when finite.  For an $N$-large-sieve system
+every CRT-admissible bound has $1/L\geq m_w\geq N\cdot\E\nu^*$, where
+$\nu^*=|g^*|^2$ for an optimal $g^*$.  $\nu^*$ is $\geq0$ on $\Z$, $\geq1$ on $\A$,
+and a real combination of classes with moduli dividing
+$\lcm(\mathrm{den}\,\theta,\mathrm{den}\,\theta')$, $\theta,\theta'\in\Theta_{\mathbb Q}$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+For feasible $g$,
+$1\leq\mathrm{Re}\sum_n\rho(n)g(n)=\mathrm{Re}\sum_\theta\gamma_\theta\overline{\hat\rho(\theta)}$,
+and Cauchy--Schwarz gives $F_w(\rho)\geq1/m_w$.  The reverse is the minimax
+theorem on $\mathcal M(\A)$ times the unit ball.  Finally
+$\sum|\gamma|^2/w\geq N\sum|\gamma|^2=N\E|g^*|^2$ by $w\leq1/N$ and Parseval.
+\end{proof}
+This is the classical large-sieve/Selberg duality, not claimed as new.
+There is no rounding term, since the factor $N$ sits in the large-sieve
+constant; only the \emph{level} of $\nu^*$ matters.  The multiplicative
+sieve is covered: by Gauss sums,
+$q\sum_{\chi\text{ prim}}|\sum_n\rho(n)\chi(n)|^2\leq\varphi(q)\sum^*_{a\bmod q}|\hat\rho(a/q)|^2$,
+so the character functional lies pointwise below the Farey one
+\cite[Rem.~2.5]{LS}.  For prime product systems Montgomery's sieve is
+CRT-optimal, $F^*_1=S(Q)$ \cite[Prop.~2.6]{LS} \lab{proved}.
+
+\emph{Fibrewise sieves.}  Fix $Q_0\leq N/2$.  In the fibre $c\bmod Q_0$ write
+$n=c+Q_0m$, with $m$ in an interval of $N_c\geq\lfloor N/Q_0\rfloor$ integers,
+avoiding $\A_c=\{m:c+Q_0m\in\A\}$.  Each fibre uses its own
+$N_c$-large-sieve system with a CRT-admissible $L_c$, or the trivial bound;
+$B=\sum_c1/L_c$.  Let $\lambda_\Theta$ be the largest level of a rational
+frequency used.
+
+\begin{theorem}[large-sieve cap; {\cite[Thm~3.1, Cor.~3.2]{LS}}, {\cite[\S4.3]{KA3}}; \lab{proved} via Theorem~\ref{thm:noBcap}; Case A as there]\label{thm:LScap}
+With $\lambda=\max(\lambda_0,\lambda(Q_0)+2\lambda_\Theta)$, every fibrewise CRT-admissible
+large-sieve bound for $A\subseteq\A\cap I$, $|I|=N$, has
+$\log(N/B)\leq\log2+C\lambda^{3/4}$.  If $Q_0\leq\min(N^A,N/2)$ and every
+frequency has denominator $\leq N^A$, the saving is $\leq C_A(\log N)^{3/4}$.
+So no CRT-admissible large sieve with polynomially bounded denominators
+(any moduli, forced classes used in any form, any weights, fibrewise or
+not) proves $E(N)\ll N\exp\{-(\log N)^\theta\}$ with $\theta>3/4$.
+\end{theorem}
+\begin{proof}
+In fibre $c$, Theorem~\ref{thm:LSdual} for the $M_0$-periodic set $\A_c$ gives
+$1/L_c\geq N_c\E\nu_c$; put $\nu_c\equiv1$ in trivial fibres, $\nu_c\equiv0$ if
+$\A_c=\emptyset$.  Let $\nu(n)=\nu_c((n-c)/Q_0)$ for $n\equiv c\pmod{Q_0}$.  A term
+$a\ind[m\equiv b\pmod d]$ becomes $a\ind[n\equiv c+Q_0b\pmod{Q_0d}]$, so $\nu$ is a
+majorant of $\A$ of level $\leq\lambda$, and
+$B\geq\lfloor N/Q_0\rfloor Q_0\E\nu\geq(N/2)\E\nu$.  Apply Theorem~\ref{thm:noBcap}, which
+charges only primes $>W$ (so smooth parts such as Farey $q=2^k$ are free).
+For the reading, $\lambda\leq3A\log N$.
+\end{proof}
+Averaging $g^*$ modulo $M_0$ kills every frequency whose denominator does
+not divide $M_0$, so $\lambda_\Theta$ may be computed on those only
+\cite[Rem.~3.3]{LS}.  The large sieve of the $2/3$ note \cite{LL} is an
+instance ($Q_0\leq N^{2\delta}$, prime moduli, $Q=(N/Q_0)^{1/2}$, atoms $\cR(k\ell)$
+with $k\ell\leq\ell^{1+o(1)}$), capped with Theorem~\ref{thm:Bcapall} in place of
+Theorem~\ref{thm:noBcap}.  So are \cite{Vaughan} and \cite[\S4]{PW}, on the
+$2/3$ note's description of them; neither was re-read \cite[Rem.~3.4]{LS}.
+This supersedes Remark~\ref{rem:LS}.
+
+\begin{theorem}[prime slices, any rational frequencies; {\cite[Thm~4.1, Cor.~4.2, Rem.~4.4]{LS}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:LSslice}
+Take a prime-slice system (Definition~\ref{def:slice}) with
+$f_\ell(c)=|F_\ell(c)|\leq\min(\ell/2,\ell^\kappa)$, $0\leq\kappa<1$, and
+$\bar p_\ell=\E_{c\in R}f_\ell(c)/\ell$.  Every CRT-admissible bound $B$ from any
+$N$-large-sieve system, with any rational frequencies, satisfies for
+$0<\alpha\leq1-\kappa$
+\[
+ \log(N/B)\leq\frac{\alpha\log N}{2(1-\kappa)}+\log\frac{2Q_0}{|R|}+8\sum_\ell\bar p_\ell\ell^{-\alpha}.
+\]
+For the families of Corollary~\ref{cor:sliceCap} with all slice primes
+$\geq\ell_0'(C)$ (an enlarged threshold) the saving is
+$\leq C'(C)(\log N)^{3/4}+\log(P/\varphi(P))+\log2$, also fibrewise with
+$Q_0\leq N/2$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Let $\beta=\alpha/(2(1-\kappa))$, $p'=2+2\beta$, and let $\rho$ be the product measure (residues
+mod $\ell$ uniform outside $F_\ell(c)$) on the at least $|R|/2$ fibres of at most
+twice the mean supply.  Hausdorff--Young on $\Z/Q_0$ gives
+$\sum_\theta|\hat\rho(\theta)|^{p'}\leq(2Q_0/|R|)\exp\{8\sum\bar p_\ell\ell^{-\alpha}\}$; H\"older with
+$\sum w\leq1$, $w\leq1/N$ bounds $F_w(\rho)$.  Then take $\alpha=(\log N)^{-1/4}$.
+\end{proof}
+For composite moduli, the Euler product of the prime-local system obtained
+by conditioning on small primes does \emph{not} dominate the large sieve
+\cite[Ex.~5.2]{LS} \lab{proved}; the top-prime sequential functional does,
+through Theorem~\ref{thm:LScap}.
+
+\subsection{Twisted, hybrid and prime large sieves}
+\begin{lemma}[comparison measure; {\cite[Lemmas~1.1, 1.2]{LS2}}; \lab{proved} via Theorems~\ref{thm:noBcap}, \ref{thm:PLcap}; Case A as there]\label{lem:compmeas}
+Let $\mathcal D\ni1$ be a finite set of moduli of level $\leq\lambda$, $\lambda\geq\lambda_0$,
+$M'$ a common multiple of $M_0$ and $\mathcal D$, $V_{\mathcal D}$ the real span of
+the classes with moduli in $\mathcal D$, and $\E_U$ the uniform mean on $\Z/M'$.
+Some $\rho\in\mathcal M(\A)$ has $\E_\rho f\leq\e^{C\lambda^{3/4}}\E_Uf$ for every
+$f\in V_{\mathcal D}$ with $f\geq0$.  The same holds on units: $\rho$ on
+$\A\cap(\Z/M')^\times$, $\E^*$ uniform on units, $f\geq0$ on units, and
+$\e^{S^*(\lambda)}$ with $S^*$ from Theorem~\ref{thm:PLcap}.
+\end{lemma}
+\begin{proof}
+The linear programme $m^*=\min\{\E_U\nu:\nu\in V_{\mathcal D},\ \nu\geq\ind_\A\}$ has
+$m^*\geq\e^{-C\lambda^{3/4}}$ by Theorem~\ref{thm:noBcap}.  Duality gives $\mu\geq0$ with
+$\sum_x\mu(x)\nu(x)=\E_U\nu$ on $V_{\mathcal D}$ and $\mu(\A)=m^*$; take $\rho=\mu|_\A/m^*$.
+\end{proof}
+One measure tests every nonnegative low-level function, not only
+majorants, so Cauchy--Schwarz can strip twists and fibres.
+
+A \emph{periodic Bessel system} of length $N$ consists of periodic rows
+$\phi_j$ (period $d_j$) and $\Delta>0$ with
+$\sum_j|\sum_{n\in I}a_n\overline{\phi_j(n)}|^2\leq\Delta\sum_{n\in I}|a_n|^2$ for every
+interval $I$ of length $N$; its level is $\max_j\lambda(d_j)$.  Examples:
+$\sqrt{w_\theta}\,\e(n\theta)$ ($\Delta=1$); $(q/\varphi(q))^{1/2}\chi$, $\chi$ primitive mod
+$q\leq Q$ ($\Delta=N+Q^2$); hybrid rows $\chi(n)\e(n\theta)$; Gauss-sum rows.  It is
+applied to $a_n=\psi(n)\ind_A(n)$ with a periodic twist, $|\psi|\geq1$ on $\A$; a
+bound $Z\leq\Delta/L$ is CRT-admissible if
+$L\leq\sum_j|\E_\rho[\psi\bar\phi_j]|^2/\E_\rho|\psi|^2$ for all $\rho\in\mathcal M(\A)$.  A
+\emph{fibrewise hybrid} over $Q_0\leq N/2$ uses in each fibre (i) such a
+system, (ii) a majorant $\nu_c$ of $\A_c$ with bound $N_c\E\nu_c+\sum|a_i|$, or
+(iii) the trivial bound $N_c$; $B=\sum_cB_c$.
+
+\begin{theorem}[hybrid cap; {\cite[Thm~2.4, Cor.~2.5]{LS2}}; \lab{proved} via Theorem~\ref{thm:noBcap}; Case A as there]\label{thm:hybrid}
+Let the type-(i) systems have level $\leq\lambda_\Phi$, every prime of $\cG$ be
+$\leq\e^{\Lambda_0}$, and $\lambda=\max(\lambda_0,\lambda(Q_0)+\max(2\lambda_\Phi,\Lambda_0+\log N))$.  Then
+$B\geq(N/2)\e^{-C\lambda^{3/4}}$.  If $Q_0\leq\min(N^A,N/2)$ and all row periods and
+all primes of $\cG$ are $\leq N^A$, the saving is $\leq C_A(\log N)^{3/4}$.  The
+twist's period is unrestricted.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Averaging the adjoint inequality over shifts of $I$ shows that
+every $c$ has $N\E_U|\sum_jc_j\phi_j|^2\leq\Delta\|c\|^2$.  Take $\rho$ from Lemma~\ref{lem:compmeas}
+with $\mathcal D$ containing $1$, $Q_0$, $Q_0\lcm(d_j,d_k)$ and the coarsened
+fibre moduli, and its fibre laws $\rho_c$.  Type~(i): Cauchy--Schwarz
+removes $\psi$, and the lifted $|\sum_jc_j\bar\phi_j|^2\geq0$ lies in $V_{\mathcal D}$, so
+$B_c\geq N_cQ_0\rho(c)\e^{-S}$.  Type~(ii): Lemma~\ref{lem:budget} coarsens $\nu_c$ to
+level $\leq\Lambda_0+\log N_c$ and mean $\leq B_c/N_c$; then
+$1\leq\E_{\rho_c}\nu'_c\leq\e^S\E\nu'_c/(Q_0\rho(c))$.  Type~(iii): $\rho(c)\leq\e^S/Q_0$.
+Sum over $c$.
+\end{proof}
+So twisted, multiplicative, Gauss-sum and hybrid large sieves, and
+fibrewise mixtures with rounding fibres, give no $\theta>3/4$.  Not covered:
+non-periodic rows ($n^{it}$, smooth weights in $n$), which use the position
+of $n$ in $I$.
+
+\begin{theorem}[the large sieve for primes; {\cite[Thm~3.1]{LS2}}; \lab{proved} via Theorem~\ref{thm:PLcap}]\label{thm:LSprimes}
+Let $A$ consist of primes $p\leq N$, $p\in\A$, $p\nmid M'$; let admissibility
+range over all probabilities on $\A\cap(\Z/M')^\times$, and let all fibres be of
+type (i) or (iii), $c\in(\Z/Q_0)^\times$.  Then
+$B\geq(N/2)\e^{-S^*(\lambda)}\varphi(M')/M'$, $\lambda=\max(\lambda_0,\lambda(Q_0)+2\lambda_\Phi)$.  If all
+primes of $M'$ (family, rows, twists, $Q_0$) are $\leq N^A$ and $\lambda\leq3A\log N$,
+the saving against $\pi(N)$ is $\leq C_A(\log N)^{3/4}(\log\log N)^{3/4}$, and
+$\leq C_A(\log N)^{3/4}$ at pointer level.
+\end{theorem}
+The proof is that of Theorem~\ref{thm:hybrid} with the unit measure, using
+$\E^*f\leq(M'/\varphi(M'))\E_Uf$ for $f\geq0$ and $M'/\varphi(M')\leq2A\log N$.
+
+\subsection{The larger sieve}
+For moduli $q\in\mathcal S$ with weights $w(q)\geq0$ let $K(m)=\sum_qw(q)\ind[q\mid m]$,
+$W_K=K(0)$, $h\geq\max_{0<|m|<N}K(m)$, $\mathrm{coll}_q(\rho)=\sum_b\rho(b\bmod q)^2$ and
+$D(\rho)=\sum_qw(q)\mathrm{coll}_q(\rho)$.  Counting pairs gives
+$Z^2D(\rho_A)\leq ZW_K+(Z^2-Z)h$, so $Z\leq(W_K-h)/(L-h)$ if $h<L\leq D(\rho_A)$; the
+bound is CRT-admissible if $L\leq D(\rho)$ for all $\rho\in\mathcal M(\A)$.
+Gallagher's larger sieve \cite{Gallagher} takes $w=\Lambda$ on prime powers
+$\leq Q$, $h=\log N$ and $L=\sum\Lambda(q)/\nu(q)$, $\nu(q)\geq|\A\bmod q|$.  With
+$\chi^2_q(\rho)=q\,\mathrm{coll}_q(\rho)-1$ and $X(\rho)=\sum_q(w(q)/q)\chi^2_q(\rho)$, every
+CRT-admissible kernel bound satisfies
+$\log(N/B)\leq\log(1+NX(\rho)/(W_K-h))$ for every $\rho\in\mathcal M(\A)$
+\cite[Thm~6.2]{LS} \lab{proved}, since $\sum_qw(q)/q\leq h+(W_K-h)/N$.  On
+the prime slices of Corollary~\ref{cor:sliceCap} Gallagher's sieve saves
+$O(1)$ \cite[Cor.~6.3]{LS}.
+
+\begin{theorem}[Gallagher's sieve over any mixture; {\cite[Thm~4.3]{LS2}}; \lab{proved}, unconditional]\label{thm:gallagher}
+There are absolute $C,N_0$ such that for every $\cG$ (Case A included) and
+$Q\geq2$ some $\rho\in\mathcal M(\A)$ has
+$\sum_{q=\ell^v\leq Q}(\Lambda(q)/q)\chi^2_q(\rho)\leq24\log\log(3Q)+C$.  Hence for $N\geq N_0$
+Gallagher's larger sieve, in CRT-optimal or Cauchy--Schwarz form, with any
+$Q$, saves at most $26\log\log N+C$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Take $W=\max(W_0,(\log3Q)^8)$, the sequential law $\sigma$ of
+Section~\ref{sec:kary} on the base $R_W^\square$ (Lemma~\ref{lem:squarebase}),
+singletons at the primes $\ell>W$, and $\rho=\sigma(\cdot\mid\A)$.  The leak is
+$\leq C(\log W)^cW^{-1/4}$ (Lemma~\ref{lem:secondnoB}, uniformly in $W$).  At $\ell>W$,
+$\chi^2_{\ell^v}(\sigma)\ll(\log W)^c\ell^{-7/8+o(1)}$; at $p\leq W$, $\chi^2\leq7$, and Mertens gives
+$3\log W+C$.
+\end{proof}
+It uses Shiu's and Mertens' theorems only, not \cite{ElsholtzTao} or
+Theorem~\ref{thm:noBcap}.
+
+\begin{theorem}[composite kernels; {\cite[Thms~4.2, 9.1, Prop.~9.2]{LS2}}; \lab{proved} via Theorem~\ref{thm:noBcap}, except (3)]\label{thm:compkernel}
+(1) If every kernel modulus has level $\leq\lambda_{\mathcal S}$ and
+$\lambda=\max(\lambda_0,2\lambda_{\mathcal S})$, every CRT-admissible kernel bound has
+$B\geq(N/2)\e^{-C\lambda^{3/4}}/(1+Nh/(W_K-h))$.
+(2) The same holds with no level hypothesis and $\lambda=\max(\lambda_0,2\log N+\Lambda_0)$
+if all primes of $\cG$ and of the kernel moduli are $\leq\e^{\Lambda_0}$.
+(3) \lab{proved}, unconditional: if $T\geq W_0$ and every kernel modulus has
+no prime factor $\leq T$ and at most $T^{1/4}$ prime factors, the saving is
+$\leq\log(1+\varepsilon_T+\varepsilon_TNh/(W_K-h))$, $\varepsilon_T=C(\log T)^cT^{-1/4}$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+$D(\rho)=\sum_\theta\tilde w_\theta|\hat\rho(\theta)|^2$ with $0\leq\tilde w_\theta\leq h+(W_K-h)/N$; apply
+Lemma~\ref{lem:compmeas} as in Theorem~\ref{thm:hybrid}.  (2) Cut $q\geq N$ to a
+prefix $q^\circ\geq N$ of level $\leq\log N+\Lambda_0$: $\mathrm{coll}_q(\rho)\leq\e^S/N$.  (3) The
+law of Theorem~\ref{thm:gallagher} with $W=T$.
+\end{proof}
+Open: kernels with $Nh/(W_K-h)\geq\exp\{(\log N)^{3/4}\}$ whose moduli have a
+prime factor $\leq(Nh/(W_K-h))^{4+o(1)}$ or more than $T^{1/4}$ prime factors
+\lab{open}.  No failing example is known.
+
+\subsection{What remains of the large sieve}
+Of the escapes of \cite[\S7]{LS} there remain: (E1) frequencies of
+super-polynomial level against classes with several large primes; (E2)
+composite kernels as above; (E3) non-CRT information; (E4) the exclusions
+inherited from Theorem~\ref{thm:main}.
+
+\begin{proposition}[what (E1) needs; {\cite[Props~5.1, 5.2]{LS2}}; \lab{proved}; (1) via Theorem~\ref{thm:noBcap}]\label{prop:E1}
+(1) Let all primes of $\cG$ be $\leq N^A$.  If every frequency has at most $r$
+distinct primes $>W$ in its denominator, the saving is
+$\leq\log2+C(2rA\log N+\lambda(Q_0))^{3/4}$.  So a saving $\geq(\log N)^{3/4+\varepsilon}$
+needs denominators with $\geq(\log N)^{4\varepsilon/3-o(1)}$ distinct family primes.
+(2) If some $\rho\in\mathcal M(\A)$ has $\E_\rho f\leq\e^{S_1}\E_Uf$ for all $f\geq0$ of level
+$\leq2\lambda'$, and $|\hat\rho(\theta)|^2\leq\e^{S_2}/N$ for all $\theta$ of level $>\lambda'$, then
+every CRT-admissible large-sieve bound, with any rational frequencies and
+weights, is $\geq N/(\e^{S_1}+\e^{S_2})$.
+\end{proposition}
+Part (2) has no cross terms, since $F_w$ is diagonal in $\theta$.
+
+\begin{conjecture}[$(H_{{\rm LS}\infty})$; {\cite[\S5]{LS2}}; \lab{conjecture}]\label{conj:HLS}
+For every family $\cG$ of the four types with primes $\leq N^{O(1)}$ there are
+a fixed $\eta>0$ and $\rho\in\mathcal M(\A)$ satisfying Lemma~\ref{lem:compmeas} at
+level $2\lambda'=(2/\eta)\log N$ and $|\hat\rho(\theta)|\leq\e^{C\lambda'^{3/4}}\e^{-\eta\lambda(\theta)}$ for
+every $\theta$ of level $>\lambda'$.
+\end{conjecture}
+By Proposition~\ref{prop:E1}(2) this caps every CRT-admissible large sieve
+at $C_\eta(\log N)^{3/4}$, whatever the frequencies.  The sequential law decays
+only at the top prime of the denominator; a cluster expansion suggests
+$\eta=1/2-o(1)$ (\emph{Assessment}).  A proof must use the sparsity of forced
+classes:
+
+\begin{theorem}[dense band families escape; {\cite[Lemma~8.1, Props~8.2, 8.4, 8.6, Thm~8.5]{LS2}}, {\cite{LS2revb}}; \lab{proved}]\label{thm:band}
+Let $0<\eta\leq1/8$, let $\ell_i,\ell'_i\geq5$ ($i\leq K$) be distinct primes,
+$D_i=\ell_i\ell'_i$, $\gcd(a_i,D_i)=1$, and $\A=\bigcap_i\{n:\|na_i/D_i\|\leq1/2-\eta\}$: an
+abstract class family with $\asymp\eta D_i$ classes mod $D_i$.
+(1) If all $\ell_i,\ell'_i>W$ and $\log D_i>\lambda$ for all $i$, every majorant of
+level $\leq\lambda$ has $\E\nu\geq1$.
+(2) Let $\eta=1/9$, $R=324$, $K=\lfloor\log(N/3)/\log(2R+1)\rfloor$ and $D_i\geq16KRN$.
+For suitable $a_i$, a Montgomery--Vaughan large sieve with $\leq N/3$
+frequencies, each nonzero one with denominator a product of some $D_i$,
+gives $|\A\cap I|\leq(5N/3)\e^{-K/27}$ for every interval $I$ of length $N$: a
+saving $\geq c\log N$, $c=1/(27\log649)-o(1)$.
+(3) If moreover all $\ell_i,\ell'_i\in[N^{1/2+\delta},2N^{1/2+\delta}]$ with fixed small
+$\delta>0$, then for $N\geq N_0$ every majorant of every level $\lambda'\geq\lambda_0$ has
+$\log(1/\E\nu)\leq C\lambda'^{3/4}$, and (2) still holds.
+\end{theorem}
+\begin{proof}[Proof sketch]
+(1) Gale's supply--demand theorem gives a measure on the allowed classes
+mod $D_i$ with uniform marginals mod $\ell_i$ and $\ell'_i$; the product measure
+lives on $\A$ and agrees with $\E_U$ on classes of level $<\log D_i$.  (2) A
+Fej\'er construction gives $P$ of degree $R$, $P\geq1$ on $\|t\|\leq1/2-\eta$,
+$\int P^2\leq1-\eta/3$; with $a_i/D_i$ near $(2R+1)^{-i}$, Cauchy--Schwarz and \cite{MV}
+applied to $g=\prod_iP(na_i/D_i)\geq1$ on $\A$ give $|A|\leq(5N/3)(1-\eta/3)^K$.  (3) Use
+(1) below level $\min_i\log D_i$; above it Theorem~\ref{thm:kcomp} gives
+$O((\lambda'/\log N+1)\log\log N)$, and the density of $\A$ gives $0.04\log N$.
+\end{proof}
+So (E1) cannot be closed by comparison measures at any or every level plus
+the large-sieve axioms.  The band family puts mass $\asymp\eta$ on single
+moduli of high level.  Forced families are expected to satisfy (Sp): for
+$D$ of level $\geq\log N$, the classes with modulus divisible by $D$ carry
+mass $\leq D^{-1+o(1)}$ (\emph{Assessment}, not proved).  A proof of
+Conjecture~\ref{conj:HLS} must use (Sp) or the moment hypotheses of
+Section~\ref{sec:noB}.  No method in the literature uses such frequencies.
+
+\subsection{Prime-only majorants for mixtures}
+A \emph{prime majorant} of $\A$ is $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ with
+$\nu(p)\geq0$ at all primes and $\nu(p)\geq1$ at all primes $p\in\A$, outside a
+finite set of primes.  Let $L$ be the lcm of the $d_i$ and the moduli of
+$\cG$, and $\E^*$ the uniform mean on $(\Z/L)^\times$.  By Dirichlet's theorem,
+$\nu$ is a prime majorant iff $\nu\geq0$ on every reduced class mod $L$ and
+$\nu\geq1$ on every reduced class contained in $\A$.  Under $\E^*$ the
+prime-power coordinates are independent and uniform on units, and
+selector classes have mass $0$ \cite[Lemmas~1.2, 1.3]{PL}.
+
+\begin{theorem}[prime-majorant cap; {\cite[Thm~3.1]{PL}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:PLcap}
+There are absolute $W,\lambda_0,C$ such that every prime majorant $\nu$ of level
+$\lambda\geq\lambda_0$ of $\A(\cG)$, $\cG$ any finite mixture of the four types with
+arbitrary moduli, has $\log(1/\E^*\nu)\leq S^*(\lambda):=C\lambda^{3/4}(\log\lambda)^{3/4}$, and
+$\leq C(B)\lambda^{3/4}$ if every modulus satisfies $G\leq P(G)^{1+B}$.  By
+\cite[\S4.3]{KA3}, $S^*(\lambda)=C\lambda^{3/4}$ with Case A as in
+Theorem~\ref{thm:noBcap}; this is pointer-level and not separately reviewed.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Run the proof of \cite[Thm~5.1]{KA2} on the unit groups $(\Z/\ell^e)^\times$.  The
+square base consists of units, since no forced class contains a unit
+square (Lemma~\ref{lem:nosquare}); its $R$-term is $(\pi(W)+1)\log2$.  The
+sequential steps are arithmetic-free, non-unit classes have mass $0$, and
+the factor $\ell/(\ell-1)$ on unit classes is absorbed into the inflation weight
+$\gamma^*(\ell)=(\ell/(\ell-1))(1-\ell^{-1/2})^{-1}$ of the moments and the leak
+\cite[Lemmas~2.3--2.5]{PL}.
+\end{proof}
+
+\begin{corollary}[prime-law methods; {\cite[Cor.~4.2]{PL}}; \lab{proved}; Case A as in Theorem~\ref{thm:PLcap}]\label{cor:PLmethods}
+Let a method bound $\#\{p\leq N:p\in\A(\cG)\}$ by $\pi(N)\E^*\nu+\mathrm{Err}$, with $\nu$ a
+prime majorant and $\mathrm{Err}\geq0$ (including the correction
+$\sum_{p\mid L,\,p\leq N}(1+|\nu(p)|)$).  Assume either that for every modulus of
+$\nu$ the product of its distinct primes $>W$ is $\leq N^A$, or that every
+prime of $\cG$ is $\leq N^A$ and $\sum_i|a_i|\leq N^A$.  Then the saving against
+$\pi(N)$ is $\leq C_A(\log N)^{3/4}(\log\log N)^{3/4}$; it is $\leq C_{A,B}(\log N)^{3/4}$
+under bounded $B$, and $\leq C_A(\log N)^{3/4}$ in general at pointer level.
+\end{corollary}
+This is the form of every method that evaluates $\sum_{p\leq N}\nu(p)$ by
+Dirichlet main terms with errors bounded in absolute value:
+Siegel--Walfisz, Bombieri--Vinogradov, Bombieri--Davenport--Halberstam,
+Elliott--Halberstam or GRH, at any polynomial level.  Integer majorants
+that are $\geq1$ only on $\A\cap\{(n,P(z))=1\}$, $z\leq N^A$, are majorants of
+$\A(\cG\cup\{0\bmod p:p\leq z\})$; so Theorem~\ref{thm:main} covers the setting of
+Theorem~\ref{thm:primemaj}(2) for all mixtures \cite[\S4.4]{PL}.  Under GRH
+signed evaluation does not help either \cite[Prop.~4.3]{PL}
+\lab{conditional} on GRH: if the moduli of $\nu$ are $\leq N^A$,
+$\sum_i|a_i|\leq N^{1/2-\varepsilon}$ and $\nu(p)\geq0$ off a set $F$ of $\leq N^{1/2}$ primes,
+then $\sum_{p\leq N,\,p\notin F}\nu(p)\geq(1-o(1))\mathrm{li}(N)\E^*\nu$.  Unconditional error
+terms cannot resolve main terms of size $\pi(N)\e^{-(\log N)^{3/4}}$ at all
+\cite[\S6.3]{LS2} (\emph{Assessment}).
+
+\begin{proposition}[finite range; {\cite[Prop.~6.1]{LS2}}; \lab{proved}]\label{prop:finiterange}
+For a prime $q\in(N,2N]$, $\nu=\sum_{p\leq N,\,p\in\A}\ind[n\equiv p\pmod q]$ is $\geq0$ on $\Z$,
+$\geq1$ at the primes of $\A\cap[1,N]$, of level $\leq\log2N$ and coefficient sum
+$\leq N$, and $\sum_{p\leq N}\nu(p)=\#\{p\leq N:p\in\A\}$.
+\end{proposition}
+So no cap of any kind holds if $\nu\geq1$ is required only there; what is
+missing is the location of those primes, which is non-CRT input.  The other relaxation, $\nu(p)\geq0$ only for $p\leq N$ but $\nu\geq1$ at
+all primes of $\A$, is \lab{open}; that certifying it needs the location of
+the primes $\leq N$ is an \emph{Assessment}.  Both relaxations reduce to
+the prime-majorant condition when every reduced class mod $L$ contains a
+prime $\leq N$, so the gap lives at $L>N^c$ \cite[\S6]{PL}.
+
+\subsection{Interval counts with bounded frequency denominators}
+By \eqref{eq:signed}, a direct count of $\sum_{n\leq N}\nu(n)$ may exploit
+cancellation between frequencies.  If all denominators are below $N$, it
+cannot.
+
+\begin{theorem}[Selberg minorant; {\cite[Thm~2.2]{IF}}; \lab{proved}]\label{thm:IFminorant}
+Let $\nu\geq0$ on $\Z$ be periodic, with every nonzero frequency of
+denominator $\leq D$.  Then $\sum_{n=1}^N\nu(n)\geq(N-D)\E\nu$ for every $N\geq1$.
+\end{theorem}
+\begin{proof}
+Let $I=[1/2,N+1/2]$ and $\delta=1/D$.  Selberg's minorant \cite{Vaaler} is an
+integrable $F:\mathbb R\to\mathbb R$ with $F\leq\ind_I$, $\hat F$ continuous and
+supported in $[-\delta,\delta]$, and $\hat F(0)=|I|-\delta^{-1}=N-D$.  $F$ is entire of
+exponential type $2\pi\delta$ and integrable, so $\sum_n|F(n)|<\infty$, and Poisson
+summation for $F(x)\e(x\theta)$ gives $\sum_nF(n)\e(n\theta)=\sum_k\hat F(k-\theta)$ for every
+$\theta$.  If $\theta\notin\Z$ has denominator $q\leq D$, then $\|\theta\|\geq1/q\geq\delta$, so every
+term vanishes ($\hat F$ is continuous and $0$ outside $(-\delta,\delta)$).  For $\theta\in\Z$
+the sum is $\hat F(0)$.  Since $\nu$ is a finite trigonometric sum,
+$\sum_nF(n)\nu(n)=\sum_\theta\hat\nu(\theta)\sum_nF(n)\e(n\theta)=(N-D)\E\nu$.  Finally
+$F(n)\leq\ind_{[1,N]}(n)$ and $\nu(n)\geq0$ for every $n\in\Z$, so
+$\sum_{n\leq N}\nu(n)\geq\sum_nF(n)\nu(n)$.
+\end{proof}
+Positivity is used at every integer (Remark~\ref{rem:positivity}).  The
+hypothesis holds iff $\nu$ is a combination of classes of moduli $\leq D$.
+
+\begin{corollary}[{\cite[Cor.~2.3]{IF}}, {\cite[\S4.3]{KA3}}; \lab{proved} via Theorem~\ref{thm:noBcap}; Case A as there]\label{cor:IFcap}
+Let $\nu$ be a majorant of $\A(\cG)$ that is a combination of classes of
+moduli $\leq N/2$, with any coefficients.  Then
+$\sum_{n\leq N}\nu(n)\geq(N/2)\exp\{-C(\log N)^{3/4}\}$ for $N$ large, however the
+interval sum is evaluated.  No bound on the family primes is needed.
+\end{corollary}
+\begin{proof}
+$\nu$ has level $\leq\log N$; apply Theorem~\ref{thm:noBcap}, then
+Theorem~\ref{thm:IFminorant} with $D=N/2$.
+\end{proof}
+This caps $\Lambda^2$ and $\beta$-sieves of level $<N/2$ with any remainder
+evaluation (dispersion, Kloosterman sums, Erd\H{o}s--Tur\'an/Vaaler or
+floor/ceiling rounding, the exact $|S_N(\theta)|$, smooth windows
+$\Phi(n/N)\geq\ind_{[1,N]}(n)$), with no need for $(H_{\rm eq})$.  Inter-frequency gain
+must come from classes of combined modulus $>N/2$.
+
+\begin{theorem}[coefficient budget; {\cite[Lemma~2.4, Thm~2.5, Rem.~2.6]{IF}}; \lab{proved} via Theorem~\ref{thm:noBcap}; Case A as there]\label{thm:IFbudget}
+Let every prime of $\cG$ be $\leq N^A$, let $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ be
+a majorant of $\A(\cG)$, and $T_>=\sum_{d_i>N/2}|a_i|$.  If $B=N\e^{-s}$ satisfies
+$B\geq\sum_{n\leq N}\nu(n)$ and $T_>\leq cB$, then $s\leq\log(2+12c)+C_A(\log N)^{3/4}$
+for $N\geq N_0(A)$, with $N_0,C_A$ independent of $c$.  If
+$T_>\leq(N/24)\e^{-C_A(\log N)^{3/4}}$, the saving is $\leq C_A(\log N)^{3/4}+\log4$
+whatever $B$ is.
+\end{theorem}
+\begin{proof}[Proof sketch]
+For $F$ as above with $D=N/2$, Poisson along a progression gives
+$|\sum_{n\equiv b\,(d)}F(n)-(N-D)/d|\leq2(N+D)/D=6$, and $0$ if $d\leq D$.  So
+$B\geq\sum_nF(n)\nu(n)\geq(N/2)\E\nu-6T_>$, i.e.\ $\E\nu\leq(2+12c)\e^{-s}$.  For the mean,
+follow the proof of Theorem~\ref{thm:main}: the coarsening of
+Lemma~\ref{lem:budget} touches only terms of level $>\log(N/2)$, whose
+coefficient sum is $\leq T_>$.
+\end{proof}
+$T_>$ may be replaced by its infimum over representations of $\nu$; $c=1$
+contains the class of Theorem~\ref{thm:main}.  Not covered: \emph{hybrid}
+methods that evaluate the classes of modulus $\leq N/2$ in any way and
+charge each larger class its trivial count.  Their bound
+$\sum_{n\leq N}\nu+\sum_{d_i>N/2}(|a_i|-a_ir_i)$, with
+$r_i=\#\{n\leq N:n\equiv b_i\ (d_i)\}-N/d_i$, can be far below $T_>$.  This is a
+proof gap \lab{open}, not a counterexample \cite[Rem.~2.6]{IF}.  What is
+left is to count integers $n\leq N$ with prescribed witness sets of combined
+modulus $>N/2$ better than termwise (\emph{Assessment}).
+
+\subsection{Hybrid methods}\label{sec:hybrid}
+The hybrid gap just stated is narrowed, but not closed, in \cite{IF2}
+(review \cite{IF2rev}: all claims sound; one defect, a Farkas argument on
+truncated LPs, was repaired by a periodic LP).  Fix $N$, a majorant
+$\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ of $\A(\cG)$, and split the terms into
+\emph{small} ($d_i\leq N/2$) and \emph{large} ($d_i>N/2$).  Put
+$c(b,d)=\#\{n\leq N:n\equiv b\ (d)\}\in\{\lfloor N/d\rfloor,\lceil N/d\rceil\}$.  A
+\emph{hybrid method} \cite[Def.~1.2]{IF2} bounds the small part by any valid
+upper bound for its interval sum and charges a large term the least
+position-blind amount $\beta^*(a,d)=a\lceil N/d\rceil$ ($a>0$), $a\lfloor N/d\rfloor$ ($a<0$);
+call the resulting bound $B_{\rm hyb}(\nu)$.  The charge
+$aN/d+|a|$ of Theorem~\ref{thm:IFbudget} dominates $\beta^*$.  A large class is
+\emph{full} if $c(b,d)=\lceil N/d\rceil$ and \emph{sparse} if $c(b,d)=\lfloor N/d\rfloor$.
+
+\begin{lemma}[sign rule; {\cite[Lemma~3.1, Ex.~3.2]{IF2}}; \lab{proved}]\label{lem:signrule}
+For every representation,
+$B_{\rm hyb}(\nu)\geq\sum_{n\leq N}\nu(n)+\sum_{i\ \text{wrong}}|a_i|$, with equality when the
+small part is counted exactly; a large term is \emph{wrong-signed} if
+$a_i>0$ on a sparse, not full class, or $a_i<0$ on a full, not sparse class.
+Right-signed large terms are counted exactly.  At $N=20$ the class
+$\ind[0\bmod21]$ has a representation (twelve full classes modulo $21$ and
+classes modulo $3$ and $7$) with hybrid charge $0$.  Hence no inequality
+$B_{\rm hyb}(\nu)\geq cN\E\nu$, $c>0$, holds for all $\nu\geq0$.
+\end{lemma}
+\begin{proof}
+$\beta^*(a,d)-a\,c(b,d)$ equals $a(\lceil N/d\rceil-c)$ for $a>0$ and $|a|(c-\lfloor N/d\rfloor)$
+for $a<0$, and $c\in\{\lfloor N/d\rfloor,\lceil N/d\rceil\}$ with the two differing by at most
+$1$.  The example is checked by direct computation \cite[\S3]{IF2}.
+\end{proof}
+So the Selberg accounting of Theorem~\ref{thm:IFbudget} does not extend to
+hybrids as it stands.  It does when the \emph{free} large mass
+(right-signed terms) is small: if the positive terms on classes of
+modulus $>N$ meeting $[1,N]$, plus the right-signed mass at moduli in
+$(N/2,N]$, are $\leq cB$, the saving is at most $S_A+\log(2+12(1+c))$, where
+$S_A$ is the cap of Theorem~\ref{thm:main} \cite[Cor.~5.1]{IF2} \lab{proved}.
+Large free mass is not in itself a counterexample:
+$(1+K)-K\sum_{b\bmod N}\ind[b\bmod N]\equiv1$ has $B=N$ and right-signed mass $KN$.
+
+\begin{hypothesis}[Flat$(C,t,s_0,\Delta)$ at $N$; {\cite[\S5]{IF2}}; \lab{open}]\label{hyp:Flat}
+There is a summable $F:\Z\to\mathbb R$ with $F\leq\ind_{[1,N]}$; $F(s)=tN/d$ for every
+class $s$ of modulus $d\leq N/2$ (where $F(s)=\sum_{n\in s}F(n)$); $F(s)\geq tN/d+s_0$
+for every class of modulus $d>CN$ meeting $[1,N]$, and $F(s)\geq tN/d-1$ for
+those missing it; and $|F(s)-tN/d|\leq\Delta$ for every class of modulus in
+$(N/2,CN]$.
+\end{hypothesis}
+Unlike Selberg's minorant, which is $\approx0$ near the ends of $[1,N]$, such
+an $F$ is \emph{flat}: for large moduli it is $\geq s_0$ on $[1,N]$ and $\geq-1$
+off it.
+
+\begin{theorem}[conditional hybrid cap; {\cite[Thm~5.2]{IF2}}; \lab{proved} implication, \lab{conditional} on Flat; Case A as in Theorem~\ref{thm:main}]\label{thm:hybridcap}
+Assume Flat$(C,t,s_0,\Delta)$ at $N$ with $t,1/\Delta\geq\e^{-S_A}$ and $s_0\geq N^{-A_1}$.  If a
+hybrid bound $B$ for $\A(\cG)$, family primes $\leq N^A$, has right-signed
+mass at moduli in $(N/2,CN]$ at most $cB$, then for $N\geq N_0(A,A_1,C)$
+\[
+ \log(N/B)\leq S'+\log\frac{1+\Delta(1+c)}t,\qquad S'=C_{A,A_1,C}(\log N)^{3/4}(\log\log N)^{3/4}.
+\]
+Terms of modulus $>CN$, wrong-signed terms and free negative terms are
+unrestricted.
+\end{theorem}
+\begin{proof}[Proof sketch]
+By $\nu\geq0$, $F\leq\ind_{[1,N]}$ and Lemma~\ref{lem:signrule},
+$B\geq\sum_nF(n)\nu(n)+T_{\rm wr}$, and the small part gives $tN\E\nu_{\rm small}$.
+Term by term, the flatness conditions make each large term of modulus
+$>CN$ contribute $\geq0$ beyond $tN/d_i\cdot a_i$, and each term of modulus in
+$(N/2,CN]$ at least $-\Delta|a_i|$ (right-signed) or $(1-\Delta)|a_i|$ (wrong).
+Hence $(1+\Delta)B\geq tN\E\nu-\Delta T_{\rm mid}+s_0W^+_{>CN}$, with $W^+_{>CN}$ the mass of
+positive terms of modulus $>CN$ meeting $[1,N]$.  Unless $(1+\Delta(1+c))B\geq tN$
+(then the bound is trivial), this gives $\E\nu<1$ and total mass $\leq N^{A_1+1}+N$ on
+terms of modulus $>CN$, which bounds the level after the coarsening of
+Lemma~\ref{lem:budget}; the mean is then capped as in Theorem~\ref{thm:main}
+\cite[\S5]{IF2}.
+\end{proof}
+\cite{IF2} uses the cap of \cite[Thm~5.1]{KA2} with the case analysis of
+\cite[Cor.~6.1]{KA2}, hence the factor $(\log\log N)^{3/4}$.  The cap enters only
+as a black-box bound on $\log(1/\E\nu)$ at a level $\leq(A+A_1+2)\log N+S+\lambda_0$, so
+Theorem~\ref{thm:noBcap} and the case analysis of Theorem~\ref{thm:main} give
+$S'=C_{A,A_1,C}(\log N)^{3/4}$ (observation of this note, pointer-level, not
+reviewed).  A variant
+\cite[Thm~5.2$'$]{IF2} needs right-signed mass only on $(N,CN]$, under a
+stronger Flat with sign conditions on $(N/2,N]$ \lab{proved} implication.
+
+Flat reduces to a purely combinatorial statement with no arithmetic and
+no $\A$.
+
+\begin{hypothesis}[SPW$(C,\sigma,\Delta_0)$ at $N$, spread pseudo-window; {\cite[\S9]{IF2}}; \lab{open}]\label{hyp:SPW}
+There is a summable $R\geq0$ on $\Z$ with $R(s)=c(s)$ for every class $s$ of
+modulus $\leq N/2$; $R(s)\leq1-\sigma$ for every class of modulus $>CN$; and
+$|R(s)-c(s)|\leq\Delta_0$ for every class of modulus in $(N/2,CN]$.
+\end{hypothesis}
+That is, a random integer that looks exactly like a uniform point of
+$[1,N]$ modulo every $d\leq N/2$, but which no class of modulus $>CN$ sees as a
+point of $[1,N]$.  The window $\ind_{[1,N]}$ itself fails only the second
+condition.
+
+\begin{proposition}[{\cite[Prop.~9.1, Lemma~9.3]{IF2}}; \lab{proved}]\label{prop:SPW}
+(1) SPW$(C,\sigma,\Delta_0)$ implies Flat$(C,t,s_0,\Delta)$ with $s_0=\sigma/2$,
+$t=\theta/2$, $\Delta=6\theta+\Delta_0$, $\theta=\sigma/(2(\sigma+\tau+1/(2C)))$, $\tau$ an
+absolute constant, via $F=\theta F_S+(1-\theta)(\ind_{[1,N]}-R)$ with $F_S$
+Selberg's minorant of Theorem~\ref{thm:IFminorant} at $\delta=2/N$.  So SPW at
+every large $N$, with $\sigma$ bounded below, gives the cap of
+Theorem~\ref{thm:hybridcap} for hybrids with controlled right-signed mass on
+$(N/2,CN]$ \lab{conditional}.
+(2) Every SPW has $\sigma\leq\sigma_C(N)=\min_{q\leq N/2}(1-\lceil N/q\rceil/k_q)$,
+$k_q=\lfloor CN/q\rfloor+1$; this is $2/5$ at $C=2$ in the limit, and SPW is
+impossible for $C\leq1$.
+\end{proposition}
+\begin{proof}
+(2) Take $b$ with $c(b,q)=\lceil N/q\rceil$.  The class $b\bmod q$ is the
+disjoint union of the $k_q$ classes $b+jq\bmod k_qq$, of modulus $k_qq>CN$;
+each has $R$-mass $\leq1-\sigma$, and they sum to $c(b,q)$.  (1) is a direct
+check of the Flat conditions, using the decay of $F_S$ off $[1,N]$ to bound
+$\tau$ \cite[\S9]{IF2}.
+\end{proof}
+LPs find SPW at $C=2$ for $N\leq60$, attaining $\sigma_C(N)$ with long enough
+support, and Flat at sampled $N\leq100$ \lab{evidence} (floating-point LPs).
+Open: SPW itself, and right-signed mass at moduli in $(N,CN]$; periodic
+certificates show $(N/2,N]$ cannot be freed at $C=1.5$
+\cite[\S10]{IF2} \lab{evidence}.  No hybrid beating $3/4$ is known.
+
+\section{Tuple counts and truncated weights}\label{sec:TU}
+
+Among the non-CRT inputs of Section~\ref{sec:excluded}, item~5, the most
+natural is tuple counting: aggregate control of witness correlations of
+growing order, with combined moduli far above $N$.  The sources are
+\cite{TU} and \cite{TU2}, whose reviews \cite{TUrev,TU2rev} found them sound
+after minor repairs (incorporated), and \cite[\S\S5, 7]{KA3}.  The review
+\cite{KA3rev} covers \cite[\S5]{KA3}; \cite[\S7]{KA3} (Lemma~\ref{lem:packing}
+and the Assessment closing Section~\ref{sec:TUtrunc}) was added later and
+checked by the coordinator only.  Nothing here gives $\theta>3/4$; the section
+locates what a tuple-count proof of $\theta>3/4$ would have to contain.
+
+\subsection{Witness correlations and the tuple-count hypothesis}
+Let $\cP_y$ be the primes $\ell\leq y$ with $\ell\equiv3\pmod4$, $A_\ell=(\ell+1)/4$,
+$F(\ell)=|\cR(\ell)|$ and $p_\ell=F(\ell)/\ell$.  The \emph{prime family} consists
+of the classes of $\cR(\ell)$, $\ell\in\cP_y$; its \emph{witness count} is
+$f_y(n)=\sum_{\ell\in\cP_y}\ind[n\bmod\ell\in\cR(\ell)]$.  Under the CRT law the
+summands are independent $\Bern(p_\ell)$, and
+$c(\log y)^2\leq\mu_y:=\sum_{\ell\in\cP_y}p_\ell\leq C(\log y)^2$ for $y\geq3$
+\cite[(1.3)]{TU}.  Put
+\[
+ S_j(N)=\sum_{n\leq N}\binom{f_y(n)}j=\sum_{|T|=j}C_T(N),\qquad e_j=e_j(p)=\sum_{|T|=j}\delta_T,
+\]
+where $T$ runs over $j$-sets of classes with distinct primes, $C_T(N)$
+counts the $n\leq N$ in all classes of $T$, and $\delta_T=\prod_{\ell\in T}\ell^{-1}$.
+Trivially $|S_j(N)-Ne_j|\leq\#\{T\}$ \cite[Lemma~1.2]{TU}.  A tuple with
+$\prod_T\ell>N$ has $C_T(N)\in\{0,1\}$ while $N\delta_T<1$; every tuple-count
+hypothesis beyond the trivial range is about such tuples.
+
+\begin{lemma}[shift form; {\cite[Lemma~1.3]{TU}}; \lab{proved}]\label{lem:shiftform}
+For $\ell\in\cP_y$ let $\mathcal D_\ell$ be a set of divisors of $A_\ell^2$ whose
+residues $-4D\bmod\ell$ are the classes of $\cR(\ell)$, each once, and put
+$\omega_{y,D}(m)=\#\{\ell\in\cP_y:D\in\mathcal D_\ell,\ \ell\mid m\}$.  Then
+$f_y(n)=\sum_{D\geq1}\omega_{y,D}(n+4D)$ for all $n\in\Z$, and
+$S_k(N)=\sum\#\{n\leq N:\ \ell_i\mid n+4D_i,\ i\leq k\}$, summed over $k$-sets
+$\{(\ell_i,D_i)\}$ with distinct $\ell_i\in\cP_y$ and $D_i\in\mathcal D_{\ell_i}$.  All
+shifts satisfy $4D\leq(y+1)^2/4$.
+\end{lemma}
+\begin{proof}
+The classes $-4D$, $D\in\mathcal D_\ell$, are distinct modulo $\ell$, so
+$\ind[n\bmod\ell\in\cR(\ell)]=\sum_{D\in\mathcal D_\ell}\ind[\ell\mid n+4D]$; regroup by $D$.
+Expanding $\binom{f_y(n)}k$ counts $k$-sets of hit primes, each with its
+unique $D$; and $D\leq A_\ell^2$.
+\end{proof}
+So $S_k$ is the distinct-prime part of $k$-point correlations of
+$\omega$-type functions along up to $k$ shifts $4D$, with $\prod\ell_i\gg N$.
+
+For even $K$ let $y_K$ be the largest $y$ with $\mu_y\leq K/\e^2$, so
+$\log y_K\asymp K^{1/2}$, and put $\eta_K=\e^{-K/\e^2}/K$.  Write $\mathrm{TC}(N;K,y,\eta)$
+for: $|S_j(N)-Ne_j|\leq\eta N$ for all $1\leq j\leq K$.
+
+\begin{hypothesis}[$\mathrm{TC}_\theta$; {\cite[\S2]{TU}}; \lab{open}]\label{hyp:TC}
+Let $\theta\in(0,1)$ and $K_N=2\lceil(\log N)^\theta\rceil$.  For all large $N$,
+$\mathrm{TC}(N;K_N,y_{K_N},\eta_{K_N})$ holds.
+\end{hypothesis}
+It is proved for $\theta<2/3$ (Proposition~\ref{prop:TCrange}); for
+$\theta\in(2/3,1)$ it needs a compensating excess
+(Corollary~\ref{cor:TCexcess}) and is expected false (Assessment there).
+
+\begin{theorem}[{\cite[Thm~2.1, Cors~2.2, 2.3]{TU}}; \lab{proved}; the bound on $E(N)$ \lab{conditional} on Hypothesis~\ref{hyp:TC}]\label{thm:TCbrun}
+If $K$ is even and $\mathrm{TC}(N;K,y,\eta)$ holds, then
+$\#\{n\leq N:f_y(n)=0\}\leq N(\prod_{\ell\in\cP_y}(1-p_\ell)+e_K+K\eta)$.  For $y=y_K$,
+$\eta=\eta_K$ this is $\leq(\e+2)N\e^{-K/\e^2}$.  Hence Hypothesis~\ref{hyp:TC}
+implies $E(N)\leq(\e+2)N\exp\{-(2/\e^2)(\log N)^\theta\}$ for large $N$.
+\end{theorem}
+\begin{proof}
+For integers $f\geq1$, $\sum_{j=0}^K(-1)^j\binom fj=(-1)^K\binom{f-1}K$; for $f=0$ the
+sum is $1$.  For even $K$ it is $\geq\ind[f=0]$.  Summing over $n\leq N$,
+$\#\{f_y=0\}\leq\sum_j(-1)^jS_j\leq N\sum_j(-1)^je_j+K\eta N$, and under the CRT law
+the identity gives $\sum_j(-1)^je_j\leq\prod(1-p_\ell)+\E\binom{f}{K}=\prod(1-p_\ell)+e_K$.
+For $y=y_K$: each $p_\ell<1$, so $\mu_{y_K}>K/\e^2-1$ by maximality, $\prod(1-p_\ell)<\e^{1-K/\e^2}$,
+$e_K\leq(\e\mu/K)^K\leq\e^{-K}$ and $K\eta_K=\e^{-K/\e^2}$.  The classes are forced.
+\end{proof}
+
+\begin{proposition}[trivial range and squares; {\cite[Props~2.4, 4.2]{TU}}; \lab{proved}]\label{prop:TCrange}
+(1) $\mathrm{TC}(N;K,y_K,\eta_K)$ holds for $K\leq c_0(\log N)^{2/3}$; so
+Hypothesis~\ref{hyp:TC} holds for $\theta<2/3$.  (2) It is false for even
+$K\geq(\e^2/2+\varepsilon)\log N$, $N\geq N_0(\varepsilon)$.
+\end{proposition}
+\begin{proof}
+(1) The termwise bound gives
+$|S_j-Ne_j|\leq(\sum_\ell F(\ell))^K\leq(Cy_K(\log y_K)^2)^K\leq N\eta_K$ once
+$K^{3/2}\ll\log N$; this is Brun's pure sieve.  (2) By
+Lemma~\ref{lem:mordell} every class of $\cR(\ell)$ is a non-residue, and
+$0\notin\cR(\ell)$.  So squares avoid the family, $\#\{f_y=0\}\geq\lfloor\sqrt N\rfloor$,
+against the bound $(\e+2)N\e^{-K/\e^2}\leq(\e+2)N^{1/2-\varepsilon'}$ of
+Theorem~\ref{thm:TCbrun}.
+\end{proof}
+For $\theta>2/3$ the content of Hypothesis~\ref{hyp:TC} is aggregate
+cancellation among tuples of combined modulus
+$\exp\{(\log N)^{3\theta/2+o(1)}\}$, each prime $\leq y_K=N^{o(1)}$; no total-variation
+(Kubilius-type) model exists there \cite[Prop.~4.1]{TU} \lab{proved}.
+
+\subsection{Bounded order cannot pass \texorpdfstring{$3/4$}{3/4}}
+Take a prime-slice system (Definition~\ref{def:slice}) with $p_\ell(c)\leq1/4$
+and $|F_\ell(c)|<\ell$ for all $\ell\in\cP$, $c\in R$, and for a term of $\nu$ put
+$T_i=\{\ell\in\cP:\ell\mid d_i\}$.
+
+\begin{definition}[mixed majorants; {\cite[Def.~3.0]{TU}}]\label{def:mixed}
+$\nu$ is \emph{$(\lambda_0,k)$-mixed} if every term has level
+$\sum_{T_i}\log\ell\leq\lambda_0$ or \emph{(prime) order} $|T_i|\leq k$.
+\end{definition}
+A $k$-point correlation of slice classes has order $\leq k$ whatever its
+modulus; so $P\circ f$ with $\deg P\leq k$ and the majorant of
+Theorem~\ref{thm:TCbrun} with $K=k$, plus any terms of level $\leq\lambda_0$, are mixed.
+
+\begin{theorem}[truncated weights on prime slices; {\cite[Thm~3.1]{TU}}; \lab{proved}]\label{thm:truncslice}
+Let $\nu$ be $(\lambda_0,k)$-mixed, $L_0>0$, $s_\ell=\min(\log\ell,L_0)$ and
+$\lambda=\max(\lambda_0,kL_0)$.  Then \eqref{eq:slice} holds with this $\lambda$, with
+$s_*=\min_\cP s_\ell$, with $\bar\mu=\sum_{\ell\in\cP}\bar p_\ell$, and with the mass sum
+replaced by $\sum_{\ell\in\cP}\bar p_\ell\e^{-\alpha s_\ell}$, i.e.\ by
+$\sum_{\log\ell\leq L_0}\bar p_\ell\ell^{-\alpha}+\e^{-\alpha L_0}\sum_{\log\ell>L_0}\bar p_\ell$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Prove Theorem~\ref{thm:slice} with Proposition~\ref{prop:boolean} applied
+to the weights $s_\ell$, which it allows.  A term has weighted level
+$\sum_{T_i}s_\ell\leq\min(\sum_{T_i}\log\ell,|T_i|L_0)\leq\lambda$.  As $s_\ell\leq\lambda$ for all $\ell$,
+no coordinate is discarded, so $p_\ell(c)\leq1/4$ is needed for every slice
+prime; it is assumed.  The weights do not depend on $c$, so the Jensen
+step is unchanged.
+\end{proof}
+
+\begin{corollary}[order needed; {\cite[Cors~3.2, 3.3]{TU}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{cor:orderslice}
+For the families of Corollary~\ref{cor:sliceCap} with slice primes $\leq N^A$,
+every $(A\log N,k)$-mixed majorant has
+$\log(1/\E\nu)\leq C_9(A,C)[(\log N)^{3/4}+k\log\log N]+\log(P/\varphi(P))$.
+\end{corollary}
+\begin{proof}
+Take $\lambda_0=A\log N=\lambda$, $L_0=\lambda_0/k$, $\alpha=\max(\lambda_0^{-1/4},3k\log\lambda_0/\lambda_0)$.  As in
+Corollary~\ref{cor:sliceCap}, the profile is $\ll\min(\alpha,1)^{-3}$ and
+$\bar\mu\ll\lambda_0^3$.  So $19\alpha\lambda\leq19\lambda_0^{3/4}+57k\log\lambda_0$, the first mass sum is
+$\ll\lambda_0^{3/4}$, the second is $O(1)$ as $\alpha L_0\geq3\log\lambda_0$, and the
+$G$-terms are $O(\log^2(k+\log N))$.
+\end{proof}
+Call a method \emph{CRT-main-term} if its bound for $\#(\A\cap[1,N])$ is
+$\geq\frac12N\E\nu$, i.e.\ its evaluation of $\sum_{n\leq N}\nu(n)$ asserts the CRT
+main term up to half of it.  Hypotheses ``order-$j$ correlation sums equal
+their CRT values up to a small error'', $j\leq k$, are of this kind; a
+low-level part evaluated exactly with a large favourable deficit is not.
+For such methods (and $\log(P/\varphi(P))=o((\log N)^\theta)$) bounded order gives no
+$\theta>3/4$, and a saving $(\log N)^\theta$ needs order $k\geq c(\log N)^\theta/\log\log N$
+\lab{proved}.  Order $2\lceil(\log N)^\theta\rceil$ suffices under
+Hypothesis~\ref{hyp:TC} (Theorem~\ref{thm:TCbrun}) \lab{conditional}.
+
+\begin{corollary}[class order, all four types; {\cite[Cor.~3.4]{TU}}, {\cite[\S4.3]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:classorder}
+Let $\cG$ be as in Definition~\ref{def:types}, and let every term of a
+majorant $\nu$ of $\A(\cG)$ be an intersection of at most $k$ residue classes
+of modulus $\leq N^A$, or have level $\leq A\log N$.  Then
+$\log(1/\E\nu)\leq C(kA\log N)^{3/4}$ for $N\geq N_0(A)$.  So for CRT-main-term
+methods a saving $(\log N)^\theta$ needs $k\geq c(\log N)^{4\theta/3-1}$.
+\end{corollary}
+\begin{proof}
+Such an intersection is empty or one class whose modulus divides the
+product of the $k$ moduli; its level is $\leq kA\log N$.  Apply
+Theorem~\ref{thm:noBcap}.
+\end{proof}
+(\cite{TU} had the factor $(\log(kA\log N))^{3/4}$ of the previous cap.)  The
+window of $k$ between $(\log N)^{4\theta/3-1}$ and $(\log N)^\theta/\log\log N$ is
+treated next.
+
+\begin{proposition}[fixed shifts; {\cite[Prop.~4.3 and extension]{TU}}; \lab{proved}]\label{prop:fixedshift}
+Let $\mathcal S$ be a set of $r$ positive integers.  Let $\nu\geq0$ be a finite
+combination of intersections of the events $M\mid n+4D$ with $D\in\mathcal S$,
+$M\equiv3\pmod4$, $D\mid A_M^2$, $M\leq N^A$, and let $\nu\geq1$ on the avoider set
+of a forced-class family containing these classes.  Then
+$\E\nu\geq\exp\{-2r(\log\log N^A+3)\}$.
+\end{proposition}
+\begin{proof}
+$\nu=G(\text{indicator vector})$.  The avoider set is nonempty ($0\notin\cR(M)$
+as $(D,M)=1$) and has vector $0$, so $G(0)\geq1$.  A hit $M\mid n+4D$ gives a
+prime $q\mid n+4D$, $q\equiv3\pmod4$, $q\leq N^A$, $q\nmid D$.  So $\E\nu\geq\prod_q(1-r_q/q)$,
+$r_q\leq\min(r,q-1)$; use $1-x\geq\e^{-2x}$ for $q>2r$ and $1-r_q/q\geq1/q$ for $q\leq2r$.
+\end{proof}
+So witness information of any order and precision along $r$ fixed shifts
+saves $\leq2r(\log\log N+O(1))$ for CRT-main-term methods.  Known
+divisor-correlation theorems (Heath-Brown, Deshouillers--Iwaniec,
+Matom\"aki--Radziwi\l\l--Tao, Tao--Ter\"av\"ainen) have fixed or averaged
+shifts; Hypothesis~\ref{hyp:TC} needs $\asymp K$ shifts jointly.  That no known
+theorem or standard conjecture supplies it for any $\theta>2/3$ is an
+\emph{Assessment} \cite[Ass.~4.4]{TU}.  Not covered: non-witness
+information along the shifts ($q\equiv1\pmod4$, $\tau(n+4D)$, primes $>N^A$), and
+combinations over all shift tuples.
+
+\subsection{Truncated weights}\label{sec:TUtrunc}
+Theorem~\ref{thm:trunc} and Corollaries~\ref{cor:primeorder}
+and~\ref{cor:boundedr} carry the proviso of Theorem~\ref{thm:noBcap}: proved
+given \cite{KA,KA2} as reviewed; Case A \lab{proved mod} Elsholtz--Tao
+Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10).
+
+\begin{definition}[{\cite[Def.~5.0]{KA3}}]\label{def:trunc}
+Fix $L_0>0$ and put $s_\ell=\min(\log\ell,L_0)$ for primes $\ell>W$.  A term
+$a\ind[n\equiv b\pmod d]$ has \emph{truncated level} $\sum_{\ell\mid d,\,\ell>W}s_\ell$ and
+\emph{prime order} $\omega_{>W}(d)$; $\nu$ is \emph{$(\lambda_0,k)$-mixed} if every term
+has level $\leq\lambda_0$ or prime order $\leq k$.  With $L_0=\lambda_0/k$ such a $\nu$
+has truncated level $\leq\lambda_0$.
+\end{definition}
+
+\begin{theorem}[truncated-weight cap; {\cite[Thm~5.1]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{thm:trunc}
+Let $W,\lambda_0,C$ be as in Theorem~\ref{thm:noBcap}, $K_3'$ as in
+Lemma~\ref{lem:firstnoB}, and $C_0$ as in Corollary~\ref{cor:kmean}.  Let
+$\cG$ be as in Definition~\ref{def:types} with all family primes $\leq\e^\Lambda$,
+and let $\nu\geq0$ on $\Z$, $\nu\geq1$ on $\A(\cG)$, have truncated level $\leq\lambda$,
+with $\lambda_0\leq\lambda\leq\Lambda$ and $L_0\leq\lambda$.  With $d_0=\lfloor\lambda/L_0\rfloor$,
+\[
+ \log\frac1{\E\nu}\leq C\lambda^{3/4}+2d_0\log\frac{C_0(K_3'\Lambda^3+4d_0)}{d_0}+\frac83d_0+\log(22d_0+22)+6.
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+Theorem~\ref{thm:wseq} holds for any class $\mathcal F$ of functions closed
+under conditioning on earlier coordinates, if (S$_w$) holds on $\mathcal F$.
+Take for $\mathcal F$ the sums of terms each depending on a prime set $T$ with
+$\sum_Ts_\ell\leq\lambda$; conditioning only shrinks $T$.  The cost ledger, in
+increasing order of primes: (i) singletons $W<\ell\leq\e^{\min(s_1,L_0)}$,
+$s_1=\lambda^{1/4}$, and blocks $\{2^is_1<\log\ell\leq\min(2^{i+1}s_1,L_0,\lambda/2)\}$, where
+$s_\ell=\log\ell$ and the depths are those of Theorem~\ref{thm:noBcap}: total
+$\leq C\lambda^{3/4}+O(\log^2\lambda)$; (ii) if $L_0>\lambda/2$, the linear block
+$(\e^{\lambda/2},\e^{L_0}]$: $\leq2\log(1+3\e^{-\lambda/4})$; (iii) one \emph{top block}
+$V_{\rm top}=\{\log\ell>L_0\}$ of any width, where $s_\ell=L_0$, so every
+$f\in\mathcal F$ is $d_0$-local.  Theorem~\ref{thm:kcomp} is arithmetic-free,
+and $\E m_{V_{\rm top}}\leq\mathfrak M(\e^\Lambda)\leq K_3'\Lambda^3$ (Lemma~\ref{lem:firstnoB}).
+Corollary~\ref{cor:kmean} with $t$ chosen per history, and Jensen, give
+$\E\Phi_{\rm top}\leq d_0\log(C_0(K_3'\Lambda^3+4d_0)/d_0)+\frac43d_0+\frac12\log(22d_0+22)+3$,
+doubled by Theorem~\ref{thm:wseq}; (iv) base and Jensen: $2W+\log2$.  The
+leak bound of Lemma~\ref{lem:secondnoB} is per prime, so $\mathfrak L\leq1/2$.
+\end{proof}
+
+\begin{corollary}[prime order; {\cite[Cor.~5.2]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:primeorder}
+Let $\cG$ be as in Definition~\ref{def:types} with family primes $\leq N^A$,
+and let every term of a majorant $\nu$ of $\A(\cG)$ have level $\leq A\log N$ or
+prime order $\leq k$, $1\leq k\leq(A\log N)^3$.  Then
+$\log(1/\E\nu)\leq C_A[(\log N)^{3/4}+k\log\log N]$.  So a CRT-main-term
+saving $(\log N)^\theta$, $\theta>3/4$, needs prime order $k\geq c_A(\log N)^\theta/\log\log N$.
+\end{corollary}
+\begin{proof}
+Project onto the lcm of the family moduli, as in the proof of
+Theorem~\ref{thm:main}; prime sets shrink, so both term types are kept,
+and all primes are $\leq\e^\Lambda$, $\Lambda=A\log N$.  For $k=1$ use
+Theorem~\ref{thm:noBcap}; for $k\geq2$, Theorem~\ref{thm:trunc} with $\lambda=\Lambda$,
+$L_0=\lambda/k$, $d_0=k$.
+\end{proof}
+
+\begin{corollary}[boundedly many large primes; {\cite[Cor.~5.3]{KA3}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{cor:boundedr}
+If every modulus of $\cG$ has at most $r$ prime factors $>W$, an intersection
+of $k$ classes of $\cG$ has prime order $\leq kr$; so the corresponding mixed
+majorants have $\log(1/\E\nu)\leq C_A[(\log N)^{3/4}+kr\log\log N]$.
+\end{corollary}
+\emph{Scope.}  $W$ is fixed, not a moving cutoff: the twin moduli of
+\cite{TW2,TW4} and the atoms $\cR(k\ell)$ of \cite{TQ} may have cofactors with many
+primes above $W$, and are then covered by Theorem~\ref{thm:noBcap} but not
+by Corollary~\ref{cor:boundedr}.
+
+\begin{proposition}[block-sparse families; {\cite[Prop.~7.1]{TU2}}; \lab{proved} relative to {\cite[Thm~5.1]{KA2}}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{prop:blocksparse}
+Let all moduli of $\cG$ be $\leq N^A$, each with at most $r$ prime factors in
+every interval $(x,x^2]$, $x\geq2$.  If every term of $\nu$ has level
+$\leq\lambda_0=A\log N$ or is an intersection of at most $k$ classes of $\cG$, then
+$\log(1/\E\nu)\leq C\lambda_0^{3/4}(\log\lambda_0)^{3/4}+Ckr(\log\log N)^2$.
+\end{proposition}
+\begin{proof}[Proof sketch]
+The level enters \cite[Thm~5.1]{KA2} only through $d$-locality, and now
+$d\leq\lambda_0/s+kr$ in $(\e^s,\e^{2s}]$.  The step cost $d\log(C_0(M+4d)/d)$ is
+subadditive, so the $kr$ part costs $\ll kr\log\log N$ in each of $O(\log\log N)$
+dyadic blocks up to $N^A$.
+\end{proof}
+Whether Lemma~\ref{lem:firstnoB} removes $(\log\lambda_0)^{3/4}$ here is unchecked.
+The next lemma (coordinator-checked only) concerns the literal
+hypothesis of Corollary~\ref{cor:classorder}.
+
+\begin{lemma}[packing; {\cite[Lemma~7.2]{KA3}}; \lab{proved}]\label{lem:packing}
+Let $Z\geq2$ and $k\geq1$.  Every residue class $b\bmod d$ such that every
+prime power $p^e\,\|\,d$ is $\leq Z$ and $\log d\leq(k-1)\log Z/2$ is an
+intersection of at most $k$ residue classes of moduli $\leq Z$.
+\end{lemma}
+\begin{proof}
+Pack the prime powers $p^e\,\|\,d$, in any order, greedily (next-fit) into
+bins whose products stay $\leq Z$; each fits into an empty bin.  Let there
+be $m\geq2$ bins ($m\leq1$ is trivial), with products $b_1,\dots,b_m$.  The first
+element of bin $i+1$ did not fit into bin $i$, so $b_ib_{i+1}>Z$ for $i<m$.
+Hence $d\geq\prod_{j<\lfloor m/2\rfloor}b_{2j+1}b_{2j+2}>Z^{\lfloor m/2\rfloor}$, so
+$\lfloor m/2\rfloor<\log d/\log Z\leq(k-1)/2$ and $m\leq2\lfloor m/2\rfloor+1\leq k$.  The bins are
+pairwise coprime with product $d$, and by CRT
+$\{n\equiv b\ (d)\}=\bigcap_i\{n\equiv b\ (b_i)\}$.
+\end{proof}
+With $Z=N^A$, $L=\log N$: majorants with prime powers $\leq N^A$ and
+$\log d_i\leq(k-1)AL/2$ satisfy the hypothesis of Corollary~\ref{cor:classorder},
+which in turn forces level $\leq kAL$.  So, up to a factor $2$ in $k$, it is a
+level hypothesis at $\lambda\asymp kL$.  Closing the window from it alone would
+require $C[L^{3/4}+(\lambda/L)\,\mathrm{polylog}\,L]$ in place of $C\lambda^{3/4}$ for all such
+majorants; the $k$-ary ledger cannot give this (it is optimal at
+$s_1=\lambda^{1/4}\leq AL$, where truncation at $\e^{AL}$ is invisible), and whether
+$\lambda^{3/4}$ is attained there is \lab{open} (\lab{evidence} only, \cite[\S2.5]{ET}).
+The window is meaningful for structured orders: prime order (closed,
+Corollary~\ref{cor:primeorder}) and intersections of $k$ \emph{family}
+classes (closed for bounded $r=\max_G\omega_{>W}(G)$, Corollary~\ref{cor:boundedr}).
+For the latter the open window is
+\begin{equation}\label{eq:window}
+ \max\bigl(L^{4\theta/3-1},\,L^\theta/(r\log L)\bigr)\lesssim k\lesssim L^\theta/\log L,
+\end{equation}
+nonempty only when $r\to\infty$ \cite[\S5]{KA3} \lab{open}.
+
+\emph{Assessment} \cite[\S7]{KA3}.  In the pattern model of
+Section~\ref{sec:kary}, class degree $k$ over $m$-prime patterns is degree $km$,
+and binomial extrapolation (Lemma~\ref{lem:kextrap}) is tight as for prime
+order $km$.  If this persists for forced classes, the window
+\eqref{eq:window} is genuine; deciding it needs ES-specific input.
+
+\subsection{Forced zeros and the repaired hypothesis}
+\begin{lemma}[forms; {\cite[Lemma~1.1, Cor.~1.2]{TU2}}; \lab{proved}]\label{lem:forms}
+Let $\ell\equiv3\pmod4$ be prime and $A=A_\ell$.  The map $(r,s,m)\mapsto D=r^2m$ is a
+bijection from the triples with $rsm=A$, $(r,s)=1$, onto the divisors of
+$A^2$, and $n\equiv-4D\pmod\ell$ if and only if $\ell\mid ns+r$.  In particular
+$(1,1,A)$ gives the class $-1\bmod\ell$, which lies in $\cR(\ell)$ for every $\ell$.
+\end{lemma}
+\begin{proof}
+Write $D/A=r/s$ in lowest terms; then $A=sa'$, $D=ra'$, and $D\mid A^2$ gives
+$r\mid a'$, so $a'=rm$.  The converse is clear.  As $4rsm=\ell+1$,
+$4r^2m\equiv r/s\pmod\ell$.
+\end{proof}
+Call $(r,s)$ the \emph{form} of the class; fix one form per residue, $(1,1)$
+for $-1$.  For a tuple $T$ let $T_\varphi$ be its pairs of form $\varphi=(r,s)$.  If
+$\prod_{T_\varphi}\ell>Ns+r$ for some $\varphi$, then $C_T(N)=0$ although $\delta_T>0$, since
+$\prod_{T_\varphi}\ell$ divides $ns+r\leq Ns+r$.  Call $T$ \emph{admissible} if this
+happens for no $\varphi$; let $e_j^{\mathfrak A}$ be the CRT mass of admissible
+$j$-tuples and $Z_j=e_j-e_j^{\mathfrak A}$ that of the \emph{forced zeros}.  Then
+$S_j(N)-Ne_j=\sum_{T\ {\rm adm.},\,|T|=j}(C_T-N\delta_T)-NZ_j$.
+
+\begin{theorem}[forced-zero mass; {\cite[Thms~2.1, 2.2]{TU2}}; \lab{proved}]\label{thm:forcedmass}
+Fix $\theta\in(2/3,1)$, take $K=K_N$, $y=y_K$ as in Hypothesis~\ref{hyp:TC}, and
+$u_0=\lceil\log(N+2)/\log(y/2)\rceil$.  For $N\geq N_0(\theta)$, $u_0\leq K$ and
+$Z_{u_0}\geq\eta_K\exp\{K/(2\e^2)\}$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Let $\mathcal Q$ be the primes $\ell\equiv3\pmod4$ in $(y/2,y]$, $\sigma_y=\sum_{\mathcal Q}1/\ell\geq c/\log y$.
+A $u_0$-set $U\subseteq\mathcal Q$ with class $-1$ at each prime has $\prod_U\ell>N+1$, so is
+a forced zero, and $Z_{u_0}\geq e_{u_0}((1/\ell)_{\mathcal Q})\geq(\sigma_y/2)^{u_0}/u_0!$.  Here
+$u_0\asymp(\log N)^{1-\theta/2}$, so $\log Z_{u_0}\geq-C(\log N)^{1-\theta/2}\log\log N$, while
+$\log(1/\eta_K)\asymp(\log N)^\theta$.  And $1-\theta/2<\theta$ for $\theta>2/3$.
+\end{proof}
+
+\begin{corollary}[a necessary condition; {\cite[Cor.~2.3]{TU2}}; \lab{proved}]\label{cor:TCexcess}
+If $\theta\in(2/3,1)$, $N\geq N_0(\theta)$ and $\mathrm{TC}(N;K_N,y_K,\eta_K)$ holds, then
+$\sum_{T\ {\rm adm.},\,|T|=u_0}(C_T(N)-N\delta_T)\geq N(Z_{u_0}-\eta_K)>0$: the admissible
+$u_0$-tuples carry an aggregate excess over their CRT values.
+\end{corollary}
+\emph{Assessment} \cite[Ass.~3.2]{TU2}.  For the class $-1$ the count
+$\lfloor(N+1)/q\rfloor$ is never above $(N+1)/q$ \cite[Lemma~3.1]{TU2}, so the
+excess must come from multi-form tuples.  It is $N^{1/2-o(1)}$ times a
+square-root noise scale, and no mechanism for it is known.  We expect
+Hypothesis~\ref{hyp:TC} to be false for every $\theta\in(2/3,1)$; this is not
+proved.  Toy moments on $[1,N]$ fall below CRT but not on far translates
+\cite[\S5]{TU2} \lab{evidence}.
+
+Theorem~\ref{thm:TCbrun} uses only the alternating sum, i.e.\ the Brun
+pure-sieve majorant $\nu_K(n)=\sum_{j\leq K}(-1)^j\binom{f_y(n)}j$ ($K$ even).
+
+\begin{hypothesis}[$\mathrm{TC}^{\rm alt}_\theta$; {\cite[\S4]{TU2}}; \lab{open}]\label{hyp:TCalt}
+With $K=K_N$, $y=y_K$, $\eta=\eta_K$ as in Hypothesis~\ref{hyp:TC}, for all large $N$,
+\[
+ \sum_{n\leq N}\nu_K(n)\leq N\Bigl(2\prod_{\ell\in\cP_y}(1-p_\ell)+2\e^{-K}\Bigr)+K\eta N.
+\]
+\end{hypothesis}
+The CRT mean of $\nu_K$ lies in $[\prod(1-p_\ell),\prod(1-p_\ell)+\e^{-K}]$, so this is a
+one-sided statement with a factor $2$, not an accuracy statement.  The
+intermediate hypothesis $\mathrm{TC}^{\mathfrak A}_\theta$ asks
+$|S_j(N)-Ne_j^{\mathfrak A}|\leq\eta_KN$ for $j\leq K$: accuracy on admissible tuples only.
+
+\begin{theorem}[Euler-characteristic cancellation; {\cite[Thm~4.1, Cor.~4.2]{TU2}}; \lab{proved}]\label{thm:euler}
+Let $K\geq\e^2\mu_y$ be even, $u_1=\lfloor\log N/\log y\rfloor+1\geq4(1+\log y)$ and
+$\varepsilon=4(2\e(1+\log y)/u_1)^{u_1}\leq1$.  Then
+$|\sum_{j\leq K}(-1)^je_j^{\mathfrak A}-\prod(1-p_\ell)|\leq2\varepsilon\prod(1-p_\ell)+\e^{-K}$, and
+$|\sum_{j\leq K}(-1)^jZ_j|\leq2\varepsilon\prod(1-p_\ell)+2\e^{-K}$.  Consequently, for
+$\theta\in(0,1)$ and $N\geq N_0(\theta)$, $\mathrm{TC}^{\mathfrak A}_\theta$ implies
+$E(N)\leq(\e+3)N\exp\{-(2/\e^2)(\log N)^\theta\}$, and Hypothesis~\ref{hyp:TCalt}
+implies $E(N)\leq(2\e+2)N\exp\{-(2/\e^2)(\log N)^\theta\}$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+For the CRT hit set $H$, $\sum_j(-1)^je_j^{\mathfrak A}=\E\sum_{T\subseteq H\ {\rm adm.},\,|T|\leq K}(-1)^{|T|}$,
+and dropping $|T|\leq K$ costs $\leq\sum_{j>K}e_j\leq\e^{-K}$.  Admissibility is a
+condition on each form group, so the full sum is $\prod_\varphi\chi_\varphi(H_\varphi)$ with
+$\chi_\varphi(G)=\sum_{U\subseteq G\ {\rm adm.}}(-1)^{|U|}$.  Subsets of admissible sets are
+admissible, so $\chi_\varphi(G)=\ind[G=\emptyset]$ for admissible $G$, and always
+$|\chi_\varphi(G)|\leq2^{|G|}$.  So the sum differs from $\ind[H=\emptyset]$ only if every
+nonempty group is inadmissible, hence has $\geq u_1$ primes.  With $p_\ell<1/2$
+and $\sum_{\ell\equiv-1\,(4rs)}4/\ell\leq2(1+\log y)/(rs)$, the tails summed over forms give
+$2\varepsilon$.  In the calibration $u_1/\log y_K\to\infty$, so $\varepsilon\to0$; conclude as in
+Theorem~\ref{thm:TCbrun}.
+\end{proof}
+The second implication is just $\nu_K\geq\ind[f_y=0]$: Hypothesis~\ref{hyp:TCalt}
+is essentially the conclusion restricted to one majorant (its factor $2$
+matters: at $N=10^7$, $y=1000$ the avoiders on $[1,N]$ are $1.22$ times CRT,
+an excess of about the $\sqrt N$ squares, \lab{evidence}).  It fails for even
+$K\geq(\e^2/2+\varepsilon)\log N$ as in Proposition~\ref{prop:TCrange}(2).  That it is the
+correct form of the tuple-count door is an \emph{Assessment}
+\cite[\S4]{TU2}: forced zeros provably cancel in it, single-form floor
+deficits heuristically do; $\mathrm{TC}^{\mathfrak A}_\theta$ is expected false above $2/3$.
+
+\subsection{The prime family at \texorpdfstring{$2/3$}{2/3}}
+\begin{corollary}[{\cite[Cor.~6.1]{TU2}}; \lab{proved}]\label{cor:prime23}
+Fix $A\geq1$ and $y\leq N^A$.  Let $\nu$ be a CRT majorant of $\{f_y=0\}$ whose
+terms have $\sum_{\ell\in\cP_y,\,\ell\mid d_i,\,\ell\geq\ell_0}\log\ell\leq\lambda$, $\lambda\geq\log N$.  Then
+$\log(1/\E\nu)\leq C_A\lambda^{2/3}$.  So CRT-main-term methods at level
+$\leq A'\log N$ save at most $C(\log N)^{2/3}$, the order of Brun's pure sieve
+(Proposition~\ref{prop:TCrange}(1)).
+\end{corollary}
+\begin{proof}[Proof sketch]
+Put the primes $\ell<\ell_0$ into $Q_0$; then $|R|/Q_0\gg1$ and every slice prime
+has $p_\ell\leq\tau(A_\ell^2)/\ell\leq1/4$.  Apply Theorem~\ref{thm:truncslice} with $k=1$,
+$L_0=\lambda_0=\lambda$.  By $\mu_x\leq C(\log x)^2$ and partial summation,
+$\sum_\ell p_\ell\ell^{-\alpha}\leq2C\alpha^{-2}$: the profile is quadratic, not cubic.  Take
+$\alpha=\lambda^{-1/3}$.
+\end{proof}
+So the prime family's CRT exponent is exactly $2/3$, where literal
+$\mathrm{TC}_\theta$ starts to see forced zeros.  Hence Hypothesis~\ref{hyp:TCalt} for
+$\theta>2/3$ is non-CRT: a saving $(\log N)^\theta$ needs level $\geq c(\log N)^{3\theta/2}$, so
+$\nu_K$ must be CRT-accurate on $[1,N]$ at moduli $\exp\{c(\log N)^{3\theta/2}\}$ (Brun's
+sieve far beyond its level of distribution; it improves $E(N)$ only for
+$\theta>3/4$, by \cite{TQ}).  That no known theorem reaches this level is an
+\emph{Assessment} \cite[Ass.~6.2]{TU2}.
+
+\subsection{What is open}
+\begin{itemize}
+\item Hypothesis~\ref{hyp:TCalt} for some $\theta>3/4$ (it would give $\theta>3/4$); no
+  structured obstruction below $\theta=1$ is known.
+\item The window \eqref{eq:window}: a $k$-ary comparison in class
+  coordinates, for the dependent indicators $\ind[n\in C]$.
+\item Interval deficits (the second branch of the dichotomy of
+  Section~\ref{sec:noncrt}); fixed-shift statements combined over all
+  shift tuples; non-witness information along shifts; bounded-order
+  input with weights below $1$.
+\end{itemize}
+
 \section{What the theorems exclude}\label{sec:excluded}
 
 The following list is checked against the proofs of
@@ -3007,6 +3996,23 @@ this repository, 2026.
 C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.};
 arXiv:1107.1010v6 (cited version).
+\bibitem[G]{Gallagher}
+P.~X.~Gallagher, A larger sieve, \emph{Acta Arith.} \textbf{18} (1971),
+77--81.
+\bibitem[IF]{IF}
+\emph{EXCEPTIONAL\_INTERFREQ: the inter-frequency cancellation door},
+internal working document \texttt{EXCEPTIONAL\_INTERFREQ.md}, this
+repository, 2026.
+\bibitem[IFr]{IFrev}
+Hostile review of \cite{IF}, \texttt{reviews/exceptional-interfreq-review.md},
+this repository, 2026.
+\bibitem[IF2]{IF2}
+\emph{EXCEPTIONAL\_INTERFREQ2: hybrid methods, small classes exact, large
+classes trivial}, internal working document
+\texttt{EXCEPTIONAL\_INTERFREQ2.md}, this repository, 2026.
+\bibitem[IF2r]{IF2rev}
+Hostile review of \cite{IF2}, \texttt{reviews/exceptional-interfreq2-review.md},
+this repository, 2026.
 \bibitem[H]{Hough}
 R.~Hough, Solution of the minimum modulus problem for covering systems,
 \emph{Ann. of Math.} \textbf{181} (2015).
@@ -3043,6 +4049,23 @@ B.~Landreau, A new proof of a theorem of van der Corput,
 \emph{A logarithmic improvement of Vaughan's bound for the
 Erd\H{o}s--Straus exceptional set}, internally reviewed note,
 \texttt{paper/vaughan-loglog-note.tex}, this repository, 2026.
+\bibitem[LS]{LS}
+\emph{EXCEPTIONAL\_LARGESIEVE: the large sieve over forced-class
+mixtures}, internal working document \texttt{EXCEPTIONAL\_LARGESIEVE.md},
+this repository, 2026.
+\bibitem[LSr]{LSrev}
+Hostile review of \cite{LS}, \texttt{reviews/exceptional-largesieve-review.md},
+this repository, 2026.
+\bibitem[LS2]{LS2}
+\emph{EXCEPTIONAL\_LARGESIEVE2: the remaining large-sieve and prime-law
+escapes}, internal working document \texttt{EXCEPTIONAL\_LARGESIEVE2.md},
+this repository, 2026.
+\bibitem[LS2r]{LS2rev}
+Hostile review of \cite{LS2}, \S\S1--7,
+\texttt{reviews/exceptional-largesieve2-review.md}, this repository, 2026.
+\bibitem[LS2r2]{LS2revb}
+Hostile review of \cite{LS2}, \S\S8--9,
+\texttt{reviews/exceptional-largesieve2-review-2.md}, this repository, 2026.
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
 \emph{Bull. Amer. Math. Soc.} \textbf{84} (1978).
@@ -3072,6 +4095,13 @@ A.~Pr\'ekopa, Boole--Bonferroni inequalities and linear programming,
 R.~Peled, A.~Yadin and A.~Yehudayoff, The maximal probability that $k$-wise
 independent bits are all~$1$, \emph{Random Structures Algorithms}
 \textbf{38} (2011), 502--525; arXiv:0801.0059.
+\bibitem[PL]{PL}
+\emph{EXCEPTIONAL\_PRIMELAW: prime-only majorants over all forced-class
+mixtures}, internal working document \texttt{EXCEPTIONAL\_PRIMELAW.md},
+this repository, 2026.
+\bibitem[PLr]{PLrev}
+Hostile review of \cite{PL}, \texttt{reviews/exceptional-primelaw-review.md},
+this repository, 2026.
 \bibitem[T]{Tao254A}
 T.~Tao, 254A, Notes 4: Some sieve theory, blog post, 21 January 2015,
 \url{https://terrytao.wordpress.com/2015/01/21/254a-notes-4-some-sieve-theory/}.
@@ -3089,6 +4119,20 @@ P.~Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
 equation}, internally proved research note,
 \texttt{paper/es-threequarter-note.tex}, this repository, 2026.
+\bibitem[TU]{TU}
+\emph{EXCEPTIONAL\_TUPLES: the tuple-count / witness-correlation door},
+internal working document \texttt{EXCEPTIONAL\_TUPLES.md}, this
+repository, 2026.
+\bibitem[TUr]{TUrev}
+Hostile review of \cite{TU}, \texttt{reviews/exceptional-tuples-review.md},
+this repository, 2026.
+\bibitem[TU2]{TU2}
+\emph{EXCEPTIONAL\_TUPLES2: forced zeros and the alternating tuple-count
+hypothesis}, internal working document
+\texttt{EXCEPTIONAL\_TUPLES2.md}, this repository, 2026.
+\bibitem[TU2r]{TU2rev}
+Hostile review of \cite{TU2}, \texttt{reviews/exceptional-tuples2-review.md},
+this repository, 2026.
 \bibitem[TW]{TW}
 \emph{EXCEPTIONAL\_TWIN: $(E_\delta)$, the heavy coordinates, and
 $\eta$-twin windows}, internal working document
@@ -3119,6 +4163,9 @@ Hostile review of \cite{TW4}, rounds 1--2,
 \bibitem[vLR]{vLR}
 J.~H.~van Lint and H.-E.~Richert, On primes in arithmetic progressions,
 \emph{Acta Arith.} \textbf{11} (1965), 209--216.
+\bibitem[Va]{Vaaler}
+J.~D.~Vaaler, Some extremal functions in Fourier analysis,
+\emph{Bull. Amer. Math. Soc. (N.S.)} \textbf{12} (1985), 183--216.
 \bibitem[V]{Vaughan}
 R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), doi:10.1112/S0025579300002886.
