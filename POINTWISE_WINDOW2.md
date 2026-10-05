@@ -16,7 +16,7 @@ Status: checkpoint 1 (2026-10-05), not yet reviewed.
 | Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary. Jointly only `(+,+)` vs `(+,−)` (not all four classes; R29 M1) | PROVED (mod BV/EH) |
 | Lemma 3.2, 3.6 | two-block and product fakes in the Type-I+parity model 𝒯𝒫(θ) | Model-PROVED |
 | §3.2 | one window: fakes for θ<1/2; no block fake at θ=1/2 | Model-PROVED |
-| §3.3–3.4 | block/tree fakes reach only ≈43% of target at θ=1/2 | EVIDENCE (MC) |
+| §3.3–3.4 | block/tree fakes reach only ≈40–45% of target at θ=1/2 | EVIDENCE (MC; infinite-variance estimator, no error bar — R29 m3) |
 | Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model) | CERTIFIED (residual 2.6e-15) |
 | §3.5 | discrete two-window threshold θ_2∈(0.6,0.7] (coarse grid) | EVIDENCE |
 | §6.1 | bounded reweighting of primes (ν≤Cμ, C≥3.5) still admits the fake | EVIDENCE (residual ≤1e-9) |
@@ -152,9 +152,13 @@ taken as independent. `scripts/window2_blockfake.py 2e6 0.02 1`:
 | 0.005 | 0.011 | 3.35 | 1.30 | **0.42** | 0.22 | 0.14 | 0.06 |
 
 For θ<1/2 the ratio grows as ε→0, as the trivial range predicts. For θ≥1/2 it is
-stable within the Monte Carlo noise; the weight `(1−Σt)^{−1/2}` has a heavy
-tail. At θ=1/2, R/τ≈0.43±0.05.
-So at BV level (θ=1/2), two-block fakes remove only ≈43% of the target mass. They
+roughly stable across runs; the weight `(1−Σt)^{−1/2}` has a heavy
+tail. At θ=1/2, R/τ≈0.4–0.45 across runs. *No error bar is claimed (R29 m3):* the weight
+`(1−Σt)^{−1/2}` has infinite second moment (`∫(1−s)^{−1}ds` diverges), so the MC estimator
+has infinite variance and a "±0.05" is not statistically valid (reviewer reruns at θ=0.4 swing
+1.46–3.48 across seeds). These MC numbers are rough indications only; they are superseded by
+the exact discrete LP of §3.5.
+So at BV level (θ=1/2), two-block fakes remove only roughly 40–45% of the target mass (MC indication). They
 do **not** give an obstruction there. The ε-stability and multi-block fakes
 (m blocks, `Σ min U_j>θ`) are still to be checked. If no fake exists at θ=1/2,
 the LP dual is a Type-I sieve at BV level, i.e. a candidate unconditional route
@@ -204,7 +208,7 @@ configuration) are dropped.
 
 (θ≥0.9: HiGHS reports numerical trouble; not used.) The one-window column
 reproduces the model threshold 1/2 (W1). **For two windows the full LP finds a
-fake at θ=0.5 and 0.6**, although block fakes reach only 43% of the target mass.
+fake at θ=0.5 and 0.6**, although block fakes reach only ≈40–45% of the target mass (MC).
 The optimal fake at θ=0.6 removes the target and rearranges one-window
 pair configurations (P,∅) and (∅,Q). It does not need (P,Q) mass.
 
