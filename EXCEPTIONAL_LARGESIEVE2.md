@@ -712,3 +712,37 @@ below the sieve bound `N^{−0.0057}`.)
    from **collective** correlations of many sparse low-level classes,
    which is exactly what (H_LS∞) rules out heuristically (§5 polymer
    heuristic). This is not a proof.
+
+## 9. Composite kernels: the level hypothesis removed; the factor localised
+
+Notation of §4. Assume every prime of 𝔊 and of the kernel moduli is
+`≤ e^{Λ₀}`.
+
+**Theorem 9.1 (kernel cap at any level; PROVED, conditional on K2 Thm 5.1
+/ KARY3 Thm 4.1).** With `λ = max(λ₀, 2 log N + Λ₀)`, every CRT-admissible
+kernel bound satisfies
+
+    B ≥ (N/2) e^{−S(λ)} / (1 + Nh/(W_K − h)),
+
+with **no** hypothesis on the levels of the kernel moduli.
+
+*Proof.* Split `𝒮 = 𝒮_< ∪ 𝒮_≥` (`q < N`, `q ≥ N`). For `q ∈ 𝒮_≥` let
+`q°` be the shortest prefix of q (its W-smooth part, then its prime
+powers `p^{v_p(q)}`, `p > W`, in increasing order of p) with `q° ≥ N`, or
+`q° = q`. The prefix before the last step is `< N`, so `λ(q°) ≤ log N + Λ₀`.
+Moduli `q < N` have level `≤ log N`. Take π from Lemma 1.1 with
+`𝒟 = {1} ∪ {lcm(q,q') : q,q' ∈ 𝒮_<} ∪ {q° : q ∈ 𝒮_≥}` (levels `≤ λ`).
+* `q ∈ 𝒮_≥`: `coll_q(π) ≤ max_b π(b mod q) ≤ max_b π(b mod q°) ≤ e^S/q° ≤ e^S/N`
+  (Lemma 1.1 with `f = 1[n ≡ b (q°)]`).
+* `𝒮_<`: as in Thm 4.2, `Σ_{q∈𝒮_<}w(q)coll_q(π) ≤ D_u^< + e^S max_{θ≠0}w̃^<_θ`,
+  and Lemma 4.1 for the sub-kernel `K_<` (whose `h_< ≤ h`, `W_< ≤ W_K`)
+  gives `w̃^<_θ ≤ h + W_</N`.
+
+With `D_u^< ≤ D_u ≤ h + (W_K−h)/N` this yields
+`D(π) − h ≤ (W_K−h)/N + e^S(h + W_K/N) ≤ e^S((2W_K − h)/N + h)`, and
+`B ≥ (W_K−h)/(D(π)−h) ≥ N e^{−S}(W_K−h)/(2(W_K−h) + h + Nh)`, which is the
+claim since `h ≤ Nh`. ∎
+
+So for kernels the level is never the obstruction (in contrast to the
+large sieve, §8): moduli `≥ N` are handled by anti-concentration of π
+alone. What is left is the factor `1 + Nh/(W_K−h)`.
