@@ -64,3 +64,23 @@ except where §6 changes their inputs.
   `Pr[f_ρ=1] ≲ Ns/q ≈ p` at the typical `s≍pN` is a constant, not "nearly
   constant"; and `W^{≥1} ≤ Pr[f_ρ=1]` says nothing about the
   geometric decay in s that ESW demands for s≥2.
+
+### Working notes, §6.1 ledger and Thm 6.3
+
+* Ledger rows re-derived with `z=𝓛²`, `k≍𝓛/log𝓛`, `b≈2log₂T`,
+  `S≤S*≪𝓛⁴log𝓛`: `w=kb≍𝓛²/log𝓛`; `k_0≍S+log m≍S*`; `t=2C_Hwk_0≍𝓛⁶`;
+  Lemma 3.2 gives `log M_1≍t𝓛≍𝓛⁷`; `log max d_i≤(3k+2t)𝓛≍𝓛⁷`;
+  `log Q_Π≤(π(z)+64k²S*)𝓛+4≍𝓛⁷/log𝓛`; `K≍𝓛⁷`, `log p≍𝓛¹⁴`. All correct.
+* PO Thm 4.1 uses `K=1+log(M_1/μ)`, `log x ≥ C_1K·max(log Z,K)`. With
+  Lemma 6.1, `μ≥0.99δ≥0.99e^{−2.2S}`: `K ≤ 3log m+2d log(4C_Hw)+2.2S+6`
+  (1+4+log(1/0.99)<6). `d=4C_Hwk_0=2t≪𝓛⁶`, `log(4C_Hw)≪log𝓛`,
+  `log m≤(k+2)𝓛≪𝓛²`: `K≪𝓛⁶log𝓛`. Moduli on `≤3k+2(d−1)` primes:
+  `log Z≤log Q_Π+2(3k+2d+1)𝓛≪𝓛⁷`. `log p≪𝓛¹³log𝓛`, which inverts to
+  `𝓛≫(log p/log log p)^{1/13}`. Correct. The gain is real: Lemma 3.2's
+  `log M_1≍t𝓛` becomes `≍t log𝓛`; `log Z` is unchanged in order (d=2t).
+* Lemma 3.3 (twist) uses only `E[F−B]≤EF/100`, `w_ℓ≤1/(64k)` and that B is
+  a cell combination whose ψ-twist equals `E[Bψ]`; all unchanged. (I) and the
+  class-of-one argument do not see u_j. So Thm 6.3 inherits §§3–4 verbatim.
+* **Lemma 6.2 does not exist** in the document (§6.1 item 2 cites it; there
+  is no §6.2/§6.3 heading either). This matters for the "ESW ⇒ 1/11"
+  claim: see M1.
