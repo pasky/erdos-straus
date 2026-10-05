@@ -168,9 +168,10 @@ certificate bounds `|Σ_{C∈O}c_Ce_C|≤‖c_O‖_{s}‖e_O‖_{s'}` (Hölder, 
 (i) `‖ν−P‖_TV≤e^{−0.6μ*}`: conditionally on x_s the perturbation has mass
 `P_0Σ_Jw_J‖σ_J‖=P_02^{k+1}`, and `P_0≤e^{−(1−p*)R}≤e^{−(1−p*)μ*}`, `k+1≤μ*/2`;
 (ii) so `‖ρ_O‖_{s'}≤‖ρ_O‖_1^{1/s'}‖ρ_O‖_∞^{1/s}≤e^{−0.6μ*/s'}η^{1/s}`, with `ρ_O:=(E_ρ1_C)_{C∈O}`;
-(iii) the truth has `‖e_O‖_{s'}≥(N'/2)^{1/s'}` (N' entries `≥1/2`, Lemma 2.3(a)).
+(iii) the truth has `‖e_O‖_{s'}≥(1/2)N'^{1/s'}` (N' entries `≥1/2`, Lemma 2.3(a)), `N'≥N_x/2`.
 Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
-`N_x^{1/s}η^{1/s}e^{−0.6μ*/s'}>(1/2)^{1/s'}(N'/N_x)^{1/s'}`, forcing `N_xη>1/2` (`N'≥N_x/2`). ∎
+`N_xe^{−0.6μ*/s'}η^{1/s}>(1/2)(N_x/2)^{1/s'}`; raising to the power s (`s/s'=s−1`):
+`N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}≥1/2`. ∎
 
 *Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
 modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
