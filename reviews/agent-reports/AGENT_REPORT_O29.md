@@ -69,3 +69,28 @@ data `data/window2/fake_eps0.1_K8_theta0.5.json.gz`; archived sources `sources/w
   The BV linear sieve gives 4×. The best known (Wu-type) is ≈3.4× (recalled, not re-checked).
 * Required K* (coarse grid, α=0.6) ∈ (2.5, 2.75]. **Gap ≈1.25–1.35×. No unconditional a_min≥11.**
 * §§1–6 untouched in this round. Open: the K*(α) curve, finer grids, primary-source Wu constant.
+
+## Round 3 (R29 repairs, applied by O37)
+(Applied on branch `side-agent/window2-repairs` after the author quit; review
+`reviews/pointwise-window2-review.md`. No new mathematics; all new numbers are the reviewer's.)
+* **M1** Thm P1 joint sentence restricted: the four classes ((p/3),(p/7)) do *not* share joint
+  data (3 is window-7 bad and `3|n_7` iff (p/3)=−1). The joint barrier is stated only for
+  (+,+) vs (+,−) (reviewer check `review_w2_p1joint.py`). One-window P1 unchanged.
+* **M2/M4** Prop 3.7, §§4–5, §§6.1–6.2, §7.1 now say explicitly: the model's "true law" is a
+  coarse heuristic law, discretised at ε=0.1, K=8, which is far from the regime (model r(S)
+  spread [0.82,1.87], parity-dependent; real data r(S)≈1); only bad-prime Type-I data are
+  modelled. Prop 3.7 is a discrete-model statement only; its relevance to real sieves is
+  EVIDENCE of the weakest kind. The C≥3.5 and K*∈(2.5,2.75] thresholds are model indications
+  only, not statements about primes. "Any weights"/"provably" removed from §4/§5.
+* **M3** §5 item 2 split: (a) actual primes, W1 = Type-I + parity + switching (so not evidence
+  that parity suffices); (b) model, one-window LP at θ=1/2 ≥0.744128 (CERTIFIED dual, grid
+  only); continuum threshold at θ=1/2 unproved. Same fix at Prop 3.7 and §3.2.
+* **m1** §6.3 underived "0.256·1.256≈0.32" chain withdrawn; replaced by reviewer's separable LP
+  min 0.430>0 (EVIDENCE). **m2** §3.2 trivial-range fake corrected to −[∅]+[{a,b}], a,b>θ, a+b<1.
+  **m3** MC ±0.05 dropped (infinite-variance estimator). **m4** §6.2: per-configuration caps
+  are stronger than aggregate switched bounds; direction stated. **m5** P1: g(5)=0; BV half
+  unconditional, only A⁺ lower bound inherits W1's S1–S3. **m6** reviewer exact duals adopted
+  (one window ≥0.744128/≥0.827541 at θ=0.5/0.6; two windows ≥0.497087/≥0.728369 at θ=0.7/0.8);
+  θ_2∈(0.5,0.7] CERTIFIED on the grid, (0.6,0.7] EVIDENCE. **m7** route (ii) mixed-level test
+  added (fake persists for T₁≤0.6; T₁=0.7 certified ≥0.16298).
+* §0 table and status line updated accordingly.

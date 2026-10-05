@@ -105,7 +105,6 @@ parity **necessary** input. §3 asks whether parity is also *sufficient* for two
 windows at level 1/2. Answer, in one coarse discrete model of a heuristic law: no (Prop 3.7; see its Scope
 paragraph: the model data are not those of the primes).
 
-
 ## 3. The Type-I + parity model 𝒯𝒫(θ) and fake sequences
 
 ### 3.1 Definition
