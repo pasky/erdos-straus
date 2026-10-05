@@ -4,7 +4,19 @@ Scope: Lemma 3.3(A) (Nair–Tenenbaum input), Lemma 3.3(B), assembly of Thm 3.4,
 Cor 3.5 and interface checks I1–I3, §1–2 EVIDENCE numbers.
 Reviewed: branch side-agent/beyond-fifth @ 4539218.
 
-## Verdicts (in progress)
+## Verdicts (round 1)
+
+| claim | verdict |
+|---|---|
+| Lemma 3.3(A), first display (`S_H^β≪𝓛³logY`) | SOUND (NT hypotheses checked against the PDFs) |
+| Lemma 3.3(A), second display (cost `≪𝓛³(logY)^4`) | GAP → SOUND-AFTER-REPAIRS (D1: NT class violated by `(3/2)^{Ω_Y}`; one-line fix) |
+| Lemma 3.3(B) (`Σ_{ℓ>Y}B_2≤(𝓛+1)Ξ/Y`, `Ξ≪𝓛^{C_0}`) | SOUND (re-derived; exact brute force at T=2000, 20000) |
+| Thm 3.4 (`log(1/δ*)≪𝓛³(log𝓛)^{O(1)}`, explicitly `(log𝓛)^5`), label PROVED mod NT | SOUND-AFTER-REPAIRS (D1, D2, D3); relies on Lemmas 3.1–3.2 checked by reviewer 1 |
+| "Haar exponent a=3" with POINTWISE_HAAR Thm 2.1 | SOUND after D2 (same δ* normalisation) |
+| Cor 3.5 (exponent 1/4), label CONDITIONAL on I1–I3 | label honest; I1–I3 appear easy (sketches below) but need D4 (840∣Q) and D5; could become "PROVED mod (G), NT, OMEGA10 Thm 3.4" once written out |
+| §1–2 EVIDENCE | reproduced exactly; D7 (wording) |
+
+No FATAL defects found in my scope.
 
 ### Lemma 3.3(A) — first display: SOUND; second display: GAP (easy repair, D1)
 
