@@ -43,3 +43,24 @@ except where §6 changes their inputs.
   depends only on the blocks touched by S and never on supp E_j; Jensen
   `E_{π*}(F−g)² ≤ E(F̃−g̃)²` holds; `B≤F` pointwise; cell-expanded
   `M_1(B) ≤ 1+m+2m²L+m³L²` (L = truncated ℓ¹ norm). No failures.
+
+### Working notes, §6.4 counterexample (re-derived + numerics)
+
+* Masses: per-coordinate `(N−1)/q ≤ q^{−1/2}`, total `C(N,2)/q ≤ 1/2`. Correct.
+* Adversary argument re-derived: with the N−s fixed values distinct, answering
+  each query with a value distinct from all fixed and earlier answers
+  (possible since N+s<q) leaves f_ρ non-constant until the last query
+  (last free coordinate can still hit or avoid). So `DT_q(f_ρ)=s`. Exact
+  minimax DT_q (`scripts/review_o8c_counterex.py` → `data/review_o8c/counterex.txt`)
+  confirms `DT_q(f_ρ)=s` for q∈{9,16,25}, all s tested.
+* Quantitative failure: with `p=1/(4C')`, `Pr_ρ[DT_q ≥ pN/2] ≈ 0.61` for
+  q=10⁴…10⁸ while `(C'(2p+max w_ℓ))^{s_0}` is 10^{−3.5}…10^{−376}. The
+  counterexample is valid **after a constant fix** (defect m3: with the
+  doc's `p=1/(2C)` and k=2 the hypothetical bound `(Cpk)^s` equals 1).
+* ES level weights of f_ρ (exact, q=49…144): W^{=1} dominates and W^{=r}
+  decays in r (e.g. q=49,s=4: 1.0e−1, 1.2e−1, 8.2e−2, 1.4e−2, 1.7e−3 for
+  r=0…4, r=0 being the squared mean). So the example is plausibly
+  consistent with ESW, but the doc's justification is too weak (m4):
+  `Pr[f_ρ=1] ≲ Ns/q ≈ p` at the typical `s≍pN` is a constant, not "nearly
+  constant"; and `W^{≥1} ≤ Pr[f_ρ=1]` says nothing about the
+  geometric decay in s that ESW demands for s≥2.
