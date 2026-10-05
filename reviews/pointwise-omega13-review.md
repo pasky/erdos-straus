@@ -110,3 +110,44 @@ Defects (MINOR):
   the stated reason ("would gain a factor F_r at low-level steps") does not seem to
   occur. Harmless; suggest rewording or dropping the justification.
 
+### Thm 3.4 logic: random quarantine vs. deterministic δ*(T) — SOUND (modulo Lemma 3.3, reviewer 2)
+
+*The question.* The process is random, but the conclusion is about the fixed number
+δ*(T). The proof does not bound an expectation of δ*. It uses three probability
+bounds under the process law:
+`P(log Q_end>4E[log Q_end])≤1/4`, `P(S_res>4E[S_res])≤1/4`, and
+`P(∃ℓ>Y: w̃_ℓ>η)≤1/4`. Their union has probability ≤3/4<1, so a **deterministic**
+reachable `(Q,r)` avoids all three. That realisation is a legitimate fibre of Haar
+measure, with `P_H(n≡r (Q))=1/φ(Q)` and the coordinates independent on it (CRT). On
+it:
+* (1.1) holds at ℓ≤Y because the process stopped there (or `a_ℓ=f_ℓ`, in which case
+  there is no coordinate);
+* (1.1) holds at ℓ>Y by the choice of realisation;
+* no live event has empty support (Lemma 3.1).
+
+So Lemma 1.1 applies inside the fibre, and `δ*≥φ(Q)^{−1}exp(−(4/3)S_res)` is a
+deterministic inequality. This is a valid probabilistic-method existence argument.
+Repeated classes `(M,−4D mod M)` counted twice only weaken the bound. *Verdict:*
+SOUND, given Lemma 3.3. I did not check Lemma 3.3 (A)/(B) in depth; that is
+reviewer 2's scope.
+
+Defects (MINOR):
+* **m3 (normalisation of δ*; Thm 3.4 statement).** O13 defines δ* on all of `Ẑ^×`.
+  POINTWISE_HAAR §0 normalises it inside `n≡1 (24)`. The two differ by exactly a
+  factor 2: the atom `M=3, D=1` kills `n≡2 (3)`, and mod 8 is irrelevant. This is
+  harmless for the exponent. *Repair:* say so, or start the process at `Q=24, r≡1`.
+  That start is a forced `a=0` step at ℓ=3, which is a valid supermartingale step:
+  the only square mod 3 is 1.
+* **m4 (Cor 3.5 / I3: Mordell-hardness).** I3 claims "p is Mordell-hard because r
+  is a square mod 840". The process starts at `Q=8` and steps 3, 5 and 7 only if
+  `w̃>η`, so a priori `r` need not be defined mod 105.
+  * In practice the low-M atoms make `w̃_3, w̃_5, w̃_7` large.
+  * Still, nothing in the statement forces it.
+  * *Repair:* start at `Q=840` with r a uniformly random square class mod 105
+    (three forced `a=0` steps). These steps keep the supermartingales. They cost
+    `log 105` in `log Q` and no change to (b)–(d).
+* **m5 (apparent circularity in `Y=𝓛^{C_0+4}`).** Ξ contains `H=β^{ω}2^{ω_Y}` and so
+  depends on Y. The choice of Y is legitimate only because Ξ's bound `𝓛^{C_0}` is
+  uniform in Y, via `2^{ω_Y}≤2^{ω}`. The proof of Lemma 3.3(B) uses this implicitly
+  ("f(p)=O(1)"). *Repair:* state the uniformity in Y explicitly.
+
