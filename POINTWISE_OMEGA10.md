@@ -117,3 +117,17 @@ Evidence (`scripts/omega10_*.py`, exact Efron–Stein on `[q]^n`, `q≤5`, `n≤
   average over x.
 * A natural generalisation is false: for `ψ=g·F` (bad for one system, good
   for another, disjoint supports) `G_ψ=G_g G_F` may exceed `E[ψ w_min]`.
+
+**MONO is FALSE (PROVED by example; `scripts/omega10_monocex.py`).** Take n
+coordinates on `[q]`, `λ_v=2^{1/n}` (so every full-width cylinder has `w=2`),
+the system of all full-width cylinders with an even number `≥2` of
+mismatches against `c=0`, and `A={x=0}` (`w_A=2`). Then `G` increases:
+`q=8,n=2: 0.31571→0.31757`; `q=5,n=3: 0.75406→0.75467`. Mechanism (exact):
+writing `F=u+r` with `u=F·1_A`, `G_F−G_{F(1−A)} = ⟨u,Λu⟩+2⟨u,Λr⟩`, and the
+adversarial `r=1[Λu<0]` off A gives `π[a−(b−1)]` for `φ≡1`, with
+`a=∏(1+θ_v)`, `b=∏(1+2θ_v)`, `θ_v=(λ_v−1)(1−1/q_v)`; for `a=2` spread over
+many coordinates `b≈4>a+1`. (For a single coordinate `a=1+θ≥2θ=b−1`, and a
+direct computation proves MONO when `|supp A|=1`: `G_F−G_{F(1−A)} =
+π F(c)[λF(c)−μ(2EF−F(c)π)]≥0` for n=1, boolean F.) In all these examples
+`G_F<1` still: C-1 and C-exp are **not** refuted, but a proof cannot be a
+one-event-at-a-time monotonicity.
