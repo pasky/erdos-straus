@@ -221,10 +221,9 @@ positive sparse (wrong): `≥ a_i(F(s) − M/d + 1) ≥ 0` by (F4); negative ful
 
 *Mass of high terms.* Terms with d > CN are patches, wrong-signed, or
 dropped; by (5.1) and `T_mid ≤ cB`, their mass is
-`T_{>CN} ≤ W⁺_{>CN} + T_wr ≤ (1 + Δ(1+c))B/s₀ + B`. If
-`B ≥ N^{−A₁−1}·N`… more simply: if `T_{>CN} > N^{A₁+2}` then
-`B ≥ s₀N^{A₁+2}/(2 + 2Δ(1+c)) ≥ N` for N large, and there is nothing to
-prove. Otherwise run IF Thm 2.5's mean side (projection to the family
+`T_{>CN} ≤ W⁺_{>CN} + T_wr ≤ (1 + Δ(1+c))B/s₀ + B` (using Eν ≥ 0). If
+`T_{>CN} > N^{A₁+2}` then `B ≥ s₀N^{A₁+2}/(2 + 2Δ(1+c)) ≥ N` for N large
+(Δ ≤ e^{S_A}), and there is nothing to prove. Otherwise run IF Thm 2.5's mean side (projection to the family
 modulus, ET Lemma 2.9 coarsening at
 `λ = max{λ₀, log(CN), Λ₀ + log max(T_{>CN},1) + S}`, `Λ₀ = A log N`; terms of
 the projection with level > log(CN) come from terms with d > CN), now with
