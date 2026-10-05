@@ -42,7 +42,8 @@ class. Result: the certified bound is `log p ≪ log Z`.
 **Cited input (G) — Gallagher (Invent. Math. 11 (1970) 329–339, Thm 7),
 in the form of Montgomery–Vaughan, *Multiplicative Number Theory III*
 (draft, `sources/omega9/montgomery-mnt3.pdf`, Theorem 28.19, p. 229–230):**
-there are absolute constants `c≥1`, `κ≥3` such that for `1<Q_G^{6c}≤x`
+there are absolute constants `c≥1`, `κ_0≥3` such that, for any fixed
+`κ≥κ_0`, for `1<Q_G^{6c}≤x`
 
 ```
 Σ_{q≤Q_G} Σ*_{χ mod q} |ϑ(x;χ) − E_0(χ)x|  ≪  x·exp(−log x/(κ log Q_G)) + (log x/log Q_G)²·x/Q_G,
@@ -54,6 +55,14 @@ trivial character mod 1) **unless** `∏_{q≤Q_G}∏*_χ L(s,χ)` has a real ze
 exceptional character `χ_1` is replaced by `|ϑ(x;χ_1)+x^{β_1}/β_1|` and the
 right side by `(1−β_1)(log x)·[x·exp(−log x/log Q_G) + x log x/(Q_G log Q_G)]`
 (the prefactor multiplies both terms; review R34a MAJOR 1).
+
+Uniqueness, reality and quadraticity of `χ_1` come from MV's Exceptional
+Zero Statement (28.61)–(28.62), p. 216, valid for zeros with
+`1−β<c_1/log Q_G`; so we fix `κ := max(3κ_0, 1/c_1)` (R34a m1). *Source
+caveat (R34a m2):* MV III is an unpublished draft, and its printed proof of
+28.19 matches its two cases only for `κ=3κ_0` (a repairable slip). The
+statement is the classical Gallagher (1970) Thm 7; neither the original nor
+a published restatement (e.g. Iwaniec–Kowalski ch. 18) was checked.
 
 We also use the classical effective bound `1−β_1 ≫ q_1^{−1/2}(log q_1)^{−2}`
 for a real zero of `L(s,χ_1)`, `χ_1` real primitive of conductor `q_1`
@@ -84,7 +93,7 @@ So neither `M_1` nor the number of cells enters at all. Compare PO Thm 4.1: `log
 `L:=2c+log(400C_G(A+1))` and `Q_G:=x^{1/(κL)}`. For `C_2` large the
 hypothesis gives: `log Q_G ≥ C'log Z` with `C'` as large as we like (since
 `L≪1+log A`), hence `Q_G ≥ Z`, `Q_G ≥ 10^4C_G(A+1)(κL)²` (use `A≤Z^{1/4}`,
-`Z≥2`); `Q_G^{6c}≤x` (as `κL≥6c`); `log x≥16`; `x ≥ C·A·Z^{3}`. Note
+`Z≥2`); `Q_G^{6c}≤x` (as `κL≥6c`); `log x≥16`; `x ≥ Z^5 ≥ C·A·Z^{4}` (R34a m4, R34b m1). Note
 `D | lcm(1,…,max d_i)`, so `log D ≤ 1.04·max d_i` and `log(QD) ≤ 2Z`.
 
 *Character expansion.* `f(n):=B(n)1[n≡1 (Q)]` is a function on
@@ -127,12 +136,13 @@ finishes as in Case 0. Otherwise there is exactly one, and its term is
 
 * *Case A: `χ_D` trivial.* Then `c(χ)=μ/φ(Q)` and the main term becomes
   `λμx/φ(Q)` with `λ:=1−x^{β_1−1}/β_1`. Since `1/β_1 ≤ 1+2(1−β_1)`,
-  `λ ≥ 1−e^{−u}−2(1−β_1)e^{−u} ≥ 0.63min(u,1)−2min(u,1)/log x ≥ min(u,1)/2`
-  (using `1−β_1≤1/(κ log Q_G)` when `u>1`, and `log x≥16`). By the previous
-  paragraph the (G) error is `≤ λμx/(100φ(Q))`. For `R_1`: `c(χ)≠0` gives
-  `q_1 ≤ Z`, so by the effective Page bound `u ≥ 16(1−β_1) ≫ Z^{−1/2}(log Z)^{−2}`
-  and `λ ≫ Z^{−1/2}(log Z)^{−2}`; then `|R_1| ≤ λμx/(100φ(Q))` because
-  `x ≥ C·A·Z^3`. So `S(x) ≥ λμx/φ(Q)·(1−2/100) > 0`.
+  `λ ≥ 1−e^{−u}−2(1−β_1)e^{−u} ≥ 0.63min(u,1)−2min(u,1)/log x ≥ min(u,1)/2`,
+  since `2(1−β_1)e^{−u} = 2ue^{−u}/log x ≤ 2min(u,1)/log x` (`ue^{−u}≤min(u,1/e)`)
+  and `log x≥16` (R34a m3; numerically min ratio 1.215). By the previous
+  paragraph the (G) error is `≤ λμx/(100φ(Q))`. For `R_1`: here `q_1 | Q`
+  (χ_D trivial), so `q_1 ≤ Q ≤ Z` (R34a m5), and by the effective Page bound `u ≥ 16(1−β_1) ≫ Z^{−1/2}(log Z)^{−2}`
+  and `λ ≫ Z^{−1/2}(log Z)^{−2}`; then `|R_1| ≤ 2AZ³μ/φ(Q) ≤ λμx/(100φ(Q))`
+  because `x ≥ C·A·Z^4`. So `S(x) ≥ λμx/φ(Q)·(1−2/100) > 0`.
 * *Case B: `χ_D` nontrivial.* By item 3, `|c(χ)x^{β_1}/β_1| ≤
   (|μ_ψ|/φ(Q))·2x ≤ μx/(2φ(Q))`. So `S(x) ≥ μx/φ(Q)·(1−1/2−1/100) > 0`.
 
@@ -167,7 +177,8 @@ meets EL of Thm 3.4). O8 Thm 3.4's proof gives:
 `n≡1 (Q)` coprime to all `d_i`, the twist condition (Lemma 3.3), and the
 cell conditions, with `Q:=Q_Π·ℓ_aux` as in O4 Thm 2.1 (`ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`,
 only to force `p>T`). By Lemma 2.1 with
-`η=1/99`: `A ≤ 1.03`. Now apply Theorem 1.1 instead of PO Thm 4.1; it
+`η=1/99`: `A ≤ 1.03` (Thm 1.1's `E_D` over units mod `D=lcm d_i` is O8's
+Haar expectation for functions of the residues mod the `d_i`; R34a note). Now apply Theorem 1.1 instead of PO Thm 4.1; it
 needs only `log x ≥ C·log Z`, and (as in O8 Thm 3.4/6.3)
 `log Z ≤ log Q_Π + 2(3k+2d+1)𝓛`.
 
@@ -180,7 +191,10 @@ gives infinitely many distinct such p. ∎
 **Theorem 2.3 (PROVED modulo (G) only).**
 For infinitely many Mordell-hard p, `log W(p) ≥ (1/log 2 − o(1))·log₂p·log₃p`.
 
-*Proof.* As 2.2 with Wigert's `log S* ≤ (log2+o(1))𝓛/log𝓛`: every cost
+*Proof.* As 2.2, unconditionally. O2 Lemma 11.1 gives
+`S* ≤ C log𝓛·(3+𝓛)·Σ_{sr'²≤T}τ(4sr'²+1)/(sr')`; a single τ appears, so
+Wigert's `τ(n)≤2^{(1+o(1))log n/log log n}` (`n≤4T+1`) and
+`Σ_{sr'²≤T}1/(sr')≪𝓛²` give `log S* ≤ (log2+o(1))𝓛/log𝓛` (R34b m2). Then every cost
 term is `≤ 𝓛^{O(1)}(S*+1)`, so `log₂p ≤ log S* + O(log𝓛) ≤
 (log2+o(1))𝓛/log𝓛`, which inverts to `𝓛 ≥ (1/log2−o(1))log₂p·log₃p`. ∎
 
@@ -213,7 +227,11 @@ S* through ET; and the per-prime cost `𝓛` of every modulus prime.
   Thm 4.4's constant, and O8 §6.5/§6.6's ceilings, which concern PO Thm
   4.1 only. With Thm 1.1 the certified bound is `log p ≪ log Z`, so a large K
   is harmless; the cost of this route is the modulus budget
-  `log Q_Π + (junta)·𝓛` (no lower bound for it is claimed).
+  `log Q_Π + (junta)·𝓛` (no lower bound for it is claimed). Note, though,
+  a floor specific to the choice of z: `Q_Π ⊇ ∏_{ℓ≤z}ℓ^{e_ℓ}` with
+  `ℓ^{e_ℓ}` the largest power `≤T`, so `log Q_Π ≫ π(z)𝓛 ≍ 𝓛^{1+a}/log𝓛`
+  for `z=𝓛^a` (`𝓛³/log𝓛` at `a=2`: this certificate cannot beat ≈1/3
+  with `z=𝓛²`). The only z-free floor is `log Z ≥ log ℓ_aux > 𝓛` (R34b).
 * **Next (open):** exponent 1/6 needs *both* (i) ESW (`d≍k·k_0`; R30c
   M1(i) is moot now) and (ii) a quarantine with `log Q_Π ≪ 𝓛^6`, e.g. via a
   uniform per-prime bound `w_ℓ ≪ 𝓛^{O(1)}/ℓ` (an upper-bound divisor sum in
