@@ -11,7 +11,8 @@ O13 Cor 3.5 pays `log Z ≍ log Q + 𝓛·S` (S = residual mass `≍𝓛³` up t
 of cell modulus `≪S·polylog`, or a proof that `𝓛·S` is forced.
 
 Answer: **it is forced (up to logs) for every *dense* minorant of bounded level — any B
-with `B≤F` keeping a share `≥exp(−𝓛^{3.9})` of the avoider mass — not only for BRW**
+with `B≤F` keeping a share `≥exp(−𝓛^{3.9})` of the avoider mass — not only for BRW**, on every fibre with
+`log(1/δ_fibre)≤c″𝓛^4/(log𝓛)²` (e.g. O13's fibre, by O13 I1(a))
 (Thm 2.4, Cor 2.5, Cor 3.1). Sparse minorants with small `A=E|B|/E B` remain open (Prop 2.7).
 §1 proves an abstract *planting* barrier: if every event has one "big" coordinate of cost
 `≥L`, and B is any combination of functions that each see at most k big coordinates, then
@@ -211,8 +212,9 @@ are independent Haar, so `E[F|x_s]≤∏_ℓ(1−p_ℓ)≤e^{−P}`, `P:=Σ_ℓp
 **Corollary 2.5 (the transfer ceiling; PROVED implication).** On the fibre of O13 Thm 5.1
 (`Q'=Qℓ_aux`, Q Y-smooth, `ℓ_aux>T`, `log(1/δ_fibre)≪𝓛³(log𝓛)^{O(1)}` modulo NT), every minorant B of F of level
 `log D≤c𝓛^4/log𝓛` has `E B ≤ δ_fibre·exp(−𝓛^{4−o(1)})`. In particular BRW (O8 Lemma 3.1,
-needing `E B≥0.99δ`), Selberg-type quadratic minorants, β-sieve/Bonferroni truncations
-and any choice of `u_j` or weights in C-1 (brief items (i)–(iii)) all need cell/conductor
+needing `E B≥0.99δ`), and Selberg-type quadratic minorants, β-sieve/Bonferroni truncations
+and any choice of `u_j` or weights in C-1 (brief items (i)–(iii)) *when used as dense
+minorants* (share `≥e^{−𝓛^{3.9}}` of the avoider mass; R49 m3) all need cell/conductor
 level `log Z ≥ log D ≫ 𝓛^4/log𝓛`. So O13 Thm 5.1's `log Z≪𝓛^4log𝓛` is optimal
 up to logs **among transfers that need a level-D minorant of F keeping a share
 `≥exp(−𝓛^{3.9})` of the avoider mass** (level = span of characters of conductor `≤D`); see the
@@ -229,6 +231,12 @@ fibre, F is still `≤` its avoidance indicator, and all upper bounds (Lemma 2.1
 Δ, Δ_×) are inherited by the subfamily. The lost mass is `≤Σ_{q|Q, q>y}w_q ≤
 (log Q/log y)(𝓛³/(2y)+4𝓛T^{−2/5})+ω(Q)T^{−0.09} ≪ 𝓛²/log𝓛`, so `μ(𝓕_Q)≥μ/2≫𝓛³/log𝓛`.
 Run Theorem 2.4 with `m≍𝓛/log𝓛 ≤ y/𝓛^4`. ∎
+
+*Scope of Thm 2.6 (R49 m4).* The bound is absolute, so it obstructs *dense* minorants
+(share `≥exp(−𝓛^{3.9})` of the avoider mass `δ_fibre`) only on fibres with
+`log(1/δ_fibre)≤c″𝓛^4/(log𝓛)²`; this holds for O13's fibre by O13 I1(a)
+(`log(1/δ)≪𝓛³log𝓛`). On fibres with much smaller avoider mass Thm 2.6 says nothing about
+dense minorants.
 
 **Proposition 2.7 (where a low-level minorant's mean lives; PROVED).** In Theorem 2.4's
 setting (or 2.6's), let `G:={R(X_s)<K'}`. Then `E B ≤ E[B^+·1_G]` and `P(G)≤exp(−3mμ/8)`.
