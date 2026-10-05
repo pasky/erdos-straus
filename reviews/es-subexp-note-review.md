@@ -3,7 +3,41 @@
 Referee: hostile side agent `side-agent/referee-subexp`. Merged author branch at
 `ae9204b` (normal merge, since ff-only was impossible: main had moved).
 
-Status: IN PROGRESS (written incrementally).
+Status: COMPLETE (round 1).
+
+## Recommendation: MINOR REVISION
+
+I found no FATAL or MAJOR defect. I re-derived every lemma and the
+assembled proof *as written in the paper*, including all six changes
+relative to OMEGA8 listed in AGENT_REPORT_O33:
+(1) pairs-then-lifts, Def 2.5/Lemma 2.6;
+(2) the `+2` in Lemma 5.4;
+(3) the density ratio 4/3 in Lemma 6.2;
+(4) the twist constants of Lemma 5.5;
+(5) the self-contained proof of Lemma 2.3;
+(6) Remark 4.2.
+All six are correct. The five minor defects D1–D5 of
+`pointwise-omega8-review-2.md` are all repaired in the paper:
+* D1: B ≤ F at every integer, via the purely algebraic BRW identity.
+* D2: `2(3k+2t+1)Λ`.
+* D3: `ℓ_aux`.
+* D4: `Λ^7/logΛ`.
+* D5: pairs/lifts.
+
+From-scratch checks, none of them using the author's code:
+* `scripts/review_r33_atoms.py`: Lemmas 2.1/2.2 for all M<3000, the
+  g-symmetry, and the inner-sum bound of Lemma 2.3.
+* `scripts/review_r33_brw.py`: the BRW identity and B ≤ F, the
+  Efron–Stein c_W formula against least squares, and the m²-bound. This
+  is 300 random small product systems, enumerated exactly. The script also
+  checks the 4/3 density ratio and the fibre sizes of the binary encoding.
+
+The paper compiles: 16 pp., no undefined references. It does have
+over-full boxes (point 7).
+
+The remaining points are presentation: an unstated cited result
+(ET Prop 1.4), label consistency, missing literature relatives, and
+typesetting. The novelty claim is suitably hedged.
 
 ## Per-claim verdicts
 
