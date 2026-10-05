@@ -32,40 +32,38 @@
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
-the multiplier modulus is infinitely often $\exp\big((\log p)^{1/5-o(1)}\big)$}
+the multiplier modulus is infinitely often $\exp\big((\log p)^{1/4-o(1)}\big)$}
 \author{Anonymous}
-\date{Draft v3, 5 October 2026}
+\date{Draft v4, 5 October 2026}
 
 \begin{document}
 
 \begin{abstract}
 For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
-``multiplier'' congruence that yields a solution of $4/p=1/x+1/y+1/z$.  In
-earlier work we showed that $W(p)$ exceeds every fixed power of $\log p$ for
-infinitely many primes $p$ in Mordell's hard classes.  Here we prove
-$W(p)\ge\exp\big(c(\log p)^{1/5}(\log\log p)^{-1/5}\big)$ for infinitely many
-hard primes, assuming Gallagher's prime number theorem for the family of all
-characters and four results of Elsholtz and Tao on divisor sums of
-polynomials; more precisely, the least hard prime with $W(p)>T$ is at most
-$\exp(O((\log T)^5\log\log T))$.  Without the Elsholtz--Tao input we get
-$\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$ infinitely often.
-The class of one modulo a \emph{graded} set of prime powers leaves a residual
-congruence system; the exponent at each prime is raised until the mass of the
-system at that prime falls below a threshold proportional to the logarithm of
-the prime power it would consume.  The local lemma then gives its avoiding
-set positive Haar density, and the cost of the quarantine is controlled by a
-moment of the number of prime-power divisors of the moduli, which we bound
-with the Elsholtz--Tao divisor sums in progressions.  To transfer the density to primes we use
-the one-sided $\ell^2$ sandwich of Bazzi and Razborov and a linear transfer
-theorem based on Gallagher's theorem, as in the previous version.  The new
-ingredient is a sharp energy bound for avoidance indicators: for any family
-of cylinder events on a finite product probability space and any weights
-$\lambda_v\ge1$ with $\prod_{v\in\supp E}\lambda_v\le2$ for every event $E$,
-the Efron--Stein energies satisfy $\sum_U\prod_{v\in U}\lambda_v\|F^{=U}\|_2^2\le1$.
-It replaces the binary encoding, Håstad's switching lemma and the
-Linial--Mansour--Nisan argument of the previous version, and, applied to
-the base-$\ell$ digits of the residues, it measures the cost of the
-approximation in the size of the moduli instead of the number of primes.
+``multiplier'' congruence that yields a solution of $4/p=1/x+1/y+1/z$.  We
+prove $W(p)\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-1/4}\big)$ for infinitely
+many primes $p$ in Mordell's hard classes, assuming Gallagher's prime number
+theorem for the family of all characters and the Nair--Tenenbaum bound for
+short sums of multiplicative functions of polynomials; more precisely, the
+least hard prime with $W(p)>T$ is at most $\exp(O((\log T)^4\log\log T))$.
+The previous version had exponent $1/5$ and needed four results of
+Elsholtz and Tao.  We also determine the Haar side: the profinite density
+$\delta^*(T)$ of the integers with $W(n)>T$ satisfies
+$(\log T)^3/\log\log T\ll\log(1/\delta^*(T))\ll(\log T)^3(\log\log T)^5$.  The
+upper bound comes from quarantining $n$ to a \emph{random square class}
+modulo a growing modulus: the residues $-4D\bmod M$ of the multiplier
+congruences are Jacobi non-residues, so no congruence is ever forced, and in
+expectation the residual masses are Haar masses.  A local lemma with
+weights $\beta^{|\supp E|}$ and a supermartingale bookkeeping control the
+cost.  The lower bound comes from a Janson-type inequality for events on
+product spaces of one-hot variables, where Harris' inequality fails.  The
+transfer to primes uses, as before, the one-sided $\ell^2$ sandwich of Bazzi
+and Razborov, an energy bound for avoidance indicators of cylinder events,
+and a linear transfer theorem based on Gallagher's theorem.  Finally we show
+that $1/4$ is the limit of this architecture: on every fibre, no minorant of
+$\mathbf 1[W(n)>T]$ of level $\exp(c(\log T)^4/\log\log T)$ has positive Haar
+mean.  The proof is a planting argument, the dual of a lower-bound sieve of
+dimension $\asymp(\log T)^3$.
 \end{abstract}
 
 \maketitle
@@ -101,78 +99,127 @@ Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
 $W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
 hard primes.  Here we prove a sub-exponential rate.
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:G} and~\ref{thm:ETall}]\label{thm:main}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:main}
 There is an absolute constant $c>0$ such that for infinitely many hard primes $p$
 \[
- W(p)\ \ge\ \exp\Big(c\,\frac{(\log p)^{1/5}}{(\log\log p)^{1/5}}\Big).
+ W(p)\ \ge\ \exp\Big(c\,\frac{(\log p)^{1/4}}{(\log\log p)^{1/4}}\Big).
 \]
-More precisely, for every sufficiently large $T$ there is a prime
-$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{5}\log\log T$.
-\end{theorem}
-
-\begin{theorem}[Proved modulo Theorem~\ref{thm:G}]\label{thm:uncond}
-For infinitely many hard primes $p$,
-\[
- \log W(p)\ \ge\ \Big(\frac1{\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
-\]
+More precisely, for every sufficiently large $T$ there is a hard prime $p$
+with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{4}\log\log T$.
 \end{theorem}
 
 Theorem~\ref{thm:G} is Gallagher's prime number theorem for the family of
 all primitive characters of conductor at most $Q_G$ \cite{Gallagher}, quoted
 from \cite[Thm.~28.19]{MV3} together with the standard facts on exceptional
 zeros (Theorem~\ref{thm:xz}).  No hypothesis on Siegel zeros is needed.
-Theorem~\ref{thm:ETall} collects four results of Elsholtz and Tao
-\cite{ET}: their Proposition~1.4, Theorem~7.1, Corollary~7.4 and the
-estimate (7.10).  They are used only in \S\ref{sec:moment}, to bound the
-total mass of the residual system by $O((\log T)^4)$ and a moment of the
-number of prime-power divisors of its moduli by $O((\log T)^4\log\log T)$.
-Without them the same argument gives Theorem~\ref{thm:uncond}.  All
+Theorem~\ref{thm:NT} is the Nair--Tenenbaum bound \cite{NT} for sums of
+multiplicative functions of several polynomials, quoted in the form of
+Henriot \cite{Henriot}; it is used once, to bound Haar-weighted divisor sums
+over the moduli $M=4n-1$ (Lemma~\ref{lem:masses}).  The Elsholtz--Tao
+estimates used in the previous version are no longer needed.  All
 constants are effective, except that we have not checked whether the
-implied constants in \cite{ET} are.  We make no numerical claim.  We also
-obtain a Haar-side bound (Corollary~\ref{cor:haar}): the set of integers
-$n$ with $W(n)>T$ has density at least $\exp(-O((\log T)^5\log\log T))$,
-modulo Theorem~\ref{thm:ETall}.
+implied constants in \cite{NT} are.  We make no numerical claim.
+
+Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
+relative to the class $n\equiv1\pmod{24}$ (\S\ref{sec:moment}).
+
+\begin{theorem}[Haar exponent $3$]\label{thm:haar}
+For large $T$,
+\[
+ c\,\frac{(\log T)^3}{\log\log T}\ \le\ \log\frac1{\delta^*(T)}\ \le\ C(\log T)^3(\log\log T)^5 .
+\]
+The upper bound is proved modulo Theorem~\ref{thm:NT}
+(Theorem~\ref{thm:haarupper}); the lower bound is proved modulo the
+fundamental lemma of sieve theory (Theorem~\ref{thm:haarlower}).
+\end{theorem}
+
+The exponent of $\log p$ in Theorem~\ref{thm:main} is governed not by the
+Haar density but by the level of the minorant used to transfer it to
+primes, and this level cannot be lowered.
+
+\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:ceilingintro}
+There are absolute $c,T_0>0$ such that for $T\ge T_0$, every modulus $Q$ with
+$\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$: if $B$ is a linear
+combination of functions $n\mapsto\phi(n\bmod qQ)$ with
+$\log q\le c(\log T)^4/\log\log T$, and $B(n)\le\mathbf 1[W(n)>T]$ for all units
+$n\equiv r\pmod Q$, then the Haar mean of $B$ on this class is $\le0$.
+\end{theorem}
+
+This is Theorem~\ref{thm:ceiling}.  Consequently
+(Corollary~\ref{cor:ceiling}) every argument that certifies a hard prime
+with $W(p)>T$ through a minorant of positive Haar mean and a transfer
+theorem costing $\log x\gg\log(\text{level})$, as ours does, has
+$\log x\gg(\log T)^4/\log\log T$: such arguments cannot give
+$W(p)\ge\exp((\log p)^{1/4+\delta})$, and Theorem~\ref{thm:main} is optimal among
+them up to a factor $(\log\log p)^{1/2}$ in $\log W(p)$.  It also shows that
+the energy bound used for the sandwich cannot be sharpened for this purpose
+(Corollary~\ref{cor:notail}).  If primes behaved like a set of Haar density
+$\delta^*(T)$, Theorem~\ref{thm:haar} would suggest $\log W(p)\approx(\log p)^{1/3}$
+for the extremal primes; reaching this needs prime input that is not a
+bounded-level minorant (Remark~\ref{rem:third}).
 
 \emph{Versions.}  The first version of this note had exponent $1/14$; it used
 the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
 \cite{Paper1}.  The second had exponent $1/7$: it replaced Thorner--Zaman by
-the linear transfer theorem (Theorem~\ref{thm:transfer} here, in a simpler
-form), and bounded the approximation error by Håstad's switching lemma.  The
-present version keeps the transfer theorem and the sandwich, and changes
-three things: the switching lemma is replaced by an energy bound
-(\S\ref{sec:energy}), the quarantine is graded (\S\ref{sec:system}), and the
-cost of the quarantine is bounded through a moment estimate
-(\S\ref{sec:moment}).  Håstad's switching lemma is no longer used.
+the linear transfer theorem (Theorem~\ref{thm:transfer} here), and bounded
+the approximation error by Håstad's switching lemma.  The third had exponent
+$1/5$: it replaced the switching lemma by the energy bound
+(\S\ref{sec:energy}) and used a graded class-of-one quarantine, whose cost
+was bounded with four results of Elsholtz and Tao.  The present version
+keeps the energy bound, the sandwich and the transfer theorem, and changes
+the quarantine: a random square class, a $\beta$-weighted local lemma and a
+supermartingale bookkeeping (\S\ref{sec:system}) with Haar masses bounded by
+the Nair--Tenenbaum theorem (\S\ref{sec:moment}).  The third version also had
+an unconditional bound $\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$
+modulo Gallagher's theorem alone; we drop it, since Theorem~\ref{thm:main}
+now needs only Gallagher's theorem and the published Nair--Tenenbaum
+theorem.  New are also the Haar lower bound (\S\ref{sec:haarlower}), which
+was cited from companion work in the third version, and the ceiling
+(\S\ref{sec:ceiling}).
 
 \subsection*{The method}
-Fix $T$.  We impose $n\equiv1$ modulo $Q=8\prod_\ell\ell^{a_\ell}$ for suitable
-exponents $a_\ell\ge0$.  Then $W(n)>T$ whenever $n$ avoids a finite family
-of congruence \emph{events} $n\equiv-4D\pmod{r}$, one for each surviving pair
-$(M,D)$, where $r$ is the part of $M$ not absorbed by $Q$.  Unlike in
-\cite{Paper1} and the previous version, a prime $\ell$ is not quarantined
-all at once to $n\equiv1\pmod{\ell^{e}}$ with $\ell^e\le T<\ell^{e+1}$.  We
-raise $a_\ell$ one step at a time, as long as the Haar mass $w_\ell$ of the
-events that still involve $\ell$ exceeds $\theta_\ell=c(a_\ell+1)\log\ell/\log T$
-(Lemma~\ref{lem:gradedq}).  Since every event comes from a modulus $M\le T$,
-the total mass seen by one event is then at most $c$, which is what the local
-lemma needs.  After a cheap initial quarantine of the primes up to $\log T$,
-the cost satisfies $\log Q\le1.02\log T+7+(e^2\log T/c)\,\Omega_0$, with the moment
-$\Omega_0=\sum_{(M,D)}(g/M)\,h(M)$, where $g=\gcd(M,4D+1)$ and $h(M)=\sum_{\ell^i\mid M}1/i$.
-We bound this moment by $O((\log T)^4\log\log T)$ (Theorem~\ref{thm:omega}), so
-$\log Q\ll(\log T)^5\log\log T$.
+Fix $T$.  We restrict $n$ to a class $n\equiv r\pmod Q$, with
+$Q=8\prod_\ell\ell^{a_\ell}$ and $r$ a quadratic residue modulo every prime of $Q$.
+Then $W(n)>T$ whenever $n$ avoids a finite family of congruence \emph{events}
+$n\equiv-4D\pmod{m}$, one for each surviving pair $(M,D)$ with $M\le T$,
+$D\mid A_M^2$, where $m$ is the part of $M$ not absorbed by $Q$.  The key
+observation (Lemma~\ref{lem:jacobi}) is that the Jacobi symbol
+$(\frac{-4D}M)$ is always $-1$; so if every prime of $M$ divides $Q$, the
+event is excluded, and no event is ever forced, whatever square class $r$
+we choose.  For $r=1$ this is the class-of-one quarantine of \cite{Paper1};
+Mordell's hard classes are the case $Q=840$.
+
+We build $(Q,r)$ by a random process (Lemma~\ref{lem:book}).  While the
+weighted mass $\tilde w_\ell=\sum_{E\ni\ell}\beta^{|\supp E|}\PP(E)$ at a prime $\ell\le Y=\Lc^{O(1)}$
+exceeds $\eta=\frac34\log\beta$, we reveal one more digit of $n$ at $\ell$,
+uniformly among the squares.  The $\beta$-weighted local lemma
+(Lemma~\ref{lem:betalll}) needs exactly $\tilde w_\ell\le\eta$ at every
+coordinate.  With $\beta=1+1/\log\Lc$ the threshold is $\asymp1/\log\Lc$ at every
+prime and every level, instead of $\asymp\log\ell/\Lc$ in the previous version.
+The masses form supermartingales (a step at a new prime at most doubles the
+mean of an event's probability, and this is paid by a factor $2^{\omega_Y(M)}$),
+so by optional stopping the expected cost is a Haar-weighted divisor sum,
+$\ll\Lc^3(\log\Lc)^5$ by the Nair--Tenenbaum theorem.  Primes $\ell>Y$ are never
+quarantined; a second-moment potential for pairs of events shows that their
+masses are small with high probability.  The class of one, used before,
+inflates the masses by $\gcd(M,4D+1)$, which costs a factor $\Lc$ and requires
+the Elsholtz--Tao estimates.
 
 To find a \emph{prime} in the avoiding set we need a function
 $B=\sum_ic_i\mathbf 1[n\equiv b_i\ (d_i)]$ with $B\le\mathbf 1[\text{avoid}]$
-pointwise, mean $\gg\delta$ (the Haar density of the avoiding set), Haar
-$\ell^1$ norm $\E|B|$ comparable to its mean, and small moduli $d_i$.  The
-linear transfer theorem (Theorem~\ref{thm:transfer}) then gives a prime $p$
-with $\log p\ll\log Z$, where $Z$ is $Q$ times the largest $d_i$.  It is
-Linnik's theorem with weights: the function $B(n)\mathbf 1[n\equiv1\ (Q)]$ is
-expanded in characters, every coefficient is bounded by the Haar $\ell^1$
-norm of $B$, whatever the number of cells, and Gallagher's theorem bounds
-the contribution of all characters of conductor at most a power of $Z$ at once.
+pointwise, mean $\gg\delta$ (the Haar density of the avoiding set on the
+fibre), Haar $\ell^1$ norm $\E|B|$ comparable to its mean, and small moduli
+$d_i$.  The linear transfer theorem (Theorem~\ref{thm:transfer}) then gives a
+prime $p\equiv r\pmod Q$ with $\log p\ll\log Z$, where $Z$ is $Q$ times the
+largest $d_i$.  It is Linnik's theorem with weights: the function
+$B(n)\mathbf 1[n\equiv r\ (Q)]$ is expanded in characters, every coefficient is
+bounded by the Haar $\ell^1$ norm of $B$, whatever the number of cells, and
+Gallagher's theorem bounds the contribution of all characters of conductor
+at most a power of $Z$ at once.  Since $r$ is a square, every real character
+that factors through $(\mathbb Z/Q)^\times$ is $1$ at $r$, so the exceptional-zero
+analysis is the same as for the class of one.
 
-As in the previous version, $B$ is the one-sided $\ell^2$ sandwich of Bazzi
+As in the previous versions, $B$ is the one-sided $\ell^2$ sandwich of Bazzi
 \cite{Bazzi}, in the form of Razborov \cite{Razborov} (Lemma~\ref{lem:brw}).
 For events $E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
 \[
@@ -180,26 +227,26 @@ For events $E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
 \]
 and, if each $u_j$ depends only on the coordinates not fixed by $E_j$,
 $\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
-indicator that no earlier event occurs, conditioned on $E_j$.  We need the
-$u_j$ to be combinations of classes with small moduli.  The natural choice
-is a truncation of the Efron--Stein decomposition of $F^{(j)}$, and the error
-is then an Efron--Stein tail.  The previous version bounded this tail by
-encoding residues in binary and applying Håstad's switching lemma
-\cite{Hastad,LMN}.  Here we prove (Theorem~\ref{thm:C1}): if $F$ is the
-avoidance indicator of any family of cylinder events on a finite product
-probability space, and $\lambda_v\ge1$ are weights with
-$\prod_{v\in\supp E}\lambda_v\le2$ for every event $E$, then
+indicator that no earlier event occurs, conditioned on $E_j$.  The $u_j$ are
+truncations of the Efron--Stein decomposition of $F^{(j)}$, and the error is
+an Efron--Stein tail, which we bound by the energy bound of the previous
+version (Theorem~\ref{thm:C1}): if $F$ is the avoidance indicator of any
+family of cylinder events on a finite product probability space, and
+$\lambda_v\ge1$ are weights with $\prod_{v\in\supp E}\lambda_v\le2$ for every event
+$E$, then
 \[
  \sum_{U}\Big(\prod_{v\in U}\lambda_v\Big)\,\|F^{=U}\|_2^2\ \le\ 1 .
 \]
-With $\lambda_v=2^{1/k}$ this gives the tail $2^{-(t+1)/k}$ beyond level $t$ for
-events on at most $k$ coordinates (Corollary~\ref{cor:tail}), with no
-dependence on the alphabet sizes.  Applied to the base-$\ell$ digits of the
-residues, with weights adapted to the moduli (Theorem~\ref{thm:filtration}),
-it shows that truncating $F^{(j)}$ to moduli at most $e^{\tau}$ costs
-$2^{-\tau/(2\log T)}$.  So moduli of size $\log d_i\ll\log T\cdot(S+\log T)$
-suffice, where $S\ll(\log T)^4$ is the total mass.  Altogether
-$\log Z\ll(\log T)^5\log\log T$.
+Applied to the base-$\ell$ digits of the residues, with weights adapted to
+the moduli (Theorem~\ref{thm:filtration}), it shows that truncating $F^{(j)}$
+to moduli at most $e^{\tau}$ costs $2^{-\tau/(2\log T)}$.  So moduli of size
+$\log d_i\ll\Lc\cdot(S+\Lc)$ suffice, where $S\ll\Lc^3\log\Lc$ is the residual mass.
+Altogether $\log Z\ll\Lc^4\log\Lc$.  The ceiling (Theorem~\ref{thm:ceiling})
+shows that the level $\Lc S$ is forced: conditioned on the small primes,
+the events with one large prime factor form a sieve of dimension
+$\asymp\Lc^3/\log\Lc$ on the primes above $T^{0.6}$, and a planting lemma
+(Lemma~\ref{lem:planting}), the dual of a lower-bound sieve, shows that no
+function of lower level can be a minorant with positive mean.
 
 \subsection*{Relation to the literature}
 \emph{The energy bound.}  The nearest prior art known to us is Lecomte and
@@ -222,6 +269,22 @@ some lecture notes; we did not search the literature on switching-lemma
 variants, Fourier growth or hypercontractivity with $\rho>1$
 systematically), and we make no priority claim.
 
+\emph{The local lemmas.}  Lemma~\ref{lem:betalll} is the asymmetric local
+lemma \cite[Lemma~5.1.1]{AS} with the choice $x_E=\beta^{|\supp E|}\PP(E)$; the
+conditional form for events outside the family is standard (cf.\
+\cite{HSS}).  Theorem~\ref{thm:janson} combines the lopsided local lemma of
+Erd\H{o}s and Spencer \cite{ErdosSpencer} with the proof scheme of Janson's
+inequality \cite{Janson}, which needs increasing events and Harris'
+inequality; for atomic events on one-hot coordinates we use instead the
+correlation inequality of Lemma~\ref{lem:compat}.  We did not find this form
+in the literature, but did not search systematically.  The planting
+lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
+lower-bound sieves; constructions of $k$-wise independent laws with
+extremal all-zero or all-one probabilities of the same kind appear in
+\cite{BGP,PYY}, and we claim no novelty for it.  Its use to bound the level
+of minorants of a concrete arithmetic indicator, for every fibre, is new to
+us.
+
 \emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
 To our knowledge tools from the theory of bounded independence
 (``polylogarithmic independence fools DNF and $\mathrm{AC}^0$''
@@ -243,10 +306,11 @@ congruence system, has relatives in the work on covering systems:
 Filaseta, Ford, Konyagin, Pomerance and Yu \cite{FFKPY}, who to our knowledge
 already use the local lemma for this purpose, Hough \cite{Hough} and
 Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba \cite{BBMST}.  We do not
-use those results.  The moment bound of \S\ref{sec:moment} uses the
-parametrisation and the divisor-sum estimates of Elsholtz and Tao
-\cite{ET}; the splitting of the prime powers at the scale of the parameter
-$c$ (Lemma~\ref{lem:rough}) is ours.
+use those results.  The Jacobi-symbol property of the multiplier classes
+(Lemma~\ref{lem:jacobi}) is implicit in the classical fact that the
+identities cover all non-residue classes; its use to quarantine to random
+square classes is ours.  The divisor-sum bounds use Nair--Tenenbaum
+\cite{NT,Henriot} in a standard way.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
@@ -254,25 +318,29 @@ modulo X} means proved here assuming the cited statement X, whose statement
 we checked in the source but whose proof we did not check.  \emph{Cited}
 marks external statements; \emph{Classical} marks standard results for
 which we include a proof or a precise textbook reference.  The cited
-inputs of the main theorems are Gallagher's theorem (Theorem~\ref{thm:G},
-used together with the classical Landau--Page facts of
-Theorem~\ref{thm:xz}) and the Elsholtz--Tao estimates
-(Theorem~\ref{thm:ETall}).  In the labels, ``modulo Theorem~\ref{thm:G}''
-includes Theorem~\ref{thm:xz}.  Classical results whose proof we include,
-or which are standard textbook facts (the local lemma, the Efron--Stein
-decomposition, Mertens' theorem, the divisor bound, the Rosser--Schoenfeld
-bound for $\vartheta(x)$), are not listed in the labels.  \emph{Assessment}
-marks heuristic comparisons, which are not claims.  Nothing here bears on
-the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$ may
-well have other representations.
+inputs are Gallagher's theorem (Theorem~\ref{thm:G}, used together with the
+classical Landau--Page facts of Theorem~\ref{thm:xz}), the Nair--Tenenbaum
+theorem (Theorem~\ref{thm:NT}) and, for Theorems~\ref{thm:haarlower}
+and~\ref{thm:ceiling}, the fundamental lemma of sieve theory.  In the labels,
+``modulo Theorem~\ref{thm:G}'' includes Theorem~\ref{thm:xz}.  Classical
+results whose proof we include, or which are standard textbook facts (the
+local lemma, the Efron--Stein decomposition, Mertens' theorem, the divisor
+bound, the Rosser--Schoenfeld bound for $\vartheta(x)$, mean values of
+non-negative multiplicative functions via Euler products), are not listed
+in the labels.  \emph{Proved implication} marks a statement about a class of
+arguments.  \emph{Assessment} marks heuristic comparisons, which are not
+claims.  Nothing here bears on the truth of the Erd\H{o}s--Straus conjecture:
+a prime with large $W(p)$ may well have other representations.
 
 \smallskip\noindent\textbf{Notation.}  $T$ is large and $\Lc=\log T$;
 $\log_2$ always denotes the binary logarithm (iterated logarithms are
-written out as $\log\log$).  $\tau$ is the divisor function and
-$\tau^*(x)=\max_{n\le x}\tau(n)$.  In \S\ref{sec:moment} the letter $q$
-denotes a prime power $\ell^i$ with $i\ge1$, and $\sum_q$ is a sum over prime
-powers.  For
-$\lambda=(\lambda_v)$ and a finite set $U$ we write $\lambda^U=\prod_{v\in U}\lambda_v$.
+written out as $\log\log$).  $\tau$ is the divisor function (and, in
+\S\S\ref{sec:brw}--\ref{sec:proof}, also a truncation parameter; no confusion
+arises).  $\omega(m)$ and $\Omega(m)$ count prime factors without and with
+multiplicity; $\omega_Y(m)$ counts the prime factors $\le Y$, and $m_Y$ is the
+$Y$-smooth part of $m$.  A $y$-rough integer has all prime factors $>y$.
+For $\lambda=(\lambda_v)$ and a finite set $U$ we write $\lambda^U=\prod_{v\in U}\lambda_v$.
+
 
 \section{Atoms, square classes and the local lemma}\label{sec:system}
 
