@@ -339,6 +339,34 @@ it holds while `(log G)³ ≲ log₂p` (the GR primes number `x^{1−o(1)}`, the
 model cost is `p^{−(c_0/12)(log G)³/log₂ p}`), suggesting the true i.o.
 gain is `g(p)=exp(c(log₂p)^{1/3})` on GR-type primes (Assessment).
 
+## 5. Census (EVIDENCE)
+
+`typei_ratio.py` (forced slices skipped by Thm 48.1; the `--noskip` run to
+6000 gives identical output) over all 82887 hard primes `p<10^7`, data
+`data/pointwise_typei/ckmin_np_1e7.txt.gz` (lines `p n_p ck_min`).
+Reproduces notes (48.12)/(48.13) and the §48 records to `10^5`.
+
+| range | #p | `ck_min=n_p` | ratio ≥2 | ratio ≥5 | max ratio (p, n_p, ck_min) | max ck_min |
+|---|---|---|---|---|---|---|
+| `[25,10^5)` | 1181 | 0.638 | 0.231 | 11 | (12289, 11, 77) | 103 (p=92401) |
+| `[10^5,10^6)` | 8551 | 0.645 | 0.220 | 41 | (414241, 19, 218) | 218 |
+| `[10^6,10^7)` | 73155 | 0.663 | 0.198 | 251 | (9033649, 43, 883) | 883 |
+
+* New records beyond notes §48: `ck_min(414241)=218`, `ck_min(9033649)=883`
+  (`n_p=43`, ratio 20.5, `ck_min/(log p)²=3.44`). The latter was
+  re-verified by the independent dual engine of Lemma 1.1 (all slices,
+  forced included, `ck≤900`): first positive slice `(883,1)`.
+* `typei_records.py`: at `p=9033649` all 583 unforced slices with
+  `ck<883` vanish (83 non-residue primes in `[43,883)`), model mass
+  `Σ log p/ck=22.8`.
+* Per-slice statistics near `p≈9.2·10^6` (unforced p only): `P(M=0)` is
+  far above `exp(−𝔼M)` (e.g. slice (5,1): 0.127 vs 0.005; (43,1): 0.90 vs
+  0.80) — M is even (pairs `D,N/D`) and heavy-tailed, so Assessment 4.6's
+  Poisson form is conservative.
+* By `n_p`: `n_p=5` (41568 primes): max `ck_min=10` (explained by Thm 6.1);
+  `n_p=7`: max 76; 11: 111; 13: 143; 17: 166; 19: 218; 23: 222; 29: 202;
+  31: 158; 37: 148; 41: 123; 43: 883.
+
 ## 6. Goal (3), the upper-bound side: `C(r)=sup{ck_min(p) : p hard, n_p=r}`
 
 Theorem 2.1 shows (under H) that no bound `ck_min ≤ f(n_p)` with
@@ -397,3 +425,15 @@ needs a product-space covering search (not done). **Open:** is
 Type-I ES for all hard primes (by a family of coverings, one per value of
 `n_p` — an E2 escape in the sense of POINTWISE_SIZE Prop A, since `n_p` is
 not a bounded formal quantity).
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/typei_dual_check.py 300 10        # Lemma 1.1, 0 mismatches
+PYTHONPATH=scripts uv run python scripts/typei_ratio.py 25 30000 200       # notes (48.12) records, Lemma 8.1
+PYTHONPATH=scripts uv run python scripts/typei_ratio.py 25 6000 200 /tmp/a --noskip   # forced-skip check
+PYTHONPATH=scripts uv run python scripts/typei_ratio.py 25 3000000 2000 /tmp/r1.txt     # §5 (~10 min)
+PYTHONPATH=scripts uv run python scripts/typei_ratio.py 3000000 10000000 2000 /tmp/r2.txt  # §5 (~1 h)
+PYTHONPATH=scripts uv run python scripts/typei_records.py 9033649 414241 12289
+PYTHONPATH=scripts uv run python scripts/typei_smallD.py 7 3000000 2000 400  # EVIDENCE 6.3
+```
