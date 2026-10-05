@@ -67,3 +67,37 @@ Label "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)" is accu
   label is "PROVED given K2/EK as reviewed"; the §10 opening paragraph states this proviso
   explicitly. Acceptable (see minor point M1 below for a suggestion).
 * Thm 10.13 retained with only Prop 1.4 — consistent and correctly motivated.
+
+### Claim 3 — §14 (large sieves, prime laws, interval counts, hybrids): SOUND-AFTER-REPAIRS
+
+Method: statement-by-statement comparison with LS, LS2 (incl. its "Update (KARY3, (D)24)"
+header), PL, IF, IF2, KA3 §4.3 and the reviews (done with a research assistant; every defect
+listed below was re-verified by me in the tex/source). Re-derived myself: Thm 14.1 (duality via
+Cauchy–Schwarz + minimax, w_θ≤1/N ⇒ Parseval), Thm 14.2 (fibre lift, B≥⌊N/Q₀⌋Q₀Eν≥(N/2)Eν,
+λ≤3A log N), Lemma 14.4 (LP duality; ν≥1_A forces ν≥0, so Thm 10.12 applies), Lemma 14.18
+(sign rule: β*−a·c = |a|·1[wrong]; and the N=20 example: 1[7|n]−1[3∤n]+1[(n,21)=1]=1[21|n],
+hybrid charge (2−14)+12=0). All statements match their sources in hypotheses, constants and
+exponents (24 log log 3Q + C, 26 log log N + C; band family η=1/9, R=324; log(2+12c); etc.).
+* The λ^{3/4} substitution ("PROVED via Theorem 10.12") is valid for every integer-measure result:
+  in LS Thm 3.1, LS2 L1.1/Thms 2.4, 4.2, 9.1/Prop 5.1 and IF Cor 2.3/Thm 2.5 the K2 cap enters
+  only as a black-box lower bound on Eν (resp. m*). Citation is incomplete though (point m3).
+* Unit-measure results (Thm 14.12 PLcap, Lemma 14.4 units part, Thm 14.6 LSprimes) are honestly
+  stated with (log λ)^{3/4} / (log log N)^{3/4} and "pointer level" for the improvement. But the
+  abstract does not respect this (point M1).
+* Thm 14.20 (hybridcap) is correctly labelled "PROVED implication, CONDITIONAL on Flat". The
+  added "observation" (black-box use ⇒ C(log N)^{3/4}) is correct: in IF2's proof the cap enters
+  only through log(1/Eν) after coarsening at level ≤(A+A₁+2)log N+S+λ₀, and the bootstrap
+  S≥K log N ⇒ λ≤2S+λ₀ ⇒ S=O(1) closes it.
+* Thm 14.7 (Gallagher) "unconditional" and dependency list (Shiu, Mertens, no ElT) match LS2
+  Thm 4.3 / Rem (a).
+
+### Claim 4 — §15 (tuple counts, truncated weights, forced zeros): SOUND-AFTER-REPAIRS
+
+Same method (TU, TU2, KA3 §§5, 7, KA2, (D)21/(D)24/(D)25). Re-derived: Cor 15.8 (classorder):
+a nonempty intersection of ≤k classes with moduli ≤N^A is one class mod an lcm ≤N^{kA}, level
+≤kA log N, so Thm 10.12 at λ=max(kA log N, λ₀) gives the stated bound — the subagent-written
+proof is correct and the label is earned by the note's own proof (KA3 §4.3 only points to it).
+Lemma 15.15 (packing): next-fit bins give b_i b_{i+1}>Z, d>Z^{⌊m/2⌋} ⇒ m≤k−1, coprime bins ⇒
+CRT — correct. Thm 15.3 constants (e+2, 2/e²) and Thm 15.20 constants (e+3, 2e+2) match TU/TU2.
+Git history confirms KA3 Lemma 7.2 postdates R28, so "coordinator-checked only" is accurate.
+Literal TC_θ being false is presented only as an Assessment. Defects in m8–m14 below.
