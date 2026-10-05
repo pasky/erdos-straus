@@ -445,3 +445,42 @@ sieve (the avoiding set is not a product set) nor Bonferroni+Gallagher
 (d) We did not find (in `sources/`) a prior "least prime avoiding a
 composite-modulus congruence system" bound with polylogarithmic dependence
 on the local data; see §4 for what we could not check.
+
+## 6. Toy checks and Replay
+
+* `scripts/transfer_mn.py` (stdlib, ~10 s): Lemma 5.1 (i)–(iii) and identity
+  (5.1) for `m ∈ {4,5,6,7,8,11}`, all `M ≤ 3000`, `M ≡ −1 (m)`. All pass.
+* `scripts/transfer_toy.py` (numpy, ~1 min): exact Haar computations on
+  `∏_{ℓ∈{5,7,11,13,17}}(ℤ/ℓ)^×` (46080 points) for 6 random systems of
+  *general* events (width ≤ 2, up to 4 classes per event, 15–30 atoms),
+  `t ∈ {1,2,3}`. Asserted and passing: `B ≤ F` pointwise; the identity
+  `F − B = Σ_i A_i(Σ_{j<i}A_je_j)²`; `𝔼[F−B] ≤ m_a²Σ_jℙ(C_j)En(F^{(j)};t)`;
+  `𝔼|B| ≤ 𝔼B + 2𝔼[F−B]`; and the Lemma 3.2 chain
+  `|𝔼[Fψ]| ≤ δ^{(ℓ₀)} − δ` for all 31 real primitive `ψ` and all `ℓ₀ | f`.
+  Observed `A = 𝔼|B|/𝔼B ∈ [1, 1.23]` at `t = 1`, `= 1.000` at `t ≥ 2` (the
+  toy has only 5 coordinates). Seed 2 has `max_ψ |𝔼[Fψ]|/δ = 1.0`: a width-1
+  event forbidding both non-residues mod 5 puts `F` on `ψ₅ = +1` — (Tw)
+  fails there, as it must when one prime carries half the constraint
+  (`w₅ = 1/2`); this is the situation Lemma 3.2 excludes. The least-prime
+  column is a sanity check only (all systems are tiny).
+
+Replay:
+```
+PYTHONPATH=scripts uv run python scripts/transfer_mn.py
+ulimit -v 8000000; PYTHONPATH=scripts timeout 600 uv run --with numpy python scripts/transfer_toy.py
+```
+
+## 7. Status summary
+
+* Theorem 1.1, Corollary 1.3, Corollaries 5.2–5.4: **PROVED modulo G+H**
+  (Gallagher's theorem as quoted from the MV3 draft with Landau–Page, and
+  Håstad's switching lemma); Cor. 5.2 also modulo ET Prop 1.4 (`κ = m`), its
+  weaker version without. All proofs are re-assemblies of [SN] lemmas; the
+  new content is the abstraction (arbitrary events; atoms only inside the
+  sandwich; general target class; any density lower bound; Haar criterion
+  Lemma 3.2 for (Tw); `f` need not be squarefree) and the `m/n` and generic
+  witness-family corollaries.
+* Lemma 1.2, Lemma 3.2, Lemma 5.1: **PROVED** (5.1 also machine-checked).
+* §3.3, §3.4, §4.6: **Assessment** (method comparisons, not theorems about
+  least primes).
+* Novelty: no priority claim. §4 lists exactly what was and was not checked.
