@@ -9,12 +9,16 @@ this review's own derivation and numerics were complete.
 
 | Claim | Verdict |
 |---|---|
-| Lemma 3.1 (cover bound) | (pending) |
-| Lemma 3.2 (polarization) | (pending) |
-| Lemma 3.3 (matching bound for Θ) | (pending) |
-| Thm 3.4 (Q, Q′, QM) | (pending) |
-| Cor 3.5 (C-1) | (pending) |
-| Cor 4.1 (energy concentration) | (pending) |
+| Lemma 3.1 (cover bound) | SOUND (holds for any product measure, D1) |
+| Lemma 3.2 (polarization) | SOUND |
+| Lemma 3.3 (matching bound for Θ) | SOUND |
+| Thm 3.4 (Q, Q′, QM) | SOUND |
+| Cor 3.5 (C-1) | SOUND (and tight only in a degenerate limit) |
+| Cor 4.1 (energy concentration) | SOUND; rate `2^{−1/k}` is sharp over general product spaces (§3.1); Boolean form possibly new (§4) |
+
+Overall: **no FATAL, no MAJOR defect.** Four MINOR defects (§5). §§4.2–4.3
+(Thm 4.2, Remark 4.3: ES-specific plumbing into O8/O9) were outside this
+review's focus and were not re-checked beyond the use of Cor 4.1.
 
 ## 1. Independent re-derivation (own notation)
 
@@ -187,3 +191,40 @@ proof technique. A proper literature search (Boolean-function people:
 Håstad's "sharp switching lemma" variants, Rossman's entropy switching
 lemma, Kelley/Lovett/…, "Fourier growth" literature, "hypercontractivity
 with ρ>1") is still needed before claiming novelty externally.
+
+## 5. Defects
+
+**D1 (MINOR) — hypothesis stronger than needed / scope statement.** §0, Lemma
+3.1, Cor 3.5, Cor 4.1 assume *uniform* measures on each `[q_v]`. The proof
+of Lemma 3.1 only uses that `L_V` is an orthogonal projection in `L²(π)`
+and that `(1_σ)^{=V}=L_V1_σ`; both hold for every product probability
+measure, and the rest (Lemmas 3.2–3.4) is measure-free. Checked
+numerically for biased q-ary systems (§2.2, §2.3). *Repair:* state Lemma 3.1
+/ Cor 3.5 / Cor 4.1 for arbitrary finite product probability spaces (this is
+what makes the Boolean p-biased statement and the sharpness in §3.1 available).
+
+**D2 (MINOR) — sharpness under-stated.** After Cor 4.1: "The tail rate
+itself is not claimed sharp." Over general product spaces it *is* sharp:
+m disjoint width-k events with rare fixed values give
+`energy(t)·2^{(t+1)/k} ≍ (t/k)^{−1/2}` (§3.1, exact numerics). On the uniform
+Boolean cube it is open between `3^{−t/k}` (OR of disjoint k-parities) and
+`2^{−t/k}` (§3.2). *Repair:* add a remark with this family and the gap.
+
+**D3 (MINOR) — missing prior-art context.** Cor 4.1's Boolean consequence
+(`W^{>t} ≤ 4·2^{−(t+1)/k}` for ±1-valued width-k DNFs) is not stated
+explicitly, and neither the standard switching-lemma bound
+(`ε`-concentration at degree `Cw log 1/ε`, Mansour/LMN; Lecomte–Tan Fact 6)
+nor Lecomte–Tan's cover-probability bound (their Fact 9 / Lemma 7, closely
+related to Lemma 3.1) is cited. *Repair:* add the explicit Boolean
+corollary with the factor 4 (`ĝ(U)²=4‖F^{=U}‖²`), and a short comparison
+paragraph citing LMN/Håstad, Mansour'95, O'Donnell Ch. 4, Lecomte–Tan'21.
+Label novelty as "Assessment: possibly new, literature search pending".
+
+**D4 (MINOR) — small expository gaps in proofs.** (a) Lemma 3.1: the case of
+an inconsistent intersection cylinder (`A_𝒥=0`, no "value σ") and of
+duplicate events (two events with the same cylinder) should be mentioned;
+both are harmless (`N` depends only on τ). (b) Lemma 3.3: "induct on the
+number of vertices" — say the ground set is `∪𝒞` and the base case is a
+family of empty edges (`Θ∈{0,1}`). (c) Cor 4.1 also applies verbatim to
+DNFs with set-valued literals `x_v∈S_v` (split into single-value cylinders on
+the same support); worth one sentence since it is the natural q-ary DNF notion.
