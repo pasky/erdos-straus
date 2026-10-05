@@ -1511,7 +1511,124 @@ class-of-one quarantine feeding the local-lemma criterion used here needs
 small fibre masses at every coordinate, and on model systems the junta
 modulus needed by an Efron--Stein truncation is of order $\Lc S$.  So the
 exponent $1/5$ appears to be the natural limit of the present route, but we
-have not proved lower bounds for either term, nor for $S$ beyond $S\gg\Lc^2$.
+have not proved lower bounds for either term.
 We make no claim about the true order of $W(p)$.
 \end{remark}
 
+\section{Summary of status}\label{sec:status}
+
+\begin{itemize}
+\item Proved: Lemmas~\ref{lem:atoms}, \ref{lem:one}, \ref{lem:system},
+\ref{lem:gradedq}, \ref{lem:h}, \ref{lem:param}; the energy bound
+(Lemmas~\ref{lem:cover}--\ref{lem:theta}, Theorems~\ref{thm:C1}
+and~\ref{thm:filtration}, Corollaries~\ref{cor:tail} and~\ref{cor:modtail});
+Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL}, \ref{lem:size}, \ref{lem:l1},
+\ref{lem:twist} and Corollary~\ref{cor:lll} (with the classical
+Lemma~\ref{lem:lll}); the unconditional part of Theorem~\ref{thm:omega}
+(with the classical divisor bound).
+\item Proved modulo the Elsholtz--Tao estimates (Theorem~\ref{thm:ETall}):
+Lemmas~\ref{lem:block}, \ref{lem:rough}, \ref{lem:smooth}, Theorem~\ref{thm:omega}
+and the Haar-side Corollary~\ref{cor:haar}.
+\item Proved modulo Gallagher's theorem (Theorems~\ref{thm:G}
+and~\ref{thm:xz}, quoted from the draft \cite{MV3}): the linear transfer
+Theorem~\ref{thm:transfer}, Theorem~\ref{thm:assembly} and
+Theorem~\ref{thm:uncond}.
+\item Proved modulo Gallagher's theorem and Theorem~\ref{thm:ETall}:
+Theorem~\ref{thm:main}.
+\item Assessment: Remarks~\ref{rem:linear}, \ref{rem:mean}
+and~\ref{rem:exponent}; the numerical parts of Remarks~\ref{rem:sharp}
+and~\ref{rem:boolean}.
+\item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
+optimality of the exponent $1/5$; any numerical instance; priority for
+Theorem~\ref{thm:C1} (literature search partial).
+\item Håstad's switching lemma and the Thorner--Zaman theorem are no longer
+used; they are cited only for comparison.
+\end{itemize}
+
+\begin{thebibliography}{99}
+\bibitem{AS} N.~Alon and J.~H.~Spencer, The Probabilistic Method, 4th ed.,
+Wiley, 2016.
+\bibitem{Paper1} Anonymous, Large Erd\H{o}s--Straus witnesses: the multiplier
+parameter exceeds every power of $\log p$, preprint, 2026.
+\bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
+formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
+% TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
+% [FFKPY], [LMO], [TZcheb], [MV1], [RS], [LT] and the journal version of [EGLNV] were written from memory (no library
+% access in task O33; referee R33 rates the first four "probably correct, unverified").
+% The STOC'92 data of [EGLNV] are as quoted in Benjamini--Gurel-Gurevich--Peled
+% (arXiv:1201.3261, ref. [16]).  Also unverified: the journal data of [TZ] (arXiv
+% version archived).  Check all of these before submission.
+\bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
+M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
+Invent.\ Math.\ 228 (2022), 377--414.
+\bibitem{Bourgain} J.~Bourgain, On the Fourier--Walsh spectrum of the Moebius
+function, Israel J.\ Math.\ 197 (2013), 215--235.
+\bibitem{Braverman} M.~Braverman, Polylogarithmic independence fools
+$\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
+\bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
+\bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
+Statist.\ 9 (1981), 586--596.
+\bibitem{EGLNV} G.~Even, O.~Goldreich, M.~Luby, N.~Nisan and
+B.~Veli\v{c}kovi\'c, Approximations of general independent distributions, in:
+Proc.\ 24th ACM STOC (1992), 10--16; journal version: Efficient approximation of
+product distributions, Random Structures Algorithms 13 (1998), 1--16.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
+50--105 (Proposition numbering as in arXiv:1107.1010v6).
+\bibitem{FFKPY} M.~Filaseta, K.~Ford, S.~Konyagin, C.~Pomerance and G.~Yu,
+Sieving by large integers and covering systems of congruences, J.\ Amer.\
+Math.\ Soc.\ 20 (2007), 495--517.
+\bibitem{Gallagher} P.~X.~Gallagher, A large sieve density estimate near
+$\sigma=1$, Invent.\ Math.\ 11 (1970), 329--339.
+\bibitem{Green} B.~Green, On (not) computing the M\"obius function using
+bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
+\bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
+the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
+\bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
+circuits, in: Proc.\ 18th ACM STOC (1986), 6--20.
+\bibitem{Hough} R.~Hough, Solution of the minimum modulus problem for covering
+systems, Ann.\ of Math.\ (2) 181 (2015), 361--382.
+\bibitem{HW} G.~H.~Hardy and E.~M.~Wright, An Introduction to the Theory of
+Numbers, 6th ed., Oxford, 2008.
+\bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
+normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
+\bibitem{LT} V.~Lecomte and L.-Y.~Tan, Sharper bounds on the Fourier
+concentration of DNFs, in: Proc.\ 62nd IEEE FOCS (2021), arXiv:2109.04525.
+\bibitem{LMN} N.~Linial, Y.~Mansour and N.~Nisan, Constant depth circuits,
+Fourier transform, and learnability, J.\ ACM 40 (1993), 607--620.
+\bibitem{MV1} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
+Theory I. Classical Theory, Cambridge Stud.\ Adv.\ Math.\ 97, Cambridge
+University Press, 2007.
+\bibitem{MV3} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
+Theory III, unpublished draft (course notes, R.~C.~Vaughan's Penn State web
+page, accessed 5 October 2026), \S28.7--28.8.
+\bibitem{LMO} J.~C.~Lagarias, H.~L.~Montgomery and A.~M.~Odlyzko, A bound for
+the least prime ideal in the Chebotarev density theorem, Invent.\ Math.\ 54
+(1979), 271--296.
+\bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Pure and Applied
+Mathematics 30, Academic Press, 1969.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
+evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
+Press, 2014.
+\bibitem{Oblath} R.~Obl\'ath, Sur l'\'equation diophantienne
+$4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
+\bibitem{PW} C.~Pomerance and A.~Weingartner, Exceptions to the
+Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817 (2025).
+\bibitem{Razborov} A.~Razborov, A simple proof of Bazzi's theorem, ACM Trans.\
+Comput.\ Theory 1 (2009), no.~1, Art.~3.
+\bibitem{RS} J.~B.~Rosser and L.~Schoenfeld, Approximate formulas for some
+functions of prime numbers, Illinois J.\ Math.\ 6 (1962), 64--94.
+\bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
+equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
+for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
+(arXiv:2108.10878v2).
+\bibitem{TZcheb} J.~Thorner and A.~Zaman, An explicit bound for the least
+prime ideal in the Chebotarev density theorem, Algebra Number Theory 11
+(2017), 1135--1197.
+\bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
+Schinzel, Mathematika 17 (1970), 193--198.
+\end{thebibliography}
+
+\end{document}
