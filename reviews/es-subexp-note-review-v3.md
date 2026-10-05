@@ -106,3 +106,6 @@ Status: IN PROGRESS.
   all V (μ'≥0) ✓; per-ℓ factor λ^{i_0+1}Π_{i_0<j<v}(1+λ^j(λ−1)) ≤ λ^{2v} using λ^j≤√2<λ+1 ✓.
 * Cor 6.10: Πλ_ℓ^{2v_ℓ}=2^{log Πℓ^{v_ℓ}/𝓛}≤2 and weight 2^{log m_U/(2𝓛)} ✓.
 * Verdict §6: SOUND (pending brute force of Thm 6.9).
+* From scratch (`scripts/review_r47_filtration.py`): 400 random digit systems (≤3 coordinates,
+  ≤6 digits, random i_0∈{0,1,2}, arbitrary digit laws, ≤5 prefix events, weights scaled to
+  max Πλ^{2v}=2): the weighted energy of Thm 6.9 never exceeds 1 (max 0.99896). PASS.
