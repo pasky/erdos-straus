@@ -298,6 +298,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * No example is known where Thm 1.1 beats quarantine + Bonferroni + Gallagher (the §4.6 comparison was corrected after review).
     * **PROVED as labelled** (internal; review `reviews/pointwise-transfer-review.md`, SOUND; one MAJOR (an over-claimed comparison) and minors repaired). No novelty claim beyond the ES-type applications.
 
+24. **Exponent 1/5 (POINTWISE_OMEGA12.md Thm 6.3): `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` for infinitely many Mordell-hard primes; Haar side `log(1/δ*(T)) ≪ 𝓛^5 log 𝓛` (modulo ET only).** Supersedes (H)22's 1/6.
+    * Thm 5.1 (H_ω(2), PROVED modulo Elsholtz–Tao Prop 1.4, Thm 7.1, Cor 7.4, (7.10)): `Ω_0 = Σ_{atoms}(g/M)h(M) ≪ 𝓛^4 log 𝓛`. Type I coordinates split h(M) into a rough part (sum along c-progressions only over prime powers below the block scale — full periods, no first terms — paying larger ones pointwise; ET Prop 1.4 gives every c-scale the same mass, so the cost averages to log 𝓛) and a smooth part (ET Thm 7.1 on shifted quadratics with root counts ≤ 2, or Cor 7.4 on linear forms).
+    * Thm 6.1 (via POINTWISE_OMEGA11 Cor 4.1 with B=2) and the sharper Thm 6.3 (pre-quarantine `a_ℓ=1` for odd `ℓ ≤ 𝓛`, Lemma 6.2): log Q ≪ 𝓛^5 log 𝓛, junta ≪ 𝓛^5.
+    * **PROVED modulo Gallagher's theorem (G), Elsholtz–Tao, and POINTWISE_OMEGA10 Thm 3.4** (proved). Two independent hostile reviews, both SOUND (no FATAL/MAJOR): `reviews/pointwise-omega12-review.md` (Thm 5.1, ET hypotheses incl. root counts at p=q, §7 numerics recomputed) and `reviews/pointwise-omega12-review-2.md` (assembly, Lemma 6.2, Haar corollary).
+    * 1/5 is about the ceiling of modulus-weighted arguments in this architecture; the Haar exponent is at least 3 (see (H)25 if merged), so the heuristic truth 1/3 needs a genuinely different idea.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
