@@ -386,3 +386,27 @@ switched upper bounds that are sharper than current twin-prime technology,
 uniformly over configurations. This is a quantitative, not a qualitative,
 barrier in the model. The caps here act on bins of a coarse grid, so the
 thresholds K≈2–3 are indicative only.
+
+### 6.3 Toward an analytic description of the joint fake (partial; step 3)
+*Shape of the certified θ=1/2 fake* (`data/window2/fake_eps0.1_K8_theta0.5.json.gz`).
+It removes the target (−1·τ) and true mass on one-sided pair configurations
+`(P,∅)` and `(∅,Q)` (each ≈0.04–0.05τ). It adds mass on other one-sided pairs
+(up to `ν/μ≈10`) and a little on two-sided configurations, e.g. `({.205,.649},{.115,.866})`.
+These configurations carry points >1/2, which are invisible individually.
+
+*Slice reduction (Model-PROVED algebra).* Write `δ=Σ_Q δ(·,Q)⊗[Q]`. A sufficient set of
+conditions for zero visible correlations is:
+1. every window-3 slice `δ(·,Q)` has zero correlations for all nonempty `S_3` with `s_3≤1/2`;
+2. the slice totals `m(Q)=Σ_Pδ(P,Q)` form a window-7 measure with zero correlations
+   at level 1/2, total mass included.
+
+The slice `Q=∅` contains the target entry −1. By the one-window LP (ε=0.1, K=8)
+its non-clean part can add at most 0.256, so `m(∅)≤−0.744`. Positive `m(Q)` are free
+(add mass at `(∅,Q)`). Negative ones cost at most `1.256μ_7(Q)`. Homogeneity of
+the one-window LP then caps the achievable `Σ_{Q≠∅}m(Q)` at `0.256·1.256≈0.32<0.744`.
+**So slice-separable fakes cannot work.** The certified fake uses the weaker
+mixed conditions: for `S_7≠∅` the window-3 level is only `1/2−s_7`, so slices whose Q
+has visible points need fewer zero correlations. This is the precise sense in
+which the fake is "joint". A closed-form continuum construction exploiting
+it was **not** obtained. The continuum model theorem (fake at θ=1/2 for ε→0)
+remains open; Prop 3.7 is the strongest statement proved.

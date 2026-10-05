@@ -44,3 +44,22 @@ data `data/window2/fake_eps0.1_K8_theta0.5.json.gz`; archived sources `sources/w
    unconditional route exists in principle.
 3. Extract an analytic description of the joint fake (marginal coupling, §3.5) and
    prove a continuum Model-theorem.
+
+## Follow-up round (parent request: steps 2, 3)
+* **Robustness fix.** HiGHS silently drops matrix entries below `small_matrix_value`. With the
+  rescaled model that dropped tiny entries, and the old `window2_lp.py` residuals were 10⁻³–10⁻¹.
+  `window2_feas.py` now normalises columns and bisects on ν(∅)/τ with an L∞ residual ≤1e-9. All
+  earlier numbers are re-confirmed by it (one window 0.744/0.828; two windows 0 at θ=.5 and **.6**
+  (now ≤1e-9), 0.497 at .7). Prop 3.7's certificate was independent of this issue.
+* **§6.1 Capacity.** Integer capacity is vacuous in the model (uniform log x factor). A bounded
+  reweighting of the *primes* (ν≤Cμ) still admits a fake for C≥3.5; C=2 gives 0.373.
+  So the size of the support is not the missing information.
+* **§6.2 Switching** as caps ν≤Kμ on configurations with a prime factor ≥x^α restores positivity at
+  θ=1/2 for K=1, 2 (α=0.6: 0.459, 0.111) and fails for K=3. The required sharpness of switched
+  upper bounds (factor ≈2–3 of truth) is at or beyond current twin-prime-type constants (≈3.4,
+  recalled, not re-checked). Assessment: a quantitative, not qualitative, barrier, in the model.
+* **§6.3 Analytic structure (partial).** The slice reduction proves that "separable" fakes (slices
+  with full level-1/2 zero correlations) cannot reach the target (0.32<0.744 on the grid). The
+  certified fake needs the mixed-level relaxation. No continuum construction was obtained,
+  so the continuum model theorem is still open.
+* Not done: bigger grids (step 1).
