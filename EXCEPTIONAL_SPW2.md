@@ -93,3 +93,34 @@ Strong support dependence (η grows with L; the needed support grows with
 N, consistent with Lemma 2.3). Optimal R (N = 30): reflection-symmetric,
 ≈ 0 on W, ≈ 11.4 mass in each half of Z peaking at height ≈ 1.15 at
 distance ≈ N/3 from the window, remaining ≈ 7 spread thinly up to |x| ≈ 16N.
+
+## 3. RSPW also degenerates, but only like (log N)^{−1/3}
+
+**Theorem 3.1 (K-free edge bound; PROVED).** Let C > 1, M, e, m₀ be as in
+SPW1 Thm 3.2 (e the least multiple of L_M = lcm(1..M) exceeding CN,
+m₀ = e/D). If R ≥ 0 has (P1) and `R(s) ≤ 1 − η` on every class of modulus
+e meeting [1,N] (no condition at all on other classes), then for every
+integer 1 ≤ r < min(N−1, (C−1)N−1)/2
+
+    η ≤ eN/(4(M+1)r²) + e/((M+1)r) + 4πm₀²N(2r+1)/e².               (3.1)
+
+With r = ⌈N·M^{−1/3}⌉ this gives **η ≤ c(C)·M^{−1/3} ≍_C (log N)^{−1/3}**,
+uniformly in K (sparse classes, near zone and medium classes unrestricted).
+
+*Proof.* As in SPW1 Thm 3.2: ρ = projection of R to ℤ/e, W = {1..N} ⊂ ℤ/e,
+K = Fejér kernel of degree M on ℤ/e (K(t) ≤ e/(4(M+1)t²) for 1 ≤ |t| ≤ e/2),
+φ = K∗1_W, τ := e/(2(M+1)r). T = K∗(ρ − 1_W) has Fourier support in
+|k| < m₀ (frequencies m₀ ≤ |k| ≤ M are pinned by (P1)). Now ρ ≤ 1 − η only
+on W, so: (a) |T̂(k)| ≤ |ρ̂(k)| + |1̂_W(k)| ≤ 2N, hence
+T(x) = (1/e)Σ_{|k|<m₀}T̂(k)e(kx/e) has |T(x) − T(y)| ≤ 4πm₀²N|x − y|/e².
+(b) x_in = 1 + r: every y ∉ W is at cyclic distance ≥ r + 1 from x_in
+(the far side is at distance ≥ min(N − r, e − N + r) > r), so
+Σ_{y∉W}K(x_in − y)ρ(y) ≤ (e/(4(M+1)r²))Σρ = eN/(4(M+1)r²) =: A, and
+T(x_in) ≤ (1 − η)φ(x_in) + A − φ(x_in) ≤ −η + ητ + A ≤ −η + τ + A, using
+φ(x_in) ≥ 1 − τ (SPW1 tail bound). (c) x_out = −r: T(x_out) ≥ −φ(x_out) ≥ −τ.
+So η ≤ T(x_out) − T(x_in) + A + 2τ, and (a) with |x_out − x_in| = 2r + 1
+gives (3.1). For r = ⌈NM^{−1/3}⌉, e ≤ (C+1)N: the three terms are
+O_C(M^{−1/3}), O_C(M^{−2/3}), O(m₀²M^{−1/3}/C²). ∎
+
+So RSPW with fixed η is false for large N even with K = ∞, but the decay is
+only (log N)^{−1/3}; weak forms (η_N ≥ e^{−(log N)^{3/4}}) are untouched.
