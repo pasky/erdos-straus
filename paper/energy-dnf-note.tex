@@ -1,0 +1,214 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\energy}{\operatorname{En}}
+\newcommand{\Ho}{\mathcal H}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cJ}{\mathcal J}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\Lc}{\mathcal L}
+\raggedbottom
+
+% TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
+\title[An energy bound for avoidance indicators]{An energy bound for avoidance indicators,\\
+and Fourier tails of DNFs over product spaces}
+\author{Anonymous}
+\date{Draft v1, 5 October 2026}
+
+\begin{document}
+
+\begin{abstract}
+Let $F$ be the indicator that none of a finite family of cylinder events
+occurs, on an arbitrary finite product probability space, and let
+$F=\sum_UF^{=U}$ be its Efron--Stein decomposition.  We prove that
+\[
+ \sum_U\Big(\prod_{v\in U}\lambda_v\Big)\|F^{=U}\|_2^2\ \le\ 1
+\]
+for all weights $\lambda_v\ge1$ such that $\prod_{v\in\supp E}\lambda_v\le2$ for every
+event $E$.  There is no dependence on the number of events, the alphabet
+sizes or the measure.  In particular every width-$k$ DNF
+$g:\{\pm1\}^n\to\{\pm1\}$ satisfies $\sum_{|S|>t}\hat g(S)^2\le4\cdot2^{-(t+1)/k}$, under
+every product measure; so $g$ is $\varepsilon$-concentrated up to degree
+$k\log_2(4/\varepsilon)$.  The proof does not use a switching lemma.  It bounds the
+Efron--Stein energies by signed cover counts of the events that hold at a
+random point, writes the resulting hypergraph functional as the second moment
+of an alternating union sum under a random deletion, and bounds that sum by
+deletion--contraction.  Over general product spaces the base $2^{-1/k}$ is
+sharp, and the threshold $2$ is necessary.  We also give a version with
+weights that grow along a filtration of each coordinate, and we explain the
+application that motivated it: the junta term in a lower bound for the
+least ``multiplier modulus'' of the Erd\H{o}s--Straus equation.
+\end{abstract}
+
+\maketitle
+% Work around a pdfTeX/microtype font-expansion warning (as in the other notes).
+\setbox0\hbox{\footnotesize\textsuperscript{1}}
+
+\section{Introduction}\label{sec:intro}
+
+Let $\Omega=\prod_{v\in V_0}\Omega_v$ be a finite product of finite sets with a
+product probability measure $\pi=\bigotimes_v\pi_v$.  A \emph{cylinder event}
+fixes the values of the coordinates in a set $\supp E\subseteq V_0$, its
+\emph{support}.  For a finite family $\cE$ of cylinder events let
+\[
+ F=F_\cE=\prod_{E\in\cE}(1-\mathbf 1_E)
+\]
+be its \emph{avoidance indicator}, and let $F=\sum_{U\subseteq V_0}F^{=U}$ be the
+Efron--Stein (Hoeffding) decomposition of $F$ in $L^2(\pi)$
+\cite{ES,Hoeffding}, \cite[\S8.3]{OD}.  For the uniform measure on
+$\{\pm1\}^n$ this is the Fourier expansion, $F^{=U}=\hat F(U)\chi_U$.  We
+study the weighted energy
+\[
+ G_F(\lambda)=\sum_{U\subseteq V_0}\lambda^U\|F^{=U}\|^2,\qquad \lambda^U=\prod_{v\in U}\lambda_v,\quad\lambda_v\ge1 .
+\]
+For constant weights $\lambda_v=\rho^2$ it is $\|T_\rho F\|^2$, where $T_\rho$
+multiplies the component $F^{=U}$ by $\rho^{|U|}$; so we are asking for the
+largest noise operator \emph{with $\rho>1$} that is still a contraction from
+avoidance indicators to $L^2$.
+
+\begin{theorem}[Energy bound]\label{thm:main}
+Let $\lambda_v\ge1$ $(v\in V_0)$, and suppose that $\lambda^{\supp E}\le2$ for every
+$E\in\cE$.  Then
+\[
+ G_F(\lambda)=\sum_U\lambda^U\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+The hypothesis is on single events only.  There is no condition on the
+number of events, on their masses or overlaps, on the alphabet sizes
+$|\Omega_v|$ or on the measure.  The constant $2$ cannot be raised
+(Proposition~\ref{prop:single}).  Since
+$\sum_{U:\lambda^U>e^\tau}\|F^{=U}\|^2\le e^{-\tau}G_F(\lambda)$, the theorem is a family of
+tail bounds, one for each choice of weights.  Constant weights give the
+following.
+
+\begin{corollary}[Energy tail]\label{cor:tail}
+If every event of $\cE$ has $|\supp E|\le k$ $(k\ge1)$, then for
+$f\in\{F,1-F\}$ and every integer $t\ge0$,
+\[
+ \energy(f;t):=\sum_{|U|>t}\|f^{=U}\|^2\ \le\ 2^{-(t+1)/k}\,\PP(F=0)\big(2-\PP(F=0)\big)\ \le\ 2^{-(t+1)/k}.
+\]
+\end{corollary}
+
+A width-$k$ DNF is $g=2F-1$ for the family of its terms (with the convention
+$-1=\mathrm{True}$), and the corollary becomes a statement about its Fourier
+tail.
+
+\begin{corollary}[Fourier tails of DNFs]\label{cor:dnf}
+Let $g:\{\pm1\}^n\to\{\pm1\}$ be computed by a DNF of width $k$, and let $\pi$ be
+any product measure on $\{\pm1\}^n$ (Efron--Stein components in $L^2(\pi)$;
+Fourier coefficients if $\pi$ is uniform).  Then for every integer $t\ge0$
+\[
+ W^{>t}[g]:=\sum_{|U|>t}\|g^{=U}\|^2\ \le\ 4\,p(2-p)\cdot2^{-(t+1)/k}\ \le\ 4\cdot2^{-(t+1)/k},\qquad p=\PP[g=-1].
+\]
+So $g$ is $\varepsilon$-concentrated up to degree $k\log_2(4/\varepsilon)$.  Moreover
+$\sum_U2^{|U|/k}\|g^{=U}\|^2\le1+4p$, and the total influence is at most
+$(4k/\ln2)\,p$.  The same holds for $q$-ary DNFs, with literals $x_v\in S_v$,
+under any product measure on $\prod_v[q_v]$.
+\end{corollary}
+
+\emph{Comparison.}  The classical bound is due to Linial, Mansour and Nisan
+\cite{LMN}, via H{\aa}stad's switching lemma \cite{Hastad}: width-$w$ DNFs are
+$\varepsilon$-concentrated up to degree $O(w\log(1/\varepsilon))$.  In the form of
+O'Donnell's book \cite[\S4.4]{OD} it reads $W^{\ge t}[g]\le2\cdot2^{-t/(20w)}$
+(we quote the constant $20$ from memory and could not re-check it).  It has
+been used in this form, with an unspecified constant $C$, in later work on
+DNFs, for instance by Mansour \cite{Mansour} and by Lecomte and Tan
+\cite[Fact~6]{LT}.  Corollary~\ref{cor:dnf} has the constant $1$ in the
+exponent and holds for arbitrary product measures and alphabets.  Over
+general product spaces the base $2^{-1/k}$ is sharp: no bound
+$C\rho^{-t/k}$ with $\rho>2$ holds, and at most a factor of order $\sqrt{t/k}$
+can be gained (Proposition~\ref{prop:sharp}).  On the uniform cube we only
+know that the true rate lies between $3^{-t/k}$ and $2^{-t/k}$
+(Example~\ref{ex:parity}).  The bound on the total influence is weaker by a
+constant factor than the known bound $2w$ for width-$w$ DNFs (we recall this
+from memory; it is usually attributed to Boppana \cite{Boppana}), and we
+state it only because it falls out.
+
+The nearest prior art we know is the paper of Lecomte and Tan \cite{LT}.
+They bound $|\hat g(S)|$ by $2^{|S|}$ times the probability that $S$ is covered
+by the terms satisfied at a random point.  This is the device of our
+Lemma~\ref{lem:cover}, but there are three differences: our cover counts are
+\emph{signed}, and vanish as soon as a satisfied term misses $S$; we work in
+$L^2$ with all levels and weights at once; and our degree concentration does
+not go through the switching lemma.  The two combinatorial steps of the proof,
+a polarization identity (Lemma~\ref{lem:polar}) and a deletion--contraction
+bound (Lemma~\ref{lem:theta}), have no counterpart there.
+
+\emph{What we checked.}  We have no internet access while writing this
+draft, and our literature search is partial.  Earlier, \cite{LT} and Tal
+\cite{Tal} were checked online; in \cite{Tal} we found no explicit-constant
+tail bound for width-$w$ DNFs.  Everything else above is quoted from memory and is
+marked as such.  We did not search systematically through the switching-lemma
+literature (sharp variants of H{\aa}stad's lemma, Rossman's entropy proof),
+the literature on Fourier growth, or work on noise operators with $\rho>1$.
+We believe Theorem~\ref{thm:main} and the constant $1$ in
+Corollary~\ref{cor:dnf} are new, but we make no priority claim.
+
+\emph{Proof outline.}  Write $G_F=\sum_V\mu^V\|L_VF\|^2$ with $\mu_v=\lambda_v-1$ and
+$L_V=\prod_{v\in V}(I-\E_v)$.  Section~\ref{sec:cover} bounds $\|L_VF\|^2$ by the
+mean square of a signed count $N_{\Ho(x)}(V)$ of covers of $V$ by the events
+that hold at $x$, and so reduces Theorem~\ref{thm:main} to the hypergraph
+inequality $Q_\mu(\Ho)=\sum_V\mu^VN_\Ho(V)^2\le1$.  Section~\ref{sec:hyper} proves
+it: $Q_\mu(\Ho)$ is the second moment of the alternating sum
+$\Theta_\lambda(\Ho_P)=\sum_{\cJ\subseteq\Ho_P}(-1)^{|\cJ|}\lambda^{\bigcup\cJ}$ over the edges that
+miss a random set $P$, and deletion--contraction gives $|\Theta|\le1$.  Nothing
+in the proof is specific to two-point spaces or to the uniform measure.
+
+\emph{Organisation.}  Section~\ref{sec:prelim} sets up notation.
+Sections~\ref{sec:cover} and~\ref{sec:hyper} prove Theorem~\ref{thm:main}.
+Section~\ref{sec:dnf} proves the corollaries, Section~\ref{sec:sharp} discusses
+sharpness, failed strengthenings and open problems, and
+Section~\ref{sec:filtration} gives the filtration variant.
+Section~\ref{sec:app} sketches the application to the Erd\H{o}s--Straus
+equation \cite{Subexp}.  The exact-arithmetic script
+\texttt{scripts/energy\_note\_check.py} checks the main inequalities on small
+cases (Section~\ref{sec:check}).
+
+%%SECTIONS%%
+
+\begin{thebibliography}{99}
+\bibitem{Boppana} R.~B.~Boppana, The average sensitivity of bounded-depth
+circuits, Inform.\ Process.\ Lett.\ 63 (1997), 257--261.
+% TODO(verify): [Boppana], [Mansour], [Tal] details written from memory.
+\bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
+Statist.\ 9 (1981), 586--596.
+\bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
+circuits, in: Proc.\ 18th ACM STOC (1986), 6--20.
+\bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
+normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
+\bibitem{LT} V.~Lecomte and L.-Y.~Tan, Sharper bounds on the Fourier
+concentration of DNFs, in: Proc.\ 62nd IEEE FOCS (2021), arXiv:2109.04525.
+\bibitem{LMN} N.~Linial, Y.~Mansour and N.~Nisan, Constant depth circuits,
+Fourier transform, and learnability, J.\ ACM 40 (1993), 607--620.
+\bibitem{Mansour} Y.~Mansour, An $O(n^{\log\log n})$ learning algorithm for DNF
+under the uniform distribution, J.\ Comput.\ System Sci.\ 50 (1995), 543--550.
+\bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
+Press, 2014.
+\bibitem{Subexp} Anonymous, Large Erd\H{o}s--Straus witnesses II: the multiplier
+modulus is infinitely often $\exp((\log p)^{1/5-o(1)})$, preprint, 2026.
+\bibitem{Tal} A.~Tal, Tight bounds on the Fourier spectrum of $\mathrm{AC}^0$, in:
+Proc.\ 32nd CCC (2017), LIPIcs 79, Art.~15; ECCC TR14-174.
+\end{thebibliography}
+
+\end{document}
