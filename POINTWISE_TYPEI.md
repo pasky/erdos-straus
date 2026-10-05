@@ -360,9 +360,14 @@ identity factors), and the portion from `D∈(x^{1−ε},√N]` is a fraction
 Σ_{𝓤_p(G)} 𝔼M ≈ (c_0/2)·log p·Σ_{q nonres∈[n,Gn]} (1/q)·(log(Gn/q))²/2 ≈ (c_0/12)·(log G)³·log p/log n.
 ```
 
-A union bound needs this `<1`, i.e. `(log G)³ ≪ log₂p/log p`: only the
-first `O(1)` non-residue slices beyond `n_p`, i.e. `ck_min ≥ n_p+O(n_p·log₂p/log p)`,
-no multiplicative gain. Joint vanishing at multiplicative scale G needs an
+(The cube is the large-G asymptotic of the continuous `(c',k)`-count. For
+`G=1+η` with `η<1` the only slices are `(q,1)`, `q∈[n,Gn]`, and the mass is
+linear: `≈(c_0/2)·η·log p/log n`.) A union bound needs the mass `<1`. In
+the linear regime this gives `η ≪ log₂p/log p`: only the first `O(1)`
+non-residue slices beyond `n_p`, i.e. `ck_min ≥ n_p(1+O(log₂p/log p))`,
+and no multiplicative gain. (R31-D3: applying the cube formula at small
+η would instead give `η≪(log₂p/log p)^{1/3}`; that formula does not
+apply there. Either way, no fixed G>1 is reached.) Joint vanishing at multiplicative scale G needs an
 independence input of strength `exp(−c(log G)³log p/log₂p)` for
 `≍G(log G)²·log p` factorisation events, i.e. a uniform (in the number of
 polynomials) Hypothesis-H/Bateman–Horn statement. Under the Poisson model
