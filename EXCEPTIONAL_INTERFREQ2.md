@@ -149,3 +149,93 @@ Example 3.2 is such a class (e = 21 | L₀ = lcm(1..10)).
   e = 21 {0}, e = 42 {0, 21}; N = 30: none; N = 40: e = 42 {0, 41},
   e = 45 {43}, e = 84, 90 (lifts). They sit just above N; the summed
   density is ≤ 0.14 in these ranges.
+
+## 5. Caps: what Theorem 2.5 already gives, and a flat-minorant reduction
+
+Throughout, 𝔊 is a K2 mixture with all family primes ≤ N^A, and
+`S_A = C_A(log N)^{3/4}(log log N)^{3/4}` is IF Thm 2.5's mean-side bound.
+Split the large terms of a representation by sign rule (Lemma 3.1):
+* `W⁺` = mass of positive terms on full classes with d > N ("patches");
+* `T⁻_sp` = mass of negative terms on sparse classes with d > N;
+* `T_mid` = mass of right-signed terms with `N/2 < d ≤ CN` (C ≥ 1 fixed),
+  and `W⁺_{>CN}` the part of W⁺ with d > CN;
+* `T_wr` = wrong-signed mass (charged `|a|` by (3.1)).
+
+**Lemma 5.0 (free negatives can be dropped; PROVED).** Deleting all
+negative terms on sparse classes with d > N gives a majorant ν′ ≥ ν with
+`Σ_{n≤N}ν′ = Σ_{n≤N}ν` and `B_hyb(ν′) = B_hyb(ν)`. (Such classes miss
+[1,N], and β* charges them `a·l(d) = 0`.) So WLOG `T⁻_sp = 0`. ∎
+
+**Corollary 5.1 (PROVED; from IF Thm 2.5/Rem 2.6 and (3.1)).** After
+Lemma 5.0, `T_> = T_wr + W⁺ + T_mid^{(C=1)}` and `B_hyb ≥ T_wr`. Hence a
+hybrid bound B saves at most `S_A + log(2 + 12(1 + c))` whenever
+`W⁺ + T_mid ≤ c·B` (C = 1), and at most `S_A + log 48` whenever
+`W⁺ + T_mid ≤ (N/48)e^{−S_A}`. ∎
+
+So the uncapped hybrids are exactly those whose *free* large mass — positive
+terms on classes through [1,N], or right-signed terms at moduli in
+(N/2, N] — exceeds the bound by more than `e^{O(S_A)}`. By (3.1) and
+`B ≥ Σ_{n≤N}ν`, this forces the small part to have a very negative exact
+count: `Σ_{n≤N}ν_𝒮 ≤ B − W⁺ − (medium counts)`. Example 3.2 is of this
+kind (W⁺ = 12, B = 0); the Selberg-minorant accounting of IF Thm 2.5 cannot
+handle it because Selberg's F is ≈ 0 near the ends of [1,N] (a patch at
+an edge point costs 1 but has F-weight ≈ 0), and by Example 3.2 *no*
+inequality `B_hyb(ν) ≥ c·N·Eν` holds for all ν ≥ 0.
+
+**Hypothesis Flat(C, t, s₀, Δ) at N.** There is F: ℤ → ℝ, absolutely
+summable, with
+* (F1) `F ≤ 1_{[1,N]}` on ℤ;
+* (F2) `Σ_{n≡b (d)} F(n) = M/d` for all d ≤ N/2 and all b, with `M = tN`;
+* (F3) `F(s) ≥ M/d + s₀` for every class s mod d > CN meeting [1,N]
+  (`F(s) := Σ_{n∈s}F(n)`);
+* (F4) `F(s) ≥ M/d − 1` for every class s mod d > CN missing [1,N];
+* (F5) `|F(s) − M/d| ≤ Δ` for every class s mod d, `N/2 < d ≤ CN`.
+
+(For d → ∞, (F3)–(F4) say `F ≥ s₀` on [1,N] and `F ≥ −1` off it: F is a
+*flat* minorant, unlike Selberg's.)
+
+**Theorem 5.2 (conditional cap; PROVED implication).** Assume
+Flat(C, t, s₀, Δ) at N with `t, 1/Δ ≥ e^{−S_A}` and `s₀ ≥ N^{−A₁}`. Let a
+hybrid bound B (Def 1.2) for 𝒜(𝔊) satisfy `T_mid ≤ c·B`, where now T_mid
+is the right-signed mass at moduli in `(N/2, CN]`. Then for N ≥ N₀(A, A₁, C),
+
+    log(N/B) ≤ S′ + log((1 + Δ(1 + c))/t),   S′ = C_{A,A₁,C}(log N)^{3/4}(log log N)^{3/4}.
+
+Patches of modulus > CN, wrong-signed terms and free negatives are
+unrestricted.
+
+*Proof.* Lemma 5.0: WLOG `T⁻_sp = 0`. Since ν ≥ 0 and (F1),
+`B = Σ_{n≤N}ν + T_wr ≥ Σ_n F(n)ν(n) + T_wr`. Expand ν termwise; (F2) gives
+`Σ_n F·ν_𝒮 = M·Eν_𝒮`. So
+
+    B ≥ M·Eν + Σ_{i∈𝓛} [ a_i(F(s_i) − M/d_i) + |a_i|·1[i wrong] ].
+
+Term by term, for `d_i > CN`: positive full (patch): `≥ a_i s₀` by (F3);
+positive sparse (wrong): `≥ a_i(F(s) − M/d + 1) ≥ 0` by (F4); negative full
+(wrong): `|a_i|(1 + M/d − F(s)) ≥ 0` because `F(s) ≤ F(n₀) ≤ 1` by (F1)
+(the only point of s in [1,N] is n₀, F ≤ 0 elsewhere). For
+`N/2 < d_i ≤ CN`: by (F5) the term is `≥ −Δ|a_i|` if right-signed and
+`≥ (1 − Δ)|a_i|` if wrong. Hence, with `B ≥ T_wr`,
+
+    (1 + Δ)B ≥ M·Eν − Δ·T_mid + s₀·W⁺_{>CN}.                       (5.1)
+
+*Mass of high terms.* Terms with d > CN are patches, wrong-signed, or
+dropped; by (5.1) and `T_mid ≤ cB`, their mass is
+`T_{>CN} ≤ W⁺_{>CN} + T_wr ≤ (1 + Δ(1+c))B/s₀ + B`. If
+`B ≥ N^{−A₁−1}·N`… more simply: if `T_{>CN} > N^{A₁+2}` then
+`B ≥ s₀N^{A₁+2}/(2 + 2Δ(1+c)) ≥ N` for N large, and there is nothing to
+prove. Otherwise run IF Thm 2.5's mean side (projection to the family
+modulus, ET Lemma 2.9 coarsening at
+`λ = max{λ₀, log(CN), Λ₀ + log max(T_{>CN},1) + S}`, `Λ₀ = A log N`; terms of
+the projection with level > log(CN) come from terms with d > CN), now with
+`λ ≤ (A + A₁ + 3)log N + S + λ₀`. K2 Thm 5.1 and the case analysis of K2
+Cor 6.1 give `S = log(1/Eν) ≤ S′`. Then (5.1) with `T_mid ≤ cB` gives
+`(1 + Δ + Δc)B ≥ tN e^{−S′}`. ∎
+
+*Remarks.* (i) The margin s₀ enters only through `log T_{>CN}` in the level,
+so polynomially small margins cost nothing in the exponent. (ii) t and Δ
+enter as `log(1/t) + log(1+Δ(1+c))`, so they may degrade like `e^{−O(S′)}`.
+(iii) Theorem 5.2 does not use C > 1 except through (F3)–(F5); by
+Example 3.2 and Lemma 3.1's rigidity, (F3) *must fail* at some
+`d ∈ (N, CN]` when N+1 = d₁d₂ with coprime `d₁, d₂ ≤ N/2`, so the moduli just
+above N have to be treated as T_mid.
