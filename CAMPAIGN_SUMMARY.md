@@ -222,8 +222,9 @@ separate files (§2.3).
 
 ### 2.3 Beyond coefficient sums: the large sieve, interval cancellation, tuple counts
 
-Three later files close or sharpen the main doors left open by (D)18.
-All three are internal and unrefereed.
+Later files close or sharpen the main doors left open by (D)18. All are
+internal and unrefereed. With KARY3 ((D)24), every `(log log N)^{3/4}`
+factor quoted in this subsection can be dropped.
 
 * **The large sieve is capped** (`EXCEPTIONAL_LARGESIEVE.md` Thm 3.1,
   Cor 3.2; ledger (D)19).
@@ -244,12 +245,33 @@ All three are internal and unrefereed.
     (Thm 6.2).
   * *Label:* **PROVED, conditional on KARY2 Thm 5.1**.
     Review: `reviews/exceptional-largesieve-review.md`, SOUND.
-  * *Open escapes:*
-    * frequencies of super-polynomial level against multi-large-prime
-      classes (H_LS, a conjecture);
-    * the larger sieve over mixtures;
-    * twisted/hybrid forms;
-    * non-CRT interval information.
+  * *Open escapes (as of (D)19):* super-polynomial frequency levels
+    (H_LS); the larger sieve over mixtures; twisted/hybrid forms;
+    non-CRT interval information.
+* **The large-sieve escapes are closed except H_LS**
+  (`EXCEPTIONAL_LARGESIEVE2.md`; ledger (D)25).
+  * *Comparison measure (Lemma 1.1, LP duality).* The KARY2/KARY3 cap is
+    equivalent to one probability measure on the sifted set that is
+    within `e^{S(λ)}` of uniform on every nonnegative level-λ test.
+  * *Twisted and hybrid forms (Thm 2.4, Cor 2.5).* Every Bessel-type
+    inequality with periodic rows of polynomial period (additive,
+    multiplicative, mixed `χ(n)e(nθ)`, Gauss-sum rows, fibrewise use)
+    is capped at `C_A(log N)^{3/4}`. The large sieve applied to the
+    primes has the same cap relative to π(N) (Thm 3.1).
+  * *Gallagher's larger sieve* with prime-power kernels over any mixture
+    saves at most `26 log log N + C`, unconditionally (Thm 4.3).
+    Composite kernels are capped up to a factor `1 + Nh/(W_K−h)` (Thm 9.1).
+  * *Band-family escape (§§8–9, PROVED).* The comparison measure plus
+    large-sieve axioms alone cannot close H_LS∞. For a dense abstract
+    "band" family, every majorant of level below the band levels has
+    mean ≥ 1, yet a Montgomery–Vaughan large sieve on the sumset of the
+    band frequencies saves ≥ c log N. So a cap for forced families must
+    use their sparsity or K2's moment hypotheses.
+  * *Label:* **PROVED** (internal; conditional on KARY2/KARY3 where
+    cited). Reviews: `reviews/exceptional-largesieve2-review.md` and
+    `-review-2.md`. *Open:* H_LS∞ for forced families
+    (**CONJECTURE**, Prop 5.2); composite kernels with huge
+    `Nh/(W_K−h)` and small prime factors.
 * **Inter-frequency cancellation is worthless for moduli ≤ N/2**
   (`EXCEPTIONAL_INTERFREQ.md`; ledger (D)20).
   * *Selberg minorant.* If every nonzero frequency of `ν ≥ 0` has
