@@ -95,3 +95,67 @@ reduced products with `|I|≤k`, on which `E_ρ=0`: Thm 1.2 contains O14 Thm 4.5
 Wiener norm exceeds its mean by `e^{c𝓛^4/log𝓛}`.
 (iii) Integrability: B is a finite combination of bounded functions, so all expectations are
 finite; `ν≪P` with `dν/dP≤2` (O14 m1(b)).
+
+## 2. Linear transfers of any accuracy: GRH, characters, additive characters
+
+**Definition 2.1 (linear prime information).** Let 𝒽 be a family of reduced products on H
+and `𝔈≥0`. Put `N_x:=#{p≤x: p∈H}`. A nonnegative measure m on H of mass `N_x` is
+*𝒽-consistent at accuracy 𝔈* if `|∫h dm − N_xE_Hh|≤𝔈` for every `h∈𝒽`. A *linear certificate
+at accuracy 𝔈* proves "some prime `p≤x` in H has `F(p)=1`" from the facts (i) the prime counting
+measure `m_x:=Σ_{p≤x,p∈H}δ_p` is nonnegative of mass `N_x`, (ii) it is 𝒽-consistent at accuracy
+𝔈. It is *valid* iff every 𝒽-consistent m has `∫F dm>0`. (Every minorant transfer is one:
+from `B=Σc_ih_i≤F`, `h_i∈𝒽`, it concludes `Σ_pF(p)≥Σ_pB(p)≥N_xE_HB−𝔈Σ|c_i|>0`.)
+
+**Theorem 2.2 (no linear certificate below `𝔈<N_xη`; PROVED, same inputs as Thm 1.2).** In
+the setting of Thm 1.2, if `𝔈≥N_x·(8r*)^{k+1}` (in particular if `𝔈≥N_xη`), then
+`m_ν:=N_xν` is 𝒽-consistent at accuracy 𝔈 for *every* family 𝒽 of reduced products, and
+`∫F dm_ν=0`. Hence every valid linear certificate has `𝔈<N_xη≤x·e^{−c𝓛^4/log𝓛}`; and every
+minorant transfer `N_xE_HB>𝔈‖B‖_×` needs `N_x/𝔈>e^{c𝓛^4/log𝓛}` (Thm 1.2).
+
+*Proof.* `m_ν≥0`, mass `N_x`; `|∫h dm_ν−N_xE_Hh|=N_x|E_ρh|≤N_x(8r*)^{k+1}` (Lemma 1.1);
+`ν(F=1)=0` (O14 Lemma 4.1). ∎
+
+So the only question is how small an accuracy 𝔈 can be *true* for the primes. For families
+that are closed under translation, it cannot be small:
+
+**Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q>x` be a prime, `q∤Q`. 
+(a) If 𝒽 contains the classes `1_{a mod q}` for all units a, then every bound 𝔈 valid for
+`m_x` on 𝒽 has `𝔈≥1−N_x/(q−1)` (if `N_x≥1`).
+(b) If 𝒽 contains all nontrivial Dirichlet characters mod q, or all additive characters
+`e(an/q)`, `a≢0`, then `𝔈≥(N_x(q−1−N_x)/(q−2))^{1/2}` resp. `𝔈≥(N_x(q−N_x)/(q−1))^{1/2}−N_x/(q−1)`; for
+`q≥x²` both are `≥(1−o(1))√N_x`.
+
+*Proof.* The primes `p≤x` are distinct mod q and nonzero. (a) A class containing one of them
+has `∫1_{a}dm_x=1` and `N_xE_H1_a=N_x/(q−1)`. (b) Characters: `Σ_{χ mod q}|Σ_{p}χ(p)|²=(q−1)N_x`
+(orthogonality over the distinct units p), and the trivial character contributes `N_x²`; the
+`q−2` others have mean square `N_x(q−1−N_x)/(q−2)`, and `E_Hχ=0`. Additive:
+`Σ_{a mod q}|Σ_pe(ap/q)|²=qN_x`, `a=0` contributes `N_x²`, so some `a≠0` has
+`|Σ_pe(ap/q)|²≥N_x(q−N_x)/(q−1)`; and `|E_He(a·/q)|=1/(q−1)` (Ramanujan sum over units mod q,
+H being a union of classes mod Q coprime to q). ∎
+
+**Corollary 2.4 (oblivious linear transfers are capped at 1/4; PROVED implication).**
+Certificates through a translation-closed family 𝒽 of reduced products — residue classes
+(e.g. O9/Gallagher-type and sieve transfers), Dirichlet characters (e.g. GRH:
+`|ψ(x,χ)|≪x^{1/2}log²(qx)`), additive characters (e.g. Vinogradov minor-arc bounds, the
+Fourier side of Maynard's restricted-digit method) — with *any* accuracy that is true for the
+primes, need
+
+```
+classes:     log x ≥ c𝓛^4/log𝓛 ;       characters / additive characters: log x ≥ 2c𝓛^4/log𝓛 ,
+```
+
+as soon as 𝒽 contains one full translation orbit at some prime modulus `q>x` (in particular
+whenever the minorant uses moduli `>x`, which Thm 1.2 forces: only `h_i` with `≥k+1` big primes,
+modulus `>T^{0.6(k+1)}=e^{c𝓛^4/log𝓛}`, carry positive mean). If instead every `h_i` has modulus
+`≤x`, then B is a minorant of level `≤x`, and O14 Thm 4.5 gives `E B≤0` as long as
+`log x≤c𝓛^4/log𝓛`. Either way: **certified `W(p)≥exp((log p)^{1/4+δ})` is impossible by any
+oblivious linear transfer, whatever is assumed about the primes (GRH included).**
+
+*Proof.* Thm 2.2 + Lemma 2.3, with `N_x≤x`. The two cases cover all B (split by maximal
+modulus); mixed B are in the first case. ∎
+
+*Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
+modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
+property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
+"Oblivious" = the error bound does not depend on *which* classes contain primes; a certificate
+that knows which deep classes are prime-free is using the actual primes ≤ x (cf. §4).
