@@ -250,3 +250,23 @@ answered in the model: the obstruction is not an artefact of omitting good divis
 of §4 (fake at uniform K=4, positivity at K=2) is reproduced in the full model.
 (Heuristic reason: good and bad points have the same intensity, so the data depend on
 `S_B⊔S_G` essentially type-blindly, except through the parity boundary terms.)
+
+## 8. Robustness of the K=4 fake (bad-only rows, uniform prefix families, `window3_lp2.py --cg`)
+
+Column generation (restricted master with elastic rows, pricing over all joint columns, stop
+when no reduced cost < −1e-9; final elastic = 0). min ν(∅,∅)/τ:
+
+| grid / variant | K=4 | K=3 | K=2.5 | K=2 |
+|---|---|---|---|---|
+| (0.1, 8), rep | 0 | 0 | 0 | 0.084 |
+| (0.1, 8), **outer** visibility (157 rows: *more* information than reality) | 0 | 0 | 0.023 | — |
+| (0.1, 10), rep | 0 | — | 0 | — |
+| (0.1, 12), rep (666 window configs, 443k joint) | — | 0 | 0 | (running) |
+| (0.07, 9), rep (758 window configs, 575k joint) | 0 | — | (running) | — |
+| (0.15, 6), full two-type model (§7) | 0 | — | — | 0.411 |
+| (0.1, 8), rep, θ=0.55 / 0.6 / 0.65 | 0 / 0 / 0.060 | | | |
+
+All fakes: residual ≤3.5e-10 (most ≤4e-14). (0.05,10) did not finish within 4 h (not used).
+So the K=4 fake is stable under grid refinement, under the generous visibility convention, and in
+the full two-type model; and with switching at K=4 the Type-I level would have to exceed 0.6
+(positivity from θ≈0.65 on the coarse grid).
