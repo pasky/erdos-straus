@@ -13,6 +13,13 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 | C6.4 unconditional part | SOUND-AFTER-REPAIRS (defect 1) |
 | §6.1 literature | SOUND (checked against ET PDF and Salez audit text) |
 | T2.1 | SOUND (CONDITIONAL label correct) |
+| T3.1 | SOUND-AFTER-REPAIRS (defect 2; constant/asymptotic unaffected) |
+| P4.1 | SOUND (minor: defect 5) |
+| P4.2 | SOUND |
+| L4.3 | SOUND |
+| A4.4, A4.6 | Assessments, reasonable (defect 3 in A4.6 arithmetic) |
+| L4.5 | label overclaim (defect 4) |
+| R6.2 | (i) SOUND; (ii) GAP in sketch (defect 6), correctly flagged as sketch |
 
 ## Notes per claim
 
@@ -74,3 +81,50 @@ g=1,r=7: p=31982111786880107424001, n_p=7, slice (7,1) M=0; g=1,r=11: p=17975901
 (11,1) M=0. g≥2 instances are out of reach (B≥max A forces Q≈10^200). Mechanism confirmed.
 Uniformity check: the H-family depends on (g,r) (finite for each); "ck_min≥n_p^{2−ε} i.o." needs only ONE r≥r_0(ε) (its
 infinitely many p all have n_p=r), so the finite-family claim is accurate.
+
+### T3.1 (GRH)
+Splitting in L=ℚ(i,√ℓ:ℓ≤y) ⟺ p≡1 (4), (ℓ/p)=1 ∀ℓ≤y ⇒ p≡1 (24), n_p>y ✓; conductor–discriminant bound ✓; LO/Serre GRH
+error term as quoted matches my recollection of LO 1977 Thm 1.1 (`c₁(|C|/|G| x^{1/2} log(d_L x^{n_L}) + log d_L)`);
+I could not access LO/Serre/Montgomery here (Lau–Wu l.72 only gives Ω(log p log₂p), no constant — the constant
+1/(2log2) is the author's own derivation). See defect 2.
+
+### P4.1, P4.2, L4.3
+P4.1: ck≤Gn<n² ⇒ at most one non-residue prime factor in c (all ≥n), so unforced ⟺ c=qc' as stated ✓. P4.2: the
+Prop 8.3 construction with ℓ = least prime ≥5 with ℓ∤L or (a/ℓ)=−1 gives (ℓ/p)=−1, (ℓ'/p)=1 for 5≤ℓ'<ℓ, so n_p=ℓ and
+ck_min=ℓ ✓; consequence for B≥0 periodic ✓. L4.3: (b) K_s∖(H∩K_s) ≥ half of K_s = 1/4 of G_h ✓; (c) N≡p²∈kerψ∩K_s so the
+single large prime factor is in H ✓; (d) common roots of x²+4c_ik_i² mod ℓ only for ℓ|4(c_ik_i²−c_jk_j²) ✓.
+
+## Defects
+
+1. **MINOR (Cor 6.4 unconditional proof, "Refine the formal class by p≢ any root of any N_{c,k} (ck≤X) mod each ℓ_i.
+   This is possible because ℓ_i>B≥2·#slices+2").** Read literally ("any N_{c,k}, ck≤X") this is FALSE for the r=11 row:
+   X=3000 has 24496 slices, 2·24496+2 > B=30000. It is true for #slices = slices with s∉{1,2,3,6} (14834 → 29670 ≤ 30000,
+   barely; this is what typei_formal.py counts) and comfortably for the 1491 unforced slices. Also p≢0 (mod ℓ_i) must be
+   avoided (2·#+1 excluded residues). *Repair:* refine only against roots of N_{c,k} for UNFORCED slices with ck≤X
+   (certificates on forced slices never hold), state the count explicitly (r=7: 319; r=11: 1491), and say "ℓ_i > 2·#+1".
+2. **MINOR (T3.1 proof, condition `2^{π(y)} ≤ x^{1/2}/(C(log x)²)`).** With θ(y) ≍ log x·log log x (as the proof itself
+   notes) the error term c₁x^{1/2}θ(y) is ≍ x^{1/2} log x log log x, while the main term under this condition is only
+   ≍ C x^{1/2} log x. So the inequality as written does not close. *Repair:* take
+   `π(y) ≤ (log x − 4 log log x − 2 log log log x − 2 log C)/(2 log 2)`; y ∼ (1/(2log2)) log x log log x is unchanged.
+3. **MINOR (A4.6).** "(log G)³ ≪ log₂p/log p … i.e. ck_min ≥ n_p+O(n_p·log₂p/log p)": from (log G)³ ≪ δ one gets
+   G−1 ≪ δ^{1/3}, i.e. n_p(1+O((log₂p/log p)^{1/3})). Assessment only; fix the exponent.
+4. **MINOR (L4.5 label).** The proved content is the CRT description of the events (moduli hD up to h√N > hx/2). The sentence
+   "any argument that controls these events through the distribution of primes in progressions needs moduli >x" is a
+   meta-statement, not a theorem. *Repair:* label that sentence Assessment (as in A4.4).
+5. **MINOR (P4.1).** 𝓤_p(G) should be intersected with 𝓑_p (and (p,ck)=1); this is automatic iff Gn<n²≤p/2, which holds
+   for all hard p (checked: no hard p<10^6 has n_p²>p/2; beyond, explicit Burgess/Treviño), but should be stated.
+   Also "every prime of sf(c') a residue" — since ck<n², actually every prime of c' is a residue; harmless.
+6. **MINOR/GAP (R6.2(ii), "So under H, C(r) is exactly the least height of a finite Type-I covering").** Passing from
+   "every class fixing v_ℓ(N) for ℓ≤B is covered by B-smooth certificates" to "a FINITE covering exists" needs a compactness
+   step in ∏_{ℓ≤B}ℤ_ℓ: fixing classes have unbounded depth near ℓ-adic roots of N_{c,k}, and the covering certificates there
+   could use unbounded powers ℓ^e. The step can be supplied (an ℓ-adic root point p* of one slice is a common root of no
+   other slice off finitely many ℓ; if p* is uncovered then, since ℓ^i mod 4ck is periodic and the other slices are locally
+   constant near p*, nearby fixing classes are uncovered too, contradicting (ii); so every point of the compact space is
+   covered and a finite subcover exists), but as written it is missing. Doc already says "sketch"; keep the label and add the
+   argument, or keep "≤" only (finite covering ⇒ C(r) bound, plus uncovered fixing class ⇒ C(r)>X under H).
+7. **MINOR (§6.1 wording).** "the literature has full single-prime coverings exactly for r=5,7" — only established for
+   Salez's listed filters S_ℓ, ℓ≤37; say so.
+8. **MINOR (§6.2 text).** typei_formal.py checks determinacy only for unforced slices up to the hit; determinacy genuinely
+   fails beyond (e.g. point 3:7:9, slice (23,76) has v_3(N)=12≥9; point 7:3:1, forced slice (10,1) has 7²|N). The prose
+   ("It asserts that this part, and every target class −p mod 4ck, is determined by the class") should say "for every
+   unforced slice with ck ≤ (formal ck_min)", which is all that the H and covering arguments need.
