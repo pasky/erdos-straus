@@ -10,7 +10,9 @@ O13 Cor 3.5 pays `log Z ≍ log Q + 𝓛·S` (S = residual mass `≍𝓛³` up t
 `𝓛·S` is the cell modulus of the BRW minorant (O11 Cor 1.2). The brief asks for a minorant
 of cell modulus `≪S·polylog`, or a proof that `𝓛·S` is forced.
 
-Answer pursued here: **it is forced, for every minorant of bounded level, not only BRW.**
+Answer: **it is forced (up to logs) for every *dense* minorant of bounded level — any B
+with `B≤F` keeping a share `≥exp(−𝓛^{3.9})` of the avoider mass — not only for BRW**
+(Thm 2.4, Cor 2.5, Cor 3.1). Sparse minorants with small `A=E|B|/E B` remain open (Prop 2.7).
 §1 proves an abstract *planting* barrier: if every event has one "big" coordinate of cost
 `≥L`, and B is any combination of functions that each see at most k big coordinates, then
 `B≤F` forces `E B ≤ E[F·1{R<(k+1)(1+o(1))}]`, where R is the conditional odds-mass of the
@@ -170,7 +172,7 @@ pairs of 𝓕, total `≤mΔ(𝓕)≤mC𝓛²`; (β) copies `i≠j`: they share 
 `g:=gcd(v,v')`, so `g>1` and agreement means `g|D−D'`; with `v=gw`, `v'=gw'` and (F2),
 `P(E^{(i)}∩E'^{(j)})=1/(φ(g)φ(w)φ(w')φ(ℓ)φ(ℓ'))≤32/(gww'ℓℓ')`. For fixed `(g,n)` put
 `Σ(g,n):=Σ_{w y-rough, ℓ>T^{0.6}: gwℓ≡−1 (4n)}1/(wℓ) ≤ C𝓛/(φ(4n)log y)`
-(Brun–Titchmarsh `π(t;q,c)≤2t/(φ(q)log(t/q))`, `q=4n≤t^{1/6}`, gives `Σ_{ℓ≡c (q), ℓ>T^{0.6}}1/ℓ≤C/φ(q)`;
+(Brun–Titchmarsh `π(t;q,c)≤2t/(φ(q)log(t/q))`, `q=4n≤t^{1/5}`, gives `Σ_{ℓ≡c (q), ℓ>T^{0.6}}1/ℓ≤C/φ(q)`;
 and `Σ_{w y-rough}1/w≤C𝓛/log y`).
   * `D=D'` (so `n=n'`): `≤Σ_n2^{ω(n)}Σ_{g>y}(32/g)Σ(g,n)² ≪ (𝓛³/log³y)Σ_{n≥N_0}2^{ω(n)}/φ(n)²
     ≪ 𝓛³log N_0/(N_0log³y) ≪ 𝓛`.
@@ -187,7 +189,7 @@ and `1≤m≤min(y/𝓛^4, μ/(8C_5𝓛²))`. If B has level `≤D`, `B≤F` on 
 log D ≤ 0.6·𝓛·(μ/3 − 1),                                               (2.1)
 ```
 
-then `E_fibre B ≤ exp(−mμ/4)`. With `y=max(𝓛^5,Y)`, `Y=𝓛^{O(1)}`, and `m≍𝓛/log𝓛`:
+then `E_fibre B ≤ exp(−mμ/4)` (the computation gives `exp(−3mμ/8)`). With `y=max(𝓛^5,Y)`, `Y=𝓛^{O(1)}`, and `m≍𝓛/log𝓛`:
 **every minorant of level `log D ≤ c𝓛^4/log𝓛` has `E B ≤ exp(−c'𝓛^4/(log𝓛)²)`.**
 
 *Proof.* `k=⌊log D/(0.6𝓛)⌋≤μ/3−1`. By Lemma 2.1 and Theorem 1.3 (`r*≤2p*`),
@@ -204,9 +206,9 @@ are independent Haar, so `E[F|x_s]≤∏_ℓ(1−p_ℓ)≤e^{−P}`, `P:=Σ_ℓp
 needing `E B≥0.99δ`), Selberg-type quadratic minorants, β-sieve/Bonferroni truncations
 and any choice of `u_j` or weights in C-1 (brief items (i)–(iii)) all need cell/conductor
 level `log Z ≥ log D ≫ 𝓛^4/log𝓛`. So O13 Thm 5.1's `log Z≪𝓛^4log𝓛` is optimal
-up to logs **for every transfer that certifies primes through a level-D minorant of F** (a
-function of n in the span of characters of conductor `≤D`), and such transfers cannot give
-exponent better than `1/4` (up to logs) for `W(p)`, on these fibres.
+up to logs **among transfers that need a level-D minorant of F keeping a share
+`≥exp(−𝓛^{3.9})` of the avoider mass** (level = span of characters of conductor `≤D`); see the
+scope note after Prop 2.7 for sparse minorants.
 
 *Proof.* Theorem 2.4 with `δ_fibre≥exp(−C𝓛³(log𝓛)^C)`. ∎
 
@@ -220,18 +222,33 @@ fibre, F is still `≤` its avoidance indicator, and all upper bounds (Lemma 2.1
 (log Q/log y)(𝓛³/(2y)+4𝓛T^{−2/5})+ω(Q)T^{−0.09} ≪ 𝓛²/log𝓛`, so `μ(𝓕_Q)≥μ/2≫𝓛³/log𝓛`.
 Run Theorem 2.4 with `m≍𝓛/log𝓛 ≤ y/𝓛^4`. ∎
 
-*Reading (Assessment for the last step).* A quarantine+minorant certificate (O9 Thm 1.1 shape)
-counts primes `p≡r (Q)` with main term `E_{rH}B·π(x)/φ(Q)`. By Theorem 2.6, either
-`log Q>𝓛^5`, or the level satisfies `log Z≥log D≫𝓛^4/log𝓛`, or the main term is
-`≤exp(−c'𝓛^4/(log𝓛)²)π(x)`. Gallagher/BV-type transfers need `log x≫log Z` in the second
-case and `log x≫log(1/E B)` in the third (main term ≥ error ≥ 1 in any counting argument).
-Either way `log p≫𝓛^4/(log𝓛)²`. So **exponent `1/4` is the ceiling, up to logs, of every
-argument that certifies a hard prime through a bounded-level Haar minorant of F**; the
-heuristic truth `1/3` (Haar exponent 3) lies beyond it, as twin primes lie beyond sieve level.
+**Proposition 2.7 (where a low-level minorant's mean lives; PROVED).** In Theorem 2.4's
+setting (or 2.6's), let `G:={R(X_s)<K'}`. Then `E B ≤ E[B^+·1_G]` and `P(G)≤exp(−3mμ/8)`.
+
+*Proof.* In Theorem 1.3's law ν, `B≤F=0` on planted configurations, and on unplanted ones
+(the x_s-measurable event G) ν equals the true law. So `E B=E_νB≤E[B·1_G]≤E[B^+1_G]`. For
+`P(G)`: `R≥P`, so `P(G)≤e^{θK'}E e^{−θP}` with `θ:=m(1+p*)`, and `e^{−θP}≤∏(1−p_ℓ)^m`;
+Lemma 2.3 and the arithmetic of Theorem 2.4 give `≤exp(−3mμ/8)`. ∎
+
+*Scope (after self-review; corrects an earlier overclaim).* Theorems 2.4/2.6 bound the
+*absolute* mean of every level-D minorant. They block every transfer that needs the
+minorant to keep a non-negligible share of the avoider mass — in particular O13 Thm 5.1's
+BRW route (`E B≥0.99δ`), and every route through EL-type energy bounds (Cor 3.1). They do
+**not** by themselves block O9 Thm 1.1 in general: its cost `C(1+log A)log Z` depends only on
+`log Z` and `A=E|B|/E B`, which are invariant under `B↦εB`. The loophole is a *sparse*
+minorant: level `≪𝓛^4/log𝓛`, mean `≤e^{−3mμ/8}`-small (Prop 2.7: its positive mean is carried
+by the exponentially rare, non-low-level set G), yet `A=O(1)` or `log A≪𝓛^{1−ε}`. No such
+minorant is known, and the natural candidate (Bonferroni on big primes, restricted to G)
+lives outside the level-D space and has `log A≍μ`. Whether `log A·log Z≫𝓛^4/polylog` holds for
+all level-D minorants is **open** (target O49b). So "1/4 is the ceiling of minorant-based
+transfers" is an **Assessment**, proved only for dense minorants (mean `≥e^{−c𝓛^4/(log𝓛)²}`
+relative to the fibre).
 
 **Numerics (`scripts/omega14_planting.py`, `data/omega14/planting.txt`).** (1) Lemma 1.1's
-explicit ν verified in exact rationals on 300 random instances satisfying (1.1) (`n≤9`,
-`k≤3`): `ν≥0`, `ν(0)=0`, all `≤k`-marginals equal μ; 0 failures. (2) Toy LP (n iid bits,
+explicit ν verified in exact rationals on 100 random instances satisfying (1.1), 25 for each
+`k=0,1,2,3` (`n≤22`, `p_i∈[0.2,0.5]` plus one zero coordinate; ρ=ν−μ is supported on `|y|≤k+1`,
+so the check is exact without enumerating `2^n`): `ν≥0`, `ν(0)=0`, all `≤k`-marginals of ρ
+vanish; 0 failures (the script asserts this, and LP success/feasibility). (2) Toy LP (n iid bits,
 `F=1[all zero]`, B any sum of `≤k`-bit functions with `B≤F`): the optimum `E B/E F` vanishes
 already at `R≈1.1 (k=1)`, `1.8 (k=2)`, `3.0 (k=3)` (n=10,10,12), below the sufficient
 threshold `(k+1)+(2k+1)r*` (2.3, 3.9, 5.8). So (1.1) is conservative by a constant factor only;
@@ -252,7 +269,7 @@ single-prime events, can give a tail `≤2^{−τ/ρ}` with `ρ≤c𝓛/(log𝓛
 
 *Item (ii)* (single-prime events exactly, BRW only for multi-prime ones). The product formula
 `∏_ℓ(1−1[X_ℓ∈Ω_ℓ])` over single-prime events is itself a function of level `∏ℓ` (huge); any
-truncation to level D is a level-D minorant, covered by Thm 2.4. Here the obstruction comes
+level-D replacement that remains a minorant is covered by Thm 2.4. Here the obstruction comes
 from 2-or-more-prime events `M=vℓ` (one big prime, rough small part), whose mass `≍𝓛³/log𝓛` is
 the bulk; single-prime events (`M=ℓ`) have mass only `≍𝓛²` (HAAR Prop 1.5's `S1`), so they
 are not the issue. *Item (iii)* (Selberg-type quadratic minorants `1−(Σλ_dχ_d)²`-shaped, or
@@ -269,7 +286,7 @@ needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink 
 
 | item | statement | label |
 |---|---|---|
-| Lemma 1.1 | planting: odds-sum `R≥(k+1)+(2k+1)r*` ⇒ k-wise-equivalent law with no all-zero | PROVED (exact check, 300 instances) |
+| Lemma 1.1 | planting: odds-sum `R≥(k+1)+(2k+1)r*` ⇒ k-wise-equivalent law with no all-zero | PROVED (exact check, 100 instances, k≤3) |
 | Thm 1.3 | abstract level barrier `E B≤E[F·1{R<…}]` for `B∈𝒱_k`, `B≤F` | PROVED |
 | Lemma 2.1 | big family: one big prime `>T^{0.6}`, `p*≤T^{−0.09}` | PROVED |
 | Lemma 2.2 | big-family mass `≫𝓛³/log y` | PROVED mod BV + fundamental lemma (theorems) |
@@ -277,7 +294,8 @@ needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink 
 | Thm 2.4 | level `log D≤0.6𝓛(μ/3−1)` ⇒ `E B≤exp(−mμ/4)` | PROVED (same inputs) |
 | Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary; Thm 5.1 optimal up to logs among level-D minorant transfers | PROVED implication (+NT for δ) |
 | Thm 2.6 | any Q with `log Q≤𝓛^5`: same barrier | PROVED |
-| "1/4 ceiling" reading | for all bounded-level-minorant certificates | Assessment (last step: main term vs x) |
+| Prop 2.7 | a level-D minorant's mean lives on a set of measure `≤e^{−3mμ/8}` | PROVED |
+| "1/4 ceiling" | PROVED for dense minorants (BRW/EL routes); sparse minorants with small A open | Assessment beyond that |
 | Cor 3.1 | EL_mod(τ) false for `τ≤c𝓛^4/log𝓛`: no better C-1 weights | PROVED |
 
 Not claimed: anything about ES; anything about arguments that do not pass through a

@@ -1,4 +1,9 @@
-(1) Lemma 1.1 exact check: 300 random instances satisfying (1.1), failures = 0
+(1) Lemma 1.1, stratified:
+    k=0: 25 instances (n up to 22)
+    k=1: 25 instances (n up to 22)
+    k=2: 25 instances (n up to 22)
+    k=3: 25 instances (n up to 22)
+(1) Lemma 1.1 exact check: 100 random instances satisfying (1.1), failures = 0
 (2) toy LP, n iid bits with P(1)=p, level k: max E B / E F  (Lemma 1.1 threshold R*)
  n  k     p      R    R*=(k+1)+(2k+1)r   LPopt/EF
 10  1   0.05   0.53     2.16         0.8351
