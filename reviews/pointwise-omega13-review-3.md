@@ -62,3 +62,50 @@ Toy checks (ii)–(iv), exact enumeration including a fibre coordinate with `a=1
 * conditional bound ratio ≤0.981;
 * `|E[Fψ]|/(β^{−1}w̃_{ℓ_0}EF')` ≤0.68;
 * `(1−η)EF'/EF` ≤0.997.
+
+### C3. I2 — junta via digit filtration — SOUND
+O11 Lemma 1.1 uses only the following:
+* independence of the digit blocks `(δ_{ℓ,i})_{i≥i_0(ℓ)}` across ℓ and i, under the fibre
+  measure. Digit 0 is uniform on `{1..ℓ−1}` when `a_ℓ=0`; this is still an independent block,
+  and its uniformity is never used.
+* events that fix initial segments `i_0..v−1` of free digits.
+* the edge-weight bound `∏λ^{2v}≤2`.
+
+On `n≡r (ℓ^{a_ℓ})`, the digits `<a_ℓ` are the constants `r`'s digits, and the digits `≥a_ℓ`
+are i.i.d. uniform on `{0..ℓ−1}`, for *every* r. A surviving event agrees with r on the fixed
+digits (`−4D≡r mod ℓ^{a_ℓ}`). Its free part is therefore an initial segment, and the same holds
+on the conditioned systems `F^{(j)}` (`i_0=max(a_ℓ,v_ℓ(E_j))`, O11 Remark (ii)). So r enters only
+through which atoms survive, which fixes the family, and never through the measure.
+**Answer to the brief:** once `(Q,r)` is fixed, the random square class does not enter O11
+Lemma 1.1.
+
+One point worth a sentence in §5: `E[F|X_W]` for a non-initial digit set W is still a function
+of `n mod m_W`. Its cells are the fibre classes mod `m_W`, so they are consistent with r. Weights
+are absolute (`m_U` includes the fixed fibre digits), so `log m_U≤τ` bounds the true modulus.
+Cells of B: three event moduli (`≤T` each) and two `u_j`'s (`≤e^τ` each), so `≤e^{2τ+3𝓛}`.
+
+### C4. I3 — coset transfer — SOUND-AFTER-REPAIRS (m1)
+Re-derived from O9 Thm 1.1 / O11 Lemma 3.1:
+* *Coefficients.* On `G=(ℤ/N)^*`, `N=lcm(Q,D)`, `G→(ℤ/Q)^*` is onto with fibres the cosets
+  of H. So `c(χ)=E_{rH}[Bχ̄]/φ(Q)`, `|c(χ)|≤Aμ/φ(Q)`, `c(χ_0)=μ/φ(Q)`.
+* *Item 1.* Every cell is consistent with r, so it meets rH in one class mod `lcm(d_i,Q)≤Z`.
+* *Case A.* For χ trivial on H, `c(χ)=χ̄(r)μ/φ(Q)`. A real character mod Q is a product of a
+  character mod 8 and Legendre symbols at the odd `p|Q`: the only quadratic character of
+  `(ℤ/p^a)^*` is `(·|p)`, so this list is complete. At r all factors are 1: `r≡1 (8)`, and r is
+  a QR at each `p|Q`. The exceptional `χ_1` is real (LP), so O9's λ-argument is verbatim.
+  Non-real χ appear only through `|c(χ)|` (Case 0 and the (G) error).
+* *Case B.* `c(χ)=ψ_1(r)E_{rH}[Bψ_2]/φ(Q)` with `ψ_1(r)=1`, and `c(χ)` is real. The averaging
+  argument (a cell with `f_2∤d_i` has zero `ψ_2`-mean) uses a prime `p|f_2` coprime to Q, so it
+  is uniform on units on rH.
+* *Property (I).* As written; uses Lemma 3.1's consequence for `M|Q`.
+* *Mordell-hardness.* r is a unit square mod 840, and these are exactly
+  {1,121,169,289,361,529}.
+
+From-scratch checks (`scripts/review_o13c_jacobi.py 40000`, `data/review_o13c/jacobi.txt`):
+* Lemma 3.1(a),(b) on all 363 982 atoms `M≤4·10⁴`: 0 failures. Also 0 hits of `r≡−4D (M)` for
+  random unit squares r.
+* The unit squares mod 840 are the Mordell list.
+* For four moduli Q (up to `8·27·5·49·11·17`), the listed real characters mod Q number exactly
+  `#{x²=1}` (so the list is complete), and all equal 1 at every admissible r (0 failures).
+
+Defect m1 (class of r mod `ℓ_aux`) is listed below.
