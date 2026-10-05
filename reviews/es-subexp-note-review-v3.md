@@ -40,6 +40,16 @@ bound for the paper's δ*(T) (all integers). The rest are labelling/wording poin
 | Bibliography / novelty wording | SOUND-AFTER-REPAIRS (D6, D7) |
 | Compile | clean (27 pp, no warnings) |
 
+## Self-containedness
+
+Apart from the labelled inputs (Gallagher/MV III 28.19 with Landau–Page; ET Prop 1.4,
+Thm 7.1, Cor 7.4, (7.10)) and textbook facts (local lemma [AS 5.1.1], Efron–Stein, Mertens,
+HW Thm 317, Rosser–Schoenfeld), every step is proved in the paper; no internal report is
+needed to follow the proofs of Thms 1.1, 1.2 and Cor 8.2. The only internal citation is
+[Haar] in Remark 8.3 (see D1). No circularity found; no constant secretly depends on T
+(C_1=e², c=1/64, 1.04, 0.0163/0.0166, C_2–C_6 all absolute; the ET implied constants are
+used only with κ=4 and fixed degree/exponent parameters l=5,6, C=2).
+
 ## Numbered defects
 
 **D1 (MAJOR, isolated; does not affect Thms 1.1/1.2/Cor 8.2). Remark 8.3 compares two different
