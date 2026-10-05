@@ -218,3 +218,116 @@ the prime density already in `π(N)`. *Sketch only (not claimed):* type-
 (ii) fibres carrying prime majorants with `Err ≥ 0` (PL Cor 4.2) can be
 mixed in the same way under PL's hypothesis (H1); this needs PL Lemma
 1.3's fibre bookkeeping under E*, which is not written out here.
+
+## 4. Gallagher's larger sieve over mixtures (escape 2, LS (E2a), (E2b))
+
+Setting and notation as in LS §6: moduli 𝒮 with weights `w(q) ≥ 0`,
+`K(m) = Σ_q w(q)1[q | m]`, `W_K = K(0)`, `h ≥ max_{0<|m|<N}K(m)`,
+`D(π) = Σ_q w(q) coll_q(π)`, `D_u = Σ_q w(q)/q`, a CRT-admissible kernel
+bound is `B = (W_K−h)/(L−h)` with `h < L ≤ D(π)` for all `π ∈ P(𝒜)`, and
+`X(π) = Σ_q (w(q)/q)χ²_q(π)`, so `D = D_u + X` (LS Thm 6.2). (`W_K` is
+written for LS's W to avoid a clash with K2's W.)
+
+### 4.1 Any kernel: the larger sieve is a Bessel inequality minus the zero frequency
+
+Expanding `1[q | m] = q^{−1}Σ_{a mod q}e(am/q)`,
+
+    K(m) = Σ_θ w̃_θ e(mθ),   w̃_θ = Σ_{q∈𝒮, den θ | q} w(q)/q ≥ 0,   D(π) = Σ_θ w̃_θ |π̂(θ)|²,
+
+with `w̃_0 = D_u`.
+
+**Lemma 4.1 (PROVED).** `w̃_θ ≤ h + (W_K − h)/N` for every θ.
+
+*Proof.* With `a_n = e(−nθ)` on I, `K ≥ 0` and the pair count of LS
+Lemma 6.1: `w̃_θN² ≤ Σ_φ w̃_φ|Σ_{n∈I}e(n(φ−θ))|² = Σ_{n,n'∈I}
+e(−(n−n')θ)K(n−n') ≤ Σ_{n,n'∈I}K(n−n') ≤ NW_K + (N²−N)h`. ∎
+
+**Theorem 4.2 (kernel cap by level; PROVED, conditional on K2 Thm 5.1).**
+Let every `q ∈ 𝒮` (with `w(q) > 0`) have level `≤ λ_𝒮`, and
+`λ = max(λ₀, 2λ_𝒮)`. Every CRT-admissible kernel bound satisfies
+
+    B ≥ (N/2) e^{−S(λ)} / (1 + N h/(W_K − h)).
+
+*Proof.* Take π from Lemma 1.1 with 𝒟 = `{lcm(q,q') : q,q' ∈ 𝒮}`. For
+`‖c‖ ≤ 1` put `H_c = Σ_{θ≠0} (w̃_θ)^{1/2} c_θ e(nθ)`; `|H_c|² ≥ 0` lies in
+`V_𝒟`. Then
+`D(π) − D_u = Σ_{θ≠0}w̃_θ|π̂(θ)|² = sup_c |E_π H_c|² ≤ sup_c E_π|H_c|²
+≤ e^S sup_c Σ_{θ≠0} w̃_θ|c_θ|² ≤ e^S(h + (W_K−h)/N)` (Lemma 4.1). With
+`D_u − h ≤ (W_K−h)/N` (LS Lemma 6.1),
+`L − h ≤ D(π) − h ≤ 2e^S(h + (W_K−h)/N)`, and
+`B = (W_K−h)/(L−h)` gives the claim. ∎
+
+So the larger sieve with composite moduli of polynomial level is capped
+like the large sieve, up to the factor `1 + Nh/(W_K − h)`. For
+Gallagher's kernel (`h = log N`, `W_K = ψ(Q)`) that factor is
+`≤ 1 + 4 log N` once `Q ≥ N`; the next theorem does much better.
+
+### 4.2 Prime-power kernels: an O(log log N) cap, unconditionally
+
+**Theorem 4.3 (H_Gal holds; PROVED, no external input).** There are
+absolute constants `C, N₀` such that for every finite mixture 𝔊 of the
+four types (arbitrary moduli, Case A included) and every `Q ≥ 2` there is
+`π ∈ P(𝒜(𝔊))` with
+
+    Σ_{q = ℓ^v ≤ Q} (Λ(q)/q) χ²_q(π) ≤ 24 log log(3Q) + C.               (4.1)
+
+Consequently, for `N ≥ N₀`, Gallagher's larger sieve (`w = Λ` on the
+prime powers `≤ Q`, `h = log N`, any Q), in its CRT-optimal form `D*`
+and a fortiori in the Cauchy–Schwarz form `Σ Λ(q)/ν(q)`, saves at most
+`log(N/B) ≤ 26 log log N + C`.
+
+*Proof.* *The law.* Take `W = max(W₀, (log 3Q)^8)` and let σ be the
+plain sequential law of EK §1 for 𝔊: base uniform on K2's `R_W^□`
+(K2 Lemma 2.3, any `W ≥ 3`), then every prime `ℓ > W` of `M₀` as a
+singleton in increasing order, caps `δ_ℓ = ℓ^{−1/2}` (light: `y_ℓ`
+uniform on `Ω_ℓ ∖ F_ℓ`; heavy: uniform on `Ω_ℓ = ℤ/ℓ^{E_ℓ}`), all other
+CRT digits uniform and independent. By EK Lemma 2.1(2) and K2 (R2), σ
+satisfies the chain-rule inflation `σ(n ≡ b (m)) ≤ Γ(m)/m` used in K2
+Lemmas 4.1–4.3, so K2 Lemma 4.3 holds for σ:
+`E_σ p_ℓ² ≤ C(log W)^c ℓ^{−7/4}(log ℓ)^c`. Every class is decided at its
+top prime (W-smooth classes by the base, K2 Lemma 2.3(1)), so by EK
+Lemma 2.1(1) and Markov,
+`𝔏 := σ(𝒜^c) ≤ Σ_{ℓ>W} ℓ^{1/2}E p_ℓ² ≤ C'(log W)^{c'}W^{−1/4} ≤ 1/4`.
+Put `π = σ(· | 𝒜)`.
+
+*Conditioning.* For every q and residue b, `π(b mod q) ≤ σ(b mod q)/(1−𝔏)`,
+so `1 + χ²_q(π) ≤ (1 + χ²_q(σ))(1−𝔏)^{−2}` and
+`χ²_q(π) ≤ χ²_q(σ) + 4𝔏(1 + χ²_q(σ))`.
+
+*Marginals of σ.* χ²(·‖uniform) is convex and contracts under
+projection `ℤ/ℓ^{E} → ℤ/ℓ^v`; above `ℓ^{E_ℓ}` the law is a uniform lift.
+* `ℓ > W`, `ℓ | M₀`: given the past, `y_ℓ` is uniform on `Ω∖F`
+  (χ² `= p/(1−p) ≤ (4/3)p` as `p ≤ 1/4`) or uniform (χ² = 0). Hence
+  `χ²_{ℓ^v}(σ) ≤ (4/3)E p_ℓ ≤ (4/3)(E p_ℓ²)^{1/2} ≤ C(log W)^cℓ^{−7/8}(log ℓ)^c`.
+* `ℓ ∤ M₀`: χ² = 0.
+* `p ≤ W`: the base is uniform on the unit squares mod `p^{e_p}`;
+  reduction is a group homomorphism of the unit-square group onto the
+  unit squares mod `p^v`, so the marginal is uniform there:
+  `χ² = (p+1)/(p−1) ≤ 2` (p odd), `≤ 7` (p = 2).
+
+*Sum.* The W-smooth prime powers give
+`≤ Σ_{p≤W}(log p/(p−1))(2+12𝔏) + log 2·Σ_v 2^{−v}(7+32𝔏) ≤ 3 log W + C`
+(Mertens). The rough ones give
+`≤ Σ_{ℓ>W}(2log ℓ/ℓ)·2C(log W)^cℓ^{−7/8}(log ℓ)^c + 4𝔏Σ_{q≤Q}Λ(q)/q
+≤ C + 4C'(log W)^{c'}W^{−1/4}(log Q + 2) ≤ C`, by the choice of W. Since
+`3 log W ≤ 24 log log(3Q) + C`, (4.1) follows.
+
+*Consequence.* LS Thm 6.2's proof gives `log(N/B) ≤ log(1 + NX/(ψ(Q) −
+log N))` whenever a bound exists, i.e. `D* > log N`. As
+`D* ≤ D(π) ≤ log Q + c₀ + X`, a bound needs `Q ≥ N e^{−c₀−X}`, hence
+`Q ≥ N(log N)^{−25}` for `N ≥ N₀`; then `ψ(Q) − log N ≥ Q/4`. If
+`Q ≤ N²`, `NX/(ψ(Q)−log N) ≤ 4(log N)^{25}(25 log log N)`, and the
+saving is `≤ 26 log log N + C`. If `Q > N²`, `4NX/Q ≤ 1` and the saving
+is `≤ log 2`. The Cauchy–Schwarz form has `L = Σ Λ/ν(q) ≤ D*`, so its
+bound is larger. ∎
+
+*Remarks.* (a) Theorem 4.3 uses only K2 Lemmas 2.3, 4.1–4.3 and EK Lemma
+2.1, all proved with no external input; it does **not** need K2 Thm 5.1.
+It is far below the 3/4 scale: on forced-class avoiders, which occupy
+almost every residue class modulo every prime power, Gallagher's sieve is
+essentially powerless, as on the prime slices of LS Cor 6.3. (b) Any
+other weights `w ≥ 0` on prime powers: the same π gives
+`X(π) ≤ 8D_u + 4𝔏 D_u`, so the saving is `≤ log(10 + 9Nh/(W_K − h))`
+(Lemma 4.1 for `D_u`). (c) Composite kernels are covered by Theorem 4.2
+when their moduli have polynomial level; kernels whose moduli have
+super-polynomial level belong with (E1) (§5).
