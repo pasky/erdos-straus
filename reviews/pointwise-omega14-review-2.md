@@ -125,10 +125,8 @@ level in the O14 sense (e.g. using a modulus with many primes >T^{0.6}); (c) maj
 mixtures and bilinear input (already listed). Also recommend the Status table say
 "PROVED implication (scope: E_Haar B>0, transfer needs log x≫log Z)".
 
-**D6 (MINOR, consistency).** Status table row for Lemma 2.1 is used for 𝓕* in Thm 4.5
-("p*≤T^{−0.09}, the family is smaller"): correct, but 𝓕* is *not* literally a subfamily of §2's 𝓕
-when ε>1/10 is allowed? No: ε≤1/10 is imposed, and `D*≤X=T^ε≤T^{1/10}`, `n≥V≥N_0`. OK — no defect;
-recorded only to show it was checked.
+*Checked, no defect:* 𝓕*⊂§2's 𝓕 (needs `ε≤1/10`, imposed; `n≥V=T^{ε/3}≥N_0=𝓛²`, `D*≤T^{1/10}`), so Lemma 2.1's
+`p*≤T^{−0.09}` applies to 𝓕* in Thm 4.5.
 
 ## Verdict table
 
