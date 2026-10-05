@@ -323,6 +323,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Not covered: prime input beyond low-conductor minorants (bilinear/Type II, parity-sensitive input), and transfers whose positivity comes from a Siegel-zero term. The heuristic truth 1/3 therefore needs such input.
     * **PROVED as labelled** (internal; reviews `reviews/pointwise-omega14-review.md` (§§1–3) and `-review-2.md` (§4), both SOUND, minors applied by a repair agent).
 
+28. **Obstructions beyond the 1/4 ceiling (POINTWISE_OMEGA15.md).**
+    * Wiener-norm barrier (Thm 1.2): every minorant B ≤ F, of any level, on any fibre has `E B ≤ e^{−c𝓛^4/log 𝓛}‖B‖_×` (ℓ¹ norm over residue classes / multiplicative / additive characters), via exponential pseudorandomness of POINTWISE_OMEGA14's planted law (Lemma 1.1, exact checks).
+    * Consequence: linear certificates with full-orbit uniform accuracy (standard sieve-remainder accounting, one-sided and Hölder-averaged variants included) cannot beat exponent 1/4; within this class prime input (GRH etc.) is irrelevant by construction, because on moduli > x every true orbit-uniform bound is trivial. The same holds for the Siegel-model law `(1−εχ_1)P` (Thm 3.1), closing POINTWISE_OMEGA14 Cor 4.6's Siegel item for such transfers. Prop 5.2: finite-range prime-only minorants of a single modulus ≤ `x^{1/5}/(QT)` have `E B ≤ 0` (modulo Linnik–Xylouris).
+    * Assessment: the ceiling is a sieve-*dimension* barrier (dimension κ ≍ 𝓛³/log 𝓛 forces level `x^{𝓛^{1−o(1)}}`), a property of the set F itself.
+    * Open: certificates that use atomicity, integrality or support of the prime or integer measure (support-aware accounting — including integer Type I sums, so the role of Type II input is open), non-periodic structure, non-linear methods.
+    * **PROVED** modulo Gallagher (G), the effective Page bound and the fundamental lemma (Prop 5.2 modulo Linnik–Xylouris) (internal; review `reviews/pointwise-omega15-review.md`: mathematics SOUND; three MAJOR scope/overclaim items and a routine proof gap repaired).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
