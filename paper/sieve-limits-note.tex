@@ -3878,45 +3878,56 @@ Theorem~\ref{thm:noBcap}, with the same cap $C\lambda^{3/4}$ \lab{proved}.
 
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
 least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
-\cite[\S6]{NC}, \cite[\S6]{KA2}:
+\cite[\S6]{NC}, \cite[\S6]{KA2}, \cite[\S7]{LS}, \cite[\S0]{LS2},
+\cite[\S0]{IF2}, \cite[\S0]{TU2}, \cite[\S5]{KA3}:
 \begin{enumerate}
 \item[(i)] classes of a type outside Definition~\ref{def:types} that fail
-  one of the properties (a)--(c) of Section~\ref{sec:excluded}, item~6,
+  one of the properties (a)--(c) of Section~\ref{sec:excluded}, item~7,
   or a non-selector admissible set with a large saving of its own;
 \item[(ii)] a majorant that is $\geq1$ only on part of the avoider set
-  (on $[1,N]$, on the exceptional set, or on exceptional primes beyond
-  the prime-slice setting of Theorem~\ref{thm:primemaj});
-\item[(iii)] a non-CRT input outside Section~\ref{sec:noncrt}: rounding
-  with weights $<1$ or cancellation between frequencies (a direct count
-  of $\sum_{n\leq N}\nu(n)$ in one of the two branches of the dichotomy of
-  Section~\ref{sec:noncrt}), counts of high-order correlations of
-  solutions without CRT, the large sieve beyond prime slices, or such
-  inputs in the sequential and mixed settings;
-\item[(iv)] family primes beyond $N^{O(1)}$.
+  (on $[1,N]$ or on the exceptional set), or a prime majorant that is
+  $\geq0$ only at primes $\leq N$;
+\item[(iii)] large-sieve frequencies of super-polynomial level used
+  against the sparsity of forced classes (Conjecture~\ref{conj:HLS} would
+  exclude this), or larger-sieve kernels with an uncontrolled factor
+  $1+Nh/(W_K-h)$;
+\item[(iv)] a direct count above modulus $N/2$: a hybrid method that
+  counts classes of modulus in $(N/2,CN]$ exactly with large right-signed
+  mass, or any hybrid at those $N$ for which Flat fails
+  (Theorem~\ref{thm:hybridcap}; Hypothesis~\ref{hyp:SPW} would exclude this), or
+  cancellation between frequencies of combined modulus $>N/2$;
+\item[(v)] a non-CRT tuple count: Hypothesis~\ref{hyp:TCalt} for some
+  $\theta>3/4$, i.e.\ CRT-accuracy on $[1,N]$ at moduli
+  $\exp\{c(\log N)^{3\theta/2}\}$; or family-class order in the window
+  \eqref{eq:window} for moduli with many primes above $W$; or other
+  non-CRT input (Type~I/II sums, Hal\'asz-type arguments);
+\item[(vi)] family primes beyond $N^{O(1)}$, outside the settings of
+  Theorem~\ref{thm:perfreq}, Corollary~\ref{cor:IFcap} and
+  Theorem~\ref{thm:LSslice}.
 \end{enumerate}
-The items of the corresponding list in the previous version are gone:
-moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and Case-A moduli
-without a dominant prime and mixed families are inside
-Theorem~\ref{thm:main}, and so are multipliers larger than the slice
-primes, provided the multiplier conditions are classes of the four types
-with all primes $\leq N^A$ (Section~\ref{sec:excluded}).  Unresolved $\eta$-twin moduli,
-item (i) of the list in \cite[\S6]{ET}, were removed for fixed $B$ by
-Theorem~\ref{thm:karycap} and are now covered without $B$
-(Theorem~\ref{thm:noBcap}) \lab{proved}.
+Gone since version~2: moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and
+Case-A moduli without a dominant prime, mixed families, and multipliers
+larger than the slice primes (provided the multiplier conditions are
+classes of the four types with all primes $\leq N^A$); unresolved
+$\eta$-twin moduli, item (i) of the list in \cite[\S6]{ET}.  Gone since
+version~3: the large sieve beyond prime slices at polynomial level, in
+twisted, hybrid and prime forms; Gallagher's larger sieve; prime-only
+majorants of mixtures; per-frequency rounding and inter-frequency
+cancellation when all moduli are $\leq N/2$; tuple input of bounded or
+prime order; and the factor $(\log\log N)^{3/4}$.
 
-\emph{The exact exponent without $B$} \lab{open}.  Remove the factor
-$(\log\lambda)^{3/4}$ of Theorem~\ref{thm:noBcap}.  It comes only from the
-first moment over smooth-dominated moduli (Lemma~\ref{lem:firstnoB}); a
-bound $\sum_{M\leq x,\,P(M)\leq y}\tau(A_M^2)\ll\Psi(x,y)(\log x)^2$ for
-shifted smooth numbers, and its Case-A analogue, would suffice
-\cite[Remark~3.8]{KA2}.  This affects only gains of order
-$(\log\log N)^{O(1)}$, not the exponent $3/4$.
+\emph{The exact exponent without $B$} is settled for the class of
+Theorem~\ref{thm:main}: the factor $(\log\lambda)^{3/4}$ of the previous version
+is removed by the local-weight moment (Lemma~\ref{lem:firstnoB}).  The
+heuristic bound $\sum_{M\leq x,\,P(M)\leq y}\tau(A_M^2)\ll\Psi(x,y)(\log x)^2$ for
+shifted smooth numbers \cite[Remark~3.8]{KA2} was not needed and remains
+\lab{open}; it would replace the crude decay $u^{-4}$ of
+Lemma~\ref{lem:smoothR} by a $\rho(u)$-type decay, which does not affect the
+cap.
 
-\emph{Removing $B$ for general majorants} is now done
-(Theorem~\ref{thm:noBcap}).  The route follows the sketch of
-\cite[\S11]{TW4} in spirit, without its three-way split: Rankin's trick
-is applied to the whole modulus.  The sketch predicted a loss
-$\log\lambda$; the proof loses $(\log\lambda)^{3/4}$.
+\emph{Constants.}  All constants of Section~\ref{sec:noB} are absolute but
+astronomically large; the saving of \cite{TQ} has an ineffective constant.
+Comparing them is \lab{open} and not attempted.
 
 The following statement would close (i) for forced classes with a
 bounded-saving admissible set.
