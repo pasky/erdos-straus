@@ -17,7 +17,7 @@ modulus > CN; (P3) |R(s) − c(s)| ≤ Δ₀ for classes of modulus in (D, CN].
 | Lemma 1.1 | SPW at N ⟺ a *periodic* SPW on ℤ/Q′, Q′ = lcm(1..T), T ≥ T(N,C,Δ₀) (periodic ⇒ ℤ loses ε and clips σ at 1/2) | PROVED |
 | Lemma 1.2 | profile criterion: R has the window profile iff mass N and ∂R ≡ δ₁ − δ_{N+1} (class sums) mod every d ≤ D | PROVED |
 | Lemma 1.3 | **two-edge split**: the window profile is `N/d + {−b/d} − {(N−b)/d}`; SPW follows from a single *half-line* (left-edge) measure H (problem HL) | PROVED |
-| Lemma 1.4 | **weak SPW suffices**: by Thm 5.2 remarks σ may be quasi-polynomially small, and then only *full* large classes need mass < 1; sparse ones may carry quasi-polynomial mass | PROVED implication |
+| Lemma 1.4 | **weak SPW suffices**: by Thm 5.2 remarks σ may be sub-polynomially small, N^{−o(1)} (precisely ≥ c₀e^{−S_A}), and then only *full* large classes need mass < 1; sparse ones may carry mass up to N^{o(1)} | PROVED implication |
 | §2 | BDW (pointwise density ≤ A·uniform): LP optimum = trivial bound A*(N) for N ≤ 24, but **A(N) ≥ c√N** (exact values A(150) ≥ 1.551, A(400) ≥ 2.496) | EVIDENCE / PROVED |
 | §3 | local single-modulus bounds: exact certificates **σ ≤ 72/185 < 2/5 at N = 300**, σ ≤ 0.381133 at N = 1150; LP 0.3737 at N = 4400 | PROVED / EVIDENCE |
 | Thm 3.2 | **fixed-σ SPW is false for large N**: σ ≲_C (log N)^{−1/2} (Fejér smoothing + Bernstein at the window edge, modulus e ≈ CN divisible by lcm(1..M)) | PROVED |
@@ -87,7 +87,12 @@ Notes. m ≥ (D−1)/2 is forced (class 0 mod D has H-mass
 (m − (D−1)/2)/D ≥ 0), so the filler term is at most (N − D + 1)/(CN)
 ≈ 1/(2C), and HL with parameter h yields σ ≥ 1 − 1/(2C) − 2h − O(1/N)
 (≈ 3/4 − 2h at C = 2). With IF2 Lemma 9.3 (σ ≤ 2/5 at C = 2) this forces
-h ≥ 0.175 − o(1) in HL. HL depends on N only
+h ≥ 0.175 − o(1) in HL. *Superseded by Thm 3.2 (review R40, D1):* since
+σ ≥ 1 − (N−2m)/(CN) − 2h and σ*(N) → 0, the HL optimum at E₀ = CN satisfies
+h ≥ 1/2 − 1/(4C) − o(1) (= 3/8 at C = 2) as D → ∞. So HL with h bounded
+below 1/2 − 1/(4C) is false for large D, and HL can only serve weak SPW;
+the D = 10 value h = 0.1889 below is a small-D artefact like §2's BDW.
+HL depends on N only
 through D and E₀ = CN ≈ 2CD: the two edges of the window decouple
 completely, and the right edge is the reflection of the left one.
 HL numerics (EVIDENCE, `scripts/spw_halfline_lp.py`): D = 10, E₀ = 40,
@@ -104,12 +109,14 @@ find R′ ≥ 0 with (P1), with `R′(s) ≤ 1 − η` on every class of modulus
 [1,N], and |R′(s) − c(s)| ≤ Δ′ on medium classes: then
 `R := (1 − 1/(2K))λ_N + R′/(2K)` satisfies SPW(C, η/(2K), Δ′/(2K)) (for
 K ≥ 1): full classes get `1 − η/(2K)`, sparse ones `≤ 1/2`.
-So η fixed and K quasi-polynomial (`K ≤ e^{S_A}/(2c₀)`) suffice.
+So η fixed and K sub-polynomial, K = N^{o(1)} (precisely `K ≤ e^{S_A}/(2c₀)`), suffice.
+("Quasi-polynomial" e^{(log N)^{O(1)}} would *not* do.) The resulting cap is
+S′ + O(S_A): same shape, larger constants than Thm 5.2 with fixed parameters.
 *Proof.* Arithmetic from the statements quoted. ∎
 
 So the hard part of SPW is only: *every class of modulus > CN through a
 point of [1,N] must lose a fixed fraction of its mass*, with sparse classes
-allowed quasi-polynomially large mass.
+allowed mass up to N^{o(1)}.
 
 ## 2. Bounded-density pseudo-windows (BDW): true for small N, false for large N
 
@@ -123,7 +130,8 @@ Lemma 1.1): ρ′(x) = ρ(x mod L₀)L₀/Q′ keeps (P1) and the density bound,
 every class mod e | Q′ has ρ′-mass ≤ AN/e. Put R(x) = ρ′(x mod Q′)/K on
 [0, KQ′) as in Lemma 1.1(b): (P1) and (P3) hold as there, and directly from
 the density bound every class s of any modulus e has
-R(s) ≤ (KQ′/e + 1)·(AN/Q′)/K ≤ AN/e + N/K, i.e. ≤ A/C + ε for e > CN
+R(s) ≤ (KQ′/e + 1)·(AN/Q′)/K = AN/e + AN/(KQ′) ≤ AN/e + N/K (as A ≤ Q′),
+i.e. ≤ A/C + ε for e > CN
 (no clipping at 1/2 is needed here). ∎
 
 **Lemma 2.2 (duality; PROVED).** BDW(A) at N holds iff for every g ∈ V_D
@@ -172,9 +180,10 @@ The Monte-Carlo ratio (1/N)Σg / E g⁺ (`spw_bdw_dualtest.py`, EVIDENCE) is
 0.77, 0.93, 1.31, 1.47, 1.61, 1.95, 2.23 at N = 20, 32, 60, 80, 100, 150,
 200 — the true A(N) exceeds 3/2 already near N ≈ 80.
 
-*Consequence (Assessment).* SPW cannot be obtained from a pointwise-spread
-pseudo-window: any SPW measure must have relative density ≳ √N somewhere
-on ℤ/L₀. The dual of SPW (IF2 (9.1)) is not threatened by this g: its
+*Consequence (PROVED, by Prop 2.3: the projection of any SPW R to ℤ/L₀
+has the window profile).* SPW cannot be obtained from a pointwise-spread
+pseudo-window: any SPW measure must have relative density ≥ A(N) ≳ √N
+somewhere on ℤ/L₀. *(Assessment from here on.)* The dual of SPW (IF2 (9.1)) is not threatened by this g: its
 negative part is "random-like", and covering a random-like function by
 classes of modulus > CN costs ≍ e·max over a class, not e·mean. So SPW
 needs constructions that are spread *on large classes* but not pointwise —
@@ -229,6 +238,12 @@ M ≥ 2 with L_M := lcm(1..M) ≤ N, and let e be the least multiple of L_M
 exceeding CN (so e ≤ CN + L_M, m₀ := e/D ≤ 2C + 3 for N ≥ N₀(C)). If R
 satisfies (P1)–(P2) of SPW(C, σ, ·) at N, then
 
+    σ ≤ e/((M+1)r) + 2πm₀(2r+1)/(e − πm₀)   for every integer
+                                        1 ≤ r < min(N−1, (C−1)N−1)/2,      (3.1)
+
+and hence, choosing r = ⌈e/√(4πm₀(M+1))⌉ (admissible once
+√M ≫ (C+1)/(C−1)),
+
     σ ≤ 4·√(π m₀/(M+1)) · (1 + o(1))      (o(1) as M → ∞, for fixed C > 1).
 
 Since one can take M ≍ log N (ψ(M) = log L_M ~ M), **σ ≲_C (log N)^{−1/2}**:
@@ -263,7 +278,8 @@ are √(4πm₀/(M+1))(1 + o(1)). ∎
 frequencies m₀ ≤ |k| ≤ M are pinned, a Fejér smoothing of ρ − 1_W at scale
 e/M is a trig polynomial of bounded degree, which cannot jump by σ across
 the edge of W. It is the edge problem of IF2 §5 in quantitative form.
-(ii) The bound is useless numerically (it needs log N ≫ 50/σ²); the LP
+(ii) The bound is useless numerically (it is < σ only when M + 1 > 16πm₀/σ², i.e.
+log N ≳ 16πm₀/σ² ≈ 200/σ² at C = 2); the LP
 values above show the actual decrease is slow but visible already at
 N ≈ 10³–10⁴. The true rate of σ*(N) → 0 is open (between this
 (log N)^{−1/2} upper bound and whatever constructions give).
