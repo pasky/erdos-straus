@@ -143,3 +143,44 @@ and feed it into a pattern-summed large sieve over the prime factors of
 `x_a` in a range `(y,y']`. The pattern sum factorises over windows and
 reproduces, as an upper bound, the Poisson model of the prime factors.
 
+### 2.1 Random signed products (finite group lemma)
+
+Let G be a finite abelian group of order n, `τ∈G` with `τ≠1`, `τ²=1`, and
+`t(G)=#{g: g²=1}`. For a tuple `c=(c_1,…,c_k)∈G^k` put
+`Σ±(c)={∏c_i^{ε_i}: ε∈{−1,0,1}^k}` (each entry used at most once), and
+call c *bad* if `τ∉Σ±(c)`. Let `ρ_k=#{bad c}/n^k`.
+
+**Lemma 2.1 (PROVED).** For all `k≥0`,
+`ρ_k ≤ 3n·3^{−k} + (9/4)·t(G)·(5/9)^k`.
+Consequently, if K is Poisson with mean μ,
+`E ρ_K ≤ 3n·e^{−2μ/3} + (9/4)·t(G)·e^{−4μ/9}`.
+
+*Proof.* k=0: `ρ_0=1≤3n`. Let `k≥1`, c uniform on `G^k`, and
+`N=Σ_{ε≠0}1[E_ε]`, `E_ε={∏c_i^{ε_i}=τ}` (ε=0 gives 1≠τ). For `ε≠0` some
+`ε_i=±1`, and `c_i↦c_i^{±1}` is a bijection independent of the other
+coordinates, so `P(E_ε)=1/n` and `μ_N:=EN=(3^k−1)/n`. For a pair
+`ε,ε'≠0`:
+* (i) `ε=ε'`: probability `1/n`; `3^k−1` pairs.
+* (ii) some i has exactly one of `ε_i,ε'_i` equal to 0, say `ε_i=0≠ε'_i`:
+  `E_ε` is determined by `c_{−i}` and has probability `1/n`; given
+  `c_{−i}`, exactly one value of `c_i` gives `E_{ε'}`. Probability `1/n²`;
+  at most `(3^k−1)²` pairs.
+* (iii) otherwise the supports agree and `D={i: ε_i=−ε'_i≠0}≠∅`. Put
+  `B=∏_D c_i^{ε_i}`, `A=∏_{i:ε_i=ε'_i≠0}c_i^{ε_i}`. Both events give
+  `AB=τ=AB^{−1}`, so `B²=1` and `A=τB`. B is uniform (D≠∅) and
+  independent of A. If A involves some coordinate it is uniform:
+  probability `t(G)/n²`; there are at most `5^k` such pairs (5 choices
+  `(0,0),(±,±),(±,∓)` per coordinate). If A is empty (`A=1`) the
+  condition is `B=τ`: probability `1/n`; at most `3^k−1` such pairs
+  (choices `(0,0),(+,−),(−,+)`, D≠∅).
+
+Hence `EN² ≤ 2μ_N + μ_N² + t·5^k/n²`, `Var N ≤ 2μ_N + t5^k/n²`, and by
+Chebyshev `ρ_k=P(N=0) ≤ Var N/μ_N² ≤ 2n/(3^k−1) + t5^k/(3^k−1)²`. Use
+`3^k−1≥(2/3)3^k`. The Poisson statement follows from `E x^K=e^{−μ(1−x)}`
+with `x=1/3, 5/9`. ∎
+
+*Remark.* `ρ_k≥2^{−k}·(#index-2 subgroups avoiding τ)` (all entries in
+such a subgroup), so the base `5/9` cannot be improved below `1/2` by any
+argument; the second moment loses only `log(10/9)` per prime factor.
+For `G=(Z/a)^×` (a odd) `t(G)=2^{ω(a)}`, `τ=−1`, `n=φ(a)`.
+
