@@ -67,3 +67,26 @@ non-negligible share of the avoider mass.** This is not specific to BRW.
 * The BV application in Lemma 2.2 (exceptional moduli removed by Cauchy–Schwarz).
 
 Replay: `PYTHONPATH=scripts uv run --with scipy python scripts/omega14_planting.py 1` (~1 min, ≤2 cores).
+
+## Checkpoint 2 (O49b, §4): the sparse loophole is closed
+
+* **Thm 4.5 (PROVED modulo Gallagher (G), the effective Page bound and the fundamental lemma).**
+  Take any fibre with `log Q≤T^{0.05}` and any minorant `B≤F` of level `log D≤c𝓛^4/log𝓛`. Then
+  `E B≤0`: no positive minorant exists at all, sparse or dense, for any A.
+* **The proof's three ingredients.**
+  * *Subfamily (Lemma 4.2).* Use `M=vℓ` with `v≤V=T^{ε/3}≤n=D*≤T^ε`. Then each pair (ℓ,D)
+    has a unique v, so the big odds are an exact sum `R(x)=Σ_vΣ_{D≡−x/4 (v)}c(v,n_D)`.
+  * *Class-uniform inputs.* The factor `c(v,n)` is bounded below for every residue class
+    (Gallagher, Lemma 4.3; the exceptional modulus is removed with negligible loss). So is
+    the count of the D's mod v (squarefree numbers in progressions, elementary, Lemma 4.4).
+  * *Conclusion.* Hence `R(x)≥c𝓛³/log𝓛` for **every** small configuration x. The planting
+    law then exists everywhere (Lemma 4.1), and the sieving limit is deterministic.
+* **Cor 4.6.** Exponent 1/4 is the ceiling, up to a factor `(log log p)^{1/2}`, of every
+  certificate through a Haar minorant of F (O8/O9/O13 architecture, any A). Prop 2.7's
+  loophole and the earlier Assessment label are superseded.
+* **Not covered.** Prime input beyond low-conductor minorants, e.g. bilinear/Type II or
+  parity-sensitive input.
+* **Please check.**
+  * Lemma 4.3's use of (G): the induced-character reduction, and the exceptional-term case split at `q_1=𝓛^{1.9}`.
+  * Lemma 4.4's removal of the exceptional set.
+  * That Thm 1.3 legitimately treats fibre-fixed coordinates as constant small coordinates.

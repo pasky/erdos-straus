@@ -295,8 +295,12 @@ needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink 
 | Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary; Thm 5.1 optimal up to logs among level-D minorant transfers | PROVED implication (+NT for δ) |
 | Thm 2.6 | any Q with `log Q≤𝓛^5`: same barrier | PROVED |
 | Prop 2.7 | a level-D minorant's mean lives on a set of measure `≤e^{−3mμ/8}` | PROVED |
-| "1/4 ceiling" | PROVED for dense minorants (BRW/EL routes); sparse minorants with small A open | Assessment beyond that |
+| "1/4 ceiling" (§2 version) | dense minorants only | superseded by Cor 4.6 |
 | Cor 3.1 | EL_mod(τ) false for `τ≤c𝓛^4/log𝓛`: no better C-1 weights | PROVED |
+| Lemma 4.1 | deterministic planting: `R(x_s)≥…` for all `x_s` ⇒ `E B≤0` | PROVED |
+| Lemmas 4.2–4.4 | uniqueness family; class-uniform primes mod 4n; class-uniform D's mod v | PROVED (4.3 mod (G) + effective Page) |
+| Thm 4.5 | every fibre with `log Q≤T^{0.05}`: no minorant `B≤F` of level `log D≤c𝓛^4/log𝓛` has `E B>0` | PROVED mod (G), Page, fundamental lemma |
+| Cor 4.6 | 1/4 is the ceiling (up to `(loglog)^{1/2}`) of minorant-based transfers; closes Prop 2.7's loophole | PROVED implication |
 
 Not claimed: anything about ES; anything about arguments that do not pass through a
 bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
