@@ -1,10 +1,27 @@
 # Hostile review R44a of POINTWISE_OMEGA11.md (reviewer 1: §2 graded quarantine, Lemma 3.1 transfer)
 
 Reviewed: branch side-agent/quarantine-bound @ 105a522 (merged into side-agent/review-omega11a).
-Status: IN PROGRESS.
+Status: ROUND 1 COMPLETE.
+Scope: §2 (Setting 2.0, Lemmas 2.1–2.2), Lemma 3.1, and the parts of Thm 3.2 / Cor 3.3 that
+consume them (Haar side, twist, transfer, cost ledger). §1 (Lemma 1.1, Cor 1.2) is reviewer 2's
+scope; I only spot-checked Lemma 1.1's edge-weight inequality (`λ^j≤λ^v≤√2<λ+1`, edge weight
+`≤λ·λ^{2(v−1)}≤λ^{2v}`: correct).
 
 ## Summary verdicts
-(filled in as claims are checked)
+
+| claim | verdict |
+|---|---|
+| Setting 2.0 (fibre coordinates, independence on `n≡1 (Q)`, event consistency) | SOUND |
+| Lemma 2.1 (`P(E)≤C loglogT·g/M` for every Q; S♯ Q-uniform with O2 Lemma 11.1's bound; (I)) | SOUND |
+| Lemma 2.2 (termination; `Σ_{ℓ∈supp E}w_ℓ≤c`; `log Q≤9+(𝓛/c)Σs·h≤9+(1+o(1))𝓛²S♯/(c log𝓛)`) | SOUND (minors m1–m2) |
+| LLL use with partial quarantine (dependency graph, `δ≥e^{−2.2S}` at c=1/64, `e^{−4S♯}` at c=1/8) | SOUND |
+| Lemma 3.1 (O9 Thm 1.1 with fibre cells, `E_H`, twist on the Q-coprime part ψ_2) | SOUND (minors m3–m4) |
+| Thm 3.2, the §2/§3.1 inputs: quarantine `≪𝓛^6` under ET, twist via O8 Lemma 3.3 with `w_{ℓ_0}≤1/64`, transfer with `ℓ_aux` | SOUND as an implication from (G), ET Prop 1.4, O10 Thm 3.4 and §1 (Lemma 1.1/Cor 1.2, not in my scope) (minor m5) |
+| Cor 3.3 (`log(1/δ*)≤log φ(Q)+4S♯≪𝓛^6`, mod ET) | SOUND |
+| §4 H_ω EVIDENCE numbers (T=10⁴,10⁵) | reproduced from scratch (`review_o11a_hmean.py`): mean h 2.324, 2.572; share `ℓ≤𝓛²` 141/172, 308/389 — exact agreement |
+
+No FATAL or MAJOR defect found in my scope. The exponent improvement 1/7→1/6 is, as far as
+§2/§3 go, a correct consequence of the inputs listed in Thm 3.2's label.
 
 ## Defects
 
@@ -95,3 +112,40 @@ coordinates are independent and fibre-uniform (50 random `(a_3,a_5)`); (b) exact
 fibre probabilities; (c) 393 random graded toy systems (primes 3..11, exponents ≤3,
 random partial quarantine, ≤8 events with initial-segment cylinders) meeting
 `max_EΣ_{ℓ∈supp E}w_ℓ≤1/8`: exact `P(no event)≥∏(1−2P(E))≥exp(−(8/3)ΣP)` in all.
+
+## Defects (all MINOR)
+
+**m1 (Lemma 2.2, cost bullet).** `log Q ≤ log 840 + log 8 + …` counts `log 8` twice
+(`840=8·3·5·7` is the initial Q). Exact: `log Q = log 840 + Σ_steps logℓ`. Harmless (the
+constant 9 still holds). Repair: write `log 840` (≤6.74).
+
+**m2 (Lemma 2.2 vs the numerics).** The lemma raises one prime per step; the scripts raise
+all violators per round. The proof covers this verbatim (every raise in a round is justified
+at the same stage `Q_i`, and the cost inequality uses only `w_ℓ(Q_i)≤Σ_{v_ℓ(M)≥a+1}s`, which
+is Q-uniform; the stopping test is at the final Q). Repair: one sentence "any order, and
+simultaneous raises at one stage, are allowed". (The text already says this for the
+distinct-event variant.)
+
+**m3 (Lemma 3.1 ↔ Thm 3.2: cell consistency of the actual B).** Lemma 3.1 requires every cell
+of B to satisfy `b_i≡1 (gcd(d_i,Q))`. Thm 3.2 never checks this for the BRW minorant built
+from Cor 1.2's `u_j`. It holds (event cells have `−4D≡1 (ℓ^{a_ℓ})`; `u_j` is a function of
+fibre coordinates, so it is a combination of cells with fibre-valued residues mod
+`ℓ^{i+1}`, `i≥a_ℓ`; intersections of consistent cells are consistent or empty), but only for
+*that* representation — an arbitrary representation by residues mod `ℓ^{i+1}` ignoring
+the fibre would not be consistent. Repair: add this sentence to the "Minorant" bullet.
+
+**m4 (Lemma 3.1 statement).** "O9 Thm 1.1 holds without `gcd(d_i,Q)=1`" leaves implicit
+that `gcd(b_i,d_i)=1` is still assumed (or that non-unit cells vanish on H and may be
+dropped). Repair: say so.
+
+**m5 (Thm 3.2, twist bullet).** `w_{ℓ_0}≤c` uses `θ_{ℓ_0}=c·logℓ_0/𝓛≤c`, i.e. `ℓ_0≤T`;
+state that `ℓ_0≠ℓ_aux` because `ℓ_aux|Q` (so `gcd(f_2,Q)=1` excludes it) and all other
+primes of the `d_i` are coordinates `≤T`.
+
+## Not checked / caveats
+* §1 (Lemma 1.1 in full, Cor 1.2's τ and modulus bookkeeping) — reviewer 2.
+* OMEGA10 Thm 3.4, (G), Haeupler–Saha–Srinivasan conditional LLL: taken as cited (O10 Thm
+  3.4 reviewed SOUND elsewhere; (G) as in O9 reviews).
+* Replay: `PYTHONPATH=scripts uv run python scripts/review_o11a_graded.py T c n` (rows above;
+  10⁴ ≈ 2 min), `scripts/review_o11a_toy.py 3000 7` (≈1 min),
+  `scripts/review_o11a_hmean.py 10000 100000` (≈10 min), all under `ulimit -v 8000000`.
