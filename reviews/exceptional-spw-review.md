@@ -7,13 +7,17 @@ Scripts (from scratch, no reuse of the author's code): `scripts/review_spw_*.py`
 
 | claim | verdict |
 |---|---|
-| Definition match with IF2 §9 | (pending) |
-| Thm 3.2 | (pending) |
-| exact certificates N=300 / N=1150 | (pending) |
-| Cor 3.3 | (pending) |
-| Lemma 1.4 | (pending) |
-| Lemma 1.1, 1.2, 1.3 | (pending) |
-| §2: Lemma 2.1, 2.2, Prop 2.3, exact A(N) values | (pending) |
+| Definition match with IF2 §9 | MATCH (Thm 3.2 even refutes the weaker (P1)+(P2)) |
+| Thm 3.2 (σ ≲_C (log N)^{−1/2}) | **SOUND** (D2, D3 minor) |
+| exact certificates N=300 / N=1150 | **SOUND** — 72/185 reproduced exactly; 0.3811325 independently |
+| Cor 3.3 | **SOUND** |
+| Lemma 1.4 (weak SPW suffices) | **SOUND** (D4 minor: "quasi-polynomial" should be N^{o(1)}) |
+| Lemma 1.1, 1.2, 1.3 | **SOUND** (D1: Note superseded by Thm 3.2) |
+| §2: Lemma 2.1, 2.2, Prop 2.3, exact A(N) values | **SOUND** (D5, D6 minor); A(150..400) reproduced |
+
+**Overall: SOUND-AFTER-MINOR-REPAIRS.** The headline (fixed-σ SPW of IF2 §9 is
+false for every fixed C, σ at large N; certified σ ≤ 72/185 < 2/5 at N = 300)
+stands. No FATAL/MAJOR defect. Weak SPW remains open, as the author says.
 
 ## Per-claim notes
 
@@ -142,4 +146,57 @@ with S_A for the *same* A.
   is in fact PROVED (project R to ℤ/L₀; the projection has the window profile,
   so max ≥ A(N)·N/L₀). Could be upgraded (D5).
 
+### Lemmas 1.1–1.3
+* **1.1** (b) re-derived: for e ∤ Q′, g = gcd(e,Q′) < e, the k-orbit visits each
+  residue of s mod g in ℤ/Q′ once per Q′/g steps, so R(s) ≤ (g/e + 1/K)ρ(s mod g);
+  g ≤ D uses (P1), D < g ≤ CN uses (P3), g > CN uses (P2) with g/e ≤ 1/2.
+  (N + (2+Δ₀)CN)/T ≤ 1/2 ✔. SOUND (the §0 "⟺" is an equivalence only up to
+  ε and the clip at 1/2, as the parenthesis says).
+* **1.2** SOUND (∂ shifts profiles by b ↦ b − 1; ∂λ_N = δ₁ − δ_{N+1}).
+* **1.3** (i) and the reflection identity {(−y−1)/d} = 1 − 1/d − {y/d} verified
+  exhaustively in exact arithmetic (N < 40, d < 45, |b| < 50;
+  `review_spw_basic.py` (a)); κ_d = N/d recomputed by hand; (P2)/(P3)
+  bookkeeping ✔ (U(s) ≤ (N−2m)/e + (N−2m)/J). SOUND. The Note's deduction
+  h ≥ 0.175 is correct but now superseded (D1).
+
 ## Defects
+
+No FATAL or MAJOR defects found. All MINOR:
+
+**D1 (MINOR; Lemma 1.3 Notes, "forces h ≥ 0.175", "HL depends on N only
+through D and E₀").** Combined with Thm 3.2, Lemma 1.3 gives much more: for
+E₀ = CN, 1 − (N−2m)/(CN) − 2h ≤ σ*(N) → 0 with m ≥ (D−1)/2, so the HL optimum
+satisfies h ≥ 1/2 − 1/(4C) − o(1) (= 3/8 at C = 2) as D → ∞. The D = 10
+value h = 0.1889 is a small-D artefact of the same kind as §2's BDW lesson.
+*Repair:* add this remark; say HL with h bounded below 1/2 − 1/(4C) is false
+for large D, so HL can serve only weak SPW.
+
+**D2 (MINOR; Thm 3.2 Remark (ii), "it needs log N ≫ 50/σ²").** The bound is
+< σ only when M + 1 > 16πm₀/σ² with m₀ = e/D ≥ 2C, i.e. M ≳ 200/σ² at C = 2
+(M ≈ log N). *Repair:* "log N ≳ 16πm₀/σ² ≈ 200/σ² at C = 2".
+
+**D3 (MINOR; Thm 3.2 statement).** The (1 + o(1)) hides the admissibility
+condition 2r + 1 < (C−1)N (needs √M ≫ (C+1)/(C−1)) and the O(m₀/e) terms.
+*Repair:* state the fully explicit inequality actually proved,
+σ ≤ e/((M+1)r) + 2πm₀(2r+1)/(e − πm₀) for every integer 1 ≤ r <
+min(N−1, (C−1)N−1)/2, then the asymptotic; this makes the C-dependence visible.
+
+**D4 (MINOR; §0 table and §1 Lemma 1.4, Remark (iii)).** "quasi-polynomially
+small / large" is a misnomer: e^{±S_A} = e^{±O((log N)^{3/4}(log log N)^{3/4})}
+= N^{±o(1)}, i.e. *sub-polynomial*. "Quasi-polynomial" is usually read as
+e^{(log N)^{O(1)}}, e.g. e^{(log N)²}, which Thm 5.2 does **not** tolerate.
+*Repair:* write "N^{o(1)} (precisely ≥ c₀e^{−S_A})". Also say that the resulting
+cap is S′ + O(S_A) (constants grow), not Thm 5.2's constant.
+
+**D5 (MINOR; §2 Consequence).** "any SPW measure must have relative density
+≳ √N somewhere on ℤ/L₀" is labelled Assessment but is PROVED by Prop 2.3
+(the projection of R to ℤ/L₀ has the window profile). *Repair:* relabel.
+
+**D6 (MINOR; Lemma 2.1 proof).** The last term is AN/(KQ′); bounding it by N/K
+needs A ≤ Q′ (true; say so). Cosmetic.
+
+**Ledger note (not an author defect).** IF2 §9's Assessment "suggests
+SPW(2, 2/5 − ε, O(1)) holds for all N" and the bold sentence after Prop 9.1
+("SPW(C, σ, Δ₀) with fixed C, σ > 0 … implies the 3/4 cap") are now a vacuous
+implication. IF2 and ledger (D)26 should point to weak SPW (EXCEPTIONAL_SPW
+Lemma 1.4) and mark fixed-σ SPW as refuted (Thm 3.2).
