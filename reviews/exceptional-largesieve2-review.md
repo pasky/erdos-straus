@@ -87,3 +87,121 @@ Chain re-derived; I find it SOUND (details and constant checks below).
   `(log 3Q)^{24} ≤ 3^{24}(log N)^{24}` so `Q ≥ N(log N)^{−25}` for large N;
   `X ≤ 25 log log N`, saving `≤ 25 log log N + log log log N + C ≤ 26 log
   log N + C`. `Q > N²`: `4NX/Q ≤ 1`. OK.
+* Constants checked from scratch (`scripts/review_ls2_small.py`,
+  `data/review_ls2/small.txt`): unit-square χ² = 2, 1.5, 4/3, 1.2 for
+  p = 3, 5, 7, 11 (all v), and 1, 3, 7, 7, … for 2^v; reduction
+  `p^{v_max} → p^v` uniform on unit squares in every case;
+  `(1−x)^{−2} ≤ 1+4x` on `[0,1/4]`.
+* Labels: "no external input" is K2's convention (no ElT Prop 1.4); the
+  chain does use published standard results (Shiu's theorem inside K2
+  Lemma 4.2, Mertens). See m3.
+
+### Lemma 1.2, Theorem 3.1
+
+PL Thm 3.1 is stated for prime majorants (PL Def 1.1); PL Lemma 1.2
+(Dirichlet) shows LP (1.1) on units mod L is equivalent, and feasibility
+on units mod any multiple M' of L is the same condition. So Lemma 1.2's
+LP on `(ℤ/M')^×` is covered; the dual argument is identical. Thm 3.1:
+`E*F ≤ (M'/φ(M'))E_U F` for `F ≥ 0`; type (iii) `π*(c) ≤ e^S/φ(Q₀) ≤
+e^S(M'/φ(M'))/Q₀`; Mertens `M'/φ(M') ≤ e^γ A log N(1+o(1)) ≤ 2A log N`;
+the step `N/(4A log N) ≥ π(N)/(5A)` needs `π(N) ≤ 1.25N/log N`, true for
+all N > 113 (checked to 2·10⁵; holds asymptotically). SOUND. Scope:
+type-(ii) prime-majorant fibres only sketched, as the author says.
+
+### Theorem 2.4 / Corollary 2.5
+
+Re-derived (Cauchy–Schwarz with ψ, (1.2), Lemma 2.2 averaged over all
+translates — valid also when N > period). The admissibility notion
+(`L ≤ R̃(π)/E_π|ψ|²` for all π on 𝒜) is exactly what (2.1) with
+`a_n = ψ1_A` yields, and includes methods that bound `R̃` from below and
+`E|ψ|²` from above separately. `|ψ| ≥ 1` is only a normalisation. Lemma
+2.3 checked: level counts distinct primes, so the prefix argument gives
+`d' > N_c` even with large exponents. Numerics: Lemma 2.2 and the type-(i)
+inequality `R̃(π)/E_π|ψ|² ≤ Δ/(N m*)` hold with ratios ≤ 0.31 (additive)
+and ≤ 0.47 (character rows mod q | 2310, all characters, weight
+`(q/φ(q))^{1/2}`), Δ computed exactly as the max over **all** 2310
+translates of the Gram norm. Consistency: Vaughan's `N exp(−c(log N)^{2/3})`
+(large sieve) is below the cap.
+
+### Lemma 4.1, Theorem 4.2
+
+Re-derived; Lemma 4.1 checked exactly on random kernels, and the identity
+`D(π)−D_u = Σ_{θ≠0} w̃_θ|π̂(θ)|²` plus the bound `≤ max_{θ≠0}w̃_θ/m*` on
+the LP measure (ratios well below 1).
+
+### Propositions 5.1, 5.2
+
+Re-derived. In 5.2, (a) needs `f` of level `≤ 2λ'` because
+`θ−θ'` has denominator `lcm(den θ, den θ')`; (H_LS∞) with
+`λ' = (log N)/η` gives `|π̂|² ≤ e^{2S(λ')}N^{−2}`, more than enough.
+SOUND.
+
+### Proposition 6.1
+
+Brute force (`review_ls2_small.py`): all N < 1500, three random subsets
+of the primes each, `q = nextprime(N) ≤ 2N`: `Σ_{p≤N}ν(p)` equals the count
+exactly, 0 failures. The statement is correct and trivial. Note
+`N·E_Uν = N|A|/q ∈ [|A|/2, |A|)`: only the prime-point evaluation is
+exact, which is the author's point (certification needs the location of
+the primes).
+
+## Numbered defects
+
+No FATAL, no MAJOR.
+
+**m1 (MINOR; Thm 2.4 / Cor 2.5 / Rem (a), periods of ψ).** `E_{π_c}[ψ_cφ̄_j]`
+is defined only if π (hence M') resolves the period of `ψ_c` (lifted:
+`Q₀·per(ψ_c)`). Lemma 1.1 defines M' as a common multiple of M₀ and 𝒟;
+the proof of Thm 2.4 never says M' also contains the twists' (and rows')
+periods. Harmless (Lemma 1.1 holds for every multiple M', 𝒟 unchanged),
+but "the twist never enters the level" relies on it. *Repair:* in Thm
+2.4's proof, "take M' a common multiple of M₀, 𝒟, Q₀·(all row and twist
+periods)".
+
+**m2 (MINOR; Thm 4.2 proof).** Lemma 1.1 needs `1 ∈ 𝒟`;
+`𝒟 = {lcm(q,q')}` need not contain 1. *Repair:* `𝒟 = {1} ∪ {lcm(q,q')}`.
+
+**m3 (MINOR; Thm 4.3 labels and constants).**
+(a) "no external input" should read "no ElT Prop 1.4 and nothing
+conditional; uses Shiu's theorem and Mertens via K2 Lemmas 3.1, 4.2".
+(b) The leak bound `𝔏 ≤ 1/4` (needed for χ² ≤ (4/3)p and for
+`(1−𝔏)^{−2} ≤ 1+4𝔏`) requires a W₀ larger than K2's (which gives
+`𝔏 ≤ 1/2`); say so. (c) The W-uniformity `C(W) ≤ C(log W)^c` is the
+load-bearing input when W = (log 3Q)^8 grows; cite it explicitly as K2
+Lemma 4.3 "W-dependence" (proof via K2 Lemma 3.1's `(log W)^{eH2^a}`),
+and note that c is huge but absolute, so `𝔏 log Q = O(1)` only for
+`Q ≥ Q₀(c)` (absorbed into C). (d) The W-smooth sum is
+`2 log W + 12𝔏 log W + O(1)`; writing `(2+12𝔏)` with `𝔏 ≤ 1/4` gives
+5 log W, so the 3 log W step uses `𝔏 log W = o(1)`; state it.
+
+**m4 (MINOR but ledger-relevant; scope of Prop 6.1).** Prop 6.1 covers
+PL §6 item 2's *second* bullet (`ν ≥ 1` only on `𝒜 ∩ [1,N]`), which PL
+already called non-CRT; it does **not** cover the *first* bullet
+(`ν(p) ≥ 0` only for `p ≤ N`, but `ν ≥ 1` on all primes of 𝒜): there the
+Prop 6.1 construction fails (Dirichlet puts primes of 𝒜 above N into
+every reduced class mod q), and the author rightly leaves it as an
+Assessment ("mixed variant"). But the bottom line ("the finite-range
+prime relaxation is shown to be no sieve limit at all") and the report's
+ledger suggestion ("(D)22: 'ν ≥ 0 only at primes ≤ N' annotated by Prop
+6.1") read as if that bullet were settled. *Repair:* in §0/bottom line
+and the ledger, say "the `ν ≥ 1 only on 𝒜∩[1,N]` relaxation is vacuous
+(Prop 6.1); the `ν ≥ 0 only at primes ≤ N` relaxation stays open
+(Assessment)".
+
+**m5 (MINOR; §6.3 aside).** For `d ≤ (log N)^{O(1)}` the uniform
+unconditional error is Siegel–Walfisz's `N exp(−c(log N)^{1/2})`
+(ineffective); the `3/5` exponent (Vinogradov–Korobov) applies only away
+from a possible exceptional zero / for fixed small d. The conclusion
+(errors exceed `π(N)e^{−(log N)^{3/4}}`) is unaffected — it is even
+stronger. *Repair:* state both exponents.
+
+**m6 (MINOR; Lemma 1.1 proof, presentation).** Note that `1 ∈ V_𝒟`
+forces `Σ_x μ(x) = 1`, so μ is already a probability and π is μ
+conditioned on 𝒜; this makes "supported on 𝒜" and `μ(𝒜) = m* ≤ 1`
+transparent.
+
+## Sources
+
+K2, EK, PL, LS read in-repo (relevant lemmas checked line by line;
+K2's Lemma 4.2 Case-A Shiu/Lemma 3.5 machinery taken as reviewed in
+K2's two reviews, not re-derived here). No external PDF needed.

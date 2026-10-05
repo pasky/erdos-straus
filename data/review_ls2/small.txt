@@ -1,0 +1,25 @@
+Prop 6.1 brute force N<1500, 3 random A each: failures = 0
+  note E_U nu = |A|/q, so N*E_U nu = N|A|/q in [|A|/2, |A|): mean*N is NOT the count; the 'exact' value is sum over primes of nu, which needs the location of primes.
+  p^v=2: #unit squares=1 chi2=1.0000 claim=None reduction uniform=True
+  p^v=4: #unit squares=1 chi2=3.0000 claim=None reduction uniform=True
+  p^v=8: #unit squares=1 chi2=7.0000 claim=None reduction uniform=True
+  p^v=16: #unit squares=2 chi2=7.0000 claim=None reduction uniform=True
+  p^v=32: #unit squares=4 chi2=7.0000 claim=None reduction uniform=True
+  p^v=64: #unit squares=8 chi2=7.0000 claim=None reduction uniform=True
+  p^v=128: #unit squares=16 chi2=7.0000 claim=None reduction uniform=True
+  p^v=3: #unit squares=1 chi2=2.0000 claim=2.0 reduction uniform=True
+  p^v=9: #unit squares=3 chi2=2.0000 claim=2.0 reduction uniform=True
+  p^v=27: #unit squares=9 chi2=2.0000 claim=2.0 reduction uniform=True
+  p^v=81: #unit squares=27 chi2=2.0000 claim=2.0 reduction uniform=True
+  p^v=243: #unit squares=81 chi2=2.0000 claim=2.0 reduction uniform=True
+  p^v=5: #unit squares=2 chi2=1.5000 claim=1.5 reduction uniform=True
+  p^v=25: #unit squares=10 chi2=1.5000 claim=1.5 reduction uniform=True
+  p^v=125: #unit squares=50 chi2=1.5000 claim=1.5 reduction uniform=True
+  p^v=625: #unit squares=250 chi2=1.5000 claim=1.5 reduction uniform=True
+  p^v=7: #unit squares=3 chi2=1.3333 claim=1.3333333333333333 reduction uniform=True
+  p^v=49: #unit squares=21 chi2=1.3333 claim=1.3333333333333333 reduction uniform=True
+  p^v=343: #unit squares=147 chi2=1.3333 claim=1.3333333333333333 reduction uniform=True
+  p^v=11: #unit squares=5 chi2=1.2000 claim=1.2 reduction uniform=True
+  p^v=121: #unit squares=55 chi2=1.2000 claim=1.2 reduction uniform=True
+(1-x)^-2 <= 1+4x on [0,1/4]: True
+last N < 2e5 with pi(N) > 1.25N/log N: 113
