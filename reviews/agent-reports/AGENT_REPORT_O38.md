@@ -84,4 +84,26 @@ checkpoint-1 wording of this report, which is rewritten below.
    * that O8 guarantees only ρ≤k, which gives back `𝓛^6`.
    The ρ=O(1) hypothesis for ES remains unchecked.
 
-A second reviewer is to check Cor 4.1 against the DNF literature. Stopping here.
+
+## Round 4: R38b (second review, Cor 4.1 vs the DNF literature) D1–D4 applied
+
+All claims were judged SOUND.
+* **D1.** Lemma 3.1, C-1 and Cor 4.1 are now stated for arbitrary finite
+  product probability spaces. The proof only uses that `L_V` is an
+  orthogonal projection; R38b checked this numerically on biased q-ary
+  systems.
+* **D2.** The rate is sharp over general product spaces. Disjoint rare
+  width-k events give `energy·2^{(t+1)/k} ≍ (t/k)^{−1/2}` (R38b §3.1). On the
+  uniform Boolean cube it is open between `3^{−t/k}` and `2^{−t/k}`.
+* **D3.** The explicit ±1 Boolean form is stated: `W^{>t}[g]≤4·2^{−(t+1)/k}`,
+  i.e. ε-concentration up to degree `k·log₂(4/ε)`, for any product measure.
+  It is compared with LMN'93, Mansour'95, O'Donnell Ch. 4 and Lecomte–Tan'21.
+  Novelty is labelled "Assessment: possibly new as a sharp-constant
+  statement, literature search pending".
+* **D4.** Fixed three write-up gaps:
+  * Lemma 3.1: the cases of inconsistent intersections and duplicate events;
+  * Lemma 3.3: the induction is on `|∪𝒞|`, with base case a family of empty
+    edges;
+  * a note that Cor 4.1 covers set-valued literals `x_v∈S_v`.
+
+Stopping here.

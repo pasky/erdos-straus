@@ -4,7 +4,7 @@ Task O38 (branch `esw-suppression`). Labels as in the house rules. ES is not
 touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O2, O8, O9 likewise; `𝓛=log T`.
 
-**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a and parent review R38 (`reviews/pointwise-omega10-review.md`): all claims SOUND, no FATAL/MAJOR; R38 MINOR 1–5 applied.**
+**Status: checkpoint 2 — Conjecture Q / C-1 PROVED (§3.1); self-review R38a and parent review R38 (`reviews/pointwise-omega10-review.md`): all claims SOUND, no FATAL/MAJOR; R38 MINOR 1–5 applied; second review R38b (`reviews/pointwise-omega10-review-2.md`): all SOUND, D1–D4 applied.**
 
 ## 0. Notation
 
@@ -347,7 +347,20 @@ This is the energy form of ESW (O8 §6.4) with no dependence on the alphabet
 size, on masses or on codegrees. It is the q-ary analogue of the Boolean
 fact "width-w DNFs are ε-concentrated up to degree `O(w log 1/ε)`", here
 with the threshold `λ^k=2` of Cor 3.5 sharp as the alphabet sizes grow (a single
-event has `G=1−π(2−∏(λ_v−(λ_v−1)/q_v))`, §2). The tail rate itself is not claimed sharp.
+event has `G=1−π(2−∏(λ_v−(λ_v−1)/q_v))`, §2).
+
+*Sharpness (R38b D2, §3.1 of `reviews/pointwise-omega10-review-2.md`).*
+Over general product spaces the rate `2^{−1/k}` per level is **sharp**. Take
+m disjoint width-k events fixing values of probability p, let `p→0` and
+choose m optimally. Then `max_m energy(t)·2^{(t+1)/k} ≍ (t/k)^{−1/2}`
+(exact numerics, `scripts/review_o10b_sharp*.py`). So only a factor
+`√(t/k)` could be gained, never the base. On the uniform Boolean cube the
+truth for width-k DNFs is open: it lies between `3^{−t/k}` (OR of s
+disjoint k-parities, `energy(jk−1)≍3^{−j}`) and `2^{−t/k}`.
+
+*Set-valued literals (R38b D4c).* Cor 4.1 applies verbatim to q-ary DNFs
+with literals `x_v∈S_v`. Split each term into single-value cylinders on
+the same support: the good-indicator and the supports are unchanged.
 
 *Normalisation (R38 MINOR 1).* Cor 4.1 is for **0/1-valued** f, which is
 what ES uses. For the ±1-valued `g=1−2f` of the DNF literature,
@@ -357,6 +370,22 @@ stronger in the exponent than the switching-lemma bound
 `W^{≥t}≤2·2^{−t/(20w)}` (O'Donnell §4.4). No known lower bound contradicts
 them: parity written as a width-w DNF, tribes and a single AND all satisfy
 them with room (R38 exhaustive check of all Boolean functions on ≤4 bits).
+
+*Boolean form (R38b D3).* For every width-k DNF `g:{±1}^n→{±1}` and every
+product measure on `{±1}^n` (Efron–Stein weights; for the uniform measure
+`W^{>t}[g]=Σ_{|S|>t}ĝ(S)²`),
+
+```
+W^{>t}[g] ≤ 4·2^{−(t+1)/k},   i.e. g is ε-concentrated up to degree k·log₂(4/ε).
+```
+
+The standard bound is ε-concentration up to degree `C·w·log(1/ε)` with an
+unspecified or large constant. It comes from Håstad's switching lemma via
+Linial–Mansour–Nisan (JACM 1993), Mansour (JCSS 1995), O'Donnell,
+*Analysis of Boolean Functions*, Ch. 4 (`W^{≥t}≤2·2^{−t/(20w)}`), and
+Lecomte–Tan Fact 6. Total influence: `I[g]≤(4k/ln2)·P[g=−1]` (from
+`λ^{|U|}≥1+|U|lnλ`). It is weaker than, but of the same order as, the
+known `I≤2w`.
 
 *Prior art and novelty (R38 MINOR 2).* The nearest prior art is
 Lecomte–Tan, "Sharper bounds on the Fourier concentration of DNFs" (FOCS
@@ -369,13 +398,17 @@ Lemma 3.1. There are three differences.
 * Their degree concentration still comes from Håstad, with an unspecified
   constant.
 
-Lemmas 3.2–3.3, C-1 and Cor 4.1 (switching-free, constant 1, any
-alphabet) are **new to us; the literature search is partial** (R38 checked
+Lemmas 3.2–3.3, C-1 and Cor 4.1 (switching-free, constant 1, any alphabet
+and product measure, sharp base) are **new to us. Assessment: possibly new
+as a sharp-constant statement; the literature search is partial and still
+pending** (Håstad/Rossman switching-lemma variants, the Fourier-growth
+literature, "hypercontractivity with ρ>1") (R38 checked
 Lecomte–Tan and lecture notes by Lovett, Cornell CS6817 and O'Donnell).
 *Observation (R38 item 6).* Lemma 3.1 uses only that `L_V` is an orthogonal
 projection, and Lemmas 3.2–3.4 are purely combinatorial. So C-1 and Cor 4.1
 hold on arbitrary finite product probability spaces, not only uniform ones.
-This is PROVED by the same proof but not separately tested numerically.
+This is now built into the statements (R38b D1), and R38b checked it
+numerically for biased q-ary systems.
 
 **Theorem 4.2 (junta term without the bit factor; PROVED as an
 implication inside O8 Thm 3.4 / O9 Thm 2.2; the rates below are modulo (G)
@@ -450,7 +483,7 @@ help: a junta function of the i-th base-ℓ digit alone needs modulus
   arguments only); §2 identities and the single-coordinate case of MONO; the
   counterexample to MONO; **Lemma 3.1** (`G_F ≤ E_x Q_μ(𝓗(x))`, suppression
   built in); the vertex recursion; the two-edge formula; §4's implication.
-* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2; rates modulo (G) and ET Prop 1.4). Novelty of C-1/Cor 4.1: new to us, literature search partial (nearest prior art Lecomte–Tan 2021).
+* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2; rates modulo (G) and ET Prop 1.4). C-1/Cor 4.1 hold for arbitrary product measures; the base `2^{−1/k}` is sharp over general product spaces (R38b §3.1). Novelty: possibly new as a sharp-constant statement, literature search pending (nearest prior art Lecomte–Tan 2021).
 * CONJECTURE (EVIDENCE): FM (fractional matchings), C-exp (`w_E>2` allowed).
 * Not claimed: the random-restriction form of ESW (not needed: Cor 4.1 is
   the energy-tail statement that ESW+LMN was meant to supply); any exponent improvement
