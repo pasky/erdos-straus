@@ -213,3 +213,70 @@ overfull or underfull boxes, no warnings and no undefined references.
 8. **paper/README.md** is updated.
 
 Stopping for the parent.
+
+## Response to referee R33b (v2: MINOR REVISION, one MAJOR M1)
+
+Each fix is a separate commit. The paper is now 19 pp. pdflatex (2 passes)
+gives no overfull or underfull boxes, no warnings and no undefined
+references.
+
+* **M1 (Thm 3.1 not a theorem as stated).**
+  * Thm 3.1 is now "Landau–Page; classical" ([Dav, Ch. 14], [MV I, Cor.
+    11.10]). It says: at most one zero of `∏_{q≤Y}∏*L(s,χ)` in
+    `Re s > 1−c₁/log Y`, **|Im s| ≤ Y**; if it exists it is real and
+    simple, with χ₁ quadratic.
+  * The Page bound `1−β ≥ c₂⁻¹q^{−1/2}(log q)^{−2}` is now stated for
+    every real zero of every real primitive L-function.
+  * A paragraph explains why the height cutoff is necessary, notes that
+    MV III (28.61) omits it, and says that only real zeros are used.
+  * Nothing downstream changed. Uniqueness is applied to a real zero
+    (Im s = 0 ≤ Q_G).
+* **m1 (κ ≥ 3κ₀ inconsistency).** The source caveat now derives the
+  statement for every κ ≥ 3κ₀ from the printed κ = 3κ₀ case, following
+  the referee's monotonicity argument. If
+  `1/(κ log Q_G) ≤ 1−β₁ < 1/(3κ₀ log Q_G)`, then
+  `x^{β₁}/β₁ ≤ 2x e^{−log x/(κ log Q_G)}` and the replaced right-hand side
+  is ≪ the non-exceptional one. So `κ := max(3κ₀, 1/c₁)` is justified.
+* **m2.** `log D ≤ ψ(max d_i) < 1.04 max d_i` now cites Rosser–Schoenfeld
+  (Illinois J. Math. 1962).
+* **m3.** Gallagher is cited without a theorem number ("not seen"). A
+  sentence shows the use is robust to a possible range
+  `exp(√log x) ≤ Q_G ≤ x^b`: we have `log x/log Q_G = κL ≥ 6c` and
+  `log x ≥ (κL)²`. The latter is now listed explicitly among the
+  parameter consequences in the proof of Thm 4.1, with its one-line
+  justification `(1+log A)² ≤ (1+log A)(1+¼log Z)`.
+* **m4.** The novelty paragraph now names the nearest analogues:
+  Lagarias–Montgomery–Odlyzko 1979 and Thorner–Zaman (Chebotarev,
+  ANT 2017), i.e. least primes in unions of classes or abelian Chebotarev
+  classes, which concern nonnegative indicators. The claimed novelty is
+  narrowed to the signed minorant, whose cost is `A = E|B|/E B`. It
+  remains hedged.
+* **m5.** Cor 6.3 is restated for *any* integer
+  `k₀ ≥ 3S log₂e + log₂(400m²(S+1))`. Thm 7.1 now says explicitly that
+  its `k₀` (in terms of T^{2k+4} and S*) satisfies this.
+* **m6.** The m = 0 case now reads: "F ≡ 1; B = 1, so D = 1, μ = A = 1,
+  the twist condition is vacuous; go directly to the transfer."
+* **Bibliography.** Added MV I, Rosser–Schoenfeld, LMO and
+  Thorner–Zaman (Chebotarev). The TODO(verify) comment is extended to
+  these, plus the earlier items.
+
+### Does M1 (and m1) affect POINTWISE_OMEGA9.md? Yes, in the quotation only; not in the proof.
+
+* **The M1 omission is inherited.** OMEGA9 §1 (lines 59–61) cites "MV's
+  Exceptional Zero Statement (28.61)–(28.62), p. 216, valid for zeros
+  with `1−β<c_1/log Q_G`", with no height restriction. As literally
+  quoted, this is the same non-theorem.
+* **The proof is unaffected.** OMEGA9 Thm 1.1 uses the statement only for
+  the **real** exceptional zero of (G): its uniqueness, the reality and
+  quadraticity of χ₁, and the Page bound in Case A. All of these hold by
+  the classical Landau–Page theorem (Davenport ch. 14).
+* **Suggested repair for OMEGA9:**
+  - restate the cited input with `|Im s| ≤ Q_G`, or as Landau–Page for
+    real zeros, citing Davenport ch. 14 / MV I Cor. 11.10;
+  - add the sentence "only real zeros are used".
+* **The m1 inconsistency is also inherited.** OMEGA9 line 61 has
+  `κ := max(3κ₀, 1/c₁)`, and line 63 says MV's proof matches "only for
+  `κ = 3κ₀`". The same monotonicity sentence repairs it.
+* I did not edit OMEGA9.
+
+Stopping for the parent.
