@@ -1,13 +1,75 @@
 # Hostile review of POINTWISE_TRANSFER.md (task R42)
 
 Reviewer branch `side-agent/review-transfer` (merged `side-agent/avoid-transfer` @ 97894d8).
-Status: IN PROGRESS. Verdicts and defects are filled in claim by claim.
+Status: round 1 complete. (Note: `git merge --ff-only` failed because main had moved; a normal merge of the author branch was used.)
 
 ## Summary verdicts
-(to be filled)
+
+| Claim | Verdict |
+|---|---|
+| Thm 1.1 (abstract transfer, modulo G+H) | **SOUND** — every step re-derived against [SN]; dropping single-value / codegree hypotheses legitimate (atoms only inside the sandwich); constants check; general target class and exceptional-zero cases A/B correct |
+| Lemma 1.2, Lemma 3.2 (twist criteria) | **SOUND** (re-derived; from-scratch toy incl. 2-adic/non-squarefree conductors) |
+| Cor 1.3 | **SOUND** |
+| §3.3 exceptional zero, §3.1, §3.4 | **SOUND** (Assessment parts appropriately labelled); one MINOR wording |
+| §4.1–4.5 comparisons | SOUND as hedged ([memory] items flagged; Iwaniec/Costello–Watts secondary statement checked) |
+| §4.6 Bonferroni benchmark (Assessment) | **GAP** — the hub example is beaten by hub-quarantine + Linnik, so it does not show an advantage of Thm 1.1 (MAJOR-1) |
+| Lemma 5.1 | **SOUND** (re-derived; from-scratch check m = 4..12, M ≤ 2500) |
+| Completeness of (5.1) for Type II, m ≠ 4 (left open by author) | **Holds** — 4-line proof (ET Prop 2.6 argument) + brute force over all solutions, m ∈ {4,5,6,7,8,11}, primes n ≤ 400/250 |
+| Cor 5.2 (m/n, mod G+H+ET Prop 1.4) | **SOUND**; ET Prop 1.4 is stated in ET for general k, nothing extra assumed; can be strengthened to "all Type II solutions" |
+| Cor 5.3 (generic families) | **SOUND-AFTER-REPAIRS** (minor wording: Remark (i) exponent for α<2, one justification line) |
+| Cor 5.4 | SOUND; MINOR side conditions on Instance (2) |
+| Labels / novelty | Honest. Only overreach: §4.6/§5.3(c) "genuine range" Assessment (MAJOR-1) |
+
+No FATAL defects.
 
 ## Defects
-(to be filled)
+
+**MAJOR-1 (§4.6 example; §5.3(c) "genuine range"; report "this is the real reason
+the sandwich wins").** In the multi-hub example every event contains a hub
+condition `X_{ℓ_h}=σ_h`; quarantining the `H` hubs (add them to `Q`, pick the
+target class `≢ σ_h`) removes all events, giving `log p ≪ log Q + H log T` by
+Linnik, whereas Corollary 1.3 costs `≳ (H/128) log T log(4NT) + k² log T log²(4NT)`.
+So on this example quarantine (the first step of the [SN] pipeline itself) beats
+Theorem 1.1 for every admissible `H`; the example only shows that *plain*
+Bonferroni is bad. *Repair:* add "quarantine + Bonferroni + Gallagher" as the
+benchmark in §4.6; either exhibit a system where Thm 1.1 beats it (e.g. heavy
+shared sub-cells on *pairs* of primes arranged so that every killing prime set is
+large while all `w_ℓ ≤ 1/(64k)` — needs an actual computation), or state plainly
+that no example is known where Thm 1.1 beats this combination, and soften
+§5.3(c) ("ES is of exactly this type") to an unverified Assessment.
+
+**MINOR-1 (§5.1 hedge "we do not claim every Type II solution of m/n arises this
+way").** It does, for prime `n` (more generally whenever `gcd(x,n)=1`): with
+`w = gcd(x,y',z')`, `x=wX`, `y'=wY`, `z'=wZ`, the equation `m·wXYZ = nYZ+XY+XZ`
+forces `X|YZ`, `Y|XZ`, `Z|XY`, hence `X=su`, `Y=sv`, `Z=uv`, and dividing by `suv`
+gives `s(m·uvw−1)=nv+u`. *Repair:* insert this proof (or cite ET Prop 2.6's
+argument, numerator-free) and state Cor 5.2 as a bound for all Type II solutions
+of `m/p`. Verified by `scripts/review_tr_typeII.py`.
+
+**MINOR-2 (Cor 5.2 label, §7).** "modulo ET Prop 1.4 with κ = m" reads as if an
+extension of ET were needed; ET Prop 1.4 is stated for any positive integer
+`k ≪ (AB)^{O(1)}` (checked in `sources/elsholtz-tao-1107.1010.pdf`). *Repair:* say
+"modulo ET Prop 1.4 (stated there for general k; used with k = m)".
+
+**MINOR-3 (§5.2 Remark (i)).** "Any family whose mass is ℒ^α gets exponent
+1/(α+3)" contradicts the corollary for `α < 2` (exponent `1/5`). *Repair:* "1/max(α+3,5)".
+
+**MINOR-4 (Cor 5.3 proof, last line).** `ℒ^β ≫ log p·log ℒ ≫ log p·log log p`:
+the second step needs `log log p ≤ β log ℒ + O(1)` (from `log p ≪ ℒ^β`), not from
+`p > T`. Add the line. Also the `σ` clause should use `log(S^♮+1)` (or `max(σ,0)`).
+
+**MINOR-5 (Remark 3.1).** Say explicitly that with `δ_*` in place of `δ_L` the
+(LLL) hypothesis is no longer used (only (Tw)).
+
+**MINOR-6 (Cor 5.4 Instance (2)).** Requires `q ∤ h` (else the class is non-unit
+and deleted) and `w_q = 1/(q−1) ≤ 1/64`, i.e. `y ≥ 64`; state these.
+
+## Scripts (from scratch, independent of the author's)
+* `scripts/review_tr_sandwich.py` — exact Haar toy: sandwich, energy bound, twist
+  identity and Lemma 1.2/3.2 chains, with 2 ∈ 𝒫 (`e₂=3`).
+* `scripts/review_tr_typeII.py` — all solutions of `m/n`, Type II ⇒ form (5.1).
+* `scripts/review_tr_lemma51.py` — Lemma 5.1 (i)–(iii), m = 4..12, M ≤ 2500.
+Author replay `scripts/transfer_mn.py` also re-run: passes.
 
 ## Notes per claim
 
