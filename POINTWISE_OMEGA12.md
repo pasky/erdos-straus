@@ -237,6 +237,15 @@ so `a_ℓ=0` forces `ℓ>𝓛`, and then `1/(ℓ−1)≤1/(𝓛−1)`. With
 runs verbatim with `s_1`, plus the cost of the starting point. (I) of O11 Lemma 2.1
 holds for every Q. ∎
 
+*Remarks (R45b m2, m4b).* (i) For `T<e^{11}≈6·10^4` the odd primes `≤𝓛` lie in
+`{3,5,7}`, so Lemma 6.2's start coincides with O11's at every T in §7 and
+O11's tables; those data do not illustrate the lemma. Reviewer R45b
+stress-tested the mechanism with a pre-quarantine bound `y∈{30,200}` above 𝓛
+(`scripts/review_o12b_quarantine.py`, `data/review_o12b/quarantine.txt`,
+EVIDENCE): every surviving atom at every stage had `P(E)/(e³g/M)≤0.063`, and
+`max_EΣw_ℓ≤c` at `c=1/64, 1/8`. (ii) `e³` is crude: at most `𝓛/log𝓛` (asymptotically)
+primes `ℓ>𝓛` divide M, so the Euler factor is `≤exp(𝓛/((𝓛−1)log𝓛))=1+o(1)`.
+
 **Theorem 6.3 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), and
 OMEGA10 Thm 3.4).** With Lemma 6.2's start, `S_1:=Σ s_1=C_1S_0≪𝓛^4` and
 `Ω_1:=Σ s_1h=C_1Ω_0≪𝓛^4log𝓛` (Lemma 2.2, Theorem 5.1). Hence
