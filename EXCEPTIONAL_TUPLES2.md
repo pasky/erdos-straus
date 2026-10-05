@@ -164,9 +164,11 @@ structure of single forms.**
 **Lemma 3.1 (the class −1 is one-sided; PROVED).** Let G be a set of
 primes `ℓ ≡ 3 (4)`, `ℓ ≤ y`, `q_G = Π_G ℓ`, and `T_G` the tuple with class
 −1 at each ℓ ∈ G. Then `C_{T_G}(N) = ⌊(N+1)/q_G⌋ ≤ N/q_G + 1/q_G`, and
-`= 0` if `q_G > N+1`. Hence the pure-(1,1) part of every `S_j(N)` is at
-most its CRT value plus `Σ_{|G|=j} 1/q_G ≤ (log log y)^j/j!`, minus the
-forced-zero mass, minus `Σ_{q_G ≤ N+1} ({(N+1)/q_G} − 1/q_G)·`(≥ 0 up to `1/q_G`).
+`= 0` if `q_G > N+1`. Hence the pure-(1,1) part `Σ_{|G|=j} C_{T_G}(N)` of
+`S_j(N)` equals its CRT value `N Σ_{|G|=j} 1/q_G` minus the forced-zero
+mass `N Σ_{q_G > N+1} 1/q_G` minus the floor deficit
+`Σ_{q_G ≤ N+1} ({(N+1)/q_G} − 1/q_G)`; the last is `≥ −Σ_G 1/q_G
+≥ −(log log y + 1)^j/j!`.
 
 *Proof.* `n ≤ N` with `q_G | n+1` ⟺ `n+1 ∈ q_Gℤ ∩ [2, N+1]`; there are
 `⌊(N+1)/q_G⌋` such (q_G ≥ 3). ∎
