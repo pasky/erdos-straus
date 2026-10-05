@@ -1,0 +1,1310 @@
+                                           ON THE HYPERBOLIC PRIME NUMBER THEOREM
+
+                                                                     ALISA SEDUNOVA
+
+                                               Abstract. Friedlander and Iwaniec proved that the number of
+arXiv:2609.28200v1 [math.NT] 23 Sep 2026
+
+
+
+
+                                               points of the orbit {γi : γ ∈ SL2 (Z)} lying at a distance p − 2
+                                               from the origin i of the upper half-plane, with p ≤ x prime, is of
+                                               order x/ log x; the upper bound is unconditional, while the lower
+                                               one rests on a strong hypothesis concerning the distribution of
+                                               primes in arithmetic progressions. We consider instead square-free
+                                               distances and prove unconditionally an asymptotic formula, whose
+                                               main term is of order x. Employing the weighted linear sieve, we
+                                               also show unconditionally that the square-free distances n with
+                                               at most 7 prime factors contribute ≫ x/ log x. Finally, assuming
+                                               that the sequence r(n − 2)r(n + 2) has level of distribution xθ in
+                                               arithmetic progressions, where r(n) is the number of ways to write
+                                               n as a sum of two squares, we obtain the same lower bound for the
+                                               distances with at most N prime factors (the value 7 corresponds
+                                               to θ = 1/6).
+
+
+
+
+                                                                         Contents
+                                           1. Introduction                                                           2
+                                           2. Auxiliary statements                                                   5
+                                           2.1. Representations as a sum of two squares                              5
+                                           2.2. The linear sieve                                                    12
+                                           3. Reduction to sums of two squares                                      13
+                                           4. Square-free case: proof of Theorem 1                                  14
+                                           4.1. Odd contribution                                                    14
+                                           4.2. Even contribution                                                   16
+                                           5. Almost primes: proof of Theorem 3                                     17
+                                           6. The weighted sieve: proof of Theorem 2                                19
+                                           Acknowledgements                                                         22
+                                           References                                                               22
+                                                                               1
+2                          ALISA SEDUNOVA
+
+                          1. Introduction
+    The prime number theorem states that as x → ∞ we have
+                                     Z x
+                             X            dt
+                      π(x) =     1∼           .
+                             p≤x      2 log t
+
+  In this paper we consider an analogous problem for the hyperbolic
+plane. Let H = {z = x + iy : x ∈ R, y ∈ R+ } be the upper half-plane,
+acted on by the modular group
+                                                                    
+                    x1 x2
+   Γ = SL2 (Z) =             : x1 , x2 , x3 , x4 ∈ Z, x1 x4 − x2 x3 = 1
+                    x3 x4
+  by fractional linear transformations. As a distance function on H we
+take
+                                       |z − w|2
+                          u(z, w) =              ,
+                                      Im z Im w
+  and we choose z = i as the origin, the orbit {γi : γ ∈ Γ} plays the
+role of the integers. Similarly to [2, (1.8)] a direct computation gives
+                                                             
+                       2    2    2      2               x1 x2
+      u(γi, i) + 2 = x1 + x2 + x3 + x4       for γ =            ∈ Γ.
+                                                        x3 x4
+  Following [2], for a positive integer n we say that γi is at distance
+n − 2 from the origin if x21 + x22 + x23 + x24 = n.
+  In [2] Friedlander and Iwaniec studied the number πΓ (x) of orbit
+points at a prime distance p − 2, p ≤ x. They showed that πΓ (x) ≍
+x/ log x (here f ≍ g means that c1 g ≤ f ≤ c2 g for some positive
+absolute constants c1 , c2 ) under the following hypothesis on primes
+in arithmetic progressions, which interpolates between the Bombieri–
+Vinogradov theorem and the Elliott–Halberstam conjecture.
+Conjecture 1 (Assumption A(θ)). Let E(x, Q) denote the remainder
+term of level Q in Bombieri-Vinogradov theorem that is
+                        X                           y
+              E(x, Q) =      max max ψ(y; q, a) −
+                        q≤Q
+                            (a,q)=1 y≤x            φ(q)
+                        X
+                      =      max max |E(y; q, a)|,
+                              (a,q)=1 y≤x
+                        q≤Q
+
+where φ(q) is the Euler’s totient function, ψ(x; q, a) is the Chebyshev
+function given by
+                                     X
+                     ψ(x; q, a) =           Λ(n)
+                                       n≤x
+                                    n≡a (mod q)
+            ON THE HYPERBOLIC PRIME NUMBER THEOREM                       3
+
+and Λ(n) is the von Mangoldt function. Let also 0 < θ ≤ 1. Then the
+bound
+                                      x
+(A(θ))                 E(x, Q) ≪
+                                   (log x)A
+holds for Q = xθ−ε , for every ε > 0 and A > 0 with an implied constant
+depending only on ε and A.
+   The case θ = 1/2 is the Bombieri–Vinogradov theorem and the case
+θ = 1 is the Elliott–Halberstam conjecture. By [2] we have πΓ (x) ≍
+x/ log x provided that A(θ) holds for some θ < 1 sufficiently close to 1
+(the upper bound πΓ (x) ≪ x/ log x being unconditional, hence A(θ) is
+essential only for the lower bound). A more general problem, with a
+polynomial in place of the quadratic form, was considered by Bourgain,
+Gamburd and Sarnak in [1].
+   In this paper we replace primes by square-free numbers. Let sΓ (x) be
+the number of points γi at a distance n − 2 from the origin with n ≤ x
+and n being free of squares, i.e. sΓ (x) is the number of quadruples
+(x1 , x2 , x3 , x4 ) ∈ Z4 such that x21 + x22 + x23 + x24 = n ≤ x, x1 x4 −
+x2 x3 = 1 and µ2 (n) = 1. Here µ is the Möbius function, so that
+µ2 (n) = 1 means that n is square-free. Throughout the paper, χ4
+denotes the non-principal character modulo 4 and r(m) denotes the
+number of representations of m as a sum of two squares of integers.
+Our main unconditional result is the following.
+Theorem 1. For x ≥ 2 and any ε > 0 we have
+                         sΓ (x) = 6Cx + O(x11/12+ε ),
+where
+                 Y              p − χ4 (p)
+                                               
+              C=   1−                           ,   0 < C < 1.
+                   p>2
+                               p2 (p + χ4 (p))
+
+  We also consider distances with few prime factors. For an integer
+             (k)
+k ≥ 1 let sΓ (x) count the number of (x1 , x2 , x3 , x4 ) subject to the
+conditions of sΓ (x) such that ω(n) ≤ k, where ω(n) is the number of
+distinct prime factors of n.
+Theorem 2. For x > 3 we have
+                                (7)         x
+                              sΓ (x) ≫          .
+                                          log x
+   The number 7 comes from the level of distribution x1/6−ε of the se-
+quence r(n − 2)r(n + 2) in arithmetic progressions which is available
+unconditionally in Lemma 2. We formulate the corresponding hypoth-
+esis with a general exponent.
+4                                 ALISA SEDUNOVA
+
+Conjecture 2 (Hypothesis R(θ)). Let 0 < θ ≤ 1. For every ε > 0 and
+A > 0 we have
+       X         X                                         x
+                         r(n − 2)r(n + 2) − 8g(d)x ≪           A
+                                                                 ,
+        θ−ε      n≤x
+                                                       (log x)
+        d≤x
+    d odd square-free   n≡3 (mod 4)
+                        n≡0 (mod d)
+
+where
+                                       1 Y p − χ4 (p)
+                              g(d) =                  ,
+                                       d   p + χ4 (p)
+                                         p|d
+see also Lemma 2, and an implied constant depending only on ε and
+A.
+  By Lemma 2, R(θ) holds for θ = 1/6. In analogy with the Elliott–
+Halberstam conjecture one may expect R(θ) to hold for every θ < 1.
+Note that R(θ) concerns the weights r(n − 2)r(n + 2) only and does
+not involve primes. Our conditional result is the following.
+Theorem 3. Let 0 < θ ≤ 1 and assume R(θ). Then, with N = ⌊2/θ⌋,
+for x > 3 we have
+                            (N )       x
+                           sΓ (x) ≫        .
+                                     log x
+                                 (4)
+In particular, R(1/2) implies sΓ (x) ≫ x/ log x.
+  Theorem 3 is obtained from the linear sieve, see Lemma 4, applied to
+the sequence r(n − 2)r(n + 2), whose level of distribution, by Lemma 2
+below, is x1/6−ε . Taking θ = 1/6 in the above theorem gives ω(n) ≤ 12
+unconditionally. Theorem 2 is obtained by adding to this argument the
+logarithmic weights of Richert [7], which brings the number 12 down
+to 7.
+  In a recent paper [8], Shparlinski and Xiao obtain, by rather different
+methods, an asymptotic formula for the number Ssq (T ) of matrices
+                           
+                     x1 x2
+              γ=              ∈ SL2 (Z),    max |xi | ≤ T,
+                     x3 x4                  1≤i≤4
+
+for which n = x21 +x22 +x23 +x24 is square-free. Their treatment is consid-
+erably more general than ours and proceeds by a δ-method combined
+with the weighted linear sieve.
+   The two problems differ in the way the matrices are ordered: in [8]
+they are ordered by the sup-norm of the entries, whereas we order them
+by the value of the quadratic form, that is via n ≤ x. This ordering
+connects the problem to the sequence r(n − 2)r(n + 2), so that we
+may follow the approach of [2], allowing us to get a better level of
+distribution and, therefore, fewer prime factors via Lemma 2.
+            ON THE HYPERBOLIC PRIME NUMBER THEOREM                      5
+
+                      2. Auxiliary statements
+2.1. Representations as a sum of two squares. Let us first recall
+some known results about r(n). In what follows χ4 is the non-principal
+Dirichlet character modulo 4 that is completely multiplicative function
+given by                    
+                            1,
+                                    p ≡ 1 (mod 4),
+                    χ4 (p) = −1, p ≡ 3 (mod 4),
+                            
+                            0,      p = 2.
+  We use the classical formula
+                            X
+                   r(m) = 4    χ4 (d),         m ≥ 1,
+                              d|m
+
+which in particular gives the trivial bound r(m) ≤ 4τ (m) ≪ mε , where
+τ is the divisor function.
+   The following two results are Lemma 4.1 and Lemma 4.2 of [2],
+respectively, fore references see also results of Smith [9], [10].
+Lemma 1. Let (a, q) = 1. Then for q ̸≡ 0 (mod 4) we have
+                                         
+       X               πx Y        χ4 (p)
+              r(n) =          1−            + O(q −1/2 x2/3+ε )
+       n≤x
+                        q             p
+                              p|q
+        n≡a (mod q)
+
+and the main term is multiplied by 1 + χ4 (a) for q ≡ 0 (mod 4).
+Lemma 2. Let d be an odd positive integer and let ε > 0. Then
+   X
+         r(n − 2)r(n + 2) = 8g(d)x + O d−1/2 x11/12+ε + x1/2+ε ,
+                                                              
+     n≤x
+  n≡3 (mod 4)
+  n≡0 (mod d)
+
+where
+                                    1 Y p − χ4 (p)
+                        g(d) =
+                                    d   p + χ4 (p)
+                                      p|d
+
+and the implied constant depends only on ε. In particular the error
+term is O(x11/12+ε ) uniformly in d.
+   Lemma 4.2 of [2] is stated with the error term O(x11/12+ε ), however
+we need the refined form of Lemma 2, which the proof in [2] in fact
+gives. The lemma is stated in [2] for all odd d, not only for square-free
+d, and we shall apply it with d a perfect square. Below we recall the
+argument, indicating the changes in the error term in comparison with
+[2].
+6                             ALISA SEDUNOVA
+
+Proof. Recall that for m ≡ 1 (mod 4) we have
+                             X                √
+                   r(m) = 8     χ4 (k) + 4χ4 ( m),
+                               k|m
+                                √
+                              k< m
+
+where the last term vanishes if m is not a square. Since n ≡ 3 (mod 4)
+we have n − 2 ≡ 1 (mod 4), so
+                             X                   √
+              r(n − 2) = 8         χ4 (k) + 4χ4 ( n − 2),
+                               k|n−2
+                                √
+                              k< n−2
+
+the last term occurring only when n − 2 is a square. When summed
+over n ≤ x the last term contributes
+         X                  √         X         √
+                r(n + 2)χ4 ( n − 2) ≪    mε χ4 ( m) ≪ x1/2+ε ,
+         n≤x                              m≤x
+      n≡3 (mod 4)
+      n≡0 (mod d)
+
+which is negligible for our goals.
+  Writing k | n − 2 as n ≡ 2 (mod k) we therefore obtain
+  X                             X          X
+          r(n−2)r(n+2) = 8         χ4 (k)          r(n+2)+O(x1/2+ε ),
+                                  √
+   n≤x                         k< x−2        k2 +2<n≤x
+n≡3 (mod 4)                     (k,d)=1     n≡3 (mod 4)
+n≡0 (mod d)                                 n≡0 (mod d)
+                                            n≡2 (mod k)
+
+where only odd k occur, since χ4 (k) = 0 otherwise.
+   Note that as n ≡ 0 (mod d) and n ≡ 2 (mod k) we have (k, d) = 1.
+Indeed, assume (k, d) = δ > 1 and write d = d′ δ, k = k ′ δ. From
+n ≡ 0 (mod d) and n ≡ 2 (mod k) we get n = ud′ δ and n = vk ′ δ + 2
+for some integers u, v, thus δ(ud′ − vk ′ ) = 2 and so δ | 2. But δ | d and
+d is odd, therefore δ = 1.
+   For (k, d) = 1 and k odd, n + 2 runs over a residue class modulo 4dk
+which is coprime to 4dk and congruent to 1 modulo 4, therefore we can
+apply Lemma 1 and get
+    X                      X
+           r(n + 2) =              r(m)
+ k2 +2<n≤x            k2 +4<m≤x+2
+n≡3 (mod 4)           m≡a (mod 4dk)
+n≡0 (mod d)
+n≡2 (mod k)
+
+            π(x − k 2 )                                                     ′
+              =         h(d)h(k) + O (dk)−1/2 (x2/3+ε + k 4/3+ε ) + (dk)−1+ε ,
+               2dk
+where we used
+                     Y        χ4 (p)
+                                      
+                           1−           = h(d)h(k)
+                                 p
+                      p|4dk
+            ON THE HYPERBOLIC PRIME NUMBER THEOREM                      7
+               Q
+where h(m) = p|m (1 − χ4 (p)/p), and we used that χ4 (2) = 0 together
+with (k, d) = 1. Here a denotes the class given by the Chinese remain-
+der theorem, and the main term is multiplied by 1 + χ4 (a) = 2, since
+                                                                 ′
+4dk ≡ 0 (mod 4) and a ≡ 1 (mod 4). The term O (dk)−1+ε comes
+from the length
+           √     of the interval being x − k 2 − 2.
+   As k ≪ x the error term contribution is
+                                               ′      ′
+         X
+   d−1/2      x2/3+ε k −1/2 + k 5/6+ε + d−1/2+ε k −1+ε ≪ d−1/2 x11/12+ε .
+         √
+       k≪ x
+
+Thus we have achieved so far
+      X                            h(d) X χ4 (k)
+             r(n − 2)r(n + 2) = 4π               h(k)(x − k 2 )
+      n≤x
+                                    d   √   k
+                                            k< x
+    n≡3 (mod 4)                            (k,d)=1
+    n≡0 (mod d)
+
+                                + O(d−1/2 x11/12+ε + x1/2+ε ).
+   Completing the sum over k to infinity and using that h(p) = 1 −
+χ4 (p)/p we get
+        X χ4 (k)h(k) Y               χ4 (p) X χ4 (p)j
+                                                      
+                    =      1+ 1−
+                k                       p     j≥1
+                                                   pj
+      (k,d)=1          p∤d
+                      Y                                   −1
+                               χ4 (p)       2Y        χ4 (p)
+                    =      1+           =         1+             ,
+                                 p         π            p
+                         p∤d                     p|d
+
+where we used that
+                                            −1 
+        Y                                            χ24 (p)
+                         Y                                  
+                 χ4 (p)              χ4 (p)
+             1+          =      1−                1−
+          p
+                   p        p
+                                       p                p2
+                           Y               −1 Y            
+                                     χ4 (p)                 1
+                         =      1−                  1− 2
+                            p
+                                       p        p>2
+                                                           p
+                                             −1
+                           L(1, χ4 )        1       2
+                         =            1−          = .
+                              ζ(2)          4       π
+Therefore, the contribution of this completed to infinity sum is x times
+                          −1                                −1
+    8h(d) Y         χ4 (p)       8Y         χ4 (p)        χ4 (p)
+                1+             =        1−            1+
+      d               p          d            p             p
+           p|d                       p|d
+
+                                   8 Y p − χ4 (p)
+                               =                  = 8g(d),
+                                   d   p + χ4 (p)
+                                     p|d
+8                                    ALISA SEDUNOVA
+
+which is our expected main term. We note that 0 ≤ g(p) < 1 for every
+odd prime p > 2, and that
+                                
+       1      2χ4 (p)     1      1                p − χ4 (p)      2
+g(p) = −               = + O 2 , g(p2 ) = 2                    ≤ 2.
+       p p(p + χ4 (p))    p      p              p (p + χ4 (p))   p
+It remains to show that the tail and terms coming from k 2 are small
+and hence go to the error term. Notice that elementarily we have
+           X             X                 X
+                χ4 (k) =    µ(d′ )χ4 (d′ )   χ4 (m) ≪ τ (d).
+                  k≤t             d′ |d                      m≤t/d′
+                (k,d)=1
+
+    For p ∤ 2d and Res > 1 we have
+    X χ4 (pj )h(pj )            χ4 (p)  χ4 (p)p−s        1 − p−s−1
+                     = 1 +   1 −                       =               ,
+    j≥0
+             pjs                   p     1 − χ4 (p)p−s   1 − χ4 (p)p−s
+so that, comparing coefficients in
+          X χ4 (k)h(k) Y                  −1 Y        
+                                    χ4 (p)             1
+                         =       1−               1 − s+1 ,
+                 ks                  ps              p
+          (k,d)=1                         p∤d                          p∤2d
+
+for every k with (k, d) = 1 one has
+                                                ′
+                                           ′ µ(k )
+                                 X
+                    χ4 (k)h(k) =    χ4 (k/k ) ′ ,
+                                  ′
+                                              k
+                                                k |k
+
+where k ′ runs over odd square-free numbers. Therefore
+               X                  X µ(k ′ ) X
+                    χ4 (k)h(k) =          ′
+                                                   χ4 (u)
+               k≤t                 ′
+                                        k        ′ k ≤t               u≤t/k
+                    (k,d)=1                     (k′ ,2d)=1            (u,d)=1
+
+and consequently
+           X                                        X |µ(k ′ )|
+                           χ4 (k)h(k) ≪ τ (d)                          ≪ τ (d) log t.
+                   k≤t                              k′ ≤t
+                                                               k′
+                 (k,d)=1
+
+Thus, by partial summation we have
+     X χ4 (k)                             Z ∞
+                       τ (d) log x            log t      τ (d) log x
+                h(k) ≪     √       + τ (d) √    2
+                                                    dt ≪     √
+      √     k                 x              x t                x
+       k> x
+      (k,d)=1
+
+and the tail contribution can be bounded as
+                      h(d) X χ4 (k)
+                  4πx                h(k) ≪ x1/2+ε .
+                        d    √    k
+                                     k> x
+                                    (k,d)=1
+               ON THE HYPERBOLIC PRIME NUMBER THEOREM                  9
+
+It remains to bound the contribution of terms involving k 2 , which up
+to a constant factor time h(d)/d is
+                                            Z √x  X
+                      √ X
+  X                                                               
+       χ4 (k)h(k)k = x         χ4 (k)h(k) −           χ4 (k)h(k) dt
+    √                            √           1
+ k≤ x                         k≤ x                  k≤t
+(k,d)=1                      (k,d)=1              (k,d)=1
+                              √
+                       ≪ τ (d) x log x,
+therefore
+          h(d) X               h(d)      √
+                 χ4 (k)h(k)k ≪      τ (d) x log x ≪ x1/2+ε .
+           d   √                d
+                  k≤ x
+                 (k,d)=1
+
+Finally, we may conclude
+      X
+             r(n − 2)r(n + 2) = 8g(d)x + O(d−1/2 x11/12+ε + x1/2+ε )
+      n≤x
+   n≡3 (mod 4)
+   n≡0 (mod d)
+
+as required.                                                           □
+
+  In order to estimate the contribution of even d in Theorem 1 we need
+the following lemma.
+Lemma 3. Let q be an odd positive integer, let a be an integer with
+(a(a + 1), q) = 1 and let ε > 0. Then
+        X
+               r(n)r(n + 1) = 8g(q)x + O q −1/2 x11/12+ε + x1/2+ε ,
+                                                                 
+       n≤x
+    n≡a (mod q)
+
+with g as in Lemma 2 and the implied constant depending only on ε.
+Proof. Exactly one of n, n + 1 is odd, and for odd m one has r(m) = 0
+unless m ≡ 1 (mod 4). If n ≡ 2 (mod 4) then n + 1 ≡ 3 (mod 4),
+so r(n + 1) = 0. Similarly, if n ≡ 3 (mod 4) then r(n) = 0. Hence
+only n ≡ 0, 1 (mod 4) contribute to the sum. We work these cases out
+separately.
+  First, let n ≡ 0 (mod 4) and denote its contribution by S1 (x). As
+n + 1 ≡ 1 (mod 4) we have
+                             X                   √
+               r(n + 1) = 8        χ4 (k) + 4χ4 ( n + 1),
+                                 k|n+1
+                                  √
+                                k< n+1
+10                                       ALISA SEDUNOVA
+
+and
+                                 X                   X
+                S1 (x) = 8                  r(n)            χ4 (k) + O(x1/2+ε )
+                                 n≤x                k|n+1
+                              n≡a (mod q)            √
+                                                   k< n+1
+                              n≡0 (mod 4)
+                                X                     X
+                         =8              χ4 (k)                  r(n) + O(x1/2+ε ).
+                                √
+                              k< x+1                  n≤x
+                                                   n≡0 (mod 4)
+                                                   n≡a (mod q)
+                                                  n≡−1 (mod k)
+                                                     n>k2 −1
+
+Here k is odd and (k, q) = 1 — otherwise the inner sum is empty, since
+a prime p | (k, q) would divide n + 1 and q, hence a + 1, contrary to
+hypothesis. Writing k | n + 1 as n ≡ −1 (mod k) and substituting
+n = 4m, so that r(n) = r(m), the conditions on m become a single
+class a′ (mod qk) coprime to qk, and (k 2 − 1)/4 < m ≤ x/4 (note that
+(k 2 − 1)/4 is an integer as k is odd). Since qk is odd, Lemma 1 applies
+     X                   X
+             r(n) =               r(m)
+    n≤x                         m≤x/4
+ n≡0 (mod 4)                  m≡a′ (mod qk)
+ n≡a (mod q)                   m>(k2 −1)/4
+n≡−1 (mod k)
+   n>k2 −1
+
+                            π(x − k 2 )
+                                        h(q)h(k) + O (qk)−1/2 (x2/3+ε + k 4/3+ε ) ,
+                                                                                 
+                          =
+                               4qk
+the +1 left over from x − k 2 + 1 being absorbed into the error term.
+  Summing the error over k we obtain
+        X                                               X
+              (qk)−1/2 x2/3+ε + k 4/3+ε ≪ q −1/2 x2/3+ε    k −1/2
+                                       
+            √                                                                 √
+          k< x+1                                                            k≪ x
+
+                                                         ≪ q −1/2 x11/12+ε .
+
+In the main term χ4 vanishes at even k, thus
+      X                  π(x − k 2 )            2πh(q) X           x   
+8               χ4 (k)               h(q)h(k) =          χ4 (k)h(k)   −k .
+        √                   4qk                   q    √            k
+     k< x+1                                                      k< x+1
+      (k,q)=1                                                     (k,q)=1
+
+As in the proof of Lemma 2 we have
+                     X
+                         χ4 (k)h(k) ≪ τ (q) log t,
+                                 k≤t
+                               (k,q)=1
+                ON THE HYPERBOLIC PRIME NUMBER THEOREM                           11
+
+whence by partial summation
+  X                                                    X χ4 (k)h(k)   τ (q) log x
+           χ4 (k)h(k)k ≪ τ (q)x1/2 log x,                           ≪             .
+   √                                                   √      k          x1/2
+k< x+1                                             k≥ x+1
+ (k,q)=1                                            (k,q)=1
+
+
+Since h(q)τ (q) ≪ q ε , both contribute O(x1/2+ε ) after multiplication
+by 2πh(q)/q and 2πh(q)x/q respectively. On completing the sum to
+infinity we get
+       X χ4 (k)h(k) Y    χ4 (p)  2 Y    χ4 (p) −1
+                   =   1+         =     1+            ,
+       k≥1
+              k             p       π        p
+                                 p∤q                           p|q
+      (k,q)=1
+
+
+so that the main term equals
+
+     2πh(q)x 2 Y    χ4 (p) −1 4x Y p − χ4 (p)
+            ·     1+           =                = 4g(q)x.
+        q     π        p         q   p + χ4 (p)
+                      p|q                                p|q
+
+
+Therefore
+
+                 S1 (x) = 4g(q)x + O q −1/2 x11/12+ε + x1/2+ε .
+                                                             
+
+
+  Next, let n ≡ 1 (mod 4) and denote its contribution by S2 (x). This
+time n itself is odd and n ≡ 1 (mod 4), so
+                                       X                    √
+                         r(n) = 8             χ4 (k) + 4χ4 ( n),
+                                        k|n
+                                         √
+                                       k< n
+
+
+therefore
+                         X                    X
+            S2 (x) = 8          χ4 (k)                 r(n + 1) + O(x1/2+ε ).
+                           √
+                         k< x               n≤x
+                                         n≡1 (mod 4)
+                                         n≡a (mod q)
+                                         n≡0 (mod k)
+                                            n>k2
+
+
+Again k is odd and (k, q) = 1, since a prime p | (k, q) would divide n
+and q, hence a. Substituting n + 1 = 2m, so that r(n + 1) = r(m), the
+condition n ≡ 1 (mod 4) makes m odd, the conditions on m become
+a single class a′′ (mod 2qk) coprime to 2qk, and (k 2 + 1)/2 < m ≤
+(x + 1)/2. As χ4 (2) = 0 we have h(2qk) = h(q)h(k), and since 4 ∤ 2qk
+12                                  ALISA SEDUNOVA
+
+Lemma 1 gives
+          X                      π  x + 1 k2 + 1 
+                       r(m) =             −         h(q)h(k)
+                                2qk    2      2
+      m≤(x+1)/2
+     m≡a′′ (mod 2qk)
+      m>(k2 +1)/2
+
+                       + O (qk)−1/2 (x2/3+ε + k 4/3+ε )
+                                                       
+
+                           π(x − k 2 )
+                                       h(q)h(k) + O (qk)−1/2 (x2/3+ε + k 4/3+ε ) .
+                                                                                
+                       =
+                              4qk
+Proceeding as in the case of S1 (x) we conclude
+
+                  S2 (x) = 4g(q)x + O q −1/2 x11/12+ε + x1/2+ε .
+                                                              
+
+Adding S1 (x) and S2 (x) completes the proof.                                        □
+
+2.2. The linear sieve. Let A = (an )n≤x be a finite
+                                                 Q sequence of non-
+negative reals, let P be a set of primes, P (z) = p<z, p∈P p, and
+                                     X                           X
+                S(A, P, z) =                    an ,   Ad =                 an .
+                                     n≤x                         n≤x
+                                  (n,P (z))=1                 n≡0 (mod d)
+
+
+Suppose that there are X > 0, a multiplicative function g with 0 ≤
+g(p) < 1 for p ∈ P, and real numbers rd such that
+
+                                    Ad = g(d)X + rd
+
+for all square-free d | P (z), and that g satisfies the linear sieve condition
+                                                           
+                  Y
+                                  −1     log z          L
+                        (1 − g(p)) ≤             1+
+                 w≤p<z
+                                        log w         log w
+                        p∈P
+
+for 2 ≤ w ≤ z and some constant L ≥ 1. Put
+                              Y           
+                      V (z) =     1 − g(p) .
+                                           p<z
+                                           p∈P
+
+Lemma 4. Let D ≥ z ≥ 2 and s = log D/ log z. For 2 ≤ s ≤ 4 define
+
+                                           2eγ log(s − 1)
+                                 f (s) =                  .
+                                                  s
+                ON THE HYPERBOLIC PRIME NUMBER THEOREM                          13
+
+Similarly, for 1 ≤ s ≤ 3 set F (s) = 2eγ /s. Under the above hypotheses
+we have
+                                                       X
+       S(A, P, z) ≥ XV (z) f (s) − B(log D)−1/14 −
+                                                  
+                                                            |rd |,
+                                                                  d<D
+                                                                 d|P (z)
+                                                    X
+          S(A, P, z) ≤ XV (z) F (s) + B(log D)−1/14 +  |rd |,
+                                                                   d<D
+                                                                  d|P (z)
+
+where B depends only on L.
+  This is Theorem 8.4 of [4] (see also [5] and [6, Theorem 9.7]).
+  Finally we recall Mertens’ formula in the weak form
+                        Y          1
+                                      
+                                             1
+                               1−       ≍
+                       2<p<z
+                                    p      log z
+which gives, for g as in Lemma 2,
+                            Y                            1
+                    V (z) =    (1 − g(p)) ≍                  ,
+                                2<p<z
+                                                       log z
+                               −1
+        Q
+since       p>2 (1−g(p))(1−1/p)   converges absolutely to a positive limit.
+
+                 3. Reduction to sums of two squares
+  Recall that sΓ (x) is the number of quadruples (x1 , x2 , x3 , x4 ) ∈ Z4
+subject to n = x21 + x22 + x23 + x24 ≤ x, x1 x4 − x2 x3 = 1 and µ2 (n) = 1.
+  Changing variables as in [2], we have
+        y1 = x1 + x4 ,   y2 = x2 − x3 ,     y3 = x1 − x4 ,       y4 = x2 + x3
+or, equivalently,
+          y1 + y 3        y2 + y4        y4 − y2          y1 − y 3
+     x1 =          , x2 =         , x3 =         , x4 =            .
+             2               2              2                2
+  We readily see that under this change of variables in sΓ we have
+         y12 + y22 = n + 2,   (y12 + y22 ) − (y32 + y42 ) = 4,   µ2 (n) = 1.
+   Note that if n is an odd integer, then xi ∈ Z implies yi ∈ Z. Con-
+versely, given yi we have that y1 has the opposite parity from y2 , same
+holds for y3 and y4 . Then given yi precisely one of the quadruples
+(y1 , y2 , y3 , y4 ) and (y1 , y2 , y4 , y3 ) gives rise to xi . Thus the number of
+integer solutions in x’s is half of the number of integer solutions in y’s.
+   For even n the two sums y12 + y22 and y32 + y42 differ by 4, hence are
+congruent modulo 4, so either all four yi are even or all four are odd —
+in both cases the xi are integers and the correspondence is one-to-one.
+14                           ALISA SEDUNOVA
+
+          4. Square-free case: proof of Theorem 1
+  Let r(n) denote the number of representations of n as the sum of
+two squares. The number of integer quadruples (y1 , y2 , y3 , y4 ) subject
+to the above conditions equals r(n+2)r(n−2), as the pairs (y1 , y2 ) and
+(y3 , y4 ) are chosen independently. By the above, the odd n contribute
+half of this number and the even n all of it, so that
+                              1
+(1)                   sΓ (x) = sodd (x) + seven
+                                           Γ (x),
+                              2 Γ
+where
+                             X
+                 sodd
+                  Γ (x) =           µ2 (n)r(n − 2)r(n + 2),
+                             n≤x
+                            n odd
+                             X
+                seven
+                 Γ (x) =             µ2 (n)r(n − 2)r(n + 2).
+                             n≤x
+                            n even
+
+   Notice that only n ≡ 3 (mod 4) contribute to sodd
+                                                 Γ (x), since r(n±2) =
+0 for n ≡ 1 (mod 4). An even square-free n is of the form n = 4m + 2
+with 2m + 1 square-free, and then n − 2 = 4m, n + 2 = 4(m + 1), so
+that r(n − 2)r(n + 2) = r(m)r(m + 1) as r(4k) = r(k), while µ2 (n) =
+µ2 (2m + 1). Hence
+                           X
+             seven
+              Γ (x) =           µ2 (2m + 1)r(m)r(m + 1).
+                        m≤(x−2)/4
+
+                                           (k)
+   The same decomposition holds for sΓ (x) with the additional condi-
+tion ω(n) ≤ k inserted throughout.
+   Below we estimate the odd and even contributions separately, see (2)
+and (3), which brings us to
+                          
+                1
+     sΓ (x) =     (8C) + 2C x + O(x11/12+ε ) = 6Cx + O(x11/12+ε ).
+                2
+
+4.1. Odd contribution. We begin with evaluating sodd
+                                                   Γ (x). For n ≥ 3
+write an = r(n − 2)r(n + 2), and put
+                     X                             X
+        sodd
+         Γ   (x) =          µ 2
+                                (n)an , sodd
+                                         Γ,d (x) =      an .
+                      n≤x                                n≤x
+                   n≡3 (mod 4)                        n≡3 (mod 4)
+                                                      n≡0 (mod d)
+
+Note that an ≥ 0, and that an ≪ τ (n + 2)τ (n − 2) ≪ xε for n ≤ x.
+Since we sum over n ≡ 3 (mod 4), then soddΓ,d (x) = 0 for even d, so we
+can freely impose the condition of d being odd.
+             ON THE HYPERBOLIC PRIME NUMBER THEOREM                    15
+
+  By Lemma 2 we have
+                                       −1/2 11/12+ε
+            sodd                                        1/2+ε
+                                                              
+              Γ,d (x) = 8g(d)x +   O d     x        + x         .
+  Using µ2 (n) = d2 |n µ(d) we obtain
+                   P
+                        X          X           X
+         sodd
+          Γ   (x)  =           a n     µ(d) =       µ(d)sodd
+                                                           Γ,d2 (x).
+                                                      √
+                         n≤x             d2 |n      d≤ x
+                      n≡3 (mod 4)
+
+We truncate the sum at y = x1/4 and get
+                   X                      X          
+          odd               odd               odd
+         sΓ (x) =      µ(d)sΓ,d2 (x) + O     sΓ,d2 (x) .
+                                                       √
+                       d≤y                         y<d≤ x
+
+Bounding the summand in the error term trivially via
+                                                   
+               odd          ε
+                              X
+                                         ε   x
+              sΓ,d2 (x) ≤ x         1≤x        2
+                                                 +1
+                              n≤x
+                                             d
+                                  n≡0 (mod d2 )
+
+we get
+                                              x √
+    X                         X x               
+           sodd
+            Γ,d2 (x) ≪ x
+                         ε
+                                   2
+                                     +1 ≪xε
+                                                + x ≪ x3/4+ε .
+      √                        √ d            y
+  y<d≤ x                     y<d≤ x
+
+  For the main sum we apply Lemma 2 with the odd modulus d2 ,
+which gives
+  X                       X
+      µ(d)sodd              µ(d)g(d2 ) + O x11/12+ε log y + x1/2+ε y
+                                                                     
+            Γ,d2 (x) = 8x
+   d≤y                         d≤y
+  d odd                       d odd
+                              X
+                                      µ(d)g(d2 ) + O x11/12+ε .
+                                                             
+                     = 8x
+                               d≤y
+                              d odd
+
+Since g(p2 ) ≤ 2/p2 we have
+                             2ω(d)   τ (d)     1
+                      g(d2 ) ≤     ≤       ≪       ,
+                               d2     d2      d2−ε
+so the series d odd µ(d)g(d2 ) converges absolutely. On completing the
+             P
+sum to infinity we get
+                                                               
+    X
+                2
+                    Y
+                                 2
+                                    Y           p − χ4 (p)
+        µ(d)g(d ) =     1 − g(p ) =        1− 2                   = C,
+    d≥1             p>2               p>2
+                                               p (p  + χ 4 (p))
+   d odd
+while the tail bounds as
+             X                X 1          1
+                 µ(d)g(d2 ) ≪       2−ε
+                                        ≪ 1−ε ≪ x−1/4+ε .
+             d>y              d>y
+                                  d      y
+             d odd
+16                                 ALISA SEDUNOVA
+
+Therefore we can conclude
+(2)                      sodd
+                          Γ (x) = 8Cx + O(x
+                                           11/12+ε
+                                                   ).
+
+4.2. Even contribution. We evaluate sevenΓ (x) via Lemma 3. Our goal
+is to show that for every ε > 0 we have seven
+                                          Γ (x) = 2Cx + O(x
+                                                            11/12+ε
+                                                                    ),
+with C as in Theorem 1. First, we have
+                            X
+                seven
+                  Γ   (x) =    µ2 (2n + 1)r(n)r(n + 1)
+                                  n≤X
+
+with X = (x − 2)/4. Expanding µ2 (2n + 1) =
+                                                      P
+                                                        d2 |2n+1 µ(d), with
+d odd, the condition d | 2n + 1 is equivalent to n ≡ b (mod d2 ) with
+                         2
+
+b = (d2 −1)/2, and this class satisfies 2b ≡ −1 and 2(b+1) ≡ 1 (mod d2 ),
+so that (b(b + 1), d2 ) = 1. Since d2 | 2n + 1 ≤ 2X + 1, we obtain
+                           X              X
+            seven
+             Γ    (x) =          µ(d)            r(n)r(n + 1).
+                             √
+                           d≤ 2X+1            n≤X
+                                          n≡b (mod d2 )
+
+As in the case of the odd contribution take y = x1/4 . Bounding the
+inner sum trivially via
+                                                           
+                                                 ε X
+          X                           X
+                                   ε
+                  r(n)r(n + 1) ≤ x           1≤x        2
+                                                          +1 ,
+          n≤X                         n≤X
+                                                      d
+        n≡b (mod d2 )                      n≡b (mod d2 )
+
+we bound the tail by
+                                                                                
+      X           X
+                                                     ε
+                                                              X          X
+                                  r(n)r(n + 1) ≪ x                          +1
+          √
+                      n≤X
+                                                             √           d2
+      y<d≤ 2X+1                                          y<d≤ 2X+1
+                  n≡b (mod d2 )
+
+                                                             X √
+                                                                    
+                                                     ε
+                                               ≪x              + x       ≪ x3/4+ε .
+                                                             y
+Since d is odd, so is d2 , and the implied constant in Lemma 3 depends
+only on ε, so the estimate it provides is uniform in d, the class b varying
+with d. As X ≪ x, Lemma 3 with q = d2 gives
+                     X
+     seven                 µ(d)g(d2 ) + O X 11/12+ε + yX 1/2+ε + x3/4+ε
+                                                                        
+      Γ (x) = 8X
+                         d≤y
+(3)                     d odd
+
+              = 8CX + O(x11/12+ε ) = 2Cx + O(x11/12+ε ),
+                     2                  2
+      P                   Q
+since   d odd µ(d)g(d ) =   p>2 (1 − g(p )) = C and the tail d > y
+contributes ≪ xy −1+ε .
+            ON THE HYPERBOLIC PRIME NUMBER THEOREM                    17
+
+            5. Almost primes: proof of Theorem 3
+  We apply the linear sieve, i.e. Lemma 4 to the sequence
+                           (
+                              r(n − 2)r(n + 2), n ≡ 3 (mod 4),
+     A = (an )n≤x , an =
+                              0,                otherwise,
+with P the set of odd primes. The hypotheses of Section 2.2 hold with
+                                    1 Y p − χ4 (p)
+                   X = 8x, g(d) =
+                                    d   p + χ4 (p)
+                                          p|d
+
+and rd = Ad − 8g(d)x for odd square-free d.
+  Note that 0 ≤ g(p) < 1, and the linear sieve condition is satisfied
+with some absolute L. By definition of g and Mertens’ theorem we
+have
+                                                     
+            −1
+                1       −2
+                                X 1             log z
+                                                        +O (log w)−1 .
+                                                                    
+log (1−g(p))    = +O(p ),               = log
+                  p            w≤p<z
+                                      p         log w
+
+  Let 0 < θ ≤ 1 be such that R(θ) holds. By Lemma 2 we can always
+take θ = 1/6, since for D ≤ x1/6−4ε
+              X                X
+                                   d−1/2 x11/12+ε + x1/2+ε
+                                                           
+                       |rd | ≪
+              d≤D                 d≤D
+(4)      d odd square-free
+
+                              ≪ D1/2 x11/12+ε + Dx1/2+ε ≪ x1−ε .
+Note that using only the weaker error term O(x11/12+ε ), i.e. the one of
+[2, Lemma 4.2] one would get θ = 1/12 here.
+   Take N = ⌊2/θ⌋. Since 2/θ < N + 1, we can fix ε > 0 and 0 < η ≤ 2
+so that
+                           2+η
+                                    < N + 1.
+                           θ − 4ε
+For θ = 1/6 and N = 12 one may take ε = 10−3 and η = 10−2 . Now
+set
+                 D = xθ−4ε , s = 2 + η, z = D1/s .
+By R(θ) with A = 2, or by (4) when θ = 1/6, we have
+                          X              x
+                               |rd | ≪        .
+                          d<D
+                                       log2 x
+                             d|P (z)
+
+Hence Lemma 4 together with V (z) ≍ 1/ log z gives
+                                           
+                                      −1/14                          x
+                                              − O x(log x)−2 ≫
+                                                            
+S(A, P, z) ≥ 8xV (z) f (s) − B(log D)
+                                                                   log x
+18                              ALISA SEDUNOVA
+
+for all sufficiently large x (here we used that f (s) = 2eγ log(1 + η)/(2 +
+η) > 0).
+   Every n with an ̸= 0 and (n, P (z)) = 1 is odd and has all its prime
+factors at least z. Since n ≤ x, the number Ω(n) of prime factors of n
+counted with multiplicity satisfies
+                            log x      s     2+η
+                   Ω(n) ≤         =        =        < N + 1,
+                            log z   θ − 4ε   θ − 4ε
+by the choice of ε and η, so that Ω(n) ≤ N .
+  It remains to discard the n that are not square-free. Such an n
+counted
+√       in S(A, P, z) is divisible by p2 for some prime p with z ≤ p ≤
+  x, and by the trivial bound for r
+                        X x                       √
+                                                                
+                                             ε x                x
+   X X
+                     ε
+             an ≪ x              2
+                                   +1 ≪x          + x =o             ,
+      √
+         n≤x
+                          √    p                z             log x
+ z≤p≤ x                     z≤p≤ x
+          p2 |n
+
+because z is a fixed positive power of x. Hence
+                                                       
+       X                                            x         x
+              r(n − 2)r(n + 2) ≥ S(A, P, z) − o           ≫       ,
+       n≤x
+                                                  log x     log x
+     n≡3 (mod 4)
+      µ2 (n)=1
+       ω(n)≤N
+
+where we used that ω(n) = Ω(n) for square-free n. By (1), with the
+                                                             (N )
+condition ω(n) ≤ N inserted, the left-hand side is at most 2sΓ (x), and
+                    (N )
+the lower bound sΓ (x) ≫ x/ log x follows for large x (for x bounded
+                     (N )     (N )
+it is trivial since sΓ (x) ≥ sΓ (3) > 0). This finishes the proof of
+                                                      (12)
+Theorem 3. Taking θ = 1/6 and N = 12 gives sΓ (x) ≫ x/ log x
+unconditionally.
+Remark 1. The exponent 1/6 in the unconditional level of distribution
+comes from the individual error term O(d−1/2 x11/12+ε ) in Lemma 2,
+which in turn comes from the summation
+                                 √     of terms coming from Lemma
+1 over the moduli 4dk with k < x. The value 7 is what the level
+1/6 allows. By Theorem 3 the bound ω(n) ≤ k requires the stronger
+condition
+                                        −1
+                                   log 4
+                       θ > k+1−              ,
+                                   log 3
+which θ = 1/6 satisfies for k = 7 and fails for k = 6. Thus the number
+7 is not improved by any rearrangement of the sieve, only by a larger
+level of distribution.
+              ON THE HYPERBOLIC PRIME NUMBER THEOREM                         19
+
+         6. The weighted sieve: proof of Theorem 2
+   We keep the notation of Section 5, see [3, Chapter 5] for the general
+theory of the weighted sieve. Set A = (an ) with an = r(n − 2)r(n + 2)
+for n ≤ x, n ≡ 3 (mod 4) and an = 0 otherwise, P the odd primes,
+X = 8x, g as in Lemma 2, rd = Ad − 8g(d)x, and
+                            Y                   1
+                   V (z) =        1 − g(p) ≍         .
+                           2<p<z
+                                               log z
+Fix ε > 0 and put
+ α = 1/6 − 4ε,        D = xα ,     z = D1/4 = xα/4 ,   y = x3/20 ,    λ = 4/3.
+Taking ε small enough so that α − 3/20 ≥ 1/100 (i.e. ε ≤ 1/600) we
+       < y < D and D/y = xα−3/20 ≥ x1/100 . By (4), the remainders
+have z P
+satisfy m≤D |rm | ≪ x1−ε , where the sum is taken over odd square-free
+m.
+  Consider the weighted sum
+               X                              1 X        log p 
+     W (x) =         an bn , where bn = 1 −           1−          .
+               n≤x
+                                             λ            log y
+                                                        p|n
+                (n,P (z))=1                            z≤p<y
+
+  Let us begin with interpreting what bn > 0 implies for us. Let n be
+square-free with (n, P (z)) = 1 and bn > 0. All prime factors of n are
+at least z. For p ≥ y the quantity 1 − log p/ log y is at most 0, hence
+           X       log p
+                           X
+                                      log p
+                                            
+                                                          log n
+                1−         ≥      1−           = ω(n) −
+                    log y             log y               log y
+          p|n                      p|n
+          p<y
+                                            log x         20
+                                 ≥ ω(n) −         = ω(n) − .
+                                            log y          3
+Therefore bn > 0 forces ω(n) − 20/3 < λ = 4/3, that is ω(n) < 8. Since
+bn ≤ 1 for every n, it follows that
+   X                              X                      X
+           r(n − 2)r(n + 2) ≥         an bn ≥ W (x) −          an |bn |.
+   n≤x                                 n≤x                        n≤x
+n≡3 (mod 4)                         (n,P (z))=1                (n,P (z))=1
+ µ2 (n)=1                            µ2 (n)=1                   µ2 (n)=0
+  ω(n)≤7
+
+For n ≤ x with all prime factors at least z we have
+                                   ω(n)      log x
+                     |bn | ≤ 1 +        ≤1+         ≪ 1,
+                                    λ       λ log z
+                                                      2
+and such an n that
+                √ is not square-free is divisible by p for some prime
+p with z ≤ p ≤ x. Hence, by the trivial bound for r, the last sum
+20                               ALISA SEDUNOVA
+                      √
+above is ≪ xε (x/z + x) = o(x/ log x). It therefore remains to prove
+that W (x) ≫ x/ log x.
+  We are now ready to apply linear sieve, i.e. Lemma 4 and bound
+W (x). Interchanging the order of summation we get
+                                                    
+                                1 X          log p
+         W (x) = S(A, P, z) −             1−            S(Ap , P, z),
+                                λ z≤p<y      log y
+                                           P
+where Ap = (an )p|n and S(Ap , P, z) =        p|n, (n,P (z))=1 an . Note that
+p ≥ z, so the condition (n, P (z)) = 1 does not exclude p | n.
+  For the first term we apply Lemma 4 with level D = z 4 , so that
+                   γ
+s = 4 and f (4) = e2 log 3, which gives
+                            γ                            
+                             e                     −1/14
+                                                                X
+     S(A, P, z) ≥ XV (z)        log 3 − B(log D)             −      |rd |.
+                             2                                  d<D
+                                                                  d|P (z)
+
+     For z ≤ p < y and odd square-free d coprime to p we have
+                X
+                       an = 8g(pd)x + rpd = 8g(p)xg(d) + rpd ,
+                n≤x
+            n≡0 (mod pd)
+
+so the sequence Ap satisfies the hypotheses of Section 2.2 with Xp =
+8g(p)x, the same density g, and remainders rpd . Its level of distribution
+is Dp = D/p, and
+                                                
+                          log Dp           log p
+                    sp =         =4 1−
+                           log z          log D
+ranges from 4(1 − 3/(20α)) < 1 to 3. Further, Lemma 4 applies when
+sp ≥ 1, so we first work out the case sp < 1. We have
+                           S(Ap , P, z) ≤ S(Ap , P, Dp ).
+By the sieve condition we have
+                                                     
+V (Dp )     Y             −1    log z          L
+        =        1 − g(p)     ≤            1+           = s−1
+                                                           p (1 + o(1)),
+ V (z)    D ≤p<z
+                                log D  p      log D p
+              p
+
+
+where the error is uniform as Dp ≥ D/y ≥ x1/100 , therefore Lemma 4
+applies.
+  Now we have sp ≥ 1 and therefore can apply Lemma 4, the latter
+applies because Dp ≥ D/y ≥ x1/100 . In both cases
+                                2eγ                X
+     S(Ap , P, z) ≤ 8g(p)xV (z)     (1 + o(1)) +            |rpd |,
+                                 sp
+                                                           d<D/p
+                                                       d odd square-free
+            ON THE HYPERBOLIC PRIME NUMBER THEOREM                      21
+
+where the term o(1), which comes from B(log(D/p))−1/14 and from
+L/ log Dp , is uniform in p because Dp ≥ x1/100 . Every odd square-
+free m < D occurs as m = pd for at most ω(m) ≪ log D primes p,
+so the total contribution of all the remainder terms above to W (x) is
+≪ x1−ε log x = o(x/ log x).
+   We proceed with summing over p. Write t = log p/ log x, so that
+the condition z ≤ p < y becomes α/4 ≤ t < 3/20, while 1/sp =
+α/(4(α−t)) and 1−log p/ log y = 1−20t/3. Let ϕ be any function that
+is continuously
+     P           differentiable on [α/4, 3/20]. Since g(p) = 1/p + O(p−2 )
+and p≤v 1/p = log log v + c0 + O(1/ log v), partial summation gives
+                                Z 3/20                     
+             X            log p                dt         1
+                  g(p)ϕ          =         ϕ(t) + O            ,
+            z≤p<y
+                          log x      α/4        t       log x
+the implied constant depending on ϕ. Take
+                                 
+                               20          α
+                  ϕ(t) = 1 − t · 2eγ             ,
+                               3        4(α − t)
+which is smooth on the interval [α/4, 3/20] since α − t ≥ α − 3/20 > 0.
+Then we have
+                                                                 
+1 X         log p                           1                     x
+         1−         S(Ap , P, z) ≤ XV (z)     J(α) + o(1) + o           ,
+λ z≤p<y     log y                           λ                   log x
+where
+                            eγ α 3/20 1 − 20t/3
+                                 Z
+                     J(α) =                      dt.
+                              2 α/4 t(α − t)
+Setting η = log y/ log x = 3/20 inside the integral we have
+                    α(1 − t/η)  1 α−η    1
+                               = −    ·     ,
+                     t(α − t)   t  η    α−t
+hence
+                        eγ
+                                                          
+                                  4η α − η           3α
+               J(α) =        log      −       log            .
+                        2          α       η      4(α − η)
+Both terms depend continuously on α near 1/6, and for α = 1/6, that
+is for ε = 0, we have 4η/α = 18/5, (α−η)/η = 1/9 and 3α/(4(α−η)) =
+15/2, whence
+                                eγ
+                                                      
+                                         18 1       15
+                    J(1/6) =         log     − log      .
+                                 2        5   9      2
+   Combining the splitting of W (x) with the two bounds just obtained,
+we get
+                          γ                                     
+                           e            3                      x
+         W (x) ≥ XV (z)        log 3 − J(α) − o(1) − o              .
+                           2            4                    log x
+22                               ALISA SEDUNOVA
+
+At α = 1/6 the constant becomes
+      eγ                                     eγ      312 · (15/2)
+                                        
+                  3     18     1      15
+          log 3 − log      +      log      =     log              > 0.
+      2           4      5    12      2      24        (18/5)9
+By continuity in α we may fix ε > 0 so small that
+                     eγ          3         5eγ     25
+                        log 3 − J(α) >         log ,
+                      2          4         48      12
+and then, for large x,
+                           5eγ      25                x
+                  W (x) ≥       log    · XV (z) ≫         ,
+                            48      12              log x
+since V (z) ≍ 1/ log z. This gives
+                      X                              x
+                             r(n − 2)r(n + 2) ≫          ,
+                      n≤x
+                                                   log x
+                   n≡3 (mod 4)
+                    µ2 (n)=1
+                     ω(n)≤7
+                                               (7)
+and by (1) the left-hand side is at most 2sΓ (x), which proves Theorem
+2 for large x. For bounded x the desired conclusion follows trivially
+       (N )      (N )
+from sΓ (x) ≥ sΓ (3) > 0.
+Acknowledgements. The author would like to thank Andrew Granville,
+Dimitris Koukoulopoulos and Igor Shparlinski for insightful discussions
+at various stages of this work.
+
+                                  References
+ [1] J. Bourgain, A. Gamburd, and P. Sarnak. Sieving and expanders. C. R. Math.
+     Acad. Sci. Paris, 343(3):155–159, 2006.
+ [2] J. B. Friedlander and H. Iwaniec. Hyperbolic prime number theorem. Acta
+     Math., 202(1):1–19, 2009.
+ [3] G. Greaves. Sieves in number theory, volume 43 of Ergebnisse der Mathematik
+     und ihrer Grenzgebiete (3) [Results in Mathematics and Related Areas (3)].
+     Springer-Verlag, Berlin, 2001.
+ [4] H. Halberstam and H.-E. Richert. Sieve methods, volume No. 4 of Lon-
+     don Mathematical Society Monographs. Academic Press [Harcourt Brace Jo-
+     vanovich, Publishers], London-New York, 1974.
+ [5] W. B. Jurkat and H.-E. Richert. An improvement of Selberg’s sieve method.
+     I. Acta Arith., 11:217–240, 1965.
+ [6] M. B. Nathanson. Additive number theory, volume 165 of Graduate Texts in
+     Mathematics. Springer-Verlag, New York, 1996. Inverse problems and the ge-
+     ometry of sumsets.
+ [7] H.-E. Richert. Selberg’s sieve with weights. In 1969 Number Theory Institute
+     (Proc. Sympos. Pure Math., Vol. XX, State Univ. New York, Stony Brook,
+     N.Y., 1969), volume Vol. XX of Proc. Sympos. Pure Math., pages 287–310.
+     Amer. Math. Soc., Providence, RI, 1971.
+              ON THE HYPERBOLIC PRIME NUMBER THEOREM                             23
+
+ [8] I. Shparlinski and Y. Xiao. Arithmetic structure of L2 -norms of SL2 (Z) ma-
+     trices. preprint, 2026.
+ [9] R. A. Smith. The circle problem in an arithmetic progression. Canad. Math.
+     Bull., 11:175–184,P 1968.
+[10] R. A. Smith. On       r(n)r(n + a). Proc. Nat. Inst. Sci. India Part A, 34:132–
+     137, 1968.
+   Email address: alisa.sedunova@gmail.com
+
