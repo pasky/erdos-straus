@@ -86,3 +86,47 @@ for `ℓ=11,13,17,…`, with certificates whose cores include the branch's
 non-residue primes. If it terminates, the result is an unconditional
 `n_p=7 ⟹ ck_min≤C`. If it does not, it should produce an explicit
 H-generic escape class.
+
+## Round 2 (parent request: C(r) coverings)
+
+1. **Literature (§6.1).** Our certificates `(c,k,D)` are exactly
+   Elsholtz–Tao Prop 1.9 Type-I family 3, which is Salez's (15d). The other
+   Type-I families (Salez 15a–c) have c or k growing with p, so (15d) is
+   the only family that bounds `ck_min`. So `C(r)≤X` iff a (15d)-covering
+   of `{n_p=r}` of height X exists (unconditional direction; under H also
+   the converse, Remark 6.2). The literature has full single-prime
+   coverings for `p≡1 (24)` exactly for non-residues mod 5 and mod 7
+   (Rosati/Mordell; Salez `S_5`, `S_7`). Salez's `S_11`, …, `S_37` miss
+   some non-residues. Those coverings use all equation types. For r=7, no
+   (15d)-certificate is decided mod 168 on a non-residue class, so they
+   say nothing about `C(7)`. The r=5 first case is Salez's Example 1
+   [15d]. I found no statement about bounded-ck Type-I coverings.
+2. **Branching covering search (§6.2, `typei_branch_cover.py`).** It
+   re-derives Thm 6.1. For r=7 it found no covering
+   (`X=600, F≤5000, q≤47`). Uncovered leaves are residue-one-like classes.
+3. **Explicit escape classes (`typei_formal.py`, the Thm 2.1 machinery
+   with an arbitrary residue pattern).** It computes the formal `ck_min` at
+   an H-generic point and asserts that every fixed part and target class
+   is determined by the class.
+   * r=7: the point `p≡25 (2^14)`, `7 (3^9)`, `6 (7^6)`, `1 (ℓ^E)`
+     elsewhere has formal `ck_min=539`.
+   * r=11: the point `p≡2 (11^5)`, `1` elsewhere has formal
+     `ck_min>3000`.
+
+   **Cor 6.4:** under H, `C(7)≥539` and `C(11)>3000`. **PROVED
+   unconditionally:** every finite Type-I covering of `{n_p=7}` has height
+   ≥539, and every covering of `{n_p=11}` has height >3000. The proof
+   refines the class at the primes >B occurring in the covering.
+   Mechanism for r=11: at the residue-one point, a target `D|1+4ck²` has
+   `D≡e≡−1 (mod 4m)`, which forces `jj'≈11^{a1+2a2}/(4c')`. This leaves
+   only finitely many tiny cases until `ck≥11·121`.
+   No stand-alone checker for a *covering* was needed, since none was
+   found. The escape claims are checked by the assertions inside
+   `typei_formal.py`.
+4. **Conjecture (weak evidence):** under H, `C(r)=∞` for every `r≥7`, so
+   r=5 is the only value of `n_p` with a finite Type-I covering.
+
+Items for review: the soundness of `typei_formal.py`'s determinacy asserts
+(an earlier run without the `4ck`-exponent assert gave a spurious
+`>2000`; that assert was then added), and the refinement argument in the
+proof of Cor 6.4.
