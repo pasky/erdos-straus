@@ -26,11 +26,12 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    one-sided ℓ² scheme (Lemma 3.1). Its error is an Efron–Stein tail
    (Thm 3.4), and a bit encoding plus Håstad's switching lemma (LMN)
    bounds that tail for every system of width `≤k` (Lemma 4.1).
-4. **Diagnosis (§2).** The Haar local lemma uses *suppression* (on good
-   configurations, partial clusters with large completion mass are
-   unlikely). Every alternating expansion (PO, O2–O4) *amplifies* on such
-   clusters. That is exactly why codegree thresholds `(kL)^{−(i−1)}`, the
-   circularity, and hence the `(k−1)!` cascade appear (Facts 2.3). Lemma
+4. **Diagnosis (§2; Assessment).** Heuristically, the Haar local lemma
+   uses *suppression* (on good configurations, dense partial clusters are
+   unlikely), while every alternating expansion (PO, O2–O4) *amplifies*
+   on such clusters. That is where the codegree thresholds
+   `(kL)^{−(i−1)}`, the worst-case circularity, and hence the `(k−1)!`
+   cascade come from (§2.3). Lemma
    2.1 (locally minimal events) shows that the outer inclusion–exclusion
    is codegree-free; the trouble sits in the neighbourhood factors.
 5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
@@ -169,8 +170,8 @@ low-junta. Replacing them by truncations reintroduces 2.3.2 (pinned sets
 of `≍kL` vertices, precision `δe^{−S}` needed) or, with Brun's product
 inequality over small blocks (precision only `1/S` needed), products of
 local errors whose expectation is an event-level exponential moment that
-dense clusters blow up. Both routes were checked and fail for the same
-reason as O2–O4; Lemma 2.1 is recorded because it isolates the problem in
+dense clusters blow up. Both routes were checked and, as far as we could
+see (Assessment), fail for the same reason as O2–O4; Lemma 2.1 is recorded because it isolates the problem in
 the neighbourhood factors.
 
 ## 3. A minorant without truncation: the Bazzi–Razborov route
