@@ -872,3 +872,188 @@ version.  No lower bound for $1-\beta_1$ is
 needed in Case~B.  In Case~A we use the effective bound of
 Theorem~\ref{thm:xz} only to absorb the term $R_1$.
 \end{remark}
+\section{An energy bound for avoidance indicators}\label{sec:energy}
+
+This section is self-contained and does not use arithmetic.
+
+\emph{Setting.}  Let $\Omega=\prod_{v\in V_0}\Omega_v$ be a finite product of
+finite sets with a product probability measure $\pi=\bigotimes_v\pi_v$; write
+$\PP$, $\E$ and $\|\cdot\|=\|\cdot\|_{L^2(\pi)}$.  A \emph{cylinder event} is a set
+$E=\{X_v=\sigma_v\ (v\in\supp E)\}$ with $\supp E\subseteq V_0$ and
+$\sigma\in\prod_{\supp E}\Omega_v$.  For a finite family $\cE$ of cylinder events
+(repetitions allowed) let $F=F_\cE=\prod_{E\in\cE}(1-\mathbf 1_E)$ be its
+\emph{avoidance indicator}.
+
+\emph{Efron--Stein decomposition} (classical; \cite{ES,Hoeffding},
+\cite[\S8.3]{OD}).  For $\varphi:\Omega\to\mathbb R$ and $W\subseteq V_0$ let
+$\E[\varphi\mid X_W]$ be the conditional expectation given the coordinates in
+$W$, and
+\[
+ \varphi^{=U}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}\,\E[\varphi\mid X_W].
+\]
+Then $\varphi=\sum_U\varphi^{=U}$, the components are mutually orthogonal,
+$\varphi^{=U}$ depends only on $X_U$, and $\E_u\varphi^{=U}=0$ for $u\in U$, where
+$\E_u$ averages over the coordinate $u$.  Put $L_u=I-\E_u$ and
+$L_V=\prod_{u\in V}L_u$; then $L_V\varphi=\sum_{U\supseteq V}\varphi^{=U}$.  For a
+down-closed family $\cD$ of subsets of $V_0$, the function
+$\varphi^{\cD}=\sum_{U\in\cD}\varphi^{=U}$ is a linear combination of the
+$\E[\varphi\mid X_W]$, $W\in\cD$ (by M\"obius inversion), and
+\begin{equation}\label{eq:energy}
+ \E(\varphi-\varphi^{\cD})^2=\sum_{U\notin\cD}\|\varphi^{=U}\|^2 .
+\end{equation}
+For $\cD=\{U:\ |U|\le t\}$ this is the \emph{energy above level $t$},
+$\energy(\varphi;t)$; it is the least $\E(\varphi-g)^2$ over sums $g$ of
+functions of at most $t$ coordinates.
+
+\begin{definition}[Energy generating function]
+For weights $\lambda_v\ge1$ put $\mu_v=\lambda_v-1$ and
+\[
+ G_\varphi(\lambda)=\sum_{U\subseteq V_0}\lambda^U\,\|\varphi^{=U}\|^2
+ =\sum_{V\subseteq V_0}\mu^V\,\|L_V\varphi\|^2 .
+\]
+\end{definition}
+
+The second form follows from $\lambda^U=\sum_{V\subseteq U}\mu^V$ and
+$\|L_V\varphi\|^2=\sum_{U\supseteq V}\|\varphi^{=U}\|^2$.  For every $\tau$,
+\begin{equation}\label{eq:markov}
+ \sum_{U:\ \lambda^U>e^\tau}\|\varphi^{=U}\|^2\ \le\ e^{-\tau}G_\varphi(\lambda).
+\end{equation}
+For a single event $E$ with $\pi_E=\PP(E)$ one computes
+$G_{1-\mathbf 1_E}=1-2\pi_E+\pi_E\prod_{v\in\supp E}(\lambda_v-\mu_v\pi_v(\sigma_v))$, so for
+small $\pi_v(\sigma_v)$ the condition $\lambda^{\supp E}\le2$ below is necessary for
+$G\le1$.
+
+\emph{Hypergraphs.}  A hypergraph $\Ho$ is a finite set of subsets
+(\emph{edges}) of $V_0$.  For $V\subseteq V_0$ put
+\[
+ N_\Ho(V)=\sum_{\mathcal J\subseteq\Ho:\ \bigcup_{J\in\mathcal J}(J\cap V)=V}(-1)^{|\mathcal J|},\qquad
+ Q_\mu(\Ho)=\sum_{V\subseteq V_0}\mu^V\,N_\Ho(V)^2 .
+\]
+$N_\Ho(V)$ depends only on the traces $J\cap V$, and it is unchanged if
+edges are repeated or replaced by edges with the same trace: a class of
+$m\ge1$ edges with equal traces contributes $\sum_{j\ge1}\binom mj(-1)^j=-1$,
+exactly like one edge.  If some edge misses $V$, then $N_\Ho(V)=0$ (toggle
+that edge).
+
+\begin{lemma}[Cover bound; proved]\label{lem:cover}
+In the Setting, for every $V\subseteq V_0$,
+\[
+ \|L_VF\|^2\ \le\ \E_x\big[N_{\Ho(x)}(V)^2\big],\qquad
+ \Ho(x)=\{\supp E:\ E\in\cE,\ x\in E\}.
+\]
+Consequently $G_F(\lambda)\le\E_x\big[Q_\mu(\Ho(x))\big]$ for all weights $\lambda_v\ge1$.
+\end{lemma}
+
+\begin{proof}
+Write $x=(\sigma,y)$ with $\sigma\in\Omega_V$, $y\in\Omega_{V_0\setminus V}$.  The operator
+$L_V$ acts on the $V$-coordinates only, so
+$\|L_VF\|^2=\E_y\|L_Vg_y\|^2_{L^2(\Omega_V)}$, where $g_y=F(\cdot,y)$.  Now $g_y$
+is the avoidance indicator on $\Omega_V$ of the restricted events: those
+$E\in\cE$ whose conditions off $V$ hold at $y$, restricted to $\supp E\cap V$.
+Expand $g_y=\sum_{\mathcal J}(-1)^{|\mathcal J|}\mathbf 1_{\mathcal J}$ over subfamilies
+$\mathcal J$ of restricted events, where $\mathbf 1_{\mathcal J}$ is the indicator
+of their intersection, a cylinder on $\Omega_V$ (or empty).  $L_V$ kills every
+function that does not depend on all coordinates of $V$, hence every
+cylinder whose support is a proper subset of $V$.  A cylinder with
+support $V$ is a point indicator $\mathbf 1_{\{\sigma\}}$.  So $L_Vg_y=L_Vc_y$, where
+\[
+ c_y(\sigma)=\sum_{\mathcal J:\ \supp\mathbf 1_{\mathcal J}=V,\ \mathbf 1_{\mathcal J}=\mathbf 1_{\{\sigma\}}}(-1)^{|\mathcal J|}.
+\]
+As $L_V$ is an orthogonal projection in $L^2(\pi_V)$,
+$\|L_Vc_y\|^2\le\E_\sigma c_y(\sigma)^2$.  The subfamilies $\mathcal J$ counted in
+$c_y(\sigma)$ are exactly the subfamilies of events that hold at $x=(\sigma,y)$
+whose traces on $V$ cover $V$.  Two events that hold at $x$ and have the
+same support are the same cylinder, so by the remark above
+$c_y(\sigma)=N_{\Ho(x)}(V)$.  Taking $\E_y$ gives the first claim.  Multiply by
+$\mu^V$ and sum over $V$ for the second.
+\end{proof}
+
+The suppression is built in: $N_{\Ho(x)}(V)=0$ as soon as some event that
+holds at $x$ misses $V$.
+
+For a finite multiset $\cC$ of subsets of $V_0$ (possibly empty ones) put
+\[
+ \Theta_\lambda(\cC)=\sum_{\mathcal J\subseteq\cC}(-1)^{|\mathcal J|}\lambda^{\bigcup\mathcal J}\qquad(\Theta_\lambda(\emptyset)=1).
+\]
+
+\begin{lemma}[Polarization; proved]\label{lem:polar}
+Let $\lambda_v\ge1$, $\mu_v=\lambda_v-1$, and let $P\subseteq V_0$ be random with
+$\PP(v\in P)=\mu_v/\lambda_v$ independently.  For every hypergraph $\Ho$,
+\[
+ Q_\mu(\Ho)=\E_P\big[\Theta_\lambda(\Ho_P)^2\big],\qquad \Ho_P=\{J\in\Ho:\ J\cap P=\emptyset\}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\tau(R)=\mathbf 1[R\cap J\ne\emptyset\ \forall J\in\Ho]$ for $R\subseteq V_0$, and
+$\hat\tau(V)=\sum_{R\subseteq V}(-1)^{|V\setminus R|}\tau(R)$.  Expanding
+$\tau(R)=\sum_{\mathcal J\subseteq\Ho}(-1)^{|\mathcal J|}\mathbf 1[R\cap\bigcup\mathcal J=\emptyset]$,
+and using that the M\"obius transform of $R\mapsto\mathbf 1[R\cap U=\emptyset]$ is
+$V\mapsto(-1)^{|V|}\mathbf 1[V\subseteq U]$, we get $\hat\tau(V)=(-1)^{|V|}N_\Ho(V)$.  Let
+\[
+ \mathcal T(p)=\sum_V\hat\tau(V)p^V=\sum_R\tau(R)\prod_{v\in R}p_v\prod_{v\notin R}(1-p_v)
+\]
+be the multilinear extension of $\tau$.  If the $p_v$ are independent with
+mean $0$ and variance $\mu_v$, distinct monomials are orthogonal, and
+$\E[\mathcal T(p)^2]=\sum_V\mu^V\hat\tau(V)^2=Q_\mu(\Ho)$.  Take $p_v=1$ with
+probability $\mu_v/\lambda_v$ and $p_v=-\mu_v$ otherwise (mean
+$\mu_v/\lambda_v-\mu_v/\lambda_v=0$, variance $\mu_v/\lambda_v+\mu_v^2/\lambda_v=\mu_v$), and
+$P=\{v:p_v=1\}$.  Only the $R\supseteq P$ contribute; writing $R=P\cup B$ with
+$B\subseteq P^c$,
+\[
+ \mathcal T(p)=\sum_{B\subseteq P^c}(-\mu)^B\lambda^{P^c\setminus B}\,\tau(P\cup B).
+\]
+Now $\tau(P\cup B)=\sum_{\mathcal J\subseteq\Ho_P}(-1)^{|\mathcal J|}\mathbf 1[B\cap\bigcup\mathcal J=\emptyset]$,
+and for $U\subseteq P^c$,
+$\sum_{B\subseteq P^c\setminus U}(-\mu)^B\lambda^{P^c\setminus B}=\lambda^U\prod_{v\in P^c\setminus U}(\lambda_v-\mu_v)=\lambda^U$.
+Hence $\mathcal T(p)=\Theta_\lambda(\Ho_P)$.
+\end{proof}
+
+\begin{lemma}[Matching bound; proved]\label{lem:theta}
+If every $J\in\cC$ has $w_J:=\lambda^J\le2$, then for every matching
+$\cM\subseteq\cC$ (pairwise disjoint members)
+\[
+ |\Theta_\lambda(\cC)|\le\prod_{J\in\cM}(w_J-1);\qquad\text{in particular }|\Theta_\lambda(\cC)|\le1 .
+\]
+\end{lemma}
+
+\begin{proof}
+For $v\in V_0$ let $\cC-v$ be the members not containing $v$ and
+$\cC/v=\{J\setminus\{v\}:\ J\in\cC\}$.  Splitting $\mathcal J$ according to whether
+it contains a member through $v$,
+\[
+ \Theta(\cC)=\Theta(\cC-v)+\lambda_v\big[\Theta(\cC/v)-\Theta(\cC-v)\big]=\lambda_v\Theta(\cC/v)-\mu_v\Theta(\cC-v).
+\]
+Both families again have all weights at most $2$.  We induct on
+$|\bigcup\cC|$.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the empty
+member pairs the terms), and the claim holds.  If $\cC=\emptyset$, then
+$\Theta=1$ and $\cM=\emptyset$.  This covers the base case $\bigcup\cC=\emptyset$.  If
+$\cM=\emptyset$ and $\cC\ne\emptyset$, it suffices to prove the bound for $\cM=\{J\}$
+with any $J\in\cC$, as $w_J-1\le1$.  So let $J_0\in\cM$ be nonempty, $v\in J_0$,
+and $\Pi'=\prod_{J\in\cM\setminus\{J_0\}}(w_J-1)$.  In $\cC/v$ the family
+$(\cM\setminus\{J_0\})\cup\{J_0\setminus\{v\}\}$ is a matching, so
+$|\Theta(\cC/v)|\le(w_{J_0}/\lambda_v-1)\Pi'$.  In $\cC-v$ the family
+$\cM\setminus\{J_0\}$ is a matching, so $|\Theta(\cC-v)|\le\Pi'$.  Therefore
+$|\Theta(\cC)|\le(w_{J_0}-\lambda_v)\Pi'+\mu_v\Pi'=(w_{J_0}-1)\Pi'$.
+\end{proof}
+
+\begin{theorem}[Energy bound; proved]\label{thm:C1}
+\textup{(a)} If every edge of a hypergraph $\Ho$ has $\lambda^J\le2$, then
+$Q_\mu(\Ho)\le\prod_{J\in\cM}(\lambda^J-1)$ for every matching $\cM\subseteq\Ho$; in
+particular $Q_\mu(\Ho)\le1$.
+\textup{(b)} In the Setting, if $\lambda_v\ge1$ and $\lambda^{\supp E}\le2$ for every
+$E\in\cE$, then
+\[
+ G_F(\lambda)=\sum_U\lambda^U\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+\begin{proof}
+(a) By Lemma~\ref{lem:polar} and Lemma~\ref{lem:theta} applied to $\Ho_P$ with the
+matching $\cM\cap\Ho_P$, $Q_\mu(\Ho)\le\E_P\prod_{J\in\cM\cap\Ho_P}(\lambda^J-1)^2$.  The
+members of $\cM$ are disjoint, so the events $\{J\cap P=\emptyset\}$ are independent,
+with probability $\prod_{v\in J}\lambda_v^{-1}=1/w_J$.  Hence
+$Q_\mu(\Ho)\le\prod_{J\in\cM}[(1-1/w_J)+(w_J-1)^2/w_J]=\prod_{J\in\cM}(w_J-1)$.
+(b) Lemma~\ref{lem:cover} and (a), since $\Ho(x)$ consists of supports of events.
+\end{proof}
+
