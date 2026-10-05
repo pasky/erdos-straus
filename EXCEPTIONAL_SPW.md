@@ -88,6 +88,9 @@ forced (class 0 mod D has H-mass (m − (D−1)/2)/D ≥ 0), so
 (N − 2m)/(CN) ≈ 1/(2C), and σ ≤ 3/4 − 2h at C = 2. HL depends on N only
 through D and E₀ = CN ≈ 2CD: the two edges of the window decouple
 completely, and the right edge is the reflection of the left one.
+HL numerics (EVIDENCE, `scripts/spw_halfline_lp.py`): D = 10, E₀ = 40,
+support [−200, 220]: h = 0.1889, m = 4.5 (σ ≥ 1 − 0.275 − 0.378 ≈ 0.35 via
+Lemma 1.3); the optimal H is sparse and spread, not a ramp.
 
 **Lemma 1.4 (weak SPW suffices for Thm 5.2; PROVED implication).**
 IF2 Thm 5.2 needs Flat with `t ≥ e^{−S_A}`, `Δ ≤ e^{S_A}`, `s₀ ≥ N^{−A₁}`
