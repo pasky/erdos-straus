@@ -133,3 +133,65 @@ max `G'=0.9972` (600 systems); conditioned systems (F of events 2.., restricted
 to event 1's cylinder, as `F^{(j)}`): max `1` (attained by constant F);
 with the weaker scaling `∏λ^{v}≤2` (ρ=1) also max `0.9971`, so ρ=1 may well
 be true (not claimed).
+
+## 2. Graded quarantine with log-weighted thresholds: `log Q ≪ 𝓛²S*/log𝓛`
+
+**Setting 2.0 (graded quarantine).** Exponents `0≤a_ℓ≤f_ℓ:=⌊𝓛/logℓ⌋` for
+odd primes ℓ, and `Q:=8∏ℓ^{a_ℓ}`. For every odd `ℓ≤T` with `a_ℓ<f_ℓ` there is
+a coordinate `X_ℓ:=n mod ℓ^{f_ℓ}`, restricted to the fibre `n≡1 (ℓ^{a_ℓ})`
+(units if `a_ℓ=0`), with its uniform (Haar) measure; the coordinates are
+independent on the class `n≡1 (Q)`. An atom `(M,D)` **survives Q** if
+`gcd(M,Q) | 4D+1` and `M∤Q`. Its event is
+`E_{M,D}: X_ℓ ≡ −4D (mod ℓ^{v_ℓ(M)})` for all `ℓ∈supp:={ℓ: v_ℓ(M)>a_ℓ}`
+(consistent with the fibre since `ℓ^{a_ℓ} | 4D+1`). The **fibre mass** at
+ℓ is `w_ℓ(Q):=Σ_{surviving atoms, v_ℓ(M)>a_ℓ} P(E_{M,D})`. O2's class-of-one
+quarantine is the special case `a_ℓ∈{0,f_ℓ}`.
+
+**Lemma 2.1 (uniform weights; PROVED).** For every Q and surviving atom,
+`P(E_{M,D}) ≤ s(M,D) := C log log T·gcd(M,4D+1)/M`, and
+`S♯ := Σ_{(M,D)} s(M,D)` obeys O2 Lemma 11.1's bound
+(`≤exp((log2+o(1))𝓛/log𝓛)`; `≪𝓛^4 log𝓛` modulo ET Prop 1.4). Moreover
+(I) holds: if `n≡1 (Q)` and no surviving event occurs at n, then `W(n)>T`.
+
+*Proof.* At `ℓ∈supp` the fibre probability is `1/φ(ℓ^{v})` if `a_ℓ=0` and
+`ℓ^{−(v−a_ℓ)}` if `a_ℓ≥1`; in both cases `≤(ℓ/(ℓ−1))ℓ^{min(v,a_ℓ)}/ℓ^{v}`.
+Off supp, `ℓ^{v}|Q`. So `P(E) ≤ (gcd(M,Q)/M)∏_{ℓ|M}ℓ/(ℓ−1) ≤ C loglogT·g/M`
+with `g=gcd(M,4D+1)`, because survival gives `gcd(M,Q)|g`. O2 Lemma 11.1's
+proof bounds `Σ C loglogT·g/M` directly (it only uses `m|g`). For (I): if
+`n≡1 (Q)` and `n≡−4D (M)` with `D|A_M²`, reducing mod `gcd(M,Q)` gives
+survival; if `M|Q` then `n≡1 (M)`, excluded by Fact 1.1; otherwise the event
+occurs. ∎
+
+**Lemma 2.2 (graded iterated quarantine; PROVED).** Fix `0<c≤1/8`. Start from
+`a_3=a_5=a_7=1`, all other `a_ℓ=0`. While some odd ℓ has `a_ℓ<f_ℓ` and
+
+```
+w_ℓ(Q) > θ_ℓ(Q) := c·(a_ℓ+1)·logℓ / 𝓛,
+```
+
+raise `a_ℓ` by one. The procedure stops, and at the end:
+
+* (LLL) every event E has `Σ_{ℓ∈supp E} w_ℓ ≤ c`;
+* (cost) `log Q ≤ log 840 + log 8 + (𝓛/c)·Σ_{(M,D)} s(M,D)·log₂τ(M)
+  ≤ 9 + (1+o(1))·𝓛²S♯/(c·log𝓛)`.
+
+*Proof.* Each step raises some `a_ℓ≤f_ℓ`, so it stops. (LLL): for
+`ℓ∈supp E`, `v_ℓ(M)≥a_ℓ+1`, so
+`Σ_{ℓ∈supp E}w_ℓ ≤ (c/𝓛)Σ_ℓ v_ℓ(M)logℓ = c·logM/𝓛 ≤ c`.
+(cost): a step at ℓ from a to a+1, taken at stage `Q_i`, has
+`log ℓ < 𝓛·w_ℓ(Q_i)/(c(a+1))`, and `w_ℓ(Q_i) ≤ Σ_{(M,D): v_ℓ(M)≥a+1} s(M,D)`
+by Lemma 2.1. Each pair `(ℓ,a)` is stepped at most once. Summing,
+`log(Q/6720) ≤ (𝓛/c)Σ_{(M,D)} s(M,D)·h(M)` with
+`h(M):=Σ_{ℓ|M}H_{v_ℓ(M)}` (`H_v=Σ_{i≤v}1/i`). Now `H_v≤log₂(v+1)` (induction:
+`1/(v+1)≤log₂(1+1/(v+1))` as `log₂(1+x)≥x` on `[0,1]`), so
+`h(M)≤log₂τ(M)≤(1+o(1))𝓛/log𝓛` (Wigert, `M≤T`). ∎
+
+*Why log-weighted thresholds.* The local lemma only needs every event's
+*total* coordinate mass to be small (neighbourhood sum
+`Σ_{E'∼E}2P(E') ≤ 2Σ_{ℓ∈supp E}w_ℓ`), not each `w_ℓ≤1/(64k)`. Charging the
+threshold to the factor `ℓ^{a+1}` of M that the coordinate consumes makes the
+budget `log M≤𝓛` do the work of the width k. In particular **no initial
+`Π_0={ℓ≤z}` is needed, and z, k disappear**; this alone removes O2's
+`π(z)𝓛≍𝓛³/log𝓛` floor and the factor `k²` of `|𝓑|≤64k²S*`.
+The ratio (cost of a step)/(threshold) is `logℓ/θ = 𝓛/(c(a+1))`, uniform in
+ℓ; with full quarantine it would be `≍𝓛²/logℓ`.
