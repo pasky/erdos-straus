@@ -664,3 +664,47 @@ sense of LS §1 (it is Thm 2.1's (≥) direction). ∎
 The frequencies used have denominators `Π_{i∈T}D_i` with `|T|` up to K,
 i.e. level up to `Σ_i L_i`, which is `≥ Kλ` in case (a) of Prop 8.2:
 **super-polynomial level** whenever `λ ≥ log N`.
+
+### 8.2 The escape theorem and what it says about (E1)
+
+**Theorem 8.5 (explicit (E1) escape for dense families; PROVED).** For
+every `λ ≥ 1`, every `N ≥ N₀` and `η = 1/9` there is a finite class family
+(the band family with `K = ⌊log(N/3)/log(2R+1)⌋`, `R = 325`, all
+`ℓ_i, ℓ'_i > max(W, e^{λ/2}, (16KRN)^{1/2})`) such that
+* every majorant of level `≤ λ` has `E_Uν ≥ 1` (Prop 8.2(a)); the level-λ
+  comparison measure of Lemma 1.1 exists with `S = 0`;
+* a Montgomery–Vaughan large sieve with `≤ N/3` frequencies, all of level
+  `> λ` except 0, proves `|𝒜 ∩ I| ≤ (5N/3)e^{−K/27}`, a saving
+  `≥ c log N` with `c = 1/(27 log 651) − o(1) > 0` (Prop 8.4).
+
+The large sieve beats the level-λ comparison by a power of N, for every
+λ. (Consistency: the true density of 𝒜 is `≈ (1−2η)^K ≈ N^{−0.034}`,
+below the sieve bound `N^{−0.0057}`.)
+
+**Consequences.**
+1. **No proof of (E1) from the comparison principle alone.** Lemma 1.1
+   at any level λ, Facts 1.1/4.0 and duality do not cap large sieves with
+   frequencies of level `> λ`: the band family satisfies all of them and
+   still loses `≍ log N`. Prop 5.2's condition (b) fails there for every
+   π on 𝒜: for each i, `1 ≤ E_πP(nθ_i) ≤ c₀ + Σ_{m≠0}|c_m||π̂(mθ_i)|` with
+   `c₀ = ∫P ≤ (∫P²)^{1/2} < 1`, so some `|π̂(mθ_i)| ≥ (1−c₀)/Σ|c_m|`, a
+   constant, at a frequency of level `L_i > λ`.
+2. **What the band family violates.** It carries class mass `≈ 2η` at a
+   *single* modulus `D_i` of level `> λ` (≍ ηD_i classes mod `D_i`). It is
+   also heavy in the K2 sense (`p = 2η` per top prime, not `≤ ℓ^{−1/2}`;
+   `E p_ℓ²` is not `≪ ℓ^{−7/4}`). Forced families satisfy
+   > **(Sp)** for every D, the classes whose modulus is divisible by D have
+   > total mass `≤ D^{−1+o(1)}` (moduli `≤ N^{O(1)}`),
+
+   by the divisor bounds of K2 §3. Any proof of (H_LS∞) must use (Sp) or
+   the K2 moment hypotheses in an essential way; the comparison measure
+   does not see them beyond level λ.
+3. **The budget heuristic (Assessment).** In the band family each bundle
+   of mass m gains `≈ m` and costs `≈ log(1/m)` of the frequency budget
+   `log N`, so the large sieve gains `≈ log N·m/log(1/m)`. Exceeding
+   `(log N)^{3/4}` needs bundles of mass `≥ (log N)^{−1/4+o(1)}` at level
+   `> λ`; under (Sp) a single modulus of level `> λ ≥ log N` carries mass
+   `≤ N^{−1+o(1)}`. So for forced families an escape would have to come
+   from **collective** correlations of many sparse low-level classes,
+   which is exactly what (H_LS∞) rules out heuristically (§5 polymer
+   heuristic). This is not a proof.
