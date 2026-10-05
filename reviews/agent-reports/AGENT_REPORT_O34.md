@@ -1,0 +1,72 @@
+# AGENT REPORT O34 (branch side-agent/omega9-exponent): exponent beyond 1/13
+
+Deliverable: `POINTWISE_OMEGA9.md`, `scripts/omega9_charcheck.py`,
+`data/omega9/charcheck.txt`, source `sources/omega9/montgomery-mnt3.pdf`
+(+README with SHA-256). OMEGA8 §6 repaired per R30c (M1, m1–m8) and R34a.
+
+## Result (checkpoint 1; self-reviewed once, needs parent's hostile review)
+
+* **Thm 1.1 (linear transfer; PROVED modulo Gallagher's theorem (G)).**
+  This replaces PO Thm 4.1. Its condition
+  `log x ≥ C(1+log(M_1/μ))·max(log Z,K)` becomes `log x ≥ C(1+log A)·log Z`
+  with `A=E_Haar|B|/μ`. Mechanism: expand `B(n)1[n≡1 (Q)]` in characters
+  mod `QD`. Each coefficient is `E_D[Bχ̄_D]/φ(Q)`, bounded by
+  `E|B|/φ(Q)`, not by `M_1`. All supported characters have conductor
+  `≤Z`, and there are `≤Z²` of them by injectivity. Gallagher's sum over
+  all primitive characters of conductor `≤Q_G` (MV III Thm 28.19, with
+  the exceptional-zero variant) controls them simultaneously. The
+  exceptional zero is handled as in PO: case A by the λ factor, case B by
+  the twist condition.
+* **Lemma 2.1 (trivial).** BRW gives `E|B| ≤ (1+2η)E B`, so `A≤1.03`.
+* **Thm 2.2 (PROVED mod (G) + ET Prop 1.4):**
+  `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many Mordell-hard p;
+  `log L_h(T) ≪ 𝓛^7`. This replaces O8 Thm 6.3 (1/13). The inputs are
+  O8's system and minorant (Thm 3.4, Lemma 6.1, Lemma 3.3), unchanged. The
+  transfer costs only `log Z ≤ log Q_Π + 2(3k+2d+1)𝓛 ≪ 𝓛^7`.
+  Thorner–Zaman is no longer used.
+* **Thm 2.3 (PROVED mod (G)):** `log W ≥ (1/log2−o(1))log₂p·log₃p`, which
+  doubles O8 Thm 4.4's constant.
+
+## Self-review R34a (deep subagent): no FATAL; repairs applied
+
+* MAJOR 1: (G)'s exceptional-case bound was mis-transcribed; the factor
+  `(1−β_1)log x` multiplies both terms. Fixed. The proof now uses
+  `u<L`, and the Page bound is needed only for the imprimitive remainder.
+* MAJOR 2 (in OMEGA8, from R30c m7/m8): "`K ≥ log(1/μ)` for every
+  minorant" is false. The disjoint-cell representation of F has `M_1=μ`.
+  The claim is now restricted to the BRW expansion as written
+  (`M_1≥1`). It does not affect OMEGA9.
+* Minors: upper-bound wording instead of `≍`; the remainder uses `≤Z²`
+  characters, and `log D≤1.04 max d_i`, so N and `loglog(QD)` disappear
+  from Thm 1.1. The script dropped all primes `≤D`; this is fixed and the
+  data regenerated (rel. error −0.09% vs bookkeeping 20%). Also fixed:
+  the BV range `4x^{1/3}`, `ℓ≡3 (4)`, δ in place of δ*, and the "distinct
+  T" wording.
+
+## Things a reviewer should attack
+
+* (G) as quoted from a **draft** book (MV III, PSU course PDF), Thm 28.19,
+  pp. 229–230. Gallagher's paper itself was not obtained. Is the sum over
+  q≤Q including q=1 with `E_0`? Is the implied constant absolute and
+  effective?
+* Thm 1.1 Case A: `λ ≥ min(u,1)/2`, and the Page bound for the `R_1`
+  remainder.
+* Coefficient identity `c(χ_Qχ_D)=E_D[Bχ̄_D]/φ(Q)`, and that `μ_ψ=E_D[Bψ]`
+  for the imprimitive `χ_D` induced by ψ. The toy check covers 23040
+  characters.
+* That O8 Thm 3.4's hypotheses for the class of one mod `Q_Πℓ_aux` are
+  exactly Thm 1.1's.
+
+## Not done / next
+
+* No STATUS/DISCOVERIES edits (parent's call). If confirmed, the following
+  are superseded: (H)16's 1/14, O8 Thm 6.3, and O8 §6.5/6.6's
+  "PO-Thm-4.1 ceilings", which concern PO Thm 4.1 only.
+* Exponent 1/6 needs **both** of the following.
+  * ESW. R30c M1(i), the missing q-ary ℓ¹ bound, is moot now that K
+    does not matter.
+  * A smaller quarantine, `log Q_Π ≪ 𝓛^6`. One idea is a uniform
+    per-prime bound `w_ℓ ≪ 𝓛^{O(1)}/ℓ` (a Shiu-type upper divisor sum in
+    progressions). All bad primes would then be `≤𝓛^{O(1)}`.
+* Opening (b) (sieving singles separately) now matters only through
+  `log Z`. It is not pursued.

@@ -34,6 +34,18 @@ its support, `|supp E|≤k`; `F:=1[no event occurs]`; `S:=Σ_E P(E)`;
    cascade come from (§2.3). Lemma
    2.1 (locally minimal events) shows that the outer inclusion–exclusion
    is codegree-free; the trouble sits in the neighbourhood factors.
+6. **Phase 2 (§6).** Exponent improved to 1/13 (Thm 6.3:
+   `W(p) ≥ exp(c(log p/log log p)^{1/13})`, mod TZ and ET). The cell
+   bookkeeping is replaced by spectral norms (Lemma 6.1). §6.1 is a
+   ledger of the losses. §6.4 proves that the q-ary decision-tree
+   switching lemma fails even with small masses; the energy form ESW
+   would give 1/11 only together with a q-ary ℓ¹ bound and a smaller
+   quarantine (R30c M1; neither is proved). §6.5 (Assessment): for
+   Brun/BRW-type minorants, routes through PO Thm 4.1 lose
+   `log p ≳ S²·log z`; the present bookkeeping gives ≈1/9 with S only
+   bounded by ET's S*, ≈1/6 with the observed S; the supported ceiling is
+   1/4 (Prop 6.6: `log(1/δ) ≥ S1 ≫ 𝓛²`). (See POINTWISE_OMEGA9 for a
+   transfer that avoids the square.)
 5. **Budget (§1, Lemma 1.1).** Within the old framework, `(log₂p)^{1+η}`
    needed `log K ≤ k^{O(1)}`; the new minorant has `log K = O(log 𝓛)`.
 
@@ -445,6 +457,234 @@ supports `≤k`, per-prime masses `≤1/(64k)`, and `S*` is used.
   residue cells, and the BRW sandwich is exactly what PO Thm 4.1 consumes.
   We found no prior use of it in Erdős–Straus or in Ω-results of this
   type (not a literature search).
+
+## 6. Phase 2: optimising the exponent 1/14
+
+(This section was requested as "new §5"; it is numbered §6 so that the
+reviewed numbering of §§1–5 is unchanged.)
+
+### 6.1 Where the powers of 𝓛 go (ledger for Thm 4.3; under ET)
+
+PO Thm 4.1 costs `log p ≍ K·max(log Z, K)`. With `z=𝓛²`, so that
+`k≍𝓛/log𝓛`:
+
+| quantity | source | size |
+|---|---|---|
+| `S ≤ S*` | O2 Lemma 11.1 with ET Prop 1.4 | `𝓛^4log𝓛` (EVIDENCE: actual `S≈0.05𝓛^{2.5}`) |
+| `log(1/δ)` | local lemma, `δ≥e^{−2.2S}` | `≍S` |
+| `k_0` | precision `e^{−3S}/m²` | `≍S+k𝓛 ≍ S` |
+| width w | bit encoding: k coordinates × `b≈2log₂T` bits | `kb ≍ 𝓛²/log𝓛` |
+| degree / junta `t=2C_Hwk_0` | switching lemma + LMN | `≍ w·S ≍ 𝓛^6` |
+| `log M_1` | Lemma 3.2: `N^{t}` coefficient count and `T^{junta}` overlap inflation | `≍ t𝓛 ≍ 𝓛^7` |
+| `log max d_i` | moduli on `≤3k+2t` primes `≤T` | `≍ t𝓛 ≍ 𝓛^7` |
+| `log Q_Π` | `π(z)𝓛 + |𝓑|𝓛`, `|𝓑|≤64k²S*` | `≍ k²S*𝓛 ≍ 𝓛^7/log𝓛` |
+| `K` | `log M_1 + log(1/δ)` | `𝓛^7` |
+| `log p` | `K·log Z` | `𝓛^{14}` |
+
+There are four independent losses beyond the Haar side's `𝓛^7/log𝓛`.
+1. The factor 𝓛 in `log M_1`: an artefact of cell bookkeeping
+   (Lemma 6.1 removes it).
+2. The factor k in `|𝓑|`, from the crude per-prime threshold `1/(64k)`
+   (not removed here: the log-weighted thresholds after Thm 6.3 do not
+   suffice; R30c M1. An earlier draft cited a "Lemma 6.2" that does not exist.)
+3. The factor `b≍𝓛` in the width, from the bit encoding (§6.4).
+4. The square from `K·log Z`, intrinsic to PO Thm 4.1; and S itself,
+   through ET.
+
+**Lemma 6.1 (spectral bookkeeping; PROVED).** In Lemma 3.1 take `u_j :=`
+the pull-back `g_j(x)=E[g̃_j(U) | π(U)=x]` of the Fourier truncation `g̃_j`
+of `F̃^{(j)}` below degree d, where `w:=kb`, `p:=1/(4C_Hw)` and
+`d:=k_0/p=4C_Hwk_0`. (Notation, R30c m2: in §6 the letter d without index is
+this degree; moduli always carry an index, `d_i`, `max d_i`.) Here `F̃^{(j)}`
+is encoded as a function of the coordinates **outside** `supp E_j` only, so
+`g_j` depends only on those coordinates, as Lemma 3.1's identity
+`E[A_je_j²]=P(E_j)E(F^{(j)}−g_j)²` requires (R30c m1). Then:
+* `E_{Haar}[(F^{(j)}−g_j)²] ≤ e^{1/2}·2·4^{−k_0}`;
+* B is a combination of unit cells, each on `≤3k+2d` free primes;
+* `log M_1(B) ≤ 3log m + 2d·log(4C_Hw) + 4`.
+
+So `log M_1` loses the factor `𝓛/log(k𝓛)` against Lemma 3.2.
+
+*Proof.* The first claim is Lemma 4.1 with p replaced by `1/(4C_Hw)`:
+`Pr[DT(f_ρ)≥k_0]≤4^{−k_0}`. *Spectral norm.* For a restriction
+`ρ=(I,z)` and `S⊆I`, `f̂_ρ(S)=Σ_{T⊆I^c}f̂(S∪T)χ_T(z)`, so
+`E_z f̂_ρ(S)=f̂(S)`. Hence
+`Σ_S p^{|S|}|f̂(S)| ≤ E_ρ‖f̂_ρ‖_1 ≤ E_ρ 2^{DT(f_ρ)}`. The last step holds
+because a depth-s tree has at most `2^s` leaves, each path indicator has
+spectral norm 1, and `|f|≤1`. This is `≤Σ_{s≥0}2^s4^{−s}=2`. Therefore
+`Σ_{|S|<d}|ĝ_j(S)| ≤ 2p^{−d} = 2(4C_Hw)^d`, where `ĝ_j(S)` are the Fourier
+coefficients of the bit-level truncation `g̃_j` (R30c m2). *Cells.* Each pulled-back
+character `χ̃_S:=E[χ_S | π(U)=·]` is a function of `<d` coordinates with
+`|χ̃_S|≤1`. A product `A_iA_jA_{j'}χ̃_Sχ̃_{S'}` is a function h of at most
+`3k+2d` coordinates with `|h|≤A_iA_jA_{j'}`. Its expansion over the cells
+of those coordinates has ℓ¹ mass `E|h|≤1`, with no overlap inflation,
+because the product is expanded as one function and not cell by cell.
+Summing over `i,j,j'≤m` and over `S,S'`,
+`M_1(B) ≤ 1+m+2m²·2(4C_Hw)^d+m³·4(4C_Hw)^{2d}`. ∎
+
+**Theorem 6.3 (PROVED modulo Thorner–Zaman and ET Prop 1.4).** For
+infinitely many Mordell-hard p,
+
+```
+W(p) ≥ exp( c·(log p / log log p)^{1/13} ),
+```
+
+uniformly `log L_h(T) ≪ 𝓛^{13}log𝓛`.
+
+*Proof.* Theorem 3.4 with Lemma 6.1 in place of Lemma 3.2 and Lemma 4.1
+(the twist Lemma 3.3 needs only `E[F−B]≤EF/100`; the extension to n
+coprime to the moduli is unchanged). With `z=𝓛²`: `w=kb≪𝓛²/log𝓛`,
+`k_0≪S*+k𝓛≪𝓛^4log𝓛`, so `d=4C_Hwk_0≪𝓛^6`. Then
+`K ≤ 3log m+2d log(4C_Hw)+2.2S+6 ≪ 𝓛^6log𝓛`, and
+`log Z ≤ log Q_Π+2(3k+2d+1)𝓛 ≪ 𝓛^7` (`log Q_Π≪𝓛^7/log𝓛` as before). So
+`log p ≪ K·log Z ≪ 𝓛^{13}log𝓛`. ∎
+
+So the factor 𝓛 in K is gone; `log Z` (moduli `≍T^{junta}`, plus `Q_Π`)
+is now the larger factor. Lowering `|𝓑|` alone (item 2 of 6.1) cannot help
+until the junta shrinks. Remark: log-weighted thresholds
+`c_ℓ=log ℓ/(16𝓛)` satisfy the local lemma, because
+`Σ_{ℓ∈supp E}c_ℓ≤1/16`. They give `Σ_{ℓ∈𝓑}log ℓ ≤ 16k𝓛S*`, but bad
+primes `≤√T` still cost `e_ℓlog ℓ≤𝓛`, so `log Q_Π` improves only on the
+part `>√T`; not pursued.
+
+### 6.4 The bit-encoding width (Assessment, with a PROVED counterexample)
+
+The degree is `d ≍ w·k_0` with `w=kb`. The factor `b≍2log₂T` appears
+because a q-ary literal `X_ℓ=c` is a b-bit term. A **q-ary switching
+lemma** of the form `Pr[DT_q(f_ρ)≥s] ≤ (Cpk)^s` would give
+`d ≍ k·k_0`. Here ρ frees each coordinate with probability p and fixes the
+others uniformly; `DT_q` is q-ary decision-tree depth, which bounds the
+Efron–Stein degree. (The LMN step works verbatim for Efron–Stein in product
+spaces (`E_z‖(f_{I,z})^{=S}‖² = Σ_{U∩I=S}‖f^{=U}‖²`). The result would
+be `d≪𝓛^5`. Exponent `1/11` (`K≪𝓛^5log𝓛`, `log Z≪𝓛^6`) would need in
+addition (a) a q-ary analogue of Lemma 6.1's ℓ¹ bound for Efron–Stein
+truncations, `log M_1 ≪ d log𝓛` (ESW is an energy statement and gives no
+ℓ¹ control; via Lemma 3.2 one gets only `K≍d𝓛≍𝓛^6`), and (b) a
+quarantine with `|𝓑|≪kS*`, so that `log Q_Π≪𝓛^6`; neither is proved. With
+ESW alone the bookkeeping gives `𝓛^{13}/log𝓛`, no real gain (R30c M1).)
+
+*The decision-tree form is false, even with small masses (PROVED
+example).* Take `N:=⌊q^{1/2}⌋` coordinates uniform on `[q]` and the
+width-2 DNF f = "two coordinates coincide" (terms `X_i=c∧X_j=c`). The
+per-coordinate mass is `(N−1)/q ≤ q^{−1/2}` and the total mass is
+`≤1/2`. Let ρ free each coordinate with probability `p=1/(4C)` (any
+`p<1/(2C)`; with `p=1/(2C)` and `k=2` the bound `(Cpk)^s` would be 1; R30c m3).
+With probability `≥e^{−1/2}−o(1)` the fixed values are distinct, and then, for
+`s` free coordinates, `f_ρ` = "a free value hits a fixed value or another
+free value". An adversary answering fresh distinct values keeps `f_ρ`
+undetermined until the last query (possible since `N+s<q`), so
+`DT_q(f_ρ)=s`. With constant probability `s≥pN/2≍q^{1/2}`, which is not
+`≤(C(pk+max w_ℓ))^s` for large q: that bound tends to 0 geometrically in s
+(numerically `Pr[DT_q≥pN/2]≈0.61` against `≤10^{−3.5}` at q=10⁴, C=1;
+R30c). ∎
+
+But the decision depth overstates the complexity: heuristically, the energy
+of `f_ρ` at level `≥s` is `≈(s²/q)^{s/2}`-small (pairwise-collision
+structure), not ≈1 as the depth suggests; the exact Efron–Stein weights for
+`q=49…144` decay in the level (R30c). This is evidence, not an argument
+(R30c m4). So decision depth is the wrong measure for rare literals. LMN needs only an **energy
+switching** statement,
+
+```
+(ESW)   E_ρ W^{≥s}[f_ρ] ≤ (C(pk+max_ℓ w_ℓ))^s,
+```
+
+where W is the Efron–Stein weight in the q-ary product space and f a
+system's bad-indicator. ESW with LMN would give `d≍k·k_0`. ESW is
+**open**. The example is plausibly consistent with it (exact level weights
+decay; R30c m4), but no proof is given.
+
+### 6.5 Ceilings of this route (Assessment)
+
+* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. For the BRW expansion as written (its constant
+  cell has coefficient 1, so `M_1≥1`), `K≥1+log(1/μ)≥log(1/δ)≥S1` rigorously
+  (Prop 6.6 and the remark after it; not for every cell representation —
+  R34a); `log(1/δ)≈S` for
+  multi-prime events is heuristic. Also `log Z ≳ (junta)·log z`, with junta
+  `≳ S/log(junta/S)` for minorants of Brun/BRW type (heuristic, from the
+  fundamental-lemma level requirement; no argument covers every minorant).
+  So `log p ≳ S²·log z` for such minorants. This is the price of
+  Thorner–Zaman's error `exp(−c log x/log q)` (R30c m5). POINTWISE_OMEGA9
+  Thm 1.1 replaces PO Thm 4.1 by a transfer without the square.
+* *Under ET* (`S≤𝓛^4log𝓛`): with S only bounded by `S*`, even an ideal
+  junta `≍S` gives `log p ≈ S·S𝓛 ≈ 𝓛^9` (exponent `≈1/9`). This is what
+  the bookkeeping yields, not a ceiling: ET bounds S from above. The
+  supported ceiling of this route is via Prop 6.6: `S1≫𝓛²` gives
+  `log p ≳ 𝓛^4·log z`, exponent `≤1/4` (Assessment; R30c m5). *With the empirical*
+  `S≈𝓛^{2.5}` (EVIDENCE, PO §2): `≈𝓛^6` (exponent `≈1/6`). The heuristic
+  truth `log W≍(log p)^{1/3}` (POINTWISE_SIZE §7) is out of reach of
+  any transfer through PO Thm 4.1 with a Haar density `e^{−Θ(S)}`, unless
+  `S` itself is `≪𝓛`; the Haar side's true size is
+  `−log δ*≍𝓛^{2.3…2.6}` (EVIDENCE).
+* *Remaining losses, ordered by size.*
+  1. The width `kb≍𝓛²/log𝓛` in d. The bit part needs the energy
+     switching statement ESW (6.4; the decision-tree form is false); the k part would need Fourier tails
+     sensitive to the event-size distribution rather than to the maximal
+     width.
+  2. `S*` through ET: `𝓛^4log𝓛` against `𝓛^{2.5}` observed.
+  3. The precision `k_0≍S`, forced by `δ≥e^{−2.2S}` being only a lower
+     bound.
+
+### 6.6 The Haar mass S cannot be `𝓛^{1+o(1)}` (PROVED modulo a standard divisor sum, sketched)
+
+**Proposition 6.6.** Let Π be any quarantine set with
+`|Π∩(T^{1/2},T]| ≤ T^{1/3}`; the iterated quarantine qualifies, since
+`|𝓑|≤T^{o(1)}`. Then the surviving distinct-class single mass satisfies `S1(Π) ≫ 𝓛²`
+(hence also `S ≥ S1` and `S_tot(Π) ≫ 𝓛²`).
+This rests on the shifted-prime divisor bound
+
+```
+(D)   Σ_{p≤x, p≡3 (4)} τ(((p+1)/4)²) ≫ π(x)(log x)²,
+```
+
+which is standard; we use it on dyadic ranges (R30c m6):
+
+```
+(D')  Σ_{x/2<p≤x, p≡3 (4)} τ(((p+1)/4)²) ≫ (x/log x)(log x)²   (x large).
+```
+
+*Proof of (D') (standard; sketched as in Elsholtz–Tao §5).* `τ(n²)=Σ_{d|n}2^{ω(d)}`,
+and for `p≡3 (4)`, `d|(p+1)/4 ⟺ p≡−1 (4d)`. Keep `d≤y:=x^{1/3}`. Write
+`π^*(q):=#{x/2<p≤x: p≡−1 (q)}=π^*/φ(q)+E(q)` with `π^*:=π(x)−π(x/2)`. Main
+term: `π^*Σ_{d≤y}2^{ω(d)}/φ(4d) ≥ (π^*/4)Σ_{d≤y}2^{ω(d)}/d ≫ π^*(log x)²`.
+Error: by Cauchy–Schwarz, `Σ_{d≤y}2^{ω(d)}|E(4d)| ≤ (Σ_d4^{ω(d)}|E(4d)|)^{1/2}(Σ_d|E(4d)|)^{1/2}`;
+Brun–Titchmarsh (`4d≤x^{1/2}`) gives `|E(4d)|≪x/(φ(d)log x)`, so the first
+factor is `≪(x(log x)^3)^{1/2}`, and Bombieri–Vinogradov gives
+`Σ_{q≤4x^{1/3}}|E(q)|≪x(log x)^{−A}` (inside the BV range; R34a). The error is `≪x(log x)^{(3−A)/2}`,
+negligible. ∎
+
+*Proof of the Proposition.* The atoms `(M,D)=(ℓ,D)` with M a free prime have `m=1`, so they
+survive every class-of-one quarantine (`1|4D+1`). They are singles at ℓ
+with classes `−4D mod ℓ`. The divisors `D≤A_ℓ=(ℓ+1)/4<ℓ` of `A_ℓ²` give
+distinct nonzero classes (`4D∈[4,ℓ+1]`), exactly `(τ(A_ℓ²)+1)/2` of them. So the
+distinct-class single mass is `S1 ≥ Σ_{ℓ∈(√T,T]∖Π, ℓ≡3 (4)} τ(A_ℓ²)/(2(ℓ−1))`. By (D')
+on the dyadic ranges `(T/2^{j+1},T/2^j]`, `0≤j≤𝓛/(2log2)`, each range
+contributes `≫ log(T/2^j)`, so the sum over all `ℓ∈(√T,T]` is
+`≫ Σ_j (𝓛−j log 2) ≍ 𝓛²`. The at most `T^{1/3}` quarantined primes there remove
+at most `T^{1/3}·τ*(T)²/√T = o(1)`. ∎
+
+**Strengthening (PROVED modulo (D'); R30c m7).** The proof bounds the
+distinct-event single mass, so `S ≥ S1 ≫ 𝓛²` for the distinct-event mass
+S of Thm 3.4. Singles at distinct free primes are independent events, so
+`δ = E F ≤ ∏_ℓ(1−g_ℓ) ≤ e^{−S1}` (`g_ℓ` the single mass at ℓ; δ the
+density on the class of one mod `Q_Π`). Hence `log(1/δ) ≫ 𝓛²`; every
+minorant `B≤F` has `μ≤δ`, and for the BRW expansion as written (`M_1≥1`)
+`K ≥ 1+log(1/μ) ≫ 𝓛²`. This is **not** a bound for every cell
+representation: e.g. F written as the sum of its disjoint good cells has
+`M_1=μ`, `K=1` (with huge moduli) (R34a MAJOR 2).
+
+**Consequence (Assessment; R30c m8).** In §6.5's bound `log p ≳ S²·log z`,
+S is at least of order `𝓛²`; so through PO Thm 4.1 even an ideal junta
+cannot go below `log p≈𝓛^4·log z`, exponent `≤1/4`. Task (b)'s hope
+`S≪𝓛^{1+o(1)}` is a dead end. Splitting off the singles (Brun for them,
+BRW for the multi-prime events) does not lower `log(1/μ)≥S1`; for
+representations with `M_1≳1` (as BRW-type ones) K stays `≳𝓛²`, and only
+`log Z` could shrink. (No universal statement over all representations is
+claimed; R34a.) Also
+`log Z ≥ log ℓ_aux > 𝓛`, so PO Thm 4.1's sufficient condition is never met
+below `log p≈𝓛³` on this route. (POINTWISE_OMEGA9 Thm 1.1 makes K enter
+only additively, which changes this accounting.) The data of PO §2 are
+for `y=√T`, where `S_{≥2}=0`.
 
 ## Replay
 
