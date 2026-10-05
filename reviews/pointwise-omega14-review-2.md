@@ -72,3 +72,15 @@ identity (v=1, i.e. M=ℓ, is included; harmless). Checked by brute force (scrip
 * Events are genuine ES events: `M=vℓ≤T^{0.7+ε/3}≤T`, `M≡3 (4)`, `D|A_M²` (via `n|A_M`), and
   `F=1[W(n)>T]` exactly (POINTWISE_OMEGA §0 has no `D<M/4` restriction). OK.
 * Constants c, ε are absolute (ε from (G)'s c, κ, C' only). No hidden parameter dependence found.
+
+### From-scratch numerics (`scripts/review_o14b_toy.py`, output `data/review_o14b/toy.txt`)
+* A: Lemma 4.2 toy (V=5, X=12, ℓ∈(144,4000]): 0 uniqueness violations; R(x) computed directly as
+  `Σ_ℓ #{hit classes mod ℓ}/(ℓ−1)` equals the regrouped formula for every x (err 9e−16).
+* B: Lemma 4.4 at X=10^6 (no exceptional set), all odd sqfree 7-rough v≤60: `min_a W(v,a)·v/L²∈[0.148,0.161]`,
+  far above the claimed 0.005 (the proof's constants are lossy, not wrong).
+* C: Lemma 4.3 toy, primes in (10^6,10^7], q=4n, n≤30: `min_b φ(q)Σ1/(ℓ−1)=0.152` vs ideal
+  `log(7/6)=0.154` and claimed 0.13. (Only small q; the real content is (G).)
+* D: Thm 1.3/Lemma 4.1 toy LP (exact max of E B over B∈𝒱_k, B≤F, s∈{0,1}, n=8 fair bits):
+  if every s has R=8≥threshold, max E B=0 (k=1,2) and also at the boundary R=thr (m=3,n=7,k=1);
+  if one s has only k active bits, max E B>0 (0.25, 0.125). So "E B≤0" is exactly the
+  sharp conclusion (B≡0 attains 0), and the deterministic hypothesis is what is needed.

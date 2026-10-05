@@ -1,0 +1,19 @@
+A: uniqueness violations=0 (|P|=516, |D|=22); R(x) identity max err=8.88e-16
+B: X=1000000 v=  1 min_a W(v,a)*v/L^2 = 0.1614  (claim >= 0.005)
+B: X=1000000 v= 11 min_a W(v,a)*v/L^2 = 0.1484  (claim >= 0.005)
+B: X=1000000 v= 13 min_a W(v,a)*v/L^2 = 0.1514  (claim >= 0.005)
+B: X=1000000 v= 17 min_a W(v,a)*v/L^2 = 0.1539  (claim >= 0.005)
+B: X=1000000 v= 19 min_a W(v,a)*v/L^2 = 0.1543  (claim >= 0.005)
+B: X=1000000 v= 23 min_a W(v,a)*v/L^2 = 0.1500  (claim >= 0.005)
+B: X=1000000 v= 29 min_a W(v,a)*v/L^2 = 0.1546  (claim >= 0.005)
+B: X=1000000 v= 31 min_a W(v,a)*v/L^2 = 0.1529  (claim >= 0.005)
+B: X=1000000 v= 37 min_a W(v,a)*v/L^2 = 0.1552  (claim >= 0.005)
+B: X=1000000 v= 41 min_a W(v,a)*v/L^2 = 0.1551  (claim >= 0.005)
+B: X=1000000 v= 43 min_a W(v,a)*v/L^2 = 0.1547  (claim >= 0.005)
+B: X=1000000 v= 47 min_a W(v,a)*v/L^2 = 0.1481  (claim >= 0.005)
+B: X=1000000 v= 53 min_a W(v,a)*v/L^2 = 0.1532  (claim >= 0.005)
+B: X=1000000 v= 59 min_a W(v,a)*v/L^2 = 0.1495  (claim >= 0.005)
+C: primes in (1000000,10000000]: min_n<= 30 min_b phi(4n)*c = 0.1521; log(7/6)=0.1542, log(log hi/log lo)=0.1542
+D: k=1 thr=5: all-R=8 -> max E B=3.553e-15 (expect <=0);  one s with R=k -> 2.500e-01
+D: k=2 thr=8: all-R=8 -> max E B=-1.279e-13 (expect <=0);  one s with R=k -> 1.250e-01
+D: m=3,n=7,k=1 (R=3.5=thr): max E B=3.553e-15
