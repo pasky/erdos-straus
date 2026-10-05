@@ -39,3 +39,4 @@ trial  37 m=22 t=5 E F=0.1119 E[F-B]=1.376e-31 bound=8.056e-29 max(B-F)=+0.0e+00
 trial  38 m=11 t=5 E F=0.2964 E[F-B]=8.374e-32 bound=1.411e-29 max(B-F)=+0.0e+00 identity err=2.3e-31
 trial  39 m= 7 t=0 E F=0.3584 E[F-B]=1.405e-02 bound=5.462e+00 max(B-F)=+0.0e+00 identity err=1.1e-16
 SUMMARY trials=40 max(B-F)=0.00e+00 (must be <=1e-9) max identity err=5.33e-15 bound holds in 40/40
+PASS

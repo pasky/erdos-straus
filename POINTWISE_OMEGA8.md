@@ -65,18 +65,19 @@ log p ≤ C_1 e^X [2.52(k+1)T^{1/(k+1)} + e^{X+2}𝓛],   so   log₂p ≤ max(X
 infinitely many Mordell-hard p,
 
 ```
-log W(p) ≥ (1/2 − o(1))·(log₂p)^{1/(1−η)}.
+log W(p) ≥ (9/16)·(log₂p)^{1/(1−η)}.
 ```
 
-Conversely, within Lemma 4.1, `log₂p ≥ 𝓛/(k+1)` and `log₂p ≥ X`, so a rate
-`log W ≥ (log₂p)^{1/(1−η)}` forces `k ≳ 𝓛^η` and `X ≲ 𝓛^{1−η}`.
+(Within Lemma 4.1 alone, this is the only way the budget certifies the
+rate: its bound is `≥𝓛/(k+1)` and `≥X`. This is a statement about the
+certificate, not a lower bound for p. Review fix.)
 
-*Proof.* With `X≤𝓛^{1−η}/3` and `k+1≥𝓛^η`: `log₂p ≤ 𝓛^{1−η}/3+𝓛^{1−η}+O(log𝓛) ≤ 2𝓛^{1−η}`
-for large T, i.e. `𝓛 ≥ (log₂p/2)^{1/(1−η)}`, and `log W(p) ≥ 𝓛`. Since
-`1/(1−η)<2`, `2^{−1/(1−η)} ≥ 1/4`; the constant is immaterial. Distinct T
-give distinct p (`p>T`). The converse is read off the display. ∎
+*Proof.* With `X≤𝓛^{1−η}/3` and `k+1≥𝓛^η`: `log₂p ≤ 𝓛^{1−η}/3+𝓛^{1−η}+O(log𝓛)`
+ `≤ (4/3+o(1))𝓛^{1−η}` for large T, i.e. `𝓛 ≥ ((3/4−o(1))log₂p)^{1/(1−η)}`,
+and `(3/4)^{1/(1−η)} > 9/16` since `1/(1−η)<2`; `log W(p) ≥ 𝓛`. Distinct
+T give distinct p (`p>T`). ∎
 
-**Consequence (what must be polynomial).** O4 Thm 1.1 gives
+**Consequence (what the old budget needed; Assessment).** O4 Thm 1.1 gives
 `X ≈ log K ≈ (k−1)!·(log Ŝ+O(k))`. For `X ≤ 𝓛^{1−η}` with `k ≍ 𝓛^η` one
 needs
 
@@ -111,11 +112,12 @@ function cannot condition on "no earlier event". Every minorant used so far
 (PO Brun; O2 support-truncated Bonferroni `B*_L`; O3/O4 multilevel
 compositions) is an alternating expansion of `F=∏_E(1−1_E)`.
 
-**2.3 Three facts about alternating expansions** (the first two PROVED,
-the third PROVED about the parameter recursion).
+**2.3 Three features of alternating expansions** (Assessment: a
+heuristic diagnosis of the *worst-case* budgets of O2–O4, not
+impossibility statements; review fix).
 
-1. *Precision.* `E F=δ≤1` while the order-j terms have total mass
-   `≍S^j/j!`; so terms up to order `≍S+log(1/δ)` are needed and each must be
+1. *Precision.* In the Poisson-like regime the order-j terms have total
+   mass `≍S^j/j!` while `E F=δ≈e^{−Θ(S)}`; so terms up to order `≍S+log(1/δ)` are needed and each must be
    exact or approximated to absolute precision `≪δ e^{−S}`.
 2. *Reuse.* An order-j term pins the `≤kj` vertices of j events. The error
    of a truncation at order L is a moment of the active-prime count, and
@@ -124,14 +126,19 @@ the third PROVED about the parameter recursion).
    real for the truncated moment, not an artefact of its proof (O2 §11.4,
    reviewer example D12).
 3. *Circularity.* Markov pushes of heavy sets at thresholds
-   `(kL)^{−(i−1)}` add mass `≥ Σ·(kL)^{i−1}/C`, while `L ≥ c·(mass)`;
-   so in one family `S_fin ≥ S·(ckS_fin)^{i−1}/C` has no solution for
-   large S. Hence separate levels, each truncated at its own mass, and
+   `(kL)^{−(i−1)}` add mass *at most* `Σ·(kL)^{i−1}·C` (Markov), and this
+   is essentially attained at the first push (O2 Prop 11.4), while
+   `L ≥ c·(mass)`. If the Markov bounds are saturated, a single family
+   would need `S_fin ≳ S·(ckS_fin)^{i−1}`, which has no solution for large S
+   (cf. O2 §10.5's warning: this concerns the worst-case budget only). Hence separate levels, each truncated at its own mass, and
    exponents multiply along `k→k−1→…→2`: `(k−1)!` (O4 Thm 1.1, §4.1).
 
-**2.4 Where the local lemma differs.** On a *good* configuration, a
-partial cluster with large completion mass M is exponentially unlikely
-(probability factor `≤e^{−M}`: suppression). An alternating expansion
+**2.4 Where the local lemma differs** (heuristic). On a *good*
+configuration, a partial cluster whose completions are many and weakly
+correlated is exponentially unlikely (suppression). Completion mass alone
+does not imply a factor `e^{−M}` (review counterexample: completions
+`H∩Y∩Z_i` sharing Y); for single-vertex completions at distinct primes it
+does, exactly. An alternating expansion
 instead is evaluated on *all* configurations, and on such clusters its
 error grows like `M^L/L!` (Bonferroni) or `C^M` (support truncation):
 amplification. The local lemma's proof uses only upper bounds for
@@ -177,8 +184,11 @@ that its error is an **unconstrained ℓ² approximation error**, i.e. an
 Efron–Stein tail, and the optimal ℓ² approximation is not an alternating
 expansion: it sees the suppression of §2.4.
 
-**Setting 3.0.** A system as in the header with events `E_1,…,E_m`
-(fixed order), `A_i:=1_{E_i}`, `F_{<i}:=∏_{j<i}(1−A_j)`, `F=F_{<m+1}`.
+**Setting 3.0.** A system as in the header in which every event
+prescribes a **single value** of each coordinate of its support (vertex
+sets are split into their full values mod `ℓ^{e_ℓ}`; this preserves
+masses, supports and F, but multiplies the number of events), with events
+`E_1,…,E_m` (fixed order), `A_i:=1_{E_i}`, `F_{<i}:=∏_{j<i}(1−A_j)`, `F=F_{<m+1}`.
 For `E_j` with vertex assignment `σ_j` on `supp E_j`, let `F^{(j)}` be
 `F_{<j}` restricted to `{X_{supp E_j}=σ_j}`, a function of the other
 coordinates. For a function φ of independent coordinates, `φ=Σ_Uφ^{=U}`
@@ -252,9 +262,12 @@ neighbourhood sum `≤2k/(64k)=1/32`) and its conditional form
 `μ ≥ 0.99 E F`: `|μ_ψ| ≤ (0.01+0.021)E F ≤ μ/4`. ∎
 
 **Theorem 3.4 (PROVED implication, modulo Thorner–Zaman via PO Thm 4.1).**
-Let `z≥2`, `k:=⌊𝓛/log z⌋`, and let Π be the output of O2 Lemma 11.2
+Let `k:=⌊𝓛/log z⌋`, and let Π be the output of O2 Lemma 11.2
 started from `{ℓ≤z}` with `c_0:=1/(64k)`; let 𝓔 be the distinct surviving
-events (supports ≤k, total mass `S≤S*`, `m≤T²` events). Suppose
+events, split into single values as in Setting 3.0 (supports ≤k, total
+mass `S≤S*`, `m≤T^{k+2}` events: at most `T²` atoms, each split into at
+most `∏_{ℓ|r}ℓ^{e_ℓ−v_ℓ(r)} ≤ T^k` events). Assume `7≤z≤T^{1/3}` (so
+`k≥1`, `840|Q_Π`); if `m=0` the class of one mod `Q_Π` already works. Suppose
 
 ```
 EL(t):   energy(F^{(j)}; t) ≤ e^{−3S}/(100 m² (S+1))    for every j.
@@ -344,7 +357,7 @@ functions of `<d` coordinates. By Jensen (φ̃ is `π(U)`-measurable),
 t := 2C_H·k·b·k_0,   k_0 := ⌈ 3S log₂e + log₂(400 m²(S+1)) ⌉,   b := ⌈log₂(4T²)⌉,
 ```
 
-so `t ≤ C·k·𝓛·(S+𝓛)` (using `N≤T`, `m≤T²`). ∎
+so `t ≤ C·k·𝓛·(S+k𝓛)` (using `N≤T`, `m≤T^{k+2}`). ∎
 
 **Theorem 4.3 (main; PROVED modulo Thorner–Zaman (PO Thm 3.1) and
 Elsholtz–Tao Prop 1.4; effective if ET's constant is).** For infinitely
@@ -367,8 +380,9 @@ Under ET, `S≤S*≪𝓛^4log𝓛` (O2 Lemma 11.1). Then `t≪𝓛^6`,
 infinitely many Mordell-hard p, `log W(p) ≥ (1/(2log 2)−o(1))·log₂p·log₃p`.
 
 *Proof.* As 4.3 with the unconditional `log S* ≤ (log2+o(1))𝓛/log𝓛`
-(Wigert, O2 Lemma 11.1): `t, K, log Q_Π ≤ S*^{1+o(1)}`, so
-`log₂p ≤ (2log2+o(1))𝓛/log𝓛`, and `log𝓛 ~ log₃p`. ∎
+(Wigert, O2 Lemma 11.1): `t, K, log Q_Π ≤ 𝓛^{O(1)}(S*+1)`, so
+`log₂p ≤ 2log S* + O(log𝓛) ≤ (2log2+o(1))𝓛/log𝓛`. Since `x/log x` is
+increasing, this inverts to `𝓛 ≥ (1/(2log2)−o(1))·log₂p·log₃p`. ∎
 
 **Comparison.** O4 Cor 3.1: `log W ≥ (1+o(1))log₂p·log₃p/log₄p` (mod TZ,
 ET); O4 Cor 3.2: `log₂p·log₄p/log₅p` (mod TZ). Theorem 4.3 is the third

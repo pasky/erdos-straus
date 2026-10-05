@@ -14,7 +14,7 @@ Deliverable: `POINTWISE_OMEGA8.md`, scripts `scripts/omega8_brw_check.py`,
 
 ## How
 
-1. **Diagnosis (goal 1, §2).** The Haar local lemma uses suppression:
+1. **Diagnosis (goal 1, §2; Assessment).** The Haar local lemma uses suppression:
    good configurations rarely contain partial clusters with large
    completion mass. Alternating expansions (PO Brun, O2 support
    truncation, O3/O4 levels) amplify on such clusters. That produces the
@@ -38,6 +38,26 @@ Deliverable: `POINTWISE_OMEGA8.md`, scripts `scripts/omega8_brw_check.py`,
    of the number of terms. Pulling back by conditional expectation keeps
    the junta size; the Haar/encoding density ratio is `≤e^{1/2}`
    (Lemma 4.1). So `t ≍ k𝓛(S+𝓛)`, polynomial, with no hypothesis.
+
+## Self-review (deep reviewer subagent, round 1): no fatal; repairs applied
+
+* MAJOR 1 (applied): Setting 3.0 needs single-value events; surviving
+  atoms with vertex sets mod `ℓ^a`, `a<e_ℓ`, are split into full values.
+  This preserves masses and F but gives `m≤T^{k+2}`; then
+  `t=O(k𝓛(S+k𝓛))`, and Thm 4.3's `t≪𝓛^6`, `K,log Z≪𝓛^7` are unchanged.
+* MAJOR 2 (applied): §2.3/2.4 "facts" were overstated (Markov gives
+  upper bounds; completion mass alone does not give `e^{−M}`
+  suppression). They are relabelled as Assessment/heuristic, and the
+  counterexample is recorded.
+* MAJOR 3 (applied): Lemma 1.1's "converse" was a statement about the
+  certificate, not about p. It is reworded; constant fixed to 9/16.
+* Minor (applied): Thm 4.4 asymptotics redone by monotone inversion;
+  Thm 3.4 range `7≤z≤T^{1/3}` and `m=0`; the script now exits nonzero on
+  failure.
+* The reviewer independently confirmed Lemmas 3.1–3.3, 4.1 (width `≤kb`,
+  restriction identity, pullback junta, density `≤e^{1/2}`), the
+  precision chain, the extension to all integers, the auxiliary prime,
+  and the final `log p=O(𝓛^{14})`.
 
 ## Things a reviewer should attack
 

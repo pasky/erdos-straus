@@ -91,3 +91,6 @@ if __name__ == "__main__":
               f"max(B-F)={v:+.1e} identity err={i:.1e}")
     print(f"SUMMARY trials={trials} max(B-F)={worst_v:.2e} (must be <=1e-9) "
           f"max identity err={worst_i:.2e} bound holds in {nb}/{trials}")
+    ok = np.isfinite(worst_v) and np.isfinite(worst_i) and worst_v <= 1e-9 and worst_i <= 1e-9 and nb == trials
+    print("PASS" if ok else "FAIL")
+    sys.exit(0 if ok else 1)
