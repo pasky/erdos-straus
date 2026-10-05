@@ -243,7 +243,7 @@ O11's tables; those data do not illustrate the lemma. Reviewer R45b
 stress-tested the mechanism with a pre-quarantine bound `y∈{30,200}` above 𝓛
 (`scripts/review_o12b_quarantine.py`, `data/review_o12b/quarantine.txt`,
 EVIDENCE): every surviving atom at every stage had `P(E)/(e³g/M)≤0.063`, and
-`max_EΣw_ℓ≤c` at `c=1/64, 1/8`. (ii) `e³` is crude: at most `𝓛/log𝓛` (asymptotically)
+`max_EΣw_ℓ≤c` at `c=1/64, 1/8`. (ii) `e³` is crude: at most `log M/log𝓛≤𝓛/log𝓛`
 primes `ℓ>𝓛` divide M, so the Euler factor is `≤exp(𝓛/((𝓛−1)log𝓛))=1+o(1)`.
 
 **Theorem 6.3 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), and

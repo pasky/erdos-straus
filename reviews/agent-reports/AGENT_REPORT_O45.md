@@ -63,3 +63,26 @@ checked the ET hypotheses against the PDF (coefficients, ρ bounds, the
     (D,l,C)=(2,5,2);
   * the uniformity of Lemma 3.1's sum over scales;
   * Lemma 6.2's interface with O11 Thm 3.2 (twist prime, Cor 1.2's S).
+
+## Hostile reviews (round 1) and repairs
+
+R45a (`reviews/pointwise-omega12-review.md`) found Thm 5.1 SOUND modulo ET.
+R45b (`reviews/pointwise-omega12-review-2.md`) found Thms 6.1/6.3, Lemma 6.2
+and the Haar corollary SOUND. Neither review found anything FATAL or MAJOR.
+Both reviewer branches are merged here. Minors applied:
+
+* R45a m1: in Lemma 3.1, the omitted `q=2` is harmless (N is odd).
+* R45a m2: (7.10)'s proof does not need `A≤B`.
+* R45a m3: `ρ_Q(ℓ^j)≤1`, noted; `≤2` suffices.
+* R45a m4: explicit coefficient bounds in Lemma 4.1 (`x_0≤q−1`).
+* R45b m1: the Haar bound `log(1/δ*)≪𝓛^5log𝓛` now has its own row,
+  PROVED modulo ET only.
+* R45b m2: Lemma 6.2 is vacuous at computable T (`T<e^{11}`); I cite R45b's
+  stress test with pre-quarantine bound `y∈{30,200}` (EVIDENCE).
+* R45b m3: the CONJECTURE `Ω_0≍𝓛^4log𝓛` is reworded. The data support
+  only the growth of the mean of h. The normalised `S_0'/𝓛^4` is still
+  decreasing, so the order of `S_0` is unknown.
+* R45b m4: the start cost is now stated as an overcount; the remark that
+  the Euler factor is `1+o(1)` (so `e³` is crude) is added.
+
+Headline results are unchanged.
