@@ -372,3 +372,28 @@ cover all non-zero squares mod D. This is a finite covering by Type-I
 positivity progressions in the sense of notes Thm 48.4, i.e. a Mordell-type
 identity system restricted to Type I. (ES for `p≡2,3 (5)` is classical via
 Mordell's identities; the content here is only the Type-I depth `≤10`.)
+
+**Remark 6.2 (what decides `C(r)`; PROVED direction + H-conditional
+direction, sketch).** Call `(c,k,D)` with `(D,4ck)=1` a *Type-I
+certificate*; its class is `{p : p≡−D (mod 4ck), p²≡−4ck² (mod D)}`, on
+which `M_{c,k}(p)≥1` (Lemma 1.1). (i) If the certificates with `ck≤X`
+cover `S_r={p hard : n_p=r}` (a union of classes mod `24∏_{ℓ≤r}ℓ`) up to
+finitely many p, then `C(r)≤X` up to those p (PROVED; Thm 6.1 is the case
+r=5, X=10, D∈{3,7}). (ii) Conversely, if some class of `S_r` (mod a
+modulus fixing `v_ℓ(N_{c,k})` for all `ℓ≤B`, `ck≤X`) is not covered by the
+certificates with B-smooth D, then the construction of Thm 2.1 steps 3–5
+(fixed part times one H-prime) gives, under H, infinitely many p with
+`n_p=r` and `ck_min(p)>X`. So under H, `C(r)` is exactly the least height
+of a finite Type-I covering of `S_r` (∞ if none). Thm 2.1 says this height
+is `≥r^{2−ε}` for large r.
+
+**EVIDENCE 6.3 (r=7).** `typei_smallD.py 7 3000000 2000 400`: all 6495
+hard primes in `(10^5,3·10^6)` with `n_p=7` have a positive unforced slice
+with `ck≤194` witnessed by a target divisor `D≤2000` (most frequent D: 11,
+3, 23, 15, 71, 7, 39, …); with `D≤200, ck≤120`, 27 are not witnessed. This
+is consistent with a finite covering for r=7 but uses many D's; a proof
+needs a product-space covering search (not done). **Open:** is
+`C(7)<∞`? Is `C(r)<∞` for every r? A positive answer for all r would prove
+Type-I ES for all hard primes (by a family of coverings, one per value of
+`n_p` — an E2 escape in the sense of POINTWISE_SIZE Prop A, since `n_p` is
+not a bounded formal quantity).
