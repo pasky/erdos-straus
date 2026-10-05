@@ -465,11 +465,14 @@ with Bombieri–Vinogradov (Halberstam–Richert-type almost-prime results,
 *[memory]*) give, for small fixed `Q` and bounded `r`, `p ≤ T^{O(1)}`, i.e. `log p ≪ log T`, far
 better than `(log T)³`. *Monotone* events ("`d | p + h`") reduce to `k = 1`
 (avoid one prime factor of each `d`) and are likewise sieve territory.
-(c) The theorem's genuine range is **non-monotone, composite-modulus
-events with `S ≫ 1` and uncontrolled codegrees** (§4.6): there neither a
-sieve (the avoiding set is not a product set) nor Bonferroni+Gallagher
-(codegrees) applies directly, and Linnik on a single class costs
-`log ∏ℓ^{e_ℓ} ≍ N log T`. The ES witness system is of exactly this type.
+(c) *Assessment (unverified).* The theorem can only be of interest for
+non-monotone, composite-modulus events with `S ≫ 1` that resist cheap
+coarsening and quarantine and have large codegrees; for such systems no sieve
+(the avoiding set is not a product set) applies directly, and Linnik on a
+single class costs `log ∏ℓ^{e_ℓ} ≍ N log T`. But §4.6: we know **no** system
+on which Theorem 1.1 provably beats quarantine + coarsening + Bonferroni with
+the same Gallagher transfer, and we have not checked whether the ES witness
+system is such a system (the POINTWISE_OMEGA2 experience is only evidence).
 (d) We did not find (in `sources/`) a prior "least prime avoiding a
 composite-modulus congruence system" bound with polylogarithmic dependence
 on the local data; see §4 for what we could not check.
