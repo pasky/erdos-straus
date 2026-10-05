@@ -8,13 +8,28 @@ side-agent/sieve-paper-v4 at ef5ae01. Change list: reviews/agent-reports/AGENT_R
 * `pdflatex` ×3 on sieve-limits-note.tex: 62 pp., no undefined refs/citations, no multiply-defined
   labels; one 1.29pt overfull hbox (lines 3406–3413). es-threequarter-note.tex: 22 pp., clean.
 
-## Summary verdicts (filled in progressively)
+## Recommendation
 
-(in progress)
+**Minor revision (accept after repairs).** No FATAL defect. One MAJOR presentation defect (M1:
+the abstract/intro state the O_A((log N)^{3/4}) cap for prime-measure results and prime-order tuple
+input, where the note itself proves only the (log log N)^{3/4}-form resp. a k log log N term).
+Eighteen minor points (m1–m18). The core new mathematics — the lossless first moments of §10
+via Z_y, Shiu in progressions, the Case-A split and the uniformity of ElT (7.10) in k, and
+the resulting caps Cλ^{3/4} / C_A(log N)^{3/4} — I re-derived line by line and find SOUND,
+including both claimed ElT slips (confirmed real, repairs correct, numerically checked).
 
-## Numbered points
+## Summary verdicts
 
-(in progress)
+| claim | verdict |
+|---|---|
+| 1. §10 moments: L 10.4, 10.5, 10.6 (Shiu hypotheses vs source), Rem 10.7 (ElT (7.10) uniform in k, two slips), L 10.8 (Case-A split), L 10.9 | SOUND |
+| 2. Thm 10.12 (cap Cλ^{3/4}), Thm 10.13, Thm 10.14 (main, C_A(log N)^{3/4}, no B) vs KA3 Thm 4.1/Cor 4.2 | SOUND (label proviso: m16) |
+| 3. §14 large sieves / prime laws / interval counts / hybrids vs LS, LS2, PL, IF, IF2 | SOUND-AFTER-REPAIRS (M1, m1–m7) |
+| 4. §15 tuple counts / truncated weights / forced zeros vs TU, TU2, KA3 §§5,7 | SOUND-AFTER-REPAIRS (m8–m14) |
+| 5. Rem 12.8 (Λ² caps superseded, KA3 L7.1) | SOUND in substance; text self-contradictory (m15) |
+| 6. §§16–17 exclusions/open lists, abstract, intro | SOUND-AFTER-REPAIRS (M1, m17) |
+| 7. es-threequarter-note sharpness remark | SOUND (m18 optional) |
+| 8. Compile, numbering, cross-refs, bibliography (all .md bib paths exist; Gallagher, Vaaler data correct) | SOUND except m8 (wrong item number) |
 
 ### Claim 1 — §10 local-weight first moments (Lemmas 10.4–10.6, 10.8, 10.9; Rem 10.7): SOUND
 
@@ -65,7 +80,7 @@ Label "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)" is accu
   follows. No overclaim.
 * Labels: header "PROVED; Case A PROVED mod ElT Prop 1.4, Thm 7.1, Cor 7.4, (7.10)". KA3's own
   label is "PROVED given K2/EK as reviewed"; the §10 opening paragraph states this proviso
-  explicitly. Acceptable (see minor point M1 below for a suggestion).
+  explicitly. Acceptable (see minor point m16 below for a suggestion).
 * Thm 10.13 retained with only Prop 1.4 — consistent and correctly motivated.
 
 ### Claim 3 — §14 (large sieves, prime laws, interval counts, hybrids): SOUND-AFTER-REPAIRS
