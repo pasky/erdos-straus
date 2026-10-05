@@ -327,3 +327,26 @@ uv run --with scipy python scripts/window2_polish.py 0.1 8 0.5 /tmp/f.json /tmp/
 uv run python scripts/window2_verify.py /tmp/p.json                    # §3.7 residual ~1e-15
 ```
 (Run each under `ulimit -v 8000000`. The ε=0.1, K=12 LP needs ~4 GB.)
+
+## 6. Adding primality information to the model (step 2 of the follow-up)
+
+### 6.1 Capacity: does it matter if the fake is supported on integers / on primes?
+*Integers.* In the heuristic law the configuration distribution of `(n_3,n_7)` is
+the same for random integers n and for primes p; the densities differ by the uniform
+factor log x. So an integer capacity `ν≤C·μ_int=C(log x)μ` is vacuous as x→∞.
+**This constraint does not restore positivity** (Assessment, immediate from the model).
+
+*Primes with bounded weights.* The fake must be a reweighting of the primes,
+`0≤ν≤Cμ` with C fixed (`window2_lp.py 0.1 8 0.5 --cap=C`):
+
+| C | 2 | 2.5 | 3 | 3.5 | 4 | 5 | 10 | 10³ |
+|---|---|---|---|---|---|---|---|---|
+| min ν(∅)/τ | 0.373 | 0.207 | 0.078 | **0** | 0 | 0 | 0 | 0 |
+
+The cap-5 fake was checked by `window2_verify.py`: residual 6.9·10⁻⁷,
+max ν/μ = 5, ν(∅)=0. **So already a reweighting of the primes with weights ≤3.5
+satisfies all level-1/2 Type-I data and both parities and has no p with both
+windows clean** (discrete model; EVIDENCE, LP residual ≤10⁻⁶). The threshold is
+C*∈(3,3.5) on this grid. "Bounded-weight subsequence of primes" is therefore not
+enough information. The useful primality information must be *structural*:
+it is the switched sieve (§6.2), not a size bound.
