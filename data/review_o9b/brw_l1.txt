@@ -1,0 +1,1 @@
+trials=300, with EB>0: 230; min(F-B)=0.000e+00 (>=0 expected); max(E|B|-(1+2eta)EB)=1.110e-16 (<=0 expected)

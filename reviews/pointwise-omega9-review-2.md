@@ -40,3 +40,22 @@ from discrete logs. Seeds 1–3: (a) direct DFT vs `E_D[Bχ̄_D]/φ(Q)` agree to
 χ with nontrivial `χ_D`: `c(χ)=μ_ψ^{PO}/φ(Q)` to `2·10^{-16}`; (e) `χ↦χ*`
 injective (5760 distinct); (f) `S(x)=Σc(χ)ϑ_{QD}(x;χ)` exactly at `x=2·10^4`.
 
+### (ii) Lemma 2.1 and `A ≤ 1.03` — SOUND
+
+`B^-:=max(−B,0)`: where `B<0`, `B^-=−B ≤ F−B` because `F≥0`; where
+`B≥0`, `B^-=0 ≤ F−B` because `B≤F`. So `E|B|=EB+2EB^- ≤ EB+2E[F−B]`. The
+negative part of B is thus controlled by the one-sided error alone; no
+bound on `|B|` or `M_1` is needed (only `F≥0`; `F≤1` is not used). In Thm
+2.2, O8 Thm 3.4's proof gives `E[F−B]≤δ/100` and `μ≥0.99δ`, so
+`η=1/99`, `A≤1+2/99≈1.0202≤1.03`. `A` is a property of the *function* B
+(Haar ℓ¹ norm), not of a cell representation, so the R34a MAJOR 2
+phenomenon (representation-dependent `M_1`) cannot reappear here.
+`B≤F` for O8 Lemma 6.1's choice of `u_j` holds because Lemma 3.1 holds
+for *arbitrary* real `u_j` (re-derived: `F−B=Σ_iA_i(Σ_{j<i}A_je_j)²`).
+
+From-scratch check `scripts/review_o9b_brw_l1.py` (→ `data/review_o9b/brw_l1.txt`):
+300 random toy systems (3–5 coordinates on `ℤ/q`, `q≤4`, 2–6 single-value
+events of support ≤2), `u_j` random Gaussian or Efron–Stein truncations:
+`min(F−B)=0`, `B^-≤F−B` pointwise, and `E|B|≤(1+2η)EB` in all 230 trials
+with `EB>0` (max excess `1.1·10^{-16}`, rounding).
+
