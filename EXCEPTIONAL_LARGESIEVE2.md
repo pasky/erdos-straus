@@ -37,7 +37,7 @@ Theorem 4.3 does not use K2 Thm 5.1 and is unaffected.
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
 | **Thm 8.5, Prop 8.6** (Lemma 8.1, Props 8.2, 8.4) | **explicit (E1) escape for dense abstract families**: a band family (≍ηD classes at single moduli D = ℓℓ' of level > λ) on which every level-λ majorant saves 0 (comparison measure with S = 0), while a Montgomery–Vaughan large sieve with ≤ N/3 frequencies of level > λ saves `≥ c log N`. Prop 8.6: the same family satisfies K2 Thm 5.1's conclusion (`S ≤ Cλ^{3/4}`) at **every** level. So (E1) cannot be closed by comparison measures at any level + large-sieve axioms; a proof needs family-specific input such as (Sp) (Assessment) or K2's moment hypotheses, which the band family violates | PROVED |
-| Thm 9.1 | composite kernels: Thm 4.2 holds with **no level hypothesis** (moduli ≥ N via anti-concentration of π); only the factor `1 + Nh/(W_K−h)` remains | PROVED, conditional on K2 Thm 5.1 / KARY3 |
+| Thm 9.1 | composite kernels: Thm 4.2 holds with **no level hypothesis** (moduli ≥ N via anti-concentration of π), provided all primes of 𝔊 and of the kernel moduli are `≤ e^{Λ₀}` (λ = 2log N + Λ₀); only the factor `1 + Nh/(W_K−h)` remains | PROVED, conditional on K2 Thm 5.1 / KARY3 |
 | Prop 9.2 | kernels whose moduli are T-rough: saving `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`, `ε_T ≍ T^{−1/4+o(1)}`; the factor problem lives at small primes | PROVED, unconditional |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design. It does **not** cover the other relaxation (`ν ≥ 0` only at primes `≤ N`, `ν ≥ 1` on all primes of 𝒜), which stays open (Assessment, §6.2) | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
@@ -763,7 +763,12 @@ kernel bound satisfies
 
     B ≥ (N/2) e^{−S(λ)} / (1 + Nh/(W_K − h)),
 
-with **no** hypothesis on the levels of the kernel moduli.
+with **no** hypothesis on the levels of the kernel moduli; the standing
+hypothesis that every prime of 𝔊 and of the kernel moduli is `≤ e^{Λ₀}`
+is used (λ grows with Λ₀; review R27b m3). *Remark:* kernel primes not
+dividing `M₀` can be dropped from it: 𝒜 is invariant under those digits,
+so π may be averaged to be uniform on them, and then
+`π(b mod q) = π(b mod q_{M₀})·q_{M₀}/q` with `q_{M₀}` the `M₀`-part of q.
 
 *Proof.* Split `𝒮 = 𝒮_< ∪ 𝒮_≥` (`q < N`, `q ≥ N`). For `q ∈ 𝒮_≥` let
 `q°` be the shortest prefix of q (its W-smooth part, then its prime
@@ -811,13 +816,19 @@ primes**. There the avoider set is genuinely non-uniform (selector classes
 for such q, and the subtraction of h must absorb that non-uniformity.
 
 *Status (Assessment).* We could not prove that it always does, and we
-found no family and kernel where it fails. One observation: Theorem 9.1's
-proof uses only the existence of a comparison measure (1.1), so it applies
-to the band family of §8 with `S = 0` once every `L_i > 2log N + Λ₀` (e.g.
-all `ℓ_i, ℓ'_i ∈ [N³, 2N³]`). Every kernel with `h = 0` (all moduli
-`≥ N`) then saves `≤ log 2` on it: kernels resist the dense-bundle escape
-that defeats the large sieve, and any kernel escape must use moduli
-`< N`, where Prop 9.2 forces small prime factors.
+found no family and kernel where it fails. One observation (review R27b
+m4): on the band family of §8 with all `D_i > N`, every kernel with
+`h = 0` (all moduli `≥ N`) has `B ≥ N`. Indeed `𝒮_< = ∅`; each prefix
+`q°` of Thm 9.1 contains no prime `≥ N` before its last step, hence at most
+one band prime (all band primes being `> N^{1/2}` suffices when the
+pairs are chosen as in Prop 8.6, or `> N` in general), so the measure μ of
+Prop 8.2(a), uniform on all other digits, gives `μ(b mod q°) = 1/q° ≤ 1/N`
+and `D(μ) ≤ W_K/N`. Kernels thus resist the dense-bundle escape that
+defeats the large sieve, and any kernel escape must use moduli `< N`.
 
-Open precisely: kernels with `Nh/(W_K − h) ≥ exp((log N)^{3/4})` whose
-moduli have prime factors `≤ (Nh/(W_K − h))^{4+o(1)}`.
+Open precisely (review R27b m5): kernels with
+`Nh/(W_K − h) ≥ exp((log N)^{3/4})` whose moduli have either a prime factor
+`≤ (Nh/(W_K − h))^{4+o(1)}` or more than `T^{1/4}` prime factors (outside
+Prop 9.2's hypothesis `ω(q) ≤ T^{1/4}`). The closed side rests on Thm 9.1,
+which is conditional on K2 Thm 5.1 / KARY3 Thm 4.1 and needs all primes of
+𝔊 and of the kernel moduli `≤ N^{O(1)}`, and on Prop 9.2 (unconditional).
