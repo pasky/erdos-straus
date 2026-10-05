@@ -1,6 +1,7 @@
 # Beyond 1/5: a β-weighted local lemma and the late-prime lightness hypothesis (task O48)
 
-Status: IN PROGRESS (checkpoint §1). Labels as in DISCOVERIES.md. Notation as in
+Status: checkpoint 3 (after R48a/R48b repairs; §5 added; §5 reviewed SOUND-AFTER-REPAIRS by
+R48c/R48d, all their defects applied by O51). Labels as in DISCOVERIES.md. Notation as in
 POINTWISE_OMEGA11.md (O11) and POINTWISE_OMEGA12.md (O12): `𝓛=log T`, atoms `(M,D)`,
 `g=gcd(M,4D+1)`, graded class-of-one quarantine `Q=8∏ℓ^{a_ℓ}` (O11 Setting 2.0),
 fibre coordinates `X_ℓ` (independent, product measure), `supp E={ℓ: v_ℓ(M)>a_ℓ}`,
@@ -40,11 +41,17 @@ so it is counted in at least one `w̃_ℓ`. So `P(E)=x_Eβ^{−s(E)}≤x_E∏_{E
 This is the asymmetric LLL hypothesis. Its standard conclusions are
 `P(∩Ē)≥∏(1−x_E)≥exp(−(4/3)Σx_E)` and the conditional bound. For a general A, the
 standard LLL bound `P(A|∩_{𝒮}F̄)≤P(A)∏_{F∈𝒮, F∼A}(1−x_F)^{−1}` is used (as in O8 Lemma 3.3;
-Haeupler–Saha–Srinivasan). The displayed computation, applied with `supp A`, gives
+Haeupler–Saha–Srinivasan, J. ACM 2011; theorem number not verified, source not archived). It
+has a one-line proof (R48c m5): with `𝒮_1:={F∈𝒮: F∼A}`, `𝒮_2:=𝒮∖𝒮_1`, A is independent of
+`∩_{𝒮_2}F̄` (disjoint supports), so
+`P(A|∩_𝒮F̄)≤P(A∩_{𝒮_2}F̄)/P(∩_{𝒮_1}F̄|∩_{𝒮_2}F̄)≤P(A)/∏_{F∈𝒮_1}(1−x_F)`, the denominator by
+the chain rule and the conditional bound `P(F|∩F̄')≤x_F` above. The displayed computation, applied with `supp A`, gives
 `∏(1−x_F)^{−1}≤exp((4/3)|supp A|η)=β^{|supp A|}`. ∎
 
 *Range (R48b D5).* The prime-side twist (§5, I1) needs `η≤0.19`. This fails at the
-extreme `β=e^{1/3}` but holds for `β=1+1/log𝓛`, which is the only value used.
+extreme `β=e^{1/3}` but holds for `β=1+1/log𝓛`, which is the only value used, as soon as
+`(3/4)log(1+1/log𝓛)≤0.19`, i.e. `𝓛≥32.1` (`T≥e^{33}`) (R48c m3). The exact requirement is
+`(0.01+η/(1−η))/0.99≤1/4`, i.e. `η≤0.1919`. All statements below are for such T ("T large").
 
 *Effect.* The criterion is now per coordinate, with a threshold η independent of
 ℓ and of the level. The price is the reweighting `β^{s(E)}≤β^{ω(M)}`. With
@@ -121,7 +128,8 @@ Against POINTWISE_HAAR Thm 2.1 (`≫𝓛³/log𝓛`), this would give the Haar e
 which is now **the bottleneck**. So `log Z≪𝓛^4(log𝓛)^{O(1)}`, and
 `W(p)≥exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many Mordell-hard p,
 modulo (G), ET, and OMEGA10 Thm 3.4.
-(c) *Interface check (OPEN).* O8's BRW minorant and O8 Lemma 3.3 (twist) were
+(c) *Interface check (OPEN at the time; superseded: done in §5 for the square-class route,
+which replaces this class-of-one route — R48c m4 / R48d D2).* O8's BRW minorant and O8 Lemma 3.3 (twist) were
 written for `x_E=2P(E)` with neighbourhood sums `≤1/32`. They must be re-run with
 Lemma 1.1's `x_E=β^sP(E)`, conditional bound `≤x_E`, and coordinate sums `≤η`.
 That has not been done. Cell consistency and O11 Lemma 3.1 are unaffected: Q is
@@ -245,9 +253,15 @@ Check: `scripts/omega13_jacobi.py 200000` verifies (a) and (b) on all 2 401 032 
 ES identities cover the non-residue classes, and the Mordell-hard classes mod 840
 are the squares.
 
-**The square-class process (definition).** Start from `Q=8` and `r≡1 (8)`.
+**The square-class process (definition).** Start from `Q=8`, `r≡1 (8)`, Haar on the units at
+the odd primes. Then take three *forced* `a=0` steps at `ℓ=3,5,7` (R48a m4, R48b D4): r mod 105
+is a uniformly random square class, and mod 3 the only square is 1. So `840|Q` and `r≡1 (24)`
+always hold, and r is a square mod 840, i.e. a Mordell-hard class. The forced steps are ordinary
+`a=0` steps, so Lemma 3.2 covers them verbatim. They add only `log105` to the cost.
 Coordinates and events are as in O11 Setting 2.0, but with fibre `n≡r (Q)` in place
-of `n≡1 (Q)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
+of `n≡1 (Q)`. An atom `(M,D)` *survives* `(Q,r)` iff `−4D≡r (mod gcd(M,Q))` and `M∤Q`
+(R48d D3; for `r=1` this is O11's `gcd(M,Q)|4D+1`). Equivalently `μ(E)>0`: by Lemma 3.1,
+`M|Q` never occurs together with `−4D≡r (mod M)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
 reweighted fibre mass `w̃_ℓ>η` (Lemma 1.1). It reveals `n mod ℓ^{a+1}` uniformly
 among the classes of the current fibre that are squares mod ℓ:
 
@@ -257,7 +271,7 @@ among the classes of the current fibre that are squares mod ℓ:
 By Lemma 3.1 no atom ever fires, so the final system has no deterministic event.
 The prime side counts primes `p≡r (mod Q)`. For every real character χ mod Q,
 `χ(r)=1`, exactly as for the class of one. So O11 Lemma 3.1's Case A/B analysis is
-unchanged. This is to be checked in §4.
+unchanged. This is checked in §5 (I3).
 
 *Drift.* At an `a=0` step at ℓ, an atom with `ℓ|M` has
 `E[p_new(E)]=(1+(−d_E|ℓ))p(E)` by Lemma 3.1(a). That is at most `2p(E)`, not
@@ -274,7 +288,7 @@ when every `ℓ≤Y` has `w̃_ℓ≤η`.
 (a) *Supermartingale.* For any fixed weight `φ(E)≥0`, `G_i:=Σ_E p_i(E)2^{u_i(E)}φ(E)` is
 a supermartingale.
 
-(b) *Cost.* `E[log Q_end] ≤ log 8 + (1/η)Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}log M_Y`.
+(b) *Cost.* `E[log Q_end] ≤ log 840 + (1/η)Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}log M_Y`.
 Here `ω_Y` counts the primes `≤Y` and `M_Y` is the Y-smooth part.
 
 (c) *Residual mass.* `E[Σ_E β^{s_end(E)}p_end(E)] ≤ S_H^β := Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}`.
@@ -299,7 +313,7 @@ these are squares. So `E[p_new(E)|past]=p(E)`, and u is unchanged. A step with
 The process has at most `Σ_{ℓ≤Y}f_ℓ` steps, so the times are bounded. Optional
 stopping for the nonnegative supermartingale `G^{(ℓ,a)}` gives
 `E[G(τ)1[τ<∞]]≤G(0)`. Sum over `ℓ≤Y`, `a<v_ℓ(M)`, using
-`Σ_{ℓ≤Y,a<v_ℓ}logℓ=log M_Y`. Also `p_0=P_H` (`M` odd, so the class mod 8 is irrelevant).
+`Σ_{ℓ≤Y,a<v_ℓ}logℓ=log M_Y`. Also `p_0=P_H` (`M` odd, so the class mod 8 is irrelevant). The forced steps at 3, 5, 7 are not charged; they cost `log105`.
 
 (c) Apply (a) with `φ=β^{ω(M)}`, and use `s_end≤ω`.
 
@@ -356,17 +370,25 @@ f_2 is multiplicative with `f_2(p^k)≤8^k`.
 Σ_{ℓ>Y prime} B_2(ℓ) ≤ ((𝓛+1)/Y)·Ξ,      Ξ := Σ_M w(M)²τ(M)ω(M)/M ≪ 𝓛^{C_0},
 ```
 
-with an absolute `C_0`. For instance `C_0=4.5+36+…`; any fixed value suffices.
+with an absolute `C_0` (R48b D3). Explicitly, `C_0=81/2+8+o(1)`:
+* `Στ(n²)^4/n≍𝓛^{81}`;
+* `g²=H^4(m/φ)^4τ^4` has `f(p)≤16·16β^4` at `p≤Y`, which gives a factor `(logY)^{O(1)}`;
+  at `p>Y` it has `f(p)=16β^4`.
+
+The factor `(logY)^{O(1)}=(log𝓛)^{O(1)}` is absorbed. **Uniformity in Y (R48a m5):** Ξ's bound uses
+only `2^{ω_Y}≤2^{ω}`, so it is uniform in `Y≤T`. The later choice `Y=𝓛^{C_0+4}` is therefore not circular.
 
 *Proof of (A).*
 * *First display.* Write `n=A`, `M=4n−1`, and `f_2(m)=H(m)m/φ(m)`. NT on
   `x<n≤2x` gives
   `≪x·∏_{p≤x}(1−ρ(p)/p)·Σ_{n_1≤x}τ(n_1²)/n_1·Σ_{n_2≤x}f_2(n_2)/n_2`. This is
-  `≪x(log x)^{−2}(log x)³·(log x)^{β}logY ≪ x(log x)²logY`, since
-  `(log x)^{β−1}≤e`. Divide by `M≍x` and sum over the `O(𝓛)` dyadic blocks.
-* *Second display.* Use `log M_Y≤logY·Ω_Y(M)≤3logY·(3/2)^{Ω_Y(M)}`. Then repeat
-  with `f_2·(3/2)^{Ω_Y}`, whose Euler factor at `p≤Y` is `1+O(1)/p` with
-  `O(1)≤3+…`. The constants A, B of NT are uniform in T, because `β≤2`. ∎
+  `≪x(log x)^{−2}(log x)³·(log x)^{β}(logY)^{β} ≪ x(log x)²logY`, since
+  `(log x)^{β−1},(logY)^{β−1}≤e` (R48b D3). Divide by `M≍x` and sum over the `O(𝓛)` dyadic blocks.
+* *Second display (R48b D1).* Use `log M_Y≤logY·Ω_Y(M)≤logY·τ(M_Y)`. This holds because
+  `Σk_i≤∏(k_i+1)−1`. Then repeat with `f_2·τ_Y`. Here `τ(p^k)=k+1≤B_εp^{kε}` for every ε,
+  so `F∈M_2(A,B_ε,ε)` uniformly in T (`β≤2`). (The earlier weight `(3/2)^{Ω_Y}` violated the NT
+  class.) The Euler factor at `p≤Y` is `≈1+4β/p`, so `Σf_2τ_Y/n≪(logY)^{3}log x`. The
+  bound `≪𝓛³(logY)^4` follows. ∎
 
 *Proof of (B).*
 * *Reduce to `V(q)`.* With `M=ℓm`, `M'=ℓm'`, we have
@@ -384,12 +406,16 @@ with an absolute `C_0`. For instance `C_0=4.5+36+…`; any fixed value suffices.
   product `∏_{p≤x}(1+f(p)/p+…)`. ∎
 
 **Theorem 3.4 (Haar exponent 3; PROVED modulo NT).** Let `δ*(T)` be the Haar
-probability of `n∈Ẑ^×` avoiding all events with `M≤T` (as in O11 Cor 3.3 and
-POINTWISE_HAAR). Then
+probability that n avoids all events with `M≤T`. We use POINTWISE_HAAR §0's
+normalisation (R48a m3, R48b D2): Haar measure on `{n∈Ẑ^×: n≡1 (24)}`. On all of `Ẑ^×`,
+the value is exactly half of this, because the atom `M=3, D=1` kills `n≡2 (3)`.
+Then
 
 ```
-log(1/δ*(T)) ≪ 𝓛³(log𝓛)^{O(1)}.
+log(1/δ*(T)) ≪ 𝓛³(log𝓛)^5.
 ```
+
+Only NT is used, and no Elsholtz–Tao input (R48b D6): all masses are Haar masses.
 
 With POINTWISE_HAAR Thm 2.1 (`≫𝓛³/log𝓛`), this gives `log log(1/δ*) = (3+o(1))log𝓛`,
 so the Haar exponent is `a=3`.
@@ -407,13 +433,15 @@ square-class process.
     stopped, the others by the choice of realisation;
   * no event is deterministic (Lemma 3.1).
 * *Conclusion.* Lemma 1.1 on the fibre `n≡r (Q)` gives
-  `δ*≥φ(Q)^{−1}exp(−(4/3)S_res)`. ∎
+  `δ*≥(φ(24)/φ(Q))exp(−(4/3)S_res)`, since `r≡1 (24)`.
+* *Explicit size.* `log φ(Q)≪(1/η)𝓛³(logY)^4≪𝓛³(log𝓛)^5` and `S_res≪𝓛³log𝓛`. ∎
 
 This is the brief's item (iii), in sharper form than `𝓛^4`. It improves O12
 Thm 6.3's `log(1/δ*)≪𝓛^5log𝓛`, and it settles POINTWISE_HAAR Conj 3.1 up to
 logs.
 
-**Corollary 3.5 (prime side; CONDITIONAL on the interface checks I1–I3).**
+**Corollary 3.5 (prime side; CONDITIONAL on the interface checks I1–I3 — superseded by §5,
+Thm 5.1, where I1–I3 are done and the loglog exponent is `−1/4`).**
 
 * *What changes.* In O11 Thm 3.2's assembly:
   * the quarantine `(Q,r)` comes from Theorem 3.4's realisation;
@@ -423,7 +451,7 @@ logs.
 * *Junta.* O11 Cor 1.2 then gives `O(𝓛(S_res+𝓛))≪𝓛^4(log𝓛)^{O(1)}`.
 * *Conclusion.* `log Z≪𝓛^4(log𝓛)^{O(1)}`. Hence
   `W(p)≥exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many Mordell-hard p,
-  modulo (G), NT, and OMEGA10 Thm 3.4.
+  modulo (G), NT, and OMEGA10 Thm 3.4. Elsholtz–Tao is no longer needed (R48b D6).
 
 The checks:
 
@@ -437,11 +465,12 @@ The checks:
   * cells are consistent with `r` mod `gcd(d_i,Q)` instead of with 1;
   * p is Mordell-hard because r is a square mod 840.
 
-These are checks of interfaces written for the class of one, not new mathematics. They have not been done.
+These are checks of interfaces written for the class of one, not new mathematics. They were
+open at checkpoint 1 and are done in §5 (I1–I3; R48c m4 / R48d D2), giving Thm 5.1.
 The junta `𝓛·S` is now the sole bottleneck. A junta `≪S·(log𝓛)^{O(1)}` (brief item (ii)) would push
 the conditional prime exponent to `1/3`.
 
-## 4. Status (checkpoint 1)
+## 4. Status (checkpoint 2; §5 rows reviewed in R48c/R48d, repairs applied at checkpoint 3)
 
 | item | statement | label |
 |---|---|---|
@@ -453,10 +482,12 @@ the conditional prime exponent to `1/3`.
 | Lemma 3.1 | event classes `−4D mod M` have Jacobi symbol −1; Legendre `=(−d|ℓ)` | PROVED (+ check to 2·10⁵) |
 | Lemma 3.2 | square-class process: supermartingales, cost, mass, late second moment `B_2` | PROVED |
 | Lemma 3.3 | (A) Haar-weighted masses `≪𝓛³polylog`; (B) `Σ_{ℓ>Y}B_2≤(𝓛+1)Ξ/Y`, `Ξ≪𝓛^{O(1)}` | (A) PROVED mod NT; (B) PROVED |
-| Thm 3.4 | `log(1/δ*(T))≪𝓛³(log𝓛)^{O(1)}`; Haar exponent a=3 | PROVED mod NT (Nair–Tenenbaum) |
-| Cor 3.5 | `W(p)≥exp(c(log p)^{1/4}(loglog p)^{−B})` i.o. | CONDITIONAL on interface checks I1–I3 (+ (G), NT, OMEGA10 Thm 3.4) |
+| Thm 3.4 | `log(1/δ*(T))≪𝓛³(log𝓛)^5` (HAAR normalisation); Haar exponent a=3 | PROVED mod NT (Nair–Tenenbaum) |
+| Cor 3.5 | (superseded by Thm 5.1) | — |
+| §5 I1–I3 | BRW/EL, twist (`η≤0.19`, `T≥e^{33}`), junta, coset transfer + (I) | PROVED (I3 mod (G)); R48c/R48d SOUND after repairs (applied) |
+| Thm 5.1 | `W(p)≥exp(c(log p)^{1/4}(loglog p)^{−1/4})` i.o.; `log L_h(T)≪𝓛^4log𝓛` | PROVED mod (G), NT, OMEGA10 Thm 3.4 (no ET); `r'≡1 (ℓ_aux)` repair (R48c m1/R48d D1) applied |
 
-Not claimed: anything about ES itself. 1/4 is not claimed unconditionally: it awaits I1–I3.
+Not claimed: anything about ES itself; optimality of 1/4 (the junta `𝓛·S` is the bottleneck; heuristic truth 1/3).
 
 ## Replay
 
@@ -466,3 +497,112 @@ export PYTHONPATH=scripts
 (ulimit -v 8000000; timeout 1800 uv run python scripts/omega13_v2.py 1000000)         # §2 EVIDENCE   -> data/omega13/v2.txt (~4 min)
 (ulimit -v 8000000; timeout 900  uv run python scripts/omega13_jacobi.py 200000)      # Lemma 3.1     -> data/omega13/jacobi.txt
 ```
+
+## 5. The interface checks I1–I3 (written out after R48a/R48b)
+
+**Setting.** Fix the good realisation `(Q,r)` of Theorem 3.4. It has:
+* `840|Q`, with r a square mod every prime of Q and `r≡1 (24)`;
+* (1.1) at every coordinate, with `η≤0.19` (true for `T≥e^{33}`, §1 Range);
+* `S_res=Σ_Eβ^{s(E)}P(E)≪𝓛³log𝓛` and `log Q≪𝓛³(log𝓛)^5`.
+
+`F` is the indicator of avoiding all live events on the fibre `rH`, `H:={x≡1 (Q)}`, and
+`δ:=E_{rH}F≥exp(−(4/3)S_res)` (Lemma 1.1). The events are single-valued congruences on fibre
+coordinates, and there are `m≤T²` of them (atoms), as in O11 Thm 3.2.
+
+**I1(a) (BRW minorant and EL; PROVED).** O8 Lemma 3.1 is pure algebra, valid for any events
+`A_j` and functions `u_j`. Take `u_j` as in O11 Cor 1.2, with S replaced by `S_res` in τ:
+`τ:=2𝓛⌈log₂(100m²(S_res+1)e^{3S_res})⌉`. Then EL_mod(τ) gives
+
+```
+E[F−B] ≤ m²Σ_jP(E_j)·e^{−3S_res}/(100m²(S_res+1)) ≤ e^{−3S_res}/100 ≤ δ/100,
+```
+
+using `ΣP(E_j)≤S_res` and `δ≥e^{−(4/3)S_res}`. So `μ:=E_{rH}B≥0.99δ`, and O9 Lemma 2.1 gives
+`A≤1.03` verbatim. Only `E[F−B]≤δ/100` is used there.
+
+**I1(b) (twist; PROVED).** Let ψ be real primitive of conductor `f>1`, with `gcd(f,Q)=1` and
+`f|d_i` for some i. Fix a prime `ℓ_0|f`. Then `a_{ℓ_0}=0`, and `ℓ_0` is a coordinate
+(`ℓ_0≤T`, `ℓ_0≠ℓ_aux`, as in O11 Thm 3.2). Follow O8 Lemma 3.3:
+`|E[Fψ]|≤Σ_{E∋ℓ_0}p_{ℓ_0}(E)P(E∖ℓ_0∩F')`, where F' is the indicator of avoiding the
+events not involving `ℓ_0`. That subfamily inherits (1.1). Lemma 1.1's general conditional bound
+for `A=E∖ℓ_0` (`|supp A|=s(E)−1`) gives `P(E∖ℓ_0|F')≤β^{s(E)−1}P(E∖ℓ_0)`. Hence
+
+```
+|E[Fψ]| ≤ β^{−1}Σ_{E∋ℓ_0}β^{s(E)}P(E)·E F' = β^{−1}w̃_{ℓ_0}E F' ≤ η E F'.
+```
+
+The same bound gives `E F≥(1−η)E F'`. So
+`|μ_ψ|≤E|B−F|+|E[Fψ]|≤(0.01+η/(1−η))E F≤(0.01+0.235)μ/0.99≤μ/4` for `η≤0.19`.
+
+`E|B−F|=E[F−B]` holds because `B≤F` pointwise. The identity `μ_ψ=E[Bψ]` for any cell
+representation needs only that ψ is primitive with f odd squarefree, as in O8.
+
+**I2 (junta; PROVED).** Use O11 Lemma 1.1 and Cor 1.2 (digit filtration). These need only:
+* independent coordinates whose digits above a first free digit `i_0(ℓ)` are uniform;
+* events `∏ℓ^{v_ℓ}≤M≤T`, through the edge weights `∏λ_ℓ^{2v_ℓ}≤2`.
+
+On the fibre `n≡r (ℓ^{a_ℓ})` the digits of index `≥a_ℓ` are uniform, exactly as for `r=1`.
+The class r enters nowhere else, and conditioned systems are again initial segments. So the
+cells of B have modulus `≤e^{2τ+3𝓛}`, i.e. `log max d_i≪𝓛(S_res+𝓛)`. Here `log m≤2𝓛` is
+absorbed.
+
+**I3 (linear transfer on the coset rH; PROVED modulo (G)).** O11 Lemma 3.1 holds with
+`H={x≡1 (Q)}` replaced by `rH`, its hypotheses being:
+* r is a square mod every odd prime of Q;
+* `r≡1 (8)`;
+* every cell is consistent with r, i.e. `b_i≡r (mod gcd(d_i,Q))`.
+
+*Proof (changes only).* `c(χ)=E_{rH}[Bχ̄]/φ(Q)`.
+* *Bounds and item 1.* `|c(χ)|≤Aμ/φ(Q)` as before. Consistency gives item 1
+  (`cond χ≤Z`) verbatim.
+* *Case A* (χ trivial on H). Then `c(χ)=χ̄(r)μ/φ(Q)`. For real χ this is a product of
+  Legendre symbols at odd `p|Q` and a character mod 8. All of these are 1 at r, so
+  `c(χ)=μ/φ(Q)`, identical to the class of one. Non-real χ enter O9 Thm 1.1 only through
+  `|c(χ)|`.
+* *Case B* (`f_2>1`). Unchanged: `c(χ)=ψ_1(r)E_{rH}[Bψ_2]/φ(Q)` with `|ψ_1(r)|=1`. The twist
+  condition I1(b) applies to `ψ_2`.
+* *Cell consistency.* Event cells have residue `−4D≡r (mod gcd(M,Q))` by survival. For the
+  `u_j` (R48c m2): `E[F|X_W]` for a digit set W that is not an initial segment is still a
+  function of `n mod m_W`, with `m_W` the *absolute* modulus (it includes the fixed fibre digits
+  `<a_ℓ`). Its cells are fibre classes mod `m_W`, hence consistent with r. Since the weights are
+  absolute, `log m_W≤τ` bounds the true modulus, so the `u_j`-moduli are `≤e^τ`. The rest of
+  O11 Thm 3.2's argument applies.
+
+*Property (I).* Let `n≡r (Q)` and `n≡−4D (M)` for an atom. Then the atom survives. If
+`M|Q`, then `r≡−4D (M)`, which Lemma 3.1 excludes. Otherwise the event is live and occurs.
+So `B≤F≤1[W(n)>T]` on `rH`. Mordell-hardness: r is a square mod 840. ∎
+
+**Theorem 5.1 (exponent 1/4; PROVED modulo (G), NT, and OMEGA10 Thm 3.4).** For infinitely
+many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/4}·(log log p)^{−1/4} ),     uniformly  log L_h(T) ≪ 𝓛^4 log𝓛.
+```
+
+*Proof.* O11 Thm 3.2's assembly, with these substitutions:
+* the realisation `(Q,r)` of Theorem 3.4 in place of Lemma 2.2's Q;
+* I1(a) for the BRW minorant and EL;
+* I1(b) for the twist;
+* I2 for the junta;
+* I3 with O9 Lemma 2.1 and the auxiliary prime `ℓ_aux∈(R,2R]` appended to Q, for the
+  transfer.
+
+*The class at `ℓ_aux` (R48c m1 = R48d D1).* The transfer runs on `Q':=Qℓ_aux` and the class
+`r'` with `r'≡r (Q)` and `r'≡1 (ℓ_aux)` (CRT), on the coset `r'H'`, `H':={x≡1 (Q')}`. I3's
+hypotheses hold for `(Q',r')`:
+* `r'` is a square mod every odd prime of `Q'`; at `ℓ_aux` it is 1;
+* `r'≡1 (8)`;
+* cells are consistent: `ℓ_aux>R≥max d_i` is prime, so `gcd(d_i,Q')=gcd(d_i,Q)`.
+
+The last point also shows that no atom or cell sees `ℓ_aux`. The transfer gives a prime
+`p≡r' (Q')`, so `p≡1 (ℓ_aux)`. As `p≠1`, `p>ℓ_aux>R≥T`, exactly as in O9 Thm 2.2. This is
+needed for infinitely many *distinct* p as `T→∞`: `W(p)>T` alone does not force `p>T`.
+
+Ledger (R48d D4). `S_res` is the realised value, `≤4E[S_res]≪𝓛³log𝓛` by the choice of
+realisation, and τ is built from it. Then `log max d_i≤2τ+3𝓛≪𝓛(S_res+𝓛)` (I2), and
+`log ℓ_aux≤log(2R)≤max(𝓛,log max d_i)+1`. Hence
+`log Z≤log Q+log ℓ_aux+log max d_i≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)≪𝓛^4log𝓛`. So some hard
+`p>T` with `W(p)>T` has `log p≪𝓛^4log𝓛`. ∎
+
+The bottleneck is the junta `𝓛·S_res`. The quarantine contributes only `𝓛³(log𝓛)^5`. Elsholtz–Tao
+is not used. This supersedes Cor 3.5 (CONDITIONAL) and O12 Thm 6.3 (1/5).

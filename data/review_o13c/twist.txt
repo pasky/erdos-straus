@@ -1,0 +1,4 @@
+beta=1.0500 eta=0.0366 events=3538: max (i) exp(-4S/3)/delta=0.9783  max (ii, s>=2) cond/bound=0.980810  max (iii) |E[F psi]|/(w l0 EF'/beta)=0.6766  max (iv) (1-eta)EF'/EF=0.9968   [all must be <=1]
+beta=1.1500 eta=0.1048 events=4828: max (i) exp(-4S/3)/delta=0.9055  max (ii, s>=2) cond/bound=0.950093  max (iii) |E[F psi]|/(w l0 EF'/beta)=0.2713  max (iv) (1-eta)EF'/EF=0.9840   [all must be <=1]
+beta=1.2880 eta=0.1898 events=5299: max (i) exp(-4S/3)/delta=0.7736  max (ii, s>=2) cond/bound=0.899925  max (iii) |E[F psi]|/(w l0 EF'/beta)=0.3073  max (iv) (1-eta)EF'/EF=0.9471   [all must be <=1]
+beta=1.3956 eta=0.2500 events=5814: max (i) exp(-4S/3)/delta=0.6825  max (ii, s>=2) cond/bound=0.860411  max (iii) |E[F psi]|/(w l0 EF'/beta)=0.1841  max (iv) (1-eta)EF'/EF=0.9034   [all must be <=1]
