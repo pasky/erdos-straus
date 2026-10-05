@@ -17612,4 +17612,146 @@ print("\n== (cp) EXCEPTIONAL_TUPLES2: forms Lemma 1.1, Cor 1.2/(1.3), Lemma 3.1,
 check_cp()
 
 
+# ---------------------------------------------------------------- (cq)
+# EXCEPTIONAL_KARY3.md: Lemma 2.1 / (2.1') local-weight lemma, Lemma 2.2 grouping bound,
+# Lemma 2.3 / 3.1 arithmetic sub-steps, and the §8 data regression (cf.
+# scripts/review_k3_checks.py, scripts/kary3_moments.py).  W = 16 conventions of K2.
+# (1) Lemma 2.1: for every y-smooth M <= 10^9 (y = 7, 13, 23): S_y(M) is squarefull and
+#     M <= S_y(M) * E_y(M), E_y(M) := exp(Z_y(M) log y) = prod_{d in P_y, d | M} Lambda-exp
+#     (exact integers); for every dyadic K >= y with K < M <= 2K: S_y(M)^2 > K or E_y(M)^2 >= K
+#     (i.e. Z_y >= u/2), hence 1[P(M) <= y] <= 1[S > K^1/2] + (2Z/u)^k for k = 1..6.
+# (2) Lemma 2.2 proof: the tuple sum over (P_y)^k, k <= 3, y <= 40 (direct enumeration) is
+#     <= the partition (exponential-formula) bound, and sum_{nu in N^m} p^-max(nu) <=
+#     sum_t m t^{m-1} p^-t <= c_m / p with c_m = sum_t m t^{m-1} 2^{1-t}.
+# (3) Lemma 2.3 sub-steps: tau(A^2) = sum_{d | A} 2^omega(d) (A <= 20000); odd q | M <=> A_M = 4^-1
+#     (q); sum_{e sqfree} h(e) gcd(D,e)/e = prod_{p|D}(1+h(p)) prod_{p !| D}(1+h(p)/p) (exact,
+#     primes <= 13); (1-1/p)^-1 e^{-3/p} <= 1; Lemma 3.1: Gamma(4rh) <= 8 Gamma(r) Gamma(h).
+# (4) §8 regression (data/kary3/moments.txt, X = 10^12): y = 7: 647 smooth M = 3 (4),
+#     S_tau = 1.9424, S_tauGamma = 10.1615, max u^4 b = 0.3848 at K = 128; y = 13: 6954, 3.5528,
+#     22.7143, 0.2932 at K = 128.
+
+def check_cq():
+    from time import perf_counter
+    from math import factorial
+    t0 = perf_counter()
+
+    def gam(p):
+        return 8.0 if p == 2 else (2 * p / (p - 1) if p <= 16 else 1 / (1 - p ** -0.5))
+
+    def smooth(y, X):
+        ps = list(primerange(2, y + 1))
+        out = [{}]
+        vals = [1]
+        for p in ps:
+            n0 = len(vals)
+            for i in range(n0):
+                m, f, e = vals[i] * p, out[i], 1
+                while m <= X:
+                    vals.append(m)
+                    out.append({**f, p: e})
+                    m, e = m * p, e + 1
+        return list(zip(vals, out))
+
+    # (1) Lemma 2.1
+    nM = 0
+    for y in (7, 13, 23):
+        for M, f in smooth(y, 10 ** 9):
+            S = E = 1
+            for p, v in f.items():
+                if p ** v > y:
+                    assert v >= 2, ("KARY3 Lemma 2.1 squarefull", y, M)
+                    S *= p ** v
+                nu = 1
+                while nu <= v and p ** nu <= y:
+                    E *= p
+                    nu += 1
+            assert M <= S * E, ("KARY3 Lemma 2.1 size", y, M)
+            if M > y:
+                K = 1 << ((M - 1).bit_length() - 1)             # K < M <= 2K
+                if K >= y:
+                    assert S * S > K or E * E >= K, ("KARY3 Lemma 2.1 dichotomy", y, M)
+                    u, Z = log(K) / log(y), log(E) / log(y)
+                    for k in range(1, 7):
+                        assert 1 <= (S * S > K) + (2 * Z / u) ** k + 1e-12, ("KARY3 Lemma 2.1 k-bound", y, M, k)
+            nM += 1
+
+    # (2) Lemma 2.2 grouping bound
+    cm = {m: sum(m * t ** (m - 1) * 2.0 ** (1 - t) for t in range(1, 400)) for m in range(1, 4)}
+    for p in (2, 3, 5, 7, 11):
+        for m in range(1, 4):
+            exact = sum((t ** m - (t - 1) ** m) * float(p) ** -t for t in range(1, 200))
+            mid = sum(m * t ** (m - 1) * float(p) ** -t for t in range(1, 200))
+            assert exact <= mid * (1 + 1e-12) and mid <= cm[m] / p * (1 + 1e-12), ("KARY3 Lemma 2.2 c_m", p, m)
+    n22 = 0
+    for y in (10, 20, 40):
+        Py = [(q, log(p)) for p in primerange(2, y + 1) for q in [p ** a for a in range(1, 8)] if q <= y]
+        ps = list(primerange(2, y + 1))
+        poly = [1.0, 0.0, 0.0, 0.0]
+        for p in ps:
+            fp = [1.0] + [gam(p) * log(p) ** m * sum((t ** m - (t - 1) ** m) * float(p) ** -t for t in range(1, 200))
+                          / factorial(m) for m in range(1, 4)]
+            poly = [sum(poly[i] * fp[k - i] for i in range(k + 1)) for k in range(4)]
+        for k in range(1, 4):
+            direct = 0.0
+            for tup in cartesian_product(Py, repeat=k):
+                D = lcm(*[q for q, _ in tup])
+                G = prod(gam(p) for p in factorint(D))
+                direct += prod(L for _, L in tup) * G / D
+            assert direct <= factorial(k) * poly[k] * (1 + 1e-9), ("KARY3 Lemma 2.2 grouping", y, k)
+            n22 += 1
+
+    # (3) Lemma 2.3 / 3.1 sub-steps
+    for A in range(1, 20001):
+        f = factorint(A)
+        t = prod(2 * e + 1 for e in f.values())
+        assert t == sum(2 ** len(factorint(d)) for d in _o9_divisors(f)), ("KARY3 tau(A^2)", A)
+    for q in range(3, 400, 2):
+        inv4 = pow(4, -1, q)
+        for A in range(1, 3 * q):
+            assert ((4 * A - 1) % q == 0) == (A % q == inv4)
+    hP = {p: (Fraction(7) if p == 2 else Fraction(p + 1, p - 1)) for p in (2, 3, 5, 7, 11, 13)}
+    plist = list(hP)
+    for D in (1, 2, 3, 6, 10, 15, 30, 77, 2 * 3 * 5 * 7 * 11 * 13, 1001):
+        lhs = Fraction(0)
+        for r in range(len(plist) + 1):
+            for es in combinations(plist, r):
+                e = prod(es)
+                lhs += prod(hP[p] for p in es) * gcd(D, e) / Fraction(e)
+        rhs = prod((1 + hP[p]) if D % p == 0 else (1 + hP[p] / p) for p in plist)
+        assert lhs == rhs, ("KARY3 Lemma 2.3 Euler product", D)
+    for p in primerange(2, 10 ** 5):
+        assert p / (p - 1) * exp(-3 / p) <= 1
+    G = [1.0] * 1201
+    for n in range(2, 1201):
+        G[n] = prod(gam(p) for p in factorint(n))
+    for r in range(1, 301):
+        for h in range(1, 301):
+            g4 = prod(gam(p) for p in set(factorint(4 * r * h)))
+            assert g4 <= 8 * G[r] * G[h] * (1 + 1e-12), ("KARY3 Lemma 3.1 Gamma submult", r, h)
+
+    # (4) §8 regression
+    for y, cnt, s1, sg, best, Kb in ((7, 647, 1.9424, 10.1615, 0.3848, 128), (13, 6954, 3.5528, 22.7143, 0.2932, 128)):
+        sm = [(M, f) for M, f in smooth(y, 10 ** 12) if M % 4 == 3]
+        S1 = SG = 0.0
+        blocks = {}
+        for M, f in sm:
+            t = prod(2 * e + 1 for e in factorint((M + 1) // 4).values())
+            S1 += t / M
+            SG += t * prod(gam(p) for p in f) / M
+            k = M.bit_length() - 1
+            blocks[k] = blocks.get(k, 0) + t
+        vb = max(((log(2 ** k) / log(y)) ** 4 * b / (2 ** k * log(2 ** k) ** 2), 2 ** k)
+                 for k, b in blocks.items() if 2 ** k >= y and 2 ** (k + 1) <= 10 ** 12)
+        got = (len(sm), round(S1, 4), round(SG, 4), round(vb[0], 4), vb[1])
+        assert got == (cnt, s1, sg, best, Kb), ("KARY3 §8 regression", y, got)
+    print(f"cq Lemma 2.1 on {nM} smooth M <= 1e9 (y = 7, 13, 23): squarefull S_y, M <= S_y E_y, dichotomy, "
+          f"k-indicator bound; Lemma 2.2 grouping bound on {n22} (y, k) cases")
+    print(f"cq Lemma 2.3/3.1 sub-steps exact; §8 regression y = 7, 13 matches data/kary3/moments.txt; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cq) EXCEPTIONAL_KARY3: Lemma 2.1/(2.1'), Lemma 2.2 bound, Lemma 2.3 steps, §8 data ==")
+check_cq()
+
+
 print("\nall checks passed")
