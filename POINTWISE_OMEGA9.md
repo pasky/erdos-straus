@@ -4,7 +4,18 @@ Task O34 (branch `omega9-exponent`). Labels as in the house rules. ES is
 not touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O8 = `POINTWISE_OMEGA8.md` (incl. §6), `𝓛=log T`.
 
-**Status: work in progress (checkpoint 0). Nothing here is reviewed.**
+**Status: checkpoint 1 (self-reviewed once, R34a; not parent-reviewed).**
+
+**Results at a glance.**
+1. **Theorem 1.1 (linear transfer; PROVED modulo Gallagher's theorem (G)).**
+   PO Thm 4.1's condition `log x ≥ C(1+log(M_1/μ))·max(log Z,K)` is replaced
+   by `log x ≥ C(1+log A)·log Z` with `A=E|B|/μ`. Neither `M_1` nor the
+   number of cells enters.
+2. **Theorem 2.2 (PROVED mod (G) and Elsholtz–Tao Prop 1.4):**
+   `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many Mordell-hard p;
+   `log L_h(T) ≪ (log T)^7`. Replaces O8 Thm 6.3 (1/13).
+3. **Theorem 2.3 (PROVED mod (G)):** `log W ≥ (1/log2−o(1))log₂p·log₃p`
+   (O8 Thm 4.4 had `1/(2log2)`).
 
 ## 0. The idea (opening (c) of the brief)
 
@@ -19,15 +30,12 @@ c(χ_Q χ_D) = φ(Q)^{-1} · E_D[B·χ̄_D]       (E_D = Haar mean over units mo
 ```
 
 So `|c(χ)| ≤ E_D|B|/φ(Q)`, and for a BRW minorant `B≤F` with
-`E[F−B]≤μ/99`, `E|B| = E B + 2E B^- ≤ μ + 2E[F−B] ≤ 1.03μ` (since
-`B^- ≤ F−B` as `F≥0`). Every χ with `c(χ)≠0` has conductor dividing some
-`Qd_i`, hence `≤Z`. A log-free zero-density estimate summed over **all**
-primitive characters of conductor `≤Z` (Gallagher 1970) then bounds the
-total error by `≍ μ·x·exp(−c log x/log Z)/φ(Q)` — the same as Linnik's
-theorem for a single class. The size `M_1` enters only through trivial
-terms (prime powers, imprimitive characters), which cost `log x ≳ K`
-**additively**. Expected outcome: `log p ≪ log Z + K`, i.e. under ET
-`log p ≪ 𝓛^7` with O8's data: exponent `1/7` (to be proved below).
+`E[F−B]≤μ/99`, `E|B| ≤ 1.03μ` (Lemma 2.1). Every χ with `c(χ)≠0` has
+conductor dividing some `Qd_i`, hence `≤Z`. A log-free zero-density
+estimate summed over **all** primitive characters of conductor `≤Z`
+(Gallagher 1970) then bounds the total error by
+`≪ μ·x·exp(−c log x/log Z)/φ(Q)`, as in Linnik's theorem for a single
+class. Result: the certified bound is `log p ≪ log Z`.
 
 ## 1. The linear transfer theorem
 
@@ -159,20 +167,15 @@ meets EL of Thm 3.4). O8 Thm 3.4's proof gives:
 `n≡1 (Q)` coprime to all `d_i`, the twist condition (Lemma 3.3), and the
 cell conditions, with `Q:=Q_Π·ℓ_aux` as in O4 Thm 2.1 (`ℓ_aux∈(R,2R]`, `R=max(T,max d_i)`,
 only to force `p>T`). By Lemma 2.1 with
-`η=1/99`: `A ≤ 1.03`. Now apply Theorem 1.1 instead of PO Thm 4.1. Its
-cost terms:
+`η=1/99`: `A ≤ 1.03`. Now apply Theorem 1.1 instead of PO Thm 4.1; it
+needs only `log x ≥ C·log Z`, and (as in O8 Thm 3.4/6.3)
+`log Z ≤ log Q_Π + 2(3k+2d+1)𝓛`.
 
-* `log Z ≤ log Q_Π + 2(3k+2d+1)𝓛` (as in O8 Thm 3.4/6.3);
-* `log N`: B is a sum of at most `1+m+m²+m³` products, each expanded over
-  the cells of its `≤3k+2d` coordinates (at most `T^{3k+2d}` cells), times
-  the at most `(2Tb)^{2d}` pairs `(S,S')` of bit sets of size `<d`; so
-  `log N ≤ 3log m + 2d log(2Tb) + (3k+2d)𝓛 + 2 ≪ (k+d)𝓛 ≪ log Z`;
-* `log log(QD) ≤ log(log Q + 2T) ≪ 𝓛`.
-
-So `log p ≪ log Z`. With `z=𝓛²` and ET (`S≤S*≪𝓛^4log𝓛`, O2 Lemma 11.1):
+With `z=𝓛²` and ET (`S≤S*≪𝓛^4log𝓛`, O2 Lemma 11.1) these are upper bounds:
 `w=kb≪𝓛²/log𝓛`, `k_0≪S*+k𝓛≪𝓛^4log𝓛`, `d=4C_Hwk_0≪𝓛^6`,
-`log Q_Π ≤ (π(z)+64k²S*)𝓛+4 ≪ 𝓛^7/log𝓛`, `d𝓛≪𝓛^7`. Hence
-`log p ≪ 𝓛^7` and `W(p)>T=e^𝓛`. Distinct T give distinct p. ∎
+`log Q_Π ≤ (π(z)+64k²S*)𝓛+4 ≪ 𝓛^7/log𝓛`, `(3k+2d+1)𝓛≪𝓛^7`. Hence some
+hard p with `W(p)>T=e^𝓛` has `log p ≪ 𝓛^7`. Since `p>T`, letting `T→∞`
+gives infinitely many distinct such p. ∎
 
 **Theorem 2.3 (PROVED modulo (G) only).**
 For infinitely many Mordell-hard p, `log W(p) ≥ (1/log 2 − o(1))·log₂p·log₃p`.
@@ -183,11 +186,12 @@ term is `≤ 𝓛^{O(1)}(S*+1)`, so `log₂p ≤ log S* + O(log𝓛) ≤
 
 (O8 Thm 4.4 had `1/(2log2)`: the square `K·log Z` doubled `log S*`.)
 
-**Ledger after Thm 1.1 (under ET).** `log p ≍ log Z ≍ max(log Q_Π, d𝓛)`,
-with `log Q_Π ≍ k²S*𝓛 ≍ 𝓛^7/log𝓛` and `d𝓛 ≍ k·b·S*·𝓛 ≍ 𝓛^7`. K is now
-irrelevant (it enters only through `log N ≪ log Z`), so R30c M1(i)
+**Budget after Thm 1.1 (under ET; upper bounds, not asymptotics).** The
+certified bound is `log p ≪ log Q_Π + d𝓛`, with the budgets
+`log Q_Π ≪ k²S*𝓛 ≪ 𝓛^7/log𝓛` and `d𝓛 ≪ k·b·S*·𝓛 ≪ 𝓛^7`. K and the number of
+cells are now irrelevant, so R30c M1(i)
 (the missing q-ary ℓ¹ bound) is **no longer needed** for the ESW route.
-Remaining losses: the bit width `b≍𝓛` in d; the quarantine `|𝓑|≍k²S*`;
+Remaining losses: the bit width `b≍𝓛` in d; the quarantine budget `|𝓑|≤64k²S*`;
 S* through ET; and the per-prime cost `𝓛` of every modulus prime.
 
 ## 3. Checks, scope, open items
@@ -206,9 +210,9 @@ S* through ET; and the per-prime cost `𝓛` of every modulus prime.
   instance.
 * **Supersedes (if review confirms):** O8 Thm 4.3/6.3 (1/14, 1/13), O8
   Thm 4.4's constant, and O8 §6.5/§6.6's ceilings, which concern PO Thm
-  4.1 only. With Thm 1.1 the cost is `log p ≍ log Z`, so `K≫𝓛²` (R30c m7)
-  is harmless, and the route's ceiling becomes `log Z ≳ junta·log z +
-  log Q_Π`.
+  4.1 only. With Thm 1.1 the certified bound is `log p ≪ log Z`, so a large K
+  is harmless; the cost of this route is the modulus budget
+  `log Q_Π + (junta)·𝓛` (no lower bound for it is claimed).
 * **Next (open):** exponent 1/6 needs *both* (i) ESW (`d≍k·k_0`; R30c
   M1(i) is moot now) and (ii) a quarantine with `log Q_Π ≪ 𝓛^6`, e.g. via a
   uniform per-prime bound `w_ℓ ≪ 𝓛^{O(1)}/ℓ` (an upper-bound divisor sum in
