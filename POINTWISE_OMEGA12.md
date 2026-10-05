@@ -207,3 +207,36 @@ So `log Z≪𝓛^5(log𝓛)^2`, and some hard `p>T` with `W(p)>T` has
 Thus the "1/5 natural limit of the present ES-modulus route" (O11 §4,
 Assessment) is reached, up to `(log log p)^{2/5}`. Unconditionally (without
 ET) nothing changes: O9 Thm 2.3 stands.
+
+## 7. Checks (EVIDENCE; exact identities asserted)
+
+`scripts/omega12_blocks.py T` enumerates all atoms with `D≤A_M` and asserts
+Lemma 2.1's identities (`c∈ℤ`, `N=4acd−f`, `N≥acd`, `a²d≤T`), Lemma 1.1(b)
+for `M=eN`, and Lemma 3.1's pointwise large-q bound. All pass at
+`T=10^4,10^5,10^6` (35 803 / 547 733 / 7 777 872 atoms).
+(`data/omega12/blocks_1e{4,5,6}.txt`)
+
+| T | `S_0'` | `Ω_0'` | mean h | `Σ_I` | `Σ_II` | `(Σ_I+Σ_II)/Ω_0'` | max `R/(log(Z+2)loglog(Z+16))` |
+|---|---|---|---|---|---|---|---|
+| 10⁴ | 28.75 | 62.18 | 2.163 | 18.37 | 45.30 | 1.024 | 1.290 |
+| 10⁵ | 58.04 | 139.42 | 2.402 | 42.86 | 99.91 | 1.024 | 1.290 |
+| 10⁶ | 105.03 | 274.81 | 2.617 | 87.05 | 194.16 | 1.023 | 1.290 |
+
+(primes: restricted to `D≤A_M`, i.e. half of O11's pure-`g/M` sums; the mean
+h matches O11's `2.18, 2.42, 2.63`.) The splitting `h(eN)≤h(e)+h(N)` loses
+only 2%. The Lemma 4.1 ratio is the same small-block maximum at all T. The
+Lemma 3.1 profile (mass and mean `h(N)` per c-scale `C=2^j`) shows the
+crude bound `𝓛/log max(C,2)` far above the actual large-q part
+(at `10^6`: `1.65` vs `19.9` at `j=0`; `0.26` vs `1.17` at `j=17`), and the mass
+per scale *decreasing* in j (14.2 at j=0, 0.13 at j=17). Lemma 2.2 bounds each scale by the same
+amount, so the true average of `𝓛/log C` over the mass is larger than
+`log𝓛` would suggest at finite T, but Lemma 3.1 only uses the upper bound.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 600  uv run python scripts/omega12_blocks.py 10000)    # seconds  -> data/omega12/blocks_1e4.txt
+(ulimit -v 8000000; timeout 1800 uv run python scripts/omega12_blocks.py 100000)   # ~10 s    -> data/omega12/blocks_1e5.txt
+(ulimit -v 8000000; timeout 7200 uv run python scripts/omega12_blocks.py 1000000)  # ~3 min   -> data/omega12/blocks_1e6.txt
+```
