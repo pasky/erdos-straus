@@ -369,3 +369,40 @@ with `≍ N` hubs would cost `≍ N log T` to quarantine. (This compares
 *methods*; it is not a lower bound for the least prime.) This is exactly the
 factorial-in-levels loss of the alternating expansion in POINTWISE_OMEGA2 that
 [SN] mentions.
+
+### 5.2 Generic witness-modulus Ω-theorem (application (c))
+
+Let `R(M)` (`M ≥ 2`) be any family of sets of **unit** classes mod `M` with
+`1 ∉ R(M)` for all `M`, and `W_R(n) = min{M : n mod M ∈ R(M)}`. Put
+```
+S^♮(T) = Σ_{M ≤ T} Σ_{r ∈ R(M)} gcd(M, r−1)/φ(M).
+```
+**Corollary 5.3 (proved modulo G+H).** If `S^♮(T) ≤ (log T)^α` for all large
+`T` (some fixed `α ≥ 0`), then for every large `T` there is a prime
+`p ≡ 1 (mod lcm(1..⌊(log T)²⌋))`, `p > T`, with `W_R(p) > T` and
+`log p ≪_α (log T)^{α+3}/log log T`. Hence
+`W_R(p) ≥ exp(c_α (log p log log p)^{1/(α+3)})` ≥ `exp(c(log p)^{1/(α+3)})`
+for infinitely many primes. If only `log S^♮(T) ≤ σ(T)`, then
+`log log p ≤ σ(T) + O(log log T)`.
+
+*Proof.* [SN] §2 abstracted: `z = ℒ²`, `k = ⌊ℒ/log z⌋`. An *atom* is `(M,r)`,
+`r ∈ R(M)`; for a prime set `Π ⊇ {ℓ ≤ z}`, `M = m_Π r_Π`, the atom survives if
+`r ≡ 1 (m_Π)` and `r_Π > 1`, giving the event `n ≡ r (mod r_Π)` on `≤ k`
+free primes (prime factors `> z` of `M ≤ T`), weight `1/φ(r_Π) ≤ m_Π/φ(M) ≤
+gcd(M,r−1)/φ(M)`. So `S ≤ S* ≤ S^♮(T)` for every `Π` (this is the first line
+of `lem:qmass`). Iterated quarantine (`lem:iterq`, verbatim) gives `Π` with
+`|Π∖{ℓ≤z}| ≤ 64k²S^♮` and `w_ℓ ≤ 1/(64k)`. Reduction: if `n ≡ 1 (Q_Π)` and
+`n mod M ∈ R(M)`, `M ≤ T`, then `r := n mod M ≡ 1 (m_Π)`; `r_Π = 1` would give
+`1 ∈ R(M)`; so `n` lies in a surviving event. Corollary 1.3 with
+`Q = Q_Π`, `a = 1`: `log p ≪ (π(z) + k²S^♮)ℒ + kℒ²(S^♮ + kℒ)
+≪ ℒ^{α+3}/log ℒ` (`α ≥ 0`; the `π(z)ℒ ≪ ℒ³/log ℒ` term is dominated). Then
+`ℒ^{α+3} ≫ log p·log ℒ ≫ log p·log log p`. ∎
+
+*Remarks.* (i) ES: `R(M) = {−4D : D | A_M²}` for `M ≡ 3 (4)` (empty
+otherwise). The proof of [SN] `lem:qmass` bounds exactly `S^♮`:
+`S^♮ ≪ log ℒ·Σ g/M ≪ ℒ⁴ log ℒ` (mod ET Prop 1.4). With `S^♮ ≪ ℒ⁴log ℒ` the
+displayed computation gives `log p ≪ ℒ⁷` (the `log ℒ` cancels), i.e. [SN]
+Thm 1 / exponent `1/7`; Corollary 5.2 (`m/n`) is the case
+`R(M) = R_m(M)`. Any family whose mass is `ℒ^{α}` gets exponent `1/(α+3)`.
+(ii) Trivial baseline: Linnik with `p ≡ 1 (lcm(1..T))` gives only
+`W_R(p) ≫ log p`; the corollary needs only polylog *mass*, no structure.
