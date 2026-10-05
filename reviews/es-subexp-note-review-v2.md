@@ -54,3 +54,18 @@ downstream breaks. See defect M1.
 The Page bound δ_1 ≥ c_2^{-1}q_1^{-1/2}(log q_1)^{-2} is the standard effective
 bound for any real zero of a real primitive L(s,χ) (Davenport ch. 14), valid
 for every q_1≥3 independently of Y — correct.
+
+### Thm 4.1 parameters paragraph — SOUND
+log Q_G = log x/(κL) ≥ (C_2/(κC_3)) log Z; Q_G ≥ 10^4C_G(A+1)(κL)^2 uses
+A ≤ Z^{1/4} (so RHS ≪ Z^{1/4}(log Z)^2); κL ≥ 3·2c=6c gives Q_G^{6c} ≤ x;
+x ≥ C_4AZ^4 since log A ≤ (1/4)log Z. No circularity (C_G fixed by κ first,
+then L, then Q_G). All constants effective (c_2 Page constant effective).
+Overall verdict Thm 4.1: SOUND-AFTER-REPAIRS (only M1 on Thm 3.1 and minor
+citation points).
+
+### Lemma 5.4 (cells), Cells paragraph, Lemma 5.5 (ℓ¹-tightness) — SOUND
+B^- ≤ F-B because F ≥ 0 and B ≤ F; E|B| = EB+2EB^-. Haar mean = E_D because
+D=lcm d_i is a product of full prime powers ℓ^{e_ℓ} of free primes, and the
+reduction map (Z/D)^× → ∏ G_ℓ is a bijection. gcd(d_i,Q_Π)=1 since 2,3 ∈ Π
+(z ≥ 7). Hypothesis "B(n) ≤ 1[W(n)>T] for n≡1 (Q), gcd(n,d_i)=1" follows from
+Lemma 5.4's integer identity + Lemma 5.3 (B≤F on ∏G_ℓ) + Lemma 2.5(iv).
