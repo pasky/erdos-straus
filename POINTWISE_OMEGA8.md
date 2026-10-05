@@ -494,7 +494,11 @@ There are four independent losses beyond the Haar side's `𝓛^7/log𝓛`.
 **Lemma 6.1 (spectral bookkeeping; PROVED).** In Lemma 3.1 take `u_j :=`
 the pull-back `g_j(x)=E[g̃_j(U) | π(U)=x]` of the Fourier truncation `g̃_j`
 of `F̃^{(j)}` below degree d, where `w:=kb`, `p:=1/(4C_Hw)` and
-`d:=k_0/p=4C_Hwk_0`. Then:
+`d:=k_0/p=4C_Hwk_0`. (Notation, R30c m2: in §6 the letter d without index is
+this degree; moduli always carry an index, `d_i`, `max d_i`.) Here `F̃^{(j)}`
+is encoded as a function of the coordinates **outside** `supp E_j` only, so
+`g_j` depends only on those coordinates, as Lemma 3.1's identity
+`E[A_je_j²]=P(E_j)E(F^{(j)}−g_j)²` requires (R30c m1). Then:
 * `E_{Haar}[(F^{(j)}−g_j)²] ≤ e^{1/2}·2·4^{−k_0}`;
 * B is a combination of unit cells, each on `≤3k+2d` free primes;
 * `log M_1(B) ≤ 3log m + 2d·log(4C_Hw) + 4`.
@@ -508,7 +512,8 @@ So `log M_1` loses the factor `𝓛/log(k𝓛)` against Lemma 3.2.
 `Σ_S p^{|S|}|f̂(S)| ≤ E_ρ‖f̂_ρ‖_1 ≤ E_ρ 2^{DT(f_ρ)}`. The last step holds
 because a depth-s tree has at most `2^s` leaves, each path indicator has
 spectral norm 1, and `|f|≤1`. This is `≤Σ_{s≥0}2^s4^{−s}=2`. Therefore
-`Σ_{|S|<d}|ĝ_j(S)| ≤ 2p^{−d} = 2(4C_Hw)^d`. *Cells.* Each pulled-back
+`Σ_{|S|<d}|ĝ_j(S)| ≤ 2p^{−d} = 2(4C_Hw)^d`, where `ĝ_j(S)` are the Fourier
+coefficients of the bit-level truncation `g̃_j` (R30c m2). *Cells.* Each pulled-back
 character `χ̃_S:=E[χ_S | π(U)=·]` is a function of `<d` coordinates with
 `|χ̃_S|≤1`. A product `A_iA_jA_{j'}χ̃_Sχ̃_{S'}` is a function h of at most
 `3k+2d` coordinates with `|h|≤A_iA_jA_{j'}`. Its expansion over the cells
