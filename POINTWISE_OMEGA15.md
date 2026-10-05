@@ -291,8 +291,9 @@ A class-ℓ¹ certificate gives `Σ F dm^{(d)}≥X_dE_{P_d}B−Σ|c_i|≤X_de^{�
 which is `<1` unless `X_dη>1` (as `X_de^{−c'𝓛^6}<1/2`). ∎
 
 *Remark 4.2 (a sanity check that this is a method barrier).* For integers the conclusion is
-false: perfect squares `m²∈H̃_1` are avoiders (O13 Lemma 3.1: event classes are Jacobi
-non-residues mod M), so `Σ_{n≤x}F(n)1_H(n)≥c√x/Q`. Squares are not periodic, so they are
+false: perfect squares coprime to all `M≤T` are avoiders (O13 Lemma 3.1: event classes are Jacobi
+non-residues mod M), so if r is a square mod Q (as for the Mordell-hard classes mod 840),
+`Σ_{n≤x}F(n)1_H(n)≥#{m≤√x: m²≡r (Q), (m,P(T))=1}`, which is `≫_Q√x/𝓛` once `√x≥T²Q`. Squares are not periodic, so they are
 invisible to class-ℓ¹ certificates. (In the Mordell-hard fibre, squares are also what makes the
 fibre nonempty.) For primes no such non-periodic avoider family is known; the closest periodic
 one, `∏_{ℓ≤T}1[(n/ℓ)=1]≤F`, has `‖·‖_×/mean=2^{π(T)}`, consistent with Thm 1.2.
@@ -387,7 +388,8 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
   theorem about CRT sieves beyond the sieving limit, integers only; no such tool is known — the
   digit-filtration that powers restricted-digit results has no CRT analogue, §4).
 
-**Answer to the brief.** (1a) adds nothing (Lemma 5.1). (1b) Type II cannot help on its own: the
+**Answer to the brief.** (1a) adds nothing at all primes (Lemma 5.1); restricted to `p≤x` it
+becomes support-aware accounting (N2), excluded only for single moduli `≤x^{1/5}/(QT)` (Prop 5.2). (1b) Type II cannot help on its own: the
 Type I half already needs integer equidistribution of F at superpolynomial level
 `x^{𝓛^{1−o(1)}}`, and every full-orbit uniform linear method is blocked there (Prop 4.1;
 support-aware methods are open, (N2)); the Maynard analogue fails quantitatively (complexity `x^{O(1)}` vs `x^{𝓛/polylog}`). (1c) Siegel zeros do

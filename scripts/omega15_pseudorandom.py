@@ -160,8 +160,9 @@ def check_bound(rng, ks=(0, 1, 2), trials=60):
 if __name__ == "__main__":
     seed = int(sys.argv[1]) if len(sys.argv) > 1 else 1
     rng = random.Random(seed)
-    t, b = check_identity(rng)
-    print(f"(1) identity (brute force vs closed form): {t} instances, {b} failures", flush=True)
+    t, b1 = check_identity(rng)
+    print(f"(1) identity (brute force vs closed form): {t} instances, {b1} failures", flush=True)
+    assert b1 == 0
     t, b, w = check_bound(rng)
     print(f"(2) bound |E_rho h| <= (4r*)^(k+1): {t} cases, {b} failures, worst ratio {float(w):.3e}")
     assert b == 0
