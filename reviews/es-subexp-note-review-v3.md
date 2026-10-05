@@ -69,3 +69,19 @@ Status: IN PROGRESS.
     λ≥(1−e^{−1}−1/8)min(u,1)≥min(u,1)/2 with log x≥16 ✓, Page bound with q_1|Q≤Z ✓;
     Case B 1−1/2−1/200−1/400>0 ✓.
 * Verdict Thm 5.1: SOUND (modulo Thms 4.1/4.2 as labelled).
+
+### Pass 4: §6 Lemmas 6.2–6.4, Theorem 6.5 (C-1), re-derived by hand
+* Second form of G (λ^U=Σ_{V⊆U}μ^V, ‖L_Vφ‖²=Σ_{U⊇V}‖φ^{=U}‖²) ✓; (6.2) Markov ✓.
+* Trace remark (classes of m equal traces contribute Σ_{j≥1}C(m,j)(−1)^j=−1) ✓; this is
+  what makes repeated events / equal supports harmless in Lemma 6.2.
+* Lemma 6.2: fibrewise L_V, g_y = avoidance of restricted events, L_V kills cylinders with
+  support ⊊ V, ‖L_Vc_y‖²≤E c_y² (L_V orthogonal projection), identification
+  c_y(σ)=N_{𝓗(x)}(V) ✓. (V=∅ gives equality E F = P(no event) — consistent.)
+* Lemma 6.3: τ̂(V)=(−1)^{|V|}N_𝓗(V) via the Möbius transform of 1[R∩U=∅] ✓; multilinear
+  extension, two-point law p_v∈{1,−μ_v} with mean 0, variance μ_v ✓; R⊇P forced,
+  Σ_{B⊆P^c∖U}(−μ)^Bλ^{P^c∖B}=λ^U ✓.
+* Lemma 6.4: recursion Θ(𝒞)=λ_vΘ(𝒞/v)−μ_vΘ(𝒞−v) ✓, induction on |∪𝒞| incl. the ∅∈𝒞 and
+  M=∅ cases ✓, final (w−λ_v)Π'+μ_vΠ'=(w−1)Π' ✓.
+* Thm 6.5: independence of {J∩P=∅} over a matching, P(J∩P=∅)=1/w_J,
+  E=Π[(1−1/w)+(w−1)²/w]=Π(w−1) ✓.
+* Verdict Thm 6.5 (C-1): SOUND as written (pending the brute-force check below).
