@@ -55,7 +55,7 @@ a product of local additive characters; a nontrivial local factor at a big b has
 reduced product h,
 
 ```
-|E_ρ h| ≤ (8 r*)^{k+1},       and  E_ρ h = 0  if |I| ≤ k.
+|E_ρ h| ≤ (4 r*)^{k+1},       and  E_ρ h = 0  if |I| ≤ k.
 ```
 
 *Proof.* Fix x_s; write `p_b,r_b,w_J,P_0` for the quantities of O14 Lemma 1.1 at x_s. Given
@@ -113,7 +113,9 @@ them individually is a search, not a transfer). A nonnegative measure m on H of 
 *𝒽-consistent at accuracy 𝔈* if `|∫h dm − N_xE_Hh|≤𝔈` for every `h∈𝒽`. A *linear certificate
 at accuracy 𝔈* proves "some prime `p≤x` in H has `F(p)=1`" from the facts (i) the prime counting
 measure `m_x:=Σ_{p≤x,p∈H,p∤𝒬}δ_p` is nonnegative of mass `N_x`, (ii) it is 𝒽-consistent at accuracy
-𝔈. It is *valid* iff every 𝒽-consistent m has `∫F dm>0`. (Every minorant transfer is one:
+𝔈. It is *valid* iff every 𝒽-consistent m has `∫F dm>0`. Nothing else about `m_x` may be used:
+in particular **not** its atomicity (a sum of unit point masses), integrality (`m(C)∈ℤ_{≥0}`) or
+support (integers in `[1,x]`); the fake `N_xν` below is a diffuse measure (R57 m7; see §6 (N2)). (Every minorant transfer is one:
 from `B=Σc_ih_i≤F`, `h_i∈𝒽`, it concludes `Σ_pF(p)≥Σ_pB(p)≥N_xE_HB−𝔈Σ|c_i|>0`.)
 
 **Theorem 2.2 (no linear certificate at accuracy `𝔈≥N_xη`; PROVED, same inputs as Thm 1.2).** In
@@ -128,29 +130,33 @@ minorant transfer `N_xE_HB>𝔈‖B‖_×` needs `N_x/𝔈>e^{c𝓛^4/log𝓛}` 
 So the only question is how small an accuracy 𝔈 can be *true* for the primes. For families
 that are closed under translation, it cannot be small:
 
-**Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q>x` with `gcd(q,Q)=1`, and
-`N':=#{p counted by m_x: p∤q}` (`=N_x` if `q∈𝒬`); assume `N'≥1` and `N_x≤φ(q)/2`.
-(a) If 𝒽 contains `1_{a mod q}` for every unit a, every bound 𝔈 valid for `m_x` on 𝒽 has
-`𝔈≥1/2`.
-(b) If 𝒽 contains all nontrivial Dirichlet characters mod q, then
-`𝔈²≥N'(φ(q)−N')/(φ(q)−1)`; if it contains all `e(an/q)`, `a≢0 (q)`, then
-`𝔈²≥N_x(1−N_x/φ(q))`. Both are `≥N_x/3` when `N'≥2N_x/3` (e.g. `q∈𝒬`).
+**Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q∈𝒬`, `q>x` (no coprimality with Q
+assumed), `g:=gcd(q,Q)` and `K:={u∈(ℤ/q)^×: u≡r (g)}`, so `|K|=φ(q)/φ(g)`; Haar measure on H
+pushes forward to the uniform law on K. Assume `1≤N_x≤|K|/2`.
+(a) If 𝒽 contains `1_{a mod q}` for every `a∈K`, every bound 𝔈 valid for `m_x` on 𝒽 has `𝔈≥1/2`.
+(b) If 𝒽 contains all Dirichlet characters mod q, then `𝔈²≥N_x(|K|−N_x)/(|K|−1)`; if it contains
+all `e(an/q)`, `a≢0 (q)`, then `𝔈²≥N_x(1−N_x/|K|)`. Both are `≥N_x/2`.
 
-*Proof.* The primes counted by N' are distinct units mod q. (a) A unit class containing one of
-them has `∫1_a dm_x≥1`, while `N_xE_H1_a=N_x/φ(q)≤1/2` (H is a class mod Q, coprime to q).
-(b) Characters: `E_Hχ=0` for `χ≠χ_0`, and `Σ_{χ}|Σ_{p∤q}χ(p)|²=φ(q)N'`; the principal character
-contributes `N'²`, so the `φ(q)−1` others have mean square `N'(φ(q)−N')/(φ(q)−1)`.
-Additive: `E_He(a·/q)=c_q(a)/φ(q)` (Ramanujan sum). With `S(a):=Σ_{p≤x,p∈H}e(ap/q)` and
-`Σ_a|S(a)|²=qN_x` (`p≤x<q` distinct mod q), `Σ_aS(a)\overline{c_q(a)}=qN'`,
-`Σ_a|c_q(a)|²=qφ(q)`, `Σ_a|S(a)−N_xc_q(a)/φ(q)|²=q(N_x−2N_xN'/φ(q)+N_x²/φ(q))≥qN_x(1−N_x/φ(q))`; the term `a=0`
-vanishes (`c_q(0)=φ(q)`), so some `a≠0` has `|S(a)−N_xc_q(a)/φ(q)|²≥N_x(1−N_x/φ(q))`. ∎
+*Proof.* The primes counted by `m_x` are `≤x<q`, lie in H and are coprime to q, so they are
+`N_x` distinct elements of K. (a) A class `a∈K` containing one of them has `∫1_a dm_x=1`, while
+`N_xE_H1_a=N_x/|K|≤1/2`. (b) Characters: `K=u_0K_0`, `K_0:={u≡1 (g)}` a subgroup of order |K|.
+Restriction maps the characters mod q onto the dual of `K_0`; on K, `χ(u)=χ(u_0)ψ(u_0^{−1}u)` with
+`ψ=χ|_{K_0}`, so `E_Hχ=χ(u_0)[ψ=1]`. Orthogonality on `K_0` over the |K| distinct ψ:
+`Σ_ψ|Σ_pψ(u_0^{−1}p)|²=|K|N_x`; the trivial ψ contributes `N_x²`, so some `ψ≠1` (realised by some χ,
+up to the unimodular factor `χ(u_0)`) has `|Σ_pχ(p)−N_xE_Hχ|²≥N_x(|K|−N_x)/(|K|−1)`.
+Additive: let `f:=Σ_pδ_p−(N_x/|K|)1_K` on `ℤ/q`, so `Σ_pe(ap/q)−N_xE_He(a·/q)=\hat f(a)` with
+`\hat f(a):=Σ_uf(u)e(au/q)`. Parseval: `Σ_a|\hat f(a)|²=q‖f‖²=q(N_x(1−t)²+(|K|−N_x)t²)=qN_x(1−t)`,
+`t:=N_x/|K|`; `\hat f(0)=0`; so some `a≠0` has `|\hat f(a)|²≥qN_x(1−t)/(q−1)≥N_x(1−t)`. ∎
+
+(For `g=1` this is the earlier coprime version; R57 M2 noted that the earlier reduction "a class
+mod q is a class mod q′ on H" fails when `v_p(q)>v_p(Q)`. The lemma above needs no reduction.)
 
 **Corollary 2.4 (full-orbit uniform linear transfers are capped at 1/4; PROVED implication).**
 Certificates through a translation-closed family 𝒽 of reduced products — residue classes
 (e.g. O9/Gallagher-type and sieve transfers), Dirichlet characters (e.g. GRH:
 `|ψ(x,χ)|≪x^{1/2}log²(qx)`), additive characters (e.g. Vinogradov minor-arc bounds, the
-Fourier side of Maynard's restricted-digit method) — with *any* accuracy that is true for the
-primes, need
+Fourier side of Maynard's restricted-digit method) — with *any* full-orbit uniform accuracy that
+is true for the primes, need
 
 ```
 classes:     log x ≥ c𝓛^4/log𝓛 ;       characters / additive characters: log x ≥ 2c𝓛^4/log𝓛 ,
@@ -162,35 +168,48 @@ primes — modulus `>T^{0.6(k+1)}=e^{c'𝓛^4/log𝓛}`, so `>x` in the range of
 the positive mean (Thm 1.2). If instead every `h_i` has modulus
 `≤x`, then B is a minorant of level `≤x`, and O14 Thm 4.5 gives `E B≤0` as long as
 `log x≤c𝓛^4/log𝓛`. Either way: **certified `W(p)≥exp((log p)^{1/4+δ})` is impossible by any
-linear transfer with full-orbit uniform accuracy, whatever true statement about the primes
-is used (GRH included).** (Scope: see the Reading below and §6 (N2).)
+linear transfer (Def 2.1) with full-orbit uniform accuracy.** The moral (R57 M1): positivity must
+come from moduli `>x`, where no orbit-uniform statement about the primes beats the trivial bound
+(Lemma 2.3) — the strength of the prime input (e.g. GRH, which is itself trivial for `q>x^{1/2}`)
+therefore plays no role here *by construction* — and Thm 1.2 shows trivial bounds cannot pay for
+the minorant. (Scope: see the Reading below and §6 (N2).)
 
-*Proof.* Let `log x<c'𝓛^4/log𝓛` (else nothing to prove). Split `B=B_sh+B_deep` (h_i with
-`≤k` resp. `≥k+1` big primes). By Lemma 1.1, `E_HB=E_νB−E_ρB_deep≤η·Σ_{deep}|c_i|`; the
-certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with `𝔈_i≥1/2` (classes) or `≥√(N_x/3)`
-(characters) by Lemma 2.3 (applied to the part q′ of q coprime to Q: on H a class mod q is a class mod
-q′ or empty, and a character/additive character mod q restricts to one mod q′ times a constant;
-deep moduli have q′ in 𝒬 up to this reduction, `>x²` and coprime to Q, so
-`N'=N_x`; assume `N_x≥1`, else nothing is certified). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
+*One-sided accounting (R57 s1).* A certificate may lower-bound a deep class with `c_C>0` by
+`m(C)≥0` (orbit-uniform cost `N_xP_H(C)`, negligible) instead of paying `𝔈`. Dropping those
+terms gives `B′≤B≤F` whose deep class terms all have `c_C<0`; each needs an upper bound and costs
+`≥1/2` (Lemma 2.3(a): some class of the orbit contains a prime). Thm 1.2 for `B′` gives
+`N_xη>1/2` again. So one-sidedness does not help.
+
+*Proof.* Let `log x<(c'/2)𝓛^4/log𝓛` (else nothing to prove; this halves c). Split
+`B=B_sh+B_deep` (h_i with `≤k` resp. `≥k+1` big primes). By Lemma 1.1,
+`E_HB=E_νB−E_ρB_deep≤η·Σ_{deep}|c_i|`; the certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with
+`𝔈_i≥1/2` (classes) or `≥√(N_x/2)` (characters, additive) by Lemma 2.3, applicable because a deep
+modulus q has a part coprime to Q exceeding `T^{0.6(k+1)}>x²`, so `|K|≥φ(q/g′)≥2x≥2N_x`
+(g′ the Q-smooth part of q; `φ(m)≫m/log log m`); assume `N_x≥1`, else nothing is certified.
+So `N_xη>1/2` resp. `√N_x η>1/√2`. If there is no
 deep term, `E_HB=E_νB≤0` (O14 Thm 4.5's argument). ∎
 
 **Proposition 2.5 (averaged accuracy does not help; PROVED, same inputs).** Group the deep
-reduced products into translation orbits O (all classes mod q, `q>x`, q∈𝒬 coprime to Q after
-the reduction in Cor 2.4, `N_x≤φ(q)/2`), and suppose the
+reduced products into translation orbits O (all classes `a∈K` mod q, `q∈𝒬`, `q>x`, `N_x≤|K|/2`,
+notation of Lemma 2.3), and suppose the
 certificate bounds `|Σ_{C∈O}c_Ce_C|≤‖c_O‖_{s}‖e_O‖_{s'}` (Hölder, any `1≤s≤∞`, `1/s+1/s'=1`) with
 `e_C:=∫1_Cdm_x−N_xP_H(C)` the true errors. Then it needs `N_x·η>1/2` again. Indeed:
 (i) `‖ν−P‖_TV≤e^{−0.6μ*}`: conditionally on x_s the perturbation has mass
-`P_0Σ_Jw_J‖σ_J‖=P_02^{k+1}`, and `P_0≤e^{−(1−p*)R}≤e^{−(1−p*)μ*}`, `k+1≤μ*/2`;
+`P_0Σ_Jw_J‖σ_J‖=P_02^{k+1}`, and `P_0≤e^{−(1−p*)R}≤e^{−(1−p*)μ*}`, `k+1≤μ*/2`, and
+`(1−p*)−(ln2)/2≥0.6` as `p*≤T^{−0.09}≤0.053` (R57 m8; the reviewer's toys show the TV bound is
+attained, no cancellation);
 (ii) so `‖ρ_O‖_{s'}≤‖ρ_O‖_1^{1/s'}‖ρ_O‖_∞^{1/s}≤e^{−0.6μ*/s'}η^{1/s}`, with `ρ_O:=(E_ρ1_C)_{C∈O}`;
-(iii) the truth has `‖e_O‖_{s'}≥(1/2)N'^{1/s'}` (N' entries `≥1/2`, Lemma 2.3(a)), `N'≥N_x/2`.
+(iii) the truth has `‖e_O‖_{s'}≥(1/2)N_x^{1/s'}` (the `N_x` classes containing a counted prime
+have error `≥1/2`, Lemma 2.3(a)).
 Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
 `N_xe^{−0.6μ*/s'}η^{1/s}>(1/2)(N_x/2)^{1/s'}`; raising to the power s (`s/s'=s−1`):
 `N_xη>(1/2)(e^{0.6μ*}/4)^{s−1}≥1/2` (for `s<∞`). For `s=∞` (`s'=1`) the condition reads
 `N_xe^{−0.6μ*}>N_x/4`, impossible. ∎
 
-*Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
-modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
-property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
+*Reading.* On moduli `>x` every true orbit-uniform bound is trivial (Lemma 2.3), so within this
+class prime input cannot matter; the content is Thm 1.2 — the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of
+every minorant — which is a property of F. This does **not** show that the barrier is invariant
+under prime input outside the class (R57 M1).
 "Full-orbit uniform" = one error bound for all members of each translation orbit used. This
 is a genuine restriction (self-review R57-self): for `q>x`, classes whose least positive representative
 exceeds x are empty below x, which is *support* information, not knowledge of the primes, and
