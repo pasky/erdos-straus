@@ -174,8 +174,8 @@ apply to O9's route. Repair: renumber, and add "(superseded by O9 Thm 2.2,
 **Observation (Assessment, not a defect; suggested for O9 §3 "Not
 claimed").** O9's own route has a rigorous floor on its certificate:
 `Q_Π=lcm(24,ℓ^{e_ℓ}:ℓ∈Π)` with `ℓ^{e_ℓ}` the largest power `≤T`, so
-`log Q_Π ≥ Σ_{ℓ≤z}(𝓛−log ℓ) ≫ π(z)𝓛 ≍ 𝓛³/log𝓛` for `z=𝓛²`; hence with
-this z the method cannot certify better than exponent ≈1/3 (which
-coincides with the heuristic truth, POINTWISE_SIZE §7), and smaller z
-raises k. Worth one sentence next to "no lower bound for it is claimed".
+`log Q_Π ≥ Σ_{ℓ≤z}(𝓛−log ℓ) ≫ π(z)𝓛 ≍ 𝓛^{1+a}/log𝓛` for `z=𝓛^a`
+(`𝓛³/log𝓛` at the chosen `a=2`). This floor is specific to the choice of
+z (k changes only by the factor `2/a` when a varies, so smaller z is
+available); the only z-free floor is `log Z ≥ log ℓ_aux > 𝓛`. Worth one sentence next to "no lower bound for it is claimed".
 
