@@ -150,3 +150,40 @@ upper bounds `O(w log 1/ε)` are of course consistent).
 `Σ_U(2^{|U|/k}−1)‖F^{=U}‖² ≤ P(h)`, hence for ±1 `g`: total influence
 `I[g] ≤ (4k/ln 2)·P(h) ≈ 5.77k·P(h)` — consistent with (weaker than) the
 known `I ≤ 2w` for width-w DNFs (Boppana; from memory). Tribes: `I≈w ln2`.
+
+## 4. Novelty (literature; partly from memory — labelled)
+
+* **Checked online (2026-10):** Lecomte–Tan, *Sharper bounds on the Fourier
+  concentration of DNFs* (arXiv 2109.04525, FOCS'21). Their Fact 6 states the
+  degree concentration in the form used by everyone: "There is a constant
+  C>1 such that any width-w DNF is ε-concentrated up to degree
+  `Cw log(1/ε)`" (via Håstad's switching lemma; constant unspecified). Their
+  key new tool, Fact 9 / Lemma 7, bounds `|f̂(S)| ≤ 2^{|S|}·Pr_x[S is covered
+  by the terms satisfied by x]` — a **cover-probability** bound that is a
+  close cousin of the document's Lemma 3.1 (`G_F ≤ E_x Q_μ(𝓗(x))`, signed
+  cover counts, ℓ²/weighted form). The document does not cite this; it should
+  (D3). Lemma 3.1 is sharper in form (signed count, no `2^{|S|}` loss, all
+  levels at once with weights), and the Θ-polarization + deletion–contraction
+  step (Lemmas 3.2–3.3) has no counterpart there.
+* **Checked online:** Tal, *Tight bounds on the Fourier spectrum of AC0*
+  (CCC'17, ECCC TR14-174): `2^{−Ω(k/log^{d−1}m)}` tails for depth-d size-m
+  circuits; no explicit-constant width-w DNF tail found in the text (grep for
+  "width" hits only the DETT10 lemma in an appendix).
+* **From memory (not re-verified):** O'Donnell, *Analysis of Boolean
+  Functions*, Ch. 4: width-w DNFs have `W^{≥k} ≤ 2·2^{−k/(20w)}` (LMN/Håstad
+  switching lemma); total influence `I ≤ 2w` (Boppana-type). Mansour'95 uses
+  `O(w log 1/ε)` concentration. I know of no published bound of the form
+  `W^{>t} ≤ 4·2^{−(t+1)/w}` (exponent constant exactly 1), nor of the
+  "reverse-noise" form `Σ_S 2^{|S|/w}‖F^{=S}‖² ≤ 1`, nor of a switching-lemma-free
+  proof, nor of the extension to arbitrary product spaces with an exponent
+  that is sharp there (§3.1).
+
+**Assessment:** Cor 4.1 (Boolean form: every width-k DNF g:{±1}^n→{±1}
+under any product measure has `W^{>t}[g] ≤ 4·2^{−(t+1)/k}`, equivalently
+ε-concentration up to degree `k·log₂(4/ε)`) appears **possibly new** as a
+sharp-constant statement; the improvement over the literature is in the
+constant (20 → 1, or "some C" → 1), the generality (q-ary, biased), and the
+proof technique. A proper literature search (Boolean-function people:
+Håstad's "sharp switching lemma" variants, Rossman's entropy switching
+lemma, Kelley/Lovett/…, "Fourier growth" literature, "hypercontractivity
+with ρ>1") is still needed before claiming novelty externally.
