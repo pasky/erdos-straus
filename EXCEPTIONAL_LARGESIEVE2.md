@@ -36,7 +36,7 @@ Theorem 4.3 does not use K2 Thm 5.1 and is unaffected.
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
-| **Thm 8.5** (Lemma 8.1, Props 8.2, 8.4) | **explicit (E1) escape for dense abstract families**: a band family (≍ηD classes at single moduli D = ℓℓ' of level > λ) on which every level-λ majorant saves 0 (comparison measure with S = 0), while a Montgomery–Vaughan large sieve with ≤ N/3 frequencies of level > λ saves `≥ c log N`. So (E1) cannot be closed by Lemma 1.1 + large-sieve axioms; a proof must use sparsity (Sp) or K2's moment hypotheses, which the band family violates | PROVED |
+| **Thm 8.5, Prop 8.6** (Lemma 8.1, Props 8.2, 8.4) | **explicit (E1) escape for dense abstract families**: a band family (≍ηD classes at single moduli D = ℓℓ' of level > λ) on which every level-λ majorant saves 0 (comparison measure with S = 0), while a Montgomery–Vaughan large sieve with ≤ N/3 frequencies of level > λ saves `≥ c log N`. Prop 8.6: the same family satisfies K2 Thm 5.1's conclusion (`S ≤ Cλ^{3/4}`) at **every** level. So (E1) cannot be closed by comparison measures at any level + large-sieve axioms; a proof needs family-specific input such as (Sp) (Assessment) or K2's moment hypotheses, which the band family violates | PROVED |
 | Thm 9.1 | composite kernels: Thm 4.2 holds with **no level hypothesis** (moduli ≥ N via anti-concentration of π); only the factor `1 + Nh/(W_K−h)` remains | PROVED, conditional on K2 Thm 5.1 / KARY3 |
 | Prop 9.2 | kernels whose moduli are T-rough: saving `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`, `ε_T ≍ T^{−1/4+o(1)}`; the factor problem lives at small primes | PROVED, unconditional |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design. It does **not** cover the other relaxation (`ν ≥ 0` only at primes `≤ N`, `ν ≥ 1` on all primes of 𝒜), which stays open (Assessment, §6.2) | PROVED |
@@ -705,13 +705,18 @@ below the sieve bound `N^{−0.0057}`.)
 2. **What the band family violates.** It carries class mass `≈ 2η` at a
    *single* modulus `D_i` of level `> λ` (≍ ηD_i classes mod `D_i`). It is
    also heavy in the K2 sense (`p = 2η` per top prime, not `≤ ℓ^{−1/2}`;
-   `E p_ℓ²` is not `≪ ℓ^{−7/4}`). Forced families satisfy
-   > **(Sp)** for every D, the classes whose modulus is divisible by D have
-   > total mass `≤ D^{−1+o(1)}` (moduli `≤ N^{O(1)}`),
+   `E p_ℓ²` is not `≪ ℓ^{−7/4}`). Forced families are expected to satisfy
+   > **(Sp)** for every D of level `≥ log N` (equivalently `D ≥ N^{1−o(1)}`
+   > rough part), the classes whose modulus is divisible by D have total mass
+   > `≤ D^{−1+o(1)}` (family moduli `≤ N^{O(1)}`).
 
-   by the divisor bounds of K2 §3. Any proof of (H_LS∞) must use (Sp) or
-   the K2 moment hypotheses in an essential way; the comparison measure
-   does not see them beyond level λ.
+   (Sp) is an **Assessment**, not proved here: K2 §3 bounds only total
+   first moments; a per-D version would follow from Lemma 3.1-type Euler
+   products restricted to multiples of D, not written out. For bounded D
+   the right size carries an extra `(log N)^{O(1)}` (review R27b m2). By
+   Proposition 8.6 below, any proof of (H_LS∞) must use something like
+   (Sp) or K2's moment hypotheses: the conclusion of K2 Thm 5.1, even at
+   every level, is not enough.
 3. **The budget heuristic (Assessment).** In the band family each bundle
    of mass m gains `≈ m` and costs `≈ log(1/m)` of the frequency budget
    `log N`, so the large sieve gains `≈ log N·m/log(1/m)`. Exceeding
@@ -721,6 +726,31 @@ below the sieve bound `N^{−0.0057}`.)
    from **collective** correlations of many sparse low-level classes,
    which is exactly what (H_LS∞) rules out heuristically (§5 polymer
    heuristic). This is not a proof.
+
+**Proposition 8.6 (the escape survives comparison at all levels; PROVED;
+review R27b m7).** Take the band family with `η = 1/9` and all
+`ℓ_i, ℓ'_i ∈ [N^{1/2+δ}, 2N^{1/2+δ}]` for a fixed small `δ > 0` (so
+`L_i ≍ log N` and `D_i ≥ 16KRN` for N large). Then for every `λ' ≥ λ₀`
+every majorant of level `≤ λ'` has `log(1/E_Uν) ≤ Cλ'^{3/4}` (C absolute,
+`N ≥ N₀`), i.e. the band family satisfies the conclusion of K2 Thm 5.1 /
+KARY3 Thm 4.1 **at every level**, hence (Lemma 1.1's duality, which is
+family-free) has comparison measures with `S(λ') ≤ Cλ'^{3/4}` at every level;
+yet Prop 8.4 gives a large-sieve saving `≥ c log N ≫ (log N)^{3/4}`.
+
+*Proof.* Below `min L_i` the saving is 0 (Prop 8.2(a)). For
+`λ' ≥ min L_i`, every term contains at most `d = ⌊λ'/((1/2+δ)log N)⌋ + 1`
+band primes, so Prop 8.2(b) bounds the saving by
+`c₁(λ'/log N + 1)·log log N` (K ≍ log N). Also every majorant has
+`E_Uν ≥ dens 𝒜 = Π_i |S_i|/D_i ≥ (1 − 2η − 2/D_i)^K`, so the saving is
+`≤ K log(9/7) + o(1) ≤ 0.04 log N`. The first bound is `≤ Cλ'^{3/4}` for
+`λ' ≤ (log N/log log N)⁴` (for `λ' ≍ log N` it is `O(log log N)`), the
+second for larger λ'. ∎
+
+There is no contradiction with Prop 5.1: the large sieve's frequencies
+have level up to `K·max L_i ≍ (log N)²`, where `S ≍ (log N)^{3/2}`. So
+**(E1) cannot be closed from the comparison principle at any (or every)
+level plus the large-sieve axioms**; family-specific input such as (Sp)
+is necessary.
 
 ## 9. Composite kernels: the level hypothesis removed; the factor localised
 
