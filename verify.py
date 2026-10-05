@@ -18490,4 +18490,135 @@ print("\n== (cw) POINTWISE_WINDOW2: Lemma 1.2 norm forms, Prop 3.7 certified fak
 check_cw()
 
 
+# ---------------------------------------------------------------- (cx)
+# EXCEPTIONAL_INTERFREQ2.md (cf. scripts/interfreq2_checks.py (1), review_if2_ex32.py,
+# review_if2_c11.py, review_if2_spw.py).
+# (1) Example 3.2: 1[n = 0 (21)] = 1[0 (7)] - 1[1 (3)] - 1[2 (3)] + sum of 12 classes mod 21
+#     on n in [-2000, 2000); at N = 20 the hybrid charge (exact small counts + beta*) is 0, all
+#     12 large classes are full; the class written as itself costs 1.
+# (2) Lemma 3.1 sign rule (3.1) on 300 random representations (N = 20, moduli <= 70).
+# (3) [scipy] Rigidity: every mu in M(2520) at N = 20 has mu(0 mod 21) = 0 and mu(r mod 21) = 1
+#     (r = 1..20, LP min = max); Consequence: N + 1 = d1 d2 (N = 11, 14, 19) on Z/(N+1).
+# (4) Lemma 9.3: sigma_C(N) = min_q (1 - ceil(N/q)/k_q) equals 2/5 at C = 2 and 0 at C = 1 for
+#     12 <= N <= 300; [scipy] the SPW LP projected to Z/Q' (Q' = 300, 840, 2520 containing a
+#     minimising lift modulus k_q q) has sigma_max <= sigma_C(N).
+
+def check_cx():
+    from time import perf_counter
+    import random as _random
+    import numpy as np
+    t0 = perf_counter()
+    try:
+        from scipy.optimize import linprog
+        from scipy.sparse import coo_matrix
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    def cnt(b, d, N):                        # #{1 <= n <= N : n = b (d)}
+        first = b % d if b % d else d
+        return 0 if first > N else (N - first) // d + 1
+
+    def bstar(a, d, N):
+        return a * (-(-N // d)) if a > 0 else a * (N // d)
+
+    def bhyb(terms, N):
+        return sum(a * cnt(b, d, N) if 2 * d <= N else bstar(a, d, N) for a, b, d in terms)
+
+    # (1)
+    N = 20
+    terms = [(1, 0, 7), (-1, 1, 3), (-1, 2, 3)] + [(1, b, 21) for b in range(21) if b % 3 and b not in (7, 14)]
+    assert len(terms) == 15
+    for n in range(-2000, 2000):
+        assert sum(a for a, b, d in terms if (n - b) % d == 0) == (n % 21 == 0), ("INTERFREQ2 Ex 3.2 identity", n)
+    assert bhyb(terms, N) == 0 and bhyb([(1, 0, 21)], N) == 1, "INTERFREQ2 Ex 3.2 charge"
+    assert all(cnt(b, d, N) == -(-N // d) for a, b, d in terms if d == 21), "INTERFREQ2 Ex 3.2 full"
+
+    # (2)
+    rng = _random.Random(32)
+    for _ in range(300):
+        T = [(rng.choice([-3, -2, -1, 1, 2, 3]), rng.randrange(70), rng.randrange(1, 71)) for _ in range(rng.randint(1, 12))]
+        exact = sum(a * cnt(b, d, N) for a, b, d in T)
+        pen = 0
+        for a, b, d in T:
+            if 2 * d > N:
+                c, u, l = cnt(b, d, N), -(-N // d), N // d
+                pen += abs(a) * ((a > 0 and c == l and c != u) or (a < 0 and c == u and c != l))
+        assert bhyb(T, N) == exact + pen, ("INTERFREQ2 Lemma 3.1", T)
+
+    # (4) sigma_C(N)
+    def sigC(N, C):
+        return min(1 - Fraction(-(-N // q), int(C * N) // q + 1) for q in range(1, N // 2 + 1))
+    for NN in range(12, 301):
+        assert sigC(NN, 2) == Fraction(2, 5) and sigC(NN, 1) == 0, ("INTERFREQ2 Lemma 9.3 sigma_C", NN)
+
+    lp = []
+    if have_scipy:
+        def M_lp(N, Qp, objrow, sense):      # extremes of objrow.mu over M(Qp)
+            er, ec, ev, beq, ur, uc, uv, bub = [], [], [], [], [], [], [], []
+            lam = np.zeros(Qp)
+            for m in range(1, N + 1):
+                lam[m % Qp] += 1
+            for d in (d for d in range(1, Qp + 1) if Qp % d == 0):
+                for b in range(d):
+                    idx = list(range(b, Qp, d))
+                    if 2 * d <= N:
+                        er += [len(beq)] * len(idx); ec += idx; beq.append(lam[b::d].sum())
+                    else:
+                        for sg, bd in ((1, -(-N // d)), (-1, -(N // d))):
+                            ur += [len(bub)] * len(idx); uc += idx; uv += [sg] * len(idx); bub.append(bd)
+            Aeq = coo_matrix((np.ones(len(er)), (er, ec)), shape=(len(beq), Qp)).tocsr()
+            Aub = coo_matrix((uv, (ur, uc)), shape=(len(bub), Qp)).tocsr()
+            res = linprog(sense * objrow, A_ub=Aub, b_ub=bub, A_eq=Aeq, b_eq=beq, bounds=(0, None), method="highs")
+            assert res.status == 0, res.message
+            return sense * res.fun
+        for x in (0, 1, 7, 13, 20):
+            row = np.zeros(2520)
+            row[x::21] = 1
+            lo, hi = M_lp(20, 2520, row, 1), M_lp(20, 2520, row, -1)
+            assert abs(lo - (x != 0)) < 1e-7 and abs(hi - (x != 0)) < 1e-7, ("INTERFREQ2 rigidity", x, lo, hi)
+        for NN in (11, 14, 19):
+            row = np.zeros(NN + 1)
+            row[0] = 1
+            assert abs(M_lp(NN, NN + 1, row, -1)) < 1e-7, ("INTERFREQ2 Consequence N+1 = d1 d2", NN)
+
+        def spw(N, C, Qp):
+            P = Qp
+            er, ec, beq = [], [], []
+            for d in range(1, N // 2 + 1):
+                assert Qp % d == 0
+                for b in range(d):
+                    idx = list(range(b, Qp, d))
+                    er += [len(beq)] * len(idx); ec += idx; beq.append(cnt(b, d, N))
+            ur, uc, nb = [], [], 0
+            for d in (d for d in range(1, Qp + 1) if Qp % d == 0 and d > C * N):
+                for b in range(d):
+                    idx = list(range(b, Qp, d)) + [P]
+                    ur += [nb] * len(idx); uc += idx; nb += 1
+            Aeq = coo_matrix((np.ones(len(er)), (er, ec)), shape=(len(beq), P + 1)).tocsr()
+            Aub = coo_matrix((np.ones(len(ur)), (ur, uc)), shape=(nb, P + 1)).tocsr()
+            cobj = np.zeros(P + 1)
+            cobj[P] = -1
+            res = linprog(cobj, A_ub=Aub, b_ub=np.ones(nb), A_eq=Aeq, b_eq=np.array(beq, float),
+                          bounds=[(0, None)] * P + [(None, None)], method="highs")
+            assert res.status == 0, res.message
+            return -res.fun
+        for NN, C, Qp in ((12, 2, 300), (16, 2, 840), (20, 2, 2520), (16, 1, 840), (20, 1, 2520)):
+            sc = sigC(NN, C)
+            assert any(Qp % ((int(C * NN) // q + 1) * q) == 0 for q in range(1, NN // 2 + 1)
+                       if 1 - Fraction(-(-NN // q), int(C * NN) // q + 1) == sc)
+            s = spw(NN, C, Qp)
+            assert s <= float(sc) + 1e-7, ("INTERFREQ2 Lemma 9.3 vs SPW LP", NN, C, s, sc)
+            lp.append(f"N={NN},C={C}: {s:.4f}<={float(sc):.2f}")
+    print(f"cx Example 3.2 identity + charge 0; Lemma 3.1 on 300 random representations; sigma_C(N) = 2/5 (C = 2), "
+          f"0 (C = 1) for 12 <= N <= 300")
+    print("cx " + ("rigidity mu(0 mod 21) = 0, mu(r mod 21) = 1 (LP, Q' = 2520); N+1 = 12, 15, 20 vanish; SPW LP "
+                   + "; ".join(lp) if have_scipy else "LP parts skipped (no scipy)")
+          + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma 9.3 ==")
+check_cx()
+
+
 print("\nall checks passed")
