@@ -210,3 +210,82 @@ reweighted the same way. In Heath-Brown's twin-prime argument the Siegel zero is
 because the twin-prime problem is a *parity* problem (dimension 2, a fixed level suffices for
 the integers); here the obstruction is the sieve *dimension* `κ≍𝓛³`, which already blocks the
 integer problem (§4).
+
+## 4. Type I/II, Heath-Brown/Siegel and restricted-digit primes: the integer half
+
+Vaughan's and Heath-Brown's identities, and Heath-Brown's Siegel-zero substitution, all rewrite
+`Σ_{p≤x}F(p)1_H(p)` as combinations of *integer* sums `Σ_{n≤x}w(n)F(n)1_H(n)` with
+`w=α∗β` a Dirichlet convolution: Type I (`β≡1`, `α` supported on `d≤D_I`), Type II (both
+supported on `[x^a,x^{1−a}]`), and, under a Siegel zero, Type I sums with `α` built from
+`μ` and `1∗χ_1` up to level `x^{1−ε}`. Every such route needs at least the Type I sums, in
+particular the counts `Σ_{n≤x, d|n}F(n)1_H(n)` (d=1 included), to relative precision `o(1)`
+compared with their mean `≍xδ/d`. These are statements about F on the integers, with no prime in
+sight. The planted fake extends to them.
+
+**Setting 4.0.** Let `d≤x` with `gcd(d,Q)=1`, and `log x≤𝓛^4`. Let `P_d` be Haar measure on
+`H̃_d:={n∈Ẑ: n≡r (Q), d|n}` (coordinates `X_p∈ℤ_p`, no unit condition; `X_p≡0 (p^{v_p(d)})` for
+`p|d`). Big coordinates: `X_ℓ`, ℓ prime `>T^{0.6}`, `ℓ∤dQ`. F is defined on Ẑ (an event needs
+`n≡−4D (M)`, a unit class, since `gcd(D,M)=1`).
+
+**Proposition 4.1 (integer barrier; PROVED, same inputs as Thm 1.2).** There are absolute
+`c,c'>0` such that for T large, every Q with `log Q≤T^{0.05}`, every unit r mod Q and every d as
+in 4.0: every `B≤F` on `H̃_d` with a representation `B=Σc_ih_i` by reduced products (classes,
+characters, additive characters; now `|E h_b|≤1/4` under Haar on `ℤ_b`) satisfies
+
+```
+E_{P_d}B ≤ e^{−c'𝓛^6} + η·Σ|c_i| .
+```
+
+Consequently the integer measure `m^{(d)}:=Σ_{n≤x, n∈H̃_d}δ_n` (mass `X_d=x/(dQ)+O(1)`,
+accuracy `≤1` on every residue class) admits no class-ℓ¹ certificate of `Σ_{n}F dm^{(d)}≥1`
+unless `X_dη≥1/2`, i.e. `log x≥c𝓛^4/log𝓛`; and the Haar-weighted fake `X_dν^{(d)}` below
+satisfies every class/character statistic to accuracy `X_d(η+e^{−c'𝓛^6})` while giving F
+mass `≤X_de^{−c'𝓛^6}<1`.
+
+*Proof.* Rerun O14 Thm 4.5 on `H̃_d`, with one change: a small configuration x only sees the
+small parts v coprime to x (events at v need x to be a unit mod v). Lemmas 4.2–4.4 of O14 are
+unchanged (Lemma 4.3 does not involve x; Lemma 4.4 needs `−x/4` to be a unit mod v; `p_ℓ` gains a
+factor `(ℓ−1)/ℓ`; the big ℓ dividing d are dropped, costing `≤ω(d)p*≤𝓛^4T^{−0.09}`). So
+`R(x)≥0.13(L²/200)·Σ'1/v−o(1)`, Σ' over y-rough squarefree `v≤V` coprime to x.
+By Mertens, `Σ_{v≤V, y-rough sqfree}1/v≤C_6log V/log y`, so
+`Σ'1/v ≥ (c_3−C_6σ(x))log V/log y` with `σ(x):=Σ_{y<p≤V, p|x}1/p`. Let
+`G':={σ(x)>λ}`, `λ:=c_3/(2C_6)`. Off G', `R(x)≥μ*/2`; plant (with `k+1:=⌊μ*/4⌋`) only off G' and
+keep the true law on G'. Then `F=0` ν-a.s. off G', `ρ=0` on G', and Lemma 1.1 holds verbatim, so
+`E_{P_d}B=E_νB−E_ρB≤P_d(G')+(8r*)^{k+1}Σ|c_i|`.
+*Size of G'.* Primes `p|d`, `p>y` contribute `≤ω_{>y}(d)/y≤(log x)/(y log y)<λ/2` (`y=𝓛^6`). The
+other `p∈(y,V]` divide x independently with probability `1/p`; for `t:=y`,
+`P(Σξ_p/p≥λ/2)≤e^{−tλ/2}∏_p(1+(e^{t/p}−1)/p)≤e^{−λy/2}exp(Σ_{p>y}e t/p²)≤e^{3−λy/2}`.
+So `P_d(G')≤e^{−c'𝓛^6}`.
+*Certificates.* `|#{n≤x: n∈H̃_d∩C}−X_dP_d(C)|≤1` for every class C (exact integer counting).
+A class-ℓ¹ certificate gives `Σ F dm^{(d)}≥X_dE_{P_d}B−Σ|c_i|≤X_de^{−c'𝓛^6}+Σ|c_i|(X_dη−1)`,
+which is `<1` unless `X_dη>1` (as `X_de^{−c'𝓛^6}<1/2`). ∎
+
+*Remark 4.2 (a sanity check that this is a method barrier).* For integers the conclusion is
+false: perfect squares `m²∈H̃_1` are avoiders (O13 Lemma 3.1: event classes are Jacobi
+non-residues mod M), so `Σ_{n≤x}F(n)1_H(n)≥c√x/Q`. Squares are not periodic, so they are
+invisible to class-ℓ¹ certificates. (In the Mordell-hard fibre, squares are also what makes the
+fibre nonempty.) For primes no such non-periodic avoider family is known; the closest periodic
+one, `∏_{ℓ≤T}1[(n/ℓ)=1]≤F`, has `‖·‖_×/mean=2^{π(T)}`, consistent with Thm 1.2.
+
+**Corollary 4.3 (what Type I/II input would have to supply; Assessment built on Prop 4.1).**
+A Vaughan/Heath-Brown proof of `Σ_{p≤x,p∈H}F(p)>0` at `log x≍𝓛^3` needs, as Type I input,
+`Σ_{n≤x,d|n}F(n)1_H(n)=X_dE_{P_d}F·(1+o(1))` for (a weighted majority of) `d≤x^{1/3}`, and
+`E_{P_d}F≈δ` is `e^{−𝓛^{3+o(1)}}`, so the relative error must be `≤x^{−1/C}` (C large).
+By Prop 4.1 no oblivious class/character/additive-character method can produce even the lower
+half of this at `log x<c𝓛^4/log𝓛`; the Type II sums are then moot. Under a Siegel zero the Type I
+level rises to `x^{1−ε}` — a constant factor in `log D`, against a required `log D≍𝓛·log x/polylog`
+(superpolynomial level `D=x^{𝓛^{1−o(1)}}`). **The bottleneck is the sieve dimension
+`κ≍𝓛³/log𝓛` of the big-prime sieve, a property of the integers; prime-specific input (Type II,
+parity, Siegel) addresses the other half of the problem.**
+
+**Restricted-digit primes (Maynard, Invent. Math. 2019) — why the analogy fails.** Both sets
+are sifted sets of density `x^{−1/C}` (for ES at `log x=C𝓛³`: `δ_H=e^{−𝓛^{3+o(1)}}`; for
+missing digits in base b, density `X^{−(1−log(b−1)/log b)}`). Maynard's set A is periodic
+modulo `X=b^k`, so `‖1_A‖_×/E1_A≤X` trivially, and its key input is that its additive-Fourier
+ℓ¹-mass is `X^{c_b}` with `c_b<1/2` (product structure over digits; exact exponent from memory,
+not needed): complexity *below* the square-root floor of Lemma 2.3, so additive transfers (minor
+arcs) and the Type I/II analysis close. For ES, Thm 1.2 (applied to B=F) gives
+`‖F‖_×/E_HF≥e^{c𝓛^4/log𝓛}=x^{c𝓛/(C log𝓛)}`: the complexity is **superpolynomial in x**, so it
+exceeds every floor `x^{A}`. The digit filtration (conditions mod `b^j` refine those mod
+`b^{j−1}`, period = range) has no analogue for the CRT sieve, whose period `e^{(1+o(1))T}` is
+doubly exponential in `𝓛`, while x is `e^{𝓛^{3+o(1)}}`.
