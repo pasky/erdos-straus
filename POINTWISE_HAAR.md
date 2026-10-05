@@ -337,6 +337,7 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
 |---|---|---|
 | Lemma 1.1–1.3 | compatible-event inequality, NA for bit-disjoint families, lopsided LLL inflation | PROVED (standard inputs: Joag-Dev–Proschan, Erdős–Spencer) |
 | Thm 1.4 | `−log P(Av) ≥ μ − KΔ`, and `≥ min(μ/2, μ²/(4KΔ))`, for atomic events under lopsided LLL | PROVED |
+| Thm 1.4 check | exact enumeration of 299 random small systems satisfying the hypothesis (`scripts/haar_janson_check.py`): all pass | EVIDENCE (sanity) |
 | Prop 1.5 | bit-disjoint (NA-only) families give at most `𝓛² + O(log𝓛)` | PROVED |
 | Thm 2.1 | `log(1/δ*(T)) ≫ 𝓛³/log𝓛` | PROVED modulo the sieve fundamental lemma |
 | §3 | MC data: `Φ/(𝓛³/log𝓛) = 0.069–0.070` for `1023 ≤ T ≤ 32767` | EVIDENCE |
@@ -350,4 +351,5 @@ Known now: `𝓛³/log𝓛 ≪ Φ ≪ 𝓛^5 log𝓛` (upper bound from OMEGA12,
 
 ```
 PYTHONPATH=scripts uv run python scripts/haar_fit.py      # §3 table, data/haar/fit.txt
+PYTHONPATH=scripts uv run python scripts/haar_janson_check.py 1   # Thm 1.4 brute force, ~5 min, data/haar/janson_check.txt
 ```
