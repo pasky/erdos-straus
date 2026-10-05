@@ -1,0 +1,26 @@
+identity OK on [-2000,2000); small exact=-12, large beta*=12, total=0, all large full=True
+charge of 1[0 mod 21] written as itself: 1
+N=20 Q'=2520 mu(0 mod 21): min=0.000000 max=-0.000000
+N=20 Q'=2520 mu(1 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(2 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(3 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(4 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(5 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(6 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(7 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(8 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(9 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(10 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(11 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(12 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(13 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(14 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(15 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(16 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(17 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(18 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(19 mod 21): min=1.000000 max=1.000000
+N=20 Q'=2520 mu(20 mod 21): min=1.000000 max=1.000000
+N=11 N+1=12=3*4: mu(0 mod N+1) in [0,-0]
+N=14 N+1=15=3*5: mu(0 mod N+1) in [0,-0]
+N=19 N+1=20=4*5: mu(0 mod N+1) in [0,-0]
