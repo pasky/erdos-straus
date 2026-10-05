@@ -140,3 +140,19 @@ Status: IN PROGRESS.
   p≡1 (840) is the hard class 1² ✓.
 * Proof of Thm 1.1: τ≪𝓛(𝓛+S_1)≪𝓛⁵, log Q≪𝓛Ω_0≪𝓛⁵log𝓛 ⇒ log p≪𝓛⁵log𝓛 ⇒
   𝓛⁵≥log p/(C log log p) ✓ (uses 𝓛<log p). Exponent 1/5 with (log log p)^{−1/5} ✓.
+
+### Pass 8: Thm 1.2, Cor 8.2, Remarks 8.3–8.4, §9, bibliography, compile, sources
+* Proof of Thm 1.2: log Q≤…+(C_1𝓛/c)𝓛S_0, τ≪𝓛(𝓛+S_1) ⇒ log log p≤log(S_0+1)+O(log𝓛);
+  𝓛/log𝓛≥Y ⇒ 𝓛≥Y log𝓛≥Y log Y ✓. Constant 1/log 2 from HW Thm 317 ✓.
+* Cor 8.2: density of {n≡1 (Q), X_ℓ(n)∈Ω_ℓ, F(n)=1} = Q^{−1}∏_{a_ℓ=0}(1−1/ℓ)·δ ✓ (CRT), δ≥e^{−2.2S_1},
+  Mertens ✓; Gallagher indeed unused ✓.
+* Thm 4.2 checked against the archived MV III draft (`sources/omega9/montgomery-mnt3.pdf`,
+  Thm 28.19, pp. 229–230): statement matches (thresholds, both right-hand sides) ✓.
+* [LT] verified by me on arxiv.org/abs/2109.04525 (V. Lecomte, L.-Y. Tan, "Sharper bounds on the
+  Fourier concentration of DNFs", v2 15 Oct 2021, "to appear at FOCS 2021") ✓. The paper's
+  description is accurate: LT Fact 9 is |f̂(S)|≤2^{|S|}·Pr[S covered by satisfied terms]
+  (unsigned, uniform measure, and LT say they do not use it), and their degree concentration is
+  Fact 6 ("there is a constant C>1 … ε-concentrated up to degree Cw log 1/ε", from the switching
+  lemma) ✓.
+* pdflatex (3 passes, clean copy in /tmp): 27 pp, **no** warnings, no overfull boxes, no
+  undefined references ✓.
