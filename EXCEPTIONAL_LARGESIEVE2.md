@@ -22,7 +22,7 @@ Thm 5.1 (`λ ≥ λ₀`), and `S_B(λ) = C(B)λ^{3/4}` that of K2 Thm 5.2.
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
 | **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
-| Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design | PROVED |
+| Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design. It does **not** cover the other relaxation (`ν ≥ 0` only at primes `≤ N`, `ν ≥ 1` on all primes of 𝒜), which stays open (Assessment, §6.2) | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
 | §7 | LP/QP/exact-law sanity checks of Lemma 1.1, Lemma 2.2/Thm 2.4, Lemma 4.1/Thm 4.2, Thm 4.3's steps | EVIDENCE |
 
@@ -32,8 +32,9 @@ below the 3/4 scale (Thm 4.3); composite kernels are capped by Thm 4.2 only
 where `Nh/(W_K−h)` is controlled; escape 3 (twisted, multiplicative
 × additive, Gauss-sum, hybrid fibrewise forms) is closed (Thm 2.4); the
 prime large sieve (escape 4, third item) is closed (Thm 3.1); the
-finite-range prime relaxation is shown to be no sieve limit at all
-(Prop 6.1). Open: (E1)/(H_LS) — now reduced to frequencies with
+relaxation "`ν ≥ 1` only on the primes of `𝒜 ∩ [1,N]`" is vacuous as a
+sieve limit (Prop 6.1), while the relaxation "`ν ≥ 0` only at primes
+`≤ N`" (with `ν ≥ 1` on all primes of 𝒜) stays open (Assessment). Open: (E1)/(H_LS) — now reduced to frequencies with
 many-prime denominators and to a sup-decay statement (H_LS∞) — and
 unconditional signed error accounting (Assessment only). The tool behind
 all of it is Lemma 1.1: K2's cap, read through LP duality, is one
@@ -475,6 +476,12 @@ For every family 𝔊 and every N there is ν with
 *Proof.* `ν = Σ_{p ≤ N, p ∈ 𝒜} 1[n ≡ p (mod q)]`; for primes `p' ≤ N`,
 `p' ≡ p (mod q)` with `p, p' ≤ N < q` forces `p' = p`. ∎
 
+*Scope (review m4).* Prop 6.1 settles only PL §6 item 2's second bullet.
+The first bullet — `ν(p) ≥ 0` only for `p ≤ N` but `ν ≥ 1` on **all**
+primes of 𝒜 — is not covered: there the construction fails, since by
+Dirichlet every reduced class mod q contains primes of 𝒜 above N. It stays
+open (the "mixed variant" below, Assessment).
+
 So with "`ν ≥ 1` only at the primes of `𝒜 ∩ [1,N]`" the relaxed LP has
 value equal to the truth, already at level `≍ log N`, polynomial budget
 and nonnegative ν: **no cap of any kind can hold for that relaxation.**
@@ -491,9 +498,11 @@ again needs the location of the primes `≤ N` (Assessment; not a theorem).
 (Assessment): unconditional error terms for `π(N; d, b)` with
 `d ≥ (log N)^{O(1)}` are at best `N(log N)^{−A}` on average (BV), far
 above the main terms `π(N)e^{−(log N)^{3/4}}` at stake; for
-`d ≤ (log N)^{O(1)}` (Siegel–Walfisz/Vinogradov–Korobov) they are
-`N exp(−c(log N)^{3/5−o(1)})`, which is still larger than those main terms,
-since `3/5 < 3/4`. So no unconditional signed accounting can even resolve
+`d ≤ (log N)^{O(1)}` the uniform unconditional error is Siegel–Walfisz's
+`N exp(−c(log N)^{1/2})` (ineffective); the Vinogradov–Korobov exponent
+`3/5 − o(1)` applies only for fixed small d / away from a possible
+exceptional zero (review m5). Both exceed those main terms, since
+`1/2 < 3/5 < 3/4`. So no unconditional signed accounting can even resolve
 the main term at the 3/4 scale. Under GRH, PL Prop 4.3 caps it.
 
 ## 7. Numerics (EVIDENCE / sanity checks only)
