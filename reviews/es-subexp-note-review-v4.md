@@ -1,13 +1,57 @@
 # Referee report R56 — paper/es-subexp-note.tex v4 (hostile referee)
 
 Branch reviewed: side-agent/subexp-paper-v4 @ 5da3fec (merged into side-agent/referee-subexp-v4).
-Status: IN PROGRESS.
+Status: COMPLETE (round 1).
+
+**Recommendation: minor revision (accept after minor changes).** No FATAL or MAJOR defect. Every new proof of v4 (Jacobi lemma, square-class process and supermartingale bookkeeping incl. the pair potential, Haar masses via NT, Haar upper bound, Janson-type inequality, Haar lower bound, coset transfer, new twist lemma, assembly to exponent 1/4, planting, level barrier, class-uniform lemmas, ceiling theorem and its corollaries) was re-derived line by line. From-scratch code: Jacobi lemma on all 2 401 032 atoms with M≤2·10^5; Janson-type inequality + Lemmas 4.1/4.2 by exact enumeration on random non-uniform product spaces; planting lemma by exact rational arithmetic (with a control showing the hypothesis is needed). NT hypotheses checked against the archived NT and Henriot PDFs. Defects are presentational/labelling only.
 
 ## Summary verdicts per claim
-(to be filled)
+
+| Claim | Verdict |
+|---|---|
+| Compile (pdflatex ×2) | clean: 39 pp, 0 undefined, 3 overfull (<10pt) |
+| Lemma 2.1 atoms; Lemma 2.2 Jacobi; Lemma 2.3 | SOUND (+ brute force, M≤2·10^5) |
+| Def 2.4, Lemma 2.5 (reduction, weights, hardness) | SOUND |
+| Lemma 2.7 LLL; Lemma 2.8 β-LLL | SOUND |
+| Square-class process, Lemma 2.9 (a)–(d) | SOUND |
+| Thm 3.1 NT transcription vs sources | SOUND (m2) |
+| Lemma 3.2 (A),(B) | SOUND |
+| Thm 3.3 Haar upper bound | SOUND (mod NT) |
+| Lemmas 4.1, 4.2, Thm 4.3 Janson-type | SOUND (+ exact enumeration) |
+| Thm 4.4, Lemmas 4.5–4.7 Haar lower bound | SOUND (mod FL; m6, m7) |
+| Thm 6.1 linear transfer (coset rH) | SOUND (mod G+LP) |
+| §8 changes (digits, Lemma 8.1, eq. lllhyp, twist Lemma 8.7) | SOUND |
+| Thm 9.1 assembly, proof of Thm 1.1 (exponent 1/4) | SOUND (mod G+LP, NT) |
+| Lemma 10.1 planting | SOUND (+ exact rational check) |
+| Lemma 10.2 level barrier | SOUND (m4) |
+| Lemmas 10.3–10.5 | SOUND (m5) |
+| Thm 10.6 ceiling (= Thm 1.3) | SOUND (mod G+LP, FL) |
+| Cor 10.7 (1/4 ceiling, proved implication) + scope | SOUND |
+| Cor 10.8 energy tail | SOUND |
+| Abstract/intro vs proofs | SOUND-AFTER-REPAIRS (m1, m3) |
+| Bibliography TODO(verify) | partly verified (m8) |
 
 ## Numbered defects
-(to be filled)
+
+No FATAL, no MAJOR.
+
+**m1 (MINOR, abstract).** The abstract states the Haar-side two-sided bound and the ceiling without their inputs, while it does list Gallagher+NT for Thm 1.1. The Haar upper bound needs NT, the lower bound the fundamental lemma, the ceiling Gallagher+Landau–Page+FL. *Repair:* add "(under the same inputs, and the fundamental lemma of sieve theory)" after the Haar and ceiling sentences, or one sentence "all results are proved modulo these cited theorems and the fundamental lemma".
+
+**m2 (MINOR, Thm 3.1 / §3).** Henriot (p.5, after (2.10)) notes that NT's own class 𝓜_k asks the submultiplicativity for all a_i,b_i with (a_i,b_i)=1, so the transcribed class is slightly *larger* than NT's, and the transcribed theorem is Henriot's reading of NT's proof. The paper attributes it to [NT, Thm 1]. No gap: F(n₁,n₂)=τ(n₁²)f₂(n₂) (and the variant with τ((n₂)_Y)) is a product of multiplicative functions in separate variables and lies in NT's original class; also NT's own range (ε<1/(8g²), x^{4g²ε}≤y≤x) covers ε=1/200, g=2, y=x. *Repair:* add one sentence saying so, so that the citation stands on NT alone.
+
+**m3 (MINOR, intro "The method", last paragraph).** "The ceiling shows that the level 𝓛S is forced": the construction has level e^{O(𝓛⁴log𝓛)}, the ceiling excludes level e^{c𝓛⁴/log𝓛}. *Repair:* "forced up to a factor (log𝓛)²" (as correctly said in Cor 10.7/10.8).
+
+**m4 (MINOR, §10 "The ES instance").** "everything else is small" should say explicitly that for big ℓ∤Q the higher ℓ-adic digits of n (beyond n mod ℓ) are small coordinates, independent of X_ℓ on the units, and that a level-D function depends on at most the number of *distinct* primes >T^{0.6} of q (≤log D/(0.6𝓛)). The argument is right; this is needed for Lemma 10.2's "independent coordinates" to apply verbatim to functions of n mod qQ with ℓ²|q.
+
+**m5 (MINOR, Lemma 10.5 proof).** "one class modulo vq''/(q'',t) or empty" — give the reason: κ≡b with b a unit mod v, so if a prime of v divides q''/(q'',t) the set is empty, otherwise CRT gives one class mod the product.
+
+**m6 (nit, Lemma 4.5).** The count of M divisible by p² with p≥y is ≤X/(4n(y−1))+π(√(2X)) rather than X/(4ny)+√(2X); immaterial.
+
+**m7 (nit, Lemma 4.6).** (F4) actually gives log(V/v₀)/d≤(𝓛/2)/(4n'); the stated 𝓛/(4n') is a valid but loose bound — fine as is.
+
+**m8 (MINOR, bibliography).** I verified [BGP], [PYY] (journal data), [Henriot] (journal via DOI 10.1017/S0305004111000752), [Tao254A] (date; Thm 5 is the dual sieve problem). *Repair:* move these out of the TODO(verify, v4) comment; still to check: [ErdosSpencer], [Janson], and the [FI] numbering (Lemma 6.3, Cor. 6.10).
+
+**m9 (cosmetic).** Three overfull hboxes (l.274–289, 593, 733), 7.7–9.5pt.
 
 ## Work log / checks (from scratch)
 * **Compile.** `pdflatex` ×2 on v4: 39 pp., 0 undefined refs/citations, 3 overfull hboxes (9.5pt at l.274–289, 7.7pt l.593, 8.7pt l.733). OK.
@@ -44,3 +88,5 @@ Status: IN PROGRESS.
 * **Thm 10.6 (no positive low-level minorant).** Re-derived: big primes of Q subtracted (ω_big(Q)p*≤T^{−0.45}); D≡−x/4 (v) with x a unit ⇒ gcd(v,2n_D)=1; R(x)≥0.13·(L²/200)·c₃(εL/3)/(6log𝓛)≍ε³𝓛³/log𝓛 *for every* x; (k+1)+(2k+1)r*≤(k+1)(1+4p*)≤μ* when c≤0.3c₉ε³; F*'s events have M=vℓ≤T^{0.7+ε/3}≤T so 𝓕*⊆𝓔. Constants c,ε absolute; N_exc depends only on T; uniform in (Q,r) with log Q≤T^{0.05}. SOUND (mod Gallagher+LP, FL).
 * **Cor 10.7 (1/4 ceiling, proved implication).** Re-derived; case log Q>T^{0.05} uses the hypothesis Z≥Q; the (loglog p)^{1/2} gap is (c(log p/loglog p)^{1/4}) vs ((log x·loglog x)^{1/4}) ✓. Scope paragraph is accurate and appropriately restrictive. SOUND.
 * **Cor 10.8 (energy tail).** Re-derived: τ≪ρ(𝓛+S₁) ⇒ log(level)≤3𝓛+2τ≤c𝓛⁴/log𝓛 for c' small; fibre of Thm 3.3 has log Q≪𝓛³(log𝓛)⁵≤T^{0.05}; B≤F_res≤1[W>T] on all units of the fibre. Labels (xz,G,NT,FL) correct. SOUND.
+* **§11 status / labels.** Every header label checked against the proofs above: consistent (Thm 1.1/9.1 mod G(+LP), NT; Thm 3.3 mod NT; Thm 4.4 mod FL; Thm 10.6 mod G(+LP), FL; Cor 10.8 adds NT). No circularity: §10 uses only §§4–5 tools + FL, not Thm 1.1.
+* **Bibliography TODO(verify, v4).** Checked online now: [BGP] arXiv:1201.3261 title/authors ✓; [PYY] arXiv:0801.0059, journal ref "Random Struct. Alg. 38, 502–525, 2011" ✓; [Henriot] arXiv related DOI 10.1017/S0305004111000752 (Math. Proc. Camb. Phil. Soc.) ✓; [Tao254A] "254A, Notes 4: Some sieve theory", 21 Jan 2015, **Theorem 5 = "Dual sieve problem"** ✓ (so the citation [Tao254A, Thm. 5] is apt). Not checked: [ErdosSpencer], [Janson] (standard, details look right), [FI] Lemma 6.3/Cor. 6.10 numbering (book not archived).
