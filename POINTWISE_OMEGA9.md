@@ -76,7 +76,7 @@ So `M_1` disappears; the only price for the size of B is the additive
 `L:=2c+log(400C_G(A+1))` and `Q_G:=x^{1/(κL)}`. For `C_2` large the
 hypothesis gives: `log Q_G ≥ C'log Z` with `C'` as large as we like (since
 `L≪1+log A`), hence `Q_G ≥ Z`, `Q_G ≥ 10^4C_G(A+1)(κL)²` (use `A≤Z^{1/4}`,
-`Z≥2`); `Q_G^{6c}≤x` (as `κL≥6c`); `log x≥16`; `x ≥ 400A·N·Z·log(QD)`.
+`Z≥2`); `Q_G^{6c}≤x` (as `κL≥6c`); `log x≥16`; `x ≥ C·A·N·Z²·log(QD)`.
 
 *Character expansion.* `f(n):=B(n)1[n≡1 (Q)]` is a function on
 `G=(ℤ/QD)^*`, so `f(n)=Σ_{χ mod QD}c(χ)χ(n)` for `(n,QD)=1`, with
@@ -121,11 +121,12 @@ inside (G); `c(χ)` is real since χ and B are.
   ≥ min(u,1)/2` (using `1−β_1≤1/(κ log Q_G)` when `u>1`, `log x≥16`). The
   (G) error relative to `λμx/φ(Q)` is `≤ 2AC_G[u e^{−κL}+κL/Q_G]/min(u,1)`.
   For `u≥1` this is `≤ 2AC_G[Le^{−κL}+κL/Q_G] ≤ 1/100`. For `u<1` it is
-  `≤ 2AC_G[e^{−κL} + κL/(uQ_G)]`, and `uQ_G ≥ (1−β_1)Q_G ≫ Q_G^{1/2}/log²Q_G`
-  by the effective Page bound (`q_1≤Q_G`); `≤1/100` for `C_2` large.
-  With `R_1` (relative `≤ 1/(200λ)`... also absorbed since
-  `x ≥ 400ANZ log(QD)` may be strengthened by a factor `Q_G^{1/2}`, again
-  linear in `log Z`), `S(x) ≥ λμx/φ(Q)·(1−3/100) > 0`.
+  `≤ 2AC_G[e^{−κL} + κL/(uQ_G)]`, and `uQ_G ≥ (1−β_1)Q_G ≫ Q_G/(Z^{1/2}log²Z) ≥ Q_G^{1/2}`
+  by the effective Page bound (`q_1≤Z`); `≤1/100` for `C_2` large.
+  Since `c(χ)≠0`, `q_1 ≤ Z`, so `u ≥ (1−β_1)·16 ≫ Z^{−1/2}(log Z)^{−2}` and
+  `λ ≫ Z^{−1/2}(log Z)^{−2}`; then `|R_1| ≤ λμx/(100φ(Q))` holds because the
+  hypothesis also gives `x ≥ C·A·N·Z^2·log(QD)` (still linear in `log Z`).
+  So `S(x) ≥ λμx/φ(Q)·(1−3/100) > 0`.
 * *Case B: `χ_D` nontrivial.* By item 3, `|c(χ)x^{β_1}/β_1| ≤
   (|μ_ψ|/φ(Q))·2x ≤ μx/(2φ(Q))`. So `S(x) ≥ μx/φ(Q)·(1−1/2−1/100) > 0`.
 
