@@ -175,6 +175,18 @@ Remark~\ref{rem:FI}).  Section~\ref{sec:model} records, with an explicit
 coarse discretised model in which Type~I information of level $1/2$ plus
 parity does not force any configuration with both windows clean.
 
+\subsection{Relation to known results}
+The exceptional set of the Erd\H{o}s--Straus equation is known to be
+small on average: Vaughan \cite{Vaughan} proved
+$E(N)\ll N\exp(-c(\log N)^{2/3})$ by a large-sieve argument over many
+moduli, which is the classical form of the window sieve of
+Section~\ref{sec:stack}.  Such bounds concern $\{\amin(p)=\infty\}$.  This
+note concerns the much larger sets $\{\amin(p)>Z\}$ for fixed or slowly
+growing $Z$; the comparison is made precise in Remark~\ref{rem:compare}.
+The lower bounds (Theorems~B, C) follow the half-dimensional sieve
+method of Iwaniec \cite{Iw76} and Friedlander--Iwaniec \cite{FI09}; we
+claim no novelty of sieve technique.
+
 \subsection{Status and conventions}
 Labels: \status{proved} means a complete proof is given here, possibly
 using cited theorems that are listed explicitly; \status{conditional}
@@ -525,16 +537,35 @@ Summing over the $2^{\beta_{\rm tot}(Z)}$ selection vectors gives the
 bound.  For the last claim note $\beta_{\rm tot}(Z)=O(Z^2)=o(JL)$ when $Z=o(L)$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}[comparison with the literature]\label{rem:compare}
 Since $\sum_{a\le Z,\,a\equiv3\,(4)}\varphi(a)=(1+o(1))Z^2/\pi^2$, one has
 $\beta_{\rm tot}(Z)=(1+o(1))Z^2/(4\pi^2)$, and optimising the exponent
 $-(Z/8)L+(\log2/4\pi^2)Z^2$ at $Z\approx\pi^2L/(4\log2)\approx3.56L$ (inside the
 range with $C_0=4$) gives
 $\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\le N\exp\bigl(-(\pi^2/(64\log2)-o(1))(\log\log N)^2\bigr)$.
-For windows up to $(\log N)^\theta$ with $\theta<\log3/(1+\log3)$, stronger
-tails of the shape $N\exp(-c(\log N)^\theta\log\log N)$ follow from an
-earlier unpublished argument in this project (\cite[\S14]{Notes}); we do
-not reproduce it.  None of these bounds approaches $\amin(p)<\infty$ for all $p$.
+
+The mechanism of this section --- sieving the shifted primes $p+a$ by
+residue conditions modulo many windows $a$ at once --- is classical.
+Vaughan \cite{Vaughan} used the large sieve in this way to prove that the
+number $E(N)$ of $n\le N$ for which \eqref{eq:ES} is unsolvable satisfies
+$E(N)\ll N\exp(-c(\log N)^{2/3})$; see \cite{ET} for counts of
+solutions.  (Vaughan's paper could not be consulted in this project; we
+use only its published bound.)  The set $\{p:\ \amin(p)=\infty\}$ of
+counterexamples is therefore far sparser than anything proved here, and
+an unpublished argument in this project's notes obtains the shape
+$N\exp(-c(\log\log N)^2)$ for that set from windows up to $\delta\log N$
+\cite[Thm.~12.2]{Notes}, and tails $N\exp(-c(\log N)^\theta\log\log N)$
+for the failure of all windows up to $(\log N)^\theta$,
+$\theta<\log3/(1+\log3)$ \cite[Thms.~14.4, 14.9]{Notes}; the review
+status of these notes sections is not recorded, and we do not reproduce
+them.  The sets $\{\amin(p)>Z\}$ studied here, with $Z$ fixed or slowly
+growing, are much larger, and what is new, as far as we know, is the
+exact exponent $1+J(Z)/2$ in Theorem~\ref{thm:stack}, together with its
+sharpness for $Z=3$ (and $Z=7$ on EH).  The ingredient that makes the
+exponent exact is the half-set lemma, which removes the exponent-budget
+exceptions that limited earlier window majorants to a single excluded
+class per window.  None of these bounds approaches $\amin(p)<\infty$ for
+all $p$.
 \end{remark}
 
 \section{Cited results}\label{sec:cited}
@@ -1252,6 +1283,8 @@ reviewed working notes, 2026.
 \bibitem{PW2} Companion note in this repository,
 \texttt{POINTWISE\_WINDOW2.md} (quadric, Theorem P1, the discrete model);
 internally reviewed in \texttt{reviews/pointwise-window2-review.md}.
+\bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
+Schinzel, Mathematika 17 (1970), 193--198.
 \bibitem{Sed} A.~Sedunova, On the hyperbolic prime number theorem,
 arXiv:2609.28200v1 (2026).
 \bibitem{Ter} J.~Ter\"av\"ainen, The Goldbach problem for primes that are
