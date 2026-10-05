@@ -65,3 +65,23 @@ components for `U≠∅` ✓. Boolean ±1 form: `g=1−2h=2F−1`, `ĝ(U)²=4‖
 so `W^{>t}[g]≤4·2^{−(t+1)/k}` for every width-k DNF and every product
 measure (p-biased included). **SOUND** (derivation independently reproduced;
 numerics in §2).
+
+## 2. From-scratch numerics
+
+Library `scripts/review_o10b_lib.py` (own code): exact Efron–Stein level
+weights on an arbitrary finite product probability space, by a degree-tagged
+tensor sweep. Validated in `scripts/review_o10b_sanity.py` against a
+brute-force Walsh transform (uniform bits, diff 0) and against brute-force
+inclusion–exclusion Efron–Stein for a biased q-ary space (diff 4e−17).
+"tail ratio" := `max_t energy(F;t)·2^{(t+1)/k}` (Cor 4.1 ⟺ ratio ≤ 1);
+also `G:=G_F(2^{1/k})` (C-1 ⟺ G ≤ 1, stronger).
+
+**2.1 Structured Boolean DNFs, uniform bits, n ≤ 16** (`review_o10b_families.py`,
+output `reviews/agent-reports/r38b_families.txt`, 127 functions): tribes
+(w≤5, all s with ws≤16), thresholds `[|x|≥k]` (all k-ANDs, n∈{8,12,14},
+k≤6), `[|x|≥k or |x|≤n−k]`, OR of s disjoint k-parities, parity_n as a
+2^{n−1}-term DNF (n≤12), majority (n≤15, k=(n+1)/2), multiplexers,
+sunflowers. **Max G = 0.9822** (single AND of width 5, = `1−2^{−5}(2−(1+2^{1/5})^5/2^5·…)`
+as predicted by §2's single-event formula), **max tail ratio = 0.5**
+(attained by parity_k at t=k−1 and a single literal). No violation; the
+Boolean bound has a factor ≥2 slack on all of these.
