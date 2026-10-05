@@ -102,3 +102,52 @@ A, the number of cells, M_1 or K.
   coprime to all d_i ✓ (weaker than PO's hypothesis, fine).
 
 **Verdict: SOUND (after minors m3, m4).**
+
+## 5. Numbered defects
+
+No FATAL, no MAJOR defect found in Thm 1.1. (The earlier self-review MAJOR — the exceptional RHS
+prefactor — is correctly repaired at `9a21ffc`.)
+
+* **m1 (MINOR, §1 "Cited input (G)", "absolute constants c≥1, κ≥3").** MV's statement is: constants
+  `c≥1, κ_0≥3`, and the theorem holds for any *fixed* `κ≥κ_0`. "κ≥3" reads as if any κ≥3 worked.
+  Moreover the "(unique, real)" exceptional character is not part of Thm 28.19; it comes from MV's
+  Exceptional Zero Statement (28.61)–(28.62), p. 216, which gives uniqueness for zeros with
+  `1−β < c_1/log Q`, so one needs `1/κ ≤ c_1`; MV's displayed `κ_0 = 3max(c,c_1,c_0e,1,c_0e^{3c})`
+  (28.91) has `c_1`, not `1/c_1` (apparently a draft typo). *Repair:* "fix a constant
+  `κ ≥ max(κ_0, 1/c_1)` (MV 28.19, (28.61)–(28.62))" and cite the Exceptional Zero Statement for
+  uniqueness/reality/quadraticity of χ_1.
+* **m2 (MINOR, source quality; Assessment).** MV III's proof of 28.19 (pp. 230–232) is internally
+  inconsistent as printed: case 1 assumes no zero with `β > 1−1/(κ_0 log T)` (`T=Q³`) but integrates
+  `N*` up to `1−1/(κ' log T)=1−1/(κ log Q)`, and case 2 assumes `1−β_1 < 1/(κ log Q)`; the two cases
+  match only for `κ=3κ_0`. The result itself is classical (Gallagher 1970, Thm 7) and the slip is
+  repairable by fixing `κ:=3κ_0` (or its analogue), but the only source read by the author (and me)
+  is an unpublished draft with this slip. *Repair:* fix κ:=3κ_0 explicitly (compatible with m1 only
+  if `3κ_0 ≥ 1/c_1`; otherwise enlarge κ_0 consistently), and add a sentence noting that the
+  statement is the standard Gallagher theorem and that the draft proof has this slip; ideally also
+  cite a published statement (Gallagher's Thm 7 or Iwaniec–Kowalski ch. 18) — not checked by me.
+* **m3 (MINOR, Case A, "using 1−β_1≤1/(κ log Q_G) when u>1").** For u>1 this gives only
+  `2(1−β_1) ≤ 2L/log x`, not `≤ 2/log x`. The inequality used is nevertheless true for all u:
+  `2(1−β_1)e^{−u} = 2ue^{−u}/log x ≤ 2min(u,1)/log x` (as `ue^{−u} ≤ min(u,1/e)`).
+  *Repair:* replace the parenthetical by this one-line argument. (Checked numerically,
+  `review_o9a_lambda.py`: min ratio 1.215.)
+* **m4 (MINOR, Case A, "because x ≥ C·A·Z³").** With `λ ≫ Z^{−1/2}(log Z)^{−2}` and
+  `|R_1| ≤ 2AZ³μ/φ(Q)`, one needs `x ≫ A Z^{7/2}(log Z)²`; `x ≥ CAZ³` (listed in the setup) is
+  insufficient as written. *Repair:* list `x ≥ C·A·Z^4` in the setup (follows from the hypothesis
+  for C_2 large) and cite it here.
+* **m5 (MINOR, Case A, Page bound).** The text writes `q_1 ≤ Z`; in Case A actually `q_1 | Q`
+  (χ_D trivial), so `q_1 ≤ Q`. Harmless; noting for precision.
+* **Note for reviewer 2 / application (not a defect in Thm 1.1).** Thm 1.1's `A` uses the mean over
+  units mod `D=lcm d_i`; Lemma 2.1 is applied with O8's Haar expectation `E`. These agree for
+  functions of the residues mod the d_i (product Haar over primes of D), but §2 should say so in one
+  line. `η = 1/99` follows from `E[F−B] ≤ δ/100`, `μ ≥ 0.99δ` ✓; `1+2/99 ≤ 1.03` ✓.
+
+## Summary verdicts
+
+| Claim | Verdict |
+|---|---|
+| (G) quotation of MV III Thm 28.19 incl. repaired exceptional variant | SOUND (minors m1, m2) |
+| Thm 1.1 character expansion (items 1–3, R_1) | SOUND |
+| Thm 1.1 Case 0 / final inequality / absoluteness of C_2 | SOUND |
+| Thm 1.1 exceptional Cases A, B | SOUND-AFTER-REPAIRS (minors m3, m4, m5 — wording only) |
+| **Thm 1.1 overall, label "PROVED modulo (G)"** | **SOUND-AFTER-REPAIRS (minor only)** |
+| Thms 2.2, 2.3 | not reviewed here beyond the interface (reviewer 2's scope) |
