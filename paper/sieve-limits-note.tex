@@ -2779,8 +2779,10 @@ than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 This section summarises four further internal documents: \cite{LS}
 (review \cite{LSrev}), \cite{LS2} (reviews \cite{LS2rev} of \S\S1--7 and
 \cite{LS2revb} of \S\S8--9), \cite{PL} (review \cite{PLrev}) and \cite{IF}
-(review \cite{IFrev}).  No review found a fatal or major defect; the minor
-repairs are applied in the sources.  Throughout, $\cG$ is a finite mixture
+(review \cite{IFrev}).  No review found a fatal defect.  The IF review found
+one major scope overclaim (hybrid methods), repaired by restricting the
+claim (\cite[Rem.~2.6]{IF} and Section~\ref{sec:hybrid} here); the other
+repairs were minor, and all are applied in the sources.  Throughout, $\cG$ is a finite mixture
 of the four types of Definition~\ref{def:types} with arbitrary moduli,
 $\A=\A(\cG)\subseteq\Z$, and $M_0$ is the lcm of its moduli.  The \emph{level}
 of a modulus $d$, or of a rational frequency of denominator $d$, is
@@ -2792,8 +2794,10 @@ $\A\bmod M'$, and $\hat\rho(\theta)=\sum_n\rho(n)\e(n\theta)$.
 The sources cite \cite[Thm~5.1]{KA2}, with cap $C\lambda^{3/4}(\log\lambda)^{3/4}$.  The
 integer-measure results use it only as a black-box lower bound for $\E\nu$,
 so Theorem~\ref{thm:noBcap} may be substituted, giving $C\lambda^{3/4}$ and the
-reading $C_A(\log N)^{3/4}$ (\cite[\S4.3]{KA3}, pointer level; below it is a
-one-line step in each proof).  The unit-measure results
+reading $C_A(\log N)^{3/4}$ (\cite[\S4.3]{KA3} for \cite[Thm~3.1]{LS} and
+\cite[Cor.~2.3]{IF}; the update note at the head of \cite{LS2} and ledger item
+(D)24 for the results of \cite{LS2}; for \cite[Thm~2.5]{IF} the substitution
+is checked in this note).  Below it is a one-line step in each proof.  The unit-measure results
 (Theorem~\ref{thm:PLcap} and its consequences) rerun the proof instead; for
 them the improvement is pointer-level only, and both forms are stated.  Case-A classes enter only through the cap
 used (Theorem~\ref{thm:noBcap}, Theorem~\ref{thm:PLcap} or
@@ -2946,7 +2950,8 @@ every $c$ has $N\E_U|\sum_jc_j\phi_j|^2\leq\Delta\|c\|^2$.  Take $\rho$ from Lem
 with $\mathcal D$ containing $1$, $Q_0$, $Q_0\lcm(d_j,d_k)$ and the coarsened
 fibre moduli, and its fibre laws $\rho_c$.  Type~(i): Cauchy--Schwarz
 removes $\psi$, and the lifted $|\sum_jc_j\bar\phi_j|^2\geq0$ lies in $V_{\mathcal D}$, so
-$B_c\geq N_cQ_0\rho(c)\e^{-S}$.  Type~(ii): Lemma~\ref{lem:budget} coarsens $\nu_c$ to
+$B_c\geq N_cQ_0\rho(c)\e^{-S}$.  Type~(ii): after projection to the family period (as in the proof of
+Theorem~\ref{thm:main}), Lemma~\ref{lem:budget} coarsens $\nu_c$ to
 level $\leq\Lambda_0+\log N_c$ and mean $\leq B_c/N_c$; then
 $1\leq\E_{\rho_c}\nu'_c\leq\e^S\E\nu'_c/(Q_0\rho(c))$.  Type~(iii): $\rho(c)\leq\e^S/Q_0$.
 Sum over $c$.
@@ -2956,7 +2961,7 @@ fibrewise mixtures with rounding fibres, give no $\theta>3/4$.  Not covered:
 non-periodic rows ($n^{it}$, smooth weights in $n$), which use the position
 of $n$ in $I$.
 
-\begin{theorem}[the large sieve for primes; {\cite[Thm~3.1]{LS2}}; \lab{proved} via Theorem~\ref{thm:PLcap}]\label{thm:LSprimes}
+\begin{theorem}[the large sieve for primes; {\cite[Thm~3.1]{LS2}}; \lab{proved} via Theorem~\ref{thm:PLcap}; Case A as in Theorem~\ref{thm:PLcap}]\label{thm:LSprimes}
 Let $A$ consist of primes $p\leq N$, $p\in\A$, $p\nmid M'$; let admissibility
 range over all probabilities on $\A\cap(\Z/M')^\times$, and let all fibres be of
 type (i) or (iii), $c\in(\Z/Q_0)^\times$.  Then
@@ -2995,8 +3000,8 @@ Take $W=\max(W_0,(\log3Q)^8)$, the sequential law $\sigma$ of
 Section~\ref{sec:kary} on the base $R_W^\square$ (Lemma~\ref{lem:squarebase}),
 singletons at the primes $\ell>W$, and $\rho=\sigma(\cdot\mid\A)$.  The leak is
 $\leq C(\log W)^cW^{-1/4}$ (Lemma~\ref{lem:secondnoB}, uniformly in $W$).  At $\ell>W$,
-$\chi^2_{\ell^v}(\sigma)\ll(\log W)^c\ell^{-7/8+o(1)}$; at $p\leq W$, $\chi^2\leq7$, and Mertens gives
-$3\log W+C$.
+$\chi^2_{\ell^v}(\sigma)\ll(\log W)^c\ell^{-7/8+o(1)}$; at odd $p\leq W$, $\chi^2=(p+1)/(p-1)\leq2$ (and
+$\chi^2\leq7$ at $p=2$); Mertens and $\mathfrak L\log W=o(1)$ give $3\log W+C$.
 \end{proof}
 It uses Shiu's and Mertens' theorems only, not \cite{ElsholtzTao} or
 Theorem~\ref{thm:noBcap}.
@@ -3030,7 +3035,7 @@ inherited from Theorem~\ref{thm:main}.
 \begin{proposition}[what (E1) needs; {\cite[Props~5.1, 5.2]{LS2}}; \lab{proved}; (1) via Theorem~\ref{thm:noBcap}]\label{prop:E1}
 (1) Let all primes of $\cG$ be $\leq N^A$.  If every frequency has at most $r$
 distinct primes $>W$ in its denominator, the saving is
-$\leq\log2+C(2rA\log N+\lambda(Q_0))^{3/4}$.  So a saving $\geq(\log N)^{3/4+\varepsilon}$
+$\leq\log2+C\max(\lambda_0,2rA\log N+\lambda(Q_0))^{3/4}$.  So a saving $\geq(\log N)^{3/4+\varepsilon}$
 needs denominators with $\geq(\log N)^{4\varepsilon/3-o(1)}$ distinct family primes.
 (2) If some $\rho\in\mathcal M(\A)$ has $\E_\rho f\leq\e^{S_1}\E_Uf$ for all $f\geq0$ of level
 $\leq2\lambda'$, and $|\hat\rho(\theta)|^2\leq\e^{S_2}/N$ for all $\theta$ of level $>\lambda'$, then
@@ -3048,8 +3053,8 @@ every $\theta$ of level $>\lambda'$.
 By Proposition~\ref{prop:E1}(2) this caps every CRT-admissible large sieve
 at $C_\eta(\log N)^{3/4}$, whatever the frequencies.  The sequential law decays
 only at the top prime of the denominator; a cluster expansion suggests
-$\eta=1/2-o(1)$ (\emph{Assessment}).  A proof must use the sparsity of forced
-classes:
+$\eta=1/2-o(1)$ (\emph{Assessment}).  A proof needs family-specific input,
+such as the sparsity of forced classes:
 
 \begin{theorem}[dense band families escape; {\cite[Lemma~8.1, Props~8.2, 8.4, 8.6, Thm~8.5]{LS2}}, {\cite{LS2revb}}; \lab{proved}]\label{thm:band}
 Let $0<\eta\leq1/8$, let $\ell_i,\ell'_i\geq5$ ($i\leq K$) be distinct primes,
@@ -3081,8 +3086,8 @@ the large-sieve axioms.  The band family puts mass $\asymp\eta$ on single
 moduli of high level.  Forced families are expected to satisfy (Sp): for
 $D$ of level $\geq\log N$, the classes with modulus divisible by $D$ carry
 mass $\leq D^{-1+o(1)}$ (\emph{Assessment}, not proved).  A proof of
-Conjecture~\ref{conj:HLS} must use (Sp) or the moment hypotheses of
-Section~\ref{sec:noB}.  No method in the literature uses such frequencies.
+Conjecture~\ref{conj:HLS} needs something like (Sp) or the moment
+hypotheses of Section~\ref{sec:noB}.  No method in the literature uses such frequencies.
 
 \subsection{Prime-only majorants for mixtures}
 A \emph{prime majorant} of $\A$ is $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ with
@@ -3104,8 +3109,9 @@ Theorem~\ref{thm:noBcap}; this is pointer-level and not separately reviewed.
 \end{theorem}
 \begin{proof}[Proof sketch]
 Run the proof of \cite[Thm~5.1]{KA2} on the unit groups $(\Z/\ell^e)^\times$.  The
-square base consists of units, since no forced class contains a unit
-square (Lemma~\ref{lem:nosquare}); its $R$-term is $(\pi(W)+1)\log2$.  The
+base is the set of unit squares, which avoids every $W$-smooth class by
+Lemma~\ref{lem:nosquare} (as in Lemma~\ref{lem:squarebase}); under the unit
+measure its $R$-term is $(\pi(W)+1)\log2$.  The
 sequential steps are arithmetic-free, non-unit classes have mass $0$, and
 the factor $\ell/(\ell-1)$ on unit classes is absorbed into the inflation weight
 $\gamma^*(\ell)=(\ell/(\ell-1))(1-\ell^{-1/2})^{-1}$ of the moments and the leak
@@ -3199,10 +3205,12 @@ whatever $B$ is.
 \begin{proof}[Proof sketch]
 For $F$ as above with $D=N/2$, Poisson along a progression gives
 $|\sum_{n\equiv b\,(d)}F(n)-(N-D)/d|\leq2(N+D)/D=6$, and $0$ if $d\leq D$.  So
-$B\geq\sum_nF(n)\nu(n)\geq(N/2)\E\nu-6T_>$, i.e.\ $\E\nu\leq(2+12c)\e^{-s}$.  For the mean,
-follow the proof of Theorem~\ref{thm:main}: the coarsening of
+$B\geq\sum_nF(n)\nu(n)\geq(N/2)\E\nu-6T_>$, i.e.\ $\E\nu\leq(2+12c)\e^{-s}$.  If
+$s\leq\log(2+12c)$ there is nothing to prove; otherwise $B<N/(2+12c)$, so
+$T_>\leq cB<N/12$.  For the mean, follow the proof of Theorem~\ref{thm:main}:
+project to the family period, then the coarsening of
 Lemma~\ref{lem:budget} touches only terms of level $>\log(N/2)$, whose
-coefficient sum is $\leq T_>$.
+coefficient sum is $\leq T_><N/12$.
 \end{proof}
 $T_>$ may be replaced by its infimum over representations of $\nu$; $c=1$
 contains the class of Theorem~\ref{thm:main}.  Not covered: \emph{hybrid}
@@ -3247,8 +3255,9 @@ So the Selberg accounting of Theorem~\ref{thm:IFbudget} does not extend to
 hybrids as it stands.  It does when the \emph{free} large mass
 (right-signed terms) is small: if the positive terms on classes of
 modulus $>N$ meeting $[1,N]$, plus the right-signed mass at moduli in
-$(N/2,N]$, are $\leq cB$, the saving is at most $S_A+\log(2+12(1+c))$, where
-$S_A$ is the cap of Theorem~\ref{thm:main} \cite[Cor.~5.1]{IF2} \lab{proved}.
+$(N/2,N]$, are $\leq cB$, and all family primes are $\leq N^A$, the saving is at
+most $S_A+\log(2+12(1+c))$, where $S_A$ is the cap of Theorem~\ref{thm:main}
+(\cite[Cor.~5.1]{IF2} with Theorem~\ref{thm:IFbudget}) \lab{proved}.
 Large free mass is not in itself a counterexample:
 $(1+K)-K\sum_{b\bmod N}\ind[b\bmod N]\equiv1$ has $B=N$ and right-signed mass $KN$.
 
@@ -3327,6 +3336,11 @@ each has $R$-mass $\leq1-\sigma$, and they sum to $c(b,q)$.  (1) is a direct
 check of the Flat conditions, using the decay of $F_S$ off $[1,N]$ to bound
 $\tau$ \cite[\S9]{IF2}.
 \end{proof}
+The bound $\tau=O(1)$ rests on the inequality $0\leq B(z)-\mathrm{sgn}(z)\leq2K(z)$
+for Beurling's function \cite{Vaaler}, quoted in \cite{IF2} from its review
+with the numbering not re-checked against the source.  For the cap of
+Theorem~\ref{thm:hybridcap}, $\Delta_0$ (hence $\Delta$) must also be bounded,
+$\Delta\leq\e^{S_A}$.
 LPs find SPW at $C=2$ for $N\leq60$, attaining $\sigma_C(N)$ with long enough
 support, and Flat at sampled $N\leq100$ \lab{evidence} (floating-point LPs).
 Open: SPW itself, and right-signed mass at moduli in $(N,CN]$; periodic
