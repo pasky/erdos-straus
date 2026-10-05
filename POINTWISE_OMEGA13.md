@@ -299,8 +299,8 @@ stopping for the nonnegative supermartingale `G^{(ℓ,a)}` gives
 `Π_i:=p_i(F)p_i(F')R_i`, with
 
 * `R_i:=∏ρ` over the coordinates ℓ' shared by the supports;
-* `ρ:=` the number of classes mod `ℓ'^{min(v,v')}` in the current fibre if F, F'
-  agree mod `ℓ'^{min(v,v')}`, and `ρ:=1` otherwise.
+* `ρ:=` the number of classes mod `ℓ'^{j}` in the current fibre, where `j≤min(v,v')` is the
+  agreement depth (the largest j with `x_F≡x_{F'} mod ℓ'^j`); `ρ=1` if the current level is `≥j`.
 
 Then `p p'≤Π`, and `Π_i2^{u_i(F)+u_i(F')}` is a supermartingale. Check, at a step
 revealing a level of ℓ':
@@ -312,7 +312,10 @@ revealing a level of ℓ':
   `F_r·1[match]` (F_r = number of classes revealed among), and ρ is divided by `F_r`.
   So `Π→F_r1[match]Π`. Its mean is Π for `a≥1`, and `(1+(−d|ℓ'))Π≤2Π` for `a=0`.
   In the latter case both u's drop.
-* *Both constrain ℓ' and disagree:* both cannot match, so `Π→0`.
+* *Both constrain ℓ' and disagree at this level* (level `j+1`): both cannot match, so `Π→0`.
+
+(R1 fix: ρ uses the agreement depth j, not `min(v,v')`. Otherwise a pair agreeing at low levels but not
+at `min(v,v')` would gain a factor `F_r` at low-level steps.) At the start `R_0=∏φ(ℓ'^{j})≤φ(gcd)`.
 
 So `E[Π_end]≤2^{u_0+u_0'}Π_0≤2^{ω_Y+ω_Y'}P_H(F)P_H(F')·φ(gcd(M_F,M_{F'}))`. Apply this
 with `F=E^{(ℓ)}`, `F'=E'^{(ℓ)}` and multiply by `φ(ℓ^v)^{−1}φ(ℓ^{v'})^{−1}`. The final
@@ -428,3 +431,29 @@ The checks:
 These are checks of interfaces written for the class of one, not new mathematics. They have not been done.
 The junta `𝓛·S` is now the sole bottleneck. A junta `≪S·(log𝓛)^{O(1)}` (brief item (ii)) would push
 the conditional prime exponent to `1/3`.
+
+## 4. Status (checkpoint 1)
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | β-weighted LLL: per-coordinate threshold `η=(3/4)logβ` | PROVED |
+| Lemma 1.2 | threshold-η quarantine cost `(1/η)Σβ^ω s Λ_st` | PROVED |
+| LPL(Y), M(Y), Prop 1.3 | class-of-one route | CONJECTURE / CONDITIONAL (superseded by §3) |
+| Lemma 2.1, Cor 2.2 | heavy late primes quarantined ⇒ only the second moment V2 is needed | PROVED reduction / CONDITIONAL |
+| §2 table | `Σ_{ℓ>Y}V♯²` below heuristic; pointwise `ℓV♯/S♯` grows | EVIDENCE |
+| Lemma 3.1 | event classes `−4D mod M` have Jacobi symbol −1; Legendre `=(−d|ℓ)` | PROVED (+ check to 2·10⁵) |
+| Lemma 3.2 | square-class process: supermartingales, cost, mass, late second moment `B_2` | PROVED |
+| Lemma 3.3 | (A) Haar-weighted masses `≪𝓛³polylog`; (B) `Σ_{ℓ>Y}B_2≤(𝓛+1)Ξ/Y`, `Ξ≪𝓛^{O(1)}` | (A) PROVED mod NT; (B) PROVED |
+| Thm 3.4 | `log(1/δ*(T))≪𝓛³(log𝓛)^{O(1)}`; Haar exponent a=3 | PROVED mod NT (Nair–Tenenbaum) |
+| Cor 3.5 | `W(p)≥exp(c(log p)^{1/4}(loglog p)^{−B})` i.o. | CONDITIONAL on interface checks I1–I3 (+ (G), NT, OMEGA10 Thm 3.4) |
+
+Not claimed: anything about ES itself. 1/4 is not claimed unconditionally: it awaits I1–I3.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 900  uv run python scripts/omega13_inflation.py 100000)   # §1 EVIDENCE   -> data/omega13/inflation.txt
+(ulimit -v 8000000; timeout 1800 uv run python scripts/omega13_v2.py 1000000)         # §2 EVIDENCE   -> data/omega13/v2.txt (~4 min)
+(ulimit -v 8000000; timeout 900  uv run python scripts/omega13_jacobi.py 200000)      # Lemma 3.1     -> data/omega13/jacobi.txt
+```
