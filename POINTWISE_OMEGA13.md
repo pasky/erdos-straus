@@ -141,17 +141,13 @@ for *every* graded class-of-one Q, uniformly. Put `V♯(ℓ):=Σ_{E: ℓ|M}s♯(
 Run Lemma 1.2 with only the primes `ℓ≤Y` and `ℓ∈𝓗` eligible. Then:
 
 * (LLL) (1.1) holds at the end, at every coordinate.
-* (cost)
-  ```
-  log Q ≤ log Q_start + (1/η)Σ_E β^{ω(M)}C_1(g_Y/M)·log M_Y + 𝓛·(1/η+1)·Σ_{ℓ∈𝓗}V♯(ℓ)·(2/η)... 
-  ```
-  More simply: `log Q ≤ log Q_start + (1/η)Σ_Eβ^{ω}C_1(g_Y/M)log M_Y + (𝓛/η+𝓛)·R_2`.
+* (cost) `log Q ≤ log Q_start + (1/η)Σ_Eβ^{ω}C_1(g_Y/M)log M_Y + (𝓛/η+𝓛)·R_2`.
 * (mass) `Σ_Eβ^{s}P(E) ≤ S_Y + R_2`.
 
 Here
 
 ```
-R_2 := (4/η²)·Σ_{ℓ>Y} V♯(ℓ)²   (≥ |𝓗| and ≥ Σ_{ℓ∈𝓗}V♯(ℓ)·(2/η)^{-1}… see proof).
+R_2 := (4/η²)·Σ_{ℓ>Y} V♯(ℓ)².
 ```
 
 *Proof.*
@@ -160,7 +156,7 @@ satisfy (1.1) when the procedure stops.
 
 (weights) Let `Q=Q_Y·Q_𝓗`, where `Q_𝓗` is composed of primes in 𝓗. A surviving
 atom has `gcd(M,Q)|g`. If no prime of 𝓗 divides `gcd(M,Q)`, then
-`gcd(M,Q)|g_Y` and `P(E)≤β^{-ω}…`; that is, `x_E≤β^{ω}C_1g_Y/M=:s_Y(E)`.
+`gcd(M,Q)|g_Y`, so `P(E)≤C_1g_Y/M` and `x_E=β^{s}P(E)≤β^{ω}C_1g_Y/M=:s_Y(E)`.
 Otherwise `x_E≤s♯(E)` and some `ℓ∈𝓗` divides g, hence divides M. So
 
 ```
