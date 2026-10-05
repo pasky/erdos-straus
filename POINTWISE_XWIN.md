@@ -134,3 +134,12 @@ versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
   for the lower bound (POINTWISE_WINDOW Thm W2); the upper bound
   `≪x/(log x)^2` is unconditional (Cor 1.3, Z=7). So W2 is sharp.
 
+## 2. Growing window sets: a proved weak form of H_STACK up to `a≤(log N)^{2/5}`
+
+(In progress; written lemma by lemma.) Plan: replace the half-set
+majorant (whose union cost `2^{φ(a)/4}` limits it to `a≲log log N`) by a
+**second-moment bound on random signed products in G**, uniform in a,
+and feed it into a pattern-summed large sieve over the prime factors of
+`x_a` in a range `(y,y']`. The pattern sum factorises over windows and
+reproduces, as an upper bound, the Poisson model of the prime factors.
+
