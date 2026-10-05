@@ -261,6 +261,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * No "ES ⇐ standard hypothesis" was found; GRH/EH remarks are Assessments. A scoped obstruction for Lemma-12.1-type window majorants (Prop 3.2).
     * **PROVED** (internal; review `reviews/pointwise-xwin-review.md`, SOUND after one statement-range repair and minor repairs).
 
+19. **Exponent 1/7 via a linear transfer to primes (POINTWISE_OMEGA9.md): `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many Mordell-hard primes (Thm 2.2); `log L_h(T) ≪ (log T)^7`.** Supersedes (H)16's 1/14.
+    * Thm 1.1 (linear transfer, replaces POINTWISE_OMEGA Thm 4.1 / Thorner–Zaman): expand `B(n)1[n≡1 (Q)]` in characters mod QD; each coefficient is `E_D[Bχ̄_D]/φ(Q)`, bounded by `E|B|/φ(Q)` rather than the ℓ¹ mass `M_1`; all supported characters have conductor ≤ Z, and Gallagher's prime number theorem summed over all primitive characters of conductor ≤ Q_G (quoted from Montgomery–Vaughan vol. III draft Thm 28.19, archived; exceptional zero handled by the λ factor / twist as before) controls them at once. The condition becomes `log x ≥ C(1+log A) log Z` with `A=E|B|/μ ≤ 1.03` for the BRW minorant (Lemma 2.1), so K no longer matters.
+    * Thm 2.3: `log W ≥ (1/log 2 − o(1)) log₂p·log₃p` modulo Gallagher alone.
+    * **PROVED modulo Gallagher's theorem (G) and Elsholtz–Tao Prop 1.4** (internal). Two independent hostile reviews, both SOUND: `reviews/pointwise-omega9-review.md` (Thm 1.1 and the (G) quotation, checked against the archived MV III text) and `reviews/pointwise-omega9-review-2.md` (coefficient identity brute-forced, Lemma 2.1, interface with OMEGA8, exponent chain). Gallagher's original paper was not obtained; MV III is an unpublished draft (its proof of 28.19 has visible slips; the statement is the standard Gallagher 1970 Thm 7 shape).
+    * Bottleneck now: the junta term `d𝓛` in `log Z` (about 860× `log Q_Π`), i.e. the bit-width/switching-lemma degree; then the quarantine `log Q_Π`, which with `z=𝓛²` is ≳ `𝓛³/log 𝓛`, so this route cannot pass ≈1/3 (the heuristic truth is `log W ≍ (log p)^{1/3}`). OMEGA8 §6 (1/13, ceilings for the old transfer, Prop 6.6 `S ≫ 𝓛²` modulo a standard BV lower bound) reviewed in `reviews/pointwise-omega8-review-3.md` and repaired.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

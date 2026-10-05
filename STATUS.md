@@ -98,11 +98,13 @@ the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
 scale). Unconditionally (modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4),
-`W(p) ≥ exp(c(log p)^{1/14})` for infinitely many Mordell-hard primes
-(`POINTWISE_OMEGA8.md` Thm 4.3, 2026-10-05; two hostile reviews; ledger (H)16).
+`W(p) ≥ exp(c(log p)^{1/7})` for infinitely many Mordell-hard primes
+(`POINTWISE_OMEGA9.md` Thm 2.2, modulo Gallagher's theorem and ET Prop 1.4,
+building on `POINTWISE_OMEGA8.md`'s exponent 1/14; each doubly reviewed;
+ledger (H)16, (H)19).
 This supersedes the polylogarithmic results (`POINTWISE_OMEGA3.md`, every
 fixed power of log p). So no pointwise multiplier mechanism whose witness
-moduli are `≤ exp((log p)^{1/14−ε})` can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
+moduli are `≤ exp((log p)^{1/7−ε})` can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
 (POINTWISE_SIZE §7).
 
 ## Housekeeping
