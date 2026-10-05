@@ -6,11 +6,20 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment.
 **Model-PROVED** = proved inside an explicitly defined axiomatic model (§3),
 not a statement about the primes.
 
-Status: in progress.
+Status: checkpoint 1 (2026-10-05), not yet reviewed.
 
 ## 0. Results at a glance
 
-(filled in at checkpoint)
+| # | statement | label |
+|---|---|---|
+| Lemma 1.2 | both windows F1-clean ⟺ `n,n+1` are primitive norms from `Q(√−3)`, `Q(√−7)` (an FI09-type quadric) | PROVED |
+| Thm P1 (§2) | the sign classes `(p/3)=±1` have identical sieve data, and `−1` never has window 3 clean: parity is necessary | PROVED (mod BV/EH) |
+| Lemma 3.2, 3.6 | two-block and product fakes in the Type-I+parity model 𝒯𝒫(θ) | Model-PROVED |
+| §3.2 | one window: fakes for θ<1/2; no block fake at θ=1/2 | Model-PROVED |
+| §3.3–3.4 | block/tree fakes reach only ≈43% of target at θ=1/2 | EVIDENCE (MC) |
+| Prop 3.7 | two windows: a fake with no both-clean mass at θ=1/2 (discrete model) | CERTIFIED (residual 2.6e-15) |
+| §3.5 | discrete two-window threshold θ_2∈(0.6,0.7] (coarse grid) | EVIDENCE |
+| §4 | Goal 1 (unconditional `a_min≥11`) not reached; routes (ii), (iv), (v) closed, (i) open | Assessment |
 
 ## 1. Exact form of the two-window problem
 
@@ -240,3 +249,81 @@ factor to stay bounded. Not checked.) Dump: `data/window2/fake_eps0.1_K8_theta0.
 windows do not imply that any configuration has both windows clean. In the
 same model the one-window LP gives min ν(∅)/τ=0.744>0 at θ=1/2. So one
 window is decided by Type-I + parity at level 1/2 and two windows are not.
+
+## 4. Goal 1 routes (i)–(v): status
+
+Unconditional `a_min≥11` for infinitely many hard p was **not** reached. Route by route:
+
+* **Pure Type-I sieves at BV level (any weights, any combinatorics):** blocked
+  in the discrete model by Prop 3.7. A proof must use information outside
+  𝒯𝒫(1/2). Such information includes primality of p in a switched variable (W1's `T_2`
+  bound uses it, and so does W2's `T^{(q)}`), Type-II sums, or level >1/2.
+  (The model statement is CERTIFIED only for the grid ε=0.1, K=8; the
+  continuum version is an Assessment.)
+* **(ii) Level beyond 1/2 for well-factorable weights** (BFI; Maynard 2020; Lichtman).
+  These results need a *fixed* residue class a. The two-window remainders
+  involve `p≡−3 (d_1)`, `p≡−7 (d_2)`, i.e. the class `CRT(−3,−7) mod d_1d_2`. This is
+  not fixed (equivalently `n_3≡0 (d_1)`, `n_3≡−1 (d_2)` for consecutive `n_3, n_3+1`).
+  Moreover, the model LP is still 0 at θ=0.6 (grid, uncertified) and positive only
+  from θ≈0.7 in the coarse grid. Even a level of 3/5 for the right weights
+  would not suffice in the model. **Assessment: closed.**
+* **(i) Bilinear/Type-II input.** The sequence `r_{−3}(n)r_{−7}(n+1)` (§1) is the
+  window analogue of Sedunova's `r(n−2)r(n+2)`. Only its Type-I level `x^{1/6}` is
+  known there, and no Type-II estimate is known. A Chen-type switch would need BV for the
+  F1-clean-weighted sequence in the switched variable, a level-1/2 statement about a
+  half-dimensional sifted set. That is not available. **Assessment: open, no foothold found.**
+* **(iii) Smaller-dimension sifted sequence.** Not applicable: `a_min` is defined
+  at primes, and ES reduces to primes. Sedunova-type relaxations (almost-prime p)
+  say nothing about ES.
+* **(iv) Maynard–Tao.** It produces several primes, each satisfying *one* condition.
+  "p and p+24 both window-3-clean" gives windows 3 and 27 of p (same character
+  χ_{−3}), not windows 3 and 7. No admissible-tuple trick turns two characters
+  on one prime into one character on two primes, because window q's sifting set
+  depends on q. **Assessment: closed.**
+* **(v) Sub-families / smooth moduli.** A congruence class fixes only the
+  divisibility of `n_q` by the primes of the modulus (POINTWISE_WINDOW §6,
+  PROVED for fixed moduli). A class-of-one modulus `L≤p^c` (Linnik/Chang/
+  Thorner–Zaman) leaves cofactors `((b+q)/4+(L/4)k)/A_q` that face the same
+  two-condition problem in a progression, with less level. **Assessment: closed.**
+
+**Goal 3** (`a_min≥15`) was not attempted, since Goal 1 failed.
+
+## 5. Goal 2: what is proved about the parity obstruction
+
+1. **Parity is necessary** (Theorem P1, PROVED modulo BV/EH, actual primes):
+   sieve data cannot distinguish `(p/q)=+1` from `(p/q)=−1`, and in the second
+   case window q never fails by F1.
+2. **Parity is sufficient for one window at level 1/2** (Thm W1, PROVED modulo the
+   cited sieve theorems). In 𝒯𝒫(θ) the one-window threshold is exactly 1/2. For θ<1/2 there are
+   explicit fakes (Model-PROVED, §3.2). At θ=1/2 the one-window LP is positive
+   (EVIDENCE, 0.744 on the coarse grid; no block fake exists, Model-PROVED).
+3. **Parity is not sufficient for two windows at level 1/2** (Prop 3.7,
+   CERTIFIED in the discrete model ε=0.1, K=8). Mechanism: the window marginals
+   couple (§3.5). Two-block and product fakes (Lemmas 3.2, 3.6, Model-PROVED)
+   do *not* suffice; the LP fake is genuinely joint.
+4. **Where the two-window threshold lies:** in the coarse model θ_2∈(0.6,0.7]
+   (EVIDENCE; grid-dependent, decreasing under refinement at θ=0.7). W2 reaches
+   two windows at `θ=1−ε_0`, but only by using primality (switching), which is
+   outside the model.
+
+So the window obstruction is not Selberg's parity barrier itself; that one is
+removed by the congruence (Lemma 1.2). It is a **parity-constrained
+vector-sieve barrier**: Type-I data at level 1/2, even with both parities, does
+not determine joint cleanliness (model). Methods that provably cannot give
+`a_min≥11`, in the model: every lower-bound sieve whose inputs are
+`{|A_{d_1d_2}|: d_1d_2≤x^{1/2}}`, the parity congruences and the total mass.
+This covers β-sieves, vector sieves, Buchstab iterations without switching,
+and the Bonferroni-with-parity subtraction of POINTWISE_WINDOW §7.2.
+
+## Replay
+```
+export PYTHONPATH=scripts
+uv run python scripts/window2_blockfake.py 2e6 0.02 1                 # §3.3, ~1 min
+uv run python scripts/window2_treefake.py 2e6 0.02 3 0.5 0.55 0.6      # §3.4, ~3 min
+uv run --with scipy python scripts/window2_lp.py 0.1 8 0.5 --one       # §3.5 one window (0.744)
+uv run --with scipy python scripts/window2_lp.py 0.1 8 0.5             # §3.5 two windows (0)
+uv run --with scipy python scripts/window2_feas.py 0.1 8 0.5 --dump=/tmp/f.json
+uv run --with scipy python scripts/window2_polish.py 0.1 8 0.5 /tmp/f.json /tmp/p.json
+uv run python scripts/window2_verify.py /tmp/p.json                    # §3.7 residual ~1e-15
+```
+(Run each under `ulimit -v 8000000`. The ε=0.1, K=12 LP needs ~4 GB.)
