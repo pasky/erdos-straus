@@ -1,7 +1,32 @@
 # Referee report R33b — paper/es-subexp-note.tex, Draft v2 (branch side-agent/omega-paper-v4)
 
 Referee: hostile side agent (R33b). Scope: everything changed/added in v2.
-Status: IN PROGRESS (written incrementally).
+Status: COMPLETE (round 1).
+
+## Recommendation: MINOR REVISION
+The v2 upgrade (exponent 1/14 → 1/7, constant 1/(2log2) → 1/log2) is
+correct. I re-derived every step of the linear transfer theorem. I also
+checked the quoted Gallagher statement verbatim against the archived MV III
+draft, including its proof, and re-checked the parameter chains. No FATAL
+defect. One MAJOR defect (M1): the cited exceptional-zero statement, Thm 3.1,
+is false as literally written because it has no height restriction. It has a
+one-line repair and no downstream effect. There are six MINOR points.
+All new numerical constants were re-checked from scratch in
+scripts/review_r33b_numerics.py.
+
+| Claim | Verdict |
+|---|---|
+| Thm 3.1 (exceptional zero, Page bound) | GAP (statement; M1), repair trivial |
+| Thm 3.2 (Gallagher, quoted from MV III 28.19) | SOUND as a quotation; caveat paragraph m1 |
+| Thm 4.1 (linear transfer), full proof | SOUND-AFTER-REPAIRS (M1, m1, m2) |
+| Lemma 5.4 (cells), Lemma 5.5 (ℓ¹-tightness) | SOUND |
+| A ≤ 1+2/99 < 1.03 | SOUND |
+| Thm 7.1 (assembly) | SOUND (m5, m6 wording) |
+| Thm 1.1 (exponent 1/7) | SOUND modulo cited inputs |
+| Thm 1.2 (constant 1/log 2) | SOUND modulo cited inputs |
+| Novelty paragraph | adequately hedged; add comparators (m4) |
+| Bibliography (Gallagher, MV III) | data plausible; Gallagher unseen (m3) |
+| Consistency with unchanged parts | no stale TZ/M_1/K references found |
 
 ## Verdicts per claim (filled in as checked)
 
@@ -68,7 +93,7 @@ B^- ≤ F-B because F ≥ 0 and B ≤ F; E|B| = EB+2EB^-. Haar mean = E_D becaus
 D=lcm d_i is a product of full prime powers ℓ^{e_ℓ} of free primes, and the
 reduction map (Z/D)^× → ∏ G_ℓ is a bijection. gcd(d_i,Q_Π)=1 since 2,3 ∈ Π
 (z ≥ 7). Hypothesis "B(n) ≤ 1[W(n)>T] for n≡1 (Q), gcd(n,d_i)=1" follows from
-Lemma 5.4's integer identity + Lemma 5.3 (B≤F on ∏G_ℓ) + Lemma 2.5(iv).
+Lemma 5.4's integer identity + Lemma 5.3 (B≤F on ∏G_ℓ) + Lemma 2.7(iv).
 
 ### Thm 7.1 (assembly), A ≤ 1.03, parameter chain to 1/7 — SOUND
 - E[F-B] ≤ δ/100 ≤ μ/99 (μ ≥ 0.99δ) ⇒ A ≤ 1+2/99 ≈ 1.0202 < 1.03 ≤ Z^{1/4}
@@ -80,7 +105,7 @@ Lemma 5.4's integer identity + Lemma 5.3 (B≤F on ∏G_ℓ) + Lemma 2.5(iv).
   k²S*𝓛 ≪ 𝓛⁷/log𝓛, t𝓛 ≪ 𝓛⁷ ⇒ log p ≪ 𝓛⁷ ⇒ W(p) > T ≥ exp(c(log p)^{1/7}). CORRECT.
 
 ### Thm 1.2 (constant 1/log 2) — SOUND
-log S* ≤ (log2+o(1))𝓛/log𝓛 (Lemma 2.3(a)); every other factor is 𝓛^{O(1)}, so
+log S* ≤ (log2+o(1))𝓛/log𝓛 (Lemma 2.4(a)); every other factor is 𝓛^{O(1)}, so
 log log p ≤ (log2+o(1))𝓛/log𝓛. L/log L ≥ Y ⇒ L ≥ Y (log L ≥ 1) ⇒ L ≥ Y log Y,
 and log Y = log₃p + O(1). The v1 constant 1/(2 log 2) came from TZ's
 K·max(log Z,K) ≍ (S*)²; with the linear transfer log p ≪ log Z ≍ S*·poly(𝓛),
@@ -122,9 +147,9 @@ so the non-exceptional bound holds; hence the theorem holds for all κ ≥ 3κ_0
 
 **m2 (MINOR) — uncited explicit Chebyshev bound.** Location: proof of Thm 4.1,
 "log D ≤ 1.04 max d_i". Cite Rosser–Schoenfeld (ψ(y) < 1.03883y), or use the
-cruder log D ≤ π(y)log y ≤ 2y (y=max d_i, elementary), which also gives
-log(QD) ≤ 2Z... (check: log Q + 2y ≤ 2Qy needs Q ≥ 2 and y ≥ 1 — fine for y ≥ 2;
-for D = 1 trivial).
+elementary log D ≤ ψ(y) < 2y log 2 (Chebyshev/Erdős: ∏_{p≤y}p < 4^y, plus
+prime powers via log D ≤ π(y)log y) — any bound log(QD) ≤ CZ suffices, at the
+cost of the constant in x ≥ C_4AZ⁴.
 
 **m3 (MINOR) — Gallagher's original not seen; "Thm 7" number unverified.**
 Location: Thm 3.2 header, bibliography [Gallagher]. The bibliographic data
