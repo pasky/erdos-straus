@@ -934,52 +934,73 @@ the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
 Importance (I) and feasibility (F) are rated high / medium / low. These
 ratings are this summary's judgement, not ledger labels.
 
-1. **External refereeing of the 3/4 note and the 2/3-loglog note.**
-   (I high, F high.) Both are unrefereed; the 3/4 label is only
-   INTERNALLY PROVED. `paper/README.md` recommends showing the loglog note
-   to a human referee first. Related tasks: read Vaughan 1970 itself and
-   complete the priority search.
-2. **θ > 3/4 for `E(N)`.** (I high, F low.) Every coefficient-sum CRT
-   sieve over the four class types is capped (§2.2). So are the large
-   sieve and, for moduli `≤ N/2`, interval cancellation (§2.3). A new
-   ingredient is required (§2.4). The most concrete candidate is TC_θ for
-   `θ > 3/4`: CRT-accurate witness correlations of order `≍ (log N)^θ`.
-   It is a CONJECTURE; its proved implication is (D)21. Other candidates:
-   per-frequency weights below 1, the large-sieve escapes (H_LS), and
-   other non-CRT arithmetic input.
-3. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
+1. **External refereeing.** (I high, F high.) Nothing is externally
+   refereed. First the 3/4 note (only INTERNALLY PROVED) and the
+   2/3-loglog note (`paper/README.md` recommends showing the loglog note
+   to a human referee first); then the sieve-limits note v4, the subexp
+   note v4, the window note and the energy/DNF note. Related tasks: read
+   Vaughan 1970 itself and complete the priority searches (§5).
+2. **θ > 3/4 for `E(N)`.** (I high, F low.) The cap is now exactly
+   `(log N)^{3/4}` for coefficient-sum sieves, every Bessel-type large
+   sieve, prime-only majorants and interval cancellation at moduli
+   `≤ N/2` (§§2.2–2.3). A new ingredient is required (§2.4). The precise
+   remaining doors, in rough order of concreteness:
+   * **weak SPW** ((D)26): a purely combinatorial statement about
+     measures on residue classes; it would cap hybrid methods, so it is a
+     *closing* question rather than an opening one;
+   * **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE): alternating witness
+     correlations of growing order; needs accuracy at moduli
+     `exp(c(log N)^{3θ/2})`, beyond any known theorem;
+   * **H_LS∞ for forced families** ((D)25, CONJECTURE): must use the
+     sparsity of forced families, by the band-family example;
+   * per-frequency weights below 1, and other genuinely non-CRT input.
+3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
+   rate is `log W ≫ (log p)^{1/4}` up to logs, the Haar exponent is
+   exactly 3, and 1/4 is the ceiling of the Haar-minorant + transfer
+   architecture (§3.3). Reaching the heuristic truth 1/3 needs prime input
+   beyond low-conductor minorants: bilinear (Type II) or parity-sensitive
+   information, or a Siegel-zero-type transfer. Smaller tasks: remove the
+   `(log log p)^{−1/4}` factor; prove `log(1/δ*) ≍ 𝓛³/log 𝓛` exactly
+   (Conjecture 3.1 of POINTWISE_HAAR).
+4. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
    ES ⇐ X_QNR (least-non-residue seeding), an (E2)-type reduction. Whether
    fixed non-abelian Frobenius data (E3) escapes the obstruction is open.
-4. **Unconditional `a_min(p) → ∞` (or even `a_min ≥ 11`).** (I medium,
-   F low–medium.) This is the window analogue of the open unconditional
-   case of Friedlander–Iwaniec 2009. It needs a level of distribution close
-   to 1 or a bilinear, parity-breaking input.
-5. **Sharper `W(p)` rates.** (I medium, F medium.) Prove HC_Π (a
-   divisor-function problem in short progressions). By POINTWISE_OMEGA5,
-   this gives HC*, and hence `log W ≥ c(log₂p)^{3/2}` via OMEGA4 Thm 4.2.
-   Beyond that: an event-sensitive truncation (Assessment: up to
-   `(log₂p)²/log₃p`). `exp((log p)^c)` is outside the method. The
-   heuristic truth is `log W ≍ (log p)^{1/3}`.
-6. **An unconditional sterile seed component.** (I low–medium, F low.)
+   No "ES ⇐ standard hypothesis" was found ((H)18).
+5. **Unconditional `a_min(p) ≥ 11` (or `a_min → ∞`).** (I medium,
+   F low.) Parity input is provably necessary (Thm P1), and in the
+   discrete model Type-I plus parity at BV level is not enough (§3.4). A
+   Chen-type switching argument is the model's suggestion (a follow-up,
+   POINTWISE_WINDOW3, was in progress). This is the window analogue of
+   the open unconditional case of Friedlander–Iwaniec 2009.
+6. **Type-I: `ck_min ≥ g(p)·n_p` with `g → ∞`.** (I low–medium, F low.)
+   Congruence input gives exactly `g = 1` (§3.3); beating
+   `log p·log₃p` by congruences would beat known Ω-results for the least
+   non-residue. Whether `C(7) < ∞` is open.
+7. **An unconditional sterile seed component.** (I low–medium, F low.)
    Astra has reduced its hypothesis to 158 prime conditions plus one
    divisor condition; searches over actual inputs find no sterile prime.
    Note: settling this would not affect ES.
-7. **Removing `(log log N)^{3/4}` from the general cap** (KARY2 Thm 5.1),
-   and closing the Λ² middle window `r ≍ log L` (TWIN4 §12). (I low,
-   F medium.) Neither would change the exponent 3/4.
-8. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
+8. **Residual cap questions that do not move 3/4:** the (D)21 Cor 3.4
+   window for general class order ((D)24 closes it for prime order);
+   composite Gallagher kernels with huge `Nh/(W_K−h)`; majorants with
+   `ν ≥ 0` only at primes `≤ N`; B-removal for general majorants over
+   classes outside ℛ(M). (I low, F medium.)
+9. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
    `H_FAIL`, `H_STACK`, `H_BLK`/`H'_BLK`, `H^+_LT` and `H_PF'`. Also open:
    the replacement conjecture `C'_SQ` (`W = +∞` exactly for squares and
    three sporadic values; ledger (F)9) and `C_POLY`. (I low–medium,
    F varies.) Most of these belong to the a-frame/stacking route, whose
    model ceiling is below 3/4.
-9. **Novelty checks that need library access.** (I medium for
-   publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
-   large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
-   Vaughan 1970.
-10. **Administrative.** Settle authorship and the citation form for astra
+10. **Novelty checks that need library or internet access.** (I medium for
+    publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
+    large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
+    Vaughan 1970; for the pointwise machinery, Bazzi/Razborov/Braverman,
+    LMN/Håstad sharpenings, Fourier-growth literature (for C-1), and
+    Janson-type inequalities without Harris; Gallagher 1970 itself (only
+    the MV III draft was read).
+11. **Administrative.** Settle authorship and the citation form for astra
     before `paper/pointwise-obstruction.tex` is finalised.
 
 ---
