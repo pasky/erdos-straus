@@ -1,7 +1,7 @@
 # Review 3 of POINTWISE_OMEGA13.md §5 / Thm 5.1 (R48c, hostile reviewer 1 of 2)
 
 Reviewed: branch side-agent/beyond-fifth at d1a680b/ac109c3 (§5 "interface checks I1–I3", Thm 5.1).
-Status: IN PROGRESS.
+Status: round 1 complete.
 
 ## Summary verdicts
 
@@ -109,3 +109,88 @@ From-scratch checks (`scripts/review_o13c_jacobi.py 40000`, `data/review_o13c/ja
   `#{x²=1}` (so the list is complete), and all equal 1 at every admissible r (0 failures).
 
 Defect m1 (class of r mod `ℓ_aux`) is listed below.
+
+### C5. Thm 5.1 — the exponent chain — SOUND-AFTER-REPAIRS (m1)
+Re-derived on the good leaf, with `Y=𝓛^{C_0+4}`, `logY≍log𝓛`, `1/η≍log𝓛`:
+* `log Q≤4E log Q≪(1/η)𝓛³(logY)^4≪𝓛³(log𝓛)^5`;
+* `S_res≤4S_H^β≪𝓛³log𝓛`;
+* `τ=2𝓛⌈log₂(100m²(S_res+1)e^{3S_res})⌉≤2𝓛(4.33S_res+5.8𝓛+O(log S_res))≪𝓛⁴log𝓛`;
+* `log max d_i≤2τ+3𝓛`, `log ℓ_aux≤log max d_i+1`.
+
+So `log Z≪𝓛⁴log𝓛`, which dominates the quarantine `𝓛³(log𝓛)^5`. O9 Thm 1.1 with `A≤1.03`
+gives a prime `p≤x` with `log x≍log Z`. Inverting `log p≪𝓛⁴log𝓛` gives
+`𝓛≫(log p/loglog p)^{1/4}`, hence `W(p)>T=e^𝓛≥exp(c(log p)^{1/4}(loglog p)^{−1/4})`. The
+loglog exponent `−1/4` is correct: it comes from the junta factor `log𝓛` in `S_res`, not from
+`log Q`.
+
+Distinctness of the p's as `T→∞` requires `p>T`, and this is defect m1.
+
+Dependency list: (G), NT, OMEGA10 Thm 3.4 are the non-elementary inputs. Classical inputs are
+also used, as in all previous theorems of the chain:
+* Landau–Page and the Page bound inside O9;
+* the HSS conditional LLL bound. HSS is not in `sources/`, so I did not check the theorem
+  number. The bound is standard, and I re-derived it in one line:
+  `P(A|∩F̄)≤P(A∩_{F≁A}F̄)/P(∩_{F∼A}F̄|∩_{F≁A}F̄)≤P(A)/∏_{F∼A}(1−x_F)`.
+
+Elsholtz–Tao is indeed not used: all masses are Haar masses (Lemma 3.2–3.3), and S♯ never
+enters §5. The label is honest.
+
+## Defects
+
+No FATAL or MAJOR defects found in §5 / Thm 5.1.
+
+**m1 (MINOR, needed for "infinitely many"; §5 I3 and Thm 5.1 proof, bullet "ℓ_aux appended
+to Q").** The class of r modulo `ℓ_aux` is never specified. Two things use it:
+1. I3's hypothesis "r a square mod every odd prime of Q". Once `ℓ_aux|Q`, this must hold at
+   `ℓ_aux` too, otherwise Case A's "`χ(r)=1` for all real χ" fails for the Legendre symbol mod
+   `ℓ_aux`.
+2. `p>T`. With class 1 this followed from `p≡1 (ℓ_aux)`, `ℓ_aux>T`. For a general class the
+   transfer can a priori return a prime `p<ℓ_aux` (the least representative of r), and then
+   the T→∞ limit need not give distinct primes.
+
+*Repair:* add "and `r≡1 (mod ℓ_aux)`" (CRT; 1 is a square, `ℓ_aux>T` so no atom sees it).
+Then `p≡1 (ℓ_aux)` gives `p>2ℓ_aux>T`, exactly as in O9 Thm 2.2.
+
+**m2 (MINOR; I2, cell consistency).** I2/I3 say "`u_j` are functions of fibre coordinates, so
+the argument of O11 Thm 3.2 applies". Spell out the one point that is not literally an
+initial-segment statement. `E[F|X_W]` for a non-initial digit set W is a function of
+`n mod m_W` with absolute `m_W`. Its cells are fibre classes mod `m_W`, so they are consistent
+with r, and the `u_j`-moduli are `≤e^τ` because the weights are absolute. (This is true, see
+C3. It is only a missing sentence.)
+
+**m3 (MINOR; explicit range).** §5 Setting and Lemma 1.1 "Range" use `η≤0.19`, i.e.
+`(3/4)log(1+1/log𝓛)≤0.19`. This needs `𝓛≥32.2` (`T≥e^{33}`). State it, or say "for T large",
+as Thm 3.4 does. The exact threshold is `η≤0.1919`.
+
+**m4 (MINOR; stale text).** These passages still say the interface checks "have not been done"
+or label them OPEN:
+* Cor 3.5's closing paragraph ("These are checks … They have not been done.");
+* Prop 1.3(c).
+
+§4's heading says "checkpoint 1" but its table has the §5/Thm 5.1 rows. Add "(done in §5)"
+pointers, and retitle §4 "checkpoint 2".
+
+**m5 (MINOR; citation hygiene).** Lemma 1.1's general conditional bound is attributed to "O8
+Lemma 3.3; Haeupler–Saha–Srinivasan". Give the theorem number (HSS, J. ACM 2011, Thm 2.1 in
+the arXiv version, to be verified) or the one-line proof in C5 above. The source is not
+archived in `sources/`.
+
+## Verdict
+§5 and Thm 5.1 are **SOUND after the MINOR repair m1**. The others are presentation.
+
+The prime-side exponent `1/4` with `(loglog p)^{−1/4}` follows from:
+* Thm 3.4's good leaf (deterministic by existence);
+* Lemma 1.1;
+* O8 Lemma 3.1 / O11 Lemma 1.1, Cor 1.2;
+* O9 Thm 1.1 / O11 Lemma 3.1 on the coset rH.
+
+Its label is "PROVED modulo (G), NT, OMEGA10 Thm 3.4", with Thm 3.4's own inputs (Lemma 3.3,
+reviewed in R48a/R48b) taken as given.
+
+The random square class causes no problem:
+* it is fixed before anything else is built;
+* it does not enter the digit filtration;
+* real characters are 1 at r, so Case A is verbatim;
+* Lemma 3.1 (re-verified from scratch) rules out fired events.
+
+Toy checks are in `scripts/review_o13c_*.py` and `data/review_o13c/`.
