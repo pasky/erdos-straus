@@ -1,0 +1,96 @@
+# AGENT REPORT O29 — window-parity (branch `side-agent/window-parity`)
+
+Deliverable: `POINTWISE_WINDOW2.md`; scripts `scripts/window2_{blockfake,treefake,lp,feas,polish,verify}.py`;
+data `data/window2/fake_eps0.1_K8_theta0.5.json.gz`; archived sources `sources/window2/`
+(FI09 Acta Math 2009, Sedunova arXiv:2609.28200, Nath–Xie arXiv:2501.16723).
+
+## Outcome
+* **Goal 1 (unconditional a_min≥11): NOT reached.** Routes (ii) well-factorable level,
+  (iv) Maynard–Tao, (v) sub-families are closed (Assessment, with reasons in §4).
+  Route (i), Type-II/Chen switching, is open but I found no foothold. The problem is
+  exactly FI09-shaped (Lemma 1.2: `n, n+1` primitive norms from `Q(√−3)`,
+  `Q(√−7)`, `p=4n−3`). FI09's lower bound is still open unconditionally (Sedunova 2026).
+* **Goal 2 (parity obstruction as a theorem):**
+  1. Thm P1 (PROVED mod BV/EH, actual primes): the classes `(p/3)=±1` have identical sieve
+     data, and the `−1` class never has window 3 clean. So parity input is necessary.
+     This is Selberg's example realised by primes.
+  2. Model 𝒯𝒫(θ): Type-I correlations of level θ, plus both parities. One window:
+     fakes for θ<1/2 (Model-PROVED); positive LP at θ=1/2 (EVIDENCE), matching W1.
+  3. **Prop 3.7 (CERTIFIED in a discrete model, ε=0.1, K=8):** at θ=1/2 there is a fake with
+     no both-clean mass. Check: residual 2.6e-15, all 89 support weights ≥0.154, and
+     an independent brute-force verifier. So Type-I + parity at BV level does not
+     yield two windows in the model. This covers all β/vector/Buchstab sieves without switching.
+  4. Two-block, tree and product fakes (Lemmas 3.2, 3.6) do *not* explain this. They reach
+     only ≈43% (MC, ε-stable). The LP fake is genuinely joint: the window marginals couple.
+  5. The coarse-model threshold is θ_2∈(0.6,0.7] (EVIDENCE, grid-dependent; at θ=0.7 the
+     value decreases as the grid is refined).
+* Goal 3: not attempted.
+
+## Caveats a reviewer should hit
+* The "true law" of §3.3 is heuristic: half-dimensional density `∏1/(2t)·(1−Σt)^{−1/2}`,
+  windows independent, bad primes <x^ε assumed sifted. Prop 3.7 is a statement about this
+  discrete model, not about primes.
+* The certified fake puts up to 9.3·10⁴ times the true mass on some configurations. Whether
+  it is realisable by an integer sequence with bounded weights (capacity) was not checked.
+  Primality information (switching, as in W1's T_2 and W2's T^{(q)}) is outside the model.
+* At θ=0.6 the fake is LP-feasible (5e-4) but not certified. θ≥0.9 LPs hit numerical trouble.
+* The continuum (ε→0, K→∞) threshold is not determined.
+
+## Suggested next steps (for the parent's decision)
+1. Larger and finer grids for the LP (ε≤0.07, K≥12; memory ~8 GB is the limit), with certified
+   polish at θ=0.6, 0.7, 0.8, to locate θ_2 in the continuum.
+2. Add a capacity constraint ν≤C·μ_int and a "switching" constraint family to the model.
+   This tests whether primality info restores positivity at θ=1/2, i.e. whether an
+   unconditional route exists in principle.
+3. Extract an analytic description of the joint fake (marginal coupling, §3.5) and
+   prove a continuum Model-theorem.
+
+## Follow-up round (parent request: steps 2, 3)
+* **Robustness fix.** HiGHS silently drops matrix entries below `small_matrix_value`. With the
+  rescaled model that dropped tiny entries, and the old `window2_lp.py` residuals were 10⁻³–10⁻¹.
+  `window2_feas.py` now normalises columns and bisects on ν(∅)/τ with an L∞ residual ≤1e-9. All
+  earlier numbers are re-confirmed by it (one window 0.744/0.828; two windows 0 at θ=.5 and **.6**
+  (now ≤1e-9), 0.497 at .7). Prop 3.7's certificate was independent of this issue.
+* **§6.1 Capacity.** Integer capacity is vacuous in the model (uniform log x factor). A bounded
+  reweighting of the *primes* (ν≤Cμ) still admits a fake for C≥3.5; C=2 gives 0.373.
+  So the size of the support is not the missing information.
+* **§6.2 Switching** as caps ν≤Kμ on configurations with a prime factor ≥x^α restores positivity at
+  θ=1/2 for K=1, 2 (α=0.6: 0.459, 0.111) and fails for K=3. The required sharpness of switched
+  upper bounds (factor ≈2–3 of truth) is at or beyond current twin-prime-type constants (≈3.4,
+  recalled, not re-checked). Assessment: a quantitative, not qualitative, barrier, in the model.
+* **§6.3 Analytic structure (partial).** The slice reduction proves that "separable" fakes (slices
+  with full level-1/2 zero correlations) cannot reach the target (0.32<0.744 on the grid). The
+  certified fake needs the mixed-level relaxation. No continuum construction was obtained,
+  so the continuum model theorem is still open.
+* Not done: bigger grids (step 1).
+
+## Round 3 (switching on actual primes, §7; stopped at the context limit)
+* The §6.2 caps translate to Chen-type switched prime-pair counts `#{r: 4mr−q prime}`.
+  The BV linear sieve gives 4×. The best known (Wu-type) is ≈3.4× (recalled, not re-checked).
+* Required K* (coarse grid, α=0.6) ∈ (2.5, 2.75]. **Gap ≈1.25–1.35×. No unconditional a_min≥11.**
+* §§1–6 untouched in this round. Open: the K*(α) curve, finer grids, primary-source Wu constant.
+
+## Round 3 (R29 repairs, applied by O37)
+(Applied on branch `side-agent/window2-repairs` after the author quit; review
+`reviews/pointwise-window2-review.md`. No new mathematics; all new numbers are the reviewer's.)
+* **M1** Thm P1 joint sentence restricted: the four classes ((p/3),(p/7)) do *not* share joint
+  data (3 is window-7 bad and `3|n_7` iff (p/3)=−1). The joint barrier is stated only for
+  (+,+) vs (+,−) (reviewer check `review_w2_p1joint.py`). One-window P1 unchanged.
+* **M2/M4** Prop 3.7, §§4–5, §§6.1–6.2, §7.1 now say explicitly: the model's "true law" is a
+  coarse heuristic law, discretised at ε=0.1, K=8, which is far from the regime (model r(S)
+  spread [0.82,1.87], parity-dependent; real data r(S)≈1); only bad-prime Type-I data are
+  modelled. Prop 3.7 is a discrete-model statement only; its relevance to real sieves is
+  EVIDENCE of the weakest kind. The C≥3.5 and K*∈(2.5,2.75] thresholds are model indications
+  only, not statements about primes. "Any weights"/"provably" removed from §4/§5.
+* **M3** §5 item 2 split: (a) actual primes, W1 = Type-I + parity + switching (so not evidence
+  that parity suffices); (b) model, one-window LP at θ=1/2 ≥0.744128 (CERTIFIED dual, grid
+  only); continuum threshold at θ=1/2 unproved. Same fix at Prop 3.7 and §3.2.
+* **m1** §6.3 underived "0.256·1.256≈0.32" chain withdrawn; replaced by reviewer's separable LP
+  min 0.430>0 (EVIDENCE). **m2** §3.2 trivial-range fake corrected to −[∅]+[{a,b}], a,b>θ, a+b<1.
+  **m3** MC ±0.05 dropped (infinite-variance estimator). **m4** §6.2: per-configuration caps
+  are stronger than aggregate switched bounds; direction stated. **m5** P1: g(5)=0; BV half
+  unconditional, only A⁺ lower bound inherits W1's S1–S3. **m6** reviewer exact duals adopted
+  (one window ≥0.744128/≥0.827541 at θ=0.5/0.6; two windows ≥0.497087/≥0.728369 at θ=0.7/0.8);
+  θ_2∈(0.5,0.7] CERTIFIED on the grid, (0.6,0.7] EVIDENCE. **m7** route (ii) mixed-level test
+  added (fake persists for T₁≤0.6; T₁=0.7 certified ≥0.16298).
+* §0 table and status line updated accordingly.

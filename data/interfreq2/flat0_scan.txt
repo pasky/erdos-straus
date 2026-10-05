@@ -1,0 +1,5 @@
+N=20 L=100 t=0.0 C=2.0: margin s=0.4000  min F[1,N]=0.8007 min F out=-0.3018  max|F(s)-M/d| on (N/2,CN]=1.231
+N=30 L=150 t=0.0 C=2.0: margin s=0.4000  min F[1,N]=0.7926 min F out=-0.2420  max|F(s)-M/d| on (N/2,CN]=1.164
+N=40 L=200 t=0.0 C=2.0: margin s=0.3839  min F[1,N]=0.6029 min F out=-0.3538  max|F(s)-M/d| on (N/2,CN]=1.170
+N=60 L=300 t=0.0 C=2.0: margin s=0.3354  min F[1,N]=0.5186 min F out=-0.3964  max|F(s)-M/d| on (N/2,CN]=1.142
+N=40 L=200 t=0.0 C=1.5: margin s=0.2000  min F[1,N]=0.6536 min F out=-0.3023  max|F(s)-M/d| on (N/2,CN]=1.179

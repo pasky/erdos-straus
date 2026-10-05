@@ -1,0 +1,28 @@
+(1)+(2) exact DT_q with distinct fixed values
+ q=9 N=3: per-coord mass 0.222 <= q^-1/2=0.333; total 0.333
+   s=1: DT_q(f_rho)=1 OK
+   s=2: DT_q(f_rho)=2 OK
+   s=3: DT_q(f_rho)=3 OK
+ q=16 N=4: per-coord mass 0.188 <= q^-1/2=0.250; total 0.375
+   s=1: DT_q(f_rho)=1 OK
+   s=2: DT_q(f_rho)=2 OK
+   s=3: DT_q(f_rho)=3 OK
+   s=4: DT_q(f_rho)=4 OK
+ q=25 N=5: per-coord mass 0.160 <= q^-1/2=0.200; total 0.400
+   s=1: DT_q(f_rho)=1 OK
+   s=2: DT_q(f_rho)=2 OK
+   s=3: DT_q(f_rho)=3 OK
+   s=4: DT_q(f_rho)=4 OK
+(3) exact Efron-Stein level weights of f_rho (fixed values distinct)
+ q=49 N=7 s=2: Pr[f=1]=0.2120 (Ns/q=0.2857); W^=r: 4.49e-02 1.41e-01 2.59e-02
+ q=49 N=7 s=3: Pr[f=1]=0.2763 (Ns/q=0.4286); W^=r: 7.64e-02 1.40e-01 5.48e-02 5.56e-03
+ q=49 N=7 s=4: Pr[f=1]=0.3206 (Ns/q=0.5714); W^=r: 1.03e-01 1.20e-01 8.16e-02 1.41e-02 1.69e-03
+ q=100 N=10 s=3: Pr[f=1]=0.2214 (Ns/q=0.3000); W^=r: 4.90e-02 1.37e-01 3.32e-02 2.34e-03
+ q=144 N=12 s=3: Pr[f=1]=0.1942 (Ns/q=0.2500); W^=r: 3.77e-02 1.30e-01 2.52e-02 1.47e-03
+(4) Pr_rho[DT_q >= s0] lower bound vs hypothetical (C'(pk+max w))^s0, k=2
+ C'=1.0 p=0.25 q=10000: s0=12, Pr>= 0.608  vs bound 10^-3.5
+ C'=1.0 p=0.25 q=1000000: s0=125, Pr>= 0.607  vs bound 10^-37.5
+ C'=1.0 p=0.25 q=100000000: s0=1250, Pr>= 0.607  vs bound 10^-376.2
+ C'=5.0 p=0.05 q=10000: s0=2, Pr>= 0.586  vs bound 10^-0.5
+ C'=5.0 p=0.05 q=1000000: s0=25, Pr>= 0.607  vs bound 10^-7.4
+ C'=5.0 p=0.05 q=100000000: s0=250, Pr>= 0.607  vs bound 10^-75.1

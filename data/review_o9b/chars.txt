@@ -1,0 +1,21 @@
+seed=1 Q=5 D=5544 N=27720 #chars=5760 #cells=26
+(a) max|c_direct - E_D[B conj chiD]/phi(Q)| = 1.67e-16
+(b) nonzero coeffs=3240, violating cond|d_i or cond<=Z: 0
+(c) max(|c| - E|B|/phi(Q)) = -9.40e-02 (<=0 expected); c(chi_0)-mu/phi(Q) = 2.78e-17; A=E|B|/mu=2.997
+(d) real chi with chiD nontrivial: 62, max|c - mu_psi/phi(Q)| = 1.56e-16
+(e) distinct primitive chars = 5760 of 5760
+(f) S(x=20000) = 1940.631804, sum c*theta = 1940.631804 (imag -5.1e-13)
+seed=2 Q=5 D=5544 N=27720 #chars=5760 #cells=26
+(a) max|c_direct - E_D[B conj chiD]/phi(Q)| = 2.84e-17
+(b) nonzero coeffs=5760, violating cond|d_i or cond<=Z: 0
+(c) max(|c| - E|B|/phi(Q)) = -1.20e-01 (<=0 expected); c(chi_0)-mu/phi(Q) = 1.39e-17; A=E|B|/mu=2.119
+(d) real chi with chiD nontrivial: 62, max|c - mu_psi/phi(Q)| = 1.26e-16
+(e) distinct primitive chars = 5760 of 5760
+(f) S(x=20000) = 2155.501758, sum c*theta = 2155.501758 (imag 1.8e-12)
+seed=3 Q=5 D=5544 N=27720 #chars=5760 #cells=26
+(a) max|c_direct - E_D[B conj chiD]/phi(Q)| = 2.08e-17
+(b) nonzero coeffs=3600, violating cond|d_i or cond<=Z: 0
+(c) max(|c| - E|B|/phi(Q)) = -1.09e-01 (<=0 expected); c(chi_0)-mu/phi(Q) = 6.94e-18; A=E|B|/mu=5.456
+(d) real chi with chiD nontrivial: 62, max|c - mu_psi/phi(Q)| = 1.85e-16
+(e) distinct primitive chars = 5760 of 5760
+(f) S(x=20000) = 573.012790, sum c*theta = 573.012790 (imag -1.7e-13)

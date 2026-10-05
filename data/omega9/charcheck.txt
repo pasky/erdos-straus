@@ -1,0 +1,5 @@
+seed=1 events=9 cells=20 mu=0.489583 E|B|/mu=1.0000 M1/mu=3.440
+(1) characters=23040 max|c - E_D[B conj chi_D]/phi(Q)|=2.78e-17 max|c|*phi(Q)/E|B|=1.0000 (<=1 required)
+(2) x=1.00e+05 S/main-1=+0.0001  PO-style bound M1/mu*max eps=1.539  (E|B|/mu)*max eps=0.4473
+(2) x=1.00e+06 S/main-1=-0.0037  PO-style bound M1/mu*max eps=0.458  (E|B|/mu)*max eps=0.1330
+(2) x=3.00e+06 S/main-1=-0.0009  PO-style bound M1/mu*max eps=0.201  (E|B|/mu)*max eps=0.0584

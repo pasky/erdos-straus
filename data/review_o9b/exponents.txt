@@ -1,0 +1,4 @@
+L=1e3: k=7.20e+01(slope 1.39), b=2.89e+03(slope 1.00), w=2.08e+05(slope 2.39), k0=2.99e+13(slope 4.14), d=1.24e+20(slope 6.54), logQPi=2.29e+21(slope 7.92), junta_dL=4.97e+23(slope 7.54), logZ=5.00e+23(slope 7.54)
+L=1e6: k=3.62e+04(slope 0.93), b=2.89e+06(slope 1.00), w=1.04e+11(slope 1.93), k0=5.98e+25(slope 4.07), d=1.25e+38(slope 6.00), logQPi=1.16e+42(slope 6.92), junta_dL=5.00e+44(slope 7.00), logZ=5.01e+44(slope 7.00)
+L=1e12: k=1.81e+10(slope 0.96), b=2.89e+12(slope 1.00), w=5.22e+22(slope 1.96), k0=1.20e+50(slope 4.04), d=1.25e+74(slope 6.00), logQPi=5.79e+83(slope 6.96), junta_dL=5.00e+86(slope 7.00), logZ=5.00e+86(slope 7.00)
+L=1e24: k=9.05e+21(slope 0.98), b=2.89e+24(slope 1.00), w=2.61e+46(slope 1.98), k0=2.39e+98(slope 4.02), d=1.25e+146(slope 6.00), logQPi=2.90e+167(slope 6.98), junta_dL=5.00e+170(slope 7.00), logZ=5.00e+170(slope 7.00)

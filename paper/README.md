@@ -1,14 +1,19 @@
 # Paper draft status
 
-**New (2026-10-05): `es-subexp-note.tex` / `.pdf`** (task O33, 16 pages, DRAFT,
-**not yet refereed**). A standalone note proving `W(p) ≥ exp(c(log p)^{1/14})`
-for infinitely many hard primes (mod Thorner–Zaman + Elsholtz–Tao Prop 1.4),
-and `log W ≥ (1/(2log2)−o(1))log₂p·log₃p` (mod TZ only). Source:
-`POINTWISE_OMEGA8.md` §§3–4 (Thms 4.3/4.4). It uses a Bazzi–Razborov sandwich
-minorant and a switching-lemma Fourier tail. It supersedes the rate of
-`es-omega-note.tex` (v3), which remains the reference for the transfer theorem,
-the slice parameter and the Haar Type I material. Novelty audit:
-`reviews/novelty-audit-omega8.md`.
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v2** (tasks O33/O34, 18 pages).
+It proves `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many hard primes
+(mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4 + Håstad),
+and `log W ≥ (1/log2−o(1))log₂p·log₃p` (mod Gallagher + Håstad). Sources:
+`POINTWISE_OMEGA8.md` §§3–4 (Bazzi–Razborov sandwich + switching-lemma tail)
+and `POINTWISE_OMEGA9.md` Thm 1.1 (linear transfer via Gallagher; replaces
+Thorner–Zaman).
+* v1 (exponent 1/14, Thorner–Zaman transfer) was refereed in R33 (MINOR
+  REVISION, repairs applied) and merged.
+* v2 is **not yet refereed**.
+
+The rate supersedes `es-omega-note.tex` (v3). That note remains the
+reference for the slice parameter and the Haar Type I material. Novelty
+audit: `reviews/novelty-audit-omega8.md`.
 
 **New (2026-09-06): `vaughan-loglog-note.tex` / `.pdf`** — a 9-page standalone,
 self-contained note proving the unconditional bound

@@ -1,0 +1,16 @@
+N=20 L=100 t=0.1 C=1.5: margin s=0.2500  min F[1,N]=0.7187 min F out=-0.2978  max|F(s)-M/d| on (N/2,CN]=1.313
+0.94s 113548KB
+N=20 L=100 t=0.1 C=2.0: margin s=0.4000  min F[1,N]=0.8621 min F out=-0.3471  max|F(s)-M/d| on (N/2,CN]=1.263
+0.83s 112364KB
+N=30 L=150 t=0.1 C=1.5: margin s=0.2500  min F[1,N]=0.7082 min F out=-0.3476  max|F(s)-M/d| on (N/2,CN]=1.084
+2.45s 158916KB
+N=30 L=150 t=0.1 C=2.0: margin s=0.4000  min F[1,N]=0.7740 min F out=-0.2783  max|F(s)-M/d| on (N/2,CN]=1.076
+1.94s 162228KB
+N=40 L=200 t=0.1 C=1.5: margin s=0.2000  min F[1,N]=0.6258 min F out=-0.3578  max|F(s)-M/d| on (N/2,CN]=1.231
+5.16s 224960KB
+N=60 L=300 t=0.1 C=1.5: margin s=0.1869  min F[1,N]=0.4845 min F out=-0.3441  max|F(s)-M/d| on (N/2,CN]=1.095
+25.20s 405044KB
+N=60 L=300 t=0.1 C=2.0: margin s=0.3264  min F[1,N]=0.5511 min F out=-0.3680  max|F(s)-M/d| on (N/2,CN]=1.166
+27.77s 390016KB
+N=80 L=400 t=0.1 C=2.0: margin s=0.2545  min F[1,N]=0.4450 min F out=-0.5282  max|F(s)-M/d| on (N/2,CN]=1.403
+75.59s 640424KB
