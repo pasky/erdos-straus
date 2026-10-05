@@ -454,6 +454,66 @@ $G_F(\lambda)\le\E_x\min_{\cM}\prod_{J\in\cM}(w_J-1)$, the minimum over matching
 It would be interesting to know whether the minimum over matchings can be
 replaced by a fractional-matching version (Conjecture~\ref{conj:fm}).
 
+\section{Energy tails and DNFs}\label{sec:dnf}
+
+\begin{proof}[Proof of Corollary~\ref{cor:tail}]
+Take $\lambda_v=\lambda=2^{1/k}$ for all $v$; then $w_E=\lambda^{|\supp E|}\le2$, and
+Theorem~\ref{thm:main} gives $G_F(\lambda)\le1$.  Let $a=\PP(F=0)=\E h$.  Since
+$\|F^{=\emptyset}\|^2=(\E F)^2=(1-a)^2$,
+\[
+ \sum_{U\ne\emptyset}\lambda^{|U|}\|F^{=U}\|^2\le1-(1-a)^2=a(2-a).
+\]
+For $t\ge0$ every $U$ with $|U|>t$ is nonempty and has $\lambda^{|U|}\ge2^{(t+1)/k}$, so
+$\energy(F;t)\le2^{-(t+1)/k}a(2-a)$.  Finally $(1-F)^{=U}=-F^{=U}$ for $U\ne\emptyset$.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~\ref{cor:dnf}]
+Let $g$ be computed by the DNF $T_1\vee\dots\vee T_m$ with $-1=\mathrm{True}$, and let
+$E_i$ be the set of inputs that satisfy the term $T_i$.  A term is a conjunction
+of at most $k$ literals on distinct variables (a term containing $x_v$ and
+$\bar x_v$ is never satisfied and may be dropped), so $E_i$ is a cylinder event
+with $|\supp E_i|\le k$.  Then $g=2F-1$ with $F=\prod_i(1-\mathbf 1_{E_i})$, and
+$p=\PP[g=-1]=\PP(F=0)$.  As $g^{=U}=2F^{=U}$ for $U\ne\emptyset$, the first claim is
+Corollary~\ref{cor:tail} multiplied by $4$, and $p(2-p)\le1$.  If
+$4\cdot2^{-(d+1)/k}\le\varepsilon$, i.e.\ $d+1\ge k\log_2(4/\varepsilon)$, then $W^{>d}[g]\le\varepsilon$; the
+least such integer $d$ is at most $k\log_2(4/\varepsilon)$.
+
+For the weighted sum, $\|g^{=\emptyset}\|^2=(1-2p)^2$ and, with $\lambda=2^{1/k}$,
+$\sum_{U\ne\emptyset}\lambda^{|U|}\|g^{=U}\|^2=4(G_h-p^2)$, where $G_h=G_F-1+2p\le2p$ by
+Lemma~\ref{lem:ident}(c).  So the sum is at most $(1-2p)^2+8p-4p^2=1+4p$.
+For the influence, $\sum_U(\lambda^{|U|}-1)\|F^{=U}\|^2=G_F-\E F\le p$, and
+$\lambda^{|U|}-1\ge|U|\ln\lambda=|U|\ln2/k$.  Hence
+$\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2=4\sum_U|U|\,\|F^{=U}\|^2\le(4k/\ln2)p$.
+
+For a $q$-ary DNF, a term $\bigwedge_{v\in S}(x_v\in S_v)$ is the disjoint union of the
+cylinder events $\{x_S=\sigma\}$, $\sigma\in\prod_{v\in S}S_v$, which all have support $S$.
+Replacing each term by these events changes neither $F$ nor the supports.
+\end{proof}
+
+The same bounds hold for CNFs, since $W^{>t}[-g]=W^{>t}[g]$.  Here
+$\mathbf I[g]=\sum_U|U|\,\|g^{=U}\|^2$ is the Efron--Stein total influence; it is
+the usual total influence for the uniform measure.
+
+\begin{remark}[Non-uniform widths]\label{rem:widths}
+Theorem~\ref{thm:main} also handles terms of very different widths, and
+weights adapted to the variables.  For instance, if every term contains at
+most $k_1$ variables from a set $A$ and at most $k_2$ from its complement,
+then $\lambda_v=2^{1/(2k_1)}$ on $A$ and $2^{1/(2k_2)}$ off $A$ are admissible.  This
+gives $\sum\|F^{=U}\|^2\le2^{-\tau}$ over the $U$ with
+$|U\cap A|/k_1+|U\setminus A|/k_2>2\tau$.  The weights used in
+Section~\ref{sec:app} are of this kind, with $\log\lambda_v$ proportional to the
+logarithm of the size of the alphabet at $v$.
+\end{remark}
+
+\begin{remark}[What is not claimed]\label{rem:notclaimed}
+Corollary~\ref{cor:dnf} concerns concentration on low \emph{degree} only.  It
+says nothing about the number of significant coefficients (Mansour's
+sparsity bound and Mansour's conjecture \cite{Mansour}, \cite{LT}), and it does
+not give the random-restriction (decision-tree depth) form of the switching
+lemma.  It does not apply to depth-$3$ circuits or to $\mathrm{AC}^0$; we do
+not know whether the method extends to them.
+\end{remark}
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
