@@ -643,8 +643,9 @@ specified in the proof). There are `a_i` and a Montgomery–Vaughan system
 
 *Proof.* *Spacing.* Put `Ξ = (2R+1)^K ≤ N/3`, `β_i = (2R+1)^{−i}`, and
 choose `a_i` coprime to `D_i` with `|a_i/D_i − β_i| ≤ ε := 1/(4KRΞ)`
-(possible once `εD_i ≥ 4`: an interval of `≥ 4·` consecutive integers... of
-length `εD_i` contains an integer prime to `ℓ_iℓ'_i`, since `ℓ_i, ℓ'_i ≥ 5`).
+(possible once `D_i ≥ 4/ε = 16KRΞ`: the interval `[D_i(β_i−ε), D_i(β_i+ε)]`
+contains 4 consecutive integers, of which at most one is divisible by
+`ℓ_i` and at most one by `ℓ'_i`, as both are `≥ 5`).
 The numbers `Σ_i m_iβ_i`, `|m_i| ≤ R`, are the `Ξ` distinct integers in
 `[−(Ξ−1)/2, (Ξ−1)/2]` divided by Ξ, so they are `Ξ^{−1}`-spaced mod 1
 (the total span is `< 1`). Each `Σm_iθ_i` moves by `≤ KRε = 1/(4Ξ)`, so Θ
