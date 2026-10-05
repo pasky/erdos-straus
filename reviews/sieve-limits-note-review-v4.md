@@ -204,3 +204,25 @@ still gives" sentence. Also l. 2120–2123 ("the Λ² majorants of [TW2] are sta
 R_W only; see Remark 12.8") contradicts the new reading. *Repair:* delete the first-half bounded-B
 paragraph (keep one "still gives" sentence) and drop "and the Λ² majorants of [TW2]" from
 l. 2122.
+
+**m16 (headers of Thms 10.12, 10.14 and everything "via Theorem 10.12").** The headers say
+"PROVED", while KA3's label is "PROVED given K2/EK as reviewed"; only the §10 opening paragraph
+says this. Fine for a reader of §10, but §§14–15 and the abstract inherit it silently.
+*Suggestion:* one sentence in the "Status labels" list of §1: "PROVED for results resting on
+Theorem 10.12 means: given the [KA]/[KA2] framework as reviewed there".
+
+**m17 (§16, l. 3869 and l. 3770–3772).** "New in this version: the factor (log log N)^{3/4} without B
+(Theorem 10.12)" reads as if the factor were new; write "the removal of the factor …". Item 1's "a
+proof must use the sparsity of forced classes" — same softening as in m7 ("family-specific
+input such as the sparsity …"). §17 "Gone since version 3: … prime-only majorants of mixtures
+… and the factor (log log N)^{3/4}" — for prime-only majorants the factor is removed only at
+pointer level (cf. M1); add "(for prime-only majorants: pointer level)".
+
+**m18 (es-threequarter-note.tex, sharpness remark l. 1321–1355).** Verified: cross-references
+(Thm 10.14, Rem 10.15, Thm 14.2, §16) match the v4 numbering (from the .aux), the sync comment is
+updated, bibliography KA3 added, SL bumped to v4. The claims (cap C(log N)^{3/4} with no condition
+on moduli; atoms β=2κ<1/120 already covered by KA2 Thm 5.2; no ω(N)→∞ gain; large-sieve cap at
+polynomial level; ℛ(M)/selector part uses only Shiu) are all correct. The "Not covered" list is
+abbreviated relative to SL §16 (omits larger-sieve kernels with uncontrolled factor, rounding
+weights below one, prime majorants ≥0 only at primes ≤N). *Suggestion:* end the list with "…, and
+the other items of [SL, §16]".
