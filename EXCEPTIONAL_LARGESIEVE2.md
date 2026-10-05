@@ -20,7 +20,7 @@ Thm 5.1 (`λ ≥ λ₀`), and `S_B(λ) = C(B)λ^{3/4}` that of K2 Thm 5.2.
 | Thm 2.4, Cor 2.5 | **periodic Bessel systems, twisted, hybrid**: any inequality `Σ_j|Σ a_n φ̄_j(n)|² ≤ ΔΣ|a_n|²` with periodic rows of level ≤ λ_Φ, applied to `a_n = ψ(n)1_A(n)` with any periodic twist `|ψ| ≥ 1` on 𝒜 (any period), fibrewise over `Q₀`, mixed with majorant-with-rounding fibres: `B ≥ (N/2)e^{−S(λ)}`; saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` for polynomial periods. Covers multiplicative × additive, Gauss-sum twisted and hybrid forms (escape 3) | PROVED, conditional on K2 Thm 5.1 (internal) |
 | Thm 3.1 | **large sieve applied to the primes** of the sifted set (PL §6 item 5): same cap relative to `π(N)`, when all primes of `M'` (family, rows, twists, `Q₀`) are `≤ N^A` | PROVED, conditional on PL Thm 3.1 |
 | Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))`; a cap only where the factor `1+Nh/(W_K−h)` is controlled (composite kernels with `W_K − h ≪ Nh` stay open) | PROVED, conditional on K2 Thm 5.1 |
-| **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 4.1–4.3 and EK Lemma 2.1 only; no external input) |
+| **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 3.1, 4.1–4.3, EK Lemma 2.1; Shiu and Mertens, no ElT Prop 1.4) |
 | Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; a different sufficient criterion: (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
 | Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design | PROVED |
 | §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
@@ -306,7 +306,9 @@ Gallagher's kernel (`h = log N`, `W_K = ψ(Q)`) that factor is
 
 ### 4.2 Prime-power kernels: an O(log log N) cap, unconditionally
 
-**Theorem 4.3 (H_Gal holds; PROVED, no external input).** There are
+**Theorem 4.3 (H_Gal holds; PROVED, unconditional — no ElT Prop 1.4 and
+nothing conditional; it uses Shiu's theorem and Mertens through K2 Lemmas
+3.1, 4.2).** There are
 absolute constants `C, N₀` such that for every finite mixture 𝔊 of the
 four types (arbitrary moduli, Case A included) and every `Q ≥ 2` there is
 `π ∈ P(𝒜(𝔊))` with
@@ -330,6 +332,11 @@ Lemmas 4.1–4.3, so K2 Lemma 4.3 holds for σ:
 top prime (W-smooth classes by the base, K2 Lemma 2.3(1)), so by EK
 Lemma 2.1(1) and Markov,
 `𝔏 := σ(𝒜^c) ≤ Σ_{ℓ>W} ℓ^{1/2}E p_ℓ² ≤ C'(log W)^{c'}W^{−1/4} ≤ 1/4`.
+The load-bearing input when `W = (log 3Q)^8` grows is the W-uniformity
+`C(W) ≤ C(log W)^c` of K2 Lemma 4.3 ("W-dependence", via K2 Lemma 3.1's
+Euler factors); c is huge but absolute. `𝔏 ≤ 1/4` (used for
+`χ² ≤ (4/3)p` and `(1−𝔏)^{−2} ≤ 1 + 4𝔏`) needs a `W₀` larger than K2's
+(which only gives `𝔏 ≤ 1/2`); `W₀` is enlarged accordingly (review m3).
 Put `π = σ(· | 𝒜)`.
 
 *Conditioning.* For every q and residue b, `π(b mod q) ≤ σ(b mod q)/(1−𝔏)`,
@@ -348,10 +355,12 @@ projection `ℤ/ℓ^{E} → ℤ/ℓ^v`; above `ℓ^{E_ℓ}` the law is a uniform
   `χ² = (p+1)/(p−1) ≤ 2` (p odd), `≤ 7` (p = 2).
 
 *Sum.* The W-smooth prime powers give
-`≤ Σ_{p≤W}(log p/(p−1))(2+12𝔏) + log 2·Σ_v 2^{−v}(7+32𝔏) ≤ 3 log W + C`
-(Mertens). The rough ones give
+`≤ Σ_{p≤W}(log p/(p−1))(2+12𝔏) + log 2·Σ_v 2^{−v}(7+32𝔏) = 2 log W + 12𝔏 log W + O(1)`
+(Mertens), which is `≤ 3 log W + C` because `𝔏 log W = o(1)` (not merely
+`𝔏 ≤ 1/4`, which would give `5 log W`; review m3(d)). The rough ones give
 `≤ Σ_{ℓ>W}(2log ℓ/ℓ)·2C(log W)^cℓ^{−7/8}(log ℓ)^c + 4𝔏Σ_{q≤Q}Λ(q)/q
-≤ C + 4C'(log W)^{c'}W^{−1/4}(log Q + 2) ≤ C`, by the choice of W. Since
+≤ C + 4C'(log W)^{c'}W^{−1/4}(log Q + 2) ≤ C`, by the choice of W (for
+`Q ≥ Q₁(c')`; smaller Q are absorbed into C). Since
 `3 log W ≤ 24 log log(3Q) + C`, (4.1) follows.
 
 *Consequence.* LS Thm 6.2's proof gives `log(N/B) ≤ log(1 + NX/(ψ(Q) −
@@ -363,8 +372,8 @@ saving is `≤ 26 log log N + C`. If `Q > N²`, `4NX/Q ≤ 1` and the saving
 is `≤ log 2`. The Cauchy–Schwarz form has `L = Σ Λ/ν(q) ≤ D*`, so its
 bound is larger. ∎
 
-*Remarks.* (a) Theorem 4.3 uses only K2 Lemmas 2.3, 4.1–4.3 and EK Lemma
-2.1, all proved with no external input; it does **not** need K2 Thm 5.1.
+*Remarks.* (a) Theorem 4.3 uses only K2 Lemmas 2.3, 3.1, 4.1–4.3 and EK
+Lemma 2.1 (published inputs: Shiu, Mertens; no ElT Prop 1.4); it does **not** need K2 Thm 5.1.
 It is far below the 3/4 scale: on forced-class avoiders, which occupy
 almost every residue class modulo every prime power, Gallagher's sieve is
 essentially powerless, as on the prime slices of LS Cor 6.3. (b) Any
