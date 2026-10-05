@@ -131,3 +131,72 @@ direct computation proves MONO when `|supp A|=1`: `G_F−G_{F(1−A)} =
 π F(c)[λF(c)−μ(2EF−F(c)π)]≥0` for n=1, boolean F.) In all these examples
 `G_F<1` still: C-1 and C-exp are **not** refuted, but a proof cannot be a
 one-event-at-a-time monotonicity.
+
+## 3. Reduction of C-1 to a pointwise hypergraph inequality
+
+For a finite hypergraph 𝓗 (a set of nonempty vertex sets) let
+`τ_𝓗(R):=1[R∩E≠∅ ∀E∈𝓗]` (transversal indicator, `R⊆` vertices),
+`τ̂_𝓗(V):=Σ_{R⊆V}(−1)^{|V∖R|}τ_𝓗(R)` its Möbius transform, and
+
+```
+Q_μ(𝓗) := Σ_V μ^V τ̂_𝓗(V)²      (μ^V:=∏_{v∈V}μ_v;  Q_μ(∅)=1).
+```
+
+Equivalent forms (PROVED, by expanding `τ=∏_E(1−∏_{v∈E}(1−r_v))=Σ_{𝒥⊆𝓗}(−1)^{|𝒥|}∏_{v∈∪𝒥}(1−r_v)`):
+`|τ̂(V)| = |N(V)|`, `N(V):=Σ_{𝒥⊆𝓗: ∪𝒥⊇V}(−1)^{|𝒥|}` (signed count of
+covers of V), and with `λ=1+μ`
+
+```
+Q_μ(𝓗) = Σ_{𝒥,𝒦⊆𝓗} (−1)^{|𝒥|+|𝒦|} ∏_{v∈(∪𝒥)∩(∪𝒦)} λ_v .
+```
+
+Examples: one edge E: `Q=w_E−1`; disjoint edges: `Q=∏(w_{E_i}−1)`.
+
+**Lemma 3.1 (cover bound; PROVED).** For every single-value system and all
+`λ_v≥1` (`μ_v=λ_v−1`),
+
+```
+G_F(λ) ≤ Γ := E_x[ Q_μ(𝓗(x)) ],     𝓗(x) := {supp E : E holds at x}.
+```
+
+*Proof.* By §2 (i), `G_F=Σ_Vμ^V‖L_VF‖²` and
+`‖L_VF‖² = E_{x_{V^c}}‖(F_{x_{V^c}})^{=V}‖²`, where `g:=F_{x_{V^c}}` is the
+good-indicator on `Ω_V` of the restricted system (events whose part off V
+holds at `x_{V^c}`, restricted to `E∩V`). Expand
+`g=Σ_𝒥(−1)^{|𝒥|}A_𝒥` (A_𝒥 = indicator of the intersection cylinder). A
+cylinder whose support is a proper subset of V has zero top component, and a
+cylinder with support V is a point indicator `1_σ`, with
+`(1_σ)^{=V}=∏_{v∈V}(1[x_v=σ_v]−1/q_v)`. Hence `g^{=V}=L_Vc` for the
+function `c(σ):=Σ_{𝒥: supp A_𝒥=V, value σ}(−1)^{|𝒥|}` on `Ω_V`, and
+`‖g^{=V}‖²=‖L_Vc‖²≤‖c‖²=E_σc(σ)²` (`L_V` is an orthogonal projection).
+Writing `x=(σ,x_{V^c})`, the 𝒥 in `c(σ)` are exactly the subfamilies of
+events holding at x whose traces on V cover V, so `c(σ)=±N_{𝓗(x)}(V)`
+(an event avoiding V that holds at x makes `c=0`, consistently with
+`N(V)=Σ_{R⊆V}(−1)^{|R|}τ(R)=0` when some edge misses V). Summing,
+`G_F ≤ Σ_Vμ^V E_x N_{𝓗(x)}(V)² = E_x Q_μ(𝓗(x))`. ∎
+
+Note the **suppression is built in**: `N_{𝓗(x)}(V)=0` whenever some event
+holding at x avoids V (this is O9 §4.3's condition (b), now exact). For
+O9's hub (core H plus M completions at distinct coordinates) one gets
+`|N|≤1` and a contribution `O(P(H)·min(1,M/q))=O(S_hub)`, with no
+`e^{M/q}`.
+
+**Conjecture Q (EVIDENCE).** If every `E∈𝓗` has `w_E=∏_{v∈E}(1+μ_v)≤2`,
+then `Q_μ(𝓗)≤1`.
+
+By Lemma 3.1, Conjecture Q implies C-1 (`G_F≤1` for every single-value
+system with all `w_E≤2`; no mass, codegree or quarantine hypothesis), since
+`𝓗(x)` only contains supports of events.
+
+Evidence: `scripts/omega10_q.py` (20000 random weighted hypergraphs, n≤10),
+`scripts/omega10_qhc.py` (hill-climbing, n=7 and n=10): max `Q=1`, attained
+by a single edge with `w=2`. `scripts/omega10_gamma.py`: `G_F≤Γ` in 300
+random systems (as proved), and `Γ≤0.992` whenever `w≤2`.
+Two facts already PROVED: (a) weights `μ_v∈{0,1}` (each edge meets
+`Ξ:={μ=1}` at most once): `Q=1[every edge meets Ξ]`; (b) by multilinearity,
+`Q_μ(𝓗)=E_Ξ[Q_1(𝓗|_Ξ)]` with Ξ random, `P(v∈Ξ)=μ_v` independently
+(valid for `μ_v≤1`), `𝓗|_Ξ` the traces, `Q_1` the unweighted sum
+(`=0` if a trace is empty).
+The naive unweighted bound `Q_1(𝓗)≤min_E(2^{|E|}−1)` is **false**
+(`scripts/omega10_q1.py`: ratios up to 423, driven by singleton edges), so
+the averaging over Ξ is essential.
