@@ -3715,93 +3715,131 @@ The following list is checked against the proofs of
 Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
 \ref{thm:wseq}, \ref{thm:karycap}, \ref{thm:noBcap}, \ref{thm:main} and
 Lemma~\ref{lem:budget} \cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC},
-\cite[\S6]{KA2}; items~1--7 are the list of \cite[\S6]{KA2} and its
-second review \cite[(C)]{KA2rev2}.  Anything below lies outside the cap
-of Theorem~\ref{thm:main}; where another section covers part of an item,
-this is said.
+\cite[\S6]{KA2}, and updated with Sections~\ref{sec:LS}
+and~\ref{sec:TU} \cite[\S7]{LS}, \cite[\S0]{LS2}, \cite[\S0]{IF2},
+\cite[\S6]{TU}, \cite[\S0]{TU2}, \cite[\S5]{KA3}.  Anything below lies outside
+the cap of Theorem~\ref{thm:main}; where another theorem covers part of an
+item, this is said.
 \begin{enumerate}
-\item \emph{The large sieve beyond prime slices.}  Montgomery's large
-  sieve is capped only fibre by fibre over a prime-slice system
-  (Remark~\ref{rem:LS}).  It is not a pointwise majorant, and nothing
-  here extends that cap to mixed families or composite moduli.
-\item \emph{Cancellation between frequencies.}  Bounds exploiting
-  cancellation in $\sum_{n\leq N}\nu(n)-N\E\nu$: direct interval counts,
-  Kloosterman and dispersion arguments, Erd\H{o}s--Tur\'an/Vaaler
-  cancellation, and signed sieves whose error term is not $\sum_i|a_i|$.
-  For finite prime-slice families every per-frequency rounding bound
-  with weight $w\geq1$ is covered (Theorem~\ref{thm:perfreq}); for the
-  sequential construction of Sections~\ref{sec:main}--\ref{sec:noB} even
-  this is not proved.
-\item \emph{Per-frequency weights below one}: floor/ceiling rounding, the
-  exact $|S_N|$, smooth windows \cite[\S2.5]{NC}.
+\item \emph{The large sieve at super-polynomial frequency levels.}
+  Covered: every CRT-admissible large sieve with rational frequencies of
+  polynomial level, fibrewise or not, with any weights and any moduli
+  (Theorem~\ref{thm:LScap}); multiplicative, Gauss-sum, twisted and
+  hybrid Bessel forms with periodic rows (Theorem~\ref{thm:hybrid}); the
+  large sieve applied to the primes (Theorem~\ref{thm:LSprimes}); prime
+  slices with any rational frequencies (Theorem~\ref{thm:LSslice}).
+  Outside: frequencies of super-polynomial level whose denominators
+  carry many family primes (escape (E1), Conjecture~\ref{conj:HLS}).  By
+  Theorem~\ref{thm:band} this cannot be closed by comparison measures
+  and large-sieve axioms alone: a proof must use the sparsity of forced
+  classes.  Non-periodic rows (such as $n^{it}$) are non-CRT input.
+\item \emph{The larger sieve with bad composite kernels.}  Gallagher's
+  sieve with prime-power kernels saves at most $26\log\log N+C$ over any
+  mixture, unconditionally (Theorem~\ref{thm:gallagher}); composite
+  kernels are capped up to the factor $1+Nh/(W_K-h)$
+  (Theorem~\ref{thm:compkernel}).  Outside: kernels for which that factor
+  exceeds $\e^{(\log N)^{3/4}}$ and whose moduli have small prime factors.
+\item \emph{Cancellation between frequencies above modulus $N/2$.}
+  Covered: majorants built from classes of modulus $\leq N/2$, with any
+  coefficients and any evaluation of the interval sum (dispersion,
+  Kloosterman, Erd\H{o}s--Tur\'an/Vaaler, floor/ceiling, smooth windows)
+  (Corollary~\ref{cor:IFcap}); bounds that dominate the large
+  coefficient mass up to $\e^{O((\log N)^{3/4})}$ (Theorem~\ref{thm:IFbudget});
+  hybrid methods whose free large mass is $\leq cB$
+  (Section~\ref{sec:hybrid}).  Outside: hybrids with large right-signed
+  mass at moduli in $(N/2,CN]$, and all hybrids unless Flat holds
+  (Theorem~\ref{thm:hybridcap}; Flat follows from the combinatorial
+  Hypothesis~\ref{hyp:SPW}, which is \lab{open}); direct counts of
+  multi-witness patterns of combined modulus $>N/2$.  For finite prime-slice
+  families every per-frequency rounding with weight $\geq1$ is covered
+  for any moduli (Theorem~\ref{thm:perfreq}).
+\item \emph{Per-frequency weights below one} with classes of modulus
+  $>N/2$: covered only under Theorem~\ref{thm:IFbudget}'s hypothesis;
+  for smooth windows on prime slices, \lab{conditional} on $(H_{\rm eq})$
+  (Section~\ref{sec:noncrt}).
 \item \emph{Majorants $\geq1$ only on part of the avoider set.}
   Theorem~\ref{thm:main} needs $\nu\geq0$ on $\Z$ and $\nu\geq1$ on all of
-  $\A(\cG)\subseteq\Z$.  Excluded: $\nu\geq0$ only on $[1,N]$
-  (Remark~\ref{rem:positivity}); $\nu\geq1$ only on $\A\cap[1,N]$ or only
-  on the exceptional set; and $\nu\geq1$ only on exceptional primes, used
-  through prime equidistribution beyond a selector.  Majorants that are
-  $\geq0$ and $\geq1$ only at primes are covered for finite prime-slice
-  families (Theorem~\ref{thm:primemaj}).  Selector classes cap the mean
-  side of such prime-law methods by the same proof, but the
-  Bombieri--Vinogradov-type error accounting is \lab{open} and not
-  claimed.
+  $\A(\cG)\subseteq\Z$.  Covered: majorants $\geq0$ at all primes and $\geq1$ at
+  the primes of $\A$, for every mixture, hence prime-law methods with
+  BV/BDH/EH/GRH-type input at polynomial level (Theorem~\ref{thm:PLcap},
+  Corollary~\ref{cor:PLmethods}).  The relaxation ``$\nu\geq1$ only at the
+  primes of $\A\cap[1,N]$'' admits no cap of any kind
+  (Proposition~\ref{prop:finiterange}): the gap there is certification,
+  not majorant design.  Outside: $\nu\geq0$ only on $[1,N]$
+  (Remark~\ref{rem:positivity}); $\nu\geq1$ only on $\A\cap[1,N]$ or on the
+  exceptional set; $\nu\geq0$ only at primes $\leq N$ (with $\nu\geq1$ at all
+  primes of $\A$), which is open (\emph{Assessment}); unconditional
+  signed error terms for prime laws (\emph{Assessment}).
 \item \emph{Non-CRT input.}  The theorems see only the CRT law of
-  residues.  Covered for finite prime-slice families: prime-only
-  majorants at level $N^{O(1)}$ and CRT-evaluated moment methods
-  (Section~\ref{sec:noncrt}).  Outside: Type~I/II sums, the arithmetic of
-  $(p+a)/4$, Hal\'asz-type arguments, moments counted as tuples of
-  solutions rather than through CRT densities, and prime moments of
-  unbounded order beyond level $A\log N$ (covered only under the
-  Assessment of \cite[Remark~3.4]{NC} together with
-  $\sum_{\rm high}|a_i|<\pi(N)$ and slice primes $\leq N^{O(1)}$,
-  \cite[Prop.~4.1]{NC}).
+  residues.  Covered: CRT-evaluated moment methods
+  (Section~\ref{sec:noncrt}), correlation input of bounded order or of
+  prime order $o((\log N)^\theta/\log\log N)$ under CRT-main-term evaluation
+  (Corollaries~\ref{cor:classorder} and~\ref{cor:primeorder}), and the
+  large sieve for primes (Theorem~\ref{thm:LSprimes}).  Outside:
+  Type~I/II sums, the arithmetic of $(p+a)/4$, Hal\'asz-type arguments,
+  non-witness divisor information along fixed shifts, tuple counts whose
+  main term is not the CRT density (any $\theta>3/4$ input of this kind
+  for the prime family needs accuracy at moduli $\exp\{c(\log N)^{3\theta/2}\}$,
+  see the discussion after Corollary~\ref{cor:prime23}), and family-class order $k$ in the window
+  \eqref{eq:window} for families whose moduli have unboundedly many
+  primes above $W$ (Corollary~\ref{cor:boundedr},
+  Lemma~\ref{lem:packing}).
 \item \emph{Other class types}, including non-selector admissible sets.
   The proof of Theorem~\ref{thm:noBcap} uses only three properties of
   the classes: (a) no $W$-smooth class contains a unit square modulo its
-  modulus (for the base); (b) first moments
-  $\ll(\log y)^3\cdot\mathrm{polylog}(\log y)$ over $P(G)\leq y$; (c) cofactor
-  second moments $\ll\ell^{o(1)}$.  The same proof covers any family with
-  (a)--(c) \cite[\S6, item~2]{KA2}; families without them are outside.
-  Any admissible set that cannot be expressed by selector classes (or
-  by classes of the four types) has an uncontrolled term
+  modulus (for the base); (b) first moments $\ll(\log y)^3$ over $P(G)\leq y$;
+  (c) cofactor second moments $\ll\ell^{o(1)}$.  The same proof covers any
+  family with (a)--(c) \cite[\S6, item~2]{KA2}; families without them are
+  outside.  Any admissible set that cannot be expressed by selector
+  classes (or by classes of the four types) has an uncontrolled term
   $\log(Q_0/|R|)$ (Remark~\ref{rem:Rterm}; \cite[\S6]{ET}); this includes
   admissible sets that exclude classes failing (a), such as classes of
-  unit squares.  The one exception in this note is the
-  quadratic-residue set $R_W$ for fixed-$B$ families of $\cR(M)$-classes
+  unit squares.  The one exception in this note is the quadratic-residue
+  set $R_W$ for fixed-$B$ families of $\cR(M)$-classes
   (Theorem~\ref{thm:karycap}).  Schinzel's theorem, as quoted in
   \cite{ElsholtzTao}, may make (a) automatic for polynomial-identity
   families; this has not been checked.
 \item \emph{Primes beyond $N^{O(1)}$.}  Families with primes beyond
   $N^{O(1)}$ are outside Theorem~\ref{thm:main}, since
-  Lemma~\ref{lem:budget} needs $\Lambda_0$.  For finite prime-slice
-  families Theorem~\ref{thm:perfreq} needs no such bound.
+  Lemma~\ref{lem:budget} needs $\Lambda_0$.  Covered without such a bound:
+  finite prime-slice families with per-frequency rounding
+  (Theorem~\ref{thm:perfreq}), majorants from classes of modulus $\leq N/2$
+  (Corollary~\ref{cor:IFcap}), and large sieves on prime slices with any
+  rational frequencies (Theorem~\ref{thm:LSslice}).
 \end{enumerate}
-In addition, the exact exponent is open without $B$:
-Theorem~\ref{thm:main} leaves a factor $(\log\log N)^{3/4}$, which comes
-only from smooth-dominated moduli (Lemma~\ref{lem:firstnoB} and the
-remark after it).  For unbounded-$B$ families a saving
-$(\log N)^{3/4}\omega(N)$ with $1\ll\omega(N)\leq(\log\log N)^{3/4}$ is not
-excluded; it is expected not to exist, but that is \lab{open}.  Under
-bounded $B$ it is excluded (the bounded-$B$ clause of
-Theorem~\ref{thm:main}).  All constants
-are absolute but astronomically large (Section~\ref{sec:noB}).
+The exact exponent is now settled for the class of
+Theorem~\ref{thm:main}: the factor $(\log\log N)^{3/4}$ of the previous
+version is gone (Lemma~\ref{lem:firstnoB}), so no gain
+$(\log N)^{3/4}\omega(N)$ with $\omega\to\infty$ is possible in that class, with or
+without $B$.  The same holds for the results of Section~\ref{sec:LS} that
+use Theorem~\ref{thm:noBcap} as a black box; for the prime-measure results
+(Theorem~\ref{thm:PLcap} and what rests on it) the improvement is
+pointer-level only \cite[\S4.3]{KA3}.  All constants are absolute but
+astronomically large (Section~\ref{sec:noB}).
 
-\emph{No longer excluded} (compared with the previous version of this
-note).  The following are inside Theorem~\ref{thm:main}:
-$\cR(M)$-moduli with $\log M/\log P(M)$ unbounded; $(a,D)$- and Case-A
-moduli without a dominant prime; families mixing all four types; twin
-moduli (Lemma~\ref{lem:balancedsupply}); any number of prime factors per
-modulus; selector admissible sets (as selector classes, with selector
-primes $\leq N^A$); and multiplier conditions with a small part larger
-than the top prime, used without a separate level budget, provided the
-conditions are themselves classes of the four types and all their
-primes, those of the multiplier included, are $\leq N^A$.  For these,
+\emph{No longer excluded} (compared with version~2 of this note).  The
+following are inside Theorem~\ref{thm:main}: $\cR(M)$-moduli with
+$\log M/\log P(M)$ unbounded; $(a,D)$- and Case-A moduli without a dominant
+prime; families mixing all four types; twin moduli
+(Lemma~\ref{lem:balancedsupply}); any number of prime factors per modulus;
+selector admissible sets (as selector classes, with selector primes
+$\leq N^A$); and multiplier conditions with a small part larger than the
+top prime, used without a separate level budget, provided the conditions
+are themselves classes of the four types and all their primes, those of
+the multiplier included, are $\leq N^A$.  For these,
 Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
-through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family
-primes.  For the external input, the Case-A part
-uses Elsholtz--Tao Prop.~1.4 (published, not re-proved), as
-Lemma~\ref{lem:caseAprofile} does; families without Case-A classes use no
-external input.
+through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family primes.
+\emph{New in this version}: the factor $(\log\log N)^{3/4}$ without $B$
+(Theorem~\ref{thm:noBcap}); the large sieve beyond prime slices at
+polynomial level, its twisted, hybrid and prime forms, and Gallagher's
+larger sieve (Section~\ref{sec:LS}); prime-only majorants for all mixtures;
+interval counts with all moduli $\leq N/2$; bounded-order and
+prime-order tuple input; and the $\Lambda^2$ middle range $r\asymp\log L$ as a
+cap (Remark~\ref{rem:L2vsmain}).  For the external input, the Case-A part
+uses Elsholtz--Tao Prop.~1.4 and Thm~7.1, Cor.~7.4 and (7.10) of their
+\S7 (published, not re-proved; Remark~\ref{rem:ETslips}), the latter as
+Lemma~\ref{lem:smoothA} does; families without Case-A classes use only
+Shiu's theorem.
 
 \begin{lemma}[balanced moduli carry cubic supply; {\cite[Lemma~3.8]{ET}}; \lab{proved}]\label{lem:balancedsupply}
 There are $c>0$ and $x_0$ such that for $x\geq x_0$,
@@ -3834,8 +3872,7 @@ show that every window partition loses: singleton windows have no
 internal pairs.  So the twin moduli had to be covered, not discarded.
 For fixed $B$ they cannot beat the cap (Theorem~\ref{thm:karycap})
 \lab{proved}; without the $B$-hypothesis they are inside
-Theorem~\ref{thm:noBcap}, up to the factor $(\log\lambda)^{3/4}$
-\lab{proved}.
+Theorem~\ref{thm:noBcap}, with the same cap $C\lambda^{3/4}$ \lab{proved}.
 
 \section{Open problems}\label{sec:open}
 
