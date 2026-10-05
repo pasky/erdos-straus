@@ -293,7 +293,8 @@ E_{P_d}B ≤ e^{−c'𝓛^6} + η·Σ|c_i| .
 ```
 
 Consequently the integer measure `m^{(d)}:=Σ_{n≤x, n∈H̃_d}δ_n` (mass `X_d=x/(dQ)+O(1)`,
-accuracy `≤1` on every residue class) admits no class-ℓ¹ certificate of `Σ_{n}F dm^{(d)}≥1`
+accuracy `<2` on every residue class — `|m^{(d)}(C)−X_dP_d(C)|≤1+P_d(C)` with `X_d` the actual
+count, R57 m2) admits no class-ℓ¹ certificate of `Σ_{n}F dm^{(d)}≥1`
 **that charges the uniform error 1 to every deep class** unless `X_dη≥1/2`, i.e.
 `log x≥c𝓛^4/log𝓛` (forced as in Lemma 2.3(a) if the orbit is used uniformly; for integers the
 support is known exactly, so support-aware accounting — empty classes cost 0 — is natural and is
@@ -315,9 +316,10 @@ keep the true law on G'. Then `F=0` ν-a.s. off G', `ρ=0` on G', and Lemma 1.1 
 other `p∈(y,V]` divide x independently with probability `1/p`; for `t:=y`,
 `P(Σξ_p/p≥λ/2)≤e^{−tλ/2}∏_p(1+(e^{t/p}−1)/p)≤e^{−λy/2}exp(Σ_{p>y}e t/p²)≤e^{3−λy/2}`.
 So `P_d(G')≤e^{−c'𝓛^6}`.
-*Certificates.* `|#{n≤x: n∈H̃_d∩C}−X_dP_d(C)|≤1` for every class C (exact integer counting).
-A class-ℓ¹ certificate gives `Σ F dm^{(d)}≥X_dE_{P_d}B−Σ|c_i|≤X_de^{−c'𝓛^6}+Σ|c_i|(X_dη−1)`,
-which is `<1` unless `X_dη>1` (as `X_de^{−c'𝓛^6}<1/2`). ∎
+*Certificates.* With `X:=x/(dQ)`, `|#{n≤x: n∈H̃_d∩C}−XP_d(C)|≤1` for every class C (exact AP
+counting). A class-ℓ¹ certificate charging error 1 per class gives
+`Σ F dm^{(d)}≥XE_{P_d}B−Σ|c_i|≤Xe^{−c'𝓛^6}+Σ|c_i|(Xη−1)`, which is `<1` unless `Xη>1` (as
+`Xe^{−c'𝓛^6}<1/2`). ∎
 
 *Remark 4.2 (a sanity check that this is a method barrier).* For integers the conclusion is
 false: perfect squares coprime to all `M≤T` are avoiders (O13 Lemma 3.1: event classes are Jacobi
@@ -372,8 +374,9 @@ primes. What *is* proved: positivity cannot come from moderate single moduli (Pr
 **Proposition 5.2 (finite-range minorants of a single moderate modulus; PROVED modulo
 Linnik–Xylouris).** Let B be a function of `n mod q` with `B(p)≤F(p)` for every prime `p≤x` in H.
 Suppose there is a prime `ℓ_0≡3 (4)`, `ℓ_0≤T`, `ℓ_0∤qQ`, with `x≥C_L(qQℓ_0)^5` (`C_L` the
-Linnik–Xylouris constant; `(qQℓ_0)^{2+ε}` under GRH). Then `B≤0` on every class of H mod q,
-hence `E_HB≤0`.
+Linnik–Xylouris constant; `(qQℓ_0)^{2+ε}` under GRH). Then `B≤0` on every unit class of H mod q
+(the others are Haar-null), hence `E_HB≤0`. Such ℓ_0 exists automatically in range:
+`qQ<∏_{ℓ≤T, ℓ≡3 (4)}ℓ`.
 *Proof.* Fix a class c of H mod `q′:=lcm(q,Q)`. The class `{n∈c, n≡−4 (ℓ_0)}` mod `q′ℓ_0` is a
 unit class, so it contains a prime `p≤x`. The event `(M,D)=(ℓ_0,1)` (`M≡3 (4)`, `1|A²`) holds at
 p, so `F(p)=0` and `B(c)=B(p)≤0`. ∎
@@ -445,7 +448,7 @@ of the prime input. Outside that class this is an Assessment.
 | Lemma 1.1 | planted perturbation: `|E_ρh|≤(4r*)^{k+1}` for every reduced product; 0 if `|I|≤k` | PROVED (exact checks: identity 40 brute-force instances, bound 900 cases, worst ratio 2.4·10⁻⁴) |
 | Thm 1.2 | every minorant `B≤F` on any fibre (`log Q≤T^{0.05}`): `E_HB≤e^{−c𝓛^4/log𝓛}‖B‖_×` | PROVED mod (G), effective Page, fundamental lemma (O14 Thm 4.5 inputs) |
 | Thm 2.2 | linear certificates need accuracy `𝔈<N_xη` | PROVED (same) |
-| Lemma 2.3 | forced accuracy on deep orbits: ≥1/2 (classes), `≥√(N_x/3)` (characters, additive) | PROVED (elementary) |
+| Lemma 2.3 | forced accuracy on deep orbits (relative to H, coset K): ≥1/2 (classes), `≥√(N_x/2)` (characters, additive) | PROVED (elementary) |
 | Cor 2.4 | full-orbit uniform linear transfers (Def 2.1; prime input irrelevant by construction) need `log x≥c𝓛^4/log𝓛` | PROVED implication |
 | Prop 2.5 | `‖ν−P‖_TV≤e^{−0.6μ*}`; Hölder-averaged accuracy also blocked | PROVED (same) |
 | Thm 3.1 | Siegel-model law `(1−εχ_1)P`: same fake (atom norm); level `≤c𝓛^4/log𝓛−log x` gives `E_{P_1}B≤0` | PROVED (same) |
