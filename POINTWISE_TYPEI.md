@@ -13,7 +13,7 @@ Status: checkpoint 1 (side agent O31, branch `side-agent/typei-ckmin`); not yet 
 | P4.2 | every reduced hard class mod L contains infinitely many p with `ck_min(p)=n_p`; congruence input gives exactly `g=1` | PROVED |
 | L4.3 | subgroup-type sieve criteria for an unforced slice have dimension `≥1/2`, additive over slices | PROVED |
 | A4.4–4.6 | sieve/level/first-moment barriers: EH insufficient even for one slice by pure sieve; union bound gives only `O(1)` extra slices; Poisson model suggests `g=exp(c(log₂p)^{1/3})` on GR-type primes | Assessment |
-| L4.5 | target divisors near `√N` need moduli `>x` | PROVED (structural) |
+| L4.5 | target divisors near `√N` correspond to classes mod `hD>hx/2` | PROVED (CRT description); the "needs moduli >x" consequence is Assessment |
 | §5 | census of all 82887 hard `p<10^7`: new records `ck_min(414241)=218`, `ck_min(9033649)=883` (`n_p=43`, ratio 20.5) | EVIDENCE |
 | T6.1 | `n_p=5 ⟹ ck_min(p)≤10` (sharp), by a mod-7 Type-I covering | PROVED |
 | C6.4 | under H: `C(7)≥539`, `C(11)>3000` via explicit formal escape points; unconditionally any Type-I covering of `{n_p=7}` (resp. 11) has height ≥539 (>3000) | CONDITIONAL / PROVED |
@@ -261,6 +261,13 @@ primes; all non-residues are `≥n`, and `ck≤Gn<n²` allows exactly one, to
 the first power. Forced slices vanish (notes Thm 48.1). For unforced ones
 apply Lemma 1.1 and the `D↔N/D` pairing (only `D≤√N` is needed). ∎
 
+*Scope (R31-D5).* `𝓤_p(G)` is understood intersected with `𝓑_p`
+(`(p,ck)=1` and the size bounds of (36.1)). This intersection is
+automatic when `G n_p<n_p²≤p/2`, which holds for every hard p (no hard
+`p<10^6` has `n_p²>p/2`; beyond that, Burgess-type bounds give
+`n_p=o(√p)`). Since `ck<n²`, every prime of `c'` (not only of `sf(c')`)
+is a residue.
+
 So beyond `n_p` the event is a conjunction, over
 `|𝓤_p(G)| ≍ Σ_{q nonres, n≤q≤Gn} (Gn/q)log(Gn/q)` slices, of
 "`p²+4ck²` has no divisor `≤√N≈p` in the class `−p mod 4ck`".
@@ -343,10 +350,12 @@ avoid one class), which is not a sieve condition.
 `h=4ck` and primes `p∈(x/2,x]`, the condition "`p²+4ck²` has a divisor
 `D≡−p (mod h)`" restricted to divisors `D∈(Z,√N]` is the union, over those
 D, of `ρ(D)` classes of p modulo `hD`. For `Z=x^{θ}` the moduli range over
-`(h x^θ, h√N]`, and `h√N>hx/2`. Hence any argument that controls these
-events through the distribution of primes in progressions needs moduli
-`>x`, beyond EH and GEH, unless the divisors `D∈(x^{1−ε},√N]` are
-handled otherwise. *Proof.* Lemma 1.1 and CRT (`(D,h)=1`). ∎
+`(h x^θ, h√N]`, and `h√N>hx/2`. *Proof.* Lemma 1.1 and CRT (`(D,h)=1`). ∎
+
+*Consequence (Assessment, a meta-statement, not a theorem; R31-D4).* An
+argument that controls these events through the distribution of primes in
+progressions would need moduli `>x`, beyond EH and GEH, unless the
+divisors `D∈(x^{1−ε},√N]` are handled otherwise.
 
 **Assessment 4.6 (union bound gives only O(1) further slices).** In the
 divisor model (`D|N` with probability `ρ(D)/D`, target class probability
