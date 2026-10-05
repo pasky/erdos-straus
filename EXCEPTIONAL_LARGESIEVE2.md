@@ -326,8 +326,9 @@ bound is larger. ∎
 It is far below the 3/4 scale: on forced-class avoiders, which occupy
 almost every residue class modulo every prime power, Gallagher's sieve is
 essentially powerless, as on the prime slices of LS Cor 6.3. (b) Any
-other weights `w ≥ 0` on prime powers: the same π gives
-`X(π) ≤ 8D_u + 4𝔏 D_u`, so the saving is `≤ log(10 + 9Nh/(W_K − h))`
-(Lemma 4.1 for `D_u`). (c) Composite kernels are covered by Theorem 4.2
+other weights `w ≥ 0` on prime powers: the same π (with `W = W₀`) has
+`χ²_q(π) ≤ 7(1+4𝔏) + 4𝔏 ≤ 15` for every prime power q, so
+`X(π) ≤ 15D_u ≤ 15(h + (W_K−h)/N)` and the saving is
+`≤ log(16 + 15Nh/(W_K − h))`. (c) Composite kernels are covered by Theorem 4.2
 when their moduli have polynomial level; kernels whose moduli have
 super-polynomial level belong with (E1) (§5).
