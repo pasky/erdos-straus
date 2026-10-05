@@ -5,7 +5,10 @@ Scope: Thm 1.1 line by line, the quotation of (G) = MV III Thm 28.19, Cases 0/A/
 From-scratch scripts: `scripts/review_o9a_*.py`.
 
 ## Summary verdicts
-(filled in at the end)
+Thm 1.1 (linear transfer, PROVED mod (G)): **SOUND-AFTER-REPAIRS** — I found no FATAL or MAJOR
+defect, only minors m1–m5 (wording and constants). The crux holds: (G) sums over *all* characters of
+conductor ≤ Q_G, so the number of characters (≤ Z²) enters only the trivial remainder R_1. C_2 is
+absolute. The (G) quotation is exact. Full table at the end.
 
 ## 1. The quotation of (G) (MV III Thm 28.19, pp. 229–232 of the archived PDF)
 
