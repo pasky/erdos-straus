@@ -1,0 +1,1082 @@
+Acta Math., 202 (2009), 1–19
+DOI: 10.1007/s11511-009-0033-z
+c 2009 by Institut Mittag-Leffler. All rights reserved
+
+
+
+
+                Hyperbolic prime number theorem
+                                                  by
+
+            John B. Friedlander                                   Henryk Iwaniec
+               University of Toronto                                Rutgers University
+             Toronto, Ontario, Canada                             Piscataway, NJ, U.S.A.
+
+
+
+
+                                         1. Introduction
+
+The prime number theorem provides an asymptotic formula for the number of integer
+points m on the real line at a prime distance no more than x units from the origin, namely
+π1 (x)∼2x/log x. The simplest case of the prime ideal theorem provides an asymptotic
+formula for the number of integer lattice points m+ni in the complex plane at a prime
+norm (so distance squared) at most x units from the origin, namely π2 (x)∼4x/log x.
+    By analogy, one can consider the number of prime vectors among integer lattice
+points in the 3-dimensional ball (or, for that matter, n-dimensional).
+
+     Theorem 1. The number of integer points (x1 , x2 , x3 ) with
+
+                                        x21 +x22 +x23 = p ⩽ x
+
+satisfies
+                                                     4π x3/2
+                                          π3 (x) ∼            .
+                                                      3 log x
+     Although the problem of counting the number of integer lattice points in the ball
+has a long history, see for example [CI], there seems to be no record of the corresponding
+theorem for primes. Hence, we provide the sketch of a proof in §2.
+   Our main concern however is an analogous problem for the hyperbolic plane. As a
+model of the hyperbolic plane we take the upper half-plane
+
+                               H = {z = x+iy : x ∈ R and y ∈ R+ },
+
+     The first author is supported in part by NSERC grant A5123. The second author is supported in
+part by NSF grant DMS-03-01168.
+2                           j. b. friedlander and h. iwaniec
+
+
+which is acted on by the modular group
+                                                                             
+                            x1 x2
+           Γ = SL2 (Z) =            : x1 , x2 , x3 , x4 ∈ Z and x1 x4 −x2 x3 = 1 ,
+                            x3 x4
+by fractional linear transformations. As a distance function on H, we choose
+                                                   |z−w|2
+                                      u(z, w) =             ,
+                                                  Im z Im w
+and, as the origin, we choose z=i. As “integers” we choose the orbit {γi:γ ∈Γ}. We wish
+to count the number of points γi at a distance p−2 from the origin, with p⩽x. Let us
+denote this number by πΓ (x).
+     The number of all points γi within this disc is given asymptotically (see [I2]) by
+
+                                   NΓ (x) = 8x+O(x2/3 ).                                (1.1)
+
+We expect that πΓ (x) satisfies the asymptotic formula
+                                                       cx
+                                           πΓ (x) ∼         ,                           (1.2)
+                                                      log x
+where
+                                      Y             2χ(p)
+                                                               
+                             c = 16         1+                   .                      (1.3)
+                                       p
+                                                 (p+1)(p+χ(p))
+Here, and throughout the paper, χ=χ4 is the non-principal character of modulus 4.
+    In this paper we are able to show that this order of magnitude is correct, that is
+                                    c1 x             c2 x
+                                         < πΓ (x) <       ,                             (1.4)
+                                   log x            log x
+for suitable positive constants c1 and c2 , and all large x, subject to a standard conjecture
+concerning the distribution of rational primes in arithmetic progressions.
+     Let Λ(n) denote the usual von Mangoldt function and
+                                                X
+                                ψ(x; q, a) =             Λ(n).
+                                                   n⩽x
+                                                n≡a (mod q)
+
+The expected main term for ψ(x; q, a), when a and q are coprime, is x/ϕ(q), so we define
+the “remainder term”
+                                                      x
+                            E(x; q, a) = ψ(x; q, a)−      ,                        (1.5)
+                                                     ϕ(q)
+and the “remainder of level Q”
+                                           X
+                           E(x, Q) =            max max |E(y; q, a)|.                   (1.6)
+                                               (a,q)=1 y⩽x
+                                       q⩽Q
+
+    We introduce, for 0<θ⩽1, the following assumption.
+                           hyperbolic prime number theorem                                3
+
+
+    Assumption A(θ). The bound
+
+                                  E(x, Q)  x(log x)−A
+
+holds for Q=xθ−ε , for every ε>0 and A>0, with an implied constant that depends only
+on ε and A.
+
+     We remark that A 12 is known to be true, the famous Bombieri–Vinogradov theo-
+                          
+
+rem, and that the expectation that A(1) holds is also well-known, as the conjecture of
+Elliott and Halberstam.
+    Our main result is the following.
+
+     Theorem 2. If A(θ) holds for some θ, less than 1 but sufficiently close to 1, then
+there are positive constants c1 and c2 such that
+
+                                    c1 x             c2 x
+                                         < πΓ (x) <                                    (1.7)
+                                   log x            log x
+
+for all x⩾2.
+
+    As is customary, we denote this relationship by πΓ (x)x/log x. Actually, the up-
+per bound is unconditional and an easy consequence of the sieve (well, the Riemann
+hypothesis for curves is indirectly involved).
+    We stress that we do not need to assume A(θ) for θ=1. Conceivably, one could get
+the asymptotics with the aid of this stronger assumption. The method allows for the
+determination of an admissible value for θ but we did not carry this out. We actually
+need a considerably weaker form of the conjecture and some results in this direction have
+been provided by Fouvry [Fo], and by Bombieri, Friedlander and Iwaniec [BFI].
+    We can re-state our problem explicitly in terms of the coordinates x1 , x2 , x3 and x4 .
+We have
+                              u(γi, i)+2 = x21 +x22 +x23 +x24 ;                        (1.8)
+
+therefore, we are looking for prime numbers
+
+                                   p = x21 +x22 +x23 +x24                              (1.9)
+
+with x1 , x2 , x3 and x4 satisfying the determinant equation
+
+                                     x1 x4 −x2 x3 = 1.                               (1.10)
+
+Thus, an equivalent formulation of our main theorem is the following.
+4                              j. b. friedlander and h. iwaniec
+
+
+     Theorem 3. Under the same assumption as Theorem 2, we have
+                                    X
+                                                    Λ(x21 +x22 +x23 +x24 )  x.            (1.11)
+                            x21 +x22 +x23 +x24 ⩽x
+                               x1 x4 −x2 x3 =1
+
+
+     It is because of the interpretation of our main result, given by (1.8) and (1.9), that
+it seems more natural to consider points at a distance p−2 rather than those at prime
+distance, even though it makes the problem sound a little more like the twin prime
+question than the prime number theorem. We shall have more to say about the points
+at distance p toward the end of this section.
+     A more general problem in which the quadratic form (1.9) is replaced by a polyno-
+mial in four variables has been considered recently by Bourgain, Gamburd and Sarnak
+in [BGS]. Actually, they consider a still more general situation for a system of polynomi-
+als in many variables and with GLn in place of GL2 , a setting in which they succeeded
+in producing almost-primes. We were motivated to look at the problem (1.11) because
+of their work.
+     We can reinterpret the system
+
+                                          x21 +x22 +x23 +x24 = n,
+                                      
+                                                                                           (1.12)
+                                          x1 x4 −x2 x3 = 1,
+
+as the system
+                                        y12 +y22 = n+2,
+                                    
+                                                                                           (1.13)
+                                        (y12 +y22 )−(y32 +y42 ) = 4,
+by making the linear transformation (x1 , x2 , x3 , x4 )7! (y1 , y2 , y3 , y4 ), where
+                                           
+                                           
+                                            y1 = x1 +x4 ,
+                                           
+                                            y = x +x ,
+                                               2    2   3
+                                           
+                                           
+                                            y 3 = x1 −x4,
+                                           
+                                             y4 = x2 −x3 .
+
+The inverse is given by
+                                            x1 = 21 (y1 +y3 ),
+                                          
+                                          
+                                          
+                                           x = 1 (y +y ),
+                                          
+                                             2   2 2       4
+                                                 1
+                                          
+                                          
+                                           x3 = 2 2(y  −y 4 ),
+                                                1
+                                            x4 = 2 (y1 −y3 ).
+     These provide a one-to-one correspondence as real numbers. Assume now that n is
+an odd integer. If x1 , x2 , x3 and x4 are integers, then so are y1 , y2 , y3 and y4 . Conversely,
+given y1 , y2 , y3 , y4 , we learn from the first equation in (1.13) that y1 and y2 have opposite
+                              hyperbolic prime number theorem                                       5
+
+
+parity, and then we learn from the second equation that so do y3 and y4 . Hence, given
+a pair of integer solutions (y1 , y2 , y3 , y4 ) and (y1 , y2 , y4 , y3 ), precisely one of them gives
+rise to an integer solution in the x’s. Therefore, the number of integer solutions in the
+x’s is equal to one half of the number of integer solutions in the y’s.
+     (On the other hand, if n is even, then automatically y1 and y2 have the same parity
+as do y3 and y4 , so the correspondence between x’s and y’s is one-to-one.)
+     Denote by r(m), as is customary, the number of representations of m as the sum of
+two squares. From the above discussion it follows that the number of solutions to the
+system (1.12), for n odd, is just
+
+                                          1
+                                          2 r(n−2)r(n+2).                                      (1.14)
+
+     Hence, the statement of our main theorem now becomes the following.
+
+     Theorem 4. Under the same assumption as Theorem 2, we have
+                                        X
+                              S(x) =          r(n−2)r(n+2)Λ(n)  x.                            (1.15)
+                                       n⩽x
+
+
+     It is in this form that we shall give the proof. Here too, we can note the similarity
+of the formula (1.15) to the twin prime conjecture. See the remarks at the end of the
+proof.
+     If we consider prime distances, rather than those of the form p−2, by the above
+argument, the problem translates into an evaluation of the sum
+                                          X
+                              T (x) =         r(n−2)r(n+2)Λ(n+2).                              (1.16)
+                                        n⩽x
+
+
+Since r(p)=8 if p≡1 (mod 4), and r(p)=0 if p≡3 (mod 4), this becomes
+                                          X                    √
+                               T (x) =          r(p−4) log p+O( x ),                           (1.17)
+                                          p⩽x
+
+
+which, using [BFI, Theorem 9], we shall directly and unconditionally evaluate in §3,
+getting the following result.
+
+     Theorem 5. We have
+                                      Y       χ(p)
+                                                     
+                         T (x) = πx        1+          +O(x(log x)−A ),
+                                      p
+                                              p(p−1)
+
+for any A>0, with an implied constant depending on A.
+6                             j. b. friedlander and h. iwaniec
+
+
+                                    2. Primes in the 3-ball
+
+In this section we sketch the proof of Theorem 1. See, for example [CI], for background
+material.
+     We have
+                                             X
+                                    π3 (x) =   r3 (p),
+                                                      p⩽x
+
+where r3 (n) denotes the number of representations of n as the sum of three squares. By
+Gauss’ formula, for p>2,
+                                         cp √
+                                r3 (p) =      p L(1, χp ),                         (2.1)
+                                         π
+where                                 
+                                       24,
+                                                    if p ≡ 1 (mod 4),
+                                  cp = 16,           if p ≡ 3 (mod 8),
+                                      
+                                        0,           if p ≡ 7 (mod 8).
+                                      
+
+The L-function is that which accompanies the Kronecker symbol
+                                                              
+                                                           −4p
+                                            χp (n) =             .
+                                                            n
+
+    Using (2.1), we have
+                                              1X √
+                                   π3 (x) =     cp p L(1, χp ).                       (2.2)
+                                              π
+                                                p⩽x
+
+Here, we open the L-series and truncate it to
+
+                                              X  −4p 
+                                                               ,
+                                                         n
+                                              n⩽N
+
+
+where N =(log x)A . The error term so made is acceptable, due to the inequality
+                                                        
+                         X              X          −4p
+                                                              P N 3/4 (log N )2 ,
+                                                    n
+                       P <p⩽2P N <n⩽2N
+
+
+which follows by a direct application of Cauchy’s inequality, the Pólya–Vinogradov in-
+equality and quadratic reciprocity (see for example [He]).
+     Given n⩽N , we sum over p, getting, by the Siegel–Walfisz theorem (see for example
+[IK, Corollary 5.29]), for any A>0,
+                                       
+                 X       √        −4p                X       √
+                       cp p                 = s(n)         cp p+O(x3/2 (log x)−A ),   (2.3)
+                                   n
+                 p⩽x                                 p⩽x
+                               hyperbolic prime number theorem                               7
+
+
+where s(n)=1 if n is the square of an odd integer and is zero otherwise. Here,
+                                           X       √    32 x3/2
+                                                 cp p ∼
+                                                        3 log x
+                                           p⩽x
+
+and
+                                             X s(n)            π2
+                                                          ∼       .
+                                                     n         8
+                                             n⩽N
+
+Putting these together, we complete the proof of Theorem 1.
+
+
+                           3. Hyperbolic prime distance theorem
+
+We give here a sketch of the proof of Theorem 5. For m≡1 (mod 4) we have
+                                       X            √
+                            r(m) = 8       χ(k)+4χ( m ),                                  (3.1)
+                                              kl=m
+                                                √
+                                              k< m
+
+where we adopt the convention that the last term vanishes in case m is not a square.
+Hence
+             X                       √        X            X              √
+    T (x) =         r(p−4) log p+O( x ) = 8       χ(k)            log p+O( x ).
+                                                                 √
+               p⩽x                                             k⩽ x           k2 <p⩽x
+            p≡1 (mod 4)                                                     p≡1 (mod 4)
+                                                                            p≡4 (mod k)
+
+Estimating the inner sum with the aid of [BFI, Theorem 9], we obtain
+                                                                      ∞
+                   X              x−k 2                      X χ(k)
+       T (x) = 8           χ(k)         +O(x(log x)−A ) = 4x        +O(x(log x)−A ).
+                     √            ϕ(4k)                        ϕ(k)
+                   k⩽ x                                               k=1
+
+Here we have
+          ∞                Y                        −1            Y           
+          X χ(k)                       χ(p)      χ(p)                        χ(p)
+                       =          1+          1−            = L(1, χ)    1+          ,
+                ϕ(k)       p
+                                       p−1        p                   p
+                                                                            p(p−1)
+          k=1
+
+and L(1, χ)= 14 π (remember that χ=χ4 ), completing the proof of the theorem.
+
+
+                                        4. Properties of r(m)
+
+We need results about the distribution of the function r(m) over arithmetic progressions
+in a wide range of moduli. If one uses the formula
+                                             X
+                                   r(m) = 4     χ(d),                              (4.1)
+                                                         d|m
+8                          j. b. friedlander and h. iwaniec
+
+
+where as before χ=χ4 , then not surprisingly one controls the error term by means of
+Kloosterman sums. The Weil bound for these, produces results more than sufficient for
+our needs. We refer to the result of Smith [S1], [S2]; see also [IK].
+
+    Lemma 4.1. Let (a, q)=1. Then
+                                                    
+                    X                  πx Y     χ(p)
+                              r(m) =         1−        +O(q −1/2 x2/3+ε )           (4.2)
+                                        q        p
+                  m⩽x                     p|q
+                m≡a (mod q)
+
+
+when q6≡ 0 (mod 4) and the main term is multiplied by 1+χ(a) when q≡0 (mod 4).
+
+    Note that this gives the asymptotic within the range q<x2/3−ε .
+    We also need a bound for the shifted convolution of r against itself.
+
+    Lemma 4.2. We have, for d odd ,
+                      X
+                                 r(n−2)r(n+2) = g(d)8x+O(x11/12+ε ),                (4.3)
+                      n⩽x
+                   n≡3 (mod 4)
+                   n≡0 (mod d)
+
+
+where
+                                             1 Y p−χ(p)
+                                    g(d) =              ,                           (4.4)
+                                             d   p+χ(p)
+                                                p|d
+
+and the implied constant depends only on ε.
+
+    Note that (4.3) accounts for all odd n since, for n≡1 (mod 4), both of r(n±2) vanish.
+
+     Remark. The result in Lemma 4.2 solves the lattice point problem in the hyperbolic
+plane with respect to a congruence group. The spectral theory produces a very good error
+term for this, namely O(x2/3 ), see [I2]. However, we need a wide range of uniformity
+in d, which is easier to obtain using Lemma 4.1.
+
+    Proof of Lemma 4.2. Since, for m≡1 (mod 4),
+                                         X               √
+                              r(m) = 8           χ(k)+4χ( m ),                      (4.5)
+                                         kl=m
+                                           √
+                                         k< m
+
+
+we have
+                      X                               XX
+                                 r(n−2)r(n+2) = 8             +O(x1/2+ε ),
+                      n⩽x                             k   n
+                   n≡3 (mod 4)
+                   n≡0 (mod d)
+                                 hyperbolic prime number theorem                               9
+
+
+where
+         XX             X                  X
+                   =             χ(k)                 r(n+2)
+                           √
+           k   n        k< x             k2 <n⩽x
+                       (k,d)=1          n≡3 (mod 4)
+                                        n≡0 (mod d)
+                                        n≡2 (mod k)
+
+                                          x−k 2 Y
+                                                                              
+                            X                          χ(p)          −1/2 2/3+ε
+                   = 2π             χ(k)            1−        +O((dk)    x      )
+                              √            4dk          p
+                           k< x                       p|dk
+                          (k,d)=1
+                                      X                         
+                     πx Y        χ(p)           χ(k) Y        χ(p)
+                   =          1−                           1−        +O(x11/12+ε )
+                     2d            p              k            p
+                        p|d             (k,d)=1      p|k
+                                              −1
+                     x Y       χ(p)         χ(p)
+                   =        1−          1+           +O(x11/12+ε ),
+                     d           p            p
+                          p|d
+
+giving Lemma 4.2.
+    We also need an asymptotic formula for a shifted convolution of r with the von
+Mangoldt function. In this case we shall leave the remainder term untreated for the time
+being.
+    Lemma 4.3. Let (a, q)=1, q≡0 (mod 4), and a≡3 (mod 4). Then we have
+                                           −1
+                                                                     √
+                                                  X                        
+    X                    Hx Y        χ(p)
+         r(n+2)Λ(n) =            1+            +O       Emax (x, qk)+ x log x ,
+                         ϕ(q)       p(p−1)          √
+    n⩽x                                  p|q                          k⩽ x
+ n≡a (mod q)
+
+where
+                   Y         χ(p)
+                                          
+          H = 2π          1+                    and      Emax (x, q) = max max |E(y; q, a)|,
+                    p
+                             p(p−1)                                  (a,q)=1 y⩽x
+
+
+the latter quantity being as defined in (1.5).
+    Proof. Using (4.5) we obtain
+    X                     X                        X                √
+         r(n+2)Λ(n) = 8       χ(k)                           Λ(n)+O( x log x)
+                                   √
+   n⩽x                           k⩽ x            k2 <n⩽x
+n≡a (mod q)                                     n≡a (mod q)
+                                               n≡−2 (mod k)
+
+                                            x−k 2                     √
+                                  X                              
+                           =8         χ(k)        +O(Emax (x, qk)) +O( x log x)
+                                    √       ϕ(kq)
+                                 k⩽ x
+                                                −1
+                                                                       √
+                                                      X                      
+                              8x X χ(k) Y     1
+                           =               1−      +O     Emax (x, qk)+ x log x ,
+                             ϕ(q)   k         p         √
+                                     k⩾1           p|k                 k⩽ x
+                                                   p-q
+
+giving the lemma.
+10                              j. b. friedlander and h. iwaniec
+
+
+                                        5. The upper bound
+
+In this section we prove the upper bound of Theorem 4 and hence of Theorems 2 and 3.
+This is a linear sieve problem for the sequence A={an }n with an =r(n−2)r(n+2).
+     We have already shown in Lemma 4.2 that this sequence has a level of distribution
+D=D(x)=x1/12−2ε ; therefore any upper bound sieve, such as Brun’s, yields the result.
+
+
+
+                            6. Preliminaries for the lower bound
+
+Our goal is to show that
+                                               S(x)  x.
+
+     We are going to use the semilinear sieve and hence it will be convenient to replace
+the function r in one factor by b, the characteristic function of such integers. Define
+b(n)=1 if all prime factors of n are congruent to 1 (mod 4) and zero otherwise (so that
+b(n)=1 if and only if n is an odd number which has a primitive representation as the
+sum of two squares). Note that b is totally multiplicative.
+     In case b(n)6= 0 then χ(d)=1 for every d|n. Thus, for every positive integer m we
+have, by (4.1),
+                                          r(m) ⩾ 4b(m)τ (m).                                  (6.1)
+
+Hence
+                X                                     X              X
+     S(x) ⩾ 4         b(n−2)τ (n−2)r(n+2)Λ(n) ⩾ 4          b(δ)                 b(n−2)r(n+2)Λ(n)
+                n⩽x                                  δ⩽∆             n⩽x
+                                                                  n≡2 (mod δ)
+                                                                                              (6.2)
+for any ∆=∆(x), which will be chosen to be relatively small, ∆=xϑ .
+     We detect the factor b(n−2) by the semilinear sieve with respect to the set
+
+                                         P = {p ≡ 3 (mod 4)}.
+
+To this end we consider the sifting sequence
+
+                               A(δ) = {an }n ,   an = r(n+4)Λ(n+2)
+
+for n⩽x−2, n≡1 (mod 4), n≡0 (mod δ), and so
+                            X                                        √
+                                       b(n−2)r(n+2)Λ(n) = S(A(δ) , P, x ),                    (6.3)
+                            n⩽x
+                         n≡2 (mod δ)
+                          hyperbolic prime number theorem                               11
+
+
+where, in the usual sieve notation, this is the sum of the an in A(δ) over those n having
+                            √         √
+no prime factor in P up to x. Here x suffices because, if n≡1 (mod 4) has one prime
+factor from P, it must have a second one.
+     We are going to apply the lower bound semilinear sieve to the sequence A(δ) for
+every δ⩽∆. To this end we need to verify approximations of the type
+
+                                      (δ)
+                                 Ad (x) = g(d)X (δ) +rd (x),                          (6.4)
+
+for d squarefree and having all prime factors congruent to 3 (mod 4). Note that this
+implies that (d, 2δ)=1. Lemma 4.3, with q=4δd, provides such an approximation where
+                                                         −1
+                                (δ)      Hx Y         1
+                            X         =         1+                                    (6.5)
+                                        2ϕ(δ)      p(p−1)
+                                                 p|δ
+
+
+and                                                         −1
+                                             1 Y         1
+                             g(d) =                1−            .                    (6.6)
+                                            ϕ(d)      p(p−1)
+                                                p|d
+
+      The remainder term in (6.4) satisfies, by Lemma 4.3,
+                                       X                     √
+                         rd (x)              Emax (x, 4δdk)+ x log x.                (6.7)
+                                        √
+                                      k⩽ x
+
+
+     The function g(d) in (6.6) is a linear sieve density, but we shall be sifting by only
+half of the primes, so this becomes a semilinear sieve problem, see [I1]. Since the sieving
+                                                                                   √
+limit for the semilinear sieve is β =1 and our level of distribution is D=D(x)< x, we
+                                                               √
+cannot successfully apply the lower bound sieve to S(A(δ) , P, x ), but we can come close
+to this.
+     Let z=D1/s with 1<s<3. Then we have (see (B.2) in Appendix B)
+                                                        x     √
+  S(A(δ) , P, z) ⩾ X (δ) V (z)(f (s)+o(1))−Rδ (x) ⩾ c √      ( s−1+o(1))−Rδ (x),      (6.8)
+                                                     δ log x
+
+where c is a positive absolute constant and
+                                             X X
+                            Rδ (x) =                   Emax (x, 4δdk).                (6.9)
+                                              √
+                                            k⩽ x d⩽D
+
+
+We shall choose
+                                  D = D(x) = xθ−1/2−ϑ−ε ,                           (6.10)
+
+so that the modulus 4δdk in (6.9) does not exceed 4xθ−ε .
+12                               j. b. friedlander and h. iwaniec
+
+
+                           7. Reinterpreting the sieve problem
+
+In order to turn our lower bound (6.8) into a lower bound for the sum in (6.3), it remains
+to estimate the difference
+                                                                  √
+                      T (A(δ) , P, z) = S(A(δ) , P, z)−S(A(δ) , P, x ),
+
+and, for the purpose of utilizing (6.2), we are only required to do this on average over δ.
+     We behave as if θ<1 is quite close to 1 and ϑ is very small, so the level of dis-
+                                                           √
+tribution D=D(x) of A(δ) is only slightly smaller than x and is in particular greater
+than x1/3 . Assuming that 1<s⩽ 43 , we have z=D1/s >x1/4 ; therefore T (A(δ) , P, z) counts
+only integers having two prime factors in P. Thus
+                                             X
+                        T (A(δ) , P, z) =            r(n)Λ(n−2).
+                                                      n⩽x+2
+                                                   n≡1 (mod 4)
+                                                  n≡4 (mod δp1 p2 )
+                                                     z⩽p1 <p2
+                                                     p1 ,p2 ∈P
+
+     We are looking for an upper bound and so can ignore some constraints. We reinter-
+pret the congruence n≡4 (mod δp1 p2 ) as the equation
+
+                                              n = 4+δap1 p2 ,
+
+so that a runs through integers
+                                          x     x
+                                            2
+                                              ⩽ 2,
+                                              a⩽
+                                         δz    z
+with a having only prime factors ≡1 (mod 4).
+                                    √
+     We record the fact that z <p1 ⩽ x and, having done that, we ignore the conditions
+for the prime p2 and replace it by way of an upper bound linear sieve
+                                        X
+                                              λν2 ,
+                                                    ν2 |q2
+                                                  ν2 ⩽x1/60
+
+where q2 =(n−4)/δap1 . Similarly, we relax Λ(n−2), majorizing it by
+                                               X
+                             Λ(n−2) ⩽ (log x)       λν .
+                                                               ν|n−2
+                                                              ν⩽x1/60
+
+As a result, we obtain
+                                  X                  X          XX                    X
+     T (A(δ) , P, z) ⩽ (log x)             b(a)                           λν λν2                    r(n).
+                                                      √
+                                 a⩽xz −2        z<p1 ⩽ x ν,ν2 ⩽x1/60               n⩽x+2
+                                              p1 ≡3 (mod 4)    2-νν2             n≡1 (mod 4)
+                                                            (ν,δaν2 )=1          n≡2 (mod ν)
+                                                                               n≡4 (mod δap1 ν2 )
+                                   hyperbolic prime number theorem                      13
+
+
+     At this point we cannot apply crude estimates because we cannot afford to lose the
+sign changes in λν and λν2 . Therefore, we apply Lemma 4.1 to the inner sum above,
+getting
+                X             πx      Y       χ(p)
+                                                    
+                    r(n) =                  1−        +O(z −1/2 x2/3+ε ).
+                 n
+                           4νδap 1 ν2           p
+                                                   p|δaνν2
+
+Hence,
+                                                                    
+                        x log x Y     1                      X    1
+    T (A(δ) , P, z)               1−
+                           δ          p                      √    p1
+                                    p|δ                z<p1 < x
+                               X b(a) XX λν λν Y     χ(p)
+                                                           
+                         ×                      2
+                                                   1−        +z −5/2 x11/5+ε .
+                                −2
+                                   a   1/60
+                                            νν2        p
+                             a⩽xz                 ν,ν2 ⩽x              p|νν2
+                                                     2-νν2              p-δa
+                                                  (ν,δaν2 )=1
+
+
+    Here, for the sum over ν and ν2 , we apply Theorem A.5 from Appendix A, getting
+                                            X           δa
+                                                            (log x)−2 .
+                                            ν,ν2
+                                                       ϕ(δa)
+
+Hence,                                                √ r
+                                         x          log x       x
+                 T (A(δ) , P, z)             log           log 2 +z −5/2 x11/5+ε .
+                                      δ log x        log z     z
+For z=D1/s =x(θ−1/2−ϑ−ε)/s the above estimation simplifies to
+                                                                   3/2
+                             (δ)               x         2     1
+                      T (A         , P, z)  √        1−     θ− −ϑ−ε       .          (7.1)
+                                            δ log x      s     2
+
+     We want the upper bound (7.1) to be small compared to the lower bound (6.8). This
+is possible because when θ<1 is near 1 and ϑ is even closer to zero, then the above factor
+                                                         √
+behaves like (s−1)3/2 which tends to zero faster than s−1. Specifically, we choose
+ϑ= 12 (1−θ) and s=2−θ so that
+                                                3/2
+                                      2     1
+                                   1−     θ− −ϑ−ε       < 8(1−θ)3/2 ,
+                                      s     2
+        √       √
+while       s−1= 1−θ. Subtracting (7.1) from (6.8), we get
+                                                           √
+                                          (δ)
+                                                   √     cx 1−θ
+                                   S(A          , P, x) ⩾ √       −Rδ (x).
+                                                         2δ log x
+
+Now, summing over δ, we conclude from (6.2) that S(x)x subject to the condition
+A(θ).
+14                         j. b. friedlander and h. iwaniec
+
+
+     Note that we actually require A(θ) for the sum weighted by a divisor function, but
+this extra factor can be handled by an application of Cauchy’s inequality. This completes
+the proof of our main Theorem 4.
+     As remarked earlier, the sum
+                                     X
+                             S(x) =     r(n−2)r(n+2)Λ(n)
+                                    n⩽x
+
+bears some resemblance to the twin prime sum
+                                  X
+                                      Λ(n)Λ(n+2),
+                                    n⩽x
+
+not just superficially but also from a sieve-theoretic viewpoint. The latter counts sur-
+vivors of two linear sieves, while the former counts survivors of one linear and two semi-
+linear sieves. The assumption of the full conjecture A(1) narrowly misses resolving the
+twin prime conjecture, see [Bo], whereas the extra flexibility in the sum S(x) allows us
+to succeed, even with the weaker assumption.
+
+
+                   Appendix A. Reduced composition of sieves
+
+Let Λ={λd }d be a finite sequence supported on squarefree numbers. Let g(d) be a
+multiplicative function supported on a finite set of squarefree numbers with
+
+                                      0 ⩽ g(p) < 1.                                 (A.1)
+
+Consider the sum
+                                           X
+                                     G=         λd g(d).                            (A.2)
+                                            d
+We shall express this in terms of the sequence
+
+                                          % = 1∗λ.                                  (A.3)
+
+     Lemma A.1. We have
+                                          G = V G∗ ,                                (A.4)
+where
+                                           Y
+                                    V=      (1−g(p)),                               (A.5)
+                                            p
+                                           X
+                                   G∗ =         %d h(d)                             (A.6)
+                                            d
+
+and h(d) is the multiplicative function supported on squarefree numbers with
+                                                 g(p)
+                                     h(p) =            .                            (A.7)
+                                                1−g(p)
+                                hyperbolic prime number theorem                                      15
+
+
+     Proof. By Möbius inversion,
+                                                        λ = µ∗%.                                   (A.8)
+
+Hence
+                        XX                                 X                 Y
+                  G=                µ(a)%b g(ab) =                 %b g(b)    (1−g(p)) = V G∗ .
+                         a     b                               b             p-b
+
+     Next, we consider the double sum for a pair of such sequences
+                                   XX
+                         G0 ∗G00 =        λ0d1 λ00d2 g 0 (d1 )g 00 (d2 ).                          (A.9)
+                                                 (d1 ,d2 )=1
+
+     Lemma A.2. We have
+                      XX                                Y
+            G0 ∗G00 =    %0b1 %00b2 g 0 (b1 )g 00 (b2 )   (1−g 0 (p)−g 00 (p)).                   (A.10)
+                              (b1 ,b2 )=1                                p-b1 b2
+
+
+     Proof. Using (A.8), we get
+                           XXXX
+                 G0 ∗G00 =      µ(a1 a2 )%0b1 %00b2 g 0 (a1 b1 )g 00 (a2 b2 )
+                                    (a1 b1 ,a2 b2 )=1
+                                    XX
+                              =                  %0b1 %00b2 g 0 (b1 )g 00 (b2 )W (b1 b2 ),
+                                   (b1 ,b2 )=1
+
+where
+                         XX
+              W (b) =                  µ(a1 a2 )g 0 (a1 )g 00 (a2 )
+                        (a1 a2 ,b)=1
+                          X                             Y
+                    =               µ(a1 )g 0 (a1 )              (1−g 00 (p))
+                        (a1 ,b)=1                       p-a1 b
+                     Y             X                 Y                                 1
+                    = (1−g 00 (p))   µ(a1 )g 0 (a1 )
+                                                                                     1−g 00 (p)
+                        p-b                   (a1 ,b)=1                      p|a1
+                                Y     g 0 (p)
+                     Y                            Y
+                          00
+                    = (1−g (p))    1−             = (1−g 0 (p)−g 00 (p)).
+                                      1−g 00 (p)
+                        p-b                   p-b                                  p-b
+
+This completes the proof.
+
+     Note that, at every p, we have
+
+                                1−g 0 −g 00 = (1−g 0 )(1−g 00 )(1−h0 h00 ),                       (A.11)
+
+where h0 =g 0 (1−g 0 )−1 and h00 =g 00 (1−g 00 )−1 ; see (A.7). By |1−h0 h00 |⩽1+h0 h00 , we get
+                                  Y
+                        |W (b)| ⩽ (1−g 0 (p))(1−g 00 (p))(1+h0 h00 (p)).
+                                        p-b
+16                                   j. b. friedlander and h. iwaniec
+
+
+Hence,
+                                                           Y                1
+                             |W (b)| ⩽ CV 0 V 00                                         ,                        (A.12)
+                                                                 (1−g 0 (p))(1−g 00 (p))
+                                                           p|b
+
+where
+                                                       Y
+                                                C=      (1+h0 h00 (p)),                                           (A.13)
+                                                       p
+                                     Y                                     Y
+                           V0=        (1−g 0 (p))           and V 00 =      (1−g 00 (p)).                         (A.14)
+                                     p                                        p
+
+Inserting (A.12) into (A.10) and dropping the condition (b1 , b2 )=1, we obtain the follow-
+ing result.
+     Corollary A.3. We have
+
+                                             |G0 ∗G00 | ⩽ CV 0 V 00 G∗12 G∗21 ,                                   (A.15)
+
+where
+                                  X                                           X
+                         G∗12 =            |%0b |h12 (b)    and      G∗21 =           |%00b |h21 (b),             (A.16)
+                                      b                                           b
+
+and h12 (b) and h21 (b) are the multiplicative functions supported on squarefree numbers
+such that
+                              g 0 (p)                                                 g 00 (p)
+         h12 (p) =                                     and        h21 (p) =                           .           (A.17)
+                     (1−g 0 (p))(1−g 00 (p))                                  (1−g 0 (p))(1−g 00 (p))
+    Now assume that (λ0 ) and (λ00 ) are upper-bound sieves, that is %0 ⩾0 and %00 ⩾0, hence
+the absolute values in (A.16) are redundant. Define the corresponding multiplicative
+functions g12 and g21 by the formula (A.7), so we have (at primes)
+                                                h12                            h21
+                                     g12 =                  and g21 =               .                             (A.18)
+                                               1+h12                          1+h21
+Using (A.17), these are (at primes)
+                                              g0                                       g 00
+                          g12 =                             and g21 =                                .            (A.19)
+                                     1−g 00 (1−g 0 )                          1−g 0 (1−g 00 )
+By Lemma A.1, we get
+                              X                                                           X
+          V12 G∗12 = G12 =               λ0d g12 (d)   and       V21 G∗21 = G21 =                 λ00d g21 (d),   (A.20)
+                                 d                                                            d
+
+where
+                                 Y                                            Y
+                         V12 =    (1−g12 (p))               and V21 =          (1−g21 (p)).                       (A.21)
+                                     p                                         p
+
+Inserting (A.20) into (A.15), we get the following result.
+                             hyperbolic prime number theorem                                  17
+
+
+    Proposition A.4. Let {λ0 } and {λ00 } be upper-bound sieves, and let g 0 and g 00 be
+density functions. We have
+                                          |G0 ∗G00 | ⩽ BCG12 G21 ,                         (A.22)
+
+where
+                                  V 0 V 00   Y (1−g 0 (p))(1−g 00 (p))
+                          B=               =                           .                   (A.23)
+                                  V12 V21    p
+                                               (1−g12 (p))(1−g21 (p))
+
+    Note that, at primes, we have
+
+                  (1−g 0 )(1−g 00 )
+                                    = 1+g 0 g 00 +h0 h00 ⩽ 1+2h0 h00 ⩽ (1+h0 h00 )2 .
+                 (1−g12 )(1−g21 )
+
+Hence B ⩽C 2 and (A.22) gives
+
+                                           |G0 ∗G00 | ⩽ C 3 G12 G21 .                      (A.24)
+
+    Now suppose that the density functions g 0 and g 00 satisfy the linear sieve conditions,
+in which case so do the functions g12 and g21 . Take λ0 and λ00 to be the optimal linear sieve
+weights of level D0 and D00 , respectively (either those from the beta-sieve or else those
+from the Selberg sieve corresponding to the density functions g12 and g21 , respectively).
+Then
+                     G12 ⩽ (2eγ +o(1))V12            and G21 ⩽ (2eγ +o(1))V21 ,            (A.25)
+
+where V12 and V21 are the products (A.21) restricted by p<D0 and p<D00 , respectively.
+Hence (A.22) gives
+                                  |G0 ∗G00 | ⩽ 4CV 0 V 00 (e2γ +o(1)),                     (A.26)
+
+where
+                                  Y                                       H0
+                          V0=             (1−g 0 (p)) = (e−γ +o(1))            ,
+                                                                        log D0
+                                  p<D 0
+                                   Y                                       H 00
+                         V 00 =            (1−g 00 (p)) = (e−γ +o(1))            ,
+                                                                         log D00
+                                  p<D 00
+
+
+by Mertens’ formula, and H 0 and H 00 are the products
+                                 −1                                             −1
+               Y                1                              Y                 1
+        H0 =     (1−g 0 (p)) 1−                 and H 00 =       (1−g 00 (p)) 1−       .   (A.27)
+               p
+                                p                              p
+                                                                                 p
+
+Inserting these asymptotic formulas into (A.26), we conclude the main result of this
+section.
+18                                 j. b. friedlander and h. iwaniec
+
+
+     Theorem A.5. Let {λ0 } and {λ00 } be the linear sieves of level D0 and D00 , respec-
+tively, and let g 0 and g 00 be density functions which satisfy the linear sieve conditions.
+Then
+                                                        CH 0 H 00
+                             |G0 ∗G00 | ⩽ (4+o(1))                     ,             (A.28)
+                                                   (log D0 )(log D00 )
+where C, H 0 and H 00 are given by the infinite products (A.13) and (A.27), respectively.
+
+      Example. Let q 0 and q 00 be positive integers and set
+
+                      d−1 ,    if (d, q 0 ) = 1,                                        d−1 ,   if (d, q 00 ) = 1,
+                                                                                   
+         0                                                              00
+        g (d) =                                           and       g (d) =
+                      0,       otherwise,                                               0,      otherwise.
+
+Then
+                                                    q0                   q 00
+                                         H0 =              ,   H 00 =
+                                                   ϕ(q 0 )              ϕ(q 00 )
+and
+                                               Y            1
+                                                                        
+                                         C⩽             1+                   < 3.
+                                                   p
+                                                           (p−1)2
+
+In this case we obtain
+
+                                                  q 0 q 00         12+o(1)
+                                |G0 ∗G00 | ⩽                                       .                                 (A.29)
+                                               ϕ(q 0 )ϕ(q 00 ) (log D0 )(log D00 )
+
+
+                              Appendix B. The semilinear beta-sieve
+
+In this section we state immediate consequences of some results for the semilinear sieve
+which we apply in the paper. Detailed proofs are given in [I1].
+                                                                              −
+     The sieve is based on the construction of two sequences {λ+  d }d and {λd }d , with
+λ±        ±
+ 1 =1, |λd |⩽1, and               X ±
+                                ±    λd ⩾ 0 for n > 1.
+                                              d|n
+
+   They have the following properties. Let g(d) be a multiplicative function such that
+0⩽g(p)<1 at primes, and
+                                          s                  
+                         Y         1         log z        L
+                                        ⩽            1+
+                               1−g(p)        log w      log w
+                                 w⩽p<z
+                               p≡3 (mod 4)
+
+
+for any z⩾w⩾2 and some constant L⩾1. We remark that the condition p≡3 (mod 4)
+is what we need in our application, but this could be replaced by any set of primes of
+asymptotic density 12 .
+                             hyperbolic prime number theorem                                19
+
+
+    Let
+                                 Y                                Y
+                    P (z) =                 p   and V (z) =                (1−g(p)),
+                                 p<z                             p|P (z)
+                              p≡3 (mod 4)
+
+and define
+                                                   X
+                                   V ± (D, z) =             λ±
+                                                             d g(d).
+                                                  d|P (z)
+
+Then we have, for 1⩽s⩽2 and z⩾2,
+
+                       V + (D, z) ⩽ V (z)(2+O((log D)−1/6 )),                            (B.1)
+                                            √
+                       V − (D, z) ⩾ V (z) 21 s−1+O((log D)−1/6 ) ,
+                                                                
+                                                                                         (B.2)
+
+where s=log D/log z.
+
+
+                                            References
+[Bo]  Bombieri, E., On twin almost primes. Acta Arith., 28 (1975/76), 177–193.
+[BFI] Bombieri, E., Friedlander, J. B. & Iwaniec, H., Primes in arithmetic progressions
+         to large moduli. Acta Math., 156 (1986), 203–251.
+[BGS] Bourgain, J., Gamburd, A. & Sarnak, P., Sieving and expanders. C. R. Math. Acad.
+         Sci. Paris, 343 (2006), 155–159.
+[CI]  Chamizo, F. & Iwaniec, H., On the sphere problem. Rev. Mat. Iberoamericana, 11
+         (1995), 417–429.
+[Fo]  Fouvry, É., Autour du théorème de Bombieri–Vinogradov. Acta Math., 152 (1984),
+         219–244.
+[He]  Heilbronn, H., On the averages of some arithmetical functions of two variables. Math-
+         ematika, 5 (1958), 1–7.
+[I1]  Iwaniec, H., The half dimensional sieve. Acta Arith., 29 (1976), 69–95.
+[I2]  — Spectral Methods of Automorphic Forms. Graduate Studies in Mathematics, 53.
+         Amer. Math. Soc., Providence, RI, 2002.
+[IK]  Iwaniec, H. & Kowalski, E., Analytic Number Theory. American Mathematical Soci-
+         ety ColloquiumPPublications, 53. Amer. Math. Soc., Providence, RI, 2004.
+[S1]  Smith, R. A., On     r(n)r(n+a). Proc. Nat. Inst. Sci. India Sect. A, 34 (1968), 132–137.
+[S2]  — The circle problem in an arithmetic progression. Canad. Math. Bull., 11 (1968),
+         175–184.
+
+John B. Friedlander                                Henryk Iwaniec
+Department of Mathematics                          Department of Mathematics
+University of Toronto                              Rutgers University
+Toronto, Ontario M5S 2E4                           Piscataway, NJ 08903
+Canada                                             U.S.A.
+frdlndr@utsc.utoronto.ca                           iwaniec@math.rutgers.edu
+
+Received December 12, 2006
+
