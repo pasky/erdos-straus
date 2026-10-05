@@ -252,7 +252,14 @@ length (pointwise beyond), with (F1)–(F2) exact; Δ is then measured.
 | 60 | 0.187 / 1.10 | 0.326 / 1.17 | 0.55 |
 | 80 | — | 0.255 / 1.40 | 0.45 |
 
-With C = 1 the LP is infeasible at N = 20 (rigidity, Example 3.2). The
+Support matters: at N = 60, C = 2 the margin rises from 0.326 (support
+[−5N, 6N]) to 0.372 ([−8N, 9N]), so much of the decrease is truncation.
+With C = 1 the LP is infeasible at N = 20 (rigidity, Example 3.2).
+*Medium moduli cannot be freed this way:* adding the sign conditions that
+would make right-signed terms with `N/2 < d ≤ N` cost nothing (option
+`med`, margin 0 there) forces the margin for d > CN down to 0 (N = 20, 30)
+or below (−0.15 at N = 40, C = 1.5). So T_mid in Theorem 5.2 is not an
+artefact of a lazy (F5). The
 margins decrease slowly with N; Theorem 5.2 only needs `s₀ ≥ N^{−A₁}` and
 `Δ ≤ e^{S_A}`, so the trend is harmless unless it is faster than
 polynomial. Independent check (`scripts/interfreq2_checks.py`): the N = 20

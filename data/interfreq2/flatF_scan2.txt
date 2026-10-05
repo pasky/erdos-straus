@@ -1,0 +1,2 @@
+N=60 L=480 t=0.1 C=2.0: margin s=0.3721  min F[1,N]=0.6432 min F out=-0.3046  max|F(s)-M/d| on (N/2,CN]=1.138
+118.28s 826896KB
