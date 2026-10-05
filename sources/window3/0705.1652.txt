@@ -1,0 +1,3234 @@
+                                          Acta Arithmetica 114 (2004), 215–273
+
+                                                                               Chen’s double sieve,
+                                          Goldbach’s conjecture and the twin prime problem
+arXiv:0705.1652v1 [math.NT] 11 May 2007
+
+
+
+
+                                                                                                          J. Wu
+
+
+                                                       Abstract. For every even integer N , denote by D(N ) and D1,2 (N ) the number
+                                                  of representations of N as a sum of two primes and as a sum of a prime and an
+                                                  integer having at most two prime factors, respectively. In this paper, we give a
+                                                  new upper bound for D(N ) and a new lower bound for D1,2 (N ), which improve
+                                                  the corresponding results of Chen. We also obtain similar results for the twin prime
+                                                  problem
+
+
+
+                                                                                                       Contents
+
+                                                              § 1. Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         1
+                                                              § 2. Preliminary lemmas . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 5
+                                                              § 3. Chen’s double sieve . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                9
+                                                              § 4. Weighted inequalities for sieve function . . . . . . . . . . . . .                              15
+                                                              § 5. Functional inequalities between H and h . . . . . . . . . . . . .                               22
+                                                              § 6. Proofs of Propositions 3 and 4 . . . . . . . . . . . . . . . . . . . . .                        28
+                                                              § 7. Proof of Theorem 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                30
+                                                              § 8. Proof of Theorem 3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                32
+                                                              § 9. Chen’s system of weights . . . . . . . . . . . . . . . . . . . . . . . . . .                    33
+                                                              § 10. Proofs of Theorems 2 and 5 . . . . . . . . . . . . . . . . . . . . . . .                       38
+                                                              § 11. Proof of Theorem 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .                 42
+                                                              References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   47
+
+
+
+                                          § 1. Introduction
+
+                                              Let Ω(n) be the number of all prime factors of the integer n with the convention Ω(1) = 0.
+                                          For an even integer N ⩾ 4, we define D(N ) as the number of representations of N as a sum of
+                                          two primes:
+                                                                                 D(N ) := |{p ⩽ N : Ω(N − p) = 1}|,
+
+                                          where and in what follows, the letter p, with or without subscript, denotes a prime number.
+                                          The well known Goldbach conjecture can be stated as D(N ) ⩾ 1 for every even integer N ⩾ 4.
+                                          A more precise version of this conjecture was proposed by Hardy & Littlewood [15]:
+
+                                          (1.1)                                      D(N ) ∼ 2Θ(N )                      (N → ∞),
+
+                                              2000 Mathematics Subject Classification: 11P32, 11N35, 11N05.
+2                                                    J. Wu
+
+where                                                                                       
+                       CN N                                  Y        p−1 Y            1
+            Θ(N ) :=                       and     CN :=                         1−           .
+                     (log N )2                                        p − 2 p>2     (p − 1)2
+                                                           p|N, p>2
+
+Certainly, the asymptotic formula (1.1) is extremely difficult. Although the lower bound problem
+remains open, the upper bound problem has a rich history. In 1949 Selberg [25] proved
+
+(1.2)                                      D(N ) ⩽ {16 + o(1)}Θ(N )
+
+with the help of his well known λ2 -upper bound sieve. By applying Linnik’s large sieve method,
+C.D. Pan [20] in 1964 improved 16 to 12. In 1966, Bombieri & Davenport [1] obtained 8 instead.
+Their proof is based on the linear sieve formulas and the mean value theorem of Bombieri–
+Vinogradov. It seems very difficult to prove (1.2) with a constant strictly less than 8 by the
+method in [1]. Firstly the linear sieve formulas (see Lemma 2.2 below)
+                                                                                      
+                            log Q                                               log Q
+(1.3)         XV (z)f                    + error ⩽ S(A; P, z) ⩽ XV (z)F                      + error
+                             log z                                               log z
+
+are the best possible in the sense that taking
+
+                  A = Bν := {n : 1 ⩽ n ⩽ x, Ω(n) ≡ ν (mod2)}                     (ν = 1, 2),
+
+the upper and lower bounds in (1.3) are respectively attained by ν = 1 and ν = 2 (see [14],
+page 239). Secondly it is hopeless to try to improve the level of distribution 21 in Bombieri–
+Vinogradov’s theorem.
+    In 1978, Chen [10] introduced a new idea in Selberg’s sieve and proved
+
+(1.4)                            D(N ) ⩽ 7.8342 Θ(N )            (N ⩾ N0 ).
+
+His sieve machine involves two variables and is quite complicated. Roughly speaking, for the
+sequence
+                                    A = {N − p : p ⩽ N }
+
+he introduced two new functions h(s) and H(s) such that (1.3) holds with f (s) + h(s) and
+F (s) − H(s) in place of f (s) and F (s), respectively. The key innovation is to prove h(s) > 0
+and H(s) > 0 via three weighted inequalities (see [10], (23), (47), (64), (90), and (91)). It is
+worth pointing out that he did not give complete proofs for these three inequalities. Among
+the three inequalities, the third one is the most complicated (with 43 terms) and it seems quite
+difficult to reconstruct a proof. Indeed, combining any one of these three inequalities with the
+Chen–Iwaniec switching principle (see [7] and [16]) leads to a constant less than 8. In order to
+derive a better result, Chen further introduced a very complicated iterative method. In 1980,
+C.B. Pan [19] applied essentially the first weighted inequality of Chen to get 7.988. According
+to [22], Chen’s proof is very long and somewhat difficult to follow, but his idea is clear.
+      In this paper, inspired by the ideas in [26] we shall first try to give a more comprehensive
+treatment on Chen’s double sieve and prove an upper bound sharper than (1.4).
+
+Theorem 1. For sufficiently large N , we have
+
+                                             D(N ) ⩽ 7.8209 Θ(N ).
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem             3
+
+      The improvement comes from a new weighted inequality (see Lemma 4.2 below), which is
+still quite complicated with 21 terms, but much simpler than Chen’s third and more powerful
+than his second and third inequality. Recently Cai & Lu [6] give another weighted inequality
+(with 31 terms), which is simpler but slightly weaker than Chen’s third.
+    One way of approaching the lower bound problem in (1.1) is to give a non trivial lower
+bound for the quantity
+                         D1,2 (N ) := |{p ⩽ N : Ω(N − p) ⩽ 2}|.
+In this direction, Chen [7] proved, by his system of weights and switching principle, the following
+famous theorem: Every sufficiently large even integer can be written as sum of a prime and an
+integer having at most two prime factors. More precisely he established
+(1.5)                         D1,2 (N ) ⩾ 0.67 Θ(N )      (N ⩾ N0 ).
+Then Halberstam & Richert [14] obtained a better constant 0.689 in place of 0.67 by a careful
+numerical calculation. As they indicated in [14], it would be interesting to know whether a more
+elaborate weighting procedure could be adapted to the purpose of (1.5). This might lead to
+numerical improvements and could be important. In 1978 Chen improved the constant 0.689 of
+Halberstam & Richert to 0.7544 and to 0.81 by two more elaborate systems of weights ([8], [9]).
+Very recently by improving Chen’s weighting device Cai and Lu [5] obtained 0.8285, which they
+described as being near to the limit of what could be obtained by the method employed.
+    The second aim of this paper is to propose a larger constant.
+Theorem 2. For sufficiently large N , we have
+                                       D1,2 (N ) ⩾ 0.836 Θ(N ).
+    The proof of Theorem 2 is based on a modified version of Chen’s weights (see Lemma 9.2
+below), the linear sieve and the mean value theorems of Pan & Ding [21] and of Fouvry [11].
+    A conjecture of the same nature is the twin prime problem, which can be stated as
+                       π2 (x) := |{p ⩽ x : Ω(p + 2) = 1}| → ∞ (x → ∞).
+Similar to (1.1), Hardy & Littlewood [15] conjectured
+(1.6)                              π2 (x) ∼ Π(x)       (x → ∞),
+where
+                               Cx                          Y          1
+                                                                             
+                    Π(x) :=                and      C := 2   1−               .
+                            (log x)2                       p>2
+                                                                    (p − 1)2
+The methods of Selberg, Pan, Bombieri & Davenport and Chen work in a similar way and give
+upper bounds of this type
+(1.7)                               π2 (x) ⩽ {a + o(1)}Π(x),
+where the constant a is half of the corresponding constant in the Goldbach problem. Due to the
+sieve of Rosser–Iwaniec and mean value theorems of Bombieri, Fouvry, Friedlander and Iwaniec,
+the history of (1.7) is much richer than that of (1.2). We refer the reader to [26] and [6] for a
+detailed historical description of this problem. In particular Wu [26] obtained 3.418 in place of
+a + o(1) by placing these new mean value theorems in Chen’s method. The main difficulty for
+applying these mean value theorems in [26] is to not destroy the fact that the error terms are
+affected by well factorisable coefficients. Recently Cai & Lu [6] improved the constant 3.418 to
+3.406. Our argument in proving Theorem 1 allows us to give a better result.
+4                                               J. Wu
+
+Theorem 3. For sufficiently large x, we have
+
+                                      π2 (x) ⩽ 3.3996 Π(x).
+
+      As an analogue of Theorem 2, Chen [7] proved that
+
+(1.8)                          π1,2 (x) ⩾ 0.335 Π(x)         (x ⩾ x0 ),
+
+where
+                              π1,2 (x) := |{p ⩽ x : Ω(p + 2) ⩽ 2}|.
+
+The constant 0.335 was improved by many mathematicians. Like (1.7), the history of (1.8) is
+much richer than that of (1.5). A detailed historical description on this problem can be found
+in the recent paper of Cai [3]. In particular he obtained 1.0974 in place of 0.335, which is an
+improvement of Wu’s constant 1.05 [26]. Here we can propose a slightly better result.
+
+Theorem 4. For sufficiently large x, we have
+
+                                      π1,2 (x) ⩾ 1.104 Π(x).
+
+    Remark 1. (i) Theorems 1 and 3 show that the principal terms in the linear sieve formulas
+can be improved in the special cases A = {N − p : p ⩽ N } or A = {p + 2 : p ⩽ x} (see the
+end of Section 3). This seems to be interesting and important. Our argument is quite general,
+which works for all sequences satisfying the Chen–Iwaniec switching principle.
+    (ii) Certainly we could obtain a better constant than 3.3996 in Theorem 3 if we used mean
+value theorems of ([11], Corollary 2), ([12], Lemma 6) and ([18], Proposition) as in the proof of
+Theorem 4. But the numerical computation involved would be quite complicated.
+
+    The Chen theorem in short intervals was first studied by Ross [23]. Let α ∈ (0, 1) be a fixed
+constant and define, for θ ∈ (0, 1), x ⩾ 2 and even integer N ⩾ 4,
+
+                     D1,2 (N, θ) := |{αN ⩽ p ⩽ αN + N θ : Ω(N − p) ⩽ 2}|,
+                      π1,2 (x, θ) := |{x ⩽ p ⩽ x + xθ : Ω(p + 2) ⩽ 2}|.
+
+He proved (see [28]) that for θ ⩾ 0.98, N ⩾ N0 (θ) and x ⩾ x0 (θ),
+
+                        D1,2 (N, θ) ≫ Ξ(N, θ),          π1,2 (x, θ) ≫ Π(x, θ),
+
+where
+                                   Nθ
+                                                                              
+                                              Y        p−1 Y             1
+                     Ξ(N, θ) :=                                    1−
+                                (log N )2              p − 2 p>2      (p − 1)2
+                                            p|N, p>2
+
+and
+                                           2xθ Y
+                                                                    
+                                                               1
+                            Π(x, θ) :=                  1 −           .
+                                         (log x)2 p>2       (p − 1)2
+
+The constant 0.98 was further improved to 0.973 by Wu [28], to 0.9729 by Salerno & Vitolo [24]
+and to 0.972 by Cai & Lu [4].
+    Our method allows us to take a smaller exponent.
+                 Chen’s double sieve, Goldbach’s conjecture and the twin prime problem        5
+
+Theorem 5. For every θ ⩾ 0.971, N ⩾ N0 (θ) and x ⩾ x0 (θ), we have
+
+                     D1,2 (N, θ) ⩾ 0.012 Ξ(N, θ),       π1,2 (x, θ) ⩾ 0.006 Π(x, θ).
+
+Acknowledgement. The author would like to thank E. Fouvry for his generous help in writing
+this article, and the referee for his very careful reading of the manuscript.
+
+§ 2. Preliminary lemmas
+
+    This section is devoted to present the formula of the Rosser–Iwaniec linear sieve and some
+mean value theorem on the distribution of primes in arithmetic progressions, which will be
+needed later. Before stating these results, it is necessary to recall some definitions.
+     Let k be a positive integer and τk (n) the number of ways of writing n as the product of k
+positive integers. An arithmetical function λ(q) is of level Q and of order k if
+
+                   λ(q) = 0   for q > Q          and     |λ(q)| ⩽ τk (q)   for q ⩾ 1.
+
+We say that λ is well factorable if for every decomposition Q = Q1 Q2 (Q1 , Q2 ⩾ 1) there exist
+two arithmetical functions λ1 and λ2 of level Q1 , Q2 and of order k such that λ = λ1 ∗ λ2 .
+
+Lemma 2.1. If λ′ is an arithmetical function of level Q′ (⩽ Q) and of order k ′ , then λ ∗ λ′ is
+well factorable of level QQ′ and of order k + k ′ .
+
+     Let A be a finite sequence of integers and P a set of prime numbers. For z ⩾ 2, we put
+         Q
+P (z) := p<z, p∈P p and define the sieve function
+
+                               S(A; P, z) := |{a ∈ A : (a, P (z)) = 1}|.
+
+If d is a square-free integer with all its prime factors belonging to P, we denote by Ad the set
+of elements of A divisible by d and we write the following approximate formula
+
+                                                w(d)
+(2.1)                                 |Ad | =        X + r(A, d),
+                                                 d
+
+where X > 1 is independent of d, and w(d) is a multiplicative function satisfying
+
+(2.2)                              0 ⩽ w(p) < p        for     p ∈ P.
+
+We also define
+                                                 Y     w(p)
+                                                             
+                                      V (z) :=       1−
+                                                 p<z
+                                                         p
+
+and suppose that there exists an absolute constant K > 1 such that
+                                                     
+                          V (z1 )   log z2       K
+(2.3)                             ⩽         1+                 (z2 ⩾ z1 ⩾ 2).
+                          V (z2 )   log z1     log z1
+
+    The formula of the Rosser–Iwaniec linear sieve [17] is stated as follows.
+6                                                 J. Wu
+
+Lemma 2.2. Let 0 < ε < 18 and 2 ⩽ z ⩽ Q1/2 . Under the assumptions (2.1), (2.2) and (2.3),
+we have
+                                             X X
+                                    log Q
+(2.4)       S(A; P, z) ⩽ XV (z) F            +E +           λ+
+                                                             l (q)r(A, q)
+                                     log z
+                                                                 l<L q|P (z)
+
+and
+                                                 X X
+                                        log Q
+(2.5)            S(A; P, z) ⩾ XV (z) f           +E −    λ−
+                                                          l (q)r(A, q).
+                                         log z
+                                                                l<L q|P (z)
+
+
+In these formulas, L depends only on ε, the λ± l are well factorable functions of order 1 and of
+level Q, and E ≪ ε + ε−8 eK /(log Q)1/3 . The functions F, f are defined by
+
+                             F (u) = 2eγ /u,        f (u) = 0        (0 < u ⩽ 2),
+(2.6)
+                    (uF (u))′ = f (u − 1),          (uf (u))′ = F (u − 1) (u > 2),
+
+where γ is Euler’s constant.
+     As usual, we denote by µ(q) Möbius’ function, ϕ(q) Euler’s function and ν(q) the number
+of distinct prime factors of q. Define
+                                                                 Z y
+                                         X                            dt
+                       π(y; q, a, m) :=          1,     li(y) :=
+                                                                  2  log t
+                                            mp⩽y
+                                          mp≡a(mod q)
+
+and
+                                                                     li(y/m)
+                               E 0 (y; q, a, m) := π(y; q, a, m) −           .
+                                                                       ϕ(q)
+    The next lemma is due to Pan & Ding [21], which implies Bombieri–Vinogradov’s theorem.
+Here we state it in the form of ([22], Corollary 8.12).
+Lemma 2.3. Let f (m) ≪ 1 and α ∈ (0, 1]. Let r1 (y) be a positive function depending on x
+and satisfying
+                              r1 (y) ≪ xα ,     y ⩽ x.
+Let r2 (m) be a positive function depending on x and y, and satisfying
+
+                                mr2 (m) ≪ x,         m ⩽ xα ,         y ⩽ x.
+
+Then for every A > 0, there exists a constant B = B(A) > 0 such that
+           X                                X                                           x
+                  µ(q)2 3ν(q) max max            f (m)E 0 (y; q, a, m) ≪                     ,
+          √                       y⩽x (a,q)=1                                       (log x)A
+        q⩽ x/(log x)B                           m⩽x1−α
+                                                (m,q)=1
+            X                                     X                                           x
+                        µ(q)2 3ν(q) max max               f (m)E 0 (mr1 (y); q, a, m) ≪            ,
+          √                       y⩽x (a,q)=1                                             (log x)A
+        q⩽ x/(log x)B                           m⩽x1−α
+                                                (m,q)=1
+            X                                     X                                            x
+                        µ(q)2 3ν(q) max max               f (m)E 0 (mr2 (m); q, a, m) ≪             .
+          √                       y⩽x (a,q)=1                                              (log x)A
+        q⩽ x/(log x)B                           m⩽x1−α
+                                                (m,q)=1
+
+
+   In order to prove Theorem 5, it is necessary to generalize the mean value theorem of Pan
+& Ding in short intervals. Such a result was established by Wu ([27], theorem 2).
+                Chen’s double sieve, Goldbach’s conjecture and the twin prime problem              7
+
+Lemma 2.4. Let f (m) ≪ 1, ε be an arbitrarily small positive number and define
+                                                                     li((y + h)/m) − li(y/m)
+         H(y, h, q, a, m) := π(y + h; q, a, m) − π(y; q, a, m) −                             .
+                                                                               ϕ(q)
+Then for any A > 0, there exists a constant B = B(A) > 0 such that
+       X                                           X                                       xθ
+             µ(q)2 3ν(q) max max max                          f (m)H(y, h, q, a, m) ≪
+                        (a,q)=1 h⩽xθ x/2<y⩽x                                            (log x)A
+       q⩽Q                                     m⩽M, (m,q)=1
+
+for x ⩾ 10, 35 + ε ⩽ θ ⩽ 1, Q = xθ−1/2 /(log x)B and M = x(5θ−3)/2−ε .
+     In the proofs of Theorem 3 and 4, we shall need some mean value theorems with well
+factorable or almost well factorable coefficients.
+     Let M ⩾ 1, N ⩾ 1 and X := M N . Let {αm } and {βn } be two sequences of order k
+supported in [M, 2M ] and [N, 2N ] respectively. We also suppose the conditions below:
+     (i) For all B, the equality
+                       X                1      X
+                                                   βn + OB,k N τk (d)/(log 2N )B
+                                                                                 
+                                 βn =
+                                       ϕ(k)
+              n≡n0 (mod k), (n,d)=1            (n,dk)=1
+
+holds for d ⩾ 1, k ⩾ 1 and (k, n0 ) = 1.
+    (ii) If n has a prime factor p with p < exp{(log log n)2 }, then βn = 0.
+    The following result is an immediate consequence of Corollary 2 of [11], Lemma 6 of [12]
+and the proposition of [18].
+Lemma 2.5. Under the conditions (i) and (ii) above, for any A and for any ε > 0 we have
+           X           X                   1     X                      X
+              λ(q)               αm βn −                 αm βn ≪ε,A
+                                          ϕ(q)                        (log X)A
+              (q,a)=1       mn≡a(mod q)                   (mn,q)=1
+
+uniformly for |a| ⩽ (log X)A and ν := log N/ log X (ε ⩽ ν ⩽ 1 − ε). Here λ(q) is a well
+factorisable function of order 1 and of level Q := X θ(ν)−ε , where θ(ν) is given by
+                                      6−5ν                    1
+                                     
+                                          10   for ε ⩽ ν ⩽ 15    ,
+                                     
+                                         1           1          1
+                                     
+                                         2 +ν   for 15  ⩽ ν ⩽ 10   ,
+                                     
+                                     
+                                     
+                                     
+                                     
+                                         5−2ν        1          3
+                                     
+                                                for 10 ⩽ ν ⩽ 14 ,
+                                     
+                                     
+                                     
+                                     
+                                           8
+                                      3+2ν for 3 ⩽ ν ⩽ 1 ,
+                                     
+                                     
+                                           6         14        4
+                              θ(ν) =
+                                         2−ν        1         2
+                                     
+                                     
+                                          3    for  4 ⩽ ν ⩽  7,
+                                     
+                                         2+ν
+                                                for 27 ⩽ ν ⩽ 25 ,
+                                     
+                                     
+                                     
+                                     
+                                     
+                                          4
+
+                                        1 − ν for 25 ⩽ ν ⩽ 12 ,
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     
+                                     1
+                                                for 12 ⩽ ν ⩽ 1 − ε.
+                                     
+                                         2
+
+Proof. The value (6 − 5ν)/10 in [ε, 1/15] comes from Corollary 2 (ii) of [11]. The intervals
+[1/15, 1/10] and [1/10, 3/14] follow from the proposition of [18] by decomposing λ = λ1 ∗ λ2 with
+
+                              Q1 = Q = x1/2−ε ,           Q2 = R = N x−ε
+
+and
+                          Q1 = Q = x5/8−ε N −5/4 ,          Q2 = R = N x−ε ,
+respectively. The remaining case is Lemma 6 of [12].                                               
+8                                                          J. Wu
+
+     The next lemma is Corollary 2 (i) of [11]. This is the first result, which is valid uniformly
+for |a| ⩽ X and has the level of distribution > 21 .
+Lemma 2.6. Under the conditions (i) and (ii) above, for any A and for any ε > 0 we have
+                   X                   X                     1       X                          X
+                            λ(q)                  αm βn −                      αm βn ≪ε,A
+                                                             ϕ(q)                             (log X)A
+                  (q,a)=1           mn≡a(mod q)                     (mn,q)=1
+
+                                                   1
+uniformly for |a| ⩽ X and ε ⩽ ν := log N/ log X ⩽ 10 . Here λ(q) is a well factorisable function
+                               5(1−ν)9−ε
+of order 1 and of level Q := X           .
+
+    As usual define                                                 X
+                                             π(y; q, a) :=                     1.
+                                                             p⩽y, p≡a(mod q)
+
+The following result is due to Bombieri, Friedlander & Iwaniec ([2], theorem 10).
+Lemma 2.7. Let λ be a well factorable function of order k and of level Q = x4/7−ε . For any
+ε > 0 and any A, we have uniformly for x ⩾ 3 and |a| ⩽ (log x)A ,
+                                                                 
+                                    X                       li(x)              x
+                                          λ(q) π(x; q, a) −         ≪ε,k,A          .
+                                                            ϕ(q)           (log x)A
+                                (q,a)=1
+
+
+    When we use the weighted inequality, some coefficients are merely “almost well factorable”.
+So we need the following results, due to Fouvry & Grupp ([13], theorem 2 and the corollary).
+Lemma 2.8. Let λ be a well factorable function of level Q1 and of order k, ξ an arithmetical
+function satisfying the conditions |ξ(q2 )| ⩽ log x and ξ(q2 ) = 0 (q2 > Q2 ) and let Λ be the von
+Mangoldt function. Then we have for any integer a, any ε > 0 and any A > 0,
+                                                                 
+                   X                                     li(x)                   x
+                         λ(q1 )ξ(q2 ) π(x; q1 q2 , a) −             ≪a,ε,k,A          ,
+                                                        ϕ(q1 q2 )            (log x)A
+                     (q1 q2 ,a)=1
+
+
+so long as one of the following three conditions is true:
+
+(C.1)                        Q2 ⩽ Q1 ,         Q1 Q2 ⩽ x4/7−ε ,
+
+(C.2)                        Q2 ⩾ Q1 ,         Q1 Q62 ⩽ x2−ε ,
+
+(C.3)                        ξ(q) = Λ(q),           Q1 Q2 ⩽ x11/20−ε ,          Q2 ⩽ x1/3−ε .
+
+    The next two lemmas also are useful when we apply the switching principle.
+Lemma 2.9 ([26], Lemma 7). Let λ be a well factorable function of level Q := x4/7−ε and
+of order k. Let η > 0 and {εi }1⩽i⩽r be real numbers such that
+
+                                          εi ⩾ η,        ε1 + ε2 + · · · + εr = 1.
+
+Then for any integer a, any ε > 0 and any A > 0, we have
+         X                          X                    1              X                               x
+                  λ(q)                              1−                                   1 ≪a,ε,k,A            .
+                                                         ϕ(q)                                         (log x)A
+        (q,a)=1               p1 ···pr ≡a(mod q)                     (p1 ···pr ,q)=1
+                            xεi <pi ⩽2xεi (1⩽i⩽r)               (xεi <pi ⩽2xεi (1⩽i⩽r)
+                Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                         9
+
+Lemma 2.10 ([26], Lemma 12). Let x ⩾ 2 and y = x1/u . Then
+                                                          
+                       X           x                 x
+                             1=        ω(u) + O             ,
+                                 log y            (log y)2
+                                  n⩽x
+                               p|n⇒p⩾y
+
+where ω(u) is Buchstab’s function defined by
+                                                                 ′
+                 ω(u) = 1/u (1 ⩽ u ⩽ 2) and                 uω(u) = ω(u − 1) (u ⩾ 2).
+Moreover we have ω(u) ⩽ 0.561522 (u ⩾ 3.5) and ω(u) ⩽ 0.567144 (u ⩾ 2).
+
+
+§ 3. Chen’s double sieve
+      We shall sieve the sequence
+                                         A := {N − p : p ⩽ N }.
+Let δ > 0 be a sufficiently small number and k ∈ Z. Put
+                                                                                            1+k
+                 Q := N 1/2−δ ,        d := Q/d,          L := log N,           Wk := N δ         .
+                                        −4                     −4
+Let ∆ be a real number with 1 + L ⩽ ∆ < 1 + 2L . We put P(N ) := {p : (p, N ) = 1} and
+denote by π[Y,Z) the characteristic function of the set P(N ) ∩ [Y, Z). For k ∈ Z+ and N ⩾ 2,
+let Uk (N ) be the set of all arithmetical functions σ which can be written as the form
+                                    σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ,
+where i is an integer with 0 ⩽ i ⩽ k, and V1 , . . . , Vi are real numbers satisfying
+                                  2
+                                  V1 ⩽ Q,
+                                 
+                                        2
+                                  V1 V2 ⩽ Q,
+                                 
+                                 
+                                 
+(3.1)                              ·············
+                                 
+                                   V · · · Vi−1 Vi2 ⩽ Q,
+                                 
+                                 
+                                  1
+                                 
+                                 
+                                   V1 ⩾ V2 ⩾ · · · ⩾ Vi ⩾ Wk .
+By convention, σ is the characteristic function of the set {1} if i = 0. From this definition and
+Lemma 2.1, we see immediately the following result.
+Lemma 3.1. (i) We have Uk (N ) ⊂ Uk+1 (N ) for k ∈ Z+ .
+       (ii) Let σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ∈ Uk (N ). Then σ is well factorable of level V :=
+V1 · · · Vi and of order i. If λ is well factorable of level Q/V and of order 1, then σ ∗ λ is well
+factorable of level Q and of order k + 1.
+      Let F and f be defined as in (2.6) and let
+(3.2)                    A(s) := sF (s)/2eγ           and        a(s) := sf (s)/2eγ ,
+We introduce the notation
+                     X                                                                  X σ(d)CdN
+       Φ(N, σ, s) :=    σ(d)S(Ad ; P(dN ), d1/s ),               Θ(N, σ) := 4li(N )                       .
+                                                                                             ϕ(d) log d
+                         d                                                              d
+    For k ∈ Z+ , N0 ⩾ 2 and s ∈ [1, 10], we define Hk,N0 (s) and hk,N0 (s) as the supremum of
+h ⩾ −∞ such that for all N ⩾ N0 and σ ∈ Uk (N ) one has the following inequalities
+                                   Φ(N, σ, s) ⩽ {A(s) − h} Θ(N, σ)
+and
+                                   Φ(N, σ, s) ⩾ {a(s) + h} Θ(N, σ)
+respectively.
+    From this definition, we deduce immediately the following result.
+10                                                         J. Wu
+
+Lemma 3.2. For k ∈ Z+ , N ⩾ N0 , s ∈ [1, 10] and σ ∈ Uk (N ), we have
+
+(3.3)                               Φ(N, σ, s) ⩽ {A(s) − Hk,N0 (s)}Θ(N, σ)
+
+and
+
+(3.4)                               Φ(N, σ, s) ⩾ {a(s) + hk,N0 (s)}Θ(N, σ).
+
+   Obviously Hk,N0 (s), hk,N0 (s) are decreasing on N0 , and they are also decreasing on k by
+Lemma 3.1. Hence we can write
+                       Hk (s) := lim Hk,N0 (s),                    hk (s) := lim hk,N0 (s),
+                                     N0 →∞                                  N0 →∞
+
+                        H(s) := lim Hk (s),                         h(s) := lim hk (s).
+                                     k→∞                                    k→∞
+
+Lemma 3.3. For N ⩾ 2 and σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ∈ Uk (N ), we have
+                                         X
+(3.5)                      L−5k ≪δ,k          σ(d)/d ≪δ,k 1,
+                                                           d
+                                           X
+(3.6)                                           σ(d) ≪δ,k V1 · · · Vi ,
+                                            d
+(3.7)                                     Θ(N, σ) ≫δ,k N/L5k+2 .
+
+Proof. Let σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ∈ Uk (N ). We have
+                                    X σ(d)            Y             X              1
+(3.8)                                            =                                    .
+                                            d                                      pj
+                                     d               1⩽j⩽i pj ∈P(N )∩[Vj /∆,Vj )
+
+                                                                                   −2(log x)1/2
+                                                     P
+The prime number theorem of the form                     p⩽x 1 = li(x) + O(x e                    ) implies
+                    X               1           X        1           X             1
+                                       =                    −
+                                    pj                   pj                        pj
+            pj ∈P(N )∩[Vj /∆,Vj )          Vj /∆⩽pj <Vj       Vj /∆⩽pj <Vj , pj |N
+                                                                                            
+                                                    log Vj                   1/2          L
+                                         = log                 + O e− log (Vj /∆) +             .
+                                                 log(Vj /∆)                           Vj log L
+
+Therefore our choice of ∆ and (3.1) give us
+                                      X
+(3.9)                                                            1/pj ≍δ,k L−5 .
+                                         pj ∈P(N )∩[Vj /∆,Vj )
+
+Now (3.5) follows from (3.8) and (3.9).
+   Since σ(d) 6= 0 implies d ⩽ V1 · · · Vi , the second inequality in (3.5) implies (3.6). Noticing
+Θ(N, σ) ≫ N L−2 d σ(d)/d, we obtain (3.7) by the first inequality in (3.5).
+                  P
+                                                                                                  
+Proposition 1. For k ∈ Z+ and s ∈ [1, 10], we have
+
+                                         Hk (s) ⩾ 0        and        hk (s) ⩾ 0.
+
+Proof. We shall prove only the first inequality. The second one can be treated similarly. Let
+σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ∈ Uk (N ). We use Lemma 2.2 with
+                                                       
+                                   li(N )                p/(p − 1) if p ∈ P(N ),
+                            X=            ,    w(p) =
+                                    ϕ(d)                 0         otherwise
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem              11
+
+to estimate σ(d)S(Ad ; P(dN ), d1/s ). By Merten’s formula and (3.1), we can infer that for any
+ε>0
+                                                          2sCdN
+(3.10)                          V (d1/s ) = {1 + Oδ,k (ε)} γ      .
+                                                          e log d
+
+By using Lemma 2.2 and (3.10), we deduce
+                                                                                           
+                                    1/s               σ(d)CdN         log(Q/V )
+(3.11)        σ(d)S(Ad ; P(dN ), d        ) ⩽ 4li(N )             A                 + Oδ,k (ε)
+                                                      ϕ(d) log d       log d1/s
+                                                X            X
+                                              +     σ(d)          λ+l (q)r(Ad , q),
+                                                l<L         q|P (d1/s )
+
+
+where λ+ l (q) is well factorable of level Q/V with V := V1 · · · Vi and of order 1.
+     If σ(d) 6= 0, we have d ∈ [V /∆i , V ], which implies 0 ⩽ log V −log d ⩽ i log ∆ ⩽ 2kL−4 . From
+this we deduce that A log(Q/V )/ log d1/s = A(s)+ Oδ,k (ε). Inserting (3.11) and summing over
+                                              
+
+d, we obtain
+
+(3.12)                     Φ(N, σ, s) ⩽ {A(s) + Oδ,k (ε)}Θ(N, σ) + R,
+
+where                              XX                  X
+                            R :=             σ(d)                 λ+
+                                                                   l (q)r(Ad , q).
+                                   l<L d            q|P (d1/s )
+
+Let q | P (d1/s ). It is clear that µ(q)2 = 1 and (N d, q) = 1. Thus we have
+
+                              r(Ad , q) = |Adq | − li(N )/ϕ(dq)
+                                          = π(N ; dq, N ) − li(N )/ϕ(dq).
+
+Hence we can see, by using Lemmas 3.1(ii) and 2.3, that
+                              X
+(3.13)                  R ≪ε    τk+1 (q)|π(N ; dq, N ) − li(N )/ϕ(dq)|
+                                q⩽Q
+
+                            ≪δ,k,ε N/L5k+3 .
+
+From (3.7), (3.12) and (3.13), we deduce
+
+                             Φ(N, σ, s) ⩽ {A(s) + Oδ,k (ε)}Θ(N, σ),
+
+which implies, by the definition of Hk,N0 (s), for any ε > 0 and sufficiently large N0
+
+                                          Hk,N0 (s) ⩾ −Oδ,k (ε).
+
+First making N0 → ∞ and then ε → 0, we obtain Hk (s) ⩾ 0.                                         
+Proposition 2. For 2 ⩽ s ⩽ s′ ⩽ 10, we have
+                                                       Z s′ −1
+                                                                   H(t)
+                                   h(s) ⩾ h(s′ ) +                      dt
+                                                         s−1        t
+
+and                                                      Z s′ −1
+                                                                    h(t)
+                                 H(s) ⩾ H(s′ ) +                         dt.
+                                                          s−1        t
+12                                                                  J. Wu
+
+Proof. We shall only prove the first inequality as the second one can be established in the same
+way.
+     Let k ⩾ 0 and σ = π[V1 /∆,V1 ) ∗ · · · ∗ π[Vi /∆,Vi ) ∈ Uk (N ). By Buchstab’s identity, we write
+                                                               X                  X
+(3.14)              Φ(N, σ, s) = Φ(N, σ, s′ ) −                     σ(d)                  S(Adp ; P(dN ), p).
+                                                                d             ′
+                                                                           d1/s ⩽p<d1/s
+
+
+     Next we shall give an upper bound for the last double sums S. The idea is to prove that
+the characteristic function of dp belongs to Uk+1 (N ). Thus S can be estimated by a function
+                                                            ′
+Hk+1,N0 . We put V := V1 · · · Vi , V := Q/V and αj := V 1/s ∆j . Let r be the integer satisfying
+                                                   ′      ′
+αr ⩽ V 1/s < αr+1 . Noticing that σ(d) 6= 0 ⇒ V 1/s ⩽ d1/s and V 1/s ⩽ d1/s , we deduce
+                              X                  X
+(3.15)               S⩽                σ(d)              S(Adp ; P(dN ), p) + R1
+                                  d           α0 ⩽p<αr
+                                  X X                                                              ∗
+                          =                     σ(d)π[αj−1 ,αj ) (p)S(Adp ; P(dpN ), (dp)1/s ) + R1 ,
+                              1⩽j⩽r d, p
+
+
+where s∗ := log d/ log p − 1 and
+                                                   X                X
+                                         R1 :=          σ(d)               S(Adp ; P(dN ), p).
+                                                    d        αr ⩽p<d1/s
+
+
+     We would prove that σ ∗ π[αj−1 ,αj ) ∈ Uk+1 (N ). It suffices to verify that V1 , V2 , . . . , Vi , αj
+satisfy (3.1) for j ⩽ r. If Vi ⩾ αj , then V1 V2 · · · Vi α2j ⩽ V V 2/s = Q2/s V 1−2/s ⩽ Q and
+              ′      1/s′                1/s′
+αj ⩾ V 1/s ⩾ Vi               ⩾ Wk      ⩾ Wk+1 . If V1 ⩾ · · · ⩾ Vl ⩾ αj ⩾ Vl+1 ⩾ · · · ⩾ Vi , we have
+V1 · · · Vl αj Vl+1 · · · Vn2 ⩽ V α2j ⩽ V V 2/s ⩽ Q for l < n ⩽ i. Thus σ ∗ π[αj−1 ,αj ) ∈ Uk+1 (N ).
+       Since s∗ depends on d and p, we replace it by a suitable quantity independent of d and
+p such that we can use (3.3) with Hk+1,N0 . For this we introduce s1 := log(V /αj )/ log αj ,
+s2 := log(V /αj−i−1 )/ log αj−1 . Noticing that σ(d)π[αj−1 ,αj ) (p) 6= 0 ⇒ s1 ⩽ s∗ ⩽ s2 , we deduce
+from (3.15) that
+                           X X
+                  S⩽                      σ(d)π[αj−1 ,αj ) (p)S(Adp ; P(dpN ), (dp)1/s1 ) + R1 + R2
+                          1⩽j⩽r d, p
+
+
+where
+              X X                                                      ∗
+                          σ(d)π[αj−1 ,αj ) (p) S(Adp ; P(dpN ), (dp)1/s ) − S(Adp ; P(dpN ), (dp)1/s1 ) .
+                                              
+     R2 :=
+             1⩽j⩽r d, p
+
+
+Now we can use (3.3) in Lemma 3.2 to write
+                   X
+         S⩽               {A(s1 ) − Hk+1,N0 (s1 )}Θ(N, σ ∗ π[αj−1 ,αj ) ) + R1 + R2
+                  1⩽j⩽r
+                           X σ(d)CdN                    X       A(s∗ ) − Hk+1,N0 (s∗ )
+              ⩽ 4li(N )                                                                  + R1 + R2
+                                      ϕ(d) log d               (p − 2)(1 − log p/ log d)
+                              d                    α0 ⩽p<αr
+                           X σ(d)CdN                     X          A(s∗ ) − Hk+1,N0 (s∗ )
+              ⩽ 4li(N )                                                                      + R1 + R2 + R3 ,
+                                      ϕ(d) log d 1/s′              (p − 2)(1 − log p/ log d)
+                              d                    d     ⩽p<d  1/s
+                 Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                           13
+
+where we have used the fact that A(s) − Hk+1,N0 (s) is increasing on s, and the notation
+                                     X σ(d)CdN                      X           A(s∗ ) − Hk+1,N0 (s∗ )
+                     R3 := 4li(N )                                                                     .
+                                          ϕ(d) log d                            ϕ(p)(1 − log p/ log d)
+                                     d                          ′
+                                                        V 1/s ⩽p<d         1/s′
+
+
+
+Applying the prime number theorem, an integration by parts shows that
+                                                                Z s′ −1
+                 X         A(s∗ ) − Hk+1,N0 (s∗ )                            A(t) − Hk+1,N0 (t)
+                                                    =                                           dt + Oδ,k (ε).
+             ′
+                          (p − 2)(1 − log p/ log d)                 s−1              t
+         d1/s ⩽p<d    1/s
+
+
+
+Hence
+                   Z s′ −1                                   
+                              A(t) − Hk+1,N0 (t)
+(3.16)      S⩽                                   dt + Oδ,k (ε) Θ(N, σ) + R1 + R2 + R3 .
+                        s−1           t
+
+     It remains to estimate R1 , R2 , R3 . Observing that σ(d) 6= 0 ⇒ V /∆i ⩽ d < V , we have
+d1/s ⩽ V 1/s ∆i/s . Thus log(log d1/s / log αr ) ⩽ log(1 + log ∆1+i/s / log(V 1/s /∆)) ≪δ,k L−5 . By
+using the prime number theorem and the previous estimate, we have
+                                                 X                      X
+(3.17)                                   R1 ≪          σ(d)                       N/dp
+                                                  d           αr        ⩽p<d1/s
+                                                            X
+                                                       −5
+                                            ≪ NL                    σ(d)/ϕ(d)
+                                                            d
+                                            ≪δ,k Θ(N, σ)/L3 .
+
+Similarly we can show that
+
+(3.18)                                       R3 ≪δ,k Θ(N, σ)/L3 .
+
+By the definition of R2 , we easily see that
+                                  X               X                        X
+                           R2 ≪          σ(d)                                              N/dpp′ .
+                                     d          α0 ⩽p<αr (dp)1/s∗ ⩽p′ <(dp)1/s1
+
+
+Using a similar preceding argument, we can show that
+
+                                            N X σ(d)                                  X       1
+(3.19)                          R2 ≪δ,k
+                                            L4 ϕ(d) log d                                     p
+                                                   d                              ′
+                                                                           V 1/s ⩽p<V     1/s
+
+
+                                            Θ(N, σ)
+                                     ≪δ,k           .
+                                              L3
+Combining (3.16)–(3.19), we obtain the desired upper bound, for N ⩾ N0 ,
+                               Z s′ −1                                   
+                                          A(t) − Hk+1,N0 (t)
+(3.20)                  S⩽                                   dt + Oδ,k (ε) Θ(N, σ).
+                                 s−1              t
+
+     Inserting it in (3.14), estimating the first sum on the right-hand side of (3.14) by (3.9) and
+noticing the relation
+                                                   Z s′
+                                      ′
+                                   a(s ) − a(s) =       A(t − 1) dt,
+                                                                    s
+14                                                         J. Wu
+
+we find that, for N ⩾ N0 (ε, δ, k),
+                                            Z s′ −1
+                       n
+                                       ′            Hk+1,N0 (t)              o
+           Φ(N, σ, s) ⩾ a(s) + hk,N0 (s ) +                     dt + Oδ,k (ε) Θ(N, σ).
+                                             s−1        t
+From the definition of hk,N0 (s), we deduce that, for any ε > 0 and for sufficiently large N0 ,
+                                                         Z s′ −1
+                                                   ′               Hk+1,N0 (t)
+                       hk,N0 (s) ⩾ hk,N0 (s ) +                                dt + Oδ,k (ε).
+                                                          s−1          t
+Taking N0 → ∞ and then ε → 0, we obtain
+                                                             Z s′ −1
+                                                                       Hk+1 (t)
+                                  hk (s) ⩾ hk (s′ ) +                           dt
+                                                                 s−1     t
+which implies the required inequality. This completes the proof.                                                 
+Corollary 1. The function H(s) is decreasing on [1, 10]. The function h(s) is increasing on
+[1, 2] and is decreasing on [2, 10].
+Proof. According to the definition, we easily see that Hk,N0 (s) is decreasing on [1, 3] since
+A(s) = 1 for 1 ⩽ s ⩽ 3. Thus H(s) is also decreasing on [1, 3]. When 3 ⩽ s ⩽ 10, the required
+result follows immediately from Propositions 2 and 1.
+     Similarly the definition of hk,N0 (s) and the fact that a(s) = 0 for 1 ⩽ s ⩽ 2 show that
+h(s) is increasing on [1, 2]. Propositions 2 and 1 imply that h(s) is decreasing on [2, 10]. This
+concludes the proof.                                                                           
+    The central results in this section are Propositions 3 and 4 below. Before stating it, it is
+necessary to introduce some notation.
+    Let 1 ⩽ s ⩽ 3 ⩽ s′ ⩽ 5 and s ⩽ κ3 ⩽ κ2 ⩽ κ1 ⩽ s′ . Define
+       α1 := κ1 − 2,                         α2 := s′ − 2,                              α3 := s′ − s′ /s − 1,
+       α4 := s′ − s′ /κ2 − 1,                α5 := s′ − s′ /κ3 − 1,                     α6 := s′ − 2s′ /κ2 ,
+       α7 := s′ − s′ /κ1 − s′ /κ3 ,          α8 := s′ − s′ /κ1 − s′ /κ2 ,               α9 := κ1 − κ1 /κ2 − 1.
+
+Let 1[a,b] (t) be the characteristic function of the interval [a, b]. We put
+                                       Z b
+                                                        c dt                       σ(3, t + 2, t + 1)
+                       σ(a, b, c) :=         log             ,         σ0 (t) :=                      .
+                                        a              t−1 t                        1 − σ(3, 5, 4)
+
+     We can prove that H(s) satisfies some functional inequalities.
+Proposition 3. For 5 ⩾ s′ ⩾ 3 ⩾ s ⩾ 2 and s′ − s′ /s ⩾ 2, we have
+                                           Z 3
+(3.21)                     H(s) ⩾ Ψ1 (s) +     H(t)Ξ1 (t; s) dt,
+                                                             1
+
+where Ψ1 (s) is defined as in Lemma 5.1 below and Ξ1 (t; s) = Ξ1 (t; s, s′ ) is given by
+                                                                   
+                                     σ0 (t)                16
+                        Ξ1 (t; s) :=        log
+                                      2t            (s − 1)(s′ − 1)
+                                      1[α2 ,3] (t)            (t + 1)2
+                                                                        
+                                    +              log
+                                           2t            (s − 1)(s′ − 1)
+                                      1[α3 ,α2 ] (t)
+                                                                              
+                                                                   t+1
+                                    +                log                        .
+                                            2t             (s − 1)(s′ − 1 − t)
+                Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                 15
+
+Proposition 4. Let 5 ⩾ s′ ⩾ 3 ⩾ s ⩾ 2 and s ⩽ κ3 < κ2 < κ1 ⩽ s′ satisfy
+
+             s′ − s′ /s ⩾ 2,      1 ⩽ αi ⩽ 3 (1 ⩽ i ⩽ 9),             α1 < α4 ,      α5 < α8 .
+
+Then we have
+                                                     Z 3
+(3.22)                           H(s) ⩾ Ψ2 (s) +           H(t)Ξ2 (t; s) dt,
+                                                      1
+
+
+where Ψ2 (s) is defined as in Lemma 5.2 below, and Ξ2 (t; s) = Ξ2 (t; s, s′ , κ1 , κ2 , κ3 ) is given by
+                                                                                      
+                            σ0 (t)                             1024
+               Ξ2 (t; s) :=        log
+                             5t            (s − 1)(s′ − 1)(κ1 − 1)(κ2 − 1)(κ3 − 1)
+                             1[α2 ,3] (t)                         (t + 1)5
+                                                                                            
+                           +               log
+                                  5t             (s − 1)(s′ − 1)(κ1 − 1)(κ2 − 1)(κ3 − 1)
+                             1[α9 ,α1 ] (t)
+                                                                         
+                                                           t+1
+                           +                log
+                                   5t             (κ2 − 1)(κ1 − 1 − t)
+                             1[α5 ,α2 ] (t)
+                                                                         
+                                                           t+1
+                           +                log
+                                   5t             (κ3 − 1)(s′ − 1 − t)
+                             1[α3 ,α2 ] (t)
+                                                                       
+                                                          t+1
+                           +                log
+                                   5t             (s − 1)(s′ − 1 − t)
+                             1[α1 ,α2 ] (t)            (t + 1)2
+                                                                     
+                           +                log
+                                   5t             (κ1 − 1)(κ2 − 1)
+                              1[α7 ,α5 ] (t)                          s′2
+                                                                                          
+                           +                  log
+                             5t(1 − t/s′ )          (κ1 s′ − s′ − κ1 t)(κ3 s′ − s′ − κ3 t)
+                                                   ′ ′
+                              1[α5 ,α8 ] (t)
+                                                                      
+                                                     s (s − 1 − t)
+                           +                  log
+                             5t(1 − t/s′ )          κ1 s′ − s′ − κ1 t
+                              1[α6 ,α8 ] (t)                s′
+                                                                     
+                           +                  log
+                             5t(1 − t/s′ )          κ2 s′ − s′ − κ2 t
+                              1[α8 ,α2 ] (t)
+                           +                  log(s′ − 1 − t).
+                             5t(1 − t/s′ )
+
+     We shall prove these two propositions in Section 6. It is easy to see that Ξi (t; s) is positive
+and that for s ∈ [1, 3) there exist parameters s′ , κi such that Ψi (s) > 0. Therefore H(s) > 0 for
+s ∈ [1, 3) and then Proposition 2 implies that h(s) > 0 for s ∈ [1, 3). In Sections 7 and 8, we
+shall give numeric solution of (3.20) and (3.21), and prove Theorems 1 and 3.
+
+§ 4. Weighted inequalities for sieve function
+
+     The aim of this section is to present two weighted inequalities for sieve function. The first
+is essentially due to Chen ([10], (23)). The second is new, which is not only much simpler than
+the third weighted inequality of Chen ([10], (64), (90) and (91)) but also more powerful.
+
+Lemma 4.1. Let 1 ⩽ s < s′ ⩽ 10. For N ⩾ 2, k ⩾ 0 and σ ∈ Uk (N ), we have
+                                        X
+                       2Φ(N, σ, s) ⩽         σ(d)(Ω1 − Ω2 + Ω3 ) + Oδ,k (N 1−η ),
+                                         d
+16                                                                  J. Wu
+
+where η = η(δ, k) > 0 and Ωi = Ωi (d) is given by
+                                                                        ′
+                                  Ω1 := 2S(Ad ; P(dN ), d1/s ),
+                                                     X                                          ′
+                                  Ω2 :=                      S(Adp ; P(dN ), d1/s ),
+                                                 ′
+                                          d1/s ⩽p<d1/s
+                                             (p,N )=1
+                                                 XXX
+                                  Ω3 :=                                 S(Adp1 p2 p3 ; P(dp1 N ), p2 ).
+                                              1/s′                1/s
+                                          d       ⩽p1 <p2 <p3 <d
+                                                 (p1 p2 p3 ,N )=1
+
+Proof. By the Buchstab identity, we have
+                                                                                           X
+(4.1)                        2S(Ad ; P(dN ), d1/s ) = Ω1 − 2                                         S(Adp ; P(dN ), p),
+                                                                                    1/s′       1/s
+                                                                                d      ⩽p<d
+                                                                                     (p,N )=1
+                   X                                                                 XX
+(4.2)                            S(Adp1 ; P(dN ), p1 ) = Ω0 +                                         S(Adp1 p3 ; P(dp1 N ), p3 ),
+            1/s′           1/s                                                  ′
+                                                                            d1/s ⩽p1 ⩽p3 <d1/s
+        d      ⩽p1 <d
+             (p1 ,N )=1                                                           (p1 p3 ,N )=1
+                   X                                                                 XX
+(4.3)                            S(Adp3 ; P(dN ), p3 ) = Ω2 −                                         S(Adp1 p3 ; P(dN ), p1 ),
+            1/s′                                                                ′
+                                                                            d1/s ⩽p1 <p3 <d1/s
+        d      ⩽p3 <d1/s
+             (p3 ,N )=1                                                           (p1 p3 ,N )=1
+
+
+where                                                        X
+                                        Ω0 :=                         S(Adp1 ; P(dN ), d1/s ).
+                                                         ′
+                                                     d1/s ⩽p1 <d1/s
+                                                        (p1 ,N )=1
+
+Inserting (4.2)–(4.3) into (4.1), dropping the term Ω0 (which is non-negative) and replacing
+p1 ⩽ p3 by p1 < p3 , we find that
+
+                                           2S(Ad ; P(dN ), d1/s ) ⩽ Ω1 − Ω2 + ∆1 ,
+
+where
+                                     XX              
+(4.4)          ∆1 :=                                  S(Adp1 p3 ; P(dN ), p1 ) − S(Adp1 p3 ; P(dp1 N ), p3 )
+                                 ′
+                           d1/s ⩽p1 <p3 <d1/s
+                              (p1 p3 ,N )=1
+                                 XXX
+                       =                                 S(Adp1 p2 p3 ; P(dp1 N ), p2 ).
+                               ′
+                           d1/s ⩽p1 ⩽p2 <p3 <d1/s
+                                 (p1 p2 p3 ,N )=1
+
+
+By the inequality S(Adp21 p3 ; P(dN ), p1 ) ≪ N/dp21 p3 and the fact that d ⩾ Wk , we easily see
+                   XX                                                                  XX
+                                     S(Adp21 p3 ; P(dN ), p1 ) ≪                                       N/dp21 p3 ≪δ,k N 1−η /d
+        d   1/s′   ⩽p1 <p3 <d1/s                                            d   1/s′   ⩽p1 <p3 <d1/s
+
+
+for some η = η(δ, k) > 0. Inserting it in (4.4), we obtain that
+
+(4.5)                                                 ∆1 = Ω3 + Oδ,k (N 1−η /d).
+
+Finally we complete the proof with (3.5).                                                                                            
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                        17
+
+Lemma 4.2. Let 1 ⩽ s ⩽ κ3 < κ2 < κ1 ⩽ s′ ⩽ 10. For N ⩾ 2, k ⩾ 0 and σ ∈ Uk (N ), we have
+                          X
+          5Φ(N, σ, s) ⩽               σ(d)(Γ1 − Γ2 − Γ3 − Γ4 + Γ5 + · · · + Γ21 ) + Oδ,k (N 1−η ),
+                              d
+
+
+where η = η(δ, k) > 0 and Γi = Γi (d) is given by
+
+                                                             ′
+                 Γ1 := 4S(Ad ; P(dN ), d1/s ) + S(Ad ; P(dN ), d1/κ1 ),
+                                      X                                      ′
+                 Γ2 :=                          S(Adp ; P(dN ), d1/s ),
+                                  ′
+                         d1/s ⩽p<d1/s
+                            (p,N )=1
+                                      X                                          ′
+                 Γ3 :=                           S(Adp ; P(dN ), d1/s ),
+                                  ′
+                         d1/s ⩽p<d1/κ2
+                            (p,N )=1
+                                      X                                          ′
+                 Γ4 :=                           S(Adp ; P(dN ), d1/s ),
+                                  ′
+                         d1/s ⩽p<d1/κ3
+                            (p,N )=1
+                                      XX                                              ′
+                 Γ5 :=                                  S(Adp1 p2 ; P(dN ), d1/s ),
+                                  ′
+                         d1/s ⩽p1 <p2 <d1/κ2
+                             (p1 p2 ,N )=1
+                                             X X                                                       ′
+                 Γ6 :=                                                    S(Adp1 p2 ; P(dN ), d1/s ),
+                                  ′
+                         d1/s ⩽p1 <d1/κ1 , d1/κ2 ⩽p2 <d1/κ3
+                                   (p1 p2 ,N )=1
+                                      XX
+                 Γ7 :=                                  S(Adp1 p2 ; P(dN ), p1 ),
+                             1/s′
+                         d         ⩽p1 <p2    <d1/κ1
+                                  (p1 p2 ,N )=1
+                                          X X
+                 Γ8 :=                                             S(Adp1 p2 ; P(dN ), p1 ),
+                             1/s′
+                         d            ⩽p1 <d1/κ1 ⩽p2 <d1/κ2
+                                        (p1 p2 ,N )=1
+                                      X X X
+                 Γ9 :=                                           S(Adp1 p2 p3 ; P(dN ), p2 ),
+                         d1/κ1 ⩽p1 <p2 <p3 <d1/κ3
+                               (p1 p2 p3 ,N )=1
+                                        X X X
+                Γ10 :=                                                S(Adp1 p2 p3 ; P(dN ), p2 ),
+                         d1/κ1 ⩽p1 <p2 <d1/κ2 ⩽p3 <d1/s
+                                         (p1 p2 p3 ,N )=1
+                                         X X X
+                Γ11 :=                                                  S(Adp1 p2 p3 ; P(dN ), p2 ),
+                         d1/κ1 ⩽p1 <d1/κ2 ⩽p2 <p3 <d1/κ3
+                                          (p1 p2 p3 ,N )=1
+                                            X X X
+                Γ12 :=                                                      S(Adp1 p2 p3 ; P(dN ), p2 ),
+                             1/s′
+                         d            ⩽p1 <p2 <d1/κ1 , d1/κ3 ⩽p3 <d1/s
+                                            (p1 p2 p3 ,N )=1
+                                            X X X
+                Γ13 :=                                                       S(Adp1 p2 p3 ; P(dN ), p2 ),
+                             1/s′
+                         d            ⩽p1 <d1/κ1 ⩽p2 <d1/κ2 ⩽p3 <d1/s
+                                             (p1 p2 p3 ,N )=1
+                                            X X X
+                Γ14 :=                                                      S(Adp1 p2 p3 ; P(dN ), p2 ),
+                             1/s′
+                         d            ⩽p1 <d1/κ1 , d1/κ2 ⩽p2 <p3 <d1/s
+                                            (p1 p2 p3 ,N )=1
+18                                                                 J. Wu
+                                        X X X
+                   Γ15 :=                                                          S(Adp1 p2 p3 ; P(dN ), p2 ),
+                            d1/κ1 ⩽p1 <d1/κ2 ⩽p2 <d1/κ3 ⩽p3 <d1/s
+                                        (p1 p2 p3 ,N )=1
+                                X X X X
+                   Γ16 :=                                           S(Adp1 p2 p3 p4 ; P(dN ), p3 ),
+                            d1/κ2 ⩽p1 <p2 <p3 <p4 <d1/κ3
+                                  (p1 p2 p3 p4 ,N )=1
+                                    X X X X
+                   Γ17 :=                                                       S(Adp1 p2 p3 p4 ; P(dN ), p3 ),
+                            d1/κ2 ⩽p1 <p2 <p3 <d1/κ3 ⩽p4 <d1/s
+                                     (p1 p2 p3 p4 ,N )=1
+                                    X X X X
+                   Γ18 :=                                                       S(Adp1 p2 p3 p4 ; P(dN ), p3 ),
+                            d1/κ2 ⩽p1 <p2 <d1/κ3 ⩽p3 <p4 <d1/s
+                                      (p1 p2 p3 p4 ,N )=1
+                                       X X X X
+                   Γ19 :=                                                              S(Adp1 p2 p3 p4 ; P(dN ), p3 ),
+                            d1/κ1 ⩽p1 <d1/κ2 , d1/κ3 ⩽p2 <p3 <p4 <d1/s
+                                         (p1 p2 p3 p4 ,N )=1
+                                    X X X X X
+                   Γ20 :=                                                           S(Adp1 p2 p3 p4 p5 ; P(dN ), p4 ),
+                            d1/κ2 ⩽p1 <d1/κ3 ⩽p2 <p3 <p4 <p5 <d1/s
+                                       (p1 p2 p3 p4 p5 ,N )=1
+                              X X X X X X
+                   Γ21 :=                                                        S(Adp1 p2 p3 p4 p5 p6 ; P(dN ), p5 ).
+                            d1/κ3 ⩽p1 <p2 <p3 <p4 <p5 <p6 <d1/s
+                                   (p1 p2 p3 p4 p5 p6 ,N )=1
+
+
+Proof. Let S := S(Ad ; P(dN ), d1/s ). By using the Buchstab identity, we have
+
+                                           ′                  X
+(4.6)     2S = 2S(Ad ; P(dN ), d1/s ) −                                     S(Adp ; P(dN ), p)
+                                                       1/s′          1/s
+                                                   d      ⩽p<d
+                                                        (p,N )=1
+                                   XX                                                               X
+                   − Γ3 +                          S(Adp1 p2 ; P(dN ), p1 ) −                                  S(Adp ; P(dN ), p)
+                               ′
+                            d1/s ⩽p1 <p2 <d1/κ2                                                d1/κ2 ⩽p<d1/s
+                                (p1 p2 ,N )=1                                                     (p,N )=1
+                                               ′
+                =: 2S(Ad ; P(dN ), d1/s ) − E1 − Γ3 + D1′ − E2 .
+
+      We can also write, always by Buchstab’s identity,
+
+                                                              ′                 X
+(4.7)                  S = S(Ad ; P(dN ), d1/s ) −                                         S(Adp ; P(dN ), p)
+                                                                         1/s′
+                                                                     d          ⩽p<d1/κ3
+                                                                           (p,N )=1
+                                       X
+                              −                    S(Adp ; P(dN ), p).
+                                   d1/κ3 ⩽p<d1/s
+                                     (p,N )=1
+
+
+But we have
+        X                                                                            X X
+                   S(Adp ; P(dN ), p) = Γ4 − Γ7 − Γ8 −                                                 S(Adp1 p2 ; P(dN ), p1 )
+ 1/s′                                                                           d1/κ1 ⩽p1 <p2 <d1/κ3
+d       ⩽p<d1/κ3
+     (p,N )=1                                                                       (p1 p2 ,N )=1
+                                                                           X X X
+                                         − Γ6 +                                                           S(Adp1 p2 p3 ; P(dN ), p1 ).
+                                                         1/s′
+                                                        d         ⩽p1 <p2 <d1/κ1 , d1/κ2 ⩽p3 <d1/κ3
+                                                                           (p1 p2 p3 ,N )=1
+                   Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                                                      19
+
+Inserting these relations into (4.7), it yields that
+                                                         ′
+(4.8)          S = S(Ad ; P(dN ), d1/s ) − Γ4 + Γ6 + Γ7 + Γ8
+                          X                                X X
+                   −              S(Adp ; P(dN ), p) +                                                           S(Adp1 p2 ; P(dN ), p1 )
+                          d1/κ3 ⩽p<d1/s                                                d1/κ1 ⩽p1 <p2 <d1/κ3
+                                  (p,N )=1                                                   (p1 p2 ,N )=1
+                                             X X X
+                     −                                                                S(Adp1 p2 p3 ; P(dN ), p1 )
+                           1/s′
+                          d        ⩽p1 <p2 <d1/κ1 , d1/κ2 ⩽p3 <d1/κ3
+                                             (p1 p2 p3 ,N )=1
+                                                             ′
+                   =: S(Ad ; P(dN ), d1/s ) − Γ4 + Γ6 + Γ7 + Γ8 − E3 + D2 − E4 .
+
+    Similar to (4.8), we can prove that
+                                                ′                                  X X X
+(4.9)     S = S(Ad ; P(dN ), d1/s ) − Γ2 + Γ5 −                                                               S(Adp1 p2 p3 ; P(dN ), p1 )
+                                                                               1/s′
+                                                                              d       ⩽p1 <p2 <p3    <d1/κ2
+                                                                                      (p1 p2 p3 ,N )=1
+                    n               X X                                      X X                 o
+               +                                                   +                                 S(Adp1 p2 ; P(dN ), p1 )
+                              ′
+                        d1/s ⩽p1 <d1/κ2 ⩽p2 <d1/s                      d1/κ2 ⩽p1 <p2 <d1/s
+                              (p1 p2 ,N )=1                                (p1 p2 ,N )=1
+                                                    ′
+             =: S(Ad ; P(dN ), d1/s ) − Γ2 + Γ5 − E5 + D1′′ + D1′′′ .
+
+    Finally we write
+                                                                  n          X                        X          o
+(4.10)       S = S(Ad ; P(dN ), d1/κ1 ) −                                                  +                         S(Adp ; P(dN ), p).
+                                                                      d1/κ1 ⩽p<d1/κ3           d1/κ3 ⩽p<d1/s
+                                                                         (p,N )=1                 (p,N )=1
+
+
+For p1 < d1/κ3 < d1/s , we have
+                            X                                                                         X
+   S(Adp ; P(dN ), p) ⩾                                 S(Adpp1 ; P(dN ), p1 ) +                                    S(Adpp1 ; P(dN ), p1 ).
+                                   p⩽p1 <d1/κ3                                                 d1/κ3 ⩽p1 <d1/s
+                                    (p1 ,N )=1                                                    (p1 ,N )=1
+
+This implies
+               X                                                             X X
+                              S(Adp ; P(dN ), p) ⩾                                               S(Adp1 p2 ; P(dN ), p2 )
+         d1/κ1 ⩽p<d1/κ3                                               d1/κ1 ⩽p1 <p2 <d1/κ3
+            (p,N )=1                                                      (p1 p2 ,N )=1
+                                                                                   X X
+                                                                      +                                      S(Adp1 p2 ; P(dN ), p2 ).
+                                                                          d1/κ1 ⩽p1 <d1/κ3 ⩽p2 <d1/s
+                                                                                 (p1 p2 ,N )=1
+
+
+Inserting it into (4.10), we obtain
+                                                                    X X
+(4.11)   S ⩽ S(Ad ; P(dN ), d1/κ1 ) −                                                    S(Adp1 p2 ; P(dN ), p2 )
+                                                         d1/κ1 ⩽p1 <p2 <d1/κ3
+                                                                   (p1 p2 ,N )=1
+                                  X X                                                                        X
+               −                                                 S(Adp1 p2 ; P(dN ), p2 ) −                            S(Adp ; P(dN ), p)
+                   d1/κ1 ⩽p1 <d1/κ3 ⩽p2 <d1/s                                                         d1/κ3 ⩽p<d1/s
+                              (p1 p2 ,N )=1                                                              (p,N )=1
+                                         1/κ1
+            =: S(Ad ; P(dN ), d                     ) − E6 − E7 − E3 .
+20                                                             J. Wu
+
+    Now by adding up the inequalities (4.6), (4.8), (4.9) and (4.11) and by noticing the estimate
+D2 − E6 ⩽ Γ9 + Oδ,k (N 1−η /d), we get
+
+(4.12)           5S ⩽ Γ1 − Γ2 − Γ3 − Γ4 + Γ5 + · · · + Γ9 + ∆2 + Oδ,k (N 1−η /d)
+
+where
+                              ∆2 := D1 − E1 − E2 − 2E3 − E4 − E5 − E7
+
+and
+                                                                 X X
+                 D1 := D1′ + D1′′ + D1′′′ =                                          S(Adp1 p2 ; P(dN ), p1 ).
+                                                          1/s′                 1/s
+                                                         d      ⩽p1 <p2 <d
+                                                               (p1 p2 ,N )=1
+
+      Clearly we have
+                                                    XX
+                              E1 ⩾                                 S(Adp1 p2 ; P(dN ), p2 ).
+                                                ′
+                                            d1/s ⩽p1 <p2 <d1/s
+                                                (p1 p2 ,N )=1
+
+Thus an application of Bechstab’s identity gives us
+                                 X X X
+             D1 − E1 ⩽                                       S(Adp1 p2 p3 ; P(dN ), p2 ) + Oδ,k (N 1−η /d).
+                             1/s′
+                         d        ⩽p1 <p2 <p3 <d1/s
+                                 (p1 p2 p3 ,N )=1
+
+
+From this, we can deduce
+                                     X X X
+         D1 − E1 − E5 ⩽                                        S(Adp1 p2 p3 ; P(dN ), p2 )
+                               1/s′                      1/s
+                             d        ⩽p1 <p2 <p3 <d
+                                     (p1 p2 p3 ,N )=1
+                                        X X X
+                             −                                     S(Adp1 p2 p3 ; P(dN ), p2 ) + Oδ,k (N 1−η /d)
+                                     1/s′
+                                 d          ⩽p1 <p2 <p3 <d1/κ2
+                                            (p1 p2 p3 ,N )=1
+                                            X X X
+                        =                                              S(Adp1 p2 p3 ; P(dN ), p2 )
+                               1/s′
+                             d        ⩽p1 <p2 <d1/κ2 ⩽p3 <d1/s
+                                            (p1 p2 p3 ,N )=1
+                                              X X X
+                             +                                           S(Adp1 p2 p3 ; P(dN ), p2 )
+                                     1/s′
+                                 d          ⩽p1 <d1/κ2 ⩽p2 <p3 <d1/s
+                                               (p1 p2 p3 ,N )=1
+                                        X X X
+                             +                                    S(Adp1 p2 p3 ; P(dN ), p2 ) + Oδ,k (N 1−η /d)
+                                 d1/κ2 ⩽p1 <p2 <p3 <d1/s
+                                     (p1 p2 p3 ,N )=1
+
+                        =: D3 + D4 + D5 + Oδ,k (N 1−η /d).
+
+      We have
+                                              D3 − E4 ⩽ Γ10 + Γ12 + Γ13 .
+
+      By splitting D4 into 4 subsums, we have
+                                                          X X X
+         D4 = Γ11 + Γ14 + Γ15 +                                                             S(Adp1 p2 p3 ; P(dN ), p2 ).
+                                             d1/κ1 ⩽p1 <d1/κ2 , d1/κ3 ⩽p2 <p3 <d1/s
+                                                        (p1 p2 p3 ,N )=1
+                  Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                           21
+
+Similarly by splitting E7 into 2 subsums, we have
+                                    X X
+               E7 = E8 +                                               S(Adp1 p2 ; P(dN ), p2 )
+                                d1/κ1 ⩽p1 <d1/κ2 , d1/κ3 ⩽p2 <d1/s
+                                            (p1 p2 ,N )=1
+                                             X X X
+                      ⩾ E8 +                                               S(Adp1 p2 p3 ; P(dN ), p3 ),
+                                d1/κ1 ⩽p1 <d1/κ2 , d1/κ3 ⩽p2 <p3 <d1/s
+                                             (p1 p2 p3 ,N )=1
+
+where                                         X X
+                           E8 :=                                    S(Adp1 p2 ; P(dN ), p2 ).
+                                    d1/κ2 ⩽p1 <d1/κ3 ⩽p2 <d1/s
+                                             (p1 p2 ,N )=1
+
+By noticing that
+               X X X                             
+                                                  S(Adp1 p2 p3 ; P(dN ), p2 ) − S(Adp1 p2 p3 ; P(dN ), p3 )
+        d1/κ1 ⩽p1 <d1/κ2 , d1/κ3 ⩽p2 <p3 <d1/s
+                   (p1 p2 p3 ,N )=1
+
+                     = Γ19 + Oδ,k (N 1−η /d),
+
+we can deduce
+                        D4 − E7 ⩽ Γ11 + Γ14 + Γ15 + Γ19 − E8 + Oδ,k (N 1−η /d).
+
+    Since                                X X X
+                            E2 ⩾                                 S(Adp1 p2 p3 ; P(dN ), p3 ),
+                                    d1/κ2 ⩽p1 <p2 <p3 <d1/s
+                                        (p1 p2 p3 ,N )=1
+
+we have
+                              X X X X
+           D5 − E2 ⩽                                       S(Adp1 p2 p3 p4 ; P(dN ), p3 ) + Oδ,k (N 1−η /d)
+                          d1/κ2 ⩽p1 <p2 <p3 <p4 <d1/s
+                                (p1 p2 p3 p4 ,N )=1
+
+                       =: D6 + Oδ,k (N 1−η /d).
+
+    Similarly
+                      X X X X
+          E3 ⩾                                   S(Adp1 p2 p3 p4 ; P(dN ), p4 ) =: E3′ ,
+                 d1/κ3 ⩽p1 ⩽p2 <p3 <p4 <d1/s
+                       (p1 p2 p3 p4 ,N )=1
+                      X X X X X
+          E3 ⩾                                         S(Adp1 p2 p3 p4 p5 ; P(dN ), p5 ) =: E3′′ ,
+                 d1/κ3 ⩽p1 ⩽p2 <p3 <p4 <p5 <d1/s
+                        (p1 p2 p3 p4 p5 ,N )=1
+                         X X X X
+          E8 ⩾                                            S(Adp1 p2 p3 p4 ; P(dN ), p4 ) =: E8′ ,
+                 d1/κ2 ⩽p1 <d1/κ3 ⩽p2 ⩽p3 <p4 <d1/s
+                          (p1 p2 p3 p4 ,N )=1
+                                                   X X X X
+          D6 = Γ16 + Γ17 + Γ18 +                                                 S(Adp1 p2 p3 p4 ; P(dN ), p3 )
+                                          d1/κ2 ⩽p1 <d1/κ3 ⩽p2 <p3 <p4 <d1/s
+                                                   (p1 p2 p3 p4 ,N )=1
+                        X X X X
+                 +                                    S(Adp1 p2 p3 p4 ; P(dN ), p3 )
+                     d1/κ3 ⩽p1 <p2 <p3 <p4 <d1/s
+                           (p1 p2 p3 p4 ,N )=1
+
+              =: Γ16 + Γ17 + Γ18 + D6′ + D6′′ .
+22                                                               J. Wu
+
+Since
+                                             D6′ − E8′ = Γ20 + Oδ,k (N 1−η /d)
+
+and
+                               X X X X X
+     D6′′ − E3′ − E3′′ =                                           S(Adp1 p2 p3 p4 p5 ; P(dN ), p4 )
+                           d1/κ3 ⩽p1 <p2 <p3 <p4 <p5 <d1/s
+                                  (p1 p2 p3 p4 p5 ,N )=1
+                                 X X X X X
+                           −                                            S(Adp1 p2 p3 p4 p5 ; P(dN ), p5 ) + Oδ,k (N 1−η /d)
+                               d1/κ3 ⩽p1 <p2 <p3 <p4 <p5 <d1/s
+                                        (p1 p2 p3 p4 p5 ,N )=1
+
+                     = Γ21 + Oδ,k (N 1−η /d),
+
+we have
+                   D6 − 2E3 − E8 ⩽ Γ16 + Γ17 + Γ18 + D6′ + D6′′ − E3′ − E3′′ − E8′
+                                             = Γ16 + Γ17 + Γ18 + Γ20 + Γ21 + Oδ,k (N 1−η /d).
+      Combining these estimations leads to the following inequalities
+
+                    ∆2 ⩽ D3 + D4 + D5 − E2 − 2E3 − E4 − E7
+(4.13)                     ⩽ Γ10 + · · · + Γ15 + Γ19 + D6 − 2E3 − E8 + Oδ,k (N 1−η /d)
+                           ⩽ Γ10 + · · · + Γ21 + Oδ,k (N 1−η /d).
+
+Now the desired result follows from (4.12) and (4.13).                                                                        
+
+§ 5. Functional inequalities between H(s) and h(s)
+     In this section, we start from two weighted inequalities for the sieve function to deduce two
+functional inequalities between H(s) and h(s). They will be used to prove Propositions 3 and 4
+in the next section.
+Lemma 5.1. For 5 ⩾ s′ ⩾ 3 ⩾ s ⩾ 2 and s′ − s′ /s ⩾ 2, we have
+                                                              Z 1−1/s′
+                                                          1                  h(s′ t)
+                                H(s) ⩾ Ψ1 (s) +                                      dt + H(s′ ),
+                                                          2      1−1/s      t(1 − t)
+
+where Ψ1 (s) = Ψ1 (s, s′ ) is given by
+                                   Z s′ −1                               Z 1−1/s′
+                                               log(t − 1)      1                    log(s′ t − 1)
+                  Ψ1 (s) := −                             dt +                                    dt − I1 (s)
+                                    2               t          2            1−1/s     t(1 − t)
+
+and I1 (s) = I1 (s, s′ ) is given by
+                                                                                         
+                                                                            φ−t−u−v           dt du dv
+                                                   Z Z Z
+                       I1 (s) := max                                ω                                  .
+                                        φ⩾2                                    u               tu2 v
+                                              1/s′ ⩽t⩽u⩽v⩽1/s
+
+
+Proof. Our starting point is the inequality in Lemma 4.1. We need to estimate all terms in the
+right-hand side of this inequality.
+     Firstly, (3.3) of Lemma 3.2 gives us
+                                  X
+                                          σ(d)Ω1 ⩽ 2 A(s′ ) − Hk,N0 (s′ ) Θ(N, σ).
+                                                    
+(5.1)
+                                    d
+                   Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                                        23
+
+   Secondly, by an argument similar to the proof of (3.20), we can prove, for any ε > 0 and
+N ⩾ N0 (ε, δ, k),
+                                             Z 1−1/s′
+                                                               a(s′ t) + hk+1,N0 (s′ t)
+                    X                                                                         
+(5.2)                     σ(d)Ω2 ⩾                                                      dt − ε Θ(N, σ).
+                                                1−1/s                  t(1 − t)
+                      d
+                                                                                   P
+      Finally we apply the switching principle to estimate                             d σ(d)Ω3 . For this, we introduce
+
+                    E := {e : e = dnp1 p2 , σ(d) 6= 0, (n, p1 , p2 ) satisfies (5.3) below},
+
+where
+               ′
+(5.3)      d1/s ⩽ p1 < p2 < d1/s ,                      (p1 p2 , dN ) = 1,    n ⩽ N/dp1 p22 ,         (n, N P (p2 )/p1 ) = 1;
+
+and
+                              B := {b : b = N − ep3 , e ∈ E, p2 < p3 ⩽ κ(d, e)},
+where κ(d, e) := min{N/e, d1/s }. The set B is a multiset and an element b may occur more
+than once.
+            P
+    Clearly d σ(d)Ω3 does not exceed the number of primes in the set B. Thus
+                        X
+                            σ(d)Ω3 ⩽ S(B; P(N ), Q1/2) + O(Q1/2 ).
+                                      d
+
+In the set E, d is not determined uniquely by e. This causes technical difficulty. In order to avoid
+it, we define E ′ and B ′ , similar to E and B, with the condition (n, N P (p2 )/p1 ) = 1 replaced
+by (n, dN P (p2 )/p1 ) = 1 and E by E ′ respectively. Obviously the difference S(B; P(N ), Q1/2 ) −
+S(B ′ ; P(N ), Q1/2 ) is
+                          X          X X X               X
+                        ⩽    σ(d)                                1 ≪δ,k N 1−η
+                              d             d1/s ⩽p1 <p2 <p3 <d1/s n⩽N/dp1 p2 p3
+                                                    ′
+
+                                                                     (n,d)=1
+
+where η = η(δ, k) > 0. Hence
+                        X
+(5.4)                      σ(d)Ω3 ⩽ S(B ′ ; P(N ), Q1/2 ) + Oδ,k (N 1−η ).
+                                  d
+
+In order to estimate S(B ′ ; P(N ), Q1/2 ), we use Theorem 5.2 in [14] with
+
+                                                      q/ϕ(q) if µ(q)2 = (q, N ) = 1
+                   X          X                     
+              X :=                      1,   w(q) =
+                   e∈E ′ p2 <p3 ⩽κ(d,e)               0       otherwise
+
+to write
+                                                                             CN X
+(5.5)                        S(B; P(N ), Q1/2) ⩽ 8(1 + ε)                          + O(R1 + R2 ),
+                                                                             log N
+where                        X                            X           X                    1         X             
+              R1 :=                       3ν1 (q)                                  1−                              1 ,
+                                                                                           ϕ(q)
+                             q<Q                         e∈E ′    p2 <p3 ⩽κ(d,e)                  p2 <p3 ⩽κ(d,e)
+                          q|P (Q1/2 )                   (e,q)=1   ep3 ≡N (mod q)
+                             X                                    X          X
+              R2 :=                       3ν1 (q) /ϕ(q)                               1.
+                             q<Q                               e∈E ′ p2 <p3 ⩽κ(d,e)
+                          q|P (Q1/2 )                         (e,q)>1
+24                                                          J. Wu
+
+     We first estimate R2 . Noticing that for e ∈ E ′ we have e ⩽ N 1−η and the smallest prime
+                                    1/s′
+factor of e is ⩾ min{p1 , Vk /∆} ⩾ Wk , we can deduce
+
+                                             X 3ν1 (q)              X            1
+                                 R2 ⩽ N
+                                                      ϕ(q)                       e
+                                             q⩽Q                  e⩽N 1−η
+                                                                          1/s′
+                                                                (e,q)⩾Wk
+                                                    X          1          X            3ν1 (q)
+                                     ≪ NL
+                                                               m                       ϕ(q)
+                                                  m⩾Wk
+                                                          1/s′         q⩽Q
+                                                                    q≡0(mod m)
+(5.6)                                             1/3s′
+                                                                X      1          X              1
+                                     ≪ N Wk
+                                                                       m                         q
+                                                          m⩾Wk
+                                                                  1/s′          q⩽Q
+                                                                             q≡0(mod m)
+
+                                                  1/2s′
+                                                                X      1
+                                     ≪ N Wk                              2
+                                                                  1/s′
+                                                                       m
+                                                          m⩾Wk
+
+                                        Θ(N, σ)
+                                     ≪δ,k       .
+                                           L3
+
+     Next we estimate R1 . Let g(a) := e∈E ′ ,e=a 1. Obviously for each e = dnp1 p2 ∈ E ′ , the
+                                            P
+
+integers d, n, p1 , p2 are pairwisely coprime. Therefore they are uniquely determined by e. Thus
+g(a) ⩽ 1 and there are some injections r0 (e) = d and r(e) = p2 . Then we have
+                       X                      X                     X                   1              X           
+             R1 ≪           µ(q)2 3ν1 (q)             g(a)                       1−                                1 ,
+                                                                                        ϕ(q)
+                       q⩽Q                  a∈I(a)              p2 <p3 ⩽κ(d,a)                   p2 <p3 ⩽κ(d,a)
+                     (q,N )=1               (a,q)=1             ap3 ≡N (mod q)
+
+                             ′             ′
+where I(a) := r0 (a)r0 (a)2/s , N/r0 (a)1/s .
+                 ′
+     Since d1/s < r(e) < d1/s and er(e) ⩽ N , we can write
+
+                                                          (1)       (2)          (3)
+                                            R1 ≪ R1 + R1 + R1 ,
+
+where
+
+           (1)
+                       X                          X                      X                       1         X            
+          R1 :=             µ(q)2 3ν1 (q)                 g(a)                          1−                              1 ,
+                                                                                                 ϕ(q)
+                       q⩽Q                   a∈I1 (a)                p3 ⩽r0 (a)1/s                      p3 ⩽r0 (a)1/s
+                     (q,N )=1                (a,q)=1
+                                                                    ap3 ≡N (mod q)
+
+           (2)
+                       X                          X                      X                       1       X         
+          R1 :=             µ(q)2 3ν1 (q)                 g(a)                          1−                         1 ,
+                                                                                                 ϕ(q)
+                       q⩽Q                   a∈I2 (a)                  p3 ⩽N/a                          p3 ⩽N/a
+                     (q,N )=1                (a,q)=1                ap3 ≡N (mod q)
+
+           (3)
+                       X                          X                      X                       1       X         
+          R1 :=             µ(q)2 3ν1 (q)                 g(a)                          1−                         1 ,
+                                                                                                 ϕ(q)
+                       q⩽Q                   a∈I(a)                    p3 ⩽r(a)                         p3 ⩽r(a)
+                     (q,N )=1                (a,q)=1                ap3 ≡N (mod q)
+
+                             ′                                                   ′
+and I1 (a) := r0 (a)r0 (a)2/s , N/r0 (a)1/s , I2 (a) := N/r0 (a)1/s , N/r0 (a)1/s .
+                                           
+
+                                            (j)
+     Applying Lemma 2.3 yields R1 ≪δ,k N/L5k+5 for j = 1, 2, 3. Hence
+
+(5.7)                                             R1 ≪ Θ(N, σ)/L3 .
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                          25
+
+    Replacing (n, N P (p2 )/p1 ) = 1 by (n, N P (p2 )) = 1 in the definition of X, the difference is
+                ′
+≪δ,k N L2 /dd1/s ≪δ,k N/L2 d. Thus we can obtain, by Lemma 2.10, that
+         X        n    X X X                 X                            o
+    X=       σ(d)                                       1 + Oδ,k (N/L2 d)
+           d           d1/s ⩽p1 <p2 <p3 <d1/s n⩽N/dp1 p2 p3
+                           ′
+
+                             (p1 p2 ,dN )=1   (n, N P (p2 ))=1
+                                                                                                     
+                   X                 X X X               N ω(log(N/dp1 p2 p3 )/ log p2 )           N
+       ⩽ (1 + ε)       σ(d)                                                              + Oδ,k           .
+                                                                dp1 p2 p3 log p2                  L2 d
+                   d                 ′
+                                 d1/s ⩽p1 <p2 <p3 <d   1/s
+
+
+By applying the prime number theorem, we can deduce
+                        X σ(d)                                     
+                                                    φd,N − t − u − v dt du dv
+                                     Z Z Z
+           X ⩽ (1 + ε)N                         ω                             ,
+                           d log d                         u          tu2 v
+                                 d           1/s′ ⩽t⩽u⩽v⩽1/s
+
+where φd,N := log(N/d)/ log d. Obviously σ(d) 6= 0 implies φd,N ⩾ 2. Thus
+                                   X σ(d)                       X σ(d)
+(5.8)           X ⩽ (1 + ε)I1 (s)N             ⩽ (1 + ε)I1 (s)N               .
+                                       d log d                     ϕ(d) log d
+                                             d                                   d
+
+Combining (5.4)–(5.8) and noticing CN ⩽ CdN , we obtain, for any ε > 0 and N ⩾ N0 (ε, δ, k),
+                             X
+(5.9)                            σ(d)Ω3 ⩽ {2I1 (s) + ε}Θ(N, σ).
+                                         d
+
+Inserting (5.1), (5.2) and (5.9) into the inequality of Lemma 4.1 and noticing that
+                                   Z s′ −1
+                                           log(t − 1)
+(5.10)            A(s′ ) = A(s) +                     dt,  a(s′ t) = log(s′ t − 1),
+                                    2           t
+we find that
+                                                 Z 1−1/s′
+                                                            hk+1,N0 (s′ t)
+                                                                                             
+                                           1                                            ′
+      Φ(N, σ, s) ⩽         A(s) − Ψ1 (s) −                                 dt − Hk,N0 (s ) + ε Θ(N, σ).
+                                           2      1−1/s       t(1 − t)
+By the definition of Hk,N0 (s), we must have
+                                             ′
+                                     1 1−1/s hk+1,N0 (s′ t)
+                                       Z
+                Hk,N0 (s) ⩾ Ψ1 (s) +                        dt + Hk,N0 (s′ ) − ε.
+                                     2 1−1/s   t(1 − t)
+Making N0 → ∞ and then ε → 0 yields
+                                                      Z 1−1/s′
+                                                  1              hk+1 (s′ t)
+                            Hk (s) ⩾ Ψ1 (s) +                                dt + Hk (s′ ).
+                                                  2    1−1/s      t(1 − t)
+Now it remains to take k → ∞ to get the desired result.                                                       
+Lemma 5.2. For 5 ⩾ s′ ⩾ 3 ⩾ s ⩾ 2, s′ − s′ /s ⩾ 2 and s ⩽ κ3 < κ2 < κ1 ⩽ s′ , we have
+                                                              ′
+                               4           1          1 1−1/s h(s′ t)
+                                                        Z
+                                      ′
+              H(s) ⩾ Ψ2 (s) + H(s ) + H(κ1 ) +                          dt
+                               5           5          5 1−1/s t(1 − t)
+                                  ′                         ′
+                         1 1−1/s h(s′ t)           1 1−1/s h(s′ t)
+                           Z                        Z
+                      +                      dt +                    dt
+                         5 1−1/κ2 t(1 − t)         5 1−1/κ3 t(1 − t)
+                         1 1/κ2 dt 1/κ2 H(s′ − s′ t − s′ u)
+                           Z         Z
+                      +                                       du
+                         5 1/s′ t t             u(1 − t − u)
+                         1 1/κ1 dt 1/κ3 H(s′ − s′ t − s′ u)
+                           Z         Z
+                      +                                       du
+                         5 1/s′ t 1/κ2          u(1 − t − u)
+                         1 1/κ1 dt 1/κ2 H((1 − t − u)/t)
+                           Z         Z
+                      +                                       du,
+                         5 1/s′ t t             u(1 − t − u)
+26                                                     J. Wu
+
+where Ψ2 (s) = Ψ2 (s, s′ , κ1 , κ2 , κ3 ) is given by
+                    Z ′
+                  2 s −1 log(t − 1)               2 κ1 −1 log(t − 1)       1 κ2 −1 log(t − 1)
+                                                    Z                        Z
+      Ψ2 (s) := −                            dt −                    dt −                        dt
+                  5 2                 t           5 2          t           5 2           t
+                                ′                                                    21
+                 1 1−1/s log(s′ t − 1)                1 1−1/κ1 log(κ1 t − 1)      2X
+                    Z                                  Z
+               +                                dt +                         dt −       I2,i (s)
+                 5 1−1/s            t(1 − t)          5 1−1/κ3    t(1 − t)        5 i=9
+
+and I2,i (s) = I2,i (s, s′ , κ1 , κ2 , κ3 ) is given by
+                                                         
+                                            φ − t − u − v dt du dv
+                                Z
+            I2,i (s) := max             ω                                  (i = 9, . . . , 15),
+                         φ⩾2 D2,i                  u          tu2 v
+                                                              
+                                            φ − t − u − v − w dt du dv dw
+                                Z
+            I2,i (s) := max             ω                                            (i = 16, . . . , 19),
+                         φ⩾2 D
+                                   2,i
+                                                     v              tuv 2 w
+                                                                   
+                                              φ − t − u − v − w − x dt du dv dw dx
+                                Z
+           I2,20 (s) := max              ω                                                 ,
+                         φ⩾2 D2,20                      w                  tuvw2 x
+                                                                        
+                                              φ − t − u − v − w − x − y dt du dv dw dx dy
+                                Z
+           I2,21 (s) := max              ω                                                        .
+                         φ⩾2 D
+                                   2,21
+                                                          x                     tuvwx2 y
+The sets D2,i (9 ⩽ i ⩽ 21) are defined as follows:
+                   D2,9 := {(t, u, v) : 1/κ1 ⩽ t ⩽ u ⩽ v ⩽ 1/κ3 },
+                 D2,10 := {(t, u, v) : 1/κ1 ⩽ t ⩽ u ⩽ 1/κ2 ⩽ v ⩽ 1/s},
+                 D2,11 := {(t, u, v) : 1/κ1 ⩽ t ⩽ 1/κ2 ⩽ u ⩽ v ⩽ 1/κ3 },
+                 D2,12 := {(t, u, v) : 1/s′ ⩽ t ⩽ u ⩽ 1/κ1 , 1/κ3 ⩽ v ⩽ 1/s},
+                 D2,13 := {(t, u, v) : 1/s′ ⩽ t ⩽ 1/κ1 ⩽ u ⩽ 1/κ2 ⩽ v ⩽ 1/s},
+                 D2,14 := {(t, u, v) : 1/s′ ⩽ t ⩽ 1/κ1 , 1/κ2 ⩽ u ⩽ v ⩽ 1/s},
+                 D2,15 := {(t, u, v) : 1/κ1 ⩽ t ⩽ 1/κ2 ⩽ u ⩽ 1/κ3 ⩽ v ⩽ 1/s},
+                 D2,16 := {(t, u, v, w) : 1/κ2 ⩽ t ⩽ u ⩽ v ⩽ w ⩽ 1/κ3 },
+                 D2,17 := {(t, u, v, w) : 1/κ2 ⩽ t ⩽ u ⩽ v ⩽ 1/κ3 ⩽ w ⩽ 1/s},
+                 D2,18 := {(t, u, v, w) : 1/κ2 ⩽ t ⩽ u ⩽ 1/κ3 ⩽ v ⩽ w ⩽ 1/s},
+                 D2,19 := {(t, u, v, w) : 1/κ1 ⩽ t ⩽ 1/κ2 , 1/κ3 ⩽ u ⩽ v ⩽ w ⩽ 1/s},
+                 D2,20 := {(t, u, v, w, x) : 1/κ2 ⩽ t ⩽ 1/κ3 ⩽ u ⩽ v ⩽ w ⩽ x ⩽ 1/s},
+                 D2,21 := {(t, u, v, w, x, y) : 1/κ3 ⩽ t ⩽ u ⩽ v ⩽ w ⩽ x ⩽ y ⩽ 1/s}.
+Proof. By (3.3) of Lemma 3.2, we have
+              X
+                  σ(d)Γ1 ⩽ 4A(s′ ) + A(κ1 ) − 4Hk,N0 (s′ ) − Hk,N0 (κ1 ) Θ(N, σ).
+                          
+(5.11)
+                   d
+
+Similar to (3.20), we can prove
+                               Z 1−1/s′
+                                          a(s′ t) + hk+1,N0 (s′ t)
+                 X                                                       
+(5.12)               σ(d)Γ2 ⩾                                      dt − ε Θ(N, σ),
+                                 1−1/s            t(1 − t)
+                   d
+                               Z 1−1/s′
+                                          a(s′ t) + hk+1,N0 (s′ t)
+                 X                                                       
+(5.13)               σ(d)Γ3 ⩾                                      dt − ε Θ(N, σ),
+                                 1−1/κ2           t(1 − t)
+                   d
+                                        ′
+                                  1−1/s
+                                          a(s′ t) + hk+1,N0 (s′ t)
+                 X             Z                                        
+(5.14)               σ(d)Γ4 ⩾                                      dt − ε Θ(N, σ).
+                                 1−1/κ3           t(1 − t)
+                       d
+                     Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                       27
+
+Similar to (3.20) and in view of A(s′ − s′ t − s′ u) = A((1 − t − u)/t) = 1, we have
+                                      Z 1/κ2          Z 1/κ2
+                                          1 − Hk+2,N0 (s′ − s′ t − s′ u)
+                                                                               
+              X                                   dt
+(5.15)          σ(d)Γ5 ⩽                                                 du + ε Θ(N, σ),
+                            1/s′     t            t
+                                                u(1 − t − u)
+              d
+                          Z 1/κ1
+                                  dt 1/κ3 1 − Hk+2,N0 (s′ − s′ t − s′ u)
+              X                     Z                                          
+(5.16)          σ(d)Γ6 ⩽                                                 du + ε Θ(N, σ),
+                            1/s′  t 1/κ2        u(1 − t − u)
+              d
+                             1/κ1
+                                  dt 1/κ1 1 − Hk+2,N0 ((1 − t − u)/t)
+              X           Z        Z                                          
+(5.17)          σ(d)Γ7 ⩽                                                 du + ε Θ(N, σ),
+                            1/s′  t t           u(1 − t − u)
+               d
+                                      Z 1/κ1          Z 1/κ2                                        
+              X                                   dt               1 − Hk+2,N0 ((1 − t − u)/t)
+(5.18)               σ(d)Γ8 ⩽                                                                  du + ε Θ(N, σ).
+                                        1/s′      t     1/κ1             u(1 − t − u)
+               d
+
+     We have also, for i = 9, . . . , 21,
+                                 X
+(5.19)                                 σ(d)Γi ⩽ {2I2,i (s) + ε}Θ(N, σ).
+                                            d
+
+As before, inserting (5.11)–(5.19) into the inequality of Lemma 4.2 and using the definition of
+Hk,N0 (s), we can deduce
+
+(5.20)                                     5Hk,N0 (s) ⩾ A(s, s′ ) + B(s, s′ ) − ε,
+
+where
+         A(s, s′ ) := 5A(s) − 4A(s′ ) − A(κ1 ) + 4Hk,N0 (s′ ) + Hk,N0 (κ1 )
+                         Z 1−1/s′                            Z 1−1/s′   Z 1−1/s′
+                                        a(s′ t)         a(s′ t)                  a(s′ t)
+                      +                         dt +              dt +                   dt
+                         1−1/s         t(1 − t) 1−1/κ2 t(1 − t)          1−1/κ3 t(1 − t)
+                        Z 1/κ2 Z 1/κ2                 Z 1/κ1 Z 1/κ3                       21
+                                          dt du                            dt du         X
+                      −                             −                                −2      I2,i (s)
+                         1/s′   t     tu(1 − t − u)    1/s′     t      tu(1 − t − u)     i=9
+
+and                                      Z 1−1/s′            Z 1−1/s′         Z 1−1/s′ 
+                                 ′                                                          hk+1,N0 (s′ t)
+                        B(s, s ) :=                      +                 +                               dt
+                                                1−1/s             1−1/κ2         1−1/κ3       t(1 − t)
+                                           Z 1/κ2            Z 1/κ2
+                                                        dt            Hk+2,N0 (s′ − s′ t − s′ u)
+                                       +                                                         du
+                                            1/s′        t     t           u(1 − t − u)
+                                           Z 1/κ1            Z 1/κ3
+                                                        dt            Hk+2,N0 (s′ − s′ t − s′ u)
+                                       +                                                         du
+                                            1/s′        t     1/κ2        u(1 − t − u)
+                                           Z 1/κ1            Z 1/κ2
+                                                        dt            Hk+2,N0 ((1 − t − u)/t)
+                                       +                                                      du.
+                                            1/s′        t     t           u(1 − t − u)
+      For a ⩾ b > 2, we have
+             Z 1/b          Z 1/b                            Z 1/b         Z u
+                       dt                 du                          du             dt
+                                                  =
+               1/a     t     t       u(1 − t − u)             1/a     u     1/a t(1 − t − u)
+                                                             Z 1/b
+                                                               log(a − 1 − au) − log(1/u − 2)
+                                                        =                                       du
+                                                           1/a             u(1 − u)
+                                                          Z 1−1/a                  Z a−1
+                                                                  log(at − 1)            log(t − 1)
+                                                        =                     dt −                  dt,
+                                                           1−1/b    t(1 − t)        b−1       t
+28                                               J. Wu
+
+where we have used the change of variables t = 1 − u and t = 1/u − 1 respectively.
+    Similarly for a ⩾ b ⩾ c ⩾ d > 2, we have
+         Z 1/b
+               dt 1/d
+                                       Z 1−1/c                  Z 1−1/c
+                             du                log(at − 1)              log(bt − 1)
+                  Z
+                                     =                     dt −                     dt.
+          1/a   t   1/c u(1 − t − u)    1−1/d    t(1 − t)        1−1/d    t(1 − t)
+     By using these two relations and (5.10), a simple calculation shows
+
+                           A(s, s′ ) = 5Ψ2 (s) + 4Hk,N0 (s′ ) + Hk,N0 (κ1 ).
+
+Inserting this into (5.20) and making N → ∞, ε → 0 and k → ∞, we obtain the desired
+inequality. This completes the proof.                                            
+
+§ 6. Proofs of Propositions 3 and 4
+     We first prove a preliminary lemma. Let 1[a,b] (t) be the characteristic function of the
+interval [a, b]. We put
+                                    Z b
+                                             c dt             σ(3, t + 2, t + 1)
+                      σ(a, b, c) :=     log       , σ0 (t) :=                    .
+                                     a      t−1 t              1 − σ(3, 5, 4)
+Lemma 6.1. Let 3 ⩽ s′ ⩽ 5, 0 < a < b < 1 and 2 ⩽ ac < bc ⩽ 4. Then we have
+                      Z 3
+                                σ0 (t)
+(6.1)        h(4) ⩾        H(t)         dt.
+                       1          t
+                       Z 3
+                                                             1[s′ −2,3] (t)
+                                                                                     
+                                    σ0 (t)          4                             t+1
+(6.2)        H(s′ ) ⩾       H(t)            log ′         +                 log             dt,
+                         1             t         s −1               t             s′ − 1
+              Z b                                Z 3
+                                                            σ0 (t) + 1[bc−1,3] (t)
+                                      
+                   h(ct)                  b − ab
+(6.3)                       dt ⩾ log                  H(t)                          dt
+               a  t(1 −  t)              a  − ab    1                   t
+                                       Z 3
+                                                 1[ac−1,bc−1] (t)
+                                                                                        
+                                                                          (1 − a)(t + 1)
+                                    +       H(t)                  log                      dt.
+                                         1              t                  a(c − 1 − t)
+Proof. By Proposition 2, we have
+                       Z 4             Z 4           Z 3              
+                  ′          h(u)                                    dt du
+(6.4)         H(s ) ⩾             du ⩾         h(4) +        H(t)
+                        s′ −1 u         s′ −1           u−1          t    u
+                                       Z 3
+                                                    1[s′ −2,3] (t)
+                                                                            
+                                   4                                     t+1
+                    = h(4) log ′        +      H(t)                log ′        dt.
+                                 s −1        1            t              s −1
+From Proposition 2 and (6.4), we deduce
+                    Z 5                             Z 3
+                        H(v)                                 σ(3, t + 2, t + 1)
+             h(4) ⩾           dv ⩾ h(4)σ(3, 5, 4) +     H(t)                    dt,
+                     3    v                          1               t
+which implies the inequality (6.1).
+    The inequality (6.2) follows immediately from (6.4) and (6.1).
+    By using Proposition 2, we have
+         Z b                 Z bc                   Z bc                   Z 3            
+               h(ct)                h(u)                     du                         dt
+                     dt = c                du ⩾ c                   h(4) +         H(t)
+          a t(1 − t)          ac u(c − u)             ac u(c − u)             u−1       t
+                                     Z 3
+                                              1[bc−1,3] (t)
+                                                                          
+                                                                      b − ab
+                        = h(4) +         H(t)               dt log
+                                      1             t                 a − ab
+                             Z 3
+                                       1[ac−1,bc−1] (t)
+                                                                            
+                                                              (1 − a)(t + 1)
+                           +      H(t)                  log                    dt,
+                               1              t                a(c − 1 − t)
+which combines (6.1) to give (6.3). This completes the proof.                                     
+                 Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                        29
+
+      Proof of Proposition 3. By using Lemma 6.1, a simple calculation shows
+                                ′
+                       1 1−1/s h(s′ t)
+                         Z                            Z 3
+                                                 ′
+                                         dt + H(s ) ⩾     H(t)Ξ1 (t; s) dt,
+                       2 1−1/s t(1 − t)                1
+
+which, together with Lemma 4.1, implies the desired result.                                                   
+      Proof of Proposition 4. From (6.1)–(6.3), we can deduce
+           Z 1−1/s′                  Z 1−1/s′                     Z 1−1/s′
+                       h(s′ t)                     h(s′ t)                   h(s′ t)
+(6.5)                           dt +                        dt +                      dt + 4H(s′ ) + H(κ1 )
+            1−1/s     t(1 − t)        1−1/κ2 t(1 − t)              1−1/κ3 t(1 − t)
+                         Z 3
+                                   1[α2 ,3] (t)                           (t + 1)5
+                                                                                                   
+                      ⩾       H(t)               log                                                  dt
+                          1             t               (s − 1)(s′ − 1)(κ1 − 1)(κ2 − 1)(κ3 − 1)
+                            Z 3                                                                  
+                                     σ0 (t)                               1024
+                         +      H(t)           log              ′ − 1)(κ − 1)(κ − 1)(κ − 1)
+                                                                                                    dt
+                              1         t             (s − 1)(s          1         2        3
+                            Z 3
+                                     1[α ,α ] (t)
+                                                                                  
+                                                                    t+1
+                         +      H(t) 5 2             log                             dt
+                              1              t             (κ3 − 1)(s′ − 1 − t)
+                            Z 3
+                                     1[α ,α ] (t)
+                                                                                  
+                                                                    t+1
+                         +      H(t) 4 2             log                             dt
+                              1              t             (κ2 − 1)(s′ − 1 − t)
+                            Z 3
+                                     1[α3 ,α2 ] (t)
+                                                                               
+                                                                   t+1
+                         +      H(t)                 log                            dt
+                              1              t             (s − 1)(s′ − 1 − t)
+                            Z 3
+                                     1[α ,α ] (t)
+                                                                  
+                                                            t+1
+                         +      H(t) 1 2             log             dt.
+                              1              t             κ1 − 1
+      By the change of variable v = s′ (1 − t − u), we have
+        Z 1/κ2        Z 1/κ2                               Z 1/κ2        Z s′ (1−2t)
+                 dt            H(s′ − s′ t − s′ u)                  dt                       s′ H(v)
+                                                   du =                                     ′    ′
+                                                                                                        dv.
+         1/s′    t     t        u(1 − t − u)                 1/s′   t     s′ (1−1/κ2 −t) v(s − s t − v)
+
+Interchanging the order of integration and a simple calculation show that
+        Z 1/κ2
+               dt 1/κ2 H(s′ − s′ t − s′ u)
+                                                Z 3
+                                                           1[α6 ,α4 ] (t)              s′
+                  Z                                                                             
+(6.6)                                      du =     H(t)                  log
+         1/s′  t t          u(1 − t − u)         1         t(1 − t/s′ )         κ2 s′ − s′ − κ2 t
+                                                               1[α4 ,α2 ] (t)
+                                                                                              
+                                                                                    ′
+                                                            +                 log(s − 1 − t) dt.
+                                                               t(1 − t/s′ )
+     Similarly we can prove
+                    Z 1/κ1
+                           dt 1/κ3 H(s′ − s′ t − s′ u)
+                             Z                              Z 3
+(6.7)                                                  du =     H(t)L1 (t) dt
+                     1/s′  t 1/κ2   u(1 − t − u)             1
+
+where
+                                1[α7 ,α5 ] (t)                         s′2
+                                                                                           
+                      L1 (t) :=                log
+                                t(1 − t/s′ )         (κ1 s′ − s′ − κ1 t)(κ3 s′ − s′ − κ3 t)
+                                                      ′ ′
+                                  1[α5 ,α8 ] (t)
+                                                                        
+                                                       s (s − 1 − t)
+                               +                 log
+                                  t(1 − t/s′ )        κ1 s′ − s′ − κ1 t
+                                                      ′
+                                  1[α8 ,α4 ] (t)      (s − 1 − t)(κ2 s′ − s′ − κ2 t)
+                                                                                      
+                               +                 log                                    ,
+                                  t(1 − t/s′ )                       s′
+and
+                           Z 1/κ1        Z 1/κ2                            Z 3
+                                    dt            H((1 − t − u)/t)
+(6.8)                                                              du =          H(t)L2 (t) dt
+                            1/s′    t     t        u(1 − t − u)              1
+30                                                              J. Wu
+
+with
+                                1[α9 ,α1 ] (t)
+                                                                            
+                                                             t+1
+                      L2 (t) :=                log
+                                      t              (κ2 − 1)(κ1 − 1 − t)
+                                 1[α1 ,α4 ] (t)                   1[α4 ,α2 ] (t)
+                                                             
+                                                        t+1
+                               +                 log            +                log(s′ − 1 − t).
+                                        t              κ2 − 1           t
+       Now by inserting (6.5)–(6.8) into Lemma 5.2, we easily deduce the required result.                    
+
+§ 7. Proof of Theorem 1
+     We need to resolve the functional inequalities (3.21) and (3.22). It seems very difficult to
+give the exact solutions, because we only know that H(s) is decreasing. Next we shall give a
+numeric lower bound for solution by using discretion, which is sufficient to prove Theorem 1.
+     Put s0 := 1 and si := 2 + 0.1 × (i + 1) for i = 1, . . . , 9. Since H(s) is decreasing on [1, 10],
+Proposition 4 allows us to deduce
+                                                                     9
+                                                                     X
+(7.1)                                         H(si ) ⩾ Ψ2 (si ) +          ai,j H(sj ),
+                                                                     j=1
+
+where                                  Z sj
+                          ai,j :=              Ξ2 (t, si ) dt     (i = 1, . . . , 4; j = 1, . . . , 9).
+                                        sj−1
+
+Similarly Proposition 3 implies
+                                                                     9
+                                                                     X
+(7.2)                                         H(si ) ⩾ Ψ1 (si ) +          ai,j H(sj ),
+                                                                     j=1
+
+where                                  Z sj
+                           ai,j :=             Ξ1 (t, si ) dt      (i = 5, . . . , 9; j = 1, . . . , 9)
+                                        sj−1
+
+
+                                              Table 1. Choice of parameters
+
+                  i      si      s′i          κ1,i     κ2,i      κ3,i         Ψ1 (si )            Ψ2 (si )
+
+                  1      2.2   4.54           3.53    2.90       2.44                         0.015826357
+                  2      2.3   4.50           3.54    2.88       2.43                         0.015247971
+                  3      2.4   4.46           3.57    2.87       2.40                         0.013898757
+                  4      2.5   4.12           3.56    2.91       2.50                         0.011776059
+                  5      2.6   3.58                                        0.009405211
+                  6      2.7   3.47                                        0.006558950
+                  7      2.8   3.34                                        0.003536751
+                  8      2.9   3.19                                        0.001056651
+                  9      3.0   3.00                                        0.000000000
+
+
+
+       The parameters s′i , κ1,i , κ2,i and κ3,i are chosen such that Ψ1 (si ) or Ψ2 (si ) is maximal.
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem      31
+
+    We put
+
+                                                                             Ψ2 (s1 )
+                                                                                     
+                                                                            .. 
+                                                                        . 
+                   a1,1      · · · a1,9                   H(s1 )
+                                                                            Ψ2 (s4 ) 
+                                                                                     
+            A :=  ...              ..  ,         H :=  ...  ,     B := 
+                                                                            Ψ (s )  .
+                                                               
+                                     . 
+                                                                                      
+                                                                            1 5 
+                      a9,1   · · · a9,9                      H(s9 )         . 
+                                                                            .. 
+                                                                               Ψ1 (s9 )
+
+Then (7.1) and (7.2) can be written as
+
+(7.3)                                         (I − A)H ⩾ B,
+
+where I is the unit matrix.
+    In order to resolve (7.3), we first solve the system of linear equations
+
+(7.4)                                         (I − A)X = B,
+
+by using Maple and obtain
+                                                0.0223939 · · ·
+                                                               
+                                               0.0217196 · · · 
+                                                               
+                                               0.0202876 · · · 
+                                                               
+                                               0.0181433 · · · 
+                                                               
+                                          X =  0.0158644 · · ·  .
+                                                               
+                                               0.0129923 · · · 
+                                                               
+                                                               
+                                               0.0100686 · · · 
+                                                               
+                                               0.0078162 · · · 
+                                                   0.0072943 · · ·
+    From (7.3) and (7.4), we deduce that
+
+                                           (I − A)(H − X) ⩾ 0.
+
+Since all elements of (I − A)−1 are positive, it follows that
+
+                                                   H ⩾ X.
+
+In particular we have
+                                           H(2.2) ⩾ 0.0223939.
+
+Now taking σ = {1} and s = 2.2 in (3.3) of Lemma 3.2, we find, for δ sufficiently small, N0
+sufficiently large and N ⩾ N0 ,
+
+                        D(N ) ⩽ S A; P(N ), N (1/2−δ)/2.2 = Φ(N, {1}, 2.2)
+                                                         
+
+                                                        4CN li(N )
+                              ⩽ A(2.2) − Hk,N0 (2.2)
+                                                       log(N 1/2−δ )
+                                ⩽ 8(1 − 0.0223938)Θ(N )
+
+                                ⩽ 7.82085Θ(N ).
+
+This completes the proof of Theorem 1.
+32                                              J. Wu
+
+     Remark 2. (i) The constant s1 = 2.2 comes from the fact that Ψ2 (s) attains the maximal
+value at s = s1 (approximately). Since H(s) is decreasing on [1, 10], we have H(2.1) ⩾ 0.0223939.
+In order to obtain a better lower (which leads to a smaller constant than 7.82085), we must look
+for a new weighted inequality (as in Lemma 4.1 and 4.2) such that the corresponding main term
+Ψ(2.1) has a lager lower bound than 0.015826357.
+     (ii) If we divide the interval [2, 3] into more subintervals than 9, it is certain that we can
+obtain a better result. But the improvement is very minuscule.
+
+§ 8. Proof of Theorem 3
+     In the case of the twin primes problem, we need to sieve the following sequence
+                                        B := {p + 2 : p ⩽ x}.
+Thinking to Lemmas 2.7 and 2.9, we have 47 for the level of distribution in place 12 in the
+Bombieri–Vinogradov theorem. Thus we can take Q := x4/7−δ and d := Q/d in the definitions
+described in Section 3. As before, we can prove the corresponding Propositions 3 and 4 with
+the following modification: In the definition of Ψ1 (s) we add a factor 78 before I1 (s), and in the
+definition of Ψ2 (s) we replace the factor 52 before the sum by 207
+                                                                    . When we use the switching
+principle to treat the terms Ω3 and Γi for 5 ⩽ i ⩽ 21, the related error terms can be estimated
+by using Lemma 2.9 which has 74 for the level of distribution (see [26], page 380).
+
+                                 Table 2. Choice of parameters
+
+               i    si    s′i    κ1,i    κ2,i    κ3,i      Ψ1 (si )         Ψ2 (si )
+
+               1   2.1   4.93   3.62     2.86    2.34                  0.020914508
+               2   2.2   4.91   3.62     2.85    2.33                  0.020399717
+               3   2.3   5.00   3.63     2.82    2.30                  0.019005124
+               4   2.4   4.52   3.64     2.87    2.40                  0.016618139
+               5   2.5   3.72                           0.013597508
+               6   2.6   3.62                           0.010644985
+               7   2.7   3.49                           0.007155027
+               8   2.8   3.35                           0.003741586
+               9   2.9   3.19                           0.001087780
+              10 3.0     3.00                           0.000000000
+
+
+     As before we can prove
+                                        H(2.1) ⩾ 0.0287118.
+Thus for δ sufficiently small, x0 sufficiently large and x ⩾ x0 , we have
+                                 π2 (x) ⩽ S B; P(2), x(1/2−δ)/2.1
+                                                                  
+
+                                        ⩽ 3.5(1 − 0.0287117) Π(x)
+                                        ⩽ 3.39951 Π(x).
+This completes the proof of Theorem 3.
+                Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                           33
+
+§ 9. Chen’s system of weights
+
+     Let
+                         A := {N − p : p ⩽ N },                    P(q) := {p : (p, q) = 1}.
+                                                                             1     1         1     1
+The inequality (9.1) below appeared in [9] (page 479, (11)) with (κ, σ) = ( 12 , 3.047 ), ( 9.2 , 3.41 )
+without proof. Cai [3] gave a proof with an extra assumption 3σ + κ > 1. Here we present a
+proof without Cai’s assumption. This removal is important in our argument.
+
+Lemma 9.1. Let 0 < κ < σ < 31 . Then we have
+
+(9.1)           D1,2 (N ) ⩾ S(A; P(N ), N κ ) − 21 S1 − S2 − 21 S3 + 12 S4 + O(N 1−κ ),
+
+where Si = Si (κ, σ) (1 ⩽ i ⩽ 4) are defined by
+                                      X
+                         S1 :=                    S(Ap ; P(N ), N κ ),
+                                  κ           σ
+                                 N ⩽p<N
+                                  (p,N )=1
+                                       X X
+                         S2 :=                                  S(Ap1 p2 ; P(N p1 ), p2 ),
+                                  σ                       1/2
+                                 N ⩽p1 <p2 <(N/p1 )
+                                     (p1 p2 ,N )=1
+                                          X X
+                         S3 :=                                          S(Ap1 p2 ; P(N p1 ), p2 ),
+                                 N κ ⩽p1 <N σ ⩽p2 <(N/p1 )1/2
+                                          (p1 p2 ,N )=1
+                                   X X X
+                         S4 :=                              S(Ap1 p2 p3 ; P(N p1 ), p2 ).
+                                 N κ ⩽p1 <p2 <p3 <N σ
+                                    (p1 p2 p3 ,N )=1
+
+
+Proof. Clearly the desired inequality (9.1) is equivalent to
+                                 X
+                                                  1 − 12 s1 (a) − s2 (a) − 21 s3 (a) + 12 s4 (a) + O(N 1−κ ),
+                                                                                                
+(9.2)      D1,2 (N ) ⩾
+                         a∈A, (a,P (N κ ))=1
+
+
+where                                                  X
+                                   s1 (a) :=                       1,
+                                                    N κ ⩽p<N σ
+                                                   p|a, (p,N )=1
+                                                            X X
+                                   s2 (a) :=                                       1,
+                                                   N σ ⩽p1 <p2 <(N/p1 )1/2
+                                                     p1 p2 |a, (p1 p2 ,N )=1
+                                                      p|(a/p1 p2 )⇒p⩾p2
+                                                                X X
+                                   s3 (a) :=                                            1,
+                                                   N κ ⩽p1 <N σ ⩽p2 <(N/p1 )1/2
+                                                        p1 p2 |a, (p1 p2 ,N )=1
+                                                         p|(a/p1 p2 )⇒p⩾p2
+                                                        X X X
+                                   s4 (a) :=                                       1.
+                                                     N κ ⩽p1 <p2 <p3 <N σ
+                                                   p1 p2 p3 |a, (p1 p2 p3 ,N )=1
+                                                     p|(a/p1 p2 p3 )⇒p⩾p2
+
+     Let                                                
+                                          ∗                 1   if Ω(a) ⩽ 2,
+                                        δ (a) :=
+                                                            0   otherwise.
+34                                                      J. Wu
+
+Then it is easy to see
+                                 X                                X
+           D1,2 (N ) ⩾                         δ ∗ (a) =                         µ(a)2 δ ∗ (a) + O(N 1/2 ),
+                         a∈A, (a,P (N κ ))=1               a∈A, (a,P (N κ ))=1
+
+
+where we have used the fact that
+                             X                                           X
+                                          {1 − µ(a)2 }δ ∗ (a) ⩽                    1 ≪ N 1/2 .
+                              a∈A                                  N κ ⩽p⩽N 1/2
+                         (a,P (N κ ))=1
+
+
+     Similarly if we write
+
+                             δ(a) := 1 − 12 s1 (a) − s2 (a) − 21 s3 (a) + 21 s4 (a),
+
+we can show that
+                           X                               X
+                                          δ(a) =                         µ(a)2 δ(a) + O(N 1−κ ).
+                  a∈A, (a,P (N κ ))=1              a∈A, (a,P (N κ ))=1
+
+
+     Thus in order to prove (9.2) it suffices to verify that
+
+(9.3)                                               δ ∗ (a) ⩾ δ(a)
+
+for a ∈ A, µ(a)2 = 1 and (a, P (N κ )) = (a, N ) = 1.
+     We first observe that (9.3) is trivial if Ω(a) ⩽ 2, since δ ∗ (a) = 1 and s4 (a) = 0 in this case.
+It remains to show that δ(a) ⩽ 0 in all other cases, which can be verified as follows:
+     If Ω(a) = 3 and s1 (a) = 0, then s2 (a) = 1 and s3 (a) = s4 (a) = 0. Thus δ(a) = 0.
+     If Ω(a) = 3 and s1 (a) = 1, then s3 (a) = 1 and s2 (a) = s4 (a) = 0. Thus δ(a) = 0.
+     If Ω(a) = 3 and s1 (a) = 2, then s2 (a) = s3 (a) = s4 (a) = 0. Thus δ(a) = 0.
+     If Ω(a) = 3 and s1 (a) = 3, then s2 (a) = s3 (a) = 0 and s4 (a) = 1. Thus δ(a) = 0.
+     If Ω(a) ⩾ 4 and s1 (a) = 1, then s3 (a) = 1 and s2 (a) = s4 (a) = 0. Thus δ(a) = 0.
+     If Ω(a) ⩾ 4 and s1 (a) = 2, then s2 (a) = s3 (a) = s4 (a) = 0. Thus δ(a) = 0.
+     If Ω(a) ⩾ 4 and s1 (a) ⩾ 3, then s2 (a) = s3 (a) = 0 and s4 (a) = s1 (a) − 2. Thus δ(a) = 0.
+This completes the proof.                                                                            
+     The main difference between (9.1) and Chen’s other weighted inequalities (see (34) of [7]
+and page 425 of [8]) is the additional positive term S4 . However a direct application of sieve
+to S4 leads to zero contribution. In order to take advantage of S4 , Chen used (9.1) with two
+different couples of parameters (κ, σ). Then an agreeable application of the Buchstab identity
+and switching principle leads to some compensation. This idea was also used by Cai & Lu [4]
+and Cai [3]. Here we make some modifications of their argument such that this process is more
+powerful.
+
+Lemma 9.2. Let 0 < κ1 < κ2 < ρ < σ2 < σ1 < 13 such that 3κ1 + ρ ⩾ 21 . Then we have
+
+(9.4)       4D1,2 (N ) ⩾ 4S(A; P(N ), N κ1 ) − Υ1 − Υ2 − Υ3 + Υ4 + Υ5 + Υ6 − 2Υ7
+                           − 2Υ8 − Υ9 − Υ10 + Υ11 + Υ12 − Υ13 − Υ14 + Υ15 + O(N 1−κ1 ),
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                    35
+
+where
+                           X
+               Υ1 :=                  S(Ap ; P(N ), p),
+                       N κ1 ⩽p<N κ2
+                         (p,N )=1
+                           X
+               Υ2 :=                  S(Ap ; P(N ), N κ1 ),
+                       N κ1 ⩽p<N σ1
+                         (p,N )=1
+                           X
+               Υ3 :=                  S(Ap ; P(N ), N κ1 ),
+                       N κ1 ⩽p<N σ2
+                         (p,N )=1
+                           X X
+               Υ4 :=                        S(Ap1 p2 ; P(N ), N κ1 ),
+                       N κ1 ⩽p1 <p2 <N κ2
+                          (p1 p2 ,N )=1
+                                    X X
+               Υ5 :=                                           S(Ap1 p2 ; P(N ), N κ1 ),
+                       N κ1 ⩽p1 <N κ2 ⩽p2 <N 1/2−2κ1 /p1
+                                  (p1 p2 ,N )=1
+                                X X
+               Υ6 :=                                    S(Ap1 p2 ; P(N ), p1 ),
+                       N κ1 ⩽p1 <N κ2 ,N ρ ⩽p2 <N σ2
+                               (p1 p2 ,N )=1
+                              X X
+               Υ7 :=                               S(Ap1 p2 ; P(N p1 ), p2 ),
+                       N σ1 ⩽p1 <p2 <(N/p1 )1/2
+                             (p1 p2 ,N )=1
+                              X X
+               Υ8 :=                               S(Ap1 p2 ; P(N p1 ), p2 ),
+                       N σ2 ⩽p1 <p2 <(N/p1 )1/2
+                             (p1 p2 ,N )=1
+                                 X X
+               Υ9 :=                                        S(Ap1 p2 ; P(N p1 ), p2 ),
+                       N κ1 ⩽p1 <N σ1 ⩽p2 <(N/p1 )1/2
+                                (p1 p2 ,N )=1
+                                    X X
+               Υ10 :=                                        S(Ap1 p2 ; P(N p1 ), N σ1 ),
+                        N κ2 ⩽p1 <N σ2 ⩽p2 <(N/p1 )1/2
+                                 (p1 p2 ,N )=1
+                            X X X
+               Υ11 :=                             S(Ap1 p2 p3 ; P(N ), p2 ),
+                        N κ2 ⩽p1 <p2 <p3 <N σ2
+                             (p1 p2 p3 ,N )=1
+                                      X X X
+               Υ12 :=                                                 S(Ap1 p2 p3 ; P(N p1 ), p2 ),
+                        N κ2 ⩽p1 <N σ2 , N σ1 ⩽p2 <p3 <(N/p1 )1/2
+                                     (p1 p2 p3 ,N )=1
+                           X X X X
+               Υ13 :=                                  S(Ap1 p2 p3 p4 ; P(N ), p2 ),
+                        N κ1 ⩽p1 <p2 <p3 <p4 <N κ2
+                             (p1 p2 p3 p4 ,N )=1
+                                    X X X X
+               Υ14 :=                                                   S(Ap1 p2 p3 p4 ; P(N ), p2 ),
+                        N κ1 ⩽p1 <p2 <p3 <N κ2 ⩽p4 <N 1/2−2κ1 /p3
+                                      (p1 p2 p3 p4 ,N )=1
+                              X X X X
+               Υ15 :=                                          S(Ap1 p2 p3 p4 ; P(N ), p3 ).
+                        N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <p4 <N σ1
+                                (p1 p2 p3 p4 ,N )=1
+
+
+Proof. The inequality (9.1) with (κ, σ) = (κ2 , σ2 ) implies
+
+(9.5)   2D1,2 (N ) ⩾ 2S(A; P(N ), N κ2 ) − S1 (κ2 , σ2 ) − 2Υ8 − S3 (κ2 , σ2 ) + Υ11 + O(N 1−κ2 ).
+36                                                        J. Wu
+
+     Buchstab’s identity, when applied three times, gives the equality
+                                                             X
+        2S(A; P(N ), N κ2 ) = 2S(A; P(N ), N κ1 ) − Υ1 −             S(Ap ; P(N ), N κ1 )
+                                                                        N κ1 ⩽p<N κ2
+                                                                          (p,N )=1
+                                                   X X X
+                                   + Υ4 −                               S(Ap1 p2 p3 ; P(N ), p1 ).
+                                               N κ1 ⩽p1 <p2 <p3 <N κ2
+                                                    (p1 p2 p3 ,N )=1
+
+Similarly a simple application of Buchstab’s identity yields
+                   X                                  X X
+  S1 (κ2 , σ2 ) =          S(Ap ; P(N ), N κ1 ) −                                       S(Ap1 p2 ; P(N ), p1 ) − Υ6 .
+                  N κ2 ⩽p<N σ2                                N κ1 ⩽p1 <N κ2 ⩽p2 <N ρ
+                    (p,N )=1                                        (p1 p2 ,N )=1
+
+Clearly p1 < N σ2 and σ2 < σ1 < 31 imply that N σ1 < (N/p1 )1/2 . Thus by Buchstab’s identity,
+we can write
+                       X X
+    S3 (κ2 , σ2 ) =                  S(Ap1 p2 ; P(N p1 ), N σ1 )
+                    N κ2 ⩽p1 <N σ2 ⩽p2 <N σ1
+                          (p1 p2 ,N )=1
+                              X X X
+                   +                                    S(Ap1 p2 p3 ; P(N p1 ), p3 ) + O(N 1−σ2 )
+                       N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <N σ1
+                              (p1 p2 p3 ,N )=1
+                                    X X
+                   +                                           S(Ap1 p2 ; P(N p1 ), N σ1 )
+                       N κ2 ⩽p1 <N σ2 , N σ1 ⩽p2 <(N/p1 )1/2
+                                   (p1 p2 ,N )=1
+                                   X X X
+                   −                                               S(Ap1 p2 p3 ; P(N p1 ), p2 )
+                       N κ2 ⩽p1 <N σ2 , N σ1 ⩽p2 <p3 <(N/p1 )1/2
+                                    (p1 p2 p3 ,N )=1
+                                            X X X
+                 = Υ10 − Υ12 +                                       S(Ap1 p2 p3 ; P(N p1 ), p3 ) + O(N 1−σ2 ).
+                                     N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <N σ1
+                                            (p1 p2 p3 ,N )=1
+
+Inserting these into (9.5), we find that
+(9.6) 2D1,2 (N ) ⩾ 2S(A; P(N ), N κ1 )−Υ1 −Υ3 +Υ4 +Υ6 −2Υ8 −Υ10 +Υ11 +Υ12 +∆+O(N 1−κ2 ),
+where                                X X X
+                       ∆ := −                               S(Ap1 p2 p3 ; P(N p1 ), p1 )
+                                  N κ1 ⩽p1 <p2 <p3 <N κ2
+                                       (p1 p2 p3 ,N )=1
+                                         X X X
+                              −                                    S(Ap1 p2 p3 ; P(N p1 ), p3 )
+                                  N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <N σ1
+                                         (p1 p2 p3 ,N )=1
+                                         X X
+                              +                              S(Ap1 p2 ; P(N ), p1 ).
+                                  N κ1 ⩽p1 <N κ2 ⩽p2 <N ρ
+                                        (p1 p2 ,N )=1
+
+    Next we shall further decompose ∆. In view of 3κ1 + ρ ⩾ 12 , we have N ρ ⩾ N 1/2−2κ1 /p1
+provided p1 ⩾ N κ1 . Thus Buchstab’s identity allows us to write
+       X X
+                     S(Ap1 p2 ; P(N ), p1 ) ⩾ Υ5
+  N κ1 ⩽p1 <N κ2 ⩽p2 <N ρ
+        (p1 p2 ,N )=1
+                                                                  X X X
+                                                   −                                        S(Ap1 p2 p3 ; P(N ), p1 ).
+                                                       N κ1 ⩽p1 <p2 <N κ2 ⩽p3 <N 1/2−2κ1 /p2
+                                                                  (p1 p2 p3 ,N )=1
+                Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                            37
+
+Thus we have
+                                                 ∆ ⩾ Υ5 + ∆1 ,
+
+where                             X X X
+                   ∆1 := −                              S(Ap1 p2 p3 ; P(N ), p1 )
+                               N κ1 ⩽p1 <p2 <p3 <N κ2
+                                    (p1 p2 p3 ,N )=1
+                                           X X X
+                           −                                           S(Ap1 p2 p3 ; P(N ), p1 )
+                               N κ1 ⩽p1 <p2 <N κ2 ⩽p3 <N 1/2−2κ1 /p2
+                                          (p1 p2 p3 ,N )=1
+                                       X X X
+                           −                                  S(Ap1 p2 p3 ; P(N p1 ), p3 ).
+                               N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <N σ1
+                                      (p1 p2 p3 ,N )=1
+
+Now the inequality (9.6) becomes
+
+(9.7)                2D1,2 (N ) ⩾ 2S(A; P(N ), N κ1 ) − Υ1 − Υ3 + Υ4 + Υ5 + Υ6
+
+                                    − 2Υ8 − Υ10 + Υ11 + Υ12 + ∆1 + O(N 1−κ2 ).
+
+    The inequality (9.1) with (κ, σ) = (κ1 , σ1 ) gives us
+
+(9.8)     2D1,2 (N ) ⩾ 2S(A; P(N ), N κ1 ) − Υ2 − 2Υ7 − Υ9 + S4 (κ1 , σ1 ) + O(N 1−κ1 ).
+
+Adding (9.7) to (9.8) yields
+
+(9.9)            4D1,2 (N ) ⩾ 4S(A; P(N ), N κ1 ) − Υ1 − Υ2 − Υ3 + Υ4 + Υ5 + Υ6
+
+                                − 2Υ7 − 2Υ8 − Υ9 − Υ10 + Υ11 + Υ12 + ∆2 + O(N 1−κ1 ),
+
+where
+                                             X X X
+                        ∆2 := ∆1 +                                S(Ap1 p2 p3 ; P(N ), p2 ).
+                                         N κ1 ⩽p1 <p2 <p3 <N σ1
+                                              (p1 p2 p3 ,N )=1
+
+Clearly all domains of summation in the three terms on the right-hand side of ∆1 are distinct
+and are contained in the domain of summation of the last triple sums on the right-hand side of
+∆2 (since 3κ1 + σ1 > 3κ1 + ρ ⩾ 12 ). Therefore we have
+                 X X X                 
+    ∆2 ⩾ −                              S(Ap1 p2 p3 ; P(N ), p1 ) − S(Ap1 p2 p3 ; P(N ), p2 )
+              N κ1 ⩽p1 <p2 <p3 <N κ2
+                   (p1 p2 p3 ,N )=1
+                         X X X                          
+          −                                              S(Ap1 p2 p3 ; P(N ), p1 ) − S(Ap1 p2 p3 ; P(N ), p2 )
+              N κ1 ⩽p1 <p2 <N κ2 ⩽p3 <N 1/2−2κ1 /p2
+                         (p1 p2 p3 ,N )=1
+                     X X X                   
+          +                                   S(Ap1 p2 p3 ; P(N ), p2 ) − S(Ap1 p2 p3 ; P(N ), p3 )
+              N κ2 ⩽p1 <N σ2 ⩽p2 <p3 <N σ1
+                     (p1 p2 p3 ,N )=1
+
+        = −Υ13 − Υ14 + Υ15 + O(N 1−κ1 ).
+
+Combining this with (9.9), we obtain the required result. This completes the proof.                              
+38                                                        J. Wu
+
+     Remark 3. Lemmas 9.1 and 9.2 are also valid for
+
+                                    A′ := {p + 2 : p ⩽ x},
+                                    A′′ := {p + 2 : x < p ⩽ x + xθ },
+                                    A′′′ := {N − p : αN < p ⩽ αN + N θ },
+
+if we make some suitable modifications. For example, we have
+
+(9.10)     4π1,2 (x) ⩾ 4S(A′ ; P(2), xκ1 ) − Υ′1 − Υ′2 − Υ′3 + Υ′4 + Υ′5 + Υ′6 − 2Υ′7
+                         − 2Υ′8 − Υ′9 − Υ′10 + Υ′11 + Υ′12 − Υ′13 − Υ′14 + Υ′15 + O(N 1−κ1 ),
+
+where Υ′j is similarly defined as Υj with the difference that A is replaced by A′ , P(N ) by P(2),
+P(N p1 ) by P(2p1 ), (N/p1 )1/2 by (x/p1 )1/2 , N 1/2−2κ1 /p2 by x4/7−2κ1 /p2 (in Υ5 and Υ14 ), N ρ by
+xρ , N κi by xκi , N σi by xσi and that the conditions (p, N ) = 1, (p1 p2 , N ) = 1, (p1 p2 p3 , N ) = 1
+and (p1 p2 p3 p4 , N ) = 1 are eliminated. The assumption on the parameters is
+
+                            0 < κ1 < κ2 < ρ < σ2 < σ1 < 31 ,               3κ1 + ρ ⩾ 47 .
+
+The last condition is necessary in the proof of ∆ ⩾ Υ′5 + ∆1 .
+
+§ 10. Proofs of Theorems 2 and 5
+
+    For simplicity, we write L := log N and use B to denote a suitable positive constant
+determined by Lemma 2.3. We shall estimate all terms Υi in the inequality (9.4). For this we
+suppose that
+
+            1              1           1                 1
+(10.1)      12 = κ1 < κ2 ⩽ 8 ,         4 = ρ < σ2 < σ1 < 3 ,           3σ1 + κ1 > 1,         2σ1 + σ2 + κ2 > 1.
+
+     1◦ Lower bound of S(A; P(N ), N κ1 )
+     We apply (2.5) of Lemma 2.2 with
+                                                                                               √
+                                                p/ϕ(p) if p ∈ P(N ),
+                                            
+                                                                                    κ1          N
+              X = li(N ),          w(p) =                                     z=N        ,   Q= B .
+                                                0         otherwise,                           L
+
+Since |λ±
+        l (q)| ⩽ 1, Lemma 2.3 with the choice f (1) = 1 and f (m) = 0 if m ⩾ 2 implies that
+
+         X X                                        X                                          li(y)   N
+                       λ±
+                        l (q)r(A, q) ≪ε                   µ(q)2 max max π(y; q, a) −                 ≪ε 3 .
+                                                    √             y⩽N (a,q)=1                  ϕ(q)    L
+         l<L q|P (z)                         q⩽ N /LB
+
+
+In view of V (z) ∼ 2e−γ CN / log z (γ is the Euler constant) and CN ≫ 1, we can deduce
+
+(10.2)         S(A; P(N ), N κ1 ) ⩾ {F0 + O(ε)} Θ(N )                  with       F0 := 2f (1/2κ1)/κ1 eγ .
+
+     2◦ Upper bounds of Υ1 , Υ2 and Υ3
+     We apply (2.4) of Lemma 2.2 with
+                                                                                                  √
+                                                    p/ϕ(p) if p ∈ P(N ),
+                                                
+                        li(N )                                                                      N
+               X=              ,    w(p) =                                      z = p,       Q=
+                         ϕ(p)                       0      otherwise,                             pLB
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                          39
+
+to S(Ap ; P(N ), p). The contribution of the error term in (2.4) is
+                                X                  X
+                     ≪ε                                      |r(A, pq)|
+                                                   √
+                         N κ1 ⩽p<N κ2 , (p,N )=1 q⩽ N /pLB , q|P (p)
+                            X                                                    li(y)   N
+                    ≪ε               µ(d)2 max max π(y; d, a) −                        ≪ε 3
+                           √                  y⩽N (a,d)=1                        ϕ(d)    L
+                         d⩽ N /LB
+
+by Lemma 2.3 with the same choice of f as above. Thus
+                                                         √           
+                   {1 + O(ε)}N       X      V (p)     log( N /p)       N
+             Υ1 ⩽                                 F                +O   3
+                                                                          .
+                        L         κ1     κ2
+                                            ϕ(p)         log p         L
+                                         N    ⩽p<N
+
+The standard procedure for replacing sums over primes by integrals yields
+
+(10.3)                                    Υ1 ⩽ {F1 + O(ε)} Θ(N ),
+
+where                            Z κ2                                  Z 1/2κ1 −1
+                            2             F (1/2t − 1)      4
+                      F1 := γ                    2
+                                                       dt = γ                        F (t) dt.
+                           e        κ1         t           e             1/2κ2 −1
+
+    Similarly we can prove
+
+(10.4)                         Υi ⩽ {Fi + O(ε)} Θ(N )                   (i = 2, 3),
+
+where               Z (1/2−κ1 )/κ1                                         Z (1/2−κ1 )/κ1
+                4                      F (t)                        4                           F (t)
+          F2 := γ                              dt,            F3 := γ                                   dt.
+               e     (1/2−σ1 )/κ1    1 − 2κ1 t                     e           (1/2−σ2 )/κ1   1 − 2κ1 t
+     ◦
+    3 Lower bounds of Υ4 and Υ5
+    As before we can deduce, from Lemmas 2.2 and 2.3, that
+
+(10.5)                         Υi ⩾ {Fi + O(ε)} Θ(N )                   (i = 4, 5),
+
+where                                Z κ2Z κ2               
+                             2                dt1/2 − t − u du
+                      F4 :=                  f                    ,
+                            κ1 e γ κ1     t   t      κ1         u
+                                  Z κ2
+                                       dt 1/2−2κ1 −t
+                                                                   
+                             2                           1/2 − t − u du
+                                         Z
+                      F5 :=                          f                  .
+                            κ1 e γ κ1 t κ2                   κ1       u
+We have used the following fact to remove the condition (p1 p2 , N ) = 1:
+                    X         X             N             X           X         N
+                                                  +                                  ≪ N 1−κ L.
+                                           p 1 p2                              p1 p2
+                    p1 |N N κ ⩽p2 <N     σ            N κ ⩽p1 <N σ    p2 |N
+                   p1 ⩾N κ                                           p2 ⩾N κ
+
+    4◦ Upper bounds of Υi for i = 7, 8, 9, 10, 13, 14
+      We shall only majorize Υ7 and the others can be treated similarly.
+      Since σ1 > 41 , the quantity Υ7 is equal to the number of primes p ⩽ N such that N − p =
+p1 p2 p3 with N σ1 ⩽ p1 < p2 < (N/p1 )1/2 , p3 ⩾ p2 and (p1 p2 p3 , N ) = 1. Define
+
+              M := {m : m = p1 p2 , N σ1 ⩽ p1 < p2 < (N/p1 )1/2 , (p1 p2 , N ) = 1},
+                B := {b : b = N − mp ⩽ N, m ∈ M, p ⩽ N/m}.
+40                                                        J. Wu
+
+It is clear that
+                                   Υ7 ⩽ S(B; P(N ), N 1/2 ) + O(N 1/2 ).
+
+By applying (2.4) of Lemma 2.2 with
+                                                                                                             √
+                                                          p/ϕ(p) if p ∈ P(N ),
+                              N                     
+                    X                                                                                         N
+             X=            li     ,       w(p) =                                                      Q=        ,
+                               m                          0              otherwise,                          LB
+                   m∈M
+
+
+we obtain
+                                   8 CN X                √           
+(10.6)                     Υ7 ⩽           {1 + O(ε)} + Oε N + R3 + R4 ,
+                                    log N
+
+where                                                                                                  
+                               X
+                                            2
+                                                      X                   X                li(N/m)
+                   R3 :=               µ(q)                                             1−                   ,
+                              √                                                               ϕ(q)
+                           q⩽ N /LB               m∈M                 mp⩽N
+                            (q,N )=1             (q,m)=1            mp≡N (mod q)
+
+                                   X             µ(q)2              X                  N 
+                   R4 :=                                                          li       .
+                             √                   ϕ(q)                                   m
+                           q⩽ N /LB , (q,N )=1                m∈M, (q,m)>1
+
+
+Let f (m) be the characteristic function of M. Since m ⩽ N 3/4 for m ∈ M, Lemma 2.3 implies
+                                                                                                            
+                           X                  X                            X                       li(N/m)           N
+(10.7)         R3 =               µ(q)2               f (m)                                1−                    ≪      .
+                         √                                                                            ϕ(q)           L3
+                      q⩽ N /LB             m⩽N 5/6                     mp⩽N
+                       (q,N )=1            (q,m)=1                   mp≡N (mod q)
+
+
+     Noticing that (d, m) > 1 implies (d, m) ⩾ N σ1 for m ∈ M, we have
+
+                                       N X µ(q)2                          X                1
+                               R4 ≪
+                                       L √ ϕ(q)                                            m
+                                          q⩽ N                 m⩽N 3/4 , (q,m)⩾N σ1
+
+                                       N X µ(q)2                 X          1      X           1
+                                  ≪
+                                       L   ϕ(q)                          σ1
+                                                                            d                  n
+                                          q⩽N                 d|q, d⩾N          n⩽N 3/4 /d
+                                     X µ(q)2                        X        1
+                                  ≪N
+                                     √ ϕ(q)                               σ1
+                                                                             d
+                                          q⩽ N                 d|q, d⩾N
+                                              X           1     X         µ(dl)2
+                                  ≪N
+                                                          d     √         ϕ(dl)
+                                          N σ1 <d⩽N           l⩽ N/d
+                                              X           µ(d)2       X          µ(l)2
+                                  ≪N                                                   .
+                                                          dϕ(d)       √          ϕ(l)
+                                          N σ1 <d⩽N                 l⩽ N/d
+
+
+Since the function µ(n)2 /ϕ(n) is multiplicative and µ(pν )2 /ϕ(pν ) = 1/(p − 1) for ν = 1 and = 0
+for ν ⩾ 2, it is plain to see that
+                                       X µ(n)2
+                                                   ≍ log t.
+                                            ϕ(n)
+                                                l⩽t
+
+Thus
+
+(10.8)                                          R4 ≪ N 1−σ1 L2 .
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                    41
+
+    By the prime number theorem, we obtain
+                                                      X X                     N
+                        X = {1 + o(1)}
+                                                                     p1 p2 log(N/p1 p2 )
+                                         N σ1 ⩽p1 <p2 <(N/p1 )   1/2
+
+                                             Z 1/3
+(10.9)                                   N            log(1/t − 2)
+                          = {1 + o(1)}                             dt
+                                         L    σ1        t(1 − t)
+                                             Z 1/σ1 −1
+                                         N               log(t − 1)
+                          = {1 + o(1)}                              dt.
+                                         L    2               t
+
+Inserting (10.7)–(10.9) into (10.6) yields
+
+(10.10)                                Υ7 ⩽ {F7 + O(ε)} Θ(N ),
+
+where                                         Z 1/σ1 −1
+                                                          log(t − 1)
+                                    F7 := 8                          dt.
+                                                  2            t
+    Similarly we can prove that
+
+(10.11)                        Υi ⩽ {Fi + O(ε)} Θ(N )              (i = 8, 10),
+
+where                                     Z 1/σ2 −1
+                                                 log(t − 1)
+                                F8 := 8                     dt,
+                                         2            t
+                                        Z σ2
+                                             log(1/σ2 − 1 − t/σ2 )
+                               F10 := 8                            dt.
+                                         κ2        t(1 − t)
+[We need to use the assumption 2σ1 + σ2 + κ2 > 1 in Υ10 .]
+     For the terms Υ9 , Υ13 and Υ14 with p1 ⩽ N 1/10 , we can apply Lemma 2.6 instead of Lemma
+2.3. A similar argument allows us to show that
+
+(10.12)                      Υi ⩽ {Fi + O(ε)} Θ(N )              (i = 9, 13, 14),
+
+where
+               Z 1/10                                 Z σ1
+          36       log(1/σ1 − 1 − t/σ1 )                    log(1/σ1 − 1 − t/σ1 )
+    F9 :=                            2
+                                               dt + 8                                dt,
+          5   κ1            t(1 −  t)                  1/10         t(1 − t)
+          36 1/10
+                                  Z κ2
+                                        dt2 κ2 dt3 κ2
+                                                                                       
+                        dt1                                     1 − t1 − t2 − t3 − t4 dt4
+            Z                                Z         Z
+   F13 :=                                                   ω
+          5 κ1     t1 (1 − t1 ) t1 t22 t2 t3 t3                            t2              t4
+            Z κ2       Z κ2         Z κ2       Z κ2                           
+                  dt1         dt2         dt3           1 − t1 − t2 − t3 − t4 dt4
+         +8                      2                  ω                                 ,
+             1/10 t 1    t1    t 2   t2   t 3   t3                t2              t4
+          36 1/10
+                                  Z κ2
+                                        dt2 κ2 dt3 1/2−2κ1 −t3
+                                                                                                
+                        dt1                                               1 − t1 − t2 − t3 − t4 dt4
+            Z                                Z         Z
+   F14 :=                                                             ω
+          5 κ1     t1 (1 − t1 ) t1 t22 t2 t3 κ2                                     t2             t4
+            Z κ2       Z κ2         Z κ2       Z 1/2−2κ1 −t3                            
+                  dt1         dt2         dt3                    1 − t1 − t2 − t3 − t4 dt4
+         +8                      2                           ω                                 .
+             1/10 t1     t1    t2 t2 t3 κ2                                  t2              t4
+
+[We need to use the assumption 3σ1 + κ1 > 1 in Υ9 and Lemma 2.10 in Υ13 and Υ14 .]
+     By inserting (10.2)–(10.5), (10.10)–(10.12) and by using the trivial lower bounds Υi ⩾ 0
+(i = 6, 11, 12, 15) into (9.4), we get the following inequality
+
+                           D1,2 (N ) ⩾ {F (κ1 , κ2 , ρ, σ2 , σ1 ) + O(ε)} Θ(N ),
+42                                                 J. Wu
+
+where
+                   F (κ1 , κ2 , ρ, σ2 , σ1 ) := 41 (4F0 − F1 − F2 − F3 + F4 + F5
+                                          − 2F7 − 2F8 − F9 − F10 − F13 − F14 ).
+             1        29
+Taking κ1 = 12 , κ2 = 250 , ρ = 41 , σ2 = 500
+                                          141           41
+                                              and σ1 = 125 , a numerical computation gives us
+
+           F (κ1 , κ2 , ρ, σ2 , σ1 ) ⩾ 14 (4 × 13.473613 − 3.891854 − 20.432098 − 17.327241
+                                  + 0.697375 + 2.118119 − 2 × 0.004609 − 2 × 0.434368
+                                  − 5.161945 − 5.468377 − 0.023310 − 0.182860)
+                               > 0.83607.
+
+[For the integrals F13 and F14 , we make use of ω(u) ⩽ 0.561522 for u ⩾ 3.5.] This completes
+the proof of Theorem 2.                                                                   
+    Theorem 5 can be proved in the same way. The only difference is to replace Lemmas 2.3
+and 2.6 by Lemma 2.4. Here, the choice of parameters is
+
+           (θ, κ1 , κ2 , ρ, σ2 , σ1 ) = (0.971, (2θ − 1)/12, 0.111, (2θ − 1)/4, 0.271, 0.313).                 
+
+
+
+§ 11. Proof of Theorem 4
+
+     The proof of Theorem 4 is very similar to that of Theorem 2. But we must use Lemmas 2.5,
+2.7 and 2.8 in place of Lemmas 2.3 and 2.6. In order to take the advantage of these lemmas, we
+must carry out a more careful and delicate analysis. Thus the proof will be slightly complicated.
+     Suppose that the parameters satisfy the following conditions:
+
+      2             1      2             29        1
+     21 = κ1 < κ2 ⩽ 7 ,    7 = ρ < σ2 < 100 < σ1 < 3 ,         3σ1 + κ1 > 1,              2σ1 + σ2 + κ2 > 1.
+
+     1◦ Lower bounds of S(A′ ; P(2), xκ1 )
+     By (2.5) of Lemma 2.2 and Lemma 2.7, we can easily prove
+
+(11.1)        S(A′ ; P(2), xκ1 ) ⩾ {G0 + O(ε)} Π(x)         with G0 := f (4/7κ1)/κ1 eγ .
+
+     2◦ Upper bounds of Υ′1 , Υ′2 and Υ′3
+     We divide the interval [xκ1 , xκ2 ] into O(L) subintervals of the form [P, 2P ) and apply (2.4)
+of Lemma 2.2 to S(A′p ; P(2), p) for p ∈ [P, 2P ). We have
+                                                                   
+                            {1 + O(ε)}x V (p)           log(Q/P )           X X
+         S(A′p ; P(2), p) ⩽                   F                         +                 λ+       ′
+                                                                                           l (q)r(A , pq)
+                                  L        ϕ(p)            log p
+                                                                            l<L q|P (p)
+
+
+where Q = x4/7−ε and λ+
+                      l (q) is well factorable of level Q/P and of order 1.
+    Denote by πP the characteristic function of the primes in the interval [P, 2P ). Noticing
+that P ⩽ xκ2 ⇒ P ⩽ Q/P , Lemma 2.1 shows that πP ∗ λ+     l is well factorable of level Q and of
+order 2. Thus Lemma 2.7 allows us to deduce that
+                            X      X X
+                                                λ+       ′
+                                                 l (q)r(A , pq) ≪ε x/(log x)
+                                                                            4
+
+                          P ⩽p<2P l<L q|P (p)
+                  Chen’s double sieve, Goldbach’s conjecture and the twin prime problem                              43
+
+and                                                                                           
+                        {1 + O(ε)}x                 X         V (p)     log(Q/p)           x
+                  Υ′1 ⩽                                             F              +O             .
+                                log x                         ϕ(p)        log p         (log x)4
+                                              xκ1 ⩽p<x     κ2
+
+
+
+Since V (p) ∼ e−γ C/ log p, the prime number theorem implies that
+                                                                                    Z 4/7κ1 −1
+                                                                             7
+(11.2)            Υ′1 ⩽ {G1 + O(ε)} Π(x)                    with       G1 := γ                    F (t) dt.
+                                                                            4e         4/7κ2 −1
+
+
+      We divide the interval of summation [xκ1 , xσ1 ] of Υ′2 into three parts:
+
+                            [xκ1 , x2/7−ε ],          [x2/7−ε , x29/100 ],       [x29/100 , xσ1 ],
+
+and use (2.4) of Lemma 2.2 to handle each sum. As before we apply Lemma 2.7, the condition
+(C.2) and (C.3) of Lemma 2.8, respectively, to control the corresponding error terms. We find
+
+(11.3)                                          Υ′2 ⩽ {G2 + O(ε)} Π(x),
+
+where
+                 Z 4/7κ1 −1                              Z 2/7κ1                  Z 13/50κ1                        
+        1                            F (t)                           F (t)                               F (t)
+ G2 :=                                       dt +                           dt +                                  dt .
+       κ1 e γ       2/7κ1          4/7κ1 − t               13/50κ1 2/κ1 − t            (11/20−σ1 )/κ1 11/20κ1 − t
+
+      Similarly
+                                                Υ′3 ⩽ {G3 + O(ε)} Π(x),
+
+where
+                                    Z (4/7−κ1 )/κ1                          Z 2/7κ1                 
+                           1                                 F (t)                          F (t)
+(11.4)            G3 :=                                              dt +                          dt .
+                          κ1 e γ      2/7κ1                4/7κ1 − t          (2−6σ2 )/κ1 2/κ1 − t
+
+
+      3◦ Lower bounds of Υ′4 and Υ′5
+      In view of 3κ2 ⩽ 37 < 74 , a similar argument proving (11.2) implies that
+
+(11.5)                                          Υ′4 ⩾ {G4 + O(ε)} Π(x),
+
+where                                               Z κ2         Z κ2             
+                                          1                 dt          4/7 − t − u du
+                                G4 :=                                f                 .
+                                         κ1 e γ      κ1     t     t         κ1       u
+    Our assumptions on κ1 and ρ imply that p21 p2 ⩽ x4/7−ε and p21 ⩽ x4/7−ε . As before we can
+apply (2.5) of Lemma 2.2 and Lemma 2.7 to get
+
+(11.6)                                          Υ′5 ⩾ {G5 + O(ε)} Π(x),
+
+where                                         Z κ2         Z 4/7−2κ1 −t             
+                                      1              dt                   4/7 − t − u du
+                            G5 :=                                      f                 .
+                                     κ1 e γ    κ1    t      κ2                κ1       u
+
+      4◦ Upper bounds of Υ′i for i = 7, 8, 9, 10, 13, 14
+     We shall apply the technique of [12]. Since σ1 > 27 , the quantity Υ′7 is equal to the number
+of primes p ⩽ x such that p + 2 = p1 p2 p3 with xσ1 ⩽ p1 < p2 < (x/p1 )1/2 and p3 ⩾ p2 .
+44                                                                 J. Wu
+
+       Introduce the set
+
+                                  B := {b − 2 : b = p1 p2 p3 ⩽ x, xσ1 ⩽ p1 < p2 < p3 }.
+
+Then we have
+                                                 Υ′7 = S(B; P(2), x1/2 ) + O(x1/2 ).
+
+Let ∆ := 1 + L−4 . We cover the set B by cuboids
+
+                    B(t1 , t2 , t3 ) := b − 2 : b = p1 p2 p3 ⩽ x, pi ∈ [∆ti , ∆ti +1 ) for 1 ⩽ i ⩽ 3
+                                       
+
+
+where ti are integers satisfying xσ1 ⩽ ∆t1 ⩽ ∆t2 ⩽ ∆t3 and ∆t1 +t2 +t3 +3 ⩽ x. In view of
+x2/7 ⩽ p2 ⩽ x(1−σ2 )/2 ⩽ x2/5 , Lemma 2.5 with the choice
+                                                         
+                                1 if m = p1 p3              1 if n = p2
+                      αm =                     ,    βn =
+                                0 otherwise                 0 otherwise
+
+implies the inequality
+                                                                                             
+                               X                                         |B(t1 , t2 , t3 )|               x
+                                        λ+
+                                         l (q)    |B(t1 , t2 , t3 )q | −                          ≪             ,
+                                                                             ϕ(q)                     (log x)18
+                              (q,2)=1
+
+
+where λ+
+       l (q) is well factorable of order 1 and of level Q = x
+                                                             θ(t2 )
+                                                                    with θ(t2 ) = (2 + t2 )/4.
+    Thus we find by (2.4) of Lemma 2.2,
+                                                                                                          
+                                                  1/2      2C{1 + O(ε)}                              x
+                    S(B(t1 , t2 , t3 ); P(2), x         )⩽              |B(t1 , t2 , t3 )| + O               .
+                                                              θ(t2 )L                            (log x)18
+
+Since the number of cuboids B(t1 , t2 , t3 ) is O (log x)15 , we have
+                                                           
+
+                                                                                                                 
+     X           |B(t1 , t2 , t3 )|         X X                               4x                            x
+                                    =                                                               +O
+                     θ(t2 )                                 p1 p2 log(x/p1 p2 )(2 + log p2 / log x)      (log x)2
+ (t1 ,t2 ,t3 )                      xσ1 ⩽p1 <p2 ⩽(x/p1 )1/2
+
+                                    4x{1 + O(ε)}                                dt du
+                                                            Z Z
+                                  =                                                            .
+                                         log x                         tu(1 − t − u)(2 + u)
+                                                           σ1 ⩽t⩽u⩽(1−t)/2
+
+
+Combining these estimates, we obtain
+
+(11.7)                                               Υ′7 ⩽ {G7 + O(ε)} Π(x),
+
+where
+                                                                                dt du
+                                                           Z Z
+                                        G7 := 8                                              .
+                                                                        tu(1 − t − u)(2 + u)
+                                                   σ1 ⩽t⩽u⩽(1−t)/2
+
+       Analogously we have
+
+(11.8)                                               Υ′8 ⩽ {G8 + O(ε)} Π(x),
+
+where
+                                                                                dt du
+                                                           Z Z
+                                        G8 := 8                                              .
+                                                                        tu(1 − t − u)(2 + u)
+                                                   σ2 ⩽t⩽u⩽(1−t)/2
+                 Chen’s double sieve, Goldbach’s conjecture and the twin prime problem        45
+
+       For Υ′9 , the assumption 3σ1 + κ1 > 1 allows us to write
+
+                                   Υ′9 = S(B ′ ; P(2), x1/2 ) + O(x1/2 )
+
+with
+
+(11.9)               B ′ := {b − 2 : b = p1 p2 p3 ⩽ x, xκ1 ⩽ p1 < xσ1 ⩽ p2 < p3 }.
+
+We decompose B ′ = B1′ ∪ · · · ∪ B6′ , where B1′ , . . ., B6′ are defined as in (11.9) but we add
+respectively the extra conditions
+                            p1 ⩽ x1/10 in B1′ ;
+
+                            p1 > x1/10 and p1 p2 ⩽ x1/2 in B2′ ;
+
+                            p1 > x1/10 and p−2 8    3    ′
+                                            1 p2 > x in B3 ;
+
+                            p2 > x2/5 and p−2 8    3    ′
+                                           1 p2 ⩽ x in B4 ;
+
+                            x(1−σ2 )/2 < p2 ⩽ x2/5 and p1 p2 > x1/2 in B5′ ;
+
+                            p2 ⩽ x(1−σ2 )/2 and p1 p2 > x1/2 in B6′ .
+Again we can use Lemma 2.5 with
+                       θ(log p1 / log x) = (1 + 2 log p1 / log x)/2 for B1′ ;
+
+                       θ(log p1 / log x) = (5 − 2 log p1 / log x)/8 for B2′ and B3′ ;
+
+                       θ(log p2 / log x) = 1 − log p2 / log x for B4′ ;
+
+                       θ(log p2 / log x) = (2 + log p2 / log x)/4 for B5′ and B6′ .
+Then we have
+
+(11.10)                                 Υ′9 ⩽ {G9 + O(ε)} Π(x),
+
+where
+                                                              dt du
+                                        Z Z
+                       G9 = 4
+                                                      tu(1 − t − u)(1 + 2t)
+                                κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                      t⩽1/10
+                                                                   dt du
+                                           Z Z
+                              + 16
+                                                           tu(1 − t − u)(5 − 2t)
+                                     κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                       t⩾1/10, t+u⩽1/2
+                                                                   dt du
+                                           Z Z
+                              + 16
+                                                           tu(1 − t − u)(5 − 2t)
+                                     κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                       t⩾1/10, 8u⩾2t+3
+                                                                  dt du
+                                          Z Z
+                              +2
+                                                          tu(1 − t − u)(1 − u)
+                                   κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                      u⩾2/5, 8u⩽2t+3
+                                                                       dt du
+                                              Z Z
+                              +8
+                                                               tu(1 − t − u)(2 + u)
+                                      κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                   (1−σ1 )/2⩽u⩽2/5, t+u⩾1/2
+                                                                   dt du
+                                          Z Z
+                              +8                                                .
+                                                           tu(1 − t − u)(2 + u)
+                                   κ1 ⩽t⩽σ1 ⩽u⩽(1−t)/2
+                                   u⩽(1−σ1 )/2, t+u⩾1/2
+46                                                           J. Wu
+
+      Similarly in view of the assumption 2σ1 + σ2 + κ2 > 1, we can prove
+
+(11.11)                                         Υ′10 ⩽ {G10 + O(ε)} Π(x),
+
+where
+                                                                       dt du
+                                                Z Z
+                         G10 = 16
+                                                               tu(1 − t − u)(5 − 2t)
+                                     κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                           t+u⩽1/2
+                                                                            dt du
+                                                  Z Z
+                                 + 16
+                                                                    tu(1 − t − u)(5 − 2t)
+                                          κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                                8u⩾2t+3
+                                                                           dt du
+                                                 Z Z
+                                 +2
+                                                                   tu(1 − t − u)(1 − u)
+                                         κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                          2/5⩽u⩽(2κ2 +3)/8
+                                                                            dt du
+                                                 Z Z
+                                 +2
+                                                                    tu(1 − t − u)(1 − u)
+                                          κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                         u⩾(2κ2 +3)/8, 8u⩽2t+3
+                                                                              dt du
+                                                  Z Z
+                                 +8
+                                                                      tu(1 − t − u)(2 + u)
+                                           κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                         1/2−κ2 ⩽u⩽2/5, t+u⩾1/2
+                                                                                   dt du
+                                                       Z Z
+                                 +8
+                                                                           tu(1 − t − u)(2 + u)
+                                             κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                         (1−σ2 )/2⩽u⩽1/2−κ2 , t+u⩾1/2
+                                                                           dt du
+                                                 Z Z
+                                 +8                                                     .
+                                                                   tu(1 − t − u)(2 + u)
+                                         κ2 ⩽t⩽σ2 ⩽u⩽(1−t)/2
+                                         u⩽(1−σ2 )/2, t+u⩾1/2
+
+      More easily we can prove that
+
+(11.12)                            Υi ⩽ {Gi + O(ε)} Θ(N )                 (i = 13, 14),
+
+where
+                Z 1/10            Z κ2
+                                       dt2 κ2 dt3 κ2
+                                                                               
+                          dt1                             1 − t1 − t2 − t3 − t4 dt4
+                                            Z     Z
+     G13 := 4                                         ω
+              κ1     t1 (1 + 2t1 ) t1 t22 t2 t3 t3                  t2            t4
+                Z κ2               Z κ2
+                                        dt2 κ2 dt3 κ2
+                                                                                
+                            dt1                             1 − t1 − t2 − t3 − t4 dt4
+                                              Z     Z
+           + 16                                         ω                              ,
+                 1/10 t1 (5 − 2t1 ) t1   t22 t2 t3 t3                 t2            t4
+                Z 1/10                   Z κ2         Z κ2
+                                                   Z 4/7−2κ1 −t3                          
+                              dt1               dt2          dt3     1 − t1 − t2 − t3 − t4 dt4
+     G14 := 4                                                    ω
+              κ1         t1 (1 + 2t1 )
+                                   t1       t2  t22  κ2      t3                t2            t4
+                Z κ2               Z κ2     Z κ2     Z 4/7−2κ1 −t3                         
+                           dt1          dt2      dt3                   1 − t1 − t2 − t3 − t4 dt4
+           + 16                          2                         ω                              .
+                 1/10 t1 (5 − 2t1 ) t1  t2 t2 t3 κ2                              t2            t4
+     Inserting these estimations and the trivial lower bounds Υ′i ⩾ 0 (i = 6, 11, 12, 15) into
+(9.10), we obtain
+                          π1,2 (x) ⩾ {G(κ1 , κ2 , ρ, σ2 , σ1 ) + O(ε)} Π(x),
+where
+                     G(κ1 , κ2 , ρ, σ2 , σ1 ) := 14 (4G0 − G1 − G2 − G3 + G4 + G5
+                                                      − 2G7 − 2G8 − G9 − G10 − G13 − G14 ).
+               Chen’s double sieve, Goldbach’s conjecture and the twin prime problem             47
+             2        13
+Taking κ1 = 21 , κ2 = 100 , ρ = 72 , σ2 = 125
+                                          36            332
+                                              and σ1 = 1000 , a numerical computation gives us
+
+          G(κ1 , κ2 , ρ, σ2 , σ1 ) ⩾ 14 (4 × 5.894705 − 1.611441 − 7.921437 − 6.736885
+                                + 0.270916 + 0.913995 − 2 × 0.000124 − 2 × 0.145114
+                                − 1.790090 − 1.930545 − 0.006814 − 0.059690)
+                              > 1.10409.
+[For the integrals F13 and F14 , we make use of ω(u) ⩽ 0.561522 for u ⩾ 3.5 and ω(u) ⩽ 0.567144
+for u ⩾ 2.] This completes the proof of Theorem 4.                                           
+
+
+
+                                           References
+
+ [1] E. Bombieri & H. Davenport, Small differences between prime numbers, Proc. Roy.
+     Soc. Ser. A 239 (1966), 1–18.
+ [2] E. Bombieri, J.B. Friedlander & H. Iwaniec, Primes in arithmetic progressions to
+     large moduli, Acta Math. 156 (1986), 203–251.
+ [3] Y.C. Cai, A remark on Chen’s theorem, Acta Arith. 102 (2002), 339–352.
+ [4] Y.C. Cai & M.G. Lu, Chen’s theorem in short intervals, Acta Arith. 91 (1999), 311–323.
+ [5] Y.C. Cai & M.G. Lu, On Chen’s theorem, in: Analytic number theory (Beijing/Kyoto,
+     1999), 99–119, Dev. Math. 6, Kluwer Acad. Publ., Dordrecht, 2002.
+ [6] Y.C. Cai & M.G. Lu, On the upper bound for π2 (x), Acta Arith., to appear.
+ [7] J.R. Chen, On the representation of a large even integer as the sum of a prime and the
+     product of at most two primes, Sci. Sinica 16 (1973), 157–176.
+ [8] J.R. Chen, On the representation of a large even integer as the sum of a prime and the
+     product of at most two primes (II), Sci. Sinica 21 (1978), 421–430.
+ [9] J.R. Chen, Further improvement on the constant in the proposition ‘1+2’: On the rep-
+     resentation of a large even integer as the sum of a prime and the product of at most two
+     primes (II) (in Chinese), Sci. Sinica 21 (1978), 477–494.
+[10] J.R. Chen, On the Goldbach’s problem and the sieve methods, Sci. Sinica 21 (1978),
+     701–739.
+[11] E. Fouvry, Autour du théorème de Bombieri–Vinogradov, Ann. scient. Ec. Norm. Sup.
+     20 (1987), 617–640.
+[12] E. Fouvry & F. Grupp, On the switching principle in sieve theory, J. reine angew. Math.
+     370 (1986), 101–125.
+[13] E. Fouvry & F. Grupp, Weighted sieves and twin prime type equations, Duke J. Math.
+     58 (1989), 731–748.
+[14] H. Halberstam & H.-E. Richert, Sieve Methods, Academic Press, London, 1974.
+[15] G.H. Hardy & J.E. Littlewood, Some problems of ‘partitio numerorum’ III : On the
+     expression of a number as a sum of primes, Acta Math. 44 (1923), 1–70.
+[16] H. Iwaniec, Primes of the type φ(x, y) + A where φ is a quadratic form, Acta Arith. 21
+     (1972), 203–234.
+[17] H. Iwaniec, A new form of the error term in the linear sieve, Acta Arith. 37 (1980),
+     307–320.
+[18] H. Iwaniec & J. Pomykala, Sums and difference of quartic norms, Mathematik 40 (1993),
+     233–245.
+48                                           J. Wu
+
+[19] C.B. Pan, On the upper bound of the number of ways to represent an even integer as a
+     sum of two primes, Sci. Sinica 23 (1980), 1367–1377.
+[20] C.D. Pan, A new application of the Yu.V. Linnik large sieve method, Chinese Math. Acta
+     5 (1964), 642–652.
+[21] C.G. Pan & X.X. Ding, A new mean value theorem, Sci. Sinica (1979), Special Issue II
+     on Math., 149–161.
+[22] C.D. Pan & C.B. Pan, Goldbach Conjecture, Science Press, Beijing, China, 1992.
+[23] P.M. Ross, A short intervals result in additive prime number theory, J. London Math.
+     Soc. (2), 17 (1978), 219–227.
+[24] S. Salerno & A. Vitolo, p + 2 = P2 in short intervals, Note Mat. 13 (1993), 309–328.
+[25] A. Selberg, On elementary methods in prime number theory and their limitations, Den
+     11te Skandinaviske Matemtikerkongnes, Trondheim, 1949, Johan Grundt Tanums Forlag,
+     Oslo, 1952, 13–22.
+[26] J. Wu, Sur la suite des nombres premiers jumeaux, Acta Arith. 55 (1990), 365–394.
+[27] J. Wu, Théorèmes généralisés de Bombieri–Vinogradov dans les petits intervalles, Quart.
+     J. Math. Oxford (2), 44 (1993), 109–128.
+[28] J. Wu, Sur l’équation p + 2 = P2 dans les petits intervalles, J. London Math. Soc. (2), 49
+     (1994), 61–72.
+
+     Institut Elie Cartan
+     UMR 7502 UHP-CNRS-INRIA
+     Université Henri Poincaré (Nancy 1)
+     54506 Vandœuvre–lès–Nancy
+     FRANCE
+     e–mail: wujie@iecn.u-nancy.fr
+
