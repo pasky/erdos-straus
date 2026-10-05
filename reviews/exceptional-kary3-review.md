@@ -1,7 +1,7 @@
 # Review R28 of EXCEPTIONAL_KARY3.md (O28) — hostile reviewer
 
 Reviewer branch `side-agent/review-kary3`; author files merged ff from
-`side-agent/kary2-loglog`. Work in progress; verdict table at the end of
+`side-agent/kary2-loglog` (round 1, complete). Verdict table and defects at the end of
 the pass.
 
 ## Checks done so far
