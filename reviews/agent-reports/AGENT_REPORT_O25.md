@@ -68,9 +68,37 @@ found by LP at sampled N ≤ 100 (C = 1.5, 2; finite support) and is infeasible 
   twists fix them; this is the edge problem in another guise). LP: SPW
   holds at N ≤ 60 with σ ≈ 0.34–0.40 (C = 2); Flat at N = 100 has
   s₀ = 0.32 on a long support. No structural reason for failure found.
-* **Medium moduli (§10):** not closed. The F-method cannot make them free
-  (finite-support LP); a cap there must use ν ≥ 1 on 𝒜, i.e. arithmetic at
-  moduli ≍ N. No beating hybrid known.
+* **Medium moduli (§10):** not closed (see checkpoint 3 below).
+
+## Checkpoint 3: review R25 repairs
+
+* **M1.** The `med` claim was a truncation artefact and is withdrawn. New
+  `scripts/interfreq2_med_periodic.py` solves the periodic relaxation on
+  ℤ/Q′. Every F on ℤ projects to a feasible point of it, and its Farkas
+  certificates are periodic ν ≥ 0 on ℤ. Results:
+  * C = 1.5, N = 20: the sign conditions on (N/2, N] force s₀ = 0
+    (a genuine obstruction);
+  * C = 2, N ≤ 20: no obstruction, and finite-support witnesses with
+    s₀ = 1/3 exist at N = 20, 30, 40 (support ≥ [−10N, 11N]). Hence
+    Thm 5.2′ (PROVED implication): under this stronger Flat, only
+    right-signed mass on (N, CN] has to be bounded;
+  * sign conditions on all of (N/2, CN] are infeasible at N = 20
+    (rigid modulus 21).
+
+  Lemma 9.2's "converse" is now stated for the periodic LP only. §5, §10
+  and the summary are reworded.
+* **m1.** Grouped (shift-blind, not term-blind) charges are declared out of
+  scope in §1.
+* **m2.** The §0 row for Thm 5.2 now states the per-N parameter requirements.
+  Lemma 9.3 (σ ≤ σ_C(N), due to R25 C11) was added; it explains the LP
+  plateaus and the C ≤ 1 impossibility.
+* **m3.** The Vaaler bound is quoted precisely, with the caveat that the
+  theorem numbering was not checked against the paper.
+* **SPW proof.** Not attempted beyond an Assessment. The optimum sits at
+  the local bound σ_C(N), so the natural target is SPW(2, 2/5 − ε, O(1)).
+  It needs a measure that spreads each small class evenly over its lifts
+  to moduli > 2N, consistently for all small moduli at once; I see no
+  short proof.
 
 ## Self-review (reviewer subagent, deep) — repairs applied
 
@@ -102,8 +130,8 @@ mass is ≤ e^{O(S)}B (Cor 5.1); every twisted window bounds the hybrid from
 below (Lemma 6.1). CONDITIONAL: cap `C(log N)^{3/4}(log log N)^{3/4}` for all
 hybrids with bounded right-signed mass on (N/2, CN], under the analytic
 hypothesis Flat (Thm 5.2), and Flat follows from the cleaner SPW (Prop 9.1, PROVED);
-Flat/SPW checked by LP at sampled N ≤ 100 (EVIDENCE). Open: SPW; medium
-moduli (N/2, CN].
+Flat/SPW checked by LP at sampled N ≤ 100 (EVIDENCE). Open: SPW (LP optimum = local bound σ_C(N)); right-signed
+mass on (N, CN] (and on (N/2, N] unless the stronger Flat of Thm 5.2′ holds).
 
 ## Replay
 

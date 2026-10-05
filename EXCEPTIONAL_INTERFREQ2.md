@@ -1,6 +1,6 @@
 # EXCEPTIONAL_INTERFREQ2 — hybrid methods: small classes exact, large classes trivial (task O25)
 
-Status: **checkpoint 2 (O25; §§9–10 added after the parent's follow-up).** Labels follow `DISCOVERIES.md`. PROVED means
+Status: **checkpoint 3 (O25; §§9–10 added after the parent's follow-up; review R25 repairs M1, m1–m3 applied).** Labels follow `DISCOVERIES.md`. PROVED means
 proved in this file, internal checks only. No θ > 3/4 is claimed. Notation
 as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
 
@@ -18,7 +18,9 @@ as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
 | Thm 5.2 | **conditional cap**: if a *flat minorant* exists (Flat: F ≤ 1_{[1,N]}, uniform on classes mod d ≤ N/2, F(s) ≥ M/d + s₀ on classes mod d > CN through [1,N], ≥ M/d − 1 on the others, bounded deviation on (N/2, CN]), then every hybrid with right-signed mass on (N/2, CN] at most c·B saves `≤ C(log N)^{3/4}(log log N)^{3/4} + log((1+Δ(1+c))/t)`; patches above CN are unrestricted. Flat is needed at the given (every large) N with `s₀ ≥ N^{−A₁}`, `t ≥ e^{−S_A}`, `Δ ≤ e^{S_A}` | PROVED implication |
 | Prop 9.1 | **SPW ⇒ Flat**: a spread pseudo-window R (≥ 0, exact window profile mod every d ≤ N/2, mass ≤ 1 − σ on every class of modulus > CN) yields Flat with t, s₀ ≍ σ, via `θF_S + (1−θ)(1_{[1,N]} − R)`; so SPW (constants σ, Δ₀) ⇒ the 3/4 cap of Thm 5.2 | PROVED implication |
 | Lemma 9.2 | SPW ⇒ patch-cancellation inequality (9.1) for all ν ≥ 0 (converse for LP truncations) | PROVED |
-| §9 | SPW found by LP at N ≤ 60 (σ ≈ 0.34–0.40, C = 2); big-prime re-randomisation proves the profile part but not (P2) on lcm(1..N/4)-smooth moduli; SPW itself open | EVIDENCE / Assessment |
+| Lemma 9.3 | any SPW has σ ≤ σ_C(N) (= 2/5 at C = 2, ≤ 0 at C ≤ 1): local bound from one small class mod q ≈ 0.45N and its lifts (review R25 C11) | PROVED |
+| §9 | SPW found by LP at N ≤ 60 (C = 2); with long enough support the optimum equals σ_C(N) exactly (R25 C10); big-prime re-randomisation proves the profile part but not (P2) on lcm(1..N/4)-smooth moduli; SPW itself open | EVIDENCE / Assessment |
+| Thm 5.2′, §10 | under Flat plus sign conditions on (N/2, N], only right-signed mass on (N, CN] needs to be bounded; such F found at C = 2, N ≤ 40 (s₀ = 1/3); periodic certificates: (N/2, N] not freeable at C = 1.5, (N/2, CN] not freeable at N = 20 | PROVED implication / EVIDENCE |
 | §5 numerics | finitely supported F satisfying Flat found by LP at the sampled parameters N ∈ {20,30,40,60,80,100}, t = 0.1, C ∈ {1.5, 2} (s₀ ≥ 0.04, Δ ≤ 1.5); C = 1 infeasible at N = 20 (rigidity); medium sign conditions on (N/2, N] compatible with s₀ = 1/3 at C = 2 (N ≤ 40, long support); periodic certificates: (N/2, N] not freeable at C = 1.5, (N/2, CN] not freeable at N = 20 | EVIDENCE (floating-point LP) |
 
 **Verdict.** The hybrid gap of IF Rem 2.6 is *not* closed unconditionally.
