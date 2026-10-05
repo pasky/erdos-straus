@@ -28,6 +28,7 @@
 \newcommand{\cP}{\mathcal P}
 \newcommand{\Lc}{\mathcal L}
 \raggedbottom
+\emergencystretch=1.5em
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[An energy bound for avoidance indicators]{An energy bound for avoidance indicators,\\
@@ -161,15 +162,48 @@ not go through the switching lemma.  The two combinatorial steps of the proof,
 a polarization identity (Lemma~\ref{lem:polar}) and a deletion--contraction
 bound (Lemma~\ref{lem:theta}), have no counterpart there.
 
+\emph{Why the switching-lemma constant is large (heuristic).}  The
+following re-derivation uses two inputs quoted from memory: H{\aa}stad's
+bound $\PP_\rho[\mathrm{DT}(g|_\rho)\ge d]\le(Apw)^d$ with $A\approx5$ for a $p$-random
+restriction \cite{Hastad}, \cite[\S4.4]{OD}, and the LMN reduction
+$W^{\ge t}[g]\le2\,\PP_\rho[\mathrm{DT}(g|_\rho)\ge pt/2]$ \cite{LMN}.  With $d=pt/2$ and
+$x=Apw$ the bound is $2\exp\big(\tfrac{t}{2Aw}\,x\ln x\big)$, which is smallest at
+$x=1/e$, giving $W^{\ge t}[g]\le2\cdot2^{-t/(c_0w)}$ with $c_0=2eA\ln2\approx18.8$.  This is
+consistent with the constant $20$ quoted above.  The loss is intrinsic to
+the route: the restriction keeps only a $p$-fraction of the degree, and the
+switching base forces $pw\lesssim1/(eA)$.
+
 \emph{What we checked.}  We have no internet access while writing this
 draft, and our literature search is partial.  Earlier, \cite{LT} and Tal
 \cite{Tal} were checked online; in \cite{Tal} we found no explicit-constant
-tail bound for width-$w$ DNFs.  Everything else above is quoted from memory and is
-marked as such.  We did not search systematically through the switching-lemma
-literature (sharp variants of H{\aa}stad's lemma, Rossman's entropy proof),
-the literature on Fourier growth, or work on noise operators with $\rho>1$.
-We believe Theorem~\ref{thm:main} and the constant $1$ in
-Corollary~\ref{cor:dnf} are new, but we make no priority claim.
+tail bound for width-$w$ DNFs.  Everything else in this section is quoted
+from memory and is marked as such.  We believe Theorem~\ref{thm:main} and the
+constant $1$ in Corollary~\ref{cor:dnf} are new, but we make no priority
+claim.  Before submission the following must be checked; all descriptions in
+this list are from memory and may be inaccurate.
+\begin{itemize}
+\item Sharpenings of LMN and of the switching lemma: H{\aa}stad's ``slight
+sharpening of LMN'' \cite{Hastad01}; Razborov's combinatorial proof and
+Beame's exposition \cite{Beame}; Rossman's entropy proof \cite{Rossman};
+H{\aa}stad's work on the correlation of parity with small-depth circuits
+\cite{Hastad14}.  As far as we recall these improve the dependence on size
+and depth for $\mathrm{AC}^0$, and none states a width-$w$ DNF tail with
+exponent constant $1$.
+\item Product distributions: Furst, Jackson and Smith \cite{FJS} extended
+LMN-type concentration to product distributions on $\{\pm1\}^n$, with a
+dependence on the bias that we do not remember; Blais, O'Donnell and Wimmer
+\cite{BOW} study concentration and learning over arbitrary finite product
+domains.  Corollary~\ref{cor:dnf} has no bias dependence at all.  A
+comparison with these papers is needed.
+\item Total influence of $k$-CNFs and DNFs: Boppana \cite{Boppana}, Amano
+\cite{Amano} (see Remark~\ref{rem:influence}).
+\item Fourier growth and noise operators with $\rho>1$: $G_F$ at constant weight
+is $\|T_\rho F\|^2$ with $\rho>1$.  Bounds of Fourier-growth type for $\mathrm{AC}^0$
+are in \cite{Tal} and, we believe, in later work of Chattopadhyay, Hatami,
+Hosseini and Lovett on pseudorandom generators from Fourier growth
+\cite{CHHL}.  We have not checked whether an inequality like
+Theorem~\ref{thm:main} appears in this literature.
+\end{itemize}
 
 \emph{Proof outline.}  Write $G_F=\sum_V\mu^V\|L_VF\|^2$ with $\mu_v=\lambda_v-1$ and
 $L_V=\prod_{v\in V}(I-\E_v)$.  Section~\ref{sec:cover} bounds $\|L_VF\|^2$ by the
@@ -865,13 +899,27 @@ The run takes about six minutes on one core; its output is in the file
 Theory Comput.\ 7 (2011), 45--48.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
+\bibitem{Beame} P.~Beame, A switching lemma primer, Technical Report
+UW-CSE-95-07-01, University of Washington, 1994.
+\bibitem{BOW} E.~Blais, R.~O'Donnell and K.~Wimmer, Polynomial regression
+under arbitrary product distributions, Mach.\ Learn.\ 80 (2010), 273--294
+(COLT 2008).
 \bibitem{Boppana} R.~B.~Boppana, The average sensitivity of bounded-depth
 circuits, Inform.\ Process.\ Lett.\ 63 (1997), 257--261.
 % TODO(verify): [Amano], [Boppana], [Mansour], [Tal] and all items marked "from memory" were written from memory (no internet).
+\bibitem{CHHL} E.~Chattopadhyay, P.~Hatami, K.~Hosseini and S.~Lovett,
+Pseudorandom generators from the second Fourier level and applications to
+$\mathrm{AC}^0$ with parity gates, in: Proc.\ 10th ITCS (2019).
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
+\bibitem{FJS} M.~L.~Furst, J.~C.~Jackson and S.~W.~Smith, Improved learning of
+$\mathrm{AC}^0$ functions, in: Proc.\ 4th COLT (1991), 317--325.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
 circuits, in: Proc.\ 18th ACM STOC (1986), 6--20.
+\bibitem{Hastad01} J.~H{\aa}stad, A slight sharpening of LMN, J.\ Comput.\
+System Sci.\ 63 (2001), 498--508.
+\bibitem{Hastad14} J.~H{\aa}stad, On the correlation of parity and small-depth
+circuits, SIAM J.\ Comput.\ 43 (2014), 1699--1708.
 \bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
 normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
 \bibitem{LT} V.~Lecomte and L.-Y.~Tan, Sharper bounds on the Fourier
@@ -884,6 +932,8 @@ under the uniform distribution, J.\ Comput.\ System Sci.\ 50 (1995), 543--550.
 Press, 2014.
 \bibitem{Razborov} A.~Razborov, A simple proof of Bazzi's theorem, ACM Trans.\
 Comput.\ Theory 1 (2009), no.~1, Art.~3.
+\bibitem{Rossman} B.~Rossman, An entropy proof of the switching lemma and tight
+bounds on the decision-tree size of $\mathrm{AC}^0$, manuscript, 2017.
 \bibitem{Subexp} Anonymous, Large Erd\H{o}s--Straus witnesses II: the multiplier
 modulus is infinitely often $\exp((\log p)^{1/5-o(1)})$, preprint, 2026.
 \bibitem{Tal} A.~Tal, Tight bounds on the Fourier spectrum of $\mathrm{AC}^0$, in:
