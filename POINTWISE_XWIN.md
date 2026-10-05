@@ -15,7 +15,17 @@ POINTWISE_SIZE §8: for a prime `p≡1 (4)` and `a≡3 (4)`, `x_a=(p+a)/4`,
 | 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite) | PROVED |
 | 1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: all a∈A fail}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` | PROVED (fixed-dimension upper sieve) |
 
-See §1 for details and §5 for the comparison with known results.
+| 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` in any finite abelian G of order n (second moment) | PROVED |
+| 2.2 | Pattern-summed sieve: for any set A of windows `a≤(log N)^θ`, the joint failure count is `≤2N(log N)^{δ−1}∏_{a∈A}F_a`, `F_a≈3φ(a)e^{−2λ/3}+(9/4)2^{ω(a)}e^{−4λ/9}`, `λ≈(1−θ−δ)log log N` | PROVED modulo Siegel–Walfisz |
+| 2.3 | `#{p≤N: a_min(p)>(log N)^θ} ≤ N exp(−(κ(θ)−ε)(log N)^θ log log N)` for `0<θ<2/5`, `κ=(1−θ)/9` (θ≤2/11) | PROVED modulo Siegel–Walfisz |
+| 1.3 (EVIDENCE) | `T(x,Z)·(log x)^{1+J/2}/x` flat for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
+
+Cor 2.3 is an unconditional (modulo SW) version of the *conclusion* of
+the open stacking hypothesis H_STACK (notes Thm 71.6), with per-window
+saving `(4/9)(1−θ)` instead of `1/2`, and it improves notes Thm 12.2's
+`exp(−c(log log N)²)` tail for the small-window statistic to
+`exp(−c(log N)^θ log log N)`. It does not approach ES (needs θ=1).
+Sections 3–4: Goals 2–4 and what blocks further progress.
 
 ## 1. Fixed window sets: the random-model exponent is an upper bound
 
