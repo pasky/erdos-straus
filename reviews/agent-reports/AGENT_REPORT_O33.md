@@ -87,3 +87,52 @@ memory, and says so throughout.
 ```
 cd paper && pdflatex es-subexp-note.tex && pdflatex es-subexp-note.tex
 ```
+
+## Response to referee R33 (MINOR REVISION; `reviews/es-subexp-note-review.md` on `side-agent/referee-subexp`)
+
+Numbering below is the new one. Since Thm 2.3 was inserted, Lemma 2.3 → 2.4,
+Def 2.5 → 2.6, Lemma 2.6 → 2.7, and §§3–8 are unchanged. Each point is a
+separate commit.
+
+1. **ET Prop 1.4 stated.** It is now a cited box, Theorem 2.3, with
+   `log(1+κ)` included, and the text notes that κ=4 makes it a constant.
+   ET's k was renamed κ, and the proof's local variable `A=srk` was
+   renamed `A=srh`, so the paper's k is again only the support size.
+   Lemma 2.4(b) cites Thm 2.3.
+2. **`0<λ<2` moved out of the TZ box** into a remark right after it, with a
+   one-line proof: `β₁>1/2`, `log x>2`, so `x^{β₁−1}/β₁<1`.
+3. **Labels made consistent.** Thm 1.1 is now "modulo Thms 3.1, 2.3, 6.1"
+   and Thm 1.2 "modulo Thms 3.1, 6.1". The status-conventions paragraph
+   names the three cited inputs and says that classical facts (LLL,
+   Efron–Stein, binomial median, divisor bound) are not listed in labels.
+   §8 is updated to match.
+4. **Remark 7.2** now says Paper1's `𝓛⁷/log𝓛` Haar bound holds "modulo
+   [ET, Prop 1.4]".
+5. **Literature relatives.**
+   * Filaseta–Ford–Konyagin–Pomerance–Yu (JAMS 2007) is now cited as the
+     closest Haar-side relative, hedged "to our knowledge".
+   * Even–Goldreich–Luby–Nisan–Veličković is cited with one sentence:
+     bounded independence fools rectangles, which is the prime-local
+     case; Bazzi extends this to DNFs. Its STOC'92 data come from
+     BGP ref. [16] in the archive; the journal version (RSA 1998) is
+     from memory.
+   * The novelty claim is unchanged.
+6. **Bibliography.** The TODO(verify) comment is kept and extended to
+   FFKPY, the EGLNV journal version, and the TZ journal data.
+7. **Overfull boxes.** All eight are fixed, by splitting the displays in
+   (5.1), Lemma 5.4, Lemma 5.5, Cor 6.3 and Thm 7.1 and rewording three
+   paragraphs. pdflatex (2 passes) now reports no overfull or underfull
+   boxes, no warnings and no undefined references, at 17 pages. My
+   earlier "no warnings" grep had missed the overfull boxes: I grepped
+   only for "warning", and the log reports them as "Overfull \hbox".
+8. **Wording.**
+   * (i) "equivalently" → "more precisely".
+   * (ii) `log₂` is always the binary logarithm.
+   * (iii) The stray "Distinctness…" paragraph after Thm 7.1 is removed.
+     Def 2.6 now says that pair-then-lift is what makes Lemma 2.7(iii) an
+     equality, that duplicate lifts are counted on both sides, and that
+     duplicates are harmless in the indexed-family Lemmas 5.1/5.3/5.5.
+   * (iv) Lemma 6.2(b) now sets `w := kb ≥ 1` (k ≥ 1 since supports are
+     nonempty), so `p = 1/(10w) ≤ 1` and `d = 10kbk₀` exactly.
+
+No mathematical content changed. Stopping for the parent.
