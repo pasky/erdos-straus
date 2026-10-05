@@ -273,7 +273,8 @@ the right side). With `4rsk − 1 ≥ 3rsk`,
 `Σ_{k≥u₁} e_k(w_φ) ≤ Σ_{k≥u₁} W_φ^k/k! ≤ 2(eW_φ/u₁)^{u₁} =: t_φ`. Summing
 over forms (`rs ≤ y`), `Σ_φ t_φ ≤ 2(2e(1+log y)/u₁)^{u₁} Σ_m τ(m)m^{−u₁}
 ≤ ε` (`ζ(u₁)² ≤ 2` for u₁ ≥ 3), and `Π(1+t_φ) − 1 ≤ e^{ε} − 1 ≤ 2ε`.
-The bounds `|a(H) − 1[H=∅]| ≤ 2^{|H|}1[…]` and the |T| > K tail are
+The bound `|a(H) − 1[H=∅]| ≤ 2^{|H|}` (on the event that H ≠ ∅ and every
+nonempty group is inadmissible; `= 0` otherwise) and the |T| > K tail are
 two-sided, which gives the two-sided form and (4.1′). The final claim is
 T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
 `e_j`. ∎
@@ -281,6 +282,14 @@ T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
 **Corollary 4.2 (PROVED implication).** For every θ ∈ (0,1), TC^𝔄_θ
 implies `E(N) ≤ (e+3) N exp(−(2/e²)(log N)^θ)` for N ≥ N₀(θ). TC^alt_θ
 (same calibration) implies `E(N) ≤ (2e+2) N exp(−(2/e²)(log N)^θ)`.
+
+*Note (not a reduction).* The TC^alt half is a one-line consequence of
+the pointwise Bonferroni inequality `ν_K ≥ 1[f_y = 0]`: TC^alt_θ is
+essentially the desired conclusion restricted to one specific majorant.
+Its factor 2 is not cosmetic at toy scale: at N = 10⁷, y = 1000 the
+[1,N] avoider count is 1.22× its CRT value (≈ the √N squares: 3162
+against `NΠ(1−p) ≈ 13270`), versus 0.99–1.01× on far translates
+(EVIDENCE, R24 `scripts/review_t2_translates.py`).
 
 *Proof.* In the calibration, `u₁ ≍ (log N)^{1−θ/2}` and
 `log y_K ≍ (log N)^{θ/2}`, so `u₁/log y_K → ∞` and `ε → 0`; then as in T1
