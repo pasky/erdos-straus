@@ -238,3 +238,49 @@ enter as `log(1/t) + log(1+Δ(1+c))`, so they may degrade like `e^{−O(S′)}`.
 Example 3.2 and Lemma 3.1's rigidity, (F3) *must fail* at some
 `d ∈ (N, CN]` when N+1 = d₁d₂ with coprime `d₁, d₂ ≤ N/2`, so the moduli just
 above N have to be treated as T_mid.
+
+**Numerics for Flat (EVIDENCE; `scripts/interfreq2_flatF.py`, t = 0.1,
+support [−5N, 6N], data in `data/interfreq2/flatF_scan*.txt`).** The LP
+maximises the margin s₀ in (F3)–(F4) for all d > CN up to the support
+length (pointwise beyond), with (F1)–(F2) exact; Δ is then measured.
+
+| N | C = 1.5: s₀ / Δ | C = 2: s₀ / Δ | min F on [1,N] (C = 2) |
+|---|---|---|---|
+| 20 | 0.250 / 1.31 | 0.400 / 1.26 | 0.86 |
+| 30 | 0.250 / 1.08 | 0.400 / 1.08 | 0.77 |
+| 40 | 0.200 / 1.23 | 0.380 / 1.15 (L = 5N) | 0.62 |
+| 60 | 0.187 / 1.10 | 0.326 / 1.17 | 0.55 |
+| 80 | — | 0.255 / 1.40 | 0.45 |
+
+With C = 1 the LP is infeasible at N = 20 (rigidity, Example 3.2). The
+margins decrease slowly with N; Theorem 5.2 only needs `s₀ ≥ N^{−A₁}` and
+`Δ ≤ e^{S_A}`, so the trend is harmless unless it is faster than
+polynomial. Independent check (`scripts/interfreq2_checks.py`): the N = 20
+F satisfies (F1)–(F5) on ℤ/360360 with Δ = 1.263, s₀ = 0.400, and (5.1)
+holds on 200 random ν ≥ 0. **Flat itself is not proved**: the LP
+solutions are spread-spectrum functions (F ≈ 1 on [1,N], ≈ −0.3 outside)
+with no visible closed form; Selberg's band-limited minorant fails (F3)
+near the ends of [1,N] for every C.
+
+## 6. Twisted windows: the symmetry group of the hybrid dual
+
+**Lemma 6.1 (PROVED).** Let φ: ℤ/Q′ → ℤ/Q′ act componentwise affinely,
+`φ(x) ≡ u_q x + v_q (mod q)` for each prime power `q ∥ Q′` (u_q units). For
+d | Q′ let φ_d be the induced bijection of ℤ/d. Suppose that for every
+d | Q′ with d ≤ N/2 and d ∤ N, φ_d maps `I_d = {1, …, N mod d}` (mod d) onto
+itself. Then `λ_{φ([1,N])} ∈ 𝔐(Q′)`, so `B_hyb(ν) ≥ Σ_{n≤N} ν(φ(n))`.
+
+*Proof.* `#{n ≤ N : φ(n) ≡ b (d)} = c(φ_d^{−1}(b), d) ∈ [l(d), u(d)]` for
+every d, and for small d it equals `c(b,d)` because `c(·,d) = l(d) + 1_{I_d}`
+is φ_d-invariant (for d | N it is constant). ∎
+
+The admissible φ form a group G_N. It contains: translations by multiples
+of L₀ (Lemma 4.1); the reflection `x ↦ N+1−x` on any prime p with
+`N/4 < p ≤ N/2` (p divides no other small modulus), chosen independently
+per such p; and arbitrary affine maps on primes `p > N/2`. So the hybrid
+bound is blind to these twists of [1,N]. Averaging over G_N gives
+`Σ_{n≤N} Pr_φ(φ(n) ∈ 𝒜)`, which conditions on n modulo the N/4-smooth
+part of L₀; for ES families this is again (heuristically) CRT-small. So
+G_N-averaging alone does not give the cap: a cap needs *fractional*
+pseudo-windows that spread across L₀-smooth large moduli, which is what
+Flat provides.
