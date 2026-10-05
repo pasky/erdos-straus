@@ -406,3 +406,41 @@ Thm 1 / exponent `1/7`; Corollary 5.2 (`m/n`) is the case
 `R(M) = R_m(M)`. Any family whose mass is `ℒ^{α}` gets exponent `1/(α+3)`.
 (ii) Trivial baseline: Linnik with `p ≡ 1 (lcm(1..T))` gives only
 `W_R(p) ≫ log p`; the corollary needs only polylog *mass*, no structure.
+
+### 5.3 Prime Jacobsthal-type statements (application (b))
+
+**Corollary 5.4 (composite-modulus prime avoidance; proved modulo G+H).**
+Let `y ≥ 2`, `T ≥ y`, and let `𝒟` be a set of moduli `d`, each a product of
+`≤ k` prime powers `ℓ^a ≤ T` with `ℓ ∈ (y, T]`, each `d` carrying a set `R_d`
+of unit classes. Let `Q` be coprime to all `d`, `a` a unit mod `Q`, and
+suppose `Σ_{d∈𝒟: ℓ|d} |R_d|/φ(d) ≤ 1/(64k)` for every prime `ℓ`. Then there
+is a prime `p ≡ a (Q)`, `p > T`, with `p mod d ∉ R_d` for all `d ∈ 𝒟`, and
+`log p ≪ log Q + k(log T)²(S + k log T)`, `S = Σ_d |R_d|/φ(d)`.
+*Proof.* Corollary 1.3 with `𝒫` = primes in `(y,T]` dividing some `d`
+(`N ≤ T`), `e_ℓ` = max exponent, and one event per `d` (the lift of `R_d`
+to `∏_{ℓ|d}G_ℓ`; same Haar weight). ∎
+
+*Instances.* (1) Shifted primes with forbidden residue patterns: for
+`h₁,…,h_r` and moduli `d = q₁q₂` of two primes in `(y,T]`, forbid
+`p + h_i ≡ c_{i,d} (mod d)` for prescribed unit classes `c_{i,d}`;
+(2) "p + h avoids small prime factors in prescribed classes", e.g. no prime
+factor `q ≡ 1 (4)`, `q ∈ (y,T]`, of `p + h` (`k = 1`, `R_q = {−h}`).
+
+**Honest scope.** (a) If `S ≤ 1/3`, the union bound plus Brun–Titchmarsh in
+the Linnik range — or plainly Bombieri–Vinogradov when `Q` is small — already
+gives a prime with `log p ≪ log Q + k log T`; Corollary 5.4 is only of
+interest for `S ≫ 1`, where the avoiding set has density `e^{−Θ(S)}`.
+(b) For `k = 1` (instance 2, and any "`p + h_i` free of primes from a set"
+condition), the avoiding set is a sifted set and classical lower-bound sieves
+with Bombieri–Vinogradov (Halberstam–Richert-type almost-prime results,
+*[memory]*) give `p ≤ T^{O(1)}` for bounded `r`, i.e. `log p ≪ log T`, far
+better than `(log T)³`. *Monotone* events ("`d | p + h`") reduce to `k = 1`
+(avoid one prime factor of each `d`) and are likewise sieve territory.
+(c) The theorem's genuine range is **non-monotone, composite-modulus
+events with `S ≫ 1` and uncontrolled codegrees** (§4.6): there neither a
+sieve (the avoiding set is not a product set) nor Bonferroni+Gallagher
+(codegrees) applies directly, and Linnik on a single class costs
+`log ∏ℓ^{e_ℓ} ≍ N log T`. The ES witness system is of exactly this type.
+(d) We did not find (in `sources/`) a prior "least prime avoiding a
+composite-modulus congruence system" bound with polylogarithmic dependence
+on the local data; see §4 for what we could not check.
