@@ -18369,4 +18369,125 @@ print("\n== (cv) POINTWISE_XWIN §1.1: Klein orbits, beta(a), half-set Lemma 1.1
 check_cv()
 
 
+# ---------------------------------------------------------------- (cw)
+# POINTWISE_WINDOW2.md (cf. scripts/review_w2_norms.py, review_w2_certify.py, window2_verify.py).
+# (1) Lemma 1.2 (norm forms): for n <= 20000, 3 !| n: no prime factor = 2 (3) <=> n = a^2+ab+b^2
+#     with gcd(a,b) = 1; 7 !| n: no prime factor r with (r|7) = -1 <=> n = c^2+cd+2d^2,
+#     gcd(c,d) = 1; and for every Mordell-hard prime p < 10^5 (p mod 840 in the six square
+#     classes): n_7 = n_3 + 1, 3 !| n_3, 7 !| n_7.
+# (2) Prop 3.7 certificate (data/window2/fake_eps0.1_K8_theta0.5.json.gz), model rebuilt from
+#     the text of §§3.1/3.3/3.5 (tie-break g_k *= 1 + 1e-7 k, clip max(1 - s, 1e-3)): the
+#     dump's 12769 configurations = all even-even pairs with sum < 1, mu agrees, nu >= 0,
+#     nu(empty) = 0, all 89 visible correlations matched; 60-digit re-solve of the square
+#     89 x 89 system on the support is positive and agrees with the dump.
+
+def check_cw():
+    from time import perf_counter
+    import gzip
+    import json
+    import os
+    import mpmath as mp
+    from math import comb
+    t0 = perf_counter()
+
+    # (1)
+    NN = 20000
+    rep3, rep7 = bytearray(NN + 1), bytearray(NN + 1)
+    Bd = isqrt(4 * NN) + 2
+    for a in range(-Bd, Bd + 1):
+        for b in range(0, Bd + 1):
+            if gcd(a, b) != 1:
+                continue
+            v = a * a + a * b + b * b
+            if 0 < v <= NN:
+                rep3[v] = 1
+            v = a * a + a * b + 2 * b * b
+            if 0 < v <= NN:
+                rep7[v] = 1
+    n3 = n7 = 0
+    for n in range(1, NN + 1):
+        f = factorint(n)
+        if n % 3:
+            assert all(r % 3 != 2 for r in f) == bool(rep3[n]), ("WINDOW2 Lemma 1.2, Q(sqrt-3)", n)
+            n3 += 1
+        if n % 7:
+            assert all(jacobi_symbol(r, 7) != -1 for r in f) == bool(rep7[n]), ("WINDOW2 Lemma 1.2, Q(sqrt-7)", n)
+            n7 += 1
+    nh = 0
+    for p in primerange(3, 100_000):
+        if p % 840 in SIX:
+            m3, m7 = (p + 3) // 4, (p + 7) // 4
+            assert (p + 3) % 4 == 0 and m7 == m3 + 1 and m3 % 3 and m7 % 7, ("WINDOW2 Lemma 1.2 coprimality", p)
+            nh += 1
+
+    # (2)
+    mp.mp.dps = 60
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "window2", "fake_eps0.1_K8_theta0.5.json.gz")
+    with gzip.open(path, "rt") as fh:
+        d = json.load(fh)
+    eps, K, theta = mp.mpf(d["eps"]), d["K"], mp.mpf(d["theta"])
+    assert (d["eps"], K, d["theta"]) == (0.1, 8, 0.5)
+    e = [mp.e ** (mp.log(eps) * (1 - mp.mpf(i) / K)) for i in range(K + 1)]
+    g = [mp.sqrt(e[i] * e[i + 1]) * (1 + mp.mpf("1e-7") * (i + 1)) for i in range(K)]
+    w = [mp.log(e[i + 1] / e[i]) / 2 for i in range(K)]
+    assert max(abs(a - mp.mpf(b)) for a, b in zip(g, d["g"])) < 1e-12, "WINDOW2 bins"
+    W1 = [m for m in cartesian_product(*[range(int(1 / g[k]) + 1) for k in range(K)])
+          if sum(mk * gk for mk, gk in zip(m, g)) < 1 and sum(m) % 2 == 0]
+    C = [(tuple(c[0]), tuple(c[1])) for c in d["configs"]]
+    assert len(C) == len(W1) ** 2 == 12769 and set(C) == {(a, b) for a in W1 for b in W1}, "WINDOW2 config set"
+
+    def muw(m):
+        v = max(1 - sum(mk * gk for mk, gk in zip(m, g)), mp.mpf("1e-3")) ** mp.mpf(-0.5)
+        for k in range(K):
+            v *= w[k] ** m[k] / mp.factorial(m[k])
+        return v
+    muW = {m: muw(m) for m in W1}
+    mu = [muW[a] * muW[b] for a, b in C]
+    assert max(abs(x - mp.mpf(y)) / x for x, y in zip(mu, d["mu"])) < 1e-9, "WINDOW2 mu"
+    j0 = C.index((tuple([0] * K), tuple([0] * K)))
+    assert min(d["nu"]) >= 0 and d["nu"][j0] == 0, "WINDOW2 Prop 3.7: nu >= 0, nu(empty) = 0"
+    supp = [j for j, x in enumerate(d["nu"]) if x > 0]
+    V1 = [m for m in cartesian_product(*[range(int(theta / g[k]) + 1) for k in range(K)])
+          if sum(mk * gk for mk, gk in zip(m, g)) <= theta]
+    gs = {m: sum(mk * gk for mk, gk in zip(m, g)) for m in V1}
+    VIS = [(a, b) for a in V1 for b in V1 if gs[a] + gs[b] <= theta]
+    assert len(VIS) == len(supp) == 89, ("WINDOW2 Prop 3.7 sizes", len(VIS), len(supp))
+
+    def emb(S, Cw):
+        r = 1
+        for sk, ck in zip(S, Cw):
+            if sk > ck:
+                return 0
+            r *= comb(ck, sk)
+        return r
+    worst = mp.mpf(0)
+    Mx = mp.matrix(len(VIS), len(supp))
+    for i, S in enumerate(VIS):
+        rm = mp.mpf(0)
+        rn = mp.mpf(0)
+        for j, (a, b) in enumerate(C):
+            t = emb(S[0], a)
+            if t:
+                t *= emb(S[1], b)
+                rm += t * mu[j]
+                rn += t * mp.mpf(d["nu"][j])
+        assert rm > 0
+        worst = max(worst, abs(rn - rm) / rm)
+        for k, j in enumerate(supp):
+            Mx[i, k] = emb(S[0], C[j][0]) * emb(S[1], C[j][1]) * mu[j] / rm
+    assert worst < 1e-12, ("WINDOW2 Prop 3.7 float residual", worst)
+    xs = mp.lu_solve(Mx, mp.matrix([1] * len(VIS)))
+    res = max(abs(t) for t in (Mx * xs - mp.matrix([1] * len(VIS))))
+    dev = max(abs(xs[k] - mp.mpf(d["nu"][j]) / mu[j]) / xs[k] for k, j in enumerate(supp))
+    assert min(xs) > 0.15 and res < mp.mpf("1e-40") and dev < 1e-9, ("WINDOW2 Prop 3.7 hp re-solve", min(xs), res, dev)
+    print(f"cw Lemma 1.2: {n3} + {n7} n <= {NN} (norm forms of Z[omega], Z[(1+sqrt-7)/2]); {nh} hard p < 1e5 coprime")
+    print(f"cw Prop 3.7: {len(C)} configs, nu(empty) = 0, nu >= 0, {len(VIS)} visible correlations, float residual "
+          f"{float(worst):.1e}; 60-digit re-solve: min nu/mu = {float(min(xs)):.4f}, max = {float(max(xs)):.0f}, "
+          f"vs dump {float(dev):.1e}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cw) POINTWISE_WINDOW2: Lemma 1.2 norm forms, Prop 3.7 certified fake (re-solve) ==")
+check_cw()
+
+
 print("\nall checks passed")
