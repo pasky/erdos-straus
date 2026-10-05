@@ -34,3 +34,43 @@ supporting a proof I find correct.
 
 Minor remark (no defect): Remark (iii) is right that the lemma only concerns
 the −1 target, so the theorems below bound a superset of window failure.
+
+## Theorem 1.2 / Corollary 1.3 — fixed-set stacking
+
+Re-derived line by line; **SOUND**.
+
+* Sieve input = notes Lemma 12.1. I re-checked its proof: Parseval
+  `(1/ℓ)[(ℓ−ν)g²+ν]=g` with `g=ν/(ℓ−ν)`, Cauchy–Schwarz gives (12.2), large
+  sieve with `Q=X^{1/2}`, Markov `H(Q)≥V^{-1}/2` when `log Q≥2Λ`. Gives `|S|≤4XV`. ✔
+* Sifted classes: for odd `ℓ>y`, `ℓ|p+a ⇒ ℓ|x_a ⇒ ℓ mod a∈C(x_a)⊆S_{σ_a}`; so
+  removing `{t: ℓ|24t+1+a}` when `ℓ mod a∉S_{σ_a}` is legitimate. Roots distinct
+  for `ℓ>2max A` (also `ℓ∤a`, `ℓ∤24`). `ν(ℓ)≤J+1<ℓ` since `max A≥4J−1`. ✔
+* `Λ≤(J+1)(log z+O(1))=(log X)/5+O_A(1)≤(log X)/4`. ✔
+* Density: `G∖S_σ` is exactly `φ(a)/2` reduced classes, so Mertens in APs mod
+  the fixed a gives `½ log log z+O_a(1)` per window, regardless of which
+  selection; the sum over windows is additive, **no independence between
+  windows is needed** (the large sieve takes arbitrary root sets). Windows
+  sharing prime factors (e.g. a=15 and a=3) are harmless: the per-ℓ root
+  `−(1+a)/24 mod ℓ` depends on a only as an integer. ✔
+* Uniformity in the class sets: only finitely many (`2^{Σβ}`) selection
+  vectors, each with the same `V` up to `O_A(1)`. ✔
+* Cor 1.3: `p>3Z` makes every `a≤Z` admissible (`x_a<p`), and
+  `gcd(x_a,a)=gcd(x_a,p)=1`, so Lemma 1.1 applies; `J(Z)=⌊(Z+1)/4⌋` ✔;
+  `T(N,7)≪N/(log N)^2`, `T(N,11)≪N/(log N)^{5/2}`, `T(N,23)≪N/(log N)^4` ✔.
+* The claim that it upgrades POINTWISE_WINDOW §6's joint "dimension ≥J/2"
+  Assessment to a theorem is correct: Lemma 1.1 removes the `<qφ(q)`
+  exceptional primes of Lemma 6.1 that blocked a clean sieve.
+
+## Corollary 1.4 — two-sided orders: SOUND-AFTER-REPAIRS (labels only)
+
+Equivalences `a_min≥7 ⟺ a_min>3` (Z=3, J=1, exponent 3/2) and
+`a_min≥11 ⟺ a_min>7` (Z=7, J=2, exponent 2) ✔. Lower bounds: W1 counts
+`p≡1 (840)` (⊂ `p≡1 (24)`) with window 3 failing ⇒ `a_min≥7` ✔; W2 analogous on EH.
+
+* **MINOR-1** (Table row 1.4 / Cor 1.4 first bullet): status written "PROVED"
+  but W1 is "PROVED modulo cited sieve theorems S1–S3" (S1, the semi-linear
+  β-sieve, not read in a primary source per POINTWISE_WINDOW §2.1). Repair:
+  label the lower half "PROVED modulo the sieve theorems cited for W1".
+* **MINOR-2** (Cor 1.4): the counts `#{p≤x: a_min(p)≥7}` do not say `p≡1 (24)`;
+  the upper bound (Thm 1.2) is proved only for that class. Either add
+  `p≡1 (24)` or note that the same sieve with `p=4t+1` covers all `p≡1 (4)`.
