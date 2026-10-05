@@ -31,6 +31,8 @@ def build(eps, K, theta, vis, N, one):
     L = M.Law(eps, K, N)
     W = M.window_configs(L.e, 0)
     mu1 = np.array([L.mu(m) for m in W])
+    okW = mu1 > 1e-14 * mu1.max()          # drop cells with (numerically) zero mass below sum 1
+    W = [m for m, o in zip(W, okW) if o]; mu1 = mu1[okW]
     V1, sums = M.visible_one(L.e, theta, vis)
     vid = {s: i for i, s in enumerate(V1)}
     r_, c_, v_ = [], [], []
