@@ -1,6 +1,6 @@
 # EXCEPTIONAL_SPW — towards SPW (task O40)
 
-Status: **work in progress (O40).** Labels as in `DISCOVERIES.md`. PROVED =
+Status: **checkpoint 1 (O40).** Headline: the O40 target SPW(2, 2/5 − ε) is FALSE for large N (Thm 3.2); the weak form needed by IF2 Thm 5.2 remains open. Labels as in `DISCOVERIES.md`. PROVED =
 proved here, internal checks only. Notation: `EXCEPTIONAL_INTERFREQ2.md`
 (IF2) §9. N ≥ 2, D := ⌊N/2⌋, `c(b,d) = #{1 ≤ n ≤ N : n ≡ b (d)}`,
 `λ_N = 1_{[1,N]}`, L₀ = lcm(1..D). For a measure μ on ℤ and a class s,
@@ -18,8 +18,11 @@ modulus > CN; (P3) |R(s) − c(s)| ≤ Δ₀ for classes of modulus in (D, CN].
 | Lemma 1.2 | profile criterion: R has the window profile iff mass N and ∂R ≡ δ₁ − δ_{N+1} (class sums) mod every d ≤ D | PROVED |
 | Lemma 1.3 | **two-edge split**: the window profile is `N/d + {−b/d} − {(N−b)/d}`; SPW follows from a single *half-line* (left-edge) measure H (problem HL) | PROVED |
 | Lemma 1.4 | **weak SPW suffices**: by Thm 5.2 remarks σ may be quasi-polynomially small, and then only *full* large classes need mass < 1; sparse ones may carry quasi-polynomial mass | PROVED implication |
-| §2 | obstructions to simple constructions: rigidity below support length deg Ψ_D ≈ 0.3D²; one-interval-per-sample impossible; block re-randomisation cannot spread moduli built from prime powers ≤ √D | PROVED |
-| §3 | HL numerics | EVIDENCE |
+| §2 | BDW (pointwise density ≤ A·uniform): LP optimum = trivial bound A*(N) for N ≤ 24, but **A(N) ≥ c√N** (exact values A(150) ≥ 1.55, A(400) ≥ 2.50) | EVIDENCE / PROVED |
+| §3 | local single-modulus bounds: exact certificates **σ ≤ 72/185 < 2/5 at N = 300**, σ ≤ 0.3811 at N = 1150; LP 0.3737 at N = 4400 | PROVED / EVIDENCE |
+| Thm 3.2 | **fixed-σ SPW is false for large N**: σ ≲_C (log N)^{−1/2} (Fejér smoothing + Bernstein at the window edge, modulus e ≈ CN divisible by lcm(1..M)) | PROVED |
+| Cor 3.3 | same bound for the Flat margin s₀ (any t) | PROVED |
+| §4 | Thm 5.2 survives: only weak SPW (σ_N ≥ e^{−S_A}·c₀) is needed; weak SPW is open | Assessment |
 
 ## 1. Reformulations
 
