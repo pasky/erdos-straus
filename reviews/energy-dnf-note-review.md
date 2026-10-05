@@ -119,3 +119,46 @@ exponents written out.
 D7 (MINOR) §8 "By (2.1) it is a combination of classes of modulus at most e^τ": true for u_j on the free digits,
 but the product 1_{E_j}u_j that actually enters B has modulus up to r_j·e^τ ≤ T e^τ (es-subexp works with
 T³e^{2τ} after squaring). Harmless for the exponent; say "modulus ≤ Te^τ" or "polynomial in T e^τ".
+
+## 6. Comparison with the literature and novelty claims — GAP (missing references; hedging otherwise fair)
+
+No internet here either. Everything below marked [mem] is from my memory and must be verified.
+Prior online checks in this repo (reviews/es-subexp-note-review-v3.md D6–D7, reviews/pointwise-omega10-review-2.md §4)
+confirm: [LT] bibliographic data; LT Fact 6 = "∃C>1: width-w DNF ε-concentrated up to degree Cw log(1/ε)"
+(switching lemma, unspecified C); LT Fact 9 = |ĝ(S)| ≤ 2^{|S|}·Pr[S covered] (unsigned, uniform; LT say they do not
+use it); [Tal] contains no explicit-constant width-w DNF tail. The note's description of [LT] matches these.
+
+D8 (MAJOR for a TCS venue — not a correctness issue) Missing comparisons/references. The following should be
+checked and, if confirmed, cited and compared:
+ (a) [mem] J. Håstad, "A slight sharpening of LMN", JCSS 63 (2001). Explicitly listed as TODO(novelty) in the sister
+     note es-subexp-note.tex (l. 1607) but absent from this note.
+ (b) [mem] M. Furst, J. Jackson, S. Smith, "Improved learning of AC0 functions", COLT 1991 — LMN-type concentration
+     under (bounded-bias) product distributions on {±1}^n. Directly relevant to the selling point "under every
+     product measure"; the note should say what the bias dependence there is.
+ (c) [mem] E. Blais, R. O'Donnell, K. Wimmer, "Polynomial regression under arbitrary product distributions",
+     Machine Learning 80 (2010) (COLT 2008) — concentration/learning over general finite product domains; relevant
+     to "any alphabet, any product measure".
+ (d) [mem] Sharp switching lemmas (Håstad's (≈5pw)^d; Razborov's combinatorial proof; Rossman's entropy proof /
+     decision-tree size of AC0; Håstad 2014 "On the correlation of parity and small-depth circuits"). The note names
+     these areas but cites none.
+ (e) [mem] Total influence: K. Amano, "Tight bounds on the average sensitivity of k-CNF", Theory of Computing 7
+     (2011) — I recall the bound I ≤ k (improving Boppana's 2k). If correct, the note's "known bound 2w" (§1) is
+     outdated; together with D2 (trivial I ≤ 2wp) the influence statement should be reworded.
+ (f) [mem] Fourier-growth line (Chattopadhyay–Hatami–Lovett–Tal and successors) — G_F(λ) at constant λ is ‖T_ρF‖²
+     with ρ>1; the note mentions the area, a citation or explicit "not checked" is needed.
+
+D9 (MINOR, suggestion that strengthens the paper) Quantify the gap to the switching-lemma route instead of only
+quoting "20" from memory: with Håstad's bound Pr[DT(g|ρ) ≥ d] ≤ (Apw)^d (A ≈ 5) and the LMN reduction
+W^{≥t} ≤ 2·Pr[DT depth > pt/2], optimising p gives W^{≥t} ≲ 2·exp(−t/(2eA·w)), i.e. exponent constant ≈ 2eA/ln 2 ≈ 39
+in base 2 for A=5 (≈ 20 with the sharper bookkeeping of [OD]). So the switching-lemma route loses a factor > 10 in the
+exponent for intrinsic reasons (the restriction keeps only a p-fraction of the degree and the switching base
+needs pw ≲ 1/(eA)). One paragraph like this (labelled as a heuristic re-derivation) makes the constant-1 claim
+much more convincing than the from-memory constant.
+
+D10 (MINOR) Remark 3.2 contrasts the signed count with "the number of covers of V is large". [LT] uses the
+*indicator* "S is covered" (a probability), not a count of covers. Repair: "… while 1[V is covered] = 1, so the LT
+bound charges 2^{|V|} there".
+
+Hedging: "We believe Theorem 1.1 and the constant 1 in Corollary 1.3 are new, but we make no priority claim",
+plus the explicit list of what was not searched, is appropriately cautious for an internal draft; for
+submission D8 must be resolved. Abstract sentence "The proof does not use a switching lemma" is accurate.
