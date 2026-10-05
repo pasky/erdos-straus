@@ -245,7 +245,11 @@ Check: `scripts/omega13_jacobi.py 200000` verifies (a) and (b) on all 2 401 032 
 ES identities cover the non-residue classes, and the Mordell-hard classes mod 840
 are the squares.
 
-**The square-class process (definition).** Start from `Q=8` and `r≡1 (8)`.
+**The square-class process (definition).** Start from `Q=8`, `r≡1 (8)`, Haar on the units at
+the odd primes. Then take three *forced* `a=0` steps at `ℓ=3,5,7` (R48a m4, R48b D4): r mod 105
+is a uniformly random square class, and mod 3 the only square is 1. So `840|Q` and `r≡1 (24)`
+always hold, and r is a square mod 840, i.e. a Mordell-hard class. The forced steps are ordinary
+`a=0` steps, so Lemma 3.2 covers them verbatim. They add only `log105` to the cost.
 Coordinates and events are as in O11 Setting 2.0, but with fibre `n≡r (Q)` in place
 of `n≡1 (Q)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
 reweighted fibre mass `w̃_ℓ>η` (Lemma 1.1). It reveals `n mod ℓ^{a+1}` uniformly
@@ -356,17 +360,25 @@ f_2 is multiplicative with `f_2(p^k)≤8^k`.
 Σ_{ℓ>Y prime} B_2(ℓ) ≤ ((𝓛+1)/Y)·Ξ,      Ξ := Σ_M w(M)²τ(M)ω(M)/M ≪ 𝓛^{C_0},
 ```
 
-with an absolute `C_0`. For instance `C_0=4.5+36+…`; any fixed value suffices.
+with an absolute `C_0` (R48b D3). Explicitly, `C_0=81/2+8+o(1)`:
+* `Στ(n²)^4/n≍𝓛^{81}`;
+* `g²=H^4(m/φ)^4τ^4` has `f(p)≤16·16β^4` at `p≤Y`, which gives a factor `(logY)^{O(1)}`;
+  at `p>Y` it has `f(p)=16β^4`.
+
+The factor `(logY)^{O(1)}=(log𝓛)^{O(1)}` is absorbed. **Uniformity in Y (R48a m5):** Ξ's bound uses
+only `2^{ω_Y}≤2^{ω}`, so it is uniform in `Y≤T`. The later choice `Y=𝓛^{C_0+4}` is therefore not circular.
 
 *Proof of (A).*
 * *First display.* Write `n=A`, `M=4n−1`, and `f_2(m)=H(m)m/φ(m)`. NT on
   `x<n≤2x` gives
   `≪x·∏_{p≤x}(1−ρ(p)/p)·Σ_{n_1≤x}τ(n_1²)/n_1·Σ_{n_2≤x}f_2(n_2)/n_2`. This is
-  `≪x(log x)^{−2}(log x)³·(log x)^{β}logY ≪ x(log x)²logY`, since
-  `(log x)^{β−1}≤e`. Divide by `M≍x` and sum over the `O(𝓛)` dyadic blocks.
-* *Second display.* Use `log M_Y≤logY·Ω_Y(M)≤3logY·(3/2)^{Ω_Y(M)}`. Then repeat
-  with `f_2·(3/2)^{Ω_Y}`, whose Euler factor at `p≤Y` is `1+O(1)/p` with
-  `O(1)≤3+…`. The constants A, B of NT are uniform in T, because `β≤2`. ∎
+  `≪x(log x)^{−2}(log x)³·(log x)^{β}(logY)^{β} ≪ x(log x)²logY`, since
+  `(log x)^{β−1},(logY)^{β−1}≤e` (R48b D3). Divide by `M≍x` and sum over the `O(𝓛)` dyadic blocks.
+* *Second display (R48b D1).* Use `log M_Y≤logY·Ω_Y(M)≤logY·τ(M_Y)`. This holds because
+  `Σk_i≤∏(k_i+1)−1`. Then repeat with `f_2·τ_Y`. Here `τ(p^k)=k+1≤B_εp^{kε}` for every ε,
+  so `F∈M_2(A,B_ε,ε)` uniformly in T (`β≤2`). (The earlier weight `(3/2)^{Ω_Y}` violated the NT
+  class.) The Euler factor at `p≤Y` is `≈1+4β/p`, so `Σf_2τ_Y/n≪(logY)^{3}log x`. The
+  bound `≪𝓛³(logY)^4` follows. ∎
 
 *Proof of (B).*
 * *Reduce to `V(q)`.* With `M=ℓm`, `M'=ℓm'`, we have
@@ -384,12 +396,16 @@ with an absolute `C_0`. For instance `C_0=4.5+36+…`; any fixed value suffices.
   product `∏_{p≤x}(1+f(p)/p+…)`. ∎
 
 **Theorem 3.4 (Haar exponent 3; PROVED modulo NT).** Let `δ*(T)` be the Haar
-probability of `n∈Ẑ^×` avoiding all events with `M≤T` (as in O11 Cor 3.3 and
-POINTWISE_HAAR). Then
+probability that n avoids all events with `M≤T`. We use POINTWISE_HAAR §0's
+normalisation (R48a m3, R48b D2): Haar measure on `{n∈Ẑ^×: n≡1 (24)}`. On all of `Ẑ^×`,
+the value is exactly half of this, because the atom `M=3, D=1` kills `n≡2 (3)`.
+Then
 
 ```
-log(1/δ*(T)) ≪ 𝓛³(log𝓛)^{O(1)}.
+log(1/δ*(T)) ≪ 𝓛³(log𝓛)^5.
 ```
+
+Only NT is used, and no Elsholtz–Tao input (R48b D6): all masses are Haar masses.
 
 With POINTWISE_HAAR Thm 2.1 (`≫𝓛³/log𝓛`), this gives `log log(1/δ*) = (3+o(1))log𝓛`,
 so the Haar exponent is `a=3`.
@@ -407,7 +423,8 @@ square-class process.
     stopped, the others by the choice of realisation;
   * no event is deterministic (Lemma 3.1).
 * *Conclusion.* Lemma 1.1 on the fibre `n≡r (Q)` gives
-  `δ*≥φ(Q)^{−1}exp(−(4/3)S_res)`. ∎
+  `δ*≥(φ(24)/φ(Q))exp(−(4/3)S_res)`, since `r≡1 (24)`.
+* *Explicit size.* `log φ(Q)≪(1/η)𝓛³(logY)^4≪𝓛³(log𝓛)^5` and `S_res≪𝓛³log𝓛`. ∎
 
 This is the brief's item (iii), in sharper form than `𝓛^4`. It improves O12
 Thm 6.3's `log(1/δ*)≪𝓛^5log𝓛`, and it settles POINTWISE_HAAR Conj 3.1 up to
@@ -423,7 +440,7 @@ logs.
 * *Junta.* O11 Cor 1.2 then gives `O(𝓛(S_res+𝓛))≪𝓛^4(log𝓛)^{O(1)}`.
 * *Conclusion.* `log Z≪𝓛^4(log𝓛)^{O(1)}`. Hence
   `W(p)≥exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many Mordell-hard p,
-  modulo (G), NT, and OMEGA10 Thm 3.4.
+  modulo (G), NT, and OMEGA10 Thm 3.4. Elsholtz–Tao is no longer needed (R48b D6).
 
 The checks:
 
