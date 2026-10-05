@@ -215,7 +215,7 @@ def section_A(rng, cases):
         mu = [l - 1 for l in lam]
         G1 = G_from_comp(comp, lam)
         G2 = sum(prod_over(V, mu) * Ln[V] for V in range(1 << n))
-        check(G1 == G2, "Lemma 2.1(a) identity")
+        check(G1 == G2, "Lemma 2.2(a) identity")
         check(G1 <= 1, f"Theorem 1.1: G={G1} qs={qs} lam={lam} ev={events}")
         # cover bound, every V
         Hx = []
