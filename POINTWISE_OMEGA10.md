@@ -318,27 +318,63 @@ So C-1, and with it the modulus-weighted EL of §4, holds with **no** mass,
 codegree, quarantine or width hypothesis. (FM, the fractional-matching form,
 remains open, but nothing below needs it.)
 
-## 4. What C-1 would give (PROVED implication)
+## 4. Consequences: ESW in energy form and the junta term (PROVED)
 
-Assume C-1. In O8 Thm 3.4 keep the events as classes mod their moduli
-(coordinates: `X_ℓ mod ℓ` and the base-ℓ digits of `X_ℓ mod ℓ^{e_ℓ}`, a
-product space under Haar; an event mod `r_E` is single-value on digit
-coordinates with modulus product `r_E≤T`). Put `λ_v:=2^{log m_v/𝓛}` (`m_v`
-the size of digit coordinate v). Then every event and every restricted event
-of every `F^{(j)}` has `w≤2`, so `G_{F^{(j)}}≤1`, and the modulus-weighted
-Efron–Stein truncation `u_j` of `F^{(j)}` at modulus `e^τ` satisfies
-EL with `τ := 𝓛·⌈log₂(100m²(S+1)e^{3S})⌉ ≪ 𝓛(S+k𝓛)`. Every cell of the
-BRW minorant then has modulus `≤T³e^{2τ}`, so in O9 Thm 1.1
+**Corollary 4.1 (q-ary energy concentration; PROVED).** Let f be the
+bad- or good-indicator of a single-value system whose events have support
+`≤k`, on any finite product of uniform spaces (any alphabet sizes). Then
 
 ```
-log Z ≤ log Q_Π + O(𝓛(S + k𝓛)) ≪ log Q_Π + 𝓛^5 log𝓛     (under ET)
+energy(f; t) = Σ_{|U|>t}‖f^{=U}‖² ≤ 2^{−(t+1)/k}     for all t≥0.
 ```
 
-(was `log Q_Π + C·k·b·k_0·𝓛 ≍ 𝓛^7`). The junta term then drops below the
-quarantine term `log Q_Π ≪ 𝓛^7/log𝓛`; **the exponent improves only together
-with a cheaper quarantine** (task item (2)): with `log Q_Π ≪ 𝓛^5log𝓛` one
-would get `W(p) ≥ exp((log p)^{1/5−o(1)})` i.o. — beyond O9 Cor 4.2's 1/6,
-which (§1) applies to coordinate-counting arguments only.
+*Proof.* Corollary 3.5 with `λ_v=2^{1/k}`, and `f^{=U}=−F^{=U}` for `U≠∅`. ∎
+
+This is the energy form of ESW (O8 §6.4) with no dependence on the alphabet
+size, on masses or on codegrees. It is the q-ary analogue of the Boolean
+fact "width-w DNFs are ε-concentrated up to degree `O(w log 1/ε)`", here
+with the sharp constant (`λ^k=2` is attained by a single event, §2).
+
+**Theorem 4.2 (junta term without the bit factor; PROVED, as an
+implication inside O8 Thm 3.4 / O9 Thm 2.2).** In O8 Thm 3.4 (events split
+into single values mod `ℓ^{e_ℓ}` as in O8 Setting 3.0, supports `≤k`,
+`m≤T^{k+2}`), take `u_j` to be the Efron–Stein truncation of `F^{(j)}` at
+level
+
+```
+t := k·⌈log₂(100 m²(S+1) e^{3S})⌉ ≤ C·k(S + k𝓛).
+```
+
+Then EL(t) holds. Each restricted event of `F^{(j)}` again has support
+`≤k`, so Corollary 4.1 applies. In O9 Thm 2.2 this replaces
+`d=4C_H·k·b·k_0`, so
+
+```
+log Z ≤ log Q_Π + 2(3k+2t+1)𝓛 ≪ log Q_Π + k𝓛(S*+k𝓛) ≪ log Q_Π + 𝓛^6     (z=𝓛², under ET).
+```
+
+The rest of O9 Thm 2.2 is unchanged: Lemma 2.1 gives `A≤1.03`, the twist
+uses only `E[F−B]≤δ/100`, and the cells of B lie on `≤3k+2t` free primes.
+
+So the junta term drops from `≍𝓛^7` to `≪𝓛^6`, and
+`log Q_Π≪𝓛^7/log𝓛` is now the **only** term of order `𝓛^7`. With a
+quarantine `log Q_Π≪𝓛^6` (task item (b)), O9 Thm 2.2 would give exponent
+1/6. That is O9 Cor 4.2's ceiling for coordinate-counting arguments, and
+it is now reached on the junta side.
+
+**Remark 4.3 (modulus weighting; PROVED under a stated hypothesis).**
+Suppose every event's modulus satisfies `∏_{ℓ∈supp E}ℓ^{a_ℓ} ≤ T^ρ`, where
+`a_ℓ` is the largest exponent of ℓ used by any event. Take coordinates
+`X_ℓ mod ℓ^{a_ℓ}`, events split to single values there, and
+`λ_ℓ:=2^{a_ℓ log ℓ/(ρ𝓛)}`. Then every `w_E≤2`, so by Cor 3.5 the
+truncation at modulus `e^τ`, `τ:=ρ𝓛·⌈log₂(100m²(S+1)e^{3S})⌉`, satisfies EL,
+and `log Z ≤ log Q_Π + O(ρ𝓛(S+k𝓛))`. If all free primes enter the event
+moduli to the first power (`ρ=1`), this is `≪ log Q_Π+𝓛^5log𝓛` under ET.
+Exponent 1/5 would then need `log Q_Π≪𝓛^5log𝓛`. We have **not** checked
+whether the ES events at free primes `>z` use higher prime powers, or
+whether those can be quarantined cheaply. (Digit coordinates do not
+help: a junta function of the i-th base-ℓ digit alone needs modulus
+`ℓ^{i+1}`.)
 
 ## 5. Status summary, scope
 
@@ -347,13 +383,11 @@ which (§1) applies to coordinate-counting arguments only.
   arguments only); §2 identities and the single-coordinate case of MONO; the
   counterexample to MONO; **Lemma 3.1** (`G_F ≤ E_x Q_μ(𝓗(x))`, suppression
   built in); the vertex recursion; the two-edge formula; §4's implication.
-* CONJECTURE (strong EVIDENCE, no counterexample in ~10⁵ random and
-  hill-climbed instances): Q, Q′, QM, FM; hence C-1 and C-exp.
-* Not claimed: ESW in the form `E_ρW^{≥s}[f_ρ]≤(C(pk+max w))^s` (not
-  addressed directly; C-1 with `λ=2^{1/k}` would imply the energy form
-  `energy(F;t)≤2^{−t/k}` for every single-value system, with no mass
-  hypothesis); any exponent improvement (needs C-1 **and** a cheaper
-  quarantine); anything about ES.
+* PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2).
+* CONJECTURE (EVIDENCE): FM (fractional matchings), C-exp (`w_E>2` allowed).
+* Not claimed: the random-restriction form of ESW (not needed: Cor 4.1 is
+  the energy statement LMN would have produced); any exponent improvement
+  by itself (needs a cheaper quarantine); anything about ES.
 
 ## Replay
 
