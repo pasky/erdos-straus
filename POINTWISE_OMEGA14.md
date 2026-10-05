@@ -402,7 +402,9 @@ integral `∫ϑ(t)(1+log t)(t log t)^{−2}dt` gives `log(7/6)`, and the boundar
 
 *Exceptional set is harmless.* If `q_1>𝓛^{1.9}`, write `q'':=q_1/gcd(q_1,4)≥q_1/4`; then
 `n∈𝒩_exc ⟺ q''|n`. It is used only through Lemma 4.4's class-uniform upper bound for multiples
-of `q''`, with `τ(q'')/q''≤𝓛^{−1.8}`.
+of `q''`, with `τ(q'')/q''≤4𝓛^{−1.8}` (R49b D3: by the divisor bound `τ(m)≤m^{1/20}` for
+`m≥m_0`, and `q''≥q_1/4>𝓛^{1.9}/4`, so `τ(q'')/q''≤q''^{−0.95}≤4𝓛^{−1.8}` for T large; note q''
+may be as large as `4T^ε`, so τ(q'') itself is not bounded by a power of 𝓛).
 
 **Lemma 4.4 (the D's are class-uniform mod v; PROVED, elementary).** Put `L:=log X=ε𝓛`.
 For T large, every odd squarefree y-rough `v≤V`, and every unit class a mod v,
@@ -428,7 +430,7 @@ So `H_all≥(1/2)(6/π²)L²/(48v) − O(LX^{−1/3})`.
 *Removing 𝒩_exc* (only if `q_1>𝓛^{1.9}`). Here `q''|κt`, so `q''/(q'',t)` divides κ. Together
 with `κ≡b (v)` this is one class mod `v·q''/(q'',t)` (or empty), and HAAR (F4) bounds the
 `1/κ`-sum by `1/K_1+(q'',t)log(X^{1/3})/(vq'')`. Since `Σ_{t≤X}(q'',t)/t≤τ(q'')(1+L)`,
-`H_exc≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v`.
+`H_exc≤L²τ(q'')/(vq'')+O(LX^{−2/3}) ≤ 4L²𝓛^{−1.8}/v` (divisor bound, as above).
 Collecting, `W(v,a)≥L²/v·(6/(96π²)−o(1)) ≥ L²/(200v)`, using `X^{−1/3}≤1/v`. ∎
 
 **Theorem 4.5 (no positive low-level minorant; PROVED modulo (G), the effective Page bound and
