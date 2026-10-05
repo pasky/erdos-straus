@@ -618,37 +618,60 @@ decay; R30c m4), but no proof is given.
   3. The precision `k_0≍S`, forced by `δ≥e^{−2.2S}` being only a lower
      bound.
 
-### 6.6 The Haar mass S cannot be `𝓛^{1+o(1)}` (PROVED modulo a standard divisor sum)
+### 6.6 The Haar mass S cannot be `𝓛^{1+o(1)}` (PROVED modulo a standard divisor sum, sketched)
 
 **Proposition 6.6.** Let Π be any quarantine set with
 `|Π∩(T^{1/2},T]| ≤ T^{1/3}`; the iterated quarantine qualifies, since
-`|𝓑|≤T^{o(1)}`. Then the surviving mass satisfies `S_tot(Π) ≫ 𝓛²`.
+`|𝓑|≤T^{o(1)}`. Then the surviving distinct-class single mass satisfies `S1(Π) ≫ 𝓛²`
+(hence also `S ≥ S1` and `S_tot(Π) ≫ 𝓛²`).
 This rests on the shifted-prime divisor bound
 
 ```
 (D)   Σ_{p≤x, p≡3 (4)} τ(((p+1)/4)²) ≫ π(x)(log x)²,
 ```
 
-which is standard: write `τ(n²)=Σ_{d|n}2^{ω(d)}`, keep `d≤x^{1/3}`, and
-apply Bombieri–Vinogradov.
+which is standard; we use it on dyadic ranges (R30c m6):
 
-*Proof.* The atoms `(M,D)=(ℓ,D)` with M a free prime have `m=1`, so they
+```
+(D')  Σ_{x/2<p≤x, p≡3 (4)} τ(((p+1)/4)²) ≫ (x/log x)(log x)²   (x large).
+```
+
+*Proof of (D') (standard; sketched as in Elsholtz–Tao §5).* `τ(n²)=Σ_{d|n}2^{ω(d)}`,
+and for `p≡3 (4)`, `d|(p+1)/4 ⟺ p≡−1 (4d)`. Keep `d≤y:=x^{1/3}`. Write
+`π^*(q):=#{x/2<p≤x: p≡−1 (q)}=π^*/φ(q)+E(q)` with `π^*:=π(x)−π(x/2)`. Main
+term: `π^*Σ_{d≤y}2^{ω(d)}/φ(4d) ≥ (π^*/4)Σ_{d≤y}2^{ω(d)}/d ≫ π^*(log x)²`.
+Error: by Cauchy–Schwarz, `Σ_{d≤y}2^{ω(d)}|E(4d)| ≤ (Σ_d4^{ω(d)}|E(4d)|)^{1/2}(Σ_d|E(4d)|)^{1/2}`;
+Brun–Titchmarsh (`4d≤x^{1/2}`) gives `|E(4d)|≪x/(φ(d)log x)`, so the first
+factor is `≪(x(log x)^3)^{1/2}`, and Bombieri–Vinogradov gives
+`Σ_{q≤x^{1/3}}|E(q)|≪x(log x)^{−A}`. The error is `≪x(log x)^{(3−A)/2}`,
+negligible. ∎
+
+*Proof of the Proposition.* The atoms `(M,D)=(ℓ,D)` with M a free prime have `m=1`, so they
 survive every class-of-one quarantine (`1|4D+1`). They are singles at ℓ
 with classes `−4D mod ℓ`. The divisors `D≤A_ℓ=(ℓ+1)/4<ℓ` of `A_ℓ²` give
-distinct classes, and there are at least `τ(A_ℓ²)/2` of them. So the
-single mass is `≥ Σ_{ℓ∈(√T,T]∖Π} τ(A_ℓ²)/(2(ℓ−1))`. By (D) and partial
-summation, the sum over all `ℓ∈(√T,T]` is
-`≫ ∫_{√T}^{T}(log u)²du/(u log u) ≍ 𝓛²`. The at most `T^{1/3}`
-quarantined primes there remove at most `T^{1/3}·τ*(T)²/√T = o(1)`. ∎
+distinct nonzero classes (`4D∈[4,ℓ+1]`), exactly `(τ(A_ℓ²)+1)/2` of them. So the
+distinct-class single mass is `S1 ≥ Σ_{ℓ∈(√T,T]∖Π} τ(A_ℓ²)/(2(ℓ−1))`. By (D')
+on the dyadic ranges `(T/2^{j+1},T/2^j]`, `0≤j≤𝓛/(2log2)`, each range
+contributes `≫ log(T/2^j)`, so the sum over all `ℓ∈(√T,T]` is
+`≫ Σ_j (𝓛−j log 2) ≍ 𝓛²`. The at most `T^{1/3}` quarantined primes there remove
+at most `T^{1/3}·τ*(T)²/√T = o(1)`. ∎
 
-**Consequence (Assessment).** In §6.5's ceiling `log p ≳ S²·(log factors)`,
-S is at least of order `𝓛²`. So even with an ideal junta and the observed
-`S≈𝓛^{2.5}`, this route cannot go below `log p≈𝓛^{4…6}`; the exponent
-stays `≤1/4` at best. Task (b)'s hope `S≪𝓛^{1+o(1)}` is a dead end: the
-`m=1` singles alone carry mass `≍𝓛²`. Singles are prime-local, so a
-construction that sieves them separately (Brun, junta `≍S_1`) and applies
-the BRW route only to multi-prime events would face `S_{≥2}` in place of
-S. Whether `S_{≥2}` is much smaller is unexamined. The data of PO §2 are
+**Strengthening (PROVED modulo (D'); R30c m7).** The proof bounds the
+distinct-event single mass, so `S ≥ S1 ≫ 𝓛²` for the distinct-event mass
+S of Thm 3.4. Singles at distinct free primes are independent events, so
+`δ = E F ≤ ∏_ℓ(1−g_ℓ) ≤ e^{−S1}` (`g_ℓ` the single mass at ℓ). Hence
+`log(1/δ*) ≫ 𝓛²`, and for every minorant `B≤F`, `μ≤δ`, so
+`K ≥ log(1/μ) ≫ 𝓛²` rigorously.
+
+**Consequence (Assessment; R30c m8).** In §6.5's bound `log p ≳ S²·log z`,
+S is at least of order `𝓛²`; so through PO Thm 4.1 even an ideal junta
+cannot go below `log p≈𝓛^4·log z`, exponent `≤1/4`. Task (b)'s hope
+`S≪𝓛^{1+o(1)}` is a dead end. Splitting off the singles (Brun for them,
+BRW for the multi-prime events) **cannot lower K**: any minorant has
+`μ≤δ≤e^{−S1}`, so `K≳𝓛²` regardless; only `log Z` could shrink. Also
+`log Z ≥ log ℓ_aux > 𝓛`, so PO Thm 4.1's sufficient condition is never met
+below `log p≈𝓛³` on this route. (POINTWISE_OMEGA9 Thm 1.1 makes K enter
+only additively, which changes this accounting.) The data of PO §2 are
 for `y=√T`, where `S_{≥2}=0`.
 
 ## Replay
