@@ -24,3 +24,22 @@ Status: IN PROGRESS.
   (μ−KΔ) − (−log P(Av)) = −2.6e-5 (single-event-like instances).
   Scope caveat (author states it): single-value atomic events only; prime-power moduli not
   covered. §2 uses squarefree y-rough M, so fine.
+* **Event system §0 vs δ*(T)** — SOUND. Matches POINTWISE_SIZE §7 Prop 7.1(a)
+  definition verbatim (Haar on Ẑ^×, n ≡ 1 (24), forbidden n ≡ −4D (M), M ≡ 3 (4), M ≤ T,
+  D | A_M²). gcd(A_M, M) = 1 so residues are units; ℓ | M ⇒ ℓ ∤ D. 𝓕 ⊂ full system, so
+  δ*(T) ≤ P(Av(𝓕)) is the correct direction. Coordinates at ℓ > 3 independent uniform on
+  (ℤ/ℓ)^× under the 1 (24) normalisation.
+* **Lemma 2.2 (mass)** — SOUND (re-derived). D | A² ⟺ D* | A, exactly 2^{ω(n)} D with
+  D* = n; n | A_M ⟺ M ≡ −1 (4n). Sieve: modulus 4n ≤ 4X^{1/5}, z = y = 𝓛^5, level X^{1/2},
+  s ≥ 𝓛/(20 log 𝓛) → ∞, |r_d| ≤ 1 so remainder ≤ X^{1/2}; main X^{4/5}/(log 𝓛) dominates.
+  Hypotheses of the fundamental lemma (dimension 1, g(p) = 1/p for p ∤ 2n) hold uniformly in n.
+  Non-squarefree removal fine. Σ_{n≤x} 2^{ω(n)}/n ~ (3/π²) log² x correct.
+* **Lemma 2.3 (LLL hypothesis)** — SOUND (re-derived). w_q bound via F2/F4/F3 correct;
+  Σ_Γ ≤ (𝓛/log y)(𝓛³/(2y) + 4𝓛T^{−2/5}) = O(1/(𝓛 log 𝓛)). Remark (iii) check:
+  ∏(1−2p) ≥ exp(−(8/3)Σp) ≥ e^{−1/3} > 1/2 for p ≤ 1/8, Σp ≤ 1/8. OK.
+* **Lemma 2.4 (Δ)** — SOUND (re-derived). Compatible ⇒ g | D−D'; M = M' ⇒ same event by
+  (F1); P(E∩E') = 1/φ(gvv') (squarefree). (a) uniform-in-v bound on Σ_g is legitimate;
+  Δ_a ≪ 𝓛^4/y + 𝓛³ log N_0/N_0 ≪ 𝓛 log 𝓛. (b) algebra of the bracket checked
+  term-by-term (= (16𝓛/y)[𝓛²(ΣD 1/n)²/16 + …]); main term 𝓛^7/y = 𝓛² exactly at y = 𝓛^5
+  (so "≪ 𝓛²" is with constant ≈ 10^{−4}, since Σ_D 1/n ≤ (1+𝓛/10)²). Ordered-pair
+  overcount only helps.
