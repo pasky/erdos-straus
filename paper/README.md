@@ -32,20 +32,27 @@ re-derived, two slips noted, Rem 10.7). Change list for referees:
   refereed and merged.
 * v4 refereed in R36 (`reviews/sieve-limits-note-review-v4.md`, MINOR REVISION; M1, m1–m18 applied). Internal results only; not a proof of ES.
 
-**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v2** (tasks O33/O34, 18 pages).
-It proves `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many hard primes
-(mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4 + Håstad),
-and `log W ≥ (1/log2−o(1))log₂p·log₃p` (mod Gallagher + Håstad). Sources:
-`POINTWISE_OMEGA8.md` §§3–4 (Bazzi–Razborov sandwich + switching-lemma tail)
-and `POINTWISE_OMEGA9.md` Thm 1.1 (linear transfer via Gallagher; replaces
-Thorner–Zaman).
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v3** (task O47, 27 pages).
+It proves `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{-1/5})` for infinitely many hard
+primes (mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4,
+Thm 7.1, Cor 7.4, (7.10)); `log W ≥ (1/log2−o(1))·log log p·log log log p` (mod Gallagher
+only); Haar side `log(1/δ*(T)) ≪ 𝓛^5 log 𝓛` (mod ET only). Håstad's switching
+lemma is no longer used. Sources: `POINTWISE_OMEGA10.md` (energy bound C-1 /
+Conjecture Q, Thm 3.4, Cor 3.5, Cor 4.1; ledger (H)21), `POINTWISE_OMEGA11.md`
+(graded quarantine, fibre-cell transfer, digit-filtration Lemma 1.1; (H)22),
+`POINTWISE_OMEGA12.md` (H_ω(2) mod ET, pre-quarantine Lemma 6.2, Thm 6.3; (H)24),
+plus `POINTWISE_OMEGA8.md`/`POINTWISE_OMEGA9.md` for the sandwich and the transfer.
+Change list for the referee: `reviews/agent-reports/AGENT_REPORT_O47.md`.
 * v1 (exponent 1/14, Thorner–Zaman transfer) was refereed in R33 (MINOR
   REVISION, repairs applied) and merged.
-* v2 refereed in R33b (`reviews/es-subexp-note-review-v2.md`, MINOR REVISION; M1 and minors applied).
+* v2 (exponent 1/7, Gallagher transfer + Håstad switching lemma) refereed in
+  R33b (`reviews/es-subexp-note-review-v2.md`, MINOR REVISION; M1 and minors applied) and merged.
+* v3 not yet refereed.
 
 The rate supersedes `es-omega-note.tex` (v3). That note remains the
 reference for the slice parameter and the Haar Type I material. Novelty
-audit: `reviews/novelty-audit-omega8.md`.
+audit: `reviews/novelty-audit-omega8.md` (for v2's ingredients); the energy
+bound's nearest prior art is Lecomte–Tan (FOCS 2021), novelty search partial.
 
 **New (2026-09-06): `vaughan-loglog-note.tex` / `.pdf`** — a 9-page standalone,
 self-contained note proving the unconditional bound

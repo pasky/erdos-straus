@@ -23,15 +23,18 @@
 \newcommand{\E}{\mathbb E}
 \newcommand{\PP}{\mathbb P}
 \newcommand{\supp}{\operatorname{supp}}
-\newcommand{\DT}{\operatorname{DT}}
 \newcommand{\energy}{\operatorname{En}}
+\newcommand{\Ho}{\mathcal H}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cM}{\mathcal M}
+\newcommand{\cC}{\mathcal C}
 \raggedbottom
 
 % TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
 \title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
-the multiplier modulus is infinitely often $\exp\big((\log p)^{c}\big)$}
+the multiplier modulus is infinitely often $\exp\big((\log p)^{1/5-o(1)}\big)$}
 \author{Anonymous}
-\date{Draft v2, 5 October 2026}
+\date{Draft v3, 5 October 2026}
 
 \begin{document}
 
@@ -40,27 +43,29 @@ For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
 ``multiplier'' congruence that yields a solution of $4/p=1/x+1/y+1/z$.  In
 earlier work we showed that $W(p)$ exceeds every fixed power of $\log p$ for
 infinitely many primes $p$ in Mordell's hard classes.  Here we prove
-$W(p)\ge\exp(c(\log p)^{1/7})$ for infinitely many hard primes, assuming
-Elsholtz and Tao's average bound for $\tau(kab^2+1)$; more precisely, the least
-hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{7}))$.
-Without the Elsholtz--Tao input we get $\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$
-infinitely often.  As before, the class of one modulo the small primes leaves
-a residual congruence system on the larger primes.  The local lemma shows
-that its avoiding set has Haar density $e^{-O(S)}$, where $S$ is its total
-mass.  To transfer this density to primes we need a \emph{pointwise}
-minorant that is a short combination of congruence classes, each on few
-primes.  We take the one-sided $\ell^2$ sandwich of Bazzi and Razborov from
-the theory of bounded independence.  Its error is the Efron--Stein tail of
-the avoidance indicator.  After a binary encoding of residues the indicator
-is a CNF of small width, so Håstad's switching lemma, through the argument
-of Linial, Mansour and Nisan, bounds the tail.  The minorant is transferred
-to primes by a \emph{linear} transfer theorem.  We expand it in Dirichlet
-characters, bound every coefficient by its Haar $\ell^1$ norm, which is
-within $3\%$ of its mean, and control all characters of conductor up to a
-power of the modulus at once by Gallagher's prime number theorem for the
-family of all characters.  The bound for the least such prime is then
-linear in the logarithm of the largest modulus.  No codegree condition,
-level structure or truncated inclusion--exclusion is needed.
+$W(p)\ge\exp\big(c(\log p)^{1/5}(\log\log p)^{-1/5}\big)$ for infinitely many
+hard primes, assuming Gallagher's prime number theorem for the family of all
+characters and four results of Elsholtz and Tao on divisor sums of
+polynomials; more precisely, the least hard prime with $W(p)>T$ is at most
+$\exp(O((\log T)^5\log\log T))$.  Without the Elsholtz--Tao input we get
+$\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$ infinitely often.
+The class of one modulo a \emph{graded} set of prime powers leaves a residual
+congruence system; the exponent at each prime is raised until the mass of the
+system at that prime falls below a threshold proportional to the logarithm of
+the prime power it would consume.  The local lemma then gives its avoiding
+set positive Haar density, and the cost of the quarantine is controlled by a
+moment of the number of prime-power divisors of the moduli, which we bound
+with the Elsholtz--Tao divisor sums in progressions.  To transfer the density to primes we use
+the one-sided $\ell^2$ sandwich of Bazzi and Razborov and a linear transfer
+theorem based on Gallagher's theorem, as in the previous version.  The new
+ingredient is a sharp energy bound for avoidance indicators: for any family
+of cylinder events on a finite product probability space and any weights
+$\lambda_v\ge1$ with $\prod_{v\in\supp E}\lambda_v\le2$ for every event $E$,
+the Efron--Stein energies satisfy $\sum_U\prod_{v\in U}\lambda_v\|F^{=U}\|_2^2\le1$.
+It replaces the binary encoding, Håstad's switching lemma and the
+Linial--Mansour--Nisan argument of the previous version, and, applied to
+the base-$\ell$ digits of the residues, it measures the cost of the
+approximation in the size of the moduli instead of the number of primes.
 \end{abstract}
 
 \maketitle
@@ -96,16 +101,16 @@ Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
 $W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
 hard primes.  Here we prove a sub-exponential rate.
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:G}, \ref{thm:ET} and~\ref{thm:hastad}]\label{thm:main}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:G} and~\ref{thm:ETall}]\label{thm:main}
 There is an absolute constant $c>0$ such that for infinitely many hard primes $p$
 \[
- W(p)\ \ge\ \exp\big(c\,(\log p)^{1/7}\big).
+ W(p)\ \ge\ \exp\Big(c\,\frac{(\log p)^{1/5}}{(\log\log p)^{1/5}}\Big).
 \]
 More precisely, for every sufficiently large $T$ there is a prime
-$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{7}$.
+$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{5}\log\log T$.
 \end{theorem}
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:G} and~\ref{thm:hastad}]\label{thm:uncond}
+\begin{theorem}[Proved modulo Theorem~\ref{thm:G}]\label{thm:uncond}
 For infinitely many hard primes $p$,
 \[
  \log W(p)\ \ge\ \Big(\frac1{\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
@@ -115,108 +120,133 @@ For infinitely many hard primes $p$,
 Theorem~\ref{thm:G} is Gallagher's prime number theorem for the family of
 all primitive characters of conductor at most $Q_G$ \cite{Gallagher}, quoted
 from \cite[Thm.~28.19]{MV3} together with the standard facts on exceptional
-zeros (Theorem~\ref{thm:xz}).  No hypothesis on Siegel zeros is needed.  The
-first version of this note had the exponent $1/14$ and the constant
-$1/(2\log2)$; it used the Thorner--Zaman theorem \cite{TZ}, through the
-transfer theorem of \cite{Paper1}, in place of Theorem~\ref{thm:transfer}.
-\cite[Prop.~1.4]{ET} is used only to bound the total mass of the residual
-system by $(\log T)^4\log\log T$ (Lemma~\ref{lem:qmass}).  Without it,
-the same argument gives Theorem~\ref{thm:uncond}.  All constants are
-effective, except that we have not checked whether the implied constant in
-\cite[Prop.~1.4]{ET} is.  We make no numerical claim.
+zeros (Theorem~\ref{thm:xz}).  No hypothesis on Siegel zeros is needed.
+Theorem~\ref{thm:ETall} collects four results of Elsholtz and Tao
+\cite{ET}: their Proposition~1.4, Theorem~7.1, Corollary~7.4 and the
+estimate (7.10).  They are used only in \S\ref{sec:moment}, to bound the
+total mass of the residual system by $O((\log T)^4)$ and a moment of the
+number of prime-power divisors of its moduli by $O((\log T)^4\log\log T)$.
+Without them the same argument gives Theorem~\ref{thm:uncond}.  All
+constants are effective, except that we have not checked whether the
+implied constants in \cite{ET} are.  We make no numerical claim.  We also
+obtain a Haar-side bound (Corollary~\ref{cor:haar}): the set of integers
+$n$ with $W(n)>T$ has density at least $\exp(-O((\log T)^5\log\log T))$,
+modulo Theorem~\ref{thm:ETall}.
+
+\emph{Versions.}  The first version of this note had exponent $1/14$; it used
+the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
+\cite{Paper1}.  The second had exponent $1/7$: it replaced Thorner--Zaman by
+the linear transfer theorem (Theorem~\ref{thm:transfer} here, in a simpler
+form), and bounded the approximation error by Håstad's switching lemma.  The
+present version keeps the transfer theorem and the sandwich, and changes
+three things: the switching lemma is replaced by an energy bound
+(\S\ref{sec:energy}), the quarantine is graded (\S\ref{sec:system}), and the
+cost of the quarantine is bounded through a moment estimate
+(\S\ref{sec:moment}).  Håstad's switching lemma is no longer used.
 
 \subsection*{The method}
-We fix $T$ and impose $n\equiv1$ modulo the prime powers $\le T$ of a set
-$\Pi$ of primes, consisting of the primes up to $z=(\log T)^2$ and a few
-further ones.  Then $W(n)>T$ whenever $n$ avoids a finite family of
-congruence \emph{events}, each on at most $k\approx\log T/(2\log\log T)$ of
-the remaining (\emph{free}) primes (\S\ref{sec:system}).  In the Haar
-measure on residues the local lemma shows that the avoiding set has density
-$\delta\ge e^{-2.2S}$, where $S\ll(\log T)^4\log\log T$ is the total
-mass, once an iterated quarantine has made the mass at each free prime
-small.  To find a \emph{prime} in the avoiding set we need a function
+Fix $T$.  We impose $n\equiv1$ modulo $Q=8\prod_\ell\ell^{a_\ell}$ for suitable
+exponents $a_\ell\ge0$.  Then $W(n)>T$ whenever $n$ avoids a finite family
+of congruence \emph{events} $n\equiv-4D\pmod{r}$, one for each surviving pair
+$(M,D)$, where $r$ is the part of $M$ not absorbed by $Q$.  Unlike in
+\cite{Paper1} and the previous version, a prime $\ell$ is not quarantined
+all at once to $n\equiv1\pmod{\ell^{e}}$ with $\ell^e\le T<\ell^{e+1}$.  We
+raise $a_\ell$ one step at a time, as long as the Haar mass $w_\ell$ of the
+events that still involve $\ell$ exceeds $\theta_\ell=c(a_\ell+1)\log\ell/\log T$
+(Lemma~\ref{lem:gradedq}).  Since every event comes from a modulus $M\le T$,
+the total mass seen by one event is then at most $c$, which is what the local
+lemma needs.  After a cheap initial quarantine of the primes up to $\log T$,
+the cost satisfies $\log Q\le1.02\log T+7+(e^2\log T/c)\,\Omega_0$, with the moment
+$\Omega_0=\sum_{(M,D)}(g/M)\,h(M)$, where $g=\gcd(M,4D+1)$ and $h(M)=\sum_{\ell^i\mid M}1/i$.
+We bound this moment by $O((\log T)^4\log\log T)$ (Theorem~\ref{thm:omega}), so
+$\log Q\ll(\log T)^5\log\log T$.
+
+To find a \emph{prime} in the avoiding set we need a function
 $B=\sum_ic_i\mathbf 1[n\equiv b_i\ (d_i)]$ with $B\le\mathbf 1[\text{avoid}]$
-pointwise, mean $\gg\delta$, Haar $\ell^1$ norm $\E|B|$ comparable to its
-mean, and moduli $d_i$ that each involve few primes.  The linear transfer
-theorem (Theorem~\ref{thm:transfer}) then gives a prime $p$ with
-$\log p\ll\log Z$, where $Z$ is the largest modulus.  In our construction
-$\log Z\ll(\log T)^7$.
+pointwise, mean $\gg\delta$ (the Haar density of the avoiding set), Haar
+$\ell^1$ norm $\E|B|$ comparable to its mean, and small moduli $d_i$.  The
+linear transfer theorem (Theorem~\ref{thm:transfer}) then gives a prime $p$
+with $\log p\ll\log Z$, where $Z$ is $Q$ times the largest $d_i$.  It is
+Linnik's theorem with weights: the function $B(n)\mathbf 1[n\equiv1\ (Q)]$ is
+expanded in characters, every coefficient is bounded by the Haar $\ell^1$
+norm of $B$, whatever the number of cells, and Gallagher's theorem bounds
+the contribution of all characters of conductor at most a power of $Z$ at once.
 
-The transfer theorem is Linnik's theorem with weights.  The function
-$B(n)\mathbf 1[n\equiv1\ (Q)]$ is expanded in characters modulo $QD$,
-$D=\lcm d_i$.  The coefficient of $\chi=\chi_Q\chi_D$ is
-$\E_D[B\bar\chi_D]/\varphi(Q)$, so it is bounded by $\E_D|B|/\varphi(Q)$
-whatever the number of cells.  Every character that occurs has conductor
-at most $Z$, and Gallagher's theorem bounds the sum of
-$|\vartheta(x;\chi)|$ over \emph{all} of them at once.  The exceptional zero
-is handled as in \cite{Paper1}: either it multiplies the main term, or it
-belongs to a real character whose coefficient is controlled by a twisted
-mean of $B$.  For our minorants $\E|B|\le1.03\,\E B$, because $B\le F$ and
-$\E[F-B]$ is small (Lemma~\ref{lem:l1}).
-
-In \cite{Paper1} the minorant was an alternating expansion (inclusion--exclusion
-truncated by the number of primes in the support), organised in levels.
-That route loses a factorial in the number of levels, which limits it to
-fixed powers of $\log p$.  Here we use instead the one-sided
-$\ell^2$-approximation scheme of Bazzi \cite{Bazzi}, in the form of
-Razborov \cite{Razborov} (Lemma~\ref{lem:brw}).  For events
-$E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
+As in the previous version, $B$ is the one-sided $\ell^2$ sandwich of Bazzi
+\cite{Bazzi}, in the form of Razborov \cite{Razborov} (Lemma~\ref{lem:brw}).
+For events $E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
 \[
  B=1-\sum_iA_i\Big(1-\sum_{j<i}A_ju_j\Big)^2\ \le\ \mathbf 1[\text{no }E_i\text{ occurs}],
 \]
-and $\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
-indicator that no earlier event occurs, conditioned on $E_j$.  Choosing $u_j$
-as the best $\ell^2$ approximation of $F^{(j)}$ by sums of functions of at
-most $t$ coordinates makes every cell of $B$ involve at most $3k+2t$ primes,
-and makes the error an \emph{Efron--Stein tail} of $F^{(j)}$.  We bound this
-tail in \S\ref{sec:tail}.  Encode each residue in binary.  Then
-$1-F^{(j)}$ becomes a DNF of width $k\log_2(4T^2)$, and Håstad's switching
-lemma with the Linial--Mansour--Nisan argument \cite{Hastad,LMN} gives
-tail $\le4\cdot2^{-k_0}$ at level $t\asymp k\log T\cdot k_0$
-(Lemma~\ref{lem:tail}).  We need $k_0\asymp S+k\log T$, so $t\ll(\log T)^6$.  Each modulus
-then has $\log d_i\ll t\log T\ll(\log T)^7$, and so $\log p\ll(\log T)^7$.
+and, if each $u_j$ depends only on the coordinates not fixed by $E_j$,
+$\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
+indicator that no earlier event occurs, conditioned on $E_j$.  We need the
+$u_j$ to be combinations of classes with small moduli.  The natural choice
+is a truncation of the Efron--Stein decomposition of $F^{(j)}$, and the error
+is then an Efron--Stein tail.  The previous version bounded this tail by
+encoding residues in binary and applying Håstad's switching lemma
+\cite{Hastad,LMN}.  Here we prove (Theorem~\ref{thm:C1}): if $F$ is the
+avoidance indicator of any family of cylinder events on a finite product
+probability space, and $\lambda_v\ge1$ are weights with
+$\prod_{v\in\supp E}\lambda_v\le2$ for every event $E$, then
+\[
+ \sum_{U}\Big(\prod_{v\in U}\lambda_v\Big)\,\|F^{=U}\|_2^2\ \le\ 1 .
+\]
+With $\lambda_v=2^{1/k}$ this gives the tail $2^{-(t+1)/k}$ beyond level $t$ for
+events on at most $k$ coordinates (Corollary~\ref{cor:tail}), with no
+dependence on the alphabet sizes.  Applied to the base-$\ell$ digits of the
+residues, with weights adapted to the moduli (Theorem~\ref{thm:filtration}),
+it shows that truncating $F^{(j)}$ to moduli at most $e^{\tau}$ costs
+$2^{-\tau/(2\log T)}$.  So moduli of size $\log d_i\ll\log T\cdot(S+\log T)$
+suffice, where $S\ll(\log T)^4$ is the total mass.  Altogether
+$\log Z\ll(\log T)^5\log\log T$.
 
 \subsection*{Relation to the literature}
-The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.  The tail bound
-(Lemma~\ref{lem:tail}) is a routine application of \cite{Hastad,LMN} (we follow \cite[\S4]{OD}).  We claim
-no novelty for either.  To our knowledge these tools from the theory of
-bounded independence (``polylogarithmic independence fools DNF and
-$\mathrm{AC}^0$'' \cite{Bazzi,Razborov,Braverman}) have not been used
-before to construct sieve minorants for primes.  What makes them usable is
-the transfer.  Gallagher's theorem is classically the engine of Linnik's
-theorem on the least prime in a single progression.  Here it serves as a
-transfer device for an arbitrary signed combination of progressions.
-Because it controls the whole family of characters of conductor $\le Q_G$
-simultaneously, the cost is governed by the Haar $\ell^1$ norm of the
-minorant and the size of its largest modulus, and not by the number of
-cells or their $\ell^1$ mass.  For a Bazzi--Razborov sandwich the $\ell^1$
-norm is automatically close to the mean (Lemma~\ref{lem:l1}).  The nearest classical analogues are bounds for the least prime in a union
-of residue classes, or in a Chebotarev class of an abelian extension
-(Lagarias--Montgomery--Odlyzko \cite{LMO}; Thorner--Zaman \cite{TZcheb}).
-These also bound the least prime by a power of the conductor through
-log-free zero-density estimates and the Deuring--Heilbronn phenomenon, but
-they concern nonnegative indicators of sets of classes.  As far as we know,
-what is new here is the use of a \emph{signed} minorant, whose cost is
-governed by $A=\E|B|/\E B$.  We have not searched systematically for an
-earlier use of Gallagher's theorem in this role.  Earlier uses of the
-switching lemma in number theory known to us run in the opposite
-direction: they show that an arithmetic function such as the M\"obius
-function is uncorrelated with bounded-depth circuits \cite{Green,Bourgain}.  Our literature
-search was limited, and we make no priority claim.  The Haar-side input,
-a local-lemma lower bound for the density of the uncovered set of a
-congruence system, has well-known relatives in the work on covering
-systems.  The closest is Filaseta, Ford, Konyagin, Pomerance and Yu
-\cite{FFKPY}, who to our knowledge already use the local lemma to bound the
-uncovered density of a congruence system from below.  Others are Hough
-\cite{Hough} and Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba
-\cite{BBMST}.  We do not use those results.  On the bounded-independence
-side, the step from the truncated inclusion--exclusion of \cite{Paper1} to
-the present sandwich mirrors a step in that theory.  Even, Goldreich, Luby,
-Nisan and Veli\v{c}kovi\'c \cite{EGLNV} showed by Bonferroni-type
-truncation that $k$-wise independence fools combinatorial rectangles, i.e.\
-conjunctions of single-coordinate conditions (our prime-local case).
-Bazzi's sandwich is what extends this to DNFs, i.e.\ to events on several
-coordinates.
+\emph{The energy bound.}  The nearest prior art known to us is Lecomte and
+Tan \cite{LT}, who bound the Fourier coefficients of a DNF on $\{\pm1\}^n$ by
+the probability that a set $S$ is covered by the terms satisfied at a random
+point; this is the device of our Lemma~\ref{lem:cover}.  Their cover counts
+are unsigned, and their degree concentration still comes from Håstad's
+switching lemma, with an unspecified constant.  In Lemma~\ref{lem:cover} the
+cover counts are signed, so that they vanish when a satisfied event misses
+the set; the polarization identity (Lemma~\ref{lem:polar}) and the
+deletion--contraction bound (Lemma~\ref{lem:theta}) then give the constant
+$1$, on any finite product probability space.  In Boolean language
+(Remark~\ref{rem:boolean}): every width-$k$ DNF $g:\{\pm1\}^n\to\{\pm1\}$
+has $\sum_{|S|>t}\hat g(S)^2\le4\cdot2^{-(t+1)/k}$, under any product measure,
+while the switching-lemma route gives $2\cdot2^{-t/(20k)}$ \cite[\S4.4]{OD}.
+The base $2^{-1/k}$ is sharp over general product spaces
+(Remark~\ref{rem:sharp}).  Theorem~\ref{thm:C1} and its corollaries are new to
+us, but our literature search was partial (we checked \cite{LT}, \cite{OD} and
+some lecture notes; we did not search the literature on switching-lemma
+variants, Fourier growth or hypercontractivity with $\rho>1$
+systematically), and we make no priority claim.
+
+\emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
+To our knowledge tools from the theory of bounded independence
+(``polylogarithmic independence fools DNF and $\mathrm{AC}^0$''
+\cite{Bazzi,Razborov,Braverman}) have not been used before to construct
+sieve minorants for primes.  Gallagher's theorem is classically the engine of
+Linnik's theorem on the least prime in a single progression.  Here it serves
+as a transfer device for an arbitrary signed combination of progressions; the
+cost is governed by the Haar $\ell^1$ norm of the minorant and its largest
+modulus, not by the number of cells.  The nearest classical analogues are
+bounds for the least prime in a union of residue classes, or in a Chebotarev
+class of an abelian extension (Lagarias--Montgomery--Odlyzko \cite{LMO};
+Thorner--Zaman \cite{TZcheb}); these concern nonnegative indicators.  We
+have not searched systematically for an earlier use of Gallagher's theorem
+in this role.  Earlier uses of the switching lemma in number theory known to
+us run in the opposite direction: they show that the M\"obius function is
+uncorrelated with bounded-depth circuits \cite{Green,Bourgain}.  The Haar
+side, a local-lemma lower bound for the density of the uncovered set of a
+congruence system, has relatives in the work on covering systems:
+Filaseta, Ford, Konyagin, Pomerance and Yu \cite{FFKPY}, who to our knowledge
+already use the local lemma for this purpose, Hough \cite{Hough} and
+Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba \cite{BBMST}.  We do not
+use those results.  The moment bound of \S\ref{sec:moment} uses the
+parametrisation and the divisor-sum estimates of Elsholtz and Tao
+\cite{ET}; the splitting of the prime powers at the scale of the parameter
+$c$ (Lemma~\ref{lem:rough}) is ours.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
@@ -225,22 +255,26 @@ we checked in the source but whose proof we did not check.  \emph{Cited}
 marks external statements; \emph{Classical} marks standard results for
 which we include a proof or a precise textbook reference.  The cited
 inputs of the main theorems are Gallagher's theorem (Theorem~\ref{thm:G},
-used together with the classical Landau--Page facts of Theorem~\ref{thm:xz}), Elsholtz--Tao
-(Theorem~\ref{thm:ET}) and Håstad's switching lemma
-(Theorem~\ref{thm:hastad}, a textbook result).  In the labels,
-``modulo Theorem~\ref{thm:G}'' includes Theorem~\ref{thm:xz}.  Classical
-results whose proof we include, or which are standard textbook facts (the
-local lemma, the Efron--Stein decomposition, the median of the binomial
-law, the divisor bound), are not listed in the labels.  Nothing here bears
-on the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$
-may well have other representations.
+used together with the classical Landau--Page facts of
+Theorem~\ref{thm:xz}) and the Elsholtz--Tao estimates
+(Theorem~\ref{thm:ETall}).  In the labels, ``modulo Theorem~\ref{thm:G}''
+includes Theorem~\ref{thm:xz}.  Classical results whose proof we include,
+or which are standard textbook facts (the local lemma, the Efron--Stein
+decomposition, Mertens' theorem, the divisor bound, the Rosser--Schoenfeld
+bound for $\vartheta(x)$), are not listed in the labels.  \emph{Assessment}
+marks heuristic comparisons, which are not claims.  Nothing here bears on
+the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$ may
+well have other representations.
 
-\smallskip\noindent\textbf{Notation.}  $T$ is large, $\Lc=\log T$, $\log_2$
-always denotes the binary logarithm (iterated logarithms are written out as
-$\log\log$), $\tau$ is the divisor function and
-$\tau^*(x)=\max_{n\le x}\tau(n)$.
+\smallskip\noindent\textbf{Notation.}  $T$ is large and $\Lc=\log T$;
+$\log_2$ always denotes the binary logarithm (iterated logarithms are
+written out as $\log\log$).  $\tau$ is the divisor function and
+$\tau^*(x)=\max_{n\le x}\tau(n)$.  In \S\ref{sec:moment} the letter $q$
+denotes a prime power $\ell^i$ with $i\ge1$, and $\sum_q$ is a sum over prime
+powers.  For
+$\lambda=(\lambda_v)$ and a finite set $U$ we write $\lambda^U=\prod_{v\in U}\lambda_v$.
 
-\section{Atoms and the residual system}\label{sec:system}
+\section{Atoms and the graded quarantine}\label{sec:system}
 
 For $M\equiv3\pmod4$ put $\cR(M)=\{-4D\bmod M:\ D\mid A_M^2\}$.  Note that
 $\gcd(A_M,M)=1$ (as $4A_M=M+1$), so every element of $\cR(M)$ is a unit
@@ -266,141 +300,357 @@ $1\notin\cR(M)$ for every $M\equiv3\pmod4$.
 \end{lemma}
 
 \begin{proof}
-If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  Since
-$4A_M^2\equiv A_M$, the map $D\mapsto A_M^2/D$ preserves this congruence, so
+If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  As $A_M$ is a
+unit modulo $M$, $D\equiv-A_M$ gives $A_M^2/D\equiv A_M^2(-A_M)^{-1}=-A_M$, so the
+map $D\mapsto A_M^2/D$ preserves this congruence, and
 we may assume $D\le A_M$; then $0<D+A_M\le2A_M<M$, while $M\mid D+A_M$.
 \end{proof}
 
 An \emph{atom} is a pair $(M,D)$ with $M\le T$, $M\equiv3\pmod4$ and
-$D\mid A_M^2$.  For a set $\Pi$ of primes write $M=m_\Pi r_\Pi$, where
-$m_\Pi$ is the largest divisor of $M$ composed of primes in $\Pi$.  The atom
-\emph{survives} $\Pi$ if $m_\Pi\mid4D+1$ and $r_\Pi>1$; it then defines the
-\emph{event} $n\equiv-4D\pmod{r_\Pi}$, a unit class, of Haar weight
-$1/\varphi(r_\Pi)$.  Put
+$D\mid A_M^2$.  There are at most $T^2$ atoms, since $\tau(A_M^2)\le2A_M\le T$.
+For an atom put $g=g(M,D)=\gcd(M,4D+1)$.
+
+\begin{definition}[Graded quarantine and residual system]\label{def:system}
+For an odd prime $\ell\le T$ let $f_\ell=\lfloor\Lc/\log\ell\rfloor\ge1$ be the
+largest exponent with $\ell^{f_\ell}\le T$.  A \emph{graded quarantine} is a
+choice of integers $0\le a_\ell\le f_\ell$ for the odd primes $\ell\le T$; put
+$Q=8\prod_\ell\ell^{a_\ell}$.  The \emph{coordinate primes} are the odd
+$\ell\le T$ with $a_\ell<f_\ell$; write $\cP$ for their set.  For $\ell\in\cP$ let
 \[
- S^*=S^*(T)=\sum_{(M,D)}\ \max_{\Pi}\ \frac{\mathbf 1[(M,D)\text{ survives }\Pi]}{\varphi(r_\Pi)},
+ \Omega_\ell=\{x\in(\mathbb Z/\ell^{f_\ell})^\times:\ x\equiv1\ (\mathrm{mod}\ \ell^{a_\ell})\}
 \]
-the sum over all atoms and the maximum over all sets of primes.
-
-\begin{theorem}[Elsholtz--Tao {\cite[Prop.~1.4]{ET}}; cited]\label{thm:ET}
-For any $A,B>1$ and any positive integer $\kappa\ll(AB)^{O(1)}$,
+(all units if $a_\ell=0$), with the uniform measure, and let $\PP$, $\E$ be
+the product measure on $\Omega=\prod_{\ell\in\cP}\Omega_\ell$, with coordinates
+$X_\ell$.  An atom \emph{survives} $Q$ if $\gcd(M,Q)\mid4D+1$ and $M\nmid Q$.  Its
+\emph{support} is $\supp(M,D)=\{\ell:\ v_\ell(M)>a_\ell\}$, which is a nonempty
+subset of $\cP$, its \emph{modulus} is $r=\prod_{\ell\in\supp}\ell^{v_\ell(M)}$, and
+its \emph{event} is
 \[
- \sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ \ll\ AB\log(A+B)\log(1+\kappa).
+ E_{M,D}=\{X_\ell\equiv-4D\ (\mathrm{mod}\ \ell^{v_\ell(M)})\ \text{for all}\ \ell\in\supp(M,D)\}.
 \]
-\end{theorem}
-
-We use it only with $\kappa=4$, so the factor $\log(1+\kappa)=\log5$ is a
-constant.
-
-\begin{lemma}[Mass bound; proved, and (b) modulo {\cite[Prop.~1.4]{ET}}]\label{lem:qmass}
-\textup{(a)} $S^*\le\exp\big((\log2+o(1))\Lc/\log\Lc\big)$.
-\textup{(b)} $S^*\ll\Lc^4\log\Lc$.
-\end{lemma}
-
-\begin{proof}
-Let $(M,D)$ survive $\Pi$, put $A=A_M$ and $g=\gcd(M,4D+1)$.  Then
-$m_\Pi\mid g$, and $\varphi(M)\le m_\Pi\varphi(r_\Pi)$, so
-$1/\varphi(r_\Pi)\le g/\varphi(M)\le C\,g\log\Lc/M$ for an absolute $C$.  This
-bound does not depend on $\Pi$, so
-$S^*\le C\log\Lc\sum_{(M,D)}g/M$.
-
-The map $D\mapsto D'=A^2/D$ preserves $g$.  Indeed, $D$ is a unit modulo $M$,
-and for a prime power $q^a\mid M$ with $q^a\mid4D+1$ we have
-$4D'\equiv4A^2\cdot(-4)\equiv-(4A)^2\equiv-1\pmod{q^a}$.  It exchanges
-$D<A$ with $D>A$, so it suffices to sum over $D\le A$ and double.  Write
-$D=sr^2$ with $s$ squarefree.  Then $D\mid A^2$ if and only if $sr\mid A$;
-write $A=srh$, so that $D\le A$ if and only if $r\le h$, and
-$M=4srh-1\ge3srh$.  From $g\mid4sr^2+1$ and $g\mid M=4srh-1$ we get
-$g\mid4sr(r+h)$, and $\gcd(g,4sr)=1$, so $g\mid\gcd(4sr^2+1,\,r+h)$.  For fixed
-$(s,r)$ the triple $(M,D,g)$ is determined by $h$.  Using
-$g\le\sum_{e\mid g}e$, we get
+The \emph{fibre mass} at $\ell\in\cP$ and the total mass are
 \[
- \sum_{\substack{r\le h\le X}}\frac{g}{h}\ \le\ \sum_{e\mid4sr^2+1}e\sum_{\substack{r\le h\le X\\ h\equiv-r\ (e)}}\frac1h
- \ \le\ (3+\log X)\,\tau(4sr^2+1),\qquad X=\tfrac{T+1}4 .
+ w_\ell(Q)=\sum_{\substack{(M,D)\ \text{surviving}\\ \ell\in\supp(M,D)}}\PP(E_{M,D}),\qquad
+ S(Q)=\sum_{\substack{(M,D)\\ \text{surviving}}}\PP(E_{M,D}),
 \]
-For the last step: the least admissible $h$ is at least $\max(r,e-r)\ge e/2$,
-so the inner sum is at most $2/e+(1+\log X)/e$.  Hence
-\[
- S^*\ \le\ C'\log\Lc\cdot\Lc\sum_{sr^2\le X}\frac{\tau(4sr^2+1)}{sr}.
-\]
-(a) Bound $\tau(4sr^2+1)\le\tau^*(T+2)$ and $\sum_{s,r\le X}1/(sr)\le(1+\Lc)^2$.
-Then use $\log\tau^*(x)\le(\log2+o(1))\log x/\log\log x$ \cite[Thm.~317]{HW}.
-(b) Split $s\in[2^i,2^{i+1})$, $r\in[2^j,2^{j+1})$ with $2^i,2^j\le X$.  By
-Theorem~\ref{thm:ET} with $\kappa=4$, $A=2^{i+1}$, $B=2^{j+1}$ (so $A,B>1$ and
-$\kappa\ll(AB)^{O(1)}$), each block contributes
-$\ll2^{-i-j}AB\log(A+B)\log5\ll\Lc$.  There are $\ll\Lc^2$ blocks, so the sum is
-$\ll\Lc^3$.
-\end{proof}
-
-\begin{lemma}[Iterated quarantine; proved, cf.\ {\cite{Paper1}}]\label{lem:iterq}
-Let $2\le z\le T$, $k=\lfloor\Lc/\log z\rfloor$ and $0<c_0\le1$.  For a set
-$\Pi\supseteq\{\ell\le z\}$ and a prime $\ell\notin\Pi$ let $w_\ell(\Pi)$ be
-the total Haar weight of the distinct events of atoms surviving $\Pi$ whose
-modulus $r_\Pi$ is divisible by $\ell$.  Start from $\Pi_0=\{\ell\le z\}$ and
-repeatedly add to $\Pi$ every prime $\ell\notin\Pi$ with $w_\ell(\Pi)>c_0$.
-The process stops at some $\Pi=\Pi_0\cup\cB$ with $|\cB|\le kS^*/c_0$, and then
-$w_\ell(\Pi)\le c_0$ for every prime $\ell\notin\Pi$.
-\end{lemma}
-
-\begin{proof}
-The process stops since only primes $\le T$ can have $w_\ell>0$.  If $\ell$ is
-added at a stage $\Pi_i$, then $c_0<w_\ell(\Pi_i)$, which is at most the sum
-of the contributions to $S^*$ of the atoms $(M,D)$ with $\ell\mid M$.  Summing
-over the added primes, each atom is counted at most once for each prime
-factor $\ell>z$ of $M$.  There are at most $k$ such factors since $M\le T$.
-\end{proof}
-
-\begin{definition}[Residual system]\label{def:system}
-Let $\Pi\supseteq\{\ell\le z\}$ be as in Lemma~\ref{lem:iterq}, let
-$e_\ell\ge1$ be maximal with $\ell^{e_\ell}\le T$, and put
-$Q_\Pi=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi,\ \ell\le T)$.  The \emph{free}
-primes are $\cP=\{\ell\le T:\ \ell\notin\Pi\}$, with \emph{coordinates}
-$X_\ell=n\bmod\ell^{e_\ell}$ taking values in $G_\ell=(\mathbb Z/\ell^{e_\ell})^\times$.
-The \emph{Haar measure} $\PP$ makes the $X_\ell$ independent and uniform.
-For each \emph{distinct} pair $(r,c)=(r_\Pi,\,-4D\bmod r_\Pi)$ arising
-from an atom $(M,D)$ surviving $\Pi$, with $r=\prod\ell^{a_\ell}$, and each
-\emph{lift}, i.e.\ each $\sigma\in\prod_{\ell\mid r}G_\ell$ with
-$\sigma_\ell\equiv c\pmod{\ell^{a_\ell}}$, we take the event
-$E=\{X_\ell=\sigma_\ell\ \text{for all}\ \ell\mid r_\Pi\}$, with support
-$\supp E=\{\ell\mid r\}$.  Let $E_1,\dots,E_m$ list these events (two
-pairs may have a common lift; such duplicates are kept), and let $F=\mathbf 1[\text{no }E_i\text{ occurs}]$.
+where surviving atoms are counted individually (two atoms may give the same
+event).  For an integer $n$ we put $X_\ell(n)=n\bmod\ell^{f_\ell}$, and $F(n)=1$
+if $n\not\equiv-4D\pmod r$ for every surviving atom, $F(n)=0$ otherwise; on
+$\Omega$, $F$ is the indicator that no event $E_{M,D}$ occurs.
 \end{definition}
 
-The lifts of one pair $(r,c)$ partition the class $c\bmod r$, so their weights
-add up to $1/\varphi(r)$.  This pair-then-lift construction is what makes
-Lemma~\ref{lem:system}(iii) an equality: duplicate lifts of different pairs
-are counted in $w_\ell$ and in $w_\ell(\Pi)$ alike.  Duplicates are harmless
-in Lemmas~\ref{lem:lll}, \ref{lem:brw} and~\ref{lem:twist}, which are stated
-for indexed families.
+Every event is nonempty: $-4D$ is a unit modulo $\ell$, and
+$-4D\equiv1\pmod{\ell^{a_\ell}}$ by survival.  The modulus satisfies $r\le M\le T$.
+The quarantine of \cite{Paper1} and of the previous version is the special
+case $a_\ell\in\{0,f_\ell\}$.
 
-\begin{lemma}[Properties of the residual system; proved]\label{lem:system}
-In Definition~\ref{def:system}, with $z\ge7$:
+\begin{lemma}[Reduction and weights; proved]\label{lem:system}
+In Definition~\ref{def:system}:
 \begin{enumerate}
-\item[(i)] $840\mid Q_\Pi$ and $\log Q_\Pi\le(\pi(z)+|\cB|)\Lc+\log24$;
-\item[(ii)] $|\cP|\le T$, $|G_\ell|\le T$, $|\supp E_i|\le k$, and $m\le T^{k+2}$;
-\item[(iii)] $w_\ell:=\sum_{i:\,\ell\in\supp E_i}\PP(E_i)=w_\ell(\Pi)$ for every
-$\ell\in\cP$, and $S:=\sum_{i\le m}\PP(E_i)\le S^*$; so if $\Pi$ is the
-output of Lemma~\ref{lem:iterq}, then $w_\ell\le c_0$ for all $\ell\in\cP$;
-\item[(iv)] \textup{(Reduction.)} If $n\equiv1\pmod{Q_\Pi}$ and $F(n)=1$
-(the residues $X_\ell=n\bmod\ell^{e_\ell}$ need not be units), then $W(n)>T$.
+\item[(i)] If $n\equiv1\pmod Q$ and $F(n)=1$, then $W(n)>T$.
+\item[(ii)] For every surviving atom,
+\[
+ \PP(E_{M,D})=\frac{\gcd(M,Q)}M\prod_{\ell\in\supp(M,D),\ a_\ell=0}\frac{\ell}{\ell-1}
+ \ \le\ \frac gM\prod_{\ell\mid M,\ a_\ell=0}\frac{\ell}{\ell-1}.
+\]
+\item[(iii)] If $\Lc\ge2$ and $a_\ell\ge1$ for every odd prime $\ell\le\Lc$, then
+$\PP(E_{M,D})\le C_1g/M$ for every surviving atom, where $C_1=e^2$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-(i) $24\mid Q_\Pi$ and $5,7\in\Pi$.  (ii) An event's support consists of the
-prime factors $>z$ of some $M\le T$, so there are at most $k$ of them.  There
-are at most $T^2$ atoms, since $\tau(A_M^2)\le2A_M\le T$, and each has at most
-$\prod_{\ell\mid r_\Pi}\ell^{e_\ell-a_\ell}\le T^k$ lifts.  (iii) Lifting
-preserves weights.  Each pair $(r,c)$ comes from an atom whose contribution to
-$S^*$ is at least $1/\varphi(r)$.  (iv) Let $M\le T$ with $M\equiv3\pmod4$, and suppose
-$n\equiv-4D\pmod M$ with $D\mid A_M^2$.  Every $\ell^v\Vert M$ with $\ell\in\Pi$
-has $\ell^v\le T$, so $m_\Pi\mid Q_\Pi$ and $-4D\equiv n\equiv1\pmod{m_\Pi}$,
-i.e.\ $m_\Pi\mid4D+1$.  If $r_\Pi=1$ this contradicts Lemma~\ref{lem:one}.
-Otherwise the atom survives $\Pi$, and $n\bmod\ell^{e_\ell}$ (a unit, as
-$-4D$ is) is a lift of $-4D\bmod\ell^{a_\ell}$ for each $\ell\mid r_\Pi$.  So
-a lift of the pair $(r_\Pi,-4D\bmod r_\Pi)$ occurs, contradicting $F(n)=1$.  Conclude with
-Lemma~\ref{lem:atoms}.
+(i) Let $M\le T$, $M\equiv3\pmod4$, and suppose $n\equiv-4D\pmod M$ with
+$D\mid A_M^2$.  Reducing modulo $\gcd(M,Q)$ gives $-4D\equiv1$, i.e.\
+$\gcd(M,Q)\mid4D+1$.  If $M\mid Q$, then $n\equiv1\pmod M$, which contradicts
+Lemma~\ref{lem:one}.  Otherwise the atom survives, and $n\equiv-4D\pmod r$ as
+$r\mid M$, so $F(n)=0$.  Conclude with Lemma~\ref{lem:atoms}.
+(ii) Let $\ell\in\supp$ and $v=v_\ell(M)$.  If $a_\ell=0$, the class of $-4D$
+modulo $\ell^v$ has probability $1/\varphi(\ell^v)=\ell^{-v}\cdot\ell/(\ell-1)$ in
+$\Omega_\ell$.  If $a_\ell\ge1$, then $|\Omega_\ell|=\ell^{f_\ell-a_\ell}$, and the class
+(which lies in $\Omega_\ell$) has $\ell^{f_\ell-v}$ elements, so probability
+$\ell^{a_\ell-v}$.  As $M$ is odd, $\gcd(M,Q)=\prod_{\ell\mid M}\ell^{\min(v_\ell(M),a_\ell)}$,
+and $\min(v_\ell(M),a_\ell)=v_\ell(M)$ for $\ell\notin\supp$.  This gives the identity.
+Survival gives $\gcd(M,Q)\mid g$.
+(iii) Every prime $\ell$ with $\ell\mid M$ and $a_\ell=0$ satisfies $\ell>\Lc$, so
+$\ell/(\ell-1)\le1+1/(\Lc-1)$.  As $M$ is odd, $\omega(M)\le\log M/\log3\le\Lc$.
+The product in (ii) is therefore at most $\exp(\Lc/(\Lc-1))\le e^2$.
 \end{proof}
+
+Write $h(M)=\sum_{\ell^i\mid M,\ i\ge1}1/i=\sum_{\ell\mid M}H_{v_\ell(M)}$, where
+$H_v=\sum_{i\le v}1/i$, and put
+\[
+ S_0=\sum_{(M,D)}\frac gM,\qquad \Omega_0=\sum_{(M,D)}\frac gM\,h(M),
+\]
+both sums over all atoms.
+
+\begin{lemma}[Graded iterated quarantine; proved]\label{lem:gradedq}
+Let $\Lc\ge2$ and $c>0$.  Start from $a_\ell=1$ for the odd primes
+$\ell\le\max(\Lc,7)$ and $a_\ell=0$ for all other odd $\ell$.  While some
+$\ell\in\cP$ has
+\[
+ w_\ell(Q)\ >\ \theta_\ell:=c\,(a_\ell+1)\frac{\log\ell}{\Lc},
+\]
+raise $a_\ell$ by one.  The procedure stops, and the final quarantine satisfies:
+\begin{enumerate}
+\item[(a)] $\sum_{\ell\in\supp(M,D)}w_\ell(Q)\le c$ for every surviving atom, and
+$w_\ell(Q)\le c$ for every $\ell\in\cP$;
+\item[(b)] $\PP(E_{M,D})\le C_1g/M$ for every surviving atom, and $S(Q)\le C_1S_0$;
+\item[(c)] $840\mid Q$ and $\log Q\le1.02\,\Lc+7+(C_1\Lc/c)\,\Omega_0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Each step raises some $a_\ell<f_\ell$, so the procedure stops.  Exponents only
+grow, so Lemma~\ref{lem:system}(iii) applies at every stage, which gives
+(b).  (a): at the end every $\ell\in\cP$ has $w_\ell\le\theta_\ell$.  If
+$\ell\in\supp(M,D)$, then $\ell\in\cP$ and $a_\ell+1\le v_\ell(M)$, so
+\[
+ \sum_{\ell\in\supp(M,D)}w_\ell\le\frac c\Lc\sum_{\ell\mid M}v_\ell(M)\log\ell=\frac{c\log M}{\Lc}\le c .
+\]
+Also $w_\ell\le\theta_\ell\le cf_\ell\log\ell/\Lc\le c$, as $a_\ell<f_\ell$ and
+$\ell^{f_\ell}\le T$.
+(c) $840=8\cdot3\cdot5\cdot7$ divides the starting $Q$, whose logarithm is
+at most $\log(8\cdot105)+\vartheta(\Lc)\le1.02\,\Lc+7$ by $\vartheta(x)<1.01624\,x$
+\cite{RS}.  A step at $\ell$ from $a$ to $a+1$, taken at a stage with
+quarantine $Q'$, has $\log\ell<\Lc\,w_\ell(Q')/(c(a+1))$, and by (b) at that stage,
+$w_\ell(Q')\le C_1\sum_{(M,D):\,v_\ell(M)\ge a+1}g/M$.  Each pair $(\ell,a)$ is stepped
+at most once.  Summing over all steps,
+\[
+ \log Q-\log Q_{\rm start}\le\frac{C_1\Lc}c\sum_{(M,D)}\frac gM\sum_{\ell\mid M}\sum_{a=0}^{v_\ell(M)-1}\frac1{a+1}
+ =\frac{C_1\Lc}c\,\Omega_0 .\qedhere
+\]
+\end{proof}
+
+The local lemma needs only that the total mass seen by each event is small
+(Corollary~\ref{cor:lll}), not that each $w_\ell$ is at most a fixed fraction
+of $1/k$, where $k$ bounds the number of primes in a support.  Charging the
+threshold to the prime power $\ell^{a_\ell+1}$ that a coordinate consumes lets
+the budget $\log M\le\Lc$ do the work of the width $k$.  In particular no
+block $\{\ell\le z\}$ of fully quarantined small primes is needed.  The ratio
+of the cost of a step to its threshold is $\Lc/(c(a+1))$, uniformly in $\ell$.
+
+\section{The mass and the charge moment}\label{sec:moment}
+
+In this section we bound $S_0$ and $\Omega_0$.  We use four results of
+Elsholtz and Tao.  For a polynomial $P$ and $m\ge1$ let $\rho_P(m)$ be the
+number of roots of $P$ in $\mathbb Z/m\mathbb Z$, and for integers $\kappa,a\ge1$ let
+$\rho_{\kappa a}(m)$ be the number of $x\bmod m$ with $\kappa ax^2+1\equiv0\pmod m$.
+
+\begin{theorem}[Elsholtz--Tao {\cite{ET}}; cited]\label{thm:ETall}
+\begin{enumerate}
+\item[(a)] \cite[Prop.~1.4]{ET}: for $A,B>1$
+and each integer $\kappa\ge1$ with $\kappa\ll(AB)^{O(1)}$,
+$\sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ll AB\log(A+B)\log(1+\kappa)$.
+\item[(b)] \textup{(\cite[Thm.~7.1]{ET})} Let $N>1$, and let $P$ be a polynomial of degree $D_P$ whose
+coefficients are non-negative integers at most $N^{l}$, with
+$\rho_P(p^j)\le C$ for all primes $p$ and all $j\ge1$.  Then
+$\sum_{n\le N}\tau(P(n))\ll_{D_P,l,C}N\sum_{m\le N}\rho_P(m)/m$.
+\item[(c)] \textup{(\cite[Cor.~7.4]{ET})} If $a,b,N$ are natural numbers, $N\ge2$, with
+$a,b\ll N^{O(1)}$, then $\sum_{n\le N}\tau(an+b)\ll\tau(\gcd(a,b))\,N\log N$.
+\item[(d)] \textup{(\cite[(7.10)]{ET})} For $2\le A\le B$ and $\kappa=4$,
+$\sum_{a\le A}\sum_{m\le B}\rho_{\kappa a}(m)/m\ll A\log B\log(1+\kappa)$.
+\end{enumerate}
+\end{theorem}
+
+We use (a) only with $\kappa=4$.  Elsholtz and Tao derive (d) inside the
+case $A\le B$ of their proof of (a), under its standing hypotheses
+($A,B>1$, $\kappa\ll(AB)^{O(1)}$); we state and use it only with $\kappa=4$ in that
+range.
+
+\begin{lemma}[Prime-power counts; proved]\label{lem:h}
+\textup{(a)} $h(xy)\le h(x)+h(y)$ for all $x,y\ge1$.
+\textup{(b)} For $Y\ge2$ and $N\ge1$, $\sum_{q\mid N,\ q>Y}1/i\le\log N/\log Y$, where $q=\ell^i$.
+\textup{(c)} $h(M)\le\log M/\log3$ for odd $M$.
+\end{lemma}
+
+\begin{proof}
+(a) $h=\sum_\ell H_{v_\ell}$, and $H_{x+y}-H_x=\sum_{x<i\le x+y}1/i\le H_y$.
+(b) Fix $\ell\mid N$ with $v=v_\ell(N)$.  Each $i\le v$ with $\ell^i>Y$ has
+$1/i<\log\ell/\log Y$, so these terms contribute at most $v\log\ell/\log Y$.  Sum
+over $\ell$.  (c) $h(M)\le\sum_\ell v_\ell(M)$.
+\end{proof}
+
+\begin{lemma}[Parametrisation; proved, cf.\ {\cite[\S2]{ET}}]\label{lem:param}
+Let $(M,D)$ be an atom with $D\le A_M$.  There are unique integers
+$a,b,d\ge1$ with $d$ squarefree, $D=da^2$, $A_M=dab$ and $a\le b$.  Put
+$P=4a^2d+1=4D+1$, $e=g(M,D)$, $f=P/e$, $c=(a+b)/e$ and $N=M/e$.  Then $c$ is a
+positive integer, $f\mid P$, and
+\[
+ N=4acd-f,\qquad acd\le N\le T,\qquad a^2d\le T,\qquad \frac gM=\frac1N .
+\]
+The map $(M,D)\mapsto(a,c,d,f)$ is injective.  The involution
+$D\mapsto A_M^2/D$ of the divisors of $A_M^2$ preserves $g(M,D)$.
+\end{lemma}
+
+\begin{proof}
+Write $D=da^2$ with $d$ squarefree.  Comparing valuations, $da^2\mid A_M^2$ if
+and only if $da\mid A_M$; so $A_M=dab$, and $D\le A_M$ if and only if $a\le b$.
+As $M=4dab-1$, $\gcd(M,4dab)=1$.  Since $M+4D+1=4da(a+b)$, $e\mid4da(a+b)$
+and hence $e\mid a+b$, so $c$ is an integer; $e\mid P$ by definition.  Next,
+$e\cdot4acd=4ad(a+b)=(P-1)+(M+1)=ef+eN$, so $4acd=f+N$.  From $b\ge a$,
+$eN=4abd-1\ge4a^2d-1=ef-2$, so $N\ge f-2/e$; then
+$2N\ge N+f-2/e=4acd-2/e$, and $N\ge2acd-1\ge acd$.  Also $a^2d=D\le A_M\le T$,
+$N\le M\le T$ and $g/M=e/(eN)$.  The quadruple determines $e=P/f$, then
+$b=ce-a$, $D$ and $A_M$, hence the atom.  For the involution: $\gcd(A_M,M)=1$
+and $4A_M\equiv1\pmod M$, so $4A_M^2/D+1\equiv(4D)^{-1}(1+4D)\pmod M$, and
+$g$ is unchanged.
+\end{proof}
+
+The involution exchanges $D<A_M$ with $D>A_M$ and preserves $M$, so
+\begin{equation}\label{eq:split}
+ S_0\le2\sum_{(a,c,d,f)}\frac1N,\qquad
+ \Omega_0\le2\sum_{(a,c,d,f)}\frac{h(eN)}N\le2(\Sigma_I+\Sigma_{II}),
+\end{equation}
+where $\Sigma_I=\sum h(e)/N$ and $\Sigma_{II}=\sum h(N)/N$,
+with all sums over the quadruples of Lemma~\ref{lem:param} and
+$e=P/f$; we used Lemma~\ref{lem:h}(a).  For dyadic $A,B,C\in\{2^j:\ j\ge0\}$
+the \emph{block} $(A,C,B)$ consists of the quadruples with $a\in[A,2A)$,
+$c\in[C,2C)$, $d\in[B,2B)$.  Only blocks with $A^2B\le T$ and $ACB\le T$ occur.
+There are $O(\Lc^2)$ pairs $(A,B)$ and $O(\Lc)$ values of $C$.
+
+\begin{lemma}[Block mass; proved modulo Theorem~\ref{thm:ETall}(a)]\label{lem:block}
+For every block,
+\[
+ \sum_{(a,c,d,f)\in(A,C,B)}\frac1N\ \le\ \sum_{a\in[A,2A),\,d\in[B,2B)}\frac{2\tau(4a^2d+1)}{ad}\ \ll\ \log(A+B+2).
+\]
+Consequently $S_0\ll\Lc^4$.  Unconditionally, $S_0\le2(1+\Lc)^3\tau^*(4T+1)$.
+\end{lemma}
+
+\begin{proof}
+$1/N\le1/(acd)$, $\sum_{c\in[C,2C)}1/c\le1+\log2<2$, and for fixed $(a,d)$ there
+are $\tau(P)$ choices of $f$.  In the block $1/(ad)\le1/(AB)$, and
+Theorem~\ref{thm:ETall}(a) with $\kappa=4$ and Elsholtz--Tao's $(a,b,A,B)$
+equal to our $(d,a,2B,2A)$ gives
+$\sum_{a<2A,\,d<2B}\tau(4a^2d+1)\ll AB\log(A+B+2)$.  Sum over the $O(\Lc^3)$
+blocks, using $\log(A+B+2)\ll\Lc$.  For the unconditional bound, use
+$\tau(P)\le\tau^*(4T+1)$ and $\sum_{a,c,d\le T}1/(acd)\le(1+\Lc)^3$ in
+\eqref{eq:split}.
+\end{proof}
+
+\begin{lemma}[The rough part; proved modulo Theorem~\ref{thm:ETall}(a)]\label{lem:rough}
+For every block $(A,C,B)$, with $Y=\max(C,2)$,
+\[
+ \sum_{(a,c,d,f)\in(A,C,B)}\frac{h(N)}N\ \ll\ \log(A+B+2)\Big(\log\log(C+2)+1+\frac\Lc{\log Y}\Big).
+\]
+Hence $\Sigma_{II}\ll\Lc^4\log\Lc$.
+\end{lemma}
+
+\begin{proof}
+$N$ divides the odd number $M$, so only odd $q=\ell^i$ divide $N$.  Write
+$h(N)=\sum_{q\mid N}1/i$ and split at $q\le C$ and $q>Y$; for $C=1$ the
+first part is empty.
+
+\emph{Small $q$.}  Fix $(a,d,f)$ and $q=\ell^i\le C$.  If $\ell\mid ad$, then
+$P\equiv1\pmod\ell$, so $\ell\nmid f$ and $N\equiv-f\not\equiv0\pmod\ell$.
+Otherwise $q\mid N=4ad\,c-f$ confines $c$ to one class modulo $q$, which has
+at most $C/q+1\le2C/q$ elements in $[C,2C)$, and each term has
+$1/N\le1/(adC)$.  So the contribution of $(a,d,f)$ is at most
+$(2/(ad))\sum_{q\le C}1/(iq)\le(2/(ad))(\log\log(C+2)+O(1))$ by Mertens'
+theorem.  Summing over the $\tau(P)$ choices of $f$ and over $(a,d)$ as in
+Lemma~\ref{lem:block} gives $\ll\log(A+B+2)(\log\log(C+2)+1)$.
+
+\emph{Large $q$.}  By Lemma~\ref{lem:h}(b) and $N\le T$,
+$\sum_{q\mid N,\,q>Y}1/i\le\Lc/\log Y$ pointwise, and Lemma~\ref{lem:block}
+bounds the mass of the block.
+
+\emph{Sum.}  With $C=2^j$, $0\le j\le\Lc/\log2$,
+\[
+ \sum_j\Big(\log\log(2^j+2)+1+\frac\Lc{\log\max(2^j,2)}\Big)\ll\Lc\log\Lc,
+\]
+and
+$\sum_{(A,B)}\log(A+B+2)\ll\Lc^3$.
+\end{proof}
+
+The prime powers $q\le C$ are summed along the $c$-progression only where a
+block contains a full period.  The larger ones are paid pointwise, at the
+cost $\Lc/\log C$; this is large only for small $c$, and every dyadic
+$c$-scale carries the same mass bound, so the cost averages to
+$\Lc^{-1}\sum_{j\le\Lc}\Lc/j\asymp\log\Lc$.
+
+For the smooth part note that $\sum_{e\mid P}h(e)=\sum_{q\mid P}(1/i)\,\tau(P/q)$
+(write $e=qe'$ with $e'\mid P/q$).  For a pair $(A,B)$ put $Z_0=\max(A,B)$ and
+\[
+ R(A,B)=\sum_{a\in[A,2A),\ d\in[B,2B)}\frac1{ad}\sum_{q\mid P}\frac1i\,\tau(P/q),\qquad P=4a^2d+1 .
+\]
+
+\begin{lemma}[Prime powers of $4a^2d+1$; proved modulo Theorem~\ref{thm:ETall}]\label{lem:smooth}
+$R(A,B)\ll\log(Z_0+2)\log\log(Z_0+16)$, uniformly in $A,B\ge1$.  Hence
+$\Sigma_I\ll\Lc^4\log\Lc$.
+\end{lemma}
+
+\begin{proof}
+Every $q=\ell^i\mid P$ is odd and has $\ell\nmid ad$, since $P$ is odd and
+$P\equiv1\pmod\ell$ if $\ell\mid ad$.
+
+\emph{Large $q$ ($q>Z_0^{1/2}$), and all $q$ if $Z_0<16$.}  Use
+$\tau(P/q)\le\tau(P)$.  As $P<32Z_0^3$, Lemma~\ref{lem:h}(b) gives
+$\sum_{q\mid P,\,q>Z_0^{1/2}}1/i\le2\log(32Z_0^3)/\log Z_0\ll1$ for $Z_0\ge16$, and
+for $Z_0<16$, $h(P)\le\log_2P\ll1$.  So this part is
+$\ll\sum\tau(P)/(ad)\ll\log(Z_0+2)$ by Theorem~\ref{thm:ETall}(a), as in
+Lemma~\ref{lem:block}.
+
+\emph{Small $q$, case $A\ge B$} (so $Z_0=A\ge16$ and $q\le A^{1/2}$).  Fix $d<2B$
+with $\ell\nmid d$.  The congruence $4dx^2+1\equiv0\pmod q$ has at most two
+roots $x_0\in[0,q)$ ($\ell$ odd, $\ell\nmid4dx_0$, Hensel).  For each, write
+$a=qa'+x_0$; then $1\le a'\le N':=\lfloor2A/q\rfloor$, as $a\ge A\ge q>x_0$.  Put
+\[
+ P^\flat(a')=\frac{P(qa'+x_0)}q=4dq\,a'^2+8dx_0\,a'+\frac{4dx_0^2+1}q .
+\]
+Its coefficients are non-negative integers at most $8dq\le16A^{3/2}\le N'^5$
+(as $N'\ge A^{1/2}$ and $A\ge16$).  It takes odd values, so
+$\rho_{P^\flat}(2^j)=0$.  For an odd prime $p\ne\ell$, $a'\mapsto qa'+x_0$ is a
+bijection modulo $p^j$, so $\rho_{P^\flat}(p^j)=\rho_{4d}(p^j)\le2$.  For $p=\ell$,
+each of the at most two roots of $4dx^2+1$ modulo $\ell^{i+j}$ fixes $a'$
+modulo $\ell^j$, so $\rho_{P^\flat}(\ell^j)\le2$.  By Theorem~\ref{thm:ETall}(b)
+(degree $2$, $l=5$, $C=2$) and multiplicativity,
+\[
+ \sum_{a'\le N'}\tau(P^\flat(a'))\ll N'\sum_{m\le N'}\frac{\rho_{P^\flat}(m)}m
+ \le\frac{2A}q\Big(1+\frac2{\ell-1}\Big)\sum_{m\le2A}\frac{\rho_{4d}(m)}m .
+\]
+With $1/(ad)\le1/(AB)$ and at most two roots,
+\[
+ \sum_{\substack{a,d:\ q\mid P}}\frac{\tau(P/q)}{ad}\ll\frac1{qB}\sum_{d<2B}\sum_{m\le2A}\frac{\rho_{4d}(m)}m\ll\frac{\log A}q,
+\]
+by Theorem~\ref{thm:ETall}(d) with $\kappa=4$ and Elsholtz--Tao's $(A,B)$
+equal to our $(2B,2A)$, which satisfies $2\le2B\le2A$.
+
+\emph{Small $q$, case $B>A$} (so $Z_0=B\ge16$ and $q\le B^{1/2}$).  Fix $a<2A$
+with $\ell\nmid a$.  Then $q\mid P$ means $d\equiv d_0\pmod q$, where
+$d_0\equiv-(4a^2)^{-1}$ and $0<d_0<q$.  Write $d=qd'+d_0$ with
+$1\le d'\le N'':=\lfloor2B/q\rfloor$ (as $d\ge B\ge q$).  Then
+$P/q=4a^2d'+b_a$ with $b_a=(4a^2d_0+1)/q\le4a^2$, and $\gcd(4a^2,b_a)=1$: $b_a$
+is odd, and a prime dividing $a$ and $b_a$ divides $4a^2d_0+1$.  Both
+coefficients are at most $16B^2\le N''^6$.  By Theorem~\ref{thm:ETall}(c),
+$\sum_{d'\le N''}\tau(4a^2d'+b_a)\ll N''\log N''\le(2B/q)\log(2B)$.  With
+$1/(ad)\le1/(aB)$ we get
+$\sum_{a,d:\,q\mid P}\tau(P/q)/(ad)\ll(\log B/q)\sum_{a\in[A,2A)}1/a\ll\log B/q$.
+
+\emph{Sum over small $q$.}  $\sum_{q\le Z_0^{1/2}}(1/i)\log Z_0/q\ll\log Z_0\log\log Z_0$.
+
+\emph{$\Sigma_I$.}  We have $1/N\le1/(acd)$ and $\sum_{c\in[C,2C)}1/c<2$, and each
+$(a,d,e)$ with $e\mid P$ occurs at most once for each $c$.  So
+$\Sigma_I\le\sum_C\sum_{(A,B)}2R(A,B)\ll\Lc\cdot\Lc^2\cdot\Lc\log\Lc$, as
+$Z_0\le T$.
+\end{proof}
+
+\begin{theorem}[Charge moment; proved modulo Theorem~\ref{thm:ETall}]\label{thm:omega}
+$S_0\ll\Lc^4$ and $\Omega_0\ll\Lc^4\log\Lc$.  Unconditionally,
+$\Omega_0\le\Lc S_0$ and $\log S_0\le(\log2+o(1))\Lc/\log\Lc$.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:block}, \eqref{eq:split} and Lemmas~\ref{lem:rough}
+and~\ref{lem:smooth}.  Unconditionally, $h(M)\le\Lc$ by Lemma~\ref{lem:h}(c),
+and $\log\tau^*(x)\le(\log2+o(1))\log x/\log\log x$ \cite[Thm.~317]{HW}.
+\end{proof}
+
+\begin{remark}[Assessment]\label{rem:mean}
+Theorem~\ref{thm:omega} bounds the moment, not the $g/M$-weighted mean
+$\Omega_0/S_0$ of $h(M)$; that would need $S_0\gg\Lc^4$, which we have not
+proved.  Numerically (atoms with $D\le A_M$, $T=10^4,10^5,10^6$) the mean is
+$2.16$, $2.40$, $2.62$, which tracks $\log\log T$, and the splitting
+$h(eN)\le h(e)+h(N)$ loses about $2\%$.  This is evidence only.
+\end{remark}
 
 \section{The analytic input: Gallagher's theorem}\label{sec:analytic}
 
@@ -476,21 +726,22 @@ proofs of Linnik's theorem.
 
 \section{A linear transfer theorem}\label{sec:transfer}
 
-For a modulus $D$ write $\E_D$ for the mean over the units modulo $D$.
-
 \begin{theorem}[Linear transfer; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{thm:transfer}
-Let $T\ge1$ and $Q\ge2$.  Let $B(n)=\sum_{i\in I}c_i\mathbf 1[n\equiv b_i\ (d_i)]$ be a
-finite real combination with $\gcd(d_i,Q)=\gcd(b_i,d_i)=1$, and assume that
+Let $T\ge1$ and $Q\ge2$ with $8\mid Q$.  Let $B(n)=\sum_{i\in I}c_i\mathbf 1[n\equiv b_i\ (d_i)]$ be a
+finite real combination of \emph{consistent unit cells}: $\gcd(b_i,d_i)=1$ and
+$b_i\equiv1\pmod{\gcd(d_i,Q)}$.  Assume that
 $B(n)\le\mathbf 1[W(n)>T]$ for every $n\equiv1\pmod Q$ coprime to all $d_i$.  Put
+$D=\lcm_id_i$, $N_0=\lcm(Q,D)$, $H=\{n\in(\mathbb Z/N_0)^\times:\ n\equiv1\ (\mathrm{mod}\ Q)\}$, and let $\E_H$
+be the mean over $H$.  Put
 \[
- D=\lcm_id_i,\quad Z=Q\max_id_i,\quad \mu=\E_D B=\sum_i\frac{c_i}{\varphi(d_i)},\quad
- A=\frac{\E_D|B|}{\mu},
+ Z=Q\max_id_i,\quad \mu=\E_H B,\quad
+ A=\frac{\E_H|B|}{\mu},
 \]
 and assume $\mu>0$, $A\le Z^{1/4}$, and the \emph{twist condition}: for every
 real primitive character $\psi$ of conductor $f>1$ with $\gcd(f,Q)=1$ and
 $f\mid d_i$ for some $i$,
 \[
- |\mu_\psi|\le\mu/4,\qquad \mu_\psi=\sum_{i:\,f\mid d_i}c_i\psi(b_i)/\varphi(d_i).
+ |\E_H[B\psi]|\le\mu/4.
 \]
 There is an absolute effective constant $C_2$ such that, if
 \[
@@ -498,6 +749,11 @@ There is an absolute effective constant $C_2$ such that, if
 \]
 then some prime $p\le x$ with $p\equiv1\pmod Q$ and $p\nmid D$ has $W(p)>T$.
 \end{theorem}
+
+In the previous version the cells were coprime to $Q$; then $\E_H$ is the
+mean over the units modulo $D$, and $\mu=\sum_ic_i/\varphi(d_i)$.  Graded
+quarantines produce cells whose moduli share primes with $Q$; consistency
+means that each cell meets the class $1\bmod Q$.
 
 Neither the $\ell^1$ mass $\sum_i|c_i|/\varphi(d_i)$ nor the number of cells
 enters; only the Haar quantity $A\ge1$ does.
@@ -512,35 +768,44 @@ $\log x\ge16$; $\log x\ge(\kappa L)^2$ (as
 $(1+\log A)^2\le(1+\log A)(1+\tfrac14\log Z)$); and $x\ge C_4AZ^4$, with
 $C_4$ as large as needed below.
 
-\emph{Character expansion.}  As $\gcd(Q,D)=1$, every character $\chi$ modulo
-$QD$ is $\chi=\chi_Q\chi_D$ with $\chi_Q$ modulo $Q$ and $\chi_D$ modulo $D$.  The
-function $f(n)=B(n)\mathbf 1[n\equiv1\ (Q)]$ on units modulo $QD$ satisfies
-$f(n)=\sum_{\chi\bmod QD}c(\chi)\chi(n)$, where, summing over the class $1\bmod Q$,
+\emph{Character expansion.}  The function $f(n)=B(n)\mathbf 1[n\equiv1\ (Q)]$
+on units modulo $N_0$ satisfies $f(n)=\sum_{\chi\bmod N_0}c(\chi)\chi(n)$.  The
+reduction map $(\mathbb Z/N_0)^\times\to(\mathbb Z/Q)^\times$ is onto with kernel $H$, so
+$|H|=\varphi(N_0)/\varphi(Q)$ and
 \[
- c(\chi)=\frac1{\varphi(QD)}\sum_{n\in(\mathbb Z/QD)^\times}f(n)\bar\chi(n)=\frac{\E_D[B\bar\chi_D]}{\varphi(Q)} .
+ c(\chi)=\frac1{\varphi(N_0)}\sum_{n\in H}B(n)\bar\chi(n)=\frac{\E_H[B\bar\chi]}{\varphi(Q)} .
 \]
 Consequently:
 \begin{enumerate}
-\item[(a)] $c(\chi)=0$ unless the conductor of $\chi_D$ divides some $d_i$.
-Indeed, the mean of $\mathbf 1[n\equiv b_i\ (d_i)]\bar\chi_D(n)$ over units mod
-$D$ vanishes unless $\chi_D$ is trivial on $\{n\equiv1\ (d_i)\}$.  So
-$c(\chi)\ne0$ implies that the conductor of $\chi$ is at most $Qd_i\le Z\le Q_G$.
-\item[(b)] $|c(\chi)|\le\E_D|B|/\varphi(Q)=A\mu/\varphi(Q)$, and
+\item[(a)] $c(\chi)=0$ unless the conductor of $\chi$ divides $\lcm(d_i,Q)$ for
+some $i$.  Indeed, by consistency and the Chinese remainder theorem,
+$\mathbf 1[n\equiv b_i\ (d_i)]\mathbf 1[n\equiv1\ (Q)]$ is the indicator of one unit
+class modulo $\lcm(d_i,Q)$, and its $\chi$-coefficient vanishes unless $\chi$ is
+trivial on $\{n\equiv1\ (\lcm(d_i,Q))\}$.  So $c(\chi)\ne0$ implies that the
+conductor of $\chi$ is at most $Qd_i\le Z\le Q_G$.
+\item[(b)] $|c(\chi)|\le\E_H|B|/\varphi(Q)=A\mu/\varphi(Q)$, and
 $c(\chi_0)=\mu/\varphi(Q)$ for the principal character $\chi_0$.
-\item[(c)] If $\chi$ is real and $\chi_D$ is induced by a primitive $\psi$ of
-conductor $f>1$, then $c(\chi)=\E_D[B\psi]/\varphi(Q)=\mu_\psi/\varphi(Q)$.  For
-the last equality: a cell with $f\nmid d_i$ has $\psi$-mean $0$ by the
-argument in (a).  If moreover $c(\chi)\ne0$, then $f\mid d_i$ for some $i$
-by (a), $\gcd(f,Q)=1$ as $f\mid D$, and the twist condition applies to
-$\psi$.
+\item[(c)] Let $\chi$ be real with $c(\chi)\ne0$, and let $\psi^*$ be the real
+primitive character inducing it, of conductor $f$.  Write $f=f_1f_2$, where
+$f_1$ is composed of primes dividing $Q$ and $\gcd(f_2,Q)=1$, and
+$\psi^*=\psi_1\psi_2$ accordingly.  A real primitive conductor is $2^ef'$
+with $e\in\{0,2,3\}$ and $f'$ odd and squarefree; as $8\mid Q$, $f_1\mid Q$, so
+$\psi_1=1$ on $H$ and $\chi=\psi_2$ on $H$.  If $f_2=1$, then $\chi$ is trivial on
+$H$, so it is induced from a character modulo $Q$ and $c(\chi)=\mu/\varphi(Q)$.
+If $f_2>1$, then $c(\chi)=\E_H[B\psi_2]/\varphi(Q)$.  A cell with $f_2\nmid d_i$
+has $\E_H[\mathbf 1[n\equiv b_i\ (d_i)]\psi_2]=0$: there is a prime $p\mid f_2$ with
+$p\nmid d_iQ$; on $H$ the residue of $n$ modulo $p^{v_p(N_0)}$ is uniform among
+units and independent of $n$ modulo $N_0/p^{v_p(N_0)}$, and the $p$-component of
+$\psi_2$ is a nontrivial character modulo $p$.  So $f_2\mid d_i$ for some $i$,
+$\gcd(f_2,Q)=1$, and the twist condition gives $|c(\chi)|\le\mu/(4\varphi(Q))$.
 \end{enumerate}
 Let $\chi^*$ be the primitive character inducing $\chi$.  For a fixed modulus
 the map $\chi\mapsto\chi^*$ is injective, so by (a) at most
-$\sum_{q\le Z}\varphi(q)\le Z^2$ characters have $c(\chi)\ne0$.
+$\sum_{r\le Z}\varphi(r)\le Z^2$ characters have $c(\chi)\ne0$.
 
 \emph{The prime sum.}  Let
-$S(x)=\sum_{p\le x,\ p\nmid QD}f(p)\log p=\sum_\chi c(\chi)\vartheta(x;\chi)$.  Since
-$|\vartheta(x;\chi)-\vartheta(x;\chi^*)|\le\log(QD)\le2Z$ (as
+$S(x)=\sum_{p\le x,\ p\nmid N_0}f(p)\log p=\sum_\chi c(\chi)\vartheta(x;\chi)$.  Since
+$|\vartheta(x;\chi)-\vartheta(x;\chi^*)|\le\log N_0\le\log Q+\log D\le2Z$ (as
 $D\mid\lcm(1,\dots,\max d_i)$, so $\log D\le\psi(\max d_i)<1.04\max d_i$ by
 Rosser--Schoenfeld \cite{RS}),
 \begin{equation}\label{eq:Sx}
@@ -573,12 +838,13 @@ Here $C_GALe^{-3L}\le C_GAe^{-L}\le1/400$, and
 $C_GA\kappa L^2/Q_G\le10^{-4}$.  If no $\chi$ with $c(\chi)\ne0$ has
 $\chi^*=\chi_1$, this bounds the middle sum of \eqref{eq:Sx}, and $S(x)>0$
 as in Case~0.  Otherwise, by injectivity, exactly one such $\chi$ exists.  It
-is real, because $\chi_1$ is; hence $c(\chi)$ is real, as $B$ and $\chi_D$ are.
+is real, because $\chi_1$ is; hence $c(\chi)$ is real, as $B$ and $\chi$ are.
+Let $f_2$ be as in (c).
 Its term is
 $c(\chi)\big(\vartheta(x;\chi_1)+x^{\beta_1}/\beta_1\big)-c(\chi)x^{\beta_1}/\beta_1$.
 The first part is covered by the bound just proved.
 
-\emph{Case A: $\chi_D$ is principal.}  Then $c(\chi)=\mu/\varphi(Q)$, and the
+\emph{Case A: $f_2=1$.}  Then $c(\chi)=\mu/\varphi(Q)$, and the
 conductor $q_1$ of $\chi_1$ divides $Q$, so $q_1\le Z$.  The main terms combine
 to $\lambda\mu x/\varphi(Q)$ with $\lambda=1-x^{\beta_1-1}/\beta_1$.  Since
 $1/\beta_1\le1+2(1-\beta_1)$, $1-e^{-u}\ge(1-e^{-1})\min(u,1)$ and
@@ -592,43 +858,398 @@ $1/\lambda\le2+c_2Z^{1/2}(\log Z)^2/8\le C_5Z$.  Hence
 $|R_1|\le2AZ^3\mu/\varphi(Q)\le\lambda\mu x/(100\varphi(Q))$ once
 $x\ge200C_5AZ^4$.  Altogether $S(x)\ge(1-2/100)\lambda\mu x/\varphi(Q)>0$.
 
-\emph{Case B: $\chi_D$ is not principal.}  Then $\chi_D$ is real and is induced by a
-real primitive $\psi$ of conductor $f>1$.  By (c) and the twist condition,
+\emph{Case B: $f_2>1$.}  By (c),
 $|c(\chi)x^{\beta_1}/\beta_1|\le(\mu/(4\varphi(Q)))\cdot2x=\mu x/(2\varphi(Q))$, and
 $S(x)\ge(1-1/2-1/200-1/400)\mu x/\varphi(Q)>0$.
 
-In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid QD$ and
+In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid N_0$ and
 $p\equiv1\pmod Q$ has $B(p)>0$, and then $W(p)>T$.
 \end{proof}
 
-\begin{remark}\label{rem:linear}
+\begin{remark}[Assessment]\label{rem:linear}
 This is Linnik's theorem with weights.  Every character coefficient is
-bounded by $\E_D|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
+bounded by $\E_H|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
 representation.  Theorem~\ref{thm:G} controls all characters of conductor
 $\le Q_G$ simultaneously, so the number of moduli $d_i$ never multiplies the
 error.  In \cite{Paper1} and in the first version of this note, each
 progression was instead treated separately with the Thorner--Zaman theorem
 \cite{TZ}.  That costs $\log x\gg K\max(\log Z,K)$ with
 $K=1+\log(\sum|c_i|/\varphi(d_i)\,/\,\mu)$, which here is of order
-$(\log T)^{14}$ instead of $(\log T)^7$.  No lower bound for $1-\beta_1$ is
+$(\log T)^{14}$ instead of $(\log T)^7$ in the setting of the previous
+version.  No lower bound for $1-\beta_1$ is
 needed in Case~B.  In Case~A we use the effective bound of
 Theorem~\ref{thm:xz} only to absorb the term $R_1$.
 \end{remark}
+\section{An energy bound for avoidance indicators}\label{sec:energy}
 
-\section{Product systems and the sandwich minorant}\label{sec:brw}
+This section is self-contained and does not use arithmetic.
 
-\emph{Setting.}  Let $\cP$ be a finite set of $N$ \emph{coordinates}.  Let
-$X_\ell$, $\ell\in\cP$, be independent random variables, $X_\ell$ uniform on a
-finite set $G_\ell$ with $|G_\ell|\le T$; write $\PP$, $\E$ for this product
-measure.  An \emph{event} is a set $E=\{X_\ell=\sigma_\ell\ (\ell\in\supp E)\}$
-with $\emptyset\ne\supp E\subseteq\cP$ and $\sigma\in\prod_{\supp E}G_\ell$.
-Let $E_1,\dots,E_m$ be events (repetitions allowed) with $|\supp E_i|\le k$, and put
-$A_i=\mathbf 1_{E_i}$, $F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$,
+\emph{Setting.}  Let $\Omega=\prod_{v\in V_0}\Omega_v$ be a finite product of
+finite sets with a product probability measure $\pi=\bigotimes_v\pi_v$; write
+$\PP$, $\E$ and $\|\cdot\|=\|\cdot\|_{L^2(\pi)}$.  A \emph{cylinder event} is a set
+$E=\{X_v=\sigma_v\ (v\in\supp E)\}$ with $\supp E\subseteq V_0$ and
+$\sigma\in\prod_{\supp E}\Omega_v$.  For a finite family $\cE$ of cylinder events
+(repetitions allowed) let $F=F_\cE=\prod_{E\in\cE}(1-\mathbf 1_E)$ be its
+\emph{avoidance indicator}.
+
+\emph{Efron--Stein decomposition} (classical; \cite{ES,Hoeffding},
+\cite[\S8.3]{OD}).  For $\varphi:\Omega\to\mathbb R$ and $W\subseteq V_0$ let
+$\E[\varphi\mid X_W]$ be the conditional expectation given the coordinates in
+$W$, and
 \[
- w_\ell=\sum_{i:\,\ell\in\supp E_i}\PP(E_i),\qquad S=\sum_{i\le m}\PP(E_i).
+ \varphi^{=U}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}\,\E[\varphi\mid X_W].
 \]
-By Lemma~\ref{lem:system}, the residual system of Definition~\ref{def:system}
-is an instance with $N\le T$ and $m\le T^{k+2}$.
+Then $\varphi=\sum_U\varphi^{=U}$, the components are mutually orthogonal,
+$\varphi^{=U}$ depends only on $X_U$, and $\E_u\varphi^{=U}=0$ for $u\in U$, where
+$\E_u$ averages over the coordinate $u$.  Put $L_u=I-\E_u$ and
+$L_V=\prod_{u\in V}L_u$; then $L_V\varphi=\sum_{U\supseteq V}\varphi^{=U}$.  For a
+down-closed family $\cD$ of subsets of $V_0$, the function
+$\varphi^{\cD}=\sum_{U\in\cD}\varphi^{=U}$ is a linear combination of the
+$\E[\varphi\mid X_W]$, $W\in\cD$ (by M\"obius inversion), and
+\begin{equation}\label{eq:energy}
+ \E(\varphi-\varphi^{\cD})^2=\sum_{U\notin\cD}\|\varphi^{=U}\|^2 .
+\end{equation}
+For $\cD=\{U:\ |U|\le t\}$ this is the \emph{energy above level $t$},
+$\energy(\varphi;t)$; it is the least $\E(\varphi-g)^2$ over sums $g$ of
+functions of at most $t$ coordinates.
+
+\begin{definition}[Energy generating function]
+For weights $\lambda_v\ge1$ put $\mu_v=\lambda_v-1$ and
+\[
+ G_\varphi(\lambda)=\sum_{U\subseteq V_0}\lambda^U\,\|\varphi^{=U}\|^2
+ =\sum_{V\subseteq V_0}\mu^V\,\|L_V\varphi\|^2 .
+\]
+\end{definition}
+
+The second form follows from the identity $\lambda^U=\sum_{V\subseteq U}\mu^V$ and
+$\|L_V\varphi\|^2=\sum_{U\supseteq V}\|\varphi^{=U}\|^2$.  For every $\tau$,
+\begin{equation}\label{eq:markov}
+ \sum_{U:\ \lambda^U>e^\tau}\|\varphi^{=U}\|^2\ \le\ e^{-\tau}G_\varphi(\lambda).
+\end{equation}
+For a single event $E$ with $\pi_E=\PP(E)$ one computes
+$G_{1-\mathbf 1_E}=1-2\pi_E+\pi_E\prod_{v\in\supp E}(\lambda_v-\mu_v\pi_v(\sigma_v))$, so for
+small $\pi_v(\sigma_v)$ the condition $\lambda^{\supp E}\le2$ below is necessary for
+$G\le1$.
+
+\emph{Hypergraphs.}  A hypergraph $\Ho$ is a finite set of subsets
+(\emph{edges}) of $V_0$.  For $V\subseteq V_0$ put
+\[
+ N_\Ho(V)=\sum_{\mathcal J\subseteq\Ho:\ \bigcup_{J\in\mathcal J}(J\cap V)=V}(-1)^{|\mathcal J|},\qquad
+ Q_\mu(\Ho)=\sum_{V\subseteq V_0}\mu^V\,N_\Ho(V)^2 .
+\]
+$N_\Ho(V)$ depends only on the traces $J\cap V$, and it is unchanged if
+edges are repeated or replaced by edges with the same trace: a class of
+$m\ge1$ edges with equal traces contributes $\sum_{j\ge1}\binom mj(-1)^j=-1$,
+exactly like one edge.  If some edge misses $V$, then $N_\Ho(V)=0$ (toggle
+that edge).
+
+\begin{lemma}[Cover bound; proved]\label{lem:cover}
+In the Setting, for every $V\subseteq V_0$,
+\[
+ \|L_VF\|^2\ \le\ \E_x\big[N_{\Ho(x)}(V)^2\big],\qquad
+ \Ho(x)=\{\supp E:\ E\in\cE,\ x\in E\}.
+\]
+Consequently $G_F(\lambda)\le\E_x\big[Q_\mu(\Ho(x))\big]$ for all weights $\lambda_v\ge1$.
+\end{lemma}
+
+\begin{proof}
+Write $x=(\sigma,y)$ with $\sigma\in\Omega_V$, $y\in\Omega_{V_0\setminus V}$.  The operator
+$L_V$ acts on the $V$-coordinates only, so
+$\|L_VF\|^2=\E_y\|L_Vg_y\|^2_{L^2(\Omega_V)}$, where $g_y=F(\cdot,y)$.  Now $g_y$
+is the avoidance indicator on $\Omega_V$ of the restricted events: those
+$E\in\cE$ whose conditions off $V$ hold at $y$, restricted to $\supp E\cap V$.
+Expand $g_y=\sum_{\mathcal J}(-1)^{|\mathcal J|}\mathbf 1_{\mathcal J}$ over subfamilies
+$\mathcal J$ of restricted events, where $\mathbf 1_{\mathcal J}$ is the indicator
+of their intersection, a cylinder on $\Omega_V$ (or empty).  $L_V$ kills every
+function that does not depend on all coordinates of $V$, hence every
+cylinder whose support is a proper subset of $V$.  A cylinder with
+support $V$ is a point indicator $\mathbf 1_{\{\sigma\}}$.  So $L_Vg_y=L_Vc_y$, where
+\[
+ c_y(\sigma)=\sum_{\mathcal J:\ \supp\mathbf 1_{\mathcal J}=V,\ \mathbf 1_{\mathcal J}=\mathbf 1_{\{\sigma\}}}(-1)^{|\mathcal J|}.
+\]
+As $L_V$ is an orthogonal projection in $L^2(\pi_V)$,
+$\|L_Vc_y\|^2\le\E_\sigma c_y(\sigma)^2$.  The subfamilies $\mathcal J$ counted in
+$c_y(\sigma)$ are exactly the subfamilies of events that hold at $x=(\sigma,y)$
+whose traces on $V$ cover $V$.  Two events that hold at $x$ and have the
+same support are the same cylinder, so by the remark above
+$c_y(\sigma)=N_{\Ho(x)}(V)$.  Taking $\E_y$ gives the first claim.  Multiply by
+$\mu^V$ and sum over $V$ for the second.
+\end{proof}
+
+The suppression is built in: $N_{\Ho(x)}(V)=0$ as soon as some event that
+holds at $x$ misses $V$.
+
+For a finite multiset $\cC$ of subsets of $V_0$ (possibly empty ones) put
+\[
+ \Theta_\lambda(\cC)=\sum_{\mathcal J\subseteq\cC}(-1)^{|\mathcal J|}\lambda^{\bigcup\mathcal J}\qquad(\Theta_\lambda(\emptyset)=1).
+\]
+
+\begin{lemma}[Polarization; proved]\label{lem:polar}
+Let $\lambda_v\ge1$, $\mu_v=\lambda_v-1$, and let $P\subseteq V_0$ be random with
+$\PP(v\in P)=\mu_v/\lambda_v$ independently.  For every hypergraph $\Ho$,
+\[
+ Q_\mu(\Ho)=\E_P\big[\Theta_\lambda(\Ho_P)^2\big],\qquad \Ho_P=\{J\in\Ho:\ J\cap P=\emptyset\}.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\tau(R)=\mathbf 1[R\cap J\ne\emptyset\ \forall J\in\Ho]$ for $R\subseteq V_0$, and
+$\hat\tau(V)=\sum_{R\subseteq V}(-1)^{|V\setminus R|}\tau(R)$.  Expanding
+$\tau(R)=\sum_{\mathcal J\subseteq\Ho}(-1)^{|\mathcal J|}\mathbf 1[R\cap\bigcup\mathcal J=\emptyset]$,
+and using that the M\"obius transform of $R\mapsto\mathbf 1[R\cap U=\emptyset]$ is
+$V\mapsto(-1)^{|V|}\mathbf 1[V\subseteq U]$, we get $\hat\tau(V)=(-1)^{|V|}N_\Ho(V)$.  Let
+\[
+ \mathcal T(p)=\sum_V\hat\tau(V)p^V=\sum_R\tau(R)\prod_{v\in R}p_v\prod_{v\notin R}(1-p_v)
+\]
+be the multilinear extension of $\tau$.  If the $p_v$ are independent with
+mean $0$ and variance $\mu_v$, distinct monomials are orthogonal, and
+$\E[\mathcal T(p)^2]=\sum_V\mu^V\hat\tau(V)^2=Q_\mu(\Ho)$.  Take $p_v=1$ with
+probability $\mu_v/\lambda_v$ and $p_v=-\mu_v$ otherwise (mean
+$\mu_v/\lambda_v-\mu_v/\lambda_v=0$, variance $\mu_v/\lambda_v+\mu_v^2/\lambda_v=\mu_v$), and
+$P=\{v:p_v=1\}$.  Only the $R\supseteq P$ contribute; writing $R=P\cup B$ with
+$B\subseteq P^c$,
+\[
+ \mathcal T(p)=\sum_{B\subseteq P^c}(-\mu)^B\lambda^{P^c\setminus B}\,\tau(P\cup B).
+\]
+Now $\tau(P\cup B)=\sum_{\mathcal J\subseteq\Ho_P}(-1)^{|\mathcal J|}\mathbf 1[B\cap\bigcup\mathcal J=\emptyset]$,
+and for $U\subseteq P^c$,
+\[
+ \sum_{B\subseteq P^c\setminus U}(-\mu)^B\lambda^{P^c\setminus B}=\lambda^U\prod_{v\in P^c\setminus U}(\lambda_v-\mu_v)=\lambda^U .
+\]
+Hence $\mathcal T(p)=\Theta_\lambda(\Ho_P)$.
+\end{proof}
+
+\begin{lemma}[Matching bound; proved]\label{lem:theta}
+If every $J\in\cC$ has $w_J:=\lambda^J\le2$, then for every matching
+$\cM\subseteq\cC$ (pairwise disjoint members)
+\[
+ |\Theta_\lambda(\cC)|\le\prod_{J\in\cM}(w_J-1);\qquad\text{in particular }|\Theta_\lambda(\cC)|\le1 .
+\]
+\end{lemma}
+
+\begin{proof}
+For $v\in V_0$ let $\cC-v$ be the members not containing $v$ and
+$\cC/v=\{J\setminus\{v\}:\ J\in\cC\}$.  Splitting $\mathcal J$ according to whether
+it contains a member through $v$,
+\[
+ \Theta(\cC)=\Theta(\cC-v)+\lambda_v\big[\Theta(\cC/v)-\Theta(\cC-v)\big]=\lambda_v\Theta(\cC/v)-\mu_v\Theta(\cC-v).
+\]
+Both families again have all weights at most $2$.  We induct on
+$|\bigcup\cC|$.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the empty
+member pairs the terms), and the claim holds.  If $\cC=\emptyset$, then
+$\Theta=1$ and $\cM=\emptyset$.  This covers the base case $\bigcup\cC=\emptyset$.  If
+$\cM=\emptyset$ and $\cC\ne\emptyset$, it suffices to prove the bound for $\cM=\{J\}$
+with any $J\in\cC$, as $w_J-1\le1$.  So let $J_0\in\cM$ be nonempty, $v\in J_0$,
+and $\Pi'=\prod_{J\in\cM\setminus\{J_0\}}(w_J-1)$.  In $\cC/v$ the family
+$(\cM\setminus\{J_0\})\cup\{J_0\setminus\{v\}\}$ is a matching, so
+$|\Theta(\cC/v)|\le(w_{J_0}/\lambda_v-1)\Pi'$.  In $\cC-v$ the family
+$\cM\setminus\{J_0\}$ is a matching, so $|\Theta(\cC-v)|\le\Pi'$.  Therefore
+$|\Theta(\cC)|\le(w_{J_0}-\lambda_v)\Pi'+\mu_v\Pi'=(w_{J_0}-1)\Pi'$.
+\end{proof}
+
+\begin{theorem}[Energy bound; proved]\label{thm:C1}
+\textup{(a)} If every edge of a hypergraph $\Ho$ has $\lambda^J\le2$, then
+$Q_\mu(\Ho)\le\prod_{J\in\cM}(\lambda^J-1)$ for every matching $\cM\subseteq\Ho$; in
+particular $Q_\mu(\Ho)\le1$.
+\textup{(b)} In the Setting, if $\lambda_v\ge1$ and $\lambda^{\supp E}\le2$ for every
+$E\in\cE$, then
+\[
+ G_F(\lambda)=\sum_U\lambda^U\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+\begin{proof}
+(a) By Lemma~\ref{lem:polar} and Lemma~\ref{lem:theta} applied to $\Ho_P$ with the
+matching $\cM\cap\Ho_P$, $Q_\mu(\Ho)\le\E_P\prod_{J\in\cM\cap\Ho_P}(\lambda^J-1)^2$.  The
+members of $\cM$ are disjoint, so the events $\{J\cap P=\emptyset\}$ are independent,
+with probability $\prod_{v\in J}\lambda_v^{-1}=1/w_J$.  Hence
+$Q_\mu(\Ho)\le\prod_{J\in\cM}[(1-1/w_J)+(w_J-1)^2/w_J]=\prod_{J\in\cM}(w_J-1)$.
+(b) Lemma~\ref{lem:cover} and (a), since $\Ho(x)$ consists of supports of events.
+\end{proof}
+
+\begin{corollary}[Energy tail; proved]\label{cor:tail}
+In the Setting, if every event of $\cE$ has $|\supp E|\le k$ ($k\ge1$), then for
+$f\in\{F,1-F\}$ and every integer $t\ge0$,
+\[
+ \energy(f;t)=\sum_{|U|>t}\|f^{=U}\|^2\ \le\ 2^{-(t+1)/k}.
+\]
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:C1}(b) with $\lambda_v=2^{1/k}$ and \eqref{eq:markov};
+$(1-F)^{=U}=-F^{=U}$ for $U\ne\emptyset$.
+\end{proof}
+
+\begin{remark}[Sharpness; proved]\label{rem:sharp}
+Over general product spaces the base $2^{-1/k}$ cannot be improved.  Take
+$m$ events on pairwise disjoint sets of $k$ coordinates, each fixing at every
+coordinate of its support a value of probability $p$; put $\pi=p^k$.  As the
+factors $1-\mathbf 1_{E_i}$ are independent, $F^{=U}=\prod_i(1-\mathbf 1_{E_i})^{=U\cap\supp E_i}$.
+For $U$ the union of the supports of $j$ of the events this gives
+$\|F^{=U}\|^2=[\pi(1-p)^k]^j(1-\pi)^{2(m-j)}$, and $|U|=jk$.  Hence
+\[
+ \energy(F;jk-1)\ \ge\ \binom mj\big[\pi(1-p)^k\big]^j(1-\pi)^{2(m-j)}
+ \ \longrightarrow\ e^{-2s}\frac{s^j}{j!}
+\]
+as $p\to0$ with $m=\lfloor s/\pi\rfloor$.  With $s=j/2$ and $j!\le e\,j^{j+1/2}e^{-j}$,
+the limit is at least $2^{-j}/(e\sqrt j)=2^{-(t+1)/k}/(e\sqrt j)$ for $t=jk-1$.  So no
+bound $C\rho^{-(t+1)/k}$ with $\rho>2$ holds for all such systems (with alphabets
+of size about $1/p$), and at most a factor of order $\sqrt{t/k}$ could be
+gained.  The condition $\lambda^{\supp E}\le2$ in
+Theorem~\ref{thm:C1} is necessary, by the single-event formula above.
+\end{remark}
+
+\begin{remark}[Boolean form and comparison; proved, except the cited constant]\label{rem:boolean}
+A width-$k$ DNF $g:\{\pm1\}^n\to\{\pm1\}$ is $1-2F$ for the family of its terms
+(a term with a literal set is a cylinder event).  As $g^{=U}=-2F^{=U}$ for
+$U\ne\emptyset$, Corollary~\ref{cor:tail} gives, for every product measure on
+$\{\pm1\}^n$ (Efron--Stein weights; Fourier weights for the uniform measure),
+\[
+ \sum_{|S|>t}\hat g(S)^2\ \le\ 4\cdot2^{-(t+1)/k},
+\]
+i.e.\ $g$ is $\varepsilon$-concentrated up to degree $k\log_2(4/\varepsilon)$.  The
+switching-lemma route of Linial, Mansour and Nisan gives
+$\sum_{|S|\ge t}\hat g(S)^2\le2\cdot2^{-t/(20k)}$ \cite[\S4.4]{OD}, \cite{LMN}.  Also
+$\lambda^{|U|}\ge1+|U|\ln\lambda$ gives total influence
+$\sum_U|U|\,\|F^{=U}\|^2\le(k/\ln2)\PP(F=0)$.  The same bounds hold for $q$-ary
+DNFs with literals $x_v\in S_v$ (split each term into single-value cylinders
+on the same support; $F$ and the supports do not change).  We have not found Theorem~\ref{thm:C1} in the
+literature; see the introduction for what we checked.
+\end{remark}
+
+\emph{Digit filtrations.}  For the application we need weights that grow
+along a filtration of each coordinate.  Suppose that each coordinate
+$X_\ell$ ($\ell\in\cP$, a finite index set) is a tuple of independent
+\emph{digits} $(\delta_{\ell,i})_{i_0(\ell)\le i<f_\ell}$, with arbitrary distributions,
+and that the coordinates are independent; the Efron--Stein decomposition
+$F=\sum_UF^{=U}$ below is taken over the digits, so $U$ is a set of pairs
+$(\ell,i)$.  For such $U$ write $U_\ell=\{i:(\ell,i)\in U\}$.  We say that an
+event $E$ is a \emph{digit-prefix event} if, for some integers $v_\ell(E)\ge0$,
+it fixes exactly the digits $\delta_{\ell,i}$ with $i_0(\ell)\le i<v_\ell(E)$, for each
+$\ell$ (to arbitrary values).  Such an event is a cylinder event on the digits.
+
+\begin{theorem}[Filtration energy bound; proved]\label{thm:filtration}
+In this situation let $\lambda_\ell\ge1$ ($\ell\in\cP$), and suppose that every event
+of $\cE$ is a digit-prefix event with $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.  Then
+\[
+ \sum_U\Big(\prod_{\ell:\ U_\ell\ne\emptyset}\lambda_\ell^{1+\max U_\ell}\Big)\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+\begin{proof}
+Write $\Lambda_{\ell,i}=\lambda_\ell^{i+1}$, $\Lambda_{\ell,i_0(\ell)-1}=1$, and
+$\mu'_{\ell,j}=\Lambda_{\ell,j}-\Lambda_{\ell,j-1}\ge0$ for $i_0(\ell)\le j<f_\ell$.  For such $j$ let
+$P_{\ell,j}=I-\E_{B_{\ell,j}}$, where $\E_{B_{\ell,j}}$ averages over the \emph{tail block}
+$B_{\ell,j}=(\delta_{\ell,i})_{i\ge j}$.  Averaging over a digit in $U$ kills $F^{=U}$, and
+$F^{=U}$ does not depend on digits outside $U$; hence $P_{\ell,j}F^{=U}=F^{=U}$ if
+$U_\ell\ne\emptyset$ and $\max U_\ell\ge j$, and $P_{\ell,j}F^{=U}=0$ otherwise.  Call a set
+$V$ of pairs $(\ell,j)$ a \emph{selection} if it contains at most one pair for
+each $\ell$, and put $L'_V=\prod_{(\ell,j)\in V}P_{\ell,j}$.  Then
+$\|L'_VF\|^2=\sum_{U\succ V}\|F^{=U}\|^2$, where $U\succ V$ means $\max U_\ell\ge j$
+for all $(\ell,j)\in V$.  For fixed $U$, the sum of $\mu'^V$ over the
+selections $V\prec U$ factorises as
+$\prod_\ell\big(1+\sum_{i_0(\ell)\le j\le\max U_\ell}\mu'_{\ell,j}\big)=\prod_{\ell:\,U_\ell\ne\emptyset}\Lambda_{\ell,\max U_\ell}$.
+So the left side of the claim equals $\sum_V\mu'^V\|L'_VF\|^2$, the sum over
+selections.
+
+Fix a selection $V$ and pass to the coarser product space whose coordinates
+are, for $(\ell,j)\in V$, the head $(\delta_{\ell,i})_{i<j}$ and the tail block
+$B_{\ell,j}$, and, for the other $\ell$, the whole $X_\ell$.  There $L'_V$ is the
+operator $L_{V'}$ of the Setting for the set $V'$ of tail blocks.  Each event
+$E$ is a disjoint union of cylinder events on the coarse coordinates with
+the same coarse support (enumerate the unfixed digits of each coarse
+coordinate that $E$ involves), and splitting every event in this way does
+not change $F$.  Exactly one piece of $E$ holds at $x$ if $E$ does.  The
+trace of the coarse support of $E$ on $V'$ is the set of $B_{\ell,j}$ with
+$(\ell,j)\in V$ and $j<v_\ell(E)$.  Identify $B_{\ell,j}$ with the pair $(\ell,j)$ and put
+$\hat E=\{(\ell,j):\ i_0(\ell)\le j<v_\ell(E)\}$.  By Lemma~\ref{lem:cover} and the
+remark on traces,
+\[
+ \|L'_VF\|^2\le\E_x\big[N_{\hat\Ho(x)}(V)^2\big],\qquad \hat\Ho(x)=\{\hat E:\ E\in\cE,\ x\in E\}.
+\]
+Summing over selections and adding the nonnegative terms of all other sets
+$V$ of pairs, the left side of the claim is at most
+$\E_x[Q_{\mu'}(\hat\Ho(x))]$.  By Theorem~\ref{thm:C1}(a) it remains to show
+$\prod_{(\ell,j)\in\hat E}(1+\mu'_{\ell,j})\le2$ for every event.  Fix $\ell$ and write
+$\lambda=\lambda_\ell$, $v=v_\ell(E)$, $i_0=i_0(\ell)$, and assume $v>i_0$.  Here
+$1+\mu'_{\ell,i_0}=\lambda^{i_0+1}$ and $1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$.  The
+hypothesis gives $\lambda^{2v}\le2$, so $\lambda^j\le\lambda^v\le\sqrt2<\lambda+1$ for $j<v$, i.e.\
+$1+\lambda^j(\lambda-1)\le\lambda^2$.  The factor of $\ell$ is therefore at most
+$\lambda^{i_0+1}\lambda^{2(v-1-i_0)}\le\lambda^{2v}$, and the product over $\ell$ is at most
+$\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.
+\end{proof}
+
+\begin{corollary}[Modulus-weighted tail; proved]\label{cor:modtail}
+In Theorem~\ref{thm:filtration} let the $\ell\in\cP$ be primes and
+$\lambda_\ell=2^{\log\ell/(2\Lc)}$, and suppose $\prod_\ell\ell^{v_\ell(E)}\le T$ for every
+event.  For a set $U$ of digits put $m_U=\prod_{\ell:\,U_\ell\ne\emptyset}\ell^{1+\max U_\ell}$.
+Then for every $\tau\ge0$
+\[
+ \sum_{U:\ m_U>e^\tau}\|F^{=U}\|^2\ \le\ 2^{-\tau/(2\Lc)} .
+\]
+\end{corollary}
+
+\begin{proof}
+$\prod_\ell\lambda_\ell^{2v_\ell(E)}=2^{\log\prod_\ell\ell^{v_\ell(E)}/\Lc}\le2$, and the weight of $U$
+in Theorem~\ref{thm:filtration} is $2^{\log m_U/(2\Lc)}$.
+\end{proof}
+
+The cost of a junta is thus measured by the modulus $m_U$ a function of the
+digits in $U$ needs, not by the number of coordinates.  For the
+Erd\H{o}s--Straus events (digits in base $\ell$) this removes both the
+binary width and the support size from the junta modulus.
+
+\section{The residual system and the sandwich minorant}\label{sec:brw}
+
+Throughout this section $Q$ is a graded quarantine as in
+Definition~\ref{def:system}, $E_1,\dots,E_m$ ($m\le T^2$) are the events of the
+surviving atoms, in some order, $A_i=\mathbf 1_{E_i}$,
+$F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$, $w_\ell=w_\ell(Q)$, $S=S(Q)$ and
+$\delta=\E F$.  We assume
+\begin{equation}\label{eq:lllhyp}
+ \sum_{\ell\in\supp E_i}w_\ell\le\frac1{64}\quad(i\le m),\qquad w_\ell\le\frac1{64}\quad(\ell\in\cP),
+\end{equation}
+which holds for the output of Lemma~\ref{lem:gradedq} with $c=1/64$.
+
+\emph{Digits.}  For $\ell\in\cP$ write $x\in\Omega_\ell$ in base $\ell$ as
+$x=\sum_{i<f_\ell}\delta_{\ell,i}\ell^i$.  The digits $\delta_{\ell,i}$ with $i<a_\ell$ are those of
+$1$, hence constant on $\Omega_\ell$.  The others are independent and uniform:
+$\delta_{\ell,0}$ on $\{1,\dots,\ell-1\}$ if $a_\ell=0$, and $\delta_{\ell,i}$ on $\{0,\dots,\ell-1\}$
+for $\max(a_\ell,1)\le i<f_\ell$; indeed $x\mapsto(\delta_{\ell,i})_{i\ge a_\ell}$ is a bijection
+from $\Omega_\ell$ onto the product of these ranges.  So the free digits are
+those with $i\ge i_0(\ell):=a_\ell$, and $E_{M,D}$ is a digit-prefix event with
+$v_\ell(E_{M,D})=v_\ell(M)$ for $\ell\in\supp(M,D)$ and $v_\ell(E_{M,D})=0$ otherwise.  A
+function of the digits $\delta_{\ell,i}$ with $i\le i_\ell$ depends only on $X_\ell$ modulo
+$\ell^{1+i_\ell}$.
+
+\emph{Cells.}  A \emph{consistent unit cell} is a class $b\bmod d$ with $d$
+composed of primes of $\cP$, $d\mid\prod_{\ell\in\cP}\ell^{f_\ell}$, $\gcd(b,d)=1$ and
+$b\equiv1\pmod{\gcd(d,Q)}$; on $\Omega$ it is the event
+$\{X_\ell\equiv b\ (\mathrm{mod}\ \ell^{v_\ell(d)})\ \forall\ell\mid d\}$, and on $\mathbb Z$ the
+class itself.  The events $E_{M,D}$ are consistent unit cells (by survival).
+The intersection of two consistent unit cells is empty or a consistent unit
+cell whose modulus is the lcm of the two, both on $\Omega$ and on $\mathbb Z$.
+A function on $\Omega$ that depends only on $(X_\ell\bmod\ell^{b_\ell})_\ell$ is a linear
+combination of consistent unit cells of modulus $\prod_\ell\ell^{b_\ell}$ (the
+indicators of its level sets' points).
+
+\begin{lemma}[Haar means; proved]\label{lem:haar}
+Let $Q'=Q\ell'$ with $\ell'$ a prime not dividing $Q\prod_{\ell\in\cP}\ell$ (or $Q'=Q$), and
+let $\varphi$ be a combination of consistent unit cells with $\lcm$ of moduli
+$D$.  With $H$ as in Theorem~\ref{thm:transfer} for $Q'$ and $D$, $\E_H\varphi=\E\varphi$.
+The same holds for $\varphi\psi$, where $\psi$ is a character modulo a squarefree
+$f\mid D$ coprime to $Q$, viewed on $\Omega$ through $X_\ell\bmod\ell$ for $\ell\mid f$.
+\end{lemma}
+
+\begin{proof}
+Let $N_0=\lcm(Q',D)$.  By the Chinese remainder theorem the uniform measure on
+$H$ is the product of the uniform measures on
+$H_p=\{x\in(\mathbb Z/p^{v_p(N_0)})^\times:\ x\equiv1\ (p^{v_p(Q')})\}$.  For $\ell\in\cP$ with
+$\ell\mid D$, $v_\ell(Q')=a_\ell$ and $v_\ell(N_0)\le f_\ell$, and reduction maps the uniform
+measure on $\Omega_\ell$ to the uniform measure on $H_\ell$ (all fibres have the
+same size).  The other primes of $N_0$ do not divide $D$, and $\varphi$, $\psi$ do
+not depend on them.
+\end{proof}
 
 \begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
 Let $\mathcal A$ be a finite family of events in a product space, each
@@ -657,47 +1278,31 @@ $\prod_{\Gamma(B)}(1-x_A)$.
 \end{proof}
 
 \begin{corollary}[Proved]\label{cor:lll}
-In the Setting, assume $w_\ell\le1/(64k)$ for all $\ell$.  Then
-$\delta:=\E F\ge e^{-2.2S}$.  Moreover, for every subfamily $\mathcal A$ of
-$\{E_1,\dots,E_m\}$ and every event $B$ on at most $k$ coordinates,
+Assume \eqref{eq:lllhyp}.  Then $\delta=\E F\ge e^{-2.2S}$.  Moreover, for every
+subfamily $\mathcal A$ of $\{E_1,\dots,E_m\}$ and every event $B$ depending on
+the coordinates $X_\ell$, $\ell\in J$, where $\sum_{\ell\in J}w_\ell\le1/64$,
 $\PP(B\mid\text{no }A\in\mathcal A\text{ occurs})\le1.04\,\PP(B)$.
 \end{corollary}
 
 \begin{proof}
-Take $x_{E_i}=2\PP(E_i)\le2w_\ell\le1/32$ for any $\ell\in\supp E_i$.  For an event
-$B$ on a set $J$ of coordinates,
-$\sum_{A\in\Gamma(B)}x_A\le2\sum_{\ell\in J}w_\ell\le|J|/(32k)$.  With $B=E_i$ this
-gives $\prod_{A\sim E_i}(1-x_A)\ge31/32$, so the hypothesis of
+Apply Lemma~\ref{lem:lll} with the coordinates $X_\ell$ and
+$x_{E_i}=2\PP(E_i)\le2w_\ell\le1/32$ for any $\ell\in\supp E_i$.  For an event $B$ on $J$,
+$\sum_{A\in\Gamma(B)}x_A\le2\sum_{\ell\in J}w_\ell$.  With $B=E_i$ this is at most $1/32$,
+so $\prod_{A\sim E_i,\,A\ne E_i}(1-x_A)\ge31/32$, and the hypothesis of
 Lemma~\ref{lem:lll} holds for every subfamily.  Since $1-x\ge e^{-1.1x}$ for
 $0\le x\le1/32$, we get $\delta\ge\prod_i(1-2\PP(E_i))\ge e^{-2.2S}$, and
-$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.1/32}\le1.04$ when $|J|\le k$.
+$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.1/32}\le1.04$ when $\sum_{\ell\in J}w_\ell\le1/64$.
 \end{proof}
 
-\emph{Efron--Stein decomposition} (classical; \cite{ES,Hoeffding},
-\cite[\S8.3]{OD}).  For $\varphi:\prod_{\cP}G_\ell\to\mathbb R$ and $W\subseteq\cP$
-let $\E[\varphi\mid X_W]$ be the conditional expectation given the coordinates
-in $W$, and
-\[
- \varphi^{=U}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}\,\E[\varphi\mid X_W].
-\]
-Then $\varphi=\sum_U\varphi^{=U}$, the components are mutually orthogonal, and
-$\varphi^{=U}$ is orthogonal to every function of $X_{U'}$ with $U'\not\supseteq U$.
-Hence the space of sums of functions of at most $t$ coordinates is
-$\bigoplus_{|U|\le t}V_U$, where $V_U$ is the space of all possible $\varphi^{=U}$, and
-\begin{equation}\label{eq:energy}
- \begin{aligned}
- \energy(\varphi;t)&:=\sum_{|U|>t}\|\varphi^{=U}\|_2^2\\
- &\phantom{:}=\min\Big\{\E(\varphi-g)^2:\ g\ \text{a sum of functions of}\le t\ \text{coordinates}\Big\},
- \end{aligned}
-\end{equation}
-attained at $\varphi^{\le t}:=\sum_{|U|\le t}\varphi^{=U}$.
-
-For $j\le m$ let $F^{(j)}$ be the function of the coordinates outside
-$\supp E_j$ obtained from $F_{<j}$ by fixing $X_\ell=\sigma_{j,\ell}$ for
-$\ell\in\supp E_j$.  Then $A_jF_{<j}=A_jF^{(j)}$, and $F^{(j)}$ is the
-avoidance indicator of the events $E_i$ ($i<j$) compatible with $E_j$,
-restricted to $\cP\setminus\supp E_j$.  Restricting such an event may leave
-it with empty support, and then $F^{(j)}\equiv0$.
+For $j\le m$ let $F^{(j)}$ be the function of the digits not fixed by $E_j$
+obtained from $F_{<j}$ by giving the digits fixed by $E_j$ their values on
+$E_j$.  Then $A_jF_{<j}=A_jF^{(j)}$.  At $\ell$, the digits not fixed by $E_j$ are
+those with $i\ge i_0^{(j)}(\ell):=\max(a_\ell,v_\ell(E_j))$, and $F^{(j)}$ is the avoidance
+indicator of the restrictions of the events $E_i$ ($i<j$) compatible with
+$E_j$.  Each restriction fixes the digits $i_0^{(j)}(\ell)\le i<v_\ell(E_i)$, so it is a
+digit-prefix event for the filtration starting at $i_0^{(j)}$, with the same
+$v_\ell(E_i)$ and $\prod_\ell\ell^{v_\ell(E_i)}\le M_i\le T$.  (A restriction may fix
+nothing; then $F^{(j)}\equiv0$.)
 
 \begin{lemma}[Bazzi--Razborov sandwich {\cite{Bazzi,Razborov}}; proved]\label{lem:brw}
 Let $u_1,\dots,u_m$ be arbitrary real functions, $v_i=\sum_{j<i}A_ju_j$, and
@@ -708,7 +1313,7 @@ Then $B\le F$ pointwise, and with $e_j=F_{<j}-u_j$,
 \[
  F-B=\sum_iA_i\Big(\sum_{j<i}A_je_j\Big)^2,\qquad \E[F-B]\le m^2\sum_{j\le m}\E[A_je_j^2].
 \]
-If $u_j$ is a function of the coordinates outside $\supp E_j$, then
+If $u_j$ is a function of the digits not fixed by $E_j$, then
 $\E[A_je_j^2]=\PP(E_j)\,\E(F^{(j)}-u_j)^2$.
 \end{lemma}
 
@@ -730,45 +1335,48 @@ independent of $A_j$.
 This is Razborov's simplification \cite{Razborov} of Bazzi's argument
 \cite{Bazzi}.  The choice of $u_j$ as an $\ell^2$-approximation of the
 ``conditional survival function'' $F^{(j)}$ is the one used there.  We
-include the short proof for completeness.  From now on
+include the short proof for completeness.  The identity and the inequality
+$B\le F$ use only that each $A_i$ takes values in $\{0,1\}$, so they also hold
+for the functions on $\mathbb Z$ obtained from cell expansions.
+
+\emph{Choice of $u_j$.}  Fix $\tau\ge0$.  For $j\le m$ let $\cD_j$ be the family of
+sets $U$ of digits not fixed by $E_j$ with $m_U\le e^\tau$, where
+$m_U=\prod_{\ell:\,U_\ell\ne\emptyset}\ell^{1+\max U_\ell}$; it is down-closed.  Put
 \begin{equation}\label{eq:uj}
- u_j:=\big(F^{(j)}\big)^{\le t},\qquad\text{so}\qquad
- \E[F-B]\le m^2\sum_j\PP(E_j)\,\energy(F^{(j)};t).
+ u_j=\big(F^{(j)}\big)^{\cD_j}=\sum_{U\in\cD_j}\big(F^{(j)}\big)^{=U},
 \end{equation}
+the Efron--Stein decomposition being taken over the digits not fixed by $E_j$.
 
-\emph{Cells.}  Now let $G_\ell=(\mathbb Z/\ell^{e_\ell})^\times$ with $\ell^{e_\ell}\le T$,
-as in Definition~\ref{def:system}.  A \emph{cell} on $I\subseteq\cP$ is a set
-$C=\{X_I=c\}$, $c\in\prod_IG_\ell$.  On integers $n$ (with
-$X_\ell=n\bmod\ell^{e_\ell}$) it is the unit class $n\equiv c\pmod{d_C}$,
-$d_C=\prod_I\ell^{e_\ell}\le T^{|I|}$, and $\PP(C)=1/\varphi(d_C)$.  If $C,C'$ are
-cells on $I,J$, then $\mathbf 1_C\mathbf 1_{C'}=\mathbf 1_{C\cap C'}$, where
-$C\cap C'$ is empty or a cell on $I\cup J$, both as functions on
-$\prod G_\ell$ and on $\mathbb Z$.  The Haar mean of a function of the
-coordinates is its mean over units modulo any $D$ divisible by the moduli of
-its cells: $\E=\E_D$ in the notation of \S\ref{sec:transfer}.
-
-\begin{lemma}[Cell structure of $B$; proved]\label{lem:size}
-With $u_j$ as in \eqref{eq:uj}, $B$ is a finite real combination of cells,
-each on at most $3k+2t$ coordinates.  So each modulus satisfies
-$d\le T^{3k+2t}$, it is composed of free primes, and the class is a unit
-class.  The identity $B=1-\sum_iA_i(1-v_i)^2$ also holds for the expanded
-cell combination evaluated at any integer $n$.
+\begin{lemma}[Approximation error; proved]\label{lem:EL}
+With $u_j$ as in \eqref{eq:uj}, $\E[F-B]\le m^2S\,2^{-\tau/(2\Lc)}$.
 \end{lemma}
 
 \begin{proof}
-For $\varphi=F^{(j)}$, a function of the coordinates outside $\supp E_j$,
-\[
- \varphi^{\le t}=\sum_{|U|\le t}\sum_{W\subseteq U}(-1)^{|U\setminus W|}\E[\varphi\mid X_W],
-\]
-and $\E[\varphi\mid X_W]=\sum_{C\text{ cell on }W}\E[\varphi\mid C]\,\mathbf 1_C$.  So
-$u_j$ is a combination of cells on at most $t$ coordinates.  Expanding,
+By \eqref{eq:energy} and Corollary~\ref{cor:modtail}, applied to $F^{(j)}$ with
+the filtration starting at $i_0^{(j)}$ (the digits are indexed by their
+absolute position, so $m_U$ is the modulus needed),
+$\E(F^{(j)}-u_j)^2\le2^{-\tau/(2\Lc)}$.  Conclude with Lemma~\ref{lem:brw}.
+\end{proof}
+
+\begin{lemma}[Cell structure of $B$; proved]\label{lem:size}
+With $u_j$ as in \eqref{eq:uj}, $B$ is a finite real combination of consistent
+unit cells of modulus at most $T^3e^{2\tau}$, composed of primes of $\cP$.
+The identity $B=1-\sum_iA_i(1-v_i)^2$ also holds for the expanded cell
+combination evaluated at any integer $n$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:energy}, $u_j$ is a combination of the functions
+$\E[F^{(j)}\mid\delta_W]$, $W\in\cD_j$.  Such a function depends only on
+$X_\ell\bmod\ell^{1+\max W_\ell}$ for the $\ell$ with $W_\ell\ne\emptyset$, so it is a combination
+of consistent unit cells of modulus $m_W\le e^\tau$.  Expanding,
 \[
  B=1-\sum_iA_i+2\sum_i\sum_{j<i}A_iA_ju_j-\sum_i\sum_{j,j'<i}A_iA_jA_{j'}u_ju_{j'} .
 \]
-Each term is a product of at most three $A$'s, each a single cell on
-$\le k$ coordinates, and at most two $u$'s.  So every cell lies on at most
-$3k+2t$ coordinates.  The last claim holds because the cell identities hold
-on $\mathbb Z$.
+Each term is a product of at most three events (moduli $\le T$) and at most
+two $u$'s, so every cell is an intersection of consistent unit cells of total
+modulus at most $T^3e^{2\tau}$.  The last claim holds because the
+intersection identities hold on $\mathbb Z$.
 \end{proof}
 
 \begin{lemma}[$\ell^1$-tightness; proved]\label{lem:l1}
@@ -781,263 +1389,205 @@ $B^-:=\max(-B,0)\le F-B$ since $F\ge0$, and $\E|B|=\E B+2\E B^-$.
 \end{proof}
 
 \begin{lemma}[Twist; proved]\label{lem:twist}
-In the situation of Definition~\ref{def:system}, assume $w_\ell\le1/(64k)$
-for all $\ell\in\cP$ and $\E[F-B]\le\delta/100$, where $\delta=\E F$.  Write
-$B=\sum_ic_i\mathbf 1[n\equiv b_i\ (d_i)]$ as in Lemma~\ref{lem:size}, and let
-$\mu=\sum_ic_i/\varphi(d_i)=\E B$.  Let $\psi$ be a real primitive character of
-conductor $f>1$ with $\gcd(f,Q_\Pi)=1$ and $f\mid d_i$ for some $i$.  Then
-$\mu\ge0.99\,\delta$ and
-\[
- |\mu_\psi|\le\mu/4,\qquad \mu_\psi=\sum_{i:\,f\mid d_i}c_i\psi(b_i)/\varphi(d_i).
-\]
+Assume \eqref{eq:lllhyp} and $\E[F-B]\le\delta/100$, and write $B$ as in
+Lemma~\ref{lem:size}, with $\mu=\E B$.  Let $\psi$ be a real primitive character of
+conductor $f>1$ with $\gcd(f,Q)=1$ and $f\mid d_i$ for some cell modulus $d_i$.
+Then $\mu\ge0.99\,\delta$ and $|\E[B\psi]|\le\mu/4$, where $\psi$ is viewed on $\Omega$
+through $X_\ell\bmod\ell$, $\ell\mid f$.
 \end{lemma}
 
 \begin{proof}
-$\mu=\E F-\E[F-B]\ge0.99\,\delta$.  As $2\nmid f$ and $\psi$ is real primitive,
-$f$ is squarefree.  Its prime factors are free, since they divide some
-$d_i$.  View $\psi(n)$ as a function of the coordinates
-$X_\ell$, $\ell\mid f$.  For a cell $C$ with modulus $d$,
-$\E[\mathbf 1_C\psi]=\psi(b)/\varphi(d)$ if $f\mid d$.  Otherwise some $\ell\mid f$ has
-$X_\ell$ free in $C$, and the nontrivial $\ell$-component of $\psi$ averages to
-$0$.  Hence $\mu_\psi=\E[B\psi]$, and
+$\mu=\E F-\E[F-B]\ge0.99\,\delta$.  As $2\nmid f$, $f$ is squarefree.  Its prime
+factors divide $d_i$, so they lie in $\cP$, and $a_\ell=0$ for them as
+$\gcd(f,Q)=1$.  So $\psi=\prod_{\ell\mid f}\psi_\ell(X_\ell\bmod\ell)$ with nontrivial
+characters $\psi_\ell$ of the uniformly distributed digits $\delta_{\ell,0}$.  Now
 \[
- |\mu_\psi|\le\E|B-F|+|\E[F\psi]|=\E[F-B]+|\E[F\psi]| .
+ |\E[B\psi]|\le\E|B-F|+|\E[F\psi]|=\E[F-B]+|\E[F\psi]| .
 \]
-Fix a prime $\ell_0\mid f$ and let $F'$ be the avoidance indicator of the events
-$E_i$ with $\ell_0\notin\supp E_i$.  Given $X_{-\ell_0}=(X_\ell)_{\ell\ne\ell_0}$, we have
-$F=F'\cdot\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where $\mathrm{Forb}$ is the set of values
-$\sigma_{i,\ell_0}$ of the events $E_i\ni\ell_0$ whose other conditions hold.  The
-$\ell_0$-component $\psi_0$ of $\psi$ is a nontrivial character of $X_{\ell_0}$, and
-$F'\cdot\prod_{\ell\ne\ell_0}\psi_\ell$ depends on $X_{-\ell_0}$ only.  So
+Fix $\ell_0\mid f$ and let $F'$ be the avoidance indicator of the events $E_i$
+with $\ell_0\notin\supp E_i$.  Given the other coordinates $X_{-\ell_0}$, we have
+$F=F'\cdot\mathbf 1[X_{\ell_0}\notin\mathrm{Forb}]$, where $\mathrm{Forb}$ is the union of the
+classes $X_{\ell_0}\equiv-4D_i\pmod{\ell_0^{v_{\ell_0}(M_i)}}$ over the events $E_i\ni\ell_0$
+whose other conditions hold.  Write $E_i\setminus\ell_0$ for the event given by those
+other conditions, and $\pi_i$ for the $\Omega_{\ell_0}$-probability of the class at $\ell_0$,
+so that $\PP(E_i)=\PP(E_i\setminus\ell_0)\pi_i$.  Since $\E_{X_{\ell_0}}\psi_{\ell_0}=0$,
 \begin{align*}
- |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_0\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|\\
- &\le\sum_{i:\,\ell_0\in\supp E_i}\frac{\PP(F'=1,\ E_i\setminus\ell_0)}{|G_{\ell_0}|},
+ |\E[F\psi]|&=\Big|\E\Big[F'\textstyle\prod_{\ell\ne\ell_0}\psi_\ell\ \E_{X_{\ell_0}}\big[\psi_{\ell_0}\,\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]\big]\Big]\Big|\\
+ &\le\sum_{i:\,\ell_0\in\supp E_i}\PP(F'=1,\ E_i\setminus\ell_0)\,\pi_i .
 \end{align*}
-where $E_i\setminus\ell_0$ is the event given by the conditions of $E_i$ off $\ell_0$.
-By Corollary~\ref{cor:lll} applied to the family defining $F'$,
+The coordinates of $E_i\setminus\ell_0$ lie in $\supp E_i$, so by \eqref{eq:lllhyp}
+and Corollary~\ref{cor:lll} applied to the family defining $F'$,
 $\PP(E_i\setminus\ell_0\mid F'=1)\le1.04\,\PP(E_i\setminus\ell_0)$.  Hence
-$|\E[F\psi]|\le1.04\,w_{\ell_0}\E F'\le0.02\,\E F'$.  Likewise
-$\E F'-\E F=\E[F'\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]]\le0.02\,\E F'$, so
-$\E F'\le\delta/0.98$.  Altogether
-$|\mu_\psi|\le0.01\delta+0.0205\,\delta\le0.031\,\mu/0.99<\mu/4$.
-\end{proof}
-
-\section{The Efron--Stein tail via the switching lemma}\label{sec:tail}
-
-For $f:\{0,1\}^n\to\mathbb R$ write $f=\sum_{S\subseteq[n]}\hat f(S)\chi_S$ with
-$\chi_S(x)=(-1)^{\sum_{s\in S}x_s}$, and $\mathrm W^{\ge d}[f]=\sum_{|S|\ge d}\hat f(S)^2$.
-A \emph{$p$-random restriction} $\rho=(J,z)$ chooses each coordinate
-independently to be free (in $J$) with probability $p$, and fixes the others
-to independent uniform bits $z$.  The restricted function $f_\rho$ is a
-function of $x_J$.  $\DT(g)$ is the decision-tree depth of $g$.  A
-decision tree of depth $<s$ computes a function of Fourier degree $<s$.
-
-\begin{theorem}[Håstad's switching lemma {\cite{Hastad}}; cited in the form of {\cite[\S4.4]{OD}}]\label{thm:hastad}
-Let $f:\{0,1\}^n\to\{0,1\}$ be computed by a DNF of width at most $w$, and let
-$\rho$ be a $p$-random restriction.  Then $\Pr_\rho[\DT(f_\rho)\ge s]\le(5pw)^s$
-for every $s\ge0$.
-\end{theorem}
-
-Any absolute constant in place of $5$ would do.  We also use two classical
-facts.  (1) For fixed $J$ and $S\subseteq J$, the coefficient of $f_{(J,z)}$ at $S$
-is $\sum_{U\cap J=S}\hat f(U)\chi_{U\setminus J}(z)$.  By Parseval in $z$, therefore,
-$\E_z\big[\widehat{f_{(J,z)}}(S)^2\big]=\sum_{U\cap J=S}\hat f(U)^2$.  (2) A median of
-the binomial law $\mathrm{Bin}(n,p)$ is $\lfloor np\rfloor$ or $\lceil np\rceil$
-\cite{KB}, so $\Pr[\mathrm{Bin}(n,p)\ge\lfloor np\rfloor]\ge1/2$.
-
-\begin{lemma}[Fourier tail; proved modulo Theorem~\ref{thm:hastad}]\label{lem:tail}
-In the Setting of \S\ref{sec:brw}, let $\varphi$ be the avoidance indicator of
-a family of events, each on at most $k$ coordinates, on a set of $N'\le N$
-coordinates.  Let $b$ be an integer with $2^b\ge4NT$.  Then for every integer $k_0\ge1$,
-\[
- \energy\big(\varphi;\,10\,k\,b\,k_0\big)\ \le\ 4\cdot2^{-k_0}.
-\]
-\end{lemma}
-
-\begin{proof}
-If some event has empty support then $\varphi\equiv0$, and there is nothing to
-prove.  Otherwise:
-
-\emph{(a) Encoding.}  For each coordinate $\ell$ enumerate
-$G_\ell=\{g_0,\dots,g_{q-1}\}$ ($q=q_\ell\le T$) and put
-$\pi_\ell(u)=g_{\lfloor q\cdot\mathrm{int}(u)/2^b\rfloor}$ for $u\in\{0,1\}^b$, where
-$\mathrm{int}(u)\in[0,2^b)$ is the integer with binary digits $u$.  Each fibre
-$\pi_\ell^{-1}(g_a)$ corresponds to an interval of integers.  Since $2^b\ge q$,
-the fibre is nonempty, and it has $\lfloor2^b/q\rfloor$ or $\lceil2^b/q\rceil$
-elements.  An interval in $[0,2^b)$ is a disjoint union of at most $2b$
-dyadic intervals, i.e.\ of subcubes of $\{0,1\}^b$ given by fixing at most $b$
-bits.  Let $U=(U_\ell)$ be uniform on $(\{0,1\}^b)^{N'}$, put
-$\pi(U)=(\pi_\ell(U_\ell))_\ell$ and $\tilde\varphi=\varphi\circ\pi$.  The event
-$\{X_\ell=\sigma_\ell\ (\ell\in\supp E)\}$ pulls back to a conjunction over
-$\ell\in\supp E$ of disjunctions of conjunctions of at most $b$ literals in the
-bits of $U_\ell$.  Distributing, it is a DNF of width $\le kb$.  Hence
-$f:=1-\tilde\varphi$, the OR of these over all events, is a DNF of width
-at most $w:=kb\ge1$.
-
-\emph{(b) Concentration} (Linial--Mansour--Nisan \cite{LMN}).  Take
-$p=1/(10w)$ and $d=k_0/p=10wk_0$.  By Theorem~\ref{thm:hastad},
-$\Pr_\rho[\DT(f_\rho)\ge k_0]\le2^{-k_0}$.  Since
-$\mathrm W^{\ge k_0}[f_\rho]\le\E f_\rho^2\le1$ always, and
-$\mathrm W^{\ge k_0}[f_\rho]=0$ when $\DT(f_\rho)<k_0$, fact (1) gives
-\[
- 2^{-k_0}\ \ge\ \E_\rho\mathrm W^{\ge k_0}[f_\rho]=\sum_U\hat f(U)^2\,\Pr[|U\cap J|\ge k_0]
- \ \ge\ \tfrac12\sum_{|U|\ge d}\hat f(U)^2 .
-\]
-In the last step, $|U\cap J|\sim\mathrm{Bin}(|U|,p)$ and $\lfloor p|U|\rfloor\ge k_0$,
-so fact (2) applies.  As $\hat{\tilde\varphi}(U)=-\hat f(U)$ for $U\ne\emptyset$, the
-function $\tilde g=\sum_{|S|<d}\hat{\tilde\varphi}(S)\chi_S$ satisfies
-$\E(\tilde\varphi-\tilde g)^2\le2^{1-k_0}$.
-
-\emph{(c) Back to residues.}  Put $g(x)=\E[\tilde g(U)\mid\pi(U)=x]$.  The
-blocks $U_\ell$ are independent and $\pi$ acts blockwise.  Hence
-$\E[\chi_S(U)\mid\pi(U)=x]$ is the product over the blocks $\ell$ met by $S$ of
-$\E[\chi_{S\cap\text{block }\ell}(U_\ell)\mid\pi_\ell(U_\ell)=x_\ell]$, a function of
-fewer than $d$ coordinates.  So $g$ is a sum of functions of at most
-$d=10kbk_0$ coordinates.  Let $\pi_*$ be the law of $\pi(U)$.  As
-$\tilde\varphi$ is a function of $\pi(U)$, Jensen gives
-$\E_{\pi_*}(\varphi-g)^2=\E\big[\E[\tilde\varphi-\tilde g\mid\pi(U)]^2\big]\le2^{1-k_0}$.
-Finally, the density of the uniform law relative to $\pi_*$ is
-$\prod_\ell2^b/(q_\ell|\pi_\ell^{-1}(x_\ell)|)\le\prod_\ell(1-q_\ell2^{-b})^{-1}\le
-(1-1/(4N'))^{-N'}\le4/3$.  So by \eqref{eq:energy},
-$\energy(\varphi;d)\le\E(\varphi-g)^2\le\frac43\cdot2^{1-k_0}\le4\cdot2^{-k_0}$.
-\end{proof}
-
-The width $kb$ enters $t$ only linearly.  Nothing about the events is used
-beyond their support size; in particular there is no codegree hypothesis.
-
-\begin{corollary}[Proved modulo Theorem~\ref{thm:hastad}]\label{cor:el}
-In the Setting of \S\ref{sec:brw} with $N\le T$ and $m\ge1$, assume $w_\ell\le1/(64k)$ for all
-$\ell$.  Let $k_0$ be any integer with
-\[
- k_0\ \ge\ 3S\log_2e+\log_2\big(400\,m^2(S+1)\big),
-\]
-put $b=\lceil\log_2(4T^2)\rceil$ and $t=10\,k\,b\,k_0$, and define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  Then
-$\E[F-B]\le\delta/100$.
-\end{corollary}
-
-\begin{proof}
-Here $\log_2$ is the binary logarithm, and $2^b\ge4T^2\ge4NT$.  Apply
-Lemma~\ref{lem:tail} to each $F^{(j)}$: it is the avoidance indicator of
-events on at most $k$ coordinates.  This gives
-$\energy(F^{(j)};t)\le4\cdot2^{-k_0}\le e^{-3S}/(100m^2(S+1))$.  By
-\eqref{eq:uj}, $\E[F-B]\le m^2S\,e^{-3S}/(100m^2(S+1))\le e^{-3S}/100$, and
-$\delta\ge e^{-2.2S}$ by Corollary~\ref{cor:lll}.
+$|\E[F\psi]|\le1.04\,w_{\ell_0}\E F'\le0.0163\,\E F'$.  Likewise
+$\E F'-\E F=\E[F'\mathbf 1[X_{\ell_0}\in\mathrm{Forb}]]\le0.0163\,\E F'$, so
+$\E F'\le\delta/0.9837$.  Altogether
+$|\E[B\psi]|\le0.01\,\delta+0.0166\,\delta\le0.027\,\mu/0.99<\mu/4$.
 \end{proof}
 
 \section{Proof of the main theorems}\label{sec:proof}
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and~\ref{thm:hastad}]\label{thm:assembly}
-Let $T$ be large, $7\le z\le T$, $k=\lfloor\Lc/\log z\rfloor$, and let $\Pi$ be
-the output of Lemma~\ref{lem:iterq} with $c_0=1/(64k)$.  Put
+\begin{theorem}[Assembly; proved modulo Theorem~\ref{thm:G}]\label{thm:assembly}
+Let $T$ be large and let $Q$ be the output of Lemma~\ref{lem:gradedq} with
+$c=1/64$.  Put $S_1=C_1S_0$ and
 \[
- k_0=\big\lceil3S^*\log_2e+\log_2\big(400\,T^{2k+4}(S^*+1)\big)\big\rceil,\qquad
- t=10\,k\,\lceil\log_2(4T^2)\rceil\,k_0 .
+ \tau=2\Lc\big\lceil\log_2\big(100\,T^4(S_1+1)e^{3S_1}\big)\big\rceil .
 \]
 Then there is a prime $p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and
 $\log p\le C_6\log Z$, where $C_6$ is absolute and
 \[
- \log Z\le(\pi(z)+64k^2S^*)\Lc+2(3k+2t+1)\Lc+4 .
+ \log Z\le\log Q+4\tau+6\Lc+1 .
 \]
 \end{theorem}
 
 \begin{proof}
-Take the residual system of Definition~\ref{def:system} for this $\Pi$.  By
-Lemma~\ref{lem:system}, $N\le T$, $m\le T^{k+2}$, $S\le S^*$, every support has at
-most $k$ primes, and $w_\ell\le1/(64k)$.  If $m=0$, then $F\equiv1$; we put $B=1$, so that $D=1$, $\mu=A=1$, the twist
-condition is vacuous, and we go directly to the transfer step below.
-Otherwise define $B$ by Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}
-and $t$ as above.  Since $m^2\le T^{2k+4}$ and $S\le S^*$, our $k_0$ satisfies
-the hypothesis of Corollary~\ref{cor:el}, which therefore gives
-$\E[F-B]\le\delta/100$.  Then
-Lemma~\ref{lem:twist} gives $\mu=\E B\ge0.99\delta>0$ and the twist condition
-for every real primitive $\psi$ with conductor coprime to $Q_\Pi$ dividing some
-$d_i$.  As $\E[F-B]\le\mu/99$, Lemma~\ref{lem:l1} gives
-$A=\E|B|/\mu\le1+2/99<1.03$.  By Lemma~\ref{lem:size}, every modulus is
-$d_i\le T^{3k+2t}$.
+Take the residual system of $Q$.  By Lemma~\ref{lem:gradedq}, \eqref{eq:lllhyp}
+holds, $S\le S_1$ and $840\mid Q$; and $m\le T^2$.  If $m=0$, then $F\equiv1$; we
+put $B=1$ (one cell of modulus $1$), so that $\mu=A=1$ and the twist condition
+is vacuous, and go directly to the transfer step below.  Otherwise define $B$ by
+Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  By Lemma~\ref{lem:EL}, the
+choice of $\tau$, $m\le T^2$ and Corollary~\ref{cor:lll},
+\[
+ \E[F-B]\le m^2S\,2^{-\tau/(2\Lc)}\le\frac{S\,e^{-3S_1}}{100(S_1+1)}\le\frac{e^{-3S}}{100}\le\frac\delta{100}.
+\]
+Lemma~\ref{lem:twist} gives $\mu=\E B\ge0.99\,\delta>0$, and, as
+$\E[F-B]\le\mu/99$, Lemma~\ref{lem:l1} gives $\E|B|\le1.03\,\mu$.  By
+Lemma~\ref{lem:size}, $B$ is a combination of consistent unit cells of
+moduli $d_i\le T^3e^{2\tau}$.
 
 \emph{Pointwise inequality on integers.}  For every integer $n$ the values
-$A_i(n)\in\{0,1\}$ (with $X_\ell=n\bmod\ell^{e_\ell}$) satisfy the hypotheses of
-Lemma~\ref{lem:brw}, and the cell expansion of $B$ is valid on $\mathbb Z$
-(Lemma~\ref{lem:size}).  So $B(n)\le F(n)$, and by Lemma~\ref{lem:system}(iv),
-$B(n)\le\mathbf 1[W(n)>T]$ for every $n\equiv1\pmod{Q_\Pi}$.
+$A_i(n)\in\{0,1\}$ satisfy the hypotheses of Lemma~\ref{lem:brw}, and the cell
+expansion of $B$ is valid on $\mathbb Z$ (Lemma~\ref{lem:size}).  So
+$B(n)\le F(n)$, and by Lemma~\ref{lem:system}(i), $B(n)\le\mathbf 1[W(n)>T]$ for
+every $n\equiv1\pmod Q$.
 
 \emph{Transfer.}  Let $R=\max(T,\max_id_i)$ and choose a prime
-$\ell_{\rm aux}\in(R,2R]$.  Apply Theorem~\ref{thm:transfer} with
-$Q=Q_\Pi\ell_{\rm aux}$.  Every $d_i$ is composed of free primes, which are
-$\le T$ and outside $\Pi$, so $\gcd(d_i,Q)=1$; the $b_i$ are units.  The
-inequality $B\le\mathbf 1[W>T]$ holds on $n\equiv1\pmod Q$.  The twist
-condition holds, as a conductor coprime to $Q$ is coprime to $Q_\Pi$.  Also
-$\E_D|B|/\mu=A\le1.03\le Z^{1/4}$, since $\E_D$ is the Haar mean.  Here
-$\log Z=\log Q_\Pi+\log\ell_{\rm aux}+\log\max d_i\le\log Q_\Pi+\log2+2(3k+2t)\Lc$,
-and $\log Q_\Pi\le(\pi(z)+64k^2S^*)\Lc+\log24$ by Lemmas~\ref{lem:system}(i)
-and~\ref{lem:iterq}.  Theorem~\ref{thm:transfer} with
-$\log x=C_2(1+\log1.03)\log Z$ gives a prime $p$ with $p\equiv1\pmod Q$,
-$W(p)>T$ and $\log p\le C_6\log Z$.  Since $\ell_{\rm aux}\mid p-1$ we have
-$p>\ell_{\rm aux}>T$, and $840\mid Q_\Pi$ gives $p\equiv1\pmod{840}$.
+$\ell_{\rm aux}\in(R,2R]$.  Apply Theorem~\ref{thm:transfer} with $Q'=Q\ell_{\rm aux}$, so
+$8\mid Q'$.  As $\ell_{\rm aux}>\max d_i$, $\gcd(d_i,Q')=\gcd(d_i,Q)$, so the cells
+are consistent for $Q'$.  The inequality $B\le\mathbf 1[W>T]$ holds on
+$n\equiv1\pmod{Q'}$.  The functions $B$ and $|B|$ depend only on $X\bmod D$, so
+both are combinations of consistent unit cells (point cells modulo $D$), and by
+Lemma~\ref{lem:haar}, $\E_HB=\mu$ and
+$\E_H|B|/\mu\le1.03\le Z^{1/4}$.  A real primitive character of conductor
+$f>1$ coprime to $Q'$ is coprime to $Q$, so Lemmas~\ref{lem:twist}
+and~\ref{lem:haar} give the twist condition.  Here
+$\log Z\le\log Q+\log(2R)+\log\max d_i\le\log Q+\log2+2(3\Lc+2\tau)$.
+Theorem~\ref{thm:transfer} with $\log x=C_2(1+\log1.03)\log Z$ gives a prime
+$p\equiv1\pmod{Q'}$ with $W(p)>T$ and $\log p\le C_6\log Z$.  Since
+$\ell_{\rm aux}\mid p-1$, $p>\ell_{\rm aux}>T$, and $840\mid Q$ gives $p\equiv1\pmod{840}$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-We take $z=\Lc^2$.  Then $k\le\Lc/(2\log\Lc)$ and $\pi(z)\ll\Lc^2/\log\Lc$.  By
-Lemma~\ref{lem:qmass}(b), $S^*\ll\Lc^4\log\Lc$.  Then $k_0\ll S^*+k\Lc\ll\Lc^4\log\Lc$
-and $t\ll k\Lc k_0\ll\Lc^6$.  Also
-$\log Q_\Pi\ll(\Lc^2/\log\Lc+k^2S^*)\Lc\ll\Lc^7/\log\Lc$, so
-$\log Z\ll\Lc^7$.  Theorem~\ref{thm:assembly} gives a hard prime $p>T$ with
-$W(p)>T$ and $\log p\le C\Lc^{7}$, i.e.\
-$W(p)>T\ge\exp\big(c(\log p)^{1/7}\big)$.  Applying this to a sequence
-$T_1<T_2<\dots$ with $T_{j+1}$ larger than the prime found for $T_j$ gives
-infinitely many distinct primes.
+By Theorem~\ref{thm:omega}, $S_1\ll\Lc^4$ and $\Omega_0\ll\Lc^4\log\Lc$.  Hence
+$\tau\ll\Lc(\Lc+S_1)\ll\Lc^5$, and Lemma~\ref{lem:gradedq}(c) with $c=1/64$ gives
+$\log Q\le1.02\,\Lc+7+64C_1\Lc\,\Omega_0\ll\Lc^5\log\Lc$.  So $\log Z\ll\Lc^5\log\Lc$,
+and Theorem~\ref{thm:assembly} gives a hard prime $p>T$ with $W(p)>T$ and
+$\log p\le C\Lc^5\log\Lc$.  As $\Lc<\log p$, this gives
+$\Lc^5\ge\log p/(C\log\log p)$, i.e.\
+$W(p)>T\ge\exp\big(c(\log p)^{1/5}(\log\log p)^{-1/5}\big)$.  Applying this to a
+sequence $T_1<T_2<\dots$ with $T_{j+1}$ larger than the prime found for $T_j$
+gives infinitely many distinct primes.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:uncond}]
-Take $z=\Lc^2$ again, and use Lemma~\ref{lem:qmass}(a) instead of (b).  Now
-$k_0$, $t$, $\log Q_\Pi$ and $\log Z$ are all at most $\Lc^{O(1)}(S^*+1)$, so
+Use the unconditional part of Theorem~\ref{thm:omega}.  Now $\tau$, $\log Q$ and
+$\log Z$ are all at most $\Lc^{O(1)}(S_0+1)$, so
 \[
- \log\log p\le\log(S^*+1)+O(\log\Lc)\le(\log2+o(1))\,\Lc/\log\Lc .
+ \log\log p\le\log(S_0+1)+O(\log\Lc)\le(\log2+o(1))\,\Lc/\log\Lc .
 \]
 Since $x\mapsto x/\log x$ is increasing for $x\ge e$, we get
 $\Lc/\log\Lc\ge Y:=(1/\log2-o(1))\log\log p$, hence
 $\Lc\ge Y\log\Lc\ge Y\log Y$.  That is,
-\[
- \log W(p)>\Lc\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p .
-\]
+$\log W(p)>\Lc\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$.
 Infinitely many primes arise as before.
 \end{proof}
 
+\begin{corollary}[Haar side; proved modulo Theorem~\ref{thm:ETall}]\label{cor:haar}
+Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
+relative to the class $n\equiv1\pmod{24}$, i.e.\ the proportion, among the
+units modulo $L=\lcm(24,\,M\le T)$ that are $\equiv1\pmod{24}$, of those with
+$W(n)>T$ (the condition $W(n)>T$ depends only on $n\bmod L$).  Then
+$\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  The natural density $\delta^*_{\mathbb Z}(T)$ of
+the set of all integers $n$ with $W(n)>T$ satisfies the same bound.
+\end{corollary}
+
+\begin{proof}
+Take $Q$ as in Theorem~\ref{thm:assembly}; $24\mid Q$.  The integers $n\equiv1\pmod Q$ with
+$n\bmod\ell^{f_\ell}\in\Omega_\ell$ for all $\ell\in\cP$ and $F(n)=1$ have $W(n)>T$
+(Lemma~\ref{lem:system}(i)).  Among the units $\equiv1\pmod{24}$, the class
+$n\equiv1\pmod Q$ has relative Haar measure $\varphi(24)/\varphi(Q)$, and within it the
+residues $n\bmod\ell^{f_\ell}$, $\ell\in\cP$, are independent and uniform on $\Omega_\ell$
+(Chinese remainder theorem).  So
+$\delta^*(T)\ge(\varphi(24)/\varphi(Q))\,\delta$, and $\delta\ge e^{-2.2S_1}$ by
+Corollary~\ref{cor:lll}; hence $\log(1/\delta^*(T))\le\log Q+2.2S_1\ll\Lc^5\log\Lc$ by
+Lemma~\ref{lem:gradedq} and Theorem~\ref{thm:omega}.  For the natural density,
+the same integers have density $Q^{-1}\prod_{\ell\in\cP,\,a_\ell=0}(1-1/\ell)\cdot\delta$, which
+gives $\log(1/\delta^*_{\mathbb Z}(T))\le\log Q+\log\Lc+O(1)+2.2S_1$ by Mertens'
+theorem.  Gallagher's theorem is not used.
+\end{proof}
+
+\begin{remark}[A lower bound on the Haar side; cited, internal]\label{rem:haarlower}
+In companion work \cite{Haar} we show, modulo the fundamental lemma of
+sieve theory, that $\log(1/\delta^*(T))\gg\Lc^3/\log\Lc$ for the unit
+normalisation $\delta^*(T)$ of Corollary~\ref{cor:haar} (Haar measure on
+$\hat{\mathbb Z}^\times$ relative to the class $1\bmod24$); so
+$\Lc^3/\log\Lc\ll\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  We do not reprove this here.
+It does not give a lower bound for $\log(1/\delta^*_{\mathbb Z}(T))$: non-units avoid
+every event at the primes dividing them, so the all-integer density can be
+larger.
+Monte Carlo estimates of $\delta^*(T)$ for $T\le32767$ are consistent with
+$\log(1/\delta^*(T))\asymp\Lc^3/\log\Lc$ (evidence only).  If the transfer to primes
+lost nothing beyond the Haar density, this would suggest
+$\log W(p)\approx(\log p)^{1/3}$ for the extremal primes; this is a heuristic, not
+a claim.
+\end{remark}
+
 \begin{remark}[Where the exponent comes from; Assessment]\label{rem:exponent}
-The certified bound is $\log p\ll\log Z\ll\log Q_\Pi+t\Lc$.  The quarantine
-term is $\log Q_\Pi\ll\Lc^7/\log\Lc$, which is the size of the Haar-side bound
-$\log(1/\delta^*(T))\ll\Lc^7/\log\Lc$ proved, modulo \cite[Prop.~1.4]{ET}, in
-\cite{Paper1}.  The junta term $t\Lc\ll\Lc^7$ is larger by a logarithm.  It
-comes from the bit width $b\asymp\Lc$ in Lemma~\ref{lem:tail}, multiplied by
-$k$, $k_0\asymp S^*$ and the cost $\Lc$ per modulus prime.  So the exponent
-$7$ is bookkeeping, not a barrier.  With $z=\Lc^2$, however, the quarantine
-alone forces $\log Q_\Pi\gg\pi(z)\Lc\asymp\Lc^3/\log\Lc$.  We make no claim
-about the true order of $W(p)$.
+The certified bound is $\log p\ll\log Z\ll\log Q+\tau$.  The junta term is
+$\tau\asymp\Lc(S_1+\Lc)\ll\Lc^5$, and the quarantine term is
+$\log Q\ll\Lc\,\Omega_0\ll\Lc^5\log\Lc$.  In the previous version these were
+$\Lc^7$ (bit width $\asymp\Lc$, support size $k$, and $k_0\asymp S$ coordinates at
+cost $\Lc$ each) and $\Lc^7/\log\Lc$ (full quarantine of a block of small
+primes and of $\ll k^2S$ bad primes).  The remaining factor $\log\Lc$ comes
+from the moment $\Omega_0$; we do not know whether $\Omega_0\ll\Lc^4$.  Both
+terms are of order $\Lc\cdot S$ under natural heuristics: any graded
+class-of-one quarantine feeding the local-lemma criterion used here needs
+small fibre masses at every coordinate, and on model systems the junta
+modulus needed by an Efron--Stein truncation is of order $\Lc S$.  So the
+exponent $1/5$ appears to be the natural limit of the present route, but we
+have not proved lower bounds for either term.
+We make no claim about the true order of $W(p)$.
 \end{remark}
 
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
-\item Proved: Lemmas~\ref{lem:atoms}--\ref{lem:system}, \ref{lem:brw},
-\ref{lem:size}, \ref{lem:l1}, \ref{lem:twist}; Corollary~\ref{cor:lll} (with the classical
-Lemma~\ref{lem:lll}); Lemma~\ref{lem:qmass}(a) (with the classical divisor
-bound).
-\item Proved modulo \cite[Prop.~1.4]{ET}: Lemma~\ref{lem:qmass}(b).
-\item Proved modulo Håstad's switching lemma (Theorem~\ref{thm:hastad}, a
-textbook result): Lemma~\ref{lem:tail}, Corollary~\ref{cor:el}.
+\item Proved: Lemmas~\ref{lem:atoms}, \ref{lem:one}, \ref{lem:system},
+\ref{lem:gradedq}, \ref{lem:h}, \ref{lem:param}; the energy bound
+(Lemmas~\ref{lem:cover}--\ref{lem:theta}, Theorems~\ref{thm:C1}
+and~\ref{thm:filtration}, Corollaries~\ref{cor:tail} and~\ref{cor:modtail},
+Remark~\ref{rem:sharp}, and Remark~\ref{rem:boolean} except the cited
+switching-lemma constant);
+Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL}, \ref{lem:size}, \ref{lem:l1},
+\ref{lem:twist} and Corollary~\ref{cor:lll} (with the classical
+Lemma~\ref{lem:lll}); the unconditional part of Theorem~\ref{thm:omega}
+(with the classical divisor bound).
+\item Proved modulo the Elsholtz--Tao estimates (Theorem~\ref{thm:ETall}):
+Lemmas~\ref{lem:block}, \ref{lem:rough}, \ref{lem:smooth}, Theorem~\ref{thm:omega}
+and the Haar-side Corollary~\ref{cor:haar}.
 \item Proved modulo Gallagher's theorem (Theorems~\ref{thm:G}
 and~\ref{thm:xz}, quoted from the draft \cite{MV3}): the linear transfer
-Theorem~\ref{thm:transfer}; and, together with Håstad's switching lemma
-(Theorem~\ref{thm:hastad}), Theorem~\ref{thm:assembly} and
+Theorem~\ref{thm:transfer}, Theorem~\ref{thm:assembly} and
 Theorem~\ref{thm:uncond}.
-\item Proved modulo Gallagher's theorem, \cite[Prop.~1.4]{ET} and Håstad's
-switching lemma: Theorem~\ref{thm:main}.
-\item Assessment: Remarks~\ref{rem:linear} (comparison with the
-Thorner--Zaman route) and~\ref{rem:exponent}.
+\item Proved modulo Gallagher's theorem and Theorem~\ref{thm:ETall}:
+Theorem~\ref{thm:main}.
+\item Cited from internal work, not reproved: Remark~\ref{rem:haarlower}.
+\item Assessment: Remarks~\ref{rem:linear}, \ref{rem:mean}
+and~\ref{rem:exponent}.
 \item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
-optimality of the exponent $1/7$; any numerical instance.
-\item The Thorner--Zaman theorem is no longer used; it is cited only for
-comparison.
+optimality of the exponent $1/5$; any numerical instance; priority for
+Theorem~\ref{thm:C1} (literature search partial).
+\item Håstad's switching lemma and the Thorner--Zaman theorem are no longer
+used; they are cited only for comparison.
 \end{itemize}
 
 \begin{thebibliography}{99}
@@ -1048,11 +1598,17 @@ parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
-% [FFKPY], [LMO], [TZcheb], [MV1], [RS] and the journal version of [EGLNV] were written from memory (no library
+% [FFKPY], [LMO], [TZcheb], [MV1], [RS] were written from memory (no library
 % access in task O33; referee R33 rates the first four "probably correct, unverified").
-% The STOC'92 data of [EGLNV] are as quoted in Benjamini--Gurel-Gurevich--Peled
-% (arXiv:1201.3261, ref. [16]).  Also unverified: the journal data of [TZ] (arXiv
+% Also unverified: the journal data of [TZ] (arXiv
 % version archived).  Check all of these before submission.
+% [LT] verified on arxiv.org by referee R47.  Unverified: the constant
+% 2*2^{-t/(20k)} attributed to [OD, Sec. 4.4] (book not archived).
+% TODO(novelty, before submission): check Hastad, "A slight sharpening of LMN"
+% (JCSS 2001); Tal, "Tight bounds on the Fourier spectrum of AC0" (CCC 2017);
+% the Fourier-growth line (Chattopadhyay--Hatami--Lovett--Tal and successors),
+% since G_F(lambda) with constant lambda is the squared norm of a noise operator
+% with rho>1 applied to F.
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
 M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
 Invent.\ Math.\ 228 (2022), 377--414.
@@ -1063,10 +1619,6 @@ $\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
 \bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
-\bibitem{EGLNV} G.~Even, O.~Goldreich, M.~Luby, N.~Nisan and
-B.~Veli\v{c}kovi\'c, Approximations of general independent distributions, in:
-Proc.\ 24th ACM STOC (1992), 10--16; journal version: Efficient approximation of
-product distributions, Random Structures Algorithms 13 (1998), 1--16.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105 (Proposition numbering as in arXiv:1107.1010v6).
@@ -1077,6 +1629,8 @@ Math.\ Soc.\ 20 (2007), 495--517.
 $\sigma=1$, Invent.\ Math.\ 11 (1970), 329--339.
 \bibitem{Green} B.~Green, On (not) computing the M\"obius function using
 bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
+\bibitem{Haar} Anonymous, The Haar avoider exponent for Erd\H{o}s--Straus
+witnesses, internal note, 2026.
 \bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
 the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth
@@ -1087,8 +1641,8 @@ systems, Ann.\ of Math.\ (2) 181 (2015), 361--382.
 Numbers, 6th ed., Oxford, 2008.
 \bibitem{Hoeffding} W.~Hoeffding, A class of statistics with asymptotically
 normal distribution, Ann.\ Math.\ Statist.\ 19 (1948), 293--325.
-\bibitem{KB} R.~Kaas and J.~M.~Buhrman, Mean, median and mode in binomial
-distributions, Statist.\ Neerlandica 34 (1980), 13--18.
+\bibitem{LT} V.~Lecomte and L.-Y.~Tan, Sharper bounds on the Fourier
+concentration of DNFs, in: Proc.\ 62nd IEEE FOCS (2021), arXiv:2109.04525.
 \bibitem{LMN} N.~Linial, Y.~Mansour and N.~Nisan, Constant depth circuits,
 Fourier transform, and learnability, J.\ ACM 40 (1993), 607--620.
 \bibitem{MV1} H.~L.~Montgomery and R.~C.~Vaughan, Multiplicative Number
