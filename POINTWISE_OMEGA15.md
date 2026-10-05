@@ -118,20 +118,22 @@ minorant transfer `N_xE_HB>𝔈‖B‖_×` needs `N_x/𝔈>e^{c𝓛^4/log𝓛}` 
 So the only question is how small an accuracy 𝔈 can be *true* for the primes. For families
 that are closed under translation, it cannot be small:
 
-**Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q>x` be a prime, `q∤Q`. 
-(a) If 𝒽 contains the classes `1_{a mod q}` for all units a, then every bound 𝔈 valid for
-`m_x` on 𝒽 has `𝔈≥1−N_x/(q−1)` (if `N_x≥1`).
-(b) If 𝒽 contains all nontrivial Dirichlet characters mod q, or all additive characters
-`e(an/q)`, `a≢0`, then `𝔈≥(N_x(q−1−N_x)/(q−2))^{1/2}` resp. `𝔈≥(N_x(q−N_x)/(q−1))^{1/2}−N_x/(q−1)`; for
-`q≥x²` both are `≥(1−o(1))√N_x`.
+**Lemma 2.3 (forced accuracy; PROVED, elementary).** Let `q>x` with `gcd(q,Q)=1`, and
+`N':=#{p≤x: p∈H, p∤q}≥N_x−ω(q)`; assume `N'≥1` and `N_x≤φ(q)/2`.
+(a) If 𝒽 contains `1_{a mod q}` for every unit a, every bound 𝔈 valid for `m_x` on 𝒽 has
+`𝔈≥1/2`.
+(b) If 𝒽 contains all nontrivial Dirichlet characters mod q, then
+`𝔈²≥N'(φ(q)−N')/(φ(q)−1)`; if it contains all `e(an/q)`, `a≢0 (q)`, then
+`𝔈²≥N_x(1−N_x/φ(q))`. Both are `≥N_x/3` when `N_x≥3ω(q)`.
 
-*Proof.* The primes `p≤x` are distinct mod q and nonzero. (a) A class containing one of them
-has `∫1_{a}dm_x=1` and `N_xE_H1_a=N_x/(q−1)`. (b) Characters: `Σ_{χ mod q}|Σ_{p}χ(p)|²=(q−1)N_x`
-(orthogonality over the distinct units p), and the trivial character contributes `N_x²`; the
-`q−2` others have mean square `N_x(q−1−N_x)/(q−2)`, and `E_Hχ=0`. Additive:
-`Σ_{a mod q}|Σ_pe(ap/q)|²=qN_x`, `a=0` contributes `N_x²`, so some `a≠0` has
-`|Σ_pe(ap/q)|²≥N_x(q−N_x)/(q−1)`; and `|E_He(a·/q)|=1/(q−1)` (Ramanujan sum over units mod q,
-H being a union of classes mod Q coprime to q). ∎
+*Proof.* The primes counted by N' are distinct units mod q. (a) A unit class containing one of
+them has `∫1_a dm_x≥1`, while `N_xE_H1_a=N_x/φ(q)≤1/2` (H is a class mod Q, coprime to q).
+(b) Characters: `E_Hχ=0` for `χ≠χ_0`, and `Σ_{χ}|Σ_{p∤q}χ(p)|²=φ(q)N'`; the principal character
+contributes `N'²`, so the `φ(q)−1` others have mean square `N'(φ(q)−N')/(φ(q)−1)`.
+Additive: `E_He(a·/q)=c_q(a)/φ(q)` (Ramanujan sum). With `S(a):=Σ_{p≤x,p∈H}e(ap/q)` and
+`Σ_a|S(a)|²=qN_x` (`p≤x<q` distinct mod q), `Σ_aS(a)\overline{c_q(a)}=qN'`,
+`Σ_a|c_q(a)|²=qφ(q)`, `Σ_a|S(a)−N_xc_q(a)/φ(q)|²=q(N_x−2N_xN'/φ(q)+N_x²/φ(q))≥qN_x(1−N_x/φ(q))`; the term `a=0`
+vanishes (`c_q(0)=φ(q)`), so some `a≠0` has `|S(a)−N_xc_q(a)/φ(q)|²≥N_x(1−N_x/φ(q))`. ∎
 
 **Corollary 2.4 (oblivious linear transfers are capped at 1/4; PROVED implication).**
 Certificates through a translation-closed family 𝒽 of reduced products — residue classes
@@ -144,15 +146,20 @@ primes, need
 classes:     log x ≥ c𝓛^4/log𝓛 ;       characters / additive characters: log x ≥ 2c𝓛^4/log𝓛 ,
 ```
 
-as soon as 𝒽 contains one full translation orbit at some prime modulus `q>x` (in particular
-whenever the minorant uses moduli `>x`, which Thm 1.2 forces: only `h_i` with `≥k+1` big primes,
-modulus `>T^{0.6(k+1)}=e^{c𝓛^4/log𝓛}`, carry positive mean). If instead every `h_i` has modulus
+provided 𝒽 contains, with each `h_i` of modulus `>x`, its translation orbit (all classes,
+resp. characters, resp. additive characters of that modulus). Only `h_i` with `≥k+1` big
+primes — modulus `>T^{0.6(k+1)}=e^{c'𝓛^4/log𝓛}`, so `>x` in the range of interest — carry
+the positive mean (Thm 1.2). If instead every `h_i` has modulus
 `≤x`, then B is a minorant of level `≤x`, and O14 Thm 4.5 gives `E B≤0` as long as
 `log x≤c𝓛^4/log𝓛`. Either way: **certified `W(p)≥exp((log p)^{1/4+δ})` is impossible by any
 oblivious linear transfer, whatever is assumed about the primes (GRH included).**
 
-*Proof.* Thm 2.2 + Lemma 2.3, with `N_x≤x`. The two cases cover all B (split by maximal
-modulus); mixed B are in the first case. ∎
+*Proof.* Let `log x<c'𝓛^4/log𝓛` (else nothing to prove). Split `B=B_sh+B_deep` (h_i with
+`≤k` resp. `≥k+1` big primes). By Lemma 1.1, `E_HB=E_νB−E_ρB_deep≤η·Σ_{deep}|c_i|`; the
+certificate needs `N_xE_HB>Σ_{deep}|c_i|𝔈_i` with `𝔈_i≥1/2` (classes) or `≥√(N_x/3)`
+(characters) by Lemma 2.3 (applicable: deep moduli are `>x²`, coprime to Q, and
+`ω(q)≤𝓛^4`, `N_x≥3ω(q)` for the x in question). So `N_xη>1/2` resp. `√N_x η>1/√3`. If there is no
+deep term, `E_HB=E_νB≤0` (O14 Thm 4.5's argument). ∎
 
 *Reading.* GRH improves accuracy from "BV/Gallagher level x^c" to "square-root error at every
 modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
