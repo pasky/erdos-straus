@@ -200,3 +200,56 @@ all atoms). Columns: `S♯`; `Σ_{ℓ>Y}V♯²` against the heuristic `S♯²/(Y
 * *The pointwise ratio.* `max ℓV♯(ℓ)/S♯` grows with T (6.4 → 9.8). This is the
   first-term effect, and it is why we prefer the averaged V2 to the pointwise LPL.
 * *Scope.* This is finite-T evidence only.
+
+## 3. Square-class quarantine: no inflation, and late-prime lightness from Haar masses
+
+*Why.* The class of one is special. With class 1, the residual weights are
+`gcd(M,Q)/M`, and the inflation `τ(P_Q)` comes from `ℓ|4D+1` (§1, M(Y)). So the
+late-prime masses involve g, which is pointwise-hard (§2). With a *random* class
+the expected masses are Haar masses `P_H(E)=1/φ(M)`, and those have pointwise
+late-prime bounds (Shiu). A random class must still never *fire*: no atom may
+have all its coordinates quarantined and matched. That is what the Jacobi lemma
+guarantees.
+
+**Lemma 3.1 (event classes are Jacobi non-residues; PROVED).** Let `(M,D)` be an
+atom, i.e. `M≡3 (4)`, `A=(M+1)/4`, `D|A²`. Let d be the squarefree part of D. Then
+
+* (a) every prime `ℓ|M` has `(−4D | ℓ) = (−d | ℓ)`;
+* (b) the Jacobi symbol `(−4D | M) = −1`.
+
+Consequently, if `gcd(r,Q)=1` and r is a quadratic residue modulo every prime
+dividing Q, then `r≢−4D (mod M)` for every atom with `M|Q`. More generally, an
+atom whose primes all divide Q is never consistent with r.
+
+*Proof.*
+(a) `gcd(M,4A)=1`. Every prime of D divides A, so `ℓ∤2D`. Also `−4D=−4d·□`.
+(b) `(−4D|M)=(−d|M)=(−1|M)(d|M)=−(d|M)`, since `M≡3 (4)`. Every prime `p|d` divides A,
+because `v_p(D)` is odd and `≤2v_p(A)`. So `M=4A−1≡−1 (mod p)`.
+* For odd p, quadratic reciprocity with `(M−1)/2` odd gives
+  `(p|M)=(M|p)(−1)^{(p−1)/2}=(−1|p)(−1)^{(p−1)/2}=1`.
+* If `2|d`, then `2|A`, so `M≡7 (8)` and `(2|M)=1`.
+
+Hence `(d|M)=1`. For the consequence: `(r|M)=∏(r|ℓ)^{v_ℓ}=1≠(−4D|M)`. ∎
+
+Check: `scripts/omega13_jacobi.py 200000` verifies (a) and (b) on all 2 401 032 atoms with
+`M≤2·10^5`, with 0 failures (`data/omega13/jacobi.txt`). These are classical:
+ES identities cover the non-residue classes, and the Mordell-hard classes mod 840
+are the squares.
+
+**The square-class process (definition).** Start from `Q=8` and `r≡1 (8)`.
+Coordinates and events are as in O11 Setting 2.0, but with fibre `n≡r (Q)` in place
+of `n≡1 (Q)`. Only primes `ℓ≤Y` are eligible. A *step* at `(ℓ,a)` is taken while the
+reweighted fibre mass `w̃_ℓ>η` (Lemma 1.1). It reveals `n mod ℓ^{a+1}` uniformly
+among the classes of the current fibre that are squares mod ℓ:
+
+* if `a=0`, this is uniform on the `(ℓ−1)/2` squares;
+* if `a≥1`, the whole fibre already consists of squares.
+
+By Lemma 3.1 no atom ever fires, so the final system has no deterministic event.
+The prime side counts primes `p≡r (mod Q)`. For every real character χ mod Q,
+`χ(r)=1`, exactly as for the class of one. So O11 Lemma 3.1's Case A/B analysis is
+unchanged. This is to be checked in §4.
+
+*Drift.* At an `a=0` step at ℓ, an atom with `ℓ|M` has
+`E[p_new(E)]=(1+(−d_E|ℓ))p(E)` by Lemma 3.1(a). That is at most `2p(E)`, not
+`p(E)`. All other steps are exact martingale steps.
