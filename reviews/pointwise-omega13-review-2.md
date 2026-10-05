@@ -165,3 +165,23 @@ Prop 1.4 (masses are Haar masses bounded via NT). Say so — it is a genuine sim
 of the conditional chain — and keep "(G), NT, OMEGA10 Thm 3.4" as the full list once
 I1–I3 are written out.
 
+**D7 (MINOR; §2 EVIDENCE wording).** "It stays below the heuristic `S♯²/(Y logY)`" is true for
+the tabulated `Y=𝓛³,𝓛⁴,𝓛⁵`, but the author's own `data/omega13/v2.txt` (and my recomputation)
+has at `T=10⁶`, `Y=𝓛²`: `Σ_{ℓ>Y}V♯²=42.86 > 42.62`. Either show the 𝓛² column or restrict
+the claim to `Y≥𝓛³`. (Irrelevant to the §3 results, which do not use V2.)
+
+## §1–2 EVIDENCE recomputed from scratch (`scripts/review_o13b_evidence.py`, `data/review_o13b/`)
+
+Independent enumeration of all atoms `(M,D)`, `D|A²` (69 106 / 1 070 466 / 15 305 744 atoms at
+T=10⁴/10⁵/10⁶):
+
+| T | S_H | S_g | S_g/S_H | S_Y (Y=𝓛,𝓛²,𝓛³) | Σ_{ℓ>Y}V♯² (𝓛²,𝓛³,𝓛⁴,𝓛⁵) | max ℓV♯/S♯ |
+|---|---|---|---|---|---|---|
+| 10⁴ | 34.890 | 55.280 | 1.584 | 44.645, 54.420, 55.280 | 5.25, 0.215, 0.0063, 0 | 4.40 |
+| 10⁵ | 63.750 | 113.271 | 1.777 | 87.350, 110.751, 113.271 | 16.78, 0.471, 0.0188, 0 | 6.44 |
+| 10⁶ | 105.060 | 206.679 | 1.967 | – | 42.86, 1.047, 0.0289, 0.00100 | 9.80 |
+
+All of the doc's numbers (§1 inflation 1.58/1.78, `S_Y=S_g` for `Y≥𝓛³`; §2 table) are
+reproduced exactly. The doc's own caveats (finite-T only; does not support M(Y)) are
+appropriate. Lemma 3.3 numerics: see the (B) table above.
+
