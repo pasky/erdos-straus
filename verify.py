@@ -18284,4 +18284,89 @@ print("\n== (cu) POINTWISE_OMEGA9: Thm 1.1 character coefficients, Lemma 2.1, Ca
 check_cu()
 
 
+# ---------------------------------------------------------------- (cv)
+# POINTWISE_XWIN.md §1.1 (cf. scripts/xwin_checks.py halfset/lemma11, review_xw_halfset.py).
+# (1) Klein-orbit structure for a = 3 (4), 3 <= a <= 399: halves {g,g^-1}, {-g,-g^-1} disjoint;
+#     #2-orbits = 2^omega(a)/2; |S_sigma| = phi(a)/2; #selections = 2^beta(a),
+#     beta = (phi - 2^omega)/4 + 2^(omega-1) - 1 <= phi/4 + 2^(omega-2).
+# (2) Lemma 1.1 (half-set lemma) by brute force: for a = 3 (4), a <= 127, and every x <= 20000
+#     coprime to a: Rat_a(x) = {u/v mod a : uv | x, gcd(u,v) = 1} computed from the full
+#     exponent vectors; if -1 notin Rat_a(x) then -1 notin C(x) and C(x) meets at most one half
+#     of every orbit (so C(x) lies in some S_sigma).  Remark (i): a = 7, x = 17, C = {3}.
+
+def check_cv():
+    from time import perf_counter
+    t0 = perf_counter()
+
+    def orbits(a):
+        seen, orbs = set(), []
+        for g in range(1, a):
+            if gcd(g, a) != 1 or g in seen:
+                continue
+            gi = pow(g, -1, a)
+            h1, h2 = frozenset({g, gi}), frozenset({(-g) % a, (-gi) % a})
+            assert not h1 & h2, ("XWIN orbit halves overlap", a, g)
+            seen |= h1 | h2
+            orbs.append((h1, h2))
+        return orbs
+
+    nA = 0
+    for a in range(3, 400, 4):
+        f = factorint(a)
+        w, ph = len(f), prod((p - 1) * p ** (e - 1) for p, e in f.items())
+        orbs = orbits(a)
+        one = [o for o in orbs if 1 in o[0] or 1 in o[1]]
+        assert len(one) == 1 and one[0] in ((frozenset({1}), frozenset({a - 1})), (frozenset({a - 1}), frozenset({1})))
+        n2 = sum(1 for h1, h2 in orbs if len(h1) == 1)
+        beta = (ph - 2 ** w) // 4 + 2 ** (w - 1) - 1
+        assert n2 == 2 ** (w - 1) and sum(len(h1) for h1, h2 in orbs) * 2 == ph, ("XWIN orbit sizes", a)
+        assert len(orbs) - 1 == beta and 4 * beta <= ph + 2 ** w, ("XWIN beta(a)", a, len(orbs), beta)
+        nA += 1
+
+    XM = 20000
+    spf = list(range(XM + 1))
+    for i in range(2, isqrt(XM) + 1):
+        if spf[i] == i:
+            for j in range(i * i, XM + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    facs = [None, {}]
+    for x in range(2, XM + 1):
+        fx, y = {}, x
+        while y > 1:
+            fx[spf[y]] = fx.get(spf[y], 0) + 1
+            y //= spf[y]
+        facs.append(fx)
+
+    def rat(fx, a):
+        vals = {1}
+        for r, e in fx.items():
+            rm, ri = r % a, pow(r % a, -1, a)
+            mults = [1] + [pow(rm, i, a) for i in range(1, e + 1)] + [pow(ri, i, a) for i in range(1, e + 1)]
+            vals = {v * m % a for v in vals for m in mults}
+        return vals
+
+    tot = fails = 0
+    for a in range(3, 128, 4):
+        orbs = orbits(a)
+        for x in range(1, XM + 1):
+            if gcd(x, a) != 1:
+                continue
+            tot += 1
+            if (a - 1) in rat(facs[x], a):
+                continue
+            fails += 1
+            C = {r % a for r in facs[x]}
+            assert (a - 1) not in C and not any((C & h1) and (C & h2) for h1, h2 in orbs), ("XWIN Lemma 1.1", a, x, C)
+    assert (6) not in rat(facs[17], 7) and {17 % 7} <= {1, 3, 5}, "XWIN Remark (i)"
+    assert 0 < fails < tot
+    print(f"cv orbit structure / |S_sigma| = phi/2 / 2^beta selections for {nA} a = 3 (4) <= 399; "
+          f"Lemma 1.1 on {tot} (a, x), a <= 127, x <= {XM}: {fails} with -1 notin Rat_a(x), all confined; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cv) POINTWISE_XWIN §1.1: Klein orbits, beta(a), half-set Lemma 1.1 brute force ==")
+check_cv()
+
+
 print("\nall checks passed")
