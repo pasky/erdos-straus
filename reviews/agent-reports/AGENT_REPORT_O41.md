@@ -50,7 +50,7 @@ not use it for this material).
 
 1. Thm 2.2(3): converse direction, especially the case p | d₁ (symmetric to p | d₂).
 2. Lemma 2.3 (reciprocity) for r=2 and the range 0<a<3p; Lemma 2.4 uses `(−p/a)=−(x_a/a)`.
-3. Half-set lemma: the case g=h (classes of distinct primes) and the count β(a) in (3.1).
+3. Half-set lemma: the case g=h (classes of distinct primes) and the count β(a) in (5).
 4. Lemma 4.1: the Markov step (law of q is the product Bernoulli law, E log q = Λ) and
    the constant 4 with Q=X^{1/2}.
 5. Thm 4.2: distinctness of the sieved classes (ℓ>y=2max A+24), ℓ∤p for p>N/2>z,
@@ -71,7 +71,7 @@ not use it for this material).
 12. Thm P1(1): the congruence bookkeeping (n₃≡1 mod 5, 3,7∉P₃) and that both signs give
     one reduced class mod 840d; the "consequently" paragraph (what exactly "sieve data
     only" means, OdC Ch. 11 axioms).
-13. Remark 8.4 (joint): main term 3li(x)/φ(840d₁d₂) for both B^±; vanishing for
+13. Remark 8.3 (joint): main term 3li(x)/φ(840d₁d₂) for both B^±; vanishing for
     gcd(d₁d₂,30)>1.
 14. Lemma 8.1: primitive-norm characterisation, (−7/r)=(r/7), 2 splits in Q(√−7).
 15. Remark 9.2 (Dickson): part (a) proof; the admissibility of the tuple is delegated to
@@ -79,7 +79,7 @@ not use it for this material).
 16. Remark 9.6: that the summary of the LP model (numbers 12769, 89×89, 2.6e−15, 0.744,
     θ₂∈(0.5,0.7], 10^5 mass ratio) matches WINDOW2 §3.5–3.7 and the scope paragraph is
     not weaker than the source's.
-17. Numerical statements in Remarks 6.3, 9.3 vs `scripts/window_w1.py`,
+17. Numerical statements in Remarks 6.4, 9.3 vs `scripts/window_w1.py`,
     `pointwise_size_amin.py`, `xwin_tail_table.py` (not re-run by me).
 
 ## Not done / caveats
