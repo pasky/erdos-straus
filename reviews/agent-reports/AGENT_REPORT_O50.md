@@ -87,3 +87,43 @@ Repairs applied:
 * m7: "contraction" wording fixed (`‖T_ρF‖ > ‖F‖` for nonconstant F).
 * m8: overfull boxes removed (0 remaining).
 Script re-run after repairs: ALL CHECKS PASSED (`data/energy_note/check_seed1.txt`).
+
+## Response to referee R50 (`reviews/energy-dnf-note-review.md`) — Draft v2
+
+* **D2** (influence overstated): new Remark 5.1 proves the elementary
+  certificate bounds `I ≤ 2kp` (uniform) and `Σ_v‖L_v g‖² ≤ 4kp` (product
+  measures); §1 now says our `(4k/ln2)p` is *weaker* by `2/ln2` resp. `1/ln2`,
+  and that `I ≤ 2w` (Boppana) / `I ≤ w` (Amano) are known (from memory, flagged).
+  `I[g]` is now defined inside Cor 1.3.
+* **D3**: `2/√(2πj)` restated as a (heuristic, unproved) j→∞ asymptotic, with
+  the referee's numbers (0.2255 vs 0.2523 at j=10; 0.0876 vs 0.0892 at j=80).
+* **D4**: added: extremal measures have atoms `p→0` depending on t; the base is
+  sharp for the sup over all product measures; for a fixed measure with atoms
+  bounded below the optimal rate is open.
+* **D5**: `[5]^3` instance specified (48 points with exactly two nonzero
+  coordinates, `A={x=(0,0,0)}`, λ=2^{1/3}, 0.75406→0.75467); now checked in the
+  script (section F5, 50-digit arithmetic on exact rational components).
+* **D6**: internal version history removed from §8; replaced by a self-contained
+  remark on what the binary-encoding/LMN route costs (width and bit-length factors).
+* **D7**: §8 now says `1_{E_j}u_j` has modulus ≤ `Te^τ`, cells of B ≤ `T³e^{2τ}`,
+  `log d_i ≤ 3𝓛+2τ`.
+* **D8** (literature): §1 now has a flagged "from memory, must be checked" list:
+  Håstad 2001 (slight sharpening of LMN), Beame's primer / Razborov, Rossman's
+  entropy proof, Håstad 2014; Furst–Jackson–Smith (product distributions) and
+  Blais–O'Donnell–Wimmer (arbitrary product domains), with the explicit
+  statement that a comparison is needed; Boppana/Amano; Fourier growth (Tal,
+  Chattopadhyay–Hatami–Hosseini–Lovett) and noise operators with ρ>1. All new bib
+  entries are covered by the TODO(verify) comment. **Still unresolved without
+  internet** — must be done before external submission.
+* **D9**: added a labelled heuristic paragraph re-deriving the switching-lemma
+  constant `c_0 = 2eA ln2 ≈ 18.8` (A≈5, from memory), consistent with "20".
+* **D10**: Remark 3.2 now contrasts `N=0` with LT's *indicator*
+  `1[V covered]=1` (charge `2^{|V|}`), citing LT Fact 9.
+* **D11**: `microtype` loaded with `expansion=false` (no font-expansion warning);
+  `\emergencystretch` added; 0 overfull boxes.
+* Readability (i)–(iii): I[g] defined in Cor 1.3; Lemma 4.2 notes induction over
+  multisets and empty members of `𝒞/v`; Thm 7.1 proof states the per-prime
+  consequence `λ_ℓ^{2v_ℓ(E)} ≤ 2`.
+
+Length is now 16 pp. text + 1 p. references (the related-work list and the
+influence remark added ~1.5 pp.). Script re-run: ALL CHECKS PASSED, exit 0.
