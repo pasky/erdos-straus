@@ -46,6 +46,37 @@ The best unconditional "one complete absence + one almost-prime" result is
 Nath–Xie (arXiv:2501.16723, archived): `p=m²+n²+1` with `Ω(p+2)≤9`, by a
 semi-linear × linear vector sieve.
 
+## 2. The parity barrier for windows, realised by actual primes (Theorem P1)
+
+Sieve axioms (Opera de Cribro ch. 11 style): a sieve method for "window 3
+fails" uses as input `X`, the density g, and the counts `|A_d|` for squarefree
+`d|P_3(z)` (with `P_3` the primes `≡2 (3)`), `d≤D`, with `Σ_{d≤D}|r_d|` small.
+It uses nothing else about A.
+
+**Theorem P1 (PROVED, modulo BV, resp. EH for D>x^{1/2}).** Let
+`A^±={p≤x : p≡1 (8), p≡1 (5·7), (p/3)=±1}`. For every squarefree odd d composed of
+primes `≡2 (3)`, `|A^±_d|=#{p∈A^±: d|(p+3)/4}=li(x)/(2φ(280)φ(d))+r^±_d`, with the
+same main term and `Σ_{d≤x^{1/2}(log x)^{-B}}|r^±_d|≪x/(log x)^A` (BV). Yet:
+* `A^−`: `(p+3)/4≡2 (3)`, so it has an odd number of prime factors `≡2 (3)` and is
+  never clean. `S(A^−,P_3,x)=0`.
+* `A^+`: `S(A^+,P_3,x)≫x/(log x)^{3/2}` (Thm W1).
+
+Hence no argument that uses only the sieve data (at any level D at which both
+satisfy the remainder bound, so `D≤x^{1−ε}` under EH) can prove that window 3
+fails. A proof must use `(p/3)=+1`, i.e. Lemma 1.2's parity. The same holds jointly for windows
+3 and 7 with the four sign classes `((p/3),(p/7))`; three of them have no
+both-clean element.
+*Proof.* For `p≡1 (8)`, `n_3` is odd, and `n_3≡p·4^{−1}≡p (3)`. By Lemma 1.2 of
+POINTWISE_WINDOW, `(−1)^{Ω_3^−(n_3)}=(p/3)`. Conditions mod 8, 3, 35 and `d|n_3`
+(i.e. `p≡−3 (d)`, `(d,840)=1`) are independent residue conditions, so BV applies
+to both classes with the same main term. ∎
+
+This is Selberg's parity example (`{λ(n)=±1}`) realised by actual primes. The
+Liouville function of the bad part is a Dirichlet character of p. That makes the
+barrier *removable by a congruence* (which is why W1 holds), but it also makes
+parity **necessary** input. §3 asks whether parity is also *sufficient* for two
+windows at level 1/2. Answer, in a discrete model: no (Prop 3.7).
+
 ## 3. The Type-I + parity model 𝒯𝒫(θ) and fake sequences
 
 ### 3.1 Definition
