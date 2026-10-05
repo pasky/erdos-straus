@@ -14,7 +14,7 @@ POINTWISE_SIZE §8: for a prime `p≡1 (4)` and `a≡3 (4)`, `x_a=(p+a)/4`,
 | 0.1 | `T(N,3)≪N/(log N)^{3/2}=o(π(N))`: "almost all p have `a_min(p)=3`" | PROVED (this is notes Thm 70.9; recorded so that Goal 1's "o(π)" form is seen to be trivial) |
 | 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite); no budget exceptions | PROVED |
 | 1.2–1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: −1∉Rat_a(x_a) ∀a∈A}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` — the random-model exponent, for each fixed Z | PROVED (fixed-dimension upper sieve). New: improves notes Cor 71.4 (`δ_J≈½log log Z`) and makes POINTWISE_WINDOW §6's joint "dimension ≥J/2" Assessment a theorem |
-| 1.4 | `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2` (lower bound on EH) | PROVED / CONDITIONAL (lower bounds = POINTWISE_WINDOW W1/W2) |
+| 1.4 | over `p≡1 (24)`: `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2` | upper halves PROVED; lower halves = POINTWISE_WINDOW W1 (PROVED modulo cited sieve theorems S1–S3) / W2 (CONDITIONAL on EH) |
 | 1.5 | uniform version (`Z≤C_0 log log N`): `T(N,Z)≤π(N)(log N)^{−(1/2−o(1))J(Z)}` for `Z=o(log log N)`; `N exp(−(0.2225−o(1))(log log N)²)` at `Z≈3.56 log log N` | PROVED (SW only for moduli `≤(log y)^{1/2}`) |
 | §1.3 | `T(x,Z)·(log x)^{1+J/2}/x` flat (±9%) for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
 | 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` | PROVED (= notes Lemma 12.5) |
@@ -137,11 +137,15 @@ Cor 71.4, via the single excluded class −1). For instance
 `T(N,7)≪N/(log N)^2`, `T(N,11)≪N/(log N)^{5/2}`, `T(N,23)≪N/(log N)^4`
 versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
 
-**Corollary 1.4 (two-sided orders; lower bounds cited).**
-* `#{p≤x: a_min(p)≥7}≍x/(log x)^{3/2}`: upper bound Cor 1.3 (Z=3; also
-  notes Thm 70.9), lower bound POINTWISE_WINDOW Thm W1 (PROVED modulo cited
-  sieve theorems, restricted to a subclass, which only helps).
-* `#{p≤x: a_min(p)≥11}≍x/(log x)^2` **CONDITIONAL on Elliott–Halberstam**
+**Corollary 1.4 (two-sided orders; upper halves PROVED, lower halves
+PROVED modulo the sieve theorems cited for W1, resp. CONDITIONAL on EH).**
+All counts are over primes `p≡1 (24)` (the class of Theorem 1.2;
+running the same sieve with `p=4t+1` covers all `p≡1 (4)`).
+* `#{p≤x, p≡1 (24): a_min(p)≥7}≍x/(log x)^{3/2}`: upper bound Cor 1.3
+  (Z=3; also notes Thm 70.9), lower bound POINTWISE_WINDOW Thm W1 (PROVED
+  modulo cited sieve theorems S1–S3; it counts the subclass `p≡1 (840)`,
+  which only helps).
+* `#{p≤x, p≡1 (24): a_min(p)≥11}≍x/(log x)^2` **CONDITIONAL on Elliott–Halberstam**
   for the lower bound (POINTWISE_WINDOW Thm W2); the upper bound
   `≪x/(log x)^2` is unconditional (Cor 1.3, Z=7). So W2 is sharp.
 
