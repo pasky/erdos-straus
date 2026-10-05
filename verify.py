@@ -18833,4 +18833,219 @@ print("\n== (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 Gale, Prop 8.2(a) ex
 check_cy()
 
 
+
+# ---------------------------------------------------------------- (cz)
+# POINTWISE_OMEGA10.md §§3-4 (cf. scripts/omega10_q*.py, omega10_gamma.py, review_o10_c1.py,
+# review_o10b_random.py, review_o10b_hyper.py).  All arithmetic exact (Fractions).
+# (1) Lemma 3.2 (polarization) Q_mu(H) = E_P[Theta_lam(H_P)^2] and Thm 3.4 (QM)
+#     Q_mu(H) <= prod_{E in M}(w_E - 1) for EVERY matching M (incl. Q <= 1, Q' <= min w_E - 1),
+#     on random hypergraphs (n <= 6, rational lam, all w_E <= 2, many at w_E = 2); one edge:
+#     Q = w - 1, disjoint edges: Q = prod(w - 1) (equality cases).
+# (2) Cor 3.5 (C-1) and Lemma 3.1 G_F <= Gamma = E_x Q_mu(H(x)) <= 1 on random single-value
+#     systems on small product spaces prod [q_v] with NON-UNIFORM rational product measures;
+#     identity (i) G_F = sum_U lam^U ||F^{=U}||^2; negative control (q = 2, lam = 4, OR of n
+#     literals: G_F = (5/4)^n > 1, §2).
+# (3) Cor 4.1: energy(f; t) <= 2^{-(t+1)/k} (checked as energy^k 2^{t+1} <= 1, exact) for random
+#     width-k DNFs (biased q-ary) and tribes / AND / OR on the cube.
+
+def check_cz():
+    from time import perf_counter
+    import random as _random
+    t0 = perf_counter()
+    rng = _random.Random(5410)
+    F0, F1 = Fraction(0), Fraction(1)
+    LAMS = [F1, Fraction(9, 8), Fraction(6, 5), Fraction(5, 4), Fraction(4, 3), Fraction(3, 2), Fraction(2)]
+
+    def lamU(lam, U):
+        r = F1
+        for v in range(len(lam)):
+            if U >> v & 1:
+                r *= lam[v]
+        return r
+
+    def Qmu(H, mu, n):
+        # tauhat = Moebius transform of the transversal indicator; Q = sum_V mu^V tauhat(V)^2
+        th = [1 if all(E & R for E in H) else 0 for R in range(1 << n)]
+        for v in range(n):
+            for R in range(1 << n):
+                if R >> v & 1:
+                    th[R] -= th[R ^ (1 << v)]
+        return sum((lamU(mu, V) * th[V] ** 2 for V in range(1 << n) if th[V]), F0)
+
+    def Theta(C, lam):
+        tot = F0
+        for J in range(1 << len(C)):
+            U, s = 0, 0
+            for i, E in enumerate(C):
+                if J >> i & 1:
+                    U |= E
+                    s ^= 1
+            tot += -lamU(lam, U) if s else lamU(lam, U)
+        return tot
+
+    # (1) polarization + QM
+    nh = nmat = neq2 = 0
+    for trial in range(600):
+        n = rng.randint(1, 6)
+        lam = [rng.choice(LAMS) for _ in range(n)]
+        mu = [l - 1 for l in lam]
+        H = set()
+        for _ in range(rng.randint(1, 7)):
+            E = rng.randrange(1, 1 << n)
+            if lamU(lam, E) <= 2:
+                H.add(E)
+        H = sorted(H)
+        if not H:
+            continue
+        nh += 1
+        neq2 += any(lamU(lam, E) == 2 for E in H)
+        Q = Qmu(H, mu, n)
+        pol = F0
+        for P in range(1 << n):
+            pr = F1
+            for v in range(n):
+                pr *= mu[v] / lam[v] if P >> v & 1 else 1 / lam[v]
+            if pr:
+                pol += pr * Theta([E for E in H if not E & P], lam) ** 2
+        assert pol == Q, ("OMEGA10 Lemma 3.2 polarization", n, lam, H, Q, pol)
+        for M in range(1 << len(H)):
+            Ms = [H[i] for i in range(len(H)) if M >> i & 1]
+            if any(a & b for a, b in combinations(Ms, 2)):
+                continue
+            bound = prod((lamU(lam, E) - 1 for E in Ms), start=F1)
+            assert Q <= bound, ("OMEGA10 Thm 3.4 (QM) violated", n, lam, H, Ms, Q, bound)
+            nmat += 1
+    for lam in ([Fraction(2)], [Fraction(3, 2), Fraction(4, 3)], [Fraction(5, 4), Fraction(6, 5), Fraction(4, 3)]):
+        n = len(lam)
+        mu = [l - 1 for l in lam]
+        assert Qmu([(1 << n) - 1], mu, n) == lamU(lam, (1 << n) - 1) - 1, ("OMEGA10 one edge: Q = w - 1", lam)
+        H = [1 << v for v in range(n)]
+        assert Qmu(H, mu, n) == prod(mu, start=F1), ("OMEGA10 disjoint edges: Q = prod(w - 1)", lam)
+    assert nh >= 450 and neq2 >= 100, ("OMEGA10 (1): too few hypergraphs", nh, neq2)
+
+    # exact product-space machinery: functions as flat lists, mixed radix, measure pi[v][b]
+    def space(qs):
+        return list(cartesian_product(*[range(q) for q in qs]))
+
+    def Lop(f, qs, pi, v, proj):
+        # proj = False: L_v f = f - E_v f;  proj = True: E_v f
+        st = prod(qs[v + 1:])
+        g = list(f)
+        for i in range(len(f)):
+            base = i - ((i // st) % qs[v]) * st
+            m = sum((pi[v][b] * f[base + b * st] for b in range(qs[v])), F0)
+            g[i] = m if proj else f[i] - m
+        return g
+
+    def norm2(f, pts, pi):
+        return sum((prod((pi[v][x[v]] for v in range(len(x))), start=F1) * y * y
+                    for x, y in zip(pts, f) if y), F0)
+
+    def es_comp(f, qs, pi, U):
+        g = f
+        for v in range(len(qs)):
+            g = Lop(g, qs, pi, v, not (U >> v & 1))
+        return g
+
+    def rand_pi(qs):
+        out = []
+        for q in qs:
+            w = [rng.randint(1, 5) for _ in range(q)]
+            out.append([Fraction(a, sum(w)) for a in w])
+        return out
+
+    def good_ind(pts, events):
+        return [F0 if any(all(x[v] == c for v, c in ev) for ev in events) else F1 for x in pts]
+
+    def Gval(Fv, qs, pi, mu, pts):
+        # identity (i): G_F = sum_V mu^V ||L_V F||^2
+        G = F0
+        for V in range(1 << len(qs)):
+            if lamU(mu, V) == 0:
+                continue
+            g = Fv
+            for v in range(len(qs)):
+                if V >> v & 1:
+                    g = Lop(g, qs, pi, v, False)
+            G += lamU(mu, V) * norm2(g, pts, pi)
+        return G
+
+    # (2) C-1 and Lemma 3.1 on biased product spaces
+    nsys = 0
+    worstG = worstGam = F0
+    for trial in range(300):
+        n = rng.randint(1, 5)
+        qs = [rng.randint(2, 3) for _ in range(n)]
+        if prod(qs) > 100:
+            continue
+        pi = rand_pi(qs)
+        lam = [rng.choice(LAMS) for _ in range(n)]
+        mu = [l - 1 for l in lam]
+        events = []
+        for _ in range(rng.randint(1, 6)):
+            S = rng.sample(range(n), rng.randint(1, n))
+            if lamU(lam, sum(1 << v for v in S)) <= 2:
+                events.append(tuple((v, rng.randrange(qs[v])) for v in sorted(S)))
+        if not events:
+            continue
+        nsys += 1
+        pts = space(qs)
+        Fv = good_ind(pts, events)
+        G = Gval(Fv, qs, pi, mu, pts)
+        Gam = F0
+        for x in pts:
+            Hx = sorted({sum(1 << v for v, c in ev) for ev in events if all(x[v] == c for v, c in ev)})
+            if Hx:
+                Gam += prod((pi[v][x[v]] for v in range(n)), start=F1) * Qmu(Hx, mu, n)
+            else:
+                Gam += prod((pi[v][x[v]] for v in range(n)), start=F1)
+        assert G <= Gam <= 1, ("OMEGA10 Lemma 3.1 / Cor 3.5 (C-1) violated", qs, pi, lam, events, G, Gam)
+        worstG, worstGam = max(worstG, G), max(worstGam, Gam)
+        if trial % 7 == 0:
+            G2 = sum((lamU(lam, U) * norm2(es_comp(Fv, qs, pi, U), pts, pi) for U in range(1 << n)), F0)
+            assert G2 == G, ("OMEGA10 identity (i) G_F = sum_U lam^U ||F^=U||^2", qs, events, G, G2)
+    assert nsys >= 220, ("OMEGA10 (2): too few systems", nsys)
+    for n in (2, 3):
+        qs, pi = [2] * n, [[Fraction(1, 2)] * 2 for _ in range(n)]
+        pts = space(qs)
+        Fv = good_ind(pts, [((v, 0),) for v in range(n)])
+        G = Gval(Fv, qs, pi, [Fraction(3)] * n, pts)
+        assert G == Fraction(5, 4) ** n, ("OMEGA10 negative control: lam = 4 OR of literals G = (5/4)^n", n, G)
+
+    # (3) Cor 4.1 energy concentration
+    def energies_ok(Fv, qs, pi, k):
+        n, pts = len(qs), space(qs)
+        en = [F0] * (n + 1)
+        for U in range(1, 1 << n):
+            en[bin(U).count("1")] += norm2(es_comp(Fv, qs, pi, U), pts, pi)
+        for t in range(n):
+            e = sum(en[t + 1:], F0)
+            assert e ** k * 2 ** (t + 1) <= 1, ("OMEGA10 Cor 4.1 energy(f;t) <= 2^-(t+1)/k", qs, pi, k, t, e)
+        return True
+
+    ndnf = 0
+    for trial in range(150):
+        n = rng.randint(2, 4)
+        qs = [rng.randint(2, 3) for _ in range(n)]
+        pi = rand_pi(qs)
+        k = rng.randint(1, n)
+        events = [tuple((v, rng.randrange(qs[v])) for v in sorted(rng.sample(range(n), rng.randint(1, k))))
+                  for _ in range(rng.randint(1, 5))]
+        k = max(len(ev) for ev in events)
+        ndnf += energies_ok(good_ind(space(qs), events), qs, pi, k)
+    half = [[Fraction(1, 2)] * 2 for _ in range(4)]
+    named = {"tribes 2x2": ([((0, 1), (1, 1)), ((2, 1), (3, 1))], 2), "AND_4": ([tuple((v, 1) for v in range(4))], 4),
+             "OR_4": ([((v, 1),) for v in range(4)], 1)}
+    for name, (evs, k) in named.items():
+        ndnf += energies_ok(good_ind(space([2] * 4), evs), [2] * 4, half, k)
+    print(f"cz Lemma 3.2 + Thm 3.4 (QM) exact on {nh} hypergraphs ({nmat} matchings, {neq2} with some w_E = 2); "
+          f"C-1 / Lemma 3.1 on {nsys} biased systems (max G = {float(worstG):.4f}, max Gamma = {float(worstGam):.4f})")
+    print(f"cz Cor 4.1 on {ndnf} DNFs (biased q-ary + tribes/AND/OR); negative control (5/4)^n ok; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cz) POINTWISE_OMEGA10: Lemma 3.2, Thm 3.4 (QM), C-1 / Lemma 3.1 (biased), Cor 4.1 ==")
+check_cz()
+
+
 print("\nall checks passed")
