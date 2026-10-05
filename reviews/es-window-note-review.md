@@ -24,6 +24,16 @@ Referee branch `side-agent/referee-window-note`; author branch `side-agent/windo
   product-Bernoulli law, E log q = Λ, Markov with log Q=(log X)/2 gives ≥1/2. Constant 4 OK.
 * **Thm 4.2 (fixed-set stacking)** — SOUND. Classes distinct (ℓ>y>a, |a−a'|, ℓ∤24);
   ℓ≤z<p; ℓ|p+a, ℓ odd ⇒ ℓ|x_a and ℓ∤a; Mertens-AP gives (1+J/2)loglog z+O_A(1).
+* **Cor 4.3** — SOUND.
+* **Thm 4.4 (uniform)** — SOUND (minor wording, D-list). Re-derived: partial summation
+  of SW from y=exp(L²) gives error O(L e^{−cL}) per class; log(log z/log y)=
+  L−2log L−log(5(J+1)); e^{−(L−3log L−C)}·4X = N·e^C L³/ℒ ⇒ the O(log L). The "in
+  particular" needs β_tot=O(Z²)=o(JL) and (J/2)·3log L=o(JL): both fine.
+* **Remark 4.5** — SOUND. Checked numerically (`scripts/review_r41_phisum.py`):
+  Σ_{a≤Z,a≡3(4)}φ(a)/(Z²/π²)=1.00000 at Z=10⁶; optimum Z*=π²L/(4log2)=3.5597L,
+  value −π²/(64 log 2)=−0.22248. Priority: notes Thm 14.4/14.9 bound E(N) by counting
+  p failing all windows C₀<w≤W=(log N)^θ, so the attribution is fair (see minor D-point
+  on "internally reviewed").
 
 **Brute force (from scratch, `scripts/review_r41_halfset.py`)**: for every a≡3 (4),
 3≤a≤63, the number of selections equals 2^β(a) with β from (eq. beta), every S_σ has
