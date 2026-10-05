@@ -261,3 +261,33 @@ quarantine term `log Q_Π ≪ 𝓛^7/log𝓛`; **the exponent improves only toge
 with a cheaper quarantine** (task item (2)): with `log Q_Π ≪ 𝓛^5log𝓛` one
 would get `W(p) ≥ exp((log p)^{1/5−o(1)})` i.o. — beyond O9 Cor 4.2's 1/6,
 which (§1) applies to coordinate-counting arguments only.
+
+## 5. Status summary, scope
+
+* PROVED: §1 check of O9 §4 (no error in Lemma 4.1/Cor 4.2's statements;
+  arithmetic slip `𝓛^6/log𝓛→𝓛^6`; the 1/6 ceiling is for coordinate-counting
+  arguments only); §2 identities and the single-coordinate case of MONO; the
+  counterexample to MONO; **Lemma 3.1** (`G_F ≤ E_x Q_μ(𝓗(x))`, suppression
+  built in); the vertex recursion; the two-edge formula; §4's implication.
+* CONJECTURE (strong EVIDENCE, no counterexample in ~10⁵ random and
+  hill-climbed instances): Q, Q′, QM, FM; hence C-1 and C-exp.
+* Not claimed: ESW in the form `E_ρW^{≥s}[f_ρ]≤(C(pk+max w))^s` (not
+  addressed directly; C-1 with `λ=2^{1/k}` would imply the energy form
+  `energy(F;t)≤2^{−t/k}` for every single-value system, with no mass
+  hypothesis); any exponent improvement (needs C-1 **and** a cheaper
+  quarantine); anything about ES.
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_mono.py 7 1000 2.0)   # MONO random check (~5 min)
+(ulimit -v 8000000; timeout 600 uv run python scripts/omega10_monocex.py)           # MONO counterexample (~1 min)
+(ulimit -v 8000000; timeout 1200 uv run python scripts/omega10_cexp.py 5 800 2.0)   # C-exp random (~5 min)
+(ulimit -v 8000000; timeout 1200 uv run python scripts/omega10_gamma.py 1 300)      # Lemma 3.1 check (~3 min)
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_q.py 1 20000 10)      # Conjecture Q (~5 min)
+(ulimit -v 8000000; timeout 1500 uv run python scripts/omega10_qhc.py 2 150 7)      # Q hill-climb
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_qmin.py 1 20000 9)    # Q'
+(ulimit -v 8000000; timeout 900 uv run --with scipy python scripts/omega10_fm.py 1 20000 9)  # FM
+(ulimit -v 8000000; timeout 900 uv run python scripts/omega10_xsign.py 1 20000 8)   # X<0 cases
+```
