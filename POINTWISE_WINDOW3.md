@@ -188,3 +188,30 @@ set 𝓜) such mean-value theorems are not known to us at the required generalit
 constants larger (K(ζ)≈8–15 with composed sieves). **Recalled vs checked:** the table's rows are
 checked in Wu's §1; "≥2 at level 1" is the standard parity statement (recalled; it is Wu's
 remark about (1.3) at ν=1); the K(ζ) values of §4.1 are our computations.
+
+## 6. Good-prime Type-I data (R29-M2) change the picture
+
+Real Type-I data at level θ include `|A_d|` for *all* `d≤x^θ`, also d with good prime factors.
+Option `--good` adds the rows `(S,G)`: S a bad sub-multiset, G a multiset of *good* points
+(≥x^ε, intensity `dt/(2t)` as for bad primes), `ΣS+ΣG≤θ`, per window and jointly. Their model
+values are `Σ_C ν(C)emb(S,C)μ_G(C)/μ(C)`, with `μ_G(C)=μ(C+G)·∏(C_k+G_k)!/(C_k!G_k!)` the
+cell-integrated density of "bad config C and good points G" (the good part of a bad-free
+cofactor has the same `(u−Σ)^{−1/2}` structure). **Caveat:** this keeps the *true conditional law
+of the good part given C*. A real fake may change that law too, so these LPs restrict the fakes:
+a fake found here is a genuine fake for full Type-I data, but a positive value is **not** a
+lower bound for the full problem.
+
+ε=0.1, K=8, θ=1/2 (`window3_lp2.py ... --cg --good`; residual ≤3e-6, elastic ≤2e-5: EVIDENCE):
+
+| | bad-only rows (§3–4) | + good rows (fixed good conditional) |
+|---|---|---|
+| one window, no switching | 0.489 | 0.997 |
+| two windows, no switching | 0 (fake) | **0.307** |
+| two windows, uniform families K=4 | 0 (fake) | 0.313 |
+| two windows, uniform families K=2 | 0.084 | 0.329 |
+
+So the WINDOW2/§3–4 fakes **violate the good-prime Type-I data** as soon as the good part keeps its
+true conditional law: they move mass between configurations with different cofactor sizes
+`1−ΣC`, and good divisors see the cofactor size (exactly R29-M2). Whether a fake survives when
+the good conditional may *also* be altered is the real question; it needs the full two-type
+model (bad and good points both recorded), §7.

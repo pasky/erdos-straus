@@ -34,14 +34,30 @@ def build(eps, K, theta, vis, N, one):
     okW = mu1 > 1e-14 * mu1.max()          # drop cells with (numerically) zero mass below sum 1
     W = [m for m, o in zip(W, okW) if o]; mu1 = mu1[okW]
     V1, sums = M.visible_one(L.e, theta, vis)
-    vid = {s: i for i, s in enumerate(V1)}
-    r_, c_, v_ = [], [], []
     import itertools
+    from math import factorial
+    good = "--good" in sys.argv
+    if good:   # visible items (S, G): S bad sub-multiset, G good points (R29-M2 data)
+        items = [(S, G) for S in V1 for G in V1 if sums[S] + sums[G] <= theta + 1e-12]
+        isums = {it: sums[it[0]] + sums[it[1]] for it in items}
+    else:
+        items = [(S, None) for S in V1]; isums = {it: sums[it[0]] for it in items}
+    r_, c_, v_ = [], [], []
+    bySG = {}
+    for i, it in enumerate(items): bySG.setdefault(it[0], []).append((i, it[1]))
     for j, C in enumerate(W):
         for s in itertools.product(*[range(x + 1) for x in C]):
-            if s in vid:
-                r_.append(vid[s]); c_.append(j); v_.append(M.emb(s, C) * mu1[j])
-    B = sp.csr_matrix((v_, (r_, c_)), shape=(len(V1), len(W)))
+            for i, G in bySG.get(s, []):
+                if G is None or not any(G):
+                    v = mu1[j]
+                else:
+                    CG = tuple(a + b for a, b in zip(C, G))
+                    v = L.mu(CG)
+                    for a, b in zip(C, G): v *= factorial(a + b) / (factorial(a) * factorial(b))
+                if v > 0:
+                    r_.append(i); c_.append(j); v_.append(M.emb(s, C) * v)
+    B = sp.csr_matrix((v_, (r_, c_)), shape=(len(items), len(W)))
+    V1 = items; sums = isums
     if one:
         A = B
         cols_mu = mu1
