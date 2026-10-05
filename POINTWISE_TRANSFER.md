@@ -344,15 +344,29 @@ m/n = 1/(suw) + 1/(nsvw) + 1/(nuvw).                      (5.1)
 These are Type II solutions (`n | y, z`) in the parametrisation of
 Elsholtz–Tao §2 with `4 ↦ m` (ET: `e(macd−1) = n + m a²d`, i.e. `M = macd−1`,
 class `−m a²d`; ET Remark 1.10 notes their analysis extends to numerators
-`m ≠ 4`, "considered first by Sierpiński and Schinzel"; we use only the "if"
-direction (5.1) and do not claim every Type II solution of `m/n` arises this
-way; for `m = 4` ET Prop. 2.6 describes all Type II solutions via their
-variety `Σ_II`, and its proof (which starts from
-`4dx'y'z' = ny'z' + x'y' + x'z'`) looks numerator-independent, but we have not
-checked the `m`-version in detail). Define
+`m ≠ 4`, "considered first by Sierpiński and Schinzel"). Define
 ```
 W_m(n) = min{ M ≡ −1 (m), M ≥ 3 : n mod M ∈ R_m(M) },  R_m(M) = {−mD mod M : D | A_M²}.
 ```
+
+**Lemma 5.0 (completeness of (5.1) for Type II; proved — proof due to the R42
+reviewer, `reviews/pointwise-transfer-review.md`, MINOR-1).** Let
+`m/n = 1/x + 1/(ny') + 1/(nz')` with `gcd(x,n) = 1` (for prime `n > m ≥ 4`
+this covers every solution with exactly two denominators divisible by `n`;
+all three is impossible as it would force `m ≤ 3`). Then the solution has
+the form (5.1); in particular `n mod M ∈ R_m(M)` for `M = m·uvw − 1`.
+*Proof (R42).* Put `w = gcd(x,y',z')`, `x = wX`, `y' = wY`, `z' = wZ`. Then
+`m·wXYZ = nYZ + XY + XZ`, so `X | nYZ`, hence `X | YZ` (`gcd(X,n) = 1`); likewise
+`Y | XZ`, `Z | XY`. As `X,Y,Z` have no common prime, at each prime one exponent
+vanishes and the other two are equal, so `X = su`, `Y = sv`, `Z = uv`.
+Dividing by `suv`: `m·suvw = nv + s + u`, i.e. `s(m·uvw − 1) = nv + u`, which
+is (5.1). ∎ (This is ET Prop 2.6's argument, numerator-independent.)
+Machine check by the reviewer: `scripts/review_tr_typeII.py` (branch
+`side-agent/review-transfer`) enumerates all solutions of `m/n` for
+`m ∈ {4,5,6,7}`, primes `n ≤ 400`, and `m ∈ {8,11}`, `n ≤ 250`; every Type II
+solution has the form (5.1). **Consequence:** for prime `p > m`, `W_m(p) > T`
+iff `m/p` has no solution with exactly two denominators divisible by `p` and
+`m·uvw − 1 ≤ T` — so Cor 5.2 concerns *all* Type II solutions of `m/p`.
 
 **Lemma 5.1 (atoms and class of one for m/n; proved, machine-checked for
 `m ∈ {4,5,6,7,8,11}`, `M ≤ 3000`).** (i) `{−uv^{−1} mod M : uvw = A_M} = R_m(M)`;
