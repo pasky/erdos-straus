@@ -17754,4 +17754,113 @@ print("\n== (cq) EXCEPTIONAL_KARY3: Lemma 2.1/(2.1'), Lemma 2.2 bound, Lemma 2.3
 check_cq()
 
 
+# ---------------------------------------------------------------- (cr)
+# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9 not replayed: under review).  Imports
+# scripts/largesieve2_checks.py (toy family mod L = 24*5*7*11; its functions assert):
+# (1) Lemma 1.1 comparison measure: LP optimum m* = 1/24 (k = 0), 1/140 (k = 2), dual
+#     stationarity, and max{E_pi f : f in V_D, f >= 0, E_U f = 1} <= 1/m* (second LP);
+# (2) Lemma 2.2 / Thm 2.4 type (i): N E_U|H|^2 <= Delta |c|^2 and the twisted R~(pi) bound
+#     (504 Farey rows, N = 60);
+# (3) Lemma 4.1: w~_theta <= h + (W-h)/N on the 6 kernels of check3 (same random stream;
+#     the cvxpy QP for D* is not replayed);
+# (4) Thm 4.3 proof steps on the exact sequential law (full family + 3 thinnings):
+#     chi^2_l(sigma) <= E[p/(1-p); light], 1 + chi^2_q(pi) <= (1+chi^2_q(sigma))(1-leak)^-2,
+#     base chi^2 = 7 (q = 8), 2 (q = 3); family sizes / leaks = data/largesieve2/checks.txt.
+# Plus (cf. scripts/review_ls2_small.py): Thm 4.3 constants (unit squares mod p^v:
+# chi^2 = (p+1)/(p-1) for odd p, <= 7 for p = 2, reduction p^V -> p^v uniform;
+# (1-x)^-2 <= 1+4x on [0,1/4]); Prop 6.1 brute force (N < 400).
+# Skipped (with a note) if scipy is not importable.
+
+def check_cr():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import io
+    import contextlib
+    import random as _random
+    t0 = perf_counter()
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    # Thm 4.3 constants
+    def usq(m):
+        return sorted({(x * x) % m for x in range(m) if gcd(x, m) == 1})
+    for p, vmax in ((2, 7), (3, 5), (5, 4), (7, 3), (11, 2)):
+        Sb = usq(p ** vmax)
+        for v in range(1, vmax + 1):
+            m = p ** v
+            S = usq(m)
+            chi2 = Fraction(m, len(S)) - 1
+            assert chi2 <= 7 and (p == 2 or chi2 == Fraction(p + 1, p - 1)), ("LS2 Thm 4.3 unit-square chi2", m)
+            assert p != 2 or v < 3 or chi2 == 7
+            cnt = Counter(s % m for s in Sb)
+            assert set(cnt) == set(S) and len(set(cnt.values())) == 1, ("LS2 Thm 4.3 reduction uniform", m)
+    assert all((1 - Fraction(i, 4000)) ** -2 <= 1 + 4 * Fraction(i, 4000) for i in range(1001))
+
+    # Prop 6.1 brute force
+    from sympy import nextprime as _nextprime
+    rng = _random.Random(20261005)
+    for N in range(2, 400):
+        primes = list(primerange(2, N + 1))
+        q = _nextprime(N)
+        assert N < q <= 2 * N
+        for _ in range(3):
+            A = [p for p in primes if rng.random() < 0.5]
+            vals = {pp: sum(1 for p in A if (pp - p) % q == 0) for pp in primes}
+            assert all(vals[pp] == (pp in A) for pp in primes) and sum(vals.values()) == len(A), ("LS2 Prop 6.1", N)
+
+    if not have_scipy:
+        print("cr Thm 4.3 constants, Prop 6.1 ok; LP/Bessel replays SKIPPED (scipy not importable; "
+              "run `uv run --with scipy python verify.py`)")
+        return
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "largesieve2_checks.py")
+    spec = importlib.util.spec_from_file_location("largesieve2_checks", path)
+    ls = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ls)                    # seeds random / np.random (20261005)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        cls = ls.toy_family()
+        avoid = ls.avoider(cls)
+        m0, _ = ls.check1(avoid, 0)
+        m2, pi2 = ls.check1(avoid, 2)
+        ls.check2(pi2, m2, 2, N=60)
+        # Lemma 4.1 on check3's kernels (identical random calls, QP omitted)
+        N, k = 40, 2
+        mods = [d for d in ls.divisors(ls.L) if sum(1 for p in ls.BIG if d % p == 0) <= k // 2 and d > 1]
+        for _ in range(6):
+            S = ls.random.sample(mods, 8)
+            w = {q: ls.random.uniform(0.1, 2.0) for q in S}
+            W = sum(w.values())
+            h = max(sum(wq for q, wq in w.items() if mm % q == 0) for mm in range(1, N))
+            wt = {}
+            for q, wq in w.items():
+                for a in range(q):
+                    g = gcd(a, q)
+                    wt[(a // g, q // g)] = wt.get((a // g, q // g), 0.0) + wq / q
+            assert max(wt.values()) <= h + (W - h) / N + 1e-12, ("LS2 Lemma 4.1", S)
+            assert abs(wt[(0, 1)] - sum(wq / q for q, wq in w.items())) < 1e-12
+        ls.check4(cls)
+        for keep in (0.05, 0.1, 0.2):
+            ls.check4({C for C in cls if ls.SMALL % C[1] == 0 or ls.random.random() < keep})
+    out = buf.getvalue()
+    assert abs(m0 - 1 / 24) < 1e-9 and abs(m2 - 1 / 140) < 1e-9, ("LS2 Lemma 1.1 m*", m0, m2)
+    assert "J=504 rows" in out, out
+    fam = [ln for ln in out.splitlines() if ln.startswith("(4)")]
+    sizes = [ln.split("|family|=")[1].split(",")[0] for ln in fam]
+    leaks = [ln.split("leak=")[1].split(";")[0] for ln in fam]
+    assert sizes == ["955", "64", "94", "204"] and leaks == ["0.9117", "0.0000", "0.0000", "0.3175"], (sizes, leaks)
+    assert out.count("q=8: chi2(sigma)=7.0000") == 4 and out.count("q=3: chi2(sigma)=2.0000") == 4
+    print(f"cr Thm 4.3 constants exact; Prop 6.1 brute force N < 400; Lemma 1.1 m* = 1/24, 1/140 with dual "
+          f"certificate; Lemma 2.2/Thm 2.4(i) on 504 Farey rows; Lemma 4.1 on 6 kernels")
+    print(f"cr Thm 4.3 steps on families {sizes} (leaks {leaks}) = data/largesieve2/checks.txt; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cr) EXCEPTIONAL_LARGESIEVE2 §§1-7: Lemma 1.1 LP dual, Lemma 2.2, Lemma 4.1, Thm 4.3, Prop 6.1 ==")
+check_cr()
+
+
 print("\nall checks passed")
