@@ -1,0 +1,15 @@
+N=20 Q'=2520 t=0.1 C=1.5 med=True: status=0 max s = -0.0000
+N=20 Q'=2520 t=0.1 C=1.5 med=False: status=0 max s = 0.2500
+N=20 Q'=2520 t=0.1 C=2.0 med=True: status=0 max s = 0.4000
+N=20 Q'=2520 t=0.1 C=2.0 med=False: status=0 max s = 0.4000
+N=12 Q'=420 t=0.1 C=2.0 med=True: status=0 max s = 0.5000
+N=12 Q'=420 t=0.1 C=2.0 med=False: status=0 max s = 0.5000
+N=16 Q'=840 t=0.1 C=2.0 med=True: status=0 max s = 0.4000
+N=16 Q'=840 t=0.1 C=2.0 med=False: status=0 max s = 0.4000
+N=20 Q'=2520 t=0.1 C=2.0 med=True: status=2 max s = nan
+N=16 Q'=840 t=0.1 C=2.0 med=True: status=0 max s = 0.4000
+N=20 Q'=2520 t=0.1 C=3.0 med=True: status=2 max s = nan
+N=20 L=200 t=0.1 C=2.0: margin s=0.3333  min F[1,N]=0.8264 min F out=-0.2614  max|F(s)-M/d| on (N/2,CN]=1.333
+N=20 L=300 t=0.1 C=2.0: margin s=0.3333  min F[1,N]=0.8731 min F out=-0.3043  max|F(s)-M/d| on (N/2,CN]=1.257
+N=30 L=450 t=0.1 C=2.0: margin s=0.3333  min F[1,N]=0.8549 min F out=-0.2323  max|F(s)-M/d| on (N/2,CN]=1.261
+N=40 L=600 t=0.1 C=2.0: margin s=0.3333  min F[1,N]=0.8388 min F out=-0.2059  max|F(s)-M/d| on (N/2,CN]=1.333
