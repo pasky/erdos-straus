@@ -170,9 +170,19 @@ direction: they show that an arithmetic function such as the M\"obius
 function is uncorrelated with bounded-depth circuits \cite{Green,Bourgain}.  Our literature
 search was limited, and we make no priority claim.  The Haar-side input,
 a local-lemma lower bound for the density of the uncovered set of a
-congruence system, has well-known relatives in the work on Erd\H{o}s
-covering systems by Hough \cite{Hough} and by Balister, Bollob\'as, Morris,
-Sahasrabudhe and Tiba \cite{BBMST}.  We do not use those results.
+congruence system, has well-known relatives in the work on covering
+systems.  The closest is Filaseta, Ford, Konyagin, Pomerance and Yu
+\cite{FFKPY}, who to our knowledge already use the local lemma to bound the
+uncovered density of a congruence system from below.  Others are Hough
+\cite{Hough} and Balister, Bollob\'as, Morris, Sahasrabudhe and Tiba
+\cite{BBMST}.  We do not use those results.  On the bounded-independence
+side, the step from the truncated inclusion--exclusion of \cite{Paper1} to
+the present sandwich mirrors a step in that theory.  Even, Goldreich, Luby,
+Nisan and Veli\v{c}kovi\'c \cite{EGLNV} showed by Bonferroni-type
+truncation that $k$-wise independence fools combinatorial rectangles, i.e.\
+conjunctions of single-coordinate conditions (our prime-local case).
+Bazzi's sandwich is what extends this to DNFs, i.e.\ to events on several
+coordinates.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
@@ -932,8 +942,12 @@ Wiley, 2016.
 parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
-% TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough]
-% were written from memory (no library access in task O33); check before submission.
+% TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
+% [FFKPY] and the journal version of [EGLNV] were written from memory (no library
+% access in task O33; referee R33 rates the first four "probably correct, unverified").
+% The STOC'92 data of [EGLNV] are as quoted in Benjamini--Gurel-Gurevich--Peled
+% (arXiv:1201.3261, ref. [16]).  Also unverified: the journal data of [TZ] (arXiv
+% version archived).  Check all of these before submission.
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
 M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
 Invent.\ Math.\ 228 (2022), 377--414.
@@ -944,9 +958,16 @@ $\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
 \bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
+\bibitem{EGLNV} G.~Even, O.~Goldreich, M.~Luby, N.~Nisan and
+B.~Veli\v{c}kovi\'c, Approximations of general independent distributions, in:
+Proc.\ 24th ACM STOC (1992), 10--16; journal version: Efficient approximation of
+product distributions, Random Structures Algorithms 13 (1998), 1--16.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105 (Proposition numbering as in arXiv:1107.1010v6).
+\bibitem{FFKPY} M.~Filaseta, K.~Ford, S.~Konyagin, C.~Pomerance and G.~Yu,
+Sieving by large integers and covering systems of congruences, J.\ Amer.\
+Math.\ Soc.\ 20 (2007), 495--517.
 \bibitem{Green} B.~Green, On (not) computing the M\"obius function using
 bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
 \bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
