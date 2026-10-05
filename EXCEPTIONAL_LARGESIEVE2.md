@@ -817,11 +817,10 @@ for such q, and the subtraction of h must absorb that non-uniformity.
 
 *Status (Assessment).* We could not prove that it always does, and we
 found no family and kernel where it fails. One observation (review R27b
-m4): on the band family of §8 with all `D_i > N`, every kernel with
-`h = 0` (all moduli `≥ N`) has `B ≥ N`. Indeed `𝒮_< = ∅`; each prefix
-`q°` of Thm 9.1 contains no prime `≥ N` before its last step, hence at most
-one band prime (all band primes being `> N^{1/2}` suffices when the
-pairs are chosen as in Prop 8.6, or `> N` in general), so the measure μ of
+m4): on the band family of §8 with all band primes `> N`, every kernel
+with `h = 0` (all moduli `≥ N`) has `B ≥ N`. Indeed `𝒮_< = ∅`; each prefix
+`q°` of Thm 9.1 is `< N` before its last step, so contains no band prime
+before it and at most one in total, so the measure μ of
 Prop 8.2(a), uniform on all other digits, gives `μ(b mod q°) = 1/q° ≤ 1/N`
 and `D(μ) ≤ W_K/N`. Kernels thus resist the dense-bundle escape that
 defeats the large sieve, and any kernel escape must use moduli `< N`.
