@@ -58,3 +58,55 @@ atom with `rad(M)|Q` is dead. An event with `supp_end E=∅` is exactly such an 
 (`a_ℓ≥v_ℓ(M)≥1` at all ℓ|M). Hence no surviving event has empty support, which is
 the only use made in Thm 3.4 / Lemma 1.1. SOUND.
 
+### Lemma 3.2 (bookkeeping for the square-class process) — SOUND (two MINOR wording defects)
+
+*Re-derivation of (a).* a=0 step at ℓ|M: before, the ℓ-factor of p(E) is
+`1/φ(ℓ^v)`; after revealing a uniform square s mod ℓ it is `1[s≡−4D]/ℓ^{v−1}`;
+`P(s≡−4D)=2/(ℓ−1)·1[(−4D|ℓ)=1]`, so `E[p_new]=(1+(−d|ℓ))p` by Lemma 3.1(a), and
+`2^{u}` halves: `E[p2^{u}]_{new}≤p2^{u}`. a≥1: uniform among the ℓ lifts, exact
+martingale (all lifts of a unit square are squares, ℓ odd). ℓ=3: the square class
+is forced (only {1}); the identity still holds deterministically. Correct. Since
+the inequality holds *per event*, any adapted step-selection rule is allowed.
+
+*(b),(c).* `logℓ·1[τ<∞]≤(logℓ/η)w̃_{ℓ,a}(τ)` at the step time; `β^{s_i}≤β^{ω}2^{u_i}`;
+`G^{(ℓ,a)}` is a nonnegative supermartingale (φ=1[v_ℓ(M)≥a+1]β^{ω}); the process has
+≤`Σ_{ℓ≤Y}f_ℓ` steps, so `E[G(τ∧N)]≤G(0)` and `G(τ)1[τ<∞]≤G(τ∧N)`. Summing over
+`(ℓ,a)` with `ℓ≤Y, a<v_ℓ(M)` gives `log M_Y`. `p_0=1/φ(M)` (M odd, fibre mod 8
+irrelevant), `u_0=ω_Y(M)` (start Q=8, all odd a_ℓ=0). Correct.
+
+*(d).* I re-derived the pair potential case by case. At a step at level a at ℓ'
+that both F,F' constrain with a<j: each p is multiplied by `N·1[match]`, where N is
+the number of classes of the *current fibre* at that level (`N=ℓ'−1` if a=0, `N=ℓ'`
+if a≥1); ρ (classes mod `ℓ'^j`) is divided by N; so `Π→N·1[match]Π`, mean Π (a≥1) or
+`2·1[(−4D|ℓ')=1]Π` (a=0), absorbed by the factor 1/4 from both u's. a=j<min(v,v'):
+disagreement ⇒ Π→0. Only one constrains ⇒ a≥min(v,v')≥j ⇒ ρ=1, reduces to (a).
+Shared ℓ'>Y never stepped ⇒ ρ constant ≥1. `pp'≤Π2^{−u−u'}` since R≥1. Start:
+`R_0=∏φ(ℓ'^{j})≤φ(gcd(M_F,M_{F'}))`, and `gcd(M/ℓ^{v},M'/ℓ^{v'})=gcd(M,M')/ℓ^{min v}`,
+so `B_2` is exactly what comes out. `w̃_ℓ(end)²≤(Σβ^{ω}p)²` and Chebyshev. Correct.
+
+*Simulation* (`scripts/review_o13a_process.py`, from scratch; general events
+`{ℓ:(v,t mod ℓ^v)}`; reachable states by random walks; **every** admissible step):
+* `T=300,Y=13,β=1.3`: (a) one-step `max E[p2^u]_{new}/(p2^u)=1.000000` over 43 220
+  (event,state,step); (d) one-step `max E[Π]_{new}/Π=1.000000` over 46 805, incl.
+  synthetic partially-agreeing pairs; `max pp'/(Π2^{−u−u'})=1`.
+* `T=1200,Y=23,β=1.39`: same, 89 463 / 94 286 checks, max exactly 1.
+* Power check: with `ρ≡1` (env `O13A_NORHO=1`) the (d) check fails with ratio 6, so
+  the test does detect a missing correction.
+* Monte Carlo of the full process (stop rule `w̃_ℓ>η` ⇒ step; T=1200, 300 runs):
+  `E[log Q_end]=24.4 ≤ 1290.8`, `E[res mass]=13.8 ≤ S_H^β=86.0`,
+  `E[w̃_ℓ(end)²]` for ℓ=29,31,37,41: `0.32,0.94,0.24,0.10` vs `B_2=9.0,11.0,5.7,11.6`.
+  All bounds hold (with large slack, as expected from `2^{ω_Y}` and Cauchy–Schwarz).
+
+Defects (MINOR):
+* **m1 (§3, Lemma 3.2(d) proof, third bullet).** "both are multiplied by the same
+  `F_r·1[match]` (F_r = number of classes revealed among)": at an a=0 step the classes
+  revealed among number `(ℓ'−1)/2`, but the factor is `ℓ'−1` (the number of fibre
+  classes mod ℓ'); with the literal F_r the stated mean `(1+(−d|ℓ'))Π` would be wrong
+  by 2. *Repair:* "multiplied by `N·1[match]`, N = number of classes of the current
+  fibre at this level (ℓ'−1 if a=0, ℓ' if a≥1)".
+* **m2 (§3, "R1 fix" remark).** My simulation (env `O13A_BUGGY=1`) shows that ρ at
+  depth `min(v,v')` is *also* a supermartingale potential (the disagreement step kills
+  Π), and both start values are ≤`φ(gcd)`. So the depth-j choice is merely tighter;
+  the stated reason ("would gain a factor F_r at low-level steps") does not seem to
+  occur. Harmless; suggest rewording or dropping the justification.
+
