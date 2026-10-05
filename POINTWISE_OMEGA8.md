@@ -596,8 +596,10 @@ decay; R30c m4), but no proof is given.
 
 ### 6.5 Ceilings of this route (Assessment)
 
-* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. Here `K≥log(1/μ)≥log(1/δ)≥S1`
-  rigorously (Prop 6.6 and the remark after it); `log(1/δ)≈S` for
+* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. For the BRW expansion as written (its constant
+  cell has coefficient 1, so `M_1≥1`), `K≥1+log(1/μ)≥log(1/δ)≥S1` rigorously
+  (Prop 6.6 and the remark after it; not for every cell representation —
+  R34a); `log(1/δ)≈S` for
   multi-prime events is heuristic. Also `log Z ≳ (junta)·log z`, with junta
   `≳ S/log(junta/S)` for minorants of Brun/BRW type (heuristic, from the
   fundamental-lemma level requirement; no argument covers every minorant).
@@ -648,14 +650,14 @@ term: `π^*Σ_{d≤y}2^{ω(d)}/φ(4d) ≥ (π^*/4)Σ_{d≤y}2^{ω(d)}/d ≫ π^*
 Error: by Cauchy–Schwarz, `Σ_{d≤y}2^{ω(d)}|E(4d)| ≤ (Σ_d4^{ω(d)}|E(4d)|)^{1/2}(Σ_d|E(4d)|)^{1/2}`;
 Brun–Titchmarsh (`4d≤x^{1/2}`) gives `|E(4d)|≪x/(φ(d)log x)`, so the first
 factor is `≪(x(log x)^3)^{1/2}`, and Bombieri–Vinogradov gives
-`Σ_{q≤x^{1/3}}|E(q)|≪x(log x)^{−A}`. The error is `≪x(log x)^{(3−A)/2}`,
+`Σ_{q≤4x^{1/3}}|E(q)|≪x(log x)^{−A}` (inside the BV range; R34a). The error is `≪x(log x)^{(3−A)/2}`,
 negligible. ∎
 
 *Proof of the Proposition.* The atoms `(M,D)=(ℓ,D)` with M a free prime have `m=1`, so they
 survive every class-of-one quarantine (`1|4D+1`). They are singles at ℓ
 with classes `−4D mod ℓ`. The divisors `D≤A_ℓ=(ℓ+1)/4<ℓ` of `A_ℓ²` give
 distinct nonzero classes (`4D∈[4,ℓ+1]`), exactly `(τ(A_ℓ²)+1)/2` of them. So the
-distinct-class single mass is `S1 ≥ Σ_{ℓ∈(√T,T]∖Π} τ(A_ℓ²)/(2(ℓ−1))`. By (D')
+distinct-class single mass is `S1 ≥ Σ_{ℓ∈(√T,T]∖Π, ℓ≡3 (4)} τ(A_ℓ²)/(2(ℓ−1))`. By (D')
 on the dyadic ranges `(T/2^{j+1},T/2^j]`, `0≤j≤𝓛/(2log2)`, each range
 contributes `≫ log(T/2^j)`, so the sum over all `ℓ∈(√T,T]` is
 `≫ Σ_j (𝓛−j log 2) ≍ 𝓛²`. The at most `T^{1/3}` quarantined primes there remove
@@ -664,16 +666,21 @@ at most `T^{1/3}·τ*(T)²/√T = o(1)`. ∎
 **Strengthening (PROVED modulo (D'); R30c m7).** The proof bounds the
 distinct-event single mass, so `S ≥ S1 ≫ 𝓛²` for the distinct-event mass
 S of Thm 3.4. Singles at distinct free primes are independent events, so
-`δ = E F ≤ ∏_ℓ(1−g_ℓ) ≤ e^{−S1}` (`g_ℓ` the single mass at ℓ). Hence
-`log(1/δ*) ≫ 𝓛²`, and for every minorant `B≤F`, `μ≤δ`, so
-`K ≥ log(1/μ) ≫ 𝓛²` rigorously.
+`δ = E F ≤ ∏_ℓ(1−g_ℓ) ≤ e^{−S1}` (`g_ℓ` the single mass at ℓ; δ the
+density on the class of one mod `Q_Π`). Hence `log(1/δ) ≫ 𝓛²`; every
+minorant `B≤F` has `μ≤δ`, and for the BRW expansion as written (`M_1≥1`)
+`K ≥ 1+log(1/μ) ≫ 𝓛²`. This is **not** a bound for every cell
+representation: e.g. F written as the sum of its disjoint good cells has
+`M_1=μ`, `K=1` (with huge moduli) (R34a MAJOR 2).
 
 **Consequence (Assessment; R30c m8).** In §6.5's bound `log p ≳ S²·log z`,
 S is at least of order `𝓛²`; so through PO Thm 4.1 even an ideal junta
 cannot go below `log p≈𝓛^4·log z`, exponent `≤1/4`. Task (b)'s hope
 `S≪𝓛^{1+o(1)}` is a dead end. Splitting off the singles (Brun for them,
-BRW for the multi-prime events) **cannot lower K**: any minorant has
-`μ≤δ≤e^{−S1}`, so `K≳𝓛²` regardless; only `log Z` could shrink. Also
+BRW for the multi-prime events) does not lower `log(1/μ)≥S1`; for
+representations with `M_1≳1` (as BRW-type ones) K stays `≳𝓛²`, and only
+`log Z` could shrink. (No universal statement over all representations is
+claimed; R34a.) Also
 `log Z ≥ log ℓ_aux > 𝓛`, so PO Thm 4.1's sufficient condition is never met
 below `log p≈𝓛³` on this route. (POINTWISE_OMEGA9 Thm 1.1 makes K enter
 only additively, which changes this accounting.) The data of PO §2 are

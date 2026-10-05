@@ -155,4 +155,5 @@ them ESW gives no real gain. The phase-2 bullets above that say "ESW would
 give 1/11" and "≈1/9 is the ceiling under ET" are superseded by OMEGA8
 §6.4–6.5 as repaired (1/9 is bookkeeping, the supported ceiling of the
 PO-Thm-4.1 route is 1/4). Minors m1–m8 applied (m7: `K ≥ log(1/δ) ≥ S1 ≫ 𝓛²`
-rigorously; m8: splitting off singles cannot lower K).
+rigorously for the BRW expansion as written — R34a: not for every cell
+representation; m8: splitting off singles does not lower `log(1/μ)≥S1`).
