@@ -134,6 +134,23 @@ versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
   for the lower bound (POINTWISE_WINDOW Thm W2); the upper bound
   `≪x/(log x)^2` is unconditional (Cor 1.3, Z=7). So W2 is sharp.
 
+### 1.3 Numerical check (EVIDENCE)
+
+`T(x,Z)` for all primes `p≡1 (24)`, `p<x` (census of
+`pointwise_size_amin.py`), normalised by `x/(log x)^{1+J(Z)/2}` in
+parentheses (`scripts/xwin_tail_table.py`):
+
+| x | Z=3 | 7 | 11 | 15 | 19 | 23 |
+|---|---|---|---|---|---|---|
+| 1e6 | 4540 (0.233) | 989 (0.189) | 395 (0.280) | 266 (0.701) | 134 (1.313) | 53 (1.931) |
+| 1e7 | 35750 (0.231) | 7144 (0.186) | 2681 (0.280) | 1732 (0.725) | 849 (1.427) | 308 (2.079) |
+| 1e8 | 289372 (0.229) | 54226 (0.184) | 18868 (0.275) | 11250 (0.703) | 5125 (1.375) | 1742 (2.006) |
+
+Every column is flat to within a few per cent over two decades, as the
+exponent `1+J/2` of Corollary 1.3 (and the model) predicts; this is
+consistent with Corollary 1.3 being sharp in the exponent for each fixed
+Z (proved only for Z=3, and Z=7 on EH, by Cor 1.4).
+
 ## 2. Growing window sets: a proved weak form of H_STACK up to `a≤(log N)^{2/5}`
 
 (In progress; written lemma by lemma.) Plan: replace the half-set
