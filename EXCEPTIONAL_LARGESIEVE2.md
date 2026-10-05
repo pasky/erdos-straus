@@ -1,6 +1,8 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **checkpoint 3** (§§8–9 new, unreviewed; §§1–7 = checkpoint 2). Hostile review R27
+Status: **checkpoint 4.** §§8–9: hostile review R27b
+(`reviews/exceptional-largesieve2-review-2.md`, branch `side-agent/review-ls2b`):
+no FATAL/MAJOR, minor m1–m7 applied. §§1–7: hostile review R27
 (`reviews/exceptional-largesieve2-review.md`, branch
 `side-agent/review-largesieve2`): all claims SOUND, no FATAL/MAJOR; minor
 m1–m6 applied. Labels as in
@@ -55,7 +57,9 @@ sieve limit (Prop 6.1), while the relaxation "`ν ≥ 0` only at primes
 many-prime denominators and to a sup-decay statement (H_LS∞) — and
 unconditional signed error accounting (Assessment only). Checkpoint 3
 (§§8–9): (E1) has an explicit escape for *dense* abstract families
-(Thm 8.5), so it can only be closed using sparsity of forced classes;
+(Thm 8.5), even one satisfying K2's cap conclusion at every level
+(Prop 8.6), so it can only be closed with family-specific input such as the
+sparsity of forced classes;
 composite kernels are capped at every level up to `1 + Nh/(W_K−h)`, and
 that factor matters only for kernels with small prime factors
 (Thm 9.1, Prop 9.2). The tool behind

@@ -92,7 +92,7 @@ caps are `C_A(log N)^{3/4}`. (D)22 open: "the large sieve applied to primes"
 closed (Thm 3.1); "ν ≥ 1 only on 𝒜∩[1,N]" shown vacuous (Prop 6.1);
 "ν ≥ 0 only at primes ≤ N" stays open (Assessment).
 
-## Checkpoint 3 (§§8–9, unreviewed)
+## Checkpoint 3 (§§8–9; reviewed in R27b, see checkpoint 4)
 
 Task: serious attempt on H_LS / H_LS∞ and on composite kernels with
 `W−h ≪ Nh`.
@@ -124,7 +124,33 @@ Task: serious attempt on H_LS / H_LS∞ and on composite kernels with
 3. Numerics: check (5) of the script verifies Prop 8.2(a) by LP (value
    exactly 1) and Lemma 8.3 numerically.
 
-Ledger suggestion: (D)25 (E1) entry: add "explicit escape for dense
-abstract class families (LARGESIEVE2 Thm 8.5); a cap needs sparsity (Sp)";
-composite kernels: "capped at any level up to `1+Nh/(W_K−h)`
-(Thm 9.1); open only for small-prime kernels with `Nh/(W_K−h)` huge".
+## Checkpoint 4: hostile review R27b applied
+
+R27b (`reviews/exceptional-largesieve2-review-2.md`): no FATAL/MAJOR. Applied:
+m1 (`ℓ'_i ≥ 36` in Prop 8.2(b)); m2 ((Sp) restated for D of level `≥ log N`
+and labelled Assessment); m3 (Thm 9.1 needs all primes of 𝔊 and of the kernel
+moduli `≤ e^{Λ₀}`; remark on dropping primes ∤ M₀); m4 (band-family kernel
+remark argued directly, band primes `> N`); m5 ("open precisely" now
+includes `ω(q) > T^{1/4}` and the conditionality of Thm 9.1); m6 (section
+reference); m7 (**new Prop 8.6**: with `ℓ, ℓ' ≈ N^{1/2+δ}` the band family
+satisfies K2 Thm 5.1's conclusion `S ≤ Cλ^{3/4}` at *every* level, yet
+the large sieve saves `c log N`; so the escape survives comparison at all
+levels); nit in Lemma 8.1.
+
+## Final ledger wording for (D)25 (suggested)
+
+> (E1) super-polynomial levels: **explicit escape for dense abstract class
+> families** (LARGESIEVE2 Thm 8.5, Prop 8.6; PROVED): a band family with ≍ηD
+> classes at single moduli D = ℓℓ' satisfies the conclusion of K2 Thm 5.1
+> (`S ≤ Cλ^{3/4}`) at every level, yet a Montgomery–Vaughan large sieve with
+> ≤ N/3 frequencies of level ≍ (log N)² saves `≥ c log N`. Hence (E1) cannot
+> be closed from comparison measures plus the large-sieve axioms; a cap for
+> forced families needs family-specific input such as the sparsity (Sp)
+> (Assessment). (H_LS∞) for forced families: CONJECTURE.
+> Composite kernels: capped at **every** level up to the factor
+> `1 + Nh/(W_K−h)` (Thm 9.1; conditional on K2 Thm 5.1/KARY3; primes of 𝔊
+> and of the kernel moduli `≤ N^{O(1)}`). For T-rough moduli with
+> `ω(q) ≤ T^{1/4}`, the saving is `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`,
+> `ε_T ≍ T^{−1/4+o(1)}` (Prop 9.2; unconditional). Open: kernels with
+> `Nh/(W_K−h) ≥ e^{(log N)^{3/4}}` whose moduli have small prime factors
+> or more than `T^{1/4}` prime factors.
