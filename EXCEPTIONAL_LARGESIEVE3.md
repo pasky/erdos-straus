@@ -82,3 +82,92 @@ level `≤ 2λ'` and `|π̂_c(θ_r)|² ≤ e^{S_r}/N` above rough level λ', the
 `log(N/B) ≤ log ρ + S_r + log 2` (Cauchy–Schwarz plus LS2 Lemma 2.2 on the
 low part; `Σw ≤ 1` on the high part). This is LS2 Prop 5.2 with the smooth
 coordinates removed from both conditions.
+
+## 2. The smooth part costs only a density
+
+`Q'` is K2's sequential law (EK §4.1, K2 §§2–4): square base `R_W^□`
+uniform on the W-smooth coordinate (K2 Lemma 2.3), then the plain rule in
+increasing order of the primes `ℓ > W` on the coordinates `ℤ/ℓ^{E_ℓ}`,
+`ν = U`, caps `δ_ℓ = ℓ^{−1/2}`; `F_ℓ` is the activated forbidden set (classes
+with top prime ℓ whose cofactor requirement is met by the past),
+`p_ℓ = U(F_ℓ)`. Running it up to z gives a law on `ℤ/M_s`; the classes
+decided there are exactly the classes with z-smooth modulus. Inputs used:
+* (Q1) `E_{Q'}Σ_{W<ℓ≤y}p_ℓ ≤ 𝔐(y) ≤ K₃(log y)³(log log y)³` (K2 §3 and
+  Cor 3.7; Case A via ElT Prop 1.4);
+* (Q2) `E_{Q'}p_ℓ² ≤ Cℓ^{−7/4}(log ℓ)^c` for `ℓ > W` (K2 Lemma 4.3, any
+  family 𝔊 ⊆ 𝔘);
+* (Q3) leak: `Σ_{ℓ>W}E[p_ℓ1{p_ℓ>ℓ^{−1/2}}] ≤ C W^{−1/4}(log W)^{3c+2}`
+  (K2 Lemma 4.3);
+* (Q4) chain rule: `Q'(n ≡ b (mod m)) ≤ Γ(m)/m` (K2 §2).
+
+Fix `W = W₁` absolute and so large that the bounds in (Q2), (Q3) give
+`Σ_{ℓ>W}4E p_ℓ² ≤ 1/8` and leak `≤ 1/8`.
+
+**Lemma 2.1 (bounded-density measure on 𝒜_s; PROVED, inputs (Q1)–(Q4)).**
+Let `z ≥ y₀` and let E be any event in the z-smooth coordinates with
+`Q'(E) ≤ 1/8`. Let `G` be the event: `y_ℓ ∉ F_ℓ` for all `W < ℓ ≤ z`,
+`p_ℓ ≤ 1/2` for all `W < ℓ ≤ z`, and `Σ_{W<ℓ≤z}p_ℓ ≤ 8𝔐(z)`. Then
+`Q'(G∖E) ≥ 1/2`, `π_s := Q'(· | G∖E)` is supported on `𝒜_s`, and
+
+    π_s(c) ≤ ρ/M_s,     log ρ ≤ 16𝔐(z) + 2W₁ + log 2.
+
+*Proof.* `Q'(y_ℓ ∈ F_ℓ for some ℓ) ≤` leak `≤ 1/8` (on light ℓ the plain
+rule never lands in `F_ℓ`, EK Lemma 2.1(1)); `Q'(∃ℓ: p_ℓ > 1/2) ≤
+Σ4Ep_ℓ² ≤ 1/8`; Markov and (Q1) give `Q'(Σp_ℓ > 8𝔐(z)) ≤ 1/8`. So
+`Q'(G∖E) ≥ 1/2`. On G every z-smooth class is avoided: the base avoids the
+W-smooth ones (K2 Lemma 2.3(1)), and a class with top prime `ℓ ∈ (W,z]`
+can only be hit by `y_ℓ ∈ F_ℓ`. *Density.* Given the past, `y_ℓ` is
+uniform on `ℤ/ℓ^{E_ℓ}∖F_ℓ` (light) or on `ℤ/ℓ^{E_ℓ}` (heavy), so each
+step has conditional probability `≤ ℓ^{−E_ℓ}(1−p_ℓ)^{−1}`, and on G,
+`Π(1−p_ℓ)^{−1} ≤ e^{2Σp_ℓ} ≤ e^{16𝔐(z)}` (`p ≤ 1/2`). The base has
+density `Q_W/|R_W^□| ≤ e^{2W₁}` (K2 Lemma 2.3(2)). Conditioning on an
+event of probability `≥ 1/2` at most doubles the density. ∎
+
+## 3. Rough-slice mixtures: every large sieve is capped
+
+**Theorem 3.1 (PROVED; inputs as Lemma 2.1).** Let `z = exp((log N)^{1/4})`
+and let 𝔊 be any mixture (any moduli, no B, no bound on their size) in which
+every modulus has **at most one** prime factor `> z` (to any power). Then
+every CRT-admissible N-large-sieve bound — any rational frequencies, any
+denominators, any weights — saves
+
+    log(N/B) ≤ C (log N)^{3/4} (log log N)³.
+
+*Proof.* Every fibre family `𝔊_c` consists of classes mod `ℓ^v`, ℓ > z
+prime: a slice system. For `ℓ > z` let `F_ℓ^r(c) ⊂ ℤ/ℓ^{E_ℓ}` be the union
+of the classes of `𝔊_c` at ℓ and `p^r_ℓ(c)` its density. These are
+exactly the activated sets of `Q'` at the primes `ℓ > z` (every class with a
+prime `> z` has it as its top prime, and its cofactor is z-smooth), so
+(Q2) and (Q4) apply to them. Take `κ = 3/4`, `β = (log N)^{−1/4}`,
+`α = 2β(1−κ) = β/2`, and the event `E = E₁ ∪ E₂`,
+* `E₁ = {∃ℓ > z : p^r_ℓ(c) > ℓ^{κ−1}}`:
+  `Q'(E₁) ≤ Σ_{ℓ>z}ℓ^{2−2κ}Ep_ℓ² ≤ CΣ_{ℓ>z}ℓ^{−5/4}(log ℓ)^c ≤ 1/16` for
+  N large;
+* `E₂ = {Σ_{ℓ>z}p^r_ℓ(c)ℓ^{−α} > 16 J}`, `J = E_{Q'}Σ_{ℓ>z}p^r_ℓℓ^{−α}`:
+  `Q'(E₂) ≤ 1/16`.
+
+Let `π_s` be as in Lemma 2.1 and, for `c ∈ supp π_s`, `π_c = ⊗_{ℓ>z}`
+uniform on `ℤ/ℓ^{E_ℓ} ∖ F^r_ℓ(c)` (other rough digits uniform). It lives on
+`𝒜_c`. As in LS Thm 4.1, `π̂_c(Σ_ℓ a_ℓ/ℓ^{E_ℓ}) = Π_ℓ φ_{ℓ,c}(a_ℓ)` with
+`φ(0) = 1`, `|φ(a)| ≤ g := p/(1−p)` and `Σ_{a≠0}|φ(a)|² = g` (Parseval),
+so `Σ_{a≠0}|φ(a)|^{p'} ≤ g^{1+2β} ≤ 2p·(2ℓ^{κ−1})^{2β} ≤ 4p^r_ℓ(c)ℓ^{−α}`
+off `E₁`, and
+`log 𝓡_{p'}(π_c) ≤ Σ_ℓ log(1 + 4p^r_ℓℓ^{−α}) ≤ 64 J` off `E₂`.
+*J.* By (Q4), `E p^r_ℓ ≤ Σ_{C : P(G_C) = ℓ}Γ(G_C)/G_C`, so
+`J ≤ ∫_{z}^{∞} y^{−α} d𝔐(y) ≤ α∫_z^∞ 𝔐(y) y^{−1−α} dy ≤ αK₃∫_0^∞
+t³(log(e+t))³e^{−αt}dt ≤ Cα^{−3}(log(e+1/α))³` (partial summation; the
+boundary terms are `≤ 0` at z and vanish at ∞).
+Theorem 1.1 now gives `log(N/B) ≤ β log N + 16𝔐(z) + 2W₁ + log 2 + 64J`,
+and `β log N = (log N)^{3/4}`, `𝔐(z) ≤ K₃(log N)^{3/4}(log log N)³`,
+`J ≤ C(log N)^{3/4}(log log N)³`. ∎
+
+*Remarks.* (a) Compare LS Cor 4.2 (ET Cor 3.4 slice families, moduli
+`q₀ℓ` with `q₀ ≤ ℓ^C`, `C < 1`). Theorem 3.1 drops the condition on `q₀`
+entirely (any number of small primes, any size) and needs no `ℓ₀'`
+enlargement, because the small coordinates are paid by density (Lemma 2.1)
+instead of by a product structure. (b) The `(log log N)³` is K2's
+Rankin loss in `𝔐` (K2 Rem 3.8); K3's local moment should remove it but
+this is not checked here. (c) By Theorem 1.1 the only remaining source of
+an (E1) escape over forced families is the set of classes with **two or
+more prime factors above** `exp((log N)^{1/4})`, entering through
+correlations of the fibre measures `π_c` between such primes (§4).
