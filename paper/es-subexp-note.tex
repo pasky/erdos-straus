@@ -467,6 +467,125 @@ use it.
 \end{remark}
 
 
+\section{Product systems and the sandwich minorant}\label{sec:brw}
+
+\emph{Setting.}  Let $\cP$ be a finite set of $N$ \emph{coordinates}.  Let
+$X_\ell$, $\ell\in\cP$, be independent random variables, $X_\ell$ uniform on a
+finite set $G_\ell$ with $|G_\ell|\le T$; write $\PP$, $\E$ for this product
+measure.  An \emph{event} is a set $E=\{X_\ell=\sigma_\ell\ (\ell\in\supp E)\}$
+with $\emptyset\ne\supp E\subseteq\cP$ and $\sigma\in\prod_{\supp E}G_\ell$.
+Let $E_1,\dots,E_m$ be events (repetitions allowed) with $|\supp E_i|\le k$, and put
+$A_i=\mathbf 1_{E_i}$, $F_{<i}=\prod_{j<i}(1-A_j)$, $F=F_{<m+1}$,
+\[
+ w_\ell=\sum_{i:\,\ell\in\supp E_i}\PP(E_i),\qquad S=\sum_{i\le m}\PP(E_i).
+\]
+By Lemma~\ref{lem:system}, the residual system of Definition~\ref{def:system}
+is an instance with $N\le T$ and $m\le T^{k+2}$.
+
+\begin{lemma}[Local lemma with conditioning; classical]\label{lem:lll}
+Let $\mathcal A$ be a finite family of events in a product space, each
+depending on a finite set of coordinates; write $A'\sim A$ if they share a
+coordinate.  Suppose $x_A\in[0,1)$ satisfy
+$\PP(A)\le x_A\prod_{A'\sim A,\,A'\ne A}(1-x_{A'})$.  Then
+$\PP(\bigcap_{\mathcal A}\bar A)\ge\prod_{\mathcal A}(1-x_A)$.  Moreover, for every
+event $B$ depending on a set $J$ of coordinates,
+$\PP(B\mid\bigcap_{\mathcal A}\bar A)\le\PP(B)\prod_{A\in\Gamma(B)}(1-x_A)^{-1}$, where
+$\Gamma(B)$ is the set of $A\in\mathcal A$ depending on some coordinate in $J$.
+\end{lemma}
+
+\begin{proof}
+The first statement is \cite[Lemma~5.1.1]{AS}.  Its proof shows
+$\PP(A\mid\bigcap_{A'\in\mathcal S}\bar A')\le x_A$ for every
+$\mathcal S\subseteq\mathcal A$ with $A\notin\mathcal S$.  For the second
+(cf.\ \cite[Thm.~2.1]{HSS}), note that $B$ is independent of
+$\bigcap_{A\notin\Gamma(B)}\bar A$, so
+\[
+ \PP\Big(B\ \Big|\ \bigcap_{\mathcal A}\bar A\Big)
+ \le\frac{\PP(B)\,\PP(\bigcap_{A\notin\Gamma(B)}\bar A)}{\PP(\bigcap_{\mathcal A}\bar A)}
+ =\frac{\PP(B)}{\PP(\bigcap_{\Gamma(B)}\bar A\mid\bigcap_{A\notin\Gamma(B)}\bar A)}.
+\]
+The chain rule and the displayed claim bound the denominator below by
+$\prod_{\Gamma(B)}(1-x_A)$.
+\end{proof}
+
+\begin{corollary}[Proved]\label{cor:lll}
+In the Setting, assume $w_\ell\le1/(64k)$ for all $\ell$.  Then
+$\delta:=\E F\ge e^{-2.2S}$.  Moreover, for every subfamily $\mathcal A$ of
+$\{E_1,\dots,E_m\}$ and every event $B$ on at most $k$ coordinates,
+$\PP(B\mid\text{no }A\in\mathcal A\text{ occurs})\le1.04\,\PP(B)$.
+\end{corollary}
+
+\begin{proof}
+Take $x_{E_i}=2\PP(E_i)\le2w_\ell\le1/32$ for any $\ell\in\supp E_i$.  For an event
+$B$ on a set $J$ of coordinates,
+$\sum_{A\in\Gamma(B)}x_A\le2\sum_{\ell\in J}w_\ell\le|J|/(32k)$.  With $B=E_i$ this
+gives $\prod_{A\sim E_i}(1-x_A)\ge31/32$, so the hypothesis of
+Lemma~\ref{lem:lll} holds for every subfamily.  Since $1-x\ge e^{-1.1x}$ for
+$0\le x\le1/32$, we get $\delta\ge\prod_i(1-2\PP(E_i))\ge e^{-2.2S}$, and
+$\prod_{\Gamma(B)}(1-x_A)^{-1}\le e^{1.1/32}\le1.04$ when $|J|\le k$.
+\end{proof}
+
+\emph{Efron--Stein decomposition} (classical; \cite{ES,Hoeffding},
+\cite[\S8.3]{OD}).  For $\varphi:\prod_{\cP}G_\ell\to\mathbb R$ and $W\subseteq\cP$
+let $\E[\varphi\mid X_W]$ be the conditional expectation given the coordinates
+in $W$, and
+\[
+ \varphi^{=U}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}\,\E[\varphi\mid X_W].
+\]
+Then $\varphi=\sum_U\varphi^{=U}$, the components are mutually orthogonal, and
+$\varphi^{=U}$ is orthogonal to every function of $X_{U'}$ with $U'\not\supseteq U$.
+Hence the space of sums of functions of at most $t$ coordinates is
+$\bigoplus_{|U|\le t}V_U$, where $V_U$ is the space of all possible $\varphi^{=U}$, and
+\begin{equation}\label{eq:energy}
+ \energy(\varphi;t):=\sum_{|U|>t}\|\varphi^{=U}\|_2^2
+ =\min\Big\{\E(\varphi-g)^2:\ g\ \text{a sum of functions of}\le t\ \text{coordinates}\Big\},
+\end{equation}
+attained at $\varphi^{\le t}:=\sum_{|U|\le t}\varphi^{=U}$.
+
+For $j\le m$ let $F^{(j)}$ be the function of the coordinates outside
+$\supp E_j$ obtained from $F_{<j}$ by fixing $X_\ell=\sigma_{j,\ell}$ for
+$\ell\in\supp E_j$.  Then $A_jF_{<j}=A_jF^{(j)}$, and $F^{(j)}$ is the
+avoidance indicator of the events $E_i$ ($i<j$) compatible with $E_j$,
+restricted to $\cP\setminus\supp E_j$.  Restricting such an event may leave
+it with empty support, and then $F^{(j)}\equiv0$.
+
+\begin{lemma}[Bazzi--Razborov sandwich {\cite{Bazzi,Razborov}}; proved]\label{lem:brw}
+Let $u_1,\dots,u_m$ be arbitrary real functions, $v_i=\sum_{j<i}A_ju_j$, and
+\[
+ B=1-\sum_{i\le m}A_i(1-v_i)^2 .
+\]
+Then $B\le F$ pointwise, and with $e_j=F_{<j}-u_j$,
+\[
+ F-B=\sum_iA_i\Big(\sum_{j<i}A_je_j\Big)^2,\qquad \E[F-B]\le m^2\sum_{j\le m}\E[A_je_j^2].
+\]
+If $u_j$ is a function of the coordinates outside $\supp E_j$, then
+$\E[A_je_j^2]=\PP(E_j)\,\E(F^{(j)}-u_j)^2$.
+\end{lemma}
+
+\begin{proof}
+The identity $1-F=\sum_iA_iF_{<i}$ holds pointwise: the sum counts the first
+occurring event.  Put $f_{<i}=1-F_{<i}=\sum_{j<i}A_jF_{<j}$.  If $F_{<i}=1$,
+then $A_j=0$ for all $j<i$, so $v_i=0$ and $A_i(1-v_i)^2=A_i=A_iF_{<i}$.  If
+$F_{<i}=0$, then $f_{<i}=1$, and $A_i(1-v_i)^2-A_iF_{<i}=A_i(f_{<i}-v_i)^2$.  In
+both cases $A_i(1-v_i)^2-A_iF_{<i}=A_i(f_{<i}-v_i)^2$, and summing over $i$,
+\[
+ F-B=\sum_iA_i\big[(1-v_i)^2-F_{<i}\big]=\sum_iA_i(f_{<i}-v_i)^2\ \ge0,
+\]
+with $f_{<i}-v_i=\sum_{j<i}A_j(F_{<j}-u_j)$.  By Cauchy--Schwarz,
+$(\sum_{j<i}A_je_j)^2\le m\sum_{j<i}A_je_j^2$.  Drop $A_i\le1$ and sum over
+$i$.  For the last claim, $A_je_j^2=A_j(F^{(j)}-u_j)^2$, and $F^{(j)}-u_j$ is
+independent of $A_j$.
+\end{proof}
+
+This is Razborov's simplification \cite{Razborov} of Bazzi's argument
+\cite{Bazzi}.  The choice of $u_j$ as an $\ell^2$-approximation of the
+``conditional survival function'' $F^{(j)}$ is the one used there.  We
+include the short proof for completeness.  From now on
+\begin{equation}\label{eq:uj}
+ u_j:=\big(F^{(j)}\big)^{\le t},\qquad\text{so}\qquad
+ \E[F-B]\le m^2\sum_j\PP(E_j)\,\energy(F^{(j)};t).
+\end{equation}
+
 %BODY
 
 \end{document}
