@@ -352,27 +352,41 @@ Unconditional `a_min≥11` for infinitely many hard p was **not** reached. Route
 1. **Parity is necessary** (Theorem P1, PROVED modulo BV/EH, actual primes):
    sieve data cannot distinguish `(p/q)=+1` from `(p/q)=−1`, and in the second
    case window q never fails by F1.
-2. **Parity is sufficient for one window at level 1/2** (Thm W1, PROVED modulo the
-   cited sieve theorems). In 𝒯𝒫(θ) the one-window threshold is exactly 1/2. For θ<1/2 there are
-   explicit fakes (Model-PROVED, §3.2). At θ=1/2 the one-window LP is positive
-   (EVIDENCE, 0.744 on the coarse grid; no block fake exists, Model-PROVED).
+2. **One window** (two separate statements; R29 M3).
+   (a) *Actual primes:* window 3 fails for ≫x/(log x)^{3/2} hard p (Thm W1, PROVED modulo the
+   cited sieve theorems). W1 uses Type-I data at level 1/2, parity **and switching** (its `T_2`
+   bound applies the prime-pair upper sieve S2 to `p=4mr_1r_2−3`). So W1 is *not* evidence that
+   Type-I + parity alone suffices for one window.
+   (b) *Model:* for θ<1/2 there are explicit one-window fakes (Model-PROVED, §3.2); no block fake
+   exists at θ=1/2 (Model-PROVED); on the grid ε=0.1, K=8 the one-window LP at θ=1/2 is positive,
+   min ν(∅)/τ≥0.744128 (CERTIFIED by the reviewer's exact dual, model only). The continuum
+   statement "the one-window threshold in 𝒯𝒫(θ) is exactly 1/2" is unproved at θ=1/2.
 3. **Parity is not sufficient for two windows at level 1/2** (Prop 3.7,
    CERTIFIED in the discrete model ε=0.1, K=8). Mechanism: the window marginals
    couple (§3.5). Two-block and product fakes (Lemmas 3.2, 3.6, Model-PROVED)
-   do *not* suffice; the LP fake is genuinely joint.
+   do *not* suffice; the LP fake is genuinely joint. This is a discrete-model statement
+   about a coarse heuristic law whose own Type-I data are far from those of the primes at
+   ε=0.1 (§3.7 Scope; R29 M4).
 4. **Where the two-window threshold lies:** in the coarse model θ_2∈(0.6,0.7]
-   (EVIDENCE; grid-dependent, decreasing under refinement at θ=0.7). W2 reaches
+   (the bracket (0.5,0.7] is CERTIFIED on the grid, the sharper (0.6,0.7] is EVIDENCE;
+   grid-dependent, decreasing under refinement at θ=0.7). W2 reaches
    two windows at `θ=1−ε_0`, but only by using primality (switching), which is
    outside the model.
 
 So the window obstruction is not Selberg's parity barrier itself; that one is
 removed by the congruence (Lemma 1.2). It is a **parity-constrained
 vector-sieve barrier**: Type-I data at level 1/2, even with both parities, does
-not determine joint cleanliness (model). Methods that provably cannot give
-`a_min≥11`, in the model: every lower-bound sieve whose inputs are
-`{|A_{d_1d_2}|: d_1d_2≤x^{1/2}}`, the parity congruences and the total mass.
+not determine joint cleanliness (discrete model only; see the caveats below). In the model, no lower-bound
+sieve can give `a_min≥11` if its only inputs are the bad-prime counts
+`{|A_{d_1d_2}|: d_1d_2 bad squarefree, d_1d_2≤x^{1/2}}`, the parity congruences and the total mass.
 This covers β-sieves, vector sieves, Buchstab iterations without switching,
 and the Bonferroni-with-parity subtraction of POINTWISE_WINDOW §7.2.
+
+*Caveats (R29 M2, M4).* "In the model" means: one discrete grid (eps=0.1, K=8) of a coarse
+heuristic law, whose own Type-I data deviate from product form by up to ~90% and depend on
+parity, unlike the real data of Thm P1 (see "Scope of Prop 3.7"). Sieves using Type-I data
+for good or mixed d are not covered. Nothing here is proved about sieve methods on actual
+primes; the transfer from the model is EVIDENCE of the weakest kind.
 
 ## Replay
 ```
