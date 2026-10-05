@@ -419,6 +419,13 @@ for N in 20 30 40 60; do uv run --with scipy python scripts/interfreq2_hybrid_lp
 
 ## 9. Towards Flat: reduction to spread pseudo-windows (O25 follow-up)
 
+> **Note (2026-10-05, O40 / review R40).** Fixed-σ SPW is **refuted**: by
+> `EXCEPTIONAL_SPW.md` Thm 3.2, any R with (P1)–(P2) at N has σ ≲_C (log N)^{−1/2}
+> (and σ ≤ 72/185 < 2/5 already at N = 300, C = 2), so SPW(C, σ, Δ₀) with fixed
+> σ > 0 fails for all large N. Thm 5.2 (via Prop 9.1) needs only **weak SPW**,
+> σ_N ≥ c₀e^{−S_A} = N^{−o(1)}, Δ_N ≤ e^{S_A} (`EXCEPTIONAL_SPW.md` Lemma 1.4),
+> which is **open**.
+
 **Hypothesis SPW(C, σ, Δ₀) at N (spread pseudo-window).** There is a
 summable R ≥ 0 on ℤ with
 * (P1) `R(b mod d) = c(b,d)` for every d ≤ N/2 and every b (R has the exact
@@ -464,6 +471,10 @@ So the edge problem of Selberg's minorant is cured by mixing in a little of
 SPW(C, σ, Δ₀) with fixed C, σ > 0, Δ₀ (at every large N) implies the 3/4
 cap `C′(log N)^{3/4}(log log N)^{3/4}` for every hybrid whose right-signed
 mass on (N/2, CN] is ≤ e^{O(S)}·B.** (PROVED implication.)
+
+> *(2026-10-05)* With fixed σ this implication is vacuous for large N
+> (`EXCEPTIONAL_SPW.md` Thm 3.2); it holds with σ_N ≥ c₀e^{−S_A} (weak SPW, open;
+> `EXCEPTIONAL_SPW.md` Lemma 1.4), with cap S′ + O(S_A).
 
 **Lemma 9.2 (dual form of SPW; PROVED direction).** If R satisfies
 (P1)–(P3), then every ν ≥ 0 on ℤ of the form
@@ -522,6 +533,10 @@ not been explained.
 dictated by single small classes mod q ≈ 0.45N and their lifts. We did not
 find a construction attaining it; the obstruction to the obvious
 constructions is the one described next.
+
+> *(2026-10-05)* This Assessment is **wrong** for large N: the pinning at 2/5 breaks
+> (σ ≤ 72/185 at N = 300; σ → 0, `EXCEPTIONAL_SPW.md` §3, Thm 3.2). Only weak SPW
+> remains plausible/open.
 
 **Why SPW is not yet proved (Assessment, with the proved pieces).**
 * *Translates and twists cannot do it.* Any R built from L₀-translates or
