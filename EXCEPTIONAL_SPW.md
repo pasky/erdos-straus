@@ -166,3 +166,31 @@ negative part is "random-like", and covering a random-like function by
 classes of modulus > CN costs ≍ e·max over a class, not e·mean. So SPW
 needs constructions that are spread *on large classes* but not pointwise —
 consistent with the LP optima, which are sparse.
+
+## 3. Local (single-modulus) necessary conditions at large N
+
+**Lemma 3.1 (local bound; PROVED).** Let e > CN. If R satisfies (P1)–(P2)
+of SPW(C, σ, ·) at N, its projection ρ_e to ℤ/e satisfies: ρ_e ≥ 0, the
+window profile mod every d | e with d ≤ D, and ρ_e(s) ≤ 1 − σ for every
+class s mod e′ with e′ | e, e′ > CN (in particular pointwise). Hence
+σ ≤ σ_loc(N, C, e) := the LP optimum of these conditions. IF2 Lemma 9.3 is
+the sub-case using one divisor q = e/k. ∎
+
+*Fourier form.* On ℤ/e the class sums mod d | e see exactly the characters
+k with (e/d) | k. So the profile conditions fix ρ̂_e(k) = 1̂_W(k)
+(W = {1..N} mod e) for all k with gcd(k, e) ≥ e/D, and leave free exactly
+the characters with **gcd(k, e) < e/D** (≈ 4.2 when e ≈ 2.1N, C = 2). The
+low frequencies |k| < e/D are always free; for e divisible by all primes
+≤ P the remaining free characters are (small multiples of) P-rough k, a
+set of density ≍ ∏_{p≤P}(1 − 1/p). So for primorial-like e the window is
+pinned at all but a thin set of frequencies — a possible source of
+rigidity as N → ∞ (Assessment; this is the mechanism to test).
+
+**Numerics (EVIDENCE, `scripts/spw_local_lp.py`, `spw_local_scan.py`,
+data/spw/local_scan_C2.txt; C = 2, e over 11-smooth numbers in (CN, 6000]).**
+Worst local value: N = 100, 150, 200: 0.4000; N = 300: 0.3892 (e = 630,
+1260, …); N = 400: 0.3961 (e = 840, …); N = 600: 0.3892 (e = 1260, …);
+N = 800: 0.3961; N = 1000: 0.4000 (e ≤ 6000 only); N = 1430, e = 3003: 0.4286.
+So composite e just above CN give local obstructions slightly *below*
+σ_C(N) = 2/5 (first seen here; 0.3892 at N = 300), but no collapse up to
+N = 1000 in this range of e.

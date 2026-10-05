@@ -1,0 +1,4 @@
+N=1100 e=2310 e/D=4.200 sigma_loc=0.3933 #small divs=29 (1s)
+N=1050 e=2310 e/D=4.400 sigma_loc=0.4000 #small divs=29 (1s)
+N=1150 e=2310 e/D=4.017 sigma_loc=0.3811 #small divs=29 (1s)
+N=2200 e=4620 e/D=4.200 sigma_loc=0.3933 #small divs=44 (3s)
