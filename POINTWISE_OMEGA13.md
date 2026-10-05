@@ -253,3 +253,72 @@ unchanged. This is to be checked in §4.
 *Drift.* At an `a=0` step at ℓ, an atom with `ℓ|M` has
 `E[p_new(E)]=(1+(−d_E|ℓ))p(E)` by Lemma 3.1(a). That is at most `2p(E)`, not
 `p(E)`. All other steps are exact martingale steps.
+
+**Notation.** State i means `(Q_i,r_i)`, with product measure `μ_i`. Put `p_i(E):=μ_i(E)`.
+`u_i(E):=#{ℓ≤Y prime: ℓ|M, a_ℓ(i)=0}` counts the small primes of M not yet stepped.
+`s_i(E)=|supp_i E|≤ω(M)`. `P_H` is Haar measure on `Ẑ^×`, so `P_H(E)=1/φ(M)`. For
+`ℓ‖…`, `E^{(ℓ)}` is the event E with its ℓ-constraint removed.
+
+**Lemma 3.2 (bookkeeping for the square-class process; PROVED).** Let the process stop
+when every `ℓ≤Y` has `w̃_ℓ≤η`.
+
+(a) *Supermartingale.* For any fixed weight `φ(E)≥0`, `G_i:=Σ_E p_i(E)2^{u_i(E)}φ(E)` is
+a supermartingale.
+
+(b) *Cost.* `E[log Q_end] ≤ log 8 + (1/η)Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}log M_Y`.
+Here `ω_Y` counts the primes `≤Y` and `M_Y` is the Y-smooth part.
+
+(c) *Residual mass.* `E[Σ_E β^{s_end(E)}p_end(E)] ≤ S_H^β := Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}`.
+
+(d) *Late primes.* For every prime `ℓ>Y`, `E[w̃_ℓ(end)²] ≤ B_2(ℓ)`, where
+
+```
+B_2(ℓ) := Σ_{E,E': ℓ|M, ℓ|M'} β^{ω(M)+ω(M')} 2^{ω_Y(M)+ω_Y(M')} P_H(E)P_H(E')·φ(gcd(M,M')/ℓ^{min(v_ℓ(M),v_ℓ(M'))}).
+```
+
+Hence `P(∃ℓ>Y: w̃_ℓ(end)>η) ≤ η^{−2}Σ_{ℓ>Y}B_2(ℓ)`.
+
+*Proof.*
+(a) A step at `(ℓ,a)` with `a≥1` reveals a uniform class of the fibre, and all of
+these are squares. So `E[p_new(E)|past]=p(E)`, and u is unchanged. A step with
+`a=0` leaves the atoms with `ℓ∤M` unchanged. For `ℓ|M` it gives
+`E[p_new]=(1+(−d_E|ℓ))p≤2p`, while `u` drops by 1.
+
+(b) Let `τ_{ℓ,a}` be the time of the step at `(ℓ,a)` (∞ if never). Then
+`logℓ·1[τ<∞] ≤ (logℓ/η)·w̃_{ℓ,a}(τ)1[τ<∞]`, where
+`w̃_{ℓ,a}(i):=Σ_{v_ℓ(M)≥a+1}β^{s_i}p_i ≤ G^{(ℓ,a)}_i:=Σ_{v_ℓ(M)≥a+1}p_i2^{u_i}β^{ω(M)}`.
+The process has at most `Σ_{ℓ≤Y}f_ℓ` steps, so the times are bounded. Optional
+stopping for the nonnegative supermartingale `G^{(ℓ,a)}` gives
+`E[G(τ)1[τ<∞]]≤G(0)`. Sum over `ℓ≤Y`, `a<v_ℓ(M)`, using
+`Σ_{ℓ≤Y,a<v_ℓ}logℓ=log M_Y`. Also `p_0=P_H` (`M` odd, so the class mod 8 is irrelevant).
+
+(c) Apply (a) with `φ=β^{ω(M)}`, and use `s_end≤ω`.
+
+(d) ℓ is never stepped. So `p_i(E)=p_i(E^{(ℓ)})/φ(ℓ^{v})` and
+`w̃_ℓ(end)²≤Σ_{E,E'∋ℓ}β^{ω+ω'}p(E)p(E')`. For a pair `(F,F')` define
+`Π_i:=p_i(F)p_i(F')R_i`, with
+
+* `R_i:=∏ρ` over the coordinates ℓ' shared by the supports;
+* `ρ:=` the number of classes mod `ℓ'^{min(v,v')}` in the current fibre if F, F'
+  agree mod `ℓ'^{min(v,v')}`, and `ρ:=1` otherwise.
+
+Then `p p'≤Π`, and `Π_i2^{u_i(F)+u_i(F')}` is a supermartingale. Check, at a step
+revealing a level of ℓ':
+
+* *ℓ' constrains neither event:* nothing changes.
+* *ℓ' constrains only one event at this level:* that event's factor behaves as in
+  (a), and its ρ is already 1.
+* *Both constrain ℓ' at this level and agree:* both are multiplied by the same
+  `F_r·1[match]` (F_r = number of classes revealed among), and ρ is divided by `F_r`.
+  So `Π→F_r1[match]Π`. Its mean is Π for `a≥1`, and `(1+(−d|ℓ'))Π≤2Π` for `a=0`.
+  In the latter case both u's drop.
+* *Both constrain ℓ' and disagree:* both cannot match, so `Π→0`.
+
+So `E[Π_end]≤2^{u_0+u_0'}Π_0≤2^{ω_Y+ω_Y'}P_H(F)P_H(F')·φ(gcd(M_F,M_{F'}))`. Apply this
+with `F=E^{(ℓ)}`, `F'=E'^{(ℓ)}` and multiply by `φ(ℓ^v)^{−1}φ(ℓ^{v'})^{−1}`. The final
+claim is Chebyshev plus a union bound. ∎
+
+*Remark.* (d) is the reason for the random class. The second moment of a *late*
+mass is controlled by a Haar pair-correlation sum `B_2(ℓ)`, which is a deterministic
+divisor sum with no g in it. For the class of one, the analogous quantity carries
+the g-inflation.
