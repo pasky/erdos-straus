@@ -15,8 +15,8 @@ Status: checkpoint 1 (2026-10-05), not yet reviewed. Report: `reviews/agent-repo
 | §2 | continuum heuristic law is parity-blind (≤0.3%); R29-M4 spread was a binning artefact; cell-integrated law repairs it | EVIDENCE (quadrature) |
 | §3 | marginal caps need K*∈(1.07,1.1) (ε=0.1,K=8) | EVIDENCE |
 | §4.1 | real family constants K(ζ)=4 (ζ=ε), 8.1–14.7 for ζ≥0.133 (composed linear×semi-linear upper sieves) | Assessment (computation) |
-| §4.2, §8 | uniform family constant needed: K*∈(2,2.5) on (0.1,8) and (0.1,12); ≤2.5 on (0.1,10), (0.07,9); (2.5,3] with outer visibility | EVIDENCE |
-| Prop 8.1 | fakes with all family bounds at K=2.5 (and 3, 4) | Model-CERTIFIED (ε=0.1,K=8) |
+| §4.2, §8 | uniform prefix-family constant needed: K*∈(2,2.5) on (0.1,8); K*≤2.5 on (0.1,10), (0.1,12), (0.07,9); (2.5,3] with outer visibility | EVIDENCE |
+| Prop 8.1 | fakes with all *prefix*-family bounds at K=2.5 (and 3, 4) | EVIDENCE, 50-digit verified (ε=0.1,K=8; not interval arithmetic) |
 | §5 | best switched constants: 4 (BV), 3.91 (Chen/Wu double sieve), 3.3996 (twins, BFI levels); ≥2 at any level | checked in Wu 2004 |
 | §6–7 | good-prime Type-I data: frozen good conditional ⇒ spurious positivity; full two-type model ⇒ no gain, K=4 fake persists | EVIDENCE |
 | — | unconditional `a_min≥11` via Type-I + parity + Chen switching | **not reached**; numerical gap K*≈2–2.5 (continuum Assessment: [2,3]) vs ≥3.9 known |
@@ -41,12 +41,14 @@ upper sieve by the fundamental lemma at negligible cost.
 
 What this **cannot** see: the large-prime configuration of `n_{q'}` (a "has a
 prime factor in bin k" condition is not a sieve upper-bound condition), and the
-split of mass between individual joint configurations. So, in the model, a
-switched sieve gives exactly the **marginal caps**
+split of mass between individual joint configurations. So, in the model, the
+basic switched sieve (no condition on `n_{q'}` beyond `x^η`) gives the **marginal caps**
 ```
 (SW_K)   Σ_{C_{q'}} ν(C_q, C_{q'}) ≤ K · Σ_{C_{q'}} μ(C_q, C_{q'})   for every window-q configuration C_q≠∅,
 ```
-for both q, with `K=4` (BV level, Selberg) as the unconditional baseline. (Each
+for both q, with `K=4` (BV level, Selberg) as the baseline. (Assessment: we did not check the
+precise hypotheses of the convolution BV theorem for every `(𝓜,I)`, nor that its main term equals
+the model's μ; at fixed ε the fundamental-lemma sifting to `x^ε` also uses part of the level.) (Each
 point of C_q may serve as the switched prime r; the bound holds per C_q as soon as
 one point is switchable, and multiplicities cancel between the two sides.)
 These are *aggregate* constraints: weaker than WINDOW2 §6.2's per-joint-configuration
@@ -54,6 +56,10 @@ caps `ν(C)≤Kμ(C)`, so the required K under (SW_K) is at most the §6.2 thres
 LP duality: the dual of "min ν(∅,∅) s.t. Type-I correlations at level θ, parity,
 ν≥0, (SW_K)" is exactly a Chen-type lower bound
 `Σ_S y_S ρ(S) − K Σ_{q,C_q} λ_{q,C_q} μ_q(C_q)` with `λ≥0` — a Type-I sieve minus switched upper bounds.
+
+**Scope.** We do not claim these (and the §4 families) exhaust what switching can give. Other
+Chen-type inequalities (weighted, iterated, or with divisibility restrictions on `n_{q'}` imposed
+before sieving) are not modelled. All "fake" statements below are relative to the stated families.
 
 Refinements a sieve *can* add (to be tested, §3): (a) restrict I to one bin and
 𝓜 to a fixed factorisation type (already in SW_K: C_q is fixed); (b) impose
@@ -136,7 +142,7 @@ so (SW_K) cannot block this. Only a switched bound that *also sifts n_7 to a hig
 
 ### 4.1 Families and their real constants
 For window q, a fixed `C_q≠∅` and a set Z of cells, the family
-`F(q,C_q,Z)={(C_q,C_{q'}): C_{q'} has no point in Z}` is exactly what a switched upper sieve
+`F(q,C_q,Z)={(C_q,C_{q'}): C_{q'} has no point in Z}` is a family a switched upper sieve
 can bound: sift `E_q` for primality of `p` *and* sift `n_{q'}=mr+(q'−q)/4` by the q'-bad primes
 in Z. Constraint: `ν(F)≤K(Z)μ(F)`. (`Z=∅`: the marginal caps of §3; `Z`=all cells: per-config
 cap on `(C_q,∅)`.) `--swz=K:prefix` uses `Z=[ε,ζ)` for every cell edge ζ; `--swz=K:all:j`
@@ -148,12 +154,15 @@ for `n_{q'}` at level `x^{θ_2}`, `θ_1+θ_2=1/2`:
 `K(ζ)=min_{θ_2}(2/θ_1)F_{1/2}(θ_2/ζ)/σ_even(ζ)`, `F_{1/2}(s)=2(e^γ/(πs))^{1/2}` on `(0,2]`
 (the function consistent, via the β-sieve delay equations, with the f(s) quoted in
 Teräväinen (6.4); F_{1/2}(3)=1.0037, F_{1/2}(4)=1.0001), σ_even(ζ)=model truth relative to
-`V(x^ζ)` (≈1.00 for ζ≤0.42, 1.13 at 0.56). Result: K(ε)=4 (the marginal, fundamental lemma taken
+`V(x^ζ)` (≈1.00 for ζ≤0.42, 1.13 at 0.56). Result of this one construction: K(ε)=4 (the marginal, fundamental lemma taken
 as free), **K(0.133)=8.1, K(0.178)=9.3, K(0.237)=10.8, K(0.316)=12.4, K(0.422)=14.1,
 K(≥0.56)=14.7** (optimum θ_2=1/6 throughout). A joint Selberg Λ² of mixed dimension would do
 somewhat better (for ζ≥1/4 its constant is `4Γ(5/2)e^{γ/2}(4ζ)^{1/2}/σ ≈ 7.1(4ζ)^{1/2}/σ`), but
-no sieve can beat the prime-pair constant: **every K(Z)≥4 at BV level** with present technology
-(≥3.4 if Wu-type improvements transferred, §5). (Assessment: these are standard sieve-constant
+these composed values are *worse* than the trivial bound from the marginal cap, `F_ζ⊂` marginal
+family ⇒ `K(ζ)≤4/P(no bad point<ζ)` (=4.6, 5.3, 6.2, 7.1, 8.0, 8.4 at the edges above). So the
+8–15 figures are one conservative construction, not a limitation of switching. What matters
+below: all these constants are ≥ the prime-pair constant, ≈3.9–4 at BV level with present
+technology (≥3.4 if Wu-type improvements transferred, §5; Assessment). (Assessment: these are standard sieve-constant
 computations; the semi-linear F is derived, not read in a primary source.)
 
 ### 4.2 LP with generous uniform constants (ε=0.1, K=8, θ=1/2)
@@ -193,7 +202,7 @@ the double-sieve gain "works for all sequences satisfying the Chen–Iwaniec swi
 
 **Which applies to the window switched sequences** `E_q={4mr−q}` (bilinear, residue class
 `q·4^{−1} mod d` fixed, but primes enter through the convolution `𝓜*𝒫`): BV for convolutions
-(level 1/2) is available, so **K=4 is a theorem-level baseline**. Chen's double sieve plausibly
+(level 1/2) is available, so **K=4 is the natural baseline** (Assessment; hypotheses not checked in detail, §1). Chen's double sieve plausibly
 transfers (Wu's Remark 1(i)), giving ≈3.91 — not checked for convolution sequences, and it
 needs the switching principle *for E itself*. Wu's 3.3996 needs level >1/2 with well-factorable
 weights for primes in a fixed class; for convolutions `α*β` with arbitrary α (the configuration
@@ -235,7 +244,8 @@ model (bad and good points both recorded), §7.
 `scripts/window3_full.py` records bad *and* good points ≥x^ε in each window. Law: same Poisson
 intensity `dt/(2t)` for both types, remainder density H (x^ε-smooth, bad-free part) defined by
 exact discrete back-substitution so that summing out good points reproduces the bad-only law of §2
-exactly (H≥0 checked: min 2.7e-7). Data: all `(S_B,S_G)` with `ΣS_B+ΣS_G≤θ`. Target: `B_3=B_7=∅`
+up to grid error (H≥0 checked: min 2.7e-7; review toy check ε=0.5, K=1: marginal 0.999998 vs 1,
+from rounded-grid mass of excluded cells). Data: all `(S_B,S_G)` with `ΣS_B+ΣS_G≤θ`. Target: `B_3=B_7=∅`
 (any good part). Families (`--swz=K`, prefix Z, uniform K) for every `C_q=(B_q,G_q)` with
 `B_q≠∅`; `--swgood` adds `B_q=∅, G_q≠∅` (switching a *good* prime of `n_q`).
 
@@ -275,7 +285,7 @@ when no reduced cost < −1e-9; final elastic = 0). min ν(∅,∅)/τ:
 | (0.1, 8), rep | 0 | 0 | 0 | 0.084 |
 | (0.1, 8), **outer** visibility (157 rows: *more* information than reality) | 0 | 0 | 0.023 | — |
 | (0.1, 10), rep | 0 | — | 0 | — |
-| (0.1, 12), rep (666 window configs, 443k joint) | — | 0 | 0 | ≈0.0574 (CG stalled at iteration 13: objective constant to 1e-7, remaining reduced costs ≥ −0.011; not certified) |
+| (0.1, 12), rep (666 window configs, 443k joint) | — | 0 | 0 | ≤0.0574 (restricted-master value = an *upper* bound; CG stalled at iteration 13 with reduced costs ≥ −0.011, so 0 is not excluded) |
 | (0.07, 9), rep (758 window configs, 575k joint) | 0 | — | 0 | running at checkpoint (iteration 9: 0.144, far from converged) |
 | (0.15, 6), full two-type model (§7) | 0 | — | — | 0.411 |
 | (0.1, 8), rep, θ=0.55 / 0.6 / 0.65 | 0 / 0 / 0.060 | | | |
@@ -285,7 +295,7 @@ So the K=4 fake is stable under grid refinement, under the generous visibility c
 the full two-type model; and with switching at K=4 the Type-I level would have to exceed 0.6
 (positivity from θ≈0.65 on the coarse grid).
 
-### 8.1 Certified fakes (ε=0.1, K=8, rep, θ=1/2)
+### 8.1 High-precision verified fakes (ε=0.1, K=8, rep, θ=1/2)
 `window3_lp.py 0.1 8 0.5 --swz=K−0.001:prefix --certify --certK=K`: solve the LP with caps
 slightly *below* K, then repair the float solution on its support by the minimum-norm correction
 (50-digit mpmath) making every visible correlation exact, and check `x≥0`, `x_∅=0` and every
@@ -293,16 +303,18 @@ family row ≤ K (all rows, in 50 digits):
 
 | K | support | min ν/μ on support | max correlation residual | worst family excess | |
 |---|---|---|---|---|---|
-| 4 | 514 | 0.0211 | 0 (50 digits) | −1.0e-3 | CERTIFIED |
-| 3 | 605 | 0.1669 | 0 | −1.0e-3 | CERTIFIED |
-| 2.5 | 628 | 0.0566 | 0 | −1.0e-3 | CERTIFIED |
+| 4 | 514 | 0.0211 | <1e-40 (50 digits) | −1.0e-3 | verified |
+| 3 | 605 | 0.1669 | <1e-40 | −1.0e-3 | verified |
+| 2.5 | 628 | 0.0566 | <1e-40 | −1.0e-3 | verified |
 
-**Proposition 8.1 (discrete model; CERTIFIED, data = float cell-integrated law).** In the
+**Proposition 8.1 (discrete model; EVIDENCE, 50-digit verified, data = float cell-integrated law).** In the
 faithful discrete model (ε=0.1, K=8, cell-integrated law of §2, rep visibility, θ=1/2), Type-I
 data, both parities and *every* switched family bound `ν(F(q,C_q,[ε,ζ)))≤Kμ(F)` (all q, all
 `C_q≠∅`, all cell edges ζ, including ζ=1) with **K=2.5** do not force a single both-clean
-configuration. Since every real constant is ≥4 (§4.1, §5), the real switched sieves are a
-fortiori insufficient in this model.
+configuration. Every constant currently available for these switched counts is ≥3.9 (§4.1, §5;
+Assessment). So switched bounds *of this prefix-family form* with present constants are
+insufficient in this model. (The check is 50-digit floating point, not interval arithmetic,
+on the normalised float matrices; it covers every visible row, every family row, x≥0 and x_∅=0.)
 
 ## Replay
 ```
