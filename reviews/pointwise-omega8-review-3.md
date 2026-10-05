@@ -60,9 +60,9 @@ at q=10⁶, C=1). Also `Pr[fixed values distinct] ≥ e^{−1/2}−o(1)`, not ju
 `Pr[f_ρ=1] ≲ Ns/q ≍ p`, a constant, not small; and `W^{≥1}≤Pr[f_ρ=1]` says
 nothing about the `s`-geometric decay ESW requires. The exact ES weights
 (q=49…144) do decay in the level, so the example is plausibly consistent
-with ESW, but the stated justification is not an argument. Reword: "the
-energy at level ≥s of f_ρ is ≈`(s²/q)^{s/2}`-small (pairwise-collision
-structure), not ≈1 as the decision depth suggests".
+with ESW, but the stated justification is not an argument. Reword along the lines of: "the ES weight of f_ρ decays geometrically in
+the level (ratio ≲s²/q in exact toys), although its decision depth is s";
+proving this for the example would be a useful sanity check of ESW.
 
 **m5 (MINOR) — §6.5 wording.** (a) "holds for any minorant" — there is no
 argument that every PO-Thm-4.1 minorant needs junta ≳S; say "for minorants
