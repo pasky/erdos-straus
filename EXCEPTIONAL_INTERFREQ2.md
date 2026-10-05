@@ -65,3 +65,46 @@ duality. (a) is the easy half:
 So a cap for hybrid methods is the same as a measure μ ≥ 0 that agrees
 with the interval on small classes, is *position-blindly* consistent with
 it on large classes, and puts mass `≥ N e^{−O(S)}` on 𝒜.
+
+## 3. What the blind charge really is: exact count plus a wrong-sign penalty
+
+**Lemma 3.1 (sign rule; PROVED).** Call a large class `s = b mod d`
+*full* if `c(b,d) = u(d)` and *sparse* if `c(b,d) = l(d)`. For `d ∤ N`
+every large class is exactly one of the two, and `u − l = 1`; for `d | N`
+(i.e. d = N among large d) it is both. Then for every representation
+
+    B_hyb(ν) = Σ_{n≤N} ν(n) + Σ_{i∈𝓛} |a_i|·1[a_i > 0, s_i sparse, not full]
+                            + Σ_{i∈𝓛} |a_i|·1[a_i < 0, s_i full, not sparse].     (3.1)
+
+*Proof.* `β*(a,d) − a·c(b,d)` is `a(u − c)` for a > 0 and `|a|(c − l)` for
+a < 0; `c ∈ {l, u}` and `u − l ≤ 1`. ∎
+
+So a hybrid method is *exact counting* plus a penalty `|a_i|` for each
+large term used with the wrong sign: positive on a class that meets [1,N]
+less often than possible, or negative on a class that meets it as often as
+possible. For d > N: positive terms on classes through [1,N] and negative
+terms on classes missing [1,N] are free. Compare IF Thm 2.5, which needs
+the bound to dominate the *whole* large mass `T_>`.
+
+**Example 3.2 (a large class counted exactly; PROVED by inspection).**
+N = 20, s = 0 mod 21 (sparse, `c = 0`). Since 21 = 3·7 and 3, 7 ≤ 10,
+
+    1[n ≡ 0 (21)] = 1[n ≡ 0 (7)] − 1[n ≡ 1 (3)] − 1[n ≡ 2 (3)]
+                    + Σ_{b mod 21, 3∤b, b ∉ {7,14}} 1[n ≡ b (21)],
+
+and the 12 classes in the last sum each meet [1,20] once (full). So the
+hybrid charge of this representation is `2 − 7 − 7 + 12 = 0`, the exact count,
+although the class is sparse (charged 1 if written as itself).
+
+**Consequence (PROVED).** The natural route — a measure μ = λ_N − φ + tρ
+with ρ the dual of a capped comparison problem that is *exactly* uniform on
+classes of modulus ≤ N^K — is impossible already at d = N + 1 when
+N + 1 = d₁d₂ with coprime d₁, d₂ ≤ N/2. In the dual of (2.1), Example 3.2's
+identity forces `μ(0 mod 21) = λ_N(0 mod 21) = 0` for μ uniform-tested on all
+classes mod 21 meeting [1,N] (each `≤ u = 1 = λ_N`, summing with the small
+constraints to equality). In general: if a small class r mod e is a disjoint
+union of full large classes, every μ ∈ 𝔐 has `μ(s) = u(d) = λ_N(s)` on each
+of them. Any comparison measure must therefore deviate from uniform on
+large classes in a way correlated with [1,N]. (LP check:
+`scripts/interfreq2_phi_lp.py`, N = 20, exact mode, d = 21 alone infeasible
+for every t > 0; d = 22 = 2·11, 11 > N/2, feasible.)
