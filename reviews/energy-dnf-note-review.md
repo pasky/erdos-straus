@@ -98,3 +98,24 @@ boundary) under the Thm 7.1 hypothesis Π λ^{2v} ≤ 2, and 3000 more under the
 
 No defect. (Readability nit, MINOR: say once explicitly that the factor-2 exponent hypothesis forces each
 λ_ℓ^{2v_ℓ(E)} ≤ 2 individually, since that is what "λ^j ≤ λ^v ≤ √2" silently uses.)
+
+## 5. §8 Application (exposition of [Subexp]) — SOUND as exposition
+
+Checked against `paper/es-subexp-note.tex` (v3 on main): multiplier identity (verified: with s=(nv+u)/M,
+nsuvw·(RHS) = nv+u+s = s(M+1) = 4suvw), definition of W(n), conditional status (Gallagher + Elsholtz–Tao),
+m ≤ T², S ≪ 𝓛⁴, τ ≪ 𝓛(𝓛+S) ≪ 𝓛⁵, log Q ≪ 𝓛⁵ log 𝓛, log p ≪ 𝓛⁵ log 𝓛 — all match es-subexp (lines 127–201,
+516–637, 1480–1486). Unit-group digit structure (digit 0 on nonzero residues, fibre 1+ℓ^aℤ ⇒ offset a): matches.
+I re-derived the sandwich: B ≤ F (at a point with F=0 the first occurring E_i contributes exactly 1), and
+E[F−B] = Σ_i E[1_{E_i}(Σ_{j<i}1_{E_j}(F^{(j)}−u_j))²] because the cross term vanishes where F^{(i)}=1; Cauchy–Schwarz
+twice gives the stated m²Σ_j P(E_j)E[(F^{(j)}−u_j)²]. Correct. {U : m_U ≤ e^τ} is down-closed (m_U monotone), so
+(2.1) applies to the truncation. The "1/5 not attributed to Thm 7.1 alone" hedge is accurate.
+
+D6 (MINOR) §8 last paragraph: "An earlier version of [Subexp] … was one of the two terms of the largest order"
+is internal version history that a reader of a standalone note cannot check, and the cited preprint is
+anonymous/unrefereed. Repair: either drop the version history or replace it by a self-contained one-line
+comparison (junta modulus via LMN with binary encoding: log d ≍ k·log(bit-length)·… vs here 𝓛(S+𝓛)), with the
+exponents written out.
+
+D7 (MINOR) §8 "By (2.1) it is a combination of classes of modulus at most e^τ": true for u_j on the free digits,
+but the product 1_{E_j}u_j that actually enters B has modulus up to r_j·e^τ ≤ T e^τ (es-subexp works with
+T³e^{2τ} after squaring). Harmless for the exponent; say "modulus ≤ Te^τ" or "polynomial in T e^τ".
