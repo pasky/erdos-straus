@@ -280,6 +280,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Model indication (not about primes): Chen-type switching caps with constant K* ∈ (2.5, 2.75] on large-prime configurations would restore positivity, versus a recalled known switched-count constant ≈3.4 (§§6–7.1). A follow-up (POINTWISE_WINDOW3, in progress) is testing this with a faithful model.
     * Labels as stated; review `reviews/pointwise-window2-review.md` (no FATAL; M1–M4 and minors applied by a repair agent).
 
+21. **An energy bound for "no event occurs" indicators, without switching lemmas (POINTWISE_OMEGA10.md).**
+    * For a single-value event system on any product probability space, with F the indicator that no event holds and `G_F(λ)=Σ_U ∏_{v∈U}λ_v ‖F^{=U}‖²` (Efron–Stein components): if every event E has `∏_{v∈E}λ_v ≤ 2`, then `G_F(λ) ≤ 1` (Cor 3.5, "C-1"), with no mass, codegree or width hypothesis. Proof: a cover bound `G_F ≤ E_x Q_μ(𝓗(x))` (Lemma 3.1), polarization with two-point variables (Lemma 3.2), and a deletion–contraction identity for the signed transversal sum Θ giving `|Θ| ≤ ∏_{E∈𝓜}(w_E−1)` for every matching (Lemma 3.3, Thm 3.4, "Conjecture Q").
+    * Cor 4.1: if every event has support ≤ k, then `energy(F;t) ≤ 2^{−(t+1)/k}`; for ±1-valued width-k DNFs over any product space, `W^{>t} ≤ 4·2^{−(t+1)/k}`, independent of the number of terms; the rate is sharp over general product spaces. Nearest prior art: Lecomte–Tan (FOCS 2021) bound Fourier coefficients by cover probabilities, still using Håstad for the degree; the statement as written appears new to us (literature search partial; LMN/Håstad give `2^{−Ω(t/w)}`).
+    * In the ES construction this removes the bit encoding and switching lemma: the junta term drops to `≪𝓛^6` (Thm 4.2), so log Z's only `𝓛^7` term is the quarantine (see (H)22). The single-step monotonicity MONO is false (§2).
+    * **PROVED** (internal). Two independent hostile reviews, both SOUND: `reviews/pointwise-omega10-review.md` (exhaustive exact checks, hill-climbing for counterexamples) and `reviews/pointwise-omega10-review-2.md` (independent re-derivation, exact Walsh–Fourier computations on DNFs, sharpness).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
