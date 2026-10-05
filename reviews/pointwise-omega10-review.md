@@ -98,3 +98,30 @@ know: the standard tightness examples (parity of w bits written as a width-w
 DNF: `W^{=w}=1` in ±1 units, our bound `4·2^{−1}=2` at t=w−1; tribes;
 single AND) all satisfy it with room, and Boppana/Traxler-type influence
 bounds `I≤2w` are of the same order. No conflict found.
+
+### Novelty (item iv) — what I could and could not check
+* Checked (online): Lecomte–Tan, *Sharper bounds on the Fourier
+  concentration of DNFs* (FOCS 2021, arXiv:2109.04525). Their key device is
+  closely related to Lemma 3.1: they bound `|f̂(S)|` by the probability that S
+  is **covered** by terms satisfied at a random x, and count covers
+  (`numCovers(S)`). Differences: they count covers *unsigned* (no
+  cancellation, so no analogue of the suppression `N=0` when an event avoids
+  V), they work over `{±1}^n`, and their degree concentration still comes
+  from Håstad (their Fact 6: `ε`-concentration up to degree `Cw log 1/ε`, C
+  unspecified). **The document should cite Lecomte–Tan as the nearest prior
+  art for the cover bound** (MINOR, defect 2).
+* Checked (lecture notes found online: Lovett UCSD CSE291 ch.4, Cornell
+  CS6817 lec.14, O'Donnell CMU lec.10): all derive width-w concentration
+  `O(w log 1/ε)` via random restrictions + Håstad; none states a
+  switching-free bound with explicit constant 1 or a `‖T_{√λ}f‖≤1` form.
+* Not checked (no access): O'Donnell's book §4.4 exact constants (from
+  memory: `W^{≥k}[f] ≤ 2·2^{−k/(20w)}` for ±1-valued width-w DNF), Tal 2017
+  (*Tight bounds on the Fourier spectrum of AC0*), Mansour 1995, Håstad 2001
+  slight improvement, Boppana's influence bound paper, and the "Fourier
+  growth"/`‖T_ρ f‖`, ρ>1, literature (e.g. Kelley–Lovett–Meka-type).
+  I found no statement equivalent to C-1 or Cor 4.1, but a 30-minute search
+  is not a literature review. In the Boolean case `G_F(λ)=‖T_{√λ}F‖²`, so
+  C-1 says `‖T_{2^{1/(2w)}}F‖₂ ≤ 1` for good-indicators of width-w DNFs — this
+  is a clean statement that experts would recognise; Assessment: plausibly
+  new as stated (q-ary, constant 1, signed-cover proof), but **label it
+  "new to us"** and ask a Boolean-analysis expert before claiming novelty.
