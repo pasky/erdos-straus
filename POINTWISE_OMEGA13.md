@@ -551,8 +551,12 @@ absorbed.
   `|c(χ)|`.
 * *Case B* (`f_2>1`). Unchanged: `c(χ)=ψ_1(r)E_{rH}[Bψ_2]/φ(Q)` with `|ψ_1(r)|=1`. The twist
   condition I1(b) applies to `ψ_2`.
-* *Cell consistency.* Event cells have residue `−4D≡r (mod gcd(M,Q))` by survival. The
-  `u_j` are functions of fibre coordinates, so the argument of O11 Thm 3.2 applies.
+* *Cell consistency.* Event cells have residue `−4D≡r (mod gcd(M,Q))` by survival. For the
+  `u_j` (R48c m2): `E[F|X_W]` for a digit set W that is not an initial segment is still a
+  function of `n mod m_W`, with `m_W` the *absolute* modulus (it includes the fixed fibre digits
+  `<a_ℓ`). Its cells are fibre classes mod `m_W`, hence consistent with r. Since the weights are
+  absolute, `log m_W≤τ` bounds the true modulus, so the `u_j`-moduli are `≤e^τ`. The rest of
+  O11 Thm 3.2's argument applies.
 
 *Property (I).* Let `n≡r (Q)` and `n≡−4D (M)` for an atom. Then the atom survives. If
 `M|Q`, then `r≡−4D (M)`, which Lemma 3.1 excludes. Otherwise the event is live and occurs.
