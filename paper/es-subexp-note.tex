@@ -830,12 +830,13 @@ Here $C_GALe^{-3L}\le C_GAe^{-L}\le1/400$, and
 $C_GA\kappa L^2/Q_G\le10^{-4}$.  If no $\chi$ with $c(\chi)\ne0$ has
 $\chi^*=\chi_1$, this bounds the middle sum of \eqref{eq:Sx}, and $S(x)>0$
 as in Case~0.  Otherwise, by injectivity, exactly one such $\chi$ exists.  It
-is real, because $\chi_1$ is; hence $c(\chi)$ is real, as $B$ and $\chi_D$ are.
+is real, because $\chi_1$ is; hence $c(\chi)$ is real, as $B$ and $\chi$ are.
+Let $f_2$ be as in (c).
 Its term is
 $c(\chi)\big(\vartheta(x;\chi_1)+x^{\beta_1}/\beta_1\big)-c(\chi)x^{\beta_1}/\beta_1$.
 The first part is covered by the bound just proved.
 
-\emph{Case A: $\chi_D$ is principal.}  Then $c(\chi)=\mu/\varphi(Q)$, and the
+\emph{Case A: $f_2=1$.}  Then $c(\chi)=\mu/\varphi(Q)$, and the
 conductor $q_1$ of $\chi_1$ divides $Q$, so $q_1\le Z$.  The main terms combine
 to $\lambda\mu x/\varphi(Q)$ with $\lambda=1-x^{\beta_1-1}/\beta_1$.  Since
 $1/\beta_1\le1+2(1-\beta_1)$, $1-e^{-u}\ge(1-e^{-1})\min(u,1)$ and
@@ -849,25 +850,25 @@ $1/\lambda\le2+c_2Z^{1/2}(\log Z)^2/8\le C_5Z$.  Hence
 $|R_1|\le2AZ^3\mu/\varphi(Q)\le\lambda\mu x/(100\varphi(Q))$ once
 $x\ge200C_5AZ^4$.  Altogether $S(x)\ge(1-2/100)\lambda\mu x/\varphi(Q)>0$.
 
-\emph{Case B: $\chi_D$ is not principal.}  Then $\chi_D$ is real and is induced by a
-real primitive $\psi$ of conductor $f>1$.  By (c) and the twist condition,
+\emph{Case B: $f_2>1$.}  By (c),
 $|c(\chi)x^{\beta_1}/\beta_1|\le(\mu/(4\varphi(Q)))\cdot2x=\mu x/(2\varphi(Q))$, and
 $S(x)\ge(1-1/2-1/200-1/400)\mu x/\varphi(Q)>0$.
 
-In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid QD$ and
+In all cases $S(x)>0$.  So some prime $p\le x$ with $p\nmid N_0$ and
 $p\equiv1\pmod Q$ has $B(p)>0$, and then $W(p)>T$.
 \end{proof}
 
 \begin{remark}\label{rem:linear}
 This is Linnik's theorem with weights.  Every character coefficient is
-bounded by $\E_D|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
+bounded by $\E_H|B|/\varphi(Q)$, not by the $\ell^1$ mass of a cell
 representation.  Theorem~\ref{thm:G} controls all characters of conductor
 $\le Q_G$ simultaneously, so the number of moduli $d_i$ never multiplies the
 error.  In \cite{Paper1} and in the first version of this note, each
 progression was instead treated separately with the Thorner--Zaman theorem
 \cite{TZ}.  That costs $\log x\gg K\max(\log Z,K)$ with
 $K=1+\log(\sum|c_i|/\varphi(d_i)\,/\,\mu)$, which here is of order
-$(\log T)^{14}$ instead of $(\log T)^7$.  No lower bound for $1-\beta_1$ is
+$(\log T)^{14}$ instead of $(\log T)^7$ in the setting of the previous
+version.  No lower bound for $1-\beta_1$ is
 needed in Case~B.  In Case~A we use the effective bound of
 Theorem~\ref{thm:xz} only to absorb the term $R_1$.
 \end{remark}
