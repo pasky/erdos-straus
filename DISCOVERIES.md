@@ -246,6 +246,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * The heuristic truth is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7). An exponent ledger, an improvement to 1/13 and ceilings for this transfer (≈1/9 under ET) are in OMEGA8 §6 (not yet reviewed).
     * Superseded companion: `POINTWISE_OMEGA7.md` (partial HC_Π reductions via a modular-hyperbola/Kloosterman count; merged unreviewed, archived).
 
+17. **Type-I `ck_min` beyond Graham–Ringrose: the obstruction mapped (POINTWISE_TYPEI.md).** The target `ck_min ≥ g(p)·n_p` with g→∞ was **not** reached. Proved instead:
+    * `M_{c,k}(p) = #{j : hj>p, (hj−p) | 4cj²+1}` (Lemma 1.1), so vanishing is a congruence sieve on p with moduli up to `h·p`, larger than the sifted variable; exact event list for `ck_min > G·n_p` (Prop 4.1); every reduced hard class contains infinitely many p with `ck_min = n_p`, so congruence input gives exactly g=1 (Prop 4.2, sharpening POINTWISE_OMEGA Prop 8.3); subgroup-type sieve criteria have dimension ≥1/2 per unforced slice, additive (Lemma 4.3). Sieve/level barriers (EH insufficient even for one slice) are Assessments.
+    * `n_p = 5 ⟹ ck_min(p) ≤ 10`, sharp at p=193 (Thm 6.1, PROVED, a mod-7 Type-I covering). Every finite Type-I covering of `{n_p=7}` has height ≥539 and of `{n_p=11}` height >3000 (Cor 6.4, PROVED; under H these are lower bounds for `C(r)=sup_{n_p=r} ck_min`). Whether `C(7)<∞` is open (EVIDENCE: every `n_p=7` prime below 3·10⁶ is witnessed at ck ≤194).
+    * CONDITIONAL: under Schinzel H, for every g there are infinitely many hard p with `ck_min > g·n_p`, and `ck_min ≥ n_p^{2−ε}` i.o. (Thm 2.1); under GRH, `ck_min > (1/(2log 2)−ε)log p·log log p` i.o. (Thm 3.1, Montgomery's Ω-result transported; sources cited from memory).
+    * Census to 10⁷: new records `ck_min(9033649)=883` (`n_p=43`) (EVIDENCE, independently recomputed).
+    * **PROVED / CONDITIONAL as labelled** (internal; review `reviews/pointwise-typei-review.md`, SOUND-AFTER-REPAIRS, repairs applied).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
