@@ -143,3 +143,9 @@ real sieve data by up to ~90%. Moreover **every θ=1/2 LP in the doc uses ε=0.1
 (ε,K) grid study was done only at θ≥0.7. Repair: re-run the θ=1/2 two-window LP for smaller ε
 (e.g. 0.05, 0.03) and report r(S) spreads; until then Prop 3.7's relevance to sieve methods is
 EVIDENCE of the weakest kind, and §4/§5 "blocked" statements must say "at ε=0.1".
+*Reviewer attempt at a finer grid* (`scripts/review_w2_lpfast.py`, own lean float LP): ε=0.07, K=9
+(439 window configs, 192721 joint, 408 visible): HiGHS returns min 0, but unconstrained with residual
+0.34 (support re-solve not positive, cond 3e10) — unusable; with ν/μ≤10³: min 0 at relative residual
+3.4e-4 (EVIDENCE that the fake persists at ε=0.07, not certified). r(S) spreads at ε=0.07/K=9:
+[0.71,1.76]; at ε=0.05/K=10: [0.82,1.64] — fidelity improves only slowly (bin discretisation
+contributes too). So M4 is not resolved by refinement within reach; it must be stated as a caveat.
