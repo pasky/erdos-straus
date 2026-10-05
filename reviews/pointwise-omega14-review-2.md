@@ -1,7 +1,7 @@
 # Hostile review R49b: POINTWISE_OMEGA14.md §4 (ceiling theorem, O49b)
 
 Reviewer branch: side-agent/review-omega14b (merged side-agent/junta-third at 88157c2).
-Status: IN PROGRESS.
+Status: COMPLETE (round 1).
 
 ## Defects (numbered as found)
 
@@ -84,3 +84,65 @@ identity (v=1, i.e. M=ℓ, is included; harmless). Checked by brute force (scrip
   if every s has R=8≥threshold, max E B=0 (k=1,2) and also at the boundary R=thr (m=3,n=7,k=1);
   if one s has only k active bits, max E B>0 (0.25, 0.125). So "E B≤0" is exactly the
   sharp conclusion (B≡0 attains 0), and the deterministic hypothesis is what is needed.
+
+### Corollary 4.6 (1/4 ceiling) — SOUND as scoped (MINOR scope edits D4, D5)
+* Matching to O9 Thm 1.1: `B=Σc_i1[n≡b_i (d_i)]` is a combination of `n↦φ(n mod d_iQ)`, so its
+  O14-level is `≤max d_i≤Z/Q≤Z`. O9's hypothesis `B≤1[W(n)>T]` on integers `n≡1 (Q)` coprime to
+  the d_i implies `B≤F` on the Haar fibre (every unit class mod `lcm(Q,D,M≤T)` has such integer
+  representatives, CRT), and `F=1[W>T]` exactly. `E_D B=μ=E_fibre B` since `gcd(D,Q)=1`. O13 Thm 5.1
+  runs on `(Q',r')`, `gcd(d_i,Q')=gcd(d_i,Q)` possibly >1 — covered, since the level definition
+  allows `n mod qQ` with `gcd(q,Q)>1`. So O9/O13 certificates are in scope and need
+  `log Z≥c𝓛^4/log𝓛`, `log x≥C_2 log Z`.
+* Exponent bookkeeping: `log x≥c'𝓛^4/log𝓛 ⇒ 𝓛≤C(log x·loglog x)^{1/4}`; O13 achieves
+  `𝓛≍(log x)^{1/4}(loglog x)^{−1/4}`: gap factor `(loglog)^{1/2}` in 𝓛. Correct. "As certified
+  bounds" is the right qualifier (the certificate only knows `p≤x`).
+* The other hypotheses of O9 (A≤Z^{1/4}, twist condition) only shrink the class; irrelevant.
+
+## Defects (continued)
+
+**D2 (MINOR, Lemma 4.3 display).** The display writes the (G) error in its non-exceptional
+κ-form and says the exceptional case has prefactor `(1−β_1)log x≤0.7/(κε)`. As quoted in
+O9 §1, the exceptional-case bracket is `[x·e^{−log x/log Q_G}+x log x/(Q_G log Q_G)]` (no κ in
+the exponent, different second term). The conclusion is unaffected (`(0.7/κε)(e^{−0.6/ε}+o(1))≤1/8`).
+Repair: write the two cases' error terms separately, as in O9 §1.
+
+**D3 (MINOR, Lemma 4.4, last step of exceptional removal).** `τ(q'')/q''≤𝓛^{−1.8}` (proof says
+`H_exc≤4L²𝓛^{−1.8}/v`) is stated without justification; q'' ranges up to `4T^ε`, where τ(q'') is
+not `𝓛^{O(0.1)}`. Repair: "by the divisor bound `τ(m)≤m^{1/20}` for `m≥m_0`, and `q''≥q_1/4>𝓛^{1.9}/4`,
+`τ(q'')/q''≤q''^{−0.95}≤4𝓛^{−1.8}` for T large".
+
+**D4 (MINOR, Cor 4.6 scope can be widened).** The restriction `log Q≤T^{0.05}` is vacuous for
+O9-type transfers: they need `log x≥C_2 log Z≥log Q`, so `log Q>T^{0.05}` already forces
+`log x>e^{0.05𝓛}`, far beyond the ceiling. Repair: add this sentence, so Cor 4.6 covers every fibre.
+
+**D5 (MINOR, Cor 4.6 "Not claimed" list).** Make explicit that the corollary concerns transfers
+whose positivity comes from the Haar mean `E_fibre B>0`. Excluded, and worth listing:
+(a) transfers whose positivity comes from the exceptional-character term
+(`Σ_pB(p)≈x(E B−x^{β_1−1}E[Bχ_1])/φ(Q)`, which can be positive with `E B≤0` if a Siegel zero
+exists at that scale) — these can only work at Siegel scales, hence not unconditionally for
+infinitely many T, but they are outside the theorem; (b) minorants of F that are not of bounded
+level in the O14 sense (e.g. using a modulus with many primes >T^{0.6}); (c) majorant/minorant
+mixtures and bilinear input (already listed). Also recommend the Status table say
+"PROVED implication (scope: E_Haar B>0, transfer needs log x≫log Z)".
+
+**D6 (MINOR, consistency).** Status table row for Lemma 2.1 is used for 𝓕* in Thm 4.5
+("p*≤T^{−0.09}, the family is smaller"): correct, but 𝓕* is *not* literally a subfamily of §2's 𝓕
+when ε>1/10 is allowed? No: ε≤1/10 is imposed, and `D*≤X=T^ε≤T^{1/10}`, `n≥V≥N_0`. OK — no defect;
+recorded only to show it was checked.
+
+## Verdict table
+
+| claim | verdict |
+|---|---|
+| Lemma 4.1 | SOUND |
+| Lemma 4.2 | SOUND (brute-force confirmed) |
+| Lemma 4.3 | SOUND (D2 minor) |
+| Lemma 4.4 | SOUND (D3 minor) |
+| Thm 4.5 (`E B≤0`, mod (G), effective Page, fundamental lemma) | SOUND |
+| Cor 4.6 | SOUND as scoped; SOUND-AFTER-REPAIRS for wording (D4, D5) |
+| document | D1: delete stale duplicate §5/§4 (lines ~450–611) |
+
+No FATAL or MAJOR defects. The "please check" items (induced characters, exceptional split at
+`𝓛^{1.9}`, exceptional-set removal, fibre-fixed coordinates) all check out. The labels are
+appropriate: Thm 4.5 is PROVED modulo the cited theorems, and Cor 4.6 is a PROVED implication
+within its stated scope. ES is not affected.
