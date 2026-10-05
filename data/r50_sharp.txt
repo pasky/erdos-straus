@@ -1,0 +1,22 @@
+F1 level formula of the disjoint family = brute force (3 cases)
+F2 j=1: limit(single level, s=j/2)*2^j=0.367879 >= 1/(e sqrt j)=0.367879; sup_s tail*2^j=0.5 (s*=0.69315), 2/sqrt(2 pi j)=0.797885
+F2 j=2: limit(single level, s=j/2)*2^j=0.270671 >= 1/(e sqrt j)=0.26013; sup_s tail*2^j=0.407264 (s*=1.2564), 2/sqrt(2 pi j)=0.56419
+F2 j=3: limit(single level, s=j/2)*2^j=0.224042 >= 1/(e sqrt j)=0.212395; sup_s tail*2^j=0.356231 (s*=1.7933), 2/sqrt(2 pi j)=0.460659
+F2 j=5: limit(single level, s=j/2)*2^j=0.175467 >= 1/(e sqrt j)=0.164521; sup_s tail*2^j=0.296534 (s*=2.8374), 2/sqrt(2 pi j)=0.356825
+F2 j=10: limit(single level, s=j/2)*2^j=0.12511 >= 1/(e sqrt j)=0.116334; sup_s tail*2^j=0.225494 (s*=5.39), 2/sqrt(2 pi j)=0.252313
+F2 j=20: limit(single level, s=j/2)*2^j=0.0888353 >= 1/(e sqrt j)=0.0822603; sup_s tail*2^j=0.167278 (s*=10.431), 2/sqrt(2 pi j)=0.178412
+F2 j=40: limit(single level, s=j/2)*2^j=0.062947 >= 1/(e sqrt j)=0.0581668; sup_s tail*2^j=0.12179 (s*=20.46), 2/sqrt(2 pi j)=0.126157
+F2 j=80: limit(single level, s=j/2)*2^j=0.0445567 >= 1/(e sqrt j)=0.0411302; sup_s tail*2^j=0.0875641 (s*=40.478), 2/sqrt(2 pi j)=0.0892062
+F3 k=1 j=1 p=1/40: max_m En(F;jk-1)*2^j = 0.499954 (>= 1/(e sqrt j)=0.367879)
+F3 k=1 j=2 p=1/40: max_m En(F;jk-1)*2^j = 0.401989 (>= 1/(e sqrt j)=0.26013)
+F3 k=1 j=4 p=1/40: max_m En(F;jk-1)*2^j = 0.30984 (>= 1/(e sqrt j)=0.18394)
+F3 k=2 j=1 p=1/40: max_m En(F;jk-1)*2^j = 0.483032 (>= 1/(e sqrt j)=0.367879)
+F3 k=2 j=2 p=1/40: max_m En(F;jk-1)*2^j = 0.382708 (>= 1/(e sqrt j)=0.26013)
+F3 k=2 j=4 p=1/40: max_m En(F;jk-1)*2^j = 0.287913 (>= 1/(e sqrt j)=0.18394)
+F3 k=3 j=1 p=1/40: max_m En(F;jk-1)*2^j = 0.474561 (>= 1/(e sqrt j)=0.367879)
+F3 k=3 j=2 p=1/40: max_m En(F;jk-1)*2^j = 0.371343 (>= 1/(e sqrt j)=0.26013)
+F3 k=3 j=4 p=1/40: max_m En(F;jk-1)*2^j = 0.273446 (>= 1/(e sqrt j)=0.18394)
+F4 parity j=10: (max_s En)^(1/j) = 0.298587
+F4 parity j=20: (max_s En)^(1/j) = 0.310939
+F4 parity j=40: (max_s En)^(1/j) = 0.3194
+F5 parity energy formula = brute force (k=2,s=2)

@@ -1,0 +1,8 @@
+C1 all 65536 functions on 4 bits, uniform: OK; max tail/(4p(2-p)2^{-(t+1)/k}) = 0.680315  max I/(kp) = 2.0 (bound 4/ln2= 5.77078 ) max (G-1)/p = 2.0
+C2 random DNFs (n<=6) under biased product measures: OK on 1500 ; max ratio = 0.989899  max I/(kp) = 3.92
+C3 disjoint-AND (tribes / sharpness family) k<=3, n<=6, p in {1/2,1/5,1/20,1/100}: OK; max ratio = 0.994975
+C4 sunflowers / threshold DNFs n=6: OK; max ratio = 0.763792
+
+real	2m16.487s
+user	2m16.385s
+sys	0m0.067s

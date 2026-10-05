@@ -1,0 +1,220 @@
+# Referee report R50 — `paper/energy-dnf-note.tex` (branch side-agent/energy-paper, Draft v1)
+
+Referee: hostile side agent R50 (branch side-agent/referee-energy-note).
+From-scratch scripts: `scripts/review_r50_*.py` (no reuse of `scripts/energy_note_check.py`).
+
+## Recommendation
+
+**Minor revision (accept after minor repairs) on correctness; major revision on the literature section before
+any external submission.** I found no FATAL and no MAJOR mathematical defect. Every proof was re-derived line by
+line, and every main inequality was re-checked by independent from-scratch exact-arithmetic code (thousands of
+random and adversarial cases; bounds essentially attained, never violated). The only MAJOR point (D8) is missing
+prior-art comparisons (bias-dependent LMN for product measures, general product domains, sharp switching lemmas,
+Håstad 2001), which matter for a TCS venue's novelty assessment but not for correctness.
+The author's own script was also re-run: ALL CHECKS PASSED (exit 0), and its printed numbers (0.680, the parity
+rates, the Ex 6.3 values) agree with my independent code.
+
+## Summary verdicts
+
+| Claim | Verdict |
+|---|---|
+| Thm 1.1, Lemmas 2.2, 3.1, 4.1, 4.2, Thm 4.3, Prop 2.3 | SOUND |
+| Cor 1.2 (a(2−a) refinement) | SOUND |
+| Cor 1.3 (DNF tail, 1+4p, influence, CNF, q-ary) | SOUND (influence comparison overstated: D2) |
+| Prop 6.1 sharpness | SOUND (wording D3, D4) |
+| Ex 6.2 parities, rate in [3^{−t/k}, 2^{−t/k}] | SOUND |
+| Ex 6.3 non-monotonicity | SOUND (D5: [5]^3 instance underspecified) |
+| Conj 6.4, 6.5 | correctly labelled CONJECTURE; not tested by me |
+| Thm 7.1, Cor 7.2, Rem 7.3 | SOUND |
+| §8 application (exposition) | SOUND as exposition (D6, D7 minor) |
+| Literature comparison / novelty | GAP (D8 MAJOR, D9, D10 minor); hedging itself is fair |
+| Compilation | pdflatex ×3 in a clean copy: 15 pp., no undefined refs, no overfull/underfull boxes; one harmless pdfTeX font-expansion warning despite the workaround (D11) |
+
+Defect list: D2 (MINOR), D3–D7 (MINOR), D8 (MAJOR, literature), D9–D11 (MINOR). (D1 is intentionally unused.)
+
+## 1. Core: Thm 1.1, Lemma 2.2, Prop 2.3, Lemma 3.1, Lemma 4.1, Lemma 4.2, Thm 4.3 — SOUND
+
+Re-derived line by line:
+* Lemma 2.2(a)–(d): correct (λ^U = Σ_{V⊆U} μ^V; (c) G_{1-φ} = (1-Eφ)² + Σ_{U≠∅}λ^U‖φ^{=U}‖²; (d) tensorisation).
+* Prop 2.3: G_{1_E} = Π(p_v² + λ_v p_v(1-p_v)) = π_E Π(λ_v − μ_v p_v); limit p→0 gives 1 − 2π_E + π_E w_E(1+o(1)) > 1 iff w_E > 2. Correct.
+* Lemma 3.1 (cover bound): restriction to fibre y, inclusion–exclusion, L_V kills cylinders whose support is a proper subset of V, the surviving point indicators are exactly the subfamilies of events holding at x=(σ,y) whose traces cover V; collapsing repeated supports via the "class of m equal traces contributes −1" remark is right. Equality at V=∅ (N(∅)=1[H=∅]=F(x)) correct.
+* Lemma 4.1 (polarization): the two-point law p_v ∈ {1, −μ_v} with P(p_v=1)=μ_v/λ_v has mean 0, variance μ_v; collapse Σ_{B⊆P^c∖U}(−μ)^B λ^{P^c∖B} = λ^U·Π(λ−μ) = λ^U. Correct.
+* Lemma 4.2: deletion–contraction identity Θ(C)=λ_vΘ(C/v)−μ_vΘ(C−v) re-derived; induction on |∪C| is well-founded (both C/v and C−v lose v); contraction keeps weights ≤ 2 and w_{J0∖v}−1 ≥ 0. Correct.
+* Thm 4.3: P(J∩P=∅)=1/w_J, independence over a matching, (1−1/w)+(w−1)²/w = w−1. Correct.
+
+From-scratch exact check (`scripts/review_r50_core.py`, seed 3, 2000 random systems on Π[q_v], n≤4, q_v≤4,
+half with adversarially biased measures (rare value of prob ≈1/150) and events concentrated on rare values,
+rational weights pushed to the threshold w_E = 2): Thm 1.1, Lemma 3.1 for every V, the matching refinement
+G_F ≤ E_x min_M Π(w_J−1), the polarization identity (exact expectation over P), |Θ| ≤ Π_M(w_J−1) and
+Q ≤ Π_M(w_J−1) for every matching with equality on matchings — all pass. Max G observed 0.99999999873
+(the bound is essentially attained; consistent with Prop 2.3/6.1). Output: `data/r50_core_seed3.txt`.
+
+No defect in the core proof.
+
+## 2. Cor 1.2 (energy tail with a(2−a)) and Cor 1.3 (DNF tails, 1+4p, influence, q-ary) — SOUND (one MINOR overstatement of novelty-relevance, see D2)
+
+Re-derived: Σ_{U≠∅}λ^{|U|}‖F^{=U}‖² ≤ 1 − (EF)² = a(2−a); g = 2F−1 multiplies non-constant energies by 4;
+G_g = (1−2p)² + 4(G_F − (1−p)²) ≤ 1+4p; I ≤ (k/ln2)·Σ(λ^{|U|}−1)‖g^{=U}‖² ≤ 4kp/ln2 (using λ^{|U|}−1 ≥ |U| ln2/k).
+CNF sign convention (p = P[h=+1]) and q-ary splitting into disjoint cylinders with equal support: correct.
+ε-concentration degree k·log₂(4/ε): correct.
+
+From-scratch check (`scripts/review_r50_dnf.py`, output `data/r50_dnf_seed1.txt`; exact rationals for tails via
+tail^k·2^{t+1} ≤ (4p(2−p))^k, 60-digit mpmath only at the irrational endpoint λ = 2^{1/k}):
+* all 65536 Boolean functions on 4 bits, uniform measure, k = minimal DNF width: pass; max of
+  W^{>t}/(4p(2−p)2^{−(t+1)/k}) = 0.680315 (reproduces the author's 0.680); max I/(kp) = 2.0; max (G_g−1)/p = 2.0;
+* 1500 random DNFs, n ≤ 6, random widths, biased measures with biases down to 1/50 and up to 49/50: pass, max ratio 0.9899;
+* adversarial: disjoint ANDs (tribes / the sharpness family) at p ∈ {1/2,1/5,1/20,1/100}: pass, max ratio 0.99498
+  (bound essentially tight under strong bias, as Prop 6.1 predicts); sunflowers (common core of k−1 variables)
+  and threshold-≥k DNFs on 6 bits: pass, max ratio 0.764.
+
+Defect D2 (MINOR, comparison with known influence bound), §1 "Comparison" paragraph and Cor 1.3:
+the note says its influence bound (4k/ln2)p ≈ 5.77kp "is weaker by a constant factor than the known bound 2w".
+This understates the known bound: the elementary certificate argument gives **I[g] ≤ 2w·p** on the uniform cube
+(each sensitive edge has exactly one endpoint where the DNF is true, and there the sensitivity is ≤ w, so
+I = 2·E[s(x)·1{g(x)=−1}] ≤ 2wp), and under a product measure the same argument gives Σ_v‖L_v g‖² ≤ 4wp.
+(My data: max I/(kp) = 2.0 uniform, 3.92 biased — consistent with these.) So the factor p is *not* a gain of the
+new method; the new bound is worse by 2/ln2 (uniform) resp. 1/ln2 (biased).
+Repair: state "I ≤ 2wp (uniform), ≤ 4wp (product measures) follows from the trivial certificate argument; our
+(4k/ln2)p is weaker by a constant and is stated only because it falls out" — or drop the influence claim.
+
+## 3. Prop 6.1 (sharpness), Ex 6.2 (parities), Ex 6.3 (non-monotonicity) — SOUND (minor wording)
+
+Re-derived Prop 6.1: per-block level weights (1−π)² at W=∅ and π²((1−p)/p)^{|W|} at W⊆S_i (so π(1−p)^k at W=S_i);
+Poisson limit e^{−2s}s^j/j!; at s=j/2 and with j! ≤ e·j^{j+1/2}e^{−j} the bound 2^{−j}/(e√j) follows. Correct.
+Consequence "no Cρ^{−(t+1)/k} with ρ>2" correct; it needs p→0 as t grows (bias depending on t), which the
+statement allows ("a suitable product measure") — fine, but see D4.
+From scratch (`scripts/review_r50_sharp.py`, `data/r50_sharp.txt`): level formula = brute force on [3]^3, {±1}^4
+(biased), [3]^4; limit ≥ 2^{−j}/(e√j) for j ≤ 80; finite p = 1/40, k ≤ 3, j ∈ {1,2,4}: max_m En(F;jk−1)·2^j well above
+1/(e√j) and below the Cor 1.2 bound. Parity formula En = 4^{−s}Σ_{i≥j}C(s,i) = brute force; (max_s En)^{1/j} =
+0.298587, 0.310939, 0.319400 for j = 10, 20, 40 (reproduces the note's 0.299/0.311/0.319; → 1/3 by Stirling).
+Ex 6.3 (`scripts/review_r50_mono.py`, `data/r50_mono.txt`): exactly G = 323/4096 + 343√2/2048 ≈ 0.3157106 and,
+after adding A, 147/1024 + 63√2/512 ≈ 0.3175692 — increase confirmed. [5]^3 (λ=2^{1/3}, points with exactly two
+nonzero coordinates): adding A=(0,0,0) increases G (0.75406 → 0.75467); adding (1,0,0), (1,1,1), (1,2,3) does not.
+
+D3 (MINOR) §6 after Prop 6.1: "the supremum over m … is about 2/√(2πj) for small p (an earlier internal
+computation; we do not prove it)". My numbers (p→0 limit, sup over s): 0.2255 vs 2/√(2πj)=0.2523 at j=10; 0.0876 vs
+0.0892 at j=80. So it is an *asymptotic* (j→∞) statement, ~11% off at j=10. It is also easy to prove
+(sup_s e^{−2s}Σ_{i≥j}s^i/i! ~ 2·2^{−j}/√(2πj): the i=j term at s=j/2 plus a geometric tail of ratio ½). Repair: write
+"~ 2/√(2πj) as j→∞" and either prove it in two lines or keep the hedge.
+
+D4 (MINOR) Prop 6.1 / abstract / §1 "Over general product spaces the base 2^{−1/k} is sharp": the extremal measures
+have bias p→0 *depending on t*. For any fixed product measure with all atoms ≥ δ (e.g. q-ary uniform with q fixed,
+or uniform cube) the proposition says nothing. Worth one sentence: "sharp in the sense of the sup over all product
+measures; for a fixed measure the optimal rate is open (cf. Ex 6.2)".
+
+D5 (MINOR) Ex 6.3: the [5]^3 sentence does not say which event is added. Repair: "…; adding A={x=(0,0,0)}
+increases G_F from 0.75406 to 0.75467 (λ=2^{1/3})" (my values; the author's script does not check [5]^3, as the
+report admits).
+
+## 4. Thm 7.1 (filtration), Cor 7.2, Rem 7.3 — SOUND
+
+Re-derived: P_{ℓ,j} = I − E_{B_{ℓ,j}} acts diagonally on Efron–Stein components (1 iff max U_ℓ ≥ j), so
+‖L'_V F‖² = Σ_{U≻V}‖F^{=U}‖² and Σ_{selections V ≺ U} μ'^V telescopes to Π_ℓ λ_ℓ^{1+max U_ℓ}. Coarsening to
+(head, tail-block) coordinates, splitting each event into coarse cylinders with the same coarse support, and the
+trace identity hat E ∩ V are correct; adding the non-selection V's only adds nonnegative terms. Weight bound:
+1+μ'_{ℓ,i0} = λ^{i0+1}, 1+μ'_{ℓ,j} = 1+λ^j(λ−1) ≤ λ² ⟺ λ^j ≤ λ+1, true since λ^j ≤ λ^v ≤ √2 (each factor of the
+product ≤ 2 is ≥ 1, so λ_ℓ^{2v_ℓ} ≤ 2 individually); exponent i0+1+2(v−1−i0) ≤ 2v. Correct.
+Cor 7.2 (λ_ℓ = 2^{log ℓ/(2𝓛)}, Markov at threshold e^τ) and Rem 7.3 (1+x ≤ e^x, telescoping to λ^v−1;
+superadditivity of the convex x ↦ 2^{x/ρ}−1 with value 0 at 0; ρ0 = 1/log₂(1+ln 2) = 1.3163…) are correct.
+
+From scratch (`scripts/review_r50_filt.py`, `data/r50_filt.txt`): 3000 random digit-prefix systems (1–2 "primes",
+bases 2/3, offsets i0 ∈ {0,1}, random digit laws incl. zero-mass digits, weights pushed to the hypothesis
+boundary) under the Thm 7.1 hypothesis Π λ^{2v} ≤ 2, and 3000 more under the weaker Rem 7.3 hypothesis
+Σ(λ^v − 1) ≤ ln 2: all pass (exact). Exploratory: for a single prefix event even ρ = 1 (Π λ^v ≤ 2) gives ≤ 1
+(max 0.99999999584); I did not find whether ρ<ρ0 fails for families — the note claims nothing there, fine.
+
+No defect. (Readability nit, MINOR: say once explicitly that the factor-2 exponent hypothesis forces each
+λ_ℓ^{2v_ℓ(E)} ≤ 2 individually, since that is what "λ^j ≤ λ^v ≤ √2" silently uses.)
+
+## 5. §8 Application (exposition of [Subexp]) — SOUND as exposition
+
+Checked against `paper/es-subexp-note.tex` (v3 on main): multiplier identity (verified: with s=(nv+u)/M,
+nsuvw·(RHS) = nv+u+s = s(M+1) = 4suvw), definition of W(n), conditional status (Gallagher + Elsholtz–Tao),
+m ≤ T², S ≪ 𝓛⁴, τ ≪ 𝓛(𝓛+S) ≪ 𝓛⁵, log Q ≪ 𝓛⁵ log 𝓛, log p ≪ 𝓛⁵ log 𝓛 — all match es-subexp (lines 127–201,
+516–637, 1480–1486). Unit-group digit structure (digit 0 on nonzero residues, fibre 1+ℓ^aℤ ⇒ offset a): matches.
+I re-derived the sandwich: B ≤ F (at a point with F=0 the first occurring E_i contributes exactly 1), and
+E[F−B] = Σ_i E[1_{E_i}(Σ_{j<i}1_{E_j}(F^{(j)}−u_j))²] because the cross term vanishes where F^{(i)}=1; Cauchy–Schwarz
+twice gives the stated m²Σ_j P(E_j)E[(F^{(j)}−u_j)²]. Correct. {U : m_U ≤ e^τ} is down-closed (m_U monotone), so
+(2.1) applies to the truncation. The "1/5 not attributed to Thm 7.1 alone" hedge is accurate.
+
+D6 (MINOR) §8 last paragraph: "An earlier version of [Subexp] … was one of the two terms of the largest order"
+is internal version history that a reader of a standalone note cannot check, and the cited preprint is
+anonymous/unrefereed. Repair: either drop the version history or replace it by a self-contained one-line
+comparison (junta modulus via LMN with binary encoding: log d ≍ k·log(bit-length)·… vs here 𝓛(S+𝓛)), with the
+exponents written out.
+
+D7 (MINOR) §8 "By (2.1) it is a combination of classes of modulus at most e^τ": true for u_j on the free digits,
+but the product 1_{E_j}u_j that actually enters B has modulus up to r_j·e^τ ≤ T e^τ (es-subexp works with
+T³e^{2τ} after squaring). Harmless for the exponent; say "modulus ≤ Te^τ" or "polynomial in T e^τ".
+
+## 6. Comparison with the literature and novelty claims — GAP (missing references; hedging otherwise fair)
+
+No internet here either. Everything below marked [mem] is from my memory and must be verified.
+Prior online checks in this repo (reviews/es-subexp-note-review-v3.md D6–D7, reviews/pointwise-omega10-review-2.md §4)
+confirm: [LT] bibliographic data; LT Fact 6 = "∃C>1: width-w DNF ε-concentrated up to degree Cw log(1/ε)"
+(switching lemma, unspecified C); LT Fact 9 = |ĝ(S)| ≤ 2^{|S|}·Pr[S covered] (unsigned, uniform; LT say they do not
+use it); [Tal] contains no explicit-constant width-w DNF tail. The note's description of [LT] matches these.
+
+D8 (MAJOR for a TCS venue — not a correctness issue) Missing comparisons/references. The following should be
+checked and, if confirmed, cited and compared:
+ (a) [mem] J. Håstad, "A slight sharpening of LMN", JCSS 63 (2001). Explicitly listed as TODO(novelty) in the sister
+     note es-subexp-note.tex (l. 1607) but absent from this note.
+ (b) [mem] M. Furst, J. Jackson, S. Smith, "Improved learning of AC0 functions", COLT 1991 — LMN-type concentration
+     under (bounded-bias) product distributions on {±1}^n. Directly relevant to the selling point "under every
+     product measure"; the note should say what the bias dependence there is.
+ (c) [mem] E. Blais, R. O'Donnell, K. Wimmer, "Polynomial regression under arbitrary product distributions",
+     Machine Learning 80 (2010) (COLT 2008) — concentration/learning over general finite product domains; relevant
+     to "any alphabet, any product measure".
+ (d) [mem] Sharp switching lemmas (Håstad's (≈5pw)^d; Razborov's combinatorial proof; Rossman's entropy proof /
+     decision-tree size of AC0; Håstad 2014 "On the correlation of parity and small-depth circuits"). The note names
+     these areas but cites none.
+ (e) [mem] Total influence: K. Amano, "Tight bounds on the average sensitivity of k-CNF", Theory of Computing 7
+     (2011) — I recall the bound I ≤ k (improving Boppana's 2k). If correct, the note's "known bound 2w" (§1) is
+     outdated; together with D2 (trivial I ≤ 2wp) the influence statement should be reworded.
+ (f) [mem] Fourier-growth line (Chattopadhyay–Hatami–Lovett–Tal and successors) — G_F(λ) at constant λ is ‖T_ρF‖²
+     with ρ>1; the note mentions the area, a citation or explicit "not checked" is needed.
+
+D9 (MINOR, suggestion that strengthens the paper) Quantify the gap to the switching-lemma route instead of only
+quoting "20" from memory: with Håstad's bound Pr[DT(g|ρ) ≥ d] ≤ (Apw)^d (A ≈ 5) and the LMN reduction
+W^{≥t} ≤ 2·Pr[DT depth > pt/2], optimising p (x = Apw = 1/e) gives W^{≥t} ≤ 2·exp(−t/(2eA·w)) = 2·2^{−t/(2eA ln2·w)}, i.e. base-2 exponent
+constant 2eA·ln 2 ≈ 18.8 for A = 5 — consistent with the from-memory "20" of [OD §4.4], which this re-derivation
+thus corroborates (still [mem] for the inputs A=5 and the LMN reduction). So the switching-lemma route loses a factor > 10 in the
+exponent for intrinsic reasons (the restriction keeps only a p-fraction of the degree and the switching base
+needs pw ≲ 1/(eA)). One paragraph like this (labelled as a heuristic re-derivation) makes the constant-1 claim
+much more convincing than the from-memory constant.
+
+D10 (MINOR) Remark 3.2 contrasts the signed count with "the number of covers of V is large". [LT] uses the
+*indicator* "S is covered" (a probability), not a count of covers. Repair: "… while 1[V is covered] = 1, so the LT
+bound charges 2^{|V|} there".
+
+Hedging: "We believe Theorem 1.1 and the constant 1 in Corollary 1.3 are new, but we make no priority claim",
+plus the explicit list of what was not searched, is appropriately cautious for an internal draft; for
+submission D8 must be resolved. Abstract sentence "The proof does not use a switching lemma" is accurate.
+
+## 7. Readability, presentation, author's points (AGENT_REPORT_O50)
+
+D11 (MINOR, cosmetic) `pdfTeX warning (font expansion): font should be expanded before its first use` remains
+(the `\setbox0` workaround after `\maketitle` does not catch it). Harmless; e.g. load microtype with
+`expansion=false` or move the workaround before `\maketitle`.
+
+Readability: the note is well organised and the proofs are short and complete; the "Proof outline" in §1 is
+useful. Suggestions (optional): (i) define the total influence I[g] before Cor 1.3 rather than after its proof;
+(ii) in Lemma 4.2 state explicitly that the induction is on |∪C| over *multisets* and that C/v may create empty
+members (handled by the Θ=0 case) — the proof does handle it, but a reader has to notice; (iii) in Thm 7.1 note
+that Π λ^{2v} ≤ 2 implies each λ_ℓ^{2v_ℓ} ≤ 2 (used silently).
+
+Author's points: (1) novelty — see D8/D9; the from-memory flags are honest. (2) refinements a(2−a) and 1+4p —
+correct, exactly checked (my §2). (3) Prop 6.1 for biased Boolean measures — correct, but see D4 (bias must
+→0 with t). (4) numerics-not-proved statements — D3 (2/√(2πj) is asymptotic, and provable). (5) Ex 6.3 [5]^3 —
+confirmed with A=(0,0,0) (D5). (6) §8 — accurate (D6/D7 minor). (7) length 15 pp. fine for a note.
+(8) the ρ>1 noise-operator framing is correct (G_F(ρ²) = ‖T_ρF‖², T_ρ not a contraction) and harmless; it
+does, however, oblige a citation check of the Fourier-growth literature (D8(f)).
+
+## Replay
+```
+(ulimit -v 8000000; timeout 1500 env PYTHONPATH=scripts uv run python scripts/review_r50_core.py 3 2000)
+(ulimit -v 8000000; timeout 3000 env PYTHONPATH=scripts uv run --with mpmath python scripts/review_r50_dnf.py 1 1500)   # ~2.5 min
+(ulimit -v 8000000; timeout 600  env PYTHONPATH=scripts uv run --with mpmath --with sympy python scripts/review_r50_sharp.py)
+(ulimit -v 8000000; timeout 900  uv run --with sympy python scripts/review_r50_mono.py)
+(ulimit -v 8000000; timeout 900  env PYTHONPATH=scripts uv run python scripts/review_r50_filt.py 1 3000)
+```

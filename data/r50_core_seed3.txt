@@ -1,0 +1,2 @@
+A: Thm1.1 + Lemma3.1 + matching refinement OK on 2000 systems; max G = 0.9999999987345819
+B: polarization identity + Theta/Q matching bounds OK on 2000 hypergraphs; max Q = 1.0
