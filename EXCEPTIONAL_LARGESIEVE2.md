@@ -1,6 +1,6 @@
 # EXCEPTIONAL_LARGESIEVE2 — the remaining large-sieve and prime-law escapes (task O27)
 
-Status: **in progress (checkpoint 1 being written).** Labels as in
+Status: **checkpoint 1** (not yet reviewed). Labels as in
 `DISCOVERIES.md`. Notation: LS = `EXCEPTIONAL_LARGESIEVE.md`, K2 =
 `EXCEPTIONAL_KARY2.md`, EK = `EXCEPTIONAL_KARY.md`, PL =
 `EXCEPTIONAL_PRIMELAW.md`, ET = `EXCEPTIONAL_THETA.md`.
@@ -11,6 +11,33 @@ set, `M₀` the lcm of its moduli. "Level" means W-rough level,
 `λ(d) = Σ_{ℓ | d, ℓ > W} log ℓ`, with W the absolute constant of K2
 Thm 5.1. `S(λ) := C λ^{3/4}(log λ)^{3/4}` denotes the right side of K2
 Thm 5.1 (`λ ≥ λ₀`), and `S_B(λ) = C(B)λ^{3/4}` that of K2 Thm 5.2.
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1, 1.2 | **comparison measure**: K2 Thm 5.1 (resp. PL Thm 3.1) is equivalent, by LP duality, to the existence of one π on 𝒜 (resp. on 𝒜 ∩ units) with `E_π f ≤ e^{S(λ)}E_U f` (resp. `E*f`) for **every** nonnegative f of level ≤ λ | PROVED, conditional on K2 Thm 5.1 / PL Thm 3.1 |
+| Thm 2.4, Cor 2.5 | **periodic Bessel systems, twisted, hybrid**: any inequality `Σ_j|Σ a_n φ̄_j(n)|² ≤ ΔΣ|a_n|²` with periodic rows of level ≤ λ_Φ, applied to `a_n = ψ(n)1_A(n)` with any periodic twist `|ψ| ≥ 1` on 𝒜 (any period), fibrewise over `Q₀`, mixed with majorant-with-rounding fibres: `B ≥ (N/2)e^{−S(λ)}`; saving `≤ C_A(log N)^{3/4}(log log N)^{3/4}` for polynomial periods. Covers multiplicative × additive, Gauss-sum twisted and hybrid forms (escape 3) | PROVED, conditional on K2 Thm 5.1 (internal) |
+| Thm 3.1 | **large sieve applied to the primes** of the sifted set (PL §6 item 5): same cap relative to `π(N)` | PROVED, conditional on PL Thm 3.1 |
+| Lemma 4.1, Thm 4.2 | **larger sieve, any kernel** = a Bessel functional minus the zero frequency; CRT-optimal kernel bounds are `≥ (N/2)e^{−S(2λ_𝒮)}/(1 + Nh/(W_K−h))` | PROVED, conditional on K2 Thm 5.1 |
+| **Thm 4.3** | **(H_Gal) holds**: for every mixture there is π on 𝒜 with `Σ_{ℓ^v≤Q}(log ℓ/ℓ^v)χ²_{ℓ^v}(π) ≤ 24 log log 3Q + C`; Gallagher's larger sieve (CRT-optimal and Cauchy–Schwarz forms, any Q) saves `≤ 26 log log N + C` over **any** forced-class mixture (LS (E2a), (E2b) closed) | PROVED, **unconditional** (K2 Lemmas 2.3, 4.1–4.3 and EK Lemma 2.1 only; no external input) |
+| Prop 5.1, 5.2 | (E1) sharpened: a saving `≥ (log N)^{3/4+ε}` needs frequencies whose denominators have `≥ (log N)^{4ε/3−o(1)}` distinct family primes; the cap follows from (a) Lemma 1.1 at level `2λ'` plus (b) a **sup** bound `|π̂(θ)|² ≤ e^{S}/N` at level `> λ'` for the same π (no cross terms) | PROVED (reduction); (H_LS∞) CONJECTURE |
+| Prop 6.1 | the finite-range prime relaxation ("ν ≥ 1 only at primes of 𝒜 ∩ [1,N]") has LP value equal to the exact count, at level `log 2N`, so **no cap of any kind** holds for it; the gap is certification (non-CRT), not majorant design | PROVED |
+| §6.3 | unconditional signed errors: Assessment (unchanged from PL) | Assessment |
+| §7 | LP/QP/exact-law sanity checks of Lemma 1.1, Lemma 2.2/Thm 2.4, Lemma 4.1/Thm 4.2, Thm 4.3's steps | EVIDENCE |
+
+**Bottom line.** Of the four escape groups of O27: escape 2 (Gallagher
+over mixtures) is closed unconditionally and far below the 3/4 scale
+(Thm 4.3; composite kernels by Thm 4.2); escape 3 (twisted, multiplicative
+× additive, Gauss-sum, hybrid fibrewise forms) is closed (Thm 2.4); the
+prime large sieve (escape 4, third item) is closed (Thm 3.1); the
+finite-range prime relaxation is shown to be no sieve limit at all
+(Prop 6.1). Open: (E1)/(H_LS) — now reduced to frequencies with
+many-prime denominators and to a sup-decay statement (H_LS∞) — and
+unconditional signed error accounting (Assessment only). The tool behind
+all of it is Lemma 1.1: K2's cap, read through LP duality, is one
+measure that tests every nonnegative low-level function at once, so
+Cauchy–Schwarz can strip twists and fibres away.
 
 ## 1. The comparison measure (LP dual of K2 Thm 5.1)
 
@@ -52,7 +79,7 @@ is that one measure serves every nonnegative test function at once,
 including test functions that are not majorants. (ii) Only the
 existence of π is used below, not its construction; the explicit KARY
 law (EK Thm 4.1: the sequential law `Q'` reweighted by `e^{−ΣΦ}` and
-restricted to 𝒜) is one admissible choice, used in §6. (iii) Fibres:
+restricted to 𝒜) is one admissible choice (discussed in §5). (iii) Fibres:
 for `Q₀ | M'` and a class `c mod Q₀` with `π(c) > 0`, the conditional
 law of `m = (n − c)/Q₀` given `n ≡ c (Q₀)` is supported on
 `𝒜_c = {m : c + Q₀m ∈ 𝒜}`, and for every `f ≥ 0` in the span of classes
