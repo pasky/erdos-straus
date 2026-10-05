@@ -1,5 +1,18 @@
 # Paper draft status
 
+**New (2026-10-05): `es-window-note.tex` / `.pdf`** (task O41, 22 pages) —
+"The window statistic for the Erdős–Straus equation: exact orders for bounded
+windows and the role of parity". Window criterion and ES ⟺ a_min<∞; half-set
+lemma; fixed-set stacking `#{a_min>Z} ≪_Z N/(log N)^{1+J(Z)/2}` and a uniform
+version for `Z=o(log log N)` (PROVED); W1 `#{a_min≥7}≫x/(log x)^{3/2}` (PROVED
+mod cited semi-linear sieve + BV), W2 `a_min≥11` for `≫x/(log x)^2` p (on EH),
+hence exact orders; Proposition P1 (parity is a necessary input; Selberg's
+example realised by primes); random model, data and the LP model fake as
+labelled remarks. Sources: `POINTWISE_SIZE.md` §8, `POINTWISE_WINDOW.md`,
+`POINTWISE_XWIN.md`, `POINTWISE_WINDOW2.md`. Refereed in R41
+(`reviews/es-window-note-review.md`, MINOR REVISION); repairs M1, M2,
+m1–m13 applied (see `reviews/agent-reports/AGENT_REPORT_O41.md`).
+
 **New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v2** (tasks O33/O34, 18 pages).
 It proves `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many hard primes
 (mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4 + Håstad),

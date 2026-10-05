@@ -90,3 +90,43 @@ not use it for this material).
   switching-cap discussion of WINDOW2 §§6–7 (one sentence only).
 * `paper/README.md` not updated (left to the parent to avoid merge conflicts).
 * The note has had no hostile review yet.
+
+## Response to referee R41 (`reviews/es-window-note-review.md`, MINOR REVISION)
+
+All points addressed; recompiled (22 pp, **0 overfull hboxes**, no undefined refs, no errors).
+
+* **M1 (overclaim about two windows).** Abstract rewritten as suggested: parity is a
+  *necessary input* (two sets with the same sieve data, one with ≫x/(log x)^{3/2} window-3
+  failures, the other none); "for two windows our method needs a level close to 1"; the LP
+  model is "not a statement about primes". Intro: "our method needs …; this is why our proof
+  of Theorem C is conditional. We do not prove that unconditional methods must fail for two
+  windows"; added a sentence that P1 shows parity is necessary, not insufficient; model
+  sentence now "does not force any configuration with both windows clean". Retitled
+  "… exact orders for bounded windows and the role of parity".
+* **M2 (literature/novelty).** New intro subsection "Relation to known results" citing
+  Vaughan 1970 (`E(N)≪N exp(−c(log N)^{2/3})`, bound only — paper not consulted) and the
+  Iwaniec/FI09 origin of the sieve method. Remark 4.5 now "comparison with the literature":
+  Vaughan, Elsholtz–Tao, notes Thm 12.2 (`N exp(−c(log log N)^2)` for a_min=∞, windows up to
+  δ log N), notes Thms 14.4/14.9 (review status not recorded), and an explicit novelty
+  statement (exact exponent 1+J(Z)/2 for the larger sets {a_min>Z}, sharp for Z=3 and Z=7 on
+  EH; the half-set lemma as the ingredient, vs notes §71). Vaughan added to bibliography.
+* **m1, m2 (Remark 7.3).** FI09 now described as counting representations
+  p=x₁²+…+x₄², x₁x₄−x₂x₃=1, with multiplicity; method comparison corrected (FI09: semi-linear
+  sieve on one condition with a representation weight; here: linear sieve on both at level
+  x^{1−ε}; same final two-prime/parity step).
+* **m3.** Theorem 8.2 → Proposition 8.2; intro "Proposition D" (new `introprop` env).
+* **m4.** P1(1): moduli 840d ≤ x^{1/2}(log x)^{−B+1}, take B=B'(A)+1.
+* **m5.** Remark 6.3: n odd ⇒ p≡1 (8), 3∤n (else 3|p), n≡(x−y)² ⇒ n≡1 (3) written out.
+* **m6.** "monotone" removed (rise 10⁶→10⁷, then decrease; −2.5% overall).
+* **m7.** Remark 9.4(i): fake μ+μ(∅)(−[∅]+[{u,v}]) for any μ (hypothesis dropped; θ≥1/2
+  explained by u+v>1). (ii): nonnegativity needs c≤μ(U⊔V); stated.
+* **m8.** T₁ bounds now `Σ_{z≤r≤√x}(x/r²+1)`, giving 3x^{1/2+ε} (W1) and 6x^{1/2+ε} (W2).
+* **m9.** a-bad primes: union of half of the reduced classes modulo a (non-principal
+  character, a≡3 (4) not a square).
+* **m10.** Thm 4.2 and Theorem A now count 3max A<p≤N, with the gcd reason stated.
+* **m11.** Notes bibitem: "working notes"; review status of §§12, 14 not recorded.
+* **m12.** All 19 overfull hboxes removed (multline/align/gather; W2 set defined in text).
+* **m13.** Remark 9.2: "the only unconditional result of this kind that we know of".
+* Checklist point 9 correction accepted: the Euler-product inequality needs ℓ≥7 (true for
+  all ℓ≡1 (3)); the note's text already says ℓ≥7.
+* `paper/README.md`: entry added.
