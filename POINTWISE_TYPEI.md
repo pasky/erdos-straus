@@ -551,16 +551,23 @@ verbatim.)
   `C(11)>3000` (census: 111).
 * Unconditionally, any finite Type-I covering of `{n_p=7}` must have height
   `≥539`, and any covering of `{n_p=11}` must have height `>3000` (PROVED).
-  *Proof.* Suppose a finite covering of height ≤X is given, and let
-  `ℓ_1,…,ℓ_t>B` be the primes `>B` that occur in its F's. Refine the
-  formal class by `p≢` any root of any `N_{c,k}` (`ck≤X`) mod each `ℓ_i`.
-  This is possible because `ℓ_i>B≥2·#slices+2`. The refined class still
-  contains infinitely many primes (Dirichlet), and all of them have
-  `n_p=r`.
-  * A certificate whose F contains some `ℓ_i` never holds there
-    (`ℓ_i∤N`).
-  * A certificate with B-smooth F holds on the class iff F divides the
-    fixed part and `F≡−p (4ck)`, which the computation excludes.
+  *Proof.* Let `X_0` be the formal `ck_min` of the escape point
+  (`X_0=539` for r=7; for r=11 put `X_0=3001`). Suppose a finite covering
+  by certificates of height `<X_0` is given, and let `ℓ_1,…,ℓ_t>B` be the
+  primes `>B` that occur in its F's. Certificates on forced slices never
+  hold (notes Thm 48.1). So it suffices to refine the formal class by
+  `p≢0` and `p≢` any root of `N_{c,k}` mod each `ℓ_i`, for the **unforced**
+  slices with `ck<X_0`. There are 319 such slices for r=7 and 1491 for
+  r=11. This excludes at most `2·#+1` residues, and `ℓ_i>B>2·#+1`
+  (B=30000), so the refinement is possible. The refined class is a
+  reduced class mod `Q·∏ℓ_i`. By Dirichlet it contains infinitely many
+  primes, all hard with `n_p=r`.
+  * A certificate on an unforced slice whose F contains some `ℓ_i` never
+    holds there (`ℓ_i∤N`).
+  * A certificate on an unforced slice with B-smooth F holds on the class
+    iff F divides the fixed part and `F≡−p (4ck)`. Both are determined by
+    the class (checked for every unforced slice with `ck<X_0`), and the
+    computation excludes them.
 
   So the class is not covered. ∎
 
