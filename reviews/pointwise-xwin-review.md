@@ -102,5 +102,51 @@ and `c=0.2225` ✔.
   or for `Z≤L^{A}`; then the 0.22 claim follows (as `c=0.2225−o(1)`).
   (Graded MAJOR only because, as written, a headline claim is not covered by
   the theorem it is derived from.)
-* **MINOR-3**: `c≈0.22` uses `β_tot~Z²/(4π²)`, an asymptotic; say "for any
-  `c<π²/(64 log 2)·… =0.2225`" or "`c=0.2225−o(1)`" to make it a theorem.
+* **MINOR-3**: `c≈0.22` uses `β_tot~Z²/(4π²)`, an asymptotic; write the constant as
+  `c=π²/(64 log 2)−o(1)=0.2225−o(1)` to make it a theorem.
+
+## §2: Lemma 2.1, Theorem 2.2, Corollary 2.3 — SOUND (minor cosmetics)
+
+**Lemma 2.1.** Re-derived the second moment: diagonal `μ_N`; pairs with a
+coordinate where exactly one is 0 contribute `1/n²` each (≤`μ_N²`); equal-support
+pairs with `D≠∅`: `B²=1, A=τB`, giving `t/n²` (≤`5^k` pairs) or, if `A=1`, `B=τ`
+with prob `1/n` (≤`3^k−1` pairs). Chebyshev and `3^k−1≥(2/3)3^k` give the bound;
+Poisson generating function ✔. Matches notes Lemma 12.5 (same second moment,
+there used with Paley–Zygmund). **From-scratch check**
+(`scripts/review_xw_signed.py`): exact ρ_k (multiset enumeration) / Monte Carlo
+for `a∈{3,7,11,15,19,23,35,39,55,63,91,105}`, `k≤12`: no violation, max
+`ρ_k/bound=0.17`; the lower bound `ρ_k≥2^{−k}` (prime a, exact cases) also holds.
+(Remark: for composite `a≡3 (4)` the kernel of the Jacobi character `(·/a)` is an
+index-2 subgroup avoiding −1, so `ρ_k≥2^{−k}` holds for every such a, not only
+primes.)
+
+**Theorem 2.2.** Checked each step.
+* SW input: `a≤ℒ^θ=(log y)^{θ/δ}`, fixed power of `log y`, partial summation from
+  `u≥y` gives error `≪e^{−c√log y}`; times `φ(a)≤ℒ` gives η ✔. `λ=(1−θ−δ)L−log L−O(1)` ✔.
+* Step 0: distinct primes of `R_a`, `u,v` products of disjoint subsets, `uv|x_a` ⇒
+  `Σ±⊆Rat_a(x_a)`, so the class tuple is bad ✔. Event description of `R_a=R`
+  (with `m_a`) ✔.
+* Step 1: `log Q≤MJ log y'≤Jℒ^{1−θ}/100≤ℒ/100` ✔ (J≤ℒ^θ); CRT class mod Q since
+  `ℓ∤24` ✔; roots `p≡0`, `p≡−a` for `ℓ≤m_a` distinct (`ℓ>y>Z`) ✔;
+  `Λ≤ℒ/20+ℒ/50≤log(X/Q)/4` ✔; correction `(J+1)MJ/y=o(1)` ✔;
+  `e^{−λ(y,z_0)}~20ℒ^{δ−1}`, `4·20=80`, `80X≈80N/48≤2N` ✔.
+* Step 2 factorisation (dropping disjointness enlarges) ✔.
+* Step 3: grouping ordered tuples by class tuple and SW per class gives
+  `e^{−λ}(λ+η)^kρ_k/k!` ✔; `|R|=M` case: badness inherited by `R'`, Poisson
+  probability ≤1, `Σ_{m}1/m=λ`, `3^{−6L}=ℒ^{−6.59}`, `(5/9)^{6L}=ℒ^{−3.53}` ✔.
+
+**§2.3 / Cor 2.3.** The three exponents `c−b+b log(b/c)` (Chernoff, needs `b<c`),
+`b log3−θ` (`φ(a)≤ℒ^θ`), `b log(9/5)` (`2^{ω}=ℒ^{o(1)}`) ✔; all positive iff
+`θ<(1−θ)log 3` ⟺ `θ<θ_*=log3/(1+log3)` ✔ (matches notes (14.21)/Thm 14.9 value
+0.52349…). Uncapped: `d≥min(2(1−θ)/3−θ, 4(1−θ)/9)=4(1−θ)/9` iff `θ≤2/11` ✔;
+`d(0.1)≥0.40` ✔. Uniformity of `ℒ^{o(1)}` over `a≤Z` ✔. Dyadic covering:
+`O(f)` blocks, `log N'=(1+o(1))log N` since `f=o(ℒ)`, block sum `≤4N`, head
+`Ne^{−f}` dominated since `d/4<1` ✔. Priority to notes Thm 14.9 correctly
+acknowledged; the "not a new frontier" label is honest.
+
+* **MINOR-4** ((2.1)): the Chernoff term should read
+  `e^{−(λ+η)}(e(λ+η)/k_0)^{k_0}` with `k_0≤λ+η` (K has mean `λ+η`, not λ).
+  Immaterial (η→0).
+* **MINOR-5** (Lemma 2.1 Remark): "(e.g. the squares, a prime)" — the lower bound
+  `2^{−k}` holds for all `a≡3 (4)` via `ker(·/a)`; worth saying since §2 is
+  applied to composite a.
