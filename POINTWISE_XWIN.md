@@ -15,7 +15,7 @@ POINTWISE_SIZE §8: for a prime `p≡1 (4)` and `a≡3 (4)`, `x_a=(p+a)/4`,
 | 1.1 | Half-set lemma: failure of window a ⇒ all prime factors of `x_a` lie in one of `2^{β(a)}` explicit sets `S_σ` of exactly half the classes mod a (any a≡3 (4), prime or composite); no budget exceptions | PROVED |
 | 1.2–1.3 | For every fixed finite set A of moduli ≡3 (4): `#{p≤N: −1∉Rat_a(x_a) ∀a∈A}≪_A N/(log N)^{1+|A|/2}`; hence `T(N,Z)≪_Z N/(log N)^{1+J(Z)/2}`, `J(Z)=⌊(Z+1)/4⌋` — the random-model exponent, for each fixed Z | PROVED (fixed-dimension upper sieve). New: improves notes Cor 71.4 (`δ_J≈½log log Z`) and makes POINTWISE_WINDOW §6's joint "dimension ≥J/2" Assessment a theorem |
 | 1.4 | `#{a_min≥7}≍x/(log x)^{3/2}`; `#{a_min≥11}≍x/(log x)^2` (lower bound on EH) | PROVED / CONDITIONAL (lower bounds = POINTWISE_WINDOW W1/W2) |
-| 1.5 | uniform version: `T(N,Z)≤π(N)(log N)^{−(1/2−o(1))J(Z)}` for `Z=o(log log N)`; `N exp(−0.22(log log N)²)` at `Z≈3.6 log log N` | PROVED modulo SW |
+| 1.5 | uniform version (`Z≤C_0 log log N`): `T(N,Z)≤π(N)(log N)^{−(1/2−o(1))J(Z)}` for `Z=o(log log N)`; `N exp(−(0.2225−o(1))(log log N)²)` at `Z≈3.56 log log N` | PROVED (SW only for moduli `≤(log y)^{1/2}`) |
 | §1.3 | `T(x,Z)·(log x)^{1+J/2}/x` flat (±9%) for `x=10^6..10^8`, `Z≤23` | EVIDENCE |
 | 2.1 | Random signed products: `P(τ∉Σ±(c_1..c_k)) ≤ 3n·3^{−k}+(9/4)t(G)(5/9)^k` | PROVED (= notes Lemma 12.5) |
 | 2.2 | Pattern-summed prime-side sieve for windows `a≤(log N)^θ` | PROVED modulo Siegel–Walfisz |
@@ -147,31 +147,37 @@ versus notes (71.26)'s `2/3, 23/30, 859/990` (beyond the `1/log N`).
 
 ### 1.2' Uniformity: exponent exactly 1/2 per window for `Z=o(log log N)`
 
-**Theorem 1.5 (PROVED modulo Siegel–Walfisz).** Let `L=log log N`,
-`ℒ=log N`. Uniformly for `3≤Z≤L` and `N` large, with `J=J(Z)` and
-`β_tot(Z)=Σ_{a≤Z, a≡3 (4)}β(a)`,
+**Theorem 1.5 (PROVED; Siegel–Walfisz used only for moduli
+`≤C_0(log y)^{1/2}`, constants possibly ineffective).** Let
+`L=log log N`, `ℒ=log N`, and fix `C_0≥1`. Uniformly for `3≤Z≤C_0L` and
+`N≥N_0(C_0)`, with `J=J(Z)` and `β_tot(Z)=Σ_{a≤Z, a≡3 (4)}β(a)`,
 
 ```
 #{N/2<p≤N, p≡1 (24): a_min(p)>Z}
-   ≤ (N/ℒ)·exp( −(J/2)(L − 3 log L − C) + β_tot(Z)·log 2 + O(log L) ).
+   ≤ (N/ℒ)·exp( −(J/2)(L − 3 log L − C) + β_tot(Z)·log 2 + O(log L) ),
 ```
 
-Since `β_tot(Z)≤Σ_{a≤Z}(φ(a)/4+2^{ω(a)−2})=O(Z²)`, this is
-`π(N)·(log N)^{−(1/2−o(1))J(Z)}` uniformly for `Z=o(L)` — the model
-rate with the exact per-window exponent 1/2 — and at `Z≍L` it is
-`N exp(−c(log log N)²)` with an explicit c (≈0.22 at `Z≈3.6L`, using
-`β_tot≈Z²/(4π²)`).
+with C and the O depending on `C_0` only. Since
+`β_tot(Z)≤Σ_{a≤Z}(φ(a)/4+2^{ω(a)−2})=O(Z²)`, this is
+`π(N)·(log N)^{−(1/2−o(1))J(Z)}` uniformly for `Z=o(L)` — the model rate
+with the exact per-window exponent 1/2. With `C_0=4` and
+`Z=⌊π²L/(4 log 2)⌋≈3.56L` (inside the range), using
+`Σ_{a≤Z, a≡3 (4)}φ(a)=(1+o(1))Z²/π²` (so `β_tot=(1+o(1))Z²/(4π²)`), it
+gives `T(N,Z)≤N exp(−(π²/(64 log 2)−o(1))(log log N)²)`, where
+`π²/(64 log 2)=0.2225…`.
 
-*Proof.* As Theorem 1.2, with `y=exp(L²)` and
-`log z=ℒ/(5(J+1))`. Moduli `a≤Z≤L=(log y)^{1/2}`, so SW gives
+*Proof.* As Theorem 1.2, with `y=exp(L²)` and `log z=ℒ/(5(J+1))`.
+Moduli `a≤Z≤C_0L=C_0(log y)^{1/2}`, so SW gives
 `Σ_{y<ℓ≤z, ℓ≡c (a)}1/ℓ=(1/φ(a))log(log z/log y)+O(e^{−c_1L})` uniformly;
-summed over `≤L` windows and `≤L` classes the error is `o(1)`. Roots are
-distinct as `y>2Z`, `ν(ℓ)≤J+1<ℓ`, and `Λ≤(J+1)(log z+O(1))≤ℒ/4`. For a
-fixed selection vector σ, Lemma 12.1 gives
-`≤4X exp(−(1+J/2)log(log z/log y)+o(1))` with
-`log(log z/log y)=L−2log L−log(5(J+1))≥L−3log L−C`, and
-`e^{−(L−3log L−C)}=O(L³/ℒ)` supplies the `1/ℒ` (the extra `L³` is the
-`O(log L)`). Sum over the `2^{β_tot}` selection vectors (Lemma 1.1). ∎
+summed over `≤C_0L` windows and `≤C_0L` classes the error is `o(1)`.
+Roots are distinct as `y>2Z`, `ν(ℓ)≤J+1<ℓ`, and
+`Λ≤(J+1)(log z+O(1))≤ℒ/4`. For a fixed selection vector σ, Lemma 12.1
+gives `≤4X exp(−(1+J/2)log(log z/log y)+o(1))` with
+`log(log z/log y)=L−2log L−log(5(J+1))≥L−3log L−C(C_0)` (as `J≤C_0L`),
+and `e^{−(L−3log L−C)}=O(L³/ℒ)` supplies the `1/ℒ` (the extra `L³` is
+the `O(log L)`). Sum over the `2^{β_tot}` selection vectors (Lemma 1.1).
+For the last claim, `−(J/2)L+β_tot log 2=−(Z/8)L+(log 2/(4π²))Z²+o(L²)`
+is minimised at `Z=π²L/(4log 2)` with value `−(π²/(64log2))L²`. ∎
 
 *Comparison.* notes Cor 71.4 has, for fixed J, exponent
 `δ_J≈½log log Z` in total; Theorem 1.5 has `J/2≈Z/8`, uniformly up to
