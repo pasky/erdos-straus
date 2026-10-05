@@ -233,3 +233,17 @@ an M_1 bound `log M_1≪d log𝓛` for q-ary ES truncations **and** Lemma 6.2.
   "up to logs"` vs. the ideal-junta value `S·S𝓛` differ by a factor between
   `log z` and `𝓛` per junta prime; `𝓛` is not a "log" in this exponent
   bookkeeping (it is the variable). State the bound as `S²·log z ≲ log p`.
+
+## Replay (from-scratch reviewer scripts)
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; uv run python scripts/review_o8c_spectral.py 1)   # ~2 min -> data/review_o8c/spectral.txt
+(ulimit -v 8000000; uv run python scripts/review_o8c_counterex.py)    # ~1 min -> data/review_o8c/counterex.txt
+(ulimit -v 8000000; uv run python scripts/review_o8c_divsum.py 8)     # ~1 min, ~1 GB -> data/review_o8c/divsum.txt
+```
+
+Sources: Elsholtz–Tao checked in `sources/elsholtz-tao-1107.1010.pdf` (§5,
+lower bound for Σ f_II(p) via BV). Håstad / O'Donnell / LMN not re-opened
+(not in sources/); their use in Lemma 6.1 is the textbook Mansour-type
+argument, which I re-derived and tested numerically.
