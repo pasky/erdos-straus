@@ -72,7 +72,17 @@ def main():
             lim = X ** frac
             v = max((s for (m, s) in partial if m <= lim), default=0.0)
             print(f"  S_tau(y,X^{frac})={v:.4f}")
-        print("  dyadic profile: u, b(K)=sum_block tau/(K log^2 K), u^4*b")
+        print("  dyadic profile (every 2nd block shown; max over ALL complete blocks below):")
+        best = (0.0, None, None)
+        for k in sorted(blocks):
+            K = 2 ** k
+            if K < y or 2 * K > X:
+                continue
+            u = math.log(K) / ly
+            v = u**4 * blocks[k] / (K * math.log(K) ** 2)
+            if v > best[0]:
+                best = (v, K, u)
+        print(f"  max over complete blocks K>=y: u^4 b = {best[0]:.4f} at K={best[1]} (u={best[2]:.3f})")
         for k in sorted(blocks):
             K = 2 ** k
             if K < y or 2 * K > X:

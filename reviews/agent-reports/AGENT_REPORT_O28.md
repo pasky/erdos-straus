@@ -1,7 +1,7 @@
 # AGENT REPORT O28 (branch side-agent/kary2-loglog) — checkpoint 1
 
 Deliverable: `EXCEPTIONAL_KARY3.md`, `scripts/kary3_moments.py`,
-`data/kary3/moments.txt`. Unreviewed.
+`data/kary3/moments.txt`. Self-reviewed (`reviews/kary3-self-review.md`, deep-mode subagent; D1–D7 applied, none affecting Thm 4.1).
 
 ## Results
 
@@ -28,15 +28,20 @@ Deliverable: `EXCEPTIONAL_KARY3.md`, `scripts/kary3_moments.py`,
      `log y`. The split above avoids that.
 2. **Goal (2) done for prime order; exact open scope stated for class order.**
    * Thm 5.1 is the truncated-weight cap
-     `Cλ^{3/4} + 2d₀log(CΛ³/d₀) + O(d₀)`, with `d₀ = λ/L₀`. It adds one
+     `Cλ^{3/4} + 2d₀log(C(1+Λ³/d₀)) + O(d₀)`, with `d₀ = ⌊λ/L₀⌋`, `L₀ ≤ λ`. It adds one
      top block above `e^{L₀}` to the K2 block structure.
    * Cor 5.2: (A log N, k)-mixed majorants (prime order ≤ k) of any K2
      family save `≤ C_A[(log N)^{3/4} + k log log N]`. This is TU Cor 3.2
      for all K2 families.
    * Cor 5.3 covers class order k with `≤ r` large primes per modulus.
-   * Still open: class order when moduli have unboundedly many large
-     primes. EK Thm 2.5's locality is in prime coordinates; a version in
-     class coordinates would be needed.
+   * Cor 5.3's r counts primes above the *fixed* W. Twin moduli,
+     η-twins and the 3/4 note's atoms are not bounded-r in this sense
+     (self-review D1); Thm 4.1 still covers them.
+   * Still open, under TU's hypothesis that class moduli are `≤ N^A`:
+     class order k with
+     `max(L^{4θ/3−1}, L^θ/(r log L)) ≲ k ≲ L^θ/log L`. This window is
+     nonempty only when r is unbounded. EK Thm 2.5's locality is in prime
+     coordinates; a version in class coordinates would be needed.
 3. **Goal (3): the Λ² middle window is subsumed for the cap (§6).** Λ²
    majorants are in Thm 4.1's class, which has no ω-hypothesis, so the cap
    is `CL^{3/4}` for all r. The TW4-internal route (hub count) is moot for
@@ -70,4 +75,4 @@ Deliverable: `EXCEPTIONAL_KARY3.md`, `scripts/kary3_moments.py`,
 * STATUS "up to a (log log N)^{3/4} factor without a B-hypothesis": delete.
 
 Numerics (EVIDENCE): the smooth first moments `S(y)/(log y)³` converge
-(X = 10¹²) and decrease over y = 7..31. The block profile has `u⁴b ≤ 0.25`.
+(X = 10¹²) and decrease over y = 7..31. The block profile has max `u⁴b = 0.385` over all complete blocks.
