@@ -75,3 +75,35 @@ Passing: `B ≤ F`; BRW identity; `𝔼[F−B] ≤ m_a²Σℙ(C_j)En(F^{(j)};t)`
 `|𝔼Fψ| ≤ δ^{(ℓ₀)}−δ` for all 63 real primitive `ψ` and all `ℓ₀ | f`; Lemma 1.2
 (`η ≤ 1/6` ⇒ `|𝔼Fψ| ≤ δ/5`) in the 11/30 sparse systems where it applies.
 Consistent with the author's toy (seed with `max|𝔼Fψ|/δ = 1` reproduced: (Tw) can fail).
+
+### Lemma 5.1 and the completeness question for m ≠ 4
+
+Re-derived (i)–(iii) by hand: (i) `v^{−1} ≡ muw (M)` since `m·uvw = mA ≡ 1`;
+every `D | A²` is `u²w` with `uvw = A` (per prime `q^a ‖ A`, `q^d ‖ D`, take
+`α = max(0,d−a)`, `γ = d−2α`, `β = a−α−γ ≥ 0`). (ii) `−mD ≡ 1 ⇒ D ≡ −A`, preserved
+by `D ↦ A²/D` (D is then a unit), `D ≤ A ⇒ 0 < D+A ≤ 2A < mA−1 = M` for `m ≥ 4`.
+(iii) `q^a | mD+1 ⇒ D ≡ −A (q^a) ⇒ A²/D ≡ −A ⇒ q^a | m(A²/D)+1`. All **SOUND**.
+
+**Completeness (the point the author left open) — it holds, with a 4-line proof.**
+Let `m/n = 1/x + 1/(ny') + 1/(nz')` with `gcd(x,n) = 1` (for prime `n > m ≥ 4`
+this is every solution with exactly two denominators divisible by `n`; three is
+impossible since then `m ≤ 3`). Put `w = gcd(x,y',z')`, `x = wX`, `y' = wY`, `z' = wZ`.
+Then `m·wXYZ = nYZ + XY + XZ`, so `X | nYZ ⇒ X | YZ` (`gcd(X,n)=1`), `Y | XZ`,
+`Z | XY`. Since `X,Y,Z` have no common prime, at each prime one exponent is 0 and
+the other two are equal; hence `X = su`, `Y = sv`, `Z = uv` (s,u,v pairwise coprime).
+Dividing by `suv`: `m·suvw = nv + s + u`, i.e. `s(m·uvw − 1) = nv + u` — exactly
+(5.1). (This is ET Prop 2.6's argument, numerator-independent as the author
+suspected.) **From-scratch brute force** `scripts/review_tr_typeII.py` (stdlib,
+~1 min): enumerated *all* solutions of `m/n` for `m ∈ {4,5,6,7}` and primes
+`n ≤ 400` (`m ∈ {8,11}`, `n ≤ 250`): 641/534/341/328/123/89 Type II solutions, **every
+one** has the form (5.1) (search over `w | gcd`, both orderings of `y',z'`) and
+`n mod M ∈ R_m(M)`. For composite `n` coprime to `m` (n ≤ 150), all failures have
+`gcd(x,n) > 1` (e.g. `4/9 = 1/3+1/18+1/18`), consistent with the proof.
+
+**Consequence.** For prime `p`, `W_m(p) > T` ⇔ `m/p` has no solution with exactly
+two denominators divisible by `p` and `m·uvw − 1 ≤ T` (`uvw = w·√(XYZ)`
+in the notation above). So Cor 5.2 is a statement about *all* Type II solutions
+of `m/p`, not about a sub-family. The author's hedge in §5.1 ("we do not claim
+every Type II solution of m/n arises this way") is unnecessarily weak: see
+defect MINOR-? (upgrade, not an error). Cor 5.2 is correct either way since it
+only concerns `W_m` as defined.
