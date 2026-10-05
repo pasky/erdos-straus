@@ -82,7 +82,7 @@ Summing over `O(𝓛³)` blocks, with `log(A+B+2)≪𝓛`, gives `S_0`. ∎
 Hence `Σ_II ≪ 𝓛^4 log𝓛`.
 
 *Proof.* Split `h(N)=Σ_{q|N}1/i` (Lemma 1.1(a)) at `q≤C` / `q>Y`
-(for `C=1` the first part is empty).
+(for `C=1` the first part is empty, and `q=2` is omitted harmlessly: N divides the odd M).
 
 *Small q (`q≤C`).* Fix `(a,d,f)` and `q=ℓ^i≤C`. If `ℓ|4ad` then `ℓ∤N`:
 `N≡−f (ℓ)` and `f|P≡1 (ℓ)` (P is odd, so `ℓ=2` is also excluded). Otherwise
@@ -134,7 +134,7 @@ with `ℓ∤d`. `P(x)=4dx²+1` has at most two roots `x_0 mod q` (ℓ odd,
 Q(a') := P(qa'+x_0)/q = 4dq·a'² + 8dx_0·a' + (4dx_0²+1)/q .
 ```
 
-The coefficients are nonnegative integers `≤8dq≤16A^{3/2}≤N'^5` (`N'≥A^{1/2}`,
+The coefficients `4dq`, `8dx_0<8dq`, `(4dx_0²+1)/q≤4dq` (as `x_0≤q−1`) are nonnegative integers `≤8dq≤16A^{3/2}≤N'^5` (`N'≥A^{1/2}`,
 `A≥16`). Root counts: Q is odd-valued, so `ρ_Q(2^j)=0`. For an odd prime
 `p≠ℓ`, `a'↦qa'+x_0` is a bijection mod `p^j`, so `ρ_Q(p^j)=ρ_{4d}(p^j)≤2`,
 where `ρ_{4d}(m):=#{x mod m: 4dx²+1≡0}` (ET's `ρ_{ka}` with `k=4`, `a=d`). For
@@ -153,7 +153,8 @@ using multiplicativity of `ρ_Q` and `ρ_Q(m')=ρ_{4d}(m')` for `ℓ∤m'`. With
 ```
 
 by ET (7.10) with ET's `(A,B,k)=(2B,2A,4)`. ET prove (7.10) for ET's `A≤B`,
-which is `B≤A` here.
+which is `B≤A` here (its proof does not in fact use `A≤B`; R45a m2,
+`reviews/exceptional-kary3-review.md`). In fact `ρ_Q(ℓ^j)≤1` (R45a m3); `≤2` suffices.
 
 *Small q, case `B>A` (`Z=B≥16`, `q≤B^{1/2}`), linear.* Fix `a<2A` with
 `ℓ∤a`. `q|P` means `d≡d_0:=−(4a²)^{−1} (mod q)`, `0<d_0<q`. Write
@@ -223,7 +224,7 @@ P(E_{M,D}) ≤ s_1(M,D) := C_1·g/M ,
 ```
 
 and O11 Lemma 2.2's conclusions hold with `s` replaced by `s_1` and
-`log 840` replaced by `log(8·105·∏_{ℓ≤𝓛}ℓ) ≤ 1.02𝓛+7` (Rosser–Schoenfeld
+`log 840` replaced by `log(8·∏_{odd ℓ≤max(𝓛,7)}ℓ) ≤ log(8·105·∏_{ℓ≤𝓛}ℓ) ≤ 1.02𝓛+7` (the middle term is a harmless overcount) (Rosser–Schoenfeld
 `θ(x)<1.01624x`). In particular `log Q ≤ 1.02𝓛+7+(𝓛/c)·C_1·Ω_0`.
 
 *Proof.* O11 Lemma 2.1's proof gives
@@ -246,7 +247,8 @@ for infinitely many Mordell-hard primes p
 W(p) ≥ exp( c·(log p)^{1/5}·(log log p)^{−1/5} ),     uniformly  log L_h(T) ≪ 𝓛^5 log𝓛.
 ```
 
-Also `log(1/δ*(T))≤log φ(Q)+4S_1≪𝓛^5log𝓛` (O11 Cor 3.3 with `c=1/8`).
+Also `log(1/δ*(T))≤log φ(Q)+4S_1≪𝓛^5log𝓛` (O11 Cor 3.3 with `c=1/8`); this needs
+only the local lemma and the quarantine, so it holds modulo ET alone (R45b m1).
 
 *Proof.* As Theorem 6.1, with Lemma 6.2 in place of O11 Lemma 2.2. The
 other uses of the quarantine in O11 Thm 3.2's proof are unaffected: the
@@ -255,9 +257,11 @@ Haar side and BRW minorant need only `P(E)≤s_1` and the local-lemma sums
 has `a_{ℓ_0}=0`, hence `ℓ_0>𝓛`; O8 Lemma 3.3 needs only `w_{ℓ_0}≤c`. ∎
 
 *What is left of the log (CONJECTURE/Assessment).* The remaining `log𝓛` comes from
-the moment `Ω_0`. Numerically the weighted mean of `h(M)≥ω(M)` grows like
-`log𝓛` (O11 §4, §7 here; three values of T only), so we expect
-`Ω_0≍𝓛^4log𝓛` and no better bound on `Ω_0` to remove it. This is not a
+the moment `Ω_0`. Numerically only the weighted *mean* `Ω_0'/S_0'` of `h(M)≥ω(M)` is seen to grow like
+`log𝓛` (O11 §4, §7 here; three values of T). The order of `S_0` is unknown:
+the normalised `S_0'/𝓛^4=0.0040, 0.0033, 0.0029` and `Ω_0'/(𝓛^4log𝓛)=0.0039, 0.0033, 0.0029`
+are still decreasing at `T=10^{4,5,6}` (R45b m3). We conjecture
+`Ω_0≍𝓛^4log𝓛`, with no better bound on `Ω_0` to remove the log; the data do not support the `≍`. This is not a
 lower bound on the cost of the quarantine itself: Lemma 2.2's charging is an
 upper bound and also charges atoms that do not survive.
 
@@ -272,8 +276,9 @@ upper bound and also charges atoms that do not survive.
 | Lemma 4.1, Cor 4.2 | `Σ_I=Σh(e)/N≪𝓛^4log𝓛` | PROVED mod ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10) |
 | Thm 5.1 | `Ω_0≪𝓛^4log𝓛`; **H_ω(2)** | PROVED mod ET |
 | Thm 6.1 | `W(p)≥exp(c(log p)^{1/5}(log log p)^{−2/5})` i.o. | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
-| Lemma 6.2, Thm 6.3 | `s_1=e³g/M`; `W(p)≥exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.; `log(1/δ*)≪𝓛^5log𝓛` | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
-| §6A last para | `Ω_0≍𝓛^4log𝓛` (no better moment bound) | CONJECTURE (EVIDENCE at 3 values of T) |
+| Lemma 6.2, Thm 6.3 | `s_1=e³g/M`; `W(p)≥exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o. | PROVED mod (G), ET, OMEGA10 Thm 3.4 |
+| Thm 6.3 Haar display | `log(1/δ*)≪𝓛^5log𝓛` | PROVED mod ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10) |
+| §6A last para | `Ω_0≍𝓛^4log𝓛` (no better moment bound) | CONJECTURE (EVIDENCE only for the mean of h; order of `S_0` unknown) |
 
 Here ET means results proved in Elsholtz–Tao (arXiv:1107.1010, J. Aust. Math. Soc. 2013);
 nothing in ET is re-proved here. Not claimed: anything about ES itself;
