@@ -586,17 +586,24 @@ switching** statement,
 
 where W is the Efron–Stein weight in the q-ary product space and f a
 system's bad-indicator. ESW with LMN would give `d≍k·k_0`. ESW is
-**open**. The example is consistent with it: `W^{≥1}[f_ρ]≤Pr[f_ρ=1]≈Ns/q`.
+**open**. The example is plausibly consistent with it (exact level weights
+decay; R30c m4), but no proof is given.
 
 ### 6.5 Ceilings of this route (Assessment)
 
-* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. Here `K≥log(1/μ)≈S`,
-  and `log Z ≳ (junta)·log z` with junta `≳ S/log(junta/S)` even for
-  prime-local systems (Brun). So `log p ≳ S²` up to logs. This is the
-  price of Thorner–Zaman's error `exp(−c log x/log q)` and holds for any
-  minorant.
-* *Under ET* (`S≤𝓛^4log𝓛`): even an ideal junta `≍S` gives
-  `log p ≈ S·S𝓛 ≈ 𝓛^9` (exponent `≈1/9`). *With the empirical*
+* *The square.* PO Thm 4.1 needs `log x ≫ K·log Z`. Here `K≥log(1/μ)≥log(1/δ)≥S1`
+  rigorously (Prop 6.6 and the remark after it); `log(1/δ)≈S` for
+  multi-prime events is heuristic. Also `log Z ≳ (junta)·log z`, with junta
+  `≳ S/log(junta/S)` for minorants of Brun/BRW type (heuristic, from the
+  fundamental-lemma level requirement; no argument covers every minorant).
+  So `log p ≳ S²·log z` for such minorants. This is the price of
+  Thorner–Zaman's error `exp(−c log x/log q)` (R30c m5). POINTWISE_OMEGA9
+  Thm 1.1 replaces PO Thm 4.1 by a transfer without the square.
+* *Under ET* (`S≤𝓛^4log𝓛`): with S only bounded by `S*`, even an ideal
+  junta `≍S` gives `log p ≈ S·S𝓛 ≈ 𝓛^9` (exponent `≈1/9`). This is what
+  the bookkeeping yields, not a ceiling: ET bounds S from above. The
+  supported ceiling of this route is via Prop 6.6: `S1≫𝓛²` gives
+  `log p ≳ 𝓛^4·log z`, exponent `≤1/4` (Assessment; R30c m5). *With the empirical*
   `S≈𝓛^{2.5}` (EVIDENCE, PO §2): `≈𝓛^6` (exponent `≈1/6`). The heuristic
   truth `log W≍(log p)^{1/3}` (POINTWISE_SIZE §7) is out of reach of
   any transfer through PO Thm 4.1 with a Haar density `e^{−Θ(S)}`, unless
