@@ -514,6 +514,105 @@ lemma.  It does not apply to depth-$3$ circuits or to $\mathrm{AC}^0$; we do
 not know whether the method extends to them.
 \end{remark}
 
+\section{Sharpness, limits of the method, open problems}\label{sec:sharp}
+
+\begin{proposition}[The base $2^{-1/k}$ is sharp]\label{prop:sharp}
+Fix $k\ge1$ and $j\ge1$, and let $t=jk-1$.  For every $\eta>0$ there is a family of
+cylinder events of width $k$, on a product space with all alphabets of size
+$2$ and a suitable product measure, or on $[q]^n$ with the uniform measure
+and $q$ large, such that
+\[
+ \energy(F;t)\ \ge\ \frac{2^{-(t+1)/k}}{e\sqrt j}-\eta .
+\]
+Consequently, no bound $\energy(F;t)\le C\rho^{-(t+1)/k}$ with $\rho>2$ holds for all
+width-$k$ systems, and the same is true for $W^{>t}[g]$ of width-$k$ DNFs
+under biased product measures on $\{\pm1\}^n$.
+\end{proposition}
+
+\begin{proof}
+Take $m$ events on pairwise disjoint sets $S_1,\dots,S_m$ of $k$ coordinates,
+each fixing at every coordinate of its support a value of probability $p$
+(the value $-1$ of a $p$-biased bit, or one value of $[q]$ with $q=1/p$), and
+put $\pi=p^k$.  The factors $1-\mathbf 1_{E_i}$ are independent, so
+$F^{=U}=\prod_i(1-\mathbf 1_{E_i})^{=U\cap S_i}$.  If $U$ is the union of $j$ of the $S_i$,
+Lemma~\ref{lem:ident}(d) gives $\|F^{=U}\|^2=[\pi(1-p)^k]^j(1-\pi)^{2(m-j)}$, and
+$|U|=jk$.  Hence
+\[
+ \energy(F;jk-1)\ \ge\ \binom mj\big[\pi(1-p)^k\big]^j(1-\pi)^{2(m-j)}
+ \ \longrightarrow\ e^{-2s}\frac{s^j}{j!}
+\]
+as $p\to0$ with $m=\lfloor s/\pi\rfloor$.  With $s=j/2$ and $j!\le e\,j^{j+1/2}e^{-j}$ the
+limit is at least $2^{-j}/(e\sqrt j)$, and $2^{-j}=2^{-(t+1)/k}$.
+\end{proof}
+
+So at most a factor of order $\sqrt{t/k}$ could be gained in
+Corollary~\ref{cor:tail} over general product spaces.  Numerically, the
+supremum over $m$ of $\energy(F;jk-1)\,2^{j}$ in this family is about
+$2/\sqrt{2\pi j}$ for small $p$ (an earlier internal computation; we do not
+prove it).  Together with Proposition~\ref{prop:single} this shows that both
+the threshold $2$ in Theorem~\ref{thm:main} and the base of
+Corollary~\ref{cor:tail} are optimal at the level of generality of the
+theorem.
+
+\begin{example}[The uniform cube]\label{ex:parity}
+On $\{\pm1\}^n$ with the uniform measure the extremal families above are not
+available ($p=1/2$), and the truth may be better.  Let $g$ be the OR of $s$
+parities on pairwise disjoint blocks $B_1,\dots,B_s$ of $k$ variables.  Each parity
+is a width-$k$ DNF (with $2^{k-1}$ terms), so $g$ is a width-$k$ DNF.  If the
+$i$-th parity is ``true'' when $\chi_{B_i}=-1$, then $F=\prod_i(1+\chi_{B_i})/2$, and
+$\energy(F;jk-1)=4^{-s}\sum_{i\ge j}\binom si$.  Taking $s$ near $4j/3$ and using
+Stirling's formula, $\max_s4^{-s}\binom sj=3^{-j+o(j)}$.  So the exponential rate of
+the best width-$k$ bound on the uniform cube lies between $3^{-t/k}$ and
+$2^{-t/k}$.  We do not know where.  In random and hill-climbing searches over
+small Boolean systems (earlier internal computations) we found nothing
+better than this example.
+\end{example}
+
+\emph{No one-event-at-a-time proof.}  It is natural to try to prove
+Theorem~\ref{thm:main} by adding the events one at a time.  The following
+example shows that this cannot work in the obvious form.  Adding a further
+event of weight at most $2$ to a system can \emph{increase} $G_F$.
+
+\begin{example}[Adding an event can increase $G_F$]\label{ex:mono}
+Let $n=2$, $\Omega=[8]^2$ with the uniform measure, $\lambda_1=\lambda_2=\sqrt2$, and let
+$\cE$ consist of the $49$ point events $\{x=(a,b)\}$ with $a\ne0\ne b$.  Let
+$A=\{x=(0,0)\}$.  All events have weight $2$, and
+$G_{F_\cE}<G_{F_{\cE\cup\{A\}}}$; numerically the values are $0.31571$ and
+$0.31757$.  (The exact values are computed in Section~\ref{sec:check}.)  A
+similar example exists on $[5]^3$, using the full-width cylinders with an
+even number $\ge2$ of coordinates different from $0$.
+\end{example}
+
+Also the inequality fails beyond the threshold.  For $n$ uniform bits, the
+OR of the $n$ literals $x_v=-1$ and $\lambda_v=4$ give $G_F=(5/4)^n$ by
+Lemma~\ref{lem:ident}(d) and Proposition~\ref{prop:single}.  We state two
+strengthenings that are supported by numerical evidence but are open.
+
+\begin{conjecture}[Excess weights]\label{conj:cexp}
+For every family of cylinder events and all weights $\lambda_v\ge1$,
+\[
+ G_F(\lambda)\le\prod_{E\in\cE}\big(1+\PP(E)(w_E-2)_+\big).
+\]
+\end{conjecture}
+
+\begin{conjecture}[Fractional matchings]\label{conj:fm}
+If every edge of $\Ho$ has $w_J\le2$, then $Q_\mu(\Ho)\le\prod_{J\in\Ho}(w_J-1)^{y_J}$ for
+every fractional matching $y$ ($y_J\ge0$, $\sum_{J\ni v}y_J\le1$ for all $v$).
+\end{conjecture}
+
+Both were tested by exact computation on small random systems (several
+thousand cases on $[q]^n$ with $q\le5$, $n\le9$; internal computations, not
+part of this note), without a violation.  For Conjecture~\ref{conj:fm}
+equality is frequent.  Example~\ref{ex:mono} shows that a proof of
+Conjecture~\ref{conj:cexp} by induction on the number of events would
+need a stronger induction hypothesis.
+
+\emph{Open problems.}  (1) Determine the optimal rate for width-$k$ DNFs on
+the uniform cube (Example~\ref{ex:parity}).  (2) Is there an analogue of
+Theorem~\ref{thm:main} for depth-$3$ circuits, or for $\mathrm{AC}^0$, with a
+weight condition on the bottom layer?  (3) Does the signed cover count give
+sparsity bounds in the direction of Mansour's conjecture?
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
