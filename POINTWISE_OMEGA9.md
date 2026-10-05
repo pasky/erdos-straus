@@ -5,6 +5,14 @@ not touched; nothing below bears on whether `W(p)<∞`. Notation: PO =
 `POINTWISE_OMEGA.md`, O8 = `POINTWISE_OMEGA8.md` (incl. §6), `𝓛=log T`.
 
 **Status: checkpoint 1 (self-reviewed once, R34a; not parent-reviewed).**
+*Post-review correction (R33b M1), 2026-10-05:* the exceptional-zero input
+was quoted from MV III (28.61) **without a height restriction**. As quoted
+it is not a theorem, since it would give a zero-free region uniform in
+`|Im s|`. It is now the classical Landau–Page theorem with `|Im s|≤Y`, used
+for the real exceptional zero only. The κ-inconsistency of the source caveat
+is resolved below. Thm 1.1's proof and all results are unchanged. (Repair
+applied by the O33 paper agent; see
+`reviews/agent-reports/AGENT_REPORT_O33.md`, response to R33b.)
 
 **Results at a glance.**
 1. **Theorem 1.1 (linear transfer; PROVED modulo Gallagher's theorem (G)).**
@@ -56,17 +64,49 @@ exceptional character `χ_1` is replaced by `|ϑ(x;χ_1)+x^{β_1}/β_1|` and the
 right side by `(1−β_1)(log x)·[x·exp(−log x/log Q_G) + x log x/(Q_G log Q_G)]`
 (the prefactor multiplies both terms; review R34a MAJOR 1).
 
-Uniqueness, reality and quadraticity of `χ_1` come from MV's Exceptional
-Zero Statement (28.61)–(28.62), p. 216, valid for zeros with
-`1−β<c_1/log Q_G`; so we fix `κ := max(3κ_0, 1/c_1)` (R34a m1). *Source
-caveat (R34a m2):* MV III is an unpublished draft, and its printed proof of
-28.19 matches its two cases only for `κ=3κ_0` (a repairable slip). The
-statement is the classical Gallagher (1970) Thm 7; neither the original nor
-a published restatement (e.g. Iwaniec–Kowalski ch. 18) was checked.
+**Cited input (LP), classical Landau–Page** (Davenport ch. 14; MV I Cor.
+11.10). There is an absolute effective `c_1>0` such that for every `Y≥3` the
+product `∏_{q≤Y}∏*_χ L(s,χ)` has at most one zero in the region
+`Re s>1−c_1/log Y`, **`|Im s|≤Y`**. If that zero exists, it is real and
+simple and its character is quadratic.
 
-We also use the classical effective bound `1−β_1 ≫ q_1^{−1/2}(log q_1)^{−2}`
-for a real zero of `L(s,χ_1)`, `χ_1` real primitive of conductor `q_1`
-(Davenport ch. 14; also MV III (28.62)).
+*R33b M1 correction.* An earlier version quoted MV III's "Exceptional Zero
+Statement" (28.61)–(28.62), p. 216, which omits the height restriction. As
+quoted, that is not a theorem. We use (LP) **only for real zeros** (`Im s=0≤Q_G`):
+the exceptional zero of (G) is real, and (LP) with `Y=Q_G` gives its
+uniqueness and the reality and quadraticity of `χ_1` once
+`1/(κ log Q_G) ≤ c_1/log Q_G`, i.e. `κ ≥ 1/c_1`.
+
+*Which κ MV's Thm 28.19 permits (archived text, pp. 229–232).*
+* The **statement** allows any constant `κ ≥ κ_0`, where
+  `κ_0 = 3max(c, c_1, c_0e, 1, c_0e^{3c})` by (28.91). The entry `c_1` is
+  presumably a slip for `1/c_1`.
+* The **proof** sets `κ′=κ/3` and `T=Q³`. Case 1 assumes no zero with
+  `|γ|≤T`, `β>1−1/(κ_0 log T)` (that is, `1−β<1/(3κ_0 log Q)`). Case 2
+  treats an exceptional zero with `1−β_1<1/(κ′ log T)=1/(κ log Q)`.
+* These cases are exhaustive only if `κ′=κ_0`, i.e. **the printed proof
+  establishes 28.19 for `κ=3κ_0` only** (a slip: for `κ>3κ_0` a zero
+  with `1/(κ log Q)≤1−β_1<1/(3κ_0 log Q)` falls in neither case).
+* For every `κ≥3κ_0` the statement follows from the `κ=3κ_0` case (R33b
+  m1). If `1/(κ log Q_G)≤1−β_1<1/(3κ_0 log Q_G)`, then
+  `x^{β_1}/β_1 ≤ 2x·exp(−log x/(κ log Q_G))`, and the replaced right-hand
+  side is
+  `≤ (log x/(3κ_0 log Q_G))·[x e^{−log x/log Q_G} + x log x/(Q_G log Q_G)] ≪ x e^{−log x/(2 log Q_G)} + (log x/log Q_G)² x/Q_G`.
+  So the exceptional form implies the non-exceptional bound with parameter κ.
+* For `κ_0≤κ<3κ_0` the archived proof does not establish the statement,
+  and we do not use that range.
+
+We therefore fix **`κ := max(3κ_0, 1/c_1)`**, exactly as in
+`paper/es-subexp-note.tex` §3. *Source caveat (R34a m2):* MV III is an
+unpublished draft. The statement is the classical Gallagher (1970)
+large-sieve/Linnik theorem; neither Gallagher's paper (so also its theorem
+number) nor a published restatement (e.g. Iwaniec–Kowalski ch. 18) was
+checked.
+
+We also use the classical effective (Page-type) bound
+`1−β ≫ q^{−1/2}(log q)^{−2}` for every real zero β of `L(s,χ)`, χ real
+primitive of conductor `q≥3` (Davenport ch. 14; also MV III (28.62)). It is
+independent of Y and of any height restriction.
 
 **Theorem 1.1 (linear transfer; PROVED modulo (G)).** Let `T,Q`, and
 `B(n)=Σ_{i∈I}c_i1[n≡b_i (d_i)]` satisfy the hypotheses of PO Thm 4.1
