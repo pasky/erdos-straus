@@ -1,8 +1,36 @@
 # EXCEPTIONAL_INTERFREQ2 — hybrid methods: small classes exact, large classes trivial (task O25)
 
-Status: **in progress (O25).** Labels follow `DISCOVERIES.md`. PROVED means
+Status: **checkpoint 1 (O25).** Labels follow `DISCOVERIES.md`. PROVED means
 proved in this file, internal checks only. No θ > 3/4 is claimed. Notation
 as in `EXCEPTIONAL_INTERFREQ.md` (IF below), `EXCEPTIONAL_KARY2.md` (K2).
+
+## 0. Summary
+
+| item | statement | label |
+|---|---|---|
+| Def 1.2 | hybrid = exact (or any valid) count of the small part (moduli ≤ N/2) + least position-blind charge `β*(a,d) = a⌈N/d⌉` (a>0), `a⌊N/d⌋` (a<0) on large terms; IF's `aN/d + |a|` dominates it | definition |
+| Prop 2.1 | LP dual: `min B_hyb = max μ(𝒜)` over μ ≥ 0 on ℤ/Q′ agreeing with λ_N on small classes and with `⌊N/d⌋ ≤ μ(s) ≤ ⌈N/d⌉` on large ones | PROVED |
+| Lemma 3.1 | **sign rule**: `B_hyb = Σ_{n≤N}ν + (wrong-sign mass)`; positive terms on classes meeting [1,N] maximally ("full") and negative terms on "sparse" classes are counted exactly | PROVED |
+| Ex 3.2 | N = 20: `1[0 mod 21]` has a representation with hybrid charge 0 (12 full patches mod 21 + classes mod 3, 7). Hence no bound `B_hyb(ν) ≥ c·N·Eν` (c > 0) holds for ν ≥ 0, and IF Thm 2.5's Selberg accounting cannot extend to hybrids as is | PROVED |
+| Lemma 4.1, 6.1 | `B_hyb(ν) ≥ Σ_{n∈W}ν` for every *twisted window* W = φ([1,N]), φ componentwise affine preserving the small-class profile (translates by lcm(1..N/2)-multiples, reflections on primes in (N/4, N/2], any affine map on primes > N/2). Averaging over them does **not** give the cap | PROVED |
+| Lemma 4.2 + numerics | classes forced to have dual mass 0 (counted exactly as 0 by every hybrid) have L₀-smooth modulus just above N; scan N ≤ 40, e ≤ 3N: summed density ≤ 0.14 | PROVED / EVIDENCE |
+| Cor 5.1 | cap `S_A + O(log(1+c))` for hybrids whose free mass (patches through [1,N] with d > N, right-signed terms with N/2 < d ≤ N) is ≤ c·B, c ≤ e^{O(S_A)}; wrong-signed and free negative terms unrestricted | PROVED (from IF Thm 2.5) |
+| Thm 5.2 | **conditional cap**: if a *flat minorant* exists (Flat: F ≤ 1_{[1,N]}, uniform on classes mod d ≤ N/2, F(s) ≥ M/d + s₀ on classes mod d > CN through [1,N], ≥ M/d − 1 on the others, bounded deviation on (N/2, CN]), then every hybrid with right-signed mass on (N/2, CN] at most c·B saves `≤ C(log N)^{3/4}(log log N)^{3/4} + log((1+Δ(1+c))/t)`; patches above CN are unrestricted | PROVED implication |
+| §5 numerics | Flat holds for N ≤ 100 (LP; t = 0.1, C = 1.5, 2; s₀ ≥ 0.04, Δ ≤ 1.5); fails for C = 1 (rigidity); medium moduli cannot be freed by the same device | EVIDENCE |
+
+**Verdict.** The hybrid gap of IF Rem 2.6 is *not* closed unconditionally.
+It is narrowed to two precisely stated pieces:
+1. (Flat) — an extremal-function statement about a single explicit LP
+   (no arithmetic, no 𝒜), verified for N ≤ 100. Under Flat, hybrids that
+   charge large classes blindly are capped at 3/4 (with the K2 log log
+   loss) *whatever they do above modulus CN*.
+2. Right-signed mass at moduli in (N/2, CN]. This is a genuine phenomenon:
+   Example 3.2 shows that hybrids count some classes of modulus N + 1
+   exactly, and imposing cost-free accounting there contradicts Flat
+   numerically. No hybrid beating 3/4 is known; in the toy LPs the
+   optimal hybrid uses free mass ≈ B/2 (Cor 5.1 regime).
+(H_eq) of IF §4 plays no role here: hybrids never evaluate per-frequency
+sums. No θ > 3/4 is claimed or suggested.
 
 ## 1. The hybrid class, precisely
 
@@ -291,3 +319,52 @@ part of L₀; for ES families this is again (heuristically) CRT-small. So
 G_N-averaging alone does not give the cap: a cap needs *fractional*
 pseudo-windows that spread across L₀-smooth large moduli, which is what
 Flat provides.
+
+## 7. Toy LPs (EVIDENCE only)
+
+`scripts/interfreq2_hybrid_lp.py`: family on ℤ/30030, F_p = quadratic
+non-residues mod p ∈ {3,5,7,11,13} (squares avoid), all classes mod divisors
+of Q. Values are optimal bounds.
+
+| N | exact #𝒜∩[1,N] | H* (hybrid) | IF Thm 2.5 functional `Σν + T_>` | small moduli only | N·Eν, d ≤ N |
+|---|---|---|---|---|---|
+| 20 | 4 | 7 | 10 | 11 | 8 |
+| 30 | 5 | 11 | 12 | 12 | 11.4 |
+| 40 | 6 | 13 | 17 | 17 | 11.4 |
+| 60 | 7 | 17.7 | 23 | 23 | 16.7 |
+
+At the H* optimum (N = 20, 30) the patch mass W⁺ is 3 and 4, i.e. below B:
+the optimum sits in Cor 5.1's regime. The toys are far too small to say
+anything about exponents.
+
+## 8. What would close the gap
+
+* **Prove Flat** (for some fixed C, t, Δ and s₀ ≥ N^{−O(1)}). It is a
+  statement about functions on ℤ with prescribed sums over all residue
+  classes of modulus ≤ N/2 and one-sided bounds above CN. Selberg's
+  band-limited minorant is useless (it vanishes at the ends of [1,N]);
+  the LP optima are spread-spectrum. An equivalent form: a nonnegative
+  measure R with the small-class profile of `λ_N − M·(uniform)` that puts
+  mass `≤ 1 − θ` on every class of modulus > CN (then `F = 1_{[1,N]} − R`).
+  Twisted windows (Lemma 6.1) do not suffice, because they never move mass
+  between classes of N/4-smooth modulus.
+* **Medium moduli** (N/2, CN]: either a separate argument or a hybrid that
+  exploits rigidity (Example 3.2) at scale. A natural first test is the
+  exact-evaluation class with moduli ≤ CN (𝓘_spec(CN), C > 1), to which
+  IF Thm 2.2 does not apply.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run --with scipy --with sympy python scripts/interfreq2_checks.py data/interfreq2/flatF_N20.npy   # Ex 3.2, Lemma 4.1, (5.1) on Z/360360; ~1 min
+uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 2 data/interfreq2/flatF_N20.npy                     # regenerates the saved F (1 s)
+for a in "20 100 0.1 1.5" "20 100 0.1 2" "30 150 0.1 1.5" "30 150 0.1 2" "40 200 0.1 1.5" "60 300 0.1 1.5" "60 300 0.1 2" "80 400 0.1 2"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan.txt, <2 min
+for a in "60 480 0.1 2" "100 500 0.1 2" "100 500 0.1 1.5"; do uv run --with scipy python scripts/interfreq2_flatF.py $a; done   # flatF_scan2.txt, ~8 min, <1 GB
+uv run --with scipy python scripts/interfreq2_flatF.py 20 100 0.1 1.5 - med                                           # medium sign conditions: margin 0
+uv run --with scipy python scripts/interfreq2_phi_lp.py 20 60 0.1                                                     # exact-uniform comparison: infeasible (§3)
+uv run --with scipy --with sympy python scripts/interfreq2_rigid.py 20 2520                                           # mass off [1,N] = N
+uv run --with scipy --with sympy python scripts/interfreq2_rigid_points.py 20 2520                                    # rigid nulls = 21Z (~5 min)
+uv run --with scipy --with sympy python scripts/interfreq2_rigid_scan.py 40 3                                         # rigid-null scan
+for N in 20 30 40 60; do uv run --with scipy python scripts/interfreq2_hybrid_lp.py $N 2,3,5,7,11,13 qnr; done          # §7 toys (N=60: ~8 min, ~1.2 GB)
+```
+(all under `ulimit -v 8000000`).
