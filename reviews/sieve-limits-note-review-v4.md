@@ -192,3 +192,15 @@ class −1 (heuristically, multi-form tuples)".
 (only an Assessment so far) and θ=1; removing (log λ₀)^{3/4} from Prop 15.14. Also: ℓ₀ in
 Cor 15.21 is undefined (as in TU2); "(λ₀,k)-mixed" is defined twice (Def 15.5 with slice primes,
 Def 15.10 with primes >W) — rename one.
+
+**m15 (Rem 12.8 rem:L2vsmain, l. 2436–2470, and l. 2120–2123).** Substance verified: TW2
+Setting 3.0 / Thm 5.1 quantify over "every g∈V_{λ/2} with g≥1 on the avoiders of 𝓕", all primes
+charged, saving log(1/E_U g²) — so KA3 L7.1 holds and g² is a Thm 10.12 majorant of level ≤λ≤A₀L.
+But the remark is a v3/v4 splice that now contradicts itself: its first half still says g² "is
+≥1 on the avoiders that lie in R_W" and "What the Λ² route still gives beyond Thm 7.x is the
+removal of B for a fixed number of large primes (Thm 12.12)", while its second half says every
+Λ² cap incl. Thm 12.12 is superseded with or without B, and ends with a second "What the Λ² route
+still gives" sentence. Also l. 2120–2123 ("the Λ² majorants of [TW2] are stated for the avoiders in
+R_W only; see Remark 12.8") contradicts the new reading. *Repair:* delete the first-half bounded-B
+paragraph (keep one "still gives" sentence) and drop "and the Λ² majorants of [TW2]" from
+l. 2122.
