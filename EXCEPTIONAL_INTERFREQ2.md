@@ -388,3 +388,66 @@ uv run --with scipy --with sympy python scripts/interfreq2_rigid_scan.py 40 3   
 for N in 20 30 40 60; do uv run --with scipy python scripts/interfreq2_hybrid_lp.py $N 2,3,5,7,11,13 qnr; done          # §7 toys (N=60: ~8 min, ~1.2 GB)
 ```
 (all under `ulimit -v 8000000`).
+
+## 9. Towards Flat: reduction to spread pseudo-windows (O25 follow-up)
+
+**Hypothesis SPW(C, σ, Δ₀) at N (spread pseudo-window).** There is a
+summable R ≥ 0 on ℤ with
+* (P1) `R(b mod d) = c(b,d)` for every d ≤ N/2 and every b (R has the exact
+  small-class profile of the window; its mass is N);
+* (P2) `R(s) ≤ 1 − σ` for every class s of modulus d > CN;
+* (P3) `|R(s) − c(s)| ≤ Δ₀` for every class s with N/2 < d ≤ CN.
+
+R = λ_N satisfies (P1), (P3) but has `R(s) = 1` on full classes; Lemma 4.1
+and 6.1 windows do the same. SPW asks for a pseudo-window that no class
+of modulus > CN sees as a point of [1,N].
+
+**Proposition 9.1 (SPW ⇒ Flat; PROVED).** Let F_S be Selberg's minorant
+of `1_{[1/2, N+1/2]}` with δ = 2/N (IF Thm 2.2), and
+`τ := sup Σ_{x∈s} max(−F_S(x), 0)` over classes s of modulus > CN. Then τ is
+bounded by an absolute constant, and SPW(C, σ, Δ₀) implies
+Flat(C, t, s₀, Δ) with
+
+    θ = σ / (2(σ + τ + 1/(2C))),   t = θ/2,   s₀ = σ/2,   Δ = 6θ + Δ₀,
+
+via `F := θ F_S + (1 − θ)(1_{[1,N]} − R)`.
+
+*Proof.* τ: for x outside I the Beurling–Selberg construction gives
+`|F_S(x)| ≤ c₁/(1 + δ² dist(x,I)²)` (Vaaler 1985, from
+`|B(z) − sgn z| ≤ c/(1+z²)`), and `‖F_S‖_∞ < ∞`. A class of modulus
+d > CN > N has at most one point in [1,N] and its outside points are spaced
+d apart, so `τ ≤ ‖F_S‖_∞ + 2c₁(1 + Σ_{k≥1}(N/(2kd))²) = O(1)`.
+(F1): both summands are ≤ `1_{[1,N]}` and the weights are convex. (F2):
+F_S has mass `N/2·1/d` on every class mod d ≤ N/2 (IF Lemma 2.4, error 0),
+and `1_{[1,N]} − R` has mass 0 there by (P1); so `M = θN/2`. (F3): for a
+full class s mod d > CN, `F_S(s) ≥ −τ` and `1 − R(s) ≥ σ` by (P2), so
+`F(s) ≥ (1−θ)σ − θτ = σ/2 + θ/(2C) ≥ s₀ + M/d` by the choice of θ. (F4): for
+a sparse class, `F(s) ≥ −θτ − (1−θ)(1−σ) ≥ −1 + θ/(2C) ≥ M/d − 1`, again
+because `(1−θ)σ ≥ θ(τ + 1/(2C))`. (F5): `|F_S(s) − N/(2d)| ≤ 6` (IF Lemma 2.4
+with D = N/2) and `|c(s) − R(s)| ≤ Δ₀`. ∎
+
+So the edge problem of Selberg's minorant is cured by mixing in a little of
+`1_{[1,N]} − R`, at constant cost in t and s₀. **Hence, by Theorem 5.2:
+SPW(C, σ, Δ₀) with fixed C, σ > 0, Δ₀ (at every large N) implies the 3/4
+cap `C′(log N)^{3/4}(log log N)^{3/4}` for every hybrid whose right-signed
+mass on (N/2, CN] is ≤ e^{O(S)}·B.** (PROVED implication.)
+
+**Lemma 9.2 (dual form of SPW; PROVED direction).** If R satisfies
+(P1)–(P3), then every ν ≥ 0 on ℤ of the form
+`ν = g + Σ_{d_i > CN} z_i 1_{s_i} + m` (g a combination of classes mod
+d ≤ N/2, `z_i ≥ 0`, m a combination of classes mod `N/2 < d ≤ CN` with
+coefficient mass |m|) satisfies the **patch-cancellation inequality**
+
+    Σ_{n≤N} ν(n) + (1 − σ)·Z_sparse + Δ₀|m| ≥ σ·Z_full,          (9.1)
+
+Z_full / Z_sparse the z-mass on classes meeting / missing [1,N].
+(For finite-support LP truncations the converse holds by Farkas.)
+
+*Proof.* `Σ_n R ν ≥ 0`. By (P1) `Σ_{n≤N} g = Σ_n R g`, so
+`Σ_{n≤N}ν = Σ_n Rν + Σ_i z_i(c(s_i) − R(s_i)) + Σ_med a(c(s) − R(s))`, and
+(P2)–(P3) bound the last two sums below by
+`σZ_full − (1−σ)Z_sparse − Δ₀|m|`. ∎
+
+(9.1) says: positive patches of modulus > CN through [1,N] cannot be
+cancelled cheaply by a small-modulus part that is negative on [1,N].
+Example 3.2 is such a cancellation at modulus N + 1 (counted in |m|).

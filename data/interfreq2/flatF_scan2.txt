@@ -4,3 +4,5 @@ N=100 L=500 t=0.1 C=2.0: margin s=0.1671  min F[1,N]=0.3488 min F out=-0.5968  m
 157.44s 957444KB
 N=100 L=500 t=0.1 C=1.5: margin s=0.0439  min F[1,N]=0.2568 min F out=-0.4528  max|F(s)-M/d| on (N/2,CN]=1.148
 173.24s 981964KB
+N=140 L=700 t=0.1 C=2.0: margin s=-0.0033  min F[1,N]=0.0500 min F out=-0.6412  max|F(s)-M/d| on (N/2,CN]=1.328
+1416.37s 1763080KB

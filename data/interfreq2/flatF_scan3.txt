@@ -1,0 +1,4 @@
+N=100 L=1000 t=0.1 C=2.0: margin s=0.3203  min F[1,N]=0.6007 min F out=-0.3334  max|F(s)-M/d| on (N/2,CN]=1.302
+2875.60s 3149144KB
+N=100 L=1000 t=0.1 C=1.5: margin s=0.1828  min F[1,N]=0.5147 min F out=-0.3217  max|F(s)-M/d| on (N/2,CN]=1.082
+2326.70s 3216984KB
