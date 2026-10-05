@@ -185,6 +185,90 @@ equation \cite{Subexp}.  The exact-arithmetic script
 \texttt{scripts/energy\_note\_check.py} checks the main inequalities on small
 cases (Section~\ref{sec:check}).
 
+\section{Setting and elementary facts}\label{sec:prelim}
+
+\emph{Product spaces.}  Throughout, $\Omega=\prod_{v\in V_0}\Omega_v$ is a finite product
+of finite sets, $V_0$ is finite, and $\pi=\bigotimes_v\pi_v$ is a product
+probability measure.  We write $\PP$, $\E$, $\langle\cdot,\cdot\rangle$ and
+$\|\cdot\|=\|\cdot\|_{L^2(\pi)}$.  For $W\subseteq V_0$ we write $x_W$ for the restriction
+of $x\in\Omega$ to $W$, $\Omega_W=\prod_{v\in W}\Omega_v$ and $\pi_W=\bigotimes_{v\in W}\pi_v$.  A
+\emph{cylinder event} is a set $E=\{x:\ x_v=\sigma_v\ (v\in\supp E)\}$ with
+$\supp E\subseteq V_0$ and $\sigma\in\Omega_{\supp E}$.  A family $\cE$ of cylinder events is
+finite, and repetitions are allowed.  Its avoidance indicator is
+$F=\prod_{E\in\cE}(1-\mathbf 1_E)$, and $h=1-F$ is the indicator that some event occurs.
+For weights $\lambda_v\ge1$ we put $\mu_v=\lambda_v-1\ge0$, $\lambda^U=\prod_{v\in U}\lambda_v$,
+$\mu^U=\prod_{v\in U}\mu_v$, and $w_E=\lambda^{\supp E}$ (the \emph{weight} of $E$).
+
+\emph{Efron--Stein decomposition} (classical; \cite{ES,Hoeffding},
+\cite[\S8.3]{OD}).  For $\varphi:\Omega\to\mathbb R$ and $W\subseteq V_0$ let
+$\E[\varphi\mid x_W]$ be the conditional expectation given the coordinates in
+$W$, and
+\[
+ \varphi^{=U}=\sum_{W\subseteq U}(-1)^{|U\setminus W|}\,\E[\varphi\mid x_W].
+\]
+Then $\varphi=\sum_U\varphi^{=U}$, the components are mutually orthogonal,
+$\varphi^{=U}$ depends only on $x_U$, and $\E_u\varphi^{=U}=0$ for $u\in U$, where
+$\E_u$ averages over the coordinate $u$ (with respect to $\pi_u$).  Put
+$L_u=I-\E_u$ and $L_V=\prod_{u\in V}L_u$.  The $L_u$ are commuting orthogonal
+projections, and $L_V\varphi=\sum_{U\supseteq V}\varphi^{=U}$.  If $\cD$ is a down-closed
+family of subsets of $V_0$, then $\varphi^{\cD}=\sum_{U\in\cD}\varphi^{=U}$ is a linear
+combination of the functions $\E[\varphi\mid x_W]$, $W\in\cD$ (by M\"obius
+inversion), and
+\begin{equation}\label{eq:energy}
+ \E(\varphi-\varphi^{\cD})^2=\sum_{U\notin\cD}\|\varphi^{=U}\|^2 .
+\end{equation}
+For $\cD=\{U:\ |U|\le t\}$ this is the \emph{energy above level $t$},
+$\energy(\varphi;t)$.  It is the least value of $\E(\varphi-g)^2$ over sums $g$
+of functions that each depend on at most $t$ coordinates.  For $\pm1$-valued
+$g$ we also write $W^{>t}[g]=\energy(g;t)$, as in \cite{OD}.
+
+\begin{definition}[Energy generating function]
+For weights $\lambda_v\ge1$,
+\[
+ G_\varphi(\lambda)=\sum_{U\subseteq V_0}\lambda^U\|\varphi^{=U}\|^2 .
+\]
+\end{definition}
+
+\begin{lemma}[Elementary identities]\label{lem:ident}
+For every $\varphi$ and all weights $\lambda_v\ge1$:
+\begin{enumerate}
+\item[(a)] $G_\varphi(\lambda)=\sum_{V\subseteq V_0}\mu^V\|L_V\varphi\|^2$;
+\item[(b)] $\sum_{U:\ \lambda^U>e^\tau}\|\varphi^{=U}\|^2\le e^{-\tau}G_\varphi(\lambda)$ for every real $\tau$;
+\item[(c)] $G_{1-\varphi}=1-2\E\varphi+G_\varphi$; in particular $G_F\le1$ if and only if
+$G_h\le2\E h$;
+\item[(d)] if $\varphi(x)=\prod_{v}\varphi_v(x_v)$ is a product, then
+$G_\varphi(\lambda)=\prod_vG_{\varphi_v}(\lambda_v)$, where $G_{\varphi_v}(\lambda_v)=(\E\varphi_v)^2+\lambda_v\operatorname{Var}\varphi_v$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Expand $\lambda^U=\prod_{v\in U}(1+\mu_v)=\sum_{V\subseteq U}\mu^V$ and use
+$\|L_V\varphi\|^2=\sum_{U\supseteq V}\|\varphi^{=U}\|^2$.  (b) is Markov's inequality.
+(c) $(1-\varphi)^{=U}=-\varphi^{=U}$ for $U\ne\emptyset$ and $(1-\varphi)^{=\emptyset}=1-\E\varphi$.
+(d) For a product, $\varphi^{=U}=\prod_{v\in U}(\varphi_v-\E\varphi_v)\prod_{v\notin U}\E\varphi_v$.
+\end{proof}
+
+\begin{proposition}[A single event; the threshold $2$]\label{prop:single}
+Let $E$ fix $x_v=\sigma_v$ on $\supp E$, put $p_v=\pi_v(\sigma_v)$ and
+$\pi_E=\PP(E)=\prod_{v\in\supp E}p_v$.  Then
+\[
+ G_{1-\mathbf 1_E}(\lambda)=1-2\pi_E+\pi_E\prod_{v\in\supp E}\big(\lambda_v-\mu_vp_v\big).
+\]
+Hence, for fixed weights with $w_E>2$, $G_{1-\mathbf 1_E}(\lambda)>1$ as soon as all
+$p_v>0$ are small enough.  So the constant $2$ in Theorem~\ref{thm:main}
+cannot be replaced by any larger number, even for a single event.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:ident}(d), with $\varphi_v=\mathbf 1[x_v=\sigma_v]$,
+$G_{\mathbf 1_E}=\prod_v(p_v^2+\lambda_vp_v(1-p_v))=\pi_E\prod_v(\lambda_v-\mu_vp_v)$.  Then use
+Lemma~\ref{lem:ident}(c).  The product tends to $w_E$ as $p\to0$.
+\end{proof}
+
+On the uniform cube $\{\pm1\}^n$ the single-event condition is the weaker
+$\prod_v(1+\lambda_v)/2\le2$.  The threshold $w_E\le2$ is forced by large
+alphabets or strongly biased measures.
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
