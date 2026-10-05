@@ -278,7 +278,7 @@ when every `ℓ≤Y` has `w̃_ℓ≤η`.
 (a) *Supermartingale.* For any fixed weight `φ(E)≥0`, `G_i:=Σ_E p_i(E)2^{u_i(E)}φ(E)` is
 a supermartingale.
 
-(b) *Cost.* `E[log Q_end] ≤ log 8 + (1/η)Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}log M_Y`.
+(b) *Cost.* `E[log Q_end] ≤ log 840 + (1/η)Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}log M_Y`.
 Here `ω_Y` counts the primes `≤Y` and `M_Y` is the Y-smooth part.
 
 (c) *Residual mass.* `E[Σ_E β^{s_end(E)}p_end(E)] ≤ S_H^β := Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}`.
@@ -303,7 +303,7 @@ these are squares. So `E[p_new(E)|past]=p(E)`, and u is unchanged. A step with
 The process has at most `Σ_{ℓ≤Y}f_ℓ` steps, so the times are bounded. Optional
 stopping for the nonnegative supermartingale `G^{(ℓ,a)}` gives
 `E[G(τ)1[τ<∞]]≤G(0)`. Sum over `ℓ≤Y`, `a<v_ℓ(M)`, using
-`Σ_{ℓ≤Y,a<v_ℓ}logℓ=log M_Y`. Also `p_0=P_H` (`M` odd, so the class mod 8 is irrelevant).
+`Σ_{ℓ≤Y,a<v_ℓ}logℓ=log M_Y`. Also `p_0=P_H` (`M` odd, so the class mod 8 is irrelevant). The forced steps at 3, 5, 7 are not charged; they cost `log105`.
 
 (c) Apply (a) with `φ=β^{ω(M)}`, and use `s_end≤ω`.
 
