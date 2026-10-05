@@ -147,7 +147,25 @@ factors. Then every such majorant saves at most
     C (log N)^{3/4} (log log N)^{3/4}.
 
 If every modulus `G` satisfies `G ≤ P(G)^{1+B}` with `B` fixed, the bound
-is `C_B (log N)^{3/4}`, with no `log log` gain possible.
+is `C_B (log N)^{3/4}`.
+
+**Sharp form, no `log log` loss (EXCEPTIONAL_KARY3.md Thm 4.1, Cor 4.2;
+ledger (D)24).** For the same mixtures, with arbitrary moduli and no
+B-hypothesis, every CRT majorant of level λ has `log(1/Eν) ≤ Cλ^{3/4}`,
+and coefficient-sum CRT methods save at most `C_A (log N)^{3/4}` when the
+family primes are `≤ N^A`. So the cap is exactly `(log N)^{3/4}`.
+* The old loss came from Rankin's trick on dyadic blocks of smooth
+  moduli. KARY3 replaces it by a local moment
+  `Z_y(M) = Σ_{p^ν | M, p^ν ≤ y} Λ(p^ν)/log y`, with a fourth moment
+  controlled by Shiu's theorem in progressions.
+* Variants: truncated weights `min(log ℓ, L₀)` (Thm 5.1); majorants of
+  bounded prime order `k` save `≤ C_A[(log N)^{3/4} + k log log N]`
+  (Cor 5.2). The `log log` factors in (D)18–(D)20 and (D)22 can all be
+  dropped.
+* Label: **PROVED given KARY2 as reviewed** (internal; review
+  `reviews/exceptional-kary3-review.md`, all claims SOUND; Case A uses
+  Elsholtz–Tao, published, not re-proved). §§6–7 of KARY3 were added
+  after the review and checked by the parent only.
 * This covers Bonferroni, Selberg Λ², β/Rosser and every combinatorial
   upper-bound sieve on these classes. It also covers CRT-evaluated moment
   methods.
@@ -191,9 +209,12 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    contains a square (Mordell/Jacobi). Rankin's trick plus Cauchy–Schwarz
    on smooth-dominated moduli removes `B`. The cost is
    `(log log)^{3/4}` in the cap.
+8. `EXCEPTIONAL_KARY3.md` ((D)24): removes that cost (above).
 
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
-sieves"; refereed internally, fixes applied; v3 merged). The 3/4 note
+sieves"; v4 states the cap with no `log log` loss and adds the large-sieve,
+prime-only, hybrid and tuple sections of §2.3; v4 refereed internally in
+R36, MINOR REVISION, fixes applied). The 3/4 note
 now has a remark that its ceiling is a theorem for its own architecture
 (sieve-limits v3 Thm 10.8 / Rem 10.9; KARY2 Cor 6.1). It replaces the
 note's earlier heuristic-ceiling caveat. The (D)19–(D)21 results are in
