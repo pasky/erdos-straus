@@ -166,3 +166,47 @@ modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barr
 property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
 "Oblivious" = the error bound does not depend on *which* classes contain primes; a certificate
 that knows which deep classes are prime-free is using the actual primes ≤ x (cf. §4).
+
+## 3. Siegel zeros
+
+Two ways an exceptional zero `β_1` (real character `χ_1` mod `q_1`) can enter: (A) as a second
+main term in the linear prime law, (B) through Heath-Brown's mechanism (twin primes under a
+Siegel zero), which converts prime sums into divisor-weighted integer sums. (B) is treated with
+Type I/II input in §4. Here (A).
+
+Under (G) with an exceptional zero, for h of modulus in Gallagher's range,
+`Σ_{p≤x,p∈H}h(p)≈N_x·E_H[(1−εχ_1)h]/(1−εE_Hχ_1)` with `ε≈x^{β_1−1}/β_1∈[0,1]` (O9 §1, O14 Lemma 4.3).
+So the *Siegel-model law* is the positive measure `P_1:=(1−εχ_1)P` (density `≥0` since
+`|χ_1|≤1`, `0≤ε≤1`). O14 Cor 4.6 left open whether a minorant with `E_HB≤0` can have
+`E_{P_1}B>0` ("positivity from the exceptional term").
+
+**Theorem 3.1 (the Siegel-model law has the same fake; PROVED, same inputs as Thm 1.2).** Let
+`χ_1` be any real character, `ε∈[0,1]`, `ν_1:=(1−εχ_1)ν`. Then `ν_1≥0`, `F=0` ν_1-a.e., and for
+every residue class, Dirichlet character or additive character h,
+
+```
+|E_{ν_1}h − E_{P_1}h| ≤ 2(4r*)^{k+1} .
+```
+
+Hence Thm 1.2, Thm 2.2 and Cor 2.4 hold verbatim for `P_1` (with η doubled): every minorant
+`B≤F` has `E_{P_1}B≤2η‖B‖_×`. Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
+number of big primes dividing `q_1`, then `E_{P_1}B≤0` exactly. Since Gallagher-range moduli
+have `log q_1≪log x`, `s≤log x/(0.6𝓛)`, so **no minorant of level `log D≤c𝓛^4/log𝓛−log x`
+gets positivity from the exceptional term**; with `log x≪𝓛^4/log𝓛` this closes the "Siegel"
+item of O14 Cor 4.6's Not-claimed list (for linear transfers).
+
+*Proof.* `ν_1≥0` and `ν_1≪ν`, so `F=0` ν_1-a.e. `E_{ν_1}h−E_{P_1}h=E_ρh−εE_ρ[χ_1h]`. Both h and
+`χ_1h` are reduced products up to a unimodular constant: at a big b in the support, the
+local factor of `χ_1h` is `χ_{1,b}h_b` with `|·|≤1` and mean `≤1/(b−1)` (class indicator times a
+unimodular function), `0` (nontrivial character), or a normalised Gauss sum
+`≤√b^{v}/φ(b^v)≤1/4` (additive times multiplicative, both nontrivial at b); a factor that
+becomes trivial is constant and is dropped from I. Lemma 1.1 bounds each term by `(4r*)^{k+1}`
+(its proof gives 4r*). For the exact statement: B and `χ_1B` lie in `𝒱_k` (χ_1 adds at most s
+big coordinates), on which `E_ρ=0` (O14 Thm 1.3), so `E_{P_1}B=E_{ν_1}B≤E_{ν_1}F=0`. ∎
+
+*Reading.* An exceptional zero reweights the primes by `1−εχ_1`, a bounded positive density of
+small conductor. The planted fake is pseudorandom against every reduced product, so it can be
+reweighted the same way. In Heath-Brown's twin-prime argument the Siegel zero is decisive
+because the twin-prime problem is a *parity* problem (dimension 2, a fixed level suffices for
+the integers); here the obstruction is the sieve *dimension* `κ≍𝓛³`, which already blocks the
+integer problem (§4).
