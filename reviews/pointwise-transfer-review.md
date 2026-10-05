@@ -148,3 +148,33 @@ proofs of `thm:main`/`thm:uncond` with `4 ↦ m`:
   `α < 2`, where the corollary gives `1/5`. MINOR (contradicts the corollary's own β).
 * `log S^♮ ≤ σ(T)` clause: should read `log(S^♮+1)` or `max(σ,0)`. MINOR.
 * Verdict: **SOUND** modulo the minor wording points.
+
+### §3.3 exceptional zero, §3.1, §3.4
+
+* Case A/B split re-derived (see Step 6). The "Case B cannot be done Case-A-style"
+  argument: without (Tw), `|μ_ψ| ≤ δ+ε`, `μ = δ−ε` (`ε = 𝔼[F−B]`), so the main
+  term is `≥ λδ − (2−λ)ε`, requiring `ε ≲ λδ` with `λ` possibly `≍ Z^{−1/2}(log Z)^{−2}`;
+  since `ε/δ ≈ 2^{−k₀}` and `log Z ≥ 10kbk₀ log T > k₀`, impossible. Correct, and
+  correctly labelled as a limitation *of the argument*. GRH-for-quadratic remark
+  correct (conductor `≤ Q_G` would already suffice; "`≤ x`" is just stronger). **SOUND.**
+* Remark 3.1: correct — after replacing `δ_L` by `δ_*`, the (LLL) hypothesis is not
+  used at all in Thm 1.1 (only (Tw)). The text says "still assuming (Tw)" but
+  does not say (LLL) can then be dropped; MINOR wording.
+* §3.4 loss accounting matches `t = 10kbk₀` and `k₀` bound. OK (Assessment).
+
+### §4.6 Bonferroni benchmark (Assessment) — the example does not show what is claimed
+
+Re-derived: for odd `j`, `Σ_{i≤j}(−1)^iC(N,i) = −C(N−1,j)` (N ≥ 1), so
+`B_j ≤ F`, `𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`; multi-hub Poisson estimate correct;
+plain Bonferroni needs `j ≳ S' ≍ q₀/k`. **But** every event of the example
+contains a hub condition `X_{ℓ_h} = σ_h`. Quarantining the `H` hubs (put them in
+`Q`, choose the target class `≢ σ_h (ℓ_h)`) kills *every* event; Linnik then
+gives `log p ≪ log Q + H log T`. Corollary 1.3 on the same system costs
+`≍ k log T log(4NT)(H/(128k) + k log(4NT)) ≥ (H/128) log T log(4NT) + k² log T log²(4NT)`,
+which is *larger* than `H log T` for every admissible `H` once `log(NT)` exceeds a
+constant. So on this example the natural competitor "quarantine + Linnik"
+(which is just the [SN] pipeline's own first step) beats Theorem 1.1; the
+example shows only that Bonferroni *without quarantine* is bad. The text
+mentions "Quarantining the hubs costs H log T" without drawing this
+conclusion, and §5.3(c) then cites §4.6 as evidence that the theorem's
+"genuine range" is systems with uncontrolled codegrees. → defect MAJOR-1.
