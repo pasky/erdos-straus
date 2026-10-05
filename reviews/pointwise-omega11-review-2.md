@@ -4,10 +4,36 @@ Reviewer branch: side-agent/review-omega11b (merged side-agent/quarantine-bound 
 Scope: Lemma 1.1, Remarks (i)–(iii), Cor 1.2; exponent chain of Thm 3.2, Cor 3.3, Cor 4.1, H_ω(B) EVIDENCE;
 consistency with OMEGA8 Thm 3.4, OMEGA9 Thm 1.1/Lemma 2.1, OMEGA10 Thm 3.4/4.2/Remark 4.3.
 
-STATUS: in progress.
+STATUS: round 1 complete. **No FATAL, no MAJOR defect found in my scope.** 4 MINOR.
 
 ## Summary verdicts
-(filled in below as checks complete)
+
+| claim | verdict |
+|---|---|
+| Lemma 1.1 (filtration C-1) | **SOUND** (re-derived; from-scratch exact numerics incl. fibres/conditioning, power-checked) |
+| Remarks (i)–(iii) | **SOUND** |
+| Cor 1.2 (junta modulus `≪𝓛(S+𝓛)≪𝓛^5log𝓛`) | **SOUND** (m1 wording) |
+| Thm 3.2 exponent chain (`log Q≪𝓛^6` is the bottleneck) | **SOUND** in my scope (m2, m3) |
+| Cor 3.3 (`log(1/δ*)≪𝓛^6`, mod ET) | **SOUND** |
+| Cor 4.1 (1/5 up to loglogs under H_ω(B)) | **SOUND** as a PROVED implication |
+| H_ω(B) OPEN / EVIDENCE (B=2) | **SOUND** labels; evidence reproduced and extended to 10⁷ |
+| consistency with O8 Thm 3.4, O9 Thm 1.1/Lemma 2.1/Thm 2.2, O10 Thm 3.4/4.2/Rem 4.3 | consistent |
+
+## Defects
+
+* **m1 (MINOR, Cor 1.2, "EL holds by Lemma 1.1").** O8's EL(t) is defined with `|U|>t` (coordinate count). What
+  is proved is the modulus-weighted analogue. Repair: state explicitly
+  `EL_mod(τ): E[(F^{(j)}−u_j)²|E_j]≤e^{−3S}/(100m²(S+1))` and note that O8 Thm 3.4's proof (via BRW Lemma 3.1)
+  uses only this inequality.
+* **m2 (MINOR, §3 ledger line ~260 and §4 line ~357).** "factor ≈`𝓛/log²𝓛`" should be `≍𝓛/log𝓛`, in both places:
+  `64𝓛²S♯/log𝓛` vs junta `𝓛S♯`, and vs O2's `64k²S*𝓛=16𝓛³S*/log²𝓛` (z=𝓛²). No exponent is affected.
+* **m3 (MINOR, Thm 3.2 header/proof).** Thm 3.2 does not need Lemma 1.1: the "coarser" O10 Thm 4.2 route
+  already gives a junta `≪k𝓛(S+k𝓛)≍𝓛^6`. Repair: say so, and replace "with O9's junta 𝓛^7 instead, the exponent
+  stays 1/7" by the more informative remark that Lemma 1.1/Cor 1.2 is needed only for Cor 4.1 (1/5).
+* **m4 (MINOR, Lemma 1.1 statement).** It is stated with digits from 0, but in Setting 2.0 every coordinate with
+  `a_ℓ≥1` starts at digit `a_ℓ`. The proof works verbatim (constant digits = size-1 alphabets, or Remark (ii)'s
+  first-remaining-level form). Repair: state Lemma 1.1 with a per-ℓ first free digit `i_0(ℓ)` and absolute
+  weights, which merges Remark (ii) into the lemma.
 
 ## Detailed checks
 
