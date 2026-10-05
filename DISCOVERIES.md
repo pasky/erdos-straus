@@ -126,6 +126,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * The (D)21 Cor 3.4 gap is closed for families with at most r prime factors in every interval `(x,x²]` (Prop 7.1, relative to KARY2 Thm 5.1); the general case is open.
     * **PROVED** (internal; review `reviews/exceptional-tuples2-review.md`, SOUND, minor repairs D1–D7 applied). The positive direction (any θ>3/4 input) remains open.
 
+24. **The `(log log N)^{3/4}` loss is removed (EXCEPTIONAL_KARY3.md):** for every mixture of ℛ(M)-, (a,D)-, Case-A and selector classes with arbitrary moduli and no B-hypothesis, every CRT majorant of level λ has `log(1/Eν) ≤ Cλ^{3/4}` (Thm 4.1); coefficient-sum CRT methods save `≤ C_A(log N)^{3/4}` (Cor 4.2).
+    * The loss was Rankin's (a dyadic block of smooth moduli bounded by `e^{−u}` times the whole smooth sum). The fix is a local moment `Z_y(M)=Σ_{p^ν|M, p^ν≤y}Λ(p^ν)/log y` with a 4th moment via Shiu in progressions (Lemmas 2.1–2.3); Case A is split at `r ≷ K^{1/4}` and uses Elsholtz–Tao Thm 7.1, Cor 7.4 and display (7.10), whose uniformity in k was re-derived (two harmless slips in ET's proof recorded in §3).
+    * Truncated weights `min(log ℓ, L₀)` (Thm 5.1). Hence (A log N,k)-mixed majorants (prime order ≤ k) of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` (Cor 5.2), and the (D)21 Cor 3.4 window is closed for prime order and for classes with boundedly many primes above W (Cor 5.3). For class order in general, the literal Cor 3.4 hypothesis is just a level hypothesis at λ≍k log N (Lemma 7.2), so that window cannot be closed from it alone.
+    * The (D)16 middle window `r ≍ log L` is superseded as a cap: for TW4's admissible g, `g²` is a K2 majorant of level ≤ λ, so the cap `CL^{3/4}` holds for every r (§8, Lemma 8.1).
+    * Consequently the `(log log N)^{3/4}` and `(log λ)^{3/4}` factors in (D)18–(D)20 and (D)22 can be dropped.
+    * **PROVED given K2/EK as reviewed** (internal; review `reviews/exceptional-kary3-review.md`, all claims SOUND, five minor repairs applied; Case A uses Elsholtz–Tao, published, not re-proved). §§7–8 (Lemmas 7.1, 7.2, 8.1) were added after the review and checked by the parent only.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
