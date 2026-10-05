@@ -11,6 +11,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{introthm}{Theorem}
+\newtheorem{introprop}[introthm]{Proposition}
 \renewcommand{\theintrothm}{\Alph{introthm}}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -23,7 +24,7 @@
 \newcommand{\amin}{a_{\min}}
 \newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
-\title[The window statistic for Erd\H{o}s--Straus]{The window statistic for the Erd\H{o}s--Straus equation: exact orders for bounded windows and a parity barrier}
+\title[The window statistic for Erd\H{o}s--Straus]{The window statistic for the Erd\H{o}s--Straus equation: exact orders for bounded windows and the role of parity}
 \author{Anonymous}
 \date{Draft, 5 October 2026; internal checks only, not externally refereed}
 \begin{document}
@@ -40,12 +41,15 @@ $a\le Z$ with $a\equiv3\pmod4$; this is the exponent of the natural random
 model.  The bound is attained for $Z=3$: at least $\gg x/(\log x)^{3/2}$
 primes $p\le x$ in Mordell's hard classes have $\amin(p)\ge7$ (modulo
 cited sieve theorems).  On the Elliott--Halberstam conjecture it is also
-attained for $Z=7$.  Unconditionally, two windows run into the parity
-problem: we exhibit two explicit sets of primes with the same sieve data
-at every level allowed by Bombieri--Vinogradov, of which one has window~3
-failing for $\gg x/(\log x)^{3/2}$ elements and the other for none.  A
-model computation suggesting that Type~I information plus parity does not
-suffice for two windows is recorded as a remark with its limited scope.
+attained for $Z=7$.  The parity of the number of bad prime factors, a
+congruence condition on $p$, is a necessary input: we exhibit two explicit
+sets of primes with the same sieve data at every level allowed by
+Bombieri--Vinogradov, of which one has window~3 failing for
+$\gg x/(\log x)^{3/2}$ elements and the other for none.  For two windows our
+method needs a level of distribution close to~$1$.  A model computation
+suggesting that Type~I information of level $1/2$ plus parity may not
+suffice for two windows is recorded as a remark, with its limited scope;
+it is not a statement about primes.
 Nothing here proves the Erd\H{o}s--Straus conjecture.
 \end{abstract}
 \maketitle
@@ -149,24 +153,27 @@ $\leg pa$.  For one window and a sieve of dimension $1/2$ this removes the
 parity obstruction.  The next result shows that this congruence input is
 not optional.
 
-\begin{introthm}[Theorem~\ref{thm:P1}; \status{proved}]\label{thmD}
+\begin{introprop}[Proposition~\ref{thm:P1}; \status{proved}]\label{thmD}
 Let $\mathcal A^{\pm}=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\}$
 and $P_3=\{\ell\ \text{prime}:\ \ell\equiv2\ (3)\}$.  The two sequences
 $\{(p+3)/4:\ p\in\mathcal A^{\pm}\}$ have the same sieve data with respect
 to $P_3$ up to remainders admissible at level $x^{1/2}(\log x)^{-B}$
 (Bombieri--Vinogradov), yet window~$3$ fails for no $p\in\mathcal A^-$
 and for $\gg x/(\log x)^{3/2}$ primes $p\in\mathcal A^+$.
-\end{introthm}
+\end{introprop}
 
-Two windows (3 and 7) form a sieve problem of dimension one, for which the
-same mechanism needs a level of distribution close to~$1$; this is why
-Theorem~C is conditional.  The problem is a window analogue of the
+Proposition~D is a direct instance of Selberg's parity example; it shows
+that parity is necessary, not that it is insufficient.  Two windows (3
+and 7) form a sieve problem of dimension one, for which our method needs
+a level of distribution close to~$1$; this is why our proof of
+Theorem~C is conditional.  We do not prove that unconditional methods
+must fail for two windows.  The problem is a window analogue of the
 Friedlander--Iwaniec hyperbolic prime number theorem \cite{FI09}, whose
 lower bound is likewise conditional (Lemma~\ref{lem:quadric},
 Remark~\ref{rem:FI}).  Section~\ref{sec:model} records, with an explicit
 \status{model-only} label, a finite linear-programming computation in a
 coarse discretised model in which Type~I information of level $1/2$ plus
-parity does not force both windows to fail.
+parity does not force any configuration with both windows clean.
 
 \subsection{Status and conventions}
 Labels: \status{proved} means a complete proof is given here, possibly
@@ -766,7 +773,7 @@ term with a linear upper sieve and a numerical inequality).
 (ii) The constant $x_0$ is ineffective, through Siegel's theorem in
 Bombieri--Vinogradov.
 (iii) The parity input is the congruence $\leg p3=1$.  Without it the
-statement is false: see Theorem~\ref{thm:P1}.
+statement is false: see Proposition~\ref{thm:P1}.
 \end{remark}
 
 \begin{remark}[a second route]\label{rem:FHRSS}
@@ -976,7 +983,7 @@ the quadric $x_1x_4-x_2x_3=1$, i.e.\ $p\mp2$ both sums of two squares.
 
 \subsection{Parity is necessary}
 
-\begin{theorem}[\status{proved}]\label{thm:P1}
+\begin{proposition}[\status{proved}]\label{thm:P1}
 Let $x$ be large and
 \[
  \mathcal A^\pm=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\},
@@ -999,7 +1006,7 @@ $P_3=\{\ell\equiv2\ (3)\}$.
 \item ($\mathcal A^+$.)  Window $3$ fails for $\gg x/(\log x)^{3/2}$ primes
  $p\in\mathcal A^+$ (modulo the cited theorems of Theorem~\ref{thm:W1}).
 \end{enumerate}
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 (1) As $p\equiv1\pmod8$, $n_3$ is odd, and $p\equiv1\pmod5$ gives
@@ -1180,7 +1187,7 @@ The law is heuristic and not derived from primes; at $\varepsilon=0.1$ its
 normalised one-window correlations vary over $[0.82,1.87]$ and differ
 between the even and odd laws, whereas for primes Bombieri--Vinogradov
 and the fundamental lemma make them $\approx1$ independently of parity
-(Theorem~\ref{thm:P1}); grid refinement did not remove this; the model
+(Proposition~\ref{thm:P1}); grid refinement did not remove this; the model
 contains only the data for bad $d$, not for good or mixed $d$; and the fake
 places up to $10^5$ times the true mass on some configurations, with no
 capacity constraint.  Its relevance to actual sieve methods is
