@@ -940,3 +940,120 @@ unconditional result of the type ``one complete absence and one
 almost-prime condition'' is Nath--Xie \cite[Thm.~1.1]{NX}: $\gg x/(\log x)^{5/2}$
 primes $p=m^2+n^2+1\le x$ with $\Omega(p+2)\le9$.
 \end{remark}
+
+\section{The parity barrier}\label{sec:parity}
+
+\subsection{The two-window problem as a quadric}
+
+\begin{lemma}[\status{proved}]\label{lem:quadric}
+Let $p$ be Mordell-hard and $n=(p+3)/4$, so that $(p+7)/4=n+1$.  Windows
+$3$ and $7$ are both clean (no $3$-bad prime factor of $n$, no $7$-bad
+prime factor of $n+1$) if and only if $n=a^2+ab+b^2$ and $n+1=c^2+cd+2d^2$
+with $\gcd(a,b)=\gcd(c,d)=1$.  Thus such $p$ correspond to integral
+points of the quaternary quadric $c^2+cd+2d^2-(a^2+ab+b^2)=1$ with
+$4(a^2+ab+b^2)-3$ prime.
+\end{lemma}
+
+\begin{proof}
+The forms are the norm forms $N(a-b\omega)$ of $\Z[\omega]$,
+$\omega=e^{2\pi i/3}$, and $N(c+d\theta)$ of $\Z[\theta]$,
+$\theta=(1+\sqrt{-7})/2$; both rings are principal, and $a-b\omega$
+(resp.\ $c+d\theta$) is not divisible by any rational integer $>1$ iff
+$\gcd(a,b)=1$ (resp.\ $\gcd(c,d)=1$).  For $m$ coprime to the
+discriminant, $m$ is the norm of such a primitive element iff no inert
+prime divides $m$: an inert $r\mid N(\alpha)=\alpha\bar\alpha$ divides
+$\alpha$; conversely, if every $r\mid m$ splits as $r=\pi_r\bar\pi_r$, then
+$\alpha=\prod\pi_r^{v_r(m)}$ is primitive of norm~$m$.  The inert primes are
+$r\equiv2\pmod3$ (including $2$) for $\Q(\sqrt{-3})$, and the $r$ with
+$\leg r7=-1$ for $\Q(\sqrt{-7})$ ($2$ splits as $-7\equiv1\pmod8$, and
+$\leg{-7}r=\leg r7$ for odd $r$).  These are the $3$-bad and $7$-bad
+primes.  Finally $3\nmid n$ and $7\nmid n+1$ since $p\equiv1\pmod3$ and
+$\leg p7=1$.
+\end{proof}
+
+In \cite{FI09} the corresponding object is $p=x_1^2+x_2^2+x_3^2+x_4^2$ on
+the quadric $x_1x_4-x_2x_3=1$, i.e.\ $p\mp2$ both sums of two squares.
+
+\subsection{Parity is necessary}
+
+\begin{theorem}[\status{proved}]\label{thm:P1}
+Let $x$ be large and
+\[
+ \mathcal A^\pm=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (35),\ \leg p3=\pm1\},
+\]
+and consider the sequences $n_3=(p+3)/4$, $p\in\mathcal A^\pm$, sifted by
+$P_3=\{\ell\equiv2\ (3)\}$.
+\begin{enumerate}
+\item (Same sieve data.)  For every squarefree $d$ composed of primes of
+ $P_3$,
+ \[
+ \#\{p\in\mathcal A^\pm:\ d\mid n_3\}=g(d)X+r_d^\pm,\qquad X=\frac{\li(x)}{192},\qquad
+ g(d)=\begin{cases}1/\varphi(d),&\gcd(d,10)=1,\\0,&\text{otherwise},\end{cases}
+ \]
+ with the same $X$ and $g$ for both signs, and for every $A$ there is $B$
+ with $\sum_{d\le x^{1/2}(\log x)^{-B}}|r_d^\pm|\ll_A x(\log x)^{-A}$.  On
+ EH the same holds for $d\le x^{1-\eta}$, any fixed $\eta>0$.
+\item ($\mathcal A^-$.)  For every $p\in\mathcal A^-$, $n_3$ has a prime factor
+ $\equiv2\pmod3$, so window $3$ succeeds and $S(\mathcal A^-,P_3,z)=0$ for
+ $z>(x+3)/4$.
+\item ($\mathcal A^+$.)  Window $3$ fails for $\gg x/(\log x)^{3/2}$ primes
+ $p\in\mathcal A^+$ (modulo the cited theorems of Theorem~\ref{thm:W1}).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1) As $p\equiv1\pmod8$, $n_3$ is odd, and $p\equiv1\pmod5$ gives
+$n_3\equiv1\pmod5$; so $A_d^\pm=0$ if $2\mid d$ or $5\mid d$.  Otherwise
+$\gcd(d,840)=1$ (as $3,7\notin P_3$), and the conditions $p\equiv1\ (8)$,
+$p\equiv1\ (35)$, $p\equiv\pm1\ (3)$, $p\equiv-3\ (d)$ define one reduced
+class $b^\pm_d$ modulo $840d$.  So $A_d^\pm=\pi(x;840d,b_d^\pm)$ and
+$r_d^\pm=\pi(x;840d,b^\pm_d)-\li(x)/\varphi(840d)$, and Cited
+Theorem~\ref{cit:BV} (resp.\ EH) bounds the remainders.
+(2) $4n_3=p+3\equiv p\pmod3$ gives $n_3\equiv p\equiv2\pmod3$, so some prime
+factor of $n_3$ is $\equiv2\pmod3$, and window $3$ succeeds by
+Lemma~\ref{lem:w3}'s argument ($u=r$, $v=1$).
+(3) $\mathcal A^+$ contains the primes $p\equiv1\pmod{840}$ counted by
+Theorem~\ref{thm:W1}.
+\end{proof}
+
+Consequently, any lower-bound method for $S(\mathcal A,P_3,z)$ whose input
+is only $X$, $g$, the level $D$ and a bound for $\sum_{d<D}|r_d|$ (the
+axioms of \cite[Ch.~11]{OdC}) returns a non-positive lower bound for
+$z>(x+3)/4$ on the data of $\mathcal A^+$, at every level $D\le x^{1/2}(\log x)^{-B}$
+unconditionally and every $D\le x^{1-\eta}$ on EH.  A proof that window~$3$
+fails for some $p$ must use $\leg p3=+1$, i.e.\ Lemma~\ref{lem:parity}.
+This is Selberg's parity example, with the Liouville function of the bad
+part realised as the Dirichlet character $\leg p3$ of the prime itself.
+Because it is a character of $p$, the barrier is removed by a congruence
+condition, which is exactly what Step~2 of Theorem~\ref{thm:W1} does.
+
+\begin{remark}[two windows jointly]\label{rem:P1joint}
+For windows $3$ and $7$ jointly, the four sign classes
+$(\leg p3,\leg p7)$ do \emph{not} all have the same joint sieve data:
+$3$ is $7$-bad, and $3\mid n_7=(p+7)/4$ for every $p\equiv2\pmod3$ and for
+no $p\equiv1\pmod3$.  The barrier holds for the pair of classes
+\[
+ \mathcal B^\pm=\{p\le x:\ p\equiv1\ (8),\ p\equiv1\ (5),\ p\equiv1\ (3),\ \leg p7=\pm1\}.
+\]
+For coprime squarefree $d_1$ (composed of $3$-bad primes) and $d_2$
+(composed of $7$-bad primes), $\#\{p\in\mathcal B^\pm:\ d_1\mid n_3,\ d_2\mid n_7\}$
+vanishes if $\gcd(d_1d_2,30)>1$ (as $n_3$ is odd, $3\nmid n_7$ and
+$5\nmid n_3n_7$), and otherwise is a sum of three prime counts in
+reduced classes modulo $840d_1d_2$, with main term
+$3\li(x)/\varphi(840d_1d_2)$ for both signs.  (For $\gcd(d_1,d_2)>1$ both
+counts vanish since $\gcd(n_3,n_7)=1$.)  Yet no $p\in\mathcal B^-$ has
+window $7$ clean, since $(-1)^{\Omega_7^-(n_7)}=\leg p7=-1$, while on EH
+Theorem~\ref{thm:W2} gives $\gg x/(\log x)^2$ primes of $\mathcal B^+$ with
+both windows clean.  So the parity of window~$7$ is also necessary input.
+\end{remark}
+
+\begin{remark}[why two windows are harder]\label{rem:whytwo}
+Two windows form a dimension-one problem.  At the
+Bombieri--Vinogradov level $x^{1/2}$ the linear sieve reaches only
+$z<x^{1/4}$, so each window can carry two or four large bad primes, and
+the configurations with two bad primes are no longer of lower order.
+Lemma~\ref{lem:parity} still removes odd counts, but it does not
+distinguish $0$ from $2$ or $4$.  Whether Type~I information at level
+$x^{1/2}$ together with the parity of both windows suffices is the
+question addressed, in a model only, in Remark~\ref{rem:LPmodel}.
+\end{remark}
