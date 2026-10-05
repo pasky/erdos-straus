@@ -618,3 +618,48 @@ set at `ℓ'_i` has `≤ 2ηℓ'_i + 1` points, so `p ≤ 2η + 1/ℓ'_i ≤ 1/4
 every coordinate is light, the plain rule never leaks (EK Lemma 2.1(1)),
 and `M ≤ K/4`. EK Thm 2.5 with Cor 2.6 (`m̄ = K/4`) gives
 `E_U ν ≥ E[e^{−Φ}ν(y)] ≥ E e^{−Φ} ≥ e^{−EΦ}` with the stated bound. ∎
+
+**Lemma 8.3 (an L² majorant of the allowed arc; PROVED).** Let
+`J = [−1/2+η, 1/2−η]` (mod 1) and `R = ⌈4/η²⌉`. There is a real
+trigonometric polynomial `P(t) = Σ_{|m|≤R} c_m e(mt)` with `P ≥ 1` on J and
+`Σ_m |c_m|² = ∫_0^1 P² ≤ 1 − η/3`.
+
+*Proof.* Let `I = 1[‖t − 1/2‖ ≤ η/2]`, `F_R` the Fejér kernel of degree R
+(`F_R ≥ 0`, mean 1, `F_R(z) ≤ 1/(4(R+1)z²)` for `‖z‖ ≤ 1/2`), and
+`G = I ∗ F_R`: real, degree R, `0 ≤ G ≤ 1`, `∫G = η`, `∫G² ≤ ∫G = η`. For
+`t ∈ J`, every point of supp I is at distance `≥ η/2` from t, so
+`G(t) ≤ η·(4(R+1)(η/2)²)^{−1} = 1/((R+1)η) ≤ η/4`. Put
+`P = 1 + η/4 − G`. Then `P ≥ 1` on J and
+`∫P² = (1+η/4)² − 2(1+η/4)η + ∫G² ≤ 1 + η/2 + η²/16 − 2η + η ≤ 1 − η/3`
+for `η ≤ 1/8`. ∎
+
+**Proposition 8.4 (the large sieve saves `≍ log N`; PROVED).** Let
+`K = ⌊log(N/3)/log(2R+1)⌋` and let every `D_i` be large enough (as
+specified in the proof). There are `a_i` and a Montgomery–Vaughan system
+`Θ = {Σ_i m_iθ_i : |m_i| ≤ R}`, `θ_i = a_i/D_i`, with weights
+`w ≥ 3/(5N)` such that every `A ⊂ 𝒜 ∩ I` (`|I| = N`) satisfies
+
+    |A| ≤ (5N/3)(1 − η/3)^K,   i.e. saving ≥ (η/3)K − log(5/3) ≍ η log N / log(1/η).
+
+*Proof.* *Spacing.* Put `Ξ = (2R+1)^K ≤ N/3`, `β_i = (2R+1)^{−i}`, and
+choose `a_i` coprime to `D_i` with `|a_i/D_i − β_i| ≤ ε := 1/(4KRΞ)`
+(possible once `εD_i ≥ 4`: an interval of `≥ 4·` consecutive integers... of
+length `εD_i` contains an integer prime to `ℓ_iℓ'_i`, since `ℓ_i, ℓ'_i ≥ 5`).
+The numbers `Σ_i m_iβ_i`, `|m_i| ≤ R`, are the `Ξ` distinct integers in
+`[−(Ξ−1)/2, (Ξ−1)/2]` divided by Ξ, so they are `Ξ^{−1}`-spaced mod 1
+(the total span is `< 1`). Each `Σm_iθ_i` moves by `≤ KRε = 1/(4Ξ)`, so Θ
+has `Ξ` distinct points, spacing `δ ≥ 1/(2Ξ)`, `δ^{−1} ≤ 2N/3`.
+Montgomery–Vaughan: `Σ_θ|Σ_{n∈I}a_ne(nθ)|² ≤ (N + δ^{−1})Σ|a_n|²`, so
+`w = (N+δ^{−1})^{−1} ≥ 3/(5N)`.
+*Dual polynomial.* `g(n) = Π_i P(nθ_i) = Σ_{θ∈Θ}γ_θe(nθ)` with
+`γ_{Σm_iθ_i} = Π_i c_{m_i}` (the points of Θ are distinct). g is real,
+and `g ≥ 1` on 𝒜 since each `nθ_i ∈ J` there. For `A ⊂ 𝒜 ∩ I`, by
+Cauchy–Schwarz and MV,
+`|A| ≤ Σ_{n∈A}g(n) = Σ_θγ_θ S_A(θ) ≤ (Σ|γ|²/w)^{1/2}(Σ_θ w|S_A(θ)|²)^{1/2}
+≤ (Σ|γ|²/w)^{1/2}|A|^{1/2}`, so `|A| ≤ Σ|γ|²/w ≤ (5N/3)(Σ_m|c_m|²)^K`,
+and Lemma 8.3 finishes. This is a CRT-admissible large-sieve bound in the
+sense of LS §1 (it is Thm 2.1's (≥) direction). ∎
+
+The frequencies used have denominators `Π_{i∈T}D_i` with `|T|` up to K,
+i.e. level up to `Σ_i L_i`, which is `≥ Kλ` in case (a) of Prop 8.2:
+**super-polynomial level** whenever `λ ≥ log N`.
