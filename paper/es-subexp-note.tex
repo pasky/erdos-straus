@@ -1512,6 +1512,17 @@ Mertens' theorem, Lemma~\ref{lem:gradedq} and Theorem~\ref{thm:omega}.
 Gallagher's theorem is not used.
 \end{proof}
 
+\begin{remark}[A lower bound on the Haar side; cited, internal]\label{rem:haarlower}
+In companion work \cite{Haar} we show, modulo the fundamental lemma of
+sieve theory, that $\log(1/\delta^*(T))\gg\Lc^3/\log\Lc$; so
+$\Lc^3/\log\Lc\ll\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  We do not reprove this here.
+Monte Carlo estimates of $\delta^*(T)$ for $T\le32767$ are consistent with
+$\log(1/\delta^*(T))\asymp\Lc^3/\log\Lc$ (evidence only).  If the transfer to primes
+lost nothing beyond the Haar density, this would suggest
+$\log W(p)\approx(\log p)^{1/3}$ for the extremal primes; this is a heuristic, not
+a claim.
+\end{remark}
+
 \begin{remark}[Where the exponent comes from; Assessment]\label{rem:exponent}
 The certified bound is $\log p\ll\log Z\ll\log Q+\tau$.  The junta term is
 $\tau\asymp\Lc(S_1+\Lc)\ll\Lc^5$, and the quarantine term is
@@ -1549,6 +1560,7 @@ Theorem~\ref{thm:transfer}, Theorem~\ref{thm:assembly} and
 Theorem~\ref{thm:uncond}.
 \item Proved modulo Gallagher's theorem and Theorem~\ref{thm:ETall}:
 Theorem~\ref{thm:main}.
+\item Cited from internal work, not reproved: Remark~\ref{rem:haarlower}.
 \item Assessment: Remarks~\ref{rem:linear}, \ref{rem:mean}
 and~\ref{rem:exponent}.
 \item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
@@ -1590,6 +1602,8 @@ Math.\ Soc.\ 20 (2007), 495--517.
 $\sigma=1$, Invent.\ Math.\ 11 (1970), 329--339.
 \bibitem{Green} B.~Green, On (not) computing the M\"obius function using
 bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
+\bibitem{Haar} Anonymous, The Haar avoider exponent for Erd\H{o}s--Straus
+witnesses, internal note, 2026.
 \bibitem{HSS} B.~Haeupler, B.~Saha and A.~Srinivasan, New constructive aspects of
 the Lov\'asz local lemma, J.\ ACM 58 (2011), no.~6, Art.~28.
 \bibitem{Hastad} J.~H{\aa}stad, Almost optimal lower bounds for small depth

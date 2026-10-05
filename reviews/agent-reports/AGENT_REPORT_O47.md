@@ -111,3 +111,8 @@ Repairs applied:
 * `q` = prime power convention scoped to §3 (Gallagher sums run over all conductors).
 * Thm 3.1(c): `N≥2` added. Overfull box, unused `\DT`, uncited [EGLNV] removed.
 * README/report: iterated logs spelled out; `POINTWISE_OMEGA9.md` path.
+* `POINTWISE_HAAR.md` reached main ((H)25) before I finished: added Remark 8.3
+  (cited, internal; not reproved): `𝓛³/log𝓛 ≪ log(1/δ*) ≪ 𝓛^5 log𝓛` (lower bound mod the
+  sieve fundamental lemma), Monte Carlo consistent with `𝓛³/log𝓛` (evidence), heuristic
+  `(log p)^{1/3}` (not a claim). New bib entry [Haar] (internal note). The branch was
+  not merged with main; the remark only cites it.
