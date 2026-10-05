@@ -72,6 +72,31 @@ Referee branch `side-agent/referee-window-note`; author branch `side-agent/windo
 * **Remark 8.3 (joint)** — SOUND. Checked: for p≡1 (3), n₇≡2 (3), n₃≡1, n₇≡2 (5),
   n₃ odd, 2∉P₇, 7∉P₃∪P₇; (p/7)=±1 is 3 classes mod 7 ⇒ main term 3li(x)/φ(840d₁d₂)
   for both signs; for p≡2 (3), 3|n₇ (so the 4 sign classes really differ). Checklist 13 OK.
+* **Remark 9.1 (random model, Assessment)** — SOUND as an assessment; arithmetic
+  (log Pr=−(Q/8)loglog p, threshold 8 log p/loglog p) re-derived.
+* **Remark 9.2 (Dickson)** — part (a) SOUND (re-derived: (ℓ/p)=(p/ℓ)=1 for ℓ∈Λ_K,
+  (2/p)=1 as p≡1 (8); (r_a/p)=(a/p)=∏(p/ℓ)=1; Lemma 2.4). Unboundedness correctly
+  CONDITIONAL; admissibility delegated to PS Prop 8.4(b) — I re-checked it (take p≡1 mod a
+  high power of each ℓ∈Λ_K; for ℓ∉Λ_K there are J+1<ℓ forms with unit leading
+  coefficients), OK. Checklist 15 OK.
+* **Remark 9.3 (data)** — VERIFIED from scratch (`scripts/review_r41_census.py`, 5 s):
+  719 781 primes p≡1 (24) below 10⁸, 179 468 Mordell-hard; max a_min=107 at p=8803369,
+  which is a QR mod every prime ≤37; max a_min/log p=6.6914<6.7; normalised tails for
+  Z∈{3,…,23} at x=10⁶,10⁷,10⁸ have max/min−1 ≤ 8.7% (<9%). The 10¹², 10¹⁸, 10²⁴ samples
+  were not re-run.
+* **Remark 6.4 (W1 numerics)** — VERIFIED to 10⁹ from scratch
+  (`scripts/review_r41_w1num.py`): N₃ = 244, 1945, 15912, 131924 at 10⁶…10⁹ (ratios
+  0.01253, 0.01259, 0.01258, 0.01245), identical counts to POINTWISE_WINDOW.md table;
+  10¹⁰, 10¹¹ not re-run. "Monotone" is not literally true (rises 10⁶→10⁷), D-list.
+* **Conjecture X_win(10)** — implication to ES correct (p≢1 (24) are Mordell-easy;
+  verification to 10¹⁸ cited from memory — the author flags this).
+* **Remark 9.4 (block fakes)** — (ii) SOUND (embedding count of U⊔V splits as
+  emb(S_U,U)emb(S_V,V); mixed splits have ΣS>θ). (i) SOUND, but its hypothesis is
+  superfluous (D-list).
+* **Remark 9.5 (LP fake)** — labels correct (MODEL, weakest EVIDENCE); numbers match
+  POINTWISE_WINDOW2 §3.5–3.7 (12769 configs, 89 correlations/89×89, 2.6·10⁻¹⁵, 60-digit
+  re-solve, 0.744128, 0.497087, θ₂∈(0.5,0.7], [0.82,1.87], 9.3·10⁴ ≈ "up to 10⁵");
+  scope paragraph is not weaker than the source's. Not re-computed by me. Checklist 16 OK.
 
 **Brute force (from scratch, `scripts/review_r41_halfset.py`)**: for every a≡3 (4),
 3≤a≤63, the number of selections equals 2^β(a) with β from (eq. beta), every S_σ has
