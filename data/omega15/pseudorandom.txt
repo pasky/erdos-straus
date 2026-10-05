@@ -1,0 +1,2 @@
+(1) identity (brute force vs closed form): 40 instances, 0 failures
+(2) bound |E_rho h| <= (4r*)^(k+1): 900 cases, 0 failures, worst ratio 2.435e-04
