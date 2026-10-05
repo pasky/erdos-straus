@@ -16,10 +16,10 @@ Prop 2.4, Prop 4.2). Prime family `𝒫_y`, classes `𝓡(ℓ)`, `p_ℓ = F(ℓ)
 | Lemma 1.1, Cor 1.2 | each class of 𝓡(ℓ) is `−r/s mod ℓ` with `rs | A_ℓ` ("form" (r,s)); all hits of one form divide the single integer `ns + r ≤ Ns + r`; tuples whose form-group has product `> Ns + r` have `C_T(N) = 0` though `δ_T > 0`. The class −1 (form (1,1)) lies in every 𝓡(ℓ) | PROVED |
 | Thm 2.1, 2.2 | the CRT mass `Z_j` of such forced-zero tuples satisfies `Z_{u₀} ≥ (σ_y/2)^{u₀}/u₀!`, `u₀ = ⌈log(N+2)/log(y/2)⌉`; in the TC_θ calibration `Z_{u₀} ≥ η_K e^{K/(2e²)}` for **every θ > 2/3** | PROVED |
 | Cor 2.3 | TC_θ (θ > 2/3) holds only if the admissible tuples carry an aggregate CRT **excess** ≥ the forced-zero mass; TC_θ is incompatible with "admissible tuples are CRT-accurate" | PROVED |
-| Lemma 3.1 | inside one form the interval count is one-sided: `C ≤ N/q + 1/q` (Kubilius truncation + floors) | PROVED |
+| Lemma 3.1 | for the class −1 (form (1,1)) the interval count is one-sided: `C = ⌊(N+1)/q⌋ ≤ N/q + 1/q` (Kubilius truncation + floors); false for general forms (e.g. (r,s) = (1,2), ℓ = 7, N = 3) | PROVED |
 | Ass. 3.2 | **literal TC_θ is false for every θ ∈ (2/3,1)**: it needs a conspiratorial excess `N^{1/2−o(1)}` times the square-root noise floor; true for θ < 2/3 (T1 Prop 2.4) | Assessment |
-| Thm 4.1, Cor 4.2 | the truncation-aware hypothesis TC^𝔄_θ, and the one-sided alternating hypothesis TC^alt_θ, each imply `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)`; the single-form effects cancel in the alternating sum (Euler-characteristic argument) | PROVED |
-| §4 status | TC^𝔄 is also expected false above 2/3 (floor deficits); **TC^alt_θ (degree-K Brun sieve CRT-accurate on [1,N]) is the correct form of the door** | Assessment |
+| Thm 4.1, Cor 4.2 | the truncation-aware hypothesis TC^𝔄_θ, and the one-sided alternating hypothesis TC^alt_θ, imply `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)` resp. `≤ (2e+2)N exp(…)`; the forced-zero correction to the CRT mass cancels in the alternating sum (Euler-characteristic argument) | PROVED |
+| §4 status | TC^𝔄 is also expected false above 2/3 (floor deficits); **TC^alt_θ (one-sided: degree-K Brun sieve on [1,N] at most ≈ twice the CRT avoider density) is the correct form of the door** | Assessment |
 | §5 | toy numerics: class −1 forced zeros exceed η_K by 10³–10⁵ at the T1 test parameters; the T1 §5(b) moment deficits are an initial-segment effect (absent on far translates), about one third explained by single-form effects | EVIDENCE |
 | Cor 6.1 | for the pure prime family every CRT majorant of level ≤ A log N saves ≤ C(log N)^{2/3}; so TC^alt_θ for any θ > 2/3 needs CRT accuracy at moduli `exp(c(log N)^{3θ/2})` | PROVED (from T1 Thm 3.1) |
 | Ass. 6.2 | no known theorem (BV/EH/BFI/dispersion, roots-of-congruences equidistribution, fixed-shift correlations, Kubilius) supplies TC^alt_θ for any θ > 2/3 | Assessment |
@@ -33,12 +33,11 @@ prime divisors of the one integer n+1, and the CRT moments contain a
 forced-zero mass far above η_K (Thm 2.2). TC_θ can then only hold through
 an implausible compensating excess (Cor 2.3, Ass. 3.2). So the failure
 threshold of the literal hypothesis is **θ = 2/3** (heuristically sharp;
-proved: TC holds below 2/3, and above 2/3 it is equivalent to that
-excess), not ≈ 1 as the squares (T1 Prop 4.2) suggested. This does **not**
+proved: TC holds below 2/3, and above 2/3 it requires that excess), not ≈ 1 as the squares (T1 Prop 4.2) suggested. This does **not**
 close the door: the obstruction lives in individual moments and cancels
 in the alternating sum that T1 Thm 2.1 actually uses (Thm 4.1). The
 correct door is TC^alt_θ, a one-sided Brun-sieve statement, which still
-gives `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)` (Cor 4.2). Task (A): no
+gives `E(N) ≤ (2e+2)N exp(−(2/e²)(log N)^θ)` (Cor 4.2). Task (A): no
 positive result; TC^alt_θ for θ > 2/3 is beyond CRT by Cor 6.1 and no
 known theorem reaches its level `exp(c(log N)^{3θ/2})` (Ass. 6.2). No
 structured obstruction to TC^alt below θ = 1 was found: the single-form
@@ -136,7 +135,7 @@ using `u₀ log y_K ≤ 3 log N` for large N. Also
 `Λ_N + log K ≤ K/(2e²)` for N large, i.e. (2.1). ∎
 
 (With `m` at the peak of `e_m(p⁻)` one gains a further factor
-`≈ e^{μ_{y/2}}/μ`; the threshold θ = 2/3 does not move.)
+`≈ e^{μ_{y/2}}/√μ`; the threshold θ = 2/3 does not move.)
 
 **Corollary 2.3 (literal TC_θ forces a CRT excess; PROVED).** Let
 θ ∈ (2/3, 1), N ≥ N₀(θ), and suppose TC(N; K_N, y_K, η_K) holds. Then
@@ -144,7 +143,7 @@ using `u₀ log y_K ≤ 3 log N` for large N. Also
     Σ_{T∈𝔄, |T|=u₀} (C_T(N) − Nδ_T) ≥ N(Z_{u₀} − η_K) ≥ (1 − e^{−K/(2e²)}) N Z_{u₀} > 0,   (2.2)
 
 i.e. the admissible u₀-tuples must carry, in aggregate, **more** integers
-than CRT predicts, by at least the forced-zero mass. Equivalently: TC_θ
+than CRT predicts, by at least `N(Z_{u₀} − η_K)`. Equivalently: TC_θ
 is incompatible with the statement *"admissible tuples are CRT-accurate in
 aggregate to precision η_K at order u₀"*.
 
@@ -205,7 +204,8 @@ same kind of input that TC itself needs.
 
 **Consequence.** The moment-by-moment hypothesis is the wrong door. A
 method that "verifies TC_θ" for θ > 2/3 would have to evaluate moments
-whose true value differs from CRT by `≫ η_K`; what Theorem 2.1 of T1
+whose true value is expected (Ass. 3.2; not proved) to differ from CRT by
+`≫ η_K`; what Theorem 2.1 of T1
 actually uses is only the alternating sum, where (§4) the single-form
 deviations cancel.
 
@@ -220,7 +220,10 @@ the T1 calibration `K = K_N`, `y = y_K`, `η = η_K`.
 N(2Π_ℓ(1−p_ℓ) + 2e^{−K}) + KηN`. This is the only consequence of TC that
 T1 Thm 2.1 uses; it says that the degree-K Bonferroni (Brun pure-sieve)
 majorant `ν_K(n) = Σ_{j≤K}(−1)^j binom(f_y(n), j)` has interval sum at most
-its CRT mean plus `KηN`.
+`N(2Π(1−p_ℓ) + 2e^{−K}) + KηN`. Its CRT mean lies in
+`[Π(1−p_ℓ), Π(1−p_ℓ) + e^{−K}]`, so TC^alt is a deliberately relaxed
+one-sided upper-bound hypothesis (interval sum at most about twice the CRT
+mean), not an accuracy statement.
 
 **Theorem 4.1 (PROVED).** Let K be even, `K ≥ e²μ_y`, and
 `u₁ := ⌊log N/log y⌋ + 1 ≥ 4(1 + log y)`. Put
@@ -263,11 +266,12 @@ The final claim is T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
 
 **Corollary 4.2 (PROVED implication).** For every θ ∈ (0,1), TC^𝔄_θ
 implies `E(N) ≤ (e+3) N exp(−(2/e²)(log N)^θ)` for N ≥ N₀(θ). TC^alt_θ
-(same calibration) implies the same.
+(same calibration) implies `E(N) ≤ (2e+2) N exp(−(2/e²)(log N)^θ)`.
 
 *Proof.* In the calibration, `u₁ ≍ (log N)^{1−θ/2}` and
 `log y_K ≍ (log N)^{θ/2}`, so `u₁/log y_K → ∞` and `ε → 0`; then as in T1
-Cor 2.2. For TC^alt this is T1 Cor 2.2's arithmetic directly. ∎
+Cor 2.2. For TC^alt: `Π(1−p_ℓ) ≤ e^{−μ_{y_K}} < e^{1−K/e²}` (T1 Cor 2.2's
+proof), so `2Π(1−p) + 2e^{−K} + Kη_K ≤ (2e + 2)e^{−K/e²}` for large K. ∎
 
 **Status of the repaired hypotheses.**
 * TC ⇒ TC^alt (T1 Thm 2.1's proof); TC^𝔄 ⇒ TC^alt up to the factor
@@ -277,13 +281,21 @@ Cor 2.2. For TC^alt this is T1 Cor 2.2's arithmetic directly. ∎
   §3: admissible pure single-form tuples with `q ≤ N+1` have the exact
   count `⌊(N+1)/q⌋`, a deficit of `{(N+1)/q} − 1/q` each, and there are
   `N exp(−(log N)^{1−θ/2+o(1)}) ≫ Nη_K` of them at order
-  `⌊log N/log y⌋` (Lemma 3.1). (Assessment.)
-* TC^alt still fails for even `K ≥ (e²/2+ε) log N` (squares: T1 Prop
-  4.2's proof uses only the Bonferroni bound, i.e. TC^alt). So for TC^alt
-  the known failure threshold remains θ = 1.
-* TC^alt is immune to every single-form effect: in the alternating sum the
-  Kubilius truncation is an Euler-characteristic term `χ_φ`, which vanishes
-  unless every hit sits in an inadmissible group (proof of Thm 4.1). So
+  `⌊log N/log y⌋` (Lemma 3.1). Whether their total `Σ({(N+1)/q} − 1/q)`
+  is of that size at the calibrated N is not proved (individual terms can
+  be negative when `q | N+1`; the size `≈ ½` per tuple is an average over
+  N). (Assessment.)
+* TC^alt fails for even `K ≥ (2e²/2+ε) log N`-type orders (squares: T1
+  Prop 4.2's proof uses only the Bonferroni bound; the factor 2 in TC^alt
+  shifts the constant slightly). The calibrated endpoint θ = 1
+  (`K ≈ 2 log N`) is not decided by this argument, as in T1.
+* In the alternating sum the forced-zero (truncation) correction to the
+  CRT mass is an Euler-characteristic term `χ_φ`, which vanishes unless
+  every hit sits in an inadmissible group (Thm 4.1, PROVED). The floor
+  deficits are *empirical* errors, not CRT-mass corrections; that they
+  also cancel in the alternating sum is the heuristic content of TC^alt
+  (for the class −1 alone it is the fundamental lemma for sieving `n + 1`,
+  whose relative error is `u^{−u(1+o(1))}`). So
   **TC^alt_θ is the correct form of the tuple-count door**, and
   momentwise correlation hypotheses (TC, TC^𝔄, any precision-η statement
   about individual S_j) are the wrong instrument above 2/3.
