@@ -79,3 +79,46 @@ realisation has `r≡1 (24)` and the bound holds for the HAAR δ* too; equivalen
 `2^{u_0}` that 3 no longer contributes. Lemma 3.2(b)'s sentence "p_0=P_H (M odd, so the
 class mod 8 is irrelevant)" needs this amendment.
 
+### Corollary 3.5 and I1–I3 — label CONDITIONAL is honest; all three checks look settleable in a few lines (sketches below; author should write them out). One extra hypothesis must be added (D4: 840|Q).
+
+What I1–I3 are (traced to sources): O8 Lemma 3.1 (BRW) is pure algebra; O8 Lemma 3.3
+(twist) and O8 Thm 3.4's Haar bound `δ≥e^{−2.2S}` use the *old* LLL weights
+`x_E=2P(E)` with neighbourhood sums `≤1/32`; O11 Cor 1.2 (junta via digit filtration)
+uses only `∏λ^{2v}≤2` and the size S through `τ=2𝓛⌈log₂(100m²(S+1)e^{3S})⌉`; O11 Lemma
+3.1 (linear transfer) is written for `H={x≡1 (Q)}`. In the β-system the neighbourhood sum
+of E is only `≤s(E)η`, unbounded, so O8 Lemma 3.3 cannot be quoted verbatim — I1 is a
+genuine (if small) check, not a formality.
+
+**I1 sketch (twist).** As in O8 Lemma 3.3, with `ℓ_0|f` (a coordinate, `a_{ℓ_0}=0` since
+`gcd(f,Q)=1`): `|E[Fψ]|≤Σ_{E∋ℓ_0}p_{ℓ_0}(E)P(E∖ℓ_0∩F')`. The standard LLL conditional
+bound for an arbitrary event A (Haeupler–Saha–Srinivasan Thm 2.1:
+`P(A|∩F̄)≤P(A)∏_{F∈Γ(A)}(1−x_F)^{−1}`), with Lemma 1.1's computation, gives for
+`A=E∖ℓ_0`: `∏(1−x_F)^{−1}≤exp((4/3)Σ_{ℓ∈supp A}w̃_ℓ)≤β^{s(E)−1}`. Hence
+`|E[Fψ]|≤β^{−1}w̃_{ℓ_0}EF'≤ηEF'`, `EF≥(1−η)EF'`, and `|μ_ψ|≤(0.01+0.01·… +η/(1−η))EF≤μ/4`
+as soon as `η≤0.19` (true for large T; note it is **false** at the extreme `β=e^{1/3}`,
+`η=1/4`, where `η/(1−η)=1/3>0.2475` — so Lemma 1.1's full range of β is not usable on the
+prime side; harmless since β→1). Note Lemma 1.1 as stated only gives the conditional
+bound for events *of the family*; the bound for `E∖ℓ_0` (not in the family) must be
+stated separately (D5).
+
+**I1 sketch (BRW + Haar side).** Lemma 3.1 of O8 is algebraic. Replace S by
+`S_res=Σβ^sP(E)≥ΣP(E)` in τ: `E[F−B]≤m²ΣP(E_j)·e^{−3S_res}/(100m²(S_res+1))≤δ/100`
+because Lemma 1.1 gives `δ≥exp(−(4/3)S_res)`. ✓
+
+**I2 sketch.** O11 Lemma 1.1 needs only product-uniform digits above `i_0(ℓ)`; the fibre
+`n≡r (ℓ^{a})`, `r` a unit, has uniform digits `≥a`, conditioned systems are initial
+segments as before. So junta `O(𝓛(S_res+log m+𝓛))=O(𝓛(S_res+𝓛))`. ✓
+
+**I3 sketch.** On `rH`: `c(χ)=χ̄(r)E_{rH}[Bχ̄']…/φ(Q)`; for χ trivial on H,
+`c(χ)=χ̄(r)μ/φ(Q)`. Every *real* χ mod Q is a product of Legendre symbols at odd `p|Q` and a
+character mod 8, all `=1` at r (r a QR mod each odd `p|Q`, `r≡1 (8)`), so Case A
+(the only place a sign matters, Siegel-type term) is unchanged; non-real χ enter only via
+`|c(χ)|`. Case B (`f_2>1`, coprime to Q) is unchanged. Property (I) (`B≤1[W>T]` on the
+fibre): an occurring `E_{M,D}` with `M|Q` is impossible by Lemma 3.1, otherwise it is in the
+system. ✓ — **but** "p is Mordell-hard because r is a square mod 840" needs `3·5·7|Q`,
+which the square-class process (started at `Q=8`) does not guarantee as written (D4).
+
+Net: Cor 3.5 rests on (G), NT, OMEGA10 Thm 3.4 (and no longer on Elsholtz–Tao, which
+should be said: S_res is bounded via NT, not ET) plus I1–I3. With the sketches above
+written out, CONDITIONAL could be upgraded to "PROVED modulo (G), NT, OMEGA10 Thm 3.4".
+
