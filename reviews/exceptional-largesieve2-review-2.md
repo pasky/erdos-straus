@@ -3,8 +3,8 @@
 Reviewer: side agent `review-ls2b`. Scope: §§8–9 only (Lemma 8.1, Props 8.2,
 8.4, Lemma 8.3, Thm 8.5 + Consequences, Thm 9.1, Prop 9.2, §9 Status).
 Reviewed at `side-agent/ls-escapes` @ 519aab5. From-scratch scripts:
-`scripts/review_ls2b_*.py`. (Work in progress; verdict table filled in as
-checks complete.)
+`scripts/review_ls2b_*.py`. Replay: `PYTHONPATH=scripts uv run --with scipy --with numpy python
+scripts/review_ls2b_{gale,lp,ls,kernel}.py` (under `ulimit -v 8000000`).
 
 ## Verdicts
 
@@ -13,13 +13,13 @@ checks complete.)
 | Lemma 8.1 | SOUND |
 | Prop 8.2(a) | SOUND |
 | Prop 8.2(b) | SOUND-AFTER-REPAIRS (m1: needs `\ell'_i \ge 36`) |
-| Lemma 8.3 | (pending) |
-| Prop 8.4 | (pending) |
-| Thm 8.5 | (pending) |
-| Thm 8.5 Consequences 1–3 | (pending) |
-| Thm 9.1 | (pending) |
-| Prop 9.2 | (pending) |
-| §9 Status / "Open precisely" | (pending) |
+| Lemma 8.3 | SOUND |
+| Prop 8.4 | SOUND |
+| Thm 8.5 | SOUND (genuine escape; can be strengthened, m7) |
+| Thm 8.5 Consequences 1–3 | (1) SOUND; (2) SOUND-AFTER-REPAIRS (m2, m7); (3) Assessment, fine |
+| Thm 9.1 | SOUND-AFTER-REPAIRS (m3: hypothesis bookkeeping only) |
+| Prop 9.2 | SOUND |
+| §9 Status / "Open precisely" | SOUND-AFTER-REPAIRS (m4, m5) |
 
 ## Line-by-line notes
 
@@ -178,3 +178,69 @@ prime, so `μ` of Prop 8.2(a) (uniform on foreign digits) has
 `ω(q) > T^{1/4}` are covered by neither 9.1 nor 9.2 when the factor is
 large), (ii) that the closed side rests on K2 Thm 5.1/KARY3 (conditional)
 and on family primes `≤ N^{O(1)}` (defect m5).
+
+**Is Thm 8.5 really an escape? (the brief's main question).** Yes. The
+same band family (same N, K, η, D_i, a_i) has (i) best level-λ majorant
+mean exactly 1 (Prop 8.2(a); LP-confirmed at K = 2), and (ii) a
+CRT-admissible MV large sieve satisfying Facts 1.1/4.0 with saving
+`≥ c log N` (Prop 8.4); all quantifiers are in the right order (λ, N
+first; family after; c, N₀ absolute). Moreover the escape is *stronger*
+than stated: taking λ ≍ log N so that all `L_i ≍ log N` (allowed:
+`ℓ, ℓ' ≈ N^{1/2+o(1)}`), Prop 8.2(b) with `d = ⌈2λ'/min L_i⌉` bounds the
+best majorant saving at **every** level λ' by
+`O((λ'/log N)·log log N + log log N) ≤ Cλ'^{3/4}` (and 0 for λ' < min L_i),
+so, by Lemma 1.1's duality (which is family-free), the band family
+satisfies K2 Thm 5.1's *conclusion at all levels* — yet the large sieve
+saves `c log N ≫ (log N)^{3/4}`. (No contradiction with Prop 5.1: the
+frequencies have level `≍ (log N)²`, where `S ≍ (log N)^{3/2}`.) This is
+what actually justifies Consequence 2's "a proof must use (Sp) or K2's
+moment hypotheses": as written, Thm 8.5 only excludes a comparison measure
+at a *fixed* level λ, which leaves open a proof from comparison at all
+levels (defect m7).
+
+## Defects
+
+No FATAL, no MAJOR.
+
+* **m1 (Prop 8.2(b), hypotheses).** "Every coordinate is light" needs
+  `2η + 1/ℓ'_i ≤ 1/4`, i.e. `ℓ'_i ≥ 36` for η = 1/9. *Repair:* add
+  `ℓ_i, ℓ'_i ≥ 36` (or note `W ≥ W₀ ≥ 36`).
+* **m2 (Thm 8.5 Consequence 2, (Sp)).** "(Sp) … by the divisor bounds of
+  K2 §3": K2 §3 has only total first moments; the per-D statement is not
+  proved anywhere, and "for every D, ≤ D^{−1+o(1)}" fails for bounded D
+  (a `(log N)^{O(1)}` factor). *Repair:* state (Sp) for D of level
+  `≥ log N` (or `D ≥ N^ε`), label it Assessment/heuristic or prove it from
+  Lemma 3.1-type Euler products restricted to multiples of D.
+* **m3 (§0 table / Thm 9.1 headline).** "no level hypothesis" omits the
+  standing hypothesis that every prime of the kernel moduli is `≤ e^{Λ₀}`
+  (λ = 2log N + Λ₀). *Repair:* mention it in the table and the theorem
+  statement; optionally remove it for primes ∤ M₀ by averaging π over
+  those digits (𝒜 is invariant), see the Thm 9.1 note.
+* **m4 (§9 Status, band-family kernel remark).** The route "S = 0 once
+  every `L_i > 2log N + Λ₀` (e.g. ℓ ∈ [N³,2N³])" tacitly bounds kernel primes
+  by `2N³`; for "every kernel with h = 0" argue directly (each `q°` has at
+  most one band prime, μ is uniform on foreign digits, so `μ(b mod q°) =
+  1/q° ≤ 1/N` and `B ≥ N`).
+* **m5 (§9 "Open precisely").** Omits Prop 9.2's `ω(q) ≤ T^{1/4}` (kernels
+  with many large prime factors and large factor are covered by
+  neither result) and that the "closed" side of Thm 9.1 is conditional on
+  K2 Thm 5.1/KARY3 with family primes `≤ N^{O(1)}`. *Repair:* add both.
+* **m6 (§8 intro, line 575).** "§8.3 says what this means for (H_LS∞)" —
+  there is no §8.3 (the material is §8.2 Consequences 2–3). *Repair:*
+  fix the reference.
+* **m7 (Consequence 2, §0 table row Thm 8.5, O27 report item 1).** The
+  inference "a proof must use (Sp) or K2's moment hypotheses" does not
+  follow from Thm 8.5 as stated (fixed level λ only). *Repair:* add the
+  all-levels upgrade above (one paragraph: Prop 8.2(b) + Lemma 1.1
+  duality with `L_i ≍ log N`), or weaken the sentence to "must use more
+  than a comparison measure at any single level λ".
+* *nit (Lemma 8.1).* "Otherwise α(R) lies in an arc of length < 2η" —
+  add "(pairwise distances < 2η ≤ 1/4 force this)".
+
+## Overall
+
+§§8–9 are correct. Thm 8.5 is a genuine escape (and can be strengthened,
+m7). Thm 9.1's anti-concentration argument is right and was stress-tested
+on arbitrary (A, π) with exact LP-computed S. Labels: PROVED for Lemma 8.1,
+Props 8.2, 8.4, Lemma 8.3, Thm 8.5, Prop 9.2 (unconditional) and Thm 9.1
+(conditional on K2 Thm 5.1/KARY3) are justified after the minor repairs.
