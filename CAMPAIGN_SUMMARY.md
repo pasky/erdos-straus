@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)22)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)26 and (H)27)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -46,16 +46,28 @@ literature.
 
 The campaign ran two lines of research.
 * **Exceptional-set line.** It went from 2/3 to 3/4. It then proved that
-  3/4 is sharp for a broad, precisely defined class of congruence sieves.
-  Later work extended the cap to the large sieve and to inter-frequency
-  cancellation for moduli `≤ N/2`. The one identified door above 3/4 is
-  the tuple-count hypothesis TC_θ, which is a CONJECTURE.
+  3/4 is sharp, with no `log log` loss, for every coefficient-sum
+  congruence sieve over any mixture of forced classes. Later work
+  extended the cap to large sieves (twisted, hybrid, applied to primes),
+  to prime-only majorants and to inter-frequency cancellation for moduli
+  `≤ N/2`. The remaining doors above 3/4 are precisely stated: the
+  repaired tuple-count hypothesis TC^alt_θ (a CONJECTURE), the
+  large-sieve hypothesis H_LS∞ for forced families (a CONJECTURE), the
+  combinatorial statement "weak SPW" for hybrid methods (open; the
+  fixed-σ version is refuted), and genuinely non-CRT arithmetic input.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
   meta-theorem about procedures. It also produced unconditional
-  Ω-results showing that the least multiplier witness `W(p)` exceeds every
-  fixed power of `log p` infinitely often.
+  Ω-results for the least multiplier witness `W(p)`. The rate went from
+  every fixed power of `log p` to
+  `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
+  hard primes (PROVED modulo Gallagher's theorem and Nair–Tenenbaum).
+  The matching profinite (Haar) exponent is exactly 3 up to logs, so the
+  heuristic truth is `log W ≍ (log p)^{1/3}`. Exponent 1/4 is proved to
+  be the ceiling of the architecture used; 1/3 would need bilinear or
+  parity-sensitive prime input. Window results give exact orders for
+  bounded windows and show that parity input is necessary.
 
 ---
 
@@ -135,7 +147,25 @@ factors. Then every such majorant saves at most
     C (log N)^{3/4} (log log N)^{3/4}.
 
 If every modulus `G` satisfies `G ≤ P(G)^{1+B}` with `B` fixed, the bound
-is `C_B (log N)^{3/4}`, with no `log log` gain possible.
+is `C_B (log N)^{3/4}`.
+
+**Sharp form, no `log log` loss (EXCEPTIONAL_KARY3.md Thm 4.1, Cor 4.2;
+ledger (D)24).** For the same mixtures, with arbitrary moduli and no
+B-hypothesis, every CRT majorant of level λ has `log(1/Eν) ≤ Cλ^{3/4}`,
+and coefficient-sum CRT methods save at most `C_A (log N)^{3/4}` when the
+family primes are `≤ N^A`. So the cap is exactly `(log N)^{3/4}`.
+* The old loss came from Rankin's trick on dyadic blocks of smooth
+  moduli. KARY3 replaces it by a local moment
+  `Z_y(M) = Σ_{p^ν | M, p^ν ≤ y} Λ(p^ν)/log y`, with a fourth moment
+  controlled by Shiu's theorem in progressions.
+* Variants: truncated weights `min(log ℓ, L₀)` (Thm 5.1); majorants of
+  bounded prime order `k` save `≤ C_A[(log N)^{3/4} + k log log N]`
+  (Cor 5.2). The `log log` factors in (D)18–(D)20 and (D)22 can all be
+  dropped.
+* Label: **PROVED given KARY2 as reviewed** (internal; review
+  `reviews/exceptional-kary3-review.md`, all claims SOUND; Case A uses
+  Elsholtz–Tao, published, not re-proved). §§6–7 of KARY3 were added
+  after the review and checked by the parent only.
 * This covers Bonferroni, Selberg Λ², β/Rosser and every combinatorial
   upper-bound sieve on these classes. It also covers CRT-evaluated moment
   methods.
@@ -179,9 +209,12 @@ is `C_B (log N)^{3/4}`, with no `log log` gain possible.
    contains a square (Mordell/Jacobi). Rankin's trick plus Cauchy–Schwarz
    on smooth-dominated moduli removes `B`. The cost is
    `(log log)^{3/4}` in the cap.
+8. `EXCEPTIONAL_KARY3.md` ((D)24): removes that cost (above).
 
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
-sieves"; refereed internally, fixes applied; v3 merged). The 3/4 note
+sieves"; v4 states the cap with no `log log` loss and adds the large-sieve,
+prime-only, hybrid and tuple sections of §2.3; v4 refereed internally in
+R36, MINOR REVISION, fixes applied). The 3/4 note
 now has a remark that its ceiling is a theorem for its own architecture
 (sieve-limits v3 Thm 10.8 / Rem 10.9; KARY2 Cor 6.1). It replaces the
 note's earlier heuristic-ceiling caveat. The (D)19–(D)21 results are in
@@ -189,8 +222,9 @@ separate files (§2.3).
 
 ### 2.3 Beyond coefficient sums: the large sieve, interval cancellation, tuple counts
 
-Three later files close or sharpen the main doors left open by (D)18.
-All three are internal and unrefereed.
+Later files close or sharpen the main doors left open by (D)18. All are
+internal and unrefereed. With KARY3 ((D)24), every `(log log N)^{3/4}`
+factor quoted in this subsection can be dropped.
 
 * **The large sieve is capped** (`EXCEPTIONAL_LARGESIEVE.md` Thm 3.1,
   Cor 3.2; ledger (D)19).
@@ -211,12 +245,33 @@ All three are internal and unrefereed.
     (Thm 6.2).
   * *Label:* **PROVED, conditional on KARY2 Thm 5.1**.
     Review: `reviews/exceptional-largesieve-review.md`, SOUND.
-  * *Open escapes:*
-    * frequencies of super-polynomial level against multi-large-prime
-      classes (H_LS, a conjecture);
-    * the larger sieve over mixtures;
-    * twisted/hybrid forms;
-    * non-CRT interval information.
+  * *Open escapes (as of (D)19):* super-polynomial frequency levels
+    (H_LS); the larger sieve over mixtures; twisted/hybrid forms;
+    non-CRT interval information.
+* **The large-sieve escapes are closed except H_LS**
+  (`EXCEPTIONAL_LARGESIEVE2.md`; ledger (D)25).
+  * *Comparison measure (Lemma 1.1, LP duality).* The KARY2/KARY3 cap is
+    equivalent to one probability measure on the sifted set that is
+    within `e^{S(λ)}` of uniform on every nonnegative level-λ test.
+  * *Twisted and hybrid forms (Thm 2.4, Cor 2.5).* Every Bessel-type
+    inequality with periodic rows of polynomial period (additive,
+    multiplicative, mixed `χ(n)e(nθ)`, Gauss-sum rows, fibrewise use)
+    is capped at `C_A(log N)^{3/4}`. The large sieve applied to the
+    primes has the same cap relative to π(N) (Thm 3.1).
+  * *Gallagher's larger sieve* with prime-power kernels over any mixture
+    saves at most `26 log log N + C`, unconditionally (Thm 4.3).
+    Composite kernels are capped up to a factor `1 + Nh/(W_K−h)` (Thm 9.1).
+  * *Band-family escape (§§8–9, PROVED).* The comparison measure plus
+    large-sieve axioms alone cannot close H_LS∞. For a dense abstract
+    "band" family, every majorant of level below the band levels has
+    mean ≥ 1, yet a Montgomery–Vaughan large sieve on the sumset of the
+    band frequencies saves ≥ c log N. So a cap for forced families must
+    use their sparsity or K2's moment hypotheses.
+  * *Label:* **PROVED** (internal; conditional on KARY2/KARY3 where
+    cited). Reviews: `reviews/exceptional-largesieve2-review.md` and
+    `-review-2.md`. *Open:* H_LS∞ for forced families
+    (**CONJECTURE**, Prop 5.2); composite kernels with huge
+    `Nh/(W_K−h)` and small prime factors.
 * **Inter-frequency cancellation is worthless for moduli ≤ N/2**
   (`EXCEPTIONAL_INTERFREQ.md`; ledger (D)20).
   * *Selberg minorant.* If every nonzero frequency of `ν ≥ 0` has
@@ -233,6 +288,29 @@ All three are internal and unrefereed.
   * *What remains:* multi-witness tuple counting above modulus N
     (Assessment). (H_eq) is open but not needed when all moduli are
     `≤ N/2`.
+* **Hybrid methods reduced to a combinatorial hypothesis**
+  (`EXCEPTIONAL_INTERFREQ2.md`, `EXCEPTIONAL_SPW.md`; ledger (D)26).
+  * *Setting.* Hybrids charge each class of modulus `> N/2` only its
+    least position-blind count. They have an exact LP dual (Prop 2.1).
+    A sign rule (Lemma 3.1) shows that right-signed large classes can be
+    counted exactly, so no inequality `B_hyb ≥ c·N·Eν` holds and the
+    (D)20 accounting does not extend verbatim.
+  * *Caps.* The 3/4 cap holds when the right-signed mass is `≤ c·B`
+    (Cor 5.1, PROVED). It holds for every hybrid whose right-signed mass
+    at moduli in `(N/2, CN]` is `O(e^{O(S)}B)`, conditional on a
+    hypothesis Flat (Thm 5.2, PROVED implication). Flat follows from a
+    purely combinatorial statement SPW about measures that count every
+    small-modulus class exactly as `[1,N]` does (Prop 9.1).
+  * *SPW with fixed σ is false* (`EXCEPTIONAL_SPW.md` Thm 3.2, PROVED;
+    Fejér smoothing plus Bernstein's inequality): such measures have
+    `σ ≲_C (log N)^{−1/2}`, with exact rational certificates at N = 300
+    and N = 1150. The earlier "σ* = 2/5 at every N" pattern was a small-N
+    artefact. Thm 5.2 needs only **weak SPW** (`σ_N ≥ c₀e^{−S_A}`), which
+    Thm 3.2 does not touch and which is **open**.
+  * *Label:* **PROVED / PROVED implication as labelled** (internal;
+    reviews `reviews/exceptional-interfreq2-review.md`,
+    `reviews/exceptional-spw-review.md`, SOUND). No hybrid beating 3/4
+    was found.
 * **The tuple-count door** (`EXCEPTIONAL_TUPLES.md`; ledger (D)21).
   * *Reformulation (Lemma 1.3).* Order-k witness correlations are the
     distinct-prime parts of k-point correlations of ω-type functions
@@ -252,46 +330,64 @@ All three are internal and unrefereed.
     fit (Prop 4.3 plus Assessment).
   * *Label:* **PROVED** (internal). Review:
     `reviews/exceptional-tuples-review.md`, all items SOUND.
-  * *Open:* TC_θ for `3/4 < θ < 1` is an open, natural, falsifiable
-    **CONJECTURE**.
+  * *Open (as of (D)21):* TC_θ for `3/4 < θ < 1`, stated as a
+    **CONJECTURE**; it was repaired in (D)23 (next item).
+* **TC_θ repaired** (`EXCEPTIONAL_TUPLES2.md`; ledger (D)23).
+  * *Forced zeros.* Tuples whose form-group product exceeds `Ns+r` have
+    interval count 0 but positive CRT mass. For every θ > 2/3 this mass
+    exceeds the TC precision by `e^{K/(2e²)}` (Thms 2.1–2.2). So the
+    literal TC_θ, θ > 2/3, holds only with a compensating CRT excess on
+    admissible tuples (Cor 2.3, PROVED necessary condition). That the
+    literal TC_θ is false on (2/3, 1) is an Assessment, not proved.
+  * *Repair.* The forced-zero term cancels in the alternating sum (an
+    Euler-characteristic identity). The one-sided alternating hypothesis
+    TC^alt_θ, and TC^𝔄_θ (accuracy on admissible tuples only), each still
+    imply `E(N) ≤ C N exp(−(2/e²)(log N)^θ)` (Thm 4.1, Cor 4.2, PROVED
+    implications). **TC^alt is the correct form of the tuple-count door.**
+  * *Difficulty.* For the pure prime family, CRT-main-term sieves save
+    `≤ C(log N)^{2/3}` (Cor 6.1); so TC^alt_θ with θ > 2/3 needs accuracy
+    at moduli `exp(c(log N)^{3θ/2})`, which no known theorem reaches
+    (Assessment).
+  * *Label:* **PROVED** (internal; review
+    `reviews/exceptional-tuples2-review.md`, SOUND). TC^alt_θ for
+    θ > 3/4 is open.
 
 * **Prime-only majorants** (`EXCEPTIONAL_PRIMELAW.md`; ledger (D)22).
   Majorants that are ≥ 1 only at the primes of the avoider set, for any
   mixture of forced and selector classes, save at most
-  `Cλ^{3/4}(log λ)^{3/4}`. Prime-law methods with all moduli ≤ N^A save at
-  most `C_A(log N)^{3/4}(log log N)^{3/4}`; this includes
+  `Cλ^{3/4}(log λ)^{3/4}` (the log factor is dropped by (D)24).
+  Prime-law methods with all moduli ≤ N^A save at most
+  `C_A(log N)^{3/4}`; this includes
   SW/BV/BDH/EH/GRH-level inputs. **PROVED** (internal; Case A uses
   Elsholtz–Tao Prop 1.4). Review: `reviews/exceptional-primelaw-review.md`.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)21, KARY2 §6, NONCRT §6 and STATUS.md.
-A proof of `θ > 3/4` would need at least one of the following:
-* **Multi-witness tuple counting above modulus N.** Interval cancellation
-  is now known to be worthless for classes of modulus `≤ N/2` ((D)20).
-  The live form is TC_θ with `θ > 3/4` ((D)21, CONJECTURE). It needs
-  correlation input of growing order. Bounded-order input cannot help.
-  The earlier NONCRT Thm 8.1 dichotomy (PROVED) and §8.3 (EVIDENCE: no
-  inter-frequency gain in one tested family) point the same way.
+The sources are ledger (D)18–(D)26, KARY2 §6, NONCRT §6 and STATUS.md.
+The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
+coefficient-sum sieves, large sieves of every Bessel type, prime-only
+majorants, and interval cancellation at moduli `≤ N/2`. A proof of
+`θ > 3/4` would need at least one of the following:
+* **Tuple counts of growing order.** The live form is the alternating
+  hypothesis TC^alt_θ with `θ > 3/4` ((D)23; the literal TC_θ is
+  obstructed above 2/3 by forced zeros). Bounded-order input cannot help
+  ((D)21), and accuracy is needed at moduli `exp(c(log N)^{3θ/2})`, beyond
+  any known theorem (Assessment).
+* **Super-polynomial large-sieve levels.** H_LS∞ for forced families
+  ((D)25, **CONJECTURE**). The band-family example proves that a cap must
+  use the sparsity of forced families; abstract large-sieve axioms do not
+  suffice.
+* **Hybrid interval methods.** Capped if weak SPW holds ((D)26, PROVED
+  implication). Weak SPW is open; the fixed-σ version is refuted.
+  Right-signed mass at moduli in `(N, CN]` is also open.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
-  Thm 2.3): coefficient sums, the sawtooth bound, and complete
-  Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
-  case that is CONDITIONAL on an equidistribution conjecture.
-* **Genuinely arithmetic, non-CRT input**, of a kind other than the
-  tuple counts above.
-* **Other ingredients outside the class:**
-  * large-sieve escapes listed in (D)19: super-polynomial frequency
-    levels against multi-large-prime classes (H_LS), the larger sieve
-    over mixtures, twisted/hybrid forms;
-  * hybrid interval methods that charge large classes only their trivial
-    count ((D)20);
-  * majorants that are `≥ 1` only on `[1,N]` or only on exceptional
-    primes (majorants `≥ 1` only on primes *are* capped, NONCRT
-    Thms 3.2–3.3, so BV/BDH/EH/GRH-level prime inputs do not help);
-  * class types other than the four above;
-  * family primes beyond `N^{O(1)}`.
-* **A sharper constant without `B`.** For general moduli the cap carries
-  a factor `(log log N)^{3/4}`. Whether it can be removed is open.
+  Thm 2.3). Weights `< 1` are open, except a smooth-window case that is
+  CONDITIONAL on an equidistribution conjecture.
+* **Genuinely arithmetic, non-CRT input** of another kind.
+* **Other ingredients outside the class:** majorants with `ν ≥ 0` only
+  at primes `≤ N` when the period exceeds `N^c` (Assessment: open);
+  composite Gallagher kernels with huge `Nh/(W_K−h)`; class types other
+  than the four above; family primes beyond `N^{O(1)}`.
 
 Model-only remark: the a-frame/multiplicative route sits at
 `θ* ≈ 0.52` under its model, below 3/4 (**Assessment**, ET §5.2). The
@@ -425,11 +521,21 @@ polylogarithmic moduli could prove ES. The campaign shows it is not.
 | Thms 4.3, 5.2 | **for every fixed k:** `W(p) ≥ (log p)^k exp(−C_k log₂p/log₃p)`; equivalently `log L_h(T) ≤ T^{o(1)}` | PROVED modulo Thorner–Zaman, effective; no explicit rate as `k → ∞` | POINTWISE_OMEGA3 |
 | Cor 3.1 | **explicit rate:** `log W(p) ≥ (1+o(1)) log₂p · log₃p / log₄p` | PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA4 |
 | Cor 3.1 (variant) | `log W(p) ≥ (1+o(1)) log₂p · log₄p / log₅p` | PROVED modulo Thorner–Zaman alone | POINTWISE_OMEGA4 |
+| Thm 4.3 | **sub-exponential rate:** `W(p) ≥ exp(c(log p)^{1/14})` | PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA8 ((H)16) |
+| Thm 2.2 | `W(p) ≥ exp(c(log p)^{1/7})` | PROVED modulo Gallagher's theorem (G) and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA9 ((H)19) |
+| Thm 3.2 | `W(p) ≥ exp(c(log p)^{1/6})` | PROVED modulo (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4 | POINTWISE_OMEGA11 ((H)22) |
+| Thm 6.3 | `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` | PROVED modulo (G), Elsholtz–Tao and OMEGA10 Thm 3.4 | POINTWISE_OMEGA12 ((H)24) |
+| Thm 5.1 | **current record:** `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})`; `log L_h(T) ≪ 𝓛⁴ log 𝓛` | PROVED modulo (G), Nair–Tenenbaum and OMEGA10 Thm 3.4 (Elsholtz–Tao no longer used) | POINTWISE_OMEGA13 ((H)26) |
 
 Here `log_j` is the j-fold iterated logarithm. `L_h(T)` is the least hard
-prime with `W > T`.
+prime with `W > T`, and `𝓛 = log T`. Each row from OMEGA8 on supersedes
+the one before; each was reviewed by two independent hostile reviewers
+(OMEGA13 by four). OMEGA10 Thm 3.4 is the campaign's energy bound C-1
+(below), itself PROVED and doubly reviewed. Gallagher's theorem (G) is
+quoted from the Montgomery–Vaughan vol. III draft (Thm 28.19); his
+original paper was not obtained.
 
-**Method, in brief.**
+**Method of the polylogarithmic rows (OMEGA–OMEGA4), in brief.**
 * Impose the class of one at small primes, so the remaining congruence
   system is local at a few free primes.
 * Build a pointwise minorant of the void indicator. It uses
@@ -440,38 +546,107 @@ prime with `W > T`.
   theorem in progressions (Math. Z. 306 (2024), Cor. 1.4). Its error term
   absorbs a possible Siegel zero.
 
+**From polylog to `exp((log p)^{1/4})` (OMEGA8–OMEGA13).**
+* *Diagnosis* (Assessment). Alternating expansions (Brun, Bonferroni,
+  levels) amplify errors on partial clusters; that caused the codegree
+  thresholds and the `(k−1)!` loss. The local lemma works by suppression.
+* *OMEGA8 (1/14).* Replace inclusion–exclusion by Bazzi's one-sided ℓ²
+  sandwich (Razborov–Wigderson form), so the error is an ℓ² Fourier tail.
+  Bound the tail by writing the bad indicator as a bounded-width DNF and
+  applying Håstad's switching lemma (Linial–Mansour–Nisan).
+* *OMEGA9 (1/7).* A linear transfer to primes: expand the minorant in
+  characters and control all of them at once with Gallagher's prime
+  number theorem summed over conductors. Only `E|B|` matters, not the
+  ℓ¹ mass.
+* *OMEGA10 (energy bound C-1).* For the indicator F that no event of a
+  single-value event system occurs, on any product probability space:
+  if `∏_{v∈E} λ_v ≤ 2` for every event E, then the weighted Efron–Stein
+  energy `Σ_U ∏_{v∈U} λ_v ‖F^{=U}‖²` is at most 1 (Cor 3.5). For
+  width-k DNFs this gives the sharp-rate tail `W^{>t} ≤ 4·2^{−(t+1)/k}`,
+  independent of the number of terms (Cor 4.1). It replaces the bit
+  encoding and the switching lemma. **PROVED** (two hostile reviews,
+  exhaustive exact checks).
+* *OMEGA11 (1/6).* Graded quarantine: quarantine a prime ℓ only to
+  `n ≡ 1 (ℓ^{a_ℓ})`, raising `a_ℓ` while the fibre mass is too large.
+* *OMEGA12 (1/5).* A modulus-weighted moment bound `Ω_0 ≪ 𝓛⁴ log 𝓛`
+  (Thm 5.1, modulo Elsholtz–Tao) and a digit-filtration energy lemma.
+* *OMEGA13 (1/4).* A β-weighted local lemma with a constant per-coordinate
+  threshold; the event classes `−4D mod M` are Jacobi non-residues, so
+  quarantining to random square classes never fires an event (the class
+  of one is no longer needed); supermartingale bookkeeping; Nair–Tenenbaum
+  for the masses. Elsholtz–Tao is no longer used.
+* *Abstract transfer* (POINTWISE_TRANSFER.md, (H)23, PROVED modulo
+  Gallagher, Landau–Page and Håstad). A prime `p ≡ a (Q)` avoiding any
+  system of unit-class events on few free primes, with no single-value or
+  codegree hypothesis. Applications: for every fixed `m ≥ 4` (Sierpiński's
+  5/n included), the m/n witness modulus satisfies
+  `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. (also modulo Elsholtz–Tao Prop 1.4
+  with κ = m). No novelty claim beyond these applications.
+
+**The Haar exponent is exactly 3, and 1/4 is a ceiling.**
+* *Haar side.* For the profinite avoider density `δ*(T)`,
+  `𝓛³/log 𝓛 ≪ log(1/δ*(T)) ≪ 𝓛³(log 𝓛)^5`. Lower bound:
+  POINTWISE_HAAR Thm 2.1, PROVED modulo the sieve fundamental lemma, via a
+  new Janson-type inequality for product spaces with one-hot coordinates
+  ((H)25). Upper bound: POINTWISE_OMEGA13 Thm 3.4, PROVED modulo
+  Nair–Tenenbaum ((H)26). The Monte Carlo of POINTWISE_SIZE §7 fits this
+  (EVIDENCE). So the profinite exponent is 3 up to logs, and the
+  heuristic prime-side truth is `log W ≍ (log p)^{1/3}`.
+* *Ceiling* (POINTWISE_OMEGA14, (H)27). Conditioned on the small
+  coordinates, the problem is a sieve of dimension `κ ≍ 𝓛³` on the big
+  primes, and the sieving limit forces level `≈ e^{𝓛κ}`. Thm 4.5
+  (PROVED modulo Gallagher (G), the effective Page bound and the
+  fundamental lemma): on any fibre, every minorant of level
+  `log D ≤ c𝓛⁴/log 𝓛` has Haar mean `≤ 0`. Cor 4.6 (PROVED implication):
+  1/4 is the ceiling, up to `(log log p)^{1/2}`, of every certificate
+  that goes through a Haar minorant plus a transfer requiring
+  `log x ≫ log Z`. The tool is a planting lemma (Lemma 1.1), which is LP
+  duality for lower-bound sieves (no novelty claimed).
+* *What 1/3 would need.* Prime input beyond low-conductor minorants:
+  bilinear (Type II) or parity-sensitive information, or a transfer whose
+  positivity comes from a Siegel-zero term. These are not covered by the
+  ceiling.
+
 **Consequences.**
 * `H_MOD(A)` is **REFUTED for every A** (ledger (F)10, (H)13).
-* So no pointwise multiplier mechanism with polylogarithmic witness
-  moduli can prove ES.
+* So no pointwise multiplier mechanism whose witness moduli are
+  `≤ exp((log p)^{1/4−ε})` can prove ES.
 
 **Related results.**
 * *Heuristic truth.* `log W ≍ (log p)^{1/3}` (**Assessment**,
-  POINTWISE_SIZE §7). Data: `W ≈ (log p)^{2.5–3.4}` for
-  `10^8 ≤ p ≤ 10^50` (EVIDENCE).
-* *Haar side* (profinite avoider density `δ*(T)`).
-  `log(1/δ*(T)) ≤ T^{o(1)}` unconditionally, and
-  `≪ (log T)^7 log log T` modulo Elsholtz–Tao Prop 1.4. Source:
-  POINTWISE_OMEGA2 Thm 11.3, PROVED. This does not transfer to primes.
-* *Bottleneck.* The factorial loss in OMEGA4 comes from the Markov
-  push-down cascade. A saturated-hub codegree hypothesis HC* would give
-  `log W ≥ 0.2√a (log₂p)^{3/2}`: OMEGA4 Thm 4.2, a PROVED implication.
-  Two caveats:
-  * HC *as literally stated* in OMEGA4 is **false**. POINTWISE_OMEGA5
-    corrects it to HC*.
-  * The `m = 1` part of HC* is PROVED (OMEGA5 Thm 2.3). The rest reduces
-    to an open divisor problem, HC_Π.
-
-  The proved rate remains OMEGA4 Cor 3.1.
+  POINTWISE_SIZE §7), now backed by the Haar exponent 3 above. Data:
+  `W ≈ (log p)^{2.5–3.4}` for `10^8 ≤ p ≤ 10^50` (EVIDENCE).
+* *Superseded routes.* The earlier Haar bounds (POINTWISE_OMEGA2
+  Thm 11.3, `≪ (log T)^7 log log T`) and the hub-codegree route of
+  OMEGA4–OMEGA6 (hypotheses HC*, HC_Π, whose target was only
+  `(log₂p)^{3/2}`) are superseded by the rows above. HC as literally
+  stated in OMEGA4 is false (POINTWISE_OMEGA5). `POINTWISE_OMEGA7.md`
+  (partial HC_Π reductions) was merged unreviewed and is archived.
 * *Type-I slice parameter* (POINTWISE_OMEGA Thm 8.5, ledger (H)9).
   * `ck_min(p) ≫ log p · log₃p` infinitely often: PROVED modulo Lau–Wu
-    Prop 5.1, not effective.
-  * This is Graham–Ringrose's 1990 Ω-bound for the least quadratic
-    non-residue, transported by a Yamamoto-type lemma.
-  * Only the equivalence "congruence methods certify exactly `n_p`" is
-    campaign content.
-* *Write-up.* `paper/es-omega-note.tex` v3 (31 pp; internal referee
-  `reviews/es-omega-note-review-v3.md`, P1–P4 applied).
+    Prop 5.1, not effective. This is Graham–Ringrose's 1990 Ω-bound for
+    the least quadratic non-residue `n_p`, transported by a Yamamoto-type
+    lemma. Only the equivalence "congruence methods certify exactly
+    `n_p`" is campaign content.
+* *Type-I map beyond Graham–Ringrose* (POINTWISE_TYPEI.md, (H)17). The
+  target `ck_min ≥ g(p)·n_p` with `g → ∞` was **not** reached.
+  * Vanishing of the Type-I count is a congruence sieve on `p` with
+    moduli larger than `p` (Lemma 1.1). Every reduced hard class contains
+    infinitely many `p` with `ck_min = n_p`, so congruence input gives
+    exactly `g = 1` (Prop 4.2, PROVED).
+  * `n_p = 5 ⟹ ck_min(p) ≤ 10`, sharp at `p = 193` (Thm 6.1, PROVED).
+    Every finite Type-I covering of `{n_p = 7}` has height ≥ 539, and of
+    `{n_p = 11}` height > 3000 (Cor 6.4, PROVED).
+  * CONDITIONAL: under Schinzel H, `ck_min > g·n_p` i.o. for every `g`;
+    under GRH, `ck_min > (1/(2log 2)−ε) log p·log log p` i.o. (Montgomery's
+    Ω-result transported; sources cited from memory).
+  * Census to `10^7`: record `ck_min(9033649) = 883` (EVIDENCE).
+* *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
+  internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v4
+  (exponent 1/4, Haar exponent 3, the ceiling theorem; 39 pp; refereed
+  internally four times, R33, R33b, R47, R56). `paper/energy-dnf-note.tex`
+  (17 pp) writes up the energy bound C-1 and the DNF tails as a
+  stand-alone result (refereed internally, R50 minor revision applied).
 
 ### 3.4 Window results
 
@@ -508,6 +683,44 @@ prime with `W > T`.
   `K = 11` is the window analogue of the open unconditional case of
   Friedlander–Iwaniec 2009.
 
+**Exact stacking orders** (POINTWISE_XWIN.md, (H)18; **PROVED**,
+review `reviews/pointwise-xwin-review.md`).
+* *Half-set lemma* (Lemma 1.1). For any `a ≡ 3 (mod 4)`, if window `a`
+  fails at `x` then all prime factors of `x` lie in one of `2^{β(a)}`
+  explicit sets of exactly `φ(a)/2` residue classes, with no exceptions.
+* *Fixed-set stacking* (Thm 1.2, Cor 1.3). For any fixed set `A` of
+  windows, `#{p ≤ N : all a ∈ A fail} ≪_A N/(log N)^{1+|A|/2}`. Hence
+  `#{p ≤ N : a_min(p) > Z} ≪_Z π(N)(log N)^{−J(Z)/2}`, the random model's
+  exact exponent.
+* *Exact orders* (Cor 1.4). `#{a_min ≥ 7} ≍ x/(log x)^{3/2}`
+  unconditionally and `#{a_min ≥ 11} ≍ x/(log x)²` on EH. So W1 and W2
+  are sharp. A uniform version holds for `Z` up to about
+  `3.6 log log N` (Thm 1.5, PROVED modulo Siegel–Walfisz).
+* The window tail bound of Thm 2.2 is a second proof of what notes
+  Thms 14.4/14.9 already imply (priority to the notes).
+
+**Two windows need parity** (POINTWISE_WINDOW2.md, (H)20; review
+`reviews/pointwise-window2-review.md`). Unconditional `a_min(p) ≥ 11`
+was **not** reached.
+* Windows 3 and 7 are both clean iff `n, n+1` are primitive norms from
+  `ℚ(√−3)` and `ℚ(√−7)`: a Friedlander–Iwaniec-shaped quadric (Lemma 1.2,
+  PROVED).
+* *Parity is necessary* (Thm P1, PROVED; necessity modulo BV resp. EH).
+  The classes `(p/3) = ±1` have identical sieve data, but the −1 class
+  never has window 3 clean. This is Selberg's parity example realised by
+  primes.
+* *Model obstruction.* In a discrete model of Type-I correlations of
+  level θ plus parity, there is a "fake" with no both-clean mass at
+  θ = 1/2 (Prop 3.7, CERTIFIED in the model); the model's two-window
+  threshold lies in (0.5, 0.7]. So Type-I plus parity at BV level does
+  not give two windows in the model. Relevance to real sieves is weak
+  EVIDENCE only.
+
+**Write-up.** `paper/es-window-note.tex` (22 pp): window criterion,
+half-set lemma, stacking, W1/W2 and exact orders, Prop P1, with the model
+and data as labelled remarks (refereed internally, R41 minor revision
+applied).
+
 ---
 
 ## 4. Table of main results
@@ -531,11 +744,17 @@ them.
 | E7 | Λ² cap for `r` large primes, `≪ L^{3/4}(log L)^{3r+O(1)}`; B removed for fixed `r` | PROVED (internal) | `EXCEPTIONAL_TWIN4.md` Thm 7.1, 10.4 | `reviews/exceptional-twin4-review.md` (SOUND) | arithmetic large sieve (rough-partner Brun–Titchmarsh) |
 | E8 | 3/4 cap for every CRT majorant over ℛ(M)-families with fixed B; weighted k-ary comparison theorem | PROVED (internal) | `EXCEPTIONAL_KARY.md` Thm 2.5, 4.5 | `reviews/exceptional-kary-review.md`, `-review-2.md` | none |
 | E9 | Per-frequency signed rounding (weights ≥ 1), prime-only majorants and CRT moment methods also capped at 3/4 (prime-slice families) | PROVED (internal) | `EXCEPTIONAL_NONCRT.md` Thm 2.3, 3.2–3.3, Props 4.1–4.2 | `reviews/exceptional-noncrt-review.md` (rounds 1–2) | none |
-| E10 | **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of the four forced/selector class types**; saving `≤ C L^{3/4}(log L)^{3/4}`, `≪_B L^{3/4}` under fixed B | PROVED (internal) | `EXCEPTIONAL_KARY2.md` Thm 5.1, 5.2, Cor 6.1; `paper/sieve-limits-note.tex` | `reviews/exceptional-kary2-review.md`, `-review-2.md`; `reviews/sieve-limits-note-review-v2.md`, `reviews/papers-v3-review.md` | Elsholtz–Tao Prop 1.4 (Case-A part only) |
+| E10 | **No θ > 3/4 for coefficient-sum CRT sieves over any mixture of the four forced/selector class types**; saving `≤ C L^{3/4}(log L)^{3/4}`, `≪_B L^{3/4}` under fixed B (log factor dropped by E16) | PROVED (internal) | `EXCEPTIONAL_KARY2.md` Thm 5.1, 5.2, Cor 6.1; `paper/sieve-limits-note.tex` | `reviews/exceptional-kary2-review.md`, `-review-2.md`; `reviews/sieve-limits-note-review-v2.md`, `reviews/papers-v3-review.md` | Elsholtz–Tao Prop 1.4 (Case-A part only) |
 | E11 | Heuristic ceiling `θ = B/(B+1)` (2/3 at B = 2, 3/4 at B = 3) | Assessment (proved arithmetic under the stated assembly model) | notes §18.3–18.4 | — | — |
-| E12 | Large sieve capped: every CRT-admissible large-sieve bound is `≥ N·E\|g*\|²` (Selberg-square majorant), so saves `≤ C L^{3/4}(log L)^{3/4}` (polynomial denominators), `C_B L^{3/4}` (bounded B); includes the 2/3 note's use | PROVED, conditional on KARY2 Thm 5.1 | `EXCEPTIONAL_LARGESIEVE.md` Thm 2.1, 3.1, Cor 3.2, Thm 4.1, 6.2 | `reviews/exceptional-largesieve-review.md` (SOUND) | KARY2 Thm 5.1 (hence Elsholtz–Tao Prop 1.4 for Case A) |
-| E13 | Selberg minorant `Σ_{n≤N}ν ≥ (N−D)Eν`; majorants from forced classes of modulus `≤ N/2` save `≤ C L^{3/4}(log L)^{3/4}` under any evaluation of the interval sum | PROVED (internal) | `EXCEPTIONAL_INTERFREQ.md` Thm 2.2, Cor 2.3, Thm 2.5 | `reviews/exceptional-interfreq-review.md` | KARY2 Thm 5.1 |
+| E12 | Large sieve capped: every CRT-admissible large-sieve bound is `≥ N·E\|g*\|²` (Selberg-square majorant), so saves `≤ C L^{3/4}(log L)^{3/4}` (polynomial denominators), `C_B L^{3/4}` (bounded B); includes the 2/3 note's use (log factor dropped by E16) | PROVED, conditional on KARY2 Thm 5.1 | `EXCEPTIONAL_LARGESIEVE.md` Thm 2.1, 3.1, Cor 3.2, Thm 4.1, 6.2 | `reviews/exceptional-largesieve-review.md` (SOUND) | KARY2 Thm 5.1 (hence Elsholtz–Tao Prop 1.4 for Case A) |
+| E13 | Selberg minorant `Σ_{n≤N}ν ≥ (N−D)Eν`; majorants from forced classes of modulus `≤ N/2` save `≤ C L^{3/4}(log L)^{3/4}` under any evaluation of the interval sum (log factor dropped by E16) | PROVED (internal) | `EXCEPTIONAL_INTERFREQ.md` Thm 2.2, Cor 2.3, Thm 2.5 | `reviews/exceptional-interfreq-review.md` | KARY2 Thm 5.1 |
 | E14 | TC_θ ⇒ `E(N) ≤ (e+2)N exp(−(2/e²)L^θ)`; TC holds for `K ≤ cL^{2/3}`, fails for even `K ≥ (e²/2+ε)L`; bounded-order correlations cannot give θ > 3/4 | PROVED (internal); TC_θ for 3/4 < θ < 1 is a CONJECTURE | `EXCEPTIONAL_TUPLES.md` Cor 2.3, Prop 2.4, Thm 3.1, Prop 4.2 | `reviews/exceptional-tuples-review.md` (all items SOUND) | KARY2 Thm 5.1 (Cor 3.4) |
+| E15 | Prime-only majorants (≥ 1 only at avoider primes) for any mixture save `≤ Cλ^{3/4}(log λ)^{3/4}`; prime-law methods (SW/BV/BDH/EH/GRH level, moduli `≤ N^A`) capped at 3/4 | PROVED (internal) | `EXCEPTIONAL_PRIMELAW.md` Thm 3.1, Cor 4.2 | `reviews/exceptional-primelaw-review.md` (SOUND) | Elsholtz–Tao Prop 1.4 (Case A) |
+| E16 | **The `(log log N)^{3/4}` loss removed:** every CRT majorant of level λ over any mixture, no B-hypothesis, has `log(1/Eν) ≤ Cλ^{3/4}`; coefficient-sum sieves save `≤ C_A L^{3/4}`; truncated weights; bounded prime order | PROVED given KARY2 as reviewed (§§6–7 parent-checked only) | `EXCEPTIONAL_KARY3.md` Thm 4.1, Cor 4.2, Thm 5.1, Cor 5.2–5.3; `paper/sieve-limits-note.tex` v4 Thm 10.14 | `reviews/exceptional-kary3-review.md` (SOUND); `reviews/sieve-limits-note-review-v4.md` | Shiu (progressions); Elsholtz–Tao Thm 7.1, Cor 7.4, (7.10) (Case A) |
+| E17 | Literal TC_θ (θ > 2/3) needs a compensating CRT excess (forced zeros); TC^alt_θ and TC^𝔄_θ ⇒ `E(N) ≤ CN exp(−(2/e²)L^θ)`; pure prime family capped at `L^{2/3}` for CRT-main-term sieves | PROVED / PROVED implications (internal); literal TC_θ false on (2/3,1) is an Assessment; TC^alt_θ for θ > 3/4 open | `EXCEPTIONAL_TUPLES2.md` Thms 2.1–2.2, Cor 2.3, Thm 4.1, Cor 4.2, Cor 6.1 | `reviews/exceptional-tuples2-review.md` (SOUND) | KARY2 Thm 5.1 (Prop 7.1) |
+| E18 | Comparison measure; twisted/hybrid/Gauss-sum large sieves and the large sieve on primes capped at `C_A L^{3/4}`; Gallagher's larger sieve (prime-power kernels) `≤ 26 log log N + C`; band-family escape (abstract axioms cannot close H_LS∞) | PROVED (internal; conditional on KARY2/KARY3 where cited); H_LS∞ for forced families a CONJECTURE | `EXCEPTIONAL_LARGESIEVE2.md` Lemma 1.1, Thm 2.4, Cor 2.5, Thms 3.1, 4.3, 8.5, 9.1 | `reviews/exceptional-largesieve2-review.md`, `-review-2.md` (SOUND) | KARY2/KARY3; Montgomery–Vaughan large sieve |
+| E19 | Hybrid methods: exact LP dual, sign rule; 3/4 cap when right-signed mass `≤ cB`; Flat ⇒ cap; SPW ⇒ Flat | PROVED / PROVED implication (internal) | `EXCEPTIONAL_INTERFREQ2.md` Prop 2.1, Lemma 3.1, Cor 5.1, Thm 5.2, Prop 9.1 | `reviews/exceptional-interfreq2-review.md` (SOUND) | KARY2/KARY3 |
+| E20 | SPW with fixed σ is false: `σ ≲_C (log N)^{−1/2}`; exact certificates at N = 300, 1150; weak SPW untouched and open | PROVED; certificates exact | `EXCEPTIONAL_SPW.md` Thm 3.2, Cor 3.3 | `reviews/exceptional-spw-review.md` (SOUND) | Fejér kernel, Bernstein's inequality |
 
 ### 4.2 Pointwise line
 
@@ -559,14 +778,26 @@ them.
 | P16 | `W(p) ≥ (log p)^{2−o(1)}` i.o. | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA.md` Thm 5.1 | `reviews/pointwise-omega-review.md` | Thorner–Zaman 2024 Cor. 1.4 |
 | P17 | `ck_min(p) ≫ log p · log₃p` i.o. | PROVED modulo the cited theorem; not effective; Graham–Ringrose transported | `POINTWISE_OMEGA.md` Thm 8.5 | `reviews/pointwise-omega-review.md` | Lau–Wu Prop 5.1 (Graham–Ringrose 1990) |
 | P18 | `W(p) ≥ (log p)^{3−o(1)}` i.o.; H_MIN(θ) for θ > 1/3 | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA2.md` Thm 5.1, Cor 5.2 | `reviews/pointwise-omega2-review.md` | Thorner–Zaman; Haeupler–Saha–Srinivasan (conditional LLL) |
-| P19 | Haar side: `log(1/δ*(T)) ≤ T^{o(1)}`, and `≪ (log T)^7 log log T` | PROVED; second form modulo the cited theorem | `POINTWISE_OMEGA2.md` Thm 11.3 | `reviews/pointwise-omega2-review-r3.md` | Elsholtz–Tao Prop 1.4 (second form) |
+| P19 | Haar side: `log(1/δ*(T)) ≤ T^{o(1)}`, and `≪ (log T)^7 log log T` | PROVED; second form modulo the cited theorem (superseded by P36–P37) | `POINTWISE_OMEGA2.md` Thm 11.3 | `reviews/pointwise-omega2-review-r3.md` | Elsholtz–Tao Prop 1.4 (second form) |
 | P20 | **Every fixed exponent:** `W(p) ≥ (log p)^{k−o(1)}` i.o., every fixed `k` | PROVED modulo the cited theorem, effective | `POINTWISE_OMEGA3.md` Thms 4.3, 5.2 | `reviews/pointwise-omega3-review.md`, `-review-2.md` (SOUND) | Thorner–Zaman |
 | P21 | Explicit rate `log W ≥ (1+o(1)) log₂p·log₃p/log₄p` i.o. | PROVED modulo the cited theorems | `POINTWISE_OMEGA4.md` Cor 3.1–3.3 | `reviews/pointwise-omega4-review.md` | Thorner–Zaman; Elsholtz–Tao Prop 1.4 (dropping it gives `log₂p·log₄p/log₅p`) |
-| P22 | HC* ⇒ `log W ≥ 0.2√a (log₂p)^{3/2}`; `m = 1` part of HC* | PROVED implication; `m = 1` part PROVED; HC_Π open; literal HC false | `POINTWISE_OMEGA4.md` Thm 4.2; `POINTWISE_OMEGA5.md` Thm 2.3 | `reviews/pointwise-omega4-review.md`, `reviews/pointwise-omega5-review.md` | Thorner–Zaman, Elsholtz–Tao |
+| P22 | HC* ⇒ `log W ≥ 0.2√a (log₂p)^{3/2}`; `m = 1` part of HC* | PROVED implication; `m = 1` part PROVED; HC_Π open; literal HC false (route superseded by P30–P37) | `POINTWISE_OMEGA4.md` Thm 4.2; `POINTWISE_OMEGA5.md` Thm 2.3 | `reviews/pointwise-omega4-review.md`, `reviews/pointwise-omega5-review.md` | Thorner–Zaman, Elsholtz–Tao |
 | P23 | `ES(p) ⇔ a_min(p) < ∞`; window reciprocity | PROVED | `POINTWISE_SIZE.md` Thm 8.1, Lemma 8.2 | as P9 | none |
 | P24 | W1: `a_min ≥ 7` for `≫ x/(log x)^{3/2}` hard `p` | PROVED modulo cited sieve theorems | `POINTWISE_WINDOW.md` §2 | `reviews/pointwise-window-review.md` | semi-linear sieve, Selberg sieve, BV (also FHRSS 2025) |
 | P25 | W2: `a_min ≥ 11` for `≫ x/(log x)²` hard `p` | CONDITIONAL on Elliott–Halberstam | `POINTWISE_WINDOW.md` §4 | `reviews/pointwise-window-review.md` | EH (level `x^{1−ε₀}`) |
 | P26 | `log W ≍ (log p)^{1/3}`; `a_min ≍ log p/log log p` | Assessment | `POINTWISE_SIZE.md` §7, §8 | — | — |
+| P27 | Type-I map: congruence input gives exactly `ck_min = n_p` in every reduced hard class; `n_p = 5 ⇒ ck_min ≤ 10` (sharp at 193); covering heights ≥ 539 (`n_p = 7`), > 3000 (`n_p = 11`) | PROVED; Schinzel-H and GRH parts CONDITIONAL; census EVIDENCE | `POINTWISE_TYPEI.md` Prop 4.2, Thm 6.1, Cor 6.4, Thms 2.1, 3.1 | `reviews/pointwise-typei-review.md` (SOUND-AFTER-REPAIRS) | Schinzel H / GRH (conditional parts only) |
+| P28 | Half-set lemma; fixed-set stacking `≪_A N/(log N)^{1+\|A\|/2}`; exact orders `#{a_min≥7} ≍ x/(log x)^{3/2}`, `#{a_min≥11} ≍ x/(log x)²` (on EH) | PROVED (uniform version modulo Siegel–Walfisz) | `POINTWISE_XWIN.md` Lemma 1.1, Thm 1.2, Cor 1.3–1.4, Thm 1.5 | `reviews/pointwise-xwin-review.md` | EH for the `a_min ≥ 11` lower bound (via W2) |
+| P29 | Parity is necessary for two windows (Thm P1); model fake at θ = 1/2 | PROVED (necessity modulo BV resp. EH); model result CERTIFIED in the model only | `POINTWISE_WINDOW2.md` Lemma 1.2, Thm P1, Prop 3.7 | `reviews/pointwise-window2-review.md` | BV, EH |
+| P30 | `W(p) ≥ exp(c(log p)^{1/14})` i.o. (BRW sandwich + switching lemma) | PROVED modulo the cited theorems | `POINTWISE_OMEGA8.md` Thm 4.3 | `reviews/pointwise-omega8-review.md`, `-review-2.md` (SOUND) | Thorner–Zaman; Elsholtz–Tao Prop 1.4; Håstad/LMN |
+| P31 | `W(p) ≥ exp(c(log p)^{1/7})` i.o. (linear transfer via Gallagher) | PROVED modulo the cited theorems | `POINTWISE_OMEGA9.md` Thms 1.1, 2.2 | `reviews/pointwise-omega9-review.md`, `-review-2.md` (SOUND) | Gallagher (G) via MV III draft Thm 28.19; Elsholtz–Tao Prop 1.4 |
+| P32 | **Energy bound C-1** on product spaces; width-k DNF tails `W^{>t} ≤ 4·2^{−(t+1)/k}` (sharp rate) | PROVED (internal) | `POINTWISE_OMEGA10.md` Cor 3.5, Thm 3.4, Cor 4.1; `paper/energy-dnf-note.tex` | `reviews/pointwise-omega10-review.md`, `-review-2.md` (SOUND); `reviews/energy-dnf-note-review.md` | none |
+| P33 | `W(p) ≥ exp(c(log p)^{1/6})` i.o. (graded quarantine) | PROVED modulo the cited theorems | `POINTWISE_OMEGA11.md` Thm 3.2 | `reviews/pointwise-omega11-review.md`, `-review-2.md` (SOUND) | (G); Elsholtz–Tao Prop 1.4 |
+| P34 | Abstract avoidance transfer; m/n analogues `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. | PROVED as labelled | `POINTWISE_TRANSFER.md` Thm 1.1, Cor 5.2–5.3 | `reviews/pointwise-transfer-review.md` (SOUND) | (G), Landau–Page, Håstad; ET Prop 1.4 with κ = m |
+| P35 | `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o.; `Ω_0 ≪ 𝓛⁴ log 𝓛` | PROVED modulo the cited theorems | `POINTWISE_OMEGA12.md` Thms 5.1, 6.3 | `reviews/pointwise-omega12-review.md`, `-review-2.md` (SOUND) | (G); Elsholtz–Tao Prop 1.4, Thm 7.1, Cor 7.4 |
+| P36 | Haar lower bound `log(1/δ*(T)) ≫ 𝓛³/log 𝓛`; Janson-type inequality for one-hot product spaces | PROVED modulo the sieve fundamental lemma | `POINTWISE_HAAR.md` Thm 1.4, Thm 2.1 | `reviews/pointwise-haar-review.md` (SOUND) | sieve fundamental lemma |
+| P37 | **Haar exponent exactly 3** (`≪ 𝓛³(log 𝓛)^5`); **`W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o.** | PROVED modulo the cited theorems | `POINTWISE_OMEGA13.md` Thm 3.4, Thm 5.1; `paper/es-subexp-note.tex` v4 | `reviews/pointwise-omega13-review.md`, `-review-2.md`, `-review-3.md`, `-review-4.md` (SOUND); `reviews/es-subexp-note-review-v4.md` | Nair–Tenenbaum; (G) |
+| P38 | **1/4 is the ceiling** of Haar-minorant + transfer certificates (no positive minorant of level `≤ c𝓛⁴/log 𝓛` on any fibre); planting lemma | PROVED / PROVED implication (Cor 4.6) | `POINTWISE_OMEGA14.md` Lemma 1.1, Thm 4.5, Cor 4.6 | `reviews/pointwise-omega14-review.md`, `-review-2.md` (SOUND) | (G), effective Page bound, fundamental lemma |
 
 ---
 
@@ -641,14 +872,55 @@ Semantic Scholar was rate-limited. These were **not accessed**:
   CRT-plus-least-prime pattern (Fridlender, Salié, Chowla–Turán). The
   technical novelty is the multilevel minorant and local-lemma machinery.
   The interest of the result depends on `W` being a natural statistic; it
-  is campaign-defined.
+  is campaign-defined. For the sub-exponential rates (OMEGA8
+  onwards) see the separate audit below.
 * *The signed refactor graph and seed-component conjecture.* These are
   elementary; their value is structural, not a priority claim.
+
+**The sub-exponential pointwise machinery** (sources:
+`reviews/novelty-audit-omega8.md`, a no-internet audit partly from memory;
+the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
+`paper/energy-dnf-note.tex`). All searches here were partial.
+* *Known, cited, no novelty claimed:*
+  * the one-sided ℓ² sandwich of OMEGA8 Lemma 3.1 (Bazzi's scheme in
+    Razborov's form, with Wigderson's choice of approximant);
+  * the switching-lemma Fourier tail of OMEGA8 Lemma 4.1 (a routine
+    adaptation of Linial–Mansour–Nisan and Håstad);
+  * the **β-weighted local lemma** (OMEGA13 Lemma 1.1): the asymmetric
+    local lemma with the choice `x_E = β^{|supp E|}P(E)`; its conditional
+    form is standard (Haeupler–Saha–Srinivasan);
+  * the **planting lemma** (OMEGA14 Lemma 1.1): it is the LP dual of
+    lower-bound sieves, and laws of the same kind appear in
+    Benjamini–Gurel-Gurevich–Peled and Peled–Yadin–Yehudayoff. Only its
+    use to bound the level of minorants of a concrete arithmetic
+    indicator is new to us.
+* *Apparently new (low-to-medium confidence):*
+  * using the sandwich as a sieve minorant transferred to primes, and a
+    switching-lemma bound for a covering-avoidance density (the known
+    number-theoretic uses of these tools run the other way);
+  * the **energy bound C-1** and the DNF tails `W^{>t} ≤ 4·2^{−(t+1)/k}`
+    under any product measure (OMEGA10; `paper/energy-dnf-note.tex`).
+    Nearest prior art: **Lecomte–Tan** (FOCS 2021), who bound Fourier
+    coefficients of a DNF by cover probabilities but still use Håstad for
+    the degree; C-1 uses signed covers, all levels at once, and no
+    switching lemma. The note claims no priority;
+  * the **Janson-type inequality for one-hot product spaces**
+    (POINTWISE_HAAR Thm 1.4), where Harris's inequality fails: built from
+    the lopsided local lemma and Janson's proof scheme; not found in this
+    form, no systematic search, no priority claim.
+* The m/n analogues (POINTWISE_TRANSFER) claim no novelty beyond the
+  ES-type applications.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
   Thm 1.1(2).
 * Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
+* POINTWISE_XWIN Thm 2.2 (window tail) re-proves what notes Thms
+  14.4/14.9 already imply; priority to the notes.
+* The GRH part of POINTWISE_TYPEI (Thm 3.1) is Montgomery's Ω-result for
+  the least non-residue, transported (sources cited from memory).
+* The results of ledger (D)23–(D)26 and of POINTWISE_XWIN/WINDOW2/TYPEI
+  have not been separately novelty-audited.
 * Related recent work that the campaign compares against:
   Pomerance–Weingartner (arXiv:2511.16817; an explicit-in-`m` Vaughan
   bound) and Dahan (arXiv:2608.24035). Dahan's Thm 4.17 is credited as an
@@ -662,52 +934,73 @@ Semantic Scholar was rate-limited. These were **not accessed**:
 Importance (I) and feasibility (F) are rated high / medium / low. These
 ratings are this summary's judgement, not ledger labels.
 
-1. **External refereeing of the 3/4 note and the 2/3-loglog note.**
-   (I high, F high.) Both are unrefereed; the 3/4 label is only
-   INTERNALLY PROVED. `paper/README.md` recommends showing the loglog note
-   to a human referee first. Related tasks: read Vaughan 1970 itself and
-   complete the priority search.
-2. **θ > 3/4 for `E(N)`.** (I high, F low.) Every coefficient-sum CRT
-   sieve over the four class types is capped (§2.2). So are the large
-   sieve and, for moduli `≤ N/2`, interval cancellation (§2.3). A new
-   ingredient is required (§2.4). The most concrete candidate is TC_θ for
-   `θ > 3/4`: CRT-accurate witness correlations of order `≍ (log N)^θ`.
-   It is a CONJECTURE; its proved implication is (D)21. Other candidates:
-   per-frequency weights below 1, the large-sieve escapes (H_LS), and
-   other non-CRT arithmetic input.
-3. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
+1. **External refereeing.** (I high, F high.) Nothing is externally
+   refereed. First the 3/4 note (only INTERNALLY PROVED) and the
+   2/3-loglog note (`paper/README.md` recommends showing the loglog note
+   to a human referee first); then the sieve-limits note v4, the subexp
+   note v4, the window note and the energy/DNF note. Related tasks: read
+   Vaughan 1970 itself and complete the priority searches (§5).
+2. **θ > 3/4 for `E(N)`.** (I high, F low.) The cap is now exactly
+   `(log N)^{3/4}` for coefficient-sum sieves, every Bessel-type large
+   sieve, prime-only majorants and interval cancellation at moduli
+   `≤ N/2` (§§2.2–2.3). A new ingredient is required (§2.4). The precise
+   remaining doors, in rough order of concreteness:
+   * **weak SPW** ((D)26): a purely combinatorial statement about
+     measures on residue classes; it would cap hybrid methods, so it is a
+     *closing* question rather than an opening one;
+   * **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE): alternating witness
+     correlations of growing order; needs accuracy at moduli
+     `exp(c(log N)^{3θ/2})`, beyond any known theorem;
+   * **H_LS∞ for forced families** ((D)25, CONJECTURE): must use the
+     sparsity of forced families, by the band-family example;
+   * per-frequency weights below 1, and other genuinely non-CRT input.
+3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
+   rate is `log W ≫ (log p)^{1/4}` up to logs, the Haar exponent is
+   exactly 3, and 1/4 is the ceiling of the Haar-minorant + transfer
+   architecture (§3.3). Reaching the heuristic truth 1/3 needs prime input
+   beyond low-conductor minorants: bilinear (Type II) or parity-sensitive
+   information, or a Siegel-zero-type transfer. Smaller tasks: remove the
+   `(log log p)^{−1/4}` factor; prove `log(1/δ*) ≍ 𝓛³/log 𝓛` exactly
+   (Conjecture 3.1 of POINTWISE_HAAR).
+4. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
    ES ⇐ X_QNR (least-non-residue seeding), an (E2)-type reduction. Whether
    fixed non-abelian Frobenius data (E3) escapes the obstruction is open.
-4. **Unconditional `a_min(p) → ∞` (or even `a_min ≥ 11`).** (I medium,
-   F low–medium.) This is the window analogue of the open unconditional
-   case of Friedlander–Iwaniec 2009. It needs a level of distribution close
-   to 1 or a bilinear, parity-breaking input.
-5. **Sharper `W(p)` rates.** (I medium, F medium.) Prove HC_Π (a
-   divisor-function problem in short progressions). By POINTWISE_OMEGA5,
-   this gives HC*, and hence `log W ≥ c(log₂p)^{3/2}` via OMEGA4 Thm 4.2.
-   Beyond that: an event-sensitive truncation (Assessment: up to
-   `(log₂p)²/log₃p`). `exp((log p)^c)` is outside the method. The
-   heuristic truth is `log W ≍ (log p)^{1/3}`.
-6. **An unconditional sterile seed component.** (I low–medium, F low.)
+   No "ES ⇐ standard hypothesis" was found ((H)18).
+5. **Unconditional `a_min(p) ≥ 11` (or `a_min → ∞`).** (I medium,
+   F low.) Parity input is provably necessary (Thm P1), and in the
+   discrete model Type-I plus parity at BV level is not enough (§3.4). A
+   Chen-type switching argument is the model's suggestion (a follow-up,
+   POINTWISE_WINDOW3, was in progress). This is the window analogue of
+   the open unconditional case of Friedlander–Iwaniec 2009.
+6. **Type-I: `ck_min ≥ g(p)·n_p` with `g → ∞`.** (I low–medium, F low.)
+   Congruence input gives exactly `g = 1` (§3.3); beating
+   `log p·log₃p` by congruences would beat known Ω-results for the least
+   non-residue. Whether `C(7) < ∞` is open.
+7. **An unconditional sterile seed component.** (I low–medium, F low.)
    Astra has reduced its hypothesis to 158 prime conditions plus one
    divisor condition; searches over actual inputs find no sterile prime.
    Note: settling this would not affect ES.
-7. **Removing `(log log N)^{3/4}` from the general cap** (KARY2 Thm 5.1),
-   and closing the Λ² middle window `r ≍ log L` (TWIN4 §12). (I low,
-   F medium.) Neither would change the exponent 3/4.
-8. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
+8. **Residual cap questions that do not move 3/4:** the (D)21 Cor 3.4
+   window for general class order ((D)24 closes it for prime order);
+   composite Gallagher kernels with huge `Nh/(W_K−h)`; majorants with
+   `ν ≥ 0` only at primes `≤ N`; B-removal for general majorants over
+   classes outside ℛ(M). (I low, F medium.)
+9. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
    `H_FAIL`, `H_STACK`, `H_BLK`/`H'_BLK`, `H^+_LT` and `H_PF'`. Also open:
    the replacement conjecture `C'_SQ` (`W = +∞` exactly for squares and
    three sporadic values; ledger (F)9) and `C_POLY`. (I low–medium,
    F varies.) Most of these belong to the a-frame/stacking route, whose
    model ceiling is below 3/4.
-9. **Novelty checks that need library access.** (I medium for
-   publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
-   large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
-   Vaughan 1970.
-10. **Administrative.** Settle authorship and the citation form for astra
+10. **Novelty checks that need library or internet access.** (I medium for
+    publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
+    large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
+    Vaughan 1970; for the pointwise machinery, Bazzi/Razborov/Braverman,
+    LMN/Håstad sharpenings, Fourier-growth literature (for C-1), and
+    Janson-type inequalities without Harris; Gallagher 1970 itself (only
+    the MV III draft was read).
+11. **Administrative.** Settle authorship and the citation form for astra
     before `paper/pointwise-obstruction.tex` is finalised.
 
 ---
@@ -723,23 +1016,31 @@ ratings are this summary's judgement, not ledger labels.
 | the 2/3-loglog bound, self-contained (9 pp) | `paper/vaughan-loglog-note.tex` |
 | the 3/4 bound, self-contained | `paper/es-threequarter-note.tex`; blind audit `reviews/es-threequarter-blind-audit.md` |
 | everything up to wave 31 in one draft (177 pp; provisional labels) | `paper/espaper.tex` |
-| why 3/4 is sharp for congruence sieves | `paper/sieve-limits-note.tex`; then `EXCEPTIONAL_KARY2.md` and `EXCEPTIONAL_KARY.md` |
+| why 3/4 is sharp for congruence sieves | `paper/sieve-limits-note.tex` (v4); then `EXCEPTIONAL_KARY3.md`, `EXCEPTIONAL_KARY2.md`, `EXCEPTIONAL_KARY.md` |
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
-| the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md` |
+| the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
+| prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
 | inter-frequency cancellation in interval counts | `EXCEPTIONAL_INTERFREQ.md` |
-| the tuple-count door TC_θ and witness correlations | `EXCEPTIONAL_TUPLES.md` |
+| hybrid methods, SPW and its refutation | `EXCEPTIONAL_INTERFREQ2.md`, `EXCEPTIONAL_SPW.md` |
+| the tuple-count door TC_θ and witness correlations | `EXCEPTIONAL_TUPLES.md`, then `EXCEPTIONAL_TUPLES2.md` (forced zeros, TC^alt) |
 | the signed graph, basics | `SIGNED_REFACTOR.md`, `POINTWISE.md` |
 | short escapes and exceptional sets for the seed distance | `DEPTH3.md` |
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
 | the pointwise programme's obstruction, written up | `paper/pointwise-obstruction.tex` |
 | the meta-theorem (Theorems M, C, Proposition A) and the window frame | `POINTWISE_SIZE.md` §§0–4, §8 |
-| `W(p)` Ω-results | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
-| the explicit rate and its bottleneck | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md` |
-| window Ω-results (`a_min`) | `POINTWISE_WINDOW.md` |
+| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v4); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
+| how the rate got there (1/14 → 1/7 → 1/6 → 1/5) | `POINTWISE_OMEGA8.md` → `OMEGA9` → `OMEGA11` → `OMEGA12` |
+| the energy bound C-1 and DNF Fourier tails | `paper/energy-dnf-note.tex`; `POINTWISE_OMEGA10.md` |
+| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md` |
+| `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
+| the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md` |
+| the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
-| priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/lit-audit-*.md` |
+| priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
+| the status of each paper draft and its referee rounds | `paper/README.md` |
 | what each review found | `reviews/` (file names in §4 above) |
 | per-task agent reports | `reviews/agent-reports/`, `UNIT_REPORT*.md` |
 | the companion signed-seed counterexample | `../erdos-straus-astra` (read-only): `SIGNED_SEED_COUNTEREXAMPLE.md`, `PRIMARY_SEED_PACKET.md` |
@@ -747,6 +1048,6 @@ ratings are this summary's judgement, not ledger labels.
 Suggested order for a newcomer:
 1. §1 of this file.
 2. `STATUS.md`.
-3. The abstracts of the five papers in `paper/`.
+3. The abstracts of the papers in `paper/` (status in `paper/README.md`).
 4. `DISCOVERIES.md` sections (D) and (H).
 5. Whichever line interests you, via the table above.
