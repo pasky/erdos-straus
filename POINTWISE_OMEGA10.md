@@ -336,6 +336,34 @@ fact "width-w DNFs are ε-concentrated up to degree `O(w log 1/ε)`", here
 with the threshold `λ^k=2` of Cor 3.5 sharp as the alphabet sizes grow (a single
 event has `G=1−π(2−∏(λ_v−(λ_v−1)/q_v))`, §2). The tail rate itself is not claimed sharp.
 
+*Normalisation (R38 MINOR 1).* Cor 4.1 is for **0/1-valued** f, which is
+what ES uses. For the ±1-valued `g=1−2f` of the DNF literature,
+`g^{=U}=−2f^{=U}` for `U≠∅`, so `W^{>t}[g] ≤ 4·2^{−(t+1)/k}`. Likewise
+`λ^{|U|}≥1+|U|ln λ` gives `I_{0/1}[f] ≤ (k/ln 2)·P[f=1]`. For q=2 these are
+stronger in the exponent than the switching-lemma bound
+`W^{≥t}≤2·2^{−t/(20w)}` (O'Donnell §4.4). No known lower bound contradicts
+them: parity written as a width-w DNF, tribes and a single AND all satisfy
+them with room (R38 exhaustive check of all Boolean functions on ≤4 bits).
+
+*Prior art and novelty (R38 MINOR 2).* The nearest prior art is
+Lecomte–Tan, "Sharper bounds on the Fourier concentration of DNFs" (FOCS
+2021, arXiv:2109.04525). They bound `|f̂(S)|` by the probability that S is
+*covered* by the terms satisfied at a random x, which is the device of
+Lemma 3.1. There are three differences.
+* Their cover counts are unsigned, so there is no cancellation and no
+  analogue of `N(V)=0` when an event avoiding V holds.
+* They work over `{±1}^n`.
+* Their degree concentration still comes from Håstad, with an unspecified
+  constant.
+
+Lemmas 3.2–3.3, C-1 and Cor 4.1 (switching-free, constant 1, any
+alphabet) are **new to us; the literature search is partial** (R38 checked
+Lecomte–Tan and lecture notes by Lovett, Cornell CS6817 and O'Donnell).
+*Observation (R38 item 6).* Lemma 3.1 uses only that `L_V` is an orthogonal
+projection, and Lemmas 3.2–3.4 are purely combinatorial. So C-1 and Cor 4.1
+hold on arbitrary finite product probability spaces, not only uniform ones.
+This is PROVED by the same proof but not separately tested numerically.
+
 **Theorem 4.2 (junta term without the bit factor; PROVED, as an
 implication inside O8 Thm 3.4 / O9 Thm 2.2).** In O8 Thm 3.4 (events split
 into single values mod `ℓ^{e_ℓ}` as in O8 Setting 3.0, supports `≤k`,
@@ -389,7 +417,7 @@ help: a junta function of the i-th base-ℓ digit alone needs modulus
 * PROVED (checkpoint 2): Conjectures Q, Q′, QM (Thm 3.4), hence C-1 (Cor 3.5), q-ary energy concentration (Cor 4.1), junta term `≪𝓛^6` (Thm 4.2).
 * CONJECTURE (EVIDENCE): FM (fractional matchings), C-exp (`w_E>2` allowed).
 * Not claimed: the random-restriction form of ESW (not needed: Cor 4.1 is
-  the energy statement LMN would have produced); any exponent improvement
+  the energy-tail statement that ESW+LMN was meant to supply); any exponent improvement
   by itself (needs a cheaper quarantine); anything about ES.
 
 ## Replay
