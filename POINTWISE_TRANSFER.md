@@ -344,3 +344,28 @@ there makes the constants polynomial in `log m` (not tracked). (c) As for
 solvability of `m/p` (other representations may exist). The heuristic
 truth for `m = 4` is `log W ≍ (log p)^{1/3}` (POINTWISE_SIZE §7); we have not
 redone that heuristic for general `m`.
+
+**4.6 Benchmark 2: Bonferroni minorant + the same Gallagher transfer
+(Assessment, with exact computations).** The obvious alternative to the
+sandwich is the odd Bonferroni truncation `B_j = Σ_{i≤j}(−1)^i C(N_n,i)`
+(`N_n` = number of events containing `n`), `j` odd. Pointwise
+`B_j = 1[N=0] − C(N−1,j)1[N≥1] ≤ F`, so `𝔼|B_j| = δ + 𝔼[C(N−1,j);N≥1]`, and
+[SN] `thm:transfer` (whose cost depends only on `A` and the largest modulus,
+here `≤ T^{jk}`) gives `log p ≪ log Q + jk log T` as soon as
+`𝔼C(N−1,j) ≤ δ/100` and (Tw)-type twisted bounds hold. For *spread*
+systems (`𝔼C(N,i) ≤ (cS)^i/i!`) this needs `j ≍ S + log(1/δ)` and gives
+`log p ≪ log Q + k(S + ℒ)log T` — **better than Theorem 1.1** by a factor
+`≈ log T·log(NT)`. But `𝔼C(N,i)` is *not* controlled by `S` and the local
+masses `w_ℓ`: it is governed by codegrees. *Example (hubs).* A free prime
+`ℓ₀` with `|G_{ℓ₀}| = q₀` and events `E'_j ∩ {X_{ℓ₀} = σ₀}`, where `{E'_j}`
+lives on other coordinates with total mass `S' = q₀/(128k)` and spread. Then
+`w_{ℓ₀} = S'/q₀ = 1/(128k)` and the hub contributes only `1/(128k)` to `S`, but
+conditionally on `X_{ℓ₀} = σ₀` the count `N` is ≈ Poisson(`S'`), so
+`𝔼C(N,j) ≥ q₀^{−1}·(≈ S'^j/j!)`, and `𝔼C(N,j) ≤ δ/100` forces
+`j ≳ eS' ≍ q₀/k` — i.e. `log p ≫ q₀ log T` *for this method*, versus
+polylogarithmic in Theorem 1.1, which has no codegree hypothesis ([SN]
+remark after `lem:tail`). Quarantining `ℓ₀` removes one hub, but a system
+with `≍ N` hubs would cost `≍ N log T` to quarantine. (This compares
+*methods*; it is not a lower bound for the least prime.) This is exactly the
+factorial-in-levels loss of the alternating expansion in POINTWISE_OMEGA2 that
+[SN] mentions.
