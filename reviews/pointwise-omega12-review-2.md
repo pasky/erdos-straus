@@ -6,21 +6,42 @@ Scope: Thm 6.1, Lemma 6.2, Thm 6.3, Haar corollary, §6A last para, §6B table; 
 Lemma 1.1/Cor 1.2/Lemma 2.1/Lemma 2.2/Lemma 3.1/Thm 3.2/Cor 3.3/Cor 4.1 and O9 Thm 1.1.
 Thm 5.1 (H_ω(2)) and §§1–4 are taken as given (other reviewer), except where noted.
 
-STATUS: in progress.
+STATUS: round 1 complete. **No FATAL, no MAJOR defect found in my scope.** 3 MINOR + 1 cosmetic.
 
 ## Summary verdicts
 
 | claim | verdict |
 |---|---|
-| Thm 6.1 (`(log p)^{1/5}(loglog p)^{−2/5}`) | pending |
-| Lemma 6.2 (pre-quarantine `ℓ≤𝓛`, `s_1=e³g/M`, cost `1.02𝓛+7`) | pending |
-| Thm 6.3 (`(log p)^{1/5}(loglog p)^{−1/5}`) | pending |
-| Haar corollary `log(1/δ*)≪𝓛^5log𝓛` | pending |
-| §6A last para (CONJECTURE label) | pending |
+| Thm 6.1 (`(log p)^{1/5}(loglog p)^{−2/5}`), as implication from Thm 5.1, ET, (G), O10 Thm 3.4 | **SOUND** |
+| Lemma 6.2 (pre-quarantine `ℓ≤𝓛`, `s_1=e³g/M`, LLL `Σw≤c`, (I), cost `1.02𝓛+7`) | **SOUND** (m2, m4) |
+| Thm 6.3 (`(log p)^{1/5}(loglog p)^{−1/5}`; bottleneck = quarantine charge `𝓛Ω_0`) | **SOUND** |
+| Haar corollary `log(1/δ*)≪𝓛^5log𝓛` | **SOUND** (m1: needs only ET) |
+| §6A last para / §6B last row (`Ω_0≍𝓛^4log𝓛`, CONJECTURE) | label OK; "EVIDENCE" parenthetical overstated (m3) |
 
 ## Defects
 
-(none yet)
+No FATAL. No MAJOR.
+
+* **m1 (MINOR, §6B table row "Lemma 6.2, Thm 6.3" and Thm 6.3's last display).** The row lumps
+  `log(1/δ*)≪𝓛^5log𝓛` under "PROVED mod (G), ET, OMEGA10 Thm 3.4". The Haar bound uses only the local lemma
+  and the quarantine (O11 Cor 3.3 is labelled "PROVED modulo ET"). *Repair:* split it into its own row,
+  "PROVED mod ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10)" (the ET inputs of Thm 5.1).
+* **m2 (MINOR, Lemma 6.2 / §7).** For every `T<e^{11}≈6·10^4` the odd primes `≤𝓛` are among `{3,5,7}`, so
+  Lemma 6.2's start is identical to O11's at every T in §7's tables; the document has no numerical check of
+  the lemma and the reader might think the `10^4..10^6` data illustrate it. *Repair:* one sentence saying the
+  lemma is vacuous at computable T (my D3 stress-test with a pre-set range `y=30,200` found
+  `max P(E)/(e³g/M)≤0.063`, LLL sums `≤c`; cite or reproduce if desired).
+* **m3 (MINOR, §6A last para, §6B last row).** "CONJECTURE (EVIDENCE at 3 values of T)" for `Ω_0≍𝓛^4log𝓛`.
+  The §7 data support only the growth of the *mean* `Ω_0'/S_0'` (2.16, 2.40, 2.62 vs `log𝓛`=2.22, 2.44,
+  2.63). The normalised quantities *decrease*: `S_0'/𝓛^4 = 0.00400, 0.00330, 0.00288` and
+  `Ω_0'/(𝓛^4log𝓛) = 0.00389, 0.00325, 0.00287` at `T=10^{4,5,6}`. So the `≍` (in particular `S_0≫𝓛^4`, which
+  §5 says is not proved) has no numerical support at these T. *Repair:* "CONJECTURE; EVIDENCE only for the
+  mean of h growing like log𝓛; the order of `S_0` is unknown (normalised `S_0'/𝓛^4` still decreasing at
+  `10^6`)". The headline is unaffected (it only uses upper bounds).
+* **m4 (cosmetic, Lemma 6.2).** (a) "`log(8·105·∏_{ℓ≤𝓛}ℓ)`" double-counts 3,5,7 and includes 2; the actual
+  start is `Q=8∏_{odd ℓ≤max(𝓛,7)}ℓ`. Harmless upper bound; say so. (b) The number of unramified primes
+  `ℓ|M` with `ℓ>𝓛` is `≤𝓛/log𝓛`, so the Euler factor is `≤exp(𝓛/((𝓛−1)log𝓛))=1+o(1)`; `e³` (via
+  `ω(M)≤1.45𝓛`) is valid but very crude (observed ratio ≤0.063·e³≈1.27). Optional.
 
 ## Derivations
 
