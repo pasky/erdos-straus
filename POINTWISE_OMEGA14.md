@@ -236,3 +236,55 @@ explicit ν verified in exact rationals on 300 random instances satisfying (1.1)
 already at `R≈1.1 (k=1)`, `1.8 (k=2)`, `3.0 (k=3)` (n=10,10,12), below the sufficient
 threshold `(k+1)+(2k+1)r*` (2.3, 3.9, 5.8). So (1.1) is conservative by a constant factor only;
 the order `k≍R` is right (Remark (ii)).
+
+## 3. What this says about the brief's routes (i)–(iii)
+
+**Corollary 3.1 (no sharper energy tail; PROVED from Thm 2.4 and O8 Lemma 3.1/O11 Cor 1.2).**
+On the fibre of O13 Thm 5.1, EL_mod(τ) (O11 Cor 1.2: every `F^{(j)}` has digit-energy beyond
+log-modulus τ at most `e^{−3S}/(100m²(S+1))`) is **false** for `τ≤c𝓛^4/log𝓛`. In particular no
+modulus weighting λ_v in C-1 (brief item (i)), however adapted to prime sizes or to
+single-prime events, can give a tail `≤2^{−τ/ρ}` with `ρ=o(𝓛·log𝓛)` at these levels.
+
+*Proof.* EL_mod(τ) makes the BRW minorant B have `E B≥0.99δ` (O13 I1(a)) and cells of modulus
+`≤e^{2τ+3𝓛}` (O11 Cor 1.2), i.e. level `log D≤2τ+3𝓛`. Theorem 2.4 forbids this when
+`2τ+3𝓛≤c𝓛^4/log𝓛`. ∎
+
+*Item (ii)* (single-prime events exactly, BRW only for multi-prime ones). The product formula
+`∏_ℓ(1−1[X_ℓ∈Ω_ℓ])` over single-prime events is itself a function of level `∏ℓ` (huge); any
+truncation to level D is a level-D minorant, covered by Thm 2.4. Here the obstruction comes
+from 2-or-more-prime events `M=vℓ` (one big prime, rough small part), whose mass `≍𝓛³/log𝓛` is
+the bulk; single-prime events (`M=ℓ`) have mass only `≍𝓛²` (HAAR Prop 1.5's `S1`), so they
+are not the issue. *Item (iii)* (Selberg-type quadratic minorants `1−(Σλ_dχ_d)²`-shaped, or
+any other sieve): these have level `≤D²` for weights of level D, so they are covered too.
+
+*Where the barrier comes from, concretely.* Condition on all coordinates below `T^{0.6}`. What
+remains is a *one-dimensional sieve* on the big primes `ℓ>T^{0.6}`, with removed classes
+`Ω_ℓ(x_s)` of total density `≈μ≍𝓛³/log𝓛`, i.e. a sieve of dimension `κ≍μ` with every
+modulus `>T^{0.6}`. Lower-bound sieves of dimension κ need level `z^{≍κ}` (sieving limit
+`β_κ≍κ`); here `z^{κ}=e^{≍𝓛μ}`. Lemma 1.1 is the elementary proof of `β_κ≳κ` that this
+needs, and Lemma 2.3 shows that conditioning on avoidance (F=1) does not shrink κ.
+
+## 4. Status (checkpoint 1)
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | planting: odds-sum `R≥(k+1)+(2k+1)r*` ⇒ k-wise-equivalent law with no all-zero | PROVED (exact check, 300 instances) |
+| Thm 1.3 | abstract level barrier `E B≤E[F·1{R<…}]` for `B∈𝒱_k`, `B≤F` | PROVED |
+| Lemma 2.1 | big family: one big prime `>T^{0.6}`, `p*≤T^{−0.09}` | PROVED |
+| Lemma 2.2 | big-family mass `≫𝓛³/log y` | PROVED mod BV + fundamental lemma (theorems) |
+| Lemma 2.3 | m-copy Janson: `E∏(1−p_ℓ)^m≤exp(−mμ+Cm²𝓛²)` | PROVED (via HAAR Thm 1.4, Lemmas 2.3–2.4) |
+| Thm 2.4 | level `log D≤0.6𝓛(μ/3−1)` ⇒ `E B≤exp(−mμ/4)` | PROVED (same inputs) |
+| Cor 2.5 | on O13 Thm 5.1's fibre: level `≫𝓛^4/log𝓛` is necessary; Thm 5.1 optimal up to logs among level-D minorant transfers | PROVED implication (+NT for δ) |
+| Thm 2.6 | any Q with `log Q≤𝓛^5`: same barrier | PROVED |
+| "1/4 ceiling" reading | for all bounded-level-minorant certificates | Assessment (last step: main term vs x) |
+| Cor 3.1 | EL_mod(τ) false for `τ≤c𝓛^4/log𝓛`: no better C-1 weights | PROVED |
+
+Not claimed: anything about ES; anything about arguments that do not pass through a
+bounded-level minorant of F (e.g. bilinear/Type II input on primes, parity-sensitive inputs).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; OMP_NUM_THREADS=2 timeout 900 uv run --with scipy python scripts/omega14_planting.py 1)  # §1 checks -> data/omega14/planting.txt (~1 min)
+```
