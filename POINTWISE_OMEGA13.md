@@ -597,7 +597,10 @@ The last point also shows that no atom or cell sees `ℓ_aux`. The transfer give
 `p≡r' (Q')`, so `p≡1 (ℓ_aux)`. As `p≠1`, `p>ℓ_aux>R≥T`, exactly as in O9 Thm 2.2. This is
 needed for infinitely many *distinct* p as `T→∞`: `W(p)>T` alone does not force `p>T`.
 
-Then `log Z≤log Q+log ℓ_aux+log max d_i≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)≪𝓛^4log𝓛`. So some hard
+Ledger (R48d D4). `S_res` is the realised value, `≤4E[S_res]≪𝓛³log𝓛` by the choice of
+realisation, and τ is built from it. Then `log max d_i≤2τ+3𝓛≪𝓛(S_res+𝓛)` (I2), and
+`log ℓ_aux≤log(2R)≤max(𝓛,log max d_i)+1`. Hence
+`log Z≤log Q+log ℓ_aux+log max d_i≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)≪𝓛^4log𝓛`. So some hard
 `p>T` with `W(p)>T` has `log p≪𝓛^4log𝓛`. ∎
 
 The bottleneck is the junta `𝓛·S_res`. The quarantine contributes only `𝓛³(log𝓛)^5`. Elsholtz–Tao
