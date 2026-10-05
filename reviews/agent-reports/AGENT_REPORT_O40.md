@@ -63,3 +63,17 @@ Fixed: exact (Fraction) C in `spw_local_cert.py`; outward rounding of all "rigor
 (0.3472, not 1 − 2h); Lemma 1.3 note direction corrected; Lemma 2.1 proved directly (no
 clipping at 1/2); Prop 2.3 odd-N range k < (D−1)/3; Cor 3.3 notation (M vs M_F, t ≥ 0);
 Thm 3.2 scope "M → ∞ for fixed C > 1"; two overstatements removed.
+
+## Checkpoint 2 — review R40 (SOUND-AFTER-MINOR-REPAIRS) applied
+* D1: Lemma 1.3 note — with Thm 3.2, the HL optimum satisfies h ≥ 1/2 − 1/(4C) − o(1)
+  (3/8 at C = 2); HL can only serve weak SPW; h = 0.1889 at D = 10 is a small-D artefact.
+* D2: Remark (ii) threshold now log N ≳ 16πm₀/σ² ≈ 200/σ² at C = 2.
+* D3: Thm 3.2 states the explicit inequality (3.1) for every admissible r, then the asymptotic.
+* D4: "quasi-polynomial" → sub-polynomial N^{o(1)} (precisely c₀e^{±S_A}); cap is S′ + O(S_A).
+* D5: √N density consequence relabelled PROVED (by Prop 2.3).
+* D6: Lemma 2.1 uses AN/(KQ′) ≤ N/K since A ≤ Q′.
+* EXCEPTIONAL_INTERFREQ2.md §9: dated notes at the top of §9, after the Prop 9.1 bold
+  implication, and after the 2/5 Assessment. They say that fixed-σ SPW is refuted (Thm 3.2) and
+  that Thm 5.2 needs only weak SPW, which is open. Ledger (D)26 is left to the parent.
+* Background LP: N = 9100, e = 18480 gave 0.3733 (committed). The e = 30030 run did not
+  finish and was killed.
