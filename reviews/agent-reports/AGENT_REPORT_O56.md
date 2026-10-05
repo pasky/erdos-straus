@@ -56,16 +56,16 @@ Section numbers refer to v4.
    of Q; consistency `b_i≡r (gcd(d_i,Q))`; in (c) `ψ_1(n)=ψ_1(r)=1` on H (OMEGA13 I3).
    Conclusion `p≡r (Q)`. Case A/B otherwise verbatim.
 8. **§7 energy bound:** unchanged.
-9. **§8 sandwich:** setting is now `(Q,r)` of Thm 3.3 with (3.1)=`w̃_ℓ≤η`; label `eq:lllhyp`
+9. **§8 sandwich:** setting is now `(Q,r)` of Thm 3.3 with eq. (4) `w̃_ℓ≤η`; label `eq:lllhyp`
    now records `η≤0.19` (T≥e^{33}); digits below `a_ℓ` are those of r; cells consistent with
-   r; Lemma 8.1 Haar means with the auxiliary class `r'≡r (Q)`, `r'≡1 (ℓ')`; v3's Cor 7.3
+   r; Lemma 8.1 Haar means with the auxiliary class `r'≡r (Q)`, `r'≡1 (ℓ')`; v3's Cor. `cor:lll`
    (`x_E=2P(E)`, 1/64 thresholds) removed; **twist Lemma** re-proved with Lemma 2.8's
    conditional bound: `|E[Fψ]|≤β^{-1}w̃_{ℓ0}EF'≤ηEF'`, total `≤(0.01+η/(1−η))δ≤0.245δ<μ/4`
    (OMEGA13 I1(b)).
 10. **§9 assembly:** `S_1=C𝓛³log𝓛`, `τ=2𝓛⌈log₂(100T⁴(S_1+1)e^{3S_1})⌉` (uses
     `δ≥e^{−4S_β/3}≥e^{−3S_1}`); auxiliary prime with `r'≡1 (ℓ_aux)` (R48c m1/R48d D1) so
     `p>T`; hardness from Lemma 2.5(iii). Proof of Thm 1.1: `log Z ≪ 𝓛³(log𝓛)^5+𝓛^4log𝓛`.
-    v3's Cor 8.2 (Haar side) and Remark 8.3 (cited lower bound) are replaced by Thms 3.3/4.4.
+    v3's Cor. `cor:haar` (Haar side) and Remark `rem:haarlower` (cited lower bound) are replaced by Thms 3.3/4.4.
     Remark 9.2 (exponent) rewritten: junta `𝓛S` is the bottleneck, see §10.
 11. **§10 (new) ceiling:** Lemma 10.1 planting (OMEGA14 L1.1, proof with the index range
     `j+a−1≤2k+1` made explicit), Lemma 10.2 level barrier in the deterministic form (OMEGA14
