@@ -1,0 +1,33 @@
+L1.1 trial0 k=0 dens=0.730 m*=1.0000 stat=0.0e+00 |mu|-1=1.1e-16 mu(A)-m*=0.0e+00 supp_offA=0.0e+00 maxE_pi f=1.0000 1/m*=1.0000
+L1.1 trial0 k=1 dens=0.730 m*=0.8095 stat=2.2e-16 |mu|-1=0.0e+00 mu(A)-m*=6.7e-16 supp_offA=0.0e+00 maxE_pi f=1.2353 1/m*=1.2353
+L1.1 trial0 k=2 dens=0.730 m*=0.7498 stat=8.9e-14 |mu|-1=2.3e-14 mu(A)-m*=1.6e-14 supp_offA=0.0e+00 maxE_pi f=1.3337 1/m*=1.3337
+T2.4 trial0 additive rows=125 Delta=198.63 L2.2 ratio=0.3021 T2.4 ratio=0.2859
+T2.4 trial0 multiplicative rows=125 Delta=690.22 L2.2 ratio=0.1015 T2.4 ratio=0.2610
+L4.1/T4.2 trial0 max wt=0.4459 bound=2.3517 D-Du=0.00401 fourier=0.00401 <= 0.40509
+L4.1/T4.2 trial0 max wt=0.6053 bound=2.6345 D-Du=0.00943 fourier=0.00943 <= 0.43463
+L4.1/T4.2 trial0 max wt=0.9873 bound=2.5133 D-Du=0.03549 fourier=0.03549 <= 0.28443
+L1.1 trial1 k=0 dens=0.444 m*=0.6667 stat=0.0e+00 |mu|-1=0.0e+00 mu(A)-m*=0.0e+00 supp_offA=0.0e+00 maxE_pi f=1.5000 1/m*=1.5000
+L1.1 trial1 k=1 dens=0.444 m*=0.5524 stat=3.1e-16 |mu|-1=0.0e+00 mu(A)-m*=5.6e-16 supp_offA=0.0e+00 maxE_pi f=1.8103 1/m*=1.8103
+L1.1 trial1 k=2 dens=0.444 m*=0.4593 stat=7.6e-14 |mu|-1=7.6e-14 mu(A)-m*=2.1e-14 supp_offA=0.0e+00 maxE_pi f=2.1772 1/m*=2.1772
+T2.4 trial1 additive rows=125 Delta=198.63 L2.2 ratio=0.3021 T2.4 ratio=0.2518
+T2.4 trial1 multiplicative rows=125 Delta=690.22 L2.2 ratio=0.1040 T2.4 ratio=0.3872
+L4.1/T4.2 trial1 max wt=0.5868 bound=1.5931 D-Du=0.08428 fourier=0.08428 <= 0.43713
+L4.1/T4.2 trial1 max wt=0.3093 bound=2.4563 D-Du=0.17123 fourier=0.17123 <= 0.63696
+L4.1/T4.2 trial1 max wt=1.2472 bound=3.1275 D-Du=0.11101 fourier=0.11101 <= 0.44793
+L1.1 trial2 k=0 dens=0.409 m*=0.6667 stat=0.0e+00 |mu|-1=0.0e+00 mu(A)-m*=0.0e+00 supp_offA=0.0e+00 maxE_pi f=1.5000 1/m*=1.5000
+L1.1 trial2 k=1 dens=0.409 m*=0.4939 stat=1.1e-15 |mu|-1=1.1e-15 mu(A)-m*=1.7e-16 supp_offA=0.0e+00 maxE_pi f=2.0245 1/m*=2.0245
+L1.1 trial2 k=2 dens=0.409 m*=0.4104 stat=3.3e-12 |mu|-1=3.2e-12 mu(A)-m*=8.0e-14 supp_offA=0.0e+00 maxE_pi f=2.4367 1/m*=2.4367
+T2.4 trial2 additive rows=125 Delta=198.63 L2.2 ratio=0.3021 T2.4 ratio=0.2762
+T2.4 trial2 multiplicative rows=125 Delta=690.22 L2.2 ratio=0.1080 T2.4 ratio=0.4637
+L4.1/T4.2 trial2 max wt=0.5608 bound=1.8833 D-Du=0.11063 fourier=0.11063 <= 0.70109
+L4.1/T4.2 trial2 max wt=0.4103 bound=1.6618 D-Du=0.04662 fourier=0.04662 <= 0.29294
+L4.1/T4.2 trial2 max wt=0.4640 bound=1.6296 D-Du=0.02951 fourier=0.02951 <= 0.29838
+L1.1 trial3 k=0 dens=0.325 m*=0.3333 stat=0.0e+00 |mu|-1=0.0e+00 mu(A)-m*=0.0e+00 supp_offA=0.0e+00 maxE_pi f=3.0000 1/m*=3.0000
+L1.1 trial3 k=1 dens=0.325 m*=0.3333 stat=1.7e-16 |mu|-1=0.0e+00 mu(A)-m*=4.4e-16 supp_offA=0.0e+00 maxE_pi f=3.0000 1/m*=3.0000
+L1.1 trial3 k=2 dens=0.325 m*=0.3255 stat=3.5e-12 |mu|-1=3.3e-12 mu(A)-m*=1.2e-12 supp_offA=0.0e+00 maxE_pi f=3.0718 1/m*=3.0718
+T2.4 trial3 additive rows=125 Delta=198.63 L2.2 ratio=0.3021 T2.4 ratio=0.2977
+T2.4 trial3 multiplicative rows=125 Delta=690.22 L2.2 ratio=0.1130 T2.4 ratio=0.2248
+L4.1/T4.2 trial3 max wt=1.6258 bound=2.8738 D-Du=0.62402 fourier=0.62402 <= 1.39416
+L4.1/T4.2 trial3 max wt=0.2750 bound=1.9664 D-Du=0.12334 fourier=0.12334 <= 0.65172
+L4.1/T4.2 trial3 max wt=1.1380 bound=3.2287 D-Du=0.61713 fourier=0.61713 <= 1.20802
+ALL ASSERTIONS PASSED
