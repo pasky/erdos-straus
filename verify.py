@@ -59,6 +59,18 @@ Blocks (cu)..(cy) (task O43) replay the documents merged after that:
   (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma 9.3 (LPs need scipy);
   (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 (Gale, exact max-flow), Prop 8.2(a) exact
        measure; check (5), contrast LP and Thm 9.1 chain need scipy.
+Blocks (cz)..(df) (task O54) replay the documents merged after that:
+  (cz) POINTWISE_OMEGA10: Lemma 3.2 polarization, Thm 3.4 (QM) exact on random hypergraphs,
+       C-1 / Lemma 3.1 on biased product spaces, Cor 4.1 energy bound on small DNFs;
+  (da) POINTWISE_OMEGA11: Lemma 1.1 digit-filtration G' <= 1 (+ conditioned systems), graded
+       quarantine toy (fibre probabilities, CRT, LLL), Lemma 2.2 atomic iteration at T = 3000;
+  (db) POINTWISE_OMEGA12: Lemma 2.1 identities on all atoms T = 10^4, Lemma 1.1, Lemma 3.1
+       steps, Lemma 2.2 block masses, §7 table regression;
+  (dc) POINTWISE_HAAR: Lemmas 1.1-1.3 and Thm 1.4 (Janson-type) by exact enumeration;
+  (dd) POINTWISE_OMEGA13: Lemma 3.1 Jacobi non-residue (M <= 3*10^4), Lemma 1.1 beta-weighted LLL;
+  (de) POINTWISE_TRANSFER: Lemma 5.1 (m = 4..8, 11), identity (5.1), Lemma 5.0 Type II completeness;
+  (df) EXCEPTIONAL_SPW: embedded exact certificate sigma <= 72/185 at N = 300, e = 630
+       (LP re-derivation needs scipy).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
