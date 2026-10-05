@@ -91,3 +91,32 @@ listed. The conclusion is unaffected (the hypothesis gives
 displayed consequence should read `x ≥ C·A·Z^{4}` (or "`x≥Z^5`").
 (Reviewer 1 owns the analytic core; flagged here as an interface item.)
 
+### (iv) Exponent chain to 1/7 — SOUND
+
+Recomputed (z=𝓛², ET: `S≤S*≪𝓛^4log𝓛`, O2 Lemma 11.1 ✓):
+`k≤𝓛/(2log𝓛)`; `b=⌈log₂4T²⌉≈2.89𝓛`; `w=kb≍𝓛²/log𝓛`;
+`k_0=⌈3S log₂e+log₂(400m²(S+1))⌉` with `log m≤(k+2)𝓛≍𝓛²/log𝓛`, so
+`k_0≍S*≍𝓛^4log𝓛`; `d=4C_Hwk_0≍𝓛^6` (the `log𝓛` of S* cancels the
+`1/log𝓛` of k — which is why no `log log p` appears, unlike O8 Thm 6.3);
+junta term `2(3k+2d+1)𝓛≍𝓛^7`; `log Q_Π≤(π(z)+64k²S*)𝓛+4≍𝓛^7/log𝓛`
+(`|𝓑|≤kS*/c_0`, `c_0=1/(64k)`). So `log Z≪𝓛^7`, Thm 1.1 with `A≤1.03`
+gives `log p≪𝓛^7`, and `log W>𝓛≥(log p/C)^{1/7}`.
+
+**Bottleneck.** It is the *junta* term `d·𝓛` (cells on `≤3k+2d` free primes,
+each costing up to 𝓛 in `log max d_i`), not the quarantine: `log Q_Π` is
+smaller by a factor `≍log𝓛` (and by a constant ≈400 in the tally).
+Note that `log Q_Π ≍ 𝓛^7/log𝓛` is the same quantity that bounds the Haar
+side, O2 Thm 11.3 (`log(1/δ*)≪𝓛^7/log log T`, from `8k²S*𝓛`). So after
+Thm 1.1 the prime-side certificate matches the *Haar-side certificate* up
+to `log𝓛`; going below 1/7 needs d down (ESW) **and** the quarantine
+down, as the "Next" item says. Correct.
+
+From-scratch tally `scripts/review_o9b_exponents.py`
+(→ `data/review_o9b/exponents.txt`, constants 1, `C_H=5`): local log-log
+slopes at `𝓛=10^{12}`: k 0.96, w 1.96, `k_0` 4.04, d 6.00, `log Q_Π` 6.96,
+`d𝓛` 7.00, `log Z` 7.00; the junta term is ≈860× `log Q_Π`.
+
+Not an issue but worth stating: K (hence `log(1/δ)≍S`) now enters only via
+`1+log A=O(1)`; neither `M_1`, nor `m`, nor Lemma 6.1's third bullet is used
+anywhere in Thm 2.2. (Lemma 6.1's ℓ¹ bound is dead weight for O9.)
+
