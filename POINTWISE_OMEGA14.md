@@ -378,12 +378,19 @@ Then `c(v,n) ≥ 0.13/φ(4n)` for every `n∈[V,X]∖𝒩_exc` and every `v≤V`
 `x∈[T^{0.6},T^{0.7}]`,
 
 ```
-|ϑ(x;q,b) − x/φ(q) + [q_1|q]χ_1(b)x^{β_1}/(β_1φ(q))| ≤ (C'/φ(q))·x·(e^{−log x/(κlog Q_G)} + (log x/log Q_G)²/Q_G) + log q.
+|ϑ(x;q,b) − x/φ(q) + [q_1|q]χ_1(b)x^{β_1}/(β_1φ(q))| ≤ Err_G(x)/φ(q) + log q,
 ```
 
-In the exceptional case the Gallagher term (not the induced-character term `log q`) carries a
-prefactor `(1−β_1)log x≤0.7/(κε)`. Since `log x/log Q_G≥0.6/(ε+o(1))`, the right side is
-`≤x/(8φ(q))` once ε is small. The range condition `Q_G^{6c}=4^{6c}T^{6cε}≤x` holds for
+where, as quoted in POINTWISE_OMEGA9 §1, the (G) error has two separate forms (R49b D2):
+* *(G-a) no exceptional zero:* `Err_G(x)=C'x·(e^{−log x/(κ log Q_G)} + (log x/log Q_G)²/Q_G)`, and
+  the bracket `[q_1|q]…` is absent;
+* *(G-b) exceptional zero β_1 (character χ_1 mod q_1):*
+  `Err_G(x)=C'(1−β_1)(log x)·x·(e^{−log x/log Q_G} + log x/(Q_G log Q_G))` (no κ in the
+  exponent; the prefactor multiplies both terms), with `(1−β_1)log x≤log x/(κ log Q_G)≤0.7/(κ(ε+o(1)))`.
+
+Since `log x/log Q_G≥0.6/(ε+o(1))`, in case (G-a) `Err_G(x)≤C'x(e^{−0.6/(κ(ε+o(1)))}+o(1))` and in
+case (G-b) `Err_G(x)≤C'x·(0.7/(κε))(e^{−0.6/(ε+o(1))}+o(1))`; both are `≤x/16` once ε is small
+(depending only on C', κ), and `log q=o(x/φ(q))`, so the right side is `≤x/(8φ(q))`. The range condition `Q_G^{6c}=4^{6c}T^{6cε}≤x` holds for
 `ε≤0.05/c`.
 *Exceptional term.* If `q_1∤q`, it is absent. If `q_1|q` and `q_1≤𝓛^{1.9}`, the effective Page bound
 `1−β_1≫q_1^{−1/2}(log q_1)^{−2}` gives `x^{β_1−1}≤exp(−c𝓛^{0.05}/(log𝓛)²)=o(1)`, and `1/β_1≤2`.
