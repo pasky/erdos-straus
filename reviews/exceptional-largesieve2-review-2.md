@@ -12,7 +12,7 @@ scripts/review_ls2b_{gale,lp,ls,kernel}.py` (under `ulimit -v 8000000`).
 |---|---|
 | Lemma 8.1 | SOUND |
 | Prop 8.2(a) | SOUND |
-| Prop 8.2(b) | SOUND-AFTER-REPAIRS (m1: needs `\ell'_i \ge 36`) |
+| Prop 8.2(b) | SOUND-AFTER-REPAIRS (m1: needs `ℓ'_i ≥ 36`) |
 | Lemma 8.3 | SOUND |
 | Prop 8.4 | SOUND |
 | Thm 8.5 | SOUND (genuine escape; can be strengthened, m7) |
@@ -186,9 +186,12 @@ CRT-admissible MV large sieve satisfying Facts 1.1/4.0 with saving
 `≥ c log N` (Prop 8.4); all quantifiers are in the right order (λ, N
 first; family after; c, N₀ absolute). Moreover the escape is *stronger*
 than stated: taking λ ≍ log N so that all `L_i ≍ log N` (allowed:
-`ℓ, ℓ' ≈ N^{1/2+o(1)}`), Prop 8.2(b) with `d = ⌈2λ'/min L_i⌉` bounds the
-best majorant saving at **every** level λ' by
-`O((λ'/log N)·log log N + log log N) ≤ Cλ'^{3/4}` (and 0 for λ' < min L_i),
+`ℓ, ℓ' ≈ N^{1/2+o(1)}`), Prop 8.2(b) with `d = ⌊λ'/min log ℓ⌋ + 1` bounds the
+best majorant saving at level λ' by `O((λ'/log N + 1)·log log N)`, and
+at every level the saving is `≤ log(1/dens 𝒜) ≤ K log(9/7) + o(1) ≈ 0.04 log N`
+(no majorant beats the density); the minimum of the two is `≤ Cλ'^{3/4}`
+for all `λ' ≥ min L_i` (first bound up to `λ' ≈ (log N/log log N)⁴`,
+second beyond), and the saving is 0 below `min L_i` (Prop 8.2(a)),
 so, by Lemma 1.1's duality (which is family-free), the band family
 satisfies K2 Thm 5.1's *conclusion at all levels* — yet the large sieve
 saves `c log N ≫ (log N)^{3/4}`. (No contradiction with Prop 5.1: the
