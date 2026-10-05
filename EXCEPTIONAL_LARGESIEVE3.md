@@ -182,7 +182,10 @@ and `β log N = (log N)^{3/4}`, `𝔐(z) ≤ K₃(log N)^{3/4}(log log N)³`,
 `q₀ℓ` with `q₀ ≤ ℓ^C`, `C < 1`). Theorem 3.1 drops the condition on `q₀`
 entirely (any number of small primes, any size) and needs no `ℓ₀'`
 enlargement, because the small coordinates are paid by density (Lemma 2.1)
-instead of by a product structure. (b) The `(log log N)³` is K2's
+instead of by a product structure. This extends the **scope** of LS
+Cor 4.2, not its strength: on Cor 4.2's own families Theorem 3.1 is weaker
+by the factor `(log log N)³` (review R59 D5; under bounded B, K2
+Thm 5.2's first moment `≤ C(B)(log y)³` should remove it — not checked). (b) The `(log log N)³` is K2's
 Rankin loss in `𝔐` (K2 Rem 3.8); K3's local moment should remove it but
 this is not checked here. (c) By Theorem 1.1 the only remaining source of
 an (E1) escape over forced families is the set of classes with **two or
