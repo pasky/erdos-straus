@@ -258,3 +258,63 @@ pattern vectors factorises: total `≤80(1+o(1))Xℒ^{δ−1}∏_aF_a` with
   `M=⌈6L⌉`, Lemma 2.1 gives `ρ_{M−1}≪nℒ^{−6.5}+tℒ^{−3.5}`, so this part
   is `O((n+t)ℒ^{−3})`. ∎
 
+### 2.3 Consequences for `a_min`
+
+Since `e^{−λ}=ℒ^{−(1−θ−δ)}·L·O(1)` and `2^{ω(a)}=ℒ^{o(1)}` for `a≤ℒ^θ`,
+each factor satisfies, with `c=1−θ−δ`,
+
+```
+F_a ≤ ℒ^{−min(4c/9, 2c/3−log_ℒ φ(a)) + o(1)} .
+```
+
+**Corollary 2.3 (PROVED modulo SW).** Fix `0<θ<2/5` and `ε>0`. Then for
+`N≥N_0(θ,ε)`
+
+```
+T(N,(log N)^θ) = #{p≤N, p≡1 (24): a_min(p)>(log N)^θ}
+               ≤ N·exp(−(κ(θ)−ε)·(log N)^θ·log log N),
+κ(θ) = (1−θ)/9                 for 0<θ≤2/11,
+κ(θ) = (2(1−θ)/3 − θ)/4        for 2/11≤θ<2/5.
+```
+
+*Proof.* Dyadic blocks `(N'/2,N']` with `N'≥N^{1/2}` (the rest is
+`≤N^{1/2}`); for such blocks `log N'≍log N` and a prime with
+`a_min(p)>(log N)^θ` fails at every `a≤(log N')^θ`, all admissible.
+Apply Theorem 2.2 to `A={a≤(log N')^θ, a≡3 (4)}`, `J=(1/4+o(1))(log N)^θ`,
+with δ small in terms of ε. Every `a∈A` has `log_ℒ φ(a)≤θ`, so
+`F_a≤ℒ^{−min(4c/9,2c/3−θ)+o(1)}`; the minimum is `4c/9` iff
+`θ≤2c/9`, i.e. `θ≤2/11` as `δ→0`. Multiply J factors; the prefactor
+`2Nℒ^{δ−1}` and the number of blocks are absorbed. For `θ<2/5`,
+`2c/3−θ>0` for δ small. ∎
+
+So a **positive saving per window, uniformly over `≍(log N)^θ`
+windows**: in sieve language, the stacked failure event has dimension
+`≥(4/9)(1−θ)` per window, against the conjectured `1/2`. The loss
+`1/2→4/9` is the second-moment constant `5/9` vs `1/2`; the loss `1→1−θ`
+is the sifting range `(y,y']` (the sieve dimension `J≍ℒ^θ` forces
+`log y'≲ℒ^{1−θ}`).
+
+**Position.**
+* notes Thm 12.2: `T(N,δℒ)≪N exp(−c(log log N)²)` (window B_w and the
+  single class −1 per window, mass `≍log W` in total). Corollary 2.3 at
+  windows `≤ℒ^θ` gives `N exp(−cℒ^θ log ℒ)`, superpolylogarithmically
+  smaller than any `exp(−C(log log N)^2)`.
+* notes Thm 71.6 (CONDITIONAL on `H_FAIL(θ_0)` and `H_STACK(θ,γ)`, γ<1):
+  `#{a_1(p)>ℒ^θ}≤N exp(−(1+o(1))ℒ^θ/(4θ))` (prime moduli only). Corollary
+  2.3 is **unconditional** (modulo SW), for `θ<2/5`, and has the larger
+  exponent shape `ℒ^θ log ℒ` because composite windows are included. In
+  particular H_STACK's *conclusion* is now a theorem in this range;
+  H_STACK itself (per-window constant `C_0ℒ^{−1/2}`) is not proved.
+* Literature exceptional-set bounds (Vaughan `exp(−cℒ^{2/3})`, the 3/4
+  note) concern **all** witnesses, which there are at the opposite end
+  (window `q≈p/M`, multiplier M small; POINTWISE_SIZE §8.1). For ES
+  itself Corollary 2.3 is weaker (`ℒ^{2/5}` vs `ℒ^{3/4}`). What is new is
+  the witness size: all but `N exp(−cℒ^θ log ℒ)` primes `p≤N` have a
+  Type II solution whose p-free denominator is `x≤(p+(log p)^θ)/4`.
+  Novelty vs. the literature: **not checked** (no result of this shape
+  is known to us).
+* Count-below-one (ES) would need `θ=1` with exponent `>1`, i.e.
+  `Z≍ℒ`. The method stops at `θ<2/5` (second moment) and, more
+  fundamentally, at `θ<1` (dimension vs. sifting range): it is
+  the same obstruction as POINTWISE_WINDOW §7.3, now from above.
+
