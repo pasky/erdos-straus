@@ -462,6 +462,15 @@ uniformly over configurations. This is a quantitative, not a qualitative,
 barrier in the model. The caps here act on bins of a coarse grid, so the
 thresholds K≈2–3 are indicative only.
 
+*Direction of the comparison (R29 m4).* A per-configuration cap (nu(C) at most K times mu(C)
+for each single configuration C) is *stronger* information than a switched upper-bound sieve on
+actual primes provides: such a sieve bounds aggregates over families of configurations, not each
+configuration. So for realistic (aggregate) caps the required K is at most as large as the
+per-configuration values found here (2 to 3), and possibly no K works at all. The comparison
+with the twin-prime constant is heuristic. All K and C thresholds in sections 6 and 7 are model
+indications on one coarse grid (eps=0.1, K=8) of a heuristic law, not statements about primes
+(R29 M2, M4).
+
 ### 6.3 Toward an analytic description of the joint fake (partial; step 3)
 *Shape of the certified θ=1/2 fake* (`data/window2/fake_eps0.1_K8_theta0.5.json.gz`).
 It removes the target (−1·τ) and true mass on one-sided pair configurations
