@@ -316,13 +316,13 @@ best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuris
   (OMEGA11) / 1/5 (OMEGA12, under review) are a factor 2 resp. 5/3 away in
   the exponent. (Assessment.)
 * **BRW/Thorner–Zaman route (OMEGA8 §6.6 analogue; PROVED bookkeeping).**
-  For every minorant `B ≤ F` on a class-of-one fibre, `μ = E B ≤ δ` and
-  `log(1/μ) ≥ Φ(T) − log φ(Q) ≥ …`; more simply, on the full Haar space
-  `μ/φ(Q) ≤ δ*(T)`. For BRW expansions as written (`M_1 ≥ 1`) this gives
-  `K ≥ 1 + log(1/μ)`, and with the quarantine cost
-  `log φ(Q) ≤ Φ − log(1/μ)` one of `K`, `log Q` is `≥ Φ/2 ≫ 𝓛³/log𝓛`. Through
-  POINTWISE_OMEGA Thm 4.1 (`log p ≳ K·max(log Z,K)`) this caps that route at
-  exponent `≤ 1/6+o(1)`; it is not a cap for the O9 linear transfer, whose
+  On a class-of-one fibre `H` (`n ≡ 1 mod Q`, relative Haar density
+  `≍1/φ(Q)` in `1 (24)`), every minorant `B ≤ F` has `μ = E_H B ≤ E_H F`, and
+  `E_H F ≤ O(φ(Q))·δ*(T)`; hence `log φ(Q) + log(1/μ) ≥ Φ(T) − O(1)`. For
+  BRW expansions as written (`M_1 ≥ 1`) one has `K ≥ 1 + log(1/μ)`, so one
+  of `K`, `log Q` is `≥ Φ/3 ≫ 𝓛³/log𝓛`. Through POINTWISE_OMEGA Thm 4.1
+  (`log p ≳ K·max(log Z,K)`, `log Z ≥ log Q`) this caps that route at
+  exponent `≤ 1/6+o(1)`. It is not a cap for the O9 linear transfer, whose
   condition does not contain `log(1/μ)`. (No universal statement over all
   representations is claimed, cf. OMEGA8 §6.6, R34a.)
 * **Transfer costs.** Any prime-side use of a Haar improvement passes
