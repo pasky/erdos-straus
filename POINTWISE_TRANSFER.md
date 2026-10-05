@@ -168,7 +168,7 @@ Likewise `𝔼F' − 𝔼F = 𝔼[F'ℙ_{X_{ℓ₀}}(Forb)] ≤ η_{ℓ₀}𝔼F
 **3.1 (Any density lower bound will do; proved).** The local lemma enters the
 proof of Theorem 1.1 only through `δ ≥ δ_L` in Step 3. So Theorem 1.1 holds
 verbatim with `δ_L` replaced by *any* `δ_* ∈ (0, δ]` in `k₀` (still assuming
-(Tw)). In particular Haar-side density bounds obtained by other methods
+(Tw)); the (LLL) hypothesis is then not used at all. In particular Haar-side density bounds obtained by other methods
 (sieve, distortion method, exact computation) transfer as well.
 
 **Lemma 3.2 (Haar-side criterion for (Tw); proved).** For `ℓ₀ ∈ 𝒫` let
@@ -423,7 +423,7 @@ S^♮(T) = Σ_{M ≤ T} Σ_{r ∈ R(M)} gcd(M, r−1)/φ(M).
 `p ≡ 1 (mod lcm(1..⌊(log T)²⌋))`, `p > T`, with `W_R(p) > T` and
 `log p ≪_α (log T)^β/log log T`, where `β = max(α+3, 5)`. Hence
 `W_R(p) ≥ exp(c_α (log p log log p)^{1/β})` ≥ `exp(c(log p)^{1/β})`
-for infinitely many primes. If only `log S^♮(T) ≤ σ(T)`, then
+for infinitely many primes. If only `log(S^♮(T)+1) ≤ σ(T)`, then
 `log log p ≤ σ(T) + O(log log T)`.
 
 *Proof.* [SN] §2 abstracted: `z = ℒ²`, `k = ⌊ℒ/log z⌋`. An *atom* is `(M,r)`,
@@ -438,14 +438,14 @@ of `lem:qmass`). Iterated quarantine (`lem:iterq`, verbatim) gives `Π` with
 `Q = Q_Π`, `a = 1`: `log p ≪ (π(z) + k²S^♮)ℒ + kℒ²(S^♮ + kℒ)
 ≪ ℒ^{α+3}/log ℒ + ℒ⁵/(log ℒ)² ≪ ℒ^β/log ℒ` (the `π(z)ℒ ≪ ℒ³/log ℒ` term is
 dominated; the `ℒ⁵` term is `kℒ²·kℒ`, from `log m_a` in `k₀`, and dominates
-for `α < 2`). Then `ℒ^β ≫ log p·log ℒ ≫ log p·log log p`. ∎
+for `α < 2`). Then `ℒ^β ≫ log p·log ℒ`, and `log log p ≤ β log ℒ + O(1)` (from `log p ≪ ℒ^β`) gives `log ℒ ≫ log log p`, so `ℒ^β ≫ log p·log log p`. ∎
 
 *Remarks.* (i) ES: `R(M) = {−4D : D | A_M²}` for `M ≡ 3 (4)` (empty
 otherwise). The proof of [SN] `lem:qmass` bounds exactly `S^♮`:
 `S^♮ ≪ log ℒ·Σ g/M ≪ ℒ⁴ log ℒ` (mod ET Prop 1.4). With `S^♮ ≪ ℒ⁴log ℒ` the
 displayed computation gives `log p ≪ ℒ⁷` (the `log ℒ` cancels), i.e. [SN]
 Thm 1 / exponent `1/7`; Corollary 5.2 (`m/n`) is the case
-`R(M) = R_m(M)`. Any family whose mass is `ℒ^{α}` gets exponent `1/(α+3)`.
+`R(M) = R_m(M)`. Any family whose mass is `ℒ^{α}` gets exponent `1/max(α+3, 5)`.
 (ii) Trivial baseline: Linnik with `p ≡ 1 (lcm(1..T))` gives only
 `W_R(p) ≫ log p`; the corollary needs only polylog *mass*, no structure.
 
@@ -466,7 +466,7 @@ to `∏_{ℓ|d}G_ℓ`; same Haar weight). ∎
 `h₁,…,h_r` and moduli `d = q₁q₂` of two primes in `(y,T]`, forbid
 `p + h_i ≡ c_{i,d} (mod d)` for prescribed unit classes `c_{i,d}`;
 (2) "p + h avoids small prime factors in prescribed classes", e.g. no prime
-factor `q ≡ 1 (4)`, `q ∈ (y,T]`, of `p + h` (`k = 1`, `R_q = {−h}`).
+factor `q ≡ 1 (4)`, `q ∈ (y,T]`, of `p + h` (`k = 1`, `R_q = {−h}`; this needs `q ∤ h` — otherwise the class is non-unit and is deleted — and `w_q = 1/(q−1) ≤ 1/64`, i.e. `y ≥ 64`).
 
 **Honest scope.** (a) If `S ≤ 1/3` and `Q` is small (Siegel–Walfisz range), the union bound
 with Brun–Titchmarsh already gives a prime with `log p ≪ log Q + k log T`
