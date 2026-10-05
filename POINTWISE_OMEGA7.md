@@ -156,3 +156,27 @@ the `1/d_0` terms. ∎
 `(a,b,κ)↔(b,a,κ^{−1})` (which preserves `h_3` and swaps `h_1,h_2`), the
 same holds for `a≥b` in `(s,b)`-boxes with `S≥max(B²,q)H^{2a}`. This uses
 no corner structure and no Shiu/Henriot input. ∎
+
+**Lemma 2.5 (the case `gcd(j,q)>1`; PROVED).** Let `g:=gcd(j,q)>1` (q
+squarefree, or a prime-power modulus `q′` of O5 Lemma 2.0′). Then
+`g≥y`, and the conclusion of Prop 2.3 holds for the atoms with
+`gcd(j,q)>1`, with `30𝓛²(H^{−1/3}+q^{−1})` replaced by
+`3𝓛/y+11𝓛²/q`.
+
+*Proof.* Fix `g` and a. (i) `jm≡(1+κ^{−1})a (q)` gives `g|κ+1`, and
+`d≡κjā (q)` gives `gcd(d,q)=g`. (ii) For a fixed `d|F`, `d≡c:=κjā`:
+s is fixed mod q and mod d, compatibly since `F≡κ+1≡0 (g)`; so s lies
+in one class mod `qd/g`, `≤gS/(qd)+1` values. Write `d=gd_1`; then
+`d≡c (q)` iff `d_1≡c/g (mod q/g)`, so
+`Σ_{d≤X}g/d≤1+2𝓛g/q`, with `≤gX/q+1` terms. (iii) `d′=m` is prime to
+q and lies in one class mod `q/g` (from `mm*≡κ+1` mod `q/g`, where
+`m*` is a unit): `≤S/(qd′)+1` values of s each, and
+`Σ_{d′>μ}1/d′≤1/μ+2𝓛g/q`, with `≤gX/q+1` terms. So
+`N(a,j)≤(S/q)(1+1/μ+4𝓛g/q)+2(gX/q+1)`. (iv) Now j runs over multiples
+of g: `Σ_{j≤2T, g|j}1/j≤2𝓛/g`. Inserting as in Prop 2.3, the factor g
+cancels in every term except `S/q·1`, which gives `(4/3)(2𝓛/g)≤3𝓛/y`.
+The sum over the `≤2^k` divisors `g|q` costs nothing more: distinct g
+give disjoint sets of j. ∎
+
+So the `gcd(j,q)>1` case flagged in §1 is closed, uniformly in the box.
+Cor 2.4 holds for all atoms with `a≤b` (resp. `a≥b`) in the stated boxes.
