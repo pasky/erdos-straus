@@ -70,3 +70,25 @@ Deliverable: `POINTWISE_OMEGA9.md`, `scripts/omega9_charcheck.py`,
     progressions). All bad primes would then be `≤𝓛^{O(1)}`.
 * Opening (b) (sieving singles separately) now matters only through
   `log Z`. It is not pursued.
+
+## Round 2: parent's hostile reviews R34a, R34b (both: Thm 1.1, 2.2, 2.3 SOUND; no FATAL/MAJOR)
+
+Merged `side-agent/review-omega9a` and `side-agent/review-omega9b`. All
+minors are applied.
+* R34a m1–m2: fix `κ:=max(3κ_0,1/c_1)`. Cite MV's Exceptional Zero
+  Statement (28.61)–(28.62) for uniqueness of χ_1. Add a source caveat:
+  the MV draft's proof slip is repairable, and the statement is
+  Gallagher's Thm 7.
+* R34a m3: one-line proof of `λ≥min(u,1)/2` for all u.
+* R34a m4 / R34b m1: Case A needs `x ≥ C·A·Z^4`. This is now listed
+  (`x≥Z^5`).
+* R34a m5: in Case A, `q_1|Q`.
+* R34a note: `E_D` = O8's Haar mean.
+* R34b m2: Wigert's `log2` is derived (single τ in O2 Lemma 11.1).
+* R34b m3: O8 §6.6 wording (`𝓛^4`, and "no `log(1/μ)` or `M_1`").
+* R34b m4: O8 header renumbered, with 1/13 and 1/4 marked superseded / PO-only.
+* R34b observation added to O9 §3: with `z=𝓛^a`, `log Q_Π ≫ 𝓛^{1+a}/log𝓛`
+  is a choice-specific floor (≈1/3 at a=2); the only z-free floor is
+  `log Z>𝓛`.
+* R34b: the bottleneck is the junta term `d𝓛` (≈860× `log Q_Π` in the
+  tally). Lemma 6.1's ℓ¹ bound is not needed by O9.
