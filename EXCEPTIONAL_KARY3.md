@@ -235,3 +235,74 @@ exactly as in Cor 2.4. ∎
 `𝔐(y) ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A + 𝔐_S ≤ K₃′(W)(log y)³` for `y ≥ y₀(W)`
 (Cor 2.4, K2 Lemmas 3.3, 3.3′, Cor 3.2).
 
+## 4. The cap with no B and no log loss
+
+**Theorem 4.1 (K2 Thm 5.1 without the `(log λ)^{3/4}`; PROVED; the
+Case-A part uses ElT §7, published, not re-proved).** There are absolute
+constants `W, λ₀, C` such that for every finite family 𝔊 of ℛ(M)-,
+(a,D)-, Case-A and selector classes, mixed arbitrarily, with arbitrary
+moduli, and every majorant ν of level `λ ≥ λ₀` of the whole avoider set
+`𝒜(𝔊) ⊂ ℤ` (K2 Thm 5.1's definitions),
+
+    log(1/Eν) ≤ C λ^{3/4}.
+
+If 𝔊 has no Case-A classes, the only external input is Shiu's theorem
+(as in K2).
+
+*Proof.* K2 Thm 5.2's proof verbatim, i.e. EK Thm 4.5's block structure
+with `s₁ = λ^{1/4}`, the square base (K2 Lemma 2.3) and the B-free leak
+(K2 Lemma 4.3), with the first moment `𝔐(y) ≤ K₃′(log y)³` of Cor 3.3 in
+place of the B-bounded one. Explicitly (K2 §5's ledger with
+`(log λ)³` deleted):
+* singletons `W < ℓ ≤ e^{s₁}`: `≤ (8/3)𝔐(e^{s₁}) ≤ (8/3)K₃′λ^{3/4}`;
+* block `V_i` (`s = 2^is₁`, `d_i = ⌊λ/s⌋`): `E M_{V_i} ≤ 𝔐(e^{2s}) ≤ 8K₃′s³`,
+  so `(E M_{V_i} + 4d_i)/d_i ≤ 16K₃′s⁴/λ + 4 = 16K₃′·16^i + 4`, and by EK
+  Cor 2.6 and Jensen `EΦ_i ≤ (λ/(2^is₁))(c₁ + i log 16) + O(log λ)`;
+  `2Σ_iEΦ_i ≤ Cλ^{3/4} + O(log²λ)`;
+* linear block `(e^{λ/2}, e^λ]`: `2log(1+3e^{−λ/4})`; above `e^λ`: 0;
+* base and Jensen: `2W + log 2`.
+
+W is fixed by the leak (K2 Lemma 4.3, `𝔏 ≤ 1/2` for `W ≥ W₀`), and
+`K₃′ = K₃′(W)` is then absolute. ∎
+
+**Corollary 4.2 (K2 Cor 6.1 without the loss; PROVED; same proviso).**
+For every method in the class of K2 Cor 6.1 (coefficient-sum rounding
+`N·Eν + Σ|a_i|`, `Σ|a_i| < N`, ν a nonnegative CRT majorant of the whole
+avoider set of any finite mixture of the four types, family primes
+`≤ N^A`), the saving is `s ≤ C_A(log N)^{3/4}` for N large. No
+B-hypothesis, no dominant prime, no bound on the number of prime factors.
+
+*Proof.* K2 Cor 6.1's proof (projection, ET Lemma 2.9, case analysis)
+with Theorem 4.1 in place of K2 Thm 5.1: if `S ≤ (A+1)log N` then
+`λ ≤ 2(A+1)log N` and `S ≤ log 2 + C(2(A+1)log N)^{3/4}`; otherwise
+`λ ≤ 2S` and `S ≤ log 2 + C(2S)^{3/4}` bounds S absolutely. ∎
+
+So K2 §6 "Still excluded" item 1 is closed: **the 3/4 note's exponent is
+sharp for every coefficient-sum CRT majorant of any forced-class
+mixture, with no `(log log N)^{3/4}` slack.** The saving of the 3/4 note
+is `c(log N)^{3/4}` and the cap is `C(log N)^{3/4}`; only the constants
+differ (and are incomparable: ineffective vs astronomically large).
+
+### 4.3 Downstream statements that improve the same way
+
+Each of these used K2 Thm 5.1 (or its first moment) only through the cap
+`Cλ^{3/4}(log λ)^{3/4}`; with Theorem 4.1 the factor `(log λ)^{3/4}`
+(resp. `(log log N)^{3/4}`) disappears. Not re-reviewed here; the parent
+should re-check each pointer.
+* **PRIMELAW Thm 3.1 / Cor 4.2 ((D)22).** Its first moment `𝔐*` is K2's
+  with Γ replaced by `Γ*` (`γ*(ℓ) = (ℓ/(ℓ−1))(1−ℓ^{−1/2})^{−1}`). §§2–3
+  above use Γ only through: `h(p) ≤ 7` for `p ≤ W`, `h(ℓ) ≤ 2ℓ^{−1/2}` and
+  `γ'(ℓ) ≤ 1 + 2ℓ^{−1/2}` for `ℓ > W`, `Γ(m) ≤ 8·3^{ω(m)}`, and
+  submultiplicativity. PRIMELAW Lemma 2.3 gives all of these for `Γ*`.
+  So `𝔐*(y) ≪_W (log y)³` and PRIMELAW's cap becomes `Cλ^{3/4}`, i.e.
+  `C_A(log N)^{3/4}` for prime-law methods with moduli `≤ N^A`.
+  (PRIMELAW Cor 4.2's coarsening adds `2log log(·)` to the level, which
+  is harmless.)
+* **LARGESIEVE Thm 3.1 / Cor 3.2 ((D)19):** `C(log N)^{3/4}` for
+  polynomial denominators, no B.
+* **INTERFREQ Cor 2.3 ((D)20):** majorants from forced classes of modulus
+  `≤ N/2`, any evaluation of the interval sum: `C(log N)^{3/4}`.
+* **TUPLES Cor 3.4 ((D)21):** `log(1/Eν) ≤ C(kA log N)^{3/4}`, so saving
+  `(log N)^θ` needs `k ≥ c(log N)^{4θ/3−1}` exactly (no `−o(1)`). The
+  remaining gap is §5.
+
