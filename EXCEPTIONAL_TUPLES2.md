@@ -9,19 +9,41 @@ Prop 2.4, Prop 4.2). Prime family `𝒫_y`, classes `𝓡(ℓ)`, `p_ℓ = F(ℓ)
 `μ_y = Σ p_ℓ`, hit count `f_y`, order-j sums `S_j(N)`, CRT values
 `e_j = e_j(p)`, TC(N; K, y, η) and TC_θ exactly as in T1 §2.
 
-## 0. Plan / working notes
+## 0. Summary
 
-1. **Form grouping.** A hit `n ∈ −4D (mod ℓ)` corresponds to a unique
-   triple (r, s, m), `gcd(r,s)=1`, `rsm = A_ℓ`, `D = r²m`, and
-   `n ≡ −4D ⟺ ℓ | ns + r`. Hits with the same *form* (r,s) all divide the
-   single integer `ns + r ≤ Ns + r`. This is a rigorous size constraint
-   that the CRT law ignores (§1).
-2. **Truncation deficit.** The CRT mass `e_j` includes tuples with a
-   same-form group of product `> Ns + r`; their interval count is exactly 0.
-   Compute that mass and compare with the TC precision `η_K` (§2).
-3. Consequence for TC_θ (literal) vs a corrected, truncation-aware TC, and
-   whether the corrected version still gives Cor 2.3 (§3).
-4. Numerics: explain the T1 §5(b) moment deficits (§4).
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1, Cor 1.2 | each class of 𝓡(ℓ) is `−r/s mod ℓ` with `rs | A_ℓ` ("form" (r,s)); all hits of one form divide the single integer `ns + r ≤ Ns + r`; tuples whose form-group has product `> Ns + r` have `C_T(N) = 0` though `δ_T > 0`. The class −1 (form (1,1)) lies in every 𝓡(ℓ) | PROVED |
+| Thm 2.1, 2.2 | the CRT mass `Z_j` of such forced-zero tuples satisfies `Z_{u₀} ≥ (σ_y/2)^{u₀}/u₀!`, `u₀ = ⌈log(N+2)/log(y/2)⌉`; in the TC_θ calibration `Z_{u₀} ≥ η_K e^{K/(2e²)}` for **every θ > 2/3** | PROVED |
+| Cor 2.3 | TC_θ (θ > 2/3) holds only if the admissible tuples carry an aggregate CRT **excess** ≥ the forced-zero mass; TC_θ is incompatible with "admissible tuples are CRT-accurate" | PROVED |
+| Lemma 3.1 | inside one form the interval count is one-sided: `C ≤ N/q + 1/q` (Kubilius truncation + floors) | PROVED |
+| Ass. 3.2 | **literal TC_θ is false for every θ ∈ (2/3,1)**: it needs a conspiratorial excess `N^{1/2−o(1)}` times the square-root noise floor; true for θ < 2/3 (T1 Prop 2.4) | Assessment |
+| Thm 4.1, Cor 4.2 | the truncation-aware hypothesis TC^𝔄_θ, and the one-sided alternating hypothesis TC^alt_θ, each imply `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)`; the single-form effects cancel in the alternating sum (Euler-characteristic argument) | PROVED |
+| §4 status | TC^𝔄 is also expected false above 2/3 (floor deficits); **TC^alt_θ (degree-K Brun sieve CRT-accurate on [1,N]) is the correct form of the door** | Assessment |
+| §5 | toy numerics: class −1 forced zeros exceed η_K by 10³–10⁵ at the T1 test parameters; the T1 §5(b) moment deficits are an initial-segment effect (absent on far translates), about one third explained by single-form effects | EVIDENCE |
+| Cor 6.1 | for the pure prime family every CRT majorant of level ≤ A log N saves ≤ C(log N)^{2/3}; so TC^alt_θ for any θ > 2/3 needs CRT accuracy at moduli `exp(c(log N)^{3θ/2})` | PROVED (from T1 Thm 3.1) |
+| Ass. 6.2 | no known theorem (BV/EH/BFI/dispersion, roots-of-congruences equidistribution, fixed-shift correlations, Kubilius) supplies TC^alt_θ for any θ > 2/3 | Assessment |
+| Prop 7.1 | T1 Cor 3.4 gap closed for block-sparse K2 families (≤ r primes per K2 block per modulus): order-k majorants save `≤ C(log N)^{3/4}(log log N)^{3/4} + Ckr(log log N)²` | PROVED (K2 Thm 5.1's proof, d-locality changed) |
+
+**Verdict.** Task (B) is settled in the following sense. The tuple-count
+hypothesis TC_θ of T1/(D)21, as stated (each moment `S_j` CRT-accurate to
+absolute precision η_K), conflicts with a rigorous integer constraint
+for **every θ > 2/3**: the class −1 sits in every 𝓡(ℓ), so its hits are
+prime divisors of the one integer n+1, and the CRT moments contain a
+forced-zero mass far above η_K (Thm 2.2). TC_θ can then only hold through
+an implausible compensating excess (Cor 2.3, Ass. 3.2). So the failure
+threshold of the literal hypothesis is **θ = 2/3** (heuristically sharp;
+proved: TC holds below 2/3, and above 2/3 it is equivalent to that
+excess), not ≈ 1 as the squares (T1 Prop 4.2) suggested. This does **not**
+close the door: the obstruction lives in individual moments and cancels
+in the alternating sum that T1 Thm 2.1 actually uses (Thm 4.1). The
+correct door is TC^alt_θ, a one-sided Brun-sieve statement, which still
+gives `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)` (Cor 4.2). Task (A): no
+positive result; TC^alt_θ for θ > 2/3 is beyond CRT by Cor 6.1 and no
+known theorem reaches its level `exp(c(log N)^{3θ/2})` (Ass. 6.2). No
+structured obstruction to TC^alt below θ = 1 was found: the single-form
+deviations are invisible to it, and the square-type obstructions have
+polynomial density. Task (C): closed for block-sparse families (Prop 7.1).
 
 ## 1. Forms: a rigorous size constraint invisible to CRT
 
