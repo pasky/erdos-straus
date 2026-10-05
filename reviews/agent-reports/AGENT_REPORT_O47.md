@@ -11,7 +11,7 @@ Branch `side-agent/subexp-paper-v3`. Status: **checkpoint 1 — complete draft, 
   ET Prop 1.4, Thm 7.1, Cor 7.4, (7.10)): `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})`
   i.o.; the least hard p with `W(p)>T` has `log p ≪ 𝓛^5 log 𝓛`.
 * Thm 1.2 (Proved mod Gallagher **only**; Håstad no longer needed):
-  `log W(p) ≥ (1/log2−o(1)) log₂p·log₃p` i.o.
+  `log W(p) ≥ (1/log2−o(1))·log log p·log log log p` i.o.
 * Cor 8.2 (Proved mod ET only): `log(1/δ*(T)) ≪ 𝓛^5 log 𝓛`.
 * Thm 6.5 (Proved; self-contained): energy bound C-1 — `Σ_U λ^U‖F^{=U}‖² ≤ 1` whenever
   `λ^{supp E} ≤ 2` for every cylinder event, any finite product probability space;
@@ -94,3 +94,20 @@ Structure: §1 intro; §2 atoms + graded quarantine; §3 mass and charge moment 
   labelled Assessment/evidence).
 * `POINTWISE_HAAR.md` remark: omitted (not on main).
 * Bibliographic TODO(verify) list unchanged apart from [LT].
+
+## Self-review (reviewer subagent, deep mode) and repairs
+
+Verdict: no FATAL; main chain SOUND (Thm 6.9, Lemmas 7.1/7.6, 2.4–2.5 incl. `C_1=e²`,
+Thm 5.1(c), Lemma 7.8 constants, Thm 8.1 chain, uncond theorem, Haar corollary all
+checked; 100 random filtration systems and an exact mixed-fibre Haar example pass).
+Repairs applied:
+* MAJOR (Remark 6.7): the claim "F^{=U} supported on unions of whole supports" was false,
+  and sharpness rested on numerics. Replaced by a proof: components on unions of j whole
+  supports give `energy(F;jk−1) ≥ C(m,j)[π(1−p)^k]^j(1−π)^{2(m−j)} → e^{−2s}s^j/j!`,
+  and `s=j/2` gives `≥ 2^{−(t+1)/k}/(e√j)`. Remark now labelled proved.
+* Dropped the unproved `3^{−t/k}` Boolean lower example from Remark 6.8.
+* Intro: cost of the quarantine stated exactly (`1.02𝓛+7+(e²𝓛/c)Ω_0`); sandwich error
+  bound stated with the restriction on `u_j`.
+* `q` = prime power convention scoped to §3 (Gallagher sums run over all conductors).
+* Thm 3.1(c): `N≥2` added. Overfull box, unused `\DT`, uncited [EGLNV] removed.
+* README/report: iterated logs spelled out; `POINTWISE_OMEGA9.md` path.

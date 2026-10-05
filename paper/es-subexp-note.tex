@@ -23,7 +23,6 @@
 \newcommand{\E}{\mathbb E}
 \newcommand{\PP}{\mathbb P}
 \newcommand{\supp}{\operatorname{supp}}
-\newcommand{\DT}{\operatorname{DT}}
 \newcommand{\energy}{\operatorname{En}}
 \newcommand{\Ho}{\mathcal H}
 \newcommand{\cD}{\mathcal D}
@@ -156,8 +155,9 @@ raise $a_\ell$ one step at a time, as long as the Haar mass $w_\ell$ of the
 events that still involve $\ell$ exceeds $\theta_\ell=c(a_\ell+1)\log\ell/\log T$
 (Lemma~\ref{lem:gradedq}).  Since every event comes from a modulus $M\le T$,
 the total mass seen by one event is then at most $c$, which is what the local
-lemma needs.  The cost $\log Q$ is at most $(\log T)/c$ times the moment
-$\sum_{(M,D)}(g/M)\,h(M)$, where $g=\gcd(M,4D+1)$ and $h(M)=\sum_{\ell^i\mid M}1/i$.
+lemma needs.  After a cheap initial quarantine of the primes up to $\log T$,
+the cost satisfies $\log Q\le1.02\log T+7+(e^2\log T/c)\,\Omega_0$, with the moment
+$\Omega_0=\sum_{(M,D)}(g/M)\,h(M)$, where $g=\gcd(M,4D+1)$ and $h(M)=\sum_{\ell^i\mid M}1/i$.
 We bound this moment by $O((\log T)^4\log\log T)$ (Theorem~\ref{thm:omega}), so
 $\log Q\ll(\log T)^5\log\log T$.
 
@@ -178,7 +178,8 @@ For events $E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
 \[
  B=1-\sum_iA_i\Big(1-\sum_{j<i}A_ju_j\Big)^2\ \le\ \mathbf 1[\text{no }E_i\text{ occurs}],
 \]
-and $\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
+and, if each $u_j$ depends only on the coordinates not fixed by $E_j$,
+$\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
 indicator that no earlier event occurs, conditioned on $E_j$.  We need the
 $u_j$ to be combinations of classes with small moduli.  The natural choice
 is a truncation of the Efron--Stein decomposition of $F^{(j)}$, and the error
@@ -268,8 +269,9 @@ well have other representations.
 \smallskip\noindent\textbf{Notation.}  $T$ is large and $\Lc=\log T$;
 $\log_2$ always denotes the binary logarithm (iterated logarithms are
 written out as $\log\log$).  $\tau$ is the divisor function and
-$\tau^*(x)=\max_{n\le x}\tau(n)$.  The letter $q$ denotes a prime power
-$\ell^i$ with $i\ge1$, and $\sum_q$ is a sum over prime powers.  For
+$\tau^*(x)=\max_{n\le x}\tau(n)$.  In \S\ref{sec:moment} the letter $q$
+denotes a prime power $\ell^i$ with $i\ge1$, and $\sum_q$ is a sum over prime
+powers.  For
 $\lambda=(\lambda_v)$ and a finite set $U$ we write $\lambda^U=\prod_{v\in U}\lambda_v$.
 
 \section{Atoms and the graded quarantine}\label{sec:system}
@@ -435,14 +437,14 @@ $\rho_{\kappa a}(m)$ be the number of $x\bmod m$ with $\kappa ax^2+1\equiv0\pmod
 
 \begin{theorem}[Elsholtz--Tao {\cite{ET}}; cited]\label{thm:ETall}
 \begin{enumerate}
-\item[(a)] \cite[Prop.~1.4]{ET}: for $A,B>1$ and each
-integer $\kappa\ge1$ with $\kappa\ll(AB)^{O(1)}$,
+\item[(a)] \cite[Prop.~1.4]{ET}: for $A,B>1$
+and each integer $\kappa\ge1$ with $\kappa\ll(AB)^{O(1)}$,
 $\sum_{a\le A}\sum_{b\le B}\tau(\kappa ab^2+1)\ll AB\log(A+B)\log(1+\kappa)$.
 \item[(b)] \textup{(\cite[Thm.~7.1]{ET})} Let $N>1$, and let $P$ be a polynomial of degree $D_P$ whose
 coefficients are non-negative integers at most $N^{l}$, with
 $\rho_P(p^j)\le C$ for all primes $p$ and all $j\ge1$.  Then
 $\sum_{n\le N}\tau(P(n))\ll_{D_P,l,C}N\sum_{m\le N}\rho_P(m)/m$.
-\item[(c)] \textup{(\cite[Cor.~7.4]{ET})} If $a,b,N$ are natural numbers with
+\item[(c)] \textup{(\cite[Cor.~7.4]{ET})} If $a,b,N$ are natural numbers, $N\ge2$, with
 $a,b\ll N^{O(1)}$, then $\sum_{n\le N}\tau(an+b)\ll\tau(\gcd(a,b))\,N\log N$.
 \item[(d)] \textup{(\cite[(7.10)]{ET})} For $2\le A\le B$ and $\kappa\ge1$,
 $\sum_{a\le A}\sum_{m\le B}\rho_{\kappa a}(m)/m\ll A\log B\log(1+\kappa)$.
@@ -1075,13 +1077,22 @@ Theorem~\ref{thm:C1}(b) with $\lambda_v=2^{1/k}$ and \eqref{eq:markov};
 $(1-F)^{=U}=-F^{=U}$ for $U\ne\emptyset$.
 \end{proof}
 
-\begin{remark}[Sharpness]\label{rem:sharp}
+\begin{remark}[Sharpness; proved]\label{rem:sharp}
 Over general product spaces the base $2^{-1/k}$ cannot be improved.  Take
-$m$ events on pairwise disjoint sets of $k$ coordinates, each fixing values of
-probability $p$.  Then $F^{=U}$ is supported on unions of whole supports, and
-letting $p\to0$ with $m$ chosen optimally one finds numerically
-$\max_m\energy(F;t)\,2^{(t+1)/k}\asymp(t/k)^{-1/2}$.  So at most a factor
-$\sqrt{t/k}$ could be gained.  The condition $\lambda^{\supp E}\le2$ in
+$m$ events on pairwise disjoint sets of $k$ coordinates, each fixing at every
+coordinate of its support a value of probability $p$; put $\pi=p^k$.  As the
+factors $1-\mathbf 1_{E_i}$ are independent, $F^{=U}=\prod_i(1-\mathbf 1_{E_i})^{=U\cap\supp E_i}$.
+For $U$ the union of the supports of $j$ of the events this gives
+$\|F^{=U}\|^2=[\pi(1-p)^k]^j(1-\pi)^{2(m-j)}$, and $|U|=jk$.  Hence
+\[
+ \energy(F;jk-1)\ \ge\ \binom mj\big[\pi(1-p)^k\big]^j(1-\pi)^{2(m-j)}
+ \ \longrightarrow\ e^{-2s}\frac{s^j}{j!}
+\]
+as $p\to0$ with $m=\lfloor s/\pi\rfloor$.  With $s=j/2$ and $j!\le e\,j^{j+1/2}e^{-j}$,
+the limit is at least $2^{-j}/(e\sqrt j)=2^{-(t+1)/k}/(e\sqrt j)$ for $t=jk-1$.  So no
+bound $C\rho^{-(t+1)/k}$ with $\rho>2$ holds for all such systems (with alphabets
+of size about $1/p$), and at most a factor of order $\sqrt{t/k}$ could be
+gained.  The condition $\lambda^{\supp E}\le2$ in
 Theorem~\ref{thm:C1} is necessary, by the single-event formula above.
 \end{remark}
 
@@ -1099,9 +1110,7 @@ $\sum_{|S|\ge t}\hat g(S)^2\le2\cdot2^{-t/(20k)}$ \cite[\S4.4]{OD}, \cite{LMN}. 
 $\lambda^{|U|}\ge1+|U|\ln\lambda$ gives total influence
 $\sum_U|U|\,\|F^{=U}\|^2\le(k/\ln2)\PP(F=0)$.  The same bounds hold for $q$-ary
 DNFs with literals $x_v\in S_v$ (split each term into single-value cylinders
-on the same support; $F$ and the supports do not change).  On the uniform
-Boolean cube the truth lies between $3^{-t/k}$ (an OR of disjoint
-$k$-parities) and $2^{-t/k}$.  We have not found Theorem~\ref{thm:C1} in the
+on the same support; $F$ and the supports do not change).  We have not found Theorem~\ref{thm:C1} in the
 literature; see the introduction for what we checked.
 \end{remark}
 
@@ -1541,8 +1550,7 @@ Theorem~\ref{thm:uncond}.
 \item Proved modulo Gallagher's theorem and Theorem~\ref{thm:ETall}:
 Theorem~\ref{thm:main}.
 \item Assessment: Remarks~\ref{rem:linear}, \ref{rem:mean}
-and~\ref{rem:exponent}; the numerical parts of Remarks~\ref{rem:sharp}
-and~\ref{rem:boolean}.
+and~\ref{rem:exponent}.
 \item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
 optimality of the exponent $1/5$; any numerical instance; priority for
 Theorem~\ref{thm:C1} (literature search partial).
@@ -1558,10 +1566,9 @@ parameter exceeds every power of $\log p$, preprint, 2026.
 \bibitem{Bazzi} L.~M.~J.~Bazzi, Polylogarithmic independence can fool DNF
 formulas, SIAM J.\ Comput.\ 38 (2009), 2220--2272 (FOCS 2007).
 % TODO(verify): the bibliographic details of [BBMST], [Bourgain], [Green], [Hough],
-% [FFKPY], [LMO], [TZcheb], [MV1], [RS], [LT] and the journal version of [EGLNV] were written from memory (no library
+% [FFKPY], [LMO], [TZcheb], [MV1], [RS], [LT] were written from memory (no library
 % access in task O33; referee R33 rates the first four "probably correct, unverified").
-% The STOC'92 data of [EGLNV] are as quoted in Benjamini--Gurel-Gurevich--Peled
-% (arXiv:1201.3261, ref. [16]).  Also unverified: the journal data of [TZ] (arXiv
+% Also unverified: the journal data of [TZ] (arXiv
 % version archived).  Check all of these before submission.
 \bibitem{BBMST} P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and
 M.~Tiba, On the Erd\H{o}s covering problem: the density of the uncovered set,
@@ -1573,10 +1580,6 @@ $\mathrm{AC}^0$ circuits, J.\ ACM 57 (2010), no.~5, Art.~28.
 \bibitem{Dav} H.~Davenport, Multiplicative Number Theory, 3rd ed., Springer GTM 74, 2000.
 \bibitem{ES} B.~Efron and C.~Stein, The jackknife estimate of variance, Ann.\
 Statist.\ 9 (1981), 586--596.
-\bibitem{EGLNV} G.~Even, O.~Goldreich, M.~Luby, N.~Nisan and
-B.~Veli\v{c}kovi\'c, Approximations of general independent distributions, in:
-Proc.\ 24th ACM STOC (1992), 10--16; journal version: Efficient approximation of
-product distributions, Random Structures Algorithms 13 (1998), 1--16.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94 (2013),
 50--105 (Proposition numbering as in arXiv:1107.1010v6).
