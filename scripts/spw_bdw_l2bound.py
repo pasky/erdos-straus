@@ -30,7 +30,11 @@ def run(N):
     win = Fraction(sum(int(I[d][n % d]) for d in range(2, D + 1) for n in range(1, N + 1)), N)
     eg2 = tot
     # ratio lower bound = win / (sqrt(eg2)/2) = 2 win / sqrt(eg2)
-    r = 2 * float(win) / float(eg2) ** 0.5
+    # rigorous: A >= 2 win / sqrt(eg2); round DOWN: largest k/10^4 with (k/10^4)^2 * eg2 <= 4 win^2
+    k = isqrt(int((4 * win * win / eg2) * 10**8))
+    while Fraction(k + 1, 10**4) ** 2 * eg2 <= 4 * win * win: k += 1
+    while Fraction(k, 10**4) ** 2 * eg2 > 4 * win * win: k -= 1
+    r = k / 10**4
     Astar = max(Fraction(int(c) * d, N) for d in range(1, D + 1) for c in cnt_arr(d, N))
     print(f"N={N}: window avg g = {float(win):.4f}, E g^2 = {float(eg2):.3f}, "
           f"rigorous lower bound for BDW constant: A >= {r:.4f}   (A* = {float(Astar):.4f})", flush=True)

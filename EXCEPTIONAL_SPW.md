@@ -14,12 +14,12 @@ modulus > CN; (P3) |R(s) − c(s)| ≤ Δ₀ for classes of modulus in (D, CN].
 
 | item | statement | label |
 |---|---|---|
-| Lemma 1.1 | SPW at N ⟺ (up to ε) a *periodic* SPW on ℤ/Q′, Q′ = lcm(1..T), T ≥ T(N,C,Δ₀) | PROVED |
+| Lemma 1.1 | SPW at N ⟺ a *periodic* SPW on ℤ/Q′, Q′ = lcm(1..T), T ≥ T(N,C,Δ₀) (periodic ⇒ ℤ loses ε and clips σ at 1/2) | PROVED |
 | Lemma 1.2 | profile criterion: R has the window profile iff mass N and ∂R ≡ δ₁ − δ_{N+1} (class sums) mod every d ≤ D | PROVED |
 | Lemma 1.3 | **two-edge split**: the window profile is `N/d + {−b/d} − {(N−b)/d}`; SPW follows from a single *half-line* (left-edge) measure H (problem HL) | PROVED |
 | Lemma 1.4 | **weak SPW suffices**: by Thm 5.2 remarks σ may be quasi-polynomially small, and then only *full* large classes need mass < 1; sparse ones may carry quasi-polynomial mass | PROVED implication |
-| §2 | BDW (pointwise density ≤ A·uniform): LP optimum = trivial bound A*(N) for N ≤ 24, but **A(N) ≥ c√N** (exact values A(150) ≥ 1.55, A(400) ≥ 2.50) | EVIDENCE / PROVED |
-| §3 | local single-modulus bounds: exact certificates **σ ≤ 72/185 < 2/5 at N = 300**, σ ≤ 0.3811 at N = 1150; LP 0.3737 at N = 4400 | PROVED / EVIDENCE |
+| §2 | BDW (pointwise density ≤ A·uniform): LP optimum = trivial bound A*(N) for N ≤ 24, but **A(N) ≥ c√N** (exact values A(150) ≥ 1.551, A(400) ≥ 2.496) | EVIDENCE / PROVED |
+| §3 | local single-modulus bounds: exact certificates **σ ≤ 72/185 < 2/5 at N = 300**, σ ≤ 0.381133 at N = 1150; LP 0.3737 at N = 4400 | PROVED / EVIDENCE |
 | Thm 3.2 | **fixed-σ SPW is false for large N**: σ ≲_C (log N)^{−1/2} (Fejér smoothing + Bernstein at the window edge, modulus e ≈ CN divisible by lcm(1..M)) | PROVED |
 | Cor 3.3 | same bound for the Flat margin s₀ (any t) | PROVED |
 | §4 | Thm 5.2 survives: only weak SPW (σ_N ≥ e^{−S_A}·c₀) is needed; weak SPW is open | Assessment |
@@ -83,9 +83,11 @@ R := U + H + H′ is `{−b/d} − {(N−b)/d} + κ_d` with
 with s′ = N+1−s a class of the same modulus. Medium: |R(s) − c(s)| ≤
 max(R(s), c(s)) ≤ N/d + ε + 2h_med + 2. ∎
 
-Notes. The constants are consistent with IF2 Lemma 9.3: m ≥ (D−1)/2 is
-forced (class 0 mod D has H-mass (m − (D−1)/2)/D ≥ 0), so
-(N − 2m)/(CN) ≈ 1/(2C), and σ ≤ 3/4 − 2h at C = 2. HL depends on N only
+Notes. m ≥ (D−1)/2 is forced (class 0 mod D has H-mass
+(m − (D−1)/2)/D ≥ 0), so the filler term is at most (N − D + 1)/(CN)
+≈ 1/(2C), and HL with parameter h yields σ ≥ 1 − 1/(2C) − 2h − O(1/N)
+(≈ 3/4 − 2h at C = 2). With IF2 Lemma 9.3 (σ ≤ 2/5 at C = 2) this forces
+h ≥ 0.175 − o(1) in HL. HL depends on N only
 through D and E₀ = CN ≈ 2CD: the two edges of the window decouple
 completely, and the right edge is the reflection of the left one.
 HL numerics (EVIDENCE, `scripts/spw_halfline_lp.py`): D = 10, E₀ = 40,
@@ -118,8 +120,11 @@ with the window profile mod every d ≤ D and *pointwise* density
 **Lemma 2.1 (BDW ⇒ SPW; PROVED).** BDW(A) at N implies SPW(C, 1 − A/C − ε,
 2A + 2) for every C > A. *Proof.* Lift ρ uniformly to ℤ/Q′ (Q′ as in
 Lemma 1.1): ρ′(x) = ρ(x mod L₀)L₀/Q′ keeps (P1) and the density bound, so
-every class mod e | Q′ has ρ′-mass ≤ AN/e (≤ A/C for e > CN, ≤ 2A for
-e > D). Apply Lemma 1.1(b). ∎
+every class mod e | Q′ has ρ′-mass ≤ AN/e. Put R(x) = ρ′(x mod Q′)/K on
+[0, KQ′) as in Lemma 1.1(b): (P1) and (P3) hold as there, and directly from
+the density bound every class s of any modulus e has
+R(s) ≤ (KQ′/e + 1)·(AN/Q′)/K ≤ AN/e + N/K, i.e. ≤ A/C + ε for e > CN
+(no clipping at 1/2 is needed here). ∎
 
 **Lemma 2.2 (duality; PROVED).** BDW(A) at N holds iff for every g ∈ V_D
 (the span of indicators of classes mod d ≤ D, as functions on ℤ/L₀)
@@ -144,15 +149,17 @@ possible.
 **Proposition 2.3 (BDW fails for large N; PROVED).** Every BDW constant
 satisfies `A(N) ≥ c·√N` for N ≥ N₀ (absolute c > 0, e.g. c = 0.05).
 Rigorous values (`scripts/spw_bdw_l2bound.py`, exact integer arithmetic):
-A(150) ≥ 1.55 > A*(150), A(200) ≥ 1.77, A(300) ≥ 2.20, A(400) ≥ 2.50.
+A(150) ≥ 1.551 > A*(150), A(200) ≥ 1.773, A(300) ≥ 2.200, A(400) ≥ 2.496
+(decimals rounded down).
 
 *Proof.* Put E_d(b) = c(b,d) − N/d (so Σ_b E_d = 0) and
 g := Σ_{2≤d≤D} d·E_d(x mod d) ∈ V_D. Then E g = 0, so
 E g⁺ = E|g|/2 ≤ (E g²)^{1/2}/2.
 *Window side.* Σ_{n≤N} E_d(n) d = d Σ_b c(b,d)E_d(b) = d Σ_b E_d(b)²
 = r_d(d − r_d) with r_d = N mod d (E_d = 1 − r/d on r classes, −r/d on
-the others). For d = D − k, 0 ≤ k < D/3, N = 2D or 2D+1 gives
-r_d ≥ 2k, d − r_d ≥ D − 3k − 1, so (1/N)Σ_n g(n) ≥ (1/N)Σ_k 2k(D−3k−1)
+the others). For d = D − k with 0 ≤ k < (D−1)/3 we have 2d ≤ N < 3d
+(N = 2D or 2D+1), so r_d = N − 2d ≥ 2k and d − r_d ≥ D − 3k − 1, whence
+(1/N)Σ_n g(n) ≥ (1/N)Σ_{k<(D−1)/3} 2k(D−3k−1)
 = D³/(27N) − O(D²/N).
 *L² side.* For d, d′ with g₀ = gcd(d,d′), E[d E_d | x mod g₀] = g₀E_{g₀}
 (averaging c(·,d) over the d/g₀ lifts of a class mod g₀ gives c(·,g₀)·g₀/d),
@@ -210,7 +217,7 @@ SPW measure R, Σ_{n≤N} g(n) = ⟨g,R⟩ ≤ Σ z_s R(s) ≤ (1−σ)Σ z_s. R
 | N | C | e | certified bound on σ |
 |---|---|---|---|
 | 300 | 2 | 630 = 2·3²·5·7 | σ ≤ 72/185 = 0.38919 |
-| 1150 | 2 | 2310 = 2·3·5·7·11 | σ ≤ 0.381132 (exact rational) |
+| 1150 | 2 | 2310 = 2·3·5·7·11 | σ ≤ 0.381133 (exact rational 0.3811324…, rounded up) |
 
 So **SPW(2, σ) is false at N = 300 for σ > 72/185 < 2/5**: the optimum is
 not σ_C(N) = 2/5 at all N (the R25 C10 pattern breaks beyond the tested
@@ -222,7 +229,7 @@ M ≥ 2 with L_M := lcm(1..M) ≤ N, and let e be the least multiple of L_M
 exceeding CN (so e ≤ CN + L_M, m₀ := e/D ≤ 2C + 3 for N ≥ N₀(C)). If R
 satisfies (P1)–(P2) of SPW(C, σ, ·) at N, then
 
-    σ ≤ 4·√(π m₀/(M+1)) · (1 + o(1))      (o(1) as M/… → ∞, uniformly).
+    σ ≤ 4·√(π m₀/(M+1)) · (1 + o(1))      (o(1) as M → ∞, for fixed C > 1).
 
 Since one can take M ≍ log N (ψ(M) = log L_M ~ M), **σ ≲_C (log N)^{−1/2}**:
 for every fixed C and σ > 0, SPW(C, σ, Δ₀) fails for all large N.
@@ -268,17 +275,18 @@ with slowly decaying σ_N, and the original fixed-σ SPW (in particular the
 conjectured value 2/5) is false.
 
 **Corollary 3.3 (Flat's margin also decays; PROVED).** If Flat(C, t, s₀, Δ)
-(IF2 §5) holds at N, then s₀ ≤ 6√(πm₀/(M+1))(1 + o(1)) with M, e, m₀ as in
-Theorem 3.2, for any t, Δ. *Proof.* Project F to F_e on ℤ/e. Since
+(IF2 §5) holds at N with t ≥ 0, then s₀ ≤ 6√(πm₀/(M+1))(1 + o(1)) with
+M, e, m₀ as in Theorem 3.2 (M is the Fourier cutoff; write M_F = tN for
+Flat's mass), for any Δ. *Proof.* Project F to F_e on ℤ/e. Since
 F ≤ 1_{[1,N]} and F ≤ 0 off [1,N], F_e ≤ 1 on W and ≤ 0 off W; (F3)/(F4) at
-modulus e give F_e ≥ M/e + s₀ on W and ≥ M/e − 1 off W. So
-ρ := 1_W − F_e + M/e has the window profile mod d | e, d ≤ D, and
+modulus e give F_e ≥ M_F/e + s₀ on W and ≥ M_F/e − 1 off W. So
+ρ := 1_W − F_e + M_F/e (≥ 0 as t ≥ 0) has the window profile mod d | e, d ≤ D, and
 0 ≤ ρ ≤ 1 − s₀ on W, 0 ≤ ρ ≤ 1 off W. In the proof of Theorem 3.2,
 K∗ρ(x_in) ≤ (1 − s₀)φ(x_in) + (1 − φ(x_in)), so T(x_in) ≤ −s₀ + 2ε with
 ε = e/(2(M+1)r); the rest is unchanged (|T| ≤ 1 still). ∎
-Thm 5.2 needs only s₀ ≥ N^{−A₁}, so this does not hurt it; it does show
-that the decrease of the Flat margins in IF2 §5 (0.40 → 0.17 for
-N = 20 → 100) is not only truncation: s₀ must tend to 0.
+Thm 5.2 needs only s₀ ≥ N^{−A₁}, so this does not hurt it. It shows that
+the Flat margin must eventually tend to 0; it says nothing quantitative
+about the finite-range decline seen in IF2 §5 (0.40 → 0.17, N = 20 → 100).
 
 ## 4. Status of the task and what is open
 
@@ -293,7 +301,7 @@ N = 20 → 100) is not only truncation: s₀ must tend to 0.
 * Useful reductions for weak SPW: periodic form (Lemma 1.1), two-edge split
   (Lemma 1.3: one half-line problem HL suffices), only full classes need
   mass < 1 (Lemma 1.4), and any construction must be pointwise
-  non-spread (Prop 2.3) yet degrade the edge only at rate ≳ (log N)^{−1/2}.
+  non-spread (Prop 2.3), and its margin is at most ≲ (log N)^{−1/2} (Thm 3.2).
 
 ## Replay
 
@@ -303,6 +311,6 @@ uv run --with scipy python scripts/spw_bdw_lp.py 12 14 16 18 20 22 24          #
 uv run --with scipy python scripts/spw_bdw_l2bound.py 150 200 300 400          # BDW fails: A >= 1.55..2.50 (exact; ~1 min)
 uv run --with scipy python scripts/spw_bdw_dualtest.py d 20 32 60 100 200      # MC ratios (EVIDENCE)
 uv run --with scipy python scripts/spw_local_cert.py 300 2 630                 # sigma <= 72/185 (exact)
-uv run --with scipy python scripts/spw_local_cert.py 1150 2 2310               # sigma <= 0.381132 (exact)
+uv run --with scipy python scripts/spw_local_cert.py 1150 2 2310               # sigma <= 0.3811324... (exact)
 uv run --with scipy python scripts/spw_local_scan.py 2 6000 100 150 200 300 400 600 800 1000   # local scan (~1 h)
 ```

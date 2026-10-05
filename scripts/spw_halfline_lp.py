@@ -42,7 +42,10 @@ def main(D, E0, lo, hi, mu):
     if r.status != 0:
         print("status", r.status, r.message); return
     H = r.x[:P]
-    print(f"D={D} E0={E0} supp=[{lo},{hi}] mu={mu}: h_min={r.fun:.4f}  mass={H.sum():.3f}  => sigma=1-2h={1-2*r.fun:.4f}")
+    N = 2 * D; m = H.sum()
+    sig = 1 - (N - 2 * m) / E0 - 2 * r.fun   # Lemma 1.3 with N = 2D, CN = E0 (minus epsilon)
+    print(f"D={D} E0={E0} supp=[{lo},{hi}] mu={mu}: h_min={r.fun:.4f}  mass m={m:.3f}  "
+          f"=> Lemma 1.3 margin at N=2D: sigma >= {sig:.4f} - eps")
     return H, pts
 
 if __name__ == "__main__":

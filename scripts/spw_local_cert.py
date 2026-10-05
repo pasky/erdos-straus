@@ -20,12 +20,14 @@ def cnt(b, d, N):
     return 0 if first > N else (N - first) // d + 1
 
 def main(N, C, e, den=10**6):
+    C = Fr(C)  # exact: classes mod e' are 'large' iff e' > C*N exactly
     D = N // 2
+    assert e > C * N
     x = np.arange(e)
     divs = [d for d in range(1, e + 1) if e % d == 0]
     small = [d for d in divs if d <= D]
     smax = [d for d in small if not any(m % d == 0 and m != d for m in small)]
-    big = [d for d in divs if d > C * N]
+    big = [d for d in divs if d > C * N]  # exact Fraction comparison
     er, ec, beq, eqlab = [], [], [], []
     r = 0
     for d in smax:
@@ -71,8 +73,11 @@ def main(N, C, e, den=10**6):
             if best is None or bound < best[0]:
                 best = (bound, sgn, Wsum, Z)
     bound, sgn, Wsum, Z = best
-    print(f"N={N} C={C} e={e}: LP sigma_loc={sig_lp:.6f}; exact certificate: sigma <= {bound} = {float(bound):.6f}")
+    import math
+    up = math.ceil(bound * 10**6) / 10**6  # outward (upward) rounding of the exact rational bound
+    print(f"N={N} C={C} e={e}: LP sigma_loc={sig_lp:.6f}; exact certificate verified: sigma <= {up:.6f} "
+          f"(exact rational, denominator has {len(str(bound.denominator))} digits)")
     return bound
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]), float(sys.argv[2]), int(sys.argv[3]))
+    main(int(sys.argv[1]), Fr(sys.argv[2]), int(sys.argv[3]))

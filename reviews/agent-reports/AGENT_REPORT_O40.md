@@ -13,7 +13,7 @@ SPW(C, σ, Δ₀) for every fixed C and every fixed σ > 0 at all large N:
   polynomial of degree < m₀. That polynomial would have to jump by ≈ σ across the window
   edge within distance ≈ e/√(m₀M), which Bernstein's inequality forbids.
 * **Exact finite certificates (PROVED, rational arithmetic):** σ ≤ 72/185 = 0.3892 at
-  N = 300 (single modulus e = 630) and σ ≤ 0.38113 at N = 1150 (e = 2310). So the R25
+  N = 300 (single modulus e = 630) and σ ≤ 0.381133 at N = 1150 (e = 2310). So the R25
   observation "LP optimum = σ_C(N) = 2/5 at every N" breaks beyond the tested N ≤ 60.
   LP values (EVIDENCE) keep falling: 0.3737 at N = 4400 (e = 9240).
 * **Corollary 3.3:** the same bound holds for the Flat margin s₀ (for any t). So the decay
@@ -33,7 +33,7 @@ route is not refuted. Its hypothesis must be restated as weak SPW, which is **op
 * §2 BDW (pointwise density ≤ A·uniform on ℤ/L₀; this would imply SPW for C > A):
   - The LP optimum equals the trivial bound A*(N) = 3/2 − 3/N exactly for N ≤ 24, with a
     bang-bang optimal solution.
-  - But A(N) ≥ c√N is PROVED, and A(150) ≥ 1.55 holds by exact computation. So the
+  - But A(N) ≥ c√N is PROVED, and A(150) ≥ 1.551 holds by exact computation. So the
     small-N LP evidence for BDW was completely misleading.
   - Lesson: small-N LP pinning (as in R25 C10) is weak evidence here.
 
@@ -54,3 +54,12 @@ Theorem 3.2's proof, in particular:
 
 Also re-run `spw_local_cert.py 300 2 630` and check the certificate logic: g is a
 combination of classes mod d ≤ D, and Σ z_s 1_s ≥ g is checked exactly.
+
+## Self-review (deep reviewer subagent) — applied
+Confirmed: Thm 3.2 (Fourier criterion, Fejér tails, sampling, Bernstein, choice of r) sound
+for fixed C > 1; Lemma 1.3 reflection identity; Lemma 1.4; both C = 2 certificates.
+Fixed: exact (Fraction) C in `spw_local_cert.py`; outward rounding of all "rigorous" decimals
+(A(400) ≥ 2.496, σ ≤ 0.381133); half-line script now prints the Lemma 1.3 margin
+(0.3472, not 1 − 2h); Lemma 1.3 note direction corrected; Lemma 2.1 proved directly (no
+clipping at 1/2); Prop 2.3 odd-N range k < (D−1)/3; Cor 3.3 notation (M vs M_F, t ≥ 0);
+Thm 3.2 scope "M → ∞ for fixed C > 1"; two overstatements removed.
