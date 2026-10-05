@@ -31,7 +31,8 @@ EK Lemma 4.2′, K2 Lemma 4.2).
 | Cor 5.2 | TU Cor 3.4 window closed for **prime order**: (A log N, k)-mixed majorants of any K2 family save `≤ C_A[(log N)^{3/4} + k log log N]` | PROVED (same proviso) |
 | Cor 5.3 | class order k when every modulus has `≤ r` primes above the fixed W: `≤ C_A[(log N)^{3/4} + kr log log N]`; open: `max(L^{4θ/3−1}, L^θ/(r log L)) ≲ k ≲ L^θ/log L` for unbounded r | PROVED / open part stated |
 | §6 | TW4 middle window: every Λ² sieve over every K2 family saves `≤ CL^{3/4}` for all r (Thm 4.1 applies; no ω-hypothesis) | PROVED (corollary) |
-| §7 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `max u⁴b = 0.385` (all complete blocks) | EVIDENCE |
+| §7 | Lemma 7.1: TW4's Λ² setting checked at text level (g² is a K2 level-λ majorant; all primes charged), so TW4 Thm 7.1 / middle window are superseded as caps. Lemma 7.2: an `N^A`-prime-power class with `log d ≤ (k−1)A log N/2` is an intersection of `≤ k` classes of modulus `≤ N^A`; so TU Cor 3.4's literal hypothesis is a level-`≍kL` hypothesis and its window cannot be closed from that hypothesis alone | PROVED |
+| §8 | smooth first moments `≍ (log y)³` up to `X = 10¹²`, block profile `max u⁴b = 0.385` (all complete blocks) | EVIDENCE |
 
 Constants are absolute but astronomically large (as in K2); everything
 is asymptotic only.
@@ -484,9 +485,9 @@ it no longer bears on any ES cap. Not pursued. ("Saving" here is the
 mean saving `log(1/Eν)`, TW4's convention; the exceptional-set reading
 still needs Cor 4.2's evaluation hypotheses.)
 
-## 8. Goal (3) continued: §6 at text level, and the class-order window
+## 7. Goal (3) continued: §6 at text level, and the class-order window
 
-**Lemma 8.1 (§6 checked against TW2/TW4's definitions; PROVED).** In TW4
+**Lemma 7.1 (§6 checked against TW2/TW4's definitions; PROVED).** In TW4
 Setting 3.0^{(r)} (= TW2 Setting 3.0 with "at most two" replaced by "at
 most r" large primes, any r), every admissible g (`g ∈ V_{λ/2}`, `g ≥ 1`
 on the avoiders, `λ ≤ A₀L`) gives a K2 majorant `ν = g²` of level `≤ λ`
@@ -516,7 +517,59 @@ TW4's *mechanism* (fibre tilting + star sums, per-prime efficient); the
 TW4 §12 hub-count question is a question about that mechanism and has no
 consequence for any cap.
 
-## 7. Numerics (EVIDENCE only)
+**Lemma 7.2 (the literal TU Cor 3.4 hypothesis is a level hypothesis;
+PROVED, elementary).** Let `Z ≥ 2` and `k ≥ 1`. Every residue class
+`b mod d` such that every prime power `p^e ∥ d` is `≤ Z` and
+`log d ≤ (k−1)log Z/2` is an intersection of at most k residue classes
+of moduli `≤ Z`.
+
+*Proof.* List the prime powers `p^e ∥ d` in any order and pack them
+greedily (next-fit) into bins whose products stay `≤ Z`; each prime
+power fits into an empty bin. If there are m bins `b_1, …, b_m`, then
+`b_ib_{i+1} > Z` for `i < m`, so `d ≥ Π_{j<m/2} b_{2j+1}b_{2j+2} > Z^{⌊m/2⌋}`
+and `m ≤ 2log d/log Z + 1 ≤ k`. The bins are pairwise coprime with
+product d, so by CRT `{n ≡ b (d)} = ∩_i {n ≡ b (b_i)}`. ∎
+
+**Consequence (exact status of the TU Cor 3.4 window).** With
+`Z = N^A`, TU Cor 3.4's literal hypothesis ("each term an intersection
+of at most k classes of modulus `≤ N^A`, or of level `≤ A log N`")
+contains **every** majorant whose moduli have all prime powers `≤ N^A`
+and `log d ≤ (k−1)A log N/2`, i.e. every such majorant of level
+`λ ≍ kA log N`. Conversely such intersections have level `≤ kA log N`.
+So, up to a factor 2 in k, the literal Cor 3.4 class **is** the class
+of level-`λ` majorants, `λ ≍ kL` (L = log N), built from primes `≤ N^A`,
+and TU's bound `C(kAL)^{3/4}` is Theorem 4.1 at that level. Hence:
+1. No argument that uses only the literal hypothesis can close the
+   window `L^{4θ/3−1} ≲ k ≲ L^θ/log L`. Closing it would bound level-λ
+   majorants (λ ≫ L, primes `≤ e^{AL}`) by `C[L^{3/4} + (λ/L)·polylog L]`
+   instead of `Cλ^{3/4}`. The KARY method cannot do this: its cost
+   ledger at level λ is minimised at `s₁ = λ^{1/4} ≤ AL` (for
+   `k ≤ L³`), where the truncation of primes at `e^{AL}` is invisible.
+   Whether `λ^{3/4}` is *attained* at such levels is the attainability
+   question of ET §2.5 (EVIDENCE only there), not settled here.
+2. The window therefore makes sense only for a **structured** notion of
+   order: TU Def 3.0's prime order (closed by Cor 5.2), or intersections
+   of k **family** classes (forced classes of 𝔊). For the latter,
+   Cor 5.3 closes it when the family's moduli have boundedly many primes
+   above W; otherwise it is open.
+
+**Assessment (family-class order with many large primes; not a proof).**
+In the abstract pattern model of EK §1 (independent coordinates
+`x_ℓ ~ Bern(p_ℓ)`), let the family consist of conjunction patterns on
+m-sets of block coordinates. A polynomial of class degree k in the
+pattern indicators is a polynomial of degree `≤ km` in the `x_ℓ`, and
+for symmetric patterns every degree-`km` polynomial in `K = Σx_ℓ` that
+is `≡ 1` on `{K < m}` is available. Binomial extrapolation (EK Lemma 2.3)
+is then tight in the same regime as for prime order `km`. So nothing in
+the *k-ary architecture* distinguishes class order k from prime order
+km. If this persists for forced classes, intersections of k family
+classes with `m ≍ AL/s` primes at scale s behave like prime order
+`km ≍ kAL/s`. That is the level-λ ledger again (`d = λ/s`), and the
+window would be genuine, not an artefact. Deciding this needs
+ES-specific input on how forced classes with many large primes intersect.
+That is the TC-type question of O24 and is not pursued here.
+
+## 8. Numerics (EVIDENCE only)
 
 `scripts/kary3_moments.py` enumerates all y-smooth `M ≡ 3 (mod 4)` up to
 `X = 10¹²` for `y ∈ {7, 13, 23, 31}` and factors `A_M`
@@ -540,6 +593,6 @@ consequence for any cap.
 
 ```
 mkdir -p data/kary3
-# §7: smooth first moments and block profiles (~25 s, < 1 GB)
+# §8: smooth first moments and block profiles (~25 s, < 1 GB)
 uv run --with sympy python scripts/kary3_moments.py 1e12 7,13,23,31 > data/kary3/moments.txt
 ```
