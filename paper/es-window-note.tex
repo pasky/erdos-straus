@@ -112,7 +112,7 @@ one expects
 \begin{introthm}[Theorem~\ref{thm:stack}, Corollary~\ref{cor:tail}; \status{proved}]\label{thmA}
 For every fixed finite set $A$ of positive integers $a\equiv3\pmod4$,
 \[
- \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for all }a\in A\}
  \ll_A\frac N{(\log N)^{1+|A|/2}}.
 \]
 In particular $\#\{p\le N:\ p\equiv1\ (24),\ \amin(p)>Z\}\ll_Z N/(\log N)^{1+J(Z)/2}$
@@ -296,9 +296,11 @@ $a\equiv7\pmod8$ and $\leg2a=1=\leg2p$.
 
 Call a prime $r\nmid a$ \emph{$a$-bad} if $\leg ra=-1$ and \emph{$a$-good}
 otherwise, and let $\Omega_a^-(n)$ be the number of $a$-bad prime factors
-of $n$ counted with multiplicity.  The set of $a$-bad primes is a union of
-reduced classes modulo $4a$, of relative density $1/2$, and does not
-depend on~$p$.
+of $n$ counted with multiplicity.  Since $\leg ra$ depends only on $r$
+modulo $a$, and $\leg\cdot a$ is a non-principal character of
+$(\Z/a\Z)^\times$ ($a\equiv3\pmod4$ is not a square), the set of $a$-bad
+primes is a union of half of the reduced classes modulo $a$, of relative
+density $1/2$, and does not depend on~$p$.
 
 \begin{lemma}[clean windows fail; \status{proved}]\label{lem:F1}
 Let $p\equiv1\pmod 8$, $a\equiv3\pmod4$, $0<a<3p$.  If $x_a$ has no
@@ -436,9 +438,9 @@ $H(X^{1/2})\ge V^{-1}/2$ and $|S|\le 2X\cdot2V$.
 
 \begin{theorem}[fixed-set stacking; \status{proved}]\label{thm:stack}
 Let $A$ be a fixed finite set of positive integers $a\equiv3\pmod4$, and
-$J=|A|$.  Then
+$J=|A|$.  Then (the restriction $p>3\max A$ ensures $\gcd(x_a,a)=1$, so that $\Rat_a(x_a)$ is defined)
 \[
- \#\{p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \text{for every }a\in A\}
+ \#\{3\max A<p\le N:\ p\equiv1\ (\mathrm{mod}\ 24),\ -1\notin\Rat_a(x_a)\ \forall a\in A\}
  \ll_A\frac{N}{(\log N)^{1+J/2}}.
 \]
 \end{theorem}
@@ -563,8 +565,8 @@ growing, are much larger, and what is new, as far as we know, is the
 exact exponent $1+J(Z)/2$ in Theorem~\ref{thm:stack}, together with its
 sharpness for $Z=3$ (and $Z=7$ on EH).  The ingredient that makes the
 exponent exact is the half-set lemma, which removes the exponent-budget
-exceptions that limited earlier window majorants to a single excluded
-class per window.  None of these bounds approaches $\amin(p)<\infty$ for
+exceptions that limited earlier window majorants in this project to a
+single excluded class per window \cite[\S71]{Notes}.  None of these bounds approaches $\amin(p)<\infty$ for
 all $p$.
 \end{remark}
 
@@ -756,7 +758,8 @@ primes $z\le r_1\le r_2$ and $m$ composed of primes $\equiv1\pmod3$.  Hence
 \]
 where $T_1$ counts the case $r_1=r_2$ and $T_2$ the case $r_1<r_2$.
 
-\emph{Step 3.}  $T_1\le\sum_{r\ge z}x/r^2\le2x/z=2x^{1/2+\varepsilon}$.
+\emph{Step 3.}  At most $x/(4r^2)+1$ values $n_p$ are divisible by $r^2$, and
+only $r\le\sqrt x$ occur, so $T_1\le\sum_{z\le r\le\sqrt x}(x/r^2+1)\le2x/z+\sqrt x\le3x^{1/2+\varepsilon}$.
 
 \emph{Step 4.}  In $T_2$ we have $p=4mr_1r_2-3$.  Fix $m$ and $r_1$, and
 put $a=4mr_1$, $y=(x+3)/a$.  Then $r_2$ is a prime with $r_1<r_2\le y$ and
@@ -813,9 +816,12 @@ $A=-3$, $m=35$, $l=1$ (all hypotheses hold: $2\mid AB$, $\gcd(35,24)=1$,
 $\gcd(4,35)=1$) gives $\gg N/(\log N)^{3/2}$ primes $p=4f(x,y)-3\equiv1\pmod{35}$
 with $\gcd(x,y)=1$.  A primitive value $n=f(x,y)$ has no prime factor
 $r\equiv2\pmod3$: for odd such $r$, $-3$ is a non-residue and
-$(2x+y)^2+3y^2\equiv0$ forces $r\mid x,y$; and $n$ is odd.  Since
-$n\equiv(x-y)^2\pmod3$ and $3\nmid n$, $n\equiv1\pmod3$, so
-$p\equiv1\pmod{24}$ and hence $p\equiv1\pmod{840}$.  So
+$(2x+y)^2+3y^2\equiv0$ forces $r\mid x,y$; and $n$ is odd, since
+$x^2+xy+y^2$ is even only if $x,y$ are both even.  As $n$ is odd,
+$4n\equiv4\pmod8$ and $p=4n-3\equiv1\pmod8$.  Further $3\nmid n$, since
+otherwise $3\mid4n-3=p$; and $n\equiv(x-y)^2\pmod3$, so $n\equiv1\pmod3$
+and $p\equiv1\pmod3$.  Hence $p\equiv1\pmod{24}$, and with
+$p\equiv1\pmod{35}$, $p\equiv1\pmod{840}$.  So
 \cite[Thm.~1.1(2)]{FHRSS} implies Theorem~\ref{thm:W1}.  Its proof runs
 Iwaniec's half-dimensional sieve; we cite it as a cross-check, not as an
 independent proof.
@@ -824,7 +830,8 @@ independent proof.
 \begin{remark}[numerics; \status{evidence}]\label{rem:W1num}
 A segmented sieve over $p=840k+1<x$ gives
 $N_3(x)/(x(\log x)^{-3/2})\in[0.0123,0.0126]$ for $10^6\le x\le10^{11}$,
-with a slow monotone drift of about $-2.5\%$ over this range
+with a slow drift (a slight rise from $10^6$ to $10^7$, then a decrease;
+about $-2.5\%$ overall)
 (\texttt{scripts/window\_w1.py}).
 \end{remark}
 
@@ -914,7 +921,7 @@ $\leg p3=\leg p7=1$.  Hence
 \[
  N_{3,7}(x)\ge S(\mathcal A,\mathcal P,z)-T_1-T^{(3)}-T^{(7)},
 \]
-where $T_1\le2\sum_{r\ge z}x/r^2\le4x^{1/2+\varepsilon}$ counts sifted $p$
+where $T_1\le2\sum_{z\le r\le\sqrt x}(x/r^2+1)\le6x^{1/2+\varepsilon}$ counts sifted $p$
 with $r^2\mid n_3n_7$ for some $r\ge z$, and $T^{(q)}$ counts sifted $p$ with
 $n_q=mr_1r_2$, $z\le r_1<r_2$ both $q$-bad, $m$ composed of $q$-good primes.
 
@@ -964,12 +971,17 @@ $\asymp x/(\log x)^2$ (Theorem~\ref{thm:W2}).
 
 \begin{remark}[precedent]\label{rem:FI}
 The shape of Theorem~\ref{thm:W2} is that of Friedlander and Iwaniec's
-hyperbolic prime number theorem \cite{FI09}, which counts primes $p$ with
-$p-2$ and $p+2$ both sums of two squares --- two half-dimensional absence
-conditions on shifted primes --- and whose lower bound assumes a level of
-distribution close to~$1$.  Our proof follows the same route (semi-linear
-type sieve to $x^{1/2-\varepsilon}$, then removal of two-prime
-configurations), and we claim no novelty of technique.  The lower bound
+hyperbolic prime number theorem \cite{FI09}, which counts, with
+multiplicity, the representations $p=x_1^2+x_2^2+x_3^2+x_4^2$ with
+$x_1x_4-x_2x_3=1$, so that $p-2$ and $p+2$ are both sums of two squares
+--- two half-dimensional absence conditions on shifted primes --- and
+whose lower bound assumes a level of distribution close to~$1$.  The
+final step is the same (removal of two-prime configurations using
+parity), but the sieve differs: \cite{FI09} sift one condition with the
+semi-linear sieve and carry the other as a representation-number weight,
+while Theorem~\ref{thm:W2} sifts both absence conditions at once with the
+linear sieve at level $x^{1-\varepsilon}$.  We claim no novelty of
+technique.  The lower bound
 of \cite{FI09} assumes a level $x^\theta$ with $\theta<1$ sufficiently close
 to $1$ (\cite[Thm.~2 and Assumption $A(\theta)$]{FI09}); Sedunova
 \cite{Sed} (2026) recalls that it still rests on such a hypothesis and
@@ -1029,7 +1041,9 @@ $P_3=\{\ell\equiv2\ (3)\}$.
  g(d)=\begin{cases}1/\varphi(d),&\gcd(d,10)=1,\\0,&\text{otherwise},\end{cases}
  \]
  with the same $X$ and $g$ for both signs, and for every $A$ there is $B$
- with $\sum_{d\le x^{1/2}(\log x)^{-B}}|r_d^\pm|\ll_A x(\log x)^{-A}$.  On
+ with $\sum_{d\le x^{1/2}(\log x)^{-B}}|r_d^\pm|\ll_A x(\log x)^{-A}$ (the moduli
+ $840d$ are $\le x^{1/2}(\log x)^{-B+1}$, so take $B=B'(A)+1$ with $B'$ from
+ Cited Theorem~\ref{cit:BV}).  On
  EH the same holds for $d\le x^{1-\eta}$, any fixed $\eta>0$.
 \item ($\mathcal A^-$.)  For every $p\in\mathcal A^-$, $n_3$ has a prime factor
  $\equiv2\pmod3$, so window $3$ succeeds and $S(\mathcal A^-,P_3,z)=0$ for
@@ -1136,8 +1150,9 @@ and Lemma~\ref{lem:F1} applies.  Fixing the residue of $p$ modulo a
 suitable power of $\prod_{\ell\in\Lambda_K}\ell$ turns this into the
 simultaneous primality of $J(K)+1$ linear forms, an admissible family
 \cite[Prop.~8.4]{PS}; Dickson's conjecture \cite{Dickson} then gives
-infinitely many such $p$, so $\amin$ would be unbounded.  Unconditionally
-we only know $\amin(p)\ge7$ infinitely often (Theorem~\ref{thm:W1}).
+infinitely many such $p$, so $\amin$ would be unbounded.  The only
+unconditional result of this kind that we know of is $\amin(p)\ge7$
+infinitely often (Theorem~\ref{thm:W1}).
 \end{remark}
 
 \begin{remark}[data; \status{evidence}]\label{rem:data}
@@ -1186,16 +1201,20 @@ both windows clean.
 \begin{remark}[two elementary fakes; \status{model}, proved]\label{rem:blockfake}
 (i) One window, $\theta<1/2$: for $u,v\in(\theta,1/2)$ the signed measure
 $-[\varnothing]+[\{u,v\}]$ has $\rho(S)=0$ whenever $\Sigma S\le\theta$, since
-every nonempty $S\subseteq\{u,v\}$ has $\Sigma S>\theta$.  Hence if the true
-law has at least as much mass on $\{u,v\}$-type configurations as on
-$\varnothing$, a fake without clean mass exists.  For $\theta\ge1/2$ no such
-one-window block fake exists.
+every nonempty $S\subseteq\{u,v\}$ has $\Sigma S>\theta$.  Hence for any
+true law $\mu$ the measure $\mu+\mu(\varnothing)(-[\varnothing]+[\{u,v\}])$ is a
+fake without clean mass.  For $\theta\ge1/2$ there is no such pair, since
+$u,v>\theta$ would force $u+v>1$.
 (ii) Two windows: if $U,V$ are disjoint nonempty configurations, each with
 an even number of points in each window and $\min U+\min V>\theta$, then
 $-[\varnothing]-[U\sqcup V]+[U]+[V]$ has $\rho(S)=0$ for $\Sigma S\le\theta$:
 for $S=\varnothing$ the terms cancel, for $\varnothing\ne S\subseteq U$ (or
 $\subseteq V$) the two terms containing $S$ cancel, and an $S$ meeting both
-$U$ and $V$ has $\Sigma S>\theta$.
+$U$ and $V$ has $\Sigma S>\theta$.  Adding $c$ times this signed measure to
+$\mu$ keeps it nonnegative only if $c\le\mu(U\sqcup V)$, so a fake without
+clean mass arises this way if $\mu(U\sqcup V)\ge\mu(\varnothing)$, or from a
+combination of several such blocks whose removable masses add up to
+$\mu(\varnothing)$.
 \end{remark}
 
 \begin{remark}[a certified fake at level $1/2$; \status{model}, certified in floating point]\label{rem:LPmodel}
@@ -1269,8 +1288,9 @@ Press, 1969, Chapter~30.
 \bibitem{NX} K.~Nath and L.~Xie, Almost primes and primes that are sums of
 two squares plus 1, arXiv:2501.16723v3 (2026).
 \bibitem{Notes} \emph{Erd\H{o}s--Straus research notebook},
-\texttt{notes.md}, this repository, \S\S12, 14, 62, 70, 77; internally
-reviewed working notes, 2026.
+\texttt{notes.md}, this repository, \S\S12, 14, 62, 70, 71, 77; working
+notes, 2026.  The review status of \S\S12 and 14 is not recorded in the
+project ledger.
 \bibitem{PS} Companion note in this repository, \texttt{POINTWISE\_SIZE.md},
 \S8 (the window frame); internally reviewed in
 \texttt{reviews/pointwise-size-step1-review.md}.
