@@ -145,3 +145,93 @@ Remark 3.8 of K2 predicted exactly this order. No Rankin step and no
 Cauchy–Schwarz is needed; the decay `u^{−4}` is crude (the truth is
 `ρ(u)`-like) but sufficient, since the body masses grow only like `u²`.
 
+## 3. The Case-A first moment without loss
+
+Lemma 2.1 holds for any y-smooth m in the form: `log m ≤ log S_y(m) +
+Z_y(m)log y`; so if `m ≥ Y` and `S_y(m) ≤ m^{1/2}` then
+`Z_y(m) ≥ log Y/(2 log y)` (same proof).
+
+Inputs from ElT §7 (published, not re-proved; the same paper and section
+as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
+* **ElT Cor 7.4.** For natural `a, b, N` with `a, b ≤ N^{l}`:
+  `Σ_{n≤N} τ(an+b) ≪_l τ(gcd(a,b)) N log N`.
+* **ElT Thm 7.1.** For P of degree D, coefficients nonnegative integers
+  `≤ N^l`, and `ρ_P(p^j) ≤ C` for all prime powers:
+  `Σ_{n≤N} τ(P(n)) ≪_{D,l,C} N Σ_{m≤N} ρ_P(m)/m`.
+* **ElT (7.10).** For `A, B > 1` and every positive integer k:
+  `Σ_{a≤A} Σ_{m≤B} ρ_{ka}(m)/m ≪ A log B · log(1+k)`, where
+  `ρ_{ka}(m) = #{b mod m : kab² + 1 ≡ 0 (mod m)}`. Its proof (ElT
+  pp. 30–32: ranges `q < A`, `A ≤ q ≤ kA`, `q > kA` after quadratic
+  reciprocity) uses no size condition on k; the condition
+  `k ≪ (AB)^{O(1)}` of Prop 1.4 enters only through Thm 7.1.
+
+**Lemma 3.1 (smooth Case-A blocks decay; PROVED, using ElT §7).** Fix
+`k ≥ 1`. There are `C_k(W)`, `y₀(k,W)` such that for `y ≥ y₀`,
+`K ≥ y^{64k}`, `u = log K/log y`,
+
+    Σ_{r,h ≥ 1, K<rh≤2K, P(rh)≤y} τ(4rh²+1)Γ(4rh) ≤ C_k(W) · K (log K)² · u^{−k}.
+
+*Proof.* `Γ(4rh) ≤ 8Γ(r)Γ(h)` (Γ submultiplicative, `γ'(2) = 8`).
+Pointwise `τ(4rh²+1)Γ(4rh) ≤ C_εK^ε` (`4rh²+1 ≤ 17K²`). Split the pairs.
+
+*(i) `r ≥ K^{1/4}`.* Then `h ≤ 2K^{3/4}`, r is y-smooth, and
+`1 ≤ 1[S_y(r) > K^{1/8}] + (8Z_y(r)/u)^k`. The pairs with
+`S_y(r) > K^{1/8}` number `≤ Σ_{h≤2K}Σ_{s sqfull > K^{1/8}} 2K/(hs) ≪
+K^{1−1/16}log K`; with the pointwise bound they give `≪ K^{1−1/20}`. The
+moment part, smoothness and the lower bound `rh > K` dropped, is at most
+
+    8(8/u)^k (log y)^{−k} Σ_{d₁..d_k∈𝒫_y} ΠΛ(d_i) Σ_{s,t} h(s)h(t)
+        Σ_{h≤2K^{3/4}, t|h} Σ_{r ≤ 2K/h, L | r} τ(4h²r + 1),    L = lcm(D, s).
+
+Take first `s ≤ K^{1/16}`. Then `D ≤ y^k ≤ K^{1/64}`, `L ≤ K^{1/8}`, and
+with `r = Lr'`, `r' ≤ R' = 2K/(hL)`, `R' ≥ K^{1/8}`. The linear form
+`ar' + 1`, `a = 4h²L ≤ 16K^{13/8} ≤ R'^{14}`, has `gcd(a,1) = 1`, so ElT
+Cor 7.4 (l = 14) gives `≪ R' log R' ≤ 2K log K/(hL)`. Summing over
+`h = th'`: `Σ_{h'≤2K}1/(th') ≤ 2log K/t`. So these terms give
+`≪ K(log K)²·(h(t)/t)·(h(s)/lcm(D,s))`, and
+`Σ_t h(t)/t ≤ c(W)`, `Σ_s h(s)/lcm(D,s) ≤ c₁(W)Γ(D)/D` (§2). For
+`s > K^{1/16}`, bound the inner sum trivially by `(2K/(hL))C_εK^ε` and use
+`Σ_{s>Z}h(s)gcd(D,s)/s ≤ c₂(W)2^kZ^{−1/4}` (§2): total
+`≪ 2^kK^{1+ε−1/64}(log K)/D`. Lemma 2.2 then bounds part (i) by
+`C_k(W)[K(log K)²u^{−k} + K^{1−1/80}]`.
+
+*(ii) `r < K^{1/4}`.* Then `h > K^{3/4}/2 ≥ K^{1/2}`, h is y-smooth, and
+`1 ≤ 1[S_y(h) > K^{1/4}] + (4Z_y(h)/u)^k`. The squarefull pairs give
+`≪ K^{1−1/20}` as in (i). The moment part is at most
+
+    8(4/u)^k (log y)^{−k} Σ_{d} ΠΛ(d_i) Σ_{s,t} h(s)h(t)
+        Σ_{r<K^{1/4}, s|r} Σ_{h' ≤ 2K/(rL)} τ(4rL²h'² + 1),    L = lcm(D, t).
+
+Take `t ≤ K^{1/16}`, so `L ≤ K^{1/8}`. Fix r and put
+`P(n) = 4rL²n² + 1`, `N = ⌊2K/(rL)⌋ ≥ K^{1/2}`; its coefficients are
+`≤ 4K^{1/2} ≤ N²`. For `p | 2rL`, `P ≡ 1 (mod p)`, so `ρ_P(p^j) = 0`. For odd
+`p ∤ rL`, `n ↦ Ln` is a bijection mod `p^j` carrying the roots of P to the
+roots of `4rb² + 1`, so `ρ_P(p^j) = ρ_{4r}(p^j) ≤ 2` (Hensel: at a root,
+`P'(n) = 8rL²n` is a unit). By CRT `ρ_P(m) ≤ ρ_{4r}(m)` for all m. ElT
+Thm 7.1 (degree 2, l = 2, C = 2) gives
+`Σ_{n≤N}τ(P(n)) ≪ (2K/(rL))Σ_{m≤2K}ρ_{4r}(m)/m`.
+Write `r = sa`, so `ρ_{4r} = ρ_{ka}` with `k = 4s`, and split
+`a ∈ [R, 2R)` dyadically (`≤ log K` ranges). By ElT (7.10) each range
+gives `≪ (2K/(sRL))·2R·log(2K)·log(1+4s)`. So these terms give
+`≪ K(log K)²·(h(s)log(1+4s)/s)·(h(t)/lcm(D,t))`, and
+`Σ_s h(s)log(1+4s)/s ≤ c(W)` (as `log(1+4s) ≪ s^{1/4}` and
+`Σ_s h(s)s^{−3/4} < ∞`). The terms `t > K^{1/16}` are bounded trivially
+as in (i). Lemma 2.2 bounds part (ii) by
+`C_k(W)[K(log K)²u^{−k} + K^{1−1/80}]`.
+
+Finally `K^{1−1/80} ≤ K(log K)²u^{−k}` for `K ≥ K₀(k)`. ∎
+
+**Corollary 3.2 (Case-A first moment; PROVED, using ElT §7).** For
+`y ≥ y₀(W)`,
+`𝔐_A(y) ≤ Σ_{r,h: P(rh)≤y} τ(4rh²+1)Γ(4rh)/(4rh) ≤ K_A(W)(log y)³`.
+
+*Proof.* As Cor 2.4 with `k = 4` and `X = y^{256}`. The body `rh ≤ 2X`
+is K2 Lemma 3.6's body (ET Lemma 3.7 with its γ-weight clause, which
+rests on ElT Prop 1.4; partial summation): `≤ C(W)(log 2X)³`. The tail
+blocks `(K,2K]`, `K = 2^t ≥ X`, sum to `≤ C(W)(log y)³` by Lemma 3.1
+exactly as in Cor 2.4. ∎
+
+**Corollary 3.3 (all four types; PROVED; Case A via ElT).**
+`𝔐(y) ≤ 𝔐_R + 𝔐_{aD} + 𝔐_A + 𝔐_S ≤ K₃′(W)(log y)³` for `y ≥ y₀(W)`
+(Cor 2.4, K2 Lemmas 3.3, 3.3′, Cor 3.2).
+
