@@ -171,3 +171,86 @@ this is not checked here. (c) By Theorem 1.1 the only remaining source of
 an (E1) escape over forced families is the set of classes with **two or
 more prime factors above** `exp((log N)^{1/4})`, entering through
 correlations of the fibre measures `π_c` between such primes (§4).
+
+## 4. The residual problem: two or more rough primes per class
+
+By Theorem 1.1 (Hölder form) and Remark 1.1(c) (level-split form), H_LS∞
+for forced families is now equivalent to a statement about the **z-rough
+fibre families** `𝔊_c` (`z = exp((log N)^{1/4})`, all primes `> z`), for
+`c` in a set of `Q'`-probability `≥ 7/8`:
+
+> **(H_rough)** there is a probability `π_c` on `𝒜_c` with
+> `log 𝓡_{2+2β}(π_c) ≤ C(log N)^{3/4+o(1)}`, `β = (log N)^{−1/4}`;
+> *or* (level-split form) `π_c` with cheap comparison
+> `E_{π_c}H ≤ e^{S_r}E_U H` for `H ≥ 0` of rough level `≤ 2λ'` and
+> `|π̂_c(θ_r)|² ≤ e^{S_r}/N` above rough level `λ' ≍ log N`,
+> `S_r ≤ C(log N)^{3/4+o(1)}`.
+
+Theorem 3.1 proves (H_rough) when every class has one rough prime (product
+measures). In the fibres the family is **sparse in the strongest sense
+available**: by (Q4) and K2 §3, the expected activated mass at a rough
+prime ℓ (top-prime order) is `≤ 𝔐'(ℓ) ≪ (log ℓ)²(log log ℓ)³/ℓ·log ℓ`
+summed per prime, and the mass of classes divisible by a rough `D` is
+`≤ D^{−1}(log N)^{O(1)}` (K2 Lemma 3.1 restricted to multiples of D —
+(Sp) of LS2 §8.2). The dense-bundle mechanism of LS2 Thm 8.5 is therefore
+absent; what is missing is a **correlation-decay** statement for a measure
+on `𝒜_c` at many rough primes simultaneously.
+
+**Lemma 4.1 (two-copy form of the `ℓ^{p'}` mass; PROVED).** For a
+probability σ on `ℤ/M_r` and a set S of rough primes let
+`P_S(σ) = Σ_{θ: supp(den θ) = S}|σ̂(θ)|²` and `s_S(σ) = max_{supp(den θ)=S}|σ̂(θ)|`.
+Then
+* `P_S(σ) = E_{x,y∼σ iid} Π_{ℓ∈S} h_ℓ(x,y)`, `h_ℓ = ℓ^{E_ℓ}1[x ≡ y (ℓ^{E_ℓ})] − 1`,
+  and `Σ_{S⊆T}P_S(σ) = M_T·σ⊗σ(x ≡ y (M_T))` (`M_T = Π_{ℓ∈T}ℓ^{E_ℓ}`);
+* `𝓡_{2+2β}(σ) ≤ Σ_S s_S(σ)^{2β}P_S(σ)`.
+
+*Proof.* `Σ_{a mod ℓ^E, a≢0}e(a(x−y)/ℓ^E) = h_ℓ(x,y)`; multiply over S and
+average over `σ⊗σ`. The second identity is Parseval mod `M_T`. The last line
+is `|σ̂|^{2+2β} ≤ s_S^{2β}|σ̂|²` on each support class. ∎
+
+For a product measure, `P_S = Π_{ℓ∈S}g_ℓ` and `s_S = Π_{ℓ∈S}max|φ_ℓ|`, and
+Lemma 4.1 reproduces Theorem 3.1. So (H_rough) follows from **product decay
+of both** the two-copy correlations `P_S` and the sup `s_S`, with per-prime
+factors `≍` the activated mass. The collision side (`Σ_{S⊆T}P_S`) is pure
+density and is controlled by inflation (EK Lemma 2.1(2)); the difficulty is
+the Möbius-inverted, signed quantity `P_S`, and `s_S`.
+
+### 4.2 Why the symmetric (LLL / Kotecký–Preiss) route fails
+
+For the uniform measure on `𝒜_c` the natural tool is a cluster expansion
+with polymers = connected sets of classes. Its convergence (KP) needs, for
+each rough prime p and **each** residue b, the *conditional* mass
+`m*(p,b) = Σ_{C ∋ p, b_C ≡ b (p^{v})} p^{v}/G_r(C)` to be small. On average
+over b this is the mass at p, `≪ (log N)^{O(1)}/p`. But:
+
+**Lemma 4.2 (residue concentration; PROVED).** The class `−4 (mod M)`
+belongs to ℛ(M) for every `M ≡ 3 (mod 4)` (take `D = 1 | A_M²`). Hence for
+the family `{−4 mod pM' : M' ≤ X, pM' ≡ 3 (4), M' z-rough}` and the residue
+`b ≡ −4 (mod p)`, `m*(p,b) = Σ_{M'}1/M' ≫ log X/log z`, which is
+`≫ (log N)^{3/4}` for `X = N^{A}`.
+
+So a fibre family can be locally **dense at one residue** although sparse
+on average, and every proof must either average over residues or use the
+top-prime (sequential) order, in which the class `−4 mod pM'` is charged
+at its top prime with activation probability `≍ 1/(cofactor)` and the
+relevant sums run over ℓ-smooth cofactors only (K2 §3). In that order the
+*average* influence of a coordinate `x_p` on all later coordinates is
+`≪ Σ_{C∋p} 1/G_r ≪ (log N)^{O(1)}/p` (sparsity), while its worst-case
+influence is `≍ p·m(p)`, which is not small (Lemma 4.2 again).
+
+### 4.3 Why one-step bounds lose (Assessment)
+
+Peeling the top prime ℓ of a sequential law gives
+`𝓡(π_{≤ℓ}) = 𝓡(π_{<ℓ}) + Σ_{a≢0}𝓡(π_{<ℓ}·k̂_·(a))`, where `k̂_y(a)` is the
+Fourier transform of the conditional law at ℓ. In `ℓ²` (β = 0) the second
+term is exactly `E_{π_{<ℓ}}[ρ_{<ℓ}g_ℓ]` (Parseval), i.e. the
+density-weighted activated mass — the right size. For `β > 0` every
+operator bound on multiplication by `k̂_·(a)` that we tried loses:
+Young (`ℓ¹` of the Fourier transform of the activation indicator) loses a
+square root of the number of classes; Riesz–Thorin between `ℓ²`
+(`‖k̂‖_∞`, a **sup over activation patterns**) and `ℓ^∞` replaces the
+π-average of the activated mass by a sum over all patterns — the product
+sub-law cost `ℓ^{B+o(1)}` of LS2 §5. Global Hausdorff–Young loses the full
+density `e^{(mass)}`. A proof has to keep the π-average inside the
+`ℓ^{p'}` norm, i.e. it is a genuine multi-scale correlation-decay
+statement.
