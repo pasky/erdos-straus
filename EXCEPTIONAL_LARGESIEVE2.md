@@ -772,14 +772,13 @@ primes**. There the avoider set is genuinely non-uniform (selector classes
 for such q, and the subtraction of h must absorb that non-uniformity.
 
 *Status (Assessment).* We could not prove that it always does, and we
-found no family and kernel where it fails. Two observations:
-* single small moduli are absorbed exactly: adding `w·1[q | m]` with
-  `q < N` raises h by at least w, while it raises `D(π)` by at most
-  `w·coll_q(π) ≤ w`, so the bound does not improve;
-* the band family of §8 (large-sieve escape) has no small-modulus
-  structure, and Theorem 9.1 caps every kernel on it with `h = 0` at
-  saving `≤ log 2` (when all `D_i > N`, `S = 0`). Kernels thus resist the
-  dense-bundle escape that defeats the large sieve.
+found no family and kernel where it fails. One observation: Theorem 9.1's
+proof uses only the existence of a comparison measure (1.1), so it applies
+to the band family of §8 with `S = 0` once every `L_i > 2log N + Λ₀` (e.g.
+all `ℓ_i, ℓ'_i ∈ [N³, 2N³]`). Every kernel with `h = 0` (all moduli
+`≥ N`) then saves `≤ log 2` on it: kernels resist the dense-bundle escape
+that defeats the large sieve, and any kernel escape must use moduli
+`< N`, where Prop 9.2 forces small prime factors.
 
 Open precisely: kernels with `Nh/(W_K − h) ≥ exp((log N)^{3/4})` whose
 moduli have prime factors `≤ (Nh/(W_K − h))^{4+o(1)}`.
