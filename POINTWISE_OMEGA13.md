@@ -483,3 +483,94 @@ export PYTHONPATH=scripts
 (ulimit -v 8000000; timeout 1800 uv run python scripts/omega13_v2.py 1000000)         # §2 EVIDENCE   -> data/omega13/v2.txt (~4 min)
 (ulimit -v 8000000; timeout 900  uv run python scripts/omega13_jacobi.py 200000)      # Lemma 3.1     -> data/omega13/jacobi.txt
 ```
+
+## 5. The interface checks I1–I3 (written out after R48a/R48b)
+
+**Setting.** Fix the good realisation `(Q,r)` of Theorem 3.4. It has:
+* `840|Q`, with r a square mod every prime of Q and `r≡1 (24)`;
+* (1.1) at every coordinate, with `η≤0.19`;
+* `S_res=Σ_Eβ^{s(E)}P(E)≪𝓛³log𝓛` and `log Q≪𝓛³(log𝓛)^5`.
+
+`F` is the indicator of avoiding all live events on the fibre `rH`, `H:={x≡1 (Q)}`, and
+`δ:=E_{rH}F≥exp(−(4/3)S_res)` (Lemma 1.1). The events are single-valued congruences on fibre
+coordinates, and there are `m≤T²` of them (atoms), as in O11 Thm 3.2.
+
+**I1(a) (BRW minorant and EL; PROVED).** O8 Lemma 3.1 is pure algebra, valid for any events
+`A_j` and functions `u_j`. Take `u_j` as in O11 Cor 1.2, with S replaced by `S_res` in τ:
+`τ:=2𝓛⌈log₂(100m²(S_res+1)e^{3S_res})⌉`. Then EL_mod(τ) gives
+
+```
+E[F−B] ≤ m²Σ_jP(E_j)·e^{−3S_res}/(100m²(S_res+1)) ≤ e^{−3S_res}/100 ≤ δ/100,
+```
+
+using `ΣP(E_j)≤S_res` and `δ≥e^{−(4/3)S_res}`. So `μ:=E_{rH}B≥0.99δ`, and O9 Lemma 2.1 gives
+`A≤1.03` verbatim. Only `E[F−B]≤δ/100` is used there.
+
+**I1(b) (twist; PROVED).** Let ψ be real primitive of conductor `f>1`, with `gcd(f,Q)=1` and
+`f|d_i` for some i. Fix a prime `ℓ_0|f`. Then `a_{ℓ_0}=0`, and `ℓ_0` is a coordinate
+(`ℓ_0≤T`, `ℓ_0≠ℓ_aux`, as in O11 Thm 3.2). Follow O8 Lemma 3.3:
+`|E[Fψ]|≤Σ_{E∋ℓ_0}p_{ℓ_0}(E)P(E∖ℓ_0∩F')`, where F' is the indicator of avoiding the
+events not involving `ℓ_0`. That subfamily inherits (1.1). Lemma 1.1's general conditional bound
+for `A=E∖ℓ_0` (`|supp A|=s(E)−1`) gives `P(E∖ℓ_0|F')≤β^{s(E)−1}P(E∖ℓ_0)`. Hence
+
+```
+|E[Fψ]| ≤ β^{−1}Σ_{E∋ℓ_0}β^{s(E)}P(E)·E F' = β^{−1}w̃_{ℓ_0}E F' ≤ η E F'.
+```
+
+The same bound gives `E F≥(1−η)E F'`. So
+`|μ_ψ|≤E|B−F|+|E[Fψ]|≤(0.01+η/(1−η))E F≤(0.01+0.235)μ/0.99≤μ/4` for `η≤0.19`.
+
+`E|B−F|=E[F−B]` holds because `B≤F` pointwise. The identity `μ_ψ=E[Bψ]` for any cell
+representation needs only that ψ is primitive with f odd squarefree, as in O8.
+
+**I2 (junta; PROVED).** Use O11 Lemma 1.1 and Cor 1.2 (digit filtration). These need only:
+* independent coordinates whose digits above a first free digit `i_0(ℓ)` are uniform;
+* events `∏ℓ^{v_ℓ}≤M≤T`, through the edge weights `∏λ_ℓ^{2v_ℓ}≤2`.
+
+On the fibre `n≡r (ℓ^{a_ℓ})` the digits of index `≥a_ℓ` are uniform, exactly as for `r=1`.
+The class r enters nowhere else, and conditioned systems are again initial segments. So the
+cells of B have modulus `≤e^{2τ+3𝓛}`, i.e. `log max d_i≪𝓛(S_res+𝓛)`. Here `log m≤2𝓛` is
+absorbed.
+
+**I3 (linear transfer on the coset rH; PROVED modulo (G)).** O11 Lemma 3.1 holds with
+`H={x≡1 (Q)}` replaced by `rH`, its hypotheses being:
+* r is a square mod every odd prime of Q;
+* `r≡1 (8)`;
+* every cell is consistent with r, i.e. `b_i≡r (mod gcd(d_i,Q))`.
+
+*Proof (changes only).* `c(χ)=E_{rH}[Bχ̄]/φ(Q)`.
+* *Bounds and item 1.* `|c(χ)|≤Aμ/φ(Q)` as before. Consistency gives item 1
+  (`cond χ≤Z`) verbatim.
+* *Case A* (χ trivial on H). Then `c(χ)=χ̄(r)μ/φ(Q)`. For real χ this is a product of
+  Legendre symbols at odd `p|Q` and a character mod 8. All of these are 1 at r, so
+  `c(χ)=μ/φ(Q)`, identical to the class of one. Non-real χ enter O9 Thm 1.1 only through
+  `|c(χ)|`.
+* *Case B* (`f_2>1`). Unchanged: `c(χ)=ψ_1(r)E_{rH}[Bψ_2]/φ(Q)` with `|ψ_1(r)|=1`. The twist
+  condition I1(b) applies to `ψ_2`.
+* *Cell consistency.* Event cells have residue `−4D≡r (mod gcd(M,Q))` by survival. The
+  `u_j` are functions of fibre coordinates, so the argument of O11 Thm 3.2 applies.
+
+*Property (I).* Let `n≡r (Q)` and `n≡−4D (M)` for an atom. Then the atom survives. If
+`M|Q`, then `r≡−4D (M)`, which Lemma 3.1 excludes. Otherwise the event is live and occurs.
+So `B≤F≤1[W(n)>T]` on `rH`. Mordell-hardness: r is a square mod 840. ∎
+
+**Theorem 5.1 (exponent 1/4; PROVED modulo (G), NT, and OMEGA10 Thm 3.4).** For infinitely
+many Mordell-hard primes p,
+
+```
+W(p) ≥ exp( c·(log p)^{1/4}·(log log p)^{−1/4} ),     uniformly  log L_h(T) ≪ 𝓛^4 log𝓛.
+```
+
+*Proof.* O11 Thm 3.2's assembly, with these substitutions:
+* the realisation `(Q,r)` of Theorem 3.4 in place of Lemma 2.2's Q;
+* I1(a) for the BRW minorant and EL;
+* I1(b) for the twist;
+* I2 for the junta;
+* I3 with O9 Lemma 2.1 and the auxiliary prime `ℓ_aux∈(R,2R]` appended to Q, for the
+  transfer.
+
+Then `log Z≤log Q+log ℓ_aux+log max d_i≪𝓛³(log𝓛)^5+𝓛(S_res+𝓛)≪𝓛^4log𝓛`. So some hard
+`p>T` with `W(p)>T` has `log p≪𝓛^4log𝓛`. ∎
+
+The bottleneck is the junta `𝓛·S_res`. The quarantine contributes only `𝓛³(log𝓛)^5`. Elsholtz–Tao
+is not used. This supersedes Cor 3.5 (CONDITIONAL) and O12 Thm 6.3 (1/5).
