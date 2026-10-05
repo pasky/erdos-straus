@@ -18,7 +18,7 @@ Prop 2.4, Prop 4.2). Prime family `𝒫_y`, classes `𝓡(ℓ)`, `p_ℓ = F(ℓ)
 | Cor 2.3 | TC_θ (θ > 2/3) holds only if the admissible tuples carry an aggregate CRT **excess** ≥ the forced-zero mass; TC_θ is incompatible with "admissible tuples are CRT-accurate" | PROVED |
 | Lemma 3.1 | for the class −1 (form (1,1)) the interval count is one-sided: `C = ⌊(N+1)/q⌋ ≤ N/q + 1/q` (Kubilius truncation + floors); false for general forms (e.g. (r,s) = (1,2), ℓ = 7, N = 3) | PROVED |
 | Ass. 3.2 | **literal TC_θ is false for every θ ∈ (2/3,1)**: it needs a conspiratorial excess `N^{1/2−o(1)}` times the square-root noise floor; true for θ < 2/3 (T1 Prop 2.4) | Assessment |
-| Thm 4.1, Cor 4.2 | the truncation-aware hypothesis TC^𝔄_θ, and the one-sided alternating hypothesis TC^alt_θ, imply `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)` resp. `≤ (2e+2)N exp(…)`; the forced-zero correction to the CRT mass cancels in the alternating sum (Euler-characteristic argument) | PROVED |
+| Thm 4.1, Cor 4.2 | the truncation-aware hypothesis TC^𝔄_θ, and the one-sided alternating hypothesis TC^alt_θ, imply `E(N) ≤ (e+3)N exp(−(2/e²)(log N)^θ)` resp. `≤ (2e+2)N exp(…)`; the forced-zero correction to the CRT mass cancels in the alternating sum: `|Σ_{j≤K}(−1)^jZ_j| ≤ 2εΠ(1−p)+2e^{−K}` (4.1′, Euler-characteristic argument) | PROVED |
 | §4 status | TC^𝔄 is also expected false above 2/3 (floor deficits); **TC^alt_θ (one-sided: degree-K Brun sieve on [1,N] at most ≈ twice the CRT avoider density) is the correct form of the door** | Assessment |
 | §5 | toy numerics: class −1 forced zeros exceed η_K by 10³–10⁵ at the T1 test parameters; the T1 §5(b) moment deficits are an initial-segment effect (absent on far translates), about one third explained by single-form effects | EVIDENCE |
 | Cor 6.1 | for the pure prime family every CRT majorant of level ≤ A log N saves ≤ C(log N)^{2/3}; so TC^alt_θ for any θ > 2/3 needs CRT accuracy at moduli `exp(c(log N)^{3θ/2})` | PROVED (from T1 Thm 3.1) |
@@ -235,6 +235,14 @@ mean), not an accuracy statement.
 
     Σ_{j=0}^K (−1)^j e_j^𝔄 ≤ Π_ℓ(1−p_ℓ)(1+2ε) + e^{−K}.               (4.1)
 
+More precisely (two-sided), `|Σ_{j≤K}(−1)^j e_j^𝔄 − Π(1−p_ℓ)| ≤
+2εΠ(1−p_ℓ) + e^{−K}`, and hence, since `Σ_{j≤K}(−1)^j e_j` lies in
+`[Π(1−p_ℓ), Π(1−p_ℓ) + e^{−K}]` (T1 Thm 2.1's identity),
+
+    |Σ_{j≤K}(−1)^j Z_j| ≤ 2εΠ(1−p_ℓ) + 2e^{−K}.                         (4.1′)
+
+This is the precise sense in which the forced-zero correction "cancels".
+
 Hence, under TC^𝔄(N; K, y, η),
 `#{n ≤ N : f_y(n) = 0} ≤ Σ_{j≤K}(−1)^j S_j(N) ≤ N(Π(1−p_ℓ)(1+2ε) + e^{−K} + Kη)`;
 in particular TC^𝔄 ⇒ TC^alt when ε ≤ 1/2. (TC ⇒ TC^alt by T1 Thm 2.1.)
@@ -265,7 +273,9 @@ the right side). With `4rsk − 1 ≥ 3rsk`,
 `Σ_{k≥u₁} e_k(w_φ) ≤ Σ_{k≥u₁} W_φ^k/k! ≤ 2(eW_φ/u₁)^{u₁} =: t_φ`. Summing
 over forms (`rs ≤ y`), `Σ_φ t_φ ≤ 2(2e(1+log y)/u₁)^{u₁} Σ_m τ(m)m^{−u₁}
 ≤ ε` (`ζ(u₁)² ≤ 2` for u₁ ≥ 3), and `Π(1+t_φ) − 1 ≤ e^{ε} − 1 ≤ 2ε`.
-The final claim is T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
+The bounds `|a(H) − 1[H=∅]| ≤ 2^{|H|}1[…]` and the |T| > K tail are
+two-sided, which gives the two-sided form and (4.1′). The final claim is
+T1 Thm 2.1's Bonferroni step with `e_j^𝔄` in place of
 `e_j`. ∎
 
 **Corollary 4.2 (PROVED implication).** For every θ ∈ (0,1), TC^𝔄_θ

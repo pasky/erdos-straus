@@ -28,7 +28,8 @@ Prop 7.1 as sound, and reproduced the §5 data byte for byte.
   not ≈ 1 (squares).
 * **The door survives in repaired form (Thm 4.1, Cor 4.2, PROVED
   implications).** In the alternating sum the forced-zero correction is an
-  Euler-characteristic term and cancels. TC^𝔄_θ (CRT accuracy on admissible
+  Euler-characteristic term and cancels, two-sidedly:
+  `|Σ_{j≤K}(−1)^j Z_j| ≤ 2εΠ(1−p) + 2e^{−K}` (4.1′). TC^𝔄_θ (CRT accuracy on admissible
   tuples) and TC^alt_θ (a one-sided Bonferroni/Brun-sieve bound) each imply
   `E(N) ≤ C N exp(−(2/e²)(log N)^θ)`. TC^alt is the correct form of the
   door. TC^𝔄 is itself expected false (floor deficits, Assessment).
