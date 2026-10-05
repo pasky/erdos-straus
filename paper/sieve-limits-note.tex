@@ -1874,7 +1874,7 @@ smoothness on $M\leq y^{u_0}$ and used Rankin's trick, with Cauchy--Schwarz
 against a shifted-divisor moment, beyond.  Rankin bounds a dyadic block of
 $y$-smooth moduli by $\e^{-u}$ times the \emph{whole} smooth sum, which is
 $\asymp\log y$, so each block loses a full power of $\log y$; this forces
-$u_0\asymp\log\log y$ and a mass $(\log y)^3(\log\log y)^3$.  Hölder in place of
+$u_0\asymp\log\log y$ and a mass $(\log y)^3(\log\log y)^3$.  H\"older in place of
 Cauchy--Schwarz loses in the same way.  The local weight avoids this:
 expanding $Z_y^4$ only imposes a divisibility $D\mid M$ with $D\leq y^4$, a
 congruence to a \emph{small} modulus, to which Shiu's theorem
@@ -2404,12 +2404,23 @@ removal of $B$ for a fixed number of large primes
 (Theorem~\ref{thm:noB}), and the noise-stability tools themselves.
 Without $B$, a $\Lambda^2$-majorant $g^2$ with $g\geq1$ on the \emph{whole}
 avoider set of a family of the four types is a majorant in the sense of
-Theorem~\ref{thm:noBcap}, which then gives
-$\log(1/\E g^2)\leq C\lambda^{3/4}(\log\lambda)^{3/4}$ for any number of large
-prime factors; for such majorants the $\Lambda^2$ caps of this section are
-superseded up to powers of $\log L$ as well.  (For $g^2$ that is $\geq1$
-only on the avoiders in a base $R_W$, as in \cite[\S3]{TW2}, we do not
-claim this.)
+Theorem~\ref{thm:noBcap}, which then gives $\log(1/\E g^2)\leq C\lambda^{3/4}$
+for any number of large prime factors and with no $B$.  The settings of
+\cite[\S3]{TW2} and \cite{TW4} are of this kind \cite[Lemma~7.1]{KA3}: the
+admissible $g\in V_{\lambda/2}$ is required to be $\geq1$ on the avoiders of the
+family $\cF$ itself (the fibre law and the base are devices of the proof,
+not restrictions on $g$), the classes are $\cR(M)$-classes, and all primes
+are charged, so $g^2$ is a CRT majorant of level $\leq\lambda$ in the sense of
+Theorem~\ref{thm:noBcap}; the savings agree, both being
+$\log(1/\E_Ug^2)$ under the uniform law.  Hence every $\Lambda^2$ cap of
+this section (Theorems~\ref{thm:twoprimecap}, \ref{thm:rprime}
+and~\ref{thm:noB}, and the uniformity statements after them) is superseded
+as a cap by $\log(1/\E g^2)\leq CA_0^{3/4}L^{3/4}$ for every $r$, with or without
+$B$, including the middle range $r\asymp\log L$ left open below
+\lab{proved}.  \cite[Lemma~7.1]{KA3} was added after the review
+\cite{KA3rev} and checked by the coordinator of this programme only.
+What the $\Lambda^2$ route still gives is its mechanism (fibre tilting,
+star sums, per-prime efficiency) and the noise-stability tools.
 \end{remark}
 
 \begin{remark}[what was bypassed]\label{rem:bypass}
@@ -2516,11 +2527,15 @@ polylogarithmic \emph{unweighted} first moment \cite[Lemmas~10.1,
 10.2]{TW4}; the high-power classes have first moment $\ll L^{-3}$.  The
 fibre law survives without $B$ \cite[Lemma~10.3]{TW4}.
 \end{proof}
-The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered.  By a
-Poisson-type heuristic it carries most of the $\alpha^{-3}$-weighted mass
-(\emph{Assessment}, \cite[\S9.3]{TW4}).  There the method
-needs a hub count and an off-diagonal pair-sum bound that are efficient
-per prime \cite[\S\S9.3, 12]{TW4} \lab{open}.
+The middle range $\epsilon\log L/\log\log L<r<330\log L$ is not covered by the
+$\Lambda^2$ method.  By a Poisson-type heuristic it carries most of the
+$\alpha^{-3}$-weighted mass (\emph{Assessment}, \cite[\S9.3]{TW4}).  There the
+method needs a hub count and an off-diagonal pair-sum bound that are
+efficient per prime \cite[\S\S9.3, 12]{TW4} \lab{open}.  As a \emph{cap} the
+middle range is no longer open: by Remark~\ref{rem:L2vsmain}, every
+$\Lambda^2$ majorant of these settings saves at most $CA_0^{3/4}L^{3/4}$, for every
+$r$ and without $B$ \cite[\S\S6--7]{KA3}.  The open question concerns only
+the $\Lambda^2$-internal mechanism.
 
 \section{Beyond CRT evaluation: rounding, primes and moments}\label{sec:noncrt}
 
