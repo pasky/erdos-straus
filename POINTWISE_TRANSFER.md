@@ -161,3 +161,55 @@ Likewise `𝔼F' − 𝔼F = 𝔼[F'ℙ_{X_{ℓ₀}}(Forb)] ≤ η_{ℓ₀}𝔼F
 `k₀ ≤ 2k log₂(NT) + 3.2S + log₂(S+1) + 12 ≪ S + k log(4NT)` (as `k ≥ 1`),
 `t ≪ k log(4NT)(S + k log(4NT))`, and Theorem 1.1 gives the bound (the
 `3k log T` and `+1` terms are dominated). ∎
+
+## 3. Remarks on the hypotheses
+
+**3.1 (Any density lower bound will do; proved).** The local lemma enters the
+proof of Theorem 1.1 only through `δ ≥ δ_L` in Step 3. So Theorem 1.1 holds
+verbatim with `δ_L` replaced by *any* `δ_* ∈ (0, δ]` in `k₀` (still assuming
+(Tw)). In particular Haar-side density bounds obtained by other methods
+(sieve, distortion method, exact computation) transfer as well.
+
+**Lemma 3.2 (Haar-side criterion for (Tw); proved).** For `ℓ₀ ∈ 𝒫` let
+`δ^{(ℓ₀)}` be the Haar density of the set avoiding all `E_i` with
+`ℓ₀ ∉ supp E_i`. If `δ^{(ℓ₀)} ≤ (6/5)δ` for every `ℓ₀ ∈ 𝒫`, then (Tw) holds.
+*Proof.* In the proof of Lemma 1.2 the first chain gives
+`|𝔼[Fψ]| ≤ 𝔼[F'·ℙ_{X_{ℓ₀}}(Forb)] = 𝔼F' − 𝔼F = δ^{(ℓ₀)} − δ ≤ δ/5`. ∎
+(Lemma 1.2 is the special case where the local lemma certifies this.) So
+(Tw) says: *no single free prime carries more than a 1/6 share of the
+avoidance constraint.* It is a Haar statement, checkable exactly by computer
+for toy systems (`scripts/transfer_toy.py`, §6).
+
+**3.3 (Role of the exceptional zero).** No Siegel-zero hypothesis is made.
+The possible exceptional real character `χ₁` (unique for conductors
+`≤ Q_G = x^{1/(κL)}`) is handled in two ways ([SN] `thm:transfer`):
+(A) if `χ₁` lives on `Q'` (the fixed part), it multiplies the main term by
+`λ = 1 ∓ x^{β₁−1}/β₁`; `λ ≥ min(u,1)/2` and the effective Page bound
+`1−β₁ ≫ q₁^{−1/2}(log q₁)^{−2}` only serve to absorb the conductor-drop error
+`R₁ ≪ AZ³μ`. (B) if `χ₁` has a component on the free primes, its coefficient
+is the twisted mean `μ_ψ/φ(Q')`, and (Tw) makes it `≤ μ/4`. Case B **cannot**
+be treated like Case A: that would need `A − 1 ≪ x^{β₁−1} − ... ≪ Z^{−1/2}`
+(Page-scale), i.e. `2^{−k₀} ≤ Z^{−1/2}`, i.e. `k₀ ≫ t log T = 10kbk₀ log T`,
+impossible. So (Tw) is the price of not assuming "no exceptional zero". If
+one assumes that no real primitive character of conductor `≤ x` has a zero
+in `[1 − 1/(κ log Q_G), 1)` (e.g. GRH for quadratic characters), (Tw) can be
+dropped (Case 0 always applies). *Assessment:* whether (Tw) is genuinely
+needed for the conclusion (rather than for the proof) is unclear; without it
+a Siegel zero for `ψ` biases small primes towards `ψ(p) = −1`, which hurts
+exactly when `F` concentrates on `ψ = +1`.
+
+**3.4 (Where the losses are; Assessment).** Write `ℒ = log(1/δ_*)`. Heuristic
+truth (random model): `log p ≈ log Q + ℒ + O(log T)`. Theorem 1.1 gives
+```
+log p ≪ log Q + k·log T·log(NT)·(ℒ + k·log(NT) + log(S+2)).
+```
+Losses: (i) `log T` per cell prime (cell moduli are products of
+`≤ 3k+2t` prime powers `≤ T`); (ii) the bit width `b = log₂(4NT)` from the
+binary encoding before the switching lemma; (iii) the factor `k` (DNF width
+`kb`); (iv) `k log(NT)` in `k₀` from `log m_a²` (the Cauchy–Schwarz `m²` of
+the BRW sandwich after splitting into atoms). Loss (ii) would disappear with a
+switching lemma for product spaces with alphabet `T` directly (not checked;
+we do not claim such a lemma is available). For `k = 1` (sifted sets) the
+theorem is far from optimal: a prime-local system is a sifted set, for which
+Linnik/sieve arguments give `log p ≪ log Q + log T + ℒ`-type bounds
+directly ([SN] cites EGLNV for the "combinatorial rectangle" analogue).
