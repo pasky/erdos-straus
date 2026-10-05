@@ -191,7 +191,7 @@ w_ℓ(Q) > θ_ℓ(Q) := c·(a_ℓ+1)·logℓ / 𝓛,
 raise `a_ℓ` by one. The procedure stops, and at the end:
 
 * (LLL) every event E has `Σ_{ℓ∈supp E} w_ℓ ≤ c`;
-* (cost) `log Q ≤ log 840 + log 8 + (𝓛/c)·Σ_{(M,D)} s(M,D)·log₂τ(M)
+* (cost) `log Q ≤ log 840 + (𝓛/c)·Σ_{(M,D)} s(M,D)·log₂τ(M)
   ≤ 9 + (1+o(1))·𝓛²S♯/(c·log𝓛)`.
 
 *Proof.* Each step raises some `a_ℓ≤f_ℓ`, so it stops. (LLL): for
@@ -199,7 +199,10 @@ raise `a_ℓ` by one. The procedure stops, and at the end:
 `Σ_{ℓ∈supp E}w_ℓ ≤ (c/𝓛)Σ_ℓ v_ℓ(M)logℓ = c·logM/𝓛 ≤ c`.
 (cost): a step at ℓ from a to a+1, taken at stage `Q_i`, has
 `log ℓ < 𝓛·w_ℓ(Q_i)/(c(a+1))`, and `w_ℓ(Q_i) ≤ Σ_{(M,D): v_ℓ(M)≥a+1} s(M,D)`
-by Lemma 2.1. Each pair `(ℓ,a)` is stepped at most once. Summing,
+by Lemma 2.1. Each pair `(ℓ,a)` is stepped at most once. The steps may be
+taken in any order, and several primes may be raised simultaneously at one
+stage `Q_i`: each raise is justified at `Q_i`, the bound on `w_ℓ(Q_i)` is uniform
+in Q, and the stopping test concerns only the final Q. Summing,
 `log(Q/840) ≤ (𝓛/c)Σ_{(M,D)} s(M,D)·h(M)` with
 `h(M):=Σ_{ℓ|M}H_{v_ℓ(M)}` (`H_v=Σ_{i≤v}1/i`). Now `H_v≤log₂(v+1)` (induction:
 `1/(v+1)≤log₂(1+1/(v+1))` as `log₂(1+x)≥x` on `[0,1]`), so
@@ -240,7 +243,7 @@ cell with `f_2∤d_i` has zero `ψ_2`-mean (average over a free prime
 condition applies to `ψ_2`, and Case B is unchanged. The rest of O9 Thm
 1.1's proof does not use coprimality (`log N≤log Q+1.04 max d_i`). ∎
 
-**Theorem 3.2 (PROVED modulo (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4 (internal, under review); with O9's junta d𝓛≍𝓛^7 instead, the exponent stays 1/7).** For
+**Theorem 3.2 (PROVED modulo (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4 (internal; two SOUND reviews)).** For
 infinitely many Mordell-hard primes p,
 
 ```
@@ -252,9 +255,12 @@ W(p) ≥ exp( c·(log p)^{1/6} );     uniformly  log L_h(T) ≪ (log T)^6.
 Thm 2.2, with these changes.
 * Haar side: neighbourhood sums `≤2c=1/32`, so `δ=E_HF≥e^{−2.2S}`,
   `S=S_tot(Q)≤S♯`, as in O8 Thm 3.4.
-* Minorant: O8 Lemma 3.1 (BRW) on the `m≤T²` unsplit events, with `u_j`
-  the modulus-truncation of Cor 1.2 (or, coarser, O10 Thm 4.2 with
-  `k≤ω(M)≤2𝓛/log𝓛`), so EL holds and `E[F−B]≤δ/100`.
+* Minorant: O8 Lemma 3.1 (BRW) on the `m≤T²` unsplit events, with `u_j` from
+  OMEGA10 Thm 4.2 (coordinate-count truncation; supports `≤ω(M)≤2𝓛/log𝓛`),
+  which already gives a junta `≪k𝓛(S+k𝓛)≪𝓛^6`, so EL holds and
+  `E[F−B]≤δ/100`. **Lemma 1.1/Cor 1.2 is not needed for Thm 3.2**; it is
+  needed only for Cor 4.1 (the 1/5 implication), where the junta must be
+  `≪𝓛^5log𝓛`.
 * Twist: O8 Lemma 3.3 verbatim. It needs only the neighbourhood sums
   `≤1/32` and `w_{ℓ_0}≤c=1/64` at a prime `ℓ_0|f_2`, which is a coordinate with
   `a_{ℓ_0}=0`, since `gcd(f_2,Q)=1`.
@@ -270,7 +276,7 @@ O9 Thm 2.3 (`log W≥(1/log2−o(1))log₂p·log₃p`) stands.
 
 *Ledger after Thm 3.2 (under ET).* `log Q ≤ 64(1+o(1))𝓛²S♯/log𝓛`, i.e.
 `≍𝓛^6` if `S♯≍𝓛^4log𝓛`; junta `≪𝓛(S+𝓛)≪𝓛^5log𝓛` (Cor 1.2). **The quarantine is
-again the bottleneck**, now by a factor ≈`𝓛/log²𝓛`. The lossy step is the
+again the bottleneck**, now by a factor `≍𝓛/log𝓛` (`64𝓛²S♯/log𝓛` against `𝓛S♯`). The lossy step is the
 worst-case charge `h(M)≤log₂τ(M)≤𝓛/log𝓛` per atom in Lemma 2.2 (§4).
 
 **Corollary 3.3 (Haar side; PROVED modulo ET).** Lemma 2.2 with `c=1/8` and
@@ -367,7 +373,7 @@ threshold `c_0=1/(64k)=0.0052` gives `log Q_Π=8942`
 (`scripts/omega2_iterq.py 100000 20 0.0052`). With `c=1/8` the Haar
 certificate is `log(1/δ*) ≤ 764` at `10^5` and `≤1390` at `10^6`, against O2's
 1479 and 3565 (`c_0=1/(8k)`, z=20, O2 §11 table).
-At these T the asymptotic gain (`≈𝓛/log²𝓛`) is small, and the ratios
+At these T the asymptotic gain (`≍𝓛/log𝓛`: `64𝓛²S♯/log𝓛` against O2's `64k²S*𝓛=16𝓛³S*/log²𝓛` at `z=𝓛²`) is small, and the ratios
 (≈2) are illustrative only.
 
 ## 5. Status and scope
