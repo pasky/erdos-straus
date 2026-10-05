@@ -1,0 +1,191 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\Lc}{\mathcal L}
+\newcommand{\E}{\mathbb E}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\DT}{\operatorname{DT}}
+\newcommand{\energy}{\operatorname{En}}
+\raggedbottom
+
+% TODO(submission): replace "Anonymous" by the author metadata (kept anonymous for internal circulation).
+\title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
+the multiplier modulus is infinitely often $\exp\big((\log p)^{c}\big)$}
+\author{Anonymous}
+\date{Draft, 5 October 2026}
+
+\begin{document}
+
+\begin{abstract}
+For a prime $p$ let $W(p)$ be the least modulus $M\equiv3\pmod4$ of a
+``multiplier'' congruence that yields a solution of $4/p=1/x+1/y+1/z$.  In
+earlier work we showed that $W(p)$ exceeds every fixed power of $\log p$ for
+infinitely many primes $p$ in Mordell's hard classes.  Here we prove
+$W(p)\ge\exp(c(\log p)^{1/14})$ for infinitely many hard primes, assuming
+Elsholtz and Tao's average bound for $\tau(kab^2+1)$; equivalently, the least
+hard prime with $W(p)>T$ is at most $\exp(O((\log T)^{14}))$.
+Unconditionally we get $\log W(p)\ge(1/(2\log2)-o(1))\log\log p\cdot\log\log\log p$
+infinitely often.  As before, the class of one modulo the small primes leaves
+a residual congruence system on the larger primes.  The local lemma shows
+that its avoiding set has Haar density $e^{-O(S)}$, where $S$ is its total
+mass.  To transfer this density to primes we need a \emph{pointwise}
+minorant that is a short combination of congruence classes, each on few
+primes.  We take the one-sided $\ell^2$ sandwich of Bazzi and Razborov from
+the theory of bounded independence.  Its error is the Efron--Stein tail of
+the avoidance indicator.  After a binary encoding of residues the indicator
+is a CNF of small width, so Håstad's switching lemma, through the argument
+of Linial, Mansour and Nisan, bounds the tail.  The minorant is transferred
+to primes by the Linnik-range prime number theorem of Thorner and Zaman.  No
+codegree condition, level structure or truncated inclusion--exclusion is
+needed.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+The Erd\H{o}s--Straus conjecture asserts that $4/n=1/x+1/y+1/z$ is solvable
+in positive integers for every $n\ge2$.  It suffices to treat primes.  It has
+been verified for $n\le10^{18}$ (\cite{MD}; \cite{Salez} for $10^{17}$), and
+Mordell's identities settle every prime outside the six classes
+$p\equiv1^2,11^2,13^2,17^2,19^2,23^2\pmod{840}$ \cite{Mordell} (cf.\
+\cite{Oblath}).  We call the primes in these classes \emph{hard}.  For the
+exceptional set see Vaughan \cite{Vaughan} and \cite{PW}; for the average
+number of solutions see \cite{ET}.
+
+For $M\equiv3\pmod4$ put $A_M=(M+1)/4$.  If $uvw=A_M$ and
+$n\equiv-uv^{-1}\pmod M$, then $s=(nv+u)/M$ is a positive integer and
+\begin{equation}\label{eq:ident}
+ \frac4n=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}
+\end{equation}
+(direct verification; this is the classical multiplier family, cf.\
+\cite{Vaughan,ET}).  Define
+\begin{equation}\label{eq:W}
+ W(n)=\min\{M\equiv3\ (4):\ n\equiv-uv^{-1}\ (\mathrm{mod}\ M)\ \text{for some}\ uvw=A_M\},
+\end{equation}
+with $W(n)=+\infty$ if no such $M$ exists.  Thus $W(p)\le T$ provides an
+explicit representation with modulus at most $T$.  Every prime
+$p\equiv1\pmod{\lcm\{M\le T\}}$ has $W(p)>T$ (Lemma~\ref{lem:one}), so
+Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
+\cite{Paper1} we proved that for every fixed $k$,
+$W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
+hard primes.  Here we prove a sub-exponential rate.
+
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ} and {\cite[Prop.~1.4]{ET}}]\label{thm:main}
+There is an absolute constant $c>0$ such that for infinitely many hard primes $p$
+\[
+ W(p)\ \ge\ \exp\big(c\,(\log p)^{1/14}\big).
+\]
+More precisely, for every sufficiently large $T$ there is a prime
+$p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{14}$.
+\end{theorem}
+
+\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}]\label{thm:uncond}
+For infinitely many hard primes $p$,
+\[
+ \log W(p)\ \ge\ \Big(\frac1{2\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
+\]
+\end{theorem}
+
+Theorem~\ref{thm:TZ} is Thorner and Zaman's prime number theorem in the
+Linnik range \cite{TZ}.  No hypothesis on Siegel zeros is needed.
+\cite[Prop.~1.4]{ET} is used only to bound the total mass of the residual
+system by $(\log T)^4\log\log T$ (Lemma~\ref{lem:qmass}).  Without it,
+the same argument gives Theorem~\ref{thm:uncond}.  All constants are
+effective, except that we have not checked whether the implied constant in
+\cite[Prop.~1.4]{ET} is.  We make no numerical claim.
+
+\subsection*{The method}
+We fix $T$ and impose $n\equiv1$ modulo the prime powers $\le T$ of a set
+$\Pi$ of primes, consisting of the primes up to $z=(\log T)^2$ and a few
+further ones.  Then $W(n)>T$ whenever $n$ avoids a finite family of
+congruence \emph{events}, each on at most $k\approx\log T/(2\log\log T)$ of
+the remaining (\emph{free}) primes (\S\ref{sec:system}).  In the Haar
+measure on residues the local lemma shows that the avoiding set has density
+$\delta\ge e^{-2.2S}$, where $S\ll(\log T)^4\log\log T$ is the total
+mass, once an iterated quarantine has made the mass at each free prime
+small.  To find a \emph{prime} in the avoiding set we need a function
+$B=\sum_ic_i\mathbf 1[n\equiv b_i\ (d_i)]$ with $B\le\mathbf 1[\text{avoid}]$
+pointwise, mean $\gg\delta$, controlled $\ell^1$ mass, and moduli $d_i$ that
+each involve few primes.  The transfer theorem (Theorem~\ref{thm:transfer},
+from \cite{Paper1}) then gives a prime $p$ with
+$\log p\ll K\max(\log Z,K)$, where $K=1+\log(\ell^1/\text{mean})$ and $Z$ is
+the largest modulus.  Both are polynomial in $\log T$ in our construction.
+
+In \cite{Paper1} the minorant was an alternating expansion (inclusion--exclusion
+truncated by the number of primes in the support), organised in levels.
+That route loses a factorial in the number of levels, which limits it to
+fixed powers of $\log p$.  Here we use instead the one-sided
+$\ell^2$-approximation scheme of Bazzi \cite{Bazzi}, in the form of
+Razborov \cite{Razborov} (Lemma~\ref{lem:brw}).  For events
+$E_1,\dots,E_m$ with indicators $A_i$ and arbitrary functions $u_j$,
+\[
+ B=1-\sum_iA_i\Big(1-\sum_{j<i}A_ju_j\Big)^2\ \le\ \mathbf 1[\text{no }E_i\text{ occurs}],
+\]
+and $\E[F-B]\le m^2\sum_j\PP(E_j)\,\E(F^{(j)}-u_j)^2$, where $F^{(j)}$ is the
+indicator that no earlier event occurs, conditioned on $E_j$.  Choosing $u_j$
+as the best $\ell^2$ approximation of $F^{(j)}$ by sums of functions of at
+most $t$ coordinates makes every cell of $B$ involve at most $3k+2t$ primes,
+and makes the error an \emph{Efron--Stein tail} of $F^{(j)}$.  We bound this
+tail in \S\ref{sec:tail}.  Encode each residue in binary.  Then
+$1-F^{(j)}$ becomes a DNF of width $k\log_2(4T^2)$, and Håstad's switching
+lemma with the Linial--Mansour--Nisan argument \cite{Hastad,LMN} gives
+tail $\le4\cdot2^{-k_0}$ at level $t\asymp k\log T\cdot k_0$
+(Lemma~\ref{lem:tail}).  We need $k_0\asymp S+k\log T$, so
+$t\ll(\log T)^6$ and $\log p\ll(\log T)^{14}$.
+
+\subsection*{Relation to the literature}
+Lemma~\ref{lem:brw} is Razborov's identity, and Lemma~\ref{lem:tail} is a
+routine application of \cite{Hastad,LMN} (we follow \cite[\S4]{OD}).  We claim
+no novelty for either.  To our knowledge these tools from the theory of
+bounded independence (``polylogarithmic independence fools DNF and
+$\mathrm{AC}^0$'' \cite{Bazzi,Razborov,Braverman}) have not been used
+before to construct sieve minorants for primes.  The point is that, in the
+Linnik range, primes $p\equiv1\pmod Q$ distribute over congruence cells
+with a \emph{relative} error.  So the number of primes per cell is what
+costs, while the size of the moduli is nearly free.  Earlier uses of the
+switching lemma in number theory known to us run in the opposite
+direction: they show that an arithmetic function such as the M\"obius
+function is uncorrelated with bounded-depth circuits.  Our literature
+search was limited, and we make no priority claim.  The Haar-side input,
+a local-lemma lower bound for the density of the uncovered set of a
+congruence system, has well-known relatives in the work on Erd\H{o}s
+covering systems by Hough and by Balister, Bollob\'as, Morris,
+Sahasrabudhe and Tiba.  We do not use those results.
+
+\smallskip\noindent\textbf{Status conventions.}  Every theorem header
+carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
+modulo X} means proved here assuming the cited statement X, whose statement
+we checked in the source but whose proof we did not check.  \emph{Cited}
+marks external statements; \emph{Classical} marks standard results for
+which we include a proof or a precise textbook reference.  Nothing here bears
+on the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$
+may well have other representations.
+
+\smallskip\noindent\textbf{Notation.}  $T$ is large, $\Lc=\log T$, $\log_2$
+denotes the binary logarithm only where explicitly said (otherwise
+$\log\log$ is written out), $\tau$ is the divisor function and
+$\tau^*(x)=\max_{n\le x}\tau(n)$.
+
+%BODY
+
+\end{document}
