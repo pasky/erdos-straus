@@ -89,3 +89,62 @@ odds `<k+1+o(k)`. If the avoiders are (conditionally on F=1) still typical for R
 `R≈m` (the big mass), then any `B∈𝒱_k` with `E B≥εE F` needs `k≳m`, i.e.
 `log D≳L·m`. For ES, `L≍𝓛` and m≍S up to logs: this is the `𝓛·S` barrier. §2 makes the
 "still typical" step rigorous for ES.
+
+## 2. The ES instance: any bounded-level minorant needs `log D ≫ 𝓛^4/log𝓛`
+
+**Setting 2.0.** Haar measure on `Ẑ^×`, restricted to a fibre `n≡r (Q)` (Q arbitrary but
+*y-smooth*: all its prime factors are `≤y`; this covers O13 Thm 3.4's square-class
+quarantine, whose primes are `≤Y=𝓛^{C_0+4}`, once `y≥Y`). F = indicator that no ES event
+with `M≤T` holds. *Level:* a function on the fibre has level `≤D` if it is a linear
+combination of functions `n↦φ(n mod qQ)` with `q≤D`; this contains every character of
+conductor `≤D` and every cell of modulus `≤D` (times the fibre). *Big* coordinates: the
+`X_ℓ` with ℓ prime, `ℓ>T^{0.6}`. A modulus `q≤D` has fewer than `log D/(0.6𝓛)` such prime
+factors, so level `≤D` functions lie in `𝒱_k`, `k:=⌊log D/(0.6𝓛)⌋` (Setting 1.2).
+
+Fix `y∈[𝓛^5, 𝓛^A]` (A fixed) and `N_0:=𝓛²`. Write `D*:=∏p^{⌈v_p(D)/2⌉}` (POINTWISE_HAAR
+§2: `D|A²⟺D*|A`, and each n is `D*` for exactly `2^{ω(n)}` integers D). The *big family*:
+
+```
+𝓕 := { E_{M,D} : M = vℓ ≤ T, ℓ prime > T^{0.6}, M squarefree with all prime factors > y,
+                 M ≡ 3 (4), n := D* ∈ [N_0, T^{1/10}], n | A_M }.
+```
+
+𝓕 is a subfamily of POINTWISE_HAAR's family (there `√T≤M≤T`, same roughness and D-range,
+with `𝓛^5` replaced by `y≥𝓛^5`; its Lemmas 2.3–2.4 only improve when y grows). So:
+(F1) distinct `(M,D)` give distinct events, `P(E)=1/φ(M)`; HAAR Lemma 2.3 (local-lemma
+loads `w_q:=Σ_{E∋q}P(E) ≤ 𝓛³/(2q)+4𝓛T^{−2/5}` for `q>y`) and HAAR Lemma 2.4
+(`Δ(𝓕)≤C𝓛²`) hold for 𝓕. Every prime of every M exceeds `y≥` every prime of Q, so on the
+fibre the coordinates used by 𝓕 are still independent and Haar.
+
+**Lemma 2.1 (big family: one big coordinate, small big-odds; PROVED).** Each `E∈𝓕` has
+exactly one big coordinate `ℓ=ℓ(E)`, and its other coordinates (primes of v) are small.
+For every ℓ and every value of the small coordinates,
+`p_ℓ(x_s) ≤ p*:=T^{−0.1}(1+𝓛)·2 ≤ T^{−0.09}` for large T.
+
+*Proof.* `v=M/ℓ<T^{0.4}`, so v has no prime `>T^{0.6}`; M has at most one. For fixed ℓ the
+events with `ℓ(E)=ℓ` number at most `#{v<T/ℓ}·#{D: D*≤T^{1/10}} ≤ T^{0.4}·T^{0.1}(1+𝓛)`
+(HAAR (F3)), each contributing one class mod ℓ, so `p_ℓ≤T^{0.5}(1+𝓛)/(ℓ−1)`. ∎
+
+**Lemma 2.2 (mass of the big family; PROVED modulo Bombieri–Vinogradov and the
+fundamental lemma — both theorems).** `μ:=Σ_{E∈𝓕}P(E) ≥ c_1𝓛³/log y` for `T≥T_0`.
+
+*Proof.* Keep only `v≤T^{0.3}`, `ℓ∈(T^{0.6},T^{0.7}]`. The conditions `vℓ≡−1 (mod 4n)`,
+`gcd(v,2n)=1` imply `M≡3 (4)` and `n|A_M`; `ℓ∤v` since `ℓ>v`. So
+
+```
+μ ≥ Σ_{N_0≤n≤T^{1/10}} 2^{ω(n)} Σ_{v≤T^{0.3}, y-rough sqfree, (v,2n)=1} (1/v)·S_{4n}(−v^{−1}),
+S_q(c) := Σ_{ℓ∈(T^{0.6},T^{0.7}], ℓ≡c (q)} 1/ℓ.
+```
+
+*ℓ-sum.* Split `(T^{0.6},T^{0.7}]` into `≤𝓛` dyadic blocks `(X,2X]`. BV (with `max_{t≤2X}`,
+moduli `q≤4T^{1/10}≤X^{1/5}`) gives `Σ_q E_q(X)≪_A X/𝓛^{A'}`, `E_q(X):=max_{t≤2X}max_{(c,q)=1}
+|π(t;q,c)−π(t)/φ(q)|`. Call q *bad* if `E_q(X)>X/(φ(q)𝓛²)` for some block; then
+`Σ_{q bad}1/φ(q)≤𝓛^{3−A'}`. For good q every block contributes
+`≥(1/2X)(π(2X)−π(X)−2X/𝓛²)/φ(q)`, so `S_q(c)≥c_2/φ(q)` (`c_2=(1/2)log(7/6)`, T large).
+Bad n: by Cauchy–Schwarz `Σ_{4n bad}2^{ω(n)}/φ(4n) ≤ (Σ_{bad}1/φ(q))^{1/2}(Σ_{n≤T}4^{ω(n)}/φ(n))^{1/2}
+≪𝓛^{(3−A')/2+2}`, negligible for `A'=10`.
+*v-sum.* The fundamental lemma (as in HAAR Lemma 2.2, sifting `[1,T^{0.3}]` by the primes `<y`
+and the primes of n, `ω(n)≤𝓛`) gives `Σ_{v≤T^{0.3}, y-rough, (v,2n)=1}1/v ≥ c_3𝓛/log y`;
+non-squarefree v (divisible by `p²`, `p>y`) cost `≤𝓛Σ_{p>y}p^{−2}=O(𝓛/y)`.
+*n-sum.* `Σ_{N_0≤n≤T^{1/10}}2^{ω(n)}/φ(4n) ≥ (1/2)Σ 2^{ω(n)}/n ≥ c_4𝓛²` (HAAR Lemma 2.2's
+last step). Multiply. ∎
