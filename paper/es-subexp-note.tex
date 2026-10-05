@@ -92,7 +92,7 @@ Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
 $W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
 hard primes.  Here we prove a sub-exponential rate.
 
-\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ} and {\cite[Prop.~1.4]{ET}}]\label{thm:main}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:TZ}, \ref{thm:ET} and~\ref{thm:hastad}]\label{thm:main}
 There is an absolute constant $c>0$ such that for infinitely many hard primes $p$
 \[
  W(p)\ \ge\ \exp\big(c\,(\log p)^{1/14}\big).
@@ -101,7 +101,7 @@ More precisely, for every sufficiently large $T$ there is a prime
 $p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and $\log p\le C(\log T)^{14}$.
 \end{theorem}
 
-\begin{theorem}[Proved modulo Theorem~\ref{thm:TZ}]\label{thm:uncond}
+\begin{theorem}[Proved modulo Theorems~\ref{thm:TZ} and~\ref{thm:hastad}]\label{thm:uncond}
 For infinitely many hard primes $p$,
 \[
  \log W(p)\ \ge\ \Big(\frac1{2\log2}-o(1)\Big)\log\log p\cdot\log\log\log p .
@@ -179,7 +179,13 @@ carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
 modulo X} means proved here assuming the cited statement X, whose statement
 we checked in the source but whose proof we did not check.  \emph{Cited}
 marks external statements; \emph{Classical} marks standard results for
-which we include a proof or a precise textbook reference.  Nothing here bears
+which we include a proof or a precise textbook reference.  The three
+cited inputs of the main theorems are Thorner--Zaman
+(Theorem~\ref{thm:TZ}), Elsholtz--Tao (Theorem~\ref{thm:ET}) and Håstad's
+switching lemma (Theorem~\ref{thm:hastad}, a textbook result).  Classical
+results whose proof we include, or which are standard textbook facts (the
+local lemma, the Efron--Stein decomposition, the median of the binomial
+law, the divisor bound), are not listed in the labels.  Nothing here bears
 on the truth of the Erd\H{o}s--Straus conjecture: a prime with large $W(p)$
 may well have other representations.
 
@@ -909,9 +915,9 @@ bound).
 textbook result): Lemma~\ref{lem:tail}, Corollary~\ref{cor:el}.
 \item Proved modulo Thorner--Zaman (Theorem~\ref{thm:TZ}, with the McCurley
 statement quoted there): Lemma~\ref{lem:severe}, Theorem~\ref{thm:transfer},
-Theorem~\ref{thm:assembly} (also using Theorem~\ref{thm:hastad}), and
-Theorem~\ref{thm:uncond}.
-\item Proved modulo Thorner--Zaman and \cite[Prop.~1.4]{ET}:
+and, together with Håstad's switching lemma (Theorem~\ref{thm:hastad}),
+Theorem~\ref{thm:assembly} and Theorem~\ref{thm:uncond}.
+\item Proved modulo Thorner--Zaman, \cite[Prop.~1.4]{ET} and Håstad's switching lemma:
 Theorem~\ref{thm:main}.
 \item Assessment: Remarks~\ref{rem:linnik} and~\ref{rem:exponent}.
 \item Not claimed: anything about the Erd\H{o}s--Straus conjecture;
