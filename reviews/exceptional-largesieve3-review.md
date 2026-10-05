@@ -45,7 +45,7 @@ then `≤ e^{S_r}ρ E_U|h|² ≤ ρe^{S_r}/N` (LS2 Lemma 2.2, Δ=1). High part:
 hypotheses must hold for **every** c in supp π_s (not on average, unlike the
 Hölder form); the doc says this implicitly ("for c in a set of probability
 ≥ 7/8" in §4 is then absorbed through the event E of Lemma 2.1 — fine, but
-see D3).
+see D2).
 
 ### Lemma 2.1 (density of the z-smooth part): SOUND (minor presentational gaps)
 
