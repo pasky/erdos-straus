@@ -167,8 +167,56 @@ def main():
         out["dual_pen"] = pen
         if arg("dump"):
             np.savez_compressed(arg("dump"), x=x, y=y, W=np.array(W), mu1=mu1)
+    if res.status == 0 and "--certify" in sys.argv:
+        out.update(certify(res.x, A, G, Kcap, ub, j0))
     out["sec"] = round(time.time() - t0, 1)
     print(json.dumps(out))
+
+
+def certify(x, A, G, Kcap, ub, j0, dps=50):
+    """Exact-ish repair of a float fake: on the support J, solve the minimum-norm correction
+    making A x = 1 and tight family rows = K hold in mpmath (dps digits), then check x >= 0,
+    every family row <= K, every cap, and x_j0 = 0.  Data (mu, rho) are the float model data."""
+    import mpmath as mp
+    mp.mp.dps = dps
+    J = np.where(x > 0)[0]
+    if j0 in set(J.tolist()):
+        return {"cert": False, "why": "target in support"}
+    rows = [("A", i) for i in range(A.shape[0])]
+    Gs = G[:, J].tocsr() if G is not None else None
+    if G is not None:
+        slack = Kcap - G @ x
+        out_tight = int((slack < 1e-9).sum())   # tight rows are NOT pinned: run the LP with K slightly below the target K
+    AJ = A[:, J].tocsr()
+    Mrows = [AJ[i] if t == "A" else Gs[i] for t, i in rows]
+    M = mp.matrix(len(rows), len(J))
+    for r, R in enumerate(Mrows):
+        R = R.tocoo()
+        for cidx, v in zip(R.col, R.data): M[r, int(cidx)] = mp.mpf(float(v))
+    xs = mp.matrix([mp.mpf(float(v)) for v in x[J]])
+    b = mp.matrix([mp.mpf(1) if t == "A" else mp.mpf(Kcap) for t, i in rows])
+    r = b - M * xs
+    MMt = M * M.T
+    try:
+        yv = mp.lu_solve(MMt, r)
+    except ZeroDivisionError:
+        return {"cert": False, "why": "singular normal matrix"}
+    xn = xs + M.T * yv
+    res_eq = max(abs(v) for v in (b - M * xn))
+    minx = min(xn)
+    worst_fam = mp.mpf(-1)
+    if G is not None:
+        for i in range(Gs.shape[0]):
+            R = Gs[i].tocoo()
+            v = mp.fsum(mp.mpf(float(d)) * xn[int(cidx)] for cidx, d in zip(R.col, R.data))
+            worst_fam = max(worst_fam, v - Kcap)
+    capv = max([xn[k] - float(ub[J[k]]) for k in range(len(J)) if np.isfinite(ub[J[k]])], default=mp.mpf(-1))
+    Kt = float(arg("certK", Kcap))       # the K for which the fake is certified (>= LP K)
+    worst_fam = worst_fam + Kcap - Kt
+    ok = minx > 0 and res_eq < mp.mpf(10) ** (-dps + 10) and worst_fam <= 0 and capv <= 0
+    return {"cert": bool(ok), "support": int(len(J)), "tight_fam": out_tight if G is not None else 0,
+            "cert_min_x": float(minx), "cert_eq_resid": float(res_eq), "cert_worst_fam_excess": float(worst_fam),
+            "cert_shift": float(max(abs(v) for v in (M.T * yv)))}
 
 
 if __name__ == "__main__":

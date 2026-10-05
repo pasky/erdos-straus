@@ -270,3 +270,22 @@ All fakes: residual ≤3.5e-10 (most ≤4e-14). (0.05,10) did not finish within 
 So the K=4 fake is stable under grid refinement, under the generous visibility convention, and in
 the full two-type model; and with switching at K=4 the Type-I level would have to exceed 0.6
 (positivity from θ≈0.65 on the coarse grid).
+
+### 8.1 Certified fakes (ε=0.1, K=8, rep, θ=1/2)
+`window3_lp.py 0.1 8 0.5 --swz=K−0.001:prefix --certify --certK=K`: solve the LP with caps
+slightly *below* K, then repair the float solution on its support by the minimum-norm correction
+(50-digit mpmath) making every visible correlation exact, and check `x≥0`, `x_∅=0` and every
+family row ≤ K (all rows, in 50 digits):
+
+| K | support | min ν/μ on support | max correlation residual | worst family excess | |
+|---|---|---|---|---|---|
+| 4 | 514 | 0.0211 | 0 (50 digits) | −1.0e-3 | CERTIFIED |
+| 3 | 605 | 0.1669 | 0 | −1.0e-3 | CERTIFIED |
+| 2.5 | 628 | 0.0566 | 0 | −1.0e-3 | CERTIFIED |
+
+**Proposition 8.1 (discrete model; CERTIFIED, data = float cell-integrated law).** In the
+faithful discrete model (ε=0.1, K=8, cell-integrated law of §2, rep visibility, θ=1/2), Type-I
+data, both parities and *every* switched family bound `ν(F(q,C_q,[ε,ζ)))≤Kμ(F)` (all q, all
+`C_q≠∅`, all cell edges ζ, including ζ=1) with **K=2.5** do not force a single both-clean
+configuration. Since every real constant is ≥4 (§4.1, §5), the real switched sieves are a
+fortiori insufficient in this model.
