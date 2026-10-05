@@ -613,6 +613,107 @@ Theorem~\ref{thm:main} for depth-$3$ circuits, or for $\mathrm{AC}^0$, with a
 weight condition on the bottom layer?  (3) Does the signed cover count give
 sparsity bounds in the direction of Mansour's conjecture?
 
+\section{Weights along a filtration}\label{sec:filtration}
+
+In Theorem~\ref{thm:main} the cost of a component $F^{=U}$ is a product over
+the coordinates in $U$.  In the application the natural cost of a function of
+a residue $x_\ell\bmod\ell^f$ depends on \emph{how many} base-$\ell$ digits it reads,
+and an event that fixes $x_\ell\bmod\ell^v$ fixes the first $v$ digits.  We now
+prove the corresponding variant.
+
+\emph{Setting.}  Let $\cP$ be a finite index set.  Each coordinate $X_\ell$
+($\ell\in\cP$) is a tuple of independent \emph{digits} $(\delta_{\ell,i})_{i_0(\ell)\le i<f_\ell}$ with
+arbitrary distributions on finite sets, and the coordinates are independent.
+The Efron--Stein decomposition $F=\sum_UF^{=U}$ is taken over the digits, so $U$
+is a set of pairs $(\ell,i)$; we write $U_\ell=\{i:(\ell,i)\in U\}$.  An event $E$ is a
+\emph{digit-prefix event} if, for some integers $v_\ell(E)$, it fixes exactly the
+digits $\delta_{\ell,i}$ with $i_0(\ell)\le i<v_\ell(E)$, for each $\ell$, to arbitrary values.  Such
+an event is a cylinder event on the digits.  (The offset $i_0(\ell)$ allows digits
+below $i_0(\ell)$ to be fixed in advance; they are not coordinates.)
+
+\begin{theorem}[Filtration energy bound]\label{thm:filtration}
+Let $\lambda_\ell\ge1$ $(\ell\in\cP)$, and suppose that every event of $\cE$ is a digit-prefix
+event with $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.  Then
+\[
+ \sum_U\Big(\prod_{\ell:\ U_\ell\ne\emptyset}\lambda_\ell^{1+\max U_\ell}\Big)\|F^{=U}\|^2\ \le\ 1 .
+\]
+\end{theorem}
+
+Applied directly, Theorem~\ref{thm:main} with digit weights would charge a set
+$U$ for each digit in it, and the event weights would grow with the number
+of fixed digits.  Here the charge for $U_\ell$ depends only on its \emph{deepest}
+digit, which is what a function of $X_\ell$ that reads $U_\ell$ costs, and the
+hypothesis loses only the factor $2$ in the exponent.
+
+\begin{proof}
+Write $\Lambda_{\ell,i}=\lambda_\ell^{i+1}$ for $i\ge i_0(\ell)$, $\Lambda_{\ell,i_0(\ell)-1}=1$, and
+$\mu'_{\ell,j}=\Lambda_{\ell,j}-\Lambda_{\ell,j-1}\ge0$ for $i_0(\ell)\le j<f_\ell$.  For such $j$ let
+$P_{\ell,j}=I-\E_{B_{\ell,j}}$, where $\E_{B_{\ell,j}}$ averages over the \emph{tail block}
+$B_{\ell,j}=(\delta_{\ell,i})_{i\ge j}$.  Averaging over a digit in $U$ kills $F^{=U}$, and
+$F^{=U}$ does not depend on the digits outside $U$.  Hence $P_{\ell,j}F^{=U}=F^{=U}$ if
+$U_\ell\ne\emptyset$ and $\max U_\ell\ge j$, and $P_{\ell,j}F^{=U}=0$ otherwise.  Call a set $V$ of
+pairs $(\ell,j)$ a \emph{selection} if it contains at most one pair for each $\ell$,
+and put $L'_V=\prod_{(\ell,j)\in V}P_{\ell,j}$.  Then $\|L'_VF\|^2=\sum_{U\succ V}\|F^{=U}\|^2$, where
+$U\succ V$ means $\max U_\ell\ge j$ for all $(\ell,j)\in V$.  For fixed $U$, the sum of
+$\mu'^V$ over the selections $V$ with $U\succ V$ factorises and telescopes:
+\[
+ \prod_\ell\Big(1+\sum_{i_0(\ell)\le j\le\max U_\ell}\mu'_{\ell,j}\Big)=\prod_{\ell:\,U_\ell\ne\emptyset}\Lambda_{\ell,\max U_\ell}.
+\]
+So the left side of the claim equals $\sum_V\mu'^V\|L'_VF\|^2$, the sum over
+selections.
+
+Fix a selection $V$ and pass to the coarser product space whose coordinates
+are, for $(\ell,j)\in V$, the head $(\delta_{\ell,i})_{i<j}$ and the tail block $B_{\ell,j}$, and,
+for the other $\ell$, the whole $X_\ell$.  There $L'_V$ is the operator $L_{V'}$ of
+Section~\ref{sec:prelim} for the set $V'$ of tail blocks.  Each event $E$ is a
+disjoint union of cylinder events on the coarse coordinates with the same
+coarse support: enumerate the values of the unfixed digits of each coarse
+coordinate that $E$ involves.  Splitting every event in this way does not
+change $F$, and exactly one piece of $E$ holds at $x$ if $E$ does.  The trace
+of the coarse support of $E$ on $V'$ is the set of the $B_{\ell,j}$ with $(\ell,j)\in V$
+and $j<v_\ell(E)$.  Identify $B_{\ell,j}$ with the pair $(\ell,j)$ and put
+$\hat E=\{(\ell,j):\ i_0(\ell)\le j<v_\ell(E)\}$; then this trace is $\hat E\cap V$.  Since
+$N$ depends only on traces, Lemma~\ref{lem:cover} gives
+\[
+ \|L'_VF\|^2\le\E_x\big[N_{\hat\Ho(x)}(V)^2\big],\qquad \hat\Ho(x)=\{\hat E:\ E\in\cE,\ x\in E\}.
+\]
+Sum over selections and add the nonnegative terms of all other sets $V$ of
+pairs: the left side of the claim is at most $\E_x[Q_{\mu'}(\hat\Ho(x))]$.  By
+Theorem~\ref{thm:Q} it remains to show that
+$\prod_{(\ell,j)\in\hat E}(1+\mu'_{\ell,j})\le2$ for every event.  Fix $\ell$, write $\lambda=\lambda_\ell$,
+$v=v_\ell(E)$, $i_0=i_0(\ell)$, and assume $v>i_0$.  Here $1+\mu'_{\ell,i_0}=\lambda^{i_0+1}$, and
+$1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$.  The hypothesis gives $\lambda^{2v}\le2$, so
+$\lambda^j\le\lambda^v\le\sqrt2<\lambda+1$ for $j<v$, which is equivalent to $1+\lambda^j(\lambda-1)\le\lambda^2$.
+The factor of $\ell$ is therefore at most $\lambda^{i_0+1}\lambda^{2(v-1-i_0)}\le\lambda^{2v}$, and the
+product over $\ell$ is at most $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.
+\end{proof}
+
+\begin{corollary}[Modulus-weighted tail]\label{cor:modtail}
+In Theorem~\ref{thm:filtration} let the $\ell\in\cP$ be primes, let $T>1$, $\Lc=\log T$,
+and suppose that $\prod_\ell\ell^{v_\ell(E)}\le T$ for every event.  For a set $U$ of digits put
+$m_U=\prod_{\ell:\,U_\ell\ne\emptyset}\ell^{1+\max U_\ell}$.  Then for every $\tau\ge0$
+\[
+ \sum_{U:\ m_U>e^\tau}\|F^{=U}\|^2\ \le\ 2^{-\tau/(2\Lc)} .
+\]
+\end{corollary}
+
+\begin{proof}
+Take $\lambda_\ell=2^{\log\ell/(2\Lc)}$.  Then
+$\prod_\ell\lambda_\ell^{2v_\ell(E)}=2^{\log\prod_\ell\ell^{v_\ell(E)}/\Lc}\le2$, and the weight of $U$ in
+Theorem~\ref{thm:filtration} is $2^{\log m_U/(2\Lc)}$; apply Lemma~\ref{lem:ident}(b).
+\end{proof}
+
+\begin{remark}[The factor $2$ in the exponent]\label{rem:rho}
+The proof gives more.  The factor of $\ell$ is
+$\lambda^{i_0+1}\prod_{i_0<j<v}(1+\lambda^j(\lambda-1))\le\exp\big(\lambda^{i_0+1}-1+\sum_{i_0<j<v}\lambda^j(\lambda-1)\big)=\exp(\lambda^v-1)$.
+So it suffices that $\sum_\ell(\lambda_\ell^{v_\ell(E)}-1)\le\ln2$ for every event.  In
+Corollary~\ref{cor:modtail} take $\lambda_\ell=2^{\log\ell/(\rho\Lc)}$ and put
+$x_\ell=v_\ell(E)\log\ell/\Lc$, so that $\sum_\ell x_\ell\le1$.  The function $x\mapsto2^{x/\rho}-1$ is
+convex and vanishes at $0$, so it is superadditive, and
+$\sum_\ell(2^{x_\ell/\rho}-1)\le2^{1/\rho}-1$.  This is at most $\ln2$ when
+$\rho\ge1/\log_2(1+\ln2)\approx1.316$, which gives the tail $2^{-\tau/(1.316\,\Lc)}$.
+\end{remark}
+
 %%SECTIONS%%
 
 \begin{thebibliography}{99}
