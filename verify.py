@@ -50,6 +50,15 @@ Blocks (cp)..(ct) (task O35) replay the documents merged in the next round:
   (cs) POINTWISE_OMEGA8 §§1-5 (imports scripts/omega8_brw_check.py): BRW Lemma 3.1,
        Lemma 3.2 c_W formula, exponent bookkeeping of Thms 4.3-4.4;
   (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check.
+Blocks (cu)..(cy) (task O43) replay the documents merged after that:
+  (cu) POINTWISE_OMEGA9: Thm 1.1 character coefficients c(chi) = E_D[B conj chi_D]/phi(Q)
+       (items 1-3, S(x) expansion) on a toy mod 2520, Lemma 2.1, Case A lambda bound,
+       exponent bookkeeping of Thms 2.2-2.3;
+  (cv) POINTWISE_XWIN: Klein orbits / beta(a), half-set Lemma 1.1 by brute force;
+  (cw) POINTWISE_WINDOW2: Lemma 1.2 norm forms; Prop 3.7 certified fake (60-digit re-solve);
+  (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma 9.3 (LPs need scipy);
+  (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 (Gale, exact max-flow), Prop 8.2(a) exact
+       measure; check (5), contrast LP and Thm 9.1 chain need scipy.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -17766,7 +17775,7 @@ check_cq()
 
 
 # ---------------------------------------------------------------- (cr)
-# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9 not replayed: under review).  Imports
+# EXCEPTIONAL_LARGESIEVE2.md §§1-7 (§§8-9: block (cy)).  Imports
 # scripts/largesieve2_checks.py (toy family mod L = 24*5*7*11; its functions assert):
 # (1) Lemma 1.1 comparison measure: LP optimum m* = 1/24 (k = 0), 1/140 (k = 2), dual
 #     stationarity, and max{E_pi f : f in V_D, f >= 0, E_U f = 1} <= 1/m* (second LP);
@@ -18128,6 +18137,700 @@ def check_ct():
 
 print("\n== (ct) POINTWISE_TYPEI: Lemma 1.1 dual form, Thm 6.1 C(5) = 10, census spot check ==")
 check_ct()
+
+
+# ---------------------------------------------------------------- (cu)
+# POINTWISE_OMEGA9.md (cf. scripts/omega9_charcheck.py, review_o9b_chars.py, review_o9b_exponents.py).
+# (1) Thm 1.1 character expansion, from scratch on a toy with prime-power moduli: Q = 5,
+#     D = 8*9*7 = 504, B = sum_i c_i 1[n = b_i (d_i)] (24 random cells d_i | D, real c_i of both
+#     signs); f = B 1[n = 1 (Q)] on (Z/QD)^*, c(chi) = phi(QD)^-1 sum f conj(chi).  Checks:
+#     item 0 c(chi_Q chi_D) = E_D[B conj chi_D]/phi(Q); item 1 c != 0 => cond chi_D | some d_i;
+#     item 2 |c| <= E_D|B|/phi(Q), c(chi_0) = mu/phi(Q); item 3 real chi, chi_D nontrivial induced
+#     by psi: c = mu_psi/phi(Q) with mu_psi = sum_{f | d_i} c_i psi(b_i)/phi(d_i); chi -> chi*
+#     injective; S(x) = sum_chi c(chi) theta_QD(x; chi) exactly (x = 20000).
+# (2) Lemma 2.1: B <= F, 0 <= F <= 1 => E|B| <= E B + 2 E[F - B] (random arrays).
+# (3) Case A: lambda = 1 - x^(beta-1)/beta >= min(u,1)/2 for log x >= 16, u = (1-beta) log x
+#     (grid; doc: min ratio 1.215).
+# (4) Exponent bookkeeping (Assessment arithmetic, constants 1, C_H = 5; review_o9b_exponents.py):
+#     Thm 2.2 log log Z/log L decreases towards 7 under ET (S* = L^4 log L); Thm 2.3 with
+#     log S* = log 2 L/log L: log2 p/(L/log L) -> log 2 (O8 Thm 4.4 had 2 log 2).
+
+def check_cu():
+    from time import perf_counter
+    import numpy as np
+    import random as _random
+    t0 = perf_counter()
+    rng = _random.Random(9)
+
+    def phi(n):
+        return prod((p - 1) * p ** (e - 1) for p, e in factorint(n).items())
+
+    def pp_chars(p, e):                      # all characters mod p^e as tables over 0..p^e-1
+        m = p ** e
+        if p == 2:                           # (Z/8)^* = <-1> x <5> (e = 3)
+            assert e == 3
+            logs = {(-1) ** a * pow(5, b, m) % m: (a, b) for a in range(2) for b in range(2)}
+            return [{n: (-1) ** (a * s) * (-1) ** (b * t) for n, (a, b) in logs.items()}
+                    for s in range(2) for t in range(2)]
+        o = phi(m)
+        g = next(g for g in range(2, m) if g % p and len({pow(g, k, m) for k in range(o)}) == o)
+        logs = {pow(g, k, m): k for k in range(o)}
+        return [{n: cmath.exp(2j * cmath.pi * k * t / o) for n, k in logs.items()} for t in range(o)]
+
+    Q, DPP = 5, [(2, 3), (3, 2), (7, 1)]
+    D = prod(p ** e for p, e in DPP)
+    N = Q * D
+    facs = [(Q, 1)] + DPP
+    mods = [p ** e for p, e in facs]
+    tabs = [pp_chars(p, e) for p, e in facs]
+    U = [n for n in range(N) if gcd(n, N) == 1]
+    UD = [n for n in range(D) if gcd(n, D) == 1]
+    G = len(U)
+    idxs = list(cartesian_product(*[range(len(t)) for t in tabs]))
+    assert len(idxs) == G == phi(N)
+    X = np.array([[prod(tabs[f][ix[f]][n % mods[f]] for f in range(4)) for n in U] for ix in idxs])
+    XD = np.array([[prod(tabs[f][ix[f]][n % mods[f]] for f in range(1, 4)) for n in UD] for ix in idxs])
+    divD = [d for d in range(2, D + 1) if D % d == 0]
+    cells = [(1, 0, 1.0)]
+    for _ in range(24):
+        d = rng.choice(divD)
+        cells.append((d, rng.choice([b for b in range(d) if gcd(b, d) == 1]), rng.gauss(0, 1)))
+    Bf = lambda n: sum(c for d, b, c in cells if n % d == b % d)
+    BD = np.array([Bf(n) for n in UD])
+    mu, EabsB = BD.mean(), np.abs(BD).mean()
+    assert abs(mu - sum(c / phi(d) for d, b, c in cells)) < 1e-12
+    fv = np.array([Bf(n) * (n % Q == 1) for n in U])
+    cdir = X.conj() @ fv / G
+    pred = XD.conj() @ BD / len(UD) / phi(Q)
+    assert np.abs(cdir - pred).max() < 1e-12, ("OMEGA9 Thm 1.1 c(chi) = E_D[B conj chi_D]/phi(Q)", np.abs(cdir - pred).max())
+    assert np.abs(cdir).max() <= EabsB / phi(Q) + 1e-12, "OMEGA9 item 2 |c| <= E|B|/phi(Q)"
+    r0 = idxs.index((0, 0, 0, 0))
+    assert abs(cdir[r0] - mu / phi(Q)) < 1e-12, "OMEGA9 item 2 c(chi_0)"
+    Ua = np.array(U)
+    divN = [f for f in range(1, N + 1) if N % f == 0]
+    UDa = np.array(UD)
+    nnz = nreal = 0
+    prims = set()
+    for r in range(G):
+        fchi = next(f for f in divN if np.allclose(X[r][Ua % f == 1 % f], 1))
+        fD = next(f for f in divN if D % f == 0 and np.allclose(XD[r][UDa % f == 1 % f], 1))
+        assert fD == fchi // gcd(fchi, Q)
+        vals = {}
+        for n, v in zip(U, X[r]):
+            vals.setdefault(n % fchi, complex(np.round(v, 8)))
+        prims.add((fchi, tuple(sorted(vals.items(), key=lambda kv: kv[0]))))
+        if abs(cdir[r]) > 1e-12:
+            nnz += 1
+            assert any(d % fD == 0 for d, b, c in cells) and fchi <= Q * max(d for d, b, c in cells), ("OMEGA9 item 1", r, fchi)
+        if np.allclose(X[r].imag, 0) and not np.allclose(XD[r], 1):
+            nreal += 1
+            psi = {}
+            for n, v in zip(UD, XD[r]):
+                psi.setdefault(n % fD, v.real)
+            mupsi = sum(c * psi[b % fD] / phi(d) for d, b, c in cells if d % fD == 0)
+            assert abs(cdir[r] - mupsi / phi(Q)) < 1e-12, ("OMEGA9 item 3 c = mu_psi/phi(Q)", r)
+    assert len(prims) == G, "OMEGA9 chi -> chi* injective"
+    x = 20000
+    pos = {n: j for j, n in enumerate(U)}
+    lhs = 0.0
+    theta = np.zeros(G, complex)
+    for p in primerange(2, x + 1):
+        if N % p:
+            theta += X[:, pos[p % N]] * log(p)
+            if p % Q == 1:
+                lhs += Bf(p) * log(p)
+    rhs = cdir @ theta
+    assert abs(rhs - lhs) < 1e-7 * max(1, abs(lhs)), ("OMEGA9 S(x) expansion", lhs, rhs)
+
+    # (2) Lemma 2.1
+    nprng = np.random.default_rng(21)
+    for _ in range(200):
+        F = nprng.random(500) * (nprng.random(500) < 0.6)
+        B = F - nprng.random(500) ** int(nprng.integers(1, 6)) * nprng.random()
+        if B.mean() > 0:
+            assert np.abs(B).mean() <= B.mean() + 2 * (F - B).mean() + 1e-12, "OMEGA9 Lemma 2.1"
+
+    # (3) Case A lambda bound
+    worst = 1e9
+    for lx in (16, 17, 20, 30, 50, 100, 1e3, 1e6):
+        for k in range(-160, 41):
+            u = 10 ** (k / 40)
+            if u >= 0.9 * lx:
+                continue
+            beta = 1 - u / lx
+            lam = 1 - exp(-u) / beta
+            worst = min(worst, lam / (min(u, 1) / 2))
+    assert 1.2 < worst < 1.23, ("OMEGA9 Case A lambda >= min(u,1)/2", worst)
+
+    # (4) bookkeeping
+    def lse(*xs):
+        mx = max(xs)
+        return mx + log(sum(exp(t - mx) for t in xs))
+
+    def loglogZ(L, logS):                    # Thm 2.2 terms of review_o9b_exponents.py, in log space
+        k = max(1, int(L // log(L * L)))
+        b = ceil(2 + 2 * L / log(2))
+        logm = (k + 2) * L
+        logk0 = lse(logS + log(3 / log(2)), log(log(400) / log(2) + 2 * logm / log(2) + logS / log(2) + 1))
+        logd = log(20 * k * b) + logk0
+        return lse(log(L) + log(L * L / log(L * L)), log(64 * k * k * L) + logS, log(4),
+                   log(2 * (3 * k + 1) * L), log(4 * L) + logd)
+    r22 = [loglogZ(10.0 ** e, log(10.0 ** (4 * e) * log(10.0 ** e))) / log(10.0 ** e) for e in (3, 6, 12, 24, 60)]
+    assert all(a > b > 7 for a, b in zip(r22, r22[1:])) and r22[-1] < 7.1, ("OMEGA9 Thm 2.2 exponent 7", r22)
+    r23 = []
+    for e in (8, 20, 80):
+        L = 10.0 ** e
+        r23.append(loglogZ(L, log(2) * L / log(L)) / (L / log(L)))
+    assert all(abs(r - log(2)) < 1e-3 for r in r23), ("OMEGA9 Thm 2.3 rate log 2", r23)
+    print(f"cu Thm 1.1 on (Z/{N})^*: {G} characters, c(chi) = E_D[B conj chi_D]/phi(Q), {nnz} nonzero (cond | d_i), "
+          f"|c| <= E|B|/phi(Q) (A = {EabsB / mu:.2f}), {nreal} real twists = mu_psi/phi(Q), chi* injective, S(20000) exact")
+    print(f"cu Lemma 2.1 (200 random); Case A min lambda/(min(u,1)/2) = {worst:.3f}; log log Z/log L = "
+          + ", ".join(f"{v:.3f}" for v in r22) + " (L = 1e3..1e60, -> 7); Thm 2.3 log2 p/(L/log L) = "
+          + ", ".join(f"{v:.4f}" for v in r23) + f" -> log 2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cu) POINTWISE_OMEGA9: Thm 1.1 character coefficients, Lemma 2.1, Case A, exponent bookkeeping ==")
+check_cu()
+
+
+# ---------------------------------------------------------------- (cv)
+# POINTWISE_XWIN.md §1.1 (cf. scripts/xwin_checks.py halfset/lemma11, review_xw_halfset.py).
+# (1) Klein-orbit structure for a = 3 (4), 3 <= a <= 399: halves {g,g^-1}, {-g,-g^-1} disjoint;
+#     #2-orbits = 2^omega(a)/2; |S_sigma| = phi(a)/2; #selections = 2^beta(a),
+#     beta = (phi - 2^omega)/4 + 2^(omega-1) - 1 <= phi/4 + 2^(omega-2).
+# (2) Lemma 1.1 (half-set lemma) by brute force: for a = 3 (4), a <= 127, and every x <= 20000
+#     coprime to a: Rat_a(x) = {u/v mod a : uv | x, gcd(u,v) = 1} computed from the full
+#     exponent vectors; if -1 notin Rat_a(x) then -1 notin C(x) and C(x) meets at most one half
+#     of every orbit (so C(x) lies in some S_sigma).  Remark (i): a = 7, x = 17, C = {3}.
+
+def check_cv():
+    from time import perf_counter
+    t0 = perf_counter()
+
+    def orbits(a):
+        seen, orbs = set(), []
+        for g in range(1, a):
+            if gcd(g, a) != 1 or g in seen:
+                continue
+            gi = pow(g, -1, a)
+            h1, h2 = frozenset({g, gi}), frozenset({(-g) % a, (-gi) % a})
+            assert not h1 & h2, ("XWIN orbit halves overlap", a, g)
+            seen |= h1 | h2
+            orbs.append((h1, h2))
+        return orbs
+
+    nA = 0
+    for a in range(3, 400, 4):
+        f = factorint(a)
+        w, ph = len(f), prod((p - 1) * p ** (e - 1) for p, e in f.items())
+        orbs = orbits(a)
+        one = [o for o in orbs if 1 in o[0] or 1 in o[1]]
+        assert len(one) == 1 and one[0] in ((frozenset({1}), frozenset({a - 1})), (frozenset({a - 1}), frozenset({1})))
+        n2 = sum(1 for h1, h2 in orbs if len(h1) == 1)
+        beta = (ph - 2 ** w) // 4 + 2 ** (w - 1) - 1
+        assert n2 == 2 ** (w - 1) and sum(len(h1) for h1, h2 in orbs) * 2 == ph, ("XWIN orbit sizes", a)
+        assert len(orbs) - 1 == beta and 4 * beta <= ph + 2 ** w, ("XWIN beta(a)", a, len(orbs), beta)
+        nA += 1
+
+    XM = 20000
+    spf = list(range(XM + 1))
+    for i in range(2, isqrt(XM) + 1):
+        if spf[i] == i:
+            for j in range(i * i, XM + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    facs = [None, {}]
+    for x in range(2, XM + 1):
+        fx, y = {}, x
+        while y > 1:
+            fx[spf[y]] = fx.get(spf[y], 0) + 1
+            y //= spf[y]
+        facs.append(fx)
+
+    def rat(fx, a):
+        vals = {1}
+        for r, e in fx.items():
+            rm, ri = r % a, pow(r % a, -1, a)
+            mults = [1] + [pow(rm, i, a) for i in range(1, e + 1)] + [pow(ri, i, a) for i in range(1, e + 1)]
+            vals = {v * m % a for v in vals for m in mults}
+        return vals
+
+    tot = fails = 0
+    for a in range(3, 128, 4):
+        orbs = orbits(a)
+        for x in range(1, XM + 1):
+            if gcd(x, a) != 1:
+                continue
+            tot += 1
+            if (a - 1) in rat(facs[x], a):
+                continue
+            fails += 1
+            C = {r % a for r in facs[x]}
+            assert (a - 1) not in C and not any((C & h1) and (C & h2) for h1, h2 in orbs), ("XWIN Lemma 1.1", a, x, C)
+    assert (6) not in rat(facs[17], 7) and {17 % 7} <= {1, 3, 5}, "XWIN Remark (i)"
+    assert 0 < fails < tot
+    print(f"cv orbit structure / |S_sigma| = phi/2 / 2^beta selections for {nA} a = 3 (4) <= 399; "
+          f"Lemma 1.1 on {tot} (a, x), a <= 127, x <= {XM}: {fails} with -1 notin Rat_a(x), all confined; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cv) POINTWISE_XWIN §1.1: Klein orbits, beta(a), half-set Lemma 1.1 brute force ==")
+check_cv()
+
+
+# ---------------------------------------------------------------- (cw)
+# POINTWISE_WINDOW2.md (cf. scripts/review_w2_norms.py, review_w2_certify.py, window2_verify.py).
+# (1) Lemma 1.2 (norm forms): for n <= 20000, 3 !| n: no prime factor = 2 (3) <=> n = a^2+ab+b^2
+#     with gcd(a,b) = 1; 7 !| n: no prime factor r with (r|7) = -1 <=> n = c^2+cd+2d^2,
+#     gcd(c,d) = 1; and for every Mordell-hard prime p < 10^5 (p mod 840 in the six square
+#     classes): n_7 = n_3 + 1, 3 !| n_3, 7 !| n_7.
+# (2) Prop 3.7 certificate (data/window2/fake_eps0.1_K8_theta0.5.json.gz), model rebuilt from
+#     the text of §§3.1/3.3/3.5 (tie-break g_k *= 1 + 1e-7 k, clip max(1 - s, 1e-3)): the
+#     dump's 12769 configurations = all even-even pairs with sum < 1, mu agrees, nu >= 0,
+#     nu(empty) = 0, all 89 visible correlations matched; 60-digit re-solve of the square
+#     89 x 89 system on the support is positive and agrees with the dump.
+
+def check_cw():
+    from time import perf_counter
+    import gzip
+    import json
+    import os
+    import mpmath as mp
+    from math import comb
+    t0 = perf_counter()
+
+    # (1)
+    NN = 20000
+    rep3, rep7 = bytearray(NN + 1), bytearray(NN + 1)
+    Bd = isqrt(4 * NN) + 2
+    for a in range(-Bd, Bd + 1):
+        for b in range(0, Bd + 1):
+            if gcd(a, b) != 1:
+                continue
+            v = a * a + a * b + b * b
+            if 0 < v <= NN:
+                rep3[v] = 1
+            v = a * a + a * b + 2 * b * b
+            if 0 < v <= NN:
+                rep7[v] = 1
+    n3 = n7 = 0
+    for n in range(1, NN + 1):
+        f = factorint(n)
+        if n % 3:
+            assert all(r % 3 != 2 for r in f) == bool(rep3[n]), ("WINDOW2 Lemma 1.2, Q(sqrt-3)", n)
+            n3 += 1
+        if n % 7:
+            assert all(jacobi_symbol(r, 7) != -1 for r in f) == bool(rep7[n]), ("WINDOW2 Lemma 1.2, Q(sqrt-7)", n)
+            n7 += 1
+    nh = 0
+    for p in primerange(3, 100_000):
+        if p % 840 in SIX:
+            m3, m7 = (p + 3) // 4, (p + 7) // 4
+            assert (p + 3) % 4 == 0 and m7 == m3 + 1 and m3 % 3 and m7 % 7, ("WINDOW2 Lemma 1.2 coprimality", p)
+            nh += 1
+
+    # (2)
+    mp.mp.dps = 60
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "window2", "fake_eps0.1_K8_theta0.5.json.gz")
+    with gzip.open(path, "rt") as fh:
+        d = json.load(fh)
+    eps, K, theta = mp.mpf(d["eps"]), d["K"], mp.mpf(d["theta"])
+    assert (d["eps"], K, d["theta"]) == (0.1, 8, 0.5)
+    e = [mp.e ** (mp.log(eps) * (1 - mp.mpf(i) / K)) for i in range(K + 1)]
+    g = [mp.sqrt(e[i] * e[i + 1]) * (1 + mp.mpf("1e-7") * (i + 1)) for i in range(K)]
+    w = [mp.log(e[i + 1] / e[i]) / 2 for i in range(K)]
+    assert max(abs(a - mp.mpf(b)) for a, b in zip(g, d["g"])) < 1e-12, "WINDOW2 bins"
+    W1 = [m for m in cartesian_product(*[range(int(1 / g[k]) + 1) for k in range(K)])
+          if sum(mk * gk for mk, gk in zip(m, g)) < 1 and sum(m) % 2 == 0]
+    C = [(tuple(c[0]), tuple(c[1])) for c in d["configs"]]
+    assert len(C) == len(W1) ** 2 == 12769 and set(C) == {(a, b) for a in W1 for b in W1}, "WINDOW2 config set"
+
+    def muw(m):
+        v = max(1 - sum(mk * gk for mk, gk in zip(m, g)), mp.mpf("1e-3")) ** mp.mpf(-0.5)
+        for k in range(K):
+            v *= w[k] ** m[k] / mp.factorial(m[k])
+        return v
+    muW = {m: muw(m) for m in W1}
+    mu = [muW[a] * muW[b] for a, b in C]
+    assert max(abs(x - mp.mpf(y)) / x for x, y in zip(mu, d["mu"])) < 1e-9, "WINDOW2 mu"
+    j0 = C.index((tuple([0] * K), tuple([0] * K)))
+    assert min(d["nu"]) >= 0 and d["nu"][j0] == 0, "WINDOW2 Prop 3.7: nu >= 0, nu(empty) = 0"
+    supp = [j for j, x in enumerate(d["nu"]) if x > 0]
+    V1 = [m for m in cartesian_product(*[range(int(theta / g[k]) + 1) for k in range(K)])
+          if sum(mk * gk for mk, gk in zip(m, g)) <= theta]
+    gs = {m: sum(mk * gk for mk, gk in zip(m, g)) for m in V1}
+    VIS = [(a, b) for a in V1 for b in V1 if gs[a] + gs[b] <= theta]
+    assert len(VIS) == len(supp) == 89, ("WINDOW2 Prop 3.7 sizes", len(VIS), len(supp))
+
+    def emb(S, Cw):
+        r = 1
+        for sk, ck in zip(S, Cw):
+            if sk > ck:
+                return 0
+            r *= comb(ck, sk)
+        return r
+    worst = mp.mpf(0)
+    Mx = mp.matrix(len(VIS), len(supp))
+    for i, S in enumerate(VIS):
+        rm = mp.mpf(0)
+        rn = mp.mpf(0)
+        for j, (a, b) in enumerate(C):
+            t = emb(S[0], a)
+            if t:
+                t *= emb(S[1], b)
+                rm += t * mu[j]
+                rn += t * mp.mpf(d["nu"][j])
+        assert rm > 0
+        worst = max(worst, abs(rn - rm) / rm)
+        for k, j in enumerate(supp):
+            Mx[i, k] = emb(S[0], C[j][0]) * emb(S[1], C[j][1]) * mu[j] / rm
+    assert worst < 1e-12, ("WINDOW2 Prop 3.7 float residual", worst)
+    xs = mp.lu_solve(Mx, mp.matrix([1] * len(VIS)))
+    res = max(abs(t) for t in (Mx * xs - mp.matrix([1] * len(VIS))))
+    dev = max(abs(xs[k] - mp.mpf(d["nu"][j]) / mu[j]) / xs[k] for k, j in enumerate(supp))
+    assert min(xs) > 0.15 and res < mp.mpf("1e-40") and dev < 1e-9, ("WINDOW2 Prop 3.7 hp re-solve", min(xs), res, dev)
+    print(f"cw Lemma 1.2: {n3} + {n7} n <= {NN} (norm forms of Z[omega], Z[(1+sqrt-7)/2]); {nh} hard p < 1e5 coprime")
+    print(f"cw Prop 3.7: {len(C)} configs, nu(empty) = 0, nu >= 0, {len(VIS)} visible correlations, float residual "
+          f"{float(worst):.1e}; 60-digit re-solve: min nu/mu = {float(min(xs)):.4f}, max = {float(max(xs)):.0f}, "
+          f"vs dump {float(dev):.1e}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cw) POINTWISE_WINDOW2: Lemma 1.2 norm forms, Prop 3.7 certified fake (re-solve) ==")
+check_cw()
+
+
+# ---------------------------------------------------------------- (cx)
+# EXCEPTIONAL_INTERFREQ2.md (cf. scripts/interfreq2_checks.py (1), review_if2_ex32.py,
+# review_if2_c11.py, review_if2_spw.py).
+# (1) Example 3.2: 1[n = 0 (21)] = 1[0 (7)] - 1[1 (3)] - 1[2 (3)] + sum of 12 classes mod 21
+#     on n in [-2000, 2000); at N = 20 the hybrid charge (exact small counts + beta*) is 0, all
+#     12 large classes are full; the class written as itself costs 1.
+# (2) Lemma 3.1 sign rule (3.1) on 300 random representations (N = 20, moduli <= 70).
+# (3) [scipy] Rigidity: every mu in M(2520) at N = 20 has mu(0 mod 21) = 0 and mu(r mod 21) = 1
+#     (r = 1..20, LP min = max); Consequence: N + 1 = d1 d2 (N = 11, 14, 19) on Z/(N+1).
+# (4) Lemma 9.3: sigma_C(N) = min_q (1 - ceil(N/q)/k_q) equals 2/5 at C = 2 and 0 at C = 1 for
+#     12 <= N <= 300; [scipy] the SPW LP projected to Z/Q' (Q' = 300, 840, 2520 containing a
+#     minimising lift modulus k_q q) has sigma_max <= sigma_C(N).
+
+def check_cx():
+    from time import perf_counter
+    import random as _random
+    import numpy as np
+    t0 = perf_counter()
+    try:
+        from scipy.optimize import linprog
+        from scipy.sparse import coo_matrix
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    def cnt(b, d, N):                        # #{1 <= n <= N : n = b (d)}
+        first = b % d if b % d else d
+        return 0 if first > N else (N - first) // d + 1
+
+    def bstar(a, d, N):
+        return a * (-(-N // d)) if a > 0 else a * (N // d)
+
+    def bhyb(terms, N):
+        return sum(a * cnt(b, d, N) if 2 * d <= N else bstar(a, d, N) for a, b, d in terms)
+
+    # (1)
+    N = 20
+    terms = [(1, 0, 7), (-1, 1, 3), (-1, 2, 3)] + [(1, b, 21) for b in range(21) if b % 3 and b not in (7, 14)]
+    assert len(terms) == 15
+    for n in range(-2000, 2000):
+        assert sum(a for a, b, d in terms if (n - b) % d == 0) == (n % 21 == 0), ("INTERFREQ2 Ex 3.2 identity", n)
+    assert bhyb(terms, N) == 0 and bhyb([(1, 0, 21)], N) == 1, "INTERFREQ2 Ex 3.2 charge"
+    assert all(cnt(b, d, N) == -(-N // d) for a, b, d in terms if d == 21), "INTERFREQ2 Ex 3.2 full"
+
+    # (2)
+    rng = _random.Random(32)
+    for _ in range(300):
+        T = [(rng.choice([-3, -2, -1, 1, 2, 3]), rng.randrange(70), rng.randrange(1, 71)) for _ in range(rng.randint(1, 12))]
+        exact = sum(a * cnt(b, d, N) for a, b, d in T)
+        pen = 0
+        for a, b, d in T:
+            if 2 * d > N:
+                c, u, l = cnt(b, d, N), -(-N // d), N // d
+                pen += abs(a) * ((a > 0 and c == l and c != u) or (a < 0 and c == u and c != l))
+        assert bhyb(T, N) == exact + pen, ("INTERFREQ2 Lemma 3.1", T)
+
+    # (4) sigma_C(N)
+    def sigC(N, C):
+        return min(1 - Fraction(-(-N // q), int(C * N) // q + 1) for q in range(1, N // 2 + 1))
+    for NN in range(12, 301):
+        assert sigC(NN, 2) == Fraction(2, 5) and sigC(NN, 1) == 0, ("INTERFREQ2 Lemma 9.3 sigma_C", NN)
+
+    lp = []
+    if have_scipy:
+        def M_lp(N, Qp, objrow, sense):      # extremes of objrow.mu over M(Qp)
+            er, ec, ev, beq, ur, uc, uv, bub = [], [], [], [], [], [], [], []
+            lam = np.zeros(Qp)
+            for m in range(1, N + 1):
+                lam[m % Qp] += 1
+            for d in (d for d in range(1, Qp + 1) if Qp % d == 0):
+                for b in range(d):
+                    idx = list(range(b, Qp, d))
+                    if 2 * d <= N:
+                        er += [len(beq)] * len(idx); ec += idx; beq.append(lam[b::d].sum())
+                    else:
+                        for sg, bd in ((1, -(-N // d)), (-1, -(N // d))):
+                            ur += [len(bub)] * len(idx); uc += idx; uv += [sg] * len(idx); bub.append(bd)
+            Aeq = coo_matrix((np.ones(len(er)), (er, ec)), shape=(len(beq), Qp)).tocsr()
+            Aub = coo_matrix((uv, (ur, uc)), shape=(len(bub), Qp)).tocsr()
+            res = linprog(sense * objrow, A_ub=Aub, b_ub=bub, A_eq=Aeq, b_eq=beq, bounds=(0, None), method="highs")
+            assert res.status == 0, res.message
+            return sense * res.fun
+        for x in (0, 1, 7, 13, 20):
+            row = np.zeros(2520)
+            row[x::21] = 1
+            lo, hi = M_lp(20, 2520, row, 1), M_lp(20, 2520, row, -1)
+            assert abs(lo - (x != 0)) < 1e-7 and abs(hi - (x != 0)) < 1e-7, ("INTERFREQ2 rigidity", x, lo, hi)
+        for NN in (11, 14, 19):
+            row = np.zeros(NN + 1)
+            row[0] = 1
+            assert abs(M_lp(NN, NN + 1, row, -1)) < 1e-7, ("INTERFREQ2 Consequence N+1 = d1 d2", NN)
+
+        def spw(N, C, Qp):
+            P = Qp
+            er, ec, beq = [], [], []
+            for d in range(1, N // 2 + 1):
+                assert Qp % d == 0
+                for b in range(d):
+                    idx = list(range(b, Qp, d))
+                    er += [len(beq)] * len(idx); ec += idx; beq.append(cnt(b, d, N))
+            ur, uc, nb = [], [], 0
+            for d in (d for d in range(1, Qp + 1) if Qp % d == 0 and d > C * N):
+                for b in range(d):
+                    idx = list(range(b, Qp, d)) + [P]
+                    ur += [nb] * len(idx); uc += idx; nb += 1
+            Aeq = coo_matrix((np.ones(len(er)), (er, ec)), shape=(len(beq), P + 1)).tocsr()
+            Aub = coo_matrix((np.ones(len(ur)), (ur, uc)), shape=(nb, P + 1)).tocsr()
+            cobj = np.zeros(P + 1)
+            cobj[P] = -1
+            res = linprog(cobj, A_ub=Aub, b_ub=np.ones(nb), A_eq=Aeq, b_eq=np.array(beq, float),
+                          bounds=[(0, None)] * P + [(None, None)], method="highs")
+            assert res.status == 0, res.message
+            return -res.fun
+        for NN, C, Qp in ((12, 2, 300), (16, 2, 840), (20, 2, 2520), (16, 1, 840), (20, 1, 2520)):
+            sc = sigC(NN, C)
+            assert any(Qp % ((int(C * NN) // q + 1) * q) == 0 for q in range(1, NN // 2 + 1)
+                       if 1 - Fraction(-(-NN // q), int(C * NN) // q + 1) == sc)
+            s = spw(NN, C, Qp)
+            assert s <= float(sc) + 1e-7, ("INTERFREQ2 Lemma 9.3 vs SPW LP", NN, C, s, sc)
+            lp.append(f"N={NN},C={C}: {s:.4f}<={float(sc):.2f}")
+    print(f"cx Example 3.2 identity + charge 0; Lemma 3.1 on 300 random representations; sigma_C(N) = 2/5 (C = 2), "
+          f"0 (C = 1) for 12 <= N <= 300")
+    print("cx " + ("rigidity mu(0 mod 21) = 0, mu(r mod 21) = 1 (LP, Q' = 2520); N+1 = 12, 15, 20 vanish; SPW LP "
+                   + "; ".join(lp) if have_scipy else "LP parts skipped (no scipy)")
+          + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cx) EXCEPTIONAL_INTERFREQ2: Example 3.2, Lemma 3.1, rigidity, Lemma 9.3 ==")
+check_cx()
+
+
+# ---------------------------------------------------------------- (cy)
+# EXCEPTIONAL_LARGESIEVE2.md §§8-9 (cf. scripts/largesieve2_checks.py check (5), review_ls2b_gale.py,
+# review_ls2b_lp.py, review_ls2b_kernel.py).
+# (1) Lemma 8.1 (Gale): for D = l l' (5 <= l != l' <= 23), eta in {1/8, 1/9, 1/10, 1/20}, three a
+#     coprime to D, the band set S = {n : ||na/D|| <= 1/2 - eta} carries a probability with uniform
+#     marginals mod l and mod l' (exact integer max-flow, supplies l', demands l).
+# (2) Prop 8.2(a) on the tiny band family (l,l') = (5,7), (11,13), a = (2,3), eta = 1/8, 1/9:
+#     mu = mu_1 (x) mu_2 from (1) is supported on A and gives every class of an allowed modulus
+#     (at most one prime of each pair) exactly its uniform mass, so E_U nu = E_mu nu >= 1 for
+#     every level-lambda majorant (exact Fractions); [scipy] check (5) of largesieve2_checks.py
+#     (majorant LP min = 1, Lemma 8.3 polynomial) and the contrast LP with D_1 allowed (< 1).
+# (3) [scipy] Thm 9.1 inequality chain (*), (**) for arbitrary pi on random A in Z/1260 with
+#     the exact best S for the prefix moduli set (LP), 60 random kernels (>= 15 nontrivial;
+#     review_ls2b_kernel.py).
+
+def check_cy():
+    from time import perf_counter
+    import random as _random
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    from collections import deque
+    t0 = perf_counter()
+    try:
+        import numpy as np
+        from scipy.optimize import linprog
+        from scipy.sparse import coo_matrix
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+
+    def band(l1, l2, a, eta):
+        D = l1 * l2
+        return {n for n in range(D) if min(n * a % D, D - n * a % D) <= (Fraction(1, 2) - eta) * D}
+
+    def gale(l1, l2, S):                     # integer max-flow; returns flow dict or None
+        src, snk = ("s",), ("t",)
+        cap = {}
+        adj = {}
+
+        def edge(u, v, c):
+            cap[(u, v)] = cap.get((u, v), 0) + c
+            cap.setdefault((v, u), 0)
+            adj.setdefault(u, set()).add(v)
+            adj.setdefault(v, set()).add(u)
+        for x in range(l1):
+            edge(src, ("x", x), l2)
+        for y in range(l2):
+            edge(("y", y), snk, l1)
+        for n in S:
+            edge(("x", n % l1), ("y", n % l2), l1 * l2)
+        total = 0
+        while True:
+            par = {src: None}
+            dq = deque([src])
+            while dq and snk not in par:
+                u = dq.popleft()
+                for v in adj[u]:
+                    if v not in par and cap[(u, v)] > 0:
+                        par[v] = u
+                        dq.append(v)
+            if snk not in par:
+                break
+            path, v = [], snk
+            while par[v] is not None:
+                path.append((par[v], v))
+                v = par[v]
+            f = min(cap[e] for e in path)
+            for u, v in path:
+                cap[(u, v)] -= f
+                cap[(v, u)] += f
+            total += f
+        if total < l1 * l2:
+            return None
+        D = l1 * l2
+        mu = {}
+        for n in S:                          # flow on edge (x,y) = reverse residual capacity
+            fl = cap[(("y", n % l2), ("x", n % l1))]
+            if fl:
+                mu[n] = Fraction(fl, D)
+        return mu
+
+    # (1)
+    rng = _random.Random(8)
+    ps = list(primerange(5, 24))
+    ngale = 0
+    for l1, l2 in combinations(ps, 2):
+        D = l1 * l2
+        units = [a for a in range(1, D) if gcd(a, D) == 1]
+        for eta in (Fraction(1, 8), Fraction(1, 9), Fraction(1, 10), Fraction(1, 20)):
+            for a in rng.sample(units, 3):
+                for L1, L2 in ((l1, l2), (l2, l1)):
+                    mu = gale(L1, L2, band(L1, L2, a, eta))
+                    assert mu is not None, ("LARGESIEVE2 Lemma 8.1", L1, L2, a, eta)
+                    ngale += 1
+    assert gale(5, 7, band(5, 7, 1, Fraction(2, 5))) is None, "control: wide band infeasible"
+
+    # (2) Prop 8.2(a), exact
+    pairs, avals = [(5, 7), (11, 13)], (2, 3)
+    Mp = prod(a * b for a, b in pairs)
+    allowed = [c1 * c2 for c1 in (1, 5, 7) for c2 in (1, 11, 13)]
+    for eta in (Fraction(1, 8), Fraction(1, 9)):
+        mus = [gale(l1, l2, band(l1, l2, a, eta)) for (l1, l2), a in zip(pairs, avals)]
+        A = {n for n in range(Mp) if all(n % (l1 * l2) in band(l1, l2, a, eta) for (l1, l2), a in zip(pairs, avals))}
+        D1, D2 = 35, 143
+        mu = {}
+        for n1, m1 in mus[0].items():
+            for n2, m2 in mus[1].items():
+                n = (n1 * D2 * pow(D2, -1, D1) + n2 * D1 * pow(D1, -1, D2)) % Mp
+                mu[n] = m1 * m2
+        assert sum(mu.values()) == 1 and set(mu) <= A, "LARGESIEVE2 Prop 8.2(a): mu on A"
+        for d in allowed:
+            cls = Counter()
+            for n, m in mu.items():
+                cls[n % d] += m
+            assert all(cls[b] == Fraction(1, d) for b in range(d)), ("LARGESIEVE2 Prop 8.2(a) uniform marginal", d)
+        assert any(sum(m for n, m in mu.items() if n % D1 == b) != Fraction(1, D1) for b in range(D1)), "control: D_1 non-uniform"
+
+    msgs = []
+    if have_scipy:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "largesieve2_checks.py")
+        spec = importlib.util.spec_from_file_location("largesieve2_checks", path)
+        ls = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(ls)
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ls.check5()
+        assert buf.getvalue().count("level-lambda majorant LP min = 1.0000") == 2, buf.getvalue()
+        A8 = np.array([n in A for n in range(Mp)], float)   # eta = 1/9 family from (2)
+
+        def best_majorant(moduli):
+            cols = [(d, b) for d in moduli for b in range(d)]
+            idx = {c: j for j, c in enumerate(cols)}
+            r = [x for x in range(Mp) for d in moduli]
+            cc = [idx[(d, x % d)] for x in range(Mp) for d in moduli]
+            M = coo_matrix((np.ones(len(r)), (r, cc)), shape=(Mp, len(cols))).tocsr()
+            res = linprog(np.array([1.0 / d for d, b in cols]), A_ub=-M, b_ub=-A8, bounds=(None, None), method="highs")
+            assert res.status == 0
+            return res.fun
+        v_low, v_hi = best_majorant([55, 65, 77, 91]), best_majorant([35, 11, 13])
+        assert v_low >= 1 - 1e-9 and v_hi < 0.99, ("LARGESIEVE2 Prop 8.2(a) LP / contrast", v_low, v_hi)
+        msgs.append(f"check (5) OK; LP level < L_i: {v_low:.6f}, with D_1: {v_hi:.4f}")
+
+        # (3) Thm 9.1 chain
+        PR, Q = [2, 3, 5, 7], 1260
+        divs = [d for d in range(2, Q + 1) if Q % d == 0]
+
+        def prefix(q, N):
+            cur = 1
+            for p in PR:
+                while q % p == 0:
+                    cur *= p
+                    q //= p
+                if cur >= N:
+                    return cur
+            return cur
+
+        def best_S(pi, Dset):
+            Dset = sorted(Dset)
+            cols = [(d, b) for d in Dset for b in range(d)]
+            idx = {c: j for j, c in enumerate(cols)}
+            r = [x for x in range(Q) for d in Dset]
+            cc = [idx[(d, x % d)] for x in range(Q) for d in Dset]
+            M = coo_matrix((np.ones(len(r)), (r, cc)), shape=(Q, len(cols))).tocsr()
+            eU = np.array([1.0 / d for d, b in cols])
+            res = linprog(-(M.T @ pi), A_ub=-M, b_ub=np.zeros(Q), A_eq=eU[None, :], b_eq=[1.0],
+                          bounds=(None, None), method="highs")
+            assert res.status == 0
+            return log(-res.fun)
+        nprng = np.random.default_rng(91)
+        ntr, worst = 0, 1e9
+        for _ in range(60):
+            N = int(nprng.choice([6, 10, 15, 25, 40]))
+            Aset = nprng.random(Q) < nprng.choice([0.3, 0.6, 0.9])
+            pi = nprng.random(Q) ** int(nprng.choice([1, 4])) * Aset
+            pi /= pi.sum()
+            Smod = [int(v) for v in nprng.choice(divs, size=int(nprng.integers(2, 7)), replace=False)]
+            wq = {q: float(nprng.random()) for q in Smod}
+            Slt = [q for q in Smod if q < N]
+            Dset = {1} | {lcm(a, b) for a in Slt for b in Slt} | {prefix(q, N) for q in Smod if q >= N}
+            S = max(0.0, best_S(pi, Dset))
+            WK = sum(wq.values())
+            h = max(sum(wq[q] for q in Smod if m % q == 0) for m in range(1, N))
+            Dpi = sum(wq[q] * float(np.sum(np.bincount(np.arange(Q) % q, weights=pi, minlength=q) ** 2)) for q in Smod)
+            if WK <= h or Dpi <= h:
+                continue
+            ntr += 1
+            rhs = (WK - h) / N + exp(S) * (h + WK / N)
+            B, Bcap = (WK - h) / (Dpi - h), (N / 2) * exp(-S) / (1 + N * h / (WK - h))
+            assert Dpi - h <= rhs + 1e-9 and B >= Bcap - 1e-9, ("LARGESIEVE2 Thm 9.1 chain", N, Smod, S)
+            worst = min(worst, rhs / (Dpi - h), B / Bcap)
+        assert ntr >= 15, ("LARGESIEVE2 Thm 9.1: too few nontrivial trials", ntr)
+        msgs.append(f"Thm 9.1 chain on {ntr} random kernels, min slack ratio {worst:.3f}")
+    print(f"cy Lemma 8.1: {ngale} band sets (l, l' <= 23) Gale-feasible; Prop 8.2(a): exact mu on A mod {Mp} with "
+          f"uniform marginals on all {len(allowed)} allowed moduli (eta = 1/8, 1/9)")
+    print("cy " + ("; ".join(msgs) if have_scipy else "LP parts skipped (no scipy)") + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (cy) EXCEPTIONAL_LARGESIEVE2 §§8-9: Lemma 8.1 Gale, Prop 8.2(a) exact measure, check (5), Thm 9.1 chain ==")
+check_cy()
 
 
 print("\nall checks passed")

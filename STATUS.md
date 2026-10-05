@@ -124,10 +124,16 @@ moduli are `≤ exp((log p)^{1/7−ε})` can prove ES. The heuristic truth is `l
   POINTWISE_OMEGA5/WINDOW checks (KARY B*/Thm 2.5 LPs need scipy; OMEGA3 is (cc)).
 * `verify.py` blocks (cp)–(ct) (O35, ~10–20 s) add EXCEPTIONAL_TUPLES2 (forms, Cor 1.2,
   Thm 4.1 Euler-characteristic identity), EXCEPTIONAL_KARY3 (Lemmas 2.1–2.3 steps, §8 data),
-  EXCEPTIONAL_LARGESIEVE2 §§1–7 (LP/Bessel parts need scipy; §§8–9 not replayed),
+  EXCEPTIONAL_LARGESIEVE2 §§1–7 (LP/Bessel parts need scipy; §§8–9 are (cy)),
   POINTWISE_OMEGA8 §§1–5 (BRW Lemma 3.1, c_W formula, exponent bookkeeping) and
   POINTWISE_TYPEI (Lemma 1.1, Thm 6.1, census spot check). Full run ≈ 4.3 min;
   use `OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2` on the shared machine.
+* `verify.py` blocks (cu)–(cy) (O43, ~25 s) add POINTWISE_OMEGA9 (Thm 1.1 character
+  coefficients on a toy mod 2520, Lemma 2.1, Case A, exponent bookkeeping), POINTWISE_XWIN
+  (half-set Lemma 1.1, a ≤ 127, x ≤ 2·10⁴), POINTWISE_WINDOW2 (Lemma 1.2 norm forms; Prop 3.7
+  certificate re-solved at 60 digits), EXCEPTIONAL_INTERFREQ2 (Example 3.2, Lemma 3.1, rigidity
+  LP, Lemma 9.3) and EXCEPTIONAL_LARGESIEVE2 §§8–9 (Gale Lemma 8.1, Prop 8.2(a) exact measure,
+  Thm 9.1 chain; LPs need scipy). Full run ≈ 4.2 min (O43, 2 threads).
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
