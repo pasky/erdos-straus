@@ -106,13 +106,16 @@ contributes at most `Π_b c_{|b|} Σ_{p≤y} γ'(p)(log p)^{|b|}/p ≤
     Σ_{K<M≤2K, M≡3 (4), P(M)≤y} τ(A_M²)Γ(M) ≤ C_k(W) · K (log K)² · u^{−k}.
 
 *Proof.* Write `Σ*` for the sum. By Lemma 2.1,
-`Σ* ≤ Σ₁ + (2/u)^k Σ₂`, with `Σ₁` over `M ∈ (K,2K]` with
-`S_y(M) > K^{1/2}`, and `Σ₂ = Σ_{K<M≤2K, M≡3(4)} τ(A_M²)Γ(M)Z_y(M)^k`
+`Σ* ≤ Σ₁ + (2/u)^k Σ₂`, with `Σ₁` over the **y-smooth** `M ∈ (K,2K]` with
+`S_y(M) > K^{1/2}` (smoothness must be kept here: for non-smooth M,
+`S_y(M)` need not be squarefull; review D4), and `Σ₂ = Σ_{K<M≤2K, M≡3(4)} τ(A_M²)Γ(M)Z_y(M)^k`
 (smoothness dropped).
 
 *Σ₁.* Pointwise `τ(A_M²)Γ(M) ≤ τ(A_M)²·8·3^{ω(M)} ≤ C_εK^ε`. The number
 of squarefull `s ≤ t` is `≤ c t^{1/2}`, so `Σ_{s squarefull > Z}1/s ≤ c'Z^{−1/2}`
-and `#{M ≤ 2K : S_y(M) > K^{1/2}} ≤ Σ_{s sqfull > K^{1/2}} 2K/s ≤ c''K^{3/4}`.
+and, since for y-smooth M the number `S_y(M)` is a squarefull divisor of M
+(Lemma 2.1),
+`#{M ≤ 2K : P(M) ≤ y, S_y(M) > K^{1/2}} ≤ Σ_{s sqfull > K^{1/2}} 2K/s ≤ c''K^{3/4}`.
 So `Σ₁ ≤ CK^{4/5}`.
 
 *Σ₂.* Expanding `Z^k` and `Γ = 1∗h`,
@@ -191,8 +194,8 @@ as the Prop 1.4 that K2 already uses, and Prop 1.4 is proved from them):
 Pointwise `τ(4rh²+1)Γ(4rh) ≤ C_εK^ε` (`4rh²+1 ≤ 17K²`). Split the pairs.
 
 *(i) `r ≥ K^{1/4}`.* Then `h ≤ 2K^{3/4}`, r is y-smooth, and
-`1 ≤ 1[S_y(r) > K^{1/8}] + (8Z_y(r)/u)^k`. The pairs with
-`S_y(r) > K^{1/8}` number `≤ Σ_{h≤2K}Σ_{s sqfull > K^{1/8}} 2K/(hs) ≪
+`1 ≤ 1[S_y(r) > K^{1/8}] + (8Z_y(r)/u)^k`. The pairs with r y-smooth and
+`S_y(r) > K^{1/8}` (so r has a squarefull divisor `> K^{1/8}`) number `≤ Σ_{h≤2K}Σ_{s sqfull > K^{1/8}} 2K/(hs) ≪
 K^{1−1/16}log K`; with the pointwise bound they give `≪ K^{1−1/20}`. The
 moment part, smoothness and the lower bound `rh > K` dropped, is at most
 
@@ -212,7 +215,8 @@ Cor 7.4 (l = 14) gives `≪ R' log R' ≤ 2K log K/(hL)`. Summing over
 `C_k(W)[K(log K)²u^{−k} + K^{1−1/80}]`.
 
 *(ii) `r < K^{1/4}`.* Then `h > K^{3/4}/2 ≥ K^{1/2}`, h is y-smooth, and
-`1 ≤ 1[S_y(h) > K^{1/4}] + (4Z_y(h)/u)^k`. The squarefull pairs give
+`1 ≤ 1[S_y(h) > K^{1/4}] + (4Z_y(h)/u)^k`. The pairs with h y-smooth and
+`S_y(h) > K^{1/4}` (squarefull divisor of h) give
 `≪ K^{1−1/20}` as in (i). The moment part is at most
 
     8(4/u)^k (log y)^{−k} Σ_{d} ΠΛ(d_i) Σ_{s,t} h(s)h(t)
