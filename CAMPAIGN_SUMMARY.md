@@ -363,33 +363,31 @@ factor quoted in this subsection can be dropped.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)21, KARY2 §6, NONCRT §6 and STATUS.md.
-A proof of `θ > 3/4` would need at least one of the following:
-* **Multi-witness tuple counting above modulus N.** Interval cancellation
-  is now known to be worthless for classes of modulus `≤ N/2` ((D)20).
-  The live form is TC_θ with `θ > 3/4` ((D)21, CONJECTURE). It needs
-  correlation input of growing order. Bounded-order input cannot help.
-  The earlier NONCRT Thm 8.1 dichotomy (PROVED) and §8.3 (EVIDENCE: no
-  inter-frequency gain in one tested family) point the same way.
+The sources are ledger (D)18–(D)26, KARY2 §6, NONCRT §6 and STATUS.md.
+The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
+coefficient-sum sieves, large sieves of every Bessel type, prime-only
+majorants, and interval cancellation at moduli `≤ N/2`. A proof of
+`θ > 3/4` would need at least one of the following:
+* **Tuple counts of growing order.** The live form is the alternating
+  hypothesis TC^alt_θ with `θ > 3/4` ((D)23; the literal TC_θ is
+  obstructed above 2/3 by forced zeros). Bounded-order input cannot help
+  ((D)21), and accuracy is needed at moduli `exp(c(log N)^{3θ/2})`, beyond
+  any known theorem (Assessment).
+* **Super-polynomial large-sieve levels.** H_LS∞ for forced families
+  ((D)25, **CONJECTURE**). The band-family example proves that a cap must
+  use the sparsity of forced families; abstract large-sieve axioms do not
+  suffice.
+* **Hybrid interval methods.** Capped if weak SPW holds ((D)26, PROVED
+  implication). Weak SPW is open; the fixed-σ version is refuted.
+  Right-signed mass at moduli in `(N, CN]` is also open.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
-  Thm 2.3): coefficient sums, the sawtooth bound, and complete
-  Gauss/Kloosterman sums. Weights `< 1` are open, except in a smooth-window
-  case that is CONDITIONAL on an equidistribution conjecture.
-* **Genuinely arithmetic, non-CRT input**, of a kind other than the
-  tuple counts above.
-* **Other ingredients outside the class:**
-  * large-sieve escapes listed in (D)19: super-polynomial frequency
-    levels against multi-large-prime classes (H_LS), the larger sieve
-    over mixtures, twisted/hybrid forms;
-  * hybrid interval methods that charge large classes only their trivial
-    count ((D)20);
-  * majorants that are `≥ 1` only on `[1,N]` or only on exceptional
-    primes (majorants `≥ 1` only on primes *are* capped, NONCRT
-    Thms 3.2–3.3, so BV/BDH/EH/GRH-level prime inputs do not help);
-  * class types other than the four above;
-  * family primes beyond `N^{O(1)}`.
-* **A sharper constant without `B`.** For general moduli the cap carries
-  a factor `(log log N)^{3/4}`. Whether it can be removed is open.
+  Thm 2.3). Weights `< 1` are open, except a smooth-window case that is
+  CONDITIONAL on an equidistribution conjecture.
+* **Genuinely arithmetic, non-CRT input** of another kind.
+* **Other ingredients outside the class:** majorants with `ν ≥ 0` only
+  at primes `≤ N` when the period exceeds `N^c` (Assessment: open);
+  composite Gallagher kernels with huge `Nh/(W_K−h)`; class types other
+  than the four above; family primes beyond `N^{O(1)}`.
 
 Model-only remark: the a-frame/multiplicative route sits at
 `θ* ≈ 0.52` under its model, below 3/4 (**Assessment**, ET §5.2). The
