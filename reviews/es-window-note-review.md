@@ -107,3 +107,39 @@ all primes p≡1 (4), p<1200, and all a<3p (39 645 pairs); Lemma 2.6 checked the
 Remark 3.2(i) example (a=7,x=17,p=61) confirmed.
 
 ## Defects
+
+### MAJOR
+
+**M1 (abstract/intro overclaim about two windows).** Abstract, sentence "Unconditionally,
+two windows run into the parity problem: we exhibit two explicit sets of primes … of which
+one has window 3 failing for ≫x/(log x)^{3/2} elements and the other for none." The
+evidence offered (Thm 8.2 = Theorem D) concerns *one* window and shows that parity is a
+*necessary input*, which W1 then supplies; it proves nothing about two windows being
+blocked. The only two-window obstruction in the note is the model computation (Remark 9.5,
+weakest EVIDENCE) and Remark 8.3 (again "parity is necessary", not "insufficient"). As
+written, a reader takes the abstract to claim an unconditional two-window parity barrier
+about primes, which would violate the note's own labelling rule ("nothing model-level
+presented as a theorem about primes"). Similarly intro after Thm D: "for which the same
+mechanism needs a level of distribution close to 1; this is why Theorem C is conditional"
+states a necessity that is not proved. *Repair:* rewrite the abstract sentence as e.g.
+"The parity of the bad part is a necessary input: we exhibit two explicit sets of primes
+with the same sieve data …, of which one has window 3 failing … and the other for none.
+For two windows our method needs a level of distribution close to 1; a model computation
+suggests…"; in the intro say "our method needs … this is why our proof of Theorem C is
+conditional". Consider retitling "…and the role of parity".
+
+**M2 (missing classical literature / priority context for §4).** The note never cites
+Vaughan (Mathematika 17 (1970)), whose large-sieve bound E(N)≪N exp(−c(log N)^{2/3}) for
+the ES exceptional set is the classical instance of exactly the mechanism of §4 (sieving
+shifted primes p+a by residue conditions over many moduli simultaneously) and is cited in
+the sister paper `pointwise-obstruction.tex`. Nor does Remark 4.5 mention that the
+(log log N)² shape already appears in notes Thm 12.2 for the set {a_min=∞} (windows up to
+δ log N). The note's tails concern the different, larger sets {a_min>Z}, so nothing is
+pre-empted, but a referee/reader needs the comparison: (i) for a_min=∞ the classical
+bound is far stronger than anything in §4; (ii) Theorems 4.2/4.4 are, as far as I can
+tell, new as statements about the *window tail at fixed or slowly growing Z*, and their
+novelty is the half-set lemma that makes the exponent exact. *Repair:* add a paragraph in
+§1 or Remark 4.5 citing Vaughan 1970 (and Elsholtz–Tao for counting), notes Thm 12.2, and
+stating precisely what is new. Note Vaughan's paper could not be accessed in this project
+(`sources/vaughan-1970-access-log.md`), so the comparison must be stated at the level of
+the published bound only.
