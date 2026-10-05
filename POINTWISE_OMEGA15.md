@@ -1,6 +1,6 @@
 # Beyond low-conductor minorants? A Wiener-norm barrier at `𝓛^4` (task O57)
 
-Status: CHECKPOINT 1 (for parent review; self-review R57 by a deep reviewer subagent: no FATAL, MAJOR scope issues repaired). Labels as in DISCOVERIES.md. Notation as in
+Status: CHECKPOINT 1 (for parent review; self-review R57-self by a deep reviewer subagent; parent review R57 `reviews/pointwise-omega15-review.md`: no FATAL, M1–M3 and minors repaired). Labels as in DISCOVERIES.md. Notation as in
 POINTWISE_OMEGA14.md (O14) and POINTWISE_OMEGA13.md (O13): `𝓛=log T`; Haar measure P on the
 fibre `H={n≡r (Q)}⊂Ẑ^×`; F = indicator that no ES event `E_{M,D}={n≡−4D (M)}`, `M≤T`, holds;
 *big* coordinates `X_ℓ`, ℓ prime, `ℓ>T^{0.6}`, `ℓ∤Q`; *small* coordinates = all others (x_s).
@@ -14,12 +14,21 @@ minorants of unbounded level. The brief asks for the weakest extension not cover
 Main finding (§1): the planted law of O14 §4 is not only exact on low-level statistics, it is
 **exponentially pseudorandom against every reduced product (Def 1.0) of high level**: its
 deviation from Haar on any residue class, Dirichlet character or additive character, of *any*
-modulus, is `≤(8r*)^{k+1}=exp(−c𝓛^4/log𝓛)`. Consequently the level hypothesis in O14 Thm 4.5 can
+modulus, is `≤(4r*)^{k+1}=exp(−c𝓛^4/log𝓛)`. Consequently the level hypothesis in O14 Thm 4.5 can
 be replaced by a **Wiener-type norm**: every minorant `B≤F` (any level) has
 `E B ≤ e^{−c𝓛^4/log𝓛}·‖B‖_×`, where `‖B‖_×` is the ℓ¹-norm of the coefficients of B in residue
-classes / characters. This disposes of GRH-strength transfers, Siegel-zero main terms, and
-Fourier (minor-arc) transfers of the Maynard type, as long as they act linearly on a minorant
-(or on F itself). What remains outside is listed precisely in §5.
+classes / characters.
+
+Scope of the consequences (§2–§3): **linear certificates (Def 2.1) with full-orbit uniform
+accuracy** — one error bound for all classes (characters, additive characters) of a given
+modulus, the standard sieve-remainder accounting. For such certificates the positive mean of a
+minorant must live on moduli `>x` (Thm 1.2 / O14 Thm 4.5), where no orbit-uniform statement about
+the primes beats the trivial bound (Lemma 2.3) — so the strength of the prime input (GRH etc.)
+plays no role *within this class, by construction*; Thm 1.2 says the trivial bounds cannot pay for
+the minorant. Siegel-zero main terms are handled the same way (Thm 3.1). Certificates that use the
+atomicity, integrality or support of the prime measure (e.g. that classes mod `q>x` with least
+representative `>x` are empty), non-periodic structure, or non-linear arguments are **not**
+covered; see §6.
 
 ## 1. The planted perturbation is pseudorandom
 
@@ -68,9 +77,8 @@ Finally, with `m:=|I|≥k+1` and `|γ_b|≤1/2`,
 `Σ_{J⊆I,|J|=k+1}∏_{b∈I∖J}|γ_b| ≤ C(m,k+1)2^{−(m−k−1)} ≤ 2^m2^{−(m−k−1)} = 2^{k+1}`.
 Since `P_0≤1` and `|h_s|≤1`,
 `|E_{ρ_{x_s}}h| ≤ r*^{k+1}·2^{k+1}·2^{k+1}=(4r*)^{k+1}`. Average over x_s (the factor `h_s(x_s)`
-is x_s-measurable, `|h_s|≤1`): `|E_ρh|≤(4r*)^{k+1}≤(8r*)^{k+1}`. ∎
+is x_s-measurable, `|h_s|≤1`): `|E_ρh|≤(4r*)^{k+1}`. ∎
 
-(The proof gives `(4r*)^{k+1}`; we keep `8r*` as slack for the Siegel variant in §3.)
 
 **Theorem 1.2 (Wiener-norm barrier; PROVED modulo (G), the effective Page bound and the
 fundamental lemma — the inputs of O14 Thm 4.5).** There are absolute `c,T_0>0` such that for
@@ -86,8 +94,8 @@ big part involves `≥k+1≍𝓛^3/log𝓛` big primes (so of modulus `>T^{0.6(k
 
 *Proof.* O14 Thm 4.5's proof shows `R(x)≥μ*:=c_9ε³𝓛³/log𝓛` for every small configuration x
 on H, with `p*≤T^{−0.09}`. Take `k+1:=⌊μ*/2⌋`; then (1.0) holds for T large. By O14 Lemma 4.1
-`E_νF=0`, hence `E_νB≤0`, and `E_HB=E_νB−E_ρB≤Σ_i|c_i||E_ρh_i|≤(8r*)^{k+1}Σ|c_i|` by Lemma 1.1.
-With `8r*≤16T^{−0.09}/(1−T^{−0.09})≤T^{−0.08}`: `(8r*)^{k+1}≤exp(−0.08𝓛(μ*/2−1))=exp(−c𝓛^4/log𝓛)`. ∎
+`E_νF=0`, hence `E_νB≤0`, and `E_HB=E_νB−E_ρB≤Σ_i|c_i||E_ρh_i|≤(4r*)^{k+1}Σ|c_i|` by Lemma 1.1.
+With `4r*≤8T^{−0.09}/(1−T^{−0.09})≤T^{−0.08}`: `(4r*)^{k+1}≤exp(−0.08𝓛(μ*/2−1))=exp(−c𝓛^4/log𝓛)`. ∎
 
 *Remarks.* (i) Level-D functions (O14 Setting 2.0) with `log D≤0.6𝓛k` are combinations of
 reduced products with `|I|≤k`, on which `E_ρ=0`: Thm 1.2 contains O14 Thm 4.5 (norm-free there).
@@ -109,12 +117,12 @@ measure `m_x:=Σ_{p≤x,p∈H,p∤𝒬}δ_p` is nonnegative of mass `N_x`, (ii) 
 from `B=Σc_ih_i≤F`, `h_i∈𝒽`, it concludes `Σ_pF(p)≥Σ_pB(p)≥N_xE_HB−𝔈Σ|c_i|>0`.)
 
 **Theorem 2.2 (no linear certificate at accuracy `𝔈≥N_xη`; PROVED, same inputs as Thm 1.2).** In
-the setting of Thm 1.2, if `𝔈≥N_x·(8r*)^{k+1}` (in particular if `𝔈≥N_xη`), then
+the setting of Thm 1.2, if `𝔈≥N_x·(4r*)^{k+1}` (in particular if `𝔈≥N_xη`), then
 `m_ν:=N_xν` is 𝒽-consistent at accuracy 𝔈 for *every* family 𝒽 of reduced products, and
 `∫F dm_ν=0`. Hence every valid linear certificate has `𝔈<N_xη≤x·e^{−c𝓛^4/log𝓛}`; and every
 minorant transfer `N_xE_HB>𝔈‖B‖_×` needs `N_x/𝔈>e^{c𝓛^4/log𝓛}` (Thm 1.2).
 
-*Proof.* `m_ν≥0`, mass `N_x`; `|∫h dm_ν−N_xE_Hh|=N_x|E_ρh|≤N_x(8r*)^{k+1}` (Lemma 1.1);
+*Proof.* `m_ν≥0`, mass `N_x`; `|∫h dm_ν−N_xE_Hh|=N_x|E_ρh|≤N_x(4r*)^{k+1}` (Lemma 1.1);
 `ν(F=1)=0` (O14 Lemma 4.1). ∎
 
 So the only question is how small an accuracy 𝔈 can be *true* for the primes. For families
@@ -184,7 +192,7 @@ Positivity needs, for some O, `N_x‖ρ_O‖_{s'}>‖e_O‖_{s'}`, i.e.
 modulus"; Lemma 2.3 says square root is also the floor. Neither touches the barrier, which is a
 property of F (the cost `‖B‖_×/E B≥e^{c𝓛^4/log𝓛}` of every minorant), not of the primes.
 "Full-orbit uniform" = one error bound for all members of each translation orbit used. This
-is a genuine restriction (review R57): for `q>x`, classes whose least positive representative
+is a genuine restriction (self-review R57-self): for `q>x`, classes whose least positive representative
 exceeds x are empty below x, which is *support* information, not knowledge of the primes, and
 it permits sharper non-uniform error bounds. Certificates exploiting it are equivalent to
 minorants valid only on `H∩[1,x]` (or on primes ≤ x); they are **not** covered (§5, §6 (N2)).
@@ -213,7 +221,7 @@ every residue class, Dirichlet character or additive character h,
 Hence Thm 1.2, Thm 2.2 and Cor 2.4 hold for `P_1` (η doubled) **for representations by these
 atoms** (classes, characters, additive characters; write `‖B‖_atom` for the corresponding
 ℓ¹-infimum): every minorant `B≤F` has `E_{P_1}B≤2η‖B‖_atom`. (Arbitrary reduced products are not
-closed under multiplication by χ_1: locally `h=(3χ+1)/4` is reduced, `χh=(3+χ)/4` is not — R57.)
+closed under multiplication by χ_1: locally `h=(3χ+1)/4` is reduced, `χh=(3+χ)/4` is not — R57-self.)
 Masses: `P_1(H)=1−εE_Hχ_1` and `ν_1(H)−P_1(H)=−εE_ρχ_1`, of size `≤(4r*)^{k+1}`; so the
 information sets of §2 must allow the total mass to vary within the accuracy 𝔈, which they do
 once `𝔈≥N_x(4r*)^{k+1}`. Moreover, if `B∈𝒱_{k−s}` (level `log D≤0.6𝓛(k−s)`), where s is the
@@ -281,7 +289,7 @@ By Mertens, `Σ_{v≤V, y-rough sqfree}1/v≤C_6log V/log y`, so
 `Σ'1/v ≥ (c_3−C_6σ(x))log V/log y` with `σ(x):=Σ_{y<p≤V, p|x}1/p`. Let
 `G':={σ(x)>λ}`, `λ:=c_3/(2C_6)`. Off G', `R(x)≥μ*/2`; plant (with `k+1:=⌊μ*/4⌋`) only off G' and
 keep the true law on G'. Then `F=0` ν-a.s. off G', `ρ=0` on G', and Lemma 1.1 holds verbatim, so
-`E_{P_d}B=E_νB−E_ρB≤P_d(G')+(8r*)^{k+1}Σ|c_i|`.
+`E_{P_d}B=E_νB−E_ρB≤P_d(G')+(4r*)^{k+1}Σ|c_i|`.
 *Size of G'.* Primes `p|d`, `p>y` contribute `≤ω_{>y}(d)/y≤(log x)/(y log y)<λ/2` (`y=𝓛^6`). The
 other `p∈(y,V]` divide x independently with probability `1/p`; for `t:=y`,
 `P(Σξ_p/p≥λ/2)≤e^{−tλ/2}∏_p(1+(e^{t/p}−1)/p)≤e^{−λy/2}exp(Σ_{p>y}e t/p²)≤e^{3−λy/2}`.
@@ -336,7 +344,7 @@ So "valid only at primes" adds nothing unless restricted to a finite range `p≤
 unit class of modulus `≤cx^{1/5}` contains a prime `≤x`, so U contains no class of modulus
 `≤cx^{1/5}`: the extra knowledge is that a set of *deep* classes is prime-free up to x. In the
 language of §2 this is the constraint `m(U)=0` added to the information set — support-aware,
-not full-orbit uniform, hence outside Cor 2.4. It is not necessarily circular (R57): part of it
+not full-orbit uniform, hence outside Cor 2.4. It is not necessarily circular (R57-self): part of it
 is pure support information (classes with no integer in `[1,x]`), which needs no knowledge of the
 primes. What *is* proved: positivity cannot come from moderate single moduli (Prop 5.2).
 
@@ -379,7 +387,7 @@ EXCEPTIONAL_PRIMELAW §6 item 2 ("the gap lives at `L>N^c`").
   primes `≤x`, i.e. error accounting that is not uniform over translation orbits (e.g. using
   that classes mod `q>x` with least representative `>x` are empty). Prop 5.2 excludes single
   moduli `≤x^{1/5}/(QT)`; sieve-type combinations are open. For the integer Type I sums this is
-  the natural accounting, so (N2) is the main gap in §4 (R57).
+  the natural accounting, so (N2) is the main gap in §4 (R57-self, R57).
 * (N3) *Non-linear certificates*: arguments in which F (or the prime measure) enters
   non-linearly — e.g. second-moment / pair-correlation counts `Σ_{p,p'}F(p)F(p')`, entropy or
   density-increment arguments. The fake is a single measure; a joint fake for pair statistics
