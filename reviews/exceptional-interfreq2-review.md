@@ -134,7 +134,7 @@ the modulus kq used in C11), the upper and lower bounds coincide for 13 ≤ N �
 author's decay with N (0.335 at N = 60, a = 5) is a truncation artefact:
 it disappears at a = 12. This *strengthens* the author's §9 evidence. My
 opinion on SPW: **plausible (EVIDENCE only)** — no sign of N-dependence;
-the obstruction to σ > (C−1)/(C+½) looks like a fixed local one, not the
+the obstruction to σ > σ_C(N) looks like a fixed local one, not the
 smooth-modulus phenomenon of §9.
 
 **C11 (why 2/5: a simple universal upper bound, PROVED here).** The LP dual
