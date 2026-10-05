@@ -3,7 +3,28 @@
 Reviewer branch `side-agent/review-window2`; author branch `side-agent/window-parity` @1c7763c.
 All numerical checks are from-scratch (`scripts/review_w2_*.py`); no author code reused.
 
-Status: in progress.
+Status: round 1 complete.
+
+## Summary
+
+| claim | verdict |
+|---|---|
+| Lemma 1.1/1.2 (norm forms, FI09 shape) | SOUND |
+| Thm P1, one window | SOUND (minor m5) |
+| Thm P1, joint four-class sentence | GAP (M1) — joint data differ at d₂=3 |
+| Lemma 3.2, 3.6 | SOUND (m2 wording) |
+| §3.3–3.4 block/tree MC | SOUND as EVIDENCE (m3) |
+| §3.5 LP values | SOUND; several now CERTIFIED by reviewer duals (m6) |
+| Prop 3.7 (discrete fake, ε=0.1, K=8) | SOUND — re-verified from scratch at 60 digits |
+| Relevance of model to real sieves (§4, §5) | GAP (M2 scope, M4 fidelity) |
+| §5 item 2 "parity sufficient for one window (W1)" | GAP (M3: W1 uses switching) |
+| §6.1–6.2 caps | numbers SOUND (EVIDENCE); interpretation m4 |
+| §6.3 slice reduction | SOUND after m1 |
+| Routes (ii), (iv), (v) Assessments | honest as Assessments; (ii) supported by reviewer mixed-level test (m7) |
+
+Labels: nothing about actual primes is claimed beyond Lemma 1.2 and P1, except the §4/§5 wording
+flagged in M2/M3. The "true law" is called heuristic in §3.3 and §6.1, but Prop 3.7 and §4/§5 omit
+that the model data are those of a coarse heuristic law (M4).
 
 ## Verdicts per claim
 
@@ -149,3 +170,57 @@ EVIDENCE of the weakest kind, and §4/§5 "blocked" statements must say "at ε=0
 3.4e-4 (EVIDENCE that the fake persists at ε=0.07, not certified). r(S) spreads at ε=0.07/K=9:
 [0.71,1.76]; at ε=0.05/K=10: [0.82,1.64] — fidelity improves only slowly (bin discretisation
 contributes too). So M4 is not resolved by refinement within reach; it must be stated as a caveat.
+
+## Numbered defects
+
+**FATAL:** none.
+
+**M1 (MAJOR, §2 Thm P1, last two sentences "The same holds jointly … three of them have no
+both-clean element").** The four classes ((p/3),(p/7)) do *not* have identical joint sieve data:
+3 is a window-7 bad prime and `3|n₇` iff (p/3)=−1 (brute force 100% / 0%). So the joint statement as
+written is false (the sieve sees `|A_{d₁·3}|`). Repair: state the joint barrier only for the pair
+(+,+) vs (+,−) (identical joint data: 3∤n₇ and 5∤n₃n₇ in both; brute force confirms 0 both-clean in
+(+,−)), or exclude 3 from the window-7 sifting set and say so. (The one-window P1 is unaffected.)
+
+**M2 (MAJOR, §4 bullet "Pure Type-I sieves … (any weights, any combinatorics)" and §5 last
+paragraph "Methods that provably cannot give a_min≥11").** The model only contains bad-prime
+divisibility data; real BV-level Type-I data include good and mixed d, which the model fake is not
+shown to match (it reweights configurations with different cofactor sizes). Also "provably" refers to
+one discrete grid. Repair: say "sieves whose only inputs are |A_{d₁d₂}| for bad squarefree d₁d₂ ≤ x^{1/2},
+parity and total mass — in the discrete model ε=0.1, K=8"; drop "any weights"/"provably" or qualify.
+
+**M3 (MAJOR, §5 item 2, §0, Prop 3.7 last sentence).** W1 uses switching (S2 prime-pair sieve in
+Step 4), so it is not evidence that Type-I+parity suffices for one window. See verdict above;
+repair by separating actual-prime and model statements, and cite the (now certified) one-window dual.
+
+**M4 (MAJOR, model fidelity; §3.5, §3.7, §4, §5).** At ε=0.1 the model's own Type-I data deviate from
+product form by up to 87% and depend on |S| parity (so are not parity-blind like the real data of
+Thm P1); every θ=1/2 computation uses ε=0.1. Repair: add r(S)-spread diagnostics, run θ=1/2 at
+smaller ε (reviewer: ε=0.07 fake persists to residual 3.4e-4, uncertified), and qualify all
+"blocked" statements by the grid.
+
+**m1 (MINOR, §6.3).** The "0.256·1.256≈0.32" homogeneity chain is not derived; replace by the
+direct separable LP (reviewer: min 0.430 > 0).
+
+**m2 (MINOR, §3.2 trivial range).** Use δ=−[∅]+[{a,b}] with a,b>θ, a+b<1 (not "a,b∈(θ,1−θ)"; not
+an instance of Lemma 3.2 since V=∅).
+
+**m3 (MINOR, §3.3).** MC weight has infinite variance; "±0.05" not valid (θ=0.4 swings 1.46–3.48
+across seeds). Use quadrature/discrete exact values.
+
+**m4 (MINOR/Assessment, §6.2).** Per-configuration caps ν(C)≤Kμ(C) are *stronger* information than a
+switched upper-bound sieve provides (which bounds aggregates over configuration families). So the
+needed K for realistic (aggregate) caps is at most as large as 2–3, possibly no K works; the
+comparison with the 3.4·HL twin-prime constant is heuristic. State this direction explicitly. Also
+the twin-prime constant (Wu 2004: ≈3.3996) was "recalled, not re-checked" — fine as stated.
+
+**m5 (MINOR, §2 P1).** Main term `li(x)/(2φ(280)φ(d))` is wrong for 5|d (then |A^±_d|=0 since
+p≡1 (5) ⇒ 5∤n₃); harmless (same for both classes) but say g(5)=0 as in W1. P1's label: the
+"parity necessary" half is unconditional (BV); only the A⁺ lower bound inherits W1's "modulo S1–S3".
+
+**m6 (MINOR, §0/§3.5).** Several EVIDENCE numbers can be upgraded: one-window θ=0.5 (≥0.744128) and
+θ=0.6 (≥0.827541), two-window θ=0.7 (≥0.497087), 0.8 (≥0.728369) are certified lower bounds by exact
+rational dual feasibility (`scripts/review_w2_lp.py`); hence θ₂∈(0.5,0.7] is CERTIFIED on the grid.
+
+**m7 (MINOR, §4 route (ii)).** Add the mixed-level test (one-window data to T₁ with joint data at
+1/2): fake persists for T₁≤0.6, positivity at T₁=0.7 (certified ≥0.163). Supports "closed".
