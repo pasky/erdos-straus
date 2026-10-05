@@ -449,8 +449,8 @@ Let $(Q,r)$ be a square-class quarantine.
 \[
  \PP(E_{M,D})=\frac{\gcd(M,Q)}M\prod_{\ell\in\supp(M,D),\ a_\ell=0}\frac{\ell}{\ell-1}.
 \]
-\item[(iii)] If $3\cdot5\cdot7\mid Q$, then $r\bmod 840$ is one of the six
-classes $1^2,11^2,13^2,17^2,19^2,23^2$, so every prime $p\equiv r\pmod Q$ is hard.
+\item[(iii)] If $105\mid Q$, then $r\bmod 840$ is one of Mordell's six
+hard classes, so every prime $p\equiv r\pmod Q$ is hard.
 \end{enumerate}
 \end{lemma}
 
@@ -596,10 +596,10 @@ a supermartingale, and $G_0=\sum_EP_H(E)2^{\omega_Y(M)}\phi(E)$.
 \]
 \item[(c)] $\E\big[\sum_E\beta^{s_{\rm end}(E)}p_{\rm end}(E)\big]\le S_H^\beta:=\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}$.
 \item[(d)] For every prime $\ell>Y$, $\E[\tilde w_\ell(\mathrm{end})^2]\le B_2(\ell)$, where
-\[
- B_2(\ell)=\sum_{\substack{E,E'\\ \ell\mid M,\ \ell\mid M'}}\beta^{\omega(M)+\omega(M')}2^{\omega_Y(M)+\omega_Y(M')}P_H(E)P_H(E')\,
- \varphi\Big(\frac{\gcd(M,M')}{\ell^{\min(v_\ell(M),v_\ell(M'))}}\Big).
-\]
+\begin{multline*}
+ B_2(\ell)=\sum_{\substack{E,E'\\ \ell\mid M,\ \ell\mid M'}}\beta^{\omega(M)+\omega(M')}2^{\omega_Y(M)+\omega_Y(M')}P_H(E)P_H(E')\\
+ \times\varphi\Big(\frac{\gcd(M,M')}{\ell^{\min(v_\ell(M),v_\ell(M'))}}\Big).
+\end{multline*}
 Hence $\PP(\exists\,\ell>Y:\ \tilde w_\ell(\mathrm{end})>\eta)\le\eta^{-2}\sum_{\ell>Y}B_2(\ell)$.
 \end{enumerate}
 All sums are over atoms $E=(M,D)$, $E'=(M',D')$.
@@ -614,10 +614,10 @@ $\ell$ classes of the fibre at level $a+1$, so $\E[p_{i+1}(E)\mid\text{past}]=p_
 and $u$ is unchanged.  If $a=0$, the conditional probability of the event
 becomes $\ell^{1-v}$ (with $v=v_\ell(M)$) if $r'\equiv-4D\pmod\ell$ and $0$
 otherwise; the class $r'\bmod\ell$ is uniform on the $(\ell-1)/2$ squares, so
-\[
- \E[p_{i+1}(E)\mid\text{past}]=p_i(E)\,\varphi(\ell^v)\,\ell^{1-v}\,\frac{2}{\ell-1}\,\mathbf 1\Big[\Big(\frac{-4D}\ell\Big)=1\Big]
+\begin{multline*}
+ \E[p_{i+1}(E)\mid\text{past}]=p_i(E)\,\varphi(\ell^v)\,\ell^{1-v}\,\frac{2}{\ell-1}\,\mathbf 1\Big[\Big(\frac{-4D}\ell\Big)=1\Big]\\
  =\Big(1+\Big(\frac{-d}\ell\Big)\Big)p_i(E)\le2p_i(E)
-\]
+\end{multline*}
 by Lemma~\ref{lem:jacobi}(a), while $u$ drops by one if $\ell\le Y$ (forced
 steps and all other steps have $\ell\le Y$).  So each term
 $p_i(E)2^{u_i(E)}\phi(E)$ is a supermartingale.  At the start $Q=8$, $r=1$
@@ -626,10 +626,10 @@ and $M$ is odd, so $p_0(E)=P_H(E)$; and $u_0(E)=\omega_Y(M)$.
 (b) For a pair $(\ell,a)$ with $\ell\le Y$ let $\tau_{\ell,a}$ be the stage at
 which the (unforced) step at $(\ell,a)$ is taken, $\infty$ if it is never taken.
 At that stage $\tilde w_\ell>\eta$, so
-\[
- \log\ell\cdot\mathbf 1[\tau_{\ell,a}<\infty]\le\frac{\log\ell}\eta\,G^{(\ell,a)}_{\tau_{\ell,a}}\mathbf 1[\tau_{\ell,a}<\infty],\qquad
+\begin{multline*}
+ \log\ell\cdot\mathbf 1[\tau_{\ell,a}<\infty]\le\frac{\log\ell}\eta\,G^{(\ell,a)}_{\tau_{\ell,a}}\mathbf 1[\tau_{\ell,a}<\infty],\\
  G^{(\ell,a)}_i=\sum_{E:\ v_\ell(M)\ge a+1}p_i(E)2^{u_i(E)}\beta^{\omega(M)},
-\]
+\end{multline*}
 since at stage $\tau_{\ell,a}$ the atoms with $\ell\in\supp E$ are those with
 $v_\ell(M)\ge a+1$, and $\beta^{s}p\le\beta^{\omega}2^up$.  The stopping times
 are bounded, and optional stopping for the nonnegative supermartingale
@@ -643,7 +643,10 @@ gives the claim; the forced steps cost $\log105$, and $\log Q\le\log8+\log105+\s
 (d) The prime $\ell$ is never stepped, so for $\ell\mid M$,
 $p_i(E)=p_i(E^{(\ell)})/\varphi(\ell^{v_\ell(M)})$, where $E^{(\ell)}$ is the event
 with its condition at $\ell$ removed, and
-$\tilde w_\ell^2\le\sum_{E,E'}\beta^{\omega(M)+\omega(M')}p(E)p(E')$, the sum over
+\[
+ \tilde w_\ell^2\le\sum_{E,E'}\beta^{\omega(M)+\omega(M')}p(E)p(E'),
+\]
+the sum over
 atoms with $\ell\mid M$, $\ell\mid M'$.  For two events $F,F'$ (conditions at sets
 of primes, with given residues) put $\Pi_i=p_i(F)p_i(F')R_i$, where
 $R_i=\prod_{\ell'}\rho_i(\ell')$ over the primes $\ell'$ constrained by both, and
@@ -690,10 +693,10 @@ $\rho_{Q_j}(n)$ and $\rho(n)$ be the numbers of zeros of $Q_j$ and of $Q$
 modulo $n$.  Let $0<\alpha,\delta<1$, $A,B\ge1$, $0<\varepsilon\le\alpha\delta/(12g^2)$ and
 $F\in\cM_k(A,B,\varepsilon)$.  Then, uniformly in $x\ge c_0\|Q\|^\delta$ and
 $x^\alpha<y\le x$,
-\[
- \sum_{x<n\le x+y}F\big(|Q_1(n)|,\dots,|Q_k(n)|\big)\ \ll\ y\prod_{p\le x}\Big(1-\frac{\rho(p)}p\Big)
- \sum_{n_1\cdots n_k\le x}F(n_1,\dots,n_k)\frac{\rho_{Q_1}(n_1)\cdots\rho_{Q_k}(n_k)}{n_1\cdots n_k},
-\]
+\begin{multline*}
+ \sum_{x<n\le x+y}F\big(|Q_1(n)|,\dots,|Q_k(n)|\big)\ \ll\ y\prod_{p\le x}\Big(1-\frac{\rho(p)}p\Big)\\
+ \times\sum_{n_1\cdots n_k\le x}F(n_1,\dots,n_k)\frac{\rho_{Q_1}(n_1)\cdots\rho_{Q_k}(n_k)}{n_1\cdots n_k},
+\end{multline*}
 where $c_0$ and the implied constant depend only on $k,g,A,B,\varepsilon,\alpha,\delta$
 and the discriminant of $Q$.
 \end{theorem}
@@ -713,8 +716,10 @@ run over $M\le T$.
 
 \begin{lemma}[Haar masses; (A) proved modulo Theorem~\ref{thm:NT}, (B) proved]\label{lem:masses}
 \begin{enumerate}
-\item[(A)] $S_H^\beta=\sum_Mw(M)/M\ll\Lc^3\log Y$, and
-$\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y\ll\Lc^3(\log Y)^4$.
+\item[(A)] We have $S_H^\beta=\sum_Mw(M)/M\ll\Lc^3\log Y$ and
+\[
+ \sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log M_Y\ll\Lc^3(\log Y)^4 .
+\]
 \item[(B)] $\sum_{\ell>Y\ \text{prime}}B_2(\ell)\le\frac{\Lc+1}Y\,\Xi$, where
 $\Xi=\sum_Mw(M)^2\tau(M)\omega(M)/M\ll\Lc^{C_0}$ for an absolute constant $C_0$,
 uniformly in $2\le Y\le T$.
@@ -730,12 +735,14 @@ $\gcd(a_1a_2,b_1b_2)=1$, and $\tau(a_1^2)f_2(a_2)\le8^{\Omega(a_1a_2)}$ and
 $\le B(a_1a_2)^{1/200}$ for an absolute $B$ (divisor bound).  So
 $F\in\cM_2(8,B,1/200)$, uniformly in $T$ and $Y$.  Theorem~\ref{thm:NT} on
 $x<n\le2x$ gives
-\[
- \sum_{x<n\le2x}\tau(n^2)f_2(4n-1)\ll\frac x{(\log x)^2}\sum_{n_1\le x}\frac{\tau(n_1^2)}{n_1}\sum_{n_2\le x}\frac{f_2(n_2)}{n_2}
+\begin{multline*}
+ \sum_{x<n\le2x}\tau(n^2)f_2(4n-1)\ll\frac x{(\log x)^2}\sum_{n_1\le x}\frac{\tau(n_1^2)}{n_1}\sum_{n_2\le x}\frac{f_2(n_2)}{n_2}\\
  \ll\frac x{(\log x)^2}(\log x)^3(\log x)^\beta(\log Y)^\beta ,
-\]
+\end{multline*}
 by the Euler products $\prod_{p\le x}(1+3/p+\dots)$ and
-$\prod_{p\le Y}(1+2\beta/(p-1)+O(p^{-2}))\prod_{Y<p\le x}(1+\beta/(p-1)+O(p^{-2}))$.
+\[
+ \prod_{p\le Y}\Big(1+\frac{2\beta}{p-1}+O(p^{-2})\Big)\prod_{Y<p\le x}\Big(1+\frac\beta{p-1}+O(p^{-2})\Big).
+\]
 Since $(\log x)^{\beta-1},(\log Y)^{\beta-1}\le\Lc^{1/\log\Lc}=e$, this is
 $\ll x(\log x)^2\log Y$.  As $\tau(A_M^2)H(M)/\varphi(M)=\tau(n^2)f_2(M)/M$ with
 $M\asymp x$, the block contributes $\ll\Lc^2\log Y$; the $O(\Lc)$ dyadic blocks
@@ -763,10 +770,10 @@ and for fixed $\ell$ there are at most $\tau(N)$ factorisations $N=e\ell k$.  So
 \]
 For $\Xi$, use $\omega\le\tau$, $2^{\omega_Y}\le2^\omega$ and Cauchy--Schwarz with
 $M=4n-1\ge3n$:
-\[
- \Xi\le\Big(\sum_{n\le T}\frac{\tau(n^2)^4}n\Big)^{1/2}\Big(\sum_{m\le4T}\frac{g(m)^2}m\Big)^{1/2},\qquad
+\begin{multline*}
+ \Xi\le\Big(\sum_{n\le T}\frac{\tau(n^2)^4}n\Big)^{1/2}\Big(\sum_{m\le4T}\frac{g(m)^2}m\Big)^{1/2},\\
  g(m)=\beta^{2\omega(m)}4^{\omega(m)}\Big(\frac m{\varphi(m)}\Big)^2\tau(m)^2 .
-\]
+\end{multline*}
 Both are mean values of non-negative multiplicative functions $f$ with
 $f(p^k)\le C(k+1)^C$ for an absolute $C$; bounding them by
 $\prod_{p\le4T}(1+f(p)/p+f(p^2)/p^2+\dots)$ gives $\ll\Lc^{C_0}$, with
@@ -817,8 +824,8 @@ residues $n\bmod\ell^{f_\ell}$, $\ell\in\cP$, are independent and uniform on
 $\Omega_\ell$.  So $\delta^*(T)\ge(\varphi(24)/\varphi(Q))\,\delta$.
 \end{proof}
 
-With Theorem~\ref{thm:haarlower} below this determines the Haar exponent:
-$\log\log(1/\delta^*(T))=(3+o(1))\log\Lc$.  The quarantine costs
+Together with Theorem~\ref{thm:haarlower} below, this determines the
+Haar exponent, $\log\log(1/\delta^*(T))=(3+o(1))\log\Lc$.  The quarantine costs
 $\Lc^3(\log\Lc)^5$; the class-of-one route of the previous version gave
 $\log(1/\delta^*(T))\ll\Lc^5\log\Lc$ modulo the Elsholtz--Tao estimates.
 
@@ -939,10 +946,10 @@ $D^*=\prod_pp^{\lceil v_p(D)/2\rceil}$.  Then $D\mid A^2\iff D^*\mid A$, and eac
 $n\ge1$ equals $D^*$ for exactly $2^{\omega(n)}$ integers $D$ (write $D=\kappa t^2$
 with $\kappa$ squarefree; then $D^*=\kappa t$).  Let $\mathcal F$ be the set of
 events $E_{M,D}$ with
-\[
- \sqrt T\le M\le T,\quad M\ \text{squarefree with all prime factors}>y,\quad M\equiv3\ (4),\quad
+\begin{multline*}
+ \sqrt T\le M\le T,\quad M\ \text{squarefree with all prime factors}>y,\quad M\equiv3\ (4),\\
  n:=D^*\in[N_0,T^{1/10}],\quad n\mid A_M .
-\]
+\end{multline*}
 We use: (F1) $D\le n^2\le T^{1/5}<M/4$, so different $D$ give different
 residues $-4D\bmod M$, and $\PP(E_{M,D})=1/\varphi(M)$; (F2) for $y$-rough squarefree
 $m\le T$, $\omega(m)\le\Lc/\log y$ and $\varphi(m)\ge m/2$; (F3)
@@ -952,7 +959,7 @@ $v_1\ge v_0$, $\sum1/v\le1/v_1+\log(V/v_0)/d$; (F5) if $\omega(m)y^{-1}\le1$, th
 $\sum_{g\mid m,\ g>1,\ g\ \text{squarefree and } y\text{-rough}}g^{-1}\le(1+1/y)^{\omega(m)}-1\le2\omega(m)/y$.
 
 \begin{lemma}[Mass; proved modulo the fundamental lemma]\label{lem:hmass}
-$\mu=\sum_{E\in\mathcal F}\PP(E)\ge c_1\Lc^3/\log y$.
+We have $\mu=\sum_{E\in\mathcal F}\PP(E)\ge c_1\Lc^3/\log y$.
 \end{lemma}
 
 \begin{proof}
@@ -1938,10 +1945,10 @@ Fix a small absolute $\varepsilon\in(0,1/20]$ (chosen in Lemma~\ref{lem:cuprimes
 $X=T^\varepsilon$, $V=X^{1/3}$, $L=\log X=\varepsilon\Lc$ and $y=\Lc^6$.  With
 $D^*$ as in \S\ref{sec:haarlower}, let $\mathcal F^*$ be the set of events
 $E_{v\ell,D}$ with
-\[
- n_D:=D^*\in[V,X],\quad v\le V\ \text{squarefree and $y$-rough},\quad
+\begin{multline*}
+ n_D:=D^*\in[V,X],\quad v\le V\ \text{squarefree and $y$-rough},\\
  \ell\in(T^{0.6},T^{0.7}]\ \text{prime},\quad v\ell\equiv-1\ (\mathrm{mod}\ 4n_D).
-\]
+\end{multline*}
 The congruence gives $v\ell\equiv3\pmod4$ and $n_D\mid A_{v\ell}$, i.e.\ $D\mid A_{v\ell}^2$;
 and $D\le n_D^2\le T^{2\varepsilon}$.  On a fibre $n\equiv r\pmod Q$ the \emph{big}
 coordinates are the $X_\ell=n\bmod\ell$ for primes $\ell>T^{0.6}$ with $\ell\nmid Q$;
@@ -2147,7 +2154,7 @@ switching-lemma constant); Lemmas~\ref{lem:haar}, \ref{lem:brw}, \ref{lem:EL},
 Lemmas~\ref{lem:planting}, \ref{lem:barrier}, and Lemmas~\ref{lem:unique},
 \ref{lem:cuD}.
 \item Proved modulo the Nair--Tenenbaum theorem (Theorem~\ref{thm:NT}):
-Lemma~\ref{lem:masses}(A) and the Haar upper bound
+part~(A) of Lemma~\ref{lem:masses} and the Haar upper bound
 Theorem~\ref{thm:haarupper}.
 \item Proved modulo the fundamental lemma of sieve theory: Lemma~\ref{lem:hmass}
 and the Haar lower bound Theorem~\ref{thm:haarlower}.  With the previous
