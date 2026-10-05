@@ -7,7 +7,25 @@ From-scratch scripts: `scripts/review_xw_*.py`.
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 (half-set) | SOUND |
+| Lemma 1.1 (half-set) | SOUND (brute-forced, a≤300, 1.1M failing pairs) |
+| Thm 1.2 / Cor 1.3 (fixed-set stacking, exponent 1+J/2) | SOUND |
+| Cor 1.4 (two-sided orders) | SOUND-AFTER-REPAIRS (labels: MINOR-1, MINOR-2) |
+| Thm 1.5 (uniform, Z=o(log log N)) | SOUND-AFTER-REPAIRS (MAJOR-1: stated range Z≤L excludes the advertised Z≈3.6L; proof extends) |
+| §1.3 census | EVIDENCE reproduced bit-for-bit (10^6,10^7,10^8) |
+| Lemma 2.1 | SOUND (exact/MC check) |
+| Thm 2.2 / Cor 2.3 | SOUND (MINOR-4, MINOR-5 cosmetic); priority to notes Thm 14.9 correctly stated |
+| Prop 3.2 | SOUND as scoped |
+| §3.3 GRH/EH remarks | unlabeled; MINOR-6 |
+
+**Overall:** no FATAL defects, one MAJOR (statement-range, trivially
+repairable), six MINOR. The main new content — Lemma 1.1 and the exact
+exponent `1+J/2` for every fixed window set, including composite windows — is
+correct; the proposed ledger entry (H)17 is supported once MAJOR-1 is fixed
+(or the `0.22` claim is dropped / marked as requiring `Z≤C_0L`).
+
+Process note: `git merge --ff-only side-agent/xwin-average` was impossible
+(main had advanced past the fork point of my branch); I did a plain
+`git merge` into my own review branch only.
 
 ## Lemma 1.1 — half-set lemma
 
