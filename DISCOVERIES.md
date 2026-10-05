@@ -253,6 +253,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Census to 10⁷: new records `ck_min(9033649)=883` (`n_p=43`) (EVIDENCE, independently recomputed).
     * **PROVED / CONDITIONAL as labelled** (internal; review `reviews/pointwise-typei-review.md`, SOUND-AFTER-REPAIRS, repairs applied).
 
+18. **The window statistic from above: exact stacking exponents (POINTWISE_XWIN.md).**
+    * Half-set lemma (Lemma 1.1, PROVED): for any `a≡3 (4)`, failure of `−1∈Rat_a(x)` forces all prime factors of x into one of `2^{β(a)}` explicit sets of exactly `φ(a)/2` classes (Klein-group orbits `{g,g⁻¹,−g,−g⁻¹}`), with no exponent-budget exceptions. This removes the F3 obstacle of notes (71.4) / POINTWISE_WINDOW Lemma 6.1.
+    * Fixed-set stacking (Thm 1.2, Cor 1.3, PROVED): for every fixed set A of windows, `#{p≤N: all a∈A fail} ≪_A N/(log N)^{1+|A|/2}`, so `#{p≤N: a_min(p)>Z} ≪_Z π(N)(log N)^{−J(Z)/2}`, the random model's exact exponent. Two-sided orders: `#{a_min≥7} ≍ x/(log x)^{3/2}` unconditionally and `#{a_min≥11} ≍ x/(log x)^2` on EH (Cor 1.4), so POINTWISE_WINDOW's W1 and W2 are sharp. Uniform version for `Z=o(log log N)` and up to `Z≈3.6 log log N` (Thm 1.5, PROVED modulo Siegel–Walfisz).
+    * Window tail `T(N,(log N)^θ) ≤ N exp(−(d(θ)/4−ε)(log N)^θ log log N)` for `θ<log 3/(1+log 3)` (Thm 2.2): an independent second proof of what notes Thm 14.4/14.9 already imply (priority to the notes).
+    * No "ES ⇐ standard hypothesis" was found; GRH/EH remarks are Assessments. A scoped obstruction for Lemma-12.1-type window majorants (Prop 3.2).
+    * **PROVED** (internal; review `reviews/pointwise-xwin-review.md`, SOUND after one statement-range repair and minor repairs).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
