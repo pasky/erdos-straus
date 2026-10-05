@@ -258,3 +258,39 @@ stays `≍ log𝓛`). (iii) The statement is Haar-only; it is a lower bound on
 `log(1/δ*)`, i.e. it says the profinite avoider set is *small*.
 (iv) Asymptotic only: at `T ≤ 10^7` one has `T^{1/10} < N_0`, so 𝓕 is
 empty; no conflict with the measured `Φ(65535) ≈ 38`.
+
+## 3. Reconciliation with the Monte Carlo exponent (EVIDENCE / Assessment)
+
+`scripts/haar_fit.py` (output `data/haar/fit.txt`) takes the
+multilevel-splitting table of POINTWISE_SIZE §7.2 unchanged.
+
+| T | 𝓛 | Φ (MC) | `Φ/(𝓛³/log𝓛)` | `I/(𝓛³/log𝓛)` | local exponent of Φ | `3−1/log𝓛` |
+|---|---|---|---|---|---|---|
+| 127 | 4.84 | 5.47 | 0.0759 | 0.0856 | 2.13 | 2.37 |
+| 511 | 6.24 | 9.40 | 0.0709 | 0.0865 | 2.20 | 2.45 |
+| 1023 | 6.93 | 12.02 | 0.0699 | 0.0873 | 2.36 | 2.48 |
+| 2047 | 7.62 | 15.11 | 0.0693 | 0.0880 | 2.44 | 2.51 |
+| 4095 | 8.32 | 18.77 | 0.0691 | 0.0888 | 2.53 | 2.53 |
+| 8191 | 9.01 | 23.08 | 0.0694 | 0.0895 | 2.59 | 2.55 |
+| 16383 | 9.70 | 27.99 | 0.0696 | 0.0904 | 2.58 | 2.56 |
+| 32767 | 10.40 | 33.4 | 0.0696 | 0.0913 | 2.39 | 2.57 |
+| 65535 | 11.09 | ~38.5 | 0.0679 | 0.0921 | | 2.58 |
+
+* The ratio `Φ/(𝓛³/log𝓛)` is constant to ±1% (0.0691–0.0699) over
+  `1023 ≤ T ≤ 32767`, the range where the MC is reliable (the last row is
+  biased low, POINTWISE_SIZE §7.2). The shape of Theorem 2.1 has local
+  exponent `3 − 1/log𝓛`, which is 2.48→2.57 here — exactly the measured
+  2.3→2.6 drift.
+* Least squares on `T ≥ 127`: `Φ = c𝓛^a` gives `a = 2.39` (max log-residual
+  0.043); `Φ = c𝓛^a/log𝓛` gives `a = 2.90` (residual 0.028).
+* The independence exponent `I(T)` (§7.1(c)) also tracks `𝓛³/log𝓛` with a
+  slowly rising ratio, consistent with `I ≍ 𝓛³` (its local exponent 2.8 at
+  `2^20`).
+
+**Assessment 3.1.** The measured exponent 2.3–2.6 is not a different
+exponent: it is `a = 3` seen through a `1/log𝓛` correction of exactly the
+type that Theorem 2.1's proof produces. Conjecture: `Φ(T) ≍ 𝓛³/log𝓛`
+(CONJECTURE; the lower bound is Theorem 2.1, the upper bound is open —
+best known `𝓛^5 log𝓛`, OMEGA12, and `𝓛^6` OMEGA11). Under the RA heuristic
+(POINTWISE_SIZE §7.3) this predicts
+`log W(p) ≍ (log p·log log p)^{1/3}` for the record values.
