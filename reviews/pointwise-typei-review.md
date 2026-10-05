@@ -8,7 +8,7 @@ Reviewer branch: side-agent/review-typei. Status: in progress.
 |---|---|
 | L1.1 | SOUND |
 | T6.1 | SOUND |
-| §5 record ck_min(9033649)=883 | CONFIRMED (independent) |
+| §5 census (EVIDENCE) | CONFIRMED (record 883 + 154-prime random sample recomputed from scratch; file complete) |
 | §6.2 formal table, C6.4 (H part) | SOUND (all 7 rows reproduced from scratch) |
 | C6.4 unconditional part | SOUND-AFTER-REPAIRS (defect 1) |
 | §6.1 literature | SOUND (checked against ET PDF and Salez audit text) |
@@ -40,6 +40,10 @@ From-scratch engine `scripts/review_ti_ckmin.py` (full 𝓑_p, forced slices NOT
 ck_min(193)=10, ck_min(12289)=77 (matches notes (48.12)); all 9307 hard p<2·10^6 with (5/p)=−1 have ck_min≤10, and =5 when p≡2 (5). SOUND.
 
 ### §5 record
+`scripts/review_ti_census_sample.py`: the census file contains exactly the 82887 hard primes <10^7; my engine (all slices,
+forced included) reproduces (n_p, ck_min) for a random sample of 150 rows plus 12289, 92401, 414241, 9033649 — 0 mismatches.
+Per-n_p maxima and all §5 table entries (fractions, counts, max ratio/max ck_min per range) recomputed from the file: match.
+EVIDENCE 6.3 population count (6495 primes with n_p=7 in (10^5,3·10^6)) matches; the D≤2000 witness claim was not rerun.
 `review_ti_ckmin.py one 9033649 900` (all slices incl. forced): n_p=43, ck_min=883. CONFIRMED.
 
 ### §6.2 formal table and Cor 6.4
