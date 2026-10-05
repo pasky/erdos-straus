@@ -186,6 +186,154 @@ denotes the binary logarithm only where explicitly said (otherwise
 $\log\log$ is written out), $\tau$ is the divisor function and
 $\tau^*(x)=\max_{n\le x}\tau(n)$.
 
+\section{Atoms and the residual system}\label{sec:system}
+
+For $M\equiv3\pmod4$ put $\cR(M)=\{-4D\bmod M:\ D\mid A_M^2\}$.  Note that
+$\gcd(A_M,M)=1$ (as $4A_M=M+1$), so every element of $\cR(M)$ is a unit
+class.
+
+\begin{lemma}[Proved; cf.\ {\cite{Paper1}}]\label{lem:atoms}
+$\{-uv^{-1}\bmod M:\ uvw=A_M\}=\cR(M)$.  Consequently, for every integer $n$,
+$W(n)>T$ if and only if $n\bmod M\notin\cR(M)$ for every $M\le T$ with
+$M\equiv3\pmod4$.
+\end{lemma}
+
+\begin{proof}
+Since $4A_M\equiv1\pmod M$, from $uvw=A_M$ we get $v^{-1}\equiv4uw$, hence
+$-uv^{-1}\equiv-4u^2w$ and $D=u^2w$ divides $A_M^2$.  Conversely let
+$D\mid A_M^2$.  For each prime $q$ with $q^a\Vert A_M$ and $q^d\Vert D$
+($d\le2a$) put $u_q=\max(0,d-a)$, $w_q=d-2u_q$, $v_q=a-u_q-w_q$; these are
+non-negative, so $u=\prod q^{u_q}$, $v=\prod q^{v_q}$, $w=\prod q^{w_q}$
+satisfy $uvw=A_M$ and $u^2w=D$.
+\end{proof}
+
+\begin{lemma}[Class of one; proved]\label{lem:one}
+$1\notin\cR(M)$ for every $M\equiv3\pmod4$.
+\end{lemma}
+
+\begin{proof}
+If $-4D\equiv1$ then $D\equiv-A_M\pmod M$ (multiply by $A_M$).  Since
+$4A_M^2\equiv A_M$, the map $D\mapsto A_M^2/D$ preserves this congruence, so
+we may assume $D\le A_M$; then $0<D+A_M\le2A_M<M$, while $M\mid D+A_M$.
+\end{proof}
+
+An \emph{atom} is a pair $(M,D)$ with $M\le T$, $M\equiv3\pmod4$ and
+$D\mid A_M^2$.  For a set $\Pi$ of primes write $M=m_\Pi r_\Pi$, where
+$m_\Pi$ is the largest divisor of $M$ composed of primes in $\Pi$.  The atom
+\emph{survives} $\Pi$ if $m_\Pi\mid4D+1$ and $r_\Pi>1$; it then defines the
+\emph{event} $n\equiv-4D\pmod{r_\Pi}$, a unit class, of Haar weight
+$1/\varphi(r_\Pi)$.  Put
+\[
+ S^*=S^*(T)=\sum_{(M,D)}\ \max_{\Pi}\ \frac{\mathbf 1[(M,D)\text{ survives }\Pi]}{\varphi(r_\Pi)},
+\]
+the sum over all atoms and the maximum over all sets of primes.
+
+\begin{lemma}[Mass bound; proved, and (b) modulo {\cite[Prop.~1.4]{ET}}]\label{lem:qmass}
+\textup{(a)} $S^*\le\exp\big((\log2+o(1))\Lc/\log\Lc\big)$.
+\textup{(b)} $S^*\ll\Lc^4\log\Lc$.
+\end{lemma}
+
+\begin{proof}
+Let $(M,D)$ survive $\Pi$, put $A=A_M$ and $g=\gcd(M,4D+1)$.  Then
+$m_\Pi\mid g$, and $\varphi(M)\le m_\Pi\varphi(r_\Pi)$, so
+$1/\varphi(r_\Pi)\le g/\varphi(M)\le C\,g\log\Lc/M$ for an absolute $C$.  This
+bound does not depend on $\Pi$, so
+$S^*\le C\log\Lc\sum_{(M,D)}g/M$.
+
+The map $D\mapsto D'=A^2/D$ preserves $g$.  Indeed, $D$ is a unit modulo $M$,
+and for a prime power $q^a\mid M$ with $q^a\mid4D+1$ we have
+$4D'\equiv4A^2\cdot(-4)\equiv-(4A)^2\equiv-1\pmod{q^a}$.  It exchanges
+$D<A$ with $D>A$, so it suffices to sum over $D\le A$ and double.  Write
+$D=sr^2$ with $s$ squarefree.  Then $D\mid A^2$ if and only if $sr\mid A$;
+write $A=srk$, so that $D\le A$ if and only if $r\le k$, and
+$M=4srk-1\ge3srk$.  From $g\mid4sr^2+1$ and $g\mid M=4srk-1$ we get
+$g\mid4sr(r+k)$, and $\gcd(g,4sr)=1$, so $g\mid\gcd(4sr^2+1,\,r+k)$.  For fixed
+$(s,r)$ the triple $(M,D,g)$ is determined by $k$.  Using
+$g\le\sum_{e\mid g}e$, we get
+\[
+ \sum_{\substack{r\le k\le X}}\frac{g}{k}\ \le\ \sum_{e\mid4sr^2+1}e\sum_{\substack{r\le k\le X\\ k\equiv-r\ (e)}}\frac1k
+ \ \le\ (3+\log X)\,\tau(4sr^2+1),\qquad X=\tfrac{T+1}4 .
+\]
+For the last step: the least admissible $k$ is at least $\max(r,e-r)\ge e/2$,
+so the inner sum is at most $2/e+(1+\log X)/e$.  Hence
+\[
+ S^*\ \le\ C'\log\Lc\cdot\Lc\sum_{sr^2\le X}\frac{\tau(4sr^2+1)}{sr}.
+\]
+(a) Bound $\tau(4sr^2+1)\le\tau^*(T+2)$ and $\sum_{s,r\le X}1/(sr)\le(1+\Lc)^2$.
+Then use $\log\tau^*(x)\le(\log2+o(1))\log x/\log\log x$ \cite[Thm.~317]{HW}.
+(b) Split $s\in[2^i,2^{i+1})$, $r\in[2^j,2^{j+1})$ with $2^i,2^j\le X$.  By
+\cite[Prop.~1.4]{ET} with $k=4$, $A=2^{i+1}$, $B=2^{j+1}$ (so $A,B>1$ and
+$k\ll(AB)^{O(1)}$), each block contributes
+$\ll2^{-i-j}AB\log(A+B)\ll\Lc$.  There are $\ll\Lc^2$ blocks, so the sum is
+$\ll\Lc^3$.
+\end{proof}
+
+\begin{lemma}[Iterated quarantine; proved, cf.\ {\cite{Paper1}}]\label{lem:iterq}
+Let $2\le z\le T$, $k=\lfloor\Lc/\log z\rfloor$ and $0<c_0\le1$.  For a set
+$\Pi\supseteq\{\ell\le z\}$ and a prime $\ell\notin\Pi$ let $w_\ell(\Pi)$ be
+the total Haar weight of the distinct events of atoms surviving $\Pi$ whose
+modulus $r_\Pi$ is divisible by $\ell$.  Start from $\Pi_0=\{\ell\le z\}$ and
+repeatedly add to $\Pi$ every prime $\ell\notin\Pi$ with $w_\ell(\Pi)>c_0$.
+The process stops at some $\Pi=\Pi_0\cup\cB$ with $|\cB|\le kS^*/c_0$, and then
+$w_\ell(\Pi)\le c_0$ for every prime $\ell\notin\Pi$.
+\end{lemma}
+
+\begin{proof}
+The process stops since only primes $\le T$ can have $w_\ell>0$.  If $\ell$ is
+added at a stage $\Pi_i$, then $c_0<w_\ell(\Pi_i)$, which is at most the sum
+of the contributions to $S^*$ of the atoms $(M,D)$ with $\ell\mid M$.  Summing
+over the added primes, each atom is counted at most once for each prime
+factor $\ell>z$ of $M$.  There are at most $k$ such factors since $M\le T$.
+\end{proof}
+
+\begin{definition}[Residual system]\label{def:system}
+Let $\Pi\supseteq\{\ell\le z\}$ be as in Lemma~\ref{lem:iterq}, let
+$e_\ell\ge1$ be maximal with $\ell^{e_\ell}\le T$, and put
+$Q_\Pi=\lcm(24,\ \ell^{e_\ell}:\ \ell\in\Pi,\ \ell\le T)$.  The \emph{free}
+primes are $\cP=\{\ell\le T:\ \ell\notin\Pi\}$, with \emph{coordinates}
+$X_\ell=n\bmod\ell^{e_\ell}$ taking values in $G_\ell=(\mathbb Z/\ell^{e_\ell})^\times$.
+The \emph{Haar measure} $\PP$ makes the $X_\ell$ independent and uniform.
+For each \emph{distinct} pair $(r,c)=(r_\Pi,\,-4D\bmod r_\Pi)$ arising
+from an atom $(M,D)$ surviving $\Pi$, with $r=\prod\ell^{a_\ell}$, and each
+\emph{lift}, i.e.\ each $\sigma\in\prod_{\ell\mid r}G_\ell$ with
+$\sigma_\ell\equiv c\pmod{\ell^{a_\ell}}$, we take the event
+$E=\{X_\ell=\sigma_\ell\ \text{for all}\ \ell\mid r_\Pi\}$, with support
+$\supp E=\{\ell\mid r\}$.  Let $E_1,\dots,E_m$ list these events (two
+pairs may have a common lift; such duplicates are kept), and let $F=\mathbf 1[\text{no }E_i\text{ occurs}]$.
+\end{definition}
+
+The lifts of one pair $(r,c)$ partition the class $c\bmod r$, so their weights
+add up to $1/\varphi(r)$.
+
+\begin{lemma}[Properties of the residual system; proved]\label{lem:system}
+In Definition~\ref{def:system}, with $z\ge7$:
+\begin{enumerate}
+\item[(i)] $840\mid Q_\Pi$ and $\log Q_\Pi\le(\pi(z)+|\cB|)\Lc+\log24$;
+\item[(ii)] $|\cP|\le T$, $|G_\ell|\le T$, $|\supp E_i|\le k$, and $m\le T^{k+2}$;
+\item[(iii)] $w_\ell:=\sum_{i:\,\ell\in\supp E_i}\PP(E_i)=w_\ell(\Pi)$ for every
+$\ell\in\cP$, and $S:=\sum_{i\le m}\PP(E_i)\le S^*$; so if $\Pi$ is the
+output of Lemma~\ref{lem:iterq}, then $w_\ell\le c_0$ for all $\ell\in\cP$;
+\item[(iv)] \textup{(Reduction.)} If $n\equiv1\pmod{Q_\Pi}$ and $F(n)=1$
+(the residues $X_\ell=n\bmod\ell^{e_\ell}$ need not be units), then $W(n)>T$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $24\mid Q_\Pi$ and $5,7\in\Pi$.  (ii) An event's support consists of the
+prime factors $>z$ of some $M\le T$, so there are at most $k$ of them.  There
+are at most $T^2$ atoms, since $\tau(A_M^2)\le2A_M\le T$, and each has at most
+$\prod_{\ell\mid r_\Pi}\ell^{e_\ell-a_\ell}\le T^k$ lifts.  (iii) Lifting
+preserves weights.  Each pair $(r,c)$ comes from an atom whose contribution to
+$S^*$ is at least $1/\varphi(r)$.  (iv) Let $M\le T$ with $M\equiv3\pmod4$, and suppose
+$n\equiv-4D\pmod M$ with $D\mid A_M^2$.  Every $\ell^v\Vert M$ with $\ell\in\Pi$
+has $\ell^v\le T$, so $m_\Pi\mid Q_\Pi$ and $-4D\equiv n\equiv1\pmod{m_\Pi}$,
+i.e.\ $m_\Pi\mid4D+1$.  If $r_\Pi=1$ this contradicts Lemma~\ref{lem:one}.
+Otherwise the atom survives $\Pi$, and $n\bmod\ell^{e_\ell}$ (a unit, as
+$-4D$ is) is a lift of $-4D\bmod\ell^{a_\ell}$ for each $\ell\mid r_\Pi$.  So
+a lift of the pair $(r_\Pi,-4D\bmod r_\Pi)$ occurs, contradicting $F(n)=1$.  Conclude with
+Lemma~\ref{lem:atoms}.
+\end{proof}
+
 %BODY
 
 \end{document}
