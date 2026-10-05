@@ -529,3 +529,126 @@ tails of the shape $N\exp(-c(\log N)^\theta\log\log N)$ follow from an
 earlier unpublished argument in this project (\cite[\S14]{Notes}); we do
 not reproduce it.  None of these bounds approaches $\amin(p)<\infty$ for all $p$.
 \end{remark}
+
+\section{Cited results}\label{sec:cited}
+
+We list every external result used, with a note on what was checked.
+``Checked'' means that the exact statement was compared with an archived
+copy of the source; ``from memory'' means it was not, and a referee should
+compare it with the reference given.
+
+For a finite sequence of nonnegative weights $(a_n)$, a set of primes
+$\mathcal P$ and $z\ge2$, put $P(z)=\prod_{\ell\in\mathcal P,\,\ell<z}\ell$,
+$S(\mathcal A,\mathcal P,z)=\sum_{(n,P(z))=1}a_n$ and
+$A_d=\sum_{d\mid n}a_n$.  Suppose that for squarefree $d\mid P(z)$
+\begin{equation}\label{eq:sievedata}
+ A_d=g(d)X+r_d,
+\end{equation}
+with $g$ multiplicative, $0\le g(\ell)<1$, and put
+$V(z)=\prod_{\ell\in\mathcal P,\,\ell<z}(1-g(\ell))$.  The \emph{dimension
+condition} $(\Omega_\kappa)$ is
+\[
+ \prod_{\substack{w\le\ell<z\\ \ell\in\mathcal P}}(1-g(\ell))^{-1}
+ \le\Bigl(\frac{\log z}{\log w}\Bigr)^{\kappa}\Bigl(1+\frac K{\log w}\Bigr)
+ \qquad(2\le w<z).
+\]
+
+\begin{citedthm}[arithmetic large sieve]\label{cit:LS}
+Let $S$ be a set of integers in an interval of length $X$ which, for every
+prime $\ell$ in a finite set $\mathcal P$, avoids $\nu(\ell)<\ell$ residue
+classes modulo $\ell$.  Then for $Q\ge1$, $|S|\le(X+Q^2)/H(Q)$ with $H(Q)$
+as in the proof of Lemma~\ref{lem:LS}.
+\end{citedthm}
+\noindent Montgomery \cite{Montgomery68}, with the constant $X+Q^2$ from the
+Montgomery--Vaughan form of the analytic large sieve \cite{MVLS}; see also
+\cite[\S9.4]{OdC}.  \emph{From memory}; it is the standard form and is
+used in the same way in \cite[Lemma 12.1]{Notes}.
+
+\begin{citedthm}[Mertens in progressions]\label{cit:mertens}
+For fixed $a\ge1$ and $\gcd(c,a)=1$,
+$\sum_{\ell\le z,\ \ell\equiv c\,(a)}1/\ell=\varphi(a)^{-1}\log\log z+M(a,c)+O_a(1/\log z)$.
+Consequently, if $\mathcal P$ is a union of $k$ reduced classes modulo $a$,
+then $\prod_{\ell<w,\ \ell\in\mathcal P}(1-1/\ell)^{-1}=c_{\mathcal P}(\log w)^{k/\varphi(a)}(1+O(1/\log w))$
+with $c_{\mathcal P}>0$.
+\end{citedthm}
+\noindent Standard consequence of the prime number theorem in
+arithmetic progressions; e.g.\ \cite[\S4.2]{MV}.
+
+\begin{citedthm}[Siegel--Walfisz]\label{cit:SW}
+For every $B>0$ there is $c_B>0$ such that
+$\pi(t;a,c)=\li(t)/\varphi(a)+O_B(t\exp(-c_B\sqrt{\log t}))$ uniformly for
+$a\le(\log t)^B$ and $\gcd(c,a)=1$.
+\end{citedthm}
+\noindent \cite[Cor.~11.21]{MV}.  Standard; \emph{from memory} as to the
+numbering.  The constants are ineffective.
+
+\begin{citedthm}[Bombieri--Vinogradov]\label{cit:BV}
+For every $A>0$ there is $B=B(A)$ such that
+$\sum_{k\le x^{1/2}(\log x)^{-B}}\max_{\gcd(b,k)=1}|\pi(x;k,b)-\li(x)/\varphi(k)|\ll_A x(\log x)^{-A}$.
+\end{citedthm}
+\noindent Standard (e.g.\ \cite[Thm.~17.1]{IK}); the version with
+$\max_{y\le x}$ is not needed.
+
+\begin{definition}[Elliott--Halberstam conjecture, EH]\label{def:EH}
+For every $\eta,A>0$:
+$\sum_{k\le x^{1-\eta}}\max_{\gcd(b,k)=1}|\pi(x;k,b)-\li(x)/\varphi(k)|\ll_{\eta,A}x(\log x)^{-A}$.
+\end{definition}
+
+\begin{citedthm}[semi-linear sieve, lower bound]\label{cit:semi}
+Assume \eqref{eq:sievedata} and $(\Omega_{1/2})$.  Let $D=z^s$ with
+$1\le s\le2$.  Then
+\[
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,
+ \qquad f(s)=\Bigl(\frac{e^\gamma}{\pi s}\Bigr)^{1/2}\int_1^s\frac{dt}{\sqrt{t(t-1)}},
+\]
+where $o(1)\to0$ as $D\to\infty$, uniformly for $s\in[1,2]$, depending
+only on~$K$.
+\end{citedthm}
+\noindent Iwaniec \cite{Iw76}; in the $\beta$-sieve form
+\cite[Thm.~11.13]{OdC} with $\kappa=1/2$, $\beta=1$.  \emph{Partly checked:}
+the archived paper of Ter\"av\"ainen \cite[(6.4)]{Ter} applies
+\cite[Thm.~11.13]{OdC} with exactly this $f$ and $s\in[1,2]$ (with error
+$O((\log N)^{-0.1})$ and the remainder weighted by the lower-bound sieve
+weights, which are bounded by $1$).  The general hypotheses as stated
+above are the standard ones and were \emph{not} compared with
+\cite{OdC} or \cite{Iw76}.  We use only that, for $1<s\le2$,
+\begin{equation}\label{eq:fsemi}
+ f(s)\ge c_f(s-1)^{1/2},\qquad c_f=(e^\gamma/\pi)^{1/2},
+\end{equation}
+which follows from $t(t-1)\le2(t-1)$ on $[1,2]$:
+$\int_1^s dt/\sqrt{t(t-1)}\ge\int_1^s dt/\sqrt{2(t-1)}=\sqrt2\,(s-1)^{1/2}$, and
+$(e^\gamma/(\pi s))^{1/2}\ge(e^\gamma/(2\pi))^{1/2}$.
+
+\begin{citedthm}[linear sieve, lower bound]\label{cit:lin}
+Assume \eqref{eq:sievedata} and $(\Omega_1)$.  Let $D=z^s$ with $2\le s\le3$.
+Then
+\[
+ S(\mathcal A,\mathcal P,z)\ge XV(z)\bigl(f_1(s)+o(1)\bigr)-\sum_{d<D,\ d\mid P(z)}|r_d|,
+ \qquad f_1(s)=\frac{2e^\gamma\log(s-1)}{s},
+\]
+with $o(1)\to0$ as $D\to\infty$, uniformly in $s\in[2,3]$, depending only on~$K$.
+\end{citedthm}
+\noindent Jurkat--Richert; \cite[Thm.~8.4]{HR}, \cite[Thm.~11.13]{OdC}
+with $\kappa=1$, $\beta=2$.  \emph{From memory} (the archived source
+\cite[(6.6)]{Ter} quotes only the upper linear bound).  We use only
+$\log(1+u)\ge u/2$ on $[0,1]$, whence
+\begin{equation}\label{eq:flin}
+ f_1(s)\ge\tfrac{e^\gamma}3(s-2)\qquad(2<s\le3).
+\end{equation}
+
+\begin{citedthm}[Fuchs--Hsu--Rickards--Schindler--Stange]\label{cit:FHRSS}
+Let $f=ax^2+bxy+cy^2$ be a primitive positive definite integral form of
+discriminant $D$ with $\gcd(a,2D)=1$; let $A\ne0$, $B\ge1$ be integers with
+$\gcd(A,B)=1$, and assume $2\mid AB$ or $D\not\equiv5\pmod8$.  Let $m\ge1$,
+$\gcd(l,m)=1$, $\gcd(m,2DB)=1$, $\gcd(l-A,m)=1$.  Then the number of primes
+$p\le N$, $p\equiv l\pmod m$, primitively represented by $Bf(x,y)+A$ is
+$\gg N/(\log N)^{3/2}$.
+\end{citedthm}
+\noindent \cite[Thm.~1.1(2)]{FHRSS}.  \emph{Checked} against the
+archived preprint (statement only; the proof was not checked).  Used only
+in Remark~\ref{rem:FHRSS} as a cross-check.
+
+The proofs below use the sieve theorems only through
+\eqref{eq:fsemi} and \eqref{eq:flin}; all upper-bound sieving is done with
+Lemma~\ref{lem:LS}, which is proved above from Cited
+Theorem~\ref{cit:LS}.
