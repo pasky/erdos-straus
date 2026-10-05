@@ -16,6 +16,7 @@ Status: checkpoint 1 (side agent O31, branch `side-agent/typei-ckmin`); not yet 
 | L4.5 | target divisors near `√N` need moduli `>x` | PROVED (structural) |
 | §5 | census of all 82887 hard `p<10^7`: new records `ck_min(414241)=218`, `ck_min(9033649)=883` (`n_p=43`, ratio 20.5) | EVIDENCE |
 | T6.1 | `n_p=5 ⟹ ck_min(p)≤10` (sharp), by a mod-7 Type-I covering | PROVED |
+| C6.4 | under H: `C(7)≥539`, `C(11)>3000` via explicit formal escape points; unconditionally any Type-I covering of `{n_p=7}` (resp. 11) has height ≥539 (>3000) | CONDITIONAL / PROVED |
 | R6.2 | under H, `C(r)=sup_{n_p=r}ck_min` equals the least height of a finite Type-I covering of `{n_p=r}`; `C(7)<∞`? open (EVIDENCE: covered by small-D certificates to `3·10^6`) | PROVED direction + H sketch; open |
 
 **Answer to the task.** (1) An unconditional `ck_min ≥ g(p)·n_p`, g→∞,
@@ -506,6 +507,74 @@ Type-I ES for all hard primes (by a family of coverings, one per value of
 `n_p` — an E2 escape in the sense of POINTWISE_SIZE Prop A, since `n_p` is
 not a bounded formal quantity).
 
+
+### 6.2 Branching covering search and formal escape points (r=7, r=11)
+
+**Covering search** (`typei_branch_cover.py`). This is a sound DFS. It
+fixes `p mod ∏_{ℓ≤r}ℓ^{E_ℓ}` and then branches on `p mod q` for new primes
+`q≤Qmax`. Only residues that are not already covered are branched on.
+The certificates are `(c,k,F)` with `ck≤X`, `F≤Fmax`, and at most one
+undecided prime in F.
+* It re-derives Thm 6.1 (`5 10 7 7 3,1,1`: COVERED).
+* For r=7 (`7 600 5000 47 5,3,1,1`) it is NOT covered. The first
+  uncovered leaves are residue-one-like classes: `p≡25 (32)`,
+  `p≡7 (27)`, `p≡1 (5)`, `p≡6 (7)`, and `p≡1` or close to it modulo
+  every prime in `11,…,47`.
+* No finite covering was found for r=7 or r=11. The formal points below
+  explain why.
+
+**Formal ck_min at H-generic points** (`typei_formal.py`; this is the
+Thm 2.1 machinery with an arbitrary prescribed residue pattern). Take p
+with prescribed residues `a_ℓ mod ℓ^{e_ℓ}` and `p≡1 (mod ℓ^E)` at every
+other prime `ℓ≤B`. The script computes the fixed B-part `f_{c,k}` of
+every `N_{c,k}` with `ck≤X`. It asserts that this part, and every target
+class `−p mod 4ck`, is determined by the class. It then evaluates
+`M=2·#{D|f: D≡−p (4ck)}`. Under H, with `B≥2·#slices+2`, infinitely many
+primes in the class have exactly this `ck_min` and this `n_p`.
+(CONDITIONAL on H for the explicit family; the proof is Thm 2.1 steps 3–5
+verbatim.)
+
+| r | prescribed residues (all other ℓ≤B: `p≡1 mod ℓ^E`) | X, B | formal `ck_min` | witness |
+|---|---|---|---|---|
+| 7 | `p≡3` or `5 (7)` | 2000, 30000 | 21 | (7,3), D=11 / 23 |
+| 7 | `p≡6 (7)` | 2000, 30000 | 28 | (14,2), D=15 |
+| 7 | `p≡25 (2^{14}), 7 (3^9), 6 (7^6)` | 2000, 30000 | **539** | (77,7), D=43 |
+| 7 | `p≡25 (2^{14}), 7 (3^9), 13 (7^6)` | 1500, 12000 | 98 | (14,7), D=183 |
+| 11 | `p≡25 (2^{14}), 7 (3^9), 2 (11^4)` | 1500, 12000 | 990 | (55,18), D=119 |
+| 11 | `p≡2 (11^5)` | 3000, 30000 | **>3000** | none |
+| 11 | `p≡2` or `6 (11^4)` | 1500, 14000 | >1500 | none |
+
+**Corollary 6.4 (CONDITIONAL on H).**
+* There are infinitely many primes with `n_p=7` and `ck_min(p)=539`, so
+  `C(7)≥539` (census: 76).
+* There are infinitely many primes with `n_p=11` and `ck_min(p)>3000`, so
+  `C(11)>3000` (census: 111).
+* Unconditionally, any finite Type-I covering of `{n_p=7}` must have height
+  `≥539`, and any covering of `{n_p=11}` must have height `>3000` (PROVED).
+  A covering of lower height would also cover the formal point, i.e.
+  some certificate would hold on its class. Certificate classes are
+  decided by residues, and at the formal point no fixed-part divisor is a
+  target. So no certificate of height ≤X with B-smooth F holds there.
+  Certificates whose F has a prime `>B` also cannot hold on the whole
+  class, because `p mod` that prime is free.
+
+*Why r=11 escapes so well.* At the residue-one point the unforced slices
+are `(11c',k)` with odd `v_11(c)`. Write `m` for the 11-free part of `ck`,
+and `a1=v_11(c)`, `a2=v_11(k)`. A target divisor D of
+`f=1+4ck²` (exactly, because `p≡1` elsewhere) has `D≡−1 (mod 4m)`, and so
+does its cofactor `e`. So `D=4mj−1`, `e=4mj'−1`, and
+`4mjj'−j−j'=ck²/m`. Hence `jj'≈11^{a1+2a2}/(4c')`. For `11∥c` and
+`11∤k` this leaves only `jj'≤3`, which is a finite set of checks mod 11.
+Real freedom starts only at `ck≥11·121`. This is the mechanism of
+Thm 2.1, and here it already works at r=11.
+
+**Status of `C(7)`, `C(11)`.** Both are open. Unconditionally no covering
+was found; under H the lower bounds above hold. I conjecture
+(CONJECTURE, weak evidence) that `C(r)=∞` under H for every `r≥7`, i.e.
+that `r=5` is the only value of `n_p` with a finite Type-I covering. Two
+things support this: the DFS keeps meeting residue-one-like leaves, and the
+best formal points reach far beyond the census maxima.
+
 ## Replay
 
 ```
@@ -517,5 +586,8 @@ PYTHONPATH=scripts uv run python scripts/typei_ratio.py 3000000 10000000 2000 /t
 PYTHONPATH=scripts uv run python scripts/typei_records.py 9033649 414241 12289
 PYTHONPATH=scripts uv run python scripts/typei_smallD.py 7 3000000 2000 400  # EVIDENCE 6.3
 uv run python scripts/typei_c5.py                                          # Thm 6.1 covering mod 840
+uv run python scripts/typei_branch_cover.py 7 600 5000 47 5,3,1,1   # §6.2 DFS (not covered)
+uv run python scripts/typei_formal.py 2000 30000 2:25:14 3:7:9 7:6:6     # formal ck_min=539
+uv run python scripts/typei_formal.py 3000 30000 11:2:5                   # >3000 (~40 min)
 uv run python scripts/typei_cover.py 5 10 7 3 1 1; uv run python scripts/typei_cover.py 7 1500 3000 5 3 2 2   # §6 covering search
 ```
