@@ -45,3 +45,8 @@ Status: IN PROGRESS.
   coefficients ≤16B²≤N''^6 for B≥16, Cor 7.4 ✓; Σ_{q≤√Z_0}(1/i)/q ≪ loglog Z_0 ✓.
 * Thm 3.7 incl. unconditional Ω_0≤𝓛S_0 and log S_0≤(log2+o(1))𝓛/log𝓛 (HW Thm 317) ✓.
 * Verdict §3: SOUND (modulo ET, as labelled).
+* From scratch (`scripts/review_r47_moment.py`): Lemmas 2.1, 2.2 for M≤400 (both
+  descriptions of R(M) coincide; 1∉R(M)); involution preserves g; Lemma 3.3 identities and
+  injectivity of (M,D)↦(a,c,d,f) for M≤20000. Remark 3.8 numbers reproduced:
+  mean of h over D≤A_M is 2.163 (T=10⁴), 2.402 (T=10⁵) vs paper's 2.16, 2.40
+  (S_0=55.3, 113.3; far below 𝓛⁴ — the bound is not sharp, as the paper says).
