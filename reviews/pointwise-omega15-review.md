@@ -11,7 +11,7 @@ From-scratch scripts: `scripts/review_o15_*.py` (no reuse of `omega15_pseudorand
 | Lemma 1.1 | SOUND (re-derived; brute-forced) |
 | Thm 1.2 | SOUND (labels match O14 Thm 4.5 inputs) |
 | Def 2.1 / Thm 2.2 | SOUND (Def 2.1 is narrow by design, see D-notes) |
-| Lemma 2.3 | (pending) |
+| Lemma 2.3 | SOUND (minor bookkeeping) |
 | Cor 2.4 | (pending) |
 | Prop 2.5 | (pending) |
 | Thm 3.1 | (pending) |
@@ -56,5 +56,16 @@ product, and `ν(F=1)=0`. Correct. Note (feeds D-notes below): Def 2.1 lets a ce
 unit point masses at integers `≤x` (atomicity/integrality/support). The fake `N_xν` is a
 diffuse measure. This is a legitimate modelling choice but it is exactly where (N2) lives, and
 it should be said at Def 2.1, not only in the Reading after Cor 2.4.
+
+### Lemma 2.3 — SOUND
+Re-derived. (a) trivial. (b) characters: `Σ_χ|Σ_{p∤q}χ(p)|²=φ(q)N'` (distinct units), principal
+term `N'²`. Additive: `Σ_aS(a)\overline{c_q(a)}=Σ_pΣ_ac_q(a)e(ap/q)=q·N'` (Ramanujan-sum
+orthogonality, `c_q` real), giving `q(N_x−2N_xN'/φ+N_x²/φ)≥qN_x(1−N_x/φ)` because `N'≤N_x`; the
+`a=0` term vanishes. All correct. From scratch (`scripts/review_o15_lemma23.py`, part A): 78
+cases (Q∈{1,3,4,5,7}, x≤150, q>x prime or a product of two primes, characters built explicitly from
+primitive roots): (a), both lower bounds of (b) and the identity `Σ_χ|·|²=φ(q)N'` hold.
+Bookkeeping: `S(a)` is written over all `p≤x, p∈H` but must run over the primes counted by `m_x`
+(m3). In Cor 2.4 the hypothesis `N_x≤φ(q')/2` is asserted via "`q'>x²`", but the case split only
+gives `q'>x` (m4).
 
 ## Defects
