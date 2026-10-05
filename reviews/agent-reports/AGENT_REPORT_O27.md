@@ -91,3 +91,66 @@ saving `O(log log N)` (Thm 4.3); composite kernels capped only where
 caps are `C_A(log N)^{3/4}`. (D)22 open: "the large sieve applied to primes"
 closed (Thm 3.1); "ν ≥ 1 only on 𝒜∩[1,N]" shown vacuous (Prop 6.1);
 "ν ≥ 0 only at primes ≤ N" stays open (Assessment).
+
+## Checkpoint 3 (§§8–9; reviewed in R27b, see checkpoint 4)
+
+Task: serious attempt on H_LS / H_LS∞ and on composite kernels with
+`W−h ≪ Nh`.
+
+1. **(E1): explicit escape, for dense abstract families (Thm 8.5, PROVED).**
+   Band family: for disjoint prime pairs `D_i = ℓ_iℓ'_i`, forbid the
+   ≍ηD_i classes mod `D_i` whose phase `na_i/D_i` lies within η of 1/2.
+   * Lemma 8.1 (Gale's supply–demand theorem): there is a measure on each
+     band set with uniform one-prime marginals. Hence every majorant whose
+     terms have level `< L_i` has mean `≥ 1` (Prop 8.2(a)): the level-λ
+     comparison measure exists with `S = 0`. If the primes are only
+     `> e^{λ/d}`, EK Thm 2.5 gives saving `O_d(log K)` (Prop 8.2(b)).
+   * A Montgomery–Vaughan large sieve on the sumset `{Σ m_iθ_i}`, using
+     products of an explicit L²-small arc majorant (Lemma 8.3), saves
+     `≥ c log N` (Prop 8.4). Its frequencies have level `≥ Kλ`.
+
+   So (E1) **cannot** be closed by Lemma 1.1 plus the large-sieve axioms. A
+   proof of (H_LS∞) for forced families must use the sparsity (Sp) — mass
+   `≤ D^{−1+o(1)}` on classes with modulus divisible by D — or K2's moment
+   hypotheses, both of which the band family violates. (H_LS∞) for forced
+   families remains CONJECTURE (budget heuristic, §8.2).
+2. **Composite kernels (Thm 9.1, Prop 9.2).** The level hypothesis of Thm
+   4.2 is removed entirely: moduli `≥ N` are controlled by anti-concentration
+   of the comparison measure via prefixes. For T-rough kernel moduli the
+   factor `1 + Nh/(W_K−h)` is harmless up to `T^{1/4−o(1)}` (unconditional).
+   Open: kernels with `Nh/(W_K−h) ≥ e^{(log N)^{3/4}}` and small prime
+   factors in their moduli. There 𝒜 is genuinely non-uniform (selectors,
+   ℛ(3)). No escape is known; the band family does not give one for kernels.
+3. Numerics: check (5) of the script verifies Prop 8.2(a) by LP (value
+   exactly 1) and Lemma 8.3 numerically.
+
+## Checkpoint 4: hostile review R27b applied
+
+R27b (`reviews/exceptional-largesieve2-review-2.md`): no FATAL/MAJOR. Applied:
+m1 (`ℓ'_i ≥ 36` in Prop 8.2(b)); m2 ((Sp) restated for D of level `≥ log N`
+and labelled Assessment); m3 (Thm 9.1 needs all primes of 𝔊 and of the kernel
+moduli `≤ e^{Λ₀}`; remark on dropping primes ∤ M₀); m4 (band-family kernel
+remark argued directly, band primes `> N`); m5 ("open precisely" now
+includes `ω(q) > T^{1/4}` and the conditionality of Thm 9.1); m6 (section
+reference); m7 (**new Prop 8.6**: with `ℓ, ℓ' ≈ N^{1/2+δ}` the band family
+satisfies K2 Thm 5.1's conclusion `S ≤ Cλ^{3/4}` at *every* level, yet
+the large sieve saves `c log N`; so the escape survives comparison at all
+levels); nit in Lemma 8.1.
+
+## Final ledger wording for (D)25 (suggested)
+
+> (E1) super-polynomial levels: **explicit escape for dense abstract class
+> families** (LARGESIEVE2 Thm 8.5, Prop 8.6; PROVED): a band family with ≍ηD
+> classes at single moduli D = ℓℓ' satisfies the conclusion of K2 Thm 5.1
+> (`S ≤ Cλ^{3/4}`) at every level, yet a Montgomery–Vaughan large sieve with
+> ≤ N/3 frequencies of level ≍ (log N)² saves `≥ c log N`. Hence (E1) cannot
+> be closed from comparison measures plus the large-sieve axioms; a cap for
+> forced families needs family-specific input such as the sparsity (Sp)
+> (Assessment). (H_LS∞) for forced families: CONJECTURE.
+> Composite kernels: capped at **every** level up to the factor
+> `1 + Nh/(W_K−h)` (Thm 9.1; conditional on K2 Thm 5.1/KARY3; primes of 𝔊
+> and of the kernel moduli `≤ N^{O(1)}`). For T-rough moduli with
+> `ω(q) ≤ T^{1/4}`, the saving is `≤ log(1 + ε_T(1 + Nh/(W_K−h)))`,
+> `ε_T ≍ T^{−1/4+o(1)}` (Prop 9.2; unconditional). Open: kernels with
+> `Nh/(W_K−h) ≥ e^{(log N)^{3/4}}` whose moduli have small prime factors
+> or more than `T^{1/4}` prime factors.
