@@ -289,3 +289,19 @@ data, both parities and *every* switched family bound `ν(F(q,C_q,[ε,ζ)))≤K�
 `C_q≠∅`, all cell edges ζ, including ζ=1) with **K=2.5** do not force a single both-clean
 configuration. Since every real constant is ≥4 (§4.1, §5), the real switched sieves are a
 fortiori insufficient in this model.
+
+## Replay
+```
+export PYTHONPATH=scripts; ulimit -v 8000000
+uv run --with numpy python scripts/window3_cont.py 0.1 4000                    # §2.1
+uv run --with numpy python scripts/window3_rcheck.py 0.1 8 0.5                  # §2.2
+uv run --with scipy python scripts/window3_lp.py 0.1 8 0.5 --one                # §3 (0.4893)
+uv run --with scipy python scripts/window3_lp.py 0.1 8 0.5 --swm=1.05           # §3 marginal caps
+uv run --with scipy python scripts/window3_lp.py 0.1 8 0.5 --swpc=2.25:0.1      # §3 per-config caps
+uv run --with numpy python scripts/window3_kz.py 0.1 8                          # §4.1 K(zeta)
+uv run --with scipy python scripts/window3_lp2.py 0.1 8 0.5 --swz=2:prefix --drop=1e-3 --cg   # §4.2, §8
+uv run --with scipy python scripts/window3_lp2.py 0.1 8 0.5 --swz=4:prefix --drop=1e-3 --cg --good  # §6
+uv run --with scipy python scripts/window3_full.py 0.15 6 0.5 --swz=4 --swgood  # §7
+uv run --with scipy --with mpmath python scripts/window3_lp.py 0.1 8 0.5 --swz=2.499:prefix --certify --certK=2.5  # §8.1
+scripts/window3_batch.sh OUT 14400 "0.1 12 0.5 --swz=2:prefix --drop=1e-3 --cg"   # §8 large grids (hours)
+```
