@@ -77,3 +77,28 @@ Lemma 3.2(d), β=1.25, Y=13) against the Monte Carlo mean of `w̃_ℓ(end)²` ov
 `ℓ∈(13,133]`: max ratio `E[w̃²]/B_2 = 1.000` (attained with equality at `ℓ≥83`, where only `M=ℓ, 3ℓ` occur and
 `w̃_ℓ` is deterministic — the bound is tight there, as the proof predicts); typical ratios 0.01–0.9. Also
 `E[S_res]≈8.27 ≤ S_H^β=38.1` (Lemma 3.2(c)). No violation of the inequalities driving the random → deterministic step.
+
+## 4. Parameter ledger, recomputed (Thm 5.1)
+
+With `β=1+1/log𝓛`, `η=(3/4)log β≥0.7/log𝓛`, `Y=𝓛^{C_0+4}` (`C_0≈48.5`, an absolute constant; if `Y>T` take `Y=T`):
+
+* `E[log Q_end] ≤ log 840 + η^{−1}·C𝓛³(log Y)^4 ≪ 𝓛³(log𝓛)^5` (Lemma 3.2(b), 3.3(A)); I re-derived the NT
+  application from Henriot's (1.1) as archived (`sources/henriot-1102.1643.pdf`): `Q_1=n`, `Q_2=4n−1`,
+  `ρ(2)=1`, `ρ(p)=2`, no fixed prime divisor (`Q(1)=3, Q(2)=14`), `ρ_{Q_1}(n_1)=1`, `ρ_{Q_2}(n_2)≤1`, and
+  `F=τ(n_1²)f_2(n_2)` (resp. `·τ_Y(n_2)`) is in `M_2(A,B_ε,ε)` with A, B_ε independent of T, Y since `β≤2`.
+  Euler factors: `(log x)^β(log Y)^β`, resp. `(log x)^β(log Y)^{3β}`, and `(log x)^{β−1}≤e`. ✔
+* `E[S_res] ≤ S_H^β ≪ 𝓛³log Y ≍ 𝓛³log𝓛`. ✔
+* Late primes: `η^{−2}(𝓛+1)Ξ/Y ≪ (log𝓛)²𝓛^{C_0+1+o(1)}/𝓛^{C_0+4} → 0`. Ξ's exponent re-derived:
+  `Στ(n²)^4/n≍𝓛^{81}`; `g²=H^4(m/φ)^4τ^4` has `f(p)=256β^4` (`p≤Y`), `16β^4` (`p>Y`), so
+  `Σg²/m≪𝓛^{16β^4}(log Y)^{240β^4}` and `𝓛^{16(β^4−1)}=O(1)`. ✔
+* Good realisation: `log Q≤4E[log Q_end]`, `S_res≤4E[S_res]`, (1.1) everywhere (prob. ≥1/4).
+* `τ=2𝓛⌈log₂(100m²(S+1)e^{3S})⌉ ≤ 2𝓛(4.33S+5.77𝓛+log₂(S+1)+7.7)` (`m≤T²`), so
+  `log max d_i ≤ 2τ+3𝓛 ≤ 17.4𝓛S_res+O(𝓛²)`, `log ℓ_aux ≤ log max d_i+1`.
+* `log Z ≤ log Q + log ℓ_aux + log max d_i ≪ 𝓛³(log𝓛)^5 + 𝓛·𝓛³log𝓛 + 𝓛² ≪ 𝓛⁴log𝓛`.
+* O9 Thm 1.1: `A≤1.03≤Z^{1/4}`, `log x = C_2(1+log 1.03)log Z ≪ 𝓛⁴log𝓛`. MV III Thm 28.19 (archived text,
+  `sources/omega9/montgomery-mnt3.pdf`, line "Theorem 28.19 (Gallagher)") matches O9's quotation; only Z
+  changes, and O9's derived conditions (`Q_G≥Z`, `Q_G^{6c}≤x`, `x≥CAZ^4`) are in terms of Z alone. ✔
+* Inversion: `log p≤C𝓛⁴log𝓛` with `log𝓛≤log log p` gives `𝓛≥c(log p/log log p)^{1/4}`, i.e.
+  `W(p)>T≥exp(c(log p)^{1/4}(log log p)^{−1/4})`. The exponent `−1/4` on `log log p` is correct (not `−B`). ✔
+
+The quarantine contributes `𝓛³(log𝓛)^5`, the junta `≍𝓛·S_res≍𝓛⁴log𝓛`: the bottleneck statement is right.
