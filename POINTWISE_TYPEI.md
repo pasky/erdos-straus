@@ -17,7 +17,7 @@ Status: checkpoint 1 (side agent O31, branch `side-agent/typei-ckmin`); not yet 
 | §5 | census of all 82887 hard `p<10^7`: new records `ck_min(414241)=218`, `ck_min(9033649)=883` (`n_p=43`, ratio 20.5) | EVIDENCE |
 | T6.1 | `n_p=5 ⟹ ck_min(p)≤10` (sharp), by a mod-7 Type-I covering | PROVED |
 | C6.4 | under H: `C(7)≥539`, `C(11)>3000` via explicit formal escape points; unconditionally any Type-I covering of `{n_p=7}` (resp. 11) has height ≥539 (>3000) | CONDITIONAL / PROVED |
-| R6.2 | under H, `C(r)=sup_{n_p=r}ck_min` equals the least height of a finite Type-I covering of `{n_p=r}`; `C(7)<∞`? open (EVIDENCE: covered by small-D certificates to `3·10^6`) | PROVED direction + H sketch; open |
+| R6.2 | finite covering ⇒ `C(r)≤X` (PROVED); uncovered fixing class ⇒ `C(r)>X` under H; the exact equivalence needs a compactness step (sketched); `C(7)<∞`? open (EVIDENCE: covered by small-D certificates to `3·10^6`) | PROVED direction + H sketch; open |
 
 **Answer to the task.** (1) An unconditional `ck_min ≥ g(p)·n_p`, g→∞,
 was **not** obtained; §4 identifies the needed events exactly (P4.1) and
@@ -264,8 +264,9 @@ apply Lemma 1.1 and the `D↔N/D` pairing (only `D≤√N` is needed). ∎
 *Scope (R31-D5).* `𝓤_p(G)` is understood intersected with `𝓑_p`
 (`(p,ck)=1` and the size bounds of (36.1)). This intersection is
 automatic when `G n_p<n_p²≤p/2`, which holds for every hard p (no hard
-`p<10^6` has `n_p²>p/2`; beyond that, Burgess-type bounds give
-`n_p=o(√p)`). Since `ck<n²`, every prime of `c'` (not only of `sf(c')`)
+`p<10^6` has `n_p²>p/2`; beyond that, Burgess's bound `n_p≪p^{1/(4√e)+ε}` gives it for
+large p, and explicit versions (e.g. Treviño) for all p; only large p
+matter here). Since `ck<n²`, every prime of `c'` (not only of `sf(c')`)
 is a residue.
 
 So beyond `n_p` the event is a conjunction, over
@@ -456,9 +457,24 @@ r=5, X=10, D∈{3,7}). (ii) Conversely, if some class of `S_r` (mod a
 modulus fixing `v_ℓ(N_{c,k})` for all `ℓ≤B`, `ck≤X`) is not covered by the
 certificates with B-smooth D, then the construction of Thm 2.1 steps 3–5
 (fixed part times one H-prime) gives, under H, infinitely many p with
-`n_p=r` and `ck_min(p)>X`. So under H, `C(r)` is exactly the least height
-of a finite Type-I covering of `S_r` (∞ if none). Thm 2.1 says this height
-is `≥r^{2−ε}` for large r.
+`n_p=r` and `ck_min(p)>X` (CONDITIONAL on H; this is the form used in
+Thm 2.1 and Cor 6.4). *Equivalence (sketch, R31-D6).* The claim "under H,
+`C(r)` is exactly the least height of a finite Type-I covering" needs one
+more step: if every fixing class is covered by B-smooth certificates, then
+a **finite** covering exists. Fixing classes have unbounded depth near the
+ℓ-adic roots of the `N_{c,k}`, and the certificates there could use
+unbounded powers `ℓ^e`. The step is a compactness argument in
+`∏_{ℓ≤B}ℤ_ℓ`, which we only sketch:
+* take an ℓ-adic root point p* of one slice;
+* off finitely many ℓ, p* is not a root of any other slice;
+* if p* were uncovered, then, since `ℓ^i mod 4ck` is periodic and the
+  other slices are locally constant near p*, nearby fixing classes would
+  be uncovered too, contrary to the hypothesis;
+* so every point is covered, and compactness gives a finite subcover.
+
+Until this is written out, only "finite covering ⇒ `C(r)≤X`" (PROVED) and
+"uncovered fixing class ⇒ `C(r)>X` under H" are claimed. Thm 2.1 says the
+latter happens at height `≥r^{2−ε}` for large r.
 
 
 ### 6.1 Literature: which coverings are known (task check)
