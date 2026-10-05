@@ -1,5 +1,24 @@
 # Paper draft status
 
+**New (2026-10-05): `sieve-limits-note.tex` / `.pdf`, v4** (task O36).
+Sieve limits for the exceptional set: every coefficient-sum CRT majorant
+of the whole avoider set of any finite mixture of ℛ(M)-, (a,D)-, Case-A and
+selector classes (arbitrary moduli, family primes `≤ N^A`) saves at most
+`C_A(log N)^{3/4}` (Thm 10.14; the `(log log N)^{3/4}` factor of v3 is gone,
+via EXCEPTIONAL_KARY3's local-weight first moment, ledger (D)24). New
+sections: §14 large sieves (duality cap, twisted/hybrid/prime forms,
+Gallagher `≤ 26 log log N + C`, band-family escape, H_LS∞ conjecture),
+prime-only majorants, interval counts with moduli `≤ N/2`, hybrid methods
+reduced to SPW (ledger (D)19, (D)20, (D)22, (D)25, (D)26); §15 tuple counts
+(TC_θ, forced zeros above 2/3, TC^alt, truncated weights; (D)21, (D)23,
+(D)24); exclusions §16 and open problems §17 rewritten. Case A is proved
+mod Elsholtz–Tao Prop 1.4 and §7 (Thm 7.1, Cor 7.4, (7.10); uniformity in k
+re-derived, two slips noted, Rem 10.7). Change list for referees:
+`reviews/agent-reports/AGENT_REPORT_O36.md`.
+* v3 (whole-avoider main theorem with `(log log N)^{3/4}` without B) was
+  refereed and merged.
+* v4 is **not yet refereed**. Internal results only; not a proof of ES.
+
 **New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v2** (tasks O33/O34, 18 pages).
 It proves `W(p) ≥ exp(c(log p)^{1/7})` for infinitely many hard primes
 (mod Gallagher's theorem [MV III draft Thm 28.19] + Elsholtz–Tao Prop 1.4 + Håstad),
@@ -23,7 +42,8 @@ CORRECT-AFTER-REPAIRS (`reviews/vaughan-loglog-note-review.md`); machine
 checks in `verify.py (bv)`.  This is the artifact to show a human referee
 first.  It does **not** contain the provisional 3/4 theorem.
 
-**Also new (2026-09-06): `es-threequarter-note.tex` / `.pdf`** — a 21-page
+**Also new (2026-09-06): `es-threequarter-note.tex` / `.pdf`** (2026-10-05: its
+sharpness remark now cites the cap `C(log N)^{3/4}` of sieve-limits v4, Thm 10.14) — a 21-page
 standalone write-up of the 3/4 theorem (source §16/§34/§39), importing the
 loglog note's lemmas; hostile-reviewed SOUND-AFTER-REPAIRS
 (`reviews/es-threequarter-note-review.md`, with per-checkpoint verdicts for the
