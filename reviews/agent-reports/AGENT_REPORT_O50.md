@@ -65,3 +65,25 @@ cd paper && pdflatex energy-dnf-note.tex && pdflatex energy-dnf-note.tex
 ## Not done / open
 * Systematic literature search (no internet).
 * Uniform-cube optimal rate; depth-3/AC0 analogue; sparsity (listed as open problems).
+
+## Self-review (review subagent, deep mode) and repairs
+
+No FATAL; core argument (polarization, deletion–contraction, matching
+expectation, refinements, sharpness/Stirling, parity rate, filtration) verified.
+Repairs applied:
+* **M1** Thm 7.1: domain made explicit (`0 ≤ v_ℓ(E) ≤ f_ℓ`, offsets `i_0(ℓ) ≥ 0`;
+  `v ≤ i_0` fixes nothing). Counterexample to the unrestricted statement
+  (negative v) noted by the reviewer.
+* **M2** CNFs: refined bounds hold with `p = P[h=+1]` (probability the CNF is
+  false), not `P[h=−1]`; the `4·2^{−(t+1)/k}` bound unchanged.
+* **M3** §8: Haar measure on `Ẑ^×` (units / fibres `1+ℓ^aℤ`), as in es-subexp.
+* m4: `c_y` restored with the condition `supp 1_𝒥 = V`; contraction weights
+  qualified (`J ∋ v`); factor 1 when `v ≤ i_0`.
+* m5: script now checks the endpoint bounds `1+4p` and the influence bound
+  (exact for k=1, float with 1e-12 slack else), and Thm 7.1 with random offsets
+  `i_0 ∈ {0,1}`; §9 says the parity rates are printed, not asserted.
+* m6: conjecture evidence described as floating-point / numerical LP; C-exp
+  tested only in the exponential form.
+* m7: "contraction" wording fixed (`‖T_ρF‖ > ‖F‖` for nonconstant F).
+* m8: overfull boxes removed (0 remaining).
+Script re-run after repairs: ALL CHECKS PASSED (`data/energy_note/check_seed1.txt`).
