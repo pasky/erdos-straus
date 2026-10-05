@@ -1866,7 +1866,7 @@ $1$, so some event of $\mathcal F$ occurs and $F=0$.
 \end{proof}
 
 \subsection*{The ES instance}
-Fix a small absolute $\varepsilon\in(0,1/10]$ (chosen in Lemma~\ref{lem:cuprimes}), and put
+Fix a small absolute $\varepsilon\in(0,1/20]$ (chosen in Lemma~\ref{lem:cuprimes}), and put
 $X=T^\varepsilon$, $V=X^{1/3}$, $L=\log X=\varepsilon\Lc$ and $y=\Lc^6$.  With
 $D^*$ as in \S\ref{sec:haarlower}, let $\mathcal F^*$ be the set of events
 $E_{v\ell,D}$ with
@@ -1983,7 +1983,7 @@ Use $\mathcal F^*$ without the events whose $\ell$ divides $Q$; each of its even
 has exactly one big coordinate, and $p^*\le T^{-1/2}$ (Lemma~\ref{lem:unique}).
 Fix a small configuration $x$; its entries are units.  By
 Lemma~\ref{lem:unique},
-$R(x)\ge\sum_\ell p_\ell(x)\ge\sum_v\sum_{D\equiv-x/4\ (v),\ n_D\notin\mathcal N_{\rm exc}}c(v,n_D)-\omega(Q)p^*$.
+$R(x)\ge\sum_\ell p_\ell(x)\ge\sum_v\sum_{D\equiv-x/4\ (v),\ n_D\notin\mathcal N_{\rm exc}}c(v,n_D)-\omega_{\rm big}(Q)p^*$, where $\omega_{\rm big}(Q)\le\log Q/(0.6\Lc)\le T^{0.05}$ counts the prime factors of $Q$ above $T^{0.6}$.
 For $D\equiv-x/4\pmod v$, $D$ is a unit modulo $v$, so $\gcd(v,2n_D)=1$, and
 Lemmas~\ref{lem:cuprimes} and~\ref{lem:cuD} give
 \[
@@ -2021,7 +2021,8 @@ $(\log\log p)^{1/2}$ in $\log W(p)$.
 \begin{proof}
 If $\log Q>T^{0.05}$, then $\log x\ge C\log Z\ge C\log Q>e^{0.05\Lc}$.  Otherwise
 Theorem~\ref{thm:ceiling} forces $\log Z>c\Lc^4/\log\Lc$.  In both cases
-$\log p\le\log x$ gives $\Lc\ll(\log p\log\log p)^{1/4}$.
+$\log x\gg\Lc^4/\log\Lc$, so the certified statement ``some hard $p\le x$ has
+$W(p)>T$'' holds at best with $\Lc\ll(\log x\log\log x)^{1/4}$.
 \end{proof}
 
 \emph{Scope.}  Corollary~\ref{cor:ceiling} says nothing about the true size of
