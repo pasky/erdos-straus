@@ -59,7 +59,7 @@ Finally `h(eN)≤h(e)+h(N)` (Lemma 1.1(b)). ∎
 
 *Dyadic blocks.* For `A,B,C∈{2^j: j≥0}` the block `(A,C,B)` is
 `a∈[A,2A)`, `c∈[C,2C)`, `d∈[B,2B)`. Only blocks with `A²B≤T` and `ACB≤T`
-occur; there are at most `(𝓛+1)²` pairs `(A,B)` and `𝓛/log2+1` values of C.
+occur; there are `O(𝓛²)` pairs `(A,B)` (`A≤√T`, `B≤T`) and `≤𝓛/log2+1` values of C.
 
 **Lemma 2.2 (block mass; PROVED modulo ET Prop 1.4).** For every block,
 `Σ_{(a,c,d,f)∈(A,C,B)} 1/N ≤ Σ_{a,d} 2τ(P)/(ad) ≪ log(A+B+2)`.
@@ -68,7 +68,7 @@ Consequently `S_0≪𝓛^4`.
 *Proof.* `1/N≤1/(acd)`, `Σ_{c∈[C,2C)}1/c≤2`, and for fixed `(a,d)` there
 are `τ(P)` choices of f. ET Prop 1.4 (with ET's `(k,a,b)=(4,d,a)`) gives
 `Σ_{a<2A,d<2B}τ(4a²d+1)≪AB log(A+B+2)`, and `1/(ad)≤1/(AB)` in the block.
-Summing over `≤(𝓛+1)²(𝓛/log 2+1)` blocks, with `log(A+B+2)≪𝓛`, gives `S_0`. ∎
+Summing over `O(𝓛³)` blocks, with `log(A+B+2)≪𝓛`, gives `S_0`. ∎
 
 ## 3. The rough part: `Σ_II≪𝓛^4 log𝓛` (cut the primes at the c-scale)
 
@@ -121,7 +121,7 @@ R(A,B) := Σ_{a∈[A,2A), d∈[B,2B)} (1/(ad)) Σ_{q|P} (1/i)·τ(P/q),     P=4a
 *Proof.* Every `q|P` is odd and has `ℓ∤ad`, since `P` is odd and `P≡1 (ℓ)` if `ℓ|ad`.
 
 *Large q (`q>Z^{1/2}`), and all q if `Z<16`.* Use `τ(P/q)≤τ(P)`. As
-`P≤16Z³`, Lemma 1.1(c) gives `Σ_{q|P,q>Z^{1/2}}1/i≤2log(16Z³)/log Z≪1` for
+`P<32Z³`, Lemma 1.1(c) gives `Σ_{q|P,q>Z^{1/2}}1/i≤2log(32Z³)/log Z≪1` for
 `Z≥16`; for `Z<16` simply `h(P)≤log₂P≪1`. So this part is
 `≪Σ τ(P)/(ad)≪log(Z+2)` (ET Prop 1.4, as in Lemma 2.2).
 
@@ -160,7 +160,7 @@ which is `B≤A` here.
 `d=qd'+d_0` with `1≤d'≤N:=⌊2B/q⌋` (`d≥B≥q`). Then
 `P/q=4a²d'+b_a`, `b_a:=(4a²d_0+1)/q≤4a²+1`. Here `gcd(4a²,b_a)=1`: `b_a` is
 odd, and `gcd(a,b_a)|gcd(a,4a²d_0+1)=1`. Both coefficients are
-`≤16B²+1≤N^5` (`N≥B^{1/2}`, `B≥16`). ET Cor 7.4 gives
+`≤16B²≤N^6` (`N≥B^{1/2}`, `B≥16`). ET Cor 7.4 gives
 `Σ_{d'≤N}τ(4a²d'+b_a)≪N log N≤(2B/q)log(2B)`. With `1/(ad)≤1/(aB)`:
 `Σ_{a,d: q|P}τ(P/q)/(ad)≪(log B/q)Σ_{a<2A}1/a`. The last sum is over
 `a∈[A,2A)`, so it is `≤2`.
