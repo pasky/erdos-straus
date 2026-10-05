@@ -148,3 +148,64 @@ and the primes of n, `ω(n)≤𝓛`) gives `Σ_{v≤T^{0.3}, y-rough, (v,2n)=1}1
 non-squarefree v (divisible by `p²`, `p>y`) cost `≤𝓛Σ_{p>y}p^{−2}=O(𝓛/y)`.
 *n-sum.* `Σ_{N_0≤n≤T^{1/10}}2^{ω(n)}/φ(4n) ≥ (1/2)Σ 2^{ω(n)}/n ≥ c_4𝓛²` (HAAR Lemma 2.2's
 last step). Multiply. ∎
+
+**Lemma 2.3 (lower tail of the big odds via m copies; PROVED, from HAAR Thm 1.4).** Let
+`1≤m≤y/𝓛^4`. Then, on the fibre,
+
+```
+E[ ∏_ℓ (1−p_ℓ(X_s))^m ] ≤ exp( −mμ + C_5 m² 𝓛² ).
+```
+
+*Proof.* *Copy system.* Take m independent copies `X_ℓ^{(1)},…,X_ℓ^{(m)}` of every big
+coordinate (small coordinates shared), and the atomic events
+`E^{(i)}:={X_q≡−4D (q) ∀q|v}∩{X^{(i)}_ℓ≡−4D (ℓ)}`, `E∈𝓕`, `i≤m`; call this 𝓕^{(m)}.
+Given `x_s` the copies are independent, so `P(Av(𝓕^{(m)})|x_s)=∏_ℓ(1−p_ℓ(x_s))^m`, and the
+left side is `P(Av(𝓕^{(m)}))`. Its mass is `mμ`.
+*Local lemma.* `E^{(i)}` conflicts only with events sharing a prime `q|v` (any copy) or with
+copy-i events at ℓ. So `Σ_{Γ(E^{(i)})}P ≤ mΣ_{q|v}w_q + w_ℓ ≤ m(𝓛/log y)(𝓛³/(2y)+4𝓛T^{−2/5}) + T^{−0.09}
+≤ 1/8` (HAAR Lemma 2.3's `w_q`; `w_ℓ` as in Lemma 2.1), and `P(E)≤1/8`. HAAR Remark 1.4(iii):
+the hypothesis of HAAR Lemma 1.3 holds with `x=2P`, `K≤e^{1/3}`.
+*Pair sum.* Bit-sharing pairs of 𝓕^{(m)}: (α) same copy, `E≠E'`: exactly the bit-sharing
+pairs of 𝓕, total `≤mΔ(𝓕)≤mC𝓛²`; (β) copies `i≠j`: they share only primes of
+`g:=gcd(v,v')`, so `g>1` and agreement means `g|D−D'`; with `v=gw`, `v'=gw'` and (F2),
+`P(E^{(i)}∩E'^{(j)})=1/(φ(g)φ(w)φ(w')φ(ℓ)φ(ℓ'))≤32/(gww'ℓℓ')`. For fixed `(g,n)` put
+`Σ(g,n):=Σ_{w y-rough, ℓ>T^{0.6}: gwℓ≡−1 (4n)}1/(wℓ) ≤ C𝓛/(φ(4n)log y)`
+(Brun–Titchmarsh `π(t;q,c)≤2t/(φ(q)log(t/q))`, `q=4n≤t^{1/6}`, gives `Σ_{ℓ≡c (q), ℓ>T^{0.6}}1/ℓ≤C/φ(q)`;
+and `Σ_{w y-rough}1/w≤C𝓛/log y`).
+  * `D=D'` (so `n=n'`): `≤Σ_n2^{ω(n)}Σ_{g>y}(32/g)Σ(g,n)² ≪ (𝓛³/log³y)Σ_{n≥N_0}2^{ω(n)}/φ(n)²
+    ≪ 𝓛³log N_0/(N_0log³y) ≪ 𝓛`.
+  * `D≠D'`: `g|D−D'≠0`; by HAAR (F5) `Σ_{g|D−D', g>1}1/g≤2𝓛/y`, so the sum is
+    `≤(64𝓛/y)(C𝓛/log y)²(Σ_n2^{ω(n)}/φ(4n))² ≪ 𝓛^7/(y log²y) ≪ 𝓛²`.
+  Each unordered cross pair is counted for at most `m²` copy pairs, so (β) `≤C'm²𝓛²`.
+HAAR Thm 1.4: `−log P(Av(𝓕^{(m)})) ≥ mμ − e^{1/3}(mC+C'm²)𝓛²`. ∎
+
+**Theorem 2.4 (level barrier for ES minorants; PROVED modulo BV and the fundamental lemma,
+via HAAR Thm 1.4).** In Setting 2.0 let `μ≥c_1𝓛³/log y` be the big-family mass (Lemma 2.2)
+and `1≤m≤min(y/𝓛^4, μ/(8C_5𝓛²))`. If B has level `≤D`, `B≤F` on the fibre, and
+
+```
+log D ≤ 0.6·𝓛·(μ/3 − 1),                                               (2.1)
+```
+
+then `E_fibre B ≤ exp(−mμ/4)`. With `y=max(𝓛^5,Y)`, `Y=𝓛^{O(1)}`, and `m≍𝓛/log𝓛`:
+**every minorant of level `log D ≤ c𝓛^4/log𝓛` has `E B ≤ exp(−c'𝓛^4/(log𝓛)²)`.**
+
+*Proof.* `k=⌊log D/(0.6𝓛)⌋≤μ/3−1`. By Lemma 2.1 and Theorem 1.3 (`r*≤2p*`),
+`E B ≤ E[F·1{R<K'}]` with `K':=(k+1)+(2k+1)r*≤(k+1)(1+4p*)`. Given `x_s` the big coordinates
+are independent Haar, so `E[F|x_s]≤∏_ℓ(1−p_ℓ)≤e^{−P}`, `P:=Σ_ℓp_ℓ≤R`. Hence, for `θ≥0`,
+`E B ≤ E[e^{−P}1{P<K'}] ≤ e^{θK'}E[e^{−(1+θ)P}]`. Take `1+θ:=m(1+p*)`. Since
+`log(1−p)≥−p(1+p)` for `p≤1/2`, `e^{−(1+θ)P}≤∏_ℓ(1−p_ℓ)^m`, and Lemma 2.3 gives
+`E B ≤ exp(m(1+p*)K' − mμ + C_5m²𝓛²) ≤ exp(m(μ/2 − μ + μ/8))`, using
+`(1+p*)K'≤(k+1)(1+6p*)≤μ/2` and `C_5m𝓛²≤μ/8`. ∎
+
+**Corollary 2.5 (the transfer ceiling; PROVED implication).** On the fibre of O13 Thm 3.4
+(`Q` Y-smooth, `log(1/δ_fibre)≪𝓛³(log𝓛)^{O(1)}` modulo NT), every minorant B of F of level
+`log D≤c𝓛^4/log𝓛` has `E B ≤ δ_fibre·exp(−𝓛^{4−o(1)})`. In particular BRW (O8 Lemma 3.1,
+needing `E B≥0.99δ`), Selberg-type quadratic minorants, β-sieve/Bonferroni truncations
+and any choice of `u_j` or weights in C-1 (brief items (i)–(iii)) all need cell/conductor
+level `log Z ≥ log D ≫ 𝓛^4/log𝓛`. So O13 Cor 3.5's `log Z≪𝓛^4(log𝓛)^{O(1)}` is optimal
+up to logs **for every transfer that certifies primes through a level-D minorant of F** (a
+function of n in the span of characters of conductor `≤D`), and such transfers cannot give
+exponent better than `1/4` (up to logs) for `W(p)`, on these fibres.
+
+*Proof.* Theorem 2.4 with `δ_fibre≥exp(−C𝓛³(log𝓛)^C)`. ∎
