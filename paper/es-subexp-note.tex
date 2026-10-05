@@ -1704,13 +1704,14 @@ $|\E[B\psi]|\le(0.01+\eta/(1-\eta))\delta\le0.245\,\delta\le0.245\,\mu/0.99<\mu/
 
 \section{Proof of the main theorems}\label{sec:proof}
 
-\begin{theorem}[Assembly; proved modulo Theorem~\ref{thm:G}]\label{thm:assembly}
-Let $T$ be large and let $Q$ be the output of Lemma~\ref{lem:gradedq} with
-$c=1/64$.  Put $S_1=C_1S_0$ and
+\begin{theorem}[Assembly; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:assembly}
+Let $T$ be large, let $(Q,r)$ be the square-class quarantine of
+Theorem~\ref{thm:haarupper}, put $S_1=C\Lc^3\log\Lc$ (the bound for $S_\beta$ in
+\eqref{eq:goodQ}) and
 \[
  \tau=2\Lc\big\lceil\log_2\big(100\,T^4(S_1+1)e^{3S_1}\big)\big\rceil .
 \]
-Then there is a prime $p\equiv1\pmod{840}$ with $p>T$, $W(p)>T$ and
+Then there is a hard prime $p$ with $p>T$, $W(p)>T$ and
 $\log p\le C_6\log Z$, where $C_6$ is absolute and
 \[
  \log Z\le\log Q+4\tau+6\Lc+1 .
@@ -1718,14 +1719,13 @@ $\log p\le C_6\log Z$, where $C_6$ is absolute and
 \end{theorem}
 
 \begin{proof}
-Take the residual system of $Q$.  By Lemma~\ref{lem:gradedq}, \eqref{eq:lllhyp}
-holds, $S\le S_1$ and $840\mid Q$; and $m\le T^2$.  If $m=0$, then $F\equiv1$; we
+Take the residual system of $(Q,r)$; $m\le T^2$.  If $m=0$, then $F\equiv1$; we
 put $B=1$ (one cell of modulus $1$), so that $\mu=A=1$ and the twist condition
 is vacuous, and go directly to the transfer step below.  Otherwise define $B$ by
 Lemma~\ref{lem:brw} with $u_j$ as in \eqref{eq:uj}.  By Lemma~\ref{lem:EL}, the
-choice of $\tau$, $m\le T^2$ and Corollary~\ref{cor:lll},
+choice of $\tau$, $S\le S_\beta\le S_1$ and $\delta\ge e^{-4S_\beta/3}\ge e^{-3S_1}$,
 \[
- \E[F-B]\le m^2S\,2^{-\tau/(2\Lc)}\le\frac{S\,e^{-3S_1}}{100(S_1+1)}\le\frac{e^{-3S}}{100}\le\frac\delta{100}.
+ \E[F-B]\le m^2S\,2^{-\tau/(2\Lc)}\le\frac{S\,e^{-3S_1}}{100(S_1+1)}\le\frac{e^{-3S_1}}{100}\le\frac\delta{100}.
 \]
 Lemma~\ref{lem:twist} gives $\mu=\E B\ge0.99\,\delta>0$, and, as
 $\E[F-B]\le\mu/99$, Lemma~\ref{lem:l1} gives $\E|B|\le1.03\,\mu$.  By
@@ -1736,104 +1736,49 @@ moduli $d_i\le T^3e^{2\tau}$.
 $A_i(n)\in\{0,1\}$ satisfy the hypotheses of Lemma~\ref{lem:brw}, and the cell
 expansion of $B$ is valid on $\mathbb Z$ (Lemma~\ref{lem:size}).  So
 $B(n)\le F(n)$, and by Lemma~\ref{lem:system}(i), $B(n)\le\mathbf 1[W(n)>T]$ for
-every $n\equiv1\pmod Q$.
+every $n\equiv r\pmod Q$.
 
-\emph{Transfer.}  Let $R=\max(T,\max_id_i)$ and choose a prime
-$\ell_{\rm aux}\in(R,2R]$.  Apply Theorem~\ref{thm:transfer} with $Q'=Q\ell_{\rm aux}$, so
-$8\mid Q'$.  As $\ell_{\rm aux}>\max d_i$, $\gcd(d_i,Q')=\gcd(d_i,Q)$, so the cells
-are consistent for $Q'$.  The inequality $B\le\mathbf 1[W>T]$ holds on
-$n\equiv1\pmod{Q'}$.  The functions $B$ and $|B|$ depend only on $X\bmod D$, so
-both are combinations of consistent unit cells (point cells modulo $D$), and by
-Lemma~\ref{lem:haar}, $\E_HB=\mu$ and
+\emph{Transfer.}  Let $R=\max(T,\max_id_i)$, choose a prime
+$\ell_{\rm aux}\in(R,2R]$, put $Q'=Q\ell_{\rm aux}$, and let $r'$ be the class modulo $Q'$
+with $r'\equiv r\pmod Q$ and $r'\equiv1\pmod{\ell_{\rm aux}}$.  Then $8\mid Q'$,
+$r'\equiv1\pmod8$, and $r'$ is a quadratic residue modulo every odd prime of
+$Q'$.  As $\ell_{\rm aux}>\max d_i$ is prime, $\gcd(d_i,Q')=\gcd(d_i,Q)$, so the cells
+are consistent for $(Q',r')$, and no cell or event involves $\ell_{\rm aux}$.  The
+inequality $B\le\mathbf 1[W>T]$ holds on $n\equiv r'\pmod{Q'}$.  The functions $B$
+and $|B|$ depend only on $X\bmod D$, so both are combinations of consistent
+unit cells (point cells modulo $D$), and by Lemma~\ref{lem:haar}, $\E_HB=\mu$ and
 $\E_H|B|/\mu\le1.03\le Z^{1/4}$.  A real primitive character of conductor
 $f>1$ coprime to $Q'$ is coprime to $Q$, so Lemmas~\ref{lem:twist}
 and~\ref{lem:haar} give the twist condition.  Here
 $\log Z\le\log Q+\log(2R)+\log\max d_i\le\log Q+\log2+2(3\Lc+2\tau)$.
 Theorem~\ref{thm:transfer} with $\log x=C_2(1+\log1.03)\log Z$ gives a prime
-$p\equiv1\pmod{Q'}$ with $W(p)>T$ and $\log p\le C_6\log Z$.  Since
-$\ell_{\rm aux}\mid p-1$, $p>\ell_{\rm aux}>T$, and $840\mid Q$ gives $p\equiv1\pmod{840}$.
+$p\equiv r'\pmod{Q'}$ with $W(p)>T$ and $\log p\le C_6\log Z$.  Since
+$\ell_{\rm aux}\mid p-1$, $p>\ell_{\rm aux}>T$; and $p\equiv r\pmod Q$ with $840\mid Q$, so $p$ is
+hard by Lemma~\ref{lem:system}(iii).
 \end{proof}
 
+The prime $\ell_{\rm aux}$ is needed for infinitely many \emph{distinct} primes:
+$W(p)>T$ alone does not force $p>T$.
+
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-By Theorem~\ref{thm:omega}, $S_1\ll\Lc^4$ and $\Omega_0\ll\Lc^4\log\Lc$.  Hence
-$\tau\ll\Lc(\Lc+S_1)\ll\Lc^5$, and Lemma~\ref{lem:gradedq}(c) with $c=1/64$ gives
-$\log Q\le1.02\,\Lc+7+64C_1\Lc\,\Omega_0\ll\Lc^5\log\Lc$.  So $\log Z\ll\Lc^5\log\Lc$,
-and Theorem~\ref{thm:assembly} gives a hard prime $p>T$ with $W(p)>T$ and
-$\log p\le C\Lc^5\log\Lc$.  As $\Lc<\log p$, this gives
-$\Lc^5\ge\log p/(C\log\log p)$, i.e.\
-$W(p)>T\ge\exp\big(c(\log p)^{1/5}(\log\log p)^{-1/5}\big)$.  Applying this to a
+By \eqref{eq:goodQ}, $\tau\ll\Lc(\Lc+S_1)\ll\Lc^4\log\Lc$ and
+$\log Q\ll\Lc^3(\log\Lc)^5$.  So $\log Z\ll\Lc^4\log\Lc$, and
+Theorem~\ref{thm:assembly} gives a hard prime $p>T$ with $W(p)>T$ and
+$\log p\le C\Lc^4\log\Lc$.  As $\Lc<\log p$, this gives
+$\Lc^4\ge\log p/(C\log\log p)$, i.e.\
+$W(p)>T\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-1/4}\big)$.  Applying this to a
 sequence $T_1<T_2<\dots$ with $T_{j+1}$ larger than the prime found for $T_j$
 gives infinitely many distinct primes.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:uncond}]
-Use the unconditional part of Theorem~\ref{thm:omega}.  Now $\tau$, $\log Q$ and
-$\log Z$ are all at most $\Lc^{O(1)}(S_0+1)$, so
-\[
- \log\log p\le\log(S_0+1)+O(\log\Lc)\le(\log2+o(1))\,\Lc/\log\Lc .
-\]
-Since $x\mapsto x/\log x$ is increasing for $x\ge e$, we get
-$\Lc/\log\Lc\ge Y:=(1/\log2-o(1))\log\log p$, hence
-$\Lc\ge Y\log\Lc\ge Y\log Y$.  That is,
-$\log W(p)>\Lc\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$.
-Infinitely many primes arise as before.
-\end{proof}
-
-\begin{corollary}[Haar side; proved modulo Theorem~\ref{thm:ETall}]\label{cor:haar}
-Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
-relative to the class $n\equiv1\pmod{24}$, i.e.\ the proportion, among the
-units modulo $L=\lcm(24,\,M\le T)$ that are $\equiv1\pmod{24}$, of those with
-$W(n)>T$ (the condition $W(n)>T$ depends only on $n\bmod L$).  Then
-$\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  The natural density $\delta^*_{\mathbb Z}(T)$ of
-the set of all integers $n$ with $W(n)>T$ satisfies the same bound.
-\end{corollary}
-
-\begin{proof}
-Take $Q$ as in Theorem~\ref{thm:assembly}; $24\mid Q$.  The integers $n\equiv1\pmod Q$ with
-$n\bmod\ell^{f_\ell}\in\Omega_\ell$ for all $\ell\in\cP$ and $F(n)=1$ have $W(n)>T$
-(Lemma~\ref{lem:system}(i)).  Among the units $\equiv1\pmod{24}$, the class
-$n\equiv1\pmod Q$ has relative Haar measure $\varphi(24)/\varphi(Q)$, and within it the
-residues $n\bmod\ell^{f_\ell}$, $\ell\in\cP$, are independent and uniform on $\Omega_\ell$
-(Chinese remainder theorem).  So
-$\delta^*(T)\ge(\varphi(24)/\varphi(Q))\,\delta$, and $\delta\ge e^{-2.2S_1}$ by
-Corollary~\ref{cor:lll}; hence $\log(1/\delta^*(T))\le\log Q+2.2S_1\ll\Lc^5\log\Lc$ by
-Lemma~\ref{lem:gradedq} and Theorem~\ref{thm:omega}.  For the natural density,
-the same integers have density $Q^{-1}\prod_{\ell\in\cP,\,a_\ell=0}(1-1/\ell)\cdot\delta$, which
-gives $\log(1/\delta^*_{\mathbb Z}(T))\le\log Q+\log\Lc+O(1)+2.2S_1$ by Mertens'
-theorem.  Gallagher's theorem is not used.
-\end{proof}
-
-\begin{remark}[A lower bound on the Haar side; cited, internal]\label{rem:haarlower}
-In companion work \cite{Haar} we show, modulo the fundamental lemma of
-sieve theory, that $\log(1/\delta^*(T))\gg\Lc^3/\log\Lc$ for the unit
-normalisation $\delta^*(T)$ of Corollary~\ref{cor:haar} (Haar measure on
-$\hat{\mathbb Z}^\times$ relative to the class $1\bmod24$); so
-$\Lc^3/\log\Lc\ll\log(1/\delta^*(T))\ll\Lc^5\log\Lc$.  We do not reprove this here.
-It does not give a lower bound for $\log(1/\delta^*_{\mathbb Z}(T))$: non-units avoid
-every event at the primes dividing them, so the all-integer density can be
-larger.
-Monte Carlo estimates of $\delta^*(T)$ for $T\le32767$ are consistent with
-$\log(1/\delta^*(T))\asymp\Lc^3/\log\Lc$ (evidence only).  If the transfer to primes
-lost nothing beyond the Haar density, this would suggest
-$\log W(p)\approx(\log p)^{1/3}$ for the extremal primes; this is a heuristic, not
-a claim.
-\end{remark}
-
 \begin{remark}[Where the exponent comes from; Assessment]\label{rem:exponent}
-The certified bound is $\log p\ll\log Z\ll\log Q+\tau$.  The junta term is
-$\tau\asymp\Lc(S_1+\Lc)\ll\Lc^5$, and the quarantine term is
-$\log Q\ll\Lc\,\Omega_0\ll\Lc^5\log\Lc$.  In the previous version these were
-$\Lc^7$ (bit width $\asymp\Lc$, support size $k$, and $k_0\asymp S$ coordinates at
-cost $\Lc$ each) and $\Lc^7/\log\Lc$ (full quarantine of a block of small
-primes and of $\ll k^2S$ bad primes).  The remaining factor $\log\Lc$ comes
-from the moment $\Omega_0$; we do not know whether $\Omega_0\ll\Lc^4$.  Both
-terms are of order $\Lc\cdot S$ under natural heuristics: any graded
-class-of-one quarantine feeding the local-lemma criterion used here needs
-small fibre masses at every coordinate, and on model systems the junta
-modulus needed by an Efron--Stein truncation is of order $\Lc S$.  So the
-exponent $1/5$ appears to be the natural limit of the present route, but we
-have not proved lower bounds for either term.
-We make no claim about the true order of $W(p)$.
+The certified bound is $\log p\ll\log Z\ll\log Q+\tau$.  The quarantine term
+is $\log Q\ll\Lc^3(\log\Lc)^5$, of the order of the Haar density
+(Theorems~\ref{thm:haarupper} and~\ref{thm:haarlower}).  The bottleneck is
+the junta term $\tau\asymp\Lc(S_1+\Lc)\asymp\Lc^4\log\Lc$: the cells of the
+sandwich have modulus about $e^{\Lc S}$.  In the previous version both terms
+were of order $\Lc^5$ (up to $\log\Lc$).  Section~\ref{sec:ceiling} shows
+that the junta term cannot be reduced within the present architecture.
 \end{remark}
 
 \section{Summary of status}\label{sec:status}
