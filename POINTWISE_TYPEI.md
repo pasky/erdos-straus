@@ -252,4 +252,89 @@ so `(ℓ'/p)=1`; and `(2/p)=(3/p)=1`. Hence `n_p=ℓ`, and
 Lemma 8.1 gives `ck_min(p)≥n_p=ℓ`. So `ck_min(p)=n_p`. For the consequence:
 B is L'-periodic; if `B(a)>0` on a reduced class `a mod L'` (necessarily
 `a≡1 (24)` if it contains large hard primes), the first part gives primes
-in it with `ck_min=n_p≤G·n_p`, contradicting `B≤1[ck_min>G n_p]`. ∎
+in it with `ck_min=n_p≤G·n_p`, contradicting `B≤1[ck_min>G n_p]`. (Read "positive anywhere" as "positive at some large hard prime"; B may be positive on non-hard classes, where it is unconstrained.) ∎
+
+### 4.1 Sieve criteria: dimension ≥ 1/2 per unforced slice
+
+The natural sieve-type sufficient condition for `M_{c,k}(p)=0` is "all prime
+factors of N lie in a subgroup avoiding the target".
+
+**Lemma 4.3 (subgroup criteria; PROVED).** Let `(c,k)` be unforced at p,
+`K_s=ker χ_s ⊂ G_h=(ℤ/h)^×`, and `H≤G_h` a subgroup with `−p∉H`.
+(a) If every prime factor of N lies in H, then `M_{c,k}(p)=0`.
+(b) `−p∈K_s`, so `H∩K_s` is a proper subgroup of `K_s`, of index `≥2`.
+The primes `ℓ∤2h` that can divide some `N_{c,k}(p')` and are excluded by
+(a) are those in `K_s∖H`; they have relative density `≥1/4` among all
+primes, and each has `ρ(ℓ)=2` roots of `p'²≡−4ck² (mod ℓ)`. So the
+sifting problem "(a) holds" has dimension `κ ≥ 1/2`.
+(c) If `H∩K_s=ker ψ ∩ K_s` for a real character ψ mod h with `ψ(−p)=−1`,
+it suffices to sift primes `ℓ≤√N`: the product of all prime factors is
+`N≡p² (mod h)`, which lies in `ker ψ ∩ K_s`, so a single prime factor
+`>√N` is then automatically in H.
+(d) For K unforced slices with pairwise distinct values `c_ik_i²`, the
+excluded root classes `p'≡±2k_i√(−c_i) (mod ℓ)` are distinct for
+`ℓ∤∏_{i<j}(c_ik_i²−c_jk_j²)`, so the dimensions add: `κ ≥ K/2`.
+
+*Proof.* (a) All divisors lie in H. (b) `χ_s(−p)=−χ_s(p)=1` (`χ_s` is odd,
+the slice unforced); every prime `ℓ|N`, `ℓ∤h`, has `χ_s(ℓ)=1`
+(notes Thm 48.1 proof); `K_s` has density 1/2 and `H∩K_s` at most 1/4 of
+the classes by Dirichlet. (c) `χ_s(N)=ψ(N)=1`, `N≡p²`. (d) Distinct
+`c_ik_i²` give distinct polynomials `x²+4c_ik_i²`, whose roots mod ℓ differ
+off the displayed resultant primes. ∎
+
+**Assessment 4.4 (sieve limits; Assessment, not a theorem).** In p≤x the
+criterion of Lemma 4.3 must sift `N≈x²` up to `z=√N≈x`, with moduli `d|N`
+⇔ `p` in `ρ(d)` classes mod d. Level of distribution for primes in
+progressions: `x^{1/2}` (Bombieri–Vinogradov, also GRH), `x^{1−ε}` (EH).
+* One slice (`κ=1/2`): the semi-linear sieve has sifting limit `β=1`, and
+  its lower function vanishes for `s=log D/log z≤1`. Even under EH we have
+  `s<1`. A positive lower bound needs an extra large-prime (parity) input
+  to exclude configurations with two prime factors `≡ψ-bad` in
+  `(x^{1−ε},x]` — this is the same shape as POINTWISE_WINDOW Thm W2
+  (EH-conditional), but for a quadratic polynomial at primes. Plausible
+  under EH with a switching/parity argument; not carried out here.
+* `K≥2` slices (`κ≥1`): the sifting limit of the known (β/DHR) sieves is
+  `≥2` (`=2` for the linear sieve, where Selberg's parity example shows it
+  optimal), so the level needed is `≥x²` against an available `≤x`; no
+  bounded number of large-prime corrections closes a gap of this size.
+* The GR/Thm 3.1 configuration needs `K=|𝓤_p(G)|≍G(log G)²·n_p/log n_p`
+  simultaneous slices, i.e. dimension `≍log p`.
+
+So subgroup-type sieve criteria cannot give even `g=1+η` beyond the
+single-slice range. They are also far from the exact event: by Thm 52.1
+the exact per-slice vanishing has "dimension" `2/φ(h)`, not `1/2`; the
+gap is the composite-divisor structure (divisors of N, not primes, must
+avoid one class), which is not a sieve condition.
+
+### 4.2 The first moment and the level barrier
+
+**Lemma 4.5 (level needed by the exact event; PROVED).** For a slice with
+`h=4ck` and primes `p∈(x/2,x]`, the condition "`p²+4ck²` has a divisor
+`D≡−p (mod h)`" restricted to divisors `D∈(Z,√N]` is the union, over those
+D, of `ρ(D)` classes of p modulo `hD`. For `Z=x^{θ}` the moduli range over
+`(h x^θ, h√N]`, and `h√N>hx/2`. Hence any argument that controls these
+events through the distribution of primes in progressions needs moduli
+`>x`, beyond EH and GEH, unless the divisors `D∈(x^{1−ε},√N]` are
+handled otherwise. *Proof.* Lemma 1.1 and CRT (`(D,h)=1`). ∎
+
+**Assessment 4.6 (union bound gives only O(1) further slices).** In the
+divisor model (`D|N` with probability `ρ(D)/D`, target class probability
+`2/φ(h)` inside `K_s`), the expected number of target divisors of an
+unforced slice is `𝔼M_{c,k} ≈ c_0·L(1,χ_{−s})·log p/ck` (up to `φ` vs
+identity factors), and the portion from `D∈(x^{1−ε},√N]` is a fraction
+`≈ε` of it. Summing over `𝓤_p(G)` with `n≍log p·log₃p` (GR primes) or
+`n≍log p·log₂p` (Thm 3.1):
+
+```
+Σ_{𝓤_p(G)} 𝔼M ≈ (c_0/2)·log p·Σ_{q nonres∈[n,Gn]} (1/q)·(log(Gn/q))²/2 ≈ (c_0/12)·(log G)³·log p/log n.
+```
+
+A union bound needs this `<1`, i.e. `(log G)³ ≪ log₂p/log p`: only the
+first `O(1)` non-residue slices beyond `n_p`, i.e. `ck_min ≥ n_p+O(n_p·log₂p/log p)`,
+no multiplicative gain. Joint vanishing at multiplicative scale G needs an
+independence input of strength `exp(−c(log G)³log p/log₂p)` for
+`≍G(log G)²·log p` factorisation events, i.e. a uniform (in the number of
+polynomials) Hypothesis-H/Bateman–Horn statement. Under the Poisson model
+it holds while `(log G)³ ≲ log₂p` (the GR primes number `x^{1−o(1)}`, the
+model cost is `p^{−(c_0/12)(log G)³/log₂ p}`), suggesting the true i.o.
+gain is `g(p)=exp(c(log₂p)^{1/3})` on GR-type primes (Assessment).
