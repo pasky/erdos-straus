@@ -448,7 +448,9 @@ $\Theta(\cC-v)$ both in $\Theta(\cC)$ and in $\Theta(\cC/v)$.  Hence
 \end{equation}
 Both families again have all weights at most $2$, since $w_{J\setminus v}=w_J/\lambda_v$ for
 $J\ni v$ and the other members are unchanged.
-We induct on $|\bigcup\cC|$.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the
+We induct on $|\bigcup\cC|$, over all finite multisets; note that $\cC/v$ may
+contain empty members (from $J=\{v\}$), and these are handled by the first
+case below.  If $\emptyset\in\cC$, then $\Theta(\cC)=0$ (toggling the
 empty member pairs the terms), and the claim holds.  If $\cC=\emptyset$, then
 $\Theta=1$ and $\cM=\emptyset$.  This covers the base case $\bigcup\cC=\emptyset$.  If
 $\cM=\emptyset$ and $\cC\ne\emptyset$, it suffices to prove the bound for $\cM=\{J\}$ with
@@ -754,7 +756,8 @@ pairs: the left side of the claim is at most $\E_x[Q_{\mu'}(\hat\Ho(x))]$.  By
 Theorem~\ref{thm:Q} it remains to show that
 $\prod_{(\ell,j)\in\hat E}(1+\mu'_{\ell,j})\le2$ for every event.  Fix $\ell$, write $\lambda=\lambda_\ell$,
 $v=v_\ell(E)$, $i_0=i_0(\ell)$, and assume $v>i_0$.  Here $1+\mu'_{\ell,i_0}=\lambda^{i_0+1}$, and
-$1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$ (if $v\le i_0$ the factor of $\ell$ is $1$).  The hypothesis gives $\lambda^{2v}\le2$, so
+$1+\mu'_{\ell,j}=1+\lambda^j(\lambda-1)$ for $j>i_0$ (if $v\le i_0$ the factor of $\ell$ is $1$).  Every factor $\lambda_{\ell'}^{2v_{\ell'}(E)}$ of the hypothesis is at least $1$, so the
+hypothesis gives $\lambda^{2v}\le2$ for each $\ell$ separately, and
 $\lambda^j\le\lambda^v\le\sqrt2<\lambda+1$ for $j<v$, which is equivalent to $1+\lambda^j(\lambda-1)\le\lambda^2$.
 The factor of $\ell$ is therefore at most $\lambda^{i_0+1}\lambda^{2(v-1-i_0)}\le\lambda^{2v}$, and the
 product over $\ell$ is at most $\prod_\ell\lambda_\ell^{2v_\ell(E)}\le2$.
