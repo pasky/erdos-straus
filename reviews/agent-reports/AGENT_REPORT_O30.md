@@ -83,3 +83,17 @@ Deliverable: `POINTWISE_OMEGA8.md`, scripts `scripts/omega8_brw_check.py`,
   review, these become obsolete as stated: DISCOVERIES (H)14 "proved rate
   remains Cor 3.1", STATUS's "for every fixed k, W ≥ (log p)^k", and O4
   §4.4.
+
+## Round 2: parent's hostile reviews R30a, R30b (both SOUND, no FATAL/MAJOR)
+
+Merged `side-agent/review-omega8a-2` and `side-agent/review-omega8b`
+(reviews and scripts). All ten minor repairs are applied in OMEGA8:
+* the `log Z` constant `2(3k+2t+1)𝓛` (D1/D2 of both reviews);
+* "f|d_i" in Lemma 3.3, and `μ_ψ=E[Bψ]` justified (a-D2);
+* LMN cited as O'Donnell Lemma 4.21 plus Kaas–Buhrman (a-D3);
+* the Haar side quoted as `𝓛^7/log𝓛` (D4 of both);
+* the Lemma 3.2 constant explained (a-D5);
+* `B≤1[W>T]` needed only for n coprime to all `d_i` (b-D1);
+* the auxiliary prime renamed `ℓ_aux` (b-D3);
+* duplicates after splitting are kept (b-D5).
+Phase 2 (exponent optimisation) follows in OMEGA8 §6.
