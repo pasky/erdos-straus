@@ -36,34 +36,31 @@ count. So it suffices to bound
 
 ## 2. LP duality for H*
 
-**Lemma 2.1 (projection; PROVED).** Let 𝒜 be Q-periodic. Replacing ν by its
-conditional average ν̄ mod Q (K2 Cor 6.1 proof: `a1[b (d)] ↦ a(d'/d)1[b (d')]`,
-`d' = gcd(d,Q)`) gives a majorant of 𝒜 with `B_hyb(ν̄) ≤ B_hyb(ν)`.
+No projection to the family modulus is used: averaging over fibres mod Q
+preserves Eν but not interval counts. Instead fix any common multiple Q′ of
+the period Q of 𝒜 and all moduli of the representation, and work on ℤ/Q′.
 
-*Proof.* The class `b mod d'` is the disjoint union of the `d/d'` classes
-`b + kd' mod d` (k mod d/d'), so `c(b,d') = Σ_k c(b+kd',d)`. Hence
-`(d'/d)c(b,d')` is the average of the lifted counts, so it lies in
-`[l(d), u(d)]`. If `d' ≤ N/2` the new term is small and evaluated
-exactly: `a(d'/d)c(b,d') ≤ β*(a,d)` for both signs of a. If `d' > N/2`,
-`max_b c(·,d') ≤ (d/d')u(d)` and `min_b c(·,d') ≥ (d/d')l(d)`, so
-`β*(a(d'/d), d') ≤ β*(a,d)`. Small terms stay small (`d' ≤ d`) and the exact
-count of `(d'/d)1[b (d')]` is the average of the counts of its lifts. ∎
+**Proposition 2.1 (dual of the hybrid; PROVED).** Let 𝒜 be Q-periodic,
+`Q | Q′`, and `λ_N(n) = #{1 ≤ m ≤ N : m ≡ n (Q′)}` on ℤ/Q′. Let 𝔐(Q′) be the
+set of measures μ on ℤ/Q′ with
 
-**Proposition 2.2 (dual of the hybrid; PROVED).** Let 𝒜 be Q-periodic and
-`λ_N(n) = #{1 ≤ m ≤ N : m ≡ n (Q)}` on ℤ/Q. Then
+    μ ≥ 0;   μ(s) = λ_N(s)  for every class s mod d | Q′, d ≤ N/2;
+             l(d) ≤ μ(s) ≤ u(d)  for every class s mod d | Q′, d > N/2.     (2.1)
 
-    H*(N; 𝒜) = max { μ(𝒜) :  μ ≥ 0 on ℤ/Q;
-                      μ(s) = λ_N(s)              for every class s mod d | Q, d ≤ N/2;
-                      l(d) ≤ μ(s) ≤ u(d)          for every class s mod d | Q, d > N/2 }.
+(a) (weak duality) If all moduli of a representation of ν divide Q′, then
+`B_hyb(ν) ≥ μ(𝒜)` for every μ ∈ 𝔐(Q′).
+(b) (strong duality) `min{B_hyb(ν) : moduli | Q′} = max{μ(𝒜) : μ ∈ 𝔐(Q′)}`.
+Hence `H*(N;𝒜) ≥ inf_{Q′} max_{μ∈𝔐(Q′)} μ(𝒜)`, Q′ over multiples of Q.
 
-*Proof.* By Lemma 2.1 the infimum may be taken over representations with
-all moduli dividing Q; this is a finite LP. ν ≥ 0 and ν ≥ 1 on 𝒜 is
-`ν ≥ 1_𝒜` pointwise on ℤ/Q. Write large coefficients as `a⁺ − a⁻`
-with cost `u a⁺ − l a⁻`. The primal is feasible (ν ≡ 1) and the dual is
-feasible (μ = λ_N, since `λ_N(s) = c(b,d) ∈ [l,u]` for d | Q). The dual
-variable of `ν(n) ≥ 1_𝒜(n)` is μ(n) ≥ 0; a free small coefficient gives an
+*Proof.* (b) With all moduli dividing Q′ this is a finite LP. ν ≥ 0 and
+ν ≥ 1 on 𝒜 is `ν ≥ 1_𝒜` pointwise on ℤ/Q′. Write large coefficients as
+`a⁺ − a⁻` with cost `u a⁺ − l a⁻`; small coefficients are free with cost
+`λ_N(s)` (the exact count, since `c(b,d) = λ_N(b mod d)` for d | Q′). The
+primal is feasible (ν ≡ 1) and the dual is feasible (μ = λ_N). The dual
+variable of `ν(n) ≥ 1_𝒜(n)` is μ(n) ≥ 0; a free coefficient gives an
 equality, `a⁺` gives `μ(s) ≤ u(d)`, `a⁻` gives `μ(s) ≥ l(d)`. Finite LP
-duality. ∎
+duality. (a) is the easy half:
+`B_hyb(ν) ≥ Σ_i a_i μ(s_i) = Σ_n ν(n)μ(n) ≥ μ(𝒜)` term by term. ∎
 
 So a cap for hybrid methods is the same as a measure μ ≥ 0 that agrees
 with the interval on small classes, is *position-blindly* consistent with
