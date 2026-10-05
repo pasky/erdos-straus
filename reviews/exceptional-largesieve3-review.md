@@ -3,16 +3,17 @@
 Reviewer branch `side-agent/review-ls3`; author branch `side-agent/hls-sparse`
 (merged ff at review start). Scripts: `scripts/review_ls3_*.py` (from scratch).
 
-## Verdict summary (in progress)
+## Verdict summary
 
 | claim | verdict |
 |---|---|
-| Thm 1.1 | SOUND |
-| Lemma 2.1 | SOUND (minor D1) |
+| Thm 1.1 | SOUND (Rem 1.1(a) overclaims: D2) |
+| §4 "equivalence" | GAP: only sufficiency proved (D1) |
+| Lemma 2.1 | SOUND (minor D6) |
 | Thm 3.1 | SOUND (conditional on reviewed internal K2 inputs + ElT Prop 1.4, as labelled) |
 | Lemma 4.1 | SOUND |
-| Lemma 4.2 | SOUND (computation); "symmetric route fails" is Assessment (D4) |
-| §4.3 | (pending) |
+| Lemma 4.2 | SOUND (computation); "symmetric route fails" is Assessment (D3) |
+| §4.3 | Assessment, correctly labelled; the ℓ² Parseval peeling identity re-derived (correct) |
 
 ## Claim-by-claim
 
@@ -65,7 +66,7 @@ see D3).
   (`γ'(ℓ) = (1−ℓ^{−1/2})^{−1}` from the caps); base = K2 Lemma 2.3(2). All
   match. K2 Thm 5.1 / Lemmas 2.3, 4.3 were reviewed SOUND
   (`reviews/exceptional-kary2-review-2.md`).
-* Minor: see D1 (Q₀ vs M_s).
+* Minor: see D6 (Q₀ vs M_s).
 
 ### Thm 3.1 (rough-slice mixtures): SOUND (conditional on K2 Cor 3.7, Lemma 4.3 — internal, reviewed; Case A via ElT Prop 1.4)
 
@@ -134,4 +135,96 @@ Verified from scratch on random non-product measures mod `9·5·7` and
 
 ## Defects
 
-(see below)
+No FATAL defect. No error found in any PROVED proof (Thm 1.1, Lemma 2.1,
+Thm 3.1, Lemmas 4.1, 4.2). The defects are scope/label overclaims in the
+surrounding text and in the agent report.
+
+**D1 (MAJOR, overclaim; §4 first paragraph and AGENT_REPORT_O59 item 4).**
+"By Theorem 1.1 … H_LS∞ for forced families is now **equivalent** to …
+(H_rough)" / report "H_LS∞ ⇔ (H_rough)". Only the direction
+(H_rough) ⇒ cap is proved (Thm 1.1 / Rem 1.1(c) + Lemma 2.1). Nothing shows
+that a cap (or LS2's H_LS∞, which asks for *one* π on 𝒜 with sup decay)
+yields fibre measures π_c with the stated `ℓ^{p'}` or comparison property;
+LS2 §5 itself records that the Hölder-type and sup-type criteria are
+incomparable. *Repair:* replace "equivalent to" by "implied by" / "reduces
+to (sufficient condition)", and "⇔" by "⇐" in the report and in any ledger
+entry.
+
+**D2 (MAJOR, overclaim; Rem 1.1(a) and AGENT_REPORT_O59 item 3).**
+Rem 1.1(a): "the part of (E1) … coming from denominators with many prime
+factors ≤ z is closed as soon as log ρ is small"; report: Thm 3.1 "closes
+(E1) for all frequencies whose high level comes from primes
+≤ exp((log N)^{1/4})". What is proved:
+(i) for **rough-slice mixtures** (Thm 3.1), all frequencies; (ii) for an
+**arbitrary** family, frequencies with **z-smooth denominators only**
+(`θ_r = 0`): then `π̂(θ_s) = π̂_s(θ_s)` and HY gives
+`Σ|π̂_s|^{p'} ≤ ρ` — *provided* `𝒜_c ≠ ∅` for all `c ∈ supp π_s`, which is
+not guaranteed for families with multi-rough-prime classes (rough classes
+can cover a whole fibre; Lemma 2.1's π_s does not see rough classes).
+For mixed frequencies `θ_s + θ_r` with `θ_r ≠ 0` of small rough level in a
+general family one still needs a fibre measure satisfying the rough-level
+comparison of Rem 1.1(c)(a) for every `c ∈ supp π_s` — a K2-Lemma-1.1-type
+statement for the fibre family `𝔊_c`, uniform in c (or on a set of
+Q'-probability ≥ 7/8 absorbed into E), which is **not** proved (fibre
+families are not of the four K2 types, and K2's first moments are only
+averaged over c). *Repair:* state (i) and (ii) with the nonemptiness
+proviso; label the general mixed-frequency statement CONJECTURE / part of
+(H_rough).
+
+**D3 (MINOR, label; §4.2 heading, text before Lemma 4.2, report item 4).**
+"Why the symmetric (LLL/Kotecký–Preiss) route fails" and report "Lemma 4.2
+(PROVED): the symmetric … route fails". Lemma 4.2 proves only that
+`m*(p, −4 mod p) ≍ log X/log z` for the family `{−4 mod pM'}`; that the KP
+criterion "needs, for each p and **each** b, `m*(p,b)` small" is a property
+of one particular polymer model, and failure of a sufficient criterion is
+not failure of the route (e.g. non-uniform activities, first conditioning
+on the residues where concentration occurs, or polymers = rough primes
+rather than classes). *Repair:* keep Lemma 4.2's computation as PROVED;
+relabel the "route fails" conclusion as Assessment.
+
+**D4 (MINOR, hidden hypothesis; §4 sparsity statements).** "average over b
+this is the mass at p, ≪ (log N)^{O(1)}/p", the (Sp) statement, and §4.2's
+"average influence ≪ Σ_{C∋p}1/G_r ≪ (log N)^{O(1)}/p" need a bound on the
+moduli (e.g. `G ≤ N^A`): over the universe, `Σ_{M≡3(4), p|M}τ(A_M²)/M`
+diverges. Theorem 3.1 (correctly) avoids this through top-prime smoothness
+(𝔐 counts only ℓ-smooth cofactors), but §4 is stated for the same "any
+moduli" setting. *Repair:* add "moduli ≤ N^{A}" to these Assessment
+sentences (and to Lemma 4.2's family, which already has `M' ≤ X = N^A`).
+
+**D5 (MINOR, wording; Rem 3.1(a), report item 3 "strictly extends LS Cor
+4.2").** On Cor 4.2's own families Thm 3.1 is *weaker*: LS Cor 4.2 gives
+`C'(C)(log N)^{3/4}` with no `(log log N)³`, Thm 3.1 has the Rankin loss
+(acknowledged in Rem 3.1(b)). The extension is in scope (no `q₀ ≤ ℓ^C`,
+no `ℓ₀'`), not in strength. *Repair:* "extends the scope of LS Cor 4.2 at
+the price of `(log log N)³`"; optionally note that under bounded B
+(`G ≤ P(G)^{1+B}`) K2 Thm 5.2's first moment `≤ C(B)(log y)³` should remove
+the loss (not checked).
+
+**D6 (MINOR, presentation; Lemma 2.1).** (a) K2's base lives mod
+`Q₀ = lcm(8P_W, W-smooth parts of moduli)`, which need not divide `M_s`
+(the `8P_W` factor); LS3 writes "`Q_W`" (undefined). π_s should be the
+marginal on `ℤ/M_s` (or replace `M_s` by `lcm(M_s, Q₀)`); the density bound
+is preserved by marginalisation. (b) The summary table says
+"costs `≤ 2T₁ + O(1)`, `T₁ ≍ 𝔐(z)`" whereas Lemma 2.1 proves
+`log ρ ≤ 16𝔐(z) + 2W₁ + log 2`; make them consistent. (c) Thm 1.1 tacitly
+needs `𝒜_c ≠ ∅` for `c ∈ supp π_s` (automatic in Thm 3.1 since
+`p^r_ℓ < 1` off E₁); say so.
+
+**D7 (MINOR, numerics coverage).** The author's check (1) uses rough-slice
+mixtures only, while Thm 1.1 is claimed for arbitrary fibre families. The
+reviewer's `scripts/review_ls3_thm11.py` covers multi-rough-prime classes,
+Dirac fibre laws and spiky π_s, and shows equality is attained (ρ sharp).
+Optional: cite it or extend the author's script.
+
+## Overall
+
+Thm 1.1, Lemma 2.1, Thm 3.1 and Lemma 4.1 are SOUND as stated and labelled
+(Thm 3.1 conditional on K2 Cor 3.7 / Lemma 4.3 — internal, reviewed SOUND —
+and ElT Prop 1.4 for Case A; the "PROVED (same inputs)" label is honest).
+Lemma 4.2 is a correct (essentially definitional) computation. The
+"please check" items: HY with non-uniform base — correct, factor exactly ρ
+and sharp; Lemma 2.1's use of K2 second moment and leak — correct; "fibre
+forbidden sets are exactly K2's p_ℓ for ℓ > z" — correct (one rough prime ⇒
+top prime with z-smooth cofactor); partial summation for J — correct.
+Required before ledger entry: D1, D2 (overclaims of equivalence and of
+closing (E1) beyond rough-slice mixtures / purely smooth frequencies).
