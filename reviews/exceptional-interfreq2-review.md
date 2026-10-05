@@ -15,11 +15,11 @@ author code imported).
 | Prop 2.1 | SOUND |
 | Lemma 3.1 | SOUND |
 | Ex 3.2 + rigidity + Consequence | SOUND (brute force + LP, `review_if2_ex32.py`) |
-| Lemma 4.1, 4.2, 6.1 | (pending) |
-| Cor 5.1, Lemma 5.0 | (pending) |
-| Thm 5.2 | (pending) |
-| Prop 9.1 | (pending) |
-| Lemma 9.2 | (pending) |
+| Lemma 4.1, 4.2, 6.1 | SOUND (all listed group elements re-checked) |
+| Cor 5.1, Lemma 5.0 | SOUND (given IF Thm 2.5, which R18 found SOUND) |
+| Thm 5.2 | SOUND as an implication; constants independent of N and of the family (see C7) |
+| Prop 9.1 | SOUND (algebra of θ re-derived; τ = O(1) via Vaaler's K-bound) |
+| Lemma 9.2 | SOUND for the proved direction; the 'converse by Farkas' and the §5/§10 readings of it overclaim (M1) |
 | SPW plausibility | (pending) |
 
 ## Line-by-line checks
@@ -56,5 +56,56 @@ such N ≤ 119 (projection to ℤ/(N+1) of any μ ∈ 𝔐(Q′) lies in
 𝔐(N+1), so this covers every Q′). The conclusion "no bound
 B_hyb(ν) ≥ c·N·Eν for ν ≥ 0" is correct (ν = 1[0 mod 21] ≥ 0, B_hyb = 0,
 Eν = 1/21).
+
+**C5 (Lemma 4.1/4.2/6.1).** c(·,d) = ⌊N/d⌋ + 1_{I_d}, I_d = {1,…,N mod d};
+so any φ with φ_d(I_d) = I_d for small d ∤ N keeps the small profile, and
+large counts stay in [l,u]. Checked: L₀-translations (φ_d = id);
+x ↦ N+1−x maps {1..r} to {N..N+1−r} ≡ {r..1} (mod d); a reflection on one
+prime p ∈ (N/4, N/2] touches only d = p (p² > N/2 for N > 8, and pm ≤ N/2
+forces m = 1); any affine map on p > N/2 touches no small d. Lemma 4.2:
+{b − kL₀ mod d : k} is exactly the class b mod gcd(d,L₀), so all μ_k vanish
+iff b mod e misses [1,N], impossible for e ≤ N. SOUND.
+
+**C6 (Lemma 5.0, Cor 5.1).** Negative sparse terms with d > N: c = 0 and
+β* = a·⌊N/d⌋ = 0, so deleting them changes neither Σ_{n≤N}ν nor B_hyb and
+keeps a majorant. After that the large terms are exactly
+W⁺ ⊔ (right-signed, N/2 < d ≤ N) ⊔ wrong-signed, B ≥ B_hyb ≥ T_wr, so
+T_> ≤ (1+c)B and IF Thm 2.5 applies with c+1; the second form follows by
+splitting on B ≥ (N/48)e^{−S_A}. SOUND.
+
+**C7 (Thm 5.2).** Re-derived (5.1): with Eν = Eν_𝒮 + Σ_𝓛 a_i/d_i,
+Σ F ν = M·Eν + Σ_𝓛 a_i(F(s_i) − M/d_i). Per-term lower bounds for
+d > CN: patch ≥ a s₀ (F3); positive sparse ≥ 0 (F4, using the +|a|
+penalty); negative full: |a|(1 + M/d − F(s)) ≥ 0 since F ≤ 0 off [1,N]
+gives F(s) ≤ F(n₀) ≤ 1. Medium right-signed ≥ −Δ|a|, medium wrong ≥
+(1−Δ)|a| ≥ −Δ|a|, and Σ over wrong ≤ T_wr ≤ B, giving the (1+Δ)B. Then
+s₀W⁺_{>CN} ≤ KB because M·Eν ≥ 0; T_{>CN} ≤ KB/s₀ + B; t ≤ 1 is
+automatic from (F1)–(F2) (M = ΣF ≤ N). Levels: a projected term of level
+> λ ≥ log(CN) comes from d > CN, so IF Thm 2.5's coarsening goes through
+with T_{>CN}; log T_{>CN} ≤ (A₁+1)log N + log 2. K2 Thm 5.1's W, λ₀, C
+are absolute, so S′ depends only on A, A₁ (and C through log(CN)); t, Δ,
+c enter only through log((1+Δ(1+c))/t). No hidden N- or family-dependence
+found. Caveat (m2): the hypothesis is per-N, so "the cap" needs Flat at
+*every* large N with s₀ ≥ N^{−A₁}, t ≥ e^{−S_A}, Δ ≤ e^{S_A}; the
+statement is correct as written but the §0 summary should say so.
+Remark (iii) is right: for ν = 1[0 mod N+1] in the form of Ex 3.2,
+0 = Σ_{n≤N}ν ≥ ΣFν = M/(N+1) + Σ_patches(F(s) − M/d) contradicts (F3)
+at d = N+1 even with s₀ = 0.
+
+**C8 (Prop 9.1).** F_S = −½[B(δ(a−x)) + B(δ(x−b))], a = 1/2, b = N+½,
+δ = 2/N, F̂_S(0) = N/2 = M/θ. Vaaler 1985 (Lemma 5: |sgn − H| ≤ K,
+B = H + K, K(x) = (sin πx/πx)²) gives 0 ≤ B − sgn ≤ 2K, hence
+|F_S(x)| ≤ 2K(δ·dist(x,I)) outside I; the k-th outside point of a class
+of modulus d > CN is at distance ≥ (k−1)d, so τ ≤ ‖F_S‖_∞ + O(1 + Σ_k
+(N/(2kd))²) = O(1). (F2): Lemma 2.4 exact for d ≤ D = N/2, M = θN/2.
+(F3): (1−θ)σ − θτ = σ − θ(σ+τ+1/(2C)) + θ/(2C) = σ/2 + θ/(2C) ≥ s₀ + M/d
+since M/d < θ/(2C). (F4): ≥ −1 + θ + σ/2 + θ/(2C) ≥ M/d − 1 (slack θ+σ/2).
+(F5): 2(N+D)/D = 6 at D = N/2; |F − M/d| ≤ 6θ + (1−θ)Δ₀. (F1): convex
+combination of two functions ≤ 1_{[1,N]}. SOUND. I could not open Vaaler
+1985 here (not in sources/); the K-bound is the standard one and is used
+the same way in IF Thm 2.2.
+
+**C9 (Lemma 9.2).** Identity Σ_{n≤N}ν = ΣRν + Σz_i(c − R) + Σ_med a(c − R)
+re-derived; (P2) gives c − R ≥ σ on full, ≥ −(1−σ) on sparse classes. SOUND.
 
 ## Defects
