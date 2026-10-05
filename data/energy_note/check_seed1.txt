@@ -1,0 +1,15 @@
+A: 150 systems: Theorem 1.1 and Lemma 3.1 hold; max G_F over nonempty systems = 0.979592
+B: 300 hypergraphs: polarization exact; 1063 (hypergraph, matching) bounds hold
+C: all 65534 nonconstant-True Boolean functions on 4 bits: Cor 1.3 holds for all t; max W^(>t) 2^((t+1)/k) / (4p(2-p)) = 0.6803
+D: 150 random DNFs (biased Boolean / q-ary set-valued): Cor 1.3 holds; max normalised tail 0.9091
+E: 150 digit-prefix systems: Theorem 7.1 holds; max weighted sum (nonempty systems) = 0.981786
+F1: level polynomial of disjoint events matches brute force
+F2: k=1 p=1/40 j=2: max_m En(jk-1) 2^j = 0.4020 (m=51); p->0 limit is >= 1/(e sqrt j) = 0.2601
+F2: k=1 p=1/40 j=4: max_m En(jk-1) 2^j = 0.3095 (m=91); p->0 limit is >= 1/(e sqrt j) = 0.1839
+F2: k=1 p=1/40 j=6: max_m En(jk-1) 2^j = 0.2595 (m=136); p->0 limit is >= 1/(e sqrt j) = 0.1502
+F2: k=2 p=1/6 j=2: max_m En(jk-1) 2^j = 0.2773 (m=49); p->0 limit is >= 1/(e sqrt j) = 0.2601
+F2: k=2 p=1/6 j=4: max_m En(jk-1) 2^j = 0.1673 (m=97); p->0 limit is >= 1/(e sqrt j) = 0.1839
+F2: k=2 p=1/6 j=6: max_m En(jk-1) 2^j = 0.1129 (m=137); p->0 limit is >= 1/(e sqrt j) = 0.1502
+F3: parity example formula verified; (max_s En(jk-1))^(1/j): j=10: 0.2986, j=20: 0.3109, j=40: 0.3194 (-> 1/3)
+F4: Example 6.3 (exact sign): G before = 0.31571, after adding A = 0.31757
+ALL CHECKS PASSED
