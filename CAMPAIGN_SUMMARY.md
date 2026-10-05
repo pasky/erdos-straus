@@ -521,11 +521,21 @@ polylogarithmic moduli could prove ES. The campaign shows it is not.
 | Thms 4.3, 5.2 | **for every fixed k:** `W(p) ≥ (log p)^k exp(−C_k log₂p/log₃p)`; equivalently `log L_h(T) ≤ T^{o(1)}` | PROVED modulo Thorner–Zaman, effective; no explicit rate as `k → ∞` | POINTWISE_OMEGA3 |
 | Cor 3.1 | **explicit rate:** `log W(p) ≥ (1+o(1)) log₂p · log₃p / log₄p` | PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA4 |
 | Cor 3.1 (variant) | `log W(p) ≥ (1+o(1)) log₂p · log₄p / log₅p` | PROVED modulo Thorner–Zaman alone | POINTWISE_OMEGA4 |
+| Thm 4.3 | **sub-exponential rate:** `W(p) ≥ exp(c(log p)^{1/14})` | PROVED modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA8 ((H)16) |
+| Thm 2.2 | `W(p) ≥ exp(c(log p)^{1/7})` | PROVED modulo Gallagher's theorem (G) and Elsholtz–Tao Prop 1.4 | POINTWISE_OMEGA9 ((H)19) |
+| Thm 3.2 | `W(p) ≥ exp(c(log p)^{1/6})` | PROVED modulo (G), Elsholtz–Tao Prop 1.4 and OMEGA10 Thm 3.4 | POINTWISE_OMEGA11 ((H)22) |
+| Thm 6.3 | `W(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` | PROVED modulo (G), Elsholtz–Tao and OMEGA10 Thm 3.4 | POINTWISE_OMEGA12 ((H)24) |
+| Thm 5.1 | **current record:** `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})`; `log L_h(T) ≪ 𝓛⁴ log 𝓛` | PROVED modulo (G), Nair–Tenenbaum and OMEGA10 Thm 3.4 (Elsholtz–Tao no longer used) | POINTWISE_OMEGA13 ((H)26) |
 
 Here `log_j` is the j-fold iterated logarithm. `L_h(T)` is the least hard
-prime with `W > T`.
+prime with `W > T`, and `𝓛 = log T`. Each row from OMEGA8 on supersedes
+the one before; each was reviewed by two independent hostile reviewers
+(OMEGA13 by four). OMEGA10 Thm 3.4 is the campaign's energy bound C-1
+(below), itself PROVED and doubly reviewed. Gallagher's theorem (G) is
+quoted from the Montgomery–Vaughan vol. III draft (Thm 28.19); his
+original paper was not obtained.
 
-**Method, in brief.**
+**Method of the polylogarithmic rows (OMEGA–OMEGA4), in brief.**
 * Impose the class of one at small primes, so the remaining congruence
   system is local at a few free primes.
 * Build a pointwise minorant of the void indicator. It uses
@@ -536,38 +546,107 @@ prime with `W > T`.
   theorem in progressions (Math. Z. 306 (2024), Cor. 1.4). Its error term
   absorbs a possible Siegel zero.
 
+**From polylog to `exp((log p)^{1/4})` (OMEGA8–OMEGA13).**
+* *Diagnosis* (Assessment). Alternating expansions (Brun, Bonferroni,
+  levels) amplify errors on partial clusters; that caused the codegree
+  thresholds and the `(k−1)!` loss. The local lemma works by suppression.
+* *OMEGA8 (1/14).* Replace inclusion–exclusion by Bazzi's one-sided ℓ²
+  sandwich (Razborov–Wigderson form), so the error is an ℓ² Fourier tail.
+  Bound the tail by writing the bad indicator as a bounded-width DNF and
+  applying Håstad's switching lemma (Linial–Mansour–Nisan).
+* *OMEGA9 (1/7).* A linear transfer to primes: expand the minorant in
+  characters and control all of them at once with Gallagher's prime
+  number theorem summed over conductors. Only `E|B|` matters, not the
+  ℓ¹ mass.
+* *OMEGA10 (energy bound C-1).* For the indicator F that no event of a
+  single-value event system occurs, on any product probability space:
+  if `∏_{v∈E} λ_v ≤ 2` for every event E, then the weighted Efron–Stein
+  energy `Σ_U ∏_{v∈U} λ_v ‖F^{=U}‖²` is at most 1 (Cor 3.5). For
+  width-k DNFs this gives the sharp-rate tail `W^{>t} ≤ 4·2^{−(t+1)/k}`,
+  independent of the number of terms (Cor 4.1). It replaces the bit
+  encoding and the switching lemma. **PROVED** (two hostile reviews,
+  exhaustive exact checks).
+* *OMEGA11 (1/6).* Graded quarantine: quarantine a prime ℓ only to
+  `n ≡ 1 (ℓ^{a_ℓ})`, raising `a_ℓ` while the fibre mass is too large.
+* *OMEGA12 (1/5).* A modulus-weighted moment bound `Ω_0 ≪ 𝓛⁴ log 𝓛`
+  (Thm 5.1, modulo Elsholtz–Tao) and a digit-filtration energy lemma.
+* *OMEGA13 (1/4).* A β-weighted local lemma with a constant per-coordinate
+  threshold; the event classes `−4D mod M` are Jacobi non-residues, so
+  quarantining to random square classes never fires an event (the class
+  of one is no longer needed); supermartingale bookkeeping; Nair–Tenenbaum
+  for the masses. Elsholtz–Tao is no longer used.
+* *Abstract transfer* (POINTWISE_TRANSFER.md, (H)23, PROVED modulo
+  Gallagher, Landau–Page and Håstad). A prime `p ≡ a (Q)` avoiding any
+  system of unit-class events on few free primes, with no single-value or
+  codegree hypothesis. Applications: for every fixed `m ≥ 4` (Sierpiński's
+  5/n included), the m/n witness modulus satisfies
+  `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. (also modulo Elsholtz–Tao Prop 1.4
+  with κ = m). No novelty claim beyond these applications.
+
+**The Haar exponent is exactly 3, and 1/4 is a ceiling.**
+* *Haar side.* For the profinite avoider density `δ*(T)`,
+  `𝓛³/log 𝓛 ≪ log(1/δ*(T)) ≪ 𝓛³(log 𝓛)^5`. Lower bound:
+  POINTWISE_HAAR Thm 2.1, PROVED modulo the sieve fundamental lemma, via a
+  new Janson-type inequality for product spaces with one-hot coordinates
+  ((H)25). Upper bound: POINTWISE_OMEGA13 Thm 3.4, PROVED modulo
+  Nair–Tenenbaum ((H)26). The Monte Carlo of POINTWISE_SIZE §7 fits this
+  (EVIDENCE). So the profinite exponent is 3 up to logs, and the
+  heuristic prime-side truth is `log W ≍ (log p)^{1/3}`.
+* *Ceiling* (POINTWISE_OMEGA14, (H)27). Conditioned on the small
+  coordinates, the problem is a sieve of dimension `κ ≍ 𝓛³` on the big
+  primes, and the sieving limit forces level `≈ e^{𝓛κ}`. Thm 4.5
+  (PROVED modulo Gallagher (G), the effective Page bound and the
+  fundamental lemma): on any fibre, every minorant of level
+  `log D ≤ c𝓛⁴/log 𝓛` has Haar mean `≤ 0`. Cor 4.6 (PROVED implication):
+  1/4 is the ceiling, up to `(log log p)^{1/2}`, of every certificate
+  that goes through a Haar minorant plus a transfer requiring
+  `log x ≫ log Z`. The tool is a planting lemma (Lemma 1.1), which is LP
+  duality for lower-bound sieves (no novelty claimed).
+* *What 1/3 would need.* Prime input beyond low-conductor minorants:
+  bilinear (Type II) or parity-sensitive information, or a transfer whose
+  positivity comes from a Siegel-zero term. These are not covered by the
+  ceiling.
+
 **Consequences.**
 * `H_MOD(A)` is **REFUTED for every A** (ledger (F)10, (H)13).
-* So no pointwise multiplier mechanism with polylogarithmic witness
-  moduli can prove ES.
+* So no pointwise multiplier mechanism whose witness moduli are
+  `≤ exp((log p)^{1/4−ε})` can prove ES.
 
 **Related results.**
 * *Heuristic truth.* `log W ≍ (log p)^{1/3}` (**Assessment**,
-  POINTWISE_SIZE §7). Data: `W ≈ (log p)^{2.5–3.4}` for
-  `10^8 ≤ p ≤ 10^50` (EVIDENCE).
-* *Haar side* (profinite avoider density `δ*(T)`).
-  `log(1/δ*(T)) ≤ T^{o(1)}` unconditionally, and
-  `≪ (log T)^7 log log T` modulo Elsholtz–Tao Prop 1.4. Source:
-  POINTWISE_OMEGA2 Thm 11.3, PROVED. This does not transfer to primes.
-* *Bottleneck.* The factorial loss in OMEGA4 comes from the Markov
-  push-down cascade. A saturated-hub codegree hypothesis HC* would give
-  `log W ≥ 0.2√a (log₂p)^{3/2}`: OMEGA4 Thm 4.2, a PROVED implication.
-  Two caveats:
-  * HC *as literally stated* in OMEGA4 is **false**. POINTWISE_OMEGA5
-    corrects it to HC*.
-  * The `m = 1` part of HC* is PROVED (OMEGA5 Thm 2.3). The rest reduces
-    to an open divisor problem, HC_Π.
-
-  The proved rate remains OMEGA4 Cor 3.1.
+  POINTWISE_SIZE §7), now backed by the Haar exponent 3 above. Data:
+  `W ≈ (log p)^{2.5–3.4}` for `10^8 ≤ p ≤ 10^50` (EVIDENCE).
+* *Superseded routes.* The earlier Haar bounds (POINTWISE_OMEGA2
+  Thm 11.3, `≪ (log T)^7 log log T`) and the hub-codegree route of
+  OMEGA4–OMEGA6 (hypotheses HC*, HC_Π, whose target was only
+  `(log₂p)^{3/2}`) are superseded by the rows above. HC as literally
+  stated in OMEGA4 is false (POINTWISE_OMEGA5). `POINTWISE_OMEGA7.md`
+  (partial HC_Π reductions) was merged unreviewed and is archived.
 * *Type-I slice parameter* (POINTWISE_OMEGA Thm 8.5, ledger (H)9).
   * `ck_min(p) ≫ log p · log₃p` infinitely often: PROVED modulo Lau–Wu
-    Prop 5.1, not effective.
-  * This is Graham–Ringrose's 1990 Ω-bound for the least quadratic
-    non-residue, transported by a Yamamoto-type lemma.
-  * Only the equivalence "congruence methods certify exactly `n_p`" is
-    campaign content.
-* *Write-up.* `paper/es-omega-note.tex` v3 (31 pp; internal referee
-  `reviews/es-omega-note-review-v3.md`, P1–P4 applied).
+    Prop 5.1, not effective. This is Graham–Ringrose's 1990 Ω-bound for
+    the least quadratic non-residue `n_p`, transported by a Yamamoto-type
+    lemma. Only the equivalence "congruence methods certify exactly
+    `n_p`" is campaign content.
+* *Type-I map beyond Graham–Ringrose* (POINTWISE_TYPEI.md, (H)17). The
+  target `ck_min ≥ g(p)·n_p` with `g → ∞` was **not** reached.
+  * Vanishing of the Type-I count is a congruence sieve on `p` with
+    moduli larger than `p` (Lemma 1.1). Every reduced hard class contains
+    infinitely many `p` with `ck_min = n_p`, so congruence input gives
+    exactly `g = 1` (Prop 4.2, PROVED).
+  * `n_p = 5 ⟹ ck_min(p) ≤ 10`, sharp at `p = 193` (Thm 6.1, PROVED).
+    Every finite Type-I covering of `{n_p = 7}` has height ≥ 539, and of
+    `{n_p = 11}` height > 3000 (Cor 6.4, PROVED).
+  * CONDITIONAL: under Schinzel H, `ck_min > g·n_p` i.o. for every `g`;
+    under GRH, `ck_min > (1/(2log 2)−ε) log p·log log p` i.o. (Montgomery's
+  Ω-result transported; sources cited from memory).
+  * Census to `10^7`: record `ck_min(9033649) = 883` (EVIDENCE).
+* *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
+  internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v4
+  (exponent 1/4, Haar exponent 3, the ceiling theorem; 39 pp; refereed
+  internally four times, R33, R33b, R47, R56). `paper/energy-dnf-note.tex`
+  (17 pp) writes up the energy bound C-1 and the DNF tails as a
+  stand-alone result (refereed internally, R50 minor revision applied).
 
 ### 3.4 Window results
 
