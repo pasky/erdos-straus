@@ -127,7 +127,8 @@ Against POINTWISE_HAAR Thm 2.1 (`≫𝓛³/log𝓛`), this would give the Haar e
 which is now **the bottleneck**. So `log Z≪𝓛^4(log𝓛)^{O(1)}`, and
 `W(p)≥exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many Mordell-hard p,
 modulo (G), ET, and OMEGA10 Thm 3.4.
-(c) *Interface check (OPEN).* O8's BRW minorant and O8 Lemma 3.3 (twist) were
+(c) *Interface check (OPEN at the time; superseded: done in §5 for the square-class route,
+which replaces this class-of-one route — R48c m4 / R48d D2).* O8's BRW minorant and O8 Lemma 3.3 (twist) were
 written for `x_E=2P(E)` with neighbourhood sums `≤1/32`. They must be re-run with
 Lemma 1.1's `x_E=β^sP(E)`, conditional bound `≤x_E`, and coordinate sums `≤η`.
 That has not been done. Cell consistency and O11 Lemma 3.1 are unaffected: Q is
@@ -438,7 +439,8 @@ This is the brief's item (iii), in sharper form than `𝓛^4`. It improves O12
 Thm 6.3's `log(1/δ*)≪𝓛^5log𝓛`, and it settles POINTWISE_HAAR Conj 3.1 up to
 logs.
 
-**Corollary 3.5 (prime side; CONDITIONAL on the interface checks I1–I3).**
+**Corollary 3.5 (prime side; CONDITIONAL on the interface checks I1–I3 — superseded by §5,
+Thm 5.1, where I1–I3 are done and the loglog exponent is `−1/4`).**
 
 * *What changes.* In O11 Thm 3.2's assembly:
   * the quarantine `(Q,r)` comes from Theorem 3.4's realisation;
@@ -462,11 +464,12 @@ The checks:
   * cells are consistent with `r` mod `gcd(d_i,Q)` instead of with 1;
   * p is Mordell-hard because r is a square mod 840.
 
-These are checks of interfaces written for the class of one, not new mathematics. They have not been done.
+These are checks of interfaces written for the class of one, not new mathematics. They were
+open at checkpoint 1 and are done in §5 (I1–I3; R48c m4 / R48d D2), giving Thm 5.1.
 The junta `𝓛·S` is now the sole bottleneck. A junta `≪S·(log𝓛)^{O(1)}` (brief item (ii)) would push
 the conditional prime exponent to `1/3`.
 
-## 4. Status (checkpoint 1)
+## 4. Status (checkpoint 2; §5 rows reviewed in R48c/R48d, repairs applied at checkpoint 3)
 
 | item | statement | label |
 |---|---|---|
