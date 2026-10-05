@@ -97,10 +97,12 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). Unconditionally, for every fixed k, `W(p)≥(log p)^k` infinitely often
-(`POINTWISE_OMEGA3.md` Thm 5.2, modulo Thorner–Zaman; two hostile
-reviews). So no pointwise multiplier mechanism with polylogarithmic
-witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
+scale). Unconditionally (modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4),
+`W(p) ≥ exp(c(log p)^{1/14})` for infinitely many Mordell-hard primes
+(`POINTWISE_OMEGA8.md` Thm 4.3, 2026-10-05; two hostile reviews; ledger (H)16).
+This supersedes the polylogarithmic results (`POINTWISE_OMEGA3.md`, every
+fixed power of log p). So no pointwise multiplier mechanism whose witness
+moduli are `≤ exp((log p)^{1/14−ε})` can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
 (POINTWISE_SIZE §7).
 
 ## Housekeeping
@@ -122,8 +124,8 @@ witness moduli can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
 **3/4 is now proved sharp for coefficient-sum congruence sieves over any
-mixture of forced (and selector) classes, up to a `(log log N)^{3/4}` factor
-without a B-hypothesis (internal; doubly reviewed).** See
+mixture of forced (and selector) classes, with no B-hypothesis and no
+`(log log N)^{3/4}` loss (`EXCEPTIONAL_KARY3.md`, ledger (D)24; reviewed).** See
 `EXCEPTIONAL_KARY2.md` Thm 5.1 / Cor 6.1, which builds on `EXCEPTIONAL_KARY.md`
 Thm 4.5. The 3/4 note's own majorant is literally in the class, so the 3/4
 note is sharp for its method.
