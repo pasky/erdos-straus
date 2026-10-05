@@ -1,0 +1,16 @@
+k=1 p=0.5: j=2: 0.2500 (x sqrt(2pi j)=0.886); j=5: 0.0566 (x sqrt(2pi j)=0.317); j=10: 0.0058 (x sqrt(2pi j)=0.046); j=20: 0.0001 (x sqrt(2pi j)=0.001); j=30: 0.0000 (x sqrt(2pi j)=0.000)
+k=1 p=0.1: j=2: 0.3852 (x sqrt(2pi j)=1.366); j=5: 0.2388 (x sqrt(2pi j)=1.339); j=10: 0.1386 (x sqrt(2pi j)=1.098); j=20: 0.0598 (x sqrt(2pi j)=0.671); j=30: 0.0290 (x sqrt(2pi j)=0.398)
+k=1 p=0.01: j=2: 0.4052 (x sqrt(2pi j)=1.436); j=5: 0.2906 (x sqrt(2pi j)=1.629); j=10: 0.2155 (x sqrt(2pi j)=1.708); j=20: 0.1520 (x sqrt(2pi j)=1.704); j=30: 0.1203 (x sqrt(2pi j)=1.651)
+k=1 p=0.001: j=2: 0.4070 (x sqrt(2pi j)=1.443); j=5: 0.2959 (x sqrt(2pi j)=1.659); j=10: 0.2244 (x sqrt(2pi j)=1.779); j=20: 0.1656 (x sqrt(2pi j)=1.856); j=30: 0.1368 (x sqrt(2pi j)=1.879)
+k=2 p=0.5: j=2: 0.1212 (x sqrt(2pi j)=0.430); j=5: 0.0185 (x sqrt(2pi j)=0.104); j=10: 0.0011 (x sqrt(2pi j)=0.008); j=20: 0.0000 (x sqrt(2pi j)=0.000); j=30: 0.0000 (x sqrt(2pi j)=0.000)
+k=2 p=0.1: j=2: 0.3215 (x sqrt(2pi j)=1.140); j=5: 0.1823 (x sqrt(2pi j)=1.022); j=10: 0.0977 (x sqrt(2pi j)=0.775); j=20: 0.0379 (x sqrt(2pi j)=0.425); j=30: 0.0166 (x sqrt(2pi j)=0.228)
+k=2 p=0.01: j=2: 0.3972 (x sqrt(2pi j)=1.408); j=5: 0.2805 (x sqrt(2pi j)=1.572); j=10: 0.2034 (x sqrt(2pi j)=1.612); j=20: 0.1380 (x sqrt(2pi j)=1.547); j=30: 0.1058 (x sqrt(2pi j)=1.453)
+k=2 p=0.001: j=2: 0.4062 (x sqrt(2pi j)=1.440); j=5: 0.2946 (x sqrt(2pi j)=1.651); j=10: 0.2230 (x sqrt(2pi j)=1.767); j=20: 0.1637 (x sqrt(2pi j)=1.836); j=30: 0.1342 (x sqrt(2pi j)=1.842)
+k=3 p=0.5: j=2: 0.0906 (x sqrt(2pi j)=0.321); j=5: 0.0120 (x sqrt(2pi j)=0.067); j=10: 0.0005 (x sqrt(2pi j)=0.004); j=20: 0.0000 (x sqrt(2pi j)=0.000); j=30: 0.0000 (x sqrt(2pi j)=0.000)
+k=3 p=0.1: j=2: 0.2902 (x sqrt(2pi j)=1.029); j=5: 0.1603 (x sqrt(2pi j)=0.899); j=10: 0.0866 (x sqrt(2pi j)=0.687); j=20: 0.0328 (x sqrt(2pi j)=0.368); j=30: 0.0138 (x sqrt(2pi j)=0.190)
+k=3 p=0.01: j=2: 0.3922 (x sqrt(2pi j)=1.390); j=5: 0.2730 (x sqrt(2pi j)=1.530); j=10: 0.1940 (x sqrt(2pi j)=1.538); j=20: 0.1273 (x sqrt(2pi j)=1.427); j=30: 0.0962 (x sqrt(2pi j)=1.320)
+k=3 p=0.001: j=2: 0.4057 (x sqrt(2pi j)=1.438); j=5: 0.2940 (x sqrt(2pi j)=1.648); j=10: 0.2219 (x sqrt(2pi j)=1.759); j=20: 0.1621 (x sqrt(2pi j)=1.817); j=30: 34.1031 (x sqrt(2pi j)=468.214)
+--- mpmath recheck (60 digits) of the cancellation-affected cell:
+k=3 p=0.001 j=30: max ratio 0.1312, x sqrt(2 pi j) = 1.801
+k=3 p=0.001 j=20: max ratio 0.1593, x sqrt(2 pi j) = 1.785
+k=1 p=0.001 j=30: max ratio 0.1354, x sqrt(2 pi j) = 1.859
