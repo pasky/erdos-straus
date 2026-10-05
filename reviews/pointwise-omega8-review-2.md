@@ -8,7 +8,19 @@ Reviewer branch `side-agent/review-omega8b`, merged `side-agent/haar-primes-2`
 machinery (Lemmas 3.1, 4.1) is the other reviewer's; I use it only at the
 interface. From-scratch scripts: `scripts/review_o8b_*.py`.
 
-(Work in progress; sections are appended claim by claim.)
+## Summary verdict
+
+| Claim | Verdict |
+|---|---|
+| (1) PO Thm 4.1 (Thorner–Zaman, λ, Lemma 3.2) applies to the OMEGA8 minorant (Thm 3.4 interface, Lemma 3.3 twist, Lemma 3.2 sizes) | **SOUND** (minor D1–D3) |
+| (2) O2 Lemma 4.3 (I), Lemmas 11.1–11.2, Thm 11.3, ET Prop 1.4 ⇒ `S*≪𝓛^4log𝓛`; iterated-quarantine Π supplies what OMEGA8 needs | **SOUND** (minor D4) |
+| (3) W(p) / Mordell-hard / L_h chain; `log L_h(T)≪𝓛^{14}` ⇒ `W(p)≥exp(c(log p)^{1/14})` | **SOUND** |
+| (4) Thm 4.4 `(1/(2log2)−o(1))log₂p·log₃p`, modulo TZ only | **SOUND** |
+| **Thm 4.3 overall** | **SOUND given the new machinery**: the inputs and the interface carry no gap; the theorem stands or falls with Lemma 3.1 (BRW) and Lemma 4.1 (bit encoding + Håstad/LMN), which are reviewer 1's. My toy checks of those (B≤F pointwise, `E[F−B]≪EF`, Lemma 3.3 chain, twist ≤ μ/4) found nothing wrong, and a light pass over Lemma 4.1(c) (fibre density `≤e^{1/2}`, blockwise junta of `E[χ_S\|π(U)]`) agrees. |
+
+No FATAL or MAJOR defect found in my scope. Labels ("PROVED modulo TZ and ET
+Prop 1.4", resp. "modulo TZ only") are accurate for my scope; "effective
+if ET's constant is" is the right hedge.
 
 ## 1. Transfer to primes: PO Thm 4.1 applied to the OMEGA8 minorant
 
@@ -163,3 +175,64 @@ form, Håstad/LMN (textbook). No ET. The label "modulo Thorner–Zaman only" is
 correct. It beats O4 Cor 3.2 (`log₂p·log₄p/log₅p`) ✓.
 
 Verdict (4): **SOUND.**
+
+## 5. Defects
+
+**D1 (MINOR; PO Thm 4.1 hypothesis vs OMEGA8 Thm 3.4).** PO Thm 4.1 asks for
+`B(n)≤1[W(n)>T]` for **every** integer n≡1 (Q). OMEGA8 proves `B≤F` only on
+unit residue vectors (Lemma 3.1 is over `X_ℓ∈(ℤ/ℓ^{e_ℓ})^×`); for n≡1 (Q)
+divisible by a free prime the cell expansion of B is evaluated at a
+non-unit and nothing is proved. Harmless: the proof of PO Thm 4.1 evaluates B
+only at primes `p≡1 (Q)`, `p>Q>T≥` every free prime. *Repair:* in Thm 3.4's
+proof say "B≤1[W>T] for every n≡1 (Q_Π) coprime to all d_i, which is all PO
+Thm 4.1's proof uses (it evaluates B at primes p>Q)"; or weaken PO Thm 4.1's
+hypothesis accordingly (campaign-wide nit, the O2–O4 minorants have the same
+feature).
+
+**D2 (MINOR; Thm 3.4 display, log Z).** With the auxiliary prime
+`ℓ_0∈(R,2R]`, `R=max(T,max d_i)`, `log Z = log Q_Π + log ℓ_0 + log max d_i
+≤ log Q_Π + 2(3k+2t)𝓛 + log 2`, not `log Q_Π + (3k+2t+2)𝓛`. No effect on any
+exponent. *Repair:* write `2(3k+2t+1)𝓛`, or drop ℓ_0 altogether (it was
+only used in O2/O3 to force `p>T`, which here already follows from
+`Q_Π>5^{e_5}7^{e_7}>T`; all `μ, M_1, μ_ψ` are unchanged either way).
+
+**D3 (MINOR; notation).** "ℓ_0" denotes both a prime dividing the
+conductor f (Lemma 3.3) and the auxiliary prime of O4 Thm 2.1 (Thm 3.4
+proof). *Repair:* rename the auxiliary one (e.g. `ℓ_aux`).
+
+**D4 (MINOR; Haar-side citation).** Header item 1 and the Comparison
+paragraph state the Haar side as `log(1/δ*) ≪ 𝓛^7 log𝓛`; O2 Thm 11.3 proves
+`≪ 𝓛^7/log𝓛` (its `8k²S*𝓛` with `k≤𝓛/(2log𝓛)`, `S*≪𝓛^4log𝓛`). The
+statement is weaker than what is proved, so not wrong, but "the prime side
+costs its square" should compare `𝓛^{14}` with `(𝓛^7/log𝓛)²`. *Repair:*
+quote O2's `𝓛^7/log𝓛`.
+
+**D5 (MINOR; Thm 3.4, `m` and splitting).** Splitting distinct events into
+single values mod `ℓ^{e_ℓ}` can create *duplicate* single-value events (e.g.
+`n≡a (ℓ)` and `n≡a' (ℓ²)` with `a'≡a (ℓ)` share values). Nothing breaks
+(Lemma 3.1 does not need distinctness, the LLL tolerates duplicates, and the
+split mass still equals the pre-split mass ≤ S*), but the text says "the
+distinct surviving events, split" and then treats `E_1,…,E_m` as a list.
+*Repair:* one sentence: "duplicates are kept (or merged); either way the
+total mass is ≤S and per-prime masses ≤c_0".
+
+## 6. Scripts and data (from scratch; none of the author's code used)
+
+* `scripts/review_o8b_quarantine.py` → `data/review_o8b/quarantine.txt`:
+  𝓡(M) ↔ uvw witness set, Fact 1.1, iterated quarantine (Lemma 11.2
+  bounds, final `w_ℓ≤c_0`), exact S* (max over all Π per atom) vs
+  `S_tot(Π)`, LLL premise, and (I) on CRT-built integers with brute-force
+  W(n) (510 forced survivors + 1500 random samples, 0 mismatches).
+* `scripts/review_o8b_interface.py` → `data/review_o8b/interface.txt`:
+  `μ=E B`, `μ_ψ=E[Bψ]` for random unit-cell combinations incl. prime-power
+  moduli (err ≤ 5e−16); the M_1 product inequality; Lemma 3.2's `c_W`
+  formula for the Efron–Stein truncation; toy BRW systems on units mod
+  31·37·41·43 with `w_ℓ≤1/(64k)`: `B≤F`, Lemma 3.3 chain, twist ≤ 0.005μ.
+* `scripts/review_o8b_exponents.py` → `data/review_o8b/exponents.txt`:
+  exponent bookkeeping for Thm 4.3 (ratios → 6, 7, 7, 14) and Thm 4.4
+  (→ 1/(2log2) from above).
+
+Replay: `PYTHONPATH=scripts uv run python scripts/review_o8b_quarantine.py
+3000 5 100 300 4 0.5` (≈1 min; other configurations as in the data file),
+`uv run --with numpy python scripts/review_o8b_interface.py 3 1 60`,
+`uv run python scripts/review_o8b_exponents.py`.
