@@ -129,3 +129,17 @@ now certified by the reviewer's exact dual (≥0.744128). "In 𝒯𝒫(θ) the o
 exactly 1/2" is proved only below 1/2 (fakes) and on one grid at 1/2; the continuum statement at
 θ=1/2 is unproved. Repair: separate (a) actual primes: W1 = Type-I + parity + switching;
 (b) model: one window positive at θ=1/2 on the grid (CERTIFIED with dual), continuum open.
+
+### Model fidelity: the discrete "true law" has parity-sensitive Type-I data — MAJOR (M4)
+`scripts/review_w2_rhocheck.py 0.1 8 0.5`: normalised one-window correlations
+`r(S)=ρ_μ(S)/(∏_k w_k^{S_k}/S_k!)/ρ_μ(∅)` of the model's μ (θ=1/2 visible S) range over
+[0.82, 1.87]; and the *odd* law (the (p/3)=−1 analogue) has different data (e.g. single point at
+bin 0.115: 1.349 even vs 1.081 odd). For actual primes, BV + fundamental lemma give
+`r(S)≈1` independent of |S| parity — that is exactly Thm P1. So at ε=0.1 the model's Type-I data
+partly *encode* parity, i.e. the model is far from the asymptotic regime it is meant to represent
+(Λ=½ln10≈1.15 expected bad points). In the continuum ε→0 the heuristic gives r(S)→1, so this is a
+coarse-grid artefact, but it means Prop 3.7 is a statement about a law whose sieve data differ from
+real sieve data by up to ~90%. Moreover **every θ=1/2 LP in the doc uses ε=0.1** (K=8, 12); the
+(ε,K) grid study was done only at θ≥0.7. Repair: re-run the θ=1/2 two-window LP for smaller ε
+(e.g. 0.05, 0.03) and report r(S) spreads; until then Prop 3.7's relevance to sieve methods is
+EVIDENCE of the weakest kind, and §4/§5 "blocked" statements must say "at ε=0.1".
