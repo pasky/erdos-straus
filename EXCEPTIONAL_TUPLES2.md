@@ -330,3 +330,57 @@ None of this bears on asymptotic θ; it only shows that the deviations of
 `f_y` matches the CRT law within Poisson noise (e.g. 972/119/5 integers
 with f = 8/9/10 against 1021/120/9.7 predicted), so the large T1 ratio
 deviations at j ≥ 8 there come from a handful of integers.
+
+## 6. The positive direction: what TC^alt_θ needs
+
+**Corollary 6.1 (CRT cap 2/3 for the pure prime family; PROVED from T1
+Thm 3.1).** Fix A ≥ 1. Let `y ≤ N^A` and let ν ≥ 0 be a CRT majorant
+(`ν = Σ a_i 1[n ≡ b_i (d_i)]`, ν ≥ 0 on ℤ) with ν ≥ 1 on the avoider set
+`{f_y = 0}` of the prime family, all of whose terms have level
+`Σ_{ℓ∈𝒫_y, ℓ | d_i, ℓ ≥ ℓ₀} log ℓ ≤ λ`, `λ ≥ log N`. Then
+`log(1/Eν) ≤ C_A λ^{2/3}`. Hence (as in T1 Cor 3.3) every method that
+evaluates such a ν on [1,N] with CRT main terms (bound `≥ ½N·Eν`) and
+level `λ ≤ A' log N` saves at most `C(log N)^{2/3}`; Brun's pure sieve
+(T1 Prop 2.4) attains this order.
+
+*Proof.* Put the primes `ℓ < ℓ₀` (with `p_ℓ > 1/4`; e.g. ℓ = 3, 7) into
+the small modulus Q₀ of a prime-slice system; then `|R|/Q₀ =
+Π_{ℓ<ℓ₀}(1−p_ℓ) ≫ 1`, and every slice prime has `p_ℓ ≤ τ(A_ℓ²)/ℓ ≤ 1/4`
+for ℓ₀ large. Apply T1 Thm 3.1 with k = 1, `L₀ = λ₀ = λ`. By partial
+summation from `μ_x ≤ C(log x)²` (T1 (1.3)),
+`Σ_ℓ p_ℓ ℓ^{−α} ≤ ∫ αx^{−α−1}μ_x dx ≤ 2C α^{−2}`. The tail term is
+`e^{−αλ}μ_y ≤ C(A log N)²e^{−αλ}`. With `α = λ^{−1/3}` all terms are
+`O(λ^{2/3})` (`αλ = λ^{2/3} ≥ (log N)^{2/3}` kills the tail; the G-terms
+are `O(log²λ + log λ·log log y)`). ∎
+
+So for the pure prime family the CRT exponent is exactly 2/3, and the
+literal TC door closes exactly there (§§2–3). TC^alt_θ for any θ > 2/3
+(not only θ > 3/4) is a non-CRT statement: by Cor 6.1 with
+`λ = c(log N)^θ`-saving, the Bonferroni majorant `ν_K` must be evaluated
+with CRT accuracy on terms of level `≥ c(log N)^{3θ/2}`, i.e. moduli
+`Q = exp(c(log N)^{3θ/2})`, super-polynomial in N for θ > 2/3.
+
+**Assessment 6.2 (no known theorem supplies TC^alt_θ for θ > 2/3).**
+* Level of distribution. All BV/EH/BFI-type results, and all dispersion
+  estimates, concern moduli `< N` (a class of modulus > N meets [1,N] at
+  most once). The required level is `exp(c(log N)^{3θ/2})`.
+* Beyond N, the only "equidistribution of CRT points" results are for
+  roots of a *fixed* polynomial congruence (Hooley; Duke–Friedlander–
+  Iwaniec; Tóth), at macroscopic test functions on `ν/q mod 1`. TC^alt
+  needs the points `b_T/q_T` at the microscopic scale `N/q_T`, for a family
+  of linear systems with K growing; that is equivalent to counting the
+  integers n ≤ N with prescribed hits, i.e. to the sieve problem itself.
+* Fixed-shift / fixed-form correlations (T1 Prop 4.3, §4.2): the forms of
+  §1 make the "shift" picture precise. A tuple of order j spans ≈ j
+  distinct forms; correlations along r fixed forms are capped at
+  `O(r log log N)` (T1 Prop 4.3, whose proof applies verbatim to the
+  integers `ns + r` in place of `n + 4D`).
+* Kubilius-type models hold *inside* one form (one integer `ns + r`),
+  which is exactly where literal TC fails (§3), and they say nothing
+  about joint behaviour across ≍ (log N)^θ forms.
+
+So the positive direction is closed off from every known technique, and
+the target is sharper than T1 stated: not "TC_θ with θ > 3/4" (false
+above 2/3 under the natural heuristic) but "Brun's sieve of degree
+(log N)^θ, θ > 2/3, is CRT-accurate on [1,N] for the prime family"
+(TC^alt_θ), with the E(N) gain appearing only for θ > 3/4.
