@@ -1502,10 +1502,16 @@ $C(B)$ are not tracked.
 This section removes the hypothesis $M\leq P(M)^{1+B}$ from
 Theorem~\ref{thm:karycap} and admits the $(a,D)$-classes, the Case-A
 classes and selector classes into the same family, with no condition on
-the moduli.  The results are from \cite{KA2}.  Two independent hostile
-reviews \cite{KA2rev,KA2rev2} found the argument sound; the second
+the moduli.  The framework is from \cite{KA2}.  Two independent hostile
+reviews \cite{KA2rev,KA2rev2} found it sound; the second
 re-derived the exponent chain and checked the mixing of types, and its
-second round verified all repairs.  All constants ($W$, $\lambda_0$, $C$)
+second round verified all repairs.  The first moments are from
+\cite{KA3}, which removes the factor $(\log\log N)^{3/4}$ that \cite{KA2},
+and the previous version of this note, lost without $B$; its review
+\cite{KA3rev} found all claims sound.  The labels of
+Theorems~\ref{thm:noBcap} and~\ref{thm:main} rest on the \cite{KA2}/\cite{KA}
+framework as reviewed there (square base, leak, weighted sequential
+sieve limit), which \cite{KA3} does not re-prove.  All constants ($W$, $\lambda_0$, $C$)
 are absolute but astronomically large (the second review estimates
 $\log W\approx10^{10}$--$10^{11}$, through the Case-A exponents), so every
 statement of this section is asymptotic only.
@@ -1631,50 +1637,252 @@ counted once per parametrisation).  As in Lemma~\ref{lem:kmoments}(2),
 $\E_{Q'}\sum_{\ell\in V}p_\ell\leq\mathfrak M(\max V)$ for every block $V$ and
 every family $\cG\subseteq\mathfrak U$.
 
-\begin{lemma}[first moments; {\cite[Lemmas~3.1--3.6, Cor.~3.7]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{lem:firstnoB}
+The bounds in this subsection are from \cite{KA3}; its hostile review
+\cite{KA3rev} found every claim sound after five minor repairs, which are
+incorporated here.  They replace the first-moment bound of the previous
+version of this note \cite[Lemmas~3.1--3.6, Cor.~3.7]{KA2}, which lost a
+factor $(\log\log y)^3$ (Remark~\ref{rem:rankinloss}).  Write
+$\Gamma=1*h$ with $h$ multiplicative and supported on squarefree numbers,
+$h(p)=\gamma'(p)-1$; so $h(p)\leq7$ for $p\leq W$ and $h(\ell)\leq2\ell^{-1/2}$ for
+$\ell>W\geq16$.  Let $\cP_y$ be the set of prime powers $\leq y$, and for
+$m\geq1$ put
+\[
+ Z_y(m)=\frac1{\log y}\sum_{d\in\cP_y,\ d\mid m}\Lambda(d),\qquad
+ S_y(m)=\prod_{p\mid m,\ p^{v_p(m)}>y}p^{v_p(m)}.
+\]
+The \emph{local weight} $Z_y$ has bounded mean, since
+$\sum_{p\leq y}\log p/(p\log y)\to1$, unlike $\Omega(m)$ or Rankin's $m^\eta$; and it
+is large on smooth numbers.
+
+\begin{lemma}[smooth numbers have a large local weight; {\cite[Lemma~2.1, (2.1$'$)]{KA3}}; \lab{proved}]\label{lem:localweight}
+Let $y\geq2$ and let $m$ be $y$-smooth.  Then $S_y(m)$ is squarefull and
+$\log m\leq\log S_y(m)+Z_y(m)\log y$.  Hence, if $m\geq Y$ and $S_y(m)\leq T$, then
+$Z_y(m)\log y\geq\log(Y/T)$.  In particular, for $K\geq y$, $u=\log K/\log y$,
+$K<m\leq2K$ and every $k\geq1$,
+\[
+ \ind[P(m)\leq y]\leq\ind[P(m)\leq y,\ S_y(m)>K^{1/2}]+(2Z_y(m)/u)^k .
+\]
+\end{lemma}
+\begin{proof}
+If $p\mid S_y(m)$ then $p\leq y<p^{v_p(m)}$, so $v_p(m)\geq2$.  If
+$p^{v_p(m)}\leq y$, all $p^\nu$ with $\nu\leq v_p(m)$ lie in $\cP_y$, and
+$v_p(m)\log p=\sum_{\nu\leq v_p(m)}\Lambda(p^\nu)$.  Summing over the primes of
+$m$ gives the inequality.  For the last claim take $Y=K$, $T=K^{1/2}$: if
+$S_y(m)\leq K^{1/2}$ then $Z_y(m)\geq u/2$.
+\end{proof}
+
+\begin{lemma}[moments of the local weight; {\cite[Lemma~2.2]{KA3}}; \lab{proved}]\label{lem:Zmoments}
+For each $k\geq1$ there is $C_k(W)$ such that for all $y\geq2$,
+\[
+ \sum_{d_1,\dots,d_k\in\cP_y}\Lambda(d_1)\cdots\Lambda(d_k)\,\frac{\Gamma(D)}D\leq C_k(W)(\log y)^k,\qquad D=\lcm(d_1,\dots,d_k).
+\]
+\end{lemma}
+\begin{proof}
+Group the indices by the prime of $d_i$: a set partition $\pi$ of
+$\{1,\dots,k\}$ into blocks $b$, distinct primes $p_b\leq y$ and exponents
+$\nu_i\geq1$.  Then $\Gamma(D)/D=\prod_b\gamma'(p_b)p_b^{-\max_{i\in b}\nu_i}$.  For a
+block of size $m$,
+$\sum_{\nu\in\mathbb N^m}p^{-\max\nu}\leq\sum_{t\geq1}mt^{m-1}p^{-t}\leq c_m/p$, as
+$p^{-t}\leq p^{-1}2^{1-t}$.  Dropping distinctness, $\pi$ contributes at most
+$\prod_bc_{|b|}(\log y)^{|b|-1}\sum_{p\leq y}\gamma'(p)\log p/p$, and by Mertens and
+$\gamma'(p)\leq1+2p^{-1/2}$ for $p>W$ the last sum is $\leq c'(W)\log y$.  Sum over
+the $\mathrm{Bell}(k)$ partitions.
+\end{proof}
+
+\begin{lemma}[smooth $\cR(M)$ blocks decay; {\cite[Lemma~2.3]{KA3}}; \lab{proved}]\label{lem:smoothR}
+Fix $k\geq1$.  There are $C_k(W)$ and $y_0(k,W)$ such that for $y\geq y_0$,
+$K\geq y^{16k}$ and $u=\log K/\log y$,
+\[
+ \sum_{K<M\leq2K,\ M\equiv3\ (4),\ P(M)\leq y}\tau(A_M^2)\Gamma(M)\leq C_k(W)\,K(\log K)^2u^{-k}.
+\]
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:localweight} the sum is $\leq\Sigma_1+(2/u)^k\Sigma_2$, where
+$\Sigma_1$ runs over the $y$-smooth $M\in(K,2K]$ with $S_y(M)>K^{1/2}$ (smoothness
+is kept here, since otherwise $S_y(M)$ need not be squarefull), and
+$\Sigma_2=\sum_{K<M\leq2K,\,M\equiv3\,(4)}\tau(A_M^2)\Gamma(M)Z_y(M)^k$ drops smoothness.
+
+\emph{$\Sigma_1$.}  Pointwise $\tau(A_M^2)\Gamma(M)\leq8\tau(A_M)^23^{\omega(M)}\leq C_\epsilon K^\epsilon$.
+There are $\ll t^{1/2}$ squarefull numbers $\leq t$, so
+$\sum_{s\ \text{squarefull}>Z}1/s\ll Z^{-1/2}$, and the number of $y$-smooth
+$M\leq2K$ with $S_y(M)>K^{1/2}$ is $\leq\sum_{s\ \text{squarefull}>K^{1/2}}2K/s\ll K^{3/4}$.
+So $\Sigma_1\ll K^{4/5}$.
+
+\emph{$\Sigma_2$.}  Expanding $Z_y^k$ and $\Gamma=1*h$,
+\[
+ \Sigma_2=\frac1{(\log y)^k}\sum_{d_1,\dots,d_k\in\cP_y}\prod_i\Lambda(d_i)\sum_eh(e)\,T(\lcm(D,e)),
+\]
+where $T(q)=\sum_{K<M\leq2K,\ M\equiv3\,(4),\ q\mid M}\tau(A_M^2)$.
+$T(q)=0$ for even $q$.  For odd $q$, $q\mid M$ if and only if
+$A_M\equiv4^{-1}\pmod q$, a reduced class, with $A$ in
+$((K+1)/4,(2K+1)/4]$.  For $2\leq q\leq K^{1/2}$ Shiu's theorem (as stated at
+the start of Section~\ref{sec:profiles}, with $F(A)=\tau(A^2)$, $F(p)=3$,
+$F(p^a)=2a+1\leq3^a$, $V=(2K+1)/4$, $Y=K/4$, $\alpha_s=\beta_s=1/4$) gives
+\[
+ T(q)\ll\frac K{\varphi(q)\log K}\exp\Bigl\{\sum_{p\leq K,\ p\nmid q}\frac3p\Bigr\}
+ \ll\frac Kq(\log K)^2\frac q{\varphi(q)}\prod_{p\mid q}\e^{-3/p}\leq C_S\frac Kq(\log K)^2,
+\]
+since $(1-1/p)^{-1}\e^{-3/p}\leq1$.  For $q=1$,
+$\sum_{A\leq x}\tau(A^2)\ll x(\log x)^2$.  For every $q$,
+$T(q)\leq3C_\epsilon K^{1+\epsilon}/q$.  Now $D\leq y^k\leq K^{1/16}$, so
+$\lcm(D,e)\leq K^{1/2}$ when $e\leq K^{1/4}$, and
+\[
+ \sum_{e\leq K^{1/4}}\frac{h(e)}{\lcm(D,e)}\leq\frac1D\prod_{p\mid D}(1+h(p))\prod_{p\nmid D}\Bigl(1+\frac{h(p)}p\Bigr)\leq c_1(W)\frac{\Gamma(D)}D,
+\]
+while, by Rankin with exponent $1/4$ and $\omega(D)\leq k$,
+\[
+ \sum_{e>Z}\frac{h(e)\gcd(D,e)}e\leq Z^{-1/4}\prod_{p\mid D}(1+h(p)p^{1/4})\prod_{p\nmid D}(1+h(p)p^{-3/4})\leq c_2(W)2^kZ^{-1/4}.
+\]
+So $\sum_eh(e)T(\lcm(D,e))\leq c_3(W)[\Gamma(D)K(\log K)^2+2^kK^{1-1/16+\epsilon}]/D$, and
+Lemma~\ref{lem:Zmoments} (with $\Gamma\geq1$ for the second term) gives
+$\Sigma_2\leq C_k(W)[K(\log K)^2+K^{1-1/20}]$.  Finally
+$K^{4/5}+K^{1-1/20}\leq K(\log K)^2u^{-k}$ for $K\geq K_0(k)$, which holds for
+$y\geq y_0(k,W)$ since $u\leq\log K$.
+\end{proof}
+
+For Case A we use three results of \cite[\S7]{ElsholtzTao}, the section
+from which its Prop.~1.4 (used in Lemma~\ref{lem:caseAprofile}) is
+derived.  They were checked against the source but not re-proved.
+\begin{itemize}
+\item \cite[Cor.~7.4]{ElsholtzTao}: for natural numbers $a,b,N$ with
+  $a,b\leq N^l$, $\sum_{n\leq N}\tau(an+b)\ll_l\tau(\gcd(a,b))N\log N$.
+\item \cite[Thm~7.1]{ElsholtzTao}: if $P$ has degree $D$, nonnegative
+  integer coefficients $\leq N^l$, and $\rho_P(p^j)\leq C$ for all prime powers,
+  then $\sum_{n\leq N}\tau(P(n))\ll_{D,l,C}N\sum_{m\leq N}\rho_P(m)/m$.
+\item \cite[(7.10)]{ElsholtzTao}: for $A,B\geq2$ and \emph{every} positive
+  integer $k$,
+  \begin{equation}\label{eq:ET710}
+   \sum_{a\leq A}\sum_{m\leq B}\frac{\rho_{ka}(m)}m\ll A\log B\cdot\log(1+k),
+  \end{equation}
+  where $\rho_{ka}(m)=\#\{b\bmod m:\ kab^2+1\equiv0\ (m)\}$.
+\end{itemize}
+\begin{remark}[uniformity of \eqref{eq:ET710} in $k$, and two slips; {\cite[\S3]{KA3}}, {\cite[uniformity check, steps~3, 5]{KA3rev}}]\label{rem:ETslips}
+In \cite{ElsholtzTao} the condition $k\ll(AB)^{O(1)}$ of Prop.~1.4 enters
+only through Thm~7.1.  The proof of \eqref{eq:ET710}
+\cite[pp.~30--32]{ElsholtzTao}, which splits into the ranges $q<A$,
+$A\leq q\leq kA$ and $q>kA$ after quadratic reciprocity, uses no size
+condition on $k$; so \eqref{eq:ET710} holds uniformly in $k$, which is how
+we use it.  Two slips in that proof were found and are harmless.
+(i) On p.~31 the character $a\mapsto(\frac{-ka}q)$ is said to have mean zero
+for every $q$ in the small range; this fails for square $q$ (including
+$q=1$).  Square $q$ contribute at most $A\log B\sum_{q\ \text{square}}1/q=O(A\log B)$,
+so \eqref{eq:ET710} holds as stated.  (ii) In the range $q>kA$ the factor
+$c(q)$ omits the reciprocity sign $(-1)^{\frac{q-1}2\cdot\frac{k'a-1}2}$.  For fixed $a$
+the corrected factor is still $8$-periodic in $q$, and $q\mapsto(\frac{-ka}q)$ is
+the Kronecker character of the negative number $-ka$, hence never
+principal (even when $k'a$ is a square); so the mean-zero and partial
+summation step holds with an absolute constant, uniformly in $k$.
+\end{remark}
+
+\begin{lemma}[smooth Case-A blocks decay; {\cite[Lemma~3.1]{KA3}}; \lab{proved mod} Elsholtz--Tao Thm~7.1, Cor.~7.4 and (7.10)]\label{lem:smoothA}
+Fix $k\geq1$.  There are $C_k(W)$ and $y_0(k,W)$ such that for $y\geq y_0$,
+$K\geq y^{64k}$ and $u=\log K/\log y$,
+\[
+ \sum_{r,h\geq1,\ K<rh\leq2K,\ P(rh)\leq y}\tau(4rh^2+1)\Gamma(4rh)\leq C_k(W)\,K(\log K)^2u^{-k}.
+\]
+\end{lemma}
+\begin{proof}
+$\Gamma(4rh)\leq8\Gamma(r)\Gamma(h)$, and pointwise
+$\tau(4rh^2+1)\Gamma(4rh)\leq C_\epsilon K^\epsilon$.  We split the pairs by the size of~$r$.
+
+\emph{(i) $r\geq K^{1/4}$.}  Then $h\leq2K^{3/4}$ and $r$ is $y$-smooth, so by
+Lemma~\ref{lem:localweight} with $(Y,T)=(K^{1/4},K^{1/8})$,
+$1\leq\ind[S_y(r)>K^{1/8}]+(8Z_y(r)/u)^k$.  The pairs with $r$ $y$-smooth and
+$S_y(r)>K^{1/8}$ number $\leq\sum_{h\leq2K}\sum_{s\ \text{squarefull}>K^{1/8}}2K/(hs)\ll K^{1-1/16}\log K$,
+and contribute $\ll K^{1-1/20}$.  The moment part, with smoothness and the
+lower bound $rh>K$ dropped, is at most
+\begin{multline*}
+ 8\Bigl(\frac8u\Bigr)^k\frac1{(\log y)^k}\sum_{d_1,\dots,d_k\in\cP_y}\prod_i\Lambda(d_i)\sum_{s,t}h(s)h(t)\\
+ \times\sum_{\substack{h\leq2K^{3/4}\\ t\mid h}}\ \sum_{\substack{r\leq2K/h\\ L\mid r}}\tau(4h^2r+1),\qquad L=\lcm(D,s).
+\end{multline*}
+For $s\leq K^{1/16}$ we have $D\leq K^{1/64}$, $L\leq K^{1/8}$; write $r=Lr'$ with
+$r'\leq R'=2K/(hL)$, so $R'\geq K^{1/8}$.  The linear form $ar'+1$, with
+$a=4h^2L\leq16K^{13/8}\leq R'^{14}$, is coprime, and Cor.~7.4 ($l=14$) gives
+$\ll R'\log R'\leq2K\log K/(hL)$.  Summing over $h=th'$ gives a factor
+$\leq2\log K/t$.  These terms total
+$\ll K(\log K)^2(h(t)/t)(h(s)/\lcm(D,s))$, and $\sum_th(t)/t\leq c(W)$,
+$\sum_sh(s)/\lcm(D,s)\leq c_1(W)\Gamma(D)/D$ as in Lemma~\ref{lem:smoothR}.  For
+$s>K^{1/16}$ the inner sum is bounded trivially by $(2K/(hL))C_\epsilon K^\epsilon$, and the
+Rankin tail of Lemma~\ref{lem:smoothR} gives $\ll2^kK^{1+\epsilon-1/64}\log K/D$.
+Lemma~\ref{lem:Zmoments} bounds part~(i) by $C_k(W)[K(\log K)^2u^{-k}+K^{1-1/80}]$.
+
+\emph{(ii) $r<K^{1/4}$.}  Then $h>K^{3/4}$ is $y$-smooth and, with
+$(Y,T)=(K^{3/4},K^{1/4})$, $1\leq\ind[S_y(h)>K^{1/4}]+(2Z_y(h)/u)^k$.  The first
+term contributes $\ll K^{1-1/20}$ as in~(i).  The moment part is at most
+\begin{multline*}
+ 8\Bigl(\frac2u\Bigr)^k\frac1{(\log y)^k}\sum_{d_1,\dots,d_k\in\cP_y}\prod_i\Lambda(d_i)\sum_{s,t}h(s)h(t)\\
+ \times\sum_{\substack{r<K^{1/4}\\ s\mid r}}\ \sum_{h'\leq2K/(rL)}\tau(4rL^2h'^2+1),\qquad L=\lcm(D,t).
+\end{multline*}
+Take $t\leq K^{1/16}$, so $L\leq K^{1/8}$.  Fix $r$, and put $P(n)=4rL^2n^2+1$,
+$N=\lfloor2K/(rL)\rfloor\geq K^{1/2}$; its coefficients are $\leq4K^{1/2}\leq N^2$.  For
+$p\mid2rL$, $P\equiv1\pmod p$, so $\rho_P(p^j)=0$.  For odd $p\nmid rL$, $n\mapsto Ln$
+is a bijection modulo $p^j$ carrying the roots of $P$ to those of $4rb^2+1$,
+so $\rho_P(p^j)=\rho_{4r}(p^j)\leq2$ by Hensel ($P'(n)=8rL^2n$ is a unit at a root).
+By CRT $\rho_P(m)\leq\rho_{4r}(m)$ for all $m$.  Thm~7.1 (degree $2$, $l=2$,
+$C=2$) gives $\sum_{n\leq N}\tau(P(n))\ll(2K/(rL))\sum_{m\leq2K}\rho_{4r}(m)/m$.  Write
+$r=sa$, so $\rho_{4r}=\rho_{ka}$ with $k=4s$, and split $a\in[R,2R)$ dyadically
+($\leq\log K$ ranges).  By \eqref{eq:ET710}, uniformly in $k=4s$, each range
+gives $\ll(2K/(sRL))\cdot2R\log(2K)\log(1+4s)$.  These terms total
+$\ll K(\log K)^2(h(s)\log(1+4s)/s)(h(t)/\lcm(D,t))$, and
+$\sum_sh(s)\log(1+4s)/s\leq c(W)$ since $\sum_sh(s)s^{-3/4}<\infty$.  The terms
+$t>K^{1/16}$ are bounded trivially as in~(i), and Lemma~\ref{lem:Zmoments}
+bounds part~(ii) by $C_k(W)[K(\log K)^2u^{-k}+K^{1-1/80}]$.
+
+Finally $K^{1-1/80}\leq K(\log K)^2u^{-k}$ for $K\geq K_0(k)$.
+\end{proof}
+In part~(ii) the multiplier $k=4s$ of \eqref{eq:ET710} is a divisor of $r$,
+of size up to $K^{1/4}$; this is why uniformity in $k$ matters.
+
+\begin{lemma}[first moments; {\cite[Cors.~2.4, 3.2, 3.3]{KA3}}, {\cite[Lemmas~3.3, 3.3$'$]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{lem:firstnoB}
 For $y\geq y_0(W)$,
 \[
- \mathfrak M(y)\leq K_3(W)(\log y)^3(\log\log y)^3.
+ \mathfrak M(y)\leq K_3'(W)(\log y)^3.
 \]
-More precisely, the $(a,D)$-part is $\ll_W(\log y)^3$ and the selector
-part is $\leq\log\log y+O(1)$.  If moreover every modulus satisfies
-$G\leq P(G)^{1+B}$, the sum over the classes of $\cG$ with $P(G)\leq y$ is
-$\leq C(W,B)(\log y)^3$.
+More precisely, the $\cR(M)$-part is $\leq K_R(W)(\log y)^3$, the Case-A part
+is $\leq K_A(W)(\log y)^3$, the $(a,D)$-part is $\ll_W(\log y)^3$ and the selector
+part is $\leq\log\log y+O(1)$.  If every modulus satisfies $G\leq P(G)^{1+B}$, the
+sum over the classes of $\cG$ with $P(G)\leq y$ is $\leq C(W,B)(\log y)^3$, and
+for Case A only Prop.~1.4 is used.
 \end{lemma}
-\begin{proof}[Proof sketch]
+\begin{proof}
+\emph{$\cR(M)$.}  Take $k=4$ and $X=y^{64}$.  On the body $M\leq2X$ drop the
+smoothness condition; the weighted Shiu argument of
+Lemma~\ref{lem:kmoments}(2), which uses no $B$, gives $\leq c(W)(\log2X)^3\leq
+c'(W)(\log y)^3$.  The blocks $(K,2K]$, $K=2^t\geq X$, cover $M>2X$; by
+Lemma~\ref{lem:smoothR} the block contributes
+$\leq K^{-1}C_4K(\log2K)^2u_t^{-4}\leq4C_4(\log y)^2u_t^{-2}$, $u_t=t\log2/\log y$.
+Summing over $t\geq t_0=\lceil\log X/\log2\rceil$ gives
+$\leq4C_4(\log y)^4(\log2)^{-2}\sum_{t\geq t_0}t^{-2}\leq(C_4/(8\log2))(\log y)^3$.
+\emph{Case A.}  Since the Case-A classes with $g(d)=rh$ are counted by
+$\tau(4rh^2+1)$, the Case-A part is at most
+$\sum_{P(rh)\leq y}\tau(4rh^2+1)\Gamma(4rh)/(4rh)$.  Take $k=4$ and $X=y^{256}$.
+The body $rh\leq2X$ is Lemma~\ref{lem:caseAprofile} with its $\gamma$-weight
+clause and partial summation, $\leq C(W)(\log2X)^3$; this uses Prop.~1.4.
+The tail is summed by Lemma~\ref{lem:smoothA} exactly as for $\cR(M)$.
 \emph{$(a,D)$ and selectors.}  The classes are counted by $(a,g(D))$ with
 multiplicity at most $2^{\omega(g)}$, so the $(a,D)$-sum is at most
-$2\sum_{P(a)\leq y}\Gamma(a)/a\cdot\sum_{P(g)\leq y}2^{\omega(g)}\Gamma(g)/g$, a pure
-Euler product of size $\ll(\log y)^{1+2}$.  The selector sum is
-$\sum_{W<p\leq y}\gamma'(p)/p$.
-\emph{$\cR(M)$.}  Put $u_0=12\log\log y$ and $X=y^{u_0}$.  On the body
-$M\leq X$ drop the smoothness condition; the weighted Shiu argument of
-Lemma~\ref{lem:kmoments}(2), which needs no $B$, gives
-$\ll(\log X)^3=12^3(\log y)^3(\log\log y)^3$.  On the tail, in each dyadic
-block $K<M\leq2K$ apply Cauchy--Schwarz:
-$\sum\tau(A_M^2)\Gamma(M)/M\leq(\sum_{P(M)\leq y}\Gamma(M)^2/M)^{1/2}
-(\sum\tau(A_M^2)^2/M)^{1/2}$.  Rankin's trick bounds the first factor by
-$\ll\e^{-u/2}(\log y)^{1/2}$, $u=\log K/\log y$, and the second is
-$\ll(\log2K)^4$ since $\sum_{A\leq x}\tau(A^2)^2\ll x(\log2x)^8$.  Summing over
-blocks, the tail is $\ll(\log y)^{5.5}u_0^4\e^{-u_0/2}\ll1$.
-\emph{Case A.}  The same body/tail split with $u_0=(c_2+8)\log\log y$.  The
-body is the divisor sum of Lemma~\ref{lem:caseAprofile}, with its
-$\gamma$-weight clause; this is where Elsholtz--Tao Prop.~1.4 enters, as
-in \cite[Lemma~3.7]{ET}.  In the tail the second Cauchy--Schwarz factor
-is bounded by self-contained box moments
-$\sum_{rh\leq K}\tau(krh^2+1)^q\ll_qK(\log2kK)^{c_q}$, $c_q=2^{7q+1}+1$, which
-follow from the small-divisor domination
-$\tau(n)\leq8\max\{\tau(d)^7:d\mid n,\ d\leq n^{1/4}\}$ (cf.\ \cite{Landreau});
-the huge exponent $c_q$ is harmless against Rankin's $\e^{-u/2}$.
+$2\sum_{P(a)\leq y}\Gamma(a)/a\cdot\sum_{P(g)\leq y}2^{\omega(g)}\Gamma(g)/g$, an Euler
+product of size $\ll(\log y)^{1+2}$; the selector sum is
+$\sum_{W<p\leq y}\gamma'(p)/p$ \cite[Lemmas~3.3, 3.3$'$]{KA2}.
 \emph{Bounded $B$.}  Drop smoothness and sum over $G\leq y^{1+B}$, using the
-body bounds only.  Details: \cite[\S3]{KA2}.
+body bounds only \cite[\S3]{KA2}.
 \end{proof}
-The factor $(\log\log y)^3$ comes only from the body range
-$y<M\leq y^{u_0}$, paid because the smoothness of $M$ is dropped there.
-Heuristically $\mathfrak M(y)\asymp(\log y)^3$; a bound
-$\sum_{M\leq x,\,P(M)\leq y}\tau(A_M^2)\ll\Psi(x,y)(\log x)^2$ for shifted smooth
-numbers would remove the loss for $\cR(M)$ \cite[Remark~3.8]{KA2}
-\lab{open}.
+
+\begin{remark}[where the previous version lost $(\log\log y)^3$; {\cite[\S1]{KA3}}; \emph{Assessment}]\label{rem:rankinloss}
+The previous version of this note (following \cite[\S3]{KA2}) dropped
+smoothness on $M\leq y^{u_0}$ and used Rankin's trick, with Cauchy--Schwarz
+against a shifted-divisor moment, beyond.  Rankin bounds a dyadic block of
+$y$-smooth moduli by $\e^{-u}$ times the \emph{whole} smooth sum, which is
+$\asymp\log y$, so each block loses a full power of $\log y$; this forces
+$u_0\asymp\log\log y$ and a mass $(\log y)^3(\log\log y)^3$.  Hölder in place of
+Cauchy--Schwarz loses in the same way.  The local weight avoids this:
+expanding $Z_y^4$ only imposes a divisibility $D\mid M$ with $D\leq y^4$, a
+congruence to a \emph{small} modulus, to which Shiu's theorem
+(resp.\ Elsholtz--Tao \S7) applies with no loss; the decay $u^{-4}$ is crude
+(the truth is like $\rho(u)$) but beats the $u^2$ growth of the block masses.
+Numerically the smooth first moments are $\asymp(\log y)^3$ up to $10^{12}$,
+with block profile $\max_uu^4b(u)=0.385$ \cite[\S8]{KA3} \lab{evidence}.
+\end{remark}
 
 \begin{lemma}[second moment and leak; {\cite[Lemmas~4.1--4.3]{KA2}}; \lab{proved}, no external input]\label{lem:secondnoB}
 For every prime $\ell>W$ and every family $\cG\subseteq\mathfrak U$,
@@ -1702,7 +1910,7 @@ included.
 \end{proof}
 
 \subsection{The cap}
-\begin{theorem}[the $3/4$ cap without $B$; {\cite[Thm~5.1]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:noBcap}
+\begin{theorem}[the $3/4$ cap without $B$; {\cite[Thm~4.1]{KA3}}, improving {\cite[Thm~5.1]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{thm:noBcap}
 There are absolute constants $W,\lambda_0,C$ such that the following
 holds.  Let $\cG$ be any finite family of $\cR(M)$-, $(a,D)$-, Case-A and
 selector classes, mixed arbitrarily, with arbitrary moduli, and let $\nu$
@@ -1711,33 +1919,42 @@ $\A(\cG)\subseteq\Z$: $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]\geq0$ on $\Z$,
 $\nu\geq1$ on $\A(\cG)$, and $\sum_{\ell\mid d_i,\,\ell>W}\log\ell\leq\lambda$ for
 every $i$.  Then
 \[
- \log\frac1{\E\nu}\leq C\lambda^{3/4}(\log\lambda)^{3/4}.
+ \log\frac1{\E\nu}\leq C\lambda^{3/4}.
 \]
-If $\cG$ contains no Case-A classes, no external input is used.
+If $\cG$ contains no Case-A classes, the only external input is Shiu's
+theorem.
 \end{theorem}
 \begin{proof}
 Theorem~\ref{thm:wseq} with the base $R_W^\square$ of
 Lemma~\ref{lem:squarebase}, whose $R$-term is $\leq2W$ and which avoids
 every $W$-smooth class of $\cG$; selector classes $0\bmod p$ with $p>W$
 are ordinary classes decided at $p$.  The blocks are those of
-Theorem~\ref{thm:karycap} with the smaller singleton range
-$s_1=\lambda^{1/4}(\log\lambda)^{-3/4}$; the leak is $\leq1/2$ by
-Lemma~\ref{lem:secondnoB}.  Write $\mathfrak M(y)\leq K_3(\log y)^3(\log\log y)^3$
-(Lemma~\ref{lem:firstnoB}).  The singletons cost
-$\leq\frac83\mathfrak M(\e^{s_1})\leq\frac83K_3s_1^3(\log\lambda)^3=\frac83K_3\lambda^{3/4}(\log\lambda)^{3/4}$.
+Theorem~\ref{thm:karycap}, with singletons $W<\ell\leq\e^{s_1}$,
+$s_1=\lambda^{1/4}$; the leak is $\leq1/2$ by
+Lemma~\ref{lem:secondnoB}, and $W$ is fixed by it, so $K_3'=K_3'(W)$ of
+Lemma~\ref{lem:firstnoB} is absolute.  The singletons cost
+$\leq\frac83\mathfrak M(\e^{s_1})\leq\frac83K_3's_1^3=\frac83K_3'\lambda^{3/4}$.
 For the block $V_i$, $s=2^is_1$, $d_i=\lfloor\lambda/s\rfloor$,
 Corollary~\ref{cor:kmean} and Jensen give, as in
 Theorem~\ref{thm:karycap},
 $\E\Phi_i\leq d_i\log(C_0(\E m_{V_i}+4d_i)/d_i)+\frac43d_i+O(\log\lambda)$, and now
-$\E m_{V_i}\leq\mathfrak M(\e^{2s})\leq8K_3s^3(\log\lambda)^3$, so
-$(\E m_{V_i}+4d_i)/d_i\leq16K_3s^4(\log\lambda)^3/\lambda+4=16K_3\cdot16^i+4$.  Hence
-$2\sum_i\E\Phi_i\leq C\lambda/s_1+O(\log^2\lambda)=C\lambda^{3/4}(\log\lambda)^{3/4}+O(\log^2\lambda)$.
-The top block costs $2\log(1+3\e^{-\lambda/4})$.  The constant $2W+\log2$ is
-absorbed into $C$ for $\lambda\geq\lambda_0$.
+$\E m_{V_i}\leq\mathfrak M(\e^{2s})\leq8K_3's^3$, so
+$(\E m_{V_i}+4d_i)/d_i\leq16K_3's^4/\lambda+4=16K_3'\cdot16^i+4$, and
+$\E\Phi_i\leq(\lambda/(2^is_1))(c_1+i\log16)+O(\log\lambda)$.  Hence
+$2\sum_i\E\Phi_i\leq C\lambda/s_1+O(\log^2\lambda)=C\lambda^{3/4}+O(\log^2\lambda)$.
+The linear block $(\e^{\lambda/2},\e^\lambda]$ costs $2\log(1+3\e^{-\lambda/4})$, and primes
+above $\e^\lambda$ cost nothing.  The constant $2W+\log2$ is absorbed into $C$
+for $\lambda\geq\lambda_0$.
 \end{proof}
-With $s_1=\lambda^{1/4}$ the singletons alone would cost
-$\lambda^{3/4}(\log\lambda)^3$; the smaller $s_1$ balances them against the
-blocks.
+This is the proof of the previous version \cite[Thm~5.1]{KA2} verbatim,
+with the lossless first moment of Lemma~\ref{lem:firstnoB} in place of
+$\mathfrak M(y)\ll(\log y)^3(\log\log y)^3$.  The previous version had to shrink
+the singleton range to $s_1=\lambda^{1/4}(\log\lambda)^{-3/4}$ to balance the
+singletons against the blocks, which gave $\lambda^{3/4}(\log\lambda)^{3/4}$; with
+the lossless moment the balance is at $s_1=\lambda^{1/4}$ as in
+Theorem~\ref{thm:karycap}.  The constants are absolute but astronomically
+large; the second review of \cite{KA2} estimates $\log W\approx10^{10}$--$10^{11}$,
+and \cite{KA3} does not change $W$.
 
 \begin{theorem}[bounded $B$, all four types; {\cite[Thm~5.2]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:Bcapall}
 Fix $B\geq0$.  If every modulus of $\cG$ satisfies $G\leq P(G)^{1+B}$
@@ -1751,15 +1968,17 @@ Lemma~\ref{lem:firstnoB} for the first moments and
 Lemma~\ref{lem:secondnoB} for the leak.
 \end{proof}
 So Theorem~\ref{thm:karycap} extends verbatim to $(a,D)$-, Case-A and
-selector classes, and without the $B$-hypothesis the cost is at most a
-factor $(\log\lambda)^{3/4}$.  Nowhere in this section does the number of
+selector classes.  Theorem~\ref{thm:noBcap} now implies it with a
+constant independent of $B$; Theorem~\ref{thm:Bcapall} is kept because
+its Case-A part needs only Prop.~1.4 of \cite{ElsholtzTao}, not
+\cite[\S7]{ElsholtzTao}.  Nowhere in this section does the number of
 prime factors of a modulus enter; this is why the $k$-ary route has no
 analogue of the middle window $r\asymp\log L$ of the $\Lambda^2$ route
 (Section~\ref{sec:selberg}).
 
 \subsection{The main theorem}
-\begin{theorem}[no $\theta>3/4$ for coefficient-sum CRT sieves; {\cite[Cor.~6.1]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:main}
-% keep in sync: es-threequarter-note.tex cites thm:main=10.8, rem:TQcovered=10.9 by number
+\begin{theorem}[no $\theta>3/4$ for coefficient-sum CRT sieves; {\cite[Cor.~4.2]{KA3}}, improving {\cite[Cor.~6.1]{KA2}}; \lab{proved}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4, Thm~7.1, Cor.~7.4, (7.10)]\label{thm:main}
+% keep in sync: es-threequarter-note.tex cites thm:main and rem:TQcovered by number
 Fix $A\geq1$.  Let a method bound $\#(\A(\cG)\cap[1,N])$ by
 $N\cdot\E\nu+\sum_i|a_i|$, where
 \begin{itemize}
@@ -1773,12 +1992,10 @@ $N\cdot\E\nu+\sum_i|a_i|$, where
 \end{itemize}
 Then the saving $s=\log(N/\text{bound})$ satisfies
 \[
- s\leq C_A(\log N)^{3/4}(\log\log N)^{3/4}
+ s\leq C_A(\log N)^{3/4}
 \]
-for $N\geq N_0(A)$.  If every modulus of $\cG$ satisfies $G\leq P(G)^{1+B}$
-with $B$ fixed, then $s\leq C_{A,B}(\log N)^{3/4}$.  In particular no method
-of this class proves $E(N)\ll N\exp\{-(\log N)^\theta\}$ with $\theta>3/4$,
-and under bounded $B$ none proves
+for $N\geq N_0(A)$.  In particular no method of this class proves
+$E(N)\ll N\exp\{-(\log N)^\theta\}$ with $\theta>3/4$, nor
 $E(N)\leq N\exp\{-(\log N)^{3/4}\omega(N)\}$ with $\omega(N)\to\infty$.
 \end{theorem}
 \begin{proof}
@@ -1796,9 +2013,8 @@ with $\Lambda_0=A\log N$ and $\lambda=(A+2)\log N$, gives a majorant
 $\nu'\geq\bar\nu$ of $\A(\cG)$ of level $\leq\lambda$ with
 $\E\nu'\leq\E\nu+N^{-1}$, as in Corollary~\ref{cor:budgetlevel}.  So
 $\log(1/\E\nu')\geq\min(S,\log N)-\log2$, and Theorem~\ref{thm:noBcap}
-(resp.\ Theorem~\ref{thm:Bcapall}) at level $\lambda$ gives
-$\min(S,\log N)\leq\log2+C\lambda^{3/4}(\log\lambda)^{3/4}$ (resp.\
-$\leq\log2+C(B)\lambda^{3/4}$).  For $N\geq N_0$ the right side is $<\log N$,
+at level $\lambda$ gives
+$\min(S,\log N)\leq\log2+C\lambda^{3/4}=\log2+C(A+2)^{3/4}(\log N)^{3/4}$.  For $N\geq N_0$ the right side is $<\log N$,
 so the minimum is $S$, and $s\leq S$ is bounded as claimed.
 \end{proof}
 For whole-avoider architectures, Theorem~\ref{thm:main} subsumes the
@@ -1817,11 +2033,12 @@ $0\bmod p$, $p\mid P$, to $\cG$.  So every CRT-majorant architecture
 (Definition~\ref{def:arch}) for such a family, with a selector
 admissible set and with all primes of the family (selector primes and
 small parts of moduli included) $\leq N^A$, saves at most
-$C_A(\log N)^{3/4}(\log\log N)^{3/4}$, and $C_{A,B}(\log N)^{3/4}$ under
-bounded $B$.  For $\theta>3/4$ the factor $(\log\log N)^{3/4}$ is
-irrelevant; it matters only for gains of size $(\log N)^{3/4}\omega(N)$ with
-$\omega\leq(\log\log N)^{3/4}$, which are not excluded for unbounded-$B$
-families (Section~\ref{sec:open}).
+$C_A(\log N)^{3/4}$.  The previous version of this note proved
+$C_A(\log N)^{3/4}(\log\log N)^{3/4}$ in general and $C_{A,B}(\log N)^{3/4}$
+only under bounded $B$; the gap, gains $(\log N)^{3/4}\omega(N)$ with
+$1\ll\omega(N)\leq(\log\log N)^{3/4}$ for unbounded-$B$ families, is now closed
+\cite[Cor.~4.2]{KA3}.  So, up to constants, the cap and the saving
+$c(\log N)^{3/4}$ of \cite{TQ} agree for every family of the four types.
 
 \begin{remark}[the $3/4$ note's majorant is literally covered; {\cite[Remark~5.4]{KA2}}; \lab{proved}]\label{rem:TQcovered}
 The majorant of \cite{TQ} is $\nu_X=S_y\,Q_r(H_X)$ with
@@ -2797,6 +3014,13 @@ this repository, 2026.
 \bibitem[KA2r2]{KA2rev2}
 Second independent hostile review of \cite{KA2}, rounds 1--2,
 \texttt{reviews/exceptional-kary2-review-2.md}, this repository, 2026.
+\bibitem[KA3]{KA3}
+\emph{EXCEPTIONAL\_KARY3: removing the $(\log\log N)^{3/4}$ loss; truncated
+weights}, internal working document \texttt{EXCEPTIONAL\_KARY3.md}, this
+repository, 2026.
+\bibitem[KA3r]{KA3rev}
+Hostile review of \cite{KA3}, \texttt{reviews/exceptional-kary3-review.md},
+this repository, 2026.
 \bibitem[La]{Landreau}
 B.~Landreau, A new proof of a theorem of van der Corput,
 \emph{Bull. London Math. Soc.} \textbf{21} (1989), 366--368.
