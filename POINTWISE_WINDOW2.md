@@ -65,9 +65,11 @@ fails" uses as input `X`, the density g, and the counts `|A_d|` for squarefree
 `d|P_3(z)` (with `P_3` the primes `≡2 (3)`), `d≤D`, with `Σ_{d≤D}|r_d|` small.
 It uses nothing else about A.
 
-**Theorem P1 (PROVED, modulo BV, resp. EH for D>x^{1/2}).** Let
+**Theorem P1 (PROVED; the "parity necessary" half uses only BV — a theorem — resp. EH for
+D>x^{1/2}; only the `A^+` lower bound inherits Thm W1's "modulo S1–S3").** Let
 `A^±={p≤x : p≡1 (8), p≡1 (5·7), (p/3)=±1}`. For every squarefree odd d composed of
-primes `≡2 (3)`, `|A^±_d|=#{p∈A^±: d|(p+3)/4}=li(x)/(2φ(280)φ(d))+r^±_d`, with the
+primes `≡2 (3)`, `|A^±_d|=#{p∈A^±: d|(p+3)/4}=g(d)·li(x)/(2φ(280))+r^±_d` with `g(d)=1/φ(d)` for `5∤d` and
+`g(d)=0` for `5|d` (since `p≡1 (5)` gives `n_3≡1 (5)`; as in W1), i.e. the
 same main term and `Σ_{d≤x^{1/2}(log x)^{-B}}|r^±_d|≪x/(log x)^A` (BV). Yet:
 * `A^−`: `(p+3)/4≡2 (3)`, so it has an odd number of prime factors `≡2 (3)` and is
   never clean. `S(A^−,P_3,x)=0`.
