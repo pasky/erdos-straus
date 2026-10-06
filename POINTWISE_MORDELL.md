@@ -176,3 +176,12 @@ specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) 
   4493, 4578, 4731, 4748, 4850. No II box contains u=5, 7, −12, 22, 90.
   So for r=17 the candidate sterile point is one-dimensional: `x̃_17=u` (u≡5 or 7 mod 17),
   `x̃_q=1` for all q≠17 — the simplest possible shape (a twist at r only).
+
+**Computation 5.1 (CERTIFIED, one engine; re-check pending).** Let `x̃∈Ẑ^×` have `x̃_17=5`,
+`x̃_q=1` for all q≠17. Then `x̃∈Σ_17^{np}` (a square at every prime <17, a non-square at 17), and
+(`mordell_point.py 1000000 17:5:8`) `x̃` lies in no ET class with modulus `≤10⁶`; nor in any
+II1/II2/I4 class with 17-part dividing `17⁴` (rigid enumeration). Consequence (PROVED from 5.1, as
+in §4): every finite ET covering of the Mordell-hard primes with `n_p=17` (even of the np
+variant) contains a class of modulus `>10⁶`.
+**Conjecture 5.2.** `x̃` is sterile; then no finite set of polynomial identities proves ES for all
+primes with `n_p=17`.
