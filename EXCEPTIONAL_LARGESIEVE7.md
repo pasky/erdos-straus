@@ -1,6 +1,9 @@
 # EXCEPTIONAL_LARGESIEVE7 — residue dispersion (RD) for large-height labels (task O73)
 
-Status: **in progress** (agent O73, branch `side-agent/residue-dispersion`).
+Status: **checkpoint 1** (agent O73, branch `side-agent/residue-dispersion`); not yet reviewed.
+(RD) is **proved at one prime for ℛ(M)** and **refuted as stated** for several primes
+and (in its H*-cut form) for (a,D) classes; the corrected residue-cut form (RD′) is
+proved for ℛ(M) (one prime; several primes with long cofactors). (DCC) is not proved.
 ES is not solved; nothing here claims it. Labels as in `DISCOVERIES.md`.
 Notation: LS4/LS5/LS6 = `EXCEPTIONAL_LARGESIEVE{4,5,6}.md`, K2 =
 `EXCEPTIONAL_KARY2.md`. `z = exp((log N)^{1/4})`, `β = 1/log z`,
@@ -14,6 +17,16 @@ The target is LS6 §6.2 (RD).
 |---|---|---|
 | Lemma 1.1 | **triple parametrisation of ℛ(M)**: `ℛ(M) = {−u/v mod M : gcd(u,v)=1, 4uv \| M+1}`; with `t = (M+1)/(4uv)` the class `−4D`, `D = u²t`, also equals `−4u²t` and `−1/(4v²t)`, so `H* ≤ min(max(u,v), 4u²t, 4v²t)` | PROVED (elementary) |
 | Lemma 1.2 | **residue pinning**: if `p \| M` and the class is `≡ a (mod p)`, then `4uvt ≡ 1`, `u ≡ −av`, `v²t ≡ −1/(4a)`, `u²t ≡ −a/4 (mod p)`; a residue `a` fixes `(u mod p, t mod p)` as a function of `v mod p` | PROVED (elementary) |
+| Lemmas 2.1, 2.2 | damped Brun–Titchmarsh in progressions (Shiu + Rankin), uniform in X | PROVED given Shiu 1980 Thm 1 |
+| **Thm 3.1** | **(RD) at one prime for ℛ(M)**: `μ^{ℛ,>}_a(p) ≤ Cγ^{−5}(log p)^6 p^{−1/12}` for every residue a, every X, short cofactors included | PROVED given Shiu |
+| **Prop 4.1** | **LS6's (RD) is false for several primes**: the single label `−1/k`, `k ≈ 2(max P)^{1/4}`, puts mass `≫ (max P)^{−1/4}/log z` on one residue vector, beating `Π_{p∈P}p^{−γ₀}` once `\|P\| > 1/(2γ₀)`; the height cut must scale with `P̄` | PROVED (fundamental lemma for the fibre version) |
+| Remark 4.2 | with the product cut `P̄^{κ}`, short cofactors `n < P̄^{1/2}`: a single class weighs `≍ 1/n`; open in both directions | Assessment |
+| **Thm 4.3** | product-cut (RD) for **long cofactors** `n ≥ P̄^{1/2+η}`, ℛ(M) classes: `≤ C_η(log P̄)^{6}γ^{−5}4^{\|P\|}(P̄^{−κ/3}+P̄^{−η/2})` | PROVED given Shiu |
+| **Prop 5.1** | **the H*-cut (RD) fails already at one prime** once (a,D) classes are present: `a = pq`, `D = ℓ` gives a class of height `≥ pq/(4ℓ+1)` on the small-height residue `−4ℓ (mod p)` with mass `≍ 1/(γℓ)` | PROVED (elementary) |
+| (RD′) | the correct (and sufficient for LS6's route) **residue-cut** form: dispersion only for residues outside the small-height set `R_P(P̄^{κ})`; H*-cut ⟹ (RD′), so Thms 3.1/4.3 give (RD′) for ℛ(M) | definition; ℛ-part PROVED as stated |
+| §5 (a,D), Case A | (RD′) for these types: same pinning mechanism (Case A pins **both** m and m′ mod p) | Assessment, not written |
+| Cor 6.1 | fibre sums obey Thms 3.1/4.3 on average over c, the rough-modulus part for every c; a single exceptional event for all (P,a) is not proved | PROVED / open as stated |
+| §7 | toy numerics: with the cut the max residue mass is at the least-height label above the cut, `≍ p^{−1/4}` | EVIDENCE |
 
 ## 1. The ℛ(M) classes as triples
 
@@ -422,3 +435,10 @@ maximum is attained at the labels of least height above the cut (e.g.
 p = 3203: `−8` and `−1/8 ≡ 1201`), i.e. `≍ 1/H₀ ≍ p^{−1/4}` — the
 label mechanism of Prop 4.1 at one prime. So Theorem 3.1's exponent 1/12 is
 lossy; `1/4` (the cut exponent) looks like the truth. Toy scale only.
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 600  env PYTHONPATH=scripts uv run python scripts/largesieve7_triples.py 20000
+    timeout 2400 env PYTHONPATH=scripts uv run python scripts/largesieve7_dispersion.py 10 101 211 401 809 1601 3203
+    timeout 300  env PYTHONPATH=scripts uv run python scripts/largesieve7_hstar_aD.py
