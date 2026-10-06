@@ -112,7 +112,7 @@ II-boxes of POINTWISE_MORDELL §5 (cell 5, level 3) are in it. (Brute force leav
 uncovered at level ≤3; the complete enumeration 68.5%: the extra boxes have T-free part >10⁵/17³.)
 
 Number of data (`m17_enum` stderr): Q: 2, 0, 73, 0, 245, 0, 707 (k=1..7); U: 4, 0, 68, 0, 310, 0,
-826; P: 2, 0, 32, 0, 121, 0, 258 (K=1..7). Even K are empty (for Q, P: ET Prop 1.6, `f_I=f_II=0` at
+826; P: 2, 0, 32, 0, 121, 0, 258, ·, 604 (K=1..9; P 9 took ≈8 min). Even K are empty (for Q, P: ET Prop 1.6, `f_I=f_II=0` at
 odd squares — PROVED; for U: computed for k=2,4,6).
 
 **Computation 3.1.** Covered fraction of `C_5` (identical numbers for `C_7`):
@@ -123,13 +123,13 @@ odd squares — PROVED; for U: computed for k=2,4,6).
 | 2 | 4 (P, K=3) | 4 | 0.235294 |
 | 3 | 32 (Q 12, Q⁻¹ 12, U 4, U⁻¹ 4, P 20) | 23 | 0.314879 |
 | 4 | 50 (P, K=7) | 34 | **0.321799** (complete through level 4) |
-| 5 (Q,U only) | 67 (Q 39, Q⁻¹ 39, U 25, U⁻¹ 25) | 29 | 0.322147 |
-| 7 (Q,U only) | 240 | 94 | 0.322150 |
+| 5 | 158 (Q 39, Q⁻¹ 39, U 25, U⁻¹ 25, P 93 from K=9) | 83 | **0.322793** (complete through level 5) |
+| 7 (Q,U only) | 240 | 94 | 0.322797 |
 
-So the boxes of level ≤4 leave **67.82%** of each cell uncovered (CERTIFIED), and the measure
+So the boxes of level ≤5 leave **67.72%** of each cell uncovered (CERTIFIED; level 6 has only P-boxes
+from K=11, not computed), and the measure
 added per level falls by roughly a factor 17–20 per level (EVIDENCE). The points `u=5`, `u=7`
-(the `x̃` of POINTWISE_MORDELL Comp. 5.1) lie in no box of level ≤4, nor in any Q/U box of
-level 5 or 7.
+(the `x̃` of POINTWISE_MORDELL Comp. 5.1) lie in no box of level ≤5, nor in any Q/U box of level 7.
 
 ## 4. The tail: reduction to explicit counts, and where it breaks
 
@@ -139,17 +139,17 @@ Lemma 1.1 and §2 the boxes of level k number at most `B_k = 8D_Q(k) + 2D_U(k) +
 (Q: two orientations × {Q, Q⁻¹, √Q, √Q}; P: two orientations), and `D_P(2k) = 0` (ET Prop 1.6).
 
 **Theorem 4.1 (measure criterion; PROVED).** If
-`Σ_{k≥5} 17^{1−k}·B_k < 0.678201` (the uncovered fraction of `C_5` after level 4, Comp. 3.1),
+`Σ_{k≥6} 17^{1−k}·B_k < 0.677207` (the uncovered fraction of `C_5` after level 5, Comp. 3.1),
 then `C_5` contains a sterile point `u`: `x(u)` lies in no class of any of the seven ET families.
 The same holds for `C_7`.
-*Proof.* Boxes of level ≥5 have total measure `≤ Σ_{k≥5} B_k 17^{−k}`, which is less than the measure
-`0.678201/17` of the part of `C_5` missed by levels ≤4. ∎
+*Proof.* Boxes of level ≥6 have total measure `≤ Σ_{k≥6} B_k 17^{−k}`, which is less than the measure
+`0.677207/17` of the part of `C_5` missed by levels ≤5. ∎
 
 **Corollary 4.2 (what sterility gives; PROVED from a sterile point).** If `u∈C_5` is sterile, then
 no finite set of ET Prop 1.9 classes (equivalently, by ET Prop 1.9, no finite set of the polynomial
 ES identities of these seven families) covers all sufficiently large primes `p` with `(p/17)=−1`
 and `(p/q)=+1` for every prime `5≤q<17` (Mordell-hard primes with `n_p=17`): the finite union misses
-a ball `x ≡ x(u) (mod 17^L·Q)`, `Q` the product of the other moduli' primes to high powers, which
+a neighbourhood of `x(u)`, i.e. a class `x ≡ u (mod 17^L)`, `x ≡ 1 (mod Q)` with `17∤Q`, which
 contains infinitely many primes (Dirichlet), all with `x_17 ≡ 5`, i.e. `(p/17)=−1`, and squares at
 every other prime ≤ 13 (as `x_q=1`).
 
@@ -162,7 +162,7 @@ every other prime ≤ 13 (as `x_q=1`).
   quadratic-form modulus `4ad`). Its boxes have half level `⌈K/2⌉` relative to the ES level `K`,
   so the measure weight is `N^{−1/2}` against ET's `f_II(N) ≪ N^{2/5+o(1)}`: margin only `1/10`.
   Even granting `D_P(K) ≤ 17^{2K/5}` with constant 1, `Σ_{K≥11 odd} 2·17^{2K/5}·17^{1−(K+1)/2} ≈ 0.84`
-  exceeds 0.678; one would need exact enumeration through K=11 *and* an explicit ET-quality bound.
+  exceeds 0.677; one would need exact enumeration through K=11 *and* an explicit ET-quality bound.
   Q and U have margin `2/5` (exponent 3/5 against `N^{−1}`) and are harmless given any explicit
   bound `D ≤ C·N^{0.9}` with moderate C.
 * *Why elementary effective bounds fail.* Counting `D_P(K)` amounts to counting `(a,b)` with
@@ -171,11 +171,21 @@ every other prime ≤ 13 (as `x_q=1`).
   (≤11 divisors in a class mod `s ≥ m^{1/3}`) applies only when `16cd² ≳ N`, and the number of
   pairs is `≍ N log N`; pointwise divisor bounds are `m^{0.2+}` at the relevant sizes. Any route
   needs a genuinely new explicit count of ES solutions at prime powers.
-* *Empirics (EVIDENCE).* `D_P = 2, 32, 121, 258` (K=1,3,5,7), `D_Q = 2,73,245,707`, `D_U = 4,68,310,826`
+* *Empirics (EVIDENCE).* `D_P = 2, 32, 121, 258, 604` (K=1,…,9 odd), `D_Q = 2,73,245,707`, `D_U = 4,68,310,826`
   (k=1,3,5,7): polylogarithmic-looking growth, far below what Theorem 4.1 needs (it suffices, e.g.,
-  that `D_Q+D_U ≤ 17^{k/2}` for `k≥9` and `D_P(K) ≤ 17^{K/4}` for `K≥9`: then the tail is `< 0.03`).
+  that `D_Q+D_U ≤ 17^{k/2}` for `k≥8` and `D_P(K) ≤ 17^{K/4}` for `K≥11`: then the tail is `< 0.01`).
 
-**Assessment.** A sterile point in `C_5` is extremely likely (≥ 67.8% of the cell survives all
-boxes of level ≤ 4 and the measure added per level decays geometrically in the data), but a
+**Assessment.** A sterile point in `C_5` is extremely likely (67.7% of the cell survives all
+boxes of level ≤ 5 and the measure added per level decays geometrically in the data), but a
 proof needs an explicit bound on the number of ES solutions of `4/17^K` of exactly the strength
 that is open in general. Theorem 4.1 is the precise reduction.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/o83/m17_enum scripts/m17_enum.c
+for a in "Q 5" "U 5" "P 7" "Q 7" "U 7" "P 9"; do /tmp/o83/m17_enum $a | sort -u > /tmp/o83/out_${a/ /}.txt; done  # P 9 ≈ 8 min, rest < 2 min
+PYTHONPATH=scripts uv run python scripts/m17_union.py 7 9        # Comp. 3.1 (small k computed on the fly)
+PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 3 17   # brute-force cross-check (§3)
+PYTHONPATH=scripts uv run python scripts/m17_union.py 3 6 --cmp /tmp/o80_boxes_100000_17_3.pkl
+```
