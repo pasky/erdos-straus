@@ -99,3 +99,67 @@ repaired:
 
 The minor items were applied: the `k ≥ 1` case, the generalised inverse,
 the precise PNT-in-AP input, the "0.55k" wording and the LP certificates.
+
+## R60 repairs (review `reviews/ceilings-unified-review.md`: no FATAL/MAJOR, 10 MINOR)
+
+All of D1–D10 are applied in CEILINGS_UNIFIED.md:
+* **D1:** the Haar sandwich now says "upper bound modulo Nair–Tenenbaum" at
+  every occurrence.
+* **D2:** the Page caveat is kept. Added that Siegel–Walfisz alone would not
+  suffice, and that the equation number is still to be pinned.
+* **D3:** the Case B error bookkeeping now uses `log T_abs = O((log log x)^{4/3})`
+  directly.
+* **D4:** the big coordinates in Prop 4.2 are now ℓ-adic unit components.
+* **D5:** the inputs are now listed as BV, BT and Shiu via the note.
+  * Constants in Prop 1.1, Thm 2.1 and Prop 4.2 are flagged as not effective.
+  * The text says "replaces" (G)/Page/FL rather than "removes" them, and notes
+    that this trades a `log𝓛` for an ineffective `T_0`.
+* **D6:** §5 now says the subfamily obstruction transfers to the full
+  avoider only on the minorant side; the majorant side goes through KARY3.
+* **D7:** the §0 cells now cite Prop 4.2 and note Cor 4.3.
+* **D8:** KARY3's Case-A / Elsholtz–Tao proviso is copied.
+* **D9:** the level is now stated as `c·L·P ≤ λ* ≤ C_A·L·P + λ_s`.
+  * It is `≍ L·P` when `λ_s = O(L·P)`.
+  * This holds in both instances: in the note `λ_s = O(κt⁴)` and `L·P ≍ κt⁴`.
+* **D10:** "cannot beat the note" is scoped to coefficient-sum CRT majorants
+  of the whole avoider set.
+
+## Suggested ledger wording
+
+* **(A)9, replace label:** "**INTERNALLY PROVED** (via the 3/4 note, (B)11;
+  CEILINGS_UNIFIED Thm 2.1, review `reviews/ceilings-unified-review.md`
+  SOUND). Sharpened form: `#{p≤x:W(p)>T} ≪ π(x)exp(−c(log T)³)` uniformly
+  for `log T ≤ c₁(log x)^{1/4}`. Small-`T` range via the uniform PNT in
+  progressions with the Landau–Page term (cited from memory, Davenport
+  Ch. 20). Constants not effective."
+* **(H)25/(H)26 addendum:** "Lower bound improved to `log(1/δ*(T)) ≫ 𝓛³`
+  with no `log𝓛` loss: the 3/4 note's fibre product, read under unit Haar
+  measure (CEILINGS_UNIFIED Prop 1.1; PROVED given the note, inputs
+  BV/BT/Shiu; ineffective). So `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5`, with the upper
+  bound modulo NT."
+* **(H)27 addendum:**
+  * "The note's atoms block every positive minorant of `F_T` of level
+    `log D ≤ c𝓛⁴`, on every fibre with `log Q ≤ T^{0.05}` (CEILINGS_UNIFIED
+    Prop 4.2; PROVED given note Cor 4.3 and OMEGA14 Lemma 4.1)."
+  * "This sharpens Thm 4.5's `c𝓛⁴/log𝓛`. Its inputs (G), effective Page and
+    FL are replaced by BV/BT/Shiu via the note, so `T_0` is ineffective."
+  * "In Cor 4.6 the gap to OMEGA13 Thm 5.1 becomes `(log log p)^{1/4}` in
+    `𝓛`."
+* **New (D)/(H) cross-entry, "One sieve limit behind both ceilings
+  (CEILINGS_UNIFIED.md)":**
+  * "In the one-big-coordinate setting, order-k majorants (KARY binomial
+    extrapolation) and order-k minorants (OMEGA14 planting) are both trivial
+    below `k ≍ P`, the mass; Bonferroni achieves both at `k ≍ P` (Thm 4.1,
+    PROVED, no novelty claimed)."
+  * "The ES system has a one-big-prime subfamily of mass `≍ 𝓛³`, uniform on
+    small fibres, at big cost `≍ 𝓛`, so the critical level is `≍ 𝓛⁴`."
+  * "Read at budget `λ ≍ log N` this gives the exceptional cap `λ^{3/4}`
+    (KARY3; attained by the note). Read at `λ ≍ log x` it gives the pointwise
+    cap `𝓛 ≲ λ^{1/4}` (Prop 4.2; attained up to logs by OMEGA13)."
+  * "Thm 4.3: PROVED as a conjunction within the scopes of (D)24/(D)27 and
+    (H)27/(H)28; Assessment outside them. The `a/(a+1)`, `1/(a+1)`
+    extrapolation is CONDITIONAL on the same mechanism."
+  * "The 'Haar-side route' to 3/4 is the note's own route: it reproves 3/4
+    and does not improve it. Exact toy LP evidence: thresholds `≈ 2P` on both
+    sides. Review `reviews/ceilings-unified-review.md`: no FATAL/MAJOR,
+    10 minors applied."
