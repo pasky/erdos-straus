@@ -69,3 +69,23 @@ Re-derived independently (my parametrisations differ from the author's code, see
   sentence "For (P), `K≥1` as `k≥1`... and `k=0` forces `K=0`" is garbled but the content is right.
 
 §2 "Consequence" (convergence): the conclusion is right but the citations are not (defects m1, m2).
+
+### Claim D — Theorem 4.1 (measure criterion) and Corollary 4.2: **SOUND** (as implications; label nits)
+
+* Thm 4.1: boxes are clopen subsets of `ℤ_17`; a level-`k` box has relative measure `17^{1−k}` in a
+  cell; σ-subadditivity gives the claim. `B_k` over-counts (all cells, √Q included — √Q is in fact
+  empty, Claim A, so `8D_Q` may be replaced by `4D_Q`), which is harmless. The P bookkeeping (level
+  `⌈K/2⌉`, `K ∈ {2k−1,2k}`, `D_P(2k)=0`) is right. No compactness is needed. The threshold must be a
+  *lower* bound for the uncovered fraction; see m4 for the rounding.
+* Cor 4.2: a finite polynomial covering gives (ET Prop 1.9, "only if" direction, proof in ET §10 —
+  I read the case analysis; it is exhaustive: Type I {a,d}, {a,c}×deg f∈{0,1}, {c,d}×deg f∈{0,1};
+  Type II {a,c,e}, {a,c,d}, {a,d,e}, {c,d,e}) finitely many family classes containing all large
+  target primes. Their union is clopen and misses `x(u)`, hence a basic neighbourhood
+  `{x ≡ u (17^L), x ≡ 1 (Q)}`; choosing `840·11·13 | Q` (author: "x_q = 1") this class is primitive,
+  contains infinitely many primes (Dirichlet), each with `p ≡ 1 (24)`, square mod 5,7,11,13, non-square
+  mod 17, i.e. Mordell-hard with `n_p = 17`. Contradiction. ✔ The distinction 17-generic vs `n_p=17`
+  is handled correctly: the 17-generic line is a measure-zero subset of the closure of the target
+  primes, and a single sterile point on it suffices to rule out a finite covering (the converse is not
+  claimed and would be false-directional).
+* §4 numerics re-checked (`scripts/review_m17_tail.py`): "≈0.84" is 0.8447 ✔; the sufficient
+  hypothetical bounds (`D_Q+D_U ≤ 17^{k/2}`, `k≥8`; `D_P(K) ≤ 17^{K/4}`, `K≥11`) give tail 0.0070 < 0.01 ✔.
