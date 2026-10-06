@@ -17,7 +17,7 @@ a route (M2) ⇒ SI exists only as a SKETCH with five missing pieces (§5.4).
 | Lemma 2.1 | N-parametrisation (`f | aN+c`, `cM = N(a+b)`, `acd ≤ N`); `R(N) < ∞` | PROVED |
 | Lemma 3.1 | SI_3(δ_1) (three admissible levels, K = (1−θ)^{−3}; SI_3 ⇒ ADM_m) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (proper prime powers); MN2's two-level SI does not follow (R82 repair D4, applied by reviewer) | PROVED (given MN2 Thm 3.1's set-up) |
 | §4 route table | four linear routes (sum over c, d via N, d via e, a), each expected closable by (H) when long | Assessment (proofs not written) |
-| Lemma 4.1 | `s = gcd(g,Q_0)` on positive-weight atoms (R82 D5); exact weight `≤ ℓ/(φ(N)φ(g/s))` | PROVED |
+| Lemma 4.1 | `s = gcd(g,Q_0)` on positive-weight atoms (R82 D5); exact weight `≤ ℓ/(φ(N)φ(g/s))` (so `≪ ℓ(log log G)/(Gφ(N))` if `g ≥ Q_0G`, R82 D6) | PROVED |
 | residual (§4) | region where all four routes are short (Kloosterman range of `ef ≡ 1 mod ma²`) | description: Assessment; mass share 72–91% of `U_1(q)`, `q ≤ 199`: EVIDENCE |
 | Lemma 5.1 | `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; on the all-ones path the level-0 count is `Y(ℓ) ≤ 2R_ℓ(ℓ)` | PROVED |
 | Lemma 5.2 | `R(N) ≪ N^{3/5+O(1/log log N)}` (ET Type I device, `4 ↦ m`; R82 repair, applied by reviewer — was `2/3`) | PROVED |
@@ -162,7 +162,8 @@ before the q-condition), so it cannot be discarded either.
 (i.e. `s | P`) `s = gcd(g, Q_0)` (this fails in general on weight-0 atoms, e.g. for 2568 of 4125 atoms with
 m = 5, q_0 = 8 — R82 repair D5, applied by reviewer), and the
 exact weight satisfies `φ(s)/φ(M^-) ≤ ℓ/(φ(N)φ(g/s))`. In particular, on atoms with `g ≥ Q_0·G`,
-the class-of-one weight carries an extra factor `≤ 1/φ(G)`.
+the class-of-one weight carries an extra factor `1/φ(g/s) ≪ (log log G)/G` (as `g/s ≥ g/Q_0 ≥ G`; the earlier
+"`≤ 1/φ(G)`" was wrong since φ is not monotone, e.g. `φ(8) < φ(7)` — R82 repair D6, applied by reviewer).
 
 *Proof.* `s | g` when `s | P` (Lemma 1.1) and `gcd(g,Q_0) | gcd(M,Q_0) = s`. `M/s = N·(g/s)` and `φ(xy) ≥ φ(x)φ(y)`. ∎
 

@@ -11,7 +11,8 @@ PROVED (under review by R82):
 * Lemma 3.1: SI_3(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (square-root saving), where SI_3 is the three-level
   analogue of SI with `K = (1−θ)^{−3}`; SI_3 ⇒ ADM_m((1−θ)^{−3}) by MN2's proof with L = 3; MN2's two-level SI
   does not follow (R82 repair D4, applied by reviewer).
-* Lemma 4.1: prefix part `s = gcd(g,Q_0)`, extra factor `1/φ(g/s)`.
+* Lemma 4.1: prefix part `s = gcd(g,Q_0)` (on positive-weight atoms), extra factor `1/φ(g/s) ≪ log log G/G`
+  when `g ≥ Q_0G` (R82 repairs D5, D6, applied by reviewer).
 * Lemma 5.1: `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; level-0 count on the all-ones path `Y(ℓ) ≤ 2R_ℓ(ℓ)`.
 * Lemma 5.2: `R(N) ≪ N^{3/5+o(1)}` — R(N) is an m-analogue of Elsholtz–Tao's Type I count, and ET's
   Prop 1.7 device applies verbatim (R82 repair, applied by reviewer; was `2/3`).
