@@ -6,9 +6,9 @@ D = ⌊N/2⌋, W = λ_N = 1_{[1,N]}, c(b,d) = #{1 ≤ n ≤ N : n ≡ b (d)},
 L₀ = lcm(1..D), S_A = C_A(log N)^{3/4}(log log N)^{3/4} (IF Thm 2.5; the
 log log factor may be dropped by KARY3, DISCOVERIES (D)24).
 
-## 1. Exactly what Theorem 5.2 needs
+## 1. What the Prop 9.1 / Thm 5.2 route needs
 
-**Lemma 1.1 (exact quantitative requirement; PROVED implication).** Suppose
+**Lemma 1.1 (quantitative requirement of the Prop 9.1 / Thm 5.2 route; PROVED implication — a sufficient condition, necessity not claimed).** Suppose
 that at every large N there is R ≥ 0 on ℤ with (P1) of SPW, and with
 `R(s) ≤ 1 − η_N` on classes of modulus > CN meeting [1,N], `R(s) ≤ K_N` on
 classes of modulus > CN missing [1,N], and `|R(s) − c(s)| ≤ Δ′_N` on classes
@@ -18,24 +18,37 @@ of modulus in (N/2, CN] (C fixed, η_N ≤ 1/2 ≤ K_N). Put
 
     log(N/B) ≤ C′(log N)^{3/4} + ℓ_N + log(1 + c) + O(1)
 
-as long as `η_N/K_N ≥ N^{−A₁}` (C′ depending on A, A₁, C). In particular:
+as long as `η_N/K_N ≥ 4N^{−A₁}` (C′ depending on A, A₁, C; the (log log N)^{3/4}-free
+exponent is *conditional on the KARY3 §4.3 pointer*, which does not list IF2
+Thm 5.2 and is unreviewed there; unconditionally keep the factor
+(log log N)^{3/4}). In particular:
 * `ℓ_N ≤ C(log N)^{3/4}` ⇒ the 3/4 cap (same shape as KARY3);
 * `ℓ_N ≤ (log N)^θ`, θ ∈ (3/4, 1) ⇒ a θ-cap (savings ≤ (log N)^θ(1+o(1)));
-* `ℓ_N ≍ c log N` (σ_N = N^{−c}) gives only `B ≥ N^{1−c−o(1)}`, i.e. **no
-  cap of the form (log N)^θ, θ < 1** — polynomially small σ does *not*
-  suffice for anything ES-relevant.
+* `ℓ_N ≍ c log N` (σ_N = N^{−c}): **this route then gives only
+  `B ≥ N^{1−c−o(1)}`**, no cap of the form (log N)^θ, θ < 1. This is a
+  limitation of the chain Lemma 1.4 → Prop 9.1 → Thm 5.2, not a proved
+  necessity: a different minorant construction (other mixing than Prop 9.1,
+  or a sharper use of (5.1)) might lose less than log(1/t).
 
 *Proof.* SPW1 Lemma 1.4 turns R into SPW(C, σ, Δ₀) with σ = η/(2K),
 Δ₀ = Δ′/(2K) (mix `(1 − 1/(2K))λ_N + R/(2K)`). IF2 Prop 9.1 gives Flat with
 θ = σ/(2(σ + τ + 1/(2C))) ≍ σ, t = θ/2, s₀ = σ/2, Δ = 6θ + Δ₀. IF2 Thm 5.2
 (its proof: s₀ enters only through `log T_{>CN} ≤ log(N/s₀) + O(1)` in the
-level, so s₀ ≥ N^{−A₁} costs a constant in S′) gives
+level, so s₀ = η/(4K) ≥ N^{−A₁} costs a constant in S′) gives
 `log(N/B) ≤ S′ + log((1 + Δ(1+c))/t)`, and
 `log(1/t) + log(1 + Δ(1+c)) ≤ log(K/η) + log(1 + Δ′/K) + log(1+c) + O(1)`. ∎
 
-So the target is: **a measure with exact small-modulus window profile in
-which every full large class loses a fraction η_N, with sparse large classes
-allowed mass K_N, and log(K_N/η_N) = O((log N)^{3/4})** (weak SPW). SPW1
+*Remark (hypothesis-free use of Thm 5.2; review R53 m1).* IF2 Thm 5.2 is
+stated with t, 1/Δ ≥ e^{−S_A}; we use it without these. This is valid: in its
+proof t enters only through the trivial case "KB ≥ tN" and the final line
+(1+Δ+Δc)B ≥ tNe^{−S′}; the bound T_{>CN} < tN/s₀ + N needs only t ≤ 1; and
+the mean side (level ≤ (A + A₁ + 2)log N + S + λ₀) sees neither t nor Δ.
+The stated hypotheses only make the conclusion 3/4-shaped.
+
+So the target *for this route* is: **a measure with exact small-modulus
+window profile in which every full large class loses a fraction η_N, with
+sparse large classes allowed mass K_N, and log(K_N/η_N) = O((log N)^{3/4})**
+(weak SPW). Whether some other route needs less is not addressed. SPW1
 Thm 3.2 forces η_N/K_N ≲ (log N)^{−1/2}, harmless.
 
 ## 2. The relaxed problem RSPW and first numerics
