@@ -291,8 +291,13 @@ the corner A). For `T ⊆ S` and a corner `A_T ⊆ T`, let
 `a^{(A_T)}_R` (`R ⊆ S∖T`) be the Walsh coefficients of `Y*` restricted to
 corners `A_T ∪ A′`, `A′ ⊆ S∖T`. Then
 
-    |σ̂_tilt(θ)| ≤ Z^{−1} 4^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
-                   · max_{A_T} e^{2‖a^{(A_T)}‖′} Π_{ℓ∈S∖T} Σ_{R∋ℓ, R⊆S∖T} β^{(A_T)}_R.
+    |σ̂_tilt(θ)| ≤ Z^{−1} 2^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
+                   · max_{A_T} e^{‖a^{(A_T)}‖′} Σ_{△𝒯 = S∖T} Π_{R∈𝒯}|a^{(A_T)}_R|      (4.1)
+
+                 ≤ Z^{−1} 2^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
+                   · max_{A_T} e^{2‖a^{(A_T)}‖′} Π_{ℓ∈S∖T} Σ_{R∋ℓ, R⊆S∖T} β^{(A_T)}_R
+
+(the XOR-cover sum is 1 when `T = S`).
 
 The Walsh coefficients obey, for `R ≠ ∅`,
 
