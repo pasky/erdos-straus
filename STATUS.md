@@ -190,6 +190,14 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
   (§4 exact δ_m(Q(q₀)): m = 5 up to q₀ = 17, m = 6, 7; author + R74; inline δ_5(Q(8)) = 1/4,
   δ_5(Q(9)) = 1/8, |H_5(840)| = 48/192) and POINTWISE_TAIL (Lemma 3.1 leaf calculus on the R76 toy and
   an inline toy with level-≥ 1 lifts; Lemma 3.2 twist ratio EVIDENCE at T = 10⁵).
+* `verify.py` blocks (dw)–(dz) (O85, ~31 s; full run ≈ 5.6 min, 2 threads, scipy + mpmath) add
+  POINTWISE_TYPEI3 (R72 f-engine at x̂_9 to f < 10⁸, 0 certificates; engine = naive brute force at 13
+  sign points, needs gcc/cc; Lemmas 1.1–1.2 inline; Lemma 5.1 / Cor 5.2 / Props 5.3–5.5 incl. mod-16/32
+  checks), POINTWISE_MORDELL (Theorem 3.1: both certificates in full, integrality on t + Lℤ tested at
+  s = 0..4 since I2/I3/II3 coordinates have degree 3–4 in n; 3.1(c); Computation 4.1 at M ≤ 3·10⁴ and
+  rigid level 11²13², with positive controls), EXCEPTIONAL_WEIGHTS (Lemma 3.2 exhaustive for ℓ ≤ 29;
+  Lemma 3.1 chain; Thm 2.1 chain + Lemma 1.2 brackets on toy LPs) and POINTWISE_MN3 (Lemma 1.1 exact
+  probabilities; Lemma 2.1 on 4.2·10⁵ atoms; ET 3/5 product bound, N ≤ 1000, and inline from (M, D)).
 
 ## Exceptional-set exponent: where it stands (2026-10-06)
 
