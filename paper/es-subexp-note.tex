@@ -113,7 +113,10 @@ $n\equiv-uv^{-1}\pmod M$, then $s=(nv+u)/M$ is a positive integer and
 with $W(n)=+\infty$ if no such $M$ exists.  Thus $W(p)\le T$ provides an
 explicit representation with modulus at most $T$.  Every prime
 $p\equiv1\pmod{\lcm\{M\le T\}}$ has $W(p)>T$ (Lemma~\ref{lem:one}), so
-Linnik's theorem gives $W(p)\gg\log p$ infinitely often.  In
+Linnik's theorem gives $W(p)\gg\log p$ infinitely often (the classical template
+of $\Omega$-results obtained by fixing a residue class by the Chinese remainder
+theorem and then applying Linnik's theorem, as for least quadratic
+non-residues \cite{GR}).  In
 \cite{Paper1} we proved that for every fixed $k$,
 $W(p)\ge(\log p)^{k}e^{-C_k\log\log p/\log\log\log p}$ for infinitely many
 hard primes.  Here we prove a sub-exponential rate.
@@ -417,7 +420,8 @@ bits, $n_c(k,p)\le(k+1)p/(1-p)+2k+2$ for the threshold $n_c(k,p)$ of
 \cite[Thm.~27]{BGP} (the least $n$ such that some $k$-wise independent law on
 $n$ bits of mean $p$ gives probability $0$ to the all-ones vector).  This removes the factor
 $\log(1/(1-p))$ and the restriction to $1/(1-p)$ a prime power from their upper
-bound, and is within a factor $3$ of their lower bound (about $2$ as $p\to1$);
+bound, and is within a factor $3$ of their lower bound for $p\ge1/2$ (a factor
+$2+O(1/k)$ as $p\to1$);
 we have not checked the later literature.  Its use to bound the level of minorants of
 a concrete arithmetic indicator, on every fibre of modulus
 $\log Q\le T^{0.05}$, is new to us.
@@ -434,7 +438,9 @@ statement about $W$, not in method), and Corollary~\ref{cor:twosided} shows
 that the exponent $3$ is also the tail exponent over primes, in the range
 $\log T\le(\log x)^{1/4-o(1)}$ (far from the scale $\log T\asymp\log p$ of the heuristic).  The classical
 obstruction that polynomial identities cannot cover quadratic residue
-classes (\cite{Mordell}; cf.\ \cite{ET}) is qualitative.
+classes (\cite{Mordell}; Schinzel and Yamamoto \cite{Yamamoto}, cited via
+\cite[Prop.~1.6]{ET}: there are no Type~I or Type~II solutions for odd perfect
+squares) is qualitative.
 Lemma~\ref{lem:jacobi} and its $m/n$ version Lemma~\ref{lem:mjacobi} are the
 form of it that we use; for the family \eqref{eq:identm} it holds for every
 event exactly when $m\equiv0\pmod4$ (with Proposition~\ref{prop:mfire}).
@@ -2094,8 +2100,10 @@ $a=k+2-j,\dots,k+1$.
 This is the dual (linear programming) side of lower-bound sieves:
 minorants of degree $k$ of $\mathbf 1[b=0]$ with positive mean exist only if
 no such $\nu$ exists (the duality itself is standard, cf.\ \cite[Thm.~5]{Tao254A}).  It is close in spirit to work on $k$-wise independent
-laws with extremal probabilities \cite{BGP,PYY}; we claim no novelty for
-it.  In the Poisson-like model with $R$ of order $S$, Bonferroni inequalities
+laws with extremal probabilities \cite{BGP,PYY}.  The construction is
+elementary; in the identical-marginal case it improves the upper bound of
+\cite[Thm.~27]{BGP} (see the discussion of the literature in the
+introduction).  In the Poisson-like model with $R$ of order $S$, Bonferroni inequalities
 of order $\asymp S$ do give positive minorants, so the order $k\asymp R$ is
 right.
 
@@ -3190,7 +3198,9 @@ coefficients, so $4\mapsto m$ is admissible; the quadratic $mdx^2+1$ can have $4
 roots modulo $2^k$ when $md$ is odd, which changes one Euler factor; for odd $m$,
 $M$ can be even, so the prime $2$ becomes a graded coordinate like the others;
 the class of one is excluded by an archimedean argument valid for every $m$
-($M\mid D+A$ is impossible as $0<D+A\le2A<M$, after $D\mapsto A^2/D$); and the parity
+($1\equiv-mD\pmod M$ iff $M\mid mD+1$ iff $M\mid D+A$, as $mA\equiv1$; the involution
+$D\mapsto A^2/D$ preserves this, as $\gcd(AD,M)=1$, so we may take $D\le A$, and then
+$0<D+A\le2A<M$ since $(m-2)A>1$); and the parity
 assertions of the original proof are replaced by $\ell\nmid mad$.  This improves the
 exponent $1/7$ that the architecture of the second version gives for
 general $m$, in particular for Sierpi\'nski's $5/n$, but only for the witness
@@ -3357,7 +3367,8 @@ after the theorem, which is not written out in \cite{MN}); the reduction of $\ma
 \cite{MN2} modulo Henriot's form of the Nair--Tenenbaum theorem, and the
 hypothesis SI is a conjecture.  The numerics for $\mathrm{ADM}_m$ are Evidence.
 \item Evidence, not used: the computer check of Lemma~\ref{lem:jacobi} for
-$M\le2\cdot10^5$; the exact check of Theorem~\ref{thm:janson} on small
+$M\le2\cdot10^5$; the computer check of Lemma~\ref{lem:mjacobi} for $M\le5\cdot10^4$ and
+eleven values of $m$; the exact check of Theorem~\ref{thm:janson} on small
 instances; the Monte Carlo fit of $\delta^*(T)$ for $T\le32767$.
 \item Assessment: Remarks~\ref{rem:linear}, \ref{rem:exponent}
 and~\ref{rem:third}; the range comparison after Corollary~\ref{cor:twosided}; the heuristic two-sided typical size after
@@ -3427,6 +3438,9 @@ Math.\ Soc.\ 20 (2007), 495--517.
 Soc.\ Colloq.\ Publ.\ 57, 2010.
 \bibitem{Gallagher} P.~X.~Gallagher, A large sieve density estimate near
 $\sigma=1$, Invent.\ Math.\ 11 (1970), 329--339.
+\bibitem{GR} S.~W.~Graham and C.~J.~Ringrose, Lower bounds for least quadratic
+nonresidues, in: Analytic Number Theory, Progr.\ Math.\ 85, Birkh\"auser,
+Boston, 1990, 269--309.
 \bibitem{Green} B.~Green, On (not) computing the M\"obius function using
 bounded depth circuits, Combin.\ Probab.\ Comput.\ 21 (2012), 942--951.
 \bibitem{Henriot} K.~Henriot, Nair--Tenenbaum bounds uniform with respect to
@@ -3505,6 +3519,9 @@ for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
 \bibitem{TZcheb} J.~Thorner and A.~Zaman, An explicit bound for the least
 prime ideal in the Chebotarev density theorem, Algebra Number Theory 11
 (2017), 1135--1197.
+\bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
+$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47
+(not accessed; cited via \cite{ET}).
 \bibitem{Vaughan} R.~C.~Vaughan, On a problem of Erd\H{o}s, Straus and
 Schinzel, Mathematika 17 (1970), 193--198.
 \end{thebibliography}
