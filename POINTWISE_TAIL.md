@@ -157,10 +157,31 @@ E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log�
 Second: put `t:=1+1/loglogY`. Since `y≤t^y/(e·log t)` for `y≥0`,
 `ω_Y(M) ≤ (loglogY+1)·t^{ω_Y(M)}/e`. Summing over D as in O13 (notation `w(M)`), it suffices that
 `Σ_{M≤T, M≡3(4)} w(M)t^{ω_Y(M)}/M ≪ 𝓛³logY`. This is O13 Lemma 3.3(A)'s first display with `f_2`
-replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤2tβ·(3/2)≤7` for large T, so `f_2(n)≤7^{ω(n)}≪_εn^ε` uniformly
-in T and the modified F stays in the NT class `M_2(A,B_ε,ε)` with constants independent of T, and
-the Euler-product bound for `Σf_2t^{ω_Y}(n)/n` exceeds that for `Σf_2(n)/n` by at most `∏_{p≤Y}(1+2β(t−1)/(p−1)) ≤ exp(2β(t−1)(loglogY+O(1)))=O(1)`.
+replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)=f_2(p)≤4βt≤7` for large T (`p/(p−1)≤2`,
+the worst case p=2; irrelevant anyway, since `ρ_{Q_2}(2)=0` in NT; R76 D1), so `f_2(n)≤7^{ω(n)}≪_εn^ε`
+uniformly in T and the modified F stays in the NT class `M_2(A,B_ε,ε)` (A=8) with constants
+independent of T. The local factor at each `p≤Y` (including its `p^k`, `k≥2`, terms) grows by a
+ratio `≤1+O((t−1)/p)`, so the Euler-product bound for `Σf_2t^{ω_Y}(n)/n` exceeds that for
+`Σf_2(n)/n` by at most `exp(O((t−1)loglogY))=O(1)`. (Numerically the ratio is 3.0–4.0, flat in T:
+`scripts/review_tail_twist.py`, R76.)
 Hence `E[k] ≪ η^{−1}·loglogY·𝓛³logY ≍ 𝓛³(log𝓛)²log log𝓛` (`logY≍log𝓛`). ∎
+
+**Lemma 3.2′ (radical of the quarantine; PROVED modulo NT; R76 S1).** With the same parameters,
+
+```
+E[log rad_odd(Q_end)] ≤ log105 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}·log rad(M_Y)  ≪  𝓛³(log𝓛)³.
+```
+
+*Proof.* As Lemma 3.2 with weight `logℓ` at `a=0` only: `logℓ·1[τ_{ℓ,0}<∞] ≤ η^{−1}logℓ·G^{(ℓ,0)}_τ`,
+optional stopping, and `Σ_{ℓ|M, ℓ≤Y}logℓ = log rad(M_Y)`; the forced steps contribute `log105`.
+Put `s:=1/logY`. Since `y≤e^{sy}/(es)` for `y≥0`, `log rad(M_Y) ≤ (logY/e)·rad(M_Y)^s`. The twist
+`rad(M_Y)^s=∏_{ℓ|M,ℓ≤Y}ℓ^s` is multiplicative with values in `[1,e]` at primes, so F stays in the NT
+class (A=12, uniform in T), and the Euler-product ratio is
+`exp(O(Σ_{ℓ≤Y}(ℓ^s−1)/ℓ)) ≤ exp(O((e−1)s·Σ_{ℓ≤Y}logℓ/ℓ)) = O(1)` (`ℓ^s−1≤(e−1)s logℓ` for
+`s logℓ≤1`). Hence the sum is `≪ η^{−1}·logY·𝓛³logY ≍ 𝓛³(log𝓛)³`. ∎
+
+(Numerically the w-weighted mean of `log rad M_Y` tracks `logY`: 10.0 vs 10.3 at `Y=3·10⁴`, T=10⁶;
+`scripts/review_tail_twist.py`, R76.)
 
 **Theorem 3.3 (lower tail, smaller log power; PROVED modulo (G), NT, OMEGA10 Thm 3.4).** There are
 absolute effective `C, T_0` such that for `T≥T_0` and `log x≥C𝓛^4log𝓛`,
