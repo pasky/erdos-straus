@@ -10,7 +10,7 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 | P3.1 | the sterile set of `Σ_7` is closed and nowhere dense: no fixed-modulus congruence proof of sterility of `x̂_9` exists | PROVED |
 | §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰`; measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
 | L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
-| P5.3 | levels `α+2γ∈{5,6}` force `c=2^α7^a` | PROVED |
+| P5.3, P5.4 | levels `α+2γ∈{5,6}` force `c=2^α7^a`; level 5 is empty (P5.4, from review R72). So certificates need `α+2γ≥6` | PROVED |
 | Conj 3.4 (TYPEI2) | `x̂_9` is sterile | still CONJECTURE |
 
 Notation. `x̂=x̂_w`: `w` at 2 (`w≡9 (16)`), `−1` at 7, `1` elsewhere. A certificate
@@ -185,7 +185,7 @@ class mod `s≥n^{1/3}`) then suggests only `#certificates(level)≪Λ^{1/2+ε}`
 `2^{−(2+α+γ)}7^{−(a+b)}`, the exponent ½ is exactly borderline in the `γ`, `b`
 directions.)
 
-## 5. Vieta descent: the low 2-levels are empty (PROVED)
+## 5. Vieta descent: the low 2-levels are empty (PROVED; scope remarks are exploratory)
 
 **Lemma 5.1 (Vieta descent).** Let `c,k,δ≥1` and `F,e≥1` be integers with
 `Fe=1+4ck²` and `e−F=4ckδ`. Then `F≡e≡1 (mod 4cδ)`.
@@ -238,13 +238,27 @@ Since `F≡−1 (mod c')` (Lemma 1.1), `c'|2`, so `c'=1`. `δ` is odd because
 (Brute-force check, `scripts/typei3_p53test.py`, odd parts `c_o,k_o<120`: all 25 305 divisor pairs with
 `16n | e−F` at these levels satisfy `F≡1 (mod c_o)`.)
 
-*No 2-adic obstruction at these levels.* `scripts/typei3_lowlevel.py 9` runs the chain
-`F_{i+1}=F_i+4c̃K_iδ`, `K_{i+1}=F_{i+1}δ+K_i` from `(K_0,F_0)=(δ,1)` modulo `2^{10}`, for all odd
-`c_o, δ mod 2^{10}`. For each of the 7 levels `(α,γ)` it finds admissible residues: `v_2(K_i)=α+2γ−2`, with
-the two divisors `≡−w, −w^{−1} (mod 2^t)`. So excluding these levels would need the odd-prime
-sign split. It needs: the odd 7-free part of `k` divides `F+1`, while `F≡1 (mod 7^aδ_o)`. This is a
-primitive-divisor question for the Lucas-type chain. It is not pursued here. The near-miss dump to
-`ck≤10⁸` contains no near miss at these levels at all.
+**Proposition 5.4 (level `α+2γ=5` is empty; PROVED — deduction found in review R72, finding 4).**
+Let `w≡9 (16)`. No certificate at `x̂_w` has `α+2γ=5`.
+*Proof.* By Prop 5.3, `c_o=7^a` with a odd, so `B:=4c̃=2c_o=2·7^a`. As `7^a≡7 (16)` and `δ²≡1, 9 (16)`,
+`Bδ²≡14 (16)`. The pair `(F,e)` (oriented `F<e`) lies on the integral chain from `(K_0,F_0)=(δ,1)`:
+`F_{i+1}=F_i+BK_iδ`, `K_{i+1}=F_{i+1}δ+K_i`. Put `H_i=K_i/δ`; then `H_0=1` and `H_{i+1}=F_{i+1}+H_i`
+are integers, and `F_{i+1}=F_i+Bδ²H_i`. Modulo 16,
+`(F,H)↦(F+14H, F+15H)`: `(1,1)→(15,0)→(15,15)→(1,0)→(1,1)`. So every divisor on the chain is
+`≡±1 (16)`. But `t≥5`, and both certificate divisors are `≡−w≡−w^{−1}≡7 (16)`. ∎
+
+*Remaining low level.* `scripts/typei3_lowlevel.py 9 seven` runs the same chain modulo `2^{10}` for
+`c_o` among the odd powers of 7 and all odd `δ mod 2^{10}`, and tests `v_2(K_i)=α+2γ−2` and the two divisors
+`≡−w, −w^{−1} (mod 2^t)`. It finds 0 admissible combinations for the three level-5 pairs
+`(α,γ)=(1,2),(3,1),(5,0)`, consistent with Prop 5.4. For the four level-6 pairs
+`(0,3),(2,2),(4,1),(6,0)` it finds admissible residues. (Without the restriction to powers of 7, i.e.
+ignoring Prop 5.3, all seven pairs admit residues.) So level 6 needs the odd-prime sign split:
+the odd 7-free part of `k` divides `F+1`, while `F≡1 (mod 7^aδ_o)`. This is a primitive-divisor
+question for the Lucas-type chain and is not pursued here. The near-miss dump to `ck≤10⁸` contains no
+near miss at levels 5–6.
+
+**Summary of §5.** A certificate at `x̂_w` (`w≡9 (16)`) has `t≥5` and `α+2γ≥6`. If `α+2γ=6`, then
+`c=2^α7^a`.
 
 ## Replay
 

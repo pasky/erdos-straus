@@ -5,7 +5,8 @@ divisor pair (F_i, F_{i+1}) with e-F = 4c~K delta lies on the chain from (K_0,F_
 A certificate needs: delta odd; v_2(K_i) = alpha+2gamma-2 exactly (K = 2^(t-4) k); and the certificate
 divisor (F_i or F_{i+1}) = -w (mod 2^t), the other = -w^{-1} (mod 2^t), t = 2+alpha+gamma.
 This only depends on (4c~ mod 2^M, delta mod 2^M, i mod period).  We enumerate all residues and report
-whether any admissible (i) exists.  Usage: typei3_lowlevel.py w  (w taken mod 2^M)"""
+whether any admissible (i) exists.  Usage: typei3_lowlevel.py w [seven]  (w taken mod 2^M; with 'seven', c_o ranges over odd powers of 7 mod 2^M,
+as forced by Prop 5.3)"""
 import sys
 M = 10
 MOD = 1 << M
@@ -27,7 +28,8 @@ for (al, ga) in levels:
     t = 2 + al + ga; tm = 1 << t
     s = al + 2 * ga
     hits = 0
-    for co in range(1, MOD, 2):
+    cos = sorted({pow(7, a, MOD) for a in range(1, 2 * MOD, 2)}) if 'seven' in sys.argv else range(1, MOD, 2)
+    for co in cos:
         fc = ((1 << (6 - s)) * co) % MOD  # 4 c~
         for de in range(1, MOD, 2):
             F, K = 1, de
