@@ -83,3 +83,11 @@ Re-derived:
   checking (L−), (U−), (U+), (L+) and Lemma 1.1's planting condition. The reduction
   to bits is legitimate: averaging `B` over `X_b` given its bit preserves
   `B≤F` and k-junta structure. Results below.
+  Output (120 random instances, `n ≤ 13`, `p_i ∈ [0.12,0.25]`, `k ≤ 3`):
+  - (L−): 105 cases meet `P ≥ (5/3)(k+1)` or planting (1.1); in all of them the
+    LP max of `E B` is `≤ 0`.
+  - (U−): 360 cases; the bound is never violated (min slack 13.2, so very loose
+    at small `P`).
+  - (U+)/(L+): exact means on 200 random systems with `n ≤ 40` meet the stated
+    bounds.
+  - The Bonferroni identity and sandwich hold for `h<30`, `k<12`.
