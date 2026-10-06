@@ -8,6 +8,10 @@ Status: work in progress (side agent O80, branch `side-agent/mordell-13`). Label
 (four Type I: I1–I4, three Type II: II1–II3). Each class is solvable by polynomials:
 every sufficiently large n in the class has the explicit ES solution obtained from ET's
 parametrisation (proof of Prop 1.9) and the maps `π^I=(abdn,acd,bcd)`, `π^II=(abd,acdn,bcdn)`.
+(R80 repair, applied by reviewer.) In fact every n ≥ 1 in the class works. With the three family
+parameters fixed, the coordinates x,y,z are polynomials of degree ≤ 2 in n with positive
+coefficients (II3: `b=(n+e)/(4ad)`), so they are positive for all n ≥ 1. Integrality on the class
+is the class condition. For the certificates of §3 one can therefore take B = 1 below.
 `scripts/mordell_lib.py` implements: `cls_modulus_residues(fam,P)` (modulus M and residues),
 `solve(fam,P,n)` (returns (x,y,z), checked with exact fractions), `classes_for_modulus(M)`
 (all classes of exact modulus M), `residue_table(M)`.
