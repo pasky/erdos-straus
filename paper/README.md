@@ -1,6 +1,6 @@
 # Paper draft status
 
-**New: `es-subexp-note.tex` / `.pdf`, v6** (task O77, 61 pages). The proof of the main
+**New: `es-subexp-note.tex` / `.pdf`, v6** (task O77, 62 pages; refereed R77, D1–D9 applied). The proof of the main
 theorem is unchanged. New §12 (source `POINTWISE_TAIL.md`, ledger (H)33): quantitative transfer
 (Lemma 12.3), leaves of the square-class process and level-0 step counts (Lemmas 12.4–12.5), the
 lower tail `#{p≤x hard: W(p)>T} ≥ π(x)e^{−C𝓛³(log𝓛)³}` for `log x ≥ C𝓛⁴log𝓛` (Thm 12.1, full

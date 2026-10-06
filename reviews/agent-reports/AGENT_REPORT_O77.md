@@ -111,3 +111,30 @@ exceptional character harmless; no ES/Sierpiński claim. Four defects, all repai
   (example m = 5, M = 19, D = 1).
 * SR4: planting vs BGP: "within a factor 3 of their lower bound (about 2 as p → 1)" (at p = 1/2:
   3k+3 vs k+1).
+
+## Response to referee R77 (`reviews/es-subexp-note-review-v6.md`)
+All nine MINOR defects applied; recompiled (pdflatex ×2): 62 pp., 0 undefined refs, 0 overfull boxes.
+* **D1** Lemmas 12.3 and 15.6 now labelled "modulo Theorem G" (convention: includes Landau–Page), as the
+  rest of §§12, 15; the one-fibre bound after Lemma 12.3 labelled "modulo Theorems G and NT" and listed in §16.
+* **D2** ET Remark 1.2 comparison (after Cor 12.2 and in "The exponent 3") now says the prime-side
+  statement holds only for `log T ≤ (log x)^{1/4−o(1)}`, far from the heuristic's scale `log T ≍ log p`.
+* **D3** Thm 15.7 label and §16: implication proved in [MN] for even m; for odd m also modulo the parity
+  split (not written out in [MN]). Parent: POINTWISE_MN.md §5 should get the parity split too.
+* **D4** ADM_m setting: `8 | Q_0` always (no mass change for m ≡ 2 (4); hard set non-empty for odd m); MN2's
+  `Q(q_0)` gets 8 adjoined. Parent: MN2 should note this for m ≡ 2 (4).
+* **D5** ADM_m defined for both the adaptive and the ordered (forced increasing stage up to `Z`) variant;
+  Thm 15.7 stated for either (forced steps are ordinary supermartingale steps, MN2 "Order"); SI ⇒ ADM_m
+  stated for the ordered variant; added "threshold q₀^{1/2} comes from a Markov step and is
+  method-dependent".
+* **D6** Class-of-one argument after Thm 15.5 written out (`1 ≡ −mD ⇔ M | mD+1 ⇔ M | D+A`, involution,
+  `D ≤ A`, `(m−2)A > 1`).
+* **D7** §10 after Lemma 10.1: "we claim no novelty" replaced by "elementary; in the identical-marginal case
+  it improves the upper bound of [BGP, Thm 27] (see §1)".
+* **D8** "within a factor 3 of their lower bound for p ≥ 1/2 (a factor 2+O(1/k) as p → 1)".
+* **D9** Computer check of Lemma 15.1 added to "Evidence, not used".
+* **Bibliography.** Added Yamamoto (1965) next to Mordell, "cited via [ET, Prop. 1.6]" (vanishing of Type I/II
+  solutions at odd squares; ET also attribute it to Schinzel), entry marked "not accessed". Added
+  Graham–Ringrose (1990) at "Linnik's theorem gives W(p) ≫ log p" as the classical template (data checked in
+  the Lau–Wu reference list, `sources/lit2026/`). Granville–Pomerance not added (audit data [memory],
+  referee: optional, do not add unchecked). TODO comment in the bib: [MN], [MN2] must be appended or made
+  public before submission.
