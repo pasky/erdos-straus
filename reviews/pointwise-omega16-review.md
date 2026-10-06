@@ -15,7 +15,7 @@ Reviewer branch: side-agent/review-omega16. Author files merged at 58cb47e. Scri
 | Prop 2.1(b) | Assessment correctly labelled |
 | Prop 3.1 | pending |
 | LS consistency / refutation attempts | pending |
-| N2 (W(133050918961)=5935, hard) | pending |
+| N2 (W(133050918961)=5935, hard, least) | CONFIRMED from scratch |
 
 ## Claim-by-claim
 
@@ -68,6 +68,17 @@ Re-derived line by line.
 `Φ(x,z)/(δx)→e^γω(u)`; `ω(2)=1/2`; zeros of `e^γω(u)−1` are discrete because ω is analytic on each
 `[k,k+1]` and not constant there (`uω′(u)=ω(u−1)−ω(u)`, induct down to `ω=1/u` on `[1,2]`). Sound.
 (It is an integer analogue with the non-unit class 0, as the author says.)
+
+### N2 (from scratch, `scripts/review_o16_esleast.py`)
+* `W 133050918961`: prime (MR, 12 bases, deterministic below 3.3e24), `≡121 (840)` a square,
+  `W=5935` with `D=16` (`A=1484`, `16|A²`), by direct divisor search over all `M≡3 (4)`.
+* `scan 4095 1 1e9` and `scan 4095 3e9 133050918962`: atom sieve over the 6 square classes mod 840,
+  then MR on survivors: the *only* prime with `W>4095` below `1.3305·10^{11}` is `133050918961`
+  ([1e9,3e9) also scanned: none). So it is the least hard prime with `W>4095`. (The table's
+  "p≡1 (24)" normalisation agrees with "square mod 840": the other classes in `1 (24)` are killed by
+  the atoms M=7, 15.)
+* Earlier rows reproduced: least p for T=31,127,511,1023,2047 = 2521, 33289, 2031121 (×3);
+  `W(2031121)=2495` (D=576); count of hard `p<10^{11}` with `W>2047` = 107 (author: 107).
 
 ## Defects
 
