@@ -61,3 +61,20 @@ iff `c'^4 ≤ 4/C`. Lower side from Thm 11.2 (range `Λ ≤ c₁(log x)^{1/4}` c
 ### One-fibre paragraph, Remark 12.6 — SOUND
 `log(1/λ) ≤ ½log Q + O(loglog Q)` since `q₁ | Q`. Conditional improvement: `u ≥ c₀ log x/log Q_L ≥ 1` needs
 `log x ≥ log Q_L/c₀`, true as `log x ≫ Λ⁴logΛ ≫ log Q_L`; correctly labelled conditional.
+
+### §15 setting + identity (15.1) — SOUND
+From scratch (`scripts/review_r77_mjacobi.py`): identity (15.1) verified in exact arithmetic for every
+`uvw = A`, `gcd(v,M)=1`, and `{−uv⁻¹} = R_m(M) = {−mD : D | A²}` for 20 values of m, M ≤ 600. ✓
+
+### Lemma 15.1 (Jacobi dichotomy) — SOUND
+Proof re-derived ((d): t=1 ⇒ 8 | mA in both sub-cases m ≡ 0 (8), m ≡ 4 (8)). Brute force from scratch:
+(a)–(d) and "M ≡ 7 (8) ⇒ symbol −1" on **911 163** m-atoms (M odd, M ≤ 2·10⁴,
+m ∈ {4,…,16,18,20,21,22,24,28,30}): no failures.
+
+### Proposition 15.2 — SOUND
+Both constructions re-derived (m odd: q = 2, ℓ ≡ 5 (8); m ≡ 2 (4): q ≡ 3 (4), ℓ ≡ −1 (mq), ℓ ≡ 1 (4)).
+Brute force: firing primes exist for every m ≢ 0 (4) tested (first ones e.g. m=5: 19, 29, 59, …; m=6: 11, 17,
+…), and **none** for m ≡ 0 (4) (ℓ < 3000), as Lemma 15.1(d) predicts. The example m=5, ℓ=29 (A=6) ✓.
+Note: the smallest firing prime for m=5 is ℓ = 19 (≡ 3 (8), via D = 2, t = 1) — not covered by the
+construction, but the proposition only claims infinitely many; no defect. The "M ≡ 7 (8): sufficient,
+not necessary; e.g. m=5, M=19, D=1" sentence is correct at the level of atoms (atom (19,2) does fire).
