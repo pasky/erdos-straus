@@ -1,6 +1,6 @@
 # EXCEPTIONAL_SPW2 — weak SPW (task O53)
 
-Status: **in progress (O53).** Labels as in `DISCOVERIES.md`. Notation as in
+Status: **checkpoint (O53), stopped by parent; review R53 (`reviews/exceptional-spw2-review.md`) repairs M1, m1–m13 applied.** Weak SPW remains **open**. Labels as in `DISCOVERIES.md`. Notation as in
 `EXCEPTIONAL_SPW.md` (SPW1) and `EXCEPTIONAL_INTERFREQ2.md` (IF2): N ≥ 2,
 D = ⌊N/2⌋, W = λ_N = 1_{[1,N]}, c(b,d) = #{1 ≤ n ≤ N : n ≡ b (d)},
 L₀ = lcm(1..D), S_A = C_A(log N)^{3/4}(log log N)^{3/4} (IF Thm 2.5; the
@@ -122,7 +122,7 @@ m₀ = e/D). If R ≥ 0 has (P1) and `R(s) ≤ 1 − η` on every class of modul
 e meeting [1,N] (no condition at all on other classes), then for every
 integer 1 ≤ r < min(N−1, (C−1)N−1)/2
 
-    η ≤ eN/(4(M+1)r²) + e/((M+1)r) + 4πm₀²N(2r+1)/e².               (3.1)
+    η ≤ eN/(4(M+1)r²) + e/((M+1)r) + 4πm₀(m₀+1)N(2r+1)/e².          (3.1)
 
 With r = ⌈N·M^{−1/3}⌉ this gives **η ≤ c(C)·M^{−1/3} ≍_C (log N)^{−1/3}**,
 uniformly in K (sparse classes, near zone and medium classes unrestricted).
@@ -132,7 +132,8 @@ K = Fejér kernel of degree M on ℤ/e (K(t) ≤ e/(4(M+1)t²) for 1 ≤ |t| ≤
 φ = K∗1_W, τ := e/(2(M+1)r). T = K∗(ρ − 1_W) has Fourier support in
 |k| < m₀ (frequencies m₀ ≤ |k| ≤ M are pinned by (P1)). Now ρ ≤ 1 − η only
 on W, so: (a) |T̂(k)| ≤ |ρ̂(k)| + |1̂_W(k)| ≤ 2N, hence
-T(x) = (1/e)Σ_{|k|<m₀}T̂(k)e(kx/e) has |T(x) − T(y)| ≤ 4πm₀²N|x − y|/e².
+T(x) = (1/e)Σ_{|k|<m₀}T̂(k)e(kx/e) has |T(x) − T(y)| ≤ 4πm₀(m₀+1)N|x − y|/e²
+(Σ_{|k|<m₀}|k| = m′(m′+1) ≤ m₀(m₀+1), m′ = ⌈m₀⌉ − 1; review R53 m9).
 (b) x_in = 1 + r: every y ∉ W is at cyclic distance ≥ r + 1 from x_in
 (the far side is at distance ≥ min(N − r, e − N + r) > r), so
 Σ_{y∉W}K(x_in − y)ρ(y) ≤ (e/(4(M+1)r²))Σρ = eN/(4(M+1)r²) =: A, and
@@ -140,7 +141,7 @@ T(x_in) ≤ (1 − η)φ(x_in) + A − φ(x_in) ≤ −η + ητ + A ≤ −η +
 φ(x_in) ≥ 1 − τ (SPW1 tail bound). (c) x_out = −r: T(x_out) ≥ −φ(x_out) ≥ −τ.
 So η ≤ T(x_out) − T(x_in) + A + 2τ, and (a) with |x_out − x_in| = 2r + 1
 gives (3.1). For r = ⌈NM^{−1/3}⌉, e ≤ (C+1)N: the three terms are
-O_C(M^{−1/3}), O_C(M^{−2/3}), O(m₀²M^{−1/3}/C²). ∎
+O_C(M^{−1/3}), O_C(M^{−2/3}), O(m₀(m₀+1)M^{−1/3}/C²). ∎
 
 So RSPW with fixed η is false for large N even with K = ∞, but the decay is
 only (log N)^{−1/3}; weak forms (η_N ≥ e^{−(log N)^{3/4}}) are untouched.
@@ -148,12 +149,24 @@ only (log N)^{−1/3}; weak forms (η_N ≥ e^{−(log N)^{3/4}}) are untouched.
 ## 4. Dual picture and where a proof (or refutation) must act
 
 **Lemma 4.1 (dual of RSPW with K = ∞; PROVED, finite LP duality on ℤ/Q′
-plus SPW1 Lemma 1.1).** On the periodic model, the optimal η is
+plus the K = ∞ lift below).** For Q′ a multiple of L₀, let η*_per(Q′) be the
+optimum of the periodic problem on ℤ/Q′ (ρ ≥ 0, (P1), ρ(s) ≤ 1 − η on full
+classes of moduli e | Q′, e > CN). Then
 
-    η* = 1 − sup { −Σ_{n≤N} g(n) / Z : g ∈ V_D, z ≥ 0 on full classes of
-                    modulus > CN, g + Σ z_s 1_s ≥ 0,  Z = Σ z_s }.
+    η*_per(Q′) = 1 − sup { −Σ_{n≤N} g(n) / Z : g ∈ V_D, z ≥ 0 on full classes of
+                    modulus e | Q′, e > CN, g + Σ z_s 1_s ≥ 0,  Z = Σ z_s }.
 
-In particular η* = 0 iff there is ν = g + P ≥ 0 (g a small-modulus
+*Transfer to ℤ (review R53 m10).* Projection gives η*_ℤ ≤ η*_per(Q′) for every
+Q′. Conversely, lift ρ on ℤ/Q′, Q′ = lcm(1..T), as in SPW1 Lemma 1.1(b)
+(R(x) = ρ(x mod Q′)/K′ on [0, K′Q′)). For e ∤ Q′ with g = gcd(e,Q′): if
+g ≤ CN use only the total mass, ρ(s mod g) ≤ N, so the lifted class has
+mass ≤ (g/e)N + ε ≤ CN²/T + ε; if g > CN the class has mass
+≤ (1/2 + ε)ρ(s mod g) ≤ (1/2 + ε)(1 − η) when s mod g is full (sparse classes
+are unconstrained for K = ∞, so no clipping at 1/2 is needed). Hence
+η*_ℤ ≥ η*_per(Q′) − ε for T ≥ CN²/ε′ (if η*_per < 1); η*_per is
+non-increasing along divisibility. So the following holds on ℤ as well.
+
+In particular η*_per(Q′) = 0 iff there is ν (on ℤ/Q′) = g + P ≥ 0 (g a small-modulus
 combination, P ≠ 0 a nonnegative combination of *full* large classes)
 with ν ≡ 0 on [1,N]. (IF2 Example 3.2 is such a ν, but at the medium
 modulus N + 1.) Weak duality direction is elementary:
