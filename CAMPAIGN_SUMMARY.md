@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)26 and (H)27)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)28 and (H)33)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -27,7 +27,9 @@ Labels used below are the ledger's:
 
 **The Erdős–Straus conjecture (ES) is not solved, here or anywhere.** The
 literature was checked through 2026-09-28 (`LITERATURE_2026.md`), with a
-priority search through 2026-10-04 (`reviews/novelty-audit-2026-10.md`).
+priority search through 2026-10-04 (`reviews/novelty-audit-2026-10.md`)
+and a second, offline audit of the later rounds (2026-10-05,
+`reviews/novelty-audit-2026-10b.md`).
 Every recent claimed proof has an identifiable gap. The campaign's best
 bound on the exceptional set is
 
@@ -50,11 +52,19 @@ The campaign ran two lines of research.
   congruence sieve over any mixture of forced classes. Later work
   extended the cap to large sieves (twisted, hybrid, applied to primes),
   to prime-only majorants and to inter-frequency cancellation for moduli
-  `≤ N/2`. The remaining doors above 3/4 are precisely stated: the
-  repaired tuple-count hypothesis TC^alt_θ (a CONJECTURE), the
-  large-sieve hypothesis H_LS∞ for forced families (a CONJECTURE), the
-  combinatorial statement "weak SPW" for hybrid methods (open; the
-  fixed-σ version is refuted), and genuinely non-CRT arithmetic input.
+  `≤ N/2`; then to large sieves at **every** frequency level, first for
+  mixtures with at most one prime factor above `exp((log N)^{1/4})` per
+  modulus ((D)27), then for every mixture whose multi-rough classes are
+  residue-sparse, including all small-height classes such as −4 mod M
+  ((D)28). The cubic witness tail is now INTERNALLY PROVED ((A)9). The
+  remaining doors above 3/4 are precisely stated: the repaired
+  tuple-count hypothesis TC^alt_θ (a CONJECTURE); the all-level large
+  sieve for residue-dense multi-rough classes, reduced to a sup-decay
+  hypothesis (A*) and further to a residue-dispersion statement (RD′)
+  (open; (RD) is proved at one prime for ℛ(M) and false as first stated
+  for several primes); the combinatorial statement "weak SPW" for hybrid
+  methods (open; the fixed-σ version and fixed-η RSPW are refuted); and
+  genuinely non-CRT arithmetic input.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -63,11 +73,19 @@ The campaign ran two lines of research.
   every fixed power of `log p` to
   `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
   hard primes (PROVED modulo Gallagher's theorem and Nair–Tenenbaum).
-  The matching profinite (Haar) exponent is exactly 3 up to logs, so the
-  heuristic truth is `log W ≍ (log p)^{1/3}`. Exponent 1/4 is proved to
-  be the ceiling of the architecture used; 1/3 would need bilinear or
-  parity-sensitive prime input. Window results give exact orders for
-  bounded windows and show that parity input is necessary.
+  The profinite (Haar) exponent is exactly 3 up to logs (lower bound
+  `≫𝓛³` with no log loss), and 3 is also the true tail exponent of `W`
+  over primes: `log(π(x)/#{p≤x: W(p)>T}) ≍ (log T)³` up to
+  `(log log T)³` in a range of T ((H)33). So the heuristic truth is
+  `log W ≍ (log p)^{1/3}`. Exponent 1/4 is proved to be the ceiling of
+  the Haar-minorant architecture (up to `(log log p)^{1/4}`), and a
+  Wiener-norm barrier extends it to all full-orbit uniform linear
+  certificates, for which prime input such as GRH or EH is irrelevant.
+  The one hypothesis known to give 1/3 is the CONJECTURE LS ("Linnik for
+  sifted sets"). Support-aware certificates are the open door; their
+  ceiling is reduced to a CONJECTURE SAP. The m/n analogues reach 1/4
+  for m ≡ 0 (4) and 1/5 for every m. Window results give exact orders
+  for bounded windows and show that parity input is necessary.
 
 ---
 
