@@ -365,6 +365,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 
 31. **Support-aware certificates (POINTWISE_OMEGA17.md).** No certificate beyond exponent 1/4 was found. PROVED: moduli > x contribute only the "box" or primality tests (Lemma 1.2); with Haar-type information, validity of a support-aware linear certificate is an integer statement (Lemma 1.3); no monotone fake exists (Lemma 2.1, Harris); only the integer capacities of information atoms matter (Lemma 5.1); capped/flat planting (Lemma 5.2). The question reduces to Conjecture SAP (support-aware planting; restated after review — the first form was false), whose truth would extend the 1/4 ceiling to LP-relaxed support-aware certificates with unconditional-type information; size-localised counts are outside its scope. Charlier-type fakes and toy LPs are EVIDENCE only. Review `reviews/pointwise-omega17-review.md` (no FATAL; two MAJOR scope/statement items, handled by restatement and notes).
 
+32. **The m/n witness modulus (POINTWISE_MN.md).** For the Type II witness family of m/n (Sierpiński's 5/n included):
+    * The event classes −mD mod M have Jacobi symbol −1 for every atom iff m ≡ 0 (mod 4) (Lemma 1.1, PROVED, brute-forced); this is exactly where POINTWISE_OMEGA13's square-class quarantine works.
+    * m ≡ 0 (4): Haar exponent 3 and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. (Thm 3.1, PROVED modulo (G), Nair–Tenenbaum, fundamental lemma, OMEGA10, by substitution). Haar lower bound `≫𝓛³/log 𝓛` for every m ≥ 4 (Prop 3.2).
+    * Every m (incl. 5/n): `W_m(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o. and Haar `≪ 𝓛^5 log 𝓛` (Cor 6.1, PROVED modulo ET, (G), OMEGA10; written substitution proof of OMEGA12), improving (H)23's 1/7; the output primes are ≡ 1 (mod Q) and Type-II-hard only. For m ≢ 0 (4), exponent 1/4 is CONDITIONAL on a bounded-drift hypothesis ADM_m for an admissible random hard-class process (Thm 5.1; numerics support it).
+    * Review `reviews/pointwise-mn-review.md` (no FATAL, no mathematical error in PROVED claims; MAJOR-1 — Cor 6.1's proof was only summarised — repaired by writing it out).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
