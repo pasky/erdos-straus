@@ -980,7 +980,7 @@ them.
 
 ---
 
-## 5. Novelty and attribution (from `reviews/novelty-audit-2026-10.md`)
+## 5. Novelty and attribution (from `reviews/novelty-audit-2026-10.md` and `reviews/novelty-audit-2026-10b.md`)
 
 The audit is a priority search, not a proof check. "New" means **no prior
 source was found in what was searched**. It is not a certificate of
@@ -1058,7 +1058,7 @@ Semantic Scholar was rate-limited. These were **not accessed**:
 
 **The sub-exponential pointwise machinery** (sources:
 `reviews/novelty-audit-omega8.md`, a no-internet audit partly from memory;
-the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
+the novelty paragraphs of `paper/es-subexp-note.tex` v4–v5 and
 `paper/energy-dnf-note.tex`). All searches here were partial.
 * *Known, cited, no novelty claimed:*
   * the one-sided ℓ² sandwich of OMEGA8 Lemma 3.1 (Bazzi's scheme in
@@ -1070,9 +1070,8 @@ the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
     form is standard (Haeupler–Saha–Srinivasan);
   * the **planting lemma** (OMEGA14 Lemma 1.1): it is the LP dual of
     lower-bound sieves, and laws of the same kind appear in
-    Benjamini–Gurel-Gurevich–Peled and Peled–Yadin–Yehudayoff. Only its
-    use to bound the level of minorants of a concrete arithmetic
-    indicator is new to us.
+    Benjamini–Gurel-Gurevich–Peled and Peled–Yadin–Yehudayoff. (Audit
+    10b later found that it sharpens BGP's Thm 27; see below.)
 * *Apparently new (low-to-medium confidence):*
   * using the sandwich as a sieve minorant transferred to primes, and a
     switching-lemma bound for a covering-avoidance density (the known
@@ -1090,6 +1089,47 @@ the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
 * The m/n analogues (POINTWISE_TRANSFER) claim no novelty beyond the
   ES-type applications.
 
+**Second audit, 2026-10-05** (`reviews/novelty-audit-2026-10b.md`, task
+O70; the OMEGA9–17 / WINDOW / KARY3 round). **No internet in this pass**:
+only `sources/`, the earlier audits and the auditor's memory; claims tagged
+[memory] may have wrong theorem numbers or years. "Apparently new" is not a
+priority certificate; confidence is the auditor's probability that a
+specialist search would not find an identical prior statement.
+* *Standard / known:* the β-weighted local lemma (high confidence that it
+  is not new); large-sieve/Λ² duality (Montgomery 1968, Kobayashi 1973,
+  [verify]); `β_κ ≍ κ` sieve limits, Bonferroni achievability and
+  Rankin/Λ weights; CEILINGS_UNIFIED Thm 4.1 in substance (PYY/BGP +
+  planting + Bonferroni). LS4's coin-coupling bound is the same device as
+  Lecomte–Tan Fact 9.
+* *Known method, new statement:* the Gallagher linear transfer (packaging
+  of Gallagher's proof of Linnik's theorem; the covering-avoidance pipeline
+  is new); the Janson-type inequality for one-hot product spaces (must
+  check Lu–Székely and Mohr); the typical-size bound (Vaughan's method).
+* *Heuristically anticipated:* the Haar exponent 3 (Elsholtz–Tao Remark
+  1.2, checked).
+* *Apparently new:* the energy bound C-1 (medium) and the constant in the
+  DNF tail (low–medium; Lovett–Wu–Zhang 2020 and Håstad 2001 must be
+  checked); the planting lemma, which is **stronger than first claimed**:
+  it improves Benjamini–Gurel-Gurevich–Peled's Thm 27 upper bound on
+  `n_c(k,p)` (removes `log(1/(1−p))` and the prime-power restriction;
+  medium–low; later citations of BGP unchecked); the level barrier as a
+  sieve/ES statement; the `W(p)` Ω-rates, the 1/4 ceiling and LS ⇒ 1/3
+  (high); the ES caps, incl. the all-level large-sieve caps for
+  residue-sparse mixtures (high); CEILINGS_UNIFIED's observation that one
+  relation gives both ceilings (new as an Assessment-level synthesis); the
+  window stacking exponent `1 + J/2` (high). LS (Hypothesis) is a log-scale
+  sifted-set analogue of Linnik's theorem, weaker than the
+  Granville–Pomerance / Heath-Brown least-prime conjectures; no prior named
+  statement known.
+* *Recommended wording* (the first is adopted in ledger (D)19): call the
+  large-sieve duality a minimax form of the classical large sieve–Λ² equivalence, and
+  call the 3/4 and 1/4 ceilings instances of the large-dimension sieve
+  limit `log D ≍ κ log z`, proved here as barriers for all certificates in
+  the stated classes.
+* *Not audited by either pass:* EXCEPTIONAL_SPW/SPW2, LARGESIEVE5–7,
+  TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2, POINTWISE_TAIL,
+  POINTWISE_TYPEI2 and POINTWISE_WINDOW3.
+
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
   Thm 1.1(2).
@@ -1098,8 +1138,9 @@ the novelty paragraphs of `paper/es-subexp-note.tex` v4 and
   14.4/14.9 already imply; priority to the notes.
 * The GRH part of POINTWISE_TYPEI (Thm 3.1) is Montgomery's Ω-result for
   the least non-residue, transported (sources cited from memory).
-* The results of ledger (D)23–(D)26 and of POINTWISE_XWIN/WINDOW2/TYPEI
-  have not been separately novelty-audited.
+* Audit 10b covers KARY3, LARGESIEVE–LS4, CEILINGS_UNIFIED, XWIN and
+  WINDOW2; the files listed at the end of the 10b block above, and
+  POINTWISE_TYPEI, have not been separately novelty-audited.
 * Related recent work that the campaign compares against:
   Pomerance–Weingartner (arXiv:2511.16817; an explicit-in-`m` Vaughan
   bound) and Dahan (arXiv:2608.24035). Dahan's Thm 4.17 is credited as an
