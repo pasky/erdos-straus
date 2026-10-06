@@ -137,7 +137,7 @@ Number of data (`m17_enum` stderr): Q: 2, 0, 73, 0, 245, 0, 707 (k=1..7); U: 4, 
 ET Prop 1.6's *statement* concerns Type I/II solutions, while our N-points may have `17|c` (Q) or `17|ij`
 (P); ET's proof in §4 uses only (2.1), (2.2), (2.13), (2.14) and would also apply). For U, even levels are
 only computed empty (k=2,4,6; reproduced by R83). That is harmless, since `B_k` keeps `D_U(k)` for all k
-(see also Lemma 5.2: U-data need `α−β` odd, hence k odd).
+(see also Lemma 5.2: in-cell U-data need `α−β` odd, hence k odd).
 
 **Computation 3.1.** Covered fraction of `C_5` (identical numbers for `C_7`):
 
