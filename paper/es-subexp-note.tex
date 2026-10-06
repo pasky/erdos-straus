@@ -2163,6 +2163,199 @@ such as bilinear (Type~II) estimates or other parity-sensitive input
 adapted to the ES system.  We do not know how to provide it.
 \end{remark}
 
+\section{One-big-prime atoms: the Haar exponent without loss, typical size, and the ceiling at level \texorpdfstring{$\Lc^4$}{L^4}}\label{sec:atoms34}
+
+This section imports one input from the companion note \cite{TQ}, which
+proves the exceptional-set bound $E(N)\ll N\exp(-c(\log N)^{3/4})$.  That note is
+\emph{internally proved, not externally refereed}; results below that use it
+are labelled ``modulo \cite{TQ}''.  Its analytic inputs are the
+Bombieri--Vinogradov theorem, the Brun--Titchmarsh inequality and Shiu's
+theorem, and its constants are not asserted to be effective.
+
+\emph{The atoms of \cite{TQ}.}  Fix $\varkappa=1/480$ (any fixed
+$\varkappa\in(0,1/240)$ would do).  For $X$ large put $t=\log X$,
+$K_X=\lfloor X^\varkappa\rfloor$, $\mathcal K=\{k\le K_X:\ k\equiv1\ (4)\}$ and
+$L_K=\lcm\mathcal K$.  The family $\mathcal A_X$ of \cite[(4)]{TQ} consists of
+quadruples $(k,\ell,u,v)$ with $k\in\mathcal K$, $\ell$ a prime in a dyadic block
+$I_j\subseteq(X^{1/2},X]$, $H<u,v\le z_j=x_j^{1/6}$ (with $H=K_X^{10}$ and $x_j$ the left end
+of $I_j$), $(u,v)=(uv,k)=1$, a bound on $\omega(uv)$, and $4uv\mid k\ell+1$; the
+atom is the class $E_A=\{n\equiv-uv^{-1}\pmod{k\ell}\}$, and
+$H_X(n)=\sum_A\mathbf 1_{E_A}(n)$.  With $M=k\ell\equiv3\pmod4$ and
+$w=(M+1)/(4uv)$ we have $uvw=A_M$, so $E_A$ is one of the multiplier
+congruences in \eqref{eq:W}: if $n\in E_A$ then $W(n)\le k\ell\le K_XX$.  We
+use three facts from \cite{TQ}:
+\begin{itemize}
+\item[(A1)] \cite[Lemma~2.2]{TQ}: at a fixed $\ell$ the atoms have pairwise
+distinct residues modulo $\ell$, and there are at most $z_j^2\le\ell^{1/3}$ of
+them; the residue $-uv^{-1}\bmod\ell$ is a unit, since $uv<\ell$.  An atom is
+\emph{active} on the class $c=n\bmod L_K$ iff $k\mid u+cv$.
+\item[(A2)] \cite[Cor.~4.3 and Lemma~3.2]{TQ}: with $f_c(\ell)$ the number of
+atoms at $\ell$ active on $c$ and $\mu_c=\sum_\ell f_c(\ell)/\ell$, there are
+constants $a,C_u>0$ with $a\,t^3\le\mu_c\le C_ut^3$ for every unit $c$ modulo $L_K$
+and all large $X$.
+\item[(A3)] \cite[Lemma~8.1 and Thm.~8.2]{TQ}: with $y=Bt^3$, $r$ the least even
+integer $\ge D_Bt^3$ ($B,D_B$ as there; $D_B$ may be enlarged), $S_y(n)=\mathbf 1[(n,P_y)=1]$
+and $Q_r(h)=\sum_{j\le r}(-1)^j\binom hj$, the function $\nu_X=S_y\,Q_r(H_X)$ is
+$\ge0$ on $\mathbb Z$, $Q_r(0)=1$, $Q_r(h)\le\mathbf 1[h=0]+\binom h{r+1}$, and $\nu_X$ is a
+combination $\sum_ic_i\mathbf 1[n\equiv a_i\ (q_i)]$ with $\log\max q_i\le C't^4$ and
+$\sum_i|c_i|\le e^{C't^4}$; moreover $\sum_{n\le N}\nu_X(n)\ll Ne^{-c_at^3}$ whenever
+$\log N\ge C_0t^4$.
+\end{itemize}
+Throughout, $X=T^{1/(1+\varkappa)}$, so that $K_XX\le T$ and $t\asymp\Lc$; and $\PP_*$,
+$\E_*$ denote Haar measure on $\hat{\mathbb Z}^\times$.  Under $\PP_*$ the coordinate
+$c=n\bmod L_K$ is a unit, and the residues $n\bmod\ell$, $\ell\in(X^{1/2},X]$ (all
+coprime to $L_K$), are independent of $c$ and of each other, each uniform on
+$(\mathbb Z/\ell)^\times$.  By (A1), given $c$, $H_X=\sum_\ell I_\ell$ with independent
+Bernoulli variables $I_\ell$ of mean $f_c(\ell)/(\ell-1)$.
+
+\begin{proposition}[Haar lower bound without loss; proved modulo \cite{TQ}]\label{prop:haarnoloss}
+For large $T$, $\PP_*(H_X=0)\le e^{-at^3}$ and $\delta^*(T)\le e^{-at^3}$.  Hence
+$\log(1/\delta^*(T))\gg\Lc^3$, and with Theorem~\ref{thm:haarupper},
+$\Lc^3\ll\log(1/\delta^*(T))\ll\Lc^3(\log\Lc)^5$.
+\end{proposition}
+
+\begin{proof}
+Given $c$, $\PP_*(H_X=0\mid c)=\prod_\ell(1-f_c(\ell)/(\ell-1))\le e^{-\mu_c}\le e^{-at^3}$ by
+(A2).  This holds for every unit $c$, hence also after conditioning on
+$n\equiv1\pmod{24}$, which restricts only $c\bmod3$ (note $9\in\mathcal K$) and the
+independent coordinate $n\bmod8$.  If $W(n)>T$ then $n$ lies in no atom, since
+atoms are multiplier congruences of modulus $\le K_XX\le T$; so $\delta^*(T)\le
+\PP_*(H_X=0\mid n\equiv1\ (24))\le e^{-at^3}$.
+\end{proof}
+
+This removes the factor $1/\log\Lc$ of Theorem~\ref{thm:haarlower}, at the
+price of the inputs of \cite{TQ} and ineffective constants;
+Theorem~\ref{thm:haarlower} uses only the fundamental lemma.  The reason is
+structural: each atom of \cite{TQ} has one large prime and a small
+coordinate $c$ that is revealed, so the events are conditionally
+independent and an exact product replaces the Janson-type inequality.
+
+\begin{theorem}[Typical size; proved modulo \cite{TQ} and Page's theorem]\label{thm:typical}
+There are absolute $c,c_1>0$ such that, uniformly for $x\ge3$ and
+$3\le T\le\exp(c_1(\log x)^{1/4})$,
+\[
+ \#\{p\le x\ \text{prime}:\ W(p)>T\}\ \ll\ \pi(x)\,e^{-c(\log T)^3}.
+\]
+\end{theorem}
+
+Here ``Page's theorem'' is the classical prime number theorem in
+progressions, uniform for $q\le\exp(c_2\sqrt{\log x})$, with the possible
+exceptional term \cite[Ch.~20]{Dav}: for $(a,q)=1$,
+\begin{equation}\label{eq:page}
+ \psi(x;q,a)=\frac x{\varphi(q)}-\mathbf 1[q_1\mid q]\,\frac{\chi_1(a)x^{\beta_1}}{\varphi(q)\beta_1}+O\big(xe^{-c_3\sqrt{\log x}}\big),
+\end{equation}
+where $\chi_1$ (primitive modulo $q_1$) is the possible exceptional real
+character for this range.  Any version with this range and error suffices.
+The Siegel--Walfisz theorem would not: the moduli below have size
+$\exp(C(\log\log x)^{4/3})$.
+
+\begin{proof}
+We may assume $T\ge T_0$.  For a prime $p>y$ with $W(p)>T$ we have $S_y(p)=1$ and
+$H_X(p)=0$, so $\nu_X(p)=1$; hence the count is at most
+$y+\sum_{p\le x}\nu_X(p)$, and $y=Bt^3$ is negligible.  Choose $c_1$ so that
+$\log x\ge C_0t^4$.
+
+\emph{Case A: $c_at^3\ge2\log\log x$.}  As $\nu_X\ge0$, (A3) gives
+$\sum_{p\le x}\nu_X(p)\le\sum_{n\le x}\nu_X(n)\ll xe^{-c_at^3}\le xe^{-c_at^3/2}/\log x$.
+
+\emph{Case B: $c_at^3<2\log\log x$.}  Then $t^4\ll(\log\log x)^{4/3}$, so every
+modulus $q_i$ and the sum $\sum_i|c_i|$ are at most $\exp(O((\log\log x)^{4/3}))$,
+inside the range of \eqref{eq:page} for large $x$.  Since $0\le\nu_X\le\sum|c_i|$,
+\begin{gather*}
+ \sum_{p\le x}\nu_X(p)\le\sqrt x\sum_i|c_i|+\frac2{\log x}\sum_{n\le x}\nu_X(n)\Lambda(n),\\
+ \sum_{n\le x}\nu_X(n)\Lambda(n)=\sum_ic_i\psi(x;q_i,a_i).
+\end{gather*}
+Terms with $(a_i,q_i)>1$ count only powers of the primes dividing $(a_i,q_i)$
+and contribute $O(\sum|c_i|\log q_i(\log x)^2)$.  For the others insert
+\eqref{eq:page}.  Put $\E_*\nu_X=\sum_{(a_i,q_i)=1}c_i/\varphi(q_i)$ and
+$\tilde\chi_1(n)=\chi_1(n\bmod q_1)$ on $\hat{\mathbb Z}^\times$.  Since
+$\int_{n\equiv a\ (q)}\tilde\chi_1\,d\PP_*$ is $\chi_1(a)/\varphi(q)$ if $q_1\mid q$ and $0$
+otherwise ($\chi_1$ is primitive), the main terms add up to
+$x\,\E_*[\nu_X(1-\epsilon\tilde\chi_1)]$ with $\epsilon=x^{\beta_1-1}/\beta_1\in[0,2]$.  As
+$\nu_X\ge0$ on $\hat{\mathbb Z}^\times$, this is at most $3x\E_*\nu_X$.  So
+$\sum_{p\le x}\nu_X(p)\le(6x/\log x)\E_*\nu_X+O(xe^{-c_3\sqrt{\log x}/2})$.
+On units $S_y=1$.  Given $c$, $\E_*[(H_X)_m\mid c]=m!\,e_m\big((f_c(\ell)/(\ell-1))_\ell\big)\le(2\mu_c)^m\le(2C_ut^3)^m$
+for the falling factorials, so by (A3) and Proposition~\ref{prop:haarnoloss},
+\[
+ \E_*\nu_X\le\PP_*(H_X=0)+\frac{\E_*(H_X)_{r+1}}{(r+1)!}\le e^{-at^3}+\Big(\frac{2eC_ut^3}{r+1}\Big)^{r+1}\le2e^{-at^3}
+\]
+once $D_B\ge\max(2e^2C_u,a)$.  The error term is $\ll\pi(x)e^{-at^3}$ because
+$e^{at^3}\le(\log x)^{2a/c_a}$.  In both cases the count is
+$\ll\pi(x)e^{-\min(a,c_a/2)t^3}$, and $t\asymp\Lc$.
+\end{proof}
+
+The normalisation by $\pi(x)$ rather than $x$ matters when $\Lc^3\lesssim\log\log x$.
+At $T=\exp(c_1(\log x)^{1/4})$ the theorem gives the prime case of the
+exceptional-set bound of \cite{TQ}; it is a reproof, not an improvement.  It
+is the opposite inequality to Theorem~\ref{thm:main}: an upper bound for
+the number of primes with $W(p)>T$ needs a \emph{majorant}, and for majorants
+the exceptional character costs only the factor $1+\epsilon\le3$; Theorem~\ref{thm:main}
+needs a minorant.  Heuristically (Assessment) the count is
+$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$; a matching lower bound in the
+range $\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ would follow from the main term of
+Theorem~\ref{thm:transfer} except when an exceptional character divides the
+quarantine modulus; we have not pursued this.
+
+The same atoms sharpen the ceiling of Theorem~\ref{thm:ceiling}.
+
+\begin{proposition}[Ceiling at level $c\Lc^4$; proved modulo \cite{TQ}]\label{prop:ceiling4}
+There are absolute $c,T_0>0$ such that for $T\ge T_0$, every modulus $Q$ with
+$\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$: if $B$ is a function on the
+fibre $n\equiv r\pmod Q$ of level at most $D$, with $B\le F$ pointwise and
+$\log D\le c\Lc^4$, then $\E B\le0$.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:barrier} with big coordinates $X_\ell=n\bmod\ell$ for the
+primes $\ell\in(X^{1/2},X]$ with $\ell\nmid Q$, and all other coordinates small
+(including $c=n\bmod L_K$, the residues at all other primes, and the higher
+$\ell$-adic digits at big $\ell$, as in \S\ref{sec:ceiling}).  As there, a function
+of level $\le D$ reads at most $k=\lfloor2\log D/t\rfloor$ big coordinates, since each
+big prime exceeds $X^{1/2}$.  Let $\mathcal F$ be the set of atoms with $\ell\nmid Q$;
+each reads $c$ (small, as $k\mid L_K$) and one big $X_\ell$, and
+$\mathcal F\subseteq\mathcal E$, the set of all multiplier congruences with $M\le T$.  Fix a
+small configuration; its $c$ is a unit.  By (A1), $p_\ell=f_c(\ell)/(\ell-1)\le
+\ell^{1/3}/(\ell-1)\le2X^{-1/3}=:p^*$.  At most $2\log Q/t\le T^{0.05}$ big primes
+divide $Q$, so by (A2)
+\[
+ R\ \ge\ \sum_{\ell\nmid Q}p_\ell\ \ge\ \mu_c-T^{0.05}p^*\ \ge\ at^3/2
+\]
+for $T\ge T_0$, for \emph{every} small configuration.  Since $r^*\le4X^{-1/3}$,
+$(k+1)+(2k+1)r^*\le2(k+1)\le at^3/2$ once $\log D\le c\Lc^4$ with $c$ small.  Lemma~\ref{lem:barrier}
+gives $\E B\le0$.
+\end{proof}
+
+Compared with Theorem~\ref{thm:ceiling}, the factor $1/\log\Lc$ disappears,
+and the inputs (Gallagher's theorem, Landau--Page, the fundamental lemma)
+are replaced by those of \cite{TQ} (with an ineffective $T_0$).  In
+Corollary~\ref{cor:ceiling} one may therefore replace $\Lc^4/\log\Lc$ by $\Lc^4$, and
+Theorem~\ref{thm:main} is optimal among the arguments described there up to
+a factor $(\log\log p)^{1/4}$ in $\log W(p)$.
+
+\begin{remark}[One sieve limit behind two ceilings; proved parts and Assessment]\label{rem:unified}
+The atoms of \cite{TQ} form a system with one big prime per event, big
+cost $\asymp\Lc$ and conditional mass $P\asymp\Lc^3$ uniformly in the small
+coordinates.  For such a system, order-$k$ certificates are trivial below
+$k\asymp P$ on \emph{both} sides (proved, no novelty claimed): a minorant of
+$\mathbf 1[\text{no event}]$ depending on at most $k\le0.6P-1$ big coordinates has
+conditional mean $\le0$ (Lemma~\ref{lem:planting}); a majorant of order $k$ saves
+at most $k\log(C(P+4k)/k)+O(k+\log k)$ in $\log(1/\E)$ (the binomial extrapolation of
+\cite[Lemma~8.3]{SL}, whose core is \cite{PYY,BGP}); and the Bonferroni truncations
+$Q_k(H)$ of order $k\ge e^2P$ achieve both (as minorant for odd $k$, as majorant
+for even $k$).  So the critical level is $\asymp\Lc\cdot\Lc^3=\Lc^4$.  A budget
+$\lambda\asymp\log N$ (rounding to integers) then exploits $\Lc\asymp\lambda^{1/4}$ and saves
+$\asymp\lambda^{3/4}$: this is the exceptional-set exponent $3/4$ of \cite{TQ}, which is
+sharp for coefficient-sum congruence majorants \cite[Thm.~10.14]{SL}.  A
+budget $\lambda\asymp\log x$ (transfer to primes $\le x$) exploits $\Lc\lesssim\lambda^{1/4}$:
+the exponent $1/4$ of Theorem~\ref{thm:main}, sharp in the sense of
+Proposition~\ref{prop:ceiling4}.  Within the stated scopes of these two
+ceilings this is a conjunction of proved statements; as a description of
+``the'' mechanism it is an Assessment.  The full avoidance indicator is not
+a one-big-prime system: on the minorant side the subfamily is used only
+for the obstruction (as $F\le\mathbf 1[\text{no event of }\mathcal F]$), while the positive
+minorant of Theorem~\ref{thm:assembly} is built differently.
+\end{remark}
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
@@ -2307,8 +2500,15 @@ Comput.\ Theory 1 (2009), no.~1, Art.~3.
 functions of prime numbers, Illinois J.\ Math.\ 6 (1962), 64--94.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{SL} Anonymous, Sieve limits for the Erd\H{o}s--Straus exceptional set:
+why $3/4$ is sharp for congruence sieves, research note, version~4, 2026
+(internally reviewed, not externally refereed).
 \bibitem{Tao254A} T.~Tao, 254A, Notes 4: Some sieve theory, blog post,
 21 January 2015.
+\bibitem{TQ} Anonymous, A three-quarter exceptional-set bound for the
+Erd\H{o}s--Straus equation: an internally proved research note, 2026
+(internally proved, not externally refereed); numbering as in the version of
+5 October 2026.
 \bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
 for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
 (arXiv:2108.10878v2).
