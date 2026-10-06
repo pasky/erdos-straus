@@ -306,14 +306,14 @@ with 7 replaced by r.
 **Proposition 4.1 (PROVED).**
 (i) If `r≡3 (8)`, then `(c,k,F)=(r(r+1)/4, 2, 2r+1)` is a certificate at
 every `x̂^{(r)}_w`, for every `w`, and indeed at every `x∈Σ_r` with
-`x_r≡−1 (r)`, `x≡1` at the primes of `(r+1)/4` and of `2r+1`. So the
+`x_r≡−1 (r)`, `x_q≡1` (to sufficient q-adic precision) at the primes q of `(r+1)/4` and of `2r+1`. So the
 sign point fails, with height `r(r+1)/2` (r=11: 66; r=19: 190, matching
 `typei2_formal.py`).
 (ii) If `r≡7 (8)`, Lemma 3.1 holds for `x̂^{(r)}_w` (no square
 certificates).
 *Proof.* (i) `c=r·(r+1)/4` with `(r+1)/4` odd and prime to r, `k=2`; so
 `v_r(c)=1` and the slice is unforced. `1+4ck²=1+4r(r+1)=(2r+1)²`.
-Target: `4ck=8r(r+1)/4·…`; explicitly `4ck=2r(r+1)`, whose 2-part is 8.
+Target: `4ck=2r(r+1)`, whose 2-part is 8 (as `r+1≡4 (8)`).
 `F=2r+1≡1 (r)`, `≡−1 (mod (r+1)/4)`, and `−F=−2r−1≡−7≡1 (8)` since
 `r≡3 (8)`. These match `x_r=−1`, `x=1`, `x_2≡1 (8)`.
 (ii) The proof of Lemma 3.1 used only `v_2(1+r^s)≥3` for odd s (true iff
