@@ -112,3 +112,38 @@ Re-derived line by line:
 * (vi) `A ≪ q^{3/2}` ⇒ `τ(A²)^jτ(M_1)^{j−1} ≪ q^ε` ✓; Euler product `≪ (log q)^{K_1}` (≤ stated
   `2K_1`) ✓.
 * Y-smooth variant ✓ (σ = min(1/log Y, ε_0/2), Euler factors converge since σ ≤ ε_0/2).
+
+## E. Theorem 3.1 — SOUND modulo (H) and MN Thm 5.1(a),(d) (wording repairs D1, D5, D8)
+
+Re-derived:
+* *No bad step ⇒ success.* Not bad ⇒ `f ≤ Y/N ≤ θ` at levels `a_ℓ, a_ℓ+1` and `f = 0` above
+  (Lemma 1.3), so `Λ(ℓ) ≤ (1−θ)^{−2} = K`, no death (`f = 1 > θ`), stop rule never fires ✓.
+  `a_ℓ` is the first post-prefix level (`ℓ^{a_ℓ} ‖ Q_0`) ✓; for `ℓ ≤ q_0`, `a_ℓ ≥ 1` so case (a)
+  is only `ℓ > q_0` ✓.
+* *First moment.* The bound uses `p(E^-)Ψ(E^-)` for the **restricted** event `E^-`
+  (`n ≡ −mD mod M_1ℓ^a`), which is not an atom (`M_1ℓ^a ≢ −1 (m)` in general). MN Thm 5.1(a)
+  is stated for atoms, but the per-event computation (MN review §T51) never uses atom-ness except
+  to get `p_new = 0` for completed consistent atoms, an inequality in the safe direction; so each
+  `p(F)Ψ(F)` is a supermartingale for **every** unit-class event F on quarantined coordinates ✓.
+  The text should say so (D5). Optional stopping at the (stopping) time of the step ✓;
+  `Ψ_0(E^-) = K^{ω(M_1ℓ^a)} ≤ K^{ω(M_1)+1}` ✓; prefix factor `C_ν/φ(M_1ℓ^a)` (§C) ✓;
+  summing D gives `τ(A²)` ⇒ `C_νK S_1(q)/φ(ℓ^a)` ✓.
+* *Second moment (a = 0).* Re-derived: parametrise `M_1' = g u'` (`g = gcd(M_1,M_1') | M_1`,
+  map injective), `φ(M_1') ≥ φ(g)φ(u')`, `K^{ω(M_1')} ≤ K^{ω(g)+ω(u')}`; with
+  `τ(A²)τ(A'²) ≤ (τ(A²)²+τ(A'²)²)/2` and the symmetric bound, `E[Y²1_alive] ≪
+  C_ν(log ℓ)^{O(K)}S_2(ℓ)` with `K_1 = K²` (stated `4K²` is an upper bound) ✓. `Π = 1[both
+  consistent]` just before the step since both restrictions are fully revealed ✓.
+* *(a)* `≪ C_νℓ^{−2+ε}`, summed `≪ C_ν q_0^{−1+ε}` ✓. *(b)* Markov `≪ C_ν q^{−1+ε}`;
+  `#{q = ℓ^{a+1} ∈ (x,2x], a ≥ 1} ≪ x^{1/2}` ⇒ `≪ C_ν q_0^{−1/2+ε}` ✓ (dominant term). *(c)* ✓
+  (`Σ_{ℓ≤q_0}ℓ^{−1+2ε}` is `≪ q_0^{2ε}`, not `log log q_0`; absorbed in ε — D8). *(d)* stage B:
+  for `ℓ ∈ (Z^{1/2}, Z]` level 1 is a stage-B step with Markov `≪ (log Y)^C(qY)^ε/q`, giving the
+  `Z^{−1/2+ε}` term; `Y^ε = 𝓛^{(C_K+4)ε}` is beaten by `Z^{−1/2} ≤ 𝓛^{−3/2}` once
+  `ε < 3/(2(C_K+4))` — fine since ε is free, but this ε-dependence on K should be said (D8).
+  Primes `ℓ ∈ (Z, Y]` (level 0 only in stage B) are covered by (a) ✓. `Z < Y` (needed so stage A
+  stays inside `ℓ ≤ Y`) holds as `C_K + 4 > 3` ✓.
+* *Constants.* `c_1` depends on `m, θ, ε` and the (non-explicit but effective) constants of (H);
+  "ineffective" is wrong (D2).
+* *Uniformity in T* ✓ (all sums are over T-independent sets `M_1 | L(q)`; T enters only via
+  `Z, Y` in (d)).
+
+The "Consequently" clause ✓ (with Lemma 1.1, success ≥ 1/2).
