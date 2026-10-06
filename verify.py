@@ -88,7 +88,8 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        5.1, Prop 4.1 toys, Lemma 3.2, Cor 5.3 residue counts and named small-height classes;
   (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels (heights, compatibility H1 H2 >= g/2);
   (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound and Thm 5.1 (+ sub-bounds) on exact R71 toys,
-       author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1.
+       author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1;
+  (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact planted laws; closed-form bound).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -20575,6 +20576,70 @@ def check_dp():
 
 print("\n== (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound, Thm 5.1 single rough prime (toys) ==")
 check_dp()
+
+
+
+# ---------------------------------------------------------------- (dq)
+# POINTWISE_OMEGA17.md Lemma 5.2 (capped planting; PROVED), exact rationals (cf.
+# scripts/review_o17_capped.py, run; it asserts internally).  Checked:
+# (1) R68b: on 192 random instances (n <= 8 bits, k <= 3, rational odds) satisfying
+#     R >= k r* + (k+1)/(s-1), 1 < s <= 2, the planted law nu (built by explicit summation over
+#     (k+1)-sets) has nu(0) = 0, nu >= 0, all <= k marginals equal to P's, |dnu/dP - 1| <= s - 1
+#     (attained: max ratio = 1); equal-odds boundary cases n = 4..8;
+# (2) inline, the Lemma's closed form (nu - P)(1_y)/P(1_y) = (-1)^{|y|+1} e_{k+1-|y|}(r off y)/e_{k+1}(r)
+#     against the bound s - 1, s = 1 + (k+1)/(R - k r*) (when <= 2), on a deterministic grid of
+#     odds vectors (n <= 7, k <= 3).
+
+def check_dq():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        runpy.run_path(os.path.join(sdir, "review_o17_capped.py"), run_name="__main__")
+    out = buf.getvalue()
+    assert "instances satisfying hypothesis: 192" in out, ("OMEGA17 Lemma 5.2: R68b instance count", out)
+    worst = float(out.split("max dev/(s-1): ")[1].split()[0])
+    assert worst <= 1, ("OMEGA17 Lemma 5.2: |dnu/dP - 1| > s - 1", worst)
+    assert out.count("equal odds") == 5, "OMEGA17 Lemma 5.2 boundary cases"
+
+    def esym(vals, m):
+        e = [Fraction(1)] + [Fraction(0)] * m
+        for v in vals:
+            for j in range(m, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[m]
+    ninst = 0
+    tight = Fraction(0)
+    for n in range(2, 8):
+        for k in range(0, min(3, n - 1) + 1):
+            for a in range(1, 7):
+                for b in range(1, 5):
+                    r = [Fraction(a * (i + 1), b * (n + i)) + Fraction(a, b) for i in range(n)]
+                    R, rs = sum(r), max(r)
+                    if R - k * rs <= 0 or Fraction(k + 1) / (R - k * rs) > 1:
+                        continue
+                    s1 = Fraction(k + 1) / (R - k * rs)
+                    ek1 = esym(r, k + 1)
+                    for sz in range(1, k + 2):
+                        for y in combinations(range(n), sz):
+                            rest = [r[i] for i in range(n) if i not in y]
+                            dev = esym(rest, k + 1 - sz) / ek1
+                            assert dev <= s1, ("OMEGA17 Lemma 5.2 closed form exceeds s - 1", n, k, a, b, y)
+                            tight = max(tight, dev / s1)
+                    ninst += 1
+    assert ninst > 100, ("OMEGA17 Lemma 5.2 inline grid too small", ninst)
+    print(f"dq Lemma 5.2: R68b exact planted laws (192 instances, marginals/positivity/nu(0) = 0, max dev/(s-1) = "
+          f"{worst:.3f}); closed-form bound on {ninst} inline odds vectors (max dev/(s-1) = {float(tight):.3f}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact) ==")
+check_dq()
 
 
 print("\nall checks passed")
