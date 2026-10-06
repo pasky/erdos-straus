@@ -36,7 +36,8 @@ ES holds for every prime `p∈Σ_r` with `p>B` (and the rest is a finite check).
   at `L=2^4·3^2·5·7·11·13·17·19`. The residues 5,6,8,11 mod 13 are covered at low level;
   **the survivors are all `≡2` or `7 (mod 13)`** (note `2·7≡1`), `≡1 (16)`, mostly `≡1 (9)`.
 * Larger moduli do not help at fixed prime support: with `Mmax=10⁷, 10⁸` the counts at
-  `L=2^4·3^2·5·7·11·13^2·17·19·23` are 1438, 1412 (vs 1499 at 10⁵). Survivors need new primes.
+  `L=2^4·3^2·5·7·11·13^2·17·19·23` are 1438, 1412 (R80 repair, applied by reviewer: 1499 at 10^6 and 2620 at 10^5, both confirmed by
+  `scripts/review_mordell_deep.py` and by `mordell_cover.py`; this previously read 1499 at 10⁵). Survivors need new primes.
 * Survivor structure at `L=720720`: six nodes, `x≡1 (16)`, `x≡1,7 (9)`, and
   `(x mod 11, x mod 13) ∈ {(2,2),(2,7),(6,7),(9,7)}`.
 * **13-generic points are covered.** Points with `x_q=1` for all `q≠13` are covered at
@@ -145,7 +146,8 @@ s=0,…,k). ∎
   certificates. The single-prime filter `S_13={0,5,6,8,11}` gives `p≡5,6,8,11 (13)`. The level
   sieve also handles the residues 2 and 7 mod 13, except for the listed classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
   Deeper levels shrink the exceptional set (e.g. 1412 residues mod `L=2^4·3^2·5·7·11·13^2·17·19·23`
-  in case (b), relative density 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
+  in case (b); R80 repair, applied by reviewer: relative density 7.9e-6 of the (p/13)=-1 Mordell-hard
+  residues, or 4.0e-6 of all Mordell-hard residues; this previously read 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
 
 ## 4. The candidate sterile point x* for the main variant (EVIDENCE / CERTIFIED computation)
 
