@@ -333,3 +333,106 @@ meant for sparse spectra, where each ℓ lies in few supports.) The
 exponential prefactor `e^{2‖a‖′}` is a product of per-event factors
 `e^{2|a_R|}` — e.g. `e^{O(Σ_ℓ y_ℓ)}` when the damped change `y_ℓ` caused by
 each ℓ alone is additive.
+
+## 5. One rough prime: uniform-in-X decay (the LS5 caveat removed)
+
+Notation for a fixed fibre (all classes are those of the fibre family,
+all primes rough): `Γ(m) = Π_{p^e∥m}(1−δ_p)^{−1}` (K2), for a class C
+`ω(C)` = number of primes of `G_C`, and for primes `p ≤ r`
+
+    μ̄(ℓ)     = Σ_{C∋ℓ, top(C)>ℓ} w_{top(C)} Γ(G_C)/G_C                (damped mass through ℓ)
+    m_{>r}   = Σ_{C: top(C)>r} w_{top(C)} Γ(G_C)/G_C                   (damped mass beyond r)
+    ν_{>r}(p) = Σ_{C∋p, top(C)>r} w_{top(C)} Γ(G_C) p^{v_p(G_C)}/G_C  (… through p, with p's factor removed)
+    Λ_{>ℓ}   = Σ_{q>ℓ} E_{Q′^{(ℓ)}}[p_q 1{p_q > δ_q}]                   (leak beyond ℓ)
+
+`Q′^{(ℓ)}` is Q′ with the ℓ-kernel replaced by the uniform law; its kernels
+are all `≤ (1−δ)^{−1}U`, so K2's chain rule `P(x ≡ b (m)) ≤ Γ(m)/m` holds
+for it, also conditionally on the past (as for Q′).
+
+**Theorem 5.1 (single rough prime, fixed fibre; PROVED).** Let
+`S = supp θ = {ℓ}` and let w be non-increasing in q. Then
+
+    |σ̂_tilt(θ)| ≤ Z^{−1} [ 4E_{Q′}p_ℓ + 8Λ_{>ℓ} + 8μ̄(ℓ)
+                  + 64 Σ_{C∋ℓ, top(C)>ℓ} (Γ(G_C)/G_C)·( m_{>top(C)} + Σ_{p|G_C} ν_{>top(C)}(p) ) ].
+
+*Proof.* Two corners, paths `x` (value v at ℓ) and `x′` (value v′),
+equal below ℓ; each has law `Q′^{(ℓ)}`. `Ψ = H·g_ℓ·e^{−2Y}` with
+`g_ℓ ≤ 2` the same on both corners, so by (2.1)
+`|σ̂| ≤ Z^{−1}E|Ψ(x) − Ψ(x′)| ≤ Z^{−1}E[2·1[H(x)≠H(x′)] + 2min(1, 2|Y(x)−Y(x′)|)]`.
+*Hard part.* `H(x) ≠ H(x′)` needs `v ∈ F_ℓ` or `v′ ∈ F_ℓ` (probability
+`≤ 2E p_ℓ`, `F_ℓ` depends on the common past) or a leak beyond ℓ in x or
+x′; given the past a leak at q has probability
+`(p_q−p̃_q)/(1−p̃_q) ≤ 2p_q1{p_q>δ_q}`. So `P ≤ 2Ep_ℓ + 4Λ_{>ℓ}`.
+*Soft part.* Let τ be the least element of 𝒟 (∞ if none). For tops
+`q ≤ τ` the paths agree off ℓ on all coordinates `< q`, so
+`|p̃_q(x) − p̃_q(x′)| ≤ Σ q^{−v_q(G_C)}` over the *direct* classes C ∋ ℓ with
+top q matched off-top by x or x′; for `q > τ` use `p̃_q(x) + p̃_q(x′)`.
+Hence `|Y(x) − Y(x′)| ≤ V_dir + 1[τ<∞](Y_{>τ}(x) + Y_{>τ}(x′))`, with
+`V_dir = Σ_{C∋ℓ}w_{top}top^{−v}1[C matched off-top by x or x′]`, and
+`E V_dir ≤ 2μ̄(ℓ)` by the chain rule (`P(C matched off-top) ≤
+Γ(G_C)top^{v}/G_C`). Next, by Lemma 3.1(i),(ii) and the minimality of τ,
+`τ = r` requires a direct class C ∋ ℓ with top r, matched off-top by x or
+x′, and a coin event at r of conditional probability
+`≤ 2U(F^∪_r∖F^∩_r) ≤ 4Σ_C r^{−v_r(G_C)}` (truncation changes `F̃` by at most
+twice the change of F). Conditioning on everything up to r, the chain rule
+gives `E[Y_{>r}(x) | 𝓕_{≤r}] ≤ Θ_r(x_{≤r})`,
+`Θ_r(y) = Σ_{C′: top q>r} w_q q^{−v′}·1[y matches C′ at its primes < r]·
+Γ(G′_{(r,q)})/G′_{(r,q)}` (`G′_{(r,q)}` = the part of `G_{C′}` at primes in
+`(r, q)`; the factor at r itself is dropped). Hence
+`E[1{τ=r}Θ_r(x_{≤r})] ≤ Σ_{C∋ℓ, top r}4r^{−v}Σ_{C′}a_{C′}·
+P(C matched off-top by x or x′, x matches C′ below r)`, and the last
+probability is `≤ 2Γ(L)/L`, `L` the lcm of the two congruence moduli (one
+congruence class if compatible, else 0; when the ℓ-conditions fall on
+different corner values v, v′ the probability is even smaller). If C′
+shares no prime `< r` with C, `Γ(L)/L ≤ Γ(G_C)r^{v}G_C^{−1}·
+Γ(G′_{<r})/G′_{<r}`, and summing over C′ gives at most
+`m_{>r} + ν_{>r}(r)` (the second for `r | G_{C′}`, whose r-factor was
+dropped); if C′ shares a prime p of `G_C` (choose one), the gain is
+`≥ p^{v_p(G_{C′})}` and the C′-sum is `≤ ν_{>r}(p)`. So
+`E[1{τ=r}Θ_r(x_{≤r})] ≤ 8Σ_{C∋ℓ, top r}(Γ(G_C)/G_C)(m_{>r} + Σ_{p|G_C}ν_{>r}(p))`,
+the same for `x′`, and
+`E[1{τ=r}min(1, 2Y_{>r}(x) + 2Y_{>r}(x′))] ≤ 32·Σ_{C∋ℓ, top r}(…)`.
+Collect: `2E min(1,2|ΔY|) ≤ 4EV_dir + 2Σ_r 32(…)`. ∎
+
+*Remarks.* (a) **Uniformity in X.** Every outside top enters weighted by
+`w_q`: directly in `μ̄(ℓ)`, and after a divergence through the damped
+tails `m_{>r}`, `ν_{>r}(p)`, which only see tops `> r ≥ top(C)`. The undamped
+witnesses `(−4D, ℓq)` of the LS5 caveat now contribute
+`Σ_q w_q/(ℓq)·φ(4D)^{−1}`, a convergent sum. With the undamped weights
+(`w ≡ 1`) the right side would diverge with X exactly as in LS5 §4.
+(b) **No residue information is used**: the bound involves only first
+moments of class masses through a prime (with the prime's own factor
+removed). Labels, residue-density and the (CC) count are irrelevant for
+one rough prime — they enter only through coincidences *between* S-primes
+(§6).
+(c) The divergence cascades of the coin coupling (which for huge X are
+supercritical in *undamped* mass, `(4/r)Σ_{C∋r}rΓ/G_C` can exceed 1) are
+harmless here: after the first divergence everything is bounded by the
+damped tail `Y_{>τ}`, whose conditional mean is a first moment.
+
+**What the arithmetic must supply (Assessment).** For Theorem 5.1 to give
+`|σ̂_c(θ)| ≤ Z_c^{−1}·ℓ^{−1}(log N)^{O(1)}γ^{−O(1)}` uniformly in X one needs, for
+the fibre at typical c (on average over c, plus a second moment over c for
+the exceptional event, as in LS4 Thm 5.2's `E₁`):
+* (FM1) `E p_ℓ ≤ (log ℓ)^c/ℓ` and `Λ_{>ℓ} ≤ Cℓ^{−1/4}(log ℓ)^c` — K2 (Q4),
+  Lemma 4.3 (proved there, on average over c).
+* (FM2) the damped mass through ℓ with polylog weights:
+  `Σ_{C∋ℓ, top(C)>ℓ} w_{top}Γ(G_C)(1+ω(C))(log top)^{A}/G_C ≤ C_A ℓ^{−1}·(γβ)^{−O(1)}`,
+  and for `p ≤ r`: `m_{>r}, ν_{>r}(p) ≤ C w_r (log r)^{A}(γβ)^{−1}`.
+  Partial summation reduces (FM2) to "mass through a fixed prime p with
+  top q" bounds `Σ_{C∋p, top(C)=q}Γ(G_C)p^{v}/G_C ≤ (log q)^{c}/q` **on average
+  over q** — for ℛ(M) this is `Σ_q(w_q/q)·avg_m τ(A²_{pqm})` with
+  `A = (pqm+1)/4`, i.e. Shiu in progressions mod `pq` for long cofactors m
+  (as K2 Lemma 3.2) and a Titchmarsh-divisor upper bound over the **prime**
+  q for short m (Brun–Titchmarsh plus Landreau's small-divisor domination,
+  K2 Lemma 3.4). *Pointwise* divisor bounds `τ(A²) ≤ A^{o(1)}` do **not**
+  suffice here: summed over all outside tops with weight `w_q/q` they
+  diverge for `log log X ≫ (log N)^{1/4}/γ`. (FM2) is standard in nature
+  but not written out here.
+Granting (FM1)–(FM2): `|σ̂_c(θ)| ≤ Z_c^{−1}C(γ)(log N)^{C}ℓ^{−1}` for every θ
+with one rough prime, and since `Z_c^{−1}` is free (Lemma 1.1), (A\*) holds
+for all θ with `|supp θ_r| = 1` at any rate `γ < 1/2` (the second-moment
+Markov step over c needs `Σ_ℓ ℓ^{2γ−2} < ∞`). By LS4 Thm 4.2 Remark (b),
+this would give the all-level 3/4 cap for every forced mixture and every
+large sieve **whose frequencies have at most one prime factor `> z` in
+their denominators** (CONDITIONAL on (FM2) and its second moment over c).
