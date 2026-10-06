@@ -100,8 +100,14 @@ positive integers, impossible (`1/x+1/y+1/z ≤ 3`). For (P), `K≥1` as `k≥1`
 **Consequence (measure).** With `f(N)` = #ordered positive solutions of `4/N=1/x+1/y+1/z` and
 `f_II(N)` = #N-points of `Σ^II_N` modulo dilation,
 `μ(⋃ boxes) ≤ Σ_{k≥1} 6 f(17^k) 17^{−k} + Σ_{K≥1} f_II(17^K) 17^{−⌈K/2⌉}`.
-By ET Prop 1.7 (`f_I ≪ n^{3/5+o(1)}`, `f_II ≪ n^{2/5+o(1)}`) both series CONVERGE (PROVED, but
-ineffective: ET's `n^{O(1/log log n)}` constants are not explicit). The (P) series is the critical
+Both series CONVERGE (PROVED, but with non-explicit constants) (R83 repair m1): ET Prop 1.7 *as
+stated* bounds Type I/II solutions (coprimality included), not all N-points nor `f(17^k)`. However, the
+*proof* of Prop 1.7 (ET §3) counts N-points of `Σ^I_n` resp. `Σ^II_n` obeying Lemma 2.8, whose proof uses
+only the defining equations; this gives `D_Q(k) ≪ 17^{(3/5+o(1))k}` and `D_P(K) ≪ 17^{(2/5+o(1))K}`. For
+(U), whose data are general ordered solutions of `4/17^k` (Lemma 2.2), use Browning–Elsholtz (ET ref. [8]):
+`f(n) ≪_ε n^{2/3+ε}` for all n (alternatively Lemma 5.2 below: U adds nothing new). The bounds are
+effective in principle but the constants are not explicit, and any explicit version (via Nicolas–Robin)
+is far too weak at computable levels (§4). The (P) series is the critical
 one: exponent `2/5` against measure `N^{−1/2}`.
 
 ## 3. Exact low levels (CERTIFIED by one engine; independent re-check pending)
@@ -127,8 +133,11 @@ II-boxes of POINTWISE_MORDELL §5 (cell 5, level 3) are in it. (Brute force leav
 uncovered at level ≤3; the complete enumeration 68.5%: the extra boxes have T-free part >10⁵/17³.)
 
 Number of data (`m17_enum` stderr): Q: 2, 0, 73, 0, 245, 0, 707 (k=1..7); U: 4, 0, 68, 0, 310, 0,
-826; P: 2, 0, 32, 0, 121, 0, 258, ·, 604 (K=1..9; P 9 took ≈8 min). Even K are empty (for Q, P: ET Prop 1.6, `f_I=f_II=0` at
-odd squares — PROVED; for U: computed for k=2,4,6).
+826; P: 2, 0, 32, 0, 121, 0, 258, ·, 604 (K=1..9; P 9 took ≈8 min). Even K are empty: for Q and P this is PROVED by Lemma 1.3 (direct reciprocity) (R83 repair m2:
+ET Prop 1.6's *statement* concerns Type I/II solutions, while our N-points may have `17|c` (Q) or `17|ij`
+(P); ET's proof in §4 uses only (2.1), (2.2), (2.13), (2.14) and would also apply). For U, even levels are
+only computed empty (k=2,4,6; reproduced by R83). That is harmless, since `B_k` keeps `D_U(k)` for all k
+(see also Lemma 5.2: U-data need `α−β` odd, hence k odd).
 
 **Computation 3.1.** Covered fraction of `C_5` (identical numbers for `C_7`):
 
@@ -176,7 +185,8 @@ explicit tail bound (§6). It would imply that no finite set of polynomial ES id
 Mordell-hard primes with `n_p=17`.
 
 **Status of the hypothesis of Theorem 4.1.**
-* *Ineffective convergence (PROVED).* By §2 and ET Prop 1.7, `D_Q, D_U ≪ 17^{(3/5+o(1))k}` and
+* *Non-explicit convergence (PROVED; R83 repair m1).* By §2 (proof of ET Prop 1.7 for N-points;
+  Browning–Elsholtz for U), `D_Q ≪ 17^{(3/5+o(1))k}`, `D_U ≪ 17^{(2/3+ε)k}` and
   `D_P(K) ≪ 17^{(2/5+o(1))K}`, so `Σ_k 17^{−k}B_k < ∞`; the tail beyond level `k₀` tends to 0.
   The ET constants (`n^{O(1/log log n)}` from the divisor bound) are not explicit, so this does
   not give a `k₀` that the computation reaches.
