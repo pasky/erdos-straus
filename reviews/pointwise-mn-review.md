@@ -14,6 +14,22 @@ Reviewer branch: side-agent/review-mn. Scripts: `scripts/review_mn_*.py` (from s
 | Cor 6.1 | SOUND-AFTER-REPAIRS (§C61; MAJOR-1 = proof must be written out; MINOR-5) |
 | Thm 5.1 (implication) | SOUND-AFTER-REPAIRS (§T51; MINOR-2..4); label CONDITIONAL honest |
 
+**Overall.** No FATAL defect; no mathematical error found in any PROVED claim. One MAJOR (Cor 6.1 is
+labelled PROVED but its substitution proof is only a bullet sketch, and three OMEGA12/OMEGA11 sentences
+that are false for odd m are not replaced in the text) and six MINOR. Labels otherwise honest: Thm 5.1
+is correctly CONDITIONAL, §6 correctly EVIDENCE. The key structural claim — the 1/4 machinery extends
+exactly to m ≡ 0 (4) and breaks for m ≢ 0 (4) only at OMEGA13 Lemma 3.1 — is confirmed.
+
+### Defect index
+* MAJOR-1 — §6b / Cor 6.1: write the substitution proof out (items (i)–(v) in §C61); until then the
+  label should say "substitution sketch".
+* MINOR-1 — §3: "hard" = Type-II-hard only; say no Type I statement is made.
+* MINOR-2 — §5: ADM_m must fix Y = Y(K) (the proof uses `Y = 𝓛^{C_K+4}`).
+* MINOR-3 — §5(d): display `Π_new = pp'N²1[match]` → `Π·N·1[match]`.
+* MINOR-4 — §5 AUP: for odd m, declare 2 an ordinary coordinate; drop "M odd ⇒ p_0 = P_H".
+* MINOR-5 — Cor 6.1: output primes are ≡ 1 (Q), Type-II-hard only; say so near "Sierpiński's 5/n".
+* MINOR-6 — §3: `H_5(840) = {r ≡ 1 (4), r mod 7 ∈ {1,3,5}}`; {1,3,5} is not "1 plus the non-residues".
+
 ## §L1 Lemma 1.1
 
 Re-derived: `gcd(M,mA)=1` since `M=mA−1`; primes of D divide A, so `−mD = −e·□` with □ a unit mod M;
