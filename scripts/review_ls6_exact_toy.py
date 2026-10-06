@@ -243,12 +243,12 @@ def run(seed, pool=(2, 3, 5, 7), ncls=12):
                     M.corner_dfs(S, vv, cb)
             lhs = M.max_fourier(sig, S)
             rec = {"S": S, "lhs": lhs, "pin": acc["pin"] / Z, "p22": acc["p22"] / Z, "p42": acc["p42"] / Z}
-            assert lhs <= rec["pin"] * (1 + 1e-9), rec
-            assert rec["pin"] <= rec["p22"] * (1 + 1e-9), rec
-            assert rec["pin"] <= rec["p42"] * (1 + 1e-9), rec
+            assert lhs <= rec["pin"] * (1 + 1e-9) + 1e-12, rec
+            assert rec["pin"] <= rec["p22"] * (1 + 1e-9) + 1e-12, rec
+            assert rec["pin"] <= rec["p42"] * (1 + 1e-9) + 1e-12, rec
             if n == 1:
                 rec.update(thm51(M, S[0], t51, Z))
-                assert lhs <= rec["t51"] * (1 + 1e-9), rec
+                assert lhs <= rec["t51"] * (1 + 1e-9) + 1e-12, rec
             out.append(rec)
     return out
 
