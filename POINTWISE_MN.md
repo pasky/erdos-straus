@@ -180,29 +180,27 @@ By construction no atom ever fires (every atom whose coordinates are all quarant
 inconsistent with r), so the β-local lemma applies to the residual system, and by Lemma 4.1 the
 transfer applies to the fibre `rH`.
 
-**Small-prime prefix.** Fix a constant `L_0 = L_0(m)`. Let `H_0 ⊂ ∏_{ℓ≤L_0} Z_ℓ^×` be the set of
-classes avoiding every atom whose primes are all `≤ L_0` (no bound on M). Its Haar measure
-`δ_0 = δ_0(m,L_0)` is positive: the total Haar mass `Σ_{M L_0-smooth}τ(A_M²)/φ(M)` is finite,
-`1 ∈ H_0` (TRANSFER Lemma 5.1(ii)), and the tail of that mass beyond a large `Q_0` is `< 1/2`, so
-`{r ≡ 1 (Q_0)} ∩ H_0` has measure `≥ 1/(2φ(Q_0))`. The *prefixed* AUP first draws
-`r_0 ~ Haar | H_0`, fixes all digits of r at the primes `ℓ ≤ L_0` up to depth
-`⌊log T/log ℓ⌋` (cost `≤ π(L_0)𝓛`), and then runs the AUP on the primes `L_0 < ℓ ≤ Y`.
-Since the law of `r_0` has density `≤ 1/δ_0` w.r.t. Haar, every initial mass and pair mass is
-at most `1/δ_0` times its Haar value — a constant loss.
+**Small-prime prefix.** Fix a constant modulus `Q_0 = Q_0(m)` (e.g. `∏_{ℓ≤L_0}ℓ^{k_0}`). Let
+`H_m(Q_0)` be its Type-II-hard set (§3); it is non-empty (`1 ∈ H_m(Q_0)`, TRANSFER Lemma 5.1(ii)),
+so its density is `δ_0 ≥ 1/φ(Q_0) > 0`. The *prefixed* AUP starts from `Q = Q_0` with
+`r_0 = r mod Q_0` uniform on `H_m(Q_0)` (cost `log Q_0 = O_m(1)`), and then runs the AUP on all
+further digits (including deeper digits of the primes dividing `Q_0`). No atom with `M | Q_0`
+fires. Since the law of `r_0` has density `≤ 1/δ_0` w.r.t. Haar, every initial mass and pair
+mass is at most `1/δ_0` times its Haar value — a constant loss.
 
-**Hypothesis ADM_m(K, L_0).** For constants `K = K_m`, `L_0 = L_0(m)`, uniformly in large T (with
+**Hypothesis ADM_m(K, Q_0).** For constants `K = K_m`, `Q_0 = Q_0(m)`, uniformly in large T (with
 OMEGA13's `β, η, Y`), with probability `≥ 7/8` the prefixed AUP does not die and
-`Λ_end(ℓ) ≤ K` for every `L_0 < ℓ ≤ Y`.
+`Λ_end(ℓ) ≤ K` for every `ℓ ≤ Y` (Λ counts the steps after the prefix).
 
-Without the prefix (`L_0 = 0`) the hypothesis is false-looking for some m: for `m = 7` the
+Without the prefix (`Q_0 = 1`) the hypothesis is false-looking for some m: for `m = 7` the
 unprefixed process dies at `ℓ = 3` in 2 of 40 runs (`T = 2·10⁴`), because a random 2-adic class
 can be incompatible with every class mod 3 (§6).
 
 For `m ≡ 0 (4)` the square-restricted version holds with `K = 2` (it is OMEGA13 Lemma 3.1, i.e.
 Lemma 1.1(d): nothing is ever forbidden inside the squares). For `m ≢ 0 (4)` it is open.
 
-**Theorem 5.1 (CONDITIONAL on ADM_m(K, L_0); the implication is PROVED modulo the inputs of OMEGA13
-Thm 3.4/5.1).** Under ADM_m(K, L_0):
+**Theorem 5.1 (CONDITIONAL on ADM_m(K, Q_0); the implication is PROVED modulo the inputs of OMEGA13
+Thm 3.4/5.1).** Under ADM_m(K, Q_0):
 `log(1/δ*_m(T)) ≪ 𝓛³(log𝓛)^{K+4}`, and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−B_K})` for
 infinitely many primes p (Type-II-hard modulo their quarantine modulus).
 
