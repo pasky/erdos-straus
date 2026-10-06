@@ -128,3 +128,96 @@ C_s (log z/γ)^{s+1}`. ∎
 (The bound is uniform in X: the damping `w_Q` makes the sum over the top
 converge, and Rankin's factor makes the sum over n at fixed top converge.
 This is the "Shiu in progressions" input of (FM2), in damped form.)
+
+## 3. (RD) at a single prime for the ℛ(M) classes
+
+For a rough prime p and `a ∈ (ℤ/p)^×` let
+
+    μ^{ℛ,>}_a(p) := Σ_{M ≡ 3 (4), p | M, P(M/p) > p}  Σ_{C ∈ ℛ(M): b_C ≡ a (p), H*(C) > p^{1/4}}  w_{P(M)}Γ(M)·p/M,
+
+the ℛ-part of LS6's `μ^>_a({p})` for the **full** family (all moduli M,
+smooth parts included; the rough-modulus subfamily present in every fibre
+is a sub-sum; fibres are discussed in §6). With `n = M/p`, Lemma 1.1 and
+`Γ(M) ≤ 2Γ(n)`:
+
+    μ^{ℛ,>}_a(p) ≤ 2 Σ_{(u,v,t) ∈ 𝒯_a(p)} W_p((4uvt − 1)/p),                 (3.0)
+
+    𝒯_a(p) := {(u,v,t) ∈ ℕ³ : 4uvt ≡ 1, u ≡ −av (mod p), min(max(u,v), 4u²t, 4v²t) > p^{1/4}}
+
+(every class is `−4D` for at least one `D | A²`, i.e. one triple; the
+triple's three label heights are `≥ H*(C)`; coprimality of `(u,v)` is
+dropped).
+
+**Theorem 3.1 ((RD) at one prime, ℛ(M) classes; PROVED, given Shiu's
+theorem).** There is an absolute C such that for every prime `p ≥ z`,
+every `a ≢ 0 (mod p)` and every X (the bound does not depend on X):
+
+    μ^{ℛ,>}_a(p) ≤ C γ^{−5} (log p)^{6} · p^{−1/12}.
+
+*Proof.* Fix `α = 1/100`. Split `𝒯_a(p)` into dyadic boxes
+`B = [U,2U)×[V,2V)×[T,2T)` (U, V, T powers of 2) and put `Y_B = UVT/p`.
+Triples in B have `n = (4uvt−1)/p ∈ [3Y_B, 32Y_B)`, and `n > p` (as
+`P(n) > p`), so only boxes with `UVT > p²/32` occur. Distinct triples
+with the same `(v,t)` give distinct n. Four cases.
+
+*Case L_u: `16VT ≤ Y_B^{1−α}`.* Fix `(v,t)`. The admissible u are those
+with `4uvt ≡ 1 (p)`, and `n = (4uvt−1)/p` then runs injectively through
+the single class `n ≡ −p^{−1} (mod 4vt)` (reduced, since `pn ≡ −1`).
+Lemma 2.1 with `k = 4vt ≤ Y^{1−α}` for every dyadic `Y ∈ [Y_B, 32Y_B]`
+gives `Σ_u W_p(n) ≤ C Ξ̂(Y_B)/(vt)`, `Ξ̂(Y_B) := Σ_{Y=2^i∈[Y_B,32Y_B]}Ξ_p(Y)`.
+The pairs `(v,t)` in the box satisfy `v²t ≡ c′ := −1/(4a) (mod p)`
+(Lemma 1.2) and `4v²t > p^{1/4}`. For each v, t lies in one class mod p;
+for each t, v lies in at most two; hence their number is
+`≤ min(V(T/p+1), 2T(V/p+1)) ≤ 2VT/p + 2min(V,T)`, and it is 0 unless
+`32·max(V,T)³ ≥ 4(2V)²(2T) > p^{1/4}`, i.e. unless
+`max(V,T) ≥ p^{1/12}/4`. So
+
+    Σ_B ≤ C Ξ̂(Y_B)·(2/p + 2·1[max(V,T) ≥ p^{1/12}/4]/max(V,T)).
+
+*Case L_v: `16UT ≤ Y_B^{1−α}`.* Same, with the roles of u and v exchanged:
+pairs `(u,t)` with `u²t ≡ −a/4 (p)` and `4u²t > p^{1/4}`; n runs through
+the class `−p^{−1} mod 4ut`. Same bound with `max(U,T)`.
+
+*Case L_t: `16UV ≤ Y_B^{1−α}`.* Fix `(u,v)`; n runs through
+`−p^{−1} mod 4uv`. Pairs: `u ≡ −av (p)`, `max(u,v) > p^{1/4}`; number
+`≤ min(V(U/p+1), U(V/p+1)) ≤ UV/p + min(U,V)`, zero unless
+`max(U,V) ≥ p^{1/4}/2`. Same bound with `max(U,V)` and `p^{1/4}/2`.
+
+*Case S: none of the three.* Multiplying the three failed inequalities,
+`16³(UVT)² > (UVT/p)^{3(1−α)}`, so `UVT < C p^{(3−3α)/(1−3α)} ≤ Cp^{3.07}`,
+and each side, e.g. `U = UVT/(VT) < 16p^{1−α}(UVT)^α ≤ Cp^{1.021}`.
+Counting as above (fix the variable with the fewest values; the other two
+are then each in one class mod p, resp. v in two classes when t is fixed):
+`#(𝒯_a ∩ B) ≤ 2(1 + Cp^{0.021})²·min(U,V,T)`. Here `n ≤ 32Y_B ≤ Cp^{2.07}`,
+so `W_p(n) ≤ Γ(n)/n ≤ C_δp^{δ}·p/(UVT)` (no damping used). With
+`min(U,V,T) ≤ (UVT)^{1/3}` and `UVT > p²/32`:
+`Σ_B ≤ C_δ p^{1+δ+0.042}(UVT)^{−2/3} ≤ C p^{−0.28}`. There are
+`≤ (C log p)³` such boxes.
+
+*Summation.* Every box is in at least one case; assign it to one. The
+`2/p` terms: for a dyadic `Y = 2^i`, the boxes with `Y ∈ [Y_B, 32Y_B]`
+number `≤ 6(i + log₂p + 1)²`, so their total is
+`≤ (C/p)Σ_i (i + log p)²Ξ_p(2^i) ≤ (C/p)(log p)²(log z/γ)^5` (Lemma 2.2,
+r ≤ 2). The `1/max` terms: `Σ_U Ξ̂(UVT/p) ≤ 6Σ_iΞ_p(2^i) ≤ C(log z/γ)³`
+for each (V,T), and `Σ_{V,T: max(V,T) ≥ p^{1/12}/4} 2/max(V,T) ≤
+C log p·p^{−1/12}` (there are `2k+1` dyadic pairs with `max = 2^k`).
+Cases L_v, L_t alike (L_t even with `p^{−1/4}`). Case S: `≤ Cp^{−1/4}`.
+Collect, use `log z ≤ log p` and (3.0). ∎
+
+*Remarks.* (a) **Why the short cofactors cause no trouble.** LS6 §6.2
+feared the regime "one cofactor per divisor", where divisor-in-class
+bounds (Lenstra, Coppersmith–Howgrave-Graham–Nagaraj) give only `O(1)`
+per modulus. In the triple picture there is no distinguished divisor:
+whichever of u, v, t is long carries the progression (Case L), and
+when none is long (Case S) the whole configuration lives at scale
+`≤ p^{1+o(1)}` per coordinate with total `UVT ≥ p²/32`, where the
+residue condition (two of the three coordinates pinned mod p by the
+third) beats the weight `p/(UVT)` trivially. The pinning of Lemma 1.2 —
+a residue mod p of the class fixes the residues of **two** of the
+coordinates — is what replaces divisor-in-residue-class bounds.
+(b) The exponent 1/12 comes only from the small-height cut at
+`p^{1/4}` (a height `> H₀` forces some coordinate `> (H₀/32)^{1/3}`); with
+cut `p^{κ}` the same proof gives `p^{−min(κ/3, 1/4)}`. The concentration of
+Prop 6.2 of LS6 (`(u,v,t)` with `4v²t = 4`, i.e. label `−1/4`… and its
+relatives) is exactly the part removed by the cut: the `1/max(V,T)` term
+is attained by the single pair `(v,t)` of small height in a fixed class.
