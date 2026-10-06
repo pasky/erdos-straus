@@ -155,7 +155,8 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
-    then no finite set of polynomial ES identities covers {n_p = 17}
+    then no finite set of polynomial ES identities covers the Mordell-hard
+    primes with n_p = 17
     (CONDITIONAL, Cor 4.2). Existence is Conj 4.3 (CONJECTURE). Levels ≤ 5
     leave 67.7% of each non-residue cell uncovered (CERTIFIED).
   * Candidate sterile points (r = 13, 17, and `x̂_9` for Type I) remain

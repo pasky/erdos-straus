@@ -1199,8 +1199,9 @@ specialist search would not find an identical prior statement.
   limit `log D ≍ κ log z`, proved here as barriers for all certificates in
   the stated classes.
 * *Not audited by either pass:* EXCEPTIONAL_SPW/SPW2, LARGESIEVE5–7,
-  TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2, POINTWISE_TAIL,
-  POINTWISE_TYPEI2 and POINTWISE_WINDOW3.
+  TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2/MN3, POINTWISE_TAIL,
+  POINTWISE_TYPEI2/TYPEI3, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS,
+  POINTWISE_MORDELL and POINTWISE_MORDELL17.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
@@ -1208,6 +1209,9 @@ specialist search would not find an identical prior statement.
 * Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
 * POINTWISE_XWIN Thm 2.2 (window tail) re-proves what notes Thms
   14.4/14.9 already imply; priority to the notes.
+* POINTWISE_MORDELL Thm 3.1 (r = 13) is an explicit packaging of the
+  Salez/ET level sieve; Salez's data already give a mod-120120 analogue
+  (modest novelty, per its review).
 * The GRH part of POINTWISE_TYPEI (Thm 3.1) is Montgomery's Ω-result for
   the least non-residue, transported (sources cited from memory).
 * Audit 10b covers KARY3, LARGESIEVE–LS4, CEILINGS_UNIFIED, XWIN and
@@ -1243,14 +1247,17 @@ ratings are this summary's judgement, not ledger labels.
    * *Opening* questions (would give θ > 3/4 if true):
      **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE), alternating witness
      correlations of growing order, needing accuracy at moduli
-     `exp(c(log N)^{3θ/2})`, beyond any known theorem; per-frequency
-     weights below 1; other genuinely non-CRT input.
+     `exp(c(log N)^{3θ/2})`, beyond any known theorem; other genuinely
+     non-CRT input.
    * *Closing* questions (would extend the cap; a counterexample would
      open a door): **(A*) / (DCC) / (RD′)** for residue-dense multi-rough
      classes ((D)28 follow-ups; the most concrete: (RD) is proved at one
      prime for ℛ(M) and for long cofactors, and short cofactors and the
      (a,D)/Case-A classes are what is left); **weak SPW** for hybrids
-     ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`).
+     ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`);
+     **(W_𝔊)** for per-frequency weights below 1 ((D)29: for Selberg's
+     window the door is capped at 3/4 iff the shift-uniform avoider count
+     satisfies `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`).
 3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
    rate is `log W ≫ (log p)^{1/4}` up to logs; the Haar exponent and the
    tail exponent over primes are both 3 (§3.3); 1/4 is the ceiling of the
@@ -1267,7 +1274,8 @@ ratings are this summary's judgement, not ledger labels.
    * smaller tasks: remove the `(log log p)^{1/4}` gap to the ceiling and
      the `(log log T)³` factor in the tail; close the `(log 𝓛)^5` gap in
      the Haar exponent; m/n with m ≢ 0 (4) at exponent 1/4 (prove SI,
-     (H)32).
+     (H)32; POINTWISE_MN3 localises the failure to a Kloosterman-range
+     residual and the second moment (M2), a CONJECTURE).
 4. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
@@ -1286,8 +1294,16 @@ ratings are this summary's judgement, not ledger labels.
    Congruence input gives exactly `g = 1` (§3.3); beating
    `log p·log₃p` by congruences would beat known Ω-results for the least
    non-residue. Whether `C(7) < ∞` is open: every finite Type-I covering
-   of `{n_p = 7}` has height > 3·10⁹ (CERTIFIED, POINTWISE_TYPEI2), and
-   under H, `C(7) = ∞` iff the sign point `x̂_9` is sterile (Conjecture 3.4).
+   of `{n_p = 7}` has height > 1.32·10¹² (CERTIFIED, POINTWISE_TYPEI3), and
+   under H, `C*(r) = ∞` iff a sterile profinite point exists (TYPEI2
+   Thm A); the sign point `x̂_9` is the candidate (Conjecture 3.4; descent
+   levels 5–6 empty, level 7 open). Analogous candidate sterile points
+   for Mordell-type coverings: x* for r = 13 (Conj 4.2) and r = 17
+   (Conj 4.3, reduced by MORDELL17 Thm 4.1 to an explicit prime-power
+   count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`).
+   No sterile point is proved. A proved one would give `C(7) = ∞` under H
+   (for `x̂_9`), or show that no finite set of polynomial ES identities
+   covers the corresponding primes (r = 13, 17).
 7. **An unconditional sterile seed component.** (I low–medium, F low.)
    Astra has reduced its hypothesis to 158 prime conditions plus one
    divisor condition; searches over actual inputs find no sterile prime.
