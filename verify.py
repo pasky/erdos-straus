@@ -20318,4 +20318,52 @@ print("\n== (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (minorant / maj
 check_dl()
 
 
+
+# ---------------------------------------------------------------- (dm)
+# POINTWISE_WINDOW3.md §3 and §8.1 (EVIDENCE: discrete-model LPs; cf. scripts/window3_lp.py, run
+# as a subprocess; needs scipy and mpmath, skipped otherwise).  Checked on the faithful
+# cell-integrated law (eps = 0.1, K = 8, theta = 1/2, rep visibility):
+# (1) §3 one-window row: min nu(empty)/tau = 0.4893, certified (float dual bound = primal value);
+# (2) §8.1 / Prop 8.1 K = 2.5 row: LP with prefix-family caps 2.499, repaired on its support in
+#     50-digit mpmath: support 628, x >= 0 with min nu/mu on support 0.0566, x_empty = 0, exact
+#     correlation rows, worst family excess -1.0e-3 < 0 ("verified" fake).
+
+def check_dm():
+    from time import perf_counter
+    import json
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    try:
+        import scipy  # noqa: F401
+        import mpmath  # noqa: F401
+    except ImportError:
+        print("dm WINDOW3 LP replays skipped (no scipy/mpmath)")
+        return
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2")
+
+    def run(*extra):
+        r = subprocess.run([sys.executable, os.path.join(sdir, "window3_lp.py"), "0.1", "8", "0.5", *extra],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("WINDOW3 window3_lp.py failed", extra, r.stderr[-2000:])
+        return json.loads(r.stdout.strip().splitlines()[-1])
+    one = run("--one")
+    assert one["status"] == 0 and abs(one["min_nu0"] - 0.4893) < 5e-5, ("WINDOW3 §3 one-window value", one["min_nu0"])
+    assert abs(one["dual_lb"] - one["min_nu0"]) < 1e-9, ("WINDOW3 §3 one-window: dual bound != primal", one)
+    fk = run("--swz=2.499:prefix", "--certify", "--certK=2.5")
+    assert fk["status"] == 0 and fk.get("cert") is True, ("WINDOW3 §8.1 K = 2.5: certification failed", fk)
+    assert fk["support"] == 628 and abs(fk["cert_min_x"] - 0.0566) < 5e-4, ("WINDOW3 §8.1 support / min nu/mu", fk)
+    assert fk["cert_eq_resid"] < 1e-40 and fk["cert_worst_fam_excess"] < 0, ("WINDOW3 §8.1 residual / family excess", fk)
+    assert fk["min_nu0"] == 0.0, ("WINDOW3 §8.1: x_empty should be 0", fk["min_nu0"])
+    print(f"dm §3 one window: min nu(0)/tau = {one['min_nu0']:.5f} = dual bound (cert); §8.1 K = 2.5 fake verified "
+          f"(support {fk['support']}, min nu/mu {fk['cert_min_x']:.4f}, family excess {fk['cert_worst_fam_excess']:.1e}, "
+          f"50 digits); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake ==")
+check_dm()
+
+
 print("\nall checks passed")
