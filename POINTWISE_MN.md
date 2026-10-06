@@ -161,3 +161,54 @@ consistency and the `ℓ_aux` construction (`r' ≡ r (Q)`, `r' ≡ 1 (ℓ_aux)`
 
 So the square condition in OMEGA13 serves only the *quarantine* (Lemma 3.1), not the transfer.
 "Mordell-hardness" of the output primes becomes: p is Type-II-hard modulo the quarantine modulus.
+
+## 5. m ≢ 0 (mod 4): the admissible-class process and the exact missing input
+
+Since no quadratic structure is available (§2), the natural replacement of the square-class
+process is to forbid, at each step, exactly the classes that would fire an event.
+
+**The admissible unit process (AUP).** Start from `Q = 1`. Coordinates, events, fibre masses
+`w̃_ℓ`, threshold η and eligibility `ℓ ≤ Y` are as in OMEGA13 §3, with fibre `n ≡ r (Q)`.
+A step at `(ℓ,a)` is taken while `w̃_ℓ > η` (any fixed tie-break rule, e.g. the smallest heavy
+prime first). Before the step, call a class `x mod ℓ^{a+1}` of the current fibre *forbidden* if
+some atom `(M,D)` with `v_ℓ(M) = a+1`, all other prime powers of M already in Q, and
+`−mD ≡ r (mod M/ℓ^{a+1})`, has `−mD ≡ x (mod ℓ^{a+1})`. Let `f ∈ [0,1]` be the forbidden fraction
+(a predictable quantity). The step reveals `r mod ℓ^{a+1}` uniformly among the non-forbidden
+classes. If `f = 1` the process *dies*. Let `Λ(ℓ) := ∏_{steps at ℓ}(1−f)^{−1}`.
+
+By construction no atom ever fires (every atom whose coordinates are all quarantined is
+inconsistent with r), so the β-local lemma applies to the residual system, and by Lemma 4.1 the
+transfer applies to the fibre `rH`.
+
+**Hypothesis ADM_m(K).** For some constant `K = K_m`, uniformly in large T (with OMEGA13's
+`β, η, Y`), with probability `≥ 7/8` the AUP does not die and `Λ_end(ℓ) ≤ K` for every `ℓ ≤ Y`.
+
+For `m ≡ 0 (4)` the square-restricted version holds with `K = 2` (it is OMEGA13 Lemma 3.1, i.e.
+Lemma 1.1(d): nothing is ever forbidden inside the squares). For `m ≢ 0 (4)` it is open.
+
+**Theorem 5.1 (CONDITIONAL on ADM_m(K); the implication is PROVED modulo the inputs of OMEGA13
+Thm 3.4/5.1).** Under ADM_m(K):
+`log(1/δ*_m(T)) ≪ 𝓛³(log𝓛)^{K+4}`, and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−B_K})` for
+infinitely many primes p (Type-II-hard modulo their quarantine modulus).
+
+*Proof.* Only Lemma 3.2 of OMEGA13 changes; replace `2^{u_i(E)}` by
+`Ψ_i(E) := ∏_{ℓ|M, ℓ≤Y} K/Λ_i(ℓ)` and stop the process (declaring failure) *before* a step that
+would make some `Λ(ℓ) > K` (possible since f is predictable; death is the case `Λ = ∞`).
+* (a) `G_i = Σ_E p_i(E)Ψ_i(E)φ(E)` is a nonnegative supermartingale up to the stopping time:
+  at a step at `(ℓ,a)`, atoms with `ℓ ∤ M` (or with `v_ℓ(M) ≤ a`) are unchanged in law; an atom with
+  `v_ℓ(M) ≥ a+1` that is not completed by this step has `E[p_new] ≤ p/(1−f)` (its class is
+  hit with probability `≤ 1/((1−f)N)` instead of `1/N`), while `Ψ` is multiplied by `(1−f)`;
+  a completed consistent atom has `p_new = 0` (its class is forbidden). On the success event
+  `Λ ≤ K`, so `Ψ ≥ 1`.
+* (b), (c) follow by the same optional-stopping argument, with `2^{ω_Y(M)}` replaced by
+  `K^{ω_Y(M)}`, on the success event. (d): the pair potential `Π_i Ψ_i(F)Ψ_i(F')` is a
+  supermartingale by the same case check (an agreeing step multiplies Π by `N_adm·1[match]`
+  with `N_adm = (1−f)N` classes, mean ≤ Π/(1−f)… compensated by both Ψ's), giving `K^{ω_Y+ω_Y'}`.
+* Lemma 3.3: NT applies with `f_2(p) ≤ Kβ·(p/φ(p))` at `p ≤ Y` (bounded multiplicative), so
+  `S_H^β ≪ 𝓛³(log Y)^{K}`, the cost sum `≪ 𝓛³(log Y)^{K+3}`; 3.3(B) is uniform (`Ξ ≪_K 𝓛^{C_K}`).
+* Thm 3.4: the four bad events (failure, a heavy late prime, cost `> 8E`, `S_res > 8E`) each
+  have probability `≤ 1/8` (`Y = 𝓛^{C_K+4}`), so a good realisation exists; Lemma 1.1 on the
+  fibre gives the Haar bound. Thm 5.1: as in §3, item 7, with Lemma 4.1 for I3. ∎
+
+So for `m ≢ 0 (4)` the 1/4 machinery is reduced to the single probabilistic input ADM_m:
+*a random hard class, revealed prime by prime, never has most of its next digit forbidden*.
