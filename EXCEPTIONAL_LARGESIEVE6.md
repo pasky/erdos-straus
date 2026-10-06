@@ -241,3 +241,83 @@ Each `ℓ ∈ B` needs a chain to the charged top (Lemma 3.1(iii)) — or, for
 an outside top q only through `φ_q` (weight `w_qΔ_q`) or a leak `λ_q`
 (only on heavy steps), and otherwise must reach an S-top `ℓ′ > ℓ`, where
 it meets ℓ′'s own coincidence.
+
+## 4. Removing the partition sum: the Walsh form of the soft-pivotal bound
+
+*Why Prop 2.2 is lossy.* Its partition sum over 𝔅 and the assignment of
+blocks to individual factors `φ_q` overcount when many factors are
+functions of the same event. Example: if `v_ℓ ≡ −4 (mod ℓ)` for every
+`ℓ ∈ B` (probability `Π_{ℓ∈B}ℓ^{−1}`), the residue `−4 mod q` is
+activated at every `q ≡ 3ℓ^{−1} (4)` iff `A ⊉ B`, so
+`Π_qφ_q(A) = e^{−c}·e^{c1[A⊇B]}` with `c = Σ_q 2w_q/q·(…) = O_γ(1)`: the
+true `|D_B| = e^{−c}(e^{c}−1) = O(1)`, but Prop 2.2 sums over all
+partitions of B into blocks charged to distinct q's and gets
+`≍ Bell(|B|)` (a per-prime loss `|B|/log|B|`, fatal for `|S| ≫ z^{1−γ}`).
+The cure is to treat all soft factors as **one** exponential and expand it
+in the Walsh basis of the corner cube.
+
+**Lemma 4.1 (exponential Walsh-cover bound; PROVED).** Let U be finite,
+`Y*: 2^U → [0,∞)`, `χ_R(A) = (−1)^{|A∩R|}`,
+`a_R = 2^{−|U|}Σ_A Y*(A)χ_R(A)` (so `Y* = Σ_R a_Rχ_R`), and
+`‖a‖′ = Σ_{R≠∅}|a_R|`. Then
+
+    |D_U e^{−Y*}(∅)| ≤ 2^{|U|} e^{‖a‖′} Σ_{𝒯 ⊆ 2^U∖{∅}, △𝒯 = U} Π_{R∈𝒯}|a_R|
+                    ≤ 2^{|U|} e^{2‖a‖′} Π_{ℓ∈U} ( Σ_{R∋ℓ} β_R ),
+
+`β_R := max(|a_R|, |a_R|^{1/|R|})` (△ = symmetric difference). Moreover
+`a_R = 0` unless `R ⊆ Piv(Y*)`, `|a_R| ≤ Δ(Y*)/2` for `R ≠ ∅`, and
+`Y* ↦ a` is linear.
+
+*Proof.* `D_Uf(∅) = (−1)^{|U|}Σ_Aχ_U(A)f(A) = (−1)^{|U|}2^{|U|}f̂(U)`.
+`e^{−Y*} = e^{−a_∅}Π_{R≠∅}(cosh a_R − χ_R sinh a_R)` (as `χ_R = ±1`);
+expanding, `χ_{R_1}⋯χ_{R_k} = χ_{R_1△⋯△R_k}`, so
+`|f̂(U)| ≤ e^{−a_∅}Π_{R≠∅}cosh a_R·Σ_{△𝒯=U}Π_{R∈𝒯}|tanh a_R|`, and
+`a_∅ = mean(Y*) ≥ 0`, `cosh x ≤ e^{|x|}`, `|tanh x| ≤ |x|`. Second
+inequality: a family with `△𝒯 = U` covers U; every cover contains a
+minimal subcover 𝒯₀, so the sum is `≤ Π_R(1+|a_R|)·Σ_{𝒯₀ minimal}Π_{𝒯₀}|a_R|`.
+In a minimal cover every R has a private element; map each `ℓ ∈ U` to an
+`R(ℓ) ∋ ℓ` in 𝒯₀, private elements to their own set. Every R then receives
+`n_R ∈ [1, |R|]` elements and `|a_R| = Π_{ℓ: R(ℓ)=R}|a_R|^{1/n_R} ≤
+Π β_R`; distinct minimal covers give distinct maps (the image is 𝒯₀), so
+`Σ_{𝒯₀}Π|a_R| ≤ Σ_{maps}Π_ℓβ_{R(ℓ)} = Π_ℓΣ_{R∋ℓ}β_R`. Finally: if
+`ℓ ∈ R∖Piv(Y*)`, Y* does not depend on `A_ℓ` and `Σ_{A_ℓ}χ_ℓ = 0`; for
+`R ≠ ∅`, `a_R = 2^{−|U|}Σ_A(Y*(A) − c)χ_R(A)` for any constant c. ∎
+
+**Proposition 4.2 (soft-pivotal bound, Walsh form; PROVED).** In the setting
+of §2.2 write `Ψ = H·e^{−Y*}` with the 0/1 function
+`H = Π_{ℓ∈S}h_ℓΠ_{q∉S}λ_q` and
+`Y* = 2Σ_{q∈𝒫}w_qp̃_q + Σ_{ℓ∈S}L_ℓ`, `L_ℓ = −log(1−p̃_ℓ)` (all functions of
+the corner A). For `T ⊆ S` and a corner `A_T ⊆ T`, let
+`a^{(A_T)}_R` (`R ⊆ S∖T`) be the Walsh coefficients of `Y*` restricted to
+corners `A_T ∪ A′`, `A′ ⊆ S∖T`. Then
+
+    |σ̂_tilt(θ)| ≤ Z^{−1} 4^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
+                   · max_{A_T} e^{2‖a^{(A_T)}‖′} Π_{ℓ∈S∖T} Σ_{R∋ℓ, R⊆S∖T} β^{(A_T)}_R.
+
+The Walsh coefficients obey, for `R ≠ ∅`,
+
+    |a_R| ≤ Σ_{q∈𝒫} w_qΔ_q·1[R ⊆ Piv(F_q)] + Σ_{ℓ′∈S} Δ_{ℓ′}·1[R ⊆ Piv(F_{ℓ′})],
+
+(more precisely `a_R` is the sum of the R-th Walsh coefficients of the
+summands), and `Piv(H)` is described by Lemma 3.1(iv).
+
+*Proof.* Lemma 2.1(a) with two factors and `‖D_TH‖ ≤ 2^{|T|}1[T⊆Piv(H)]`
+(H is 0/1): `|D_SΨ| ≤ Σ_T 2^{|T|}1[T⊆Piv(H)]·max_{A_T}|D_{S∖T}e^{−Y*}(A_T)|`,
+where `D_{S∖T}e^{−Y*}(A_T)` is the top difference of the restriction of
+`e^{−Y*}` to the subcube over `A_T`; apply Lemma 4.1 to that restriction
+(`Y* ≥ 0`). Insert in (2.1); `2^{|T|}2^{|S∖T|} = 2^{|S|}`. For the
+coefficient bound use linearity and `|f̂(R)| ≤ Δ(f)/2`, `f̂(R) = 0` unless
+`R ⊆ Piv(f)`, with `Δ(2w_qp̃_q) = 2w_qΔ_q` and `Δ(L_{ℓ′}) ≤ 2Δ_{ℓ′}`
+(`|L′| ≤ 2` on `[0,1/2]`); `Piv(p̃_q) ⊆ Piv(F_q)`. ∎
+
+*What Prop 4.2 says.* Each `ℓ ∈ S` is paid either **hard** (`ℓ ∈ T`:
+ℓ is pivotal for the 0/1 part H, i.e. for an avoidance/forbidding event
+at an S-top, or for a leak) or **soft** (`ℓ ∉ T`: through a Walsh
+coefficient `a_R ∋ ℓ` of the damped activated mass). In the soft case
+an outside top q enters only with its damping `w_qΔ_q ≤ w_qN_q/q`, and
+coordinates that act through one and the same event share **one**
+coefficient (in the example above `a_R` is supported on `R ⊆ B` with
+`‖a‖′ = O(c)` and the bound is `O_c(1)^{|B|}`, not Bell(|B|)). The
+exponential prefactor `e^{2‖a‖′}` is a product of per-event factors
+`e^{2|a_R|}` — e.g. `e^{O(Σ_ℓ y_ℓ)}` when the damped change `y_ℓ` caused by
+each ℓ alone is additive.
