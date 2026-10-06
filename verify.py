@@ -71,6 +71,19 @@ Blocks (cz)..(df) (task O54) replay the documents merged after that:
   (de) POINTWISE_TRANSFER: Lemma 5.1 (m = 4..8, 11), identity (5.1), Lemma 5.0 Type II completeness;
   (df) EXCEPTIONAL_SPW: embedded exact certificate sigma <= 72/185 at N = 300, e = 630
        (LP re-derivation needs scipy).
+Blocks (dg)..(dm) (task O66) replay the documents merged after that:
+  (dg) POINTWISE_OMEGA14: planting Lemma 1.1 in exact rationals (k <= 3); toy LP thresholds (scipy);
+  (dh) POINTWISE_OMEGA15: Lemma 1.1 closed form / bound (4r*)^{k+1} on toy planted systems
+       (author + R57 scripts), Lemma 2.3 with actual primes;
+  (di) POINTWISE_OMEGA16 §6: W(133050918961) = 5935, least-p table T <= 2047 (exhaustive),
+       Buchstab ratios at x = 10^7, 10^8;
+  (dj) EXCEPTIONAL_LARGESIEVE3: Thm 1.1 toy inequality (author + R59), Thm 3.1, Lemma 4.1,
+       Lemma 4.2 (-4 in R(M), exact (16.1) solutions);
+  (dk) EXCEPTIONAL_SPW2: Lemma 2.2 near zone, Lemma 2.3 sharp (exact ranks, cyclotomic witnesses),
+       Lemma 9.3 thresholds; RSPW LP rows (scipy);
+  (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (dual simplex; sympy primal agrees);
+  (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake
+       (scipy + mpmath; skipped otherwise).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -19829,6 +19842,541 @@ def check_df():
 
 print("\n== (df) EXCEPTIONAL_SPW §3: exact local certificate sigma <= 72/185 at N = 300, e = 630 ==")
 check_df()
+
+
+
+# ---------------------------------------------------------------- (dg)
+# POINTWISE_OMEGA14.md §1 (Lemma 1.1, planting; cf. scripts/omega14_planting.py,
+# review_o14_toy_lp.py).  Checked:
+# (1) Lemma 1.1, exact rationals: on 45 random instances satisfying (1.1) (15, 15, 10, 5 for
+#     k = 0..3, n <= 8 + 3k, p_i in [0.2, 0.5] plus one zero coordinate), the explicit
+#     nu = mu + P0 sum_{|J| = k+1} w_J sigma_J has nu >= 0, nu(0) = 0, and all marginals of
+#     rho = nu - mu on k coordinates vanish (rho lives on |y| <= k+1, so no 2^n enumeration);
+#     control: with k-marginals of order k+1 (|K| = k+1) rho is visibly nonzero;
+# (2) [scipy] toy LP thresholds (exactly symmetrised LP, R49 bisection): the optimum of
+#     max E B / E F over level-k B <= F = 1[all zero] vanishes at R ~ 1.11, 1.25, 2.51
+#     ((n, k) = (10, 1), (10, 2), (12, 3)), below the sufficient (k+1)+(2k+1)r*.
+
+def check_dg():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import random
+    t0 = perf_counter()
+    rng = random.Random(14)
+
+    def esym(vals, a):
+        e = [Fraction(0)] * (a + 1)
+        e[0] = Fraction(1)
+        for v in vals:
+            for j in range(a, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[a]
+
+    ninst = 0
+    for k in range(4):
+        done = 0
+        while done < (15, 15, 10, 5)[k]:
+            n = rng.randint(2 * k + 4, 8 + 3 * k)
+            p = [Fraction(rng.randint(20, 50), 100) for _ in range(n - 1)] + [Fraction(0)]
+            rng.shuffle(p)
+            r = [pi / (1 - pi) for pi in p]
+            if sum(r) < (k + 1) + (2 * k + 1) * max(r):
+                continue
+            done += 1
+            P0 = prod((1 - pi for pi in p), start=Fraction(1))
+            ek1 = esym(r, k + 1)
+            assert ek1 > 0, "OMEGA14 Lemma 1.1: e_{k+1}(r) = 0 under (1.1)"
+            rho = {}
+            for J in combinations(range(n), k + 1):
+                w = prod((r[i] for i in J), start=Fraction(1)) / ek1
+                if w == 0:
+                    continue
+                for s in range(k + 2):
+                    for y in combinations(J, s):
+                        key = frozenset(y)
+                        rho[key] = rho.get(key, Fraction(0)) + P0 * w * (-1) ** (s + 1)
+            assert rho[frozenset()] == -P0, ("OMEGA14 Lemma 1.1: nu(0) != 0", n, k)
+            for y, v in rho.items():
+                assert P0 * prod((r[i] for i in y), start=Fraction(1)) + v >= 0, \
+                    ("OMEGA14 Lemma 1.1: nu < 0", n, k, sorted(y))
+            for K in combinations(range(n), k):
+                Ks = set(K)
+                marg = {}
+                for y, v in rho.items():
+                    z = y & Ks
+                    marg[z] = marg.get(z, Fraction(0)) + v
+                assert all(v == 0 for v in marg.values()), ("OMEGA14 Lemma 1.1: k-marginal moved", n, k, K)
+            ctrl = False
+            for K in combinations(range(n), k + 1):
+                Ks = set(K)
+                marg = {}
+                for y, v in rho.items():
+                    z = y & Ks
+                    marg[z] = marg.get(z, Fraction(0)) + v
+                if any(v != 0 for v in marg.values()):
+                    ctrl = True
+                    break
+            assert ctrl, ("OMEGA14 Lemma 1.1 control: (k+1)-marginals should move", n, k)
+            ninst += 1
+    msg = "toy LP skipped (no scipy)"
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+    if have_scipy:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "review_o14_toy_lp.py")
+        spec = importlib.util.spec_from_file_location("review_o14_toy_lp", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        got = []
+        for (n, k), Rexp in [((10, 1), 1.111), ((10, 2), 1.250), ((12, 3), 2.514)]:
+            with contextlib.redirect_stdout(io.StringIO()):
+                R, r = mod.threshold(n, k)
+            assert abs(R - Rexp) < 0.01, ("OMEGA14 toy LP threshold", n, k, R, Rexp)
+            assert R < (k + 1) + (2 * k + 1) * r, ("OMEGA14 toy LP: threshold above (1.1)", n, k)
+            got.append(f"{R:.3f}")
+        msg = "toy LP thresholds R = " + ", ".join(got) + " (n, k) = (10,1), (10,2), (12,3), all below (1.1)"
+    print(f"dg Lemma 1.1 planting: {ninst} exact instances (k = 0..3, n <= 8 + 3k): nu >= 0, nu(0) = 0, k-marginals fixed "
+          f"(control: (k+1)-marginals move); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dg) POINTWISE_OMEGA14 §1: Lemma 1.1 planting (exact), toy LP thresholds ==")
+check_dg()
+
+
+
+# ---------------------------------------------------------------- (dh)
+# POINTWISE_OMEGA15.md §1-2 (Lemma 1.1 pseudorandomness of the planted perturbation; Lemma 2.3
+# forced accuracy; cf. scripts/omega15_pseudorandom.py, review_o15_lemma11.py, review_o15_lemma23.py,
+# all imported).  Checked:
+# (1) Lemma 1.1 closed form E_sigma_J[prod h_b] = -prod_J (gamma - beta) prod_{I\J} gamma: brute
+#     force over tiny product spaces equals the closed form, exact rationals (40 instances);
+# (2) Lemma 1.1 bound under (1.0) (R >= (k+1)+(2k+1)r*, p* <= 1/8): |E_rho h| <= (4r*)^{k+1} and
+#     E_rho h = 0 for |I| <= k on random/adversarial reduced products, k = 0, 1, 2 (exact);
+# (3) R57's from-scratch toy planted systems (nu built from the definition, small coordinate s,
+#     2^n bit sum): nu >= 0, nu(0) = 0, k-marginals = mu, the bound and |rho| <= P0 2^{k+1};
+# (4) Lemma 2.3(a),(b) with actual primes in fibres H = {r mod Q}, q > x prime or q1 q2:
+#     class error >= 1/2, sum_chi |S(chi)|^2 = phi(q) N', character / additive lower bounds.
+
+def check_dh():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import random
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    A = load("omega15_pseudorandom")
+    B = load("review_o15_lemma11")
+    C = load("review_o15_lemma23")
+    rng = random.Random(15)
+    t1, b1 = A.check_identity(rng, 40)
+    assert t1 == 40 and b1 == 0, ("OMEGA15 Lemma 1.1 closed form vs brute force", t1, b1)
+    t2, b2, w2 = A.check_bound(rng, ks=(0, 1), trials=20)
+    t3, b3, w3 = A.check_bound(rng, ks=(2,), trials=3)
+    assert b2 == 0 and b3 == 0, ("OMEGA15 Lemma 1.1 bound (4r*)^(k+1) / zero for |I| <= k", b2, b3)
+    worst = max(w2, w3)
+    assert worst <= 1, ("OMEGA15 Lemma 1.1 worst ratio", worst)
+    rng = random.Random(57)
+    done, worst3, ks = 0, 0.0, set()
+    while done < 40:
+        res = B.trial(rng, adversarial=(done % 2 == 1))     # asserts internally
+        if res is None:
+            continue
+        done += 1
+        ks.add(res[0])
+        worst3 = max(worst3, res[2])
+    assert worst3 <= 1, ("OMEGA15 Lemma 1.1 (R57 toy) ratio", worst3)
+    n23 = 0
+    for Q, r in [(1, 0), (3, 1), (4, 3), (5, 2), (7, 3)]:
+        for x in [30, 60]:
+            for q in [x + 1, x + 7, 2 * x + 1, 3 * x + 5, 5 * x + 3]:
+                f = factorint(q)
+                if (len(f) == 1 and q in f) or (len(f) == 2 and all(v == 1 for v in f.values())):
+                    if gcd(q, Q) != 1:
+                        continue
+                    if C.check_A(Q, r, x, q) is not None:          # asserts (a), (b), identity
+                        n23 += 1
+    assert n23 >= 15, ("OMEGA15 Lemma 2.3: too few cases", n23)
+    print(f"dh Lemma 1.1: closed form = brute force on {t1} instances; bound + zero (|I| <= k) on {t2 + t3} "
+          f"reduced products (k = 0..2, worst ratio {float(worst):.2e}); R57 toy systems: 40 trials (k in "
+          f"{sorted(ks)}, worst {worst3:.2e}); Lemma 2.3 (a),(b): {n23} (Q, r, x, q) cases; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dh) POINTWISE_OMEGA15: Lemma 1.1 pseudorandomness (toy planted systems), Lemma 2.3 ==")
+check_dh()
+
+
+
+# ---------------------------------------------------------------- (di)
+# POINTWISE_OMEGA16.md §6 (N1), (N2) (EVIDENCE numerics; cf. scripts/omega16_esleast.py,
+# omega16_buchstab.py, review_o16_esleast.py, review_o16_buchstab.py).  Checked:
+# (1) (N2) W(p) = min{M = 3 (4): p = -4D (mod M), D | ((M+1)/4)^2} for p = 133050918961 (the
+#     least hard p with W > 4095 in the stored scan; prime, = 121 (840), a square class) is 5935,
+#     by direct divisor search over all M <= 5935;
+# (2) (N2) table rows T = 31, 127, 511, 1023, 2047: exhaustive over primes p = 1 (24), p < 2031122
+#     (sieve by the exact class tables -4D mod M): least p with W > T is 2521, 33289, 2031121,
+#     2031121, 2031121;
+# (3) (N1) Buchstab compounding at u = 2 (z = x^(1/2)), H = (2), (2,6), (2,6,8): the ratio
+#     #{z < p <= x: p + h z-rough} / (delta (pi(x) - pi(z))) is < 1 at x = 10^7 and 10^8; kappa = 3
+#     gives 0.958 at 10^7 (§6 text); at 10^8 the ratios are 0.950, 0.910, 0.881
+#     (data/omega16/buchstab_1e8.txt), decreasing in kappa and r_3 ~ r_1^3 (3%).  The 10^9 table
+#     itself is not replayed (memory/time).
+
+def check_di():
+    from time import perf_counter
+    import math
+    import numpy as np
+    from sympy import isprime, divisors
+    t0 = perf_counter()
+
+    def bad_classes(M):
+        A = (M + 1) // 4
+        return {(-4 * D) % M for D in divisors(A * A)}
+
+    def W(p, Mmax):
+        for M in range(3, Mmax + 1, 4):
+            if p % M in bad_classes(M):
+                return M
+        return None
+    p = 133050918961
+    assert isprime(p) and p % 840 == 121 and p % 24 == 1 and 121 in SIX, "OMEGA16 N2: p = 133050918961 class data"
+    assert W(p, 6000) == 5935, ("OMEGA16 N2: W(133050918961)", W(p, 6000))
+    # (2) exhaustive least-p table below 2031122
+    N = 2031122
+    sv = np.ones(N, dtype=bool)
+    sv[:2] = False
+    for i in range(2, isqrt(N) + 1):
+        if sv[i]:
+            sv[i * i::i] = False
+    alive = np.nonzero(sv)[0]
+    alive = alive[alive % 24 == 1].astype(np.int64)
+    least = {}
+    Ts = [31, 127, 511, 1023, 2047]
+    for M in range(3, 2048, 4):
+        for T in Ts:
+            if T < M and T not in least:
+                least[T] = int(alive[0]) if len(alive) else None
+        tab = np.zeros(M, dtype=bool)
+        tab[list(bad_classes(M))] = True
+        alive = alive[~tab[alive % M]]
+    for T in Ts:
+        least.setdefault(T, int(alive[0]) if len(alive) else None)
+    exp = {31: 2521, 127: 33289, 511: 2031121, 1023: 2031121, 2047: 2031121}
+    assert least == exp, ("OMEGA16 N2 least-p table", least)
+    # (3) Buchstab compounding at u = 2
+    hmax = 8
+    allr = {}
+    for x in (10 ** 7, 10 ** 8):
+        z = int(x ** 0.5)
+        isp = np.ones(x + hmax + 1, dtype=bool)
+        isp[:2] = False
+        for i in range(2, isqrt(x + hmax) + 1):
+            if isp[i]:
+                isp[i * i::i] = False
+        pl = np.nonzero(isp)[0]
+        del isp
+        rough = np.ones(x + hmax + 1, dtype=bool)
+        for l in pl[pl <= z]:
+            rough[::int(l)] = False
+        pz = pl[(pl > z) & (pl <= x)]
+        ratios = []
+        for H in [(2,), (2, 6), (2, 6, 8)]:
+            ok = np.ones(len(pz), dtype=bool)
+            for h in H:
+                ok &= rough[pz + h]
+            logd = sum(math.log(1 - len({(-h) % int(l) for h in H} - {0}) / (int(l) - 1))
+                       for l in pl[(pl >= 3) & (pl <= z)])
+            ratios.append(int(ok.sum()) / (math.exp(logd) * len(pz)))
+        del rough, pl, pz
+        assert max(ratios) < 1, ("OMEGA16 N1: no Buchstab deficit at u = 2", x, ratios)
+        allr[x] = ratios
+    assert abs(allr[10 ** 7][2] - 0.958) < 0.0006, ("OMEGA16 N1: kappa = 3 ratio at 10^7", allr[10 ** 7])
+    for got, want in zip(allr[10 ** 8], (0.950, 0.910, 0.881)):
+        assert abs(got - want) < 0.0006, ("OMEGA16 N1: ratios at 10^8 (data/omega16/buchstab_1e8.txt)", allr[10 ** 8])
+    r1, r2, r3 = allr[10 ** 8]
+    assert r1 > r2 > r3 and abs(r3 / r1 ** 3 - 1) < 0.03, ("OMEGA16 N1: compounding at 10^8", allr[10 ** 8])
+    print(f"di N2: W(133050918961) = 5935 (prime, 121 mod 840); least p = 1 (24) with W > 31/127/511/1023/2047: "
+          f"2521/33289/2031121 (x3), exhaustive; N1 at u = 2, kappa = 1..3: ratios "
+          f"{', '.join(f'{v:.3f}' for v in allr[10 ** 7])} (x = 10^7), {', '.join(f'{v:.3f}' for v in allr[10 ** 8])} (10^8) (e^g w(2) = {math.exp(0.5772156649015329) / 2:.3f}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (di) POINTWISE_OMEGA16 §6: W(133050918961) = 5935, least-p table, Buchstab compounding ==")
+check_di()
+
+
+
+# ---------------------------------------------------------------- (dj)
+# EXCEPTIONAL_LARGESIEVE3.md (Thm 1.1 smooth-rough splitting, Thm 3.1 local bound, Lemmas 4.1,
+# 4.2; cf. scripts/largesieve3_checks.py, review_ls3_thm11.py, review_ls3_lemmas.py, all run here
+# with their fixed seeds; numpy only).  Checked:
+# (1) Thm 1.1 core inequality R_{p'}(pi) <= rho E_{pi_s} R_{p'}(pi_c) on toy mixtures over
+#     Z/(3.5.7.11.13) (author) and with multi-rough-prime classes, spiky pi_s, Hoelder step
+#     F_w(pi) <= (R_{p'}(pi)/N)^{1/(1+beta)} and the equality case ratio = 1 (R59 script);
+# (2) Thm 3.1 local bound sum_{a != 0}|phi|^{p'} <= g^{1+2 beta}, Parseval; Lemma 4.1 two-copy
+#     identity and R <= sum_S s_S^{2 beta} P_S (both scripts);
+# (3) Lemma 4.2, exact: -4 = -4D (mod M) with D = 1 | A_M^2, and every n = -4 (mod M) has the
+#     explicit (16.1) solution 4/n = 1/s + 1/(n s A) + 1/(n A), s = (nA+1)/M, for all
+#     M = 3 (4), M <= 2000, n = kM - 4 (k = 1..6).
+
+def check_dj():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import runpy
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    spec = importlib.util.spec_from_file_location("largesieve3_checks", os.path.join(sdir, "largesieve3_checks.py"))
+    mod = importlib.util.module_from_spec(spec)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        spec.loader.exec_module(mod)
+        mod.check_product()
+        mod.check_lemma41()
+        mod.check_thm11()                                  # asserts ratio <= 1
+    out = buf.getvalue()
+    worst = float(out.split("max R(pi)/(rho E R(pi_c)) = ")[1].split()[0])
+    assert 0 < worst <= 1, ("LS3 Thm 1.1 core ratio", worst)
+    assert "Parseval sum|phi|^2 = g: ok" in out and "two-copy identity ok" in out, "LS3 Thm 3.1 / Lemma 4.1 checks"
+    outs = {}
+    for name in ("review_ls3_thm11", "review_ls3_lemmas"):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, name + ".py"), run_name="__main__")   # asserts internally
+        outs[name] = buf.getvalue()
+    o = outs["review_ls3_thm11"]
+    assert "OK: Thm 1.1 inequalities hold" in o, "LS3 R59 Thm 1.1 replay"
+    eq = float(o.split("uniform : core ratio max ")[1].split()[0])
+    assert abs(eq - 1) < 1e-6, ("LS3 Thm 1.1: rho should be attained (uniform pi_s)", eq)
+    o = outs["review_ls3_lemmas"]
+    assert "(b) Lemma 4.1 identities OK" in o and "(c) local bound OK" in o, "LS3 R59 Lemma 4.1 / Thm 3.1 replay"
+    npairs = 0
+    for M in range(3, 2001, 4):
+        A = (M + 1) // 4
+        assert (M - 4) % M in {(-4 * D) % M for D in divisors_of_square(A)}, ("LS3 Lemma 4.2: -4 not in R(M)", M)
+        for k in range(1, 7):
+            n = k * M - 4
+            if n < 1:
+                continue
+            assert (n * A + 1) % M == 0, ("LS3 Lemma 4.2: nA = -1 (mod M)", M, n)
+            s = (n * A + 1) // M
+            assert Fraction(1, s) + Fraction(1, n * s * A) + Fraction(1, n * A) == Fraction(4, n), \
+                ("LS3 Lemma 4.2: (16.1) identity", M, n)
+            npairs += 1
+    print(f"dj Thm 1.1 core ratio <= 1 (author max {worst:.4f}; R59 multi-rough/spiky ok, equality {eq:.6f}); "
+          f"Thm 3.1 local bound, Lemma 4.1 (both scripts); Lemma 4.2: -4 in R(M), (16.1) solution exact on "
+          f"{npairs} (M, n); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dj) EXCEPTIONAL_LARGESIEVE3: Thm 1.1 toy inequality, Thm 3.1, Lemma 4.1, Lemma 4.2 (-4 in R(M)) ==")
+check_dj()
+
+
+
+# ---------------------------------------------------------------- (dk)
+# EXCEPTIONAL_SPW2.md §2 (Lemmas 2.2, 2.3, the IF2 Lemma 9.3 remark, RSPW LP table rows; cf.
+# scripts/review_spw2_nearzone.py, review_spw2_interval.py (imported), spw2_relaxed_lp.py).  Checked:
+# (1) Lemma 2.2, exact: for C in {3/2, 2, 5/2, 3}, N in {5, 12, 13, 30, 31, 57}, no class of modulus
+#     e > CN (e < CN + 3N) through [1, N] meets the near zone Z = [N - CN, 0] u [N+1, CN+1]; the
+#     Lemma 9.3 threshold max_q c/(k - c) is 3/2 at C = 2 and 4 at C = 3/2 (N = 60, 101, 200);
+# (2) Lemma 2.3 (sharp), exact rank over Q: for D <= 6 and every interval length ell <= Phi(D)+3,
+#     the zero-class-sum space mod all d <= D has dimension max(0, ell - Phi(D)); the witness
+#     prod_{d <= D} Phi_d(z) (D <= 12) has zero class sums mod every d <= D on Phi(D)+1 points;
+#     Phi(N//2) >= 3N + 2 holds for 38 <= N < 2000 and fails at N = 37;
+# (3) [scipy] RSPW LP rows (C = 2, L = 8N): eta = 1 at N = 12 (K = inf), 0.955 at N = 20 (K = inf),
+#     2/3 at N = 12, 16 with K = 1.
+
+def check_dk():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import Poly, cyclotomic_poly, symbols, totient
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    NZ = load("review_spw2_nearzone")
+    IV = load("review_spw2_interval")
+    for C in (Fraction(3, 2), Fraction(2), Fraction(5, 2), Fraction(3)):
+        for N in (5, 12, 13, 30, 31, 57):
+            assert NZ.check_22(N, C) == 0, ("SPW2 Lemma 2.2: class through [1,N] meets Z", N, C)
+    for N in (60, 101, 200):
+        assert NZ.worst_93(N, Fraction(2))[0] == Fraction(3, 2), ("SPW2 Lemma 9.3 threshold at C = 2", N)
+        assert NZ.worst_93(N, Fraction(3, 2))[0] == 4, ("SPW2 Lemma 9.3 threshold at C = 3/2", N)
+    nrank = 0
+    for D in range(1, 7):
+        P = IV.phi_sum(D)
+        for ell in range(1, P + 4):
+            rk = IV.rank_Q(IV.constraint_rows(D, ell, 3), ell)
+            assert ell - rk == max(0, ell - P), ("SPW2 Lemma 2.3 kernel dimension", D, ell, rk, P)
+            nrank += 1
+    z = symbols("z")
+    for D in range(1, 13):
+        P = sum(int(totient(d)) for d in range(1, D + 1))
+        assert P == IV.phi_sum(D)
+        F = Poly(1, z)
+        for d in range(1, D + 1):
+            F = F * Poly(cyclotomic_poly(d, z), z)
+        coef = list(reversed(F.all_coeffs()))                 # f(x) = coef[x], x = 0..Phi(D)
+        assert len(coef) == P + 1 and coef[0] != 0 and coef[-1] != 0
+        for d in range(1, D + 1):
+            for b in range(d):
+                assert sum(coef[b::d]) == 0, ("SPW2 Lemma 2.3 sharpness witness", D, d, b)
+    phis = [0]
+    for d in range(1, 1001):
+        phis.append(phis[-1] + int(totient(d)))
+    assert phis[37 // 2] < 3 * 37 + 2, "SPW2 Lemma 2.3: N = 37 should fail"
+    assert all(phis[N // 2] >= 3 * N + 2 for N in range(38, 2000)), "SPW2 Lemma 2.3: Phi(N//2) >= 3N+2 for N >= 38"
+    msg = "RSPW LP rows skipped (no scipy)"
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+    if have_scipy:
+        import numpy as np
+        LP = load("spw2_relaxed_lp")
+        got = []
+        for N, K, want in [(12, np.inf, 1.0), (20, np.inf, 0.9552), (12, 1.0, 2 / 3), (16, 1.0, 2 / 3)]:
+            pts, res = LP.solve(N, 8 * N, 2.0, K)
+            assert res.status == 0, ("SPW2 RSPW LP failed", N, K, res.message)
+            assert abs(res.x[-1] - want) < 1e-3, ("SPW2 RSPW LP eta", N, K, res.x[-1], want)
+            got.append(f"{res.x[-1]:.3f}")
+        msg = "RSPW LP eta (N, K) = (12, inf), (20, inf), (12, 1), (16, 1): " + ", ".join(got)
+    print(f"dk Lemma 2.2 (near zone) on 24 (N, C), Lemma 9.3 thresholds 3/2 (C = 2), 4 (C = 3/2); Lemma 2.3: "
+          f"{nrank} exact kernel dimensions (D <= 6), cyclotomic witnesses D <= 12, Phi(N//2) >= 3N+2 iff N >= 38 "
+          f"(N < 2000); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dk) EXCEPTIONAL_SPW2 §2: Lemma 2.2 near zone, Lemma 2.3 (sharp), RSPW LP rows ==")
+check_dk()
+
+
+
+# ---------------------------------------------------------------- (dl)
+# CEILINGS_UNIFIED.md §4.4 (toy LP for Thm 4.1, EVIDENCE; cf. scripts/unify_toy_lp.py,
+# review_unify_toylp_exact.py, both imported).  n = 40 iid bits, P = np, F = 1[no bit set];
+# optimal symmetric order-k minorant max E B and majorant min E G, solved exactly (dual moment
+# LP, exact rational simplex, R60).  Checked: for P = 2, 4, 6, 8 the least k with E B > 0 is
+# 3, 7, 11, 15 and the least k with majorant saving log(1/E G) >= 0.9 log(1/E F) is 6, 8, 12, 14
+# (the §4.4 table); the author's sympy LP (exact primal certificates) agrees at P = 2, k = 2, 3, 5, 6
+# and P = 4, k = 6, 7.
+
+def check_dl():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import math
+    from sympy import Rational
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    R = load("review_unify_toylp_exact")
+    U = load("unify_toy_lp")
+    n = 40
+    table = {2: (3, 6), 4: (7, 8), 6: (11, 12), 8: (15, 14)}
+    sols = {}
+    for P, (kB_want, kG_want) in table.items():
+        p = Fraction(P, n)
+        EF = (1 - p) ** n
+        L = -math.log(float(EF))
+        kB = kG = None
+        k = 0
+        while kB is None or kG is None:
+            lo, hi = R.solve(n, p, k)                       # lo = max E B, hi = min E G (exact)
+            sols[(P, k)] = (lo, hi)
+            assert 0 <= lo <= EF <= hi <= 1, ("UNIFIED toy LP: ordering", P, k)
+            if kB is None and lo > 0:
+                kB = k
+            s = -math.log(float(hi))
+            assert abs(s - 0.9 * L) > 1e-6, ("UNIFIED toy LP: borderline saving", P, k)
+            if kG is None and s >= 0.9 * L:
+                kG = k
+            k += 1
+            assert k <= 24, ("UNIFIED toy LP: threshold not found", P)
+        assert (kB, kG) == (kB_want, kG_want), ("UNIFIED §4.4 thresholds", P, kB, kG)
+    for P, k in [(2, 2), (2, 3), (2, 5), (2, 6), (4, 6), (4, 7)]:
+        EG, EB = U.solve(n, Rational(P, n), k)                # asserts exact primal certificates
+        lo, hi = sols[(P, k)]
+        assert Fraction(int(EB.p), int(EB.q)) == lo and Fraction(int(EG.p), int(EG.q)) == hi, \
+            ("UNIFIED toy LP: primal (sympy) and dual (R60 simplex) optima differ", P, k)
+    print(f"dl n = 40, P = 2/4/6/8: least k with E B > 0 = 3/7/11/15, with saving >= 90% = 6/8/12/14 (exact dual "
+          f"simplex); primal = dual at 6 cases (e.g. P = 2, k = 3: E B = {sols[(2, 3)][0]}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (minorant / majorant) ==")
+check_dl()
+
+
+
+# ---------------------------------------------------------------- (dm)
+# POINTWISE_WINDOW3.md §3 and §8.1 (EVIDENCE: discrete-model LPs; cf. scripts/window3_lp.py, run
+# as a subprocess; needs scipy and mpmath, skipped otherwise).  Checked on the faithful
+# cell-integrated law (eps = 0.1, K = 8, theta = 1/2, rep visibility):
+# (1) §3 one-window row: min nu(empty)/tau = 0.4893, certified (float dual bound = primal value);
+# (2) §8.1 / Prop 8.1 K = 2.5 row: LP with prefix-family caps 2.499, repaired on its support in
+#     50-digit mpmath: support 628, x >= 0 with min nu/mu on support 0.0566, x_empty = 0, exact
+#     correlation rows, worst family excess -1.0e-3 < 0 ("verified" fake).
+
+def check_dm():
+    from time import perf_counter
+    import json
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    try:
+        import scipy  # noqa: F401
+        import mpmath  # noqa: F401
+    except ImportError:
+        print("dm WINDOW3 LP replays skipped (no scipy/mpmath)")
+        return
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2")
+
+    def run(*extra):
+        r = subprocess.run([sys.executable, os.path.join(sdir, "window3_lp.py"), "0.1", "8", "0.5", *extra],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("WINDOW3 window3_lp.py failed", extra, r.stderr[-2000:])
+        return json.loads(r.stdout.strip().splitlines()[-1])
+    one = run("--one")
+    assert one["status"] == 0 and abs(one["min_nu0"] - 0.4893) < 5e-5, ("WINDOW3 §3 one-window value", one["min_nu0"])
+    assert abs(one["dual_lb"] - one["min_nu0"]) < 1e-9, ("WINDOW3 §3 one-window: dual bound != primal", one)
+    fk = run("--swz=2.499:prefix", "--certify", "--certK=2.5")
+    assert fk["status"] == 0 and fk.get("cert") is True, ("WINDOW3 §8.1 K = 2.5: certification failed", fk)
+    assert fk["support"] == 628 and abs(fk["cert_min_x"] - 0.0566) < 5e-4, ("WINDOW3 §8.1 support / min nu/mu", fk)
+    assert fk["cert_eq_resid"] < 1e-40 and fk["cert_worst_fam_excess"] < 0, ("WINDOW3 §8.1 residual / family excess", fk)
+    assert fk["min_nu0"] == 0.0, ("WINDOW3 §8.1: x_empty should be 0", fk["min_nu0"])
+    print(f"dm §3 one window: min nu(0)/tau = {one['min_nu0']:.5f} = dual bound (cert); §8.1 K = 2.5 fake verified "
+          f"(support {fk['support']}, min nu/mu {fk['cert_min_x']:.4f}, family excess {fk['cert_worst_fam_excess']:.1e}, "
+          f"50 digits); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake ==")
+check_dm()
 
 
 print("\nall checks passed")
