@@ -23,13 +23,24 @@ positive integers, `F=17^k`, `'` = 17-free part, `g = f'`.
 * **(Q)** `(a,d,f)`, `f = Fg`, `17∤g`, `4ad | f+1`, `g | 4a²d+1`; box `−4a²d (mod F)`.
   [= II2; = II3 with `17 | e`.]
 * **(Q⁻¹)** box `−1/(4a²d)` for each (Q)-datum. [= I2 with `17 | f`.]
-* **(√Q)** boxes `±√(−4a²d) (mod F)` for each (Q)-datum. [= I3 with `17 | f`.]
+* **(√Q)** boxes `±√(−4a²d) (mod F)` for each (Q)-datum. [= I3 with `17 | f`.] *(Empty: Lemma 1.3.)*
 * **(U)** `(a,b,e)`, `e | a+b`, `gcd(e,4ab)=1`, `4(ab)' | e+1`, `(ab)_17 = F`; box `−e (mod F)`.
   [= II1; = I2 with `17 | ac`.]
 * **(U⁻¹)** box `−1/e` for each (U)-datum. [= I4.]
 
 Moreover (P) is closed under `r ↦ 1/r` (so (P)∪(Q)∪(Q⁻¹)∪(U)∪(U⁻¹) is inversion-symmetric,
-and `u ↦ 1/u` maps `C_5 ↔ C_7`; only (√Q) may break the symmetry).
+and `u ↦ 1/u` maps `C_5 ↔ C_7`).
+
+**Lemma 1.3 (√Q is empty; Q only at odd levels in non-residue cells; PROVED — observation of the
+reviewer R83, `reviews/pointwise-mordell17-review.md` Claim A) (R83 repair).** For a (Q)-datum,
+`f = 4adm−1 = 17^k g` with `m=(f+1)/(4ad)`. Since `f ≡ −1 (mod 4d)`, Jacobi reciprocity gives
+`(d/f) = 1` (odd part `d_o`: `(d_o/f) = (f/d_o)(−1)^{(d_o−1)/2} = (−1/d_o)(−1)^{(d_o−1)/2} = 1`; 2-part:
+`f ≡ 7 (mod 8)` when d is even), and `(−1/f) = −1`, so `(−d/f) = −1`. As `g | 4a²d+1`,
+`−d·(2a)² ≡ 1 (mod g)`, so `(−d/g) = 1`. Hence `(−d/17)^k = −1`: **k is odd and `−4a²d` is a
+non-residue mod 17**. So `n² ≡ −4a²d (mod 17^k)` has no root, the (√Q) type (I3 with `17|f`) never
+meets the 17-generic line, and the symmetry `C_5 ↔ C_7` is exact. The same argument applied to a
+(P)-datum (`f = 4ni−1 | 4·17^K a'²d'+1`, `f ≡ −1 (mod 4d')`) gives `(17^K/f) = −1`, i.e. **K is odd**.
+Numerically: 0 √Q boxes at all levels ≤ 7 (both engines).
 
 *Proof.* Read off the table of POINTWISE_MORDELL §2.1 with T={17}, splitting each family by which
 of its moduli carries the 17 (the gcd conditions of I2, I3, II3 forbid both):
@@ -59,7 +70,7 @@ solutions of `4/n=1/x+1/y+1/z`, injectively modulo the dilation `(λa,λb,λc,λ
 **Lemma 2.1 (Q ↔ Type I points of 4/17^k).** `(a,d,f=Fg)` is a (Q)-datum of level `F=17^k` iff
 `(a,b,c,d) = (a, (f+1)/(4ad), (a+b)/g, d)` is an N-point of `Σ^I_F` with `e=g` prime to 17. The box
 `−4a²d (mod F)` is dilation invariant, so **#(Q)-boxes of level k ≤ #ordered solutions of
-4/17^k** (and the same for Q⁻¹; ≤ twice that for √Q).
+4/17^k** (and the same for Q⁻¹; √Q is empty by Lemma 1.3).
 *Proof.* Put `m=(f+1)/(4ad)`. `gcd(m,g)=1` and `m(4a²d+1) ≡ a+m (mod g)` give `g | a+m`; with
 `j=(a+m)/g`: `jf = F(a+m)`, i.e. `4amjd = Fa+Fm+j`, which is (2.3) for `(a,m,j,d)`, `n=F`; then
 `e=(a+m)/j=g` and `f_ET = 4ajd−F = (Fa+j)/m > 0`. Conversely (2.3) gives `j(4amd−1)=F(a+m)=Fje`,
@@ -139,8 +150,9 @@ added per level falls by roughly a factor 17–20 per level (EVIDENCE). The poin
 
 Write `D_Q(k)`, `D_U(k)`, `D_P(K)` for the numbers of data enumerated by `m17_enum` (Q: N-points of
 `Σ^I_{17^k}` with `a≤b`, `17∤e`; U: (U)-data; P: N-points of `Σ^II_{17^K}`, `a≤b`, `17∤cd`). By
-Lemma 1.1 and §2 the boxes of level k number at most `B_k = 8D_Q(k) + 2D_U(k) + 2D_P(2k−1) + 2D_P(2k)`
-(Q: two orientations × {Q, Q⁻¹, √Q, √Q}; P: two orientations), and `D_P(2k) = 0` (ET Prop 1.6).
+Lemma 1.1 and §2 the boxes of level k number at most `B_k = 4D_Q(k) + 2D_U(k) + 2D_P(2k−1) + 2D_P(2k)`
+(Q: two orientations × {Q, Q⁻¹}, √Q being empty by Lemma 1.3; P: two orientations), and `D_P(2k) = 0`
+(Lemma 1.3) (R83 repair: previously `8D_Q`, an over-count).
 
 **Theorem 4.1 (measure criterion; PROVED).** If
 `Σ_{k≥6} 17^{1−k}·B_k < 0.677207` (the uncovered fraction of `C_5` after level 5, Comp. 3.1),
