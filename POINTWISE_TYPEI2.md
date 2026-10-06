@@ -1,15 +1,15 @@
 # Type-I depth on `{n_p = r}`: compactness and the profinite question (task O69)
 
-Status: checkpoint 1 (side agent O69, branch `side-agent/typei-sterile`); not yet reviewed.
+Status: checkpoint 1 (side agent O69, branch `side-agent/typei-sterile`). Review R69 (`reviews/pointwise-typei2-review.md`) found no FATAL or MAJOR defects; MINOR D1–D5 applied.
 
 | # | statement | label |
 |---|---|---|
-| Thm A | `X_r` = least height of a finite Type-I covering of `Σ_r`. Then `C*(r)≤X_r` (PROVED). If no covering of height ≤X exists, then under H (finite family `𝓟_X`) there are infinitely many p with `n_p=r` and `ck_min>X`. Hence under H `C*(r)=X_r`, and `X_r=∞` ⟺ a sterile point exists. This closes R31-D6 / Remark 6.2(ii) | PROVED / CONDITIONAL (H) |
+| Thm A | `X_r` = least height of a finite Type-I covering of `Σ_r`. Then `C*(r)≤X_r` (PROVED). If no covering of height ≤X exists, then under H (finite family `𝓟_X`) there are infinitely many p with `n_p=r` and `ck_min>X`. Hence under H `C*(r)=X_r`, and `X_r=∞` ⟺ a sterile point exists (statements for `C*`, R69-D4). This closes R31-D6 / Remark 6.2(ii) | PROVED / CONDITIONAL (H) |
 | L2.1–2.2, P2.3 | at points that are squares off 7: unforced ⟺ `v_7(c)` odd; certificates = 7-adic balls; the residue-one point is covered at level 1 by exactly 3 certificates | PROVED |
 | L2.4, C2.5 | {2,7}-generic points: rigid parametrisation `c'JJ'−u=Λ`, `u∣J+J'`; finitely many certificates per level | PROVED |
 | §2.2 | union of all certificate boxes with `Λ≤3·10⁸` leaves measure ≈0.0103 of `Σ'` uncovered (slowly decreasing); integral survivors all have `x_7=−1` | EVIDENCE |
 | L3.1 | sign point `x̂_w=(w;−1;1)`, `w≡9 (16)`: no square-family certificate | PROVED |
-| C3.2–3.3 | no certificate at `x̂_9` with `ck≤3·10⁹` (checker; a second engine to `10⁶`, a third to `ck≤8660`). Hence every Type-I covering of `{n_p=7}` has height `>3·10⁹`, and under H `C(7)>3·10⁹` (was ≥539). For r=23, 31, 47: `>10⁹` | CERTIFIED / CONDITIONAL (H) |
+| C3.2–3.3 | no certificate at `x̂_9` with `ck≤3·10⁹` (checker to `3·10⁹`; cross-checked to `10⁶` and `ck≤8660`; reproduced in review R69). Hence every Type-I covering of `{n_p=7}` has height `>3·10⁹`, and under H `C(7)>3·10⁹` (was ≥539). For r=23, 31, 47: `>10⁹` | CERTIFIED / CONDITIONAL (H) |
 | P4.1 | sign points exist iff `r≡3 (4)`; for `r≡3 (8)` they are killed by `(r(r+1)/4,2,2r+1)`; for `r≡7 (8)` Lemma 3.1 holds | PROVED |
 | §5 | near-miss mass at random `w` decays per dyadic height bin (≈0.01 at 2³⁰). Mechanism partly proved | EVIDENCE / Assessment |
 | Conj 3.4 | `x̂_9` is sterile, so `C(7)=∞` under H | CONJECTURE (open) |
@@ -282,7 +282,7 @@ F | 1+4ck²,   F≡−1 (mod m'),   F≡+1 (mod 7^{v_7(ck)}),   F≡−w (mod 2^
 Candidate sterile point: **`x*=(w at 2; −1 at 7; 1 at all other q)`**, e.g.
 `w=9`. A proof would need to exclude (2.2) for all slices with `7∥sf(c)`.
 
-## 3. The sign point `x̂=(w; −1; 1)` and `C(7)>10⁶` under H
+## 3. The sign point `x̂=(w; −1; 1)` and `C(7)>3·10⁹` under H
 
 **Definition.** For `w∈ℤ_2`, `w≡9 (16)`, let `x̂_w∈Ẑ^×` have components
 `x̂_2=w`, `x̂_7=−1`, `x̂_q=1` for every prime `q∉{2,7}`. Then `x̂_w∈Σ_7`
@@ -310,7 +310,10 @@ and `k'²|F+1`. Comparing odd parts of `(F−1)(F+1)=4ck²` gives
 
 So no square certificate exists. ∎
 
-**Computation 3.2 (CERTIFIED by two independent engines).**
+**Computation 3.2 (CERTIFIED: one engine to `3·10⁹`, cross-checked by two
+others on smaller ranges, and independently re-run to the full ranges in
+review R69, `reviews/pointwise-typei2-review.md`, with identical slice
+counts; R69-D3).**
 * *Factorisation-free checker* `typei2_signcheck.c` (`r w X`). For each
   slice with `ck≤X` and `v_7(c)` odd it builds the target class ξ mod `4ck`
   by CRT. Since `N=1+4ck²≡1 (mod 4ck)`, the cofactor of a certificate lies
@@ -340,10 +343,17 @@ infinitely many hard primes with `n_p=7` and `ck_min(p)>3·10⁹`. So
 under H, `C(r)>10⁹` for `r=23, 31, 47`.
 *Proof.* (i) A covering of height `≤3·10⁹` would contain `x̂_9`, but no
 certificate holds there. (ii) Apply Theorem A(ii), Steps 2–5, with
-`x*=x̂_9`. Only the ≈7.6·10⁹ slices with `v_7(c)` odd need polynomials,
-since forced slices vanish by notes Thm 48.1. ∎
+`x*=x̂_9`. Step 1 holds for all of `K_X`: forced slices carry no
+certificate at `x̂_9` (Lemma 2.1), and Computation 3.2 covers the slices with
+`v_7(c)` odd. We apply Theorem A verbatim, with `𝓟_X` built from all of `𝓢`
+(R69-D2). An optional reduction drops the forced slices. On the class `𝒞`,
+`p≡x̂ (mod 8∏_{q≤B}q)`, and every prime of s is `≤X≤B`. So
+`χ_s(p)=χ_s(x̂)=1` for `v_7(c)` even, and `M_{c,k}(p)=0` by notes
+Thm 48.1. Hence the ≈7.6·10⁹ polynomials for the slices with `v_7(c)` odd
+(together with `f_0`) already suffice. ∎
 
-**Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C(7)=∞`.
+**Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C*(7)=∞` (hence
+`C(7)=∞`; Theorem A(iii)).
 
 ## 4. Other r: the sign point exists iff r≡3 (4), survives only if r≡7 (8)
 
