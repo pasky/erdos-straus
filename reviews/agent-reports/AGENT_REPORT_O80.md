@@ -13,9 +13,13 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
    Certificates: `data/mordell/cert_r13_np_240240.json` (20 ET classes),
    `data/mordell/cert_r13_main_720720.json` (31 classes); checker `scripts/mordell_check.py`
    (stand-alone, sympy only: polynomial identity, positivity for n>1, integer-valuedness on each
-   residue class mod L; negative controls fail as they should). This extends Salez's single-prime
-   filter `S_13={0,5,6,8,11}` to the residues 2, 7 mod 13 up to the listed exceptional classes.
-   Novelty: modest (a two-prime filter); I found no published statement of it.
+   residue class mod L; negative controls fail as they should).
+   Novelty (R80 repair, applied by reviewer): this is an explicit packaging of the Salez/ET level
+   sieve, not a new filter. Salez (arXiv:1406.6307 §3–4) already uses composite-modulus filters.
+   His `R_4` mod 120120 leaves only 7 residues with `(p/13)=−1`, so the mod-120120 analogue is
+   implicit in his 2014 data (see also Mihnea–Dumitru arXiv:2509.00128). Theorem 3.1 goes one
+   level deeper (2⁴, 3²) and adds explicit certificates. The new content of this report is the
+   sterile-point analysis (§4).
 2. **No complete covering found** for either variant of r=13.
    * main (`(p/13)=−1`, any `(p/11)`): the T-generic analysis (§2: points with `x_q=1` off
      T={11,13}; classes become rigid, finitely many boxes per T-level) leaves only the cell

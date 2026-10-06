@@ -123,9 +123,19 @@ progression `t+Lℤ` (a degree-k polynomial in s is integer-valued iff it is int
 s=0,…,k). ∎
 
 * Negative controls: deleting one class, or perturbing one parameter, makes the checker FAIL.
-* Context: Salez's single-prime filter `S_13={0,5,6,8,11}` (arXiv:1406.6307 §3.1) gives
-  `p≡5,6,8,11 (13)`; Theorem 3.1 adds the residues 2 and 7 mod 13 except for the listed
-  classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
+* Context and novelty (R80 repair, applied by reviewer). Theorem 3.1 is an **explicit packaging
+  of the Salez/ET level sieve**, not a new kind of filter. Salez (arXiv:1406.6307 §3–4) sieves
+  with seven modular equations, including filters with *composite* moduli (`S_m`, shortened
+  `S*_55, S*_65, S*_77, …`), and tabulates the uncertified residue sets `R_i` mod
+  `G_i = 840, 9240, 120120, …`. Mihnea–Dumitru (arXiv:2509.00128) extend this to
+  `G_8 = 25878772920`. Using all ET Prop 1.9 classes with modulus `| L`, R80
+  (`scripts/review_mordell_level.py`) reproduces Salez's counts `#R_3=34`, `#R_4=192` exactly.
+  Salez's `R_4` (mod 120120) already contains only 7 residues with `(p/13)=−1`
+  ({3361, 20521, 57961, 79081, 90721, 112561, 113401}; 2 of them with `(p/11)=+1`). So a
+  Theorem-3.1-type statement mod 120120 follows from Salez's 2014 data. Theorem 3.1 is the same
+  sieve one level deeper (2⁴, 3²), sliced by `(p/13)`, with explicit, independently checkable
+  certificates. The single-prime filter `S_13={0,5,6,8,11}` gives `p≡5,6,8,11 (13)`. The level
+  sieve also handles the residues 2 and 7 mod 13, except for the listed classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
   Deeper levels shrink the exceptional set (e.g. 1412 residues mod `L=2^4·3^2·5·7·11·13^2·17·19·23`
   in case (b), relative density 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
 
