@@ -334,7 +334,8 @@ P-data exactly; `scripts/review_m17_round2.py`.) In that case `s | a+b` is autom
 ever admissible iff `−a/s ∈ ⟨17⟩ ⊂ (ℤ/f)^×`, which tacitly requires `gcd(a,f)=1`. It is then
 admissible exactly for `K ≡ log_17(−a/s) (mod ord_f 17)` with `4a²t ≤ 17^K + 2a/s` (this is `b≥a`)
 (R83 round-2 repair n4, applied by reviewer). Under a random model for this discrete logarithm (17^K equidistributed
-modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³`. The weighted tail
+modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³`. *EVIDENCE (R83 round-2 addition, applied by reviewer):* the data fit this well. `D_P(K)` =
+2, 32, 121, 258, 604 against `K³` = 1, 27, 125, 343, 729 for K = 1, 3, 5, 7, 9 (both engines). The weighted tail
 `Σ_K 17^{−K/2} D_P(K)` is then tiny. The quantity to control is **how often `−a/s` lies in `⟨17⟩`
 modulo `4ast−1`, and where its logarithm falls**. That is an Artin / discrete-log equidistribution
 question for one fixed base, many moduli, and a fixed exponent K. Divisor-bound methods (ET,
