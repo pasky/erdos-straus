@@ -1121,7 +1121,7 @@ specialist search would not find an identical prior statement.
   sifted-set analogue of Linnik's theorem, weaker than the
   Granville–Pomerance / Heath-Brown least-prime conjectures; no prior named
   statement known.
-* *Recommended wording* (the first is adopted in ledger (D)19): call the
+* *Recommended wording* (adopted in ledger (D)19 and CEILINGS_UNIFIED §4): call the
   large-sieve duality a minimax form of the classical large sieve–Λ² equivalence, and
   call the 3/4 and 1/4 ceilings instances of the large-dimension sieve
   limit `log D ≍ κ log z`, proved here as barriers for all certificates in
