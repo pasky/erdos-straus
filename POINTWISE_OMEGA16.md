@@ -411,8 +411,9 @@ POINTWISE_SIZE §7.2; `x_C` solves `δ*·li(x_C)/8=1` (Cramér/RA prediction for
 `δ*π_h(10^{11})≈42400, 3120, 141, 3.6`; the deficit at fixed T shrinks as x grows — at T=511
 it is 18% at `10^9` and 5% at `10^{11}` — as Prop 7.1(a) of SIZE forces eventually.) The
 LS ratio stays `≈1` (CR with `A≈1`); the outlier `p=2031121` (`W>2047`) is a lucky early
-record. The T=4095 entry is from the scan of `[10^{11},2.27·10^{11})`
-(`data/omega16/esleast_1e11_1e12.log`): `p=133050918961` (`≡121 (840)`, a square), with
+record. The T=4095 entry is from the scan of `[10^{11},2.382·10^{11})`
+(`data/omega16/esleast_1e11_1e12.log`; stopped there by hand, no hard p with `W>8191` below
+`2.382·10^{11}`; R61 re-scanned independently and confirmed it is the least): `p=133050918961` (`≡121 (840)`, a square), with
 `W(p)=5935` recomputed independently by direct divisor search; it lies a factor ≈5 beyond the
 Cramér/RA estimate `x_C≈2.6·10^{10}`, consistent with the deficit noted above.
 
