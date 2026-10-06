@@ -20172,4 +20172,88 @@ print("\n== (dj) EXCEPTIONAL_LARGESIEVE3: Thm 1.1 toy inequality, Thm 3.1, Lemma
 check_dj()
 
 
+
+# ---------------------------------------------------------------- (dk)
+# EXCEPTIONAL_SPW2.md §2 (Lemmas 2.2, 2.3, the IF2 Lemma 9.3 remark, RSPW LP table rows; cf.
+# scripts/review_spw2_nearzone.py, review_spw2_interval.py (imported), spw2_relaxed_lp.py).  Checked:
+# (1) Lemma 2.2, exact: for C in {3/2, 2, 5/2, 3}, N in {5, 12, 13, 30, 31, 57}, no class of modulus
+#     e > CN (e < CN + 3N) through [1, N] meets the near zone Z = [N - CN, 0] u [N+1, CN+1]; the
+#     Lemma 9.3 threshold max_q c/(k - c) is 3/2 at C = 2 and 4 at C = 3/2 (N = 60, 101, 200);
+# (2) Lemma 2.3 (sharp), exact rank over Q: for D <= 6 and every interval length ell <= Phi(D)+3,
+#     the zero-class-sum space mod all d <= D has dimension max(0, ell - Phi(D)); the witness
+#     prod_{d <= D} Phi_d(z) (D <= 12) has zero class sums mod every d <= D on Phi(D)+1 points;
+#     Phi(N//2) >= 3N + 2 holds for 38 <= N < 2000 and fails at N = 37;
+# (3) [scipy] RSPW LP rows (C = 2, L = 8N): eta = 1 at N = 12 (K = inf), 0.955 at N = 20 (K = inf),
+#     2/3 at N = 12, 16 with K = 1.
+
+def check_dk():
+    from time import perf_counter
+    import importlib.util
+    import os
+    from sympy import Poly, cyclotomic_poly, symbols, totient
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    NZ = load("review_spw2_nearzone")
+    IV = load("review_spw2_interval")
+    for C in (Fraction(3, 2), Fraction(2), Fraction(5, 2), Fraction(3)):
+        for N in (5, 12, 13, 30, 31, 57):
+            assert NZ.check_22(N, C) == 0, ("SPW2 Lemma 2.2: class through [1,N] meets Z", N, C)
+    for N in (60, 101, 200):
+        assert NZ.worst_93(N, Fraction(2))[0] == Fraction(3, 2), ("SPW2 Lemma 9.3 threshold at C = 2", N)
+        assert NZ.worst_93(N, Fraction(3, 2))[0] == 4, ("SPW2 Lemma 9.3 threshold at C = 3/2", N)
+    nrank = 0
+    for D in range(1, 7):
+        P = IV.phi_sum(D)
+        for ell in range(1, P + 4):
+            rk = IV.rank_Q(IV.constraint_rows(D, ell, 3), ell)
+            assert ell - rk == max(0, ell - P), ("SPW2 Lemma 2.3 kernel dimension", D, ell, rk, P)
+            nrank += 1
+    z = symbols("z")
+    for D in range(1, 13):
+        P = sum(int(totient(d)) for d in range(1, D + 1))
+        assert P == IV.phi_sum(D)
+        F = Poly(1, z)
+        for d in range(1, D + 1):
+            F = F * Poly(cyclotomic_poly(d, z), z)
+        coef = list(reversed(F.all_coeffs()))                 # f(x) = coef[x], x = 0..Phi(D)
+        assert len(coef) == P + 1 and coef[0] != 0 and coef[-1] != 0
+        for d in range(1, D + 1):
+            for b in range(d):
+                assert sum(coef[b::d]) == 0, ("SPW2 Lemma 2.3 sharpness witness", D, d, b)
+    phis = [0]
+    for d in range(1, 1001):
+        phis.append(phis[-1] + int(totient(d)))
+    assert phis[37 // 2] < 3 * 37 + 2, "SPW2 Lemma 2.3: N = 37 should fail"
+    assert all(phis[N // 2] >= 3 * N + 2 for N in range(38, 2000)), "SPW2 Lemma 2.3: Phi(N//2) >= 3N+2 for N >= 38"
+    msg = "RSPW LP rows skipped (no scipy)"
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+    if have_scipy:
+        import numpy as np
+        LP = load("spw2_relaxed_lp")
+        got = []
+        for N, K, want in [(12, np.inf, 1.0), (20, np.inf, 0.9552), (12, 1.0, 2 / 3), (16, 1.0, 2 / 3)]:
+            pts, res = LP.solve(N, 8 * N, 2.0, K)
+            assert res.status == 0, ("SPW2 RSPW LP failed", N, K, res.message)
+            assert abs(res.x[-1] - want) < 1e-3, ("SPW2 RSPW LP eta", N, K, res.x[-1], want)
+            got.append(f"{res.x[-1]:.3f}")
+        msg = "RSPW LP eta (N, K) = (12, inf), (20, inf), (12, 1), (16, 1): " + ", ".join(got)
+    print(f"dk Lemma 2.2 (near zone) on 24 (N, C), Lemma 9.3 thresholds 3/2 (C = 2), 4 (C = 3/2); Lemma 2.3: "
+          f"{nrank} exact kernel dimensions (D <= 6), cyclotomic witnesses D <= 12, Phi(N//2) >= 3N+2 iff N >= 38 "
+          f"(N < 2000); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dk) EXCEPTIONAL_SPW2 §2: Lemma 2.2 near zone, Lemma 2.3 (sharp), RSPW LP rows ==")
+check_dk()
+
+
 print("\nall checks passed")
