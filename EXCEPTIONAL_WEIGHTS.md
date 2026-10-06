@@ -186,7 +186,7 @@ composite moduli the CRT choices are not independent and this reduction is
 not claimed. The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
 note's bound is shift-uniform). Whether M(N) is that large is §5.
 
-## 3. Sharp weights for hit-pattern majorants: capped unconditionally
+## 3. Sharp weights for hit-pattern majorants: capped without (H_eq)
 
 Setting of NC §2.5: a prime-slice system with Q₀ = 1 (distinct primes ℓ ∈ 𝒫,
 class sets `F_ℓ ⊂ ℤ/ℓ`, `p_ℓ = |F_ℓ|/ℓ ≤ 1/4`), and a **hit-pattern majorant**
