@@ -13,7 +13,7 @@ Deliverable: `POINTWISE_MN.md` (§§0–7), scripts `scripts/mn_jacobi.py`, `scr
 2. **Prop 2.1 (PROVED).** For every `m ≢ 0 (4)` there are infinitely many prime atoms `M = ℓ`
    whose event classes meet both square cosets (m=5: ℓ=29; m=6: ℓ=5 hits the squares). So the
    square-class process fires and no "fixed quadratic pattern" coset replaces it. Square-consistent
-   atoms are ~15–19% of all atoms for m = 5, 6, 7, 10.
+   atoms are about 16–19% of all atoms for m = 5, 6, 7, 10.
 3. **Thm 3.1 (m ≡ 0 (4); PROVED modulo (G), NT, fundamental lemma, OMEGA10 Thm 3.4 — substitution
    proof).** Haar exponent 3 (`𝓛³/log𝓛 ≪ log(1/δ*_m) ≪ 𝓛³(log𝓛)^5`) and
    `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. Only m-specific changes: Lemma 1.1(d), NT
