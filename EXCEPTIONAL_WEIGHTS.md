@@ -149,3 +149,94 @@ A class set with `N·|F_ℓ| < ℓ` has a gap of length N mod ℓ and is avoided
 cost. For forced classes `|ℛ(M)| = M^{o(1)}`, so only moduli `≤ N^{1+o(1)}`
 matter for M(N). The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
 note's bound is shift-uniform). Whether M(N) is that large is §5.
+
+## 3. Sharp weights for hit-pattern majorants: capped unconditionally
+
+Setting of NC §2.5: a prime-slice system with Q₀ = 1 (distinct primes ℓ ∈ 𝒫,
+class sets `F_ℓ ⊂ ℤ/ℓ`, `p_ℓ = |F_ℓ|/ℓ ≤ 1/4`), and a **hit-pattern majorant**
+`ν(n) = f(x(n))`, `x_ℓ(n) = 1[n mod ℓ ∈ F_ℓ]`, with biased Walsh expansion
+`ν = Σ_S d_S y^S`. As in NC §2.5, `ν̂` on `Θ_S` equals `d_S·Π_{ℓ∈S} 1̂_{F_ℓ}(h_ℓ)`,
+so for any weight w
+
+    R_w(ν) = Σ_S |d_S| M_S^w,   M_S^w = Σ_{θ∈Θ_S} m_S(θ) w(θ),
+    m_S(Σ h_ℓ/ℓ) = Π_{ℓ∈S} |1̂_{F_ℓ}(h_ℓ)|,   A_S := Σ_θ m_S(θ) = Π_{ℓ∈S} a_ℓ,       (3.1)
+
+`a_ℓ = Σ_{h≠0} |1̂_{F_ℓ}(h)| ≥ Σ|1̂|²/max|1̂| = 1 − p_ℓ`. Put
+`g_ℓ(n) = Σ_{h≢0} |1̂_{F_ℓ}(h)| e(nh/ℓ)` (real, since `|1̂_F(−h)| = |1̂_F(h)|`) and
+`φ_ℓ(n) = g_ℓ(n)/a_ℓ ∈ [−1, 1]`.
+
+**Lemma 3.1 (sin² lower bound; PROVED).** If `w(θ) ≥ c₀|sin πNθ|` for all θ ≠ 0,
+then for every S ≠ ∅
+
+    M_S^w ≥ (c₀/2) · A_S · (1 − |Π_{ℓ∈S} φ_ℓ(N)|).
+
+This applies to the sharp weight `|S_N(θ)| = |sin πNθ|/|sin πθ| ≥ |sin πNθ|`
+(c₀ = 1).
+
+*Proof.* `|sin x| ≥ sin² x = (1 − cos 2x)/2`. So
+`M_S^w ≥ (c₀/2) Σ_θ m_S(θ)(1 − cos 2πNθ) = (c₀/2)(A_S − Re Σ_θ m_S(θ)e(Nθ))`.
+Since `m_S` is a product measure in the CRT coordinates and
+`e(Nθ) = Π_ℓ e(Nh_ℓ/ℓ)`, `Σ_θ m_S(θ)e(Nθ) = Π_ℓ g_ℓ(N) = A_S Π_ℓ φ_ℓ(N)`. ∎
+
+**Lemma 3.2 (one-prime anti-concentration; PROVED).** Let ℓ be an odd prime,
+ℓ ∤ N, `F ⊂ ℤ/ℓ` with `|F| = k ≥ 1`, `p = k/ℓ ≤ 1/4`. Then
+`1 − |φ_ℓ(N)| ≥ 9/(256 k²)`.
+
+*Proof.* Let μ be the probability measure `|1̂_F(h)|/a_ℓ` on h ≢ 0. Then
+`1 − |φ(N)| ≥ Σ_h μ(h)(1 − |cos(2πNh/ℓ)|)`. For `η ∈ (0,1/2]`, put
+`B = {h ≢ 0 : ‖2Nh/ℓ‖ < η}`. As `h ↦ 2Nh` is a bijection of ℤ/ℓ (ℓ odd, ℓ ∤ N),
+`#B ≤ 2ηℓ`. Each `|1̂_F(h)| ≤ p` and `a_ℓ ≥ 1 − p ≥ 3/4`, so
+`μ(B) ≤ 2ηℓp/(3/4) = (8/3)ηk`. Off B, `1 − |cos(2πNh/ℓ)| = 1 − cos(π‖2Nh/ℓ‖) ≥ 2η²`
+(`1 − cos y ≥ 2y²/π²` on [0,π]). With `η = 3/(16k)`: `μ(B) ≤ 1/2` and
+`1 − |φ| ≥ (1/2)·2η² = 9/(256k²)`. ∎
+
+**Theorem 3.3 (sharp and sin-dominated weights are capped for hit-pattern
+majorants; PROVED).** Take a prime-slice system with Q₀ = 1, `p_ℓ ≤ 1/4`, and
+`|F_ℓ| ≤ ℓ^{γ}` for all ℓ, with a fixed γ < 1/3. Let ν be a hit-pattern majorant
+of arbitrary level and w any weight with `w(0) = N` and `w(θ) ≥ c₀|sin πNθ|` for
+θ ≠ 0. Use the weights
+
+    s_ℓ = log(1/(2p_ℓ)) − 2 log|F_ℓ| = log(ℓ/(2|F_ℓ|³))   (≥ (1−3γ)log ℓ − log 2).
+
+Then Theorem 2.3 of NC holds with `ε` replaced by `ε^w := (512/(9c₀))·e^{−λ}·R_w(ν)`:
+
+    Eν ≥ (1 − ε^w) e^{−Φ̄(λ,α)} − 2ε^w,
+
+Φ̄ computed with these s_ℓ (and `s_* = min s_ℓ`; primes with `s_ℓ < s_*` for a
+chosen `s_* > 0` are finitely many and may be moved into the selector, as in
+NC Cor 2.5). Consequently, under the hypotheses of NC Cor 2.5 with `C < 1/3`
+(in particular for every ℛ(ℓ)-slice, where `|ℛ(ℓ)| = ℓ^{o(1)}`), every bound
+`N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ) = N e^{−s}` with ν a hit-pattern majorant has
+
+    s ≤ C₉(γ) (log N)^{3/4} + O(1).
+
+*Proof.* Only the tail estimate (2.3) of NC changes. Let `s(S) > λ ≥ log N`.
+Since `s_ℓ < log ℓ`, `Π_{ℓ∈S} ℓ > e^{λ} ≥ N`, so some `ℓ₀ ∈ S` does not divide N
+(and ℓ₀ ≥ 5 since p ≤ 1/4). Lemmas 3.1–3.2 with this ℓ₀ give
+`M_S^w ≥ (9c₀/512)·A_S/|F_{ℓ₀}|² ≥ (9c₀/512)·Π_S(1−p_ℓ)/Π_S|F_ℓ|²`. Hence
+
+    |d_S| Π_S 2p_ℓ(1−p_ℓ) ≤ (512/(9c₀)) |d_S| M_S^w · Π_S 2p_ℓ|F_ℓ|² = (512/(9c₀)) |d_S| M_S^w e^{−s(S)},
+
+and `Π_S (4/3)p_ℓ ≤ Π_S 2p_ℓ(1−p_ℓ)`. Summing over `s(S) > λ`,
+`r₀, r₁ ≤ (512/(9c₀)) e^{−λ} Σ_S |d_S| M_S^w ≤ ε^w`. The rest of NC Prop 2.1 /
+Thm 2.3 is unchanged (it never uses the specific form of s_ℓ beyond
+`s_ℓ ≥ s_*`). For the corollary: `R_w(ν) ≤ N e^{−s} ≤ N`, so with
+`λ = 2 log(4N) + log(512/(9c₀))` we get `ε^w ≤ e^{−Φ̄}/4` as in NC Cor 2.4. The
+Φ̄ estimate of NC Cor 2.5 goes through because
+`e^{−αs_ℓ} ≤ 2^α ℓ^{−α(1−3γ)}`, which is the same shape with `α' = α(1−3γ)`
+(up to the harmless factor 2^α), and the truncated mass is `Σ_{s_ℓ≤λ} p̄_ℓ ≪ λ³`
+since `s_ℓ ≤ λ` forces `ℓ ≤ (2e^λ)^{1/(1−3γ)}`. ∎
+
+*What this closes.* In NC §2.5's list: the exact sharp weight `|S_N(θ)|` and
+ψ-based Erdős–Turán/Vaaler rounding whose weights carry the factor
+`|sin πNθ|` (with a lower bound `w ≥ c₀|sin πNθ|`), for hit-pattern
+majorants with Q₀ = 1, are capped at `(log N)^{3/4}` without (H_eq). The
+mechanism: a weight below 1 only near `‖Nθ‖ = 0` is harmless because the
+product measure m_S cannot concentrate near `{‖Nθ‖ = 0}` — its N-th
+"characteristic function" `Πφ_ℓ(N)` is bounded away from 1 by a single
+coordinate.
+
+*Not closed by §3:* smooth windows (weights tiny on all of `‖θ‖ ≫ 1/N`, so
+anti-concentration is not enough; one needs equidistribution, (H_eq)); and
+general (non-hit-pattern) majorants with sharp weights (they may reshape ν̂
+inside Θ_S towards `‖Nθ‖ ≈ 0`; whether positivity forbids this is open).
