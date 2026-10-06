@@ -129,3 +129,44 @@ So `M_{c,k}(p)=0` for every `(c,k)∈𝓢`: `ck_min(p)>X`. ∎
   thus a **sterile point**: `x*∈Σ_r` with `x*∉Cl(κ)` for *every*
   certificate κ. Under H, `C(7)=∞` iff `Σ_7` has a sterile point. Then
   `𝓟_X` is explicit from `x*` and X.
+
+## 2. Sterile points for r=7: reductions
+
+**Lemma 2.1 (forced slices at "square" points; PROVED).** Let `x*∈Σ_7` with
+`x*_q` a square in `ℤ_q^×` for every prime `q≠7` (for q=2: `x*_2≡1 (8)`).
+Then a certificate `(c,k,F)` can hold at x* only if `v_7(c)` is odd.
+*Proof.* `χ_s(x*)` depends on `x* mod 4s` and equals `∏_{q|s}(x*_q/q)`
+times the 2-adic factor, which is 1; so `χ_s(x*)=−1` iff `7|s`. If
+`χ_s(x*)=1` and `x*∈Cl(c,k,F)`, the open set `Cl(c,k,F)∩{χ_s=1}∩Σ_7`
+contains a unit class, hence (Dirichlet) primes p with `(c,k)∈𝓑_p`,
+`χ_s(p)=1` and `M_{c,k}(p)≥1`, contradicting notes Thm 48.1. ∎
+
+**Lemma 2.2 (7-adic balls; PROVED).** Fix all components of such an x*
+except `x*_7`. For a slice with `v_7(c)` odd, `v=v_7(ck)`, we have
+`7∤N_{c,k}(x*)`, so `(c,k,F)` holds at x* iff (a) `F` divides the
+7-free fixed part and `F≡−x* (mod 4ck/7^v)` (conditions not involving
+`x*_7`), and (b) `x*_7≡−F (mod 7^v)`. So every certificate forbids one ball
+of radius `7^{−v}` for `x*_7`, and a sterile `x*_7` exists iff these balls
+miss some non-square unit of `ℤ_7`. (`scripts/typei2_balls.py`.)
+
+**Proposition 2.3 (the residue-one point is not sterile; PROVED).** Let
+`x*_q=1` for all `q≠7`. Then every non-square `x*_7` is covered already at
+level `v=1`: by `(7,3,11)`, `(7,3,23)`, `(14,2,15)` for `x*_7≡3,5,6 (7)`.
+In fact these are **all** level-1 certificates there. *Proof.* Here
+`N=1+4ck²` is an integer and `F≡−1 (mod 4m)`, m the 7-free part of
+`ck`; the cofactor `e=N/F` also satisfies `e≡−1 (mod 4m)`. Write
+`c=7^a c'`, `k=7^b k'`, `F=4mj−1`, `e=4mj'−1` (`j,j'≥1`). Expanding
+`Fe=1+4ck²` gives `4c'k'jj'−j−j'=7^{a+2b}k'`. So `k'|j+j'`; put
+`j+j'=k'u`. Then `4c'jj'=7^{a+2b}+u` and `u≤j+j'≤jj'+1`. For `a=1,b=0`:
+`u≤(7+u)/(4c')+1`. If `c'=1` this gives `u≤3`, with `4|7+u`, so `u=1`,
+`jj'=2`, `k'=3`: `F=11,23`. If `c'≥2`, `u≤2` and `4c'|7+u`, so `u=1`,
+`c'=2`, `j=j'=1`, `k'=2`: `F=15`. The three certificates are checked
+directly (`253=11·23`, `225=15²`). ∎
+
+Numerically (`typei2_balls.py 20000 3 1 2:25:14 3:7:9`): at the point
+`x*_2=25, x*_3=7`, `x*_q=1` (q≠2,3,7) of Cor 6.4, `x*_7≡3,5` are again
+killed by `(7,3,11)`, `(7,3,23)`, and `x*_7≡6` is killed at level 1 by
+`(21,351,155)` (height 7371). So that point has formal `ck_min≤7371` for
+every `x*_7`. The certificates `(7,3,11)`, `(7,3,23)` hold at **every**
+point with `11|N`, `23|N` there, i.e. `x*_{11}≡±1`, `x*_{23}≡±10`… — they
+can only be avoided by moving `x*_{11}`, `x*_{23}`.
