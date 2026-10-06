@@ -10,15 +10,15 @@ usage: mordell_dfs.py r variant Mmax Pmax emax maxnodes [out.json] [root_filter]
 import sys, json, time, heapq
 import numpy as np
 from math import gcd
-from mordell_lib import divisors, residue_table
+from mordell_lib import divisors, residue_table, residue_set
 from mordell_cover import base, primes_upto
 
 TABLE = {}
 def table(M):
     t = TABLE.get(M)
     if t is None:
-        w = residue_table(M)
-        t = (np.array(sorted(w), dtype=np.int64), w)
+        w = residue_set(M)
+        t = (np.array(sorted(w), dtype=np.int64), None)
         TABLE[M] = t
     return t
 
@@ -65,9 +65,11 @@ def witness(x, L, Mmax):
     for M in divs(L):
         if M > Mmax or M < 3:
             continue
-        a, w = table(M)
+        a, _ = table(M)
         r = x % M
-        if r in w:
+        i = np.searchsorted(a, r)
+        if i < len(a) and a[i] == r:
+            w = residue_table(M)
             return (M, r, w[r])
     return None
 

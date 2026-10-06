@@ -194,24 +194,32 @@ def factor_small(n):
 
 def classes_for_modulus(M):
     """All (fam, params) classes of the seven families whose modulus is exactly M."""
-    out = []
+    return list(iter_classes(M))
+
+
+class _Out:
+    pass
+
+
+def iter_classes(M):
+    """generator version of classes_for_modulus"""
     # II2: f = M, M = 3 mod 4, a*d | (M+1)/4
     if M % 4 == 3:
         A = (M + 1) // 4
         for a in divisors(A):
             for d in divisors(A // a):
-                out.append(('II2', (a, d, M)))
+                yield ('II2', (a, d, M))
     if M % 4 == 0:
         Q = M // 4
         # 4ab families (I1 uses 4ad with f | 4a^2 d + 1)
         for a in divisors(Q):
             b = Q // a
             for f in divisors(4 * a * a * b + 1):
-                out.append(('I1', (a, b, f)))
+                yield ('I1', (a, b, f))
             for e in divisors(a + b):
                 if gcd(e, 4 * a * b) == 1:
-                    out.append(('I4', (a, b, e)))
-                    out.append(('II1', (a, b, e)))
+                    yield ('I4', (a, b, e))
+                    yield ('II1', (a, b, e))
         # 4 x y z with third factor coprime: I2 (a,c,f), I3 (c,d,f), II3 (a,d,e)
         for z in divisors(Q):
             if gcd(z, 4 * (Q // z)) != 1:
@@ -219,20 +227,27 @@ def classes_for_modulus(M):
             xy = Q // z
             for x in divisors(xy):
                 y = xy // x
-                out.append(('I2', (x, y, z)))
-                out.append(('I3', (x, y, z)))
-                out.append(('II3', (x, y, z)))
-    return out
+                yield ('I2', (x, y, z))
+                yield ('I3', (x, y, z))
+                yield ('II3', (x, y, z))
 
 
 def residue_table(M):
     """sorted list of residues mod M covered by classes of exact modulus M,
     with one witness class per residue (dict residue -> (fam, params))."""
     wit = {}
-    for fam, P in classes_for_modulus(M):
+    for fam, P in iter_classes(M):
         MM, R = cls_modulus_residues(fam, P)
         assert MM == M
         for r in R:
             if r not in wit:
                 wit[r] = (fam, P)
     return wit
+
+
+def residue_set(M):
+    """set of residues mod M covered by classes of exact modulus M (no witnesses)."""
+    S = set()
+    for fam, P in iter_classes(M):
+        S.update(cls_modulus_residues(fam, P)[1])
+    return S

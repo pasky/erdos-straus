@@ -7,7 +7,11 @@ from mordell_lib import classes_for_modulus, cls_modulus_residues, factor_small
 Mmax = int(sys.argv[1])
 spec = {}
 step = 1
+default = (1, 1)
 for a in sys.argv[2:]:
+    if a.startswith('--default='):
+        nm, dn = map(int, a.split('=')[1].split('/')) if '/' in a else (int(a.split('=')[1]), 1)
+        default = (nm, dn); continue
     if a.startswith('--step='):
         step = int(a.split('=')[1]); continue
     q, v, k = map(int, a.split(':'))
@@ -23,7 +27,7 @@ def point_mod(M):
                 return None
             t = v % qe
         else:
-            t = 1 % qe
+            t = (default[0] * pow(default[1], -1, qe)) % qe
         x = (x + m * (((t - x) * pow(m, -1, qe)) % qe)) % (m * qe)
         m *= qe
     return x
