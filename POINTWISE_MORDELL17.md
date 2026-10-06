@@ -227,3 +227,51 @@ U: never new (Lemma 5.2). So new boxes are about half of all boxes. This is a co
 not an exponent: nesting does not change the critical comparison (P: count `N^{2/5+o(1)}` vs weight
 `N^{−1/2}`), because a centre is new at its *first* K, and first occurrences are not provably
 rarer than occurrences.
+
+## 6. Tail attempts II: prime-power structure, digit sets (EVIDENCE / precise obstruction)
+
+*Reformulation of (P) (PROVED).* An N-point of `Σ^II_N` with `a≤b` is determined by `(a,b)`.
+Indeed `ce=a+b` gives `0<e≤a+b<4ab`, and `N+e=4abd`, so `e` is the least positive residue of
+`−N (mod 4ab)` and `d=(N+e)/(4ab)`. Hence
+`D_P(K) ≤ #{(a,b): a≤b, 2ab ≤ 17^K, (−17^K mod 4ab) divides a+b}`, with box centre `−a/b` (Lemma 5.1).
+For fixed `(a,b)` the admissible `K` are periodic mod `ord_{4ab}(17)`, and the boxes are nested
+(Lemma 5.2's mechanism). So the (P)-union is `⋃_{(a,b)} B(−a/b, 17^{−⌈K₀(a,b)/2⌉})` together with its
+reflection, where `K₀` is the first admissible K. Since `17^{K₀} ≥ 2ab`, the radius is `≤ (2ab)^{−1/2}`.
+
+*Scaled vs primitive (PROVED, partial).* For a P-datum, `17|a ⟺ 17|b` (2.15). If `17|a,b`, then
+`(a/17, b/17, c, 17d)` is an N-point for `17^{K−1}` with the same centre `−a/b`. That point is **not** a
+P-datum (`17|d`), so scaling does not give nesting inside P. These boxes have centre `≡1 (17)`
+anyway (`f≡−1`), so in-cell P-data are all primitive (`17∤ab`). For Q (Lemma 5.1) the in-cell data
+satisfy `17∤abcd`. So **the prime-power structure enters only through the residues `17^K mod 4ab`.**
+
+*What an explicit bound requires.* The weight of a level-K P-box is `≍ N^{−1/2}`, so one needs
+`D_P(K) ≤ C·17^{θK}` with `θ<1/2` and explicit C. Here is what the available tools give:
+* The elementary scan over `(a,d)` with `f|N+4a²d`, `f≡−1`, `e≡−N (mod 4ad)` gives `O(N)`: for
+  `4ad>√(3N)` each pair still has one candidate `e=(−N mod 4ad)`, and nothing bounds how often it
+  divides `N+4a²d`.
+* Lenstra's bound (≤11 divisors in a class mod `s ≥ m^{1/3}`) covers the range `ad ≥ N^{1/3}`.
+  Coppersmith–Howgrave-Graham–Nagaraj covers `ad ≥ N^{1/4+δ}`. Both count per pair, so the
+  `ad ≲ N^{1/2}` pairs alone already cost `≍ N^{1/2}log N`. That is exactly the critical size, and
+  it misses by the log.
+* ET's `N^{2/5+o(1)}` uses the pointwise divisor bound. With Nicolas–Robin constants the exponent
+  is `≥ 0.6` for every `K ≤ 40`.
+So the P-tail is equivalent in difficulty to an explicit "small residues of `17^K` modulo `4ab`"
+statement: `#{(a,b): ab≤17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`. Heuristically it is
+`≈ Σ τ(a+b)/(4a·b)·b ≍ log³`. I see no unconditional route.
+
+*Digit-set (Cantor) construction — tested, fails as stated (EVIDENCE).* If every box `r` of level k
+had `r` or `1/r ≡ −z (mod 17^k)` with `0<z<θ·17^k`, a 17-adic `u` whose digits and those of `1/u`
+avoid the top digits would be sterile. The digit-wise choice is possible because the new digit of
+`1/u` is an affine function with slope `−u₀^{−2} ≡ 2` of the new digit of `u`. The integer centres
+`−f` of P-boxes with `cd` small do satisfy this (`min(f,f*) ≤ √(4c²dN+1)`). But over all new
+in-cell boxes the ratio `t = min(z_r, z_{1/r})/17^k` has median ≈0.15–0.2 and maximum 0.87–0.99
+(levels 3–7). So no fixed θ works, and the boxes are only mildly biased toward small integer centres.
+
+**Assessment after round 2.** (a) Nesting: U contributes nothing (PROVED); Q⁻¹ = Q; the new-box
+counts are about ½ of all boxes; the exponents are unchanged. (b) Prime-power structure:
+in-cell data are primitive, and the P-count is a small-residue problem for `17^K mod 4ab`. No
+explicit θ<1/2 bound is in reach. (c) Raising the exact cutoff would not close the tail by itself.
+Theorem 4.1's hypothesis needs a per-K bound for all K, so more computation alone does not help.
+P at K=11 would need an `N^{2/5}` factoring-based enumerator. Recommendation: record Theorem 4.1 as
+the reduction, together with the CONJECTURE that `C_5` contains sterile points (EVIDENCE: 67.7%
+uncovered through level 5, with rapidly decaying increments).
