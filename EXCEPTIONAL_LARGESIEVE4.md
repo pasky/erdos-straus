@@ -340,3 +340,103 @@ support in a class 𝒮 of prime sets, (A*) is needed only for `supp θ_r ∈ �
 (c) By §3, (A*) reduces to a covering count; for supports of size
 `≤ (1−2γ)log₂ z` the count is trivially within the slack (§3.2), modulo
 the outside-coordinate bookkeeping (to be written, §5).
+
+## 5. Sup decay from deterministic residue sets
+
+For a family 𝔊 and a prime ℓ let `Res_ℓ(𝔊) ⊆ ℤ/ℓ^{E_ℓ}` be the union of
+the classes `b_C mod ℓ^{v_ℓ(G_C)}` over all C ∈ 𝔊 with `ℓ | G_C`.
+
+**Lemma 5.1 (pinned pivotal bound; PROVED).** In Setting 4.0 let G be any
+event (path functional) with `Q'(G) > 0` that depends on the path only
+through the activated sets, the light/heavy status and membership of the
+path in the avoider set (e.g. `G_B`), and `σ = Q'(·|G)`. For θ ≠ 0 with
+`S = supp θ`, and any sets `R_ℓ ⊇ F̃_ℓ`-candidates as below,
+
+    |σ̂(θ)| ≤ Q'(G)^{−1} Π_{ℓ∈S} 4U(R_ℓ)/(1−δ_ℓ),
+
+where `R_ℓ` is any **deterministic** set containing the ℓ-residues of all
+classes of the (fibre) family having ℓ in their modulus; in particular
+`R_ℓ = Res_ℓ`.
+
+*Proof.* (Pinned representation.) Integrating out the coordinates outside
+S, `Q'(x_S = v, G) = E^{(v)}[1_G Π_{ℓ∈S}k_ℓ(v_ℓ | past)]`, where `E^{(v)}`
+is the law of the path in which the S-coordinates are set to v and the
+others follow Q' (coins `c_q`, orderings `π_q` as in §3). So with
+`Φ(v) = 1_G(path(v))Π_{ℓ∈S}|Ω_ℓ|k_ℓ(v_ℓ|past)` (coins fixed),
+`σ̂(θ) = Q'(G)^{−1}E_{coins}E_{v∼U_S}[χ_θ(v)Φ(v)]`, and
+`0 ≤ Φ ≤ Π_{ℓ∈S}(1−δ_ℓ)^{−1}`. As in Lemma 3.1,
+`|E_v[χΦ]| ≤ 2^{|S|}‖Φ‖_∞ P_{v,v'}(every ℓ ∈ S pivotal)`, v, v' independent
+uniform on `Ω_S`. (Pivotal ⇒ residue.) Fix A ∌ ℓ and compare the pinned
+paths for `v^A` and `v^{A∪ℓ}`, which differ only in the pinned value at ℓ
+(`v_ℓ` vs `v'_ℓ`). If neither value lies in `R_ℓ`: before ℓ the paths
+agree; at ℓ the factor `1[v_ℓ ∉ F̃_ℓ]/(1−p̃_ℓ)` is the same (`F̃_ℓ ⊆ R_ℓ`);
+after ℓ, by induction over coordinates, every activated set agrees
+(a class through ℓ is never matched, since its ℓ-residue is in `R_ℓ`;
+classes not through ℓ see equal coordinates), hence so do light/heavy
+status, coin decisions, fresh draws, Λ-factors, avoider-membership (no
+class through ℓ is completed) and `Σw p̃`. So Φ agrees and ℓ is not
+pivotal. Hence `P(all pivotal) ≤ Π_{ℓ∈S}P({v_ℓ,v'_ℓ} ∩ R_ℓ ≠ ∅)
+≤ Π_ℓ 2U(R_ℓ)`, by independence of the coordinates of (v, v'). ∎
+
+The point: the residue set is **deterministic**, so the S-coordinates
+are independent and no correlation-decay statement is needed. What is
+lost is the randomness of activation: `R_ℓ` contains the residues of
+*all* classes through ℓ, not only of the activated ones.
+
+**Theorem 5.2 (residue-sparse mixtures; PROVED, inputs as LS3 Thm 3.1).**
+Let `z = exp((log N)^{1/4})`, `γ ∈ (0,1]`, and let 𝔊 be any finite mixture
+of ℛ(M)-, (a,D)-, Case-A and selector classes (any moduli, no B). Split
+𝔊 = 𝔊₁ ∪ 𝔊₂, 𝔊₁ the classes with at most one prime factor `> z`. Suppose
+the multi-rough classes are residue-sparse:
+
+    (RS_γ)   U(Res_ℓ(𝔊₂)) ≤ ℓ^{−γ}   for every prime ℓ > z.
+
+Then every CRT-admissible N-large-sieve bound for 𝒜(𝔊) — any rational
+frequencies, any denominators, any weights — saves
+`log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³`.
+
+*Proof.* Theorem 4.2 with (A*) verified as follows. In the fibre at c,
+the classes through a rough ℓ are (i) classes of 𝔊₂ (residues in
+`Res_ℓ(𝔊₂)`), and (ii) classes of 𝔊₁ with rough prime ℓ whose smooth part
+is matched by c; the latter are decided at ℓ (top prime) and their
+residues form the set `F^r_ℓ(c)` of LS3 Thm 3.1, deterministic given c.
+Take `R_ℓ(c) = Res_ℓ(𝔊₂) ∪ F^r_ℓ(c)` in Lemma 5.1. Add to the exceptional
+smooth event the event `E₁ = {∃ℓ > z : U(F^r_ℓ(c)) > ℓ^{−1/4}}`, of
+probability `≤ Σ_{ℓ>z}ℓ^{1/2}E p_ℓ² ≤ CΣ_{ℓ>z}ℓ^{−5/4}(log ℓ)^c ≤ 1/64`
+(K2 Lemma 4.3, as in LS3 Thm 3.1). Off E₁,
+`U(R_ℓ(c)) ≤ ℓ^{−γ} + ℓ^{−1/4} ≤ 2ℓ^{−min(γ,1/4)}`, and Lemma 5.1 with
+`Q'_c(G) ≥ 1/2`, `δ_ℓ ≤ 1/2` gives
+`|σ̂_c(θ)| ≤ 2Π_{ℓ∈S}16ℓ^{−γ'}`, `γ' = min(γ, 1/4)`: (A*) with
+`K = 32` (the factor 2 is absorbed at one prime of S ≠ ∅;
+`K ≤ z^{γ'/2}` for N large). Theorem 4.2 (with γ' for γ) concludes. ∎
+
+**Corollary 5.3 (structured and residue-concentrated classes; PROVED).**
+Call a class *H-small* if it is an ℛ(M)-class `−r/s mod M` (TUPLES2
+Lemma 1.1, `rsm = A_M`) with `r, s ≤ H`, an (a,D)-class with
+`4D + a ≤ H`, a Case-A class `−m^{−1}` with `m ≤ H`, or a selector class.
+If every class of 𝔊 with two or more prime factors `> z` is H-small with
+`H ≤ z^{1/4}/2`, the conclusion of Theorem 5.2 holds with γ = 1/4.
+
+*Proof.* The ℓ-residues of H-small classes lie in
+`{−r/s, −n : r,s,n ≤ H} ∪ {0}` (with `−m^{−1} = −1/m`), a set of size
+`≤ H² + H + 1 ≤ z^{1/2}`, so `U(Res_ℓ(𝔊₂)) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}`. ∎
+
+*Remarks.* (a) Corollary 5.3 contains the family of LS3 Lemma 4.2
+(`−4 = −4/1` for all `M ≡ 3 (4)`), and likewise `−1` (`r = s = 1`... via
+`D = A`), `−1/4`, `−d`, `−4d`, `−1/(4d)`, and any mixture of such classes
+over **all** moduli (any number of rough primes per modulus, unbounded
+moduli), together with arbitrary one-rough-prime classes. So **residue
+concentration is not an obstruction**: the concentrated classes are
+exactly the easy (deterministic-residue) case. LS3 §4.2's difficulty
+came from summing class masses at a residue; Lemma 5.1 never sums masses
+at the S-primes — it only uses that the residues lie in a fixed small set.
+(b) Theorem 5.2 strictly extends LS3 Theorem 3.1 (the case 𝔊₂ = ∅).
+(c) What remains for H_LS∞ over *all* forced families is the
+**residue-dense, multi-rough** part: classes with two or more primes
+`> z` whose residues at some rough ℓ fill a fraction `> ℓ^{−γ}` of
+`ℤ/ℓ`. For generic ℛ(M) with many moduli through ℓ this happens
+(`|Res_ℓ|` up to `(ℓ−1)/2`, the non-squares), and then the
+deterministic set must be replaced by the random set of residues of
+classes whose *other* coordinates are matched: the covering problem
+(CC) of §3.2, now only for "large-height" classes (Cor 5.3 removes the
+small-height ones).
