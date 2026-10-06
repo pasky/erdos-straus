@@ -247,3 +247,57 @@ coordinate.
 anti-concentration is not enough; one needs equidistribution, (H_eq)); and
 general (non-hit-pattern) majorants with sharp weights (they may reshape ν̂
 inside Θ_S towards `‖Nθ‖ ≈ 0`; whether positivity forbids this is open).
+
+## 4. Smooth windows for hit-pattern majorants: what (H_eq) really asks
+
+Same setting as §3 (Q₀ = 1, hit-pattern ν), now `w = |W_N|` for a fixed window Φ
+(Φ ≥ 0, Φ ≥ 1 on [0,1], Φ̂ continuous and integrable decay so that Poisson
+applies). Then `W_N(θ) = Σ_k NΦ̂(N(k−θ))`, and there are `c_Φ > 0`, `N_Φ` with
+`|W_N(θ)| ≥ N/3` for `‖θ‖ ≤ c_Φ/N`, N ≥ N_Φ (continuity of Φ̂ at 0, Φ̂(0) ≥ 1).
+NC (2.6) / IF Lemma 4.1 need `M_S^{|W|} ≳ e^{−o(λ)} A_S` (or `N^{−A}Π(1−p)`) for
+`s(S) > λ`. Write `X_S = Σ_{ℓ∈S} X_ℓ mod 1` with independent `X_ℓ = h_ℓ/ℓ`,
+`P(X_ℓ = h/ℓ) = |1̂_{F_ℓ}(h)|/a_ℓ` (h ≢ 0). Then `M_S^{|W|} = A_S·E|W_N(X_S)|`, and the
+"characteristic function" of X_S is `E e(kX_S) = Π_ℓ φ_ℓ(k)`.
+
+**Lemma 4.1 (a sufficient condition; PROVED).** If
+
+    Σ_{0<|k|≤N/c_Φ} |Π_{ℓ∈S} φ_ℓ(k)| ≤ 1/6,                                     (4.1)
+
+then `M_S^{|W|} ≥ (c_Φ/6) A_S`.
+
+*Proof.* Let T be Selberg's minorant of the arc `‖θ‖ ≤ c/N` (c = c_Φ) on ℝ/ℤ, a
+trigonometric polynomial of degree `H = ⌊N/c⌋ − 1` with `T ≤ 1_{‖θ‖≤c/N}`,
+`T̂(0) = 2c/N − 1/(H+1) ≥ c/N`, `|T̂(k)| ≤ 3c/N`. Then
+`M_S ≥ (N/3) A_S P(‖X_S‖ ≤ c/N) ≥ (N/3) A_S E T(X_S)` and
+`E T(X_S) = Σ_{|k|≤H} T̂(k) Πφ_ℓ(k) ≥ (c/N)(1 − 3·(1/6))`. ∎
+
+**Lemma 4.2 (one large prime; PROVED).** If S = {ℓ} with `ℓ ≥ 2|F_ℓ|N/c_Φ`, then
+`M_S^{|W|} ≥ c_Φ/6 ≥ (c_Φ/(6√|F_ℓ|))·A_S`.
+
+*Proof.* Fejér at a point `x₀ ∈ F` (`H' = ⌊cℓ/N⌋ ≥ 2|F|`): the Fejér kernel is
+nonnegative, so `Σ_{|h|<H'}(1−|h|/H')1̂_F(h)e(hx₀/ℓ) = ℓ^{−1}Σ_{y∈F}F_{H'}((x₀−y)/ℓ)
+≥ H'/ℓ`; removing h = 0 (value p) gives `Σ_{0<|h|<H'}|1̂_F(h)| ≥ (H' − |F|)/ℓ ≥ c/(2N)`,
+and these h have `‖h/ℓ‖ ≤ c/N`. Finally `a_ℓ ≤ (ℓ Σ|1̂_F|²)^{1/2} ≤ √|F|`. ∎
+
+So for a single high prime (H_eq) holds with an affordable loss `√|F_ℓ|` (absorbed
+by weights exactly as in Thm 3.3). The single-prime proof uses that the scale
+`1/N` is coarse compared with `1/ℓ`. With **several** primes the target is the
+density of a *sum* `X_S` near 0. A product box (all `‖X_ℓ‖ ≤ c/(N|S|)`) loses a
+factor `≈ (N|S|)^{|S|−1}`, and near an arbitrary point β the one-coordinate
+mass can be very small (F = {−2,−1} ⊂ ℛ(ℓ) for ℓ ≡ 7 (8): `|1̂_F(h)| = (2/ℓ)|cos πh/ℓ|`
+vanishes to first order at θ = 1/2). Lemma 4.1 needs the characteristic function
+`Πφ_ℓ(k)` to be `o(1/N)` on average over `0 < |k| ≲ N`. For ℛ(ℓ)-slices this is a
+statement about `Σ_h |1̂_{ℛ(ℓ)}(h)| e(kh/ℓ)` for small k; the absolute value
+destroys the multiplicative structure of the classes `−u/v`, and small-height
+labels give **positive** correlations at small k (e.g. `{−2,−1} ⊂ ℛ(ℓ)` gives
+`φ_ℓ(1) ≈ 1/3` for that pair alone), which help (H_eq) but are not summable to
+≤ 1/6 in general. **Status: (H_eq) for several primes ≤ N^{O(1)} remains
+CONJECTURE.** Neither a proof nor an abstract counterexample (a family whose
+`X_S` avoids the `1/N`-neighbourhood of 0 for all high S) was found; depletion
+would need every `|1̂_{F_ℓ}|` to avoid low frequencies, while Lemma 4.2's Fejér
+argument shows that a sparse F always carries spectral mass `≥ c/N` within `c/N`
+of 0.
+
+**Relation to §2.** For hit-pattern majorants the smooth per-frequency LP value
+is ≥ M(N) (Lemma 1.1). So the hit-pattern smooth door is closed if *either*
+(H_eq) holds (NC §2.5, IF Lemma 4.1) *or* `M(N) ≥ N e^{−C(log N)^{3/4}}` (§5).
