@@ -4,7 +4,32 @@ Branch reviewed: `side-agent/subexp-paper-v5` (merged into `side-agent/referee-s
 Scope: everything new/changed in v5 (C1–C11 of AGENT_REPORT_O64): intro/abstract, §§11–13, §14, bib.
 §§2–10 unchanged from v4 (refereed R56) — only cross-references checked.
 
-STATUS: IN PROGRESS
+STATUS: COMPLETE (round 1).
+
+## Recommendation
+**Minor revision.** No FATAL or MAJOR defect. Every new proof I could re-derive is correct as
+written (Prop 11.1, Thm 11.2, Prop 11.3, Lemma 12.1, Thm 12.2, Prop 12.4, Thm 13.1,
+Prop 13.2(a)); the statements imported from [TQ], [SL], [O15], [O16] agree with their sources
+(numbering of [TQ] and [SL] checked on fresh compiles). Labels are honest: LS is a conjecture
+everywhere, ES is nowhere claimed, [TQ]-based results are flagged as resting on an internally
+proved, not externally refereed note, and Page/BDH are disclosed as recalled from Davenport.
+The six minor defects (D1–D6) are citation precision, label/convention completeness and scope
+wording; one nit (N1). Compile: pdflatex ×3 on a clean copy — 51 pp., 0 undefined references,
+0 overfull boxes, one hyperref warning (N1).
+
+| claim | verdict |
+|---|---|
+| C1 §11 imports (A1)–(A3) from [TQ] | SOUND |
+| C2 Prop 11.1 Haar lower bound without loss | SOUND |
+| C3 Thm 11.2 typical size | SOUND (mod [TQ], Page) |
+| C4 Prop 11.3 ceiling at level `cℒ⁴` | SOUND (mod [TQ]) |
+| C5 Rem 11.4 unified sieve limit | SOUND-AFTER-REPAIRS (D1, D2) |
+| C6 §12 Lemma 12.1, Thm 12.2, Prop 12.4 | SOUND |
+| C6 §12 Cor 12.3, Siegel statement | SOUND as statements; label D4 |
+| C6 §12 scope / examples | SOUND-AFTER-REPAIRS (D5) |
+| C7 Thm 13.1 (LS ⇒ 1/3), LS labelling | SOUND |
+| C7 Prop 13.2(a) / (b) | SOUND / statement matches O16, sketch only (D4) |
+| C8–C11 intro, abstract, §14, cross-refs, bib | SOUND-AFTER-REPAIRS (D2, D3, D4, D6, N1) |
 
 ## Verdicts per claim
 
@@ -102,10 +127,10 @@ statement matches O16 Prop 4.1(b)/Cor 4.2; proof only sketched (D4). Remarks: SO
 * Thm 13.1 re-derived. The system `ℰ_T` (all `ℛ(M)` classes, `M ≤ T`, plus the 186 non-square unit
   classes mod 840) has moduli `≤ T` and unit classes (`gcd(4D,M)=1` as `4A_M=M+1`). The quarantine
   modulus Q is *not* put into the system (its modulus may exceed T) — it is used only to lower-bound
-  `δ(ℰ_T) ≥ δ/φ(Q)` (units `≡ r (Q)` with `F=1` lie in `S(ℰ_T)` by Lemma 4.4(i), Lemma 4.1 and
-  `840|Q`, r a square mod 840). With (5.x) `log Q, S_β ≪ ℒ³(log ℒ)^5` this gives
+  `δ(ℰ_T) ≥ δ/φ(Q)` (units `≡ r (Q)` with `F=1` lie in `S(ℰ_T)` by Lemma 2.5(i), Lemma 2.1 and
+  `840|Q`, r a square mod 840). With (4) (Thm 3.3) `log Q, S_β ≪ ℒ³(log ℒ)^5` this gives
   `log p ≤ C(ℒ+Cℒ³(log ℒ)^5)`; `p>T ≥ 840` is coprime to 840, avoids the non-squares, hence is in a
-  hard class; `W(p)>T` by Lemma 4.1. `ℒ ≥ c(log p)^{1/3}(log log p)^{−5/3}` uses `log ℒ ≤ log log p`.
+  hard class; `W(p)>T` by Lemma 2.1. `ℒ ≥ c(log p)^{1/3}(log log p)^{−5/3}` uses `log ℒ ≤ log log p`.
   Correct. LS is indeed used once per T.
 * LS sanity: I tried the obvious stress cases (single class mod `P(T)`: Linnik; Jacobsthal-type one
   class per prime; a Siegel-zero character with the avoiding set `{χ=−1}`: Linnik's theorem with
@@ -113,7 +138,7 @@ statement matches O16 Prop 4.1(b)/Cor 4.2; proof only sketched (D4). Remarks: SO
   conjecture, as stated. The two remarks ("`C log T` cannot be dropped", "restriction to moduli
   `≤ T` matters") are correct.
 * Prop 13.2(a) re-derived: `y=T^{1/2+ε}`, every atom has at most one prime `>y` (to the first
-  power, `M ≤ T`); Lemma 4.2 kills atoms with all primes `≤ y`; `|B_ℓ| ≤ Σ_{v≤T/ℓ}τ(A_{vℓ}²) ≤
+  power, `M ≤ T`); Lemma 2.2 kills atoms with all primes `≤ y`; `|B_ℓ| ≤ Σ_{v≤T/ℓ}τ(A_{vℓ}²) ≤
   T^{1/2−ε+o(1)}`. Correct asymptotically. **From scratch** `scripts/review_r64_ls_product.py`
   (T=1500): atom-class identity `{−uv^{−1}} = {−4D : D | A_M²}` for all `M ≤ T`; the unit squares
   mod 840 are exactly Mordell's six classes; every prime in `(T, 3·10⁶]` avoiding `ℰ_T` has
@@ -177,7 +202,34 @@ unweighted counts at the given x; information about several scales or the weight
 uses the position of the primes in `[1,x]` and is outside the framework, see Scope)".
 
 **D3 (MINOR; paragraph after Thm 11.2, "a matching lower bound in the range
-`log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 9.x except when
+`log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 6.1 except when
 an exceptional character divides the quarantine modulus").** This is an unproved claim with no
 label (the preceding sentence is tagged Assessment, this one is not). *Repair:* "(Assessment, not
 checked)" or delete.
+
+**N1 (nit; §11 title, line 2259).** `\texorpdfstring{$\Lc^4$}{L^4}` triggers "Token not allowed in a
+PDF string … removing `superscript`" (bookmark reads "L4"). Use `{L\textasciicircum 4}` or `{L4}`
+deliberately.
+
+## Intro / abstract / §14 consistency (C8–C11)
+* Thm 1.2 = Thm 11.2, Thm 1.3 = Thm 3.3 + Prop 11.1 (+ Thm 4.4 for the FL-only `ℒ³/log ℒ` form),
+  Thm 1.4 = Thm 10.6 + Prop 11.3, Thm 1.5 = Thm 13.1: statements and labels agree.
+* The optimality factors are arithmetic-correct: `(log log p)^{1/2}` from `ℒ⁴/log ℒ` vs Thm 1.1's
+  `(log p)^{1/4}(log log p)^{−1/4}`; `(log log p)^{1/4}` modulo [TQ].
+* Effectivity sentence (only Thm 1.1 effective, [TQ]-based results ineffective; NT constants not
+  checked) is accurate; Thm 11.2 Case B uses Page (effective) but Case A uses [TQ] (BV, ineffective).
+* §14 lists every new item with the right label; Rem 11.4 and the "heuristic two-sided typical size"
+  are in the Assessment list (so D3 is only about the in-text sentence lacking its tag).
+  "Not claimed" covers 1/3 unconditionally, the truth of LS, and arguments outside the scopes.
+* Bibliography: [TQ] (with numbering date), [SL], [O15], [O16] honestly described as internal
+  notes; [Dav] 3rd ed. GTM 74 (2000) correct; Chs. 20 (PNT for APs II, Page term) and 29
+  (BDH, "An average result") are, to my memory, the right chapters — I could not access the book
+  (not in `sources/`). The v4 TODOs ([ErdosSpencer], [Janson], [FI] numbering) remain open in
+  source comments, as the author reports.
+
+## Scripts (from scratch, not reusing the author's code)
+* `scripts/review_r64_atoms.py` — [TQ] atom distinctness/activation/identity; Bonferroni `Q_r`.
+* `scripts/review_r64_planted.py` — planted law: positivity, zero at `b=0`, k-wise marginals,
+  `|E_ρ h| ≤ (4r*)^{k+1}` and `E_ρ h = 0` for `|I| ≤ k` (Lemmas 10.1, 12.1).
+* `scripts/review_r64_ls_product.py` — atom classes, Mordell squares mod 840, the LS system `ℰ_T`
+  vs direct `W(p)`, and the product set of Prop 13.2(a).
