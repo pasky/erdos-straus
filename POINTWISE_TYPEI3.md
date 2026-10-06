@@ -64,3 +64,30 @@ checker `typei2_signcheck.c` with `typei3_fsearch` on `f<2X/√7+2`. At
 `X=2·10⁵` the sets coincide exactly for
 `(r,w)=(7,1),(7,−7),(7,25),(7,41),(7,17),(7,−15),(11,9),(19,9),(23,1),(7,9)`
 (3, 0, 0, 0, 13, 35, 7, 4, 2, 0 certificates).
+
+## 3. Scope of any sterility proof: sterile points are nowhere dense (PROVED)
+
+**Proposition 3.1.** The set `St_7` of sterile points of `Σ_7` is closed and has
+empty interior. In particular every clopen neighbourhood of `x̂_9` contains
+non-sterile points (covered by certificates with `k=1`, `t=2`, height `7p`).
+*Proof.* Closed: `St_7=⋂_X U_X` (proof of Thm A(iii)). Let `x∈Σ_7` and
+`U={y: y≡x (mod Q)}`, `Q=2^j7^i∏_{q∈P}q^{e_q}` (P a finite set of odd primes
+`≠7`); such U form a neighbourhood basis. Pick a prime `p∉P∪{2,7}` and put
+`c=7p`, `k=1`, so `4ck=28p`, `t=2`, `v=1`, `m'=p`, `s=7p∉{1,2,3,6}`. Pick a prime
+`F∉P∪{2,7,p}` with `F≡3 (4)`, `F≡−x_7 (7)` and `(−7p/F)=1`. This is a
+condition on `F mod 28p`: `(−7/F)=(F/7)=(−x_7/7)=(−1/7)(x_7/7)=1` as `x_7` is a
+non-square mod 7, and `(p/F)=(F/p)(−1)^{(p−1)/2}` (F≡3 mod 4) fixes the class
+of F mod p as squares or non-squares. So Dirichlet gives such F. Then
+`Cl(7p,1,F)={y≡−F (28p), y²≡−28p (F)}` meets U: at 2 the conditions are
+`y≡−F≡1 (4)`, compatible with `y≡x_2≡1 (8)`; at 7, `y≡−F≡x_7 (7)`; at p and at F
+(outside P) they are free congruences with a solution (`−28p` is a square mod
+F); at `q∈P`, `y≡x (q^{e_q})`. By CRT, `U∩Cl≠∅`; points of `Cl` are not
+sterile. ∎
+
+*Consequence (scope).* A proof that `x̂_9` is sterile cannot be a congruence
+argument modulo a fixed modulus, as in Lemma 2.1 or Lemma 3.1 of POINTWISE_TYPEI2 (those
+prove sterility of a whole clopen set of slices or families, never of a point
+neighbourhood). It must use that `x̂_q=1` exactly at infinitely many q. Inside the
+sign family `{x̂_w}` this means that `w=9` is exact 2-adic data: by Lemma 1.1 the
+2-adic depth available to a divisor `f` is `v_2(f+9)` (resp. `v_2(9f+1)`), a
+quantity with no uniform bound.
