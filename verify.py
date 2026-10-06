@@ -21370,4 +21370,101 @@ print("\n== (dx) POINTWISE_MORDELL: Theorem 3.1 certificates (r = 13) in full, C
 check_dx()
 
 
+
+# ---------------------------------------------------------------- (dy)
+# EXCEPTIONAL_WEIGHTS.md Lemma 3.2 (one-prime anti-concentration 1 - |phi_l(N)| >= 9/(256 k^2); PROVED),
+# Lemma 3.1 (sin^2 lower bound; PROVED), Lemma 2.0 / Theorem 2.1 chain M(N) <= D <= RELAX <= 12(K+1) M(ceil(N/K))
+# and Lemma 1.2 duality (PROVED) on toys.  Uses the R81 from-scratch scripts review_weights_lemma32.py and
+# review_weights_thm21.py (loaded as modules; the latter needs scipy, guarded).  Checked:
+# (1) Lemma 3.2 exhaustively: every F containing 0 (phi is translation invariant) with k = |F| <= l/4, every
+#     N not = 0 (l), primes 5 <= l <= 29 (R81 FFT code); inline pure-Python cmath for ALL F (no translation
+#     reduction) and all N, l <= 13;
+# (2) R81 Lemma 3.1 / Thm 3.3 per-S chain on 400 random 1-3-prime systems: both ratios >= 1;
+# (3) [scipy] Selberg majorant Phi_K (K = 1, 2): Phi >= 0, Phi >= 1 on [0,1], int Phi = 1 + 1/K; Lemma 2.0
+#     (W_N(0) = N(1+1/K), band-limited); the Thm 2.1 chain and primal/dual (Lemma 1.2) bracket overlap on the 5 R81
+#     toy sets for (Q,N,K) = (60,12,1), (90,16,2).
+
+def check_dy():
+    from time import perf_counter
+    import importlib.util
+    import io
+    import contextlib
+    import os
+    import numpy as np
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    RW = load("review_weights_lemma32")
+    worst, nset = float("inf"), 0
+    for l in primerange(5, 30):
+        for k in range(1, l // 4 + 1):
+            sets = np.array([(0,) + c for c in combinations(range(1, l), k - 1)], dtype=int)
+            for chunk in np.array_split(sets, max(1, len(sets) // 50000)):
+                ph, _ = RW.phis_for_sets(l, chunk)
+                worst = min(worst, float((1 - np.abs(ph)).min()) * 256 * k * k / 9)
+            nset += len(sets)
+    assert worst >= 1, ("WEIGHTS Lemma 3.2 violated", worst)
+    ninl = 0
+    for l in primerange(5, 14):
+        for k in range(1, l // 4 + 1):
+            for F in combinations(range(l), k):
+                fa = [abs(sum(cmath.exp(-2j * cmath.pi * h * x / l) for x in F)) / l for h in range(l)]
+                a = sum(fa[1:])
+                assert a >= 1 - Fraction(k, l) - 1e-12, ("WEIGHTS: a_l < 1 - p", l, F)
+                for N in range(1, l):
+                    phi = sum(fa[h] * cmath.cos(2 * cmath.pi * N * h / l).real for h in range(1, l)) / a
+                    assert 1 - abs(phi) >= 9 / (256 * k * k), ("WEIGHTS Lemma 3.2 (inline)", l, F, N, phi)
+                    ninl += 1
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        RW.chain()
+    o = buf.getvalue()
+    r31 = float(o.split("(1-|prod phi|)] = ")[1].split()[0])
+    r33 = float(o.split("prod 2p(1-p) = ")[1].split()[0])
+    assert r31 >= 1 and r33 >= 1, ("WEIGHTS Lemma 3.1 / Thm 3.3 per-S chain", o)
+    msg = (f"dy Lemma 3.2: {nset} sets F (l <= 29, all N), min ratio {worst:.2f} >= 1; inline {ninl} (F, N), l <= 13; "
+           f"Lemma 3.1 / Thm 3.3 chain ratios {r31:.2f}, {r33:.1f}")
+    try:
+        import scipy  # noqa: F401
+    except ImportError:
+        print(msg + "; Thm 2.1 LP chain SKIPPED (scipy not installed); "
+              f"seconds = {perf_counter() - t0:.1f}")
+        return
+    T = load("review_weights_thm21")
+    for K in (1, 2):
+        mn, mn01, integ = T.check_phi(K)
+        assert mn >= -1e-12 and mn01 >= 1 - 1e-9 and abs(integ - (1 + 1 / K)) < 1e-6, ("WEIGHTS Selberg Phi_K", K, mn,
+                                                                                         mn01, integ)
+    rng = np.random.default_rng(81)
+    nchain = 0
+    for (Q, N, K) in ((60, 12, 1), (90, 16, 2)):
+        W = T.W_folded(N, K, Q)
+        wabs = np.abs(W[: Q // 2 + 1])
+        band = np.array([j / Q <= K / N + 1e-12 for j in range(Q // 2 + 1)])
+        # (1e-4: truncation of the folded sum at |n| <= 4*10^5 loses ~N^2/(pi^2 K^2 4*10^5) of W_N(0))
+        assert abs(W[0].real - N * (1 + 1 / K)) < 1e-4 and wabs[~band].max() < 1e-6 and wabs.max() <= W[0].real + 1e-9, \
+            ("WEIGHTS Lemma 2.0", Q, N, K)
+        wc = np.where(band, wabs, 0.0)
+        for name, A in T.families(Q, rng).items():
+            MN, ML = T.window_max(A, N), T.window_max(A, -(-N // K))
+            Dlo, Dhi = T.dual_lp(A, wc, inner=True), T.dual_lp(A, wc)
+            R = T.relax_lp(A, N, K)
+            Plo, Phi_ = T.primal_lp(A, wc)
+            assert MN <= Dhi + 1e-6 and Dlo <= R + 1e-6 and R <= 12 * (K + 1) * ML + 1e-6, \
+                ("WEIGHTS Thm 2.1 chain", Q, N, K, name, MN, Dlo, Dhi, R, ML)
+            assert Plo <= Dhi + 1e-6 and Dlo <= Phi_ + 1e-6, ("WEIGHTS Lemma 1.2 primal/dual brackets", Q, name)
+            nchain += 1
+    print(msg + f"; Selberg Phi_1, Phi_2; Thm 2.1 chain + Lemma 1.2 brackets on {nchain} toys; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 (l <= 29 exhaustive), Lemma 3.1 chain, Thm 2.1 toy LPs ==")
+check_dy()
+
+
 print("\nall checks passed")
