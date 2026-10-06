@@ -74,3 +74,26 @@ So the class-of-one mass is `Σ_atoms g/M = Σ_N R(N)/N`, and `U_1(q) ≤ Σ_{N}
   `R(9973) = 154` (N prime). Its main families are `f` small: e.g. `f = 2` gives every factorisation
   `acd = (N+2)/m` with a, d odd. So `R(N) ≈ Σ_{f} #{acd = (N+f)/m : f | ma²d+1}` — a sum of divisor
   functions of the shifts `N + f`.
+
+## 3. What SI needs: three admissible levels and `U_1(q) ≪ q^{−1/2−δ}`
+
+Modify MN2 Thm 3.1 to allow `L` levels: a step at `(ℓ,a)` is *bad* if `a ∈ [a_ℓ, a_ℓ+L−1]` and `Y > θN`,
+or `a ≥ a_ℓ+L` and `Y ≥ 1`. No bad step ⇒ `Λ(ℓ) ≤ K := (1−θ)^{−L}` (same proof as MN2 Thm 3.1; K is
+still a constant, which is all MN Thm 5.1 needs).
+
+**Lemma 3.1 (PROVED, given MN2 Thm 3.1's first/second-moment set-up and Lemma 1.1).** For `ν = δ_1`
+and `L = 3`, SI follows from
+
+* (R_a) `Σ_{ℓ>q_0} E^ν_2(ℓ)/(ℓ−1)² → 0` (level 0, Chebyshev);
+* (R_b) `U_1(q) ≪ q^{−1/2−δ}` for proper prime powers `q ∈ 𝒫` (some fixed `δ > 0`).
+
+*Proof.* (b) steps have `a ≥ 1`, `N ∈ {2, ℓ}` fibre lifts, and `E[Y1_alive] ≤ E^ν_1(q) ≤ 2ℓU_1(q)`
+(Lemma 1.1), so `P(bad) ≤ 4U_1(q)/θ`; every (b) step has a proper prime power `q > q_0`, distinct
+for distinct steps, and `Σ_{q proper pp > q_0} q^{−1/2−δ} ≪ Σ_{ℓ} min(ℓ^{−1−2δ}, ·) → 0`
+(`#{proper pp in (x,2x]} ≪ x^{1/2}`). (c) steps: `P(Y ≥ 1) ≤ 2ℓU_1(q)`. If `ℓ > q_0` then
+`q = ℓ^k`, `k ≥ L+1 = 4`, and `Σ_ℓ Σ_{k≥4} ℓ^{1−k/2−kδ} ≪ Σ_{ℓ>q_0} ℓ^{−1−4δ} → 0`. If `ℓ ≤ q_0` then
+`q ≥ ℓ^{a_ℓ+L+1} > q_0ℓ^{3}`, so `ℓq^{−1/2−δ} ≤ q_0^{−1/2}ℓ^{−1/2}` and the geometric sum over k and the
+sum over `ℓ ≤ q_0` give `≪ q_0^{−1/2}·q_0^{1/2}/log q_0 → 0`. (a) is (R_a). ∎
+
+So the target is a **square-root saving** for the q-divisibility in the class-of-one completed sums
+(the Haar analogue MN2 Lemma 2.1 has the full saving `q^{−1+ε}`), plus the level-0 pair sums.
