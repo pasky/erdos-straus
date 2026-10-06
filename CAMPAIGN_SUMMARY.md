@@ -826,6 +826,43 @@ original paper was not obtained.
     Type-I certificate exists with ck ≤ 3·10⁹ (CERTIFIED), so every finite
     Type-I covering of `{n_p = 7}` has height > 3·10⁹ (previously ≥ 539;
     under H, C(7) > 3·10⁹). Whether `x̂_9` is sterile is open (Conjecture 3.4).
+  * Follow-up 2 (POINTWISE_TYPEI3, review `reviews/pointwise-typei3-review.md`,
+    no FATAL/MAJOR): sterility of `x̂_9` is **not** proved. A complete
+    search graded by the smaller divisor f (Lemmas 1.1–1.2, PROVED) finds no
+    certificate at `x̂_9` with f < 10¹², so every Type-I covering of
+    `{n_p = 7}` has height > 1.32·10¹² and, under H, C(7) > 1.32·10¹²
+    (CERTIFIED: two engines to 10¹¹, one to 10¹²); for r = 23, 31, 47 the
+    bounds are > 2.39/2.78/3.42·10¹¹. A Vieta/Pell descent (PROVED,
+    brute-forced) shows a certificate needs t ≥ 5 and 2-adic level ≥ 7,
+    because levels 5 and 6 are empty; level 7 is open. The sterile set is
+    closed and nowhere dense (Prop 3.1), and an explicit summable tail bound
+    for near misses would give a sterile point (Remark 4.1, PROVED
+    reduction).
+* *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
+  (H)34).
+  * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
+    if `(p/13) = −1`, ES holds for the prime p unless
+    `p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`;
+    if also `(p/11) = +1`, only the first two classes remain. Novelty is
+    modest: it packages the Salez/ET level sieve explicitly.
+  * No finite covering was found. The point x* (`x*_11 = x*_13 = 2`,
+    `x*_q = 1` otherwise) lies in no ET class of modulus ≤ 10⁶
+    (Computation 4.1, CERTIFIED), so every finite covering of `Σ_13` needs
+    a class of modulus > 10⁶ (PROVED). That x* is sterile is Conj 4.2
+    (CONJECTURE). The obstruction is TYPEI2-type rigidity, not Theorem C.
+  * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
+    17-generic line the seven ET families become explicit boxes in ℤ_17
+    (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
+    uncovered (Comp 3.1, CERTIFIED, two engines). Thm 4.1 (PROVED
+    sufficient condition): an explicit tail bound gives a sterile point,
+    hence (CONDITIONAL, Cor 4.2) no finite set of polynomial ES identities
+    covers the Mordell-hard primes with n_p = 17. The critical input is
+    the prime-power count
+    `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`
+    (ET give only the non-explicit `N^{2/5+o(1)}`; data fit ≈ K³).
+    Existence of a sterile point is Conj 4.3 (CONJECTURE); making the
+    bound explicit is a discrete-log equidistribution question
+    (Assessment).
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
   internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v5
   (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
@@ -835,6 +872,8 @@ original paper was not obtained.
   analogues (refereed, R77 minor revision applied). `paper/energy-dnf-note.tex`
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
+  `paper/es-coverings-note` (finite coverings and candidate sterile points:
+  TYPEI2/3, MORDELL, MORDELL17) is in preparation (task O86).
 
 ### 3.4 Window results
 
