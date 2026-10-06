@@ -156,11 +156,21 @@ small primes).
 `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`, where `R_ℓ(N) := #{atoms in C_ℓ, D ≤ A : M/gcd(M,mD+1) = N}`. Moreover, if the
 earlier stage-A digits all equal those of 1 (an admissible path: the class 1 is never forbidden,
 TRANSFER Lemma 5.1(ii)), the number of consistent completed atoms at the level-0 step ℓ is exactly
-`#{(M,D) : M = ℓM_1, M_1 | L(ℓ), (M/ℓ) | mD+1}`, i.e. the atoms with `ℓ | N`... and `N/ℓ | ` the
-revealed part — the deterministic count `Y(ℓ)` of `scripts/mn3_first.py`.
+`Y(ℓ) = #{(M,D) : M = ℓM_1, M_1 | L(ℓ), M_1 | mD+1} = #{atoms in C_ℓ (all D) with N = ℓ} ≤ 2R_ℓ(ℓ)`
+— the deterministic count of `scripts/mn3_first.py`.
 
-*Proof.* Atoms with `N = ℓ` have weight `K^{ω}/φ(ℓ) ≥ 1/(ℓ−1)`. The second statement is the definition
-of consistency with r ≡ 1 on all revealed digits (`M/ℓ` is fully revealed at a level-0 step). ∎
+*Proof.* Atoms with `N = ℓ` have weight `K^{ω}/φ(ℓ) ≥ 1/(ℓ−1)`. Consistency with r ≡ 1 on all revealed
+digits means `M_1 | mD+1` (`M_1 = M/ℓ` is fully revealed at a level-0 step); then `M_1 | g`, so
+`N ∈ {1, ℓ}`, and `N = 1` (`M | mD+1`) is impossible by TRANSFER Lemma 5.1(ii). The involution
+`D ↦ A²/D` preserves N, giving the factor 2. ∎
+
+**Lemma 5.2 (a weak pointwise bound; PROVED).** `R(N) ≪_ε N^{2/3+ε}`.
+
+*Proof.* Lemma 2.1: `acd ≤ N`, so one of `ac, ad, cd` is `≤ N^{2/3}`. Given `(c,d)`, `u = mcd` and
+`(ua − N) | N² + mc²d` leave `≤ τ(N²+mc²d)` values of a; given `(a,c)`, `f | aN + c` leaves `≤ τ(aN+c)`
+values of f and then `d = (N+f)/(mac)`; given `(a,d)`, `f | P` leaves `≤ τ(P)` values and then
+`c = (N+f)/(mad)`. All arguments are `≤ N^{O(1)}`; the divisor bound and `#{xy ≤ N^{2/3}} ≪ N^{2/3}log N`
+finish. ∎
 
 (`scripts/mn3_first.py 5 q0 4`: along the all-ones path the level-0 forbidden fractions at
 `ℓ = 11, 13, 17, 19, 23, 29, 31` are `0.20–0.46`; they are not small at accessible ℓ, consistent with
@@ -175,8 +185,7 @@ What a proof of SI at level 0 needs is, roughly, **one** of:
 * (P) a pointwise bound `R(N) ≪ N^{θ}` with `θ < 1/K_0`, where `N ≤ ℓ^{K_0}` is the residual scale
   (`K_0 ≈ 10` from §4 and Lemma 4.1). The best pointwise bounds of this type known for ES counts are
   `n^{3/5+o(1)}` (Elsholtz–Tao, `sources/elsholtz-tao-1107.1010.pdf`, via "one of e, f, cd, ac is
-  `O(n^{3/5})`"); the same device gives only `R(N) ≪ N^{2/3+o(1)}` here (one of `ac, ad, cd ≤ N^{2/3}`,
-  and each fixed pair leaves `N^{o(1)}` choices). Far from `1/K_0`.
+  `O(n^{3/5})`"); the same device gives only Lemma 5.2's `N^{2/3+o(1)}` here. Far from `1/K_0`.
 * (AP) equidistribution of `R(N)` over `N ≡ 0 (mod ℓ)`, `N ≤ X`, with saving `ℓ^{−δ}` relative to
   `X/ℓ`, for `ℓ` up to `X^{1−δ}` — a level of distribution beyond what is known even for `τ_3`.
 * (M2) via Cauchy–Schwarz over `ℓ ~ L` (only averages over ℓ enter SI, Lemma 3.1): an unrestricted
@@ -195,3 +204,30 @@ second moment) are not available from (H), ET Prop 1.4/Thm 7.1, Weil, or element
 cleanest form of the missing input found here (CONJECTURE, supported by the data above). The
 correlation terms of `E^ν_2` and the large-scale regime (§4, Lemma 4.1) would still have to be written
 out under (M2); not done.
+
+## 6. Status
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | `E_ν[p_0(E^-)] ≤ ℓ/φ(N)` for `ν = δ_1`; `E^ν_1(q) ≤ 2ℓU_1(q)` | PROVED |
+| Lemma 2.1 | N-parametrisation; `R(N) < ∞` | PROVED |
+| Lemma 3.1 | SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (three admissible levels) | PROVED (given MN2 Thm 3.1's set-up) |
+| §4 route table | four linear routes, each closable by (H) when long | Assessment (proofs not written) |
+| Lemma 4.1 | prefix part `s = gcd(g,Q_0)`; extra factor `1/φ(g/s)` | PROVED |
+| residual | all routes short; Kloosterman range; carries 72–91% of `U_1(q)` for `q ≤ 199` | description PROVED, share EVIDENCE |
+| Lemma 5.1 | `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; all-ones path forbids via `Y(ℓ) ≤ 2R_ℓ(ℓ)` | PROVED |
+| Lemma 5.2 | `R(N) ≪ N^{2/3+ε}` | PROVED |
+| (M2) | `Σ_{N≤X}R(N)² ≪ X^{1+o(1)}` | CONJECTURE (EVIDENCE to 3·10⁴) |
+| SI for `ν = δ_1` | — | OPEN; reduced to control of the ES-type multiplicity `R(N)` (P/AP/M2) |
+| W_5 exponent 1/4 | — | still CONDITIONAL (on SI) |
+
+## Replay
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 900 uv run python mn3_u1.py 5 1000000 1)       # §2 U_1(q), ~5 s
+(ulimit -v 8000000; timeout 900 uv run python mn3_rn.py 5 3000)            # §2 R(N) maxima, <1 s
+(ulimit -v 8000000; timeout 900 uv run python mn3_rn.py 5 30000 moments)   # §5 (M2) data, ~10 s
+(ulimit -v 8000000; timeout 1500 uv run python mn3_resid.py 5 3000000)     # §4 residual share, ~1 min
+for q0 in 8 12 18 24; do (ulimit -v 8000000; timeout 600 uv run python mn3_first.py 5 $q0 4); done  # §5
+```
