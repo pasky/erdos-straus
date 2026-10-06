@@ -66,7 +66,7 @@ have an explicit, Fraction-verified ES solution (0 failures). Consistent, as exp
 
 ### Defects for §3
 1. MINOR (sharpening, Thm 3.1(a)). The (a) exception class 112561 mod 240240 lifts to three classes
-   mod 720720: 112561, 352801, 592801. The main certificate covers 592801. So, combining the two
+   mod 720720: 112561, 352801, 592801 (R86 correction: 593041). The main certificate covers 592801 (R86 correction: 593041). So, combining the two
    certificates, (a) holds with exceptions only `p mod 720720 ∈ {112561, 352801}` (the (b) exceptions
    with (p/11)=+1). Suggest stating this, or remarking that (a) is not the sharpest consequence.
 2. MINOR (wording). §0 says each class solves "every sufficiently large n in the class"; for these seven
