@@ -4375,11 +4375,131 @@ windows and the local-limit hypothesis $H_{\rm node}$ for exact interval
 counts (Section~\ref{sec:noncrt}) are open, as is any treatment of
 non-symmetric hit-pattern majorants on $[1,N]$ \cite[\S8.6]{NC}.
 
+\section{One sieve limit behind both ceilings}\label{sec:unified}
+
+This closing section places the cap in a wider picture, following
+\cite{CU} (review \cite{CUrev}: no fatal or major defect; ten minor label
+and wording points, applied).  Nothing in it improves the exponent $3/4$, or
+the pointwise exponent $1/4$ below.
+
+\emph{The pointwise problem.}  For a prime $p$ let $W(p)$ be the least
+$M\equiv3\pmod4$ with $p\bmod M\in\cR(M)$, the least witness modulus, and call $p$
+\emph{Mordell-hard} if it is a square modulo $840$.  Write $\mathcal L=\log T$ for a
+cutoff $T$, and $F_T$ for the indicator of ``no class of $\cR(M)$, $M\leq T$''.
+Internal results of the programme give $W(p)\geq\exp\{c(\log p)^{1/4}(\log\log p)^{-1/4}\}$
+for infinitely many Mordell-hard primes \cite[Thm~5.1]{O13}, and show
+that $1/4$ is the ceiling of the Haar-minorant architecture used for it
+\cite[Thm~4.5, Cor.~4.6]{O14}; both are \lab{proved mod} published inputs
+listed there (Gallagher's 1970 theorem on primes in progressions, Nair--Tenenbaum, the effective
+Page bound, the fundamental lemma), with internal hostile reviews.  The
+unit-Haar avoider exponent satisfies
+$\mathcal L^3\ll\log(1/\delta^*(T))\ll\mathcal L^3(\log\mathcal L)^5$: the lower bound is the
+fibre product of \cite{TQ} read under Haar measure \cite[Prop.~1.1]{CU}
+(\lab{proved} given \cite{TQ}; ineffective), the upper bound is
+\cite[Thm~3.4]{O13} (\lab{proved mod} Nair--Tenenbaum).
+
+\emph{The abstract limit.}  Take independent coordinates, one small
+coordinate $X_s$ and big coordinates $X_b$ of cost $\geq L$ each, and events each
+depending on $X_s$ and on exactly one big coordinate.  Given $x_s$, let $p_b$ be
+the probability that $X_b$ hits an event, with $p_b\leq1/4$, let $P=\sum_bp_b$, let
+$F$ be the indicator of ``no event'', and let $\mathcal V_k$ be the span of the
+functions of $X_s$ and at most $k$ big coordinates.
+
+\begin{theorem}[two-sided order-$k$ sieve limit; {\cite[Thm~4.1]{CU}}; \lab{proved}; no novelty claimed]\label{thm:twosided}
+Fix $x_s$.
+(U$-$) Every $G\in\mathcal V_k$ with $G\geq F$ has
+$\log(1/\E_sG)\leq k\log(C_0(P+4k)/k)+\tfrac43k+\tfrac12\log(22k+22)+3$; so a saving
+$\geq P/2$ needs $k\geq c_0P$.
+(U$+$) For even $k\geq\e^2P$ the Bonferroni majorant $Q_k(H)\in\mathcal V_k$ has
+$\E_sQ_k(H)\leq2\e^{-P}$.
+(L$-$) Every $B\in\mathcal V_k$ with $B\leq F$ has $\E_sB\leq0$ whenever $k\leq0.6P-1$.
+(L$+$) For odd $k\geq\e^2P$, $Q_k(H)\leq F$ and $\E_sQ_k(H)>0$.
+\end{theorem}
+Here $H$ counts the hit big coordinates and $Q_k(h)=\sum_{j\leq k}(-1)^j\binom hj$.
+(U$-$) is the binomial extrapolation behind Theorem~\ref{thm:kcomp}, (L$-$) is
+the planting lemma of \cite[Lemma~1.1, Thm~1.3]{O14} (the LP dual of
+lower-bound sieves), and (U$+$), (L$+$) are Bonferroni.  So the critical
+order is $k\asymp P$ for majorants and for minorants alike; with comparable big
+costs the critical level is $\asymp L\cdot P$, dimension times log-size: the
+large-dimension sieve limit $\beta_\kappa\asymp\kappa$.
+
+\emph{The two instances.}  Both ceilings meet this setting through a
+subfamily with one big prime per event, big cost $\asymp\mathcal L$ and big mass
+$P\asymp\mathcal L^3$: on the majorant side the atoms of \cite{TQ}, of mass $\asymp t^3$ on
+every unit fibre; on the minorant side the same atoms, which block every
+low-level minorant.  Precisely \cite[Prop.~4.2]{CU} (\lab{proved} given
+\cite{TQ} and \cite[Thm~1.3]{O14}; ineffective): for $T\geq T_0$, every modulus $Q$
+with $\log Q\leq T^{0.05}$ and every unit class $r\bmod Q$, every function $B\leq F_T$ on
+the fibre $n\equiv r\pmod Q$ of level $\log D\leq c\mathcal L^4$ has $\E B\leq0$.  This
+removes a factor $\log\mathcal L$ from \cite[Thm~4.5]{O14}.
+
+\begin{theorem}[the Erd\H{o}s--Straus sieve limit; {\cite[Thm~4.3]{CU}}; \lab{proved} as a conjunction of the cited results, each with its own label and scope]\label{thm:unified}
+Up to constants and, where marked, factors $(\log\lambda)^{O(1)}$:
+(1) the largest saving $S(\lambda)$ of a level-$\lambda$ CRT majorant over all forced-class
+mixtures satisfies $c\lambda^{3/4}\leq S(\lambda)\leq C\lambda^{3/4}$: the upper bound for every
+mixture is Theorem~\ref{thm:noBcap}, the lower bound for one mixture is the
+majorant of \cite{TQ} (Section~\ref{sec:campaign});
+(2) on every fibre with $\log Q\leq T^{0.05}$ no positive minorant of $F_T$ has level
+$\leq c\mathcal L^4$, and on the good fibre of \cite[\S5]{O13} a positive minorant of
+level $\leq C\mathcal L^4\log\mathcal L$ exists, so the least positive-minorant level is
+$\asymp\mathcal L^4$ up to one factor $\log\mathcal L$;
+(3) with budget $\lambda\asymp\log N$ (coefficient-sum rounding), (1) is the exceptional
+ceiling $S\asymp\lambda^{3/4}$; with budget $\lambda\asymp\log x$ (transfer to the primes $\leq x$),
+(2) is the pointwise ceiling $\mathcal L\lesssim\lambda^{1/4}$, attained up to $(\log\lambda)^{1/4}$.
+Both are the single relation $\lambda\asymp\mathcal L\cdot\mathcal L^3$ between level and usable
+cutoff.
+\end{theorem}
+Item~(3) is a \lab{proved} consequence of (1) and (2) within the scopes of
+this note (congruence sieves of the class of Theorem~\ref{thm:main}, and the
+large sieves of Section~\ref{sec:LS}) and of \cite{O14} and its sequel \texttt{POINTWISE\_OMEGA15.md}
+(Haar-minorant transfers with $\log x\gg\log Z$, orbit-uniform linear
+certificates); outside these scopes it is an \emph{Assessment}.  With Haar
+exponent $a$ the two exponents are $a/(a+1)$ and $1/(a+1)$; this extrapolation
+is \lab{conditional} on the same one-big-prime mechanism, uniform in the
+small coordinates, and does not follow from $a$ alone.  Two cautions
+(\emph{Assessment}).  The full system is not a one-big-coordinate system:
+a majorant of the full avoider set need not majorise the avoider set of
+the subfamily, so (U$-$) for the subfamily does not by itself bound
+majorants of the full avoider set; that bound is Theorem~\ref{thm:noBcap}.  On
+the minorant side the subfamily is used only for the obstruction, and the
+positive minorant of \cite{O13} is built differently.  The two sides are also
+not the same inequality: (U$-$) yields a measure on the avoider set within
+$\e^{O(k\log(P/k))}$ of the true law on nonnegative order-$k$ tests (the comparison
+measure of Lemma~\ref{lem:compmeas}), while (L$-$) yields a measure on the hit set
+that agrees with the true law on all order-$k$ tests.  Below the threshold
+majorants still save an amount growing with $k$, while minorants are
+useless; exact toy LPs show both thresholds at $k\approx2P$ \cite[\S4.4]{CU}
+\lab{evidence}.
+
+\emph{The $3/4$ bound for primes.}  The same atoms give the prime form with
+the correct normalisation \cite[Thm~2.1, Prop.~3.1]{CU} (\lab{proved} given
+\cite{TQ} and the prime number theorem in progressions with the
+Landau--Page term; constants ineffective): uniformly for
+$3\leq T\leq\exp\{c_1(\log x)^{1/4}\}$,
+\[
+ \#\{p\leq x:\ W(p)>T\}\ll\pi(x)\exp\{-c(\log T)^3\},
+\]
+and in particular the number of non-representable primes $p\leq N$ is
+$\ll\pi(N)\exp\{-c(\log N)^{3/4}\}$.  At this scale this is the prime part of
+\cite{TQ} with $\pi(N)$ in place of $N$: a reproof, not an improvement.  The
+``Haar-side route'' to $3/4$ (a Haar void at cutoff $\exp\{c(\log N)^{1/4}\}$ plus a
+majorant certifying it at level $\leq\log N$) is the route of \cite{TQ}, and by
+Theorem~\ref{thm:noBcap} it cannot be improved within the class of
+Theorem~\ref{thm:main}: an integer-CRT saving $s$ against the classes of
+modulus $\leq T$ with selector classes needs level $\geq(s/C)^{4/3}$
+\cite[Cor.~3.3]{CU} \lab{proved}.
+
 \begin{thebibliography}{99}
 \bibitem[BBMST]{BBMST}
 P.~Balister, B.~Bollob\'as, R.~Morris, J.~Sahasrabudhe and M.~Tiba, On the
 Erd\H{o}s covering problem: the density of the uncovered set,
 arXiv:1811.03547 (2018).
+\bibitem[CU]{CU}
+\emph{One sieve limit behind both ceilings}, internal working document
+\texttt{CEILINGS\_UNIFIED.md}, this repository, 2026.
+\bibitem[CUr]{CUrev}
+Hostile review of \cite{CU}, \texttt{reviews/ceilings-unified-review.md},
+this repository, 2026.
 \bibitem[D]{Davenport}
 H.~Davenport, \emph{Multiplicative Number Theory}, third edition, revised
 by H.~L.~Montgomery, Graduate Texts in Mathematics 74, Springer, 2000,
@@ -4501,6 +4621,17 @@ distributions and Boolean functions, arXiv:1201.3261 (2012).
 \bibitem[NA]{NovAudit}
 Novelty audit, \texttt{reviews/novelty-audit-2026-10.md}, this repository,
 2026.
+\bibitem[O13]{O13}
+\emph{POINTWISE\_OMEGA13: the Haar exponent is exactly $3$, and the
+prime-side exponent reaches $1/4$}, internal working document
+\texttt{POINTWISE\_OMEGA13.md}, this repository, 2026; reviews
+\texttt{reviews/pointwise-omega13-review.md} and \texttt{-review-2.md} to
+\texttt{-review-4.md}.
+\bibitem[O14]{O14}
+\emph{POINTWISE\_OMEGA14: $1/4$ is the ceiling of the Haar-minorant
+architecture}, internal working document \texttt{POINTWISE\_OMEGA14.md},
+this repository, 2026; reviews \texttt{reviews/pointwise-omega14-review.md}
+and \texttt{-review-2.md}.
 \bibitem[P]{Prekopa}
 A.~Pr\'ekopa, Boole--Bonferroni inequalities and linear programming,
 \emph{Oper. Res.} \textbf{36} (1988), 145--162.
