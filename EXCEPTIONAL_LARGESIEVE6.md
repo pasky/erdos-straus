@@ -1,6 +1,8 @@
 # EXCEPTIONAL_LARGESIEVE6 — the soft-pivotal lemma (task O71)
 
-Status: **checkpoint 1, self-reviewed** (agent O71, branch `side-agent/soft-pivotal`).
+Status: **checkpoint 1, self-reviewed** (agent O71, branch `side-agent/soft-pivotal`);
+hostile review R71 (`reviews/exceptional-largesieve6-review.md`): no FATAL/MAJOR
+mathematical defect; label/constant repairs D-b, D-d, D-f, D-g applied by the reviewer.
 (A\*) is **not** proved; see §6 for the precise remaining statement.
 Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`,
 LS5 = `EXCEPTIONAL_LARGESIEVE5.md` (all their notation is used: Setting 2.0
@@ -17,7 +19,7 @@ Lemma 1.1, Thm 4.2, Lemma 5.1, (A\*)), LS3, K2 as there. `β = (log N)^{−1/4}`
 | Lemma 2.1, Prop 2.2 | cube Leibniz; **soft-pivotal bound**: `|σ̂_tilt| ≤ Z^{−1}4^{|S|}E Σ_𝔅Π_B W_B`, an outside top q charged only `w_qΔ_q ≤ w_qN_q/q` | PROVED |
 | Lemma 3.1 | pivotality comes from upward chains of varying classes through divergent outside coordinates | PROVED |
 | Lemma 4.1, Prop 4.2 | Walsh/XOR-cover form (all soft factors as one exponential): removes the Bell-number overcount of Prop 2.2 | PROVED |
-| Thm 5.1 | **one rough prime, uniform in X**: explicit bound by damped first moments through ℓ (plus the leak tail `Λ_{>ℓ}`, which decays only like `ℓ^{−1/4}`); no residue/label input; the LS5 caveat (undamped `Σ_q1/q`) disappears | PROVED (fixed fibre) |
+| Thm 5.1 | **one rough prime**: explicit bound by damped first moments through ℓ (plus the leak tail `Λ_{>ℓ}`, which decays only like `ℓ^{−1/4}`); no residue/label input; the LS5 caveat (undamped `Σ_q1/q`) disappears. Uniformity in X is **not** proved: it follows if those damped first moments are X-uniform, i.e. under (FM2) | PROVED (the inequality, fixed fibre); uniform-in-X decay CONDITIONAL on (FM2) (reviewer R71 D-d) |
 | (FM) | damped "mass through a prime" first moments (Shiu in APs + Titchmarsh-type over the prime top); would give `|σ̂_c| ≤ Z_c^{−1}ℓ^{−1/4}(log N)^{O(1)}` for `|supp θ_r| = 1` (γ < 1/4), hence the all-level cap for sieves with ≤ 1 rough prime per frequency denominator | Assessment (standard, not written) / CONDITIONAL |
 | Thm 6.1 | (A\*) and the all-level 3/4 cap for **all** forced mixtures ⟸ (DCC), a first-moment damped covering count on a product space | PROVED (implication) |
 | Prop 6.2 | small-height labels concentrate damped mass `≍ e^{−2γt_p}/γ` (`t_p = log p/log z`) on one residue at every prime: no residue-uniform dispersion | PROVED (asymptotic: Assessment) |
@@ -345,7 +347,7 @@ exponential prefactor `e^{2‖a‖′}` is a product of per-event factors
 `e^{2|a_R|}` — e.g. `e^{O(Σ_ℓ y_ℓ)}` when the damped change `y_ℓ` caused by
 each ℓ alone is additive.
 
-## 5. One rough prime: uniform-in-X decay (the LS5 caveat removed)
+## 5. One rough prime: a damped bound (the LS5 caveat removed; uniform-in-X decay CONDITIONAL on (FM2), reviewer R71)
 
 Notation for a fixed fibre (all classes are those of the fibre family,
 all primes rough): `Γ(m) = Π_{p^e∥m}(1−δ_p)^{−1}` (K2), for a class C
@@ -395,8 +397,8 @@ r, the chain rule gives `E[Y_{>r}(x) | 𝓕_{≤r}] ≤ Θ_r(x_{≤r})`,
 off-top by x or x′. Given `𝓕_{<r}`, the probability that r is divergent
 **and** `x_r ≡ b′ (mod r^{e})` (e = `v_r(G_{C′})`, possibly 0) is at most
 `U(D_r ∩ [b′]) + P(c_r ∈ D_r, replacement ≡ b′) + P(c_r ∈ F^∩_r, first of
-π_r outside F^∩_r in D_r, x_r ≡ b′)` `≤ min(U(D_r), r^{−e}) + 2U(D_r)·2r^{−e}
-+ min(2U(D_r), 2r^{−e})` `≤ 10Σ_C r^{−max(v_r(G_C), e)}` (use
+π_r outside F^∩_r in D_r, x_r ≡ b′)` `≤ min(U(D_r), r^{−e}) + U(D_r)·2r^{−e}
++ min(2U(D_r), 2r^{−e})` (π_r is independent of c_r; reviewer R71 D-b) `≤ 10Σ_C r^{−max(v_r(G_C), e)}` (use
 `min(Σa_i, b) ≤ Σmin(a_i, b)`; the replacement is uniform on the
 complement of a set of mass `≤ 1/2`). Hence
 `E[1{τ=r}Θ_r(x_{≤r})] ≤ Σ_{C∋ℓ, top r}Σ_{C′}a_{C′}·10r^{−max(v_r(G_C),e)}·
@@ -534,7 +536,8 @@ quantities `ν_{>r}(P)` of §5. Two regimes:
   to be compared with the residue-free `ν(P) = Σ_a μ_a(P)`.
 
 **Proposition 6.2 (small-height labels are not dispersed; PROVED, elementary,
-with the asymptotic as Assessment).** For every rough prime p,
+with the asymptotic as Assessment).** For a family containing ℛ(M) for every
+`M ≡ 3 (4)`, `M ≤ X` (as the forced ES mixtures do; hypothesis made explicit by reviewer R71 D-g), and every rough prime p,
 `μ_{−4}({p}) ≥ Σ_{m} w_{top(pm)}Γ(pm)/m` over z-rough squarefree
 `m` with `P(m) > p`, `pm ≡ 3 (4)`, `pm ≤ X` — the classes `−4 mod pm` (`−4 ∈ ℛ(M)` for
 every `M ≡ 3 (4)`, LS3 Lemma 4.2; rough moduli occur in every fibre).
@@ -555,7 +558,7 @@ exactly the *structured* (same-label, product-type) coincidences of LS5
 Lemma 3.1, and they are handled by deterministic residue sets (LS4 Lemma
 5.1, valid for `σ_tilt` by Cor 1.2): with a prime-dependent threshold
 `H₀(p) = p^{1/4}`, the residues mod p of labels of height `≤ H₀(p)` form a
-fixed set of size `≤ p^{1/2}`.
+fixed set of size `≤ (H₀+1)H₀ ≤ 2p^{1/2}` (reviewer R71 D-f; was `≤ p^{1/2}`).
 
 ### 6.2 The isolated arithmetic statement
 
