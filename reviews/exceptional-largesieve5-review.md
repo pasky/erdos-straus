@@ -241,3 +241,20 @@ for §4 is only available for rough moduli or on average over c. Nothing
 in the document claims (CC) or (A*); the open problem is correctly
 located in (C2)/(C3) for damped witness weights, now additionally with
 the c-filter of D1.
+
+## Repairs applied by reviewer to EXCEPTIONAL_LARGESIEVE5.md
+
+D1 (fibre sentence replaced by the corrected statement), D3 (leak factor
+`1/(1−p̃)`), D4 ((Q1)–(Q4) re-asserted for the truncated law), D5 (CS_j
+convention), D6 ("is dominated by"), D7 (`ℓ^{o(1)}` term), D8 (Mass bound
+tagged Assessment), D9 ("iff" → "if", twice), D10 (typo); status header
+notes R67b. No mathematics changed beyond these repairs. D2 not applied
+(the `g/2` constant is correct).
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 600  env PYTHONPATH=scripts uv run python scripts/review_ls5_labels.py 300
+    timeout 1800 env PYTHONPATH=scripts uv run --with mpmath python scripts/review_ls5_tilt.py 8
+    timeout 1500 env PYTHONPATH=scripts uv run python scripts/review_ls5_partition.py 3,7,11,19 3
+    timeout 1500 env PYTHONPATH=scripts uv run --with numpy python scripts/review_ls5_cover.py

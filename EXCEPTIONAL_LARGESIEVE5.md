@@ -4,7 +4,10 @@ Status: **checkpoint 1, self-reviewed** (agent O67, branch `side-agent/astar-den
 hostile review R67 via the review tool: Lemmas 1.1, 1.2, Prop 2.1, Lemma 3.1
 sound; FATAL/MAJOR items on the *route* applied below — undamped product
 model fails uniformly in X, (LCH) withdrawn, tilt does not transfer LS4
-Lemma 5.1 verbatim, caps made continuous).
+Lemma 5.1 verbatim, caps made continuous). Independent review R67b
+(`reviews/exceptional-largesieve5-review.md`): proved items sound; MAJOR D1
+(fibres filter labels) and minors D3–D10 applied by the reviewer as
+wording/constant repairs.
 Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`
 (all its notation is used: Setting 4.0, Lemma 5.1, (A*), (CC)), LS3, LS =
 `EXCEPTIONAL_LARGESIEVE.md`, K2 = `EXCEPTIONAL_KARY2.md`.
@@ -43,10 +46,15 @@ denominators divide it. ∎
 So (A*) is needed only for the fibre laws of the **full** family `𝔊_X`
 (every ℛ(M), (a,D), Case-A class with modulus ≤ X, plus selectors), with
 bounds uniform in X. In particular no adversarial sub-selection of
-moduli has to be handled: every sum over classes through a prime is a
-complete sum over cofactors (this is what makes divisor-in-progression
-averages over moduli available below). Fibres at a smooth part c are
-still full in the rough direction (all rough cofactors occur).
+moduli has to be handled *for the family itself*. *(Corrected by reviewer
+R67b, D1:)* the fibre family at a smooth part c is **not** full: it
+contains every class of z-rough modulus, but a class with smooth part
+`G_s > 1` is present iff `c ≡ λ (mod G_s)` — a c-dependent filter on
+labels. Complete cofactor sums (which make divisor-in-progression
+averages over moduli available below) hold only for the rough-modulus
+subfamily or after averaging over c; for (A*) at a fixed typical c the
+filter must be handled (e.g. by putting c with atypical filtered mass
+into the exceptional event).
 
 **Lemma 1.2 (rational labels and compatibility; PROVED).** Every class of
 the four types can be written `b ≡ −r/s (mod G)` with integers `r ≥ 0`,
@@ -96,8 +104,11 @@ of `F_ℓ` in a fixed order of `Ω_ℓ` (so `F̃_ℓ = F_ℓ` when `p_ℓ ≤ δ
 `p̃_ℓ = U(F̃_ℓ) = min(p_ℓ, ⌊δ_ℓ|Ω_ℓ|⌋/|Ω_ℓ|)`. Adding one residue to
 `F_ℓ` changes `F̃_ℓ` by at most two elements and `p̃_ℓ` by at most
 `1/|Ω_ℓ|` (with LS4's light/heavy rule a crossing of `δ_ℓ` moves `p̃_ℓ`
-by `≈ δ_ℓ`; review R67 M4). The leak is `≤ E Σ_ℓ(p_ℓ − p̃_ℓ) ≤
-E Σ_ℓ p_ℓ1[p_ℓ > δ_ℓ]`, so K2 Lemma 4.3 bounds it exactly as before.
+by `≈ δ_ℓ`; review R67 M4). The leak is `≤ E Σ_ℓ(p_ℓ − p̃_ℓ)/(1 − p̃_ℓ) ≤
+2E Σ_ℓ p_ℓ1[p_ℓ > δ_ℓ]` (factor `1/(1−p̃)` added by reviewer R67b, D3),
+so K2 Lemma 4.3 bounds it as before up to the factor 2. The truncated
+rule forbids mass `p̃_ℓ ≤ δ_ℓ` at every step, so K2's chain rule (Q4) and
+hence LS3 (Q1)–(Q2) hold verbatim for this Q' (reviewer R67b, D4).
 `Y(x) = Σ_ℓ w_ℓ p̃_ℓ(x)` with `w_ℓ ∈ [0,1]`, `𝒜` the avoider set, and
 
     σ_tilt(x) := Q'(x)·1_𝒜(x)·e^{−2Y(x)} / Z,    Z = E_{Q'}[1_𝒜 e^{−2Y}].
@@ -150,7 +161,7 @@ tops `q > ℓ` with a class `(λ, ℓq)`, `λ ≡ a (ℓ)` (for `1 ≤ D < ℓ` 
 **every** value of every rough coordinate changes the activated sets at
 many later tops and moves `Y` by `≍ (log)^{O(1)}/ℓ`. Under `σ_B` a change
 at ℓ can therefore flip `1_{G_B}` without any further coincidence, and
-LS4's pivotal bound (which takes `|·|` pointwise in the coins) only yields
+LS4's pivotal bound (which takes `|·|` pointwise in the coins) yields
 only one prime of decay, not `Π_{ℓ∈S}` (heuristic: the size of the
 flip probability needs an anti-concentration bound for `Y`, not given). The *true* coefficient is presumably product-small (a smooth
 threshold of a sum of weakly dependent terms has `|S|`-th mixed
@@ -164,7 +175,7 @@ top q enters with the factor `≤ 2w_q/q`.
 To isolate the arithmetic, consider the **product model** of LS4 §3.2:
 `S` a finite set of primes `> z`, `v` uniform on `Ω_S = Π_{ℓ∈S}ℤ/ℓ`,
 and the other rough coordinates `y` uniform and independent (the path
-law dominates this up to `Π(1+2p^{−1/2})` per matched class, LS4 Lemma 2.1
+law is dominated by this up to `Π(1+2p^{−1/2})` per matched class, LS4 Lemma 2.1
 inflation; transfer to the fibre law is not written). Coordinates are taken
 squarefree for readability (prime powers change nothing below but
 notation). The family is the full family of Lemma 1.1, restricted to rough
@@ -183,7 +194,9 @@ such that `v ≡ λ_j` on `U_j`, and for each j a class `(λ_j, G_j)` with
 
     CS_j := {q ∈ S∖U_j : λ_{j(q)} ≡ λ_j (mod q)}   (j(q): the block of q)
 
-depends only on the partition and the labels. Consequently
+depends only on the partition and the labels (convention: `q ∉ CS_j` if q
+divides the denominator of `λ_j` or of `λ_{j(q)}`; such q divides no
+modulus carrying that label). Consequently
 
     P(E_S) ≤ Π_{ℓ∈S} ℓ^{−1} · Σ_{(U_j)} Σ_{(λ_j) distinct} P_y(∀j ∃ m_j :
              (λ_j, Q_jm_j) a class for some Q_j ⊆ U_j∪CS_j with Q_j∩U_j ≠ ∅,
@@ -220,7 +233,7 @@ through the path after q, i.e. through the tilt (`≤ 2w_q/q`) or through
 further coincidences, so the relevant model event must **charge each
 outside top by its damping** (a soft-pivotal statement); with the
 undamped event, everything below is meaningful only for
-`log X ≤ z^{c}` (then `P(E_{{ℓ}}) ≤ (log X)³/ℓ`). The label calculus
+`log X ≤ z^{c}` (then `P(E_{{ℓ}}) ≤ (C(log X)³ + ℓ^{o(1)})/ℓ`). The label calculus
 (Lemma 3.1) is unaffected and applies verbatim to damped witness
 weights.
 
@@ -235,8 +248,9 @@ S-prime is `ℓ^{1−γ}`.)
 Write `Mass(Q') := Σ_m |Λ(Q'm)|/m` (m over rough squarefree outside
 cofactors, `Q'm ≤ X`); by Shiu's theorem in progressions (A runs over an
 AP mod Q') plus `τ(A²) ≤ A^{O(1/log log A)}` for the short range,
-`Mass(Q') ≤ C(log X)³ + Q'^{O(1/log log Q')}` (standard; this is the
-uniform first moment used in K2/KARY3). Three kinds of correlation remain.
+`Mass(Q') ≤ C(log X)³ + Q'^{O(1/log log Q')}` (Assessment: standard, as
+in K2 Lemmas 3.3–3.6 and 4.2; not re-proved here; this is the uniform
+first moment used in K2/KARY3). Three kinds of correlation remain.
 
 **(C1) Same-label coincidences — solved exactly** (Lemma 3.1: they
 collapse to one residue vector). In particular the "structured families"
@@ -246,7 +260,7 @@ cover-counting.
 **(C2) S-coincidences (free S-primes).** Block j may use any
 `Q_j ⊆ U_j ∪ CS_j`; the union bound over `Q_j` costs `2^{|U_j|+|CS_j|}`
 and `|CS_j| ≤ |S|`. Trivially this gives a factor `≤ 2^{2|S|}` per block,
-i.e. `≤ 4^{|S|}` per S-prime: harmless iff `|S| ≤ (1/2 − γ)log₂ z`.
+i.e. `≤ 4^{|S|}` per S-prime: harmless if `|S| ≤ (1/2 − γ)log₂ z`.
 Lemma 1.2 shows each cross-label S-coincidence at q forces
 `H(λ_j)H(λ_{j(q)}) ≥ q/2`, so (C2) is a statement about how often a
 label can be congruent, at many S-primes, to *other labels of the same
@@ -258,7 +272,7 @@ absorbed by the per-prime slack.)
 outside primes p, which requires `λ_j ≡ λ_{j'} (p)`. Without using this
 compatibility, the union bound over which blocks share which primes gives
 `Π_{p ≤ X}(1 + (2^k − k − 1)/p) ≤ (C log X/log z)^{2^k}` (k = number of
-blocks): harmless iff `2^k log log X ≲ (log N)^{1/4}`. With
+blocks): harmless if `2^k log log X ≲ (log N)^{1/4}`. With
 compatibility the shared primes of a pair of labels are among the
 `≤ log(2HH')/log z` prime factors of `num(λ_j − λ_{j'})`, which would make
 (C3) negligible — **but only if the weights can be summed with p fixed
