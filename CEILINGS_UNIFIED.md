@@ -213,10 +213,9 @@ addition the big costs are comparable (`L ≤ c_b ≤ AL`) and the small
 coordinates read by the certificate are booked separately (cost `λ_s`), the
 critical *level* satisfies `c·L·P ≤ λ* ≤ C_A·L·P + λ_s` (the barriers force
 only the big-coordinate cost; nothing forces a certificate to pay `λ_s`). This
-is `≍ L·P` ("dimension times log-size") when `λ_s ≪ L·P`, as in both ES
-instances (in the note's ledger `λ_s ≤ C_ϑBt³ + r·κt`, i.e. `≍ κt⁴`, smaller than
-`L·P ≍ t⁴` by the factor `κ < 1/240` up to constants; in OMEGA13 the small
-part is quarantined in `Q`). (Without
+is `≍ L·P` ("dimension times log-size") when `λ_s = O(L·P)`, as in both ES
+instances: in the note's ledger `λ_s ≤ C_ϑBt³ + r·κt = O(κt⁴)` while
+`L·P ≍ t·μ_c ≍ κt⁴`; in OMEGA13 the small part costs `log Q ≪ 𝓛³(log𝓛)^5`. (Without
 comparable costs only the lower bound `λ ≥ L·k` on the level is valid.) This is the
 large-dimension sieve limit (`β_κ ≍ κ`) in the one-big-coordinate setting.
 
