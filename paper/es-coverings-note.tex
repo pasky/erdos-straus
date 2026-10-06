@@ -767,8 +767,9 @@ non-constant coordinates of the family are $\Z[1/T]$-integral at $n=1$
 rigid forms, e.g.\ II1 and I4 at a $T$-generic point amount to
 $4iabk=F(a+b+k)$ with $k=(a+b)/e$, $e+1=4iab/F$ and $F$ the $T$-part of
 $4ab$; so for each $T$-level $F$ there are finitely many boxes
-(\status{proved}; these rows were re-derived independently in review,
-the rows for I1, I2, I3, II3 were not).
+(\status{proved}; the II1, I4 and II2 rows were re-derived in the review
+of \cite{PM}, and the full table for $T=\{17\}$, all seven families, in
+the review of \cite{PM17}).
 
 At the $13$-generic points of $\Sigma_{13}$ every non-residue class is
 covered at $13$-adic level one: $x_{13}\equiv2$ by II2 $(a,d,f)=(9,2,143)$,
@@ -834,6 +835,210 @@ barely changes this.  For the np variant no $T$-generic obstruction with
 $|T|\le3$ was found; a best-first tree search over $\Sigma_{13}^{\rm np}$
 stopped at $30000$ nodes with open Haar mass $4.1\cdot10^{-7}$, so that
 variant is undecided.
+
+\section{The $17$-generic line}\label{sec:r17}
+
+For $r=17$ the candidate sterile set is one-dimensional, and the classes
+meeting it can be described exactly.  A point $x\in\Zhu$ is
+\emph{$17$-generic} if $x_q=1$ for all $q\ne17$; write $x=x(u)$ with
+$u=x_{17}\in\Z_{17}^\times$.  If $u$ is a non-residue modulo $17$ then
+$x(u)\in\Sigma_{17}^{\rm np}$, and by Lemma~\ref{lem:accum} the
+Mordell-hard primes with $n_p=17$ accumulate at $x(u)$.  The non-residue
+cells $C_5=\{u\equiv5\}$ and $C_7=\{u\equiv7\pmod{17}\}$ are exchanged by
+$u\mapsto1/u$ ($5\cdot7\equiv1$).  A class of modulus $17^kN$ with
+$17\nmid N$ contains $x(u)$ if and only if its residue $\rho$ satisfies
+$\rho\equiv1\pmod N$ and $u\equiv\rho\pmod{17^k}$; it then contributes the
+\emph{box} $\rho+17^k\Z_{17}$ of \emph{level} $k$.  We use Haar measure
+$\mu$ on $\Z_{17}$, so $\mu(C_v)=1/17$.  All results of this section are
+from \cite{PM17} and its review.
+
+\subsection{Box types}
+
+\begin{lemma}[\status{proved}; {\cite[Lemmas~1.1, 1.3]{PM17}}]\label{lem:boxtypes}
+At level $F=17^k$ the boxes of the seven families are exactly the boxes
+of the following types (all parameters positive integers, ${}'$ the
+$17$-free part):
+\begin{enumerate}
+\item[(P)] $(a,d,f)$ with $17\nmid f$, $f\mid4a^2d+1$, $4(ad)'\mid f+1$,
+$(ad)_{17}=F$; box $-f\pmod F$ (from I1, I3 with $17\mid cd$, II3 with
+$17\mid ad$);
+\item[(Q)] $(a,d,f)$ with $f=Fg$, $17\nmid g$, $4ad\mid f+1$, $g\mid
+4a^2d+1$; box $-4a^2d\pmod F$ (II2, II3 with $17\mid e$), and its inverse
+$-1/(4a^2d)$ (I2 with $17\mid f$);
+\item[(U)] $(a,b,e)$ with $e\mid a+b$, $(e,4ab)=1$, $4(ab)'\mid e+1$,
+$(ab)_{17}=F$; box $-e\pmod F$ (II1, I2 with $17\mid ac$), and its
+inverse $-1/e$ (I4).
+\end{enumerate}
+The type I3 with $17\mid f$ (boxes $\pm\sqrt{-4a^2d}$) never meets the
+$17$-generic line.  (Q)-data exist only at odd levels $k$, with $-4a^2d$
+a non-residue modulo $17$; the set of (P)-boxes is closed under
+inversion; no class contains the whole line (no level-$0$ box).
+\end{lemma}
+
+\begin{proof}[Proof of the parity statements]
+For a (Q)-datum write $f=4adm-1=17^kg$.  As $f\equiv-1\pmod{4d}$, Jacobi
+reciprocity gives $(d/f)=1$, and $(-1/f)=-1$, so $(-d/f)=-1$.  As
+$g\mid4a^2d+1$, $-d(2a)^2\equiv1\pmod g$, so $(-d/g)=1$.  Hence
+$(-d/17)^k=-1$: $k$ is odd and $-d$, hence $-4a^2d$, is a non-residue
+modulo $17$, so $n^2\equiv-4a^2d\pmod{17^k}$ has no root.  A level-$0$
+box would give positive integers with $4/1=1/x+1/y+1/z$, by the rigid
+forms \cite[Cor.~2.4]{PM17}, which is impossible.  The type
+classification is read off from the generic-point conditions family by
+family; see \cite[\S1]{PM17}.
+\end{proof}
+
+\subsection{Boxes are Erd\H{o}s--Straus solutions at prime powers}
+In ET's coordinates, $\Sigma^I_n$ is given by $4abcd=n(a+b)+c$ and
+$\Sigma^{II}_n$ by $4abcd=a+b+nc$, with $e=(a+b)/c$ and the further
+relations of \cite[\S2]{ET}.
+
+\begin{proposition}[\status{proved}; {\cite[Lemmas~2.1--2.3, 5.1, 5.2]{PM17}}]\label{prop:boxES}
+\begin{enumerate}
+\item[(a)] $(a,d,f=17^kg)$ is a (Q)-datum if and only if
+$(a,(f+1)/(4ad),(a+b)/g,d)$ is an $\N$-point of $\Sigma^I_{17^k}$ with
+$e=g$ prime to $17$.  The box is $-4a^2d\equiv-a/b\pmod{17^k}$.
+\item[(b)] A (U)-datum $(a,b,e)$ of level $k$ gives the solution
+$4/17^k=1/(iab)+1/(iac)+1/(ibc)$, $c=(a+b)/e$, $i=(e+1)F/(4ab)$.
+Every (U)-box meeting $C_5\cup C_7$ lies in a (P)-box of level $\le k$
+with the same centre, so the type (U) adds no measure.
+\item[(c)] Let $(a,d,f)$ be a (P)-datum of level $k$, $a=17^\alpha a'$,
+$d=17^\delta d'$, $n=a'd'$, $f=4ni-1$, $(4a^2d+1)/f=4nj-1$.  Then
+$(i,j,a',d')$ is an $\N$-point of $\Sigma^{II}_{17^K}$ with
+$K=k+\alpha\in[k,2k]$ and $17\nmid a'd'$.  Conversely every $\N$-point of
+$\Sigma^{II}_{17^K}$ with $17\nmid cd$ yields (P)-boxes, nested, the
+largest of level $\lceil K/2\rceil$; its box is $-f_{\rm ET}\equiv-a/b$.
+$\Sigma^{II}_{17^K}$ has no such $\N$-points for even $K$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof of (c)]
+Since $(ad)_{17}=F=17^k$ and $(ad)'=n$, we have $4a^2d=4aFn$, so
+$(4ni-1)(4nj-1)=4aFn+1$; expanding gives $4nij-i-j=aF=17^Ka'$, i.e.
+$4\,i\,j\,a'\,d'=i+j+17^Ka'$, which is the defining equation of
+$\Sigma^{II}_{17^K}$ for $(i,j,a',d')$.  The converse uses
+$4c^2dN+1=f(4bcd-1)$ \cite[(2.21)]{ET}.  The centre is $-a/b$ because
+$bf=Nc+a$ \cite[(2.20)]{ET}.  Even $K$ are excluded by the reciprocity
+argument of Lemma~\ref{lem:boxtypes} applied to $f\mid
+4\cdot17^Ka'^2d'+1$, $f\equiv-1\pmod{4d'}$.
+\end{proof}
+
+So the boxes on the $17$-generic line are balls around the rationals
+$-a/b$ built from solutions of $4/17^K=1/x+1/y+1/z$: Type~I points at
+full level for (Q), Type~II points at \emph{half} level for (P).  The
+half level is what makes (P) critical below.
+
+\subsection{Exact low levels}
+
+\begin{computation}[\status{certified}; {\cite[Comp.~3.1]{PM17}}]\label{comp:17}
+The boxes of level $\le5$ (and the (Q), (U) boxes of level $7$) were
+enumerated completely, using the bounds of \cite[Lemma~2.8]{ET}, by two
+independent engines (\texttt{m17\_enum.c} and the reviewer's
+\texttt{review\_m17\_enum.c}); the union in $C_5$ was computed exactly
+(two $17$-adic balls are nested or disjoint).  The covered fraction of
+$C_5$ is
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+level $k$ & boxes meeting $C_5$ & covered fraction after level $k$\\
+\midrule
+1 & 0 & 0\\
+2 & 4 (P) & 0.235294\\
+3 & 32 & 0.314879\\
+4 & 50 (P) & 0.321799\\
+5 & 158 & 0.322793\\
+7 (Q, U only) & 240 & 0.322797\\
+\bottomrule
+\end{tabular}
+\end{center}
+and identically for $C_7$.  So the boxes of level $\le5$ leave exactly
+the fraction $56561/83521=0.67720\ldots$ of each cell uncovered.
+Completeness was also checked against a brute force that reads the
+classes literally off \cite[Prop.~1.9]{ET} for all moduli $\le10^6$ ($0$
+boxes missing).  Moreover the point $x(5)$ lies in no ET class of modulus
+$\le10^6$ (two engines) and in no II1, I4 or II2 class with $17$-part
+dividing $17^4$ \cite[Comp.~5.1]{PM}.
+\end{computation}
+
+The numbers of data are $D_P(K)=2,32,121,258,604$ for $K=1,3,5,7,9$ and
+$D_Q(k)=2,73,245,707$, $D_U(k)=4,68,310,826$ for $k=1,3,5,7$; the measure
+added per level is $0.235$, $0.080$, $0.0069$, $0.0010$ at levels $2$--$5$
+(\status{evidence} of decay, from three ratios only).
+
+\subsection{The tail}
+Let $B_k=4D_Q(k)+2D_U(k)+2D_P(2k-1)$ be the resulting bound for the
+number of boxes of level $k$ (two orientations; $D_P(2k)=0$).
+
+\begin{theorem}[\status{proved}; {\cite[Thm.~4.1]{PM17}}]\label{thm:tail17}
+If
+\[
+\sum_{k\ge6}17^{1-k}B_k<\frac{56561}{83521},
+\]
+then $C_5$ and $C_7$ contain sterile points $u$: $x(u)$ lies in no ET
+class.
+\end{theorem}
+
+\begin{proof}
+The boxes of level $\ge6$ cover at most $\sum_{k\ge6}B_k17^{-k}$, less
+than the measure $\frac{56561}{83521}\cdot\frac1{17}$ left by the levels
+$\le5$.
+\end{proof}
+
+\begin{corollary}[\status{conditional} on the hypothesis of Theorem~\ref{thm:tail17}]\label{cor:17}
+No finite set of primitive residue classes solvable by polynomials
+contains all but finitely many of the Mordell-hard primes with $n_p=17$
+(primes $p\equiv1\pmod{24}$ with $(p/17)=-1$ and $(p/q)=+1$ for
+$q=5,7,11,13$).
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{prop:compact}(b) with the sterile point $x(u)$.
+\end{proof}
+
+\begin{conjecture}[{\cite[Conj.~4.3]{PM17}}]\label{conj:17}
+The cell $C_5$ (equivalently $C_7$) contains a sterile point.
+\end{conjecture}
+
+\emph{Status of the hypothesis.}  The series converges
+(\status{proved}, non-explicitly): the proof of \cite[Prop.~1.7]{ET}
+counts $\N$-points and gives $D_Q(k)\ll17^{(3/5+o(1))k}$ and
+$D_P(K)\ll17^{(2/5+o(1))K}$, and the bound $f(n)\ll_\varepsilon
+n^{2/3+\varepsilon}$ of Browning and Elsholtz (\cite[ref.~8]{ET}) handles
+(U).  The constants are not explicit, so this gives no level the
+computation reaches.  The critical family is (P): its boxes have weight
+$\asymp N^{-1/2}$ at ES level $N=17^K$, against the count
+$N^{2/5+o(1)}$, a margin of only $1/10$; even $D_P(K)\le17^{2K/5}$ with
+constant $1$ would leave a tail $\approx0.84$ from $K\ge11$, more than
+$0.677$.  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
+$(a,b)$, so what is needed is an explicit bound
+\begin{equation}\label{eq:Pcount}
+\#\{(a,b):a\le b,\ ab\le17^K,\ (-17^K\bmod 4ab)\mid a+b\}\le
+C\cdot17^{(1/2-\delta)K}
+\end{equation}
+with explicit $C$ and $\delta>0$, together with weaker explicit bounds
+for (Q), (U).  The data fit $D_P(K)\approx K^3$
+($2,32,121,258,604$ against $1,27,125,343,729$; \status{evidence}), far
+below what is needed: $D_Q+D_U\le17^{k/2}$ for $k\ge8$ and $D_P(K)\le
+17^{K/4}$ for $K\ge11$ would make the tail $<0.01$.
+
+\begin{assessment}[Discrete logarithms]
+With $(s,t)=(c,d)$ the (P)-data of level $K$ are exactly the $(a,s,t)$
+with $17\nmid st$, $f=4ast-1\mid s\cdot17^K+a$ and
+$b=(s17^K+a)/f\ge a$ \cite[\S6]{PM17}.  As $(s,f)=1$ the condition is
+$17^K\equiv-a/s\pmod f$: a triple is ever admissible if and only if
+$-a/s\in\langle17\rangle\subset(\Z/f)^\times$, and then for $K$ in one
+class modulo $\operatorname{ord}_f17$.  If $17^K$ is modelled as
+equidistributed modulo $f$, $E[D_P(K)]\approx\sum1/(4ast)\asymp K^3$, as
+observed.  So \eqref{eq:Pcount} is an Artin-type equidistribution
+question for one base and many moduli.  Divisor-bound methods (ET,
+Lenstra's bound on divisors in residue classes \cite{Lenstra},
+Coppersmith--Howgrave-Graham--Nagaraj, explicit divisor bounds of
+Nicolas--Robin type) treat $17^K$ as an arbitrary integer; they give
+$N^{2/5+o(1)}$ non-explicitly and $O(N)$ explicitly, and we see no way
+for them to reach $N^{1/2-\delta}$ explicitly.  A digit-set (Cantor)
+construction that avoids boxes with small integer centres was tested and
+fails: the normalised centres of new boxes have maxima $0.86$--$0.99$ at
+levels $3$--$7$.
+\end{assessment}
 
 \section*{Acknowledgements and provenance}
 PROVENANCE-PLACEHOLDER
