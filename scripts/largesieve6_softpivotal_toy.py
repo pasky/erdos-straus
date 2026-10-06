@@ -204,6 +204,7 @@ def run(seed, pool=(3, 5, 7, 11, 13), ncls=40, delta=0.5, nsamp=3000):
             bD = accD / nsamp / Z
             b22 = 4 ** k * acc22 / nsamp / Z
             b42 = 4 ** k * acc42 / nsamp / Z
+            assert best <= b22 and best <= b42, (S, best, b22, b42)
             out.append((S, best, bD, b22, b42))
     return out, Z
 

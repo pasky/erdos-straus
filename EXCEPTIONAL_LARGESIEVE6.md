@@ -576,7 +576,7 @@ residue mod p contains at most one label of height `< √p`).
 >
 > (residues mod p and gain p per prime, i.e. exponent caps `e_p = 1`; with
 > uncapped gains `p^{v_p(G_C)}` the statement is false, since the classes
-> `−4D mod p^eq`, `q ≡ −p^{−e}… (4D)`, e = 1, 2, …, carry large height
+> `−4D mod p^eq`, `q ≡ −p^{−e} (mod 4D)`, e = 1, 2, …, carry large height
 > and each contributes `≍ w_q/q` — review).
 
 *Heuristic (Assessment).* A label `−r/s` occurs as a class of modulus G
