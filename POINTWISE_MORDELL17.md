@@ -249,10 +249,10 @@ satisfy `17∤abcd`. So **the prime-power structure enters only through the resi
 * The elementary scan over `(a,d)` with `f|N+4a²d`, `f≡−1`, `e≡−N (mod 4ad)` gives `O(N)`: for
   `4ad>√(3N)` each pair still has one candidate `e=(−N mod 4ad)`, and nothing bounds how often it
   divides `N+4a²d`.
-* Lenstra's bound (≤11 divisors in a class mod `s ≥ m^{1/3}`) covers the range `ad ≥ N^{1/3}`.
-  Coppersmith–Howgrave-Graham–Nagaraj covers `ad ≥ N^{1/4+δ}`. Both count per pair, so the
-  `ad ≲ N^{1/2}` pairs alone already cost `≍ N^{1/2}log N`. That is exactly the critical size, and
-  it misses by the log.
+* Lenstra's bound (≤11 divisors in a class mod `s ≥ m^{1/3}`, valid for `ad ≥ N^{1/3}`) and
+  Coppersmith–Howgrave-Graham–Nagaraj (for `ad ≥ N^{1/4+δ}`) bound the count *per pair* `(a,d)`
+  by O(1). But there are `≍N` pairs with `a²d ≤ N/2`, so the result is again `O(N)`. What is
+  missing is a bound on how many pairs have any admissible divisor at all.
 * ET's `N^{2/5+o(1)}` uses the pointwise divisor bound. With Nicolas–Robin constants the exponent
   is `≥ 0.6` for every `K ≤ 40`.
 So the P-tail is equivalent in difficulty to an explicit "small residues of `17^K` modulo `4ab`"
