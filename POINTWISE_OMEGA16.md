@@ -77,3 +77,43 @@ in the Mordell-hard normalisation (`log(1/δ)≍𝓛³/log𝓛`), the conclusion
 "dimension" `κ≍𝓛³/log𝓛` (O14 §2) with sifting range T; it is used far below the sieve limit,
 where `log x≍log(1/δ)≍κ·log log T` while the sieve needs `log x≫κ log T`. That `log T`
 versus `log log T` per unit of dimension is exactly the gap 1/4 vs 1/3 (§3).
+
+## 2. The ladder of hypothesis strengths; which forms are too strong
+
+Write `π_𝓔(x):=#{T<p≤x: p avoids 𝓔}` and `λ:=log T+log(1/δ(𝓔))`.
+
+| name | statement (for all unit-class systems, moduli ≤ T) | gives (via Thm 1.2) | status |
+|---|---|---|---|
+| CR(A) (Cramér form) | `π_𝓔(x)≥1` for `log x≥log(1/δ)+A log T` | 1/3 | Assessment: plausible |
+| LS(C) (Linnik form) | `π_𝓔(x)≥1` for `log x≥Cλ` | 1/3 | Assessment: plausible; C≥5/2 needed (Linnik) |
+| LS(Φ) | `π_𝓔(x)≥1` for `log x≥Φ(λ)` | `log W≫Φ^{−1}(log p)^{1/3}` up to logs | e.g. `Φ(λ)=λ^θ` gives exponent `1/(3θ)` |
+| PS_log(C) | `π_𝓔(x)≥δ^{C}x^{1−1/C}` for `log x≥Cλ` | 1/3 | implies LS(C) |
+| PS(C,c) (constant-factor lower bound) | `π_𝓔(x)≥c·δ·π(x)` for `log x≥Cλ` | 1/3 | **heuristically false** (Prop 2.1) |
+| AS(C) (asymptotic, "main term") | `π_𝓔(x)~δπ(x)` for `log x≥Cλ` | 1/3 | **false in the integer analogue, heuristically false for primes** (Prop 2.1) |
+
+CR ⇒ LS(max(1,A)) and PS_log(C) ⇒ LS(C) are immediate; PS ⇒ PS_log. So among these the
+weakest natural form is LS: *existence of one prime* at *Linnik scale* in the log of the
+inverse density. Theorem 1.2 needs LS only for the single family `𝓔_T` (for infinitely many T).
+
+**Proposition 2.1 (main-term forms are too strong).**
+(a) (*Integer analogue; PROVED, classical.*) Replace primes by integers and Haar on `Ẑ^×` by
+Haar on `Ẑ`, and take the events `n≡0 (mod ℓ)`, ℓ prime `≤z=T`. Then `δ=∏_{ℓ≤z}(1−1/ℓ)`,
+`λ=log z+log log z+O(1)`, and for `x=z^u` with u fixed,
+`#{n≤x avoiding}=Φ(x,z)~x ω(u)/log z=(e^γω(u)+o(1))·δx` (Buchstab–de Bruijn). Since
+`e^γω(u)≠1` for all u outside a discrete set (e.g. `e^γω(2)=e^γ/2=0.8905…`), for every C there
+are `u≥2C` with `Φ(x,z)/(δx)↛1`, while `log x=u log z≥Cλ` for large z. So the integer AS(C)
+is false for every C.
+
+(b) (*Primes; Assessment, conditional on the Hardy–Littlewood heuristic.*) For the unit classes
+`n≡−h (mod ℓ)`, `3≤ℓ≤z`, `h` even fixed, the prime count `#{p≤x: p+h z-rough}` is predicted to
+be `(e^γω(u)+o(1))·δ·π(x)·(1+o(1))` with the same Buchstab factor (the roughness of `p+h≤x+h`
+is an archimedean constraint invisible to Haar). For a κ-tuple version (classes `−h_1,…,−h_κ`
+mod every `ℓ≤z`, `κ<ℓ`) the factor compounds to `(e^γω(u))^κ`. Choosing
+`κ≍log z/log log z` (so `λ≍log z`) and u fixed with `e^γω(u)<1`, `u≥2C`, the ratio
+`π_𝓔(x)/(δπ(x))` tends to 0: PS(C,c) fails for every fixed C, c. CR, LS and PS_log are not
+affected: the deficit `(e^γω(u))^κ=e^{−O(κ)}=δ^{O(1/log log z)}`.
+
+So "primes in sifted sets of dimension κ *with main term*" (brief item (i)) is, as literally
+stated, too strong; the deficit is the Buchstab/Maier phenomenon (periodic sets of period
+`lcm≫x` sampled by an archimedean window). The correct strength is the log-scale existence
+statement LS. EVIDENCE for (b) at toy scale: §6.
