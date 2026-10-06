@@ -3046,6 +3046,139 @@ process of \S\ref{sec:system}; that process therefore does not run for
 $m\not\equiv0\pmod4$.  Only atoms with $M\equiv7\pmod8$ are never fired by square classes
 for every $m$ (Lemma~\ref{lem:mjacobi}(b)).
 
+\subsection*{Results}
+\begin{theorem}[$m\equiv0\ (4)$; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}, and the fundamental lemma for the lower bound in (i)]\label{thm:mzero}
+Let $m\equiv0\pmod4$.  Constants depend on $m$.
+\begin{enumerate}
+\item[(i)] $\Lc^3/\log\Lc\ll\log(1/\delta_m^*(T))\ll\Lc^3(\log\Lc)^5$.
+\item[(ii)] For infinitely many primes $p$,
+$W_m(p)\ge\exp\big(c_m(\log p)^{1/4}(\log\log p)^{-1/4}\big)$; these $p$ are quadratic residues
+modulo $840$ and Type-II-hard modulo their quarantine modulus $Q$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Summary of the proof {\rm(\cite[Thm.~3.1]{MN})}]
+The proofs of \S\S\ref{sec:system}--\ref{sec:proof} use the shape of the atoms
+only in the following places, each of which holds for $m\equiv0\pmod4$.
+(1) Lemma~\ref{lem:jacobi} is replaced by Lemma~\ref{lem:mjacobi}(a),(d), with $d$
+replaced by $e$; the drift at a level-$0$ step in Lemma~\ref{lem:book}(a) is
+$1+(\frac{-e}\ell)\le2$.  (2) $M\equiv3\pmod4$ is odd, so the start $Q=8$, $r=1$ has
+$p_0=P_H$, and the forced steps at $3,5,7$ are square steps.  (3) In
+Lemma~\ref{lem:masses}(A), Theorem~\ref{thm:NT} is applied to $Q_1(n)=n$,
+$Q_2(n)=mn-1$: coprime linear forms without fixed prime divisor, with
+$\rho(p)=2$ for $p\nmid m$ and $\rho(p)=1$ for $p\mid m$, so the Euler product changes
+by a factor $O_m(1)$; Lemma~\ref{lem:masses}(B) is an elementary divisor sum and is
+unchanged.  (4) Theorem~\ref{thm:haarupper}, the sandwich
+(\S\S\ref{sec:energy}--\ref{sec:brw}) and the transfer concern an abstract system of
+unit-class events and need only (1)--(3); the hypotheses on $r$ in
+Theorem~\ref{thm:transfer} are those produced by the process.  (5) The lower
+bound in (i) is Proposition~\ref{prop:mlower} below.
+\end{proof}
+
+\begin{proposition}[Haar lower bound for every $m$; proved modulo the fundamental lemma]\label{prop:mlower}
+For every $m\ge4$, $\log(1/\delta_m^*(T))\gg_m\Lc^3/\log\Lc$.
+\end{proposition}
+
+\begin{proof}[Summary of the proof {\rm(\cite[Prop.~3.2]{MN})}]
+The proof of Theorem~\ref{thm:haarlower} with $4$ replaced by $m$: in the family
+used there replace the conditions $M\equiv3\pmod4$, $M\equiv-1\pmod{4n}$ by
+$M\equiv-1\pmod{mn}$, so that $n\mid A_M$; then $mD\le mn^2<M$ for $M\ge\sqrt T$, so the
+classes $-mD\bmod M$ are distinct, and the fundamental lemma sifts
+progressions modulo $mn$ instead of $4n$.  The Janson-type inequality
+(Theorem~\ref{thm:janson}) is abstract.  No Jacobi input is used.
+\end{proof}
+
+For $m\not\equiv0\pmod4$ the exponent $1/5$ of the third version of this note
+extends, because that version quarantines $n$ to the class of one, which is
+hard for every $m$, and never uses quadratic residues.
+
+\begin{theorem}[Every $m$, exponent $1/5$; proved modulo Theorem~\ref{thm:G} and the Elsholtz--Tao estimates {\cite[Prop.~1.4, Thm.~7.1, Cor.~7.4, (7.10)]{ET}}]\label{thm:mfifth}
+For every fixed $m\ge4$, $\log(1/\delta_m^*(T))\ll_m\Lc^5\log\Lc$, and for infinitely many primes $p$,
+$W_m(p)\ge\exp\big(c_m(\log p)^{1/5}(\log\log p)^{-1/5}\big)$; these $p$ satisfy $p\equiv1\pmod Q$ with
+$840\mid Q$ and are Type-II-hard modulo $Q$.
+\end{theorem}
+
+The proof \cite[Cor.~6.1 and \S6b]{MN} is a written-out substitution
+$4\mapsto m$ in the graded class-of-one argument (Remark~\ref{rem:graded}), with
+the energy bound of \S\ref{sec:energy} and Theorem~\ref{thm:transfer}.  The
+changes are: the Elsholtz--Tao estimates are stated for general
+coefficients, so $4\mapsto m$ is admissible; the quadratic $mdx^2+1$ can have $4$
+roots modulo $2^k$ when $md$ is odd, which changes one Euler factor; for odd $m$,
+$M$ can be even, so the prime $2$ becomes a graded coordinate like the others;
+the class of one is excluded by an archimedean argument valid for every $m$
+($M\mid D+A$ is impossible as $0<D+A\le2A<M$, after $D\mapsto A^2/D$); and the parity
+assertions of the original proof are replaced by $\ell\nmid mad$.  This improves the
+exponent $1/7$ that the architecture of the second version gives for
+general $m$, in particular for Sierpi\'nski's $5/n$, but only for the witness
+$W_5$ of the family \eqref{eq:identm}.
+
+\subsection*{The case \texorpdfstring{$m\not\equiv0\ (4)$}{m not 0 mod 4} at exponent \texorpdfstring{$1/4$}{1/4}}
+Two ingredients survive.  First, the transfer does not need $r$ to be a square:
+
+\begin{lemma}[Transfer for arbitrary classes; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:anyr}
+Theorem~\ref{thm:transfer} holds for every unit $r\bmod Q$, $8\mid Q$, if the cells are
+consistent with $r$; no quadratic condition on $r$ is needed.
+\end{lemma}
+
+\begin{proof}
+The value of a real character at $r$ enters only in Case~A of the proof, through
+$c(\chi)=\chi(r)\mu/\varphi(Q)$ for the real $\chi$ with $\chi^*=\chi_1$ trivial on
+$\{n\equiv1\ (Q)\}$ (and through the corresponding identity in (c) when $f_2=1$).  If
+$\chi_1(r)=1$, the proof is unchanged.  If $\chi_1(r)=-1$, the exceptional main
+term $-c(\chi)x^{\beta_1}/\beta_1$ is positive, the main terms add up to
+$\lambda'\mu x/\varphi(Q)$ with $\lambda'=1+x^{\beta_1-1}/\beta_1\ge1$, and the errors are bounded
+as in Case~0.  In (c) and Case~B, $\psi_1(r)$ is replaced by a sign, and the
+bound $|c(\chi)|\le\mu/(4\varphi(Q))$ is unchanged; non-real characters enter only
+through $|c(\chi)|$.
+\end{proof}
+
+Second, the bookkeeping survives if the square-class process is replaced by
+the \emph{admissible unit process}: at each step reveal the next digit of $n$
+uniformly among the classes that do not complete an event (the
+\emph{non-forbidden} classes), after a fixed prefix in which $r_0\bmod Q_0$ is
+uniform on the Type-II-hard classes modulo a constant modulus $Q_0=Q_0(m)$.
+The prime $2$ is an ordinary coordinate for odd $m$.  If $f$ is the forbidden
+fraction at a step, put $\Lambda(\ell)=\prod(1-f)^{-1}$ over the steps at $\ell$ after the
+prefix ($\Lambda=\infty$ if some $f=1$).
+
+\emph{Hypothesis} $\mathrm{ADM}_m(K,Q_0)$: uniformly in large $T$ (with $\beta$, $\eta$ as
+before and $Y=\Lc^{C}$ for a suitable $C=C(K)$), with probability at least $7/8$ the
+admissible unit process satisfies $\Lambda(\ell)\le K$ for every $\ell\le Y$.
+
+For $m\equiv0\pmod4$ the square-restricted version holds with $K=2$, by
+Lemma~\ref{lem:mjacobi}(d).
+
+\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:madm}
+Assume $\mathrm{ADM}_m(K,Q_0)$.  Then $\log(1/\delta^*_m(T))\ll\Lc^3(\log\Lc)^{K+4}$, and
+$W_m(p)\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-B_K}\big)$ for infinitely many primes $p$,
+Type-II-hard modulo their quarantine modulus.
+\end{theorem}
+
+In the proof \cite[Thm.~5.1]{MN} only Lemma~\ref{lem:book} changes: the
+factor $2^{u_i(E)}$ is replaced by $\prod_{\ell\mid M,\,\ell\le Y}K/\Lambda_i(\ell)$, the process
+is stopped before a step that would make some $\Lambda(\ell)>K$, and the prefix
+costs a factor $1/\delta_0$ (the density of the hard classes modulo $Q_0$) in all
+initial masses; the transfer uses Lemma~\ref{lem:anyr}.  Success probability
+$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}.
+
+\emph{Towards $\mathrm{ADM}_m$.}  $\mathrm{ADM}_m$ is open for every $m\not\equiv0\pmod4$.
+Numerically the drift is small: for $m\in\{5,6,7,9,10,11,13\}$ and
+$T\le3\cdot10^5$, a simplified full-depth version of the process with a $2$- and
+$3$-adic prefix never died and had $\max_\ell\Lambda(\ell)\le4.3$, the maximum being at
+$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite[Thm.~3.1]{MN2} (proved
+modulo Henriot's coefficient-uniform form of Theorem~\ref{thm:NT}
+\cite[Thm.~5]{Henriot}) shows that the sums of the masses of the atoms
+completed at a step are uniform in $T$, and that after any prefix law $\nu$ on
+the hard classes modulo $Q(q_0)=\lcm\{q\le q_0\}$ (over the powers $q$ of primes
+not dividing $m$) with density at most $C_\nu$ relative to Haar measure, the
+process fails with probability at most $C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with
+$c_1$ not explicit.  So $\mathrm{ADM}_m$ reduces to the prefix: a hypothesis SI on
+$\nu$-weighted completed-atom sums (a conjecture) implies $\mathrm{ADM}_m$, and hence
+exponent $1/4$ for $W_m$ \cite[Prop.~5.1]{MN2}.  For the uniform prefix law,
+the data for $q_0\le19$ suggest that $C_\nu$ grows faster than $q_0^{1/2}$, so the
+plan ``certified finite prefix plus moments'' does not obviously close
+(Assessment, \cite[\S4]{MN2}).
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
