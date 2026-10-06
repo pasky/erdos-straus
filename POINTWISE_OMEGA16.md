@@ -1,12 +1,44 @@
 # Which standard-type hypothesis gives the exponent 1/3? (task O61)
 
-Status: IN PROGRESS. Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
+Status: CHECKPOINT 1 (for parent review). Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
 POINTWISE_OMEGA14.md (O14), POINTWISE_OMEGA15.md (O15): `𝓛=log T`; atoms `(M,D)`, `M≡3 (4)`,
 `M≤T`, `A=(M+1)/4`, `D|A²`, event `E_{M,D}={n≡−4D (mod M)}`;
 `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (POINTWISE_SIZE §7). *Mordell-hard*: p is a
 square modulo 840 (O13 §3).
 
-## 0. Summary (to be completed)
+## 0. Summary
+
+**Answer.** The weakest natural hypothesis found is **LS ("Linnik's theorem for sifted
+sets")**: every unit-class sieve system (events `n≡a_E (mod m_E)`, `m_E≤T`, any number, any
+overlap, any dimension) whose avoider set has Haar density `δ>0` contains a prime `p>T` with
+`log p≤C(log T+log(1/δ))` (§1). It is the log-scale (Linnik, not Cramér) form of the random-set
+model, and for a single residue class it *is* Linnik's theorem.
+
+* **Thm 1.2 (PROVED implication, modulo Nair–Tenenbaum via O13 Thm 3.4):** LS(C) ⇒
+  `W(p)≥exp(c(log p)^{1/3}(log log p)^{−5/3})` for infinitely many Mordell-hard p; LS is needed
+  for one system per T only. `LS(Φ)` with `Φ(λ)=λ^θ` gives exponent `1/(3θ)`.
+* **Brief item (i)** (EH/GEH-type equidistribution): any hypothesis about primes in classes /
+  characters of moduli `≤x` (EH, GEH, GRH, BV), used through a linear certificate, yields at most
+  exponent **1/4** — the zero-error planted fake satisfies it (Prop 3.1). "Primes in sifted sets
+  *with main term*" is too strong as stated: its asymptotic and constant-factor forms are
+  false in the integer analogue and heuristically false for primes by a compounding Buchstab
+  deficit `(e^γω(u))^κ` (Prop 2.1; numerics §6 N1); its log-scale form implies LS.
+* **Brief item (ii)** (Hardy–Littlewood/Bateman–Horn for product sets): yields exactly
+  **exponent 2 in the polynomial scale**, `W≥(log p)^{2−o(1)}` and no more, because every CRT-product
+  subset of the avoider set has `log(1/δ)≍T^{1/2±o(1)}` (Prop 4.1, lower bound modulo
+  Barban–Davenport–Halberstam). This extends POINTWISE_OMEGA Prop 6.1 to all product sets.
+* **Brief item (iii)** (Cramér-type least prime): CR(A) `log p≤log(1/δ)+A log T` ⇒ LS ⇒ **1/3**.
+  The literal "`p≪δ^{−1}(log Q)^{O(1)}` for any set of density δ mod Q" is false (§1 Rem (c)).
+* **Consistency (§5):** LS is not refuted by the planted/parity-type fakes (they are reweightings
+  of Haar onto the complement of the avoider set, not prime-like sequences), but it is provably
+  *not* reachable by linear certificates (Prop 3.1): a beyond-the-barrier hypothesis like twin
+  primes. Robust to Siegel zeros (Linnik + Deuring–Heilbronn) and Jacobsthal/Maier effects (all
+  absorbed by the `log T`, `C` slack). Matches POINTWISE_SIZE's `log W≍(log p)^{1/3}`; RA ⇒ LS.
+  LS = "remove the sieve-limit factor `log z` from O13 Thm 5.1".
+* **EVIDENCE (§6):** Buchstab compounding for primes to `10^9` (N1); on the ES family the LS
+  ratio `log p_min/(𝓛+log(1/δ*))` is 0.64–1.29 for `T≤2047`, and `>0.94` at T=4095 (no hard
+  `p<10^{11}` has `W>4095`) (N2); greedy adversarial sieve systems of dimension `κ≤8` stay at LS
+  ratio `≤1.15`, gaining only `≈z^{0.9}` over the random model, independent of κ (N3).
 
 ## 1. The hypothesis and the conditional theorem
 
