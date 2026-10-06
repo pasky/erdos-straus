@@ -54,3 +54,62 @@ In the coset version `c(χ)=μ/φ(Q)` in Case A because `χ(r)=1` for real χ mo
 *Remark.* In Case 0/B the loss is a constant; λ_Q is only the price of a possible Landau–Siegel
 zero whose conductor divides Q. With Siegel's (ineffective) bound one gets
 `λ_Q≥c(ε)Q^{−ε}` instead.
+
+## 2. The lower tail from a single fibre
+
+**Theorem 2.1 (lower tail; PROVED modulo (G), NT, OMEGA10 Thm 3.4 — the inputs of O13 Thm 5.1).**
+There are absolute effective constants `C, T_0` such that for all `T≥T_0` and all `x` with
+`log x ≥ C·𝓛^4 log𝓛`,
+
+```
+#{p≤x prime, p Mordell-hard (p a square mod 840) : W(p)>T}  ≥  π(x)·exp(−C·𝓛³(log𝓛)^5).
+```
+
+In particular this holds uniformly for `𝓛 ≤ c(log x/log log x)^{1/4}`.
+
+*Proof.* Fix the good realisation `(Q,r)` of O13 Thm 3.4 and build B on the fibre `rH` exactly as
+in O13 §5: I1(a) (BRW minorant, EL), I1(b) (twist), I2 (junta), I3 (coset transfer hypotheses),
+**but without the auxiliary prime** `ℓ_aux`: we work with `(Q,r)` itself. I3's hypotheses are
+stated for `(Q,r)` and hold there (r square mod every odd prime of Q, `r≡1 (8)`, cells consistent
+with r); `ℓ_aux` entered O13 Thm 5.1 only to force `p>ℓ_aux>T` (distinctness as `T→∞`), and no
+atom, cell, twist prime or coordinate refers to it (O11 Thm 3.2: "it exceeds T, so no event uses
+it"; the twist prime `ℓ_0|f` is a coordinate `≤T`). The ledger of O13 Thm 5.1 then reads
+(realised values of a good realisation, `≤4×` their expectations):
+
+* `log Q ≤ C𝓛³(log𝓛)^5`, `S_res ≤ C𝓛³log𝓛`;
+* `μ=E_{rH}B ≥ 0.99δ ≥ 0.99e^{−(4/3)S_res}` and `A≤1.03` (I1(a), O9 Lemma 2.1);
+* `log Z ≤ log Q + log max d_i ≤ log Q + 2τ+3𝓛 ≤ C_3𝓛^4log𝓛` (I2).
+
+Take `C ≥ C_2(1+log1.03)C_3`. Lemma 1.1 applies for every such x. Since B is a BRW minorant,
+`B = 1−Σ_iA_i(1−v_i)² ≤ 1` and `B≤F` pointwise (O8 Lemma 3.1), and on `rH` property (I) gives
+`F(n)=1 ⇒ W(n)>T` (O13 §5, I3). Hence, for `p≤x`, `p≡r (Q)`, `p∤QD`: `B(p)>0 ⇒ W(p)>T`, and
+
+```
+log x · #{p≤x: p≡r (Q), W(p)>T} ≥ Σ_{p: B(p)>0} B(p)log p ≥ S_r(x) ≥ λ_Q μx/(3φ(Q)).
+```
+
+Now `log(1/λ_Q) ≤ (1/2)log Q+2loglog 3Q+O(1)`, `log φ(Q)≤log Q`, `log(1/μ)≤(4/3)S_res+0.02`, and
+`x/log x ≥ π(x)/1.26`. All losses are `≪𝓛³(log𝓛)^5`. Every such p is ≡ r (mod 840), a square,
+so Mordell-hard. ∎
+
+**Corollary 2.2 (the tail exponent is 3 over primes; PROVED modulo the inputs of Thm 2.1 and of
+CU Thm 2.1).** There are absolute constants `c,C>0` such that, uniformly for `T≥T_0` and
+`log T ≤ c(log x/log log x)^{1/4}`,
+
+```
+c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)^5.
+```
+
+So `log log(π(x)/N(x,T)) = (3+o(1))log log T` in this range: the Haar exponent 3 (O13 Thm 3.4 with
+POINTWISE_HAAR Thm 2.1) is the true tail exponent of W over primes. The upper-tail constant c is
+not effective (CU Thm 2.1); the lower-tail constant C is.
+
+*Proof.* Lower inequality: CU Thm 2.1 (its range `log T≤c₁(log x)^{1/4}` contains ours).
+Upper inequality: Thm 2.1, since `𝓛≤c(log x/loglog x)^{1/4}` with c small gives
+`C𝓛^4log𝓛 ≤ log x` (use `log𝓛≤loglog x`). ∎
+
+*Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
+range is the x-threshold `log x ≍ log Z ≍ 𝓛·S_res ≍ 𝓛^4log𝓛` of the transfer, i.e. the *same*
+threshold as O13 Thm 5.1 (existence of one p): counting costs nothing in range. By O14 Thm 4.5
+this threshold cannot be lowered below `𝓛^4` within the Haar-minorant + Gallagher-transfer
+architecture, so `(log x)^{1/4}` is also the natural range limit here (Assessment).
