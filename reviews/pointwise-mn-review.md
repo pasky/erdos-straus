@@ -166,3 +166,26 @@ is justified; until then it should read "PROVED (substitution sketch; see review
 **MINOR-5 (Cor 6.1 / Thm 3.1 output primes).** The Cor 6.1 primes satisfy p ≡ 1 (Q) with `840 | Q`, so
 for m = 5 they are `≡ 1 (mod 5)` etc. They are Type-II-hard only; whether 5/p for such p has a Type I
 or other easy solution is not addressed. Say so explicitly next to "in particular for Sierpiński's 5/n".
+
+## §H "What hard means" (§3) and §6 evidence — numerics re-done from scratch
+
+`scripts/review_mn_hard.py` (independent of `mn_hard.py`/`mn_greedy.py`):
+* `|H_4(840)| = 24` and it equals the set of classes that are squares mod 3, 5, 7 ✔ (doc: 24 ✔).
+  `1 ∈ H_m(840)` for m = 4..8 ✔.
+* **MINOR-6 (§3, line ~92).** "`H_5(840)` is `{1,3,5} mod 7`, which is 1 plus the non-residues" is wrong
+  twice: (a) `H_5(840) = {r ≡ 1 (mod 4)} ∩ {r mod 7 ∈ {1,3,5}}` (48 classes; the atom M = 4, D = 1 kills
+  `r ≡ 3 (4)`), and (b) the non-residues mod 7 are {3,5,6}, so {1,3,5} is "1 and two of the three
+  non-residues". The intended point (not a union of square cosets) survives. Repair the sentence.
+* m = 7 small-prime death (§5/§6): with T = 2·10⁴ (`e_2 = 11`, `e_3 = 9`), every 2-adic unit is allowed
+  (no M = 2^a is ≡ 6 (7)), and exactly 64/1024 = 6.25% of 2-adic classes leave *no* admissible unit
+  mod 3⁹. This matches the doc's 2/40 deaths and confirms that a prefix is genuinely needed. ✔
+* I did not re-run the full greedy drift experiment (max Λ ≈ 4); it is labelled EVIDENCE and nothing
+  is derived from it, so it does not affect any PROVED label. The heuristic `E f_ℓ ≍ (log ℓ)³/ℓ` is
+  correctly labelled heuristic.
+
+## §6 "why ADM is not proved" — Assessment
+
+Accurate and honest. One addition worth stating: ADM_m is needed *uniformly in T* for every `ℓ ≤ Y(K)`
+with Y → ∞, and Σ_ℓ (log ℓ)³/ℓ diverges, so even the first-moment heuristic only gives Λ(ℓ) ≤ K for
+"most" ℓ; a union bound needs tail bounds for f_ℓ at *every* large ℓ, which the second-moment route
+the author sketches would have to supply. No overclaim found.
