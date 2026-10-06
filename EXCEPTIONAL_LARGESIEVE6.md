@@ -436,3 +436,22 @@ Markov step over c needs `Σ_ℓ ℓ^{2γ−2} < ∞`). By LS4 Thm 4.2 Remark (b
 this would give the all-level 3/4 cap for every forced mixture and every
 large sieve **whose frequencies have at most one prime factor `> z` in
 their denominators** (CONDITIONAL on (FM2) and its second moment over c).
+
+## 7. Numerics (EVIDENCE / sanity checks only)
+
+`scripts/largesieve6_softpivotal_toy.py`: random rough families (40
+classes, moduli with 1–3 primes) over the pool {3, 5, 7, 11, 13},
+truncated forbidding with `δ = 1/2`, random `w_q ∈ [0.2, 0.9]`, the exact
+tilted law by enumeration of all 15015 points; for every S with `|S| ≤ 3`
+the exact `max_{supp θ=S}|σ̂(θ)|` is compared with Monte-Carlo estimates
+(3000 coin/v/v′ samples) of the right sides of (2.1), Prop 2.2 and
+Prop 4.2 (first form (4.1), XOR covers enumerated exactly). Seeds 1–5:
+max ratio exact/bound = 0.81 for (2.1) (the pinned representation is
+nearly tight), `4.9·10⁻²` for Prop 2.2, `1.5·10⁻¹` for Prop 4.2 — all
+inequalities hold, and the Walsh form is ~3× sharper than the partition
+form on these toys. (Toy scale only: tiny primes, large activated masses.)
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 1800 env PYTHONPATH=scripts uv run python scripts/largesieve6_softpivotal_toy.py 1 2 3 4 5
