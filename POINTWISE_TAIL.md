@@ -64,7 +64,8 @@ zero whose conductor divides Q. With Siegel's (ineffective) bound one gets
 ## 2. The lower tail from a single fibre
 
 **Theorem 2.1 (lower tail; PROVED modulo (G), NT, OMEGA10 Thm 3.4 — the inputs of O13 Thm 5.1).**
-There are absolute effective constants `C, T_0` such that for all `T≥T_0` and all `x` with
+There are absolute constants `C, T_0` (effective, given that the implied constants of the cited inputs
+are; R76 D6) such that for all `T≥T_0` and all `x` with
 `log x ≥ C·𝓛^4 log𝓛`,
 
 ```
@@ -99,20 +100,25 @@ Now `log(1/λ_Q) ≤ (1/2)log Q+2loglog 3Q+O(1)`, `log φ(Q)≤log Q`, `log(1/μ
 so Mordell-hard. ∎
 
 **Corollary 2.2 (the tail exponent is 3 over primes; PROVED modulo the inputs of Thm 2.1 and of
-CU Thm 2.1).** There are absolute constants `c,C>0` such that, uniformly for `T≥T_0` and
-`log T ≤ c(log x/log log x)^{1/4}`,
+CU Thm 2.1).** There are absolute constants `c,C,c'>0` such that, uniformly for `T≥T_0` and
+`log T ≤ c'(log x/log log x)^{1/4}`,
 
 ```
-c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)³·log log log T.
+c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)³.
 ```
+
+Here c is CU Thm 2.1's tail constant, C is Thm 3.3's, and the range constant `c'` must satisfy
+`c'≤c₁` (CU Thm 2.1's range) and `c'≤(4/C)^{1/4}` (so that `C𝓛^4log𝓛≤log x`) (R76 D2).
 
 So `log log(π(x)/N(x,T)) = (3+o(1))log log T` in this range: the Haar exponent 3 (O13 Thm 3.4 with
-POINTWISE_HAAR Thm 2.1) is the true tail exponent of W over primes. The upper-tail constant c is
-not effective (CU Thm 2.1); the lower-tail constant C is.
+POINTWISE_HAAR Thm 2.1) is the true tail exponent of W over primes. The constant c (from the upper
+bound on the tail count) is not effective (CU Thm 2.1); C is effective given that the cited inputs'
+constants are (R76 D6).
 
-*Proof.* Lower inequality: CU Thm 2.1 (its range `log T≤c₁(log x)^{1/4}` contains ours).
-Upper inequality: Thm 3.3 (Thm 2.1 gives the exponent `(log log T)^5` with a one-fibre proof), since `𝓛≤c(log x/loglog x)^{1/4}` with c small gives
-`C𝓛^4log𝓛 ≤ log x` (use `log𝓛≤loglog x`). ∎
+*Proof.* Lower inequality: CU Thm 2.1 (its range `log T≤c₁(log x)^{1/4}` contains ours since
+`c'≤c₁`; its `≪`-constant is absorbed for `T≥T_0`). Upper inequality: Thm 3.3 (Thm 2.1 gives the
+exponent `(log log T)^5` with a one-fibre proof), since `𝓛≤c'(log x/loglog x)^{1/4}` gives
+`C𝓛^4log𝓛 ≤ (Cc'^4/4)log x ≤ log x` (use `log𝓛≤(1/4)loglog x+O(1)`, absorbed via T_0). ∎
 
 *Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
 range is the sufficient x-threshold `log x ≥ C𝓛^4log𝓛` of the transfer (from the *upper* bound
