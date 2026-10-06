@@ -24,10 +24,10 @@ frequency θ (`den θ | M_r`) let `supp θ` be the set of primes dividing
 | Lemma 2.1 | tilted pair law: the damped collision is `E_Q Π(1+w_ℓη_ℓ)`, η explicit | PROVED |
 | Lemma 3.1, 3.2 | Fourier coefficients ≤ `2^{|S|}`·P(all of S pivotal) (coin coupling); one class per modulus | PROVED |
 | Prop 4.1 | (B) is free: for the K2 fibre law conditioned on a good path event, the damped collision is `≤ e^{2B}/Q'(G)²` — **first moments only** | PROVED |
-| Thm 4.2 | **the 3/4 cap for every large sieve at every level, for all forced families ⟸ (A\*)** (via the Hölder/H_rough route; this is not LS2's (H_LS∞) criterion itself): sup decay of the conditioned fibre laws at any fixed rate γ (losses up to `z^{γ/2}` per prime allowed); cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` | PROVED (implication) |
+| Thm 4.2 | **the 3/4 cap for every large sieve at every level, for all forced families ⟸ (A\*)** (via the Hölder/H_rough route; this is not LS2's (H_LS∞) criterion itself): sup decay of the conditioned fibre laws at any fixed rate γ (losses up to `z^{γ/2}` per prime allowed); cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³`, N ≥ N₀(γ) | PROVED (implication) (LS3 Lemma 2.1 inputs: K2 (Q1)–(Q4); Case A via ElT Prop 1.4) |
 | Lemma 5.1 | pinned pivotal bound with a **deterministic** residue set per prime: exact product decay `Π_{ℓ∈S}4U(R_ℓ)/(1−δ_ℓ)` | PROVED |
 | Thm 5.2 | **3/4 cap at every frequency level for mixtures whose multi-rough classes are residue-sparse** (`U(Res_ℓ) ≤ ℓ^{−γ}` at primes > z); one-rough-prime classes arbitrary. Extends LS3 Thm 3.1 | PROVED (K2 inputs; Case A via ElT) |
-| Cor 5.3 | the same for all **small-height** classes `−r/s`, `r,s ≤ z^{1/4}/2` (incl. LS3 Lemma 4.2's `−4 mod M` for all M): residue concentration is the *easy* case | PROVED |
+| Cor 5.3 | the same for all **small-height** classes `−r/s`, `r,s ≤ z^{1/4}/2` (incl. LS3 Lemma 4.2's `−4 mod M` for all M): residue concentration is the *easy* case | PROVED (LS3 Lemma 2.1 inputs: K2 (Q1)–(Q4); Case A via ElT Prop 1.4) |
 | §3.2 (CC) | what is left: residue-dense multi-rough classes — a covering count for random-path relevance | CONJECTURE (Assessment of difficulty) |
 
 ## 1. The damped-collision reduction
@@ -300,7 +300,7 @@ on `G_B(x)`. ∎
 So in (B) only the **first moment** of the damped activated mass enters
 (through `Q'(G_B) ≥ 1/2` by Markov). No large-deviation input is needed.
 
-**Theorem 4.2 (H_rough ⟸ sup decay; PROVED as an implication).** Let
+**Theorem 4.2 (H_rough ⟸ sup decay; PROVED as an implication, LS3 Lemma 2.1 inputs: K2 (Q1)–(Q4); Case A via ElT Prop 1.4).** Let
 `z = exp((log N)^{1/4})`, `β = (log N)^{−1/4}`, 𝔊 any finite mixture of
 ℛ(M)-, (a,D)-, Case-A and selector classes, and Q' K2's sequential law
 (square base, caps `δ_ℓ = ℓ^{−1/2}`), run on all coordinates. For a
@@ -426,7 +426,7 @@ probability `≤ Σ_{ℓ>z}ℓ^{1/2}E p_ℓ² ≤ CΣ_{ℓ>z}ℓ^{−5/4}(log �
 `K = 32` (the factor 2 is absorbed at one prime of S ≠ ∅;
 `K ≤ z^{γ'/2}` for N large). Theorem 4.2 (with γ' for γ) concludes. ∎
 
-**Corollary 5.3 (structured and residue-concentrated classes; PROVED).**
+**Corollary 5.3 (structured and residue-concentrated classes; PROVED, LS3 Lemma 2.1 inputs: K2 (Q1)–(Q4); Case A via ElT Prop 1.4).**
 Call a class `b mod G` *H-small* if `b ≡ −r/s (mod G)` for some
 integers `0 ≤ r ≤ H`, `1 ≤ s ≤ H`, `gcd(s,G) = 1` (e.g. ℛ(M)-classes
 `−4 = −4/1`, `−1`, `−1/4`, `−4d`, `−1/(4d)`, `−d/e`; (a,D)-classes with
