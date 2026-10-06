@@ -89,12 +89,16 @@ So the class-of-one mass is `Σ_atoms g/M = Σ_N R(N)/N`, and `U_1(q) ≤ Σ_{N}
 
 **EVIDENCE (m = 5; `scripts/mn3_u1.py 5 1000000 1`, `scripts/mn3_rn.py`).**
 * `q·U_1(q)` (K = 1, truncated at `M ≤ 10⁶`) for `q = 11, 23, 47, 97`: `11.3, 35.3, 61.0, 85.4`, versus
-  `(log q)³ = 13.8, 30.1, 57.2, 95.6`: consistent with `U_1(q) ≍ (log q)³/q` (the Haar analogue is
-  `S_1(q)/q`). 70–95% of the mass of `U_1(q)` (q prime) has `q | N`, and 75–90% has `N < q²`.
+  `(log q)³ = 13.8, 30.8, 57.1, 95.7`: consistent with `U_1(q) ≍ (log q)³/q` (the Haar analogue is
+  `S_1(q)/q`). 67–94% of the mass of `U_1(q)` (q prime) has `q | N`, and 77–92% has `N < q²`.
+  *Truncation (R82 repair D8, applied by reviewer; `scripts/review_mn3_u1.py`):* the sums are not converged at
+  `M ≤ 10⁶` for `q ≥ 47`: `q·U_1(47) = 61.0, 66.9, 68.8` and `q·U_1(97) = 85.4, 106.2, 118.6, 125.1` for
+  `M ≤ 10⁶, 10⁷, 10⁸(, 10⁹)` (increments decay roughly geometrically; limit for q = 97 ≈ 130 ≈ 1.4(log q)³);
+  the `N < q²` share for q = 97 falls 0.81 → 0.63 at `M ≤ 10⁹`, the `q | N` share 0.94 → 0.90.
 * `R(N)`: `Σ_{N≤10³}R(N) = 11158`, `Σ_{N≤10³}R(N)/N = 34.2`; `max_{N≤Y}R(N) = 127, 287, 406, 534` for
   `Y = 10³, 5·10³, 10⁴, 2·10⁴` (attained at `N ≡ −1 (mod 30)`). `R(N)` is not bounded by `τ(N)τ(N+1)`:
   `R(9973) = 154` (N prime). Its main families are `f` small: e.g. `f = 2` gives every factorisation
-  `acd = (N+2)/m` with a, d odd. So `R(N) ≈ Σ_{f} #{acd = (N+f)/m : f | ma²d+1}` — a sum of divisor
+  `acd = (N+2)/m` with a, d odd and d squarefree ("d squarefree" added, R82 D8). So `R(N) ≈ Σ_{f} #{acd = (N+f)/m : f | ma²d+1}` — a sum of divisor
   functions of the shifts `N + f`.
 
 ## 3. What SI needs: three admissible levels and `U_1(q) ≪ q^{−1/2−δ}`
@@ -178,7 +182,9 @@ never applies, since `M ≤ qL(q) < Q_0²q`): a separate open component, see §5
 **EVIDENCE for the residual (`scripts/mn3_resid.py 5 3000000`).** Share of `U_1(q)` (K = 1, atoms with
 `M ≤ 3·10⁶`) lying in the residual (`c < q`, `d < fq`, `d < eq`, `a < fq`; exponents δ = 0): 0.91, 0.82,
 0.80, 0.81, 0.78, 0.73, 0.74, 0.72, 0.72, 0.79, 0.74 for `q = 11, 13, 17, 23, 29, 31, 47, 53, 97, 101, 199`.
-So the residual is not a corner: at accessible scales it **is** `U_1(q)`. Its mass sits mostly on
+(Independently reproduced by R82, `scripts/review_mn3_resid.py`; at `M ≤ 10⁸` the shares for q = 47, 97 are
+0.718, 0.678 — mildly truncation-dependent, R82 D8.) So the residual is not a corner: at accessible scales it
+**is** most of `U_1(q)`. Its mass sits mostly on
 `N = q·N''` with `N''` small (atoms whose class-of-one gcd g is all of M except the new digit and a few
 small primes).
 
