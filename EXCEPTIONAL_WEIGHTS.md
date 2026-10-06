@@ -267,7 +267,7 @@ then `M_S^{|W|} ≥ (c_Φ/6) A_S`.
 
 *Proof.* Let T be Selberg's minorant of the arc `‖θ‖ ≤ c/N` (c = c_Φ) on ℝ/ℤ, a
 trigonometric polynomial of degree `H = ⌊N/c⌋ − 1` with `T ≤ 1_{‖θ‖≤c/N}`,
-`T̂(0) = 2c/N − 1/(H+1) ≥ c/N`, `|T̂(k)| ≤ 3c/N`. Then
+`T̂(0) = 2c/N − 1/(H+1) ≥ c/N`, `|T̂(k)| ≤ |1̂_arc(k)| + (2c/N − T̂(0)) ≤ 3c/N`. Then
 `M_S ≥ (N/3) A_S P(‖X_S‖ ≤ c/N) ≥ (N/3) A_S E T(X_S)` and
 `E T(X_S) = Σ_{|k|≤H} T̂(k) Πφ_ℓ(k) ≥ (c/N)(1 − 3·(1/6))`. ∎
 
