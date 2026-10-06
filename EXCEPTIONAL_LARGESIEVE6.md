@@ -17,7 +17,7 @@ Lemma 1.1, Thm 4.2, Lemma 5.1, (A\*)), LS3, K2 as there. `β = (log N)^{−1/4}`
 | Lemma 2.1, Prop 2.2 | cube Leibniz; **soft-pivotal bound**: `|σ̂_tilt| ≤ Z^{−1}4^{|S|}E Σ_𝔅Π_B W_B`, an outside top q charged only `w_qΔ_q ≤ w_qN_q/q` | PROVED |
 | Lemma 3.1 | pivotality comes from upward chains of varying classes through divergent outside coordinates | PROVED |
 | Lemma 4.1, Prop 4.2 | Walsh/XOR-cover form (all soft factors as one exponential): removes the Bell-number overcount of Prop 2.2 | PROVED |
-| Thm 5.1 | **one rough prime, uniform in X**: explicit bound by damped first moments through ℓ (plus the leak tail `Λ_{>ℓ}`, which decays only like `ℓ^{−1/4}`); no residue/label input; the LS5 caveat (undamped `Σ_q1/q`) disappears | PROVED (fixed fibre) |
+| Thm 5.1 | **one rough prime**: explicit bound by damped first moments through ℓ (plus the leak tail `Λ_{>ℓ}`, which decays only like `ℓ^{−1/4}`); no residue/label input; the LS5 caveat (undamped `Σ_q1/q`) disappears. Uniformity in X is **not** proved: it follows if those damped first moments are X-uniform, i.e. under (FM2) | PROVED (the inequality, fixed fibre); uniform-in-X decay CONDITIONAL on (FM2) (reviewer R71 D-d) |
 | (FM) | damped "mass through a prime" first moments (Shiu in APs + Titchmarsh-type over the prime top); would give `|σ̂_c| ≤ Z_c^{−1}ℓ^{−1/4}(log N)^{O(1)}` for `|supp θ_r| = 1` (γ < 1/4), hence the all-level cap for sieves with ≤ 1 rough prime per frequency denominator | Assessment (standard, not written) / CONDITIONAL |
 | Thm 6.1 | (A\*) and the all-level 3/4 cap for **all** forced mixtures ⟸ (DCC), a first-moment damped covering count on a product space | PROVED (implication) |
 | Prop 6.2 | small-height labels concentrate damped mass `≍ e^{−2γt_p}/γ` (`t_p = log p/log z`) on one residue at every prime: no residue-uniform dispersion | PROVED (asymptotic: Assessment) |
@@ -345,7 +345,7 @@ exponential prefactor `e^{2‖a‖′}` is a product of per-event factors
 `e^{2|a_R|}` — e.g. `e^{O(Σ_ℓ y_ℓ)}` when the damped change `y_ℓ` caused by
 each ℓ alone is additive.
 
-## 5. One rough prime: uniform-in-X decay (the LS5 caveat removed)
+## 5. One rough prime: a damped bound (the LS5 caveat removed; uniform-in-X decay CONDITIONAL on (FM2), reviewer R71)
 
 Notation for a fixed fibre (all classes are those of the fibre family,
 all primes rough): `Γ(m) = Π_{p^e∥m}(1−δ_p)^{−1}` (K2), for a class C
