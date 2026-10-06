@@ -435,9 +435,9 @@ put $N_{c,k}=p^2+4ck^2$,
 and let $M_{c,k}(p)$ be the number of divisors $D$ of $N_{c,k}$ with
 $D\equiv-p\pmod{4ck}$.  The Type~I solutions of $4/p=1/x+1/y+1/z$ (those
 with $p$ dividing exactly one denominator) correspond to the pairs
-$((c,k),D)$ of this kind \cite[\S\S26, 36]{Notes}; in ET's coordinates
-this is the parametrisation $4acd=n+f$, $f\mid 4a^2d+1$ of family I3 with
-$(c,d,f)_{\rm ET}=(k,c,D)$.  Write $s=\sqf(c)$ for the squarefree part
+$((c,k),D)$ of this kind \cite[\S\S26, 36]{Notes}.  In ET's coordinates a Type~I
+solution has $(c,d,f)_{\rm ET}=(k,c,D)$, and fixing $(c,k,D)$ gives
+exactly a class of family I3.  Write $s=\sqf(c)$ for the squarefree part
 of $c$ and $\chi_s$ for the Kronecker character of $\Q(\sqrt{-s})$.  If
 $\chi_s(p)=1$ then $M_{c,k}(p)=0$ \cite[Thm.~48.1]{Notes} (genus theory;
 the slice is \emph{forced}).  For hard $p$ this applies to
@@ -691,8 +691,8 @@ $\hat x_9$.  The conditional part is Theorem~\ref{thm:A}(ii) with the
 point $x^*=\hat x_9$.
 \end{proof}
 
-The previous bounds were $C(7)\ge539$ \cite{PT1} and $C(7)>3\cdot10^9$
-\cite{PT2}; the census maximum of $\ckmin$ over hard $p<10^7$ with
+The previous bounds (under H) were $C(7)\ge539$ \cite{PT1} and
+$C(7)>3\cdot10^9$ \cite{PT2}; the census maximum of $\ckmin$ over hard $p<10^7$ with
 $n_p=7$ is $76$ (\status{evidence}).
 
 \subsection{Low $2$-adic levels}
@@ -877,7 +877,8 @@ the review of \cite{PM17}).
 At the $13$-generic points of $\Sigma_{13}$ every non-residue class is
 covered at $13$-adic level one: $x_{13}\equiv2$ by II2 $(a,d,f)=(9,2,143)$,
 $x_{13}\equiv7$ by II2 $(2,2,143)$, and $x_{13}\equiv5,6,8,11$ by II2
-classes with $f=39$ \cite[\S1]{PM} (also re-checked in review).  So hard
+classes with $f=39$ \cite[\S1]{PM} (the cases $x_{13}\equiv2,5,7$ were
+re-checked in review).  So hard
 points for $r=13$ need special residues at $11$ as well.  For
 $T=\{11,13\}$ the classes of modulus $\le10^6$ leave uncovered only cells
 above $(x_{11},x_{13})\equiv(2,2)\pmod{(11,13)}$ (\status{evidence}).
@@ -1009,7 +1010,9 @@ $d=17^\delta d'$, $n=a'd'$, $f=4ni-1$, $(4a^2d+1)/f=4nj-1$.  Then
 $(i,j,a',d')$ is an $\N$-point of $\Sigma^{II}_{17^K}$ with
 $K=k+\alpha\in[k,2k]$ and $17\nmid a'd'$.  Conversely every $\N$-point of
 $\Sigma^{II}_{17^K}$ with $17\nmid cd$ yields (P)-boxes, nested, the
-largest of level $\lceil K/2\rceil$; its box is $-f_{\rm ET}\equiv-a/b$.
+largest of level $\lceil K/2\rceil$, with centre $-f_{\rm ET}$; if
+$17\nmid b$ (as for every box meeting the non-residue cells) the centre is
+$\equiv-a/b$.
 $\Sigma^{II}_{17^K}$ has no such $\N$-points for even $K$.
 \end{enumerate}
 \end{proposition}
@@ -1105,7 +1108,7 @@ The cell $C_5$ (equivalently $C_7$) contains a sterile point.
 (\status{proved}, non-explicitly): the proof of \cite[Prop.~1.7]{ET}
 counts $\N$-points and gives $D_Q(k)\ll17^{(3/5+o(1))k}$ and
 $D_P(K)\ll17^{(2/5+o(1))K}$, and the bound $f(n)\ll_\varepsilon
-n^{2/3+\varepsilon}$ of Browning and Elsholtz (\cite[ref.~8]{ET}) handles
+n^{2/3+\varepsilon}$ of Browning and Elsholtz \cite{BE} handles
 (U).  The constants are not explicit, so this gives no level the
 computation reaches.  The critical family is (P): its boxes have weight
 $\asymp N^{-1/2}$ at ES level $N=17^K$, against the count
@@ -1127,15 +1130,16 @@ below what is needed: $D_Q+D_U\le17^{k/2}$ for $k\ge8$ and $D_P(K)\le
 With $(s,t)=(c,d)$ the (P)-data of level $K$ are exactly the $(a,s,t)$
 with $17\nmid st$, $f=4ast-1\mid s\cdot17^K+a$ and
 $b=(s17^K+a)/f\ge a$ \cite[\S6]{PM17}.  As $(s,f)=1$ the condition is
-$17^K\equiv-a/s\pmod f$: a triple is ever admissible if and only if
-$-a/s\in\langle17\rangle\subset(\Z/f)^\times$, and then for $K$ in one
-class modulo $\operatorname{ord}_f17$.  If $17^K$ is modelled as
+$17^K\equiv-a/s\pmod f$: a triple with $(a,f)=1$ is ever admissible if
+and only if $-a/s\in\langle17\rangle\subset(\Z/f)^\times$, and then for
+the $K$ in one class modulo $\operatorname{ord}_f17$ that satisfy the
+size condition $4a^2t\le17^K+2a/s$.  If $17^K$ is modelled as
 equidistributed modulo $f$, $E[D_P(K)]\approx\sum1/(4ast)\asymp K^3$, as
 observed.  So \eqref{eq:Pcount} is an Artin-type equidistribution
 question for one base and many moduli.  Divisor-bound methods (ET,
 Lenstra's bound on divisors in residue classes \cite{Lenstra},
-Coppersmith--Howgrave-Graham--Nagaraj, explicit divisor bounds of
-Nicolas--Robin type) treat $17^K$ as an arbitrary integer; they give
+Coppersmith--Howgrave-Graham--Nagaraj \cite{CHN}, explicit divisor bounds
+of Nicolas--Robin type \cite{NR}) treat $17^K$ as an arbitrary integer; they give
 $N^{2/5+o(1)}$ non-explicitly and $O(N)$ explicitly, and we see no way
 for them to reach $N^{1/2-\delta}$ explicitly.  A digit-set (Cantor)
 construction that avoids boxes with small integer centres was tested and
@@ -1208,6 +1212,12 @@ checked this note.
 \bibitem{BL} M.~Bright and D.~Loughran, Brauer--Manin obstruction for
 Erd\H{o}s--Straus surfaces, Bull.\ Lond.\ Math.\ Soc.\ 52 (2020), 746--761;
 arXiv:1908.02526v2.
+\bibitem{BE} T.~D.~Browning and C.~Elsholtz, The number of representations
+of rationals as a sum of unit fractions, Illinois J.\ Math.\ 55 (2011),
+685--696.
+\bibitem{CHN} D.~Coppersmith, N.~Howgrave-Graham and S.~V.~Nagaraj,
+Divisors in residue classes, constructively, Math.\ Comp.\ 77 (2008),
+531--545.
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
 (2013), 50--105; arXiv:1107.1010v6.
@@ -1217,6 +1227,8 @@ Comp.\ 42 (1984), 331--340.
 evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
 \bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
 Press, 1969, Chapter~30 (not accessed; cited via \cite{ET}).
+\bibitem{NR} J.-L.~Nicolas and G.~Robin, Majorations explicites pour le
+nombre de diviseurs de $N$, Canad.\ Math.\ Bull.\ 26 (1983), 485--492.
 \bibitem{Notes} \emph{Erd\H{o}s--Straus research notebook},
 \texttt{notes.md}, this repository, \S\S26, 36, 48; working notes, 2026.
 \bibitem{PObs} Anonymous, Under Hypothesis~H, formally generic primes
