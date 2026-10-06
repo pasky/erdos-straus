@@ -10,12 +10,62 @@ EXCEPTIONAL_KARY3.md §4.3. From-scratch scripts: scripts/review_spw2_*.py.
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 (requirement) | (in progress) |
-| Lemma 2.2 (near zone) | (pending) |
-| Lemma 2.3 (interval support) | (pending) |
-| Thm 3.1 (K-free edge bound) | (pending) |
-| Lemma 4.1 (dual) | (pending) |
-| EVIDENCE / Assessment labels | (pending) |
+| Lemma 1.1 (requirement) | **SOUND-AFTER-REPAIRS** — bookkeeping exact; "exact requirement"/"σ = N^{−c} gives nothing" overclaims necessity (M1); unstated hypothesis-free use of Thm 5.2 (m1) |
+| Lemma 2.2 (near zone) | **SOUND** (remark: IF2 not SPW1 Lemma 9.3; K ≥ 3/2 is C = 2-specific) |
+| Lemma 2.3 (interval support) | **SOUND**, and sharp (exact rank); "D ≥ 12–13" wrong (true: D ≥ 19 / N ≥ 38) |
+| Thm 3.1 (K-free edge bound) | **SOUND** (constant m₀² → m₀(m₀+1)); proof chain verified numerically |
+| Lemma 4.1 (dual) | **SOUND-AFTER-REPAIRS** — duality verified by independent LPs; ℤ ↔ ℤ/Q′ transfer mis-cited (m10) |
+| EVIDENCE / Assessment | numbers reproduce; two "L ≈ N²/2" entries not computed; decay-rate reading of lower bounds overreaches (m11–m13) |
+
+No FATAL defects. One MAJOR (wording/label), thirteen MINOR.
+
+## Defects
+
+**M1 (MAJOR, label/overclaim) — Lemma 1.1 title, third bullet, closing
+paragraph of §1; AGENT_REPORT_O53 "This answers … : no."** Lemma 1.1 is
+a sufficient condition obtained along one chain (Lemma 1.4 → Prop 9.1 →
+Thm 5.2); necessity of log(K/η) = O((log N)^{3/4}) is not proved, so
+"exact requirement" and "polynomially small σ does *not* suffice for anything
+ES-relevant" are unproved. *Repair:* rename "requirement of the Prop 9.1 /
+Thm 5.2 route"; bullet 3: "this route then gives only B ≥ N^{1−c−o(1)}";
+add one line saying a different minorant construction might lose less.
+
+m1 — Lemma 1.1 proof: Thm 5.2 is stated with t, 1/Δ ≥ e^{−S_A}; Lemma 1.1
+uses it without. Valid (t, Δ enter only via the trivial case and the last
+line; mean side independent of both) — add this as an explicit remark/lemma.
+m2 — Lemma 1.1: s₀ = η/(4K), so the hypothesis is η/K ≥ 4N^{−A₁} (or A₁ → A₁+1).
+m3 — Lemma 1.1: the (log log N)^{3/4}-free exponent depends on the KARY3 §4.3
+pointer, which does not list IF2 Thm 5.2 and is itself unreviewed; label
+"conditional on KARY3 §4.3" or keep the log log factor.
+m4 — §2 after Lemma 2.2: "SPW1 Lemma 9.3" → "IF2 Lemma 9.3".
+m5 — same place: "K ≥ 3/2" is the C = 2 value of max_q c/(k − c); at C = 3/2 it
+is 4 (`review_spw2_nearzone.py`). State C = 2.
+m6 — §2: "σ = η/(2K) ≍ 1/log N" → "≲ m₀²/(η log N)"; also note the paragraph is
+superseded by Thm 3.1.
+m7 — Lemma 2.3 note: "Φ(D) > 3N already for D ≥ 12–13" false (Φ(12) = 46 < 72);
+correct: D ≥ 19; Φ(D) ≥ 3N + 2 for all N ≥ 38. Title's N > 40 is right for
+C = 2; state C = 2 (general: Φ(D) ≥ (2C−1)N + 2).
+m8 — Lemma 2.3: "length ℓ" must mean ℓ integer points (with span the bound
+is off by one; the lemma is sharp).
+m9 — Thm 3.1 (a) and (3.1): Σ_{|k|<m₀}|k| = ⌈m₀⌉(⌈m₀⌉−1) can exceed m₀²;
+replace 4πm₀² by 4πm₀(m₀+1). Asymptotics unchanged.
+m10 — Lemma 4.1: specify Q′ and replace the SPW1 Lemma 1.1 citation by the
+K = ∞ lift (ρ(class) ≤ N, T ≥ CN²/ε′; no 1/2-clipping needed).
+m11 — §4 numerics: N = 50 (0.78) and N = 80 (≈ 0.75) are not runs at
+L ≈ N²/2; finite-L values are lower bounds and cannot evidence a decay rate.
+m12 — §2: RSPW(2, 0.82, K ≈ 1.6) mixes two runs.
+m13 — report headline "numerics favour weak SPW": Assessment at most, given
+SPW1 §2's warning about small-N LPs.
+
+## Bottom line
+
+All PROVED items survive (Lemma 1.1 as an implication, Lemmas 2.2, 2.3,
+Thm 3.1, Lemma 4.1). The quantitative content that matters downstream —
+the route needs log(K_N/η_N) = O((log N)^{3/4}) and RSPW margins are only
+forced below (log N)^{−1/3} — is correct. What is *not* established is
+that the route's requirement is necessary (M1).
+
+Scripts: scripts/review_spw2_{nearzone,interval,thm31,dual,rspw_lp,sawtooth}.py.
 
 ## Claim 1: Lemma 1.1
 
