@@ -51,17 +51,17 @@ int main(int argc,char**argv){
       int T=TF>Te?TF:Te; if(T<2)continue;
       int V=0; { ull q=f-1; while(q%r==0){q/=r;V++;} }
       if(V<1)continue;
-      ull p2[130]; p2[0]=1%f; for(int s=1;s<=2*T;s++) p2[s]=mulm(p2[s-1],2,f);
-      ull rp[130]; rp[0]=1%f; for(int s=1;s<=2*V+2;s++) rp[s]=mulm(rp[s-1],(ull)r,f);
-      /* divisors of A */
-      static ull dv[200000]; int nd=1; dv[0]=1;
-      for(int q=0;q<nf_[i];q++){ int cur=nd; ull pp=1; for(int e=1;e<=ex_[i][q];e++){ pp*=pr_[i][q]; for(int z=0;z<cur;z++) dv[nd++]=dv[z]*pp; } }
-      for(int x=0;x<nd;x++){ ull mp=dv[x];
-        for(int y=0;y<nd;y++){ ull kp=dv[y]; if(mp%kp)continue; ull cp=mp/kp;
+      ull rp[130]; rp[0]=1%f; for(int s=1;s<=2*V+2;s++) rp[s]=(rp[s-1]*(ull)r)%f; /* f < 2^56 */
+      /* all pairs (m',k') with k' | m' | A, built prime by prime */
+      static ull pm[400000], pk[400000]; int nd=1; pm[0]=1; pk[0]=1;
+      for(int q=0;q<nf_[i];q++){ int cur=nd; ull p=pr_[i][q]; int E=ex_[i][q];
+        for(int z=0;z<cur;z++){ ull px=1; for(int x=0;x<=E;x++){ ull py=1; for(int y=0;y<=x;y++){ if(x||y){ pm[nd]=pm[z]*px; pk[nd]=pk[z]*py; nd++; } py*=p; } px*=p; } } }
+      for(int x=0;x<nd;x++){ ull mp=pm[x], kp=pk[x], cp=mp/kp; {
           ull base_mk=mulm(mp%f,kp%f,f);
           for(int v=1;v<=V;v++) for(int a=1;a<=v;a+=2){ int b=v-a;
             ull R=mulm(base_mk,rp[v+b],f);
-            for(int s=2;s<=2*T-2;s++){ if(mulm(p2[s],R,f)!=f-1)continue;
+            ull xs=R; xs=xs*2; if(xs>=f)xs-=f; /* xs = 2^s R mod f, by doubling */
+            for(int s=2;s<=2*T-2;s++){ xs=xs*2; if(xs>=f)xs-=f; if(xs!=f-1)continue;
               if(mass){ int tm=(s+3)/2; if(tm<4)tm=4; if(tm<tmin)tmin=tm; continue; }
               for(int role=0;role<2;role++){ int TR=role?Te:TF;
                 for(int t=2;t<=TR;t++){ int gam=s-t; if(gam<0||gam>t-2)continue;
@@ -71,6 +71,7 @@ int main(int argc,char**argv){
                   ncert++; printf("CERT c="); pru(c); printf(" k="); pru(k); printf(" F="); pru(F);
                   printf(" role=%c f=%llu t=%d gamma=%d ck=",role?'e':'F',f,t,gam); pru(c*k); putchar('\n');
                 }}}}}}
+      if(mass && tmin<99) printf("B %llu %d\n",f,tmin);
       if(mass && tmin<99){ int bn=63-__builtin_clzll(f); nbin[bn]++; mbin[bn]+=2.0*ldexp(1.0,4-tmin); }
     }
   }
