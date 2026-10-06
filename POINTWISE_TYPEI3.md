@@ -302,6 +302,8 @@ for r in 23 31 47; do /tmp/fsearch $r 9 1 100000000000; done                    
 /tmp/fsearch 7 9 1 100000000 mass > m1.txt; /tmp/fsearch 7 9 100000000 5000000000 mass > m2.txt
 /tmp/fsearch 7 9 5000000000 10000000000 mass > m3.txt
 PYTHONPATH=scripts uv run python scripts/typei3_union.py m1.txt m2.txt m3.txt
+PYTHONPATH=scripts uv run python scripts/typei3_lowlevel.py 9 seven      # P5.4 residue check (~1 min)
+uv run --with sympy python scripts/typei3_level6.py                      # P5.5 checks (a)-(c)
 # verify any hit:
 PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 9 c k F
 ```

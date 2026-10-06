@@ -20,7 +20,7 @@ an explicit tail bound for the near-miss count would give a sterile point
 | L1.1 small-divisor reduction; L1.2 f-bound ⇒ height bound `1.3229(Y−1)` | PROVED |
 | C2.3 r=23,31,47: no certificate with f<10¹¹ ⇒ covering heights >2.39/2.78/3.42·10¹¹ | CERTIFIED (one engine) |
 | Prop 3.1 sterile points nowhere dense (no ambient cylinder around x̂_9 is sterile) | PROVED |
-| L5.1 Vieta descent (`Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 mod 4cδ`); C5.2 certificates at x̂_9 need `t≥5`, `α+2γ≥5`; P5.3 levels `α+2γ∈{5,6}` force `c'=1`; P5.4 level `α+2γ=5` empty (deduction from self-review R72) ⇒ certificates need `α+2γ≥6` | PROVED |
+| L5.1 Vieta descent (`Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 mod 4cδ`); C5.2 certificates at x̂_9 need `t≥5`, `α+2γ≥5`; P5.3 levels `α+2γ∈{5,6}` force `c'=1`; P5.4 level `α+2γ=5` empty (deduction from self-review R72); P5.5 level `α+2γ=6` empty ⇒ certificates need `α+2γ≥7` | PROVED |
 | C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵ and 3 at X=3·10⁶) / CONDITIONAL (H) |
 | §4 f-graded mass, 60.9–61.0% of the fibre uncovered for f<10¹⁰ (depth-truncated t≤40), t_min ≈ ½log₂f | EVIDENCE / Assessment |
 | Remark 4.1 measure route (tail bound ⇒ sterile point) | PROVED reduction; input open |
@@ -38,9 +38,18 @@ levels. A heuristic Lenstra-type sketch suggests only ≪Λ^{1/2+ε} near misses
 The review also contributed Prop 5.4. The full 10¹²/10¹¹ searches have NOT been independently re-run; they were
 cross-checked against typei2_signcheck on small ranges (X≤3·10⁶) only.
 
+## Follow-up (parent request): level α+2γ=6 — CLOSED (Prop 5.5, PROVED)
+The integral chain is a Pell orbit `ε^m`, with `ε=(D+2+√(D(D+4)))/2` and `D=7^aδ²`. Mod 32, `v_2(H)=4` forces m to be an odd
+multiple of 3. Then `D+3=U_3` divides both `H` and `(X−2)`, so an odd prime `q|(D+3)/2`, `q≠7`, divides `k'`
+while `F≡+1 (mod q)`. This clashes with `F≡−1 (mod k')`. No primitive-divisor theorem is needed. Checks:
+`scripts/typei3_level6.py` (mod-32 period check, polynomial identity for m≤33, and 777 chain positions
+with a ∈ {1,3,5}, δ<150: 0 violations).
+Next level α+2γ=7 (Remark 5.6, open): `4c̃=c_o/2∉ℤ`, so the descent runs in ℤ[1/2] with several reduced classes.
+Unlike levels 5–6, level 7 already contains 34 near misses up to ck ≤ 10⁸.
+
 ## Suggested next steps
-* Level `α+2γ=6`: this is a primitive-divisor analysis of the integral Lucas-type chain with `c=2^α7^a`. It
-  might exclude the level completely, and then the next levels would be the target.
+* Level `α+2γ=7`: classify the ℤ[1/2]-orbits (reduced pairs with `F_end∈(0,1]∩ℤ[1/2]`) and test the sign split
+  on each orbit, as in P5.5.
 * Measure route (Remark 4.1): an explicit summable bound for near-miss counts would give `C(7)=∞` under H
   without deciding `x̂_9`.
 * An independent re-run of Computation 2.1 to `10¹²` (≈9 core-hours).
