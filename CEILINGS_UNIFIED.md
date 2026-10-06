@@ -15,9 +15,9 @@ modulus `kℓ` as in notes (51.1)–(51.2). "The note" = `paper/es-threequarter-
 | | exceptional set (note, KARY) | pointwise (OMEGA13/14) |
 |---|---|---|
 | system | atoms of modulus `kℓ ≤ KX ≤ T` | events of modulus `≤ T` |
-| mass / dimension `κ` | `μ_c ≍ t³` (note Cor 4.3) | `≍ 𝓛³/log𝓛` (OMEGA14 §4) |
+| mass / dimension `κ` | `μ_c ≍ t³` (note Cor 4.3) | `≍ 𝓛³` on every small fibre (note Cor 4.3, used in Prop 4.2; OMEGA14 §4 had `𝓛³/log𝓛`) |
 | certificate | majorant `S_yQ_r(H_X)`, `r ≍ t³` | minorant `B ≤ F` |
-| level needed | `log q ≍ r·t ≍ t⁴` (note Thm 8.2) | `log D ≍ κ𝓛 ≍ 𝓛⁴` (OMEGA14 Thm 4.5) |
+| level needed | `log q ≍ r·t ≍ t⁴` (note Thm 8.2) | `log D ≫ 𝓛⁴` (Prop 4.2; OMEGA14 Thm 4.5 had `𝓛⁴/log𝓛`), `≪ 𝓛⁴log𝓛` suffices (OMEGA13) |
 | level available | `log N` (rounding) | `log x` (transfer to primes ≤ x) |
 | result | `t ≍ (log N)^{1/4}`, saving `t³` | `𝓛 ≍ (log x)^{1/4}` |
 
@@ -159,9 +159,10 @@ This is the prime part of the note's Theorem 1.1 with `π(N)` in place of
 (squarefree `𝓛⁵`-rough moduli, several large primes per modulus) would give
 a different route only if its factorial moments `E(H)_m ≤ (Cμ)^m` held for
 `m ≍ μ`. Overlapping moduli make this a correlation problem the note avoids
-(its moment proof uses one large prime per atom, note Thm 6.3). It cannot
-beat the note: by KARY3 Thm 4.1 any majorant of any forced-class family
-saves `≤ Cλ^{3/4}`, and on the Haar side the void `≍ 𝓛³` holds up to
+(its moment proof uses one large prime per atom, note Thm 6.3). Within the
+class of coefficient-sum CRT majorants of the whole avoider set (KARY2 Cor 6.1
+class) it cannot beat the note: by KARY3 Thm 4.1 any such majorant of any
+forced-class family saves `≤ Cλ^{3/4}`, and on the Haar side the void `≍ 𝓛³` holds up to
 `(log𝓛)^5` (Prop 1.1, OMEGA13 Thm 3.4). Not pursued.
 
 **Corollary 3.3 (a cubic integer-CRT saving costs level `𝓛⁴`; PROVED from
@@ -210,7 +211,10 @@ Fix `x_s`, write `P = P(x_s)`.
 So the critical *order* is `k* ≍ P` **for both one-sided problems**. If in
 addition the big costs are comparable (`L ≤ c_b ≤ AL`) and the small
 coordinates read by the certificate are booked separately (cost `λ_s`), the
-critical *level* is `λ* ≍_A L·P + λ_s`: "dimension times log-size". (Without
+critical *level* satisfies `c·L·P ≤ λ* ≤ C_A·L·P + λ_s` (the barriers force
+only the big-coordinate cost; nothing forces a certificate to pay `λ_s`). This
+is `≍ L·P` ("dimension times log-size") when `λ_s ≪ L·P`, as in both ES
+instances (`λ_s ≍ t³` selector cost in the note's ledger, polylog in OMEGA13). (Without
 comparable costs only the lower bound `λ ≥ L·k` on the level is valid.) This is the
 large-dimension sieve limit (`β_κ ≍ κ`) in the one-big-coordinate setting.
 
@@ -312,7 +316,9 @@ results, each with its own status and scope).** Up to constants and, where
 marked, factors `(log λ)^{O(1)}`:
 1. *(majorants)* `S(λ) := sup` over forced-class mixtures and level-`λ` CRT
    majorants of the saving satisfies `cλ^{3/4} ≤ S(λ) ≤ Cλ^{3/4}`: the upper
-   bound for *every* mixture by KARY3 Thm 4.1 (PROVED, internal), the lower
+   bound for *every* mixture by KARY3 Thm 4.1 (PROVED, internal; for mixtures
+   with Case-A classes it uses Elsholtz–Tao §7, published, not re-proved; for
+   ℛ(M)+selector families the only input is Shiu), the lower
    bound for *one* mixture (the note's atoms and selectors, `ν_X` at
    `t ≍ λ^{1/4}`; INTERNALLY PROVED). Integer-CRT savings of cubic order at
    cutoff `T` cost level `≍ 𝓛⁴` (Cor 3.3).
@@ -384,9 +390,12 @@ mechanism. The ES witness system truncated at moduli `≤ T` contains a
 one-big-prime subfamily (big prime of log-size `≍ log T`) whose mass is
 `≍ (log T)³` uniformly in the small coordinates: a sieve of dimension
 `κ ≍ (log T)³`, matching the Haar exponent. For such a system, order-`k`
-certificates are trivial below `k ≍ κ` on *both* sides: majorants save
-`≲ k log(κ/k)`, minorants have mean `≤ 0` (Thm 4.1, PROVED; ingredients
-known: binomial extrapolation, planting, Bonferroni). So the level needed
+certificates are trivial below `k ≍ κ` on *both* sides (Thm 4.1, PROVED;
+ingredients known: binomial extrapolation, planting, Bonferroni). On the
+minorant side this transfers to the full ES avoider (`B ≤ F_T ≤ F_𝓕`):
+no positive minorant below level `c(log T)⁴` (Prop 4.2). On the majorant side
+it does not transfer directly (`F_T ≤ F_𝓕`); majorants of the full avoider
+save `≲ λ^{3/4}` by KARY3 Thm 4.1, whose one-scale, one-big-prime core is (U−). So the level needed
 is `≍ κ·log T ≍ (log T)⁴`.
 * A level `λ ≍ log N` exploits moduli up to `log T ≍ λ^{1/4}` and saves
   `≍ λ^{3/4}`: the 3/4 note, sharp by KARY3.
