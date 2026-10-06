@@ -20004,4 +20004,103 @@ print("\n== (dh) POINTWISE_OMEGA15: Lemma 1.1 pseudorandomness (toy planted syst
 check_dh()
 
 
+
+# ---------------------------------------------------------------- (di)
+# POINTWISE_OMEGA16.md §6 (N1), (N2) (EVIDENCE numerics; cf. scripts/omega16_esleast.py,
+# omega16_buchstab.py, review_o16_esleast.py, review_o16_buchstab.py).  Checked:
+# (1) (N2) W(p) = min{M = 3 (4): p = -4D (mod M), D | ((M+1)/4)^2} for p = 133050918961 (the
+#     least hard p with W > 4095 in the stored scan; prime, = 121 (840), a square class) is 5935,
+#     by direct divisor search over all M <= 5935;
+# (2) (N2) table rows T = 31, 127, 511, 1023, 2047: exhaustive over primes p = 1 (24), p < 2031122
+#     (sieve by the exact class tables -4D mod M): least p with W > T is 2521, 33289, 2031121,
+#     2031121, 2031121;
+# (3) (N1) Buchstab compounding at u = 2 (z = x^(1/2)), H = (2), (2,6), (2,6,8): the ratio
+#     #{z < p <= x: p + h z-rough} / (delta (pi(x) - pi(z))) is < 1 at x = 10^7 and 10^8; kappa = 3
+#     gives 0.958 at 10^7 (§6 text); at 10^8 the ratios are 0.950, 0.910, 0.881
+#     (data/omega16/buchstab_1e8.txt), decreasing in kappa and r_3 ~ r_1^3 (3%).  The 10^9 table
+#     itself is not replayed (memory/time).
+
+def check_di():
+    from time import perf_counter
+    import math
+    import numpy as np
+    from sympy import isprime, divisors
+    t0 = perf_counter()
+
+    def bad_classes(M):
+        A = (M + 1) // 4
+        return {(-4 * D) % M for D in divisors(A * A)}
+
+    def W(p, Mmax):
+        for M in range(3, Mmax + 1, 4):
+            if p % M in bad_classes(M):
+                return M
+        return None
+    p = 133050918961
+    assert isprime(p) and p % 840 == 121 and p % 24 == 1 and 121 in SIX, "OMEGA16 N2: p = 133050918961 class data"
+    assert W(p, 6000) == 5935, ("OMEGA16 N2: W(133050918961)", W(p, 6000))
+    # (2) exhaustive least-p table below 2031122
+    N = 2031122
+    sv = np.ones(N, dtype=bool)
+    sv[:2] = False
+    for i in range(2, isqrt(N) + 1):
+        if sv[i]:
+            sv[i * i::i] = False
+    alive = np.nonzero(sv)[0]
+    alive = alive[alive % 24 == 1].astype(np.int64)
+    least = {}
+    Ts = [31, 127, 511, 1023, 2047]
+    for M in range(3, 2048, 4):
+        for T in Ts:
+            if T < M and T not in least:
+                least[T] = int(alive[0]) if len(alive) else None
+        tab = np.zeros(M, dtype=bool)
+        tab[list(bad_classes(M))] = True
+        alive = alive[~tab[alive % M]]
+    for T in Ts:
+        least.setdefault(T, int(alive[0]) if len(alive) else None)
+    exp = {31: 2521, 127: 33289, 511: 2031121, 1023: 2031121, 2047: 2031121}
+    assert least == exp, ("OMEGA16 N2 least-p table", least)
+    # (3) Buchstab compounding at u = 2
+    hmax = 8
+    allr = {}
+    for x in (10 ** 7, 10 ** 8):
+        z = int(x ** 0.5)
+        isp = np.ones(x + hmax + 1, dtype=bool)
+        isp[:2] = False
+        for i in range(2, isqrt(x + hmax) + 1):
+            if isp[i]:
+                isp[i * i::i] = False
+        pl = np.nonzero(isp)[0]
+        del isp
+        rough = np.ones(x + hmax + 1, dtype=bool)
+        for l in pl[pl <= z]:
+            rough[::int(l)] = False
+        pz = pl[(pl > z) & (pl <= x)]
+        ratios = []
+        for H in [(2,), (2, 6), (2, 6, 8)]:
+            ok = np.ones(len(pz), dtype=bool)
+            for h in H:
+                ok &= rough[pz + h]
+            logd = sum(math.log(1 - len({(-h) % int(l) for h in H} - {0}) / (int(l) - 1))
+                       for l in pl[(pl >= 3) & (pl <= z)])
+            ratios.append(int(ok.sum()) / (math.exp(logd) * len(pz)))
+        del rough, pl, pz
+        assert max(ratios) < 1, ("OMEGA16 N1: no Buchstab deficit at u = 2", x, ratios)
+        allr[x] = ratios
+    assert abs(allr[10 ** 7][2] - 0.958) < 0.0006, ("OMEGA16 N1: kappa = 3 ratio at 10^7", allr[10 ** 7])
+    for got, want in zip(allr[10 ** 8], (0.950, 0.910, 0.881)):
+        assert abs(got - want) < 0.0006, ("OMEGA16 N1: ratios at 10^8 (data/omega16/buchstab_1e8.txt)", allr[10 ** 8])
+    r1, r2, r3 = allr[10 ** 8]
+    assert r1 > r2 > r3 and abs(r3 / r1 ** 3 - 1) < 0.03, ("OMEGA16 N1: compounding at 10^8", allr[10 ** 8])
+    print(f"di N2: W(133050918961) = 5935 (prime, 121 mod 840); least p = 1 (24) with W > 31/127/511/1023/2047: "
+          f"2521/33289/2031121 (x3), exhaustive; N1 at u = 2, kappa = 1..3: ratios "
+          f"{', '.join(f'{v:.3f}' for v in allr[10 ** 7])} (x = 10^7), {', '.join(f'{v:.3f}' for v in allr[10 ** 8])} (10^8) (e^g w(2) = {math.exp(0.5772156649015329) / 2:.3f}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (di) POINTWISE_OMEGA16 §6: W(133050918961) = 5935, least-p table, Buchstab compounding ==")
+check_di()
+
+
 print("\nall checks passed")
