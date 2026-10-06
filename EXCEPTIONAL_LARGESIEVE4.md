@@ -1,6 +1,8 @@
 # EXCEPTIONAL_LARGESIEVE4 — (H_rough) via damped collisions (task O62)
 
-Status: **in progress** (agent O62, branch `side-agent/hrough`). Labels as in
+Status: **checkpoint 1, reviewed** (agent O62, branch `side-agent/hrough`;
+self-review plus hostile review R62 `reviews/exceptional-largesieve4-review.md`:
+no FATAL/MAJOR, all PROVED items SOUND; MINOR D1–D6 applied). Labels as in
 `DISCOVERIES.md`. Notation: LS3 = `EXCEPTIONAL_LARGESIEVE3.md` (all its
 notation is used), LS2 = `EXCEPTIONAL_LARGESIEVE2.md`, K2 =
 `EXCEPTIONAL_KARY2.md`, EK = `EXCEPTIONAL_KARY.md`.
@@ -13,7 +15,7 @@ frequency θ (`den θ | M_r`) let `supp θ` be the set of primes dividing
 `𝓡_2(σ_T) = M_T Σ_u σ_T(u)² = M_T·σ⊗σ(x ≡ y (M_T))` (the collision number;
 `𝓡_2(σ_∅) = 1`).
 
-## 0. Summary (so far)
+## 0. Summary
 
 | item | statement | label |
 |---|---|---|
@@ -84,19 +86,6 @@ In the product case (LS3 Thm 3.1) the per-prime collision factor is
 (`𝔐(y) ≍ (log y)³`), i.e. `(log N)^{3/4}` up to `γ^{−3}` and K2's
 `(log log)³`. So (B) is the natural size, and γ may be as small as
 `(log log N)^{−O(1)}` at a cost `(log N)^{o(1)}`.
-
-## Plan (not yet results)
-
-* §2 (B) for sequential laws: two-copy tilting (the pair process with
-  conditional factor `1 + w_ℓη_ℓ`), reducing (B) to an exponential moment
-  of the **damped activated mass** of the two copies.
-* §3 (A_γ) for sequential laws via the EK coupling with i.i.d. coins:
-  Fourier coefficients bounded by probabilities of *pivotal* sets, then
-  disagreement propagation along classes in top-prime order.
-* §4 ES arithmetic: influence bounds counted by **distinct residues**
-  (residue concentration, LS3 Lemma 4.2, becomes harmless: the forbidden
-  set at ℓ is a set, so the class −4 mod pM' contributes one residue per
-  ℓ, and the damping `w_ℓ` cuts the `Σ1/ℓ` sum to O(1)).
 
 ## 2. (B) for sequential laws: the tilted pair process
 
