@@ -110,7 +110,7 @@ below 1; hence more configurations than WINDOW2 at the same grid.)
 
 `scripts/window3_lp.py` (columns normalised; dual bound computed from HiGHS duals with an
 explicit penalty for dual violations, `x_j≤ρ_0/μ_j` from the total-mass row; "cert" = this
-float dual bound equals the primal value). Window configs 197, joint 38809, rows 89. (Parent note 2026-10-06: the verify.py replay (block for WINDOW3) enumerates 195 window configurations, 195² = 38025 columns, with all stated values reproduced; the 197 here is unreconciled.)
+float dual bound equals the primal value). Window configs 195 (LP columns; joint 195² = 38025), rows 89 (two-window). The §2.2 count 197 is before `window3_lp.py` drops cells of mass <1e-14·max — (4,0,1,0,0,1,0,0) and (5,1,2,0,0,0,0,0), min cell sums 0.9995 and 0.9890, quadrature masses 1.8e-18 and 9.2e-17.
 
 | constraint set | min ν(∅,∅)/τ | status |
 |---|---|---|
