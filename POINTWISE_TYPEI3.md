@@ -71,8 +71,8 @@ checker `typei2_signcheck.c` with `typei3_fsearch` on `f<2X/√7+2`. At
 empty interior. In particular every clopen neighbourhood of `x̂_9` contains
 non-sterile points (covered by certificates with `k=1`, `t=2`, height `7p`).
 *Proof.* Closed: `St_7=⋂_X U_X` (proof of Thm A(iii)). Let `x∈Σ_7` and
-`U={y: y≡x (mod Q)}`, `Q=2^j7^i∏_{q∈P}q^{e_q}` (P a finite set of odd primes
-`≠7`); such U form a neighbourhood basis. Pick a prime `p∉P∪{2,7}` and put
+`U={y∈Ẑ^×: y≡x (mod Q)}`, `Q=2^j7^i∏_{q∈P}q^{e_q}` (P a finite set of odd primes
+`≠7`); such U form a neighbourhood basis, and we may assume `j≥3`, `i≥1`, `3,5∈P`, so `U⊂Σ_7`. Pick a prime `p∉P∪{2,7}` and put
 `c=7p`, `k=1`, so `4ck=28p`, `t=2`, `v=1`, `m'=p`, `s=7p∉{1,2,3,6}`. Pick a prime
 `F∉P∪{2,7,p}` with `F≡3 (4)`, `F≡−x_7 (7)` and `(−7p/F)=1`. This is a
 condition on `F mod 28p`: `(−7/F)=(F/7)=(−x_7/7)=(−1/7)(x_7/7)=1` as `x_7` is a
@@ -81,7 +81,7 @@ of F mod p as squares or non-squares. So Dirichlet gives such F. Then
 `Cl(7p,1,F)={y≡−F (28p), y²≡−28p (F)}` meets U: at 2 the conditions are
 `y≡−F≡1 (4)`, compatible with `y≡x_2≡1 (8)`; at 7, `y≡−F≡x_7 (7)`; at p and at F
 (outside P) they are free congruences with a solution (`−28p` is a square mod
-F); at `q∈P`, `y≡x (q^{e_q})`. By CRT, `U∩Cl≠∅`; points of `Cl` are not
+F); at `q∈P`, `y≡x (q^{e_q})`; at all other primes take `y_q=1`. All components are units, so by CRT `U∩Cl≠∅`; points of `Cl` are not
 sterile. ∎
 
 *Consequence (scope).* A proof that `x̂_9` is sterile cannot be a congruence
