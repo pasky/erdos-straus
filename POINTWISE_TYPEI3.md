@@ -207,6 +207,8 @@ keeps `F'`, `ρ` integral, and `F'=(1+4c̃ρ²)/F>0`, so `F'≥1`. As in Lemma 5
 Each step changes F by a multiple of the integer `4c̃δ`, so `F≡1 (mod c_oδ)` (odd parts).
 Since `F≡−1 (mod c')` (Lemma 1.1), `c'|2`, so `c'=1`. `δ` is odd because
 `v_2(e−F)=v_2(w−w^{−1})=4<t`. ∎
+(Brute-force check, `scripts/typei3_p53test.py`, odd parts `c_o,k_o<120`: all 25 305 divisor pairs with
+`16n | e−F` at these levels satisfy `F≡1 (mod c_o)`.)
 
 *No 2-adic obstruction at these levels.* `scripts/typei3_lowlevel.py 9` runs the chain
 `F_{i+1}=F_i+4c̃K_iδ`, `K_{i+1}=F_{i+1}δ+K_i` from `(K_0,F_0)=(δ,1)` modulo `2^{10}`, for all odd
