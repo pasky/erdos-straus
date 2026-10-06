@@ -353,3 +353,33 @@ primes `ℓℓ′ > N` overlap in at most `|F_ℓ||F_ℓ′|⌈N/ℓℓ′⌉` p
 translates decides which. The random choice (b) is far from optimal (§5.1
 EVIDENCE), so translates do correlate kills strongly; whether up to the
 sieve-limit scale is not known.
+
+## 6. Sharp weights for general majorants
+
+For `w = |S_N|` the dual g need not be smooth (`|S_N(θ)| ≥ |sin πNθ|` is ≥ 1/2 on
+two thirds of the circle), so Theorem 2.1's upper bound does not apply. A
+lower bound comes from the w ≥ 1 world.
+
+**Lemma 6.1 (PROVED).** Let `h(t) = #(𝒜 ∩ (t, t+N])` and, for f ≥ 0,
+`LP₁(f) := min{ N·Eν + Σ_{θ≠0}|ν̂(θ)| : ν ≥ f on ℤ }`. Then
+
+    min_{ν majorant of 𝒜} R_{|S_N|}(ν) ≥ max( M(N), LP₁(h/N) ).
+
+*Proof.* M(N): Lemma 1.1. For the second, Lemma 1.2 (whose proof works verbatim
+with `1_𝒜` replaced by any f ≥ 0) gives a `g₁ ≥ 0` with `Qĝ₁(0) ≤ N`,
+`|Qĝ₁(θ)| ≤ 1` (θ ≠ 0) and `⟨g₁, h/N⟩ = LP₁(h/N)`. Put
+`g(n) = N^{−1}Σ_{m=1}^{N} g₁(n − m) ≥ 0`. Then `Qĝ(θ) = Qĝ₁(θ)·conj(S_N(θ))/N`, so
+`|Qĝ| ≤ |S_N|` at every θ (at θ = 0: `Qĝ₁(0) ≤ N = S_N(0)`), and
+`⟨g, 1_𝒜⟩ = Σ_r g₁(r) N^{−1}#(𝒜∩(r, r+N]) = ⟨g₁, h/N⟩`. Apply Lemma 1.2 for
+`w = |S_N|`. ∎
+
+So the sharp door for general majorants is closed if either (W) holds or the
+**window sieve limit** (W′) `LP₁(h/N) ≥ N e^{−C(log N)^{3/4}}` holds. (W′) is a
+statement in the w ≥ 1 world of NC Thm 2.3 (rough certificates allowed), but
+for the *window-average* `h/N` instead of `1_𝒜`. Note
+`LP₁(h/N) ≤ LP₁(1_𝒜)` (average a majorant of 𝒜 over the N shifts), so (W′)
+says the KARY/NC cap is not lowered by passing from a point to a window. NC's
+proof does not transfer: it works fibrewise with `f(0) ≥ 1` at the single
+all-avoid pattern, whereas `h(t)/N` is not a function of the hit pattern of t.
+(W′) is open; we do not know whether (W) ⇒ (W′) or conversely. For
+hit-pattern majorants §3 closes the sharp door unconditionally.
