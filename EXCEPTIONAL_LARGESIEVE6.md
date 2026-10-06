@@ -177,3 +177,67 @@ role of LS5 Lemma 3.1's label blocks.
 (c) No tilt-bias estimate is used: all factors are bounded pointwise and
 the expectation is over the **untilted** product space of coins and
 `(v, v')`. The price `Z^{−1}` is free by Lemma 1.1.
+
+## 3. Where pivotality comes from: chains of varying classes
+
+Fix coins, v, v′ (with `v_ℓ ≠ v′_ℓ` for all ℓ ∈ S; otherwise `D_SΨ = 0`).
+A class C (of the fibre family) is **matched off-top by x** if
+`x_p ≡ b_C (mod p^{v_p(G_C)})` for every prime `p | G_C`, `p ≠ top(C)`; it
+is **varying** if this status is not the same for all corner paths. Let
+`𝒟 = {r ∉ S : x^A_r is not constant in A}` (divergent outside coordinates),
+`F^∪_r = ∪_AF̃_r(A)`, `F^∩_r = ∩_AF̃_r(A)`. For `ℓ ∈ S` write
+`ℓ ∈ Piv(F_q)` if `F_q(A∪ℓ) ≠ F_q(A)` for some `A ∌ ℓ`.
+
+**Lemma 3.1 (chains; PROVED).**
+(i) If `r ∈ 𝒟` then some class with top r is varying, and either
+`c_r ∈ F^∪_r∖F^∩_r`, or `c_r ∈ F^∩_r` and the first element of `π_r`
+outside `F^∩_r` lies in `F^∪_r∖F^∩_r`.
+(ii) A varying class is matched off-top by some corner path and has an
+off-top coordinate in `S ∪ 𝒟`.
+(iii) If `ℓ ∈ Piv(F_q)` then there are `k ≥ 1`, coordinates
+`ℓ = r_0 < r_1 < … < r_k = q` with `r_1,…,r_{k−1} ∈ 𝒟` (outside S), and
+classes `C_1,…,C_k` with `top(C_j) = r_j`, `r_{j−1} | G_{C_j}`, each
+matched off-top by some corner path. (A *chain from ℓ to q*.)
+(iv) Pivot sets of the factors of §2.2: `Piv(φ_q), Piv(g_q) ⊆ Piv(F_q)`;
+`Piv(λ_q) ⊆ Piv(F_q)`, and `Piv(λ_q) = ∅` unless `F_q(A) ≠ F̃_q(A)` for
+some A (q *heavy in some corner*); for ℓ′ ∈ S,
+`Piv(h_{ℓ′}) ⊆ {ℓ′} ∪ Piv(F_{ℓ′})`, where `ℓ′ ∈ Piv(h_{ℓ′})` requires
+`{v_{ℓ′}, v′_{ℓ′}} ∩ ∪_AF_{ℓ′}(A) ≠ ∅`, and `ℓ ∈ Piv(h_{ℓ′})`, `ℓ ≠ ℓ′`,
+requires `ℓ ∈ Piv(F_{ℓ′})` and `{v_{ℓ′}, v′_{ℓ′}} ∩ ∪_AF_{ℓ′}(A) ≠ ∅`.
+
+*Proof.* (i) If `F̃_r(A)` is the same set for all A, the coin rule gives
+the same `x_r` on every corner (same `c_r`, same `π_r`); so some
+`F̃_r(A)` differ, hence some `F_r(A)` differ (`F̃` is a function of `F`),
+hence some class with top r is varying. If `c_r ∉ F^∪` every corner keeps
+`c_r`; if `c_r ∈ F^∩` every corner replaces, and the replacements are the
+first elements of `π_r` outside the various `F̃_r(A) ⊇ F^∩`; they all equal
+the first element outside `F^∩` unless that element lies in some
+`F̃_r(A)∖F^∩ ⊆ F^∪∖F^∩`. (ii) Off-top matching depends only on the
+off-top coordinates; if all of them are constant across corners, so is
+the status. Coordinates in `S` vary (`v ≠ v′`), outside ones vary iff in
+𝒟. (iii) Take `A ∌ ℓ` with `F_q(A∪ℓ) ≠ F_q(A)`; some class `C_k` with top
+q is matched off-top by exactly one of `x = x^A`, `x′ = x^{A∪ℓ}`, so x, x′
+differ at an off-top coordinate r of `C_k`. The corners A, A∪ℓ agree on
+`S∖ℓ`, so `r = ℓ` (stop, `k = 1`… after relabelling) or `r ∉ S`; then
+x, x′ differ at r, so `r ∈ 𝒟` and, by the argument of (i) applied to the
+two paths x, x′, `F_r(x) ≠ F_r(x′)`; recurse with q replaced by `r < q`.
+The recursion stops (at ℓ) because x and x′ agree below ℓ. Every class
+found is matched off-top by x or x′. (iv) `p̃_q` and `x_q` (q ∉ S) are
+functions of `F_q` (and of fixed coins); `λ_q ≡ 1` on corners where
+`F_q = F̃_q`; `h_{ℓ′} = 1[v^A_{ℓ′} ∉ F_{ℓ′}(A)]` changes along an edge
+only if `v^A_{ℓ′}` changes (edge in direction ℓ′) or `F_{ℓ′}` changes,
+and in both cases the indicator is 0 at one end, i.e.
+`v^A_{ℓ′} ∈ F_{ℓ′}(A)` there. ∎
+
+So, for every block `B ⊆ S`,
+
+    W_B ≤ Σ_{ℓ′∈S} 1[B ⊆ Piv(h_{ℓ′})] + Σ_{ℓ′∈S} 2Δ_{ℓ′}1[B ⊆ Piv(F_{ℓ′})]
+          + Σ_{q∉S} 1[q heavy in some corner]·1[B ⊆ Piv(F_q)]
+          + Σ_{q} w_qΔ_q·1[B ⊆ Piv(F_q)].                          (3.1)
+
+Each `ℓ ∈ B` needs a chain to the charged top (Lemma 3.1(iii)) — or, for
+`h_ℓ` itself, the self-coincidence `{v_ℓ, v′_ℓ} ∩ F_ℓ ≠ ∅`. Chains run
+**upward** through divergent outside coordinates only; a chain may end at
+an outside top q only through `φ_q` (weight `w_qΔ_q`) or a leak `λ_q`
+(only on heavy steps), and otherwise must reach an S-top `ℓ′ > ℓ`, where
+it meets ℓ′'s own coincidence.
