@@ -1,6 +1,9 @@
 # EXCEPTIONAL_LARGESIEVE7 — residue dispersion (RD) for large-height labels (task O73)
 
-Status: **checkpoint 1** (agent O73, branch `side-agent/residue-dispersion`); not yet reviewed.
+Status: **checkpoint 1** (agent O73, branch `side-agent/residue-dispersion`); reviewed by R73
+(`reviews/exceptional-largesieve7-review.md`, defects D1–D8; repairs applied by reviewer and
+marked "R73"). "Given Shiu" below means Shiu's theorem in the fixed-ε form
+(Nair–Tenenbaum 1998, Thm 1), see D1.
 (RD) is **proved at one prime for ℛ(M)** and **refuted as stated** for several primes
 and (in its H*-cut form) for (a,D) classes; the corrected residue-cut form (RD′) is
 proved for ℛ(M) (one prime; several primes with long cofactors). (DCC) is not proved.
@@ -17,13 +20,13 @@ The target is LS6 §6.2 (RD).
 |---|---|---|
 | Lemma 1.1 | **triple parametrisation of ℛ(M)**: `ℛ(M) = {−u/v mod M : gcd(u,v)=1, 4uv \| M+1}`; with `t = (M+1)/(4uv)` the class `−4D`, `D = u²t`, also equals `−4u²t` and `−1/(4v²t)`, so `H* ≤ min(max(u,v), 4u²t, 4v²t)` | PROVED (elementary) |
 | Lemma 1.2 | **residue pinning**: if `p \| M` and the class is `≡ a (mod p)`, then `4uvt ≡ 1`, `u ≡ −av`, `v²t ≡ −1/(4a)`, `u²t ≡ −a/4 (mod p)`; a residue `a` fixes `(u mod p, t mod p)` as a function of `v mod p` | PROVED (elementary) |
-| Lemmas 2.1, 2.2 | damped Brun–Titchmarsh in progressions (Shiu + Rankin), uniform in X | PROVED given Shiu 1980 Thm 1 |
-| **Thm 3.1** | **(RD) at one prime for ℛ(M)**: `μ^{ℛ,>}_a(p) ≤ Cγ^{−5}(log p)^6 p^{−1/12}` for every residue a, every X, short cofactors included | PROVED given Shiu |
+| Lemmas 2.1, 2.2 | damped Brun–Titchmarsh in progressions (Shiu + Rankin), uniform in X | PROVED given Shiu's theorem in the fixed-ε form (Nair–Tenenbaum 1998 Thm 1; R73 D1) |
+| **Thm 3.1** | **(RD) at one prime for ℛ(M)**: `μ^{ℛ,>}_a(p) ≤ Cγ^{−5}(log p)^6 p^{−1/12}` for every residue a, every X, short cofactors included | PROVED given Shiu (fixed-ε form, R73 D1; C = C(W), R73 D3) |
 | **Prop 4.1** | **LS6's (RD) is false for several primes**: the single label `−1/k`, `k ≈ 2(max P)^{1/4}`, puts mass `≫ (max P)^{−1/4}/log z` on one residue vector, beating `Π_{p∈P}p^{−γ₀}` once `\|P\| > 1/(2γ₀)`; the height cut must scale with `P̄` | PROVED (fundamental lemma for the fibre version) |
 | Remark 4.2 | with the product cut `P̄^{κ}`, short cofactors `n < P̄^{1/2}`: a single class weighs `≍ 1/n`; open in both directions | Assessment |
-| **Thm 4.3** | product-cut (RD) for **long cofactors** `n ≥ P̄^{1/2+η}`, ℛ(M) classes: `≤ C_η(log P̄)^{6}γ^{−5}4^{\|P\|}(P̄^{−κ/3}+P̄^{−η/2})` | PROVED given Shiu |
+| **Thm 4.3** | product-cut (RD) for **long cofactors** `n ≥ P̄^{1/2+η}`, ℛ(M) classes: `≤ C_η(log P̄)^{6}γ^{−5}4^{\|P\|}(P̄^{−κ/3}+P̄^{−η/2})` | PROVED given Shiu (fixed-ε form, R73 D1; needs `\|P\| ≤ z^{1/2}/3`, R73 D5) |
 | **Prop 5.1** | **the H*-cut (RD) fails already at one prime** once (a,D) classes are present: `a = pq`, `D = ℓ` gives a class of height `≥ pq/(4ℓ+1)` on the small-height residue `−4ℓ (mod p)` with mass `≍ 1/(γℓ)` | PROVED (elementary) |
-| (RD′) | the correct (and sufficient for LS6's route) **residue-cut** form: dispersion only for residues outside the small-height set `R_P(P̄^{κ})`; H*-cut ⟹ (RD′), so Thms 3.1/4.3 give (RD′) for ℛ(M) | definition; ℛ-part PROVED as stated |
+| (RD′) | the correct (Assessment, R73 D7: what LS6's route appears to need) **residue-cut** form: dispersion only for residues outside the small-height set `R_P(P̄^{κ})`; H*-cut ⟹ (RD′), so Thms 3.1/4.3 give (RD′) for ℛ(M) | definition; ℛ-part PROVED as stated |
 | §5 (a,D), Case A | (RD′) for these types: same pinning mechanism (Case A pins **both** m and m′ mod p) | Assessment, not written |
 | Cor 6.1 | fibre sums obey Thms 3.1/4.3 on average over c, the rough-modulus part for every c; a single exceptional event for all (P,a) is not proved | PROVED / open as stated |
 | §7 | toy numerics: with the cut the max residue mass is at the least-height label above the cut, `≍ p^{−1/4}` | EVIDENCE |
@@ -94,12 +97,14 @@ Fix a threshold `y ≥ z` (below `y = max P`). For `n ≥ 1` put
     W_y(n) := w_{P(n)} Γ(n) n^{−1} · 1[P(n) > y]                      (2.0)
 
 (`P(n)` = largest prime factor; Γ as in K2, so `Γ(n) ≤ 8·3^{ω(n)}`,
-`γ'(ℓ) ≤ 3`, `γ'(ℓ) = 1 + O(ℓ^{−1/2})` for `ℓ > W`). For `Y ≥ 2` let
+`γ'(ℓ) ≤ 8` (`γ'(2) = γ(2) = 8`; `≤ 3` for `ℓ > W`; corrected by reviewer R73 D2),
+`γ'(ℓ) = 1 + O(ℓ^{−1/2})` for `ℓ > W`). For `Y ≥ 2` let
 
     Ξ_y(Y) := Σ_{Q = 2^j ≥ y/2} w_Q · (log 2Q / log Y) · exp(−log Y / (2 log 2Q)).
 
 **Lemma 2.1 (damped Brun–Titchmarsh in progressions; PROVED, given
-Shiu's theorem [Shiu 1980, Thm 1]).** Fix `α ∈ (0, 1/2)`. There is
+Shiu's theorem in the fixed-ε form [Nair–Tenenbaum 1998, Thm 1, k = 1;
+cf. Shiu 1980, Thm 1] — R73 D1).** Fix `α ∈ (0, 1/2)`. There is
 `C = C(α, W)` such that for all `y ≥ z`, `Y ≥ 2`, `k ≥ 1`, `c` with
 `gcd(c,k) = 1` and `k ≤ Y^{1−α}`:
 
@@ -107,7 +112,7 @@ Shiu's theorem [Shiu 1980, Thm 1]).** Fix `α ∈ (0, 1/2)`. There is
 
 *Proof.* Split by `P(n) ∈ (Q, 2Q]`, `Q = 2^j ≥ y/2`; there `w_{P(n)} ≤ w_Q`
 (w decreasing) and `1/n < 1/Y`. With `η = 1/log 2Q` and
-`f(n) = 1[P(n) ≤ 2Q]Γ(n)n^η` (multiplicative, `f(ℓ^l) ≤ 3e^l`,
+`f(n) = 1[P(n) ≤ 2Q]Γ(n)n^η` (multiplicative, `f(ℓ^l) ≤ 8e^l`,
 `f(n) ≪_ε n^ε` uniformly since `η ≤ 1/log z`), Rankin's inequality
 `1 ≤ (n/Y)^η` on `n > Y` and Shiu's theorem (`x = 2Y`, interval length
 `Y ≥ x^{1/2}`, modulus `k ≤ Y^{1−α}`) give
@@ -121,8 +126,14 @@ Now `f(ℓ)/ℓ ≤ γ'(ℓ)/ℓ + eγ'(ℓ)η log ℓ/ℓ`, so the exponential 
 e^{2 log Y/(Q log 2)}`, we get `(1/φ(k))·Π_{ℓ|k,ℓ≤2Q}(1−1/ℓ) ≤
 k^{−1}e^{2log Y/(Q log 2)}`, and `Y^{−η}e^{2 log Y/(Q log 2)} ≤
 e^{−log Y/(2 log 2Q)}` because `Q ≥ y/2 ≥ z/2` makes
-`2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q. Shiu's implied constant depends only
-on `α`, the interval exponent, and the growth data `A₁ = 3e`,
+`2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q.
+*(R73 D1, applied by reviewer:)* f is **not** in Shiu's class M — condition (ii) there
+is required for **every** ε > 0 and fails for ε < η (n = 2^m) — so Shiu's Thm 1 is not
+applicable verbatim. Nair–Tenenbaum 1998 Thm 1 (k = 1, linear polynomial, class
+`M₁(A,B,ε)` with a single fixed `ε < 1/8`; progressions via uniformity in the
+coefficients) applies with `A = 8e`, `B = B(ε)`, uniformly in Q since `η ≤ ε/2`.
+The implied constant depends only
+on `α`, the interval exponent, and the growth data `A₁ = 8e`,
 `A₂(ε)` (from `8·3^{ω(n)} ≪_ε n^{ε/2}`, `n^η ≤ n^{ε/2}`) of f, which are **uniform in Q**
 (η ≤ 1/log z ≤ ε/2 for N large); k = 1 is covered by taking modulus 2
 with both classes. ∎
@@ -162,7 +173,8 @@ triple's three label heights are `≥ H*(C)`; coprimality of `(u,v)` is
 dropped).
 
 **Theorem 3.1 ((RD) at one prime, ℛ(M) classes; PROVED, given Shiu's
-theorem).** There is an absolute C such that for every prime `p ≥ z`,
+theorem — fixed-ε form, R73 D1).** There is a C depending only on W (for `0 < γ ≤ 1`,
+`K ≤ z^{γ/2}`, N large; R73 D3) such that for every prime `p ≥ z`,
 every `a ≢ 0 (mod p)` and every X (the bound does not depend on X):
 
     μ^{ℛ,>}_a(p) ≤ C γ^{−5} (log p)^{6} · p^{−1/12}.
@@ -291,7 +303,8 @@ is not done here. So: product-cut (RD) for **short** cofactors
 `n < P̄^{1/2}` — open in both directions; for long cofactors see Thm 4.3.
 
 **Theorem 4.3 (product-cut (RD) for long cofactors, ℛ(M) classes;
-PROVED, given Shiu's theorem).** Let P be a finite set of primes `> z`,
+PROVED, given Shiu's theorem — fixed-ε form, R73 D1).** Let P be a finite set of
+primes `> z` with `|P| ≤ z^{1/2}/3` (hypothesis added by R73 D5, used in (v)),
 `P̄ = Π_{p∈P}p`, `y = max P`, `a = (a_p) ∈ Π_p(ℤ/p)^×`, `κ ∈ (0,1]`,
 `η ∈ (0,1]`, and
 
@@ -311,9 +324,9 @@ give `2^{|P|}·C(log P̄)^{6}γ^{−5}(P̄^{−1} + P̄^{−κ/3})` after summat
 summation of Thm 3.1 verbatim, `log p → log P̄`). (iv) Case S: take
 `α = η/100`; the three failed inequalities give `UVT < CP̄^{(3−3α)/(1−3α)} ≤ CP̄^{3+6.2α}` and
 sides `≤ CP̄^{1+2.1α}`, the point count is
-`≤ 2^{|P|}(1+CP̄^{2.1α})²min(U,V,T)`, `W_y(n) ≤ C_δP̄^{δ}·P̄/(UVT)`, and now
-`UVT ≥ P̄n/32 ≥ P̄^{3/2+η}/32` (long cofactor), so with `δ = η/10`
-`Σ_B ≤ 2^{|P|}C_ηP̄^{1+4.2α+δ}(UVT)^{−2/3} ≤ 2^{|P|}C_ηP̄^{4.2α+δ−2η/3}
+`≤ 2^{|P|}(1+CP̄^{2.1α})²min(U,V,T)`, `W_y(n) ≤ C_δP̄^{2.1δ}·P̄/(UVT)` (as `n ≤ CP̄^{2+6.2α}`), and now
+`UVT ≥ P̄n/32 ≥ P̄^{3/2+η}/32` (long cofactor), so with `δ = η/30` (R73 D5; was η/10, too large)
+`Σ_B ≤ 2^{|P|}C_ηP̄^{1+4.2α+2.1δ}(UVT)^{−2/3} ≤ 2^{|P|}C_ηP̄^{4.2α+2.1δ−2η/3}
 ≤ 2^{|P|}C_ηP̄^{−η/2}`, over `≤ (C log P̄)³` boxes. (v) `Γ(M) ≤ 2Γ(n)` as
 `Π_{p∈P}γ′(p) ≤ e^{2|P|z^{−1/2}} ≤ 2`. ∎
 
@@ -322,9 +335,10 @@ sides `≤ CP̄^{1+2.1α}`, the point count is
 * Several primes, LS6's cut `max_{p∈P}p^{1/4}`: false (Prop 4.1) — the
   cut has to grow with P̄.
 * Several primes, product cut `P̄^{κ}`: true for cofactors
-  `n ≥ P̄^{1/2+η}` (Thm 4.3); for short cofactors `y < n < P̄^{1/2}` a single
-  class already weighs `≍ 1/n`, so no bound of the form `Π p^{−γ₀}` can hold
-  without an extra condition (Remark 4.2) — those witnesses must be
+  `n ≥ P̄^{1/2+η}` (Thm 4.3); for short cofactors `y < n < P̄^{1/2}` open: a single
+  class weighs `≍ 1/n`, so **if** classes with `H* > P̄^{κ}` and cofactor
+  `n < P̄^{γ₀}` exist (open, Remark 4.2), no bound of the form `Π p^{−γ₀}` can hold
+  without an extra condition (wording corrected by R73 D6) — such witnesses would have to be
   handled in the (DCC) combinatorics, where such a class is "almost all
   shared primes": its only non-shared prime factors are those of the short
   cofactor n.
@@ -345,7 +359,10 @@ its residue mod p is `−4ℓ`, and its top is q. Hence, in every fibre c
 (by the smooth-part filter the class is present at c iff
 `c ≡ −(4ℓ+pq) (mod 4)`, i.e. for the q in one class mod 4),
 
-    μ^>_{−4ℓ}({p}) ≥ Σ_{q>p prime, q in one class mod 4} w_q Γ(pqℓ)/(qℓ) ≥ c e^{−2γ t_p}/(γ t_p ℓ),   t_p = log p/log z,
+    μ^>_{−4ℓ}({p}) ≥ Σ_{q>p prime, q in one class mod 4} w_q Γ(pqℓ)/(qℓ) ≥ c e^{−2γ t_p}/((1 + γ t_p) ℓ),   t_p = log p/log z,
+
+(R73 D4: was `c e^{−2γt_p}/(γt_pℓ)`, false for small `γt_p` since the sum is
+`≍ ℓ^{−1}E₁(2γt_p)` and `E₁(x) ~ log(1/x)` as x → 0; `E₁(x) ≥ e^{−x}/(2(1+x))`)
 
 (Mertens in classes mod 4; the asymptotic as in LS6 Prop 6.2). With
 `ℓ ∈ (z, 2z)` and `p = z^{T}`, `T ≥ 2/γ₀`, this exceeds
@@ -370,7 +387,9 @@ on a small-height residue. LS6's route (§6.1 Assessment, LS4 Lemma 5.1)
 uses the small-height structure only through the **deterministic residue
 sets** `R_p(H₀) = {λ mod p : H(λ) ≤ H₀}`: pinned values in `R_p` pay
 `p^{−1/2}` there, and only residues **outside** `R_p` need dispersion.
-So the statement actually needed is the residue-cut form
+So the statement that appears to be needed (Assessment — LS6's (DCC) combinatorics is
+not written, and the multi-prime (RD′) is itself open for short cofactors, Remark 4.2;
+wording by R73 D7) is the residue-cut form
 
 > **(RD′)** for `a ∉ R_P(H₀)` (no label of height `≤ H₀` is `≡ a (mod P̄)`),
 > `μ_a(P)` — summed over **all** classes through P with top `> max P` — is
@@ -435,6 +454,11 @@ maximum is attained at the labels of least height above the cut (e.g.
 p = 3203: `−8` and `−1/8 ≡ 1201`), i.e. `≍ 1/H₀ ≍ p^{−1/4}` — the
 label mechanism of Prop 4.1 at one prime. So Theorem 3.1's exponent 1/12 is
 lossy; `1/4` (the cut exponent) looks like the truth. Toy scale only.
+*(R73 D8:)* the script sums over divisor triples with multiplicity and cuts per triple, i.e.
+it measures the right side of (3.0), not `μ^{ℛ,>}_a(p)` itself. The reviewer's
+`scripts/review_ls7_toy.py` (distinct classes, exact brute-force H*) gives 0.2432, 0.1786,
+0.0914 at p = 101, 211, 401 (proxy: 0.2951, 0.2190, 0.1030) — same picture, maxima at the
+least-height labels above the cut (`−4`, `−1/4`, `−16`).
 
 ## Replay
 

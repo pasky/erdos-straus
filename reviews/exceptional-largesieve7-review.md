@@ -1,6 +1,7 @@
 # Review R73 of EXCEPTIONAL_LARGESIEVE7.md (hostile reviewer, branch side-agent/review-ls7)
 
-Status: in progress. Reviewed text: `EXCEPTIONAL_LARGESIEVE7.md` as merged from
+Status: round 1 complete. No FATAL defect; one MAJOR (D1, citation, repaired); rest MINOR.
+All repairs D1–D8 applied by reviewer to `EXCEPTIONAL_LARGESIEVE7.md` in this branch (marked "R73"). Reviewed text: `EXCEPTIONAL_LARGESIEVE7.md` as merged from
 `side-agent/residue-dispersion` (commit 6bae2a4). From-scratch scripts: `scripts/review_ls7_*.py`.
 
 ## Verdict summary (per claim)
@@ -182,3 +183,23 @@ lowers the fibre sum ✓. The "not proved" paragraph (no single exceptional even
 (P,a)) is honest.
 
 ### §7 numerics — EVIDENCE, reproduced (D8).
+
+## Overall assessment
+The note's main content holds up: the triple parametrisation and pinning (Lemmas 1.1–1.2) are
+correct and brute-force verified; Theorem 3.1 ((RD) at one prime for ℛ(M), rate `p^{−1/12}`,
+uniform in X, short cofactors included) is correct line by line, *conditional on* the
+Shiu-type input, which must be cited in its fixed-ε form (D1 — the literal Shiu Thm 1 class M
+excludes the Rankin-tilted f). Both refutations (Prop 4.1: LS6's max-prime cut fails for
+several primes; Prop 5.1: the H*-cut fails at one prime with (a,D) classes) are correct and
+numerically confirmed with exact H*. Theorem 4.3 needs a stated `|P|` bound and a smaller δ
+(D5). Labels after repair are honest; the "sufficient for LS6's route" and the short-cofactor
+bullet were overclaims (D6, D7), now Assessment/conditional. ES is not solved; (DCC), (RD) for
+(a,D)/Case-A classes, multi-prime short cofactors, and the fibre-uniform exceptional event
+remain open, as the note itself says.
+
+Replay (reviewer scripts):
+
+    ulimit -v 8000000
+    timeout 1800 uv run --with sympy --with numpy python scripts/review_ls7_triples.py 20000 4000
+    timeout 1200 uv run --with sympy --with numpy python scripts/review_ls7_counterex.py
+    timeout 1500 uv run --with sympy --with numpy python scripts/review_ls7_toy.py 10 101 211 401
