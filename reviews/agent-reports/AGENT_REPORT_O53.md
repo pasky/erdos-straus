@@ -35,7 +35,7 @@ up along the way; I checked it and withdrew it (Assessment 4.2).
 * **RSPW optimum η (C = 2, K = ∞, support [−L, N+L]):**
   - N = 30: 0.905 at L = 128N.
   - N = 50: 0.820 at L = 64N.
-  - N = 80: ≥ 0.732 at L = 32N (a run at L = 64N was still going at the checkpoint).
+  - N = 80: ≥ 0.732 at L = 32N (runs at N = 80, L = 64N and N = 100, L = 5000 were killed unfinished at the parent's request).
   - At L ≈ N²/2: 0.86 / 0.83 / ~0.78 / 0.80 / ~0.75 for N = 30 / 40 / 50 / 60 / 80.
   - The decay is much slower than N^{−1/2}. The optimum depends strongly on L (the
     support must grow roughly like N²).
@@ -74,7 +74,10 @@ up along the way; I checked it and withdrew it (Assessment 4.2).
   pseudo-window: a measure supported off [1,N] within distance N^{O(1)}, with bounded
   point masses. Such measures exist at N ≤ 50 by LP; they are unproved in general (§2).
 
-## Decision requested
+## Decision (parent)
+Option (c): stop here; a reviewer will check Lemmas 1.1, 2.2, 2.3, Thm 3.1, Lemma 4.1.
+
+## Decision requested (original)
 Should I (a) keep going on a construction (max-entropy analysis, larger-N structured LPs),
 (b) aim for the weaker polynomial-C statement, or (c) stop here with the reductions and
 Theorem 3.1?
