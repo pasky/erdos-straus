@@ -76,8 +76,7 @@ triple) is no longer an obstacle, because the triple itself must lie on
 
 ## 2. Damped mass in arithmetic progressions (Shiu + Rankin)
 
-Fix a prime power-free… no: fix a rough prime threshold `y ≥ z` (below:
-`y = max P`). For `n ≥ 1` put
+Fix a threshold `y ≥ z` (below `y = max P`). For `n ≥ 1` put
 
     W_y(n) := w_{P(n)} Γ(n) n^{−1} · 1[P(n) > y]                      (2.0)
 
@@ -111,20 +110,16 @@ k^{−1}e^{2log Y/(Q log 2)}`, and `Y^{−η}e^{2 log Y/(Q log 2)} ≤
 e^{−log Y/(2 log 2Q)}` because `Q ≥ y/2 ≥ z/2` makes
 `2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q. ∎
 
-**Lemma 2.2 (sums of Ξ; PROVED, elementary).** For `r ≥ 0`, `Y₀ ≥ 2`:
+**Lemma 2.2 (sums of Ξ; PROVED, elementary).** For `r ≥ 0`:
 
-    Σ_{Y = 2^i ≥ Y₀} (log Y)^r Ξ_y(Y) ≤ C_r Σ_{Q=2^j ≥ y/2} w_Q (log 2Q)^{r+1} ≤ C′_r (log z / γ)^{r+2},
+    Σ_{Y = 2^i ≥ 2} (log Y)^r Ξ_y(Y) ≤ C_r Σ_{Q=2^j ≥ y/2} w_Q (log 2Q)^{r+2} ≤ C′_r (log z / γ)^{r+3}.
 
-and `Ξ_y(Y) ≤ C(log z/γ)²`/`log Y`… more usefully `Σ_{Y≥Y₀}Ξ_y(Y) ≤
-C(log z/γ)²`.
-
-*Proof.* For fixed Q put `L = log 2Q/log 2`; then
-`Σ_{i ≥ 1} i^{r−1} e^{−i/(2L)} ≤ C_r L^r` (r ≥ 1; for r = 0 the sum
-`Σ_{i≥1} i^{−1}e^{−i/(2L)} ≤ 1 + log(2L) + 2 ≤ C log 2Q`). Multiply by
-`w_Q log 2Q` (the `(log Y)^{r−1}` from `1/log Y` is absorbed). Finally
+*Proof.* For fixed Q put `L = log 2Q/log 2 ≥ 1`; then
+`Σ_{i ≥ 1} i^{r−1} e^{−i/(2L)} ≤ C_r L^{r}(1 + log L) ≤ C_r L^{r+1}`;
+multiply by `w_Q log 2Q·(log 2)^{r−1}`. Finally
 `w_Q = K^{2β}e^{−2γ j log 2/log z}` with `K^{2β} ≤ z^{γβ} = e^γ` (as
-`K ≤ z^{γ/2}`), and `Σ_j (j log 2)^{r+1}e^{−2γ j log 2/log z} ≤
-C_r (log z/(2γ))^{r+2}`. ∎
+`K ≤ z^{γ/2}`), and `Σ_j (j log 2)^{s}e^{−2γ j log 2/log z} ≤
+C_s (log z/γ)^{s+1}`. ∎
 
 (The bound is uniform in X: the damping `w_Q` makes the sum over the top
 converge, and Rankin's factor makes the sum over n at fixed top converge.
