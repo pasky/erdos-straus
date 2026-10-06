@@ -189,8 +189,8 @@ constant could be stated as (35/3)(K+1); 12 is fine.
 windows of interest, Schwartz or Φ_K, satisfy it).
 
 **D6 (MINOR) — Lemma 3.2 is very lossy.** Not a defect of correctness; noting that the
-observed `1−|φ| ≥ 1/2` on all tested F suggests a k-free (or log k) bound, which would let
-Thm 3.3 drop γ < 1/3 to the condition `|F_ℓ| ≤ ℓ^{1−ε}`. Optional.
+observed `1−|φ| ≥ 1/2` on all tested F suggests a k-free (or ≫ 1/log k) bound (unproved; heuristic only), which would let
+Thm 3.3 use weights `log(1/(2p_ℓ)) − O(log log ℓ)` and weaken γ < 1/3. Optional.
 
 ## Replay
 ```
