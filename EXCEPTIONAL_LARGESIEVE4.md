@@ -19,6 +19,14 @@ frequency θ (`den θ | M_r`) let `supp θ` be the set of primes dividing
 |---|---|---|
 | Lemma 1.1 | **damped-collision reduction**: if `|σ̂(θ)|^{2β} ≤ Π_{ℓ∈supp θ}w_ℓ` with `w_ℓ ∈ [0,1]`, then `𝓡_{2+2β}(σ) ≤ E_{T}𝓡_2(σ_T)`, T the random subset of 𝒫 containing ℓ independently with probability `w_ℓ` | PROVED |
 | Cor 1.2 | (H_rough) follows from (A_γ) sup decay at **any fixed rate** γ in the rough level plus (B) a damped collision bound | PROVED (reduction) |
+| Lemma 2.1 | tilted pair law: the damped collision is `E_Q Π(1+w_ℓη_ℓ)`, η explicit | PROVED |
+| Lemma 3.1, 3.2 | Fourier coefficients ≤ `2^{|S|}`·P(all of S pivotal) (coin coupling); one class per modulus | PROVED |
+| Prop 4.1 | (B) is free: for the K2 fibre law conditioned on a good path event, the damped collision is `≤ e^{2B}/Q'(G)²` — **first moments only** | PROVED |
+| Thm 4.2 | **H_LS∞ for all forced families ⟸ (A\*)**: sup decay of the conditioned fibre laws at any fixed rate γ (losses up to `z^{γ/2}` per prime allowed); cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` | PROVED (implication) |
+| Lemma 5.1 | pinned pivotal bound with a **deterministic** residue set per prime: exact product decay `Π_{ℓ∈S}4U(R_ℓ)/(1−δ_ℓ)` | PROVED |
+| Thm 5.2 | **3/4 cap at every frequency level for mixtures whose multi-rough classes are residue-sparse** (`U(Res_ℓ) ≤ ℓ^{−γ}` at primes > z); one-rough-prime classes arbitrary. Extends LS3 Thm 3.1 | PROVED (K2 inputs; Case A via ElT) |
+| Cor 5.3 | the same for all **small-height** classes `−r/s`, `r,s ≤ z^{1/4}/2` (incl. LS3 Lemma 4.2's `−4 mod M` for all M): residue concentration is the *easy* case | PROVED |
+| §3.2 (CC) | what is left: residue-dense multi-rough classes — a covering count for random-path relevance | CONJECTURE (Assessment of difficulty) |
 
 ## 1. The damped-collision reduction
 
@@ -411,19 +419,21 @@ probability `≤ Σ_{ℓ>z}ℓ^{1/2}E p_ℓ² ≤ CΣ_{ℓ>z}ℓ^{−5/4}(log �
 `K ≤ z^{γ'/2}` for N large). Theorem 4.2 (with γ' for γ) concludes. ∎
 
 **Corollary 5.3 (structured and residue-concentrated classes; PROVED).**
-Call a class *H-small* if it is an ℛ(M)-class `−r/s mod M` (TUPLES2
-Lemma 1.1, `rsm = A_M`) with `r, s ≤ H`, an (a,D)-class with
-`4D + a ≤ H`, a Case-A class `−m^{−1}` with `m ≤ H`, or a selector class.
+Call a class `b mod G` *H-small* if `b ≡ −r/s (mod G)` for some
+integers `0 ≤ r ≤ H`, `1 ≤ s ≤ H`, `gcd(s,G) = 1` (e.g. ℛ(M)-classes
+`−4 = −4/1`, `−1`, `−1/4`, `−4d`, `−1/(4d)`, `−d/e`; (a,D)-classes with
+`4D + a ≤ H`; Case-A classes `−m^{−1}` with `m ≤ H`; selector classes
+`0 = −0/1`).
 If every class of 𝔊 with two or more prime factors `> z` is H-small with
 `H ≤ z^{1/4}/2`, the conclusion of Theorem 5.2 holds with γ = 1/4.
 
-*Proof.* The ℓ-residues of H-small classes lie in
-`{−r/s, −n : r,s,n ≤ H} ∪ {0}` (with `−m^{−1} = −1/m`), a set of size
-`≤ H² + H + 1 ≤ z^{1/2}`, so `U(Res_ℓ(𝔊₂)) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}`. ∎
+*Proof.* The ℓ-residue of an H-small class is `−r/s mod ℓ`
+(`ℓ > z > H`), so `Res_ℓ(𝔊₂)` has at most `(H+1)H ≤ z^{1/2}` elements and
+`U(Res_ℓ(𝔊₂)) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}`. ∎ (Note: the TUPLES2 form
+`−r/s` with `rsm = A_M` is *not* the relevant height; e.g. `−4 ≡ −1/A_M`.)
 
 *Remarks.* (a) Corollary 5.3 contains the family of LS3 Lemma 4.2
-(`−4 = −4/1` for all `M ≡ 3 (4)`), and likewise `−1` (`r = s = 1`... via
-`D = A`), `−1/4`, `−d`, `−4d`, `−1/(4d)`, and any mixture of such classes
+(`−4 = −4/1` for all `M ≡ 3 (4)`), and likewise `−1` (`D = A`), `−1/4`, `−d`, `−4d`, `−1/(4d)`, and any mixture of such classes
 over **all** moduli (any number of rough primes per modulus, unbounded
 moduli), together with arbitrary one-rough-prime classes. So **residue
 concentration is not an obstruction**: the concentrated classes are
