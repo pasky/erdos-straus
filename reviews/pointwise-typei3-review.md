@@ -130,3 +130,6 @@ re-verified line by line with exact integers by `review_typei3_check.py`.
    `[10⁸,5.5·10¹⁰)`, `[5.5·10¹⁰,10¹¹)`: 3 571 429 + 1 960 714 285 + 1 607 142 857 = 3 571 428 571 values of f
    (equal to the author's total 3 571 429 + 1 782 142 857 + 1 785 714 285), **0 certificates**.
    So `f<10¹¹` at `x̂_9` is now CERTIFIED by two independent engines; `[10¹¹,10¹²)` remains one engine.
+8. **§4 table reproduced to 10¹⁰** (my `tmin` mode + my union script, no author code): per-bin counts/masses
+   for `[2²⁸,2²⁹)…[2³²,10¹⁰)` = 30/0.0628, 27/0.00113, 35/0.00124, 42/0.00158, 39/0.00030 and uncovered measures
+   0.663564 (2²⁰), 0.641226 (2²⁸), 0.610322 (2²⁹), 0.609862 (all `f<10¹⁰`) — all match the table.
