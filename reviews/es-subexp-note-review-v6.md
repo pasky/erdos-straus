@@ -38,8 +38,8 @@ odd ℓ | Q_L. The identity only uses that the rule is a function of (Q,r) — t
   (same script) and by the max of `y t^{−y}` at `y = 1/log t`. ✓
 * NT class for twisted f₂: values ≤ 7 resp. ≤ 6e < 17 at prime powers, so `F ∈ 𝓜₂(17, B, 1/200)` with B
   absolute (`17^{ω(a)} ≪ a^{1/200}`); Euler-ratio products `exp(O((t−1)loglogY)) = O(1)` and
-  `exp(O(s·Σ_{ℓ≤Y} logℓ/ℓ)) = O(1)`. ✓ Exponents: `η⁻¹·Λ³·logY·loglogY ≍ Λ³(logΛ)²logloglogΛ`... i.e.
-  `Λ³(logΛ)²loglogΛ` as stated (loglogY ≍ loglogΛ); `η⁻¹Λ³(logY)² ≍ Λ³(logΛ)³`. ✓
+  `exp(O(s·Σ_{ℓ≤Y} logℓ/ℓ)) = O(1)`. ✓ Exponents: `η⁻¹·Λ³·logY·loglogY ≍ Λ³(logΛ)²loglogΛ`
+  as stated (loglogY ≍ loglogΛ); `η⁻¹Λ³(logY)² ≍ Λ³(logΛ)³`. ✓
 
 ### Theorem 12.1 (lower tail) — SOUND (one MINOR label point, D1)
 * P(good) ≥ 1 − 1/4 − 4·(1/8) = 1/4. ✓ Good leaf ⇒ (6.x)=eq:goodQ with C→2C (8× instead of 4× means). ✓
