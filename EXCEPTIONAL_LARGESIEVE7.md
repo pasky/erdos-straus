@@ -276,3 +276,42 @@ some `(P̄n+1)/4` with `y < n < P̄^{γ₀}`, `P(n) > y`, has a factorisation
 sifting range (the n-range is far shorter than the moduli involved), and
 is not done here. So: product-cut (RD) for **short** cofactors
 `n < P̄^{1/2}` — open in both directions; for long cofactors see Thm 4.3.
+
+**Theorem 4.3 (product-cut (RD) for long cofactors, ℛ(M) classes;
+PROVED, given Shiu's theorem).** Let P be a finite set of primes `> z`,
+`P̄ = Π_{p∈P}p`, `y = max P`, `a = (a_p) ∈ Π_p(ℤ/p)^×`, `κ ∈ (0,1]`,
+`η ∈ (0,1]`, and
+
+    μ^{ℛ}_a(P; κ, η) := Σ_{M = P̄n, M≡3(4), P(n)>y, n ≥ P̄^{1/2+η}} Σ_{C∈ℛ(M): b_C≡a_p (p) ∀p∈P, H*(C) > P̄^{κ}} w_{P(n)}Γ(M)P̄/M.
+
+Then, uniformly in X, `μ^{ℛ}_a(P; κ, η) ≤ C_η γ^{−5}(log P̄)^{6}·4^{|P|}·(P̄^{−κ/3} + P̄^{−η/2})`.
+(`4^{|P|} ≤ P̄^{2/log z}`, so this is `≤ (log P̄)^{O(1)}P̄^{−min(κ/3,η/2)+o(1)}`.)
+
+*Proof.* As Theorem 3.1, with p replaced by P̄ and these changes.
+(i) Lemma 1.2 at each `p ∈ P` and CRT: `4uvt ≡ 1`, `u ≡ −av`,
+`v²t ≡ c′`, `u²t ≡ c″ (mod P̄)`; v determines `(u, t) mod P̄`, u determines
+v, and t determines v up to `2^{|P|}` classes. (ii) `Y_B = UVT/P̄`; the
+damped weight is `W_y` (top `> y`), and Lemma 2.1 is applied with this y.
+(iii) Pair counts become `≤ 2^{|P|}(VT/P̄ + min(V,T))` (similarly for the
+other pairs), and the height cut forces `max ≥ P̄^{κ/3}/4`; so the L-cases
+give `2^{|P|}·C(log P̄)^{6}γ^{−5}(P̄^{−1} + P̄^{−κ/3})` after summation (the
+summation of Thm 3.1 verbatim, `log p → log P̄`). (iv) Case S: take
+`α = η/100`; the three failed inequalities give `UVT < CP̄^{3+3.1α}` and
+sides `≤ CP̄^{1+2.1α}`, the point count is
+`≤ 2^{|P|}(1+CP̄^{2.1α})²min(U,V,T)`, `W_y(n) ≤ C_δP̄^{δ}·P̄/(UVT)`, and now
+`UVT ≥ P̄n/32 ≥ P̄^{3/2+η}/32` (long cofactor), so with `δ = η/10`
+`Σ_B ≤ 2^{|P|}C_ηP̄^{1+4.2α+δ}(UVT)^{−2/3} ≤ 2^{|P|}C_ηP̄^{4.2α+δ−2η/3}
+≤ 2^{|P|}C_ηP̄^{−η/2}`, over `≤ (C log P̄)³` boxes. (v) `Γ(M) ≤ 2Γ(n)` as
+`Π_{p∈P}γ′(p) ≤ e^{2|P|z^{−1/2}} ≤ 2`. ∎
+
+*What the three results say together (ℛ(M) classes).*
+* One prime: (RD) holds, rate `p^{−1/12}` (Thm 3.1).
+* Several primes, LS6's cut `max_{p∈P}p^{1/4}`: false (Prop 4.1) — the
+  cut has to grow with P̄.
+* Several primes, product cut `P̄^{κ}`: true for cofactors
+  `n ≥ P̄^{1/2+η}` (Thm 4.3); for short cofactors `y < n < P̄^{1/2}` a single
+  class already weighs `≍ 1/n`, so no bound of the form `Π p^{−γ₀}` can hold
+  without an extra condition (Remark 4.2) — those witnesses must be
+  handled in the (DCC) combinatorics, where such a class is "almost all
+  shared primes": its only non-shared prime factors are those of the short
+  cofactor n.
