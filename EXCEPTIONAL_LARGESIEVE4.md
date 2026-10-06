@@ -323,10 +323,14 @@ Fix `γ ∈ (0,1]`, `1 ≤ K ≤ z^{γ/2}`, `w_ℓ = (Kℓ^{−γ})^{2β}`. Supp
     (A*)  for every c outside an event of Q'-probability ≤ 1/32 and every
           θ ≠ 0 with z-rough denominator: |σ̂_c(θ)| ≤ Π_{ℓ∈supp θ} K ℓ^{−γ}.
 
-Then every CRT-admissible N-large-sieve bound for 𝒜(𝔊) (any rational
+Then for `N ≥ N₀(γ)` (`N₀(γ) = exp(Cγ^{−4})` suffices; review R62 D1)
+every CRT-admissible N-large-sieve bound for 𝒜(𝔊) (any rational
 frequencies, any denominators, any weights) saves
 
     log(N/B) ≤ (log N)^{3/4} + C γ^{−3}(log N)^{3/4}(log log N)^3.
+
+(For `γ ≲ (log N)^{−1/4}` the bound exceeds `log N` and is trivial, so the
+restriction `N ≥ N₀(γ)` loses nothing.)
 
 *Proof.* Define LS3 Lemma 2.1's exceptional smooth event as
 `E = E₀ ∪ {leak_c > 1/4} ∪ {m_c > 32J}`, where E₀ is the event of (A*),
@@ -410,8 +414,9 @@ the multi-rough classes are residue-sparse:
 
     (RS_γ)   U(Res_ℓ(𝔊₂)) ≤ ℓ^{−γ}   for every prime ℓ > z.
 
-Then every CRT-admissible N-large-sieve bound for 𝒜(𝔊) — any rational
-frequencies, any denominators, any weights — saves
+Then for `N ≥ N₀(γ)` (`N₀(γ) = exp(Cγ^{−4})` suffices, so that
+`K = 32 ≤ z^{γ'/2}`; R62 D1) every CRT-admissible N-large-sieve bound for
+𝒜(𝔊) — any rational frequencies, any denominators, any weights — saves
 `log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³`.
 
 *Proof.* Theorem 4.2 with (A*) verified as follows (the (A*) exceptional
