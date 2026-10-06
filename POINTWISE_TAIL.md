@@ -5,7 +5,7 @@ bears on whether `W(p)<∞`. Notation: `𝓛=log T`; O9 = `POINTWISE_OMEGA9.md`,
 `POINTWISE_OMEGA11.md`, O13 = `POINTWISE_OMEGA13.md`, CU = `CEILINGS_UNIFIED.md`.
 `N(x,T):=#{p≤x prime: W(p)>T}`.
 
-**Status: in progress (checkpoint 0).**
+**Status: checkpoint 1 (not yet parent-reviewed).** Results table in §4.
 
 **Goal.** CU Thm 2.1 gives `N(x,T) ≪ π(x)e^{−c𝓛³}` for `𝓛≤c₁(log x)^{1/4}`. We want
 `N(x,T) ≥ π(x)exp(−C𝓛³(log𝓛)^B)` in (almost) the same range.
@@ -198,3 +198,24 @@ the familiar asymmetry of CU Remark 2.2: majorants absorb `1+ε≤3`, minorants 
 (ineffective) theorem gives `λ_L≥c(ε)q_1^{−ε}`, which still costs `ε·k_LlogY`, so it does not remove
 the third log; restricting to leaves with `q_1∤Q_L` would, if those carry a fixed proportion of the
 good mass (not shown).
+
+## 4. Status (checkpoint 1)
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | quantitative coset transfer: `S_r(x) ≥ λ_Qμx/(3φ(Q))`, `λ_Q≥min(1,c_PQ^{−1/2}(log3Q)^{−2})`, for all `log x≥C_2(1+logA)logZ` | PROVED mod (G) (proof of O9 Thm 1.1 read quantitatively) |
+| Thm 2.1 | `#{p≤x hard: W(p)>T} ≥ π(x)e^{−C𝓛³(log𝓛)^5}` for `log x≥C𝓛^4log𝓛` (one fibre, no `ℓ_aux`) | PROVED mod (G), NT, OMEGA10 Thm 3.4 |
+| Lemma 3.1 | leaves of the square-class process: disjoint fibres, `P_proc(L)=4·2^{k_L}/φ(Q_L)` | PROVED (elementary) |
+| Lemma 3.2 | `E[k]≪𝓛³(log𝓛)²loglog𝓛` | PROVED mod NT |
+| Thm 3.3 | `N(x,T) ≥ π(x)e^{−C𝓛³(log𝓛)³loglog𝓛}`, same range; `(log𝓛)²loglog𝓛` without exceptional zero | PROVED mod (G), NT, OMEGA10 Thm 3.4; improved form CONDITIONAL (no Siegel zero) |
+| Cor 2.2 | `c𝓛³ ≤ log(π(x)/N(x,T)) ≤ C𝓛³(log𝓛)³loglog𝓛` for `𝓛≤c(log x/loglog x)^{1/4}`: tail exponent 3 | PROVED mod the above and CU Thm 2.1's inputs |
+
+*Open.* (1) Range: close the `(log log x)^{1/4}` gap between the two sides (it is the `log𝓛` of the
+junta `𝓛·S_res`; O14 suggests `𝓛^4/log𝓛` is the architectural floor). (2) The third log (Siegel
+factor, §3 Assessment). (3) A lower bound in the range `𝓛^4 ≫ log x` (beyond `(log x)^{1/4}`) is out of
+reach of the transfer architecture (O14 Thm 4.5); there even existence of one p is open.
+
+## Replay
+
+No computations: all items are proofs. The cited inputs are replayed by `verify.py` blocks (cz)–(df)
+(O13 Lemma 3.1 Jacobi check, β-weighted LLL) and (cu)–(cy) (O9).
