@@ -26,14 +26,17 @@ Feasible fakes: `𝔐:={m:S→[0,1] : Σ_S m=N_x, l_C≤m(C∩S)≤u_C ∀C∈�
 `min_{m∈𝔐} Σ_{n∈S}m(n)F(n)>0` (then `m_x∈𝔐` gives a prime `p≤x` in H with `F(p)=1`). The box
 `m≤1` is the LP relaxation of atomicity/integrality; the *integral* version uses `m∈{0,1}^S`.
 O15 Def 2.1 is the case "S replaced by H (diffuse), no box".
+*Scope (R68b review).* The information is class counts at the single scale x. Size-localised
+information (`m(C∩[1,y])` for `y<x`, short intervals, smooth weights `Σw(n/x)1_C(n)m(n)`) is
+not of this form and is outside Def 1.1 (an interval is a union of many classes mod `q>x`).
 
 **Lemma 1.2 (deep classes are box constraints or primality tests; PROVED, elementary).** Let
-`C∈𝒞` with `|C∩S|≤1`. If `C∩S=∅`, the constraint is vacuous on 𝔐 (or false). If `C∩S={n}`, then
+`C∈𝒞` with `|C∩S|≤1`. If `C∩S=∅`, the constraint is vacuous on 𝔐 (true bounds give `l_C≤0≤u_C`). If `C∩S={n}`, then
 either `l_C≤0` and `u_C≥1`, and the constraint is implied by the box `0≤m(n)≤1`; or `l_C>0`
 (which, being true, certifies `n∈𝒫_x`) or `u_C<1` (certifies `n∉𝒫_x`), i.e. it tests whether
 that integer is a *counted* prime (a prime of S dividing L is not counted).
 In particular every class of modulus `q>x` meets `[1,x]` in at most one integer.
-*Proof.* `m_x(C)=1[n prime]∈{0,1}`; a true bound excluding one of the two values decides it. ∎
+*Proof.* `m_x(C)=1[n∈𝒫_x]∈{0,1}`; a true bound excluding one of the two values decides it. ∎
 
 So a SALC that does not test primality of individual integers ("primality-blind"; a search
 over specific integers is not a transfer, O15 Def 2.1) gains from moduli `>x` exactly the box,
@@ -236,8 +239,10 @@ The `R=4.07` row is the seed-1, frac 0.22 run, appended to the data file.
 
 ## 6. Answer to the brief, and the precise residual
 
-**(a) Formalisation.** Def 1.1 (SALC) adds to O15 Def 2.1 exactly the three forbidden items:
-support S, atomicity (box `m≤1`; integral version `m∈{0,1}`), and class bounds of any form. Moduli
+**(a) Formalisation.** Def 1.1 (SALC) adds to O15 Def 2.1 the three forbidden items:
+support S, atomicity (box `m≤1`; integral version `m∈{0,1}`), and class bounds of any form;
+it does not include size-localised information (counts on `[1,y]`, `y<x`; see the Scope note
+after Def 1.1). Moduli
 `>x` contribute only the box or primality tests of specific integers (Lemma 1.2); validity is
 dual to support-aware minorants `B≤F+θ` on S (Lemma 1.3); with Haar-type bounds the primes drop
 out and validity is a statement about integers only — the integer fake problem IF (Rem 1.4); and
@@ -257,7 +262,8 @@ constructions tilt the small-coordinate law (Lemma 4.1 in the Poisson heuristic;
 have no cheap way to untilt them (Assessment 4.2, heuristic, specific to these constructions).
 
 **Outcome.** Neither a support-aware certificate beyond 1/4 nor a support-aware planting lemma
-for ES was obtained. The residual is now the following integer statement (no primes in it):
+for ES was obtained. For class-count information at scale x, the residual is the following integer statement (no
+primes in it):
 
 > **Conjecture SAP (support-aware planting; CONJECTURE).** Call a modulus *admissible* if all its
 > prime factors divide `LQ` (so every n∈S_T is a unit mod it). Information profile `𝒥(δ)`:
@@ -269,7 +275,8 @@ for ES was obtained. The residual is now the following integer statement (no pri
 
 *Consequence (exact scope).* SAP implies that every LP-relaxed SALC (Def 1.1 with the box) on
 support `S_T` whose bounds are implied by `𝒥(δ)` is invalid in that range. It says nothing
-about integral SALCs (`m∈{0,1}`), smaller supports, or information outside `𝒥(δ)`. Whether `𝒥(δ)`
+about integral SALCs (`m∈{0,1}`), smaller supports, or information outside `𝒥(δ)` — in
+particular size-localised counts `m(C∩[1,y])`, `y<x`, which `𝒥(δ)` does not contain. Whether `𝒥(δ)`
 contains everything the known unconditional prime theorems give is an Assessment, not a theorem.
 Gallagher's estimate has additional `(log x/log Q_G)²/Q_G` and exceptional-character terms, so
 `η_q` is a model profile. Support for SAP comes from the random-integer heuristic (atom
