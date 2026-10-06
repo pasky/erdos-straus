@@ -57,10 +57,12 @@ are per-family statements (any finite 𝔊).
   need (H_eq), reduced to a characteristic-function bound (Lemma 4.1).
 * *General majorants with smooth (band-limited) windows*: the door is
   **exactly** the shift-uniform count M(N), up to a factor 12(K+1)
-  (Thm 2.1). No arithmetic-free argument can cap it. A cap is equivalent to
-  the arithmetic statement (W), a lower bound for the number of avoiders in
+  (Thm 2.1, per family 𝔊). *Assessment (R81 repair, applied by reviewer):* no
+  arithmetic-free argument can cap it. What is PROVED is only that a cap is equivalent to
+  the arithmetic statement (W_𝔊), a lower bound for the number of avoiders in
   the best window anywhere in ℤ. An escape (weights < 1 beating 3/4) exists
-  iff M(N) is smaller than the sieve-limit scale. In that case the escaping
+  iff M_𝔊(N) is smaller than the sieve-limit scale. Such an escape is empty as a method,
+  since then the count is already ≤ M_𝔊(N). In that case the escaping
   majorant is the LP optimum, which is essentially as hard to evaluate as the
   count itself.
 * Every per-frequency method is translation invariant (Lemma 1.1). So if the
@@ -196,10 +198,11 @@ So the "weights below 1" door for general majorants is not a door about
 Fourier analysis at all: it is the shift-uniform version of the counting
 problem. It is the analogue of IF Obs 1.1 (exact interval evaluation over
 unrestricted majorants is the problem itself), with [1,N] replaced by the
-worst window. In particular no arithmetic-free argument (Walsh tails,
-comparison measures, LP caps built from level/mass hypotheses) can cap this
-class unless it proves a lower bound for M(N) — a statement about the
-avoider set itself.
+worst window. *Assessment (R81 repair, applied by reviewer; not a theorem):* in
+particular, no arithmetic-free argument (Walsh tails, comparison measures, LP caps built
+from level/mass hypotheses) should be able to cap this class unless it proves a lower
+bound for M(N), a statement about the avoider set itself. What is PROVED is the
+equivalence of the cap with (W_𝔊) (Cor 2.2).
 
 *What M(N) is.* By CRT, t ranges over all residue vectors. In a prime-slice
 system (Q₀ = 1, one prime ℓ per class set F_ℓ) M(N) is the **translate sieve**

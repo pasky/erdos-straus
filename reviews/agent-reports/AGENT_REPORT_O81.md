@@ -12,7 +12,7 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
    majorant window Φ_K (Φ̂ ⊂ [−K,K]), `M(N) ≤ min_ν R_{|W_N|}(ν) ≤ 12(K+1)M(N)`. The dual g is
    band-limited, so a de la Vallée Poussin reproducing kernel plus g ≥ 0 bounds ⟨g,1_𝒜⟩ by
    window counts. Consequence (per family 𝔊, M = M_𝔊; R81 repair, applied by reviewer): a 3/4 cap for this door holds **iff** `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`
-   (open question (W)). No arithmetic-free argument can cap it; an escape exists iff M(N) is
+   (open question (W)). *Assessment (R81 repair, applied by reviewer), not a theorem:* no arithmetic-free argument can cap it. An escape exists iff M(N) is
    below the sieve-limit scale (and then the escaping majorant is the LP optimum, as hard as
    the count).
 3. **Thm 3.3 (PROVED): sharp weights (any w with w(0)=N, w ≥ c₀|sin πNθ| off 0), hit-pattern
