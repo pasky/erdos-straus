@@ -97,3 +97,49 @@ device is in Lecomte–Tan (Fact 9).
 The note's current hedge ("We believe Theorem 1.1 and the constant 1 … are new, but we
 make no priority claim") is **appropriate**. It should add Lovett–Wu–Zhang to the
 must-check list.
+
+---
+
+## 2. Janson-type inequality for one-hot product spaces under the lopsided LLL (`POINTWISE_HAAR.md` Thm 1.4)
+
+**Object.** The setting is atomic events (partial assignments) `E` on a product of independent
+finite variables. Hypothesis: the lopsided local lemma holds with `Γ(E)` = the events
+*conflicting* with `E`. Write `K = max_E Π_{E'∈Γ(E)}(1−x_{E'})^{−1}`, let `μ = ΣP(E)`, and
+let `Δ` be the sum over **compatible** (bit-sharing) pairs only. Then
+
+* `−log P(Av) ≥ μ − KΔ`, and
+* `−log P(Av) ≥ min(μ/2, μ²/(4KΔ))`.
+
+It is PROVED and reviewed (`reviews/pointwise-haar-review.md`). Inside the same file:
+
+* Lemma 1.1 (compatible events);
+* Lemma 1.2 (NA of one-hot vectors ⇒ product bound);
+* Lemma 1.3 (lopsided LLL + inflation bound).
+
+**Closest known results.**
+
+| Prior work | What it gives | Relation |
+|---|---|---|
+| Janson (1990); Janson–Łuczak–Ruciński; the Boppana–Spencer proof (Alon–Spencer, *The Probabilistic Method*, Ch. 8) [memory] | For up-sets `B_i ⊆ R` of a random subset R: `P(∧B̄_i) ≤ e^{−μ+Δ/2}` and `≤ e^{−μ²/(2Δ)}` in the extended form. Proof: `P(B_i | ∧_{j<i}B̄_j) ≥ P(B_i) − Σ_{j<i, j~i} P(B_i∧B_j)`, via Harris/FKG | **Thm 1.4 is exactly the Boppana–Spencer chain** with the one Harris step replaced by an LLL conditional bound (cost K). The extended-Janson step (random subfamily, `p = μ/(2KΔ)`) is the textbook trick verbatim. |
+| Riordan–Warnke, "The Janson inequalities for general up-sets" (RSA 2015) [memory] | Janson for arbitrary up-sets in a product of independent Bernoullis (not just principal up-sets) | Still monotone/Harris-based. One-hot variables (`P(X=r | X≠r') > P(X=r)`) are *not* covered. This is precisely the gap Thm 1.4 fills, as Remark (ii) says. |
+| Erdős–Spencer, "Lopsided LLL and Latin transversals" (1991) [memory] | Lopsided LLL. The conflict graph is a lopsidependency graph for atomic events in the variable setting (standard: SAT, Latin transversals) | Lemma 1.3, first half: **known** (correctly labelled "standard"). |
+| Haeupler–Saha–Srinivasan, "New constructive aspects of the LLL" (FOCS 2010 / JACM 2011) [memory] | "LLL distribution": `P(A | ∧Ē) ≤ P(A)·Π_{E∈Γ(A)}(1−x_E)^{−1}` | Lemma 1.3's inflation bound: **known**; it should cite HSS. The campaign already cites HSS elsewhere (`novelty-audit-2026-10.md` 1e). |
+| Lu–Székely, "Using the Lovász local lemma in the space of random injections" (EJC 2007) and "A new asymptotic enumeration technique: the LLL" (arXiv 0905.3983, ~2009) [memory, **medium–low confidence about content**] | Lopsided/negative-dependency LLL lower bounds `P(∧Ā) ≥ Π(1−x)`, matched with **upper bounds of Janson type** for enumeration (matchings, permutations, Latin rectangles). As recalled, the upper bound is proved by conditional probabilities along an ordering in a negative-dependency setting | **Closest suspected prior art.** If their upper-bound theorem is stated for a general lopsidependency graph, then Thm 1.4 is essentially a special case or a sibling, transferred from random injections to product spaces. Must-check. Mohr's thesis (USC 2013, Lu's student) [memory] is the second place to look. |
+| Joag-Dev–Proschan (1983) [memory] | Negative association of multinomial/one-hot vectors | Lemma 1.2: **known** (correctly labelled). |
+| Mousset–Noever–Panagiotou–Samotij (Ann. Probab. 2020) [memory] | Cumulant expansion of `−log P(no copy)` beyond Janson | Monotone binomial setting. Not a competitor. |
+
+**What is genuinely new (apparently).**
+* A clean Janson inequality for **atomic events on general product spaces**, with:
+  * conflicts charged only through the LLL factor K;
+  * only compatible pairs entering Δ.
+
+  As a statement this is apparently new (*confidence: low–medium*, mainly because of
+  Lu–Székely / Mohr). The proof technique is **not** new: Boppana–Spencer plus HSS. It
+  should be presented as "a routine combination of the Boppana–Spencer proof with the
+  HSS inflation bound; we found no statement in this form".
+* The **application**: the lower bound `Φ(T) ≫ 𝓛³/log𝓛` for the Haar avoider exponent
+  of the ES system (§2) and the packing barrier Prop 1.5. Both are new (*high*); see item 6.
+
+**Not new.** Lemmas 1.2 and 1.3 (already labelled standard). Lemma 1.1 is an elementary
+observation that underlies the lopsided-LLL treatment of SAT-type conflict graphs
+[memory].
