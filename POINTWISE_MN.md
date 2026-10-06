@@ -230,3 +230,43 @@ would make some `Λ(ℓ) > K` (possible since f is predictable; death is the cas
 
 So for `m ≢ 0 (4)` the 1/4 machinery is reduced to the single probabilistic input ADM_m:
 *a random hard class, revealed prime by prime, never has most of its next digit forbidden*.
+
+## 6. Evidence for ADM_m and why it is plausible (EVIDENCE / Assessment)
+
+*Experiment* (`scripts/mn_greedy.py m T mode seed`). A stronger, simplified variant of the AUP:
+*every* prime `ℓ ≤ T` is quarantined to full depth `e_ℓ = max v_ℓ(M)`, in increasing order, and
+`r mod ℓ^{e_ℓ}` is drawn uniformly from the non-forbidden units at once; f is the forbidden
+fraction, `Λ(ℓ) = 1/(1−f)`. Mode `pref:3` draws the 2- and 3-adic digits uniformly from the hard
+set of the {2,3}-smooth atoms (rejection sampling) — the prefix of §5 with `Q_0` of full depth.
+This fully constructs a class that is Type-II-hard for every `M ≤ T`.
+
+| m | T | mode | runs | deaths | max Λ(ℓ) over all ℓ |
+|---|---|---|---|---|---|
+| 5 | 2·10⁴ | pref:3 | 40 | 0 | 3.97 |
+| 7 | 2·10⁴ | pref:3 | 40 | 0 | 4.23 |
+| 9 | 2·10⁴ | pref:3 | 40 | 0 | 2.25 |
+| 5 | 3·10⁵ | pref:3 | 3 | 0 | 3.33 |
+| 7 | 3·10⁵ | pref:3 | 3 | 0 | 3.20 |
+| 5, 6, 9, 10, 11, 13 | 2·10⁴ | unit (no prefix) | 40 each | 0 | — |
+| 7 | 2·10⁴ | unit (no prefix) | 40 | **2 (at ℓ=3)** | — |
+| 5, 6, 7, 11 | 3·10⁵ | unit1:3 (class 1 at 2, 3) | 3 each | 0 | ≤ 3.29 |
+| 4 | 10⁵ | unit | 1 | 0 | 2 (f = 1/2 at 3, 5, 7: the non-squares) |
+| 4 | 10⁵ | sq | 1 | 0 | 1 (nothing forbidden: Lemma 1.1(d)) |
+
+The largest Λ always occurs at a prime `ℓ ≤ 19`; for `ℓ > 50`, `ℓ·f_ℓ/(log ℓ)³ ≤ 0.55` in every run
+(the max is attained by deterministic prime-power atoms and is seed-independent). So per-prime
+drift is bounded by about 4 and decays like `(log ℓ)³/ℓ`.
+
+*Heuristic.* In increasing order, the atoms completed at ℓ are `M = ℓ^{a+1}M'` with M' composed
+of smaller primes, consistent with r with probability `≈ Λ-drift/φ(M')`; hence
+`E f_ℓ ≈ Σ_{M' (<ℓ)-smooth} τ(A²)/(ℓφ(M')) ≍ (log ℓ)^3/ℓ`, a convergent smooth-number sum that does
+**not grow with T**. In the adaptive OMEGA13 order, completions at a revisited prime involve only
+deep digits (`ℓ^{a+1} ≳ 𝓛³`), whose forbidden fractions are `≪ ℓ^{−a}`.
+
+*Why ADM is not proved here.* (i) Small primes (`ℓ ≤ 40` in the data) have `f` up to 0.84 and the
+outcome depends on the 2-adic/3-adic digits (m=7 deaths), so a constant prefix is needed and its
+effect on later f is a finite but non-explicit computation. (ii) For medium ℓ, a union bound
+needs `Σ_ℓ P(f_ℓ > 1−1/K)` small; first moments do not suffice (`Σ_ℓ (log ℓ)³/ℓ` diverges), and the
+second moment (OMEGA13's pair potential, restricted to atoms completed at ℓ) leads to averages of
+`τ((ℓ^{a+1}M'+1)/m)²` over primes ℓ with smooth M' of unbounded size — a Shiu-type bound in
+progressions to smooth moduli larger than the range of ℓ, which we do not have.
