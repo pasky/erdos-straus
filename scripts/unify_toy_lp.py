@@ -25,8 +25,12 @@ def solve(n, p, k):
     # free variables as x = x+ - x-, both >= 0 (sympy 1.14's `bounds`
     # with (None, None) silently returned wrong optima in our tests)
     AA, cc = A.row_join(-A), mean.row_join(-mean)
-    EG, _ = linprog(cc, -AA, -e0)        # min E G,  G >= F
-    negEB, _ = linprog(-cc, AA, e0)      # max E B,  B <= F
+    EG, xg = linprog(cc, -AA, -e0)        # min E G,  G >= F
+    negEB, xb = linprog(-cc, AA, e0)      # max E B,  B <= F
+    # exact primal certificates: feasibility and objective value
+    xg, xb = Matrix(xg), Matrix(xb)
+    assert all(v >= w for v, w in zip(AA * xg, e0)) and (cc * xg)[0] == EG
+    assert all(v <= w for v, w in zip(AA * xb, e0)) and (cc * xb)[0] == -negEB
     return EG, -negEB
 
 

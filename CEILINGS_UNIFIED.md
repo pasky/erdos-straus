@@ -68,8 +68,10 @@ fundamental lemma. Both lower bounds remain valid.
 
 ## 2. Witness-modulus tail relative to π(x) (goal (b))
 
-**Theorem 2.1 (PROVED given the note (INTERNALLY PROVED, (B)11) and Page's
-theorem in the form of Davenport, *Multiplicative Number Theory*, Ch. 20).**
+**Theorem 2.1 (PROVED given the note (INTERNALLY PROVED, (B)11) and the
+classical prime number theorem in progressions, uniform for
+`q ≤ exp(c₂√log x)`, with the Landau–Page exceptional term ("Page's theorem";
+Davenport, *Multiplicative Number Theory*, Ch. 20)).**
 There are absolute `c, c₁ > 0` such that, uniformly for `x ≥ 3` and
 `3 ≤ T ≤ exp(c₁(log x)^{1/4})`,
 ```
@@ -343,7 +345,9 @@ implies the other in general; what they share is the threshold `k ≍ P`.
 
 ### 4.4 Toy LP (EVIDENCE)
 
-`scripts/unify_toy_lp.py` (exact rational LP, output `data/unify_toy_lp.txt`):
+`scripts/unify_toy_lp.py` (exact rational LP with asserted exact primal certificates; output
+`data/unify_toy_lp.txt`; optimality is the solver's, independently
+re-checked at the threshold cases by exact dual distributions in the self-review):
 `n = 40` i.i.d. bits, mass `P = np`; optimal symmetric order-`k` majorant
 and minorant of `F = 1[no bit]` (symmetrisation loses nothing, KARY Lemma 2.3).
 
