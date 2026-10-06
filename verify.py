@@ -83,7 +83,17 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        Lemma 9.3 thresholds; RSPW LP rows (scipy);
   (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (dual simplex; sympy primal agrees);
   (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake
-       (scipy + mpmath; skipped otherwise).
+       (scipy + mpmath; skipped otherwise);
+  (dn) EXCEPTIONAL_LARGESIEVE4: Lemma 1.1 identity + damped-collision inequality toys, Lemmas 2.1,
+       5.1, Prop 4.1 toys, Lemma 3.2, Cor 5.3 residue counts and named small-height classes;
+  (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels (heights, compatibility H1 H2 >= g/2);
+  (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound and Thm 5.1 (+ sub-bounds) on exact R71 toys,
+       author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1;
+  (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact planted laws; closed-form bound);
+  (dr) POINTWISE_TYPEI2: sign-point checkers to ck <= 10^6 (gcc; skipped otherwise), R69 factoring
+       engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity;
+  (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols for several m (author + R63 + inline), square-
+       consistency counts of §1.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -20377,6 +20387,456 @@ def check_dm():
 
 print("\n== (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake ==")
 check_dm()
+
+
+
+# ---------------------------------------------------------------- (dn)
+# EXCEPTIONAL_LARGESIEVE4.md Lemma 1.1, Lemma 5.1, Lemma 3.2, Cor 5.3 (toy checks EVIDENCE; cf.
+# scripts/largesieve4_checks.py, review_ls4_toy.py, review_ls4_res.py, all imported; they assert
+# internally).  Checked:
+# (1) Lemma 1.1 identity sum_S w_S P_S = E_T R_2(sigma_T) (author, seeds 1-3, two weight modes) and
+#     the damped-collision inequality R_{2+2b} <= E_T R_2(sigma_T) under (A_w) (R62 toy, seeds 0-3,
+#     prime-power coordinates, sigma_B and avoider laws); Lemma 2.1 eta formula; Prop 4.1 and
+#     Lemma 5.1 bounds on the same toys;
+# (2) Lemma 3.2 (v in R(Q) criterion, Q < 400); Cor 5.3 residue counts: #{-r/s mod l} <= (H+1)H
+#     <= z^{1/2} for H = z^{1/4}/2, U(Res_l) <= #proj/l over Z/l^2; the named R(M) classes
+#     -4, -1, -1/4, -d, -4d, -1/(4d) lie in R(M) for M < 4000; Remark (c): -4 in R(15), = 1 mod 5.
+
+def check_dn():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    C = load("largesieve4_checks")
+    T = load("review_ls4_toy")
+    RS = load("review_ls4_res")
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for s in (1, 2, 3):
+            C.main(s)                                     # asserts Lemma 1.1 identity, eta formula
+        for s in range(1, 6):
+            C.check_lemma51(s)                            # asserts Lemma 5.1 bound
+    out = buf.getvalue()
+    assert out.count("[1] w=") == 6 and out.count("[2] eta formula") == 3, "LS4 Lemma 1.1 / 2.1 author checks"
+    l51 = [float(x.split()[0]) for x in out.split("max |hat|/bound = ")[1:]]
+    assert len(l51) == 5 and max(l51) <= 1, ("LS4 Lemma 5.1 author ratios", l51)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for s in range(4):
+            T.main(s)                                     # asserts L1.1, P4.1, L5.1, L2.1
+    out = buf.getvalue()
+    assert out.count("identity ok, inequality ok") == 8, ("LS4 R62 Lemma 1.1 toy", out[-500:])
+    r11 = [float(x.split()[0]) for x in out.split("max R_p'/E_T R2 = ")[1:]]
+    assert len(r11) == 8 and max(r11) <= 1, ("LS4 Lemma 1.1: R_{2+2b} > E_T R_2", r11)
+    assert out.count("[P4.1 ") == 4 and out.count("tilted identity exact") == 4, "LS4 R62 Prop 4.1 / Lemma 2.1"
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        RS.lemma32(400)
+        RS.cor53()                                        # asserts counts and named classes
+    out = buf.getvalue()
+    assert "[3.2] ok on 16226" in out and "[5.3a] ok" in out and "[5.3b] ok" in out, "LS4 Lemma 3.2 / Cor 5.3"
+    nres = 0
+    for z in (16, 81, 256, 1296, 4096, 20736):
+        H = int(round(z ** 0.25)) // 2
+        for ell in (p for p in range(z + 1, z + 120) if all(p % q for q in range(2, int(p ** 0.5) + 1))):
+            P = {(-r * pow(s, -1, ell)) % ell for r in range(H + 1) for s in range(1, H + 1)}
+            assert len(P) <= (H + 1) * H and (H + 1) * H * (H + 1) * H <= z, ("LS4 Cor 5.3 count", z, ell)
+            assert len(P) * len(P) <= ell, ("LS4 Cor 5.3: U(Res_l) <= l^{-1/2}", z, ell)
+            nres += 1
+    print(f"dn Lemma 1.1 identity (6 author cases) and damped inequality (8 R62 toys, max R_p'/E_T R2 = "
+          f"{max(r11):.4f}); Lemma 5.1 (max ratio {max(l51):.3f}), Lemma 2.1, Prop 4.1 toys; Lemma 3.2 (16226 "
+          f"(Q, v)); Cor 5.3 counts (R62 + {nres} inline primes), named classes M < 4000; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dn) EXCEPTIONAL_LARGESIEVE4: Lemma 1.1 damped-collision toys, Lemma 5.1, Cor 5.3 residue counts ==")
+check_dn()
+
+
+
+# ---------------------------------------------------------------- (do)
+# EXCEPTIONAL_LARGESIEVE5.md Lemma 1.2 (rational labels and compatibility; PROVED, elementary; cf.
+# scripts/review_ls5_labels.py, run with GMAX = 600; it asserts internally).  Checked:
+# (1) R67b brute force over all classes of the four types (R(M), (a,D), Case A, selectors) with
+#     modulus <= 600: every label -r/s represents its class with the stated height bound; every
+#     congruent distinct-label pair mod g has H1 H2 >= g/2 (observed min H1 H2/g ~ 1); at most one
+#     label of height < sqrt(g/2) per class mod g;
+# (2) inline, R(M) labels for all M = 3 (4), M < 6000: -4D (D <= A) or -1/(4D') (D' = A^2/D < A)
+#     is = -4D mod M with height <= M + 1.
+
+def check_do():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    buf = io.StringIO()
+    old_argv = sys.argv
+    try:
+        sys.argv = ["review_ls5_labels.py", "600"]
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, "review_ls5_labels.py"), run_name="__main__")
+    finally:
+        sys.argv = old_argv
+    out = buf.getvalue()
+    assert "[i] 6792 classes (G<=600): labels represent classes, heights OK" in out, ("LS5 Lemma 1.2 (i)", out)
+    assert "[iii] at most one low-height label per class mod g: OK" in out, "LS5 Lemma 1.2 (iii)"
+    npairs = int(out.split("[ii] ")[1].split()[0])
+    mq = float(out.split("min H1H2/g = ")[1].split()[0])
+    assert npairs == 1444997 and mq >= 0.5, ("LS5 Lemma 1.2 (ii) compatibility", npairs, mq)
+    nlab = 0
+    for M in range(3, 6000, 4):
+        A = (M + 1) // 4
+        for D in divisors_of_square(A):
+            if D <= A:
+                r, s = 4 * D, 1
+            else:
+                Dp = A * A // D
+                assert Dp < A and (16 * D * Dp) % M == 1, ("LS5 Lemma 1.2: D' < A, 16 D D' = 1", M, D)
+                r, s = 1, 4 * Dp
+            assert gcd(s, M) == 1 and max(r, s) <= M + 1, ("LS5 Lemma 1.2: R(M) label height", M, D)
+            assert (-r * pow(s, -1, M) + 4 * D) % M == 0, ("LS5 Lemma 1.2: R(M) label != class", M, D)
+            nlab += 1
+    print(f"do Lemma 1.2: R67b brute force G <= 600 (6792 classes, {npairs} congruent distinct-label pairs, "
+          f"min H1H2/g = {mq:.4f} >= 1/2, low-height uniqueness ok); {nlab} R(M) labels (M < 6000) exact; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels, heights, compatibility ==")
+check_do()
+
+
+
+# ---------------------------------------------------------------- (dp)
+# EXCEPTIONAL_LARGESIEVE6.md Prop 4.2 (Walsh/XOR-cover soft-pivotal bound), Lemma 4.1, Thm 5.1
+# (single rough prime, fixed fibre) on toys (EVIDENCE; cf. scripts/review_ls6_exact_toy.py (R71,
+# all expectations EXACT), largesieve6_softpivotal_toy.py (author, seeded Monte Carlo),
+# review_ls6_walsh.py; all imported / run, they assert internally).  Checked:
+# (1) R71 exact toy, truncated forbidding delta = 1/2, pool (2,3,5,7) with 8 classes (seed 2) and
+#     pool (2,3,5) with 8 classes (seeds 1-4): for every S with |S| <= 2, max|sigma^| <= pinned
+#     bound (2.1) <= Prop 2.2 and <= Prop 4.2 (4.1); for |S| = 1 also Thm 5.1's bound and its three
+#     sub-bounds (hard, V_dir, per-r tail);
+# (2) author toy, pool (3,5,7,11), 30 classes, 1000 samples (seed 1): exact <= Prop 2.2, Prop 4.2
+#     for |S| <= 3 and Lemma 4.1's first inequality pointwise on every sample/subcube;
+# (3) R71 cube checks of Lemma 4.1 (both inequalities) and Lemma 2.1(b),(c).
+
+def check_dp():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import runpy
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    R = load("review_ls6_exact_toy")
+    recs = R.run(2, (2, 3, 5, 7), 8)                      # asserts (2.1), Prop 2.2, (4.1), Thm 5.1
+    for sd in (1, 2, 3, 4):
+        recs += R.run(sd, (2, 3, 5), 8)
+    assert len(recs) == 10 + 4 * 6, ("LS6 R71 exact toy: wrong number of supports", len(recs))
+    n51 = sum(1 for r in recs if "t51" in r)
+    assert n51 == 4 + 4 * 3, ("LS6 Thm 5.1: singleton count", n51)
+    w42 = max(r["lhs"] / r["p42"] for r in recs)
+    w51 = max(r["lhs"] / r["t51"] for r in recs if "t51" in r)
+    assert w42 <= 1 and w51 <= 1, ("LS6 Prop 4.2 / Thm 5.1 toy ratios", w42, w51)
+    A = load("largesieve6_softpivotal_toy")
+    res, Z = A.run(1, pool=(3, 5, 7, 11), ncls=30, nsamp=1000)     # asserts exact <= P2.2, P4.2; Lemma 4.1
+    a42 = max(ex / b42 for S, ex, bD, b22, b42 in res)
+    assert len(res) == 4 + 6 + 4 and a42 <= 1 and A.CHECKS[0] == 42230, ("LS6 author toy", len(res), a42, A.CHECKS)
+    buf = io.StringIO()
+    old_argv = sys.argv
+    try:
+        sys.argv = ["review_ls6_walsh.py", "1"]
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, "review_ls6_walsh.py"), run_name="__main__")
+    finally:
+        sys.argv = old_argv
+    out = buf.getvalue()
+    assert "Lemma 4.1 ok" in out and "Lemma 2.1 ok" in out, ("LS6 R71 Walsh / cube Leibniz", out)
+    print(f"dp R71 exact toys: {len(recs)} supports, max |sigma^|/Prop 4.2 = {w42:.3f}, {n51} singletons "
+          f"max |sigma^|/Thm 5.1 = {w51:.3f} (sub-bounds ok); author MC toy: max exact/Prop 4.2 = {a42:.3f}, "
+          f"{A.CHECKS[0]} Lemma 4.1 pointwise checks; R71 Lemma 4.1 / 2.1 cube checks; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound, Thm 5.1 single rough prime (toys) ==")
+check_dp()
+
+
+
+# ---------------------------------------------------------------- (dq)
+# POINTWISE_OMEGA17.md Lemma 5.2 (capped planting; PROVED), exact rationals (cf.
+# scripts/review_o17_capped.py, run; it asserts internally).  Checked:
+# (1) R68b: on 192 random instances (n <= 8 bits, k <= 3, rational odds) satisfying
+#     R >= k r* + (k+1)/(s-1), 1 < s <= 2, the planted law nu (built by explicit summation over
+#     (k+1)-sets) has nu(0) = 0, nu >= 0, all <= k marginals equal to P's, |dnu/dP - 1| <= s - 1
+#     (attained: max ratio = 1); equal-odds boundary cases n = 4..8;
+# (2) inline, the Lemma's closed form (nu - P)(1_y)/P(1_y) = (-1)^{|y|+1} e_{k+1-|y|}(r off y)/e_{k+1}(r)
+#     against the bound s - 1, s = 1 + (k+1)/(R - k r*) (when <= 2), on a deterministic grid of
+#     odds vectors (n <= 7, k <= 3).
+
+def check_dq():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        runpy.run_path(os.path.join(sdir, "review_o17_capped.py"), run_name="__main__")
+    out = buf.getvalue()
+    assert "instances satisfying hypothesis: 192" in out, ("OMEGA17 Lemma 5.2: R68b instance count", out)
+    worst = float(out.split("max dev/(s-1): ")[1].split()[0])
+    assert worst <= 1, ("OMEGA17 Lemma 5.2: |dnu/dP - 1| > s - 1", worst)
+    assert out.count("equal odds") == 5, "OMEGA17 Lemma 5.2 boundary cases"
+
+    def esym(vals, m):
+        e = [Fraction(1)] + [Fraction(0)] * m
+        for v in vals:
+            for j in range(m, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[m]
+    ninst = 0
+    tight = Fraction(0)
+    for n in range(2, 8):
+        for k in range(0, min(3, n - 1) + 1):
+            for a in range(1, 7):
+                for b in range(1, 5):
+                    r = [Fraction(a * (i + 1), b * (n + i)) + Fraction(a, b) for i in range(n)]
+                    R, rs = sum(r), max(r)
+                    if R - k * rs <= 0 or Fraction(k + 1) / (R - k * rs) > 1:
+                        continue
+                    s1 = Fraction(k + 1) / (R - k * rs)
+                    ek1 = esym(r, k + 1)
+                    for sz in range(1, k + 2):
+                        for y in combinations(range(n), sz):
+                            rest = [r[i] for i in range(n) if i not in y]
+                            dev = esym(rest, k + 1 - sz) / ek1
+                            assert dev <= s1, ("OMEGA17 Lemma 5.2 closed form exceeds s - 1", n, k, a, b, y)
+                            tight = max(tight, dev / s1)
+                    ninst += 1
+    assert ninst > 100, ("OMEGA17 Lemma 5.2 inline grid too small", ninst)
+    print(f"dq Lemma 5.2: R68b exact planted laws (192 instances, marginals/positivity/nu(0) = 0, max dev/(s-1) = "
+          f"{worst:.3f}); closed-form bound on {ninst} inline odds vectors (max dev/(s-1) = {float(tight):.3f}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact) ==")
+check_dq()
+
+
+
+# ---------------------------------------------------------------- (dr)
+# POINTWISE_TYPEI2.md §3-4: sign point x^_w = (w at 2; -1 at r; 1 elsewhere), w = 9 (16).  Cf.
+# scripts/typei2_signcheck.c (author) and review_ti2_check.c (R69), compiled with gcc/cc if present
+# (skipped otherwise), and review_ti2_defn.py (R69 factoring engine, from the definition).  Checked:
+# (1) [C] Computation 3.2 to ck <= 10^6: both checkers, r = 7, w = 9: 1533438 unforced slices,
+#     0 certificates; author checker also w = -7, 25, 41 and r = 23, 31, 47 (0 certificates); both
+#     find the expected certificates (14,2,15) at w = 1, (33,2,23) at r = 11, (95,2,39) at r = 19;
+# (2) R69 factoring engine over ALL slices ck <= 2000: 0 certificates at r = 7, w = 9; exactly
+#     (14, 2, 15) at w = 1;
+# (3) Lemma 3.1 (square families) directly: for every odd F <= 20001 and every (c, k) with
+#     F^2 = 1 + 4ck^2, v_r(c) odd (r = 7, 23, 31, 47), F is not = -x^_w (mod 4ck) for any w = 9 (16);
+#     the 2-adic inputs v_2(1 + r^s) >= 3 (= 3 for r = 7) and -1 - 2 r^s = 1 (16) for odd s < 60 and
+#     primes r = 7 (8), r < 2000 (Prop 4.1(ii));
+# (4) Prop 4.1(i): for every prime r = 3 (8), r < 20000, (c,k,F) = (r(r+1)/4, 2, 2r+1) is an unforced
+#     certificate at every x^_w (w = 1 (8)): 1 + 4ck^2 = F^2, v_r(c) = 1, F = 1 (r), F = -1 ((r+1)/4),
+#     v_2(4ck) = 3, -F = 1 (8).
+
+def check_dr():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C checkers skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = {}
+            for name in ("typei2_signcheck", "review_ti2_check"):
+                exe[name] = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c"), "-lm"],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI2: compile failed", name, r.stderr[-1000:])
+
+            def run(name, *args):
+                r = subprocess.run([exe[name], *map(str, args)], capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI2 checker failed", name, args, r.stderr[-500:])
+                return r.stdout
+            o = run("typei2_signcheck", 7, 9, 10 ** 6)
+            assert "unforced slices 1533438," in o and o.rstrip().endswith("certificates 0"), ("TYPEI2 C3.2 author", o)
+            o = run("review_ti2_check", 7, 9, 10 ** 6)
+            assert "slices=1533438 certs=0" in o, ("TYPEI2 C3.2 R69 checker", o)
+            for r_, w_ in ((7, -7), (7, 25), (7, 41), (23, 9), (31, 9), (47, 9)):
+                o = run("typei2_signcheck", r_, w_, 10 ** 6)
+                assert o.rstrip().endswith("certificates 0"), ("TYPEI2 sign point certificate found", r_, w_, o)
+            for r_, w_, cert in ((7, 1, "c=14 k=2 F=15"), (11, 9, "c=33 k=2 F=23"), (19, 9, "c=95 k=2 F=39")):
+                for name in ("typei2_signcheck", "review_ti2_check"):
+                    o = run(name, r_, w_, 1000)
+                    assert cert in o, ("TYPEI2 checker misses expected certificate", name, r_, w_, cert)
+        cmsg = ("C3.2 to ck <= 10^6: 1533438 slices, 0 certificates (author + R69 checkers; also w = -7, 25, 41 and "
+                "r = 23, 31, 47), expected certificates found at w = 1, r = 11, 19")
+    outs = {}
+    old_argv = sys.argv
+    try:
+        for w_ in (9, 1):
+            sys.argv = ["review_ti2_defn.py", "7", str(w_), "2000"]
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                runpy.run_path(os.path.join(sdir, "review_ti2_defn.py"), run_name="__main__")
+            outs[w_] = buf.getvalue()
+    finally:
+        sys.argv = old_argv
+    assert "all_certs=0 " in outs[9], ("TYPEI2 R69 definition engine: certificate at x^_9", outs[9])
+    assert "all_certs=1 " in outs[1] and "ck=28 c=14 k=2 F=15" in outs[1], ("TYPEI2 R69 engine at w = 1", outs[1])
+
+    def v(p, n):
+        e = 0
+        while n % p == 0:
+            n //= p
+            e += 1
+        return e, n
+    nsq = 0
+    for r_ in (7, 23, 31, 47):
+        for F in range(3, 20002, 2):
+            M = (F * F - 1) // 4
+            fac = factorint(M)
+            ks = [1]
+            for q, e in fac.items():
+                ks = [kk * q ** i for kk in ks for i in range(e // 2 + 1)]
+            for k in ks:
+                c = M // (k * k)
+                if v(r_, c)[0] % 2 == 0:
+                    continue
+                h = 4 * c * k
+                e2, rest = v(2, h)
+                er, odd = v(r_, rest)
+                ok_odd = (F + 1) % odd == 0 and (F - 1) % (r_ ** er) == 0
+                # need -F = w (mod 2^e2) for some w = 9 (16): -F = 9 mod 2^min(e2, 4)
+                ok_2 = (-F - 9) % (2 ** min(e2, 4)) == 0
+                assert not (ok_odd and ok_2), ("TYPEI2 Lemma 3.1: square certificate at sign point", r_, F, c, k)
+                nsq += 1
+    n2a = 0
+    for r_ in primerange(7, 2000):
+        if r_ % 8 != 7:
+            continue
+        for s in range(1, 60, 2):
+            e2 = v(2, 1 + r_ ** s)[0]
+            assert e2 >= 3 and (r_ != 7 or e2 == 3) and (-1 - 2 * r_ ** s) % 16 == 1, ("TYPEI2 Lemma 3.1 2-adic", r_, s)
+            n2a += 1
+    n41 = 0
+    for r_ in primerange(3, 20000):
+        if r_ % 8 != 3:
+            continue
+        c, k, F = r_ * (r_ + 1) // 4, 2, 2 * r_ + 1
+        u = (r_ + 1) // 4
+        assert 1 + 4 * c * k * k == F * F and v(r_, c)[0] == 1 and u % 2 == 1 and gcd(u, r_) == 1, \
+            ("TYPEI2 Prop 4.1(i): identity / unforced", r_)
+        assert F % r_ == 1 and (F + 1) % u == 0 and v(2, 4 * c * k)[0] == 3 and (-F) % 8 == 1, \
+            ("TYPEI2 Prop 4.1(i): congruences", r_)
+        n41 += 1
+    print(f"dr {cmsg}; R69 definition engine ck <= 2000: none at w = 9, (14,2,15) at w = 1; Lemma 3.1: "
+          f"{nsq} square (F, c, k) with v_r(c) odd excluded (F <= 20001, r = 7, 23, 31, 47), {n2a} 2-adic "
+          f"facts; Prop 4.1(i) identity for {n41} primes r = 3 (8) < 20000; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dr) POINTWISE_TYPEI2: sign-point checkers (ck <= 10^6), Lemma 3.1, Prop 4.1 (r = 3 (8)) ==")
+check_dr()
+
+
+
+# ---------------------------------------------------------------- (ds)
+# POINTWISE_MN.md Lemma 1.1 (Jacobi symbols of the m/n Type II event classes -mD mod M, M = mA - 1,
+# D | A^2; PROVED, brute-forced) and its square-consistency consequence.  Cf. scripts/mn_jacobi.py
+# (author) and review_mn_jacobi.py (R63), both run as subprocesses.  Checked:
+# (1) author: formula (a)-(c) on every odd-M atom, M <= 5*10^4, m = 4, 5, 6, 7, 10 (0 failures; atom
+#     counts 473842 / 284878 odd-M for m = 4 / 5); square-consistent atoms: none for m = 4, and
+#     68642/363982 (m=5), 56964/293117 (m=6), 38355/244129 (m=7), 29704/159390 (m=10) as in §1;
+# (2) R63: (a), (b), (c) for m = 4..12, 14, 18, M <= 3000; only symbol -1 for m = 4, 8, 12 ((d));
+# (3) inline (sympy jacobi_symbol): (d) for m = 4, 8, 12, 16, 20, M <= 6000; M = 7 (8) always gives -1;
+#     the smallest square-consistent examples (9,1), (29,1) at m = 5, (5,1) at m = 6, (13,2) at m = 7.
+
+def check_ds():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("mn_jacobi.py", 50000, 4, 5, 6, 7, 10)
+    assert o.count("failures=0") == 5 and "failures=" in o, ("MN Lemma 1.1 author formula failures", o[-800:])
+    for m, at, sq in ((4, 473842, 0), (5, 363982, 68642), (6, 293117, 56964), (7, 244129, 38355), (10, 159390, 29704)):
+        assert f"m={m} T=50000 atoms={at} square-consistent={sq} " in o, ("MN §1 square-consistency counts", m)
+    assert "checked on 473842 odd-M atoms" in o and "checked on 284878 odd-M atoms" in o, "MN Lemma 1.1 atom counts"
+    ms = (4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 18)
+    o = run("review_mn_jacobi.py", 3000, *ms)
+    lines = [ln for ln in o.splitlines() if " atoms " in ln]
+    assert len(lines) == len(ms), ("MN R63 output", o)
+    for ln in lines:
+        f = ln.split()
+        m, fail = int(f[0]), int(f[4])
+        assert fail == 0, ("MN Lemma 1.1 R63 failure", ln)
+        if m % 4 == 0:
+            assert "symbols [-1] " in ln, ("MN Lemma 1.1(d): +1 symbol for m = 0 (4)", ln)
+    nd = n7 = 0
+    for m in (4, 5, 6, 7, 8, 9, 10, 12, 16, 20):
+        for A in range(1, 6000 // m + 1):
+            M = m * A - 1
+            if M < 3 or M % 2 == 0:
+                continue
+            for D in divisors_of_square(A):
+                J = jacobi_symbol((-m * D) % M, M)
+                if m % 4 == 0:
+                    assert J == -1, ("MN Lemma 1.1(d)", m, M, D)
+                    nd += 1
+                if M % 8 == 7:
+                    assert J == -1, ("MN Lemma 1.1(b): M = 7 (8)", m, M, D)
+                    n7 += 1
+    for m, M, D, root in ((5, 9, 1, 2), (5, 29, 1, 13), (6, 5, 1, 2), (7, 13, 2, 5)):
+        assert (M + 1) % m == 0 and ((M + 1) // m) ** 2 % D == 0, ("MN example not an atom", m, M, D)
+        assert (root * root - (-m * D)) % M == 0, ("MN square-consistent example", m, M, D, root)
+    print(f"ds Lemma 1.1: author formula on all odd-M atoms M <= 5*10^4 (m = 4,5,6,7,10; 0 failures), "
+          f"square-consistent counts as stated; R63 for {len(ms)} m (M <= 3000); inline (d) on {nd} atoms, "
+          f"M = 7 (8) on {n7}; 4 smallest examples; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols of -mD mod M for several m ==")
+check_ds()
 
 
 print("\nall checks passed")

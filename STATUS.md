@@ -166,6 +166,13 @@ moduli are `≤ exp((log p)^{1/4−ε})` can prove ES. The heuristic truth is `l
   EXCEPTIONAL_LARGESIEVE3 (Thm 1.1 toys, Thm 3.1, Lemma 4.1, Lemma 4.2), EXCEPTIONAL_SPW2 (Lemmas
   2.2, 2.3 sharp; RSPW LP rows), CEILINGS_UNIFIED §4.4 (exact toy LP thresholds) and POINTWISE_WINDOW3
   (certified one-window LP 0.4893; 50-digit verified K = 2.5 fake; needs scipy + mpmath).
+* `verify.py` blocks (dn)–(ds) (O75, ~33 s; full run ≈ 4.9 min, 2 threads) add EXCEPTIONAL_LARGESIEVE4
+  (Lemma 1.1 identity + damped-collision inequality toys; Lemmas 2.1, 3.2, 5.1, Prop 4.1 toys; Cor 5.3
+  residue counts), EXCEPTIONAL_LARGESIEVE5 (Lemma 1.2 label heights/compatibility, G ≤ 600),
+  EXCEPTIONAL_LARGESIEVE6 (Prop 4.2 and Thm 5.1 on exact R71 toys; author MC toy), POINTWISE_OMEGA17
+  (Lemma 5.2 exact), POINTWISE_TYPEI2 (sign-point checkers to ck ≤ 10⁶, author + R69, needs gcc/cc;
+  Lemma 3.1 square families; Prop 4.1(i) r ≡ 3 (8) identity) and POINTWISE_MN (Lemma 1.1 Jacobi
+  symbols for several m; §1 square-consistency counts).
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
