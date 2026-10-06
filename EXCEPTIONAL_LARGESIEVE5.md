@@ -223,18 +223,22 @@ compatibility the shared primes of a pair of labels are among the
 first**, and the witness weight of a label is not uniform in the modulus
 (see (S) below).
 
-**Corollary 4.2 (product model, tiny supports; PROVED modulo the Mass
-bound above).** If `|S| ≤ c₀ log log N` (`c₀` small absolute) and
-`log X ≤ z^{γ/8}`, then in the product model
-`P(E_S) ≤ Π_{ℓ∈S} K ℓ^{−γ}` with `K = z^{γ/2}` for `N ≥ N₀(γ)`.
+**Corollary 4.2 (product model, tiny supports; SKETCH — not claimed
+proved).** If `|S| ≤ c₀ log log N` (`c₀ < 1/5`) and `log X ≤ (log N)^A`,
+then in the product model `P(E_S) ≤ Π_{ℓ∈S} K ℓ^{−γ}`, `K = z^{γ/2}`,
+`N ≥ N₀(γ,A)`.
 
-*Proof.* Lemma 3.1; Bell(|S|) partitions; per block the label sum is
-`≤ Σ_{Q ⊆ S}Mass(Q·e) ≤ 2^{|S|}(C(log X)³ + M_S^{o(1)})` for each fixed
-set e of shared outside primes; (C3) without compatibility costs
-`(C log X/log z)^{2^{|S|}}`. Altogether
-`P(E_S) ≤ Π_{ℓ∈S}ℓ^{−1}·|S|^{|S|}·(2^{|S|}C(log X)³)^{|S|}·M_S^{o(1)}
-·(C log X)^{2^{|S|}}`, and with `2^{|S|} ≤ (log N)^{c₀}` every factor is
-`≤ z^{γ/4}` per S-prime once N is large (`ℓ > z`). ∎
+*Sketch.* Lemma 3.1; `Bell(|S|) ≤ |S|^{|S|}` partitions; per block the
+label sum over `Q_j ⊆ S` is `≤ 2^{|S|}·Mass(Q_j e_j)`, e_j the product of
+the outside primes block j shares; (C3) without compatibility is a sum
+over sharing patterns with weight `Π_p p^{−1}`. If `Mass(Q e)` were
+`≤ C(log X)³` uniformly, everything is `≤ Π_ℓ ℓ^{−1}·
+[|S|·2^{|S|}C(log X)³]^{|S|}(C log X)^{2^{|S|}}`, which is within the slack.
+**Gap:** `Mass(Qe) ≥ τ(A²_{Qe})` (the m = 1 term) is not uniformly
+polylogarithmic; one needs `k`-th moments (`k ≤ |S|`) of `τ(A²_{Qe})`
+averaged over the shared prime sets e with weights `1/e` (a
+Titchmarsh-divisor / Shiu moment over shifted products of primes),
+which should give `(log X)^{3^k}` but is not written. ∎(sketch)
 
 This is far from what (A*) needs (`|S|` up to `(log N)^{3/4}`), and it is
 stated only to calibrate: **the whole difficulty of (CC) is (C2) and (C3)
