@@ -192,8 +192,9 @@ uses only primes in `(√T/2,√T]`, so product sets with extra conditions at pr
 larger parameter) do not escape Cor 4.2(b). The π-form bound `xQ log x` is weaker than needed but
 valid.
 
-**m6 (MINOR).** §1 Thm 1.2 Remark (b): "`log x≍log(1/δ)≍κ·log log T`" with `κ≍𝓛³/log𝓛` gives
-`𝓛³ log𝓛/log𝓛`… i.e. `log(1/δ)≍𝓛³` only up to the `(log𝓛)^{O(1)}` of Thm 3.4; add "up to log factors".
+**m6 (MINOR).** §1 Thm 1.2 Remark (b): "`log x≍log(1/δ)≍κ·log log T`" with `κ≍𝓛³/log𝓛` means
+`log(1/δ)≍𝓛³`, which is known only up to `(log𝓛)^{O(1)}` (HAAR Thm 2.1 lower, O13 Thm 3.4 upper);
+add "up to log factors (exact under HAAR Conj 3.1)".
 
 ## Labels
 All labels honest except the GRH wording (M1). Thm 1.2 "PROVED implication modulo NT" — correct.
