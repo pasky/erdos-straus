@@ -2356,6 +2356,168 @@ for the obstruction (as $F\le\mathbf 1[\text{no event of }\mathcal F]$), while t
 minorant of Theorem~\ref{thm:assembly} is built differently.
 \end{remark}
 
+\section{Beyond bounded level: a Wiener-norm barrier for linear certificates}\label{sec:wiener}
+
+Theorem~\ref{thm:ceiling} concerns minorants of bounded level.  Here we show
+that the planted law behind it is exponentially pseudorandom against
+residue classes and characters of \emph{every} modulus, and deduce that a
+large class of linear certificates, whatever the prime input, cannot
+beat the exponent $1/4$.  The results are from the working note \cite{O15}
+(internally reviewed); we give the two short key proofs and state the rest
+with pointers.
+
+\emph{Setting.}  Fix $Q$ with $\log Q\le T^{0.05}$, a unit $r$, the fibre
+$H=\{n\equiv r\ (Q)\}$ with Haar probability $\PP=\PP_H$, and $F=\mathbf 1[W>T]$.  In this
+section the big coordinate $X_\ell$ ($\ell>T^{0.6}$ prime, $\ell\nmid Q$) is the whole
+$\ell$-adic component of $n$ (modulo a power of $\ell$ large enough for all
+functions considered); the events of $\mathcal F^*$ read it only modulo $\ell$, so the
+quantities $p_\ell(x)$ and the bound $R(x)\ge\mu^*$ of the proof of
+Theorem~\ref{thm:ceiling} are unchanged, with $p^*\le T^{-1/2}$.  Put $k+1=\lfloor\mu^*/2\rfloor$;
+then $R(x)\ge(k+1)+(2k+1)r^*$ for every small configuration $x$.  Let $\nu$ be the
+planted law of the proof of Lemma~\ref{lem:barrier} for $\mathcal F^*$ and this $k$,
+and $\rho=\nu-\PP$.  Then $F=0$ $\nu$-almost surely.
+
+A \emph{reduced product} is a function $h=h_s(x_s)\prod_{b\in I}h_b(X_b)$, $I$ a finite
+set of big coordinates, with $|h_s|,|h_b|\le1$ and $|\E h_b|\le1/4$ for $b\in I$.
+Restricted to $H$, the indicator of a residue class, a Dirichlet character
+and an additive character $n\mapsto e(an/q)$ of any modulus are reduced products
+(up to a unimodular constant): the local factor at a big $b\mid q$ is a class
+indicator of mean $\le1/(b-1)$, a non-trivial character of mean $0$, or a
+non-trivial additive character of mean $c_{b^v}(a')/\varphi(b^v)$, of modulus
+$\le1/(b-1)$; trivial factors are dropped from $I$.
+
+\begin{lemma}[Pseudorandomness of the planted law; proved]\label{lem:pseudo}
+For every reduced product $h$, $|\E_\rho h|\le(4r^*)^{k+1}$, and $\E_\rho h=0$ if $|I|\le k$.
+\end{lemma}
+
+\begin{proof}
+Fix $x_s$ and use the notation of Lemma~\ref{lem:planting} for the bits
+$\mathbf 1[X_b\in\Omega_b(x_s)]$.  Given the bits the big coordinates are independent;
+put $\beta_b=\E[h_b\mid X_b\in\Omega_b]$ and $\gamma_b=\E[h_b\mid X_b\notin\Omega_b]$ ($\beta_b=\gamma_b=1$ for
+$b\notin I$).  The conditional perturbation is $P_0\sum_{|J|=k+1}w_J\sigma_J$, and
+\begin{align*}
+ \E_{\sigma_J}\Big[\prod_{b\in I}h_b\Big]&=\sum_{y\subseteq J}(-1)^{|y|+1}\prod_{b\in y}\beta_b\prod_{b\in J\setminus y}\gamma_b\prod_{b\in I\setminus J}\gamma_b\\
+ &=-\prod_{b\in J}(\gamma_b-\beta_b)\prod_{b\in I\setminus J}\gamma_b .
+\end{align*}
+For $b\in J\setminus I$ the factor $\gamma_b-\beta_b$ vanishes, so only $J\subseteq I$
+contribute; none if $|I|\le k$.  Now $|\gamma_b-\beta_b|\le2$, and
+$\E h_b=(1-p_b)\gamma_b+p_b\beta_b$ gives $|\gamma_b|\le(1/4+p_b)/(1-p_b)<1/2$.  Next
+$w_J\le r^{*\,k+1}/e_{k+1}(r)$, and $e_{k+1}(r)\ge1$: the chain in the proof of
+Lemma~\ref{lem:planting} with $s=r$ gives $a\,e_a(r)\ge(k+1)e_{a-1}(r)$ for $a\le k+1$.  With
+$m=|I|$, $\sum_{J\subseteq I,|J|=k+1}\prod_{b\in I\setminus J}|\gamma_b|\le\binom m{k+1}2^{-(m-k-1)}\le2^{k+1}$.  As
+$P_0\le1$ and $|h_s|\le1$, the conditional bound is $r^{*\,k+1}2^{k+1}2^{k+1}$; average over
+$x_s$.
+\end{proof}
+
+\begin{theorem}[Wiener-norm barrier; proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:wiener}
+There are absolute $c,T_0>0$ such that for $T\ge T_0$, every $Q$ with
+$\log Q\le T^{0.05}$ and every unit $r$: if $B\le F$ on $H$ and $B=\sum_ic_ih_i$ is
+any finite combination of reduced products, then
+\[
+ \E_HB\ \le\ \eta\sum_i|c_i|,\qquad \eta=\exp\big(-c\Lc^4/\log\Lc\big).
+\]
+Only the $h_i$ involving at least $k+1\asymp\Lc^3/\log\Lc$ big primes, hence of modulus
+$>T^{0.6(k+1)}$, contribute.
+\end{theorem}
+
+\begin{proof}
+$\E_HB=\E_\nu B-\E_\rho B\le\E_\nu F-\E_\rho B=-\E_\rho B\le\sum_i|c_i|(4r^*)^{k+1}$ by
+Lemma~\ref{lem:pseudo}, and $(4r^*)^{k+1}\le(8T^{-1/2})^{\mu^*/2-1}\le\exp(-c\Lc\mu^*)$.
+\end{proof}
+
+In particular $\|F\|_\times\ge\E_HF/\eta$ for the $\ell^1$ norm $\|\cdot\|_\times$ over such
+representations: the avoidance indicator costs $e^{c\Lc^4/\log\Lc}$ times its
+mean.  Theorem~\ref{thm:ceiling} is the case $|I|\le k$.  (With the atoms of
+\S\ref{sec:atoms34} in place of $\mathcal F^*$, the same argument gives
+$\eta=e^{-c\Lc^4}$ modulo \cite{TQ}; we do not use this.)
+
+\emph{Linear certificates} \cite[Def.~2.1]{O15}.  Let $\mathfrak h$ be a family of
+reduced products on $H$ with moduli in a finite set, $N_x$ the number of
+primes $p\le x$ in $H$ coprime to these moduli, and $m_x$ their counting
+measure.  A nonnegative measure $m$ on $H$ of mass $N_x$ is
+\emph{$\mathfrak h$-consistent at accuracy $\mathfrak E$} if $|\int h\,dm-N_x\E_Hh|\le\mathfrak E$ for all $h\in\mathfrak h$.  A
+\emph{linear certificate} concludes ``$\int F\,dm_x>0$'' from the facts that $m_x$ is
+nonnegative of mass $N_x$ and $\mathfrak h$-consistent at accuracy $\mathfrak E$, and from
+nothing else (in particular not from its atomicity, integrality or
+support); it is valid iff every consistent $m$ has $\int F\,dm>0$.  Every
+minorant transfer is one: from $B=\sum c_ih_i\le F$ it concludes
+$\sum_pF(p)\ge N_x\E_HB-\mathfrak E\sum|c_i|$.  By Lemma~\ref{lem:pseudo} the diffuse measure
+$N_x\nu$ is consistent at every accuracy $\mathfrak E\ge N_x(4r^*)^{k+1}$, for every family
+$\mathfrak h$, and has $\int F\,d(N_x\nu)=0$; so valid linear certificates need
+$\mathfrak E<N_x\eta$ \cite[Thm.~2.2]{O15}.  On the other hand, for a modulus $q>x$ no
+bound that is uniform over a translation orbit can be small: if $\mathfrak h$
+contains all classes in the fibre modulo $q$, then $\mathfrak E\ge1/2$; if it contains all
+Dirichlet characters (or all additive characters) modulo $q$, then
+$\mathfrak E^2\ge N_x/2$ (\cite[Lemma~2.3]{O15}, by orthogonality, as soon as $N_x$ is at most half
+the number of units of the fibre modulo $q$).
+
+\begin{corollary}[Full-orbit uniform linear certificates are capped at $1/4$; proved implication, same inputs]\label{cor:orbit}
+Let a linear certificate use a family $\mathfrak h$ of residue classes, Dirichlet
+characters or additive characters which contains, with each member of
+modulus $>x$, its whole translation orbit, with one error bound per orbit.
+If it certifies a prime $p\le x$ in $H$ with $W(p)>T$, then
+$\log x\gg\Lc^4/\log\Lc$.  Hence no such certificate, whatever true prime input
+it uses (Bombieri--Vinogradov, Elliott--Halberstam, GRH for the characters
+it uses, Siegel-zero main terms as below), gives $W(p)\ge\exp((\log p)^{1/4+\delta})$.
+\end{corollary}
+
+The proof \cite[Cor.~2.4]{O15} splits $B$ into members with at most $k$ big
+primes, on which $\E_\rho=0$, and deep members, whose moduli exceed $x^2$ if
+$\log x\le c\Lc^4/\log\Lc$; each deep orbit costs at least $1/2$ (classes) or
+$\sqrt{N_x/2}$ (characters), while by Theorem~\ref{thm:wiener} it contributes at most
+$\eta$ per unit of coefficient to the mean, so positivity needs $N_x\eta>1/2$.
+One-sided accounting (dropping deep classes with positive coefficients)
+and Hölder-averaged accounting over an orbit do not help
+\cite[Cor.~2.4 and Prop.~2.5]{O15}.  \emph{Siegel zeros} \cite[Thm.~3.1]{O15}: for
+any real character $\chi_1$ and $\epsilon\in[0,1]$, the reweighted fake $(1-\epsilon\chi_1)\nu$
+is nonnegative, has $F=0$ almost surely, and agrees with the Siegel-model
+law $(1-\epsilon\chi_1)\PP$ to within $2(4r^*)^{k+1}$ on every class, Dirichlet character
+and additive character; and if $B$ has level $\le T^{0.6(k-s)}$, $s$ the number of
+big primes dividing the conductor of $\chi_1$, then $\E_{(1-\epsilon\chi_1)\PP}B\le0$ exactly.
+So an exceptional term in the prime law does not rescue a minorant
+transfer of this kind.
+
+\begin{proposition}[Equidistribution hypotheses cap at $1/4$; proved implication, same inputs]\label{prop:EH}
+Let $\mathcal I$ be any set of Haar-centred error bounds for the primes $p\le x$ in
+$H$ in residue classes, Dirichlet characters or additive characters of
+moduli $q\le x$, individually or on average over $q$, with error bounds
+$\ge2\log x$ per statement (for example Bombieri--Vinogradov, the
+Elliott--Halberstam conjecture at any level $\theta<1$, GRH restricted to
+moduli $\le x$).  A linear certificate using $\mathcal I$ that produces a prime $p\le x$
+in $H$ with $W(p)>T$ needs $\log x\ge c\Lc^4/\log\Lc$.
+\end{proposition}
+
+\begin{proof}
+Let $\log x<0.6\Lc(k+1)$.  A modulus $q\le x$ has at most $k$ big prime
+factors, so every function in $\mathcal I$ restricted to $H$ involves at most $k$
+big coordinates, and $\E_\nu=\E_H$ on it (Lemma~\ref{lem:pseudo}).  So $m=N_x\nu$ takes
+exactly the values $N_x\E_H(\cdot)$, which differ from the centring $N_{x,q}\E_H(\cdot)$ by
+at most $N_x-N_{x,q}\le\omega(q)\le2\log x$ ($N_{x,q}$ counts the primes coprime to $q$).
+For averaged statements the extra error $\sum_{q\le x^\theta}2\log x$ is below
+the allowed $x(\log x)^{-A}$.  Thus $m$ satisfies $\mathcal I$, and $\int F\,dm=0$.
+\end{proof}
+
+Raising the level of distribution only changes $c$: beyond level $x$ the
+primes are not equidistributed in the orbit-uniform sense above.  Full
+GRH is \emph{not} covered by Proposition~\ref{prop:EH}: it also asserts
+$|\sum_{p\le x}\chi(p)|\ll\sqrt x\log^2(qx)$ for moduli $q>x$, and whether the planted
+measure satisfies these bounds is open; Corollary~\ref{cor:orbit} covers
+such characters only when they are used orbit-uniformly.
+
+\emph{Scope} \cite[\S6]{O15}.  Not covered: certificates that use the
+atomicity, integrality or support of the prime measure (for instance that
+classes modulo $q>x$ whose least positive member exceeds $x$ are empty, i.e.
+minorants valid only on $[1,x]$ or only on primes; single moduli
+$\le x^{1/5}/(QT)$ are excluded in \cite[Prop.~5.2]{O15}); non-periodic families inside
+the avoiding set; non-linear arguments (pair correlations, density
+increments); and whether Type~II information can help.  On the integer
+side, the Type~I sums produced by Vaughan- or Heath-Brown-type identities
+are blocked only under full-orbit uniform accounting
+\cite[Prop.~4.1]{O15}, which is not the natural accounting for integers.  Our
+reading (Assessment) is that $1/4$ is a sieve-\emph{dimension} barrier
+(dimension $\kappa\asymp\Lc^3/\log\Lc$, sifting limit $\beta_\kappa\asymp\kappa$, $\log z\asymp\Lc$), not a
+parity barrier.
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
@@ -2487,6 +2649,12 @@ evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
 functions, Acta Math.\ 180 (1998), 119--144.
 \bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
 Press, 2014.
+\bibitem{O15} Anonymous, Beyond low-conductor minorants? A Wiener-norm barrier
+at $\mathcal L^4$, working note (file \texttt{POINTWISE\_OMEGA15.md} of the
+project repository), 2026, internally reviewed.
+\bibitem{O16} Anonymous, Which standard-type hypothesis gives the exponent
+$1/3$?, working note (file \texttt{POINTWISE\_OMEGA16.md} of the project
+repository), 2026, internally reviewed.
 \bibitem{Oblath} R.~Obl\'ath, Sur l'\'equation diophantienne
 $4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
 \bibitem{PW} C.~Pomerance and A.~Weingartner, Exceptions to the
