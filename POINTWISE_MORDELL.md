@@ -161,8 +161,10 @@ neighbourhood of `x*`, i.e. a reduced residue class `p≡1 (mod Q)`, `p≡2 (mod
 coprime to 143, which contains infinitely many primes (Dirichlet), all Mordell-hard with
 `(p/13)=−1`.
 
-**Conjecture 4.2.** `x*` is sterile: it lies in no ET Prop 1.9 class. Equivalently (ET Prop 1.9
-completeness + compactness) no finite set of polynomial ES identities covers all sufficiently
+**Conjecture 4.2.** `x*` is sterile: it lies in no ET Prop 1.9 class. In particular (R80 repair,
+applied by reviewer; this is an implication, not an equivalence, since another point of `Σ_13` (main) could be
+sterile even if `x*` is not; the argument is Dirichlet near `x*`, then ET Prop 1.9's converse on
+the identity's primitive class containing `x*`, then compactness + Dirichlet again) no finite set of polynomial ES identities covers all sufficiently
 large Mordell-hard primes with `(p/13)=(p/11)=−1`; Theorem 3.1(b) cannot be improved to zero
 exceptions.
 

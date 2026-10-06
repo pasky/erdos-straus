@@ -30,7 +30,9 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
      dividing `11³·13³`. Hence every finite covering of `Σ_13` (main) needs a class of modulus
      `>10⁶` (PROVED from 4.1 by compactness + Dirichlet).
    * **Conjecture 4.2:** `x*` is sterile, so no finite set of polynomial ES identities covers the
-     Mordell-hard primes with `(p/11)=(p/13)=−1` (ET Prop 1.9 completeness + compactness).
+     Mordell-hard primes with `(p/11)=(p/13)=−1` (ET Prop 1.9 completeness + compactness). This is
+     an implication only (R80 repair, applied by reviewer): with no finite covering, some *other*
+     point could be the sterile one.
    * np (`(p/11)=+1`): no structured obstruction found (T-generic for |T|≤3, c-generic and
      c²-generic points all covered); the best-first tree search (Mmax=10⁷, primes ≤100) has open
      Haar mass 5.5·10⁻⁷ of `Σ_13^{np}` after 16800 nodes, still decreasing slowly. Undecided.
