@@ -211,6 +211,12 @@ the claim holds. If `F>1`, put `ρ=k−δF`. From `F²+4ckδF=1+4ck²` we get
 `F'F=F²−4cρδF=1+4ckρ−4cρδF=1+4cρ²>0`, so `F'≥1`, and `F−F'=4cρδ`. By induction
 (applied to `(c,ρ,δ,F',F)`), `F≡F'≡1 (mod 4cδ)`, and `e=F+4ckδ≡F`. ∎
 
+*General form (R72 repair D5, applied by reviewer).* The proof never uses `4|4c`: for any integer `B≥1`, if
+`Fe=1+BK²` and `e−F=BKδ` with `K,δ,F,e≥1`, then `F≡e≡1 (mod Bδ)`, and `(F,e)` lies on the chain
+`F_{i+1}=F_i+BK_iδ`, `K_{i+1}=F_{i+1}δ+K_i` from `(K_0,F_0)=(δ,1)` (replace `4c` by `B` throughout). This
+general form, with `B=4c̃=2^{6−α−2γ}c_o` (odd at level 6), is what Props 5.3–5.5 use. Brute force (review R72,
+`scripts/review_typei3_vieta.py`): all 9102 pairs with `B≤60`, `K≤150`, 0 failures.
+
 (Equivalently, `((F+e)/2,k)` runs over the solutions of
 `A²−4c(1+cδ²)k²=1`, and the descent shows that `(1+2cδ², δ)` is the fundamental one.
 Brute-force check: all 39 660 pairs with `c,k<200` satisfy the conclusion `F≡e≡1 (mod 4)`.)
