@@ -235,3 +235,49 @@ apply to *non-product* sifted sets (events coupling several primes), as LS does.
 of item (ii) — e.g. prime values of a polynomial chosen to avoid events — fall under POINTWISE_SIZE
 Thm C/Theorem M: a fixed polynomial family has bounded W under Schinzel H; uniformity in the
 degree turns it back into LS. Assessment.)
+
+## 5. Is LS plausible? Consistency checks
+
+**5.1 The planted fakes (O14/O15) do not refute LS; they show it is beyond linear methods.**
+The planted law ν (O14 Thm 1.3/Lemma 4.1) is a probability measure on the profinite fibre,
+`ν≪P` with `dν/dP≤2`, agreeing with Haar on every function reading `≤k≍𝓛³/log𝓛` big
+coordinates, and carried by `{F=0}`. LS is a statement about the *primes*; ν would refute it
+only if the primes `≤x` were known to be distributed like ν, and nothing of the kind is
+known or expected: ν is Haar *re-weighted onto the complement of the avoider set*, i.e. ν is
+the hypothetical counterexample itself, not an independent prime-like object. (Contrast
+Selberg's parity example, where the fake — integers with `λ(n)=−1` — is a natural sequence
+sharing the primes' sieve axioms and *does* miss the target set.) What the fakes do prove is
+the converse direction: LS (for `𝓔_T`) does not follow from any input of the type in
+Prop 3.1 (level-of-distribution statements, GRH, BV/EH/GEH) through linear certificates, nor
+from any orbit-uniform linear certificate of any level (O15 Cor 2.4, Prop 2.5), nor in the
+presence of a Siegel-model main term (O15 Thm 3.1). LS is in the same position as
+the twin-prime conjecture relative to the sieve: a "beyond-the-barrier" hypothesis. (Assessment
+for "not refuted"; PROVED for "not implied by linear certificates", by Prop 3.1.)
+
+**5.2 Exceptional zeros.** If a real χ_1 mod `q_1≤T` has a Siegel zero, a system may keep
+only `{χ_1=1}` (δ=1/2), where primes are depleted below `q_1^{O(1)}`. LS(C) still holds for
+such systems with `C≥5/2`: Linnik's theorem (uniform, with Deuring–Heilbronn) supplies primes
+`≡1 (q_1)` up to `q_1^5`. So LS is consistent with exceptional zeros; it is the log scale that
+makes it robust (the Cramér form CR(A) needs A at least Linnik's constant for the same reason).
+
+**5.3 Jacobsthal / Maier.** The known mechanisms that push the first element of a sifted set
+far beyond `1/δ` — Jacobsthal-type coverings (one class per prime `≤z` covers intervals of
+length `z^{1+o(1)}`, Ford–Green–Konyagin–Maynard–Tao), Maier/Buchstab deficits (Prop 2.1) —
+cost at most a factor `T^{O(1)}` or `δ^{o(1)}`, which LS absorbs through `C·log T` and
+`C·log(1/δ)`. (Assessment; no unit-class system violating LS is known to us.)
+
+**5.4 POINTWISE_SIZE's heuristic.** Heuristic RA (SIZE §7.3:
+`#{p≤N hard: W(p)>T}≈δ*(T)π_h(N)` whenever the right side is `≥1`) implies LS for the family
+`𝓔_T` with `C=1+o(1)` (up to the Mordell-hard normalisation), and SIZE's heuristic
+`log W≍(log p)^{1/3}` is what Thm 1.2 yields under LS, up to the log factors of O13 Thm 3.4
+(and exactly, `(log p·log log p)^{1/3}`, under POINTWISE_HAAR Conj 3.1). Conversely the Haar
+*lower* bound `log(1/δ*)≫𝓛³/log𝓛` (POINTWISE_HAAR Thm 2.1) together with an *upper* count of the
+same log-scale strength (e.g. `π_{𝓔_T}(x)≤x·δ(𝓔_T)^{1/C}` for `log x≥Cλ`, a hypothetical upper
+companion of LS) would make 1/3 the true i.o. exponent up to log factors. Consistent.
+
+**5.5 What is proved unconditionally in the LS shape.** O13 Thm 5.1 is, for the family `𝓔_T`,
+an unconditional statement `π_{𝓔_T}(x)≥1` for `log x≥C·𝓛·log(1/δ_{rH})·(log𝓛)^{O(1)}`: LS with
+an extra factor `log T=𝓛` (the junta/sieve-limit factor). By O14/O15 that factor is forced for
+every linear certificate. So LS is exactly "remove the sieve-limit factor `log z` from the
+unconditional theorem", the analogue for this sieve of going from Linnik-by-sieve to the
+Cramér-type prediction.
