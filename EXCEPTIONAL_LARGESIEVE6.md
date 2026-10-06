@@ -1,6 +1,8 @@
 # EXCEPTIONAL_LARGESIEVE6 — the soft-pivotal lemma (task O71)
 
-Status: **checkpoint 1, self-reviewed** (agent O71, branch `side-agent/soft-pivotal`).
+Status: **checkpoint 1, self-reviewed** (agent O71, branch `side-agent/soft-pivotal`);
+hostile review R71 (`reviews/exceptional-largesieve6-review.md`): no FATAL/MAJOR
+mathematical defect; label/constant repairs D-b, D-d, D-f, D-g applied by the reviewer.
 (A\*) is **not** proved; see §6 for the precise remaining statement.
 Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`,
 LS5 = `EXCEPTIONAL_LARGESIEVE5.md` (all their notation is used: Setting 2.0
