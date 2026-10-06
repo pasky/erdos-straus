@@ -89,8 +89,13 @@ squares mod 840 are Mordell's hard classes (Mordell's 6 classes also use Type I 
 Type-II-hard set mod 840 alone has 24 classes, `mn_hard.py 4 840`). By Lemma 1.1(d), **for
 `m ≡ 0 (4)` every class that is a square modulo each odd prime of Q is Type-II-hard modulo Q**
 (for every Q); this is the m-analogue of "Mordell-hard". (For `m ≢ 0 (4)` the hard sets are
-not unions of square cosets: e.g. `H_5(840)` is `{1,3,5} mod 7`, which is 1 plus the
-non-residues; `mn_hard.py 5 840`.)
+not unions of square cosets: e.g. `H_5(840) = {r ≡ 1 (mod 4)} ∩ {r mod 7 ∈ {1,3,5}}` (48 classes;
+the atom `M = 4, D = 1` kills `r ≡ 3 (4)`), and `{1,3,5}` is 1 together with two of the three
+non-residues `{3,5,6}` mod 7 — not closed under multiplication; `mn_hard.py 5 840`.)
+
+*Scope of "hard" (R63 MINOR-1).* All hardness statements in this file concern **Type II only**,
+i.e. the witness function `W_m` (complete for Type II by TRANSFER Lemma 5.0). No claim is made about
+Type I solutions or about any other identities covering the output primes.
 
 **Theorem 3.1 (m ≡ 0 (4); PROVED modulo the inputs of OMEGA13 Thm 3.4 / Thm 5.1).** Fix
 `m ≡ 0 (mod 4)`, `m ≥ 4`; constants depend on m.
@@ -168,7 +173,10 @@ Since no quadratic structure is available (§2), the natural replacement of the 
 process is to forbid, at each step, exactly the classes that would fire an event.
 
 **The admissible unit process (AUP).** Start from `Q = 1`. Coordinates, events, fibre masses
-`w̃_ℓ`, threshold η and eligibility `ℓ ≤ Y` are as in OMEGA13 §3, with fibre `n ≡ r (Q)`.
+`w̃_ℓ`, threshold η and eligibility `ℓ ≤ Y` are as in OMEGA13 §3, with fibre `n ≡ r (Q)`,
+except that **for odd m the prime 2 is an ordinary coordinate** (even M exist): unit classes mod
+`2^k`, with `N = 2^{k−1}` fibre classes at level `k ≥ 2` and `N = 1` at level 1 (R63 MINOR-4).
+OMEGA13's remark "M odd, so `p_0 = P_H`" is not used; the prefix below supplies the factor `1/δ_0`.
 A step at `(ℓ,a)` is taken while `w̃_ℓ > η` (any fixed tie-break rule, e.g. the smallest heavy
 prime first). Before the step, call a class `x mod ℓ^{a+1}` of the current fibre *forbidden* if
 some atom `(M,D)` with `v_ℓ(M) = a+1`, all other prime powers of M already in Q, and
@@ -189,7 +197,8 @@ fires. Since the law of `r_0` has density `≤ 1/δ_0` w.r.t. Haar, every initia
 mass is at most `1/δ_0` times its Haar value — a constant loss.
 
 **Hypothesis ADM_m(K, Q_0).** For constants `K = K_m`, `Q_0 = Q_0(m)`, uniformly in large T (with
-OMEGA13's `β, η, Y`), with probability `≥ 7/8` the prefixed AUP does not die and
+OMEGA13's `β, η` and `Y = 𝓛^{C}` for the explicit `C = C_K + 4` of Thm 5.1's proof, R63 MINOR-2),
+with probability `≥ 7/8` the prefixed AUP does not die and
 `Λ_end(ℓ) ≤ K` for every `ℓ ≤ Y` (Λ counts the steps after the prefix).
 
 Without the prefix (`Q_0 = 1`) the hypothesis is false-looking for some m: for `m = 7` the
@@ -218,7 +227,7 @@ would make some `Λ(ℓ) > K` (possible since f is predictable; death is the cas
   (`E[p_0(E)] ≤ P_H(E)/δ_0`, `E[Π_0] ≤ Π_0^{Haar}/δ_0`). (d): the pair potential `Π_i Ψ_i(F)Ψ_i(F')` is a
   supermartingale by OMEGA13's case check with `ρ := N` (classes of the current *fibre*; the
   measure `p_i` is Haar on unrevealed digits). An agreeing step gives
-  `Π_new = p p' N²·1[match]`, `P(match) = 1/((1−f)N)`, so `E[Π_new] = Π/(1−f)`, while
+  `Π_new = Π·N·1[match]` (the factor ρ = N is removed), `P(match) = 1/((1−f)N)`, so `E[Π_new] = Π/(1−f)`, while
   `Ψ(F)Ψ(F')` is multiplied by `(1−f)²`; a step on a coordinate of only one event multiplies its
   p by `≤ 1/(1−f)` in mean and its Ψ by `(1−f)`; disagreement gives `Π_new = 0`. Hence
   `E[Π_end] ≤ K^{ω_Y+ω_Y'}Π_0` on the success event.
