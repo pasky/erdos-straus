@@ -296,7 +296,7 @@ damped weight is `W_y` (top `> y`), and Lemma 2.1 is applied with this y.
 other pairs), and the height cut forces `max ≥ P̄^{κ/3}/4`; so the L-cases
 give `2^{|P|}·C(log P̄)^{6}γ^{−5}(P̄^{−1} + P̄^{−κ/3})` after summation (the
 summation of Thm 3.1 verbatim, `log p → log P̄`). (iv) Case S: take
-`α = η/100`; the three failed inequalities give `UVT < CP̄^{3+3.1α}` and
+`α = η/100`; the three failed inequalities give `UVT < CP̄^{(3−3α)/(1−3α)} ≤ CP̄^{3+6.2α}` and
 sides `≤ CP̄^{1+2.1α}`, the point count is
 `≤ 2^{|P|}(1+CP̄^{2.1α})²min(U,V,T)`, `W_y(n) ≤ C_δP̄^{δ}·P̄/(UVT)`, and now
 `UVT ≥ P̄n/32 ≥ P̄^{3/2+η}/32` (long cofactor), so with `δ = η/10`
