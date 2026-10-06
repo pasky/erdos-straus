@@ -30,7 +30,7 @@ effective. The primes counted are Mordell-hard.
 * **Thm 3.3 (all fibres).** Sum over the leaves of the square-class decision tree. The leaves are
   disjoint, and `P_proc(L)=4·2^{k_L}/φ(Q_L)` (Lemma 3.1). Since `E[k]≪𝓛³(log𝓛)²loglog𝓛`
   (Lemma 3.2, NT with a `t^{ω_Y}` twist), the `log φ(Q)` loss is replaced by `k log 2`. For the
-  Siegel factor, `q_1≤8Y^{k}`. This gives B = 3+o(1), or 2+o(1) if there is no exceptional zero
+  Siegel factor, `q_1≤8·rad_odd(Q)` (after S1). This gives B = 3, or 2+o(1) if there is no exceptional zero
   (CONDITIONAL).
 
 ## Self-review
