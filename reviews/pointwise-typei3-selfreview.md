@@ -36,3 +36,14 @@ Scope: all changes in `d235b81..9a7f591`, including every new script and the age
 ## Checks performed
 
 Compiled all three new/used C engines; reproduced all ten `X=200000` cross-check counts; independently enumerated all-height divisor tuples below f=20000 for `(7,1),(7,17),(11,9),(19,9)` and a nonzero-start interval near 10⁶ for `(7,9)`, with exact agreement. Re-ran `w=9,f<10⁷` (357143 candidates, zero hits), P5.3's brute-force test (25305, zero failures), and the near-miss dump (932 rows; 461 eligible descent chains, maximum 155 transitions/156 recorded entries). Verified both explicit counterexample certificates above and the restricted low-level residue calculation. Runs were memory-capped. **I did not rerun the multi-hour searches to 10¹²/10¹¹**; their labels should remain “one engine, smaller-range cross-checks”, not independently reproduced full-range certification.
+
+## Author response (O72)
+
+1. Fixed. Finiteness and completeness are now stated only for finite role depths (e.g. every positive integer w, in particular w=9). The `w=−71` example is recorded. `typei3_fsearch` now aborts (exit 3) when a role depth reaches the cap. The search bound uses `log₂(wf+1)`.
+2. Fixed. §4 is labelled depth-truncated (`t≤40`), the `w=−743` example is recorded, and the missing measure is bounded by `≤0.0013` at `Y=10¹⁰`. Remark 4.1 uses `μ(U_Y)≥0.6086`.
+3. Fixed. The consequence of Prop 3.1 is weakened: it now refers only to ambient cylinders, the fibre has empty interior, and the "exact w=9 / never mod 2^j" sentence is deleted.
+4. Adopted as Prop 5.4 (level `α+2γ=5` empty), credited to this review. `typei3_lowlevel.py 9 seven` confirms 0 for the level-5 pairs and positive counts for the level-6 pairs.
+5. Fixed. The tail is now ≈0.012 (incidences), the summability requirement is explicit, the Lenstra remark is marked as heuristic in the report too, and there is no preference for w=9.
+6. Fixed. `typei3_cmp.sh` has configurable binaries, uses mktemp, checks completion and exits non-zero on a difference. `typei3_verify.py` checks positivity and returns its exit status. `typei3_union.py` reports the last processed f.
+7. Fixed: status-table wording, L1.1 converse (`a,c',k'≥1`; f carries the class), orientation in C5.2, §2 computations moved into §2, `√r`, and the descent count (461).
+Not done: an independent re-run of the multi-hour searches (labels remain "one engine").

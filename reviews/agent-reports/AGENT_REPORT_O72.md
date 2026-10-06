@@ -32,5 +32,18 @@ Quadratic reciprocity / genus characters are exactly the Lemma 2.1 test and pass
 The 2-adic refinement (F=2^t g−9, 9e=2^t h−1, `2^t gh−g−9h=9nk`) is consistent at all
 levels. A heuristic Lenstra-type sketch suggests only ≪Λ^{1/2+ε} near misses per level (borderline; not proved).
 
+## Self-review
+`reviews/pointwise-typei3-selfreview.md` (deep reviewer subagent). Verdict: request changes. Three MAJOR findings
+(an unrestricted completeness claim, depth truncation in §4, an overreaching Prop 3.1 consequence) are all fixed.
+The review also contributed Prop 5.4. The full 10¹²/10¹¹ searches have NOT been independently re-run; they were
+cross-checked against typei2_signcheck on small ranges (X≤3·10⁶) only.
+
+## Suggested next steps
+* Level `α+2γ=6`: this is a primitive-divisor analysis of the integral Lucas-type chain with `c=2^α7^a`. It
+  might exclude the level completely, and then the next levels would be the target.
+* Measure route (Remark 4.1): an explicit summable bound for near-miss counts would give `C(7)=∞` under H
+  without deciding `x̂_9`.
+* An independent re-run of Computation 2.1 to `10¹²` (≈9 core-hours).
+
 ## Replay
 See POINTWISE_TYPEI3.md, Replay section.
