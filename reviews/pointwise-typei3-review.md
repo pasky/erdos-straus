@@ -193,3 +193,19 @@ gcc -O2 -o /tmp/r72fs scripts/review_typei3_fs.c; gcc -O2 -o /tmp/r72naive scrip
 uv run --with sympy python scripts/review_typei3_vieta.py 20000 60
 uv run --with sympy python scripts/review_typei3_level6.py 25
 ```
+
+## Repairs applied (by reviewer, at parent's request)
+
+All marked "(R72 repair Dn, applied by reviewer)" in the edited files; one commit per defect.
+* **D1** `scripts/typei3_cmp.sh`: for `w<0` runs the f-engine on `[1,−w)` and `[−w+1,B)` and removes certificates
+  having `−w` as a divisor from both sets. Re-run: `(7,−15)` 7=7 at `X=2·10⁵`, 13=13 at `X=3·10⁶`; `(7,17)`,
+  `(7,−7)`, `(23,1)`, `(7,9)` unchanged/identical. POINTWISE_TYPEI3 §2 notes that the old `(7,−15)` counts came
+  from the earlier depth-capped binary.
+* **D2** §4 and Remark 4.1 cite Cor 5.2: no certificate has `t≤4` (any f, any `w∈Φ`), and `mass(f)=0` for `f≢7 (16)`.
+* **D3** status table, §3 consequence, agent report: "no non-empty clopen subset of `Σ_7` is sterile", not
+  specific to `x̂_9`; positive-measure sterile subsets of Φ are not excluded.
+* **D4** labels in status table, C2.1, C2.3, Cor 2.2 and the report: "two engines to 10¹¹ (incl. r=23), one
+  engine to 10¹²" (r=31, 47 one engine).
+* **D5** Lemma 5.1 general form for any integer `B≥1` (as used in P5.3–P5.5).
+* **D6** one-paragraph proof that `(1+2cδ²,δ)` is the fundamental Pell solution. Each descent step is division
+  by that unit (checked: `KA₀−Aδ=K−δF=ρ` with `A=F+2cKδ`, `A₀=1+2cδ²`).
