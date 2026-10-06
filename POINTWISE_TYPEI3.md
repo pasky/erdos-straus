@@ -78,6 +78,12 @@ checker `typei2_signcheck.c` with `typei3_fsearch` on `f<2X/√r+2`. It exits no
 `X=2·10⁵` the sets coincide exactly for
 `(r,w)=(7,1),(7,−7),(7,25),(7,41),(7,17),(7,−15),(11,9),(19,9),(23,1),(7,9)`
 (3, 0, 0, 0, 13, 35, 7, 4, 2, 0 certificates).
+(R72 repair D1, applied by reviewer.) For `w<0` the divisor `f=−w` has infinite role depth, and the current
+`typei3_fsearch` (correctly) aborts there; the `(7,−15)` counts above (35 at `2·10⁵`, 58 at `3·10⁶`) were obtained
+with the earlier depth-capped binary, valid only because `ck≤X` bounds `t`. `typei3_cmp.sh` now runs the f-engine
+on `[1,−w)` and `[−w+1,B)` and removes from **both** sets every certificate having `−w` as one of its two
+divisors. Re-run (reviewer): `(7,−15)` at `X=2·10⁵` 7=7 (28 resp. 17 excluded), at `X=3·10⁶` 13=13 (45 resp. 27
+excluded); `(7,17)`, `(7,−7)`, `(23,1)`, `(7,9)` at `2·10⁵` unchanged and identical.
 
 **Computation 2.1 (CERTIFIED by one engine; cross-checked as above).**
 `typei3_fsearch 7 9 1 10^11` (run as `[1,10⁸)`, `[10⁸,5·10¹⁰)`, `[5·10¹⁰,10¹¹)`;
@@ -93,7 +99,7 @@ replaced by r, where `min(F,e)<2X/√r+1`. `typei3_fsearch r 9 1 10^11` for `r=2
 (1 086 956 522 / 806 451 613 / 531 914 894 values of f): **0 certificates.** Hence every
 Type-I covering of `{n_p=r}` has height `>2.39·10¹¹` (r=23), `>2.78·10¹¹` (r=31) and `>3.42·10¹¹` (r=47)
 (was `>10⁹`). Under H (Theorem A with POINTWISE_TYPEI2 §4), `C(r)` exceeds these bounds.
-Extra cross-check at `X=3·10⁶` with `typei3_cmp.sh`: `(7,−15)` 58=58, `(7,17)` 15=15 and `(11,9)` 14=14 certificates; the sets agree.
+Extra cross-check at `X=3·10⁶` with `typei3_cmp.sh`: `(7,−15)` 58=58 (old binary; see D1 note above), `(7,17)` 15=15 and `(11,9)` 14=14 certificates; the sets agree.
 
 **Corollary 2.2.** (i) *(CERTIFIED)* No certificate at `x̂_9` has a divisor
 `f=min(F,e)<10¹²`, at any height. Hence (Lemma 1.2) none has `ck≤1.32·10¹²`,
