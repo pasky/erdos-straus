@@ -57,9 +57,10 @@ Re-derived:
 Source caveat: Davenport Ch. 20 / MV Cor 11.17 are not in `sources/`; I could
 not check them against a PDF either. The form used (one exceptional primitive
 `χ₁ mod q₁ ≤ exp(c₂√log x)`, term present iff `q₁|q`, error `x e^{−c₃√log x}`) is
-the standard one as I recall it. Only the weak range
-`q ≤ exp(O((log log x)^{4/3}))` is used, so even a Siegel–Walfisz-plus-Page
-version suffices.
+the standard one as I recall it. Only the range
+`q ≤ exp(O((log log x)^{4/3}))` is used. This still exceeds every
+`(log x)^A`, so Siegel–Walfisz alone does **not** suffice; a Page/Landau-type
+statement (or Gallagher) is genuinely needed, as the author says.
 
 ### Claim 4 — Thm 4.1 (two-sided order-k limit): **SOUND** (statement and proof), with minor wording issues
 
