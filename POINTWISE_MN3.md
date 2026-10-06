@@ -97,3 +97,48 @@ sum over `ℓ ≤ q_0` give `≪ q_0^{−1/2}·q_0^{1/2}/log q_0 → 0`. (a) is 
 
 So the target is a **square-root saving** for the q-divisibility in the class-of-one completed sums
 (the Haar analogue MN2 Lemma 2.1 has the full saving `q^{−1+ε}`), plus the level-0 pair sums.
+
+## 4. Regime map for `U_1(q)`: linear routes and the residual (analysis; Assessment where marked)
+
+Write `a ~ A`, `c ~ C`, `d ~ D`, `e ~ E`, `f ~ F` (dyadic), so `EF ≍ mA²D` (`ef = P`), `B ≍ CE`
+(`b = ce − a ≥ a`), `N ≍ mACD` (`A CD ≤ N ≤ mACD`), `M = eN`. Since `b ≥ a`, `E ≳ A/C`.
+The multiplicative weights to be averaged are `h(e)h(N)` with `h(n) = K^{ω(n)}(n/φ(n))·v_q(n)·n^σ`
+(Rankin, `σ ≍ 1/log q`; `v_q(n) = 1[all p^ν ‖ n have p^ν ≤ q]`), and `q | eN`. Each of the following
+*routes* fixes three variables and sums the fourth along an arithmetic progression on which `N` (and
+`e`, where it moves) are polynomials; Henriot's (H) then applies (coefficient-uniform, discriminant
+bounded by the fixed variables) as soon as the progression is longer than `‖Q‖^δ`, and the
+condition `q | N` is a further progression (the gain `q^{−1}` is automatic once the length exceeds the
+modulus by `‖Q‖^δ`):
+
+| route | fixed | summed | progression modulus | long iff (up to `(·)^δ`) |
+|---|---|---|---|---|
+| c-route | a, d, f | c (`N = madc − f`) | `q` | `C ≥ q` |
+| N-route | a, c, f | d (`f | aN + c`, `N ≡ −f (mac)`) | `f·q` | `D ≥ F q` |
+| d-route | a, b, e | d (`e | mabd − 1`) | `e·q` | `D ≥ E q` |
+| a-route | c, d, f | a (`f | ma²d+1`, quadratic) | `f·q` | `A ≥ F q` |
+
+(The (a,d)-sums with `q | e` are the O12 Lemma 4.1 situation: `q | P`, ET/(H) in the larger of a, d.)
+
+**Residual.** All four routes are short iff `C ≲ q`, `D ≲ min(E,F)·q`, `A ≲ Fq` (up to `(·)^δ`).
+With `EF ≍ A²D` this is a genuine open region: e.g. `(A, D, E, F) = (X, X², X², X²)`, `C = 1`
+(`P ≍ X⁴`, `b ≍ X²`, `N ≍ X³`, `M ≍ X⁵`) for every `X ≥ q^{O(1)}`. In it `g = e ≍ a+b` (`c` small):
+the atom's class-of-one gcd is almost all of `a+b`. In the `(a,e,f)` coordinates `d = (ef−1)/(ma²)`, i.e.
+the residual is the set of points of the hyperbola `ef ≡ 1 (mod ma²)` in boxes `E × F` with both sides
+shorter than the modulus `ma²q` — the Kloosterman range. Counting such points (Weil) works when
+`EF ≥ (A²q)^{3/2+δ}`, but not with the multiplicative weight `h(N)`, `N = (f(ce−a) − c)/a`.
+**Assessment:** no combination of (H), ET and elementary counting known to us controls `h(N)` on the
+residual; at the level of raw counts the residual is not sparse (each residual box carries mass `≍ 1`
+before the q-condition), so it cannot be discarded either.
+
+**Lemma 4.1 (prefix part; PROVED).** With `s = gcd(M,Q_0)` as in Lemma 1.1, `s = gcd(g, Q_0)`, and the
+exact weight satisfies `φ(s)/φ(M^-) ≤ ℓ/(φ(N)φ(g/s))`. In particular, on atoms with `g ≥ Q_0·G`,
+the class-of-one weight carries an extra factor `≤ 1/φ(G)`.
+
+*Proof.* `s | g` (Lemma 1.1) and `gcd(g,Q_0) | gcd(M,Q_0) = s`. `M/s = N·(g/s)` and `φ(xy) ≥ φ(x)φ(y)`. ∎
+
+*Consequence (Assessment, to be made precise).* On the residual `g ≍ B`; if `B ≥ Q_0²·q^{1+3δ}` the
+factor `1/φ(g/s) ≤ B^{−1/2+o(1)}` is a power saving that beats the pointwise bound `h ≪ M^{ε}`
+(all residual variables are `≤ B^{O(1)}`). So the residual is only dangerous at scales
+`B ≤ (Q_0 q)^{O(1)}`: for `q ≥ Q_0` this is a **polynomially bounded box** (pointwise bounds for h,
+q-gain needed from counting alone), and for `q_0 < q < Q_0 = e^{(1+o(1))q_0}` it is the range where the
+prefix part s itself can be huge.
