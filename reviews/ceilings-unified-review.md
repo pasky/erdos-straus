@@ -1,6 +1,6 @@
 # Hostile review R60 of CEILINGS_UNIFIED.md (branch side-agent/unify-ceilings)
 
-Reviewer branch: side-agent/review-unify. Status: IN PROGRESS.
+Reviewer branch: side-agent/review-unify. Status: ROUND 1 COMPLETE. Overall: no FATAL, no MAJOR; 10 MINOR (labels/wording). See verdict table at the end.
 
 ## Verdict summary (filled in per claim)
 
@@ -128,3 +128,130 @@ A float HiGHS version (`scripts/review_unify_toylp.py`) agrees for `P=2,4` but i
 numerically unreliable for `P ≥ 6`. That is a warning against float replays of
 this LP; it does not affect the author's exact script. The label EVIDENCE is
 correct.
+
+### Claim 3 — §3 goal (a): Prop 3.1, Assessment 3.2, Cor 3.3: **SOUND**, minor scope wording
+
+* Prop 3.1: `W(p) ≤ T` gives a representation (note Lemma 2.1 holds for any
+  positive `k,ℓ`). So `E_pr(N) ≤ #{p ≤ N: W(p)>T}`, and Thm 2.1 at
+  `T=exp(c₁(log N)^{1/4})` gives `π(N)e^{−cc₁³(log N)^{3/4}}`. ✔ The "reproof, not
+  improvement" label is honest.
+* Cor 3.3: KARY2/3's level is `Σ_{ℓ|d_i,ℓ>W} log ℓ ≤ log d_i`, so "all moduli
+  `≤ e^λ`" implies level `≤ λ`. KARY3 Thm 4.1 holds for any finite mixture, so
+  `s ≤ Cλ^{3/4}`. ✔ The note's `ν_X` is `≥ 1` on all of `𝒜(𝔊_T)`: avoiding the
+  selectors gives `S_y=1`, and avoiding all `ℛ(M)`, `M ≤ T` (the atoms included)
+  gives `H_X=0`. Its level is `≤ C_ϑBt³ + r(1+κ)t ≍ t⁴`. ✔ The parenthetical
+  disclaimer about `δ*(T)` is correct and needed.
+* D10 (minor): "cannot beat the note" (Assessment 3.2 / O60 report item 3) holds
+  only within the K2 Cor 6.1 class (coefficient-sum CRT majorants of the whole
+  avoider set). Say so.
+
+### Claim 6 — Thm 4.3 + §4.2 + §0/§5 unification: **SOUND-AFTER-REPAIRS** (labels and wording only)
+
+The theorem is honestly a conjunction: items 1–2 restate KARY3 Thm 4.1, the
+note, Prop 4.2 and OMEGA13 §5. Item 2 is correctly quantified: the
+obstruction holds on every fibre with `log Q ≤ T^{0.05}`, and OMEGA13's
+`Q' = Q·ℓ_aux` satisfies this, so both bounds hold *on the same fibre*. ✔ The
+`a/(a+1)`, `1/(a+1)` extrapolation is labelled CONDITIONAL and the mechanism is
+labelled Assessment. ✔ "Product = level is an identity" is honest. The repairs
+are D6–D9.
+
+## Defects (all MINOR; no FATAL, no MAJOR found)
+
+**D1 (MINOR; Prop 1.1 last sentence, §4.3 definition of `κ(𝓛)`, §5 first
+by-product).** The sandwich `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5` is stated without a
+label. Its upper half is OMEGA13 Thm 3.4, which is PROVED *modulo
+Nair–Tenenbaum*. *Repair:* add "(upper bound modulo NT)" at each occurrence.
+
+**D2 (MINOR; Thm 2.1 header).** Page's theorem is quoted from memory. I could
+not check it either (Davenport and MV are not in `sources/`). *Repair:* keep the
+caveat. Add that Siegel–Walfisz alone would not suffice, since
+`exp(C(log log x)^{4/3})` exceeds every power of `log x`. Ideally pin the exact
+equation number once a copy is available.
+
+**D3 (MINOR; Thm 2.1 Case B, "q, T_abs ≤ e^{Ct⁴} ≤ exp(c₂√log x)").** The
+error `T_abs·x·e^{−c₃√log x}` becomes `O(xe^{−c₃√log x/2})` only if
+`T_abs ≤ e^{c₃√log x/2}`, i.e. it needs `c₂ ≤ c₃/2`, which is not stated. It is
+true because `log T_abs ≤ C_Lt⁴ = O((log log x)^{4/3}) = o(√log x)`. *Repair:* say
+exactly that, instead of routing through `c₂`.
+
+**D4 (MINOR; Prop 4.2 proof, "Big coordinates: `X_ℓ = n mod ℓ`").** A level-`D`
+function of `n mod qQ` may read `n mod ℓ²` for a big `ℓ`. Then `X_ℓ` must be the
+ℓ-adic unit component (as in POINTWISE_HAAR §0, `n mod ℓ^f`), not `n mod ℓ`.
+Nothing else changes: the events still read `X_ℓ` only mod `ℓ`, `p_ℓ` is unchanged,
+and a modulus still has `< 2log D/t` *distinct* big primes. *Repair:* one phrase.
+
+**D5 (MINOR; Prop 4.2 label "inputs BV and Brun–Titchmarsh"; ledger proposal
+(H)27 "inputs reduced to the note's BV"; Remark 1.2).**
+* Note Cor 4.3 rests on Thm 4.2, which uses Lemma 3.3 (low-ω mass, via Shiu)
+  in addition to BV and BT.
+* The note's constants are explicitly *not* asserted effective (note §1).
+  Prop 1.1, Thm 2.1 and Prop 4.2 therefore have ineffective `c, T_0`. That
+  matters for Prop 4.2: OMEGA14 Thm 4.5 used an *effective* Page bound and FL.
+  So the sharpening trades a `log𝓛` for effectivity of `T_0`.
+
+*Repair:* list "BV, BT, Shiu (via the note); constants not effective" in the
+label and in the ledger proposal. Say "replaces" rather than "removes" the
+(G)/Page/FL inputs.
+
+**D6 (MINOR; §5 bullet "For such a system, order-k certificates are trivial below
+`k ≍ κ` on *both* sides: majorants save `≲ k log(κ/k)`").** On the minorant side,
+the obstruction for the one-big-prime subfamily transfers to the full ES
+avoider (`B ≤ F_T ≤ F_𝓕`). On the majorant side it does *not*: `F_T ≤ F_𝓕`, so a
+majorant of `F_T` need not majorise `F_𝓕`, and (U−) for the subfamily says
+nothing about majorants of the full avoider. The full-system cap is KARY3 Thm 4.1
+(sequential coupling over all events and scales), as §4.3 "Status" correctly
+says. *Repair:* in §5 write "majorants of the full avoider save
+`≲ λ^{3/4}` (KARY3; (U−) is its one-scale, one-big-prime core)".
+
+**D7 (MINOR; §0 dictionary).** The pointwise column still quotes OMEGA14's
+`𝓛³/log𝓛` mass and "`log D ≍ κ𝓛 ≍ 𝓛⁴` (OMEGA14 Thm 4.5)". Thm 4.5 gives
+`𝓛⁴/log𝓛`; the `𝓛⁴` lower bound is this file's Prop 4.2, which uses the note's
+`t³` mass. *Repair:* update the two cells to point at Prop 4.2 and note Cor 4.3.
+
+**D8 (MINOR; Thm 4.3 item 1, "KARY3 Thm 4.1 (PROVED, internal)").** For
+mixtures containing Case-A classes, KARY3 Thm 4.1 relies on ElT §7 (published,
+not re-proved). For ℛ(M)+selector families the only input is Shiu. *Repair:* copy
+KARY3's proviso.
+
+**D9 (MINOR; Thm 4.1 paragraph "the critical *level* is `λ* ≍_A L·P + λ_s`").**
+The barriers (U−)/(L−) only force `λ ≥ c·L·P` from the big coordinates. Nothing
+forces a certificate to pay `λ_s`, so the lower bound `λ* ≳ λ_s` is unproved.
+*Repair:* "`c·L·P ≤ λ* ≤ C_A·L·P + λ_s`". This is `≍ L·P` when `λ_s ≪ L·P`, which
+holds in both ES instances (`λ_s ≍ t⁴` with a smaller constant in the note
+ledger, `≍ polylog` for OMEGA13).
+
+**D10 (MINOR; §3).** See Claim 3.
+
+## Points checked and found correct (parent's "check hardest" list)
+* Thm 2.1 Case B: the χ₁-twist unit-Haar identity (exhaustive check,
+  535 092 cases), `ν ≥ 0` on `Ẑ^×` (from `ν ≥ 0` on ℤ and periodicity), and the
+  factor `1+ε ≤ 3`.
+* Prop 1.1:
+  - conditioning on `n≡1 (24)`;
+  - Cor 4.3 holds for every unit `c` (the note states "all `c`");
+  - `{no event ≤ T} ⊆ {H_X=0}`, via the atom → `E_{M,D}` identity (20 451
+    triples, 0 mismatches).
+* Thm 4.1 (U−): KARY Thm 2.5 / Cor 2.6 apply fibrewise. All coordinates are
+  light, `M=P` is deterministic, and `G ≥ F ≥ 0` gives `f ≥ 0`.
+* Prop 4.2:
+  - Cor 4.3 is uniform over all `c`;
+  - `f_c(ℓ) ≤ z_j² ≤ ℓ^{1/3}` (note Lemma 2.2 proof);
+  - the `Q`-prime bookkeeping holds.
+* §4.2 multi-scale reading: correctly labelled Assessment.
+
+## Verdict summary
+
+| Claim | Verdict |
+|---|---|
+| Prop 1.1 | SOUND (D1) |
+| Thm 2.1 | SOUND (D2, D3 expository) |
+| §3 Prop 3.1 / Cor 3.3 / goal (a) | SOUND (D10) |
+| Thm 4.1 | SOUND (D9) |
+| Prop 4.2 | SOUND (D4, D5) |
+| Thm 4.3 / unification | SOUND-AFTER-REPAIRS (D6, D7, D8; labels/wording only) |
+| §4.4 LP | SOUND (exact reproduction) |
+
+Scripts (from scratch): `scripts/review_unify_atoms.py`,
+`review_unify_page.py`, `review_unify_thm41.py`, `review_unify_toylp_exact.py`
+(and the float `review_unify_toylp.py`, which shows that float LPs are
+unreliable at `P≥6`).
