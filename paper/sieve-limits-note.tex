@@ -3175,7 +3175,9 @@ $\mathfrak M(y)$ the first-moment bound of \cite[\S3, Cor.~3.7]{KA2}
 \cite[Lemma~2.1]{LS3} (\lab{proved} given \cite[\S\S2--4]{KA2}; Case A
 \lab{proved mod} Elsholtz--Tao Prop.~1.4).  Each step of the law has
 conditional density $\leq\ell^{-E_\ell}(1-p_\ell)^{-1}$, and on the good event
-$\prod(1-p_\ell)^{-1}\leq\e^{16\mathfrak M(z)}$.
+$\prod(1-p_\ell)^{-1}\leq\e^{16\mathfrak M(z)}$.  (The base modulus of \cite{KA2} need not divide
+$M_s$; one takes $\pi_s$ to be the marginal on $\Z/M_s$, which does not increase the
+maximal density \cite[Lemma~2.1]{LS3}.)
 
 \begin{theorem}[rough-slice mixtures; {\cite[Thm~3.1]{LS3}}; \lab{proved} given {\cite[\S\S2--4]{KA2}}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:roughslice}
 Let $z=\exp\{(\log N)^{1/4}\}$ and let $\cG$ be any mixture of the four types (any
@@ -3225,14 +3227,15 @@ classes with \emph{two or more} prime factors $>z$, through correlations of
 the fibre measures between such primes.
 
 \begin{hypothesis}[$(H_{\rm rough})$; {\cite[\S4]{LS3}}; \lab{conjecture}]\label{hyp:Hrough}
-For every family $\cG$ of the four types with primes $\leq N^{O(1)}$ and every
+For every finite family $\cG$ of the four types and every
 $c\in\A_s$ outside an event of probability $\leq1/8$ under the law of
 Lemma~2.1 of \cite{LS3}, there is a probability $\pi_c$ on $\A_c$ with
 $\log\mathsf R_{2+2\beta}(\pi_c)\leq C(\log N)^{3/4+o(1)}$, $\beta=(\log N)^{-1/4}$.
 \end{hypothesis}
-By Theorem~\ref{thm:smoothrough}, $(H_{\rm rough})$ implies a cap
-$C(\log N)^{3/4+o(1)}$ for every CRT-admissible large sieve over every such
-mixture, whatever the frequencies; this is a \emph{sufficient} condition
+By Theorem~\ref{thm:smoothrough} together with the density bound for $\pi_s$ above
+(which uses the inputs of \cite{KA2}), $(H_{\rm rough})$ implies a cap
+$C(\log N)^{3/4+o(1)}$ for every CRT-admissible large sieve over every
+mixture of the four types, whatever the frequencies; this is a \emph{sufficient} condition
 only.  A cap, or Conjecture~\ref{conj:HLS}, need not yield fibre measures of
 this kind (H\"older-type and sup-type criteria are incomparable
 \cite[\S5]{LS2}).  Theorem~\ref{thm:roughslice} proves $(H_{\rm rough})$, up to
@@ -3246,11 +3249,16 @@ $\sum_{\operatorname{supp}({\rm den}\,\theta)=S}|\hat\sigma(\theta)|^2=\E_{x,y\s
 decay of these signed two-copy correlations and of the sup over each
 support class, which is a multi-scale correlation-decay statement.
 
+For a fibre family, a rough prime $p$ and a residue $b$, the \emph{conditional
+mass} at $b$ is the deterministic sum
+$m^*(p,b)=\sum_{C\ni p,\ b_C\equiv b\ (p^{v})}p^{v}/G_r(C)$ over the classes $C$ whose modulus is
+divisible by $p$, with $v=v_p(G_r(C))$.
+
 \begin{lemma}[residue concentration; {\cite[Lemma~4.2]{LS3}}; \lab{proved}]\label{lem:residueconc}
 The class $-4\bmod M$ belongs to $\cR(M)$ for every $M\equiv3\pmod4$.  Hence for the
 family $\{-4\bmod pM':\ M'\leq X,\ pM'\equiv3\ (4),\ M'\ z\text{-rough}\}$ the conditional
 mass at the residue $-4\bmod p$ is
-$\sum_{M'}1/M'\asymp\log X/\log z$, which is $\asymp A(\log N)^{3/4}$ for $X=N^A$.
+$m^*(p,-4)=\sum_{M'}1/M'\asymp\log X/\log z$, which is $\asymp A(\log N)^{3/4}$ for $X=N^A$.
 \end{lemma}
 \begin{proof}
 Take $D=1$ in the definition of $\cR(M)$; the sum is Mertens over $z$-rough
@@ -3349,8 +3357,8 @@ any rational frequencies, any denominators and any weights, saves
 $\log(N/B)\leq(\log N)^{3/4}+C\gamma^{-3}(\log N)^{3/4}(\log\log N)^3$.  In particular this holds
 with $\gamma=1/4$ whenever every class with two or more prime factors $>z$ is
 $H$-small with $H\leq z^{1/4}/2$, i.e.\ $b\equiv-r/s\pmod G$ with $0\leq r\leq H$, $1\leq s\leq H$,
-$\gcd(s,G)=1$ (for instance the $\cR(M)$-classes $-4$, $-1$, $-1/4$, $-4d$, $-1/(4d)$
-over all moduli $M$; $(a,D)$-classes with $4D+a\leq H$; Case-A classes $-m^{-1}$,
+$\gcd(s,G)=1$ (for instance the $\cR(M)$-classes $-4$, $-1$, $-1/4$, and $-4d$, $-1/(4d)$
+with $4d\leq H$, over all moduli $M$; $(a,D)$-classes with $4D+a\leq H$; Case-A classes $-m^{-1}$,
 $m\leq H$; selector classes).
 \end{theorem}
 \begin{proof}[Proof sketch]
@@ -3361,6 +3369,8 @@ pivotal bound gives $(A^*)$ with $K=32$ and $\gamma'=\min(\gamma,1/4)$; apply
 Theorem~\ref{thm:Astar}.  For $H$-small classes the projection of $\mathrm{Res}_\ell(\cG_2)$
 modulo $\ell$ has at most $(H+1)H\leq z^{1/2}$ elements, so $U(\mathrm{Res}_\ell(\cG_2))\leq\ell^{-1/2}$.
 \end{proof}
+(So $H$-small families even satisfy $(RS_{1/2})$; the statement uses $\gamma=1/4$
+because the proof works with $\gamma'=\min(\gamma,1/4)$ anyway.)
 Theorem~\ref{thm:ressparse} strictly extends Theorem~\ref{thm:roughslice} (the case
 $\cG_2=\emptyset$) and, for the families it covers, settles the nonempty-fibre
 proviso of Section~\ref{sec:smoothrough}, since $Q'_c(G_{B_c})\geq1/2$ forces $\A_c\neq\emptyset$
@@ -3600,7 +3610,7 @@ stronger Flat with sign conditions on $(N/2,N]$ \lab{proved} implication.
 Flat reduces to a purely combinatorial statement with no arithmetic and
 no $\A$.
 
-\begin{definition}[SPW$(C,\sigma,\Delta_0)$ at $N$, spread pseudo-window; {\cite[\S9]{IF2}}]\label{hyp:SPW}
+\begin{definition}[SPW$(C,\sigma,\Delta_0)$ at $N$, spread pseudo-window; {\cite[\S9]{IF2}}]\label{def:SPW}
 A summable $R\geq0$ on $\Z$ with (P1) $R(s)=c(s)$ for every class $s$ of
 modulus $\leq N/2$; (P2) $R(s)\leq1-\sigma$ for every class of modulus $>CN$; and
 (P3) $|R(s)-c(s)|\leq\Delta_0$ for every class of modulus in $(N/2,CN]$.
