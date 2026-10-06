@@ -271,6 +271,33 @@ second moment (OMEGA13's pair potential, restricted to atoms completed at ℓ) l
 `τ((ℓ^{a+1}M'+1)/m)²` over primes ℓ with smooth M' of unbounded size — a Shiu-type bound in
 progressions to smooth moduli larger than the range of ℓ, which we do not have.
 
+## 6b. Unconditional fallback for m ≢ 0 (4): exponent 1/5 via the class of one
+
+OMEGA12 (exponent 1/5, Haar `𝓛^5 log𝓛`) uses the *class of one* (OMEGA11 graded quarantine), not
+squares, so Lemma 3.1 is never invoked. A line-by-line check of OMEGA12 (+ the OMEGA11 parts it
+uses) for general m was done by a deep-mode subagent and spot-checked here; its findings:
+
+* ET inputs: Prop 1.4 is stated for general `k ≪ (AB)^{O(1)}` (bound `AB log(A+B) log(1+k)`),
+  Thm 7.1 is uniform over polynomials of fixed degree with root-count bound C, Cor 7.4 and (7.10)
+  are for general k / general coefficients. So `4 ↦ m` is admissible.
+* **Root counts.** OMEGA12 uses `ρ ≤ 2` for `4dx²+1`. For `P(x) = m d x² + 1` with `md` odd, the
+  count mod `2^k` can be **4** (checked: max over odd `md < 200`, `k ≤ 11` is 4; odd prime powers
+  give ≤ 2). So ET Thm 7.1 must be used with `C = 4` and Euler factor `1 + 4/(ℓ−1)` at ℓ = 2 — a
+  constant change.
+* **2-adic coordinate.** For odd m, `M = mA − 1` can be even, so the quarantine must include the
+  prime 2 with graded raises (OMEGA11's event model otherwise misses constraints: e.g. `m = 5`,
+  `M = 464 = 16·29`, `D = 3` survives `Q = 840` (`gcd = 8 | 16 = 5D+1`) and still needs
+  `n ≡ 1 (mod 16)` — verified). Routine: the charging argument is prime-independent.
+* Class-of-one exclusion: TRANSFER Lemma 5.1(ii) (archimedean, valid for every m, M even included).
+* Lemma 3.1 / 4.1 parity assertions (`q` odd, `P` odd) are replaced by `ℓ ∤ mad`; the linear
+  branch uses `gcd(ma², b) = 1` from `qb − ma²d_0 = 1`.
+
+**Corollary 6.1 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), OMEGA10 Thm 3.4 —
+substitution proof, review required).** For every fixed `m ≥ 4`:
+`log(1/δ*_m(T)) ≪_m 𝓛^5 log𝓛` and `W_m(p) ≥ exp(c_m(log p)^{1/5}(log log p)^{−1/5})` for infinitely
+many primes p. (For `m ≡ 0 (4)` this is superseded by Thm 3.1.) This improves TRANSFER Cor 5.2's
+`1/7` for every m, in particular for Sierpiński's `5/n`.
+
 ## 7. Status
 
 | item | statement | label |
@@ -280,6 +307,7 @@ progressions to smooth moduli larger than the range of ℓ, which we do not have
 | Thm 3.1 | `m ≡ 0 (4)`: Haar exponent 3 (`𝓛³/log𝓛 ≪ log(1/δ*_m) ≪ 𝓛³(log𝓛)^5`) and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. | PROVED modulo (G), NT, fundamental lemma, OMEGA10 Thm 3.4 (substitution proof; needs review) |
 | Prop 3.2 | Haar lower bound `≫ 𝓛³/log𝓛` for every m ≥ 4 | PROVED modulo fundamental lemma |
 | Lemma 4.1 | transfer (I3) for arbitrary unit class r | PROVED modulo (G) |
+| Cor 6.1 | every m: Haar `≪ 𝓛^5 log𝓛`, `W_m(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o. | PROVED modulo ET (+G, OMEGA10) — substitution proof via subagent check; review required |
 | Thm 5.1 | `m ≢ 0 (4)`: same conclusions as Thm 3.1 (log-powers depending on K) | CONDITIONAL on ADM_m(K, Q_0) |
 | §6 | ADM_m numerics (m = 5, 6, 7, 9, 10, 11, 13): max per-prime drift ≈ 4, `f_ℓ ≲ 0.55(log ℓ)³/ℓ` | EVIDENCE |
 
