@@ -113,7 +113,7 @@ parameters used).** Suppose the big events are *independent of the small coordin
 dependence), with `N` exactly Poisson-binomial of mean R and `R≥R_min(n)`, and the multivariate
 form `ψ:=1−e_n(z−p)/e_n(−p)` (which is (Prop 3.1) in the Poisson limit) is ≥0. Then
 `m(n):=λψ(z(n))1_{S_T}(n)` is a box-bounded measure on `S_T∖A`, and its counts on every class of
-modulus `q` with `qT^n≤x^{1−ε}` are `N_xP_H(C)(1+O(2^n e^{−u\log u}))`, `u=ε\log x/𝓛` (fundamental
+modulus `q` with `qT^n≤x^{1−ε}` and fewer than n big prime factors are `N_xP_H(C)(1+O(2^n e^{−u\log u}))`, `u=ε\log x/𝓛` (fundamental
 lemma applied term by term; `‖coeffs‖_1≤2^n` after normalisation). It therefore defeats every
 SALC whose bounds on such classes have relative accuracy no better than
 `2^{n+1}e^{−u\log u}` and whose other bounds are upper bounds of Brun–Titchmarsh type.
