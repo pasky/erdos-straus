@@ -136,3 +136,39 @@ the minimal ones match the author's sanity values; `w=1`: `(14,2,15)` ✓.
   merging identical boxes) and uncovered measure 0.166667 / 0.023810 /
   0.020833 — identical to the author's table. `(w,x_7)=(9,−1),(−7,−1),
   (25,−1),(41,−1)` uncovered at 10⁵ ✓.
+
+### §5 partial explanation (labelled PROVED)
+
+`Fe=1+4ck²≡1 (8)` for `t≥3` ⇒ `e≡F^{−1}≡F (8)` ✓; `e≡F^{−1}≡−1 (m')`,
+`≡1 (7^v)` ⇒ `F≡e (mod 8n)` ✓; `F≠e` ⇒ `e(e+8n)≤N` ⇒ `min≤N/8n=
+2^{α+2γ−1}k_o` (up to the `+1`) ✓. **SOUND.** The rest of §5 is correctly
+labelled EVIDENCE / Assessment.
+
+**D2 (MINOR) — Cor 3.3(ii) proof, last sentence.** "Only the slices with
+`v_7(c)` odd need polynomials, since forced slices vanish by Thm 48.1" is a
+modification of Theorem A, whose `𝓟_X` contains all of `𝓢`. It is correct
+(on `𝒞`, `p≡x̂ (mod 8·∏_{q≤B}q)` and every prime of s is ≤X≤B, so
+`χ_s(p)=χ_s(x̂)=1` for `v_7(c)` even), but this sentence must be written; or
+simply apply Theorem A verbatim (Step 1 for all of `K_X` holds by Lemma 2.1 +
+the computation). Either is fine; say which.
+
+**D3 (MINOR) — labels/wording of C3.2.** "CERTIFIED by two independent
+engines" overstates: only `typei2_signcheck.c` reaches `3·10⁹`; the sympy
+engine stops at 10⁶ and the Λ-enumeration at `ck≤8660`. Repair: "one engine
+to 3·10⁹, cross-checked by two others on smaller ranges" (and cite this
+review's independent rerun, see table). The §3 heading still reads
+"`C(7)>10⁶` under H" (stale; should be `3·10⁹`).
+
+**D4 (MINOR) — `C` vs `C*` in the "iff" statements** (§0 last sentence,
+§1 Remarks "Under H, C(7)=∞ iff Σ_7 has a sterile point", Conj 3.4). §0
+asserts `C` and `C*` differ "only by finitely many p, each with its own
+value", silently assuming `ck_min(p)<∞` for every hard p with `n_p=r`. That
+is only proved for p beyond the threshold of (i) (cf. D1). Sterile ⇒ `C=∞`
+is fine; `C=∞` ⇒ sterile needs `ck_min(p)<∞` for the finitely many small p.
+Repair: state the equivalence for `C*` (or add "provided `ck_min(p)<∞` for
+all p below the threshold", which a finite computation can check once the
+covering is known).
+
+**D5 (MINOR) — Thm A(iii) proof.** "the `Cl(κ)` are open and `Σ_r` is
+compact" — spell out the finite-intersection step: the closed sets
+`Σ_r∖⋃_{K_X}Cl(κ)` are nonempty for every X and decreasing in X.
