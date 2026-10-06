@@ -157,3 +157,21 @@ cd scripts
 (ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_resid.py 5 3000000 11 97)   # residual shares
 ```
 Sources: ET (`sources/elsholtz-tao-1107.1010.pdf`) Lemma 2.8, Prop 1.7 and its proof (p. 18) read directly.
+
+## Round 2 / repairs applied (by the reviewer, author's context exhausted)
+
+Merged the author's latest polish (`side-agent/sierpinski-si`; it had already relabelled (M2) ⇒ SI as a
+SKETCH with five missing pieces, which covers most of D3). Then applied, one commit each, all marked
+"(R82 repair, applied by reviewer)" in POINTWISE_MN3.md and AGENT_REPORT_O82.md:
+* D1: Lemma 5.2 upgraded to `R(N) ≪ N^{3/5+O(1/log log N)}` with full proof (ET Type I identities with `4 ↦ m`,
+  ET Lemma 2.8 bounds re-proved, four divisor cases); the old 2/3 proof is kept as superseded; the
+  "Type II" label and the claim "only 2/3 here" are corrected (§0 table, §5 (P), Assessment, report).
+* D2: §5 scope note — the (P)/(AP)/(M2) localisation with fixed `K_0` is restricted to `q ≥ Q_0`;
+  `q_0 < q < Q_0` is listed as a separate OPEN component (new §0 table row, §4 consequence, Conj. 5.3, report).
+* D3: level-0 target stated as the pair sum (R_a).
+* D4: Lemma 3.1 now proves SI_3 (defined), with "SI_3 ⇒ ADM_m((1−θ)^{−3})" and the remark that MN2's two-level
+  SI does not follow; `2U_1/θ` and the dyadic display fixed.
+* D5, D6: Lemma 4.1 restricted to positive-weight atoms; `1/φ(G)` → `≪ log log G/G`.
+* D7: `f ≤ N+2`.  D8: numbers and truncation data.  D9: (M2) data caveat.
+Status after repairs: all PROVED lemmas SOUND; §5 localisation SOUND as an Assessment for `q ≥ Q_0`, with the
+range `q_0 < q < Q_0` honestly OPEN. SI, ADM_m remain OPEN; W_5 exponent 1/4 CONDITIONAL.
