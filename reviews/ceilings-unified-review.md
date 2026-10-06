@@ -113,3 +113,17 @@ Re-derived:
   The "every fibre" scope is inherited from Cor 4.6's own remark (R49b D4). ✔
 
 Defects: D4 (coordinate definition) and D5 (inputs list).
+
+### Claim 7 — §4.4 toy LP (EVIDENCE): **SOUND** (reproduced exactly)
+
+My own exact rational simplex on the dual moment LP
+(`scripts/review_unify_toylp_exact.py`, no code shared with `unify_toy_lp.py`)
+reproduces the table exactly:
+* least order with a positive minorant: 3, 7, 11, 15 (`=2P−1`);
+* least order with a ≥90% majorant saving: 6, 8, 12, 14;
+* the per-`k` savings and `EB/EF` values agree to all printed digits.
+
+A float HiGHS version (`scripts/review_unify_toylp.py`) agrees for `P=2,4` but is
+numerically unreliable for `P ≥ 6`. That is a warning against float replays of
+this LP; it does not affect the author's exact script. The label EVIDENCE is
+correct.
