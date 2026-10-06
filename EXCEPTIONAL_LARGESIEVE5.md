@@ -181,3 +181,94 @@ at outside primes (two witness moduli sharing an outside prime p need
 `λ_j ≡ λ_{j'} (p)`). By Lemma 1.2 every cross-label coincidence at p
 forces `H(λ_j)H(λ_{j'}) ≥ p/2`, and two distinct labels coincide at no
 more than `log(2H(λ_j)H(λ_{j'}))/log z` primes `> z`.
+
+## 4. What the label reduction leaves: three correlation inputs
+
+By Lemma 3.1, (CC) in the product model reduces to bounding, for each
+partition `S = ⊔U_j` and distinct labels `λ_j`,
+
+    Σ_{(λ_j)} P_y(∀j : block j has a witness)  ≤  Π_{ℓ∈S} K ℓ^{1−γ}.     (4.1)
+
+(The `Π ℓ^{−1}` is already exact; the slack per S-prime is `ℓ^{1−γ}`.)
+Write `Mass(Q') := Σ_m |Λ(Q'm)|/m` (m over rough squarefree outside
+cofactors, `Q'm ≤ X`); by Shiu's theorem in progressions (A runs over an
+AP mod Q') plus `τ(A²) ≤ A^{O(1/log log A)}` for the short range,
+`Mass(Q') ≤ C(log X)³ + Q'^{O(1/log log Q')}` (standard; this is the
+uniform first moment used in K2/KARY3). Three kinds of correlation remain.
+
+**(C1) Same-label coincidences — solved exactly** (Lemma 3.1: they
+collapse to one residue vector). In particular the "structured families"
+of LS4 §3.2 (`−4d` over all `Q ⊆ S`) cost `Π_ℓ τ(F²)/ℓ` with no
+cover-counting.
+
+**(C2) S-coincidences (free S-primes).** Block j may use any
+`Q_j ⊆ U_j ∪ CS_j`; the union bound over `Q_j` costs `2^{|U_j|+|CS_j|}`
+and `|CS_j| ≤ |S|`. Trivially this gives a factor `≤ 2^{2|S|}` per block,
+i.e. `≤ 4^{|S|}` per S-prime: harmless iff `|S| ≤ (1/2 − γ)log₂ z`.
+Lemma 1.2 shows each cross-label S-coincidence at q forces
+`H(λ_j)H(λ_{j(q)}) ≥ q/2`, so (C2) is a statement about how often a
+label can be congruent, at many S-primes, to *other labels of the same
+configuration*. (Big groups — `≥ log₂ q` distinct labels of one
+configuration congruent mod one prime q — are the only case not
+absorbed by the per-prime slack.)
+
+**(C3) Outside sharing.** Witness moduli of different blocks may share
+outside primes p, which requires `λ_j ≡ λ_{j'} (p)`. Without using this
+compatibility, the union bound over which blocks share which primes gives
+`Π_{p ≤ X}(1 + (2^k − k − 1)/p) ≤ (C log X/log z)^{2^k}` (k = number of
+blocks): harmless iff `2^k log log X ≲ (log N)^{1/4}`. With
+compatibility the shared primes of a pair of labels are among the
+`≤ log(2HH')/log z` prime factors of `num(λ_j − λ_{j'})`, which would make
+(C3) negligible — **but only if the weights can be summed with p fixed
+first**, and the witness weight of a label is not uniform in the modulus
+(see (S) below).
+
+**Corollary 4.2 (product model, tiny supports; PROVED modulo the Mass
+bound above).** If `|S| ≤ c₀ log log N` (`c₀` small absolute) and
+`log X ≤ z^{γ/8}`, then in the product model
+`P(E_S) ≤ Π_{ℓ∈S} K ℓ^{−γ}` with `K = z^{γ/2}` for `N ≥ N₀(γ)`.
+
+*Proof.* Lemma 3.1; Bell(|S|) partitions; per block the label sum is
+`≤ Σ_{Q ⊆ S}Mass(Q·e) ≤ 2^{|S|}(C(log X)³ + M_S^{o(1)})` for each fixed
+set e of shared outside primes; (C3) without compatibility costs
+`(C log X/log z)^{2^{|S|}}`. Altogether
+`P(E_S) ≤ Π_{ℓ∈S}ℓ^{−1}·|S|^{|S|}·(2^{|S|}C(log X)³)^{|S|}·M_S^{o(1)}
+·(C log X)^{2^{|S|}}`, and with `2^{|S|} ≤ (log N)^{c₀}` every factor is
+`≤ z^{γ/4}` per S-prime once N is large (`ℓ > z`). ∎
+
+This is far from what (A*) needs (`|S|` up to `(log N)^{3/4}`), and it is
+stated only to calibrate: **the whole difficulty of (CC) is (C2) and (C3)
+for configurations with many distinct labels.**
+
+**(S) Why pointwise divisor-in-residue-class bounds do not suffice
+(Assessment, with the computation).** For `λ = −4D` and a fixed part Q',
+`λ ∈ Λ(Q'm) ⟺ Q'm ≡ −1 (mod 4D^♮)`, `D^♮ = Π p^{⌈v_p(D)/2⌉}`. Hence the
+witness weight `ν(λ,Q') = Σ_m [λ ∈ Λ(Q'm)]/m` splits as
+* a **long** part (`m ≥ 4D^♮`): `≤ 2(1+log X)/D^♮`, uniform in Q' — these
+  witnesses behave like random residues, and (C2), (C3) for them are
+  harmless (the label sum converges and congruence conditions mod p cost
+  `≍ 1/p` on average by Lemma 1.2 and Shiu in progressions);
+* a **short** part: at most one `m < 4D^♮` (namely `m ≡ −1/Q' mod 4D^♮`),
+  contributing up to 1, **for every label, however high**.
+Short witnesses are classes whose label height exceeds the outside
+cofactor; for such classes the label is (nearly) determined by the
+modulus, and the sup over residue classes of `#{D | A² : D ≡ c}` is
+attained. Lenstra / Coppersmith–Howgrave-Graham–Nagaraj bound this count
+by `O(1)` only when the prescribed modulus exceeds `A^{1/2+ε}`, which
+removes the `τ(A²)` but **not** the lack of decay in the shared modulus g:
+in (C2)/(C3) one needs `Σ_{g | L}(weight of labels ≡ c mod g) ≪ 1`
+summed over the `2^{ω(L)}` divisors g of the already-constrained part L,
+and with short witnesses each g can carry weight `≍ 1`. So the
+remaining input is an **averaged** label–pair correlation statement
+(averaging over the moduli and labels of *both* blocks), not a pointwise
+divisor bound. The random-residue model predicts (4.1) with
+`K = (log X)^{O(1)}` for all |S| (each overlap costs exactly what its
+compatibility saves; LS4 §3.2's heuristic), and no ES configuration
+violating it is known.
+
+> **(LCH) label-correlation hypothesis** (CONJECTURE; sufficient for (CC)
+> in the product model). For every finite set S of primes `> z`, every
+> partition `S = ⊔_{j≤k}U_j` and every choice of witness S-parts, the sum
+> over distinct labels `λ_1,…,λ_k` and witness moduli of
+> `Π_j[λ_j ∈ Λ(G_j)]·[compatibility at every shared prime]/lcm(outside parts)`
+> is `≤ Π_j (C(log X)^C)^{|U_j|}·2^{O(|S|)}`.
