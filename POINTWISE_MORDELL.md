@@ -156,12 +156,19 @@ of these families) together with the all-family brute-force boxes (M≤10⁶) le
 families contribute little here; the boxes in this cell are mostly I1. Survivors per added
 digit: ≈5/11 then 9/11 (at 11), ≈10/13 then 11.6/13 (at 13) — not a product set.
 
-**Computation 4.1 (CERTIFIED by one engine, re-check pending).** Let `x*∈Ẑ^×` have `x*_11=2`,
+**Computation 4.1 (CERTIFIED; see the R80 note below).** Let `x*∈Ẑ^×` have `x*_11=2`,
 `x*_13=2`, `x*_q=1` for every other prime q. Then `x*∈Σ_13` (main variant), and
 * (`mordell_point.py 1000000 11:2:8 13:2:8`) `x*` lies in no class, of any of the seven
   families, with modulus `M≤10⁶`;
 * (`mordell_rigid.py 11,13 3` + `mordell_cellcov.py`) `x*` lies in no II1/II2/I4 class whose
   modulus has {11,13}-part dividing `11³·13³` (T-free part unrestricted).
+
+*R80 note (R80 repair, applied by reviewer).* An independent from-scratch engine
+(`scripts/review_mordell_point.py`) confirms the first clause in full: 0 classes with M up to 10^6.
+The second clause was re-checked by `scripts/review_mordell_rigid.py` for every T-level F dividing
+11^3*13^3 except F = 11^3*13^3 itself. That level, and the level-4 extension in 4.1 below, rest on
+one engine only. In the Consequence below, the exponent 8 is arbitrary. The precise statement is
+`p = x* modulo the lcm of the moduli`; for moduli up to 10^6, exponent 5 already suffices.
 
 *Consequence (PROVED from 4.1).* Every finite covering of `Σ_13` (main) by ET classes contains a
 class with modulus `>10⁶`. Indeed a finite union of clopen classes missing `x*` misses a
