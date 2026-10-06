@@ -51,3 +51,33 @@ top-q classes: `F_q(A)ΔF_q(A')` is covered by residue sets of classes
 matched off-top on exactly one side; truncation is 1-Lipschitz ✓.
 (The pinned factor table uses `1_𝒜 = Π_{q∉S}λ_qΠ_{ℓ∈S}h_ℓ` on corners —
 correct because off S the coin rule guarantees `x_q ∉ F̃_q`.)
+
+### Lemma 3.1 (chains)
+Re-derived. (i) same `F̃_r` on all corners ⇒ same `x_r`; the
+`F^∪/F^∩` case split is exhaustive ✓. (iii) the recursion keeps the same
+corner pair `(A, A∪ℓ)`; the differing off-top coordinate r of `C_j` is
+≥ ℓ because the two paths agree below ℓ and on `S∖ℓ`, and `q > ℓ` since
+`F_ℓ` depends only on coordinates < ℓ ✓. (iv) ✓ (`λ_q ≡ 1` where
+`F_q = F̃_q`). (3.1) follows from Lemma 3.1(iv) and `Piv(F∘u) ⊆ Piv(u)` ✓.
+Only wording defect: "(stop, `k = 1`… after relabelling)" (MINOR D-a).
+
+### Lemma 4.1, Prop 4.2 (Walsh/XOR-cover form)
+Re-derived. `D_Uf(∅) = (−1)^{|U|}2^{|U|}f̂(U)` ✓; `e^{−a_Rχ_R} =
+cosh a_R − χ_R sinh a_R` ✓; `a_∅ = mean Y* ≥ 0` ✓. Minimal-subcover step:
+`Σ_{covers} ≤ Π_R(1+|a_R|)Σ_{𝒯₀ min}` ✓; private elements exist in a
+minimal cover ✓; `|a_R|^{1/n_R} ≤ β_R` in both cases `|a_R| ≤ 1`
+(`n_R ≤ |R|`) and `|a_R| > 1` ✓; injectivity of 𝒯₀ ↦ map ✓. Coefficient
+facts ✓ (centre Y* at its midrange).
+Prop 4.2: Leibniz with two factors evaluates `e^{−Y*}` on the subcube over
+the corner `A_T = U ⊆ T` ✓ (max over `A_T` covers it); shift by
+`|S|log 2` (`L_ℓ ≤ log 2` since `p̃_ℓ ≤ 1/2`) costs `2^{|S|}` and leaves
+`a_R` (R ≠ ∅) unchanged ✓; `2^{|T|}2^{|S∖T|}2^{|S|} = 4^{|S|}` ✓ (the
+0/1 bound `2^{|T|−1}` is even used with slack). Coefficient bound:
+`Δ(2w_qp̃_q)/2 = w_qΔ_q`, `Δ(L)/2 ≤ Δ_ℓ` ✓; restriction to subcubes only
+decreases Δ and Piv ✓. Example: `1[A⊇B] = 2^{−|B|}Σ_{R⊆B}(−1)^{|R|}χ_R` ✓,
+`‖a‖′ ≤ c`, `|D_B| ≤ 2^{|B|}e^{2c}` ✓.
+Script `scripts/review_ls6_walsh.py` (seeds 1, 2; 800 random structured Y*
+on cubes of dim ≤ 5 with the XOR-family sum computed exactly by group-algebra
+DP; 300 random products of 0/1 and Lipschitz factors): Lemma 4.1 both
+inequalities, the coefficient facts, Lemma 2.1(b),(c) all hold (Lemma
+2.1(b) is attained with equality in some one-factor cases, as it must).
