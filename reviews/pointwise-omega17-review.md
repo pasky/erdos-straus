@@ -8,7 +8,13 @@ From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 | item | verdict | notes |
 |---|---|---|
 | Lemma 5.2 (capped planting) | SOUND | re-derived; exact-rational brute force, 192 random instances (n≤8, k≤3) + equal-odds boundary cases, `scripts/review_o17_capped.py`. Bound is attained for k=0 (dev = 1/R = s−1). |
+| Lemma 1.2 | SOUND (MINOR wording) | the q>x claim is true and trivially so; see D1. |
+| Lemma 1.3 | SOUND | dual re-derived; 200 random SALC LPs: primal = dual to 1e-15 (`scripts/review_o17_lemmas.py`). LP version only (integral version has no such duality; the text says so). |
+| Rem 1.4 | SOUND | min is attained (compact polytope), so "valid ⇔ no fake supported on S∖A"; slack `|S_T|/N_x≍log x/𝓛` re-derived (Q's primes >T change it by `1+o(1)` as `Q≤x^δ`). |
+| Lemma 2.1 | SOUND | identity re-derived; ψ≥0 not even needed. LP brute force on {0,1}^n, n≤6: monotone fake infeasible 100/100, non-monotone feasible 84/100. "Harris" is a misnomer-ish attribution (it is a one-line Efron–Stein/Russo identity), harmless. |
 | Prop 3.1 (i)–(iii) | SOUND | Charlier normalisation matches `₂F₀(−n,−j;;−1/R)`; (ii) checked exactly (`E[ψ_n(N)_m]=R^m`, m<n≤7, three R); (iii) uses `Σ_{|Y|=r}1[Y on]=(N)_r/r!`. |
+| Lemma 4.1 | SOUND | entire-function argument correct; scope example `j(j−5)²/12` re-checked exactly at R=2,3. |
+| Lemma 5.1 | SOUND | aggregated LP = full LP on 200 random instances (max diff 9e-16). |
 | Prop 3.1 (iv) table | SOUND (EVIDENCE label correct; can be strengthened) | all 15 R_min values reproduced, positivity on **all** integers j≥0 with a rigorous (Fujiwara) root cutoff, `scripts/review_o17_charlier.py`, `data/review_o17/charlier.txt`. |
 
 ## Lemma 5.2 — details
