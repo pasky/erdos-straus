@@ -336,3 +336,49 @@ Target: `4ck=2r(r+1)`, whose 2-part is 8 (as `r+1≡4 (8)`).
   covering search for r=13).
 * For `r≡3 (8)`, other (non-sign) deep points exist, e.g. the r=11 point
   of POINTWISE_TYPEI Cor 6.4 (`ck_min>3000`).
+
+## 5. Why the sign point survives: near-miss statistics (EVIDENCE / Assessment)
+
+A *near miss* at the sign point is `(c,k,F)` with `v_7(c)` odd,
+`F|1+4ck²`, `F≡−1 (mod m')` and `F≡1 (mod 7^{v})`. It satisfies every
+condition of (2.2) except the 2-adic one. It is a certificate at `x̂_w`
+iff `w≡−F (mod 2^t)`, `t=v_2(4ck)`. So for Haar-random `w∈9+16ℤ_2`, the
+expected number of certificates in a height range is the sum of `2^{4−t}`
+over the near misses there with `−F≡9 (16)` and `t≥4`
+(`typei2_nearmiss.c`, factorisation-free like the checker; X=2·10⁹, 4 min):
+
+| ck in | near misses | in 9+16ℤ₂ | Σ2^{4−t} |
+|---|---|---|---|
+| [2¹⁰,2¹¹) | 62 | 2 | 0.125 |
+| [2¹⁴,2¹⁵) | 154 | 8 | 0.070 |
+| [2¹⁸,2¹⁹) | 329 | 20 | 0.083 |
+| [2²²,2²³) | 597 | 42 | 0.024 |
+| [2²⁶,2²⁷) | 1003 | 82 | 0.021 |
+| [2²⁸,2²⁹) | 1232 | 106 | 0.009 |
+| [2²⁹,2³⁰) | 1373 | 124 | 0.009 |
+
+Cumulative ≈1.01 up to `2³¹`; below `2¹⁰` there is nothing. The
+near-miss count grows (≈ `ck^{0.37}`), but the 2-adic weight decays faster.
+**Observed mechanism:** near misses with `−F≡1 (8)` occur only with a deep
+2-part. Apart from the square family `(α,γ)=(1,1)`, which gives `−F≡1 (16)`
+(Lemma 3.1), they need `t=v_2(4ck)≥6`. Those with `−F≡9 (16)` need
+`t≥8` in the data (`ck≤3·10⁷`). Partial explanation (PROVED): if
+`F≡7 (8)`, then `e=N/F≡7 (8)` too, since `Fe≡1 (2^T)`. So `F≡e (mod 8n)`,
+n the odd part of ck. Then either `F=e` (square family, excluded by
+Lemma 3.1), or `|F−e|≥8n`, which forces `min(F,e)≤N/(8n)≈2^{α+2γ−1}k_o`
+(`k_o` the odd part of k). Hence a non-square near miss in `7+8ℤ` needs a
+divisor of N in the class `ε (mod n)` below `2^{α+2γ−1}k_o`. That is rare
+unless the 2-part `2^{α+2γ}` is large, and then the 2-adic weight
+`2^{4−t}` is small.
+
+*Assessment.* If the per-bin mass keeps decaying geometrically (ratio ≈
+0.85 per doubling over the last 8 bins), the expected number of
+certificates at a random `w∈9+16ℤ_2` above `2³¹` is `≈0.1`. Then a set of
+`w` of positive measure, and plausibly `w=9`, is sterile. If instead the
+mass decays only like `1/log`, a.e. `w` is eventually covered. The data
+cannot exclude this. Even then, exceptional sterile `w` might exist, and
+by compactness this is exactly the question `C(7)=∞` vs `<∞` under H.
+**Neither is proved.** Proving the decay would need an upper bound for
+divisors of `1+4ck²` in a fixed class `ε (mod n)` below
+`≈2^{α+2γ}k_o`, uniform in the slice. That is a divisor-in-short-ranges
+problem of the type in POINTWISE_TYPEI §4.2.
