@@ -95,7 +95,8 @@ boxes `−f_ET (mod 17^{⌈K/2⌉})`.**
 `f | 4a²d_P+1`, and `f+1 = 4acd ≡ 0 (mod 4cd)`. ∎
 
 **Corollary 2.4 (no level-0 boxes; Lemma 1.2).** `F=1` would give ES solutions of `4/1` in
-positive integers, impossible (`1/x+1/y+1/z ≤ 3`). For (P), `K≥1` as `k≥1`... and `k=0` forces `K=0`. ∎
+positive integers, impossible (`1/x+1/y+1/z ≤ 3`): for (Q) and (U) directly (`n=F=1`); for (P), `k=0` forces
+`α=δ=0`, hence an N-point of `Σ^II_1`, i.e. a solution of `4/1` (R83 repair m8). ∎
 
 **Consequence (measure).** With `f(N)` = #ordered positive solutions of `4/N=1/x+1/y+1/z` and
 `f_II(N)` = #N-points of `Σ^II_N` modulo dilation,
