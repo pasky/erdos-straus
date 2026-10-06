@@ -82,3 +82,48 @@ So no fake built only from "these events hold" can match even the first-order st
 *not* hold" — and there is no fundamental-lemma control of the integers in such sets beyond the
 sieving limit unless the dependence is polynomial of low degree (§3).
 
+## 3. Shallow planting (exchangeable model)
+
+*Shallow* = density which is a polynomial of low degree d in the event indicators, i.e. a
+combination of classes of modulus `≤T^d`; such a density restricted to integers is controlled
+by the fundamental lemma as long as `D·T^d≤x^{1−ε}` (D = level of the certificate's classes).
+
+**Proposition 3.1 (Charlier fake; identities PROVED, positivity EVIDENCE).** Let `N~Poisson(R)`
+(number of big events on, exchangeable model) and `n≥1` odd. Put
+`ψ_n(j):=1−C_n(j;R)`, `C_n(j;R)=Σ_{r≤n}C(n,r)(−1)^r(j)_r/R^r` (Charlier). Then (i) `ψ_n(0)=0`;
+(ii) `E[ψ_n(N)q(N)]=E[q(N)]` for every polynomial q of degree `<n` (orthogonality of Charlier
+polynomials), so `ψ_nP` has the same factorial moments up to order `n−1` as `P`; (iii) `ψ_n` has
+degree n, i.e. it is the combination `Σ_rC(n,r)(−1)^{r+1}R^{−r}r!·Σ_{|Y|=r}1[all events of Y hold]`
+of classes of modulus `≤T^n` — shallow. (iv) EVIDENCE (exact rational arithmetic, all
+`1≤j≤4R+6n+20`; for `j` larger `C_n(j;R)<0` as n is odd): `ψ_n≥0` on ℕ iff `R≥R_min(n)` with
+
+| n=k+1 | 1 | 3 | 5 | 7 | 9 | 11 | 13 | 15 | 17 | 21 | 25 | 31 | 41 | 61 | 81 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| R_min | 1 | 2 | 5 | 9 | 13 | 18 | 23 | 28 | 33 | 44 | 56 | 74 | 104 | 169 | 236 |
+
+(`n≥31` by bisection in R, assuming monotonicity). `R_min/n` grows slowly (2.9 at n=81,
+consistent with `≍log n`). The deep planting needs `R≳n` (O14 Lemma 1.1; LP-sharp up to a
+constant); the shallow one needs `R≳n·(slowly growing)`. On `j≤2R`, `max ψ_n→1` (1.09 at n=7,
+1.000 at n=21), so the box is harmless. An LP over all degree-d shallow densities (Poisson
+model, `scripts/omega17_shallow.py`) finds the least degree `d=k+1` (k even) / `k+2` (k odd) when
+`R≥2k`, and `d≈1.6k–2k` under `ψ≤4` for `R∈{16,32}`.
+
+**Corollary 3.2 (support-aware fake in the exchangeable model; PROVED given (iv) for the
+parameters used).** Suppose the big events are *independent of the small coordinates* (no x_s
+dependence), with `N` exactly Poisson-binomial of mean R and `R≥R_min(n)`, and the multivariate
+form `ψ:=1−e_n(z−p)/e_n(−p)` (which is (Prop 3.1) in the Poisson limit) is ≥0. Then
+`m(n):=λψ(z(n))1_{S_T}(n)` is a box-bounded measure on `S_T∖A`, and its counts on every class of
+modulus `q` with `qT^n≤x^{1−ε}` are `N_xP_H(C)(1+O(2^n e^{−u\log u}))`, `u=ε\log x/𝓛` (fundamental
+lemma applied term by term; `‖coeffs‖_1≤2^n` after normalisation). It therefore defeats every
+SALC whose bounds on such classes have relative accuracy no better than
+`2^{n+1}e^{−u\log u}` and whose other bounds are upper bounds of Brun–Titchmarsh type.
+*Proof sketch.* ψ is a polynomial in the event indicators with
+`E[ψχ]=E[χ]` for all juntas of `<n` big coordinates (each monomial of `e_n(z−p)` has n distinct
+centred factors); expand, count integers of `S_T` in each class `C∩{events of Y hold}` (modulus
+`≤qT^n`) by the fundamental lemma; positivity and `ψ(0)=0` give support in `S_T∖A`. ∎
+(The positivity of the multivariate ψ is only checked in the Poisson limit; Cor 3.2 is stated
+conditionally on it.)
+
+So in an exchangeable model, support awareness does **not** help against
+fundamental-lemma-accuracy information: the obstruction is again at level `n≍R`. §4 explains
+why this does not transfer to the ES instance.
