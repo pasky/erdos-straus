@@ -252,3 +252,8 @@ The usual caveats for external submission remain:
 - Mordell, Schinzel and Yamamoto were not accessed.
 - The BE page range is unconfirmed.
 - Several proofs are sketches pointing to internal working notes.
+
+### Parent note on D16 (2026-10-06)
+D16's author-name change was reverted. The arXiv *metadata* lists "Dumitru C. Bogdan", but the byline of the PDF
+(arXiv:2509.00128v1, p. 1) reads "Spiridon Mihnea, Bogdan C. Dumitru". This agrees with PAPER_B_ISSUES item 7 and
+LITERATURE_2026. The paper now cites "S. Mihnea and B. C. Dumitru".
