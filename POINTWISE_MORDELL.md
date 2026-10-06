@@ -185,3 +185,19 @@ in §4): every finite ET covering of the Mordell-hard primes with `n_p=17` (even
 variant) contains a class of modulus `>10⁶`.
 **Conjecture 5.2.** `x̃` is sterile; then no finite set of polynomial identities proves ES for all
 primes with `n_p=17`.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/mordell_check.py data/mordell/cert_r13_np_240240.json
+PYTHONPATH=scripts uv run python scripts/mordell_check.py data/mordell/cert_r13_main_720720.json
+PYTHONPATH=scripts uv run python scripts/mordell_cert.py 13 main 100000000 720720 /tmp/c.json   # regenerate
+PYTHONPATH=scripts uv run python scripts/mordell_cover.py 13 main 100000000 2,3,11,17,13,19,23  # §1
+PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 1000000 13 3 11,13       # §2 (~16 min)
+PYTHONPATH=scripts uv run python scripts/mordell_rigid.py 11,13 3                 # §4 (~30 s)
+uv run python scripts/mordell_cellcov.py 3 /tmp/o80_rigid_11,13_3.pkl /tmp/o80_boxes_1000000_11,13_3.pkl
+PYTHONPATH=scripts uv run python scripts/mordell_point.py 1000000 11:2:8 13:2:8   # Comp 4.1 (~15 min)
+PYTHONPATH=scripts uv run python scripts/mordell_point.py 1000000 17:5:8   # Comp 5.1 (~15 min)
+PYTHONPATH=scripts uv run python scripts/mordell_rigid.py 17 4; PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 2 17
+MORDELL_I1CAP=1e11 PYTHONPATH=scripts uv run python scripts/mordell_dfs.py 13 np 10000000 100 3 30000 /tmp/t.json
+```
