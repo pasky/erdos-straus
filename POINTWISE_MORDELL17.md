@@ -246,8 +246,11 @@ PYTHONPATH=scripts uv run python scripts/m17_union.py 3 6 --cmp /tmp/o80_boxes_1
 `17∤bc`, the (Q)-box is `−4a²d ≡ −a/b (mod 17^k)`. (ii) For an N-point of `Σ^II_N`, `N=17^K`, with
 `17∤b`, the (P)-box is `−f ≡ −a/b (mod 17^K)`, a fortiori mod `17^{⌈K/2⌉}`.
 *Proof.* (i) (2.3) `c(4abd−1) = n(a+b) ≡ 0`, so `4abd ≡ 1`, `4a²d ≡ a/b`. (ii) (2.20) `bf = Nc+a ≡ a`. ∎
-For in-cell boxes the hypotheses hold: for Q, `17|c` forces box `≡1` (§2), and `17|b` gives
-`17|c` by (2.3); for P, `17|b` with `17∤cd` forces `17|a` by (2.15), and then `f ≡ −1` and box `≡ 1`.
+For in-cell boxes the hypotheses hold. For Q, the hypothesis of (i) can be weakened to the (Q)-datum
+condition `17∤e`, because then `4abd−1 = 17^k e` directly (Lemma 2.1), so `4abd ≡ 1` and (i) holds for
+every (Q)-datum. Moreover `17|c` cannot occur in a cell: `c | a+b` gives `a ≡ −b (mod 17)`, so
+`−a/b ≡ 1`, whereas Q-boxes lie in non-residue cells (Lemma 1.3). (R83 round-2 repair n3, applied by
+reviewer: this replaces an incorrect pointer to §2.) Also `17|b` gives `17|c` by (2.3); for P, `17|b` with `17∤cd` forces `17|a` by (2.15), and then `f ≡ −1` and box `≡ 1`.
 *Consequences.* The Q-boxes are closed under inversion (the reflection `a↔b` sends `−a/b` to
 `−b/a`), so the types Q and Q⁻¹ give the **same** set of boxes (confirmed by the data). Both Q and P
 boxes are balls around the rationals `−a/b` built from an ES point.
