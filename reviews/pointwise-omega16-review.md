@@ -13,7 +13,7 @@ Reviewer branch: side-agent/review-omega16. Author files merged at 58cb47e. Scri
 | Cor 4.2 | SOUND |
 | Prop 2.1(a) | SOUND |
 | Prop 2.1(b) | Assessment correctly labelled |
-| Prop 3.1 | pending |
+| Prop 3.1 | SOUND-AFTER-REPAIRS (scope wording: GRH only for moduli `≤x`, M1) |
 | LS consistency / refutation attempts | not refuted; one cheap PROVED special case and a sharper heuristic found (below) |
 | N2 (W(133050918961)=5935, hard, least) | CONFIRMED from scratch |
 
@@ -80,6 +80,23 @@ Re-derived line by line.
 * Earlier rows reproduced: least p for T=31,127,511,1023,2047 = 2521, 33289, 2031121 (×3);
   `W(2031121)=2495` (D=576); count of hard `p<10^{11}` with `W>2047` = 107 (author: 107).
 
+### Prop 3.1
+Checked the transfer step, taking O14 Thm 1.3/4.5 and O15 Thm 1.2/Lemma 1.1 as given (reviewed
+elsewhere; not re-derived here). `log x<0.6𝓛(k+1)` ⇒ a modulus `q≤x` has `≤k` prime factors
+`>T^{0.6}` ⇒ ν = Haar on everything of modulus `≤x`. Centring: `N_x−N_{x,q}` = number of primes
+`≤x` in H dividing q `≤ω(q)≤log x/log 2<2log x`; for bounded h (classes, characters) the deviation is
+`≤ω(q)`. For averaged statements (BV/EH form) the extra `Σ_{q≤x^θ}2log x` is negligible. Using the
+same ν for all `x′≤x` gives a consistent increasing family `N_{x′}ν`, so certificates using several
+cut-offs are also covered. `∫F dm_ν=0` because ν is carried by `{F=0}`. The inversion
+`log x≥c𝓛^4/log𝓛 ⇒ log W≪(log p log log p)^{1/4}` is right.
+**But** the proof only matches statistics of modulus `≤x`. Full GRH also asserts
+`|Σ_{p≤x}χ(p)|≪√x log²(qx)` for characters of modulus `q>x`, e.g. of modulus `lcm(M≤T)≈e^{T}`,
+where it is non-trivial for `log x≍𝓛^4` (`√x·T²≪x`). Nothing shows that ν satisfies these
+(its Fourier coefficients at characters reading `>k` big coordinates are uncontrolled). The
+statement of Prop 3.1 itself says "moduli `q≤x`", but §0 ("BV, EH, GRH"), §3 Comment (a)
+("no level-of-distribution hypothesis reaches 1/3" — fine), §5.1 ("not implied by … GRH") and the
+§7 table ("EH/GEH/GRH/BV-type input … exponent ≤1/4") drop that restriction. See M1.
+
 ### LS: refutation attempts (brief: "it quantifies over ALL unit-class systems")
 1. *Single class mod `L=lcm(m≤T)`* (`log(1/δ)=(1+o(1))T`): LS = Linnik for modulus L, true with
    `C≈5` (Xylouris), the `p>T` requirement via Linnik's lower bound `π(x;q,a)≫x/(φ(q)√q log x)`.
@@ -141,4 +158,43 @@ this correctly; my first run did not, δ=0). Mention it, since Def 1.1 requires 
 
 ## Defects
 
-(numbered list follows)
+No FATAL defects.
+
+**M1 (MAJOR, scope/label).** Prop 3.1 covers GRH only in its truncation to moduli `≤x` (or `≤x^A`,
+Comment (a)); full GRH (all moduli, in particular characters mod `lcm(M≤T)`, non-trivial at
+`log x≍𝓛^4`) is not shown to be satisfied by the planted fake. Locations: §0 bullet "Brief item
+(i)", §5.1 ("nor … GRH"), §7 table row Prop 3.1, AGENT_REPORT_O61 item 3. Repair: write "GRH for
+moduli `≤x^{O(1)}`" everywhere, and add a sentence that full GRH (large moduli) is *not* covered;
+or prove that ν's Fourier coefficients at all characters of modulus `≤e^{O(T)}` are `≪T²x^{−1/2}`
+(not attempted by the author; plausible by an ℓ²-spreading count but unproved).
+
+**m1 (MINOR).** Thm 1.2 proof uses the *realisation* `(Q,r)` constructed in the proof of O13 Thm
+3.4 (840|Q, r square mod 840), not the theorem's statement (which is normalised on `n≡1 (24)` only).
+The text cites "O13 §5 Setting" so the reader can find it; say "proof of O13 Thm 3.4" in the
+theorem header/status row too. Also note the range condition `T≥e^{33}` (O13 §5).
+
+**m2 (MINOR).** §1 Remark (b) is a non-sequitur: LS already demands `p>T`, so killing the primes
+`ℓ≤T/4` is irrelevant, and the `log T` term is needed trivially because `p>T`. Repair: replace by an
+example where the least avoiding prime `>T` is `≫T·(1/δ)`: e.g. shifted Jacobsthal (gap `z^{1+o(1)}`
+at `δ≍1/log z`), or the greedy large-moduli adversary (gain `≈T` over `1/δ`, this review §LS item 3).
+
+**m3 (MINOR).** §6 N1: the shift `h=6` produces the class `0 mod 3`, which is not a unit class
+(Def 1.1). It is vacuous for primes and the author's δ handles it correctly, but say so.
+
+**m4 (MINOR, suggestion).** Add the two observations of §LS items 4–5: (i) the union bound over all
+`≤2^{T²}` systems turns the Haar-random-points model into CR(2+o(1)) *uniformly over systems* —
+a precise version of "log-scale random-set model", consistent with the observed adversarial gains
+`≈T`; (ii) Brun–Titchmarsh proves LS for systems of total event mass `<1/2−ε`.
+
+**m5 (MINOR).** Prop 4.1(b): "PROVED modulo BDH" — BDH is a theorem (ineffective via
+Siegel–Walfisz); "PROVED (ineffective constant)" is more accurate. Also state that the lower bound
+uses only primes in `(√T/2,√T]`, so product sets with extra conditions at primes `>T` (HL_prod with a
+larger parameter) do not escape Cor 4.2(b). The π-form bound `xQ log x` is weaker than needed but
+valid.
+
+**m6 (MINOR).** §1 Thm 1.2 Remark (b): "`log x≍log(1/δ)≍κ·log log T`" with `κ≍𝓛³/log𝓛` gives
+`𝓛³ log𝓛/log𝓛`… i.e. `log(1/δ)≍𝓛³` only up to the `(log𝓛)^{O(1)}` of Thm 3.4; add "up to log factors".
+
+## Labels
+All labels honest except the GRH wording (M1). Thm 1.2 "PROVED implication modulo NT" — correct.
+§5.4 PROVED — correct. Prop 2.1(b) Assessment — correct. N1–N3 EVIDENCE — N1, N2 reproduced.
