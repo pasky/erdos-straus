@@ -1155,33 +1155,47 @@ Importance (I) and feasibility (F) are rated high / medium / low. These
 ratings are this summary's judgement, not ledger labels.
 
 1. **External refereeing.** (I high, F high.) Nothing is externally
-   refereed. First the 3/4 note (only INTERNALLY PROVED) and the
-   2/3-loglog note (`paper/README.md` recommends showing the loglog note
-   to a human referee first); then the sieve-limits note v4, the subexp
-   note v4, the window note and the energy/DNF note. Related tasks: read
-   Vaughan 1970 itself and complete the priority searches (§5).
+   refereed. First the 3/4 note (only INTERNALLY PROVED; the cubic
+   witness tail (A)9 and the CEILINGS_UNIFIED bounds now also rest on it)
+   and the 2/3-loglog note (`paper/README.md` recommends showing the
+   loglog note to a human referee first); then the sieve-limits note v5,
+   the subexp note v5 (v6 in preparation), the window note and the
+   energy/DNF note. Related tasks: read Vaughan 1970 itself and complete
+   the priority searches (§5).
 2. **θ > 3/4 for `E(N)`.** (I high, F low.) The cap is now exactly
    `(log N)^{3/4}` for coefficient-sum sieves, every Bessel-type large
-   sieve, prime-only majorants and interval cancellation at moduli
-   `≤ N/2` (§§2.2–2.3). A new ingredient is required (§2.4). The precise
-   remaining doors, in rough order of concreteness:
-   * **weak SPW** ((D)26): a purely combinatorial statement about
-     measures on residue classes; it would cap hybrid methods, so it is a
-     *closing* question rather than an opening one;
-   * **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE): alternating witness
-     correlations of growing order; needs accuracy at moduli
-     `exp(c(log N)^{3θ/2})`, beyond any known theorem;
-   * **H_LS∞ for forced families** ((D)25, CONJECTURE): must use the
-     sparsity of forced families, by the band-family example;
-   * per-frequency weights below 1, and other genuinely non-CRT input.
+   sieve (at every frequency level for one-rough-prime and residue-sparse
+   mixtures), prime-only majorants and interval cancellation at moduli
+   `≤ N/2` (§§2.2–2.3). A new ingredient is required (§2.4). Two kinds of
+   question remain.
+   * *Opening* questions (would give θ > 3/4 if true):
+     **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE), alternating witness
+     correlations of growing order, needing accuracy at moduli
+     `exp(c(log N)^{3θ/2})`, beyond any known theorem; per-frequency
+     weights below 1; other genuinely non-CRT input.
+   * *Closing* questions (would extend the cap; a counterexample would
+     open a door): **(A*) / (DCC) / (RD′)** for residue-dense multi-rough
+     classes ((D)28 follow-ups; the most concrete: (RD) is proved at one
+     prime for ℛ(M) and for long cofactors, and short cofactors and the
+     (a,D)/Case-A classes are what is left); **weak SPW** for hybrids
+     ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`).
 3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
-   rate is `log W ≫ (log p)^{1/4}` up to logs, the Haar exponent is
-   exactly 3, and 1/4 is the ceiling of the Haar-minorant + transfer
-   architecture (§3.3). Reaching the heuristic truth 1/3 needs prime input
-   beyond low-conductor minorants: bilinear (Type II) or parity-sensitive
-   information, or a Siegel-zero-type transfer. Smaller tasks: remove the
-   `(log log p)^{−1/4}` factor; prove `log(1/δ*) ≍ 𝓛³/log 𝓛` exactly
-   (Conjecture 3.1 of POINTWISE_HAAR).
+   rate is `log W ≫ (log p)^{1/4}` up to logs; the Haar exponent and the
+   tail exponent over primes are both 3 (§3.3); 1/4 is the ceiling of the
+   Haar-minorant architecture and, by the Wiener-norm barrier, of every
+   full-orbit uniform linear certificate, for which GRH/EH-type prime
+   input is irrelevant. Routes, in order:
+   * prove the CONJECTURE **LS** ("Linnik for sifted sets"), which gives
+     1/3 (PROVED implication, (H)30), or any special case strong enough
+     for the ES system;
+   * **support-aware certificates**: decide **Conjecture SAP** ((H)31); if
+     true, 1/4 is also the ceiling of LP-relaxed support-aware
+     certificates with unconditional-type information, and only
+     size-localised counts, Type II input or non-linear methods remain;
+   * smaller tasks: remove the `(log log p)^{1/4}` gap to the ceiling and
+     the `(log log T)³` factor in the tail; close the `(log 𝓛)^5` gap in
+     the Haar exponent; m/n with m ≢ 0 (4) at exponent 1/4 (prove SI,
+     (H)32).
 4. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
@@ -1190,21 +1204,25 @@ ratings are this summary's judgement, not ledger labels.
    No "ES ⇐ standard hypothesis" was found ((H)18).
 5. **Unconditional `a_min(p) ≥ 11` (or `a_min → ∞`).** (I medium,
    F low.) Parity input is provably necessary (Thm P1), and in the
-   discrete model Type-I plus parity at BV level is not enough (§3.4). A
-   Chen-type switching argument is the model's suggestion (a follow-up,
-   POINTWISE_WINDOW3, was in progress). This is the window analogue of
+   discrete model Type-I plus parity at BV level is not enough (§3.4). In
+   the faithful model of POINTWISE_WINDOW3 (EVIDENCE/Assessment), Chen-type
+   switching works only with switched bounds within ≈ 2–2.5 of the truth,
+   against ≥ 3.9 for the best known constants at BV level: a precise
+   numerical gap. This is the window analogue of
    the open unconditional case of Friedlander–Iwaniec 2009.
 6. **Type-I: `ck_min ≥ g(p)·n_p` with `g → ∞`.** (I low–medium, F low.)
    Congruence input gives exactly `g = 1` (§3.3); beating
    `log p·log₃p` by congruences would beat known Ω-results for the least
-   non-residue. Whether `C(7) < ∞` is open.
+   non-residue. Whether `C(7) < ∞` is open: every finite Type-I covering
+   of `{n_p = 7}` has height > 3·10⁹ (CERTIFIED, POINTWISE_TYPEI2), and
+   under H, `C(7) = ∞` iff the sign point `x̂_9` is sterile (Conjecture 3.4).
 7. **An unconditional sterile seed component.** (I low–medium, F low.)
    Astra has reduced its hypothesis to 158 prime conditions plus one
    divisor condition; searches over actual inputs find no sterile prime.
    Note: settling this would not affect ES.
 8. **Residual cap questions that do not move 3/4:** the (D)21 Cor 3.4
    window for general class order ((D)24 closes it for prime order);
-   composite Gallagher kernels with huge `Nh/(W_K−h)`; majorants with
+   right-signed hybrid mass at moduli in `(N, CN]`; composite Gallagher kernels with huge `Nh/(W_K−h)`; majorants with
    `ν ≥ 0` only at primes `≤ N`; B-removal for general majorants over
    classes outside ℛ(M). (I low, F medium.)
 9. **Open hypotheses kept in the ledger** (section (E)): `H_kBV(κ)`,
@@ -1219,7 +1237,12 @@ ratings are this summary's judgement, not ledger labels.
     Vaughan 1970; for the pointwise machinery, Bazzi/Razborov/Braverman,
     LMN/Håstad sharpenings, Fourier-growth literature (for C-1), and
     Janson-type inequalities without Harris; Gallagher 1970 itself (only
-    the MV III draft was read).
+    the MV III draft was read). Audit 10b's must-checks, in order:
+    Lu–Székely and Mohr (Janson-type inequality), Lovett–Wu–Zhang 2020 and
+    Håstad 2001 (DNF tail constant), citations of BGP arXiv:1201.3261
+    (planting lemma), CHHL/KLLM (C-1), Montgomery 1968 / Kobayashi 1973
+    (large-sieve duality). The files not covered by either audit (§5)
+    need a first pass.
 11. **Administrative.** Settle authorship and the citation form for astra
     before `paper/pointwise-obstruction.tex` is finalised.
 
