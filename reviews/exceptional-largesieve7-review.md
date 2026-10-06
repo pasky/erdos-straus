@@ -10,7 +10,7 @@ Status: in progress. Reviewed text: `EXCEPTIONAL_LARGESIEVE7.md` as merged from
 | Lemma 1.1 | SOUND (proof re-derived; brute force M<20000) |
 | Lemma 1.2 | SOUND (re-derived; brute force all p \| M, M<20000) |
 | Lemmas 2.1–2.2 | SOUND-AFTER-REPAIRS (D1 citation: Shiu's class M not literally satisfied; Nair–Tenenbaum fixed-ε form needed; D2 constant) |
-| Thm 3.1 | (pending) |
+| Thm 3.1 | SOUND (given D1 repair; D3 minor: C depends on W, needs γ ≤ 1, N large) |
 | Prop 4.1 | (pending) |
 | Remark 4.2 | (pending) |
 | Thm 4.3 | (pending) |
@@ -43,6 +43,12 @@ at small primes: K2 §2 sets `γ'(p) = γ(p)` for `p ≤ W`, with `γ(2) = 8` (w
 `Γ(m) ≤ 8·3^{ω(m)}`); also `(1−2^{−1/2})^{−1} ≈ 3.41`. Correct: `f(ℓ^l) ≤ 8e^l`, `A₁ = 8e`.
 Harmless. *Repair applied:* `3e` → `8e`.
 
+**D3 (MINOR, hidden hypotheses in a constant). §3 Thm 3.1 statement.** "There is an absolute
+C": C inherits `C(α, W)` from Lemma 2.1 (W = K2's small-prime threshold), the collection
+step uses `γ^{−3} ≤ γ^{−5}` and `(log z/γ)^r` with `γ ≤ 1`, `K^{2β} ≤ e^γ` needs
+`K ≤ z^{γ/2}`, and D1's uniformity needs `N ≥ N₀`. *Repair applied:* "absolute C" →
+"C depending only on W (for `0 < γ ≤ 1`, `K ≤ z^{γ/2}`, N large)".
+
 ## Per-claim notes
 
 ### Lemmas 1.1, 1.2 — SOUND
@@ -69,3 +75,21 @@ parameters used: `x = 2Y`, interval length `Y = x/2 > x^β` (any β < 1/2), `k �
 `gcd(c,k) = 1` — fine; small x absorbed in the constant. Lemma 2.2: `Σ_i i^{r−1}e^{−i/(2L)}
 ≤ C_r L^r(1+log L)`, then `Σ_j j^s e^{−2γ j log 2/log z} ≤ C_s(log z/γ)^{s+1}`, `K^{2β} ≤ e^γ`
 (needs `K ≤ z^{γ/2}`, as in K2) — correct. Only defects: D1 (citation), D2 (constant).
+
+### Theorem 3.1 — SOUND (after D1; D3 wording)
+Re-derived every step. (3.0): `n = M/p`, `w_{P(M)} = w_{P(n)}` as `P(n) > p`, `Γ(M) ≤ 2Γ(n)`
+(`γ'(p) ≤ 2` for `p ≥ z`), every class is hit by ≥ 1 triple, all three heights `≥ H*`, so the
+triple sum dominates. Boxes: `n ∈ [3Y_B, 32Y_B)` and `n > p` ⇒ `UVT > p²/32` (so `Y_B > p/32`,
+`Y ≥ 2` in Lemma 2.1). Case L_u: for fixed `(v,t)`, `u ↦ n` is a bijection onto the
+progression `n ≡ −p^{−1} (mod 4vt)` (reduced since `p ∤ 4vt` by Lemma 1.2), `k = 4vt ≤
+16VT ≤ Y_B^{1−α}`; the dyadic Y covering `[3Y_B, 32Y_B)` all lie in `[Y_B, 32Y_B]` ✓. Pair
+counts `min(V(T/p+1), 2T(V/p+1)) ≤ 2VT/p + 2min(V,T)` ✓; support condition
+`4v²t < 32V²T ≤ 32max³`, `32^{1/3} < 4` ✓. Cases L_v, L_t ✓ (L_t uses `max(u,v) > p^{1/4}`).
+Case S: `UVT < 16^{3/(1−3α)}p^{3(1−α)/(1−3α)}`, `2.97/0.97 = 3.062 ≤ 3.07` ✓; side
+`< 16p^{1−α}(UVT)^α ≤ Cp^{1.0207}` ✓; count `≤ 2(1+Cp^{0.021})²min(U,V,T)` ✓;
+`W_p(n) ≤ Γ(n)/n` uses `w_q ≤ 1` (true for `q ≥ z`, `K ≤ z^γ`) ✓; exponent
+`1.042 + δ − 4/3 < −0.28` ✓; `(C log p)³` boxes ⇒ `≤ Cp^{−1/4}` ✓. Summation: boxes with a
+given dyadic Y in `[Y_B, 32Y_B]` have `UVT/p ∈ [Y/32, Y]`, ≤ 6 values of `log₂UVT`, each
+≤ `(s+2)²` factorisations ✓; Lemma 2.2 with r ≤ 2 ✓; `Σ_{max(V,T)=2^k}` has `2k+1` pairs ✓.
+Final collection: `γ^{−5}(log p)^7/p ≤ γ^{−5}(log p)^6p^{−1/12}` and `γ^{−3}(log p)^4p^{−1/12}`
+≤ the same for γ ≤ 1 ✓. The claimed independence of X is genuine (the sum is over all M).
