@@ -1,6 +1,6 @@
 """Union of all 17-generic ET boxes in the cells C_5, C_7 (POINTWISE_MORDELL17 §3).
 
-usage: m17_union.py kmax Kmax R [--bin /tmp/o83/m17_enum] [--cmp boxes.pkl]
+usage: m17_union.py kmax Kmax [--bin /tmp/o83/m17_enum] [--cmp boxes.pkl]
   Q,U data for levels k<=kmax, P data for K<=Kmax (levels ceil(K/2)); resolution 17^R (R>=all levels used).
 Boxes by Lemma 1.1: Q, Q^-1, sqrt(Q) (both roots), U, U^-1, P.  Prints per level the new boxes
 meeting C_5/C_7 and the covered fraction of each cell at resolution 17^R.
@@ -15,10 +15,14 @@ if '--bin' in args:
     i = args.index('--bin'); BIN = args[i + 1]; del args[i:i + 2]
 if '--cmp' in args:
     i = args.index('--cmp'); CMP = args[i + 1]; del args[i:i + 2]
-kmax, Kmax, R = map(int, args[:3])
+kmax, Kmax = map(int, args[:2])
 
 
 def run(mode, k):
+    import os
+    fn = f'/tmp/o83/out_{mode}{k}.txt'   # cached output of `m17_enum mode k | sort -u`
+    if os.path.exists(fn):
+        return sorted({int(l.split()[1]) for l in open(fn) if l.strip()})
     out = subprocess.run([BIN, mode, str(k)], capture_output=True, text=True, check=True)
     sys.stderr.write(out.stderr)
     return sorted({int(l.split()[1]) for l in out.stdout.split('\n') if l})
@@ -56,20 +60,20 @@ for K in range(1, Kmax + 1):
     for r in run('P', K):
         boxes[k].add(r); src[k]['P'].add(r)
 
-M = 17 ** R
+# ultrametric: balls are nested or disjoint, so the union measure is the sum over maximal boxes.
+from fractions import Fraction
 for v in (5, 7):
-    cov = set()
     print(f"cell C_{v}:")
+    tot = Fraction(0)
     for k in sorted(boxes):
         F = 17 ** k
         inC = sorted(r for r in boxes[k] if r % 17 == v)
         per = {t: sum(1 for r in S if r % 17 == v) for t, S in src[k].items()}
-        for r in inC:
-            step = F
-            cov.update(range(r, M, step))
-        print(f"  level {k}: {len(inC)} boxes in cell {per}; covered after level {k}: "
-              f"{len(cov)}/{M // 17} = {len(cov) / (M // 17):.5f}")
-        if len(inC) <= 30:
+        new = [r for r in inC if not any(r % 17 ** j in boxes.get(j, ()) for j in range(1, k))]
+        tot += Fraction(len(new), F)
+        print(f"  level {k}: {len(inC)} boxes in cell {per}, {len(new)} maximal; "
+              f"covered fraction of cell after level {k}: {float(tot * 17):.6f}")
+        if len(inC) <= 12:
             print("    residues:", inC)
 pickle.dump({k: sorted(s) for k, s in boxes.items()}, open(f'/tmp/o83/boxes_{kmax}_{Kmax}.pkl', 'wb'))
 if CMP:

@@ -92,3 +92,41 @@ positive integers, impossible (`1/x+1/y+1/z ≤ 3`). For (P), `K≥1` as `k≥1`
 By ET Prop 1.7 (`f_I ≪ n^{3/5+o(1)}`, `f_II ≪ n^{2/5+o(1)}`) both series CONVERGE (PROVED, but
 ineffective: ET's `n^{O(1/log log n)}` constants are not explicit). The (P) series is the critical
 one: exponent `2/5` against measure `N^{−1/2}`.
+
+## 3. Exact low levels (CERTIFIED by one engine; independent re-check pending)
+
+`scripts/m17_enum.c` enumerates, using the bounds of ET Lemma 2.8 (valid for every N-point, not
+only Type I/II solutions, as its proof uses only the defining equations):
+* `Q k`: N-points of `Σ^I_{17^k}` with `a≤b` (`n/4<acd≤3n/4`, `f=4acd−n | 4a²d+1`), `17∤e`;
+  boxes `−4a²d`, `−4b²d` (the reflection `a↔b`);
+* `U k`: `4i·uvw = F(u+v+w)`, `u≤v≤w` (`4iuv ≤ 3F`), every choice of `c∈{u,v,w}`, conditions of (U);
+* `P K`: N-points of `Σ^II_{17^K}` with `a≤b` (`a²d ≤ abd ≤ N/2`), `f·e = N+4a²d`, `f≡−1`,
+  `e≡−N (mod 4ad)`, `17∤cd`; boxes `−f`, `−f* = −(4bcd−1)` mod `17^{⌈K/2⌉}` (reflection).
+`scripts/m17_union.py` adds Q⁻¹, √Q, U⁻¹ (Lemma 1.1) and computes the union in `C_5`, `C_7`
+exactly (ultrametric: two boxes are nested or disjoint, so the union measure is the sum over
+maximal boxes).
+
+Validation: every box of the brute-force run `mordell_tgen.py 100000 17 3 17` (all seven
+families, all moduli `M≤10⁵`, 106 boxes) meeting `C_5∪C_7` is in the complete list; the 13 rigid
+II-boxes of POINTWISE_MORDELL §5 (cell 5, level 3) are in it. (Brute force leaves 76.1% of each cell
+uncovered at level ≤3; the complete enumeration 68.5%: the extra boxes have T-free part >10⁵/17³.)
+
+Number of data (`m17_enum` stderr): Q: 2, 0, 73, 0, 245, 0, 707 (k=1..7); U: 4, 0, 68, 0, 310, 0,
+826; P: 2, 0, 32, 0, 121, 0, 258 (K=1..7). Even K are empty (for Q, P: ET Prop 1.6, `f_I=f_II=0` at
+odd squares — PROVED; for U: computed for k=2,4,6).
+
+**Computation 3.1.** Covered fraction of `C_5` (identical numbers for `C_7`):
+
+| level k | boxes meeting C_5 (by type) | maximal | covered fraction after level k |
+|---|---|---|---|
+| 1 | 0 | 0 | 0 |
+| 2 | 4 (P, K=3) | 4 | 0.235294 |
+| 3 | 32 (Q 12, Q⁻¹ 12, U 4, U⁻¹ 4, P 20) | 23 | 0.314879 |
+| 4 | 50 (P, K=7) | 34 | **0.321799** (complete through level 4) |
+| 5 (Q,U only) | 67 (Q 39, Q⁻¹ 39, U 25, U⁻¹ 25) | 29 | 0.322147 |
+| 7 (Q,U only) | 240 | 94 | 0.322150 |
+
+So the boxes of level ≤4 leave **67.82%** of each cell uncovered (CERTIFIED), and the measure
+added per level falls by roughly a factor 17–20 per level (EVIDENCE). The points `u=5`, `u=7`
+(the `x̃` of POINTWISE_MORDELL Comp. 5.1) lie in no box of level ≤4, nor in any Q/U box of
+level 5 or 7.
