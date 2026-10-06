@@ -94,6 +94,10 @@ Writing `m'` for the T-free part, the T-generic conditions are:
 `f'∣1+4a²d`.) Rigid forms: II1/I4 ⟺ `4iabk=F(a+b+k)` with `k=(a+b)/e`, `e+1=4i·ab/F`
 (symmetric in a,b,k); II2 ⟺ `4adm=f+1`, `g∣a+m` (f=Fg), equivalently with `a+m=gj`:
 `(4dja−F)(4djm−F)=F²+4dj²`; I1 ⟺ `(4ni−1)(4nj−1)=4naF+1`, `ad=Fn`.
+(R80 repair, applied by reviewer.) In the I1 rigid form, n is an auxiliary integer, not the ES
+variable; read it as a fresh symbol, e.g. nu. Scope of the PROVED label: R80 independently
+re-derived the II1/I4 and II2 rows, their rigid forms and the finiteness per T-level. The I1, I2,
+I3 and II3 rows and the I1 rigid form were not independently re-checked.
 * c²-generic points (x_q = c² for q∉T, c a T-unit rational), np variant, M≤10⁵, k=1:
   (c,T) = (2,{2,13}), (3,{3,13}), (5,{5,13}), (6,{2,3,13}), (7,{7,13}), (11,{11,13}), (1/2,·),
   (1/3,·), (2/3,·), (3/2,·): all covered. Also c-generic with c=−1 (T={2,3,7,11,13}),
