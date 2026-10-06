@@ -450,3 +450,26 @@ deterministic set must be replaced by the random set of residues of
 classes whose *other* coordinates are matched: the covering problem
 (CC) of §3.2, now only for "large-height" classes (Cor 5.3 removes the
 small-height ones).
+
+## 6. Numerics (EVIDENCE / sanity checks only)
+
+* `scripts/largesieve4_checks.py`: [1] the identity
+  `Σ_S(Π_{ℓ∈S}w_ℓ)P_S = E_T𝓡_2(σ_T)` for random toy rough families and
+  weights (errors ≤ 3·10⁻¹⁴); [2] the η formula of Lemma 2.1 (≤ 5·10⁻¹⁵);
+  [3] Lemma 5.1 for the always-forbid law (`δ_ℓ` replaced by the maximal
+  activated fraction): `max_θ|σ̂(θ)|/Π_{ℓ∈S}4U(Res_ℓ)/(1−p_max)` = 0.15–0.25
+  on 5 random residue-sparse families over primes 5, 7, 11, 13.
+* `scripts/largesieve4_toy_es.py`: the always-forbid law for **actual**
+  ℛ(M) classes, M ranging over the products of ≥ 2 of the primes
+  {11, 19, 23, 31, 43} with `M ≡ 3 (4)` (527 classes). Primes that are never
+  a top prime (11, 19 here) carry no Fourier mass alone (`P_{{11}} = 0`)
+  but do carry mass jointly (`P_{{11,31}} ≈ 7·10⁻⁴ > P_{{31}} ≈ 3·10⁻⁵`):
+  correlations move Fourier mass to multi-prime supports. This is why
+  Lemma 1.1 damps **every** prime of the support and why the collision
+  must be controlled jointly (Prop 4.1) rather than prime by prime.
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 900 env PYTHONPATH=scripts uv run --with numpy python scripts/largesieve4_checks.py
+    timeout 900 env PYTHONPATH=scripts uv run --with numpy python scripts/largesieve4_toy_es.py

@@ -101,3 +101,43 @@ if __name__ == "__main__":
     for s in range(1, 4):
         main(s)
     print("all checks passed")
+
+
+def check_lemma51(seed):
+    """Lemma 5.1 (always-forbid law, G = everything): |sigma_hat(theta)| <= prod_{l in S} 4U(Res_l)/(1-pmax_l)."""
+    rng = random.Random(100 + seed)
+    primes = [5, 7, 11, 13]
+    # residue-sparse family: few residues per prime, classes of arity 1..4
+    pool = {q: rng.sample(range(q), 2) for q in primes}
+    classes = []
+    for _ in range(25):
+        k = rng.choice([1, 2, 2, 3, 4])
+        S = rng.sample(primes, k)
+        classes.append({q: rng.choice(pool[q]) for q in S})
+    order, sig = seq_law(primes, classes)
+    # max p over pasts
+    pmax = {}
+    for i, l in enumerate(order):
+        tops = [C for C in classes if max(C) == l]
+        mx = 0
+        for pre in itertools.product(*[range(q) for q in order[:i]]):
+            asg = dict(zip(order[:i], pre))
+            F = {C[l] for C in tops if all(asg[q] == C[q] for q in C if q != l)}
+            mx = max(mx, len(F) / l)
+        pmax[l] = mx
+    Res = {l: len({C[l] for C in classes if l in C}) / l for l in order}
+    A = np.abs(fourier(order, sig))
+    worst = 0
+    for idx in itertools.product(*[range(l) for l in order]):
+        S = [l for l, a in zip(order, idx) if a]
+        if not S: continue
+        bound = np.prod([4 * Res[l] / (1 - pmax[l]) for l in S])
+        worst = max(worst, A[idx] / bound)
+    print(f"[3] Lemma 5.1 seed {seed}: max |hat|/bound = {worst:.4f} (Res fractions {[round(Res[l],3) for l in order]})")
+    assert worst <= 1 + 1e-12
+
+
+if __name__ == "__main__":
+    for s in range(1, 6):
+        check_lemma51(s)
+    print("lemma 5.1 checks passed")
