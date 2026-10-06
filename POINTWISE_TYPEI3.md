@@ -185,11 +185,18 @@ is the odd part of `ck`. Also `F≡−w≡7 (mod 8)` if `t≥3`, and `F≡3 (mod
 The near-miss data agree. In the dump `typei3_nmdump 7 9 10⁸` (932 near misses with `−F≡1 (8)`,
 `t≥4`), every one with `t≤4` or `α+2γ≤4` is a square (`F=e`).
 
-*Scope.* Lemma 5.1 needs `e−F` divisible by `4c̃k̃` with `c̃k̃²=ck²` and `c̃` integral.
-For `α+2γ≥5` the best available rescaling has `c̃=c/4^{t−4}∉ℤ`. The descent then
-runs in `ℤ[1/2]`. Equivalently, `((F+e)/2,k)` solves a Pell equation of norm
-`4^{2(t−4)}`-type, with several classes. The congruence `F≡1` holds only on the
-principal class (§6, if pursued).
+*Scope (what the descent gives for `α+2γ≥5`).* Put `λ=2^{t−4}`, `c̃=c/λ²∈ℤ[1/2]`, `K=λk`,
+`δ=(e−F)/16n`. Then `Fe=1+4c̃K²` and `e−F=4c̃Kδ`, and the step
+`(K,F)↦(ρ,F')=(K−δF, F−4c̃ρδ)` still preserves the equation. It is multiplication by a
+fixed real quadratic unit, so it ends after finitely many steps at a reduced pair with
+`F_end∈ℤ[1/2]`, `0<F_end≤1`. (If `ρ_end≤0`, then `F_end²≤1`. In the data
+`scripts/typei3_descent.py` the chains are short, except for `δ` small with `c̃` tiny.)
+The steps move F by `4c̃ρδ`, which is divisible by `c_o` (the odd part of c) at every odd prime.
+So `F≡F_end (mod c_o)`, `F_end=a/2^m≤1`. Lemma 5.1 is the case `F_end=1`. When
+`c̃∉ℤ`, `F_end<1` occurs, and the congruence `F≡a/2^m (mod c_o)` does not contradict
+`F≡−1 (c')`, `F≡1 (7^a)`. So the obstruction in Cor 5.2 is special to
+`α+2γ≤4`. It does not extend unless the 2-adic part of the orbit is controlled exactly.
+That is possible only with the exact value `w=9`, never modulo a fixed `2^j` (compare Prop 3.1).
 
 ## Replay
 
