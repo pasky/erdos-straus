@@ -157,6 +157,41 @@ class mod `s≥n^{1/3}`) then suggests only `#certificates(level)≪Λ^{1/2+ε}`
 `2^{−(2+α+γ)}7^{−(a+b)}`, the exponent ½ is exactly borderline in the `γ`, `b`
 directions.)
 
+## 5. Vieta descent: the low 2-levels are empty (PROVED)
+
+**Lemma 5.1 (Vieta descent).** Let `c,k,δ≥1` and `F,e≥1` be integers with
+`Fe=1+4ck²` and `e−F=4ckδ`. Then `F≡e≡1 (mod 4cδ)`.
+*Proof.* Induction on k. If `F=1`, then `4ckδ=e−1=4ck²`, so `k=δ`, `e=1+4cδ²`, and
+the claim holds. If `F>1`, put `ρ=k−δF`. From `F²+4ckδF=1+4ck²` we get
+`F²−1=4ckρ`, so `1≤ρ<k`. Put `F'=F−4cρδ`. Then
+`F'F=F²−4cρδF=1+4ckρ−4cρδF=1+4cρ²>0`, so `F'≥1`, and `F−F'=4cρδ`. By induction
+(applied to `(c,ρ,δ,F',F)`), `F≡F'≡1 (mod 4cδ)`, and `e=F+4ckδ≡F`. ∎
+
+(Equivalently, `((F+e)/2,k)` runs over the solutions of
+`A²−4c(1+cδ²)k²=1`, and the descent shows that `(1+2cδ², δ)` is the fundamental one.
+Brute-force check: all 39 660 pairs with `c,k<200` satisfy the conclusion `F≡e≡1 (mod 4)`.)
+
+**Corollary 5.2 (PROVED).** Let `w≡9 (16)`. A certificate `(c,k,F)` at `x̂_w` has
+`t=v_2(4ck)≥5` and `α+2γ≥5`. (Recall `c=2^α…`, `k=2^γ…`, `t=2+α+γ`.)
+*Proof.* Put `e=N/F`. By Lemma 1.1, `F≡−x̂`, `e≡−x̂^{−1} (mod 4ck)`. The odd components
+of `x̂` are `±1`, and `w≡w^{−1} (mod 16)` (as `81≡1`). So `e≡F (mod 2^{min(t,4)}n)`, where `n`
+is the odd part of `ck`. Also `F≡−w≡7 (mod 8)` if `t≥3`, and `F≡3 (mod 4)` if `t=2`; in all cases
+`F≢1 (mod 4)`. `F≠e` by Lemma 3.1 of POINTWISE_TYPEI2. (Its proof for `t≤4` uses only `w≡1 (8)`, and
+for `t≥5` it uses `w≡9 (16)`.)
+* `t≤4`: then `e≡F (mod 4ck)`, and Lemma 5.1 gives `F≡1 (mod 4)`, a contradiction.
+* `t≥5` and `α≥2(t−4)` (equivalently `α+2γ≤4`): put `c̃=c/4^{t−4}`, `k̃=2^{t−4}k` (integers). Then
+  `4c̃k̃²=4ck²` and `4c̃k̃=16n`. Since `e≡F (mod 16n)`, Lemma 5.1 applies to `(c̃,k̃)`
+  and again gives `F≡1 (mod 4)`, a contradiction. ∎
+
+The near-miss data agree. In the dump `typei3_nmdump 7 9 10⁸` (932 near misses with `−F≡1 (8)`,
+`t≥4`), every one with `t≤4` or `α+2γ≤4` is a square (`F=e`).
+
+*Scope.* Lemma 5.1 needs `e−F` divisible by `4c̃k̃` with `c̃k̃²=ck²` and `c̃` integral.
+For `α+2γ≥5` the best available rescaling has `c̃=c/4^{t−4}∉ℤ`. The descent then
+runs in `ℤ[1/2]`. Equivalently, `((F+e)/2,k)` solves a Pell equation of norm
+`4^{2(t−4)}`-type, with several classes. The congruence `F≡1` holds only on the
+principal class (§6, if pursued).
+
 ## Replay
 
 ```
