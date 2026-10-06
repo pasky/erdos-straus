@@ -1,6 +1,19 @@
 # Type-I depth on `{n_p = r}`: compactness and the profinite question (task O69)
 
-Status: work in progress (side agent O69, branch `side-agent/typei-sterile`).
+Status: checkpoint 1 (side agent O69, branch `side-agent/typei-sterile`); not yet reviewed.
+
+| # | statement | label |
+|---|---|---|
+| Thm A | `X_r` = least height of a finite Type-I covering of `Σ_r`. Then `C*(r)≤X_r` (PROVED). If no covering of height ≤X exists, then under H (finite family `𝓟_X`) there are infinitely many p with `n_p=r` and `ck_min>X`. Hence under H `C*(r)=X_r`, and `X_r=∞` ⟺ a sterile point exists. This closes R31-D6 / Remark 6.2(ii) | PROVED / CONDITIONAL (H) |
+| L2.1–2.2, P2.3 | at points that are squares off 7: unforced ⟺ `v_7(c)` odd; certificates = 7-adic balls; the residue-one point is covered at level 1 by exactly 3 certificates | PROVED |
+| L2.4, C2.5 | {2,7}-generic points: rigid parametrisation `c'JJ'−u=Λ`, `u∣J+J'`; finitely many certificates per level | PROVED |
+| §2.2 | union of all certificate boxes with `Λ≤3·10⁸` leaves measure ≈0.0103 of `Σ'` uncovered (slowly decreasing); integral survivors all have `x_7=−1` | EVIDENCE |
+| L3.1 | sign point `x̂_w=(w;−1;1)`, `w≡9 (16)`: no square-family certificate | PROVED |
+| C3.2–3.3 | no certificate at `x̂_9` with `ck≤10⁸` (two engines, plus a third in a smaller range). Hence every Type-I covering of `{n_p=7}` has height `>10⁸`, and under H `C(7)>10⁸` (was ≥539) | CERTIFIED / CONDITIONAL (H) |
+| P4.1 | sign points exist iff `r≡3 (4)`; for `r≡3 (8)` they are killed by `(r(r+1)/4,2,2r+1)`; for `r≡7 (8)` Lemma 3.1 holds | PROVED |
+| §5 | near-miss mass at random `w` decays per dyadic height bin (≈0.01 at 2³⁰). Mechanism partly proved | EVIDENCE / Assessment |
+| Conj 3.4 | `x̂_9` is sterile, so `C(7)=∞` under H | CONJECTURE (open) |
+
 Builds on POINTWISE_TYPEI.md (notation, Lemma 1.1, Thm 2.1, Remark 6.2, Cor 6.4).
 
 ## 0. Setup
@@ -363,7 +376,7 @@ near-miss count grows (≈ `ck^{0.37}`), but the 2-adic weight decays faster.
 2-part. Apart from the square family `(α,γ)=(1,1)`, which gives `−F≡1 (16)`
 (Lemma 3.1), they need `t=v_2(4ck)≥6`. Those with `−F≡9 (16)` need
 `t≥8` in the data (`ck≤3·10⁷`). Partial explanation (PROVED): if
-`F≡7 (8)`, then `e=N/F≡7 (8)` too, since `Fe≡1 (2^T)`. So `F≡e (mod 8n)`,
+`t≥3` and `F≡7 (8)`, then `e=N/F≡7 (8)` too, since `Fe≡1 (2^T)`. So `F≡e (mod 8n)`,
 n the odd part of ck. Then either `F=e` (square family, excluded by
 Lemma 3.1), or `|F−e|≥8n`, which forces `min(F,e)≤N/(8n)≈2^{α+2γ−1}k_o`
 (`k_o` the odd part of k). Hence a non-square near miss in `7+8ℤ` needs a
