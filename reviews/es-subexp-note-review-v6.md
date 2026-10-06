@@ -78,3 +78,37 @@ Brute force: firing primes exist for every m ≢ 0 (4) tested (first ones e.g. m
 Note: the smallest firing prime for m=5 is ℓ = 19 (≡ 3 (8), via D = 2, t = 1) — not covered by the
 construction, but the proposition only claims infinitely many; no defect. The "M ≡ 7 (8): sufficient,
 not necessary; e.g. m=5, M=19, D=1" sentence is correct at the level of atoms (atom (19,2) does fire).
+
+### Theorem 15.3 (m ≡ 0 (4)) — SOUND as a summary; label matches MN
+MN Thm 3.1 label: "PROVED modulo the inputs of OMEGA13 Thm 3.4/5.1" (table: G, NT, fundamental lemma,
+OMEGA10 Thm 3.4 — the last is §7 of this paper). Paper label "proved in [MN] modulo G, NT, fundamental lemma
+for (i) lower" is **not stronger**. Items (1)–(5) re-checked: Q(n) = n(mn−1) with 4 | m has ρ(2) = 1 (n=1 gives
+odd value), ρ(p)=1 for p | m, ρ(p)=2 else — no fixed prime divisor ✓; M ≡ 3 (4) odd ⇒ p₀ = P_H ✓; forced
+steps safe by 15.1(d) ✓. Residual note: MN's own table still says "substitution proof; needs review" — R63
+reviewed it; the paper's "internally reviewed" covers this. OK.
+
+### Proposition 15.4 — SOUND (summary)
+`mD ≤ mn² < M` for `M ≥ √T` keeps classes distinct; no Jacobi input. Label = MN Prop 3.2. ✓
+
+### Theorem 15.5 (every m, exponent 1/5) — SOUND as a summary; label not stronger than MN Cor 6.1
+MN label adds "OMEGA10 Thm 3.4" (= §7 here, proved), so dropping it is legitimate. From scratch:
+`1 ∉ R_m(M)` for all m ∈ [4,40], M ≤ 2·10⁴ (`check_class_one`); the archimedean argument is right
+(`M | mD+1 ⇔ M | D+A` since `mA ≡ 1`, and `D ↦ A²/D` preserves this as `gcd(AD, M) = 1`). Note the paper's
+parenthetical "(M | D+A is impossible …, after D ↦ A²/D)" skips the step `mD+1 ≡ m(D+A) (mod M)` — see D6.
+
+### Lemma 15.6 (transfer for arbitrary r) — SOUND
+Re-derived against the proof of Thm 6.1: r enters only via (c) (ψ₁(r) ∈ {±1} replaces 1) and Case A
+(`c(χ) = χ₁(r)μ/φ(Q)`); for `χ₁(r) = −1` the exceptional term is positive, `λ' = 1 + x^{β₁−1}/β₁ ≥ 1`, errors as in
+Case 0 (`R₁ ≤ 1/400`, G-error ≤ 1/200). Case B uses only |ψ₁(r)| = 1. The hypothesis `8 | Q` is still needed
+(f₁ | Q in (c)); see D4 for where Thm 15.7 must guarantee it.
+
+### Theorem 15.7 (conditional on ADM_m) — CONDITIONAL, correctly labelled up to D3/D4
+Label matches MN Thm 5.1. The odd-m parity split added by the author (SR2) is correct: from scratch,
+`n(mn−1)` has fixed divisor 2 for odd m, while `t(2mt−1)` and `(2t+1)(mt+(m−1)/2)` have no fixed prime divisor
+(odd m ≤ 199, p < 60; `check_parity_split`); for p=2 in the odd branch use t=0 if m ≡ 3 (4), t=1 if m ≡ 1 (4).
+But see D3 (label vs. unwritten step).
+
+### "Towards ADM_m" paragraph — SOUND wording, two MINOR points (D5)
+Matches MN2 Thm 3.1 (ordered process; failure ≤ C_ν(c₁q₀^{−1/2+ε} + o(1)), c₁ not explicit), Lemma 1.1
+(s₀ > 0), Prop 5.1 (SI ⇒ ADM_m), SI = CONJECTURE, §4 = Assessment. Henriot Thm 5 checked in
+`sources/henriot-1102.1643.pdf` p. 6: coefficient-uniform, constants depend on g, α, δ, A, B only. ✓

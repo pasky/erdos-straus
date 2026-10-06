@@ -105,3 +105,34 @@ if __name__ == "__main__":
             assert not prop_fire(m, 3000)
     assert 29 in prop_fire(5, 100)
     print("Prop 15.2 OK (and no firing primes for m = 0 mod 4)")
+
+
+def check_class_one(mlist, Mmax):
+    """Thm 15.5 text: class of one is never covered: M | mD+1 impossible (archimedean, D -> A^2/D)."""
+    for m in mlist:
+        for M in range(m - 1, Mmax + 1, m):
+            if M < 3:
+                continue
+            A = (M + 1) // m
+            for D in divisors(A * A):
+                assert (m * D + 1) % M != 0, (m, M, D)
+
+
+if __name__ == "__main__":
+    check_class_one(list(range(4, 41)), 20000)
+    print("class of one never in R_m(M), m=4..40, M<=2e4: OK")
+
+
+def check_parity_split(mmax=201, pmax=60):
+    """Thm 15.7 text (odd m): n(mn-1) has fixed prime divisor 2; the split pairs have none."""
+    from sympy import primerange
+    for m in range(5, mmax, 2):
+        assert all((n * (m * n - 1)) % 2 == 0 for n in range(2))
+        for p in primerange(2, pmax):
+            assert any((t * (2 * m * t - 1)) % p for t in range(p)), (m, p, "even")
+            assert any(((2 * t + 1) * (m * t + (m - 1) // 2)) % p for t in range(p)), (m, p, "odd")
+
+
+if __name__ == "__main__":
+    check_parity_split()
+    print("parity split pairs: no fixed prime divisor (odd m <= 199, p < 60): OK")
