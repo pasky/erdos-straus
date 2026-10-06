@@ -16,9 +16,9 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
    below the sieve-limit scale (and then the escaping majorant is the LP optimum, as hard as
    the count).
 3. **Thm 3.3 (PROVED): sharp weights (any w with w(0)=N, w ≥ c₀|sin πNθ| off 0), hit-pattern
-   majorants, Q₀ = 1, prime slices with |F_ℓ| ≤ ℓ^γ (γ<1/3), boundedly many bad primes, and the
+   majorants, Q₀ = 1, prime slices with |F_ℓ| ≤ ℓ^γ (γ<1/3), boundedly many bad primes, all p_ℓ ≤ 1/4, and the
    uniform mass hypothesis (M) ⇒ saving ≤ C(log N)^{3/4},
-   without (H_eq).** Proof: `|S_N| ≥ sin²(πNθ)` turns `M_S` into `½A_S(1−Πφ_ℓ(N))`; one prime
+   without (H_eq).** (R81 repair, applied by reviewer: for ℛ(ℓ)-slices only for primes ℓ ≥ ℓ₀, since |ℛ(ℓ)|/ℓ > 1/4 at ℓ = 3, 7, 11, 23, 47; the Q₀ > 1 extension is not claimed.) Proof: `|S_N| ≥ sin²(πNθ)` turns `M_S` into `½A_S(1−Πφ_ℓ(N))`; one prime
    ℓ₀ ∤ N gives `1−|φ_{ℓ₀}(N)| ≥ 9/(256|F|²)` (anti-concentration, Lemma 3.2); the loss |F|² is
    absorbed into modified Walsh weights `s_ℓ = log(ℓ/(2|F_ℓ|³))`.
 4. **Smooth windows, hit-pattern (§4):** (H_eq) ⇐ characteristic-function bound (Lemma 4.1);

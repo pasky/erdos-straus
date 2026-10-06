@@ -42,7 +42,7 @@ are per-family statements (any finite 𝔊).
 | Lemma 1.1 | every per-frequency bound with weights `w ≥ |W_N|` or `w ≥ |S_N|` is translation invariant, hence ≥ `M(N) = max_t #(𝒜∩(t,t+N])` | PROVED (trivial) |
 | Lemma 1.2 | LP duality: best per-frequency bound = `max ⟨g,1_𝒜⟩` over `g ≥ 0`, `|Qĝ| ≤ w` | PROVED |
 | Thm 2.1, Cor 2.2 | band-limited (Selberg-majorant) windows, **general majorants**: for every finite family 𝔊, the best per-frequency bound **for the window Φ_K** lies in `[M_𝔊(N), 12(K+1)M_𝔊(N)]`. So, per family, this door is capped at 3/4 **iff** (W_𝔊); for a method class using families in 𝔉_A, iff (W_{𝔉_A}) (R81 repair, applied by reviewer) | PROVED |
-| Thm 3.3 | sharp weight `|S_N|` (and any w with `w(0) = N`, `w ≥ c₀|sin πNθ|` off 0), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ` (γ < 1/3), boundedly many bad primes, and the uniform mass hypothesis (M) (ℛ(ℓ)-slices): saving `≤ C(log N)^{3/4}`, without (H_eq) | PROVED |
+| Thm 3.3 | sharp weight `|S_N|` (and any w with `w(0) = N`, `w ≥ c₀|sin πNθ|` off 0), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ` (γ < 1/3), boundedly many bad primes, all `p_ℓ ≤ 1/4`, and the uniform mass hypothesis (M) (ℛ(ℓ)-slices **with ℓ ≥ ℓ₀ only**; small primes would need Q₀ > 1, not claimed — R81 repair, applied by reviewer): saving `≤ C(log N)^{3/4}`, without (H_eq) | PROVED |
 | Lemmas 4.1–4.2 | smooth windows, hit-pattern majorants: (H_eq) ⇐ a characteristic-function bound (4.1); true for one prime ≥ 2|F|N/c (loss √|F|); several primes open | PROVED / (H_eq) CONJECTURE |
 | Prop 5.1 | `#(𝒜_X∩[1,N]) ≤ M_{𝔊_X}(N) ≤ Ne^{−c(log N)^{3/4}}` (only for the 3/4-note family 𝔊_X; R81 repair, applied by reviewer); random-translate and greedy lower bounds (prime slices) are far below the 3/4 scale | PROVED |
 | (W) | is (W_{𝔉_A}) true, i.e. `min_{𝔊∈𝔉_A} M_𝔊(N) ≥ Ne^{−C(log N)^{3/4}}`? (per-family version (W_𝔊); R81 repair, applied by reviewer) | OPEN QUESTION |
@@ -275,11 +275,23 @@ weight with `w(0) = N` and `w(θ) ≥ c₀|sin πNθ|` for θ ≠ 0. Then for ev
 Φ̄ computed with these s_ℓ. Consequently, if the system satisfies the mass
 hypothesis
 (M) `|F_ℓ| ≤ ℓ^γ` for good ℓ, and `Σ_ℓ p_ℓ ℓ^{−β} ≤ C_M β^{−3}` for β ∈ (0,1]
-(true for ℛ(ℓ)-slices, `|ℛ(ℓ)| = ℓ^{o(1)}`, by ET Lemmas 3.1, 3.2, 3.7 as used in
-NC Cor 2.5), then every bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ) = N e^{−s}` with ν a
+(true for ℛ(ℓ)-slices **restricted to primes ℓ ≥ ℓ₀**, `|ℛ(ℓ)| = ℓ^{o(1)}`, by ET Lemmas
+3.1, 3.2, 3.7 as used in NC Cor 2.5), then every bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ) = N e^{−s}` with ν a
 hit-pattern majorant has
 
     s ≤ C₉(γ, C_M, B₁, c₀) (log N)^{3/4}      (N ≥ N₀).
+
+*Scope for ℛ(ℓ)-slices (R81 repair, applied by reviewer).* The theorem assumes
+`p_ℓ ≤ 1/4` for **every** ℓ ∈ 𝒫, bad primes included. NC Prop 2.1, ET Prop 2.4 and
+the r₀ step all use this. The Q₀ = 1 family 𝔊_ℛ violates it at small primes:
+`|ℛ(ℓ)|/ℓ = 1/3, 3/7, 3/11, 9/23, 13/47` for `ℓ = 3, 7, 11, 23, 47`. Discarding these
+primes is not WLOG: a majorant for the full family need not majorise the larger avoider
+set of the reduced family. So the application to ℛ(ℓ)-slices is claimed **only for
+the toy family 𝔊_ℛ^{≥ℓ₀} of primes ℓ ≥ ℓ₀**, where ℓ₀ is such that `|ℛ(ℓ)| ≤ ℓ/4` and
+`|ℛ(ℓ)| ≤ ℓ^γ` for all ℓ ≥ ℓ₀ (then there are no bad primes, B₁ = 0). Covering the
+small primes would need the Q₀ > 1 version, conditioning on `n mod Π_{ℓ<ℓ₀} ℓ` as in
+NC Thm 2.3. That extension is not written out here, and it is **not claimed**. The ES
+families, whose F_ℓ(c) depend on the fibre c, are not covered either.
 
 *Proof.* Only NC's tail estimate (2.3) changes. Let `s(S) > λ`. Bad primes
 contribute at most B₁ to s(S), and `s_ℓ < log ℓ` for good ℓ, so the good primes
@@ -304,7 +316,8 @@ this is NC Cor 2.5's computation: `Φ̄ ≤ Cλ^{3/4} + O(log²λ)`. ∎
 every per-frequency rounding whose weights dominate `c₀|sin πNθ|` (this
 includes ψ-based Erdős–Turán/Vaaler rounding *provided* its weights, in the
 normalisation (1.1), admit such a lower bound — not checked here), for hit-pattern
-majorants with Q₀ = 1, are capped at `(log N)^{3/4}` without (H_eq). The
+majorants with Q₀ = 1 and all `p_ℓ ≤ 1/4` (for ℛ(ℓ): primes ℓ ≥ ℓ₀ only), are capped at
+`(log N)^{3/4}` without (H_eq). The
 mechanism: a weight below 1 only near `‖Nθ‖ = 0` is harmless because the
 product measure m_S cannot concentrate near `{‖Nθ‖ = 0}` — its N-th
 "characteristic function" `Πφ_ℓ(N)` is bounded away from 1 by a single
