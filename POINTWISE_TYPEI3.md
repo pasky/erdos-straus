@@ -156,3 +156,21 @@ bound on divisors in a residue class (Lenstra 1984: at most 11 divisors of n in 
 class mod `s≥n^{1/3}`) then suggests only `#certificates(level)≪Λ^{1/2+ε}`. Against the box measure
 `2^{−(2+α+γ)}7^{−(a+b)}`, the exponent ½ is exactly borderline in the `γ`, `b`
 directions.)
+
+## Replay
+
+```
+gcc -O2 -o /tmp/fsearch scripts/typei3_fsearch.c -lm
+gcc -O2 -o /tmp/signcheck scripts/typei2_signcheck.c -lm
+/tmp/fsearch 7 1 1 2000                      # sanity: finds (14,2,15), (602,14,687), (29498,2,687)
+# cross-check vs the ck-graded checker (edit binary paths in the script first):
+for a in "7 1" "7 -7" "7 25" "7 41" "7 17" "7 -15" "11 9" "19 9" "23 1" "7 9"; do scripts/typei3_cmp.sh $a 200000; done
+# Computation 2.1 (2 cores, ulimit -v 8000000):
+/tmp/fsearch 7 9 1 100000000; /tmp/fsearch 7 9 100000000 50000000000; /tmp/fsearch 7 9 50000000000 100000000000
+# §4 mass and exact union (≈15 min per 5·10⁹ on one core):
+/tmp/fsearch 7 9 1 100000000 mass > m1.txt; /tmp/fsearch 7 9 100000000 5000000000 mass > m2.txt
+/tmp/fsearch 7 9 5000000000 10000000000 mass > m3.txt
+PYTHONPATH=scripts uv run python scripts/typei3_union.py m1.txt m2.txt m3.txt
+# verify any hit:
+PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 9 c k F
+```
