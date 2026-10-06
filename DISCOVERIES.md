@@ -359,6 +359,8 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * EVIDENCE: the least hard prime with `W > 4095` is 133050918961 (W = 5935; independently recomputed); no hard prime with W > 8191 below 2.38·10¹¹.
     * **Labels as stated** (internal; review `reviews/pointwise-omega16-review.md`, no FATAL; one scope MAJOR and minors repaired).
 
+31. **Support-aware certificates (POINTWISE_OMEGA17.md).** No certificate beyond exponent 1/4 was found. PROVED: moduli > x contribute only the "box" or primality tests (Lemma 1.2); with Haar-type information, validity of a support-aware linear certificate is an integer statement (Lemma 1.3); no monotone fake exists (Lemma 2.1, Harris); only the integer capacities of information atoms matter (Lemma 5.1); capped/flat planting (Lemma 5.2). The question reduces to Conjecture SAP (support-aware planting; restated after review — the first form was false), whose truth would extend the 1/4 ceiling to LP-relaxed support-aware certificates with unconditional-type information; size-localised counts are outside its scope. Charlier-type fakes and toy LPs are EVIDENCE only. Review `reviews/pointwise-omega17-review.md` (no FATAL; two MAJOR scope/statement items, handled by restatement and notes).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

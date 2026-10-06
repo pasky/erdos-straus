@@ -268,8 +268,9 @@ primes in it):
 > **Conjecture SAP (support-aware planting; CONJECTURE).** Call a modulus *admissible* if all its
 > prime factors divide `LQ` (so every n∈S_T is a unit mod it). Information profile `𝒥(δ)`:
 > (i) `Σm=N_x`; (ii) for every admissible `2≤q≤x^δ` and every reduced class `C⊂H` mod `lcm(q,Q)`:
-> `|m(C)−N_xP_H(C)|≤η_qN_xP_H(C)`, `η_q:=e^{−δ log x/log q}`; (iii) for every admissible
-> `q≤x^{1−δ}` and reduced `C⊂H`: `m(C)≤2N_xP_H(C)·log x/log(x/q)`. There are `c,C,δ>0` such that
+> `|m(C)−N_xP_H(C)|≤η_{q′}N_xP_H(C)`, `q′:=lcm(q,Q)`, `η_{q′}:=e^{−δ log x/log q′}`; (iii) for every admissible
+> `q` with `q′=lcm(q,Q)≤x^{1−δ}` and reduced `C⊂H` mod `q′`: `m(C)≤2N_xP_H(C)·log x/log(x/q′)`.
+> *(Restated by the parent 2026-10-06 per review R68b D6/D7; the original form with `log(x/q)` was false.)* There are `c,C,δ>0` such that
 > for every fibre with `Q≤x^δ`, `T≥T_0` and `C𝓛³≤log x≤c𝓛⁴/log𝓛`, some `m:S_T∖A→[0,1]` satisfies
 > `𝒥(δ)`.
 
