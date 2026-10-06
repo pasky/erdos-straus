@@ -161,3 +161,18 @@ non-residues, and Jacobi-parity arguments (ET Prop 1.6 style) only force odd tot
 {11,13}-valuation in the relevant parameters — satisfiable. The mechanism is the TYPEI2 one:
 at T-generic points the classes become rigid (finitely many boxes per T-level, §2.1), so a
 specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) this is open.
+
+## 5. r=11 and r=17 (EVIDENCE)
+
+* Level-wise covering (Mmax=10⁷): r=11 main/np: 8 survivors mod `2^4·3^2·5·7·11` (np = main,
+  as no prime 5≤ℓ<11 besides 5,7). Survivors have `x_11∈{2,6}` (Salez: `S_11={0,7,8,10}`).
+  r=17 main: 50 survivors mod `2^4·3^2·5·7·11·13·17`; np: 19/1440 at the base `L=2042040`.
+* T-generic (M≤10⁵): r=11: T={11} covered (k=2); T={11,13}: cells (2,2),(2,7) uncovered at k=1;
+  T={11,17}: covered.
+* **r=17, T={17}: the cells `x_17≡5` and `x_17≡7 (mod 17)` (note 5·7≡1) are entirely
+  uncovered by all classes with M≤10⁵ (k=2).** Complete rigid II1/II2/I4 enumeration with
+  `F=17^β`, β≤4: boxes exist only at odd β; at β=3 they cover 13 of the 289 subcells of each of
+  the two cells (4.5%); residues mod 17³ in cell 5: 192, 1501, 1739, 2436, 3031, 3252, 3813, 4034,
+  4493, 4578, 4731, 4748, 4850. No II box contains u=5, 7, −12, 22, 90.
+  So for r=17 the candidate sterile point is one-dimensional: `x̃_17=u` (u≡5 or 7 mod 17),
+  `x̃_q=1` for all q≠17 — the simplest possible shape (a twist at r only).
