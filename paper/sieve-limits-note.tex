@@ -131,15 +131,15 @@ Lemma~\ref{lem:firstnoB}) means: given the \cite{KA}/\cite{KA2} framework
 (square base, leak, weighted sequential sieve limit) as reviewed there
 \cite{KArev,KArev2,KA2rev,KA2rev2}; \cite{KA3} does not re-prove it.
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of twenty-three internal working
+\lab{proved} result below appears in one of twenty-four internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
 \cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, \cite{KA3}, \cite{LS},
 \cite{LS2}, \cite{LS3}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{SPW},
-\cite{SPW2}, \cite{TU}, \cite{TU2}, \cite{CU}, \cite{O13}, \cite{O14}, or is
+\cite{SPW2}, \cite{TU}, \cite{TU2}, \cite{CU}, \cite{O13}, \cite{O14}, \cite{O16}, or is
 assembled here from such results with the short argument given (marked
 ``observation of this note'').  Each document was hostile-reviewed; the
 reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,LS3rev,PLrev,IFrev,IF2rev,SPWrev,SPW2rev,TUrev,TU2rev,CUrev}
-(those of \cite{O13,O14} are listed with them in the bibliography).
+(those of \cite{O13,O14,O16} are listed with them in the bibliography).
 Version~5 adds Section~\ref{sec:smoothrough}, the refutation of
 fixed-margin SPW and the weak-SPW requirement in Section~\ref{sec:hybrid},
 and Section~\ref{sec:unified}; the cap of Theorem~\ref{thm:main} is unchanged.
@@ -4497,7 +4497,12 @@ measure of Lemma~\ref{lem:compmeas}), while (L$-$) yields a measure on the hit s
 that agrees with the true law on all order-$k$ tests.  Below the threshold
 majorants still save an amount growing with $k$, while minorants are
 useless; exact toy LPs show both thresholds at $k\approx2P$ \cite[\S4.4]{CU}
-\lab{evidence}.
+\lab{evidence}.  On the pointwise side the heuristic truth is $1/3$; it follows from a
+``Linnik for sifted sets'' hypothesis (every unit-class sieve system with
+moduli $\leq T$ and avoider density $\delta>0$ contains a prime $p>T$ with
+$\log p\leq C(\log T+\log(1/\delta))$), while EH-, GEH- and BV-type input used
+through linear certificates stays capped at $1/4$ \cite[Thm~1.2, Prop.~3.1]{O16}
+(\lab{conditional}, resp.\ \lab{proved} as scoped there).
 
 \emph{The $3/4$ bound for primes.}  The same atoms give the prime form with
 the correct normalisation \cite[Thm~2.1, Prop.~3.1]{CU} (\lab{proved} given
@@ -4660,6 +4665,10 @@ prime-side exponent reaches $1/4$}, internal working document
 architecture}, internal working document \texttt{POINTWISE\_OMEGA14.md},
 this repository, 2026; reviews \texttt{reviews/pointwise-omega14-review.md}
 and \texttt{-review-2.md}.
+\bibitem[O16]{O16}
+\emph{POINTWISE\_OMEGA16: what gives $1/3$}, internal working document
+\texttt{POINTWISE\_OMEGA16.md}, this repository, 2026; review
+\texttt{reviews/pointwise-omega16-review.md}.
 \bibitem[P]{Prekopa}
 A.~Pr\'ekopa, Boole--Bonferroni inequalities and linear programming,
 \emph{Oper. Res.} \textbf{36} (1988), 145--162.
