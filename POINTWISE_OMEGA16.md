@@ -323,10 +323,11 @@ record. A scan of `[10^{11},10^{12})` for T=4095 is running (`data/omega16/eslea
 **(N3) Adversarial sieve systems** (`scripts/omega16_adversary.py`, `data/omega16/adversary_1e9.*`).
 Remove `κ` unit classes mod each prime `3≤ℓ≤z` (`z≤1000`, `κ≤8`), chosen greedily to kill the
 smallest surviving primes (ℓ in increasing, decreasing or random order — a "Jacobsthal for
-primes" adversary). Over all 69 configurations with an answer below `10^9`, the LS ratio
+primes" adversary). Over the 66 of 69 configurations with an answer below `10^9`, the LS ratio
 `log p_min/(log z+log(1/δ))` lies in `[0.75,1.15]`; the best (increasing-order) adversary
 reaches 1.12–1.15 and does not grow with κ (z=100: 1.00, 1.07, 1.12, 1.15, 1.15, 1.14 for
 κ=1,2,3,4,6,8). Against the random-set prediction `p≈log p/δ` the adversary gains a factor
 `≈z^{0.85–0.9}` (e.g. z=1000, κ=6: `p_min=5.6·10^8`, `δp_min/log p_min≈425`), *independent of
 κ* — exactly the `T^{O(1)}` slack that the `log T` term of LS (or `A log T` of CR) absorbs, and
-never a factor growing with the dimension. No toy system violates LS(1.2).
+never a factor growing with the dimension. No resolved toy system violates LS(1.2); the three
+unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
