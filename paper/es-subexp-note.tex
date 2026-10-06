@@ -431,7 +431,8 @@ for the witness modulus; what is new there is the matching lower bound and
 the identification of the exponent up to logarithms.
 Theorem~\ref{thm:typical} is Vaughan's sieve method applied to $W$ (new as a
 statement about $W$, not in method), and Corollary~\ref{cor:twosided} shows
-that the exponent $3$ is also the tail exponent over primes.  The classical
+that the exponent $3$ is also the tail exponent over primes, in the range
+$\log T\le(\log x)^{1/4-o(1)}$ (far from the scale $\log T\asymp\log p$ of the heuristic).  The classical
 obstruction that polynomial identities cannot cover quadratic residue
 classes (\cite{Mordell}; cf.\ \cite{ET}) is qualitative.
 Lemma~\ref{lem:jacobi} and its $m/n$ version Lemma~\ref{lem:mjacobi} are the
@@ -2587,12 +2588,14 @@ the natural range limit of the method).  For comparison, \cite[Remark~1.2]{ET}
 suggest heuristically that a prime $p$ has an Erd\H{o}s--Straus representation
 with probability $1-O(\exp(-c\log^3p))$; Theorem~\ref{thm:haar} and
 Corollary~\ref{cor:twosided} are rigorous statements of this exponent $3$ for
-the witness modulus $W$, on the Haar side and over primes.
+the witness modulus $W$, on the Haar side and over primes; the latter only
+in the range $\log T\le(\log x)^{1/4-o(1)}$, far from the scale $\log T\asymp\log p$ of the
+heuristic.
 
 \subsection*{Counting primes on a fibre}
 The proof of Theorem~\ref{thm:transfer} gives more than one prime.
 
-\begin{lemma}[Quantitative transfer; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:qtransfer}
+\begin{lemma}[Quantitative transfer; proved modulo Theorem~\ref{thm:G}]\label{lem:qtransfer}
 Assume the hypotheses of Theorem~\ref{thm:transfer}.  Let $x$ satisfy
 $\log x\ge C_2(1+\log A)\log Z$, and let $\beta_1$, $\chi_1$, $q_1$ be the possible
 exceptional zero of Theorem~\ref{thm:G} for the parameter $Q_G=x^{1/(\kappa L)}$ of
@@ -2627,7 +2630,8 @@ term with $B(p)>0$ has $W(p)>T$, because $B(p)\le\mathbf 1[W(p)>T]$ for these $p
 Applied to the quarantine of Theorem~\ref{thm:haarupper}, with the sandwich of
 Theorem~\ref{thm:assembly} but \emph{without} the auxiliary prime $\ell_{\rm aux}$
 (whose only role was to force $p>T$), Lemma~\ref{lem:qtransfer} already gives
-$N_h(x,T)\ge\pi(x)\exp(-C\Lc^3(\log\Lc)^5)$ for $\log x\ge C\Lc^4\log\Lc$: the losses are
+$N_h(x,T)\ge\pi(x)\exp(-C\Lc^3(\log\Lc)^5)$ for $\log x\ge C\Lc^4\log\Lc$ (proved modulo
+Theorems~\ref{thm:G} and~\ref{thm:NT}): the losses are
 $\log\varphi(Q)$, $\log(1/\mu)\le\frac43S_\beta+0.02$ and
 $\log(1/\lambda)\le\frac12\log Q+O(\log\log Q)$, all $\ll\Lc^3(\log\Lc)^5$ by
 \eqref{eq:goodQ}.  So a single fibre has relative density
@@ -3195,7 +3199,7 @@ $W_5$ of the family \eqref{eq:identm}.
 \subsection*{The case \texorpdfstring{$m\not\equiv0\ (4)$}{m not 0 mod 4} at exponent \texorpdfstring{$1/4$}{1/4}}
 Two ingredients survive.  First, the transfer does not need $r$ to be a square:
 
-\begin{lemma}[Transfer for arbitrary classes; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:anyr}
+\begin{lemma}[Transfer for arbitrary classes; proved modulo Theorem~\ref{thm:G}]\label{lem:anyr}
 Theorem~\ref{thm:transfer} holds for every unit $r\bmod Q$, $8\mid Q$, if the cells are
 consistent with $r$; no quadratic condition on $r$ is needed.
 \end{lemma}
@@ -3325,7 +3329,8 @@ compounding for primes is an Assessment.
 \item Proved modulo Gallagher's theorem: Lemma~\ref{lem:qtransfer} (quantitative
 transfer) and Lemma~\ref{lem:anyr}.  Proved: Lemma~\ref{lem:leaves}.  Proved modulo
 Theorem~\ref{thm:NT}: Lemma~\ref{lem:levelzero}.  Proved modulo Gallagher's theorem
-and Theorem~\ref{thm:NT}: the lower tail Theorem~\ref{thm:lowertail}.  Proved modulo
+and Theorem~\ref{thm:NT}: the lower tail Theorem~\ref{thm:lowertail} and the one-fibre
+bound stated after Lemma~\ref{lem:qtransfer}.  Proved modulo
 these, \cite{TQ} and Page's theorem: Corollary~\ref{cor:twosided}
 (= Theorem~\ref{thm:tailintro}).  Remark~\ref{rem:tailogs}: the improved bound is
 conditional on the stated zero-free bound for real characters; the rest is
