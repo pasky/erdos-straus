@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-06; ledger through (D)28 and (H)33)
+ (2026-10-06, refresh 3; ledger through (D)29 and (H)34, incl. the 2026-10-06 follow-ups under (H)17, (H)32, (H)34)
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -108,7 +108,7 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). **Pointwise state (ledger (H)16–(H)33):**
+scale). **Pointwise state (ledger (H)16–(H)34):**
 * *Rate.* `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
   Mordell-hard primes (`POINTWISE_OMEGA13.md` Thm 5.1, PROVED modulo
   Gallagher's theorem, Nair–Tenenbaum and the campaign's energy bound; chain
@@ -135,6 +135,33 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
   SAP (`POINTWISE_OMEGA17.md`).
 * *m/n.* Exponent 1/4 for m ≡ 0 (4), 1/5 for every m (incl. 5/n);
   1/4 for m ≢ 0 (4) is CONDITIONAL on ADM_m ⇐ SI (`POINTWISE_MN.md`, `MN2`).
+  SI is **not** proved. `POINTWISE_MN3.md` localises the failure: for the
+  class-of-one prefix a variant SI_3 needs only a square-root saving
+  `U_1(q) ≪ q^{−1/2−δ}` (PROVED reduction); the obstruction is a
+  Kloosterman-range residual (Assessment), removable for q ≥ Q_0 by the
+  second moment (M2) `Σ R(N)² ≪ X(log X)^C` (CONJECTURE); the range
+  q_0 < q < Q_0 is a separate open component.
+* *Finite coverings / sterile points* (ledger (H)17 follow-ups, (H)34).
+  * Type I, n_p = 7 (`POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md`): under H,
+    `C*(r)` equals the least height of a finite Type-I covering of
+    {n_p = r} (TYPEI2 Thm A); no certificate exists at the sign point `x̂_9` with f < 10¹²,
+    so `C(7) > 1.32·10¹²` under H (CERTIFIED). Levels 5–6 of the Vieta/Pell
+    descent are empty (PROVED); sterility of `x̂_9` is open.
+  * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
+    if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
+    `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
+    sieve). The point x* lies in no ET class of modulus ≤ 10⁶ (CERTIFIED);
+    that it is sterile is Conj 4.2 (CONJECTURE).
+  * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
+    point to an explicit tail bound, whose critical part is the prime-power
+    count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
+    then no finite set of polynomial ES identities covers the Mordell-hard
+    primes with n_p = 17
+    (CONDITIONAL, Cor 4.2). Existence is Conj 4.3 (CONJECTURE). Levels ≤ 5
+    leave 67.7% of each non-residue cell uncovered (CERTIFIED).
+  * Candidate sterile points (r = 13, 17, and `x̂_9` for Type I) remain
+    candidates: no sterile point is proved. A write-up
+    `paper/es-coverings-note` is in preparation (task O86).
 
 ## Housekeeping
 
@@ -206,7 +233,7 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
 ## Exceptional-set exponent: where it stands (2026-10-06)
 
 **3/4 is proved sharp for the CRT architectures below; the remaining cases
-are reduced to precisely stated open statements** (ledger (D)9–(D)28; all
+are reduced to precisely stated open statements** (ledger (D)9–(D)29; all
 internal, reviewed, unrefereed). The 3/4 note's own majorant
 is in the class, so the note is sharp for its method.
 * *Coefficient-sum sieves:* over any mixture of forced (ℛ(M), (a,D),
@@ -233,10 +260,16 @@ is in the class, so the note is sharp for its method.
   exact requirement `log(K/η) = O((log N)^{3/4})`; fixed-σ SPW and fixed-η
   RSPW refuted); right-signed mass at moduli in `(N, CN]`;
 * tuple counts of growing order: TC^alt_θ for θ > 3/4 (CONJECTURE,
-  `EXCEPTIONAL_TUPLES2.md`); per-frequency weights below 1; genuinely
-  non-CRT input.
-The first two are *closing* questions (they would extend the cap); a θ > 3/4
-proof needs the third kind of input.
+  `EXCEPTIONAL_TUPLES2.md`); genuinely non-CRT input;
+* per-frequency weights below 1 (the NONCRT "w < 1" door): reduced
+  (`EXCEPTIONAL_WEIGHTS.md`, (D)29, Cor 2.2) to one shift-uniform avoider
+  count — for Selberg's band-limited window the door is capped at 3/4 iff (W_𝔊)
+  `M_𝔊(N) = max_t #(𝒜 ∩ (t, t+N]) ≥ N e^{−C(log N)^{3/4}}`, uniformly over
+  the families a method may use (open). Sharp weights with hit-pattern
+  majorants, Q₀ = 1, prime slices `|F_ℓ| ≤ ℓ^γ` (γ < 1/3) and the uniform
+  mass hypothesis (M) are capped at 3/4 without (H_eq) (Thm 3.3, PROVED).
+The first two and the last are *closing* questions (they would extend the
+cap); a θ > 3/4 proof needs the third kind of input.
 
 Papers in `paper/`:
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
@@ -259,7 +292,8 @@ Papers in `paper/`:
   1/4 as the ceiling of the Haar-minorant + transfer architecture, the
   conjecture LS ⇒ 1/3, and the m/n analogues (refereed internally six times:
   R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
-  `reviews/novelty-audit-2026-10b.md`). A v6 adding the two-sided tail
-  (`POINTWISE_TAIL.md`) is in preparation (task O77; not yet merged).
+  `reviews/novelty-audit-2026-10b.md`).
+* `es-coverings-note`: finite coverings and candidate sterile points
+  (TYPEI2/3, MORDELL, MORDELL17) — in preparation (task O86).
 
 Authorship and the citation form for astra are still undecided.

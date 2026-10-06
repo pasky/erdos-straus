@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)28 and (H)33)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)29 and (H)34, incl. the 2026-10-06 follow-ups under (H)17, (H)32, (H)34)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -63,8 +63,9 @@ The campaign ran two lines of research.
   hypothesis (A*) and further to a residue-dispersion statement (RD′)
   (open; (RD) is proved at one prime for ℛ(M) and false as first stated
   for several primes); the combinatorial statement "weak SPW" for hybrid
-  methods (open; the fixed-σ version and fixed-η RSPW are refuted); and
-  genuinely non-CRT arithmetic input.
+  methods (open; the fixed-σ version and fixed-η RSPW are refuted);
+  per-frequency weights below 1, reduced to one shift-uniform avoider
+  count (W_𝔊) ((D)29; open); and genuinely non-CRT arithmetic input.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -84,8 +85,13 @@ The campaign ran two lines of research.
   The one hypothesis known to give 1/3 is the CONJECTURE LS ("Linnik for
   sifted sets"). Support-aware certificates are the open door; their
   ceiling is reduced to a CONJECTURE SAP. The m/n analogues reach 1/4
-  for m ≡ 0 (4) and 1/5 for every m. Window results give exact orders
-  for bounded windows and show that parity input is necessary.
+  for m ≡ 0 (4) and 1/5 for every m; for m ≢ 0 (4) the missing input SI
+  is not proved, and its failure is localised ((H)32). Window results give
+  exact orders for bounded windows and show that parity input is
+  necessary. Finite coverings: every Type-I covering of `{n_p = 7}` has
+  height > 1.32·10¹² (CERTIFIED), ES holds for primes with `(p/13) = −1`
+  outside six classes mod 720720 (PROVED by finite computation), and
+  candidate sterile points for r = 13, 17 are CONJECTURES ((H)17, (H)34).
 
 ---
 
@@ -444,7 +450,7 @@ factor quoted in this subsection can be dropped.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)28, KARY2 §6, NONCRT §6 and STATUS.md.
+The sources are ledger (D)18–(D)29, KARY2 §6, NONCRT §6, WEIGHTS and STATUS.md.
 The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
 coefficient-sum sieves, large sieves of every Bessel type (at every
 frequency level for one-rough-prime and residue-sparse mixtures), prime-only
@@ -468,8 +474,19 @@ majorants, and interval cancellation at moduli `≤ N/2`. A proof of
   (SPW2). Weak SPW is open; the fixed-σ SPW and fixed-η RSPW versions are
   refuted. Right-signed mass at moduli in `(N, CN]` is also open.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
-  Thm 2.3). Weights `< 1` are open, except a smooth-window case that is
-  CONDITIONAL on an equidistribution conjecture.
+  Thm 2.3). For weights `< 1`, `EXCEPTIONAL_WEIGHTS.md` ((D)29) proves
+  that every per-frequency bound is at least the shift-uniform avoider
+  count `M_𝔊(N) = max_t #(𝒜 ∩ (t, t+N])` (Lemmas 1.1–1.2, PROVED), and,
+  for Selberg's band-limited window, at most `12(K+1)M_𝔊(N)` (Thm 2.1,
+  PROVED). So this door is capped at 3/4 **iff** (W_𝔊)
+  `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}` holds, uniformly over the families a
+  method may use (Cor 2.2). (W_𝔊) is open; that no arithmetic-free
+  argument decides it is an Assessment. Sharp weights with hit-pattern
+  majorants, `Q₀ = 1`, small prime slices (`|F_ℓ| ≤ ℓ^γ`, γ < 1/3) and the
+  uniform mass hypothesis (M) are capped without (H_eq) (Thm 3.3, PROVED);
+  (H_eq) itself is proved at one large prime for smooth windows and is a
+  CONJECTURE for several primes. Review
+  `reviews/exceptional-weights-review.md` (no FATAL; one MAJOR repaired).
 * **Genuinely arithmetic, non-CRT input** of another kind.
 * **Other ingredients outside the class:** majorants with `ν ≥ 0` only
   at primes `≤ N` when the period exceeds `N^c` (Assessment: open);
@@ -681,6 +698,17 @@ original paper was not obtained.
   POINTWISE_MN2 reduces ADM_m to the prefix law and to a CONJECTURE SI
   (PROVED modulo Henriot's uniform Nair–Tenenbaum bound). Reviews
   `reviews/pointwise-mn-review.md`, `-mn2-review.md`, repairs applied.
+  Follow-up (POINTWISE_MN3, review `reviews/pointwise-mn3-review.md`,
+  repairs applied): SI is **not** proved; the file records where it
+  fails. For the class-of-one prefix the weights are bounded by
+  class-of-one sums `U_1(q)` (Lemma 1.1, PROVED), and with three
+  admissible levels a variant SI_3 (which also implies ADM_m) needs only a
+  square-root saving `U_1(q) ≪ q^{−1/2−δ}` plus level-0 pair sums
+  (Lemma 3.1, PROVED). The multiplicity `R(N)` satisfies
+  `R(N) ≪ N^{3/5+o(1)}` (Lemma 5.2). Assessment: the obstruction is a
+  Kloosterman-range residual; for `q ≥ Q_0` a second moment
+  (M2) `Σ_{N≤X} R(N)² ≪ X(log X)^C` would remove it (CONJECTURE); the
+  range `q_0 < q < Q_0` is a separate open component.
 
 **The Haar exponent is exactly 3, and 1/4 is a ceiling.**
 * *Haar side.* For the profinite avoider density `δ*(T)`,
@@ -798,6 +826,43 @@ original paper was not obtained.
     Type-I certificate exists with ck ≤ 3·10⁹ (CERTIFIED), so every finite
     Type-I covering of `{n_p = 7}` has height > 3·10⁹ (previously ≥ 539;
     under H, C(7) > 3·10⁹). Whether `x̂_9` is sterile is open (Conjecture 3.4).
+  * Follow-up 2 (POINTWISE_TYPEI3, review `reviews/pointwise-typei3-review.md`,
+    no FATAL/MAJOR): sterility of `x̂_9` is **not** proved. A complete
+    search graded by the smaller divisor f (Lemmas 1.1–1.2, PROVED) finds no
+    certificate at `x̂_9` with f < 10¹², so every Type-I covering of
+    `{n_p = 7}` has height > 1.32·10¹² and, under H, C(7) > 1.32·10¹²
+    (CERTIFIED: two engines to 10¹¹, one to 10¹²); for r = 23, 31, 47 the
+    bounds are > 2.39/2.78/3.42·10¹¹. A Vieta/Pell descent (PROVED,
+    brute-forced) shows a certificate needs t ≥ 5 and 2-adic level ≥ 7,
+    because levels 5 and 6 are empty; level 7 is open. The sterile set is
+    closed and nowhere dense (Prop 3.1), and an explicit summable tail bound
+    for near misses would give a sterile point (Remark 4.1, PROVED
+    reduction).
+* *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
+  (H)34).
+  * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
+    if `(p/13) = −1`, ES holds for the prime p unless
+    `p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`;
+    if also `(p/11) = +1`, only the first two classes remain. Novelty is
+    modest: it packages the Salez/ET level sieve explicitly.
+  * No finite covering was found. The point x* (`x*_11 = x*_13 = 2`,
+    `x*_q = 1` otherwise) lies in no ET class of modulus ≤ 10⁶
+    (Computation 4.1, CERTIFIED), so every finite covering of `Σ_13` needs
+    a class of modulus > 10⁶ (PROVED). That x* is sterile is Conj 4.2
+    (CONJECTURE). The obstruction is TYPEI2-type rigidity, not Theorem C.
+  * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
+    17-generic line the seven ET families become explicit boxes in ℤ_17
+    (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
+    uncovered (Comp 3.1, CERTIFIED, two engines). Thm 4.1 (PROVED
+    sufficient condition): an explicit tail bound gives a sterile point,
+    hence (CONDITIONAL, Cor 4.2) no finite set of polynomial ES identities
+    covers the Mordell-hard primes with n_p = 17. The critical input is
+    the prime-power count
+    `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`
+    (ET give only the non-explicit `N^{2/5+o(1)}`; data fit ≈ K³).
+    Existence of a sterile point is Conj 4.3 (CONJECTURE); making the
+    bound explicit is a discrete-log equidistribution question
+    (Assessment).
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
   internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v5
   (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
@@ -807,6 +872,8 @@ original paper was not obtained.
   analogues (refereed, R77 minor revision applied). `paper/energy-dnf-note.tex`
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
+  `paper/es-coverings-note` (finite coverings and candidate sterile points:
+  TYPEI2/3, MORDELL, MORDELL17) is in preparation (task O86).
 
 ### 3.4 Window results
 
@@ -927,6 +994,7 @@ them.
 | E23 | Damped-collision reduction; (A*) ⇒ all-level 3/4 cap for all forced mixtures; **all-level cap for residue-sparse multi-rough classes** (incl. all small-height classes −r/s, e.g. −4 mod M) | PROVED / PROVED implication (Thm 4.2) | `EXCEPTIONAL_LARGESIEVE4.md` Lemma 1.1, Thm 4.2, Thm 5.2, Cor 5.3; sieve-limits v5 Thms 14.17–14.18 | `reviews/exceptional-largesieve4-review.md` (no FATAL/MAJOR) | as E22 |
 | E24 | Rational labels −r/s mod G; tilted law satisfies (A*); (DCC) ⇒ all-level cap (PROVED implication); (RD) at one prime for ℛ(M) classes and for long cofactors; (RD) as first stated false for several primes, height-cut form fails with (a,D) classes; target is (RD′) | PROVED as labelled; one-rough-prime bound of LS6 CONDITIONAL on (FM2); (RD), (CC) CONJECTURES; (A*)/(DCC)/(RD′) open | `EXCEPTIONAL_LARGESIEVE5.md`, `-6.md` Thm 6.1, `-7.md` Lemmas 1.1–1.2, Thms 3.1, 4.3, Props 4.1, 5.1 | `reviews/exceptional-largesieve5-review.md`, `-largesieve6-review.md`, `-largesieve7-review.md` (repairs applied) | Shiu; Nair–Tenenbaum (LS7) |
 | E25 | Cubic witness tail `#{p≤x: W(p)>T} ≪ π(x)exp(−c(log T)³)` for `log T ≤ c₁(log x)^{1/4}` | INTERNALLY PROVED (via E2; constants not effective) | ledger (A)9; `CEILINGS_UNIFIED.md` Thm 2.1; `paper/es-subexp-note.tex` v5 Thm 11.2 | `reviews/ceilings-unified-review.md` (SOUND); `reviews/es-subexp-note-review-v5.md` | as E2; uniform PNT in progressions with Landau–Page term (small T, cited from memory) |
+| E26 | Per-frequency weights below 1: every bound whose weights dominate the window transform (smooth or sharp) is ≥ the shift-uniform avoider count `M_𝔊(N)`; for Selberg's window ≤ `12(K+1)M_𝔊(N)`; door capped at 3/4 iff (W_𝔊); sharp weights with hit-pattern majorants capped without (H_eq) | PROVED (internal); (W_𝔊) open; (H_eq) at several primes a CONJECTURE; toy numerics EVIDENCE | `EXCEPTIONAL_WEIGHTS.md` Lemmas 1.1–1.2, Thm 2.1, Cor 2.2, Thm 3.3, Prop 5.1 | `reviews/exceptional-weights-review.md` (no FATAL; one MAJOR repaired) | Selberg majorant; as E22 |
 
 ### 4.2 Pointwise line
 
@@ -977,6 +1045,10 @@ them.
 | P43 | **Tail exponent 3 over primes:** `#{p≤x hard: W(p)>T} ≥ π(x)exp(−C(log T)³(log log T)³)` for `log x ≥ C(log T)⁴ log log T`; two-sided with E25 | PROVED modulo the cited theorems | `POINTWISE_TAIL.md` Thms 2.1, 3.3, Cor 2.2 | `reviews/pointwise-tail-review.md` (no FATAL/MAJOR) | (G), Nair–Tenenbaum, OMEGA10 Thm 3.4 |
 | P44 | m/n witness modulus: Jacobi criterion m ≡ 0 (4); exponent 1/4 and Haar exponent 3 for m ≡ 0 (4); exponent 1/5 for every m (Type-II-hard primes); ADM_m ⇐ SI | PROVED modulo the cited theorems; 1/4 for m ≢ 0 (4) CONDITIONAL on ADM_m; SI a CONJECTURE | `POINTWISE_MN.md` Lemma 1.1, Thm 3.1, Prop 3.2, Cor 6.1, Thm 5.1; `POINTWISE_MN2.md` Thm 3.1, Prop 5.1 | `reviews/pointwise-mn-review.md`, `-mn2-review.md` (repairs applied) | (G), Nair–Tenenbaum, fundamental lemma, ET (1/5), Henriot (MN2) |
 | P45 | Type-I: under H, `C*(r)` = least height of a finite Type-I covering; no certificate with ck ≤ 3·10⁹ at the sign point `x̂_9`, so coverings of `{n_p=7}` have height > 3·10⁹ | Theorem A PROVED (one direction unconditional, equality under H); computation CERTIFIED; sterility open | `POINTWISE_TYPEI2.md` Theorem A, Computation 3.2, Conj 3.4 | `reviews/pointwise-typei2-review.md` (SOUND) | Schinzel H (equality only) |
+| P46 | Type-I at `x̂_9`: no certificate with f < 10¹², so coverings of `{n_p=7}` have height > 1.32·10¹² (C(7) > 1.32·10¹² under H); r = 23, 31, 47 > 2.39/2.78/3.42·10¹¹; descent levels 5–6 empty | Lemmas and descent PROVED; searches CERTIFIED; sterility open | `POINTWISE_TYPEI3.md` Lemmas 1.1–1.2, Lemma 5.1–Prop 5.5, Prop 3.1, Remark 4.1 | `reviews/pointwise-typei3-review.md` (no FATAL/MAJOR) | Schinzel H (C(7) bound only) |
+| P47 | r = 13: if `(p/13) = −1`, ES holds for prime p outside 6 classes mod 720720 (2 if also `(p/11) = +1`); x* in no ET class of modulus ≤ 10⁶ | Thm 3.1 PROVED by finite computation; Comp 4.1 CERTIFIED; sterility of x* a CONJECTURE (Conj 4.2) | `POINTWISE_MORDELL.md` Thm 3.1, Comp 4.1, Conj 4.2 | `reviews/pointwise-mordell-review.md` (no FATAL; two MAJOR repaired) | Elsholtz–Tao Prop 1.9 (certificate classes) |
+| P48 | r = 17: ET families reduce to explicit ℤ_17 boxes; levels ≤ 5 leave 67.7% of each non-residue cell uncovered; explicit prime-power count ⇒ sterile point ⇒ no finite polynomial covering of n_p = 17 | Lemmas PROVED; Comp 3.1 CERTIFIED; Thm 4.1 PROVED sufficient condition; Cor 4.2 CONDITIONAL; Conj 4.3 CONJECTURE | `POINTWISE_MORDELL17.md` Lemmas 1.1–1.3, 2.1–2.3, 5.1–5.2, Comp 3.1, Thm 4.1, Cor 4.2 | `reviews/pointwise-mordell17-review.md` (rounds 1–2, no FATAL/MAJOR) | Elsholtz–Tao (families) |
+| P49 | m/n, SI localised: class-of-one weights ≤ `2ℓ·U_1(q)`; SI_3 needs only `U_1(q) ≪ q^{−1/2−δ}`; `R(N) ≪ N^{3/5+o(1)}` | PROVED lemmas; SI not proved; (M2) a CONJECTURE; Kloosterman-range obstruction an Assessment | `POINTWISE_MN3.md` Lemmas 1.1, 3.1, 5.2 | `reviews/pointwise-mn3-review.md` (repairs applied) | Elsholtz–Tao Type I count method (Lemma 5.2) |
 
 ---
 
@@ -1127,8 +1199,9 @@ specialist search would not find an identical prior statement.
   limit `log D ≍ κ log z`, proved here as barriers for all certificates in
   the stated classes.
 * *Not audited by either pass:* EXCEPTIONAL_SPW/SPW2, LARGESIEVE5–7,
-  TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2, POINTWISE_TAIL,
-  POINTWISE_TYPEI2 and POINTWISE_WINDOW3.
+  TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2/MN3, POINTWISE_TAIL,
+  POINTWISE_TYPEI2/TYPEI3, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS,
+  POINTWISE_MORDELL and POINTWISE_MORDELL17.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
@@ -1136,6 +1209,9 @@ specialist search would not find an identical prior statement.
 * Theorem W2 is a Friedlander–Iwaniec (2009) type theorem.
 * POINTWISE_XWIN Thm 2.2 (window tail) re-proves what notes Thms
   14.4/14.9 already imply; priority to the notes.
+* POINTWISE_MORDELL Thm 3.1 (r = 13) is an explicit packaging of the
+  Salez/ET level sieve; Salez's data already give a mod-120120 analogue
+  (modest novelty, per its review).
 * The GRH part of POINTWISE_TYPEI (Thm 3.1) is Montgomery's Ω-result for
   the least non-residue, transported (sources cited from memory).
 * Audit 10b covers KARY3, LARGESIEVE–LS4, CEILINGS_UNIFIED, XWIN and
@@ -1171,14 +1247,17 @@ ratings are this summary's judgement, not ledger labels.
    * *Opening* questions (would give θ > 3/4 if true):
      **TC^alt_θ for θ > 3/4** ((D)23, CONJECTURE), alternating witness
      correlations of growing order, needing accuracy at moduli
-     `exp(c(log N)^{3θ/2})`, beyond any known theorem; per-frequency
-     weights below 1; other genuinely non-CRT input.
+     `exp(c(log N)^{3θ/2})`, beyond any known theorem; other genuinely
+     non-CRT input.
    * *Closing* questions (would extend the cap; a counterexample would
      open a door): **(A*) / (DCC) / (RD′)** for residue-dense multi-rough
      classes ((D)28 follow-ups; the most concrete: (RD) is proved at one
      prime for ℛ(M) and for long cofactors, and short cofactors and the
      (a,D)/Case-A classes are what is left); **weak SPW** for hybrids
-     ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`).
+     ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`);
+     **(W_𝔊)** for per-frequency weights below 1 ((D)29: for Selberg's
+     window the door is capped at 3/4 iff the shift-uniform avoider count
+     satisfies `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`).
 3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
    rate is `log W ≫ (log p)^{1/4}` up to logs; the Haar exponent and the
    tail exponent over primes are both 3 (§3.3); 1/4 is the ceiling of the
@@ -1195,7 +1274,8 @@ ratings are this summary's judgement, not ledger labels.
    * smaller tasks: remove the `(log log p)^{1/4}` gap to the ceiling and
      the `(log log T)³` factor in the tail; close the `(log 𝓛)^5` gap in
      the Haar exponent; m/n with m ≢ 0 (4) at exponent 1/4 (prove SI,
-     (H)32).
+     (H)32; POINTWISE_MN3 localises the failure to a Kloosterman-range
+     residual and the second moment (M2), a CONJECTURE).
 4. **A pointwise route via (E1) or (E2).** (I very high, F low.) The
    natural target is X_win(C), i.e. `a_min(p) ≪ log p` (§3.4). It sits
    just above the formal-obstruction scale. Lemma 9.1 (PROVED) gives
@@ -1214,8 +1294,16 @@ ratings are this summary's judgement, not ledger labels.
    Congruence input gives exactly `g = 1` (§3.3); beating
    `log p·log₃p` by congruences would beat known Ω-results for the least
    non-residue. Whether `C(7) < ∞` is open: every finite Type-I covering
-   of `{n_p = 7}` has height > 3·10⁹ (CERTIFIED, POINTWISE_TYPEI2), and
-   under H, `C(7) = ∞` iff the sign point `x̂_9` is sterile (Conjecture 3.4).
+   of `{n_p = 7}` has height > 1.32·10¹² (CERTIFIED, POINTWISE_TYPEI3), and
+   under H, `C*(r) = ∞` iff a sterile profinite point exists (TYPEI2
+   Thm A); the sign point `x̂_9` is the candidate (Conjecture 3.4; descent
+   levels 5–6 empty, level 7 open). Analogous candidate sterile points
+   for Mordell-type coverings: x* for r = 13 (Conj 4.2) and r = 17
+   (Conj 4.3, reduced by MORDELL17 Thm 4.1 to an explicit prime-power
+   count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`).
+   No sterile point is proved. A proved one would give `C(7) = ∞` under H
+   (for `x̂_9`), or show that no finite set of polynomial ES identities
+   covers the corresponding primes (r = 13, 17).
 7. **An unconditional sterile seed component.** (I low–medium, F low.)
    Astra has reduced its hypothesis to 158 prime conditions plus one
    divisor condition; searches over actual inputs find no sterile prime.
@@ -1263,6 +1351,7 @@ ratings are this summary's judgement, not ledger labels.
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
+| per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md` |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
 | large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
@@ -1274,16 +1363,17 @@ ratings are this summary's judgement, not ledger labels.
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
 | the pointwise programme's obstruction, written up | `paper/pointwise-obstruction.tex` |
 | the meta-theorem (Theorems M, C, Proposition A) and the window frame | `POINTWISE_SIZE.md` §§0–4, §8 |
-| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v5); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
+| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v6); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
 | the typical size of `W` and its tail exponent 3 over primes | `CEILINGS_UNIFIED.md` Thm 2.1 (upper), `POINTWISE_TAIL.md` (lower, two-sided Cor 2.2) |
 | barriers beyond 1/4, and what would give 1/3 | `POINTWISE_OMEGA15.md` (Wiener-norm barrier), `POINTWISE_OMEGA16.md` (LS ⇒ 1/3), `POINTWISE_OMEGA17.md` (support-aware certificates, SAP) |
 | one sieve limit behind the 3/4 cap and the 1/4 ceiling | `CEILINGS_UNIFIED.md`; `paper/sieve-limits-note.tex` v5 §18 |
 | how the rate got there (1/14 → 1/7 → 1/6 → 1/5) | `POINTWISE_OMEGA8.md` → `OMEGA9` → `OMEGA11` → `OMEGA12` |
 | the energy bound C-1 and DNF Fourier tails | `paper/energy-dnf-note.tex`; `POINTWISE_OMEGA10.md` |
-| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md` |
+| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md`, `POINTWISE_MN3.md` (where SI fails) |
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
-| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md` |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent) |
+| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md` (r = 13), `POINTWISE_MORDELL17.md` (r = 17); `paper/es-coverings-note` in preparation (task O86) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
 | priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
