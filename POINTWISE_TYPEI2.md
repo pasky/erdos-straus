@@ -209,3 +209,39 @@ So for {2,7}-generic points every certificate is a box of measure
 `2^{−(2+α+γ)}7^{−(a+b)}` in `ℤ_2×ℤ_7`, with finitely many boxes per
 level. Whether a sterile point exists is a question about the union of
 these boxes (§2.2).
+
+### 2.2 Numerics: the {2,7}-generic sterile set (EVIDENCE)
+
+`typei2_s27 Λmax` enumerates via (2.1) **all** certificates with
+`Λ≤Λmax` (complete by Cor. 2.5). `typei2_union.py` computes the exact
+Haar measure of the union of their boxes inside
+`Σ'={x_2≡1 (8)}×{x_7 non-square}` (normalised to 1):
+
+| Λmax | boxes in Σ' | covered | uncovered |
+|---|---|---|---|
+| 10³ | 10 | 0.833333 | 0.166667 (one cell: `x_2≡9 (16)`, `x_7≡6 (7)`) |
+| 10⁴ | 66 | 0.976190 | 0.023810 (one cell: `x_2≡9 (16)`, `x_7≡48 (49)`) |
+| 10⁵ | 262 | 0.979167 | 0.020833 |
+| 10⁶ | 678 | 0.985119 | 0.014881 |
+| 3·10⁶ | 1296 | 0.986713 | 0.013287 |
+| 3·10⁷ | 3710 | 0.989226 | 0.010774 |
+| 3·10⁸ | 8176 | 0.989749 | 0.010251 |
+
+The uncovered measure decreases ever more slowly (decrements per
+decade ≈ 0.0025, 0.0005). This suggests (EVIDENCE only) that a set of
+positive measure ≈0.01 of `Σ'` consists of sterile points. But the sum of
+**all** box measures per decade of Λ stays large (≈0.4 at Λ≈10⁶). So the
+union bound alone cannot prove this; the overlaps matter.
+
+**Integral points.** Among the 1976 points `(x_2,x_7)=(w,z)`, `w≡9 (16)`,
+`|w|≤200`, `|z|≤60` non-square mod 7, exactly 26 are uncovered by all
+certificates with `Λ≤3·10⁸`. **All 26 have `z=−1`** (e.g. `w=9, −7, 25, 41`).
+(`typei2_points.py`.) So `x*_7=−1` is distinguished. There the odd
+components of x* are all `±1`, and every certificate is an integral object:
+
+```
+F | 1+4ck²,   F≡−1 (mod m'),   F≡+1 (mod 7^{v_7(ck)}),   F≡−w (mod 2^{v_2(4ck)}).   (2.2)
+```
+
+Candidate sterile point: **`x*=(w at 2; −1 at 7; 1 at all other q)`**, e.g.
+`w=9`. A proof would need to exclude (2.2) for all slices with `7∥sf(c)`.
