@@ -8,7 +8,7 @@ No scripts: everything is proof.
 **Cor 2.2.** Uniformly for `T≥T_0` and `log T ≤ c(log x/loglog x)^{1/4}`,
 
 ```
-c(log T)³ ≤ log(π(x)/#{p≤x: W(p)>T}) ≤ C(log T)³(loglog T)³·logloglog T.
+c(log T)³ ≤ log(π(x)/#{p≤x: W(p)>T}) ≤ C(log T)³(loglog T)³.
 ```
 
 The lower inequality is CU Thm 2.1. The upper one is new (Thm 2.1 / Thm 3.3). So the Haar exponent 3
@@ -51,16 +51,43 @@ the stated inputs". I applied four fixes:
    modification.
 4. Thm 3.3: good-leaf probability ≥ 3/8. The same x works for all good leaves.
 
-## Proposed ledger entry (H)-section
+## Checkpoint 2 (after hostile review R76)
 
-`#{p≤x hard: W(p)>T} ≥ π(x)exp(−C(log T)³(loglog T)³logloglog T)` for `log x ≥ C(log T)^4 loglog T`
-(POINTWISE_TAIL Thm 3.3; one-fibre version `(loglog T)^5`, Thm 2.1). PROVED modulo (G), NT and
-OMEGA10 Thm 3.4. With CU Thm 2.1, the log-tail is `≍(log T)³` up to `(loglog T)^{3+o(1)}`
-(Cor 2.2).
+R76 (`reviews/pointwise-tail-review.md`, branch `side-agent/review-tail`) found no FATAL or MAJOR
+issues and rated all claims SOUND. I applied every item:
+* **D1.** The NT local factors now use `f_2(p^k)≤4βt≤7`, which covers p=2, and the Euler ratio
+  `1+O((t−1)/p)`.
+* **D2.** The range constant in Cor 2.2 is now `c'≤min(1,c₁,(4/C)^{1/4})`.
+* **D3.** Lemma 1.1 is now stated with the actual Siegel conductor `q_1|Q`, and `λ≥λ_Q` is a
+  consequence.
+* **D4.** The conditional clause now assumes `1−β≥c_0/log q` for real zeros.
+* **D5.** The Replay section cites the reviewer's scripts `review_tail_leaves.py` and
+  `review_tail_twist.py`.
+* **D6.** "Effective" is now hedged: it holds given that the cited inputs' constants are
+  effective.
+* **S1.** I adopted the improvement as the new Lemma 3.2′: `E[log rad_odd Q_end]≪𝓛³(log𝓛)³`.
+  Thm 3.3 adds a good-leaf condition (v), so `P(good)≥1/4`. The Siegel loss is now
+  `≤(1/2)log(8·rad_odd Q_L)`, which removes the `logloglog T` from Thm 3.3 and Cor 2.2.
+
+## Final ledger wording ((H)-section)
+
+**Two-sided witness-modulus tail over primes (POINTWISE_TAIL.md; review R76 SOUND).**
+* For `T≥T_0` and `log x ≥ C(log T)^4 loglog T`:
+  `#{p≤x Mordell-hard: W(p)>T} ≥ π(x)·exp(−C(log T)³(loglog T)³)` (Thm 3.3).
+* Status: **PROVED** modulo (G) (Gallagher), NT (Nair–Tenenbaum) and OMEGA10 Thm 3.4, the
+  inputs of O13 Thm 5.1.
+* Constants: effective if those inputs' constants are.
+* Variants: the one-fibre version has `(loglog T)^5` (Thm 2.1). Under the zero-free bound
+  `1−β≥c_0/log q` for real zeros the loss is `(loglog T)²logloglog T` (CONDITIONAL).
+* With CU Thm 2.1 (Cor 2.2), uniformly for `log T ≤ c'(log x/loglog x)^{1/4}`:
+  `c(log T)³ ≤ log(π(x)/#{p≤x: W(p)>T}) ≤ C(log T)³(loglog T)³`.
+  So the Haar exponent 3 is the true tail exponent of W over primes.
+* Method: the O9/O13 coset transfer, read quantitatively, without `ℓ_aux`, summed over the
+  leaves of the square-class process.
 
 ## Open
 
 * The `(loglog x)^{1/4}` range gap between the two sides comes from the junta's `log𝓛`. CU Prop 4.2's
   floor is `𝓛^4`.
-* The third log comes from the Siegel factor. It would go if leaves with `q_1∤Q_L` carried a fixed
-  share of the mass; this would need a uniform NT bound in progressions mod ℓ.
+* After S1 the third log still comes from the Siegel factor (`log rad Q`). It would go if leaves
+  with `q_1∤Q_L` carried a fixed share of the mass.
