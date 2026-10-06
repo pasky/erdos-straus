@@ -288,7 +288,8 @@ the r₀ step all use this. The Q₀ = 1 family 𝔊_ℛ violates it at small pr
 primes is not WLOG: a majorant for the full family need not majorise the larger avoider
 set of the reduced family. So the application to ℛ(ℓ)-slices is claimed **only for
 the toy family 𝔊_ℛ^{≥ℓ₀} of primes ℓ ≥ ℓ₀**, where ℓ₀ is such that `|ℛ(ℓ)| ≤ ℓ/4` and
-`|ℛ(ℓ)| ≤ ℓ^γ` for all ℓ ≥ ℓ₀ (then there are no bad primes, B₁ = 0). Covering the
+`|ℛ(ℓ)| ≤ ℓ^γ` for all ℓ ≥ ℓ₀, and `ℓ₀ ≥ (2e^{s_*})^{1/(1−3γ)}` (then there are no bad
+primes, B₁ = 0). Covering the
 small primes would need the Q₀ > 1 version, conditioning on `n mod Π_{ℓ<ℓ₀} ℓ` as in
 NC Thm 2.3. That extension is not written out here, and it is **not claimed**. The ES
 families, whose F_ℓ(c) depend on the fibre c, are not covered either.
