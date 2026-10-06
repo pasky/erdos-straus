@@ -1,30 +1,27 @@
 # AGENT_REPORT_O82 — hypothesis SI for the class-of-one prefix (branch side-agent/sierpinski-si)
 
-Deliverable: `POINTWISE_MN3.md`, scripts `scripts/mn3_{u1,rn,resid,first}.py`. Checkpoint 1.
+Deliverable: `POINTWISE_MN3.md` (closed as an obstruction/localisation write-up, parent decision (c)),
+scripts `scripts/mn3_{u1,rn,resid,first}.py`. Summary table with labels: `POINTWISE_MN3.md` §0.
 
-**Outcome: SI is NOT proved.** A precise localisation of the difficulty instead.
+**Outcome: SI is NOT proved; ADM_m and the 1/4 exponent for W_5 remain CONDITIONAL.**
 
-PROVED:
-* Lemma 1.1: for `ν = δ_1`, the ν-weights of completed restrictions are bounded by class-of-one
-  weights, `E^ν_1(q) ≤ 2ℓ·U_1(q)`, `U_1(q) = Σ_{C_q, D≤A} K^{ω(M)}/φ(M/gcd(M,mD+1))`.
-* Lemma 3.1: with three admissible levels (`K = (1−θ)^{−3}`) SI needs only `U_1(q) ≪ q^{−1/2−δ}`
-  (proper prime powers) plus the level-0 pair sums — a square-root, not full, saving.
-* Lemmas 2.1, 4.1, 5.1, 5.2: N-parametrisation (`f | aN+c`, `cM = N(a+b)`), prefix part
-  `s = gcd(g,Q_0)` with extra factor `1/φ(g/s)`, `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`, `R(N) ≪ N^{2/3+ε}`.
+PROVED (under review by R82):
+* Lemma 1.1: for `ν = δ_1`, `E^ν_1(q) ≤ 2ℓ·U_1(q)`, `U_1(q) = Σ_{C_q, D≤A} K^{ω(M)}/φ(M/gcd(M,mD+1))`.
+* Lemma 2.1: N-parametrisation (`f | aN+c`, `cM = N(a+b)`, `acd ≤ N`), `R(N) < ∞`.
+* Lemma 3.1: with three admissible levels, SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (square-root saving).
+* Lemma 4.1: prefix part `s = gcd(g,Q_0)`, extra factor `1/φ(g/s)`.
+* Lemma 5.1: `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; level-0 count on the all-ones path `Y(ℓ) ≤ 2R_ℓ(ℓ)`.
+* Lemma 5.2: `R(N) ≪ N^{2/3+ε}`.
 
-Assessment (§4, §5): every linear route (sum over c, d, a, or N with (H)) is short on a "residual"
-region (Kloosterman range of the hyperbola `ef ≡ 1 mod ma²`), and EVIDENCE shows the residual carries
-72–91% of `U_1(q)` for `q ≤ 199`. Its main term is the Erdős–Straus-type multiplicity
-`R(N) = #{atoms with M/gcd(M,mD+1) = N}` at `N = ℓ·(small)`. SI at level 0 needs one of: a pointwise
-bound `R(N) ≪ N^{θ}` with `θ ≈ 1/10` (best known analogue for ES counts: ET's `3/5`; here 2/3),
-equidistribution of R along `N ≡ 0 (mod ℓ)` at level `X^{1−δ}`, or (via Cauchy–Schwarz over ℓ) the
-congruence-free second moment `(M2) Σ_{N≤X} R(N)² ≪ X^{1+o(1)}` — CONJECTURE, data to `3·10⁴`
-fit `≈ 0.003 X(log X)⁶`.
+Assessment / EVIDENCE: all four linear (H)-routes are short on a residual (Kloosterman-range) region that
+carries 72–91% of `U_1(q)` for `q ≤ 199`; its main term is the ES-type multiplicity `R(N)` at
+`N = ℓ·(small)`.
 
-Not done / caveats: the "long-route" regimes are only tabulated (Assessment), not written as proofs;
-the implication (M2) ⇒ SI is sketched, not proved (correlation terms of `E^ν_2` and the large-scale
-regime missing). No overclaim intended: ADM_m and the 1/4 exponent for `W_5` remain CONDITIONAL.
+CONJECTURE 5.3 (M2): `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}`; data (m = 5) `Σ R²/(Y log⁶Y) = 0.0034 → 0.0026` for
+`Y = 10³ … 3·10⁴`.
 
-Decision requested from parent: (a) continue towards "SI ⟸ (M2) + (H)" as a written conditional
-theorem (several more days: long-route proofs, correlations, large scale), or (b) attack (M2) itself
-(a 6-variable ES-type pair count), or (c) stop here with the obstruction write-up.
+SKETCH (§5.4, not a proof): (M2) + (H) ⇒ SI via Cauchy–Schwarz over ℓ. Missing: (1) correlation terms of
+`E^ν_2`; (2) the large-scale regime, incl. `q_0 < q < Q_0` where the prefix part is huge; (3) the
+long-route (H) proofs; (4) the `ℓ | e` part and mixed splits; (5) first-moment totals uniformly in scale.
+
+Waiting for R82's defects.
