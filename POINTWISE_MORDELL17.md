@@ -1,7 +1,8 @@
 # POINTWISE_MORDELL17 — sterility at r = 17 (task O83)
 
-Status: work in progress (side agent O83, branch `side-agent/sterility-r17`). Builds on
-POINTWISE_MORDELL.md (§2.1, §5; unreviewed author branch `side-agent/mordell-13`).
+Status: O83 (branch `side-agent/sterility-r17`), merged after hostile review R83 rounds 1–2
+(`reviews/pointwise-mordell17-review.md`: no FATAL/MAJOR; minors repaired by author and reviewer).
+Builds on POINTWISE_MORDELL.md (§2.1, §5; reviewed in R80, and the §2.1 table re-derived in R83).
 Labels as in DISCOVERIES.md.
 
 Notation. T = {17}. A point `x∈Ẑ^×` is *17-generic* if `x_q = 1` for all q ≠ 17; write
