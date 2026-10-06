@@ -33,7 +33,7 @@
 % internal repository documents.
 \title[Sieve limits for the Erd\H{o}s--Straus exceptional set]{Sieve limits for the Erd\H{o}s--Straus exceptional set:\\ why $3/4$ is sharp for congruence sieves}
 \author{Anonymous}
-\date{Research note, version 4; internally reviewed results only, not externally refereed}
+\date{Research note, version 5; internally reviewed results only, not externally refereed}
 \setlength{\emergencystretch}{2em}
 \begin{document}
 \begin{abstract}
@@ -72,12 +72,20 @@ positive only at primes are capped at $O_A((\log N)^{3/4}(\log\log N)^{3/4})$
 (and at $O_A((\log N)^{3/4})$ at pointer level only).  Gallagher's larger
 sieve saves only $O(\log\log N)$.  For
 hybrid methods that count large classes blindly we reduce the cap to a
-combinatorial hypothesis; for super-polynomial large-sieve frequencies we
-show that any cap needs family-specific input, such as the sparsity of
-forced classes.  We also show
+combinatorial hypothesis (weak SPW), with an exact requirement on its
+margins, and show that its fixed-margin form is false.  For
+super-polynomial large-sieve frequencies we show that any cap needs
+family-specific input, such as the sparsity of forced classes; using
+sparsity through a smooth--rough splitting, every CRT-admissible large
+sieve, at any frequency level, saves at most
+$O((\log N)^{3/4}(\log\log N)^3)$ for mixtures with at most one prime factor
+above $\exp\{(\log N)^{1/4}\}$ per modulus.  We also show
 that the literal tuple-count hypothesis meets forced zeros above $2/3$ and
 give the repaired alternating form.  We list exactly what the theorems
-exclude.  Every statement carries its status label.  All proofs were
+exclude.  Finally we explain the cap and the pointwise ceiling $1/4$ for
+the least witness modulus of a prime as two readings of one sieve limit,
+and record the $3/4$ bound for primes in $\pi(N)$ form.  Every statement
+carries its status label.  All proofs were
 checked internally only; nothing here has been externally refereed.  This
 is not a proof of the Erd\H{o}s--Straus conjecture.
 \end{abstract}
@@ -123,13 +131,18 @@ Lemma~\ref{lem:firstnoB}) means: given the \cite{KA}/\cite{KA2} framework
 (square base, leak, weighted sequential sieve limit) as reviewed there
 \cite{KArev,KArev2,KA2rev,KA2rev2}; \cite{KA3} does not re-prove it.
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of eighteen internal working
+\lab{proved} result below appears in one of twenty-three internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
 \cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, \cite{KA3}, \cite{LS},
-\cite{LS2}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{TU}, \cite{TU2}, or is
+\cite{LS2}, \cite{LS3}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{SPW},
+\cite{SPW2}, \cite{TU}, \cite{TU2}, \cite{CU}, \cite{O13}, \cite{O14}, or is
 assembled here from such results with the short argument given (marked
 ``observation of this note'').  Each document was hostile-reviewed; the
-reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,PLrev,IFrev,IF2rev,TUrev,TU2rev}.
+reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,LS3rev,PLrev,IFrev,IF2rev,SPWrev,SPW2rev,TUrev,TU2rev,CUrev}
+(those of \cite{O13,O14} are listed with them in the bibliography).
+Version~5 adds Section~\ref{sec:smoothrough}, the refutation of
+fixed-margin SPW and the weak-SPW requirement in Section~\ref{sec:hybrid},
+and Section~\ref{sec:unified}; the cap of Theorem~\ref{thm:main} is unchanged.
 A few statements were added to these documents after their review and
 were checked by the coordinator of the programme only; this is said
 where they are used.
@@ -243,13 +256,22 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   (Theorem~\ref{thm:gallagher}).  For super-polynomial frequencies a dense
   abstract family shows that comparison measures plus large-sieve axioms
   cannot give a cap (Theorem~\ref{thm:band}); the forced-class case is
-  Conjecture~\ref{conj:HLS}.  Prime-only majorants are capped for all
+  Conjecture~\ref{conj:HLS}.  A smooth--rough splitting
+  (Theorem~\ref{thm:smoothrough}) prices the coordinates of primes
+  $\leq\exp\{(\log N)^{1/4}\}$ by a density alone, so every large sieve at any
+  frequency level is capped at $C(\log N)^{3/4}(\log\log N)^3$ for mixtures with
+  at most one larger prime factor per modulus (Theorem~\ref{thm:roughslice},
+  \lab{proved}); what remains is a fibre correlation-decay statement
+  (Hypothesis~\ref{hyp:Hrough}).  Prime-only majorants are capped for all
   mixtures, with the same $(\log\log N)^{3/4}$ proviso
   (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
   modulus $\leq N/2$ are capped however the interval sum is evaluated
   (Corollary~\ref{cor:IFcap}); hybrid methods that count large classes
   blindly are capped conditionally on a flat-minorant hypothesis, which
-  follows from the combinatorial Hypothesis~\ref{hyp:SPW}
+  follows from the combinatorial weak SPW (Hypothesis~\ref{hyp:weakSPW},
+  Lemma~\ref{lem:weakSPW}, which makes the requirement on the margins
+  exact for this route); SPW with a fixed margin, the form stated in
+  version~4, is false (Theorem~\ref{thm:SPWfalse}, \lab{proved})
   (Section~\ref{sec:hybrid}).  The results that use
   Theorem~\ref{thm:noBcap} as a black box are \lab{proved}; labels are
   given individually there.
@@ -264,11 +286,17 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   truncated weights (Theorem~\ref{thm:trunc}, Corollary~\ref{cor:primeorder}).
 \item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
   and~\ref{sec:open}).  A precise list of what lies outside: the large
-  sieve at super-polynomial frequency levels; larger-sieve kernels with
+  sieve at super-polynomial frequency levels against classes with two or
+  more prime factors above $\exp\{(\log N)^{1/4}\}$; larger-sieve kernels with
   an uncontrolled factor; direct counts and hybrid accounting above
   modulus $N/2$; majorants $\geq1$ only on $[1,N]$ or on the exceptional
   set; non-CRT tuple counts and other non-CRT input; other class types
   (and non-selector admissible sets); family primes beyond $N^{O(1)}$.
+\item \emph{One sieve limit} (Section~\ref{sec:unified}).  The cap $\lambda^{3/4}$ and the
+  pointwise ceiling $1/4$ for the least witness modulus are two readings
+  of one order-$k$ sieve limit (Theorems~\ref{thm:twosided}
+  and~\ref{thm:unified}, \lab{proved} within the stated scopes); the $3/4$ bound
+  holds for primes relative to $\pi(N)$ (a reproof, not an improvement).
 \end{enumerate}
 None of this bounds $E(N)$ from below or says anything about methods
 outside the class; in particular it is not evidence against the
