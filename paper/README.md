@@ -1,5 +1,20 @@
 # Paper draft status
 
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v5** (task O64, 51 pages). The proof of
+the main theorem (exponent 1/4, mod Gallagher + Nair–Tenenbaum) is unchanged from v4; v5 adds
+the surrounding picture from ledger (H)28–(H)30. New §11 (via the atoms of the 3/4 note,
+INTERNALLY PROVED, inputs BV/BT/Shiu, ineffective; source `CEILINGS_UNIFIED.md`): Haar lower
+bound `log(1/δ*) ≫ 𝓛³` without log loss (Prop 11.1), typical size
+`#{p≤x: W(p)>T} ≪ π(x)e^{−c𝓛³}` for `𝓛 ≤ c₁(log x)^{1/4}` (Thm 11.2, also mod Page's theorem,
+full proof), ceiling at level `c𝓛⁴` (Prop 11.3, full proof; gap to 1/4 now `(log log p)^{1/4}`),
+unified sieve-limit remark. New §12 (source `POINTWISE_OMEGA15.md`): pseudorandomness of the
+planted law and the Wiener-norm barrier (full proofs), linear certificates, full-orbit uniform
+cap at 1/4, Siegel model, EH-type hypotheses cap at 1/4 (`POINTWISE_OMEGA16.md` Prop 3.1), exact
+scope. New §13 (source `POINTWISE_OMEGA16.md`): Hypothesis LS ("Linnik for sifted sets",
+CONJECTURE) and Thm 13.1 LS ⇒ exponent 1/3 (full proof, mod NT); product-set hypotheses give
+only `(log p)^{2±o(1)}` (Prop 13.2, (a) proved here, (b) mod BDH with pointer). Introduction and
+abstract restructured. Change list for the referee: `reviews/agent-reports/AGENT_REPORT_O64.md`.
+
 **New (2026-10-05): `es-window-note.tex` / `.pdf`** (task O41, 22 pages) —
 "The window statistic for the Erdős–Straus equation: exact orders for bounded
 windows and the role of parity". Window criterion and ES ⟺ a_min<∞; half-set
