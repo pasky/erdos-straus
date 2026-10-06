@@ -10,7 +10,10 @@ usage: mordell_dfs.py r variant Mmax Pmax emax maxnodes [out.json] [root_filter]
 import sys, json, time, heapq
 import numpy as np
 from math import gcd
+import os
+import mordell_lib
 from mordell_lib import divisors, residue_table, residue_set
+mordell_lib.I1_CAP[0] = int(float(os.environ.get('MORDELL_I1CAP', '0')))
 from mordell_cover import base, primes_upto
 
 TABLE = {}

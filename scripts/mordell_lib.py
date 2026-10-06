@@ -48,7 +48,11 @@ def sqrt_mod_set(t, f):
     sols, mod = [0], 1
     for p, e in factor_small(f).items():
         q = p ** e
-        loc = [s for s in range(q) if (s * s - t) % q == 0]
+        if q < 2000:
+            loc = [s for s in range(q) if (s * s - t) % q == 0]
+        else:
+            from sympy.ntheory.residue_ntheory import sqrt_mod
+            loc = sqrt_mod(t % q, q, all_roots=True) or []
         new = []
         for s0 in sols:
             for s1 in loc:
@@ -197,8 +201,7 @@ def classes_for_modulus(M):
     return list(iter_classes(M))
 
 
-class _Out:
-    pass
+I1_CAP = [0]   # search-only speed cap: skip I1 splits with 4a^2d+1 > cap (0 = no cap)
 
 
 def iter_classes(M):
@@ -214,6 +217,8 @@ def iter_classes(M):
         # 4ab families (I1 uses 4ad with f | 4a^2 d + 1)
         for a in divisors(Q):
             b = Q // a
+            if I1_CAP[0] and 4 * a * a * b + 1 > I1_CAP[0]:
+                continue
             for f in divisors(4 * a * a * b + 1):
                 yield ('I1', (a, b, f))
             for e in divisors(a + b):

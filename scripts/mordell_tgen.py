@@ -10,6 +10,11 @@ from mordell_lib import classes_for_modulus, cls_modulus_residues, factor_small
 Mmax = int(sys.argv[1]); r = int(sys.argv[2]); k = int(sys.argv[3])
 T = [int(t) for t in sys.argv[4].split(',')]
 npv = len(sys.argv) > 5 and sys.argv[5] == 'np'
+CDEF = (1, 1)   # default value c = num/den at primes outside T
+for a in sys.argv[6:]:
+    if a.startswith('c='):
+        v = a[2:]
+        CDEF = tuple(map(int, v.split('/'))) if '/' in v else (int(v), 1)
 KQ = {q: (k + 3 if q == 2 else k) for q in T}
 R = prod(q ** KQ[q] for q in T)
 boxes = {}   # (MT, res) -> witness
@@ -25,7 +30,7 @@ for M in range(3, Mmax + 1):
     for fam, P in classes_for_modulus(M):
         _, Rs = cls_modulus_residues(fam, P)
         for res in Rs:
-            if res % N == 1 % N:
+            if N == 1 or res % N == (CDEF[0] * pow(CDEF[1], -1, N)) % N:
                 key = (MT, res % MT)
                 if key not in boxes:
                     boxes[key] = (M, fam, P)
