@@ -44,9 +44,7 @@ TABLE = {}
 def table(M):
     if M not in TABLE:
         w = residue_table(M)
-        a = np.zeros(M, dtype=bool)
-        if w:
-            a[list(w)] = True
+        a = np.array(sorted(w), dtype=np.int64)
         TABLE[M] = (a, w)
     return TABLE[M]
 
@@ -57,7 +55,10 @@ def filt(X, L, Lprev, Mmax):
         a, w = table(M)
         if not w:
             continue
-        X = X[~a[X % M]]
+        y = X % M
+        i = np.searchsorted(a, y)
+        i[i == len(a)] = 0
+        X = X[a[i] != y]
         if len(X) == 0:
             break
     return X

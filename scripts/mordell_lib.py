@@ -17,6 +17,9 @@ def inv(a, m):
 
 
 def divisors(n):
+    if n > 10 ** 9:
+        import sympy
+        return sorted(sympy.divisors(n))
     ds = [1]
     x = n
     p = 2

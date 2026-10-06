@@ -31,3 +31,14 @@ ES holds for every prime `p∈Σ_r` with `p>B` (and the rest is a finite check).
 * r=13, Mmax=10⁵, stages 2,3,11,17,19: uncovered 4/36 at L=10920, then 50 of 622080 lifts
   at `L=2^4·3^2·5·7·11·13·17·19`. The residues 5,6,8,11 mod 13 are covered at low level;
   **the survivors are all `≡2` or `7 (mod 13)`** (note `2·7≡1`), `≡1 (16)`, mostly `≡1 (9)`.
+* Larger moduli do not help at fixed prime support: with `Mmax=10⁷, 10⁸` the counts at
+  `L=2^4·3^2·5·7·11·13^2·17·19·23` are 1438, 1412 (vs 1499 at 10⁵). Survivors need new primes.
+* Survivor structure at `L=720720`: six nodes, `x≡1 (16)`, `x≡1,7 (9)`, and
+  `(x mod 11, x mod 13) ∈ {(2,2),(2,7),(6,7),(9,7)}`.
+* **13-generic points are covered.** Points with `x_q=1` for all `q≠13` are covered at
+  13-level 1 for every non-residue u: `u≡2`: II2 `(a,d,f)=(9,2,143)` (residue 67 mod 143,
+  `≡1 (11)`); `u≡7`: II2 `(2,2,143)`; `u≡5,6,8,11`: II2 with f=39. So the hard points are not
+  13-generic; they need special residues at 11 as well.
+* `mordell_probe.py L x Mmax lmax`: for a node, survivors among the children at one new prime ℓ.
+  For the nodes 352801, 473761 (mod 720720) about half of the children survive at each
+  ℓ∈[29,59]; at ℓ=17 only 5 resp. 1 survive. Not a square-class pattern.
