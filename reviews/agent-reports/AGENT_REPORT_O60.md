@@ -27,25 +27,34 @@ Branch `side-agent/unify-ceilings`. Deliverable: `CEILINGS_UNIFIED.md`,
    * Majorants: (U−) KARY binomial extrapolation, (U+) Bonferroni.
    * Minorants: (L−) OMEGA14 planting, (L+) Bonferroni.
 
-   Both thresholds are at the same critical order `k ≍ P` (mass = dimension),
-   so the critical level is `λ* ≍ L·P`.
-5. **Thm 4.2 (PROVED as a conjunction of cited results, within their
-   scopes).** Both ES ceilings are this statement at the same scale, with
-   the same mass `P ≍ 𝓛³` and one big prime per event:
-   * The note/KARY3 and OMEGA13/14 instances are matched in the table of §4.2.
-   * The exceptional ceiling is `κ(𝓛_c(λ)) ≍ λ^{3/4}` and the pointwise
-     ceiling is `𝓛_c(λ) ≍ λ^{1/4}`, where `λ*(𝓛_c) = λ`.
-   * Their product is `λ`. With Haar exponent `a` the exponents are
-     `a/(a+1)` and `1/(a+1)`.
-   * Remark 4.3: the two duals are a comparison measure on the avoiders and a
-     planted measure on the hit set.
-6. **EVIDENCE (§4.4).** An exact rational LP for i.i.d. bits (`n = 40`,
-   `P = 2..8`):
+   Both sides have the same critical *order* `k ≍ P` (mass = dimension). The
+   critical level `≍ L·P` is claimed only when the big costs are comparable
+   and the small-coordinate cost is booked separately.
+5. **Prop 4.2 (PROVED given the note's Cor 4.3 and OMEGA14 Lemma 4.1).**
+   The note's atoms block every positive minorant of `F_T` with
+   `log D ≤ c(log T)⁴`, on every fibre with `log Q ≤ T^{0.05}`.
+   * The note's fibre mass `≍ t³` is uniform in *every* unit `c`, so
+     planting applies deterministically.
+   * This sharpens OMEGA14 Thm 4.5 (`c𝓛⁴/log𝓛`, modulo (G)+Page+FL).
+   * OMEGA13's 1/4 is now optimal in that architecture up to
+     `(log log p)^{1/4}` (was `^{1/2}`).
+   * The idea came from the self-review.
+6. **Thm 4.3 (PROVED as a conjunction of cited results, within their
+   scopes).** Both ceilings come from one relation `λ ≍ 𝓛·𝓛³` between level
+   and usable cutoff:
+   * majorants: the sup-saving `S(λ) ≍ λ^{3/4}`, upper bound for every
+     mixture, attained by the note;
+   * minorants: the least positive level is `≍ 𝓛⁴` up to one `log𝓛`;
+   * the budget `λ ≍ log N` resp. `log x` gives 3/4 resp. 1/4.
+
+   The "product = level" observation is an identity. The `a/(a+1)`,
+   `1/(a+1)` extrapolation is CONDITIONAL on the same one-big-prime
+   mechanism. The mechanism reading (one-big-prime subfamily, §4.2) is an
+   Assessment.
+7. **EVIDENCE (§4.4).** An exact rational LP with asserted primal
+   certificates, for i.i.d. bits (`n = 40`, `P = 2..8`):
    * the least order with a positive minorant is `2P−1`;
    * the least order with a ≥90% majorant saving is `≈ 2P ± 2`.
-
-   So the threshold is common to both sides. Below it the majorant degrades
-   gracefully (about `0.55k`), while the minorant is identically useless.
 
 ## What the parent should check hardest
 
@@ -61,6 +70,11 @@ Branch `side-agent/unify-ceilings`. Deliverable: `CEILINGS_UNIFIED.md`,
     `kℓ ≤ T`).
 * **Thm 4.1 (U−):** check that KARY Thm 2.5/Cor 2.6 apply fibrewise with every
   coordinate light and `M = P` deterministic.
+* **Prop 4.2:**
+  * uniformity of note Cor 4.3 over *all* unit `c` (the BV step in note
+    Thm 4.2 is claimed uniform in `c`, `J`);
+  * `f_c(ℓ) ≤ ℓ^{1/3}`;
+  * the bookkeeping of big primes dividing `Q`.
 * **§4.2 multi-scale reading of KARY3's ledger:** this is labelled
   Assessment, as a description and not a proof.
 
@@ -70,3 +84,18 @@ Branch `side-agent/unify-ceilings`. Deliverable: `CEILINGS_UNIFIED.md`,
   OMEGA9 Thm 1.1 blocks a direct count).
 * Nothing beyond either ceiling: the unification says that level-bounded
   (CRT) information cannot beat either one.
+
+## Self-review
+
+A `review` subagent (deep mode) found no FATAL issues. Prop 1.1, Thm 2.1
+and the four inequalities of Thm 4.1 passed. It independently replayed the
+LP thresholds with exact dual certificates. Three MAJOR overclaims were
+repaired:
+* the level claim of Thm 4.1 for non-comparable costs;
+* Cor 3.3 "certifying the full Haar void";
+* the quantifiers of Thm 4.3 (any vs some mixture, good fibre vs every
+  fibre, the full system vs a one-big-prime subfamily, and a universal
+  impossibility claim).
+
+The minor items were applied: the `k ≥ 1` case, the generalised inverse,
+the precise PNT-in-AP input, the "0.55k" wording and the LP certificates.
