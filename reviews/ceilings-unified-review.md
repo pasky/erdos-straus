@@ -25,3 +25,38 @@ Re-derived line by line against `paper/es-threequarter-note.tex`:
   conditioning keeps `c` a unit. Factor `φ(24)=8` trivial. ✔
 
 Minor point only: D1 below (label of the two-sided sandwich).
+
+### Claim 2 — Thm 2.1 (`#{p≤x: W(p)>T} ≪ π(x)e^{−c𝓛³}`, `𝓛 ≤ c₁(log x)^{1/4}`): **SOUND** (given the note + Page)
+
+Re-derived:
+* `W(p)>T`, `p>y` ⇒ `S_y(p)=1`, `H_X(p)=0` (active atom ⇒ witness `kℓ≤KX≤X^{1+κ}=T`
+  with `w=(kℓ+1)/(4uv)`), so `ν(p)=Q_r(0)=1`. ✔
+* Case A: `t ≤ 𝓛 ≤ c₁(log x)^{1/4}` gives `log x ≥ C_0t⁴` once `c₁⁴≤1/C_0`; note
+  Thm 8.2 (eq. integermean) then gives `≪ x e^{−c_at³} ≤ x e^{−c_at³/2}/log x`. ✔
+* Case B, prime sum: split `p≤√x` (`≤T_abs√x`) and `p>√x` (`1 ≤ 2log p/log x`,
+  `ν≥0`). Non-reduced terms `≤ T_abs(log x)²`. ✔
+* Siegel factor: with `(a,q)=1`, `∫_{n≡a(q)} χ̃₁ dP_* = χ₁(a)/φ(q)·1[q₁|q]`. If
+  `q₁∤q`, the fibre projects onto a coset of `ker((ℤ/q₁)^×→(ℤ/g)^×)`, `g=(q,q₁)`,
+  and `χ₁` is non-trivial on that kernel by primitivity. ✔ (from-scratch
+  exhaustive check of this identity for all real primitive characters with
+  conductor `≤ 200` and `q ≤ 120`: `scripts/review_unify_page.py`.) So the main
+  terms are `xE_*[ν(1−εχ̃₁)] ≤ (1+ε)xE_*ν`, `ε ≤ 1/β₁ ≤ 2`. This uses only
+  `ν ≥ 0` pointwise on ℤ (Lemma 8.1 and `S_y ∈ {0,1}`), and `ν` is periodic. ✔
+* Error: `T_abs·x·e^{−c₃√log x}`. In Case B, `log T_abs ≤ C_L t⁴ =
+  O((log log x)^{4/3}) = o(√log x)`, so this is fine for any fixed `c₃`. The text's
+  "`≤ exp(c₂√log x)` … `O(xe^{−c₃√log x/2})`" silently needs `c₂ ≤ c₃/2`. That is
+  true here only because `T_abs` is far smaller (D3).
+* Unit mean: `S_y≡1` on `Ẑ^×`; conditional factorial moment
+  `m!e_m(p) ≤ (Σp_ℓ)^m ≤ (2μ_c)^m`; the note's Cor 4.3 upper bound is uniform in all
+  `c`. With `r+1 ≥ D_Bt³ ≥ 2e²C_ut³` we get `(2eC_ut³/(r+1))^{r+1} ≤ e^{−(r+1)}`. ✔
+  Enlarging `D_B` is legitimate: note Thm 8.2 only asks `D_B` large, and `C_0`, hence
+  `c₁`, are chosen after `D_B`.
+* Uniformity: all constants depend on the fixed `κ,D,B,D_B`. The case split is at
+  `c_at³ = 2log log x`, and the thresholds `x_0, T_0` are absolute. ✔
+
+Source caveat: Davenport Ch. 20 / MV Cor 11.17 are not in `sources/`; I could
+not check them against a PDF either. The form used (one exceptional primitive
+`χ₁ mod q₁ ≤ exp(c₂√log x)`, term present iff `q₁|q`, error `x e^{−c₃√log x}`) is
+the standard one as I recall it. Only the weak range
+`q ≤ exp(O((log log x)^{4/3}))` is used, so even a Siegel–Walfisz-plus-Page
+version suffices.
