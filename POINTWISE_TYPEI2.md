@@ -76,7 +76,7 @@ covering of height ≤X. So some `x*∈Σ_r` lies in no `Cl(κ)`, `κ∈K_X`.
   unit).
 * If there is no root, put `y_q=x*_q`.
 * If `V` is a root, take `T` larger than `v_q(N_{V'}(x*_q))` for all other
-  values `V'`, and put `y_q=x*_q+q^T`. Then
+  values `V'` and larger than `v_q(4X!)`, and put `y_q=x*_q+q^T`. Then
   `N_V(y_q)=(y_q−x*_q)(y_q+x*_q)`, so `v_q(N_V(y_q))=T`. For `V'≠V`,
   `N_{V'}(y_q)≡N_{V'}(x*_q) (mod q^T)`, so `v_q(N_{V'}(y_q))=v_q(N_{V'}(x*_q))`.
 
@@ -92,8 +92,8 @@ Put `f_{c,k}=∏_{q≤B}q^{n_{c,k,q}}`, the fixed B-part.
 
 *Step 3 (transfer to x\*).* Let `(c,k)∈𝓢` and `d|f_{c,k}`. Claim:
 `d≢−y (mod 4ck)`. Suppose otherwise; we show `x*∈Cl(c,k,d)`.
-* For `q|4ck` there is no perturbation at q (no root), so
-  `x*≡y≡−d (mod 4ck)`.
+* `y_q≡x*_q (mod q^T)` with `T>v_q(4X!)≥v_q(4ck)` at perturbed q, and
+  `y_q=x*_q` elsewhere; so `x*≡y≡−d (mod 4ck)`.
 * For `q|d`, either `y_q=x*_q`, or the value `ck²` is the root at q (then
   `v_q(N_{c,k}(x*_q))=∞`), or it is not (then
   `v_q(N_{c,k}(x*_q))=n_{c,k,q}`). In every case
