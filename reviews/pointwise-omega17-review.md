@@ -17,6 +17,7 @@ From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 | §4 x_s-centred ψ′, Assessment 4.2 | labels correct (heuristic) | `ψ′=e_n(p)·ψ`, `ψ′(0)=0`, tilt `E[ψ′|x_s]=e_n(p(x_s))` verified. |
 | Lemma 4.1 | SOUND | entire-function argument correct; scope example `j(j−5)²/12` re-checked exactly at R=2,3. |
 | Lemma 5.1 | SOUND | aggregated LP = full LP on 200 random instances (max diff 9e-16). |
+| Toy LP table (§5) | SOUND as EVIDENCE (MINOR reading, D5) | independent re-implementation `scripts/review_o17_toylp.py` (own sieve, own LP assembly; atoms = 2^14 configurations) reproduces **every** entry of the 4 rows to the unit (seed 1, x=10⁶; numpy default_rng happens to coincide), `data/review_o17/toylp.txt`. |
 | Prop 3.1 (iv) table | SOUND (EVIDENCE label correct; can be strengthened) | all 15 R_min values reproduced, positivity on **all** integers j≥0 with a rigorous (Fujiwara) root cutoff, `scripts/review_o17_charlier.py`, `data/review_o17/charlier.txt`. |
 
 ## Lemma 5.2 — details
@@ -102,3 +103,9 @@ mathematics).
 
 **D4 (MINOR) — Construction 3.2 ends its outline with "∎".** An Assessment-level outline should
 not carry an end-of-proof mark. Repair: drop ∎. *Applied by reviewer.*
+
+**D5 (MINOR) — toy-LP reading "then gains one junta level".** Supported by row R=1.94 (k=2:
+diffuse 0, slack ≤1.94 positive; diffuse becomes positive at k=3). For R=2.92 the table does not
+show the diffuse value at k=4, so "one level" there is not demonstrated; for R=1.94, k=3 the gain
+at slack 1.94 is 7104.7 vs 7101.3 (negligible). Repair: "gains up to one junta level (shown for
+R=1.94)". Not applied (the author's §5 already says EVIDENCE, toy scale).
