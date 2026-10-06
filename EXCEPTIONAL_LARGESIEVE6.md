@@ -439,6 +439,123 @@ this would give the all-level 3/4 cap for every forced mixture and every
 large sieve **whose frequencies have at most one prime factor `> z` in
 their denominators** (CONDITIONAL on (FM2) and its second moment over c).
 
+## 6. Several rough primes: what is proved, what is missing
+
+**Definition (damped covering count).** For a fibre law and a finite set
+S of rough primes let `𝔇(S)` be the expectation on the right of (4.1)
+(divided by `Z^{−1}2^{|S|}`):
+
+    𝔇(S) = E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)] · max_{A_T} e^{‖a^{(A_T)}‖′} Σ_{△𝒯=S∖T} Π_{R∈𝒯}|a^{(A_T)}_R|.
+
+> **(DCC_γ)** for c off an exceptional event of Q′-probability ≤ 1/32 and
+> every finite set S of primes `> z`: `𝔇_c(S) ≤ Λ′Π_{ℓ∈S}Kℓ^{−γ}`, with
+> `1 ≤ K ≤ z^{γ/2}` and a constant `Λ′`.
+
+**Theorem 6.1 (PROVED as an implication; inputs as LS4 Thm 4.2).**
+(DCC_γ) ⟹ (A\*_Λ) for `σ_tilt,c` with `Λ_c = Λ′Z_c^{−1}` and `K` replaced
+by `2K` ⟹ (Cor 1.2) the all-level 3/4 large-sieve cap
+`log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` for every
+forced mixture (`N ≥ N₀(γ)`).
+
+*Proof.* Prop 4.2, (4.1): `|σ̂_c(θ)| ≤ Z_c^{−1}2^{|S|}𝔇_c(S) ≤
+Λ′Z_c^{−1}Π_{ℓ∈S}2Kℓ^{−γ}`; `2K ≤ z^{γ/2}` after shrinking γ slightly.
+Then Lemma 1.1 / Cor 1.2. ∎
+
+So the open problem is now a **first-moment statement on a product
+probability space** (coins, v, v′), with every outside top weighted by its
+damping; no tilt, no conditioning, no signs. Theorem 5.1 is (DCC) for
+`|S| = 1` modulo (FM).
+
+### 6.1 Where several primes interact (Assessment)
+
+Expanding `𝔇(S)` as in the proof of Theorem 5.1, each `ℓ ∈ S` needs a
+*witness*: a class through ℓ matched off-top by a corner path (hard: top in
+S, or a leak; soft: any top, weight `w_q·q^{−v}`), possibly followed by a
+divergence. A product of witness indicators has probability
+`≤ Γ(L)/L`, L the lcm of the witness moduli, so each S-prime still pays
+`ℓ^{−1}` once (from one witness containing it), and overlaps of witnesses
+at shared primes P *gain* `Π_{p∈P}p^{v}`. The overlap sums are the
+quantities `ν_{>r}(P)` of §5. Two regimes:
+
+* *Few primes.* Ignoring residue compatibility at shared primes, the
+  j-th witness may share any subset of the primes of the earlier ones;
+  the choice costs `2^{(#primes so far)}`, i.e. a per-prime loss
+  `2^{O(|S|·ω̄)}`. This is affordable for `|S| ≤ c·log z` (per-prime slack
+  `ℓ^{1−γ}/K`), which is the damped, X-uniform analogue of LS5 Cor 4.2
+  (there `|S| ≤ c₀ log log N`, and not uniform in X). Not written out:
+  SKETCH.
+* *Many primes.* For `|S| ≫ log z` the compatibility at shared primes must
+  be used: sharing p between witnesses with residues `a, a′` needs
+  `a ≡ a′ (p)`, which should cost `≍ 1/p` — exactly what (CC) asked for in
+  LS4–LS5, now in damped form. The needed input is a **sup over residues**
+  of damped masses:
+
+      μ_a(P) := Σ_{C ⊇ P, top(C) > max P, b_C ≡ a_p (p^{v_p}) ∀p∈P} w_{top}Γ(G_C)Π_{p∈P}p^{v_p(G_C)}/G_C,
+
+  to be compared with the residue-free `ν(P) = Σ_a μ_a(P)`.
+
+**Proposition 6.2 (small-height labels are not dispersed; PROVED, elementary,
+with the asymptotic as Assessment).** For every rough prime p,
+`μ_{−4}({p}) ≥ (1/2)Σ_{m} w_{top(pm)}Γ(pm)/m` over z-rough squarefree
+`m` with `pm ≡ 3 (4)`, `pm ≤ X` — the classes `−4 mod pm` (`−4 ∈ ℛ(M)` for
+every `M ≡ 3 (4)`, LS3 Lemma 4.2; rough moduli occur in every fibre).
+With `w_q ≈ e^{−2γ log q/log z}` this is `≍ e^{−2γt_p}(t_p + 1/γ)`,
+`t_p = log p/log z`, i.e. **bounded below independently of p** for
+`p ≤ z^{O(1)}`, whereas `ν({p}) = Σ_aμ_a({p})` is spread over p residues.
+
+*Proof.* Each such `pm` carries the class `−4` (D = 1), its residue at p is
+`−4 mod p`, top `= max(p, P(m))`, and its weight in `μ_{−4}({p})` is
+`w_{top}Γ(pm)p/(pm)`. The asymptotic is Mertens over rough m
+(`Σ_{m: P(m) < y}1/m ≍ log y/log z`) with partial summation. ∎
+
+So no residue-uniform dispersion bound holds: the **small-height labels**
+(Cor 5.3 of LS4: `−r/s` with `r, s` small — `−4`, `−1`, `−1/4`, `−4d`, …)
+concentrate damped mass `≍ 1` on single residues at every prime. They are
+exactly the *structured* (same-label, product-type) coincidences of LS5
+Lemma 3.1, and they are handled by deterministic residue sets (LS4 Lemma
+5.1, valid for `σ_tilt` by Cor 1.2): with a prime-dependent threshold
+`H₀(p) = p^{1/4}`, the residues mod p of labels of height `≤ H₀(p)` form a
+fixed set of size `≤ p^{1/2}`.
+
+### 6.2 The isolated arithmetic statement
+
+Write `H*(C)` for the least height of a label of C (the least
+`max(r,s)` with `b_C ≡ −r/s (mod G_C)`; by Minkowski `H*(C) ≤ √G_C`, and by
+LS5 Lemma 1.2 two distinct labels congruent mod p have `H₁H₂ ≥ p`, so a
+residue mod p contains at most one label of height `< √p`).
+
+> **(RD) (residue dispersion of large-height damped mass; CONJECTURE).**
+> There are `γ₀ > 0` and `C` such that for every fibre c off an exceptional
+> event, every set P of at most `(log N)^{C}` rough primes and every residue
+> vector `a`:
+>
+>     μ^{>}_a(P) := (the sum μ_a(P) restricted to classes with H*(C) > max_{p∈P} p^{1/4})
+>                 ≤ (log N)^{C} · Π_{p∈P} p^{−γ₀}.
+
+*Heuristic (Assessment).* A label `−r/s` occurs as a class of modulus G
+only if `G` divides `4Ds + r`-type expressions; its damped mass through p
+is heuristically `≍ γ^{−1}(rs)^{−1}`, and the labels of height `≤ H` in a
+fixed class mod p number `≍ H²/p + O(H)` (lattice count), with at most one
+of height `< √p`. Summing gives `μ^{>}_a({p}) ≲ γ^{−1}(p^{−1/4} + p^{−1}(log)²)`.
+The arithmetic content is a **divisor-in-residue-class bound on average
+over the modulus family**: for ℛ(M) with `M = pm`, the count
+`#{D | A_{pm}² : D ≡ D₀ (p), H*(−4D mod pm) > p^{1/4}}` averaged over
+rough cofactors m with weight `w_{top}/m`, uniformly in `D₀`. Long
+cofactors (`m ≥ D^♮`) are covered by the progression count of LS5 (S);
+the open part is the short ones (one m per D), where pointwise bounds
+(Lenstra, Coppersmith–Howgrave-Graham–Nagaraj) give `O(1)` per m but not
+the needed `p^{−γ₀}` after summing over m. No counterexample is known.
+
+*Assessment of the remaining route.* (FM) + (RD) + the deterministic
+treatment of small-height labels should give (DCC) by the witness
+expansion above: S-primes whose pinned values hit the small-height
+residue set pay `ℓ^{−1/2}` (LS4 Lemma 5.1 mechanism), the others have only
+large-height witnesses, whose conditional damped mass given `v_ℓ` is
+`≤ ℓ^{−γ₀}` by (RD), and overlaps at outside primes are paid by (RD) for
+two-element sets. The combinatorics of this last step (overlap patterns
+for `|S|` up to unbounded size, divergence cascades) is **not written**;
+it is the remaining non-arithmetic gap.
+
 ## 7. Numerics (EVIDENCE / sanity checks only)
 
 `scripts/largesieve6_softpivotal_toy.py`: random rough families (40
