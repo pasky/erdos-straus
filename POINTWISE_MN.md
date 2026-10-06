@@ -270,3 +270,32 @@ needs `Σ_ℓ P(f_ℓ > 1−1/K)` small; first moments do not suffice (`Σ_ℓ (
 second moment (OMEGA13's pair potential, restricted to atoms completed at ℓ) leads to averages of
 `τ((ℓ^{a+1}M'+1)/m)²` over primes ℓ with smooth M' of unbounded size — a Shiu-type bound in
 progressions to smooth moduli larger than the range of ℓ, which we do not have.
+
+## 7. Status
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | `(−mD|M)` formula; `= −1` for all atoms iff (in effect) `m ≡ 0 (4)` | PROVED (+ check, M ≤ 5·10⁴, 11 values of m) |
+| Prop 2.1 | `m ≢ 0 (4)`: infinitely many prime atoms meet both square cosets; square-class process fires | PROVED |
+| Thm 3.1 | `m ≡ 0 (4)`: Haar exponent 3 (`𝓛³/log𝓛 ≪ log(1/δ*_m) ≪ 𝓛³(log𝓛)^5`) and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. | PROVED modulo (G), NT, fundamental lemma, OMEGA10 Thm 3.4 (substitution proof; needs review) |
+| Prop 3.2 | Haar lower bound `≫ 𝓛³/log𝓛` for every m ≥ 4 | PROVED modulo fundamental lemma |
+| Lemma 4.1 | transfer (I3) for arbitrary unit class r | PROVED modulo (G) |
+| Thm 5.1 | `m ≢ 0 (4)`: same conclusions as Thm 3.1 (log-powers depending on K) | CONDITIONAL on ADM_m(K, Q_0) |
+| §6 | ADM_m numerics (m = 5, 6, 7, 9, 10, 11, 13): max per-prime drift ≈ 4, `f_ℓ ≲ 0.55(log ℓ)³/ℓ` | EVIDENCE |
+
+**Answer to the task question.** The Jacobi symbol `(−mD | M)` is identically −1 exactly in the
+case `m ≡ 0 (mod 4)` (more precisely: for `m ≡ 0 (4)` always; for every `m ≢ 0 (4)` it takes both
+values, and the square-class process fires). The 1/4 machinery and the Haar exponent 3 extend
+verbatim to `m ≡ 0 (4)`. For `m ≢ 0 (4)` — including Sierpiński's `m = 5` — they break at exactly
+one point, OMEGA13 Lemma 3.1, and everything else goes through once a random hard class with
+bounded per-prime drift exists (ADM_m), which the numerics support but we cannot prove.
+
+## Replay
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 900 uv run python mn_jacobi.py 50000 4 5 6 7 8 9 10 11 12 14 18)   # Lemma 1.1, §1 counts
+(ulimit -v 8000000; timeout 300 uv run python mn_hard.py 5 840)       # §3 hard sets (also 4 840, 8 840, 5 278460)
+(ulimit -v 8000000; for s in $(seq 1 40); do timeout 300 uv run python mn_greedy.py 7 20000 unit $s; done | grep -c "dead_at=[0-9]")   # §6: 2 deaths
+(ulimit -v 8000000; timeout 900 uv run python mn_greedy.py 5 300000 pref:3 1)   # §6 table rows
+```
