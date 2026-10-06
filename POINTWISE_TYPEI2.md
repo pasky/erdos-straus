@@ -9,7 +9,7 @@ Status: checkpoint 1 (side agent O69, branch `side-agent/typei-sterile`); not ye
 | L2.4, C2.5 | {2,7}-generic points: rigid parametrisation `c'JJ'−u=Λ`, `u∣J+J'`; finitely many certificates per level | PROVED |
 | §2.2 | union of all certificate boxes with `Λ≤3·10⁸` leaves measure ≈0.0103 of `Σ'` uncovered (slowly decreasing); integral survivors all have `x_7=−1` | EVIDENCE |
 | L3.1 | sign point `x̂_w=(w;−1;1)`, `w≡9 (16)`: no square-family certificate | PROVED |
-| C3.2–3.3 | no certificate at `x̂_9` with `ck≤10⁸` (two engines, plus a third in a smaller range). Hence every Type-I covering of `{n_p=7}` has height `>10⁸`, and under H `C(7)>10⁸` (was ≥539) | CERTIFIED / CONDITIONAL (H) |
+| C3.2–3.3 | no certificate at `x̂_9` with `ck≤3·10⁹` (checker; a second engine to `10⁶`, a third to `ck≤8660`). Hence every Type-I covering of `{n_p=7}` has height `>3·10⁹`, and under H `C(7)>3·10⁹` (was ≥539). For r=23, 31, 47: `>10⁹` | CERTIFIED / CONDITIONAL (H) |
 | P4.1 | sign points exist iff `r≡3 (4)`; for `r≡3 (8)` they are killed by `(r(r+1)/4,2,2r+1)`; for `r≡7 (8)` Lemma 3.1 holds | PROVED |
 | §5 | near-miss mass at random `w` decays per dyadic height bin (≈0.01 at 2³⁰). Mechanism partly proved | EVIDENCE / Assessment |
 | Conj 3.4 | `x̂_9` is sterile, so `C(7)=∞` under H | CONJECTURE (open) |
@@ -296,6 +296,10 @@ So no square certificate exists. ∎
   complete and exact (128-bit arithmetic).
   * `signcheck 7 9 10^8`: 210 905 636 unforced slices, **0 certificates**
     (18 s). The same holds for `w=−7, 25, 41`.
+  * `signcheck 7 9 3·10^9`: 7 602 614 538 unforced slices, **0
+    certificates** (≈10 min).
+  * `signcheck r 9 10^9` for `r=23, 31, 47` (all `≡7 (8)`): **0
+    certificates** (744 701 974 / 548 469 498 / 356 411 660 slices).
   * The checker finds the expected certificates where they exist:
     `(14,2,15)` for `w=1`, `(33,2,23)` for r=11, `(95,2,39)` for r=19.
 * *Factoring engine* `typei2_formal.py` (sympy; `1+4ck²<2^{64}`, where
@@ -304,14 +308,16 @@ So no square certificate exists. ∎
 * *Λ-enumeration* `typei2_s27 3·10⁸` (Lemma 2.4; every slice with
   `ck≤8660` has `Λ≤4(ck)²≤3·10⁸`): no box contains `x̂_9`.
 
-**Corollary 3.3.** (i) *(PROVED, by Computation 3.2)* Every finite Type-I
-covering of `{n_p=7}` has height `>10⁸`. (ii) *(CONDITIONAL on H for the
-finite family `𝓟_X` of Theorem A, `X=10⁸`, built from `x̂_9`)* there are
-infinitely many hard primes with `n_p=7` and `ck_min(p)>10⁸`. So
-`C(7)>10⁸`, up from `≥539` (Cor 6.4 of POINTWISE_TYPEI).
-*Proof.* (i) A covering of height `≤10⁸` would contain `x̂_9`, but no
+**Corollary 3.3.** (i) *(CERTIFIED, by Computation 3.2)* Every finite
+Type-I covering of `{n_p=7}` has height `>3·10⁹`. For `r=23, 31, 47`,
+every covering of `{n_p=r}` has height `>10⁹`. (ii) *(CONDITIONAL on H
+for the finite family `𝓟_X` of Theorem A, built from `x̂_9`)* there are
+infinitely many hard primes with `n_p=7` and `ck_min(p)>3·10⁹`. So
+`C(7)>3·10⁹`, up from `≥539` (Cor 6.4 of POINTWISE_TYPEI). Likewise,
+under H, `C(r)>10⁹` for `r=23, 31, 47`.
+*Proof.* (i) A covering of height `≤3·10⁹` would contain `x̂_9`, but no
 certificate holds there. (ii) Apply Theorem A(ii), Steps 2–5, with
-`x*=x̂_9`. Only the ≈2.1·10⁸ slices with `v_7(c)` odd need polynomials,
+`x*=x̂_9`. Only the ≈7.6·10⁹ slices with `v_7(c)` odd need polynomials,
 since forced slices vanish by notes Thm 48.1. ∎
 
 **Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C(7)=∞`.
