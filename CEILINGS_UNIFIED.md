@@ -38,7 +38,7 @@ P_*(H_X(n) = 0) ≤ exp(−a_h' t³),   and   δ*(T) ≤ 8·exp(−c𝓛³),
 where `δ*(T)` is the POINTWISE_HAAR avoider density (Haar on `Ẑ^×`, normalised
 on `n ≡ 1 (24)`). Hence `log(1/δ*(T)) ≫ 𝓛³`, removing the `1/log𝓛` loss of
 POINTWISE_HAAR Thm 2.1; with OMEGA13 Thm 3.4,
-`𝓛³ ≪ log(1/δ*(T)) ≪ 𝓛³(log𝓛)^5`.
+`𝓛³ ≪ log(1/δ*(T)) ≪ 𝓛³(log𝓛)^5` (upper bound modulo Nair–Tenenbaum).
 
 *Proof.* Condition on `c = n mod L_K`. Under `P_*`, `c` is a unit mod `L_K`,
 and the coordinates `n mod ℓ` for the primes `ℓ ∈ (X^{1/2}, X]` (all `> K`, so
@@ -95,7 +95,8 @@ Thm 8.2, `Σ_{p≤x} ν(p) ≤ Σ_{n≤x} ν(n) ≪ x e^{−c_a t³} ≤ x e^{�
 
 *Case B: `c_a t³ < 2 log log x`.* Then `t⁴ ≪ (log log x)^{4/3}`, so by the
 ledger (ledger of note Thm 8.2) every term modulus `q` and the coefficient sum satisfy
-`q, T_abs ≤ e^{C t⁴} ≤ exp(c₂√log x)` for `x ≥ x_0`.
+`log q, log T_abs ≤ C t⁴ = O((log log x)^{4/3}) = o(√log x)`; so for `x ≥ x_0`
+both `q ≤ exp(c₂√log x)` and `T_abs ≤ exp(c₃√log x/2)`.
 (i) *Prime sum.* Write `ν = Σ_i c_i 1[n ≡ a_i (q_i)]`. Then
 `Σ_{p≤x} ν(p) ≤ T_abs√x + (2/log x)Σ_{n≤x} ν(n)Λ(n)` (`ν ≥ 0`, `‖ν‖_∞ ≤ T_abs`),
 and `Σ_{n≤x}νΛ = Σ_i c_i ψ(x; q_i, a_i)`. Terms with `(a_i,q_i) > 1` contribute
@@ -105,7 +106,9 @@ where `χ_1` (primitive mod `q_1`) is the possible exceptional real character
 for this range. (Davenport Ch. 20; also Montgomery–Vaughan I, Cor. 11.17 —
 the form of this classical statement was recalled, not re-checked against a
 PDF; any version with range `q ≤ exp(c₂√log x)` and error `x e^{−c₃√log x}`
-suffices, as only `t⁴ ≪ (log log x)^{4/3}` is needed.) Define the unit-Haar functional `E_*f = Σ_{(a_i,q_i)=1} c_i/φ(q_i)`
+suffices, as only `t⁴ ≪ (log log x)^{4/3}` is needed. Siegel–Walfisz alone
+would not suffice: `exp(C(log log x)^{4/3})` exceeds every power of `log x`.
+The exact equation number should be pinned once a copy is in `sources/`.) Define the unit-Haar functional `E_*f = Σ_{(a_i,q_i)=1} c_i/φ(q_i)`
 and `χ̃_1 = χ_1(n mod q_1)` on `Ẑ^×`. Since `∫_{n≡a (q)} χ̃_1 dP_* = χ_1(a)/φ(q)`
 if `q_1 | q` and `= 0` otherwise (primitivity: `χ_1` is non-trivial on the kernel of
 `(ℤ/q_1)^× → (ℤ/(q,q_1))^×` when `q_1 ∤ q`), the main terms sum to
@@ -167,7 +170,8 @@ together with the selector classes `0 mod p`, `p ≤ y`. Every CRT majorant
 such a saving at level `≤ C''𝓛⁴` (ledger of note Thm 8.2). So for savings of
 the cubic order the majorant-side critical level is `≍ 𝓛⁴`. (This is *not*
 a statement that the full unit-Haar void `δ*(T)` is certified: its exponent
-is known only between `c𝓛³` and `C𝓛³(log𝓛)^5`.)
+is known only between `c𝓛³` and `C𝓛³(log𝓛)^5`, the upper bound modulo
+Nair–Tenenbaum.)
 
 *Proof.* KARY3 Thm 4.1 gives `s ≤ log(1/Eν) ≤ Cλ^{3/4}`. ∎
 
@@ -292,7 +296,8 @@ modulus `≤ T`. ∎
 ### 4.3 The unified sieve-limit statement
 
 Put `κ(𝓛) := log(1/δ*(e^𝓛))` (the Haar avoider exponent; `c𝓛³ ≤ κ(𝓛) ≤
-C𝓛³(log𝓛)^5` by Prop 1.1 and OMEGA13 Thm 3.4) and `λ*(𝓛) := 𝓛·κ(𝓛)`
+C𝓛³(log𝓛)^5` by Prop 1.1 and OMEGA13 Thm 3.4, the upper bound modulo
+Nair–Tenenbaum) and `λ*(𝓛) := 𝓛·κ(𝓛)`
 (dimension × log-size). For a level `λ` let `𝓛_c(λ) := sup{𝓛 : λ*(𝓛) ≤ λ}`
 (generalised inverse), so `𝓛_c(λ) = λ^{1/4}` up to `(log λ)^{O(1)}`.
 
@@ -390,7 +395,7 @@ mass exponent `a` (`a/(a+1)`, `1/(a+1)`) is CONDITIONAL on the same mechanism.
 By-products, all PROVED given the INTERNALLY PROVED 3/4 note:
 * **`log(1/δ*(T)) ≫ (log T)³`** with no `log log T` loss (Prop 1.1): the
   note's void lemma is a Haar bound. With OMEGA13,
-  `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5`.
+  `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5` (upper bound modulo Nair–Tenenbaum).
 * **Witness-modulus tail relative to π(x):**
   `#{p ≤ x : W(p) > T} ≪ π(x)e^{−c(log T)³}` uniformly for
   `log T ≤ c₁(log x)^{1/4}` (Thm 2.1, also using the classical uniform PNT
