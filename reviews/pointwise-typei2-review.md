@@ -118,3 +118,21 @@ the minimal ones match the author's sanity values; `w=1`: `(14,2,15)` ✓.
 | 47 | 9 | 10⁹ | 356 411 660 | 356 411 660 | 0 |
 | 7 | 9 | 3·10⁹ | (running) | 7 602 614 538 | |
 | 7 | 9 (defn engine) | 2·10⁴ | 201 177 (all slices) | — | 0 |
+
+### Lemma 2.4, Cor 2.5, Prop 2.3, §2.2
+
+* Lemma 2.4 re-derived: `(m'J−1)(m'J'−1)=1+4ck²` ⟺ `m'JJ'−J−J'=Λk'` ⟺
+  (with `J+J'=k'u`) `c'JJ'−u=Λ` ✓. For `m'=1`, `J=1` would give `F=0`, but
+  (2.1) with `c'=k'=1`, `J=1` forces `Λ=−1`, so no spurious tuple ✓.
+* Cor 2.5: `u≤J+J'≤JJ'+1` and `J+J'≤JJ'/2+2` (`(J−2)(J'−2)≥0`) ✓; bounds
+  `u≤Λ+2`, `u|Λ+1`, `u≤Λ+4` ✓.
+* Prop 2.3 re-derived (a=1, b=0): `c'=1` ⇒ `u=1`, `jj'=2`, `k'=3`,
+  F∈{11,23}; `c'≥2` ⇒ `u=1`, `c'=2`, `k'=2`, F=15; residues `−11,−23,−15 ≡
+  3,5,6 (7)` ✓. (21,351,155) at the Cor 6.4 point checked directly ✓;
+  `252≡−1 (11),(23)` ✓.
+* §2.2 (EVIDENCE) reproduced from scratch (`scripts/review_ti2_union.py`, own
+  implementation of (2.1) with every box re-verified `F|1+4ck²`): Λ≤10³,
+  10⁴, 10⁵ give 10/66/262 distinct boxes in Σ' (74/312 certificates before
+  merging identical boxes) and uncovered measure 0.166667 / 0.023810 /
+  0.020833 — identical to the author's table. `(w,x_7)=(9,−1),(−7,−1),
+  (25,−1),(41,−1)` uncovered at 10⁵ ✓.
