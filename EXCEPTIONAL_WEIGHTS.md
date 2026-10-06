@@ -13,7 +13,38 @@ common period). Fourier coefficients `ν̂(θ) = E_{n mod Q} ν(n) e(−nθ)`,
 
 ## 0. Summary
 
-(filled in at the checkpoint)
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | every per-frequency bound with weights `w ≥ |W_N|` or `w ≥ |S_N|` is translation invariant, hence ≥ `M(N) = max_t #(𝒜∩(t,t+N])` | PROVED (trivial) |
+| Lemma 1.2 | LP duality: best per-frequency bound = `max ⟨g,1_𝒜⟩` over `g ≥ 0`, `|Qĝ| ≤ w` | PROVED |
+| Thm 2.1, Cor 2.2 | band-limited (Selberg-majorant) windows, **general majorants**: best per-frequency bound lies in `[M(N), 12(K+1)M(N)]`. So this door is capped at 3/4 **iff** `M(N) ≥ Ne^{−C(log N)^{3/4}}` | PROVED |
+| Thm 3.3 | sharp weight `|S_N|` (and any `w ≥ c₀|sin πNθ|`), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ`, γ < 1/3: saving `≤ C(log N)^{3/4}`, no (H_eq) needed | PROVED |
+| Lemmas 4.1–4.2 | smooth windows, hit-pattern majorants: (H_eq) ⇐ a characteristic-function bound (4.1); true for one prime ≥ 2|F|N/c (loss √|F|); several primes open | PROVED / (H_eq) CONJECTURE |
+| Prop 5.1 | `E(N) ≤ M(N) ≤ Ne^{−c(log N)^{3/4}}`; random-translate and greedy lower bounds are far below the 3/4 scale | PROVED |
+| (W) | is `M(N) ≥ Ne^{−C(log N)^{3/4}}`? | OPEN QUESTION |
+| Lemma 6.1 | sharp weights, general majorants: best bound ≥ `max(M(N), LP₁(h/N))` (window sieve limit (W′)) | PROVED; (W′) open |
+| §5.1 | toy translate sieve (ℛ(ℓ) prime slices): optimised translates keep far more of the window than random translates, between the random and large-sieve scales | EVIDENCE |
+
+**Verdict.** Weights below 1 split into two very different doors.
+* *Hit-pattern majorants* (NC §2.5's class): the sharp weight is closed
+  unconditionally (Thm 3.3): a weight that is small only near `‖Nθ‖ = 0`
+  cannot hurt, because the product spectral measure of the forced classes
+  cannot concentrate there (one-prime anti-concentration). Smooth windows still
+  need (H_eq), reduced to a characteristic-function bound (Lemma 4.1).
+* *General majorants with smooth (band-limited) windows*: the door is
+  **exactly** the shift-uniform count M(N), up to a factor 12(K+1)
+  (Thm 2.1). No arithmetic-free argument can cap it. A cap is equivalent to
+  the arithmetic statement (W), a lower bound for the number of avoiders in
+  the best window anywhere in ℤ. An escape (weights < 1 beating 3/4) exists
+  iff M(N) is smaller than the sieve-limit scale. In that case the escaping
+  majorant is the LP optimum, which is essentially as hard to evaluate as the
+  count itself.
+* Every per-frequency method is translation invariant (Lemma 1.1). So if the
+  3/4 barrier can be broken at all by such methods, it is broken for every
+  window simultaneously. A proof that M(N) is large would show that any
+  improvement must use where the window sits, not only its length.
+
+No θ > 3/4 is obtained or claimed.
 
 ## 1. Per-frequency bounds are translation invariant
 
