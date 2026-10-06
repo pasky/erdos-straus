@@ -157,7 +157,7 @@ Cor 2.4/Prop 2.5, same inputs: (G), effective Page, fundamental lemma).** Let �
 hypothesis about the primes `p≤x` that only concerns their distribution in residue classes,
 Dirichlet characters or additive characters of moduli `≤x` (with any error terms and any
 averaging over moduli): e.g. EH(θ) or GEH(θ) for any `θ<1`, GRH, BV. Every certificate of
-"`∃p≤x` prime, Mordell-hard, `W(p)>T`" of the minorant type — `B≤F` on a fibre, B a combination
+"`∃p≤x` prime, Mordell-hard, `W(p)>T`" of the minorant type — `B≤F` on a fibre `n≡r (Q)` with `log Q≤T^{0.05}`, B a combination
 of functions of those moduli, concluding `Σ_{p≤x}F(p)≥Σ_{p≤x}B(p)>0` from 𝓘 — needs
 
 ```
@@ -170,8 +170,10 @@ its atomicity, integrality or support (O15 §6 (N2)).
 
 *Proof.* Let `log x<0.6𝓛(k+1)` with `k+1=⌊μ*/2⌋`, `μ*≍𝓛³/log𝓛` as in O15 Thm 1.2, i.e.
 `log x≤c𝓛^4/log𝓛`. A modulus `q≤x` has at most k big prime factors (`>T^{0.6}`), so every
-function of modulus `≤x` restricted to the fibre H is a combination of reduced products with
-`|I|≤k`, on which the planted perturbation vanishes (O15 Lemma 1.1, second clause). Hence the
+function of modulus `≤x` restricted to the fibre H depends on the small coordinates and on at
+most k big ones, i.e. lies in O14's `𝒱_k`, on which ν and Haar agree (O14 Thm 1.3; equivalently
+the `|I|≤k` clause of O15 Lemma 1.1, whose proof uses no mean condition). The planting condition
+holds on every fibre with `log Q≤T^{0.05}` (O14 Thm 4.5 / O15 Thm 1.2). Hence the
 diffuse measure `m_ν:=N_xν` has, for every `q≤x` and every class / character / additive
 character mod q, *exactly* the Haar-predicted value `N_xE_H(·)`: it satisfies 𝓘 with zero error,
 whatever 𝓘's error terms are. But `∫F dm_ν=0` (O14 Lemma 4.1). So no deduction from 𝓘 (plus
