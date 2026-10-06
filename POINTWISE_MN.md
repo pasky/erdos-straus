@@ -78,3 +78,63 @@ More generally, Lemma 1.1(b),(c) show that the Jacobi symbol `(−mD|M)` is a fu
 `q ≡ 3 (4)` (M ≡ 1 (4)) or `t` varies (M ≡ 3 (8)); a coset `k·□` of the squares has
 `(k|M)` depending on M only, so it cannot separate the event classes for those M. What survives
 for every m: atoms with `M ≡ 7 (mod 8)` are never square-consistent (Lemma 1.1(b)).
+
+## 3. The case m ≡ 0 (mod 4): OMEGA13 transfers verbatim
+
+**What "hard" means.** For a modulus Q, the *Type-II-hard* classes are
+`H_m(Q) = {r ∈ (Z/Q)^× : r mod M ∉ R_m(M) for all M | Q, M ≡ −1 (m)}` (`scripts/mn_hard.py`):
+primes `p ≡ r (Q)` have no Type II solution (5.1) of `m/p` with `M | Q`, i.e. are not covered by
+any of the finitely many polynomial Type II identities attached to divisors of Q. For `m = 4` the
+squares mod 840 are Mordell's hard classes (Mordell's 6 classes also use Type I identities; the
+Type-II-hard set mod 840 alone has 24 classes, `mn_hard.py 4 840`). By Lemma 1.1(d), **for
+`m ≡ 0 (4)` every class that is a square modulo each odd prime of Q is Type-II-hard modulo Q**
+(for every Q); this is the m-analogue of "Mordell-hard". (For `m ≢ 0 (4)` the hard sets are
+not unions of square cosets: e.g. `H_5(840)` is `{1,3,5} mod 7`, which is 1 plus the
+non-residues; `mn_hard.py 5 840`.)
+
+**Theorem 3.1 (m ≡ 0 (4); PROVED modulo the inputs of OMEGA13 Thm 3.4 / Thm 5.1).** Fix
+`m ≡ 0 (mod 4)`, `m ≥ 4`; constants depend on m.
+* (i) (Haar, modulo NT for the upper bound and the fundamental lemma for the lower bound)
+  `𝓛³/log𝓛 ≪ log(1/δ*_m(T)) ≪ 𝓛³(log𝓛)^5`, where `δ*_m(T)` is the Haar probability on `Ẑ^×`
+  that n avoids all m-events with `M ≤ T`.
+* (ii) (prime side, modulo Gallagher (G), NT and OMEGA10 Thm 3.4) For infinitely many primes p,
+  `W_m(p) ≥ exp(c_m(log p)^{1/4}(log log p)^{−1/4})`, and these p can be taken to be squares
+  modulo 840 (forced steps), hence Type-II-hard modulo 840 and modulo the whole quarantine
+  modulus Q.
+
+*Proof (substitution list).* OMEGA13 uses the ES structure only in the following places; each
+holds for `m ≡ 0 (4)`:
+1. *Lemma 3.1 → Lemma 1.1.* (a) is Lemma 1.1(a) with `d ↦ e`; (b) is Lemma 1.1(d). The drift
+   at an `a=0` step is `1 + (−e_E|ℓ) ≤ 2` (Lemma 3.2(a)); nothing else about d is used.
+2. *M odd.* `M ≡ 3 (4)`, so atoms never constrain the 2-adic coordinate and the start
+   `Q=8, r≡1 (8)` has `p_0 = P_H` (Lemma 3.2(b)). The forced steps at 3, 5, 7 are `a=0` square
+   steps, safe by Lemma 1.1(d).
+3. *Lemma 3.3(A) (NT).* Use `Q_1(n)=n`, `Q_2(n)=mn−1` (`n = A`, `M = mn−1`): coprime linear
+   forms with fixed coefficients, `ρ(p) = 2` for `p ∤ m`, `ρ(p) = 1` for `p | m` (incl. `p=2`), so
+   no fixed prime divisor and `∏_{p≤x}(1−ρ(p)/p) ≍_m (log x)^{−2}`. The function
+   `F = τ(n_1²)f_2(n_2)` is unchanged. Both displays hold with m-dependent constants.
+4. *Lemma 3.3(B).* Elementary divisor sums over `M ≤ T`; the only change is `M ≤ T`,
+   `M ≡ −1 (m)`, `A ≤ T/m`. Unchanged.
+5. *Thm 3.4.* Run the square-class process; no event fires by item 1. The conclusion
+   `δ* ≥ φ(Q)^{−1}·exp(−(4/3)S_res)` (Haar on `Ẑ^×`) gives the upper bound.
+6. *Lower bound.* Prop 3.2 below.
+7. *Thm 5.1 / interface checks I1–I3.* I1 (BRW minorant, twist) and I2 (junta via OMEGA10/11)
+   concern an abstract system of unit-class events on prime-power coordinates with
+   `∏ℓ^{v_ℓ} = M ≤ T`; the ES structure enters only through masses (items 3–5). I3 needs
+   `r` square at the odd primes of Q and `r ≡ 1 (8)`, which the process gives, and Property (I)
+   uses Lemma 3.1 → Lemma 1.1(d). The auxiliary prime `ℓ_aux` is as in OMEGA13. ∎
+
+This is the same "4 ↦ m" substitution that POINTWISE_TRANSFER Cor 5.2 makes for the 1/7
+architecture (reviewed there); the only genuinely m-specific input of the 1/4 architecture is
+Lemma 3.1, which is why the dividing line is `m mod 4`.
+
+**Proposition 3.2 (Haar lower bound for every m ≥ 4; PROVED modulo the fundamental lemma).**
+`log(1/δ*_m(T)) ≫_m 𝓛³/log𝓛`.
+
+*Proof.* POINTWISE_HAAR Thm 2.1 with `4 ↦ m`: in the family 𝓕 replace `M ≡ 3 (4)` and
+`M ≡ −1 (mod 4n)` by `M ≡ −1 (mod mn)` (this gives `M ≡ −1 (m)` and `n | A_M`). (F1) becomes
+`mD ≤ m n² ≤ mT^{1/5} < M` for `M ≥ √T`, so the residues `−mD mod M` are distinct. The fundamental
+lemma sifts a progression mod `mn` (primes `p | mn` never divide M), giving block contributions
+`≥ c_2/(m n log y)`. Lemmas 2.3, 2.4 use only (F2)–(F5) and progressions mod `4n`, which become
+`mn` (constants change by `m/4`). Theorem 1.4 (Janson-type) is abstract. ∎
+No Jacobi input is used, so Prop 3.2 holds for every m, including `m ≢ 0 (4)`.
