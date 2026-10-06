@@ -338,8 +338,9 @@ afterwards `|X| ≥ NΠ(1−p_ℓ)`. Shrink X to `⌊min(s,|X|)⌋` points. Ever
 prime has `ℓ > s|F_ℓ| ≥ |X||F_ℓ|`, so some translate kills nothing. For ℛ(ℓ)-slices
 `Σ_{ℓ≤x}p_ℓ ≪ (log x)³` and `|F_ℓ| = ℓ^{o(1)}`; take `log s = c(log N)^{1/3}`. ∎
 
-For ℛ(ℓ)-slices `Σ_{ℓ≤N^{1+o(1)}} p_ℓ ≍ (log N)³`, so (b) gives only
-`N e^{−c(log N)³}` and (d) only `e^{c(log N)^{1/3}}`. The gap between (a) and
+For ℛ(ℓ)-slices `Σ_{ℓ≤N^{1+o(1)}} p_ℓ` is a power of log N (≍ (log N)³ over all
+moduli M by Elsholtz–Tao; over primes alone a smaller power), so (b) gives only
+`N e^{−(log N)^{c}}` and (d) only `e^{c(log N)^{1/3}}`. The gap between (a) and
 (b)/(d) is the whole question.
 
 **Open problem (W).** Is `M(N) ≥ N exp(−C(log N)^{3/4})` for the forced-class
