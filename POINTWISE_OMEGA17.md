@@ -213,3 +213,80 @@ on the avoider configuration (certificate exists iff >0), `x=10⁶`, seed 1 (see
 primes.) Support awareness changes nothing until the slack drops below ≈2, then gains one
 junta level — the box binding on the planted density (Lemma 5.2's regime). EVIDENCE only;
 toy scale (`R≤3`, `k≤3`).
+
+## 6. Answer to the brief, and the precise residual
+
+**(a) Formalisation.** Def 1.1 (SALC) adds to O15 Def 2.1 exactly the three forbidden items:
+support S, atomicity (box `m≤1`; integral version `m∈{0,1}`), and class bounds of any form. Moduli
+`>x` contribute only the box or primality tests of specific integers (Lemma 1.2); validity is
+dual to support-aware minorants `B≤F+θ` on S (Lemma 1.3); with Haar-type bounds the primes drop
+out and validity is a statement about integers only — the integer fake problem IF (Rem 1.4); and
+support/atomicity act only through the capacities `|S∩G|` of the information atoms (Lemma 5.1).
+
+**Does the planted fake survive?** Not literally: its density is deep (it rewards "almost all
+events off"), and no fake can avoid this (Lemma 2.1). Its integer restriction would need counts
+of integers in sifted sets of dimension `≍𝓛³/log𝓛` below the sieving limit. Two partial
+results: in exchangeable models a *shallow* (polynomial, Charlier) fake exists with only a
+`≍log k`-type loss (Prop 3.1, EVIDENCE for positivity) and defeats SALCs whose bounds have
+fundamental-lemma accuracy (Cor 3.2); and the planted law is *flat* (`|dν/dP−1|≤s−1`) once
+`R≥kr*+(k+1)/(s−1)` (Lemma 5.2), so atomicity costs only constants whenever the support has slack
+`>1` and Haar-like atom capacities. In the ES instance the shallow route fails at the small
+coordinates: any fixed-polynomial fake tilts the small-coordinate law (Lemma 4.1), by a
+polynomially small amount that unconditional prime information could detect, and untilting costs
+level `e^{Θ(𝓛⁴)}` (Assessment 4.2).
+
+**Outcome.** Neither a support-aware certificate beyond 1/4 nor a support-aware planting lemma
+for ES was obtained. The residual is now the following integer statement (no primes in it):
+
+> **Conjecture SAP (support-aware planting; CONJECTURE).** There are `c,δ>0` such that for
+> `log x≤c𝓛⁴/log𝓛` there is `m:S_T∖A→[0,1]` of mass `N_x` with
+> `|m(C)−N_xP_H(C)|≤N_xP_H(C)e^{−δ log x/log q}` for every unit class C of every modulus
+> `q≤x^{δ}`, and `m(C)≤2N_xP_H(C)·log x/log(x/q)` for every class of modulus `q≤x^{1−δ}`.
+
+SAP would block every primality-blind SALC whose information has the accuracy of the known
+unconditional prime theorems (Gallagher/Vinogradov–Korobov-type lower and upper bounds on
+moduli `≤x^δ`, Brun–Titchmarsh above) — exponent 1/4 again. It is supported by the
+random-integer heuristic (atom capacities Haar-like) plus Lemma 5.2, and by the toy LPs (§5).
+Refuting it would require a set of non-avoider integers `≤x` that is *not* rich enough to carry a
+Haar-like measure — i.e. an integer sieve beyond the high-dimensional sieving limit, the integer
+analogue of the open problem. GRH-quality information (√x accuracy) lies outside SAP's scope:
+T-rough integers are not known to equidistribute to that accuracy even under GRH (the finite
+Euler product `∏_{p≤T}` is too large on `Re s=1/2`), so with GRH input even the exchangeable
+fake of Cor 3.2 is not proved consistent.
+
+**(b) INTERFREQ/SPW analogy.** Not pursued beyond the observation that Lemma 5.1 is the
+pointwise analogue of the interval-count accounting there: support enters only through atom
+capacities, and atoms of moduli `>x` are points.
+
+**(c) Toy LPs.** §5: support awareness changes nothing until the slack `|S|/N_x` drops below
+≈2, then gains one junta level (EVIDENCE).
+
+## 7. Status
+
+| item | statement | label |
+|---|---|---|
+| Def 1.1 | support-aware linear certificate (support, box/integrality, arbitrary true bounds) | definition |
+| Lemma 1.2 | classes with `≤1` integer of S: box constraint or primality test | PROVED |
+| Lemma 1.3 / Rem 1.4 | LP duality; with Haar-type bounds validity is an integer statement (IF) | PROVED |
+| Lemma 2.1 | no nondecreasing (event-only) fake matching first-order marginals | PROVED (Harris) |
+| Prop 3.1 | Charlier fake `1−C_n(N;R)`: ψ(0)=0, moments `<n` exact, degree n | PROVED; positivity for `R≥R_min(n)` EVIDENCE (exact, n≤81) |
+| Cor 3.2 | exchangeable model: shallow integer fake vs fundamental-lemma-accuracy SALCs | PROVED given positivity of the multivariate ψ (EVIDENCE in the Poisson limit only) |
+| Lemma 4.1 | no fixed-polynomial exchangeable fake uniform in R | PROVED |
+| Assessment 4.2 | small-coordinate tilt detectable; untilting costs level `e^{Θ(𝓛⁴)}` | Assessment |
+| Lemma 5.1 | support/atomicity enter only via atom capacities | PROVED |
+| Lemma 5.2 | planted law flat: `|dν/dP−1|≤s−1` if `R≥kr*+(k+1)/(s−1)` | PROVED |
+| toy LP | gain only for slack `<≈2`, one junta level | EVIDENCE |
+| Conj SAP | box-bounded Haar-like measure on `S_T∖A` below `𝓛⁴/log𝓛` | CONJECTURE |
+
+Not claimed: anything about ES; any certificate beyond exponent 1/4; any obstruction for
+SALCs with GRH-quality information, non-linear certificates, or prime-supported (slack-1)
+arguments (= searches).
+
+## Replay
+
+```
+export PYTHONPATH=scripts
+(ulimit -v 8000000; OMP_NUM_THREADS=2 timeout 900 uv run --with scipy python scripts/omega17_shallow.py)   # §3 LP table (~2 min)
+uv run python scripts/omega17_charlier.py      # §3 R_min table, exact rationals (~10 min)
+(ulimit -v 8000000; OMP_NUM_THREADS=2; for a in "1 1000000 0.12" "1 1000000 0.17" "2 1000000 0.12" "2 1000000 0.17" "3 300000 0.12"; do timeout 1500 uv run --with scipy python scripts/omega17_toylp.py $a; done) > data/omega17/toylp.txt   # §5 (~15 min)
+```
