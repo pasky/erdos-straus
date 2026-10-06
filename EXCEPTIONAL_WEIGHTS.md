@@ -335,9 +335,13 @@ inside Θ_S towards `‖Nθ‖ ≈ 0`; whether positivity forbids this is open).
 ## 4. Smooth windows for hit-pattern majorants: what (H_eq) really asks
 
 Same setting as §3 (Q₀ = 1, hit-pattern ν), now `w = |W_N|` for a fixed window Φ
-(Φ ≥ 0, Φ ≥ 1 on [0,1], Φ̂ continuous and integrable decay so that Poisson
-applies). Then `W_N(θ) = Σ_k NΦ̂(N(k−θ))`, and there are `c_Φ > 0`, `N_Φ` with
-`|W_N(θ)| ≥ N/3` for `‖θ‖ ≤ c_Φ/N`, N ≥ N_Φ (continuity of Φ̂ at 0, Φ̂(0) ≥ 1).
+(Φ ≥ 0, Φ ≥ 1 on [0,1], Φ̂ continuous, and — R81 repair, applied by reviewer — the decay
+hypothesis `|Φ̂(ξ)| ≤ C_Φ|ξ|^{−1−η}` for |ξ| ≥ 1, some η > 0, so that Poisson applies
+and aliases are controlled; Schwartz windows and Φ_K satisfy it). Then
+`W_N(θ) = Σ_k NΦ̂(N(k−θ))`, and there are `c_Φ > 0`, `N_Φ` with `|W_N(θ)| ≥ N/3` for
+`‖θ‖ ≤ c_Φ/N`, N ≥ N_Φ. Proof: Φ̂(0) = ∫Φ ≥ 1 and continuity give `|NΦ̂(−Nθ)| ≥ N/2` for
+`‖θ‖ ≤ c_Φ/N`. The aliases satisfy `Σ_{k≠0} N|Φ̂(N(k−θ))| ≤ 2NC_Φ Σ_{k≥1}(N/2)^{−1−η}k^{−1−η}
+= O_Φ(N^{−η})`. Continuity and integrability of Φ̂ alone would not control the aliases.
 NC (2.6) / IF Lemma 4.1 need `M_S^{|W|} ≳ e^{−o(λ)} A_S` (or `N^{−A}Π(1−p)`) for
 `s(S) > λ`. Write `X_S = Σ_{ℓ∈S} X_ℓ mod 1` with independent `X_ℓ = h_ℓ/ℓ`,
 `P(X_ℓ = h/ℓ) = |1̂_{F_ℓ}(h)|/a_ℓ` (h ≢ 0). Then `M_S^{|W|} = A_S·E|W_N(X_S)|`, and the
