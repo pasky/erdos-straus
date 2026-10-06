@@ -12,7 +12,7 @@ This ledger records mathematical discoveries formulated by this campaign, rather
 6. `E(N) ≪ N exp{-c(log N)^{2/3}(log log N)^{1/3}}` for exceptional primes. **Theorem** — notes §16.4, Thm 16.4; paper/vaughan-loglog-note.tex, Theorem 1.1; `reviews/vaughan-loglog-note-review.md` CORRECT-AFTER-REPAIRS.
 7. The same `2/3`-with-`loglog` bound holds for all exceptional denominators by the exceptional-prime semigroup transfer. **Theorem (all exceptional denominators)** — notes §16.5, Thm 16.5; paper/vaughan-loglog-note.tex, Theorem 1.2; `reviews/vaughan-loglog-note-review.md` CORRECT-AFTER-REPAIRS.
 8. Fixed-polylogarithmic witness tail: `#{p≤N:W(p)>T} ≪ N exp{-c(log T)^2 log(2+log T)}` under `log N ≳ (log T)^3 log log T`. **proved internally with the exact status below** — notes §51.1, Thm 51.2(1); status inherits the §39 moment/Bonferroni qualification.
-9. Cubic witness tail: `#{p≤N:W(p)>T} ≪ N exp{-cκ(log T)^3}` when `log N ≳ (log T)^4`. **CLAIMED/PROVISIONAL** — notes §51.1, Thm 51.2(2); inherits Theorem 34.8 and §39.7.
+9. Cubic witness tail: `#{p≤N:W(p)>T} ≪ N exp{-cκ(log T)^3}` when `log N ≳ (log T)^4`. **INTERNALLY PROVED** (2026-10-06, via the 3/4 note, (B)11; CEILINGS_UNIFIED.md Thm 2.1, review `reviews/ceilings-unified-review.md` SOUND). Sharpened form: `#{p≤x:W(p)>T} ≪ π(x)exp(−c(log T)³)` uniformly for `log T ≤ c₁(log x)^{1/4}`; small-T range via the uniform PNT in progressions with the Landau–Page term (cited from memory). Constants not effective. (Originally notes §51.1, Thm 51.2(2), CLAIMED/PROVISIONAL.)
 
 ## (B) The three-quarter chain
 
@@ -336,6 +336,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Assessment: the ceiling is a sieve-*dimension* barrier (dimension κ ≍ 𝓛³/log 𝓛 forces level `x^{𝓛^{1−o(1)}}`), a property of the set F itself.
     * Open: certificates that use atomicity, integrality or support of the prime or integer measure (support-aware accounting — including integer Type I sums, so the role of Type II input is open), non-periodic structure, non-linear methods.
     * **PROVED** modulo Gallagher (G), the effective Page bound and the fundamental lemma (Prop 5.2 modulo Linnik–Xylouris) (internal; review `reviews/pointwise-omega15-review.md`: mathematics SOUND; three MAJOR scope/overclaim items and a routine proof gap repaired).
+
+29. **One sieve limit behind both ceilings (CEILINGS_UNIFIED.md).**
+    * Haar lower bound without log loss: `log(1/δ*(T)) ≫ 𝓛³` (Prop 1.1, PROVED given the 3/4 note: its fibre product read under unit Haar measure; inputs BV/BT/Shiu; ineffective). So `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log 𝓛)^5` ((H)25, (H)26).
+    * The note's atoms block every positive minorant of `F_T` of level `log D ≤ c𝓛⁴` on every fibre with `log Q ≤ T^{0.05}` (Prop 4.2, PROVED given note Cor 4.3 and POINTWISE_OMEGA14 Lemma 4.1), sharpening (H)27's `c𝓛⁴/log 𝓛`; the gap between OMEGA13's 1/4 and the ceiling becomes `(log log p)^{1/4}`.
+    * In the one-big-coordinate setting, order-k majorants (KARY binomial extrapolation) and order-k minorants (planting) are both trivial below `k ≍ P` (the mass), and Bonferroni achieves both at `k ≍ P` (Thm 4.1, PROVED; no novelty claimed). The ES system has a one-big-prime subfamily of mass `≍𝓛³` at big cost `≍𝓛`, so the critical level is `≍𝓛⁴`: read at budget `λ ≍ log N` this gives the exceptional-set cap `λ^{3/4}` (KARY3, attained by the 3/4 note); read at `λ ≍ log x` it gives the pointwise cap `𝓛 ≲ λ^{1/4}` (attained up to logs by OMEGA13). Thm 4.3: PROVED as a conjunction within the scopes of (D)24/(D)27 and (H)27/(H)28; Assessment outside them.
+    * The "Haar-side route" to 3/4 is the note's own route: it reproves 3/4 (also in π(N) form for primes) and cannot improve it. Exact toy LP evidence: thresholds ≈ 2P on both sides.
+    * Review `reviews/ceilings-unified-review.md`: no FATAL/MAJOR, 10 minors applied.
 
 ## Items to verify by the maintainer
 
