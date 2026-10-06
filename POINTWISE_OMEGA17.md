@@ -317,7 +317,7 @@ capacities, and atoms of moduli `>x` are points.
 | Lemma 5.1 | support/atomicity enter only via atom capacities | PROVED |
 | Lemma 5.2 | planted law flat: `|dν/dP−1|≤s−1` if `R≥kr*+(k+1)/(s−1)` | PROVED |
 | toy LP | gain only for slack `<≈2`, one junta level | EVIDENCE |
-| Conj SAP | box-bounded Haar-like measure on `S_T∖A` below `𝓛⁴/log𝓛` | CONJECTURE |
+| Conj SAP | box-bounded Haar-like measure on `S_T∖A` below `𝓛⁴/log𝓛` | CONJECTURE (as literally stated false on fibres with Q≈x^δ; read with the reviewer-note correction of (ii),(iii)) |
 
 Not claimed: anything about ES; any certificate beyond exponent 1/4; any obstruction for
 SALCs with GRH-quality information, non-linear certificates, or prime-supported (slack-1)

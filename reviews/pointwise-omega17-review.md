@@ -3,6 +3,23 @@
 Reviewer branch `side-agent/review-omega17` (merged `side-agent/support-aware` at d33aff5).
 From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 
+## Summary
+
+All PROVED items (Lemmas 1.2, 1.3, 2.1, 4.1, 5.1, 5.2; Prop 3.1 (i)–(iii)) are **SOUND**, each
+re-derived and checked by from-scratch code (exact rationals where possible). Prop 3.1 (iv) R_min
+table reproduced exactly, now with a rigorous root cutoff over all integers j. The toy-LP table
+is reproduced to the unit by an independent implementation. Heuristic items (Construction 3.2,
+§4, Assessment 4.2, SAP) are labelled as such. Defects: **no FATAL; 2 MAJOR** — D2 (Def 1.1/SAP
+omit size-localised information; "exactly"/"the residual" overclaim) and D6 (Conjecture SAP as
+literally stated is *false*: profile (iii) uses `log(x/q)` instead of `log(x/lcm(q,Q))`, giving an
+infeasible profile on fibres with Q≈x^δ; easy repair) — and MINOR D1, D3, D4, D5, D7.
+Applied by reviewer to POINTWISE_OMEGA17.md (wording/labels only): D1, D2 (i)(ii), D3 (a)(b), D4,
+D6/D7 as a flagged reviewer note after SAP + status-table annotation. Not applied: D5, D6/D7
+restatement of SAP (author), D3 (c), D2 (iii).
+Answer to the brief's specific question: yes, classes of modulus `>x` give only the box or
+primality tests — but only as single-class bounds; unions of them (e.g. intervals) are
+outside Def 1.1 (D2).
+
 ## Verdicts per claim
 
 | item | verdict | notes |
