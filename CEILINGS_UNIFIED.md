@@ -100,7 +100,10 @@ and `Σ_{n≤x}νΛ = Σ_i c_i ψ(x; q_i, a_i)`. Terms with `(a_i,q_i) > 1` cont
 `≤ T_abs(log x)²`. For `(a,q)=1`, `q ≤ exp(c₂√log x)`, Page's theorem gives
 `ψ(x;q,a) = x/φ(q) − 1_{q_1|q} χ_1(a) x^{β_1}/(φ(q)β_1) + O(x e^{−c₃√log x})`,
 where `χ_1` (primitive mod `q_1`) is the possible exceptional real character
-for this range. Define the unit-Haar functional `E_*f = Σ_{(a_i,q_i)=1} c_i/φ(q_i)`
+for this range. (Davenport Ch. 20; also Montgomery–Vaughan I, Cor. 11.17 —
+the form of this classical statement was recalled, not re-checked against a
+PDF; any version with range `q ≤ exp(c₂√log x)` and error `x e^{−c₃√log x}`
+suffices, as only `t⁴ ≪ (log log x)^{4/3}` is needed.) Define the unit-Haar functional `E_*f = Σ_{(a_i,q_i)=1} c_i/φ(q_i)`
 and `χ̃_1 = χ_1(n mod q_1)` on `Ẑ^×`. Since `∫_{n≡a (q)} χ̃_1 dP_* = χ_1(a)/φ(q)`
 if `q_1 | q` and `= 0` otherwise (primitivity: `χ_1` is non-trivial on the kernel of
 `(ℤ/q_1)^× → (ℤ/(q,q_1))^×` when `q_1 ∤ q`), the main terms sum to
