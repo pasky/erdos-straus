@@ -293,7 +293,10 @@ For `q ≥ Q_0`, what a proof of SI at level 0 needs is, roughly, **one** of:
 | mean / max of `R(ℓ)`, primes `ℓ ∈ (Y/2,Y]` | 35 / 111 | 57 / 223 | 78 / 386 | 106 / 663 |
 
 The normalised second moment is slowly decreasing, so `X(log X)⁶` is an upper envelope over this
-range; the data do not determine the log-power. The weak form with `ε < 1/K_0` would suffice only for
+range; the data do not determine the log-power. *Caveat (R82 repair D9, applied by reviewer):* the local
+power exponents of `Σ_{N≤Y}R(N)²` minus 1 are 0.71, 0.61, 0.55 over the three steps, so this range cannot
+distinguish `X(log X)⁶` from `X^{1.55}`, and `max R` grows like `N^{≈0.48}` on it; the data are consistent
+with (M2) but not discriminating evidence for it. The weak form with `ε < 1/K_0` would suffice only for
 `q ≥ Q_0`; the range `q_0 < q < Q_0` would need at least the strong form (scope note above; R82 repair D2,
 applied by reviewer). Proving (M2) is a count of pairs of O12 tuples with equal N (6 free variables), whose
 "first-term" regime is again of Kloosterman type.

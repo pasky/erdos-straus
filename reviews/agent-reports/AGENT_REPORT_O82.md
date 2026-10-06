@@ -25,10 +25,11 @@ the range `q_0 < q < Q_0` (which dominates SI's tail) is a separate open compone
 Lemma 4.1's cut-off not polynomial, weak (M2) insufficient (R82 repair D2, applied by reviewer).
 
 CONJECTURE 5.3 (M2): `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}`; data (m = 5) `Σ R²/(Y log⁶Y) = 0.0034 → 0.0026` for
-`Y = 10³ … 3·10⁴`.
+`Y = 10³ … 3·10⁴`. Consistent with, but not discriminating for, (M2): over this range the data equally fit `X^{1.55}`
+(R82 repair D9, applied by reviewer).
 
 SKETCH (§5.4, not a proof): (M2) + (H) ⇒ SI via Cauchy–Schwarz over ℓ. Missing: (1) correlation terms of
 `E^ν_2`; (2) the large-scale regime, incl. `q_0 < q < Q_0` where the prefix part is huge; (3) the
 long-route (H) proofs; (4) the `ℓ | e` part and mixed splits; (5) first-moment totals uniformly in scale.
 
-Waiting for R82's defects.
+R82 defects D1–D9 applied by the reviewer (see `reviews/pointwise-mn3-review.md`, Round 2).
