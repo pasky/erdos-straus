@@ -166,3 +166,72 @@ below the sieve limit. The Jacobsthal-type example `κ=1` (one class mod each `�
 `log T` term in LS cannot be dropped, but there `κ log z` and `log T` coincide; no example is
 known where a κ-dimensional unit-class sieve with moduli `≤T` has no prime (or integer) avoider
 below `exp(C(log T+log(1/δ)))` (Assessment; toy search §6).
+
+## 4. Brief item (ii): Hardy–Littlewood for product sets gives only `W≥(log p)^{2−o(1)}`
+
+A *product system* is a unit-class sieve system in which every event has prime-power modulus;
+equivalently its avoider set is a CRT product `S=∏_ℓA_ℓ`, `A_ℓ⊆(ℤ/ℓ^{e_ℓ})^×`, `ℓ^{e_ℓ}≤T`, with
+`δ(S)=∏_ℓ|A_ℓ|/φ(ℓ^{e_ℓ})`. **HL_prod(C)** is LS(C) restricted to product systems: primes with
+independently prescribed local behaviour at all `ℓ≤T`, the density being the "singular series"
+`∏_ℓ|A_ℓ|/φ(ℓ^{e_ℓ})` (the Hardy–Littlewood/Bateman–Horn shape; conjectural because the number
+of local conditions grows). The ES avoider set `F_T` (avoid all atoms `M≤T`) is not a product
+set; HL_prod can only be applied to product subsets of it. Let `δ_prod(T)` be the largest
+density of a product set `S⊆F_T` (resp. `S⊆F_T^{MH}`, the Mordell-hard part).
+
+**Proposition 4.1 (product subsets of the avoider set are thin).**
+(a) (*PROVED.*) `log(1/δ_prod(T))≤T^{1/2+o(1)}`, already for `F_T^{MH}`.
+(b) (*PROVED modulo the Barban–Davenport–Halberstam theorem.*) Every product set `S⊆F_T` has
+`log(1/δ(S))≫T^{1/2}(log T)^{−8}`. Only the atoms `(ℓ_1ℓ_2, q)` with primes
+`ℓ_1≡1, ℓ_2≡3 (4)` in `(√T/2,√T]` and a prime `q|(ℓ_1ℓ_2+1)/4` are used.
+
+*Proof of (a).* Fix `ε>0`, `y:=T^{1/2+ε}`. Let `A_2:={1 mod 8}`, and for odd `ℓ≤y` let `A_ℓ` be
+the quadratic residues (mod ℓ, lifted to `ℓ^{e_ℓ}`); this contains the Mordell-hard classes at
+3, 5, 7. An atom `(M,D)` all of whose primes are `≤y`: for `n∈S`, `(n|M)=1`, while
+`(−4D|M)=−1` (O13 Lemma 3.1(b)); so `n≢−4D (M)`. Every other atom has exactly one prime
+`ℓ>y≥√T`, to the first power (`ℓ²>T`); put `B_ℓ:={−4D mod ℓ: (M,D) atom, ℓ|M≤T}` and
+`A_ℓ:=(ℤ/ℓ)^×∖B_ℓ` for `y<ℓ≤T`. Then S avoids all atoms. `|B_ℓ|≤Σ_{v≤T/ℓ}τ(A_{vℓ}²)≤(T/ℓ)T^{o(1)}
+≤T^{1/2−ε+o(1)}≤ℓ/2`, so
+`log(1/δ(S))≤log 4+π(y)log2+Σ_{ℓ>y}2|B_ℓ|/(ℓ−1)≤T^{1/2+ε+o(1)}+T^{1+o(1)}Σ_{ℓ>y}ℓ^{−2}≤T^{1/2+ε+o(1)}`. ∎
+
+*Proof of (b).* Let `x:=√T`, block `𝒫:=` primes in `(x/2,x]`, `𝒫_j:={ℓ∈𝒫: ℓ≡j (4)}`. For
+`ℓ∈𝒫` let `Ā_ℓ` be the projection of `A_ℓ` mod ℓ and `b_ℓ:=#{q<x/2 prime, q odd: −4q mod ℓ∉Ā_ℓ}`.
+For distinct primes `q,q′<ℓ` the classes `−4q,−4q′` mod ℓ are distinct, so
+`|Ā_ℓ|≤ℓ−1−b_ℓ` and `δ(S)≤∏_{ℓ∈𝒫}(1−b_ℓ/(ℓ−1))`, hence `log(1/δ(S))≥x^{−1}Σ_{ℓ∈𝒫}b_ℓ`.
+
+*Constraint.* Fix an odd prime `q<x/2` and `c∈(ℤ/q)^×`; let `𝒫_1(c)`, `𝒫_3(c)` be the members
+of `𝒫_1`, `𝒫_3` that are `≡c (q)`. For `ℓ_1∈𝒫_1(c)`, `ℓ_2∈𝒫_3(−c^{−1})`: `M:=ℓ_1ℓ_2≤T`,
+`M≡3 (4)`, `M≡−1 (q)`, so `4q|M+1`, `q|A_M`, and `(M,q)` is an atom. Since S is a CRT product,
+`S∩E_{M,q}=∅` iff `−4q∉Ā_{ℓ_1}` or `−4q∉Ā_{ℓ_2}`. If some `ℓ_1∈𝒫_1(c)` and some
+`ℓ_2∈𝒫_3(−c^{−1})` both had `−4q` in Ā, the atom would meet S. So all of `𝒫_1(c)` or all of
+`𝒫_3(−c^{−1})` "block q". As `c↦−c^{−1}` is a bijection and the `𝒫_j(c)` partition `𝒫_j`,
+
+```
+Σ_{ℓ∈𝒫}[q blocked at ℓ] ≥ Σ_c min(|𝒫_1(c)|,|𝒫_3(−c^{−1})|) ≥ |𝒫|/2 − (1/2)Σ_{a mod 4q}|e(q,a)| ,
+```
+
+with `e(q,a):=#{ℓ∈𝒫: ℓ≡a (4q)}−|𝒫|/φ(4q)` (use `min(u,v)≥(u+v)/2−|u−v|/2` and the triangle
+inequality through the common mean `|𝒫|/φ(4q)`).
+
+*Summation.* Sum over odd primes `q≤Q:=x(log x)^{−6}`. By Barban–Davenport–Halberstam
+(in its π-form for the interval `(x/2,x]`, moduli `m≤4Q`):
+`Σ_{m≤4Q}Σ_a e_m(a)²≪xQ log x+x²(log x)^{−10}≪x²(log x)^{−5}`. Cauchy–Schwarz over the
+`≤Σ_{q≤Q}φ(4q)≤2Q²` pairs `(q,a)`: `Σ_qΣ_a|e(q,a)|≪Q·x(log x)^{−5/2}`. The main term is
+`(π(Q)−1)|𝒫|/2≫Q x(log x)^{−2}`, which dominates. Hence
+`Σ_ℓb_ℓ≫Qx(log x)^{−2}` and `log(1/δ(S))≫Q(log x)^{−2}≫T^{1/2}(log T)^{−8}`. ∎
+
+**Corollary 4.2.** (a) HL_prod(C) ⇒ `W(p)≥(log p)^{2−o(1)}` for infinitely many Mordell-hard p
+(Thm 1.2's proof with the product set of 4.1(a)). (b) Applying HL_prod to any product subset of
+`F_T` certifies only `log p≤C(𝓛+log(1/δ(S)))`, and `log(1/δ(S))≫T^{1/2−o(1)}`: so the route
+cannot certify more than `W(p)≥(log p)^{2+o(1)}`. Exponent 2 in the polynomial scale is its
+exact value. This is far below the unconditional `exp(c(log p)^{1/4}(log log p)^{−1/4})`
+(O13 Thm 5.1), and it extends POINTWISE_OMEGA Prop 6.1 (ceiling 2 for prime-local *designs*
+with the class of one) to *all* product sets.
+
+*Reading.* Hardy–Littlewood/Bateman–Horn-type hypotheses are statements about product
+(singular-series) sets. The ES avoider set is far from a product: its density `e^{−𝓛^{3+o(1)}}`
+exceeds that of its best product subset `e^{−T^{1/2+o(1)}}` by an exponential in T. So any
+hypothesis that sees only local, prime-by-prime structure is useless here; the hypothesis must
+apply to *non-product* sifted sets (events coupling several primes), as LS does. (Other readings
+of item (ii) — e.g. prime values of a polynomial chosen to avoid events — fall under POINTWISE_SIZE
+Thm C/Theorem M: a fixed polynomial family has bounded W under Schinzel H; uniformity in the
+degree turns it back into LS. Assessment.)
