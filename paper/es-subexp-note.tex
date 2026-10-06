@@ -72,7 +72,7 @@ Elliott--Halberstam, GRH below $x$, Siegel-model main terms).  Conversely, a
 Linnik-type hypothesis for sifted sets gives
 $W(p)\ge\exp((\log p)^{1/3-o(1)})$ infinitely often, the exponent suggested by the
 Haar density, while a Hardy--Littlewood-type hypothesis for product sets
-gives only $(\log p)^{2+o(1)}$.  All results are proved modulo the cited
+certifies only $W(p)\ge(\log p)^{2+o(1)}$.  All results are proved modulo the cited
 theorems listed in the text; the companion note is internally proved but
 not externally refereed.
 \end{abstract}
@@ -226,8 +226,10 @@ infinitely many hard primes $p$.
 This is Theorem~\ref{thm:LS}.  For a single residue class LS is Linnik's
 theorem.  It is not reachable by the linear certificates above
 (\S\ref{sec:wiener}), and the analogous hypothesis restricted to CRT product
-sets (a Hardy--Littlewood-type singular series) gives only
-$W(p)=(\log p)^{2\pm o(1)}$ (Proposition~\ref{prop:product}).  Altogether, with
+sets (a Hardy--Littlewood-type singular series) gives
+$W(p)\ge(\log p)^{2-o(1)}$ infinitely often and, applied to product subsets of
+the avoiding set, cannot certify more than $W(p)\ge(\log p)^{2+o(1)}$
+(Proposition~\ref{prop:product}).  Altogether, with
 $\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
 minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
 Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and typical primes have
@@ -406,7 +408,10 @@ refereed} (``proved modulo \cite{TQ}'' means proved here assuming its
 stated results, with their inputs Bombieri--Vinogradov, Brun--Titchmarsh and
 Shiu); the prime number theorem in progressions with a Landau--Page term
 (``Page's theorem'', \eqref{eq:page}); and the Barban--Davenport--Halberstam
-theorem.  \emph{Conditional on LS} marks a statement that assumes the
+theorem.  Unlike the other cited inputs, the exact form of these last two
+was recalled from the textbooks \cite[Chs.~20, 29]{Dav}, not re-checked
+against the source (no copy archived); our use needs only their standard
+forms.  \emph{Conditional on LS} marks a statement that assumes the
 conjectural Hypothesis~LS of \S\ref{sec:LS}.  In the labels,
 ``modulo Theorem~\ref{thm:G}'' includes Theorem~\ref{thm:xz}.  Classical
 results whose proof we include, or which are standard textbook facts (the
@@ -2333,7 +2338,8 @@ exceptional term \cite[Ch.~20]{Dav}: for $(a,q)=1$,
  \psi(x;q,a)=\frac x{\varphi(q)}-\mathbf 1[q_1\mid q]\,\frac{\chi_1(a)x^{\beta_1}}{\varphi(q)\beta_1}+O\big(xe^{-c_3\sqrt{\log x}}\big),
 \end{equation}
 where $\chi_1$ (primitive modulo $q_1$) is the possible exceptional real
-character for this range.  Any version with this range and error suffices.
+character for this range.  We recalled this form without re-checking it
+against the source; any version with this range and error suffices.
 The Siegel--Walfisz theorem would not: the moduli below have size
 $\exp(C(\log\log x)^{4/3})$.
 
@@ -2560,31 +2566,38 @@ and Hölder-averaged accounting over an orbit do not help
 any real character $\chi_1$ and $\epsilon\in[0,1]$, the reweighted fake $(1-\epsilon\chi_1)\nu$
 is nonnegative, has $F=0$ almost surely, and agrees with the Siegel-model
 law $(1-\epsilon\chi_1)\PP$ to within $2(4r^*)^{k+1}$ on every class, Dirichlet character
-and additive character; and if $B$ has level $\le T^{0.6(k-s)}$, $s$ the number of
-big primes dividing the conductor of $\chi_1$, then $\E_{(1-\epsilon\chi_1)\PP}B\le0$ exactly.
+and additive character.  Let $s$ be the number of big primes dividing the
+conductor of $\chi_1$.  The total masses differ by $\epsilon|\E_\rho\chi_1|\le(4r^*)^{k+1}$, and
+agree exactly when $s\le k$, the relevant case; otherwise the certificate
+framework must let the total mass vary within the accuracy.  If $B$ has
+level $\le T^{0.6(k-s)}$, then $\E_{(1-\epsilon\chi_1)\PP}B\le0$ exactly.
 So an exceptional term in the prime law does not rescue a minorant
 transfer of this kind.
 
 \begin{proposition}[Equidistribution hypotheses cap at $1/4$; proved implication, same inputs]\label{prop:EH}
-Let $\mathcal I$ be any set of Haar-centred error bounds for the primes $p\le x$ in
-$H$ in residue classes, Dirichlet characters or additive characters of
-moduli $q\le x$, individually or on average over $q$, with error bounds
-$\ge2\log x$ per statement (for example Bombieri--Vinogradov, the
+Let $N$ be the number of primes $p\le x$ in $H$, and for a modulus $q$ let $N_{x,q}$
+be the number of those coprime to $q$.  Let $\mathcal I$ be any set of statements
+$|\sum_{p\le x,\,p\in H,\,p\nmid q}h(p)-N_{x,q}\E_Hh|\le\mathfrak E_h$ for residue classes, Dirichlet
+characters or additive characters $h$ of moduli $q\le x$, individually with
+$\mathfrak E_h\ge2\log x$, or summed over a set of moduli with an allowance at least
+$2\log x$ times the number of terms (for example Bombieri--Vinogradov, the
 Elliott--Halberstam conjecture at any level $\theta<1$, GRH restricted to
-moduli $\le x$).  A linear certificate using $\mathcal I$ that produces a prime $p\le x$
-in $H$ with $W(p)>T$ needs $\log x\ge c\Lc^4/\log\Lc$.
+moduli $\le x$).  A linear certificate (with $N$ as the total mass) that uses
+$\mathcal I$ and produces a prime $p\le x$ in $H$ with $W(p)>T$ needs
+$\log x\ge c\Lc^4/\log\Lc$.
 \end{proposition}
 
 \begin{proof}
 Let $\log x<0.6\Lc(k+1)$.  A modulus $q\le x$ has at most $k$ big prime
-factors, so every function in $\mathcal I$ restricted to $H$ involves at most $k$
-big coordinates, and $\E_\nu=\E_H$ on it (Lemma~\ref{lem:pseudo}).  So $m=N_x\nu$ takes
-exactly the values $N_x\E_H(\cdot)$, which differ from the centring $N_{x,q}\E_H(\cdot)$ by
-at most $N_x-N_{x,q}\le\omega(q)\le2\log x$ ($N_{x,q}$ counts the primes coprime to $q$).
-For averaged statements the extra error $\sum_{q\le x^\theta}2\log x$ is below
-the allowed $x(\log x)^{-A}$.  Thus $m$ satisfies $\mathcal I$, and $\int F\,dm=0$.
+factors, so every $h$ occurring in $\mathcal I$ involves at most $k$ big coordinates on
+$H$, and $\E_\nu h=\E_Hh$ (Lemma~\ref{lem:pseudo}).  The measure $m=N\nu$ on $H$ is
+nonnegative of mass $N$ and gives $h$ the value $N\E_Hh$, which differs from the
+centring $N_{x,q}\E_Hh$ by at most $N-N_{x,q}\le\omega(q)\le2\log x$, as $|h|\le1$.  Summing
+gives the averaged statements.  Thus $m$ satisfies $\mathcal I$, while $\int F\,dm=0$.
 \end{proof}
 
+For Bombieri--Vinogradov or Elliott--Halberstam at level $\theta<1$ the extra
+allowance $2x^\theta\log x$ is far below the usual $x(\log x)^{-A}$.
 Raising the level of distribution only changes $c$: beyond level $x$ the
 primes are not equidistributed in the orbit-uniform sense above.  Full
 GRH is \emph{not} covered by Proposition~\ref{prop:EH}: it also asserts
@@ -2748,7 +2761,8 @@ part~(A) of Lemma~\ref{lem:masses} and the Haar upper bound
 Theorem~\ref{thm:haarupper}.
 \item Proved modulo the fundamental lemma of sieve theory: Lemma~\ref{lem:hmass}
 and the Haar lower bound Theorem~\ref{thm:haarlower}.  With the previous
-item: Theorem~\ref{thm:haar} (the Haar exponent is $3$).
+item: Theorem~\ref{thm:haar} with $(\log T)^3/\log\log T$ in the lower bound (the
+Haar exponent is $3$); the lossless lower bound needs \cite{TQ} (below).
 \item Proved modulo Gallagher's theorem (Theorems~\ref{thm:G}
 and~\ref{thm:xz}, quoted from the draft \cite{MV3}): the linear transfer
 Theorem~\ref{thm:transfer} and Lemma~\ref{lem:cuprimes}.
