@@ -42,3 +42,17 @@ ES holds for every prime `p∈Σ_r` with `p>B` (and the rest is a finite check).
 * `mordell_probe.py L x Mmax lmax`: for a node, survivors among the children at one new prime ℓ.
   For the nodes 352801, 473761 (mod 720720) about half of the children survive at each
   ℓ∈[29,59]; at ℓ=17 only 5 resp. 1 survive. Not a square-class pattern.
+
+## 2. Adaptive search and T-generic points (EVIDENCE)
+
+`mordell_dfs.py r variant Mmax Pmax emax maxnodes`: best-first (largest open Haar mass) tree
+search; each node refined at the prime (power) with the fewest uncovered children.
+* r=13, np variant, Mmax=10⁷, primes ≤60: after 4000 nodes the open Haar mass is 1.8·10⁻⁶ of
+  `Σ_13^{np}` and decreasing slowly (7.8e-6 at 800 nodes); the queue grows ≈6 per node.
+  Deep open leaves are squares at every prime ≥17 they visit, with `x_13≡7 (13³)`, `x_11≡9`.
+* *T-generic points* (`mordell_tgen.py`): points with `x_q=1` for all `q∉T`. A class of modulus
+  `M=M_T·N` meets them iff its residue is `≡1 (mod N)`, giving a box in `∏_{q∈T}ℤ_q`.
+  T={11,13}, resolution `11²·13²`, target `x_13` non-square:
+  * M≤3·10⁴: 225 boxes, uncovered 3.05% (cells ≡ (9,7), (2,2), (2,7) mod (11,13));
+  * M≤10⁶: 534 boxes, uncovered 0.57%: **only cells ≡ (2,2) mod (11,13) remain** (49 of the 143
+    cells mod `11²·13²` above (2,2)).
