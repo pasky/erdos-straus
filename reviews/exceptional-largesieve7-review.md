@@ -11,10 +11,10 @@ Status: in progress. Reviewed text: `EXCEPTIONAL_LARGESIEVE7.md` as merged from
 | Lemma 1.2 | SOUND (re-derived; brute force all p \| M, M<20000) |
 | Lemmas 2.1–2.2 | SOUND-AFTER-REPAIRS (D1 citation: Shiu's class M not literally satisfied; Nair–Tenenbaum fixed-ε form needed; D2 constant) |
 | Thm 3.1 | SOUND (given D1 repair; D3 minor: C depends on W, needs γ ≤ 1, N large) |
-| Prop 4.1 | (pending) |
+| Prop 4.1 | SOUND (re-derived; 135 exact toy instances incl. brute-force H* = k) |
 | Remark 4.2 | (pending) |
 | Thm 4.3 | (pending) |
-| Prop 5.1 | (pending) |
+| Prop 5.1 | SOUND-AFTER-REPAIRS (D4: displayed lower bound wrong for small γt_p; conclusion unaffected) |
 | (RD′) / §5 sketch | (pending) |
 | Cor 6.1, §7 | (pending) |
 
@@ -48,6 +48,13 @@ C": C inherits `C(α, W)` from Lemma 2.1 (W = K2's small-prime threshold), the c
 step uses `γ^{−3} ≤ γ^{−5}` and `(log z/γ)^r` with `γ ≤ 1`, `K^{2β} ≤ e^γ` needs
 `K ≤ z^{γ/2}`, and D1's uniformity needs `N ≥ N₀`. *Repair applied:* "absolute C" →
 "C depending only on W (for `0 < γ ≤ 1`, `K ≤ z^{γ/2}`, N large)".
+
+**D4 (MINOR, wrong displayed inequality). §5 Prop 5.1 display.**
+`Σ_q w_q/(qℓ) ≍ ℓ^{−1}∫_{t_p}^∞e^{−2γt}dt/t = ℓ^{−1}E₁(2γt_p)`, and `E₁(x) ≥ c e^{−x}/x` is
+**false as x → 0** (`E₁(x) ~ log(1/x)`; e.g. `E₁(0.01) ≈ 4.04` vs `e^{−0.01}/0.01 ≈ 99`).
+So "`≥ c e^{−2γt_p}/(γt_pℓ)`" fails when `γt_p` is small. Correct: `E₁(x) ≥ ½e^{−x}log(1+2/x)
+≥ e^{−x}/(2(1+x))`, i.e. `≥ c e^{−2γt_p}/((1+γt_p)ℓ)`. The final comparison (`≥ e^{−O(γT)}/(Tz)`
+vs `(log N)^C z^{−γ₀T}`, T fixed) is unaffected. *Repair applied.*
 
 ## Per-claim notes
 
@@ -93,3 +100,29 @@ given dyadic Y in `[Y_B, 32Y_B]` have `UVT/p ∈ [Y/32, Y]`, ≤ 6 values of `lo
 ≤ `(s+2)²` factorisations ✓; Lemma 2.2 with r ≤ 2 ✓; `Σ_{max(V,T)=2^k}` has `2k+1` pairs ✓.
 Final collection: `γ^{−5}(log p)^7/p ≤ γ^{−5}(log p)^6p^{−1/12}` and `γ^{−3}(log p)^4p^{−1/12}`
 ≤ the same for γ ≤ 1 ✓. The claimed independence of X is genuine (the sum is over all M).
+
+### Proposition 4.1 — SOUND
+Re-derived: `j ≡ −(P̄r)^{−1} (mod 4k)` is solvable (`P̄r` odd, `k ∉ P`, `r > y > 4y^{1/4} ≥ k`);
+`4k | M+1` so `M ≡ 3 (4)` and `−1/k = −4D`, `D = A/k | A²` (Lemma 1.1, `(u,v) = (1,k)`); residue
+`−1/k` at each `p ∈ P`; top `= r` (`j ≤ y < r`); `H* = k` by LS5 Lemma 1.2 compatibility (`k <
+√(M/2)` as `M ≥ y·y^{7/8}`). FL: modulus `4k ≤ 16y^{1/4}`, `x/(4k) ≥ y^{5/8}/16 ≥ z^9` for
+`y ≥ z^{16}`; sifting the odd primes `≤ z` (none divide 4k since `k > z`) gives `≫ x/(k log z)`
+uniformly in the (unit) class — correct. `Σ_j 1/j ≫ log y/(k log z)`, `Σ_r 1/r ≫ 1/log y`;
+consequence: `m ≥ ⌈1/(2γ₀)⌉+1` ⇒ `mγ₀ ≥ 1/2 + γ₀`, ratio `≥ y^{1/4+γ₀}/(log N)^{O(1)}` ✓.
+Remarks (not defects): j may share a prime with P (then `p² | M`); the (RD) weight uses gain
+`p` per prime regardless, so the bound is unchanged. `k ∉ P` existence: `≫ y^{1/4}/log y ≫
+(log N)^C` primes in the k-window ✓.
+`scripts/review_ls7_counterex.py` (from scratch): 135 random toy instances (`|P| ≤ 3`, primes
+< 60, `M ≤ 3·10⁶`): `M ≡ 3 (4)`, `−1/k ∈ ℛ(M)`, residues `−1/k` at all p, and brute-force
+`H* = k` whenever `2k² < M` — 0 failures.
+
+### Proposition 5.1 — SOUND-AFTER-REPAIRS (D4)
+Re-derived: rough part `x ≡ −4ℓ (pq)`, `x ≡ −pq (ℓ)`; a label `−r/s` of height
+`H < pq/(4ℓ+1)` forces `r = 4ℓs`, then `ℓ | s` — contradiction ✓; weight `w_qΓ(pqℓ)/(qℓ)` ✓;
+smooth part 4 (p, q, ℓ > z), presence iff `c ≡ −pq (mod 4)` — one class of q mod 4 for each
+odd c (fibres of the forced mixtures have c odd; for even c the class is absent — harmless,
+noted). Only the displayed lower bound is wrong for small `γt_p` (D4). The (a,D) family is the
+ET Lemma 3.2 family (K2 §1: any `a, D ≥ 1`), so `a = pq` is admissible ✓.
+`scripts/review_ls7_counterex.py`: all prime triples `3 ≤ ℓ < p < q < 90` with `ℓ < 30`,
+`p < 60` (1218 instances): residues and brute-force `H*(x mod pqℓ) ≥ pq/(4ℓ+1)` — 0 failures;
+min `H*(4ℓ+1)/(pq) = 1.011`, so the bound is essentially tight.
