@@ -83,6 +83,8 @@ for cell in (5, 7):
         frac = cov[idx].mean()
         rows.append((k, frac))
     print(f"cell {cell}: covered fraction after level k:", ", ".join(f"{k}:{fr:.6f}" for k, fr in rows))
+    ncov = int(cov[np.arange(cell, M, p)].sum())
+    print(f"  exact: covered {ncov} of {p**(L-1)} residues mod 17^{L} in the cell; uncovered fraction = {p**(L-1)-ncov}/{p**(L-1)} = {(p**(L-1)-ncov)/p**(L-1):.9f}")
     for u in (5, 7):
         if u % p == cell:
             hits = [(t, k) for (t, k), S in boxes.items() if u % p**k in S]
