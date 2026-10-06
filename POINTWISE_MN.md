@@ -202,8 +202,12 @@ would make some `Λ(ℓ) > K` (possible since f is predictable; death is the cas
   `Λ ≤ K`, so `Ψ ≥ 1`.
 * (b), (c) follow by the same optional-stopping argument, with `2^{ω_Y(M)}` replaced by
   `K^{ω_Y(M)}`, on the success event. (d): the pair potential `Π_i Ψ_i(F)Ψ_i(F')` is a
-  supermartingale by the same case check (an agreeing step multiplies Π by `N_adm·1[match]`
-  with `N_adm = (1−f)N` classes, mean ≤ Π/(1−f)… compensated by both Ψ's), giving `K^{ω_Y+ω_Y'}`.
+  supermartingale by OMEGA13's case check with `ρ := N` (classes of the current *fibre*; the
+  measure `p_i` is Haar on unrevealed digits). An agreeing step gives
+  `Π_new = p p' N²·1[match]`, `P(match) = 1/((1−f)N)`, so `E[Π_new] = Π/(1−f)`, while
+  `Ψ(F)Ψ(F')` is multiplied by `(1−f)²`; a step on a coordinate of only one event multiplies its
+  p by `≤ 1/(1−f)` in mean and its Ψ by `(1−f)`; disagreement gives `Π_new = 0`. Hence
+  `E[Π_end] ≤ K^{ω_Y+ω_Y'}Π_0` on the success event.
 * Lemma 3.3: NT applies with `f_2(p) ≤ Kβ·(p/φ(p))` at `p ≤ Y` (bounded multiplicative), so
   `S_H^β ≪ 𝓛³(log Y)^{K}`, the cost sum `≪ 𝓛³(log Y)^{K+3}`; 3.3(B) is uniform (`Ξ ≪_K 𝓛^{C_K}`).
 * Thm 3.4: the four bad events (failure, a heavy late prime, cost `> 8E`, `S_res > 8E`) each
