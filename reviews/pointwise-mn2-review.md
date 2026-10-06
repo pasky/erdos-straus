@@ -147,3 +147,39 @@ Re-derived:
   `Z, Y` in (d)).
 
 The "Consequently" clause ✓ (with Lemma 1.1, success ≥ 1/2).
+
+## F. §4 Assessment — numbers SOUND; two of its three supporting statements OVERCLAIMED (D2, D3, D4)
+
+* Item 1 ("`c_1` is not explicit ⇒ no finite computation can certify q_0"): the constants of
+  NT/Henriot are effective (pure sieve/elementary arguments, no Siegel-type input) — just not
+  written down. "No finite computation can certify" is false in principle; what is true is
+  "no explicit q_0 is available from the literature, and an explicit one would be astronomically
+  large". (D2)
+* Item 2 (bold: "**Every** pointwise-controlled prefix law has distortion growing faster than
+  `q_0^{1/2}`"): unproved universal statement. Only three laws are discussed; for the uniform law
+  the text itself says "(Not proved …)"; the data stop at `q_0 = 19` and for m = 6 grow from 0.86
+  to 1.49 only. (D3)
+* The threshold `q_0^{1/2}` is an artefact of using **Markov** at the levels `a ∈ {a_ℓ, a_ℓ+1},
+  a ≥ 1` (case (b)). Reviewer's sketch (same ingredients as the proof's a = 0 case, not part of
+  the reviewed claims): the pair bound at level `a ≥ 1` gives `Π^{Haar} = φ(g)/(φ(M_1)φ(M_1')φ(ℓ^a))`
+  (the `ℓ^a` part is shared), so `E[Y²1_alive] ≪ C_ν(log q)^{O(K)}S_2(q)/φ(ℓ^a)` and Chebyshev
+  gives `P ≪ C_ν q^{−1+ε}ℓ^{−1}`, summing to `≪ C_ν q_0^{−1+2ε}` over case (b); case (c) is
+  already `q_0^{−1+ε}`. So the circularity criterion is plausibly "`C_ν` grows faster than
+  `q_0^{1−ε}`", not `q_0^{1/2}`. Against `q_0^{−1}/δ` the data are: m = 5: 0.50, 0.89, 0.99, 1.48,
+  1.20, 1.86, 3.21; m = 7: 0.40, 0.37, 0.55, 0.62, 0.76; m = 6: 0.26, 0.26, 0.30, 0.34 — slow
+  growth, inconclusive. The Assessment's conclusion survives only via the unproved heuristic
+  `log(1/δ) ≍ (log q_0)³`. (D4)
+* "This is an assessment of a proof method, not an obstruction to ADM_m" — correct and honest.
+
+## G. Proposition 5.1 — SOUND as an implication; SI not precisely stated; label (D1, D9)
+
+* The ν-weighted weight: `E_ν[p_0(E^-)] = E_ν[1[−mD ≡ r (g)]]·φ(g)/φ(M_1ℓ^a)`,
+  `g = gcd(M_1ℓ^a, Q_0)`; at ν = Haar this gives back `1/φ(M_1ℓ^a)`, consistent with the
+  normalisation `S^ν_1(q)/q` ✓.
+* SI is stated with "(the level-(≥a_ℓ+2) terms)" and "(the analogous pair sum for j = 2)" left
+  unspecified — not a well-defined hypothesis (D9). Stage B is not in SI but is `C_ν·o(1)` for
+  fixed q_0 ✓.
+* "with Lemma 1.1 and MN Thm 5.1 this gives `W_m(p) ≥ …`": the text lists (G), NT/(H), OMEGA10
+  Thm 3.4 and SI ✓, but the §6 table says only "PROVED modulo (H), SI" (D1).
+* Class-one computation re-derived: `mdab = M+1 ≡ 1 (mod s)` (s | M) ⇒ `mD+1 ≡ mda(a+b)` and
+  `gcd(mda, s) = 1` ⇒ `s | mD+1 ⟺ s | a+b` ✓. CONJECTURE label honest.
