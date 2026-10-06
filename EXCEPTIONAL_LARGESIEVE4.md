@@ -258,3 +258,85 @@ and the target is `|E_S| ≤ Π_{ℓ∈S}K ℓ^{1−γ}` (`P(E_S) = |E_S|/M_S`).
   divisors of `(Q+1)/4` over subset products Q ⊆ S. No counterexample is
   known; the residue-concentration mechanism of LS3 Lemma 4.2 is of the
   structured (harmless) type.
+
+## 4. (B) is free: conditioning on a good path event
+
+The tilting identity of Lemma 2.1 holds with any non-negative path
+functional inserted: `E_{σ⊗σ}[Φ(x,x')Π_ℓ(1+w_ℓh_ℓ)] = E_Q[Φ Π_ℓ(1+w_ℓη_ℓ)]`
+(same proof: `dQ/d(σ⊗σ) = Π_ℓ Z_ℓ`). Inserting the indicator of a good
+event makes the exponential-moment problem of §2 disappear.
+
+**Setting 4.0 (capped fibre law).** As in Setting 2.0 but with K2's capped
+plain rule: caps `δ_ℓ ∈ (0,1/2]`; ℓ is *light* if `p_ℓ ≤ δ_ℓ`; then
+`x_ℓ ~ U(·|Ω_ℓ∖F_ℓ)`, otherwise (heavy) `x_ℓ ~ U`. Call this law Q'.
+Put `p̃_ℓ = p_ℓ1[ℓ light]`. For `B > 0` let
+
+    G_B = {x ∈ 𝒜(family)} ∩ {Σ_ℓ w_ℓ p̃_ℓ(x) ≤ B},     σ_B := Q'(· | G_B).
+
+σ_B lives on the avoider set (G_B contains "no leak").
+
+**Proposition 4.1 (damped collision of the conditioned law; PROVED).**
+For `w_ℓ ∈ [0,1]`,
+
+    E_T 𝓡_2((σ_B)_T) ≤ e^{2B} / Q'(G_B)².
+
+*Proof.* By Lemma 1.1's identity,
+`E_T𝓡_2((σ_B)_T) = E_{Q'⊗Q'}[1_{G_B}(x)1_{G_B}(x')Π_ℓ(1+w_ℓh_ℓ)]/Q'(G_B)²`.
+The step laws of Q' are `k = U(·|Ω_ℓ∖F̃_ℓ)` with `F̃_ℓ = F_ℓ` (light) or ∅
+(heavy), `U(F̃_ℓ) = p̃_ℓ ≤ 1/2`. Lemma 2.1 applies verbatim with F̃ in
+place of F, with Φ inserted, and gives
+`E_Q[1_{G_B}(x)1_{G_B}(x')Π_ℓ(1+w_ℓη_ℓ)]`. Since
+`1 + η_ℓ = ℓ^{E}Σ_a k(a)k'(a) ≤ ℓ^{E}max_a k(a) = (1−p̃_ℓ)^{−1}`,
+`η_ℓ ≤ p̃_ℓ/(1−p̃_ℓ) ≤ 2p̃_ℓ(x)`, so `Π(1+wη) ≤ exp(2Σw_ℓp̃_ℓ(x)) ≤ e^{2B}`
+on `G_B(x)`. ∎
+
+So in (B) only the **first moment** of the damped activated mass enters
+(through `Q'(G_B) ≥ 1/2` by Markov). No large-deviation input is needed.
+
+**Theorem 4.2 (H_rough ⟸ sup decay; PROVED as an implication).** Let
+`z = exp((log N)^{1/4})`, `β = (log N)^{−1/4}`, 𝔊 any finite mixture of
+ℛ(M)-, (a,D)-, Case-A and selector classes, and Q' K2's sequential law
+(square base, caps `δ_ℓ = ℓ^{−1/2}`), run on all coordinates. For a
+z-smooth part c let `Q'_c` be the conditional law of the z-rough
+coordinates given c (a capped fibre law, Setting 4.0, for the fibre family
+𝔊_c), `m_c = E_{Q'_c}Σ_{ℓ>z}w_ℓp̃_ℓ`, `B_c = 8m_c`, `σ_c = Q'_c(·|G_{B_c})`.
+Fix `γ ∈ (0,1]`, `1 ≤ K ≤ z^{γ/2}`, `w_ℓ = (Kℓ^{−γ})^{2β}`. Suppose
+
+    (A*)  for every c outside an event of Q'-probability ≤ 1/32 and every
+          θ ≠ 0 with z-rough denominator: |σ̂_c(θ)| ≤ Π_{ℓ∈supp θ} K ℓ^{−γ}.
+
+Then every CRT-admissible N-large-sieve bound for 𝒜(𝔊) (any rational
+frequencies, any denominators, any weights) saves
+
+    log(N/B) ≤ (log N)^{3/4} + C γ^{−3}(log N)^{3/4}(log log N)^3.
+
+*Proof.* Define LS3 Lemma 2.1's exceptional smooth event as
+`E = E₀ ∪ {leak_c > 1/4} ∪ {m_c > 32J}`, where E₀ is the event of (A*),
+`leak_c = Q'_c(x ∉ 𝒜_c)` and `J = E_{Q'}Σ_{ℓ>z}w_ℓp̃_ℓ`. By K2 Lemma 4.3
+the rough part of the leak is `Σ_{ℓ>z}E[p_ℓ1{p_ℓ>δ_ℓ}] ≤ Cz^{−1/4}(log z)^c`,
+so `Q'(leak_c > 1/4) ≤ 4Cz^{−1/4}(log z)^c`; Markov gives
+`Q'(m_c > 32J) ≤ 1/32`. Hence `Q'(E) ≤ 1/8` for N large, and LS3 Lemma
+2.1 yields `π_s` with `log ρ ≤ 16𝔐(z) + O(1)` supported off E. For
+`c ∈ supp π_s`: `Q'_c(G_{B_c}) ≥ 1 − 1/4 − 1/8 ≥ 1/2` (Markov for
+`Σwp̃ > 8m_c`), so by (A*), Lemma 1.1 and Prop 4.1,
+`log 𝓡_{2+2β}(σ_c) ≤ 2B_c + log 4 ≤ 512J + log 4`. Theorem 1.1 (LS3) with
+`π_c = σ_c` gives `log(N/B) ≤ β log N + 16𝔐(z) + 512J + O(1)`. Finally
+`E_{Q'}p̃_ℓ ≤ E p_ℓ ≤ Σ_{C: P(G_C) = ℓ}Γ(G_C)/G_C` (K2 (Q4)) and
+`w_ℓ ≤ K^{2β}ℓ^{−2βγ}` with `K^{2β} ≤ e^{γ}`, so by partial summation as
+in LS3 Thm 3.1 (with `α = 2βγ`),
+`J ≤ e·K₃α^{−3}·C(log(e+1/α))³ ≤ Cγ^{−3}(log N)^{3/4}(log log N)³`, and
+`𝔐(z) ≤ K₃(log N)^{3/4}(log log N)³`. ∎
+
+*Remarks.* (a) **Everything quantitative is now proved**; the only
+open input is the *qualitative-looking* sup decay (A*), at **any fixed
+rate** γ (even `γ = (log log N)^{−1}` costs only `(log log N)^3` more) and
+with per-prime losses `K` up to `z^{γ/2} = exp(γ(log N)^{1/4}/2)` —
+far weaker than LS2's (H_LS∞)(b) (`|π̂|² ≤ e^{S}/N` with `S ≍ (log N)^{3/4}`)
+in the per-prime sense, and with **no comparison-at-level hypothesis**
+(LS2 Prop 5.2(a) is replaced by Prop 4.1).
+(b) If the large sieve uses only frequencies whose z-rough parts have
+support in a class 𝒮 of prime sets, (A*) is needed only for `supp θ_r ∈ 𝒮`
+(Theorem 1.1's Hölder step and Lemma 1.1 only see the frequencies used).
+(c) By §3, (A*) reduces to a covering count; for supports of size
+`≤ (1−2γ)log₂ z` the count is trivially within the slack (§3.2), modulo
+the outside-coordinate bookkeeping (to be written, §5).
