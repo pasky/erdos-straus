@@ -59,3 +59,26 @@ box-bounded measure on the integer set `S∖A` of mass `N_x` has Haar class stat
 `𝔈_C`. This is a question about the integers `≤x` and the system F alone (the "integer fake
 problem" IF(S,𝒞,𝔈)). Note `|S_T|/N_x≍log x/𝓛`, so the box is far from binding globally: a fake may
 concentrate on a subset of S of relative density `≍𝓛/log x`.
+
+## 2. What an integer fake must look like
+
+A fake for a SALC must be a box-bounded measure on the *integers* of `S∖A`. The Haar fake of
+O14/O15 is `N_xν` with ν the planted law; its density `dν/dP` is *deep* (it depends on whether
+almost all big events are off), so restricting it to integers `≤x` requires counting integers in
+sifted sets of dimension `κ≍𝓛³/log𝓛` — exactly the sieve problem below its sieving limit. The
+following lemma shows that some depth is unavoidable.
+
+**Lemma 2.1 (no monotone fake; PROVED, Harris).** Let `z∈{0,1}^n` have independent coordinates
+with `P(z_b=1)=p_b∈(0,1)`, and let `ψ≥0` be coordinatewise nondecreasing with `ψ(0)=0` and
+`E[ψz_b]=p_bE[ψ]` for all b (ψP has the same one-dimensional marginals as P). Then `ψ≡0`.
+*Proof.* `E[ψz_b]−p_bEψ=p_b(1−p_b)E[ψ(z^{b→1})−ψ(z^{b→0})]` (the bracket depends only on the other
+coordinates). Each bracket is `≥0` by monotonicity, P has full support, so equality forces
+`ψ(z^{b→1})=ψ(z^{b→0})` for all z and b: ψ is constant, `=ψ(0)=0`. ∎
+
+*Reading.* Nonnegative combinations of event classes (`n≡−4D (M)`, possibly intersected with
+arbitrary small-coordinate cells) are nondecreasing in the big bits given the small coordinates.
+So no fake built only from "these events hold" can match even the first-order statistics
+`P(C_s∩{X_ℓ∈Ω_ℓ})` that every sieve certificate uses; the fake must also reward "these events do
+*not* hold" — and there is no fundamental-lemma control of the integers in such sets beyond the
+sieving limit unless the dependence is polynomial of low degree (§3).
+
