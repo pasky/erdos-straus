@@ -219,6 +219,9 @@ general form, with `B=4c̃=2^{6−α−2γ}c_o` (odd at level 6), is what Props 
 
 (Equivalently, `((F+e)/2,k)` runs over the solutions of
 `A²−4c(1+cδ²)k²=1`, and the descent shows that `(1+2cδ², δ)` is the fundamental one.
+(R72 repair D6, applied by reviewer: any solution `(A,K)` with `K≥1` gives `F=A−2cKδ`, `e=A+2cKδ` with
+`Fe=A²−4c²δ²K²=1+4cK²` and `e−F=4cKδ`; `F>0` because `A²>4c²δ²K²`. The descent then reaches `(δ,1)`, i.e.
+`A=1+2cδ²`, `K=δ`, and each descent step is division by the unit `1+2cδ²+δ√(4c(1+cδ²))`. So that solution is fundamental.)
 Brute-force check: all 39 660 pairs with `c,k<200` satisfy the conclusion `F≡e≡1 (mod 4)`.)
 
 **Corollary 5.2 (PROVED).** Let `w≡9 (16)`. A certificate `(c,k,F)` at `x̂_w` has
