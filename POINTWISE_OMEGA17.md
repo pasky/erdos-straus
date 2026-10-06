@@ -100,7 +100,7 @@ by the fundamental lemma as long as `D·T^d≤x^{1−ε}` (D = level of the cert
 polynomials), so `ψ_nP` has the same factorial moments up to order `n−1` as `P`; (iii) `ψ_n` has
 degree n, i.e. it is the combination `Σ_rC(n,r)(−1)^{r+1}R^{−r}r!·Σ_{|Y|=r}1[all events of Y hold]`
 of classes of modulus `≤T^n` — shallow. (iv) EVIDENCE (exact rational arithmetic, all
-`1≤j≤4R+6n+20`; for `j` larger `C_n(j;R)<0` as n is odd): `ψ_n≥0` on ℕ iff `R≥R_min(n)` with
+`1≤j≤4R+6n+20`; for `j` larger `C_n(j;R)<0` as n is odd): for integer R, `ψ_n≥0` on ℕ iff `R≥R_min(n)` with
 
 | n=k+1 | 1 | 3 | 5 | 7 | 9 | 11 | 13 | 15 | 17 | 21 | 25 | 31 | 41 | 61 | 81 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -114,8 +114,8 @@ shallow one needs `R≲3n` for `n≤81`. On `j≤2R`, `max ψ_n` is close to 1 (
 n=21), but ψ_n is an unbounded polynomial, so **no global box holds**: a capped shallow fake
 needs a tail modification (not done). An LP over degree-d shallow densities on the *finite
 grid* `1≤j≤Jmax` (`scripts/omega17_shallow.py`; positivity beyond Jmax not certified — the
-reviewer found `ψ(105)<0` for an `R=16,k=4,ψ≤4` solution with Jmax=104) finds least degree
-`d=k+1` (k even) / `k+2` (k odd) when `R≥2k`; the `ψ≤4` column is finite-grid only.
+reviewer found `ψ(105)<0` for an `R=16,k=4,ψ≤4` solution with Jmax=104) finds, on the grid `R∈{4,8,16,32}`, `k≤8`, least degree
+`d=k+1` (k even) / `k+2` (k odd) when `R≥2k` (not general: `R_min(17)=33>32`); the `ψ≤4` column is finite-grid only.
 
 **Construction 3.2 (proposed support-aware fake in the exchangeable model; NOT proved —
 Assessment).** Suppose the big events are *independent of the small coordinates* (no x_s
@@ -133,7 +133,7 @@ constraints on larger moduli are not verified. Only the outline below is offered
 *Outline.* ψ is a polynomial in the event indicators with
 `E[ψχ]=E[χ]` for all juntas of `<n` big coordinates (each monomial of `e_n(z−p)` has n distinct
 centred factors); expand, count integers of `S_T` in each class `C∩{events of Y hold}` (modulus
-`≤qT^n`) by the fundamental lemma; positivity and `ψ(0)=0` give support in `S_T∖A`. ∎
+`≤qT^n`) by the fundamental lemma; positivity and `ψ(0)=0` give support in `S_T∖A`.
 (The positivity of the multivariate ψ is only checked in the Poisson limit.)
 
 *Assessment.* In an exchangeable model, support awareness should not help against
