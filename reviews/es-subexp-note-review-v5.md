@@ -63,6 +63,38 @@ Checked: `(L−)` needs `r* ≤ 1/3` (true here, `r* ≤ 4X^{-1/3}`); `(U+)/(L+)
 re-verified in `scripts/review_r64_atoms.py`. Labels: "conjunction of proved statements;
 Assessment as mechanism" — appropriate, but see D1/D2 for citation precision.
 
+**C6 — §12 (Lemma 12.1, Thm 12.2, linear certificates, Cor 12.3, Siegel paragraph, Prop 12.4,
+scope).** Lemma 12.1, Thm 12.2, Prop 12.4: SOUND. Cor 12.3 and the Siegel statement:
+SOUND as statements (checked against O15 Cor 2.4, Lemma 2.3, Thm 3.1); proofs are sketches with
+pointers — label issue D4. Scope paragraph: SOUND-AFTER-REPAIRS (D5).
+* Lemma 12.1 re-derived: `E_{σ_J}[∏_I h_b] = −∏_J(γ_b−β_b)∏_{I∖J}γ_b` (telescoping of
+  `Σ_{y⊆J}(−1)^{|y|+1}∏β∏γ`), vanishing unless `J⊆I`; `|γ_b| ≤ (1/4+p_b)/(1−p_b) < 1/2`;
+  `e_{k+1}(r) ≥ 1` from `a e_a ≥ (R−kr*) e_{a−1} ≥ (k+1)e_{a−1}`; `C(m,k+1)2^{−(m−k−1)} ≤ 2^{k+1}`.
+  The reduced-product claims for classes, Dirichlet and additive characters are right (local
+  additive factor at `b^v`: Ramanujan sum `c_{b^v}(a')/φ(b^v)`, `|·| ≤ 1/(b−1)`); the new
+  "whole ℓ-adic component" convention is what makes `e(an/q)` with `ℓ²|q` a function of one big
+  coordinate, and it changes neither `p_ℓ(x)` nor `R(x) ≥ μ*` (events read `X_ℓ mod ℓ`; the
+  higher digits were small and uniform before, now they are inside `X_ℓ` and still uniform) —
+  author's point 3 is fine. Bits for `ℓ > T^{0.7}` have `p_b=0` and are never set.
+  **From-scratch numerics** `scripts/review_r64_planted.py`: builds the planted law on bit
+  patterns explicitly, checks `ν ≥ 0`, `ν(b=0)=0`, exact k-wise marginals, then computes
+  `E_ρ h` for random reduced products (incl. additive-character-like factors) by summing over
+  all bit patterns with directly computed conditional means — independent of the telescoping
+  identity. Four configurations (k=1,2; up to 18 coordinates): all bounds hold, `E_ρ h=0` for
+  `|I|≤k` to 1e-12; worst ratio to `(4r*)^{k+1}` is `~1e-3` (bound far from tight, as expected).
+* Thm 12.2: `E_H B = E_ν B − E_ρ B ≤ −E_ρ B`; `k+1=⌊μ*/2⌋` satisfies the planting condition since
+  `μ*r* ≤ μ*/2`; `(8T^{−1/2})^{μ*/2−1} ≤ exp(−cℒμ*)`. Correct.
+* Lemma 2.3 of O15 as quoted: re-derived (classes: `max(1−N/U, N/U) ≥ 1/2`; characters/additive:
+  Parseval gives `Σ|f̂|² = (#chars)·N(1−N/U)`, so `𝔈² ≥ N(1−N/U) ≥ N/2`). Correct.
+* Cor 12.3 sketch (= O15 Cor 2.4): `N_x E_H B > Σ_deep |c_i| 𝔈_i`, `E_H B ≤ η Σ_deep|c_i|`,
+  `𝔈_i ≥ 1/2` ⇒ `N_x η > 1/2`. Correct.
+* Siegel paragraph: `χ₁h` is again a reduced product (local mean of `χ_{1,b}·e(aX/b^v)` is `0` for
+  `v≥2`, Gauss sum `≤ √b/(b−1)` for `v=1`), hence `2(4r*)^{k+1}`; level `≤ T^{0.6(k−s)}` ⇒ `B` and
+  `χ₁B` read `≤ k` big coordinates ⇒ `E_{(1−εχ₁)P}B ≤ E_{(1−εχ₁)ν}F = 0`. Correct; the mass caveat
+  restored by the self-review is right.
+* Prop 12.4 re-derived: `log x < 0.6ℒ(k+1)` ⇒ every `q ≤ x` has `≤ k` big primes ⇒ `E_ν h = E_H h`;
+  `N − N_{x,q} ≤ ω(q) ≤ log q/log 2 ≤ 2log x`. The P1 repair (centring at `N_{x,q}`) is consistent.
+
 ## Defects
 
 **D1 (MINOR; Rem 11.4, "the binomial extrapolation of [SL, Lemma 8.3]").** The majorant bound
@@ -84,6 +116,29 @@ CEILINGS_UNIFIED review; the note inherits it). Also [SL] itself is "internally 
 externally refereed" (bib says so, but the status conventions in §1 list only [TQ]). *Repair:*
 "(for CRT majorants with coefficient sum `< N` and family primes `≤ N^A`; for Case-A classes
 modulo Elsholtz–Tao §7)" and add [SL] to the status conventions alongside [TQ].
+
+**D4 (MINOR; labels of Cor 12.3, the Siegel statement and Prop 13.2(b); status conventions §1).**
+The conventions say "*Proved* means proved in full here" and define "proved modulo X" only for
+the listed inputs; [O15], [O16] (repository working notes, internally reviewed) and [SL] are not
+mentioned. Cor 12.3 is labelled "proved implication, same inputs" but its proof here is a
+four-line sketch with a pointer to [O15, Cor 2.4] (Prop 2.5 for the averaged remark); the Siegel
+statement ([O15, Thm 3.1]) has no label at all. The mathematics is fine (C6), but the label
+overstates what the paper itself contains. *Repair:* label Cor 12.3 "proved implication in
+[O15, Cor. 2.4]; sketch here", give the Siegel statement a label ("proved in [O15, Thm 3.1]"),
+and add one sentence to the status conventions: results quoted from [O15], [O16], [SL] are
+internally reviewed working notes, proofs sketched or referenced.
+
+**D5 (MINOR; Prop 12.4, the examples "Bombieri–Vinogradov, Elliott–Halberstam, GRH restricted to
+moduli ≤ x", and the intro/abstract lists).** The statements in `𝓘` are unweighted counts of
+primes `≤ x` *at the single scale x*, restricted to the fibre H. BV/EH/GRH as usually stated
+are for `ψ` (weights `log p`), with `max_{y≤x}`, on all primes. They enter the framework only
+through their single-scale unweighted fibre consequences; certificates that combine scales or use
+the weight `log p` use the archimedean position of the primes, which the definition of linear
+certificate excludes (it is the "support" information of the Scope paragraph). This is the
+intended scope (O15 §6 N2), but a reader of the examples will think the full statements are
+covered. *Repair:* after the examples add "(in the form of their consequences for the
+unweighted counts at the given x; information about several scales or the weight `log p`
+uses the position of the primes in `[1,x]` and is outside the framework, see Scope)".
 
 **D3 (MINOR; paragraph after Thm 11.2, "a matching lower bound in the range
 `log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 9.x except when
