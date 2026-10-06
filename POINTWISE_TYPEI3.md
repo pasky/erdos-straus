@@ -137,10 +137,14 @@ divisor `f` kill the union of two nested-ball families, i.e. at most the two bal
 admissible `t≥4` over all `(m',k',v,a,s)` with `2^sR≡−1 (f)` (`t=⌈(s+2)/2⌉`).
 (`t≤3` certificates would kill all of Φ; Computation 2.1 shows none has
 `f<10¹¹`.) `typei3_fsearch 7 9 lo hi mass` prints `t_min(f)` and the per-bin
-union-bound mass `Σ 2·2^{4−t_min}` (t capped at 40); `typei3_union.py` computes the
-exact measure of the union of the balls.
+union-bound mass `Σ 2·2^{4−t_min}`, and `typei3_union.py` computes the exact measure of the union
+of the printed balls. **Depth truncation (R72-2):** the mass mode only looks at `t≤40`, so balls with
+`t_min>40` are omitted. (They exist: `(14,2^{40},743)` is a certificate at `w=−743` with `t=43`.) There are at most
+`Y/112+1` eligible f below Y, and each omitted f kills measure `≤2·2^{4−41}=2^{−36}`. So the true
+uncovered measure is lower than the tabulated one by at most `0.0013` at `Y=10¹⁰`, and the counts in
+column 2 are counts with `t_min≤40`.
 
-| f-range | f with t_min≤40 | mass in bin | uncovered measure of Φ (exact union) |
+| f-range | f with t_min≤40 | mass in bin | uncovered measure of Φ (union of balls with t≤40) |
 |---|---|---|---|
 | < 2¹⁰ | 5 | 0.125 | — |
 | [2¹⁰,2²⁰) | 81 | 0.59 | 0.6636 (f<2²⁰) |
@@ -155,15 +159,15 @@ Observations. (a) The number of f per dyadic bin that carry any near miss grows
 slowly (≈10 → ≈40). (b) But `t_min(f)` grows like `½log₂f` (least `t_min` in bin
 `2^j`: 8–15 for j≤27, 15–19 for j=29–33), so the 2-adic weight `2^{4−t_min}` decays
 like `f^{−1/2}`, and the mass per bin decays (spikes such as j=28, `t_min=9`, are
-isolated). (c) Hence ≈61% of the fibre survives all certificates with
-`f<10¹⁰` (in particular with `ck≤1.3·10¹⁰`), and the decrement over the last five bins is
-`3·10⁻⁴`.
+isolated). (c) Hence between `0.6086` and `0.6099` of the fibre survives all certificates with
+`f<10¹⁰` (in particular with `ck≤1.3·10¹⁰`). The decrement over the last five bins is `3·10⁻⁴`.
 
 *Assessment.* If `t_min(f)≥½log₂f−C` persists and the number of near-miss f per bin
 grows only polylogarithmically, the expected number of certificates at a
-Haar-random `w` with `f≥10¹¹` is `≈Σ_{j≥37} 40·2^{5−j/2}≈2·10⁻³`. This supports
-Conjecture 3.4 for `x̂_9`, and suggests the stronger statement: **the sterile
-points of Φ have positive measure (≈0.61)**. Note this differs from the ck-graded
+Haar-random `w` with `f≥10¹¹` is `≲Σ_{j≥37} 40·2^{5−j/2}≈0.012` (`C=0`; this counts ball incidences, not certificates). This is
+consistent with Conjecture 3.4 for `x̂_9`. It suggests the stronger statement: **the sterile
+points of Φ have positive measure (≈0.6)**. Positive measure would give no rigorous preference to the
+individual point `w=9`. Note this differs from the ck-graded
 §5 of POINTWISE_TYPEI2: a small `f` produces near misses at all heights
 `ck=2^{t−2}n` with `t` in an arithmetic progression, so the ck-grading spreads one
 f over many bins.
@@ -171,9 +175,10 @@ f over many bins.
 **Remark 4.1 (measure route; PROVED reduction).** Theorem A(iii) needs *some*
 sterile point, not `x̂_9`. If `μ(U_Y)>Σ_{f≥Y}mass(f)`, where `U_Y⊂Φ` is the
 (computed) set surviving all `f<Y`, then Φ contains a sterile point, so
-`C*(7)=∞` under H. With `Y=10¹⁰`, `μ(U_Y)≈0.61`. So an explicit tail bound
-`Σ_{f≥10¹⁰} 2^{5−t_min(f)}<0.6` would suffice. This is a counting problem: bound
-the near misses with `t≤T` by `o(2^{T})` explicitly. It is open. (Heuristic sketch, not
+`C*(7)=∞` under H. With `Y=10¹⁰`, `μ(U_Y)≥0.6086` (depth-truncation error included). So an explicit tail bound
+`Σ_{f≥10¹⁰} 2^{5−t_min(f)}<0.6` would suffice. This is a counting problem. Writing `N_j(T)` for the number of
+`f∈[2^j,2^{j+1})` with `t_min(f)=T`, one needs an explicit, *summable* bound for
+`Σ_{j,T} N_j(T)2^{5−T}`; a bound of the form `o(2^T)` alone does not suffice. It is open. (Heuristic sketch, not
 a proof: in (2.1) with `J≤J'` one has `u | c'J²+Λ` and `c'J | Λ+u`; a Lenstra-type
 bound on divisors in a residue class (Lenstra 1984: at most 11 divisors of n in a
 class mod `s≥n^{1/3}`) then suggests only `#certificates(level)≪Λ^{1/2+ε}`. Against the box measure

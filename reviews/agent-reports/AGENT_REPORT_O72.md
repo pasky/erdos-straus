@@ -10,7 +10,7 @@ search graded by the smaller divisor `f=min(F,e)` (Lemma 1.1). It reaches all he
 given f, and Lemma 1.2 converts it into a height bound. Result: no certificate with
 `f<10¹²`, hence every Type-I covering of {n_p=7} has height `>1.32·10¹²`, and under H
 `C(7)>1.32·10¹²` (was `>3·10⁹`). The f-graded near-miss statistics in the sign fibre support Conjecture 3.4
-(and suggest that ≈61% of the fibre is sterile). They also give a precise reduction (Remark 4.1):
+(and suggest that ≈60% of the fibre is sterile; depth-truncated computation, error ≤0.0013). They also give a precise reduction (Remark 4.1):
 an explicit tail bound for the near-miss count would give a sterile point
 (not necessarily `x̂_9`), hence `C(7)=∞` under H.
 
@@ -30,7 +30,7 @@ The Vieta descent (Lemma 5.1) is integral only when `4c/4^{t−4}∈ℤ` (`α+2�
 and ends at reduced pairs with `F_end∈(0,1]∩ℤ[1/2]` (several classes). Mod `2^{10}` the levels `α+2γ∈{5,6}` show no 2-adic obstruction.
 Quadratic reciprocity / genus characters are exactly the Lemma 2.1 test and pass at x̂_9.
 The 2-adic refinement (F=2^t g−9, 9e=2^t h−1, `2^t gh−g−9h=9nk`) is consistent at all
-levels. Counting near misses per level gives only ≪Λ^{1/2+ε} (borderline).
+levels. A heuristic Lenstra-type sketch suggests only ≪Λ^{1/2+ε} near misses per level (borderline; not proved).
 
 ## Replay
 See POINTWISE_TYPEI3.md, Replay section.
