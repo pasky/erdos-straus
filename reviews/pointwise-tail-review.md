@@ -83,4 +83,25 @@ Re-derived from O9 Thm 1.1 (lines 111–196) + O11 Lemma 3.1 (lines 223–246) +
   author's bound `e^{2β(t−1)loglogY}≈16` ✓.
 * Final: `η^{−1}(loglogY+1)𝓛³logY ≍ 𝓛³(log𝓛)²loglog𝓛` with `logY=(C_0+4)log𝓛` ✓.
 
+### Claim 5 — Thm 3.3 (sum over leaves): **SOUND** (MINOR D3, D4, D6; improvement S1)
+
+* Good leaves: `P(¬(i))≤1/4` (O13 Lemma 3.2(d)+3.3(B), Y as in O13 Thm 3.4), Markov `≤1/8` for
+  each of (ii)–(iv) ⇒ `P_proc(good)≥1−1/4−3/8=3/8` ✓. On a good leaf every ingredient of O13 §5
+  holds with realised values `≤8×` expectations; `τ` is built from the leaf's own `S_res(L)`, so
+  `log Z_L≤C_3𝓛^4log𝓛` uniformly ⇒ one x works for all good leaves ✓.
+* The exceptional zero in (G) depends only on x (family `q≤Q_G(x)`), so it is the same for all
+  leaves; leaf L is in Case A iff `q_1|Q_L` ✓. Real primitive `q_1=2^e·(odd squarefree)`,
+  `e≤3`, odd primes of `Q_L` are `≤Y` (only `ℓ≤Y` eligible, forced 3,5,7) ⇒ `q_1≤8Y^{k_L}` ✓.
+* Display: `#_L≥S_L/log x≥λ_Lμ_Lx/(3φ(Q_L)log x)`, `1/φ(Q_L)=P_proc(L)2^{−k_L}/4` (Lemma 3.1),
+  disjoint fibres ⇒ counts add ✓; `≥(3/8)·min` ✓.
+* Losses: `k_Llog2≪𝓛³(log𝓛)²loglog𝓛`; `log(1/μ_L)≪𝓛³log𝓛`; Siegel `½k_LlogY≪𝓛³(log𝓛)³loglog𝓛` ✓.
+  Without Case A the bound is `𝓛³(log𝓛)²loglog𝓛` ✓ (CONDITIONAL, correctly labelled).
+
+### Claim 6 — Cor 2.2 (two-sided tail): **SOUND** (MINOR D2)
+
+* Lower inequality: CU Thm 2.1 (l.73–131): `N≪π(x)e^{−c𝓛³}` for `3≤T≤exp(c₁(log x)^{1/4})`, constants
+  ineffective; contains `𝓛≤c(log x/loglog x)^{1/4}` if `c≤c₁`; the `≪`-constant is absorbed for
+  `T≥T_0` ✓. Upper inequality: Thm 3.3; `𝓛≤c(log x/loglog x)^{1/4}` ⇒ `C𝓛^4log𝓛≤(Cc^4/4)log x≤log x` ✓.
+* Exponents: `𝓛³(log𝓛)³loglog𝓛 = (log T)³(loglog T)³logloglog T` ✓; `loglog(π/N)=(3+o(1))loglogT` ✓.
+
 ## Defects
