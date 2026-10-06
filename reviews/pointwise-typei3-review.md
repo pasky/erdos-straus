@@ -5,7 +5,54 @@ Reviewer: side agent R72 (branch `side-agent/review-typei3`), merged author bran
 `scripts/review_typei3_fs.c` (f-graded engine), `scripts/review_typei3_naive.c` (definition-only brute
 force, no Lemma 1.1), `scripts/review_typei3_check.py` (exact verifier/converter).
 
-Status: in progress (verdicts below are filled in claim by claim).
+Status: round 1 complete.
+
+## Summary verdict
+
+| claim | verdict |
+|---|---|
+| L1.1 small-divisor reduction (finite role depth) | SOUND |
+| L1.2 height constant `1.3229(Y−1)` (and `√r/2` for r=23,31,47) | SOUND |
+| C2.1 no certificate at `x̂_9` with `f<10¹²` | SOUND as CERTIFIED; `f<10¹¹` now reproduced by an independent engine (0 hits); `[10¹¹,10¹²)` one engine |
+| C2.2 heights `>1.32·10¹²`; `C(7)>1.32·10¹²` under H | SOUND (CERTIFIED / CONDITIONAL) |
+| C2.3 r=23,31,47, `f<10¹¹` | SOUND as CERTIFIED (one engine); r=23 to 10¹¹ re-run independently — see item 9 |
+| P3.1 sterile set closed, nowhere dense | SOUND (scope statement accurate; MINOR wording) |
+| §4 ≈61% survival, `t_min≈½log₂f` | EVIDENCE, numbers reproduced independently to 10¹⁰ |
+| Remark 4.1 measure route | SOUND as a reduction (MINOR citation fix) |
+| L5.1, C5.2, P5.3, P5.4, P5.5 | SOUND (re-derived; brute-forced) |
+| Remark 5.6 (level 7 open) | correctly labelled |
+
+No FATAL or MAJOR defects found. The self-review's three MAJOR items are correctly repaired in the text.
+
+## Defects
+
+* **D1 (MINOR) — a listed cross-check is no longer replayable.** §2 "Cross-check" lists `(7,−15)` at
+  `X=2·10⁵` (35 certificates) and `X=3·10⁶` (58=58), and the Replay loop includes `"7 -15"`. With the current
+  `typei3_fsearch.c` this aborts (exit 3) at `f=15` (`w=−f`, infinite depth), so `typei3_cmp.sh 7 -15 200000`
+  exits 3 (verified). The old comparisons were valid only because the `ck≤X` filter bounds `t`.
+  *Repair:* let `typei3_cmp.sh` pass an explicit depth cap derived from X (`t≤log₂(4X)`) to the f-engine, or
+  start at `f=16` and say so; or drop `(7,−15)` from the list. (My engine reproduces the `(7,−15)` sets on
+  `f≥16`: naive vs engine 12=12, engine vs author 101=101 at `f<10⁷`.)
+* **D2 (MINOR) — §4 / Remark 4.1 cite the wrong result for `t≤3`.** §4 says "`t≤3` certificates would kill all
+  of Φ; Computation 2.1 shows none has `f<10¹¹`". For the tail `f≥Y` in Remark 4.1 one needs absence of `t≤4`
+  certificates for **all** f and all `w∈Φ`; that is Cor 5.2 (any `w≡9 (16)`), not a finite computation. Also the
+  computational bound is now `10¹²`. *Repair:* cite Cor 5.2 in §4 and in Remark 4.1, and note that `f≢7 (16)`
+  carries no certificate at any `w∈Φ` for the same reason (so `mass(f)=0` there). Optionally use
+  `t_min≥5` (or the level bound `α+2γ≥7`) instead of the clamp `t≥4`; this only makes the masses smaller.
+* **D3 (MINOR) — Prop 3.1's consequence is not specific to `x̂_9`.** The statement "no ambient cylinder around
+  `x̂_9` is sterile" holds for every point of `Σ_7` (that is what nowhere density says). The status table/report
+  should phrase it as "no clopen subset of `Σ_7` is sterile", to avoid suggesting a special obstruction at `x̂_9`.
+  Also worth one sentence: inside Φ a closed positive-measure nowhere-dense sterile set is not excluded.
+* **D4 (MINOR) — labels after this review.** Computation 2.1 on `f<10¹¹` is now reproduced by an independent
+  engine (this review, item 7); the `[10¹¹,10¹²)` part and C2.3 for r=31, 47 remain one-engine. Update the
+  status table/report wording ("one engine" → "two engines to 10¹¹, one engine to 10¹²").
+* **D5 (MINOR, presentation) — Lemma 5.1 is used with `B` in place of `4c`.** P5.3–P5.5 apply the descent with
+  `B=4c̃=2^{6−α−2γ}c_o`, which is odd at level 6. The proof of L5.1 never uses `4|B`, but the lemma is stated for
+  `4c`. *Repair:* state L5.1 for an arbitrary integer `B≥1` (`Fe=1+BK²`, `e−F=BKδ` ⇒ `F≡e≡1 (mod Bδ)`); my brute
+  force checks this general form (9102 pairs, 0 failures).
+* **D6 (MINOR) — "fundamental solution" in the remark after L5.1** is true but unproved in the text: any Pell
+  solution `(A,K)`, `K>0`, gives `F=A−2cKδ>0` (since `A²>4c²δ²K²`) and `e=A+2cKδ` with `Fe=1+4cK²`,
+  `e−F=4cKδ`, and descends to `(δ,1)`. One sentence suffices.
 
 ## Verdicts
 
