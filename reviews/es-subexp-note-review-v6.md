@@ -112,3 +112,21 @@ But see D3 (label vs. unwritten step).
 Matches MN2 Thm 3.1 (ordered process; failure ≤ C_ν(c₁q₀^{−1/2+ε} + o(1)), c₁ not explicit), Lemma 1.1
 (s₀ > 0), Prop 5.1 (SI ⇒ ADM_m), SI = CONJECTURE, §4 = Assessment. Henriot Thm 5 checked in
 `sources/henriot-1102.1643.pdf` p. 6: coefficient-uniform, constants depend on g, α, δ, A, B only. ✓
+
+### Lemma 12.5 vs. Nair–Tenenbaum (sources/nair-tenenbaum-1998.pdf) — SOUND
+NT Thm 1 (p. 125): class `𝓜_k(A,B,ε)` defined by (1) for `(m_j,n_j) = 1` for each j; `0 < ε < 1/(8g²)`,
+`0 < δ < 1`, uniform for `x ≥ c₀‖Q‖^δ`, `x^{4g²ε} ≤ y ≤ x`; constants depend on A, B, ε, δ, k, r, g, D. NT Cor. 3
+(p. 126) is exactly the separable-product form (`Π_j F_j(|Q_j(n)|)` with `F_j ∈ 𝓜(A,B,ε/2)` ⇒ product of
+one-variable sums with ρ_j(n)/n). The twisted functions of Lemma 12.5 are products of multiplicative
+functions of separate variables, values at prime powers ≤ 9^b·… (τ(p^{2b}) ≤ 3^b; f₂t^{ω_Y} ≤ 7; f₂·rad^s ≤ 6e);
+`ε = 1/200 < 1/32`, `y = x ≥ x^{0.08}`, `Q = n(4n−1)` fixed, no fixed prime divisor. All conditions hold with A, B
+absolute (T-, Y-, t-, s-independent). The paper's statement (Henriot form, no coprimality restriction in the
+right-hand sum) is weaker than NT Cor. 2/3, so the citation is safe. ✓
+Henriot Thm 5 (`sources/henriot-1102.1643.pdf` p. 6) exists as described (constants depend on g, α, δ, A, B only).
+
+### Relation to the literature — planting vs. BGP Thm 27: numerically SOUND, wording MINOR (D7, D8)
+From scratch (`scripts/review_r77_planting.py`): the identical-marginal case of Lemma 10.1 gives
+`N ≥ (k+1)p/(1−p) + 2k + 1` after flipping bits; the explicit construction ν (exact Fractions) is a probability
+law with correct k-marginals and ν(all-ones)=0 at that N (k ≤ 3, p ∈ {1/2,2/3,3/4,4/5}, N ≤ 13). Ratio to BGP's
+lower bound (as quoted in the audit, p ≥ 1/2) is ≤ 3 for all k < 200, p ∈ [1/2,1). BGP itself not re-read
+(PDF not in sources/; I rely on the audit's quotation of arXiv:1201.3261 §4.9).
