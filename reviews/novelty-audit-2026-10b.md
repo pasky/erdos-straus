@@ -357,3 +357,50 @@ congruence. The results:
 * Cite Vaughan/PW §4 at the typical-size theorem.
 * Cite Fridlender/Salié/Graham–Ringrose (via Lau–Wu) and Granville–Pomerance as the
   template for Ω-results by fibre choice plus least primes.
+
+---
+
+## 7. Exceptional-set sieve-limit results: KARY3 (no log log loss), large-sieve caps, unified ceilings
+
+**Objects.**
+* `EXCEPTIONAL_KARY3.md` Thm 4.1 / Cor 4.2. Every coefficient-sum CRT majorant over any
+  mixture of forced and selector classes saves `≤ C(log N)^{3/4}`, with no
+  `(log log N)^{3/4}` loss. Rankin-type dyadic blocks are replaced by the local weight
+  `Z_y(M)`.
+* `EXCEPTIONAL_LARGESIEVE.md` (duality cap), LS2 (twisted, hybrid and larger-sieve forms),
+  LS3 (smooth–rough splitting; rough-slice mixtures), LS4 (damped collisions; residue-sparse
+  all-level cap) and LS5 (covering count; in progress, partly SKETCH).
+* `CEILINGS_UNIFIED.md`. Thm 4.1 is a two-sided order-k sieve limit: critical order
+  `k* ≍ P` for both upper and lower one-sided problems. Thm 4.3 says both ES ceilings are
+  one relation `λ ≍ 𝓛·κ(𝓛)`, so with Haar exponent a the exceptional and pointwise
+  exponents are `a/(a+1)` and `1/(a+1)`.
+
+**Closest known results** ([memory] unless stated; *Opera de Cribro*, Selberg's *Lectures*
+and Ford–Halberstam are not archived):
+
+| Prior work | Relation |
+|---|---|
+| **Large-dimension sieve limits.** For the β-sieve (Rosser–Iwaniec) and the Diamond–Halberstam–Richert sieve, the sifting limit is `β_κ ≍ κ` (DHR: `β_κ ~ cκ`, `c ≈ 2.44`; Ankeny–Onishi for Selberg's sieve). The fundamental lemma needs `log D ≥ Cκ log z` to get relative error `e^{−s}`, `s = log D/log z` (*Opera de Cribro* Ch. 6, 11; Halberstam–Richert) | CEILINGS_UNIFIED Thm 4.1 says this itself: "the large-dimension sieve limit (`β_κ ≍ κ`) in the one-big-coordinate setting". It claims no novelty for Thm 4.1. The **unified relation `λ ≍ 𝓛κ(𝓛)` is the classical "level ≈ dimension × log z" rule** applied with a *growing* dimension `κ ≍ (log z)³`. What is apparently not classical is a *lower* bound (a barrier) on the level for *all* majorants/minorants in a class, rather than for specific sieves. The classical results are achievability statements. |
+| **Optimality of sieve limits / barriers.** Selberg's parity examples (upper-bound Λ² optimal up to factor 2 in dimension 1; lower-bound sieves cannot detect primes); Bombieri's asymptotic sieve; Tao 254A Ex. 18 (the fundamental-lemma error is best possible for κ=1) [Tao checked in `sources/lit2026/audit-tao-254a-notes4-sieve-theory.md`]; *Opera de Cribro* Ch. 16 on parity [memory]; Ford–Halberstam, "The Brun–Hooley sieve" (JNT 2000) [memory: Brun–Hooley sifting limits in dimension κ; the auditor does not recall a general "no sieve beats level κ log z" theorem there] | The campaign's barriers (KARY/KARY3 for majorants, OMEGA14 planting for minorants) prove optimality of the fundamental lemma in growing dimension, **for the ES forced-class family**, against **all** CRT-coefficient majorants or bounded-level minorants. The abstract exchangeable core is PYY/BGP (`novelty-audit-2026-10.md` row 1b). The weighted / multi-band / mixture form is apparently new (row 1c, unchanged). The auditor knows no classical large-κ lower bound of the form "every level-λ majorant saves `≤ κ(λ^{1/4})`". *Confidence that the specific ES cap is new: high. Confidence that the general large-κ optimality principle is folklore among sieve experts: medium-high.* |
+| **Large sieve ⇔ Selberg sieve.** Montgomery (1968) "A note on the large sieve": the arithmetic large sieve gives Selberg's Λ² bound. Kobayashi (1973) and Huxley: equivalence/duality of the large sieve and the Λ² sieve. Gallagher's larger sieve (1971) | `EXCEPTIONAL_LARGESIEVE.md` Thm 2.1 (every CRT-admissible large-sieve bound ≥ `N·E|g*|²` for a Selberg-square CRT majorant) is a **minimax form of this classical equivalence**. Present it as known in substance and cite Montgomery 1968 / Kobayashi. The new content is the cap over forced-class mixtures, the frequency classes (rational, prime-power and composite denominators, twisted, hybrid, Gauss-sum) and the larger-sieve kernel caps (LS2 Thm 4.3, `26 log log N + C`). *Confidence: medium-high for the caps as stated; low for the duality itself (known).* |
+| **KARY3's local weight `Z_y(M) = Σ_{p^ν|M,p^ν≤y}Λ(p^ν)/log y`** | The ingredient replacing Rankin's trick is the standard "log M = Σ Λ" smooth-number weight, used e.g. in Hildebrand–Tenenbaum-type moment arguments [memory]. Removing the `(log log N)^{3/4}` loss is a **technical improvement of a campaign result**. It is new because there is nothing to compare it with, and its significance is internal. |
+| **LS3/LS4 smooth–rough splitting, damped collisions, pivotal coin coupling** | The coin-coupling Fourier bound (LS4 Lemma 3.1: coefficient ≤ `2^{|S|}`·P(all of S pivotal)) is the **same device as Lecomte–Tan Fact 9** (`|ĝ(S)| ≤ 2^{|S|}Pr[S covered]`) and as the energy note's Lemma 3.1. It should be cross-referenced to item 1, and LT should be cited at LS4 Lemma 3.1. Collision/Rényi-entropy bounds `𝓡_{2+2β}` are standard additive-combinatorics / large-sieve tools. The damped random-subset reduction (LS4 Lemma 1.1) is apparently new as stated (*medium*). |
+
+**What is genuinely new (apparently).**
+* The **ES-specific caps**: 3/4 sharp for all CRT-coefficient majorants with no log log
+  loss, and all-level large-sieve caps for residue-sparse mixtures. New, *high*. These are
+  applications.
+* **CEILINGS_UNIFIED's observation** that one Setting/one relation produces both the 3/4
+  (exceptional) and the 1/4 (pointwise) ceilings, with `a/(a+1) + 1/(a+1) = 1`. New as an
+  observation (*high*). It is an Assessment-level synthesis; its theorem content (Thm 4.1)
+  is known in substance (PYY/BGP + planting + Bonferroni), as the file says.
+* **Not new:** large-sieve/Λ² duality, `β_κ ≍ κ`, Bonferroni achievability, Rankin/`Λ`
+  weights.
+
+**Recommended wording.**
+* At LARGESIEVE Thm 2.1, add "this duality is a minimax form of the classical equivalence
+  between the arithmetic large sieve and Selberg's Λ² sieve (Montgomery 1968; Kobayashi
+  1973) [verify]".
+* At CEILINGS_UNIFIED §4 / sieve-limits note, keep "no novelty for Thm 4.1", and say:
+  "the 3/4 and 1/4 ceilings are instances of the large-dimension sieve limit
+  `log D ≍ κ log z`, here proved as a barrier for all certificates in the stated classes".
