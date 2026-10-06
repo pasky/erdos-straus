@@ -164,19 +164,21 @@ Lemma 1.1 and §2 the boxes of level k number at most `B_k = 4D_Q(k) + 2D_U(k) +
 (Lemma 1.3) (R83 repair: previously `8D_Q`, an over-count).
 
 **Theorem 4.1 (measure criterion; PROVED).** If
-`Σ_{k≥6} 17^{1−k}·B_k < 0.677207` (the uncovered fraction of `C_5` after level 5, Comp. 3.1),
+`Σ_{k≥6} 17^{1−k}·B_k < 56561/83521 = 0.67720693…` (the exact uncovered fraction of `C_5` after level 5,
+Comp. 3.1; R83 repair m4: previously rounded *up* to 0.677207),
 then `C_5` contains a sterile point `u`: `x(u)` lies in no class of any of the seven ET families.
 The same holds for `C_7`.
 *Proof.* Boxes of level ≥6 have total measure `≤ Σ_{k≥6} B_k 17^{−k}`, which is less than the measure
-`0.677207/17` of the part of `C_5` missed by levels ≤5. ∎
+`56561/83521·1/17` of the part of `C_5` missed by levels ≤5. ∎
 
-**Corollary 4.2 (what sterility gives; PROVED from a sterile point).** If `u∈C_5` is sterile, then
-no finite set of ET Prop 1.9 classes (equivalently, by ET Prop 1.9, no finite set of the polynomial
-ES identities of these seven families) covers all sufficiently large primes `p` with `(p/17)=−1`
-and `(p/q)=+1` for every prime `5≤q<17` (Mordell-hard primes with `n_p=17`): the finite union misses
-a neighbourhood of `x(u)`, i.e. a class `x ≡ u (mod 17^L)`, `x ≡ 1 (mod Q)` with `17∤Q`, which
-contains infinitely many primes (Dirichlet), all with `x_17 ≡ 5`, i.e. `(p/17)=−1`, and squares at
-every other prime ≤ 13 (as `x_q=1`).
+**Corollary 4.2 (what sterility gives; CONDITIONAL on a sterile point; R83 repair m5).** If `u∈C_5`
+is sterile, then no finite set of ET Prop 1.9 classes (equivalently, by ET Prop 1.9, no finite set of
+the polynomial ES identities of these seven families) covers all sufficiently large Mordell-hard primes
+with `n_p=17`, i.e. primes `p ≡ 1 (mod 24)` with `(p/17)=−1` and `(p/q)=+1` for `q = 5, 7, 11, 13`.
+*Proof.* A finite union of classes is clopen and misses `x(u)`, hence misses a basic neighbourhood
+`{x ≡ u (mod 17^L), x ≡ 1 (mod Q)}` with `17∤Q`; choose `840·11·13 | Q`. This class is primitive and
+contains infinitely many primes (Dirichlet), each `≡ 1 (24)`, a square mod 5, 7, 11, 13 and a
+non-square mod 17 (`x_17 ≡ 5`). ∎
 
 **Conjecture 4.3.** `C_5` (equivalently `C_7`, by inversion) contains a sterile point. EVIDENCE:
 67.72% of each cell lies in no box of level ≤5 (Comp. 3.1), and the measure added per level decays
