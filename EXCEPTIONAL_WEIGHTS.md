@@ -301,3 +301,55 @@ of 0.
 **Relation to §2.** For hit-pattern majorants the smooth per-frequency LP value
 is ≥ M(N) (Lemma 1.1). So the hit-pattern smooth door is closed if *either*
 (H_eq) holds (NC §2.5, IF Lemma 4.1) *or* `M(N) ≥ N e^{−C(log N)^{3/4}}` (§5).
+
+## 5. The shift-uniform count M(N)
+
+By §§1–2 the whole per-frequency door, for general majorants, is the size of
+
+    M(N) = max_{t∈ℤ} #(𝒜 ∩ (t, t+N])     (𝒜 = avoider set of the method's finite family).
+
+**Proposition 5.1 (what is known; PROVED or cited).**
+(a) `#(𝒜 ∩ [1,N]) ≤ M(N) ≤ N exp(−c(log N)^{3/4})` for the families of the 3/4
+note (its bound `N·Eν + Σ|a_i|` is shift-uniform).
+(b) (random/gap translates) In a prime-slice system with Q₀ = 1,
+`M(N) ≥ N·Π_{ℓ: (N+1)|F_ℓ| > ℓ}(1 − p_ℓ)`.
+(c) (equivalence) For the window Φ_K of §2 and every finite family:
+`M(N) ≤ min_ν R_{|W_N|}(ν) ≤ 12(K+1)M(N)`. Hence: *every translation-invariant
+per-frequency method (any weights ≥ |W_N| or ≥ |S_N|) is capped at
+`(log N)^{3/4}` ⇔ `M(N) ≥ N e^{−C(log N)^{3/4}}`, and if
+`M(N) ≤ N e^{−ω(N)(log N)^{3/4}}` (ω → ∞) then some general majorant beats the
+cap through a band-limited per-frequency bound.*
+
+*Proof.* (a) The first inequality is t = 0; the second: the 3/4 note's majorant
+is a CRT majorant on all of ℤ and each class meets a window in ≤ N/d + 1 points.
+(b) If `ℓ ≥ (N+1)|F_ℓ|`, the complement of F_ℓ on the cycle ℤ/ℓ has a gap of ≥ N
+consecutive residues; choose `t mod ℓ` to put `t+1, …, t+N` in it. For the
+remaining ("dense") primes take `t mod ℓ` uniform and independent (CRT); each
+`t + j` then avoids all dense classes with probability `Π(1 − p_ℓ)`, so the
+expected window count is `N Π_{dense}(1 − p_ℓ)`, and the maximum is at least that.
+(c) Theorem 2.1 and Lemma 1.1. ∎
+
+For ℛ(ℓ)-slices `Σ_{ℓ≤N^{1+o(1)}} p_ℓ ≍ (log N)³`, so (b) gives only
+`N e^{−c(log N)³}`. The gap between (a) and (b) is the whole question.
+
+**Open problem (W).** Is `M(N) ≥ N exp(−C(log N)^{3/4})` for the forced-class
+families (equivalently: is the 3/4 barrier valid for all translation-invariant
+counting methods)? Either answer would matter:
+* a proof of `M(N) ≤ N e^{−(log N)^θ}`, θ > 3/4, would be a new exceptional-set
+  bound (`E(N) ≤ M(N)`), uniform over shifts;
+* a proof of `M(N) ≥ N e^{−C(log N)^{3/4}}` would close the "weights below 1"
+  door completely (all weights, all majorants), and would show that any
+  improvement on 3/4 must use the position of the window — e.g. that [1,N]
+  sits next to 0 — not just its length.
+
+*Discussion (Assessment).* The KARY dual objects (comparison measures matching
+uniform on every level-λ test function, LS2 Lemma 1.1) live on the CRT torus.
+M(N) asks whether such pseudo-distributions are realised by the empirical
+pattern distribution of an actual window, i.e. by one translate `c_ℓ` per
+prime. A window of length N sees every residue mod ℓ ≤ N about N/ℓ times, so
+all level-`≤ log(N/2)` statistics of a window are forced (IF Thm 2.2 logic); the
+freedom is in correlations of combined modulus > N, where kill sets of two
+primes `ℓℓ′ > N` overlap in at most `|F_ℓ||F_ℓ′|⌈N/ℓℓ′⌉` points and the choice of
+translates decides which. The random choice (b) is far from optimal (§5.1
+EVIDENCE), so translates do correlate kills strongly; whether up to the
+sieve-limit scale is not known.
