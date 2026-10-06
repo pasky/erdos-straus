@@ -156,3 +156,53 @@ moment over the *rough* coordinates only.
 `scripts/largesieve4_checks.py` checks (EVIDENCE): the identity
 `Σ_S w_S P_S = E_T𝓡_2(σ_T)` and the η formula by exact enumeration
 (random toy families over primes 3, 5, 7, 11; errors ≤ 3·10⁻¹⁴).
+
+## 3. (A_γ) for sequential laws: Fourier coefficients and pivotal coins
+
+**Coin representation.** In Setting 2.0 let `c_ℓ ~ U(Ω_ℓ)` and `π_ℓ` (a
+uniformly random ordering of `Ω_ℓ`) be independent over ℓ and of each
+other. Put `x_ℓ = c_ℓ` if `c_ℓ ∉ F_ℓ(x_{<ℓ})`; otherwise ℓ is *replaced*
+(`ℓ ∈ R`) and `x_ℓ` is the first element of `π_ℓ` outside `F_ℓ`. Given the
+past, `P(x_ℓ = a) = U(a) + p·U(a)/(1−p) = U(a)/(1−p)` for `a ∉ F_ℓ`, so x
+has law σ (this is EK's coupling without caps). Write `x = X(c, π)`.
+
+**Lemma 3.1 (pivotal bound; PROVED).** Let θ ≠ 0, `S = supp θ`,
+`θ = Σ_{ℓ∈S}θ_ℓ` (`θ_ℓ ≠ 0` with denominator a power of ℓ). Let `c'_S`
+be an independent copy of `c_S`, and for `A ⊆ S` let `c^A` be c with
+`c_A` replaced by `c'_A`, `x^A = X(c^A, π)`, and
+`Ψ(A) = Π_{ℓ∈S} e((x^A_ℓ − c^A_ℓ)θ_ℓ)`. Call ℓ ∈ S *pivotal* if
+`Ψ(A) ≠ Ψ(A∪{ℓ})` for some `A ⊆ S∖{ℓ}`. Then
+
+    |σ̂(θ)| ≤ 2^{|S|} · P(every ℓ ∈ S is pivotal).
+
+Moreover ℓ can be pivotal only if, for some A, ℓ is replaced in `x^A` or
+`x^{A∪ℓ}`, or the two paths differ at some replaced coordinate of S∖{ℓ}
+or in the replacement status of some coordinate of S∖{ℓ}.
+
+*Proof.* Condition on `c_{𝒫∖S}` and π; then `c_S` is uniform on
+`Π_{ℓ∈S}Ω_ℓ` and `e(x·θ) = χ(c_S)Ψ(∅)` with `χ(c_S) = Π_ℓ e(c_ℓθ_ℓ)`
+(`x_ℓ − c_ℓ = 0` off R). Write Ψ as a function of `c_S` and expand
+`Ψ = Σ_{B⊆S} Π_{ℓ∈B}(I−E_ℓ)Π_{ℓ∉B}E_ℓ Ψ` (`E_ℓ` = average over `c_ℓ`).
+A term with `B ≠ S` does not depend on `c_ℓ`, `ℓ ∈ S∖B`, and
+`E_{c_ℓ}e(c_ℓθ_ℓ) = 0`; so `E[χΨ] = E[χ·Π_{ℓ∈S}(I−E_ℓ)Ψ]` and
+`|E[χΨ]| ≤ E|Π_{ℓ∈S}(I−E_ℓ)Ψ|`. Now
+`Π_{ℓ∈S}(I−E_ℓ)Ψ = E_{c'_S}Σ_{A⊆S}(−1)^{|A|}Ψ(A)`. If some ℓ is not
+pivotal, the terms A and A∪{ℓ} (A ∌ ℓ) cancel in pairs; otherwise the sum
+has `2^{|S|}` terms of modulus 1. The last sentence: `Ψ(A)` depends only
+on which coordinates of S are replaced and on `x_q − c_q` there. ∎
+
+*Remarks.* (a) Lemma 3.1 converts the signed quantity `σ̂(θ)` into the
+probability of an event on a **product** probability space (coins `c`,
+`c'_S`, orderings π), at the cost `2^{|S|}`; Cor 1.2 tolerates any loss
+`K^{|S|}` with `K ≤ z^{γ/2}`, and `|S| ≤ log M_r/log z`, so `2^{|S|}` is
+harmless.
+(b) A single prime: ℓ pivotal needs ℓ replaced in some corner, or the
+change `c_ℓ → c'_ℓ` to propagate (through classes containing ℓ) to a
+replacement in S. Both require `c_ℓ` or `c'_ℓ` to lie in a set of
+residues determined by **classes through ℓ**, of expected size
+`≲ |Ω_ℓ|·(mass of classes through ℓ)`. So each prime of S costs, in
+expectation, the mass through ℓ — `(log N)^{O(1)}/ℓ` for moduli `≤ N^A`.
+The content of (A_γ) is that these costs **multiply** over S up to
+`K^{|S|}`: a correlation-decay statement for *events*, with an enormous
+slack (`ℓ^{1−γ}/K` per prime), in contrast with LS3 §4.3 / LS2 §5 where
+the signed one-step bounds lose.
