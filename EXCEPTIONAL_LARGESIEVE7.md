@@ -218,6 +218,7 @@ coordinates — is what replaces divisor-in-residue-class bounds.
 (b) The exponent 1/12 comes only from the small-height cut at
 `p^{1/4}` (a height `> H₀` forces some coordinate `> (H₀/32)^{1/3}`); with
 cut `p^{κ}` the same proof gives `p^{−min(κ/3, 1/4)}`. The concentration of
-Prop 6.2 of LS6 (`(u,v,t)` with `4v²t = 4`, i.e. label `−1/4`… and its
-relatives) is exactly the part removed by the cut: the `1/max(V,T)` term
-is attained by the single pair `(v,t)` of small height in a fixed class.
+Prop 6.2 of LS6 (the class `−4`, triple `(1, A, 1)`, height `4u²t = 4`)
+is exactly the kind of triple removed by the cut: in Case L_v the term
+`1/max(U,T)` is attained by a single pair `(u,t)` of small `4u²t` in the
+pinned class, carrying damped mass `≍ 1/(ut)` over all cofactors.
