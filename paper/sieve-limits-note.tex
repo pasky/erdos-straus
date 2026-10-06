@@ -72,17 +72,18 @@ positive only at primes are capped at $O_A((\log N)^{3/4}(\log\log N)^{3/4})$
 (and at $O_A((\log N)^{3/4})$ at pointer level only).  Gallagher's larger
 sieve saves only $O(\log\log N)$.  For
 hybrid methods that count large classes blindly we reduce the cap to a
-combinatorial hypothesis (weak SPW), with an exact requirement on its
-margins, and show that its fixed-margin form is false.  For
+combinatorial hypothesis (weak SPW), with a requirement on its margins
+that is exact for this route, and show that its fixed-margin form is false.  For
 super-polynomial large-sieve frequencies we show that any cap needs
 family-specific input, such as the sparsity of forced classes; using
 sparsity through a smooth--rough splitting, every CRT-admissible large
 sieve, at any frequency level, saves at most
 $O((\log N)^{3/4}(\log\log N)^3)$ for mixtures with at most one prime factor
-above $\exp\{(\log N)^{1/4}\}$ per modulus, and more generally whenever the
-classes with several such primes are residue-sparse, which includes the
-residue-concentrated ones; the residue-dense case is reduced to a sup-decay
-hypothesis.  We also show
+above $\exp\{(\log N)^{1/4}\}$ per modulus, and at most
+$O_\gamma((\log N)^{3/4}(\log\log N)^3)$ whenever the residues of the classes with
+several such primes are $\gamma$-sparse at each such prime ($\gamma>0$ fixed), which
+includes the residue-concentrated families; the remaining mixtures are
+reduced to a sup-decay hypothesis.  We also show
 that the literal tuple-count hypothesis meets forced zeros above $2/3$ and
 give the repaired alternating form.  We list exactly what the theorems
 exclude.  Finally we explain the cap and the pointwise ceiling $1/4$ for
@@ -264,11 +265,12 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   $\leq\exp\{(\log N)^{1/4}\}$ by a density alone, so every large sieve at any
   frequency level is capped at $C(\log N)^{3/4}(\log\log N)^3$ for mixtures with
   at most one larger prime factor per modulus (Theorem~\ref{thm:roughslice},
-  \lab{proved}), and for every mixture whose classes with several such
-  primes are residue-sparse (Theorem~\ref{thm:ressparse}, \lab{proved}); via
+  \lab{proved}), and at $C\gamma^{-3}(\log N)^{3/4}(\log\log N)^3$ for every mixture whose
+  classes with several such primes satisfy the residue-sparseness
+  condition $(RS_\gamma)$, $\gamma>0$ fixed (Theorem~\ref{thm:ressparse}, \lab{proved}); via
   damped collisions the rest reduces to a sup-decay hypothesis $(A^*)$
-  (Theorem~\ref{thm:Astar}, \lab{proved} implication), open for
-  residue-dense classes.  Prime-only majorants are capped for all
+  (Theorem~\ref{thm:Astar}, \lab{proved} implication), open for mixtures
+  whose multi-rough part violates $(RS_\gamma)$ for every fixed $\gamma>0$.  Prime-only majorants are capped for all
   mixtures, with the same $(\log\log N)^{3/4}$ proviso
   (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
   modulus $\leq N/2$ are capped however the interval sum is evaluated
@@ -292,8 +294,9 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   truncated weights (Theorem~\ref{thm:trunc}, Corollary~\ref{cor:primeorder}).
 \item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
   and~\ref{sec:open}).  A precise list of what lies outside: the large
-  sieve at super-polynomial frequency levels against residue-dense classes
-  with two or more prime factors above $\exp\{(\log N)^{1/4}\}$; larger-sieve kernels with
+  sieve at super-polynomial frequency levels against mixtures whose classes
+  with two or more prime factors above $\exp\{(\log N)^{1/4}\}$ violate the
+  residue-sparseness condition $(RS_\gamma)$ for every fixed $\gamma>0$; larger-sieve kernels with
   an uncontrolled factor; direct counts and hybrid accounting above
   modulus $N/2$; majorants $\geq1$ only on $[1,N]$ or on the exceptional
   set; non-CRT tuple counts and other non-CRT input; other class types
@@ -3364,8 +3367,11 @@ proviso of Section~\ref{sec:smoothrough}, since $Q'_c(G_{B_c})\geq1/2$ forces $\
 \cite{LS4rev}.  It contains the family of Lemma~\ref{lem:residueconc}: residue
 concentration is the \emph{easy}, deterministic-residue case, not an
 obstruction.  What remains open for the all-level cap over all forced
-families is $(A^*)$ for \emph{residue-dense} classes with two or more primes
-$>z$, whose $\ell$-residues fill a fraction $>\ell^{-\gamma}$ of $\Z/\ell$ (as for generic
+families is $(A^*)$ for \emph{residue-dense} mixtures: those whose classes with
+two or more primes $>z$ have, jointly, $\ell$-residues filling a fraction $>\ell^{-\gamma}$
+of $\Z/\ell$ at some $\ell>z$, for every fixed $\gamma>0$.  Residue-sparseness is a property
+of the union $\mathrm{Res}_\ell(\cG_2)$, not of single classes: many individually $H$-small
+classes with different $(r,s)$ can make the union dense (as for generic
 $\cR(M)$ with many moduli through $\ell$: the Jacobi obstruction acts modulo the
 whole modulus, not prime by prime).  There the fixed residue set must be
 replaced by the random set of residues of classes whose other
@@ -4206,10 +4212,12 @@ item, this is said.
   $>z=\exp\{(\log N)^{1/4}\}$, with any rational frequencies, at the cost of a
   factor $(\log\log N)^3$ (Theorem~\ref{thm:roughslice}); more generally every
   mixture whose classes with at least two prime factors $>z$ are
-  residue-sparse, $(RS_\gamma)$, for instance $H$-small, with a factor
+  residue-sparse, $(RS_\gamma)$ (for instance all $H$-small), with a factor
   $\gamma^{-3}(\log\log N)^3$ (Theorem~\ref{thm:ressparse}).
-  Outside: frequencies of super-polynomial level against mixtures with
-  residue-dense classes having at least two prime factors $>z$ (escape (E1),
+  Outside: frequencies of super-polynomial level against mixtures whose
+  classes with at least two prime factors $>z$ violate $(RS_\gamma)$ for every
+  fixed $\gamma>0$ (escape (E1); residue-sparseness is a property of the union
+  $\mathrm{Res}_\ell$ over the family, not of single classes;
   Conjecture~\ref{conj:HLS}; the sup-decay hypothesis $(A^*)$ of
   Theorem~\ref{thm:Astar}, or $(H_{\rm rough})$ of Hypothesis~\ref{hyp:Hrough},
   would suffice).  For such mixtures the frequencies with $z$-smooth
@@ -4323,10 +4331,11 @@ through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family primes.
 mixtures with at most one prime factor $>\exp\{(\log N)^{1/4}\}$ per modulus
 (Theorem~\ref{thm:roughslice}, with $(\log\log N)^3$), and over mixtures whose
 classes with several such primes are residue-sparse
-(Theorem~\ref{thm:ressparse}), which narrows (E1) to residue-dense classes with
-two or more such primes, and there to the sup-decay hypothesis $(A^*)$
-(Theorem~\ref{thm:Astar}); and, for hybrids, the refutation of
-fixed-margin SPW with the exact weak requirement that replaces it
+(Theorem~\ref{thm:ressparse}), which narrows (E1) to mixtures whose
+multi-rough part violates $(RS_\gamma)$ for every fixed $\gamma>0$, and there to the
+sup-decay hypothesis $(A^*)$ (Theorem~\ref{thm:Astar}); and, for hybrids, the
+refutation of fixed-margin SPW with the weak requirement that replaces it as
+the target of this route
 (Theorem~\ref{thm:SPWfalse}, Lemma~\ref{lem:weakSPW}).  This version does
 not change the cap of Theorem~\ref{thm:main}.
 \emph{New in version~4}: the removal of the factor $(\log\log N)^{3/4}$ without $B$
@@ -4395,8 +4404,8 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
   (Conjecture~\ref{conj:HLS}, or $(H_{\rm rough})$ of Hypothesis~\ref{hyp:Hrough},
   would exclude this, and so would $(A^*)$ of Theorem~\ref{thm:Astar};
   Theorems~\ref{thm:roughslice} and~\ref{thm:ressparse} exclude it for one such
-  prime per modulus and for residue-sparse classes, so only residue-dense
-  classes remain), or larger-sieve kernels with an uncontrolled factor
+  prime per modulus and for mixtures satisfying $(RS_\gamma)$, so only mixtures
+  whose multi-rough part violates $(RS_\gamma)$ for every fixed $\gamma>0$ remain), or larger-sieve kernels with an uncontrolled factor
   $1+Nh/(W_K-h)$;
 \item[(iv)] a direct count above modulus $N/2$: a hybrid method that
   counts classes of modulus in $(N/2,CN]$ exactly with large right-signed
@@ -4428,7 +4437,7 @@ and of prime order $k$ up to $k\log\log N$; and the factor $(\log\log N)^{3/4}$
 in Theorem~\ref{thm:main}.  Gone since version~4: super-polynomial
 large-sieve frequencies against mixtures with one prime factor
 $>\exp\{(\log N)^{1/4}\}$ per modulus (Theorem~\ref{thm:roughslice}), and against
-residue-sparse multi-rough classes (Theorem~\ref{thm:ressparse}).  Changed since
+mixtures satisfying $(RS_\gamma)$ (Theorem~\ref{thm:ressparse}).  Changed since
 version~4: the target in (iv) is weak SPW; the fixed-margin SPW of
 version~4 is refuted (Theorem~\ref{thm:SPWfalse}).
 
