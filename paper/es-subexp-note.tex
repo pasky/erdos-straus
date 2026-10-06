@@ -2467,10 +2467,10 @@ Theorem~\ref{thm:typical} bounds the number of primes $p\le x$ with $W(p)>T$
 from above.  Here we prove a matching lower bound in almost the same range,
 so that the Haar exponent $3$ of Theorem~\ref{thm:haar} is also the tail
 exponent of $W$ over primes.  Write
-\[
- N(x,T)=\#\{p\le x\ \text{prime}:\ W(p)>T\},\qquad
+\begin{gather*}
+ N(x,T)=\#\{p\le x\ \text{prime}:\ W(p)>T\},\\
  N_h(x,T)=\#\{p\le x\ \text{hard prime}:\ W(p)>T\}.
-\]
+\end{gather*}
 
 \begin{theorem}[Lower tail; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:lowertail}
 There are absolute constants $C,T_0$ such that for $T\ge T_0$ and every $x$ with
@@ -2485,7 +2485,7 @@ Theorem~\ref{thm:assembly} for the existence of one such prime: counting
 costs nothing in range.  The constants $C,T_0$ are effective, given that the
 implied constants of Theorem~\ref{thm:NT} are.
 
-\begin{corollary}[The tail exponent of $W$ over primes is $3$; proved modulo Theorems~\ref{thm:G}, \ref{thm:NT}, \cite{TQ} and Page's theorem]\label{cor:twosided}
+\begin{corollary}[Tail exponent $3$ over primes; proved modulo Theorems~\ref{thm:G}, \ref{thm:NT}, \cite{TQ} and Page's theorem]\label{cor:twosided}
 There are absolute constants $c,C,c'>0$ and $T_0$ such that for $T\ge T_0$ and
 $\Lc=\log T\le c'(\log x/\log\log x)^{1/4}$,
 \[
@@ -2521,7 +2521,7 @@ $\log x\ge C_2(1+\log A)\log Z$, and let $\beta_1$, $\chi_1$, $q_1$ be the possi
 exceptional zero of Theorem~\ref{thm:G} for the parameter $Q_G=x^{1/(\kappa L)}$ of
 that proof, its character and the conductor of $\chi_1$.  Then
 \[
- \#\{p\le x:\ p\equiv r\ (\mathrm{mod}\ Q),\ W(p)>T\}\ \ge\ \lambda\,\frac{\mu\,x}{3\varphi(Q)\log x},
+ \#\{p\le x:\ p\equiv r\ (\mathrm{mod}\ Q),\ W(p)>T\}\ \ge\ \frac{\lambda\,\mu\,x}{3\varphi(Q)\log x},
 \]
 where $\lambda=1$ unless $\beta_1$ exists and $q_1\mid Q$, and in that case
 $\lambda=\min\big(1,\,8c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}\big)$, with $c_2$ from
@@ -2544,6 +2544,130 @@ $S(x)=\sum_{p\le x,\,p\nmid N_0,\,p\equiv r\,(Q)}B(p)\log p$ is at most $\log x$
 term with $B(p)>0$ has $W(p)>T$, because $B(p)\le\mathbf 1[W(p)>T]$ for these $p$
 (they are coprime to all $d_i$).
 \end{proof}
+
+Applied to the quarantine of Theorem~\ref{thm:haarupper}, with the sandwich of
+Theorem~\ref{thm:assembly} but \emph{without} the auxiliary prime $\ell_{\rm aux}$
+(whose only role was to force $p>T$), Lemma~\ref{lem:qtransfer} already gives
+$N_h(x,T)\ge\pi(x)\exp(-C\Lc^3(\log\Lc)^5)$ for $\log x\ge C\Lc^4\log\Lc$: the losses are
+$\log\varphi(Q)$, $\log(1/\mu)\le\frac43S_\beta+0.02$ and
+$\log(1/\lambda)\le\frac12\log Q+O(\log\log Q)$, all $\ll\Lc^3(\log\Lc)^5$ by
+\eqref{eq:goodQ}.  So a single fibre has relative density
+$\exp(-O(\Lc^3(\log\Lc)^5))$: the expensive part $\Lc S_\beta$ of the construction
+(the junta) enters only the threshold for $x$.  To lower the power of $\log\Lc$
+we sum over all outcomes of the square-class process.
+
+\subsection*{The leaves of the square-class process}
+Run the square-class process of \S\ref{sec:system} with the parameters of
+Theorem~\ref{thm:haarupper} ($Y=\Lc^{C_0+4}$).  The rule ``step at the least
+heavy $\ell$'' is deterministic, so the process is a finite decision tree; its
+leaves are the final quarantines $L=(Q_L,r_L)$.  Let $k_L$ be the number of odd
+primes dividing $Q_L$ (the number of steps with $a=0$, the forced ones
+included), and $\PP_{\rm proc}$ the law of the process.
+
+\begin{lemma}[Leaves; proved]\label{lem:leaves}
+The fibres $\{n\equiv r_L\ (\mathrm{mod}\ Q_L)\}$ of distinct leaves are disjoint, and
+$\PP_{\rm proc}(L)=4\cdot2^{k_L}/\varphi(Q_L)$.
+\end{lemma}
+
+\begin{proof}
+Each step reveals one more digit of $n$, by a rule depending only on the
+digits already revealed.  Two distinct leaves first differ at a node where
+they take different values of the same digit, so their fibres are disjoint.
+The start $Q=8$, $r=1$ has Haar mass $1/\varphi(8)=1/4$ among the units.  A step
+at $(\ell,0)$ picks one of the $(\ell-1)/2$ nonzero squares modulo $\ell$, with
+probability $2/(\ell-1)$, and the chosen subfibre has conditional Haar mass
+$1/(\ell-1)$; a step at $(\ell,a)$, $a\ge1$, picks one of $\ell$ lifts, with
+probability $1/\ell$ equal to the conditional Haar mass.  (The forced step at
+$3$ picks the unique square $1$, with probability $1=2/(3-1)$.)  Multiplying
+along the path, $\PP_{\rm proc}(L)=2^{k_L}\cdot\varphi(Q_L)^{-1}/(1/4)$.
+\end{proof}
+
+\begin{lemma}[Number and size of the level-$0$ steps; proved modulo Theorem~\ref{thm:NT}]\label{lem:levelzero}
+Let $Q_{\rm end}$ be the final modulus and $k$ the number of odd primes dividing it.  Then
+\[
+ \E[k]\ll\Lc^3(\log\Lc)^2\log\log\Lc,\qquad \E[\log\mathrm{rad}(Q_{\rm end})]\ll\Lc^3(\log\Lc)^3 .
+\]
+\end{lemma}
+
+\begin{proof}
+As in Lemma~\ref{lem:book}(b), but only for the steps at level $a=0$ and with
+the weight $1$, respectively $\log\ell$, in place of $\log\ell$ for every level:
+optional stopping for $G^{(\ell,0)}$ gives
+\begin{align*}
+ \E[k]&\le3+\frac1\eta\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\omega_Y(M),\\
+ \E[\log\mathrm{rad}(Q_{\rm end})]&\le\log 210+\frac1\eta\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log\mathrm{rad}(M_Y),
+\end{align*}
+as $\sum_{\ell\le Y}\mathbf 1[\ell\mid M]=\omega_Y(M)$ and $\sum_{\ell\mid M,\,\ell\le Y}\log\ell=\log\mathrm{rad}(M_Y)$; the
+forced steps contribute $3$ and $\log105$, and the prime $2$ contributes $\log2$.
+
+For the first sum put $t=1+1/\log\log Y$.  Since $y\le t^y/(e\log t)$ for $y\ge0$ and
+$1/\log t\le t/(t-1)$, we have $\omega_Y(M)\le(1+\log\log Y)\,t^{\omega_Y(M)}$.  Repeat
+the proof of Lemma~\ref{lem:masses}(A) with $f_2t^{\omega_Y}$ in place of $f_2$.  Its
+values at prime powers are $\le6t\le7$ for large $T$, so the class condition of
+Theorem~\ref{thm:NT} holds uniformly in $T$, and its Euler factor at $p\le Y$ grows
+by the factor $1+O((t-1)/p)$; the product of these factors is
+$\exp(O((t-1)\log\log Y))=O(1)$.  So the first sum is
+$\ll\log\log Y\cdot\Lc^3\log Y$, and $\E[k]\ll\eta^{-1}\Lc^3\log Y\log\log Y$.
+
+For the second sum put $s=1/\log Y$.  Since $y\le e^{sy}/(es)$ for $y\ge0$,
+$\log\mathrm{rad}(M_Y)\le(\log Y)\,\mathrm{rad}(M_Y)^s$.  The function
+$\mathrm{rad}(m_Y)^s=\prod_{\ell\mid m,\,\ell\le Y}\ell^s$ is multiplicative with values in
+$[1,e]$ at prime powers, so $f_2\,\mathrm{rad}(\cdot_Y)^s$ has values $\le6e<17$ and the class
+condition again holds uniformly in $T$; the Euler factors grow by
+$1+O((\ell^s-1)/\ell)$, and $\ell^s-1\le(e-1)s\log\ell$, so their product is
+$\exp(O(s\sum_{\ell\le Y}\log\ell/\ell))=O(1)$.  So the second sum is $\ll\Lc^3(\log Y)^2$.
+As $1/\eta\asymp\log\Lc$ and $\log Y\asymp\log\Lc$, both bounds follow.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:lowertail}]
+Call a leaf $L$ \emph{good} if (i) $\tilde w_\ell\le\eta$ for every $\ell>Y$; (ii)
+$\log Q_L\le8\E[\log Q_{\rm end}]$; (iii) $S_\beta(L)\le8\E[S_\beta(\mathrm{end})]$; (iv)
+$k_L\le8\E[k]$; (v) $\log\mathrm{rad}(Q_L)\le8\E[\log\mathrm{rad}(Q_{\rm end})]$.  As in the proof
+of Theorem~\ref{thm:haarupper}, (i) fails with probability $\le1/4$, and by
+Markov's inequality each of (ii)--(v) fails with probability $\le1/8$.  So
+$\PP_{\rm proc}(\text{good})\ge1/4$.
+
+A good leaf satisfies \eqref{eq:goodQ} with $C$ replaced by $2C$ (by
+Lemma~\ref{lem:book} and Lemma~\ref{lem:masses}, as in Theorem~\ref{thm:haarupper}).  Build
+$B_L$ on its fibre exactly as in the proof of Theorem~\ref{thm:assembly}, with
+$S_1=2C\Lc^3\log\Lc$, and apply Lemma~\ref{lem:qtransfer} to $(Q_L,r_L)$ itself
+(no auxiliary prime).  The hypotheses of Theorem~\ref{thm:transfer} were
+checked in that proof for $(Q',r')$; the same checks apply to $(Q_L,r_L)$, as no
+cell, event or twist character involves $\ell_{\rm aux}$.  So $\mu_L\ge0.99\,e^{-4S_\beta(L)/3}$,
+$A\le1.03$ and $\log Z_L\le\log Q_L+2(3\Lc+2\tau)\le C_3\Lc^4\log\Lc$ with one
+absolute $C_3$ for all good leaves.  Take $C\ge C_2(1+\log1.03)C_3$; then
+Lemma~\ref{lem:qtransfer} applies to every good leaf at the same $x$.  The
+exceptional zero (if any) depends only on $x$, and $\lambda_L<1$ only if
+$q_1\mid Q_L$.  A real primitive conductor is $2^ef'$ with $e\le3$ and $f'$ odd and
+squarefree, so then $q_1\le8\,\mathrm{rad}(Q_L)$, and
+$\log(1/\lambda_L)\le\frac12\log\mathrm{rad}(Q_L)+O(\log\log Q_L+1)$.
+
+The fibres of distinct leaves are disjoint (Lemma~\ref{lem:leaves}), and the
+primes found on them are hard by Lemma~\ref{lem:system}(iii), as $840\mid Q_L$.  So
+\begin{multline*}
+ N_h(x,T)\ \ge\ \sum_{L\ \rm good}\frac{\lambda_L\mu_Lx}{3\varphi(Q_L)\log x}
+ =\frac x{12\log x}\sum_{L\ \rm good}\PP_{\rm proc}(L)\,2^{-k_L}\lambda_L\mu_L\\
+ \ge\ \frac x{48\log x}\min_{L\ \rm good}2^{-k_L}\lambda_L\mu_L .
+\end{multline*}
+On good leaves, $k_L\log2\ll\Lc^3(\log\Lc)^2\log\log\Lc$ and
+$\log(1/\lambda_L)\ll\Lc^3(\log\Lc)^3$ by Lemma~\ref{lem:levelzero}, and
+$\log(1/\mu_L)\le\frac43S_\beta(L)+0.02\ll\Lc^3\log\Lc$.  As $x/\log x\ge\pi(x)/1.26$, the
+theorem follows.
+\end{proof}
+
+\begin{remark}[Where the logarithms go; Assessment, and a conditional improvement]\label{rem:tailogs}
+The three losses are the square-class restriction $2^{-k_L}$ (the Haar price of
+never firing an event), the residual mass $S_\beta$ (the Haar truth $\Lc^3$ up to
+$\log\Lc$), and the possible exceptional zero.  Only the last is specific to
+primes: majorants absorb the exceptional term as a factor $1+\epsilon\le3$
+(Theorem~\ref{thm:typical}), minorants pay $1-\epsilon$.  If every real zero of every
+$L(s,\chi)$, $\chi$ real primitive of conductor $q\ge3$, satisfies $1-\beta\ge c_0/\log q$
+(as on GRH for real characters), then in Case~A $u\ge c_0\log x/\log Q_L\ge1$, so
+$\lambda_L\ge1/2$ and the bound of Theorem~\ref{thm:lowertail} improves to
+$\pi(x)\exp(-C\Lc^3(\log\Lc)^2\log\log\Lc)$ (conditional on this hypothesis).
+Siegel's ineffective bound $1-\beta\ge c(\varepsilon)q^{-\varepsilon}$ still costs $\varepsilon\log\mathrm{rad}(Q_L)$
+and does not remove the third logarithm.
+\end{remark}
 
 \section{Beyond bounded level: a Wiener-norm barrier for linear certificates}\label{sec:wiener}
 
