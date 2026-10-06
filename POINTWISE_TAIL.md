@@ -141,7 +141,7 @@ Multiply along the path: `P_proc(L)=2^{k_L}·Haar(L)/(1/4)`, `Haar(L)=1/φ(Q_L)`
 (`β=1+1/log𝓛`, `η=(3/4)logβ`, `Y=𝓛^{C_0+4}`),
 
 ```
-E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log𝓛)²·logloglog… ≪ 𝓛³(log𝓛)²log log𝓛.
+E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log𝓛)²log log𝓛.
 ```
 
 *Proof.* First inequality: O13 Lemma 3.2(b) with `logℓ` replaced by 1 and only `a=0`:
@@ -150,6 +150,6 @@ E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log�
 Second: put `t:=1+1/loglogY`. Since `y≤t^y/(e·log t)` for `y≥0`,
 `ω_Y(M) ≤ (loglogY+1)·t^{ω_Y(M)}/e`. Summing over D as in O13 (notation `w(M)`), it suffices that
 `Σ_{M≤T, M≡3(4)} w(M)t^{ω_Y(M)}/M ≪ 𝓛³logY`. This is O13 Lemma 3.3(A)'s first display with `f_2`
-replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤12^k` (NT class, uniform in T), and
-the Euler product over `p≤Y` changes by `∏_{p≤Y}(1+2β(t−1)/(p−1)) ≤ exp(2β(t−1)(loglogY+O(1)))=O(1)`.
+replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤2tβ·(3/2)≤8^k` for large T (NT class, uniform in T), and
+the Euler-product bound for `Σf_2t^{ω_Y}(n)/n` exceeds that for `Σf_2(n)/n` by at most `∏_{p≤Y}(1+2β(t−1)/(p−1)) ≤ exp(2β(t−1)(loglogY+O(1)))=O(1)`.
 Hence `E[k] ≪ η^{−1}·loglogY·𝓛³logY ≍ 𝓛³(log𝓛)²log log𝓛` (`logY≍log𝓛`). ∎
