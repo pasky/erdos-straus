@@ -72,3 +72,33 @@ Re-derived every step:
   5, 6 (and 7). Controls: dropping `F≡−1 (m')` gives 66/40/32 hits, so the test has power.
 Remark (not a defect): P5.5 does not use `w` beyond `δ` odd and `F≢1`; it is a statement about odd-part
 conditions. Remark 5.6 (level 7 open) is correctly labelled.
+
+### Prop 3.1 (sterile set closed, nowhere dense) — SOUND; scope correctly weakened
+Re-checked: `U⊂Σ_7` once `2^3·3·5·7 | Q`. For `F≡3 (4)`: `(−7/F)=(−1/F)(7/F)=(−1)(−(F/7))=(F/7)=(−x_7/7)=1`;
+`(p/F)=(F/p)(−1)^{(p−1)/2}`, so all conditions on F are classes mod `28p` (coprime pieces) and Dirichlet applies.
+`Cl(7p,1,F)∩U≠∅` by CRT (2: `1 mod 4` vs `x_2≡1 (8)`; 7: `−F≡x_7`; p, F free; root of `y²≡−28p (F)` is a unit).
+`sf(7p)=7p∉{1,2,3,6}`. Closedness from `St_7=⋂U_X`.
+What it does **not** say (the current text is accurate on this after the self-review): nothing about
+non-emptiness of `St_7`; nothing about thin sets (the fibre Φ is itself nowhere dense in `Σ_7`, so a sterile
+positive-Φ-measure set is not excluded; a closed positive-measure nowhere-dense set — fat Cantor type — is
+perfectly possible inside Φ); nothing about arguments using infinitely many coordinates of `x̂_9`. Note also
+that the heights `7p` of the killing certificates are unbounded as `U` shrinks, as they must be.
+Minor wording: "no ambient cylinder around `x̂_9` is sterile" is true for *every* point of `Σ_7`, so it carries
+no information specific to `x̂_9` (MINOR, see D-list).
+
+### §4 near-miss mass ≈61% — EVIDENCE label correct; numbers independently reproduced to 10⁸ (more below)
+From-scratch `tmin` mode of `review_typei3_fs.c` vs author `mass` mode on `f<10⁸`: the 198 `B f t_min` lines are
+**identical**. From-scratch exact union (`review_typei3_union.py`, exact rationals, nested/disjoint balls):
+uncovered 0.641806 at the last f below 10⁸, identical to `typei3_union.py`.
+Ball measure: `w∈−f+2^tℤ_2` has measure `2^{−t}/2^{−4}=2^{4−t}` in Φ, two roles ⇒ `2^{5−t}`; truncation error
+`(Y/112+1)·2^{−36}≈0.0013` at `Y=10¹⁰` re-derived. Heuristic tail `Σ_{j≥37}40·2^{5−j/2}=0.01179` re-derived.
+
+### Remark 4.1 (measure route) — SOUND (as a reduction)
+Φ compact, balls clopen; every certificate at `x̂_w` is recorded at both of its divisors, in particular at
+`f=min(F,e)`, so the killed set is `⊆ ⋃_{f<Y}B_f ∪ ⋃_{f≥Y}B_f`; `μ(U_Y)>Σ_{f≥Y}mass(f)` gives `w∈Φ` killed by no
+certificate with `v_7(c)` odd, and TYPEI2 L2.1 (x̂_w is a "square point": `w≡1 (8)` is a 2-adic square) removes
+`v_7(c)` even; so `x̂_w` is sterile in `Σ_7` and Theorem A(iii) applies (CONDITIONAL on H). f's with `f≢7 (16)`
+carry no certificates at any `w∈Φ` by Cor 5.2 (`t≥5`), so restricting the mass to `f≡7 (16)` is justified —
+the text should cite Cor 5.2 for this (currently it says "`t≤3` certificates would kill all of Φ; Computation 2.1
+shows none has f<10¹¹", which is weaker than needed for a tail over *all* f≥Y; see D-list).
+"not necessarily `x̂_9`": correct and important — positive measure gives no information about `w=9`.
