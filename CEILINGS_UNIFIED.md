@@ -30,7 +30,7 @@ exponent is `λ^{1/4}`; with Haar exponent `a` they are `a/(a+1)` and
 ## 1. The note's void is a Haar bound: `log(1/δ*(T)) ≫ 𝓛³` without log loss
 
 **Proposition 1.1 (PROVED given the note's Cor 4.3 = notes Thm 34.8/76.2,
-INTERNALLY PROVED).** There are `c, T_0 > 0` such that for `T ≥ T_0`,
+INTERNALLY PROVED).** There are (ineffective) `c, T_0 > 0` such that for `T ≥ T_0`,
 with `X = T^{1/(1+κ)}`:
 ```
 P_*(H_X(n) = 0) ≤ exp(−a_h' t³),   and   δ*(T) ≤ 8·exp(−c𝓛³),
@@ -63,7 +63,9 @@ inequality over squarefree `𝓛⁵`-rough moduli. The note's family is simpler
 for this purpose: one large prime per atom plus a revealed small coordinate
 `c` makes the events conditionally independent, so the exact product
 replaces Janson. The two documents were never cross-referenced. The new
-dependency is BV (via the note's supply theorem); POINTWISE_HAAR used only the
+dependencies are BV, Brun–Titchmarsh and Shiu (via the note's supply theorem,
+note Thm 4.2 and Lemma 3.3), and the constants become ineffective (the note's
+constants are not asserted effective, note §1); POINTWISE_HAAR used only the
 fundamental lemma. Both lower bounds remain valid.
 
 ## 2. Witness-modulus tail relative to π(x) (goal (b))
@@ -72,7 +74,8 @@ fundamental lemma. Both lower bounds remain valid.
 classical prime number theorem in progressions, uniform for
 `q ≤ exp(c₂√log x)`, with the Landau–Page exceptional term ("Page's theorem";
 Davenport, *Multiplicative Number Theory*, Ch. 20)).**
-There are absolute `c, c₁ > 0` such that, uniformly for `x ≥ 3` and
+There are absolute (not effective, as in the note) `c, c₁ > 0` such that,
+uniformly for `x ≥ 3` and
 `3 ≤ T ≤ exp(c₁(log x)^{1/4})`,
 ```
 #{p ≤ x prime : W(p) > T} ≪ π(x)·exp(−c(log T)³).
@@ -260,7 +263,8 @@ which is dominated by `s ≍ λ^{1/4}`, where `μ(s) = λ/s`, i.e. `λ = s·μ(s
 scales be handled at once; the arithmetic per block is (U−).)
 
 **Proposition 4.2 (the note's atoms block every low-level minorant; PROVED
-given note Cor 4.3 (INTERNALLY PROVED; inputs BV and Brun–Titchmarsh) and
+given note Cor 4.3 (INTERNALLY PROVED; inputs BV, Brun–Titchmarsh and Shiu;
+constants `c, T_0` not effective) and
 OMEGA14 Lemma 1.1/Thm 1.3 (PROVED, elementary)).** There are absolute
 `c, T_0 > 0` such that for `T ≥ T_0`, every modulus `Q` with `log Q ≤ T^{0.05}`
 and every unit class `r mod Q`: if `B` is a function on the fibre
@@ -269,16 +273,18 @@ functions of `n mod qQ`, `q ≤ D`), `B ≤ F_T` pointwise (`F_T` = no ES event
 of modulus `≤ T`), and `log D ≤ c(log T)⁴`, then `E_fibre B ≤ 0`.
 
 This sharpens OMEGA14 Thm 4.5 (`log D ≤ c𝓛⁴/log𝓛`, modulo (G), the effective
-Page bound and the fundamental lemma) by removing the `log𝓛` and those three
-inputs. Consequently, in OMEGA14 Cor 4.6 the optimality of OMEGA13 Thm 5.1
+Page bound and the fundamental lemma) by removing the `log𝓛`; it *replaces* those three inputs by the note's
+(BV, BT, Shiu), at the price of an ineffective `T_0` (OMEGA14's was effective). Consequently, in OMEGA14 Cor 4.6 the optimality of OMEGA13 Thm 5.1
 holds up to a factor `(log log p)^{1/4}` in `𝓛` (it was `(log log p)^{1/2}`).
 *(Suggested by the self-review of this file.)*
 
-*Proof.* Let `X = T^{1/(1+κ)}`, `t = log X`. Big coordinates: `X_ℓ = n mod ℓ`
-for the primes `ℓ ∈ (X^{1/2}, X]` with `ℓ ∤ Q`; small: all other coordinates
+*Proof.* Let `X = T^{1/(1+κ)}`, `t = log X`. Big coordinates: `X_ℓ` = the ℓ-adic unit
+component of `n` (as in POINTWISE_HAAR §0, `n mod ℓ^f`; a level-`D` function
+may read `n mod ℓ²`) for the primes `ℓ ∈ (X^{1/2}, X]` with `ℓ ∤ Q`; small: all other coordinates
 (the fibre fixes some of them). On the fibre the big coordinates are
 independent and uniform on units. A function of `n mod qQ`, `q ≤ D`, reads only
-big `ℓ | q`, fewer than `2 log D/t` of them, so it lies in `𝒱_k`,
+big `ℓ | q`, fewer than `2 log D/t` distinct ones (the events read `X_ℓ` only
+mod `ℓ`, so `p_ℓ` below is unchanged), so it lies in `𝒱_k`,
 `k = ⌊2 log D/t⌋`. Family 𝓕: the note's atoms (ES events of modulus
 `kℓ ≤ KX ≤ T`) with `ℓ ∤ Q`; each reads `c = n mod L_K` (small) and one big
 `X_ℓ`. Given any small configuration, `c` is a unit, and the active atoms at
@@ -403,7 +409,9 @@ By-products, all PROVED given the INTERNALLY PROVED 3/4 note:
   ledger (A)9 from CLAIMED/PROVISIONAL and fixes its normalisation.
 * **No positive minorant below level `c(log T)⁴`** on any fibre with
   `log Q ≤ T^{0.05}` (Prop 4.2). This sharpens OMEGA14 Thm 4.5 (which has a
-  `/log log T` loss and needs (G), Page and the fundamental lemma). So
+  `/log log T` loss and needs (G), the effective Page bound and the fundamental
+  lemma; Prop 4.2 replaces these by BV, BT and Shiu via the note, with an
+  ineffective threshold). So
   OMEGA13's exponent `(log p)^{1/4}(log log p)^{−1/4}` is optimal within the
   minorant-transfer architecture up to `(log log p)^{1/4}` in `log W`.
 * The "Haar-side route" to the 3/4 bound is the note's own route (§3). It
@@ -413,8 +421,9 @@ By-products, all PROVED given the INTERNALLY PROVED 3/4 note:
 * (A)9: relabel "INTERNALLY PROVED (via the 3/4 note, (B)11); see
   CEILINGS_UNIFIED Thm 2.1 for the `π(x)` form".
 * (H)25/(H)26: lower bound `𝓛³/log𝓛` → `𝓛³` (CEILINGS_UNIFIED Prop 1.1).
-* (H)27: Thm 4.5's `c𝓛⁴/log𝓛` → `c𝓛⁴`, inputs reduced to the note's BV
-  (CEILINGS_UNIFIED Prop 4.2); Cor 4.6's gap `(log log p)^{1/2}` → `(log log p)^{1/4}`.
+* (H)27: Thm 4.5's `c𝓛⁴/log𝓛` → `c𝓛⁴` (CEILINGS_UNIFIED Prop 4.2); inputs
+  (G)+effective Page+FL replaced by BV, BT, Shiu via the note; `T_0` then
+  ineffective; Cor 4.6's gap `(log log p)^{1/2}` → `(log log p)^{1/4}`.
 * New cross-entry: Thm 4.1 / Thm 4.3 as above.
 
 **Open / not done.**
