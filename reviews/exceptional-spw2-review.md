@@ -59,3 +59,26 @@ Re-derivation (independent).
 Verdict Lemma 1.1: **SOUND-AFTER-REPAIRS** (bookkeeping correct; title and
 third bullet overclaim necessity; relies on unstated hypothesis-free form of
 Thm 5.2 and on the KARY3 pointer).
+
+## Claim 2: Lemma 2.2 (near zone invisible) and its remarks
+
+Re-derivation: a class of modulus e > CN through n₀ ∈ [1,N] has e ≥ ⌊CN⌋ + 1,
+so n₀ + e ≥ ⌊CN⌋ + 2 > CN + 1 and n₀ − e ≤ N − ⌊CN⌋ − 1 < N − CN; it meets
+[1,N] only at n₀ (e > N). Correct for real C ≥ 1 as well.
+From scratch: `scripts/review_spw2_nearzone.py` (exact) — all e ∈ (CN, CN+3N],
+all n₀, |j| ≤ 3, C ∈ {3/2, 2, 5/2, 3}, N ≤ 57: no hit. ✔
+
+Remark "SPW1 Lemma 9.3 (σ ≤ 2/5) disappears once K ≥ 3/2": the lemma is
+**IF2** Lemma 9.3 (SPW1 has no §9) — m4. The script computes, for every
+q ≤ D and b, the single-q local system (c full lifts ≤ 1 − η, k − c sparse
+lifts ≤ K, sum = c): feasible at η = 1 iff K ≥ c/(k − c). Max over q, b:
+exactly **3/2 at C = 2** (q ≈ 0.4N, c = 3, k = 5), N = 12…200 ✔; but
+**4 at C = 3/2** and 3/4 at C = 3. So the "K ≥ 3/2" threshold is
+C = 2-specific (m5; state C = 2 or "K ≥ max_q c/(k−c)").
+
+Fejér remark in the same paragraph ("K ≳ η² log N/m₀² forced"): superseded by
+Thm 3.1 (K-free); I checked only that ‖T‖_∞ ≤ 4m₀N/e is right. The phrase
+"σ = η/(2K) ≍ 1/log N if η fixed" should be "≲ m₀²/(η log N)" (only an upper
+bound is proved; also η fixed is itself excluded by Thm 3.1) — m6.
+
+Verdict Lemma 2.2: **SOUND** (remarks need m4–m6).
