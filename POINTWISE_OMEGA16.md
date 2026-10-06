@@ -300,3 +300,33 @@ The ratio is visibly multiplicative in κ (at u=2: `0.942^κ≈0.942, 0.887, 0.8
 it drifts toward the prediction as x grows (κ=3: 0.958, 0.881, 0.846 at `x=10^7,10^8,10^9`;
 the gap is the usual `1/log x` secondary terms). This supports Prop 2.1(b): main-term forms
 fail by a factor `c^κ`, while log-scale forms (LS, PS_log) are untouched.
+
+**(N2) LS on the ES family itself** (`scripts/omega16_esleast.py`, `data/omega16/esleast_*.json`).
+Least prime `p≡1 (24)` with `W(p)>T` (SIZE §7 normalisation), exhaustive to `10^{11}`; δ* from
+POINTWISE_SIZE §7.2; `x_C` solves `δ*·li(x_C)/8=1` (Cramér/RA prediction for the first one).
+
+| T | `p_min` | `log p_min` | `log(1/δ*)` | `log x_C` | `log p_min/(𝓛+log(1/δ*))` |
+|---|---|---|---|---|---|
+| 31 | 2521 | 7.83 | 2.64 | 6.33 | 1.29 |
+| 127 | 33289 | 10.41 | 5.47 | 9.69 | 1.01 |
+| 511 | 2031121 | 14.52 | 9.40 | 14.04 | 0.93 |
+| 1023 | 2031121 | 14.52 | 12.02 | 16.85 | 0.77 |
+| 2047 | 2031121 | 14.52 | 15.11 | 20.14 | 0.64 |
+| 4095 | `>10^{11}` | `>25.33` | 18.77 | 23.98 | `>0.94` |
+
+(Counts of hard `p<10^{11}` with `W>T`: 40313, 2776, 107, 0 for `T=511,…,4095`, against
+`δ*π_h(10^{11})≈42400, 3120, 141, 3.6`; the deficit at fixed T shrinks as x grows — at T=511
+it is 18% at `10^9` and 5% at `10^{11}` — as Prop 7.1(a) of SIZE forces eventually.) The
+LS ratio stays `≈1` (CR with `A≈1`); the outlier `p=2031121` (`W>2047`) is a lucky early
+record. A scan of `[10^{11},10^{12})` for T=4095 is running (`data/omega16/esleast_1e11_1e12.*`).
+
+**(N3) Adversarial sieve systems** (`scripts/omega16_adversary.py`, `data/omega16/adversary_1e9.*`).
+Remove `κ` unit classes mod each prime `3≤ℓ≤z` (`z≤1000`, `κ≤8`), chosen greedily to kill the
+smallest surviving primes (ℓ in increasing, decreasing or random order — a "Jacobsthal for
+primes" adversary). Over all 69 configurations with an answer below `10^9`, the LS ratio
+`log p_min/(log z+log(1/δ))` lies in `[0.75,1.15]`; the best (increasing-order) adversary
+reaches 1.12–1.15 and does not grow with κ (z=100: 1.00, 1.07, 1.12, 1.15, 1.15, 1.14 for
+κ=1,2,3,4,6,8). Against the random-set prediction `p≈log p/δ` the adversary gains a factor
+`≈z^{0.85–0.9}` (e.g. z=1000, κ=6: `p_min=5.6·10^8`, `δp_min/log p_min≈425`), *independent of
+κ* — exactly the `T^{O(1)}` slack that the `log T` term of LS (or `A log T` of CR) absorbs, and
+never a factor growing with the dimension. No toy system violates LS(1.2).
