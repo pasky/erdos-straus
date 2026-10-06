@@ -8,9 +8,13 @@ no `scripts/mordell_*` code was imported. Scripts: `scripts/review_mordell_*.py`
 | claim | verdict |
 |---|---|
 | Thm 3.1(a),(b) (finite-computation theorem) | **SOUND** (independently re-certified; minor wording) |
-| Computation 4.1 + "every finite covering needs modulus > 10⁶" | see §2 |
-| Novelty vs Salez / Mordell / literature | see §3 |
-| Labels: Conj 4.2, §5 EVIDENCE, Theorem C discussion | see §4 |
+| Computation 4.1 + "every finite covering needs modulus > 10⁶" | **SOUND** (bullet 1 re-checked at 10⁶; bullet 2 for 15/16 T-levels) |
+| Novelty vs Salez / Mordell / literature | **GAP** (overclaimed; Salez's sieve already gives the mod-120120 analogue) |
+| Conj 4.2 "Equivalently" | **GAP** (only ⇒; repair wording) |
+| Comp 5.1 / §5 r=17 | **SOUND** (re-checked at 10⁶ and 17⁴) |
+| Theorem C discussion | SOUND-AFTER-REPAIRS (label as Assessment) |
+
+No FATAL defects. MAJOR: #6 (novelty), #8 (false equivalence). Rest MINOR.
 
 ## 1. Theorem 3.1 — SOUND
 
@@ -149,3 +153,38 @@ in 2014; Thm 3.1 is the same sieve one level deeper (2⁴, 3²), sliced by (p/13
    gives 2620 at 10⁵). So "1499 at 10⁵" should read "1499 at 10⁶". The "relative density 1.6·10⁻⁶"
    is not reproduced: 1412 / (2160·13·16·18·22) = 7.9·10⁻⁶ of the (p/13)=−1 Mordell-hard residues
    (3.97·10⁻⁶ of all Mordell-hard residues). Fix the figure or state the normalisation.
+
+## 4. Labels: Conj 4.2, Theorem C discussion, §5 (r = 17)
+
+8. MAJOR (logic, Conj 4.2). "x* is sterile … **Equivalently** (ET Prop 1.9 completeness +
+   compactness) no finite set of polynomial ES identities covers all sufficiently large Mordell-hard
+   primes with (p/13)=(p/11)=−1". Only "⇒" holds: sterility of x* ⇒ (Dirichlet near x*, ET Prop 1.9
+   converse applied to the identity's primitive class containing x*, Dirichlet again) no finite
+   polynomial covering. The converse fails in general: if x* lies in some ET class, a *different*
+   point of Σ₁₃ (e.g. another point of the uncovered 25 % of the (2,2) cell) may still be sterile.
+   Repair: replace "Equivalently" by "In particular (by ET Prop 1.9 and compactness+Dirichlet)";
+   if an equivalence is wanted, it is "Σ₁₃ (main) contains a sterile point ⇔ no finite polynomial
+   covering".
+9. MINOR (label, "Why Theorem C does not explain it"). The claims "Jacobi-parity arguments only force
+   odd total {11,13}-valuation … satisfiable" and "the mechanism is the TYPEI2 one" are not proved
+   in the document (no computation, no lemma). Theorem C (POINTWISE_SIZE.md §, CONDITIONAL on H) is
+   about square-mimicking q*; x* is not square-mimicking (x*_11 = x*_13 = 2 are non-residues), so
+   Theorem C indeed does not apply — that part is correct. Label the rest "Assessment".
+10. MINOR (§2.1 label "PROVED, elementary"). I re-derived and checked the II1/I4 and II2 rigid forms
+    and their finiteness (review §2.3), and the T-generic congruences for those families. The rows
+    for I1, I2, I3, II3 were not independently re-derived by me; the I1 "rigid form" line
+    `(4ni−1)(4nj−1)=4naF+1, ad=Fn` overloads `n` (the ES variable) as a parameter — rename.
+11. §5 r = 17 — Computation 5.1 CONFIRMED independently: `review_mordell_point.py` gives 0 hits for
+    `x̃` (17:5) at Mmax = 10⁵ and 10⁶, and for 17:7 at 10⁵; `review_mordell_rigid.py 4 17:5` and
+    `4 17:7`: no II1/I4/II2 class with 17-part | 17⁴ contains them (II1/I4: 304, II2: 150
+    rigid candidates checked). `x̃ ∈ Σ₁₇^{np}`: 5, 7 are non-residues mod 17 (QR = {1,2,4,8,9,13,15,16}),
+    x̃_q = 1 elsewhere; primes near x̃ have least non-residue prime 17 (p≡1 (8), reciprocity). The
+    "modulus > 10⁶" consequence is correct. Labels EVIDENCE / CERTIFIED / CONJECTURE are appropriate.
+12. MINOR (§4 header). The section label "EVIDENCE / CERTIFIED computation" mixes a heuristic
+    survivor-rate paragraph ("≈5/11 then 9/11 …, not a product set") with Computation 4.1; keep
+    EVIDENCE for the former only.
+
+## 5. Not checked / limits
+* Rigid bullet of Comp 4.1 at the single T-level F = 11³·13³ (pure-Python enumeration too slow).
+* The DFS / Haar-mass numbers of §1–2 (EVIDENCE), T-generic box percentages (0.57 %, 0.44 %, 24.9 %).
+* Mordell's original text; Bradford papers beyond the campaign notes.
