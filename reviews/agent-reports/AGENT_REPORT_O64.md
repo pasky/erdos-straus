@@ -55,3 +55,22 @@ No proof defect found in Props 11.1/11.3, Thm 11.2, Lemma 12.1, Thms 12.2/13.1, 
   `≥(log p)^{2−o(1)}`; product-subset route certifies no more than `(log p)^{2+o(1)}`).
 * P3 status conventions + after (11.1): Page's theorem and BDH were recalled from Davenport, not
   re-checked against a source — now disclosed.
+
+## Response to referee R64 (`reviews/es-subexp-note-review-v5.md`, worktree-0017)
+All items applied; pdflatex ×2: 51 pp., 0 undefined, 0 overfull, no PDF-string warning.
+* **D1** Rem 11.4: majorant bound now cited as [SL, Thm 8.5 and Cor 8.6] via Lemmas 8.3–8.4,
+  applied fibrewise, with the proviso `p* ≤ 1/4`.
+* **D2** Rem 11.4: scope of [SL, Thm 10.14] added (CRT majorants ≥0 on ℤ, coefficient sum < N,
+  family primes ≤ N^A; Case A modulo Elsholtz–Tao §7); [SL] added to the status conventions.
+* **D3** sentence after Thm 11.2 on a matching lower bound now tagged "Assessment, not checked"
+  and phrased as an expectation.
+* **D4** status conventions: results of [O15], [O16], [SL] are labelled "proved *in*" those notes,
+  proofs sketched/referenced. Cor 12.3 label: "proved implication in [O15, Cor 2.4], same
+  inputs; sketch here"; Siegel statement: "proved in [O15, Thm 3.1], statement only here";
+  Prop 13.2(b): "proved in [O16] modulo BDH; sketch below"; §14 item adjusted.
+* **D5** Prop 12.4, intro and abstract: BV/EH/GRH enter only through their consequences for the
+  unweighted prime counts at the single scale x; multi-scale / `log p`-weighted information is
+  outside the framework (pointer to Scope).
+* **D6** §13 (i): "implies LS(C′) for some C′ = C′(C, c₀)"; intro product-set ceiling marked
+  "modulo BDH".
+* **N1** §11 title bookmark: `\texorpdfstring{$\Lc^4$}{L\textasciicircum 4}`.
