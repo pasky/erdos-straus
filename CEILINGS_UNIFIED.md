@@ -295,11 +295,11 @@ and minorant of `F = 1[no bit]` (symmetrisation loses nothing, KARY Lemma 2.3).
 | `P` | `log(1/E F)` | least `k` with minorant `E B > 0` | least `k` with majorant saving `≥ 90%` |
 |---|---|---|---|
 | 2 | 2.05 | 3 | 6 |
-| 4 | 4.21 | 7 | 10 |
-| 6 | 6.50 | 11 | 14 |
-| 8 | 8.93 | 15 | 18 |
+| 4 | 4.21 | 7 | 8 |
+| 6 | 6.50 | 11 | 12 |
+| 8 | 8.93 | 15 | 14 |
 
-Both thresholds are `≈ 2P + O(1)`: the same order for both one-sided
+Both thresholds are `≈ 2P ± 2`: the same order for both one-sided
 problems, as Theorem 4.1 asserts (its constants `0.6` and `e²` are not
 sharp). Below threshold the majorant still saves about `0.55k` (cf. (U−)),
 while the minorant is identically useless (cf. (L−)): the asymmetry that
