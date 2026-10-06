@@ -29,7 +29,7 @@ one pre-existing overfull hbox 1.29pt (lines 3818–3825). OK.
   are correct; the constant 64 = 4·16 matches the per-prime bound 4pℓ^{−α} (checked in (c)).
 * **Hyp 14.14 (H_rough) — labels SOUND** (conjecture; sufficiency only, R59 D1 respected). See
   minor point on the added "primes ≤ N^{O(1)}".
-* **Lemma 14.15 (residue concentration) — SOUND.** D=1 in Lemma \ref{lem:RM}'s description of 𝓡(M)
+* **Lemma 14.15 (residue concentration) — SOUND.** D=1 in Lemma 2.2's description of 𝓡(M)
   gives −4; Σ_{M'≤X, P⁻(M')>z, one class mod 4}1/M' ≍ log X/log z by Mertens/Buchstab
   (needs X ≥ z^{1+ε}, true for X = N^A).
 
@@ -98,7 +98,7 @@ one pre-existing overfull hbox 1.29pt (lines 3818–3825). OK.
   O14 Thm 1.3; "removes a factor log 𝓛 from O14 Thm 4.5" ✓ — CU also notes it *replaces* O14's
   inputs (G)/effective Page/fundamental lemma by BV/BT/Shiu; the paper says "given \cite{TQ}", OK).
 * **Thm 18.2 (ES sieve limit) — SOUND as a conjunction; labels honest.** (1) upper bound =
-  Thm 4.6 (noBcap = KA3 Thm 4.1, as CU's KARY3 Thm 4.1) ✓; (2) ✓; (3) proved within the stated
+  Thm 10.12 (noBcap = KA3 Thm 4.1, as CU's KARY3 Thm 4.1) ✓; (2) ✓; (3) proved within the stated
   scopes, Assessment outside ✓; the a/(a+1), 1/(a+1) extrapolation CONDITIONAL ✓; the reviewer's
   caution "(U−) for the subfamily does not bound majorants of the full avoider" is stated ✓;
   Remark 4.4 of CU reproduced accurately.
@@ -107,5 +107,93 @@ one pre-existing overfull hbox 1.29pt (lines 3818–3825). OK.
 * **Pointwise background + OMEGA16 pointer — SOUND-AFTER-REPAIRS** (minor scope/label points
   D-U1, D-U2 below).
 
+### Abstract, intro, §§16–17, numbering
+* Numbering after renumbering: all v5 labels resolve (aux: 14.12–14.18, 14.27–14.33, 18.1–18.2,
+  §§14.5, 14.6, 14.9, 16, 17, 18); no hard-coded theorem numbers in new text; the O65 change list
+  numbers match the PDF. "Twenty-five documents" now matches the list (25) ✓.
+* Abstract/intro/§16/§17 propagation of LS3/LS4/SPW/SPW2/CU: consistent with the theorems, with the
+  wording points D2, D3, D7 below. Thm 14.17 is presented everywhere as an implication from (A*)
+  (abstract: "reduced to a sup-decay hypothesis"; intro: "\lab{proved} implication") ✓; weak SPW
+  is open everywhere ✓; Thm 18.2 is "proved within the stated scopes" in the intro ✓.
+
 ## Defects
-(in progress)
+
+No FATAL and no MAJOR defect found. All numbered points are MINOR.
+
+**D1 (MINOR, presentation; author's check point 2). Lemma 14.31 uses a stronger Thm 14.27 than the
+one stated.** Lemma 14.31 allows η/K down to 4N^{−A₁}, so t ≍ η/K can be far below e^{−S_A},
+violating Thm 14.27's stated hypothesis "t, 1/Δ ≥ e^{−S_A}"; the proof of Lemma 14.31 removes this
+hypothesis in passing. I checked that the removal is correct: in the non-trivial case
+(1+Δ(1+c))B < tN ≤ N one gets s₀W⁺_{>CN} < N, so the level bound does not involve t or Δ, and t, Δ
+enter only the final line. *Repair:* drop "t,1/Δ ≥ e^{−S_A}" from Thm 14.27 (lines ≈3558–3560) and add
+one sentence to its proof sketch ("in the non-trivial case W⁺_{>CN} ≤ N/s₀, independent of t, Δ"),
+citing \cite[Rem. after Lemma 1.1]{SPW2}; then Lemma 14.31's proof can just cite Thm 14.27.
+
+**D2 (MINOR, overclaim echo of R53 M1). "Exact requirement" without "for this route".** The abstract
+(l. ≈75: "with an exact requirement on its margins") and §16 "New in version 5" (l. ≈4329: "the exact
+weak requirement that replaces it") drop the qualifier that the body (l. ≈3697–3700) and intro item 6
+carry. Lemma 14.31 is sufficiency only. *Repair:* "with a requirement on its margins that is exact
+for this route" / "…that replaces it as the target of this route".
+
+**D3 (MINOR, hidden parameter). The residue-sparse cap depends on γ.** Abstract l. ≈79–84 states
+"saves at most O((log N)^{3/4}(log log N)^3) … and more generally whenever the classes with several
+such primes are residue-sparse"; Thm 14.18 gives C γ^{−3}(log N)^{3/4}(log log N)^3 only for
+N ≥ exp(Cγ^{−4}). *Repair:* "O_γ(…)" or "(RS_γ) with γ > 0 fixed" in the abstract and intro item 6
+(the §16 item already has the factor γ^{−3}).
+
+**D4 (MINOR, statement drift). Hyp 14.14 (H_rough) adds "primes ≤ N^{O(1)}".** LS3 §4's (H_rough)
+has no such restriction, and Thms 14.13/14.18 (its proved cases) have none either. The added
+restriction makes the hypothesis weaker, so it is not wrong, but the conclusion drawn ("a cap … over
+every such mixture") is then only for such mixtures, and the reader may think 14.13/14.18 need it.
+*Repair:* drop "with primes ≤ N^{O(1)}" (matching the source), or say explicitly it is this note's
+restriction. Also add that the implication uses the density lemma (KA2 inputs), not Thm 14.12 alone.
+
+**D5 (MINOR, undefined quantity). Lemma 14.15's "conditional mass at the residue −4 mod p".**
+Not defined in the paper; in LS3 it is the deterministic sum m*(p,b) = Σ_{C∋p, b_C≡b (p^v)}p^v/G_r(C).
+As written it reads like a probability under some law, for which "≍" would need an argument.
+*Repair:* define m*(p,b) in one line before the lemma.
+
+**D6 (MINOR, scope/label). OMEGA16 sentence in §18 (l. ≈4628–4635).** (a) "the heuristic truth is
+1/3" carries no label — mark *Assessment*. (b) "EH-, GEH- and BV-type input … stays capped at 1/4":
+O16 Prop 3.1 covers only Haar-centred error bounds for primes in progressions/characters of
+moduli ≤ x — for GEH only its specialisation to primes in progressions, and not full GRH (O16
+review R61 M1). *Repair:* "Haar-centred progression input (BV, EH(θ), the progression part of GEH;
+not full GRH or GEH)". (c) O16 Thm 1.2 is conditional on LS *and* modulo Nair–Tenenbaum; say so.
+
+**D7 (MINOR, wording). "Only residue-dense classes remain" (§17 (iii), §16 item 1, intro item 7).**
+(RS_γ) is a property of the *union* Res_ℓ(𝔊₂) over all multi-rough classes, not of single classes:
+many individually H-small classes with different (r,s) can make the union dense. *Repair:* "only
+mixtures whose multi-rough part violates (RS_γ) for every fixed γ > 0".
+
+**D8 (MINOR, citations; author's check point 3). Published inputs of §18 not in the bibliography.**
+"Gallagher's 1970 theorem on primes in progressions" (Invent. Math. 11 (1970), 329–339) is not in
+the bibliography and is easily confused with \cite{Gallagher} (larger sieve, 1971); Nair–Tenenbaum
+(Acta Math. 180 (1998)) and the effective Page bound / fundamental lemma have no entries.
+POINTWISE_OMEGA15 is cited as \texttt{} only, although Thm 18.2(3)'s scope rests on it; give it a
+bib entry with its review (`reviews/pointwise-omega15-review.md`). O13 Thm 5.1 is also modulo the
+internal OMEGA10 Thm 3.4 — "published inputs listed there" should say "published and internal
+inputs". *Repair:* add the entries; one clause.
+
+**D9 (MINOR, cosmetic).** (a) Def 14.28 keeps label `hyp:SPW` (harmless; rename to `def:SPW` if
+convenient). (b) Thm 14.33's Lipschitz term has m₀(m₀+1); the derivation gives m₀(m₀−1) — the
+stated bound is weaker and correct, no change needed. (c) Thm 14.18 with H ≤ z^{1/4}/2 actually
+yields U(Res_ℓ) ≤ ℓ^{−1/2}, i.e. γ = 1/2; γ = 1/4 as stated is fine because γ' = min(γ,1/4)
+anyway — a footnote would preempt the question. (d) LS3 review D6(a) (Q₀ ∤ M_s; take the
+marginal) is not mentioned in the prose density lemma; one parenthesis would do.
+
+## Points the author asked to be checked
+1. Thm 14.13 "no bound on modulus size" — **confirmed** (𝔐(y) sums over the whole universe 𝔘 of
+   y-smooth-topped classes, KA2 §3; (Q1) holds for every 𝔊 ⊆ 𝔘; the J-integral to ∞ is fine).
+2. Lemma 14.31 vs Thm 14.27 hypotheses — the removal is **correct** but should be stated at
+   Thm 14.27 (D1).
+3. §18 published inputs not individually cited — **yes, should be fixed** (D8).
+
+## Recommendation
+**Accept after minor revision** (D1–D8; D9 optional). Every new v5 theorem was re-derived
+(Thms 14.12, 14.13, 14.17, 14.18, 14.30, 14.33; Lemmas 14.15, 14.16, 14.31) and the cited-only
+results were checked against their sources (LS3, LS4, SPW, SPW2, CU, O13/O14/O16 statements).
+From-scratch scripts: `scripts/review_r65_smoothrough.py`, `review_r65_damped.py`,
+`review_r65_spw_cert.py` (both SPW certificates reproduced exactly), `review_r65_twosided.py`.
+Labels are honest: Thm 14.17 is an implication from the open (A*); weak SPW is open; Thm 18.2 is a
+conjunction within scopes, Assessment outside; ES is nowhere claimed. The cap of Thm 10.12/main
+theorem is unchanged, as stated.
