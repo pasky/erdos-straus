@@ -23,7 +23,7 @@ common period). Fourier coefficients `ν̂(θ) = E_{n mod Q} ν(n) e(−nθ)`,
 | Prop 5.1 | `E(N) ≤ M(N) ≤ Ne^{−c(log N)^{3/4}}`; random-translate and greedy lower bounds are far below the 3/4 scale | PROVED |
 | (W) | is `M(N) ≥ Ne^{−C(log N)^{3/4}}`? | OPEN QUESTION |
 | Lemma 6.1 | sharp weights, general majorants: best bound ≥ `max(M(N), LP₁(h/N))` (window sieve limit (W′)) | PROVED; (W′) open |
-| §5.1 | toy translate sieve (ℛ(ℓ) prime slices): optimised translates keep far more of the window than random translates, between the random and large-sieve scales | EVIDENCE |
+| §5.1 | toy translate sieve (ℛ(ℓ) prime slices, N = 300, 1000): optimised translates reach savings 2.4, 3.0 (large-sieve upper bound 0.7, 0.9; random translates 12.5, 15.9): near the sieve scale, consistent with (W) | EVIDENCE |
 
 **Verdict.** Weights below 1 split into two very different doors.
 * *Hit-pattern majorants* (NC §2.5's class): the sharp weight is closed

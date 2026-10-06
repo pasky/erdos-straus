@@ -26,8 +26,8 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
 5. **Sharp weights, general majorants (Lemma 6.1):** best bound ≥ max(M(N), LP₁(h/N)) where
    LP₁(h/N) is the w ≥ 1 LP for the window-average function ("window sieve limit" (W′), open).
 6. **M(N) itself (§5):** E(N) ≤ M(N) ≤ N e^{−c(log N)^{3/4}}; random-translate and greedy lower
-   bounds are far below. Toy numerics (EVIDENCE, §5.1): optimised translates keep far more
-   avoiders than random translates.
+   bounds are far below. Toy numerics (EVIDENCE, §5.1, N=300/1000): local-search M(N) savings 2.4/3.0 vs
+   large-sieve bound 0.7/0.9 vs random translates 12.5/15.9 — consistent with (W), no exponent info.
 
 ## What remains (exact)
 * (W) `M(N) ≥ N e^{−C(log N)^{3/4}}` for forced-class families — closes ALL per-frequency doors
