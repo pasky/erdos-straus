@@ -87,8 +87,8 @@ shift-uniform methods. `M(N) ≥ #(𝒜∩[1,N])`, and M(N) is in general much l
 than the true count on [1,N] (it is a maximum over all of ℤ, i.e. over all CRT
 translates of the family).
 
-**Lemma 1.2 (LP duality for per-frequency bounds; PROVED).** For every weight
-`w ≥ 0` with `w(−θ) = w(θ)`,
+**Lemma 1.2 (convex duality for per-frequency bounds; PROVED).** For every weight
+`w ≥ 0` with `w(−θ) = w(θ)` and `w(0) > 0`,
 
     min { R_w(ν) : ν majorant of 𝒜 }
       = max { Σ_{n mod Q} g(n) 1_𝒜(n) : g: ℤ/Q → [0,∞), |Q ĝ(θ)| ≤ w(θ) ∀θ }.   (1.3)
@@ -100,9 +100,12 @@ chosen conjugate-symmetric, so g is real). Hence `R_w(ν) = max_{g∈G} ⟨g, ν
 The constraint "ν majorant" is `ν ≥ 1_𝒜` pointwise on ℤ/Q (since 1_𝒜 ≥ 0). By
 Sion's minimax theorem (bilinear form, G compact convex, feasible set convex),
 `min_{ν ≥ 1_𝒜} max_{g∈G} ⟨g,ν⟩ = max_{g∈G} inf_{ν ≥ 1_𝒜} ⟨g,ν⟩`. The inner
-infimum is −∞ unless g ≥ 0, and then it is `⟨g, 1_𝒜⟩` (attained at ν = 1_𝒜). ∎
+infimum is −∞ unless g ≥ 0, and then it is `⟨g, 1_𝒜⟩` (attained at ν = 1_𝒜).
+The max is attained (G compact); the min is attained because ν ≥ 0 and
+`R_w(ν) ≥ w(0)Eν` make the sublevel sets bounded when w(0) > 0. (This is
+convex/SOCP duality; "LP" below is used loosely.) ∎
 
-*Remark.* `g(n) = Ψ(n − t)` periodised is in G (its `Qĝ` is `Ψ̌(θ)e(−tθ)`), which
+*Remark.* `g(n) = Ψ(n − t)` periodised is in G (its `Qĝ` is `Ψ̌(−θ)e(−tθ)`, of modulus `|Ψ̌(θ)|` as Ψ is real), which
 is the dual form of Lemma 1.1. The KARY/NC caps are the statement that, for
 `w ≥ 1` at θ ≠ 0 (and the prime-slice/forced structure), G contains a g with
 value `≥ N e^{−C(log N)^{3/4}}`; such g may be very rough. For weights below 1,
@@ -154,7 +157,7 @@ M is nondecreasing, and `⌈N/K⌉ ≤ N`. ∎
 
 **Corollary 2.2 (PROVED).** (a) For the window Φ_K there is a majorant ν of 𝒜
 (a general Q-periodic function, not a hit-pattern or level-restricted one)
-whose per-frequency bound is `≤ 12(K+1)M(N)`. (b) Hence, for per-frequency
+whose per-frequency bound is `≤ 12(K+1)M(N)`. (b) Hence, for fixed K and per-frequency
 smooth rounding over general majorants, a cap of the form
 `saving ≤ C(log N)^{3/4}` holds **if and only if**
 `M(N) ≥ N exp(−C′(log N)^{3/4})` (with C, C′ related by `log(12(K+1))`).
@@ -177,8 +180,10 @@ system (Q₀ = 1, one prime ℓ per class set F_ℓ) M(N) is the **translate sie
     M(N) = max_{(c_ℓ)} #{ j ∈ [1,N] : j + c_ℓ ∉ F_ℓ (mod ℓ) for all ℓ }.     (2.2)
 
 A class set with `N·|F_ℓ| < ℓ` has a gap of length N mod ℓ and is avoided at no
-cost. For forced classes `|ℛ(M)| = M^{o(1)}`, so only moduli `≤ N^{1+o(1)}`
-matter for M(N). The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
+cost. In a prime-slice system of ℛ(ℓ) classes (`|ℛ(ℓ)| = ℓ^{o(1)}`, independent
+primes) only moduli `≤ N^{1+o(1)}` therefore matter for M(N); for overlapping
+composite moduli the CRT choices are not independent and this reduction is
+not claimed. The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
 note's bound is shift-uniform). Whether M(N) is that large is §5.
 
 ## 3. Sharp weights for hit-pattern majorants: capped unconditionally
@@ -298,7 +303,7 @@ NC (2.6) / IF Lemma 4.1 need `M_S^{|W|} ≳ e^{−o(λ)} A_S` (or `N^{−A}Π(1�
 then `M_S^{|W|} ≥ (c_Φ/6) A_S`.
 
 *Proof.* Let T be Selberg's minorant of the arc `‖θ‖ ≤ c/N` (c = c_Φ) on ℝ/ℤ, a
-trigonometric polynomial of degree `H = ⌊N/c⌋ − 1` with `T ≤ 1_{‖θ‖≤c/N}`,
+trigonometric polynomial of degree `H = ⌈N/c⌉ − 1 ≤ N/c` with `T ≤ 1_{‖θ‖≤c/N}`,
 `T̂(0) = 2c/N − 1/(H+1) ≥ c/N`, `|T̂(k)| ≤ |1̂_arc(k)| + (2c/N − T̂(0)) ≤ 3c/N`. Then
 `M_S ≥ (N/3) A_S P(‖X_S‖ ≤ c/N) ≥ (N/3) A_S E T(X_S)` and
 `E T(X_S) = Σ_{|k|≤H} T̂(k) Πφ_ℓ(k) ≥ (c/N)(1 − 3·(1/6))`. ∎
@@ -306,7 +311,7 @@ trigonometric polynomial of degree `H = ⌊N/c⌋ − 1` with `T ≤ 1_{‖θ‖
 **Lemma 4.2 (one large prime; PROVED).** If S = {ℓ} with `ℓ ≥ 2|F_ℓ|N/c_Φ`, then
 `M_S^{|W|} ≥ c_Φ/6 ≥ (c_Φ/(6√|F_ℓ|))·A_S`.
 
-*Proof.* Fejér at a point `x₀ ∈ F` (`H' = ⌊cℓ/N⌋ ≥ 2|F|`): the Fejér kernel is
+*Proof.* Fejér at a point `x₀ ∈ F` (`H' = ⌈cℓ/N⌉ ≥ 2|F|`; integer `|h| < H'` still have `‖h/ℓ‖ ≤ c/N`): the Fejér kernel is
 nonnegative, so `Σ_{|h|<H'}(1−|h|/H')1̂_F(h)e(hx₀/ℓ) = ℓ^{−1}Σ_{y∈F}F_{H'}((x₀−y)/ℓ)
 ≥ H'/ℓ`; removing h = 0 (value p) gives `Σ_{0<|h|<H'}|1̂_F(h)| ≥ (H' − |F|)/ℓ ≥ c/(2N)`,
 and these h have `‖h/ℓ‖ ≤ c/N`. Finally `a_ℓ ≤ (ℓ Σ|1̂_F|²)^{1/2} ≤ √|F|`. ∎
