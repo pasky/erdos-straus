@@ -53,3 +53,18 @@ a union of square cosets (`H_5(840)` is `{1,3,5} mod 7`).
 ## Next steps (if sent back)
 Prove ADM_m at least for medium/large ℓ (second moment of completed-atom counts; needs a Shiu-type
 divisor bound in progressions to smooth moduli), and settle the small-prime prefix rigorously.
+
+## Repairs after review R63 (`reviews/pointwise-mn-review.md`, branch side-agent/review-mn)
+* **MAJOR-1** (Cor 6.1 was a bullet summary): §6b now contains a written substitution proof,
+  items (0) parametrisation, (i) 2-adic coordinate in O11's graded quarantine for odd m (start
+  `a_2 = 3`, survival `gcd(M,Q) | mD+1`, (I) via TRANSFER Lemma 5.1(ii)), (ii) OMEGA12 Lemma 3.1's
+  "q = 2 omitted" replaced by the `ℓ | mad` dichotomy, (iii) OMEGA12 Lemma 4.1's oddness claims
+  replaced (≤ 4 roots mod 2^k, ET Thm 7.1 with C = 4, `P < 8mZ³`, cutoffs `A, B ≥ 4m`,
+  `gcd(ma², b_a) = 1` from `qb_a − ma²d_0 = 1`), (iv) Lemma 6.2 start with `a_2 = 3`, (v) prime side:
+  p ≡ 1 (Q), Type-II-hard (not "Mordell-hard"). Label kept as PROVED modulo (G), ET, OMEGA10 —
+  please confirm against the review's list.
+* MINOR-1: Type II scope paragraph in §3. MINOR-2: ADM_m fixes `Y = 𝓛^{C_K+4}`. MINOR-3: `Π_new = Π·N·1[match]`.
+  MINOR-4: 2 is an ordinary AUP coordinate for odd m; "M odd ⇒ p_0 = P_H" not used.
+  MINOR-5: Cor 6.1 states the output primes are ≡ 1 (Q) and Type-II-hard only.
+  MINOR-6: `H_5(840) = {r ≡ 1 (4)} ∩ {r mod 7 ∈ {1,3,5}}`, and `{1,3,5}` is 1 plus two of the three non-residues.
+* Also in this report, item 8 above: Cor 6.1 now rests on the written §6b proof, not only on the subagent check.
