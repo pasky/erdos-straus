@@ -275,7 +275,7 @@ progressions to smooth moduli larger than the range of ℓ, which we do not have
 
 | item | statement | label |
 |---|---|---|
-| Lemma 1.1 | `(−mD|M)` formula; `= −1` for all atoms iff (in effect) `m ≡ 0 (4)` | PROVED (+ check, M ≤ 5·10⁴, 11 values of m) |
+| Lemma 1.1 | `(−mD|M)` formula; `= −1` for all atoms iff `m ≡ 0 (4)` (with Prop 2.1) | PROVED (+ check, M ≤ 5·10⁴, 11 values of m) |
 | Prop 2.1 | `m ≢ 0 (4)`: infinitely many prime atoms meet both square cosets; square-class process fires | PROVED |
 | Thm 3.1 | `m ≡ 0 (4)`: Haar exponent 3 (`𝓛³/log𝓛 ≪ log(1/δ*_m) ≪ 𝓛³(log𝓛)^5`) and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. | PROVED modulo (G), NT, fundamental lemma, OMEGA10 Thm 3.4 (substitution proof; needs review) |
 | Prop 3.2 | Haar lower bound `≫ 𝓛³/log𝓛` for every m ≥ 4 | PROVED modulo fundamental lemma |
