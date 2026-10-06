@@ -95,6 +95,36 @@ pointers — label issue D4. Scope paragraph: SOUND-AFTER-REPAIRS (D5).
 * Prop 12.4 re-derived: `log x < 0.6ℒ(k+1)` ⇒ every `q ≤ x` has `≤ k` big primes ⇒ `E_ν h = E_H h`;
   `N − N_{x,q} ≤ ω(q) ≤ log q/log 2 ≤ 2log x`. The P1 repair (centring at `N_{x,q}`) is consistent.
 
+**C7 — §13 (LS, Thm 13.1, remarks, Prop 13.2).** Thm 13.1: SOUND. LS: correctly labelled a
+conjecture everywhere (§13 header "a conjecture", Thm 1.5/13.1 "conditional on LS", §14 Not-claimed
+list); intro statement of LS agrees with LS(C) of §13. Prop 13.2(a): SOUND. Prop 13.2(b):
+statement matches O16 Prop 4.1(b)/Cor 4.2; proof only sketched (D4). Remarks: SOUND (nit D6).
+* Thm 13.1 re-derived. The system `ℰ_T` (all `ℛ(M)` classes, `M ≤ T`, plus the 186 non-square unit
+  classes mod 840) has moduli `≤ T` and unit classes (`gcd(4D,M)=1` as `4A_M=M+1`). The quarantine
+  modulus Q is *not* put into the system (its modulus may exceed T) — it is used only to lower-bound
+  `δ(ℰ_T) ≥ δ/φ(Q)` (units `≡ r (Q)` with `F=1` lie in `S(ℰ_T)` by Lemma 4.4(i), Lemma 4.1 and
+  `840|Q`, r a square mod 840). With (5.x) `log Q, S_β ≪ ℒ³(log ℒ)^5` this gives
+  `log p ≤ C(ℒ+Cℒ³(log ℒ)^5)`; `p>T ≥ 840` is coprime to 840, avoids the non-squares, hence is in a
+  hard class; `W(p)>T` by Lemma 4.1. `ℒ ≥ c(log p)^{1/3}(log log p)^{−5/3}` uses `log ℒ ≤ log log p`.
+  Correct. LS is indeed used once per T.
+* LS sanity: I tried the obvious stress cases (single class mod `P(T)`: Linnik; Jacobsthal-type one
+  class per prime; a Siegel-zero character with the avoiding set `{χ=−1}`: Linnik's theorem with
+  Deuring–Heilbronn still gives primes in `(T,T^C]` for `q ≤ T`) — none refutes it; it remains a
+  conjecture, as stated. The two remarks ("`C log T` cannot be dropped", "restriction to moduli
+  `≤ T` matters") are correct.
+* Prop 13.2(a) re-derived: `y=T^{1/2+ε}`, every atom has at most one prime `>y` (to the first
+  power, `M ≤ T`); Lemma 4.2 kills atoms with all primes `≤ y`; `|B_ℓ| ≤ Σ_{v≤T/ℓ}τ(A_{vℓ}²) ≤
+  T^{1/2−ε+o(1)}`. Correct asymptotically. **From scratch** `scripts/review_r64_ls_product.py`
+  (T=1500): atom-class identity `{−uv^{−1}} = {−4D : D | A_M²}` for all `M ≤ T`; the unit squares
+  mod 840 are exactly Mordell's six classes; every prime in `(T, 3·10⁶]` avoiding `ℰ_T` has
+  `W(p)>T` by direct evaluation and is hard (and conversely); the product set S of (a) avoids every
+  atom (component-wise check). (At T=1500 one has `max|B_ℓ|/ℓ = 0.90 > 1/2` — the `T^{o(1)}` of
+  the divisor bound is not yet small; harmless for the asymptotic statement.)
+* (b) sketch checked for logic: for each prime `q < ℓ₁/4` a blocked class at `ℓ₁` blocks only that
+  q; for each class a mod 4q either all `ℓ₁ ≡ a` or all `ℓ₂ ≡ −a^{−1}` are blocked; BDH on
+  average over `q ≤ √T(log T)^{−6}` (range `Q ≥ x(log x)^{−A}`, `x=√T`) supplies the class counts.
+  I did not re-derive the exponent −8.
+
 ## Defects
 
 **D1 (MINOR; Rem 11.4, "the binomial extrapolation of [SL, Lemma 8.3]").** The majorant bound
@@ -127,6 +157,12 @@ overstates what the paper itself contains. *Repair:* label Cor 12.3 "proved impl
 [O15, Cor. 2.4]; sketch here", give the Siegel statement a label ("proved in [O15, Thm 3.1]"),
 and add one sentence to the status conventions: results quoted from [O15], [O16], [SL] are
 internally reviewed working notes, proofs sketched or referenced.
+
+**D6 (MINOR/nit; §13 "Other strengths" (i), and intro sentence on product sets).** "A log-scale
+counting form … implies LS(C+1)": the deduction needs `c₀T^{C+1}δ^{−1} ≥ 2log x/1`, i.e.
+`T ≥ T₀(c₀,C)`; for small T the constant must be enlarged. Write "implies LS(C′) for some
+`C′=C′(C,c₀)`". The intro's "applied to product subsets of the avoiding set, cannot certify more than
+`(log p)^{2+o(1)}`" rests on Prop 13.2(b), i.e. modulo BDH (ineffective) — add "(modulo BDH)".
 
 **D5 (MINOR; Prop 12.4, the examples "Bombieri–Vinogradov, Elliott–Halberstam, GRH restricted to
 moduli ≤ x", and the intro/abstract lists).** The statements in `𝓘` are unweighted counts of
