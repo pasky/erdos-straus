@@ -140,7 +140,13 @@ Label caveats:
   belongs to the standalone note (ledger (B)11).
 * The general-numerator headline of `espaper.tex`, for
   `3 ≤ m ≤ (log N)^{3−ε}`, is **CLAIMED/PROVISIONAL**.
-* The cubic witness tail (ledger (A)9) is **CLAIMED/PROVISIONAL**.
+* The cubic witness tail (ledger (A)9),
+  `#{p≤x: W(p)>T} ≪ π(x)exp(−c(log T)³)` for `log T ≤ c₁(log x)^{1/4}`,
+  is now **INTERNALLY PROVED** (2026-10-06): it follows from the 3/4
+  note's atoms (`CEILINGS_UNIFIED.md` Thm 2.1, review SOUND; constants not
+  effective; the small-T range cites the uniform PNT in progressions with
+  the Landau–Page term from memory). It was CLAIMED/PROVISIONAL as notes
+  Thm 51.2(2). Together with (H)33 it is two-sided (§3.3).
 
 ### 2.2 3/4 is sharp for coefficient-sum congruence sieves over forced classes
 
@@ -232,7 +238,10 @@ family primes are `≤ N^A`. So the cap is exactly `(log N)^{3/4}`.
 Write-up: `paper/sieve-limits-note.tex` ("why 3/4 is sharp for congruence
 sieves"; v4 states the cap with no `log log` loss and adds the large-sieve,
 prime-only, hybrid and tuple sections of §2.3; v4 refereed internally in
-R36, MINOR REVISION, fixes applied). The 3/4 note
+R36, MINOR REVISION, fixes applied; v5, 73 pp., adds smooth–rough
+splitting and the residue-sparse all-level cap ((D)27–(D)28), the SPW
+updates ((D)26) and the unified sieve-limit picture of §3.3, refereed
+internally in R65, accept after minor revision, D1–D9 applied). The 3/4 note
 now has a remark that its ceiling is a theorem for its own architecture
 (sieve-limits v3 Thm 10.8 / Rem 10.9; KARY2 Cor 6.1). It replaces the
 note's earlier heuristic-ceiling caveat. The (D)19–(D)21 results are in
@@ -289,7 +298,54 @@ factor quoted in this subsection can be dropped.
     cited). Reviews: `reviews/exceptional-largesieve2-review.md` and
     `-review-2.md`. *Open:* H_LS∞ for forced families
     (**CONJECTURE**, Prop 5.2); composite kernels with huge
-    `Nh/(W_K−h)` and small prime factors.
+    `Nh/(W_K−h)` and small prime factors. (H_LS∞ is now proved for two
+    large subclasses of mixtures; next two items.)
+* **Large sieves at every frequency level, one rough prime per modulus**
+  (`EXCEPTIONAL_LARGESIEVE3.md`; ledger (D)27).
+  * *Smooth–rough splitting (Thm 1.1, PROVED, elementary).* Any large
+    sieve is capped by `β log N + log ρ + log E_{c∼π_s}𝓡_{2+2β}(π_c)`;
+    the z-smooth coordinates cost only a density factor ρ, affordable up
+    to `z = exp((log N)^{1/4})` (Lemma 2.1).
+  * *Cap (Thm 3.1, PROVED given the reviewed KARY2 inputs and ET Prop 1.4
+    for Case A).* For every forced mixture in which each modulus has at
+    most one prime factor above `exp((log N)^{1/4})` (any modulus size,
+    no B), every CRT-admissible large sieve — any rational frequencies,
+    any level — saves `≤ C(log N)^{3/4}(log log N)^3`. This closes
+    H_LS∞ for such families.
+  * *Residual.* Classes with ≥ 2 rough primes need a correlation-decay
+    statement (H_rough) (sufficient only). The symmetric local-lemma
+    route fails because −4 mod M lies in ℛ(M) for every M ≡ 3 (4)
+    (Lemma 4.2; "route fails" is an Assessment).
+  * *Label:* **PROVED as labelled** (review
+    `reviews/exceptional-largesieve3-review.md`, SOUND; two overclaims
+    repaired).
+* **(H_rough) reduced; the all-level cap for residue-sparse mixtures**
+  (`EXCEPTIONAL_LARGESIEVE4.md` with follow-ups LS5–LS7; ledger (D)28).
+  * *Damped collisions (Lemma 1.1).* Fourier decay turns the Rényi-type
+    quantity of (D)27 into a positive two-copy collision quantity. Thm 4.2
+    (PROVED implication): the all-level 3/4 cap for **all** forced
+    mixtures follows from a sup-decay hypothesis (A*) of the conditioned
+    fibre laws.
+  * *Cap (Thm 5.2, Cor 5.3, PROVED with LS3's inputs).* The 3/4 cap at
+    every frequency level holds for every mixture whose multi-rough
+    classes are residue-sparse, in particular for all small-height
+    classes −r/s (incl. −4, −1, −1/4 mod M) over all moduli. So residue
+    concentration is the easy case.
+  * *Follow-ups (LS5–LS7, each reviewed with repairs).* (A*) is **not**
+    proved. LS5: every forced class is a rational label −r/s mod G, and
+    a tilted fibre law satisfies (A*). LS6: (A*) follows from a
+    first-moment damped covering count (DCC) (PROVED implication), with
+    one isolated arithmetic input, residue dispersion (RD) (CONJECTURE).
+    LS7: ℛ(M) = {−u/v : gcd(u,v)=1, 4uv | M+1}; (RD) holds at one prime
+    for ℛ(M) classes (Thm 3.1, PROVED given Shiu/Nair–Tenenbaum) and for
+    long cofactors (Thm 4.3); but (RD) as stated is **false** for several
+    primes (Prop 4.1), its height-cut form fails with (a,D) classes, and
+    the correct target is a residue-cut form (RD′). Short cofactors and
+    the (a,D)/Case-A classes are open.
+  * *Label:* **PROVED as labelled** (reviews
+    `reviews/exceptional-largesieve4-review.md` … `-largesieve7-review.md`).
+    *Open:* (A*) / (DCC) / (RD′) for residue-dense multi-rough classes
+    (generic ℛ(M)); the covering count (CC) is a CONJECTURE.
 * **Inter-frequency cancellation is worthless for moduli ≤ N/2**
   (`EXCEPTIONAL_INTERFREQ.md`; ledger (D)20).
   * *Selberg minorant.* If every nonzero frequency of `ν ≥ 0` has
@@ -325,10 +381,17 @@ factor quoted in this subsection can be dropped.
     and N = 1150. The earlier "σ* = 2/5 at every N" pattern was a small-N
     artefact. Thm 5.2 needs only **weak SPW** (`σ_N ≥ c₀e^{−S_A}`), which
     Thm 3.2 does not touch and which is **open**.
+  * *Exact requirement* (`EXCEPTIONAL_SPW2.md` Lemma 1.1): the hybrid
+    saving is `≤ C′(log N)^{3/4} + log(K_N/η_N) + log(1+Δ′_N/K_N) + O(1)`,
+    so the 3/4 cap needs `log(K/η) = O((log N)^{3/4})`; polynomially
+    small margins give nothing. A K-free edge bound `η ≲_C (log N)^{−1/3}`
+    (Thm 3.1) refutes the relaxation RSPW with fixed η, but only
+    logarithmically. No `N^{−1/2}` decay for N ≤ 80 (EVIDENCE only).
   * *Label:* **PROVED / PROVED implication as labelled** (internal;
     reviews `reviews/exceptional-interfreq2-review.md`,
-    `reviews/exceptional-spw-review.md`, SOUND). No hybrid beating 3/4
-    was found.
+    `reviews/exceptional-spw-review.md`, SOUND;
+    `reviews/exceptional-spw2-review.md`). No hybrid beating 3/4 was
+    found.
 * **The tuple-count door** (`EXCEPTIONAL_TUPLES.md`; ledger (D)21).
   * *Reformulation (Lemma 1.3).* Order-k witness correlations are the
     distinct-prime parts of k-point correlations of ω-type functions
