@@ -97,7 +97,7 @@ CU Thm 2.1).** There are absolute constants `c,C>0` such that, uniformly for `T�
 `log T ≤ c(log x/log log x)^{1/4}`,
 
 ```
-c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)^5.
+c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)³·log log log T.
 ```
 
 So `log log(π(x)/N(x,T)) = (3+o(1))log log T` in this range: the Haar exponent 3 (O13 Thm 3.4 with
@@ -105,7 +105,7 @@ POINTWISE_HAAR Thm 2.1) is the true tail exponent of W over primes. The upper-ta
 not effective (CU Thm 2.1); the lower-tail constant C is.
 
 *Proof.* Lower inequality: CU Thm 2.1 (its range `log T≤c₁(log x)^{1/4}` contains ours).
-Upper inequality: Thm 2.1, since `𝓛≤c(log x/loglog x)^{1/4}` with c small gives
+Upper inequality: Thm 3.3 (Thm 2.1 gives the exponent `(log log T)^5` with a one-fibre proof), since `𝓛≤c(log x/loglog x)^{1/4}` with c small gives
 `C𝓛^4log𝓛 ≤ log x` (use `log𝓛≤loglog x`). ∎
 
 *Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
