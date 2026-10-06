@@ -30,3 +30,21 @@ Commits: one per block, plus a docstring commit, plus a STATUS/report commit.
   degree ≤ 4, gives the per-family degrees, and keeps B = 1.
 * `scripts/review_mordell_check.py`: `covers` now tests s = 0..4 (with a comment), and the identity comment is updated.
   Both certificates still pass. (dx) has been re-run (9.6 s, passes), and its comments are updated.
+
+## Round 2: block (ea), POINTWISE_MORDELL17 (after `git merge main`)
+(ea) takes ≈ 5 s and uses R83's scripts. It needs gcc and is skipped without it.
+* **Enumerator data counts:** R83's `review_m17_enum.c` gives Q 2,0,73,0,245 and U 4,0,68,0,310 (k ≤ 5), and
+  P 2,0,32,0,121,0 (K ≤ 6). P at K = 7 takes 14 s, so it is omitted.
+* **Comp 3.1 at levels ≤ 3:** `review_m17_union.py` gives 0, 0.235294, 0.314879 (91/289) in both C_5 and C_7.
+  u = 5 and u = 7 lie in no box. There are no √Q boxes, and the union is inversion-symmetric.
+  `review_m17_brute.py` at M ≤ 3·10⁴ finds no level-0 box, and none of its level ≤ 3 boxes is missing from the
+  enumeration.
+* **Lemma 1.3:** checked on all 320 Q data (the reciprocity symbols, odd k, and −4a²d a non-residue mod 17).
+  An inline brute force over (a, d, m), independent of the enumerator, finds 41 data, all at odd levels.
+  P data are empty at K = 2, 4, 6.
+* **Lemma 5.1:** Q boxes have centre −a/m, and Q = Q⁻¹ as box sets. P boxes have centre −a/b, and 17 | a ⇔ 17 | b.
+* **Lemma 5.2:** all 382 U data have α − β odd. All 84 in-cell U boxes lie in an enumerated P box with
+  centre −b′/c′, and that P box has strictly lower level.
+* **§6 (a,b)-characterisation:** it matches the enumeration exactly at K = 1, 3, 5.
+
+Full `verify.py`: **all checks passed** (5 min 18 s).
