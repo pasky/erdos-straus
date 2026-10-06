@@ -206,3 +206,55 @@ The content of (A_γ) is that these costs **multiply** over S up to
 `K^{|S|}`: a correlation-decay statement for *events*, with an enormous
 slack (`ℓ^{1−γ}/K` per prime), in contrast with LS3 §4.3 / LS2 §5 where
 the signed one-step bounds lose.
+
+### 3.2 What (A_γ) needs: a covering count (Assessment; Lemma 3.2 PROVED)
+
+**Lemma 3.2 (one class per modulus; PROVED, trivial).** For a modulus Q
+and an assignment v of residues to the primes of Q, at most one class
+mod Q is consistent with v (namely v mod Q). For ℛ(Q) (`Q ≡ 3 (4)`,
+`A = (Q+1)/4`): `v mod Q ∈ ℛ(Q)` iff `r̃ | A²` or `s̃ | A²`, where r̃, s̃
+are the least positive residues of `−v/4` and `−1/(4v)` mod Q.
+
+*Proof.* The first claim is CRT. For the second: `−4D ≡ v` with
+`D | A²`, `D·(A²/D) = A²` and `4A ≡ 1 (Q)`, so `A²/D ≡ −1/(4v)`; one of
+`D, A²/D` is `≤ A < Q`, hence equal to its least residue. ∎
+
+*Pinned form of Lemma 3.1.* Pinning the S-coordinates to `v ∈ Ω_S` and
+running the coin process on the other coordinates gives
+`M_S σ(x_S = v) = E[Λ(v)]`, `Λ(v) = Π_{ℓ∈S}1[v_ℓ ∉ F_ℓ]/(1−p_ℓ)`, so
+`σ̂(θ) = E_{coins}E_{v∼U_S}[χ_θ(v)Λ(v)]` and, as in Lemma 3.1, `|σ̂(θ)|` is
+at most `2^{|S|}·sup Λ` times the probability (v, v' uniform on `Ω_S`,
+coins outside S) that **every** ℓ ∈ S is pivotal for Λ. Pivotality of ℓ
+needs `v_ℓ` or `v'_ℓ` to be the ℓ-residue of a class through ℓ whose other
+coordinates are matched (S-coordinates by the pinned values in some
+corner, outside coordinates by the path) — a **covering** event.
+
+*The covering count.* Ignoring outside coordinates, the event is
+`E_S = {v : every ℓ ∈ S lies in some Q ⊆ S with v mod Q a class of 𝔊}`,
+and the target is `|E_S| ≤ Π_{ℓ∈S}K ℓ^{1−γ}` (`P(E_S) = |E_S|/M_S`).
+* *Small supports.* Each ℓ has at most `2^{|S|−1}` candidate moduli Q and
+  each Q one consistent class (Lemma 3.2), so the trivial encoding
+  (a minimal cover by ≤ |S| moduli plus their classes) gives
+  `|E_S| ≤ (2^{|S|})^{|S|}`, i.e. a per-prime factor `2^{|S|}`. This is
+  within the slack of Cor 1.2 iff `|S| ≤ (1−2γ)log₂ z ≈ 1.44(log N)^{1/4}`.
+* *Beyond `log₂ z` primes the union bound over covers is false in the
+  right direction.* Example (structured family): primes of S all
+  `≡ −1 (mod F)`, 𝔊 ⊇ {−4d mod Q : Q ⊆ S of odd size, d | F²/16}
+  (forced: `F | 4A_Q`). Every v ≡ −4d on S is covered by
+  `2^{Θ(|S|²)}` minimal covers, while `|E_S|` stays `≤ τ(F²)^{O(1)}·|S|^{|S|}`
+  (the classes are constant across Q, so they act as **product**
+  constraints; e.g. with singletons present they forbid `−4d` at every
+  coordinate). For "random-like" residues the compatibility of
+  overlapping covers costs `1/q` per shared prime and the expected number
+  of minimal covers is `≤ Π_ℓ (τ+|S|)/ℓ` (Assessment: computed under the
+  random-residue model).
+* So the missing input is a count of **assignments**, not of covers:
+  > **(CC)** for every finite set S of primes `> z` and every family 𝔊 of
+  > forced classes, `|E_S| ≤ Π_{ℓ∈S} K ℓ^{1−γ}` with `K = (log N)^{O(1)}`
+  > (and the analogue with outside coordinates matched by the path).
+  (CC) is a CONJECTURE. Structured coincidences (equal integers d across
+  moduli) collapse to few assignments; unstructured ones are rare in the
+  random model; a proof must interpolate between these, i.e. control
+  divisors of `(Q+1)/4` over subset products Q ⊆ S. No counterexample is
+  known; the residue-concentration mechanism of LS3 Lemma 4.2 is of the
+  structured (harmless) type.
