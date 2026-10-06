@@ -1,0 +1,16 @@
+N=300 L=30000 primes=1633 dense=664 sumP_dense=11.827
+random mean N*prod(1-p) = 0.0011   count at t=0 = 19
+large-sieve upper bound M(N) <= 155.11
+restart 0: local-search survivors = 26
+restart 1: local-search survivors = 28
+restart 2: local-search survivors = 26
+M(N) >= 28   ratio to random mean = 2.51e+04
+savings: random 12.50  t=0 2.76  translate-opt 2.37  maxF=389
+N=1000 L=100000 primes=4808 dense=2131 sumP_dense=15.165
+random mean N*prod(1-p) = 0.0001   count at t=0 = 35
+large-sieve upper bound M(N) <= 427.05
+restart 0: local-search survivors = 46
+restart 1: local-search survivors = 44
+restart 2: local-search survivors = 48
+M(N) >= 48   ratio to random mean = 3.66e+05
+savings: random 15.85  t=0 3.35  translate-opt 3.04  maxF=681

@@ -425,3 +425,34 @@ proof does not transfer: it works fibrewise with `f(0) ≥ 1` at the single
 all-avoid pattern, whereas `h(t)/N` is not a function of the hit pattern of t.
 (W′) is open; we do not know whether (W) ⇒ (W′) or conversely. For
 hit-pattern majorants §3 closes the sharp door unconditionally.
+
+### 5.1 Toy translate sieve (EVIDENCE only)
+
+`scripts/weights_translate_sieve.py`: family = primes ℓ ≤ 100N, ℓ ≡ 3 (4), with
+`F_ℓ = ℛ(ℓ) = {−u/v mod ℓ : gcd(u,v)=1, 4uv | ℓ+1}` (Q₀ = 1). Sparse primes
+(`ℓ ≥ (N+1)|F_ℓ|`) are free by Prop 5.1(b). The lower bound for M(N) comes from
+coordinate ascent over the translates `c_ℓ` of the dense primes, on the
+smoothed objective `Σ_j 0.3^{#kills(j)}`, with 3 restarts. The upper bound is
+Montgomery's large sieve, which is shift-uniform and position-blind. The
+"saving" is log(N/count).
+
+| N | dense primes | random translates: N Π(1−p) (saving) | t = 0: #(𝒜∩[1,N]) | local search: M(N) ≥ | large sieve: M(N) ≤ |
+|---|---|---|---|---|---|
+| 300 | 664 | 0.0011 (12.50) | 19 (2.76) | 28 (2.37) | 155 (0.66) |
+| 1000 | 2131 | 0.0001 (15.85) | 35 (3.35) | 48 (3.04) | 427 (0.85) |
+
+Reading: optimised translates keep 10⁴–10⁵ times more of the window than
+random translates. M(N) lies between the large-sieve scale and about 2–3
+units of saving below it, nowhere near the random scale. The t = 0 count is
+inflated by squares (which avoid every forced class). This is consistent with
+(W) — translates can realise near-sieve-limit correlations — but N ≤ 1000
+says nothing about exponents, and local search gives only lower bounds.
+(N = 3000 was started and stopped for time.)
+
+## Replay
+
+```
+cd scripts
+ulimit -v 8000000
+for a in "300 30000 3" "1000 100000 3"; do timeout 10000 uv run --with numpy python weights_translate_sieve.py $a 1 0.3; done > ../data/weights/translate_sieve.txt   # ~1 min + ~70 min, <2 GB, 1 core
+```
