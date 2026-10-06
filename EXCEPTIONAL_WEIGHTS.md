@@ -394,6 +394,11 @@ By §§1–2 the whole per-frequency door, for general majorants, is the size of
 (its bound `N·Eν + Σ|a_i|` is shift-uniform). *(R81 repair, applied by reviewer: this is
 the only family for which the upper bound is claimed; it is not claimed for 𝔊_ℛ or for
 other members of 𝔉_A. Members of 𝔉_A that contain 𝔊_X have smaller M.)*
+(a′) *(R81 repair, applied by reviewer.)* `E_pr(N) ≤ K + y + M_{𝔊_X}(N)`, with K, y as
+in the 3/4 note. The note's ν_X is ≥ 1 only on exceptional **primes** > max(K, y), so
+these primes lie in 𝒜_X. The statement "E(N) ≤ M(N)" is **not** claimed: E(N) also
+counts composites, n = 1 and primes ≤ max(K, y), and their membership in 𝒜_X is not
+shown. E(N) itself is bounded from E_pr by the note's Rankin/semigroup step.
 (b) (random/gap translates) In a prime-slice system with Q₀ = 1,
 `M(N) ≥ N·Π_{ℓ: (N+1)|F_ℓ| > ℓ}(1 − p_ℓ)`.
 (d) (greedy) In a prime-slice system with Q₀ = 1, for every s ≥ 1,
@@ -407,7 +412,9 @@ per-frequency method (any weights ≥ |W_N| or ≥ |S_N|) is capped at
 `M(N) ≤ N e^{−ω(N)(log N)^{3/4}}` (ω → ∞) then some general majorant beats the
 cap through a band-limited per-frequency bound.*
 
-*Proof.* (a) The first inequality is t = 0; the second: the 3/4 note's majorant
+*Proof.* (a′) Every exceptional prime p > max(K,y) has ν_X(p) ≥ 1, and ν_X ≥ 1_{𝒜_X}
+exactly on the support of S_y·1[H_X = 0]; so such p lie in 𝒜_X, and the window [1,N]
+is one of the windows in M. (a) The first inequality is t = 0; the second: the 3/4 note's majorant
 is a CRT majorant on all of ℤ and each class meets a window in ≤ N/d + 1 points.
 (b) If `ℓ ≥ (N+1)|F_ℓ|`, the complement of F_ℓ on the cycle ℤ/ℓ has a gap of ≥ N
 consecutive residues; choose `t mod ℓ` to put `t+1, …, t+N` in it. For the
@@ -434,7 +441,7 @@ largest admissible families, not about 𝔊_X. For the toy family 𝔊_ℛ the c
 question should be asked at its own sieve-limit exponent, which is below 3/4.
 Either answer would matter:
 * a proof of `M(N) ≤ N e^{−(log N)^θ}`, θ > 3/4, would be a new exceptional-set
-  bound (`E(N) ≤ M(N)`), uniform over shifts;
+  bound for 𝒜 (`E_pr(N) ≤ K + y + M_{𝔊_X}(N)` if 𝔊 ⊇ 𝔊_X, see Prop 5.1(a′)), uniform over shifts;
 * a proof of `M(N) ≥ N e^{−C(log N)^{3/4}}` would close the "weights below 1"
   door completely (all weights, all majorants), and would show that any
   improvement on 3/4 must use the position of the window — e.g. that [1,N]

@@ -26,7 +26,7 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
    CONJECTURE.
 5. **Sharp weights, general majorants (§6):** only ≥ M(N) known. (An earlier "window sieve
    limit (W′)" route was shown redundant by the self-review: LP₁(h/N) ≤ M(N) via ν ≡ M(N)/N.)
-6. **M(N) itself (§5):** E(N) ≤ M(N) ≤ N e^{−c(log N)^{3/4}}; random-translate and greedy lower
+6. **M(N) itself (§5):** #(𝒜_X∩[1,N]) ≤ M_{𝔊_X}(N) ≤ N e^{−c(log N)^{3/4}} and E_pr(N) ≤ K + y + M_{𝔊_X}(N) (R81 repair, applied by reviewer: "E(N) ≤ M(N)" withdrawn); random-translate and greedy lower
    bounds are far below. Toy numerics (EVIDENCE, §5.1, N=300/1000): local-search M(N) savings 2.4/3.0 vs
    large-sieve bound 0.7/0.9 vs random translates 12.5/15.9 — consistent with (W), no exponent info.
 
