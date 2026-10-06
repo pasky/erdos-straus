@@ -291,34 +291,47 @@ modulus `≤ T`. ∎
 
 Put `κ(𝓛) := log(1/δ*(e^𝓛))` (the Haar avoider exponent; `c𝓛³ ≤ κ(𝓛) ≤
 C𝓛³(log𝓛)^5` by Prop 1.1 and OMEGA13 Thm 3.4) and `λ*(𝓛) := 𝓛·κ(𝓛)`
-(dimension × log-size). For a level `λ` let `𝓛_c(λ)` solve `λ*(𝓛_c) = λ`,
-so `𝓛_c(λ) = λ^{1/4}` up to `(log λ)^{O(1)}`.
+(dimension × log-size). For a level `λ` let `𝓛_c(λ) := sup{𝓛 : λ*(𝓛) ≤ λ}`
+(generalised inverse), so `𝓛_c(λ) = λ^{1/4}` up to `(log λ)^{O(1)}`.
 
-**Theorem 4.2 (the ES sieve limit; PROVED as the conjunction of the cited
-results, each with its own status).** Up to factors `(log λ)^{O(1)}` (and
-constants):
-1. *(majorants)* the best saving of a level-`λ` CRT majorant of any
-   forced-class mixture is `S(λ) ≍ λ^{3/4} = κ(𝓛_c(λ))`:
-   `≤ Cλ^{3/4}` by KARY3 Thm 4.1 (PROVED, internal); `≥ cλ^{3/4}` by the note's
-   `ν_X` at `t ≍ λ^{1/4}` (INTERNALLY PROVED). Certifying the full Haar void at
-   cutoff `T` costs level `≍ λ*(𝓛)` (Cor 3.3).
-2. *(minorants)* the least level of a positive minorant of `F_T` on the
-   relevant fibres is `λ_min(T) ≍ 𝓛⁴ = λ*(𝓛)`: `≥ c𝓛⁴/log𝓛` by OMEGA14
-   Thm 4.5, `≤ C𝓛⁴log𝓛` by OMEGA13 §5 (both PROVED modulo the inputs listed
-   in (H)26–(H)27).
-3. *(the ceilings)* With budget `λ ≍ log N` (rounding) resp. `λ ≍ log x`
-   (prime transfer), the exceptional ceiling is the saving `κ(𝓛_c(λ)) ≍ λ^{3/4}`
-   and the pointwise ceiling is the cutoff `𝓛_c(λ) ≍ λ^{1/4}`. Their product
-   is `𝓛_c·κ(𝓛_c) = λ`. If the Haar exponent were `a` (`κ ≍ 𝓛^a`), the
-   exponents would be `a/(a+1)` and `1/(a+1)`, summing to 1.
+**Theorem 4.3 (the ES sieve limit; PROVED as the conjunction of the cited
+results, each with its own status and scope).** Up to constants and, where
+marked, factors `(log λ)^{O(1)}`:
+1. *(majorants)* `S(λ) := sup` over forced-class mixtures and level-`λ` CRT
+   majorants of the saving satisfies `cλ^{3/4} ≤ S(λ) ≤ Cλ^{3/4}`: the upper
+   bound for *every* mixture by KARY3 Thm 4.1 (PROVED, internal), the lower
+   bound for *one* mixture (the note's atoms and selectors, `ν_X` at
+   `t ≍ λ^{1/4}`; INTERNALLY PROVED). Integer-CRT savings of cubic order at
+   cutoff `T` cost level `≍ 𝓛⁴` (Cor 3.3).
+2. *(minorants)* on every fibre with `log Q ≤ T^{0.05}`, no positive minorant
+   of `F_T` has level `log D ≤ c𝓛⁴` (Prop 4.2); on OMEGA13's constructed good
+   fibre a positive minorant of level `log D ≤ C𝓛⁴log𝓛` exists (OMEGA13 §5,
+   PROVED modulo the inputs listed in (H)26). So the least positive-minorant
+   level is `≍ 𝓛⁴` up to one `log𝓛`.
+3. *(the ceilings)* With budget `λ ≍ log N` (coefficient-sum rounding) resp.
+   `λ ≍ log x` (O9-type prime transfer), item 1 gives the exceptional ceiling
+   `S(λ) ≍ λ^{3/4}`, and item 2 gives the pointwise ceiling
+   `𝓛 ≲ λ^{1/4}` (achieved up to `(log λ)^{1/4}`). Both are the single relation
+   `λ ≍ 𝓛·𝓛³` between level and usable cutoff, read once for the saving `𝓛³`
+   and once for the cutoff `𝓛`; the product of the two exponents' quantities
+   is `λ` by construction (an identity, not an extra theorem).
 
 *Status of item 3.* "Ceiling" means the cap for the respective
 architectures exactly as scoped in (D)24/(D)27 (coefficient-sum CRT methods,
-large sieves of the listed kinds) and (H)27/(H)28 (Haar-minorant transfers,
-orbit-uniform linear certificates). Item 3 is a PROVED consequence of 1–2
-within those scopes; outside them it is an Assessment.
+large sieves of the listed kinds) and (H)27/(H)28 (Haar-minorant transfers
+requiring `log x ≫ log Z`, orbit-uniform linear certificates). Within those
+scopes item 3 is a PROVED consequence of items 1–2; outside them it is an
+Assessment. *Mechanism (Assessment).* In both cases the relevant structure
+is a one-big-prime subfamily of mass `P ≍ 𝓛³` at big cost `≍ 𝓛` (§4.2), and
+the cut-off order is `k ≍ P` (Thm 4.1). The full ES system is not a
+one-big-coordinate system: on the minorant side the subfamily is used only
+for the obstruction (a Bonferroni minorant of the subfamily does not minorise
+full avoidance), and OMEGA13's positive minorant is built differently (BRW).
+The extrapolation "Haar exponent `a` ⇒ exponents `a/(a+1)`, `1/(a+1)`" is
+CONDITIONAL on the same mechanism (one-big-prime mass `≍ 𝓛^a`, uniform in the
+small coordinates); the Haar exponent alone does not imply it.
 
-*Remark 4.3 (why the two sides are not the same inequality).* (U−) and (L−)
+*Remark 4.4 (why the two sides are not the same inequality).* (U−) and (L−)
 are dual LP statements of opposite sign: (U−) produces a measure on the
 avoider set that is within `e^{O(k log(P/k))}` of the true law on non-negative
 order-k tests (KARY / LARGESIEVE2 Lemma 1.1 "comparison measure"); (L−)
@@ -343,61 +356,78 @@ and minorant of `F = 1[no bit]` (symmetrisation loses nothing, KARY Lemma 2.3).
 
 Both thresholds are `≈ 2P ± 2`: the same order for both one-sided
 problems, as Theorem 4.1 asserts (its constants `0.6` and `e²` are not
-sharp). Below threshold the majorant still saves about `0.55k` (cf. (U−)),
-while the minorant is identically useless (cf. (L−)): the asymmetry that
+sharp). Below threshold the majorant still saves a positive amount growing
+roughly linearly in `k` (cf. (U−)), while the minorant is identically useless (cf. (L−)): the asymmetry that
 makes the exceptional side degrade gracefully (saving `λ^{3/4}` from any level)
 and the pointwise side fail sharply (no positive minorant below `λ*`).
 
 ## 5. Section for the campaign summary
 
 **One sieve limit behind both ceilings (CEILINGS_UNIFIED.md).** The
-exceptional-set exponent 3/4 and the pointwise exponent 1/4 are the two
-faces of one quantity: the ES witness system truncated at moduli `≤ T`
-behaves like a sieve of dimension `κ ≍ (log T)³` (the Haar exponent), and a
-dimension-`κ` sieve over moduli of log-size `log T` needs level
-`λ* ≍ κ·log T ≍ (log T)⁴` — for upper bounds and for lower bounds alike
-(Thm 4.1, PROVED; the ingredients are known: binomial extrapolation,
-planting, Bonferroni). Level `λ ≍ log N` therefore exploits moduli up to
-`log T ≍ λ^{1/4}` and saves `κ ≍ λ^{3/4}` (exceptional set: the note's bound,
-sharp by KARY3), while a transfer to primes `≤ x` allows `λ ≍ log x` and so
-certifies `W(p) > T` only for `log T ≲ (log x)^{1/4}` (pointwise: OMEGA13,
-sharp by OMEGA14). The product of the two ceilings is the level:
-`(log N)^{3/4}·(log N)^{1/4} = log N`; with Haar exponent `a` they would be
-`a/(a+1)` and `1/(a+1)` (Thm 4.2, PROVED as a conjunction of cited results
-within their scopes; Assessment outside them). Two by-products:
-* **`log(1/δ*(T)) ≫ (log T)³`** with no `log log T` loss (Prop 1.1, PROVED
-  given the 3/4 note): the note's void lemma is a Haar bound. With OMEGA13,
+exceptional-set exponent 3/4 and the pointwise exponent 1/4 come from one
+mechanism. The ES witness system truncated at moduli `≤ T` contains a
+one-big-prime subfamily (big prime of log-size `≍ log T`) whose mass is
+`≍ (log T)³` uniformly in the small coordinates: a sieve of dimension
+`κ ≍ (log T)³`, matching the Haar exponent. For such a system, order-`k`
+certificates are trivial below `k ≍ κ` on *both* sides: majorants save
+`≲ k log(κ/k)`, minorants have mean `≤ 0` (Thm 4.1, PROVED; ingredients
+known: binomial extrapolation, planting, Bonferroni). So the level needed
+is `≍ κ·log T ≍ (log T)⁴`.
+* A level `λ ≍ log N` exploits moduli up to `log T ≍ λ^{1/4}` and saves
+  `≍ λ^{3/4}`: the 3/4 note, sharp by KARY3.
+* A prime transfer up to `x` allows `λ ≍ log x`. It therefore certifies
+  `W(p) > T` only for `log T ≲ (log x)^{1/4}`: OMEGA13, sharp by OMEGA14 and
+  Prop 4.2.
+
+Thm 4.3 is PROVED as a conjunction of cited results, within their scopes.
+Outside those scopes it is an Assessment. The extrapolation to a general
+mass exponent `a` (`a/(a+1)`, `1/(a+1)`) is CONDITIONAL on the same mechanism.
+
+By-products, all PROVED given the INTERNALLY PROVED 3/4 note:
+* **`log(1/δ*(T)) ≫ (log T)³`** with no `log log T` loss (Prop 1.1): the
+  note's void lemma is a Haar bound. With OMEGA13,
   `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5`.
 * **Witness-modulus tail relative to π(x):**
   `#{p ≤ x : W(p) > T} ≪ π(x)e^{−c(log T)³}` uniformly for
-  `log T ≤ c₁(log x)^{1/4}` (Thm 2.1, PROVED given the 3/4 note and Page's
-  theorem). This upgrades ledger (A)9 from CLAIMED/PROVISIONAL and fixes its
-  normalisation. The "Haar-side route" to the 3/4 bound is the note's own
-  route (§3), so it reproves, not improves, the 3/4 bound for primes.
+  `log T ≤ c₁(log x)^{1/4}` (Thm 2.1, also using the classical uniform PNT
+  in progressions with a Landau–Page exceptional term). This upgrades
+  ledger (A)9 from CLAIMED/PROVISIONAL and fixes its normalisation.
+* **No positive minorant below level `c(log T)⁴`** on any fibre with
+  `log Q ≤ T^{0.05}` (Prop 4.2). This sharpens OMEGA14 Thm 4.5 (which has a
+  `/log log T` loss and needs (G), Page and the fundamental lemma). So
+  OMEGA13's exponent `(log p)^{1/4}(log log p)^{−1/4}` is optimal within the
+  minorant-transfer architecture up to `(log log p)^{1/4}` in `log W`.
+* The "Haar-side route" to the 3/4 bound is the note's own route (§3). It
+  reproves the 3/4 bound for primes and does not improve it.
 
 **Proposed ledger changes (for the parent).**
 * (A)9: relabel "INTERNALLY PROVED (via the 3/4 note, (B)11); see
   CEILINGS_UNIFIED Thm 2.1 for the `π(x)` form".
 * (H)25/(H)26: lower bound `𝓛³/log𝓛` → `𝓛³` (CEILINGS_UNIFIED Prop 1.1).
-* New (D)/(H) cross-entry: Thm 4.1/4.2 as above.
+* (H)27: Thm 4.5's `c𝓛⁴/log𝓛` → `c𝓛⁴`, inputs reduced to the note's BV
+  (CEILINGS_UNIFIED Prop 4.2); Cor 4.6's gap `(log log p)^{1/2}` → `(log log p)^{1/4}`.
+* New cross-entry: Thm 4.1 / Thm 4.3 as above.
 
 **Open / not done.**
 * A *lower* typical-size bound `#{p ≤ x: W(p) > T} ≥ π(x)e^{−C𝓛³polylog}`
-  for `log T ≤ c(log x)^{1/4}/polylog` (which would make the tail law
-  two-sided in the whole sieve range). OMEGA13's transfer gives existence;
-  a count would follow from OMEGA9 Thm 1.1's main term, except that in its
-  Case A (exceptional character with conductor dividing the quarantine
-  modulus) the factor `λ = 1 − x^{β₁−1}/β₁` can be as small as `Z^{−1/2}`.
-  Not attempted (Assessment).
+  for `log T ≤ c(log x)^{1/4}/polylog`. This would make the tail law
+  two-sided in the whole sieve range.
+  * OMEGA13's transfer gives existence.
+  * A count would follow from OMEGA9 Thm 1.1's main term, except in its
+    Case A (exceptional character with conductor dividing the quarantine
+    modulus): there the factor `λ = 1 − x^{β₁−1}/β₁` can be as small as
+    `Z^{−1/2}`.
+  * Not attempted (Assessment).
 * Heuristic truth (Assessment): `#{p ≤ x: W(p) > T} = π(x)e^{−𝓛^{3+o(1)}}`
-  up to `𝓛 ≈ (log x)^{1/3}`; both ceilings sit at `(log x)^{1/4}` because that
-  is where `λ*(𝓛) = log x`, not because the distribution changes there.
-* Since both ceilings come from the same level constraint, any input that
-  beats one of them by CRT/level-bounded information alone is impossible; an
-  improvement on either side must use non-CRT information (tuple counts or
-  hybrid large-class accounting, (D)21–(D)26; Type II / support-aware prime
-  input, (H)28). No implication from one side's improvement to the other's
-  is known (Assessment).
+  up to `𝓛 ≈ (log x)^{1/3}`. Both ceilings sit at `(log x)^{1/4}` because
+  that is where `λ*(𝓛) = log x`, not because the distribution changes there.
+* Within the scoped architectures above, neither ceiling can be beaten.
+  Methods outside them remain possible (Assessment). Examples:
+  * tuple counts or hybrid large-class accounting, (D)21–(D)26;
+  * Type II or support-aware prime input, (H)28;
+  * prime transfers not requiring `log x ≫ log Z`.
+
+  No implication from an improvement on one side to the other is known.
 
 ## Replay
 
