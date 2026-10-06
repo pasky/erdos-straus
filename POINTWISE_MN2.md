@@ -166,3 +166,84 @@ over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+2ε}log log q_0`.
 *Remark (the level count).* "Two levels with `Y ≤ θN`, then `Y = 0`" is forced: for `ℓ > q_0` the
 level-1 first moment `≍ (log ℓ)^C/ℓ` is not summable over primes, so level 1 must be allowed to
 forbid; level 0 needs the second moment for the same reason (MN §6 (ii)).
+
+## 4. Why Theorem 3.1 does not close ADM_m: the prefix-distortion circularity (Assessment)
+
+Theorem 3.1 reduces ADM_m to finding prefixes with `C_ν(q_0)·c_1 q_0^{−1/2+ε} ≤ 1/4`. Two facts
+block the plan of the brief ("small primes by a fixed certified prefix, late primes by moments"):
+
+1. **`c_1` is not explicit.** It contains the constants `c_0` and `≪` of (H). So no finite
+   computation can certify that a given `q_0` is large enough; and for any fixed explicit prefix the
+   steps between `q_0` and the (unknown) range where Theorem 3.1's bound is `< 1` are not controlled
+   by anything proved here. (Explicit Rankin + elementary divisor-in-AP bounds could replace (H) at
+   the cost of enormous constants; the resulting `q_0` would be far beyond any certifiable prefix.)
+2. **Every pointwise-controlled prefix law has distortion growing faster than `q_0^{1/2}`.**
+   * Uniform law on the hard set: `C_ν = 1/δ_m(Q(q_0))`. Data (`scripts/mn2_delta.py`, exact):
+
+     | m | q_0 = 8 | 9 | 11 | 13 | 16 | 17 | 19 |
+     |---|---|---|---|---|---|---|---|
+     | 5: `1/δ` | 4 | 8 | 10.9 | 19.2 | 19.2 | 31.6 | 61.1 |
+     | 5: `q_0^{−1/2}/δ` | 1.41 | 2.67 | 3.29 | 5.34 | 4.81 | 7.66 | 14.0 |
+     | 7: `1/δ` | 3.2 | — | 4.10 | 7.09 | — | 10.6 | 14.4 |
+     | 6: `1/δ` | — | — | 2.86 | 3.42 | — | 5.06 | 6.48 |
+
+     (`δ_5(Q(8)) = 1/4` reproduces MN's `|H_5(840)| = 48/192`; for m = 6 the primes 2, 3 never divide M.)
+     Heuristically `log(1/δ_m(Q(q_0))) ≍` the Haar mass of the atoms with `M | Q(q_0)`, which by
+     Lemma-2.1-type sums is `≍ (log q_0)^3`, so `1/δ` grows faster than every power of `q_0`.
+     (Not proved: it needs a lower bound for `1/δ`, i.e. an upper bound for the hard density.)
+   * A single hard class (e.g. `r ≡ 1`): `C_ν = φ(Q(q_0)) = e^{(1+o(1))q_0}`.
+   * The AUP itself as prefix: its distortion is `∏_{ℓ|M}Λ(ℓ)` along the path — bounding it is
+     ADM_m on the range `≤ q_0` again.
+
+So the density bound `E_ν[p_0(E)] ≤ C_ν P_H(E)` (MN's `1/δ_0`) is the lossy step: what Theorem 3.1's
+proof really uses is `E_ν[1[E^- consistent]]` summed over the completed atoms of each later step.
+**This is an assessment of a proof method, not an obstruction to ADM_m** (MN §6 numerics: no
+deaths with the 2,3-adic prefix, max drift ≈ 4).
+
+## 5. The exact missing input
+
+For a prefix law ν on hard classes mod `Q(q_0)` and `q ∈ 𝒫`, `q > q_0`, let `S_j^ν(q)` be `S_j(q)`
+with each term `τ(A²)^j(…)/φ(M_1)` replaced by its ν-weighted version
+`Σ_{D|A²} E_ν[1[−mD ≡ r (mod gcd(M_1ℓ^a, Q_0))]]·φ(gcd(M_1ℓ^a,Q_0))/φ(M_1)·(…)`
+(and the analogous pair sum for `j = 2`). The proof of Theorem 3.1 gives verbatim:
+
+**Proposition 5.1 (PROVED modulo (H)).** If for some family `ν = ν_{q_0}` of hard prefix laws
+`Σ_{q>q_0} [ S_2^ν(q)(log q)^{2K}/q² ·1[q prime] + S_1^ν(q)/q ·1[q not prime] + (the level-(≥a_ℓ+2) terms) ] → 0`
+as `q_0 → ∞` (hypothesis **SI**), then ADM_m(K = (1−θ)^{−2}, Q(q_0)) holds for some `q_0`, with
+success probability ≥ 1/2; with Lemma 1.1 and MN Thm 5.1 this gives
+`W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many primes p, Type-II-hard modulo their
+quarantine modulus, modulo (G), NT/(H), OMEGA10 Thm 3.4 and SI.
+
+*Candidate: the class of one.* For `ν = δ_1` (`r ≡ 1 mod Q(q_0)`, hard by TRANSFER Lemma 5.1(ii);
+no death and no drift in the prefix) the weight of a completed atom is
+`φ(s)·1[s | mD+1]`, `s = gcd(M_1, Q_0)`. With `D = da²`, `A = dab` (O12 Lemma 2.1, `4 ↦ m`) one has
+`s | mD+1 ⟺ s | a+b` and then `s | P := ma²d+1`; writing `b = cs − a`, `f = P/s`,
+`qM_1/s = mdac − f`. Summed over `s | Q_0` the inflation becomes `τ(P_{q_0})` — the number of
+`q_0`-smooth divisors of `P = ma²d+1` — exactly the smooth inflation of O13 Hypothesis M(Y), but
+now inside the T-uniform completed-atom sums. Heuristically its mean is `(log q_0)^{O(1)}`
+(Euler factor `∏_{p≤q_0}(1+ρ_P(p)/p)`), which would give SI for `ν = δ_1`. Proving it needs (H) in
+each of the variables a, c, d with a regime split (largest variable as summation variable). Status:
+**CONJECTURE (expected provable; not done).**
+
+## 6. Status
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | MN Thm 5.1 needs only success probability ≥ s_0 > 0; any prefix law with bounded density | PROVED |
+| Lemma 1.2 | increasing-order stage A: step laws are T-independent | PROVED |
+| Lemma 1.3 | `f ≤ Y/N` = mass of completed atoms | PROVED |
+| Lemma 2.1 | T-uniform completed-atom sums `S_j(q) ≪ q^ε + (log q)^{C_j}` | PROVED modulo (H) |
+| Thm 3.1 | after any prefix: `P(fail) ≤ C_ν(c_1q_0^{−1/2+ε} + o(1))` | PROVED modulo (H) (c_1 ineffective) |
+| §4 | certified-prefix + moments plan is circular; `1/δ_m(Q(q_0))` data | Assessment + EVIDENCE (exact counts) |
+| Prop 5.1 | SI ⇒ ADM_m ⇒ exponent 1/4 for W_m | PROVED modulo (H), SI |
+| SI for class-one prefix | completed-atom smooth inflation `τ(P_{q_0})` | CONJECTURE |
+| ADM_m | — | still OPEN (CONDITIONAL on SI) |
+
+## Replay
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 1500 uv run python mn2_delta.py 5 8 9 11 13 16 17 19)   # §4 table, m=5
+(ulimit -v 8000000; timeout 1500 uv run python mn2_delta.py 7 8 11 13 17 19)        # m=7
+(ulimit -v 8000000; timeout 900  uv run python mn2_delta.py 6 11 13 17 19)          # m=6
+```
