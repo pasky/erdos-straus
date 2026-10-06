@@ -4,6 +4,12 @@ Branch `side-agent/sterility-r17` (it merges `side-agent/mordell-13` and `side-a
 as instructed; their claims are still unreviewed). Main file: `POINTWISE_MORDELL17.md`.
 Scripts: `scripts/m17_enum.c`, `scripts/m17_union.py`, `scripts/m17_validate.py`.
 
+> **Superseded (R83 round-2 repair r3, applied by reviewer).** This checkpoint-1 section is kept as
+> history. Several entries below were corrected after review R83: the threshold is 56561/83521, not
+> 0.677207; `B_k` uses `4D_Q`, not `8D_Q`; "ineffective" should read "non-explicit"; even levels are
+> empty by Lemma 1.3, not by ET Prop 1.6; the "moduli exceed 10⁵" diagnosis is withdrawn. See the
+> repairs table at the end and the current POINTWISE_MORDELL17.md.
+
 ## Outcome
 The goal was to prove that the cell `C_5 = {x_17 ≡ 5 (17)}` (17-generic points) contains a sterile
 point. I did **not** prove it. Instead there is a precise reduction (Theorem 4.1), exact data
