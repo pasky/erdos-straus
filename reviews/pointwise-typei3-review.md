@@ -102,3 +102,27 @@ carry no certificates at any `w∈Φ` by Cor 5.2 (`t≥5`), so restricting the m
 the text should cite Cor 5.2 for this (currently it says "`t≤3` certificates would kill all of Φ; Computation 2.1
 shows none has f<10¹¹", which is weaker than needed for a tail over *all* f≥Y; see D-list).
 "not necessarily `x̂_9`": correct and important — positive measure gives no information about `w=9`.
+
+## Independent computations (priority 1: completeness of the f-graded search)
+
+All with my own engine `review_typei3_fs.c` (written from the definition; own sieve with Fermat inverses,
+own `(c',k')` enumeration as exponent pairs `i+j≤E`, `R=7^{a+2b}c'k'²`, explicit `(α,γ)` loop), its output
+re-verified line by line with exact integers by `review_typei3_check.py`.
+
+1. *Engine vs naive definition-level brute force* (`review_typei3_naive.c`: all `(c,k)` with `ck≤3·10⁵`,
+   `v_r(c)` odd, every odd divisor ≤3000 of N in **both** roles, conditions (2.2) tested directly — no use of
+   Lemma 1.1, no progression filter) — identical certificate sets for
+   `(r,w)=(7,1),(7,9),(7,17),(7,25),(7,41),(7,−7),(7,5),(7,−3),(11,9),(19,9),(23,9),(23,1),(31,9)`
+   (3,0,14,0,0,0,0,0,8,3,0,1,0 certificates) and `(7,−15)` on `f≥16` (12=12).
+2. *Engine vs author's `typei3_fsearch`, full output at all heights, `f<10⁷`*: identical certificate sets for
+   `(7,1)` 10, `(7,17)` 47, `(7,−15)` (f≥16) 101, `(11,9)` 28, `(19,9)` 31, `(23,1)` 9, `(7,−7)` 0, and the
+   deep test point `w=2⁴³−743` (2 certificates, incl. `(14,2⁴⁰,743)` with `t=43`): both engines find
+   the `t=43` certificate. All of my reported certificates verify exactly (0 invalid).
+3. *No-parity control*: naive search over all c with `sf(c)∉{1,2,3,6}` (`ck≤10⁵`, divisor ≤1000) at
+   `(7,9),(7,25),(23,9),(7,1)` finds no certificate with `v_r(c)` even (TYPEI2 L2.1 consistent).
+4. *`w=9`, `f<10⁸`*: both engines test 3 571 429 values of f, 0 certificates.
+5. *Near-miss (`t_min`) data, `f<10⁸`*: identical 198 `B` lines (see §4 above).
+6. Overflow/array audit of `typei3_fsearch.c`: modular products are `u128`; `xs<f<2⁴⁰` doubling cannot
+   overflow; the `(m',k')` table (400 000) exceeds the maximum `∏(E+1)(E+2)/2=91 854` over odd 7-free
+   `A≤2.5·10¹¹` (my DP over non-increasing exponent vectors); `MAXF=16` distinct primes suffices. Hit
+   detection precedes the `u128` reconstruction, so overflow there could only garble *printed* hits.
