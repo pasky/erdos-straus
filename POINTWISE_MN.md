@@ -312,7 +312,9 @@ addressed (R63 MINOR-5).
 *Proof (substitution list for OMEGA12 Thm 6.3 and the OMEGA11 parts it uses; R63 MAJOR-1).*
 Throughout, `4 ↦ m`, `M ≡ 3 (4) ↦ M ≡ −1 (m)`, `A = (M+1)/m`, `g = gcd(M, mD+1)`.
 
-(0) *Parametrisation (OMEGA12 §§1–2).* `D = …`, `P = ma²d+1`, `g | a+b`, `macd = f + N`,
+(0) *Parametrisation (OMEGA12 Lemma 2.1).* For `D ≤ A`: `D = da²`, `A = dab` (d squarefree, `b ≥ a`),
+`P = ma²d+1`, `e = g`, `f = P/e`, `c = (a+b)/e`, `N = M/e`; from `mad(a+b) = P + M` and
+`gcd(g, mad) = 1`: `g | a+b`, `macd = f + N`,
 `N ≥ (m/2)acd − 1 ≥ acd`, injectivity, and the involution `D ↦ A²/D` preserving g (from
 `mA ≡ 1 (M)`: `mA²/D + 1 ≡ (mD)^{−1}(1+mD)`): algebra with 4 replaced by m; brute-forced by R63
 (`scripts/review_mn_cor61.py`, m = 4..30, M ≤ 3000, even M included, 0 defects). Lemma 2.2 uses ET
