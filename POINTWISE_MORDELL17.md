@@ -210,7 +210,7 @@ Mordell-hard primes with `n_p=17`.
   so the measure weight is `N^{−1/2}` against ET's `f_II(N) ≪ N^{2/5+o(1)}`: margin only `1/10`.
   Even granting `D_P(K) ≤ 17^{2K/5}` with constant 1, `Σ_{K≥11 odd} 2·17^{2K/5}·17^{1−(K+1)/2} ≈ 0.84`
   exceeds 0.677; one would need exact enumeration through K=11 *and* an explicit ET-quality bound.
-  Q and U have margin `2/5` (exponent 3/5 against `N^{−1}`) and are harmless given any explicit
+  Q and U have margin `≥1/3` (exponents 3/5 resp. 2/3+ε against `N^{−1}`; U adds nothing new anyway, Lemma 5.2) and are harmless given any explicit
   bound `D ≤ C·N^{0.9}` with moderate C.
 * *Why elementary effective bounds fail.* Counting `D_P(K)` amounts to counting `(a,b)` with
   `r=(−17^K mod 4ab) | a+b` (ET Prop 2.7, second form; `d` is then unique since
