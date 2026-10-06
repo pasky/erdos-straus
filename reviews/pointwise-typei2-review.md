@@ -54,3 +54,27 @@ hard p with `n_p=r` and `p>2X_r`" is not proved; it holds for
 threshold (or "for all but finitely many p"); `C*(r)≤X_r` (a limsup) is
 unaffected. Also say "p∈Σ_r" means `p mod M ∈ Σ_r mod M` for the relevant
 moduli / define membership via the components at q≤r.
+
+### (2.2) derivation, Lemma 2.1, Lemma 3.1, Prop 4.1
+
+* (2.2) from `Cl`: at odd `q∉{7}` with `x_q=1`: `F≡−1 (q^{v_q(4ck)})`; at 7,
+  `x_7=−1`: `F≡+1 (7^{v_7(ck)})`; at 2: `F≡−w`; `x²≡−4ck² (F)` with `x_q²=1`
+  at all `q|F` (F odd, prime to 7) ⟺ `F|1+4ck²` ✓.
+* Lemma 2.1 at `x̂_w`: for `x≡1 (8)`, `χ_s(x)=∏_{q|s odd}(x/q)` by
+  reciprocity ⇒ `χ_s(x̂)=(−1)^{[7|s]}` ✓; Dirichlet + Thm 48.1 argument needs
+  p large so that `(c,k)∈𝓑_p` (Dirichlet gives infinitely many) ✓. So Step 1
+  of Thm A at `x̂_9` only needs slices with `v_7(c)` odd ✓, and these
+  automatically have `s∉{1,2,3,6}` ✓.
+* Lemma 3.1, re-derived: all primes of `c'k'` divide `F+1` (as `m'|F+1`),
+  `7^{a+2b}|F−1` (7∤F+1) ⇒ `F+1=2^i c'k'²`, `F−1=2^j7^s`, `i+j=2+α+2γ`,
+  `min(i,j)=1` ✓. `j=1`: `v_2(1+7^s)=3` (s odd) ⇒ `α+2γ=3` ⇒
+  `(α,γ)∈{(3,0),(1,1)}`, modulus ≥16, `−F≡1 (16)` ✓. `i=j=1` ⇒ `α=γ=0`,
+  parity contradiction ✓. `i=1,j≥2`: `γ≥1` ⇒ `F≡1 (2^{2+α+γ})` ⇒ `w≡−1 (8)` ✗ ✓;
+  `γ=0`: `−F≡−1+2^{1+α} (2^{2+α})`, ≡3 or 7 (8) ✓. Modulus is ≥8 in every
+  branch ✓. **SOUND.**
+* Prop 4.1(ii) for `r≡15 (16)`: `v_2(1+r^s)≥4` (not =3), so the `j=1`
+  branch gives `α+2γ=v_2(1+r^s)≥3`, still `α+γ≥2`, modulus ≥16, and
+  `−1−2r^s≡1 (16)` ✓. The author's "used only `v_2≥3`" is accurate. **SOUND.**
+* Prop 4.1(i): `1+4ck²=1+4r(r+1)=(2r+1)²`, `v_2(4ck)=3`, `(F,4ck)=1`
+  (`gcd(2r+1,r)=gcd(2r+1,r+1)=1`), `F≡−1 ((r+1)/4)`, `F≡1 (r)`,
+  `−F≡1 (8)` ✓; checked numerically below. **SOUND.**
