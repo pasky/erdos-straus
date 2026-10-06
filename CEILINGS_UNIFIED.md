@@ -156,14 +156,16 @@ beat the note: by KARY3 Thm 4.1 any majorant of any forced-class family
 saves `≤ Cλ^{3/4}`, and on the Haar side the void `≍ 𝓛³` holds up to
 `(log𝓛)^5` (Prop 1.1, OMEGA13 Thm 3.4). Not pursued.
 
-**Corollary 3.3 (certifying the Haar void costs level `𝓛⁴`; PROVED from
-KARY3 Thm 4.1 and Prop 1.1).** Let `𝔊_T` be the ℛ(M)-classes with `M ≤ T`
+**Corollary 3.3 (a cubic integer-CRT saving costs level `𝓛⁴`; PROVED from
+KARY3 Thm 4.1).** Let `𝔊_T` be the ℛ(M)-classes with `M ≤ T`
 together with the selector classes `0 mod p`, `p ≤ y`. Every CRT majorant
 `ν ≥ 1_{𝒜(𝔊_T)}` of level `λ ≥ λ₀` (all term moduli `≤ e^λ`) with
-`log(1/Eν) ≥ s` has `λ ≥ (s/C)^{4/3}`. In particular certifying a saving
-`c𝓛³` (the true Haar void, up to `(log𝓛)^5`) needs level `≥ c'𝓛⁴`, and the
-note's `ν_X` attains it at level `≤ C''𝓛⁴` (ledger of note Thm 8.2). So on the majorant
-side the critical level for the system at cutoff `T` is `λ*(T) ≍ 𝓛⁴`.
+`log(1/Eν) ≥ s` has `λ ≥ (s/C)^{4/3}`. In particular an integer-CRT saving
+`c𝓛³` (with selectors) needs level `≥ c'𝓛⁴`, and the note's `ν_X` attains
+such a saving at level `≤ C''𝓛⁴` (ledger of note Thm 8.2). So for savings of
+the cubic order the majorant-side critical level is `≍ 𝓛⁴`. (This is *not*
+a statement that the full unit-Haar void `δ*(T)` is certified: its exponent
+is known only between `c𝓛³` and `C𝓛³(log𝓛)^5`.)
 
 *Proof.* KARY3 Thm 4.1 gives `s ≤ log(1/Eν) ≤ Cλ^{3/4}`. ∎
 
@@ -186,18 +188,21 @@ conditional expectation given `x_s`.
 
 **Theorem 4.1 (two-sided order-k sieve limit; PROVED, from cited lemmas).**
 Fix `x_s`, write `P = P(x_s)`.
-* (U−) *Upper limit.* Every `G ∈ 𝒱_k` with `G ≥ F` has
+* (U−) *Upper limit.* For `k ≥ 1`, every `G ∈ 𝒱_k` with `G ≥ F` has
   `log(1/E_s G) ≤ k·log(C₀(P+4k)/k) + (4/3)k + ½log(22k+22) + 3`.
   In particular a saving `log(1/E_s G) ≥ P/2` forces `k ≥ c₀P` (absolute `c₀ > 0`).
 * (U+) *Upper achievability.* For even `k ≥ e²P`, `G = Q_k(H) ∈ 𝒱_k`,
   `G ≥ F`, `E_s G ≤ e^{−P} + e^{−(k+1)} ≤ 2e^{−P}`.
 * (L−) *Lower limit.* Every `B ∈ 𝒱_k` with `B ≤ F` has `E_s B ≤ 0` once
-  `P ≥ (5/3)(k+1)`, i.e. whenever `k < 0.6P − 1`.
+  `P ≥ (5/3)(k+1)`, i.e. whenever `k ≤ 0.6P − 1`.
 * (L+) *Lower achievability.* For odd `k ≥ e²P`, `B = Q_k(H) ∈ 𝒱_k`, `B ≤ F`,
   `E_s B ≥ e^{−(4/3)P} − e^{−(k+1)} > 0`.
 
-So the critical order is `k* ≍ P` **for both one-sided problems**, and the
-critical level is `λ* ≍ L·P`: "dimension times log-size". This is the
+So the critical *order* is `k* ≍ P` **for both one-sided problems**. If in
+addition the big costs are comparable (`L ≤ c_b ≤ AL`) and the small
+coordinates read by the certificate are booked separately (cost `λ_s`), the
+critical *level* is `λ* ≍_A L·P + λ_s`: "dimension times log-size". (Without
+comparable costs only the lower bound `λ ≥ L·k` on the level is valid.) This is the
 large-dimension sieve limit (`β_κ ≍ κ`) in the one-big-coordinate setting.
 
 *Proof.* (U−): given `x_s`, the big coordinates with unary patterns
@@ -247,6 +252,40 @@ S(λ) ≍ Σ_{dyadic s} min( μ(s), (λ/s)(1 + log⁺(μ(s)s/λ)) ),   μ(s) ≍
 which is dominated by `s ≍ λ^{1/4}`, where `μ(s) = λ/s`, i.e. `λ = s·μ(s)`.
 (KARY's sequential coupling is what lets multi-prime events and several
 scales be handled at once; the arithmetic per block is (U−).)
+
+**Proposition 4.2 (the note's atoms block every low-level minorant; PROVED
+given note Cor 4.3 (INTERNALLY PROVED; inputs BV and Brun–Titchmarsh) and
+OMEGA14 Lemma 1.1/Thm 1.3 (PROVED, elementary)).** There are absolute
+`c, T_0 > 0` such that for `T ≥ T_0`, every modulus `Q` with `log Q ≤ T^{0.05}`
+and every unit class `r mod Q`: if `B` is a function on the fibre
+`{n ∈ Ẑ^× : n ≡ r (Q)}` of level `≤ D` (OMEGA14 Setting 2.0: a combination of
+functions of `n mod qQ`, `q ≤ D`), `B ≤ F_T` pointwise (`F_T` = no ES event
+of modulus `≤ T`), and `log D ≤ c(log T)⁴`, then `E_fibre B ≤ 0`.
+
+This sharpens OMEGA14 Thm 4.5 (`log D ≤ c𝓛⁴/log𝓛`, modulo (G), the effective
+Page bound and the fundamental lemma) by removing the `log𝓛` and those three
+inputs. Consequently, in OMEGA14 Cor 4.6 the optimality of OMEGA13 Thm 5.1
+holds up to a factor `(log log p)^{1/4}` in `𝓛` (it was `(log log p)^{1/2}`).
+*(Suggested by the self-review of this file.)*
+
+*Proof.* Let `X = T^{1/(1+κ)}`, `t = log X`. Big coordinates: `X_ℓ = n mod ℓ`
+for the primes `ℓ ∈ (X^{1/2}, X]` with `ℓ ∤ Q`; small: all other coordinates
+(the fibre fixes some of them). On the fibre the big coordinates are
+independent and uniform on units. A function of `n mod qQ`, `q ≤ D`, reads only
+big `ℓ | q`, fewer than `2 log D/t` of them, so it lies in `𝒱_k`,
+`k = ⌊2 log D/t⌋`. Family 𝓕: the note's atoms (ES events of modulus
+`kℓ ≤ KX ≤ T`) with `ℓ ∤ Q`; each reads `c = n mod L_K` (small) and one big
+`X_ℓ`. Given any small configuration, `c` is a unit, and the active atoms at
+`ℓ` give `f_c(ℓ)` distinct unit classes (note Lemma 2.2), with
+`f_c(ℓ) ≤ z_j² ≤ ℓ^{1/3}`, so `p_ℓ = f_c(ℓ)/(ℓ−1) ≤ 2X^{−1/3} =: p*`. By note
+Cor 4.3 (uniform in `c`) and Lemma 3.2, `Σ_ℓ f_c(ℓ)/ℓ ≥ a t³` with an
+absolute `a > 0`. At most `2 log Q/t` big primes divide `Q`, each of them
+carrying `≤ p*`, so `R ≥ P ≥ a t³ − 4 log Q·X^{−1/3}/t ≥ a t³/2` for `T ≥ T_0`.
+This holds for *every* small configuration, so OMEGA14 Lemma 4.1 (Thm 1.3
+with an empty exceptional set) gives `E B ≤ 0` whenever
+`(k+1)+(2k+1)r* ≤ (5/3)(k+1) ≤ a t³/2`. That holds if `log D ≤ c t⁴` with
+`c` small, and `t ≍ 𝓛`. `B ≤ F_T ≤ F_𝓕` because 𝓕 consists of ES events of
+modulus `≤ T`. ∎
 
 ### 4.3 The unified sieve-limit statement
 
