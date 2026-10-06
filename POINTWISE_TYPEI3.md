@@ -176,8 +176,7 @@ Brute-force check: all 39 660 pairs with `c,k<200` satisfy the conclusion `F≡e
 *Proof.* Put `e=N/F`. By Lemma 1.1, `F≡−x̂`, `e≡−x̂^{−1} (mod 4ck)`. The odd components
 of `x̂` are `±1`, and `w≡w^{−1} (mod 16)` (as `81≡1`). So `e≡F (mod 2^{min(t,4)}n)`, where `n`
 is the odd part of `ck`. Also `F≡−w≡7 (mod 8)` if `t≥3`, and `F≡3 (mod 4)` if `t=2`; in all cases
-`F≢1 (mod 4)`. `F≠e` by Lemma 3.1 of POINTWISE_TYPEI2. (Its proof for `t≤4` uses only `w≡1 (8)`, and
-for `t≥5` it uses `w≡9 (16)`.)
+`F≢1 (mod 4)`. `F≠e` by Lemma 3.1 of POINTWISE_TYPEI2 (no square-family certificate at `x̂_w`, `w≡9 (16)`).
 * `t≤4`: then `e≡F (mod 4ck)`, and Lemma 5.1 gives `F≡1 (mod 4)`, a contradiction.
 * `t≥5` and `α≥2(t−4)` (equivalently `α+2γ≤4`): put `c̃=c/4^{t−4}`, `k̃=2^{t−4}k` (integers). Then
   `4c̃k̃²=4ck²` and `4c̃k̃=16n`. Since `e≡F (mod 16n)`, Lemma 5.1 applies to `(c̃,k̃)`
