@@ -19831,4 +19831,108 @@ print("\n== (df) EXCEPTIONAL_SPW §3: exact local certificate sigma <= 72/185 at
 check_df()
 
 
+
+# ---------------------------------------------------------------- (dg)
+# POINTWISE_OMEGA14.md §1 (Lemma 1.1, planting; cf. scripts/omega14_planting.py,
+# review_o14_toy_lp.py).  Checked:
+# (1) Lemma 1.1, exact rationals: on 45 random instances satisfying (1.1) (15, 15, 10, 5 for
+#     k = 0..3, n <= 8 + 3k, p_i in [0.2, 0.5] plus one zero coordinate), the explicit
+#     nu = mu + P0 sum_{|J| = k+1} w_J sigma_J has nu >= 0, nu(0) = 0, and all marginals of
+#     rho = nu - mu on k coordinates vanish (rho lives on |y| <= k+1, so no 2^n enumeration);
+#     control: with k-marginals of order k+1 (|K| = k+1) rho is visibly nonzero;
+# (2) [scipy] toy LP thresholds (exactly symmetrised LP, R49 bisection): the optimum of
+#     max E B / E F over level-k B <= F = 1[all zero] vanishes at R ~ 1.11, 1.25, 2.51
+#     ((n, k) = (10, 1), (10, 2), (12, 3)), below the sufficient (k+1)+(2k+1)r*.
+
+def check_dg():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import random
+    t0 = perf_counter()
+    rng = random.Random(14)
+
+    def esym(vals, a):
+        e = [Fraction(0)] * (a + 1)
+        e[0] = Fraction(1)
+        for v in vals:
+            for j in range(a, 0, -1):
+                e[j] += e[j - 1] * v
+        return e[a]
+
+    ninst = 0
+    for k in range(4):
+        done = 0
+        while done < (15, 15, 10, 5)[k]:
+            n = rng.randint(2 * k + 4, 8 + 3 * k)
+            p = [Fraction(rng.randint(20, 50), 100) for _ in range(n - 1)] + [Fraction(0)]
+            rng.shuffle(p)
+            r = [pi / (1 - pi) for pi in p]
+            if sum(r) < (k + 1) + (2 * k + 1) * max(r):
+                continue
+            done += 1
+            P0 = prod((1 - pi for pi in p), start=Fraction(1))
+            ek1 = esym(r, k + 1)
+            assert ek1 > 0, "OMEGA14 Lemma 1.1: e_{k+1}(r) = 0 under (1.1)"
+            rho = {}
+            for J in combinations(range(n), k + 1):
+                w = prod((r[i] for i in J), start=Fraction(1)) / ek1
+                if w == 0:
+                    continue
+                for s in range(k + 2):
+                    for y in combinations(J, s):
+                        key = frozenset(y)
+                        rho[key] = rho.get(key, Fraction(0)) + P0 * w * (-1) ** (s + 1)
+            assert rho[frozenset()] == -P0, ("OMEGA14 Lemma 1.1: nu(0) != 0", n, k)
+            for y, v in rho.items():
+                assert P0 * prod((r[i] for i in y), start=Fraction(1)) + v >= 0, \
+                    ("OMEGA14 Lemma 1.1: nu < 0", n, k, sorted(y))
+            for K in combinations(range(n), k):
+                Ks = set(K)
+                marg = {}
+                for y, v in rho.items():
+                    z = y & Ks
+                    marg[z] = marg.get(z, Fraction(0)) + v
+                assert all(v == 0 for v in marg.values()), ("OMEGA14 Lemma 1.1: k-marginal moved", n, k, K)
+            ctrl = False
+            for K in combinations(range(n), k + 1):
+                Ks = set(K)
+                marg = {}
+                for y, v in rho.items():
+                    z = y & Ks
+                    marg[z] = marg.get(z, Fraction(0)) + v
+                if any(v != 0 for v in marg.values()):
+                    ctrl = True
+                    break
+            assert ctrl, ("OMEGA14 Lemma 1.1 control: (k+1)-marginals should move", n, k)
+            ninst += 1
+    msg = "toy LP skipped (no scipy)"
+    try:
+        import scipy  # noqa: F401
+        have_scipy = True
+    except ImportError:
+        have_scipy = False
+    if have_scipy:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts", "review_o14_toy_lp.py")
+        spec = importlib.util.spec_from_file_location("review_o14_toy_lp", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        got = []
+        for (n, k), Rexp in [((10, 1), 1.111), ((10, 2), 1.250), ((12, 3), 2.514)]:
+            with contextlib.redirect_stdout(io.StringIO()):
+                R, r = mod.threshold(n, k)
+            assert abs(R - Rexp) < 0.01, ("OMEGA14 toy LP threshold", n, k, R, Rexp)
+            assert R < (k + 1) + (2 * k + 1) * r, ("OMEGA14 toy LP: threshold above (1.1)", n, k)
+            got.append(f"{R:.3f}")
+        msg = "toy LP thresholds R = " + ", ".join(got) + " (n, k) = (10,1), (10,2), (12,3), all below (1.1)"
+    print(f"dg Lemma 1.1 planting: {ninst} exact instances (k = 0..3, n <= 8 + 3k): nu >= 0, nu(0) = 0, k-marginals fixed "
+          f"(control: (k+1)-marginals move); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dg) POINTWISE_OMEGA14 §1: Lemma 1.1 planting (exact), toy LP thresholds ==")
+check_dg()
+
+
 print("\nall checks passed")
