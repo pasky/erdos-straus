@@ -44,8 +44,51 @@ a (Q)-datum `(a,d,Fg)` gives the I2 class `(a, c=(Fg+1)/(4ad), Fg)` (`g | a+c` s
 `m(4a²d+1) ≡ a+m (mod g)` for `m=c`, `4adc ≡ 1`). I3 with `17 | f`: `4cd | f+1`, `f' | 4c²d+1`
 (the (Q) conditions with `a=c`), boxes the roots of `n² ≡ −4c²d` mod `f_17`.
 (P) closed under inversion: `f* = (4a²d+1)/f` satisfies `f f* ≡ 1 (mod F)` and `f* ≡ −1 (mod 4(ad)')`,
-so `(a,d,f*)` is a (P)-datum with box `−f* ≡ −1/f = (−f)^{−1}`·... i.e. `(−f)^{−1}·1`? —
-precisely `−f* ≡ −f^{−1} = (−f)^{−1}` (as `(−1)^{−1}=−1`). ∎
+so `(a,d,f*)` is a (P)-datum with box `−f* ≡ −f^{−1} = (−f)^{−1} (mod F)`. ∎
 
 **Lemma 1.2 (no level-0 boxes).** No class of any family contains all 17-generic points
 (i.e. there is no box with `F=1`). *Proof:* see §2 (rigid forms with F=1 have no solutions).
+
+## 2. Box types = Erdős–Straus solutions of 4/17^K (PROVED, elementary)
+
+ET notation (arXiv:1107.1010 §2): `Σ^I_n`: `4abcd = n(a+b)+c`, `e=(a+b)/c`, `f=4acd−n`,
+`ef=4a²d+1`; `Σ^II_n`: `4abcd = a+b+nc`, `e=(a+b)/c`, `f=4acd−1`, `ef=n+4a²d`,
+`4c²dn+1=f(4bcd−1)`. `π^I=(abdn,acd,bcd)`, `π^II=(abd,acdn,bcdn)` map N-points to ordered
+solutions of `4/n=1/x+1/y+1/z`, injectively modulo the dilation `(λa,λb,λc,λ^{−2}d)`.
+
+**Lemma 2.1 (Q ↔ Type I points of 4/17^k).** `(a,d,f=Fg)` is a (Q)-datum of level `F=17^k` iff
+`(a,b,c,d) = (a, (f+1)/(4ad), (a+b)/g, d)` is an N-point of `Σ^I_F` with `e=g` prime to 17. The box
+`−4a²d (mod F)` is dilation invariant, so **#(Q)-boxes of level k ≤ #ordered solutions of
+4/17^k** (and the same for Q⁻¹; ≤ twice that for √Q).
+*Proof.* Put `m=(f+1)/(4ad)`. `gcd(m,g)=1` and `m(4a²d+1) ≡ a+m (mod g)` give `g | a+m`; with
+`j=(a+m)/g`: `jf = F(a+m)`, i.e. `4amjd = Fa+Fm+j`, which is (2.3) for `(a,m,j,d)`, `n=F`; then
+`e=(a+m)/j=g` and `f_ET = 4ajd−F = (Fa+j)/m > 0`. Conversely (2.3) gives `j(4amd−1)=F(a+m)=Fje`,
+so `4amd−1 = Fe`, and `e | 4a²d+1` is (2.7). ∎
+
+**Lemma 2.2 (U ↔ solutions of 4/17^k).** For a (U)-datum `(a,b,e)` of level `F` put `c=(a+b)/e`,
+`i=(e+1)/(4ab/F)`. Then `4/F = 1/(iab) + 1/(iac) + 1/(ibc)`, and the box is
+`−e = −(x/y + x/z)` for `(x,y,z) = (iab,iac,ibc)`. Hence **#(U)-boxes of level k ≤ #ordered
+solutions of 4/17^k** (same for U⁻¹).
+*Proof.* `e+1 = 4i·ab/F` and `a+b = ce` give `4iabc = F(a+b+c)`; divide by `F·iabc`. And
+`x/y + x/z = b/c + a/c = e`. ∎
+
+**Lemma 2.3 (P ↔ Type II points of 4/17^K, at half level).** Let `(a,d,f)` be a (P)-datum of level
+`k`, `a=17^α a'`, `d=17^δ d'` (`α+δ=k`), `n=a'd'`, `f=4ni−1`, `f*=(4a²d+1)/f=4nj−1`. Then
+`(i, j, a', d')` is an N-point of `Σ^II_N`, `N=17^K`, `K=k+α ∈ [k,2k]`, with `17∤a'd'`, and the box is
+`−f = −f_ET (mod 17^k)`. Conversely every N-point of `Σ^II_{17^K}` with `17∤cd` and every
+`0≤α≤K/2` gives a (P)-datum of level `K−α` with box `−f_ET mod 17^{K−α}`. These boxes are nested;
+**the union of all (P)-boxes is the union over K≥1 and over N-points of Σ^II_{17^K} (17∤cd) of the
+boxes `−f_ET (mod 17^{⌈K/2⌉})`.**
+*Proof.* `(4ni−1)(4nj−1)=4aFn+1` expands to `4nij−i−j=aF=17^K a'`, i.e. `4·i·j·a'·d' = i+j+17^K a'`
+— (2.15). Conversely (2.21) `4c²dN+1 = f(4bcd−1)` with `a=17^α c`, `d_P=17^{K−2α}d` gives
+`f | 4a²d_P+1`, and `f+1 = 4acd ≡ 0 (mod 4cd)`. ∎
+
+**Corollary 2.4 (no level-0 boxes; Lemma 1.2).** `F=1` would give ES solutions of `4/1` in
+positive integers, impossible (`1/x+1/y+1/z ≤ 3`). For (P), `K≥1` as `k≥1`... and `k=0` forces `K=0`. ∎
+
+**Consequence (measure).** With `f(N)` = #ordered positive solutions of `4/N=1/x+1/y+1/z` and
+`f_II(N)` = #N-points of `Σ^II_N` modulo dilation,
+`μ(⋃ boxes) ≤ Σ_{k≥1} 6 f(17^k) 17^{−k} + Σ_{K≥1} f_II(17^K) 17^{−⌈K/2⌉}`.
+By ET Prop 1.7 (`f_I ≪ n^{3/5+o(1)}`, `f_II ≪ n^{2/5+o(1)}`) both series CONVERGE (PROVED, but
+ineffective: ET's `n^{O(1/log log n)}` constants are not explicit). The (P) series is the critical
+one: exponent `2/5` against measure `N^{−1/2}`.
