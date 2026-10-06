@@ -172,6 +172,12 @@ externally refereed" (bib says so, but the status conventions in §1 list only [
 "(for CRT majorants with coefficient sum `< N` and family primes `≤ N^A`; for Case-A classes
 modulo Elsholtz–Tao §7)" and add [SL] to the status conventions alongside [TQ].
 
+**D3 (MINOR; paragraph after Thm 11.2, "a matching lower bound in the range
+`log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 6.1 except when
+an exceptional character divides the quarantine modulus").** This is an unproved claim with no
+label (the preceding sentence is tagged Assessment, this one is not). *Repair:* "(Assessment, not
+checked)" or delete.
+
 **D4 (MINOR; labels of Cor 12.3, the Siegel statement and Prop 13.2(b); status conventions §1).**
 The conventions say "*Proved* means proved in full here" and define "proved modulo X" only for
 the listed inputs; [O15], [O16] (repository working notes, internally reviewed) and [SL] are not
@@ -182,12 +188,6 @@ overstates what the paper itself contains. *Repair:* label Cor 12.3 "proved impl
 [O15, Cor. 2.4]; sketch here", give the Siegel statement a label ("proved in [O15, Thm 3.1]"),
 and add one sentence to the status conventions: results quoted from [O15], [O16], [SL] are
 internally reviewed working notes, proofs sketched or referenced.
-
-**D6 (MINOR/nit; §13 "Other strengths" (i), and intro sentence on product sets).** "A log-scale
-counting form … implies LS(C+1)": the deduction needs `c₀T^{C+1}δ^{−1} ≥ 2log x/1`, i.e.
-`T ≥ T₀(c₀,C)`; for small T the constant must be enlarged. Write "implies LS(C′) for some
-`C′=C′(C,c₀)`". The intro's "applied to product subsets of the avoiding set, cannot certify more than
-`(log p)^{2+o(1)}`" rests on Prop 13.2(b), i.e. modulo BDH (ineffective) — add "(modulo BDH)".
 
 **D5 (MINOR; Prop 12.4, the examples "Bombieri–Vinogradov, Elliott–Halberstam, GRH restricted to
 moduli ≤ x", and the intro/abstract lists).** The statements in `𝓘` are unweighted counts of
@@ -201,11 +201,11 @@ covered. *Repair:* after the examples add "(in the form of their consequences fo
 unweighted counts at the given x; information about several scales or the weight `log p`
 uses the position of the primes in `[1,x]` and is outside the framework, see Scope)".
 
-**D3 (MINOR; paragraph after Thm 11.2, "a matching lower bound in the range
-`log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 6.1 except when
-an exceptional character divides the quarantine modulus").** This is an unproved claim with no
-label (the preceding sentence is tagged Assessment, this one is not). *Repair:* "(Assessment, not
-checked)" or delete.
+**D6 (MINOR/nit; §13 "Other strengths" (i), and intro sentence on product sets).** "A log-scale
+counting form … implies LS(C+1)": the deduction needs `c₀T^{C+1}δ^{−1} ≥ 2log x/1`, i.e.
+`T ≥ T₀(c₀,C)`; for small T the constant must be enlarged. Write "implies LS(C′) for some
+`C′=C′(C,c₀)`". The intro's "applied to product subsets of the avoiding set, cannot certify more than
+`(log p)^{2+o(1)}`" rests on Prop 13.2(b), i.e. modulo BDH (ineffective) — add "(modulo BDH)".
 
 **N1 (nit; §11 title, line 2259).** `\texorpdfstring{$\Lc^4$}{L^4}` triggers "Token not allowed in a
 PDF string … removing `superscript`" (bookmark reads "L4"). Use `{L\textasciicircum 4}` or `{L4}`
