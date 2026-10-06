@@ -18,7 +18,7 @@ model, and for a single residue class it *is* Linnik's theorem.
   `W(p)≥exp(c(log p)^{1/3}(log log p)^{−5/3})` for infinitely many Mordell-hard p; LS is needed
   for one system per T only. `LS(Φ)` with `Φ(λ)=λ^θ` gives exponent `1/(3θ)`.
 * **Brief item (i)** (EH-type equidistribution): any hypothesis consisting of Haar-centred error
-  bounds for primes in classes / characters of moduli `≤x` (BV, EH, GRH, the progression part of
+  bounds for primes in classes / characters of moduli `≤x` (BV, EH, GRH *truncated to moduli `≤x`*, the progression part of
   GEH), used through a linear certificate (O15 Def 2.1), yields at most exponent **1/4** — the
   planted fake satisfies it (Prop 3.1). "Primes in sifted sets
   *with main term*" is too strong as stated: its asymptotic and constant-factor forms are
@@ -170,8 +170,13 @@ hypothesis consisting of *Haar-centred error bounds* for the primes `p≤x`, `p�
 residue classes, Dirichlet characters or additive characters of moduli `q≤x`: statements
 `|Σ_{p≤x,p∈H,p∤q}h(p)−N_{x,q}E_Hh|≤𝔈_h` (`N_{x,q}`: number of such primes), individually or
 averaged over h and q, with error bounds `𝔈_h≥2log x` (resp. averages of such) — e.g. BV,
-EH(θ) for any `θ<1`, GRH, and the specialisation of GEH to primes in progressions. (GEH's full
-content about general convolutions, and anything not Haar-centred, is not covered.) Every certificate of
+EH(θ) for any `θ<1`, GRH truncated to moduli `≤x`, and the specialisation of GEH to primes in
+progressions. (GEH's full content about general convolutions, and anything not Haar-centred, is not
+covered. **Full GRH is not covered** (R61 M1): it also asserts `|Σ_{p≤x}χ(p)|≪√x log²(qx)` for
+characters of modulus `q>x`, e.g. mod `lcm(M≤T)≈e^T`, which is non-trivial at `log x≍𝓛^4`; whether
+the planted ν satisfies these — i.e. whether its Fourier coefficients at all characters of modulus
+`≤e^{O(T)}` are `≪T²x^{−1/2}` — is open. O15 Cor 2.4 covers such characters only for
+full-orbit-uniform use.) Every certificate of
 "`∃p≤x` prime, Mordell-hard, `W(p)>T`" of the minorant type — `B≤F` on a fibre `n≡r (Q)` with `log Q≤T^{0.05}`, B a combination
 of functions of those moduli, concluding `Σ_{p≤x}F(p)≥Σ_{p≤x}B(p)>0` from 𝓘 — needs
 
@@ -300,7 +305,7 @@ the hypothetical counterexample itself, not an independent prime-like object. (C
 Selberg's parity example, where the fake — integers with `λ(n)=−1` — is a natural sequence
 sharing the primes' sieve axioms and *does* miss the target set.) What the fakes do prove is
 the converse direction: LS (for `𝓔_T`) does not follow from any input of the type in
-Prop 3.1 (level-of-distribution statements, GRH, BV/EH/GEH) through linear certificates, nor
+Prop 3.1 (level-of-distribution statements, GRH for moduli `≤x`, BV/EH/progression-GEH) through linear certificates, nor
 from any orbit-uniform linear certificate of any level (O15 Cor 2.4, Prop 2.5), nor in the
 presence of a Siegel-model main term (O15 Thm 3.1). LS is in the same position as
 the twin-prime conjecture relative to the sieve: a "beyond-the-barrier" hypothesis. (Assessment
@@ -402,7 +407,7 @@ unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
 | Thm 1.2 | LS(C) ⇒ `W≥exp(c(log p)^{1/3}(loglog p)^{−5/3})` i.o., Mordell-hard | PROVED implication, modulo NT (via O13 Thm 3.4) |
 | Prop 2.1(a) | integer analogue of AS(C) false for every C | PROVED (Buchstab–de Bruijn, classical) |
 | Prop 2.1(b) | PS(C,c), AS(C) fail for primes by `(e^γω(u))^κ` | Assessment (HL heuristic); EVIDENCE N1 |
-| Prop 3.1 | EH/GEH/GRH/BV-type input, linear certificates: exponent ≤ 1/4 | PROVED implication, inputs of O14 Thm 4.5 ((G), effective Page, fundamental lemma) |
+| Prop 3.1 | Haar-centred BV/EH/progression-GEH/GRH input for moduli `≤x`, linear certificates: exponent ≤ 1/4 (full GRH not covered) | PROVED implication, inputs of O14 Thm 4.5 ((G), effective Page, fundamental lemma) |
 | Prop 4.1(a) | product subset of `F_T^{MH}` with `log(1/δ)≤T^{1/2+o(1)}` | PROVED |
 | Prop 4.1(b) | every product subset of `F_T` has `log(1/δ)≫T^{1/2}(log T)^{−8}` | PROVED modulo Barban–Davenport–Halberstam |
 | Cor 4.2 | HL_prod ⇒ `W≥(log p)^{2−o(1)}` i.o.; route capped at `(log p)^{2+o(1)}` | PROVED implication |

@@ -9,7 +9,7 @@ data `data/omega16/`.
    Linnik for one class; log-scale random-set model.
 2. **Thm 1.2 (PROVED implication, modulo NT via O13 Thm 3.4):** LS ⇒ `W(p)≥exp(c(log p)^{1/3}(log log p)^{−5/3})`
    for infinitely many Mordell-hard p. Short proof: O13's density bound + LS for one system per T.
-3. **Item (i):** EH/GEH/GRH/BV-type inputs (moduli `≤x`) through linear certificates cap at 1/4 (Prop 3.1,
+3. **Item (i):** Haar-centred BV/EH/progression-GEH/GRH inputs for moduli `≤x` (full GRH with moduli `>x` not covered, R61 M1) through linear certificates cap at 1/4 (Prop 3.1,
    zero-error planted fake). Main-term forms of "primes in sifted sets" are too strong: AS false in the integer
    analogue (Buchstab), PS/AS heuristically false for primes by a compounding `(e^γω(u))^κ` deficit (Prop 2.1;
    numerics to 1e9 confirm compounding).
