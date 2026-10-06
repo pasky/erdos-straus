@@ -1,10 +1,31 @@
 # POINTWISE_MN3 — hypothesis SI for the class-of-one prefix (task O82, branch `side-agent/sierpinski-si`)
 
-Status: work in progress. Labels as in DISCOVERIES.md. Notation as in POINTWISE_MN.md (MN),
+Status: CLOSED as an obstruction/localisation write-up (parent decision (c), O82). SI is **not**
+proved. Labels as in DISCOVERIES.md. Notation as in POINTWISE_MN.md (MN),
 POINTWISE_MN2.md (MN2), POINTWISE_OMEGA12.md (O12). Fixed `m ≥ 4`, `m ≢ 0 (4)` (main case m = 5);
 constants may depend on m. Atoms `(M,D)`: `M ≡ −1 (m)`, `A = (M+1)/m`, `D | A²`, event `n ≡ −mD (M)`.
 
-## 0. Target
+## 0. Summary
+
+Prefix law `ν = δ_1` (class of one mod `Q_0 = Q(q_0)`), hypothesis SI of MN2 Prop 5.1. Result: SI is
+not proved; its main term is localised at an Erdős–Straus-type multiplicity `R(N)` (Lemma 5.1), and
+a route (M2) ⇒ SI exists only as a SKETCH with five missing pieces (§5.4).
+
+| item | statement | label |
+|---|---|---|
+| Lemma 1.1 | `E_ν[p_0(E^-)] ≤ ℓ/φ(N)`, `N = M/gcd(M,mD+1)`; so `E^ν_1(q) ≤ 2ℓU_1(q)` | PROVED |
+| Lemma 2.1 | N-parametrisation (`f | aN+c`, `cM = N(a+b)`, `acd ≤ N`); `R(N) < ∞` | PROVED |
+| Lemma 3.1 | with three admissible levels, SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (proper prime powers) | PROVED (given MN2 Thm 3.1's set-up) |
+| §4 route table | four linear routes (sum over c, d via N, d via e, a), each expected closable by (H) when long | Assessment (proofs not written) |
+| Lemma 4.1 | `s = gcd(g,Q_0)`; exact weight `≤ ℓ/(φ(N)φ(g/s))` | PROVED |
+| residual (§4) | region where all four routes are short (Kloosterman range of `ef ≡ 1 mod ma²`) | description: Assessment; mass share 72–91% of `U_1(q)`, `q ≤ 199`: EVIDENCE |
+| Lemma 5.1 | `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; on the all-ones path the level-0 count is `Y(ℓ) ≤ 2R_ℓ(ℓ)` | PROVED |
+| Lemma 5.2 | `R(N) ≪_ε N^{2/3+ε}` | PROVED |
+| Conjecture 5.3 (M2) | `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}` | CONJECTURE (EVIDENCE to `3·10⁴`) |
+| §5.4 | (M2) + (H) ⇒ SI(δ_1) | SKETCH only (five missing pieces listed) |
+| SI for `ν = δ_1`; ADM_m; `W_5` exponent 1/4 | — | OPEN / OPEN / CONDITIONAL on SI |
+
+## 0′. Target and notation
 
 Prefix law `ν = δ_1`: `r_0 ≡ 1 (mod Q_0)`, `Q_0 = Q(q_0)` (times 8 for `m ≡ 2 (4)`, MN2 §1 note;
 no atom involves 2 then). For `q = ℓ^{a+1} ∈ 𝒫`, `q > q_0`, the completed atoms are
@@ -188,38 +209,58 @@ What a proof of SI at level 0 needs is, roughly, **one** of:
   `O(n^{3/5})`"); the same device gives only Lemma 5.2's `N^{2/3+o(1)}` here. Far from `1/K_0`.
 * (AP) equidistribution of `R(N)` over `N ≡ 0 (mod ℓ)`, `N ≤ X`, with saving `ℓ^{−δ}` relative to
   `X/ℓ`, for `ℓ` up to `X^{1−δ}` — a level of distribution beyond what is known even for `τ_3`.
-* (M2) via Cauchy–Schwarz over `ℓ ~ L` (only averages over ℓ enter SI, Lemma 3.1): an unrestricted
-  second moment `Σ_{N≤X} R(N)² ≪ X^{1+η}` with `η < 1/K_0`. EVIDENCE (`scripts/mn3_rn.py 5 30000
-  moments`): `Σ_{N≤Y}R(N)²/Y = 367, 803, 1679, 3082` for `Y = 10³, 3·10³, 10⁴, 3·10⁴`
-  (`≈ 0.003(log Y)⁶`), and the mean of `R(ℓ)` over primes `ℓ ∈ (Y/2,Y]` is `35, 57, 78, 106`
-  (`≍ (log Y)³`). So (M2) looks true with `η = o(1)`; proving it is a 6-variable counting problem
-  (pairs of O12 tuples with equal N) whose "first-term" regime is again of Kloosterman type.
+* (M2) via Cauchy–Schwarz over `ℓ ~ L` (only averages over ℓ enter SI, Lemma 3.1): a
+  congruence-free second moment of R, Conjecture 5.3 below.
 
-**Assessment.** The q-free part of SI (the c-, N-, d- and a-routes with (H)) is routine; all the
-difficulty is concentrated in one place: the class-of-one multiplicity `R(N)` of atoms with a given
-non-consistent cofactor N, at `N` a small multiple of the new prime. This is an Erdős–Straus-type
-counting problem whose pointwise version is open (ET's `3/5`), and the averaged versions needed (AP or
-second moment) are not available from (H), ET Prop 1.4/Thm 7.1, Weil, or elementary counting. The
-`(M2)` route reduces SI(δ_1) at level 0 to a **congruence-free** second-moment statement; this is the
-cleanest form of the missing input found here (CONJECTURE, supported by the data above). The
-correlation terms of `E^ν_2` and the large-scale regime (§4, Lemma 4.1) would still have to be written
-out under (M2); not done.
+**Conjecture 5.3 (M2; CONJECTURE).** Fix `m ≥ 4`, `m ≢ 0 (4)`, and let
+`R(N) := #{atoms (M,D) with D ≤ A and M/gcd(M, mD+1) = N}`. Then for every `ε > 0`
+`Σ_{N≤X} R(N)² ≪_{m,ε} X^{1+ε}` (strong form: `≪_m X(log X)^{C}` for some C).
+*Data (m = 5, `scripts/mn3_rn.py 5 30000 moments`, exact counts):*
+
+| Y | 10³ | 3·10³ | 10⁴ | 3·10⁴ |
+|---|---|---|---|---|
+| `Σ_{N≤Y}R(N)/Y` | 11.2 | 16.3 | 23.5 | 31.7 |
+| `Σ_{N≤Y}R(N)²/Y` | 367 | 803 | 1679 | 3082 |
+| `Σ_{N≤Y}R(N)²/(Y log⁶Y)` | 0.0034 | 0.0030 | 0.0028 | 0.0026 |
+| mean / max of `R(ℓ)`, primes `ℓ ∈ (Y/2,Y]` | 35 / 111 | 57 / 223 | 78 / 386 | 106 / 663 |
+
+The normalised second moment is slowly decreasing, so `X(log X)⁶` is an upper envelope over this
+range; the data do not determine the log-power. Only the weak form with `ε < 1/K_0` would be used in
+§5.4. Proving (M2) is a count of pairs of O12 tuples with equal N (6 free variables), whose
+"first-term" regime is again of Kloosterman type.
+
+### 5.4 (M2) ⇒ SI: SKETCH (not a proof)
+
+Idea. Split `U_1(ℓ) = U^N(ℓ) + U^e(ℓ)` according to `ℓ | N` or `ℓ | e = g`. In the small box
+(`M ≤ (Q_0ℓ)^{K_0}`) bound the multiplicative weights pointwise by `(Q_0ℓ)^{O(ε)}`; then
+`U^N(ℓ) ≲ ℓ^{−1}Σ_{N''} R(ℓN'')/N''`, Cauchy–Schwarz in `N''` and summation over `ℓ ~ L` give
+`Σ_{ℓ~L} U^N(ℓ)² ≲ (log X)² L^{−1} Σ_{N≤X} R(N)²/N`, which is `≪ L^{−δ}` under (M2) with `ε < 1/K_0`;
+this is the off-diagonal part of (R_a). For (R_b) (`q = ℓ^k`, `k ≥ 2`) the same with
+`ω_{L,k}(N) = #{ℓ ~ L : ℓ^k | N}` gives `Σ_{ℓ~L} U^N(ℓ^k) ≲ L^{−1/2}(Σ R²/N)^{1/2}`.
+
+**Missing pieces** (each needed for a proof):
+1. **Correlation terms of `E^ν_2`**: pairs `E ≠ E'` in `C_ℓ` whose `M_1, M_1'` share post-prefix
+   prime powers (factor `G/gcd(G,Q_0)`, `G = gcd(M_1,M_1')`); only the uncorrelated part is
+   covered by the sketch.
+2. **The large-scale regime**: residual boxes with `B ≥ (Q_0q)^{O(1)}` (Lemma 4.1's power saving
+   against pointwise weights is only an Assessment), and the whole range `q_0 < q < Q_0 = e^{(1+o(1))q_0}`,
+   where the prefix part s can be huge and the pointwise loss `(Q_0ℓ)^{O(ε)} = e^{O(εq_0)}` is not
+   absorbed (this also affects the small-box step above).
+3. **The long-route proofs**: the four (H)-applications of the §4 table with explicit coefficients,
+   discriminants, Rankin weights and the q-progression, including the short-range cut-offs.
+4. **The `ℓ | e` part `U^e`** (`q | P`, O12 Lemma 4.1 type, with the multiplicative weights) and the
+   mixed splits `ℓ^i ‖ e`, `ℓ^j ‖ N`.
+5. **The diagonal / first-moment totals** `Σ_{ℓ~L} U_1(ℓ^k) ≪ L^{o(1)}` uniformly in the scale
+   (Rankin-weighted class-of-one masses; the residual again blocks a direct proof at large scales).
+
+**Assessment.** All the difficulty found is concentrated in the class-of-one multiplicity `R(N)` at
+`N` a small multiple of the new prime (Lemma 5.1, EVIDENCE §4). Its pointwise version is open (ET's
+`3/5` for the analogous ES counts; Lemma 5.2's `2/3` here), and the averaged versions (AP to moduli
+`≈ X^{1−δ}`, or (M2)) are not available from (H), ET Prop 1.4/Thm 7.1, Weil, or elementary counting.
 
 ## 6. Status
 
-| item | statement | label |
-|---|---|---|
-| Lemma 1.1 | `E_ν[p_0(E^-)] ≤ ℓ/φ(N)` for `ν = δ_1`; `E^ν_1(q) ≤ 2ℓU_1(q)` | PROVED |
-| Lemma 2.1 | N-parametrisation; `R(N) < ∞` | PROVED |
-| Lemma 3.1 | SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (three admissible levels) | PROVED (given MN2 Thm 3.1's set-up) |
-| §4 route table | four linear routes, each closable by (H) when long | Assessment (proofs not written) |
-| Lemma 4.1 | prefix part `s = gcd(g,Q_0)`; extra factor `1/φ(g/s)` | PROVED |
-| residual | all routes short; Kloosterman range; carries 72–91% of `U_1(q)` for `q ≤ 199` | description PROVED, share EVIDENCE |
-| Lemma 5.1 | `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; all-ones path forbids via `Y(ℓ) ≤ 2R_ℓ(ℓ)` | PROVED |
-| Lemma 5.2 | `R(N) ≪ N^{2/3+ε}` | PROVED |
-| (M2) | `Σ_{N≤X}R(N)² ≪ X^{1+o(1)}` | CONJECTURE (EVIDENCE to 3·10⁴) |
-| SI for `ν = δ_1` | — | OPEN; reduced to control of the ES-type multiplicity `R(N)` (P/AP/M2) |
-| W_5 exponent 1/4 | — | still CONDITIONAL (on SI) |
+See the table in §0.
 
 ## Replay
 
