@@ -91,7 +91,9 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1;
   (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact planted laws; closed-form bound);
   (dr) POINTWISE_TYPEI2: sign-point checkers to ck <= 10^6 (gcc; skipped otherwise), R69 factoring
-       engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity.
+       engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity;
+  (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols for several m (author + R63 + inline), square-
+       consistency counts of §1.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -20768,6 +20770,73 @@ def check_dr():
 
 print("\n== (dr) POINTWISE_TYPEI2: sign-point checkers (ck <= 10^6), Lemma 3.1, Prop 4.1 (r = 3 (8)) ==")
 check_dr()
+
+
+
+# ---------------------------------------------------------------- (ds)
+# POINTWISE_MN.md Lemma 1.1 (Jacobi symbols of the m/n Type II event classes -mD mod M, M = mA - 1,
+# D | A^2; PROVED, brute-forced) and its square-consistency consequence.  Cf. scripts/mn_jacobi.py
+# (author) and review_mn_jacobi.py (R63), both run as subprocesses.  Checked:
+# (1) author: formula (a)-(c) on every odd-M atom, M <= 5*10^4, m = 4, 5, 6, 7, 10 (0 failures; atom
+#     counts 473842 / 284878 odd-M for m = 4 / 5); square-consistent atoms: none for m = 4, and
+#     68642/363982 (m=5), 56964/293117 (m=6), 38355/244129 (m=7), 29704/159390 (m=10) as in §1;
+# (2) R63: (a), (b), (c) for m = 4..12, 14, 18, M <= 3000; only symbol -1 for m = 4, 8, 12 ((d));
+# (3) inline (sympy jacobi_symbol): (d) for m = 4, 8, 12, 16, 20, M <= 6000; M = 7 (8) always gives -1;
+#     the smallest square-consistent examples (9,1), (29,1) at m = 5, (5,1) at m = 6, (13,2) at m = 7.
+
+def check_ds():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("mn_jacobi.py", 50000, 4, 5, 6, 7, 10)
+    assert o.count("failures=0") == 5 and "failures=" in o, ("MN Lemma 1.1 author formula failures", o[-800:])
+    for m, at, sq in ((4, 473842, 0), (5, 363982, 68642), (6, 293117, 56964), (7, 244129, 38355), (10, 159390, 29704)):
+        assert f"m={m} T=50000 atoms={at} square-consistent={sq} " in o, ("MN §1 square-consistency counts", m)
+    assert "checked on 473842 odd-M atoms" in o and "checked on 284878 odd-M atoms" in o, "MN Lemma 1.1 atom counts"
+    ms = (4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 18)
+    o = run("review_mn_jacobi.py", 3000, *ms)
+    lines = [ln for ln in o.splitlines() if " atoms " in ln]
+    assert len(lines) == len(ms), ("MN R63 output", o)
+    for ln in lines:
+        f = ln.split()
+        m, fail = int(f[0]), int(f[4])
+        assert fail == 0, ("MN Lemma 1.1 R63 failure", ln)
+        if m % 4 == 0:
+            assert "symbols [-1] " in ln, ("MN Lemma 1.1(d): +1 symbol for m = 0 (4)", ln)
+    nd = n7 = 0
+    for m in (4, 5, 6, 7, 8, 9, 10, 12, 16, 20):
+        for A in range(1, 6000 // m + 1):
+            M = m * A - 1
+            if M < 3 or M % 2 == 0:
+                continue
+            for D in divisors_of_square(A):
+                J = jacobi_symbol((-m * D) % M, M)
+                if m % 4 == 0:
+                    assert J == -1, ("MN Lemma 1.1(d)", m, M, D)
+                    nd += 1
+                if M % 8 == 7:
+                    assert J == -1, ("MN Lemma 1.1(b): M = 7 (8)", m, M, D)
+                    n7 += 1
+    for m, M, D, root in ((5, 9, 1, 2), (5, 29, 1, 13), (6, 5, 1, 2), (7, 13, 2, 5)):
+        assert (M + 1) % m == 0 and ((M + 1) // m) ** 2 % D == 0, ("MN example not an atom", m, M, D)
+        assert (root * root - (-m * D)) % M == 0, ("MN square-consistent example", m, M, D, root)
+    print(f"ds Lemma 1.1: author formula on all odd-M atoms M <= 5*10^4 (m = 4,5,6,7,10; 0 failures), "
+          f"square-consistent counts as stated; R63 for {len(ms)} m (M <= 3000); inline (d) on {nd} atoms, "
+          f"M = 7 (8) on {n7}; 4 smallest examples; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols of -mD mod M for several m ==")
+check_ds()
 
 
 print("\nall checks passed")
