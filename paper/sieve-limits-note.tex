@@ -79,7 +79,10 @@ family-specific input, such as the sparsity of forced classes; using
 sparsity through a smooth--rough splitting, every CRT-admissible large
 sieve, at any frequency level, saves at most
 $O((\log N)^{3/4}(\log\log N)^3)$ for mixtures with at most one prime factor
-above $\exp\{(\log N)^{1/4}\}$ per modulus.  We also show
+above $\exp\{(\log N)^{1/4}\}$ per modulus, and more generally whenever the
+classes with several such primes are residue-sparse, which includes the
+residue-concentrated ones; the residue-dense case is reduced to a sup-decay
+hypothesis.  We also show
 that the literal tuple-count hypothesis meets forced zeros above $2/3$ and
 give the repaired alternating form.  We list exactly what the theorems
 exclude.  Finally we explain the cap and the pointwise ceiling $1/4$ for
@@ -131,16 +134,16 @@ Lemma~\ref{lem:firstnoB}) means: given the \cite{KA}/\cite{KA2} framework
 (square base, leak, weighted sequential sieve limit) as reviewed there
 \cite{KArev,KArev2,KA2rev,KA2rev2}; \cite{KA3} does not re-prove it.
 Apart from the classical facts of Section~\ref{sec:forced}, each
-\lab{proved} result below appears in one of twenty-four internal working
+\lab{proved} result below appears in one of twenty-five internal working
 documents, \cite{ET}, \cite{EB}, \cite{TW}, \cite{TW2}, \cite{TW3},
 \cite{KA}, \cite{TW4}, \cite{NC}, \cite{KA2}, \cite{KA3}, \cite{LS},
-\cite{LS2}, \cite{LS3}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{SPW},
+\cite{LS2}, \cite{LS3}, \cite{LS4}, \cite{PL}, \cite{IF}, \cite{IF2}, \cite{SPW},
 \cite{SPW2}, \cite{TU}, \cite{TU2}, \cite{CU}, \cite{O13}, \cite{O14}, \cite{O16}, or is
 assembled here from such results with the short argument given (marked
 ``observation of this note'').  Each document was hostile-reviewed; the
-reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,LS3rev,PLrev,IFrev,IF2rev,SPWrev,SPW2rev,TUrev,TU2rev,CUrev}
+reviews are \cite{ETrev,EBrev,TWrev,TW2rev,TW3rev,KArev,KArev2,TW4rev,NCrev,KA2rev,KA2rev2,KA3rev,LSrev,LS2rev,LS2revb,LS3rev,LS4rev,PLrev,IFrev,IF2rev,SPWrev,SPW2rev,TUrev,TU2rev,CUrev}
 (those of \cite{O13,O14,O16} are listed with them in the bibliography).
-Version~5 adds Section~\ref{sec:smoothrough}, the refutation of
+Version~5 adds Sections~\ref{sec:smoothrough} and~\ref{sec:damped}, the refutation of
 fixed-margin SPW and the weak-SPW requirement in Section~\ref{sec:hybrid},
 and Section~\ref{sec:unified}; the cap of Theorem~\ref{thm:main} is unchanged.
 A few statements were added to these documents after their review and
@@ -261,8 +264,11 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   $\leq\exp\{(\log N)^{1/4}\}$ by a density alone, so every large sieve at any
   frequency level is capped at $C(\log N)^{3/4}(\log\log N)^3$ for mixtures with
   at most one larger prime factor per modulus (Theorem~\ref{thm:roughslice},
-  \lab{proved}); what remains is a fibre correlation-decay statement
-  (Hypothesis~\ref{hyp:Hrough}).  Prime-only majorants are capped for all
+  \lab{proved}), and for every mixture whose classes with several such
+  primes are residue-sparse (Theorem~\ref{thm:ressparse}, \lab{proved}); via
+  damped collisions the rest reduces to a sup-decay hypothesis $(A^*)$
+  (Theorem~\ref{thm:Astar}, \lab{proved} implication), open for
+  residue-dense classes.  Prime-only majorants are capped for all
   mixtures, with the same $(\log\log N)^{3/4}$ proviso
   (Theorem~\ref{thm:PLcap}).  Majorants built from classes of
   modulus $\leq N/2$ are capped however the interval sum is evaluated
@@ -286,8 +292,8 @@ obstructions quoted in \cite{ElsholtzTao}; our proof
   truncated weights (Theorem~\ref{thm:trunc}, Corollary~\ref{cor:primeorder}).
 \item \emph{Exclusions and open problems} (Sections~\ref{sec:excluded}
   and~\ref{sec:open}).  A precise list of what lies outside: the large
-  sieve at super-polynomial frequency levels against classes with two or
-  more prime factors above $\exp\{(\log N)^{1/4}\}$; larger-sieve kernels with
+  sieve at super-polynomial frequency levels against residue-dense classes
+  with two or more prime factors above $\exp\{(\log N)^{1/4}\}$; larger-sieve kernels with
   an uncontrolled factor; direct counts and hybrid accounting above
   modulus $N/2$; majorants $\geq1$ only on $[1,N]$ or on the exceptional
   set; non-CRT tuple counts and other non-CRT input; other class types
@@ -2799,7 +2805,7 @@ than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 
 This section summarises further internal documents: \cite{LS}
 (review \cite{LSrev}), \cite{LS2} (reviews \cite{LS2rev} of \S\S1--7 and
-\cite{LS2revb} of \S\S8--9), \cite{LS3} (review \cite{LS3rev}), \cite{PL}
+\cite{LS2revb} of \S\S8--9), \cite{LS3} (review \cite{LS3rev}), \cite{LS4} (review \cite{LS4rev}), \cite{PL}
 (review \cite{PLrev}), \cite{IF} (review \cite{IFrev}), and, in
 Section~\ref{sec:hybrid}, \cite{IF2}, \cite{SPW} and \cite{SPW2}.  No review found a fatal defect.  The IF review found
 one major scope overclaim (hybrid methods), repaired by restricting the
@@ -3227,7 +3233,8 @@ mixture, whatever the frequencies; this is a \emph{sufficient} condition
 only.  A cap, or Conjecture~\ref{conj:HLS}, need not yield fibre measures of
 this kind (H\"older-type and sup-type criteria are incomparable
 \cite[\S5]{LS2}).  Theorem~\ref{thm:roughslice} proves $(H_{\rm rough})$, up to
-$(\log\log N)^3$, when every class has one rough prime (product measures).  A
+$(\log\log N)^3$, when every class has one rough prime (product measures);
+Theorem~\ref{thm:ressparse} below proves it for residue-sparse mixtures.  A
 level-split form with a cheap comparison at rough level $\leq2\lambda'$ and
 $|\hat\pi_c(\theta_r)|^2\leq\e^{S_r}/N$ above rough level $\lambda'\asymp\log N$ would also
 suffice, but then for \emph{every} $c\in\operatorname{supp}\pi_s$.  In the two-copy form,
@@ -3254,7 +3261,116 @@ top-prime order the class $-4\bmod pM'$ is charged at its top prime with
 activation probability $\asymp1/(\text{cofactor})$, and the average influence of
 a coordinate is $\ll(\log N)^{O(1)}/p$ while its worst-case influence is not
 small; one-step operator bounds in $\ell^{p'}$, $p'>2$, all lose
-\cite[\S4.3]{LS3} (\emph{Assessment}).
+\cite[\S4.3]{LS3} (\emph{Assessment}).  In fact this family is covered at
+every frequency level by Theorem~\ref{thm:ressparse} below: residue
+concentration turns out to be the easy case.
+
+\subsection{Damped collisions: residue-sparse mixtures at every level}\label{sec:damped}
+$(H_{\rm rough})$ is reduced further in \cite{LS4} (review \cite{LS4rev}: no
+fatal or major defect, all proofs sound; minor wording and bookkeeping
+points applied).  Let $\sigma$ be a probability on $\Z/M_r$, $M_r=\prod_{\ell\in\mathcal P}\ell^{E_\ell}$,
+let $\operatorname{supp}\theta$ be the set of primes dividing ${\rm den}\,\theta$, let $\sigma_T$ be the
+marginal of $\sigma$ modulo $M_T=\prod_{\ell\in T}\ell^{E_\ell}$, and let
+$\mathsf R_2(\sigma_T)=M_T\,\sigma\otimes\sigma(x\equiv y\ (M_T))$ be its collision number.
+
+\begin{lemma}[damped-collision reduction; {\cite[Lemma~1.1]{LS4}}; \lab{proved}]\label{lem:damped}
+If $w_\ell\in[0,1]$ and $|\hat\sigma(\theta)|^{2\beta}\leq\prod_{\ell\in\operatorname{supp}\theta}w_\ell$ for every $\theta\neq0$,
+then $\mathsf R_{2+2\beta}(\sigma)\leq\E_T\mathsf R_2(\sigma_T)$, where $T\subseteq\mathcal P$ contains each
+$\ell$ independently with probability $w_\ell$.
+\end{lemma}
+\begin{proof}
+Group the frequencies by $S=\operatorname{supp}\theta$.  The two-copy identity of
+Section~\ref{sec:smoothrough} gives $\sum_{\operatorname{supp}\theta=S}|\hat\sigma|^2=\E\prod_{\ell\in S}h_\ell\geq0$, with
+$h_\ell=\ell^{E_\ell}\ind[x\equiv y\ (\ell^{E_\ell})]-1$, so
+$\mathsf R_{2+2\beta}(\sigma)\leq\E\prod_\ell(1+w_\ell h_\ell)$.  Expand
+$1+w_\ell h_\ell=(1-w_\ell)+w_\ell\ell^{E_\ell}\ind[x_\ell=y_\ell]$, both terms nonnegative.
+\end{proof}
+The signed correlations of $(H_{\rm rough})$ are thereby split into a
+\emph{sup} condition with only weak per-prime decay and a \emph{positive}
+collision number on a random sparse set of coordinates.  For the capped
+fibre law $Q'$ of \cite{KA2} conditioned on a good event
+$G_B=\{x\in\A\}\cap\{\sum_\ell w_\ell\tilde p_\ell(x)\leq B\}$ ($\tilde p_\ell$ the light activated
+densities), the collision side is free: $\E_T\mathsf R_2((\sigma_B)_T)\leq\e^{2B}/Q'(G_B)^2$,
+by a tilted pair-process identity, and only \emph{first} moments enter
+\cite[Lemma~2.1, Prop.~4.1]{LS4} \lab{proved}.
+
+\begin{theorem}[$(H_{\rm rough})$ from sup decay; {\cite[Thm~4.2]{LS4}}; \lab{proved} implication, inputs as Theorem~\ref{thm:roughslice}]\label{thm:Astar}
+Let $z=\exp\{(\log N)^{1/4}\}$, $\beta=(\log N)^{-1/4}$, $\cG$ any finite mixture of the four
+types, $Q'$ the sequential law of \cite{KA2} on all coordinates, and for a
+$z$-smooth part $c$ let $\sigma_c$ be its conditional law on the $z$-rough
+coordinates, conditioned on $G_{B_c}$ with $B_c$ eight times the conditional
+mean of $\sum_{\ell>z}w_\ell\tilde p_\ell$.  Fix $\gamma\in(0,1]$, $1\leq K\leq z^{\gamma/2}$ and $w_\ell=(K\ell^{-\gamma})^{2\beta}$.
+Assume
+\begin{itemize}
+\item[$(A^*)$] for every $c$ outside an event of $Q'$-probability $\leq1/32$ and every
+$\theta\neq0$ with $z$-rough denominator, $|\hat\sigma_c(\theta)|\leq\prod_{\ell\in\operatorname{supp}\theta}K\ell^{-\gamma}$.
+\end{itemize}
+Then for $N\geq N_0(\gamma)=\exp\{C\gamma^{-4}\}$ every CRT-admissible $N$-large-sieve bound
+for $\A(\cG)$, with any rational frequencies, any denominators and any
+weights, saves
+\[
+ \log(N/B)\leq(\log N)^{3/4}+C\gamma^{-3}(\log N)^{3/4}(\log\log N)^3.
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+Choose the exceptional smooth event of the density lemma to contain the
+event of $(A^*)$, a large rough leak, and a large conditional mean (Markov).
+Off it $Q'_c(G_{B_c})\geq1/2$, so Lemma~\ref{lem:damped} and the collision bound give
+$\log\mathsf R_{2+2\beta}(\sigma_c)\leq512J+\log4$, $J=\E_{Q'}\sum_{\ell>z}w_\ell\tilde p_\ell\ll\gamma^{-3}(\log N)^{3/4}(\log\log N)^3$ by
+partial summation as in Theorem~\ref{thm:roughslice}.  Conclude with
+Theorem~\ref{thm:smoothrough}, $\pi_c=\sigma_c$.
+\end{proof}
+So the only open input is the qualitative-looking sup decay $(A^*)$, at
+any fixed rate $\gamma$ and with per-prime losses up to $z^{\gamma/2}$, and no
+comparison-at-level hypothesis is needed (\emph{Assessment}: in the per-prime sense this is far
+weaker than Conjecture~\ref{conj:HLS}).  If a sieve uses only frequencies
+whose rough supports lie in a class $\mathcal S$, $(A^*)$ is needed only there.
+
+$(A^*)$ is proved when the residues are fixed in advance.  For a prime $\ell$
+let $\mathrm{Res}_\ell(\cG)\subseteq\Z/\ell^{E_\ell}$ be the union of the $\ell$-parts
+$b_C\bmod\ell^{v_\ell(G_C)}$ of the classes $C\in\cG$ with $\ell\mid G_C$.  A pivotal-coin
+coupling bounds $|\hat\sigma(\theta)|\leq Q'(G)^{-1}\prod_{\ell\in\operatorname{supp}\theta}4U(R_\ell)/(1-\delta_\ell)$
+for any fixed sets $R_\ell\supseteq$ the $\ell$-parts of the classes through $\ell$
+\cite[Lemma~5.1]{LS4} \lab{proved}: a coordinate whose two values both avoid
+$R_\ell$ cannot change the path.
+
+\begin{theorem}[residue-sparse mixtures; {\cite[Thm~5.2, Cor.~5.3]{LS4}}; \lab{proved}, inputs as Theorem~\ref{thm:roughslice}]\label{thm:ressparse}
+Let $z=\exp\{(\log N)^{1/4}\}$, $\gamma\in(0,1]$, and let $\cG=\cG_1\cup\cG_2$ be any finite mixture
+of the four types (any moduli, no $B$), with $\cG_1$ the classes having at most
+one prime factor $>z$.  If
+\[
+ (RS_\gamma)\qquad U(\mathrm{Res}_\ell(\cG_2))\leq\ell^{-\gamma}\quad\text{for every prime }\ell>z,
+\]
+then for $N\geq N_0(\gamma)$ every CRT-admissible $N$-large-sieve bound for $\A(\cG)$, with
+any rational frequencies, any denominators and any weights, saves
+$\log(N/B)\leq(\log N)^{3/4}+C\gamma^{-3}(\log N)^{3/4}(\log\log N)^3$.  In particular this holds
+with $\gamma=1/4$ whenever every class with two or more prime factors $>z$ is
+$H$-small with $H\leq z^{1/4}/2$, i.e.\ $b\equiv-r/s\pmod G$ with $0\leq r\leq H$, $1\leq s\leq H$,
+$\gcd(s,G)=1$ (for instance the $\cR(M)$-classes $-4$, $-1$, $-1/4$, $-4d$, $-1/(4d)$
+over all moduli $M$; $(a,D)$-classes with $4D+a\leq H$; Case-A classes $-m^{-1}$,
+$m\leq H$; selector classes).
+\end{theorem}
+\begin{proof}[Proof sketch]
+In the fibre at $c$ take $R_\ell(c)=\mathrm{Res}_\ell(\cG_2)\cup F^r_\ell(c)$, the second set being the
+$\ell$-residues of the one-rough-prime classes activated by $c$; off an event of
+probability $\leq1/64$, $U(F^r_\ell(c))\leq\ell^{-1/4}$ (as in Theorem~\ref{thm:roughslice}).  The
+pivotal bound gives $(A^*)$ with $K=32$ and $\gamma'=\min(\gamma,1/4)$; apply
+Theorem~\ref{thm:Astar}.  For $H$-small classes the projection of $\mathrm{Res}_\ell(\cG_2)$
+modulo $\ell$ has at most $(H+1)H\leq z^{1/2}$ elements, so $U(\mathrm{Res}_\ell(\cG_2))\leq\ell^{-1/2}$.
+\end{proof}
+Theorem~\ref{thm:ressparse} strictly extends Theorem~\ref{thm:roughslice} (the case
+$\cG_2=\emptyset$) and, for the families it covers, settles the nonempty-fibre
+proviso of Section~\ref{sec:smoothrough}, since $Q'_c(G_{B_c})\geq1/2$ forces $\A_c\neq\emptyset$
+\cite{LS4rev}.  It contains the family of Lemma~\ref{lem:residueconc}: residue
+concentration is the \emph{easy}, deterministic-residue case, not an
+obstruction.  What remains open for the all-level cap over all forced
+families is $(A^*)$ for \emph{residue-dense} classes with two or more primes
+$>z$, whose $\ell$-residues fill a fraction $>\ell^{-\gamma}$ of $\Z/\ell$ (as for generic
+$\cR(M)$ with many moduli through $\ell$: the Jacobi obstruction acts modulo the
+whole modulus, not prime by prime).  There the fixed residue set must be
+replaced by the random set of residues of classes whose other
+coordinates are matched; the resulting covering-count statement (CC)
+\cite[\S3.2]{LS4} is a \lab{conjecture}, with no counterexample known.
 
 \subsection{Prime-only majorants for mixtures}
 A \emph{prime majorant} of $\A$ is $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ with
@@ -4073,7 +4189,7 @@ Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
 \ref{thm:wseq}, \ref{thm:karycap}, \ref{thm:noBcap}, \ref{thm:main} and
 Lemma~\ref{lem:budget} \cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC},
 \cite[\S6]{KA2}, and updated with Sections~\ref{sec:LS}
-and~\ref{sec:TU} \cite[\S7]{LS}, \cite[\S0]{LS2}, \cite[\S4]{LS3}, \cite[\S0]{IF2},
+and~\ref{sec:TU} \cite[\S7]{LS}, \cite[\S0]{LS2}, \cite[\S4]{LS3}, \cite[\S5]{LS4}, \cite[\S0]{IF2},
 \cite[\S4]{SPW}, \cite[\S1]{SPW2},
 \cite[\S6]{TU}, \cite[\S0]{TU2}, \cite[\S5]{KA3}.  Anything below lies outside
 the cap of Theorem~\ref{thm:main}; where another theorem covers part of an
@@ -4088,14 +4204,17 @@ item, this is said.
   slices with any rational frequencies (Theorem~\ref{thm:LSslice}); and
   every mixture in which each modulus has at most one prime factor
   $>z=\exp\{(\log N)^{1/4}\}$, with any rational frequencies, at the cost of a
-  factor $(\log\log N)^3$ (Theorem~\ref{thm:roughslice}).
+  factor $(\log\log N)^3$ (Theorem~\ref{thm:roughslice}); more generally every
+  mixture whose classes with at least two prime factors $>z$ are
+  residue-sparse, $(RS_\gamma)$, for instance $H$-small, with a factor
+  $\gamma^{-3}(\log\log N)^3$ (Theorem~\ref{thm:ressparse}).
   Outside: frequencies of super-polynomial level against mixtures with
-  classes having at least two prime factors $>z$ (escape (E1),
-  Conjecture~\ref{conj:HLS}; the fibre statement $(H_{\rm rough})$ of
-  Hypothesis~\ref{hyp:Hrough} would suffice).  For such mixtures the
-  frequencies with $z$-smooth denominators are covered when no fibre
-  $\A_c$, $c\in\operatorname{supp}\pi_s$, is empty, which is not automatic
-  (Section~\ref{sec:smoothrough}).  By
+  residue-dense classes having at least two prime factors $>z$ (escape (E1),
+  Conjecture~\ref{conj:HLS}; the sup-decay hypothesis $(A^*)$ of
+  Theorem~\ref{thm:Astar}, or $(H_{\rm rough})$ of Hypothesis~\ref{hyp:Hrough},
+  would suffice).  For such mixtures the frequencies with $z$-smooth
+  denominators are covered when no fibre $\A_c$, $c\in\operatorname{supp}\pi_s$, is empty,
+  which is not automatic (Section~\ref{sec:smoothrough}).  By
   Theorem~\ref{thm:band} this cannot be closed by comparison measures
   and large-sieve axioms alone: a proof needs family-specific input such
   as the sparsity of forced classes.  Non-periodic rows (such as $n^{it}$) are non-CRT input.
@@ -4175,7 +4294,8 @@ item, this is said.
   (Corollary~\ref{cor:IFcap}), and large sieves on prime slices with any
   rational frequencies (Theorem~\ref{thm:LSslice}), and large sieves over
   mixtures with one prime factor $>\exp\{(\log N)^{1/4}\}$ per modulus
-  (Theorem~\ref{thm:roughslice}).
+  (Theorem~\ref{thm:roughslice}), and over residue-sparse mixtures
+  (Theorem~\ref{thm:ressparse}).
 \end{enumerate}
 The exact exponent is now settled for the class of
 Theorem~\ref{thm:main}: the factor $(\log\log N)^{3/4}$ of the previous
@@ -4201,8 +4321,11 @@ Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
 through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family primes.
 \emph{New in version~5}: every large sieve, at any frequency level, over
 mixtures with at most one prime factor $>\exp\{(\log N)^{1/4}\}$ per modulus
-(Theorem~\ref{thm:roughslice}, with $(\log\log N)^3$), which narrows (E1) to
-classes with two or more such primes; and, for hybrids, the refutation of
+(Theorem~\ref{thm:roughslice}, with $(\log\log N)^3$), and over mixtures whose
+classes with several such primes are residue-sparse
+(Theorem~\ref{thm:ressparse}), which narrows (E1) to residue-dense classes with
+two or more such primes, and there to the sup-decay hypothesis $(A^*)$
+(Theorem~\ref{thm:Astar}); and, for hybrids, the refutation of
 fixed-margin SPW with the exact weak requirement that replaces it
 (Theorem~\ref{thm:SPWfalse}, Lemma~\ref{lem:weakSPW}).  This version does
 not change the cap of Theorem~\ref{thm:main}.
@@ -4258,7 +4381,7 @@ Theorem~\ref{thm:noBcap}, with the same cap $C\lambda^{3/4}$ \lab{proved}.
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
 least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
 \cite[\S6]{NC}, \cite[\S6]{KA2}, \cite[\S7]{LS}, \cite[\S0]{LS2},
-\cite[\S0]{IF2}, \cite[\S0]{TU2}, \cite[\S5]{KA3}, \cite[\S4]{LS3},
+\cite[\S0]{IF2}, \cite[\S0]{TU2}, \cite[\S5]{KA3}, \cite[\S4]{LS3}, \cite[\S5]{LS4},
 \cite[\S4]{SPW}, \cite[\S1]{SPW2}:
 \begin{enumerate}
 \item[(i)] classes of a type outside Definition~\ref{def:types} that fail
@@ -4270,8 +4393,10 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
 \item[(iii)] large-sieve frequencies of super-polynomial level used
   against classes with at least two prime factors $>\exp\{(\log N)^{1/4}\}$
   (Conjecture~\ref{conj:HLS}, or $(H_{\rm rough})$ of Hypothesis~\ref{hyp:Hrough},
-  would exclude this; Theorem~\ref{thm:roughslice} excludes it for one such
-  prime per modulus), or larger-sieve kernels with an uncontrolled factor
+  would exclude this, and so would $(A^*)$ of Theorem~\ref{thm:Astar};
+  Theorems~\ref{thm:roughslice} and~\ref{thm:ressparse} exclude it for one such
+  prime per modulus and for residue-sparse classes, so only residue-dense
+  classes remain), or larger-sieve kernels with an uncontrolled factor
   $1+Nh/(W_K-h)$;
 \item[(iv)] a direct count above modulus $N/2$: a hybrid method that
   counts classes of modulus in $(N/2,CN]$ exactly with large right-signed
@@ -4286,7 +4411,8 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
   non-CRT input (Type~I/II sums, Hal\'asz-type arguments);
 \item[(vi)] family primes beyond $N^{O(1)}$, outside the settings of
   Theorem~\ref{thm:perfreq}, Corollary~\ref{cor:IFcap},
-  Theorem~\ref{thm:LSslice} and Theorem~\ref{thm:roughslice}.
+  Theorem~\ref{thm:LSslice}, Theorem~\ref{thm:roughslice} and
+  Theorem~\ref{thm:ressparse}.
 \end{enumerate}
 Gone since version~2: moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and
 Case-A moduli without a dominant prime, mixed families, and multipliers
@@ -4301,7 +4427,8 @@ cancellation when all moduli are $\leq N/2$; tuple input of bounded order,
 and of prime order $k$ up to $k\log\log N$; and the factor $(\log\log N)^{3/4}$
 in Theorem~\ref{thm:main}.  Gone since version~4: super-polynomial
 large-sieve frequencies against mixtures with one prime factor
-$>\exp\{(\log N)^{1/4}\}$ per modulus (Theorem~\ref{thm:roughslice}).  Changed since
+$>\exp\{(\log N)^{1/4}\}$ per modulus (Theorem~\ref{thm:roughslice}), and against
+residue-sparse multi-rough classes (Theorem~\ref{thm:ressparse}).  Changed since
 version~4: the target in (iv) is weak SPW; the fixed-margin SPW of
 version~4 is refuted (Theorem~\ref{thm:SPWfalse}).
 
@@ -4634,6 +4761,13 @@ sparsity}, internal working document \texttt{EXCEPTIONAL\_LARGESIEVE3.md},
 this repository, 2026.
 \bibitem[LS3r]{LS3rev}
 Hostile review of \cite{LS3}, \texttt{reviews/exceptional-largesieve3-review.md},
+this repository, 2026.
+\bibitem[LS4]{LS4}
+\emph{EXCEPTIONAL\_LARGESIEVE4: $(H_{\rm rough})$ via damped collisions},
+internal working document \texttt{EXCEPTIONAL\_LARGESIEVE4.md}, this
+repository, 2026.
+\bibitem[LS4r]{LS4rev}
+Hostile review of \cite{LS4}, \texttt{reviews/exceptional-largesieve4-review.md},
 this repository, 2026.
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
