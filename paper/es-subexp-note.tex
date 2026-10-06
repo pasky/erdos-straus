@@ -261,8 +261,22 @@ Barban--Davenport--Halberstam theorem)
 (Proposition~\ref{prop:product}).  Altogether, with
 $\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
 minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
-Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and typical primes have
-$W(p)>T$ with relative frequency at most $e^{-c\Lc^3}$.
+Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and the primes with
+$W(p)>T$ have relative frequency $e^{-\Lc^{3+o(1)}}$ for $\Lc\le(\log p)^{1/4-o(1)}$.
+
+\emph{Other numerators.}  The family \eqref{eq:ident} has an analogue
+\eqref{eq:identm} for every $m/n$, with witness $W_m$ (\S\ref{sec:mn}).  The
+only arithmetic input of the square-class quarantine that depends on $m$ is
+the Jacobi symbol of the event classes, and it is $-1$ for every event
+exactly when $m\equiv0\pmod4$ (Lemma~\ref{lem:mjacobi},
+Proposition~\ref{prop:mfire}).  Accordingly, for $m\equiv0\pmod4$ the exponent
+$1/4$ and the Haar exponent $3$ carry over (Theorem~\ref{thm:mzero}).  For
+every $m$, including Sierpi\'nski's $5/n$, the class-of-one architecture of
+the third version gives the exponent $1/5$ (Theorem~\ref{thm:mfifth}), and
+the exponent $1/4$ follows from a bounded-drift hypothesis
+$\mathrm{ADM}_m$ for an admissible random process (Theorem~\ref{thm:madm}),
+which we reduce to a hypothesis on the initial segment of the process but
+do not prove.  These statements concern the family \eqref{eq:identm} only.
 
 \emph{Versions.}  The first version of this note had exponent $1/14$; it used
 the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
@@ -276,12 +290,16 @@ reached $1/4$ by a new quarantine: a random square class, a $\beta$-weighted
 local lemma and a supermartingale bookkeeping (\S\ref{sec:system}) with Haar
 masses bounded by the Nair--Tenenbaum theorem (\S\ref{sec:moment}); it added
 the Haar lower bound (\S\ref{sec:haarlower}) and the ceiling
-(\S\ref{sec:ceiling}).  The present fifth version leaves the proof of
-Theorem~\ref{thm:main} unchanged and adds: the typical size, the Haar lower
+(\S\ref{sec:ceiling}).  The fifth version left the proof of
+Theorem~\ref{thm:main} unchanged and added: the typical size, the Haar lower
 bound without logarithmic loss and the ceiling at level $(\log T)^4$, all via
 the atoms of \cite{TQ} (\S\ref{sec:atoms34}); the Wiener-norm barrier and its
 consequences for linear certificates (\S\ref{sec:wiener}); and the
-conditional exponent $1/3$ (\S\ref{sec:LS}).
+conditional exponent $1/3$ (\S\ref{sec:LS}).  The present sixth version
+leaves all of this unchanged and adds the lower bound for the tail of $W$
+over primes, hence the two-sided tail exponent $3$ (\S\ref{sec:tail}), and
+the section on other numerators (\S\ref{sec:mn}); the discussion of the
+literature was revised after a further novelty audit.
 
 \subsection*{The method}
 Fix $T$.  We restrict $n$ to a class $n\equiv r\pmod Q$, with
@@ -417,8 +435,8 @@ that the exponent $3$ is also the tail exponent over primes.  The classical
 obstruction that polynomial identities cannot cover quadratic residue
 classes (\cite{Mordell}; cf.\ \cite{ET}) is qualitative.
 Lemma~\ref{lem:jacobi} and its $m/n$ version Lemma~\ref{lem:mjacobi} are the
-form of it that we use; for the family \eqref{eq:identm} the latter shows that
-it holds for every event exactly when $m\equiv0\pmod4$.
+form of it that we use; for the family \eqref{eq:identm} it holds for every
+event exactly when $m\equiv0\pmod4$ (with Proposition~\ref{prop:mfire}).
 
 \emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
 To our knowledge tools from the theory of bounded independence
@@ -2448,11 +2466,11 @@ is the opposite inequality to Theorem~\ref{thm:main}: an upper bound for
 the number of primes with $W(p)>T$ needs a \emph{majorant}, and for majorants
 the exceptional character costs only the factor $1+\epsilon\le3$; Theorem~\ref{thm:main}
 needs a minorant.  Heuristically (Assessment) the count is
-$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$.  We expect (Assessment, not
-checked) that a matching lower bound in the range
-$\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ could be derived from the main term of
-Theorem~\ref{thm:transfer}, except when an exceptional character divides the
-quarantine modulus; we have not pursued this.
+$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$.  A matching lower bound
+$\pi(x)e^{-C\Lc^3(\log\Lc)^3}$ for $\Lc\le c'(\log x/\log\log x)^{1/4}$ is proved in
+\S\ref{sec:tail} (Theorem~\ref{thm:lowertail}), from the main term of
+Theorem~\ref{thm:transfer}; an exceptional character whose conductor divides
+the quarantine modulus costs only the third power of $\log\Lc$ there.
 
 The same atoms sharpen the ceiling of Theorem~\ref{thm:ceiling}.
 
