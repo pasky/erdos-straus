@@ -1,0 +1,16 @@
+identities (ii): E[psi_n (N)_m] = E[(N)_m] for m<n, n<=7: OK
+n=  1 claimed R_min=   1 found=1 up-closed on window=True fail@R_min-1: j=None max Fujiwara bound=2
+n=  3 claimed R_min=   2 found=2 up-closed on window=True fail@R_min-1: j=3 max Fujiwara bound=260
+n=  5 claimed R_min=   5 found=5 up-closed on window=True fail@R_min-1: j=10 max Fujiwara bound=472
+n=  7 claimed R_min=   9 found=9 up-closed on window=True fail@R_min-1: j=21 max Fujiwara bound=730
+n=  9 claimed R_min=  13 found=13 up-closed on window=True fail@R_min-1: j=31 max Fujiwara bound=1029
+n= 11 claimed R_min=  18 found=18 up-closed on window=True fail@R_min-1: j=44 max Fujiwara bound=1389
+n= 13 claimed R_min=  23 found=23 up-closed on window=True fail@R_min-1: j=57 max Fujiwara bound=1797
+n= 15 claimed R_min=  28 found=28 up-closed on window=True fail@R_min-1: j=70 max Fujiwara bound=2254
+n= 17 claimed R_min=  33 found=33 up-closed on window=True fail@R_min-1: j=82 max Fujiwara bound=2758
+n= 21 claimed R_min=  44 found=44 up-closed on window=True fail@R_min-1: j=109 max Fujiwara bound=3953
+n= 25 claimed R_min=  56 found=56 up-closed on window=True fail@R_min-1: j=139 max Fujiwara bound=5407
+n= 31 claimed R_min=  74 found=74 up-closed on window=True fail@R_min-1: j=182 max Fujiwara bound=8007
+n= 41 claimed R_min= 104 found=104 up-closed on window=True fail@R_min-1: j=254 max Fujiwara bound=13463
+n= 61 claimed R_min= 169 found=169 up-closed on window=True fail@R_min-1: j=409 max Fujiwara bound=29189
+n= 81 claimed R_min= 236 found=236 up-closed on window=True fail@R_min-1: j=567 max Fujiwara bound=51245

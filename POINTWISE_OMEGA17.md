@@ -26,14 +26,17 @@ Feasible fakes: `𝔐:={m:S→[0,1] : Σ_S m=N_x, l_C≤m(C∩S)≤u_C ∀C∈�
 `min_{m∈𝔐} Σ_{n∈S}m(n)F(n)>0` (then `m_x∈𝔐` gives a prime `p≤x` in H with `F(p)=1`). The box
 `m≤1` is the LP relaxation of atomicity/integrality; the *integral* version uses `m∈{0,1}^S`.
 O15 Def 2.1 is the case "S replaced by H (diffuse), no box".
+*Scope (R68b review).* The information is class counts at the single scale x. Size-localised
+information (`m(C∩[1,y])` for `y<x`, short intervals, smooth weights `Σw(n/x)1_C(n)m(n)`) is
+not of this form and is outside Def 1.1 (an interval is a union of many classes mod `q>x`).
 
 **Lemma 1.2 (deep classes are box constraints or primality tests; PROVED, elementary).** Let
-`C∈𝒞` with `|C∩S|≤1`. If `C∩S=∅`, the constraint is vacuous on 𝔐 (or false). If `C∩S={n}`, then
+`C∈𝒞` with `|C∩S|≤1`. If `C∩S=∅`, the constraint is vacuous on 𝔐 (true bounds give `l_C≤0≤u_C`). If `C∩S={n}`, then
 either `l_C≤0` and `u_C≥1`, and the constraint is implied by the box `0≤m(n)≤1`; or `l_C>0`
 (which, being true, certifies `n∈𝒫_x`) or `u_C<1` (certifies `n∉𝒫_x`), i.e. it tests whether
 that integer is a *counted* prime (a prime of S dividing L is not counted).
 In particular every class of modulus `q>x` meets `[1,x]` in at most one integer.
-*Proof.* `m_x(C)=1[n prime]∈{0,1}`; a true bound excluding one of the two values decides it. ∎
+*Proof.* `m_x(C)=1[n∈𝒫_x]∈{0,1}`; a true bound excluding one of the two values decides it. ∎
 
 So a SALC that does not test primality of individual integers ("primality-blind"; a search
 over specific integers is not a transfer, O15 Def 2.1) gains from moduli `>x` exactly the box,
@@ -97,7 +100,7 @@ by the fundamental lemma as long as `D·T^d≤x^{1−ε}` (D = level of the cert
 polynomials), so `ψ_nP` has the same factorial moments up to order `n−1` as `P`; (iii) `ψ_n` has
 degree n, i.e. it is the combination `Σ_rC(n,r)(−1)^{r+1}R^{−r}r!·Σ_{|Y|=r}1[all events of Y hold]`
 of classes of modulus `≤T^n` — shallow. (iv) EVIDENCE (exact rational arithmetic, all
-`1≤j≤4R+6n+20`; for `j` larger `C_n(j;R)<0` as n is odd): `ψ_n≥0` on ℕ iff `R≥R_min(n)` with
+`1≤j≤4R+6n+20`; for `j` larger `C_n(j;R)<0` as n is odd): for integer R, `ψ_n≥0` on ℕ iff `R≥R_min(n)` with
 
 | n=k+1 | 1 | 3 | 5 | 7 | 9 | 11 | 13 | 15 | 17 | 21 | 25 | 31 | 41 | 61 | 81 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -111,8 +114,8 @@ shallow one needs `R≲3n` for `n≤81`. On `j≤2R`, `max ψ_n` is close to 1 (
 n=21), but ψ_n is an unbounded polynomial, so **no global box holds**: a capped shallow fake
 needs a tail modification (not done). An LP over degree-d shallow densities on the *finite
 grid* `1≤j≤Jmax` (`scripts/omega17_shallow.py`; positivity beyond Jmax not certified — the
-reviewer found `ψ(105)<0` for an `R=16,k=4,ψ≤4` solution with Jmax=104) finds least degree
-`d=k+1` (k even) / `k+2` (k odd) when `R≥2k`; the `ψ≤4` column is finite-grid only.
+reviewer found `ψ(105)<0` for an `R=16,k=4,ψ≤4` solution with Jmax=104) finds, on the grid `R∈{4,8,16,32}`, `k≤8`, least degree
+`d=k+1` (k even) / `k+2` (k odd) when `R≥2k` (not general: `R_min(17)=33>32`); the `ψ≤4` column is finite-grid only.
 
 **Construction 3.2 (proposed support-aware fake in the exchangeable model; NOT proved —
 Assessment).** Suppose the big events are *independent of the small coordinates* (no x_s
@@ -130,7 +133,7 @@ constraints on larger moduli are not verified. Only the outline below is offered
 *Outline.* ψ is a polynomial in the event indicators with
 `E[ψχ]=E[χ]` for all juntas of `<n` big coordinates (each monomial of `e_n(z−p)` has n distinct
 centred factors); expand, count integers of `S_T` in each class `C∩{events of Y hold}` (modulus
-`≤qT^n`) by the fundamental lemma; positivity and `ψ(0)=0` give support in `S_T∖A`. ∎
+`≤qT^n`) by the fundamental lemma; positivity and `ψ(0)=0` give support in `S_T∖A`.
 (The positivity of the multivariate ψ is only checked in the Poisson limit.)
 
 *Assessment.* In an exchangeable model, support awareness should not help against
@@ -236,8 +239,10 @@ The `R=4.07` row is the seed-1, frac 0.22 run, appended to the data file.
 
 ## 6. Answer to the brief, and the precise residual
 
-**(a) Formalisation.** Def 1.1 (SALC) adds to O15 Def 2.1 exactly the three forbidden items:
-support S, atomicity (box `m≤1`; integral version `m∈{0,1}`), and class bounds of any form. Moduli
+**(a) Formalisation.** Def 1.1 (SALC) adds to O15 Def 2.1 the three forbidden items:
+support S, atomicity (box `m≤1`; integral version `m∈{0,1}`), and class bounds of any form;
+it does not include size-localised information (counts on `[1,y]`, `y<x`; see the Scope note
+after Def 1.1). Moduli
 `>x` contribute only the box or primality tests of specific integers (Lemma 1.2); validity is
 dual to support-aware minorants `B≤F+θ` on S (Lemma 1.3); with Haar-type bounds the primes drop
 out and validity is a statement about integers only — the integer fake problem IF (Rem 1.4); and
@@ -257,7 +262,8 @@ constructions tilt the small-coordinate law (Lemma 4.1 in the Poisson heuristic;
 have no cheap way to untilt them (Assessment 4.2, heuristic, specific to these constructions).
 
 **Outcome.** Neither a support-aware certificate beyond 1/4 nor a support-aware planting lemma
-for ES was obtained. The residual is now the following integer statement (no primes in it):
+for ES was obtained. For class-count information at scale x, the residual is the following integer statement (no
+primes in it):
 
 > **Conjecture SAP (support-aware planting; CONJECTURE).** Call a modulus *admissible* if all its
 > prime factors divide `LQ` (so every n∈S_T is a unit mod it). Information profile `𝒥(δ)`:
@@ -267,9 +273,16 @@ for ES was obtained. The residual is now the following integer statement (no pri
 > for every fibre with `Q≤x^δ`, `T≥T_0` and `C𝓛³≤log x≤c𝓛⁴/log𝓛`, some `m:S_T∖A→[0,1]` satisfies
 > `𝒥(δ)`.
 
+*Reviewer note (R68b, D6/D7 of reviews/pointwise-omega17-review.md).* As literally stated SAP
+is false: on fibres with `Q` prime in `[x^δ/2,x^δ]`, item (iii) with `q=2^a≈x^{1−δ}` (so
+`lcm(q,Q)∈[x/4,x]`) caps the total mass at `≈(16e^{−γ}/(δ𝓛))N_x<N_x`, and (iii) is then false for
+the primes too. Intended form: `log(x/lcm(q,Q))` with `lcm(q,Q)≤x^{1−δ}` in (iii), and
+`η` indexed by `lcm(q,Q)` in (ii). Read SAP with these corrections; the author should restate it.
+
 *Consequence (exact scope).* SAP implies that every LP-relaxed SALC (Def 1.1 with the box) on
 support `S_T` whose bounds are implied by `𝒥(δ)` is invalid in that range. It says nothing
-about integral SALCs (`m∈{0,1}`), smaller supports, or information outside `𝒥(δ)`. Whether `𝒥(δ)`
+about integral SALCs (`m∈{0,1}`), smaller supports, or information outside `𝒥(δ)` — in
+particular size-localised counts `m(C∩[1,y])`, `y<x`, which `𝒥(δ)` does not contain. Whether `𝒥(δ)`
 contains everything the known unconditional prime theorems give is an Assessment, not a theorem.
 Gallagher's estimate has additional `(log x/log Q_G)²/Q_G` and exceptional-character terms, so
 `η_q` is a model profile. Support for SAP comes from the random-integer heuristic (atom
@@ -304,7 +317,7 @@ capacities, and atoms of moduli `>x` are points.
 | Lemma 5.1 | support/atomicity enter only via atom capacities | PROVED |
 | Lemma 5.2 | planted law flat: `|dν/dP−1|≤s−1` if `R≥kr*+(k+1)/(s−1)` | PROVED |
 | toy LP | gain only for slack `<≈2`, one junta level | EVIDENCE |
-| Conj SAP | box-bounded Haar-like measure on `S_T∖A` below `𝓛⁴/log𝓛` | CONJECTURE |
+| Conj SAP | box-bounded Haar-like measure on `S_T∖A` below `𝓛⁴/log𝓛` | CONJECTURE (as literally stated false on fibres with Q≈x^δ; read with the reviewer-note correction of (ii),(iii)) |
 
 Not claimed: anything about ES; any certificate beyond exponent 1/4; any obstruction for
 SALCs with GRH-quality information, non-linear certificates, or prime-supported (slack-1)

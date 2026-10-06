@@ -1,0 +1,36 @@
+seed=1 x=1000000 frac=0.12 k=2 R=1.938 N=78478 true avoiders=12668
+  diffuse: 0.0
+  S coprime to first 6 small primes: slack=1.63 min avoider mass=5182.7
+  S coprime to first 5 small primes: slack=1.77 min avoider mass=3568.0
+  S coprime to first 4 small primes: slack=1.94 min avoider mass=1580.9
+  S coprime to first 3 small primes: slack=2.26 min avoider mass=0.0
+  S coprime to first 2 small primes: slack=2.83 min avoider mass=0.0
+  S coprime to first 1 small primes: slack=4.24 min avoider mass=0.0
+  S coprime to first 0 small primes: slack=8.49 min avoider mass=0.0
+seed=1 x=1000000 frac=0.12 k=3 R=1.938 N=78478 true avoiders=12668
+  diffuse: 7101.3
+  S coprime to first 6 small primes: slack=1.63 min avoider mass=8110.3
+  S coprime to first 5 small primes: slack=1.77 min avoider mass=7230.8
+  S coprime to first 4 small primes: slack=1.94 min avoider mass=7104.7
+  S coprime to first 3 small primes: slack=2.26 min avoider mass=7101.3
+  S coprime to first 2 small primes: slack=2.83 min avoider mass=7101.3
+  S coprime to first 1 small primes: slack=4.24 min avoider mass=7101.3
+  S coprime to first 0 small primes: slack=8.49 min avoider mass=7101.3
+seed=1 x=1000000 frac=0.17 k=3 R=2.918 N=78478 true avoiders=5519
+  diffuse: 0.0
+  S coprime to first 6 small primes: slack=1.63 min avoider mass=1169.8
+  S coprime to first 5 small primes: slack=1.77 min avoider mass=464.6
+  S coprime to first 4 small primes: slack=1.94 min avoider mass=0.0
+  S coprime to first 3 small primes: slack=2.26 min avoider mass=0.0
+  S coprime to first 2 small primes: slack=2.83 min avoider mass=0.0
+  S coprime to first 1 small primes: slack=4.24 min avoider mass=0.0
+  S coprime to first 0 small primes: slack=8.49 min avoider mass=0.0
+seed=1 x=1000000 frac=0.22 k=3 R=4.073 N=78478 true avoiders=2219
+  diffuse: 0.0
+  S coprime to first 6 small primes: slack=1.63 min avoider mass=0.0
+  S coprime to first 5 small primes: slack=1.77 min avoider mass=0.0
+  S coprime to first 4 small primes: slack=1.94 min avoider mass=0.0
+  S coprime to first 3 small primes: slack=2.26 min avoider mass=0.0
+  S coprime to first 2 small primes: slack=2.83 min avoider mass=0.0
+  S coprime to first 1 small primes: slack=4.24 min avoider mass=0.0
+  S coprime to first 0 small primes: slack=8.49 min avoider mass=0.0
