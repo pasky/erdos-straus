@@ -44,5 +44,49 @@ Page's form (11.1): I could not access Davenport (not in `sources/`); from memor
 statement (Davenport Ch. 20, (9)–(13)) matches, including that the exceptional character is
 primitive mod `q₁ | q` and unique for the range. Disclosure in the text is adequate.
 
+**C4 — Prop 11.3 (ceiling at level `cℒ⁴`).** SOUND.
+Re-derived against Lemma 10.2 as written: big coordinates `X_ℓ=n mod ℓ`, `ℓ∈(X^{1/2},X]`, `ℓ∤Q`;
+small = everything else (c, fibre constants, higher ℓ-adic digits) — independent on units. A
+modulus `q ≤ D` has `≤ 2log D/t` distinct prime factors `> X^{1/2}`, so `k=⌊2log D/t⌋`. Each
+atom with `ℓ∤Q` reads c (since `k|L_K`) and one big `X_ℓ`; `Ω_ℓ(c)` has exactly `f_c(ℓ)` points
+by (A1), so `p_ℓ=f_c(ℓ)/(ℓ-1) ≤ ℓ^{1/3}/(ℓ-1) ≤ 2ℓ^{-2/3} < 2X^{-1/3}`. Big primes dividing Q:
+`≤ 2log Q/t ≤ T^{0.05}`; loss `≤ 2T^{0.05}X^{-1/3} = o(1)`. Uniformity over small configurations
+is exactly the "every unit c" of (A2) — this is the crucial point and it is supplied by [TQ]
+Cor 4.3. `(k+1)+(2k+1)r* ≤ 2(k+1) ≤ at³/2` for `log D ≤ cℒ⁴`, c small. The consequence
+`(log log p)^{1/4}` in Cor 10.7 is arithmetic-correct (`ℒ ≪ (log x)^{1/4}` vs Thm 1.1's
+`ℒ ≥ c(log p)^{1/4}(log log p)^{-1/4}`).
+
+**C5 — Rem 11.4 (one sieve limit).** SOUND-AFTER-REPAIRS (D1, D2 below).
+Matches CEILINGS_UNIFIED Thm 4.1 (L−, L+, U−, U+) and Thm 4.3 as reviewed (and repaired, D9 of
+that review: level `c·L·P ≤ λ* ≤ C·L·P + λ_s`; the Remark only says `≍ ℒ⁴`, consistent).
+Checked: `(L−)` needs `r* ≤ 1/3` (true here, `r* ≤ 4X^{-1/3}`); `(U+)/(L+)` Bonferroni algebra
+re-verified in `scripts/review_r64_atoms.py`. Labels: "conjunction of proved statements;
+Assessment as mechanism" — appropriate, but see D1/D2 for citation precision.
+
 ## Defects
-(to be filled)
+
+**D1 (MINOR; Rem 11.4, "the binomial extrapolation of [SL, Lemma 8.3]").** The majorant bound
+`k log(C(P+4k)/k)+O(k+log k)` is not Lemma 8.3 of [SL] (that is the one-dimensional Lagrange
+extrapolation `B(z,t,d)`); it is the weighted k-ary comparison [SL, Thm 8.5] + mean cost
+[SL, Cor 8.6] (thinned law Lemma 8.4, extrapolation Lemma 8.3) applied fibrewise with
+`d=k`, `m̄=P`, `t=k/(P+4k) ≤ 1/4`, as in CEILINGS_UNIFIED Thm 4.1(U−). It also needs
+`p_b ≤ 1/4` (true for the atoms). *Repair:* cite "[SL, Thm 8.5 and Cor 8.6 (via Lemmas 8.3–8.4)]"
+and add "(for `p* ≤ 1/4`)". Numbering of [SL] checked on a fresh compile of
+`sieve-limits-note.tex`: Lemma 8.3 = binomial Lagrange extrapolation, Thm 8.5 = weighted k-ary
+comparison, Cor 8.6 = mean cost, Thm 10.14 = "no θ>3/4 for coefficient-sum CRT sieves".
+
+**D2 (MINOR; Rem 11.4, "sharp for coefficient-sum congruence majorants [SL, Thm 10.14]" and
+"conjunction of proved statements").** [SL, Thm 10.14] is labelled there "proved; Case A proved
+mod Elsholtz–Tao Prop. 1.4, Thm 7.1, Cor 7.4, (7.10)", and its scope is: families of forced
+classes (ℛ(M), (a,D), Case-A, selector), CRT majorants `≥ 0` on ℤ, all family primes `≤ N^A`,
+`Σ|a_i| < N`. The Remark drops both the proviso and the hypotheses (this was D8 of the
+CEILINGS_UNIFIED review; the note inherits it). Also [SL] itself is "internally reviewed, not
+externally refereed" (bib says so, but the status conventions in §1 list only [TQ]). *Repair:*
+"(for CRT majorants with coefficient sum `< N` and family primes `≤ N^A`; for Case-A classes
+modulo Elsholtz–Tao §7)" and add [SL] to the status conventions alongside [TQ].
+
+**D3 (MINOR; paragraph after Thm 11.2, "a matching lower bound in the range
+`log T ≤ c(log x)^{1/4}/(log log x)^{O(1)}` would follow from the main term of Thm 9.x except when
+an exceptional character divides the quarantine modulus").** This is an unproved claim with no
+label (the preceding sentence is tagged Assessment, this one is not). *Repair:* "(Assessment, not
+checked)" or delete.
