@@ -274,24 +274,32 @@ and `k'²|F+1`. Comparing odd parts of `(F−1)(F+1)=4ck²` gives
 
 So no square certificate exists. ∎
 
-**Computation 3.2 (formal search; EVIDENCE→CERTIFIED by two engines up to
-the stated range).** `typei2_formal.py 1000000 1 2:9:80 7:(7^60−1):60`
-scans all 1 533 438 slices with `ck≤10⁶` and `v_7(c)` odd. It finds **no**
-certificate at `x̂_9`; the same holds at `x̂_{−7}` (both runs ≈10 min). An
-independent engine agrees in its range: the complete Λ-enumeration
-`typei2_s27 3·10⁸` (Lemma 2.4, which covers every slice with `ck≤8660`,
-since `Λ≤4(ck)²`) has no box containing `x̂_9`. Among the integral
-points `(w,z)` tested in §2.2, only `z=−1` survived.
+**Computation 3.2 (CERTIFIED by two independent engines).**
+* *Factorisation-free checker* `typei2_signcheck.c` (`r w X`). For each
+  slice with `ck≤X` and `v_7(c)` odd it builds the target class ξ mod `4ck`
+  by CRT. Since `N=1+4ck²≡1 (mod 4ck)`, the cofactor of a certificate lies
+  in the class `ξ^{−1}`. So it suffices to test the `D≤√N` in the classes
+  `ξ` and `ξ^{−1}`; there are about `√N/4ck<1` such D per class. This is
+  complete and exact (128-bit arithmetic).
+  * `signcheck 7 9 10^8`: 210 905 636 unforced slices, **0 certificates**
+    (18 s). The same holds for `w=−7, 25, 41`.
+  * The checker finds the expected certificates where they exist:
+    `(14,2,15)` for `w=1`, `(33,2,23)` for r=11, `(95,2,39)` for r=19.
+* *Factoring engine* `typei2_formal.py` (sympy; `1+4ck²<2^{64}`, where
+  sympy's primality test is deterministic): `X=10⁶`, 1 533 438 slices (the
+  same count), no certificate at `x̂_9` or `x̂_{−7}`.
+* *Λ-enumeration* `typei2_s27 3·10⁸` (Lemma 2.4; every slice with
+  `ck≤8660` has `Λ≤4(ck)²≤3·10⁸`): no box contains `x̂_9`.
 
-**Corollary 3.3.** (i) *(PROVED)* Every finite Type-I covering of
-`{n_p=7}` has height `>10⁶`. (ii) *(CONDITIONAL on H for the finite family
-`𝓟_X` of Theorem A, `X=10⁶`, built from `x̂_9`)* there are infinitely many
-hard primes with `n_p=7` and `ck_min(p)>10⁶`. So `C(7)>10⁶`, up from
-`≥539` (Cor 6.4 of POINTWISE_TYPEI).
-*Proof.* (i): a covering of height `≤10⁶` would contain `x̂_9`, but there
-is no certificate there. (ii): Theorem A(ii), Steps 2–5, with `x*=x̂_9`.
-Only slices with `v_7(c)` odd need polynomials: forced slices vanish by
-notes Thm 48.1. ∎
+**Corollary 3.3.** (i) *(PROVED, by Computation 3.2)* Every finite Type-I
+covering of `{n_p=7}` has height `>10⁸`. (ii) *(CONDITIONAL on H for the
+finite family `𝓟_X` of Theorem A, `X=10⁸`, built from `x̂_9`)* there are
+infinitely many hard primes with `n_p=7` and `ck_min(p)>10⁸`. So
+`C(7)>10⁸`, up from `≥539` (Cor 6.4 of POINTWISE_TYPEI).
+*Proof.* (i) A covering of height `≤10⁸` would contain `x̂_9`, but no
+certificate holds there. (ii) Apply Theorem A(ii), Steps 2–5, with
+`x*=x̂_9`. Only the ≈2.1·10⁸ slices with `v_7(c)` odd need polynomials,
+since forced slices vanish by notes Thm 48.1. ∎
 
 **Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C(7)=∞`.
 
