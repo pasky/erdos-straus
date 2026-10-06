@@ -247,11 +247,13 @@ coordinates).
 * *Beyond `log₂ z` primes the union bound over covers is false in the
   right direction.* Example (structured family): primes of S all
   `≡ −1 (mod F)`, 𝔊 ⊇ {−4d mod Q : Q ⊆ S of odd size, d | F²/16}
-  (forced: `F | 4A_Q`). Every v ≡ −4d on S is covered by
-  `2^{Θ(|S|²)}` minimal covers, while `|E_S|` stays `≤ τ(F²)^{O(1)}·|S|^{|S|}`
-  (the classes are constant across Q, so they act as **product**
-  constraints; e.g. with singletons present they forbid `−4d` at every
-  coordinate). For "random-like" residues the compatibility of
+  (forced: `F | 4A_Q`). Every v ≡ −4d on S has very many minimal covers
+  (heuristically `2^{Θ(|S|²)}`; not proved), while each coordinate of a
+  covered v must be one of the values `−4d mod ℓ`, `d | F²/16`, so
+  `P(E_S) ≤ Π_{ℓ∈S}τ(F²/16)/ℓ` (R62 D5: an earlier count
+  `τ^{O(1)}|S|^{|S|}` was wrong — with singleton moduli every coordinate
+  may independently take any of these values). The classes are constant
+  across Q, so they act as **product** constraints. For "random-like" residues the compatibility of
   overlapping covers costs `1/q` per shared prime and the expected number
   of minimal covers is `≤ Π_ℓ (τ+|S|)/ℓ` (Assessment: computed under the
   random-residue model).
