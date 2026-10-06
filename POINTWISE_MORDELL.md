@@ -125,7 +125,7 @@ I3 and II3 rows and the I1 rigid form were not independently re-checked.
 (b) Without condition at 11, the same holds unless
 `p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`.
 (c) (R80 repair, applied by reviewer.) Combining both certificates, (a) sharpens to: if
-`(p/11)=+1`, ES holds for p unless `p mod 720720 ∈ {112561, 352801}`. The third lift 592801 of
+`(p/11)=+1`, ES holds for p unless `p mod 720720 ∈ {112561, 352801}`. The third lift 593041 (R86 correction; earlier text had the typo 592801) of
 112561 mod 240240 is covered by the main certificate. These two are exactly the (b) exceptions
 with `(p/11)=+1`.
 
