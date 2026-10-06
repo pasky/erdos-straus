@@ -185,7 +185,9 @@ the identity's primitive class containing `x*`, then compactness + Dirichlet aga
 large Mordell-hard primes with `(p/13)=(p/11)=−1`; Theorem 3.1(b) cannot be improved to zero
 exceptions.
 
-*Why Theorem C does not explain it.* `x*` is not square-mimicking: `x*_11, x*_13` are
+*Why Theorem C does not explain it (Assessment; R80 repair, applied by reviewer).* The first
+statement is correct: x* is not square-mimicking, so Theorem C does not apply. The parity remark
+and the "TYPEI2 mechanism" below are heuristic; no lemma or computation backs them here. `x*` is not square-mimicking: `x*_11, x*_13` are
 non-residues, and Jacobi-parity arguments (ET Prop 1.6 style) only force odd total
 {11,13}-valuation in the relevant parameters — satisfiable. The mechanism is the TYPEI2 one:
 at T-generic points the classes become rigid (finitely many boxes per T-level, §2.1), so a

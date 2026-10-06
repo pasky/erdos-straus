@@ -38,7 +38,9 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
    * np (`(p/11)=+1`): no structured obstruction found (T-generic for |T|≤3, c-generic and
      c²-generic points all covered); the best-first tree search (Mmax=10⁷, primes ≤100) has open
      Haar mass 5.5·10⁻⁷ of `Σ_13^{np}` after 16800 nodes, still decreasing slowly. Undecided.
-3. **Theorem C does not explain the main-variant obstruction**: `x*` is not square-mimicking
+3. (Assessment; R80 repair, applied by reviewer: only the non-applicability of Theorem C is
+   established; the mechanism claim is heuristic.) **Theorem C does not explain the main-variant
+   obstruction**: `x*` is not square-mimicking
    (non-residue at 11 and 13); the Jacobi/character constraints are satisfiable. The mechanism is
    the TYPEI2 one (rigidity at T-generic points), and as for TYPEI2's `x̂_9`, sterility is open.
 4. **r=17** (EVIDENCE): the one-prime T-generic cells `x_17≡5, 7 (mod 17)` (with `x_q=1` for all
