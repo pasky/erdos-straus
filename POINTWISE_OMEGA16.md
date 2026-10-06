@@ -241,7 +241,7 @@ density of a product set `S⊆F_T` (resp. `S⊆F_T^{MH}`, the Mordell-hard part)
 
 **Proposition 4.1 (product subsets of the avoider set are thin).**
 (a) (*PROVED.*) `log(1/δ_prod(T))≤T^{1/2+o(1)}`, already for `F_T^{MH}`.
-(b) (*PROVED modulo the Barban–Davenport–Halberstam theorem.*) Every product set `S⊆F_T` has
+(b) (*PROVED*, ineffective constant via Siegel–Walfisz inside Barban–Davenport–Halberstam; R61 m5.) Every product set `S⊆F_T` has
 `log(1/δ(S))≫T^{1/2}(log T)^{−8}`. Only the atoms `(ℓ_1ℓ_2, q)` with primes
 `ℓ_1≡1, ℓ_2≡3 (4)` in `(√T/2,√T]` and a prime `q|(ℓ_1ℓ_2+1)/4` are used.
 
@@ -279,6 +279,11 @@ inequality through the common mean `|𝒫|/φ(4q)`).
 `≤Σ_{q≤Q}φ(4q)≤2Q²` pairs `(q,a)`: `Σ_qΣ_a|e(q,a)|≪Q·x(log x)^{−5/2}`. The main term is
 `(π(Q)−1)|𝒫|/2≫Q x(log x)^{−2}`, which dominates. Hence
 `Σ_ℓb_ℓ≫Qx(log x)^{−2}` and `log(1/δ(S))≫Q(log x)^{−2}≫T^{1/2}(log T)^{−8}`. ∎
+
+*Robustness (R61 m5).* The lower bound only uses coordinates at primes in `(√T/2,√T]`, so it holds
+for every product set contained in `F_T`, including those imposing further conditions at primes `>T`
+(HL_prod applied with a larger parameter `T′`): such product sets cannot escape Cor 4.2(b). (Any
+`Q≤x(log x)^{−5−ε}` works; the π-form BDH bound used is weaker than the truth `xQ/log x`, harmless.)
 
 **Corollary 4.2.** (a) HL_prod(C) ⇒ `W(p)≥(log p)^{2−o(1)}` for infinitely many Mordell-hard p
 (Thm 1.2's proof with the product set of 4.1(a)). (b) Applying HL_prod to any product subset of
@@ -350,12 +355,29 @@ every linear certificate. So LS is exactly "remove the sieve-limit factor `log z
 unconditional theorem", the analogue for this sieve of going from Linnik-by-sieve to the
 Cramér-type prediction.
 
+**5.6 A uniform random model and a proved light case (both due to the reviewer of R61, m4).**
+(a) *Uniform random-points model (Assessment).* Model the primes in `(T,x]` as `π(x)` independent
+Haar points of `Ẑ^×`. There are at most `2^{Σ_{m≤T}φ(m)}≤2^{T²}` unit-class systems with moduli `≤T`,
+and a fixed system of density δ is missed by all points with probability `≤e^{−δπ(x)}`. A union bound
+shows that, *simultaneously for all systems*, an avoider exists once `δπ(x)≫T²`, i.e.
+`log x≥log(1/δ)+(2+o(1))log T`: the model predicts CR(2+o(1)), hence LS, uniformly over systems —
+a precise version of "log-scale random-set model". It matches the adversarial gains `≈T` over
+`log p/δ` seen in N3 and in R61's adversary.
+(b) *LS for light systems (PROVED, Brun–Titchmarsh).* By Brun–Titchmarsh,
+`#{T<p≤x: p in some event}≤Σ_E2x/(φ(m_E)log(x/m_E))≤2x·μ/log(x/T)`, `μ:=Σ_E1/φ(m_E)` the total
+event mass. If `μ≤(1−ε)/2`, this is `≤(1−ε)x/log(x/T)<π(x)−π(T)` once `log x≥C(ε)log T`; so an
+avoiding prime `p∈(T,T^{C(ε)}]` exists, and LS holds unconditionally for such systems (here
+`δ≥1−μ≥1/2`). The ES systems are far from light (mass `≫log(1/δ)`), so this only shows LS is a
+theorem at the bottom of its range.
+
 ## 6. Numerics (EVIDENCE only)
 
 **(N1) Buchstab deficit for primes, compounding in κ** (`scripts/omega16_buchstab.py`,
 `data/omega16/buchstab_1e{8,9}.txt`). Events `n≡−h_i (mod ℓ)`, `3≤ℓ≤z=x^{1/u}`, shifts
 `H=(2), (2,6), (2,6,8)` (κ=1,2,3); ratio of `#{z<p≤x: p+h_i z-rough ∀i}` to `δ·(π(x)−π(z))`,
-δ the exact Haar density in `Ẑ^×`. At `x=10^9`:
+δ the exact Haar density in `Ẑ^×`. (The shift 6 gives the class `0 mod 3`, not a unit class; it is
+vacuous for primes `p>3` and is dropped, both from the events and from δ, as Def 1.1 requires —
+R61 m3.) At `x=10^9`:
 
 | u | κ=1 | κ=2 | κ=3 | `(e^γω(u))^κ` (κ=1,2,3) |
 |---|---|---|---|---|
@@ -413,8 +435,10 @@ unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
 | Prop 2.1(b) | PS(C,c), AS(C) fail for primes by `(e^γω(u))^κ` | Assessment (HL heuristic); EVIDENCE N1 |
 | Prop 3.1 | Haar-centred BV/EH/progression-GEH/GRH input for moduli `≤x`, linear certificates: exponent ≤ 1/4 (full GRH not covered) | PROVED implication, inputs of O14 Thm 4.5 ((G), effective Page, fundamental lemma) |
 | Prop 4.1(a) | product subset of `F_T^{MH}` with `log(1/δ)≤T^{1/2+o(1)}` | PROVED |
-| Prop 4.1(b) | every product subset of `F_T` has `log(1/δ)≫T^{1/2}(log T)^{−8}` | PROVED modulo Barban–Davenport–Halberstam |
+| Prop 4.1(b) | every product subset of `F_T` has `log(1/δ)≫T^{1/2}(log T)^{−8}` | PROVED (ineffective, via BDH/Siegel–Walfisz) |
 | Cor 4.2 | HL_prod ⇒ `W≥(log p)^{2−o(1)}` i.o.; route capped at `(log p)^{2+o(1)}` | PROVED implication |
+| §5.6(b) | LS for systems of total mass `≤(1−ε)/2` (R61) | PROVED (Brun–Titchmarsh) |
+| §5.6(a) | uniform random-points model ⇒ CR(2+o(1)) for all systems at once (R61) | Assessment |
 | §5 | fakes, Siegel, Jacobsthal, SIZE consistency | Assessment (5.1 "not implied" part PROVED by Prop 3.1; 5.4 uniform upper companion false, PROVED) |
 | §6 | N1–N3 | EVIDENCE |
 
