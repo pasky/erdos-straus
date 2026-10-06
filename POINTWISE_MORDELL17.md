@@ -194,3 +194,36 @@ PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 3 17   # brut
 PYTHONPATH=scripts uv run python scripts/m17_validate.py         # soundness, ~1 min
 PYTHONPATH=scripts uv run python scripts/m17_union.py 3 6 --cmp /tmp/o80_boxes_100000_17_3.pkl
 ```
+
+## 5. Tail attempts I: nesting and centres (task O83, round 2)
+
+**Lemma 5.1 (rational centres; PROVED).** (i) For an N-point `(a,b,c,d)` of `Σ^I_n`, `n=17^k`, with
+`17∤bc`, the (Q)-box is `−4a²d ≡ −a/b (mod 17^k)`. (ii) For an N-point of `Σ^II_N`, `N=17^K`, with
+`17∤b`, the (P)-box is `−f ≡ −a/b (mod 17^K)`, a fortiori mod `17^{⌈K/2⌉}`.
+*Proof.* (i) (2.3) `c(4abd−1) = n(a+b) ≡ 0`, so `4abd ≡ 1`, `4a²d ≡ a/b`. (ii) (2.20) `bf = Nc+a ≡ a`. ∎
+For in-cell boxes the hypotheses hold: for Q, `17|c` forces box `≡1` (§2), and `17|b` gives
+`17|c` by (2.3); for P, `17|b` with `17∤cd` forces `17|a` by (2.15), and then `f ≡ −1` and box `≡ 1`.
+*Consequences.* The Q-boxes are closed under inversion (the reflection `a↔b` sends `−a/b` to
+`−b/a`), so the types Q and Q⁻¹ give the **same** set of boxes (confirmed by the data). Both Q and P
+boxes are balls around the rationals `−a/b` built from an ES point.
+
+**Lemma 5.2 (U is never new; PROVED).** Every (U)-box meeting `C_5∪C_7` lies inside a (P)-box of
+strictly lower level with the same centre. In particular (U)-boxes add no measure, and (U) is empty at
+even levels.
+*Proof.* Take a (U)-datum `(a,b,e)` with `a=17^α a'`, `b=17^β b'`, `α+β=k`, and WLOG `α≥β`. Put
+`c=(a+b)/e` and `e+1=4i a'b'`. Then `4ia'b'c = a+b+c`.
+If `17|i`, then `e≡−1` and the box is `≡1`, which is not in a cell; so `17∤i`.
+*Case α>β.* `v_17(a+b)=β` and `17∤e`, so `c=17^β c'` with `17∤c'`. Dividing by `17^β` gives
+`4ia'b'c' = 17^{α−β}a' + b' + c'`. This is (2.15) for `(A,B,C,D)=(b',c',a',i)` with `N'=17^{α−β}`, and
+`17∤CD`, so it is a (P)-datum (Lemma 2.3). By Lemma 5.1(ii) its box is `−b'/c' (mod 17^{⌈(α−β)/2⌉})`.
+On the other side, `e = (17^{α−β}a'+b')/c' ≡ b'/c' (mod 17^{α−β})`. So the U-box `−e (mod 17^k)` lies in
+that P-box, whose level is `⌈(α−β)/2⌉ < k`. Moreover `α−β` must be odd (ET Prop 1.6: `f_II(17^{2j})=0`).
+*Case α=β.* Then `ce = 17^α(a'+b')`. If `17^α ∤ c`, then `17 | e`, which is impossible. So `c=17^α c''` and
+`4ia'b'c'' = a'+b'+c''`, i.e. `4i = Σ 1/(pairwise products) ≤ 3`, which is impossible. ∎
+
+**Data (new = not inside a box of lower level).** New boxes meeting C_5, by level:
+2: P 4; 3: Q 8 (=Q⁻¹), P 16; 4: P 34; 5: Q 29, P 54; 7: Q 94 (P not computed).
+U: never new (Lemma 5.2). So new boxes are about half of all boxes. This is a constant factor,
+not an exponent: nesting does not change the critical comparison (P: count `N^{2/5+o(1)}` vs weight
+`N^{−1/2}`), because a centre is new at its *first* K, and first occurrences are not provably
+rarer than occurrences.
