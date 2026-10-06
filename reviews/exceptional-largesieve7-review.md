@@ -12,11 +12,11 @@ Status: in progress. Reviewed text: `EXCEPTIONAL_LARGESIEVE7.md` as merged from
 | Lemmas 2.1–2.2 | SOUND-AFTER-REPAIRS (D1 citation: Shiu's class M not literally satisfied; Nair–Tenenbaum fixed-ε form needed; D2 constant) |
 | Thm 3.1 | SOUND (given D1 repair; D3 minor: C depends on W, needs γ ≤ 1, N large) |
 | Prop 4.1 | SOUND (re-derived; 135 exact toy instances incl. brute-force H* = k) |
-| Remark 4.2 | (pending) |
-| Thm 4.3 | (pending) |
+| Remark 4.2 | Assessment, honest; but §4 summary bullet overclaims (D6) |
+| Thm 4.3 | SOUND-AFTER-REPAIRS (D1; D5 hidden hypothesis \|P\| ≤ z^{1/2}/3, δ bookkeeping) |
 | Prop 5.1 | SOUND-AFTER-REPAIRS (D4: displayed lower bound wrong for small γt_p; conclusion unaffected) |
-| (RD′) / §5 sketch | (pending) |
-| Cor 6.1, §7 | (pending) |
+| (RD′) / §5 sketch | (RD′) implication SOUND; "sufficient for LS6's route" is Assessment (D7); §5 (a,D)/Case A sketch correctly Assessment |
+| Cor 6.1, §7 | Cor 6.1 SOUND; §7 EVIDENCE reproduced, but it measures the triple proxy (D8) |
 
 ## Defects
 
@@ -55,6 +55,36 @@ step uses `γ^{−3} ≤ γ^{−5}` and `(log z/γ)^r` with `γ ≤ 1`, `K^{2β}
 So "`≥ c e^{−2γt_p}/(γt_pℓ)`" fails when `γt_p` is small. Correct: `E₁(x) ≥ ½e^{−x}log(1+2/x)
 ≥ e^{−x}/(2(1+x))`, i.e. `≥ c e^{−2γt_p}/((1+γt_p)ℓ)`. The final comparison (`≥ e^{−O(γT)}/(Tz)`
 vs `(log N)^C z^{−γ₀T}`, T fixed) is unaffected. *Repair applied.*
+
+**D5 (MINOR, hidden hypothesis / bookkeeping). §4 Thm 4.3 proof (iv), (v).**
+(v) `Π_{p∈P}γ′(p) ≤ e^{2|P|z^{−1/2}} ≤ 2` needs `|P| ≤ (log 2/2)z^{1/2}`, not in the
+hypotheses ("P a finite set of primes > z"). Harmless for `|P| ≤ (log N)^C`. (iv) `W_y(n) ≤
+C_δP̄^δ·P̄/(UVT)`: `n` ranges up to `CP̄^{2+6.2α}`, so `Γ(n) ≪ n^δ` gives `P̄^{2.1δ}`, and with
+`δ = η/10` the exponent is `0.042η + 0.21η − 2η/3 ≈ −0.41η`, **not** `≤ −η/2`. Take
+`δ = η/30` (then `≈ −0.55η`). *Repairs applied:* hypothesis `|P| ≤ z^{1/2}/3` added;
+`δ = η/10` → `δ = η/30` with `C_δP̄^{2.1δ}`.
+
+**D6 (MINOR–MAJOR, overclaim contradicting Remark 4.2). §4 "What the three results say
+together", third bullet.** "for short cofactors `y < n < P̄^{1/2}` a single class already weighs
+`≍ 1/n`, so no bound of the form `Π p^{−γ₀}` can hold without an extra condition" — this asserts
+a disproof, while Remark 4.2 (correctly) says the existence of a class with `H* > P̄^κ` and
+short cofactor is **open**, and in any case only cofactors `n < P̄^{γ₀}` (not all `n < P̄^{1/2}`)
+would beat `P̄^{−γ₀}`. *Repair applied:* bullet rewritten conditionally ("if such classes exist
+— open, Remark 4.2 — no bound … can hold for cofactors `n < P̄^{γ₀}`"). Same fix in the §0 table
+row "Remark 4.2" (already says "open in both directions", consistent).
+
+**D7 (MINOR, label). §0 table row (RD′) and §5 "the statement actually needed".** "(and
+sufficient for LS6's route)" is an unproved Assessment: LS6's (DCC) combinatorics is not
+written, and the multi-prime (RD′) may itself fail for short cofactors (Remark 4.2 applies to
+`μ_a` verbatim). *Repair applied:* "(Assessment: what LS6's route appears to need)".
+
+**D8 (MINOR, description of numerics). §7.** `scripts/largesieve7_dispersion.py` sums over
+**divisor triples with multiplicity** and cuts each triple by `min(max(u,v),4u²t,4v²t)`, i.e. it
+measures the right side of (3.0), not `μ^{ℛ,>}_a(p)` (distinct classes, cut by the true `H*`).
+Reviewer's `scripts/review_ls7_toy.py` reproduces the proxy (0.2951, 0.2190, 0.1030 at p = 101,
+211, 401) and computes the actual quantity with exact brute-force H*: 0.2432, 0.1786, 0.0914 —
+smaller, same trend, maxima at least-height labels just above the cut (`−4`, `−1/4`, `−16`).
+*Repair applied:* sentence added to §7.
 
 ## Per-claim notes
 
@@ -126,3 +156,29 @@ ET Lemma 3.2 family (K2 §1: any `a, D ≥ 1`), so `a = pq` is admissible ✓.
 `scripts/review_ls7_counterex.py`: all prime triples `3 ≤ ℓ < p < q < 90` with `ℓ < 30`,
 `p < 60` (1218 instances): residues and brute-force `H*(x mod pqℓ) ≥ pq/(4ℓ+1)` — 0 failures;
 min `H*(4ℓ+1)/(pq) = 1.011`, so the bound is essentially tight.
+
+### Theorem 4.3 — SOUND-AFTER-REPAIRS (D1, D5)
+CRT pinning (i) ✓ (t ↦ v: `2^{|P|}` square roots); pair counts `2^{|P|}(VT/P̄ + min(V,T))` ✓;
+cut ⇒ `max ≥ P̄^{κ/3}/4` ✓; L-case summation as in Thm 3.1 with `log p → log P̄`, Lemma 2.1 at
+α = η/100 (constant `C_η`) ✓. Case S: `(3−3α)/(1−3α) ≤ 3+6.2α`, sides `≤ CP̄^{1+2.1α}` ✓;
+`UVT > P̄n/32 ≥ P̄^{3/2+η}/32` ✓; exponent fixed by D5. `4^{|P|} ≤ P̄^{2/log z}` ✓ (e² > 4).
+The L-cases do not use the long-cofactor hypothesis; only Case S does — consistent with
+Remark 4.2's diagnosis.
+
+### Remark 4.2 — honest Assessment (but see D6 for the §4 summary bullet).
+
+### (RD′) and §5 sketch
+Implication H*-cut ⇒ (RD′): a label `λ ≡ b_C (G_C)` of height `≤ H₀` reduces to an element of
+`R_P(H₀)` mod P̄, so `a ∉ R_P(H₀)` forces `H*(C) > H₀` ✓ (LS6's label convention requires
+`gcd(s, G_C) = 1`, a fortiori `gcd(s, P̄) = 1`). Prop 4.1's residue lies outside
+`R_P((max P)^{1/4})` by compatibility (`H₂ ≥ P̄/(2k)`) ✓. The (a,D)/Case-A paragraph is
+explicitly "Assessment; not proved", correctly labelled. Only D7.
+
+### Corollary 6.1 — SOUND
+Fibre weight `Γ(M_r)P̄/M_r` times `π_s(c ≡ λ) ≤ Γ(s)/s` equals the full weight
+`Γ(M)P̄/M` (Γ multiplicative on coprime `s, M_r`); a label mod M is a label mod `M_r`, so
+`H*_{M_r} ≤ H*_M` and the fibre cut gives a sub-sum ✓; deduplication of rough parts only
+lowers the fibre sum ✓. The "not proved" paragraph (no single exceptional event for all
+(P,a)) is honest.
+
+### §7 numerics — EVIDENCE, reproduced (D8).
