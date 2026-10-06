@@ -1,0 +1,15 @@
+n=k+1=  1  R_min=   1  R_min/n=1.00  max psi on j<=2R: 2.000
+n=k+1=  3  R_min=   2  R_min/n=0.67  max psi on j<=2R: 1.500
+n=k+1=  5  R_min=   5  R_min/n=1.00  max psi on j<=2R: 1.200
+n=k+1=  7  R_min=   9  R_min/n=1.29  max psi on j<=2R: 1.090
+n=k+1=  9  R_min=  13  R_min/n=1.44  max psi on j<=2R: 1.041
+n=k+1= 11  R_min=  18  R_min/n=1.64  max psi on j<=2R: 1.011
+n=k+1= 13  R_min=  23  R_min/n=1.77  max psi on j<=2R: 1.005
+n=k+1= 15  R_min=  28  R_min/n=1.87  max psi on j<=2R: 1.002
+n=k+1= 17  R_min=  33  R_min/n=1.94  max psi on j<=2R: 1.001
+n=k+1= 21  R_min=  44  R_min/n=2.10  max psi on j<=2R: 1.000
+n=k+1= 25  R_min=  56  R_min/n=2.24  max psi on j<=2R: 1.000
+n= 31  R_min=  74  R_min/n=2.387 (bisection)
+n= 41  R_min= 104  R_min/n=2.537 (bisection)
+n= 61  R_min= 169  R_min/n=2.770 (bisection)
+n= 81  R_min= 236  R_min/n=2.914 (bisection)
