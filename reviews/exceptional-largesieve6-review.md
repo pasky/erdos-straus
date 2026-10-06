@@ -142,3 +142,19 @@ valid but needlessly weak (MINOR D-e, noted). |S| = 1 reduction:
 `4K ≤ ℓ^γ` ✓ (from `4K ≤ z^{γ/2}`). Exceptional event mirrors LS4 Thm 4.2
 ✓. `Λ′ ≤ N^{1/2}` adds ≤ `(log N)^{3/4}`, absorbed in the second term ✓.
 Verdict: SOUND (implication).
+
+### Integrated exact toy (from scratch)
+`scripts/review_ls6_exact_toy.py` re-implements the LS5 Setting 2.0
+sequential law, truncated forbidding, the tilted law (exact enumeration) and
+the coin coupling, and computes all coin/v/v′ expectations **exactly**
+(DFS over `c_q` and lazily over the needed prefix of `π_q`; no Monte Carlo,
+unlike the author's script). Pool {2,3,5,7}, 12 random squarefree classes,
+`δ = 1/2`, `w_q ∈ [0.3,1]`; every S with |S| ≤ 2; seeds 1–6, 8–11 (seed 7
+has Z = 0 and is skipped); 90 (seed, S) cases. Max ratios
+`max|σ̂|/bound`: (2.1) **1.000** (the pinned representation is attained,
+e.g. seed 2, S = {2}), Prop 2.2 0.142, Prop 4.2/(4.1) 0.129, Thm 5.1 (full
+right side, constant 160) 0.083. Thm 5.1 sub-bounds checked separately:
+`P(H≠H′) ≤ 2Ep_ℓ + 4Λ_{>ℓ}` (max ratio 0.83), `E V_dir ≤ 2μ̄(ℓ)` (0.23), and
+per divergence point r `E[1{τ=r}min(1,2Y_{>r}+2Y′_{>r})] ≤ 80·(…)_r`
+(0.002). Limitations: squarefree moduli (so the exponent caps of ν are not
+exercised), tiny primes, `Γ = 2^ω`.
