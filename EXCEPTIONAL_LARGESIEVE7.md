@@ -234,7 +234,7 @@ height just above `(max P)^{1/4}` refutes it.
 **Proposition 4.1 (label obstruction; PROVED, elementary — fundamental
 lemma of the sieve for the fibre version).** Let `y ≥ z^{16}`, let
 `P ⊆ (z, y]` be any set of primes, `P̄ = Π_{p∈P}p`, and let k be a prime
-in `(2y^{1/4}, 4y^{1/4}]`. Put `a_p ≡ −1/k (mod p)` (p ∈ P). Then the
+in `(2y^{1/4}, 4y^{1/4}]` with `k ∉ P` (exists as `|P| ≤ (log N)^C`). Put `a_p ≡ −1/k (mod p)` (p ∈ P). Then the
 rough-modulus classes alone give
 
     μ^>_a(P) ≥ c · w_{2y} / (y^{1/4} log z)        (c > 0 absolute).
@@ -253,7 +253,7 @@ and its least label height is exactly k: the label `−1/k` has height
 height `≥ M/(2k) > k`. So `H* = k > (max P)^{1/4}`, and the class
 contributes `w_rΓ(M)P̄/M ≥ w_{2y}/(rj)`. Distinct (r, j) give distinct
 moduli. The fundamental lemma (sifting `j ≤ x`, `j ≡ c (mod 4k)`, by the
-primes `≤ z` not dividing 4k; `x/(4k) ≥ y^{3/4}/16 ≥ z^{11}`) gives
+primes `≤ z` not dividing 4k; `x/(4k) ≥ y^{5/8}/16 ≥ z^{9}`, sieve level `z^5`) gives
 `#{j ≤ x : …} ≫ x/(k log z)` for `x ∈ [y^{7/8}, y]`, hence
 `Σ_j 1/j ≫ log y/(k log z)`; and `Σ_{y<r≤2y}1/r ≫ 1/log y`. Multiply. For
 the consequence: with `|P| = m` primes in `[y/2, y]`,
