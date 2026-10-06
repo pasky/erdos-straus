@@ -315,3 +315,74 @@ sides `≤ CP̄^{1+2.1α}`, the point count is
   handled in the (DCC) combinatorics, where such a class is "almost all
   shared primes": its only non-shared prime factors are those of the short
   cofactor n.
+
+## 5. The other class types; the H*-cut must be a residue cut
+
+In a fibre the classes are the **rough parts** (modulus `G_r`, residue
+`b mod G_r`, LS5 §1/R67b), and `H*` is the least label height **mod
+`G_r`**. (For ℛ(M), Lemma 1.1's labels are labels mod M, hence mod `M_r`,
+so Theorems 3.1/4.3 apply verbatim to the rough parts.)
+
+**Proposition 5.1 ((RD) with the H*-cut fails at one prime for (a,D)
+classes; PROVED, elementary).** Let `z < ℓ < p < q` be primes, and consider
+the (a,D) class with `a = pq`, `D = ℓ` (so `g(D) = ℓ`, `G = 4pqℓ`), i.e.
+`x ≡ −(4ℓ + pq) (mod 4pqℓ)`; its rough part is `x mod pqℓ` with
+`x ≡ −4ℓ (mod pq)`, `x ≡ −pq (mod ℓ)`. Then `H*(x mod pqℓ) ≥ pq/(4ℓ+1)`,
+its residue mod p is `−4ℓ`, and its top is q. Hence, in every fibre c
+(the class is present for the q with `pq ≡ −c−4ℓ… ` i.e. for the q in one
+class mod 4, by the smooth-part filter),
+
+    μ^>_{−4ℓ}({p}) ≥ Σ_{q>p prime, q in one class mod 4} w_q Γ(pqℓ)/(qℓ) ≥ c e^{−2γ t_p}/(γ t_p ℓ),   t_p = log p/log z,
+
+(Mertens in classes mod 4; the asymptotic as in LS6 Prop 6.2). With
+`ℓ ∈ (z, 2z)` and `p = z^{T}`, `T ≥ 2/γ₀`, this exceeds
+`(log N)^C p^{−γ₀}` for N large. So **(RD) as formulated in LS6 (cut on
+the class height `H*(C)`) is false already for `|P| = 1`** once (a,D)
+classes are in the family.
+
+*Proof.* If `−r/s ≡ x (mod pqℓ)` with `gcd(s, pqℓ) = 1` and
+`H = max(r,s) < pq/(4ℓ+1)`, then `r ≡ 4ℓs (mod pq)` and
+`|r − 4ℓs| ≤ (4ℓ+1)H < pq` force `r = 4ℓs`; mod ℓ the class gives
+`r ≡ pqs (mod ℓ)`, so `ℓ | pqs`, i.e. `ℓ | s` — contradiction. The
+weight of the class in `μ({p})` is `w_qΓ(G_r)p/G_r = w_qΓ/(qℓ)`. The
+smooth part of G is 4 and the class is present at c iff
+`c ≡ −(4ℓ+pq) (mod 4)`, a condition on `q mod 4`. The sum over q is
+`≍ ∫_{t_p}^∞ e^{−2γt}dt/t`. Comparison: `p^{−γ₀} = e^{−γ₀T log z}` while
+the lower bound is `≥ e^{−O(γT)}/(Tz)`; `γ₀T log z ≥ 2 log z`. ∎
+
+*Why this is harmless, and the correct formulation.* The residue
+`−4ℓ (mod p)` is the residue of the **small** label `−4ℓ`
+(height `4ℓ ≤ p^{1/4}` for `T ≥ 5`): the class has large height but sits
+on a small-height residue. LS6's route (§6.1 Assessment, LS4 Lemma 5.1)
+uses the small-height structure only through the **deterministic residue
+sets** `R_p(H₀) = {λ mod p : H(λ) ≤ H₀}`: pinned values in `R_p` pay
+`p^{−1/2}` there, and only residues **outside** `R_p` need dispersion.
+So the statement actually needed is the residue-cut form
+
+> **(RD′)** for `a ∉ R_P(H₀)` (no label of height `≤ H₀` is `≡ a (mod P̄)`),
+> `μ_a(P)` — summed over **all** classes through P with top `> max P` — is
+> `≤ (log N)^C·P̄^{−γ₀}`, with `H₀ = P̄^{κ}`.
+
+Since a class with a label of height `≤ H₀` puts its residue in `R_P(H₀)`,
+`a ∉ R_P(H₀)` forces `H*(C) > H₀` for every class in residue a; hence the
+H*-cut statement implies (RD′), and **for ℛ(M) classes Theorems 3.1 and
+4.3 give (RD′)** (|P| = 1, and |P| ≥ 1 with long cofactors). Prop 4.1
+also refutes the multi-prime (RD′) with the cut `max_{p∈P}p^{1/4}` (the
+residue `−1/k` there lies outside `R_P((max P)^{1/4})` — `k` exceeds that
+height, and any other label congruent to `−1/k` mod P̄ has height
+`≥ P̄/(2k)`), so the product cut `P̄^{κ}` is needed in (RD′) as well.
+
+*(a,D) and Case A under (RD′) (Assessment; not proved here).* The same
+pinning mechanism is available:
+* (a,D), `p | a`: the residue is `−4D (mod p)`, so `D ≡ d₀` is pinned;
+  writing `D = e f²`-type with `g(D) ≍ ef`, the pairs `(e,f)` lie on
+  `ef² ≡ d₀ (mod p)` — the same curve as the `(v,t)` pairs of Thm 3.1
+  — and `a ∉ R_p(H₀)` gives `4D > H₀`. `p | g`: the residue is `−a`, so
+  the parameter a is pinned mod p with least representative `> H₀`; a
+  one-variable progression (Lemma 2.1).
+* Case A (`G = 4rh`, `mm′ = 4rh²+1`, class `−1/m`): `p | rh` gives
+  `mm′ ≡ 1`, so `m ≡ −1/a` **and** `m′ ≡ −a (mod p)` are both pinned, and
+  `a ∉ R_p(H₀)` gives `m, m′ > H₀`. The long-variable regimes need
+  divisors of `4rh²+1` in progressions (the ElT Prop 1.4 / K2 Lemma 3.6
+  inputs, in damped form); the short regime is a count of points of
+  `mm′ = 4rh²+1` with both factors pinned mod p. Not written.
