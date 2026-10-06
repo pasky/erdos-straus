@@ -69,15 +69,19 @@ increasing function Φ.
 holds for some absolute C (Linnik's lower bound `π(x;q,a)≫x/(φ(q)√q log x)` for `x≥q^L` gives at
 least two such primes, so one exceeds q; we do not track the best admissible C). LS is the statement that a sifted set behaves, for the purpose of
 containing *one* prime, like a residue class of the same density: the *log-scale* (Linnik,
-not Cramér) form of the random-set model. (b) The term `log T` is needed: events
-`n≡ℓ (mod m_ℓ)` with distinct primes `m_ℓ∈(T/2,T]` kill every prime `ℓ≤T/4` at total cost
-`≪1/log T`. (c) The Cramér-type form "`p≪δ^{−1}(log Q)^{O(1)}`" for an arbitrary set of
+not Cramér) form of the random-set model. (b) Some `T^{O(1)}` slack beyond `1/δ` is needed
+(R61 m2): the least avoiding prime `>T` can exceed `T^{1−o(1)}/δ`. Shifted Jacobsthal: a gap
+`(a,a+y)` in the integers coprime to `P(z)`, `gcd(a,P(z))=1`, is a covering of `(0,y)` by the unit
+classes `−a mod ℓ`, `ℓ≤z`, with `δ≍1/log z` and `y=z^{1+o(1)}` (Ford–Green–Konyagin–Maynard–Tao);
+the greedy adversaries of §6 N3 and of R61 (moduli the primes in `(T/2,T]`) gain a factor `≈T`
+over `log p/δ`. The `C·log T` term absorbs this. (c) The Cramér-type form "`p≪δ^{−1}(log Q)^{O(1)}`" for an arbitrary set of
 density δ mod Q is false (take the units of `(Q(1−δ),Q)`); the restriction to events of
 *small modulus* T (with `log lcm(m_E)` up to `≍T`) is what makes LS plausible. Its strong
 form is in §2.
 
-**Theorem 1.2 (LS ⇒ exponent 1/3; PROVED implication, modulo Nair–Tenenbaum via O13
-Thm 3.4).** Assume LS(C). Then for every large T there is a Mordell-hard prime `p>T` with
+**Theorem 1.2 (LS ⇒ exponent 1/3; PROVED implication, modulo Nair–Tenenbaum via the *proof* of O13
+Thm 3.4, i.e. its good realisation `(Q,r)`, O13 §5 Setting).** Assume LS(C). Then for every large T
+(`T≥e^{33}`, O13 §5 range) there is a Mordell-hard prime `p>T` with
 `W(p)>T` and `log p ≪_C 𝓛³(log𝓛)^5`. Consequently, for infinitely many Mordell-hard primes,
 
 ```
@@ -112,7 +116,7 @@ with `M≤T` has `p≡−4D (mod M)`, so `W(p)>T` directly from the definition o
 in the Mordell-hard normalisation (`log(1/δ)≍𝓛³/log𝓛`), the conclusion improves to
 `log W(p)≫(log p·log log p)^{1/3}` i.o. (b) LS is used for *one* system per T, of
 "dimension" `κ≍𝓛³/log𝓛` (O14 §2) with sifting range T; it is used far below the sieve limit,
-where `log x≍log(1/δ)≍κ·log log T` while the sieve needs `log x≫κ log T`. That `log T`
+where `log x≍log(1/δ)≍κ·log log T` (up to log factors; exact under HAAR Conj 3.1, R61 m6) while the sieve needs `log x≫κ log T`. That `log T`
 versus `log log T` per unit of dimension is exactly the gap 1/4 vs 1/3 (§3).
 
 ## 2. The ladder of hypothesis strengths; which forms are too strong
@@ -404,7 +408,7 @@ unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
 | item | statement | label |
 |---|---|---|
 | Hyp LS(C), LS(Φ) | Linnik for unit-class sifted sets | CONJECTURE (Assessment: plausible, §5) |
-| Thm 1.2 | LS(C) ⇒ `W≥exp(c(log p)^{1/3}(loglog p)^{−5/3})` i.o., Mordell-hard | PROVED implication, modulo NT (via O13 Thm 3.4) |
+| Thm 1.2 | LS(C) ⇒ `W≥exp(c(log p)^{1/3}(loglog p)^{−5/3})` i.o., Mordell-hard | PROVED implication, modulo NT (via the realisation `(Q,r)` in the proof of O13 Thm 3.4) |
 | Prop 2.1(a) | integer analogue of AS(C) false for every C | PROVED (Buchstab–de Bruijn, classical) |
 | Prop 2.1(b) | PS(C,c), AS(C) fail for primes by `(e^γω(u))^κ` | Assessment (HL heuristic); EVIDENCE N1 |
 | Prop 3.1 | Haar-centred BV/EH/progression-GEH/GRH input for moduli `≤x`, linear certificates: exponent ≤ 1/4 (full GRH not covered) | PROVED implication, inputs of O14 Thm 4.5 ((G), effective Page, fundamental lemma) |
