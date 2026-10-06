@@ -4045,7 +4045,8 @@ Theorems~\ref{thm:slice}, \ref{thm:seq}, \ref{thm:gapped},
 \ref{thm:wseq}, \ref{thm:karycap}, \ref{thm:noBcap}, \ref{thm:main} and
 Lemma~\ref{lem:budget} \cite[\S6.1]{ET}, \cite[\S4.3]{KA}, \cite[\S6]{NC},
 \cite[\S6]{KA2}, and updated with Sections~\ref{sec:LS}
-and~\ref{sec:TU} \cite[\S7]{LS}, \cite[\S0]{LS2}, \cite[\S0]{IF2},
+and~\ref{sec:TU} \cite[\S7]{LS}, \cite[\S0]{LS2}, \cite[\S4]{LS3}, \cite[\S0]{IF2},
+\cite[\S4]{SPW}, \cite[\S1]{SPW2},
 \cite[\S6]{TU}, \cite[\S0]{TU2}, \cite[\S5]{KA3}.  Anything below lies outside
 the cap of Theorem~\ref{thm:main}; where another theorem covers part of an
 item, this is said.
@@ -4056,9 +4057,14 @@ item, this is said.
   (Theorem~\ref{thm:LScap}); multiplicative, Gauss-sum, twisted and
   hybrid Bessel forms with periodic rows (Theorem~\ref{thm:hybrid}); the
   large sieve applied to the primes (Theorem~\ref{thm:LSprimes}); prime
-  slices with any rational frequencies (Theorem~\ref{thm:LSslice}).
-  Outside: frequencies of super-polynomial level whose denominators
-  carry many family primes (escape (E1), Conjecture~\ref{conj:HLS}).  By
+  slices with any rational frequencies (Theorem~\ref{thm:LSslice}); and
+  every mixture in which each modulus has at most one prime factor
+  $>z=\exp\{(\log N)^{1/4}\}$, with any rational frequencies, at the cost of a
+  factor $(\log\log N)^3$ (Theorem~\ref{thm:roughslice}).
+  Outside: frequencies of super-polynomial level, with rough part
+  $\theta_r\neq0$, against classes with at least two prime factors $>z$ (escape (E1),
+  Conjecture~\ref{conj:HLS}; the fibre statement $(H_{\rm rough})$ of
+  Hypothesis~\ref{hyp:Hrough} would suffice).  By
   Theorem~\ref{thm:band} this cannot be closed by comparison measures
   and large-sieve axioms alone: a proof needs family-specific input such
   as the sparsity of forced classes.  Non-periodic rows (such as $n^{it}$) are non-CRT input.
@@ -4076,9 +4082,11 @@ item, this is said.
   coefficient mass up to $\e^{O((\log N)^{3/4})}$ (Theorem~\ref{thm:IFbudget});
   hybrid methods whose free large mass is $\leq cB$
   (Section~\ref{sec:hybrid}).  Outside: hybrids with large right-signed
-  mass at moduli in $(N/2,CN]$, and all hybrids unless Flat holds
-  (Theorem~\ref{thm:hybridcap}; Flat follows from the combinatorial
-  Hypothesis~\ref{hyp:SPW}, which is \lab{open}); direct counts of
+  mass at moduli in $(N/2,CN]$, and all hybrids unless Flat holds with
+  margins $\log(1/t),\log\Delta=O((\log N)^{3/4})$ (Theorem~\ref{thm:hybridcap}); such
+  Flat follows from weak SPW (Hypothesis~\ref{hyp:weakSPW}, \lab{open},
+  Lemma~\ref{lem:weakSPW}), while SPW with a fixed margin is false
+  (Theorem~\ref{thm:SPWfalse}); direct counts of
   multi-witness patterns of combined modulus $>N/2$.  For finite prime-slice
   families every per-frequency rounding with weight $\geq1$ is covered
   for any moduli (Theorem~\ref{thm:perfreq}).
@@ -4134,7 +4142,9 @@ item, this is said.
   finite prime-slice families with per-frequency rounding
   (Theorem~\ref{thm:perfreq}), majorants from classes of modulus $\leq N/2$
   (Corollary~\ref{cor:IFcap}), and large sieves on prime slices with any
-  rational frequencies (Theorem~\ref{thm:LSslice}).
+  rational frequencies (Theorem~\ref{thm:LSslice}), and large sieves over
+  mixtures with one prime factor $>\exp\{(\log N)^{1/4}\}$ per modulus
+  (Theorem~\ref{thm:roughslice}).
 \end{enumerate}
 The exact exponent is now settled for the class of
 Theorem~\ref{thm:main}: the factor $(\log\log N)^{3/4}$ of the previous
@@ -4158,7 +4168,14 @@ are themselves classes of the four types and all their primes, those of
 the multiplier included, are $\leq N^A$.  For these,
 Theorem~\ref{thm:main} charges every prime above $W$ and bounds the level
 through $\sum_i|a_i|<N$ together with the bound $N^A$ on the family primes.
-\emph{New in this version}: the removal of the factor $(\log\log N)^{3/4}$ without $B$
+\emph{New in version~5}: every large sieve, at any frequency level, over
+mixtures with at most one prime factor $>\exp\{(\log N)^{1/4}\}$ per modulus
+(Theorem~\ref{thm:roughslice}, with $(\log\log N)^3$), which narrows (E1) to
+classes with two or more such primes; and, for hybrids, the refutation of
+fixed-margin SPW with the exact weak requirement that replaces it
+(Theorem~\ref{thm:SPWfalse}, Lemma~\ref{lem:weakSPW}).  This version does
+not change the cap of Theorem~\ref{thm:main}.
+\emph{New in version~4}: the removal of the factor $(\log\log N)^{3/4}$ without $B$
 (Theorem~\ref{thm:noBcap}); the large sieve beyond prime slices at
 polynomial level, its twisted, hybrid and prime forms, and Gallagher's
 larger sieve (Section~\ref{sec:LS}); prime-only majorants for all mixtures;
@@ -4210,7 +4227,8 @@ Theorem~\ref{thm:noBcap}, with the same cap $C\lambda^{3/4}$ \lab{proved}.
 A proof of $\theta>3/4$ by a congruence sieve must therefore contain at
 least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
 \cite[\S6]{NC}, \cite[\S6]{KA2}, \cite[\S7]{LS}, \cite[\S0]{LS2},
-\cite[\S0]{IF2}, \cite[\S0]{TU2}, \cite[\S5]{KA3}:
+\cite[\S0]{IF2}, \cite[\S0]{TU2}, \cite[\S5]{KA3}, \cite[\S4]{LS3},
+\cite[\S4]{SPW}, \cite[\S1]{SPW2}:
 \begin{enumerate}
 \item[(i)] classes of a type outside Definition~\ref{def:types} that fail
   one of the properties (a)--(c) of Section~\ref{sec:excluded}, item~7,
@@ -4219,13 +4237,16 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
   (on $[1,N]$ or on the exceptional set), or a prime majorant that is
   $\geq0$ only at primes $\leq N$;
 \item[(iii)] large-sieve frequencies of super-polynomial level used
-  against the sparsity of forced classes (Conjecture~\ref{conj:HLS} would
-  exclude this), or larger-sieve kernels with an uncontrolled factor
+  against classes with at least two prime factors $>\exp\{(\log N)^{1/4}\}$
+  (Conjecture~\ref{conj:HLS}, or $(H_{\rm rough})$ of Hypothesis~\ref{hyp:Hrough},
+  would exclude this; Theorem~\ref{thm:roughslice} excludes it for one such
+  prime per modulus), or larger-sieve kernels with an uncontrolled factor
   $1+Nh/(W_K-h)$;
 \item[(iv)] a direct count above modulus $N/2$: a hybrid method that
   counts classes of modulus in $(N/2,CN]$ exactly with large right-signed
   mass, or any hybrid at those $N$ for which Flat fails
-  (Theorem~\ref{thm:hybridcap}; Hypothesis~\ref{hyp:SPW} would exclude this), or
+  (Theorem~\ref{thm:hybridcap}; weak SPW, Hypothesis~\ref{hyp:weakSPW}, would
+  exclude this; SPW with fixed margin is false, Theorem~\ref{thm:SPWfalse}), or
   cancellation between frequencies of combined modulus $>N/2$;
 \item[(v)] a non-CRT tuple count: Hypothesis~\ref{hyp:TCalt} for some
   $\theta>3/4$, i.e.\ CRT-accuracy on $[1,N]$ at moduli
@@ -4233,8 +4254,8 @@ least one of the following \cite[\S6]{ET}, \cite[\S4.3]{KA},
   \eqref{eq:window} for moduli with many primes above $W$; or other
   non-CRT input (Type~I/II sums, Hal\'asz-type arguments);
 \item[(vi)] family primes beyond $N^{O(1)}$, outside the settings of
-  Theorem~\ref{thm:perfreq}, Corollary~\ref{cor:IFcap} and
-  Theorem~\ref{thm:LSslice}.
+  Theorem~\ref{thm:perfreq}, Corollary~\ref{cor:IFcap},
+  Theorem~\ref{thm:LSslice} and Theorem~\ref{thm:roughslice}.
 \end{enumerate}
 Gone since version~2: moduli with $\log M/\log P(M)$ unbounded, $(a,D)$- and
 Case-A moduli without a dominant prime, mixed families, and multipliers
@@ -4247,7 +4268,11 @@ $(\log\log N)^{3/4}$, removed at pointer level only); Gallagher's larger
 sieve; prime-only majorants of mixtures (same proviso); per-frequency rounding and inter-frequency
 cancellation when all moduli are $\leq N/2$; tuple input of bounded order,
 and of prime order $k$ up to $k\log\log N$; and the factor $(\log\log N)^{3/4}$
-in Theorem~\ref{thm:main}.
+in Theorem~\ref{thm:main}.  Gone since version~4: super-polynomial
+large-sieve frequencies against mixtures with one prime factor
+$>\exp\{(\log N)^{1/4}\}$ per modulus (Theorem~\ref{thm:roughslice}).  Changed since
+version~4: the target in (iv) is weak SPW; the fixed-margin SPW of
+version~4 is refuted (Theorem~\ref{thm:SPWfalse}).
 
 \emph{The exact exponent without $B$} is settled for the class of
 Theorem~\ref{thm:main}: the factor $(\log\lambda)^{3/4}$ of the previous version
