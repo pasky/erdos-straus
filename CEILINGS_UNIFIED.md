@@ -127,3 +127,42 @@ Siegel zeros, lower bounds need `E_*[B(1−εχ)] > 0`) is the familiar one.
 Theorem 2.1 is the "typical-size" statement on the exceptional side; the
 pointwise side asks for the *opposite* inequality (some `p ≤ x` with
 `W(p) > T`), whose certificate must be a minorant (§4).
+
+## 3. Goal (a): the Haar-side route to an exceptional-set bound
+
+**What the heuristic route is.** "Upper-bound sieve over the avoider system with
+witness moduli `≤ T = exp(c(log N)^{1/4})`" needs (i) a Haar void
+`P(no witness ≤ T) ≤ e^{−c𝓛³}` and (ii) a majorant certifying it at level
+`≤ log N`. The note does exactly this: (i) is its Lemma 7.1 (fibre product,
+the same computation as Prop 1.1 here), (ii) is the Bonferroni majorant
+`S_yQ_r(H_X)`, `r ≍ t³`, level `≍ t⁴` (note Thm 8.2). So:
+
+**Proposition 3.1 (PROVED; consequence of Theorem 2.1 at
+`T = exp(c₁(log N)^{1/4})`).** `E_pr(N) ≤ #{p ≤ N: W(p) > T} ≪ π(N)·exp(−c(log N)^{3/4})`.
+This is the prime part of the note's Theorem 1.1 with `π(N)` in place of
+`N`; at this scale the two are the same statement (`log N ≤ (log N)^{3/4}`
+is absorbed by `c`). It is a reproof, **not** an improvement, and the
+"Haar-side route" is not a new route: it *is* the note's route.
+
+*Assessment 3.2 (the other Haar family).* POINTWISE_HAAR's Janson family
+(squarefree `𝓛⁵`-rough moduli, several large primes per modulus) would give
+a different route only if its factorial moments `E(H)_m ≤ (Cμ)^m` held for
+`m ≍ μ`. Overlapping moduli make this a correlation problem the note avoids
+(its moment proof uses one large prime per atom, note Thm 6.3). It cannot
+beat the note: by KARY3 Thm 4.1 any majorant of any forced-class family
+saves `≤ Cλ^{3/4}`, and on the Haar side the void `≍ 𝓛³` holds up to
+`(log𝓛)^5` (Prop 1.1, OMEGA13 Thm 3.4). Not pursued.
+
+**Corollary 3.3 (certifying the Haar void costs level `𝓛⁴`; PROVED from
+KARY3 Thm 4.1 and Prop 1.1).** Let `𝔊_T` be the ℛ(M)-classes with `M ≤ T`
+together with the selector classes `0 mod p`, `p ≤ y`. Every CRT majorant
+`ν ≥ 1_{𝒜(𝔊_T)}` of level `λ ≥ λ₀` (all term moduli `≤ e^λ`) with
+`log(1/Eν) ≥ s` has `λ ≥ (s/C)^{4/3}`. In particular certifying a saving
+`c𝓛³` (the true Haar void, up to `(log𝓛)^5`) needs level `≥ c'𝓛⁴`, and the
+note's `ν_X` attains it at level `≤ C''𝓛⁴` (note (8.3)). So on the majorant
+side the critical level for the system at cutoff `T` is `λ*(T) ≍ 𝓛⁴`.
+
+*Proof.* KARY3 Thm 4.1 gives `s ≤ log(1/Eν) ≤ Cλ^{3/4}`. ∎
+
+(The selector classes are needed only to make the void small on `Ẑ`; without
+them `n ≡ 0 mod P_z` keeps the integer-CRT void `≥ e^{−O(z)}`.)
