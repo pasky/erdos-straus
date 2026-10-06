@@ -245,3 +245,51 @@ F | 1+4ck²,   F≡−1 (mod m'),   F≡+1 (mod 7^{v_7(ck)}),   F≡−w (mod 2^
 
 Candidate sterile point: **`x*=(w at 2; −1 at 7; 1 at all other q)`**, e.g.
 `w=9`. A proof would need to exclude (2.2) for all slices with `7∥sf(c)`.
+
+## 3. The sign point `x̂=(w; −1; 1)` and `C(7)>10⁶` under H
+
+**Definition.** For `w∈ℤ_2`, `w≡9 (16)`, let `x̂_w∈Ẑ^×` have components
+`x̂_2=w`, `x̂_7=−1`, `x̂_q=1` for every prime `q∉{2,7}`. Then `x̂_w∈Σ_7`
+(`w≡1 (8)`, `1` is a square mod 3, 5, and `−1` is a non-square mod 7), and
+`x̂_w` satisfies Lemma 2.1. The odd components satisfy `x̂_q²=1`, so
+`N_{c,k}(x̂)=1+4ck²` exactly at every odd prime. A certificate at `x̂_w` is
+exactly an integer solution of (2.2) with `7∥sf(c)` (i.e. `v_7(c)` odd).
+
+**Lemma 3.1 (square families excluded; PROVED).** At `x̂_w` there is no
+certificate with `F² = 1+4ck²`.
+*Proof.* Let `F²=1+4ck²`. By (2.2) `m'|F+1` and `7^{v}|F−1`. Here
+`gcd(F−1,F+1)=2`, and `m'=c'k'` divides `F+1`, so `k'` is prime to `F−1`
+and `k'²|F+1`. Comparing odd parts of `(F−1)(F+1)=4ck²` gives
+`F+1=2^i c'k'²`, `F−1=2^j 7^{s}`, with `s=a+2b` odd, `i+j=2+α+2γ` and
+`min(i,j)=1`.
+* `j=1`: `2^{i−1}c'k'²=1+7^s`. For odd s, `v_2(1+7^s)=3`, so `i=4`,
+  `α+2γ=3` and `α+γ≥2`. Hence the 2-adic modulus is `2^{2+α+γ}≥16`, and
+  `−F=−1−2·7^s≡1 (16)` (as `7^s≡7 (16)`). But `w≡9 (16)`.
+* `i=1`, `j≥2`: `F=1+2^j7^s`, with `j=1+α+2γ`. If `γ≥1`, then
+  `j≥2+α+γ`, so `−F≡−1 (mod 2^{2+α+γ})`, and `w≡−1 (8)` is impossible. If
+  `γ=0`, then `c'k'²−1=2^{α}7^s` with `c'k'` odd. This forces `α≥1`; then
+  modulo `2^{2+α}` we get `−F≡−1+2^{1+α}`, which is not `≡1 (8)` for
+  `α≥1`.
+
+So no square certificate exists. ∎
+
+**Computation 3.2 (formal search; EVIDENCE→CERTIFIED by two engines up to
+the stated range).** `typei2_formal.py 1000000 1 2:9:80 7:(7^60−1):60`
+scans all 1 533 438 slices with `ck≤10⁶` and `v_7(c)` odd. It finds **no**
+certificate at `x̂_9`; the same holds at `x̂_{−7}` (both runs ≈10 min). An
+independent engine agrees in its range: the complete Λ-enumeration
+`typei2_s27 3·10⁸` (Lemma 2.4, which covers every slice with `ck≤8660`,
+since `Λ≤4(ck)²`) has no box containing `x̂_9`. Among the integral
+points `(w,z)` tested in §2.2, only `z=−1` survived.
+
+**Corollary 3.3.** (i) *(PROVED)* Every finite Type-I covering of
+`{n_p=7}` has height `>10⁶`. (ii) *(CONDITIONAL on H for the finite family
+`𝓟_X` of Theorem A, `X=10⁶`, built from `x̂_9`)* there are infinitely many
+hard primes with `n_p=7` and `ck_min(p)>10⁶`. So `C(7)>10⁶`, up from
+`≥539` (Cor 6.4 of POINTWISE_TYPEI).
+*Proof.* (i): a covering of height `≤10⁶` would contain `x̂_9`, but there
+is no certificate there. (ii): Theorem A(ii), Steps 2–5, with `x*=x̂_9`.
+Only slices with `v_7(c)` odd need polynomials: forced slices vanish by
+notes Thm 48.1. ∎
+
+**Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C(7)=∞`.
