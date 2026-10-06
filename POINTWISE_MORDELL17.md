@@ -111,7 +111,7 @@ effective in principle but the constants are not explicit, and any explicit vers
 is far too weak at computable levels (§4). The (P) series is the critical
 one: exponent `2/5` against measure `N^{−1/2}`.
 
-## 3. Exact low levels (CERTIFIED by one engine; independent re-check pending)
+## 3. Exact low levels (CERTIFIED by two independent engines: `m17_enum.c` and R83's `review_m17_enum.c`, through level 5 and Q/U level 7) (R83 round-2 repair r1, applied by reviewer)
 
 `scripts/m17_enum.c` enumerates, using the bounds of ET Lemma 2.8 (valid for every N-point, not
 only Type I/II solutions, as its proof uses only the defining equations):
