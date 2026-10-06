@@ -96,3 +96,18 @@ all new items with labels; "Not claimed" adds Sierpiński, representations outsi
    of the "exceptional zero depends only on x" sentence (C1).
 3. Lemma 12.5: the NT class conditions for the twisted `f₂` and the Euler-ratio bounds.
 4. §15 summaries: that "proved in [MN]" labels are not stronger than MN/MN2's own labels.
+
+## Self-review (reviewer subagent, deep mode) and repairs
+Verdict: Lemmas 12.3–12.5, Thm 12.1, Lemma 15.1, Prop 15.2, Lemma 15.6 sound; leaf-dependent
+exceptional character harmless; no ES/Sierpiński claim. Four defects, all repaired:
+* SR1 (§15 "Towards ADM_m"): MN2 Thm 3.1 is for the *ordered* process (prefix, forced stage A in
+  increasing prime-power order up to `Z = 𝓛³(log𝓛)^B`, then adaptive stage B, stopped before
+  `Λ > K`), not for the adaptive process as defined. Now described explicitly.
+* SR2 (Thm 15.7 summary): for odd m the forms `n, mn−1` have the fixed prime divisor 2, so NT does
+  not apply verbatim; parity split (`t, 2mt−1` / `2t+1, mt+(m−1)/2`) added, flagged as **not written
+  out in [MN]** (an inherited gap in MN §5; affects only the conditional Thm 15.7 for odd m; Thm 15.3
+  has m even). The parent may want this repaired in POINTWISE_MN.md as well.
+* SR3: "Only atoms with M ≡ 7 (8) are never fired" overstated; now "sufficient, not necessary"
+  (example m = 5, M = 19, D = 1).
+* SR4: planting vs BGP: "within a factor 3 of their lower bound (about 2 as p → 1)" (at p = 1/2:
+  3k+3 vs k+1).

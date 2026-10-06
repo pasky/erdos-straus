@@ -417,8 +417,8 @@ bits, $n_c(k,p)\le(k+1)p/(1-p)+2k+2$ for the threshold $n_c(k,p)$ of
 \cite[Thm.~27]{BGP} (the least $n$ such that some $k$-wise independent law on
 $n$ bits of mean $p$ gives probability $0$ to the all-ones vector).  This removes the factor
 $\log(1/(1-p))$ and the restriction to $1/(1-p)$ a prime power from their upper
-bound, and is within a factor about $2$ of their lower bound; we have not
-checked the later literature.  Its use to bound the level of minorants of
+bound, and is within a factor $3$ of their lower bound (about $2$ as $p\to1$);
+we have not checked the later literature.  Its use to bound the level of minorants of
 a concrete arithmetic indicator, on every fibre of modulus
 $\log Q\le T^{0.05}$, is new to us.
 
@@ -3120,8 +3120,9 @@ Dirichlet's theorem gives infinitely many such $\ell$.
 For example $m=5$, $\ell=29$ ($A=6$).  The Haar mass of the atoms through a fixed
 small prime $\ell$ is $\gg\Lc^3/\ell$, so such an $\ell$ is always stepped by the
 process of \S\ref{sec:system}; that process therefore does not run for
-$m\not\equiv0\pmod4$.  Only atoms with $M\equiv7\pmod8$ are never fired by square classes
-for every $m$ (Lemma~\ref{lem:mjacobi}(b)).
+$m\not\equiv0\pmod4$.  For every $m$, atoms with $M\equiv7\pmod8$ are never fired by
+square classes (Lemma~\ref{lem:mjacobi}(b)); this condition is sufficient, not
+necessary (e.g.\ $m=5$, $M=19$, $D=1$).
 
 \subsection*{Results}
 \begin{theorem}[$m\equiv0\ (4)$; proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}, and the fundamental lemma for the lower bound in (i)]\label{thm:mzero}
@@ -3238,20 +3239,30 @@ factor $2^{u_i(E)}$ is replaced by $\prod_{\ell\mid M,\,\ell\le Y}K/\Lambda_i(\e
 is stopped before a step that would make some $\Lambda(\ell)>K$, and the prefix
 costs a factor $1/\delta_0$ (the density of the hard classes modulo $Q_0$) in all
 initial masses; the transfer uses Lemma~\ref{lem:anyr}.  Success probability
-$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}.
+$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}.  For odd $m$
+the pair of forms $n$, $mn-1$ of Lemma~\ref{lem:masses}(A) has the fixed prime
+divisor $2$, so Theorem~\ref{thm:NT} does not apply verbatim; one splits by the
+parity of $n$ (forms $t$, $2mt-1$ for $n=2t$, and $2t+1$, $mt+(m-1)/2$ for $n=2t+1$,
+neither pair having a fixed prime divisor) and absorbs the bounded factors
+at $2$.  This step is not written out in \cite{MN}.
 
 \emph{Towards $\mathrm{ADM}_m$.}  $\mathrm{ADM}_m$ is open for every $m\not\equiv0\pmod4$.
 Numerically the drift is small: for $m\in\{5,6,7,9,10,11,13\}$ and
 $T\le3\cdot10^5$, a simplified full-depth version of the process with a $2$- and
 $3$-adic prefix never died and had $\max_\ell\Lambda(\ell)\le4.3$, the maximum being at
-$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite[Thm.~3.1]{MN2} (proved
+$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite{MN2} uses an ordered variant of the process: after a
+prefix modulo $Q(q_0)=\lcm\{q\le q_0\}$ (over the powers $q$ of primes not dividing
+$m$), a forced stage reveals the digits $r\bmod q$ for all such prime powers
+$q_0<q\le Z=\Lc^3(\log\Lc)^B$ in increasing order of $q$ (so that an atom completed at
+$q$ has its cofactor composed of smaller prime powers), followed by the
+adaptive threshold stage, and the process is stopped before any step that
+would make some $\Lambda(\ell)>K$.  For this process \cite[Thm.~3.1]{MN2} (proved
 modulo Henriot's coefficient-uniform form of Theorem~\ref{thm:NT}
 \cite[Thm.~5]{Henriot}) shows that the sums of the masses of the atoms
 completed at a step are uniform in $T$, and that after any prefix law $\nu$ on
-the hard classes modulo $Q(q_0)=\lcm\{q\le q_0\}$ (over the powers $q$ of primes
-not dividing $m$) with density at most $C_\nu$ relative to Haar measure, the
-process fails with probability at most $C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with
-$c_1$ not explicit.  So $\mathrm{ADM}_m$ reduces to the prefix: a hypothesis SI on
+the hard classes modulo $Q(q_0)$ with density at most $C_\nu$ relative to Haar
+measure, the process fails with probability at most
+$C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with $c_1$ not explicit.  So $\mathrm{ADM}_m$ reduces to the prefix: a hypothesis SI on
 $\nu$-weighted completed-atom sums (a conjecture) implies $\mathrm{ADM}_m$, and hence
 exponent $1/4$ for $W_m$ \cite[Prop.~5.1]{MN2}.  For the uniform prefix law,
 the data for $q_0\le19$ suggest that $C_\nu$ grows faster than $q_0^{1/2}$, so the
