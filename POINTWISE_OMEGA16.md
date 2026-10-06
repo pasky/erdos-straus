@@ -17,13 +17,16 @@ model, and for a single residue class it *is* Linnik's theorem.
 * **Thm 1.2 (PROVED implication, modulo Nair–Tenenbaum via O13 Thm 3.4):** LS(C) ⇒
   `W(p)≥exp(c(log p)^{1/3}(log log p)^{−5/3})` for infinitely many Mordell-hard p; LS is needed
   for one system per T only. `LS(Φ)` with `Φ(λ)=λ^θ` gives exponent `1/(3θ)`.
-* **Brief item (i)** (EH/GEH-type equidistribution): any hypothesis about primes in classes /
-  characters of moduli `≤x` (EH, GEH, GRH, BV), used through a linear certificate, yields at most
-  exponent **1/4** — the zero-error planted fake satisfies it (Prop 3.1). "Primes in sifted sets
+* **Brief item (i)** (EH-type equidistribution): any hypothesis consisting of Haar-centred error
+  bounds for primes in classes / characters of moduli `≤x` (BV, EH, GRH, the progression part of
+  GEH), used through a linear certificate (O15 Def 2.1), yields at most exponent **1/4** — the
+  planted fake satisfies it (Prop 3.1). "Primes in sifted sets
   *with main term*" is too strong as stated: its asymptotic and constant-factor forms are
   false in the integer analogue and heuristically false for primes by a compounding Buchstab
   deficit `(e^γω(u))^κ` (Prop 2.1; numerics §6 N1); its log-scale form implies LS.
-* **Brief item (ii)** (Hardy–Littlewood/Bateman–Horn for product sets): yields exactly
+* **Brief item (ii)** (Hardy–Littlewood/Bateman–Horn-type hypothesis for product sets — read as
+  LS restricted to CRT-product sifted sets with growingly many local conditions, not a standard
+  fixed-polynomial HL/BH statement): yields exactly
   **exponent 2 in the polynomial scale**, `W≥(log p)^{2−o(1)}` and no more, because every CRT-product
   subset of the avoider set has `log(1/δ)≍T^{1/2±o(1)}` (Prop 4.1, lower bound modulo
   Barban–Davenport–Halberstam). This extends POINTWISE_OMEGA Prop 6.1 to all product sets.
@@ -163,9 +166,12 @@ statement LS. EVIDENCE for (b) at toy scale: §6.
 
 **Proposition 3.1 (EH-type input caps at 1/4; PROVED implication from O14 Thm 4.5 and O15
 Cor 2.4/Prop 2.5, same inputs: (G), effective Page, fundamental lemma).** Let 𝓘 be any
-hypothesis about the primes `p≤x` that only concerns their distribution in residue classes,
-Dirichlet characters or additive characters of moduli `≤x` (with any error terms and any
-averaging over moduli): e.g. EH(θ) or GEH(θ) for any `θ<1`, GRH, BV. Every certificate of
+hypothesis consisting of *Haar-centred error bounds* for the primes `p≤x`, `p∈H`, `p∤q`, in
+residue classes, Dirichlet characters or additive characters of moduli `q≤x`: statements
+`|Σ_{p≤x,p∈H,p∤q}h(p)−N_{x,q}E_Hh|≤𝔈_h` (`N_{x,q}`: number of such primes), individually or
+averaged over h and q, with error bounds `𝔈_h≥2log x` (resp. averages of such) — e.g. BV,
+EH(θ) for any `θ<1`, GRH, and the specialisation of GEH to primes in progressions. (GEH's full
+content about general convolutions, and anything not Haar-centred, is not covered.) Every certificate of
 "`∃p≤x` prime, Mordell-hard, `W(p)>T`" of the minorant type — `B≤F` on a fibre `n≡r (Q)` with `log Q≤T^{0.05}`, B a combination
 of functions of those moduli, concluding `Σ_{p≤x}F(p)≥Σ_{p≤x}B(p)>0` from 𝓘 — needs
 
@@ -184,8 +190,10 @@ most k big ones, i.e. lies in O14's `𝒱_k`, on which ν and Haar agree (O14 Th
 the `|I|≤k` clause of O15 Lemma 1.1, whose proof uses no mean condition). The planting condition
 holds on every fibre with `log Q≤T^{0.05}` (O14 Thm 4.5 / O15 Thm 1.2). Hence the
 diffuse measure `m_ν:=N_xν` has, for every `q≤x` and every class / character / additive
-character mod q, *exactly* the Haar-predicted value `N_xE_H(·)`: it satisfies 𝓘 with zero error,
-whatever 𝓘's error terms are. But `∫F dm_ν=0` (O14 Lemma 4.1). So no deduction from 𝓘 (plus
+character mod q, *exactly* the value `N_xE_H(·)`, which differs from the centring `N_{x,q}E_H(·)`
+by at most `(N_x−N_{x,q})·1≤ω(q)≤2log x`: it satisfies every statement of 𝓘, whatever its error
+terms, as long as they are `≥2log x` per statement (for averaged forms such as EH, the extra
+`Σ_{q≤x^θ}2log x≤2x^θlog x` is below the `x(log x)^{−A}` allowed). But `∫F dm_ν=0` (O14 Lemma 4.1). So no deduction from 𝓘 (plus
 nonnegativity and mass) can conclude `∫F dm_x>0`. ∎
 
 *Comments.* (a) Raising θ (BV `1/2` → EH `1−ε`) changes only the constant c; even a
@@ -216,8 +224,9 @@ A *product system* is a unit-class sieve system in which every event has prime-p
 equivalently its avoider set is a CRT product `S=∏_ℓA_ℓ`, `A_ℓ⊆(ℤ/ℓ^{e_ℓ})^×`, `ℓ^{e_ℓ}≤T`, with
 `δ(S)=∏_ℓ|A_ℓ|/φ(ℓ^{e_ℓ})`. **HL_prod(C)** is LS(C) restricted to product systems: primes with
 independently prescribed local behaviour at all `ℓ≤T`, the density being the "singular series"
-`∏_ℓ|A_ℓ|/φ(ℓ^{e_ℓ})` (the Hardy–Littlewood/Bateman–Horn shape; conjectural because the number
-of local conditions grows). The ES avoider set `F_T` (avoid all atoms `M≤T`) is not a product
+`∏_ℓ|A_ℓ|/φ(ℓ^{e_ℓ})`. This is our reading of brief item (ii): it has the Hardy–Littlewood/
+Bateman–Horn *shape* (density = product of local densities) but is a bespoke growing-system
+least-prime hypothesis, not a standard fixed-polynomial HL/BH statement. The ES avoider set `F_T` (avoid all atoms `M≤T`) is not a product
 set; HL_prod can only be applied to product subsets of it. Let `δ_prod(T)` be the largest
 density of a product set `S⊆F_T` (resp. `S⊆F_T^{MH}`, the Mordell-hard part).
 
@@ -256,8 +265,8 @@ with `e(q,a):=#{ℓ∈𝒫: ℓ≡a (4q)}−|𝒫|/φ(4q)` (use `min(u,v)≥(u+v
 inequality through the common mean `|𝒫|/φ(4q)`).
 
 *Summation.* Sum over odd primes `q≤Q:=x(log x)^{−6}`. By Barban–Davenport–Halberstam
-(in its π-form for the interval `(x/2,x]`, moduli `m≤4Q`):
-`Σ_{m≤4Q}Σ_a e_m(a)²≪xQ log x+x²(log x)^{−10}≪x²(log x)^{−5}`. Cauchy–Schwarz over the
+(in its π-form for the interval `(x/2,x]`, moduli `m≤4Q`, reduced residues a only):
+`Σ_{m≤4Q}Σ_{a∈(ℤ/m)^×}e_m(a)²≪xQ log x+x²(log x)^{−10}≪x²(log x)^{−5}`. Cauchy–Schwarz over the
 `≤Σ_{q≤Q}φ(4q)≤2Q²` pairs `(q,a)`: `Σ_qΣ_a|e(q,a)|≪Q·x(log x)^{−5/2}`. The main term is
 `(π(Q)−1)|𝒫|/2≫Q x(log x)^{−2}`, which dominates. Hence
 `Σ_ℓb_ℓ≫Qx(log x)^{−2}` and `log(1/δ(S))≫Q(log x)^{−2}≫T^{1/2}(log T)^{−8}`. ∎
@@ -314,10 +323,16 @@ cost at most a factor `T^{O(1)}` or `δ^{o(1)}`, which LS absorbs through `C·lo
 `#{p≤N hard: W(p)>T}≈δ*(T)π_h(N)` whenever the right side is `≥1`) implies LS for the family
 `𝓔_T` with `C=1+o(1)` (up to the Mordell-hard normalisation), and SIZE's heuristic
 `log W≍(log p)^{1/3}` is what Thm 1.2 yields under LS, up to the log factors of O13 Thm 3.4
-(and exactly, `(log p·log log p)^{1/3}`, under POINTWISE_HAAR Conj 3.1). Conversely the Haar
-*lower* bound `log(1/δ*)≫𝓛³/log𝓛` (POINTWISE_HAAR Thm 2.1) together with an *upper* count of the
-same log-scale strength (e.g. `π_{𝓔_T}(x)≤x·δ(𝓔_T)^{1/C}` for `log x≥Cλ`, a hypothetical upper
-companion of LS) would make 1/3 the true i.o. exponent up to log factors. Consistent.
+(and exactly, `(log p·log log p)^{1/3}`, under POINTWISE_HAAR Conj 3.1). Consistent.
+*No uniform upper companion.* One might hope to make 1/3 the exact exponent by an upper bound
+of the same log-scale strength, e.g. "`π_𝓔(x)≤x·δ^{1/C}T^C` for all `x≥T`". For the ES family this
+would give `W(p)≤exp(C′(log p·log log p)^{1/3})` for *every* large Mordell-hard p (take
+`log(1/δ)≫𝓛³/log𝓛`, POINTWISE_HAAR Thm 2.1) — in particular ES for all large p. But as a
+statement about *all* unit-class systems it is **false**: for a prime `p_0∈(T,2T]` remove every
+class mod each `m≤T` except `p_0 mod m`; then `δ=1/φ(lcm(m≤T))=e^{−(1+o(1))T}` and `p_0` avoids
+everything, while the bound demands `π_𝓔(2T)<1`. Upper companions must therefore be
+family-specific (for `𝓔_T` they amount to a quantitative form of ES itself, like RA's upper half).
+LS has no such problem: tailoring a system to a prime only helps existence.
 
 **5.5 What is proved unconditionally in the LS shape (restatement of O13 Thm 5.1 and O14 §4, up to `(log𝓛)^{O(1)}`).** O13 Thm 5.1 is, for the family `𝓔_T`,
 an unconditional statement `π_{𝓔_T}(x)≥1` for `log x≥C·𝓛·log(1/δ_{rH})·(log𝓛)^{O(1)}`: LS with
@@ -388,13 +403,13 @@ unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
 | Prop 4.1(a) | product subset of `F_T^{MH}` with `log(1/δ)≤T^{1/2+o(1)}` | PROVED |
 | Prop 4.1(b) | every product subset of `F_T` has `log(1/δ)≫T^{1/2}(log T)^{−8}` | PROVED modulo Barban–Davenport–Halberstam |
 | Cor 4.2 | HL_prod ⇒ `W≥(log p)^{2−o(1)}` i.o.; route capped at `(log p)^{2+o(1)}` | PROVED implication |
-| §5 | fakes, Siegel, Jacobsthal, SIZE consistency | Assessment (5.1 "not implied" part PROVED by Prop 3.1) |
+| §5 | fakes, Siegel, Jacobsthal, SIZE consistency | Assessment (5.1 "not implied" part PROVED by Prop 3.1; 5.4 uniform upper companion false, PROVED) |
 | §6 | N1–N3 | EVIDENCE |
 
 Not done / open: (1) a *proof* that LS holds for some nontrivial class of high-dimensional
 systems beyond the sieve limit (this is the whole difficulty); (2) whether LS restricted to
-LLL-regular systems (O13 (1.1)) is equivalent to full LS; (3) an upper-companion hypothesis
-making 1/3 the exact i.o. exponent (§5.4); (4) the growing small-x deficit of actual hard primes
+LLL-regular systems (O13 (1.1)) is equivalent to full LS; (3) a natural *family-specific*
+upper companion making 1/3 the exact exponent (uniform ones are false, §5.4); (4) the growing small-x deficit of actual hard primes
 against δ* at fixed x (N2) is not analysed.
 
 ## Replay

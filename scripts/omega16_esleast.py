@@ -22,7 +22,7 @@ def main():
     best = {t: None for t in ts}
     count = {t: 0 for t in ts}
     lo = int(float(sys.argv[4])) if len(sys.argv) > 4 else 0
-    lo -= lo % 24
+    lo_req = lo
     while lo < N:
         hi = min(N, lo + SEG)
         seg = np.ones(hi - lo, dtype=bool)
@@ -36,6 +36,7 @@ def main():
         # candidates n ≡ 1 (24)
         first = (1 - lo) % 24
         cand = np.arange(lo + first, hi, 24, dtype=np.int64)
+        cand = cand[cand >= lo_req]
         alive = cand[seg[cand - lo]]
         ti = 0
         for (M, _, tab) in rows:
