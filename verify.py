@@ -20839,4 +20839,83 @@ print("\n== (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols of -mD mod M for several
 check_ds()
 
 
+
+# ---------------------------------------------------------------- (dt)
+# EXCEPTIONAL_LARGESIEVE7.md Lemmas 1.1-1.2 (triple parametrisation of R(M), residue pinning; PROVED)
+# and the (RD) counterexamples Prop 4.1 (label -1/k) / Prop 5.1 ((a,D) class a = pq, D = l).  Cf.
+# scripts/largesieve7_triples.py (author), review_ls7_triples.py, review_ls7_counterex.py (R73), run as
+# subprocesses.  Checked:
+# (1) Lemmas 1.1-1.2 for all M = 3 (4), M < 2000 (both scripts: 9472 triples; R73 also brute-force
+#     H* <= min(max(u,v), 4u^2 t, 4v^2 t) on all 9472, 16513 (triple, p | M) pinning checks);
+# (2) Remark (a): (M, D) = (167, 9): (u,v,t) = (3,14,1), labels -3/14, -36, -1/784, H* = 13 (-13/5);
+# (3) R73 toy: 135 Prop 4.1 instances (-1/k in R(M), residue -1/k at every p in P, H* = k) and 1218
+#     Prop 5.1 instances (residues, H* >= pq/(4l+1)), 0 failures;
+# (4) inline pure-Python H* on small Prop 4.1 / 5.1 instances.
+
+def check_dt():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("LS7 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("largesieve7_triples.py", 2000)
+    assert "triples checked: 9472 for all M = 3 mod 4 below 2000" in o, ("LS7 Lemmas 1.1-1.2 author check", o)
+    o = run("review_ls7_triples.py", 2000, 2000)
+    assert "prime-triples=16513 H*-checks=9472 " in o and "failures=0" in o, ("LS7 Lemmas 1.1-1.2 R73 check", o)
+    assert "M=167 class -36: 131 H*= 13 check -13/5: 131" in o, ("LS7 Remark (a) example", o)
+    o = run("review_ls7_counterex.py")
+    assert "Prop 4.1 instances: 135" in o and "Prop 5.1 instances: 1218" in o and "failures: 0" in o, \
+        ("LS7 Prop 4.1 / 5.1 toy counterexamples (R73)", o)
+
+    def hstar(b, M):
+        return min(max((-b * s) % M, s) for s in range(1, M + 1) if gcd(s, M) == 1)
+    M, A = 167, 42
+    u, v, t = 3, 14, 1
+    assert u * v * t == A and u * u * t == 9 and (-36) % M == (-u * pow(v, -1, M)) % M == (-pow(784, -1, M)) % M
+    assert hstar((-36) % M, M) == 13 and (-13 * pow(5, -1, M)) % M == (-36) % M, "LS7 Remark (a): H* = 13"
+    n41 = 0
+    for P in ((7,), (11,), (7, 11), (13,), (7, 13)):
+        Pbar = prod(P)
+        for k in (3, 5):
+            for r in primerange(max(P) + 1, max(P) + 30):
+                if r == k:
+                    continue
+                c = (-pow(Pbar * r % (4 * k), -1, 4 * k)) % (4 * k)
+                for j in (c, c + 4 * k):
+                    M = Pbar * r * j
+                    if j % 2 == 0 or M > 60000 or 2 * k * k >= M:
+                        continue
+                    A = (M + 1) // 4
+                    b = (-pow(k, -1, M)) % M
+                    assert M % 4 == 3 and A % k == 0 and (-4 * (A // k)) % M == b, ("LS7 Prop 4.1 class", P, k, M)
+                    assert all(b % p == (-pow(k, -1, p)) % p for p in P), ("LS7 Prop 4.1 residue", P, k, M)
+                    assert hstar(b, M) == k, ("LS7 Prop 4.1: H* != k", P, k, M)
+                    n41 += 1
+    n51 = 0
+    for l in (3, 5, 7):
+        for p in primerange(l + 1, 24):
+            for q in primerange(p + 1, 30):
+                Gr = p * q * l
+                b = (-(4 * l + p * q)) % (4 * Gr) % Gr
+                assert b % p == (-4 * l) % p and b % l == (-p * q) % l, ("LS7 Prop 5.1 residues", l, p, q)
+                assert hstar(b, Gr) * (4 * l + 1) >= p * q, ("LS7 Prop 5.1: H* < pq/(4l+1)", l, p, q)
+                n51 += 1
+    assert n41 > 20 and n51 > 40, ("LS7 inline grids too small", n41, n51)
+    print(f"dt Lemmas 1.1-1.2: 9472 triples, M < 2000 (author + R73; H* bound on all, 16513 pinning checks); "
+          f"(167, 9) example H* = 13; R73 toy: 135 Prop 4.1 + 1218 Prop 5.1 instances; inline H*: {n41} Prop 4.1, "
+          f"{n51} Prop 5.1 instances; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dt) EXCEPTIONAL_LARGESIEVE7: Lemmas 1.1-1.2 (M < 2000), Prop 4.1 / 5.1 counterexamples (toy) ==")
+check_dt()
+
+
 print("\nall checks passed")
