@@ -316,8 +316,15 @@ at an S-top, or for a leak) or **soft** (`ℓ ∉ T`: through a Walsh
 coefficient `a_R ∋ ℓ` of the damped activated mass). In the soft case
 an outside top q enters only with its damping `w_qΔ_q ≤ w_qN_q/q`, and
 coordinates that act through one and the same event share **one**
-coefficient (in the example above `a_R` is supported on `R ⊆ B` with
-`‖a‖′ = O(c)` and the bound is `O_c(1)^{|B|}`, not Bell(|B|)). The
+coefficient. In the example above the soft part of Y* is
+`c·1[A⊉B] = c − c·2^{−|B|}Σ_{R⊆B}(−1)^{|R|}χ_R`, so `|a_R| = c2^{−|B|}`
+(R ⊆ B nonempty), `‖a‖′ ≤ c`, and the **first** (XOR-cover) form of
+Lemma 4.1 gives, crudely (the XOR-cover sum is at most the sum over all
+families, `Π_R(1+|a_R|) ≤ e^{c}`), `|D_B e^{−Y*}| ≤ 2^{|B|}e^{2c}` — the
+harmless `2^{|B|}`, not Bell(|B|); the decay `Π_{ℓ∈B}ℓ^{−1}` comes from
+the probability of the configuration. (The second, per-ℓ product form is
+lossy for such *spread* spectra — there it gives `2^{O(|B|²)}` — and is
+meant for sparse spectra, where each ℓ lies in few supports.) The
 exponential prefactor `e^{2‖a‖′}` is a product of per-event factors
 `e^{2|a_R|}` — e.g. `e^{O(Σ_ℓ y_ℓ)}` when the damped change `y_ℓ` caused by
 each ℓ alone is additive.
