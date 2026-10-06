@@ -1,7 +1,7 @@
 # AGENT_REPORT_O64 — `paper/es-subexp-note.tex` v5
 
 Branch `side-agent/subexp-paper-v5`. Status: CHECKPOINT 1 (for parent / referee review).
-Compiles with pdflatex ×2: 50 pp., 0 undefined references, 0 overfull boxes.
+Compiles with pdflatex ×2: 51 pp., 0 undefined references, 0 overfull boxes.
 ES is not claimed anywhere; labels follow the note's status conventions (extended, see C7).
 
 ## v5 change list for the referee
@@ -41,3 +41,17 @@ except cross-references (C8). Everything new is in the introduction, §§11–13
 ## Not done
 * No new mathematics; no numerics re-run (the brief is a writing task).
 * Bibliography TODOs of v4 ([ErdosSpencer], [Janson], [FI] numbering) unchanged.
+
+## Self-review (deep reviewer subagent, `review` since main) and repairs
+No proof defect found in Props 11.1/11.3, Thm 11.2, Lemma 12.1, Thms 12.2/13.1, Prop 13.2(a);
+[TQ] numbering confirmed. Five defects, all repaired:
+* P1 Prop 12.4: `N_x` (coprime to *all* moduli) vs `N_{x,q}` was inconsistent. Now `N` = all primes
+  `≤x` in H (certificate mass), `N_{x,q}` = those coprime to q, statements centred at `N_{x,q}`;
+  averaged statements need allowance `≥ 2log x × #terms` (stated as a hypothesis).
+* P2 Siegel paragraph: restored O15's mass caveat (masses differ by `ε|E_ρχ₁| ≤ (4r*)^{k+1}`,
+  equal when `s ≤ k`).
+* P2 status §14: Thm 1.3 via NT + FL only in the `(log T)³/log log T` form; lossless form needs [TQ].
+* P2 intro/abstract: "W(p) = (log p)^{2±o(1)}" replaced by what Prop 13.2 proves (HL_prod ⇒
+  `≥(log p)^{2−o(1)}`; product-subset route certifies no more than `(log p)^{2+o(1)}`).
+* P3 status conventions + after (11.1): Page's theorem and BDH were recalled from Davenport, not
+  re-checked against a source — now disclosed.
