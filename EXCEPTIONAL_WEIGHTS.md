@@ -11,17 +11,41 @@ combinations of classes the period is a multiple of Q, and we take Q to be a
 common period). Fourier coefficients `ν̂(θ) = E_{n mod Q} ν(n) e(−nθ)`,
 θ ∈ (1/Q)ℤ/ℤ, so `ν(n) = Σ_θ ν̂(θ) e(nθ)` and `ν̂(0) = Eν`.
 
+*Families (R81 repair, applied by reviewer).* `M(N) = M_𝔊(N)` depends on the finite
+family 𝔊 = 𝔊_N, and it **decreases** when 𝔊 is enlarged. Every statement below is
+per family unless stated otherwise. Three families occur:
+* **𝔊_X**, the family of the 3/4 note (`paper/es-threequarter-note.tex`, Thm
+  "critical-window assembly"): the selector classes and the multiplier classes mod kℓ
+  (k ≤ K) of `ν_X = S_y Q_r(H_X)`, with `X = exp(α(log N)^{1/4})`. Its avoider set is
+  `𝒜_X = {n : S_y(n) = 1, H_X(n) = 0}`. Prop 5.1(a) is about 𝔊_X only.
+* **𝔊_ℛ**, the Q₀ = 1 toy family of prime slices `F_ℓ = ℛ(ℓ)` (ℓ ≡ 3 (4) prime, up to
+  a bound). It is used in (2.2), Prop 5.1(b),(d), §5.1, and (restricted to ℓ ≥ ℓ₀) in
+  Thm 3.3. No upper bound of the form `Ne^{−c(log N)^{3/4}}` is claimed for it. Its mass
+  over primes is a smaller power of log than over all moduli, so its natural sieve-limit
+  exponent is below 3/4.
+* **𝔉_A**, the class of all finite families of ℛ(M)-, Case-A and selector classes with
+  moduli ≤ N^A (A fixed). This is the class relevant for "the door": a method may use
+  any 𝔊 ∈ 𝔉_A.
+
+For a family 𝔊 and for a class 𝔉 put
+
+    (W_𝔊)  M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}   (N ≥ N₀),
+    (W_𝔉)  min_{𝔊 ∈ 𝔉_N} M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}   (N ≥ N₀, C independent of 𝔊).
+
+"(W)" below means (W_{𝔉_A}) when we speak of the door. Thm 2.1, Cor 2.2 and Lemma 1.1
+are per-family statements (any finite 𝔊).
+
 ## 0. Summary
 
 | item | statement | label |
 |---|---|---|
 | Lemma 1.1 | every per-frequency bound with weights `w ≥ |W_N|` or `w ≥ |S_N|` is translation invariant, hence ≥ `M(N) = max_t #(𝒜∩(t,t+N])` | PROVED (trivial) |
 | Lemma 1.2 | LP duality: best per-frequency bound = `max ⟨g,1_𝒜⟩` over `g ≥ 0`, `|Qĝ| ≤ w` | PROVED |
-| Thm 2.1, Cor 2.2 | band-limited (Selberg-majorant) windows, **general majorants**: best per-frequency bound lies in `[M(N), 12(K+1)M(N)]`. So this door is capped at 3/4 **iff** `M(N) ≥ Ne^{−C(log N)^{3/4}}` | PROVED |
+| Thm 2.1, Cor 2.2 | band-limited (Selberg-majorant) windows, **general majorants**: for every finite family 𝔊, the best per-frequency bound **for the window Φ_K** lies in `[M_𝔊(N), 12(K+1)M_𝔊(N)]`. So, per family, this door is capped at 3/4 **iff** (W_𝔊); for a method class using families in 𝔉_A, iff (W_{𝔉_A}) (R81 repair, applied by reviewer) | PROVED |
 | Thm 3.3 | sharp weight `|S_N|` (and any w with `w(0) = N`, `w ≥ c₀|sin πNθ|` off 0), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ` (γ < 1/3), boundedly many bad primes, and the uniform mass hypothesis (M) (ℛ(ℓ)-slices): saving `≤ C(log N)^{3/4}`, without (H_eq) | PROVED |
 | Lemmas 4.1–4.2 | smooth windows, hit-pattern majorants: (H_eq) ⇐ a characteristic-function bound (4.1); true for one prime ≥ 2|F|N/c (loss √|F|); several primes open | PROVED / (H_eq) CONJECTURE |
-| Prop 5.1 | `E(N) ≤ M(N) ≤ Ne^{−c(log N)^{3/4}}` (families of the 3/4 note); random-translate and greedy lower bounds (prime slices) are far below the 3/4 scale | PROVED |
-| (W) | is `M(N) ≥ Ne^{−C(log N)^{3/4}}`? | OPEN QUESTION |
+| Prop 5.1 | `#(𝒜_X∩[1,N]) ≤ M_{𝔊_X}(N) ≤ Ne^{−c(log N)^{3/4}}` (only for the 3/4-note family 𝔊_X; R81 repair, applied by reviewer); random-translate and greedy lower bounds (prime slices) are far below the 3/4 scale | PROVED |
+| (W) | is (W_{𝔉_A}) true, i.e. `min_{𝔊∈𝔉_A} M_𝔊(N) ≥ Ne^{−C(log N)^{3/4}}`? (per-family version (W_𝔊); R81 repair, applied by reviewer) | OPEN QUESTION |
 | §6 | sharp weights, general majorants: only `≥ M(N)` known (a window-averaged w ≥ 1 certificate gives nothing more, Rem 6.1) | PROVED / open |
 | §5.1 | toy translate sieve (ℛ(ℓ) prime slices, N = 300, 1000): optimised translates reach savings 2.4, 3.0 (large-sieve upper bound 0.7, 0.9; random translates 12.5, 15.9): near the sieve scale, consistent with (W) | EVIDENCE |
 
@@ -161,9 +185,12 @@ whose per-frequency bound is `≤ 12(K+1)M(N)`. (b) Hence, for fixed K and per-f
 smooth rounding over general majorants, a cap of the form
 `saving ≤ C(log N)^{3/4}` holds **if and only if**
 `M(N) ≥ N exp(−C′(log N)^{3/4})` (with C, C′ related by `log(12(K+1))`).
-(c) By Lemma 1.1, a lower bound `M(N) ≥ N e^{−C(log N)^{3/4}}` would cap **every**
-per-frequency bound with `w ≥ |W_N|` or `w ≥ |S_N|`, for every majorant class,
-every window, and every family.
+This is a statement about one fixed family 𝔊 (M = M_𝔊).
+(c) By Lemma 1.1, a lower bound (W_𝔊) would cap **every**
+per-frequency bound with `w ≥ |W_N|` or `w ≥ |S_N|`, for every majorant class and
+every window, **for methods using the family 𝔊** (or a subfamily of it, since M only
+grows when classes are removed). To cap all methods using families in 𝔉_A one needs
+(W_{𝔉_A}) (R81 repair, applied by reviewer).
 
 So the "weights below 1" door for general majorants is not a door about
 Fourier analysis at all: it is the shift-uniform version of the counting
@@ -183,8 +210,11 @@ A class set with `N·|F_ℓ| < ℓ` has a gap of length N mod ℓ and is avoided
 cost. In a prime-slice system of ℛ(ℓ) classes (`|ℛ(ℓ)| = ℓ^{o(1)}`, independent
 primes) only moduli `≤ N^{1+o(1)}` therefore matter for M(N); for overlapping
 composite moduli the CRT choices are not independent and this reduction is
-not claimed. The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
-note's bound is shift-uniform). Whether M(N) is that large is §5.
+not claimed. *(R81 repair, applied by reviewer.)* For the 3/4-note family 𝔊_X (not
+for the ℛ(ℓ) prime slices of (2.2)) the upper bound `M_{𝔊_X}(N) ≤ N exp(−c(log N)^{3/4})`
+holds, because the 3/4 note's bound is shift-uniform (Prop 5.1(a)). For the Q₀ = 1
+ℛ(ℓ) toy family 𝔊_ℛ no such bound is claimed. Its mass over primes is a smaller power
+of log, so 3/4 is not its natural benchmark. Whether M_𝔊(N) is that large is §5.
 
 ## 3. Sharp weights for hit-pattern majorants: capped without (H_eq)
 
@@ -346,14 +376,17 @@ By §§1–2 the whole per-frequency door, for general majorants, is the size of
     M(N) = max_{t∈ℤ} #(𝒜 ∩ (t, t+N])     (𝒜 = avoider set of the method's finite family).
 
 **Proposition 5.1 (what is known; PROVED or cited).**
-(a) `#(𝒜 ∩ [1,N]) ≤ M(N) ≤ N exp(−c(log N)^{3/4})` for the families of the 3/4
-note (its bound `N·Eν + Σ|a_i|` is shift-uniform).
+(a) `#(𝒜_X ∩ [1,N]) ≤ M_{𝔊_X}(N) ≤ N exp(−c(log N)^{3/4})` for the 3/4-note family 𝔊_X
+(its bound `N·Eν + Σ|a_i|` is shift-uniform). *(R81 repair, applied by reviewer: this is
+the only family for which the upper bound is claimed; it is not claimed for 𝔊_ℛ or for
+other members of 𝔉_A. Members of 𝔉_A that contain 𝔊_X have smaller M.)*
 (b) (random/gap translates) In a prime-slice system with Q₀ = 1,
 `M(N) ≥ N·Π_{ℓ: (N+1)|F_ℓ| > ℓ}(1 − p_ℓ)`.
 (d) (greedy) In a prime-slice system with Q₀ = 1, for every s ≥ 1,
 `M(N) ≥ ⌊min(s, N·Π_{ℓ ≤ s|F_ℓ|}(1 − p_ℓ))⌋`. For ℛ(ℓ)-slices this gives
 `M(N) ≥ exp(c(log N)^{1/3})`.
-(c) (equivalence) For the window Φ_K of §2 and every finite family:
+(c) (equivalence) For the window Φ_K of §2 and every finite family 𝔊 (M = M_𝔊;
+per family — R81 repair, applied by reviewer):
 `M(N) ≤ min_ν R_{|W_N|}(ν) ≤ 12(K+1)M(N)`. Hence: *every translation-invariant
 per-frequency method (any weights ≥ |W_N| or ≥ |S_N|) is capped at
 `(log N)^{3/4}` ⇔ `M(N) ≥ N e^{−C(log N)^{3/4}}`, and if
@@ -379,9 +412,13 @@ moduli M by Elsholtz–Tao; over primes alone a smaller power), so (b) gives onl
 `N e^{−(log N)^{c}}` and (d) only `e^{c(log N)^{1/3}}`. The gap between (a) and
 (b)/(d) is the whole question.
 
-**Open problem (W).** Is `M(N) ≥ N exp(−C(log N)^{3/4})` for the forced-class
-families (equivalently: is the 3/4 barrier valid for all translation-invariant
-counting methods)? Either answer would matter:
+**Open problem (W).** *(R81 repair, applied by reviewer: family made explicit.)* Is
+(W_{𝔉_A}) true, i.e. `min_{𝔊∈𝔉_A, N} M_𝔊(N) ≥ N exp(−C_A(log N)^{3/4})` for N ≥ N₀ (equivalently:
+is the 3/4 barrier valid for all translation-invariant counting methods using forced-class
+families with moduli ≤ N^A)? Since M decreases as 𝔊 grows, this is a question about the
+largest admissible families, not about 𝔊_X. For the toy family 𝔊_ℛ the corresponding
+question should be asked at its own sieve-limit exponent, which is below 3/4.
+Either answer would matter:
 * a proof of `M(N) ≤ N e^{−(log N)^θ}`, θ > 3/4, would be a new exceptional-set
   bound (`E(N) ≤ M(N)`), uniform over shifts;
 * a proof of `M(N) ≥ N e^{−C(log N)^{3/4}}` would close the "weights below 1"

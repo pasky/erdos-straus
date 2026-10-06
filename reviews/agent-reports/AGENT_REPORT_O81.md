@@ -11,7 +11,7 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
 2. **Thm 2.1 (PROVED): general majorants + band-limited window ⇒ door ≍ M(N).** For Selberg's
    majorant window Φ_K (Φ̂ ⊂ [−K,K]), `M(N) ≤ min_ν R_{|W_N|}(ν) ≤ 12(K+1)M(N)`. The dual g is
    band-limited, so a de la Vallée Poussin reproducing kernel plus g ≥ 0 bounds ⟨g,1_𝒜⟩ by
-   window counts. Consequence: a 3/4 cap for this door holds **iff** `M(N) ≥ N e^{−C(log N)^{3/4}}`
+   window counts. Consequence (per family 𝔊, M = M_𝔊; R81 repair, applied by reviewer): a 3/4 cap for this door holds **iff** `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`
    (open question (W)). No arithmetic-free argument can cap it; an escape exists iff M(N) is
    below the sieve-limit scale (and then the escaping majorant is the LP optimum, as hard as
    the count).
@@ -31,7 +31,7 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
    large-sieve bound 0.7/0.9 vs random translates 12.5/15.9 — consistent with (W), no exponent info.
 
 ## What remains (exact)
-* (W) `M(N) ≥ N e^{−C(log N)^{3/4}}` for forced-class families — closes ALL per-frequency doors
+* (W) `min_{𝔊∈𝔉_A} M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}` over the class 𝔉_A of forced-class families with moduli ≤ N^A (R81 repair, applied by reviewer: M depends on the family; per family it is (W_𝔊)) — closes ALL per-frequency doors
   (every weight, every majorant class). Its negation gives a (non-constructive) escape.
 * (H_eq) for several primes (hit-pattern + smooth windows).
 * Sharp weights + general majorants: is the best bound ≍ M(N), or w ≥ 1-type capped? (W) closes it.
