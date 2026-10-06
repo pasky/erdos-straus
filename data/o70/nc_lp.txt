@@ -1,0 +1,25 @@
+q= 2 k=1: n_c(LP)=   2  Lemma1.1 suffices n>=   5  BGP lower=2.0
+q= 2 k=2: n_c(LP)=   3  Lemma1.1 suffices n>=   8  BGP lower=3.0
+q= 2 k=3: n_c(LP)=   4  Lemma1.1 suffices n>=  11  BGP lower=4.0
+q= 2 k=4: n_c(LP)=   5  Lemma1.1 suffices n>=  14  BGP lower=5.0
+q= 2 k=6: n_c(LP)=   7  Lemma1.1 suffices n>=  20  BGP lower=7.0
+q= 3 k=1: n_c(LP)=   3  Lemma1.1 suffices n>=   8  BGP lower=3.0
+q= 3 k=2: n_c(LP)=   4  Lemma1.1 suffices n>=  12  BGP lower=4.0
+q= 3 k=3: n_c(LP)=   7  Lemma1.1 suffices n>=  16  BGP lower=6.0
+q= 3 k=4: n_c(LP)=   8  Lemma1.1 suffices n>=  20  BGP lower=7.0
+q= 3 k=6: n_c(LP)=  11  Lemma1.1 suffices n>=  28  BGP lower=10.0
+q= 5 k=1: n_c(LP)=   5  Lemma1.1 suffices n>=  11  BGP lower=5.0
+q= 5 k=2: n_c(LP)=   6  Lemma1.1 suffices n>=  17  BGP lower=6.0
+q= 5 k=3: n_c(LP)=  11  Lemma1.1 suffices n>=  23  BGP lower=10.0
+q= 5 k=4: n_c(LP)=  12  Lemma1.1 suffices n>=  29  BGP lower=11.0
+q= 5 k=6: n_c(LP)=  17  Lemma1.1 suffices n>=  41  BGP lower=16.0
+q= 8 k=1: n_c(LP)=   8  Lemma1.1 suffices n>=  17  BGP lower=8.0
+q= 8 k=2: n_c(LP)=   9  Lemma1.1 suffices n>=  27  BGP lower=9.0
+q= 8 k=3: n_c(LP)=  17  Lemma1.1 suffices n>=  35  BGP lower=16.0
+q= 8 k=4: n_c(LP)=  18  Lemma1.1 suffices n>=  44  BGP lower=17.0
+q= 8 k=6: n_c(LP)=  26  Lemma1.1 suffices n>=  63  BGP lower=25.0
+q=16 k=1: n_c(LP)=  16  Lemma1.1 suffices n>=  33  BGP lower=16.0
+q=16 k=2: n_c(LP)=  17  Lemma1.1 suffices n>=  50  BGP lower=17.0
+q=16 k=3: n_c(LP)=  33  Lemma1.1 suffices n>=  67  BGP lower=32.0
+q=16 k=4: n_c(LP)=  34  Lemma1.1 suffices n>=  84  BGP lower=33.0
+q=16 k=6: n_c(LP)=  52  Lemma1.1 suffices n>= 119  BGP lower=49.0

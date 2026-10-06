@@ -190,3 +190,58 @@ It is PROVED (R48–R48c).
 **Recommended wording.** "Lemma 1.1 (a standard per-coordinate form of the asymmetric local
 lemma with weights `x_E = β^{|supp E|}P(E)`; cf. Alon–Spencer Lemma 5.1.1 and HSS for the
 conditional bound)."
+
+---
+
+## 4. The planting lemma (`POINTWISE_OMEGA14.md` Lemma 1.1) and the level barrier (Thm 1.3)
+
+**Object.** Let the bits be independent with `P(b_i=1)=p_i`. Put `r_i=p_i/(1−p_i)`, `R=Σr_i`
+and `r*=max r_i`. If `R ≥ (k+1)+(2k+1)r*`, then there is a law ν with the same
+≤k-dimensional marginals as μ and `ν(b=0)=0`. The construction is explicit: it adds
+signed Möbius charges σ_J on (k+1)-sets with weights `∝ Π_J r_i`. The lemma is PROVED
+(R49, R49b) and verified exactly for k ≤ 3 (`verify.py` (dg)).
+
+Thm 1.3 is the dual statement: no level-k big-junta minorant `B ≤ F` keeps the mass of the
+fibres where `R ≥ (k+1)+(2k+1)r*`. The file itself already says "No novelty is claimed for
+Lemma 1.1".
+
+**Closest known results.**
+
+| Prior work | What it gives | Relation |
+|---|---|---|
+| **BGP, arXiv:1201.3261, §4.9, Prop 26 and Thm 27** [checked in `sources/lit2026/audit-arxiv-1201.3261v1.txt`, ll. 604–635, 1125–1135] | `m(n,k,p) = min_{Q∈A(n,k,p)} Q(all ones)` and `n_c(k,p) = min{n : m(n,k,p) = 0}`. For p ≥ 1/2: lower bound `n_c ≥ k/(2(1−p))+1` (k even), `(k+1)/(2(1−p))` (k odd), via the truncated moment problem. **Upper bound only for `1−p = 1/q`, q a prime power:** `n_c ≤ C·k/(1−p)·log(1/(1−p))`, via a Gilbert–Varshamov orthogonal array and a greedy symbol map | **This is exactly the identical-marginal case of Lemma 1.1** after flipping bits (BGP's p ↔ campaign `1−p_i`). Lemma 1.1 gives `n_c(k,p) ≤ (k+1)p/(1−p)+2k+2`. That removes BGP's `log(1/(1−p))` factor and the prime-power restriction, and lands within a factor ≈2 of BGP's lower bound (14). It also handles **non-identical marginals**, which BGP do not treat. |
+| PYY, arXiv:0801.0059 [checked in `sources/lit2026/audit-arxiv-0801.0059v3.txt`, ll. 149–260] | The *maximum* `M(n,k,p)` of the AND probability (the sieve-majorant side) | The other side of the same LP. Not a competitor for planting. |
+| BEKK, arXiv:2407.18688 [checked in `sources/lit2026/audit-arxiv-2407.18688v1.txt`, abstract] | Exact formulas for the maximum `M(n,k,p)` only | Does not treat `m` or `n_c`. |
+| Bazzi (FOCS 2007 / SICOMP 2009); Razborov (TOCT 2009); Braverman (JACM 2010) [memory] | LP duality: k-wise independence ε-fools f ⇔ degree-k sandwiching polynomials exist | Thm 1.3 ⇐ Lemma 1.1 is the **minorant half of Bazzi's duality**, specialised to the extreme `ν(F=1)=1`. The duality itself is known; the campaign's Remark (i) says so. |
+| Even–Goldreich–Luby–Nisan–Velicković (1998) [memory, via BGP ref. [16]]; Alon–Goldreich–Mansour, "Almost k-wise independence versus k-wise independence" (IPL 2003) [memory] | EGLNV: k-wise independence fools OR/AND and combinatorial rectangles with error `2^{−Ω(k)}` (Bonferroni). AGM: statistical distance between almost-k-wise and k-wise laws | Lemma 1.1 is the **converse** of EGLNV-type fooling for OR. With mean count `R ≳ 2k`, a k-wise law can make OR identically true. So the Bonferroni level `k ≍ S` is necessary for a lower-bound sieve. The auditor knows of no statement of this converse with arbitrary marginals and a linear threshold. AGM is not related beyond topic. |
+| Prékopa (1988/1990) discrete moment problem; Boros–Prékopa Bonferroni optimality [memory] | Sharp Bonferroni-type bounds for `P(S=0)` from the first k binomial moments | The **exchangeable** case of Lemma 1.1 is a statement about this moment problem (`P(S=0)` can be 0 given k binomial moments). It is in principle decidable by Prékopa's / BGP's moment criteria, but BGP's discrete-support upper bound shows it had not been worked out sharply. |
+| Sieve-theoretic lower-bound limits: the β-sieve sifting limit, the Selberg parity example, Tao 254A Notes 4 duality [the duality is checked in `sources/lit2026/audit-tao-254a-notes4-sieve-theory.md`; the rest is memory] | A lower-bound sieve of level D is positive only above the sifting limit | Thm 1.3 is a *combinatorial-level* (number of big coordinates) analogue. Its level is "k coordinates", not "modulus D". Analogous, not identical. |
+
+**Exploratory LP check (EVIDENCE, floating-point, this audit).**
+* `scripts/o70_nc_lp.py` → `data/o70/nc_lp.txt`.
+* For identical marginals `1/q`, q ∈ {2,3,5,8,16}, and k ∈ {1,2,3,4,6}, the exact
+  exchangeable optimum `n_c` (symmetrisation makes exchangeable laws WLOG) lies within
+  +3 of BGP's lower bound (14). Lemma 1.1's sufficient n is ≈ 2.2–2.9× larger.
+* So the truth is ≈ `kq/2`. Lemma 1.1 is sharp up to a factor ≈2 in the dense regime,
+  which is all the barrier needs.
+* BGP's `k/(1−p)·log` upper bound is off by a log factor.
+
+**What is genuinely new (apparently).**
+1. **Lemma 1.1 as a theorem about k-wise independent laws.** It is an explicit planting
+   construction with **arbitrary marginals** and a **linear** threshold `R ≳ 2k+1`. In
+   the identical case it gives `n_c(k,p) = Θ(k/(1−p))` for all `p ∈ [1/2,1)`, which
+   closes the `log(1/(1−p))` gap left by BGP Thm 27 and drops the prime-power
+   restriction.
+   * *Confidence: medium–low.* BGP's paper (2012) may have follow-ups that closed this
+     gap, and the auditor has no citation index. Moment-problem experts would probably
+     consider the exchangeable case routine.
+   * The current hedge ("no novelty is claimed") is **too modest** with respect to BGP
+     Thm 27 and should be replaced by an explicit comparison (see the agent report).
+   * This is a side remark for the TCS literature. It does not bear on ES.
+2. **Thm 1.3 (level barrier for dense big-junta minorants) and its ES consequence.**
+   Ingredients are Bazzi-type duality plus planting. The result is new as an ES/sieve
+   statement (*high*). Its *method* is the standard LP-duality route (BGP Prop 4; Tao
+   254A Thm 5).
+
+**Not new.** The LP/sandwich duality, the Bonferroni sufficiency side and the moment-problem
+framing.
