@@ -218,3 +218,70 @@ extrapolation (its core is Peled–Yadin–Yehudayoff / Benjamini–Gurel-Gurevi
 lower-bound sieves); (U+),(L+) are Bonferroni. The point is that the *same*
 statement, at the *same* scale, with the *same* mass function, drives both
 ceilings (§4.2).
+
+### 4.2 The two ES instances are the same instance
+
+Both ceilings use Setting 4.0 with **one big prime per event**, big cost
+`L ≍ 𝓛`, and big mass `P ≍ 𝓛³` (up to `log𝓛`):
+
+| | note / KARY (majorants) | OMEGA13/14 (minorants) |
+|---|---|---|
+| small coordinates | `n mod L_K P_y` (`c`, selector) | `n mod` primes `≤ T^{0.6}` |
+| big coordinates | `n mod ℓ`, `ℓ ∈ (X^{1/2}, X]`, cost `≥ t/2` | `n mod ℓ`, `ℓ > T^{0.6}`, cost `≥ 0.6𝓛` |
+| big mass `P(x_s)` | `μ_c ≍ t³` for unit `c` (note Cor 4.3) | `μ ≫ 𝓛³/log𝓛` (OMEGA14 Lemma 2.2), concentrated (Lemma 2.3) |
+| certificate used | (U+) with `k = r ≍ t³` (note Thm 8.2) | (L+)-type, level `𝓛·S_res ≍ 𝓛⁴log𝓛` (OMEGA13 §5, BRW not Bonferroni) |
+| barrier | (U−), summed over scales (KARY3 Thm 4.1) | (L−) + concentration (OMEGA14 Thm 2.4/4.5) |
+| level budget `λ` | `≤ (A+1)log N` (KARY3 Cor 4.2 projection) | `≤ c log x` (Gallagher transfer, OMEGA14 Cor 4.6) |
+
+*Multi-scale form of (U−) (Assessment: a reading of KARY3's ledger, not a
+new proof).* KARY3 Thm 4.1's ledger is (U−) applied to the dyadic scale
+blocks `s = 2^i λ^{1/4}` with order `k_s = ⌊λ/s⌋` and block mass `≤ 8K₃′s³`,
+each costing `≤ (λ/s)(c₁ + i log 16)`, plus the full mass `≍ λ^{3/4}` of the
+scales below `λ^{1/4}`. In words,
+```
+S(λ) ≍ Σ_{dyadic s} min( μ(s), (λ/s)(1 + log⁺(μ(s)s/λ)) ),   μ(s) ≍ s³,
+```
+which is dominated by `s ≍ λ^{1/4}`, where `μ(s) = λ/s`, i.e. `λ = s·μ(s)`.
+(KARY's sequential coupling is what lets multi-prime events and several
+scales be handled at once; the arithmetic per block is (U−).)
+
+### 4.3 The unified sieve-limit statement
+
+Put `κ(𝓛) := log(1/δ*(e^𝓛))` (the Haar avoider exponent; `c𝓛³ ≤ κ(𝓛) ≤
+C𝓛³(log𝓛)^5` by Prop 1.1 and OMEGA13 Thm 3.4) and `λ*(𝓛) := 𝓛·κ(𝓛)`
+(dimension × log-size). For a level `λ` let `𝓛_c(λ)` solve `λ*(𝓛_c) = λ`,
+so `𝓛_c(λ) = λ^{1/4}` up to `(log λ)^{O(1)}`.
+
+**Theorem 4.2 (the ES sieve limit; PROVED as the conjunction of the cited
+results, each with its own status).** Up to factors `(log λ)^{O(1)}` (and
+constants):
+1. *(majorants)* the best saving of a level-`λ` CRT majorant of any
+   forced-class mixture is `S(λ) ≍ λ^{3/4} = κ(𝓛_c(λ))`:
+   `≤ Cλ^{3/4}` by KARY3 Thm 4.1 (PROVED, internal); `≥ cλ^{3/4}` by the note's
+   `ν_X` at `t ≍ λ^{1/4}` (INTERNALLY PROVED). Certifying the full Haar void at
+   cutoff `T` costs level `≍ λ*(𝓛)` (Cor 3.3).
+2. *(minorants)* the least level of a positive minorant of `F_T` on the
+   relevant fibres is `λ_min(T) ≍ 𝓛⁴ = λ*(𝓛)`: `≥ c𝓛⁴/log𝓛` by OMEGA14
+   Thm 4.5, `≤ C𝓛⁴log𝓛` by OMEGA13 §5 (both PROVED modulo the inputs listed
+   in (H)26–(H)27).
+3. *(the ceilings)* With budget `λ ≍ log N` (rounding) resp. `λ ≍ log x`
+   (prime transfer), the exceptional ceiling is the saving `κ(𝓛_c(λ)) ≍ λ^{3/4}`
+   and the pointwise ceiling is the cutoff `𝓛_c(λ) ≍ λ^{1/4}`. Their product
+   is `𝓛_c·κ(𝓛_c) = λ`. If the Haar exponent were `a` (`κ ≍ 𝓛^a`), the
+   exponents would be `a/(a+1)` and `1/(a+1)`, summing to 1.
+
+*Status of item 3.* "Ceiling" means the cap for the respective
+architectures exactly as scoped in (D)24/(D)27 (coefficient-sum CRT methods,
+large sieves of the listed kinds) and (H)27/(H)28 (Haar-minorant transfers,
+orbit-uniform linear certificates). Item 3 is a PROVED consequence of 1–2
+within those scopes; outside them it is an Assessment.
+
+*Remark 4.3 (why the two sides are not the same inequality).* (U−) and (L−)
+are dual LP statements of opposite sign: (U−) produces a measure on the
+avoider set that is within `e^{O(k log(P/k))}` of the true law on non-negative
+order-k tests (KARY / LARGESIEVE2 Lemma 1.1 "comparison measure"); (L−)
+produces a measure on the *hit* set that equals the true law on all order-k
+tests (OMEGA14 planting). Together: for `𝓛 ≫ λ^{1/4}` (up to logs), level-`λ`
+information cannot tell the true law apart from a law living on `{F_T = 0}`,
+nor (up to `e^{Cλ^{3/4}}`) from one living on `{F_T = 1}`. Neither direction
+implies the other in general; what they share is the threshold `k ≍ P`.
