@@ -82,3 +82,29 @@ Thm 3.1 (K-free); I checked only that ‖T‖_∞ ≤ 4m₀N/e is right. The phr
 bound is proved; also η fixed is itself excluded by Thm 3.1) — m6.
 
 Verdict Lemma 2.2: **SOUND** (remarks need m4–m6).
+
+## Claim 3: Lemma 2.3 (interval support ⇒ R = λ_N)
+
+Re-derivation: f = R − λ_N has zero class sums mod every d ≤ D (d = 1
+included, mass N) ⇔ the Laurent polynomial F vanishes at every root of unity
+of order ≤ D ⇔ ∏_{d≤D}Φ_d | F, degree Φ(D). Correct.
+From scratch (`scripts/review_spw2_interval.py`, exact rank over ℚ): for
+D ≤ 8 and every interval of ℓ ≤ Φ(D)+3 integer points (two offsets) the
+solution space has dimension exactly max(0, ℓ − Φ(D)). So the lemma is
+**sharp**, with the convention that ℓ = *number of integer points*
+(span = ℓ − 1). If "length" is read as span (max − min), the claimed
+"ℓ > Φ(D)" is off by one (span = Φ(D) admits f = z^a∏Φ_d ≠ 0) — m8: say
+"ℓ points".
+
+Numerical side claims:
+* "(Φ(D) > 3N already for D ≥ 12–13)" is **wrong**: Φ(12) = 46 < 72. The first
+  D with Φ(D) > 3(2D+1) is **D = 19**; Φ(D) ≥ 3N + 2 (the number of points of
+  W ∪ Z at C = 2) holds for all N ≥ 38 (checked to 200). The title's "N > 40"
+  is therefore correct (slightly conservative) for **C = 2** only; C is
+  implicit (m7: fix the parenthetical, state C = 2, general form
+  (2C − 1)N + 2 ≤ Φ(D)).
+* Consequence "far mass unavoidable": correct — R = λ_N violates RSPW
+  (full classes get mass 1), so supp f is not contained in any interval of
+  ≤ Φ(D) points, i.e. some mass at distance ≥ (Φ(D) − N)/2 ≈ 0.076N² from W.
+
+Verdict Lemma 2.3: **SOUND** (m7, m8 wording).
