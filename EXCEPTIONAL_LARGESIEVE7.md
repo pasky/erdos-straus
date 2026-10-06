@@ -73,3 +73,59 @@ mechanism of the whole note: a residue condition mod p is a condition
 on the divisor triple *in every scale*, and a short cofactor (one M per
 triple) is no longer an obstacle, because the triple itself must lie on
 𝒞_a.
+
+## 2. Damped mass in arithmetic progressions (Shiu + Rankin)
+
+Fix a prime power-free… no: fix a rough prime threshold `y ≥ z` (below:
+`y = max P`). For `n ≥ 1` put
+
+    W_y(n) := w_{P(n)} Γ(n) n^{−1} · 1[P(n) > y]                      (2.0)
+
+(`P(n)` = largest prime factor; Γ as in K2, so `Γ(n) ≤ 8·3^{ω(n)}`,
+`γ'(ℓ) ≤ 3`, `γ'(ℓ) = 1 + O(ℓ^{−1/2})` for `ℓ > W`). For `Y ≥ 2` let
+
+    Ξ_y(Y) := Σ_{Q = 2^j ≥ y/2} w_Q · (log 2Q / log Y) · exp(−log Y / (2 log 2Q)).
+
+**Lemma 2.1 (damped Brun–Titchmarsh in progressions; PROVED, given
+Shiu's theorem [Shiu 1980, Thm 1]).** Fix `α ∈ (0, 1/2)`. There is
+`C = C(α, W)` such that for all `y ≥ z`, `Y ≥ 2`, `k ≥ 1`, `c` with
+`gcd(c,k) = 1` and `k ≤ Y^{1−α}`:
+
+    Σ_{Y < n ≤ 2Y, n ≡ c (k)} W_y(n) ≤ C · Ξ_y(Y) / k.
+
+*Proof.* Split by `P(n) ∈ (Q, 2Q]`, `Q = 2^j ≥ y/2`; there `w_{P(n)} ≤ w_Q`
+(w decreasing) and `1/n < 1/Y`. With `η = 1/log 2Q` and
+`f(n) = 1[P(n) ≤ 2Q]Γ(n)n^η` (multiplicative, `f(ℓ^l) ≤ 3e^l`,
+`f(n) ≪_ε n^ε` uniformly since `η ≤ 1/log z`), Rankin's inequality
+`1 ≤ (n/Y)^η` on `n > Y` and Shiu's theorem (`x = 2Y`, interval length
+`Y ≥ x^{1/2}`, modulus `k ≤ Y^{1−α}`) give
+
+    Σ_{Y<n≤2Y, n≡c(k), P(n)≤2Q} Γ(n) ≤ Y^{−η} Σ f(n) ≪ Y^{−η}·(Y/φ(k))·(log Y)^{−1}·exp(Σ_{ℓ≤2Q, ℓ∤k} f(ℓ)/ℓ).
+
+Now `f(ℓ)/ℓ ≤ γ'(ℓ)/ℓ + eγ'(ℓ)η log ℓ/ℓ`, so the exponential is
+`≪_W log 2Q · Π_{ℓ|k, ℓ≤2Q}(1 − 1/ℓ)` (Mertens; `Σ_{ℓ≤2Q} η log ℓ/ℓ ≤ 1+o(1)`;
+`e^{−1/ℓ} ≤ (1−1/ℓ)e^{1/ℓ²}`). Since
+`φ(k)/k = Π_{ℓ|k}(1−1/ℓ)` and `Π_{ℓ|k, ℓ>2Q}(1−1/ℓ)^{−1} ≤ e^{2ω(k)/Q} ≤
+e^{2 log Y/(Q log 2)}`, we get `(1/φ(k))·Π_{ℓ|k,ℓ≤2Q}(1−1/ℓ) ≤
+k^{−1}e^{2log Y/(Q log 2)}`, and `Y^{−η}e^{2 log Y/(Q log 2)} ≤
+e^{−log Y/(2 log 2Q)}` because `Q ≥ y/2 ≥ z/2` makes
+`2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q. ∎
+
+**Lemma 2.2 (sums of Ξ; PROVED, elementary).** For `r ≥ 0`, `Y₀ ≥ 2`:
+
+    Σ_{Y = 2^i ≥ Y₀} (log Y)^r Ξ_y(Y) ≤ C_r Σ_{Q=2^j ≥ y/2} w_Q (log 2Q)^{r+1} ≤ C′_r (log z / γ)^{r+2},
+
+and `Ξ_y(Y) ≤ C(log z/γ)²`/`log Y`… more usefully `Σ_{Y≥Y₀}Ξ_y(Y) ≤
+C(log z/γ)²`.
+
+*Proof.* For fixed Q put `L = log 2Q/log 2`; then
+`Σ_{i ≥ 1} i^{r−1} e^{−i/(2L)} ≤ C_r L^r` (r ≥ 1; for r = 0 the sum
+`Σ_{i≥1} i^{−1}e^{−i/(2L)} ≤ 1 + log(2L) + 2 ≤ C log 2Q`). Multiply by
+`w_Q log 2Q` (the `(log Y)^{r−1}` from `1/log Y` is absorbed). Finally
+`w_Q = K^{2β}e^{−2γ j log 2/log z}` with `K^{2β} ≤ z^{γβ} = e^γ` (as
+`K ≤ z^{γ/2}`), and `Σ_j (j log 2)^{r+1}e^{−2γ j log 2/log z} ≤
+C_r (log z/(2γ))^{r+2}`. ∎
+
+(The bound is uniform in X: the damping `w_Q` makes the sum over the top
+converge, and Rankin's factor makes the sum over n at fixed top converge.
+This is the "Shiu in progressions" input of (FM2), in damped form.)
