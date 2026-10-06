@@ -2,9 +2,7 @@
 
 Reviewer branch: side-agent/review-unify. Status: ROUND 1 COMPLETE. Overall: no FATAL, no MAJOR; 10 MINOR (labels/wording). See verdict table at the end.
 
-## Verdict summary (filled in per claim)
-
-## Defects
+## Per-claim checks
 
 ### Claim 1 — Prop 1.1 (`log(1/δ*(T)) ≫ 𝓛³`): **SOUND** (given the note)
 
