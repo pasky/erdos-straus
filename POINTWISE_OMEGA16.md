@@ -363,3 +363,35 @@ reaches 1.12–1.15 and does not grow with κ (z=100: 1.00, 1.07, 1.12, 1.15, 1.
 κ* — exactly the `T^{O(1)}` slack that the `log T` term of LS (or `A log T` of CR) absorbs, and
 never a factor growing with the dimension. No resolved toy system violates LS(1.2); the three
 unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
+
+## 7. Status
+
+| item | statement | label |
+|---|---|---|
+| Hyp LS(C), LS(Φ) | Linnik for unit-class sifted sets | CONJECTURE (Assessment: plausible, §5) |
+| Thm 1.2 | LS(C) ⇒ `W≥exp(c(log p)^{1/3}(loglog p)^{−5/3})` i.o., Mordell-hard | PROVED implication, modulo NT (via O13 Thm 3.4) |
+| Prop 2.1(a) | integer analogue of AS(C) false for every C | PROVED (Buchstab–de Bruijn, classical) |
+| Prop 2.1(b) | PS(C,c), AS(C) fail for primes by `(e^γω(u))^κ` | Assessment (HL heuristic); EVIDENCE N1 |
+| Prop 3.1 | EH/GEH/GRH/BV-type input, linear certificates: exponent ≤ 1/4 | PROVED implication, inputs of O14 Thm 4.5 ((G), effective Page, fundamental lemma) |
+| Prop 4.1(a) | product subset of `F_T^{MH}` with `log(1/δ)≤T^{1/2+o(1)}` | PROVED |
+| Prop 4.1(b) | every product subset of `F_T` has `log(1/δ)≫T^{1/2}(log T)^{−8}` | PROVED modulo Barban–Davenport–Halberstam |
+| Cor 4.2 | HL_prod ⇒ `W≥(log p)^{2−o(1)}` i.o.; route capped at `(log p)^{2+o(1)}` | PROVED implication |
+| §5 | fakes, Siegel, Jacobsthal, SIZE consistency | Assessment (5.1 "not implied" part PROVED by Prop 3.1) |
+| §6 | N1–N3 | EVIDENCE |
+
+Not done / open: (1) a *proof* that LS holds for some nontrivial class of high-dimensional
+systems beyond the sieve limit (this is the whole difficulty); (2) whether LS restricted to
+LLL-regular systems (O13 (1.1)) is equivalent to full LS; (3) an upper-companion hypothesis
+making 1/3 the exact i.o. exponent (§5.4); (4) the growing small-x deficit of actual hard primes
+against δ* at fixed x (N2) is not analysed.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/omega16_buchstab.py 1e9      # N1, ~1 min, ~3 GB
+PYTHONPATH=scripts uv run python scripts/omega16_esleast.py 4095 1e9   # N2, ~10 s
+PYTHONPATH=scripts uv run python scripts/omega16_esleast.py 8191 1e11  # N2, ~15 min
+PYTHONPATH=scripts uv run python scripts/omega16_esleast.py 8191 1e12 1e8 1e11  # N2 extension, hours
+PYTHONPATH=scripts uv run python scripts/omega16_adversary.py 1e9      # N3, ~15 min, ~5 GB
+```
+(all under `ulimit -v 8000000`, single core.)
