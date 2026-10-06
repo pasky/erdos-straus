@@ -23,7 +23,8 @@ uniformly in T. MN Thm 5.1: ADM_m ⇒ Haar exponent 3 and `W_m(p) ≥ exp(c(log 
 
 ## 1. Three structural facts
 
-**Lemma 1.1 (positive probability suffices; PROVED).** In MN Thm 5.1 the hypothesis
+**Lemma 1.1 (positive probability suffices; PROVED as a modification of MN Thm 5.1's implication, which
+is PROVED modulo the inputs of OMEGA13 Thm 3.4/5.1 — label clarified, applied by reviewer R74 D6).** In MN Thm 5.1 the hypothesis
 "probability ≥ 7/8" can be replaced by "probability ≥ s_0" for any fixed `s_0 > 0`; the constants
 of the conclusion change by factors depending on s_0 only. The prefix law may be any law ν on
 Type-II-hard classes mod Q_0 with density `≤ C_ν` w.r.t. Haar on `(Z/Q_0)^×` (MN uses the uniform
@@ -106,7 +107,9 @@ So `F ∈ M_2(A_0, B_0, ε_0)` with `A_0 = 4eK_1 + 9`, `B_0 = B_0(K_1,ε_0)`, in
 (the factor `∏_{p|qm}(1−1/p)/(1−2/p) ≪_m 1` as `ω(q) = 1`). A block `X < M_1 ≤ 2X` is covered by
 `O(1)` such t-blocks with `x ≍ X/m`, so its contribution to `S_j(q)` is
 `≪ X^{−1−σ}·X(log X)^{3^j−2}(log q)^{e2^{j−1}K_1}`.
-(v) *Dyadic sum.* `Σ_{i≥0}2^{−iσ}(i+1)^{3^j−2} ≪ σ^{−(3^j−1)} ≪ (log q)^{3^j−1}`.
+(v) *Dyadic sum.* With `X = X_0 2^i`, `log X ≪ log q + i`, and
+`Σ_{i≥0}2^{−iσ}(log q + i)^{3^j−2} ≪ σ^{−1}(log q)^{3^j−2} + σ^{−(3^j−1)} ≪ (log q)^{3^j−1}`
+(corrected display, applied by reviewer R74 D7).
 (vi) *Short range* `M_1 ≤ X_0 := 2m(c_0(6qm)^{1/2}+1) ≪ q^{1/2}`: here `A ≪ q^{3/2}`, so
 `τ(A²)^jτ(M_1)^{j−1} ≪_ε q^{ε}`, and `Σ_{M_1|L(q)}K_1^{ω(M_1)}/φ(M_1) ≤ ∏_{p<q}(1+K_1Σ_b 1/φ(p^b)) ≪ (log q)^{2K_1}`;
 absorb `(log q)^{2K_1}` into `q^ε`.
@@ -124,8 +127,9 @@ would make some `Λ(ℓ) > K`. For a prime ℓ let `a_ℓ` be its first post-pre
 (`ℓ^{a_ℓ} ≤ q_0 < ℓ^{a_ℓ+1}`). A step at `(ℓ,a)` is **bad** if `a ∈ {a_ℓ, a_ℓ+1}` and `Y > θN`,
 or `a ≥ a_ℓ+2` and `Y ≥ 1` (Y as in Lemma 1.3).
 
-**Theorem 3.1 (PROVED modulo (H)).** For every `ε > 0` there is `c_1 = c_1(m,θ,ε)` (ineffective:
-it contains the constants of (H)) such that, uniformly in large T,
+**Theorem 3.1 (PROVED modulo (H) and MN Thm 5.1(a),(d)).** For every `ε > 0` there is `c_1 = c_1(m,θ,ε)`
+(not explicit: it contains the constants of (H), which are effective in principle but not given in
+the source — "ineffective" corrected, applied by reviewer R74 D2) such that, uniformly in large T,
 
 ```
 P(the process dies or is stopped)  ≤  P(some step is bad)  ≤  C_ν·( c_1 q_0^{−1/2+ε} + o_{T→∞}(1) ).
@@ -139,7 +143,11 @@ two post-prefix levels with `0 < f ≤ θ` and `f = 0` elsewhere (Lemma 1.3), so
 stopping rule never fires. So it suffices to bound `Σ_steps P(bad ∧ alive)`.
 *First moments.* Let E be completed at a step at `(ℓ,a)` and `E^-` its restriction to `M/ℓ`
 (`M_{E^-} = M_1ℓ^a`). On "alive", `1[E^- consistent] = p(E^-) ≤ p(E^-)Ψ(E^-)`, and
-`Σ p Ψ` is a supermartingale up to the stopping time (MN Thm 5.1(a)); optional stopping at the
+`Σ p Ψ` is a supermartingale up to the stopping time (MN Thm 5.1(a)); optional stopping
+[reviewer R74 D5: MN Thm 5.1(a),(d) are stated for atoms, but their per-event computation uses
+atom-ness only for `p_new = 0` at completed atoms (an inequality in the safe direction), so `p(F)Ψ(F)`
+and the pair potential are supermartingales for every unit-class event F on quarantined
+coordinates, in particular for the non-atom restrictions `E^-`] at the
 (stopping) time of the step and the prefix bound give
 `E[1[E^- cons]·1_alive] ≤ C_ν K^{ω(M_1)+1}/φ(M_1ℓ^a)`. Summing over `D | A²` and over `M_1`:
 `E[Y·1_alive] ≤ C_ν K S_1(q)/φ(ℓ^a)` (Lemma 2.1 with `K_1 = K`; in stage B use the Y-smooth
@@ -159,9 +167,11 @@ before the step both restrictions are fully revealed, so `Π = 1[both consistent
 sum over `q > q_0` is `≪ C_ν q_0^{−1/2+ε}`.
 (c) `a ≥ a_ℓ+2`: `P(Y ≥ 1) ≤ C_ν K S_1(q)/φ(ℓ^a) ≪ C_ν q^{ε}ℓ^{−a}`. If `ℓ > q_0` then `a ≥ 2`
 and the sum over ℓ, a is `≪ C_ν q_0^{−1+2ε}`; if `ℓ ≤ q_0` then `ℓ^a ≥ ℓ^{a_ℓ+2} > ℓq_0`, and the sum
-over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+2ε}log log q_0`.
+over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+4ε}` (`Σ_{ℓ≤q_0}ℓ^{−1+2ε} ≪ q_0^{2ε}`; corrected,
+applied by reviewer R74 D8).
 (d) Stage B steps have `q > Z`; (a)–(c) with the Y-smooth variant give
-`≪ C_ν(log Y)^{C}Z^{−1/2+ε} = o(1)` as `Z = 𝓛³(log𝓛)^B → ∞`, `log Y ≍ log 𝓛`. ∎
+`≪ C_ν(log Y)^{C}Y^{ε}Z^{−1/2+ε} = o(1)` as `Z = 𝓛³(log𝓛)^B → ∞`, `log Y ≍ log 𝓛`, provided
+`ε < 3/(2(C_K+4))` (the `(qY)^ε` of the Y-smooth variant; added by reviewer R74 D8). ∎
 
 *Remark (the level count).* "Two levels with `Y ≤ θN`, then `Y = 0`" is forced: for `ℓ > q_0` the
 level-1 first moment `≍ (log ℓ)^C/ℓ` is not summable over primes, so level 1 must be allowed to
