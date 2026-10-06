@@ -297,15 +297,15 @@ In a minimal cover every R has a private element; map each `ℓ ∈ U` to an
 **Proposition 4.2 (soft-pivotal bound, Walsh form; PROVED).** In the setting
 of §2.2 write `Ψ = H·e^{−Y*}` with the 0/1 function
 `H = Π_{ℓ∈S}h_ℓΠ_{q∉S}λ_q` and
-`Y* = 2Σ_{q∈𝒫}w_qp̃_q + Σ_{ℓ∈S}L_ℓ`, `L_ℓ = −log(1−p̃_ℓ)` (all functions of
+`Y* = 2Σ_{q∈𝒫}w_qp̃_q − Σ_{ℓ∈S}L_ℓ ≥ −|S|log 2`, `L_ℓ = −log(1−p̃_ℓ)` (so `g_ℓ = e^{L_ℓ}`) (all functions of
 the corner A). For `T ⊆ S` and a corner `A_T ⊆ T`, let
 `a^{(A_T)}_R` (`R ⊆ S∖T`) be the Walsh coefficients of `Y*` restricted to
 corners `A_T ∪ A′`, `A′ ⊆ S∖T`. Then
 
-    |σ̂_tilt(θ)| ≤ Z^{−1} 2^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
+    |σ̂_tilt(θ)| ≤ Z^{−1} 4^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
                    · max_{A_T} e^{‖a^{(A_T)}‖′} Σ_{△𝒯 = S∖T} Π_{R∈𝒯}|a^{(A_T)}_R|      (4.1)
 
-                 ≤ Z^{−1} 2^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
+                 ≤ Z^{−1} 4^{|S|} E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)]
                    · max_{A_T} e^{2‖a^{(A_T)}‖′} Π_{ℓ∈S∖T} Σ_{R∋ℓ, R⊆S∖T} β^{(A_T)}_R
 
 (the XOR-cover sum is 1 when `T = S`).
@@ -321,7 +321,7 @@ summands), and `Piv(H)` is described by Lemma 3.1(iv).
 (H is 0/1): `|D_SΨ| ≤ Σ_T 2^{|T|}1[T⊆Piv(H)]·max_{A_T}|D_{S∖T}e^{−Y*}(A_T)|`,
 where `D_{S∖T}e^{−Y*}(A_T)` is the top difference of the restriction of
 `e^{−Y*}` to the subcube over `A_T`; apply Lemma 4.1 to that restriction
-(`Y* ≥ 0`). Insert in (2.1); `2^{|T|}2^{|S∖T|} = 2^{|S|}`. For the
+(to `Y* + |S|log 2 ≥ 0`, which costs the factor `2^{|S|}` and leaves `a_R`, `R ≠ ∅`, unchanged). Insert in (2.1); `2^{|T|}2^{|S∖T|}2^{|S|} = 4^{|S|}`. For the
 coefficient bound use linearity and `|f̂(R)| ≤ Δ(f)/2`, `f̂(R) = 0` unless
 `R ⊆ Piv(f)`, with `Δ(2w_qp̃_q) = 2w_qΔ_q` and `Δ(L_{ℓ′}) ≤ 2Δ_{ℓ′}`
 (`|L′| ≤ 2` on `[0,1/2]`); `Piv(p̃_q) ⊆ Piv(F_q)`. ∎
@@ -454,22 +454,22 @@ their denominators** (CONDITIONAL on (FM2) and its second moment over c).
 
 **Definition (damped covering count).** For a fibre law and a finite set
 S of rough primes let `𝔇(S)` be the expectation on the right of (4.1)
-(divided by `Z^{−1}2^{|S|}`):
+(divided by `Z^{−1}4^{|S|}`):
 
     𝔇(S) = E_{coins,v,v′} Σ_{T⊆S} 1[T ⊆ Piv(H)] · max_{A_T} e^{‖a^{(A_T)}‖′} Σ_{△𝒯=S∖T} Π_{R∈𝒯}|a^{(A_T)}_R|.
 
 > **(DCC_γ)** for c off an exceptional event of Q′-probability ≤ 1/32 and
 > every finite set S of primes `> z`: `𝔇_c(S) ≤ Λ′Π_{ℓ∈S}Kℓ^{−γ}`, with
-> `1 ≤ K ≤ z^{γ/2}/2` and a constant `Λ′` (any `Λ′ ≤ N^{1/2}` would do).
+> `1 ≤ K ≤ z^{γ/2}/4` and a constant `Λ′` (any `Λ′ ≤ N^{1/2}` would do).
 
 **Theorem 6.1 (PROVED as an implication; inputs as LS4 Thm 4.2).**
 (DCC_γ) ⟹ (A\*_Λ) for `σ_tilt,c` with `Λ_c = Λ′Z_c^{−1}` and `K` replaced
-by `2K ≤ z^{γ/2}` ⟹ (Cor 1.2) the all-level 3/4 large-sieve cap
+by `4K ≤ z^{γ/2}` ⟹ (Cor 1.2) the all-level 3/4 large-sieve cap
 `log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` for every
 forced mixture (`N ≥ N₀(γ)`).
 
-*Proof.* Prop 4.2, (4.1): `|σ̂_c(θ)| ≤ Z_c^{−1}2^{|S|}𝔇_c(S) ≤
-Λ′Z_c^{−1}Π_{ℓ∈S}2Kℓ^{−γ}`. Then Lemma 1.1 / Cor 1.2 (`2β log Λ′ ≤ (log N)^{3/4}`). ∎
+*Proof.* Prop 4.2, (4.1): `|σ̂_c(θ)| ≤ Z_c^{−1}4^{|S|}𝔇_c(S) ≤
+Λ′Z_c^{−1}Π_{ℓ∈S}4Kℓ^{−γ}`. Then Lemma 1.1 / Cor 1.2 (`2β log Λ′ ≤ (log N)^{3/4}`). ∎
 
 So the open problem is now a **first-moment statement on a product
 probability space** (coins, v, v′), with every outside top weighted by its
@@ -577,9 +577,12 @@ the exact `max_{supp θ=S}|σ̂(θ)|` is compared with Monte-Carlo estimates
 (3000 coin/v/v′ samples) of the right sides of (2.1), Prop 2.2 and
 Prop 4.2 (first form (4.1), XOR covers enumerated exactly). Seeds 1–5:
 max ratio exact/bound = 0.81 for (2.1) (the pinned representation is
-nearly tight), `4.9·10⁻²` for Prop 2.2, `1.5·10⁻¹` for Prop 4.2 — all
-inequalities hold, and the Walsh form is ~3× sharper than the partition
-form on these toys. (Toy scale only: tiny primes, large activated masses.)
+nearly tight), `4.9·10⁻²` for Prop 2.2, `7.3·10⁻²` for Prop 4.2 — all
+inequalities hold (the Walsh form is ~1.5× sharper than the partition form
+on these toys; its gain is for many primes, not visible at `|S| ≤ 3`).
+The first inequality of Lemma 4.1 (with the factor `e^{−a_∅}` kept, since
+`Y* = 2Y − ΣL` may be negative) is also checked pointwise on every sample
+and subcube (1.3·10⁶ checks). (Toy scale only: tiny primes, large activated masses.)
 
 ## Replay
 

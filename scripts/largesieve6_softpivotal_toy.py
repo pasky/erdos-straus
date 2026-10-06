@@ -11,6 +11,7 @@ and check exact <= each bound (MC noise is irrelevant for the last two: slack 4^
 Also checks the corner-path chain structure of Lemma 3.1(iii) on every sample.
 """
 import itertools, math, random, cmath, sys
+CHECKS = [0]
 
 def partitions(s):
     s = list(s)
@@ -175,7 +176,7 @@ def run(seed, pool=(3, 5, 7, 11, 13), ncls=40, delta=0.5, nsamp=3000):
                                     d = P[A][1]; y = 0.0
                                     for q in pool:
                                         y += 2 * w[q] * d[q][2] / q
-                                        if q in S: y += -math.log(1 - d[q][2] / q)
+                                        if q in S: y -= -math.log(1 - d[q][2] / q)  # Y* = 2Y - sum L
                                     return y
                                 ys = {A: Ystar(A) for A in sub}
                                 a = {}
@@ -191,12 +192,18 @@ def run(seed, pool=(3, 5, 7, 11, 13), ncls=40, delta=0.5, nsamp=3000):
                                         if sd == frozenset(U):
                                             xor += math.prod(abs(a[R]) for R in fam_)
                                 if not U: xor = 1.0
+                                # pointwise check of Lemma 4.1 (first form) on this subcube
+                                a0 = sum(ys.values()) / len(sub)
+                                Dtop = sum((-1) ** (len(U) - len(A - AT)) * math.exp(-ys[A]) for A in sub)
+                                rhs = 2 ** len(U) * math.exp(-a0) * math.exp(norm) * xor
+                                assert abs(Dtop) <= rhs * (1 + 1e-9) + 1e-12, (Dtop, rhs)
+                                CHECKS[0] += 1
                                 best_AT = max(best_AT, math.exp(norm) * xor)
                         tot42 += best_AT
                 acc42 += tot42
             bD = accD / nsamp / Z
             b22 = 4 ** k * acc22 / nsamp / Z
-            b42 = 2 ** k * acc42 / nsamp / Z
+            b42 = 4 ** k * acc42 / nsamp / Z
             out.append((S, best, bD, b22, b42))
     return out, Z
 
@@ -210,4 +217,5 @@ if __name__ == '__main__':
             r = (ex / bD if bD else float('inf'), ex / b22 if b22 else float('inf'), ex / b42 if b42 else float('inf'))
             worst = [max(worst[i], r[i]) for i in range(3)]
             print(f"  S={S}: exact {ex:.3e}  (2.1) {bD:.3e}  P2.2 {b22:.3e}  P4.2 {b42:.3e}")
+    print("Lemma 4.1 pointwise checks passed:", CHECKS[0])
     print("max ratios exact/bound: (2.1) %.3f  Prop2.2 %.3e  Prop4.2 %.3e" % tuple(worst))
