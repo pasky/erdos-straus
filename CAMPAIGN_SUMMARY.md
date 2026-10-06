@@ -1259,30 +1259,34 @@ ratings are this summary's judgement, not ledger labels.
 | the 2/3-loglog bound, self-contained (9 pp) | `paper/vaughan-loglog-note.tex` |
 | the 3/4 bound, self-contained | `paper/es-threequarter-note.tex`; blind audit `reviews/es-threequarter-blind-audit.md` |
 | everything up to wave 31 in one draft (177 pp; provisional labels) | `paper/espaper.tex` |
-| why 3/4 is sharp for congruence sieves | `paper/sieve-limits-note.tex` (v4); then `EXCEPTIONAL_KARY3.md`, `EXCEPTIONAL_KARY2.md`, `EXCEPTIONAL_KARY.md` |
+| why 3/4 is sharp for congruence sieves | `paper/sieve-limits-note.tex` (v5); then `EXCEPTIONAL_KARY3.md`, `EXCEPTIONAL_KARY2.md`, `EXCEPTIONAL_KARY.md` |
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
+| large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
 | inter-frequency cancellation in interval counts | `EXCEPTIONAL_INTERFREQ.md` |
-| hybrid methods, SPW and its refutation | `EXCEPTIONAL_INTERFREQ2.md`, `EXCEPTIONAL_SPW.md` |
+| hybrid methods, SPW and its refutation | `EXCEPTIONAL_INTERFREQ2.md`, `EXCEPTIONAL_SPW.md`, `EXCEPTIONAL_SPW2.md` (exact weak-SPW requirement) |
 | the tuple-count door TC_θ and witness correlations | `EXCEPTIONAL_TUPLES.md`, then `EXCEPTIONAL_TUPLES2.md` (forced zeros, TC^alt) |
 | the signed graph, basics | `SIGNED_REFACTOR.md`, `POINTWISE.md` |
 | short escapes and exceptional sets for the seed distance | `DEPTH3.md` |
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
 | the pointwise programme's obstruction, written up | `paper/pointwise-obstruction.tex` |
 | the meta-theorem (Theorems M, C, Proposition A) and the window frame | `POINTWISE_SIZE.md` §§0–4, §8 |
-| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v4); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
+| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v5); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
+| the typical size of `W` and its tail exponent 3 over primes | `CEILINGS_UNIFIED.md` Thm 2.1 (upper), `POINTWISE_TAIL.md` (lower, two-sided Cor 2.2) |
+| barriers beyond 1/4, and what would give 1/3 | `POINTWISE_OMEGA15.md` (Wiener-norm barrier), `POINTWISE_OMEGA16.md` (LS ⇒ 1/3), `POINTWISE_OMEGA17.md` (support-aware certificates, SAP) |
+| one sieve limit behind the 3/4 cap and the 1/4 ceiling | `CEILINGS_UNIFIED.md`; `paper/sieve-limits-note.tex` v5 §18 |
 | how the rate got there (1/14 → 1/7 → 1/6 → 1/5) | `POINTWISE_OMEGA8.md` → `OMEGA9` → `OMEGA11` → `OMEGA12` |
 | the energy bound C-1 and DNF Fourier tails | `paper/energy-dnf-note.tex`; `POINTWISE_OMEGA10.md` |
-| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md` |
+| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md` |
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
-| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md` |
-| the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity) |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md` |
+| the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
-| priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
+| priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
 | the status of each paper draft and its referee rounds | `paper/README.md` |
 | what each review found | `reviews/` (file names in §4 above) |
 | per-task agent reports | `reviews/agent-reports/`, `UNIT_REPORT*.md` |
