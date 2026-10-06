@@ -34,7 +34,7 @@
 \title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
 the multiplier modulus is infinitely often $\exp\big((\log p)^{1/4-o(1)}\big)$}
 \author{Anonymous}
-\date{Draft v4, 5 October 2026}
+\date{Draft v5, October 2026}
 
 \begin{document}
 
@@ -46,29 +46,35 @@ many primes $p$ in Mordell's hard classes, assuming Gallagher's prime number
 theorem for the family of all characters and the Nair--Tenenbaum bound for
 short sums of multiplicative functions of polynomials; more precisely, the
 least hard prime with $W(p)>T$ is at most $\exp(O((\log T)^4\log\log T))$.
-The previous version had exponent $1/5$ and needed four results of
-Elsholtz and Tao.  We also determine the Haar side: the profinite density
+The proof quarantines $n$ to a \emph{random square class} modulo a growing
+modulus (the residues of the multiplier congruences are Jacobi
+non-residues, so no congruence is ever forced), controls the cost by a
+$\beta$-weighted local lemma and a supermartingale bookkeeping, and transfers
+the resulting Haar density to primes through the one-sided $\ell^2$ sandwich
+of Bazzi and Razborov, an energy bound for avoidance indicators of cylinder
+events, and a linear transfer theorem based on Gallagher's theorem.
+We then describe the surrounding picture.  The profinite density
 $\delta^*(T)$ of the integers with $W(n)>T$ satisfies
-$(\log T)^3/\log\log T\ll\log(1/\delta^*(T))\ll(\log T)^3(\log\log T)^5$.  The
-upper bound comes from quarantining $n$ to a \emph{random square class}
-modulo a growing modulus: the residues $-4D\bmod M$ of the multiplier
-congruences are Jacobi non-residues, so no congruence is ever forced, and in
-expectation the residual masses are bounded by Haar masses with a
-compensating factor $2^{\omega_Y(M)}$.  A local lemma with
-weights $\beta^{|\supp E|}$ and a supermartingale bookkeeping control the
-cost.  The lower bound comes from a Janson-type inequality for events on
-product spaces of one-hot variables, where Harris' inequality fails.  The
-transfer to primes uses, as before, the one-sided $\ell^2$ sandwich of Bazzi
-and Razborov, an energy bound for avoidance indicators of cylinder events,
-and a linear transfer theorem based on Gallagher's theorem.  Finally we show
-that $1/4$ is the limit of this architecture: on every fibre $n\equiv r\pmod Q$
-with $\log Q\le T^{0.05}$, no minorant of
-$\mathbf 1[W(n)>T]$ of level $\exp(c(\log T)^4/\log\log T)$ has positive Haar
-mean.  The proof is a planting argument, the dual of a lower-bound sieve of
-dimension $\asymp(\log T)^3/\log\log T$.  The Haar upper bound uses the
-Nair--Tenenbaum bound, the Haar lower bound the fundamental lemma of sieve
-theory, and the ceiling Gallagher's theorem, the Landau--Page bound and the
-fundamental lemma.
+$(\log T)^3\ll\log(1/\delta^*(T))\ll(\log T)^3(\log\log T)^5$ (upper bound modulo
+Nair--Tenenbaum; lower bound via a Janson-type inequality for one-hot
+product spaces with a $1/\log\log T$ loss, and without loss using the atoms
+of a companion note on the exceptional set).  Typical primes have
+$\#\{p\le x:\ W(p)>T\}\ll\pi(x)e^{-c(\log T)^3}$ for $\log T\le c_1(\log x)^{1/4}$.  The
+exponent $1/4$ is the limit of the minorant architecture: on every fibre
+$n\equiv r\pmod Q$ with $\log Q\le T^{0.05}$, no minorant of $\mathbf 1[W(n)>T]$ of level
+$\exp(c(\log T)^4/\log\log T)$ (or $\exp(c(\log T)^4)$, using the companion note) has
+positive Haar mean.  This follows from a planting argument, the dual of a
+lower-bound sieve of dimension $\asymp(\log T)^3$, and the planted law is
+exponentially pseudorandom against classes and characters of every
+modulus.  Hence linear certificates with full-orbit uniform accounting
+cannot pass $1/4$ whatever the prime input (Bombieri--Vinogradov,
+Elliott--Halberstam, GRH below $x$, Siegel-model main terms).  Conversely, a
+Linnik-type hypothesis for sifted sets gives
+$W(p)\ge\exp((\log p)^{1/3-o(1)})$ infinitely often, the exponent suggested by the
+Haar density, while a Hardy--Littlewood-type hypothesis for product sets
+certifies only $W(p)\ge(\log p)^{2+o(1)}$.  All results are proved modulo the cited
+theorems listed in the text; the companion note is internally proved but
+not externally refereed.
 \end{abstract}
 
 \maketitle
@@ -121,47 +127,113 @@ Theorem~\ref{thm:NT} is the Nair--Tenenbaum bound \cite{NT} for sums of
 multiplicative functions of several polynomials, quoted in the form of
 Henriot \cite{Henriot}; it is used once, to bound Haar-weighted divisor sums
 over the moduli $M=4n-1$ (Lemma~\ref{lem:masses}).  The Elsholtz--Tao
-estimates used in the previous version are no longer needed.  All
-constants are effective, except that we have not checked whether the
-implied constants in \cite{NT} are.  We make no numerical claim.
+estimates used in the third version are not needed.  The constants in
+Theorem~\ref{thm:main} are effective, except that we have not checked whether
+the implied constants in \cite{NT} are; the results proved modulo \cite{TQ}
+below have ineffective constants.  We make no numerical claim.
 
-Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
-relative to the class $n\equiv1\pmod{24}$ (\S\ref{sec:moment}).
+\emph{Typical size.}  Theorem~\ref{thm:main} is about the extreme primes.  For
+the typical prime, $W(p)$ is small: large values have a cubic-exponential
+tail.
 
-\begin{theorem}[Haar exponent $3$; proved modulo Theorem~\ref{thm:NT} and the fundamental lemma]\label{thm:haar}
-For large $T$,
+\begin{theorem}[Proved modulo \cite{TQ} and Page's theorem]\label{thm:typicalintro}
+There are absolute $c,c_1>0$ such that, uniformly for $x\ge3$ and
+$\log T\le c_1(\log x)^{1/4}$,
 \[
- c\,\frac{(\log T)^3}{\log\log T}\ \le\ \log\frac1{\delta^*(T)}\ \le\ C(\log T)^3(\log\log T)^5 .
+ \#\{p\le x:\ W(p)>T\}\ \ll\ \pi(x)\,e^{-c(\log T)^3}.
 \]
-The upper bound is proved modulo Theorem~\ref{thm:NT}
-(Theorem~\ref{thm:haarupper}); the lower bound is proved modulo the
-fundamental lemma of sieve theory (Theorem~\ref{thm:haarlower}).
 \end{theorem}
 
-The exponent of $\log p$ in Theorem~\ref{thm:main} is governed not by the
-Haar density but by the level of the minorant used to transfer it to
-primes, and this level cannot be lowered.
+This is Theorem~\ref{thm:typical}.  It uses the atom family of the companion
+note \cite{TQ} (internally proved, not externally refereed; inputs
+Bombieri--Vinogradov, Brun--Titchmarsh and Shiu) and, for small $T$, the prime
+number theorem in progressions with a Landau--Page term.  At
+$\log T\asymp(\log x)^{1/4}$ it is the prime case of the exceptional-set bound
+$E(N)\ll Ne^{-c(\log N)^{3/4}}$ of \cite{TQ}.  Together with
+Theorem~\ref{thm:main} it describes both ends of the range: for
+$\log T\le c_1(\log x)^{1/4}$ the primes $p\le x$ with $W(p)>T$ have relative frequency
+at most $e^{-c(\log T)^3}$, and once $\log x\ge C(\log T)^4\log\log T$ such primes
+exist.
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:ceilingintro}
+\emph{The Haar exponent.}  Let $\delta^*(T)$ be the Haar measure of
+$\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$ relative to the class $n\equiv1\pmod{24}$
+(\S\ref{sec:moment}).
+
+\begin{theorem}[Haar exponent $3$; proved modulo Theorem~\ref{thm:NT} and \cite{TQ}, see below]\label{thm:haar}
+For large $T$,
+\[
+ c\,(\log T)^3\ \le\ \log\frac1{\delta^*(T)}\ \le\ C(\log T)^3(\log\log T)^5 .
+\]
+The upper bound is proved modulo Theorem~\ref{thm:NT}
+(Theorem~\ref{thm:haarupper}).  The lower bound is proved modulo \cite{TQ}
+(Proposition~\ref{prop:haarnoloss}); with $(\log T)^3/\log\log T$ in place of
+$(\log T)^3$ it is proved modulo the fundamental lemma of sieve theory alone
+(Theorem~\ref{thm:haarlower}).
+\end{theorem}
+
+\emph{The ceiling.}  The exponent of $\log p$ in Theorem~\ref{thm:main} is
+governed not by the Haar density but by the level of the minorant used to
+transfer it to primes, and this level cannot be lowered.
+
+\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma; sharpened modulo \cite{TQ}]\label{thm:ceilingintro}
 There are absolute $c,T_0>0$ such that for $T\ge T_0$, every modulus $Q$ with
 $\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$: if $B$ is a linear
 combination of functions $n\mapsto\phi(n\bmod qQ)$ with
 $\log q\le c(\log T)^4/\log\log T$, and $B(n)\le\mathbf 1[W(n)>T]$ for all units
-$n\equiv r\pmod Q$, then the Haar mean of $B$ on this class is $\le0$.
+$n\equiv r\pmod Q$, then the Haar mean of $B$ on this class is $\le0$.  Modulo
+\cite{TQ}, the same holds with $\log q\le c(\log T)^4$.
 \end{theorem}
 
-This is Theorem~\ref{thm:ceiling}.  Consequently
-(Corollary~\ref{cor:ceiling}) every argument that certifies a hard prime
-with $W(p)>T$ through a minorant of positive Haar mean and a transfer
-theorem costing $\log x\gg\log(\text{level})$, as ours does, has
-$\log x\gg(\log T)^4/\log\log T$: such arguments cannot give
-$W(p)\ge\exp((\log p)^{1/4+\delta})$, and Theorem~\ref{thm:main} is optimal among
-them up to a factor $(\log\log p)^{1/2}$ in $\log W(p)$.  It also shows that
-the energy bound used for the sandwich cannot be sharpened for this purpose
-(Corollary~\ref{cor:notail}).  If primes behaved like a set of Haar density
-$\delta^*(T)$, Theorem~\ref{thm:haar} would suggest $\log W(p)\approx(\log p)^{1/3}$
-for the extremal primes; reaching this needs prime input that is not a
-bounded-level minorant (Remark~\ref{rem:third}).
+This is Theorem~\ref{thm:ceiling} and Proposition~\ref{prop:ceiling4}.
+Consequently (Corollary~\ref{cor:ceiling}) every argument that certifies a
+hard prime with $W(p)>T$ through a minorant of positive Haar mean and a
+transfer theorem costing $\log x\gg\log(\text{level})$, as ours does, has
+$\log x\gg(\log T)^4/\log\log T$ (and $\gg(\log T)^4$ modulo \cite{TQ}): such
+arguments cannot give $W(p)\ge\exp((\log p)^{1/4+\delta})$, and
+Theorem~\ref{thm:main} is optimal among them up to a factor
+$(\log\log p)^{1/2}$ in $\log W(p)$, or $(\log\log p)^{1/4}$ modulo \cite{TQ}.  It
+also shows that the energy bound used for the sandwich cannot be sharpened
+for this purpose (Corollary~\ref{cor:notail}).  The level $(\log T)^4$ is the
+product of the log-size $\log T$ of the moduli and the dimension $(\log T)^3$ of
+the sieve formed by the events with one large prime factor.  The same
+product, read at the budget $\log N$ of an integer sieve instead of the
+budget $\log x$ of a prime transfer, gives the exceptional-set exponent $3/4$
+of \cite{TQ} (Remark~\ref{rem:unified}).
+
+\emph{Beyond the ceiling.}  The planted law behind
+Theorem~\ref{thm:ceilingintro} is exponentially pseudorandom against
+residue classes, Dirichlet characters and additive characters of
+\emph{every} modulus (Lemma~\ref{lem:pseudo}).  So every minorant $B$ of any
+level has $\E B\le e^{-c(\log T)^4/\log\log T}\|B\|_\times$, where $\|B\|_\times$ is the $\ell^1$
+norm of its coefficients in classes and characters
+(Theorem~\ref{thm:wiener}).  As a consequence, linear certificates with
+full-orbit uniform error accounting cannot beat the exponent $1/4$, whatever
+true prime input they use, including Bombieri--Vinogradov,
+Elliott--Halberstam, GRH restricted to moduli $\le x$, and Siegel-model main
+terms (Corollary~\ref{cor:orbit}, Proposition~\ref{prop:EH}).  If primes
+behaved like a set of Haar density $\delta^*(T)$, Theorem~\ref{thm:haar} would
+suggest $\log W(p)\approx(\log p)^{1/3}$ for the extremal primes.  We isolate a
+hypothesis that gives this.
+
+\begin{theorem}[Conditional on Hypothesis LS; proved modulo Theorem~\ref{thm:NT}]\label{thm:LSintro}
+Assume that every system of unit-class congruences $n\not\equiv a_E\pmod{m_E}$ with
+$m_E\le T$ whose solution set has Haar density $\delta>0$ contains a prime $p>T$
+with $\log p\le C(\log T+\log(1/\delta))$ (Hypothesis LS, ``Linnik's theorem for
+sifted sets'').  Then $W(p)\ge\exp\big(c_C(\log p)^{1/3}(\log\log p)^{-5/3}\big)$ for
+infinitely many hard primes $p$.
+\end{theorem}
+
+This is Theorem~\ref{thm:LS}.  For a single residue class LS is Linnik's
+theorem.  It is not reachable by the linear certificates above
+(\S\ref{sec:wiener}), and the analogous hypothesis restricted to CRT product
+sets (a Hardy--Littlewood-type singular series) gives
+$W(p)\ge(\log p)^{2-o(1)}$ infinitely often and, applied to product subsets of
+the avoiding set, cannot certify more than $W(p)\ge(\log p)^{2+o(1)}$
+(Proposition~\ref{prop:product}).  Altogether, with
+$\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
+minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
+Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and typical primes have
+$W(p)>T$ with relative frequency at most $e^{-c\Lc^3}$.
 
 \emph{Versions.}  The first version of this note had exponent $1/14$; it used
 the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
@@ -170,17 +242,17 @@ the linear transfer theorem (Theorem~\ref{thm:transfer} here), and bounded
 the approximation error by Håstad's switching lemma.  The third had exponent
 $1/5$: it replaced the switching lemma by the energy bound
 (\S\ref{sec:energy}) and used a graded class-of-one quarantine, whose cost
-was bounded with four results of Elsholtz and Tao.  The present version
-keeps the energy bound, the sandwich and the transfer theorem, and changes
-the quarantine: a random square class, a $\beta$-weighted local lemma and a
-supermartingale bookkeeping (\S\ref{sec:system}) with Haar masses bounded by
-the Nair--Tenenbaum theorem (\S\ref{sec:moment}).  The third version also had
-an unconditional bound $\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$
-modulo Gallagher's theorem alone; we drop it, since Theorem~\ref{thm:main}
-now needs only Gallagher's theorem and the published Nair--Tenenbaum
-theorem.  New are also the Haar lower bound (\S\ref{sec:haarlower}), which
-was cited from companion work in the third version, and the ceiling
-(\S\ref{sec:ceiling}).
+was bounded with four results of Elsholtz and Tao.  The fourth version
+reached $1/4$ by a new quarantine: a random square class, a $\beta$-weighted
+local lemma and a supermartingale bookkeeping (\S\ref{sec:system}) with Haar
+masses bounded by the Nair--Tenenbaum theorem (\S\ref{sec:moment}); it added
+the Haar lower bound (\S\ref{sec:haarlower}) and the ceiling
+(\S\ref{sec:ceiling}).  The present fifth version leaves the proof of
+Theorem~\ref{thm:main} unchanged and adds: the typical size, the Haar lower
+bound without logarithmic loss and the ceiling at level $(\log T)^4$, all via
+the atoms of \cite{TQ} (\S\ref{sec:atoms34}); the Wiener-norm barrier and its
+consequences for linear certificates (\S\ref{sec:wiener}); and the
+conditional exponent $1/3$ (\S\ref{sec:LS}).
 
 \subsection*{The method}
 Fix $T$.  We restrict $n$ to a class $n\equiv r\pmod Q$, with
@@ -316,7 +388,9 @@ use those results.  The Jacobi-symbol property of the multiplier classes
 (Lemma~\ref{lem:jacobi}) is implicit in the classical fact that the
 identities cover all non-residue classes; its use to quarantine to random
 square classes is ours.  The divisor-sum bounds use Nair--Tenenbaum
-\cite{NT,Henriot} in a standard way.
+\cite{NT,Henriot} in a standard way.  Hypothesis LS (\S\ref{sec:LS}) is a
+uniform version of Linnik's theorem for sifted sets; we did not search the
+literature for it systematically and claim no priority for the formulation.
 
 \smallskip\noindent\textbf{Status conventions.}  Every theorem header
 carries a label.  \emph{Proved} means proved in full here.  \emph{Proved
@@ -327,7 +401,18 @@ which we include a proof or a precise textbook reference.  The cited
 inputs are Gallagher's theorem (Theorem~\ref{thm:G}, used together with the
 classical Landau--Page facts of Theorem~\ref{thm:xz}), the Nair--Tenenbaum
 theorem (Theorem~\ref{thm:NT}) and, for Theorems~\ref{thm:haarlower}
-and~\ref{thm:ceiling}, the fundamental lemma of sieve theory.  In the labels,
+and~\ref{thm:ceiling}, the fundamental lemma of sieve theory.  In
+\S\S\ref{sec:atoms34}--\ref{sec:LS} three further inputs appear: the companion
+note \cite{TQ}, which is \emph{internally proved but not externally
+refereed} (``proved modulo \cite{TQ}'' means proved here assuming its
+stated results, with their inputs Bombieri--Vinogradov, Brun--Titchmarsh and
+Shiu); the prime number theorem in progressions with a Landau--Page term
+(``Page's theorem'', \eqref{eq:page}); and the Barban--Davenport--Halberstam
+theorem.  Unlike the other cited inputs, the exact form of these last two
+was recalled from the textbooks \cite[Chs.~20, 29]{Dav}, not re-checked
+against the source (no copy archived); our use needs only their standard
+forms.  \emph{Conditional on LS} marks a statement that assumes the
+conjectural Hypothesis~LS of \S\ref{sec:LS}.  In the labels,
 ``modulo Theorem~\ref{thm:G}'' includes Theorem~\ref{thm:xz}.  Classical
 results whose proof we include, or which are standard textbook facts (the
 local lemma, the Efron--Stein decomposition, Mertens' theorem, the divisor
@@ -2115,7 +2200,8 @@ the proof of Theorem~\ref{thm:main}, is of this type, whatever the minorant
 (sandwich, Selberg, Bonferroni, dense or sparse, any value of $A$).  So such
 arguments cannot give $W(p)\ge\exp((\log p)^{1/4+\delta})$ for any $\delta>0$, and
 Theorem~\ref{thm:main} is optimal among them up to a factor
-$(\log\log p)^{1/2}$ in $\log W(p)$.
+$(\log\log p)^{1/2}$ in $\log W(p)$.  Modulo \cite{TQ}, Proposition~\ref{prop:ceiling4}
+improves $\Lc^4/\log\Lc$ to $\Lc^4$ and the factor to $(\log\log p)^{1/4}$.
 \end{corollary}
 
 \begin{proof}
@@ -2131,7 +2217,11 @@ minorants (bilinear or Type~II information, parity-sensitive input, or
 mixtures of majorants and minorants); nothing about transfers whose
 positivity comes from an exceptional-character term rather than from
 $\E B>0$ (such transfers can only work at Siegel scales); and nothing about
-functions that are not of bounded level in the above sense.
+functions that are not of bounded level in the above sense.  Section~\ref{sec:wiener}
+extends the obstruction to minorants of unbounded level, to Siegel-model
+main terms and to equidistribution hypotheses, for linear certificates with
+full-orbit uniform accounting; Section~\ref{sec:LS} gives a hypothesis
+outside that class which reaches $1/3$.
 
 \begin{corollary}[The energy tail cannot be improved; proved modulo Theorems~\ref{thm:xz}, \ref{thm:G}, \ref{thm:NT} and the fundamental lemma]\label{cor:notail}
 On the fibre of Theorem~\ref{thm:haarupper}, there is no bound
@@ -2161,7 +2251,495 @@ input for a sifted set of sieve dimension $\asymp\Lc^3$ at level well below
 its sieving limit, that is, information beyond minorants of bounded level,
 such as bilinear (Type~II) estimates or other parity-sensitive input
 adapted to the ES system.  We do not know how to provide it.
+Section~\ref{sec:wiener} makes this precise for linear certificates, and
+Section~\ref{sec:LS} shows that a Linnik-type hypothesis for sifted sets
+(Theorem~\ref{thm:LS}) gives the exponent $1/3$ up to logarithms.
 \end{remark}
+
+\section{One-big-prime atoms: the Haar exponent without loss, typical size, and the ceiling at level \texorpdfstring{$\Lc^4$}{L^4}}\label{sec:atoms34}
+
+This section imports one input from the companion note \cite{TQ}, which
+proves the exceptional-set bound $E(N)\ll N\exp(-c(\log N)^{3/4})$.  That note is
+\emph{internally proved, not externally refereed}; results below that use it
+are labelled ``modulo \cite{TQ}''.  Its analytic inputs are the
+Bombieri--Vinogradov theorem, the Brun--Titchmarsh inequality and Shiu's
+theorem, and its constants are not asserted to be effective.
+
+\emph{The atoms of \cite{TQ}.}  Fix $\varkappa=1/480$ (any fixed
+$\varkappa\in(0,1/240)$ would do).  For $X$ large put $t=\log X$,
+$K_X=\lfloor X^\varkappa\rfloor$, $\mathcal K=\{k\le K_X:\ k\equiv1\ (4)\}$ and
+$L_K=\lcm\mathcal K$.  The family $\mathcal A_X$ of \cite[(4)]{TQ} consists of
+quadruples $(k,\ell,u,v)$ with $k\in\mathcal K$, $\ell$ a prime in a dyadic block
+$I_j\subseteq(X^{1/2},X]$, $H<u,v\le z_j=x_j^{1/6}$ (with $H=K_X^{10}$ and $x_j$ the left end
+of $I_j$), $(u,v)=(uv,k)=1$, a bound on $\omega(uv)$, and $4uv\mid k\ell+1$; the
+atom is the class $E_A=\{n\equiv-uv^{-1}\pmod{k\ell}\}$, and
+$H_X(n)=\sum_A\mathbf 1_{E_A}(n)$.  With $M=k\ell\equiv3\pmod4$ and
+$w=(M+1)/(4uv)$ we have $uvw=A_M$, so $E_A$ is one of the multiplier
+congruences in \eqref{eq:W}: if $n\in E_A$ then $W(n)\le k\ell\le K_XX$.  We
+use three facts from \cite{TQ}:
+\begin{itemize}
+\item[(A1)] \cite[Lemma~2.2]{TQ}: at a fixed $\ell$ the atoms have pairwise
+distinct residues modulo $\ell$, and there are at most $z_j^2\le\ell^{1/3}$ of
+them; the residue $-uv^{-1}\bmod\ell$ is a unit, since $uv<\ell$.  An atom is
+\emph{active} on the class $c=n\bmod L_K$ iff $k\mid u+cv$.
+\item[(A2)] \cite[Cor.~4.3 and Lemma~3.2]{TQ}: with $f_c(\ell)$ the number of
+atoms at $\ell$ active on $c$ and $\mu_c=\sum_\ell f_c(\ell)/\ell$, there are
+constants $a,C_u>0$ with $a\,t^3\le\mu_c\le C_ut^3$ for every unit $c$ modulo $L_K$
+and all large $X$.
+\item[(A3)] \cite[Lemma~8.1 and Thm.~8.2]{TQ}: with $y=Bt^3$, $r$ the least even
+integer $\ge D_Bt^3$ ($B,D_B$ as there; $D_B$ may be enlarged), $S_y(n)=\mathbf 1[(n,P_y)=1]$
+and $Q_r(h)=\sum_{j\le r}(-1)^j\binom hj$, the function $\nu_X=S_y\,Q_r(H_X)$ is
+$\ge0$ on $\mathbb Z$, $Q_r(0)=1$, $Q_r(h)\le\mathbf 1[h=0]+\binom h{r+1}$, and $\nu_X$ is a
+combination $\sum_ic_i\mathbf 1[n\equiv a_i\ (q_i)]$ with $\log\max q_i\le C't^4$ and
+$\sum_i|c_i|\le e^{C't^4}$; moreover $\sum_{n\le N}\nu_X(n)\ll Ne^{-c_at^3}$ whenever
+$\log N\ge C_0t^4$.
+\end{itemize}
+Throughout, $X=T^{1/(1+\varkappa)}$, so that $K_XX\le T$ and $t\asymp\Lc$; and $\PP_*$,
+$\E_*$ denote Haar measure on $\hat{\mathbb Z}^\times$.  Under $\PP_*$ the coordinate
+$c=n\bmod L_K$ is a unit, and the residues $n\bmod\ell$, $\ell\in(X^{1/2},X]$ (all
+coprime to $L_K$), are independent of $c$ and of each other, each uniform on
+$(\mathbb Z/\ell)^\times$.  By (A1), given $c$, $H_X=\sum_\ell I_\ell$ with independent
+Bernoulli variables $I_\ell$ of mean $f_c(\ell)/(\ell-1)$.
+
+\begin{proposition}[Haar lower bound without loss; proved modulo \cite{TQ}]\label{prop:haarnoloss}
+For large $T$, $\PP_*(H_X=0)\le e^{-at^3}$ and $\delta^*(T)\le e^{-at^3}$.  Hence
+$\log(1/\delta^*(T))\gg\Lc^3$, and with Theorem~\ref{thm:haarupper},
+$\Lc^3\ll\log(1/\delta^*(T))\ll\Lc^3(\log\Lc)^5$.
+\end{proposition}
+
+\begin{proof}
+Given $c$, $\PP_*(H_X=0\mid c)=\prod_\ell(1-f_c(\ell)/(\ell-1))\le e^{-\mu_c}\le e^{-at^3}$ by
+(A2).  This holds for every unit $c$, hence also after conditioning on
+$n\equiv1\pmod{24}$, which restricts only $c\bmod3$ (note $9\in\mathcal K$) and the
+independent coordinate $n\bmod8$.  If $W(n)>T$ then $n$ lies in no atom, since
+atoms are multiplier congruences of modulus $\le K_XX\le T$; so $\delta^*(T)\le
+\PP_*(H_X=0\mid n\equiv1\ (24))\le e^{-at^3}$.
+\end{proof}
+
+This removes the factor $1/\log\Lc$ of Theorem~\ref{thm:haarlower}, at the
+price of the inputs of \cite{TQ} and ineffective constants;
+Theorem~\ref{thm:haarlower} uses only the fundamental lemma.  The reason is
+structural: each atom of \cite{TQ} has one large prime and a small
+coordinate $c$ that is revealed, so the events are conditionally
+independent and an exact product replaces the Janson-type inequality.
+
+\begin{theorem}[Typical size; proved modulo \cite{TQ} and Page's theorem]\label{thm:typical}
+There are absolute $c,c_1>0$ such that, uniformly for $x\ge3$ and
+$3\le T\le\exp(c_1(\log x)^{1/4})$,
+\[
+ \#\{p\le x\ \text{prime}:\ W(p)>T\}\ \ll\ \pi(x)\,e^{-c(\log T)^3}.
+\]
+\end{theorem}
+
+Here ``Page's theorem'' is the classical prime number theorem in
+progressions, uniform for $q\le\exp(c_2\sqrt{\log x})$, with the possible
+exceptional term \cite[Ch.~20]{Dav}: for $(a,q)=1$,
+\begin{equation}\label{eq:page}
+ \psi(x;q,a)=\frac x{\varphi(q)}-\mathbf 1[q_1\mid q]\,\frac{\chi_1(a)x^{\beta_1}}{\varphi(q)\beta_1}+O\big(xe^{-c_3\sqrt{\log x}}\big),
+\end{equation}
+where $\chi_1$ (primitive modulo $q_1$) is the possible exceptional real
+character for this range.  We recalled this form without re-checking it
+against the source; any version with this range and error suffices.
+The Siegel--Walfisz theorem would not: the moduli below have size
+$\exp(C(\log\log x)^{4/3})$.
+
+\begin{proof}
+We may assume $T\ge T_0$.  For a prime $p>y$ with $W(p)>T$ we have $S_y(p)=1$ and
+$H_X(p)=0$, so $\nu_X(p)=1$; hence the count is at most
+$y+\sum_{p\le x}\nu_X(p)$, and $y=Bt^3$ is negligible.  Choose $c_1$ so that
+$\log x\ge C_0t^4$.
+
+\emph{Case A: $c_at^3\ge2\log\log x$.}  As $\nu_X\ge0$, (A3) gives
+$\sum_{p\le x}\nu_X(p)\le\sum_{n\le x}\nu_X(n)\ll xe^{-c_at^3}\le xe^{-c_at^3/2}/\log x$.
+
+\emph{Case B: $c_at^3<2\log\log x$.}  Then $t^4\ll(\log\log x)^{4/3}$, so every
+modulus $q_i$ and the sum $\sum_i|c_i|$ are at most $\exp(O((\log\log x)^{4/3}))$,
+inside the range of \eqref{eq:page} for large $x$.  Since $0\le\nu_X\le\sum|c_i|$,
+\begin{gather*}
+ \sum_{p\le x}\nu_X(p)\le\sqrt x\sum_i|c_i|+\frac2{\log x}\sum_{n\le x}\nu_X(n)\Lambda(n),\\
+ \sum_{n\le x}\nu_X(n)\Lambda(n)=\sum_ic_i\psi(x;q_i,a_i).
+\end{gather*}
+Terms with $(a_i,q_i)>1$ count only powers of the primes dividing $(a_i,q_i)$
+and contribute $O(\sum|c_i|\log q_i(\log x)^2)$.  For the others insert
+\eqref{eq:page}.  Put $\E_*\nu_X=\sum_{(a_i,q_i)=1}c_i/\varphi(q_i)$ and
+$\tilde\chi_1(n)=\chi_1(n\bmod q_1)$ on $\hat{\mathbb Z}^\times$.  Since
+$\int_{n\equiv a\ (q)}\tilde\chi_1\,d\PP_*$ is $\chi_1(a)/\varphi(q)$ if $q_1\mid q$ and $0$
+otherwise ($\chi_1$ is primitive), the main terms add up to
+$x\,\E_*[\nu_X(1-\epsilon\tilde\chi_1)]$ with $\epsilon=x^{\beta_1-1}/\beta_1\in[0,2]$.  As
+$\nu_X\ge0$ on $\hat{\mathbb Z}^\times$, this is at most $3x\E_*\nu_X$.  So
+$\sum_{p\le x}\nu_X(p)\le(6x/\log x)\E_*\nu_X+O(xe^{-c_3\sqrt{\log x}/2})$.
+On units $S_y=1$.  Given $c$, $\E_*[(H_X)_m\mid c]=m!\,e_m\big((f_c(\ell)/(\ell-1))_\ell\big)\le(2\mu_c)^m\le(2C_ut^3)^m$
+for the falling factorials, so by (A3) and Proposition~\ref{prop:haarnoloss},
+\[
+ \E_*\nu_X\le\PP_*(H_X=0)+\frac{\E_*(H_X)_{r+1}}{(r+1)!}\le e^{-at^3}+\Big(\frac{2eC_ut^3}{r+1}\Big)^{r+1}\le2e^{-at^3}
+\]
+once $D_B\ge\max(2e^2C_u,a)$.  The error term is $\ll\pi(x)e^{-at^3}$ because
+$e^{at^3}\le(\log x)^{2a/c_a}$.  In both cases the count is
+$\ll\pi(x)e^{-\min(a,c_a/2)t^3}$, and $t\asymp\Lc$.
+\end{proof}
+
+The normalisation by $\pi(x)$ rather than $x$ matters when $\Lc^3\lesssim\log\log x$.
+At $T=\exp(c_1(\log x)^{1/4})$ the theorem gives the prime case of the
+exceptional-set bound of \cite{TQ}; it is a reproof, not an improvement.  It
+is the opposite inequality to Theorem~\ref{thm:main}: an upper bound for
+the number of primes with $W(p)>T$ needs a \emph{majorant}, and for majorants
+the exceptional character costs only the factor $1+\epsilon\le3$; Theorem~\ref{thm:main}
+needs a minorant.  Heuristically (Assessment) the count is
+$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$; a matching lower bound in the
+range $\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ would follow from the main term of
+Theorem~\ref{thm:transfer} except when an exceptional character divides the
+quarantine modulus; we have not pursued this.
+
+The same atoms sharpen the ceiling of Theorem~\ref{thm:ceiling}.
+
+\begin{proposition}[Ceiling at level $c\Lc^4$; proved modulo \cite{TQ}]\label{prop:ceiling4}
+There are absolute $c,T_0>0$ such that for $T\ge T_0$, every modulus $Q$ with
+$\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$: if $B$ is a function on the
+fibre $n\equiv r\pmod Q$ of level at most $D$, with $B\le F$ pointwise and
+$\log D\le c\Lc^4$, then $\E B\le0$.
+\end{proposition}
+
+\begin{proof}
+Apply Lemma~\ref{lem:barrier} with big coordinates $X_\ell=n\bmod\ell$ for the
+primes $\ell\in(X^{1/2},X]$ with $\ell\nmid Q$, and all other coordinates small
+(including $c=n\bmod L_K$, the residues at all other primes, and the higher
+$\ell$-adic digits at big $\ell$, as in \S\ref{sec:ceiling}).  As there, a function
+of level $\le D$ reads at most $k=\lfloor2\log D/t\rfloor$ big coordinates, since each
+big prime exceeds $X^{1/2}$.  Let $\mathcal F$ be the set of atoms with $\ell\nmid Q$;
+each reads $c$ (small, as $k\mid L_K$) and one big $X_\ell$, and
+$\mathcal F\subseteq\mathcal E$, the set of all multiplier congruences with $M\le T$.  Fix a
+small configuration; its $c$ is a unit.  By (A1), $p_\ell=f_c(\ell)/(\ell-1)\le
+\ell^{1/3}/(\ell-1)\le2X^{-1/3}=:p^*$.  At most $2\log Q/t\le T^{0.05}$ big primes
+divide $Q$, so by (A2)
+\[
+ R\ \ge\ \sum_{\ell\nmid Q}p_\ell\ \ge\ \mu_c-T^{0.05}p^*\ \ge\ at^3/2
+\]
+for $T\ge T_0$, for \emph{every} small configuration.  Since $r^*\le4X^{-1/3}$,
+$(k+1)+(2k+1)r^*\le2(k+1)\le at^3/2$ once $\log D\le c\Lc^4$ with $c$ small.  Lemma~\ref{lem:barrier}
+gives $\E B\le0$.
+\end{proof}
+
+Compared with Theorem~\ref{thm:ceiling}, the factor $1/\log\Lc$ disappears,
+and the inputs (Gallagher's theorem, Landau--Page, the fundamental lemma)
+are replaced by those of \cite{TQ} (with an ineffective $T_0$).  In
+Corollary~\ref{cor:ceiling} one may therefore replace $\Lc^4/\log\Lc$ by $\Lc^4$, and
+Theorem~\ref{thm:main} is optimal among the arguments described there up to
+a factor $(\log\log p)^{1/4}$ in $\log W(p)$.
+
+\begin{remark}[One sieve limit behind two ceilings; proved parts and Assessment]\label{rem:unified}
+The atoms of \cite{TQ} form a system with one big prime per event, big
+cost $\asymp\Lc$ and conditional mass $P\asymp\Lc^3$ uniformly in the small
+coordinates.  For such a system, order-$k$ certificates are trivial below
+$k\asymp P$ on \emph{both} sides (proved, no novelty claimed): a minorant of
+$\mathbf 1[\text{no event}]$ depending on at most $k\le0.6P-1$ big coordinates has
+conditional mean $\le0$ (Lemma~\ref{lem:planting}); a majorant of order $k$ saves
+at most $k\log(C(P+4k)/k)+O(k+\log k)$ in $\log(1/\E)$ (the binomial extrapolation of
+\cite[Lemma~8.3]{SL}, whose core is \cite{PYY,BGP}); and the Bonferroni truncations
+$Q_k(H)$ of order $k\ge e^2P$ achieve both (as minorant for odd $k$, as majorant
+for even $k$).  So the critical level is $\asymp\Lc\cdot\Lc^3=\Lc^4$.  A budget
+$\lambda\asymp\log N$ (rounding to integers) then exploits $\Lc\asymp\lambda^{1/4}$ and saves
+$\asymp\lambda^{3/4}$: this is the exceptional-set exponent $3/4$ of \cite{TQ}, which is
+sharp for coefficient-sum congruence majorants \cite[Thm.~10.14]{SL}.  A
+budget $\lambda\asymp\log x$ (transfer to primes $\le x$) exploits $\Lc\lesssim\lambda^{1/4}$:
+the exponent $1/4$ of Theorem~\ref{thm:main}, sharp in the sense of
+Proposition~\ref{prop:ceiling4}.  Within the stated scopes of these two
+ceilings this is a conjunction of proved statements; as a description of
+``the'' mechanism it is an Assessment.  The full avoidance indicator is not
+a one-big-prime system: on the minorant side the subfamily is used only
+for the obstruction (as $F\le\mathbf 1[\text{no event of }\mathcal F]$), while the positive
+minorant of Theorem~\ref{thm:assembly} is built differently.
+\end{remark}
+
+\section{Beyond bounded level: a Wiener-norm barrier for linear certificates}\label{sec:wiener}
+
+Theorem~\ref{thm:ceiling} concerns minorants of bounded level.  Here we show
+that the planted law behind it is exponentially pseudorandom against
+residue classes and characters of \emph{every} modulus, and deduce that a
+large class of linear certificates, whatever the prime input, cannot
+beat the exponent $1/4$.  The results are from the working note \cite{O15}
+(internally reviewed); we give the two short key proofs and state the rest
+with pointers.
+
+\emph{Setting.}  Fix $Q$ with $\log Q\le T^{0.05}$, a unit $r$, the fibre
+$H=\{n\equiv r\ (Q)\}$ with Haar probability $\PP=\PP_H$, and $F=\mathbf 1[W>T]$.  In this
+section the big coordinate $X_\ell$ ($\ell>T^{0.6}$ prime, $\ell\nmid Q$) is the whole
+$\ell$-adic component of $n$ (modulo a power of $\ell$ large enough for all
+functions considered); the events of $\mathcal F^*$ read it only modulo $\ell$, so the
+quantities $p_\ell(x)$ and the bound $R(x)\ge\mu^*$ of the proof of
+Theorem~\ref{thm:ceiling} are unchanged, with $p^*\le T^{-1/2}$.  Put $k+1=\lfloor\mu^*/2\rfloor$;
+then $R(x)\ge(k+1)+(2k+1)r^*$ for every small configuration $x$.  Let $\nu$ be the
+planted law of the proof of Lemma~\ref{lem:barrier} for $\mathcal F^*$ and this $k$,
+and $\rho=\nu-\PP$.  Then $F=0$ $\nu$-almost surely.
+
+A \emph{reduced product} is a function $h=h_s(x_s)\prod_{b\in I}h_b(X_b)$, $I$ a finite
+set of big coordinates, with $|h_s|,|h_b|\le1$ and $|\E h_b|\le1/4$ for $b\in I$.
+Restricted to $H$, the indicator of a residue class, a Dirichlet character
+and an additive character $n\mapsto e(an/q)$ of any modulus are reduced products
+(up to a unimodular constant): the local factor at a big $b\mid q$ is a class
+indicator of mean $\le1/(b-1)$, a non-trivial character of mean $0$, or a
+non-trivial additive character of mean $c_{b^v}(a')/\varphi(b^v)$, of modulus
+$\le1/(b-1)$; trivial factors are dropped from $I$.
+
+\begin{lemma}[Pseudorandomness of the planted law; proved]\label{lem:pseudo}
+For every reduced product $h$, $|\E_\rho h|\le(4r^*)^{k+1}$, and $\E_\rho h=0$ if $|I|\le k$.
+\end{lemma}
+
+\begin{proof}
+Fix $x_s$ and use the notation of Lemma~\ref{lem:planting} for the bits
+$\mathbf 1[X_b\in\Omega_b(x_s)]$.  Given the bits the big coordinates are independent;
+put $\beta_b=\E[h_b\mid X_b\in\Omega_b]$ and $\gamma_b=\E[h_b\mid X_b\notin\Omega_b]$ ($\beta_b=\gamma_b=1$ for
+$b\notin I$).  The conditional perturbation is $P_0\sum_{|J|=k+1}w_J\sigma_J$, and
+\begin{align*}
+ \E_{\sigma_J}\Big[\prod_{b\in I}h_b\Big]&=\sum_{y\subseteq J}(-1)^{|y|+1}\prod_{b\in y}\beta_b\prod_{b\in J\setminus y}\gamma_b\prod_{b\in I\setminus J}\gamma_b\\
+ &=-\prod_{b\in J}(\gamma_b-\beta_b)\prod_{b\in I\setminus J}\gamma_b .
+\end{align*}
+For $b\in J\setminus I$ the factor $\gamma_b-\beta_b$ vanishes, so only $J\subseteq I$
+contribute; none if $|I|\le k$.  Now $|\gamma_b-\beta_b|\le2$, and
+$\E h_b=(1-p_b)\gamma_b+p_b\beta_b$ gives $|\gamma_b|\le(1/4+p_b)/(1-p_b)<1/2$.  Next
+$w_J\le r^{*\,k+1}/e_{k+1}(r)$, and $e_{k+1}(r)\ge1$: the chain in the proof of
+Lemma~\ref{lem:planting} with $s=r$ gives $a\,e_a(r)\ge(k+1)e_{a-1}(r)$ for $a\le k+1$.  With
+$m=|I|$, $\sum_{J\subseteq I,|J|=k+1}\prod_{b\in I\setminus J}|\gamma_b|\le\binom m{k+1}2^{-(m-k-1)}\le2^{k+1}$.  As
+$P_0\le1$ and $|h_s|\le1$, the conditional bound is $r^{*\,k+1}2^{k+1}2^{k+1}$; average over
+$x_s$.
+\end{proof}
+
+\begin{theorem}[Wiener-norm barrier; proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:wiener}
+There are absolute $c,T_0>0$ such that for $T\ge T_0$, every $Q$ with
+$\log Q\le T^{0.05}$ and every unit $r$: if $B\le F$ on $H$ and $B=\sum_ic_ih_i$ is
+any finite combination of reduced products, then
+\[
+ \E_HB\ \le\ \eta\sum_i|c_i|,\qquad \eta=\exp\big(-c\Lc^4/\log\Lc\big).
+\]
+Only the $h_i$ involving at least $k+1\asymp\Lc^3/\log\Lc$ big primes, hence of modulus
+$>T^{0.6(k+1)}$, contribute.
+\end{theorem}
+
+\begin{proof}
+$\E_HB=\E_\nu B-\E_\rho B\le\E_\nu F-\E_\rho B=-\E_\rho B\le\sum_i|c_i|(4r^*)^{k+1}$ by
+Lemma~\ref{lem:pseudo}, and $(4r^*)^{k+1}\le(8T^{-1/2})^{\mu^*/2-1}\le\exp(-c\Lc\mu^*)$.
+\end{proof}
+
+In particular $\|F\|_\times\ge\E_HF/\eta$ for the $\ell^1$ norm $\|\cdot\|_\times$ over such
+representations: the avoidance indicator costs $e^{c\Lc^4/\log\Lc}$ times its
+mean.  Theorem~\ref{thm:ceiling} is the case $|I|\le k$.  (With the atoms of
+\S\ref{sec:atoms34} in place of $\mathcal F^*$, the same argument gives
+$\eta=e^{-c\Lc^4}$ modulo \cite{TQ}; we do not use this.)
+
+\emph{Linear certificates} \cite[Def.~2.1]{O15}.  Let $\mathfrak h$ be a family of
+reduced products on $H$ with moduli in a finite set, $N_x$ the number of
+primes $p\le x$ in $H$ coprime to these moduli, and $m_x$ their counting
+measure.  A nonnegative measure $m$ on $H$ of mass $N_x$ is
+\emph{$\mathfrak h$-consistent at accuracy $\mathfrak E$} if $|\int h\,dm-N_x\E_Hh|\le\mathfrak E$ for all $h\in\mathfrak h$.  A
+\emph{linear certificate} concludes ``$\int F\,dm_x>0$'' from the facts that $m_x$ is
+nonnegative of mass $N_x$ and $\mathfrak h$-consistent at accuracy $\mathfrak E$, and from
+nothing else (in particular not from its atomicity, integrality or
+support); it is valid iff every consistent $m$ has $\int F\,dm>0$.  Every
+minorant transfer is one: from $B=\sum c_ih_i\le F$ it concludes
+$\sum_pF(p)\ge N_x\E_HB-\mathfrak E\sum|c_i|$.  By Lemma~\ref{lem:pseudo} the diffuse measure
+$N_x\nu$ is consistent at every accuracy $\mathfrak E\ge N_x(4r^*)^{k+1}$, for every family
+$\mathfrak h$, and has $\int F\,d(N_x\nu)=0$; so valid linear certificates need
+$\mathfrak E<N_x\eta$ \cite[Thm.~2.2]{O15}.  On the other hand, for a modulus $q>x$ no
+bound that is uniform over a translation orbit can be small: if $\mathfrak h$
+contains all classes in the fibre modulo $q$, then $\mathfrak E\ge1/2$; if it contains all
+Dirichlet characters (or all additive characters) modulo $q$, then
+$\mathfrak E^2\ge N_x/2$ (\cite[Lemma~2.3]{O15}, by orthogonality, as soon as $N_x$ is at most half
+the number of units of the fibre modulo $q$).
+
+\begin{corollary}[Full-orbit uniform linear certificates are capped at $1/4$; proved implication, same inputs]\label{cor:orbit}
+Let a linear certificate use a family $\mathfrak h$ of residue classes, Dirichlet
+characters or additive characters which contains, with each member of
+modulus $>x$, its whole translation orbit, with one error bound per orbit.
+If it certifies a prime $p\le x$ in $H$ with $W(p)>T$, then
+$\log x\gg\Lc^4/\log\Lc$.  Hence no such certificate, whatever true prime input
+it uses (Bombieri--Vinogradov, Elliott--Halberstam, GRH for the characters
+it uses, Siegel-zero main terms as below), gives $W(p)\ge\exp((\log p)^{1/4+\delta})$.
+\end{corollary}
+
+The proof \cite[Cor.~2.4]{O15} splits $B$ into members with at most $k$ big
+primes, on which $\E_\rho=0$, and deep members, whose moduli exceed $x^2$ if
+$\log x\le c\Lc^4/\log\Lc$; each deep orbit costs at least $1/2$ (classes) or
+$\sqrt{N_x/2}$ (characters), while by Theorem~\ref{thm:wiener} it contributes at most
+$\eta$ per unit of coefficient to the mean, so positivity needs $N_x\eta>1/2$.
+One-sided accounting (dropping deep classes with positive coefficients)
+and Hölder-averaged accounting over an orbit do not help
+\cite[Cor.~2.4 and Prop.~2.5]{O15}.  \emph{Siegel zeros} \cite[Thm.~3.1]{O15}: for
+any real character $\chi_1$ and $\epsilon\in[0,1]$, the reweighted fake $(1-\epsilon\chi_1)\nu$
+is nonnegative, has $F=0$ almost surely, and agrees with the Siegel-model
+law $(1-\epsilon\chi_1)\PP$ to within $2(4r^*)^{k+1}$ on every class, Dirichlet character
+and additive character.  Let $s$ be the number of big primes dividing the
+conductor of $\chi_1$.  The total masses differ by $\epsilon|\E_\rho\chi_1|\le(4r^*)^{k+1}$, and
+agree exactly when $s\le k$, the relevant case; otherwise the certificate
+framework must let the total mass vary within the accuracy.  If $B$ has
+level $\le T^{0.6(k-s)}$, then $\E_{(1-\epsilon\chi_1)\PP}B\le0$ exactly.
+So an exceptional term in the prime law does not rescue a minorant
+transfer of this kind.
+
+\begin{proposition}[Equidistribution hypotheses cap at $1/4$; proved implication, same inputs]\label{prop:EH}
+Let $N$ be the number of primes $p\le x$ in $H$, and for a modulus $q$ let $N_{x,q}$
+be the number of those coprime to $q$.  Let $\mathcal I$ be any set of statements
+$|\sum_{p\le x,\,p\in H,\,p\nmid q}h(p)-N_{x,q}\E_Hh|\le\mathfrak E_h$ for residue classes, Dirichlet
+characters or additive characters $h$ of moduli $q\le x$, individually with
+$\mathfrak E_h\ge2\log x$, or summed over a set of moduli with an allowance at least
+$2\log x$ times the number of terms (for example Bombieri--Vinogradov, the
+Elliott--Halberstam conjecture at any level $\theta<1$, GRH restricted to
+moduli $\le x$).  A linear certificate (with $N$ as the total mass) that uses
+$\mathcal I$ and produces a prime $p\le x$ in $H$ with $W(p)>T$ needs
+$\log x\ge c\Lc^4/\log\Lc$.
+\end{proposition}
+
+\begin{proof}
+Let $\log x<0.6\Lc(k+1)$.  A modulus $q\le x$ has at most $k$ big prime
+factors, so every $h$ occurring in $\mathcal I$ involves at most $k$ big coordinates on
+$H$, and $\E_\nu h=\E_Hh$ (Lemma~\ref{lem:pseudo}).  The measure $m=N\nu$ on $H$ is
+nonnegative of mass $N$ and gives $h$ the value $N\E_Hh$, which differs from the
+centring $N_{x,q}\E_Hh$ by at most $N-N_{x,q}\le\omega(q)\le2\log x$, as $|h|\le1$.  Summing
+gives the averaged statements.  Thus $m$ satisfies $\mathcal I$, while $\int F\,dm=0$.
+\end{proof}
+
+For Bombieri--Vinogradov or Elliott--Halberstam at level $\theta<1$ the extra
+allowance $2x^\theta\log x$ is far below the usual $x(\log x)^{-A}$.
+Raising the level of distribution only changes $c$: beyond level $x$ the
+primes are not equidistributed in the orbit-uniform sense above.  Full
+GRH is \emph{not} covered by Proposition~\ref{prop:EH}: it also asserts
+$|\sum_{p\le x}\chi(p)|\ll\sqrt x\log^2(qx)$ for moduli $q>x$, and whether the planted
+measure satisfies these bounds is open; Corollary~\ref{cor:orbit} covers
+such characters only when they are used orbit-uniformly.
+
+\emph{Scope} \cite[\S6]{O15}.  Not covered: certificates that use the
+atomicity, integrality or support of the prime measure (for instance that
+classes modulo $q>x$ whose least positive member exceeds $x$ are empty, i.e.
+minorants valid only on $[1,x]$ or only on primes; single moduli
+$\le x^{1/5}/(QT)$ are excluded in \cite[Prop.~5.2]{O15}); non-periodic families inside
+the avoiding set; non-linear arguments (pair correlations, density
+increments); and whether Type~II information can help.  On the integer
+side, the Type~I sums produced by Vaughan- or Heath-Brown-type identities
+are blocked only under full-orbit uniform accounting
+\cite[Prop.~4.1]{O15}, which is not the natural accounting for integers.  Our
+reading (Assessment) is that $1/4$ is a sieve-\emph{dimension} barrier
+(dimension $\kappa\asymp\Lc^3/\log\Lc$, sifting limit $\beta_\kappa\asymp\kappa$, $\log z\asymp\Lc$), not a
+parity barrier.
+
+\section{The exponent \texorpdfstring{$1/3$}{1/3} under a Linnik-type hypothesis for sifted sets}\label{sec:LS}
+
+By \S\ref{sec:wiener}, the heuristic exponent $1/3$ (Remark~\ref{rem:third}) is out
+of reach of linear certificates with standard prime input.  Here we
+identify a natural hypothesis that gives it.  The material is from
+\cite{O16} (internally reviewed).
+
+A \emph{unit-class sieve system} with moduli $\le T$ is a finite family $\mathcal E$ of
+events $\{n\equiv a_E\pmod{m_E}\}$ with $2\le m_E\le T$ and $(a_E,m_E)=1$; no condition is
+imposed on their number, overlaps or dimension.  Its \emph{avoiding set} is
+$S(\mathcal E)=\{n\in\hat{\mathbb Z}^\times:\ n\not\equiv a_E\ (m_E)\ \forall E\}$, and $\delta(\mathcal E)$ is its Haar
+measure (the proportion of units modulo $\lcm(m_E)$ in no event).
+
+\smallskip\noindent\textbf{Hypothesis LS($C$)} (Linnik's theorem for sifted
+sets; a conjecture).  For every $T\ge3$ and every unit-class sieve system $\mathcal E$
+with moduli $\le T$ and $\delta(\mathcal E)>0$ there is a prime $p>T$ avoiding $\mathcal E$ with
+\[
+ \log p\ \le\ C\big(\log T+\log(1/\delta(\mathcal E))\big).
+\]
+
+For a single residue class (all other classes modulo $q$ removed, $T=q$,
+$\delta=1/\varphi(q)$) this is Linnik's theorem.  LS is the log-scale form, not the
+Cram\'er form, of the model in which a sifted set behaves like a residue
+class of the same density, for the purpose of containing one prime.  The
+term $C\log T$ cannot be dropped: shifted Jacobsthal configurations (one
+class modulo each prime $\le z$) have $\delta\asymp1/\log z$ and least avoiding
+integers of size $z^{1+o(1)}$.  The restriction to moduli $\le T$ matters: for an
+arbitrary set of density $\delta$ modulo $Q$ no bound $p\ll\delta^{-1}(\log Q)^{O(1)}$ holds
+(take the units in $(Q(1-\delta),Q)$).
+
+\begin{theorem}[LS implies exponent $1/3$; proved modulo Theorem~\ref{thm:NT}, conditional on LS($C$)]\label{thm:LS}
+Assume LS($C$).  For every large $T$ there is a hard prime $p>T$ with
+$W(p)>T$ and $\log p\ll_C\Lc^3(\log\Lc)^5$.  Consequently, for infinitely many hard
+primes,
+\[
+ W(p)\ \ge\ \exp\big(c_C(\log p)^{1/3}(\log\log p)^{-5/3}\big).
+\]
+LS($C$) is used only for one system $\mathcal E_T$ for each $T$.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal E_T$ consist of the events $n\equiv-4D\pmod M$ for all atoms $(M,D)$ with
+$M\le T$ (unit classes, as $\gcd(4D,M)=1$), and the events $n\equiv c\pmod{840}$ for
+the unit classes $c$ that are not squares modulo $840$.  Its moduli are
+$\le T$.  Let $(Q,r)$ be the quarantine of Theorem~\ref{thm:haarupper}.  By
+Lemma~\ref{lem:system}(i) the units $n\equiv r\pmod Q$ with $F(n)=1$ have $W(n)>T$,
+so by Lemma~\ref{lem:atoms} they avoid every atom; as $840\mid Q$ and $r$ is a
+square modulo $840$ (Lemma~\ref{lem:system}(iii)), they lie in $S(\mathcal E_T)$.  The
+class $r\bmod Q$ has Haar measure $1/\varphi(Q)$ and within it $\E F=\delta\ge e^{-4S_\beta/3}$, so
+by \eqref{eq:goodQ}
+\[
+ \log\frac1{\delta(\mathcal E_T)}\ \le\ \log\varphi(Q)+\tfrac43S_\beta\ \ll\ \Lc^3(\log\Lc)^5 .
+\]
+LS($C$) gives a prime $p>T$ avoiding $\mathcal E_T$ with $\log p\ll_C\Lc^3(\log\Lc)^5$.  It
+is a square modulo $840$, hence hard, and avoids every atom with $M\le T$, so
+$W(p)>T$ by Lemma~\ref{lem:atoms}.  As $p>T$, letting $T\to\infty$ gives infinitely
+many primes, and $\Lc\gg(\log p)^{1/3}(\log\log p)^{-5/3}$.
+\end{proof}
+
+More generally, LS with $C(\cdot)$ replaced by an increasing function
+$\Phi(\log T+\log(1/\delta))$ gives $\log p\le\Phi(C_0\Lc^3(\log\Lc)^5)$; for instance $\Phi(\lambda)=\lambda^\theta$
+gives the exponent $1/(3\theta)$.  LS is used far below the sieve limit: the
+system has dimension $\kappa\asymp\Lc^3/\log\Lc$ on the big primes, LS asks for
+$\log x\asymp\log(1/\delta)\asymp\kappa\log\Lc$ (up to logarithms), while a lower-bound sieve needs
+$\log x\gg\kappa\log T$.  This ratio $\log T$ versus $\log\log T$ per unit of dimension is
+the gap between $1/4$ and $1/3$.  By Proposition~\ref{prop:EH} and
+Corollary~\ref{cor:orbit}, LS cannot be derived through linear certificates
+from equidistribution hypotheses; it is a beyond-the-barrier hypothesis.
+The planted measures of \S\ref{sec:wiener} do not refute it: they are
+reweightings of Haar measure onto the complement of the avoiding set, not
+sequences of primes.
+
+\emph{Other strengths} \cite[\S\S2,5]{O16}.  (i) A Cram\'er form
+($\log p\le\log(1/\delta)+A\log T$) implies LS($\max(1,A)$); a log-scale counting form
+$\#\{T<p\le x:\ p\in S(\mathcal E)\}\ge c_0\delta^C\pi(x)$ for $\log x\ge C(\log T+\log(1/\delta))$ implies
+LS($C+1$).  (ii) Main-term forms are too strong: in the integer analogue
+(events $n\equiv0\pmod\ell$, $\ell\le z$, at $x=z^u$) the count is $(e^\gamma\omega(u)+o(1))\delta x$ with
+Buchstab's function $\omega$, not $\sim\delta x$ (proved, classical); for primes a
+uniform $\kappa$-tuple heuristic predicts a compounding deficit $(e^\gamma\omega(u))^\kappa$
+(Assessment).  (iii) LS holds, by the Brun--Titchmarsh inequality, for
+systems of total event mass at most $(1-\varepsilon)/2$ (proved); the ES system is
+very far from this case.
+
+\emph{Hypotheses for product sets do not suffice.}  A \emph{product system} has
+only prime-power moduli, so that $S(\mathcal E)=\prod_\ell A_\ell$ is a CRT product with
+$\delta=\prod_\ell|A_\ell|/\varphi(\ell^{e_\ell})$, a singular series.  Let HL$_{\rm prod}$($C$) be LS($C$)
+restricted to product systems; it has the shape of a Hardy--Littlewood or
+Bateman--Horn statement, but is a least-prime hypothesis for growing
+systems, not a standard fixed-polynomial statement.  Let
+$F_T=\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$.
+
+\begin{proposition}[Product subsets of the avoiding set are thin {\cite[Prop.~4.1, Cor.~4.2]{O16}}]\label{prop:product}
+(a) (Proved.) There are product sets $S\subseteq F_T$, inside the hard classes,
+with $\log(1/\delta(S))\le T^{1/2+o(1)}$.  (b) (Proved modulo the
+Barban--Davenport--Halberstam theorem \cite[Ch.~29]{Dav}; ineffective.)  Every
+product set $S\subseteq F_T$ has $\log(1/\delta(S))\gg T^{1/2}(\log T)^{-8}$.  Consequently
+HL$_{\rm prod}$($C$) implies $W(p)\ge(\log p)^{2-o(1)}$ for infinitely many hard $p$, and
+no application of HL$_{\rm prod}$ to a product subset of $F_T$ certifies more
+than $W(p)\ge(\log p)^{2+o(1)}$.
+\end{proposition}
+
+\begin{proof}[Proof of (a)]
+Fix $\varepsilon>0$ and $y=T^{1/2+\varepsilon}$.  Take $A_2=\{1\bmod8\}$ and, for odd $\ell\le y$, the
+quadratic residues (lifted to $\ell^{e_\ell}$).  An atom $(M,D)$ all of whose primes are
+$\le y$ is avoided: $(n/M)=1$ for $n\in S$ while $(-4D/M)=-1$
+(Lemma~\ref{lem:jacobi}).  Every other atom has exactly one prime $\ell>y$, to the first
+power; let $B_\ell$ be the set of its classes $-4D\bmod\ell$ and $A_\ell=(\mathbb Z/\ell)^\times\setminus B_\ell$
+for $y<\ell\le T$.  Then $S$ avoids all atoms, and
+$|B_\ell|\le\sum_{v\le T/\ell}\tau(A_{v\ell}^2)\le T^{1/2-\varepsilon+o(1)}\le\ell/2$, so
+$\log(1/\delta(S))\le\pi(y)\log2+O(1)+\sum_{\ell>y}2|B_\ell|/(\ell-1)\le T^{1/2+\varepsilon+o(1)}$.
+\end{proof}
+
+Part (b) \cite[Prop.~4.1(b)]{O16} uses only the atoms $(\ell_1\ell_2,q)$ with
+primes $\ell_1\equiv1$, $\ell_2\equiv3\pmod4$ in $(\sqrt T/2,\sqrt T]$ and a prime
+$q\mid(\ell_1\ell_2+1)/4$: since $S$ is a product, each such atom must be blocked
+at $\ell_1$ or at $\ell_2$, which forces $\gg T^{1/2}(\log T)^{-2}$ blocked classes per
+prime on average once the primes $\ell$ are equidistributed modulo $4q$ on
+average over $q\le\sqrt T(\log T)^{-6}$.  So the ES avoiding set, of density
+$e^{-\Lc^{3+o(1)}}$, exceeds its best product subset by a factor $e^{T^{1/2+o(1)}}$:
+hypotheses that see only prime-by-prime local structure are useless here,
+and the hypothesis must apply to non-product sifted sets, as LS does.
 
 \section{Summary of status}\label{sec:status}
 
@@ -2183,7 +2761,8 @@ part~(A) of Lemma~\ref{lem:masses} and the Haar upper bound
 Theorem~\ref{thm:haarupper}.
 \item Proved modulo the fundamental lemma of sieve theory: Lemma~\ref{lem:hmass}
 and the Haar lower bound Theorem~\ref{thm:haarlower}.  With the previous
-item: Theorem~\ref{thm:haar} (the Haar exponent is $3$).
+item: Theorem~\ref{thm:haar} with $(\log T)^3/\log\log T$ in the lower bound (the
+Haar exponent is $3$); the lossless lower bound needs \cite{TQ} (below).
 \item Proved modulo Gallagher's theorem (Theorems~\ref{thm:G}
 and~\ref{thm:xz}, quoted from the draft \cite{MV3}): the linear transfer
 Theorem~\ref{thm:transfer} and Lemma~\ref{lem:cuprimes}.
@@ -2193,14 +2772,38 @@ Theorem~\ref{thm:assembly} and Theorem~\ref{thm:main}.
 Theorem~\ref{thm:ceiling} (= Theorem~\ref{thm:ceilingintro}).  Proved
 implications: Corollary~\ref{cor:ceiling} (within its stated scope) and
 Corollary~\ref{cor:notail} (which also uses Theorem~\ref{thm:NT}).
+\item Proved modulo \cite{TQ} (internally proved, not externally refereed):
+Proposition~\ref{prop:haarnoloss} (Haar lower bound $\gg\Lc^3$; with
+Theorem~\ref{thm:haarupper} it gives Theorem~\ref{thm:haar} in the stated
+form) and Proposition~\ref{prop:ceiling4} (ceiling at level $c\Lc^4$).  Proved
+modulo \cite{TQ} and Page's theorem \eqref{eq:page}: Theorem~\ref{thm:typical}
+(= Theorem~\ref{thm:typicalintro}).  Remark~\ref{rem:unified}: a conjunction of
+proved statements within their scopes, Assessment as a description of the
+mechanism.
+\item Proved: Lemma~\ref{lem:pseudo}.  Proved modulo Gallagher's theorem and
+the fundamental lemma: Theorem~\ref{thm:wiener}.  Proved implications, same
+inputs: Corollary~\ref{cor:orbit} (with the results of \cite{O15} quoted
+after it) and Proposition~\ref{prop:EH}, within the scope stated at the end
+of \S\ref{sec:wiener} (linear certificates; full GRH, support-aware,
+non-periodic and non-linear arguments are not covered).
+\item Conditional on Hypothesis LS, proved modulo Theorem~\ref{thm:NT}:
+Theorem~\ref{thm:LS} (= Theorem~\ref{thm:LSintro}).  Hypothesis LS itself is a
+conjecture.  Proposition~\ref{prop:product}: part (a) is proved; part (b) is
+proved in \cite{O16} modulo the theorem of Barban, Davenport and
+Halberstam.  In the remarks on other strengths of LS after
+Theorem~\ref{thm:LS}, the integer Buchstab statement is classical and the
+compounding for primes is an Assessment.
 \item Evidence, not used: the computer check of Lemma~\ref{lem:jacobi} for
 $M\le2\cdot10^5$; the exact check of Theorem~\ref{thm:janson} on small
 instances; the Monte Carlo fit of $\delta^*(T)$ for $T\le32767$.
 \item Assessment: Remarks~\ref{rem:linear}, \ref{rem:exponent}
-and~\ref{rem:third}.
+and~\ref{rem:third}; the heuristic two-sided typical size after
+Theorem~\ref{thm:typical}; the reading of $1/4$ as a sieve-dimension barrier
+(\S\ref{sec:wiener}).
 \item Not claimed: anything about the Erd\H{o}s--Straus conjecture; the
-heuristic exponent $1/3$; anything about arguments outside the scope of
-Corollary~\ref{cor:ceiling}; any numerical instance; priority for
+exponent $1/3$ unconditionally, or the truth of Hypothesis LS; anything about
+arguments outside the scopes of Corollaries~\ref{cor:ceiling} and~\ref{cor:orbit}
+and Proposition~\ref{prop:EH}; any numerical instance; priority for
 Theorem~\ref{thm:C1} or Theorem~\ref{thm:janson} (literature searches
 partial).
 \item The Elsholtz--Tao estimates, Håstad's switching lemma and the
@@ -2294,6 +2897,12 @@ evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
 functions, Acta Math.\ 180 (1998), 119--144.
 \bibitem{OD} R.~O'Donnell, Analysis of Boolean Functions, Cambridge University
 Press, 2014.
+\bibitem{O15} Anonymous, Beyond low-conductor minorants? A Wiener-norm barrier
+at $\mathcal L^4$, working note (file \texttt{POINTWISE\_OMEGA15.md} of the
+project repository), 2026, internally reviewed.
+\bibitem{O16} Anonymous, Which standard-type hypothesis gives the exponent
+$1/3$?, working note (file \texttt{POINTWISE\_OMEGA16.md} of the project
+repository), 2026, internally reviewed.
 \bibitem{Oblath} R.~Obl\'ath, Sur l'\'equation diophantienne
 $4/n=1/x_1+1/x_2+1/x_3$, Mathesis 59 (1950), 308--316.
 \bibitem{PW} C.~Pomerance and A.~Weingartner, Exceptions to the
@@ -2307,8 +2916,15 @@ Comput.\ Theory 1 (2009), no.~1, Art.~3.
 functions of prime numbers, Illinois J.\ Math.\ 6 (1962), 64--94.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{SL} Anonymous, Sieve limits for the Erd\H{o}s--Straus exceptional set:
+why $3/4$ is sharp for congruence sieves, research note, version~4, 2026
+(internally reviewed, not externally refereed).
 \bibitem{Tao254A} T.~Tao, 254A, Notes 4: Some sieve theory, blog post,
 21 January 2015.
+\bibitem{TQ} Anonymous, A three-quarter exceptional-set bound for the
+Erd\H{o}s--Straus equation: an internally proved research note, 2026
+(internally proved, not externally refereed); numbering as in the version of
+5 October 2026.
 \bibitem{TZ} J.~Thorner and A.~Zaman, Refinements to the prime number theorem
 for arithmetic progressions, Math.\ Z.\ 306 (2024), Paper No.~54
 (arXiv:2108.10878v2).
