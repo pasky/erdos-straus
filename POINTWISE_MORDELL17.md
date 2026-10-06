@@ -151,8 +151,9 @@ only computed empty (k=2,4,6; reproduced by R83). That is harmless, since `B_k` 
 | 7 (Q,U only) | 240 | 94 | 0.322797 |
 
 So the boxes of level ≤5 leave **67.72%** of each cell uncovered (CERTIFIED; level 6 has only P-boxes
-from K=11, not computed), and the measure
-added per level falls by roughly a factor 17–20 per level (EVIDENCE). The points `u=5`, `u=7`
+from K=11, not computed). The measure added per level (fraction of the cell) is 0.235294, 0.079585,
+0.006920, 0.000994 at levels 2–5, i.e. successive ratios ≈ 3.0, 11.5, 7.0 (EVIDENCE of decay, from
+three increments only; R83 repair m6: previously misstated as "a factor 17–20 per level"). The points `u=5`, `u=7`
 (the `x̃` of POINTWISE_MORDELL Comp. 5.1) lie in no box of level ≤5, nor in any Q/U box of level 7.
 
 ## 4. The tail: reduction to explicit counts, and where it breaks
@@ -181,8 +182,8 @@ contains infinitely many primes (Dirichlet), each `≡ 1 (24)`, a square mod 5, 
 non-square mod 17 (`x_17 ≡ 5`). ∎
 
 **Conjecture 4.3.** `C_5` (equivalently `C_7`, by inversion) contains a sterile point. EVIDENCE:
-67.72% of each cell lies in no box of level ≤5 (Comp. 3.1), and the measure added per level decays
-geometrically. By Theorem 4.1 (a PROVED reduction) and Corollary 4.2, the conjecture follows from an
+67.72% of each cell lies in no box of level ≤5 (Comp. 3.1), and the increments per level shrink
+(ratios ≈ 3.0, 11.5, 7.0 at levels 3–5; level-7 Q/U boxes add only 4·10⁻⁶). By Theorem 4.1 (a PROVED reduction) and Corollary 4.2, the conjecture follows from an
 explicit tail bound (§6). It would imply that no finite set of polynomial ES identities covers the
 Mordell-hard primes with `n_p=17`.
 
@@ -210,7 +211,7 @@ Mordell-hard primes with `n_p=17`.
   that `D_Q+D_U ≤ 17^{k/2}` for `k≥8` and `D_P(K) ≤ 17^{K/4}` for `K≥11`: then the tail is `< 0.01`).
 
 **Assessment.** A sterile point in `C_5` is extremely likely (67.7% of the cell survives all
-boxes of level ≤ 5 and the measure added per level decays geometrically in the data), but a
+boxes of level ≤ 5 and the per-level increments shrink, ratios ≈ 3, 11.5, 7 — three data points), but a
 proof needs an explicit bound on the number of ES solutions of `4/17^K` of exactly the strength
 that is open in general. Theorem 4.1 is the precise reduction.
 
