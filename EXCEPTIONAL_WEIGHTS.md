@@ -230,8 +230,8 @@ Thm 2.3 uses only `s_ℓ ≥ s_*`. For the consequence: `R_w(ν) ≤ N e^{−s} 
 take `λ = 2 log(4N) + log(512/(9c₀)) + B₁`, so `ε^w ≤ e^{−Φ̄}/4` once
 `Φ̄(λ) = o(log N)`, and conclude as in NC Cor 2.4. For Φ̄: on good primes
 `e^{−αs_ℓ} ≤ 2^α ℓ^{−α(1−3γ)}`, so `Σ p_ℓ e^{−αs_ℓ} ≤ 2C_M(α(1−3γ))^{−3} + O_{B₁}(1)`;
-and `s_ℓ ≤ λ` forces `ℓ ≤ (2e^{λ+s_*})^{1/(1−3γ)}` (good) so the truncated mass is
-`≤ e·C_M((1−3γ)/(λ+1))^{−3}·... ≪ λ³` (take β = 1/λ in (M)). With α = λ^{−1/4}
+and `s_ℓ ≤ λ` forces `ℓ ≤ (2e^{λ+s_*})^{1/(1−3γ)}` (good) =: X, so the truncated mass is
+`Σ_{ℓ≤X} p_ℓ ≤ e·Σ_ℓ p_ℓ ℓ^{−1/log X} ≤ e·C_M (log X)³ + O_{B₁}(1) ≪ λ³` (β = 1/log X in (M)). With α = λ^{−1/4}
 this is NC Cor 2.5's computation: `Φ̄ ≤ Cλ^{3/4} + O(log²λ)`. ∎
 
 *What this closes.* In NC §2.5's list: the exact sharp weight `|S_N(θ)|` and
