@@ -13,6 +13,8 @@ From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 | Rem 1.4 | SOUND | min is attained (compact polytope), so "valid ⇔ no fake supported on S∖A"; slack `|S_T|/N_x≍log x/𝓛` re-derived (Q's primes >T change it by `1+o(1)` as `Q≤x^δ`). |
 | Lemma 2.1 | SOUND | identity re-derived; ψ≥0 not even needed. LP brute force on {0,1}^n, n≤6: monotone fake infeasible 100/100, non-monotone feasible 87/100. "Harris" is a misnomer-ish attribution (it is a one-line Efron–Stein/Russo identity), harmless. |
 | Prop 3.1 (i)–(iii) | SOUND | Charlier normalisation matches `₂F₀(−n,−j;;−1/R)`; (ii) checked exactly (`E[ψ_n(N)_m]=R^m`, m<n≤7, three R); (iii) uses `Σ_{|Y|=r}1[Y on]=(N)_r/r!`. |
+| Construction 3.2 | label correct (Assessment) | Haar-weighted ℓ¹ norm `2^n` re-derived (`Σ_JΣ_{Y⊆J}∏_Jp=2^ne_n(p)`); Poisson limit of `1−e_n(z−p)/e_n(−p)` is `1−C_n(N;R)` (checked by hand). Stray ∎: D4. |
+| §4 x_s-centred ψ′, Assessment 4.2 | labels correct (heuristic) | `ψ′=e_n(p)·ψ`, `ψ′(0)=0`, tilt `E[ψ′|x_s]=e_n(p(x_s))` verified. |
 | Lemma 4.1 | SOUND | entire-function argument correct; scope example `j(j−5)²/12` re-checked exactly at R=2,3. |
 | Lemma 5.1 | SOUND | aggregated LP = full LP on 200 random instances (max diff 9e-16). |
 | Prop 3.1 (iv) table | SOUND (EVIDENCE label correct; can be strengthened) | all 15 R_min values reproduced, positivity on **all** integers j≥0 with a rigorous (Fujiwara) root cutoff, `scripts/review_o17_charlier.py`, `data/review_o17/charlier.txt`. |
@@ -84,3 +86,19 @@ size-localised information among what SAP does not cover; (iii) (author, optiona
 a profile item for `m(C∩[1,y])`, `x^{1−δ}≤y≤x` — heuristically harmless (a Haar-like fake can be
 taken size-equidistributed, the fundamental lemma works on `[1,y]`) but that is unproved.
 Wording parts (i),(ii) *applied by reviewer*.
+
+**D3 (MINOR) — Prop 3.1 / §3 LP wording.** (a) "(iv) … `ψ_n≥0` on ℕ iff `R≥R_min(n)`" is
+asserted for real R but only integer R were tested (by author and reviewer); monotonicity in R is
+assumed. (b) "finds least degree `d=k+1` (k even) / `k+2` (k odd) when `R≥2k`" is stated without
+the grid restriction (author's script: R∈{4,8,16,32}, k≤8). As a general statement it is false
+by the author's own table: k=16 needs d=17 with ψ=1−C_17 (see (c)), but `R_min(17)=33>2k=32`
+(reviewer check: `ψ_17(82;32)<0`). (c) Not a defect but worth recording: `d≥k+1` and "at d=k+1 the
+fake is forced to be `1−C_{k+1}`" are elementary (if deg ψ≤k, take q=1−ψ: `E[ψ(1−ψ)]=0`,
+`Eψ=1` ⇒ `Varψ=0` ⇒ ψ≡1, contradicting ψ(0)=0; at d=k+1, `ψ−1⊥` all degree ≤k ⇒ `ψ=1+cC_{k+1}`,
+ψ(0)=0 ⇒ c=−1), so for k odd `d=k+1` fails globally (even degree, negative leading coefficient)
+and the finite-grid caveat only concerns `d≥k+2`. Repair: say "for integer R" in (iv); add "on
+the grid R∈{4,8,16,32}, k≤8" to the LP sentence. *Applied by reviewer* ((c) not inserted: new
+mathematics).
+
+**D4 (MINOR) — Construction 3.2 ends its outline with "∎".** An Assessment-level outline should
+not carry an end-of-proof mark. Repair: drop ∎. *Applied by reviewer.*
