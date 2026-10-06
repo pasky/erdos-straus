@@ -218,3 +218,22 @@ The "Consequently" clause ✓ (with Lemma 1.1, success ≥ 1/2).
   Thm 3.4 and SI ✓, but the §6 table says only "PROVED modulo (H), SI" (D1).
 * Class-one computation re-derived: `mdab = M+1 ≡ 1 (mod s)` (s | M) ⇒ `mD+1 ≡ mda(a+b)` and
   `gcd(mda, s) = 1` ⇒ `s | mD+1 ⟺ s | a+b` ✓. CONJECTURE label honest.
+
+## Repairs applied to POINTWISE_MN2.md (this branch)
+
+D1–D9 applied as marked "applied by reviewer R74" (commits 687a3ae, f004553, 44e7918): labels of
+Lemma 1.1, Thm 3.1, §4 and Prop 5.1 in text and §6 table; "ineffective" → "not explicit";
+§4 item 2 restricted and marked heuristic, with the Markov-threshold note; Lemma 2.1(v) display;
+Thm 3.1 (c),(d) constants; explicit form of SI. No new mathematics added beyond the flagged,
+unverified sketch in the D4 note. `reviews/agent-reports/AGENT_REPORT_O74.md` (author's report)
+was not edited; it still says "ineffective" and "every prefix law" — read it with D2/D3.
+
+## Replay
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 900 uv run python review_mn2_delta.py 5 8 9 11 13 16 17 19)
+(ulimit -v 8000000; timeout 900 uv run python review_mn2_delta.py 7 8 11 13 17 19)
+(ulimit -v 8000000; timeout 900 uv run python review_mn2_delta.py 6 11 13 17 19)
+```
+(< 1 min each; m = 5, q_0 = 19 uses a ~10⁷-entry boolean tensor.)
