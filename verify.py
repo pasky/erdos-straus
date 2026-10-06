@@ -20975,4 +20975,109 @@ print("\n== (du) POINTWISE_MN2: §4 exact hard densities delta_m(Q(q_0)) (m = 5,
 check_du()
 
 
+
+# ---------------------------------------------------------------- (dv)
+# POINTWISE_TAIL.md Lemma 3.1 (leaf calculus of the square-class process; PROVED, elementary): leaves
+# (Q_L, r_L) have pairwise disjoint fibres and P_proc(L) = 4 * 2^{k_L} / phi(Q_L), k_L = #odd primes of
+# Q_L.  Cf. scripts/review_tail_leaves.py (R76; seed 0 here, ~8 s) and review_tail_twist.py (R76,
+# Lemma 3.2 Euler-product twist ratio; EVIDENCE).  Checked:
+# (1) R76 toy (start Q = 8, r = 1; forced a = 0 steps at 3, 5, 7; hash rule over {11 (cap 2), 13}),
+#     seed 0: 543 leaves, max k = 5; lifts are squares, sum P = 1, the formula, disjointness, union;
+# (2) inline independent toy, mod N = 8*3*5^3*7: forced step at 3, then 16 deterministic state-dependent
+#     (sha256-hash) rules over {5 (cap 3), 7 (cap 1)}: exact Fraction leaf probabilities, sum 1, the formula,
+#     disjoint fibres, union = {n = 1 (8) unit, square at every prime stepped on n's own path};
+# (3) R76 twist ratio at T = 10^5, Y = 30, 300 below the stated exp(2b(t-1) log log Y) bound.
+
+def check_dv():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    import hashlib
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("TAIL script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_tail_leaves.py", 1)
+    assert "seed 0 leaves, max k: (543, 5) OK" in o, ("TAIL Lemma 3.1 R76 toy", o)
+    o = run("review_tail_twist.py", "1e5", 30, 300)
+    rows = [ln for ln in o.splitlines() if "ratio(t-twist)=" in ln]
+    assert len(rows) == 2, ("TAIL twist output", o)
+    for ln in rows:
+        ratio = float(ln.split("ratio(t-twist)=")[1].split()[0])
+        bnd = float(ln.split("loglogY)=")[1].split()[0])
+        assert 1 <= ratio <= bnd, ("TAIL Lemma 3.2 twist ratio out of range", ln)
+
+    def phi(n):
+        return n * prod(Fraction(p - 1, p) for p in factorint(n))
+    CAP = {5: 3, 7: 1}
+    N = 8 * 3 * 5 ** 3 * 7
+    sqs = {l: {x * x % l for x in range(1, l)} for l in (3, 5, 7)}
+
+    def rule(state, seed):
+        elig = sorted(l for l in CAP if state.get(l, (0, 0))[0] < CAP[l])
+        h = int(hashlib.sha256(f"{sorted(state.items())}|{seed}".encode()).hexdigest()[:12], 16)
+        if not elig or h % 5 == 0:
+            return None
+        l = elig[(h // 5) % len(elig)]
+        return l, state.get(l, (0, 0))[0]
+    nleaf = 0
+    for seed in range(16):
+        out = []
+
+        def rec(state, p):
+            nxt = (3, 0) if not state else rule(state, seed)
+            if nxt is None:
+                out.append((dict(state), p))
+                return
+            l, a = nxt
+            if a == 0:
+                ch = [(1, x) for x in sorted(sqs[l])]
+            else:
+                ch = [(a + 1, state[l][1] + j * l ** a) for j in range(l)]
+                assert all(any(y * y % l ** (a + 1) == x for y in range(l ** (a + 1))) for _, x in ch), \
+                    ("TAIL Lemma 3.1: lift not a square", l, a)
+            for st in ch:
+                s2 = dict(state)
+                s2[l] = st
+                rec(s2, p / len(ch))
+        rec({}, Fraction(1))
+        assert sum(p for _, p in out) == 1, ("TAIL Lemma 3.1: leaf probabilities do not sum to 1", seed)
+        cover = [0] * N
+        for st, p in out:
+            Q = 8 * prod(l ** a for l, (a, _) in st.items())
+            assert p == Fraction(4 * 2 ** len(st)) / phi(Q), ("TAIL Lemma 3.1: P_proc(L) formula", seed, st, p)
+            for n in range(1, N, 8):
+                if gcd(n, N) == 1 and all(n % l ** a == r for l, (a, r) in st.items()):
+                    cover[n] += 1
+        for n in range(N):
+            exp_ = 0
+            if n % 8 == 1 and gcd(n, N) == 1:
+                state, exp_ = {}, 1
+                while True:
+                    nxt = (3, 0) if not state else rule(state, seed)
+                    if nxt is None:
+                        break
+                    l, a = nxt
+                    if a == 0 and n % l not in sqs[l]:
+                        exp_ = 0
+                        break
+                    state[l] = (a + 1, n % l ** (a + 1))
+            assert cover[n] == exp_, ("TAIL Lemma 3.1: fibres not disjoint / wrong union", seed, n, cover[n])
+        nleaf += len(out)
+    assert nleaf > 100, ("TAIL inline toy too small", nleaf)
+    print(f"dv Lemma 3.1: R76 toy seed 0 (543 leaves); inline toy mod {N}, 16 hash rules, {nleaf} leaves (sum P = 1, "
+          f"P_proc = 4*2^k/phi(Q), disjoint, exact union); twist ratio within bound (T = 10^5); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dv) POINTWISE_TAIL: Lemma 3.1 leaf calculus on toy square-class processes ==")
+check_dv()
+
+
 print("\nall checks passed")
