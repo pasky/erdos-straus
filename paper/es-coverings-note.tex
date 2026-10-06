@@ -47,7 +47,7 @@ We use the families of Elsholtz and Tao \cite[Prop.~1.9]{ET}.  Each is
 indexed by a triple $\kappa$ of positive integers subject to a side
 condition, and defines a set of residue classes:
 \begin{center}
-\begin{tabular}{llll}
+\small\begin{tabular}{llll}
 \toprule
 family & parameters & side condition & class\\
 \midrule
@@ -318,6 +318,380 @@ obstruction.  If they are sterile, the reason is a different, rigidity
 type of obstruction (\S\ref{sec:typeI}); this is a heuristic reading,
 not a theorem.
 \end{remark}
+
+\section{Type~I coverings and the least non-residue}\label{sec:typeI}
+
+\subsection{Slices, certificates and the depth $\ckmin$}
+In this section a prime $p$ is \emph{hard} if $p\equiv1\pmod{24}$, and
+$n_p$ denotes the least quadratic non-residue modulo $p$ (a prime $\ge5$).
+For an odd prime $p$ let
+\[
+\mathcal B_p=\{(c,k): 1\le k\le\lfloor 2p/3\rfloor,\ 1\le c\le
+\lfloor (2p+k)/4k\rfloor,\ (p,ck)=1\},
+\]
+put $N_{c,k}=p^2+4ck^2$,
+and let $M_{c,k}(p)$ be the number of divisors $D$ of $N_{c,k}$ with
+$D\equiv-p\pmod{4ck}$.  The Type~I solutions of $4/p=1/x+1/y+1/z$ (those
+with $p$ dividing exactly one denominator) correspond to the pairs
+$((c,k),D)$ of this kind \cite[\S\S26, 36]{Notes}; in ET's coordinates
+this is the parametrisation $4acd=n+f$, $f\mid 4a^2d+1$ of family I3 with
+$(c,d,f)_{\rm ET}=(k,c,D)$.  Write $s=\sqf(c)$ for the squarefree part
+of $c$ and $\chi_s$ for the Kronecker character of $\Q(\sqrt{-s})$.  If
+$\chi_s(p)=1$ then $M_{c,k}(p)=0$ \cite[Thm.~48.1]{Notes} (genus theory;
+the slice is \emph{forced}).  For hard $p$ this applies to
+$s\in\{1,2,3,6\}$, and to every $c$ all of whose prime factors are
+residues modulo $p$.  Put
+\[
+\ckmin(p)=\min\{ck:(c,k)\in\mathcal B_p,\ M_{c,k}(p)>0\},
+\]
+the least height of a Type~I solution in these coordinates.  By the
+forcing just described, $\ckmin(p)\ge n_p$ for hard $p$.  For a prime
+$r\ge5$ put
+\[
+C(r)=\sup\{\ckmin(p): p\text{ hard},\ n_p=r\},\qquad
+C^*(r)=\limsup_{p\text{ hard},\ n_p=r}\ckmin(p).
+\]
+
+A \emph{certificate} is a triple $\kappa=(c,k,F)$ of positive integers
+with $(F,4ck)=1$ and $\sqf(c)\notin\{1,2,3,6\}$; its \emph{height} is
+$ck$, and its class is the ET class (family I3)
+\[
+\Cl(c,k,F)=\{x\in\Zh: x\equiv-F\pmod{4ck},\ x^2\equiv-4ck^2\pmod F\}.
+\]
+If $(c,k)\in\mathcal B_p$, then $M_{c,k}(p)\ge1$ if and only if
+$p\in\Cl(c,k,F)$ for some $F$, and the possible $F$ are exactly the
+divisors counted by $M_{c,k}(p)$ \cite[Lemma~0.1]{PT2}.  Let
+$\Sigma_r\subset\Zhu$ be the clopen set of $x$ with $x\equiv1\pmod{24}$,
+$x\bmod\ell$ a non-zero square for the primes $5\le\ell<r$, and $x\bmod r$
+a non-square.  By quadratic reciprocity a prime $p>r$ is hard with
+$n_p=r$ if and only if $p\bmod 24\prod_{\ell\le r}\ell$ lies in
+$\Sigma_r$; by Lemma~\ref{lem:accum} these primes accumulate exactly on
+$\Sigma_r$.  A \emph{Type~I covering of height $\le X$} is a finite set of
+certificates of height $\le X$ whose classes cover $\Sigma_r$; let
+$X_r\in\N\cup\{\infty\}$ be the least height of a Type~I covering.
+
+The other Type~I families I1, I2, I4 also give Type~I solutions, but in
+each of them $c$ or $k$ grows linearly with $p$ \cite[\S6.1]{PT1}; only
+family I3 with fixed $(c,k)$ bounds $\ckmin$.
+
+\subsection{The case $r=5$}
+
+\begin{theorem}[\status{proved}; {\cite[Thm.~6.1]{PT1}}]\label{thm:C5}
+Every hard prime $p$ with $n_p=5$ has $\ckmin(p)\le10$, and
+$\ckmin(p)=5$ if $p\equiv2\pmod5$.  The bound is attained at $p=193$, so
+$C(5)=10$.
+\end{theorem}
+
+\begin{proof}
+Here $p\equiv1\pmod 8$, $p\equiv1\pmod3$ and $p\equiv2,3\pmod5$, so
+$p\equiv17$ or $33\pmod{40}$; all slices below lie in $\mathcal B_p$ as
+$p\ge73$.  If $p\equiv17\pmod{40}$, then $-p\equiv3\pmod{20}$ and
+$p^2+20\equiv0\pmod3$, so $D=3$ is a target divisor of the slice $(5,1)$
+and $\ckmin(p)\le5$.  If $p\equiv33\pmod{40}$, then $-p\equiv7\pmod{40}$.
+As $p$ runs over the units modulo $7$, $p^2\in\{1,2,4\}$, while
+$-20\equiv1$, $-40\equiv2$, $-80\equiv4\pmod 7$.  So $7$ divides one of
+$p^2+20$, $p^2+40$, $p^2+80$, and $D=7$ is a target divisor of $(5,1)$,
+$(10,1)$ or $(5,2)$.  Finally $\ckmin(193)=10$ by direct computation,
+and $\ckmin(p)\ge n_p=5$ always.
+\end{proof}
+
+The proof is a Type~I covering of $\Sigma_5$ of height $10$ with
+$F\in\{3,7\}$.  ES itself is classical for $p\equiv2,3\pmod 5$; the
+content is the bounded depth.
+
+\subsection{Compactness and Hypothesis~H}
+
+\begin{theorem}[{\cite[Thm.~A]{PT2}}]\label{thm:A}
+Let $r\ge5$ be prime.
+\begin{enumerate}
+\item[(i)] \status{(proved)} If $X_r<\infty$, then
+$\ckmin(p)\le X_r$ for every hard $p$ with $n_p=r$ beyond an explicit
+bound, so $C^*(r)\le X_r$.
+\item[(ii)] \status{(conditional on H)} If no Type~I covering of height
+$\le X$ exists, then, under Hypothesis~H for an explicit finite family
+$\mathcal P_X$ of polynomials, there are infinitely many hard $p$ with
+$n_p=r$ and $\ckmin(p)>X$.
+\item[(iii)] \status{(proved)} $X_r=\infty$ if and only if $\Sigma_r$
+contains a point lying in no class $\Cl(\kappa)$ of a certificate (a
+\emph{Type~I-sterile point}).  Under H, $C^*(r)=X_r$; in particular
+$C^*(r)=\infty$ if and only if a Type~I-sterile point exists.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+(i) Let $\mathcal K$ be a covering of height $X_r$ and $F_{\max}$ its
+largest $F$.  For a prime $p>\max(2X_r,F_{\max},r)$ that is hard with
+$n_p=r$, $p$ is prime to all moduli of $\mathcal K$, so its residue is that
+of a point of $\Sigma_r$ and lies in some $\Cl(\kappa)$.  For $ck\le
+X_r<p/2$ one checks $(c,k)\in\mathcal B_p$, and $M_{c,k}(p)\ge1$.
+
+(iii) The first statement is Remark~\ref{rem:heights} with the
+height $ck$.  The second follows from (i) and (ii).
+
+(ii) By compactness some $x^*\in\Sigma_r$ lies in no class of height
+$\le X$.  Fix a prime $B\ge\max(X,r,2m+2)$, where $m$ is the number of
+slices of height $\le X$.  At each prime $q\le B$ at most one value
+$V=ck^2$ has $x^{*2}_q+4V=0$; perturbing $x^*_q$ by a high power of $q$
+makes every $v_q(N_{c,k})$ finite and constant on a small class
+$\mathcal C\ni$ (perturbed point) $\subset\Sigma_r$.  Let $f_{c,k}$ be the
+resulting fixed $B$-smooth part of $N_{c,k}$.  A divisor $d\mid f_{c,k}$
+in the target class would give a certificate containing $x^*$, so none
+exists.  The family $\mathcal P_X$ consists of $Qt+a$ (the class
+$\mathcal C$) and the quadratics $((Qt+a)^2+4ck^2)/f_{c,k}$; it has no
+fixed prime divisor.  Under H all its members are prime for infinitely
+many $t$, and then every divisor of $N_{c,k}=f_{c,k}R_{c,k}$ is $d$ or
+$dR_{c,k}$ with $d\mid f_{c,k}$; both are excluded from the target class.
+So $M_{c,k}(p)=0$ for all slices of height $\le X$.  Full details are in
+\cite[\S1]{PT2}.
+\end{proof}
+
+Forcedness is not needed in (ii): forced slices simply contain no
+certificate class point of $\Sigma_r$.  A Type~I-sterile point need not be
+sterile in the sense of Definition~\ref{def:sterile}; it may lie in a
+class of another family.  Theorem~\ref{thm:A} concerns the depth
+$\ckmin$, not ES.
+
+\begin{theorem}[\status{conditional} on H; {\cite[Thm.~2.1]{PT1}}]\label{thm:unbounded}
+Let $g\ge1$, $D(g)=\sum_{m\le g}\tau(m)$, and let $r\ge100D(g)^2g^3$ be
+prime.  Under Hypothesis~H for an explicit family of $1+D(g)$
+polynomials, there are infinitely many hard $p$ with $n_p=r$ and
+$\ckmin(p)>g\,n_p$.  Consequently, under H for a finite family depending
+on $\varepsilon$, $\ckmin(p)\ge n_p^{2-\varepsilon}$ for infinitely many
+hard $p$.
+\end{theorem}
+
+The construction is the one of Theorem~\ref{thm:A}(ii) at the point
+$x_q=1$ ($q\ne r$), $x_r=b$ with a suitable non-residue $b$.  So no bound
+$\ckmin(p)\le f(n_p)$ with $f(r)\le r^{2-\varepsilon}$ for all large $r$
+can be proved without refuting H for an explicit family.  For fixed $r$,
+formal evaluations at H-generic points give explicit lower bounds
+\cite[\S6.2]{PT1}: under H there are infinitely many hard $p$ with
+$n_p=7$ and $\ckmin(p)=539$, and with $n_p=11$ and $\ckmin(p)>3000$.
+Unconditionally (the same refinement argument plus Dirichlet), every
+Type~I covering of $\Sigma_{11}$ has height $>3000$
+(\status{certified} by finite computation; two independent engines).  For
+$r=7$ these bounds are superseded by \S\ref{subsec:sign}.
+
+\subsection{The sign point}\label{subsec:sign}
+
+\begin{lemma}[\status{proved}; {\cite[Lemma~2.1]{PT2}}]\label{lem:squareoff}
+Let $x\in\Sigma_r$ with $x_q\in(\Z_q^\times)^2$ for every prime $q\ne r$.
+Then a certificate $(c,k,F)$ with $x\in\Cl(c,k,F)$ has $v_r(c)$ odd.
+\end{lemma}
+
+\begin{proof}
+$\chi_s(x)$ is determined by $x\bmod 4s$, and equals $-1$ exactly when
+$r\mid s$.  If $\chi_s(x)=1$ and $x\in\Cl(c,k,F)$, the open set
+$\Cl(c,k,F)\cap\{\chi_s=1\}\cap\Sigma_r$ contains primes $p$ with
+$(c,k)\in\mathcal B_p$ and $M_{c,k}(p)\ge1$ (Dirichlet), contradicting
+forcing.
+\end{proof}
+
+\begin{definition}
+For $w\in\Z_2$ with $w\equiv9\pmod{16}$ and a prime $r\equiv3\pmod4$, the
+\emph{sign point} $\hat x_w=\hat x^{(r)}_w\in\Zhu$ has components
+$w$ at $2$, $-1$ at $r$ and $1$ at every other prime.  For $r=7$ we write
+$\hat x_9$ for $w=9$.
+\end{definition}
+
+The sign point lies in $\Sigma_r$ because $-1$ is a non-square modulo
+$r$; for $r\equiv1\pmod4$ no such point exists.  At $\hat x_w$ the odd
+components satisfy $\hat x_q^2=1$, so $N_{c,k}(\hat x)=1+4ck^2$ at every
+odd prime, and by Lemma~\ref{lem:squareoff} a certificate at $\hat x_w$
+is an integer solution of
+\begin{equation}\label{eq:signcert}
+\begin{gathered}
+F\mid1+4ck^2,\qquad F\equiv-1\pmod{m'},\qquad F\equiv1\pmod{r^{v_r(ck)}},\\
+F\equiv-w\pmod{2^{v_2(4ck)}},\qquad v_r(c)\text{ odd},
+\end{gathered}
+\end{equation}
+where $m'$ is the part of $ck$ prime to $2r$.  Write $c=2^\alpha r^ac'$,
+$k=2^\gamma r^bk'$ with $c'k'$ prime to $2r$, $t=v_2(4ck)=2+\alpha+\gamma$,
+and $e=(1+4ck^2)/F$.
+
+\begin{proposition}[\status{proved}; {\cite[Lemma~3.1, Prop.~4.1]{PT2}}]\label{prop:signpoint}
+\begin{enumerate}
+\item[(a)] If $r\equiv7\pmod 8$, no certificate at $\hat x^{(r)}_w$ has
+$F^2=1+4ck^2$.
+\item[(b)] If $r\equiv3\pmod8$, then $(r(r+1)/4,2,2r+1)$ is a certificate
+at every $\hat x^{(r)}_w$, of height $r(r+1)/2$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(b) $v_r(c)=1$, $1+4ck^2=1+4r(r+1)=(2r+1)^2$, the $2$-part of $4ck$ is $8$,
+and $F=2r+1$ satisfies $F\equiv1\pmod r$, $F\equiv-1\pmod{(r+1)/4}$,
+$-F\equiv1\pmod 8$.  (a) If $F^2=1+4ck^2$, then from \eqref{eq:signcert}
+$m'\mid F+1$ and $r^{a+b}\mid F-1$; as $\gcd(F-1,F+1)=2$ this gives
+$F+1=2^ic'k'^2$, $F-1=2^jr^{a+2b}$ with $i+j=2+\alpha+2\gamma$,
+$\min(i,j)=1$ and $a+2b$ odd.  Since $v_2(1+r^{s})=3$ for odd $s$ when
+$r\equiv7\pmod8$, the case $j=1$ forces $\alpha+2\gamma=3$ and then
+$-F\equiv1\pmod{16}$, against $w\equiv9\pmod{16}$; the cases $i=1$ lead
+to $-F\not\equiv1\pmod 8$ or to a parity contradiction.  See
+\cite[Lemma~3.1]{PT2}.
+\end{proof}
+
+So sign points survive the square family exactly for $r\equiv7\pmod8$:
+$r=7,23,31,47,\dots$.  At the other natural candidate, the
+\emph{residue-one point} ($x_q=1$ for $q\ne7$), every non-square $x_7$ is
+already covered by $(7,3,11)$, $(7,3,23)$ or $(14,2,15)$
+\cite[Prop.~2.3]{PT2}.
+
+\begin{lemma}[\status{proved}; {\cite[Lemmas~1.1--1.2]{PT3}}]\label{lem:fgrade}
+Let $(c,k,F)$ be a certificate at $\hat x_w$ and $f\in\{F,e\}$.  Then
+$m'\mid f+1$, $r^{a+b}\mid f-1$, $f\equiv-w\pmod{2^t}$ if $f=F$ and
+$wf\equiv-1\pmod{2^t}$ if $f=e$, and $4ck^2\equiv-1\pmod f$.  Conversely
+such data with $a$ odd and $a,c',k'\ge1$ give a certificate.  If $w$ is a
+positive integer, each $f$ belongs to finitely many certificates, all
+explicitly computable from the factorisation of $f+1$.  If $ck\le X$
+and $r\mid c$, then $\min(F,e)<2X/\sqrt r+1$.
+\end{lemma}
+
+The finiteness needs $w$ with finite $2$-adic depth $v_2(f+w)$,
+$v_2(wf+1)$: at $w=-71$ the triples $(14\cdot2^{35j},8192,71)$ are
+certificates for all $j\ge0$.  For $w=9$ the lemma reduces the search to
+a sieve over $f$, at all heights simultaneously.
+
+\begin{computation}[\status{certified}; {\cite[Comp.~3.2]{PT2},
+\cite[Comp.~2.1, 2.3]{PT3}}]\label{comp:sign}
+\begin{enumerate}
+\item[(a)] No certificate at $\hat x_9$ ($r=7$) has $\min(F,e)<10^{12}$.
+Two independent engines (\texttt{typei3\_fsearch.c} and the reviewer's
+\texttt{review\_typei3\_fs.c}) cover $f<10^{11}$; the range
+$[10^{11},10^{12})$ rests on one engine.  An earlier height-graded
+search (\texttt{typei2\_signcheck.c}, $7.6\cdot10^9$ slices with
+$ck\le3\cdot10^9$) was independently re-run to its full range, and
+cross-checked by a factoring engine and a complete parametric enumeration
+on smaller ranges.
+\item[(b)] For $r=23$, $31$, $47$ and $w=9$ no certificate has
+$\min(F,e)<10^{11}$ (two engines for $r=23$, one for $r=31,47$).
+\end{enumerate}
+On ten test points with known certificates the $f$-graded and the
+height-graded engines produce identical certificate sets.
+\end{computation}
+
+\begin{corollary}\label{cor:C7}
+\status{(certified)} Every Type~I covering of $\Sigma_7$ has height
+$>1.32\cdot10^{12}$; for $r=23,31,47$ every Type~I covering of
+$\Sigma_r$ has height $>2.39\cdot10^{11}$, $>2.78\cdot10^{11}$,
+$>3.42\cdot10^{11}$ respectively.  \status{(conditional on H)}
+There are infinitely many hard $p$ with $n_p=7$ and
+$\ckmin(p)>1.32\cdot10^{12}$; so $C(7)>1.32\cdot10^{12}$, and similarly
+for $r=23,31,47$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:fgrade}, a certificate of height $\le X$ at $\hat x_9$
+has $\min(F,e)<2X/\sqrt7+1$; with Computation~\ref{comp:sign} there is
+none with $X\le1.32\cdot10^{12}$.  A covering of $\Sigma_7$ must contain
+$\hat x_9$.  The conditional part is Theorem~\ref{thm:A}(ii) with the
+point $x^*=\hat x_9$.
+\end{proof}
+
+The previous bounds were $C(7)\ge539$ \cite{PT1} and $C(7)>3\cdot10^9$
+\cite{PT2}; the census maximum of $\ckmin$ over hard $p<10^7$ with
+$n_p=7$ is $76$ (\status{evidence}).
+
+\subsection{Low $2$-adic levels}
+The certificates at the sign point can also be attacked by descent.
+
+\begin{lemma}[Vieta descent; \status{proved}; {\cite[Lemma~5.1]{PT3}}]\label{lem:vieta}
+Let $B,K,\delta,F,e\ge1$ be integers with $Fe=1+BK^2$ and $e-F=BK\delta$.
+Then $F\equiv e\equiv1\pmod{B\delta}$.
+\end{lemma}
+
+\begin{proof}
+Induction on $K$.  If $F=1$ then $K=\delta$ and $e=1+B\delta^2$.
+Otherwise put $\rho=K-\delta F$.  From $F^2+BK\delta F=1+BK^2$ we get
+$F^2-1=BK\rho$, so $1\le\rho<K$.  Put $F'=F-B\rho\delta$; then
+$F'F=1+B\rho^2>0$ and $F-F'=B\rho\delta$, and induction applies to
+$(F',F)$.
+\end{proof}
+
+\begin{proposition}[\status{proved}; {\cite[Cor.~5.2, Props.~5.3--5.5]{PT3}}]\label{prop:levels}
+Let $w\equiv9\pmod{16}$ and $r=7$.  Every certificate at $\hat x_w$ has
+$t\ge5$ and $\alpha+2\gamma\ge7$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+By Lemma~\ref{lem:fgrade} and $w\equiv w^{-1}\pmod{16}$, $e\equiv F$
+modulo $2^{\min(t,4)}$ times the odd part of $ck$, and $F,e\not\equiv
+1\pmod 4$; $F\neq e$ by Proposition~\ref{prop:signpoint}(a).  If $t\le4$,
+Lemma~\ref{lem:vieta} with $B=4c$ gives $F\equiv1\pmod4$; if
+$\alpha+2\gamma\le4$ the same holds after the integral rescaling
+$c\mapsto c/4^{t-4}$, $k\mapsto2^{t-4}k$.  At levels
+$\alpha+2\gamma\in\{5,6\}$ the descent stays integral and forces
+$c=2^\alpha7^a$.  At level $5$ the chain of the descent, read modulo $16$,
+only reaches divisors $\equiv\pm1\pmod{16}$, while certificates need
+$\equiv7$; this deduction is due to the internal reviewer.  At level $6$
+the chain is a Pell orbit; a $2$-adic index condition forces its index
+to be an odd multiple of $3$, whence $D+3$ divides the relevant Lucas
+number ($D=7^a\delta^2$), and a prime $q\mid(D+3)/2$ gives
+$F\equiv1$ and $F\equiv-1\pmod q$ simultaneously.  Details and
+machine checks are in \cite[\S5]{PT3}.
+\end{proof}
+
+At level $\alpha+2\gamma=7$ the descent leaves $\Z$, and $34$ near misses
+(certificates except for the $2$-adic condition) with $-F\equiv1\pmod8$
+and $ck\le10^8$ exist there; this level is open.
+
+\subsection{Scope of a sterility proof}
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~3.1]{PT3}}]\label{prop:nowhere}
+The set of Type~I-sterile points of $\Sigma_7$ is closed and has empty
+interior.
+\end{proposition}
+
+\begin{proof}
+Closedness is Remark~\ref{rem:heights}.  Let $U=\{y\equiv
+x\pmod Q\}\subset\Sigma_7$ be a basic neighbourhood, $Q=2^j7^i\prod_{q\in
+P}q^{e_q}$.  Pick a prime $p_0\notin P\cup\{2,7\}$ and, by Dirichlet, a
+prime $F\notin P\cup\{2,7,p_0\}$ with $F\equiv3\pmod4$,
+$F\equiv-x_7\pmod7$ and $(-7p_0/F)=1$; these are compatible because
+$(-7/F)=(F/7)=(-x_7/7)=1$ for non-square $x_7$.  Then $\Cl(7p_0,1,F)$
+meets $U$ by the Chinese remainder theorem.
+\end{proof}
+
+So no sterility proof can consist of exhibiting one ambient congruence
+cylinder: a sterile point, if it exists, is a limit of covered points.
+This does not exclude arguments within the thin sign fibre
+$\Phi=\{\hat x_w: w\in9+16\Z_2\}$, which itself has empty interior.
+
+\begin{remark}[Measure route; \status{proved} reduction and
+\status{evidence}]\label{rem:measure}
+Theorem~\ref{thm:A}(iii) needs \emph{some} Type~I-sterile point, not
+$\hat x_9$.  By Lemma~\ref{lem:fgrade}, the certificates having a given
+$f\equiv7\pmod{16}$ remove from $\Phi$ at most two $2$-adic balls of
+radius $2^{-t_{\min}(f)}$, with $t_{\min}(f)\ge5$ by
+Proposition~\ref{prop:levels}; other $f$ remove nothing.  Let $U_Y$ be the
+part of $\Phi$ surviving all $f<Y$.  If
+\[
+\mu(U_Y)>\sum_{f\ge Y}2^{5-t_{\min}(f)}
+\]
+(Haar measure on $w$, normalised to $1$), then $\Phi$ contains a
+Type~I-sterile point, and $C^*(7)=\infty$ under H.  Numerically
+$\mu(U_{10^{10}})\ge0.6086$, the bound including the error of truncating
+the $2$-adic depth at $40$; and $t_{\min}(f)$ grows like
+$\tfrac12\log_2f$ in the data (\status{evidence}).  An explicit summable
+bound for the number of $f$ with given $t_{\min}$ would therefore close
+the question; a bound $o(2^T)$ alone does not suffice.  No such bound is
+known.
+\end{remark}
+
+\begin{conjecture}[{\cite[Conj.~3.4]{PT2}}]\label{conj:sign}
+The sign point $\hat x_9$ is Type~I-sterile.  Then, under H,
+$C(7)=C^*(7)=\infty$.
+\end{conjecture}
+
+The evidence is the search range of Computation~\ref{comp:sign}, the
+empty levels of Proposition~\ref{prop:levels}, and the decay of the
+near-miss mass (\status{evidence}).  Among integral points
+$(x_2,x_7)=(w,z)$ with $w\equiv9\pmod{16}$, $|w|\le200$, $|z|\le60$ (all
+other components $1$), the $26$ that survive the complete enumeration of certificates at
+$\{2,7\}$-generic points up to the cutoff of \cite[\S2.2]{PT2} (parameter
+$\Lambda\le3\cdot10^8$ there) all have $z=-1$; this is how the
+sign point was found.  For $r\equiv1\pmod 4$ no sign point exists, and
+$r=5$ is the one value with a known finite covering.
 
 \section*{Acknowledgements and provenance}
 PROVENANCE-PLACEHOLDER
