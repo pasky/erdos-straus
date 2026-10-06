@@ -658,13 +658,13 @@ a sieve over $f$, at all heights simultaneously.
 \cite[Comp.~2.1, 2.3]{PT3}}]\label{comp:sign}
 \begin{enumerate}
 \item[(a)] No certificate at $\hat x_9$ ($r=7$) has $\min(F,e)<10^{12}$.
-Two independent engines (\texttt{typei3\_fsearch.c} and the reviewer's
-\texttt{review\_typei3\_fs.c}) cover $f<10^{11}$; the range
-$[10^{11},10^{12})$ rests on one engine.  An earlier height-graded
-search (\texttt{typei2\_signcheck.c}, $7.6\cdot10^9$ slices with
-$ck\le3\cdot10^9$) was independently re-run to its full range, and
-cross-checked by a factoring engine and a complete parametric enumeration
-on smaller ranges.
+Two independent $f$-graded engines cover $f<10^{11}$; the range
+$[10^{11},10^{12})$ rests on one engine.  An earlier height-graded search
+($7.6\cdot10^9$ slices with $ck\le3\cdot10^9$) was independently re-run to
+its full range, and cross-checked by a factoring engine and a complete
+parametric enumeration on smaller ranges.  (Programs:
+\texttt{typei3\_fsearch.c}, \texttt{review\_typei3\_fs.c},
+\texttt{typei2\_signcheck.c}.)
 \item[(b)] For $r=23$, $31$, $47$ and $w=9$ no certificate has
 $\min(F,e)<10^{11}$ (two engines for $r=23$, one for $r=31,47$).
 \end{enumerate}
@@ -832,12 +832,12 @@ residue except the listed ones; Lemma~\ref{lem:solve} then gives the
 solution for every $n\ge1$ in the class.  Part (c) combines the two
 lists: the third lift $592801$ of $112561$ modulo $720720$ is covered by
 the second list.  The certificates are the files
-\texttt{data/mordell/cert\_r13\_np\_240240.json} and
-\texttt{cert\_r13\_main\_720720.json}; the stand-alone checker
-\texttt{scripts/mordell\_check.py} verifies the polynomial identities,
+\texttt{cert\_r13\_np\_240240.json} and
+\texttt{cert\_r13\_main\_720720.json} in \texttt{data/mordell/}; the stand-alone checker
+\texttt{mordell\_\allowbreak check.py} verifies the polynomial identities,
 positivity and the integer-valuedness of all coordinates on every class
 residue.  An independent checker written from scratch in review
-(\texttt{scripts/review\_mordell\_check.py}) confirms both certificates.
+(\texttt{review\_\allowbreak mordell\_\allowbreak check.py}) confirms both certificates.
 \end{proof}
 
 \emph{Novelty.} Theorem~\ref{thm:r13} is an explicit packaging of the
