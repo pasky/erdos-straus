@@ -11,6 +11,7 @@ Reviewer branch: side-agent/review-mn. Scripts: `scripts/review_mn_*.py` (from s
 | Thm 3.1 | SOUND (§T31; MINOR-1) |
 | Prop 3.2 | SOUND (§P32) |
 | Lemma 4.1 | SOUND (§L41) |
+| Cor 6.1 | SOUND-AFTER-REPAIRS (§C61; MAJOR-1 = proof must be written out; MINOR-5) |
 | Thm 5.1 (implication) | SOUND-AFTER-REPAIRS (§T51; MINOR-2..4); label CONDITIONAL honest |
 
 ## §L1 Lemma 1.1
@@ -118,3 +119,50 @@ for odd m — it is replaced by the prefix factor `1/δ_0`, which the text does 
 Label CONDITIONAL on ADM_m is honest; ADM_m is a genuinely open probabilistic statement (the author's own
 §6 "why not proved" is accurate: first moments diverge like Σ(log ℓ)³/ℓ, a second-moment union bound is
 needed).
+
+## §C61 Cor 6.1 (every m, exponent 1/5, Haar ≪ 𝓛^5 log𝓛) — SOUND-AFTER-REPAIRS (MAJOR-1: write the proof out)
+
+I re-did the substitution myself against OMEGA12 §§2–6A, OMEGA11 Setting 2.0 / Lemmas 2.1, 2.2, 3.1 and the
+ET source (`sources/elsholtz-tao-1107.1010.pdf`, read via pdftotext). Findings:
+
+* **ET inputs (checked in the PDF).** Prop 1.4 is stated for `Σ_{a≤A,b≤B} τ(kab²+1) ≪ AB log(A+B) log(1+k)`,
+  any `k ≪ (AB)^{O(1)}` ✔. Thm 7.1 is for any polynomial with nonnegative coefficients `≤ N^l` and
+  `ρ(p^j) ≤ C`, constant depending on (D,l,C) ✔. ET's own proof of Prop 1.4 uses Thm 7.1 for `kab²+1`
+  with exactly "ρ_ka(p^j) ≤ 2 for odd p^j and ≤ 4 for p = 2", so C = 4 is ET's own case ✔. (7.10) is
+  stated and proved for general k (with the 2-part of m and of a reduced away) ✔. Cor 7.4: coprime
+  linear `an+b`, `a,b ≪ N^{O(1)}` ✔ (here `gcd(ma², b_a) | gcd(ma, ma²d_0+1) = 1`).
+* **Lemma 2.1 parametrisation for general m** (`P = ma²d+1`, `g = gcd(M, mD+1) | a+b`,
+  `macd = f + N`, `N ≥ (m/2)acd − 1 ≥ acd`, injectivity, involution `D ↦ A²/D` preserving g since
+  `mA ≡ 1 (M)`): re-derived, and brute-forced from scratch (`scripts/review_mn_cor61.py`, all m = 4..30,
+  M ≤ 3000, 106 865 atoms incl. even M): 0 defects.
+* **Class of one never an event** (TRANSFER Lemma 5.1(ii), incl. even M): 0 counterexamples in the same run.
+* **Root counts.** `mdx²+1`: max 4 roots mod 2^k (k ≤ 11, md < 400), ≤ 2 mod odd prime powers ✔.
+* **2-adic example** m=5, M=464, D=3: A=93, `gcd(464,840)=8 | 16 = 5D+1`, class `−15 ≡ 1 (16)` ✔.
+* OMEGA12 Lemma 3.1 small-q argument with "ℓ | mad ⇒ ℓ ∤ N, else c in one class mod q" covers q = 2^i ✔.
+* O11 Lemma 2.2 charging is prime-independent (threshold `c(a+1)logℓ/𝓛`, `Σ v_ℓ log ℓ = log M`) ✔;
+  O11 Lemma 3.1 needs only `8 | Q` (true if `a_2 ≥ 3` at start) and `f_2` coprime to Q (then odd) ✔;
+  Lemma 6.2's `e³` product needs every unstepped prime to be `> 𝓛`, true if 2 starts at `a_2 = 3` ✔.
+
+No mathematical error found. But:
+
+**MAJOR-1 (§6b, Cor 6.1 label "PROVED").** §6b is a bullet summary of a subagent's check, not a written
+substitution proof; several OMEGA12/OMEGA11 sentences that are literally *false* for odd m are not
+listed with their replacements. A reader cannot verify "PROVED" from the document. Repair: write a
+substitution list like Thm 3.1's, at least:
+ (i) O11 Setting 2.0: `Q = 2^{a_2}∏_{ℓ odd}ℓ^{a_ℓ}`, coordinate `X_2 = n mod 2^{f_2}` on `n ≡ 1 (2^{a_2})`,
+     start `a_2 = 3`, raised by the same threshold rule; Lemma 2.1 fibre probability `2^{−(v−a_2)}`;
+     survival `gcd(M,Q) | mD+1`; (I) via TRANSFER Lemma 5.1(ii).
+ (ii) OMEGA12 Lemma 3.1 "q = 2 omitted harmlessly: N divides the odd M" — false for odd m (N can be
+     even); replace by the ℓ | mad dichotomy, which includes ℓ = 2.
+ (iii) OMEGA12 Lemma 4.1 "Every q | P is odd" and "Q is odd-valued, so ρ_Q(2^j) = 0" — false when md is
+     odd. Replace: q = 2^i allowed with ≤ 4 roots x_0; `ρ_Q(2^j) ≤ 4`; Euler factor `≤ 1+4/(ℓ−1)`;
+     Thm 7.1 with C = 4; "two roots" → "≤ 4 roots"; `P < 32Z³` → `P < 8mZ³`; coefficient bound
+     `≤ N'^5` needs `A ≥ A_0(m)` (small A absorbed).
+ (iv) Lemma 6.2: start includes `a_2 = 3`, cost `log(8∏…)` unchanged.
+ (v) Prime side: p ≡ 1 (Q) gives Type-II-hardness modulo Q because class 1 is hard (not "Mordell-hard").
+With these written, the label "PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), OMEGA10 Thm 3.4"
+is justified; until then it should read "PROVED (substitution sketch; see review R63)".
+
+**MINOR-5 (Cor 6.1 / Thm 3.1 output primes).** The Cor 6.1 primes satisfy p ≡ 1 (Q) with `840 | Q`, so
+for m = 5 they are `≡ 1 (mod 5)` etc. They are Type-II-hard only; whether 5/p for such p has a Type I
+or other easy solution is not addressed. Say so explicitly next to "in particular for Sierpiński's 5/n".
