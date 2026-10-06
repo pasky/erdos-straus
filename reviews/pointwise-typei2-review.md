@@ -1,14 +1,26 @@
 # Review R69 of POINTWISE_TYPEI2.md (task O69, branch side-agent/typei-sterile)
 
 Reviewer: hostile side agent R69 (branch side-agent/review-typei2). Reviewed
-author commit `5c66f67`. Status: in progress.
+author commit `5c66f67`. Status: complete (round 1).
 
 ## Summary verdicts
 
 | claim | verdict |
 |---|---|
 | Thm A (i) | SOUND-AFTER-REPAIRS (D1: the "every p>2X_r" form is overstated; limsup statement fine) |
-| Thm A (ii), (iii) | SOUND (re-derived Steps 1–5 line by line, incl. the `v_q(4X!)` perturbation fix) |
+| Thm A (ii), (iii) | SOUND (re-derived Steps 1–5 line by line, incl. the `v_q(4X!)` perturbation fix); D4, D5 wording |
+| L2.1, L2.2, P2.3 | SOUND |
+| L2.4, C2.5 | SOUND |
+| §2.2 (EVIDENCE) | SOUND (reproduced from scratch to Λ≤10⁵) |
+| L3.1 | SOUND |
+| C3.2 (CERTIFIED) | SOUND — independently reproduced: 0 certificates, r=7 to 3·10⁹; r=23,31,47 to 10⁹; slice counts identical; D3 wording |
+| C3.3 (i) CERTIFIED, (ii) CONDITIONAL (H) | SOUND-AFTER-REPAIRS (D2) |
+| P4.1 | SOUND |
+| §5 partial explanation (PROVED) | SOUND; rest correctly EVIDENCE/Assessment |
+| Conj 3.4 | correctly labelled open |
+
+**Overall:** no FATAL or MAJOR defects. Five MINOR defects (D1–D5), all
+wording/threshold repairs; no headline claim changes.
 
 ## Re-derivation notes
 
@@ -116,8 +128,15 @@ the minimal ones match the author's sanity values; `w=1`: `(14,2,15)` ✓.
 | 23 | 9 | 10⁹ | 744 701 974 | 744 701 974 | 0 |
 | 31 | 9 | 10⁹ | 548 469 498 | 548 469 498 | 0 |
 | 47 | 9 | 10⁹ | 356 411 660 | 356 411 660 | 0 |
-| 7 | 9 | 3·10⁹ | (running) | 7 602 614 538 | |
+| 7 | 9 | 3·10⁹ | 7 602 614 538 | 7 602 614 538 | 0 (≈20 min) |
 | 7 | 9 (defn engine) | 2·10⁴ | 201 177 (all slices) | — | 0 |
+
+Prop 4.1(i) certificate `(r(r+1)/4,2,2r+1)` found by my engine for
+r = 11, 19, 43, 59, 67, 83 ✓.
+
+**C3.2 verdict: SOUND (CERTIFIED label justified)** — completeness argument
+correct, and independently reproduced to the full claimed ranges with
+identical slice counts.
 
 ### Lemma 2.4, Cor 2.5, Prop 2.3, §2.2
 
