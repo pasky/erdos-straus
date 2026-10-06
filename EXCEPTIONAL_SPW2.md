@@ -64,21 +64,25 @@ e > CN through n₀ ∈ [1,N] contains no point of the *near zone*
 `Z := [N − CN, 0] ∪ [N+1, CN+1]` (C ≥ 1). *Proof.* Its other points are
 n₀ ± je, j ≥ 1, and n₀ + e ≥ CN + 2, n₀ − e ≤ N − CN − 1. ∎
 So in RSPW, points of Z are constrained only by sparse classes (≤ K) and
-(P1); in particular **SPW1 Lemma 9.3 (σ ≤ 2/5) disappears once K ≥ 3/2**
-(its 5 lifts include 2 sparse ones). SPW1 Thm 3.2's Fejér argument still
+(P1); in particular, at C = 2, **IF2 Lemma 9.3 (σ ≤ 2/5) disappears once K ≥ 3/2**
+(its 5 lifts include 2 sparse ones; in general the threshold is
+max_q c/(k − c), e.g. 4 at C = 3/2 — review R53 m5). SPW1 Thm 3.2's Fejér argument still
 applies: with ρ_e ≤ K off W, T(x_in) ≤ −η + (K+1)e/(2(M+1)r); and instead
 of |T| ≤ 1 use |T̂(k)| ≤ Σρ_e + N = 2N, so T (degree < m₀) has
 ‖T‖_∞ ≤ 4m₀N/e and ‖T′‖_∞ ≤ 8πm₀²N/e², independent of K. Optimising r
 gives `η ≲ m₀√(K/M)`, i.e. **K ≳ η²·log N/m₀²** is forced (PROVED, same
-proof with these two changes). This is harmless for Lemma 1.1 (σ = η/(2K) ≍ 1/log N
-if η fixed).
+proof with these two changes). This is harmless for Lemma 1.1 (it only gives
+σ = η/(2K) ≲ m₀²/(η log N)). *This paragraph is superseded by Thm 3.1,
+which is K-free.*
 
-**Lemma 2.3 (near zone alone cannot work for N > 40; PROVED).** If R − λ_N
-is supported in an interval of length ℓ, then either R = λ_N or
+**Lemma 2.3 (near zone alone cannot work for N ≥ 38 at C = 2; PROVED).** If R − λ_N
+is supported in an interval of ℓ integer points, then either R = λ_N or
 ℓ > Φ(D) := Σ_{d≤D} φ(d) (≈ 0.304 D²). *Proof.* f = R − λ_N has zero class
 sums mod every d ≤ D iff F(z) = Σ f(x)z^x vanishes at every root of unity of
 order ≤ D, i.e. ∏_{d≤D}Φ_d(z) | F(z) (Laurent), degree Φ(D). ∎
-(Φ(D) > 3N already for D ≥ 12–13.) So far mass (at distance ≫ CN) is
+The lemma is sharp (exact rank check, review R53). Φ(D) ≥ 3N + 2 = #(W ∪ Z)
+at C = 2 holds for all N ≥ 38 (first D with Φ(D) > 3(2D+1) is D = 19);
+in general one needs Φ(D) ≥ (2C − 1)N + 2. So far mass (at distance ≫ CN) is
 unavoidable; it must be spread over the lines n₀ + eℤ.
 
 **Numerics (EVIDENCE; `scripts/spw2_relaxed_lp.py`, HiGHS, support
@@ -98,8 +102,11 @@ unavoidable; it must be spread over the lines n₀ + eℤ.
 
 (`scripts/spw2_relaxed_fast.py` = vectorised K = ∞ version, same values;
 data/spw2/relaxed_Lscan.txt.) Every finite-support optimum is a genuine
-measure on ℤ, so e.g. at N = 50 RSPW(2, 0.82, K ≈ 1.6) holds, hence
-SPW(2, ≈ 0.25) via SPW1 Lemma 1.4 (EVIDENCE: floating-point LP, not
+measure on ℤ, so e.g. at N = 50 RSPW(2, 0.755, K = 1.60) holds (one run, L = 16N;
+the L = 64N run's sparse maximum was not recorded), hence SPW(2, ≈ 0.24)
+via SPW1 Lemma 1.4 — weaker than IF2 §9's SPW(2, 2/5) LP evidence at
+N ≤ 60, so not new. All finite-support values are only *lower* bounds for
+η* (EVIDENCE: floating-point LP, not
 re-verified in exact arithmetic).
 
 Strong support dependence (η grows with L; the needed support grows with
@@ -178,13 +185,18 @@ be ≥ 0 on the near zone Z, where P ≡ 0; so g ≥ 0 on Z, g = −P ≤ 0 on W
   d≤D} dθ_d(n₀)) ≲ (N/e)·M^{0.15Cη} for e = L_M·j (σ(e)/e ≍ log M). This
   suggests η* ≍ 1/log log N for this mechanism — but SPW1 Thm 3.2 / Thm 3.1
   force η* ≲ (log N)^{−1/3}, so the heuristic underestimates the edge
-  concentration at e = L_M·j. Either way it points to **η* decaying only
-  like a power of log N, i.e. weak SPW true** (Lemma 1.1 tolerates
+  concentration at e = L_M·j. Either way it points (weak Assessment, resting on a
+  heuristic that underestimates the edge concentration) to η* decaying
+  only like a power of log N, i.e. weak SPW true (Lemma 1.1 tolerates
   η ≥ e^{−C(log N)^{3/4}}).
-* *Numerics.* At support L ≈ N²/2 the LP gives η ≈ 0.86, 0.83, 0.78,
-  0.80, ≈ 0.75 for N = 30, 40, 50, 60, 80 (§2; data/spw2/relaxed_halfN2.txt):
-  far slower than N^{−1/2} (which would predict 0.61 at N = 60 from 0.86 at
-  N = 30), consistent with logarithmic decay.
+* *Numerics.* Runs at L ≈ N²/2 exist only for N = 30 (L = 480: 0.861),
+  40 (L = 800: 0.832), 60 (L = 1800: 0.798) (data/spw2/relaxed_halfN2.txt,
+  relaxed_Lscan.txt). The values 0.78 (N = 50) and ≈ 0.75 (N = 80) quoted in
+  an earlier draft are interpolated/extrapolated (N = 50: 0.755 at L = 800,
+  0.798 at L = 1600; N = 80: 0.732 at L = 2560 = 0.8·N²/2). Finite-L optima
+  are *lower* bounds for η* that grow with L, so no decay rate can be read
+  off; all one can say is that **no N^{−1/2} decay of the lower bounds is
+  visible for N ≤ 80** (SPW1 §2 shows small-N LP behaviour can mislead).
 
 ## 5. Local (single-modulus) bounds with K = ∞ (EVIDENCE)
 
