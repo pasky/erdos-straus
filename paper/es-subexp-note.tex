@@ -2965,6 +2965,87 @@ $e^{-\Lc^{3+o(1)}}$, exceeds its best product subset by a factor $e^{T^{1/2+o(1)
 hypotheses that see only prime-by-prime local structure are useless here,
 and the hypothesis must apply to non-product sifted sets, as LS does.
 
+\section{Other numerators \texorpdfstring{$m/n$}{m/n}}\label{sec:mn}
+
+The multiplier family exists for every numerator.  Fix an integer $m\ge4$
+($m=5$ is Sierpi\'nski's equation).  For $M\ge3$ with $M\equiv-1\pmod m$ put
+$A=A_M=(M+1)/m$.  If $uvw=A$ and $n\equiv-uv^{-1}\pmod M$, then $s=(nv+u)/M$ is a
+positive integer and
+\begin{equation}\label{eq:identm}
+ \frac mn=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}
+\end{equation}
+(as $\frac1{suw}+\frac1{nsvw}=\frac{M}{nuvw}$ and $M+1=mA$).  As $mA\equiv1\pmod M$, the
+proof of Lemma~\ref{lem:atoms} with $4$ replaced by $m$ shows
+$\{-uv^{-1}\bmod M:\ uvw=A\}=\cR_m(M):=\{-mD\bmod M:\ D\mid A^2\}$.  An
+\emph{$m$-atom} is a pair $(M,D)$ with $M\equiv-1\pmod m$, $M\ge3$, $D\mid A_M^2$; its
+event is $n\equiv-mD\pmod M$.  Let $W_m(n)$ be the least $M$ with $n\bmod M\in\cR_m(M)$, so
+$W_4=W$, and let $\delta_m^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W_m(n)>T\}$.
+A unit class $r\bmod Q$ is \emph{Type-II-hard} if $r\bmod M\notin\cR_m(M)$ for every
+$M\mid Q$ with $M\equiv-1\pmod m$: no identity \eqref{eq:identm} with $M\mid Q$ covers it.
+In this section ``hard'' always refers to the family \eqref{eq:identm} alone;
+we make no statement about other identities for $m/p$, and nothing here bears
+on the Erd\H{o}s--Straus or Sierpi\'nski conjectures.  Full proofs of the
+statements below that are only summarised here are in the working notes
+\cite{MN,MN2} (internally reviewed, not externally refereed).
+
+\subsection*{The Jacobi symbol of the event classes}
+For an $m$-atom $(M,D)$ with $M$ odd let $e$ be the squarefree part of $mD$, and
+write $e=2^te_o$ with $t\in\{0,1\}$ and $e_o$ odd.
+
+\begin{lemma}[Jacobi dichotomy; proved]\label{lem:mjacobi}
+Let $(M,D)$ be an $m$-atom with $M$ odd.
+\begin{enumerate}
+\item[(a)] Every prime $\ell\mid M$ has $\ell\nmid mD$ and $\big(\frac{-mD}\ell\big)=\big(\frac{-e}\ell\big)$.
+\item[(b)] If $M\equiv3\pmod4$, then $\big(\frac{-mD}M\big)=-\big(\frac2M\big)^t$.
+\item[(c)] If $M\equiv1\pmod4$, then $\big(\frac{-mD}M\big)=\big(\frac2M\big)^t(-1)^{(e_o-1)/2}$.
+\item[(d)] If $m\equiv0\pmod4$, then $\big(\frac{-mD}M\big)=-1$ for every $m$-atom.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $\gcd(M,mA)=1$ (as $mA=M+1$) and every prime of $D$ divides $A$, so $\ell\nmid mD$;
+and $-mD=-e\cdot k^2$ with $\gcd(k,\ell)=1$.  (b), (c) By (a),
+$\big(\frac{-mD}M\big)=\big(\frac{-1}M\big)\big(\frac2M\big)^t\prod_{q\mid e_o}\big(\frac qM\big)$.
+Every prime $q\mid e$ divides $mA=M+1$, so $M\equiv-1\pmod q$, and for odd $q$
+reciprocity gives
+$\big(\frac qM\big)=\big(\frac Mq\big)(-1)^{\frac{q-1}2\frac{M-1}2}=\big(\frac{-1}q\big)(-1)^{\frac{q-1}2\frac{M-1}2}$.
+This is $1$ if $M\equiv3\pmod4$, and $\big(\frac{-1}q\big)$ if $M\equiv1\pmod4$; and
+$\prod_{q\mid e_o}\big(\frac{-1}q\big)=(-1)^{(e_o-1)/2}$.  (d) Now $M=mA-1\equiv3\pmod4$.  If
+$t=1$, then $v_2(mD)$ is odd; if $8\mid m$, then $8\mid mA$, and if $m\equiv4\pmod8$,
+then $v_2(D)$ is odd, so $2\mid A$ and $8\mid mA$.  Either way $M\equiv7\pmod8$, so
+$\big(\frac2M\big)=1$, and (b) gives $-1$.
+\end{proof}
+
+For $m=4$ this is Lemma~\ref{lem:jacobi}.  We checked (a)--(c) by computer for
+$M\le5\cdot10^4$ and $m\in\{4,5,6,7,8,9,10,11,12,14,18\}$ (no failures; not used).  For
+$m\not\equiv0\pmod4$ the symbol takes both values, and the square-class process
+breaks down at a fixed small prime.
+
+\begin{proposition}[Square classes fire for $m\not\equiv0\ (4)$; proved]\label{prop:mfire}
+Let $m\not\equiv0\pmod4$.  There are infinitely many primes $\ell\equiv-1\pmod m$ such
+that the classes of the $m$-atoms $(\ell,D)$ meet both cosets of the squares
+modulo $\ell$.  For such $\ell$, every rule that chooses $r\bmod\ell$ uniformly in a
+coset of the squares (either coset, by any rule) fires an event with
+probability at least $2/(\ell-1)$.
+\end{proposition}
+
+\begin{proof}
+It suffices to find a prime $\ell\equiv-1\pmod m$ with $\ell\equiv1\pmod4$ and a prime
+$q\mid A_\ell$ with $\big(\frac q\ell\big)=-1$: then $D=1$ and $D=q$ give the classes
+$-m$ and $-mq$, whose Legendre symbols differ.  If $m$ is odd, take $q=2$ and
+$\ell\equiv-1\pmod m$, $\ell\equiv5\pmod8$; then $\ell+1\equiv6\pmod8$, so $2\mid A_\ell$, and
+$\big(\frac2\ell\big)=-1$.  If $m\equiv2\pmod4$, take an odd prime $q\equiv3\pmod4$ with
+$q\nmid m$ and $\ell\equiv-1\pmod{mq}$, $\ell\equiv1\pmod4$ (compatible, as $v_2(mq)=1$); then
+$q\mid A_\ell$ and, by the reciprocity step above, $\big(\frac q\ell\big)=\big(\frac{-1}q\big)=-1$.
+Dirichlet's theorem gives infinitely many such $\ell$.
+\end{proof}
+
+For example $m=5$, $\ell=29$ ($A=6$).  The Haar mass of the atoms through a fixed
+small prime $\ell$ is $\gg\Lc^3/\ell$, so such an $\ell$ is always stepped by the
+process of \S\ref{sec:system}; that process therefore does not run for
+$m\not\equiv0\pmod4$.  Only atoms with $M\equiv7\pmod8$ are never fired by square classes
+for every $m$ (Lemma~\ref{lem:mjacobi}(b)).
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
@@ -3114,6 +3195,12 @@ page, accessed 5 October 2026), \S28.7--28.8.
 \bibitem{LMO} J.~C.~Lagarias, H.~L.~Montgomery and A.~M.~Odlyzko, A bound for
 the least prime ideal in the Chebotarev density theorem, Invent.\ Math.\ 54
 (1979), 271--296.
+\bibitem{MN} Anonymous, The $m/n$ witness modulus at exponent $1/4$, working
+note (file \texttt{POINTWISE\_MN.md} of the project repository), 2026,
+internally reviewed.
+\bibitem{MN2} Anonymous, Towards the admissibility hypothesis $\mathrm{ADM}_m$,
+working note (file \texttt{POINTWISE\_MN2.md} of the project repository), 2026,
+internally reviewed.
 \bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Pure and Applied
 Mathematics 30, Academic Press, 1969.
 \bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
