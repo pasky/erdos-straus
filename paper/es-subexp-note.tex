@@ -34,7 +34,7 @@
 \title[A sub-exponential Erd\H{o}s--Straus witness bound]{Large Erd\H{o}s--Straus witnesses II:\\
 the multiplier modulus is infinitely often $\exp\big((\log p)^{1/4-o(1)}\big)$}
 \author{Anonymous}
-\date{Draft v5, October 2026}
+\date{Draft v6, October 2026}
 
 \begin{document}
 
@@ -58,8 +58,10 @@ $\delta^*(T)$ of the integers with $W(n)>T$ satisfies
 $(\log T)^3\ll\log(1/\delta^*(T))\ll(\log T)^3(\log\log T)^5$ (upper bound modulo
 Nair--Tenenbaum; lower bound via a Janson-type inequality for one-hot
 product spaces with a $1/\log\log T$ loss, and without loss using the atoms
-of a companion note on the exceptional set).  Typical primes have
-$\#\{p\le x:\ W(p)>T\}\ll\pi(x)e^{-c(\log T)^3}$ for $\log T\le c_1(\log x)^{1/4}$.  The
+of a companion note on the exceptional set).  The same exponent governs
+the primes: $c(\log T)^3\le\log(\pi(x)/\#\{p\le x:\ W(p)>T\})\le C(\log T)^3(\log\log T)^3$
+for $\log T\le c'(\log x/\log\log x)^{1/4}$; the lower bound for the count is proved
+by summing the transfer over all outcomes of the random quarantine.  The
 exponent $1/4$ is the limit of the minorant architecture: on every fibre
 $n\equiv r\pmod Q$ with $\log Q\le T^{0.05}$, no minorant of $\mathbf 1[W(n)>T]$ of level
 $\exp(c(\log T)^4/\log\log T)$ (or $\exp(c(\log T)^4)$, using the companion note) has
@@ -73,9 +75,14 @@ consequences for prime counts at the scale $x$).  Conversely, a
 Linnik-type hypothesis for sifted sets gives
 $W(p)\ge\exp((\log p)^{1/3-o(1)})$ infinitely often, the exponent suggested by the
 Haar density, while a Hardy--Littlewood-type hypothesis for product sets
-certifies only $W(p)\ge(\log p)^{2+o(1)}$.  All results are proved modulo the cited
-theorems listed in the text; the companion note is internally proved but
-not externally refereed.
+certifies only $W(p)\ge(\log p)^{2+o(1)}$.  For the analogous witness $W_m$ of
+$m/n$ the event classes are Jacobi non-residues for every event exactly
+when $m\equiv0\pmod4$; then the exponent $1/4$ and the Haar exponent $3$
+persist, while for every $m$, including Sierpi\'nski's $5/n$, we get the
+exponent $1/5$, and $1/4$ under a bounded-drift hypothesis (these $m/n$
+results are proved in internally reviewed working notes and summarised
+here).  All results are proved modulo the cited theorems listed in the text;
+the companion note is internally proved but not externally refereed.
 \end{abstract}
 
 \maketitle
@@ -154,7 +161,26 @@ $E(N)\ll Ne^{-c(\log N)^{3/4}}$ of \cite{TQ}.  Together with
 Theorem~\ref{thm:main} it describes both ends of the range: for
 $\log T\le c_1(\log x)^{1/4}$ the primes $p\le x$ with $W(p)>T$ have relative frequency
 at most $e^{-c(\log T)^3}$, and once $\log x\ge C(\log T)^4\log\log T$ such primes
-exist.
+exist.  In fact, at the same threshold, they have relative frequency at
+least $e^{-C(\log T)^3(\log\log T)^3}$:
+
+\begin{theorem}[Tail exponent $3$ over primes; proved modulo Theorems~\ref{thm:G}, \ref{thm:NT}, \cite{TQ} and Page's theorem]\label{thm:tailintro}
+There are absolute $c,C,c'>0$ such that for large $T$ and
+$\log T\le c'(\log x/\log\log x)^{1/4}$,
+\begin{multline*}
+ \pi(x)\,e^{-C(\log T)^3(\log\log T)^3}\ \le\ \#\{p\le x\ \text{hard}:\ W(p)>T\}\\
+ \le\ \#\{p\le x:\ W(p)>T\}\ \le\ \pi(x)\,e^{-c(\log T)^3}.
+\end{multline*}
+The lower bound is proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT} alone, for all
+$x$ with $\log x\ge C(\log T)^4\log\log T$.
+\end{theorem}
+
+This is Theorem~\ref{thm:lowertail} and Corollary~\ref{cor:twosided}.  The
+lower bound comes from the main term of the transfer theorem on each fibre
+of the random quarantine, summed over all outcomes of the quarantine
+process (\S\ref{sec:tail}); the losses are the Haar price of the square-class
+restriction, the residual mass, and a possible exceptional zero whose
+conductor divides the quarantine modulus.
 
 \emph{The Haar exponent.}  Let $\delta^*(T)$ be the Haar measure of
 $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$ relative to the class $n\equiv1\pmod{24}$
@@ -235,8 +261,22 @@ Barban--Davenport--Halberstam theorem)
 (Proposition~\ref{prop:product}).  Altogether, with
 $\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
 minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
-Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and typical primes have
-$W(p)>T$ with relative frequency at most $e^{-c\Lc^3}$.
+Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and the primes with
+$W(p)>T$ have relative frequency $e^{-\Lc^{3+o(1)}}$ for $\Lc\le(\log p)^{1/4-o(1)}$.
+
+\emph{Other numerators.}  The family \eqref{eq:ident} has an analogue
+\eqref{eq:identm} for every $m/n$, with witness $W_m$ (\S\ref{sec:mn}).  The
+only arithmetic input of the square-class quarantine that depends on $m$ is
+the Jacobi symbol of the event classes, and it is $-1$ for every event
+exactly when $m\equiv0\pmod4$ (Lemma~\ref{lem:mjacobi},
+Proposition~\ref{prop:mfire}).  Accordingly, for $m\equiv0\pmod4$ the exponent
+$1/4$ and the Haar exponent $3$ carry over (Theorem~\ref{thm:mzero}).  For
+every $m$, including Sierpi\'nski's $5/n$, the class-of-one architecture of
+the third version gives the exponent $1/5$ (Theorem~\ref{thm:mfifth}), and
+the exponent $1/4$ follows from a bounded-drift hypothesis
+$\mathrm{ADM}_m$ for an admissible random process (Theorem~\ref{thm:madm}),
+which we reduce to a hypothesis on the initial segment of the process but
+do not prove.  These statements concern the family \eqref{eq:identm} only.
 
 \emph{Versions.}  The first version of this note had exponent $1/14$; it used
 the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
@@ -250,12 +290,16 @@ reached $1/4$ by a new quarantine: a random square class, a $\beta$-weighted
 local lemma and a supermartingale bookkeeping (\S\ref{sec:system}) with Haar
 masses bounded by the Nair--Tenenbaum theorem (\S\ref{sec:moment}); it added
 the Haar lower bound (\S\ref{sec:haarlower}) and the ceiling
-(\S\ref{sec:ceiling}).  The present fifth version leaves the proof of
-Theorem~\ref{thm:main} unchanged and adds: the typical size, the Haar lower
+(\S\ref{sec:ceiling}).  The fifth version left the proof of
+Theorem~\ref{thm:main} unchanged and added: the typical size, the Haar lower
 bound without logarithmic loss and the ceiling at level $(\log T)^4$, all via
 the atoms of \cite{TQ} (\S\ref{sec:atoms34}); the Wiener-norm barrier and its
 consequences for linear certificates (\S\ref{sec:wiener}); and the
-conditional exponent $1/3$ (\S\ref{sec:LS}).
+conditional exponent $1/3$ (\S\ref{sec:LS}).  The present sixth version
+leaves all of this unchanged and adds the lower bound for the tail of $W$
+over primes, hence the two-sided tail exponent $3$ (\S\ref{sec:tail}), and
+the section on other numerators (\S\ref{sec:mn}); the discussion of the
+literature was revised after a further novelty audit.
 
 \subsection*{The method}
 Fix $T$.  We restrict $n$ to a class $n\equiv r\pmod Q$, with
@@ -350,21 +394,49 @@ variants, Fourier growth or hypercontractivity with $\rho>1$
 systematically), and we make no priority claim.
 
 \emph{The local lemmas.}  The $\beta$-weighted local lemma
-(Lemma~\ref{lem:betalll}) is the asymmetric local lemma of
-\cite[Lemma~5.1.1]{AS} with the choice $x_E=\beta^{|\supp E|}\PP(E)$; the
-conditional form for events outside the family is standard (cf.\
-\cite{HSS}).  Theorem~\ref{thm:janson} combines the lopsided local lemma of
+(Lemma~\ref{lem:betalll}) is a standard per-coordinate form of the asymmetric
+local lemma of \cite[Lemma~5.1.1]{AS} with the choice
+$x_E=\beta^{|\supp E|}\PP(E)$ (size-exponential weights are the classical device for
+non-uniform hypergraph colouring); the conditional form for events outside
+the family is standard (cf.\ \cite{HSS}).  We claim no novelty for it; the
+point specific to this note is the choice $\beta=1+1/\log\Lc$, which makes the
+threshold independent of the prime and of the level.  Theorem~\ref{thm:janson} combines the lopsided local lemma of
 Erd\H{o}s and Spencer \cite{ErdosSpencer} with the proof scheme of Janson's
 inequality \cite{Janson}, which needs increasing events and Harris'
 inequality; for atomic events on one-hot coordinates we use instead the
-correlation inequality of Lemma~\ref{lem:compat}.  We did not find this form
-in the literature, but did not search systematically.  The planting
-lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
+correlation inequality of Lemma~\ref{lem:compat}.  This is a routine
+combination of the Boppana--Spencer proof of Janson's inequality with the
+inflation bound of \cite{HSS}; we found no statement in this form, but did
+not search systematically (the work of Lu and Sz\'ekely on the local lemma
+for random injections is the closest suspected prior art, unchecked).  The
+planting lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
 lower-bound sieves; constructions of $k$-wise independent laws with
 extremal all-zero or all-one probabilities of the same kind appear in
-\cite{BGP,PYY}, and we claim no novelty for it.  Its use to bound the level
-of minorants of a concrete arithmetic indicator, on every fibre of modulus
+\cite{BGP,PYY}.  In the identical-marginal case it gives, after flipping the
+bits, $n_c(k,p)\le(k+1)p/(1-p)+2k+2$ for the threshold $n_c(k,p)$ of
+\cite[Thm.~27]{BGP} (the least $n$ such that some $k$-wise independent law on
+$n$ bits of mean $p$ gives probability $0$ to the all-ones vector).  This removes the factor
+$\log(1/(1-p))$ and the restriction to $1/(1-p)$ a prime power from their upper
+bound, and is within a factor $3$ of their lower bound (about $2$ as $p\to1$);
+we have not checked the later literature.  Its use to bound the level of minorants of
+a concrete arithmetic indicator, on every fibre of modulus
 $\log Q\le T^{0.05}$, is new to us.
+
+\emph{The exponent $3$.}  Elsholtz and Tao \cite[Remark~1.2]{ET} observe that
+their count of solutions suggests, heuristically, that a prime $p$ has a
+representation with probability $1-O(\exp(-c\log^3p))$, and that Vaughan's
+large-sieve bound \cite{Vaughan} is a rigorous analogue of this reasoning.
+Theorem~\ref{thm:haar} is a rigorous profinite version of this exponent $3$
+for the witness modulus; what is new there is the matching lower bound and
+the identification of the exponent up to logarithms.
+Theorem~\ref{thm:typical} is Vaughan's sieve method applied to $W$ (new as a
+statement about $W$, not in method), and Corollary~\ref{cor:twosided} shows
+that the exponent $3$ is also the tail exponent over primes.  The classical
+obstruction that polynomial identities cannot cover quadratic residue
+classes (\cite{Mordell}; cf.\ \cite{ET}) is qualitative.
+Lemma~\ref{lem:jacobi} and its $m/n$ version Lemma~\ref{lem:mjacobi} are the
+form of it that we use; for the family \eqref{eq:identm} it holds for every
+event exactly when $m\equiv0\pmod4$ (with Proposition~\ref{prop:mfire}).
 
 \emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
 To our knowledge tools from the theory of bounded independence
@@ -374,7 +446,10 @@ sieve minorants for primes.  Gallagher's theorem is classically the engine of
 Linnik's theorem on the least prime in a single progression.  Here it serves
 as a transfer device for an arbitrary signed combination of progressions; the
 cost is governed by the Haar $\ell^1$ norm of the minorant and its largest
-modulus, not by the number of cells.  The nearest classical analogues are
+modulus, not by the number of cells.  Theorem~\ref{thm:transfer} is a
+convenient packaging of Gallagher's proof of Linnik's theorem, not a new
+transfer principle; inserting sieve weights into Linnik-range arguments is
+standard.  The nearest classical analogues are
 bounds for the least prime in a union of residue classes, or in a Chebotarev
 class of an abelian extension (Lagarias--Montgomery--Odlyzko \cite{LMO};
 Thorner--Zaman \cite{TZcheb}); these concern nonnegative indicators.  We
@@ -414,7 +489,9 @@ Shiu); the prime number theorem in progressions with a Landau--Page term
 theorem.  Unlike the other cited inputs, the exact form of these last two
 was recalled from the textbooks \cite[Chs.~20, 29]{Dav}, not re-checked
 against the source (no copy archived); our use needs only their standard
-forms.  Results quoted from the working notes \cite{O15,O16} and from
+forms.  In \S\ref{sec:mn} the Elsholtz--Tao estimates \cite{ET} and Henriot's
+coefficient-uniform form of the Nair--Tenenbaum theorem \cite[Thm.~5]{Henriot}
+enter, through the working notes \cite{MN,MN2}.  Results quoted from the working notes \cite{O15,O16,MN,MN2} and from
 \cite{SL} (internally reviewed, not externally refereed) are labelled as
 proved \emph{in} those notes; their proofs are sketched or referenced here,
 not given in full.  \emph{Conditional on LS} marks a statement that assumes the
@@ -2391,11 +2468,11 @@ is the opposite inequality to Theorem~\ref{thm:main}: an upper bound for
 the number of primes with $W(p)>T$ needs a \emph{majorant}, and for majorants
 the exceptional character costs only the factor $1+\epsilon\le3$; Theorem~\ref{thm:main}
 needs a minorant.  Heuristically (Assessment) the count is
-$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$.  We expect (Assessment, not
-checked) that a matching lower bound in the range
-$\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ could be derived from the main term of
-Theorem~\ref{thm:transfer}, except when an exceptional character divides the
-quarantine modulus; we have not pursued this.
+$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$.  A matching lower bound
+$\pi(x)e^{-C\Lc^3(\log\Lc)^3}$ for $\Lc\le c'(\log x/\log\log x)^{1/4}$ is proved in
+\S\ref{sec:tail} (Theorem~\ref{thm:lowertail}), from the main term of
+Theorem~\ref{thm:transfer}; an exceptional character whose conductor divides
+the quarantine modulus is paid for by a factor $e^{-O(\Lc^3(\log\Lc)^3)}$ there.
 
 The same atoms sharpen the ceiling of Theorem~\ref{thm:ceiling}.
 
@@ -2459,6 +2536,216 @@ ceilings this is a conjunction of proved statements; as a description of
 a one-big-prime system: on the minorant side the subfamily is used only
 for the obstruction (as $F\le\mathbf 1[\text{no event of }\mathcal F]$), while the positive
 minorant of Theorem~\ref{thm:assembly} is built differently.
+\end{remark}
+
+\section{The distribution of \texorpdfstring{$W$}{W} over primes}\label{sec:tail}
+
+Theorem~\ref{thm:typical} bounds the number of primes $p\le x$ with $W(p)>T$
+from above.  Here we prove a matching lower bound in almost the same range,
+so that the Haar exponent $3$ of Theorem~\ref{thm:haar} is also the tail
+exponent of $W$ over primes.  Write
+\begin{gather*}
+ N(x,T)=\#\{p\le x\ \text{prime}:\ W(p)>T\},\\
+ N_h(x,T)=\#\{p\le x\ \text{hard prime}:\ W(p)>T\}.
+\end{gather*}
+
+\begin{theorem}[Lower tail; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:lowertail}
+There are absolute constants $C,T_0$ such that for $T\ge T_0$ and every $x$ with
+$\log x\ge C\Lc^4\log\Lc$,
+\[
+ N(x,T)\ \ge\ N_h(x,T)\ \ge\ \pi(x)\exp\big(-C\Lc^3(\log\Lc)^3\big).
+\]
+\end{theorem}
+
+The threshold $\log x\ge C\Lc^4\log\Lc$ is the threshold of
+Theorem~\ref{thm:assembly} for the existence of one such prime: counting
+costs nothing in range.  The constants $C,T_0$ are effective, given that the
+implied constants of Theorem~\ref{thm:NT} are.
+
+\begin{corollary}[Tail exponent $3$ over primes; proved modulo Theorems~\ref{thm:G}, \ref{thm:NT}, \cite{TQ} and Page's theorem]\label{cor:twosided}
+There are absolute constants $c,C,c'>0$ and $T_0$ such that for $T\ge T_0$ and
+$\Lc=\log T\le c'(\log x/\log\log x)^{1/4}$,
+\[
+ c\,\Lc^3\ \le\ \log\frac{\pi(x)}{N(x,T)}\ \le\ C\,\Lc^3(\log\Lc)^3 .
+\]
+In particular $\log\log(\pi(x)/N(x,T))=(3+o(1))\log\log T$ in this range.
+\end{corollary}
+
+\begin{proof}
+The lower inequality is Theorem~\ref{thm:typical}, whose range
+$\Lc\le c_1(\log x)^{1/4}$ contains ours if $c'\le\min(1,c_1)$; its implied
+constant is absorbed for $T\ge T_0$.  The upper inequality is
+Theorem~\ref{thm:lowertail}: if $c'\le\min(1,(4/C)^{1/4})$, then
+$\log\Lc\le\frac14\log\log x$ and $C\Lc^4\log\Lc\le\frac C4c'^4\log x\le\log x$.
+\end{proof}
+
+The constant $c$ comes from \cite{TQ} and is not effective; $C$ is.  The two
+ranges differ by the factor $(\log\log x)^{1/4}$, which is the factor $\log\Lc$
+in the junta bound $\log Z\ll\Lc^4\log\Lc$; by Proposition~\ref{prop:ceiling4}
+no minorant on a fibre can work below $\log x\asymp\Lc^4$ (Assessment: this is
+the natural range limit of the method).  For comparison, \cite[Remark~1.2]{ET}
+suggest heuristically that a prime $p$ has an Erd\H{o}s--Straus representation
+with probability $1-O(\exp(-c\log^3p))$; Theorem~\ref{thm:haar} and
+Corollary~\ref{cor:twosided} are rigorous statements of this exponent $3$ for
+the witness modulus $W$, on the Haar side and over primes.
+
+\subsection*{Counting primes on a fibre}
+The proof of Theorem~\ref{thm:transfer} gives more than one prime.
+
+\begin{lemma}[Quantitative transfer; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:qtransfer}
+Assume the hypotheses of Theorem~\ref{thm:transfer}.  Let $x$ satisfy
+$\log x\ge C_2(1+\log A)\log Z$, and let $\beta_1$, $\chi_1$, $q_1$ be the possible
+exceptional zero of Theorem~\ref{thm:G} for the parameter $Q_G=x^{1/(\kappa L)}$ of
+that proof, its character and the conductor of $\chi_1$.  Then
+\[
+ \#\{p\le x:\ p\equiv r\ (Q),\ W(p)>T\}\ \ge\ \frac{\lambda\,\mu\,x}{3\varphi(Q)\log x},
+\]
+where $\lambda=1$ unless $\beta_1$ exists and $q_1\mid Q$, and in that case
+\[
+ \lambda=\min\big(1,\,8c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}\big),
+\]
+with $c_2$ from Theorem~\ref{thm:xz}.
+\end{lemma}
+
+\begin{proof}
+Nothing in the proof of Theorem~\ref{thm:transfer} uses more about $x$ than
+$\log x\ge C_2(1+\log A)\log Z$, and it bounds $S(x)$ from below in each case.
+In Case~0, and in the exceptional case when no $\chi$ with $c(\chi)\ne0$ has
+$\chi^*=\chi_1$, it gives $S(x)\ge(1-1/400-1/200)\mu x/\varphi(Q)$.  In Case~B it
+gives $S(x)\ge\mu x/(3\varphi(Q))$.  In Case~A (where $\chi$ is trivial on $H$, so
+$q_1\mid Q$) it gives $S(x)\ge0.98\lambda'\mu x/\varphi(Q)$ with
+$\lambda'\ge\min(u,1)/2$, $u=(1-\beta_1)\log x\ge16(1-\beta_1)$; by
+Theorem~\ref{thm:xz}, $u\ge16c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}$, so
+$0.98\lambda'\ge\lambda/3$.  (If $q_1\nmid Q$, the character $\chi$ with
+$\chi^*=\chi_1$ is not trivial on $H$, so we are in Case~B or $\chi$ does not
+occur.)  In all cases $S(x)\ge\lambda\mu x/(3\varphi(Q))$.  Every term of
+$S(x)=\sum_{p\le x,\,p\nmid N_0,\,p\equiv r\,(Q)}B(p)\log p$ is at most $\log x$, and a
+term with $B(p)>0$ has $W(p)>T$, because $B(p)\le\mathbf 1[W(p)>T]$ for these $p$
+(they are coprime to all $d_i$).
+\end{proof}
+
+Applied to the quarantine of Theorem~\ref{thm:haarupper}, with the sandwich of
+Theorem~\ref{thm:assembly} but \emph{without} the auxiliary prime $\ell_{\rm aux}$
+(whose only role was to force $p>T$), Lemma~\ref{lem:qtransfer} already gives
+$N_h(x,T)\ge\pi(x)\exp(-C\Lc^3(\log\Lc)^5)$ for $\log x\ge C\Lc^4\log\Lc$: the losses are
+$\log\varphi(Q)$, $\log(1/\mu)\le\frac43S_\beta+0.02$ and
+$\log(1/\lambda)\le\frac12\log Q+O(\log\log Q)$, all $\ll\Lc^3(\log\Lc)^5$ by
+\eqref{eq:goodQ}.  So a single fibre has relative density
+$\exp(-O(\Lc^3(\log\Lc)^5))$: the expensive part $\Lc S_\beta$ of the construction
+(the junta) enters only the threshold for $x$.  To lower the power of $\log\Lc$
+we sum over all outcomes of the square-class process.
+
+\subsection*{The leaves of the square-class process}
+Run the square-class process of \S\ref{sec:system} with the parameters of
+Theorem~\ref{thm:haarupper} ($Y=\Lc^{C_0+4}$).  The rule ``step at the least
+heavy $\ell$'' is deterministic, so the process is a finite decision tree; its
+leaves are the final quarantines $L=(Q_L,r_L)$.  Let $k_L$ be the number of odd
+primes dividing $Q_L$ (the number of steps with $a=0$, the forced ones
+included), and $\PP_{\rm proc}$ the law of the process.
+
+\begin{lemma}[Leaves; proved]\label{lem:leaves}
+The fibres $\{n\equiv r_L\ (\mathrm{mod}\ Q_L)\}$ of distinct leaves are disjoint, and
+$\PP_{\rm proc}(L)=4\cdot2^{k_L}/\varphi(Q_L)$.
+\end{lemma}
+
+\begin{proof}
+Each step reveals one more digit of $n$, by a rule depending only on the
+digits already revealed.  Two distinct leaves first differ at a node where
+they take different values of the same digit, so their fibres are disjoint.
+The start $Q=8$, $r=1$ has Haar mass $1/\varphi(8)=1/4$ among the units.  A step
+at $(\ell,0)$ picks one of the $(\ell-1)/2$ nonzero squares modulo $\ell$, with
+probability $2/(\ell-1)$, and the chosen subfibre has conditional Haar mass
+$1/(\ell-1)$; a step at $(\ell,a)$, $a\ge1$, picks one of $\ell$ lifts, with
+probability $1/\ell$ equal to the conditional Haar mass.  (The forced step at
+$3$ picks the unique square $1$, with probability $1=2/(3-1)$.)  Multiplying
+along the path, $\PP_{\rm proc}(L)=2^{k_L}\cdot\varphi(Q_L)^{-1}/(1/4)$.
+\end{proof}
+
+\begin{lemma}[Number and size of the level-$0$ steps; proved modulo Theorem~\ref{thm:NT}]\label{lem:levelzero}
+Let $Q_{\rm end}$ be the final modulus and $k$ the number of odd primes dividing it.  Then
+\[
+ \E[k]\ll\Lc^3(\log\Lc)^2\log\log\Lc,\qquad \E[\log\mathrm{rad}(Q_{\rm end})]\ll\Lc^3(\log\Lc)^3 .
+\]
+\end{lemma}
+
+\begin{proof}
+As in Lemma~\ref{lem:book}(b), but only for the steps at level $a=0$ and with
+the weight $1$, respectively $\log\ell$, in place of $\log\ell$ for every level:
+optional stopping for $G^{(\ell,0)}$ gives
+\begin{align*}
+ \E[k]&\le3+\frac1\eta\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\omega_Y(M),\\
+ \E[\log\mathrm{rad}(Q_{\rm end})]&\le\log 210+\frac1\eta\sum_EP_H(E)2^{\omega_Y(M)}\beta^{\omega(M)}\log\mathrm{rad}(M_Y),
+\end{align*}
+as $\sum_{\ell\le Y}\mathbf 1[\ell\mid M]=\omega_Y(M)$ and $\sum_{\ell\mid M,\,\ell\le Y}\log\ell=\log\mathrm{rad}(M_Y)$; the
+forced steps contribute $3$ and $\log105$, and the prime $2$ contributes $\log2$.
+
+For the first sum put $t=1+1/\log\log Y$.  Since $y\le t^y/(e\log t)$ for $y\ge0$ and
+$1/\log t\le t/(t-1)$, we have $\omega_Y(M)\le(1+\log\log Y)\,t^{\omega_Y(M)}$.  Repeat
+the proof of Lemma~\ref{lem:masses}(A) with $f_2t^{\omega_Y}$ in place of $f_2$.  Its
+values at prime powers are $\le6t\le7$ for large $T$, so the class condition of
+Theorem~\ref{thm:NT} holds uniformly in $T$, and its Euler factor at $p\le Y$ grows
+by the factor $1+O((t-1)/p)$; the product of these factors is
+$\exp(O((t-1)\log\log Y))=O(1)$.  So the first sum is
+$\ll\log\log Y\cdot\Lc^3\log Y$, and $\E[k]\ll\eta^{-1}\Lc^3\log Y\log\log Y$.
+
+For the second sum put $s=1/\log Y$.  Since $y\le e^{sy}/(es)$ for $y\ge0$,
+$\log\mathrm{rad}(M_Y)\le(\log Y)\,\mathrm{rad}(M_Y)^s$.  The function
+$\mathrm{rad}(m_Y)^s=\prod_{\ell\mid m,\,\ell\le Y}\ell^s$ is multiplicative with values in
+$[1,e]$ at prime powers, so $f_2\,\mathrm{rad}(\cdot_Y)^s$ has values $\le6e<17$ and the class
+condition again holds uniformly in $T$; the Euler factors grow by
+$1+O((\ell^s-1)/\ell)$, and $\ell^s-1\le(e-1)s\log\ell$, so their product is
+$\exp(O(s\sum_{\ell\le Y}\log\ell/\ell))=O(1)$.  So the second sum is $\ll\Lc^3(\log Y)^2$.
+As $1/\eta\asymp\log\Lc$ and $\log Y\asymp\log\Lc$, both bounds follow.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:lowertail}]
+Call a leaf $L$ \emph{good} if (i) $\tilde w_\ell\le\eta$ for every $\ell>Y$; (ii)
+$\log Q_L\le8\E[\log Q_{\rm end}]$; (iii) $S_\beta(L)\le8\E[S_\beta(\mathrm{end})]$; (iv)
+$k_L\le8\E[k]$; (v) $\log\mathrm{rad}(Q_L)\le8\E[\log\mathrm{rad}(Q_{\rm end})]$.  As in the proof
+of Theorem~\ref{thm:haarupper}, (i) fails with probability $\le1/4$, and by
+Markov's inequality each of (ii)--(v) fails with probability $\le1/8$.  So
+$\PP_{\rm proc}(\text{good})\ge1/4$.
+
+A good leaf satisfies \eqref{eq:goodQ} with $C$ replaced by $2C$ (by
+Lemma~\ref{lem:book} and Lemma~\ref{lem:masses}, as in Theorem~\ref{thm:haarupper}).  Build
+$B_L$ on its fibre exactly as in the proof of Theorem~\ref{thm:assembly}, with
+$S_1=2C\Lc^3\log\Lc$, and apply Lemma~\ref{lem:qtransfer} to $(Q_L,r_L)$ itself
+(no auxiliary prime).  The hypotheses of Theorem~\ref{thm:transfer} were
+checked in that proof for $(Q',r')$; the same checks apply to $(Q_L,r_L)$, as no
+cell, event or twist character involves $\ell_{\rm aux}$.  So $\mu_L\ge0.99\,e^{-4S_\beta(L)/3}$,
+$A\le1.03$ and $\log Z_L\le\log Q_L+2(3\Lc+2\tau)\le C_3\Lc^4\log\Lc$ with one
+absolute $C_3$ for all good leaves.  Take $C\ge C_2(1+\log1.03)C_3$; then
+Lemma~\ref{lem:qtransfer} applies to every good leaf at the same $x$, and
+$\lambda_L<1$ only if the exceptional character of that application has
+conductor $q_1\mid Q_L$.  A real primitive conductor is $2^ef'$ with $e\le3$ and $f'$ odd and
+squarefree, so then $q_1\le8\,\mathrm{rad}(Q_L)$, and
+$\log(1/\lambda_L)\le\frac12\log\mathrm{rad}(Q_L)+O(\log\log Q_L+1)$.
+
+The fibres of distinct leaves are disjoint (Lemma~\ref{lem:leaves}), and the
+primes found on them are hard by Lemma~\ref{lem:system}(iii), as $840\mid Q_L$.  So
+\begin{multline*}
+ N_h(x,T)\ \ge\ \sum_{L\ \rm good}\frac{\lambda_L\mu_Lx}{3\varphi(Q_L)\log x}
+ =\frac x{12\log x}\sum_{L\ \rm good}\PP_{\rm proc}(L)\,2^{-k_L}\lambda_L\mu_L\\
+ \ge\ \frac x{48\log x}\min_{L\ \rm good}2^{-k_L}\lambda_L\mu_L .
+\end{multline*}
+On good leaves, $k_L\log2\ll\Lc^3(\log\Lc)^2\log\log\Lc$ and
+$\log(1/\lambda_L)\ll\Lc^3(\log\Lc)^3$ by Lemma~\ref{lem:levelzero}, and
+$\log(1/\mu_L)\le\frac43S_\beta(L)+0.02\ll\Lc^3\log\Lc$.  As $x/\log x\ge\pi(x)/1.26$, the
+theorem follows.
+\end{proof}
+
+\begin{remark}[Where the logarithms go; Assessment, and a conditional improvement]\label{rem:tailogs}
+The three losses are the square-class restriction $2^{-k_L}$ (the Haar price of
+never firing an event), the residual mass $S_\beta$ (the Haar truth $\Lc^3$ up to
+$\log\Lc$), and the possible exceptional zero.  Only the last is specific to
+primes: majorants absorb the exceptional term as a factor $1+\epsilon\le3$
+(Theorem~\ref{thm:typical}), minorants pay $1-\epsilon$.  If every real zero of every
+$L(s,\chi)$, $\chi$ real primitive of conductor $q\ge3$, satisfies $1-\beta\ge c_0/\log q$
+(as on GRH for real characters), then in Case~A $u\ge c_0\log x/\log Q_L\ge1$, so
+$\lambda_L\ge1/2$ and the bound of Theorem~\ref{thm:lowertail} improves to
+$\pi(x)\exp(-C\Lc^3(\log\Lc)^2\log\log\Lc)$ (conditional on this hypothesis).
+Siegel's ineffective bound $1-\beta\ge c(\varepsilon)q^{-\varepsilon}$ still costs $\varepsilon\log\mathrm{rad}(Q_L)$
+and does not remove the third logarithm.
 \end{remark}
 
 \section{Beyond bounded level: a Wiener-norm barrier for linear certificates}\label{sec:wiener}
@@ -2755,6 +3042,233 @@ $e^{-\Lc^{3+o(1)}}$, exceeds its best product subset by a factor $e^{T^{1/2+o(1)
 hypotheses that see only prime-by-prime local structure are useless here,
 and the hypothesis must apply to non-product sifted sets, as LS does.
 
+\section{Other numerators \texorpdfstring{$m/n$}{m/n}}\label{sec:mn}
+
+The multiplier family exists for every numerator.  Fix an integer $m\ge4$
+($m=5$ is Sierpi\'nski's equation).  For $M\ge3$ with $M\equiv-1\pmod m$ put
+$A=A_M=(M+1)/m$.  If $uvw=A$ and $n\equiv-uv^{-1}\pmod M$, then $s=(nv+u)/M$ is a
+positive integer and
+\begin{equation}\label{eq:identm}
+ \frac mn=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}
+\end{equation}
+(as $\frac1{suw}+\frac1{nsvw}=\frac{M}{nuvw}$ and $M+1=mA$).  As $mA\equiv1\pmod M$, the
+proof of Lemma~\ref{lem:atoms} with $4$ replaced by $m$ shows
+$\{-uv^{-1}\bmod M:\ uvw=A\}=\cR_m(M):=\{-mD\bmod M:\ D\mid A^2\}$.  An
+\emph{$m$-atom} is a pair $(M,D)$ with $M\equiv-1\pmod m$, $M\ge3$, $D\mid A_M^2$; its
+event is $n\equiv-mD\pmod M$.  Let $W_m(n)$ be the least $M$ with $n\bmod M\in\cR_m(M)$, so
+$W_4=W$, and let $\delta_m^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W_m(n)>T\}$.
+A unit class $r\bmod Q$ is \emph{Type-II-hard} if $r\bmod M\notin\cR_m(M)$ for every
+$M\mid Q$ with $M\equiv-1\pmod m$: no identity \eqref{eq:identm} with $M\mid Q$ covers it.
+In this section ``hard'' always refers to the family \eqref{eq:identm} alone;
+we make no statement about other identities for $m/p$, and nothing here bears
+on the Erd\H{o}s--Straus or Sierpi\'nski conjectures.  Full proofs of the
+statements below that are only summarised here are in the working notes
+\cite{MN,MN2} (internally reviewed, not externally refereed).
+
+\subsection*{The Jacobi symbol of the event classes}
+For an $m$-atom $(M,D)$ with $M$ odd let $e$ be the squarefree part of $mD$, and
+write $e=2^te_o$ with $t\in\{0,1\}$ and $e_o$ odd.
+
+\begin{lemma}[Jacobi dichotomy; proved]\label{lem:mjacobi}
+Let $(M,D)$ be an $m$-atom with $M$ odd.
+\begin{enumerate}
+\item[(a)] Every prime $\ell\mid M$ has $\ell\nmid mD$ and $\big(\frac{-mD}\ell\big)=\big(\frac{-e}\ell\big)$.
+\item[(b)] If $M\equiv3\pmod4$, then $\big(\frac{-mD}M\big)=-\big(\frac2M\big)^t$.
+\item[(c)] If $M\equiv1\pmod4$, then $\big(\frac{-mD}M\big)=\big(\frac2M\big)^t(-1)^{(e_o-1)/2}$.
+\item[(d)] If $m\equiv0\pmod4$, then $\big(\frac{-mD}M\big)=-1$ for every $m$-atom.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $\gcd(M,mA)=1$ (as $mA=M+1$) and every prime of $D$ divides $A$, so $\ell\nmid mD$;
+and $-mD=-e\cdot k^2$ with $\gcd(k,\ell)=1$.  (b), (c) By (a),
+$\big(\frac{-mD}M\big)=\big(\frac{-1}M\big)\big(\frac2M\big)^t\prod_{q\mid e_o}\big(\frac qM\big)$.
+Every prime $q\mid e$ divides $mA=M+1$, so $M\equiv-1\pmod q$, and for odd $q$
+reciprocity gives
+$\big(\frac qM\big)=\big(\frac Mq\big)(-1)^{\frac{q-1}2\frac{M-1}2}=\big(\frac{-1}q\big)(-1)^{\frac{q-1}2\frac{M-1}2}$.
+This is $1$ if $M\equiv3\pmod4$, and $\big(\frac{-1}q\big)$ if $M\equiv1\pmod4$; and
+$\prod_{q\mid e_o}\big(\frac{-1}q\big)=(-1)^{(e_o-1)/2}$.  (d) Now $M=mA-1\equiv3\pmod4$.  If
+$t=1$, then $v_2(mD)$ is odd; if $8\mid m$, then $8\mid mA$, and if $m\equiv4\pmod8$,
+then $v_2(D)$ is odd, so $2\mid A$ and $8\mid mA$.  Either way $M\equiv7\pmod8$, so
+$\big(\frac2M\big)=1$, and (b) gives $-1$.
+\end{proof}
+
+For $m=4$ this is Lemma~\ref{lem:jacobi}.  We checked (a)--(c) by computer for
+$M\le5\cdot10^4$ and $m\in\{4,5,6,7,8,9,10,11,12,14,18\}$ (no failures; not used).  For
+$m\not\equiv0\pmod4$ the symbol takes both values, and the square-class process
+breaks down at a fixed small prime.
+
+\begin{proposition}[Square classes fire for $m\not\equiv0\ (4)$; proved]\label{prop:mfire}
+Let $m\not\equiv0\pmod4$.  There are infinitely many primes $\ell\equiv-1\pmod m$ such
+that the classes of the $m$-atoms $(\ell,D)$ meet both cosets of the squares
+modulo $\ell$.  For such $\ell$, every rule that chooses $r\bmod\ell$ uniformly in a
+coset of the squares (either coset, by any rule) fires an event with
+probability at least $2/(\ell-1)$.
+\end{proposition}
+
+\begin{proof}
+It suffices to find a prime $\ell\equiv-1\pmod m$ with $\ell\equiv1\pmod4$ and a prime
+$q\mid A_\ell$ with $\big(\frac q\ell\big)=-1$: then $D=1$ and $D=q$ give the classes
+$-m$ and $-mq$, whose Legendre symbols differ.  If $m$ is odd, take $q=2$ and
+$\ell\equiv-1\pmod m$, $\ell\equiv5\pmod8$; then $\ell+1\equiv6\pmod8$, so $2\mid A_\ell$, and
+$\big(\frac2\ell\big)=-1$.  If $m\equiv2\pmod4$, take an odd prime $q\equiv3\pmod4$ with
+$q\nmid m$ and $\ell\equiv-1\pmod{mq}$, $\ell\equiv1\pmod4$ (compatible, as $v_2(mq)=1$); then
+$q\mid A_\ell$ and, by the reciprocity step above, $\big(\frac q\ell\big)=\big(\frac{-1}q\big)=-1$.
+Dirichlet's theorem gives infinitely many such $\ell$.
+\end{proof}
+
+For example $m=5$, $\ell=29$ ($A=6$).  The Haar mass of the atoms through a fixed
+small prime $\ell$ is $\gg\Lc^3/\ell$, so such an $\ell$ is always stepped by the
+process of \S\ref{sec:system}; that process therefore does not run for
+$m\not\equiv0\pmod4$.  For every $m$, atoms with $M\equiv7\pmod8$ are never fired by
+square classes (Lemma~\ref{lem:mjacobi}(b)); this condition is sufficient, not
+necessary (e.g.\ $m=5$, $M=19$, $D=1$).
+
+\subsection*{Results}
+\begin{theorem}[$m\equiv0\ (4)$; proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}, and the fundamental lemma for the lower bound in (i)]\label{thm:mzero}
+Let $m\equiv0\pmod4$.  Constants depend on $m$.
+\begin{enumerate}
+\item[(i)] $\Lc^3/\log\Lc\ll\log(1/\delta_m^*(T))\ll\Lc^3(\log\Lc)^5$.
+\item[(ii)] For infinitely many primes $p$ we have
+\[
+ W_m(p)\ge\exp\big(c_m(\log p)^{1/4}(\log\log p)^{-1/4}\big);
+\]
+these $p$ are quadratic residues modulo $840$ and Type-II-hard modulo their quarantine modulus $Q$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Summary of the proof {\rm(\cite[Thm.~3.1]{MN})}]
+The proofs of \S\S\ref{sec:system}--\ref{sec:proof} use the shape of the atoms
+only in the following places, each of which holds for $m\equiv0\pmod4$.
+(1) Lemma~\ref{lem:jacobi} is replaced by Lemma~\ref{lem:mjacobi}(a),(d), with $d$
+replaced by $e$; the drift at a level-$0$ step in Lemma~\ref{lem:book}(a) is
+$1+(\frac{-e}\ell)\le2$.  (2) $M\equiv3\pmod4$ is odd, so the start $Q=8$, $r=1$ has
+$p_0=P_H$, and the forced steps at $3,5,7$ are square steps.  (3) In
+Lemma~\ref{lem:masses}(A), Theorem~\ref{thm:NT} is applied to $Q_1(n)=n$,
+$Q_2(n)=mn-1$: coprime linear forms without fixed prime divisor, with
+$\rho(p)=2$ for $p\nmid m$ and $\rho(p)=1$ for $p\mid m$, so the Euler product changes
+by a factor $O_m(1)$; Lemma~\ref{lem:masses}(B) is an elementary divisor sum and is
+unchanged.  (4) Theorem~\ref{thm:haarupper}, the sandwich
+(\S\S\ref{sec:energy}--\ref{sec:brw}) and the transfer concern an abstract system of
+unit-class events and need only (1)--(3); the hypotheses on $r$ in
+Theorem~\ref{thm:transfer} are those produced by the process.  (5) The lower
+bound in (i) is Proposition~\ref{prop:mlower} below.
+\end{proof}
+
+\begin{proposition}[Haar lower bound for every $m$; proved in {\cite{MN}} modulo the fundamental lemma]\label{prop:mlower}
+For every $m\ge4$, $\log(1/\delta_m^*(T))\gg_m\Lc^3/\log\Lc$.
+\end{proposition}
+
+\begin{proof}[Summary of the proof {\rm(\cite[Prop.~3.2]{MN})}]
+The proof of Theorem~\ref{thm:haarlower} with $4$ replaced by $m$: in the family
+used there replace the conditions $M\equiv3\pmod4$, $M\equiv-1\pmod{4n}$ by
+$M\equiv-1\pmod{mn}$, so that $n\mid A_M$; then $mD\le mn^2<M$ for $M\ge\sqrt T$, so the
+classes $-mD\bmod M$ are distinct, and the fundamental lemma sifts
+progressions modulo $mn$ instead of $4n$.  The Janson-type inequality
+(Theorem~\ref{thm:janson}) is abstract.  No Jacobi input is used.
+\end{proof}
+
+For $m\not\equiv0\pmod4$ the exponent $1/5$ of the third version of this note
+extends, because that version quarantines $n$ to the class of one, which is
+hard for every $m$, and never uses quadratic residues.
+
+\begin{theorem}[Every $m$, exponent $1/5$; proved in {\cite{MN}} modulo Theorem~\ref{thm:G} and the Elsholtz--Tao estimates {\cite[Prop.~1.4, Thm.~7.1, Cor.~7.4, (7.10)]{ET}}]\label{thm:mfifth}
+For every fixed $m\ge4$, $\log(1/\delta_m^*(T))\ll_m\Lc^5\log\Lc$, and for infinitely many primes $p$,
+$W_m(p)\ge\exp\big(c_m(\log p)^{1/5}(\log\log p)^{-1/5}\big)$; these $p$ satisfy $p\equiv1\pmod Q$ with
+$840\mid Q$ and are Type-II-hard modulo $Q$.
+\end{theorem}
+
+The proof \cite[Cor.~6.1 and \S6b]{MN} is a written-out substitution
+$4\mapsto m$ in the graded class-of-one argument (Remark~\ref{rem:graded}), with
+the energy bound of \S\ref{sec:energy} and Theorem~\ref{thm:transfer}.  The
+changes are: the Elsholtz--Tao estimates are stated for general
+coefficients, so $4\mapsto m$ is admissible; the quadratic $mdx^2+1$ can have $4$
+roots modulo $2^k$ when $md$ is odd, which changes one Euler factor; for odd $m$,
+$M$ can be even, so the prime $2$ becomes a graded coordinate like the others;
+the class of one is excluded by an archimedean argument valid for every $m$
+($M\mid D+A$ is impossible as $0<D+A\le2A<M$, after $D\mapsto A^2/D$); and the parity
+assertions of the original proof are replaced by $\ell\nmid mad$.  This improves the
+exponent $1/7$ that the architecture of the second version gives for
+general $m$, in particular for Sierpi\'nski's $5/n$, but only for the witness
+$W_5$ of the family \eqref{eq:identm}.
+
+\subsection*{The case \texorpdfstring{$m\not\equiv0\ (4)$}{m not 0 mod 4} at exponent \texorpdfstring{$1/4$}{1/4}}
+Two ingredients survive.  First, the transfer does not need $r$ to be a square:
+
+\begin{lemma}[Transfer for arbitrary classes; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:anyr}
+Theorem~\ref{thm:transfer} holds for every unit $r\bmod Q$, $8\mid Q$, if the cells are
+consistent with $r$; no quadratic condition on $r$ is needed.
+\end{lemma}
+
+\begin{proof}
+The value of a real character at $r$ enters only in Case~A of the proof, through
+$c(\chi)=\chi(r)\mu/\varphi(Q)$ for the real $\chi$ with $\chi^*=\chi_1$ trivial on
+$\{n\equiv1\ (Q)\}$ (and through the corresponding identity in (c) when $f_2=1$).  If
+$\chi_1(r)=1$, the proof is unchanged.  If $\chi_1(r)=-1$, the exceptional main
+term $-c(\chi)x^{\beta_1}/\beta_1$ is positive, the main terms add up to
+$\lambda'\mu x/\varphi(Q)$ with $\lambda'=1+x^{\beta_1-1}/\beta_1\ge1$, and the errors are bounded
+as in Case~0.  In (c) and Case~B, $\psi_1(r)$ is replaced by a sign, and the
+bound $|c(\chi)|\le\mu/(4\varphi(Q))$ is unchanged; non-real characters enter only
+through $|c(\chi)|$.
+\end{proof}
+
+Second, the bookkeeping survives if the square-class process is replaced by
+the \emph{admissible unit process}: at each step reveal the next digit of $n$
+uniformly among the classes that do not complete an event (the
+\emph{non-forbidden} classes), after a fixed prefix in which $r_0\bmod Q_0$ is
+uniform on the Type-II-hard classes modulo a constant modulus $Q_0=Q_0(m)$.
+The prime $2$ is an ordinary coordinate for odd $m$.  If $f$ is the forbidden
+fraction at a step, put $\Lambda(\ell)=\prod(1-f)^{-1}$ over the steps at $\ell$ after the
+prefix ($\Lambda=\infty$ if some $f=1$).
+
+\emph{Hypothesis} $\mathrm{ADM}_m(K,Q_0)$: uniformly in large $T$ (with $\beta$, $\eta$ as
+before and $Y=\Lc^{C}$ for a suitable $C=C(K)$), with probability at least $7/8$ the
+admissible unit process satisfies $\Lambda(\ell)\le K$ for every $\ell\le Y$.
+
+For $m\equiv0\pmod4$ the square-restricted version holds with $K=2$, by
+Lemma~\ref{lem:mjacobi}(d).
+
+\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:madm}
+Assume $\mathrm{ADM}_m(K,Q_0)$.  Then $\log(1/\delta^*_m(T))\ll\Lc^3(\log\Lc)^{K+4}$, and
+$W_m(p)\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-B_K}\big)$ for infinitely many primes $p$,
+Type-II-hard modulo their quarantine modulus.
+\end{theorem}
+
+In the proof \cite[Thm.~5.1]{MN} only Lemma~\ref{lem:book} changes: the
+factor $2^{u_i(E)}$ is replaced by $\prod_{\ell\mid M,\,\ell\le Y}K/\Lambda_i(\ell)$, the process
+is stopped before a step that would make some $\Lambda(\ell)>K$, and the prefix
+costs a factor $1/\delta_0$ (the density of the hard classes modulo $Q_0$) in all
+initial masses; the transfer uses Lemma~\ref{lem:anyr}.  Success probability
+$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}.  For odd $m$
+the pair of forms $n$, $mn-1$ of Lemma~\ref{lem:masses}(A) has the fixed prime
+divisor $2$, so Theorem~\ref{thm:NT} does not apply verbatim; one splits by the
+parity of $n$ (forms $t$, $2mt-1$ for $n=2t$, and $2t+1$, $mt+(m-1)/2$ for $n=2t+1$,
+neither pair having a fixed prime divisor) and absorbs the bounded factors
+at $2$.  This step is not written out in \cite{MN}.
+
+\emph{Towards $\mathrm{ADM}_m$.}  $\mathrm{ADM}_m$ is open for every $m\not\equiv0\pmod4$.
+Numerically the drift is small: for $m\in\{5,6,7,9,10,11,13\}$ and
+$T\le3\cdot10^5$, a simplified full-depth version of the process with a $2$- and
+$3$-adic prefix never died and had $\max_\ell\Lambda(\ell)\le4.3$, the maximum being at
+$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite{MN2} uses an ordered variant of the process: after a
+prefix modulo $Q(q_0)=\lcm\{q\le q_0\}$ (over the powers $q$ of primes not dividing
+$m$), a forced stage reveals the digits $r\bmod q$ for all such prime powers
+$q_0<q\le Z=\Lc^3(\log\Lc)^B$ in increasing order of $q$ (so that an atom completed at
+$q$ has its cofactor composed of smaller prime powers), followed by the
+adaptive threshold stage, and the process is stopped before any step that
+would make some $\Lambda(\ell)>K$.  For this process \cite[Thm.~3.1]{MN2} (proved
+modulo Henriot's coefficient-uniform form of Theorem~\ref{thm:NT}
+\cite[Thm.~5]{Henriot}) shows that the sums of the masses of the atoms
+completed at a step are uniform in $T$, and that after any prefix law $\nu$ on
+the hard classes modulo $Q(q_0)$ with density at most $C_\nu$ relative to Haar
+measure, the process fails with probability at most
+$C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with $c_1$ not explicit.  So $\mathrm{ADM}_m$ reduces to the prefix: a hypothesis SI on
+$\nu$-weighted completed-atom sums (a conjecture) implies $\mathrm{ADM}_m$, and hence
+exponent $1/4$ for $W_m$ \cite[Prop.~5.1]{MN2}.  For the uniform prefix law,
+the data for $q_0\le19$ suggest that $C_\nu$ grows faster than $q_0^{1/2}$, so the
+plan ``certified finite prefix plus moments'' does not obviously close
+(Assessment, \cite[\S4]{MN2}).
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
@@ -2808,21 +3322,44 @@ proved in \cite{O16} modulo the theorem of Barban, Davenport and
 Halberstam.  In the remarks on other strengths of LS after
 Theorem~\ref{thm:LS}, the integer Buchstab statement is classical and the
 compounding for primes is an Assessment.
+\item Proved modulo Gallagher's theorem: Lemma~\ref{lem:qtransfer} (quantitative
+transfer) and Lemma~\ref{lem:anyr}.  Proved: Lemma~\ref{lem:leaves}.  Proved modulo
+Theorem~\ref{thm:NT}: Lemma~\ref{lem:levelzero}.  Proved modulo Gallagher's theorem
+and Theorem~\ref{thm:NT}: the lower tail Theorem~\ref{thm:lowertail}.  Proved modulo
+these, \cite{TQ} and Page's theorem: Corollary~\ref{cor:twosided}
+(= Theorem~\ref{thm:tailintro}).  Remark~\ref{rem:tailogs}: the improved bound is
+conditional on the stated zero-free bound for real characters; the rest is
+an Assessment.
+\item Other numerators: Lemma~\ref{lem:mjacobi} and Proposition~\ref{prop:mfire}
+are proved.  Proved in \cite{MN} (proofs summarised here):
+Theorem~\ref{thm:mzero} modulo Gallagher's theorem and Theorem~\ref{thm:NT} (the
+lower bound in (i) modulo the fundamental lemma), Proposition~\ref{prop:mlower}
+modulo the fundamental lemma, Theorem~\ref{thm:mfifth} modulo Gallagher's
+theorem and the Elsholtz--Tao estimates.  Theorem~\ref{thm:madm} is
+conditional on the open hypothesis $\mathrm{ADM}_m$ (the implication is proved
+in \cite{MN}); the reduction of $\mathrm{ADM}_m$ to the prefix is proved in
+\cite{MN2} modulo Henriot's form of the Nair--Tenenbaum theorem, and the
+hypothesis SI is a conjecture.  The numerics for $\mathrm{ADM}_m$ are Evidence.
 \item Evidence, not used: the computer check of Lemma~\ref{lem:jacobi} for
 $M\le2\cdot10^5$; the exact check of Theorem~\ref{thm:janson} on small
 instances; the Monte Carlo fit of $\delta^*(T)$ for $T\le32767$.
 \item Assessment: Remarks~\ref{rem:linear}, \ref{rem:exponent}
-and~\ref{rem:third}; the heuristic two-sided typical size after
+and~\ref{rem:third}; the range comparison after Corollary~\ref{cor:twosided}; the heuristic two-sided typical size after
 Theorem~\ref{thm:typical}; the reading of $1/4$ as a sieve-dimension barrier
 (\S\ref{sec:wiener}).
-\item Not claimed: anything about the Erd\H{o}s--Straus conjecture; the
+\item Not claimed: anything about the Erd\H{o}s--Straus or Sierpi\'nski
+conjectures, or about representations of $m/p$ outside the family
+\eqref{eq:identm}; $\mathrm{ADM}_m$ or SI; the
 exponent $1/3$ unconditionally, or the truth of Hypothesis LS; anything about
 arguments outside the scopes of Corollaries~\ref{cor:ceiling} and~\ref{cor:orbit}
 and Proposition~\ref{prop:EH}; any numerical instance; priority for
 Theorem~\ref{thm:C1} or Theorem~\ref{thm:janson} (literature searches
 partial).
 \item The Elsholtz--Tao estimates, Håstad's switching lemma and the
-Thorner--Zaman theorem are no longer used; they are cited only for comparison.
+Thorner--Zaman theorem are not used, except that the Elsholtz--Tao
+estimates enter Theorem~\ref{thm:mfifth} (through the class-of-one
+architecture of the third version); otherwise they are cited only for
+comparison.
 \end{itemize}
 
 \begin{thebibliography}{99}
@@ -2904,6 +3441,12 @@ page, accessed 5 October 2026), \S28.7--28.8.
 \bibitem{LMO} J.~C.~Lagarias, H.~L.~Montgomery and A.~M.~Odlyzko, A bound for
 the least prime ideal in the Chebotarev density theorem, Invent.\ Math.\ 54
 (1979), 271--296.
+\bibitem{MN} Anonymous, The $m/n$ witness modulus at exponent $1/4$, working
+note (file \texttt{POINTWISE\_MN.md} of the project repository), 2026,
+internally reviewed.
+\bibitem{MN2} Anonymous, Towards the admissibility hypothesis $\mathrm{ADM}_m$,
+working note (file \texttt{POINTWISE\_MN2.md} of the project repository), 2026,
+internally reviewed.
 \bibitem{Mordell} L.~J.~Mordell, Diophantine Equations, Pure and Applied
 Mathematics 30, Academic Press, 1969.
 \bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
