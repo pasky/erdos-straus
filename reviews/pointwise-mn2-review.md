@@ -8,18 +8,53 @@ wording/label repairs are applied directly to `POINTWISE_MN2.md` in this branch,
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 | (pending) |
-| Lemma 1.2 | (pending) |
-| Lemma 1.3 | (pending) |
-| Input (H) as quoted | (pending) |
-| Lemma 2.1 | (pending) |
-| Thm 3.1 | (pending) |
-| §4 data + Assessment | (pending) |
-| Prop 5.1 | (pending) |
+| Lemma 1.1 | SOUND (label: name inherited inputs, D6) |
+| Lemma 1.2 | SOUND |
+| Lemma 1.3 | SOUND |
+| Input (H) as quoted | SOUND (matches Henriot Thm 5 / Cor 1; constants effective but not explicit) |
+| Lemma 2.1 | SOUND modulo (H) (MINOR D7) |
+| Thm 3.1 | SOUND-AFTER-REPAIRS modulo (H) + MN Thm 5.1(a),(d) ("ineffective" D2; D5, D8) |
+| §4 data | SOUND (all 16 table entries reproduced exactly, `scripts/review_mn2_delta.py`) |
+| §4 Assessment | GAP / OVERCLAIMED (D2, D3, D4) — conclusion only heuristic; repaired wording |
+| Prop 5.1 | SOUND as implication modulo (H); SI not precisely stated (D9); table label (D1) |
+| §5 class-one CONJECTURE | label honest; the `s | a+b` reduction re-derived ✓ |
 
-## Defects
+**Overall.** No FATAL defect, no mathematical error in any PROVED item. The analytic core
+(Lemma 2.1: q-uniform completed-atom sums via Rankin + Henriot with discriminant 1) is correct
+and the q-uniformity claim checks out. The defects are in the *Assessment* (§4): "ineffective"
+is the wrong word, the bold universal "every prefix law" claim is unproved, and the `q_0^{1/2}`
+threshold is an artefact of Markov at levels ≥ 1 (Chebyshev plausibly gives `q_0^{1}`), so the
+"circularity" is a heuristic assessment, not a demonstrated fact. ADM_m remains OPEN.
 
-(pending)
+## Defects (numbered)
+
+* **D1 (MINOR, §6 table row Prop 5.1).** "PROVED modulo (H), SI" omits (G), NT, OMEGA10 Thm 3.4
+  and MN Thm 5.1's inputs for the `W_m` conclusion. Repair: "implication SI ⇒ ADM_m PROVED modulo
+  (H); `W_m` consequence CONDITIONAL on SI, (G), (H), OMEGA10 Thm 3.4". *Applied by reviewer.*
+* **D2 (MAJOR wording, Thm 3.1 statement, §4 item 1, §6 table, report).** `c_1` is called
+  "ineffective" and §4 says "no finite computation can certify that a given q_0 is large
+  enough". NT/Henriot constants are effective, only not explicit. Repair: "not explicit
+  (effective in principle; no explicit value in the literature)" and "no *explicit* q_0 is
+  available". *Applied by reviewer.*
+* **D3 (MAJOR, §4 item 2 bold claim).** "Every pointwise-controlled prefix law has distortion
+  growing faster than `q_0^{1/2}`" is an unproved universal statement supported by three
+  examples, one heuristic and data with `q_0 ≤ 19`. Repair: restrict to the three laws
+  discussed and label "heuristic (Assessment), not proved". *Applied by reviewer.*
+* **D4 (MAJOR, §4 / Thm 3.1 case (b)).** The `q_0^{1/2}` threshold comes from Markov at levels
+  `a ≥ 1`; a second moment there (sketch in §F) plausibly gives `q_0^{−1+ε}`. Repair: note this
+  in §4; the circularity then needs `C_ν ≫ q_0^{1−ε}`, which the data (§F) neither confirm nor
+  refute. *Note applied by reviewer* (no new claim, flagged as unverified sketch).
+* **D5 (MINOR, Thm 3.1 proof "First moments").** MN Thm 5.1(a),(d) are stated for atoms, applied
+  here to restricted events `E^-`. Valid (see §E) but must be said. *Applied by reviewer.*
+* **D6 (MINOR, Lemma 1.1 label).** State that it inherits the inputs of MN Thm 5.1 / OMEGA13
+  Thm 3.4. *Applied by reviewer.*
+* **D7 (MINOR, Lemma 2.1(v)).** Replace `Σ 2^{−iσ}(i+1)^{3^j−2}` by
+  `Σ 2^{−iσ}(log q + i)^{3^j−2} ≪ (log q)^{3^j−1}`. *Applied by reviewer.*
+* **D8 (MINOR, Thm 3.1 (c),(d)).** (c): `Σ_{ℓ≤q_0}ℓ^{−1+2ε} ≪ q_0^{2ε}` (not `log log q_0`);
+  (d): needs `ε < 3/(2(C_K+4))` for `Y^ε Z^{−1/2} → 0`. *Applied by reviewer.*
+* **D9 (MAJOR, Prop 5.1 hypothesis SI).** "(the level-(≥a_ℓ+2) terms)" and "(the analogous pair
+  sum for j = 2)" leave SI undefined. Repair: define SI as the ν-weighted versions of exactly the
+  three bounds (a)–(c) in the proof of Thm 3.1 (text supplied). *Applied by reviewer.*
 
 ## A. §4 data (recomputed from scratch) — numbers SOUND, headline claim OVERCLAIMED
 
