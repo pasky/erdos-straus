@@ -15,7 +15,7 @@ Status: round 1 complete.
 | L1.2 height constant `1.3229(Y−1)` (and `√r/2` for r=23,31,47) | SOUND |
 | C2.1 no certificate at `x̂_9` with `f<10¹²` | SOUND as CERTIFIED; `f<10¹¹` now reproduced by an independent engine (0 hits); `[10¹¹,10¹²)` one engine |
 | C2.2 heights `>1.32·10¹²`; `C(7)>1.32·10¹²` under H | SOUND (CERTIFIED / CONDITIONAL) |
-| C2.3 r=23,31,47, `f<10¹¹` | SOUND as CERTIFIED (one engine); r=23 to 10¹¹ re-run independently — see item 9 |
+| C2.3 r=23,31,47, `f<10¹¹` | SOUND as CERTIFIED; r=23 reproduced independently (0 hits, item 9); r=31,47 one engine |
 | P3.1 sterile set closed, nowhere dense | SOUND (scope statement accurate; MINOR wording) |
 | §4 ≈61% survival, `t_min≈½log₂f` | EVIDENCE, numbers reproduced independently to 10¹⁰ |
 | Remark 4.1 measure route | SOUND as a reduction (MINOR citation fix) |
@@ -44,7 +44,7 @@ No FATAL or MAJOR defects found. The self-review's three MAJOR items are correct
   should phrase it as "no clopen subset of `Σ_7` is sterile", to avoid suggesting a special obstruction at `x̂_9`.
   Also worth one sentence: inside Φ a closed positive-measure nowhere-dense sterile set is not excluded.
 * **D4 (MINOR) — labels after this review.** Computation 2.1 on `f<10¹¹` is now reproduced by an independent
-  engine (this review, item 7); the `[10¹¹,10¹²)` part and C2.3 for r=31, 47 remain one-engine. Update the
+  engine (this review, item 7); so is C2.3 for r=23 (item 9); the `[10¹¹,10¹²)` part and r=31, 47 remain one-engine. Update the
   status table/report wording ("one engine" → "two engines to 10¹¹, one engine to 10¹²").
 * **D5 (MINOR, presentation) — Lemma 5.1 is used with `B` in place of `4c`.** P5.3–P5.5 apply the descent with
   `B=4c̃=2^{6−α−2γ}c_o`, which is odd at level 6. The proof of L5.1 never uses `4|B`, but the lemma is stated for
@@ -180,3 +180,16 @@ re-verified line by line with exact integers by `review_typei3_check.py`.
 8. **§4 table reproduced to 10¹⁰** (my `tmin` mode + my union script, no author code): per-bin counts/masses
    for `[2²⁸,2²⁹)…[2³²,10¹⁰)` = 30/0.0628, 27/0.00113, 35/0.00124, 42/0.00158, 39/0.00030 and uncovered measures
    0.663564 (2²⁰), 0.641226 (2²⁸), 0.610322 (2²⁹), 0.609862 (all `f<10¹⁰`) — all match the table.
+9. **Independent re-run of C2.3 for r=23** (`review_typei3_fs 23 9 1 10¹¹`, ≈50 min one core): 1 086 956 522
+   values of f (= author's count), **0 certificates**. r=31, 47 not re-run.
+
+## Replay (reviewer)
+```
+gcc -O2 -o /tmp/r72fs scripts/review_typei3_fs.c; gcc -O2 -o /tmp/r72naive scripts/review_typei3_naive.c
+/tmp/r72naive 7 17 300000 3000 | sort -u                      # vs:
+/tmp/r72fs 7 17 1 3001 | PYTHONPATH=scripts uv run python scripts/review_typei3_check.py 7 17 300000
+/tmp/r72fs 7 9 1 100000000000            # split in 2 ranges; 0 hits;   /tmp/r72fs 23 9 1 100000000000
+/tmp/r72fs 7 9 1 10000000000 tmin > B.txt; uv run python scripts/review_typei3_union.py B.txt
+uv run --with sympy python scripts/review_typei3_vieta.py 20000 60
+uv run --with sympy python scripts/review_typei3_level6.py 25
+```
