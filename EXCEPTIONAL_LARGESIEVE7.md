@@ -108,7 +108,11 @@ Now `f(ℓ)/ℓ ≤ γ'(ℓ)/ℓ + eγ'(ℓ)η log ℓ/ℓ`, so the exponential 
 e^{2 log Y/(Q log 2)}`, we get `(1/φ(k))·Π_{ℓ|k,ℓ≤2Q}(1−1/ℓ) ≤
 k^{−1}e^{2log Y/(Q log 2)}`, and `Y^{−η}e^{2 log Y/(Q log 2)} ≤
 e^{−log Y/(2 log 2Q)}` because `Q ≥ y/2 ≥ z/2` makes
-`2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q. ∎
+`2/(Q log 2) ≤ 1/(2 log 2Q)`. Multiply by `w_Q/Y` and sum over Q. Shiu's implied constant depends only
+on `α`, the interval exponent, and the growth data `A₁ = 3e`,
+`A₂(ε)` (from `8·3^{ω(n)} ≪_ε n^{ε/2}`, `n^η ≤ n^{ε/2}`) of f, which are **uniform in Q**
+(η ≤ 1/log z ≤ ε/2 for N large); k = 1 is covered by taking modulus 2
+with both classes. ∎
 
 **Lemma 2.2 (sums of Ξ; PROVED, elementary).** For `r ≥ 0`:
 
