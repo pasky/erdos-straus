@@ -213,3 +213,83 @@ PYTHONPATH=scripts uv run python scripts/review_m17_union.py /tmp/r83 5 /tmp/r83
 PYTHONPATH=scripts uv run python scripts/review_m17_union.py /tmp/r83 7      # needs ~1 GB
 uv run python scripts/review_m17_tail.py
 ```
+
+---
+
+# Round 2 (merged `side-agent/sterility-r17` at 926cf6c)
+
+## R2.1 Round-1 repairs: all 9 applied correctly, 3 small leftovers
+
+I checked m1–m9 in POINTWISE_MORDELL17.md. Lemma 1.3 is stated and proved correctly and credited.
+The threshold is 56561/83521, `B_k` uses `4D_Q`, Cor 4.2 is CONDITIONAL with `p≡1 (24)`, the m7
+correction is in, and so on. The "28 of them in `C_5∪C_7`" figure in §3 matches my brute-force
+pickle (168 boxes, 28 in-cell). Leftovers:
+* **r1.** The §3 heading still says "(CERTIFIED by one engine; independent re-check pending)".
+  Comp. 3.1 is now reproduced by two independent engines (this review, Claim C). Update the label.
+* **r2.** The m1 wording comes back twice. §6 says "stop at `N^{2/5+o(1)}` ineffectively", and
+  AGENT_REPORT checkpoint 2, row (b), says "ET gives `N^{2/5+o(1)}`, which is ineffective". Use
+  "non-explicit".
+* **r3.** The checkpoint-1 table in AGENT_REPORT_O83 still shows 0.677207, `8D_Q`, "ineffective" and
+  the withdrawn "moduli exceed 10⁵" text. This is acceptable as history, but mark it "superseded,
+  see repairs table".
+
+## R2.2 §5–6, checked from scratch (`scripts/review_m17_round2.py`, using my own enumerations)
+
+| claim | verdict | evidence |
+|---|---|---|
+| Lemma 5.1 (Q, P boxes = balls centred at `−a/b`) | **SOUND** | Re-derived: (2.3) `c(4abd−1)=n(a+b)`; (2.20) `bf = Nc+a`. Checked on all Q data k≤7 (both orientations) and all 1017 P data K≤9: 0 mismatches. 0 P data with `17∣a,b`; 0 Q data with `17∣c` |
+| Q⁻¹ = Q | **SOUND** | equal box sets at k = 1, 3, 5, 7 (4, 112, 352, 1052 boxes) |
+| Lemma 5.2 (U never new) | **SOUND-AFTER-REPAIRS** (n1, n2; the statement is true) | Re-derived both cases. For every in-cell U datum (286 of 1208, k≤7) I rebuilt the proof's Σ^II point `(b',c',a',i)` at `17^{α−β}`, checked the equation and the centre `−b'/c'`, and found a P box of strictly lower level containing the U box: 286/286; `α−β` always odd |
+| New-box counts in C_5 | **SOUND** (reproduced exactly) | level 2: P 4; 3: Q 8, P 16; 4: P 34; 5: Q 29, P 54; 7: Q 94 (P levels 6–7 absent, as in the author's run) |
+| §6 "(a,b) determines the P-point" | **SOUND** | brute force over all `(a,b)` with `2ab ≤ 17^K`, `e = (−17^K mod 4ab) ∣ a+b`, `17∤cd`: the sets for K = 1, 3, 5 equal the enumerated P data exactly |
+| §6 (a,s,t) parametrisation | **SOUND-AFTER-REPAIRS** (n4) | brute force over `(a,s,t)` (bounds `4a²t ≤ N+2a`, `f ∣ N+4a²t`), with `17∤st`: the sets equal the P data for K = 1, 3, 5 |
+| periodicity in K mod `ord_{4ab}(17)` (nesting per `(a,b)`) | **SOUND** | 300 pairs, K up to 120: 8301 checks, 0 violations beyond `K₀` |
+| radius `≤ (2ab)^{−1/2}`; "scaled vs primitive" | **SOUND** | elementary, re-derived |
+| Digit-set test (EVIDENCE, negative) | **SOUND** (n5 numbers) | my `t` medians are 0.179, 0.249, 0.176, 0.121 and maxima 0.857, 0.867, 0.989, 0.883 (levels 3, 4, 5, 7). The conclusion (no fixed θ) stands |
+| Conjecture 4.3 | correctly labelled CONJECTURE | — |
+| discrete-log heuristic / Assessment | acceptable as Assessment (n6 wording) | Note: `D_P(K)` = 2, 32, 121, 258, 604 against `K³` = 1, 27, 125, 343, 729 (K = 1..9 odd). The author's `K³` heuristic matches the data strikingly well; worth stating as EVIDENCE |
+
+## R2.3 Round-2 defects (all MINOR; no FATAL or MAJOR)
+
+* **n1 (Lemma 5.2, "strictly lower level").** The P box has level `⌈(α−β)/2⌉`. It equals the U level
+  `α+β` exactly when `(α,β) = (1,0)`, i.e. `k=1`, where the two boxes coincide. The statement survives
+  because no level-1 box meets `C_5∪C_7` (Comp. 3.1). Repair: say "level ≤ k, strictly lower for
+  k ≥ 2; level-1 boxes miss the cells", or restrict to k ≥ 2.
+* **n2 (Lemma 5.2, "U is empty at even levels").** As written, the proof only covers data with
+  `17∤i` ("so 17∤i" relies on the box ≡ 1 being out of the cells). So it proves the parity only for
+  in-cell U data. The full claim is still true. In case α>β the Σ^II point `(b',c',a',i)` exists
+  whether or not `17∣i` (only `17∤e` is used). Lemma 1.3's reciprocity argument applies to *any*
+  N-point of `Σ^II_{N'}`: `f = 4ACD−1 ≡ −1 (mod 4D)` and `f ∣ 4C²DN'+1` give `(N'/f) = −1`, so
+  `N'` is not a square. Hence `α−β` is odd, and so is k. Repair: cite Lemma 1.3's argument, not
+  "ET Prop 1.6". When `17∣i` the point is not a Type II solution, so the *statement* of Prop 1.6
+  does not apply; this is the same issue as m2. Numerically, no U datum with `17∣i` exists at k≤7.
+* **n3 (Lemma 5.1 hypotheses/remarks).** In (i), `17∤bc` can be weakened to the Q-datum condition
+  `17∤e`, since then `4abd−1 = 17^k e` directly. The remark "for Q, `17∣c` forces box ≡1 (§2)"
+  points to an argument §2 does not contain. The right reason is one line: `c ∣ a+b`, so
+  `a ≡ −b (mod 17)` and `−a/b ≡ 1`.
+* **n4 (§6 (a,s,t)).** "the P-data at level K are exactly the `(a,s,t)` with `f ∣ s·17^K+a` and
+  `b≥a`" omits `17∤st` (= `17∤cd`). Without it one gets all N-points of `Σ^II_{17^K}`, not P-data.
+  The "ever admissible iff `−a/s ∈ ⟨17⟩ (mod f)`" also tacitly needs `gcd(a,f)=1` and
+  `17^K ≥ 4a²t − 2a`. Add these.
+* **n5 (digit-set numbers).** "Median ≈0.15–0.2, max 0.87–0.99" does not match my values at levels
+  4 (median 0.249) and 7 (median 0.121). Report the per-level numbers, or define `t` precisely if
+  your definition differs.
+* **n6 (overclaims in §6 and the report).**
+  * "No method of that kind can reach the `N^{1/2−δ}` that is needed" is unproven. Rephrase as "we
+    see no way for divisor-bound methods to …".
+  * The heuristic "`Σ τ(a+b)/(4a·b)·b ≍ log³`" is garbled. The intended expression is
+    `Σ_{a≤b, ab≤N} τ(a+b)/(4ab) ≍ (log N)³`.
+  * AGENT_REPORT says "Sterility of C_5 is reduced, *exactly*, to an explicit bound". Theorem 4.1 is
+    a *sufficient* condition, not an equivalence: overlaps can make the true union much smaller
+    than the count bound. It is also a bound for both Q and P, not only P. Say "reduced to (a
+    sufficient condition)".
+
+## Round-2 summary
+
+The repairs are good (r1–r3 are cosmetic). §5–6 are mathematically sound. Lemma 5.1, the new-box
+data and the two §6 reparametrisations were reproduced exactly by independent brute force.
+Lemma 5.2's statement is right, but its proof needs the two small fixes n1 and n2. The analytic
+part of §6 is honestly labelled Assessment, apart from the overclaims in n6.
+
+Replay (round 2): `ulimit -v 8000000; uv run python -u scripts/review_m17_round2.py /tmp/r83`
+(~30 min, dominated by the `(a,s,t)` brute force at K=5; needs the round-1 enumeration files).
