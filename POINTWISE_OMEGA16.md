@@ -132,13 +132,18 @@ of functions of those moduli, concluding `Σ_{p≤x}F(p)≥Σ_{p≤x}B(p)>0` fro
 log x ≥ c𝓛^4/log𝓛 ,       i.e.  certified  log W(p) ≪ (log p·log log p)^{1/4}.
 ```
 
-*Proof.* All functions used have modulus `≤x`, so B has level `≤x` on the fibre in the sense of
-O14 Setting 2.0. O14 Thm 4.5: if `log x≤c𝓛^4/log𝓛` then `E_HB≤0`; and a certificate from
-equidistribution needs `Σ_pB(p)≈N_xE_HB>0` up to the errors granted by 𝓘, which (since every
-function of modulus `≤x` has a translation orbit within the family) are subject to O15 Cor 2.4
-and Prop 2.5 (orbit-uniform, Hölder-averaged): the planted fake `N_xν` satisfies every such
-statement with `E B` computed under ν equal to that under Haar (level `≤x<D`), so it is
-consistent with 𝓘 at the true accuracy whenever `log x≤c𝓛^4/log𝓛`, and gives `∫F dm_ν=0`. ∎
+*Scope.* "Certificate" means a linear certificate in the sense of O15 Def 2.1: it may use
+that the prime counting measure `m_x` is nonnegative of mass `N_x` and satisfies 𝓘, but not
+its atomicity, integrality or support (O15 §6 (N2)).
+
+*Proof.* Let `log x<0.6𝓛(k+1)` with `k+1=⌊μ*/2⌋`, `μ*≍𝓛³/log𝓛` as in O15 Thm 1.2, i.e.
+`log x≤c𝓛^4/log𝓛`. A modulus `q≤x` has at most k big prime factors (`>T^{0.6}`), so every
+function of modulus `≤x` restricted to the fibre H is a combination of reduced products with
+`|I|≤k`, on which the planted perturbation vanishes (O15 Lemma 1.1, second clause). Hence the
+diffuse measure `m_ν:=N_xν` has, for every `q≤x` and every class / character / additive
+character mod q, *exactly* the Haar-predicted value `N_xE_H(·)`: it satisfies 𝓘 with zero error,
+whatever 𝓘's error terms are. But `∫F dm_ν=0` (O14 Lemma 4.1). So no deduction from 𝓘 (plus
+nonnegativity and mass) can conclude `∫F dm_x>0`. ∎
 
 *Comments.* (a) Raising θ (BV `1/2` → EH `1−ε`) changes only the constant c; even a
 hypothetical level `x^A`, A fixed, changes only c. The level a sieve needs is `log D≍𝓛^4/log𝓛`,
