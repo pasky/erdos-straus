@@ -245,7 +245,8 @@ So SI for `ν = δ_1` contains, as its main term, averages over primes ℓ of
 `(1/ℓ)Σ_{N''} R_ℓ(ℓN'')/N''` (≈ `U_1(ℓ)`; *precision, R82 repair D3, applied by reviewer:* at level 0 the
 quantity SI actually involves is the pair sum (R_a) `Σ_ℓ E^ν_2(ℓ)/ℓ²`, heuristically
 `≈ Σ_ℓ U_1(ℓ)²` + the diagonal `Σ_ℓ U_1(ℓ)/ℓ` (harmless) + correlation terms; first moments `U_1(q)` enter
-only through (R_b) at proper prime powers, Lemma 3.1), where `R(N) ≤ #{(f,δ) : f ≤ N+1, δ | (N+f)², δ ≡ −1 (mod f), m | δ}`
+only through (R_b) at proper prime powers, Lemma 3.1), where `R(N) ≤ #{(f,δ) : f ≤ N+2, δ | (N+f)², δ ≡ −1 (mod f), m | δ}` (`f ≤ N + 2/e` from `eN ≥ ef − 2`;
+"`f ≤ N+1`" corrected — `(M,D) = (9,2)`, m = 5, has `N = 9`, `f = 11`; R82 repair D7, applied by reviewer)
 (from `(ef−1) | (N+f)²`, Lemma 2.1 and `D | A²`) is an Erdős–Straus-type representation count
 (precisely: an m-analogue of ET's Type I count `f_I(N)` — the atoms with cofactor N are points of ET's
 variety Σ_I^N with `4 ↦ m`, giving `m/N = 1/(abdN)+1/(acd)+1/(bcd)`, Lemma 5.2; "Type II" corrected to
