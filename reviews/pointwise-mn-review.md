@@ -7,6 +7,7 @@ Reviewer branch: side-agent/review-mn. Scripts: `scripts/review_mn_*.py` (from s
 | Claim | Verdict |
 |---|---|
 | Lemma 1.1 | SOUND (see §L1) |
+| Prop 2.1 | SOUND (§P21) |
 
 ## §L1 Lemma 1.1
 
@@ -24,3 +25,14 @@ given Prop 2.1.
 
 Minor: (a) is stated for "every prime ℓ | M"; for m odd, M may be even (e.g. m=5, M=4) — the lemma
 hypothesis "M odd" excludes this, but §3/§6 must remember that even-M atoms exist for odd m (see Cor 6.1).
+
+## §P21 Prop 2.1 — SOUND
+
+Re-derived both constructions: m odd, ℓ ≡ −1 (m), ℓ ≡ 5 (8) ⇒ 2 | A, D ∈ {1,2} give ratio (2|ℓ) = −1;
+m ≡ 2 (4), q ≡ 3 (4), q ∤ m, ℓ ≡ −1 (mq), ℓ ≡ 1 (4) (CRT-compatible since v_2(mq)=1) ⇒ q | A and
+(q|ℓ) = (ℓ|q) = (−1|q) = −1. Firing bound 1/((ℓ−1)/2) = 2/(ℓ−1) correct.
+From-scratch `scripts/review_mn_prop21.py` (primes ℓ < 2·10⁴, 16 values m ≢ 0 (4)): 60–80% of prime
+atoms meet both cosets for every m tested (e.g. m=5: 374/559; smallest m=5 example is ℓ=19, the
+document's ℓ=29 is also verified: classes {9,13,14,19,23,24,26,27,28} with both symbols).
+Note: Prop 2.1 is an *obstruction* statement (the OMEGA13 §3 mechanism cannot be reused); it proves
+nothing positive and correctly is not used as an input anywhere.
