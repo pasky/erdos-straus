@@ -10,7 +10,7 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 | P3.1 | the sterile set of `Σ_7` is closed and nowhere dense, so no ambient cylinder around `x̂_9` is sterile | PROVED |
 | §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰` (depth-truncated, error ≤0.0013); measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
 | L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
-| P5.3, P5.4 | levels `α+2γ∈{5,6}` force `c=2^α7^a`; level 5 is empty (P5.4, from review R72). So certificates need `α+2γ≥6` | PROVED |
+| P5.3–P5.5 | levels `α+2γ∈{5,6}` force `c=2^α7^a`; level 5 is empty (P5.4, from review R72); level 6 is empty (P5.5, Pell/Lucas divisibility `D+3 \| H`). So certificates need `α+2γ≥7` | PROVED |
 | Conj 3.4 (TYPEI2) | `x̂_9` is sterile | still CONJECTURE |
 
 Notation. `x̂=x̂_w`: `w` at 2 (`w≡9 (16)`), `−1` at 7, `1` elsewhere. A certificate
@@ -248,18 +248,43 @@ are integers, and `F_{i+1}=F_i+Bδ²H_i`. Modulo 16,
 `(F,H)↦(F+14H, F+15H)`: `(1,1)→(15,0)→(15,15)→(1,0)→(1,1)`. So every divisor on the chain is
 `≡±1 (16)`. But `t≥5`, and both certificate divisors are `≡−w≡−w^{−1}≡7 (16)`. ∎
 
-*Remaining low level.* `scripts/typei3_lowlevel.py 9 seven` runs the same chain modulo `2^{10}` for
-`c_o` among the odd powers of 7 and all odd `δ mod 2^{10}`, and tests `v_2(K_i)=α+2γ−2` and the two divisors
-`≡−w, −w^{−1} (mod 2^t)`. It finds 0 admissible combinations for the three level-5 pairs
-`(α,γ)=(1,2),(3,1),(5,0)`, consistent with Prop 5.4. For the four level-6 pairs
-`(0,3),(2,2),(4,1),(6,0)` it finds admissible residues. (Without the restriction to powers of 7, i.e.
-ignoring Prop 5.3, all seven pairs admit residues.) So level 6 needs the odd-prime sign split:
-the odd 7-free part of `k` divides `F+1`, while `F≡1 (mod 7^aδ_o)`. This is a primitive-divisor
-question for the Lucas-type chain and is not pursued here. The near-miss dump to `ck≤10⁸` contains no
-near miss at levels 5–6.
+**Proposition 5.5 (level `α+2γ=6` is empty; PROVED).** Let `w≡9 (16)`. No certificate at `x̂_w`
+has `α+2γ=6`.
+*Proof.* (1) *Chain.* By Prop 5.3, `c=2^α7^a` and `B:=4c̃=c_o=7^a`. The oriented pair is
+`(F,e)=(F_i,F_{i+1})` on the integral chain from `(K_0,F_0)=(δ,1)`. With `H_i=K_i/δ∈ℤ` and
+`D:=Bδ²=7^aδ²`, the chain reads `F_{i+1}=F_i+DH_i`, `H_{i+1}=F_{i+1}+H_i`, `(F_0,H_0)=(1,1)`.
+(2) *2-adic index condition.* `K=2^{t−4}k` and `v_2(k)=γ`, so `v_2(H_i)=v_2(K_i)=α+2γ−2=4` (δ odd). Modulo
+32, `D=7^aδ²` lies in `{7,15,23,31}`, and the chain mod 32 depends only on `D mod 32`. Running it over a full period
+(6 or 12) shows that `v_2(H_i)=4` forces `m:=i+1` to be an **odd multiple of 3** (finite check (a) in
+`scripts/typei3_level6.py`).
+(3) *Pell structure.* Put `d=D(D+4)`, `ε=(D+2+√d)/2`, and `X_i=F_i+F_{i+1}`. Then
+`(X_i+H_i√d)/2=ε^m`. Indeed, it holds for `i=0` (`X_0=D+2`, `H_0=1`), and one chain step
+`(X,H)↦((D+2)F+(D²+3D)H, F+(D+1)H)` (where `X=2F+DH`) is multiplication by ε. Let
+`η=(√D+√(D+4))/2`; then `η²=ε` and `η^{−1}=(√(D+4)−√D)/2`. For odd m:
+`X_i−2=ε^m+ε^{−m}−2=(η^m−η^{−m})²=D·U_m²` and `H_i√d=ε^m−ε^{−m}=(η^m−η^{−m})(η^m+η^{−m})=√D U_m·√(D+4) W_m`,
+with `U_m=Σ_{l<m}η^{m−1−2l}=1+Σ_{e=1}^{(m−1)/2}(ε^e+ε^{−e})∈ℤ`, and similarly `W_m∈ℤ`. So `H_i=U_mW_m`.
+For `m=3j`, j odd, `U_m/U_3=Σ_{l<j}η^{3(j−1−2l)}=1+Σ_{e=1}^{(j−1)/2}(ε^{3e}+ε^{−3e})∈ℤ`, and
+`U_3=ε+1+ε^{−1}=D+3`. Hence `(D+3) | U_m | H_i` and `(D+3)² | X_i−2`.
+(4) *Sign clash.* `D≡7 (mod 8)`, so `(D+3)/2` is odd and `≥5`; also `7∤D+3`. Take a prime `q|(D+3)/2`;
+then `q∉{2,7}`. Since `q|H_i` and `k=δH_i/2^{t−4}`, q divides the odd 7-free part `k'` of k, so
+`F≡e≡−1 (mod q)` by Lemma 1.1. But `F_i,F_{i+1}=(X_i∓DH_i)/2≡X_i/2≡1 (mod q)`, because `q|X_i−2`.
+Contradiction. ∎
 
-**Summary of §5.** A certificate at `x̂_w` (`w≡9 (16)`) has `t≥5` and `α+2γ≥6`. If `α+2γ=6`, then
-`c=2^α7^a`.
+*Checks* (`scripts/typei3_level6.py`): (a) the mod-32 period check over `D∈{7,15,23,31}`, 0 violations;
+(b) the polynomial identity `(D+3)² | (X_i−2)/D` for `m=3,9,…,33`; (c) brute force over
+`a∈{1,3,5}`, odd `δ<150`, `i<40`: all 777 chain positions with `v_2(H)=4` have a prime `q|D+3`,
+`q∉{2,7}`, with `q|H_i` and `F_i≡F_{i+1}≡1 (mod q)`. 0 violations. No primitive-divisor theorem is needed. The
+divisibility `U_3|U_m` plays the role of a "fixed non-primitive divisor".
+
+**Summary of §5.** A certificate at `x̂_w` (`w≡9 (16)`) has `t≥5` and `α+2γ≥7`.
+
+**Remark 5.6 (the next level, `α+2γ=7`; open).** Here `4c̃=c_o/2∉ℤ`, so the descent of Lemma 5.1 /
+Prop 5.3 leaves ℤ. The chain from a certificate pair runs in `ℤ[1/2]` and ends at a reduced pair with
+`F_end∈(0,1]∩ℤ[1/2]`, which need not be 1. So neither the congruence `F≡1 (mod c_o)` (which forced `c'=1`) nor the
+single-orbit Pell structure used in Prop 5.5 is available. Each 2-adic class of reduced pairs is a separate orbit.
+Closing level 7 would need these classes to be classified, as orbits of a norm equation in `ℤ[1/2]`. The near-miss
+dump (`ck≤10⁸`) has 34 near misses at `α+2γ=7` with `−F≡1 (8)`, all non-square and none a certificate. So level 7 is
+genuinely inhabited by near misses, unlike levels 5–6.
 
 ## Replay
 
