@@ -104,13 +104,17 @@ Writing `m'` for the T-free part, the T-generic conditions are:
   part (e.g. II2 f=1331·709). Since brute force in M truncates the T-free part, a complete
   enumeration per T-level F (rigid forms of §2.1) is needed.
 
-## 3. Finite-exception Mordell-type theorems for r=13 (PROVED by finite computation; independent re-check pending)
+## 3. Finite-exception Mordell-type theorems for r=13 (PROVED by finite computation; independently re-checked by R80, `scripts/review_mordell_check.py` (R80 repair, applied by reviewer))
 
 **Theorem 3.1.** Let p be a prime with `(p/13) = −1`.
 (a) If `(p/11) = +1`, then `4/p = 1/x+1/y+1/z` has a solution in positive integers unless
 `p ≡ 112561 (mod 240240)`, i.e. `p≡1 (16)`, `p≡1 (3)`, `p≡1 (5)`, `p≡1 (7)`, `p≡9 (11)`, `p≡7 (13)`.
 (b) Without condition at 11, the same holds unless
 `p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`.
+(c) (R80 repair, applied by reviewer.) Combining both certificates, (a) sharpens to: if
+`(p/11)=+1`, ES holds for p unless `p mod 720720 ∈ {112561, 352801}`. The third lift 592801 of
+112561 mod 240240 is covered by the main certificate. These two are exactly the (b) exceptions
+with `(p/11)=+1`.
 
 *Proof.* If p is not a square mod 840, Mordell's identities apply. Otherwise
 `p mod L ∈ Σ_13` (L = 240240 for (a), 720720 for (b); np resp. main variant). The certificates

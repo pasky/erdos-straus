@@ -5,11 +5,13 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
 
 ## Results
 
-1. **Theorem 3.1 (PROVED by finite computation; independent re-check required).**
+1. **Theorem 3.1 (PROVED by finite computation; independently re-checked by R80 — R80 repair, applied by reviewer).**
    Let p be prime with `(p/13)=−1`.
    (a) If `(p/11)=+1`, ES holds for p unless `p≡112561 (mod 240240)`.
    (b) In general, ES holds for p unless `p mod 720720 ∈ {112561, 352801, 380881, 418321,
    473761, 483841}`.
+   (c) (R80 repair, applied by reviewer.) Together, (a) sharpens to the exceptions
+   `p mod 720720 ∈ {112561, 352801}`.
    Certificates: `data/mordell/cert_r13_np_240240.json` (20 ET classes),
    `data/mordell/cert_r13_main_720720.json` (31 classes); checker `scripts/mordell_check.py`
    (stand-alone, sympy only: polynomial identity, positivity for n>1, integer-valuedness on each
