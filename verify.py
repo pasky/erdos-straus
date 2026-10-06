@@ -20379,4 +20379,77 @@ print("\n== (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit
 check_dm()
 
 
+
+# ---------------------------------------------------------------- (dn)
+# EXCEPTIONAL_LARGESIEVE4.md Lemma 1.1, Lemma 5.1, Lemma 3.2, Cor 5.3 (toy checks EVIDENCE; cf.
+# scripts/largesieve4_checks.py, review_ls4_toy.py, review_ls4_res.py, all imported; they assert
+# internally).  Checked:
+# (1) Lemma 1.1 identity sum_S w_S P_S = E_T R_2(sigma_T) (author, seeds 1-3, two weight modes) and
+#     the damped-collision inequality R_{2+2b} <= E_T R_2(sigma_T) under (A_w) (R62 toy, seeds 0-3,
+#     prime-power coordinates, sigma_B and avoider laws); Lemma 2.1 eta formula; Prop 4.1 and
+#     Lemma 5.1 bounds on the same toys;
+# (2) Lemma 3.2 (v in R(Q) criterion, Q < 400); Cor 5.3 residue counts: #{-r/s mod l} <= (H+1)H
+#     <= z^{1/2} for H = z^{1/4}/2, U(Res_l) <= #proj/l over Z/l^2; the named R(M) classes
+#     -4, -1, -1/4, -d, -4d, -1/(4d) lie in R(M) for M < 4000; Remark (c): -4 in R(15), = 1 mod 5.
+
+def check_dn():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    C = load("largesieve4_checks")
+    T = load("review_ls4_toy")
+    RS = load("review_ls4_res")
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for s in (1, 2, 3):
+            C.main(s)                                     # asserts Lemma 1.1 identity, eta formula
+        for s in range(1, 6):
+            C.check_lemma51(s)                            # asserts Lemma 5.1 bound
+    out = buf.getvalue()
+    assert out.count("[1] w=") == 6 and out.count("[2] eta formula") == 3, "LS4 Lemma 1.1 / 2.1 author checks"
+    l51 = [float(x.split()[0]) for x in out.split("max |hat|/bound = ")[1:]]
+    assert len(l51) == 5 and max(l51) <= 1, ("LS4 Lemma 5.1 author ratios", l51)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        for s in range(4):
+            T.main(s)                                     # asserts L1.1, P4.1, L5.1, L2.1
+    out = buf.getvalue()
+    assert out.count("identity ok, inequality ok") == 8, ("LS4 R62 Lemma 1.1 toy", out[-500:])
+    r11 = [float(x.split()[0]) for x in out.split("max R_p'/E_T R2 = ")[1:]]
+    assert len(r11) == 8 and max(r11) <= 1, ("LS4 Lemma 1.1: R_{2+2b} > E_T R_2", r11)
+    assert out.count("[P4.1 ") == 4 and out.count("tilted identity exact") == 4, "LS4 R62 Prop 4.1 / Lemma 2.1"
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        RS.lemma32(400)
+        RS.cor53()                                        # asserts counts and named classes
+    out = buf.getvalue()
+    assert "[3.2] ok on 16226" in out and "[5.3a] ok" in out and "[5.3b] ok" in out, "LS4 Lemma 3.2 / Cor 5.3"
+    nres = 0
+    for z in (16, 81, 256, 1296, 4096, 20736):
+        H = int(round(z ** 0.25)) // 2
+        for ell in (p for p in range(z + 1, z + 120) if all(p % q for q in range(2, int(p ** 0.5) + 1))):
+            P = {(-r * pow(s, -1, ell)) % ell for r in range(H + 1) for s in range(1, H + 1)}
+            assert len(P) <= (H + 1) * H and (H + 1) * H * (H + 1) * H <= z, ("LS4 Cor 5.3 count", z, ell)
+            assert len(P) * len(P) <= ell, ("LS4 Cor 5.3: U(Res_l) <= l^{-1/2}", z, ell)
+            nres += 1
+    print(f"dn Lemma 1.1 identity (6 author cases) and damped inequality (8 R62 toys, max R_p'/E_T R2 = "
+          f"{max(r11):.4f}); Lemma 5.1 (max ratio {max(l51):.3f}), Lemma 2.1, Prop 4.1 toys; Lemma 3.2 (16226 "
+          f"(Q, v)); Cor 5.3 counts (R62 + {nres} inline primes), named classes M < 4000; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dn) EXCEPTIONAL_LARGESIEVE4: Lemma 1.1 damped-collision toys, Lemma 5.1, Cor 5.3 residue counts ==")
+check_dn()
+
+
 print("\nall checks passed")
