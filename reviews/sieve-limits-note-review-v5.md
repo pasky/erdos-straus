@@ -84,5 +84,28 @@ one pre-existing overfull hbox 1.29pt (lines 3818–3825). OK.
   off-W mass enters only via F(j) ≤ e/(4(M+1)j²) at distance > r, giving eN/(4(M+1)r²) ✓;
   r = ⌈NM^{−1/3}⌉ balances to M^{−1/3} ✓, uniform in K ✓.
 
+### §18 One sieve limit behind both ceilings
+* **Thm 18.1 (two-sided order-k limit) — SOUND as a transcription of CU Thm 4.1** (constants
+  0.6P−1, e²P, 2e^{−P} match; p_b ≤ 1/4 gives r* ≤ 1/3 for the planting condition). From-scratch
+  LP check, symmetric case (`scripts/review_r65_twosided.py`; symmetrisation over hit-indicators
+  and permutations preserves 𝒱_k and the constraints): (L−) never violated (n,p) ∈ {(60,¼),
+  (100,0.15), (200,0.05), (400,0.05)}; Bonferroni signs (Q_k ≥ F even, ≤ F odd) and the (U+)/(L+)
+  bounds checked exactly in rationals for n = 40, 120. The float-LP first positive-minorant order
+  (7 at n=40,P=4 — equal to CU §4.4; 17 vs CU's exact 15 at n=40,P=8, i.e. my float tolerance
+  1e−9 overestimates the threshold) is consistent with k ≍ P; no contradiction with the
+  "≈2P" EVIDENCE.
+* **CU Prop 4.2 in prose — SOUND transcription** (level log D ≤ c𝓛⁴; ineffective; given TQ and
+  O14 Thm 1.3; "removes a factor log 𝓛 from O14 Thm 4.5" ✓ — CU also notes it *replaces* O14's
+  inputs (G)/effective Page/fundamental lemma by BV/BT/Shiu; the paper says "given \cite{TQ}", OK).
+* **Thm 18.2 (ES sieve limit) — SOUND as a conjunction; labels honest.** (1) upper bound =
+  Thm 4.6 (noBcap = KA3 Thm 4.1, as CU's KARY3 Thm 4.1) ✓; (2) ✓; (3) proved within the stated
+  scopes, Assessment outside ✓; the a/(a+1), 1/(a+1) extrapolation CONDITIONAL ✓; the reviewer's
+  caution "(U−) for the subfamily does not bound majorants of the full avoider" is stated ✓;
+  Remark 4.4 of CU reproduced accurately.
+* **π(N) form (CU Thm 2.1/Prop 3.1), Cor 3.3 — transcription SOUND**, "a reproof, not an
+  improvement" ✓.
+* **Pointwise background + OMEGA16 pointer — SOUND-AFTER-REPAIRS** (minor scope/label points
+  D-U1, D-U2 below).
+
 ## Defects
 (in progress)
