@@ -38,6 +38,12 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
    only 4.5% of them. Candidate sterile point of the simplest shape (twist at r only).
    r=11: survivors `x_11∈{2,6}`; T={11,13}-cells (2,2),(2,7) survive at M≤10⁵.
 
+## Background runs (completed, recorded in POINTWISE_MORDELL §4.1)
+
+* Rigid II1/II2/I4 to T-level `11⁴·13⁴`: finished; no box contains `x*`; the (2,2) cell stays
+  24.76% uncovered (24.88% at level 3).
+* np tree search: finished at its 30000-node cap; open mass 4.10·10⁻⁷, no covering.
+
 ## What would settle it
 
 * Negative (main r=13, or r=17): prove a tail bound for the number of rigid boxes per T-level

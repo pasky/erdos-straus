@@ -162,6 +162,19 @@ non-residues, and Jacobi-parity arguments (ET Prop 1.6 style) only force odd tot
 at T-generic points the classes become rigid (finitely many boxes per T-level, §2.1), so a
 specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) this is open.
 
+### 4.1 Background runs completed (2026-10-06)
+
+* `mordell_rigid.py 11,13 4` finished (log `/tmp/o80_rigid4.txt`, 6865 boxes; largest level
+  `F=11⁴·13⁴` took 81 min). Levels with even total valuation (`F=11^α13^β`, α+β even) contribute
+  no II1/II2/I4 boxes, as at lower levels. **No box contains `x*`** (u=2 at both primes), so
+  Computation 4.1's second clause extends to {11,13}-part dividing `11⁴·13⁴` (CERTIFIED, one
+  engine). Uncovered part of the (2,2) cell at resolution `11⁴·13⁴` (all-family brute-force boxes
+  with M≤10⁶ and v_q≤3, plus rigid II boxes): 24.88% with rigid level ≤3, **24.76%** with level ≤4
+  (EVIDENCE: level 4 barely moves it).
+* np DFS (`mordell_dfs.py 13 np 10000000 100 3 30000`) finished at its node cap: 30000 nodes
+  expanded, 197786 open leaves, open Haar mass **4.10·10⁻⁷** of `Σ_13^{np}` (5.5·10⁻⁷ at 16800
+  nodes). Still undecided; no covering found (EVIDENCE).
+
 ## 5. r=11 and r=17 (EVIDENCE)
 
 * Level-wise covering (Mmax=10⁷): r=11 main/np: 8 survivors mod `2^4·3^2·5·7·11` (np = main,
