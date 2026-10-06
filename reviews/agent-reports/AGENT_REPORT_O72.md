@@ -8,9 +8,8 @@ cannot be proved by any congruence argument modulo a fixed modulus (Prop 3.1: th
 set of Σ_7 is closed and nowhere dense). I found **no certificate**, using a new complete
 search graded by the smaller divisor `f=min(F,e)` (Lemma 1.1). It reaches all heights for a
 given f, and Lemma 1.2 converts it into a height bound. Result: no certificate with
-`f<10¹¹` (and with `f<10¹²` if the background run completes, see below), hence every
-Type-I covering of {n_p=7} has height `>1.32·10¹¹`, and under H `C(7)>1.32·10¹¹` (was
-`>3·10⁹`). The f-graded near-miss statistics in the sign fibre support Conjecture 3.4
+`f<10¹²`, hence every Type-I covering of {n_p=7} has height `>1.32·10¹²`, and under H
+`C(7)>1.32·10¹²` (was `>3·10⁹`). The f-graded near-miss statistics in the sign fibre support Conjecture 3.4
 (and suggest that ≈61% of the fibre is sterile). They also give a precise reduction (Remark 4.1):
 an explicit tail bound for the near-miss count would give a sterile point
 (not necessarily `x̂_9`), hence `C(7)=∞` under H.
@@ -20,7 +19,7 @@ an explicit tail bound for the near-miss count would give a sterile point
 |---|---|
 | L1.1 small-divisor reduction; L1.2 f-bound ⇒ height bound `1.3229(Y−1)` | PROVED |
 | Prop 3.1 sterile points nowhere dense (no fixed-modulus proof of sterility) | PROVED |
-| C2.1 no certificate at x̂_9 with f<10¹¹ ⇒ covering height >1.32·10¹¹; C(7)>1.32·10¹¹ under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵) / CONDITIONAL (H) |
+| C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵) / CONDITIONAL (H) |
 | §4 f-graded mass, 61% of the fibre uncovered for f<10¹⁰, t_min ≈ ½log₂f | EVIDENCE / Assessment |
 | Remark 4.1 measure route (tail bound ⇒ sterile point) | PROVED reduction; input open |
 

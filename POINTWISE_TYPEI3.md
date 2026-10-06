@@ -97,12 +97,16 @@ quantity with no uniform bound.
 3 571 429 + 1 782 142 857 + 1 785 714 285 values of f; ≈55 min per half on one core
 before the speed-ups): **0 certificates.**
 
+Extension: `[10¹¹,5.5·10¹¹)` and `[5.5·10¹¹,10¹²)` (16 071 428 572 + 16 071 428 571 values of f;
+≈4.2 h and ≈4.7 h on one core each, speed-up binary): **0 certificates.** So no certificate at
+`x̂_9` has a divisor `f<10¹²`.
+
 **Corollary 2.2.** (i) *(CERTIFIED)* No certificate at `x̂_9` has a divisor
-`f=min(F,e)<10¹¹`, at any height. Hence (Lemma 1.2) none has `ck≤1.32·10¹¹`,
-and every finite Type-I covering of `{n_p=7}` has height `>1.32·10¹¹`
+`f=min(F,e)<10¹²`, at any height. Hence (Lemma 1.2) none has `ck≤1.32·10¹²`,
+and every finite Type-I covering of `{n_p=7}` has height `>1.32·10¹²`
 (was `>3·10⁹`, POINTWISE_TYPEI2 Cor 3.3). (ii) *(CONDITIONAL on H for the finite family `𝓟_X` of
-Theorem A built from `x̂_9`, X=1.32·10¹¹)* infinitely many hard primes have
-`n_p=7` and `ck_min(p)>1.32·10¹¹`; so `C(7)>1.32·10¹¹` under H.
+Theorem A built from `x̂_9`, X=1.32·10¹²)* infinitely many hard primes have
+`n_p=7` and `ck_min(p)>1.32·10¹²`; so `C(7)>1.32·10¹²` under H.
 *Proof.* As POINTWISE_TYPEI2 Cor 3.3, with Computation 2.1 + Lemma 1.2 in place of Computation 3.2. ∎
 
 ## 4. The sign fibre: f-graded near-miss mass (EVIDENCE / Assessment)
@@ -228,6 +232,7 @@ gcc -O2 -o /tmp/signcheck scripts/typei2_signcheck.c -lm
 for a in "7 1" "7 -7" "7 25" "7 41" "7 17" "7 -15" "11 9" "19 9" "23 1" "7 9"; do scripts/typei3_cmp.sh $a 200000; done
 # Computation 2.1 (2 cores, ulimit -v 8000000):
 /tmp/fsearch 7 9 1 100000000; /tmp/fsearch 7 9 100000000 50000000000; /tmp/fsearch 7 9 50000000000 100000000000
+/tmp/fsearch 7 9 100000000000 550000000000; /tmp/fsearch 7 9 550000000000 1000000000000   # ~4.5 h each
 # §4 mass and exact union (≈15 min per 5·10⁹ on one core):
 /tmp/fsearch 7 9 1 100000000 mass > m1.txt; /tmp/fsearch 7 9 100000000 5000000000 mass > m2.txt
 /tmp/fsearch 7 9 5000000000 10000000000 mass > m3.txt
