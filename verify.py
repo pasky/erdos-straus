@@ -21467,4 +21467,78 @@ print("\n== (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 (l <= 29 exhaustive), Lemma 3.1 
 check_dy()
 
 
+
+# ---------------------------------------------------------------- (dz)
+# POINTWISE_MN3.md Lemma 1.1 (nu-weights <= class-of-one weights l/phi(N); PROVED), Lemma 2.1 (N-parametrisation
+# of atoms; PROVED) and the Elsholtz-Tao Type I bounds behind Lemma 5.2's R(N) << N^{3/5+o(1)} (PROVED, R82 D1).
+# Uses the R82 from-scratch scripts review_mn3_atoms.py, review_mn3_lemma11.py, review_mn3_et35.py (subprocesses).
+# Checked:
+# (1) R82 Lemma 2.1: all 422083 atoms (m = 5, D <= A, M <= 10^5): identities, N >= acd, f <= (m-1)N, involution
+#     invariance of g, N != 1; R(N) brute = validated (a,c,d) count for N <= 10 (brute list complete);
+# (2) R82 Lemma 1.1 / 4.1 exact probabilities by enumeration of r mod lcm(Q_0, M^-): m = 5, q_0 = 8 (4125 atoms),
+#     m = 6, q_0 = 9 (2174 atoms), q <= 32, M <= 2*10^5: formula exact, <= l/phi(N), Lemma 4.1 on positive weight;
+# (3) R82 ET bounds via (a,d,f,c)-enumeration, N <= 1000 (m = 5: 11158 atoms; m = 7): c <= 2aN/3,
+#     m/N = 1/(abdN)+1/(acd)+1/(bcd), e f (cd)^2 ac <= (10/3) N^3;
+# (4) inline from (M, D) directly (D = d a^2, b = A/(da), e = gcd(M, mD+1), f = (mD+1)/e, c = (a+b)/e, N = M/e),
+#     m = 5, 6, 7, M <= 20000: Lemma 2.1 identities, ET identity (exact Fractions), c <= 2aN/3, ce <= 2b,
+#     e f (cd)^2 ac <= (10/3) N^3 (so min(e, f, cd, ac) <= (10/3)^{1/5} N^{3/5}).
+
+def check_dz():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN3 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_mn3_atoms.py", 5, 100000, 10)
+    assert "atoms(D<=A, M<=100000) = 422083; violations: {}" in o, ("MN3 Lemma 2.1 (R82 atoms)", o[:600])
+    assert "iff MMAX>=50010: True" in o and "mismatches: 0" in o and "R(N), N=1..10: [0, 1, 1, 1, 0, 0, 3, 0, 4, 0]" in o, \
+        ("MN3 R(N) brute vs (a,c,d) count", o[-600:])
+    for args, nat in (((5, 8, 32, 200000), 4125), ((6, 9, 32, 200000), 2174)):
+        o = run("review_mn3_lemma11.py", *args)
+        assert f"checked {nat} atoms; defects: 0 []" in o, ("MN3 Lemma 1.1 / 4.1 exact probabilities (R82)", args, o)
+    for m_, X, nat in ((5, 1000, 11158), (7, 1000, None)):
+        o = run("review_mn3_et35.py", m_, X)
+        assert "violations=0" in o and (nat is None or f"atoms={nat}," in o), ("MN3 ET 3/5 bounds (R82)", m_, o)
+        assert float(o.split("ac / N^3 = ")[1].split()[0]) <= 10 / 3, ("MN3 ET product > (10/3) N^3", m_, o)
+    nat = 0
+    for m_ in (5, 6, 7):
+        for M in range(m_ - 1, 20001, m_):
+            A = (M + 1) // m_
+            for D in divisors_of_square(A):
+                if D > A:
+                    continue
+                a = prod(p ** (k // 2) for p, k in factorint(D).items())
+                d = D // (a * a)
+                b = A // (d * a)
+                assert A == d * a * b and a <= b, ("MN3: A != d a b", m_, M, D)
+                P = m_ * D + 1
+                e = gcd(M, P)
+                f, N = P // e, M // e
+                assert (a + b) % e == 0 and N != 1, ("MN3: e does not divide a+b / N = 1", m_, M, D)
+                c = (a + b) // e
+                assert m_ * a * b * d == e * N + 1 and c * e == a + b and m_ * a * c * d == N + f, ("MN3 ET (2.1)/(2.2)/(2.6)", M, D)
+                assert e * f == m_ * a * a * d + 1 and b * f == a * N + c and c * M == N * (a + b), ("MN3 L2.1 identities", M, D)
+                assert (N * N + m_ * c * c * d) % f == 0 and 1 <= f <= (m_ - 1) * N and a * c * d <= N, ("MN3 L2.1", M, D)
+                assert Fraction(m_, N) == Fraction(1, a * b * d * N) + Fraction(1, a * c * d) + Fraction(1, b * c * d), \
+                    ("MN3 ET identity m/N", m_, M, D)
+                assert 3 * c <= 2 * a * N and c * e <= 2 * b and 3 * e * f * (c * d) ** 2 * a * c <= 10 * N ** 3, \
+                    ("MN3 ET Lemma 2.8-type bounds", m_, M, D)
+                nat += 1
+    print(f"dz Lemma 2.1: 422083 atoms (m = 5, M <= 10^5, R82), R(N) N <= 10; Lemma 1.1/4.1 exact on 4125 + 2174 atoms "
+          f"(R82); ET 3/5 bounds N <= 1000 (m = 5, 7; R82); inline {nat} atoms (m = 5, 6, 7, M <= 2*10^4): L2.1 identities, "
+          f"m/N identity, e f (cd)^2 ac <= (10/3) N^3; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound ==")
+check_dz()
+
+
 print("\nall checks passed")
