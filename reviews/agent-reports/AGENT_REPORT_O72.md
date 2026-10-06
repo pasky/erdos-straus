@@ -4,8 +4,8 @@ Deliverable: `POINTWISE_TYPEI3.md`, scripts `scripts/typei3_*`.
 
 ## Outcome (one paragraph)
 Sterility of `x̂_9` (Conjecture 3.4 of POINTWISE_TYPEI2) is **not proved**. I prove that no
-ambient clopen cylinder around it is sterile (Prop 3.1: the sterile set of Σ_7 is closed and nowhere
-dense). So a proof cannot rest on one finite-modulus congruence class; fibre-based proofs are not excluded. I found **no certificate**, using a new complete
+non-empty clopen subset of Σ_7 is sterile (Prop 3.1: the sterile set of Σ_7 is closed and nowhere
+dense; this holds around every point and is not specific to x̂_9 — R72 repair D3, applied by reviewer). So a proof cannot rest on one finite-modulus congruence class; fibre-based proofs are not excluded. I found **no certificate**, using a new complete
 search graded by the smaller divisor `f=min(F,e)` (Lemma 1.1). It reaches all heights for a
 given f, and Lemma 1.2 converts it into a height bound. Result: no certificate with
 `f<10¹²`, hence every Type-I covering of {n_p=7} has height `>1.32·10¹²`, and under H
@@ -19,7 +19,7 @@ an explicit tail bound for the near-miss count would give a sterile point
 |---|---|
 | L1.1 small-divisor reduction; L1.2 f-bound ⇒ height bound `1.3229(Y−1)` | PROVED |
 | C2.3 r=23,31,47: no certificate with f<10¹¹ ⇒ covering heights >2.39/2.78/3.42·10¹¹ | CERTIFIED (one engine) |
-| Prop 3.1 sterile points nowhere dense (no ambient cylinder around x̂_9 is sterile) | PROVED |
+| Prop 3.1 sterile points nowhere dense (no non-empty clopen subset of Σ_7 is sterile; not specific to x̂_9 — R72 repair D3, applied by reviewer) | PROVED |
 | L5.1 Vieta descent (`Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 mod 4cδ`); C5.2 certificates at x̂_9 need `t≥5`, `α+2γ≥5`; P5.3 levels `α+2γ∈{5,6}` force `c'=1`; P5.4 level `α+2γ=5` empty (deduction from self-review R72); P5.5 level `α+2γ=6` empty ⇒ certificates need `α+2γ≥7` | PROVED |
 | C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵ and 3 at X=3·10⁶) / CONDITIONAL (H) |
 | §4 f-graded mass, 60.9–61.0% of the fibre uncovered for f<10¹⁰ (depth-truncated t≤40), t_min ≈ ½log₂f | EVIDENCE / Assessment |

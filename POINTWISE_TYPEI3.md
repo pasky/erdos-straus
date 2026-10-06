@@ -7,7 +7,7 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 |---|---|---|
 | L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: for w=9, a finite explicit check per f, at all heights. If no certificate has `min(F,e)<Y`, then none has `ck≤1.32(Y−1)` | PROVED |
 | C2.1–2.3 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`). For r=23, 31, 47 the bound is `>2.39·10¹¹` (was `>10⁹`) | CERTIFIED / CONDITIONAL (H) |
-| P3.1 | the sterile set of `Σ_7` is closed and nowhere dense, so no ambient cylinder around `x̂_9` is sterile | PROVED |
+| P3.1 | the sterile set of `Σ_7` is closed and nowhere dense, i.e. no non-empty clopen subset of `Σ_7` is sterile (true around every point, nothing specific to `x̂_9`; R72 repair D3, applied by reviewer) | PROVED |
 | §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰` (depth-truncated, error ≤0.0013); measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
 | L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
 | P5.3–P5.5 | levels `α+2γ∈{5,6}` force `c=2^α7^a`; level 5 is empty (P5.4, from review R72); level 6 is empty (P5.5, Pell/Lucas divisibility `D+3 \| H`). So certificates need `α+2γ≥7` | PROVED |
@@ -133,6 +133,10 @@ membership of `x̂_9` in one ambient clopen cylinder `{y≡x̂_9 (mod Q)}⊂Σ_7
 sterile. This does **not** exclude proofs that use the thin sign fibre `{x̂_w}` (which has empty
 interior in `Σ_7`) or other non-open conditions. In the fibre itself, by Lemma 1.1, the 2-adic depth
 available to a divisor `f` is `v_2(f+9)` (resp. `v_2(9f+1)`), which has no uniform bound.
+(R72 repair D3, applied by reviewer.) Prop 3.1 is a statement about *every* point of `Σ_7`; it carries no
+obstruction specific to `x̂_9`. Nor does it constrain the fibre: Φ is itself nowhere dense in `Σ_7`, and a closed
+sterile subset of Φ of positive Haar measure (nowhere dense in Φ, of fat-Cantor type, or containing balls of Φ)
+is not excluded.
 
 ## 4. The sign fibre: f-graded near-miss mass (EVIDENCE / Assessment)
 
