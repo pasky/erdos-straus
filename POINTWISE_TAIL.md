@@ -41,6 +41,9 @@ with `c_P>0` the absolute effective constant of the Page bound `1−β≥c'q^{�
 quantitatively; nothing in it uses a specific x, only `log x≥C_2(1+log A)log Z`. Its three cases
 end with:
 * *Case 0 (no exceptional zero for `q≤Q_G`)*: `S_r(x) ≥ μx/φ(Q)·(1−1/400−1/200)`.
+* *Exceptional χ_1 not in the Fourier support of B* (no χ with `c(χ)≠0` has `χ*=χ_1`): no
+  exceptional main term appears and the replaced (G) error is `≤μx/(200φ(Q))`, so the Case 0 bound
+  holds (O9: "this finishes as in Case 0").
 * *Case B (exceptional χ_1, the χ with `χ*=χ_1` has nontrivial `f_2`-part)*:
   `S_r(x) ≥ μx/φ(Q)·(1−1/2−1/100−1/400) ≥ μx/(3φ(Q))`.
 * *Case A (χ_1 trivial on H, so `q_1|Q`)*: `S_r(x) ≥ 0.98·λμx/φ(Q)` with
@@ -109,10 +112,11 @@ Upper inequality: Thm 3.3 (Thm 2.1 gives the exponent `(log log T)^5` with a one
 `C𝓛^4log𝓛 ≤ log x` (use `log𝓛≤loglog x`). ∎
 
 *Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
-range is the x-threshold `log x ≍ log Z ≍ 𝓛·S_res ≍ 𝓛^4log𝓛` of the transfer, i.e. the *same*
-threshold as O13 Thm 5.1 (existence of one p): counting costs nothing in range. By O14 Thm 4.5
-this threshold cannot be lowered below `𝓛^4/log𝓛` (level of the minorant) within the Haar-minorant + Gallagher-transfer
-architecture, so `(log x)^{1/4}` is also the natural range limit here (Assessment).
+range is the sufficient x-threshold `log x ≥ C𝓛^4log𝓛` of the transfer (from the *upper* bound
+`log Z ≪ 𝓛·S_res+log Q ≪ 𝓛^4log𝓛`), i.e. the *same* threshold as O13 Thm 5.1 (existence of one p):
+counting costs nothing in range. By CU Prop 4.2 (sharpening O14 Thm 4.5) no fibre minorant of level
+`log D≤c𝓛^4` has positive mean, so `(log x)^{1/4}` is also the natural range limit of this
+architecture (Assessment).
 
 ## 3. Summing over the quarantine outcomes: a smaller log power
 
@@ -150,7 +154,8 @@ E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log�
 Second: put `t:=1+1/loglogY`. Since `y≤t^y/(e·log t)` for `y≥0`,
 `ω_Y(M) ≤ (loglogY+1)·t^{ω_Y(M)}/e`. Summing over D as in O13 (notation `w(M)`), it suffices that
 `Σ_{M≤T, M≡3(4)} w(M)t^{ω_Y(M)}/M ≪ 𝓛³logY`. This is O13 Lemma 3.3(A)'s first display with `f_2`
-replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤2tβ·(3/2)≤8^k` for large T (NT class, uniform in T), and
+replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤2tβ·(3/2)≤7` for large T, so `f_2(n)≤7^{ω(n)}≪_εn^ε` uniformly
+in T and the modified F stays in the NT class `M_2(A,B_ε,ε)` with constants independent of T, and
 the Euler-product bound for `Σf_2t^{ω_Y}(n)/n` exceeds that for `Σf_2(n)/n` by at most `∏_{p≤Y}(1+2β(t−1)/(p−1)) ≤ exp(2β(t−1)(loglogY+O(1)))=O(1)`.
 Hence `E[k] ≪ η^{−1}·loglogY·𝓛³logY ≍ 𝓛³(log𝓛)²log log𝓛` (`logY≍log𝓛`). ∎
 
@@ -211,9 +216,11 @@ good mass (not shown).
 | Cor 2.2 | `c𝓛³ ≤ log(π(x)/N(x,T)) ≤ C𝓛³(log𝓛)³loglog𝓛` for `𝓛≤c(log x/loglog x)^{1/4}`: tail exponent 3 | PROVED mod the above and CU Thm 2.1's inputs |
 
 *Open.* (1) Range: close the `(log log x)^{1/4}` gap between the two sides (it is the `log𝓛` of the
-junta `𝓛·S_res`; O14 suggests `𝓛^4/log𝓛` is the architectural floor). (2) The third log (Siegel
-factor, §3 Assessment). (3) A lower bound in the range `𝓛^4 ≫ log x` (beyond `(log x)^{1/4}`) is out of
-reach of the transfer architecture (O14 Thm 4.5); there even existence of one p is open.
+junta bound `𝓛·S_res`; CU Prop 4.2 puts the architectural floor at minorant level `log D ≫ 𝓛^4`).
+(2) The third log (Siegel factor, §3 Assessment). (3) A lower bound with `log x = o(𝓛^4)` is out of
+reach of minorant-on-a-fibre + transfer arguments: CU Prop 4.2 (sharpening O14 Thm 4.5, which only
+excludes level `≤c𝓛^4/log𝓛`) shows every fibre minorant `B≤F_T` of level `log D≤c𝓛^4` has
+`E B≤0` (for `log Q≤T^{0.05}`; within the scope stated there). There even existence of one p is open.
 
 ## Replay
 
