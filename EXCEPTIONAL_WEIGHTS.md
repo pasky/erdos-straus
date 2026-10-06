@@ -412,9 +412,10 @@ per-frequency method (any weights ≥ |W_N| or ≥ |S_N|) is capped at
 `M(N) ≤ N e^{−ω(N)(log N)^{3/4}}` (ω → ∞) then some general majorant beats the
 cap through a band-limited per-frequency bound.*
 
-*Proof.* (a′) Every exceptional prime p > max(K,y) has ν_X(p) ≥ 1, and ν_X ≥ 1_{𝒜_X}
-exactly on the support of S_y·1[H_X = 0]; so such p lie in 𝒜_X, and the window [1,N]
-is one of the windows in M. (a) The first inequality is t = 0; the second: the 3/4 note's majorant
+*Proof.* (a′) Let p > max(K,y) be an exceptional prime. Then S_y(p) = 1, because p > y
+(the note, after its eq. (selector)). Also H_X(p) = 0: by the note's identity lemma a
+prime > K in an atom class is representable. This is how the note gets ν_X(p) ≥ 1. So
+p ∈ 𝒜_X, and the window [1,N] is one of the windows in M. (a) The first inequality is t = 0; the second: the 3/4 note's majorant
 is a CRT majorant on all of ℤ and each class meets a window in ≤ N/d + 1 points.
 (b) If `ℓ ≥ (N+1)|F_ℓ|`, the complement of F_ℓ on the cycle ℤ/ℓ has a gap of ≥ N
 consecutive residues; choose `t mod ℓ` to put `t+1, …, t+N` in it. For the
