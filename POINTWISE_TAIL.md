@@ -31,11 +31,13 @@ satisfy the hypotheses of O13 I3 (O11 Lemma 3.1 on the coset `rH`): cells consis
 If `log x ≥ C_2(1+log A)log Z` (`C_2` as in O9 Thm 1.1), then
 
 ```
-S_r(x) := Σ_{p≤x, p∤QD, p≡r (Q)} B(p)log p  ≥  λ_Q · μx/(3φ(Q)),
-λ_Q := min(1, c_P·Q^{−1/2}(log 3Q)^{−2}),
+S_r(x) := Σ_{p≤x, p∤QD, p≡r (Q)} B(p)log p  ≥  λ · μx/(3φ(Q)),
 ```
 
-with `c_P>0` the absolute effective constant of the Page bound `1−β≥c'q^{−1/2}(log q)^{−2}`.
+where `λ:=1` unless Case A below occurs, and in Case A (exceptional real primitive `χ_1` of
+conductor `q_1`, necessarily `q_1|Q`) `λ:=min(1, c_P·q_1^{−1/2}(log 3q_1)^{−2})`; here `c_P:=16c'`
+with `c'>0` the absolute effective constant of the Page bound `1−β≥c'q^{−1/2}(log q)^{−2}`. In all
+cases `λ ≥ λ_Q := min(1, c_P·Q^{−1/2}(log 3Q)^{−2})` (D3, R76).
 
 *Proof.* This is the proof of O9 Thm 1.1 (with the O11 Lemma 3.1 / O13 I3 changes), read
 quantitatively; nothing in it uses a specific x, only `log x≥C_2(1+log A)log Z`. Its three cases
@@ -47,16 +49,17 @@ end with:
 * *Case B (exceptional χ_1, the χ with `χ*=χ_1` has nontrivial `f_2`-part)*:
   `S_r(x) ≥ μx/φ(Q)·(1−1/2−1/100−1/400) ≥ μx/(3φ(Q))`.
 * *Case A (χ_1 trivial on H, so `q_1|Q`)*: `S_r(x) ≥ 0.98·λμx/φ(Q)` with
-  `λ=1−x^{β_1−1}/β_1 ≥ min(u,1)/2`, `u=(1−β_1)log x`. Since `q_1|Q`, `q_1≤Q`, and the Page bound
-  with `log x≥16` gives `u≥16c'Q^{−1/2}(log 3Q)^{−2}`, so `0.98λ ≥ λ_Q/3` for suitable `c_P`.
+  `λ=1−x^{β_1−1}/β_1 ≥ min(u,1)/2`, `u=(1−β_1)log x`. The Page bound with `log x≥16` gives
+  `u≥16c'q_1^{−1/2}(log 3q_1)^{−2}`, so `0.98·min(u,1)/2 ≥ min(1,c_Pq_1^{−1/2}(log3q_1)^{−2})/3`;
+  and `q_1|Q` gives the uniform `λ_Q`.
   (O9 used `q_1≤Z`; `q_1|Q` is what I3's Case A gives: χ trivial on H is induced from mod Q.)
   The R_1 bound of Case A needs `x ≥ 200AZ³/λ`, implied by `x≥Z^5` (`λ≫Z^{−1/2}(log Z)^{−2}`),
   as in O9.
 In the coset version `c(χ)=μ/φ(Q)` in Case A because `χ(r)=1` for real χ mod Q (O13 I3). ∎
 
-*Remark.* In Case 0/B the loss is a constant; λ_Q is only the price of a possible Landau–Siegel
+*Remark.* In Case 0/B the loss is a constant; λ is only the price of a possible Landau–Siegel
 zero whose conductor divides Q. With Siegel's (ineffective) bound one gets
-`λ_Q≥c(ε)Q^{−ε}` instead.
+`λ≥c(ε)q_1^{−ε}` instead.
 
 ## 2. The lower tail from a single fibre
 
@@ -208,7 +211,7 @@ good mass (not shown).
 
 | item | statement | label |
 |---|---|---|
-| Lemma 1.1 | quantitative coset transfer: `S_r(x) ≥ λ_Qμx/(3φ(Q))`, `λ_Q≥min(1,c_PQ^{−1/2}(log3Q)^{−2})`, for all `log x≥C_2(1+logA)logZ` | PROVED mod (G) (proof of O9 Thm 1.1 read quantitatively) |
+| Lemma 1.1 | quantitative coset transfer: `S_r(x) ≥ λμx/(3φ(Q))`, `λ=1` or (Case A, `q_1|Q`) `λ=min(1,c_Pq_1^{−1/2}(log3q_1)^{−2})≥λ_Q`, for all `log x≥C_2(1+logA)logZ` | PROVED mod (G) (proof of O9 Thm 1.1 read quantitatively) |
 | Thm 2.1 | `#{p≤x hard: W(p)>T} ≥ π(x)e^{−C𝓛³(log𝓛)^5}` for `log x≥C𝓛^4log𝓛` (one fibre, no `ℓ_aux`) | PROVED mod (G), NT, OMEGA10 Thm 3.4 |
 | Lemma 3.1 | leaves of the square-class process: disjoint fibres, `P_proc(L)=4·2^{k_L}/φ(Q_L)` | PROVED (elementary) |
 | Lemma 3.2 | `E[k]≪𝓛³(log𝓛)²loglog𝓛` | PROVED mod NT |
