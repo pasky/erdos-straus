@@ -49,6 +49,7 @@ int main(int argc,char**argv){
       if(mass){ if(f%16!=7)continue; TF=Te=40; } /* mass mode: Haar-random w in 9+16Z_2, t capped at 40 */
       int tmin=99;
       int T=TF>Te?TF:Te; if(T<2)continue;
+      if(!mass && T>=60){ fprintf(stderr,"ABORT: role depth cap reached at f=%llu (w=-f or w=-1/f mod 2^60?)\n",f); return 3; } /* R72-1 */
       int V=0; { ull q=f-1; while(q%r==0){q/=r;V++;} }
       if(V<1)continue;
       ull rp[130]; rp[0]=1%f; for(int s=1;s<=2*V+2;s++) rp[s]=(rp[s-1]*(ull)r)%f; /* f < 2^56 */

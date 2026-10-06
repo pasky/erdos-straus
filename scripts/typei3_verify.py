@@ -27,8 +27,11 @@ def check(r, w, c, k, F):
 
 if __name__ == '__main__':
     r, w, c, k, F = map(int, sys.argv[1:6])
+    if min(r, c, k, F) <= 0:
+        sys.exit('r, c, k, F must be positive')
     ok, info = check(r, w, c, k, F)
     print(info)
     for key, val in ok.items():
         print(f'{key}: {val}')
     print('CERTIFICATE' if all(ok.values()) else 'NOT a certificate')
+    sys.exit(0 if all(ok.values()) else 1)

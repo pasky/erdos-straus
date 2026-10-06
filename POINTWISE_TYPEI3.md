@@ -5,7 +5,7 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 
 | # | statement | label |
 |---|---|---|
-| L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: finite explicit check per f, at all heights; `f<Y` ⇒ `ck>1.32(Y−1)` | PROVED |
+| L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: for w=9, a finite explicit check per f, at all heights. If no certificate has `min(F,e)<Y`, then none has `ck≤1.32(Y−1)` | PROVED |
 | C2.1–2.3 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`). For r=23, 31, 47 the bound is `>2.39·10¹¹` (was `>10⁹`) | CERTIFIED / CONDITIONAL (H) |
 | P3.1 | the sterile set of `Σ_7` is closed and nowhere dense: no fixed-modulus congruence proof of sterility of `x̂_9` exists | PROVED |
 | §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰`; measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
@@ -74,7 +74,7 @@ exact checker `scripts/typei3_verify.py`.
 
 *Cross-check (agreement of certificate sets).* `scripts/typei3_cmp.sh r w X` compares,
 for all certificates with `ck≤X`, the output of the independent ck-graded
-checker `typei2_signcheck.c` with `typei3_fsearch` on `f<2X/√7+2`. At
+checker `typei2_signcheck.c` with `typei3_fsearch` on `f<2X/√r+2`. It exits non-zero on any difference. At
 `X=2·10⁵` the sets coincide exactly for
 `(r,w)=(7,1),(7,−7),(7,25),(7,41),(7,17),(7,−15),(11,9),(19,9),(23,1),(7,9)`
 (3, 0, 0, 0, 13, 35, 7, 4, 2, 0 certificates).
@@ -201,10 +201,11 @@ Brute-force check: all 39 660 pairs with `c,k<200` satisfy the conclusion `F≡e
 
 **Corollary 5.2 (PROVED).** Let `w≡9 (16)`. A certificate `(c,k,F)` at `x̂_w` has
 `t=v_2(4ck)≥5` and `α+2γ≥5`. (Recall `c=2^α…`, `k=2^γ…`, `t=2+α+γ`.)
-*Proof.* Put `e=N/F`. By Lemma 1.1, `F≡−x̂`, `e≡−x̂^{−1} (mod 4ck)`. The odd components
+*Proof.* Put `e=N/F`; below, Lemma 5.1 is applied to the oriented pair `(min(F,e),max(F,e))`. Both members
+satisfy `≢1 (mod 4)` (see below), so the orientation does not matter. By Lemma 1.1, `F≡−x̂`, `e≡−x̂^{−1} (mod 4ck)`. The odd components
 of `x̂` are `±1`, and `w≡w^{−1} (mod 16)` (as `81≡1`). So `e≡F (mod 2^{min(t,4)}n)`, where `n`
 is the odd part of `ck`. Also `F≡−w≡7 (mod 8)` if `t≥3`, and `F≡3 (mod 4)` if `t=2`; in all cases
-`F≢1 (mod 4)`. `F≠e` by Lemma 3.1 of POINTWISE_TYPEI2 (no square-family certificate at `x̂_w`, `w≡9 (16)`).
+`F≢1 (mod 4)`; likewise `e≡−w^{−1}≢1 (mod 4)`. `F≠e` by Lemma 3.1 of POINTWISE_TYPEI2 (no square-family certificate at `x̂_w`, `w≡9 (16)`).
 * `t≤4`: then `e≡F (mod 4ck)`, and Lemma 5.1 gives `F≡1 (mod 4)`, a contradiction.
 * `t≥5` and `α≥2(t−4)` (equivalently `α+2γ≤4`): put `c̃=c/4^{t−4}`, `k̃=2^{t−4}k` (integers). Then
   `4c̃k̃²=4ck²` and `4c̃k̃=16n`. Since `e≡F (mod 16n)`, Lemma 5.1 applies to `(c̃,k̃)`
@@ -217,8 +218,8 @@ The near-miss data agree. In the dump `typei3_nmdump 7 9 10⁸` (932 near misses
 `δ=(e−F)/16n`. Then `Fe=1+4c̃K²` and `e−F=4c̃Kδ`, and the step
 `(K,F)↦(ρ,F')=(K−δF, F−4c̃ρδ)` still preserves the equation. It is multiplication by a
 fixed real quadratic unit, so it ends after finitely many steps at a reduced pair with
-`F_end∈ℤ[1/2]`, `0<F_end≤1`. (If `ρ_end≤0`, then `F_end²≤1`. On all 932 near misses of the dump, `scripts/typei3_descent.py`
-terminates within ≤156 steps. Long chains occur when `δ` is small and `c̃` tiny. The intermediate F have
+`F_end∈ℤ[1/2]`, `0<F_end≤1`. (If `ρ_end≤0`, then `F_end²≤1`. On the 461 oriented non-square near misses of the dump with
+`α+2γ≥5`, `scripts/typei3_descent.py` terminates within ≤156 recorded steps. Long chains occur when `δ` is small and `c̃` tiny. The intermediate F have
 2-adic valuation decreasing by a fixed amount per step.)
 The steps move F by `4c̃ρδ`, which is divisible by `c_o` (the odd part of c) at every odd prime.
 So `F≡F_end (mod c_o)`, `F_end=a/2^m≤1`. Lemma 5.1 is the case `F_end=1`. When
@@ -266,7 +267,7 @@ near miss at levels 5–6.
 gcc -O2 -o /tmp/fsearch scripts/typei3_fsearch.c -lm
 gcc -O2 -o /tmp/signcheck scripts/typei2_signcheck.c -lm
 /tmp/fsearch 7 1 1 2000                      # sanity: finds (14,2,15), (602,14,687), (29498,2,687)
-# cross-check vs the ck-graded checker (edit binary paths in the script first):
+# cross-check vs the ck-graded checker (binaries via $SIGNCHECK/$FSEARCH, default /tmp/...):
 for a in "7 1" "7 -7" "7 25" "7 41" "7 17" "7 -15" "11 9" "19 9" "23 1" "7 9"; do scripts/typei3_cmp.sh $a 200000; done
 # Computation 2.1 (2 cores, ulimit -v 8000000):
 /tmp/fsearch 7 9 1 100000000; /tmp/fsearch 7 9 100000000 50000000000; /tmp/fsearch 7 9 50000000000 100000000000

@@ -36,7 +36,7 @@ for f, t, c in balls:
                 meas -= 2.0 ** (4 - tt)
             S -= rm
     covered.setdefault(t, set()).add(c % (1 << t)); meas += 2.0 ** (4 - t); nb += 1
-out.append((nextb, 1 - meas))
 for b, u in out:
     if b >= 2 ** 6:
         print(f'f < 2^{b.bit_length()-1}: uncovered measure of 9+16Z_2 = {u:.6f}')
+print(f'all input balls (f up to the processed bound, last f = {balls[-1][0] if balls else 0}): uncovered measure = {1 - meas:.6f}  [balls with t<=40 only]')
