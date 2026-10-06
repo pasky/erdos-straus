@@ -44,10 +44,9 @@ with its status label. Read it before starting new work.
   audit (`reviews/es-threequarter-blind-audit.md`, SOUND). It has not been
   externally refereed.
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
-  analysed except residue-dense all-level large sieves and hybrids, which
-  are reduced to open statements (see "Exceptional-set exponent: where it
-  stands" below). The cubic
-  witness tail (ledger (A)9) is now INTERNALLY PROVED via the 3/4 note.
+  analysed except residue-dense all-level large sieves, hybrids and tuple
+  counts of growing order, which are reduced to open statements (see
+  "Exceptional-set exponent: where it stands" below). The cubic witness tail (ledger (A)9) is now INTERNALLY PROVED via the 3/4 note.
 
 ### 2. Pointwise signed-graph line (wave 33–34): CLOSED
 
