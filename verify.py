@@ -20103,4 +20103,73 @@ print("\n== (di) POINTWISE_OMEGA16 §6: W(133050918961) = 5935, least-p table, B
 check_di()
 
 
+
+# ---------------------------------------------------------------- (dj)
+# EXCEPTIONAL_LARGESIEVE3.md (Thm 1.1 smooth-rough splitting, Thm 3.1 local bound, Lemmas 4.1,
+# 4.2; cf. scripts/largesieve3_checks.py, review_ls3_thm11.py, review_ls3_lemmas.py, all run here
+# with their fixed seeds; numpy only).  Checked:
+# (1) Thm 1.1 core inequality R_{p'}(pi) <= rho E_{pi_s} R_{p'}(pi_c) on toy mixtures over
+#     Z/(3.5.7.11.13) (author) and with multi-rough-prime classes, spiky pi_s, Hoelder step
+#     F_w(pi) <= (R_{p'}(pi)/N)^{1/(1+beta)} and the equality case ratio = 1 (R59 script);
+# (2) Thm 3.1 local bound sum_{a != 0}|phi|^{p'} <= g^{1+2 beta}, Parseval; Lemma 4.1 two-copy
+#     identity and R <= sum_S s_S^{2 beta} P_S (both scripts);
+# (3) Lemma 4.2, exact: -4 = -4D (mod M) with D = 1 | A_M^2, and every n = -4 (mod M) has the
+#     explicit (16.1) solution 4/n = 1/s + 1/(n s A) + 1/(n A), s = (nA+1)/M, for all
+#     M = 3 (4), M <= 2000, n = kM - 4 (k = 1..6).
+
+def check_dj():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import runpy
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    spec = importlib.util.spec_from_file_location("largesieve3_checks", os.path.join(sdir, "largesieve3_checks.py"))
+    mod = importlib.util.module_from_spec(spec)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        spec.loader.exec_module(mod)
+        mod.check_product()
+        mod.check_lemma41()
+        mod.check_thm11()                                  # asserts ratio <= 1
+    out = buf.getvalue()
+    worst = float(out.split("max R(pi)/(rho E R(pi_c)) = ")[1].split()[0])
+    assert 0 < worst <= 1, ("LS3 Thm 1.1 core ratio", worst)
+    assert "Parseval sum|phi|^2 = g: ok" in out and "two-copy identity ok" in out, "LS3 Thm 3.1 / Lemma 4.1 checks"
+    outs = {}
+    for name in ("review_ls3_thm11", "review_ls3_lemmas"):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, name + ".py"), run_name="__main__")   # asserts internally
+        outs[name] = buf.getvalue()
+    o = outs["review_ls3_thm11"]
+    assert "OK: Thm 1.1 inequalities hold" in o, "LS3 R59 Thm 1.1 replay"
+    eq = float(o.split("uniform : core ratio max ")[1].split()[0])
+    assert abs(eq - 1) < 1e-6, ("LS3 Thm 1.1: rho should be attained (uniform pi_s)", eq)
+    o = outs["review_ls3_lemmas"]
+    assert "(b) Lemma 4.1 identities OK" in o and "(c) local bound OK" in o, "LS3 R59 Lemma 4.1 / Thm 3.1 replay"
+    npairs = 0
+    for M in range(3, 2001, 4):
+        A = (M + 1) // 4
+        assert (M - 4) % M in {(-4 * D) % M for D in divisors_of_square(A)}, ("LS3 Lemma 4.2: -4 not in R(M)", M)
+        for k in range(1, 7):
+            n = k * M - 4
+            if n < 1:
+                continue
+            assert (n * A + 1) % M == 0, ("LS3 Lemma 4.2: nA = -1 (mod M)", M, n)
+            s = (n * A + 1) // M
+            assert Fraction(1, s) + Fraction(1, n * s * A) + Fraction(1, n * A) == Fraction(4, n), \
+                ("LS3 Lemma 4.2: (16.1) identity", M, n)
+            npairs += 1
+    print(f"dj Thm 1.1 core ratio <= 1 (author max {worst:.4f}; R59 multi-rough/spiky ok, equality {eq:.6f}); "
+          f"Thm 3.1 local bound, Lemma 4.1 (both scripts); Lemma 4.2: -4 in R(M), (16.1) solution exact on "
+          f"{npairs} (M, n); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dj) EXCEPTIONAL_LARGESIEVE3: Thm 1.1 toy inequality, Thm 3.1, Lemma 4.1, Lemma 4.2 (-4 in R(M)) ==")
+check_dj()
+
+
 print("\nall checks passed")
