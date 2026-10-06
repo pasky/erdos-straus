@@ -185,8 +185,9 @@ Papers in `paper/`:
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
 * `vaughan-loglog-note`;
 * `pointwise-obstruction` (refereed internally, ACCEPT pending authorship);
-* `sieve-limits-note` v4: why 3/4 is sharp for congruence sieves, now with
-  no log log loss, large sieves, tuple and hybrid doors (refereed
+* `sieve-limits-note` v5: why 3/4 is sharp for congruence sieves, now with
+  no log log loss, all-level large sieves (residue-sparse), tuple and hybrid
+  doors, and the unified sieve-limit picture (refereed, R36/R65;
   internally; fixes applied);
 * `es-omega-note` v3: every fixed exponent (refereed internally; P1–P4
   applied).
