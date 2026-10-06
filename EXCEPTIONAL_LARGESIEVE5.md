@@ -45,8 +45,7 @@ the four types can be written `b ≡ −r/s (mod G)` with integers `r ≥ 0`,
 chosen with:
 * ℛ(M), `A = (M+1)/4`, class `−4D`, `D | A²`, `D' = A²/D`:
   `λ = −4D` if `D ≤ A`, else `λ = −1/(4D')` (then `D' < A`); `H(λ) ≤ M+1`.
-  (`A²/D ≡ −1/(4·(−4D))·(−1)`… precisely `4A ≡ 1 (M)` gives
-  `D' ≡ 1/(16D)`, so `−4D ≡ −1/(4D') (mod M)`.)
+  (`4A ≡ 1 (M)` gives `D' ≡ 1/(16D)`, so `−1/(4D') ≡ −4D (mod M)`.)
 * (a,D), `G = 4ag`, class `−(4D+a)`: `λ = −(4D+a)`, `H ≤ 4g² + a ≤ G²`.
 * Case A, `G = 4rh`, `m·m' = 4rh² + 1`, class `−1/m`: since
   `4rh² ≡ 0 (G)`, `m m' ≡ 1` and `−1/m ≡ −m' (mod G)`; take
@@ -69,3 +68,52 @@ governed by the single set `Z_λ(y) = {p : y ≡ λ (mod p^{e_p})}`. So
 coincidences between classes are of two kinds: *same label* (exact,
 product-type, the "structured" case of LS4 §3.2) and *different labels*,
 which by Lemma 1.2 cost height: one of the two labels is `≥ √(g/2)`.
+
+## 2. Replacing the threshold conditioning by an exponential tilt
+
+LS4 obtains (B) by conditioning the capped fibre law on the global event
+`G_B = {Σ_ℓ w_ℓp̃_ℓ ≤ B} ∩ 𝒜` (Prop 4.1). For (A*) at large support this
+is a bad choice (§3): `Σ_ℓ w_ℓp̃_ℓ` is moved by *every* coordinate (see
+Remark 3.1), so a sharp threshold couples all coordinates, and the
+pivotal method of LS4 (which takes absolute values pointwise in the coins)
+cannot see the smoothing that makes the true correlation small. An
+exponential tilt gives (B) equally cheaply and has **product structure**.
+
+**Setting 2.0.** Q' is the capped fibre law of LS4 Setting 4.0 (caps
+`δ_ℓ ≤ 1/2`), `Y(x) = Σ_ℓ w_ℓ p̃_ℓ(x)` with `w_ℓ ∈ [0,1]`, `𝒜` the avoider
+set, and
+
+    σ_tilt(x) := Q'(x)·1_𝒜(x)·e^{−2Y(x)} / Z,    Z = E_{Q'}[1_𝒜 e^{−2Y}].
+
+**Proposition 2.1 ((B) for the tilted law; PROVED).**
+`E_T 𝓡_2((σ_tilt)_T) ≤ Z^{−2}`, and `Z ≥ Q'(𝒜)·exp(−2E_{Q'}[Y]/Q'(𝒜))`.
+In particular if `Q'(𝒜) ≥ 3/4` then
+`log E_T𝓡_2((σ_tilt)_T) ≤ (16/3)E_{Q'}Y + 2 log(4/3)`.
+
+*Proof.* By Lemma 1.1 of LS4,
+`E_T𝓡_2 = E_{σ⊗σ}Π_ℓ(1+w_ℓh_ℓ) = Z^{−2}E_{Q'⊗Q'}[Φ(x)Φ(x')Π_ℓ(1+w_ℓh_ℓ)]`,
+`Φ = 1_𝒜e^{−2Y} ≥ 0`. The tilting identity of LS4 Lemma 2.1 holds with any
+non-negative functional of the pair path inserted (LS4 §4: `dQ/d(Q'⊗Q') =
+Π_ℓZ_ℓ`), so this equals `Z^{−2}E_Q[Φ(x)Φ(x')Π_ℓ(1+w_ℓη_ℓ)]`. As in Prop
+4.1, `η_ℓ ≤ p̃_ℓ(x)/(1−p̃_ℓ(x)) ≤ 2p̃_ℓ(x)`, so `Π(1+wη) ≤ e^{2Y(x)}`, and
+`Φ(x)e^{2Y(x)} ≤ 1`, `Φ(x') ≤ 1`. Lower bound: Jensen,
+`Z = Q'(𝒜)E[e^{−2Y}|𝒜] ≥ Q'(𝒜)e^{−2E[Y|𝒜]}` and `E[Y|𝒜] ≤ EY/Q'(𝒜)`. ∎
+
+So in Theorem 4.2 of LS4 one may use `σ_c := σ_tilt` for the fibre law
+`Q'_c` (on the event `leak_c ≤ 1/4`, `Q'_c(𝒜_c) ≥ 3/4`), with the
+collision bound `log E_T𝓡_2 ≤ 6m_c + 1` in place of `2B_c + log 4`;
+the rest of the proof of Thm 4.2 is unchanged, and the open input becomes
+
+> **(A\*_tilt)** for c off an exceptional event of probability ≤ 1/32 and
+> every θ ≠ 0 with z-rough denominator, `|σ̂_tilt,c(θ)| ≤ Π_{ℓ∈supp θ}Kℓ^{−γ}`.
+
+(Lemma 5.1 / Thm 5.2 of LS4 also hold for σ_tilt: their proof only uses
+that the weight is a function of the activated sets and of
+avoider-membership, and that nothing changes when no pinned value meets
+`R_ℓ`; `e^{−2Y}` is such a function. So the residue-sparse case is not
+lost.)
+
+The advantage: `e^{−2Y} = Π_q e^{−2w_q p̃_q}` is a **product of local
+factors**, each moved by an activation at q only by a factor
+`e^{−2w_q·O(1/q)}`. A change of activation at a top q is therefore
+*paid* by `w_q/q` (or by the coin at q), never by a global threshold.
