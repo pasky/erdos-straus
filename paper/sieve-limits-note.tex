@@ -3556,7 +3556,7 @@ an $F$ is \emph{flat}: for large moduli it is $\geq s_0$ on $[1,N]$ and $\geq-1$
 off it.
 
 \begin{theorem}[conditional hybrid cap; {\cite[Thm~5.2]{IF2}}; \lab{proved} implication, \lab{conditional} on Flat; Case A as in Theorem~\ref{thm:main}]\label{thm:hybridcap}
-Assume Flat$(C,t,s_0,\Delta)$ at $N$ with $t,1/\Delta\geq\e^{-S_A}$ and $s_0\geq N^{-A_1}$.  If a
+Assume Flat$(C,t,s_0,\Delta)$ at $N$ with $0<t\leq1$ and $s_0\geq N^{-A_1}$.  If a
 hybrid bound $B$ for $\A(\cG)$, family primes $\leq N^A$, has right-signed
 mass at moduli in $(N/2,CN]$ at most $cB$, then for $N\geq N_0(A,A_1,C)$
 \[
@@ -3576,8 +3576,12 @@ positive terms of modulus $>CN$ meeting $[1,N]$.  Unless $(1+\Delta(1+c))B\geq t
 (then the bound is trivial), this gives $\E\nu<1$ and total mass $\leq N^{A_1+1}+N$ on
 terms of modulus $>CN$, which bounds the level after the coarsening of
 Lemma~\ref{lem:budget}; the mean is then capped as in Theorem~\ref{thm:main}
-\cite[\S5]{IF2}.
+\cite[\S5]{IF2}.  In this non-trivial case $W^+_{>CN}<N/s_0$, so the level does not
+involve $t$ or $\Delta$, which enter only the trivial case and the final line;
+hence no lower bound on $t$ or $1/\Delta$ is needed \cite[Rem.~after Lemma~1.1]{SPW2}.
 \end{proof}
+\cite[Thm~5.2]{IF2} is stated with $t,1/\Delta\geq\e^{-S_A}$; these only make the
+conclusion $3/4$-shaped.
 \cite{IF2} uses the cap of \cite[Thm~5.1]{KA2} with the case analysis of
 \cite[Cor.~6.1]{KA2}, hence the factor $(\log\log N)^{3/4}$.  The cap enters only
 as a black-box bound on $\log(1/\E\nu)$ at a level $\leq(A+A_1+2)\log N+S+\lambda_0$, so
@@ -3686,11 +3690,7 @@ $R_1=(1-1/(2K))\ind_{[1,N]}+R/(2K)$ satisfies SPW$(C,\eta/(2K),\Delta'/(2K))$: f
 classes get mass $\leq1-\eta/(2K)$, sparse ones $\leq1/2$.  Proposition~\ref{prop:SPW}(1)
 gives Flat with $t,s_0\asymp\eta/K$ and $\Delta=6\theta+\Delta'/(2K)$, and
 Theorem~\ref{thm:hybridcap} gives the bound with
-$\log(1/t)+\log(1+\Delta(1+c))\leq\ell_N+\log(1+c)+O(1)$.  The hypotheses
-$t,1/\Delta\geq\e^{-S_A}$ of Theorem~\ref{thm:hybridcap} are not needed: in its proof $t$
-enters only through the trivial case and the final line, and $s_0$ only
-through the level, where $s_0\geq N^{-A_1}$ costs a constant \cite[Rem.~after
-Lemma~1.1]{SPW2}.
+$\log(1/t)+\log(1+\Delta(1+c))\leq\ell_N+\log(1+c)+O(1)$; here $s_0=\eta/(4K)\geq N^{-A_1}$.
 \end{proof}
 So the $3/4$ cap for hybrids by this route needs exactly
 $\log(K_N/\eta_N)+\log(1+\Delta'_N/K_N)=O((\log N)^{3/4})$; a bound $(\log N)^\theta$, $\theta<1$,
