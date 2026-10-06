@@ -125,6 +125,9 @@ once `𝓛>9/δ`, contradicting (i). So no m satisfies 𝒥(δ), for every δ an
 fails on these fibres (which are within `Q≤x^δ`). The same computation with `m=m_x` shows (iii)
 is *false for the primes* there (Brun–Titchmarsh for modulus q′ has `log(x/q′)`, which is
 `≤log 4`, not `≥δlog x`).
+(If fibres are restricted to O13's shape `Q′=Q_0ℓ_aux`, Q_0 Y-smooth, `ℓ_aux>T` prime: choose
+`ℓ_aux` so that `Q′∈[x^δ/2,x^δ]`, Q_0 odd; the bound gains a factor `∏_{p|Q_0}(1−1/p)^{−1}≪log Y`,
+so the contradiction holds once `𝓛≫(log Y)/δ`.)
 Repair (author): in (iii) use `log(x/lcm(q,Q))` and require `lcm(q,Q)≤x^{1−δ}` (the actual
 Montgomery–Vaughan form), or require `q·Q≤x^{1−δ}`. Not a change of the intended content.
 *Applied by reviewer* only as a flagged note after SAP (statement left to the author).
