@@ -344,6 +344,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * The "Haar-side route" to 3/4 is the note's own route: it reproves 3/4 (also in π(N) form for primes) and cannot improve it. Exact toy LP evidence: thresholds ≈ 2P on both sides.
     * Review `reviews/ceilings-unified-review.md`: no FATAL/MAJOR, 10 minors applied.
 
+30. **What gives 1/3: "Linnik for sifted sets" (POINTWISE_OMEGA16.md).**
+    * Hypothesis LS(C) (CONJECTURE): every unit-class sieve system with moduli ≤ T and avoider density δ > 0 contains a prime p > T with `log p ≤ C(log T + log(1/δ))`. It reduces to Linnik's theorem for a single class and matches a log-scale random-set model; Brun–Titchmarsh proves it for systems of total mass < 1/2 (reviewer's special case). No refutation found (reviewer's attempts incl. Jacobsthal/Maier-type constructions).
+    * Thm 1.2 (PROVED implication, modulo Nair–Tenenbaum via POINTWISE_OMEGA13 Thm 3.4): LS ⇒ `W(p) ≥ exp(c(log p)^{1/3}(log log p)^{−5/3})` for infinitely many Mordell-hard p — the heuristic truth.
+    * Standard hypotheses do not suffice through linear certificates: EH/GEH/BV-type inputs, and GRH truncated to moduli ≤ x, cap at 1/4 (Prop 3.1, planted fake); main-term "primes in sifted sets" forms are too strong (integer analogue false via Buchstab; Prop 2.1(b) Assessment). Hardy–Littlewood for CRT-product sets gives exactly `W = (log p)^{2±o(1)}`: every product subset of the ES avoider set has `log(1/δ) ≍ T^{1/2±o(1)}` (Prop 4.1; lower bound PROVED via Barban–Davenport–Halberstam, ineffective). There is no uniform upper companion to LS (§5.4, PROVED), so exactness of 1/3 needs ES-strength input.
+    * EVIDENCE: the least hard prime with `W > 4095` is 133050918961 (W = 5935; independently recomputed); no hard prime with W > 8191 below 2.38·10¹¹.
+    * **Labels as stated** (internal; review `reviews/pointwise-omega16-review.md`, no FATAL; one scope MAJOR and minors repaired).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
