@@ -11,8 +11,9 @@ the atoms completed at that step. (ii) A T-uniform bound for the completed-atom 
 PROVED modulo Henriot's uniform Nair–Tenenbaum bound), giving: *after any prefix, the probability
 that some later step has a large forbidden fraction is at most (prefix distortion) × ε(q_0), with
 ε(q_0) → 0* (§3, Theorem 3.1). (iii) Why this does not close ADM_m: the plan "certified finite
-prefix + moments" is circular, because the distortion of every prefix law that is controlled
-pointwise grows faster than ε(q_0) decays (§4, Assessment + data). (iv) The exact missing input
+prefix + moments" appears circular, because the distortion of the natural prefix laws seems to
+grow faster than ε(q_0) decays (§4, heuristic Assessment + data; not proved — wording softened by
+reviewer R74 D3). (iv) The exact missing input
 (§5).
 
 ## 0. What has to be shown
@@ -23,7 +24,8 @@ uniformly in T. MN Thm 5.1: ADM_m ⇒ Haar exponent 3 and `W_m(p) ≥ exp(c(log 
 
 ## 1. Three structural facts
 
-**Lemma 1.1 (positive probability suffices; PROVED).** In MN Thm 5.1 the hypothesis
+**Lemma 1.1 (positive probability suffices; PROVED as a modification of MN Thm 5.1's implication, which
+is PROVED modulo the inputs of OMEGA13 Thm 3.4/5.1 — label clarified, applied by reviewer R74 D6).** In MN Thm 5.1 the hypothesis
 "probability ≥ 7/8" can be replaced by "probability ≥ s_0" for any fixed `s_0 > 0`; the constants
 of the conclusion change by factors depending on s_0 only. The prefix law may be any law ν on
 Type-II-hard classes mod Q_0 with density `≤ C_ν` w.r.t. Haar on `(Z/Q_0)^×` (MN uses the uniform
@@ -106,7 +108,9 @@ So `F ∈ M_2(A_0, B_0, ε_0)` with `A_0 = 4eK_1 + 9`, `B_0 = B_0(K_1,ε_0)`, in
 (the factor `∏_{p|qm}(1−1/p)/(1−2/p) ≪_m 1` as `ω(q) = 1`). A block `X < M_1 ≤ 2X` is covered by
 `O(1)` such t-blocks with `x ≍ X/m`, so its contribution to `S_j(q)` is
 `≪ X^{−1−σ}·X(log X)^{3^j−2}(log q)^{e2^{j−1}K_1}`.
-(v) *Dyadic sum.* `Σ_{i≥0}2^{−iσ}(i+1)^{3^j−2} ≪ σ^{−(3^j−1)} ≪ (log q)^{3^j−1}`.
+(v) *Dyadic sum.* With `X = X_0 2^i`, `log X ≪ log q + i`, and
+`Σ_{i≥0}2^{−iσ}(log q + i)^{3^j−2} ≪ σ^{−1}(log q)^{3^j−2} + σ^{−(3^j−1)} ≪ (log q)^{3^j−1}`
+(corrected display, applied by reviewer R74 D7).
 (vi) *Short range* `M_1 ≤ X_0 := 2m(c_0(6qm)^{1/2}+1) ≪ q^{1/2}`: here `A ≪ q^{3/2}`, so
 `τ(A²)^jτ(M_1)^{j−1} ≪_ε q^{ε}`, and `Σ_{M_1|L(q)}K_1^{ω(M_1)}/φ(M_1) ≤ ∏_{p<q}(1+K_1Σ_b 1/φ(p^b)) ≪ (log q)^{2K_1}`;
 absorb `(log q)^{2K_1}` into `q^ε`.
@@ -124,8 +128,9 @@ would make some `Λ(ℓ) > K`. For a prime ℓ let `a_ℓ` be its first post-pre
 (`ℓ^{a_ℓ} ≤ q_0 < ℓ^{a_ℓ+1}`). A step at `(ℓ,a)` is **bad** if `a ∈ {a_ℓ, a_ℓ+1}` and `Y > θN`,
 or `a ≥ a_ℓ+2` and `Y ≥ 1` (Y as in Lemma 1.3).
 
-**Theorem 3.1 (PROVED modulo (H)).** For every `ε > 0` there is `c_1 = c_1(m,θ,ε)` (ineffective:
-it contains the constants of (H)) such that, uniformly in large T,
+**Theorem 3.1 (PROVED modulo (H) and MN Thm 5.1(a),(d)).** For every `ε > 0` there is `c_1 = c_1(m,θ,ε)`
+(not explicit: it contains the constants of (H), which are effective in principle but not given in
+the source — "ineffective" corrected, applied by reviewer R74 D2) such that, uniformly in large T,
 
 ```
 P(the process dies or is stopped)  ≤  P(some step is bad)  ≤  C_ν·( c_1 q_0^{−1/2+ε} + o_{T→∞}(1) ).
@@ -139,7 +144,11 @@ two post-prefix levels with `0 < f ≤ θ` and `f = 0` elsewhere (Lemma 1.3), so
 stopping rule never fires. So it suffices to bound `Σ_steps P(bad ∧ alive)`.
 *First moments.* Let E be completed at a step at `(ℓ,a)` and `E^-` its restriction to `M/ℓ`
 (`M_{E^-} = M_1ℓ^a`). On "alive", `1[E^- consistent] = p(E^-) ≤ p(E^-)Ψ(E^-)`, and
-`Σ p Ψ` is a supermartingale up to the stopping time (MN Thm 5.1(a)); optional stopping at the
+`Σ p Ψ` is a supermartingale up to the stopping time (MN Thm 5.1(a)); optional stopping
+[reviewer R74 D5: MN Thm 5.1(a),(d) are stated for atoms, but their per-event computation uses
+atom-ness only for `p_new = 0` at completed atoms (an inequality in the safe direction), so `p(F)Ψ(F)`
+and the pair potential are supermartingales for every unit-class event F on quarantined
+coordinates, in particular for the non-atom restrictions `E^-`] at the
 (stopping) time of the step and the prefix bound give
 `E[1[E^- cons]·1_alive] ≤ C_ν K^{ω(M_1)+1}/φ(M_1ℓ^a)`. Summing over `D | A²` and over `M_1`:
 `E[Y·1_alive] ≤ C_ν K S_1(q)/φ(ℓ^a)` (Lemma 2.1 with `K_1 = K`; in stage B use the Y-smooth
@@ -159,9 +168,11 @@ before the step both restrictions are fully revealed, so `Π = 1[both consistent
 sum over `q > q_0` is `≪ C_ν q_0^{−1/2+ε}`.
 (c) `a ≥ a_ℓ+2`: `P(Y ≥ 1) ≤ C_ν K S_1(q)/φ(ℓ^a) ≪ C_ν q^{ε}ℓ^{−a}`. If `ℓ > q_0` then `a ≥ 2`
 and the sum over ℓ, a is `≪ C_ν q_0^{−1+2ε}`; if `ℓ ≤ q_0` then `ℓ^a ≥ ℓ^{a_ℓ+2} > ℓq_0`, and the sum
-over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+2ε}log log q_0`.
+over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+4ε}` (`Σ_{ℓ≤q_0}ℓ^{−1+2ε} ≪ q_0^{2ε}`; corrected,
+applied by reviewer R74 D8).
 (d) Stage B steps have `q > Z`; (a)–(c) with the Y-smooth variant give
-`≪ C_ν(log Y)^{C}Z^{−1/2+ε} = o(1)` as `Z = 𝓛³(log𝓛)^B → ∞`, `log Y ≍ log 𝓛`. ∎
+`≪ C_ν(log Y)^{C}Y^{ε}Z^{−1/2+ε} = o(1)` as `Z = 𝓛³(log𝓛)^B → ∞`, `log Y ≍ log 𝓛`, provided
+`ε < 3/(2(C_K+4))` (the `(qY)^ε` of the Y-smooth variant; added by reviewer R74 D8). ∎
 
 *Remark (the level count).* "Two levels with `Y ≤ θN`, then `Y = 0`" is forced: for `ℓ > q_0` the
 level-1 first moment `≍ (log ℓ)^C/ℓ` is not summable over primes, so level 1 must be allowed to
@@ -172,12 +183,22 @@ forbid; level 0 needs the second moment for the same reason (MN §6 (ii)).
 Theorem 3.1 reduces ADM_m to finding prefixes with `C_ν(q_0)·c_1 q_0^{−1/2+ε} ≤ 1/4`. Two facts
 block the plan of the brief ("small primes by a fixed certified prefix, late primes by moments"):
 
-1. **`c_1` is not explicit.** It contains the constants `c_0` and `≪` of (H). So no finite
-   computation can certify that a given `q_0` is large enough; and for any fixed explicit prefix the
+1. **`c_1` is not explicit.** It contains the constants `c_0` and `≪` of (H) (effective in
+   principle, but not given in the source). So no *explicit* `q_0` is available, and no finite
+   computation based on the literature as it stands certifies that a given `q_0` is large enough
+   (wording corrected, applied by reviewer R74 D2); and for any fixed explicit prefix the
    steps between `q_0` and the (unknown) range where Theorem 3.1's bound is `< 1` are not controlled
    by anything proved here. (Explicit Rankin + elementary divisor-in-AP bounds could replace (H) at
    the cost of enormous constants; the resulting `q_0` would be far beyond any certifiable prefix.)
-2. **Every pointwise-controlled prefix law has distortion growing faster than `q_0^{1/2}`.**
+2. **For the three natural prefix laws below, the distortion appears to grow faster than
+   `q_0^{1/2}` (heuristic + data for `q_0 ≤ 19`; NOT proved, and not claimed for every prefix
+   law — restricted by reviewer R74 D3).**
+   [Reviewer R74 D4: the threshold `q_0^{1/2}` is an artefact of using Markov in case (b) of
+   Thm 3.1's proof. An unverified reviewer sketch suggests that a second moment at levels `a ≥ 1`
+   (shared `ℓ^a` part in the pair bound) gives `≪ C_ν q_0^{−1+ε}` there, so the relevant criterion
+   would be `C_ν` vs `q_0^{1−ε}`; against `q_0^{−1}/δ` the data below grow only slowly (m = 6:
+   0.26 → 0.34) and are inconclusive. The circularity therefore rests on the unproved heuristic
+   `log(1/δ) ≍ (log q_0)³`.]
    * Uniform law on the hard set: `C_ν = 1/δ_m(Q(q_0))`. Data (`scripts/mn2_delta.py`, exact):
 
      | m | q_0 = 8 | 9 | 11 | 13 | 16 | 17 | 19 |
@@ -209,7 +230,12 @@ with each term `τ(A²)^j(…)/φ(M_1)` replaced by its ν-weighted version
 
 **Proposition 5.1 (PROVED modulo (H)).** If for some family `ν = ν_{q_0}` of hard prefix laws
 `Σ_{q>q_0} [ S_2^ν(q)(log q)^{2K}/q² ·1[q prime] + S_1^ν(q)/q ·1[q not prime] + (the level-(≥a_ℓ+2) terms) ] → 0`
-as `q_0 → ∞` (hypothesis **SI**), then ADM_m(K = (1−θ)^{−2}, Q(q_0)) holds for some `q_0`, with
+as `q_0 → ∞` (hypothesis **SI**; precise form, supplied by reviewer R74 D9 since the bracketed
+terms above were left unspecified: with `E^ν_1(q) := Σ_{E ∈ C_q} K^{ω(M_1ℓ^a)}E_ν[p_0(E^-)]` and
+`E^ν_2(ℓ) := Σ_{E,E' ∈ C_ℓ} K^{ω(M_1)+ω(M_1')}E_ν[Π_0(E^-,E'^-)]`, SI is
+`Σ_{ℓ>q_0} E^ν_2(ℓ)/(θ(ℓ−1))² + Σ_{(b)} E^ν_1(q)/(θℓ) + Σ_{(c)} E^ν_1(q) → 0`, the three sums running
+over the steps of cases (a), (b), (c) of Thm 3.1's proof; these are exactly the quantities that
+proof bounds by `C_ν·(…)`), then ADM_m(K = (1−θ)^{−2}, Q(q_0)) holds for some `q_0`, with
 success probability ≥ 1/2; with Lemma 1.1 and MN Thm 5.1 this gives
 `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−B})` for infinitely many primes p, Type-II-hard modulo their
 quarantine modulus, modulo (G), NT/(H), OMEGA10 Thm 3.4 and SI.
@@ -233,9 +259,9 @@ each of the variables a, c, d with a regime split (largest variable as summation
 | Lemma 1.2 | increasing-order stage A: step laws are T-independent | PROVED |
 | Lemma 1.3 | `f ≤ Y/N` = mass of completed atoms | PROVED |
 | Lemma 2.1 | T-uniform completed-atom sums `S_j(q) ≪ q^ε + (log q)^{C_j}` | PROVED modulo (H) |
-| Thm 3.1 | after any prefix: `P(fail) ≤ C_ν(c_1q_0^{−1/2+ε} + o(1))` | PROVED modulo (H) (c_1 ineffective) |
-| §4 | certified-prefix + moments plan is circular; `1/δ_m(Q(q_0))` data | Assessment + EVIDENCE (exact counts) |
-| Prop 5.1 | SI ⇒ ADM_m ⇒ exponent 1/4 for W_m | PROVED modulo (H), SI |
+| Thm 3.1 | after any prefix: `P(fail) ≤ C_ν(c_1q_0^{−1/2+ε} + o(1))` | PROVED modulo (H), MN Thm 5.1(a),(d) (c_1 not explicit) |
+| §4 | certified-prefix + moments plan looks circular (heuristic; threshold method-dependent, R74 D3/D4); `1/δ_m(Q(q_0))` data | Assessment (heuristic) + EVIDENCE (exact counts, independently reproduced R74) |
+| Prop 5.1 | SI ⇒ ADM_m ⇒ exponent 1/4 for W_m | implication SI ⇒ ADM_m PROVED modulo (H); W_m consequence CONDITIONAL on SI, (G), NT/(H), OMEGA10 Thm 3.4 (R74 D1) |
 | SI for class-one prefix | completed-atom smooth inflation `τ(P_{q_0})` | CONJECTURE |
 | ADM_m | — | still OPEN (CONDITIONAL on SI) |
 
