@@ -1,0 +1,373 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{computation}[theorem]{Computation}
+\newtheorem{citedthm}[theorem]{Cited theorem}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Zh}{\widehat{\Z}}
+\newcommand{\Zhu}{\widehat{\Z}^{\times}}
+\newcommand{\Cl}{\operatorname{Cl}}
+\newcommand{\sqf}{\operatorname{sf}}
+\newcommand{\ckmin}{ck_{\min}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\title[Finite coverings for Erd\H{o}s--Straus and sterile points]{Finite congruence coverings for the Erd\H{o}s--Straus equation and sterile profinite points}
+\author{Anonymous}
+\date{Draft, 6 October 2026; internal checks only, not externally refereed}
+\begin{document}
+\begin{abstract}
+ABSTRACT-PLACEHOLDER
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+INTRO-PLACEHOLDER
+
+\section{Coverings as clopen classes}\label{sec:frame}
+
+\subsection{The seven families}
+We use the families of Elsholtz and Tao \cite[Prop.~1.9]{ET}.  Each is
+indexed by a triple $\kappa$ of positive integers subject to a side
+condition, and defines a set of residue classes:
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+family & parameters & side condition & class\\
+\midrule
+I1 & $a,d,f$ & $f\mid 4a^2d+1$ & $n\equiv-f \pmod{4ad}$\\
+I2 & $a,c,f$ & $(4ac,f)=1$ & $n\equiv-f\ (4ac)$, $n\equiv -c/a\ (f)$\\
+I3 & $c,d,f$ & $(4cd,f)=1$ & $n\equiv-f\ (4cd)$, $n^2\equiv-4c^2d\ (f)$\\
+I4 & $a,b,e$ & $e\mid a+b$, $(e,4ab)=1$ & $n\equiv-1/e \pmod{4ab}$\\
+II1 & $a,b,e$ & $e\mid a+b$, $(e,4ab)=1$ & $n\equiv-e\pmod{4ab}$\\
+II2 & $a,d,f$ & $4ad\mid f+1$ & $n\equiv-4a^2d\pmod f$\\
+II3 & $a,d,e$ & $(4ad,e)=1$ & $n\equiv-4a^2d-e\pmod{4ade}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+On its class each family carries explicit solutions.  With
+$\pi^{I}(a,b,c,d)=(abdn,acd,bcd)$ and $\pi^{II}(a,b,c,d)=(abd,acdn,bcdn)$
+\cite[\S2]{ET}, the remaining coordinates are
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+I1 & $e=(4a^2d+1)/f$, $b=(ne+1)/(4ad)$, $c=(n+f)/(4ad)$\\
+I2 & $d=(n+f)/(4ac)$, $b=(na+c)/f$\\
+I3 & $a=(n+f)/(4cd)$, $b=\bigl(n+(n^2+4c^2d)/f\bigr)/(4cd)$\\
+I4 & $c=(a+b)/e$, $d=(ne+1)/(4ab)$\\
+II1 & $c=(a+b)/e$, $d=(n+e)/(4ab)$\\
+II2 & $c=(f+1)/(4ad)$, $b=(nc+a)/f$\\
+II3 & $c=(n+4a^2d+e)/(4ade)$, $b=ce-a=(n+e)/(4ad)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+and the solution is $\pi^I$ for I1--I4 and $\pi^{II}$ for II1--II3.
+
+\begin{lemma}[\status{proved}; {\cite[\S\S2, 10]{ET}}]\label{lem:solve}
+Let $\kappa$ be an admissible parameter triple of one of the seven
+families and let $n\ge1$ be an integer in its class.  Then the coordinates
+above are positive integers, and the resulting $(x,y,z)$ is a solution of
+$4/n=1/x+1/y+1/z$ in positive integers.
+\end{lemma}
+
+\begin{proof}
+The identity $4/n=1/x+1/y+1/z$ follows from the defining relations of
+the varieties $\Sigma^I_n$, $\Sigma^{II}_n$ of \cite[(2.1)--(2.9),
+(2.13)--(2.21)]{ET}.  Integrality on the class is a direct check; for
+example in I3, $n\equiv-f\pmod{4cd}$ gives $a\in\Z$, the second
+congruence gives $Y:=(n^2+4c^2d)/f\in\Z$, and $fY\equiv f^2\pmod{4cd}$
+with $f$ invertible modulo $4cd$ gives $Y\equiv f\equiv -n$, so $b\in\Z$.
+With $\kappa$ fixed, every coordinate is a polynomial in $n$ with
+non-negative coefficients that is positive at $n=1$, so all coordinates
+are positive for $n\ge1$.
+\end{proof}
+
+The positivity statement for all $n\ge 1$ (not only for large $n$) was
+checked in the project's review of \cite{PM}; the degrees of
+$(x,y,z)$ in $n$ are at most~$4$.
+
+ET call a primitive residue class \emph{solvable by polynomials} if there
+are polynomials $P_1,P_2,P_3$ with rational coefficients, taking positive
+integer values at all sufficiently large $n$ of the class, with
+$4/n=\sum 1/P_i(n)$ identically.  Lemma~\ref{lem:solve} says that every
+primitive class contained in one of the seven families is solvable by
+polynomials.  We use the converse in the following form.
+
+\begin{citedthm}[{\cite[Prop.~1.9]{ET}}]\label{cit:ET19}
+If a primitive residue class is solvable by polynomials, then all
+sufficiently large primes in it lie in the union of finitely many classes
+of the seven families.
+\end{citedthm}
+
+(ET state this separately for Type~I and Type~II solvable classes, with
+the families I1--I4 and II1--II3 respectively; every solvable primitive
+class is of one of the two types \cite[p.~8]{ET}.)
+
+\subsection{Profinite language}
+Let $\Zh=\prod_q\Z_q$ be the profinite completion of $\Z$, with unit group
+$\Zhu=\prod_q\Z_q^\times$.  Every class of the table is defined by
+congruences modulo an integer $M(\kappa)$ (for I3, modulo $4cdf$); we
+write $\Cl(\kappa)\subset\Zh$ for the set of $x\in\Zh$ satisfying them.
+It is open and closed (\emph{clopen}), and an integer $n$ lies in
+$\Cl(\kappa)$ exactly when it lies in the class.  We call $\Cl(\kappa)$
+an \emph{ET class}.
+
+\begin{definition}\label{def:sterile}
+A point $x\in\Zhu$ is \emph{sterile} if it lies in no ET class.  For a
+subfamily $\mathcal K$ of parameter triples, $x$ is
+\emph{$\mathcal K$-sterile} if it lies in no $\Cl(\kappa)$,
+$\kappa\in\mathcal K$.
+\end{definition}
+
+Let $\mathcal P$ be an infinite set of primes and $\mathcal P'$ its set of
+accumulation points in $\Zh$.
+
+\begin{lemma}[\status{proved}]\label{lem:accum}
+$\mathcal P'$ is a compact subset of $\Zhu$.  If $\Sigma\subset\Zhu$ is
+clopen, defined modulo $M$ (a union of reduced classes modulo $M$), and
+$\mathcal P(\Sigma)$ is the set of primes $p\nmid M$ with $p\bmod M$ in
+$\Sigma\bmod M$, then $\mathcal P(\Sigma)'=\Sigma$.
+\end{lemma}
+
+\begin{proof}
+If $x\in\mathcal P'$, then for each prime $q$ and each $k$ infinitely many
+$p\in\mathcal P$ satisfy $p\equiv x\pmod{q^k}$; all but one of them are
+prime to $q$, so $x_q\in\Z_q^\times$.  Derived sets in the compact metric
+space $\Zh$ are closed, hence compact.  For the second statement, a
+point of $\mathcal P(\Sigma)'$ is congruent modulo $M$ to some element of
+$\mathcal P(\Sigma)$, so it lies in $\Sigma$.  Conversely every
+neighbourhood $x+Q\Zh$ ($M\mid Q$) of $x\in\Sigma$ is a reduced class
+modulo $Q$ and contains infinitely many primes by Dirichlet's theorem;
+they lie in $\mathcal P(\Sigma)$.
+\end{proof}
+
+The sets of primes studied below are all of the form $\mathcal
+P(\Sigma)$.  The prime $p$ itself is never a unit of $\Z_p$, which is why
+we work with accumulation points rather than with the primes as points of
+$\Zh$.
+
+\begin{proposition}[\status{proved}]\label{prop:compact}
+Let $\mathcal P$ be an infinite set of primes.
+\begin{enumerate}
+\item[(a)] If no point of $\mathcal P'$ is sterile, then finitely many ET
+classes contain all but finitely many $p\in\mathcal P$.  For those $p$,
+Lemma~\ref{lem:solve} gives an explicit solution of
+$4/p=1/x+1/y+1/z$.
+\item[(b)] If some $x\in\mathcal P'$ is sterile, then no finite set of ET
+classes contains all but finitely many $p\in\mathcal P$.  Moreover no
+finite set of primitive residue classes, each solvable by polynomials,
+contains all but finitely many $p\in\mathcal P$.
+\end{enumerate}
+Hence all but finitely many elements of $\mathcal P$ lie in finitely many
+primitive classes solvable by polynomials if and only if $\mathcal P'$
+contains no sterile point.
+\end{proposition}
+
+\begin{proof}
+(a) The ET classes are open and cover the compact set $\mathcal P'$, so
+finitely many of them cover it; let $U$ be their union.  If
+$\mathcal P\setminus U$ were infinite, it would have an accumulation
+point, which lies in $\mathcal P'\subset U$; but $U$ is open and misses
+$\mathcal P\setminus U$, a contradiction.
+
+(b) Removing finitely many elements from $\mathcal P$ does not change
+$\mathcal P'$.  If finitely many ET classes contain a cofinite subset of
+$\mathcal P$, their union is closed and therefore contains $x$, which
+contradicts sterility.  Next let $C_1,\dots,C_s$ be primitive classes
+solvable by polynomials whose union contains a cofinite subset of
+$\mathcal P$.  Viewed in $\Zh$, their union is closed, so $x\in C_j$ for
+some $j$.  By Cited Theorem~\ref{cit:ET19} there are ET classes
+$K_1,\dots,K_t$ containing all large primes of $C_j$.  Their union is
+closed and misses $x$, so some neighbourhood $V=x+Q\Zh\subset C_j$
+misses it.  As $x$ is a unit, $V$ is a reduced class modulo $Q$, and by
+Dirichlet's theorem it contains infinitely many primes.  These lie in
+$C_j$ and in no $K_i$, a contradiction.  The final equivalence combines
+(a), (b) and Lemma~\ref{lem:solve}.
+\end{proof}
+
+\begin{remark}[Direction of the implications]\label{rem:direction}
+The equivalence concerns the \emph{existence} of a sterile point of
+$\mathcal P'$.  For a \emph{given} point $x$ only one direction holds:
+if $x$ is sterile there is no finite covering, but if $x$ lies in some
+ET class another point of $\mathcal P'$ may still be sterile.  An earlier
+internal draft of \cite{PM} said ``equivalently'' here; this was false
+and was corrected in review.  A weaker statement is available for every
+explicit point: if $x\in\mathcal P'$ lies in no ET class of modulus at
+most $Y$, then every finite ET covering of a cofinite subset of $\mathcal
+P$ uses a class of modulus greater than $Y$.  Indeed the classes of
+modulus $\le Y$ in the covering miss a neighbourhood of $x$, which
+contains infinitely many elements of $\mathcal P$.
+\end{remark}
+
+\begin{remark}[Heights]\label{rem:heights}
+The same compactness argument works for any subfamily $\mathcal K$ and
+any function $\kappa\mapsto\operatorname{ht}(\kappa)$.  Let
+$\mathcal K_X$ be the triples of height at most $X$ and
+$U_X=\Sigma\setminus\bigcup_{\kappa\in\mathcal K_X}\Cl(\kappa)$ for a
+compact $\Sigma$.  The $U_X$ are closed and decreasing.  If each is
+nonempty, the finite intersection property gives a point of $\bigcap_X
+U_X$, which is $\mathcal K$-sterile.  So either some finite subfamily of
+bounded height covers $\Sigma$, or $\Sigma$ has a $\mathcal K$-sterile
+point.  The set of $\mathcal K$-sterile points of $\Sigma$ is
+$\bigcap_XU_X$, a closed set.
+\end{remark}
+
+\section{Square points and the odd-square obstruction}\label{sec:square}
+
+\begin{proposition}[\status{proved}; known]\label{prop:square}
+Let $x\in\Zhu$ be a \emph{square point}: $x_q\in(\Z_q^\times)^2$ for every
+prime $q$.  Then $x$ is sterile.
+\end{proposition}
+
+\begin{proof}
+For $x=1$ this is elementary: if $1\in\Cl(\kappa)$ then the integer $n=1$
+lies in the class, and Lemma~\ref{lem:solve} gives positive integers with
+$4=1/x+1/y+1/z\le3$.  In general, suppose $x\in\Cl(\kappa)$ with
+$\Cl(\kappa)$ defined modulo $M$.  For each $q\mid M$ the component
+$x_q$ is the square of a unit, so by the Chinese remainder theorem there
+is an integer $m$ prime to $M$ with $m^2\equiv x\pmod M$.  The primitive
+class $m^2\bmod M$ is then contained in the class of $\kappa$ and is
+solvable by polynomials (Lemma~\ref{lem:solve}).  This contradicts the
+theorem of Mordell and Schinzel that a primitive class whose residue is a
+perfect square is not solvable by polynomials
+\cite{Mordell,Schinzel}, \cite[p.~8]{ET}.
+\end{proof}
+
+The last step is the classical obstruction; ET also derive it from their
+vanishing result at odd squares \cite[Prop.~1.6]{ET}, which goes back to
+Schinzel and Yamamoto \cite{Yamamoto}.  The input is one quadratic
+character computation; Bright and Loughran \cite{BL} identify it with the
+Brauer--Manin obstruction of the Erd\H{o}s--Straus surfaces.
+
+Call a prime $p$ \emph{Mordell-hard} if $p\bmod 840$ is a square,
+$p\bmod 840\in\{1,121,169,289,361,529\}$.  Every primitive class modulo
+$840$ that is not a square is solvable by polynomials (Mordell; see
+\cite[p.~8]{ET}).  The set $\Sigma_{\rm hard}\subset\Zhu$ of square
+classes modulo $840$ contains the point $1$, so by
+Propositions~\ref{prop:compact}(b) and~\ref{prop:square} the Mordell-hard
+primes admit no finite covering by polynomial identities.  This is the
+classical form of the obstruction, and it is the reason why every finite
+covering statement below restricts the hard primes further by a
+\emph{non-residue} condition at some additional prime $r$; the resulting
+target sets contain no square point.  Whether they contain other sterile
+points is the question of this note.
+
+\subsection{The procedure-level form}
+The project's working note \cite{PS} proves a version of the odd-square
+obstruction for procedures.  We only state it informally and refer to
+\cite[\S\S1--2]{PS} and \cite{PObs} for the model of computation.
+A \emph{witness-producing program} takes a prime $p$, performs ring
+operations, floor divisions, eventual-sign comparisons, full
+factorisations and loops over the lists so produced, and outputs a
+solution or FAIL; it is \emph{correct} if every solution it outputs is
+genuine, and \emph{bounded} if the number of steps is bounded
+independently of $p$.  For $P\in\Z[X]$ a point $q^*\in\Zh$ is
+\emph{square-mimicking} for $P$ if $P(q^*_\ell)$ is the square of a unit
+of $\Z_\ell$ for every prime $\ell$.
+
+\begin{citedthm}[Formal odd-square principle {\cite[Theorem~C,
+Corollary~C1]{PS}}; \status{conditional} on Hypothesis~H]\label{cit:C}
+Let $P=uX+v$ be linear and $q^*$ square-mimicking for $P$ and
+nondegenerate in the sense of \cite[\S1.2]{PS}.  If a correct witness-producing program has a defined and
+finite formal run at $(P,q^*)$, then it outputs FAIL at every admissible
+$q$ (\status{proved}); under Schinzel's Hypothesis~H \cite{SS} for an
+explicit finite family there are infinitely many admissible $q$, and
+$p=P(q)\equiv1\pmod{24}$.  In particular, under H for one explicit
+finite family, every correct bounded witness-producing program fails for
+infinitely many primes $p\equiv1\pmod{24}$.
+\end{citedthm}
+
+A finite list of ET classes, each tested by a congruence and followed by
+the identity of Lemma~\ref{lem:solve}, is such a bounded program, and
+its failure at the rational square-mimicking point $1$ is
+Proposition~\ref{prop:square} for $x=1$, unconditionally.  Cited Theorem~\ref{cit:C} does
+not reprove the unconditional statement for general square points; it
+extends the obstruction from congruence coverings to all bounded
+procedures, at the price of Hypothesis~H.  \emph{Novelty.} Theorem~C is
+the procedure-level, H-conditional generalisation of known obstructions
+(Mordell and Schinzel on square classes, ET Prop.~1.6 and the remark on
+\cite[p.~6]{ET} that ``a finite set of covering congruence strategies''
+must fail, Yamamoto, Bright--Loughran); its unconditional instances are
+known in substance.  The project's novelty audit rates it as a partial
+novelty only.
+
+\begin{remark}[\status{Assessment}]\label{rem:notsquare}
+The target sets of \S\S\ref{sec:typeI}--\ref{sec:r17} require $x_r$ to be a
+non-square for some prime $r$, so they contain no point that is
+square-mimicking for $P=X$, and neither Proposition~\ref{prop:square} nor
+Cited Theorem~\ref{cit:C} applies to them.  The candidate sterile points
+below (the sign point $\hat x_9$, the point $x^*$ for $r=13$, the
+$17$-generic line) are therefore not explained by the odd-square
+obstruction.  If they are sterile, the reason is a different, rigidity
+type of obstruction (\S\ref{sec:typeI}); this is a heuristic reading,
+not a theorem.
+\end{remark}
+
+\section*{Acknowledgements and provenance}
+PROVENANCE-PLACEHOLDER
+
+\begin{thebibliography}{99}
+\bibitem{BL} M.~Bright and D.~Loughran, Brauer--Manin obstruction for
+Erd\H{o}s--Straus surfaces, Bull.\ Lond.\ Math.\ Soc.\ 52 (2020), 746--761;
+arXiv:1908.02526v2.
+\bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
+(2013), 50--105; arXiv:1107.1010v6.
+\bibitem{Lenstra} H.~W.~Lenstra Jr., Divisors in residue classes, Math.\
+Comp.\ 42 (1984), 331--340.
+\bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
+evidence for the Erd\H{o}s--Straus conjecture, arXiv:2509.00128 (2025).
+\bibitem{Mordell} L.~J.~Mordell, \emph{Diophantine Equations}, Academic
+Press, 1969, Chapter~30 (not accessed; cited via \cite{ET}).
+\bibitem{Notes} \emph{Erd\H{o}s--Straus research notebook},
+\texttt{notes.md}, this repository, \S\S26, 36, 48; working notes, 2026.
+\bibitem{PObs} Anonymous, Under Hypothesis~H, formally generic primes
+block the pointwise signed-graph approach to the Erd\H{o}s--Straus
+conjecture, research note, this repository
+(\texttt{paper/pointwise-obstruction.tex}), 2026.
+\bibitem{PS} Companion note in this repository, \texttt{POINTWISE\_SIZE.md}
+(Theorems M and C); internally reviewed in
+\texttt{reviews/pointwise-size-step1-review.md}.
+\bibitem{PT1} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI.md}; internally reviewed in
+\texttt{reviews/pointwise-typei-review.md}.
+\bibitem{PT2} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI2.md}; internally reviewed in
+\texttt{reviews/pointwise-typei2-review.md}.
+\bibitem{PT3} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI3.md}; internally reviewed in
+\texttt{reviews/pointwise-typei3-review.md}.
+\bibitem{PM} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell-review.md}.
+\bibitem{PM17} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL17.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell17-review.md}.
+\bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
+equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
+\bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
+polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
+187--194 (not accessed; cited via \cite{ET}).
+\bibitem{SS} A.~Schinzel and W.~Sierpi\'nski, Sur certaines hypoth\`eses
+concernant les nombres premiers, Acta Arith.\ 4 (1958), 185--208.
+\bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
+$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47
+(not accessed; cited via \cite{ET}).
+\end{thebibliography}
+\end{document}
