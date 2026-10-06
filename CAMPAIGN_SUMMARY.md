@@ -1351,6 +1351,7 @@ ratings are this summary's judgement, not ledger labels.
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
+| per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md` |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
 | large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
@@ -1362,16 +1363,17 @@ ratings are this summary's judgement, not ledger labels.
 | Theorem F and its certificate | `FORMAL_CLOSURE.md`, `data/formal_closure/`, `scripts/formal2_verify.py` |
 | the pointwise programme's obstruction, written up | `paper/pointwise-obstruction.tex` |
 | the meta-theorem (Theorems M, C, Proposition A) and the window frame | `POINTWISE_SIZE.md` §§0–4, §8 |
-| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v5); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
+| `W(p)` Ω-results, current (exponent 1/4, Haar exponent 3, the 1/4 ceiling) | `paper/es-subexp-note.tex` (v6); then `POINTWISE_OMEGA13.md`, `POINTWISE_HAAR.md`, `POINTWISE_OMEGA14.md` |
 | the typical size of `W` and its tail exponent 3 over primes | `CEILINGS_UNIFIED.md` Thm 2.1 (upper), `POINTWISE_TAIL.md` (lower, two-sided Cor 2.2) |
 | barriers beyond 1/4, and what would give 1/3 | `POINTWISE_OMEGA15.md` (Wiener-norm barrier), `POINTWISE_OMEGA16.md` (LS ⇒ 1/3), `POINTWISE_OMEGA17.md` (support-aware certificates, SAP) |
 | one sieve limit behind the 3/4 cap and the 1/4 ceiling | `CEILINGS_UNIFIED.md`; `paper/sieve-limits-note.tex` v5 §18 |
 | how the rate got there (1/14 → 1/7 → 1/6 → 1/5) | `POINTWISE_OMEGA8.md` → `OMEGA9` → `OMEGA11` → `OMEGA12` |
 | the energy bound C-1 and DNF Fourier tails | `paper/energy-dnf-note.tex`; `POINTWISE_OMEGA10.md` |
-| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md` |
+| an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md`, `POINTWISE_MN3.md` (where SI fails) |
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
-| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md` |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent) |
+| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md` (r = 13), `POINTWISE_MORDELL17.md` (r = 17); `paper/es-coverings-note` in preparation (task O86) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
 | priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
