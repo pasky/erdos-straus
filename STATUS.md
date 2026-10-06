@@ -16,6 +16,16 @@ A novelty audit was run on 2026-10-04 (`reviews/novelty-audit-2026-10.md`).
 * **Apparently new:** the 3/4 bound, the `W(p)` Ω-results, the weighted
   sieve-limit form and the ES caps.
 
+A second audit (2026-10-05, `reviews/novelty-audit-2026-10b.md`, no internet) covers the
+OMEGA9–17 / WINDOW / KARY3 round.
+* **Standard:** the β-weighted LLL; the large-sieve/Λ² duality.
+* **Known method, new statement:** the Gallagher transfer; the Janson-type inequality
+  (closest suspected prior art Lu–Székely); the typical-size bound (Vaughan's method).
+* **Heuristically anticipated:** the Haar exponent 3 (Elsholtz–Tao Remark 1.2).
+* **Apparently new:** the energy bound and the constant-1 DNF tail (hedged); the planting
+  lemma, which sharpens Benjamini–Gurel-Gurevich–Peled Thm 27; the W(p) Ω-rates, the 1/4
+  ceiling and LS ⇒ 1/3; the window stacking exponent.
+
 Branch: `main`. Old branch names such as `wave33-sec77` were wave labels
 and have been merged. `DISCOVERIES.md` is the curated ledger of every claim
 with its status label. Read it before starting new work.
