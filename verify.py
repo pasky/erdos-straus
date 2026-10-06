@@ -94,6 +94,14 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity;
   (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols for several m (author + R63 + inline), square-
        consistency counts of §1.
+Blocks (dt)..(dv) replay EXCEPTIONAL_LARGESIEVE7, POINTWISE_MN2 §4, POINTWISE_TAIL Lemma 3.1.
+Blocks (dw)..(dz) (task O85) replay the documents merged after that (reviewers' from-scratch code):
+  (dw) POINTWISE_TYPEI3: R72 f-engine at x^_9 to f < 10^8 and vs naive brute force at 13 sign points
+       (gcc; skipped otherwise), Lemmas 1.1-1.2, Lemma 5.1 / Cor 5.2 / Props 5.3-5.5 (mod-16/32 checks);
+  (dx) POINTWISE_MORDELL: Theorem 3.1 both certificates in full (integrality s <= 4), 3.1(c),
+       Computation 4.1 at M <= 3*10^4 and rigid level 11^2 13^2;
+  (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 exhaustive l <= 29, Lemma 3.1 chain, Thm 2.1 toy LPs (scipy);
+  (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
