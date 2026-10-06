@@ -350,21 +350,49 @@ variants, Fourier growth or hypercontractivity with $\rho>1$
 systematically), and we make no priority claim.
 
 \emph{The local lemmas.}  The $\beta$-weighted local lemma
-(Lemma~\ref{lem:betalll}) is the asymmetric local lemma of
-\cite[Lemma~5.1.1]{AS} with the choice $x_E=\beta^{|\supp E|}\PP(E)$; the
-conditional form for events outside the family is standard (cf.\
-\cite{HSS}).  Theorem~\ref{thm:janson} combines the lopsided local lemma of
+(Lemma~\ref{lem:betalll}) is a standard per-coordinate form of the asymmetric
+local lemma of \cite[Lemma~5.1.1]{AS} with the choice
+$x_E=\beta^{|\supp E|}\PP(E)$ (size-exponential weights are the classical device for
+non-uniform hypergraph colouring); the conditional form for events outside
+the family is standard (cf.\ \cite{HSS}).  We claim no novelty for it; the
+point specific to this note is the choice $\beta=1+1/\log\Lc$, which makes the
+threshold independent of the prime and of the level.  Theorem~\ref{thm:janson} combines the lopsided local lemma of
 Erd\H{o}s and Spencer \cite{ErdosSpencer} with the proof scheme of Janson's
 inequality \cite{Janson}, which needs increasing events and Harris'
 inequality; for atomic events on one-hot coordinates we use instead the
-correlation inequality of Lemma~\ref{lem:compat}.  We did not find this form
-in the literature, but did not search systematically.  The planting
-lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
+correlation inequality of Lemma~\ref{lem:compat}.  This is a routine
+combination of the Boppana--Spencer proof of Janson's inequality with the
+inflation bound of \cite{HSS}; we found no statement in this form, but did
+not search systematically (the work of Lu and Sz\'ekely on the local lemma
+for random injections is the closest suspected prior art, unchecked).  The
+planting lemma (Lemma~\ref{lem:planting}) is the linear-programming dual of
 lower-bound sieves; constructions of $k$-wise independent laws with
 extremal all-zero or all-one probabilities of the same kind appear in
-\cite{BGP,PYY}, and we claim no novelty for it.  Its use to bound the level
-of minorants of a concrete arithmetic indicator, on every fibre of modulus
+\cite{BGP,PYY}.  In the identical-marginal case it gives, after flipping the
+bits, $n_c(k,p)\le(k+1)p/(1-p)+2k+2$ for the threshold $n_c(k,p)$ of
+\cite[Thm.~27]{BGP} (the least $n$ such that some $k$-wise independent law on
+$n$ bits of mean $p$ gives probability $0$ to the all-ones vector).  This removes the factor
+$\log(1/(1-p))$ and the restriction to $1/(1-p)$ a prime power from their upper
+bound, and is within a factor about $2$ of their lower bound; we have not
+checked the later literature.  Its use to bound the level of minorants of
+a concrete arithmetic indicator, on every fibre of modulus
 $\log Q\le T^{0.05}$, is new to us.
+
+\emph{The exponent $3$.}  Elsholtz and Tao \cite[Remark~1.2]{ET} observe that
+their count of solutions suggests, heuristically, that a prime $p$ has a
+representation with probability $1-O(\exp(-c\log^3p))$, and that Vaughan's
+large-sieve bound \cite{Vaughan} is a rigorous analogue of this reasoning.
+Theorem~\ref{thm:haar} is a rigorous profinite version of this exponent $3$
+for the witness modulus; what is new there is the matching lower bound and
+the identification of the exponent up to logarithms.
+Theorem~\ref{thm:typical} is Vaughan's sieve method applied to $W$ (new as a
+statement about $W$, not in method), and Corollary~\ref{cor:twosided} shows
+that the exponent $3$ is also the tail exponent over primes.  The classical
+obstruction that polynomial identities cannot cover quadratic residue
+classes (\cite{Mordell}; cf.\ \cite{ET}) is qualitative.
+Lemma~\ref{lem:jacobi} and its $m/n$ version Lemma~\ref{lem:mjacobi} are the
+form of it that we use; for the family \eqref{eq:identm} the latter shows that
+it holds for every event exactly when $m\equiv0\pmod4$.
 
 \emph{The rest.}  The sandwich (Lemma~\ref{lem:brw}) is Razborov's identity.
 To our knowledge tools from the theory of bounded independence
@@ -374,7 +402,10 @@ sieve minorants for primes.  Gallagher's theorem is classically the engine of
 Linnik's theorem on the least prime in a single progression.  Here it serves
 as a transfer device for an arbitrary signed combination of progressions; the
 cost is governed by the Haar $\ell^1$ norm of the minorant and its largest
-modulus, not by the number of cells.  The nearest classical analogues are
+modulus, not by the number of cells.  Theorem~\ref{thm:transfer} is a
+convenient packaging of Gallagher's proof of Linnik's theorem, not a new
+transfer principle; inserting sieve weights into Linnik-range arguments is
+standard.  The nearest classical analogues are
 bounds for the least prime in a union of residue classes, or in a Chebotarev
 class of an abelian extension (Lagarias--Montgomery--Odlyzko \cite{LMO};
 Thorner--Zaman \cite{TZcheb}); these concern nonnegative indicators.  We
@@ -414,7 +445,7 @@ Shiu); the prime number theorem in progressions with a Landau--Page term
 theorem.  Unlike the other cited inputs, the exact form of these last two
 was recalled from the textbooks \cite[Chs.~20, 29]{Dav}, not re-checked
 against the source (no copy archived); our use needs only their standard
-forms.  Results quoted from the working notes \cite{O15,O16} and from
+forms.  Results quoted from the working notes \cite{O15,O16,MN,MN2} and from
 \cite{SL} (internally reviewed, not externally refereed) are labelled as
 proved \emph{in} those notes; their proofs are sketched or referenced here,
 not given in full.  \emph{Conditional on LS} marks a statement that assumes the
@@ -3047,7 +3078,7 @@ $m\not\equiv0\pmod4$.  Only atoms with $M\equiv7\pmod8$ are never fired by squar
 for every $m$ (Lemma~\ref{lem:mjacobi}(b)).
 
 \subsection*{Results}
-\begin{theorem}[$m\equiv0\ (4)$; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}, and the fundamental lemma for the lower bound in (i)]\label{thm:mzero}
+\begin{theorem}[$m\equiv0\ (4)$; proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}, and the fundamental lemma for the lower bound in (i)]\label{thm:mzero}
 Let $m\equiv0\pmod4$.  Constants depend on $m$.
 \begin{enumerate}
 \item[(i)] $\Lc^3/\log\Lc\ll\log(1/\delta_m^*(T))\ll\Lc^3(\log\Lc)^5$.
@@ -3077,7 +3108,7 @@ Theorem~\ref{thm:transfer} are those produced by the process.  (5) The lower
 bound in (i) is Proposition~\ref{prop:mlower} below.
 \end{proof}
 
-\begin{proposition}[Haar lower bound for every $m$; proved modulo the fundamental lemma]\label{prop:mlower}
+\begin{proposition}[Haar lower bound for every $m$; proved in {\cite{MN}} modulo the fundamental lemma]\label{prop:mlower}
 For every $m\ge4$, $\log(1/\delta_m^*(T))\gg_m\Lc^3/\log\Lc$.
 \end{proposition}
 
@@ -3094,7 +3125,7 @@ For $m\not\equiv0\pmod4$ the exponent $1/5$ of the third version of this note
 extends, because that version quarantines $n$ to the class of one, which is
 hard for every $m$, and never uses quadratic residues.
 
-\begin{theorem}[Every $m$, exponent $1/5$; proved modulo Theorem~\ref{thm:G} and the Elsholtz--Tao estimates {\cite[Prop.~1.4, Thm.~7.1, Cor.~7.4, (7.10)]{ET}}]\label{thm:mfifth}
+\begin{theorem}[Every $m$, exponent $1/5$; proved in {\cite{MN}} modulo Theorem~\ref{thm:G} and the Elsholtz--Tao estimates {\cite[Prop.~1.4, Thm.~7.1, Cor.~7.4, (7.10)]{ET}}]\label{thm:mfifth}
 For every fixed $m\ge4$, $\log(1/\delta_m^*(T))\ll_m\Lc^5\log\Lc$, and for infinitely many primes $p$,
 $W_m(p)\ge\exp\big(c_m(\log p)^{1/5}(\log\log p)^{-1/5}\big)$; these $p$ satisfy $p\equiv1\pmod Q$ with
 $840\mid Q$ and are Type-II-hard modulo $Q$.
@@ -3150,7 +3181,7 @@ admissible unit process satisfies $\Lambda(\ell)\le K$ for every $\ell\le Y$.
 For $m\equiv0\pmod4$ the square-restricted version holds with $K=2$, by
 Lemma~\ref{lem:mjacobi}(d).
 
-\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:madm}
+\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:madm}
 Assume $\mathrm{ADM}_m(K,Q_0)$.  Then $\log(1/\delta^*_m(T))\ll\Lc^3(\log\Lc)^{K+4}$, and
 $W_m(p)\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-B_K}\big)$ for infinitely many primes $p$,
 Type-II-hard modulo their quarantine modulus.
