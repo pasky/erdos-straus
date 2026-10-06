@@ -60,4 +60,27 @@ Re-derived from O9 Thm 1.1 (lines 111–196) + O11 Lemma 3.1 (lines 223–246) +
 * Note (not a defect): the leaves do *not* cover the hard set; the uncovered mass (non-squares at
   stepped primes) is exactly why the sum pays `2^{−k_L}` — consistent with Thm 3.3's display.
 
+### Claim 4 — Lemma 3.2 (`E[k]≪𝓛³(log𝓛)²loglog𝓛`): **SOUND** (MINOR D1)
+
+* *Optional stopping.* For a non-forced `(ℓ,0)` step the rule requires `w̃_{ℓ,0}(τ)>η`, and
+  `w̃_{ℓ,0}=Σ_{ℓ|M}β^{s}p ≤ Σ_{ℓ|M}2^{u}β^{ω}p =: G^{(ℓ,0)}` (`s≤ω`, `u≥0`). `G^{(ℓ,0)}` is O13
+  Lemma 3.2(a) with `φ(E)=1[ℓ|M]β^{ω(M)}`; times are bounded; `G≥0` ⇒
+  `P(τ_{ℓ,0}<∞)≤η^{−1}G_0^{(ℓ,0)}`, `G_0=Σ_{ℓ|M}P_H2^{ω_Y}β^{ω}` (at the start `n≡1 (8)`, M odd ⇒
+  `p_0=P_H`, `u_0=ω_Y`). Summing over `ℓ≤Y`, `ℓ∉{3,5,7}` and adding 3 forced steps gives the
+  first inequality ✓.
+* *Elementary step.* `y≤t^y/(e log t)` (max of `y t^{−y}` is `1/(e log t)`) and
+  `1/log(1+1/a)≤a+1` ✓.
+* *NT hypotheses* — checked against `sources/henriot-1102.1643.pdf` p.1–2 (Theorem 1 = NT, (1.1)):
+  class `M_k(A,B,ε)`: `F(a_1b_1,…)≤min(A^{Ω(a_1⋯a_k)},B(a_1⋯a_k)^ε)F(b_1,…)` for coprime
+  arguments, `ε≤αδ/(12g²)`; implied constant depends on `g,D,α,δ,A,B` only. Here `k=2`,
+  `Q_1=X`, `Q_2=4X−1` (coprime, irreducible, `g=2`, fixed discriminant, no fixed prime divisor:
+  `Q(1)=3`, `Q(2)=14`). `F=τ(n_1²)·f_2(n_2)t^{ω_Y(n_2)}`: per prime power `F` grows by
+  `≤max(2k+1, 4βt)`, so `A=8`, and `8^{ω(a)}≤B_εa^ε` with ε the fixed NT value ✓. Uniform in T
+  (`β,t≤2`) ✓. NT's RHS has `ρ_{Q_2}(2)=0`, so even `n_2` never contribute.
+* *Euler product.* The `t`-twist multiplies the `p≤Y` local factors by `≤1+O(β(t−1)/p)`, total
+  `exp(O(β(t−1)loglogY))=O(1)` ✓. **From-scratch numerics** `scripts/review_tail_twist.py`
+  (T=10⁵,10⁶; Y=30…3·10⁴): ratio `Σw t^{ω_Y}/M ÷ Σw/M` = 3.0–4.0, flat in T, below the
+  author's bound `e^{2β(t−1)loglogY}≈16` ✓.
+* Final: `η^{−1}(loglogY+1)𝓛³logY ≍ 𝓛³(log𝓛)²loglog𝓛` with `logY=(C_0+4)log𝓛` ✓.
+
 ## Defects
