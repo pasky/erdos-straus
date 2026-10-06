@@ -188,3 +188,23 @@ in 2014; Thm 3.1 is the same sieve one level deeper (2⁴, 3²), sliced by (p/13
 * Rigid bullet of Comp 4.1 at the single T-level F = 11³·13³ (pure-Python enumeration too slow).
 * The DFS / Haar-mass numbers of §1–2 (EVIDENCE), T-generic box percentages (0.57 %, 0.44 %, 24.9 %).
 * Mordell's original text; Bradford papers beyond the campaign notes.
+
+## Repairs applied (by the reviewer, on branch side-agent/review-mordell, after merging the author's latest)
+
+Every change is marked "(R80 repair, applied by reviewer)" in POINTWISE_MORDELL.md and/or
+reviews/agent-reports/AGENT_REPORT_O80.md.
+* #1 (sharpening): new Thm 3.1(c): if (p/11)=+1, the exceptions are p mod 720720 in {112561, 352801}.
+* #2: §0 now states that every n >= 1 in a class works (positive coefficients, integrality = class condition).
+* #3: Thm 3.1 label now reads "independently re-checked by R80".
+* #4, #5: R80 note before the Consequence of Comp 4.1 (exponent 8 is arbitrary; two-engine scope;
+  the F = 11^3*13^3 and level-4 parts rest on one engine). Comp 4.1 label updated in both files.
+* #6: §3 Context rewritten as an explicit packaging of the Salez/ET level sieve, with citations
+  (Salez 1406.6307 §3-4, Mihnea-Dumitru 2509.00128) and the 7-residue mod-120120 fact. Report
+  item 1 is updated to match.
+* #7: 1499 is at 10^6 (2620 at 10^5); density 7.9e-6 (4.0e-6 of all Mordell-hard residues).
+* #8: Conj 4.2 "Equivalently" replaced by "In particular" (implication only), in both files.
+* #9: Theorem C discussion labelled Assessment (both files).
+* #10: §2.1 scope of the PROVED label stated; overloaded n in the I1 rigid form flagged.
+* #11: Comp 5.1 now records R80's independent re-check (two engines).
+* #12: §4 label scope separated: EVIDENCE / CERTIFIED / PROVED / CONJECTURE.
+The author's new §4.1 (rigid level 4, np DFS) was not re-checked by R80.
