@@ -67,6 +67,14 @@ completed atoms consistent with r on their revealed part. Then `f ≤ Y/N = Σ_{
 atom all digits except the new one are revealed and consistent, and the new digit is uniform over
 N lifts under the fibre measure, so `p_i(E) = 1/N`; inconsistent completed atoms have `p_i = 0`. ∎
 
+*Post-referee note (2026-10-06, R77 D4).* The transfer for arbitrary classes (MN Lemma 4.1, paper
+Lemma 15.6) still needs `8 | Q`. For `m ≡ 2 (mod 4)` the prime 2 divides no M, so `𝒫` and
+`Q(q_0) = lcm{q ∈ 𝒫 : q ≤ q_0}` contain no power of 2; adjoin 8: use `8·Q(q_0)` as the prefix modulus
+(with the 2-adic digit of `r_0` mod 8 arbitrary, e.g. uniform or `r_0 ≡ 1 (8)`). No atom involves 2, so this
+changes no event mass, no forbidden fraction and no bound in §§1–3 (the density bound `C_ν` is unchanged
+relative to Haar on the odd part). For odd m, `8 | Q(q_0)` as soon as `q_0 ≥ 8` (2 ∤ m, so powers of 2 are in
+`𝒫`); for `m ≡ 0 (4)` the square-class process applies anyway.
+
 ## 2. Completed-atom sums are T-uniform (Rankin + Henriot)
 
 **Input (H) (Henriot, arXiv:1102.1643, Thm 5 / Cor 1; `sources/henriot-1102.1643.pdf` pp. 6–7).**

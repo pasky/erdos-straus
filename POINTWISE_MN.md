@@ -237,6 +237,18 @@ would make some `Λ(ℓ) > K` (possible since f is predictable; death is the cas
   have probability `≤ 1/8` (`Y = 𝓛^{C_K+4}`), so a good realisation exists; Lemma 1.1 on the
   fibre gives the Haar bound. Thm 5.1: as in §3, item 7, with Lemma 4.1 for I3. ∎
 
+*Post-referee note (2026-10-06, R77 D3).* For **odd m** the pair `n, mn−1` (`n = A`, `M = mn−1`) used in
+the Lemma 3.3 step above has the **fixed prime divisor 2** (`n(mn−1)` is even for every n), so NT does not
+apply verbatim. Repair: split by the parity of n. For `n = 2t`: forms `Q_1 = t`, `Q_2 = 2mt−1` (product odd
+at t = 1, so ρ(2) = 1). For `n = 2t+1`: `M = 2(mt + (m−1)/2)`, forms `Q_1 = 2t+1`, `Q_2 = mt + (m−1)/2`
+(`2t+1` is odd and the second form has one root mod 2, so ρ(2) = 1). Neither pair has a fixed prime divisor
+(R77 checked odd m ≤ 199, p < 60), both are coprime linear forms with discriminant `≪_m 1`, and the factors
+extracted at 2 (`τ((2t)²) ≤ 3τ(t²)`-type, and the bounded factor `f_2(2^a)` of M's 2-part) are absorbed in
+the constants (they are multiplicative with values bounded at powers of 2 only). The resulting Euler
+products differ from the ones above by a factor `O_m(1)`. For even m (in particular m ≡ 0 (4), Thm 3.1)
+nothing changes: `ρ(2) = 1` there. So Thm 5.1's implication is PROVED modulo the same inputs for odd m
+with this split (paper v6, Thm 15.7).
+
 So for `m ≢ 0 (4)` the 1/4 machinery is reduced to the single probabilistic input ADM_m:
 *a random hard class, revealed prime by prime, never has most of its next digit forbidden*.
 
