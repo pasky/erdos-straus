@@ -2769,10 +2769,11 @@ than the CRT optimum \lab{evidence} \cite[\S8.3]{NC}.
 
 \section{Large sieves, prime laws and interval counts}\label{sec:LS}
 
-This section summarises four further internal documents: \cite{LS}
+This section summarises further internal documents: \cite{LS}
 (review \cite{LSrev}), \cite{LS2} (reviews \cite{LS2rev} of \S\S1--7 and
-\cite{LS2revb} of \S\S8--9), \cite{PL} (review \cite{PLrev}) and \cite{IF}
-(review \cite{IFrev}).  No review found a fatal defect.  The IF review found
+\cite{LS2revb} of \S\S8--9), \cite{LS3} (review \cite{LS3rev}), \cite{PL}
+(review \cite{PLrev}), \cite{IF} (review \cite{IFrev}), and, in
+Section~\ref{sec:hybrid}, \cite{IF2}, \cite{SPW} and \cite{SPW2}.  No review found a fatal defect.  The IF review found
 one major scope overclaim (hybrid methods), repaired by restricting the
 claim (\cite[Rem.~2.6]{IF} and Section~\ref{sec:hybrid} here); the other
 repairs were minor, and all are applied in the sources.  Throughout, $\cG$ is a finite mixture
@@ -3021,7 +3022,9 @@ prime factor $\leq(Nh/(W_K-h))^{4+o(1)}$ or more than $T^{1/4}$ prime factors
 
 \subsection{What remains of the large sieve}
 Of the escapes of \cite[\S7]{LS} there remain: (E1) frequencies of
-super-polynomial level against classes with several large primes; (E2)
+super-polynomial level against classes with several large primes (by
+Theorem~\ref{thm:roughslice} below, only classes with at least two prime
+factors $>\exp\{(\log N)^{1/4}\}$ remain); (E2)
 composite kernels as above; (E3) non-CRT information; (E4) the exclusions
 inherited from Theorem~\ref{thm:main}.
 
@@ -3081,6 +3084,149 @@ $D$ of level $\geq\log N$, the classes with modulus divisible by $D$ carry
 mass $\leq D^{-1+o(1)}$ (\emph{Assessment}, not proved).  A proof of
 Conjecture~\ref{conj:HLS} needs something like (Sp) or the moment
 hypotheses of Section~\ref{sec:noB}.  No method in the literature uses such frequencies.
+
+\subsection{Smooth--rough splitting: one large prime per modulus}\label{sec:smoothrough}
+The sparsity of forced classes is used in \cite{LS3} (review \cite{LS3rev}:
+no fatal defect, all proofs sound; two overclaims, an ``equivalence'' and a
+remark, repaired by restricting the claims as stated below).  It
+closes (E1) for every mixture in which each modulus has at most one prime
+factor above $z=\exp\{(\log N)^{1/4}\}$.  Fix $z$ and write $M_0=M_sM_r$ with
+$M_s$ $z$-smooth and $M_r$ $z$-rough; by CRT $n\leftrightarrow(c,r)$ with
+$c=n\bmod M_s$, $r=n\bmod M_r$, and every frequency with denominator dividing
+$M_0$ splits uniquely as $\theta=\theta_s+\theta_r$.  Let $\A_s\subseteq\Z/M_s$ be the
+residues avoiding every class of $\cG$ with $z$-smooth modulus.  For
+$c\in\A_s$ the \emph{fibre family} $\cG_c$ consists of the classes $b_C\bmod G_r(C)$,
+for the classes $C=(b_C\bmod G_C)$ of $\cG$ with $G_r(C)>1$ and $c\equiv b_C\pmod{G_s(C)}$,
+where $G_C=G_s(C)G_r(C)$ is the smooth--rough split of the modulus; $\A_c\subseteq\Z/M_r$
+is its avoider set, so that $\A\bmod M_0=\{(c,r):c\in\A_s,\ r\in\A_c\}$.  For a
+probability $\sigma$ on $\Z/m$ and $p'\geq2$ put
+$\mathsf R_{p'}(\sigma)=\sum_{\theta\in m^{-1}\Z/\Z}|\hat\sigma(\theta)|^{p'}$ (with $\theta=0$, so $\mathsf R_{p'}\geq1$).
+
+\begin{theorem}[smooth--rough splitting; {\cite[Thm~1.1]{LS3}}; \lab{proved}, elementary]\label{thm:smoothrough}
+Let $0<\beta\leq1/2$ and $p'=2+2\beta$.  Let $\pi_s$ be a probability on $\A_s$ with
+$\pi_s(c)\leq\rho/M_s$ for all $c$, and for each $c\in\operatorname{supp}\pi_s$ let $\pi_c$
+be a probability on $\A_c$ (so $\A_c\neq\emptyset$ there).  Then every
+CRT-admissible bound $B$ from any $N$-large-sieve system, with any rational
+frequencies and any weights, satisfies
+\[
+ \log(N/B)\leq\beta\log N+\log\rho+\log\E_{c\sim\pi_s}\mathsf R_{p'}(\pi_c).
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+Let $\pi=\sum_c\pi_s(c)\delta_c\otimes\pi_c$, a measure on $\A$.  For fixed $\theta_r$,
+Hausdorff--Young on $\Z/M_s$ applied to $f(c)=M_s\pi_s(c)\hat\pi_c(\theta_r)$, with
+$p=p'/(p'-1)$, followed by Jensen, gives
+$\sum_{\theta_s}|\hat\pi(\theta_s+\theta_r)|^{p'}\leq\rho\,\E_{\pi_s}|\hat\pi_c(\theta_r)|^{p'}$, since $(p-1)p'/p=1$.  Summing
+over $\theta_r$, $\mathsf R_{p'}(\pi)\leq\rho\E_{\pi_s}\mathsf R_{p'}(\pi_c)$.  H\"older with $\sum w\leq1$ and
+$w\leq1/N$ gives $F_w(\pi)\leq(\mathsf R_{p'}(\pi)/N)^{1/(1+\beta)}$, as in
+Theorem~\ref{thm:LSslice}; now use $B\geq1/F_w(\pi)$.
+\end{proof}
+Nothing is assumed about the smooth frequencies $\theta_s$: their
+denominators may have any number of prime factors $\leq z$, so any level.
+The smooth coordinates cost only the \emph{density} $\rho$ of a measure on
+$\A_s$; Fourier control is needed only in the rough coordinates, in the
+$\ell^{p'}$ sense of Theorem~\ref{thm:LSslice}.  The density is affordable up
+to $z=\exp\{(\log N)^{1/4}\}$: running the sequential law of \cite{KA2} (square
+base, plain rule at the primes $W_1<\ell\leq z$, $W_1$ absolute) and conditioning
+on a good event of probability $\geq1/2$ (no activated set hit, all
+activated densities $\leq1/2$, total activated mass $\leq8\mathfrak M(z)$) gives
+$\pi_s$ on $\A_s$ with
+\[
+ \log\rho\leq16\,\mathfrak M(z)+2W_1+\log2,\qquad \mathfrak M(y)\leq K_3(\log y)^3(\log\log y)^3,
+\]
+$\mathfrak M(y)$ the first-moment bound of \cite[\S3, Cor.~3.7]{KA2}
+\cite[Lemma~2.1]{LS3} (\lab{proved} given \cite[\S\S2--4]{KA2}; Case A
+\lab{proved mod} Elsholtz--Tao Prop.~1.4).  Each step of the law has
+conditional density $\leq\ell^{-E_\ell}(1-p_\ell)^{-1}$, and on the good event
+$\prod(1-p_\ell)^{-1}\leq\e^{16\mathfrak M(z)}$.
+
+\begin{theorem}[rough-slice mixtures; {\cite[Thm~3.1]{LS3}}; \lab{proved} given {\cite[\S\S2--4]{KA2}}; Case A \lab{proved mod} Elsholtz--Tao Prop.~1.4]\label{thm:roughslice}
+Let $z=\exp\{(\log N)^{1/4}\}$ and let $\cG$ be any mixture of the four types (any
+moduli, no $B$, no bound on their size) in which every modulus has at most
+one prime factor $>z$, to any power.  Then every CRT-admissible
+$N$-large-sieve bound, with any rational frequencies, any denominators and
+any weights, saves
+\[
+ \log(N/B)\leq C(\log N)^{3/4}(\log\log N)^3.
+\]
+\end{theorem}
+\begin{proof}[Proof sketch]
+Every fibre family $\cG_c$ is a slice system: classes modulo $\ell^v$, $\ell>z$
+prime, whose union at $\ell$ is exactly the activated set of the sequential
+law at $\ell$ (each class with a prime $>z$ has it as its top prime and a
+$z$-smooth cofactor).  Take $\beta=(\log N)^{-1/4}$, $\kappa=3/4$, $\alpha=\beta/2$, and
+remove from $\pi_s$ the event that some fibre density exceeds $\ell^{\kappa-1}$
+(probability $\leq\sum_{\ell>z}\ell^{2-2\kappa}\E p_\ell^2\leq1/16$, by the second
+moments $\E p_\ell^2\ll\ell^{-7/4+o(1)}$ of \cite[Lemma~4.3]{KA2}) or that
+$\sum_{\ell>z}p_\ell(c)\ell^{-\alpha}$ exceeds $16$ times its mean $J$.  Let $\pi_c$ be the
+product of the uniform laws off the fibre classes, as in
+Theorem~\ref{thm:LSslice}; then $\log\mathsf R_{p'}(\pi_c)\leq64J$.  By the chain rule
+of \cite[\S2]{KA2} and partial summation,
+$J\leq\int_z^\infty y^{-\alpha}\,d\mathfrak M(y)\ll\alpha^{-3}(\log(1/\alpha))^3$.  Theorem~\ref{thm:smoothrough}
+gives $\log(N/B)\leq\beta\log N+16\mathfrak M(z)+64J+O(1)$, and each term is
+$\ll(\log N)^{3/4}(\log\log N)^3$.
+\end{proof}
+Compared with Theorem~\ref{thm:LSslice}, Theorem~\ref{thm:roughslice} drops every
+condition on the small part of the modulus (any number of small primes, any
+size) and needs no enlarged threshold $\ell_0'$: the small coordinates are
+paid by density, not by a product structure.  This extends the
+\emph{scope} of Theorem~\ref{thm:LSslice}, not its strength: on the families of
+Corollary~\ref{cor:sliceCap} Theorem~\ref{thm:roughslice} is weaker by the
+factor $(\log\log N)^3$, which is the Rankin loss in $\mathfrak M$ \cite[Rem.~3.8]{KA2}.
+The local moment of Lemma~\ref{lem:firstnoB} should remove it; this has not
+been checked.  The same splitting with a level split in place of H\"older
+is Proposition~\ref{prop:E1}(2) with the smooth coordinates removed from
+both conditions \cite[Rem.~1.1(c)]{LS3}.  For an \emph{arbitrary} mixture,
+Theorem~\ref{thm:smoothrough} also caps the frequencies with $z$-smooth
+denominators ($\theta_r=0$), provided $\A_c\neq\emptyset$ for all $c\in\operatorname{supp}\pi_s$; this is
+not automatic when classes with several primes $>z$ cover whole fibres.
+Mixed frequencies $\theta_s+\theta_r$ with $\theta_r\neq0$ in a general mixture are not
+covered.
+
+So the only remaining source of (E1) over forced families is the set of
+classes with \emph{two or more} prime factors $>z$, through correlations of
+the fibre measures between such primes.
+
+\begin{hypothesis}[$(H_{\rm rough})$; {\cite[\S4]{LS3}}; \lab{conjecture}]\label{hyp:Hrough}
+For every family $\cG$ of the four types with primes $\leq N^{O(1)}$ and every
+$c\in\A_s$ outside an event of probability $\leq1/8$ under the law of
+Lemma~2.1 of \cite{LS3}, there is a probability $\pi_c$ on $\A_c$ with
+$\log\mathsf R_{2+2\beta}(\pi_c)\leq C(\log N)^{3/4+o(1)}$, $\beta=(\log N)^{-1/4}$.
+\end{hypothesis}
+By Theorem~\ref{thm:smoothrough}, $(H_{\rm rough})$ implies a cap
+$C(\log N)^{3/4+o(1)}$ for every CRT-admissible large sieve over every such
+mixture, whatever the frequencies; this is a \emph{sufficient} condition
+only.  A cap, or Conjecture~\ref{conj:HLS}, need not yield fibre measures of
+this kind (H\"older-type and sup-type criteria are incomparable
+\cite[\S5]{LS2}).  Theorem~\ref{thm:roughslice} proves $(H_{\rm rough})$, up to
+$(\log\log N)^3$, when every class has one rough prime (product measures).  A
+level-split form with a cheap comparison at rough level $\leq2\lambda'$ and
+$|\hat\pi_c(\theta_r)|^2\leq\e^{S_r}/N$ above rough level $\lambda'\asymp\log N$ would also
+suffice, but then for \emph{every} $c\in\operatorname{supp}\pi_s$.  In the two-copy form,
+$\sum_{\operatorname{supp}({\rm den}\,\theta)=S}|\hat\sigma(\theta)|^2=\E_{x,y\sim\sigma}\prod_{\ell\in S}(\ell^{E_\ell}\ind[x\equiv y\ (\ell^{E_\ell})]-1)$
+\cite[Lemma~4.1]{LS3} \lab{proved}; so $(H_{\rm rough})$ follows from product
+decay of these signed two-copy correlations and of the sup over each
+support class, which is a multi-scale correlation-decay statement.
+
+\begin{lemma}[residue concentration; {\cite[Lemma~4.2]{LS3}}; \lab{proved}]\label{lem:residueconc}
+The class $-4\bmod M$ belongs to $\cR(M)$ for every $M\equiv3\pmod4$.  Hence for the
+family $\{-4\bmod pM':\ M'\leq X,\ pM'\equiv3\ (4),\ M'\ z\text{-rough}\}$ the conditional
+mass at the residue $-4\bmod p$ is
+$\sum_{M'}1/M'\asymp\log X/\log z$, which is $\asymp A(\log N)^{3/4}$ for $X=N^A$.
+\end{lemma}
+\begin{proof}
+Take $D=1$ in the definition of $\cR(M)$; the sum is Mertens over $z$-rough
+$M'$ in one class modulo $4$.
+\end{proof}
+So a fibre family can be dense at one residue although sparse on average.
+This defeats the plain Koteck\'y--Preiss criterion for a cluster
+expansion of the uniform measure on $\A_c$ with uniform activities; it does
+not show that a symmetric route fails (\emph{Assessment}).  In the
+top-prime order the class $-4\bmod pM'$ is charged at its top prime with
+activation probability $\asymp1/(\text{cofactor})$, and the average influence of
+a coordinate is $\ll(\log N)^{O(1)}/p$ while its worst-case influence is not
+small; one-step operator bounds in $\ell^{p'}$, $p'>2$, all lose
+\cite[\S4.3]{LS3} (\emph{Assessment}).
 
 \subsection{Prime-only majorants for mixtures}
 A \emph{prime majorant} of $\A$ is $\nu=\sum_ia_i\ind[n\equiv b_i\pmod{d_i}]$ with
@@ -4196,6 +4342,13 @@ Hostile review of \cite{LS2}, \S\S1--7,
 \bibitem[LS2r2]{LS2revb}
 Hostile review of \cite{LS2}, \S\S8--9,
 \texttt{reviews/exceptional-largesieve2-review-2.md}, this repository, 2026.
+\bibitem[LS3]{LS3}
+\emph{EXCEPTIONAL\_LARGESIEVE3: $H_{{\rm LS}\infty}$ for forced families via
+sparsity}, internal working document \texttt{EXCEPTIONAL\_LARGESIEVE3.md},
+this repository, 2026.
+\bibitem[LS3r]{LS3rev}
+Hostile review of \cite{LS3}, \texttt{reviews/exceptional-largesieve3-review.md},
+this repository, 2026.
 \bibitem[M]{Montgomery}
 H.~L.~Montgomery, The analytic principle of the large sieve,
 \emph{Bull. Amer. Math. Soc.} \textbf{84} (1978).
