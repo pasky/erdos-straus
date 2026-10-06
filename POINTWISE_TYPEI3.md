@@ -141,8 +141,10 @@ for each `f≡7 (16)` (both roles force this when `t≥4`) the certificates havi
 divisor `f` kill the union of two nested-ball families, i.e. at most the two balls
 `−f+2^{t_min}ℤ_2` and `−f^{−1}+2^{t_min}ℤ_2`, where `t_min(f)` is the least
 admissible `t≥4` over all `(m',k',v,a,s)` with `2^sR≡−1 (f)` (`t=⌈(s+2)/2⌉`).
-(`t≤3` certificates would kill all of Φ; Computation 2.1 shows none has
-`f<10¹¹`.) `typei3_fsearch 7 9 lo hi mass` prints `t_min(f)` and the per-bin
+(`t≤3` certificates would kill all of Φ. By Cor 5.2 there are none, for every f and every `w∈Φ`; the same
+corollary gives `t≥5`, so no `f≢7 (16)` carries a certificate at any point of Φ and `mass(f)=0` for those f.
+The clamp `t≥4` in the mass mode is therefore conservative. R72 repair D2, applied by reviewer; this replaces
+an appeal to the finite Computation 2.1, which cannot control the tail `f≥Y`.) `typei3_fsearch 7 9 lo hi mass` prints `t_min(f)` and the per-bin
 union-bound mass `Σ 2·2^{4−t_min}`, and `typei3_union.py` computes the exact measure of the union
 of the printed balls. **Depth truncation (R72-2):** the mass mode only looks at `t≤40`, so balls with
 `t_min>40` are omitted. (They exist: `(14,2^{40},743)` is a certificate at `w=−743` with `t=43`.) There are at most
@@ -180,7 +182,9 @@ f over many bins.
 
 **Remark 4.1 (measure route; PROVED reduction).** Theorem A(iii) needs *some*
 sterile point, not `x̂_9`. If `μ(U_Y)>Σ_{f≥Y}mass(f)`, where `U_Y⊂Φ` is the
-(computed) set surviving all `f<Y`, then Φ contains a sterile point, so
+(computed) set surviving all `f<Y`, then Φ contains a sterile point (here `mass(f)=0` for `f≢7 (16)` and only
+`t≥5` occurs, by Cor 5.2 — R72 repair D2, applied by reviewer; points of Φ are square points, so TYPEI2 L2.1
+excludes certificates with `v_7(c)` even), so
 `C*(7)=∞` under H. With `Y=10¹⁰`, `μ(U_Y)≥0.6086` (depth-truncation error included). So an explicit tail bound
 `Σ_{f≥10¹⁰} 2^{5−t_min(f)}<0.6` would suffice. This is a counting problem. Writing `N_j(T)` for the number of
 `f∈[2^j,2^{j+1})` with `t_min(f)=T`, one needs an explicit, *summable* bound for
