@@ -5,6 +5,13 @@ POINTWISE_MN.md Cor 6.1(0), POINTWISE_OMEGA12.md Lemma 2.1, AGENT_REPORT_O82.md.
 From-scratch scripts: `scripts/review_mn3_*.py`.
 
 
+**Summary.** The PROVED lemmas (1.1, 2.1, 3.1, 4.1, 5.1, 5.2) are correct after minor repairs; all were
+re-derived and brute-forced, and every EVIDENCE number was reproduced by independent code. Two MAJOR defects,
+both in the negative/localisation part: (D1) ET's 3/5 device applies verbatim — R(N) is an m-analogue of ET's
+Type I count, so `R(N) ≪ N^{3/5+o(1)}`, contradicting "the same device gives only 2/3 here"; (D2) the
+"exact missing input" (P)/(M2) with `K_0 ≈ 10` ignores the range `q_0 < q < Q_0`, where scales are `e^{O(q)}`
+and which dominates SI's tail. SI remains OPEN; labels of (M2), SI, W_5 are correct.
+
 ## Verdicts per claim
 
 | claim | verdict |
@@ -84,7 +91,7 @@ of the identification: first moments `Σ_{N≤X} R(N)` are ET-type averages of `
 The scale cutoff `N ≤ ℓ^{K_0}` comes from Lemma 4.1's saving, which needs `g ≥ Q_0²q^{1+3δ}`. It is polynomial
 in q only for `q ≥ Q_0 = e^{(1+o(1))q_0}`. For `q_0 < q < Q_0` — which contains every term that matters for
 SI's tail sums as `q_0 → ∞` — the cutoff is `(Q_0q)^{O(1)} = e^{O(q_0)}`; for `q ≲ 2q_0` even
-`g ≤ M ≤ qL(q) ≈ qQ_0 < Q_0²q`, so Lemma 4.1 never fires and atoms live at all scales up to `e^{O(q)}`.
+`g ≤ M ≤ qL(q) = qQ_0e^{(1+o(1))(q−q_0)} < Q_0²q` (up to the ℓ-part), so Lemma 4.1 never fires and atoms live at all scales up to `e^{O(q)}`.
 There a pointwise bound `R ≪ N^θ` with any fixed θ > 0 gives nothing (`Σ_{N''|L(q)} N''^{θ−1}` is
 `exp(q^{θ+o(1)})`), and `(M2)` with `X^{1+o(1)}` does not suffice either. The data show the large scales are
 real: `q·U_1(97)` = 85.4, 106.2, 118.6, 125.1 for `M ≤ 10⁶, 10⁷, 10⁸, 10⁹` (`review_mn3_u1.py`), and the
@@ -136,3 +143,17 @@ also needs d squarefree. *Repair:* state the truncation dependence; fix numbers.
 cannot distinguish `(log Y)⁶` from `Y^{0.55}`, and `max R` grows like `N^{0.48}` on it. CONJECTURE label is
 right; the sentence should read "is consistent with η = o(1); not discriminating". (Heuristic support that
 does exist: R(N) ≈ Σ_f τ_3((N+f)/m)-type sums, D1's Type I identification.)
+
+## Replay (reviewer scripts, all < 10 s each)
+
+```
+cd scripts
+(ulimit -v 8000000; timeout 900 uv run python review_mn3_atoms.py 5 300000 15)                    # Lemma 2.1, D7
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_rn.py 5 30000)              # R(N), (M2) data
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_u1.py 5 1000000000 97)      # U_1, D2/D8
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_lemma11.py 5 8 32 200000)   # Lemma 1.1/4.1
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_first.py 5 11 13 17 19 23 29 31)  # Lemma 5.1
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_et35.py 5 3000)             # D1
+(ulimit -v 8000000; timeout 900 uv run --with sympy python review_mn3_resid.py 5 3000000 11 97)   # residual shares
+```
+Sources: ET (`sources/elsholtz-tao-1107.1010.pdf`) Lemma 2.8, Prop 1.7 and its proof (p. 18) read directly.
