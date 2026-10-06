@@ -71,3 +71,44 @@ Cor 1 (p. 7):
 * "Ineffective": the source gives no explicit constants, but nothing in the NT/Henriot argument
   is ineffective (no Siegel-type input); the constants are computable in principle. MN2 calls
   `c_1` "ineffective" (§3 Thm 3.1, §4 item 1, §6 table) — wrong word, see defect D2.
+
+## C. Lemmas 1.1–1.3 — SOUND (Lemma 1.1: label nuance, D6)
+
+* **1.1.** Re-derived from MN Thm 5.1's proof (MN review §T51): the four bad events are failure,
+  heavy late prime (`o(1)`), cost `> x`, `S_res > x`; with `x = 4E/s_0` Markov gives `s_0/4` each,
+  total `≤ 1 − s_0 + s_0/2 + o(1) < 1` ✓. Prefix: `E_ν[p_0(E)] = Σ_r ν(r)·1[c ≡ r (g)]φ(g)/φ(M)
+  ≤ C_ν/φ(M)` (`g = gcd(M,Q_0)`, `φ(lcm)φ(gcd) = φ(M)φ(Q_0)`) ✓; pairs likewise ✓. ν must be
+  supported on hard classes (stated) so no prefix atom fires ✓. It is a modification of a proof
+  that is itself "PROVED modulo the inputs of OMEGA13 Thm 3.4/5.1"; "PROVED" is fine for the
+  implication but the inputs should be named (D6).
+* **1.2.** Completed at q ⇔ `v_ℓ(M) = a+1` and every other `p^b ‖ M` has `p^b < q` (prefix
+  powers are `≤ q_0 < q`) ⇔ `M = qM_1`, `M_1 | L(q)` ✓. `max M ≤ qL(q)` ✓. T-independence for
+  `T ≥ T(q)` ✓ (all of `C_{q'}`, `q' ≤ q`, present). Not used later in Thm 3.1.
+* **1.3.** Each forbidden lift is `−mD mod ℓ^{a+1}` of a completed atom consistent mod
+  `M/ℓ^{a+1}` (and mod `ℓ^a`, since the forbidden class must lie in the fibre); `−mD` is a unit
+  mod M (`gcd(M, mA) = 1`) so it is one of the N lifts; #forbidden `≤ Y` ⇒ `f ≤ Y/N` ✓. Check of
+  N: at ℓ = 2 (odd m), level 0 has `N = 1` — any completed consistent atom at q = 2 kills the
+  process, but `M = 2` needs `m | 3`, impossible for `m ≥ 4` ✓.
+
+## D. Lemma 2.1 — SOUND modulo (H) (minor imprecisions D7)
+
+Re-derived line by line:
+* (i) see §B ✓. `c_1 = (qc_2+1)/m ≤ q+1` ✓ (`c_2 ≤ m`).
+* (ii) Rankin: `u_q(M_1) ≤ u_q(M_1)(M_1/X)^σ` on `M_1 > X` ✓; `1/φ(M_1) ≤ (M_1/φ(M_1))/X` ✓.
+* (iii) `F` multiplicative in the joint sense; `M_2` condition (2.10) for multiplicative F ⇔
+  `F(p^{ν_1},p^{ν_2}) ≤ A^{ν_1+ν_2}` and `F(a) ≤ B a^ε`. `(2b+1)^j ≤ 9^b` for `j ≤ 2, b ≥ 1` ✓;
+  `f_2(p^b) ≤ (b+1)^{j−1}K_1·2·p^{bσ} ≤ (4eK_1)^b` (in the L(q) case even `p^{bσ} < q^σ ≤ e`; in
+  the Y-smooth case `p^{bσ}` is unbounded in b but `≤ e^b` as `p ≤ Y`) ✓; `f_2(n) ≪ n^{ε_0}` with
+  B independent of q because `σ ≤ ε_0/2` ✓. **Uniformity in q** holds: nothing in `(A_0,B_0,ε_0)`
+  depends on q — this is the key point and it is correct.
+* (iv) `∏_{2<p≤x}(1−ρ(p)/p) ≪_m (log x)^{−2}` uniformly (the only q-dependent factor is
+  `(1−1/ℓ)/(1−2/ℓ) ≤ 2`) ✓; `Σ_{n≤x}τ(n²)^j/n ≪ (log x)^{3^j}` ✓; `Σ f_2(n)/n ≤
+  ∏_{p<q}(1 + e2^{j−1}K_1/(p−1) + O_{K_1}(p^{−3/2}))` ✓ (the `e` is wasteful: `Σ_{p<q}(p^σ−1)/p
+  = O(1)`, so exponent `2^{j−1}K_1` suffices; harmless). Covering of an M_1-block by O(1)
+  t-blocks ✓; requirement `x ≥ c_0‖Q‖^{1/2}` handled by (vi) ✓.
+* (v) The displayed `Σ_i 2^{−iσ}(i+1)^{3^j−2}` is imprecise: the block at `X = X_0 2^i` carries
+  `(log X)^{3^j−2} ≍ (log q + i)^{3^j−2}`; still `Σ_i 2^{−iσ}(log q + i)^k ≪ σ^{−1}(log q)^k +
+  σ^{−k−1} ≪ (log q)^{k+1}` (σ ≍ 1/log q), so the final `(log q)^{3^j−1}` stands (D7).
+* (vi) `A ≪ q^{3/2}` ⇒ `τ(A²)^jτ(M_1)^{j−1} ≪ q^ε` ✓; Euler product `≪ (log q)^{K_1}` (≤ stated
+  `2K_1`) ✓.
+* Y-smooth variant ✓ (σ = min(1/log Y, ε_0/2), Euler factors converge since σ ≤ ε_0/2).
