@@ -451,3 +451,28 @@ and Ford–Halberstam are not archived):
   "an explicit realisation of Selberg's parity obstruction in the window problem".
 * **WINDOW2 §§3, 6, 7 model fakes**: Assessment/model-level. Make no novelty claims
   beyond the model.
+
+---
+
+## Summary table
+
+| # | Item | Verdict | Confidence (no prior identical statement) | Key comparator |
+|---|---|---|---|---|
+| 1a | Energy bound `G_F(λ) ≤ 1` (C-1 / Thm Q), sharp constant 2, any product measure | **apparently new** | medium | LMN/Håstad; Lecomte–Tan Fact 9 (cover device); Fourier-growth (ℓ¹) and global hypercontractivity (ρ<1) do not cover ρ>1 ℓ² |
+| 1b | DNF tail `W^{>t} ≤ 4·2^{−(t+1)/k}`, bias-free; base 2 sharp | **apparently new (constant)** | low–medium | O'Donnell §4.4 (`2^{−t/(20w)}`), Håstad 2001, **Lovett–Wu–Zhang 2020 (new must-check)**, FJS/BOW |
+| 2 | Janson-type inequality for one-hot product spaces under lopsided LLL | **new as stated; method known** | low–medium | Boppana–Spencer proof + HSS inflation. **Lu–Székely / Mohr (must-check)**. Riordan–Warnke is monotone only |
+| 3 | β-weighted LLL | **standard (not new)** | high that it is *not* new | Asymmetric LLL with `x_E = β^{|E|}P(E)` (Erdős–Lovász non-uniform style); HSS |
+| 4a | Planting lemma | **stronger than claimed**: improves BGP Thm 27's upper bound on `n_c(k,p)` (removes `log(1/(1−p))` and the prime-power restriction; arbitrary marginals) | medium–low | BGP §4.9 [checked]; exploratory LP: truth ≈ BGP lower bound |
+| 4b | Level barrier (OMEGA14 Thm 1.3) | new as sieve/ES statement; LP-duality method known | high (statement) | Bazzi duality; BGP Prop 4; Tao 254A Thm 5 |
+| 5 | Gallagher linear transfer | **packaging of Gallagher–Linnik**; pipeline new | low–medium (Thm), medium (pipeline) | Gallagher 1970; Heath-Brown 1992; Maynard; Pollack; TZ |
+| 6 | W(p) Ω-results; Haar exponent 3; 1/4 ceiling; LS ⇒ 1/3 | **new** (statements); exponent 3 heuristically anticipated by **ET Remark 1.2 [checked]**; typical-size = Vaughan's method | high (a, d, e); medium-high (b) | ET Rem 1.2; Mordell/Yamamoto/Schinzel (qualitative); Fridlender–Salié–Graham–Ringrose template |
+| 7 | KARY3 / large-sieve caps / unified ceilings | ES caps **new**; large-sieve duality and `β_κ ≍ κ` **classical**; LS4 coin coupling ≈ Lecomte–Tan Fact 9 | high (ES caps); medium-high that the large-κ optimality principle is folklore | Montgomery 1968, Kobayashi 1973; DHR/β-sieve; PYY/BGP |
+| 8 | Window stacking exponent; parity | exact exponent `1+J/2` **new (ES)**; W1 ⊂ FHRSS [checked]; W2 FI09-type [checked]; P1 = classical parity, new instance | high (ES statements) | FI09, Sedunova 2026, FHRSS 2025, Iwaniec 1972 |
+
+**Highest-value follow-ups for an external search** (in order):
+1. Lu–Székely (2007/2009) and Mohr (2013), for item 2.
+2. Lovett–Wu–Zhang (2020) and Håstad (2001), for item 1b.
+3. Citations of BGP arXiv:1201.3261 (did anyone close the `n_c` log gap?), for item 4a.
+4. CHHL / Chattopadhyay–Hatami–Lovett–Tal and KLLM, for item 1a.
+5. Montgomery 1968 / Kobayashi 1973, to confirm the large-sieve duality attribution for
+   item 7.
