@@ -117,3 +117,67 @@ The advantage: `e^{−2Y} = Π_q e^{−2w_q p̃_q}` is a **product of local
 factors**, each moved by an activation at q only by a factor
 `e^{−2w_q·O(1/q)}`. A change of activation at a top q is therefore
 *paid* by `w_q/q` (or by the coin at q), never by a global threshold.
+
+**Remark 2.2 (why not the threshold; Assessment).** For the full family,
+for every rough ℓ and every residue `a mod ℓ` there are many tops `q > ℓ`
+with a class `(λ, ℓq)`, `λ ≡ a (ℓ)` (the sets `Λ(ℓq)`, `q` varying, cover
+`ℤ/ℓ`). Such a class is matched off its top as soon as `x_ℓ ≡ a`, so
+**every** value of every rough coordinate changes the activated sets at
+many later tops and moves `Y` by `≍ (log)^{O(1)}/ℓ`. Under `σ_B` a change
+at ℓ can therefore flip `1_{G_B}` without any further coincidence, and
+LS4's pivotal bound (which takes `|·|` pointwise in the coins) only yields
+`|σ̂_B(θ)| ≲ 2^{|S|}(log)^{O(1)}/(min_{ℓ∈S}ℓ·B)`: one prime of decay, not
+`Π_{ℓ∈S}`. The *true* coefficient is presumably product-small (a smooth
+threshold of a sum of weakly dependent terms has `|S|`-th mixed
+differences of size `Π_ℓ δ_ℓ`), but the pivotal method cannot see this.
+With the tilt, the `|S|`-th mixed difference of `e^{−2Y}` *is* a product
+when `Y` is additive across the S-coordinates, and every activation at a
+top q enters with the factor `≤ 2w_q/q`.
+
+## 3. The label-partition form of the covering count (product model)
+
+To isolate the arithmetic, consider the **product model** of LS4 §3.2:
+`S` a finite set of primes `> z`, `v` uniform on `Ω_S = Π_{ℓ∈S}ℤ/ℓ`,
+and the other rough coordinates `y` uniform and independent (the path
+law dominates this up to `Π(1+2p^{−1/2})` per matched class, LS4 Lemma 2.1
+inflation; transfer to the fibre law is §6). Coordinates are taken
+squarefree for readability (prime powers change nothing below but
+notation). The family is the full family of Lemma 1.1, restricted to rough
+parts; `Λ(G)` is the set of labels of classes of modulus G, and a class
+`(λ,G)` is *matched* by a point `u` if `u ≡ λ (mod p)` for all `p | G`. Let
+
+    E_S = {(v,y) : ∀ℓ ∈ S ∃(λ,G), ℓ | G, (λ,G) matched by (v,y)}.
+
+For a label λ and a point u let `Z_λ(u) = {p : u_p ≡ λ (mod p)}`.
+
+**Lemma 3.1 (label partition; PROVED).** For every `(v,y) ∈ E_S` there
+are a partition `S = U_1 ⊔ … ⊔ U_k` and **distinct** labels `λ_1,…,λ_k`
+such that `v ≡ λ_j` on `U_j`, and for each j a class `(λ_j, G_j)` with
+`G_j ∩ U_j ≠ ∅`, matched by (v,y). For such a class,
+`G_j ∩ S ⊆ U_j ∪ CS_j`, where
+
+    CS_j := {q ∈ S∖U_j : λ_{j(q)} ≡ λ_j (mod q)}   (j(q): the block of q)
+
+depends only on the partition and the labels. Consequently
+
+    P(E_S) ≤ Π_{ℓ∈S} ℓ^{−1} · Σ_{(U_j)} Σ_{(λ_j) distinct} P_y(∀j ∃ m_j :
+             (λ_j, Q_jm_j) a class for some Q_j ⊆ U_j∪CS_j with Q_j∩U_j ≠ ∅,
+             y ≡ λ_j on m_j).
+
+*Proof.* Pick for each ℓ a matched witness class through ℓ, let λ(ℓ) be
+its label (then `v_ℓ ≡ λ(ℓ)`), and group S by λ(ℓ). For `q ∈ G_j ∩ S` the
+class being matched gives `v_q ≡ λ_j`; also `v_q ≡ λ_{j(q)}`, so either
+`q ∈ U_j` or `λ_j ≡ λ_{j(q)} (q)`. Given the partition and labels, `v` is
+determined on S, the event `{v ≡ λ_j on U_j ∀j}` has probability exactly
+`Π_S ℓ^{−1}` (independent coordinates), and the remaining conditions
+concern y only. Union bound over partitions and labels. ∎
+
+*Remarks.* (a) Same-label coincidences have disappeared: all classes with
+one label act through the single residue vector `λ mod S` — this is the
+exact form of LS4 §3.2's "structured coincidences collapse".
+(b) What is left are **cross-label coincidences** at S-primes (`CS_j`;
+an S-prime in `CS_j` is *free* for block j: no `1/q` is paid for it) and
+at outside primes (two witness moduli sharing an outside prime p need
+`λ_j ≡ λ_{j'} (p)`). By Lemma 1.2 every cross-label coincidence at p
+forces `H(λ_j)H(λ_{j'}) ≥ p/2`, and two distinct labels coincide at no
+more than `log(2H(λ_j)H(λ_{j'}))/log z` primes `> z`.
