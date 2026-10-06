@@ -191,41 +191,48 @@ Since `m_S` is a product measure in the CRT coordinates and
 `1 − |φ| ≥ (1/2)·2η² = 9/(256k²)`. ∎
 
 **Theorem 3.3 (sharp and sin-dominated weights are capped for hit-pattern
-majorants; PROVED).** Take a prime-slice system with Q₀ = 1, `p_ℓ ≤ 1/4`, and
-`|F_ℓ| ≤ ℓ^{γ}` for all ℓ, with a fixed γ < 1/3. Let ν be a hit-pattern majorant
-of arbitrary level and w any weight with `w(0) = N` and `w(θ) ≥ c₀|sin πNθ|` for
-θ ≠ 0. Use the weights
+majorants; PROVED).** Take a prime-slice system with Q₀ = 1 and `p_ℓ ≤ 1/4`.
+Fix γ < 1/3 and `s_* ∈ (0, log 2]`; call ℓ *good* if `|F_ℓ|³ ≤ ℓ e^{−s_*}/2`,
+*bad* otherwise (bad primes are `< (2e^{s_*})^{1/(1−3γ)}` if `|F_ℓ| ≤ ℓ^γ`; we only
+assume their number and size are bounded, `B₁ := Σ_{ℓ bad} log ℓ < ∞`). Weights:
 
-    s_ℓ = log(1/(2p_ℓ)) − 2 log|F_ℓ| = log(ℓ/(2|F_ℓ|³))   (≥ (1−3γ)log ℓ − log 2).
+    s_ℓ = log(ℓ/(2|F_ℓ|³)) = log(1/(2p_ℓ)) − 2log|F_ℓ|   (ℓ good),
+    s_ℓ = log(1/(2p_ℓ))                                    (ℓ bad);
 
-Then Theorem 2.3 of NC holds with `ε` replaced by `ε^w := (512/(9c₀))·e^{−λ}·R_w(ν)`:
+all `s_ℓ ≥ s_*`. Let ν be a hit-pattern majorant of arbitrary level and w any
+weight with `w(0) = N` and `w(θ) ≥ c₀|sin πNθ|` for θ ≠ 0. Then for every
+`λ ≥ log N + B₁` NC Thm 2.3 holds with ε replaced by
+`ε^w := (512/(9c₀))·e^{−λ}·R_w(ν)`:
 
     Eν ≥ (1 − ε^w) e^{−Φ̄(λ,α)} − 2ε^w,
 
-Φ̄ computed with these s_ℓ (and `s_* = min s_ℓ`; primes with `s_ℓ < s_*` for a
-chosen `s_* > 0` are finitely many and may be moved into the selector, as in
-NC Cor 2.5). Consequently, under the hypotheses of NC Cor 2.5 with `C < 1/3`
-(in particular for every ℛ(ℓ)-slice, where `|ℛ(ℓ)| = ℓ^{o(1)}`), every bound
-`N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ) = N e^{−s}` with ν a hit-pattern majorant has
+Φ̄ computed with these s_ℓ. Consequently, if the system satisfies the mass
+hypothesis
+(M) `|F_ℓ| ≤ ℓ^γ` for good ℓ, and `Σ_ℓ p_ℓ ℓ^{−β} ≤ C_M β^{−3}` for β ∈ (0,1]
+(true for ℛ(ℓ)-slices, `|ℛ(ℓ)| = ℓ^{o(1)}`, by ET Lemmas 3.1, 3.2, 3.7 as used in
+NC Cor 2.5), then every bound `N·Eν + Σ_{θ≠0}|ν̂(θ)|w(θ) = N e^{−s}` with ν a
+hit-pattern majorant has
 
-    s ≤ C₉(γ) (log N)^{3/4} + O(1).
+    s ≤ C₉(γ, C_M, B₁, c₀) (log N)^{3/4}      (N ≥ N₀).
 
-*Proof.* Only the tail estimate (2.3) of NC changes. Let `s(S) > λ ≥ log N`.
-Since `s_ℓ < log ℓ`, `Π_{ℓ∈S} ℓ > e^{λ} ≥ N`, so some `ℓ₀ ∈ S` does not divide N
-(and ℓ₀ ≥ 5 since p ≤ 1/4). Lemmas 3.1–3.2 with this ℓ₀ give
-`M_S^w ≥ (9c₀/512)·A_S/|F_{ℓ₀}|² ≥ (9c₀/512)·Π_S(1−p_ℓ)/Π_S|F_ℓ|²`. Hence
+*Proof.* Only NC's tail estimate (2.3) changes. Let `s(S) > λ`. Bad primes
+contribute at most B₁ to s(S), and `s_ℓ < log ℓ` for good ℓ, so the good primes
+of S have product `> e^{λ−B₁} ≥ N`; hence some good `ℓ₀ ∈ S` does not divide N
+(and ℓ₀ ≥ 5 since p ≤ 1/4). Lemmas 3.1–3.2 with ℓ₀ give
+`M_S^w ≥ (9c₀/512)·A_S/|F_{ℓ₀}|² ≥ (9c₀/512)·Π_S(1−p_ℓ)/|F_{ℓ₀}|²`. By the
+choice of weights, `Π_S 2p_ℓ·|F_{ℓ₀}|² ≤ e^{−s(S)}`. Hence
 
-    |d_S| Π_S 2p_ℓ(1−p_ℓ) ≤ (512/(9c₀)) |d_S| M_S^w · Π_S 2p_ℓ|F_ℓ|² = (512/(9c₀)) |d_S| M_S^w e^{−s(S)},
+    |d_S| Π_S 2p_ℓ(1−p_ℓ) ≤ (512/(9c₀)) |d_S| M_S^w e^{−s(S)},
 
-and `Π_S (4/3)p_ℓ ≤ Π_S 2p_ℓ(1−p_ℓ)`. Summing over `s(S) > λ`,
+and `Π_S p_ℓ ≤ Π_S (4/3)p_ℓ(1−p_ℓ) ≤ Π_S 2p_ℓ(1−p_ℓ)`. Summing over `s(S) > λ`,
 `r₀, r₁ ≤ (512/(9c₀)) e^{−λ} Σ_S |d_S| M_S^w ≤ ε^w`. The rest of NC Prop 2.1 /
-Thm 2.3 is unchanged (it never uses the specific form of s_ℓ beyond
-`s_ℓ ≥ s_*`). For the corollary: `R_w(ν) ≤ N e^{−s} ≤ N`, so with
-`λ = 2 log(4N) + log(512/(9c₀))` we get `ε^w ≤ e^{−Φ̄}/4` as in NC Cor 2.4. The
-Φ̄ estimate of NC Cor 2.5 goes through because
-`e^{−αs_ℓ} ≤ 2^α ℓ^{−α(1−3γ)}`, which is the same shape with `α' = α(1−3γ)`
-(up to the harmless factor 2^α), and the truncated mass is `Σ_{s_ℓ≤λ} p̄_ℓ ≪ λ³`
-since `s_ℓ ≤ λ` forces `ℓ ≤ (2e^λ)^{1/(1−3γ)}`. ∎
+Thm 2.3 uses only `s_ℓ ≥ s_*`. For the consequence: `R_w(ν) ≤ N e^{−s} ≤ N`;
+take `λ = 2 log(4N) + log(512/(9c₀)) + B₁`, so `ε^w ≤ e^{−Φ̄}/4` once
+`Φ̄(λ) = o(log N)`, and conclude as in NC Cor 2.4. For Φ̄: on good primes
+`e^{−αs_ℓ} ≤ 2^α ℓ^{−α(1−3γ)}`, so `Σ p_ℓ e^{−αs_ℓ} ≤ 2C_M(α(1−3γ))^{−3} + O_{B₁}(1)`;
+and `s_ℓ ≤ λ` forces `ℓ ≤ (2e^{λ+s_*})^{1/(1−3γ)}` (good) so the truncated mass is
+`≤ e·C_M((1−3γ)/(λ+1))^{−3}·... ≪ λ³` (take β = 1/λ in (M)). With α = λ^{−1/4}
+this is NC Cor 2.5's computation: `Φ̄ ≤ Cλ^{3/4} + O(log²λ)`. ∎
 
 *What this closes.* In NC §2.5's list: the exact sharp weight `|S_N(θ)|` and
 ψ-based Erdős–Turán/Vaaler rounding whose weights carry the factor
