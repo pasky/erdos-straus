@@ -293,3 +293,25 @@ part of §6 is honestly labelled Assessment, apart from the overclaims in n6.
 
 Replay (round 2): `ulimit -v 8000000; uv run python -u scripts/review_m17_round2.py /tmp/r83`
 (~30 min, dominated by the `(a,s,t)` brute force at K=5; needs the round-1 enumeration files).
+
+## Repairs applied (by the reviewer, on branch `side-agent/review-mordell17`)
+
+At the parent's request, the reviewer applied r1–r3 and n1–n6 to POINTWISE_MORDELL17.md and
+AGENT_REPORT_O83.md. One commit per item; each change is marked "(R83 round-2 repair …, applied by
+reviewer)".
+* r1: the §3 label now reads CERTIFIED by two independent engines.
+* r2: "ineffective(ly)" is replaced by "non-explicit" in §6 and the report.
+* r3: the report's checkpoint-1 section is marked superseded, with the list of corrected items.
+* n1: Lemma 5.2 now says the P-box has level ≤ k, strictly lower for k ≥ 2, with equality only at
+  (α,β)=(1,0). The report row is updated to match.
+* n2: Lemma 5.2's parity claim now holds for all U-data, via Lemma 1.3's reciprocity applied to any
+  N-point of Σ^II, in place of the ET Prop 1.6 statement.
+* n3: Lemma 5.1's remark is fixed: `17∤e` suffices, and `17|c` gives `−a/b ≡ 1`.
+* n4: the (a,s,t) parametrisation now includes `17∤st`, `gcd(a,f)=1` and the exact `b≥a` bound
+  `4a²t ≤ 17^K + 2a/s`.
+* n5: the digit-set statistics are given per level.
+* n6: three overclaims are softened ("no method can", "equivalent in difficulty", "reduced,
+  exactly"), and the heuristic formula is fixed.
+* Addition: the EVIDENCE line `D_P(K)` vs `K³` in §6.
+
+No mathematical content was changed beyond these items.
