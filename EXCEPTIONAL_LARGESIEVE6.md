@@ -1,6 +1,7 @@
 # EXCEPTIONAL_LARGESIEVE6 — the soft-pivotal lemma (task O71)
 
-Status: **in progress** (agent O71, branch `side-agent/soft-pivotal`).
+Status: **checkpoint 1, self-reviewed** (agent O71, branch `side-agent/soft-pivotal`).
+(A\*) is **not** proved; see §6 for the precise remaining statement.
 Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`,
 LS5 = `EXCEPTIONAL_LARGESIEVE5.md` (all their notation is used: Setting 2.0
 of LS5 = truncated forbidding, `Y = Σ_q w_q p̃_q`, `σ_tilt`, `Z`; LS4
@@ -13,6 +14,16 @@ Lemma 1.1, Thm 4.2, Lemma 5.1, (A\*)), LS3, K2 as there. `β = (log N)^{−1/4}`
 |---|---|---|
 | Lemma 1.1 | **global prefactors in (A\*) are free**: `|σ̂| ≤ Λ·Π Kℓ^{−γ}` costs only `2β log Λ` in the Rényi bound | PROVED (trivial) |
 | Cor 1.2 | hence the tilt normalisation `Z^{−1} ≤ (4/3)e^{8m_c/3}` costs `≤ 6βm_c`: LS4 Thm 4.2 holds with (A\*) for `σ_tilt` **with prefactor `Z^{−1}`**, and LS4 Lemma 5.1 / Thm 5.2 transfer to `σ_tilt` (repairing the LS5 caution R67 M3 at the level of normalisation) | PROVED (implication; inputs as LS4 Thm 4.2) |
+| Lemma 2.1, Prop 2.2 | cube Leibniz; **soft-pivotal bound**: `|σ̂_tilt| ≤ Z^{−1}4^{|S|}E Σ_𝔅Π_B W_B`, an outside top q charged only `w_qΔ_q ≤ w_qN_q/q` | PROVED |
+| Lemma 3.1 | pivotality comes from upward chains of varying classes through divergent outside coordinates | PROVED |
+| Lemma 4.1, Prop 4.2 | Walsh/XOR-cover form (all soft factors as one exponential): removes the Bell-number overcount of Prop 2.2 | PROVED |
+| Thm 5.1 | **one rough prime, uniform in X**: explicit bound by damped first moments through ℓ; no residue/label input; the LS5 caveat (undamped `Σ_q1/q`) disappears | PROVED (fixed fibre) |
+| (FM) | damped "mass through a prime" first moments (Shiu in APs + Titchmarsh-type over the prime top); would give `|σ̂_c| ≤ Z_c^{−1}ℓ^{−1}(log N)^{O(1)}` for `|supp θ_r| = 1`, hence the all-level cap for sieves with ≤ 1 rough prime per frequency denominator | Assessment (standard, not written) / CONDITIONAL |
+| Thm 6.1 | (A\*) and the all-level 3/4 cap for **all** forced mixtures ⟸ (DCC), a first-moment damped covering count on a product space | PROVED (implication) |
+| Prop 6.2 | small-height labels concentrate damped mass `≍ 1/γ` on one residue at every prime: no residue-uniform dispersion | PROVED (asymptotic: Assessment) |
+| (RD) | the isolated arithmetic statement: residue dispersion of the damped mass of **large-height** labels (divisors of `A²` in residue classes, on average over the cofactor) | CONJECTURE |
+| §6 route | (FM)+(RD)+small-height removal ⟹ (DCC); the overlap combinatorics for large `|S|` is not written | Assessment |
+| §7 | toy checks of (2.1), Prop 2.2, Prop 4.2 | EVIDENCE |
 
 ## 1. Global prefactors are free
 
@@ -449,17 +460,16 @@ S of rough primes let `𝔇(S)` be the expectation on the right of (4.1)
 
 > **(DCC_γ)** for c off an exceptional event of Q′-probability ≤ 1/32 and
 > every finite set S of primes `> z`: `𝔇_c(S) ≤ Λ′Π_{ℓ∈S}Kℓ^{−γ}`, with
-> `1 ≤ K ≤ z^{γ/2}` and a constant `Λ′`.
+> `1 ≤ K ≤ z^{γ/2}/2` and a constant `Λ′` (any `Λ′ ≤ N^{1/2}` would do).
 
 **Theorem 6.1 (PROVED as an implication; inputs as LS4 Thm 4.2).**
 (DCC_γ) ⟹ (A\*_Λ) for `σ_tilt,c` with `Λ_c = Λ′Z_c^{−1}` and `K` replaced
-by `2K` ⟹ (Cor 1.2) the all-level 3/4 large-sieve cap
+by `2K ≤ z^{γ/2}` ⟹ (Cor 1.2) the all-level 3/4 large-sieve cap
 `log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` for every
 forced mixture (`N ≥ N₀(γ)`).
 
 *Proof.* Prop 4.2, (4.1): `|σ̂_c(θ)| ≤ Z_c^{−1}2^{|S|}𝔇_c(S) ≤
-Λ′Z_c^{−1}Π_{ℓ∈S}2Kℓ^{−γ}`; `2K ≤ z^{γ/2}` after shrinking γ slightly.
-Then Lemma 1.1 / Cor 1.2. ∎
+Λ′Z_c^{−1}Π_{ℓ∈S}2Kℓ^{−γ}`. Then Lemma 1.1 / Cor 1.2 (`2β log Λ′ ≤ (log N)^{3/4}`). ∎
 
 So the open problem is now a **first-moment statement on a product
 probability space** (coins, v, v′), with every outside top weighted by its
@@ -496,17 +506,18 @@ quantities `ν_{>r}(P)` of §5. Two regimes:
 
 **Proposition 6.2 (small-height labels are not dispersed; PROVED, elementary,
 with the asymptotic as Assessment).** For every rough prime p,
-`μ_{−4}({p}) ≥ (1/2)Σ_{m} w_{top(pm)}Γ(pm)/m` over z-rough squarefree
-`m` with `pm ≡ 3 (4)`, `pm ≤ X` — the classes `−4 mod pm` (`−4 ∈ ℛ(M)` for
+`μ_{−4}({p}) ≥ Σ_{m} w_{top(pm)}Γ(pm)/m` over z-rough squarefree
+`m` with `P(m) > p`, `pm ≡ 3 (4)`, `pm ≤ X` — the classes `−4 mod pm` (`−4 ∈ ℛ(M)` for
 every `M ≡ 3 (4)`, LS3 Lemma 4.2; rough moduli occur in every fibre).
-With `w_q ≈ e^{−2γ log q/log z}` this is `≍ e^{−2γt_p}(t_p + 1/γ)`,
+With `w_q ≈ e^{−2γ log q/log z}` this is `≍ e^{−2γt_p}/γ` (as `X → ∞`),
 `t_p = log p/log z`, i.e. **bounded below independently of p** for
 `p ≤ z^{O(1)}`, whereas `ν({p}) = Σ_aμ_a({p})` is spread over p residues.
 
 *Proof.* Each such `pm` carries the class `−4` (D = 1), its residue at p is
 `−4 mod p`, top `= max(p, P(m))`, and its weight in `μ_{−4}({p})` is
 `w_{top}Γ(pm)p/(pm)`. The asymptotic is Mertens over rough m
-(`Σ_{m: P(m) < y}1/m ≍ log y/log z`) with partial summation. ∎
+(`Σ_{m rough, P(m) < y}1/m ≍ log y/log z`): the sum is
+`≈ (1/2)Σ_{q>p}(w_q/q)(log q/log z) ≈ (1/2)∫_{t_p}^∞e^{−2γt}dt`. ∎
 
 So no residue-uniform dispersion bound holds: the **small-height labels**
 (Cor 5.3 of LS4: `−r/s` with `r, s` small — `−4`, `−1`, `−1/4`, `−4d`, …)
