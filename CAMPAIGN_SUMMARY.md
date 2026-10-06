@@ -444,9 +444,10 @@ factor quoted in this subsection can be dropped.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)26, KARY2 §6, NONCRT §6 and STATUS.md.
+The sources are ledger (D)18–(D)28, KARY2 §6, NONCRT §6 and STATUS.md.
 The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
-coefficient-sum sieves, large sieves of every Bessel type, prime-only
+coefficient-sum sieves, large sieves of every Bessel type (at every
+frequency level for one-rough-prime and residue-sparse mixtures), prime-only
 majorants, and interval cancellation at moduli `≤ N/2`. A proof of
 `θ > 3/4` would need at least one of the following:
 * **Tuple counts of growing order.** The live form is the alternating
@@ -454,13 +455,18 @@ majorants, and interval cancellation at moduli `≤ N/2`. A proof of
   obstructed above 2/3 by forced zeros). Bounded-order input cannot help
   ((D)21), and accuracy is needed at moduli `exp(c(log N)^{3θ/2})`, beyond
   any known theorem (Assessment).
-* **Super-polynomial large-sieve levels.** H_LS∞ for forced families
-  ((D)25, **CONJECTURE**). The band-family example proves that a cap must
-  use the sparsity of forced families; abstract large-sieve axioms do not
-  suffice.
+* **Large sieves at super-polynomial levels, residue-dense classes only.**
+  H_LS∞ for forced families ((D)25, **CONJECTURE**) is now proved for
+  mixtures with one rough prime per modulus ((D)27) and for residue-sparse
+  multi-rough classes ((D)28). What is left is (A*) for residue-dense
+  multi-rough classes (generic ℛ(M)), reduced via (DCC) to the
+  residue-cut dispersion statement (RD′) (open; (RD) proved at one prime
+  for ℛ(M), false as first stated for several primes). The band-family
+  example proves that a cap must use the sparsity of forced families.
 * **Hybrid interval methods.** Capped if weak SPW holds ((D)26, PROVED
-  implication). Weak SPW is open; the fixed-σ version is refuted.
-  Right-signed mass at moduli in `(N, CN]` is also open.
+  implication), with the exact requirement `log(K/η) = O((log N)^{3/4})`
+  (SPW2). Weak SPW is open; the fixed-σ SPW and fixed-η RSPW versions are
+  refuted. Right-signed mass at moduli in `(N, CN]` is also open.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
   Thm 2.3). Weights `< 1` are open, except a smooth-window case that is
   CONDITIONAL on an equidistribution conjecture.
@@ -663,6 +669,18 @@ original paper was not obtained.
   5/n included), the m/n witness modulus satisfies
   `W_m(p) ≥ exp(c_m(log p)^{1/7})` i.o. (also modulo Elsholtz–Tao Prop 1.4
   with κ = m). No novelty claim beyond these applications.
+* *The m/n witness modulus* (POINTWISE_MN.md, (H)32). The classes −mD
+  mod M are Jacobi non-residues for every atom iff m ≡ 0 (4) (Lemma 1.1,
+  PROVED), which is exactly where OMEGA13's square-class quarantine
+  works. For m ≡ 0 (4): Haar exponent 3 and
+  `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. (Thm 3.1, PROVED
+  modulo (G), Nair–Tenenbaum, the fundamental lemma and OMEGA10). For
+  every m (incl. 5/n): exponent 1/5 i.o. (Cor 6.1, PROVED modulo ET, (G),
+  OMEGA10; output primes Type-II-hard only), improving (H)23's 1/7. For
+  m ≢ 0 (4), 1/4 is CONDITIONAL on a bounded-drift hypothesis ADM_m;
+  POINTWISE_MN2 reduces ADM_m to the prefix law and to a CONJECTURE SI
+  (PROVED modulo Henriot's uniform Nair–Tenenbaum bound). Reviews
+  `reviews/pointwise-mn-review.md`, `-mn2-review.md`, repairs applied.
 
 **The Haar exponent is exactly 3, and 1/4 is a ceiling.**
 * *Haar side.* For the profinite avoider density `δ*(T)`,
@@ -670,8 +688,10 @@ original paper was not obtained.
   POINTWISE_HAAR Thm 2.1, PROVED modulo the sieve fundamental lemma, via a
   new Janson-type inequality for product spaces with one-hot coordinates
   ((H)25). Upper bound: POINTWISE_OMEGA13 Thm 3.4, PROVED modulo
-  Nair–Tenenbaum ((H)26). The Monte Carlo of POINTWISE_SIZE §7 fits this
-  (EVIDENCE). So the profinite exponent is 3 up to logs, and the
+  Nair–Tenenbaum ((H)26). CEILINGS_UNIFIED Prop 1.1 removes the log loss
+  in the lower bound, `log(1/δ*(T)) ≫ 𝓛³` (PROVED given the 3/4 note;
+  inputs BV/BT/Shiu; ineffective; (H)29), so `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log 𝓛)^5`.
+  The Monte Carlo of POINTWISE_SIZE §7 fits this (EVIDENCE). So the profinite exponent is 3 up to logs, and the
   heuristic prime-side truth is `log W ≍ (log p)^{1/3}`.
 * *Ceiling* (POINTWISE_OMEGA14, (H)27). Conditioned on the small
   coordinates, the problem is a sieve of dimension `κ ≍ 𝓛³` on the big
@@ -681,12 +701,60 @@ original paper was not obtained.
   `log D ≤ c𝓛⁴/log 𝓛` has Haar mean `≤ 0`. Cor 4.6 (PROVED implication):
   1/4 is the ceiling, up to `(log log p)^{1/2}`, of every certificate
   that goes through a Haar minorant plus a transfer requiring
-  `log x ≫ log Z`. The tool is a planting lemma (Lemma 1.1), which is LP
-  duality for lower-bound sieves (no novelty claimed).
-* *What 1/3 would need.* Prime input beyond low-conductor minorants:
-  bilinear (Type II) or parity-sensitive information, or a transfer whose
-  positivity comes from a Siegel-zero term. These are not covered by the
-  ceiling.
+  `log x ≫ log Z`. The tool is a planting lemma (Lemma 1.1), the LP dual
+  of lower-bound sieves; it sharpens Benjamini–Gurel-Gurevich–Peled's
+  Thm 27 (audit 10b §4, "apparently new"). CEILINGS_UNIFIED Prop 4.2
+  raises the blocked level to `c𝓛⁴` (on fibres with `log Q ≤ T^{0.05}`),
+  so the gap between OMEGA13's exponent and the ceiling is now
+  `(log log p)^{1/4}`.
+* *Wiener-norm barrier* (POINTWISE_OMEGA15, (H)28; PROVED modulo (G), the
+  effective Page bound and the fundamental lemma). Every minorant B ≤ F of
+  any level on any fibre has `E B ≤ e^{−c𝓛⁴/log 𝓛}‖B‖_×` (ℓ¹ norm over
+  residue classes or characters). So linear certificates with full-orbit
+  uniform accuracy (standard sieve-remainder accounting, one-sided and
+  Hölder-averaged variants) cannot beat 1/4, and within this class prime
+  input (GRH etc.) is irrelevant by construction. The Siegel-model law is
+  covered too (Thm 3.1), closing OMEGA14's Siegel item for such transfers.
+  Assessment: the ceiling is a sieve-*dimension* barrier, a property of
+  the set F itself.
+* *One sieve limit behind both ceilings* (CEILINGS_UNIFIED, (H)29). In the
+  one-big-coordinate setting, order-k majorants and order-k minorants are
+  both trivial below `k ≍ P` (the mass), and Bonferroni attains both at
+  `k ≍ P` (Thm 4.1, PROVED; no novelty claimed). The ES one-big-prime
+  subfamily has mass `≍ 𝓛³` at cost `≍ 𝓛`, so the critical level is
+  `≍ 𝓛⁴`: at budget `λ ≍ log N` this is the exceptional-set cap `λ^{3/4}`;
+  at `λ ≍ log x` it is the pointwise cap `𝓛 ≲ λ^{1/4}` (Thm 4.3, PROVED as
+  a conjunction within the scopes of (D)24/(D)27 and (H)27/(H)28,
+  Assessment outside them). The "Haar-side route" to 3/4 is the 3/4 note's
+  own route and cannot improve it. Review SOUND (10 minors).
+* *What gives 1/3* (POINTWISE_OMEGA16, (H)30). Hypothesis LS(C)
+  (**CONJECTURE**, "Linnik for sifted sets"): every unit-class sieve system
+  with moduli ≤ T and avoider density δ > 0 contains a prime p > T with
+  `log p ≤ C(log T + log(1/δ))`. Thm 1.2 (PROVED implication, modulo
+  Nair–Tenenbaum): LS ⇒ `W(p) ≥ exp(c(log p)^{1/3}(log log p)^{−5/3})` i.o.,
+  the heuristic truth. EH/GEH/BV-type inputs and GRH truncated to moduli
+  ≤ x cap at 1/4 through linear certificates (Prop 3.1); Hardy–Littlewood
+  for CRT-product sets gives only `W = (log p)^{2±o(1)}` (Prop 4.1). No
+  refutation of LS was found.
+* *Support-aware certificates* (POINTWISE_OMEGA17, (H)31). No certificate
+  beyond 1/4 was found. PROVED structural lemmas (moduli > x contribute
+  only the box or primality tests; validity is an integer statement; no
+  monotone fake). The question reduces to **Conjecture SAP** (support-aware
+  planting, restated after review), whose truth would extend the 1/4
+  ceiling to LP-relaxed support-aware certificates with unconditional-type
+  information. SAP is **open**; so is the role of Type II input.
+
+**Typical size: the tail exponent of W over primes is 3.**
+* *Upper bound* ((A)9, INTERNALLY PROVED via the 3/4 note;
+  CEILINGS_UNIFIED Thm 2.1): `#{p≤x: W(p)>T} ≪ π(x)exp(−c(log T)³)`
+  uniformly for `log T ≤ c₁(log x)^{1/4}`.
+* *Lower bound* (POINTWISE_TAIL Thm 2.1/3.3, (H)33; PROVED modulo (G),
+  Nair–Tenenbaum and OMEGA10 Thm 3.4). For `log x ≥ C(log T)^4 log log T`,
+  `#{p ≤ x Mordell-hard : W(p) > T} ≥ π(x)exp(−C(log T)³(log log T)³)`.
+* So for `log T ≤ c(log x/log log x)^{1/4}`,
+  `c(log T)³ ≤ log(π(x)/#{p≤x: W(p)>T}) ≤ C(log T)³(log log T)³` (Cor 2.2):
+  the Haar exponent 3 is the true tail exponent of W over primes in this
+  range. Review `reviews/pointwise-tail-review.md`, no FATAL/MAJOR.
 
 **Consequences.**
 * `H_MOD(A)` is **REFUTED for every A** (ledger (F)10, (H)13).
@@ -696,7 +764,9 @@ original paper was not obtained.
 **Related results.**
 * *Heuristic truth.* `log W ≍ (log p)^{1/3}` (**Assessment**,
   POINTWISE_SIZE §7), now backed by the Haar exponent 3 above. Data:
-  `W ≈ (log p)^{2.5–3.4}` for `10^8 ≤ p ≤ 10^50` (EVIDENCE).
+  `W ≈ (log p)^{2.5–3.4}` for `10^8 ≤ p ≤ 10^50` (EVIDENCE). The least
+  hard prime with `W > 4095` is 133050918961 (W = 5935); no hard prime
+  with `W > 8191` below 2.38·10¹¹ (EVIDENCE, OMEGA16 §6, recomputed).
 * *Superseded routes.* The earlier Haar bounds (POINTWISE_OMEGA2
   Thm 11.3, `≪ (log T)^7 log log T`) and the hub-codegree route of
   OMEGA4–OMEGA6 (hypotheses HC*, HC_Π, whose target was only
@@ -722,10 +792,19 @@ original paper was not obtained.
     under GRH, `ck_min > (1/(2log 2)−ε) log p·log log p` i.o. (Montgomery's
     Ω-result transported; sources cited from memory).
   * Census to `10^7`: record `ck_min(9033649) = 883` (EVIDENCE).
+  * Follow-up (POINTWISE_TYPEI2, review SOUND): under H, `C*(r)` equals
+    the least height of a finite Type-I covering of `{n_p = r}` (Theorem A;
+    one direction unconditional). At the explicit sign point `x̂_9` no
+    Type-I certificate exists with ck ≤ 3·10⁹ (CERTIFIED), so every finite
+    Type-I covering of `{n_p = 7}` has height > 3·10⁹ (previously ≥ 539;
+    under H, C(7) > 3·10⁹). Whether `x̂_9` is sterile is open (Conjecture 3.4).
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
-  internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v4
-  (exponent 1/4, Haar exponent 3, the ceiling theorem; 39 pp; refereed
-  internally four times, R33, R33b, R47, R56). `paper/energy-dnf-note.tex`
+  internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v5
+  (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
+  typical size `≪ π(x)e^{−c𝓛³}`, the ceiling at level `c𝓛⁴`, the
+  Wiener-norm barrier, and LS ⇒ 1/3; refereed internally five times, R33,
+  R33b, R47, R56, R64). A v6 adding the two-sided tail of (H)33 is in
+  preparation (task O77; not yet merged or refereed). `paper/energy-dnf-note.tex`
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
 
@@ -796,6 +875,13 @@ was **not** reached.
   threshold lies in (0.5, 0.7]. So Type-I plus parity at BV level does
   not give two windows in the model. Relevance to real sieves is weak
   EVIDENCE only.
+* *Faithful model* (POINTWISE_WINDOW3; EVIDENCE/Assessment, merged without
+  a separate hostile review). Type-I data at level 1/2, both parities and
+  Chen-type switching give `a_min ≥ 11` only if the switched bounds are
+  within ≈ 2–2.5 of the truth uniformly over every switchable family; the
+  best existing switched constants are ≥ 3.9 at BV level (checked in Wu
+  2004). So the unconditional two-window problem has a precise numerical
+  gap.
 
 **Write-up.** `paper/es-window-note.tex` (22 pp): window criterion,
 half-set lemma, stacking, W1/W2 and exact orders, Prop P1, with the model
