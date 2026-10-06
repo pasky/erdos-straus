@@ -159,7 +159,7 @@ Nothing in this argument needs uniformity in j or any growth condition, and no c
 
 **D14 (MINOR; Comp 4.8, last sentence: "On ten test points with known certificates … identical certificate sets").**
 - **Problem.** By PT3:79–80, four of the ten points have no certificates (counts 3, 0, 0, 0, 13, 35, 7, 4, 2, 0). The (7, −15) comparison matches only after removing F = 15 certificates (R72 D1).
-- **Repair.** Write "On ten test points (six with certificates, 66 certificates in total) the two engines agree, after the F = 15 normalisation of [PT3, …]".
+- **Repair.** Write "On ten test points (six with certificates, 64 certificates in total) the two engines agree, after the F = 15 normalisation of [PT3, …]".
 
 **D15 (MINOR, bibliography; [Mordell] "Academic Press, 1969, Chapter 30").**
 - **Problem.** ET's ref. [44] reads "Diophantine Equations, **volume 30** of Pure and Applied Mathematics, Academic Press, 1969". "Chapter 30" looks like a conflation with the series volume. The book was not accessed, so the chapter cannot be confirmed.
@@ -207,3 +207,48 @@ Nothing in this argument needs uniformity in j or any growth condition, and no c
 - `scripts/review_r86_sign.py`: Prop 4.6(b), the residue-one cover, and a small exhaustive search at x̂₉ (ck ≤ 6000).
 - `scripts/review_r86_r13.py`: third-engine replay of both r = 13 certificates. The earlier reviewer script `review_mordell_check.py` was also re-run: both certificates OK.
 - `scripts/review_r86_m17.py`: brute force over the seven families, modulus ≤ 10⁵, for level ≤ 2 boxes on the 17-generic line.
+
+## Round 2: repairs applied (R86, by the referee, author context exhausted)
+
+All repairs D1–D16 were applied to `paper/es-coverings-note.tex` on branch `side-agent/referee-coverings`. Each defect or group of related minors has its own commit.
+
+### Repairs to the paper
+
+| defect | change |
+|---|---|
+| D1 | After Conj 5.4: "the method of Theorem 5.1(b), a finite list of polynomial classes, cannot be extended to cover all such primes up to finitely many exceptions. This would say nothing about whether ES holds for these primes." The non-equivalence sentence was made precise. |
+| D2 | 592801 → 593041 in the proof of Thm 5.1. The same fix was made in `POINTWISE_MORDELL.md:128`, with an inline correction note. `reviews/pointwise-mordell-review.md:69` was not rewritten; "(R86 correction: 593041)" was appended after each occurrence. |
+| D3 | Comp 6.3: the brute-force cross-check is now scoped to "boxes of level ≤ 3 (168 boxes in all cells, 0 missing); levels 4 and 5 rest on the two enumeration engines only". |
+| D4 | Cited Thm 3.2 now has P ∈ ℋ (primitive, irreducible, positive leading coefficient; PS's 𝒫, renamed to avoid a clash with the prime sets) and "nondegenerate for every h ∈ ℋ". "Bounded" is defined as in PS: only the listed operations, loops over lists fixed at entry, and the step count may grow with p. |
+| D5 | Prop 4.6(a) sketch rewritten after PT2 Lemma 3.1: v₂(1+r^s) = v₂(1+r) ≥ 3, α+2γ = i−1 ≥ 3, modulus ≥ 16, and −F ≡ 1 (mod 16) via r^s ≡ r and 2r ≡ 14 (mod 16). |
+| D6 | Remark 4.13 and Problem 2 now require the tail Σ_{f≥10¹⁰} 2^{5−t_min(f)} < 0.6, i.e. below the computed μ(U_Y). They say explicitly that summability alone, let alone o(2^T), does not suffice. |
+| D7 | "what is needed" → "it would suffice (Assessment: the natural route, not a proved necessity) to have". |
+| D8 | Lemma 2.4 restated with Σ = {x ∈ Ẑ^×: x mod M ∈ R}. The proof notes that limit points are units. A sentence was added: clopen subsets of Ẑ^× have this form; Ẑ^× is closed but not open in Ẑ, so "clopen" is relative to Ẑ^×. |
+| D9 | The final equivalence of Prop 2.5 now explains the passage from ET classes to primitive classes. Problem 1's "equivalently" is justified in a parenthesis (square set closed; a clopen set is defined mod M) and reworded to "all but finitely many of the primes 𝒫(Σ)". |
+| D10 | Thm 4.2(iii) split into a (proved) part and a (conditional on H) part. |
+| D11 | Lemma 4.4 now cites [PT2, Lemma 2.1 and §4]. |
+| D12 | Lemma 4.7: "from the factorisation of (f+1)_odd · r^{v_r(f−1)}". |
+| D13 | "ET remark that it also follows from…". The Mordell-hard paragraph now says that it uses only the elementary x = 1 case, so it depends on ET Prop 1.9 but not on Mordell–Schinzel. |
+| D14 | Comp 4.8: "ten test points (six of them carrying certificates, 64 certificates with ck ≤ 2·10⁵ in all)". The w = −15 normalisation is now stated. (The round-1 text of D14 said 66; the correct sum of 3+13+35+7+4+2 is 64.) |
+| D15 | Mordell entry: "Academic Press, London–New York, 1969, Pure and Applied Mathematics 30". The unverified "Chapter 30" was dropped. |
+| D16 | BE: "no. 2" added. MD author names corrected per the arXiv metadata (`citation_author` = "Mihnea, Spiridon" and "Bogdan, Dumitru C."): "S. Mihnea and D. C. Bogdan". The text was changed from "Mihnea–Dumitru" / "Mihnea and Dumitru" to "Mihnea and Bogdan". |
+
+**Note for the parent.** `LITERATURE_2026.md:275` still says "Spiridon Mihnea, Bogdan C. Dumitru". I did not touch it (out of scope); it should be corrected to "Spiridon Mihnea, Dumitru C. Bogdan".
+
+### Build
+
+Two pdflatex passes give 20 pages, 0 overfull boxes and 0 undefined references or citations. The one underfull hbox (Prop 6.2(a)) and the 15 hyperref "Token not allowed in a PDF string" warnings (math in section titles) were already present: I confirmed this by building the original O86 source in /tmp. All are harmless.
+
+### Final recommendation
+
+**Accept as an internally refereed survey note.** D1 is repaired, and no FATAL or MAJOR defects remain.
+
+- The framework (Lemma 2.4, Prop 2.5, Problem 1) is correct as now stated.
+- Labels nowhere exceed the reviewed sources.
+- The certified-computation scopes are stated correctly.
+- ES is clearly stated to be open.
+
+The usual caveats for external submission remain:
+- Mordell, Schinzel and Yamamoto were not accessed.
+- The BE page range is unconfirmed.
+- Several proofs are sketches pointing to internal working notes.
