@@ -41,3 +41,77 @@ martingale-ratio density, Π(1+wη) predictable ⇒ identity. Inflation:
 because χ has a mean-zero factor e(c_ℓθ_ℓ) independent of the rest.
 Pairing A ↔ A∪{ℓ} when ℓ not pivotal: correct (pivotality is per
 realization of (c,c',π), which is what the bound uses).
+
+**Prop 4.1.** E_T𝓡_2((σ_B)_T) = E_{Q'⊗Q'}[1_G(x)1_G(x')Π(1+wh)]/Q'(G)² (Lemma 1.1
+identity applied to σ_B). Inserting the path functional Φ = 1_G⊗1_G in the
+tilting is legitimate (dQ/d(Q'⊗Q') = ΠZ_ℓ, and Π(1+wη) is a path
+functional). For the capped rule `1+η = ℓ^E Σ_a k k' ≤ ℓ^E max k = (1−p̃)^{-1}`
+(heavy: k = U, p̃ = 0, η = 0 exactly), so η ≤ 2p̃(x) as p̃ ≤ δ ≤ 1/2; on
+G_B(x), Π(1+wη) ≤ e^{2B}; Q is a probability, Φ ≤ 1. Correct. (Remark: with
+w ≡ 1 one even has the pointwise `M σ_B(x) ≤ e^{2B}/Q'(G)`, so the result is
+elementary; that is a feature, not a defect.)
+
+**Thm 4.2.** Checked against LS3 Thm 1.1 (needs π_s(c) ≤ ρ/M_s and π_c a
+probability on 𝒜_c — satisfied: σ_c lives on G_{B_c} ⊆ 𝒜_c, non-empty) and
+LS3 Lemma 2.1 (any z-smooth event E with Q'(E) ≤ 1/8; here E is
+c-measurable: E₀, {leak_c > 1/4}, {m_c > 32J}). Leak above z: on light
+steps the plain rule never enters F_ℓ, so E_c leak_c ≤ Σ_{ℓ>z}E[p_ℓ1{heavy}]
+≤ Σ ℓ^{1/2}E p_ℓ² ≤ C z^{−1/4}(log z)^c by (Q2) — fine. Off E:
+Q'_c(G_{B_c}) ≥ 1 − 1/4 − 1/8; (A*) ⇒ (A_w) with w_ℓ = (Kℓ^{−γ})^{2β} ≤ ℓ^{−γβ} < 1;
+Lemma 1.1 + Prop 4.1 ⇒ log𝓡 ≤ 16m_c + log 4 ≤ 512J + log 4. J: K^{2β} ≤ z^{γβ}
+= e^γ, α = 2βγ, α^{−3} = (log N)^{3/4}/(8γ³); partial summation as LS3 Thm 3.1
+(reviewed SOUND). The 16𝔐(z) term has no γ^{−3} but γ ≤ 1 so it is absorbed.
+The statement is an implication from (A*) in the header, the summary row
+and the report; (A*) is nowhere claimed. Honest.
+
+**Lemma 5.1.** Pinned representation: given coins for q ∉ S, the outside
+path is a deterministic function of v and Q'(x_S = v, G) = E_coins[1_G
+Π_{ℓ∈S}k_ℓ(v_ℓ|past)] — correct (coins realise the outside step laws
+independently of v). 0 ≤ Φ ≤ Π(1−δ_ℓ)^{−1}. The Efron–Stein pairing step
+is the same as Lemma 3.1 with Φ real and bounded. Pivotal ⇒ residue: if
+v_ℓ, v'_ℓ ∉ R_ℓ then for EVERY A ∌ ℓ the two pinned paths agree before ℓ;
+at ℓ, F̃_ℓ (⊆ R_ℓ, and = ∅ if heavy) and hence the factor agree; after ℓ no
+class through ℓ is ever matched in either path (its ℓ-component lies in
+R_ℓ), so all activated sets, light/heavy flags, coin outcomes, later
+S-factors, avoider membership and Σwp̃ agree. I checked the "every A"
+quantifier and that R_ℓ must be independent of (v, v', outside coins) —
+it is (deterministic, or c-measurable in Thm 5.2). Bound
+`Q'(G)^{−1}·2^{|S|}·Π(1−δ)^{−1}·Π2U(R_ℓ)` = stated. Correct.
+
+**Thm 5.2.** In the fibre at c the classes through a rough ℓ are those of
+𝔊₂ (⊆ Res_ℓ(𝔊₂)) and those of 𝔊₁ with rough prime ℓ and smooth part
+matched by c, which are exactly F^r_ℓ(c) (top prime ℓ, cofactor z-smooth).
+U(F^r_ℓ(c)) ≤ p_ℓ(x) pointwise for x with smooth part c, so
+Q'(E₁) ≤ Σ_{ℓ>z}ℓ^{1/2}E p_ℓ² as stated. Constants: 2Π16ℓ^{−γ'} ≤ Π32ℓ^{−γ'},
+K = 32 ≤ z^{γ'/2} for N ≥ N₀(γ) (see D1). Correct.
+
+**Cor 5.3.** ℓ > z > H, so −r/s mod ℓ is defined; ≤ (H+1)H ≤ z^{1/2}
+projections mod ℓ; a class mod ℓ^v lies in its class mod ℓ, so
+U(Res_ℓ) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}; then γ' = min(1/2, 1/4) = 1/4. The listed
+examples are H-small: (a,D) is −(4D+a)/1 (K2 Def 2.0), Case A is −1/m with
+m | 4d+1 coprime to G = 4rh, ℛ(M)-classes −4, −1 (D = A), −1/4 (D = A²),
+−4d, −1/(4d) (D = A²/d), −d (D = dA, d | A). All brute-forced.
+
+## Numerical checks (from scratch; EVIDENCE)
+
+* `scripts/review_ls4_toy.py` (40 random toy families, coordinates
+  ℤ/9×ℤ/5×ℤ/7×ℤ/11 or ℤ/5×ℤ/7×ℤ/11×ℤ/13, classes with prime-power
+  components, random caps δ_ℓ ∈ {1/6,1/3,1/2}, half of them residue-sparse;
+  σ = Q'(·|G_B) with B the median damped mass, and σ = Q'(·|avoider)):
+  - Lemma 1.1: identity Σ_S w_S P_S = E_T𝓡_2(σ_T) (rel. err < 1e−9) and the
+    inequality 𝓡_{2+2β} ≤ E_T𝓡_2(σ_T) for w the smallest (uniform or random
+    direction) weights satisfying (A_w); max ratio 0.9986 (nearly tight, never
+    violated);
+  - Prop 4.1: E_T𝓡_2(σ_B) ≤ e^{2B}/Q'(G_B)² in all cases;
+  - Lemma 5.1: |σ̂(θ)| ≤ Q'(G)^{−1}Π4U(Res_ℓ)/(1−δ_ℓ) for every θ ≠ 0 (both G);
+    max ratio over non-trivial bounds 0.243;
+  - Lemma 2.1: E_{σ⊗σ}Π(1+wh) = E_QΠ(1+wη) **exactly** (Fractions, recursion
+    over prefix pairs, always-forbid law on 3 coordinates), and the
+    inflation bound P_Q(x_ℓ=a|past) ≤ U(a)/((1−p)(1−p')(1+wη)) at every node.
+* `scripts/review_ls4_res.py`: Lemma 3.2's divisor criterion for all units
+  v mod Q, Q ≡ 3 (4), Q < 400 (16226 pairs); Cor 5.3 counts for
+  z ∈ {16,…,4096}, 200 primes above each z, including ℤ/ℓ² classes; the
+  H-small examples in ℛ(M) for all M < 4000; Rem 5(c): projections mod ℓ of
+  ℛ(ℓq), q < 3000, cover all ℓ−1 nonzero residues for ℓ = 11, 19, 23
+  (so (RS_γ) genuinely fails for generic ℛ — the author's "open" part is
+  real).
