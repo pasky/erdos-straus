@@ -378,15 +378,19 @@ A \emph{witness-producing program} takes a prime $p$, performs ring
 operations, floor divisions, eventual-sign comparisons, full
 factorisations and loops over the lists so produced, and outputs a
 solution or FAIL; it is \emph{correct} if every solution it outputs is
-genuine, and \emph{bounded} if the number of steps is bounded
-independently of $p$.  For $P\in\Z[X]$ a point $q^*\in\Zh$ is
+genuine, and \emph{bounded} if it uses only these operations, each loop
+running over a list fixed at loop entry (so it halts on every input; the
+number of steps may grow with $p$).  Let $\mathcal H$ be the set of
+primitive irreducible $h\in\Z[X]$ with positive leading coefficient
+(denoted $\mathcal P$ in \cite{PS}).  For $P\in\Z[X]$ a point $q^*\in\Zh$ is
 \emph{square-mimicking} for $P$ if $P(q^*_\ell)$ is the square of a unit
 of $\Z_\ell$ for every prime $\ell$.
 
 \begin{citedthm}[Formal odd-square principle {\cite[Theorem~C,
 Corollary~C1]{PS}}; \status{conditional} on Hypothesis~H]\label{cit:C}
-Let $P=uX+v$ be linear and $q^*$ square-mimicking for $P$ and
-nondegenerate in the sense of \cite[\S1.2]{PS}.  If a correct witness-producing program has a defined and
+Let $P=uX+v\in\mathcal H$ be linear and $q^*$ square-mimicking for $P$
+and nondegenerate for every $h\in\mathcal H$ in the sense of
+\cite[\S1.2]{PS}.  If a correct witness-producing program has a defined and
 finite formal run at $(P,q^*)$, then it outputs FAIL at every admissible
 $q$ (\status{proved}); under Schinzel's Hypothesis~H \cite{SS} for an
 explicit finite family there are infinitely many admissible $q$, and
