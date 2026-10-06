@@ -2518,6 +2518,128 @@ reading (Assessment) is that $1/4$ is a sieve-\emph{dimension} barrier
 (dimension $\kappa\asymp\Lc^3/\log\Lc$, sifting limit $\beta_\kappa\asymp\kappa$, $\log z\asymp\Lc$), not a
 parity barrier.
 
+\section{The exponent \texorpdfstring{$1/3$}{1/3} under a Linnik-type hypothesis for sifted sets}\label{sec:LS}
+
+By \S\ref{sec:wiener}, the heuristic exponent $1/3$ (Remark~\ref{rem:third}) is out
+of reach of linear certificates with standard prime input.  Here we
+identify a natural hypothesis that gives it.  The material is from
+\cite{O16} (internally reviewed).
+
+A \emph{unit-class sieve system} with moduli $\le T$ is a finite family $\mathcal E$ of
+events $\{n\equiv a_E\pmod{m_E}\}$ with $2\le m_E\le T$ and $(a_E,m_E)=1$; no condition is
+imposed on their number, overlaps or dimension.  Its \emph{avoiding set} is
+$S(\mathcal E)=\{n\in\hat{\mathbb Z}^\times:\ n\not\equiv a_E\ (m_E)\ \forall E\}$, and $\delta(\mathcal E)$ is its Haar
+measure (the proportion of units modulo $\lcm(m_E)$ in no event).
+
+\smallskip\noindent\textbf{Hypothesis LS($C$)} (Linnik's theorem for sifted
+sets; a conjecture).  For every $T\ge3$ and every unit-class sieve system $\mathcal E$
+with moduli $\le T$ and $\delta(\mathcal E)>0$ there is a prime $p>T$ avoiding $\mathcal E$ with
+\[
+ \log p\ \le\ C\big(\log T+\log(1/\delta(\mathcal E))\big).
+\]
+
+For a single residue class (all other classes modulo $q$ removed, $T=q$,
+$\delta=1/\varphi(q)$) this is Linnik's theorem.  LS is the log-scale form, not the
+Cram\'er form, of the model in which a sifted set behaves like a residue
+class of the same density, for the purpose of containing one prime.  The
+term $C\log T$ cannot be dropped: shifted Jacobsthal configurations (one
+class modulo each prime $\le z$) have $\delta\asymp1/\log z$ and least avoiding
+integers of size $z^{1+o(1)}$.  The restriction to moduli $\le T$ matters: for an
+arbitrary set of density $\delta$ modulo $Q$ no bound $p\ll\delta^{-1}(\log Q)^{O(1)}$ holds
+(take the units in $(Q(1-\delta),Q)$).
+
+\begin{theorem}[LS implies exponent $1/3$; proved modulo Theorem~\ref{thm:NT}, conditional on LS($C$)]\label{thm:LS}
+Assume LS($C$).  For every large $T$ there is a hard prime $p>T$ with
+$W(p)>T$ and $\log p\ll_C\Lc^3(\log\Lc)^5$.  Consequently, for infinitely many hard
+primes,
+\[
+ W(p)\ \ge\ \exp\big(c_C(\log p)^{1/3}(\log\log p)^{-5/3}\big).
+\]
+LS($C$) is used only for one system $\mathcal E_T$ for each $T$.
+\end{theorem}
+
+\begin{proof}
+Let $\mathcal E_T$ consist of the events $n\equiv-4D\pmod M$ for all atoms $(M,D)$ with
+$M\le T$ (unit classes, as $\gcd(4D,M)=1$), and the events $n\equiv c\pmod{840}$ for
+the unit classes $c$ that are not squares modulo $840$.  Its moduli are
+$\le T$.  Let $(Q,r)$ be the quarantine of Theorem~\ref{thm:haarupper}.  By
+Lemma~\ref{lem:system}(i) the units $n\equiv r\pmod Q$ with $F(n)=1$ have $W(n)>T$,
+so by Lemma~\ref{lem:atoms} they avoid every atom; as $840\mid Q$ and $r$ is a
+square modulo $840$ (Lemma~\ref{lem:system}(iii)), they lie in $S(\mathcal E_T)$.  The
+class $r\bmod Q$ has Haar measure $1/\varphi(Q)$ and within it $\E F=\delta\ge e^{-4S_\beta/3}$, so
+by \eqref{eq:goodQ}
+\[
+ \log\frac1{\delta(\mathcal E_T)}\ \le\ \log\varphi(Q)+\tfrac43S_\beta\ \ll\ \Lc^3(\log\Lc)^5 .
+\]
+LS($C$) gives a prime $p>T$ avoiding $\mathcal E_T$ with $\log p\ll_C\Lc^3(\log\Lc)^5$.  It
+is a square modulo $840$, hence hard, and avoids every atom with $M\le T$, so
+$W(p)>T$ by Lemma~\ref{lem:atoms}.  As $p>T$, letting $T\to\infty$ gives infinitely
+many primes, and $\Lc\gg(\log p)^{1/3}(\log\log p)^{-5/3}$.
+\end{proof}
+
+More generally, LS with $C(\cdot)$ replaced by an increasing function
+$\Phi(\log T+\log(1/\delta))$ gives $\log p\le\Phi(C_0\Lc^3(\log\Lc)^5)$; for instance $\Phi(\lambda)=\lambda^\theta$
+gives the exponent $1/(3\theta)$.  LS is used far below the sieve limit: the
+system has dimension $\kappa\asymp\Lc^3/\log\Lc$ on the big primes, LS asks for
+$\log x\asymp\log(1/\delta)\asymp\kappa\log\Lc$ (up to logarithms), while a lower-bound sieve needs
+$\log x\gg\kappa\log T$.  This ratio $\log T$ versus $\log\log T$ per unit of dimension is
+the gap between $1/4$ and $1/3$.  By Proposition~\ref{prop:EH} and
+Corollary~\ref{cor:orbit}, LS cannot be derived through linear certificates
+from equidistribution hypotheses; it is a beyond-the-barrier hypothesis.
+The planted measures of \S\ref{sec:wiener} do not refute it: they are
+reweightings of Haar measure onto the complement of the avoiding set, not
+sequences of primes.
+
+\emph{Other strengths} \cite[\S\S2,5]{O16}.  (i) A Cram\'er form
+($\log p\le\log(1/\delta)+A\log T$) implies LS($\max(1,A)$); a log-scale counting form
+$\#\{T<p\le x:\ p\in S(\mathcal E)\}\ge c_0\delta^C\pi(x)$ for $\log x\ge C(\log T+\log(1/\delta))$ implies
+LS($C+1$).  (ii) Main-term forms are too strong: in the integer analogue
+(events $n\equiv0\pmod\ell$, $\ell\le z$, at $x=z^u$) the count is $(e^\gamma\omega(u)+o(1))\delta x$ with
+Buchstab's function $\omega$, not $\sim\delta x$ (proved, classical); for primes a
+uniform $\kappa$-tuple heuristic predicts a compounding deficit $(e^\gamma\omega(u))^\kappa$
+(Assessment).  (iii) LS holds, by the Brun--Titchmarsh inequality, for
+systems of total event mass at most $(1-\varepsilon)/2$ (proved); the ES system is
+very far from this case.
+
+\emph{Hypotheses for product sets do not suffice.}  A \emph{product system} has
+only prime-power moduli, so that $S(\mathcal E)=\prod_\ell A_\ell$ is a CRT product with
+$\delta=\prod_\ell|A_\ell|/\varphi(\ell^{e_\ell})$, a singular series.  Let HL$_{\rm prod}$($C$) be LS($C$)
+restricted to product systems; it has the shape of a Hardy--Littlewood or
+Bateman--Horn statement, but is a least-prime hypothesis for growing
+systems, not a standard fixed-polynomial statement.  Let
+$F_T=\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$.
+
+\begin{proposition}[Product subsets of the avoiding set are thin {\cite[Prop.~4.1, Cor.~4.2]{O16}}]\label{prop:product}
+(a) (Proved.) There are product sets $S\subseteq F_T$, inside the hard classes,
+with $\log(1/\delta(S))\le T^{1/2+o(1)}$.  (b) (Proved modulo the
+Barban--Davenport--Halberstam theorem \cite[Ch.~29]{Dav}; ineffective.)  Every
+product set $S\subseteq F_T$ has $\log(1/\delta(S))\gg T^{1/2}(\log T)^{-8}$.  Consequently
+HL$_{\rm prod}$($C$) implies $W(p)\ge(\log p)^{2-o(1)}$ for infinitely many hard $p$, and
+no application of HL$_{\rm prod}$ to a product subset of $F_T$ certifies more
+than $W(p)\ge(\log p)^{2+o(1)}$.
+\end{proposition}
+
+\begin{proof}[Proof of (a)]
+Fix $\varepsilon>0$ and $y=T^{1/2+\varepsilon}$.  Take $A_2=\{1\bmod8\}$ and, for odd $\ell\le y$, the
+quadratic residues (lifted to $\ell^{e_\ell}$).  An atom $(M,D)$ all of whose primes are
+$\le y$ is avoided: $(n/M)=1$ for $n\in S$ while $(-4D/M)=-1$
+(Lemma~\ref{lem:jacobi}).  Every other atom has exactly one prime $\ell>y$, to the first
+power; let $B_\ell$ be the set of its classes $-4D\bmod\ell$ and $A_\ell=(\mathbb Z/\ell)^\times\setminus B_\ell$
+for $y<\ell\le T$.  Then $S$ avoids all atoms, and
+$|B_\ell|\le\sum_{v\le T/\ell}\tau(A_{v\ell}^2)\le T^{1/2-\varepsilon+o(1)}\le\ell/2$, so
+$\log(1/\delta(S))\le\pi(y)\log2+O(1)+\sum_{\ell>y}2|B_\ell|/(\ell-1)\le T^{1/2+\varepsilon+o(1)}$.
+\end{proof}
+
+Part (b) \cite[Prop.~4.1(b)]{O16} uses only the atoms $(\ell_1\ell_2,q)$ with
+primes $\ell_1\equiv1$, $\ell_2\equiv3\pmod4$ in $(\sqrt T/2,\sqrt T]$ and a prime
+$q\mid(\ell_1\ell_2+1)/4$: since $S$ is a product, each such atom must be blocked
+at $\ell_1$ or at $\ell_2$, which forces $\gg T^{1/2}(\log T)^{-2}$ blocked classes per
+prime on average once the primes $\ell$ are equidistributed modulo $4q$ on
+average over $q\le\sqrt T(\log T)^{-6}$.  So the ES avoiding set, of density
+$e^{-\Lc^{3+o(1)}}$, exceeds its best product subset by a factor $e^{T^{1/2+o(1)}}$:
+hypotheses that see only prime-by-prime local structure are useless here,
+and the hypothesis must apply to non-product sifted sets, as LS does.
+
 \section{Summary of status}\label{sec:status}
 
 \begin{itemize}
