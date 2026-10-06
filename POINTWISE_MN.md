@@ -48,3 +48,33 @@ By (d) there are none for `m ≡ 0 (4)`. For `m ≢ 0 (4)` they are a positive p
 (`M ≤ 5·10⁴`: m=5: 68 642 of 363 982; m=6: 56 964/293 117; m=7: 38 355/244 129;
 m=10: 29 704/159 390). Smallest examples: `m=5: (M,D)=(9,1)` (class 4 ≡ 2² mod 9),
 `(29,1)` (class 24 ≡ 13² mod 29); `m=6: (5,1)` (class 4); `m=7: (13,2)` (class 12 ≡ 5²).
+
+## 2. For m ≢ 0 (mod 4) the square-class process fires: a precise obstruction
+
+**Proposition 2.1 (PROVED).** Let `m ≢ 0 (mod 4)`. There are infinitely many primes
+`ℓ ≡ −1 (mod m)` such that the prime atom `M = ℓ` has event classes in *both* cosets of the
+squares mod ℓ. Hence for any rule that reveals `r mod ℓ` uniformly inside a coset of the squares
+(either coset, chosen by any rule), the prime atom `M = ℓ` fires with probability `≥ 2/(ℓ−1) > 0`.
+
+*Proof.* It suffices to find ℓ prime, `ℓ ≡ −1 (m)`, `ℓ ≡ 1 (4)`, and a prime `q | A = (ℓ+1)/m`
+with `(q|ℓ) = −1`: then `D = 1` and `D = q` (both divide `A²`) give classes `−m`, `−mq` with
+Legendre symbols of ratio `(q|ℓ) = −1`.
+* `m` odd: take `q = 2` and `ℓ ≡ −1 (mod m)`, `ℓ ≡ 5 (mod 8)` (compatible). Then `ℓ+1 ≡ 6 (8)`,
+  so `2 | A`, and `(2|ℓ) = −1`.
+* `m ≡ 2 (mod 4)`: take an odd prime `q ≡ 3 (4)`, `q ∤ m`, and `ℓ ≡ −1 (mod mq)`, `ℓ ≡ 1 (mod 4)`
+  (compatible, as `v_2(mq) = 1`). Then `q | A` and, by Lemma 1.1's reciprocity step,
+  `(q|ℓ) = (−1|q) = −1`.
+Dirichlet's theorem gives infinitely many such ℓ. ∎
+
+Examples: `m=5`, `ℓ=29` (`A=6`, classes `−5D`, `D|36`, contain both residues and
+non-residues); `m=6`, `ℓ=5` (`A=1`, class `4 = 2²`, so the squares coset itself is hit).
+
+*Scope.* In the OMEGA13 process every prime `ℓ ≤ Y` whose fibre mass exceeds `η ≍ 1/log 𝓛` is
+stepped; the Haar mass through a fixed small prime is `≫ 𝓛³/ℓ`, so fixed small ℓ
+(e.g. 29 for m=5) are always stepped. So the square-class process of OMEGA13 §3 does not run for
+`m ≢ 0 (4)`, and no "random square class of a fixed quadratic character pattern" replaces it.
+More generally, Lemma 1.1(b),(c) show that the Jacobi symbol `(−mD|M)` is a function of
+`(M mod 8, e mod 8)`, and for a fixed M it takes both values as D varies whenever A has a prime
+`q ≡ 3 (4)` (M ≡ 1 (4)) or `t` varies (M ≡ 3 (8)); a coset `k·□` of the squares has
+`(k|M)` depending on M only, so it cannot separate the event classes for those M. What survives
+for every m: atoms with `M ≡ 7 (mod 8)` are never square-consistent (Lemma 1.1(b)).
