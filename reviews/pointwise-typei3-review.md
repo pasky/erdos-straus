@@ -126,3 +126,7 @@ re-verified line by line with exact integers by `review_typei3_check.py`.
    overflow; the `(m',k')` table (400 000) exceeds the maximum `∏(E+1)(E+2)/2=91 854` over odd 7-free
    `A≤2.5·10¹¹` (my DP over non-increasing exponent vectors); `MAXF=16` distinct primes suffices. Hit
    detection precedes the `u128` reconstruction, so overflow there could only garble *printed* hits.
+7. **Independent re-run of Computation 2.1 to `10¹¹`** (my engine, 2 cores, ≈1 h): `[1,10⁸)`,
+   `[10⁸,5.5·10¹⁰)`, `[5.5·10¹⁰,10¹¹)`: 3 571 429 + 1 960 714 285 + 1 607 142 857 = 3 571 428 571 values of f
+   (equal to the author's total 3 571 429 + 1 782 142 857 + 1 785 714 285), **0 certificates**.
+   So `f<10¹¹` at `x̂_9` is now CERTIFIED by two independent engines; `[10¹¹,10¹²)` remains one engine.
