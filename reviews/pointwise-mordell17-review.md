@@ -90,7 +90,7 @@ Re-derived independently (my parametrisations differ from the author's code, see
 * §4 numerics re-checked (`scripts/review_m17_tail.py`): "≈0.84" is 0.8447 ✔; the sufficient
   hypothetical bounds (`D_Q+D_U ≤ 17^{k/2}`, `k≥8`; `D_P(K) ≤ 17^{K/4}`, `K≥11`) give tail 0.0070 < 0.01 ✔.
 
-### Claim C — Computation 3.1: see verdict below (levels ≤4 independently REPRODUCED)
+### Claim C — Computation 3.1: **SOUND** (independently reproduced through level 5, and the Q/U part of level 7)
 
 Independent engine: `scripts/review_m17_enum.c` (my own parametrisations, different loops from the
 author's `m17_enum.c`):
@@ -110,9 +110,15 @@ Results (identical in `C_5` and `C_7`):
 | 2 | 0.235294 | 0.235294 |
 | 3 | 0.314879 | 0.314879 |
 | 4 | 0.321799 | 0.321799 |
+| 5 | 0.322793 (exact: uncovered 56561/83521 = 0.677206930…) | 0.322793 |
+| 7 (Q,U only; P for K≤9) | 0.322797 (uncovered 16346035/24137569) | 0.322797 |
 
 Data counts agree exactly with the author's: `D_Q(k)` = 2, 0, 73, 0, 245, 0, 707 (k=1..7); `D_U(k)` = 4, 0,
 68, 0, 310, 0, 826; `D_P(K)` = 2, 0, 32, 0, 121, 0, 258, 0 (K=1..8; K=8 computed, 0 as predicted by the
-reciprocity argument). √Q boxes: 0 at every level. u = 5, 7 lie in no box of level ≤4.
-The author's P-engine output for K=7 coincides with mine (392 distinct boxes mod 17⁴, equal sets).
+reciprocity argument); `D_P(9)` = 604. √Q boxes: 0 at every level. **u = 5, 7 lie in no box of level ≤5
+and in no Q/U box of level ≤7** ✔. P is closed under inversion level by level, and the union is exactly
+inversion-symmetric ✔. Level-2 boxes in C_5: {56, 107, 226, 243} mod 289 ✔.
+Box sets of the two engines coincide: P K=7 (392 boxes mod 17⁴) and P K=9 (782 boxes mod 17⁵) equal.
+(My P-mode is the slow one: K=9 took 1 h 55 min; the author's 6 min. My first K=9 output overflowed
+u64 when printing f* — caught by the raw-condition asserts and fixed; f* is now rebuilt exactly.)
 Completeness cross-check against the raw Prop 1.9 brute force (M ≤ 10⁶): 0 missing (Claim A).
