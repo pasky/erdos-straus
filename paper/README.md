@@ -1,6 +1,20 @@
 # Paper draft status
 
-**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v5** (task O64, 51 pages). The proof of
+**New: `es-subexp-note.tex` / `.pdf`, v6** (task O77, 62 pages; refereed R77, D1–D9 applied). The proof of the main
+theorem is unchanged. New §12 (source `POINTWISE_TAIL.md`, ledger (H)33): quantitative transfer
+(Lemma 12.3), leaves of the square-class process and level-0 step counts (Lemmas 12.4–12.5), the
+lower tail `#{p≤x hard: W(p)>T} ≥ π(x)e^{−C𝓛³(log𝓛)³}` for `log x ≥ C𝓛⁴log𝓛` (Thm 12.1, full
+proof, mod Gallagher + NT) and the two-sided tail exponent 3 over primes (Cor 12.2, also mod [TQ]
++ Page; intro Thm 1.3). New §15 "Other numerators m/n" (sources `POINTWISE_MN.md`,
+`POINTWISE_MN2.md`, ledger (H)32): Jacobi dichotomy (Lemma 15.1, full proof), square classes fire
+for `m≢0 (4)` (Prop 15.2, full proof), exponent 1/4 and Haar exponent 3 for `m≡0 (4)`, exponent
+1/5 for every m incl. 5/n, transfer for arbitrary classes (full proof), 1/4 conditional on
+ADM_m and its reduction to SI (substitution proofs summarised with pointers). Novelty paragraphs
+revised per `reviews/novelty-audit-2026-10b.md` (ET Remark 1.2, Vaughan, β-LLL standard,
+Janson = Boppana–Spencer + HSS, planting vs BGP Thm 27, transfer = packaging of Gallagher).
+Change list: `reviews/agent-reports/AGENT_REPORT_O77.md`.
+
+**v5 (2026-10-05): `es-subexp-note.tex` / `.pdf`** (task O64, 51 pages). The proof of
 the main theorem (exponent 1/4, mod Gallagher + Nair–Tenenbaum) is unchanged from v4; v5 adds
 the surrounding picture from ledger (H)28–(H)30. New §11 (via the atoms of the 3/4 note,
 INTERNALLY PROVED, inputs BV/BT/Shiu, ineffective; source `CEILINGS_UNIFIED.md`): Haar lower
