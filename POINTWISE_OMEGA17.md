@@ -127,3 +127,43 @@ conditionally on it.)
 So in an exchangeable model, support awareness does **not** help against
 fundamental-lemma-accuracy information: the obstruction is again at level `n≍R`. §4 explains
 why this does not transfer to the ES instance.
+
+## 4. Why the ES instance resists integer fakes: the small coordinates
+
+In the ES system the big bits are independent only *conditionally on the small coordinates*
+`x_s`, with probabilities `p_ℓ(x_s)=Σ_{e at ℓ}a_e(x_s)/(ℓ−1)`, `a_e:=1[n≡−4D_e (v_e)]` (O14
+Lemma 2.1; distinct residues assumed for simplicity), and conditional odds-mass
+`R(x_s)≥μ*≍𝓛³/log𝓛` (O14 Thm 4.5). The deep planted law is exact because it conditions on all
+of `x_s` (modulus `lcm(v≤T^{0.4})=e^{T^{0.4}(1+o(1))}`). A shallow fake must handle `x_s` with low
+degree, and the certificate sees `x_s` through small classes with *very* high accuracy.
+
+**Lemma 4.1 (no x_s-uniform exchangeable fake; PROVED).** Let `I⊂(0,∞)` be an interval and f a
+polynomial with `f(0)=0`. Then `E_{N~Poisson(R)}f(N)=1` cannot hold for all `R∈I`.
+*Proof.* `g(R):=Σ_jf(j)R^j/j!−e^R` is entire and vanishes on I, hence identically; comparing
+coefficients, `f(j)=1` for all j, contradicting `f(0)=0`. ∎
+So any fake of the form `f(N)` (fixed f) tilts the small-coordinate law by
+`w(x_s):=E[f(N)|x_s]≠1` wherever `R(x_s)` varies, and `R(x_s)` does vary (its fluctuations are
+`≍𝓛` around `μ≍𝓛³`, O14 Lemma 2.3).
+
+**The same for x_s-centred shallow fakes.** `y_ℓ:=z_ℓ−p_ℓ(x_s)` is shallow (level `≤T`), so
+`ψ':=e_n(p(x_s))+e_n(y)` (n odd) is shallow, `≥0` iff the multivariate Charlier ψ of Cor 3.2
+is, vanishes on avoiders, and is exact on all juntas of `<n` big coordinates *given* `x_s`; but
+its small-coordinate marginal is tilted by `w(x_s)=e_n(p(x_s))/Ee_n(p)≈(R(x_s)/ER)^n`.
+Removing the tilt needs `1/e_n(p(x_s))`; a polynomial approximation of `1/R^n` on the range of
+R to relative accuracy ε needs degree `≫n+log(1/ε)` in R, i.e. level `T^{0.4(n+log(1/ε))}`.
+
+**Assessment 4.2 (the precision requirement).** A small class `C_s` at a prime `q∈(y,T^{0.6}]`
+shifts `R(x_s)` by `≍w_q≤𝓛³/(2q)` (HAAR Lemma 2.3), so a tilted fake is off on `C_s` by a
+relative `≍n w_q/R≍𝓛³/(q log𝓛)` — polynomially small in 𝓛. Unconditional prime information on
+such a class has relative accuracy `e^{−c\log x/\log q}=e^{−c𝓛³}` (Gallagher/Vinogradov–Korobov
+type, at `log x≍𝓛⁴`), and a certificate that is to beat the avoider density
+`δ*=e^{−Θ(𝓛³)}` (CEILINGS_UNIFIED Prop 1.1) must use accuracy of this order somewhere. So the
+tilt is detectable in principle, and the untilting costs level `T^{0.4·Θ(𝓛³)}=e^{Θ(𝓛⁴)}>x`.
+The obvious repair — use only events whose small dependence is shallow (`v∈V`, `lcm(V)≤x^ε`) —
+leaves odds-mass `≪𝓛²` (the `𝓛/log y` factor of O14 Lemma 2.2 comes from all `v≤T^{0.4}`),
+whose planting obstructs only `log x≲𝓛³`, the range where no avoider prime is expected anyway.
+
+*Reading.* The Haar ceiling is a sieve-dimension statement about *one* conditional system; its
+integer realisation needs the conditioning on `x_s` to be shallow, and in the ES instance it is
+not. This is the precise reason why the support-aware question is not settled by "discretising
+the planted law", and it does not by itself suggest a certificate either.
