@@ -323,7 +323,7 @@ modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³
 modulo `4ast−1`, and where its logarithm falls**. That is an Artin / discrete-log equidistribution
 question for one fixed base, many moduli, and a fixed exponent K. Divisor-bound methods (ET,
 Lenstra, CHN, Nicolas–Robin) treat `N` as an arbitrary integer and never see the special form
-`N=17^K`. That is why they stop at `N^{2/5+o(1)}` ineffectively and at `O(N)` effectively, and why
+`N=17^K`. That is why they stop at `N^{2/5+o(1)}` with non-explicit constants (R83 round-2 repair r2, applied by reviewer) and at `O(N)` explicitly, and why
 no method of that kind can reach the `N^{1/2−δ}` that is needed.
 
 **Assessment after round 2.** (a) Nesting: U contributes nothing (PROVED); Q⁻¹ = Q; the new-box
