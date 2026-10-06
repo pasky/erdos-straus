@@ -4,7 +4,7 @@
 Segmented sieve over [1, N); for each threshold T in 7,15,31,...,TMAX record the least p with
 W(p) > T (W capped at TMAX), and the count.
 
-Usage: PYTHONPATH=scripts uv run python scripts/omega16_esleast.py TMAX N [SEG]
+Usage: PYTHONPATH=scripts uv run python scripts/omega16_esleast.py TMAX N [SEG [LO]]   (scans [LO, N))
 """
 import sys, json, math
 import numpy as np
@@ -21,7 +21,8 @@ def main():
     small = np.array(list(primerange(2, int(math.isqrt(N)) + 2)), dtype=np.int64)
     best = {t: None for t in ts}
     count = {t: 0 for t in ts}
-    lo = 0
+    lo = int(float(sys.argv[4])) if len(sys.argv) > 4 else 0
+    lo -= lo % 24
     while lo < N:
         hi = min(N, lo + SEG)
         seg = np.ones(hi - lo, dtype=bool)
@@ -55,7 +56,7 @@ def main():
             ti += 1
         lo = hi
         print(json.dumps({'upto': hi, 'best': best}), file=sys.stderr, flush=True)
-    print(json.dumps({'TMAX': TMAX, 'N': N, 'least_p_W_gt_T': best, 'count_W_gt_T': count}))
+    print(json.dumps({'TMAX': TMAX, 'LO': int(float(sys.argv[4])) if len(sys.argv) > 4 else 0, 'N': N, 'least_p_W_gt_T': best, 'count_W_gt_T': count}))
 
 
 if __name__ == '__main__':
