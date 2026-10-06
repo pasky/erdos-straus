@@ -83,7 +83,12 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        Lemma 9.3 thresholds; RSPW LP rows (scipy);
   (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (dual simplex; sympy primal agrees);
   (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake
-       (scipy + mpmath; skipped otherwise).
+       (scipy + mpmath; skipped otherwise);
+  (dn) EXCEPTIONAL_LARGESIEVE4: Lemma 1.1 identity + damped-collision inequality toys, Lemmas 2.1,
+       5.1, Prop 4.1 toys, Lemma 3.2, Cor 5.3 residue counts and named small-height classes;
+  (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels (heights, compatibility H1 H2 >= g/2);
+  (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound and Thm 5.1 (+ sub-bounds) on exact R71 toys,
+       author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -20506,6 +20511,70 @@ def check_do():
 
 print("\n== (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels, heights, compatibility ==")
 check_do()
+
+
+
+# ---------------------------------------------------------------- (dp)
+# EXCEPTIONAL_LARGESIEVE6.md Prop 4.2 (Walsh/XOR-cover soft-pivotal bound), Lemma 4.1, Thm 5.1
+# (single rough prime, fixed fibre) on toys (EVIDENCE; cf. scripts/review_ls6_exact_toy.py (R71,
+# all expectations EXACT), largesieve6_softpivotal_toy.py (author, seeded Monte Carlo),
+# review_ls6_walsh.py; all imported / run, they assert internally).  Checked:
+# (1) R71 exact toy, truncated forbidding delta = 1/2, pool (2,3,5,7) with 8 classes (seed 2) and
+#     pool (2,3,5) with 8 classes (seeds 1-4): for every S with |S| <= 2, max|sigma^| <= pinned
+#     bound (2.1) <= Prop 2.2 and <= Prop 4.2 (4.1); for |S| = 1 also Thm 5.1's bound and its three
+#     sub-bounds (hard, V_dir, per-r tail);
+# (2) author toy, pool (3,5,7,11), 30 classes, 1000 samples (seed 1): exact <= Prop 2.2, Prop 4.2
+#     for |S| <= 3 and Lemma 4.1's first inequality pointwise on every sample/subcube;
+# (3) R71 cube checks of Lemma 4.1 (both inequalities) and Lemma 2.1(b),(c).
+
+def check_dp():
+    from time import perf_counter
+    import io
+    import contextlib
+    import importlib.util
+    import os
+    import runpy
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    R = load("review_ls6_exact_toy")
+    recs = R.run(2, (2, 3, 5, 7), 8)                      # asserts (2.1), Prop 2.2, (4.1), Thm 5.1
+    for sd in (1, 2, 3, 4):
+        recs += R.run(sd, (2, 3, 5), 8)
+    assert len(recs) == 10 + 4 * 6, ("LS6 R71 exact toy: wrong number of supports", len(recs))
+    n51 = sum(1 for r in recs if "t51" in r)
+    assert n51 == 4 + 4 * 3, ("LS6 Thm 5.1: singleton count", n51)
+    w42 = max(r["lhs"] / r["p42"] for r in recs)
+    w51 = max(r["lhs"] / r["t51"] for r in recs if "t51" in r)
+    assert w42 <= 1 and w51 <= 1, ("LS6 Prop 4.2 / Thm 5.1 toy ratios", w42, w51)
+    A = load("largesieve6_softpivotal_toy")
+    res, Z = A.run(1, pool=(3, 5, 7, 11), ncls=30, nsamp=1000)     # asserts exact <= P2.2, P4.2; Lemma 4.1
+    a42 = max(ex / b42 for S, ex, bD, b22, b42 in res)
+    assert len(res) == 4 + 6 + 4 and a42 <= 1 and A.CHECKS[0] == 42230, ("LS6 author toy", len(res), a42, A.CHECKS)
+    buf = io.StringIO()
+    old_argv = sys.argv
+    try:
+        sys.argv = ["review_ls6_walsh.py", "1"]
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, "review_ls6_walsh.py"), run_name="__main__")
+    finally:
+        sys.argv = old_argv
+    out = buf.getvalue()
+    assert "Lemma 4.1 ok" in out and "Lemma 2.1 ok" in out, ("LS6 R71 Walsh / cube Leibniz", out)
+    print(f"dp R71 exact toys: {len(recs)} supports, max |sigma^|/Prop 4.2 = {w42:.3f}, {n51} singletons "
+          f"max |sigma^|/Thm 5.1 = {w51:.3f} (sub-bounds ok); author MC toy: max exact/Prop 4.2 = {a42:.3f}, "
+          f"{A.CHECKS[0]} Lemma 4.1 pointwise checks; R71 Lemma 4.1 / 2.1 cube checks; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound, Thm 5.1 single rough prime (toys) ==")
+check_dp()
 
 
 print("\nall checks passed")
