@@ -19935,4 +19935,73 @@ print("\n== (dg) POINTWISE_OMEGA14 §1: Lemma 1.1 planting (exact), toy LP thres
 check_dg()
 
 
+
+# ---------------------------------------------------------------- (dh)
+# POINTWISE_OMEGA15.md §1-2 (Lemma 1.1 pseudorandomness of the planted perturbation; Lemma 2.3
+# forced accuracy; cf. scripts/omega15_pseudorandom.py, review_o15_lemma11.py, review_o15_lemma23.py,
+# all imported).  Checked:
+# (1) Lemma 1.1 closed form E_sigma_J[prod h_b] = -prod_J (gamma - beta) prod_{I\J} gamma: brute
+#     force over tiny product spaces equals the closed form, exact rationals (40 instances);
+# (2) Lemma 1.1 bound under (1.0) (R >= (k+1)+(2k+1)r*, p* <= 1/8): |E_rho h| <= (4r*)^{k+1} and
+#     E_rho h = 0 for |I| <= k on random/adversarial reduced products, k = 0, 1, 2 (exact);
+# (3) R57's from-scratch toy planted systems (nu built from the definition, small coordinate s,
+#     2^n bit sum): nu >= 0, nu(0) = 0, k-marginals = mu, the bound and |rho| <= P0 2^{k+1};
+# (4) Lemma 2.3(a),(b) with actual primes in fibres H = {r mod Q}, q > x prime or q1 q2:
+#     class error >= 1/2, sum_chi |S(chi)|^2 = phi(q) N', character / additive lower bounds.
+
+def check_dh():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import random
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    A = load("omega15_pseudorandom")
+    B = load("review_o15_lemma11")
+    C = load("review_o15_lemma23")
+    rng = random.Random(15)
+    t1, b1 = A.check_identity(rng, 40)
+    assert t1 == 40 and b1 == 0, ("OMEGA15 Lemma 1.1 closed form vs brute force", t1, b1)
+    t2, b2, w2 = A.check_bound(rng, ks=(0, 1), trials=20)
+    t3, b3, w3 = A.check_bound(rng, ks=(2,), trials=3)
+    assert b2 == 0 and b3 == 0, ("OMEGA15 Lemma 1.1 bound (4r*)^(k+1) / zero for |I| <= k", b2, b3)
+    worst = max(w2, w3)
+    assert worst <= 1, ("OMEGA15 Lemma 1.1 worst ratio", worst)
+    rng = random.Random(57)
+    done, worst3, ks = 0, 0.0, set()
+    while done < 40:
+        res = B.trial(rng, adversarial=(done % 2 == 1))     # asserts internally
+        if res is None:
+            continue
+        done += 1
+        ks.add(res[0])
+        worst3 = max(worst3, res[2])
+    assert worst3 <= 1, ("OMEGA15 Lemma 1.1 (R57 toy) ratio", worst3)
+    n23 = 0
+    for Q, r in [(1, 0), (3, 1), (4, 3), (5, 2), (7, 3)]:
+        for x in [30, 60]:
+            for q in [x + 1, x + 7, 2 * x + 1, 3 * x + 5, 5 * x + 3]:
+                f = factorint(q)
+                if (len(f) == 1 and q in f) or (len(f) == 2 and all(v == 1 for v in f.values())):
+                    if gcd(q, Q) != 1:
+                        continue
+                    if C.check_A(Q, r, x, q) is not None:          # asserts (a), (b), identity
+                        n23 += 1
+    assert n23 >= 15, ("OMEGA15 Lemma 2.3: too few cases", n23)
+    print(f"dh Lemma 1.1: closed form = brute force on {t1} instances; bound + zero (|I| <= k) on {t2 + t3} "
+          f"reduced products (k = 0..2, worst ratio {float(worst):.2e}); R57 toy systems: 40 trials (k in "
+          f"{sorted(ks)}, worst {worst3:.2e}); Lemma 2.3 (a),(b): {n23} (Q, r, x, q) cases; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dh) POINTWISE_OMEGA15: Lemma 1.1 pseudorandomness (toy planted systems), Lemma 2.3 ==")
+check_dh()
+
+
 print("\nall checks passed")
