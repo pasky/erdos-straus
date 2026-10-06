@@ -2461,6 +2461,90 @@ for the obstruction (as $F\le\mathbf 1[\text{no event of }\mathcal F]$), while t
 minorant of Theorem~\ref{thm:assembly} is built differently.
 \end{remark}
 
+\section{The distribution of \texorpdfstring{$W$}{W} over primes}\label{sec:tail}
+
+Theorem~\ref{thm:typical} bounds the number of primes $p\le x$ with $W(p)>T$
+from above.  Here we prove a matching lower bound in almost the same range,
+so that the Haar exponent $3$ of Theorem~\ref{thm:haar} is also the tail
+exponent of $W$ over primes.  Write
+\[
+ N(x,T)=\#\{p\le x\ \text{prime}:\ W(p)>T\},\qquad
+ N_h(x,T)=\#\{p\le x\ \text{hard prime}:\ W(p)>T\}.
+\]
+
+\begin{theorem}[Lower tail; proved modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:lowertail}
+There are absolute constants $C,T_0$ such that for $T\ge T_0$ and every $x$ with
+$\log x\ge C\Lc^4\log\Lc$,
+\[
+ N(x,T)\ \ge\ N_h(x,T)\ \ge\ \pi(x)\exp\big(-C\Lc^3(\log\Lc)^3\big).
+\]
+\end{theorem}
+
+The threshold $\log x\ge C\Lc^4\log\Lc$ is the threshold of
+Theorem~\ref{thm:assembly} for the existence of one such prime: counting
+costs nothing in range.  The constants $C,T_0$ are effective, given that the
+implied constants of Theorem~\ref{thm:NT} are.
+
+\begin{corollary}[The tail exponent of $W$ over primes is $3$; proved modulo Theorems~\ref{thm:G}, \ref{thm:NT}, \cite{TQ} and Page's theorem]\label{cor:twosided}
+There are absolute constants $c,C,c'>0$ and $T_0$ such that for $T\ge T_0$ and
+$\Lc=\log T\le c'(\log x/\log\log x)^{1/4}$,
+\[
+ c\,\Lc^3\ \le\ \log\frac{\pi(x)}{N(x,T)}\ \le\ C\,\Lc^3(\log\Lc)^3 .
+\]
+In particular $\log\log(\pi(x)/N(x,T))=(3+o(1))\log\log T$ in this range.
+\end{corollary}
+
+\begin{proof}
+The lower inequality is Theorem~\ref{thm:typical}, whose range
+$\Lc\le c_1(\log x)^{1/4}$ contains ours if $c'\le\min(1,c_1)$; its implied
+constant is absorbed for $T\ge T_0$.  The upper inequality is
+Theorem~\ref{thm:lowertail}: if $c'\le\min(1,(4/C)^{1/4})$, then
+$\log\Lc\le\frac14\log\log x$ and $C\Lc^4\log\Lc\le\frac C4c'^4\log x\le\log x$.
+\end{proof}
+
+The constant $c$ comes from \cite{TQ} and is not effective; $C$ is.  The two
+ranges differ by the factor $(\log\log x)^{1/4}$, which is the factor $\log\Lc$
+in the junta bound $\log Z\ll\Lc^4\log\Lc$; by Proposition~\ref{prop:ceiling4}
+no minorant on a fibre can work below $\log x\asymp\Lc^4$ (Assessment: this is
+the natural range limit of the method).  For comparison, \cite[Remark~1.2]{ET}
+suggest heuristically that a prime $p$ has an Erd\H{o}s--Straus representation
+with probability $1-O(\exp(-c\log^3p))$; Theorem~\ref{thm:haar} and
+Corollary~\ref{cor:twosided} are rigorous statements of this exponent $3$ for
+the witness modulus $W$, on the Haar side and over primes.
+
+\subsection*{Counting primes on a fibre}
+The proof of Theorem~\ref{thm:transfer} gives more than one prime.
+
+\begin{lemma}[Quantitative transfer; proved modulo Theorems~\ref{thm:xz} and~\ref{thm:G}]\label{lem:qtransfer}
+Assume the hypotheses of Theorem~\ref{thm:transfer}.  Let $x$ satisfy
+$\log x\ge C_2(1+\log A)\log Z$, and let $\beta_1$, $\chi_1$, $q_1$ be the possible
+exceptional zero of Theorem~\ref{thm:G} for the parameter $Q_G=x^{1/(\kappa L)}$ of
+that proof, its character and the conductor of $\chi_1$.  Then
+\[
+ \#\{p\le x:\ p\equiv r\ (\mathrm{mod}\ Q),\ W(p)>T\}\ \ge\ \lambda\,\frac{\mu\,x}{3\varphi(Q)\log x},
+\]
+where $\lambda=1$ unless $\beta_1$ exists and $q_1\mid Q$, and in that case
+$\lambda=\min\big(1,\,8c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}\big)$, with $c_2$ from
+Theorem~\ref{thm:xz}.
+\end{lemma}
+
+\begin{proof}
+Nothing in the proof of Theorem~\ref{thm:transfer} uses more about $x$ than
+$\log x\ge C_2(1+\log A)\log Z$, and it bounds $S(x)$ from below in each case.
+In Case~0, and in the exceptional case when no $\chi$ with $c(\chi)\ne0$ has
+$\chi^*=\chi_1$, it gives $S(x)\ge(1-1/400-1/200)\mu x/\varphi(Q)$.  In Case~B it
+gives $S(x)\ge\mu x/(3\varphi(Q))$.  In Case~A (where $\chi$ is trivial on $H$, so
+$q_1\mid Q$) it gives $S(x)\ge0.98\lambda'\mu x/\varphi(Q)$ with
+$\lambda'\ge\min(u,1)/2$, $u=(1-\beta_1)\log x\ge16(1-\beta_1)$; by
+Theorem~\ref{thm:xz}, $u\ge16c_2^{-1}q_1^{-1/2}(\log q_1)^{-2}$, so
+$0.98\lambda'\ge\lambda/3$.  (If $q_1\nmid Q$, the character $\chi$ with
+$\chi^*=\chi_1$ is not trivial on $H$, so we are in Case~B or $\chi$ does not
+occur.)  In all cases $S(x)\ge\lambda\mu x/(3\varphi(Q))$.  Every term of
+$S(x)=\sum_{p\le x,\,p\nmid N_0,\,p\equiv r\,(Q)}B(p)\log p$ is at most $\log x$, and a
+term with $B(p)>0$ has $W(p)>T$, because $B(p)\le\mathbf 1[W(p)>T]$ for these $p$
+(they are coprime to all $d_i$).
+\end{proof}
+
 \section{Beyond bounded level: a Wiener-norm barrier for linear certificates}\label{sec:wiener}
 
 Theorem~\ref{thm:ceiling} concerns minorants of bounded level.  Here we show
