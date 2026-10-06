@@ -253,16 +253,26 @@ For in-cell boxes the hypotheses hold: for Q, `17|c` forces box `≡1` (§2), an
 boxes are balls around the rationals `−a/b` built from an ES point.
 
 **Lemma 5.2 (U is never new; PROVED).** Every (U)-box meeting `C_5∪C_7` lies inside a (P)-box of
-strictly lower level with the same centre. In particular (U)-boxes add no measure, and (U) is empty at
-even levels.
+level `≤ k` with the same centre. The P-box level is strictly lower for `k ≥ 2`. Level-1 boxes miss
+the cells (Comp. 3.1). (R83 round-2 repair n1, applied by reviewer.) In particular (U)-boxes add no
+measure, and (U) is empty at even levels (for *all* U-data, not only in-cell ones; see the end of the
+proof).
 *Proof.* Take a (U)-datum `(a,b,e)` with `a=17^α a'`, `b=17^β b'`, `α+β=k`, and WLOG `α≥β`. Put
 `c=(a+b)/e` and `e+1=4i a'b'`. Then `4ia'b'c = a+b+c`.
-If `17|i`, then `e≡−1` and the box is `≡1`, which is not in a cell; so `17∤i`.
+If `17|i`, then `e≡−1` and the box is `≡1`, which is not in a cell. So for the containment claim we
+may assume `17∤i`. The parity claim below does not use this assumption.
 *Case α>β.* `v_17(a+b)=β` and `17∤e`, so `c=17^β c'` with `17∤c'`. Dividing by `17^β` gives
 `4ia'b'c' = 17^{α−β}a' + b' + c'`. This is (2.15) for `(A,B,C,D)=(b',c',a',i)` with `N'=17^{α−β}`, and
 `17∤CD`, so it is a (P)-datum (Lemma 2.3). By Lemma 5.1(ii) its box is `−b'/c' (mod 17^{⌈(α−β)/2⌉})`.
 On the other side, `e = (17^{α−β}a'+b')/c' ≡ b'/c' (mod 17^{α−β})`. So the U-box `−e (mod 17^k)` lies in
-that P-box, whose level is `⌈(α−β)/2⌉ < k`. Moreover `α−β` must be odd (ET Prop 1.6: `f_II(17^{2j})=0`).
+that P-box, whose level is `⌈(α−β)/2⌉ ≤ k`. Equality holds only for `(α,β)=(1,0)`, i.e. `k=1`
+(R83 round-2 repair n1, applied by reviewer). Moreover `α−β` must be odd. The identity
+`4ia'b'c' = 17^{α−β}a'+b'+c'` uses only `17∤e`, not `17∤i`, and it makes `(b',c',a',i)` an N-point of
+`Σ^II_{N'}`. For *any* N-point `(A,B,C,D)` of `Σ^II_{N'}`, `f=4ACD−1 ≡ −1 (mod 4D)` gives `(−D/f)=−1`.
+From (2.21), `f | 4C²DN'+1`, so `(−N'D/f)=1`. Hence `(N'/f)=−1`, and `N'` is not a square (the
+argument of Lemma 1.3). So `α−β` is odd, and so is `k=α+β`, for every U-datum. If `17|i` the point is
+not a Type II solution, so the *statement* of ET Prop 1.6 would not suffice. (R83 round-2 repair n2,
+applied by reviewer.)
 *Case α=β.* Then `ce = 17^α(a'+b')`. If `17^α ∤ c`, then `17 | e`, which is impossible. So `c=17^α c''` and
 `4ia'b'c'' = a'+b'+c''`, i.e. `4i = Σ 1/(pairwise products) ≤ 3`, which is impossible. ∎
 
