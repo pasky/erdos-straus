@@ -121,47 +121,111 @@ Theorem~\ref{thm:NT} is the Nair--Tenenbaum bound \cite{NT} for sums of
 multiplicative functions of several polynomials, quoted in the form of
 Henriot \cite{Henriot}; it is used once, to bound Haar-weighted divisor sums
 over the moduli $M=4n-1$ (Lemma~\ref{lem:masses}).  The Elsholtz--Tao
-estimates used in the previous version are no longer needed.  All
-constants are effective, except that we have not checked whether the
-implied constants in \cite{NT} are.  We make no numerical claim.
+estimates used in the third version are not needed.  The constants in
+Theorem~\ref{thm:main} are effective, except that we have not checked whether
+the implied constants in \cite{NT} are; the results proved modulo \cite{TQ}
+below have ineffective constants.  We make no numerical claim.
 
-Let $\delta^*(T)$ be the Haar measure of $\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$
-relative to the class $n\equiv1\pmod{24}$ (\S\ref{sec:moment}).
+\emph{Typical size.}  Theorem~\ref{thm:main} is about the extreme primes.  For
+the typical prime, $W(p)$ is small: large values have a cubic-exponential
+tail.
 
-\begin{theorem}[Haar exponent $3$; proved modulo Theorem~\ref{thm:NT} and the fundamental lemma]\label{thm:haar}
-For large $T$,
+\begin{theorem}[Proved modulo \cite{TQ} and Page's theorem]\label{thm:typicalintro}
+There are absolute $c,c_1>0$ such that, uniformly for $x\ge3$ and
+$\log T\le c_1(\log x)^{1/4}$,
 \[
- c\,\frac{(\log T)^3}{\log\log T}\ \le\ \log\frac1{\delta^*(T)}\ \le\ C(\log T)^3(\log\log T)^5 .
+ \#\{p\le x:\ W(p)>T\}\ \ll\ \pi(x)\,e^{-c(\log T)^3}.
 \]
-The upper bound is proved modulo Theorem~\ref{thm:NT}
-(Theorem~\ref{thm:haarupper}); the lower bound is proved modulo the
-fundamental lemma of sieve theory (Theorem~\ref{thm:haarlower}).
 \end{theorem}
 
-The exponent of $\log p$ in Theorem~\ref{thm:main} is governed not by the
-Haar density but by the level of the minorant used to transfer it to
-primes, and this level cannot be lowered.
+This is Theorem~\ref{thm:typical}.  It uses the atom family of the companion
+note \cite{TQ} (internally proved, not externally refereed; inputs
+Bombieri--Vinogradov, Brun--Titchmarsh and Shiu) and, for small $T$, the prime
+number theorem in progressions with a Landau--Page term.  At
+$\log T\asymp(\log x)^{1/4}$ it is the prime case of the exceptional-set bound
+$E(N)\ll Ne^{-c(\log N)^{3/4}}$ of \cite{TQ}.  Together with
+Theorem~\ref{thm:main} it describes both ends of the range: for
+$\log T\le c_1(\log x)^{1/4}$ the primes $p\le x$ with $W(p)>T$ have relative frequency
+at most $e^{-c(\log T)^3}$, and once $\log x\ge C(\log T)^4\log\log T$ such primes
+exist.
 
-\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma]\label{thm:ceilingintro}
+\emph{The Haar exponent.}  Let $\delta^*(T)$ be the Haar measure of
+$\{n\in\hat{\mathbb Z}^\times:\ W(n)>T\}$ relative to the class $n\equiv1\pmod{24}$
+(\S\ref{sec:moment}).
+
+\begin{theorem}[Haar exponent $3$; proved modulo Theorem~\ref{thm:NT} and \cite{TQ}, see below]\label{thm:haar}
+For large $T$,
+\[
+ c\,(\log T)^3\ \le\ \log\frac1{\delta^*(T)}\ \le\ C(\log T)^3(\log\log T)^5 .
+\]
+The upper bound is proved modulo Theorem~\ref{thm:NT}
+(Theorem~\ref{thm:haarupper}).  The lower bound is proved modulo \cite{TQ}
+(Proposition~\ref{prop:haarnoloss}); with $(\log T)^3/\log\log T$ in place of
+$(\log T)^3$ it is proved modulo the fundamental lemma of sieve theory alone
+(Theorem~\ref{thm:haarlower}).
+\end{theorem}
+
+\emph{The ceiling.}  The exponent of $\log p$ in Theorem~\ref{thm:main} is
+governed not by the Haar density but by the level of the minorant used to
+transfer it to primes, and this level cannot be lowered.
+
+\begin{theorem}[Proved modulo Theorems~\ref{thm:xz}, \ref{thm:G} and the fundamental lemma; sharpened modulo \cite{TQ}]\label{thm:ceilingintro}
 There are absolute $c,T_0>0$ such that for $T\ge T_0$, every modulus $Q$ with
 $\log Q\le T^{0.05}$ and every unit $r$ modulo $Q$: if $B$ is a linear
 combination of functions $n\mapsto\phi(n\bmod qQ)$ with
 $\log q\le c(\log T)^4/\log\log T$, and $B(n)\le\mathbf 1[W(n)>T]$ for all units
-$n\equiv r\pmod Q$, then the Haar mean of $B$ on this class is $\le0$.
+$n\equiv r\pmod Q$, then the Haar mean of $B$ on this class is $\le0$.  Modulo
+\cite{TQ}, the same holds with $\log q\le c(\log T)^4$.
 \end{theorem}
 
-This is Theorem~\ref{thm:ceiling}.  Consequently
-(Corollary~\ref{cor:ceiling}) every argument that certifies a hard prime
-with $W(p)>T$ through a minorant of positive Haar mean and a transfer
-theorem costing $\log x\gg\log(\text{level})$, as ours does, has
-$\log x\gg(\log T)^4/\log\log T$: such arguments cannot give
-$W(p)\ge\exp((\log p)^{1/4+\delta})$, and Theorem~\ref{thm:main} is optimal among
-them up to a factor $(\log\log p)^{1/2}$ in $\log W(p)$.  It also shows that
-the energy bound used for the sandwich cannot be sharpened for this purpose
-(Corollary~\ref{cor:notail}).  If primes behaved like a set of Haar density
-$\delta^*(T)$, Theorem~\ref{thm:haar} would suggest $\log W(p)\approx(\log p)^{1/3}$
-for the extremal primes; reaching this needs prime input that is not a
-bounded-level minorant (Remark~\ref{rem:third}).
+This is Theorem~\ref{thm:ceiling} and Proposition~\ref{prop:ceiling4}.
+Consequently (Corollary~\ref{cor:ceiling}) every argument that certifies a
+hard prime with $W(p)>T$ through a minorant of positive Haar mean and a
+transfer theorem costing $\log x\gg\log(\text{level})$, as ours does, has
+$\log x\gg(\log T)^4/\log\log T$ (and $\gg(\log T)^4$ modulo \cite{TQ}): such
+arguments cannot give $W(p)\ge\exp((\log p)^{1/4+\delta})$, and
+Theorem~\ref{thm:main} is optimal among them up to a factor
+$(\log\log p)^{1/2}$ in $\log W(p)$, or $(\log\log p)^{1/4}$ modulo \cite{TQ}.  It
+also shows that the energy bound used for the sandwich cannot be sharpened
+for this purpose (Corollary~\ref{cor:notail}).  The level $(\log T)^4$ is the
+product of the log-size $\log T$ of the moduli and the dimension $(\log T)^3$ of
+the sieve formed by the events with one large prime factor.  The same
+product, read at the budget $\log N$ of an integer sieve instead of the
+budget $\log x$ of a prime transfer, gives the exceptional-set exponent $3/4$
+of \cite{TQ} (Remark~\ref{rem:unified}).
+
+\emph{Beyond the ceiling.}  The planted law behind
+Theorem~\ref{thm:ceilingintro} is exponentially pseudorandom against
+residue classes, Dirichlet characters and additive characters of
+\emph{every} modulus (Lemma~\ref{lem:pseudo}).  So every minorant $B$ of any
+level has $\E B\le e^{-c(\log T)^4/\log\log T}\|B\|_\times$, where $\|B\|_\times$ is the $\ell^1$
+norm of its coefficients in classes and characters
+(Theorem~\ref{thm:wiener}).  As a consequence, linear certificates with
+full-orbit uniform error accounting cannot beat the exponent $1/4$, whatever
+true prime input they use, including Bombieri--Vinogradov,
+Elliott--Halberstam, GRH restricted to moduli $\le x$, and Siegel-model main
+terms (Corollary~\ref{cor:orbit}, Proposition~\ref{prop:EH}).  If primes
+behaved like a set of Haar density $\delta^*(T)$, Theorem~\ref{thm:haar} would
+suggest $\log W(p)\approx(\log p)^{1/3}$ for the extremal primes.  We isolate a
+hypothesis that gives this.
+
+\begin{theorem}[Conditional on Hypothesis LS; proved modulo Theorem~\ref{thm:NT}]\label{thm:LSintro}
+Assume that every system of unit-class congruences $n\not\equiv a_E\pmod{m_E}$ with
+$m_E\le T$ whose solution set has Haar density $\delta>0$ contains a prime $p>T$
+with $\log p\le C(\log T+\log(1/\delta))$ (Hypothesis LS, ``Linnik's theorem for
+sifted sets'').  Then $W(p)\ge\exp\big(c_C(\log p)^{1/3}(\log\log p)^{-5/3}\big)$ for
+infinitely many hard primes $p$.
+\end{theorem}
+
+This is Theorem~\ref{thm:LS}.  For a single residue class LS is Linnik's
+theorem.  It is not reachable by the linear certificates above
+(\S\ref{sec:wiener}), and the analogous hypothesis restricted to CRT product
+sets (a Hardy--Littlewood-type singular series) gives only
+$W(p)=(\log p)^{2\pm o(1)}$ (Proposition~\ref{prop:product}).  Altogether, with
+$\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
+minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
+Haar heuristic and LS give $(\log p)^{1/3-o(1)}$, and typical primes have
+$W(p)>T$ with relative frequency at most $e^{-c\Lc^3}$.
 
 \emph{Versions.}  The first version of this note had exponent $1/14$; it used
 the Thorner--Zaman theorem \cite{TZ} through the transfer theorem of
@@ -170,17 +234,17 @@ the linear transfer theorem (Theorem~\ref{thm:transfer} here), and bounded
 the approximation error by Håstad's switching lemma.  The third had exponent
 $1/5$: it replaced the switching lemma by the energy bound
 (\S\ref{sec:energy}) and used a graded class-of-one quarantine, whose cost
-was bounded with four results of Elsholtz and Tao.  The present version
-keeps the energy bound, the sandwich and the transfer theorem, and changes
-the quarantine: a random square class, a $\beta$-weighted local lemma and a
-supermartingale bookkeeping (\S\ref{sec:system}) with Haar masses bounded by
-the Nair--Tenenbaum theorem (\S\ref{sec:moment}).  The third version also had
-an unconditional bound $\log W(p)\ge(1/\log2-o(1))\log\log p\cdot\log\log\log p$
-modulo Gallagher's theorem alone; we drop it, since Theorem~\ref{thm:main}
-now needs only Gallagher's theorem and the published Nair--Tenenbaum
-theorem.  New are also the Haar lower bound (\S\ref{sec:haarlower}), which
-was cited from companion work in the third version, and the ceiling
-(\S\ref{sec:ceiling}).
+was bounded with four results of Elsholtz and Tao.  The fourth version
+reached $1/4$ by a new quarantine: a random square class, a $\beta$-weighted
+local lemma and a supermartingale bookkeeping (\S\ref{sec:system}) with Haar
+masses bounded by the Nair--Tenenbaum theorem (\S\ref{sec:moment}); it added
+the Haar lower bound (\S\ref{sec:haarlower}) and the ceiling
+(\S\ref{sec:ceiling}).  The present fifth version leaves the proof of
+Theorem~\ref{thm:main} unchanged and adds: the typical size, the Haar lower
+bound without logarithmic loss and the ceiling at level $(\log T)^4$, all via
+the atoms of \cite{TQ} (\S\ref{sec:atoms34}); the Wiener-norm barrier and its
+consequences for linear certificates (\S\ref{sec:wiener}); and the
+conditional exponent $1/3$ (\S\ref{sec:LS}).
 
 \subsection*{The method}
 Fix $T$.  We restrict $n$ to a class $n\equiv r\pmod Q$, with
