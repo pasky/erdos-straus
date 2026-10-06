@@ -104,3 +104,53 @@ and every finite Type-I covering of `{n_p=7}` has height `>1.32·10¹¹`
 Theorem A built from `x̂_9`, X=1.32·10¹¹)* infinitely many hard primes have
 `n_p=7` and `ck_min(p)>1.32·10¹¹`; so `C(7)>1.32·10¹¹` under H.
 *Proof.* As POINTWISE_TYPEI2 Cor 3.3, with Computation 2.1 + Lemma 1.2 in place of Computation 3.2. ∎
+
+## 4. The sign fibre: f-graded near-miss mass (EVIDENCE / Assessment)
+
+Fibre `Φ={x̂_w : w∈9+16ℤ_2}`, Haar measure on `w` normalised to 1. By Lemma 1.1,
+for each `f≡7 (16)` (both roles force this when `t≥4`) the certificates having
+divisor `f` kill the union of two nested-ball families, i.e. at most the two balls
+`−f+2^{t_min}ℤ_2` and `−f^{−1}+2^{t_min}ℤ_2`, where `t_min(f)` is the least
+admissible `t≥4` over all `(m',k',v,a,s)` with `2^sR≡−1 (f)` (`t=⌈(s+2)/2⌉`).
+(`t≤3` certificates would kill all of Φ; Computation 2.1 shows none has
+`f<10¹¹`.) `typei3_fsearch 7 9 lo hi mass` prints `t_min(f)` and the per-bin
+union-bound mass `Σ 2·2^{4−t_min}` (t capped at 40); `typei3_union.py` computes the
+exact measure of the union of the balls.
+
+| f-range | f with t_min≤40 | mass in bin | uncovered measure of Φ (exact union) |
+|---|---|---|---|
+| < 2¹⁰ | 5 | 0.125 | — |
+| [2¹⁰,2²⁰) | 72 | 0.59 | 0.6636 (f<2²⁰) |
+| [2²⁰,2²⁸) | 140 | 0.15 | 0.6412 (f<2²⁸) |
+| [2²⁸,2²⁹) | 30 | 0.063 | 0.6103 |
+| [2²⁹,2³⁰) | 27 | 0.0011 | 0.6103 |
+| [2³⁰,2³¹) | 35 | 0.0012 | 0.6103 |
+| [2³¹,2³²) | 42 | 0.0016 | 0.6100 |
+| [2³²,10¹⁰) | 39 | 0.0003 | 0.6099 |
+
+Observations. (a) The number of f per dyadic bin that carry any near miss grows
+slowly (≈10 → ≈40). (b) But `t_min(f)` grows like `½log₂f` (least `t_min` in bin
+`2^j`: 8–15 for j≤27, 15–19 for j=29–33), so the 2-adic weight `2^{4−t_min}` decays
+like `f^{−1/2}`, and the mass per bin decays (spikes such as j=28, `t_min=9`, are
+isolated). (c) Hence ≈61% of the fibre survives all certificates with
+`f<10¹⁰` (in particular with `ck≤1.3·10¹⁰`), and the decrement over the last five bins is
+`3·10⁻⁴`.
+
+*Assessment.* If `t_min(f)≥½log₂f−C` persists and the number of near-miss f per bin
+grows only polylogarithmically, the expected number of certificates at a
+Haar-random `w` with `f≥10¹¹` is `≈Σ_{j≥37} 40·2^{5−j/2}≈2·10⁻³`. This supports
+Conjecture 3.4 for `x̂_9`, and suggests the stronger statement: **the sterile
+points of Φ have positive measure (≈0.61)**. Note this differs from the ck-graded
+§5 of POINTWISE_TYPEI2: a small `f` produces near misses at all heights
+`ck=2^{t−2}n` with `t` in an arithmetic progression, so the ck-grading spreads one
+f over many bins.
+
+**Remark 4.1 (measure route; PROVED reduction).** Theorem A(iii) needs *some*
+sterile point, not `x̂_9`. If `μ(U_Y)>Σ_{f≥Y}mass(f)`, where `U_Y⊂Φ` is the
+(computed) set surviving all `f<Y`, then Φ contains a sterile point, so
+`C*(7)=∞` under H. With `Y=10¹⁰`, `μ(U_Y)≈0.61`. So an explicit tail bound
+`Σ_{f≥10¹⁰} 2^{5−t_min(f)}<0.6` would suffice. This is a counting problem: bound
+the near misses with `t≤T` by `o(2^{T})` explicitly. It is open. A Lenstra-type
+bound (≤11 divisors of n in a class mod s ≥ n^{1/3}) applied to the
+parametrisation (2.1) gives only `#certificates(level) ≪ Λ^{1/2}`. That exponent is
+exactly borderline in the `γ`, `b` directions of the level sum.
