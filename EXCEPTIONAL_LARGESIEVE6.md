@@ -342,7 +342,8 @@ all primes rough): `Γ(m) = Π_{p^e∥m}(1−δ_p)^{−1}` (K2), for a class C
 
     μ̄(ℓ)     = Σ_{C∋ℓ, top(C)>ℓ} w_{top(C)} Γ(G_C)/G_C                (damped mass through ℓ)
     m_{>r}   = Σ_{C: top(C)>r} w_{top(C)} Γ(G_C)/G_C                   (damped mass beyond r)
-    ν_{>r}(p) = Σ_{C∋p, top(C)>r} w_{top(C)} Γ(G_C) p^{v_p(G_C)}/G_C  (… through p, with p's factor removed)
+    ν_{>r}(P) = Σ_{C: P⊆primes(G_C), top(C)>r} w_{top(C)} Γ(G_C) Π_{p∈P}p^{v_p(G_C)}/G_C
+                                     (… through the prime set P, their factors removed; ν_{>r}(∅) = m_{>r})
     Λ_{>ℓ}   = Σ_{q>ℓ} E_{Q′^{(ℓ)}}[p_q 1{p_q > δ_q}]                   (leak beyond ℓ)
 
 `Q′^{(ℓ)}` is Q′ with the ℓ-kernel replaced by the uniform law; its kernels
@@ -353,7 +354,7 @@ for it, also conditionally on the past (as for Q′).
 `S = supp θ = {ℓ}` and let w be non-increasing in q. Then
 
     |σ̂_tilt(θ)| ≤ Z^{−1} [ 4E_{Q′}p_ℓ + 8Λ_{>ℓ} + 8μ̄(ℓ)
-                  + 64 Σ_{C∋ℓ, top(C)>ℓ} (Γ(G_C)/G_C)·( m_{>top(C)} + Σ_{p|G_C} ν_{>top(C)}(p) ) ].
+                  + 64 Σ_{C∋ℓ, top(C)>ℓ} (Γ(G_C)/G_C)·Σ_{P⊆primes(G_C)} ν_{>top(C)}(P) ].
 
 *Proof.* Two corners, paths `x` (value v at ℓ) and `x′` (value v′),
 equal below ℓ; each has law `Q′^{(ℓ)}`. `Ψ = H·g_ℓ·e^{−2Y}` with
@@ -383,13 +384,14 @@ gives `E[Y_{>r}(x) | 𝓕_{≤r}] ≤ Θ_r(x_{≤r})`,
 P(C matched off-top by x or x′, x matches C′ below r)`, and the last
 probability is `≤ 2Γ(L)/L`, `L` the lcm of the two congruence moduli (one
 congruence class if compatible, else 0; when the ℓ-conditions fall on
-different corner values v, v′ the probability is even smaller). If C′
-shares no prime `< r` with C, `Γ(L)/L ≤ Γ(G_C)r^{v}G_C^{−1}·
-Γ(G′_{<r})/G′_{<r}`, and summing over C′ gives at most
-`m_{>r} + ν_{>r}(r)` (the second for `r | G_{C′}`, whose r-factor was
-dropped); if C′ shares a prime p of `G_C` (choose one), the gain is
-`≥ p^{v_p(G_{C′})}` and the C′-sum is `≤ ν_{>r}(p)`. So
-`E[1{τ=r}Θ_r(x_{≤r})] ≤ 8Σ_{C∋ℓ, top r}(Γ(G_C)/G_C)(m_{>r} + Σ_{p|G_C}ν_{>r}(p))`,
+different corner values v, v′ the probability is even smaller). Let
+`P₀` be the set of primes `< r` shared by `G_C` and `G_{C′}`. Since
+`lcm(a,b) ≥ a·b_{P₀^c}` (b's part at primes not dividing a),
+`Γ(L)/L ≤ Γ(G_C)r^{v}G_C^{−1}·Γ(G′_{<r})Π_{p∈P₀}p^{v_p(G_{C′})}/G′_{<r}`;
+multiplying by `a_{C′}` (whose r-factor was dropped) and summing over
+C′ with given `P₀` and given `[r | G_{C′}]` gives at most
+`ν_{>r}(P₀)` resp. `ν_{>r}(P₀∪{r})`. So
+`E[1{τ=r}Θ_r(x_{≤r})] ≤ 8Σ_{C∋ℓ, top r}(Γ(G_C)/G_C)Σ_{P⊆primes(G_C)}ν_{>r}(P)`,
 the same for `x′`, and
 `E[1{τ=r}min(1, 2Y_{>r}(x) + 2Y_{>r}(x′))] ≤ 32·Σ_{C∋ℓ, top r}(…)`.
 Collect: `2E min(1,2|ΔY|) ≤ 4EV_dir + 2Σ_r 32(…)`. ∎
@@ -417,8 +419,8 @@ the exceptional event, as in LS4 Thm 5.2's `E₁`):
 * (FM1) `E p_ℓ ≤ (log ℓ)^c/ℓ` and `Λ_{>ℓ} ≤ Cℓ^{−1/4}(log ℓ)^c` — K2 (Q4),
   Lemma 4.3 (proved there, on average over c).
 * (FM2) the damped mass through ℓ with polylog weights:
-  `Σ_{C∋ℓ, top(C)>ℓ} w_{top}Γ(G_C)(1+ω(C))(log top)^{A}/G_C ≤ C_A ℓ^{−1}·(γβ)^{−O(1)}`,
-  and for `p ≤ r`: `m_{>r}, ν_{>r}(p) ≤ C w_r (log r)^{A}(γβ)^{−1}`.
+  `Σ_{C∋ℓ, top(C)>ℓ} w_{top}Γ(G_C)2^{ω(C)}(log top)^{A}/G_C ≤ C_A ℓ^{−1}·(γβ)^{−O(1)}`,
+  and for every set P of primes `≤ r`: `ν_{>r}(P) ≤ C w_r (log r)^{A}(γβ)^{−1}`.
   Partial summation reduces (FM2) to "mass through a fixed prime p with
   top q" bounds `Σ_{C∋p, top(C)=q}Γ(G_C)p^{v}/G_C ≤ (log q)^{c}/q` **on average
   over q** — for ℛ(M) this is `Σ_q(w_q/q)·avg_m τ(A²_{pqm})` with
