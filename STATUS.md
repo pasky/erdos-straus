@@ -242,13 +242,12 @@ Papers in `paper/`:
 * `energy-dnf-note` (new, 17 pp): the energy bound C-1 on product spaces and
   sharp-rate DNF Fourier tails `W^{>t} ≤ 4·2^{−(t+1)/k}` (refereed internally,
   R50 minor revision applied; novelty hedged).
-* `es-subexp-note` v5: `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o.,
-  typical size `#{p≤x: W(p)>T} ≪ π(x)e^{−c(log T)³}`, the Haar avoider
-  exponent is 3, 1/4 is the ceiling of the Haar-minorant + transfer
-  architecture (and of full-orbit uniform linear certificates), and the
-  conjecture LS ("Linnik for sifted sets") gives 1/3 (refereed internally
-  five times: R33, R33b, R47, R56, R64; novelty audit
-  `reviews/novelty-audit-omega8.md`). A v6 adding the two-sided tail
+* `es-subexp-note` v6: `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o.,
+  tail exponent 3 of W over primes (two-sided), the Haar avoider exponent 3,
+  1/4 as the ceiling of the Haar-minorant + transfer architecture, the
+  conjecture LS ⇒ 1/3, and the m/n analogues (refereed internally six times:
+  R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
+  `reviews/novelty-audit-2026-10b.md`). A v6 adding the two-sided tail
   (`POINTWISE_TAIL.md`) is in preparation (task O77; not yet merged).
 
 Authorship and the citation form for astra are still undecided.
