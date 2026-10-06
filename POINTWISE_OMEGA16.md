@@ -117,3 +117,47 @@ So "primes in sifted sets of dimension κ *with main term*" (brief item (i)) is,
 stated, too strong; the deficit is the Buchstab/Maier phenomenon (periodic sets of period
 `lcm≫x` sampled by an archimedean window). The correct strength is the log-scale existence
 statement LS. EVIDENCE for (b) at toy scale: §6.
+
+## 3. Brief item (i): equidistribution hypotheses (EH, GEH, …) give exactly the 1/4 ceiling
+
+**Proposition 3.1 (EH-type input caps at 1/4; PROVED implication from O14 Thm 4.5 and O15
+Cor 2.4/Prop 2.5, same inputs: (G), effective Page, fundamental lemma).** Let 𝓘 be any
+hypothesis about the primes `p≤x` that only concerns their distribution in residue classes,
+Dirichlet characters or additive characters of moduli `≤x` (with any error terms and any
+averaging over moduli): e.g. EH(θ) or GEH(θ) for any `θ<1`, GRH, BV. Every certificate of
+"`∃p≤x` prime, Mordell-hard, `W(p)>T`" of the minorant type — `B≤F` on a fibre, B a combination
+of functions of those moduli, concluding `Σ_{p≤x}F(p)≥Σ_{p≤x}B(p)>0` from 𝓘 — needs
+
+```
+log x ≥ c𝓛^4/log𝓛 ,       i.e.  certified  log W(p) ≪ (log p·log log p)^{1/4}.
+```
+
+*Proof.* All functions used have modulus `≤x`, so B has level `≤x` on the fibre in the sense of
+O14 Setting 2.0. O14 Thm 4.5: if `log x≤c𝓛^4/log𝓛` then `E_HB≤0`; and a certificate from
+equidistribution needs `Σ_pB(p)≈N_xE_HB>0` up to the errors granted by 𝓘, which (since every
+function of modulus `≤x` has a translation orbit within the family) are subject to O15 Cor 2.4
+and Prop 2.5 (orbit-uniform, Hölder-averaged): the planted fake `N_xν` satisfies every such
+statement with `E B` computed under ν equal to that under Haar (level `≤x<D`), so it is
+consistent with 𝓘 at the true accuracy whenever `log x≤c𝓛^4/log𝓛`, and gives `∫F dm_ν=0`. ∎
+
+*Comments.* (a) Raising θ (BV `1/2` → EH `1−ε`) changes only the constant c; even a
+hypothetical level `x^A`, A fixed, changes only c. The level a sieve needs is `log D≍𝓛^4/log𝓛`,
+i.e. `D=x^{(𝓛/log𝓛)^{1+o(1)}}` when `log x≍𝓛³`; beyond level x the primes are *not*
+equidistributed (O15 Lemma 2.3). So no level-of-distribution hypothesis reaches 1/3. (b) What
+1/4 means here: 1/4 is already PROVED unconditionally up to `(log log p)^{1/2}` (O13 Thm 5.1);
+EH adds nothing to the exponent. (c) "Primes in sifted sets of dimension κ *with main term*"
+(Bombieri/Friedlander–Iwaniec asymptotic-sieve style) is *not* of type 𝓘: it asserts the
+count in the sifted set directly. Its constant-factor and asymptotic forms are too strong
+(Prop 2.1); its log-scale form PS_log is a strengthening of LS. Thus item (i), correctly
+formulated, collapses to LS. (d) Maynard–Tao weights detect *some* primes among κ forms; they do
+not produce elements of a κ-dimensional sifted set below the sieve limit, which is what ES needs
+(every event must fail). Assessment.
+
+*The dimension count behind 1/3 vs 1/4.* On the fibre, the big-prime events form a sieve of
+dimension `κ≍𝓛³/log𝓛` (conditional odds-mass `R≍κ`, O14 §2) with sifting range `z=T`. The
+avoider density is `δ=e^{−Θ(κ)}` up to logs, while a sieve needs `s=log D/log z≫κ`
+(sieve limit `β_κ≍κ`), i.e. `log D≫κ𝓛`. LS asks for `log x≍log(1/δ)≍κ`: a factor `𝓛=log z`
+below the sieve limit. The Jacobsthal-type example `κ=1` (one class mod each `ℓ≤z`) shows the
+`log T` term in LS cannot be dropped, but there `κ log z` and `log T` coincide; no example is
+known where a κ-dimensional unit-class sieve with moduli `≤T` has no prime (or integer) avoider
+below `exp(C(log T+log(1/δ)))` (Assessment; toy search §6).
