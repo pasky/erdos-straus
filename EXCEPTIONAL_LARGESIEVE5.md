@@ -11,6 +11,12 @@ Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`
 |---|---|---|
 | Lemma 1.1 | caps are inherited by subfamilies: it suffices to prove the all-level cap for the **full** forced family `𝔊_X` (all classes of the four types with modulus ≤ X), uniformly in X | PROVED (trivial) |
 | Lemma 1.2 | **rational labels**: every forced class is `−r/s mod G` with `r, s ≤ G²`; two classes with *different* labels that agree mod g have height product `≥ g/2` | PROVED (elementary) |
+| Prop 2.1 | **tilted fibre law** `σ ∝ Q'·1_𝒜·e^{−2Σw_ℓp̃_ℓ}`: damped collision `≤ Z^{−2} ≤ e^{6m_c+1}` — LS4's (B) without a global threshold; Thm 4.2 / Thm 5.2 of LS4 hold verbatim with it | PROVED |
+| Rem 2.2 | LS4's threshold-conditioned law `σ_B` is unsuitable for pivotal bounds at large support (every coordinate moves `Σwp̃`) | Assessment |
+| Lemma 3.1 | **label partition**: (CC) in the product model = exact `Π_{ℓ∈S}ℓ^{−1}` × a sum over partitions and *distinct* labels; same-label coincidences collapse exactly | PROVED |
+| §4 | what remains: cross-label S-coincidences (C2) and outside sharing (C3); pointwise divisor-in-residue-class bounds (Lenstra/CHN) do **not** suffice because of *short witnesses*; (LCH) stated | Assessment; (LCH) CONJECTURE |
+| Cor 4.2 | (CC) in the product model for `|S| ≤ c₀ log log N` | SKETCH (gap: moments of `τ(A²)` over shared primes) |
+| §5 | toy: exact covering probabilities for the full ℛ family on 6 primes: per-prime correlation loss ≤ 1.42 for |S| ≤ 4 | EVIDENCE |
 
 ## 1. Two elementary reductions
 
@@ -276,3 +282,23 @@ violating it is known.
 > over distinct labels `λ_1,…,λ_k` and witness moduli of
 > `Π_j[λ_j ∈ Λ(G_j)]·[compatibility at every shared prime]/lcm(outside parts)`
 > is `≤ Π_j (C(log X)^C)^{|U_j|}·2^{O(|S|)}`.
+
+## 5. Numerics (EVIDENCE only)
+
+`scripts/largesieve5_cover_toy.py`, full ℛ(M) family over the pool
+{7, 11, 19, 23, 31, 43} (every `M | Π pool`, `M ≡ 3 (4)`: 1428 classes),
+product model by exact enumeration of all `4.49·10⁷` points:
+* [1] Lemma 1.2: every class is represented by its label; over the 15307
+  pairs of congruent distinct labels, `min H₁H₂/(g/2) = 2.000` (≥ 1 as
+  proved).
+* [2] `P(E_S)/Π_{ℓ∈S}P(ℓ covered)`: max 1.56 (|S|=2), 2.44 (|S|=3),
+  4.09 (|S|=4) over all S; per prime `ratio^{1/|S|} ≤ 1.42`. So on this
+  toy the covering events are positively correlated only by a bounded
+  factor per prime — the behaviour (CC) needs (with K ≈ 1.4), far from
+  the `2^{|S|}`-per-prime losses of the union bounds of §4. (Toy scale:
+  coverage probabilities 0.12–0.47, not the asymptotic regime.)
+
+## Replay
+
+    ulimit -v 8000000
+    timeout 900 env PYTHONPATH=scripts uv run --with numpy python scripts/largesieve5_cover_toy.py
