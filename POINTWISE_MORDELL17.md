@@ -313,7 +313,7 @@ satisfy `17∤abcd`. So **the prime-power structure enters only through the resi
   missing is a bound on how many pairs have any admissible divisor at all.
 * ET's `N^{2/5+o(1)}` uses the pointwise divisor bound. With Nicolas–Robin constants the exponent
   is `≥ 0.6` for every `K ≤ 40`.
-So the P-tail is equivalent in difficulty to an explicit "small residues of `17^K` modulo `4ab`"
+So (Assessment; R83 round-2 repair n6, applied by reviewer: was "equivalent in difficulty") closing the P-tail amounts to an explicit "small residues of `17^K` modulo `4ab`"
 statement: `#{(a,b): ab≤17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`. Heuristically it is
 `≈ Σ_{a≤b, ab≤N} τ(a+b)/(4ab) ≍ (log N)³` (R83 round-2 repair n6, applied by reviewer: formula was garbled). I see no unconditional route.
 
