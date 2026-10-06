@@ -107,23 +107,33 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). Unconditionally (modulo Thorner–Zaman and Elsholtz–Tao Prop 1.4),
-`W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
-Mordell-hard primes (`POINTWISE_OMEGA13.md` Thm 5.1, modulo Gallagher's
-theorem, Nair–Tenenbaum and the campaign's energy bound; chain:
-`POINTWISE_OMEGA8.md` 1/14 → `POINTWISE_OMEGA9.md` 1/7 →
-`POINTWISE_OMEGA10.md` energy bound → `POINTWISE_OMEGA11.md` 1/6 →
-`POINTWISE_OMEGA12.md` 1/5 → 1/4; each step doubly reviewed; ledger
-(H)16–(H)26). The profinite (Haar) avoider exponent is exactly 3 up to logs
-(`POINTWISE_HAAR.md` + `POINTWISE_OMEGA13.md` Thm 3.4), so the heuristic
-prime-side truth is 1/3. Exponent 1/4 is provably the ceiling of this
-Haar-minorant + Gallagher-transfer architecture (`POINTWISE_OMEGA14.md`
-Thm 4.5, Cor 4.6; ledger (H)27); 1/3 would need bilinear/parity-type prime
-input.
-This supersedes the polylogarithmic results (`POINTWISE_OMEGA3.md`, every
-fixed power of log p). So no pointwise multiplier mechanism whose witness
-moduli are `≤ exp((log p)^{1/4−ε})` can prove ES. The heuristic truth is `log W ≍ (log p)^{1/3}`
-(POINTWISE_SIZE §7).
+scale). **Pointwise state (ledger (H)16–(H)33):**
+* *Rate.* `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
+  Mordell-hard primes (`POINTWISE_OMEGA13.md` Thm 5.1, PROVED modulo
+  Gallagher's theorem, Nair–Tenenbaum and the campaign's energy bound; chain
+  OMEGA8 1/14 → OMEGA9 1/7 → OMEGA10 energy bound → OMEGA11 1/6 → OMEGA12
+  1/5 → 1/4, each step doubly reviewed). It supersedes the polylogarithmic
+  results, so no pointwise multiplier mechanism whose witness moduli are
+  `≤ exp((log p)^{1/4−ε})` can prove ES.
+* *Exponent 3, twice.* The profinite (Haar) avoider exponent is 3:
+  `𝓛³ ≪ log(1/δ*(T)) ≪ 𝓛³(log 𝓛)^5` (`CEILINGS_UNIFIED.md` Prop 1.1, given the
+  3/4 note; `POINTWISE_OMEGA13.md` Thm 3.4). The tail exponent of W over
+  primes is also 3: `c(log T)³ ≤ log(π(x)/#{p≤x: W(p)>T}) ≤ C(log T)³(log log T)³`
+  for `log T ≤ c(log x/log log x)^{1/4}` (upper: ledger (A)9, INTERNALLY
+  PROVED; lower: `POINTWISE_TAIL.md`, PROVED modulo (G), NT, OMEGA10).
+* *Ceiling 1/4.* 1/4 is the ceiling of the Haar-minorant + transfer
+  architecture, up to `(log log p)^{1/4}` (`POINTWISE_OMEGA14.md`, sharpened
+  by `CEILINGS_UNIFIED.md` Prop 4.2); by the Wiener-norm barrier
+  (`POINTWISE_OMEGA15.md`) also of every full-orbit uniform linear
+  certificate, where GRH/EH-type prime input is irrelevant. The 3/4 cap and
+  the 1/4 ceiling are one order-k sieve limit (`CEILINGS_UNIFIED.md`).
+* *1/3.* The heuristic truth is `log W ≍ (log p)^{1/3}`. The CONJECTURE LS
+  ("Linnik for sifted sets") implies it (`POINTWISE_OMEGA16.md`, PROVED
+  implication); EH/GEH/BV and truncated GRH do not, through linear
+  certificates. Support-aware certificates are open, reduced to Conjecture
+  SAP (`POINTWISE_OMEGA17.md`).
+* *m/n.* Exponent 1/4 for m ≡ 0 (4), 1/5 for every m (incl. 5/n);
+  1/4 for m ≢ 0 (4) is CONDITIONAL on ADM_m ⇐ SI (`POINTWISE_MN.md`, `MN2`).
 
 ## Housekeeping
 
