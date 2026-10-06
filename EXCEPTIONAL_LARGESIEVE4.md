@@ -373,13 +373,14 @@ the classes `b_C mod ℓ^{v_ℓ(G_C)}` over all C ∈ 𝔊 with `ℓ | G_C`.
 event (path functional) with `Q'(G) > 0` that depends on the path only
 through the activated sets, the light/heavy status and membership of the
 path in the avoider set (e.g. `G_B`), and `σ = Q'(·|G)`. For θ ≠ 0 with
-`S = supp θ`, and any sets `R_ℓ ⊇ F̃_ℓ`-candidates as below,
+`S = supp θ`, let `R_ℓ ⊆ ℤ/ℓ^{E_ℓ}` (ℓ ∈ S) be **fixed** sets — not
+depending on the pinned values v, v' nor on the outside coins (in
+Thm 5.2: functions of the smooth part c only) — containing, for every
+class C of the (fibre) family with ℓ in its modulus, its class
+`b_C mod ℓ^{v_ℓ(G_C)}` (so `F̃_ℓ ⊆ R_ℓ` on every path; e.g. `R_ℓ = Res_ℓ`).
+Then
 
-    |σ̂(θ)| ≤ Q'(G)^{−1} Π_{ℓ∈S} 4U(R_ℓ)/(1−δ_ℓ),
-
-where `R_ℓ` is any **deterministic** set containing the ℓ-residues of all
-classes of the (fibre) family having ℓ in their modulus; in particular
-`R_ℓ = Res_ℓ`.
+    |σ̂(θ)| ≤ Q'(G)^{−1} Π_{ℓ∈S} 4U(R_ℓ)/(1−δ_ℓ).
 
 *Proof.* (Pinned representation.) Integrating out the coordinates outside
 S, `Q'(x_S = v, G) = E^{(v)}[1_G Π_{ℓ∈S}k_ℓ(v_ℓ | past)]`, where `E^{(v)}`
