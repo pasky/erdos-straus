@@ -17,7 +17,10 @@ data `data/omega16/`.
    subset of the ES avoider set has `log(1/δ)≍T^{1/2±o(1)}` (Prop 4.1; lower bound modulo
    Barban–Davenport–Halberstam, via the two-prime atoms `(ℓ_1ℓ_2,q)`). Extends POINTWISE_OMEGA Prop 6.1.
 5. **Item (iii):** Cramér form CR(A) ⇒ LS ⇒ 1/3; the literal "any set of density δ mod Q" form is false.
-6. **Consistency:** LS not refuted by fakes (they are reweightings of Haar onto the complement), provably
+6. **No uniform upper companion (§5.4, PROVED):** "`π_𝓔(x)≤xδ^{1/C}T^C`" for all systems is false (tailor a
+   system to one prime `p_0∈(T,2T]`); for the ES family it would imply ES with `W≤exp(C(log p loglog p)^{1/3})`,
+   so exactness of 1/3 needs a family-specific (ES-strength) hypothesis.
+7. **Consistency:** LS not refuted by fakes (they are reweightings of Haar onto the complement), provably
    not reachable by linear certificates; robust to Siegel zeros and Jacobsthal effects; matches SIZE.
 
 ## EVIDENCE
@@ -26,7 +29,14 @@ data `data/omega16/`.
   ~2–3.6; ratio >0.94). Scan of [1e11,1e12) was started in the background (may be cut by its 4 h timeout;
   output `data/omega16/esleast_1e11_1e12.*`, not committed if incomplete).
 * N3: greedy adversarial κ-dimensional systems (z≤1000, κ≤8): LS ratio ≤1.15, adversary gains only
-  ≈z^{0.9} over the random model, independent of κ.
+  ≈z^{0.85–0.9} over the random model, no visible growth in κ on this finite censored grid (3/69 unresolved).
+
+## Self-review
+Deep reviewer subagent (R-self): no FATAL; 5 MAJOR repaired — PS_log made non-vacuous (`c_0δ^C`, empty
+system), Prop 3.1 restricted to Haar-centred error bounds with per-q coprimality (fake off by ≤ω(q)≤2log x;
+GEH only via its progression part), Prop 2.1(b) assumptions (admissible growing shifts on `ℓ∈(y,z]`,
+uniform compounding beyond fixed-tuple HL), upper companion replaced by the §5.4 falsity remark, Linnik
+constants (no "C≥5/2 necessary"). Minors: BDH over units, esleast LO bound, evidence wording.
 
 ## Points for the reviewer
 * Prop 4.1(b): the BDH application (π-form on `(x/2,x]`, moduli `4q`), and the CRT-product avoidance criterion.
