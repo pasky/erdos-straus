@@ -7,14 +7,22 @@ From-scratch scripts: scripts/review_ls4_*.py.
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 | SOUND (re-derived; brute force pending) |
-| Lemma 2.1 | SOUND (re-derived) |
-| Lemma 3.1 | SOUND (re-derived) |
-| Prop 4.1 | pending |
-| Thm 4.2 | pending |
-| Lemma 5.1 | pending |
-| Thm 5.2 | pending |
-| Cor 5.3 | pending |
+| Lemma 1.1 (damped-collision reduction) | SOUND (re-derived; brute-forced) |
+| Cor 1.2 | SOUND |
+| Lemma 2.1 (tilted pair law) | SOUND (re-derived; identity verified in exact arithmetic) |
+| Lemma 3.1 (pivotal bound), Lemma 3.2 | SOUND (3.2 brute-forced for Q < 400) |
+| Prop 4.1 ("(B) is free") | SOUND |
+| Thm 4.2 (cap ⟸ (A*)) | SOUND as an implication; labelled honestly |
+| Lemma 5.1 (pinned pivotal bound) | SOUND (re-derived; brute-forced on capped, conditioned prime-power toys) |
+| Thm 5.2 (residue-sparse mixtures) | SOUND (inputs as LS3 Thm 3.1: K2 (Q1)–(Q4), ElT for Case A); MINOR D1 |
+| Cor 5.3 (small-height classes) | SOUND (brute-forced counts and examples) |
+| §3.2 (CC), structured example | Assessment/CONJECTURE correctly labelled; MINOR D5 in the example |
+
+**Overall: no FATAL, no MAJOR.** Five MINOR defects (D1–D5), all wording /
+bookkeeping. The new PROVED content (Lemma 5.1 ⇒ Thm 5.2 ⇒ Cor 5.3, with
+Thm 4.2 + Prop 4.1 as the engine) survives a line-by-line check. In
+particular it closes LS3 review D6(c) (`𝒜_c ≠ ∅`) for the families it
+covers, because `Q'_c(G_{B_c}) ≥ 1/2` forces a non-empty fibre.
 
 ## Re-derivations
 
