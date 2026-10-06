@@ -94,6 +94,14 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
        engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity;
   (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols for several m (author + R63 + inline), square-
        consistency counts of §1.
+Blocks (dt)..(dv) replay EXCEPTIONAL_LARGESIEVE7, POINTWISE_MN2 §4, POINTWISE_TAIL Lemma 3.1.
+Blocks (dw)..(dz) (task O85) replay the documents merged after that (reviewers' from-scratch code):
+  (dw) POINTWISE_TYPEI3: R72 f-engine at x^_9 to f < 10^8 and vs naive brute force at 13 sign points
+       (gcc; skipped otherwise), Lemmas 1.1-1.2, Lemma 5.1 / Cor 5.2 / Props 5.3-5.5 (mod-16/32 checks);
+  (dx) POINTWISE_MORDELL: Theorem 3.1 both certificates in full (integrality s <= 4), 3.1(c),
+       Computation 4.1 at M <= 3*10^4 and rigid level 11^2 13^2;
+  (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 exhaustive l <= 29, Lemma 3.1 chain, Thm 2.1 toy LPs (scipy);
+  (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -21078,6 +21086,467 @@ def check_dv():
 
 print("\n== (dv) POINTWISE_TAIL: Lemma 3.1 leaf calculus on toy square-class processes ==")
 check_dv()
+
+
+
+# ---------------------------------------------------------------- (dw)
+# POINTWISE_TYPEI3.md: small-divisor reduction Lemmas 1.1-1.2 (PROVED), the f-graded search at x^_9
+# (Computation 2.1, CERTIFIED to 10^11/10^12; replayed here to f < 10^8), and the Vieta-descent
+# results of §5 (Lemma 5.1 general B, Cor 5.2, Props 5.3-5.5; PROVED).  Cf. scripts/review_typei3_fs.c
+# (R72 from-scratch f-engine), review_typei3_naive.c (definition-level brute force), review_typei3_check.py,
+# review_typei3_vieta.py, review_typei3_level6.py (all R72).  Checked:
+# (1) R72 f-engine at (7, 9), f < 10^8: 3571429 values of f, 0 certificates (C2.1 lower part);
+# (2) R72 f-engine (f < 3001, re-verified exactly by review_typei3_check.py, ck <= 3*10^5) vs naive brute force
+#     (ck <= 3*10^5, divisors <= 3000, both roles, no Lemma 1.1) at 13 sign points: identical certificate sets,
+#     sizes 3,0,14,0,0,0,0,0,8,3,0,1,0; (7,1) contains (14,2,15);
+# (3) R72 vieta.py: Lemma 5.1 general B (9102 pairs), Cor 5.2 (ck <= 2*10^4), Prop 5.3 (6360 pairs), 0 failures;
+#     level6.py 25: Prop 5.4 residues {1,15}, Prop 5.5 mod 2^10 (m = 3 (6)), exact chains, levels 5-7 brute force;
+# (4) inline: Lemma 1.1 (i)-(iii) for every certificate with ck <= 3000 at w = 1, 17, -7, 25, and Lemma 1.2
+#     min(F,e) < 2ck/sqrt(7) + 1; converse direction of Lemma 1.1 on all small parameter tuples (f < 400);
+#     Prop 5.4 mod-16 cycle; Prop 5.5 mod-32 period check over D in {7,15,23,31} (= all 7^a delta^2 mod 32).
+
+def check_dw():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    from sympy import divisors
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C engines skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = {}
+            for name in ("review_typei3_fs", "review_typei3_naive"):
+                exe[name] = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c")],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI3: compile failed", name, r.stderr[-1000:])
+
+            def run(name, *args):
+                r = subprocess.run([exe[name], *map(str, args)], capture_output=True, text=True, timeout=300)
+                assert r.returncode == 0, ("TYPEI3 engine failed", name, args, r.stderr[-500:])
+                return r.stdout, r.stderr
+            o, _ = run("review_typei3_fs", 7, 9, 1, 10 ** 8)
+            assert "tested=3571429 hits=0" in o and "\nC " not in "\n" + o, ("TYPEI3 C2.1: certificate at x^_9", o[-500:])
+            exp_counts = {(7, 1): 3, (7, 9): 0, (7, 17): 14, (7, 25): 0, (7, 41): 0, (7, -7): 0, (7, 5): 0,
+                          (7, -3): 0, (11, 9): 8, (19, 9): 3, (23, 9): 0, (23, 1): 1, (31, 9): 0}
+            for (r_, w_), cnt in exp_counts.items():
+                o, _ = run("review_typei3_naive", r_, w_, 300000, 3000)
+                naive = {tuple(map(int, ln.split())) for ln in o.splitlines() if ln.strip()}
+                o, _ = run("review_typei3_fs", r_, w_, 1, 3001)
+                rc = subprocess.run([sys.executable, os.path.join(sdir, "review_typei3_check.py"), str(r_), str(w_),
+                                     "300000"], input=o, capture_output=True, text=True, env=env, timeout=120)
+                assert rc.returncode == 0 and "invalid 0" in rc.stderr, ("TYPEI3 R72 engine: invalid certificate",
+                                                                        r_, w_, rc.stderr[-500:])
+                eng = {tuple(map(int, ln.split())) for ln in rc.stdout.splitlines() if ln.strip()}
+                assert eng == naive and len(eng) == cnt, ("TYPEI3 engine vs naive certificate sets", r_, w_,
+                                                          sorted(eng ^ naive), len(eng), cnt)
+                if (r_, w_) == (7, 1):
+                    assert (14, 2, 15) in eng, "TYPEI3: (14,2,15) missing at (7,1)"
+        cmsg = ("R72 engine at x^_9, f < 10^8: 3571429 f, 0 certificates; engine = naive at 13 sign points "
+                "(ck <= 3*10^5, f <= 3000)")
+
+    def runpy_(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("TYPEI3 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = runpy_("review_typei3_vieta.py", 20000, 60)
+    assert "(1) Lemma 5.1 (B<= 60, K<= 150): 9102 pairs, failures 0" in o, ("TYPEI3 Lemma 5.1 (R72)", o)
+    assert "certificates at some w=9(16): 0" in o, ("TYPEI3 Cor 5.2 (R72)", o)
+    assert "6360 pairs with 16n | e-F, failures of F=1 mod c_o: 0" in o, ("TYPEI3 Prop 5.3 (R72)", o)
+    o = runpy_("review_typei3_level6.py", 25)
+    assert "m mod 6 at v2(H)=4: [3]; violations 0" in o and "along chains: [1, 15]" in o, ("TYPEI3 P5.4/5.5 (a)", o)
+    assert "3000 positions with v2(H)=4, violations 0, Pell failures 0" in o, ("TYPEI3 P5.5 (b)", o)
+    assert o.count("odd-part certificates (some w=9 mod 16): 0") == 3, ("TYPEI3 levels 5-7 brute force (c)", o)
+
+    def val(p, n):
+        e = 0
+        while n % p == 0:
+            n //= p
+            e += 1
+        return e
+
+    def is_cert(w, c, k, F):
+        h = 4 * c * k
+        t, v = val(2, h), val(7, c * k)
+        mp = (h >> t) // 7 ** v
+        return (val(7, c) % 2 == 1 and (1 + 4 * c * k * k) % F == 0 and (F + 1) % mp == 0
+                and (F - 1) % 7 ** v == 0 and (F + w) % 2 ** t == 0)
+    ncert = 0
+    found = set()
+    for w in (1, 17, -7, 25):
+        for c in range(7, 3001, 7):
+            if val(7, c) % 2 == 0:
+                continue
+            for k in range(1, 3000 // c + 1):
+                N = 1 + 4 * c * k * k
+                h = 4 * c * k
+                t, v = val(2, h), val(7, c * k)
+                mp = (h >> t) // 7 ** v
+                n = (c * k) >> val(2, c * k)
+                ko = k >> val(2, k)
+                gam = val(2, k)
+                for F in divisors(N):
+                    if not is_cert(w, c, k, F):
+                        continue
+                    e = N // F
+                    ncert += 1
+                    found.add((w, c, k, F))
+                    for f, role in ((F, "F"), (e, "e")):
+                        assert (f + 1) % mp == 0 and (f - 1) % 7 ** v == 0 and n % 7 ** v == 0, ("TYPEI3 L1.1(i)", w, c, k, F)
+                        assert ((f + w) if role == "F" else (w * f + 1)) % 2 ** t == 0, ("TYPEI3 L1.1(ii)", w, c, k, F)
+                        assert (2 ** (t + gam) * n * ko + 1) % f == 0, ("TYPEI3 L1.1(iii)", w, c, k, F)
+                    assert 7 * (min(F, e) - 1) ** 2 < 4 * (c * k) ** 2, ("TYPEI3 L1.2: min(F,e) >= 2ck/sqrt7 + 1", c, k, F)
+                    assert min(F, e) ** 2 <= N, ("TYPEI3 L1.2: min divisor > sqrt N", c, k, F)
+    assert ncert >= 5 and (1, 14, 2, 15) in found, ("TYPEI3 inline certificate census too small", ncert)
+    # converse of Lemma 1.1: every parameter tuple satisfying (i)-(iii) yields a certificate
+    nconv = 0
+    for w in (1, 17, 9):
+        for f in range(1, 400, 2):
+            for role in ("F", "e"):
+                for t in range(2, 9):
+                    if ((f + w) if role == "F" else (w * f + 1)) % 2 ** t:
+                        continue
+                    for gam in range(0, t - 1):
+                        for a in (1, 3):
+                            for b in (0, 1):
+                                for c1 in range(1, 40, 2):
+                                    for k1 in range(1, 40, 2):
+                                        if c1 % 7 == 0 or k1 % 7 == 0:
+                                            continue
+                                        mp, v = c1 * k1, a + b
+                                        n, ko = 7 ** v * mp, 7 ** b * k1
+                                        if (f + 1) % mp or (f - 1) % 7 ** v or (2 ** (t + gam) * n * ko + 1) % f:
+                                            continue
+                                        c, k = 2 ** (t - 2 - gam) * 7 ** a * c1, 2 ** gam * 7 ** b * k1
+                                        N = 1 + 4 * c * k * k
+                                        F = f if role == "F" else N // f
+                                        assert N % f == 0 and is_cert(w, c, k, F), ("TYPEI3 L1.1 converse", w, f, role,
+                                                                                     t, gam, a, b, c1, k1)
+                                        nconv += 1
+    assert nconv >= 10, ("TYPEI3 L1.1 converse grid too small", nconv)
+    # Prop 5.4: mod-16 chain (F,H) -> (F+14H, F+15H) from (1,1) has period 4 and F = +-1 (16)
+    st, seen = (1, 1), []
+    for _ in range(8):
+        seen.append(st)
+        st = ((st[0] + 14 * st[1]) % 16, (st[0] + 15 * st[1]) % 16)
+    assert seen[:5] == [(1, 1), (15, 0), (15, 15), (1, 0), (1, 1)] and {s[0] for s in seen} == {1, 15}, "TYPEI3 P5.4"
+    assert {2 * pow(7, a, 16) * d * d % 16 for a in range(1, 16, 2) for d in range(1, 16, 2)} == {14}, "TYPEI3 P5.4 B delta^2"
+    # Prop 5.5 (2): D = 7^a delta^2 mod 32 in {7,15,23,31}; chain mod 32 over a full period: H = 16 (32) => m = 3 (6)
+    Ds = {pow(7, a, 32) * d * d % 32 for a in range(1, 64, 2) for d in range(1, 64, 2)}
+    assert Ds == {7, 15, 23, 31}, ("TYPEI3 P5.5: D mod 32", Ds)
+    npos = 0
+    for D in sorted(Ds):
+        F, H, i, seen = 1, 1, 0, {}
+        while (F, H) not in seen:
+            seen[(F, H)] = i
+            if H % 32 == 16:
+                assert (i + 1) % 6 == 3, ("TYPEI3 P5.5: v_2(H) = 4 at m not = 3 (6)", D, i)
+                npos += 1
+            F = (F + D * H) % 32
+            H = (F + H) % 32
+            i += 1
+        assert seen[(F, H)] == 0 and i in (6, 12), ("TYPEI3 P5.5: period not 6 or 12", D, i)
+    assert npos > 0, "TYPEI3 P5.5: no level-6 index in period"
+    print(f"dw {cmsg}; R72 Lemma 5.1 / Cor 5.2 / Props 5.3-5.5 scripts; inline L1.1 (i)-(iii) + L1.2 on {ncert} "
+          f"certificates (ck <= 3000, 4 sign points), L1.1 converse on {nconv} tuples, P5.4 mod 16, P5.5 mod 32 "
+          f"({npos} level-6 indices); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dw) POINTWISE_TYPEI3: f-graded search at x^_9 (f < 10^8), Lemmas 1.1-1.2, §5 Vieta descent ==")
+check_dw()
+
+
+
+# ---------------------------------------------------------------- (dx)
+# POINTWISE_MORDELL.md Theorem 3.1 (finite-exception Mordell-type theorems for r = 13; PROVED by finite
+# computation) in full, and Computation 4.1 (x* = (2 at 11, 2 at 13, 1 elsewhere) in no ET class; CERTIFIED)
+# at reduced bounds.  Uses the R80 from-scratch scripts (review_mordell_check.py loaded as a module;
+# review_mordell_point.py, review_mordell_rigid.py as subprocesses), not the author's mordell_*.  Checked:
+# (1) both certificates data/mordell/cert_r13_{np_240240,main_720720}.json: family conditions, the ES identity
+#     4xyz = n(xy+yz+zx) in Q[n], integrality on the full class t + L*Z (s = 0..4, as I2/I3/II3 coordinates
+#     have degree 3-4; inline and via R80's covers, corrected to s = 0..4 in O85, agreeing on every
+#     (target, class) pair), coverage of all 360 resp. 2160 targets of Sigma_13 mod L except exactly {112561} resp. the six stated residues; every class used;
+# (2) inline: each coordinate is a polynomial in n (degree <= 4, true degrees per family as in §0) with
+#     non-negative coefficients, positive at n = 1 (so positive for every n >= 1, B = 1); the 6 Mordell-hard (square) units mod 840 are exactly the
+#     t = 1 (24) squares mod 5, 7; end-to-end 4/p = 1/x+1/y+1/z for the least prime in every covered target class;
+# (3) Theorem 3.1(c): np targets mod 720720 not covered by either certificate are exactly {112561, 352801};
+# (4) Comp 4.1 reduced: x* in no class of any family with M <= 3*10^4 (R80 point engine), nor in any
+#     II1/II2/I4 class with {11,13}-part | 11^2*13^2 (R80 rigid engine); positive control: the 13-generic point
+#     (x_13 = 2, 1 elsewhere) is found in II2 (9,2,143) by both engines.
+
+def check_dx():
+    from time import perf_counter
+    import importlib.util
+    import json
+    import os
+    import subprocess
+    import sys
+    from sympy import isprime, interpolate, Rational, Poly, symbols
+    t0 = perf_counter()
+    nsym = symbols("n")
+    ndeg = 0
+    # true n-degrees of (x, y, z): I2, I3, II3 exceed 2 (POINTWISE_MORDELL §0, O85 correction)
+    maxdeg = {"I1": (2, 1, 2), "I2": (3, 1, 2), "I3": (4, 1, 2), "I4": (2, 1, 1), "II1": (1, 2, 2), "II2": (1, 1, 2),
+              "II3": (1, 2, 3)}
+    here = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(here, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+    spec = importlib.util.spec_from_file_location("review_mordell_check", os.path.join(sdir, "review_mordell_check.py"))
+    R = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(R)
+    exp_exc = {"np": {112561}, "main": {112561, 352801, 380881, 418321, 473761, 483841}}
+    exp_cnt = {"np": (240240, 20, 360), "main": (720720, 31, 2160)}
+    certs = {}
+    nprime = 0
+    for var, fn in (("np", "cert_r13_np_240240.json"), ("main", "cert_r13_main_720720.json")):
+        with open(os.path.join(here, "data", "mordell", fn)) as fh:
+            d = json.load(fh)
+        L = d["L"]
+        cls = [(c[0], tuple(c[1])) for c in d["classes"]]
+        assert d["variant"] == var and d["r"] == 13 and set(d["exceptions"]) == exp_exc[var], ("MORDELL cert header", fn)
+        assert (L, len(cls)) == exp_cnt[var][:2], ("MORDELL cert size", fn, L, len(cls))
+        for c in cls:
+            assert R.family_ok(*c) and R.identity_ok(*c), ("MORDELL class condition / identity", fn, c)
+            for i in range(3):
+                pts = [(m, Rational(R.sol(*c, m)[i].numerator, R.sol(*c, m)[i].denominator)) for m in range(9)]
+                pol = Poly(interpolate(pts, nsym), nsym)
+                assert pol.degree() == maxdeg[c[0]][i] and min(pol.all_coeffs()) >= 0 and pol.eval(1) > 0, \
+                    ("MORDELL: coordinate degree / coefficient sign", fn, c, i, pol)
+                ndeg += 1
+
+        def covers(c, t):
+            # integer-valued on t + L*Z: degree <= 4 in s, so test s = 0..4 (R80's covers likewise, after the O85 correction)
+            return all(v.denominator == 1 and v > 0 for s_ in range(5) for v in R.sol(*c, t + L * s_))
+        T = [t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, var)]
+        assert len(T) == exp_cnt[var][2], ("MORDELL target count", fn, len(T))
+        cov = {t: [c for c in cls if covers(c, t)] for t in T}
+        assert all(covers(c, t) == R.covers(*c, t, L) for t in T for c in cls), ("MORDELL: R80 covers differs from inline test", fn)
+        unc = {t for t in T if not cov[t]}
+        assert unc == exp_exc[var], ("MORDELL Thm 3.1: uncovered targets != stated exceptions", fn, sorted(unc))
+        assert all(any(c in cov[t] for t in T) for c in cls), ("MORDELL: unused class", fn)
+        for t in T:
+            if not cov[t]:
+                continue
+            p = t
+            while not isprime(p):
+                p += L
+            x, y, z = R.sol(*cov[t][0], p)
+            assert min(x, y, z) > 0 and all(v.denominator == 1 for v in (x, y, z)) and \
+                Fraction(4, p) == 1 / x + 1 / y + 1 / z, ("MORDELL: end-to-end solution fails", fn, t, p)
+            nprime += 1
+        certs[var] = (L, cls)
+    sq840 = {x * x % 840 for x in range(840) if gcd(x, 840) == 1}
+    assert sq840 == {t for t in range(840) if t % 24 == 1 and t % 5 in (1, 4)
+                     and t % 7 in (1, 2, 4)} and len(sq840) == 6, ("MORDELL: squares mod 840", sorted(sq840))
+    L, cls = certs["main"]
+    Ln, clsn = certs["np"]
+    # R.covers (s <= 4) agrees with the degree-4 test on all main / np targets (asserted above)
+    left = {t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, "np")
+            and not any(R.covers(*c, t, L) for c in cls) and not any(R.covers(*c, t % Ln, Ln) for c in clsn)}
+    assert left == {112561, 352801}, ("MORDELL Thm 3.1(c)", sorted(left))
+    assert any(R.covers(*c, 592801, L) for c in cls), "MORDELL Thm 3.1(c): 592801 not covered by main certificate"
+    assert all(R.target(t, "main") and R.target(t, "np") == (pow(t, 5, 11) == 1) for t in exp_exc["main"]), \
+        "MORDELL: exceptions not targets / np flag"
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MORDELL script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_mordell_point.py", 30000)
+    assert "TOTAL HITS 0" in o and "HIT " not in o, ("MORDELL Comp 4.1: x* in a class with M <= 3*10^4", o[-800:])
+    o = run("review_mordell_point.py", 1000, "13:2")
+    assert "HIT II2 9 2 143 143" in o, ("MORDELL point engine positive control", o[-800:])
+    o = run("review_mordell_rigid.py", 2, "11:2", "13:2")
+    assert "F list [1, 13, 169, 11, 143, 1859, 121, 1573, 20449]" in o and "hits 0 []" in o, ("MORDELL Comp 4.1 rigid", o)
+    o = run("review_mordell_rigid.py", 1, "13:2")
+    assert "('II2', 9, 2, 143, 143)" in o, ("MORDELL rigid engine positive control", o)
+    print(f"dx Thm 3.1: np cert mod 240240 (20 classes, 360 targets, exception 112561) and main cert mod 720720 "
+          f"(31 classes, 2160 targets, 6 exceptions) exact (s <= 4); {ndeg} coordinates with coefficients >= 0; "
+          f"{nprime} end-to-end prime solutions; (c) = {{112561, 352801}}; Comp 4.1: x* in no class M <= 3*10^4, "
+          f"no rigid II1/II2/I4 box at level | 11^2 13^2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dx) POINTWISE_MORDELL: Theorem 3.1 certificates (r = 13) in full, Computation 4.1 (reduced) ==")
+check_dx()
+
+
+
+# ---------------------------------------------------------------- (dy)
+# EXCEPTIONAL_WEIGHTS.md Lemma 3.2 (one-prime anti-concentration 1 - |phi_l(N)| >= 9/(256 k^2); PROVED),
+# Lemma 3.1 (sin^2 lower bound; PROVED), Lemma 2.0 / Theorem 2.1 chain M(N) <= D <= RELAX <= 12(K+1) M(ceil(N/K))
+# and Lemma 1.2 duality (PROVED) on toys.  Uses the R81 from-scratch scripts review_weights_lemma32.py and
+# review_weights_thm21.py (loaded as modules; the latter needs scipy, guarded).  Checked:
+# (1) Lemma 3.2 exhaustively: every F containing 0 (phi is translation invariant) with k = |F| <= l/4, every
+#     N not = 0 (l), primes 5 <= l <= 29 (R81 FFT code); inline pure-Python cmath for ALL F (no translation
+#     reduction) and all N, l <= 13;
+# (2) R81 Lemma 3.1 / Thm 3.3 per-S chain on 400 random 1-3-prime systems: both ratios >= 1;
+# (3) [scipy] Selberg majorant Phi_K (K = 1, 2): Phi >= 0, Phi >= 1 on [0,1], int Phi = 1 + 1/K; Lemma 2.0
+#     (W_N(0) = N(1+1/K), band-limited); the Thm 2.1 chain and primal/dual (Lemma 1.2) bracket overlap on the 5 R81
+#     toy sets for (Q,N,K) = (60,12,1), (90,16,2).
+
+def check_dy():
+    from time import perf_counter
+    import importlib.util
+    import io
+    import contextlib
+    import os
+    import numpy as np
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    RW = load("review_weights_lemma32")
+    worst, nset = float("inf"), 0
+    for l in primerange(5, 30):
+        for k in range(1, l // 4 + 1):
+            sets = np.array([(0,) + c for c in combinations(range(1, l), k - 1)], dtype=int)
+            for chunk in np.array_split(sets, max(1, len(sets) // 50000)):
+                ph, _ = RW.phis_for_sets(l, chunk)
+                worst = min(worst, float((1 - np.abs(ph)).min()) * 256 * k * k / 9)
+            nset += len(sets)
+    assert worst >= 1, ("WEIGHTS Lemma 3.2 violated", worst)
+    ninl = 0
+    for l in primerange(5, 14):
+        for k in range(1, l // 4 + 1):
+            for F in combinations(range(l), k):
+                fa = [abs(sum(cmath.exp(-2j * cmath.pi * h * x / l) for x in F)) / l for h in range(l)]
+                a = sum(fa[1:])
+                assert a >= 1 - Fraction(k, l) - 1e-12, ("WEIGHTS: a_l < 1 - p", l, F)
+                for N in range(1, l):
+                    phi = sum(fa[h] * cmath.cos(2 * cmath.pi * N * h / l).real for h in range(1, l)) / a
+                    assert 1 - abs(phi) >= 9 / (256 * k * k), ("WEIGHTS Lemma 3.2 (inline)", l, F, N, phi)
+                    ninl += 1
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        RW.chain()
+    o = buf.getvalue()
+    r31 = float(o.split("(1-|prod phi|)] = ")[1].split()[0])
+    r33 = float(o.split("prod 2p(1-p) = ")[1].split()[0])
+    assert r31 >= 1 and r33 >= 1, ("WEIGHTS Lemma 3.1 / Thm 3.3 per-S chain", o)
+    msg = (f"dy Lemma 3.2: {nset} sets F (l <= 29, all N), min ratio {worst:.2f} >= 1; inline {ninl} (F, N), l <= 13; "
+           f"Lemma 3.1 / Thm 3.3 chain ratios {r31:.2f}, {r33:.1f}")
+    try:
+        import scipy  # noqa: F401
+    except ImportError:
+        print(msg + "; Thm 2.1 LP chain SKIPPED (scipy not installed); "
+              f"seconds = {perf_counter() - t0:.1f}")
+        return
+    T = load("review_weights_thm21")
+    for K in (1, 2):
+        mn, mn01, integ = T.check_phi(K)
+        assert mn >= -1e-12 and mn01 >= 1 - 1e-9 and abs(integ - (1 + 1 / K)) < 1e-6, ("WEIGHTS Selberg Phi_K", K, mn,
+                                                                                         mn01, integ)
+    rng = np.random.default_rng(81)
+    nchain = 0
+    for (Q, N, K) in ((60, 12, 1), (90, 16, 2)):
+        W = T.W_folded(N, K, Q)
+        wabs = np.abs(W[: Q // 2 + 1])
+        band = np.array([j / Q <= K / N + 1e-12 for j in range(Q // 2 + 1)])
+        # (1e-4: truncation of the folded sum at |n| <= 4*10^5 loses ~N^2/(pi^2 K^2 4*10^5) of W_N(0))
+        assert abs(W[0].real - N * (1 + 1 / K)) < 1e-4 and wabs[~band].max() < 1e-6 and wabs.max() <= W[0].real + 1e-9, \
+            ("WEIGHTS Lemma 2.0", Q, N, K)
+        wc = np.where(band, wabs, 0.0)
+        for name, A in T.families(Q, rng).items():
+            MN, ML = T.window_max(A, N), T.window_max(A, -(-N // K))
+            Dlo, Dhi = T.dual_lp(A, wc, inner=True), T.dual_lp(A, wc)
+            R = T.relax_lp(A, N, K)
+            Plo, Phi_ = T.primal_lp(A, wc)
+            assert MN <= Dhi + 1e-6 and Dlo <= R + 1e-6 and R <= 12 * (K + 1) * ML + 1e-6, \
+                ("WEIGHTS Thm 2.1 chain", Q, N, K, name, MN, Dlo, Dhi, R, ML)
+            assert Plo <= Dhi + 1e-6 and Dlo <= Phi_ + 1e-6, ("WEIGHTS Lemma 1.2 primal/dual brackets", Q, name)
+            nchain += 1
+    print(msg + f"; Selberg Phi_1, Phi_2; Thm 2.1 chain + Lemma 1.2 brackets on {nchain} toys; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 (l <= 29 exhaustive), Lemma 3.1 chain, Thm 2.1 toy LPs ==")
+check_dy()
+
+
+
+# ---------------------------------------------------------------- (dz)
+# POINTWISE_MN3.md Lemma 1.1 (nu-weights <= class-of-one weights l/phi(N); PROVED), Lemma 2.1 (N-parametrisation
+# of atoms; PROVED) and the Elsholtz-Tao Type I bounds behind Lemma 5.2's R(N) << N^{3/5+o(1)} (PROVED, R82 D1).
+# Uses the R82 from-scratch scripts review_mn3_atoms.py, review_mn3_lemma11.py, review_mn3_et35.py (subprocesses).
+# Checked:
+# (1) R82 Lemma 2.1: all 422083 atoms (m = 5, D <= A, M <= 10^5): identities, N >= acd, f <= (m-1)N, involution
+#     invariance of g, N != 1; R(N) brute = validated (a,c,d) count for N <= 10 (brute list complete);
+# (2) R82 Lemma 1.1 / 4.1 exact probabilities by enumeration of r mod lcm(Q_0, M^-): m = 5, q_0 = 8 (4125 atoms),
+#     m = 6, q_0 = 9 (2174 atoms), q <= 32, M <= 2*10^5: formula exact, <= l/phi(N), Lemma 4.1 on positive weight;
+# (3) R82 ET bounds via (a,d,f,c)-enumeration, N <= 1000 (m = 5: 11158 atoms; m = 7): c <= 2aN/3,
+#     m/N = 1/(abdN)+1/(acd)+1/(bcd), e f (cd)^2 ac <= (10/3) N^3;
+# (4) inline from (M, D) directly (D = d a^2, b = A/(da), e = gcd(M, mD+1), f = (mD+1)/e, c = (a+b)/e, N = M/e),
+#     m = 5, 6, 7, M <= 20000: Lemma 2.1 identities, ET identity (exact Fractions), c <= 2aN/3, ce <= 2b,
+#     e f (cd)^2 ac <= (10/3) N^3 (so min(e, f, cd, ac) <= (10/3)^{1/5} N^{3/5}).
+
+def check_dz():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN3 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_mn3_atoms.py", 5, 100000, 10)
+    assert "atoms(D<=A, M<=100000) = 422083; violations: {}" in o, ("MN3 Lemma 2.1 (R82 atoms)", o[:600])
+    assert "iff MMAX>=50010: True" in o and "mismatches: 0" in o and "R(N), N=1..10: [0, 1, 1, 1, 0, 0, 3, 0, 4, 0]" in o, \
+        ("MN3 R(N) brute vs (a,c,d) count", o[-600:])
+    for args, nat in (((5, 8, 32, 200000), 4125), ((6, 9, 32, 200000), 2174)):
+        o = run("review_mn3_lemma11.py", *args)
+        assert f"checked {nat} atoms; defects: 0 []" in o, ("MN3 Lemma 1.1 / 4.1 exact probabilities (R82)", args, o)
+    for m_, X, nat in ((5, 1000, 11158), (7, 1000, None)):
+        o = run("review_mn3_et35.py", m_, X)
+        assert "violations=0" in o and (nat is None or f"atoms={nat}," in o), ("MN3 ET 3/5 bounds (R82)", m_, o)
+        assert float(o.split("ac / N^3 = ")[1].split()[0]) <= 10 / 3, ("MN3 ET product > (10/3) N^3", m_, o)
+    nat = 0
+    for m_ in (5, 6, 7):
+        for M in range(m_ - 1, 20001, m_):
+            A = (M + 1) // m_
+            for D in divisors_of_square(A):
+                if D > A:
+                    continue
+                a = prod(p ** (k // 2) for p, k in factorint(D).items())
+                d = D // (a * a)
+                b = A // (d * a)
+                assert A == d * a * b and a <= b, ("MN3: A != d a b", m_, M, D)
+                P = m_ * D + 1
+                e = gcd(M, P)
+                f, N = P // e, M // e
+                assert (a + b) % e == 0 and N != 1, ("MN3: e does not divide a+b / N = 1", m_, M, D)
+                c = (a + b) // e
+                assert m_ * a * b * d == e * N + 1 and c * e == a + b and m_ * a * c * d == N + f, ("MN3 ET (2.1)/(2.2)/(2.6)", M, D)
+                assert e * f == m_ * a * a * d + 1 and b * f == a * N + c and c * M == N * (a + b), ("MN3 L2.1 identities", M, D)
+                assert (N * N + m_ * c * c * d) % f == 0 and 1 <= f <= (m_ - 1) * N and a * c * d <= N, ("MN3 L2.1", M, D)
+                assert Fraction(m_, N) == Fraction(1, a * b * d * N) + Fraction(1, a * c * d) + Fraction(1, b * c * d), \
+                    ("MN3 ET identity m/N", m_, M, D)
+                assert 3 * c <= 2 * a * N and c * e <= 2 * b and 3 * e * f * (c * d) ** 2 * a * c <= 10 * N ** 3, \
+                    ("MN3 ET Lemma 2.8-type bounds", m_, M, D)
+                nat += 1
+    print(f"dz Lemma 2.1: 422083 atoms (m = 5, M <= 10^5, R82), R(N) N <= 10; Lemma 1.1/4.1 exact on 4125 + 2174 atoms "
+          f"(R82); ET 3/5 bounds N <= 1000 (m = 5, 7; R82); inline {nat} atoms (m = 5, 6, 7, M <= 2*10^4): L2.1 identities, "
+          f"m/N identity, e f (cd)^2 ac <= (10/3) N^3; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound ==")
+check_dz()
 
 
 print("\nall checks passed")

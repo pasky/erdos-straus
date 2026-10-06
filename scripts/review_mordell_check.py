@@ -43,7 +43,8 @@ def family_ok(fam, P):
     if fam == 'II3': a, d, e = P; return gcd(4*a*d, e) == 1
 
 def identity_ok(fam, P):
-    # each coordinate is a polynomial of degree <=2 in n; 4xyz - n(xy+yz+zx) has degree <=7,
+    # each coordinate is a polynomial of degree <=4 in n (O85 correction: was "<=2"; true (x,y,z)-degrees
+    # are at most (4,1,2), (3,1,2), (1,2,3)); 4xyz - n(xy+yz+zx) has degree <=7,
     # so vanishing at 12 points proves the identity.  Also check positivity for n>=2 (see notes).
     for n in range(2, 14):
         x, y, z = sol(fam, P, n)
@@ -51,8 +52,9 @@ def identity_ok(fam, P):
     return True
 
 def covers(fam, P, t, L):
-    # x,y,z polynomials of degree <=2 in s (n=t+Ls): integer-valued on Z iff integer at s=0,1,2
-    for s in range(3):
+    # x,y,z polynomials of degree <=4 in s (n=t+Ls): integer-valued on Z iff integer at s=0,...,4
+    # (O85 correction: was s=0,1,2, insufficient for I2/I3/II3 coordinates of degree 3-4)
+    for s in range(5):
         for v in sol(fam, P, t+L*s):
             if v.denominator != 1 or v <= 0: return False
     return True

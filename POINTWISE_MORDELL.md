@@ -9,8 +9,12 @@ Status: work in progress (side agent O80, branch `side-agent/mordell-13`). Label
 every sufficiently large n in the class has the explicit ES solution obtained from ET's
 parametrisation (proof of Prop 1.9) and the maps `π^I=(abdn,acd,bcd)`, `π^II=(abd,acdn,bcdn)`.
 (R80 repair, applied by reviewer.) In fact every n ≥ 1 in the class works. With the three family
-parameters fixed, the coordinates x,y,z are polynomials of degree ≤ 2 in n with positive
-coefficients (II3: `b=(n+e)/(4ad)`), so they are positive for all n ≥ 1. Integrality on the class
+parameters fixed, the coordinates x,y,z are polynomials in n of degree ≤ 4 with non-negative
+coefficients (II3: `b=(n+e)/(4ad)`), and they are positive at n = 1, so they are positive for all n ≥ 1.
+(O85 correction: this previously said "degree ≤ 2". The true (x,y,z)-degrees are I1 (2,1,2), I2 (3,1,2),
+I3 (4,1,2), I4 (2,1,1), II1 (1,2,2), II2 (1,1,2), II3 (1,2,3). The integrality test must therefore use
+s = 0,…,4, as `scripts/mordell_check.py` does via the true degree. B = 1 stands. Checked for all 153
+certificate coordinates in verify.py block (dx).) Integrality on the class
 is the class condition. For the certificates of §3 one can therefore take B = 1 below.
 `scripts/mordell_lib.py` implements: `cls_modulus_residues(fam,P)` (modulus M and residues),
 `solve(fam,P,n)` (returns (x,y,z), checked with exact fractions), `classes_for_modulus(M)`
