@@ -20256,4 +20256,66 @@ print("\n== (dk) EXCEPTIONAL_SPW2 §2: Lemma 2.2 near zone, Lemma 2.3 (sharp), R
 check_dk()
 
 
+
+# ---------------------------------------------------------------- (dl)
+# CEILINGS_UNIFIED.md §4.4 (toy LP for Thm 4.1, EVIDENCE; cf. scripts/unify_toy_lp.py,
+# review_unify_toylp_exact.py, both imported).  n = 40 iid bits, P = np, F = 1[no bit set];
+# optimal symmetric order-k minorant max E B and majorant min E G, solved exactly (dual moment
+# LP, exact rational simplex, R60).  Checked: for P = 2, 4, 6, 8 the least k with E B > 0 is
+# 3, 7, 11, 15 and the least k with majorant saving log(1/E G) >= 0.9 log(1/E F) is 6, 8, 12, 14
+# (the §4.4 table); the author's sympy LP (exact primal certificates) agrees at P = 2, k = 2, 3, 5, 6
+# and P = 4, k = 6, 7.
+
+def check_dl():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import math
+    from sympy import Rational
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+
+    def load(name):
+        spec = importlib.util.spec_from_file_location(name, os.path.join(sdir, name + ".py"))
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+    R = load("review_unify_toylp_exact")
+    U = load("unify_toy_lp")
+    n = 40
+    table = {2: (3, 6), 4: (7, 8), 6: (11, 12), 8: (15, 14)}
+    sols = {}
+    for P, (kB_want, kG_want) in table.items():
+        p = Fraction(P, n)
+        EF = (1 - p) ** n
+        L = -math.log(float(EF))
+        kB = kG = None
+        k = 0
+        while kB is None or kG is None:
+            lo, hi = R.solve(n, p, k)                       # lo = max E B, hi = min E G (exact)
+            sols[(P, k)] = (lo, hi)
+            assert 0 <= lo <= EF <= hi <= 1, ("UNIFIED toy LP: ordering", P, k)
+            if kB is None and lo > 0:
+                kB = k
+            s = -math.log(float(hi))
+            assert abs(s - 0.9 * L) > 1e-6, ("UNIFIED toy LP: borderline saving", P, k)
+            if kG is None and s >= 0.9 * L:
+                kG = k
+            k += 1
+            assert k <= 24, ("UNIFIED toy LP: threshold not found", P)
+        assert (kB, kG) == (kB_want, kG_want), ("UNIFIED §4.4 thresholds", P, kB, kG)
+    for P, k in [(2, 2), (2, 3), (2, 5), (2, 6), (4, 6), (4, 7)]:
+        EG, EB = U.solve(n, Rational(P, n), k)                # asserts exact primal certificates
+        lo, hi = sols[(P, k)]
+        assert Fraction(int(EB.p), int(EB.q)) == lo and Fraction(int(EG.p), int(EG.q)) == hi, \
+            ("UNIFIED toy LP: primal (sympy) and dual (R60 simplex) optima differ", P, k)
+    print(f"dl n = 40, P = 2/4/6/8: least k with E B > 0 = 3/7/11/15, with saving >= 90% = 6/8/12/14 (exact dual "
+          f"simplex); primal = dual at 6 cases (e.g. P = 2, k = 3: E B = {sols[(2, 3)][0]}); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (minorant / majorant) ==")
+check_dl()
+
+
 print("\nall checks passed")
