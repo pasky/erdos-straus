@@ -873,7 +873,7 @@ original paper was not obtained.
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
   `paper/es-coverings-note` (finite coverings and candidate sterile points:
-  TYPEI2/3, MORDELL, MORDELL17) is in preparation (task O86).
+  TYPEI2/3, MORDELL, MORDELL17) (20 pp) is written and refereed internally (R86, repairs applied).
 
 ### 3.4 Window results
 
@@ -1373,7 +1373,7 @@ ratings are this summary's judgement, not ledger labels.
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
 | the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent) |
-| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md` (r = 13), `POINTWISE_MORDELL17.md` (r = 17); `paper/es-coverings-note` in preparation (task O86) |
+| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md` (r = 13), `POINTWISE_MORDELL17.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
 | priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |

@@ -161,7 +161,7 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     leave 67.7% of each non-residue cell uncovered (CERTIFIED).
   * Candidate sterile points (r = 13, 17, and `x̂_9` for Type I) remain
     candidates: no sterile point is proved. A write-up
-    `paper/es-coverings-note` is in preparation (task O86).
+    `paper/es-coverings-note` (20 pp, task O86) is refereed internally (R86: accept after minor revision; repairs applied).
 
 ## Housekeeping
 
@@ -294,6 +294,6 @@ Papers in `paper/`:
   R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
   `reviews/novelty-audit-2026-10b.md`).
 * `es-coverings-note`: finite coverings and candidate sterile points
-  (TYPEI2/3, MORDELL, MORDELL17) — in preparation (task O86).
+  (TYPEI2/3, MORDELL, MORDELL17) — 20 pp (O86); internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`).
 
 Authorship and the citation form for astra are still undecided.
