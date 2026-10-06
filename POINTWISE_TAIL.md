@@ -5,7 +5,9 @@ bears on whether `W(p)<∞`. Notation: `𝓛=log T`; O9 = `POINTWISE_OMEGA9.md`,
 `POINTWISE_OMEGA11.md`, O13 = `POINTWISE_OMEGA13.md`, CU = `CEILINGS_UNIFIED.md`.
 `N(x,T):=#{p≤x prime: W(p)>T}`.
 
-**Status: checkpoint 1 (not yet parent-reviewed).** Results table in §4.
+**Status: checkpoint 2 — hostile review R76 (`reviews/pointwise-tail-review.md`, branch
+`side-agent/review-tail`): no FATAL/MAJOR, all claims SOUND; MINOR D1–D6 and improvement S1 applied.**
+Results table in §4.
 
 **Goal.** CU Thm 2.1 gives `N(x,T) ≪ π(x)e^{−c𝓛³}` for `𝓛≤c₁(log x)^{1/4}`. We want
 `N(x,T) ≥ π(x)exp(−C𝓛³(log𝓛)^B)` in (almost) the same range.
@@ -108,7 +110,7 @@ c(log T)³  ≤  log( π(x)/N(x,T) )  ≤  C(log T)³(log log T)³.
 ```
 
 Here c is CU Thm 2.1's tail constant, C is Thm 3.3's, and the range constant `c'` must satisfy
-`c'≤c₁` (CU Thm 2.1's range) and `c'≤(4/C)^{1/4}` (so that `C𝓛^4log𝓛≤log x`) (R76 D2).
+`c'≤min(1,c₁)` (CU Thm 2.1's range) and `c'≤(4/C)^{1/4}` (so that `C𝓛^4log𝓛≤log x`) (R76 D2).
 
 So `log log(π(x)/N(x,T)) = (3+o(1))log log T` in this range: the Haar exponent 3 (O13 Thm 3.4 with
 POINTWISE_HAAR Thm 2.1) is the true tail exponent of W over primes. The constant c (from the upper
@@ -118,7 +120,7 @@ constants are (R76 D6).
 *Proof.* Lower inequality: CU Thm 2.1 (its range `log T≤c₁(log x)^{1/4}` contains ours since
 `c'≤c₁`; its `≪`-constant is absorbed for `T≥T_0`). Upper inequality: Thm 3.3 (Thm 2.1 gives the
 exponent `(log log T)^5` with a one-fibre proof), since `𝓛≤c'(log x/loglog x)^{1/4}` gives
-`C𝓛^4log𝓛 ≤ (Cc'^4/4)log x ≤ log x` (use `log𝓛≤(1/4)loglog x+O(1)`, absorbed via T_0). ∎
+`C𝓛^4log𝓛 ≤ (Cc'^4/4)log x ≤ log x` (use `log𝓛≤(1/4)loglog x`, valid for `c'≤1`). ∎
 
 *Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
 range is the sufficient x-threshold `log x ≥ C𝓛^4log𝓛` of the transfer (from the *upper* bound
@@ -131,7 +133,7 @@ architecture (Assessment).
 
 Thm 2.1 pays `log φ(Q)≪𝓛³(log𝓛)^5` for the fibre. Summing over **all** outcomes of the square-class
 process replaces this by `k·log2`, k the number of primes stepped at level 0, and the Siegel factor
-by `(1/2)log q_1 ≤ (1/2)k log Y`. Fix a deterministic tie-breaking rule for the process (e.g. step
+by `(1/2)log q_1 ≤ (1/2)log(8·rad_odd Q)`, which is `≪𝓛³(log𝓛)³` on average (Lemma 3.2′). Fix a deterministic tie-breaking rule for the process (e.g. step
 the least eligible ℓ, one step at a time); O13 Lemma 3.2 is stated for any such adapted rule.
 
 **Lemma 3.1 (leaf calculus; PROVED).** The process is a finite decision tree. Its leaves
@@ -242,7 +244,7 @@ the familiar asymmetry of CU Remark 2.2: majorants absorb `1+ε≤3`, minorants 
 remove the third log; restricting to leaves with `q_1∤Q_L` would, if those carry a fixed proportion
 of the good mass (not shown).
 
-## 4. Status (checkpoint 1)
+## 4. Status (checkpoint 2, after R76)
 
 | item | statement | label |
 |---|---|---|
@@ -250,8 +252,9 @@ of the good mass (not shown).
 | Thm 2.1 | `#{p≤x hard: W(p)>T} ≥ π(x)e^{−C𝓛³(log𝓛)^5}` for `log x≥C𝓛^4log𝓛` (one fibre, no `ℓ_aux`) | PROVED mod (G), NT, OMEGA10 Thm 3.4 |
 | Lemma 3.1 | leaves of the square-class process: disjoint fibres, `P_proc(L)=4·2^{k_L}/φ(Q_L)` | PROVED (elementary) |
 | Lemma 3.2 | `E[k]≪𝓛³(log𝓛)²loglog𝓛` | PROVED mod NT |
-| Thm 3.3 | `N(x,T) ≥ π(x)e^{−C𝓛³(log𝓛)³loglog𝓛}`, same range; `(log𝓛)²loglog𝓛` without exceptional zero | PROVED mod (G), NT, OMEGA10 Thm 3.4; improved form CONDITIONAL (no Siegel zero) |
-| Cor 2.2 | `c𝓛³ ≤ log(π(x)/N(x,T)) ≤ C𝓛³(log𝓛)³loglog𝓛` for `𝓛≤c(log x/loglog x)^{1/4}`: tail exponent 3 | PROVED mod the above and CU Thm 2.1's inputs |
+| Lemma 3.2′ | `E[log rad_odd Q_end]≪𝓛³(log𝓛)³` (R76 S1) | PROVED mod NT |
+| Thm 3.3 | `N(x,T) ≥ π(x)e^{−C𝓛³(log𝓛)³}`, same range; `(log𝓛)²loglog𝓛` if `1−β≥c_0/log q` for real zeros | PROVED mod (G), NT, OMEGA10 Thm 3.4; improved form CONDITIONAL |
+| Cor 2.2 | `c𝓛³ ≤ log(π(x)/N(x,T)) ≤ C𝓛³(log𝓛)³` for `𝓛≤c'(log x/loglog x)^{1/4}`: tail exponent 3 | PROVED mod the above and CU Thm 2.1's inputs |
 
 *Open.* (1) Range: close the `(log log x)^{1/4}` gap between the two sides (it is the `log𝓛` of the
 junta bound `𝓛·S_res`; CU Prop 4.2 puts the architectural floor at minorant level `log D ≫ 𝓛^4`).
@@ -262,5 +265,11 @@ excludes level `≤c𝓛^4/log𝓛`) shows every fibre minorant `B≤F_T` of lev
 
 ## Replay
 
-No computations: all items are proofs. The cited inputs are replayed by `verify.py` blocks (cz)–(df)
-(O13 Lemma 3.1 Jacobi check, β-weighted LLL) and (cu)–(cy) (O9).
+No computations by the author: all items are proofs. The cited inputs are replayed by `verify.py`
+blocks (cz)–(df) (O13 Lemma 3.1 Jacobi check, β-weighted LLL) and (cu)–(cy) (O9). From-scratch
+checks by the reviewer (R76, branch `side-agent/review-tail`; R76 D5):
+
+```
+PYTHONPATH=scripts uv run python scripts/review_tail_leaves.py   # Lemma 3.1: leaf probabilities, disjointness (exact)
+PYTHONPATH=scripts uv run python scripts/review_tail_twist.py    # Lemmas 3.2/3.2′: Euler-ratio and log rad M_Y numerics (EVIDENCE)
+```
