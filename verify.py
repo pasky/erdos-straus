@@ -21080,4 +21080,179 @@ print("\n== (dv) POINTWISE_TAIL: Lemma 3.1 leaf calculus on toy square-class pro
 check_dv()
 
 
+
+# ---------------------------------------------------------------- (dw)
+# POINTWISE_TYPEI3.md: small-divisor reduction Lemmas 1.1-1.2 (PROVED), the f-graded search at x^_9
+# (Computation 2.1, CERTIFIED to 10^11/10^12; replayed here to f < 10^8), and the Vieta-descent
+# results of §5 (Lemma 5.1 general B, Cor 5.2, Props 5.3-5.5; PROVED).  Cf. scripts/review_typei3_fs.c
+# (R72 from-scratch f-engine), review_typei3_naive.c (definition-level brute force), review_typei3_check.py,
+# review_typei3_vieta.py, review_typei3_level6.py (all R72).  Checked:
+# (1) R72 f-engine at (7, 9), f < 10^8: 3571429 values of f, 0 certificates (C2.1 lower part);
+# (2) R72 f-engine (f < 3001, re-verified exactly by review_typei3_check.py, ck <= 3*10^5) vs naive brute force
+#     (ck <= 3*10^5, divisors <= 3000, both roles, no Lemma 1.1) at 13 sign points: identical certificate sets,
+#     sizes 3,0,14,0,0,0,0,0,8,3,0,1,0; (7,1) contains (14,2,15);
+# (3) R72 vieta.py: Lemma 5.1 general B (9102 pairs), Cor 5.2 (ck <= 2*10^4), Prop 5.3 (6360 pairs), 0 failures;
+#     level6.py 25: Prop 5.4 residues {1,15}, Prop 5.5 mod 2^10 (m = 3 (6)), exact chains, levels 5-7 brute force;
+# (4) inline: Lemma 1.1 (i)-(iii) for every certificate with ck <= 3000 at w = 1, 17, -7, 25, and Lemma 1.2
+#     min(F,e) < 2ck/sqrt(7) + 1; converse direction of Lemma 1.1 on all small parameter tuples (f < 400);
+#     Prop 5.4 mod-16 cycle; Prop 5.5 mod-32 period check over D in {7,15,23,31} (= all 7^a delta^2 mod 32).
+
+def check_dw():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    from sympy import divisors
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C engines skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = {}
+            for name in ("review_typei3_fs", "review_typei3_naive"):
+                exe[name] = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c")],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI3: compile failed", name, r.stderr[-1000:])
+
+            def run(name, *args):
+                r = subprocess.run([exe[name], *map(str, args)], capture_output=True, text=True, timeout=300)
+                assert r.returncode == 0, ("TYPEI3 engine failed", name, args, r.stderr[-500:])
+                return r.stdout, r.stderr
+            o, _ = run("review_typei3_fs", 7, 9, 1, 10 ** 8)
+            assert "tested=3571429 hits=0" in o and "\nC " not in "\n" + o, ("TYPEI3 C2.1: certificate at x^_9", o[-500:])
+            exp_counts = {(7, 1): 3, (7, 9): 0, (7, 17): 14, (7, 25): 0, (7, 41): 0, (7, -7): 0, (7, 5): 0,
+                          (7, -3): 0, (11, 9): 8, (19, 9): 3, (23, 9): 0, (23, 1): 1, (31, 9): 0}
+            for (r_, w_), cnt in exp_counts.items():
+                o, _ = run("review_typei3_naive", r_, w_, 300000, 3000)
+                naive = {tuple(map(int, ln.split())) for ln in o.splitlines() if ln.strip()}
+                o, _ = run("review_typei3_fs", r_, w_, 1, 3001)
+                rc = subprocess.run([sys.executable, os.path.join(sdir, "review_typei3_check.py"), str(r_), str(w_),
+                                     "300000"], input=o, capture_output=True, text=True, env=env, timeout=120)
+                assert rc.returncode == 0 and "invalid 0" in rc.stderr, ("TYPEI3 R72 engine: invalid certificate",
+                                                                        r_, w_, rc.stderr[-500:])
+                eng = {tuple(map(int, ln.split())) for ln in rc.stdout.splitlines() if ln.strip()}
+                assert eng == naive and len(eng) == cnt, ("TYPEI3 engine vs naive certificate sets", r_, w_,
+                                                          sorted(eng ^ naive), len(eng), cnt)
+                if (r_, w_) == (7, 1):
+                    assert (14, 2, 15) in eng, "TYPEI3: (14,2,15) missing at (7,1)"
+        cmsg = ("R72 engine at x^_9, f < 10^8: 3571429 f, 0 certificates; engine = naive at 13 sign points "
+                "(ck <= 3*10^5, f <= 3000)")
+
+    def runpy_(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("TYPEI3 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = runpy_("review_typei3_vieta.py", 20000, 60)
+    assert "(1) Lemma 5.1 (B<= 60, K<= 150): 9102 pairs, failures 0" in o, ("TYPEI3 Lemma 5.1 (R72)", o)
+    assert "certificates at some w=9(16): 0" in o, ("TYPEI3 Cor 5.2 (R72)", o)
+    assert "6360 pairs with 16n | e-F, failures of F=1 mod c_o: 0" in o, ("TYPEI3 Prop 5.3 (R72)", o)
+    o = runpy_("review_typei3_level6.py", 25)
+    assert "m mod 6 at v2(H)=4: [3]; violations 0" in o and "along chains: [1, 15]" in o, ("TYPEI3 P5.4/5.5 (a)", o)
+    assert "3000 positions with v2(H)=4, violations 0, Pell failures 0" in o, ("TYPEI3 P5.5 (b)", o)
+    assert o.count("odd-part certificates (some w=9 mod 16): 0") == 3, ("TYPEI3 levels 5-7 brute force (c)", o)
+
+    def val(p, n):
+        e = 0
+        while n % p == 0:
+            n //= p
+            e += 1
+        return e
+
+    def is_cert(w, c, k, F):
+        h = 4 * c * k
+        t, v = val(2, h), val(7, c * k)
+        mp = (h >> t) // 7 ** v
+        return (val(7, c) % 2 == 1 and (1 + 4 * c * k * k) % F == 0 and (F + 1) % mp == 0
+                and (F - 1) % 7 ** v == 0 and (F + w) % 2 ** t == 0)
+    ncert = 0
+    found = set()
+    for w in (1, 17, -7, 25):
+        for c in range(7, 3001, 7):
+            if val(7, c) % 2 == 0:
+                continue
+            for k in range(1, 3000 // c + 1):
+                N = 1 + 4 * c * k * k
+                h = 4 * c * k
+                t, v = val(2, h), val(7, c * k)
+                mp = (h >> t) // 7 ** v
+                n = (c * k) >> val(2, c * k)
+                ko = k >> val(2, k)
+                gam = val(2, k)
+                for F in divisors(N):
+                    if not is_cert(w, c, k, F):
+                        continue
+                    e = N // F
+                    ncert += 1
+                    found.add((w, c, k, F))
+                    for f, role in ((F, "F"), (e, "e")):
+                        assert (f + 1) % mp == 0 and (f - 1) % 7 ** v == 0 and n % 7 ** v == 0, ("TYPEI3 L1.1(i)", w, c, k, F)
+                        assert ((f + w) if role == "F" else (w * f + 1)) % 2 ** t == 0, ("TYPEI3 L1.1(ii)", w, c, k, F)
+                        assert (2 ** (t + gam) * n * ko + 1) % f == 0, ("TYPEI3 L1.1(iii)", w, c, k, F)
+                    assert 7 * (min(F, e) - 1) ** 2 < 4 * (c * k) ** 2, ("TYPEI3 L1.2: min(F,e) >= 2ck/sqrt7 + 1", c, k, F)
+                    assert min(F, e) ** 2 <= N, ("TYPEI3 L1.2: min divisor > sqrt N", c, k, F)
+    assert ncert >= 5 and (1, 14, 2, 15) in found, ("TYPEI3 inline certificate census too small", ncert)
+    # converse of Lemma 1.1: every parameter tuple satisfying (i)-(iii) yields a certificate
+    nconv = 0
+    for w in (1, 17, 9):
+        for f in range(1, 400, 2):
+            for role in ("F", "e"):
+                for t in range(2, 9):
+                    if ((f + w) if role == "F" else (w * f + 1)) % 2 ** t:
+                        continue
+                    for gam in range(0, t - 1):
+                        for a in (1, 3):
+                            for b in (0, 1):
+                                for c1 in range(1, 40, 2):
+                                    for k1 in range(1, 40, 2):
+                                        if c1 % 7 == 0 or k1 % 7 == 0:
+                                            continue
+                                        mp, v = c1 * k1, a + b
+                                        n, ko = 7 ** v * mp, 7 ** b * k1
+                                        if (f + 1) % mp or (f - 1) % 7 ** v or (2 ** (t + gam) * n * ko + 1) % f:
+                                            continue
+                                        c, k = 2 ** (t - 2 - gam) * 7 ** a * c1, 2 ** gam * 7 ** b * k1
+                                        N = 1 + 4 * c * k * k
+                                        F = f if role == "F" else N // f
+                                        assert N % f == 0 and is_cert(w, c, k, F), ("TYPEI3 L1.1 converse", w, f, role,
+                                                                                     t, gam, a, b, c1, k1)
+                                        nconv += 1
+    assert nconv >= 10, ("TYPEI3 L1.1 converse grid too small", nconv)
+    # Prop 5.4: mod-16 chain (F,H) -> (F+14H, F+15H) from (1,1) has period 4 and F = +-1 (16)
+    st, seen = (1, 1), []
+    for _ in range(8):
+        seen.append(st)
+        st = ((st[0] + 14 * st[1]) % 16, (st[0] + 15 * st[1]) % 16)
+    assert seen[:5] == [(1, 1), (15, 0), (15, 15), (1, 0), (1, 1)] and {s[0] for s in seen} == {1, 15}, "TYPEI3 P5.4"
+    assert {2 * pow(7, a, 16) * d * d % 16 for a in range(1, 16, 2) for d in range(1, 16, 2)} == {14}, "TYPEI3 P5.4 B delta^2"
+    # Prop 5.5 (2): D = 7^a delta^2 mod 32 in {7,15,23,31}; chain mod 32 over a full period: H = 16 (32) => m = 3 (6)
+    Ds = {pow(7, a, 32) * d * d % 32 for a in range(1, 64, 2) for d in range(1, 64, 2)}
+    assert Ds == {7, 15, 23, 31}, ("TYPEI3 P5.5: D mod 32", Ds)
+    npos = 0
+    for D in sorted(Ds):
+        F, H, i, seen = 1, 1, 0, {}
+        while (F, H) not in seen:
+            seen[(F, H)] = i
+            if H % 32 == 16:
+                assert (i + 1) % 6 == 3, ("TYPEI3 P5.5: v_2(H) = 4 at m not = 3 (6)", D, i)
+                npos += 1
+            F = (F + D * H) % 32
+            H = (F + H) % 32
+            i += 1
+        assert seen[(F, H)] == 0 and i in (6, 12), ("TYPEI3 P5.5: period not 6 or 12", D, i)
+    assert npos > 0, "TYPEI3 P5.5: no level-6 index in period"
+    print(f"dw {cmsg}; R72 Lemma 5.1 / Cor 5.2 / Props 5.3-5.5 scripts; inline L1.1 (i)-(iii) + L1.2 on {ncert} "
+          f"certificates (ck <= 3000, 4 sign points), L1.1 converse on {nconv} tuples, P5.4 mod 16, P5.5 mod 32 "
+          f"({npos} level-6 indices); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dw) POINTWISE_TYPEI3: f-graded search at x^_9 (f < 10^8), Lemmas 1.1-1.2, §5 Vieta descent ==")
+check_dw()
+
+
 print("\nall checks passed")
