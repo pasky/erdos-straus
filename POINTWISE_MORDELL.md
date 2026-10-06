@@ -155,6 +155,10 @@ s=0,…,k). ∎
 
 ## 4. The candidate sterile point x* for the main variant (EVIDENCE / CERTIFIED computation)
 
+(R80 repair, applied by reviewer.) Label scope: the next paragraph, with its survivor rates and
+uncovered percentages, is EVIDENCE only. Computation 4.1 is CERTIFIED. Its Consequence is PROVED.
+Conjecture 4.2 is a CONJECTURE.
+
 Complete rigid enumeration of the II1, II2, I4 boxes with T-level `F | 11³·13³`
 (`mordell_rigid.py 11,13 3`; any T-free part; validated: it contains all 164 brute-force boxes
 of these families) together with the all-family brute-force boxes (M≤10⁶) leaves 24.9% of the
@@ -225,7 +229,9 @@ specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) 
   So for r=17 the candidate sterile point is one-dimensional: `x̃_17=u` (u≡5 or 7 mod 17),
   `x̃_q=1` for all q≠17 — the simplest possible shape (a twist at r only).
 
-**Computation 5.1 (CERTIFIED, one engine; re-check pending).** Let `x̃∈Ẑ^×` have `x̃_17=5`,
+**Computation 5.1 (CERTIFIED, two independent engines; R80 repair, applied by reviewer: R80's
+`review_mordell_point.py` gives 0 classes with M up to 10^6 for u=5, and up to 10^5 for u=7;
+`review_mordell_rigid.py 4 17:5` and `4 17:7` find no II1/I4/II2 class with 17-part dividing 17^4).** Let `x̃∈Ẑ^×` have `x̃_17=5`,
 `x̃_q=1` for all q≠17. Then `x̃∈Σ_17^{np}` (a square at every prime <17, a non-square at 17), and
 (`mordell_point.py 1000000 17:5:8`) `x̃` lies in no ET class with modulus `≤10⁶`; nor in any
 II1/II2/I4 class with 17-part dividing `17⁴` (rigid enumeration). Consequence (PROVED from 5.1, as
