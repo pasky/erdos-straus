@@ -305,3 +305,61 @@ sharp). Below threshold the majorant still saves about `0.55k` (cf. (U−)),
 while the minorant is identically useless (cf. (L−)): the asymmetry that
 makes the exceptional side degrade gracefully (saving `λ^{3/4}` from any level)
 and the pointwise side fail sharply (no positive minorant below `λ*`).
+
+## 5. Section for the campaign summary
+
+**One sieve limit behind both ceilings (CEILINGS_UNIFIED.md).** The
+exceptional-set exponent 3/4 and the pointwise exponent 1/4 are the two
+faces of one quantity: the ES witness system truncated at moduli `≤ T`
+behaves like a sieve of dimension `κ ≍ (log T)³` (the Haar exponent), and a
+dimension-`κ` sieve over moduli of log-size `log T` needs level
+`λ* ≍ κ·log T ≍ (log T)⁴` — for upper bounds and for lower bounds alike
+(Thm 4.1, PROVED; the ingredients are known: binomial extrapolation,
+planting, Bonferroni). Level `λ ≍ log N` therefore exploits moduli up to
+`log T ≍ λ^{1/4}` and saves `κ ≍ λ^{3/4}` (exceptional set: the note's bound,
+sharp by KARY3), while a transfer to primes `≤ x` allows `λ ≍ log x` and so
+certifies `W(p) > T` only for `log T ≲ (log x)^{1/4}` (pointwise: OMEGA13,
+sharp by OMEGA14). The product of the two ceilings is the level:
+`(log N)^{3/4}·(log N)^{1/4} = log N`; with Haar exponent `a` they would be
+`a/(a+1)` and `1/(a+1)` (Thm 4.2, PROVED as a conjunction of cited results
+within their scopes; Assessment outside them). Two by-products:
+* **`log(1/δ*(T)) ≫ (log T)³`** with no `log log T` loss (Prop 1.1, PROVED
+  given the 3/4 note): the note's void lemma is a Haar bound. With OMEGA13,
+  `𝓛³ ≪ log(1/δ*) ≪ 𝓛³(log𝓛)^5`.
+* **Witness-modulus tail relative to π(x):**
+  `#{p ≤ x : W(p) > T} ≪ π(x)e^{−c(log T)³}` uniformly for
+  `log T ≤ c₁(log x)^{1/4}` (Thm 2.1, PROVED given the 3/4 note and Page's
+  theorem). This upgrades ledger (A)9 from CLAIMED/PROVISIONAL and fixes its
+  normalisation. The "Haar-side route" to the 3/4 bound is the note's own
+  route (§3), so it reproves, not improves, the 3/4 bound for primes.
+
+**Proposed ledger changes (for the parent).**
+* (A)9: relabel "INTERNALLY PROVED (via the 3/4 note, (B)11); see
+  CEILINGS_UNIFIED Thm 2.1 for the `π(x)` form".
+* (H)25/(H)26: lower bound `𝓛³/log𝓛` → `𝓛³` (CEILINGS_UNIFIED Prop 1.1).
+* New (D)/(H) cross-entry: Thm 4.1/4.2 as above.
+
+**Open / not done.**
+* A *lower* typical-size bound `#{p ≤ x: W(p) > T} ≥ π(x)e^{−C𝓛³polylog}`
+  for `log T ≤ c(log x)^{1/4}/polylog` (which would make the tail law
+  two-sided in the whole sieve range). OMEGA13's transfer gives existence;
+  a count would follow from OMEGA9 Thm 1.1's main term, except that in its
+  Case A (exceptional character with conductor dividing the quarantine
+  modulus) the factor `λ = 1 − x^{β₁−1}/β₁` can be as small as `Z^{−1/2}`.
+  Not attempted (Assessment).
+* Heuristic truth (Assessment): `#{p ≤ x: W(p) > T} = π(x)e^{−𝓛^{3+o(1)}}`
+  up to `𝓛 ≈ (log x)^{1/3}`; both ceilings sit at `(log x)^{1/4}` because that
+  is where `λ*(𝓛) = log x`, not because the distribution changes there.
+* Since both ceilings come from the same level constraint, any input that
+  beats one of them by CRT/level-bounded information alone is impossible; an
+  improvement on either side must use non-CRT information (tuple counts or
+  hybrid large-class accounting, (D)21–(D)26; Type II / support-aware prime
+  input, (H)28). No implication from one side's improvement to the other's
+  is known (Assessment).
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/unify_toy_lp.py   # §4.4, ~10 min, exact LP
+```
+Everything else in this file is a written proof with pointers.
