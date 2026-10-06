@@ -10,6 +10,8 @@ Reviewer branch: side-agent/review-mn. Scripts: `scripts/review_mn_*.py` (from s
 | Prop 2.1 | SOUND (§P21) |
 | Thm 3.1 | SOUND (§T31; MINOR-1) |
 | Prop 3.2 | SOUND (§P32) |
+| Lemma 4.1 | SOUND (§L41) |
+| Thm 5.1 (implication) | SOUND-AFTER-REPAIRS (§T51; MINOR-2..4); label CONDITIONAL honest |
 
 ## §L1 Lemma 1.1
 
@@ -71,3 +73,48 @@ Checked against POINTWISE_HAAR Thm 2.1 / Lemmas 2.2–2.4: `M ≡ −1 (mod mn)`
 `mn | mA ⇒ n | A`; (F1) needs `mD ≤ m T^{1/5} < √T ≤ M` (true for T ≥ T_0(m)), so distinct D give distinct
 residues and `P(E)=1/φ(M)`; sifted progression length `X/(mn) ≥ X^{4/5}/m`; y-rough M are odd, so no
 2-adic issue even for odd m; (2.1), Δ_a, Δ_b with `4n ↦ mn` only change constants. No Jacobi input. ✔
+
+## §L41 Lemma 4.1 — SOUND
+
+Checked against OMEGA9 Thm 1.1 proof (lines 140–195) in the coset form. On rH,
+`c(χ_Qχ_D) = χ̄_Q(r)·E[Bχ̄_D]/φ(Q)`. Items 1–2 (conductor support, `|c| ≤ Aμ/φ(Q)`, `c(χ_0)=μ/φ(Q)`)
+are |·|-statements. Case 0 uses only |c|. In the exceptional case, Case A (χ_D trivial, χ_1 = χ_Q real):
+if `χ_1(r)=−1` then `c = −μ/φ(Q)` and the split term `−c·x^{β_1}/β_1 = +μx^{β_1}/(β_1φ(Q)) > 0`, so
+`S(x) ≥ μx/φ(Q)(1 − 1/200 − 1/400) > 0` with no Page bound — correct (the (G) error bound
+`≤ μx/(200φ(Q))·min(u,1)` from the preceding paragraph does not depend on the sign). Case B uses
+`|ψ_1(r)|=1` only. `c(χ)` real for real χ (needed to split the term) holds since `χ̄(r) = ±1`.
+Confirmed: Case A is the only place a character value at r enters with a sign. ✔
+
+## §T51 Thm 5.1 (implication ADM_m ⇒ conclusions) — SOUND-AFTER-REPAIRS (MINOR-2, MINOR-3, MINOR-4)
+
+Re-derived (a): at a step at (ℓ,a) with N fibre classes and forbidden fraction f, an uncompleted atom with
+`v_ℓ(M) ≥ a+1` has `E p_new = p·N·P(hit its class) ≤ p·N/((1−f)N) = p/(1−f)` (= 0 if its class is
+forbidden), and its Ψ is multiplied by `(1−f)`; completed atoms are forbidden ⇒ `p_new=0`; atoms with
+`ℓ | M`, `v_ℓ(M) ≤ a` have p unchanged and Ψ multiplied by `(1−f) ≤ 1` (the text omits this case but it
+only helps); `ℓ ∤ M` unchanged. Stopping *before* a Λ-violating step is legal (f predictable), keeps
+`Λ ≤ K` hence `Ψ ≥ 1` along the whole stopped path, and coincides with the unstopped AUP on the ADM
+success event. (b),(c) by optional stopping exactly as OMEGA13 Lemma 3.2 with `Ψ_0 = K^{ω_Y(M)}`.
+(d): agreeing step `Π → Π·N·1[match]`, mean `≤ Π/(1−f)`, Ψ(F)Ψ(F') × `(1−f)²` ✔; disagreeing ⇒ 0 ✔.
+Prefix: `E_{r_0∼U(H)}[p_0] ≤ δ_0^{−1}E_{Haar}[p_0] = P_H/δ_0`, and for pairs Haar reveals are exact
+martingale steps for Π, so `E_Haar[Π after prefix] = Π^{Haar}_0` ✔. Property (I) is by construction
+(every completed atom inconsistent with r; prefix atoms excluded by `r_0 ∈ H_m(Q_0)`). NT with
+`f_2(p) ≤ Kβp/φ(p)` stays in the NT class (K fixed). No circularity found in the implication.
+
+**MINOR-2 (§5, statement of ADM_m vs proof of Thm 5.1: Y depends on K).** ADM_m(K,Q_0) is stated "with
+OMEGA13's β, η, Y", but the proof takes `Y = 𝓛^{C_K+4}` with `C_K` depending on K. Repair: state ADM_m
+for `Y = 𝓛^{C}` with an explicit C = C(K) (or "for every fixed C ≥ 1"), so the hypothesis is a
+well-defined statement about one process.
+
+**MINOR-3 (§5 (d) display).** "`Π_new = p p' N²·1[match]`" omits the R/ρ factor; should read
+`Π_new = Π·N·1[match]` (ρ = N is removed). Conclusion unchanged.
+
+**MINOR-4 (§5 AUP definition, odd m).** The AUP says coordinates are "as in OMEGA13 §3", which has no
+2-adic coordinate (M odd there). For odd m, even M exist and the prime 2 must be a coordinate (with
+unit classes mod 2^k, N = 2^{k−1} at k ≥ 2, and N = 1 at level 1). The prefix happens to put 2 | Q_0,
+but the AUP definition should say explicitly that 2 is an ordinary coordinate when m is odd (the same
+point is raised for Cor 6.1 in §6b). Also Lemma 3.2(b)'s `p_0 = P_H` remark ("M odd") must be dropped
+for odd m — it is replaced by the prefix factor `1/δ_0`, which the text does give.
+
+Label CONDITIONAL on ADM_m is honest; ADM_m is a genuinely open probabilistic statement (the author's own
+§6 "why not proved" is accurate: first moments diverge like Σ(log ℓ)³/ℓ, a second-moment union bound is
+needed).
