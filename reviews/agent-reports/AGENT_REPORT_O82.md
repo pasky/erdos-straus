@@ -8,7 +8,9 @@ scripts `scripts/mn3_{u1,rn,resid,first}.py`. Summary table with labels: `POINTW
 PROVED (under review by R82):
 * Lemma 1.1: for `ν = δ_1`, `E^ν_1(q) ≤ 2ℓ·U_1(q)`, `U_1(q) = Σ_{C_q, D≤A} K^{ω(M)}/φ(M/gcd(M,mD+1))`.
 * Lemma 2.1: N-parametrisation (`f | aN+c`, `cM = N(a+b)`, `acd ≤ N`), `R(N) < ∞`.
-* Lemma 3.1: with three admissible levels, SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (square-root saving).
+* Lemma 3.1: SI_3(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (square-root saving), where SI_3 is the three-level
+  analogue of SI with `K = (1−θ)^{−3}`; SI_3 ⇒ ADM_m((1−θ)^{−3}) by MN2's proof with L = 3; MN2's two-level SI
+  does not follow (R82 repair D4, applied by reviewer).
 * Lemma 4.1: prefix part `s = gcd(g,Q_0)`, extra factor `1/φ(g/s)`.
 * Lemma 5.1: `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; level-0 count on the all-ones path `Y(ℓ) ≤ 2R_ℓ(ℓ)`.
 * Lemma 5.2: `R(N) ≪ N^{3/5+o(1)}` — R(N) is an m-analogue of Elsholtz–Tao's Type I count, and ET's

@@ -15,7 +15,7 @@ a route (M2) ⇒ SI exists only as a SKETCH with five missing pieces (§5.4).
 |---|---|---|
 | Lemma 1.1 | `E_ν[p_0(E^-)] ≤ ℓ/φ(N)`, `N = M/gcd(M,mD+1)`; so `E^ν_1(q) ≤ 2ℓU_1(q)` | PROVED |
 | Lemma 2.1 | N-parametrisation (`f | aN+c`, `cM = N(a+b)`, `acd ≤ N`); `R(N) < ∞` | PROVED |
-| Lemma 3.1 | with three admissible levels, SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (proper prime powers) | PROVED (given MN2 Thm 3.1's set-up) |
+| Lemma 3.1 | SI_3(δ_1) (three admissible levels, K = (1−θ)^{−3}; SI_3 ⇒ ADM_m) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (proper prime powers); MN2's two-level SI does not follow (R82 repair D4, applied by reviewer) | PROVED (given MN2 Thm 3.1's set-up) |
 | §4 route table | four linear routes (sum over c, d via N, d via e, a), each expected closable by (H) when long | Assessment (proofs not written) |
 | Lemma 4.1 | `s = gcd(g,Q_0)`; exact weight `≤ ℓ/(φ(N)φ(g/s))` | PROVED |
 | residual (§4) | region where all four routes are short (Kloosterman range of `ef ≡ 1 mod ma²`) | description: Assessment; mass share 72–91% of `U_1(q)`, `q ≤ 199`: EVIDENCE |
@@ -104,15 +104,21 @@ or `a ≥ a_ℓ+L` and `Y ≥ 1`. No bad step ⇒ `Λ(ℓ) ≤ K := (1−θ)^{�
 still a constant, which is all MN Thm 5.1 needs).
 
 **Lemma 3.1 (PROVED, given MN2 Thm 3.1's first/second-moment set-up and Lemma 1.1).** For `ν = δ_1`
-and `L = 3`, SI follows from
+and `L = 3`, **SI_3** follows from
 
 * (R_a) `Σ_{ℓ>q_0} E^ν_2(ℓ)/(ℓ−1)² → 0` (level 0, Chebyshev);
 * (R_b) `U_1(q) ≪ q^{−1/2−δ}` for proper prime powers `q ∈ 𝒫` (some fixed `δ > 0`).
 
-*Proof.* (b) steps have `a ≥ 1`, `N ∈ {2, ℓ}` fibre lifts, and `E[Y1_alive] ≤ E^ν_1(q) ≤ 2ℓU_1(q)`
-(Lemma 1.1), so `P(bad) ≤ 4U_1(q)/θ`; every (b) step has a proper prime power `q > q_0`, distinct
-for distinct steps, and `Σ_{q proper pp > q_0} q^{−1/2−δ} ≪ Σ_{ℓ} min(ℓ^{−1−2δ}, ·) → 0`
-(`#{proper pp in (x,2x]} ≪ x^{1/2}`). (c) steps: `P(Y ≥ 1) ≤ 2ℓU_1(q)`. If `ℓ > q_0` then
+Here (R82 repair D4, applied by reviewer) **SI_3** is the three-level analogue of MN2's SI: K := (1−θ)^{−3} in
+all K-weights (of `E^ν_1`, `E^ν_2` and `U_1`), case (b) is `a ∈ [a_ℓ, a_ℓ+2]`, `a ≥ 1`, case (c) is `a ≥ a_ℓ+3`.
+**SI_3 ⇒ ADM_m((1−θ)^{−3}, Q(q_0))** for some `q_0`, with success probability ≥ 1/2, by the proof of MN2
+Thm 3.1 / Prop 5.1 with `L = 3` (only "no bad step ⇒ Λ(ℓ) ≤ (1−θ)^{−3}" changes). MN2's two-level SI does
+**not** follow from (R_a)+(R_b): its (c) terms at `q = ℓ³`, `ℓ > q_0`, would need `Σ_ℓ ℓ·ℓ^{−3/2−3δ} < ∞`, false.
+
+*Proof.* (b) steps have `a ≥ 1` and `ℓ` fibre lifts (2 at ℓ = 2), and `E[Y1_alive] ≤ E^ν_1(q) ≤ 2ℓU_1(q)`
+(Lemma 1.1), so `P(bad) ≤ 2U_1(q)/θ` (corrected from `4U_1/θ`, R82 D4); every (b) step has a proper prime power `q > q_0`, distinct
+for distinct steps, and `Σ_{q proper pp > q_0} q^{−1/2−δ} ≪ Σ_{dyadic x > q_0} x^{1/2}·x^{−1/2−δ} ≪ q_0^{−δ} → 0`
+(`#{proper pp in (x,2x]} ≪ x^{1/2}`; display corrected, R82 D4). (c) steps: `P(Y ≥ 1) ≤ 2ℓU_1(q)`. If `ℓ > q_0` then
 `q = ℓ^k`, `k ≥ L+1 = 4`, and `Σ_ℓ Σ_{k≥4} ℓ^{1−k/2−kδ} ≪ Σ_{ℓ>q_0} ℓ^{−1−4δ} → 0`. If `ℓ ≤ q_0` then
 `q ≥ ℓ^{a_ℓ+L+1} > q_0ℓ^{3}`, so `ℓq^{−1/2−δ} ≤ q_0^{−1/2}ℓ^{−1/2}` and the geometric sum over k and the
 sum over `ℓ ≤ q_0` give `≪ q_0^{−1/2}·q_0^{1/2}/log q_0 → 0`. (a) is (R_a). ∎
