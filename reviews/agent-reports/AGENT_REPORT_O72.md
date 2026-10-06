@@ -18,6 +18,7 @@ an explicit tail bound for the near-miss count would give a sterile point
 | item | label |
 |---|---|
 | L1.1 small-divisor reduction; L1.2 f-bound ⇒ height bound `1.3229(Y−1)` | PROVED |
+| C2.3 r=23,31,47: no certificate with f<10¹¹ ⇒ covering heights >2.39/2.78/3.42·10¹¹ | CERTIFIED (one engine) |
 | Prop 3.1 sterile points nowhere dense (no fixed-modulus proof of sterility) | PROVED |
 | L5.1 Vieta descent (`Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 mod 4cδ`); C5.2 certificates at x̂_9 need `t≥5`, `α+2γ≥5`; P5.3 levels `α+2γ∈{5,6}` force `c'=1` | PROVED |
 | C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵) / CONDITIONAL (H) |
