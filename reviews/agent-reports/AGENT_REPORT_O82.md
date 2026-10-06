@@ -17,6 +17,9 @@ PROVED (under review by R82):
 Assessment / EVIDENCE: all four linear (H)-routes are short on a residual (Kloosterman-range) region that
 carries 72–91% of `U_1(q)` for `q ≤ 199`; its main term is the ES-type multiplicity `R(N)` at
 `N = ℓ·(small)`.
+The (P)/(AP)/(M2) localisation with a fixed scale exponent `K_0 ≈ 10` applies only to `q ≥ Q_0 = e^{(1+o(1))q_0}`;
+the range `q_0 < q < Q_0` (which dominates SI's tail) is a separate open component: scales up to `e^{O(q)}`,
+Lemma 4.1's cut-off not polynomial, weak (M2) insufficient (R82 repair D2, applied by reviewer).
 
 CONJECTURE 5.3 (M2): `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}`; data (m = 5) `Σ R²/(Y log⁶Y) = 0.0034 → 0.0026` for
 `Y = 10³ … 3·10⁴`.

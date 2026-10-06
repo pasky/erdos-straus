@@ -23,6 +23,7 @@ a route (M2) ⇒ SI exists only as a SKETCH with five missing pieces (§5.4).
 | Lemma 5.2 | `R(N) ≪ N^{3/5+O(1/log log N)}` (ET Type I device, `4 ↦ m`; R82 repair, applied by reviewer — was `2/3`) | PROVED |
 | Conjecture 5.3 (M2) | `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}` | CONJECTURE (EVIDENCE to `3·10⁴`) |
 | §5.4 | (M2) + (H) ⇒ SI(δ_1) | SKETCH only (five missing pieces listed) |
+| range `q_0 < q < Q_0` | scales up to `e^{O(q)}`; Lemma 4.1 cut-off not polynomial; (P)/(M2)-weak do not apply | OPEN, separate component (R82 repair, applied by reviewer) |
 | SI for `ν = δ_1`; ADM_m; `W_5` exponent 1/4 | — | OPEN / OPEN / CONDITIONAL on SI |
 
 ## 0′. Target and notation
@@ -162,7 +163,8 @@ factor `1/φ(g/s) ≤ B^{−1/2+o(1)}` is a power saving that beats the pointwis
 (all residual variables are `≤ B^{O(1)}`). So the residual is only dangerous at scales
 `B ≤ (Q_0 q)^{O(1)}`: for `q ≥ Q_0` this is a **polynomially bounded box** (pointwise bounds for h,
 q-gain needed from counting alone), and for `q_0 < q < Q_0 = e^{(1+o(1))q_0}` it is the range where the
-prefix part s itself can be huge.
+prefix part s itself can be huge and the cut-off is `e^{O(q_0)}`, not polynomial in q (for `q ≲ 2q_0` Lemma 4.1
+never applies, since `M ≤ qL(q) < Q_0²q`): a separate open component, see §5 scope note (R82 D2).
 
 **EVIDENCE for the residual (`scripts/mn3_resid.py 5 3000000`).** Share of `U_1(q)` (K = 1, atoms with
 `M ≤ 3·10⁶`) lying in the residual (`c < q`, `d < fq`, `d < eq`, `a < fq`; exponents δ = 0): 0.91, 0.82,
@@ -236,7 +238,18 @@ So SI for `ν = δ_1` contains, as its main term, averages over primes ℓ of
 (precisely: an m-analogue of ET's Type I count `f_I(N)` — the atoms with cofactor N are points of ET's
 variety Σ_I^N with `4 ↦ m`, giving `m/N = 1/(abdN)+1/(acd)+1/(bcd)`, Lemma 5.2; "Type II" corrected to
 "Type I" — R82 repair, applied by reviewer).
-What a proof of SI at level 0 needs is, roughly, **one** of:
+*Scope (R82 repair D2, applied by reviewer).* The scale cut-off `N ≤ ℓ^{K_0}` used below comes from Lemma 4.1's
+saving, which needs `g ≥ Q_0²q^{1+3δ}`; it is polynomial in q only for `q ≥ Q_0 = e^{(1+o(1))q_0}`. The
+localisation (P)/(AP)/(M2) with fixed `K_0` therefore concerns **only the range `q ≥ Q_0`**. The range
+`q_0 < q < Q_0` — which contains the terms that dominate SI's tail sums as `q_0 → ∞` — is a **separate open
+component**: there `M ≤ qL(q) = qQ_0e^{(1+o(1))(q−q_0)}`, for `q ≲ 2q_0` Lemma 4.1 never applies, atoms occur at
+all scales up to `e^{O(q)}`, a pointwise bound `R ≪ N^θ` with fixed `θ > 0` gives nothing
+(`Σ_{N''|L(q)} N''^{θ−1} = exp(q^{θ+o(1)})`), and the weak form of (M2) does not suffice. Data: `q·U_1(97)` (K = 1)
+is 85.4, 106.2, 118.6, 125.1 for `M ≤ 10⁶, 10⁷, 10⁸, 10⁹` (`scripts/review_mn3_u1.py`), so large scales carry
+real mass. What that range plausibly needs is the strong (polylog) form of (M2) combined with Rankin weights
+(`σ ≍ 1/log q`, Cauchy–Schwarz against `Σ_N v_q(N)N^{4σ−1} ≪ (log q)^{O(1)}`) — reviewer's sketch, unverified.
+
+For `q ≥ Q_0`, what a proof of SI at level 0 needs is, roughly, **one** of:
 
 * (P) a pointwise bound `R(N) ≪ N^{θ}` with `θ < 1/K_0`, where `N ≤ ℓ^{K_0}` is the residual scale
   (`K_0 ≈ 10` from §4 and Lemma 4.1). The best pointwise bounds of this type known for ES counts are
@@ -261,8 +274,9 @@ What a proof of SI at level 0 needs is, roughly, **one** of:
 | mean / max of `R(ℓ)`, primes `ℓ ∈ (Y/2,Y]` | 35 / 111 | 57 / 223 | 78 / 386 | 106 / 663 |
 
 The normalised second moment is slowly decreasing, so `X(log X)⁶` is an upper envelope over this
-range; the data do not determine the log-power. Only the weak form with `ε < 1/K_0` would be used in
-§5.4. Proving (M2) is a count of pairs of O12 tuples with equal N (6 free variables), whose
+range; the data do not determine the log-power. The weak form with `ε < 1/K_0` would suffice only for
+`q ≥ Q_0`; the range `q_0 < q < Q_0` would need at least the strong form (scope note above; R82 repair D2,
+applied by reviewer). Proving (M2) is a count of pairs of O12 tuples with equal N (6 free variables), whose
 "first-term" regime is again of Kloosterman type.
 
 ### 5.4 (M2) ⇒ SI: SKETCH (not a proof)
