@@ -64,3 +64,28 @@ search; each node refined at the prime (power) with the fewest uncovered childre
   covered except `(x_2≡1 (16), 9, 7)` for T={2,11,13}, which is the cell (9,7) covered at M≤10⁶.
   So **for the np variant no T-generic obstruction is visible** for |T|≤3; for the main variant
   the cell `x_11≡2 (11), x_13≡2 (13)` is the only T-generic survivor found.
+* Same with resolution `11³·13³` (M≤10⁶, boxes with `v_q(M)≤3`): 1306 boxes, uncovered 0.44% of
+  the target (5390 cells, all in the (2,2) cell, i.e. 26% of that cell; at resolution 2 it was
+  34%, at M≤3·10⁴ 56%). Slow decay — consistent with either a sterile set or late coverage.
+
+### 2.1 T-generic classes = ℤ[1/T]-points of the ES variety at n=1 (PROVED, elementary)
+
+For each family the class is exactly the set of n for which ET's non-constant coordinates
+(linear/quadratic in n with integer coefficients over the modulus) are integers. At a T-generic
+point (`x_q=1` for q∉T) integrality at q∉T is integrality of the coordinates at **n=1**.
+Writing `m'` for the T-free part, the T-generic conditions are:
+
+| family | constants | T-generic condition (besides the family's coprimality) | box residue mod F=T-part of M |
+|---|---|---|---|
+| I1 | a,d,f; `f∣4a²d+1` | `4(ad)'∣f+1` | `−f` |
+| I2 | a,c,f | `4(ac)'∣f+1`, `f'∣a+c` | `−f` mod `(ac)_T`, `−c/a` mod `f_T` |
+| I3 | c,d,f | `4(cd)'∣f+1`, `f'∣4c²d+1` | `−f` mod `(cd)_T`, roots of `n²≡−4c²d` mod `f_T` |
+| I4 | a,b,e; `e∣a+b` | `4(ab)'∣e+1` | `−1/e` |
+| II1 | a,b,e; `e∣a+b` | `4(ab)'∣e+1` | `−e` |
+| II2 | a,d,f; `4ad∣f+1` | `f'∣4a²d+1` | `−4a²d` |
+| II3 | a,d,e | `4(ad)'∣e+1`, `e'∣4a²d+1` | `−4a²d−e` |
+
+(Derivations: the coordinate formulas of ET §10; e.g. II2: `e=(n+4a²d)/f`, so T-generic ⟺
+`f'∣1+4a²d`.) Rigid forms: II1/I4 ⟺ `4iabk=F(a+b+k)` with `k=(a+b)/e`, `e+1=4i·ab/F`
+(symmetric in a,b,k); II2 ⟺ `4adm=f+1`, `g∣a+m` (f=Fg), equivalently with `a+m=gj`:
+`(4dja−F)(4djm−F)=F²+4dj²`; I1 ⟺ `(4ni−1)(4nj−1)=4naF+1`, `ad=Fn`.
