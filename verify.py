@@ -21270,11 +21270,11 @@ check_dw()
 # at reduced bounds.  Uses the R80 from-scratch scripts (review_mordell_check.py loaded as a module;
 # review_mordell_point.py, review_mordell_rigid.py as subprocesses), not the author's mordell_*.  Checked:
 # (1) both certificates data/mordell/cert_r13_{np_240240,main_720720}.json: family conditions, the ES identity
-#     4xyz = n(xy+yz+zx) in Q[n], integrality on the full class t + L*Z (s = 0..4; R80's s = 0, 1, 2 test agrees on
-#     every (target, class) pair, though I2/I3/II3 coordinates have degree 3-4), coverage of all 360 resp.
-#     2160 targets of Sigma_13 mod L except exactly {112561} resp. the six stated residues; every class used;
-# (2) inline: each coordinate is a polynomial in n (degree <= 4; the doc's "degree <= 2" holds only for I1, I4,
-#     II1, II2) with non-negative coefficients, positive at n = 1 (so positive for every n >= 1, B = 1); the 6 Mordell-hard (square) units mod 840 are exactly the
+#     4xyz = n(xy+yz+zx) in Q[n], integrality on the full class t + L*Z (s = 0..4, as I2/I3/II3 coordinates
+#     have degree 3-4; inline and via R80's covers, corrected to s = 0..4 in O85, agreeing on every
+#     (target, class) pair), coverage of all 360 resp. 2160 targets of Sigma_13 mod L except exactly {112561} resp. the six stated residues; every class used;
+# (2) inline: each coordinate is a polynomial in n (degree <= 4, true degrees per family as in §0) with
+#     non-negative coefficients, positive at n = 1 (so positive for every n >= 1, B = 1); the 6 Mordell-hard (square) units mod 840 are exactly the
 #     t = 1 (24) squares mod 5, 7; end-to-end 4/p = 1/x+1/y+1/z for the least prime in every covered target class;
 # (3) Theorem 3.1(c): np targets mod 720720 not covered by either certificate are exactly {112561, 352801};
 # (4) Comp 4.1 reduced: x* in no class of any family with M <= 3*10^4 (R80 point engine), nor in any
@@ -21292,7 +21292,7 @@ def check_dx():
     t0 = perf_counter()
     nsym = symbols("n")
     ndeg = 0
-    # true n-degrees of (x, y, z): I2, I3, II3 exceed 2 (POINTWISE_MORDELL §0 says <= 2; only positivity matters)
+    # true n-degrees of (x, y, z): I2, I3, II3 exceed 2 (POINTWISE_MORDELL §0, O85 correction)
     maxdeg = {"I1": (2, 1, 2), "I2": (3, 1, 2), "I3": (4, 1, 2), "I4": (2, 1, 1), "II1": (1, 2, 2), "II2": (1, 1, 2),
               "II3": (1, 2, 3)}
     here = os.path.dirname(os.path.abspath(__file__))
@@ -21322,12 +21322,12 @@ def check_dx():
                 ndeg += 1
 
         def covers(c, t):
-            # integer-valued on t + L*Z: degree <= 4 in s, so test s = 0..4 (R80's covers tests s = 0..2 only)
+            # integer-valued on t + L*Z: degree <= 4 in s, so test s = 0..4 (R80's covers likewise, after the O85 correction)
             return all(v.denominator == 1 and v > 0 for s_ in range(5) for v in R.sol(*c, t + L * s_))
         T = [t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, var)]
         assert len(T) == exp_cnt[var][2], ("MORDELL target count", fn, len(T))
         cov = {t: [c for c in cls if covers(c, t)] for t in T}
-        assert all(covers(c, t) == R.covers(*c, t, L) for t in T for c in cls), ("MORDELL: R80 s <= 2 test differs", fn)
+        assert all(covers(c, t) == R.covers(*c, t, L) for t in T for c in cls), ("MORDELL: R80 covers differs from inline test", fn)
         unc = {t for t in T if not cov[t]}
         assert unc == exp_exc[var], ("MORDELL Thm 3.1: uncovered targets != stated exceptions", fn, sorted(unc))
         assert all(any(c in cov[t] for t in T) for c in cls), ("MORDELL: unused class", fn)
@@ -21347,7 +21347,7 @@ def check_dx():
                      and t % 7 in (1, 2, 4)} and len(sq840) == 6, ("MORDELL: squares mod 840", sorted(sq840))
     L, cls = certs["main"]
     Ln, clsn = certs["np"]
-    # R.covers (s <= 2) agrees with the degree-4 test on all main / np targets (asserted above)
+    # R.covers (s <= 4) agrees with the degree-4 test on all main / np targets (asserted above)
     left = {t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, "np")
             and not any(R.covers(*c, t, L) for c in cls) and not any(R.covers(*c, t % Ln, Ln) for c in clsn)}
     assert left == {112561, 352801}, ("MORDELL Thm 3.1(c)", sorted(left))

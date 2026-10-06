@@ -24,3 +24,9 @@ POINTWISE_MORDELL17 is not on main → skipped.
   fix: one sentence in §0, and `range(5)` in `review_mordell_check.py`.
 
 Commits: one per block, plus a docstring commit, plus a STATUS/report commit.
+
+## Fixes applied (at parent's request)
+* POINTWISE_MORDELL.md §0: the degree sentence is corrected and marked "(O85 correction)". It now says
+  degree ≤ 4, gives the per-family degrees, and keeps B = 1.
+* `scripts/review_mordell_check.py`: `covers` now tests s = 0..4 (with a comment), and the identity comment is updated.
+  Both certificates still pass. (dx) has been re-run (9.6 s, passes), and its comments are updated.
