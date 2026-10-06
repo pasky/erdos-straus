@@ -170,3 +170,42 @@ killed by `(7,3,11)`, `(7,3,23)`, and `x*_7≡6` is killed at level 1 by
 every `x*_7`. The certificates `(7,3,11)`, `(7,3,23)` hold at **every**
 point with `11|N`, `23|N` there, i.e. `x*_{11}≡±1 (11)` resp. `x*_{23}≡±1 (23)` (as `252≡−1` mod 11 and 23) — they
 can only be avoided by moving `x*_{11}`, `x*_{23}`.
+
+### 2.1 The {2,7}-generic points (x*_q = 1 for q ≠ 2,7)
+
+At such points `N=1+4ck²` is an honest integer at every `q≠2,7`, and
+`2∤N`, `7∤N` (for `7|c`). So a certificate is an honest divisor
+`F|1+4ck²` with `F≡−1 (mod m')`, where `m'` is the part of `ck` prime to
+14, together with the **box** condition
+
+```
+x*_2 ≡ −F (mod 2^{v_2(4ck)}),     x*_7 ≡ −F (mod 7^{v_7(ck)}).
+```
+
+**Lemma 2.4 (rigid parametrisation; PROVED).** Write `c=2^α7^a c'`,
+`k=2^γ7^b k'` (`c'k'` prime to 14, a odd), `m'=c'k'`,
+`Λ=2^{2+α+2γ}7^{a+2b}`. The certificates at a {2,7}-generic point with
+these exponents correspond bijectively to integer tuples
+`(c',J,J',u)`, `J,J',u≥1`, with
+
+```
+c'·J·J' − u = Λ,      u | J + J',      k' := (J+J')/u,       (2.1)
+```
+
+and `c'k'` prime to 14, `F=m'J−1` with `(F,14)=1`. The cofactor is
+`e=m'J'−1`. *Proof.* `F≡−1 (m')` and `Fe=1+4ck²≡1 (m')` give
+`e≡−1 (m')`. Write `F=m'J−1`, `e=m'J'−1`, `J,J'≥1` (`F,e>0`). Then
+`Fe=1+4ck²` ⟺ `m'JJ'−J−J'=4ck²/m'=Λk'`. Reducing mod `k'` gives
+`k'|J+J'`; with `J+J'=k'u` we get (2.1). Conversely (2.1) gives back
+`Fe=1+4ck²`. ∎
+
+**Corollary 2.5 (finiteness per level; PROVED).** For fixed `(α,γ,a,b)`
+there are finitely many certificates, all with `u≤Λ+4`. *Proof.* If
+`c'≥2`: `u≤J+J'≤JJ'+1≤(Λ+u)/2+1`, so `u≤Λ+2`. If `c'=1` and
+`min(J,J')=1`, say `J=1`: `u|1+J'=1+Λ+u`, so `u|Λ+1`. If `c'=1`,
+`J,J'≥2`: `J+J'≤JJ'/2+2`, so `u≤Λ+4`. Then `c'JJ'=Λ+u` is bounded. ∎
+
+So for {2,7}-generic points every certificate is a box of measure
+`2^{−(2+α+γ)}7^{−(a+b)}` in `ℤ_2×ℤ_7`, with finitely many boxes per
+level. Whether a sterile point exists is a question about the union of
+these boxes (§2.2).
