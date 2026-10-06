@@ -77,3 +77,75 @@ is the dual form of Lemma 1.1. The KARY/NC caps are the statement that, for
 value `≥ N e^{−C(log N)^{3/4}}`; such g may be very rough. For weights below 1,
 G consists of functions whose spectrum is (essentially) confined where w is
 large, and §2 shows this confines g to be smooth at scale N.
+
+## 2. Band-limited windows: the general-majorant door is exactly M(N)
+
+Let K ≥ 1 and let Φ = Φ_K be Selberg's majorant of `1_{[0,1]}` with
+`Φ̂` supported in `[−K, K]` and `∫Φ = Φ̂(0) = 1 + 1/K` (Vaaler, Bull. AMS 12
+(1985); Montgomery, *Ten lectures*, Ch. 1). Φ ≥ 0, Φ ≥ 1 on [0,1], Φ is entire of
+exponential type and `Φ(x) = O(x^{−2})`, so `Σ_n Φ(n/N)` converges absolutely.
+
+**Lemma 2.0 (PROVED, routine).** For N ≥ 4K: `W_N(θ) = 0` unless `‖θ‖ ≤ K/N`,
+and `W_N(0) = N(1 + 1/K)`.
+
+*Proof.* Poisson (valid: Φ ∈ L¹, Φ̂ continuous with compact support, Φ = O(x^{−2})):
+`W_N(θ) = Σ_k N Φ̂(N(k − θ))`. A term is nonzero only if `|k − θ| ≤ K/N ≤ 1/4`. ∎
+
+**Theorem 2.1 (per-frequency rounding with a band-limited window ≍ the
+shift-uniform count; PROVED).** For every finite family (any classes, any
+moduli) and N ≥ 4K,
+
+    M(N) ≤ min_{ν majorant} Σ_θ |ν̂(θ)| |W_N(θ)| ≤ 12(K+1)·M(⌈N/K⌉) ≤ 12(K+1)·M(N).   (2.1)
+
+*Proof.* Lower bound: Lemma 1.1 (Φ ≥ 1 on [1/N, 1]). Upper bound: by Lemma 1.2 it
+suffices to bound `⟨g, 1_𝒜⟩` for g ≥ 0 with `|Qĝ| ≤ |W_N|`. By Lemma 2.0 the
+spectrum of g lies in `‖θ‖ ≤ δ := K/N ≤ 1/4`.
+
+*Reproducing kernel.* Put `k_δ(x) = δ(sin πδx / πδx)²`, whose Fourier transform
+is the triangle `(1 − |ξ|/δ)_+`, and `v = 2k_{2δ} − k_δ`. Then `v̂ = 1` on
+`|ξ| ≤ δ` and `v̂ = 0` for `|ξ| ≥ 2δ`, and `|v(x)| ≤ 5δ min(1, (πδx)^{−2})`. By
+Poisson, `Σ_{m∈ℤ} v(m) e(−mθ) = Σ_k v̂(θ + k)`, which equals 1 for `‖θ‖ ≤ δ`
+(2δ ≤ 1/2). Since g is a trigonometric polynomial with spectrum in `‖θ‖ ≤ δ`,
+
+    g(n) = Σ_{m∈ℤ} v(m) g(n − m)      for every n (absolutely convergent).
+
+*Bound.* Summing over n mod Q and substituting r = n − m,
+
+    ⟨g, 1_𝒜⟩ = Σ_{r mod Q} g(r) Σ_{m∈ℤ} v(m) 1_𝒜(r + m)
+             ≤ Σ_{r mod Q} g(r) · Σ_{m∈ℤ} |v(m)| 1_𝒜(r + m),
+
+using g ≥ 0. Cut ℤ into blocks `I_j = [jL, (j+1)L)`, `L = ⌈1/δ⌉`. Each block
+meets `𝒜 − r` in at most `M(L)` points. On `I_j` we have `|v| ≤ 5δ` for
+j ∈ {−1, 0}, and `|v| ≤ 5δ/(π² j'²)` with `j' = j` (j ≥ 1) or `j' = |j| − 1`
+(j ≤ −2). So the inner sum is ≤ `5δ M(L)(2 + 2·π^{−2}·π²/6) ≤ 12 δ M(L)`.
+Finally `Σ_r g(r) = Qĝ(0) ≤ W_N(0) = N(1+1/K)`, and `12δ·N(1+1/K) = 12(K+1)`.
+M is nondecreasing, and `⌈N/K⌉ ≤ N`. ∎
+
+**Corollary 2.2 (PROVED).** (a) For the window Φ_K there is a majorant ν of 𝒜
+(a general Q-periodic function, not a hit-pattern or level-restricted one)
+whose per-frequency bound is `≤ 12(K+1)M(N)`. (b) Hence, for per-frequency
+smooth rounding over general majorants, a cap of the form
+`saving ≤ C(log N)^{3/4}` holds **if and only if**
+`M(N) ≥ N exp(−C′(log N)^{3/4})` (with C, C′ related by `log(12(K+1))`).
+(c) By Lemma 1.1, a lower bound `M(N) ≥ N e^{−C(log N)^{3/4}}` would cap **every**
+per-frequency bound with `w ≥ |W_N|` or `w ≥ |S_N|`, for every majorant class,
+every window, and every family.
+
+So the "weights below 1" door for general majorants is not a door about
+Fourier analysis at all: it is the shift-uniform version of the counting
+problem. It is the analogue of IF Obs 1.1 (exact interval evaluation over
+unrestricted majorants is the problem itself), with [1,N] replaced by the
+worst window. In particular no arithmetic-free argument (Walsh tails,
+comparison measures, LP caps built from level/mass hypotheses) can cap this
+class unless it proves a lower bound for M(N) — a statement about the
+avoider set itself.
+
+*What M(N) is.* By CRT, t ranges over all residue vectors. In a prime-slice
+system (Q₀ = 1, one prime ℓ per class set F_ℓ) M(N) is the **translate sieve**
+
+    M(N) = max_{(c_ℓ)} #{ j ∈ [1,N] : j + c_ℓ ∉ F_ℓ (mod ℓ) for all ℓ }.     (2.2)
+
+A class set with `N·|F_ℓ| < ℓ` has a gap of length N mod ℓ and is avoided at no
+cost. For forced classes `|ℛ(M)| = M^{o(1)}`, so only moduli `≤ N^{1+o(1)}`
+matter for M(N). The upper bound `M(N) ≤ N exp(−c(log N)^{3/4})` holds (the 3/4
+note's bound is shift-uniform). Whether M(N) is that large is §5.
