@@ -168,5 +168,5 @@ Numerically (`typei2_balls.py 20000 3 1 2:25:14 3:7:9`): at the point
 killed by `(7,3,11)`, `(7,3,23)`, and `x*_7≡6` is killed at level 1 by
 `(21,351,155)` (height 7371). So that point has formal `ck_min≤7371` for
 every `x*_7`. The certificates `(7,3,11)`, `(7,3,23)` hold at **every**
-point with `11|N`, `23|N` there, i.e. `x*_{11}≡±1`, `x*_{23}≡±10`… — they
+point with `11|N`, `23|N` there, i.e. `x*_{11}≡±1 (11)` resp. `x*_{23}≡±1 (23)` (as `252≡−1` mod 11 and 23) — they
 can only be avoided by moving `x*_{11}`, `x*_{23}`.
