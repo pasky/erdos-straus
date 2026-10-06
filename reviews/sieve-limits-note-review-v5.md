@@ -58,5 +58,31 @@ one pre-existing overfull hbox 1.29pt (lines 3818–3825). OK.
   −4d, −1/(4d) (d | A², d ≤ 5) lie in 𝓡(M) = {−4D : D | A²}, and all 9752 n < 1200 in 𝓡(M)-classes
   have a 4/n decomposition (forcedness sanity check).
 
+### §14.9 Hybrid methods
+* **Def 14.28 (SPW, ex-hypothesis) — SOUND** (now correctly a definition; no remaining
+  "Hypothesis~\ref{hyp:SPW}" text; label name `hyp:SPW` is cosmetic only).
+* **Thm 14.30 (fixed-σ SPW fails) — SOUND.** Re-derived completely: k ∈ [m₀,M] divides L_M | e so
+  e/k ≤ ⌊N/2⌋ and ρ̂(k) is pinned; T = (ρ−1_W)∗F_M has degree < m₀ and |T| ≤ 1 on Z/e;
+  sampling+Bernstein gives ‖T‖_∞ ≤ (1−πm₀/e)^{−1}; normalised Fejér tail beyond r is
+  ≤ e/(2(M+1)r) (sin πx ≥ 2x), and both tails enter, giving σ − e/((M+1)r); the wrap-around
+  condition e > N+2r is exactly r < ((C−1)N−1)/2. Optimisation gives 4√(πm₀/(M+1)). (P3) unused ⇒
+  "whatever Δ₀" ✓.
+* **Exact certificates σ ≤ 72/185 (N=300, e=630) and σ ≤ 0.381133 (N=1150, e=2310) — REPRODUCED
+  from scratch** (`scripts/review_r65_spw_cert.py`: LP on Z/e, dual rounded to rationals,
+  weak-duality bound σ ≤ 1 − Σ_W g/Σ g⁺ evaluated in exact arithmetic): 72/185 exactly and
+  0.3811324…; LP optima 0.389189 / 0.381132. (For these e the only divisor e' > CN is e itself.)
+* **Lemma 14.31 (weak SPW suffices) — SOUND, with one presentational defect (D-H1 below).**
+  Re-derived: R₁ satisfies (P1) (both parts have the window profile), (P2) (a class of modulus
+  > CN > N meets W in ≤ 1 point: ≤ 1 − 1/(2K) + (1−η)/(2K) on full, ≤ ½ ≤ 1 − η/(2K) on missing),
+  (P3) with Δ'/(2K); then t, s₀ ≍ η/K, log(1+Δ(1+c)) ≤ log(1+c) + log(1+Δ'/K) + O(1) ✓;
+  s₀ ≥ N^{−A₁} ⇔ η/K ≥ 4N^{−A₁} ✓. The removal of Thm 14.27's hypotheses t,1/Δ ≥ e^{−S_A} is
+  plausible (if log(1/t) or log(1+Δ) exceeds log N the bound is trivial) but see D-H1.
+* **Hyp 14.32 (weak SPW) — label open ✓;** "Thm 14.30 forces only η/K ≪ (log N)^{−1/2}" ✓ (apply
+  Thm 14.30 to R₁ with σ = η/(2K)).
+* **Thm 14.33 (K-free edge bound) — SOUND.** Re-derived: |ρ̂(k)| ≤ total mass N (P1 with d=1),
+  so |T'| ≤ (4πN/e²)·m₀(m₀−1) (paper's m₀(m₀+1) is a harmless over-estimate); the unbounded
+  off-W mass enters only via F(j) ≤ e/(4(M+1)j²) at distance > r, giving eN/(4(M+1)r²) ✓;
+  r = ⌈NM^{−1/3}⌉ balances to M^{−1/3} ✓, uniform in K ✓.
+
 ## Defects
 (in progress)
