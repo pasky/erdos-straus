@@ -138,3 +138,26 @@ lemma sifts a progression mod `mn` (primes `p | mn` never divide M), giving bloc
 `≥ c_2/(m n log y)`. Lemmas 2.3, 2.4 use only (F2)–(F5) and progressions mod `4n`, which become
 `mn` (constants change by `m/4`). Theorem 1.4 (Janson-type) is abstract. ∎
 No Jacobi input is used, so Prop 3.2 holds for every m, including `m ≢ 0 (4)`.
+
+## 4. The prime-side transfer does not need r to be a square
+
+OMEGA13's interface check I3 assumes `r` is a square mod every odd prime of Q and `r ≡ 1 (8)`,
+so that every real character χ trivial on `H = {x ≡ 1 (Q)}` has `χ(r) = 1`. For general m we
+want to allow arbitrary unit classes, so we record:
+
+**Lemma 4.1 (PROVED modulo (G) and the effective Page bound — the inputs of OMEGA9 Thm 1.1).**
+OMEGA13 I3 (O11 Lemma 3.1 on the coset `rH`) holds for every unit `r mod Q` with cells consistent
+with r (`b_i ≡ r (mod gcd(d_i,Q))`); no quadratic condition on r is needed.
+
+*Proof.* Only Case A of OMEGA9 Thm 1.1's proof (lines "Case A: χ_D trivial") looks at the value
+of a real character at r: for χ trivial on H, `c(χ) = χ̄(r)μ/φ(Q)` and `χ(r) ∈ {±1}` for real χ.
+* If the exceptional character has `χ_1(r) = +1`, the argument is verbatim.
+* If `χ_1(r) = −1`, the exceptional term `−c(χ)x^{β_1}/β_1 = +μx^{β_1}/(β_1φ(Q))` is *positive*,
+  so the main term is `λ'μx/φ(Q)` with `λ' = 1 + x^{β_1−1}/β_1 ≥ 1`; the (G) error is
+  `≤ μx/(200φ(Q))` and `|R_1| ≤ μx/(400φ(Q))` as in Case 0, so `S(x) > 0` without the
+  effective Page bound.
+Case B uses only `|ψ_1(r)| = 1`; non-real characters enter only through `|c(χ)|`; cell
+consistency and the `ℓ_aux` construction (`r' ≡ r (Q)`, `r' ≡ 1 (ℓ_aux)`) do not use squares. ∎
+
+So the square condition in OMEGA13 serves only the *quarantine* (Lemma 3.1), not the transfer.
+"Mordell-hardness" of the output primes becomes: p is Type-II-hard modulo the quarantine modulus.
