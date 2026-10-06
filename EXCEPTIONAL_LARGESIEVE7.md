@@ -329,8 +329,8 @@ the (a,D) class with `a = pq`, `D = ℓ` (so `g(D) = ℓ`, `G = 4pqℓ`), i.e.
 `x ≡ −(4ℓ + pq) (mod 4pqℓ)`; its rough part is `x mod pqℓ` with
 `x ≡ −4ℓ (mod pq)`, `x ≡ −pq (mod ℓ)`. Then `H*(x mod pqℓ) ≥ pq/(4ℓ+1)`,
 its residue mod p is `−4ℓ`, and its top is q. Hence, in every fibre c
-(the class is present for the q with `pq ≡ −c−4ℓ… ` i.e. for the q in one
-class mod 4, by the smooth-part filter),
+(by the smooth-part filter the class is present at c iff
+`c ≡ −(4ℓ+pq) (mod 4)`, i.e. for the q in one class mod 4),
 
     μ^>_{−4ℓ}({p}) ≥ Σ_{q>p prime, q in one class mod 4} w_q Γ(pqℓ)/(qℓ) ≥ c e^{−2γ t_p}/(γ t_p ℓ),   t_p = log p/log z,
 
