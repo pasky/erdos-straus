@@ -71,6 +71,8 @@ for v in (5, 7):
         per = {t: sum(1 for r in S if r % 17 == v) for t, S in src[k].items()}
         new = [r for r in inC if not any(r % 17 ** j in boxes.get(j, ()) for j in range(1, k))]
         tot += Fraction(len(new), F)
+        pernew = {t: sum(1 for r in new if r in S) for t, S in src[k].items()}
+        print(f"    new boxes by type: {pernew}")
         print(f"  level {k}: {len(inC)} boxes in cell {per}, {len(new)} maximal; "
               f"covered fraction of cell after level {k}: {float(tot * 17):.6f}")
         if len(inC) <= 12:
