@@ -106,7 +106,11 @@ only Type I/II solutions, as its proof uses only the defining equations):
 exactly (ultrametric: two boxes are nested or disjoint, so the union measure is the sum over
 maximal boxes).
 
-Validation: every box of the brute-force run `mordell_tgen.py 100000 17 3 17` (all seven
+Validation (soundness): `scripts/m17_validate.py` rebuilds, from independent Python enumerations of
+the same data (Q, U: k=1,3; P: K=1,3,5), the genuine ET classes (II2 for Q, I1 for P at every
+`α≤K/2`, II1/I4 for U), and checks with `mordell_lib` that each contains the 17-generic points of
+the claimed box and that `solve()` returns a valid ES solution at a prime >10⁶ in it: 1152 classes OK.
+Validation (completeness): every box of the brute-force run `mordell_tgen.py 100000 17 3 17` (all seven
 families, all moduli `M≤10⁵`, 106 boxes) meeting `C_5∪C_7` is in the complete list; the 13 rigid
 II-boxes of POINTWISE_MORDELL §5 (cell 5, level 3) are in it. (Brute force leaves 76.1% of each cell
 uncovered at level ≤3; the complete enumeration 68.5%: the extra boxes have T-free part >10⁵/17³.)
@@ -187,5 +191,6 @@ gcc -O2 -o /tmp/o83/m17_enum scripts/m17_enum.c
 for a in "Q 5" "U 5" "P 7" "Q 7" "U 7" "P 9"; do /tmp/o83/m17_enum $a | sort -u > /tmp/o83/out_${a/ /}.txt; done  # P 9 ≈ 8 min, rest < 2 min
 PYTHONPATH=scripts uv run python scripts/m17_union.py 7 9        # Comp. 3.1 (small k computed on the fly)
 PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 3 17   # brute-force cross-check (§3)
+PYTHONPATH=scripts uv run python scripts/m17_validate.py         # soundness, ~1 min
 PYTHONPATH=scripts uv run python scripts/m17_union.py 3 6 --cmp /tmp/o80_boxes_100000_17_3.pkl
 ```
