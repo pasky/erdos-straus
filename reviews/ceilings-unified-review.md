@@ -60,3 +60,26 @@ not check them against a PDF either. The form used (one exceptional primitive
 the standard one as I recall it. Only the weak range
 `q ≤ exp(O((log log x)^{4/3}))` is used, so even a Siegel–Walfisz-plus-Page
 version suffices.
+
+### Claim 4 — Thm 4.1 (two-sided order-k limit): **SOUND** (statement and proof), with minor wording issues
+
+Re-derived:
+* (U−) Fix `x_s`. The unary patterns `X_b∈Ω_b(x_s)` have a constant activation
+  rule (`F_b=Ω_b`), all light (`p_b≤1/4=δ`), so `M≡P` is deterministic and every
+  path ends in the avoider set: `G(y) ≥ F(y)=1`. `G ≥ F ≥ 0`, so KARY Thm 2.5's
+  hypothesis `f≥0` holds. `G(x_s,·)` is k-local. Thm 2.5 plus Jensen give
+  `E_sG ≥ e^{−EΦ}`, and Cor 2.6 (`d=k`, `m̄=P`, `t=k/(P+4k) ≤ 1/4`) gives exactly the
+  displayed bound. The consequence `k ≥ c₀P` holds with `c₀=min(c₀',1/P₀)` to cover
+  `P<P₀`. ✔
+* (U+)/(L+) `Σ_{j≤k}(−1)^jC(h,j) = (−1)^kC(h−1,k)` for `h ≥ 1`; `C(h−1,k) ≤ C(h,k+1)`
+  (zero for `h≤k`, and the ratio is `h/(k+1)≥1` otherwise);
+  `E_sC(H,k+1)=e_{k+1}(p) ≤ (eP/(k+1))^{k+1} ≤ e^{−(k+1)}` for `k+1 ≥ e²P`;
+  `1−p ≥ e^{−4p/3}` for `p ≤ 1/4`. (L+) positivity needs `k+1 > 4P/3`, which holds. ✔
+* (L−) Fibrewise planting: OMEGA14 Lemma 1.1 at fixed `x_s` gives `ν_{x_s}` with the true
+  k-marginals and `ν(F=0)=1`, so `E_sB = E_νB ≤ E_νF = 0`. With `r* ≤ 1/3`,
+  `(k+1)+(2k+1)/3 = (5k+4)/3 ≤ (5/3)(k+1)`. ✔
+* Brute force from scratch (`scripts/review_unify_thm41.py`): exact multilinear LPs
+  over `{0,1}^n` with heterogeneous `p_b ≤ 1/4`, `n ≤ 10`, `k ≤ 4`, random instances,
+  checking (L−), (U−), (U+), (L+) and Lemma 1.1's planting condition. The reduction
+  to bits is legitimate: averaging `B` over `X_b` given its bit preserves
+  `B≤F` and k-junta structure. Results below.
