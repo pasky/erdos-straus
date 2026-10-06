@@ -11,7 +11,8 @@ PROVED (under review by R82):
 * Lemma 3.1: with three admissible levels, SI(δ_1) ⟸ (R_a) + `U_1(q) ≪ q^{−1/2−δ}` (square-root saving).
 * Lemma 4.1: prefix part `s = gcd(g,Q_0)`, extra factor `1/φ(g/s)`.
 * Lemma 5.1: `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; level-0 count on the all-ones path `Y(ℓ) ≤ 2R_ℓ(ℓ)`.
-* Lemma 5.2: `R(N) ≪ N^{2/3+ε}`.
+* Lemma 5.2: `R(N) ≪ N^{3/5+o(1)}` — R(N) is an m-analogue of Elsholtz–Tao's Type I count, and ET's
+  Prop 1.7 device applies verbatim (R82 repair, applied by reviewer; was `2/3`).
 
 Assessment / EVIDENCE: all four linear (H)-routes are short on a residual (Kloosterman-range) region that
 carries 72–91% of `U_1(q)` for `q ≤ 199`; its main term is the ES-type multiplicity `R(N)` at

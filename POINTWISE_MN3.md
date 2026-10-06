@@ -20,7 +20,7 @@ a route (M2) ⇒ SI exists only as a SKETCH with five missing pieces (§5.4).
 | Lemma 4.1 | `s = gcd(g,Q_0)`; exact weight `≤ ℓ/(φ(N)φ(g/s))` | PROVED |
 | residual (§4) | region where all four routes are short (Kloosterman range of `ef ≡ 1 mod ma²`) | description: Assessment; mass share 72–91% of `U_1(q)`, `q ≤ 199`: EVIDENCE |
 | Lemma 5.1 | `U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`; on the all-ones path the level-0 count is `Y(ℓ) ≤ 2R_ℓ(ℓ)` | PROVED |
-| Lemma 5.2 | `R(N) ≪_ε N^{2/3+ε}` | PROVED |
+| Lemma 5.2 | `R(N) ≪ N^{3/5+O(1/log log N)}` (ET Type I device, `4 ↦ m`; R82 repair, applied by reviewer — was `2/3`) | PROVED |
 | Conjecture 5.3 (M2) | `Σ_{N≤X} R(N)² ≪_ε X^{1+ε}` | CONJECTURE (EVIDENCE to `3·10⁴`) |
 | §5.4 | (M2) + (H) ⇒ SI(δ_1) | SKETCH only (five missing pieces listed) |
 | SI for `ν = δ_1`; ADM_m; `W_5` exponent 1/4 | — | OPEN / OPEN / CONDITIONAL on SI |
@@ -185,9 +185,42 @@ digits means `M_1 | mD+1` (`M_1 = M/ℓ` is fully revealed at a level-0 step); t
 `N ∈ {1, ℓ}`, and `N = 1` (`M | mD+1`) is impossible by TRANSFER Lemma 5.1(ii). The involution
 `D ↦ A²/D` preserves N, giving the factor 2. ∎
 
-**Lemma 5.2 (a weak pointwise bound; PROVED).** `R(N) ≪_ε N^{2/3+ε}`.
+**Lemma 5.2 (pointwise bound; PROVED; upgraded from `2/3` to `3/5` — R82 repair, applied by reviewer).**
+`R(N) ≪ N^{3/5+O(1/log log N)}`. More precisely, `R(N)` is at most the number of points
+`(a,b,c,d,e,f) ∈ N⁶`, `a ≤ b`, of Elsholtz–Tao's Type I variety Σ_I^N (ET (2.1)–(2.9), `sources/elsholtz-tao-1107.1010.pdf`)
+with `(4, n) ↦ (m, N)`:
 
-*Proof.* Lemma 2.1: `acd ≤ N`, so one of `ac, ad, cd` is `≤ N^{2/3}`. Given `(c,d)`, `u = mcd` and
+```
+mabd = eN+1,  ce = a+b,  macd = N+f,  ef = ma²d+1,  bf = aN+c,  N² + mc²d = f(mbcd − N),
+```
+
+and each atom gives the representation `m/N = 1/(abdN) + 1/(acd) + 1/(bcd)` (Type I shape, `N | x`).
+
+*Proof.* The identities: `M = eN = mabd − 1` (as `A = dab`), `ce = a+b`, `macd = N+f` and `ef = P` are §0′/O12;
+`bf = aN+c` and `f | N²+mc²d` are Lemma 2.1, and `f(mbcd − N) = mcd(aN+c) − Nf = N(N+f) + mc²d − Nf = N²+mc²d`.
+The representation: `1/(abdN) + 1/(acd) + 1/(bcd) = (c + N(a+b))/(abcdN)`, and
+`c + N(a+b) = c + Nce = c(eN+1) = c·mabd`, so the sum is `m/N`. *ET Lemma 2.8's Type I bounds hold here:* `a ≤ b`; `b < ce = a+b ≤ 2b`;
+`ef = P ≡ 1 (m)` and `P ≥ m+1 ≥ 5`, so from `bf = aN + c ≤ aN + 2b/e` we get `bf(1 − 2/(ef)) ≤ aN`, i.e.
+`bf ≤ 5aN/3`; and `acd ≤ N` (Lemma 2.1). Hence
+
+```
+e · f · (cd)² · (ac) = (acd)² · (ce/b) · (bf/a) ≤ N² · 2 · (5N/3) = (10/3)N³,
+```
+
+so one of `e, f, cd, ac` is `≤ (10/3)^{1/5}N^{3/5}` (else the product exceeds `(10/3)N³`). All quantities below
+are `≤ N^{O(1)}` (`a, c, d ≤ N`, `f ≤ (m−1)N`, `e ≤ P ≤ mN³+1`), so each divisor-type count is `N^{O(1/log log N)}`.
+(i) `e` fixed: `(a,b,d)` is an ordered factorisation of `(eN+1)/m`, `≤ τ_3(eN+1)` choices; then `c = (a+b)/e`.
+(ii) `f` fixed: `(a,c,d)` with `acd = (N+f)/m`, `≤ τ_3(N+f)` choices.
+(iii) `cd` fixed (`≤ τ(cd)` splittings into `c, d`): `f | N²+mc²d`, `≤ τ(N²+mc²d)` choices; then `a = (N+f)/(mcd)`.
+(iv) `ac` fixed (`≤ τ(ac)` splittings): `f | aN+c`, `≤ τ(aN+c)` choices; then `d = (N+f)/(mac)`.
+In each case the remaining coordinates are determined (Lemma 2.1: `(a,c,d,f)` determines the atom), and the
+fixed quantity ranges over `≤ 2N^{3/5}` values. Summing the four cases gives the bound. This is ET's proof of
+Prop 1.7 (first part, p. 18) verbatim with `4 ↦ m`. ∎
+
+*Check (reviewer, `scripts/review_mn3_et35.py`):* m = 5, all 48 934 atoms with `N ≤ 3000` (m = 7: `N ≤ 2000`)
+satisfy the identities and the representation exactly; `max e f (cd)² ac / N³ = 0.75` (`0.30`).
+
+*The earlier `2/3` argument (superseded, still valid).* Lemma 2.1: `acd ≤ N`, so one of `ac, ad, cd` is `≤ N^{2/3}`. Given `(c,d)`, `u = mcd` and
 `(ua − N) | N² + mc²d` leave `≤ τ(N²+mc²d)` values of a; given `(a,c)`, `f | aN + c` leaves `≤ τ(aN+c)`
 values of f and then `d = (N+f)/(mac)`; given `(a,d)`, `f | P` leaves `≤ τ(P)` values and then
 `c = (N+f)/(mad)`. All arguments are `≤ N^{O(1)}`; the divisor bound and `#{xy ≤ N^{2/3}} ≪ N^{2/3}log N`
@@ -200,13 +233,16 @@ finish. ∎
 So SI for `ν = δ_1` contains, as its main term, averages over primes ℓ of
 `(1/ℓ)Σ_{N''} R_ℓ(ℓN'')/N''`, where `R(N) ≤ #{(f,δ) : f ≤ N+1, δ | (N+f)², δ ≡ −1 (mod f), m | δ}`
 (from `(ef−1) | (N+f)²`, Lemma 2.1 and `D | A²`) is an Erdős–Straus-type representation count
-(it is a Type II solution count of the shape `μyz − y − z = K` after the substitutions of §2).
+(precisely: an m-analogue of ET's Type I count `f_I(N)` — the atoms with cofactor N are points of ET's
+variety Σ_I^N with `4 ↦ m`, giving `m/N = 1/(abdN)+1/(acd)+1/(bcd)`, Lemma 5.2; "Type II" corrected to
+"Type I" — R82 repair, applied by reviewer).
 What a proof of SI at level 0 needs is, roughly, **one** of:
 
 * (P) a pointwise bound `R(N) ≪ N^{θ}` with `θ < 1/K_0`, where `N ≤ ℓ^{K_0}` is the residual scale
   (`K_0 ≈ 10` from §4 and Lemma 4.1). The best pointwise bounds of this type known for ES counts are
   `n^{3/5+o(1)}` (Elsholtz–Tao, `sources/elsholtz-tao-1107.1010.pdf`, via "one of e, f, cd, ac is
-  `O(n^{3/5})`"); the same device gives only Lemma 5.2's `N^{2/3+o(1)}` here. Far from `1/K_0`.
+  `O(n^{3/5})`"); the same device gives the same `N^{3/5+o(1)}` here (Lemma 5.2; the earlier claim "only
+  `2/3` here" was wrong — R82 repair, applied by reviewer). Far from `1/K_0`.
 * (AP) equidistribution of `R(N)` over `N ≡ 0 (mod ℓ)`, `N ≤ X`, with saving `ℓ^{−δ}` relative to
   `X/ℓ`, for `ℓ` up to `X^{1−δ}` — a level of distribution beyond what is known even for `τ_3`.
 * (M2) via Cauchy–Schwarz over `ℓ ~ L` (only averages over ℓ enter SI, Lemma 3.1): a
@@ -255,7 +291,7 @@ this is the off-diagonal part of (R_a). For (R_b) (`q = ℓ^k`, `k ≥ 2`) the s
 
 **Assessment.** All the difficulty found is concentrated in the class-of-one multiplicity `R(N)` at
 `N` a small multiple of the new prime (Lemma 5.1, EVIDENCE §4). Its pointwise version is open (ET's
-`3/5` for the analogous ES counts; Lemma 5.2's `2/3` here), and the averaged versions (AP to moduli
+`N^{3/5+o(1)}`, Lemma 5.2, by ET's device — R82 repair, applied by reviewer), and the averaged versions (AP to moduli
 `≈ X^{1−δ}`, or (M2)) are not available from (H), ET Prop 1.4/Thm 7.1, Weil, or elementary counting.
 
 ## 6. Status
