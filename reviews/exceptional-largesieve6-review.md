@@ -6,10 +6,55 @@ From-scratch scripts: `scripts/review_ls6_*.py`.
 
 ## Verdicts per claim (filled in as the review proceeds)
 
-| claim | verdict |
-|---|---|
-| Lemma 1.1 | SOUND |
-| Cor 1.2 | SOUND (see notes) |
+| claim | label (after review) | verdict |
+|---|---|---|
+| Lemma 1.1 (prefactors free) | PROVED | SOUND |
+| Cor 1.2 (tilt inherits LS4 Thm 4.2, Lemma 5.1, Thm 5.2, Cor 5.3) | PROVED (implication) | SOUND — resolves LS5 caution R67 M3 at the level of normalisation; no tilt-bias estimate needed because Lemma 5.1's residue sets are deterministic |
+| Lemma 2.1, Prop 2.2 (soft-pivotal bound) | PROVED | SOUND |
+| Lemma 3.1 (chains) | PROVED | SOUND (wording D-a) |
+| Lemma 4.1, Prop 4.2 (Walsh/XOR form) | PROVED | SOUND |
+| Thm 5.1 (one rough prime, fixed fibre) | PROVED (inequality); uniformity in X CONDITIONAL on (FM2) | SOUND-AFTER-REPAIRS (D-b constant intermediate; D-d label overclaim in §0 table) |
+| (FM1)/(FM2) and the one-rough-prime cap | Assessment / CONDITIONAL | labels correct |
+| Thm 6.1 ((DCC) ⟹ all-level cap) | PROVED (implication) | SOUND (D-e: min could be `min(1,·)`) |
+| Prop 6.2 (small heights not dispersed) | PROVED (lower bound), Assessment (asymptotic) | SOUND-AFTER-REPAIRS (D-g hypothesis explicit, D-f constant) |
+| (RD) | CONJECTURE | label correct |
+| §6.1–6.2 route | Assessment / SKETCH | label correct |
+
+No FATAL and no MAJOR mathematical defect found. One MAJOR *label*
+defect (D-d) and several MINOR ones; all wording/label/constant repairs are
+applied in `EXCEPTIONAL_LARGESIEVE6.md` on this branch.
+
+## Defects
+
+* **D-a (MINOR, Lemma 3.1(iii) proof).** "(stop, `k = 1`… after
+  relabelling)" is garbled: the recursion runs downward from q, so the
+  chain is found in reverse and the indices are assigned at the end. Not
+  applied (wording only, meaning clear).
+* **D-b (MINOR, Thm 5.1 coin step).** Written intermediate
+  `… + 2U(D_r)·2r^{−e} + …` yields 14, not 10. Repair: the replacement
+  term is `≤ U(D_r)·2r^{−e}` (π_r ⊥ c_r), giving `6 + 4 = 10`. **Applied by
+  reviewer.**
+* **D-c (MINOR, Thm 5.1 hypothesis).** "w non-increasing in q" is never
+  used. Not applied (harmless).
+* **D-d (MAJOR-label, §0 table row Thm 5.1, §5 heading).** "one rough
+  prime, uniform in X … PROVED (fixed fibre)" overclaims: the inequality
+  is proved; its X-uniform decay needs (FM2), which is not proved. Repair:
+  row and heading now say uniform-in-X decay is CONDITIONAL on (FM2).
+  **Applied by reviewer.** (The O71 report's item 3 is acceptable as
+  worded, but its "pointwise divisor bounds provably insufficient" is a
+  statement about a method — the document's own wording, "do not
+  suffice … they diverge", is the accurate one.)
+* **D-e (MINOR, §6 Definition of 𝔇).** `min(2^{|S|}, ·)` may be replaced
+  by `min(1, ·)` (the trivial `2^{|U|}2^{|S|}` is already in `4^{|S|}`). Not
+  applied (the stated version is valid, only weaker).
+* **D-f (MINOR, §6.1 end).** Small-height residue set has
+  `≤ (H₀+1)H₀ ≤ 2p^{1/2}` elements. **Applied by reviewer.**
+* **D-g (MINOR, Prop 6.2).** Hypothesis "family ⊇ ℛ(M) for all
+  `M ≡ 3 (4)`, `M ≤ X`" made explicit. **Applied by reviewer.**
+
+Not accessible / not re-checked: K2 Lemma 4.3 and (Q4), LS3 Thm 1.1 and
+Lemma 2.1, ElT Prop 1.4 were taken as stated in LS3/LS4 (unchanged
+inputs, reviewed in earlier rounds).
 
 ## Notes per claim
 
