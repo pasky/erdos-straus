@@ -113,3 +113,32 @@ Re-derived line by line.
 Verdict: SOUND (after the D-b repair of an intermediate expression).
 The label "PROVED (fixed fibre)" is right for the inequality; everything
 about *uniformity in X* is conditional on (FM2) — see §5 notes below.
+
+### §5 "What the arithmetic must supply" (FM1)/(FM2)
+Labels correct: (FM2) is not proved anywhere (Assessment: standard in
+nature), and the per-fibre `ℓ^{−1}`-terms need a second moment over c that
+is explicitly "not proved". The consequence ("(A\*) for one rough prime at
+rate γ < 1/4 ⟹ all-level cap for sieves with ≤ 1 rough prime per frequency
+denominator") is correctly labelled CONDITIONAL. Leak rate: `δ_q = q^{−1/2}`
+and K2 Lemma 4.3's `E[p_q1{p_q>δ_q}] ≲ q^{−5/4}(log q)^c` give
+`Λ_{>ℓ} ≲ ℓ^{−1/4}` ✓, hence γ < 1/4 ✓. The O71 report's item 3 headline
+"One rough prime, uniform in X (Thm 5.1; PROVED for a fixed fibre)" is
+accurate only if read as: the inequality is PROVED; its uniformity in X is
+CONDITIONAL on (FM2). The §0 table row for Thm 5.1 says "uniform in X …
+PROVED (fixed fibre)" — **overclaim** (MAJOR-label D-d, applied: row now
+says the bound is explicit and becomes uniform in X under (FM2)).
+
+### Thm 6.1 ((DCC) ⟹ all-level cap)
+Re-derived. `|σ̂_c| ≤ Z_c^{−1}4^{|S|}𝔇_c(S)` is (4.1) with the Walsh factor
+replaced by a min — legitimate, and in fact the trivial bound is
+`|D_Ue^{−Y*}| ≤ 2^{|U|}·2^{|S|}`, whose `2^{|U|}2^{|S|}` is *already* inside
+`4^{|S|}`, so `min(1, ·)` is allowed; the document's `min(2^{|S|}, ·)` is
+valid but needlessly weak (MINOR D-e, noted). |S| = 1 reduction:
+`T={ℓ}` term `= 1[ℓ∈Piv(H)]`, `T=∅` term `min(2, e^{|ΔY|}|ΔY|) ≤
+2e·min(1,|ΔY|)` (`L_ℓ` is common to both corners) ✓. Damping consistency:
+`η_q ≤ min(p̃/(1−p̃), p̃′/(1−p̃′)) ≤ 2min(p̃_q(x),p̃_q(x′))` (LS4: `1+η =
+|Ω|Σk k′ ≤ |Ω|min(max k, max k′)`), `w′ = 4^{2β}w ≤ 2w` for β ≤ 1/4, so
+`w′η ≤ 2w(p̃+p̃′)` and `Π(1+w′η) ≤ e^{2Y(x)+2Y(x′)}` ✓; `w′ ≤ 1` needs
+`4K ≤ ℓ^γ` ✓ (from `4K ≤ z^{γ/2}`). Exceptional event mirrors LS4 Thm 4.2
+✓. `Λ′ ≤ N^{1/2}` adds ≤ `(log N)^{3/4}`, absorbed in the second term ✓.
+Verdict: SOUND (implication).
