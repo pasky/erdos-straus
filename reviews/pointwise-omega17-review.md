@@ -11,7 +11,7 @@ From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 | Lemma 1.2 | SOUND (MINOR wording) | the q>x claim is true and trivially so; see D1. |
 | Lemma 1.3 | SOUND | dual re-derived; 200 random SALC LPs: primal = dual to 1e-15 (`scripts/review_o17_lemmas.py`). LP version only (integral version has no such duality; the text says so). |
 | Rem 1.4 | SOUND | min is attained (compact polytope), so "valid ⇔ no fake supported on S∖A"; slack `|S_T|/N_x≍log x/𝓛` re-derived (Q's primes >T change it by `1+o(1)` as `Q≤x^δ`). |
-| Lemma 2.1 | SOUND | identity re-derived; ψ≥0 not even needed. LP brute force on {0,1}^n, n≤6: monotone fake infeasible 100/100, non-monotone feasible 84/100. "Harris" is a misnomer-ish attribution (it is a one-line Efron–Stein/Russo identity), harmless. |
+| Lemma 2.1 | SOUND | identity re-derived; ψ≥0 not even needed. LP brute force on {0,1}^n, n≤6: monotone fake infeasible 100/100, non-monotone feasible 87/100. "Harris" is a misnomer-ish attribution (it is a one-line Efron–Stein/Russo identity), harmless. |
 | Prop 3.1 (i)–(iii) | SOUND | Charlier normalisation matches `₂F₀(−n,−j;;−1/R)`; (ii) checked exactly (`E[ψ_n(N)_m]=R^m`, m<n≤7, three R); (iii) uses `Σ_{|Y|=r}1[Y on]=(N)_r/r!`. |
 | Lemma 4.1 | SOUND | entire-function argument correct; scope example `j(j−5)²/12` re-checked exactly at R=2,3. |
 | Lemma 5.1 | SOUND | aggregated LP = full LP on 200 random instances (max diff 9e-16). |
@@ -45,6 +45,42 @@ cutoff is not proved to be beyond the last sign change; a root bound is owed" is
 for the listed (n,R) pairs (reviewer computation; not inserted into the author's text as
 new mathematics). Still unverified: non-integer R, and monotonicity in R beyond the windows.
 
+**Observation (not a defect).** For s=2 Lemma 5.2 gives `ν≥0` under `R≥(k+1)+kr*`, which is
+*weaker* than O14 Lemma 1.1's `(1.1) R≥(k+1)+(2k+1)r*` (O14 passes to `r_{∖y}` before the chain
+and loses `(k+1)r*`; Lemma 5.2 bounds `e(r_{∖y})≤e(r)` first). My exact check includes the
+equal-odds boundary cases `R=kr*+(k+1)` with ν≥0. So the planting threshold improves by `(k+1)r*`
+(constants only; irrelevant for the `R≍k` conclusions). The author's remark "for s=2 this is
+O14's dν/dP≤2 with a slightly different hypothesis" is correct but undersells this.
+
 ## Defects
 
-(none yet)
+**D1 (MINOR) — Lemma 1.2 wording.** (a) "If `C∩S=∅`, the constraint is vacuous on 𝔐 (or
+false)": "(or false)" cannot occur, since `𝒫_x⊆S` gives `m_x(C)=0` and the bounds are true, so
+`l_C≤0≤u_C`. (b) Proof: "`m_x(C)=1[n prime]`" should be `1[n∈𝒫_x]` (a prime of S dividing L is
+not counted, as the statement itself says). Repair: delete "(or false)"; replace by
+`1[n∈𝒫_x]`. *Applied by reviewer.*
+Answer to the brief's question "is it really true that moduli `>x` give only the box or
+primality tests?": **yes, for single-class bounds**, and trivially (a class mod `q>x` meets
+`[1,x]` in ≤1 integer; brute-forced for x<60). It is **not** true for *unions* of such classes,
+which are arbitrary subsets of `[1,x]` (e.g. intervals); see D2.
+
+**D2 (MAJOR, scope) — Def 1.1 / SAP omit size (archimedean) information, the most natural
+support-aware input.** Def 1.1 allows only bounds on `m(C∩S)` for residue classes C, at the single
+scale x. True prime information that uses the support `[1,x]` *non-trivially* is about sizes:
+`π(y;q,a)` for all `y≤x` (Siegel–Walfisz/Bombieri–Vinogradov hold at every y), short-interval
+counts, smooth weights `Σ_p w(p/x)1_C(p)`. None of these is a class bound (an interval in `[1,x]`
+is a union of many classes mod any `q>x`, which is exactly the "family" information Lemma 1.2's
+reading sets aside). A fake on `S_T∖A` must also be distributed correctly in size: with slack
+`|S_T|/N_x≍log x/𝓛≫2` the box does not prevent e.g. concentrating all mass on `[1,x/2]`, which
+the true count `π(x/2)` forbids. Consequently: §6(a) "Def 1.1 adds to O15 Def 2.1 *exactly* the
+three forbidden items" and "the residual is now the following integer statement" overclaim:
+SAP's profile `𝒥(δ)` has no size component, so SAP (even if true) does not cover certificates
+using `π(y;q,a)`, `y<x`. (No PROVED item is affected; the SAP *Consequence* paragraph already
+says "nothing about information outside 𝒥(δ)", which is literally correct.)
+Repair: (i) state in Def 1.1 that the information is class counts at the single scale x, and
+that size-localised information (`C∩[1,y]`, intervals, smooth weights) is outside the
+definition; (ii) in §6 replace "exactly" / "the residual is now" by scoped wording and list
+size-localised information among what SAP does not cover; (iii) (author, optional) extend SAP by
+a profile item for `m(C∩[1,y])`, `x^{1−δ}≤y≤x` — heuristically harmless (a Haar-like fake can be
+taken size-equidistributed, the fundamental lemma works on `[1,y]`) but that is unproved.
+Wording parts (i),(ii) *applied by reviewer*.
