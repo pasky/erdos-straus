@@ -30,15 +30,117 @@
 \title[Finite coverings for Erd\H{o}s--Straus and sterile points]{Finite congruence coverings for the Erd\H{o}s--Straus equation and sterile profinite points}
 \author{Anonymous}
 \date{Draft, 6 October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
 \begin{document}
 \begin{abstract}
-ABSTRACT-PLACEHOLDER
+The Elsholtz--Tao families of residue classes on which the
+Erd\H{o}s--Straus equation $4/n=1/x+1/y+1/z$ is solvable by polynomials
+are clopen subsets of $\widehat{\mathbb Z}$.  By compactness and
+Dirichlet's theorem, all but finitely many primes of a given set admit
+a finite covering by polynomial identities exactly when its set of accumulation points in
+$\widehat{\mathbb Z}^\times$ contains no \emph{sterile} point, i.e.\ no
+point outside every class.  The only known sterile points are the square
+points, which give the classical Mordell--Schinzel obstruction.  We
+collect what is known about coverings of sets of primes that avoid the
+square points by a non-residue condition at one further prime~$r$.  For
+Type~I coverings of the hard primes with least non-residue $r$, a covering
+exists for $r=5$ (of height $10$), and the least covering height equals
+the limsup of the Type~I depth under Hypothesis~H.  For $r=7$ every
+covering has height greater than $1.32\cdot10^{12}$ (finite computation),
+because of an explicit ``sign point'' at which the two lowest admissible
+$2$-adic levels are proved empty.  For $r=13$ we give an explicit
+finite-exception theorem, a repackaging of Salez's level sieve, and a
+candidate sterile point that lies in no class of modulus at most $10^6$.
+For $r=17$ the classes meeting the $17$-generic line are balls around
+solutions of $4/17^K=1/x+1/y+1/z$; an explicit bound on the number of
+such solutions would produce a sterile point and rule out every finite
+polynomial covering of the Mordell-hard primes with least non-residue
+$17$.  The bound needed is a discrete-logarithm counting problem, which we
+leave open.  Nothing here proves or disproves the Erd\H{o}s--Straus
+conjecture.
 \end{abstract}
 \maketitle
 
 \section{Introduction}\label{sec:intro}
 
-INTRO-PLACEHOLDER
+The Erd\H{o}s--Straus conjecture (ES) asserts that for every integer
+$n\ge2$
+\begin{equation}\label{eq:ES}
+ \frac4n=\frac1x+\frac1y+\frac1z
+\end{equation}
+has a solution in positive integers.  It is open; it suffices to treat
+primes.  The oldest approach is by \emph{polynomial identities}: on a
+residue class one writes down $x,y,z$ as polynomials in $n$.  Mordell's
+identities settle every prime outside the six square classes
+$1,121,169,289,361,529$ modulo $840$ \cite{Mordell}, and Mordell and
+Schinzel showed that a square class can never be settled this way
+\cite{Mordell,Schinzel}.  Elsholtz and Tao classified the classes that
+are solvable by polynomials into seven families \cite[Prop.~1.9]{ET}, and
+remarked that the odd-square vanishing ``rules out \dots\ a finite set of
+covering congruence strategies'' \cite[p.~6]{ET}.  Salez \cite{Salez}
+and Mihnea--Dumitru \cite{MD} sieve with these classes to great depth.
+
+This note looks at finite coverings from the profinite side.  Every ET
+class is a clopen subset of $\Zh$, so for a closed target set compactness
+reduces the existence of a finite covering to a pointwise question: is
+every point in some class?  A unit point that lies in no ET class is
+called \emph{sterile}.  Square points (squares of units at every prime)
+are sterile; this is the Mordell--Schinzel obstruction.  Once the target
+excludes them, for instance by asking $p$ to be a non-residue modulo one
+further prime $r$, the question is whether \emph{other} sterile points
+exist.  We consolidate the project's internally reviewed work on this
+question.
+
+\subsection*{Results}
+\begin{itemize}
+\item \emph{Framework} (\S\ref{sec:frame}, \status{proved}).  For a set
+$\mathcal P$ of primes with accumulation set $\mathcal P'\subset\Zhu$, a
+finite covering of all but finitely many $p\in\mathcal P$ by primitive
+classes solvable by polynomials exists if and only if $\mathcal P'$ has
+no sterile point (Proposition~\ref{prop:compact}).  For a single explicit
+point only one direction holds (Remark~\ref{rem:direction}).
+\item \emph{Square points} (\S\ref{sec:square}).  Square points are
+sterile (\status{proved}; classical).  The project's procedure-level
+generalisation, Theorem~C of \cite{PS}, is stated with its
+H-conditional label and hedged novelty.
+\item \emph{Type~I and the least non-residue} (\S\ref{sec:typeI}).  For
+the Type~I depth $\ckmin(p)$ of hard primes with least non-residue $r$:
+$C(5)=10$ (\status{proved}); under Hypothesis~H the limsup $C^*(r)$
+equals the least height of a finite Type~I covering, and it is infinite
+if and only if a Type~I-sterile point exists (Theorem~\ref{thm:A}).  At
+the sign point $\hat x_9$ no certificate has its smaller divisor below
+$10^{12}$ (\status{certified}), so every Type~I covering for $r=7$ has
+height $>1.32\cdot10^{12}$, and $C(7)>1.32\cdot10^{12}$ under H.  The
+$2$-adic levels $5$ and $6$ are empty (\status{proved}), the Type~I-sterile
+set is nowhere dense (\status{proved}), and a measure criterion would give
+$C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
+\item \emph{$r=13$} (\S\ref{sec:mordell}).  Primes with $(p/13)=-1$
+satisfy ES outside six classes modulo $720720$ (\status{proved} by
+certified finite computation; an explicit packaging of Salez's sieve).
+The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
+$\le10^6$ (\status{certified}); that it is sterile is a conjecture.
+\item \emph{$r=17$} (\S\ref{sec:r17}).  On the $17$-generic line the
+classes become balls around solutions of $4/17^K=1/x+1/y+1/z$
+(\status{proved}); levels $\le5$ leave $67.7\%$ of each non-residue cell
+uncovered (\status{certified}); an explicit tail bound would give a sterile
+point and rule out every finite polynomial covering of the Mordell-hard
+primes with $n_p=17$ (Theorem~\ref{thm:tail17}, \status{proved}
+reduction; Corollary~\ref{cor:17}, \status{conditional}).  The missing
+bound is a discrete-logarithm count (\status{Assessment}).
+\end{itemize}
+Section~\ref{sec:open} lists open problems.  No sterile point other than
+a square point is known.  A sterile point would show that a particular
+set of primes cannot be handled by finitely many polynomial identities;
+it would say nothing about whether ES holds for those primes.
+
+\subsection*{Labels}
+\status{Proved} means proved here or in the cited source, with the proof
+checked internally.  \status{Certified} means established by a finite
+computation; we name the engines and say whether the computation was
+reproduced independently.  \status{Conditional} results assume a named
+hypothesis (Schinzel's Hypothesis~H \cite{SS}, or the hypothesis of a
+stated theorem).  \status{Conjecture}, \status{evidence} and
+\status{Assessment} (a heuristic judgement) are not results.
 
 \section{Coverings as clopen classes}\label{sec:frame}
 
@@ -894,8 +996,8 @@ relations of \cite[\S2]{ET}.
 
 \begin{proposition}[\status{proved}; {\cite[Lemmas~2.1--2.3, 5.1, 5.2]{PM17}}]\label{prop:boxES}
 \begin{enumerate}
-\item[(a)] $(a,d,f=17^kg)$ is a (Q)-datum if and only if
-$(a,(f+1)/(4ad),(a+b)/g,d)$ is an $\N$-point of $\Sigma^I_{17^k}$ with
+\item[(a)] Put $b=(f+1)/(4ad)$.  Then $(a,d,f=17^kg)$ is a (Q)-datum if
+and only if $(a,b,(a+b)/g,d)$ is an $\N$-point of $\Sigma^I_{17^k}$ with
 $e=g$ prime to $17$.  The box is $-4a^2d\equiv-a/b\pmod{17^k}$.
 \item[(b)] A (U)-datum $(a,b,e)$ of level $k$ gives the solution
 $4/17^k=1/(iab)+1/(iac)+1/(ibc)$, $c=(a+b)/e$, $i=(e+1)F/(4ab)$.
@@ -1040,8 +1142,66 @@ fails: the normalised centres of new boxes have maxima $0.86$--$0.99$ at
 levels $3$--$7$.
 \end{assessment}
 
+\section{Open problems}\label{sec:open}
+
+\begin{problem}
+Is there a sterile point in $\Zhu$ that is not a square point?
+Equivalently, is there a clopen set $\Sigma\subset\Zhu$ without square
+points whose primes admit no finite covering by polynomial identities?
+Each of Conjectures~\ref{conj:xstar} and~\ref{conj:17} would give one;
+Conjecture~\ref{conj:sign} would give a Type~I analogue.
+\end{problem}
+
+\begin{problem}
+Prove Conjecture~\ref{conj:sign}, or find a certificate at $\hat x_9$.
+Two routes are visible: the $2$-adic level $\alpha+2\gamma=7$, where the
+Vieta descent leaves $\Z$ and the reduced pairs must be classified as
+orbits of a norm equation over $\Z[1/2]$; and an explicit summable bound
+for the near-miss count of Remark~\ref{rem:measure}, which would give a
+Type~I-sterile point of the sign fibre (not necessarily $\hat x_9$).
+\end{problem}
+
+\begin{problem}
+Is $X_r<\infty$ for any prime $r\ge7$?  The project's weakly supported
+guess is that $r=5$ is the only value of $n_p$ with a finite Type~I
+covering.  For $r\equiv1\pmod4$ there is no sign point; $r=13$ is the
+first open case of that kind.
+\end{problem}
+
+\begin{problem}
+Prove the explicit count \eqref{eq:Pcount} for some $\delta>0$ and
+explicit $C$, or any other bound that makes the series of
+Theorem~\ref{thm:tail17} smaller than $56561/83521$.  By the Assessment
+of \S\ref{sec:r17} this is a question about how often $-a/s$ lies in the
+subgroup generated by $17$ modulo $4ast-1$, and where its discrete
+logarithm falls.
+\end{problem}
+
+\begin{problem}
+Decide whether $x^*$ is sterile (Conjecture~\ref{conj:xstar}), and
+whether the np variant $\Sigma^{\rm np}_{13}$ has a sterile point at all.
+A finite-level reduction analogous to Theorem~\ref{thm:tail17} for the
+two-dimensional $\{11,13\}$-generic set is not available.
+\end{problem}
+
+\begin{problem}
+Describe the set of sterile points.  For the Type~I family on
+$\Sigma_7$ it is closed and nowhere dense (Proposition~\ref{prop:nowhere});
+is the same true for all seven families on $\Sigma_r$, and does it have
+Haar measure zero?  The data for the sign fibre and the $17$-generic line
+suggest sterile sets of positive measure \emph{within} these thin fibres
+(\status{evidence}).
+\end{problem}
+
 \section*{Acknowledgements and provenance}
-PROVENANCE-PLACEHOLDER
+This note collects results first written up in the working notes
+\cite{PS,PT1,PT2,PT3,PM,PM17} of this project, each internally reviewed
+by a hostile reviewer who re-derived the proofs and re-ran the main
+computations from independent code (reports in \texttt{reviews/}).  The
+certificates of Theorem~\ref{thm:r13} are in \texttt{data/mordell/}, and
+the search programs named in Computations~\ref{comp:sign}, \ref{comp:xstar}
+and~\ref{comp:17} are in \texttt{scripts/}.  No external referee has
+checked this note.
 
 \begin{thebibliography}{99}
 \bibitem{BL} M.~Bright and D.~Loughran, Brauer--Manin obstruction for
