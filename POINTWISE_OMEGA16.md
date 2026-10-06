@@ -1,6 +1,6 @@
 # Which standard-type hypothesis gives the exponent 1/3? (task O61)
 
-Status: CHECKPOINT 1 (for parent review). Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
+Status: CHECKPOINT 2 (parent review R61 `reviews/pointwise-omega16-review.md`: no FATAL; M1 and m1–m6 applied). Labels as in DISCOVERIES.md. Notation as in POINTWISE_OMEGA13.md (O13),
 POINTWISE_OMEGA14.md (O14), POINTWISE_OMEGA15.md (O15): `𝓛=log T`; atoms `(M,D)`, `M≡3 (4)`,
 `M≤T`, `A=(M+1)/4`, `D|A²`, event `E_{M,D}={n≡−4D (mod M)}`;
 `W(p)=min{M≡3 (4): p≡−4D (mod M), D|((M+1)/4)²}` (POINTWISE_SIZE §7). *Mordell-hard*: p is a
@@ -32,6 +32,9 @@ model, and for a single residue class it *is* Linnik's theorem.
   Barban–Davenport–Halberstam). This extends POINTWISE_OMEGA Prop 6.1 to all product sets.
 * **Brief item (iii)** (Cramér-type least prime): CR(A) `log p≤log(1/δ)+A log T` ⇒ LS ⇒ **1/3**.
   The literal "`p≪δ^{−1}(log Q)^{O(1)}` for any set of density δ mod Q" is false (§1 Rem (c)).
+* **Light case and uniform model (§5.6, due to R61):** LS is PROVED (Brun–Titchmarsh) for systems
+  of total event mass `≤(1−ε)/2`; a Haar-random-points model with a union bound over all `≤2^{T²}`
+  systems predicts CR(2+o(1)) uniformly over systems (Assessment).
 * **Consistency (§5):** LS is not refuted by the planted/parity-type fakes (they are reweightings
   of Haar onto the complement of the avoider set, not prime-like sequences), but it is provably
   *not* reachable by linear certificates (Prop 3.1): a beyond-the-barrier hypothesis like twin
