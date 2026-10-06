@@ -128,10 +128,21 @@ Validation (soundness): `scripts/m17_validate.py` rebuilds, from independent Pyt
 the same data (Q, U: k=1,3; P: K=1,3,5), the genuine ET classes (II2 for Q, I1 for P at every
 `α≤K/2`, II1/I4 for U), and checks with `mordell_lib` that each contains the 17-generic points of
 the claimed box and that `solve()` returns a valid ES solution at a prime >10⁶ in it: 1152 classes OK.
-Validation (completeness): every box of the brute-force run `mordell_tgen.py 100000 17 3 17` (all seven
+Validation (completeness; R83 repair m9). The raw brute force of the reviewer R83,
+`review_m17_brute.py` (branch `side-agent/review-mordell17`), reads the classes literally off the
+statement of ET Prop 1.9, for all moduli `M ≤ 10⁶`, and does not use the §2.1 table. Re-run here:
+`uv run python review_m17_brute.py 1000000 3 brute_1e6.pkl` (3.5 min). It gives 168 distinct boxes of
+level ≤3 in all cells, **0 of level 0, and 0 missing from the m17 complete list** (28 of them in
+`C_5∪C_7`). R83's independent engine (`review_m17_enum.c`) reproduces Comp. 3.1 exactly.
+The older check below relies on the unreviewed `mordell_tgen.py`: every box of the brute-force run `mordell_tgen.py 100000 17 3 17` (all seven
 families, all moduli `M≤10⁵`, 106 boxes) meeting `C_5∪C_7` is in the complete list; the 13 rigid
 II-boxes of POINTWISE_MORDELL §5 (cell 5, level 3) are in it. (Brute force leaves 76.1% of each cell
 uncovered at level ≤3; the complete enumeration 68.5%: the extra boxes have T-free part >10⁵/17³.)
+*Correction (R83 repair m7).* The four level-2 boxes in `C_5` **are** visible at `M ≤ 10⁵`. For
+example `56 mod 289` comes from the I1 class `(a,d,f)=(1003,17,96759)`, of modulus `68204 = 4·17²·59`.
+So POINTWISE_MORDELL §5's statement that the cells `x_17≡5, 7` are entirely uncovered by all classes
+with `M≤10⁵` at k=2 is **false**, probably because of an I1 truncation (`MORDELL_I1CAP`). Comp. 5.1 of
+POINTWISE_MORDELL (u=5 in no class with `M≤10⁶`) is consistent with our data.
 
 Number of data (`m17_enum` stderr): Q: 2, 0, 73, 0, 245, 0, 707 (k=1..7); U: 4, 0, 68, 0, 310, 0,
 826; P: 2, 0, 32, 0, 121, 0, 258, ·, 604 (K=1..9; P 9 took ≈8 min). Even K are empty: for Q and P this is PROVED by Lemma 1.3 (direct reciprocity) (R83 repair m2:
@@ -222,7 +233,9 @@ that is open in general. Theorem 4.1 is the precise reduction.
 gcc -O2 -o /tmp/o83/m17_enum scripts/m17_enum.c
 for a in "Q 5" "U 5" "P 7" "Q 7" "U 7" "P 9"; do /tmp/o83/m17_enum $a | sort -u > /tmp/o83/out_${a/ /}.txt; done  # P 9 ≈ 8 min, rest < 2 min
 PYTHONPATH=scripts uv run python scripts/m17_union.py 7 9        # Comp. 3.1 (small k computed on the fly)
-PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 3 17   # brute-force cross-check (§3)
+PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 100000 17 3 17   # older brute-force cross-check (§3)
+uv run python <R83 worktree>/scripts/review_m17_brute.py 1000000 3 /tmp/o83/rev/brute_1e6.pkl  # raw Prop 1.9 brute force (R83), 3.5 min
+#   then: every (k,r) in it with k>0 is in /tmp/o83/boxes_7_9.pkl (0 missing), no k=0 entries
 PYTHONPATH=scripts uv run python scripts/m17_validate.py         # soundness, ~1 min
 PYTHONPATH=scripts uv run python scripts/m17_union.py 3 6 --cmp /tmp/o80_boxes_100000_17_3.pkl
 ```
