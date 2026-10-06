@@ -128,3 +128,36 @@ s=0,…,k). ∎
   classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
   Deeper levels shrink the exceptional set (e.g. 1412 residues mod `L=2^4·3^2·5·7·11·13^2·17·19·23`
   in case (b), relative density 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
+
+## 4. The candidate sterile point x* for the main variant (EVIDENCE / CERTIFIED computation)
+
+Complete rigid enumeration of the II1, II2, I4 boxes with T-level `F | 11³·13³`
+(`mordell_rigid.py 11,13 3`; any T-free part; validated: it contains all 164 brute-force boxes
+of these families) together with the all-family brute-force boxes (M≤10⁶) leaves 24.9% of the
+(2,2) cell uncovered at resolution `11³·13³` (26.4% without the rigid boxes): the Type II
+families contribute little here; the boxes in this cell are mostly I1. Survivors per added
+digit: ≈5/11 then 9/11 (at 11), ≈10/13 then 11.6/13 (at 13) — not a product set.
+
+**Computation 4.1 (CERTIFIED by one engine, re-check pending).** Let `x*∈Ẑ^×` have `x*_11=2`,
+`x*_13=2`, `x*_q=1` for every other prime q. Then `x*∈Σ_13` (main variant), and
+* (`mordell_point.py 1000000 11:2:8 13:2:8`) `x*` lies in no class, of any of the seven
+  families, with modulus `M≤10⁶`;
+* (`mordell_rigid.py 11,13 3` + `mordell_cellcov.py`) `x*` lies in no II1/II2/I4 class whose
+  modulus has {11,13}-part dividing `11³·13³` (T-free part unrestricted).
+
+*Consequence (PROVED from 4.1).* Every finite covering of `Σ_13` (main) by ET classes contains a
+class with modulus `>10⁶`. Indeed a finite union of clopen classes missing `x*` misses a
+neighbourhood of `x*`, i.e. a reduced residue class `p≡1 (mod Q)`, `p≡2 (mod 11^8·13^8)` with Q
+coprime to 143, which contains infinitely many primes (Dirichlet), all Mordell-hard with
+`(p/13)=−1`.
+
+**Conjecture 4.2.** `x*` is sterile: it lies in no ET Prop 1.9 class. Equivalently (ET Prop 1.9
+completeness + compactness) no finite set of polynomial ES identities covers all sufficiently
+large Mordell-hard primes with `(p/13)=(p/11)=−1`; Theorem 3.1(b) cannot be improved to zero
+exceptions.
+
+*Why Theorem C does not explain it.* `x*` is not square-mimicking: `x*_11, x*_13` are
+non-residues, and Jacobi-parity arguments (ET Prop 1.6 style) only force odd total
+{11,13}-valuation in the relevant parameters — satisfiable. The mechanism is the TYPEI2 one:
+at T-generic points the classes become rigid (finitely many boxes per T-level, §2.1), so a
+specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) this is open.
