@@ -120,8 +120,8 @@ exact measure of the union of the balls.
 | f-range | f with t_min≤40 | mass in bin | uncovered measure of Φ (exact union) |
 |---|---|---|---|
 | < 2¹⁰ | 5 | 0.125 | — |
-| [2¹⁰,2²⁰) | 72 | 0.59 | 0.6636 (f<2²⁰) |
-| [2²⁰,2²⁸) | 140 | 0.15 | 0.6412 (f<2²⁸) |
+| [2¹⁰,2²⁰) | 81 | 0.59 | 0.6636 (f<2²⁰) |
+| [2²⁰,2²⁸) | 142 | 0.16 | 0.6412 (f<2²⁸) |
 | [2²⁸,2²⁹) | 30 | 0.063 | 0.6103 |
 | [2²⁹,2³⁰) | 27 | 0.0011 | 0.6103 |
 | [2³⁰,2³¹) | 35 | 0.0012 | 0.6103 |
@@ -150,7 +150,9 @@ sterile point, not `x̂_9`. If `μ(U_Y)>Σ_{f≥Y}mass(f)`, where `U_Y⊂Φ` is 
 (computed) set surviving all `f<Y`, then Φ contains a sterile point, so
 `C*(7)=∞` under H. With `Y=10¹⁰`, `μ(U_Y)≈0.61`. So an explicit tail bound
 `Σ_{f≥10¹⁰} 2^{5−t_min(f)}<0.6` would suffice. This is a counting problem: bound
-the near misses with `t≤T` by `o(2^{T})` explicitly. It is open. A Lenstra-type
-bound (≤11 divisors of n in a class mod s ≥ n^{1/3}) applied to the
-parametrisation (2.1) gives only `#certificates(level) ≪ Λ^{1/2}`. That exponent is
-exactly borderline in the `γ`, `b` directions of the level sum.
+the near misses with `t≤T` by `o(2^{T})` explicitly. It is open. (Heuristic sketch, not
+a proof: in (2.1) with `J≤J'` one has `u | c'J²+Λ` and `c'J | Λ+u`; a Lenstra-type
+bound on divisors in a residue class (Lenstra 1984: at most 11 divisors of n in a
+class mod `s≥n^{1/3}`) then suggests only `#certificates(level)≪Λ^{1/2+ε}`. Against the box measure
+`2^{−(2+α+γ)}7^{−(a+b)}`, the exponent ½ is exactly borderline in the `γ`, `b`
+directions.)
