@@ -919,9 +919,11 @@ The point $x^*$ is sterile.
 By Proposition~\ref{prop:compact}(b), Conjecture~\ref{conj:xstar}
 \emph{implies} that no finite set of primitive classes solvable by
 polynomials contains all but finitely many Mordell-hard primes with
-$(p/11)=(p/13)=-1$, so that Theorem~\ref{thm:r13}(b) cannot be improved
-to a statement with no exceptional classes.  It is not equivalent to
-that statement (Remark~\ref{rem:direction}).
+$(p/11)=(p/13)=-1$, so that the method of Theorem~\ref{thm:r13}(b), a
+finite list of polynomial classes, cannot be extended to cover all such
+primes up to finitely many exceptions.  This would say nothing about
+whether ES holds for these primes.  The conjecture is not equivalent to
+the non-existence of such a covering (Remark~\ref{rem:direction}).
 
 \emph{Why the odd-square obstruction does not explain $x^*$.}  The point
 $x^*$ is not square-mimicking, as $x^*_{11}$ and $x^*_{13}$ are
@@ -1059,8 +1061,9 @@ level $k$ & boxes meeting $C_5$ & covered fraction after level $k$\\
 and identically for $C_7$.  So the boxes of level $\le5$ leave exactly
 the fraction $56561/83521=0.67720\ldots$ of each cell uncovered.
 Completeness was also checked against a brute force that reads the
-classes literally off \cite[Prop.~1.9]{ET} for all moduli $\le10^6$ ($0$
-boxes missing).  Moreover the point $x(5)$ lies in no ET class of modulus
+classes literally off \cite[Prop.~1.9]{ET} for all moduli $\le10^6$ and
+all boxes of level $\le3$ ($168$ boxes, $0$ missing); the boxes of levels
+$4$ and $5$ rest on the two enumeration engines only.  Moreover the point $x(5)$ lies in no ET class of modulus
 $\le10^6$ (two engines) and in no II1, I4 or II2 class with $17$-part
 dividing $17^4$ \cite[Comp.~5.1]{PM}.
 \end{computation}
@@ -1115,7 +1118,8 @@ $\asymp N^{-1/2}$ at ES level $N=17^K$, against the count
 $N^{2/5+o(1)}$, a margin of only $1/10$; even $D_P(K)\le17^{2K/5}$ with
 constant $1$ would leave a tail $\approx0.84$ from $K\ge11$, more than
 $0.677$.  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
-$(a,b)$, so what is needed is an explicit bound
+$(a,b)$, so it would suffice (\status{Assessment}: this is the natural
+route, not a proved necessity) to have an explicit bound
 \begin{equation}\label{eq:Pcount}
 \#\{(a,b):a\le b,\ ab\le17^K,\ (-17^K\bmod 4ab)\mid a+b\}\le
 C\cdot17^{(1/2-\delta)K}
