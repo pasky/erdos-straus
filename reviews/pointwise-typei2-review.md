@@ -78,3 +78,43 @@ moduli / define membership via the components at q≤r.
 * Prop 4.1(i): `1+4ck²=1+4r(r+1)=(2r+1)²`, `v_2(4ck)=3`, `(F,4ck)=1`
   (`gcd(2r+1,r)=gcd(2r+1,r+1)=1`), `F≡−1 ((r+1)/4)`, `F≡1 (r)`,
   `−F≡1 (8)` ✓; checked numerically below. **SOUND.**
+
+### Computation 3.2: completeness of the checker and independent re-run
+
+*Completeness, re-derived.* At `x̂_w` a certificate on slice (c,k) is a
+divisor `F|N=1+4ck²` with `F≡ξ:=−x̂ (mod h)`, `h=4ck` (this already forces
+`(F,h)=1`). Since `N≡1 (mod h)` the cofactor `e=N/F≡ξ^{−1}`. One of `F,e` is
+`≤√N`, and `√N=√(1+4ck²)<4ck=h` for all `c,k≥1`, so the smaller divisor is
+*the least positive residue* of `ξ` resp. `ξ^{−1}` mod h. Hence exactly two
+candidates per slice; the test is exact and complete ✓. (The author's "about
+`√N/4ck<1` per class" is the same fact.) Slices with `v_7(c)` even are
+excluded by Lemma 2.1 ✓ (my definition engine confirms numerically: no
+forced-slice certificate at `x̂_w` up to ck≤2·10⁴, even including
+`s∈{1,2,3,6}`).
+
+*From-scratch engines.*
+* `scripts/review_ti2_check.c` — same two-candidate principle (it is the only
+  sensible complete method), but independent code: `x̂ mod h` built by
+  explicit CRT with extended Euclid, `w^{−1} mod 2^t` by egcd, 128-bit.
+* `scripts/review_ti2_defn.py` — independent algorithm, straight from the
+  definition: factor N (sympy), every divisor F with `(F,4ck)=1`, `x̂ mod 4ckF`
+  by CRT, test `x≡−F (4ck)` and `x²≡−4ck² (F)`, over **all** slices.
+
+*Cross-validation.* For r=7 and `w∈{57,−23,197529,1,17,33,−7}`, X=2·10⁴,
+the two engines output identical certificate lists (0,0,0,2,10,2,0
+certificates). r=11, 19 at X=3000: identical lists, `(33,2,23)`,
+`(132,1,23)`, `(22,12,23)` resp. `(95,2,39)`, `(380,1,39)`, `(38,20,1559)` —
+the minimal ones match the author's sanity values; `w=1`: `(14,2,15)` ✓.
+
+*Results (my C engine, ≤1 core, ulimit -v 8 GB).*
+
+| r | w | X | slices (mine) | slices (author) | certs |
+|---|---|---|---|---|---|
+| 7 | 9 | 10⁶ | 1 533 438 | 1 533 438 | 0 |
+| 7 | 9, −7, 25, 41 | 10⁷ | 18 212 347 | — | 0 |
+| 7 | 9 | 10⁸ | 210 905 636 | 210 905 636 | 0 (30 s) |
+| 23 | 9 | 10⁹ | 744 701 974 | 744 701 974 | 0 |
+| 31 | 9 | 10⁹ | 548 469 498 | 548 469 498 | 0 |
+| 47 | 9 | 10⁹ | 356 411 660 | 356 411 660 | 0 |
+| 7 | 9 | 3·10⁹ | (running) | 7 602 614 538 | |
+| 7 | 9 (defn engine) | 2·10⁴ | 201 177 (all slices) | — | 0 |
