@@ -7,8 +7,8 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 |---|---|---|
 | L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: for w=9, a finite explicit check per f, at all heights. If no certificate has `min(F,e)<Y`, then none has `ck≤1.32(Y−1)` | PROVED |
 | C2.1–2.3 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`). For r=23, 31, 47 the bound is `>2.39·10¹¹` (was `>10⁹`) | CERTIFIED / CONDITIONAL (H) |
-| P3.1 | the sterile set of `Σ_7` is closed and nowhere dense: no fixed-modulus congruence proof of sterility of `x̂_9` exists | PROVED |
-| §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰`; measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
+| P3.1 | the sterile set of `Σ_7` is closed and nowhere dense, so no ambient cylinder around `x̂_9` is sterile | PROVED |
+| §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰` (depth-truncated, error ≤0.0013); measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
 | L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
 | P5.3, P5.4 | levels `α+2γ∈{5,6}` force `c=2^α7^a`; level 5 is empty (P5.4, from review R72). So certificates need `α+2γ≥6` | PROVED |
 | Conj 3.4 (TYPEI2) | `x̂_9` is sterile | still CONJECTURE |
