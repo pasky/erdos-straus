@@ -47,3 +47,25 @@ line, the union `P∪Q∪Q⁻¹∪U∪U⁻¹` is the whole story, and **the inve
 exact (no √Q caveat needed)**. Confirmed numerically: 0 √Q boxes at levels ≤5 (see Claim C).
 The same reciprocity argument applied to a (P)-datum (`f=4ni−1 | 4·17^K a'²d'+1`, `f ≡ −1 mod 4d'`)
 gives `(17^K/f) = −1`, i.e. **K odd** — a direct proof of "even K empty" (see defect m2).
+
+### Claim B — Lemmas 2.1–2.3, Cor 2.4, level bookkeeping: **SOUND**; §2 measure "Consequence": **SOUND-AFTER-REPAIRS** (citations)
+
+Re-derived independently (my parametrisations differ from the author's code, see Claim C):
+* (Q): with `m=(f+1)/(4ad)`, `4adm ≡ 1` and `4a²d ≡ −1 (mod g)` give `g | a+m`; with `j=(a+m)/g`,
+  `j(4adm−1) = F(a+m)`, i.e. `4·a·m·j·d = F(a+m)+j` = ET (2.3) for `(a,m,j,d)`, `n=F`. The equation is
+  symmetric in `(a,m)`, the swapped datum `(m,d,f)` is again a (Q)-datum (checked: `g | 4m²d+1`), so
+  one N-point with `a≤b` gives exactly the two boxes `−4a²d`, `−4b²d`. The I2(17|f) data satisfy the
+  *same* equation with `(a,c,t,h)`; box `−c/a ≡ −1/(4a²t)`. ✔
+* (U): `4iabc = F(a+b+c)` with `i = F(e+1)/(4ab)`; note `(ab)_17 = F` must be imposed separately (it is
+  not implied by the equation); the author's code does impose it (`nn % 17`), as does mine. The box
+  `−e = −(x/y+x/z)` is a function of the ES solution, so `#boxes ≤ #ordered solutions` ✔.
+* (P): `(4ni−1)(4nj−1) = 4·17^K a'²d'+1` with `K = 2α+δ = k+α`, `α ≤ k`; so `K ∈ [k,2k]`, i.e. a
+  given N-point of `Σ^II_{17^K}` produces boxes at levels `K−α`, `0≤α≤⌊K/2⌋`, all centred at the
+  same integer `−f`; the largest is at level `⌈K/2⌉` ✔. Weight `17^{1−⌈K/2⌉}` relative to a cell, and
+  `B_k` collects `K ∈ {2k−1, 2k}` ✔. Converse direction (every N-point with `17∤cd`, every `α`)
+  verified numerically: `review_m17_union.py` rebuilds `(a,d) = (17^α a', 17^{K−2α} d')` for every
+  enumerated N-point and asserts the raw (P) conditions (374 box-checks for K≤6, more at K=7).
+* Cor 2.4: correct (any level-0 datum is an N-point of `Σ_1`, i.e. a solution of `4/1`); the
+  sentence "For (P), `K≥1` as `k≥1`... and `k=0` forces `K=0`" is garbled but the content is right.
+
+§2 "Consequence" (convergence): the conclusion is right but the citations are not (defects m1, m2).
