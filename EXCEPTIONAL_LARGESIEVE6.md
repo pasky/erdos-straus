@@ -70,3 +70,110 @@ prefactor enters raised to the power `2β`. What stays relevant is the
 **product** structure `Π_{ℓ∈S}Kℓ^{−γ}`; the soft-pivotal lemma below may
 therefore bound all tilt factors by 1 pointwise (no tilt-bias estimate is
 needed).
+
+## 2. The soft-pivotal bound
+
+### 2.1 Cube calculus
+
+S is a finite set, functions are on corners `A ⊆ S`. For `A ∩ T = ∅` put
+`D_Tf(A) = Σ_{B⊆T}(−1)^{|T∖B|}f(A∪B)` (`D_∅f = f`), and
+`‖D_Tf‖ = max_{A⊆S∖T}|D_Tf(A)|`. ℓ is **pivotal** for f, `ℓ ∈ Piv(f)`, if
+`f(A∪ℓ) ≠ f(A)` for some `A ∌ ℓ`.
+
+**Lemma 2.1 (Leibniz; PROVED, elementary).** (a)
+`D_T(fg)(A) = Σ_{U⊆T} D_Uf(A)·D_{T∖U}g(A∪U)`.
+(b) For finitely many factors `ψ_i` (i ∈ 𝓘):
+`‖D_T Π_iψ_i‖ ≤ Σ_{f: T→𝓘} Π_{i∈𝓘}‖D_{f^{−1}(i)}ψ_i‖`.
+(c) `D_Tψ ≡ 0` unless `T ⊆ Piv(ψ)`; `‖D_Tψ‖ ≤ 2^{|T|−1}‖ψ‖_∞` for
+0/1-valued ψ and `T ≠ ∅`; and if `ψ = F∘u` with F L-Lipschitz on the range
+of u, then for `T ≠ ∅`
+
+    ‖D_Tψ‖ ≤ 2^{|T|−1} L Δ(u) · 1[T ⊆ Piv(u)],   Δ(u) := max_{A,A'}|u(A) − u(A')|.
+
+*Proof.* (a) Induction on |T|: for `T = T'∪{ℓ}` apply `D_ℓ(FG)(A) =
+D_ℓF(A)G(A∪ℓ) + F(A)D_ℓG(A)` to each term of the formula for T' (with
+`F = D_Uf`, `G(·) = D_{T'∖U}g(·∪U)`); the two pieces are the terms `U∪ℓ`
+and U of the formula for T. (b) iterate (a) and take absolute values.
+(c) `D_T = D_{T∖ℓ}D_ℓ`; if ℓ is not pivotal, `D_ℓψ ≡ 0`; `Piv(F∘u) ⊆
+Piv(u)`. A 0/1 function has `|D_ℓψ| ≤ 1`, and `|D_ℓ(F∘u)| ≤ LΔ(u)`; then
+`D_{T∖ℓ}` of a function bounded by M is bounded by `2^{|T|−1}M`. ∎
+
+The point of (c) for Lipschitz factors: **one** factor `LΔ(u)` is gained
+however many coordinates are charged to the factor; no Faà di Bruno sums
+(and no Bell numbers) are needed.
+
+### 2.2 The corner paths and the factorisation
+
+Setting: LS5 Setting 2.0 (truncated forbidding, caps `δ_q ≤ 1/2`), Q′ the
+sequential law on the rough coordinates 𝒫 (finite), `Φ = 1_𝒜e^{−2Y}`,
+`σ = σ_tilt = Q′Φ/Z`. Coins (LS4 §3): `c_q ~ U(Ω_q)` and a uniformly random
+ordering `π_q` of `Ω_q`, all independent; given the past, `x_q = c_q` if
+`c_q ∉ F̃_q`, otherwise the first element of `π_q` outside `F̃_q` (law
+`U(·|Ω_q∖F̃_q)`, as LS4).
+
+Fix θ ≠ 0, `S = supp θ`, independent uniform `v, v' ∈ Ω_S`, and coins for
+`q ∉ S`. For `A ⊆ S` let `v^A` take the value `v'_ℓ` for `ℓ ∈ A` and `v_ℓ`
+otherwise, and let `x^A` be the **corner path**: `x^A_ℓ = v^A_ℓ` on S, and
+the coin rule (with the activated sets of `x^A`) off S. Write `F_q(A)`,
+`F̃_q(A)`, `p̃_q(A)` for the sets/masses along `x^A`.
+
+Pinned representation (as in LS4 Lemma 5.1): integrating the S-coordinates
+step by step,
+`σ(x_S = v) = Z^{−1}E_{coins}[Φ(x^v)Π_{ℓ∈S}k_ℓ(v_ℓ | x^v_{<ℓ})]`, so with
+`Ψ(A) := Φ(x^A)Π_{ℓ∈S}|Ω_ℓ|k_ℓ(v^A_ℓ | x^A_{<ℓ})` and LS4 Lemma 3.1's
+expansion (`χ_θ` is non-trivial in every ℓ ∈ S),
+
+    |σ̂(θ)| ≤ Z^{−1} E_{coins,v,v'} |D_SΨ(∅)|.                     (2.1)
+
+On every corner, since `x^A_q ∉ F̃_q(A)` for `q ∉ S` by construction,
+`1_𝒜(x^A) = Π_{q∉S}1[x^A_q ∉ F_q(A)∖F̃_q(A)]·Π_{ℓ∈S}1[v^A_ℓ ∉ F_ℓ(A)]`
+and `|Ω_ℓ|k_ℓ(a) = 1[a ∉ F̃_ℓ]/(1−p̃_ℓ)`. Hence `Ψ = Π_{i∈𝓘}ψ_i` with the
+factors
+
+| factor | definition | type | weight `κ_i` |
+|---|---|---|---|
+| `h_ℓ`, ℓ ∈ S | `1[v^A_ℓ ∉ F_ℓ(A)]` | 0/1 | 1 |
+| `g_ℓ`, ℓ ∈ S | `(1 − p̃_ℓ(A))^{−1}` (≤ 2, Lipschitz 4) | soft | `2Δ_ℓ` |
+| `λ_q`, q ∉ S | `1[x^A_q ∉ F_q(A)∖F̃_q(A)]` (leak) | 0/1 | 1 |
+| `φ_q`, q ∈ 𝒫 | `e^{−2w_q p̃_q(A)}` (Lipschitz `2w_q`) | soft | `w_qΔ_q` |
+
+where `Δ_q = max_{A,A'}|p̃_q(A) − p̃_q(A')|`. (`1[v ∉ F̃]·1[v ∉ F] = 1[v ∉ F]`
+was used at ℓ ∈ S.)
+
+**Proposition 2.2 (soft-pivotal bound; PROVED).** With
+`W_B := Σ_{i∈𝓘} κ_i·1[B ⊆ Piv(ψ_i)]` (the *joint influence weight* of
+`B ⊆ S`, a function of the coins and of `v, v'`),
+
+    |σ̂_tilt(θ)| ≤ Z^{−1} · 4^{|S|} · E_{coins,v,v'} Σ_{𝔅 partition of S} Π_{B∈𝔅} W_B.
+
+Moreover, writing `N_q` for the number of classes C with top q whose
+off-top matching status along `x^A` is not the same for all corners A,
+`Δ_q ≤ N_q·q^{−1}` (more precisely `≤ Σ_C q^{−v_q(G_C)}` over those C).
+
+*Proof.* Lemma 2.1(b) for `Ψ = Πψ_i`. Factors with `f^{−1}(i) = ∅`
+contribute `‖ψ_i‖_∞ ≤ 1`, except `g_ℓ ≤ (1−δ_ℓ)^{−1} ≤ 2`: together
+`≤ 2^{|S|}`. A factor with `T = f^{−1}(i) ≠ ∅` contributes, by Lemma
+2.1(c), at most `2^{|T|}κ_i 1[T ⊆ Piv(ψ_i)]` (0/1: `2^{|T|−1}`; `g_ℓ`:
+`2^{|T|−1}·4Δ_ℓ`; `φ_q`: `2^{|T|−1}·2w_qΔ_q`). The `2^{|T|}` multiply to
+`2^{|S|}`. So `|D_SΨ| ≤ 4^{|S|}Σ_fΠ_{i∈f(S)}κ_i1[f^{−1}(i) ⊆ Piv(ψ_i)]`.
+Group the maps f by the partition `𝔅 = {f^{−1}(i)}` of S; f is then an
+injective assignment of blocks to factors, and dropping injectivity gives
+`≤ Σ_𝔅Π_{B∈𝔅}Σ_iκ_i1[B ⊆ Piv(ψ_i)]`. Insert in (2.1). For `Δ_q`: the
+truncation `p̃ = min(p, ⌊δ|Ω|⌋/|Ω|)` is 1-Lipschitz in p, and
+`|p_q(A) − p_q(A')| ≤ U(F_q(A) Δ F_q(A'))`, which is at most the total
+mass of the classes whose activation differs. ∎
+
+*Remarks.* (a) **Outside tops are charged by their damping.** A witness
+class through ℓ ∈ S whose top q lies outside S makes ℓ pivotal only for
+`φ_q` (and for `λ_q`, which is 0/1 but non-constant only on heavy steps)
+— unless it also changes the path (see §3); it then costs `κ = w_qΔ_q ≤
+w_qN_q/q`, not 1. This is exactly the soft-pivotal mechanism missing in
+LS5 §4 (caveat R67): in the undamped event `E_S` of LS5 such a witness
+counted fully, and `Σ_q 1/q = ∞` over the witnesses `(−4D, ℓq)`.
+(b) Compared with LS4 Lemma 3.1 ("every ℓ ∈ S pivotal for Ψ") the Leibniz
+split assigns each ℓ to **one** factor; the partition sum is the precise
+form of LS4 §3.2's covering events, with the blocks of 𝔅 playing the
+role of LS5 Lemma 3.1's label blocks.
+(c) No tilt-bias estimate is used: all factors are bounded pointwise and
+the expectation is over the **untilted** product space of coins and
+`(v, v')`. The price `Z^{−1}` is free by Lemma 1.1.
