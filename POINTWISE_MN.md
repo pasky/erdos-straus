@@ -301,11 +301,67 @@ uses) for general m was done by a deep-mode subagent and spot-checked here; its 
 * Lemma 3.1 / 4.1 parity assertions (`q` odd, `P` odd) are replaced by `ℓ ∤ mad`; the linear
   branch uses `gcd(ma², b) = 1` from `qb − ma²d_0 = 1`.
 
-**Corollary 6.1 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), OMEGA10 Thm 3.4 —
-substitution proof, review required).** For every fixed `m ≥ 4`:
-`log(1/δ*_m(T)) ≪_m 𝓛^5 log𝓛` and `W_m(p) ≥ exp(c_m(log p)^{1/5}(log log p)^{−1/5})` for infinitely
-many primes p. (For `m ≡ 0 (4)` this is superseded by Thm 3.1.) This improves TRANSFER Cor 5.2's
-`1/7` for every m, in particular for Sierpiński's `5/n`.
+**Corollary 6.1 (PROVED modulo (G), ET Prop 1.4/Thm 7.1/Cor 7.4/(7.10), OMEGA10 Thm 3.4).** For every
+fixed `m ≥ 4`: `log(1/δ*_m(T)) ≪_m 𝓛^5 log𝓛` and `W_m(p) ≥ exp(c_m(log p)^{1/5}(log log p)^{−1/5})`
+for infinitely many primes p. (For `m ≡ 0 (4)` superseded by Thm 3.1.) This improves TRANSFER
+Cor 5.2's `1/7` for every m, in particular for Sierpiński's `5/n` — **but only for the Type II
+witness `W_5`**: the output primes satisfy `p ≡ 1 (mod Q)` with `840 | Q` (so e.g. `p ≡ 1 (5)` for
+`m = 5`) and are Type-II-hard modulo Q; whether `5/p` has a Type I or other easy solution is not
+addressed (R63 MINOR-5).
+
+*Proof (substitution list for OMEGA12 Thm 6.3 and the OMEGA11 parts it uses; R63 MAJOR-1).*
+Throughout, `4 ↦ m`, `M ≡ 3 (4) ↦ M ≡ −1 (m)`, `A = (M+1)/m`, `g = gcd(M, mD+1)`.
+
+(0) *Parametrisation (OMEGA12 §§1–2).* `D = …`, `P = ma²d+1`, `g | a+b`, `macd = f + N`,
+`N ≥ (m/2)acd − 1 ≥ acd`, injectivity, and the involution `D ↦ A²/D` preserving g (from
+`mA ≡ 1 (M)`: `mA²/D + 1 ≡ (mD)^{−1}(1+mD)`): algebra with 4 replaced by m; brute-forced by R63
+(`scripts/review_mn_cor61.py`, m = 4..30, M ≤ 3000, even M included, 0 defects). Lemma 2.2 uses ET
+Prop 1.4 with `k = m` (stated for general `k ≪ (AB)^{O(1)}`, bound `≪ AB log(A+B) log(1+k)`).
+
+(i) *O11 Setting 2.0 and Lemmas 2.1–2.2 (graded quarantine), odd m.* Even M occur, so put
+`Q := 2^{a_2}∏_{ℓ odd}ℓ^{a_ℓ}` with a 2-adic coordinate `X_2 := n mod 2^{f_2}` (`f_2 = ⌊𝓛/log 2⌋`) on
+the fibre `n ≡ 1 (2^{a_2})`, start `a_2 = 3` (so `8 | Q` as before), and let `a_2` be raised by the
+same rule `w_2 > c(a_2+1)log 2/𝓛`. Lemma 2.1: the fibre probability at `ℓ = 2 ∈ supp` is
+`2^{−(v−a_2)}` (`a_2 ≥ 3`), within the stated `≤ (ℓ/(ℓ−1))ℓ^{min(v,a)}/ℓ^v`; survival is
+`gcd(M,Q) | mD+1` and `M ∤ Q`. Property (I): if `n ≡ 1 (Q)` and `n ≡ −mD (M)` then the atom
+survives; if `M | Q` then `n ≡ 1 (M)`, impossible by TRANSFER Lemma 5.1(ii) (archimedean: after
+`D ↦ A²/D`, `M | D + A` contradicts `0 < D + A ≤ 2A < M`; valid for even M). Lemma 2.2's charging
+uses only `Σ_ℓ v_ℓ(M)log ℓ = log M`, prime-independent, so ℓ = 2 is charged like any other prime.
+(Without this the event model is incomplete: m=5, M=464=16·29, D=3 survives `Q = 840` and still
+needs `n ≡ 1 (16)`.) For `m ≡ 2 (4)` M is odd and nothing changes.
+
+(ii) *OMEGA12 Lemma 3.1, small q.* The sentence "`q = 2` is omitted harmlessly: N divides the odd M"
+is false for odd m. Replace by the dichotomy, now for every prime ℓ including 2: if `ℓ | mad` then
+`ℓ ∤ N` (as `N ≡ −f (ℓ)` and `f | P ≡ 1 (ℓ)`); otherwise `q | N = mad·c − f` puts c in one class
+mod q. The bound `≤ (2/(ad))Σ_{q≤C}1/(iq)` then includes `q = 2^i`; Mertens over all prime powers is
+unchanged.
+
+(iii) *OMEGA12 Lemma 4.1.* "Every q | P is odd" and "Q is odd-valued, so `ρ_Q(2^j) = 0`" are false
+when `md` is odd. Replace:
+* every `q = ℓ^i | P` has `ℓ ∤ mad` (since `P ≡ 1 (ℓ)` if `ℓ | mad`); `q = 2^i` is allowed;
+* `P < 8mZ³` (from `P = ma²d+1`, `a < 2A`, `d < 2B`), so the large-q part is
+  `Σ_{q|P,q>Z^{1/2}} 1/i ≤ 2log(8mZ³)/log Z ≪_m 1`;
+* quadratic case: `P(x) = mdx²+1` has `≤ 2` roots mod odd prime powers and `≤ 4` roots mod `2^k`
+  (checked: max 4 over odd `md < 400`, `k ≤ 11`; this is ET's own case "`ρ_{ka}(p^j) ≤ 2` for odd
+  `p^j`, `≤ 4` for `p = 2`" in their proof of Prop 1.4). So "two roots" becomes "≤ 4 roots `x_0`";
+  `ρ_Q(p^j) = ρ_{md}(p^j)` for `p ∤ q` (bijection), and for `p = ℓ` each root of P mod `ℓ^{i+j}`
+  fixes `a' mod ℓ^j`, so `ρ_Q(ℓ^j) ≤ 4`; Euler factor `≤ 1 + 4/(ℓ−1)`; ET Thm 7.1 with
+  `(degree, l, C) = (2, 5, 4)`; ET (7.10) with `k = m` (stated for general k);
+* coefficients `mdq, 2mdx_0, (mdx_0²+1)/q ≤ 2mdq ≤ 4mA^{3/2} ≤ N'^5` needs `A ≥ 4m`; linear case
+  coefficients `ma², b_a ≤ ma²+1 ≤ N^6` needs `B ≥ 4m`, and `gcd(ma², b_a) = 1` because
+  `q·b_a − ma²d_0 = 1` (no parity argument). Blocks with `Z < Z_0(m) := max(16, 4m)` have
+  `h(P) ≪_m 1` and are absorbed as in the `Z < 16` case.
+Everything else in Lemma 4.1 and Cor 4.2, Thm 5.1 (`Ω_0 ≪_m 𝓛^4 log𝓛`) is unchanged.
+
+(iv) *OMEGA12 Lemma 6.2.* Start from `a_ℓ = 1` for odd `ℓ ≤ 𝓛`, `a_ℓ ≥ 1` for `ℓ ∈ {3,5,7}`, and
+`a_2 = 3`; the start cost is `log(8·∏_{odd ℓ ≤ max(𝓛,7)}ℓ) ≤ 1.02𝓛 + 7` as before. Every prime with
+`a_ℓ = 0` is `> 𝓛` (2 is never unstepped), so the bound `P(E) ≤ e³g/M` holds verbatim.
+
+(v) *Prime side.* OMEGA12 Thm 6.3 / O11 Thm 3.2 use the class of one mod Q; the transfer (O9 Thm 1.1,
+O11 Lemma 3.1) needs `8 | Q` (true: `a_2 ≥ 3`) and the twist prime coprime to Q (odd, as before).
+The output primes satisfy `p ≡ 1 (Q)`; they are Type-II-hard modulo Q because the class of one is
+hard (TRANSFER Lemma 5.1(ii)) — **not** "Mordell-hard", which is an m = 4 notion. Haar side:
+`log(1/δ*_m) ≤ log φ(Q) + 4S_1 ≪_m 𝓛^5 log𝓛` (O11 Cor 3.3), modulo ET alone. ∎
 
 ## 7. Status
 
@@ -316,7 +372,7 @@ many primes p. (For `m ≡ 0 (4)` this is superseded by Thm 3.1.) This improves 
 | Thm 3.1 | `m ≡ 0 (4)`: Haar exponent 3 (`𝓛³/log𝓛 ≪ log(1/δ*_m) ≪ 𝓛³(log𝓛)^5`) and `W_m(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` i.o. | PROVED modulo (G), NT, fundamental lemma, OMEGA10 Thm 3.4 (substitution proof; needs review) |
 | Prop 3.2 | Haar lower bound `≫ 𝓛³/log𝓛` for every m ≥ 4 | PROVED modulo fundamental lemma |
 | Lemma 4.1 | transfer (I3) for arbitrary unit class r | PROVED modulo (G) |
-| Cor 6.1 | every m: Haar `≪ 𝓛^5 log𝓛`, `W_m(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o. | PROVED modulo ET (+G, OMEGA10) — substitution proof via subagent check; review required |
+| Cor 6.1 | every m: Haar `≪ 𝓛^5 log𝓛`, `W_m(p) ≥ exp(c(log p)^{1/5}(log log p)^{−1/5})` i.o. | PROVED modulo ET (+G, OMEGA10); substitution proof §6b (0)–(v) (R63 MAJOR-1 repair) |
 | Thm 5.1 | `m ≢ 0 (4)`: same conclusions as Thm 3.1 (log-powers depending on K) | CONDITIONAL on ADM_m(K, Q_0) |
 | §6 | ADM_m numerics (m = 5, 6, 7, 9, 10, 11, 13): max per-prime drift ≈ 4, `f_ℓ ≲ 0.55(log ℓ)³/ℓ` | EVIDENCE |
 
