@@ -91,3 +91,16 @@ neighbourhood). It must use that `x̂_q=1` exactly at infinitely many q. Inside 
 sign family `{x̂_w}` this means that `w=9` is exact 2-adic data: by Lemma 1.1 the
 2-adic depth available to a divisor `f` is `v_2(f+9)` (resp. `v_2(9f+1)`), a
 quantity with no uniform bound.
+
+**Computation 2.1 (CERTIFIED by one engine; cross-checked as above).**
+`typei3_fsearch 7 9 1 10^11` (run as `[1,10⁸)`, `[10⁸,5·10¹⁰)`, `[5·10¹⁰,10¹¹)`;
+3 571 429 + 1 782 142 857 + 1 785 714 285 values of f; ≈55 min per half on one core
+before the speed-ups): **0 certificates.**
+
+**Corollary 2.2.** (i) *(CERTIFIED)* No certificate at `x̂_9` has a divisor
+`f=min(F,e)<10¹¹`, at any height. Hence (Lemma 1.2) none has `ck≤1.32·10¹¹`,
+and every finite Type-I covering of `{n_p=7}` has height `>1.32·10¹¹`
+(was `>3·10⁹`, POINTWISE_TYPEI2 Cor 3.3). (ii) *(CONDITIONAL on H for the finite family `𝓟_X` of
+Theorem A built from `x̂_9`, X=1.32·10¹¹)* infinitely many hard primes have
+`n_p=7` and `ck_min(p)>1.32·10¹¹`; so `C(7)>1.32·10¹¹` under H.
+*Proof.* As POINTWISE_TYPEI2 Cor 3.3, with Computation 2.1 + Lemma 1.2 in place of Computation 3.2. ∎
