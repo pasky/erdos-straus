@@ -167,7 +167,7 @@ in 2014; Thm 3.1 is the same sieve one level deeper (2⁴, 3²), sliced by (p/13
    covering".
 9. MINOR (label, "Why Theorem C does not explain it"). The claims "Jacobi-parity arguments only force
    odd total {11,13}-valuation … satisfiable" and "the mechanism is the TYPEI2 one" are not proved
-   in the document (no computation, no lemma). Theorem C (POINTWISE_SIZE.md §, CONDITIONAL on H) is
+   in the document (no computation, no lemma). Theorem C (POINTWISE_SIZE.md, "Theorem C (formal odd-square principle)"; CONDITIONAL on H) is
    about square-mimicking q*; x* is not square-mimicking (x*_11 = x*_13 = 2 are non-residues), so
    Theorem C indeed does not apply — that part is correct. Label the rest "Assessment".
 10. MINOR (§2.1 label "PROVED, elementary"). I re-derived and checked the II1/I4 and II2 rigid forms
