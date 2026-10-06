@@ -92,7 +92,7 @@ witness of modulus `kℓ ≤ T`, notes (51.2)), so `ν(p) = 1`. Hence
 Thm 8.2, `Σ_{p≤x} ν(p) ≤ Σ_{n≤x} ν(n) ≪ x e^{−c_a t³} ≤ x e^{−c_a t³/2}/log x`.
 
 *Case B: `c_a t³ < 2 log log x`.* Then `t⁴ ≪ (log log x)^{4/3}`, so by the
-ledger (note (8.3)) every term modulus `q` and the coefficient sum satisfy
+ledger (ledger of note Thm 8.2) every term modulus `q` and the coefficient sum satisfy
 `q, T_abs ≤ e^{C t⁴} ≤ exp(c₂√log x)` for `x ≥ x_0`.
 (i) *Prime sum.* Write `ν = Σ_i c_i 1[n ≡ a_i (q_i)]`. Then
 `Σ_{p≤x} ν(p) ≤ T_abs√x + (2/log x)Σ_{n≤x} ν(n)Λ(n)` (`ν ≥ 0`, `‖ν‖_∞ ≤ T_abs`),
@@ -140,8 +140,8 @@ the same computation as Prop 1.1 here), (ii) is the Bonferroni majorant
 **Proposition 3.1 (PROVED; consequence of Theorem 2.1 at
 `T = exp(c₁(log N)^{1/4})`).** `E_pr(N) ≤ #{p ≤ N: W(p) > T} ≪ π(N)·exp(−c(log N)^{3/4})`.
 This is the prime part of the note's Theorem 1.1 with `π(N)` in place of
-`N`; at this scale the two are the same statement (`log N ≤ (log N)^{3/4}`
-is absorbed by `c`). It is a reproof, **not** an improvement, and the
+`N`; at this scale the two are the same statement (the factor
+`N/π(N) ≍ log N = e^{log log N}` is absorbed by `c`). It is a reproof, **not** an improvement, and the
 "Haar-side route" is not a new route: it *is* the note's route.
 
 *Assessment 3.2 (the other Haar family).* POINTWISE_HAAR's Janson family
@@ -159,7 +159,7 @@ together with the selector classes `0 mod p`, `p ≤ y`. Every CRT majorant
 `ν ≥ 1_{𝒜(𝔊_T)}` of level `λ ≥ λ₀` (all term moduli `≤ e^λ`) with
 `log(1/Eν) ≥ s` has `λ ≥ (s/C)^{4/3}`. In particular certifying a saving
 `c𝓛³` (the true Haar void, up to `(log𝓛)^5`) needs level `≥ c'𝓛⁴`, and the
-note's `ν_X` attains it at level `≤ C''𝓛⁴` (note (8.3)). So on the majorant
+note's `ν_X` attains it at level `≤ C''𝓛⁴` (ledger of note Thm 8.2). So on the majorant
 side the critical level for the system at cutoff `T` is `λ*(T) ≍ 𝓛⁴`.
 
 *Proof.* KARY3 Thm 4.1 gives `s ≤ log(1/Eν) ≤ Cλ^{3/4}`. ∎
