@@ -130,3 +130,52 @@ So the boxes of level ≤4 leave **67.82%** of each cell uncovered (CERTIFIED), 
 added per level falls by roughly a factor 17–20 per level (EVIDENCE). The points `u=5`, `u=7`
 (the `x̃` of POINTWISE_MORDELL Comp. 5.1) lie in no box of level ≤4, nor in any Q/U box of
 level 5 or 7.
+
+## 4. The tail: reduction to explicit counts, and where it breaks
+
+Write `D_Q(k)`, `D_U(k)`, `D_P(K)` for the numbers of data enumerated by `m17_enum` (Q: N-points of
+`Σ^I_{17^k}` with `a≤b`, `17∤e`; U: (U)-data; P: N-points of `Σ^II_{17^K}`, `a≤b`, `17∤cd`). By
+Lemma 1.1 and §2 the boxes of level k number at most `B_k = 8D_Q(k) + 2D_U(k) + 2D_P(2k−1) + 2D_P(2k)`
+(Q: two orientations × {Q, Q⁻¹, √Q, √Q}; P: two orientations), and `D_P(2k) = 0` (ET Prop 1.6).
+
+**Theorem 4.1 (measure criterion; PROVED).** If
+`Σ_{k≥5} 17^{1−k}·B_k < 0.678201` (the uncovered fraction of `C_5` after level 4, Comp. 3.1),
+then `C_5` contains a sterile point `u`: `x(u)` lies in no class of any of the seven ET families.
+The same holds for `C_7`.
+*Proof.* Boxes of level ≥5 have total measure `≤ Σ_{k≥5} B_k 17^{−k}`, which is less than the measure
+`0.678201/17` of the part of `C_5` missed by levels ≤4. ∎
+
+**Corollary 4.2 (what sterility gives; PROVED from a sterile point).** If `u∈C_5` is sterile, then
+no finite set of ET Prop 1.9 classes (equivalently, by ET Prop 1.9, no finite set of the polynomial
+ES identities of these seven families) covers all sufficiently large primes `p` with `(p/17)=−1`
+and `(p/q)=+1` for every prime `5≤q<17` (Mordell-hard primes with `n_p=17`): the finite union misses
+a ball `x ≡ x(u) (mod 17^L·Q)`, `Q` the product of the other moduli' primes to high powers, which
+contains infinitely many primes (Dirichlet), all with `x_17 ≡ 5`, i.e. `(p/17)=−1`, and squares at
+every other prime ≤ 13 (as `x_q=1`).
+
+**Status of the hypothesis of Theorem 4.1.**
+* *Ineffective convergence (PROVED).* By §2 and ET Prop 1.7, `D_Q, D_U ≪ 17^{(3/5+o(1))k}` and
+  `D_P(K) ≪ 17^{(2/5+o(1))K}`, so `Σ_k 17^{−k}B_k < ∞`; the tail beyond level `k₀` tends to 0.
+  The ET constants (`n^{O(1/log log n)}` from the divisor bound) are not explicit, so this does
+  not give a `k₀` that the computation reaches.
+* *The critical family is (P)* (= I1, I3 with `17|cd`, II3 with `17|ad`, i.e. the 17 sits in the
+  quadratic-form modulus `4ad`). Its boxes have half level `⌈K/2⌉` relative to the ES level `K`,
+  so the measure weight is `N^{−1/2}` against ET's `f_II(N) ≪ N^{2/5+o(1)}`: margin only `1/10`.
+  Even granting `D_P(K) ≤ 17^{2K/5}` with constant 1, `Σ_{K≥11 odd} 2·17^{2K/5}·17^{1−(K+1)/2} ≈ 0.84`
+  exceeds 0.678; one would need exact enumeration through K=11 *and* an explicit ET-quality bound.
+  Q and U have margin `2/5` (exponent 3/5 against `N^{−1}`) and are harmless given any explicit
+  bound `D ≤ C·N^{0.9}` with moderate C.
+* *Why elementary effective bounds fail.* Counting `D_P(K)` amounts to counting `(a,b)` with
+  `r=(−17^K mod 4ab) | a+b` (ET Prop 2.7, second form; `d` is then unique since
+  `0 < 4abd−N ≤ a+b`), or divisors of `4c²dN+1` in the class `−1 mod 4cd`. Lenstra's bound
+  (≤11 divisors in a class mod `s ≥ m^{1/3}`) applies only when `16cd² ≳ N`, and the number of
+  pairs is `≍ N log N`; pointwise divisor bounds are `m^{0.2+}` at the relevant sizes. Any route
+  needs a genuinely new explicit count of ES solutions at prime powers.
+* *Empirics (EVIDENCE).* `D_P = 2, 32, 121, 258` (K=1,3,5,7), `D_Q = 2,73,245,707`, `D_U = 4,68,310,826`
+  (k=1,3,5,7): polylogarithmic-looking growth, far below what Theorem 4.1 needs (it suffices, e.g.,
+  that `D_Q+D_U ≤ 17^{k/2}` for `k≥9` and `D_P(K) ≤ 17^{K/4}` for `K≥9`: then the tail is `< 0.03`).
+
+**Assessment.** A sterile point in `C_5` is extremely likely (≥ 67.8% of the cell survives all
+boxes of level ≤ 4 and the measure added per level decays geometrically in the data), but a
+proof needs an explicit bound on the number of ES solutions of `4/17^K` of exactly the strength
+that is open in general. Theorem 4.1 is the precise reduction.
