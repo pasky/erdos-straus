@@ -1,7 +1,7 @@
 # Hostile review of POINTWISE_TAIL.md (task R76)
 
 Reviewer branch `side-agent/review-tail`. Author doc merged ff from `side-agent/two-sided-tail`.
-Status: IN PROGRESS.
+Status: ROUND 1 COMPLETE. Overall: no FATAL, no MAJOR; 6 MINOR; one improvement (S1).
 
 ## Verdicts per claim
 (filled in below as checked)
@@ -105,3 +105,63 @@ Re-derived from O9 Thm 1.1 (lines 111–196) + O11 Lemma 3.1 (lines 223–246) +
 * Exponents: `𝓛³(log𝓛)³loglog𝓛 = (log T)³(loglog T)³logloglog T` ✓; `loglog(π/N)=(3+o(1))loglogT` ✓.
 
 ## Defects
+(No FATAL, no MAJOR found.)
+
+**D1 (MINOR; §3 Lemma 3.2 proof, "f_2(p^k)≤2tβ·(3/2)≤7").** At `p=2`, `p/(p−1)=2`, so
+`f_2(2^k)=4βt` (not `≤3βt`); still `≤7` for large T, and irrelevant anyway because NT's
+right side carries `ρ_{Q_2}(2)=0`. Likewise the Euler-ratio `∏(1+2β(t−1)/(p−1))` ignores
+`p^k`, k≥2, terms (`f_2(p^k)=f_2(p)`); the ratio is still `exp(O(β(t−1)loglogY))=O(1)`.
+*Repair:* write `f_2(p^k)≤4βt≤7` and "local factor ratio `≤1+O((t−1)/p)`".
+
+**D2 (MINOR; Cor 2.2).** The letter `c` is used both for the (ineffective) lower-tail constant
+and for the range constant `log T≤c(log x/loglog x)^{1/4}`; the range constant must be
+`≤min(c₁ of CU Thm 2.1, (4/C)^{1/4})`. *Repair:* call it `c'`, state the two constraints.
+
+**D3 (MINOR; Lemma 1.1 statement vs Thm 3.3 use).** Thm 3.3's refined Siegel factor uses
+`λ≥min(1,c_Pq_1^{−1/2}(log3q_1)^{−2})` with the *actual* exceptional conductor `q_1|Q_L`, which is
+"Lemma 1.1's proof", not its statement (`λ_Q` in terms of Q). *Repair:* state Lemma 1.1 with
+`λ:=1` if Case A does not occur and `λ:=min(1,c_Pq_1^{−1/2}(log3q_1)^{−2})` otherwise, `q_1|Q`;
+then `λ≥λ_Q` is a corollary.
+
+**D4 (MINOR; Thm 3.3 conditional clause).** "No character of conductor `≤x` has a Landau–Siegel
+zero in the sense of (G)" depends on `κ, Q_G(x)`; the clean sufficient hypothesis is the
+usual zero-free statement `1−β≥c/log q` for real primitive χ of conductor `q|Q_L` (then
+`u=(1−β_1)log x≥c log x/log q_1≥1` and `λ≥1/2`). *Repair:* state that (weaker, standard;
+implied by GRH for real characters).
+
+**D5 (MINOR; Replay).** "No computations" — fine, but Lemma 3.1 and the Euler-ratio claim of
+Lemma 3.2 now have from-scratch checks (`scripts/review_tail_leaves.py`,
+`scripts/review_tail_twist.py`); cite them if desired.
+
+**D6 (MINOR; Cor 2.2 last sentence "the lower-tail constant C is [effective]").** True only if
+the implied constants of NT, (G) (MV Thm 28.19 constants `c, κ_0, C_G`), Lemma 3.3(B)'s `C_0`
+and OMEGA10 Thm 3.4 are effective. Plausible, but say "effective, given that the implied
+constants of the cited inputs are" (as CU does for the opposite side).
+
+## Suggested improvement (not a defect)
+
+**S1 — removes the `logloglog T` from Cor 2.2.** Bound the Siegel loss by `log rad(Q_L)`
+instead of `k_L logY`. With `s=1/logY`, `Σ_{ℓ|M,ℓ≤Y}logℓ ≤ (logY/e)·rad(M_Y)^s`
+(`y≤e^{sy}/(es)`), the twist `ℓ^s∈[1,e]` keeps F in `M_2(A,B,ε)` (A=12), and the Euler ratio
+is `exp(2β Σ_{ℓ≤Y}(ℓ^s−1)/ℓ+O(1)) ≤ exp(2β(e−1)+O(1))=O(1)` (`ℓ^s−1≤(e−1)s logℓ`). The
+optional-stopping argument of Lemma 3.2 with weight `logℓ` at `a=0` only gives
+`E[log rad_odd Q_end] ≤ log105 + η^{−1}ΣP_H2^{ω_Y}β^{ω}log rad(M_Y) ≪ η^{−1}𝓛³(logY)² ≍ 𝓛³(log𝓛)³`.
+Add a good-leaf condition (v) `log rad Q_L≤8E[…]` (`P(good)≥1/4`). Then `q_1≤rad(Q_L)·4`
+(q_1's 2-part `≤8`, rad has one factor 2) and the Siegel loss is `≪𝓛³(log𝓛)³`, so Thm 3.3 /
+Cor 2.2 become `C(log T)³(loglog T)³`. Numerics (`review_tail_twist.py`, T=10⁶) agree:
+the w-weighted mean of `log rad M_Y` tracks `logY` (10.0 vs 10.3 at Y=3·10⁴), whereas
+`ω_Y·logY` is ≈3× larger and grows like `loglogY·logY`.
+
+## Verdict summary
+
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (quantitative coset transfer, `λ_Q` via Page) | SOUND (D3) |
+| Dropping `ℓ_aux` / Thm 2.1 (one fibre, `(log𝓛)^5`) | SOUND |
+| Lemma 3.1 (leaf calculus) | SOUND (brute-forced) |
+| Lemma 3.2 (`E[k]`, NT with `t^{ω_Y}` twist) | SOUND (D1) |
+| Thm 3.3 (`(log𝓛)³loglog𝓛`; `(log𝓛)²loglog𝓛` CONDITIONAL) | SOUND (D4, D6); S1 improves |
+| Cor 2.2 (two-sided tail, exponent 3) | SOUND (D2, D6) |
+
+Labels: all PROVED-modulo labels are appropriate (inputs (G), NT, OMEGA10 Thm 3.4; Page is
+classical). ES itself is untouched, as the document says.
