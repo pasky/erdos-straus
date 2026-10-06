@@ -27,7 +27,9 @@ Checkpoint 1. Main file: `POINTWISE_MORDELL.md`. Scripts: `scripts/mordell_*.py`
      T={11,13}; classes become rigid, finitely many boxes per T-level) leaves only the cell
      `x≡2 (11), x≡2 (13)`; ≈25% of that cell stays uncovered after all classes with M≤10⁶ and the
      complete II1/II2/I4 enumeration to T-level `11³·13³`.
-   * **Computation 4.1 (CERTIFIED, one engine):** the point `x*` (`x*_11=x*_13=2`, `x*_q=1` else)
+   * **Computation 4.1 (CERTIFIED; R80 repair, applied by reviewer: the first clause and the
+     rigid clause for F other than 11^3*13^3 were re-checked by R80's independent engine; the
+     F = 11^3*13^3 and level-4 parts rest on one engine):** the point `x*` (`x*_11=x*_13=2`, `x*_q=1` else)
      lies in no ET class with modulus ≤10⁶ and in no II1/II2/I4 class with {11,13}-part
      dividing `11³·13³`. Hence every finite covering of `Σ_13` (main) needs a class of modulus
      `>10⁶` (PROVED from 4.1 by compactness + Dirichlet).
