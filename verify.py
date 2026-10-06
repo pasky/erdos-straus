@@ -102,6 +102,8 @@ Blocks (dw)..(dz) (task O85) replay the documents merged after that (reviewers' 
        Computation 4.1 at M <= 3*10^4 and rigid level 11^2 13^2;
   (dy) EXCEPTIONAL_WEIGHTS: Lemma 3.2 exhaustive l <= 29, Lemma 3.1 chain, Thm 2.1 toy LPs (scipy);
   (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound.
+  (ea) POINTWISE_MORDELL17: R83 enumerator data counts, Comp 3.1 at levels <= 3 (R83 union + brute force),
+       Lemma 1.3, Lemmas 5.1-5.2 (levels <= 5), §6 (a,b)-characterisation of P data (gcc).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -21547,6 +21549,189 @@ def check_dz():
 
 print("\n== (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound ==")
 check_dz()
+
+
+
+# ---------------------------------------------------------------- (ea)
+# POINTWISE_MORDELL17.md (sterility at r = 17): Lemma 1.3 (sqrt-Q empty, Q and P only at odd levels; PROVED),
+# Computation 3.1 (covered fractions of C_5, C_7; CERTIFIED) at levels <= 3, Lemma 5.1 (rational centres),
+# Lemma 5.2 (U is never new) and the §6 (a,b)-characterisation of P data (PROVED), at levels <= 5.  Uses R83's
+# from-scratch review_m17_enum.c (gcc; block skipped otherwise), review_m17_union.py, review_m17_brute.py.
+# Checked:
+# (1) R83 enumerator: data counts Q (S) 2,0,73,0,245 and U 4,0,68,0,310 (k = 1..5), P 2,0,32,0,121,0 (K = 1..6);
+# (2) R83 union, L = 3: covered fraction of C_5 and C_7 after level 1, 2, 3 = 0, 0.235294, 0.314879 (91/289
+#     residues mod 17^3); u = 5, 7 in no box; no sqrt-Q box; union inversion-symmetric; R83 brute force read off
+#     ET Prop 1.9 (M <= 3*10^4): no level-0 box, 0 boxes of level <= 3 missing from the enumeration;
+# (3) Lemma 1.3 on all Q data (k <= 5): f = 3 (4), (d/f) = 1, (-d/g) = 1, -4a^2 d a non-residue mod 17, k odd;
+#     inline brute force without the enumerator: every (a, d, m) with a, d <= 60, m <= 30000 and
+#     f = 4adm - 1 = 17^k g, 17 !| g, g | 4a^2 d + 1, k >= 1 has k odd and (-4a^2 d / 17) = -1;
+# (4) Lemma 5.1 (k <= 5): Q box -4a^2 d = -a/m mod 17^k (both orientations), Q = Q^{-1} as box sets;
+#     P box -f = -a/b mod 17^K when 17 !| ab, and 17 | a <=> 17 | b (K <= 5);
+# (5) Lemma 5.2 (k <= 5): every U datum has alpha != beta and alpha - beta odd; each in-cell U box lies in the
+#     P box of centre -b'/c' mod 17^{ceil((alpha-beta)/2)}, which is in the enumerated P data and of
+#     strictly lower level when k >= 2;
+# (6) §6: for K = 1, 3, 5, the P data (a <= b) are exactly the (a, b) with 2ab <= 17^K,
+#     e := (-17^K mod 4ab) | a + b, 17 !| cd.
+
+def check_ea():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    cc = shutil.which("gcc") or shutil.which("cc")
+    if not cc:
+        print("ea SKIPPED (no C compiler for review_m17_enum.c)")
+        return
+    p = 17
+
+    def v17(x):
+        v = 0
+        while x % p == 0:
+            x //= p
+            v += 1
+        return v
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "enum")
+        r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_m17_enum.c")],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, ("M17: compile failed", r.stderr[-1000:])
+        exp = {"S": (2, 0, 73, 0, 245), "U": (4, 0, 68, 0, 310), "P": (2, 0, 32, 0, 121, 0)}
+        raw = {}
+        for mode, cnts in exp.items():
+            for k, cnt in enumerate(cnts, 1):
+                r = subprocess.run([exe, mode, str(k)], capture_output=True, text=True, timeout=300)
+                assert r.returncode == 0 and f"{mode} {k} count={cnt}" in r.stderr, ("M17 enumerator count", mode, k,
+                                                                                  r.stderr[-300:])
+                with open(os.path.join(td, f"{mode}{k}.txt"), "w") as fh:
+                    fh.write(r.stdout)
+                raw[mode, k] = [list(map(int, ln.split()[1:])) for ln in r.stdout.splitlines()]
+                assert len(raw[mode, k]) == cnt, ("M17 enumerator output lines", mode, k)
+
+        def run(name, *args):
+            r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                               capture_output=True, text=True, env=env, timeout=600)
+            assert r.returncode == 0, ("M17 script failed", name, r.stderr[-1500:])
+            return r.stdout
+        brute = os.path.join(td, "brute.pkl")
+        run("review_m17_brute.py", 30000, 3, brute)
+        o = run("review_m17_union.py", td, 3, brute)
+    assert "missing files: []" in o, ("M17 union: missing files", o[:300])
+    for cell in (5, 7):
+        assert f"cell {cell}: covered fraction after level k: 1:0.000000, 2:0.235294, 3:0.314879" in o, ("M17 Comp 3.1", o)
+        assert f"u={cell}: boxes containing it (level<= 3): []" in o, ("M17: u in a box", cell, o)
+    assert o.count("covered 91 of 289 residues mod 17^3") == 2, ("M17 Comp 3.1 exact count", o)
+    assert o.count("'Qs': 0,") == 3 and "union inversion-symmetric: True" in o, ("M17 sqrt-Q / inversion", o)
+    assert "LEVEL 0" not in o and "missing from enumeration: 0" in o, ("M17 brute force vs enumeration", o[-600:])
+    # data: Q[k] = (a, m, d) with f = 4adm - 1; U[k] = (e, a, b, i); P[K] = (i, j, a', d') ET point a <= b
+    Q = {k: raw["S", k] for k in range(1, 6)}
+    U = {k: raw["U", k] for k in range(1, 6)}
+    P = {}
+    for K in range(1, 6):
+        N = p ** K
+        P[K] = []
+        for f, _, ap, dp, _ in raw["P", K]:
+            i = (f + 1) // (4 * ap * dp)
+            j = (i + N * ap) // (4 * ap * dp * i - 1)
+            assert 4 * i * j * ap * dp == i + j + N * ap, ("M17 P datum", K, f, ap, dp)
+            P[K].append((i, j, ap, dp))
+    nl13 = 0
+    for k, L_ in Q.items():
+        F = p ** k
+        assert k % 2 == 1 or not L_, ("M17 Lemma 1.3: Q datum at even level", k)
+        for a, m, d in L_:
+            f = 4 * a * d * m - 1
+            g = f // F
+            assert f % F == 0 and g % p and (4 * a * a * d + 1) % g == 0, ("M17 Q datum", k, a, m, d)
+            assert f % 4 == 3 and jacobi_symbol(d, f) == 1 and jacobi_symbol((-d) % g, g) == 1 \
+                and jacobi_symbol((-4 * a * a * d) % p, p) == -1, ("M17 Lemma 1.3 symbols", k, a, m, d)
+            nl13 += 1
+    assert all(not P[K] for K in (2, 4)) and not raw["P", 6], "M17 Lemma 1.3: P datum at even K"
+    nbr = 0
+    for a in range(1, 61):
+        for d in range(1, 61):
+            if (a * d) % p == 0:
+                continue                                  # then f = -1 (17), k = 0
+            for m in range(pow(4 * a * d, -1, p), 30001, p):  # exactly the m with 17 | f
+                f = 4 * a * d * m - 1
+                k = v17(f)
+                if k == 0 or (4 * a * a * d + 1) % (f // p ** k):
+                    continue
+                assert k % 2 == 1 and jacobi_symbol((-4 * a * a * d) % p, p) == -1, ("M17 Lemma 1.3 brute", a, d, m)
+                nbr += 1
+    assert nbr >= 10, ("M17 Lemma 1.3 brute force too small", nbr)
+    # Lemma 5.1
+    for k, L_ in Q.items():
+        F = p ** k
+        for a, m, d in L_:
+            for x, y in ((a, m), (m, a)):
+                assert (-4 * x * x * d + x * pow(y, -1, F)) % F == 0, ("M17 Lemma 5.1(i)", k, a, m, d)
+        Qs = {(-4 * x * x * d) % F for a, m, d in L_ for x in (a, m)}
+        Qi = {(-pow(4 * x * x * d, -1, F)) % F for a, m, d in L_ for x in (a, m)}
+        assert Qs == Qi, ("M17 Lemma 5.1: Q != Q^-1", k)
+    n51 = 0
+    for K, L_ in P.items():
+        N = p ** K
+        for a, b, c, d in L_:
+            assert (a % p == 0) == (b % p == 0), ("M17: 17 | a <=> 17 | b", K, a, b)
+            if a % p:
+                f, fs = 4 * a * c * d - 1, 4 * b * c * d - 1
+                assert (-f + a * pow(b, -1, N)) % N == 0 and (-fs + b * pow(a, -1, N)) % N == 0, ("M17 L5.1(ii)", K, a, b)
+                n51 += 1
+    Pbox = {}
+    for K, L_ in P.items():
+        lv = (K + 1) // 2
+        for a, b, c, d in L_:
+            for f in (4 * a * c * d - 1, 4 * b * c * d - 1):
+                Pbox.setdefault(lv, set()).add((-f) % p ** lv)
+    # Lemma 5.2
+    nU = nin = 0
+    for k, L_ in U.items():
+        F = p ** k
+        for e, a, b, i in L_:
+            al, be = v17(a), v17(b)
+            assert al + be == k and al != be and (al - be) % 2 == 1, ("M17 Lemma 5.2 parity", k, e, a, b)
+            nU += 1
+            rr = (-e) % F
+            if rr % p not in (5, 7):
+                continue
+            nin += 1
+            assert i % p, ("M17: in-cell U datum with 17 | i", k, e, a, b, i)
+            if al < be:
+                a, b, al, be = b, a, be, al
+            ap, bp = a // p ** al, b // p ** be
+            cp = (a + b) // e // p ** be
+            assert 4 * bp * cp * ap * i == bp + cp + p ** (al - be) * ap and ap % p, ("M17 L5.2 P datum", k, e, a, b)
+            lv = (al - be + 1) // 2
+            cen = (-bp * pow(cp, -1, p ** lv)) % p ** lv
+            assert rr % p ** lv == cen and cen in Pbox.get(lv, set()), ("M17 Lemma 5.2: U box not in P box", k, e)
+            assert k == 1 or lv < k, ("M17 Lemma 5.2: P level not lower", k, e)
+    assert nin > 0, "M17 Lemma 5.2: no in-cell U data"
+    # §6 (a,b)-characterisation
+    for K in (1, 3, 5):
+        N = p ** K
+        found = set()
+        for a in range(1, isqrt(N // 2) + 2):
+            for b in range(a, N // (2 * a) + 1):
+                e = (-N) % (4 * a * b)
+                if e == 0 or (a + b) % e:
+                    continue
+                d, c = (N + e) // (4 * a * b), (a + b) // e
+                if c % p and d % p:
+                    found.add((a, b, c, d))
+        assert found == set(P[K]), ("M17 §6 (a,b)-characterisation", K, len(found), len(P[K]))
+    print(f"ea data counts Q/U k <= 5, P K <= 6 (R83 enumerator); Comp 3.1 levels <= 3: 0.235294, 0.314879 in C_5, C_7 "
+          f"(R83 union; u = 5, 7 uncovered; brute M <= 3*10^4 complete); Lemma 1.3 on {nl13} Q data + {nbr} brute "
+          f"(a,d,m); Lemma 5.1 on Q and {n51} P data; Lemma 5.2 on {nU} U data ({nin} in-cell); (a,b) char K = 1,3,5; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ea) POINTWISE_MORDELL17: Lemma 1.3, Comp 3.1 (levels <= 3), Lemmas 5.1-5.2, §6 (a,b) char ==")
+check_ea()
 
 
 print("\nall checks passed")
