@@ -51,13 +51,14 @@ See POINTWISE_MORDELL17.md, section "Replay". All runs take at most about 8 minu
 | Lemma 5.1 | In-cell Q- and P-boxes are balls centred at the rational `−a/b` of their ES point: Q via `4abd≡1 (17^k)`, P via `bf=Nc+a`. Hence **Q⁻¹ = Q** (the reflection `a↔b`), so the I2 boxes duplicate the II2 boxes | PROVED |
 | Lemma 5.2 | **U-boxes are never new.** Every in-cell U-box (II1/I4, and I2 with 17∣ac) lies inside a P-box of level ≤ k with the same centre (strictly lower for k ≥ 2; R83 round-2 repair n1, applied by reviewer). α>β reduces to a Type II point of `4/17^{α−β}`; α=β is impossible. Also proves that U is empty at even levels | PROVED |
 | (a) nesting | New boxes per level in C_5: 4, 23, 34, 83 (levels 2–5), 94 Q-only at level 7. That is about ½ of all boxes: a constant factor, the same exponent. New = first admissible K for a centre, and first occurrences are not provably rarer | EVIDENCE + remark |
-| (b) prime powers | A P-point with a≤b is determined by (a,b): `e = (−17^K mod 4ab)` must divide a+b. In-cell data are all primitive (17∤ab, and 17∤abcd for Q). Scaled points (17∣a,b) are not P-data and have centre ≡1. So the P-tail is exactly a **small-residue problem**: `#{(a,b): ab≤17^K, (−17^K mod 4ab) ∣ a+b} ≤ C·17^{(1/2−δ)K}` with explicit C. Elementary counting, Lenstra and CHN give only O(N), because there are ≍N pairs and the bounds are per pair. ET gives `N^{2/5+o(1)}`, with non-explicit constants (R83 round-2 repair r2, applied by reviewer). Heuristically the count is ≍ log³ | precise obstruction |
+| (b) prime powers | A P-point with a≤b is determined by (a,b): `e = (−17^K mod 4ab)` must divide a+b. In-cell data are all primitive (17∤ab, and 17∤abcd for Q). Scaled points (17∣a,b) are not P-data and have centre ≡1. So the P-tail amounts to a **small-residue problem** (R83 round-2 repair n6, applied by reviewer): `#{(a,b): ab≤17^K, (−17^K mod 4ab) ∣ a+b} ≤ C·17^{(1/2−δ)K}` with explicit C. Elementary counting, Lenstra and CHN give only O(N), because there are ≍N pairs and the bounds are per pair. ET gives `N^{2/5+o(1)}`, with non-explicit constants (R83 round-2 repair r2, applied by reviewer). Heuristically the count is ≍ log³ | precise obstruction |
 | digit/Cantor test | A digit-restricted u, with 1/u also restricted, would avoid every box with a small integer centre. The construction is feasible, since the new digit of 1/u is an affine function of the new digit of u with slope 2. But the boxes are only mildly biased: `t = min(z_r, z_{1/r})/17^k` has median 0.12–0.25 and maximum 0.86–0.99 (levels 3–7; R83 round-2 repair n5, applied by reviewer). So no fixed threshold works | EVIDENCE (negative) |
 | (c) cutoff | Not raised. Theorem 4.1 needs a bound for every K, so more exact levels cannot close the tail on their own. P at K=11 would need an N^{2/5} factoring-based enumerator | decision |
 
-**Bottom line.** The tail is not closed. Sterility of C_5 is reduced, exactly, to an explicit
-bound of θ<1/2 type on small residues of `17^K` modulo `4ab`, i.e. on primitive Type II solutions
-of `4/17^K`. I recommend recording Theorem 4.1 plus the conjecture (EVIDENCE: 67.7% of each cell
+**Bottom line.** The tail is not closed. Sterility of C_5 follows from (Theorem 4.1 gives a *sufficient* condition, not an equivalence) an
+explicit bound of θ<1/2 type on small residues of `17^K` modulo `4ab`, i.e. on primitive Type II
+solutions of `4/17^K`, together with the comfortable explicit bound needed for Q. (R83 round-2 repair n6,
+applied by reviewer: previously "reduced, exactly".) I recommend recording Theorem 4.1 plus the conjecture (EVIDENCE: 67.7% of each cell
 uncovered through level 5). The new proved facts (Q⁻¹=Q, U never new) simplify the box picture to
 **two families: P (critical) and Q**.
 

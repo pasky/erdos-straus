@@ -315,7 +315,7 @@ satisfy `17∤abcd`. So **the prime-power structure enters only through the resi
   is `≥ 0.6` for every `K ≤ 40`.
 So the P-tail is equivalent in difficulty to an explicit "small residues of `17^K` modulo `4ab`"
 statement: `#{(a,b): ab≤17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`. Heuristically it is
-`≈ Σ τ(a+b)/(4a·b)·b ≍ log³`. I see no unconditional route.
+`≈ Σ_{a≤b, ab≤N} τ(a+b)/(4ab) ≍ (log N)³` (R83 round-2 repair n6, applied by reviewer: formula was garbled). I see no unconditional route.
 
 *Digit-set (Cantor) construction — tested, fails as stated (EVIDENCE).* If every box `r` of level k
 had `r` or `1/r ≡ −z (mod 17^k)` with `0<z<θ·17^k`, a 17-adic `u` whose digits and those of `1/u`
@@ -339,8 +339,8 @@ modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³
 modulo `4ast−1`, and where its logarithm falls**. That is an Artin / discrete-log equidistribution
 question for one fixed base, many moduli, and a fixed exponent K. Divisor-bound methods (ET,
 Lenstra, CHN, Nicolas–Robin) treat `N` as an arbitrary integer and never see the special form
-`N=17^K`. That is why they stop at `N^{2/5+o(1)}` with non-explicit constants (R83 round-2 repair r2, applied by reviewer) and at `O(N)` explicitly, and why
-no method of that kind can reach the `N^{1/2−δ}` that is needed.
+`N=17^K`. That is why they stop at `N^{2/5+o(1)}` with non-explicit constants (R83 round-2 repair r2, applied by reviewer) and at `O(N)` explicitly, and we see no way for
+methods of that kind to reach the `N^{1/2−δ}` that is needed (Assessment; R83 round-2 repair n6, applied by reviewer: previously "no method of that kind can").
 
 **Assessment after round 2.** (a) Nesting: U contributes nothing (PROVED); Q⁻¹ = Q; the new-box
 counts are about ½ of all boxes; the exponents are unchanged. (b) Prime-power structure:
