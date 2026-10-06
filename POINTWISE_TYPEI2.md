@@ -265,6 +265,7 @@ and `k'²|F+1`. Comparing odd parts of `(F−1)(F+1)=4ck²` gives
 * `j=1`: `2^{i−1}c'k'²=1+7^s`. For odd s, `v_2(1+7^s)=3`, so `i=4`,
   `α+2γ=3` and `α+γ≥2`. Hence the 2-adic modulus is `2^{2+α+γ}≥16`, and
   `−F=−1−2·7^s≡1 (16)` (as `7^s≡7 (16)`). But `w≡9 (16)`.
+* `i=j=1`: then `α=γ=0` and `c'k'²=1+7^s` is even, but `c'k'` is odd.
 * `i=1`, `j≥2`: `F=1+2^j7^s`, with `j=1+α+2γ`. If `γ≥1`, then
   `j≥2+α+γ`, so `−F≡−1 (mod 2^{2+α+γ})`, and `w≡−1 (8)` is impossible. If
   `γ=0`, then `c'k'²−1=2^{α}7^s` with `c'k'` odd. This forces `α≥1`; then
@@ -293,3 +294,37 @@ Only slices with `v_7(c)` odd need polynomials: forced slices vanish by
 notes Thm 48.1. ∎
 
 **Conjecture 3.4.** `x̂_9` is sterile. Then, under H, `C(7)=∞`.
+
+## 4. Other r: the sign point exists iff r≡3 (4), survives only if r≡7 (8)
+
+For a prime `r≥7` define `x̂^{(r)}_w` by `x̂_2=w` (`w≡9 (16)`), `x̂_r=−1`,
+`x̂_q=1` otherwise. It lies in `Σ_r` iff `−1` is a non-square mod r, i.e.
+`r≡3 (4)`. Lemma 2.1 holds verbatim (unforced ⟺ `v_r(c)` odd), and the odd
+components square to 1, so certificates are the integer solutions of (2.2)
+with 7 replaced by r.
+
+**Proposition 4.1 (PROVED).**
+(i) If `r≡3 (8)`, then `(c,k,F)=(r(r+1)/4, 2, 2r+1)` is a certificate at
+every `x̂^{(r)}_w`, for every `w`, and indeed at every `x∈Σ_r` with
+`x_r≡−1 (r)`, `x≡1` at the primes of `(r+1)/4` and of `2r+1`. So the
+sign point fails, with height `r(r+1)/2` (r=11: 66; r=19: 190, matching
+`typei2_formal.py`).
+(ii) If `r≡7 (8)`, Lemma 3.1 holds for `x̂^{(r)}_w` (no square
+certificates).
+*Proof.* (i) `c=r·(r+1)/4` with `(r+1)/4` odd and prime to r, `k=2`; so
+`v_r(c)=1` and the slice is unforced. `1+4ck²=1+4r(r+1)=(2r+1)²`.
+Target: `4ck=8r(r+1)/4·…`; explicitly `4ck=2r(r+1)`, whose 2-part is 8.
+`F=2r+1≡1 (r)`, `≡−1 (mod (r+1)/4)`, and `−F=−2r−1≡−7≡1 (8)` since
+`r≡3 (8)`. These match `x_r=−1`, `x=1`, `x_2≡1 (8)`.
+(ii) The proof of Lemma 3.1 used only `v_2(1+r^s)≥3` for odd s (true iff
+`r≡7 (8)`), and `−1−2r^s≡1 (16)`. The latter holds since `r^s≡r (16)`
+(as `r²≡1 (16)`) and `−1−2r≡1 (16)` for `r≡7,15 (16)`. ∎
+
+**Remarks.**
+* For `r≡1 (4)` (e.g. `r=5`, where `C(5)=10`), no sign point exists: the
+  only units whose square is 1 are `±1`, and both are squares mod r. This
+  is suggestive. The sign mechanism is unavailable exactly when a finite
+  covering is known (r=5). Whether `C(13)<∞` is open (task suggestion: a
+  covering search for r=13).
+* For `r≡3 (8)`, other (non-sign) deep points exist, e.g. the r=11 point
+  of POINTWISE_TYPEI Cor 6.4 (`ck_min>3000`).
