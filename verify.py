@@ -21255,4 +21255,119 @@ print("\n== (dw) POINTWISE_TYPEI3: f-graded search at x^_9 (f < 10^8), Lemmas 1.
 check_dw()
 
 
+
+# ---------------------------------------------------------------- (dx)
+# POINTWISE_MORDELL.md Theorem 3.1 (finite-exception Mordell-type theorems for r = 13; PROVED by finite
+# computation) in full, and Computation 4.1 (x* = (2 at 11, 2 at 13, 1 elsewhere) in no ET class; CERTIFIED)
+# at reduced bounds.  Uses the R80 from-scratch scripts (review_mordell_check.py loaded as a module;
+# review_mordell_point.py, review_mordell_rigid.py as subprocesses), not the author's mordell_*.  Checked:
+# (1) both certificates data/mordell/cert_r13_{np_240240,main_720720}.json: family conditions, the ES identity
+#     4xyz = n(xy+yz+zx) in Q[n], integrality on the full class t + L*Z (s = 0..4; R80's s = 0, 1, 2 test agrees on
+#     every (target, class) pair, though I2/I3/II3 coordinates have degree 3-4), coverage of all 360 resp.
+#     2160 targets of Sigma_13 mod L except exactly {112561} resp. the six stated residues; every class used;
+# (2) inline: each coordinate is a polynomial in n (degree <= 4; the doc's "degree <= 2" holds only for I1, I4,
+#     II1, II2) with non-negative coefficients, positive at n = 1 (so positive for every n >= 1, B = 1); the 6 Mordell-hard (square) units mod 840 are exactly the
+#     t = 1 (24) squares mod 5, 7; end-to-end 4/p = 1/x+1/y+1/z for the least prime in every covered target class;
+# (3) Theorem 3.1(c): np targets mod 720720 not covered by either certificate are exactly {112561, 352801};
+# (4) Comp 4.1 reduced: x* in no class of any family with M <= 3*10^4 (R80 point engine), nor in any
+#     II1/II2/I4 class with {11,13}-part | 11^2*13^2 (R80 rigid engine); positive control: the 13-generic point
+#     (x_13 = 2, 1 elsewhere) is found in II2 (9,2,143) by both engines.
+
+def check_dx():
+    from time import perf_counter
+    import importlib.util
+    import json
+    import os
+    import subprocess
+    import sys
+    from sympy import isprime, interpolate, Rational, Poly, symbols
+    t0 = perf_counter()
+    nsym = symbols("n")
+    ndeg = 0
+    # true n-degrees of (x, y, z): I2, I3, II3 exceed 2 (POINTWISE_MORDELL §0 says <= 2; only positivity matters)
+    maxdeg = {"I1": (2, 1, 2), "I2": (3, 1, 2), "I3": (4, 1, 2), "I4": (2, 1, 1), "II1": (1, 2, 2), "II2": (1, 1, 2),
+              "II3": (1, 2, 3)}
+    here = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(here, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+    spec = importlib.util.spec_from_file_location("review_mordell_check", os.path.join(sdir, "review_mordell_check.py"))
+    R = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(R)
+    exp_exc = {"np": {112561}, "main": {112561, 352801, 380881, 418321, 473761, 483841}}
+    exp_cnt = {"np": (240240, 20, 360), "main": (720720, 31, 2160)}
+    certs = {}
+    nprime = 0
+    for var, fn in (("np", "cert_r13_np_240240.json"), ("main", "cert_r13_main_720720.json")):
+        with open(os.path.join(here, "data", "mordell", fn)) as fh:
+            d = json.load(fh)
+        L = d["L"]
+        cls = [(c[0], tuple(c[1])) for c in d["classes"]]
+        assert d["variant"] == var and d["r"] == 13 and set(d["exceptions"]) == exp_exc[var], ("MORDELL cert header", fn)
+        assert (L, len(cls)) == exp_cnt[var][:2], ("MORDELL cert size", fn, L, len(cls))
+        for c in cls:
+            assert R.family_ok(*c) and R.identity_ok(*c), ("MORDELL class condition / identity", fn, c)
+            for i in range(3):
+                pts = [(m, Rational(R.sol(*c, m)[i].numerator, R.sol(*c, m)[i].denominator)) for m in range(9)]
+                pol = Poly(interpolate(pts, nsym), nsym)
+                assert pol.degree() == maxdeg[c[0]][i] and min(pol.all_coeffs()) >= 0 and pol.eval(1) > 0, \
+                    ("MORDELL: coordinate degree / coefficient sign", fn, c, i, pol)
+                ndeg += 1
+
+        def covers(c, t):
+            # integer-valued on t + L*Z: degree <= 4 in s, so test s = 0..4 (R80's covers tests s = 0..2 only)
+            return all(v.denominator == 1 and v > 0 for s_ in range(5) for v in R.sol(*c, t + L * s_))
+        T = [t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, var)]
+        assert len(T) == exp_cnt[var][2], ("MORDELL target count", fn, len(T))
+        cov = {t: [c for c in cls if covers(c, t)] for t in T}
+        assert all(covers(c, t) == R.covers(*c, t, L) for t in T for c in cls), ("MORDELL: R80 s <= 2 test differs", fn)
+        unc = {t for t in T if not cov[t]}
+        assert unc == exp_exc[var], ("MORDELL Thm 3.1: uncovered targets != stated exceptions", fn, sorted(unc))
+        assert all(any(c in cov[t] for t in T) for c in cls), ("MORDELL: unused class", fn)
+        for t in T:
+            if not cov[t]:
+                continue
+            p = t
+            while not isprime(p):
+                p += L
+            x, y, z = R.sol(*cov[t][0], p)
+            assert min(x, y, z) > 0 and all(v.denominator == 1 for v in (x, y, z)) and \
+                Fraction(4, p) == 1 / x + 1 / y + 1 / z, ("MORDELL: end-to-end solution fails", fn, t, p)
+            nprime += 1
+        certs[var] = (L, cls)
+    sq840 = {x * x % 840 for x in range(840) if gcd(x, 840) == 1}
+    assert sq840 == {t for t in range(840) if t % 24 == 1 and t % 5 in (1, 4)
+                     and t % 7 in (1, 2, 4)} and len(sq840) == 6, ("MORDELL: squares mod 840", sorted(sq840))
+    L, cls = certs["main"]
+    Ln, clsn = certs["np"]
+    # R.covers (s <= 2) agrees with the degree-4 test on all main / np targets (asserted above)
+    left = {t for t in range(1, L, 2) if gcd(t, L) == 1 and R.target(t, "np")
+            and not any(R.covers(*c, t, L) for c in cls) and not any(R.covers(*c, t % Ln, Ln) for c in clsn)}
+    assert left == {112561, 352801}, ("MORDELL Thm 3.1(c)", sorted(left))
+    assert any(R.covers(*c, 592801, L) for c in cls), "MORDELL Thm 3.1(c): 592801 not covered by main certificate"
+    assert all(R.target(t, "main") and R.target(t, "np") == (pow(t, 5, 11) == 1) for t in exp_exc["main"]), \
+        "MORDELL: exceptions not targets / np flag"
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MORDELL script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_mordell_point.py", 30000)
+    assert "TOTAL HITS 0" in o and "HIT " not in o, ("MORDELL Comp 4.1: x* in a class with M <= 3*10^4", o[-800:])
+    o = run("review_mordell_point.py", 1000, "13:2")
+    assert "HIT II2 9 2 143 143" in o, ("MORDELL point engine positive control", o[-800:])
+    o = run("review_mordell_rigid.py", 2, "11:2", "13:2")
+    assert "F list [1, 13, 169, 11, 143, 1859, 121, 1573, 20449]" in o and "hits 0 []" in o, ("MORDELL Comp 4.1 rigid", o)
+    o = run("review_mordell_rigid.py", 1, "13:2")
+    assert "('II2', 9, 2, 143, 143)" in o, ("MORDELL rigid engine positive control", o)
+    print(f"dx Thm 3.1: np cert mod 240240 (20 classes, 360 targets, exception 112561) and main cert mod 720720 "
+          f"(31 classes, 2160 targets, 6 exceptions) exact (s <= 4); {ndeg} coordinates with coefficients >= 0; "
+          f"{nprime} end-to-end prime solutions; (c) = {{112561, 352801}}; Comp 4.1: x* in no class M <= 3*10^4, "
+          f"no rigid II1/II2/I4 box at level | 11^2 13^2; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dx) POINTWISE_MORDELL: Theorem 3.1 certificates (r = 13) in full, Computation 4.1 (reduced) ==")
+check_dx()
+
+
 print("\nall checks passed")
