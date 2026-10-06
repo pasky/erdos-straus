@@ -103,3 +103,28 @@ Writing `m'` for the T-free part, the T-generic conditions are:
   or of 13 (53 boxes: F=1331: 20, 2197: 14, 121: 5, 169: 3, mixed F: 11), often with large T-free
   part (e.g. II2 f=1331·709). Since brute force in M truncates the T-free part, a complete
   enumeration per T-level F (rigid forms of §2.1) is needed.
+
+## 3. Finite-exception Mordell-type theorems for r=13 (PROVED by finite computation; independent re-check pending)
+
+**Theorem 3.1.** Let p be a prime with `(p/13) = −1`.
+(a) If `(p/11) = +1`, then `4/p = 1/x+1/y+1/z` has a solution in positive integers unless
+`p ≡ 112561 (mod 240240)`, i.e. `p≡1 (16)`, `p≡1 (3)`, `p≡1 (5)`, `p≡1 (7)`, `p≡9 (11)`, `p≡7 (13)`.
+(b) Without condition at 11, the same holds unless
+`p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`.
+
+*Proof.* If p is not a square mod 840, Mordell's identities apply. Otherwise
+`p mod L ∈ Σ_13` (L = 240240 for (a), 720720 for (b); np resp. main variant). The certificates
+`data/mordell/cert_r13_np_240240.json` (20 classes) and `data/mordell/cert_r13_main_720720.json`
+(31 classes) list ET Prop 1.9 classes. `scripts/mordell_check.py` (stand-alone; imports only
+sympy) verifies for each class that ET's parametrisation gives `x,y,z ∈ ℚ[n]` with
+`4xyz = n(xy+yz+zx)` identically and `x,y,z>0` for `n>1`; and that every residue of `Σ_13` mod L
+other than the listed exceptions has a class whose `x,y,z` are integer-valued on the whole
+progression `t+Lℤ` (a degree-k polynomial in s is integer-valued iff it is integral at
+s=0,…,k). ∎
+
+* Negative controls: deleting one class, or perturbing one parameter, makes the checker FAIL.
+* Context: Salez's single-prime filter `S_13={0,5,6,8,11}` (arXiv:1406.6307 §3.1) gives
+  `p≡5,6,8,11 (13)`; Theorem 3.1 adds the residues 2 and 7 mod 13 except for the listed
+  classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
+  Deeper levels shrink the exceptional set (e.g. 1412 residues mod `L=2^4·3^2·5·7·11·13^2·17·19·23`
+  in case (b), relative density 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
