@@ -13,7 +13,7 @@ labelled remarks. Sources: `POINTWISE_SIZE.md` §8, `POINTWISE_WINDOW.md`,
 (`reviews/es-window-note-review.md`, MINOR REVISION); repairs M1, M2,
 m1–m13 applied (see `reviews/agent-reports/AGENT_REPORT_O41.md`).
 
-**New (2026-10-06): `sieve-limits-note.tex` / `.pdf`, v5** (task O65; 71 pp.).
+**New (2026-10-06): `sieve-limits-note.tex` / `.pdf`, v5** (task O65; 73 pp.).
 Adds the reviewed exceptional-set results since v4; the main cap (Thm 10.14)
 is unchanged. §14.5 smooth–rough splitting (EXCEPTIONAL_LARGESIEVE3, ledger
 (D)27): Thm 14.12 (smooth coordinates cost only a density), Thm 14.13 (every
@@ -31,7 +31,7 @@ Hyp 14.32), K-free edge bound (Thm 14.33). Exclusions §16 / open problems §17
 updated. New §18 (CEILINGS_UNIFIED, (H)29): the 3/4 cap and the pointwise 1/4
 ceiling as one order-k sieve limit (Thms 18.1, 18.2), the 3/4 bound for primes
 in π(N) form, and a pointer to OMEGA16's conditional 1/3 ((H)30). Change list:
-`reviews/agent-reports/AGENT_REPORT_O65.md`. Not yet refereed.
+`reviews/agent-reports/AGENT_REPORT_O65.md`. Refereed in R65 (`reviews/sieve-limits-note-review-v5.md`, accept after minor revision; D1–D9 applied).
 
 **v4 (2026-10-05)** (task O36).
 Sieve limits for the exceptional set: every coefficient-sum CRT majorant

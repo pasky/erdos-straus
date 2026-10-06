@@ -1,8 +1,8 @@
 # AGENT_REPORT_O65 — sieve-limits-note v5
 
 Branch `side-agent/sieve-paper-v5-2` (not merged). File: `paper/sieve-limits-note.tex` v4 → v5,
-compiled with pdflatex ×3: 71 pp., no undefined refs/citations, no multiply-defined labels; the
-only overfull box is the pre-existing 1.29pt one of v4 (lines ≈3818–3825). README entry in
+compiled with pdflatex ×3: 73 pp. after the R65 repairs (71 pp. before), no undefined refs/citations, no multiply-defined labels; the
+only overfull box is the pre-existing 1.29pt one of v4 (lines ≈3834–3841). README entry in
 `paper/README.md`. After the parent's instruction, `main` was merged (EXCEPTIONAL_LARGESIEVE4.md, ledger (D)28,
 reviewed) and LS4 was added as §14.6 (item 1b below).
 
@@ -94,3 +94,39 @@ Numbers are those of the v5 PDF.
   but not individually cited in the bibliography.
 * No new mathematics in v5; everything is transcribed from reviewed sources, with proof sketches
   shortened.
+
+## Response to referee R65 (`reviews/sieve-limits-note-review-v5.md`)
+
+All points D1–D9 applied. Theorem numbering unchanged; 73 pp., clean compile (only the
+pre-existing 1.29pt overfull box).
+
+* **D1** Thm 14.27 now assumes only `0 < t ≤ 1`, `s₀ ≥ N^{−A₁}`; its proof sketch says that in the
+  non-trivial case `W⁺_{>CN} < N/s₀`, so the level does not involve t or Δ (cites SPW2's remark);
+  a sentence notes IF2 Thm 5.2's extra hypotheses only make the conclusion 3/4-shaped. Lemma 14.31's
+  proof now cites Thm 14.27 directly (`s₀ = η/(4K) ≥ N^{−A₁}`). (commit a3bc3b0)
+* **D2** Abstract: "a requirement on its margins that is exact for this route"; §16 "New in
+  version 5": "replaces it as the target of this route". (44e92b0)
+* **D3** Abstract: `O_γ(...)` with "γ-sparse … (γ > 0 fixed)"; intro item 6:
+  `Cγ^{−3}(log N)^{3/4}(log log N)^3` under (RS_γ), γ > 0 fixed. (44e92b0)
+* **D4** Hyp 14.14 no longer restricts to primes ≤ N^{O(1)} (matches LS3); the implication is said
+  to use Thm 14.12 *together with* the density bound (KA2 inputs). (bee3dbe)
+* **D5** `m*(p,b)` defined as the deterministic sum before Lemma 14.15; the lemma states
+  `m*(p,−4) = Σ 1/M'`. (bee3dbe)
+* **D6** §18: "heuristic truth 1/3" labelled Assessment (log-scale random-set model); O16 Thm 1.2
+  stated as conditional on LS **and** mod Nair–Tenenbaum, giving 1/3 up to a power of log log p;
+  the 1/4 cap scoped to Haar-centred progression input (BV, EH(θ), the progression part of GEH, GRH
+  truncated to moduli ≤ x; not full GRH or GEH). (41edef4)
+* **D7** (RS_γ) treated as a family property everywhere: intro exclusions item, intro item 6,
+  §14.6 closing paragraph (with the "many individually H-small classes can make the union dense"
+  remark), §16 item 1, "New in version 5", §17 (iii) and "Gone since version 4" now say "mixtures
+  whose multi-rough part violates (RS_γ) for every fixed γ > 0". (44e92b0)
+* **D8** Bibliography: Gallagher 1970 (Invent. Math. 11, Thm 7; distinguished from the larger
+  sieve), Nair–Tenenbaum (Acta Math. 180, checked against `sources/nair-tenenbaum-1998.pdf`),
+  Davenport Ch. 20 for the effective Page bound (the hard-coded "Chapter 28" removed from the
+  Davenport entry; the one other use already cites Ch. 28 explicitly), Friedlander–Iwaniec
+  *Opera de Cribro* for the fundamental lemma; internal O10 (with reviews) and O15 (with review)
+  entries; "published and internal inputs". Intro document count now 27. (41edef4, final commit)
+* **D9** (a) label renamed `def:SPW`; (b) no change (stated bound weaker and correct);
+  (c) note after Thm 14.18's proof: H-small families even satisfy (RS_{1/2}), γ = 1/4 because the
+  proof uses min(γ, 1/4); also "−4d, −1/(4d) with 4d ≤ H" made explicit; (d) the density-lemma
+  paragraph now says π_s is taken as the marginal on ℤ/M_s (base modulus need not divide M_s). (bee3dbe)
