@@ -111,5 +111,45 @@ Upper inequality: Thm 2.1, since `𝓛≤c(log x/loglog x)^{1/4}` with c small g
 *Range bookkeeping.* The two ranges differ only by the factor `(log log x)^{1/4}`. The lower
 range is the x-threshold `log x ≍ log Z ≍ 𝓛·S_res ≍ 𝓛^4log𝓛` of the transfer, i.e. the *same*
 threshold as O13 Thm 5.1 (existence of one p): counting costs nothing in range. By O14 Thm 4.5
-this threshold cannot be lowered below `𝓛^4` within the Haar-minorant + Gallagher-transfer
+this threshold cannot be lowered below `𝓛^4/log𝓛` (level of the minorant) within the Haar-minorant + Gallagher-transfer
 architecture, so `(log x)^{1/4}` is also the natural range limit here (Assessment).
+
+## 3. Summing over the quarantine outcomes: a smaller log power
+
+Thm 2.1 pays `log φ(Q)≪𝓛³(log𝓛)^5` for the fibre. Summing over **all** outcomes of the square-class
+process replaces this by `k·log2`, k the number of primes stepped at level 0, and the Siegel factor
+by `(1/2)log q_1 ≤ (1/2)k log Y`. Fix a deterministic tie-breaking rule for the process (e.g. step
+the least eligible ℓ, one step at a time); O13 Lemma 3.2 is stated for any such adapted rule.
+
+**Lemma 3.1 (leaf calculus; PROVED).** The process is a finite decision tree. Its leaves
+`L=(Q_L,r_L)` give pairwise disjoint fibres `{n≡r_L (Q_L)}` of `Ẑ^×`, and
+
+```
+P_proc(L) = 4·2^{k_L}/φ(Q_L),     k_L := ω(Q_L)−1  (number of odd primes of Q_L).
+```
+
+*Proof.* Each step reveals one more digit of n, chosen by a rule depending only on the revealed
+digits; two distinct leaves first differ at a node where they take different values of the same
+digit, so their fibres are disjoint. The number of steps is `≤Σ_{ℓ≤Y}f_ℓ<∞`. Probabilities: the
+start (`Q=8`, `r≡1 (8)`) has process probability 1 and Haar mass `1/φ(8)=1/4`. A step `(ℓ,0)` picks
+one of the `(ℓ−1)/2` squares mod ℓ (prob `2/(ℓ−1)`) where Haar gives the subfibre conditional mass
+`1/(ℓ−1)`; a step `(ℓ,a≥1)` picks one of ℓ lifts (all squares: ℓ odd, Hensel), conditional Haar mass
+`1/ℓ`. The forced steps at 3, 5, 7 are `a=0` steps (mod 3 the unique square 1 has prob `1=2/(3−1)`).
+Multiply along the path: `P_proc(L)=2^{k_L}·Haar(L)/(1/4)`, `Haar(L)=1/φ(Q_L)`. ∎
+
+**Lemma 3.2 (number of level-0 steps; PROVED modulo NT).** With O13's parameters
+(`β=1+1/log𝓛`, `η=(3/4)logβ`, `Y=𝓛^{C_0+4}`),
+
+```
+E[k] ≤ 3 + (1/η)·Σ_E P_H(E)2^{ω_Y(M)}β^{ω(M)}ω_Y(M)  ≪  𝓛³(log𝓛)²·logloglog… ≪ 𝓛³(log𝓛)²log log𝓛.
+```
+
+*Proof.* First inequality: O13 Lemma 3.2(b) with `logℓ` replaced by 1 and only `a=0`:
+`1[τ_{ℓ,0}<∞] ≤ η^{−1}w̃_{ℓ,0}(τ)1[τ<∞] ≤ η^{−1}G^{(ℓ,0)}_τ1[τ<∞]`, optional stopping gives
+`E[·]≤G^{(ℓ,0)}_0=Σ_{ℓ|M}P_H(E)2^{ω_Y}β^{ω}`, and `Σ_{ℓ≤Y}1[ℓ|M]=ω_Y(M)`; the forced steps add 3.
+Second: put `t:=1+1/loglogY`. Since `y≤t^y/(e·log t)` for `y≥0`,
+`ω_Y(M) ≤ (loglogY+1)·t^{ω_Y(M)}/e`. Summing over D as in O13 (notation `w(M)`), it suffices that
+`Σ_{M≤T, M≡3(4)} w(M)t^{ω_Y(M)}/M ≪ 𝓛³logY`. This is O13 Lemma 3.3(A)'s first display with `f_2`
+replaced by `f_2·t^{ω_Y}`: still multiplicative with `f_2(p^k)≤12^k` (NT class, uniform in T), and
+the Euler product over `p≤Y` changes by `∏_{p≤Y}(1+2β(t−1)/(p−1)) ≤ exp(2β(t−1)(loglogY+O(1)))=O(1)`.
+Hence `E[k] ≪ η^{−1}·loglogY·𝓛³logY ≍ 𝓛³(log𝓛)²log log𝓛` (`logY≍log𝓛`). ∎
