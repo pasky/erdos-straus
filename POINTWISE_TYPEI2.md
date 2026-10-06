@@ -28,8 +28,12 @@ Cl(κ) = {x ∈ Ẑ : x ≡ −F (mod 4ck),  x² ≡ −4ck² (mod F)}.
 
 `Σ_r ⊂ Ẑ^×` (r ≥ 5 prime) is the clopen set of unit points with `x≡1 (24)`,
 `x mod ℓ` a non-zero square for primes `5≤ℓ<r`, `x mod r` a non-square.
-`Σ_r` is compact. By quadratic reciprocity a prime `p>r` is hard with
-`n_p=r` iff `p∈Σ_r`.
+`Σ_r` is compact. A prime p is not a unit in `ℤ_p`, so for a prime p we
+write `p∈Σ_r` to mean that the components of p at the primes `q≤r` (i.e.
+`p mod 24∏_{ℓ≤r}ℓ`) satisfy the conditions defining `Σ_r` (R69-D1). With this
+convention, by quadratic reciprocity a prime `p>r` is hard with `n_p=r` iff
+`p∈Σ_r`. Moreover `p∈Cl(κ)` is the congruence condition modulo `4ckF`; it
+is meaningful for every prime p.
 
 **Lemma 0.1 (PROVED).** Let p be an odd prime and `(c,k)∈𝓑_p`. Then
 `M_{c,k}(p)≥1` iff `p∈Cl(c,k,F)` for some F; the F's are exactly the target
@@ -41,25 +45,43 @@ So `ck_min(p)=min{ck : (c,k)∈𝓑_p, s∉{1,2,3,6}, p∈⋃_F Cl(c,k,F)}`.
 
 A *Type-I covering of `Σ_r` of height ≤X* is a finite set of certificates
 of height ≤X whose classes cover `Σ_r`. Let `X_r∈ℕ∪{∞}` be the least such
-height. Put `C*(r)=limsup ck_min(p)` over hard p with `n_p=r` (this differs
-from `C(r)=sup` only by finitely many p, each with its own value).
+height. Put `C*(r)=limsup ck_min(p)` over hard p with `n_p=r`. Then
+`C*(r)≤C(r)=sup`, and `C(r)<∞` iff `C*(r)<∞` and `ck_min(p)<∞` for the
+finitely many p below any threshold beyond which `ck_min(p)≤C*(r)`. The
+latter is a finite check once such a threshold is known (R69-D4). All
+"iff" statements below are therefore stated for `C*`.
 
 ## 1. Closing the compactness gap of Remark 6.2(ii)
 
 **Theorem A (PROVED (i); CONDITIONAL on H (ii)).**
-(i) `ck_min(p)≤X_r` for every hard p with `n_p=r` and `p>2X_r`. Hence
-`C*(r)≤X_r`.
+(i) If `X_r<∞`, fix a covering 𝒦 of height `X_r` and let `F_max` be the
+largest F occurring in 𝒦. Then `ck_min(p)≤X_r` for every hard p with
+`n_p=r` and `p>max(2X_r, F_max)`. Hence `C*(r)≤X_r`.
 (ii) Let X be such that no covering of height ≤X exists. Then, under
 Schinzel H for an explicit finite family `𝓟_X` (§1, step 4), there are
 infinitely many hard p with `n_p=r` and `ck_min(p)>X`.
 (iii) Hence, under H, `C*(r)=X_r`. Moreover `X_r=∞` iff some point
 `x*∈Σ_r` lies in no `Cl(κ)` at all (a *sterile point*).
 
-*Proof of (i).* For `p>2X` and `ck≤X`: `p∤ck`, `k≤X<2p/3`,
-`c≤X≤(2p+k)/4k` (as `4ck≤4X<2p`), so `(c,k)∈𝓑_p`. Apply Lemma 0.1. ∎
+*Proof of (i).* Let `M=lcm{4ckF : (c,k,F)∈𝒦}`. For a prime `p>F_max`
+with `p>2X_r` and `p>r`, p is prime to every `4ck` and every F of 𝒦, hence
+to M. (A prime dividing some F would never lie in that `Cl(c,k,F)`.) So
+`p mod M` is the residue of a unit point of `Σ_r`, i.e. of some
+`x∈Σ_r⊂Ẑ^×` with `x≡p (mod M)`. The class of `p mod M` lies in some
+`Cl(κ)`, `κ∈𝒦`, because 𝒦 covers `Σ_r` and every `Cl(κ)` is defined
+modulo M. Finally, for `ck≤X_r<p/2`: `p∤ck`, `k<2p/3`,
+`c≤(2p+k)/4k` (as `4ck<2p`), so `(c,k)∈𝓑_p`, and Lemma 0.1 applies. ∎
 
-*Proof of (iii) from (i), (ii).* The first claim is immediate. For the
-second: the `Cl(κ)` are open and `Σ_r` is compact. ∎
+*Proof of (iii) from (i), (ii).* `C*(r)≤X_r` is (i). If `X<X_r`, then no
+covering of height ≤X exists, and (ii) gives `C*(r)>X`. Hence
+`C*(r)≥X_r` under H. For the sterile point (R69-D5): put
+`U_X=Σ_r∖⋃_{κ∈K_X}Cl(κ)`, with `K_X` the set of certificates of height
+≤X. Each `U_X` is closed in the compact set `Σ_r` (the `Cl(κ)` are open),
+and `U_X⊇U_{X'}` for `X≤X'`. If `X_r=∞`, then each `U_X` is nonempty.
+Otherwise compactness would extract a finite subcover of height ≤X from
+`{Cl(κ):κ∈K_X}`. By the finite intersection property,
+`⋂_X U_X≠∅`, and any point of the intersection is sterile. Conversely, a
+sterile point lies in every `U_X`, so no covering exists. ∎
 
 *Proof of (ii).*
 
@@ -140,7 +162,8 @@ So `M_{c,k}(p)=0` for every `(c,k)∈𝓢`: `ck_min(p)>X`. ∎
   `N_{c,k}` for finitely many slices only.
 * This closes R31-D6 / the gap of Remark 6.2(ii). The decisive object is
   thus a **sterile point**: `x*∈Σ_r` with `x*∉Cl(κ)` for *every*
-  certificate κ. Under H, `C(7)=∞` iff `Σ_7` has a sterile point. Then
+  certificate κ. Under H, `C*(7)=∞` iff `Σ_7` has a sterile point; a
+sterile point gives `C(7)≥C*(7)=∞` (R69-D4). Then
   `𝓟_X` is explicit from `x*` and X.
 
 ## 2. Sterile points for r=7: reductions
