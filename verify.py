@@ -89,7 +89,9 @@ Blocks (dg)..(dm) (task O66) replay the documents merged after that:
   (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels (heights, compatibility H1 H2 >= g/2);
   (dp) EXCEPTIONAL_LARGESIEVE6: Prop 4.2 Walsh bound and Thm 5.1 (+ sub-bounds) on exact R71 toys,
        author MC toy with Lemma 4.1 pointwise, R71 cube checks of Lemmas 2.1, 4.1;
-  (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact planted laws; closed-form bound).
+  (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact planted laws; closed-form bound);
+  (dr) POINTWISE_TYPEI2: sign-point checkers to ck <= 10^6 (gcc; skipped otherwise), R69 factoring
+       engine, Lemma 3.1 square families + 2-adic inputs, Prop 4.1(i) r = 3 (8) identity.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -20640,6 +20642,132 @@ def check_dq():
 
 print("\n== (dq) POINTWISE_OMEGA17: Lemma 5.2 capped planting (exact) ==")
 check_dq()
+
+
+
+# ---------------------------------------------------------------- (dr)
+# POINTWISE_TYPEI2.md §3-4: sign point x^_w = (w at 2; -1 at r; 1 elsewhere), w = 9 (16).  Cf.
+# scripts/typei2_signcheck.c (author) and review_ti2_check.c (R69), compiled with gcc/cc if present
+# (skipped otherwise), and review_ti2_defn.py (R69 factoring engine, from the definition).  Checked:
+# (1) [C] Computation 3.2 to ck <= 10^6: both checkers, r = 7, w = 9: 1533438 unforced slices,
+#     0 certificates; author checker also w = -7, 25, 41 and r = 23, 31, 47 (0 certificates); both
+#     find the expected certificates (14,2,15) at w = 1, (33,2,23) at r = 11, (95,2,39) at r = 19;
+# (2) R69 factoring engine over ALL slices ck <= 2000: 0 certificates at r = 7, w = 9; exactly
+#     (14, 2, 15) at w = 1;
+# (3) Lemma 3.1 (square families) directly: for every odd F <= 20001 and every (c, k) with
+#     F^2 = 1 + 4ck^2, v_r(c) odd (r = 7, 23, 31, 47), F is not = -x^_w (mod 4ck) for any w = 9 (16);
+#     the 2-adic inputs v_2(1 + r^s) >= 3 (= 3 for r = 7) and -1 - 2 r^s = 1 (16) for odd s < 60 and
+#     primes r = 7 (8), r < 2000 (Prop 4.1(ii));
+# (4) Prop 4.1(i): for every prime r = 3 (8), r < 20000, (c,k,F) = (r(r+1)/4, 2, 2r+1) is an unforced
+#     certificate at every x^_w (w = 1 (8)): 1 + 4ck^2 = F^2, v_r(c) = 1, F = 1 (r), F = -1 ((r+1)/4),
+#     v_2(4ck) = 3, -F = 1 (8).
+
+def check_dr():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C checkers skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = {}
+            for name in ("typei2_signcheck", "review_ti2_check"):
+                exe[name] = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c"), "-lm"],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI2: compile failed", name, r.stderr[-1000:])
+
+            def run(name, *args):
+                r = subprocess.run([exe[name], *map(str, args)], capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("TYPEI2 checker failed", name, args, r.stderr[-500:])
+                return r.stdout
+            o = run("typei2_signcheck", 7, 9, 10 ** 6)
+            assert "unforced slices 1533438," in o and o.rstrip().endswith("certificates 0"), ("TYPEI2 C3.2 author", o)
+            o = run("review_ti2_check", 7, 9, 10 ** 6)
+            assert "slices=1533438 certs=0" in o, ("TYPEI2 C3.2 R69 checker", o)
+            for r_, w_ in ((7, -7), (7, 25), (7, 41), (23, 9), (31, 9), (47, 9)):
+                o = run("typei2_signcheck", r_, w_, 10 ** 6)
+                assert o.rstrip().endswith("certificates 0"), ("TYPEI2 sign point certificate found", r_, w_, o)
+            for r_, w_, cert in ((7, 1, "c=14 k=2 F=15"), (11, 9, "c=33 k=2 F=23"), (19, 9, "c=95 k=2 F=39")):
+                for name in ("typei2_signcheck", "review_ti2_check"):
+                    o = run(name, r_, w_, 1000)
+                    assert cert in o, ("TYPEI2 checker misses expected certificate", name, r_, w_, cert)
+        cmsg = ("C3.2 to ck <= 10^6: 1533438 slices, 0 certificates (author + R69 checkers; also w = -7, 25, 41 and "
+                "r = 23, 31, 47), expected certificates found at w = 1, r = 11, 19")
+    outs = {}
+    old_argv = sys.argv
+    try:
+        for w_ in (9, 1):
+            sys.argv = ["review_ti2_defn.py", "7", str(w_), "2000"]
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                runpy.run_path(os.path.join(sdir, "review_ti2_defn.py"), run_name="__main__")
+            outs[w_] = buf.getvalue()
+    finally:
+        sys.argv = old_argv
+    assert "all_certs=0 " in outs[9], ("TYPEI2 R69 definition engine: certificate at x^_9", outs[9])
+    assert "all_certs=1 " in outs[1] and "ck=28 c=14 k=2 F=15" in outs[1], ("TYPEI2 R69 engine at w = 1", outs[1])
+
+    def v(p, n):
+        e = 0
+        while n % p == 0:
+            n //= p
+            e += 1
+        return e, n
+    nsq = 0
+    for r_ in (7, 23, 31, 47):
+        for F in range(3, 20002, 2):
+            M = (F * F - 1) // 4
+            fac = factorint(M)
+            ks = [1]
+            for q, e in fac.items():
+                ks = [kk * q ** i for kk in ks for i in range(e // 2 + 1)]
+            for k in ks:
+                c = M // (k * k)
+                if v(r_, c)[0] % 2 == 0:
+                    continue
+                h = 4 * c * k
+                e2, rest = v(2, h)
+                er, odd = v(r_, rest)
+                ok_odd = (F + 1) % odd == 0 and (F - 1) % (r_ ** er) == 0
+                # need -F = w (mod 2^e2) for some w = 9 (16): -F = 9 mod 2^min(e2, 4)
+                ok_2 = (-F - 9) % (2 ** min(e2, 4)) == 0
+                assert not (ok_odd and ok_2), ("TYPEI2 Lemma 3.1: square certificate at sign point", r_, F, c, k)
+                nsq += 1
+    n2a = 0
+    for r_ in primerange(7, 2000):
+        if r_ % 8 != 7:
+            continue
+        for s in range(1, 60, 2):
+            e2 = v(2, 1 + r_ ** s)[0]
+            assert e2 >= 3 and (r_ != 7 or e2 == 3) and (-1 - 2 * r_ ** s) % 16 == 1, ("TYPEI2 Lemma 3.1 2-adic", r_, s)
+            n2a += 1
+    n41 = 0
+    for r_ in primerange(3, 20000):
+        if r_ % 8 != 3:
+            continue
+        c, k, F = r_ * (r_ + 1) // 4, 2, 2 * r_ + 1
+        u = (r_ + 1) // 4
+        assert 1 + 4 * c * k * k == F * F and v(r_, c)[0] == 1 and u % 2 == 1 and gcd(u, r_) == 1, \
+            ("TYPEI2 Prop 4.1(i): identity / unforced", r_)
+        assert F % r_ == 1 and (F + 1) % u == 0 and v(2, 4 * c * k)[0] == 3 and (-F) % 8 == 1, \
+            ("TYPEI2 Prop 4.1(i): congruences", r_)
+        n41 += 1
+    print(f"dr {cmsg}; R69 definition engine ck <= 2000: none at w = 9, (14,2,15) at w = 1; Lemma 3.1: "
+          f"{nsq} square (F, c, k) with v_r(c) odd excluded (F <= 20001, r = 7, 23, 31, 47), {n2a} 2-adic "
+          f"facts; Prop 4.1(i) identity for {n41} primes r = 3 (8) < 20000; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dr) POINTWISE_TYPEI2: sign-point checkers (ck <= 10^6), Lemma 3.1, Prop 4.1 (r = 3 (8)) ==")
+check_dr()
 
 
 print("\nall checks passed")
