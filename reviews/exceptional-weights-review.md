@@ -192,6 +192,36 @@ windows of interest, Schwartz or Φ_K, satisfy it).
 observed `1−|φ| ≥ 1/2` on all tested F suggests a k-free (or ≫ 1/log k) bound (unproved; heuristic only), which would let
 Thm 3.3 use weights `log(1/(2p_ℓ)) − O(log log ℓ)` and weaken γ < 1/3. Optional.
 
+## Repairs applied (by the reviewer, at the parent's request)
+
+The author's context was exhausted, so I applied the repairs on this branch. I first merged
+`side-agent/weights-below-one`, which was already up to date. Every change in
+`EXCEPTIONAL_WEIGHTS.md` and `AGENT_REPORT_O81.md` is marked "(R81 repair, applied by
+reviewer)". There is one commit per defect.
+* **D1** — new "Families" paragraph after the Notation. It defines 𝔊_X (the 3/4-note
+  family), 𝔊_ℛ (the Q₀ = 1 ℛ(ℓ) toy family) and 𝔉_A (all forced-class families with moduli
+  ≤ N^A), together with (W_𝔊) and (W_{𝔉_A}). The following are now stated per family:
+  the §0 rows for Thm 2.1, Prop 5.1 and (W); Cor 2.2(b),(c); Prop 5.1(a),(c); and Open
+  problem (W). The §2 sentence about the upper bound is restricted to 𝔊_X. The report is
+  updated to match.
+* **D2** — the application to ℛ(ℓ) is restricted to primes ℓ ≥ ℓ₀. Here ℓ₀ is chosen so
+  that p_ℓ ≤ 1/4 and |ℛ(ℓ)| ≤ ℓ^γ, and ℓ₀ ≥ (2e^{s_*})^{1/(1−3γ)}. A new scope paragraph
+  after Thm 3.3 lists the violating primes 3, 7, 11, 23, 47. The Q₀ > 1 extension is
+  explicitly **not claimed**, since it was not written out. Updated in the §0 row, in
+  "What this closes" and in the report.
+* **D3** — new Prop 5.1(a′): `E_pr(N) ≤ K + y + M_{𝔊_X}(N)`, with a proof (S_y(p) = 1
+  since p > y, and H_X(p) = 0 by the note's identity lemma). "E(N) ≤ M(N)" is withdrawn
+  in the doc, the (W) bullet and the report.
+* **D4** — "no arithmetic-free argument can cap it" is relabelled Assessment, in the §0
+  Verdict, after Cor 2.2 and in the report. What is PROVED (the equivalence with (W_𝔊))
+  is said explicitly. The emptiness of the "escape" as a method is noted.
+* **D5** — §4 now has the hypothesis `|Φ̂(ξ)| ≤ C_Φ|ξ|^{−1−η}`, with the alias estimate
+  O(N^{−η}) written out.
+* **D6** — not applied (optional; heuristic only).
+
+After these repairs the verdicts in the summary table that read SOUND-AFTER-REPAIRS
+become SOUND. Labels are unchanged except for the D4 relabelling to Assessment.
+
 ## Replay
 ```
 ulimit -v 8000000

@@ -1,6 +1,6 @@
 # EXCEPTIONAL_WEIGHTS — per-frequency weights below 1 (task O81)
 
-Status: **work in progress (O81), not reviewed.** Labels follow `DISCOVERIES.md`.
+Status: **O81; hostile review R81 round 1 (`reviews/exceptional-weights-review.md`): no FATAL; repairs D1–D5 applied by the reviewer, marked "(R81 repair, applied by reviewer)".** Labels follow `DISCOVERIES.md`.
 PROVED means proved in this file, internal checks only. No θ > 3/4 is claimed.
 
 Notation as in `EXCEPTIONAL_NONCRT.md` (NC), `EXCEPTIONAL_INTERFREQ.md` (IF),
