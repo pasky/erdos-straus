@@ -184,6 +184,12 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
   (Lemma 5.2 exact), POINTWISE_TYPEI2 (sign-point checkers to ck ≤ 10⁶, author + R69, needs gcc/cc;
   Lemma 3.1 square families; Prop 4.1(i) r ≡ 3 (8) identity) and POINTWISE_MN (Lemma 1.1 Jacobi
   symbols for several m; §1 square-consistency counts).
+* `verify.py` blocks (dt)–(dv) (O79, ~15 s; full run ≈ 5.1 min, 2 threads, scipy + mpmath) add
+  EXCEPTIONAL_LARGESIEVE7 (Lemmas 1.1–1.2 for M < 2000, author + R73 incl. brute-force H* bound;
+  (167, 9) example; Prop 4.1 / 5.1 counterexamples on R73 and inline toys with exact H*), POINTWISE_MN2
+  (§4 exact δ_m(Q(q₀)): m = 5 up to q₀ = 17, m = 6, 7; author + R74; inline δ_5(Q(8)) = 1/4,
+  δ_5(Q(9)) = 1/8, |H_5(840)| = 48/192) and POINTWISE_TAIL (Lemma 3.1 leaf calculus on the R76 toy and
+  an inline toy with level-≥ 1 lifts; Lemma 3.2 twist ratio EVIDENCE at T = 10⁵).
 
 ## Exceptional-set exponent: where it stands (2026-10-06)
 

@@ -20839,4 +20839,245 @@ print("\n== (ds) POINTWISE_MN: Lemma 1.1 Jacobi symbols of -mD mod M for several
 check_ds()
 
 
+
+# ---------------------------------------------------------------- (dt)
+# EXCEPTIONAL_LARGESIEVE7.md Lemmas 1.1-1.2 (triple parametrisation of R(M), residue pinning; PROVED)
+# and the (RD) counterexamples Prop 4.1 (label -1/k) / Prop 5.1 ((a,D) class a = pq, D = l).  Cf.
+# scripts/largesieve7_triples.py (author), review_ls7_triples.py, review_ls7_counterex.py (R73), run as
+# subprocesses.  Checked:
+# (1) Lemmas 1.1-1.2 for all M = 3 (4), M < 2000 (both scripts: 9472 triples; R73 also brute-force
+#     H* <= min(max(u,v), 4u^2 t, 4v^2 t) on all 9472, 16513 (triple, p | M) pinning checks);
+# (2) Remark (a): (M, D) = (167, 9): (u,v,t) = (3,14,1), labels -3/14, -36, -1/784, H* = 13 (-13/5);
+# (3) R73 toy: 135 Prop 4.1 instances (-1/k in R(M), residue -1/k at every p in P, H* = k) and 1218
+#     Prop 5.1 instances (residues, H* >= pq/(4l+1)), 0 failures;
+# (4) inline pure-Python H* on small Prop 4.1 / 5.1 instances.
+
+def check_dt():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("LS7 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("largesieve7_triples.py", 2000)
+    assert "triples checked: 9472 for all M = 3 mod 4 below 2000" in o, ("LS7 Lemmas 1.1-1.2 author check", o)
+    o = run("review_ls7_triples.py", 2000, 2000)
+    assert "prime-triples=16513 H*-checks=9472 " in o and "failures=0" in o, ("LS7 Lemmas 1.1-1.2 R73 check", o)
+    assert "M=167 class -36: 131 H*= 13 check -13/5: 131" in o, ("LS7 Remark (a) example", o)
+    o = run("review_ls7_counterex.py")
+    assert "Prop 4.1 instances: 135" in o and "Prop 5.1 instances: 1218" in o and "failures: 0" in o, \
+        ("LS7 Prop 4.1 / 5.1 toy counterexamples (R73)", o)
+
+    def hstar(b, M):
+        return min(max((-b * s) % M, s) for s in range(1, M + 1) if gcd(s, M) == 1)
+    M, A = 167, 42
+    u, v, t = 3, 14, 1
+    assert u * v * t == A and u * u * t == 9 and (-36) % M == (-u * pow(v, -1, M)) % M == (-pow(784, -1, M)) % M
+    assert hstar((-36) % M, M) == 13 and (-13 * pow(5, -1, M)) % M == (-36) % M, "LS7 Remark (a): H* = 13"
+    n41 = 0
+    for P in ((7,), (11,), (7, 11), (13,), (7, 13)):
+        Pbar = prod(P)
+        for k in (3, 5):
+            for r in primerange(max(P) + 1, max(P) + 30):
+                if r == k:
+                    continue
+                c = (-pow(Pbar * r % (4 * k), -1, 4 * k)) % (4 * k)
+                for j in (c, c + 4 * k):
+                    M = Pbar * r * j
+                    if j % 2 == 0 or M > 60000 or 2 * k * k >= M:
+                        continue
+                    A = (M + 1) // 4
+                    b = (-pow(k, -1, M)) % M
+                    assert M % 4 == 3 and A % k == 0 and (-4 * (A // k)) % M == b, ("LS7 Prop 4.1 class", P, k, M)
+                    assert all(b % p == (-pow(k, -1, p)) % p for p in P), ("LS7 Prop 4.1 residue", P, k, M)
+                    assert hstar(b, M) == k, ("LS7 Prop 4.1: H* != k", P, k, M)
+                    n41 += 1
+    n51 = 0
+    for l in (3, 5, 7):
+        for p in primerange(l + 1, 24):
+            for q in primerange(p + 1, 30):
+                Gr = p * q * l
+                b = (-(4 * l + p * q)) % (4 * Gr) % Gr
+                assert b % p == (-4 * l) % p and b % l == (-p * q) % l, ("LS7 Prop 5.1 residues", l, p, q)
+                assert hstar(b, Gr) * (4 * l + 1) >= p * q, ("LS7 Prop 5.1: H* < pq/(4l+1)", l, p, q)
+                n51 += 1
+    assert n41 > 20 and n51 > 40, ("LS7 inline grids too small", n41, n51)
+    print(f"dt Lemmas 1.1-1.2: 9472 triples, M < 2000 (author + R73; H* bound on all, 16513 pinning checks); "
+          f"(167, 9) example H* = 13; R73 toy: 135 Prop 4.1 + 1218 Prop 5.1 instances; inline H*: {n41} Prop 4.1, "
+          f"{n51} Prop 5.1 instances; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dt) EXCEPTIONAL_LARGESIEVE7: Lemmas 1.1-1.2 (M < 2000), Prop 4.1 / 5.1 counterexamples (toy) ==")
+check_dt()
+
+
+
+# ---------------------------------------------------------------- (du)
+# POINTWISE_MN2.md §4 table: exact density delta_m(Q(q_0)) of Type-II-hard units mod Q(q_0) (EVIDENCE
+# data for the circularity Assessment).  Cf. scripts/mn2_delta.py (author) and review_mn2_delta.py (R74,
+# independent CRT-tensor implementation), run as subprocesses.  Checked:
+# (1) author, m = 5, q_0 = 8, 9, 11, 13, 16, 17: |H| = 12, 18, 132, 898, 1796, 17510 (1/delta = 4, 8,
+#     10.91, 19.24, 19.24, 31.58); m = 7, q_0 = 8, 11: 1/delta = 3.2, 4.103;
+# (2) R74, m = 5, q_0 = 8, 9, 11, 13 (exact fractions 1/4, 1/8, 11/120, 449/8640); m = 6, q_0 = 11, 13
+#     (7/20, 421/1440);
+# (3) inline from the definition: delta_5(Q(8)) = 12/48, delta_5(Q(9)) = 18/144, and MN's
+#     |H_5(840)| = 48 of phi(840) = 192.
+
+def check_du():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN2 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("mn2_delta.py", 5, 8, 9, 11, 13, 16, 17)
+    for q0, h, inv in ((8, 12, "4"), (9, 18, "8"), (11, 132, "10.91"), (13, 898, "19.24"), (16, 1796, "19.24"),
+                       (17, 17510, "31.58")):
+        assert f"m=5 q0={q0} " in o and f"|H|={h} " in o and f"1/delta={inv} " in o, ("MN2 §4 table m = 5", q0, o)
+    o = run("mn2_delta.py", 7, 8, 11)
+    assert "m=7 q0=8 " in o and "1/delta=3.2 " in o and "1/delta=4.103 " in o, ("MN2 §4 table m = 7", o)
+    o = run("review_mn2_delta.py", 5, 8, 9, 11, 13)
+    for fr in ("delta=1/4 ", "delta=1/8 ", "delta=11/120 ", "delta=449/8640 "):
+        assert fr in o, ("MN2 §4 table m = 5 (R74)", fr, o)
+    o = run("review_mn2_delta.py", 6, 11, 13)
+    assert "delta=7/20 " in o and "delta=421/1440 " in o, ("MN2 §4 table m = 6 (R74)", o)
+
+    def hard(m, Q):
+        forb = []
+        for M in range(3, Q + 1):
+            if Q % M == 0 and M % m == m - 1:
+                A = (M + 1) // m
+                forb.append((M, {(-m * D) % M for D in range(1, A * A + 1) if A * A % D == 0}))
+        units = [r for r in range(1, Q) if gcd(r, Q) == 1]
+        return sum(1 for r in units if all(r % M not in S for M, S in forb)), len(units)
+    assert hard(5, 168) == (12, 48), ("MN2: delta_5(Q(8)) != 1/4", hard(5, 168))
+    assert hard(5, 504) == (18, 144), ("MN2: delta_5(Q(9)) != 1/8", hard(5, 504))
+    assert hard(5, 840) == (48, 192), ("MN2: |H_5(840)| != 48/192", hard(5, 840))
+    print(f"du §4 table: author m = 5 (q_0 <= 17), m = 7 (q_0 = 8, 11); R74 exact fractions m = 5, 6; inline "
+          f"delta_5(Q(8)) = 1/4, delta_5(Q(9)) = 1/8, |H_5(840)| = 48/192; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (du) POINTWISE_MN2: §4 exact hard densities delta_m(Q(q_0)) (m = 5, 6, 7) ==")
+check_du()
+
+
+
+# ---------------------------------------------------------------- (dv)
+# POINTWISE_TAIL.md Lemma 3.1 (leaf calculus of the square-class process; PROVED, elementary): leaves
+# (Q_L, r_L) have pairwise disjoint fibres and P_proc(L) = 4 * 2^{k_L} / phi(Q_L), k_L = #odd primes of
+# Q_L.  Cf. scripts/review_tail_leaves.py (R76; seed 0 here, ~8 s) and review_tail_twist.py (R76,
+# Lemma 3.2 Euler-product twist ratio; EVIDENCE).  Checked:
+# (1) R76 toy (start Q = 8, r = 1; forced a = 0 steps at 3, 5, 7; hash rule over {11 (cap 2), 13}),
+#     seed 0: 543 leaves, max k = 5; lifts are squares, sum P = 1, the formula, disjointness, union;
+# (2) inline independent toy, mod N = 8*3*5^3*7: forced step at 3, then 16 deterministic state-dependent
+#     (sha256-hash) rules over {5 (cap 3), 7 (cap 1)}: exact Fraction leaf probabilities, sum 1, the formula,
+#     disjoint fibres, union = {n = 1 (8) unit, square at every prime stepped on n's own path};
+# (3) R76 twist ratio at T = 10^5, Y = 30, 300 below the stated exp(2b(t-1) log log Y) bound.
+
+def check_dv():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    import hashlib
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("TAIL script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("review_tail_leaves.py", 1)
+    assert "seed 0 leaves, max k: (543, 5) OK" in o, ("TAIL Lemma 3.1 R76 toy", o)
+    o = run("review_tail_twist.py", "1e5", 30, 300)
+    rows = [ln for ln in o.splitlines() if "ratio(t-twist)=" in ln]
+    assert len(rows) == 2, ("TAIL twist output", o)
+    for ln in rows:
+        ratio = float(ln.split("ratio(t-twist)=")[1].split()[0])
+        bnd = float(ln.split("loglogY)=")[1].split()[0])
+        assert 1 <= ratio <= bnd, ("TAIL Lemma 3.2 twist ratio out of range", ln)
+
+    def phi(n):
+        return n * prod(Fraction(p - 1, p) for p in factorint(n))
+    CAP = {5: 3, 7: 1}
+    N = 8 * 3 * 5 ** 3 * 7
+    sqs = {l: {x * x % l for x in range(1, l)} for l in (3, 5, 7)}
+
+    def rule(state, seed):
+        elig = sorted(l for l in CAP if state.get(l, (0, 0))[0] < CAP[l])
+        h = int(hashlib.sha256(f"{sorted(state.items())}|{seed}".encode()).hexdigest()[:12], 16)
+        if not elig or h % 5 == 0:
+            return None
+        l = elig[(h // 5) % len(elig)]
+        return l, state.get(l, (0, 0))[0]
+    nleaf = 0
+    for seed in range(16):
+        out = []
+
+        def rec(state, p):
+            nxt = (3, 0) if not state else rule(state, seed)
+            if nxt is None:
+                out.append((dict(state), p))
+                return
+            l, a = nxt
+            if a == 0:
+                ch = [(1, x) for x in sorted(sqs[l])]
+            else:
+                ch = [(a + 1, state[l][1] + j * l ** a) for j in range(l)]
+                assert all(any(y * y % l ** (a + 1) == x for y in range(l ** (a + 1))) for _, x in ch), \
+                    ("TAIL Lemma 3.1: lift not a square", l, a)
+            for st in ch:
+                s2 = dict(state)
+                s2[l] = st
+                rec(s2, p / len(ch))
+        rec({}, Fraction(1))
+        assert sum(p for _, p in out) == 1, ("TAIL Lemma 3.1: leaf probabilities do not sum to 1", seed)
+        cover = [0] * N
+        for st, p in out:
+            Q = 8 * prod(l ** a for l, (a, _) in st.items())
+            assert p == Fraction(4 * 2 ** len(st)) / phi(Q), ("TAIL Lemma 3.1: P_proc(L) formula", seed, st, p)
+            for n in range(1, N, 8):
+                if gcd(n, N) == 1 and all(n % l ** a == r for l, (a, r) in st.items()):
+                    cover[n] += 1
+        for n in range(N):
+            exp_ = 0
+            if n % 8 == 1 and gcd(n, N) == 1:
+                state, exp_ = {}, 1
+                while True:
+                    nxt = (3, 0) if not state else rule(state, seed)
+                    if nxt is None:
+                        break
+                    l, a = nxt
+                    if a == 0 and n % l not in sqs[l]:
+                        exp_ = 0
+                        break
+                    state[l] = (a + 1, n % l ** (a + 1))
+            assert cover[n] == exp_, ("TAIL Lemma 3.1: fibres not disjoint / wrong union", seed, n, cover[n])
+        nleaf += len(out)
+    assert nleaf > 100, ("TAIL inline toy too small", nleaf)
+    print(f"dv Lemma 3.1: R76 toy seed 0 (543 leaves); inline toy mod {N}, 16 hash rules, {nleaf} leaves (sum P = 1, "
+          f"P_proc = 4*2^k/phi(Q), disjoint, exact union); twist ratio within bound (T = 10^5); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (dv) POINTWISE_TAIL: Lemma 3.1 leaf calculus on toy square-class processes ==")
+check_dv()
+
+
 print("\nall checks passed")
