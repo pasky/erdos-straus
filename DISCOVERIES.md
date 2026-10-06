@@ -156,6 +156,12 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Residual: H_LS∞ for forced families is implied by a correlation-decay statement (H_rough) for the fibre measures at primes above `exp((log N)^{1/4})`, needed only for classes with ≥2 such primes (sufficiency only). The symmetric local-lemma route fails because of residue concentration: the class −4 mod M lies in ℛ(M) for every M ≡ 3 (4) (Lemma 4.2; "route fails" is an Assessment).
     * **PROVED as labelled** (internal; review `reviews/exceptional-largesieve3-review.md`, all PROVED proofs SOUND; two overclaims (an "equivalence" and a remark) repaired).
 
+28. **(H_rough) reduced; the all-level large-sieve cap for residue-sparse mixtures (EXCEPTIONAL_LARGESIEVE4.md).**
+    * Damped-collision reduction (Lemma 1.1): Fourier decay `|σ̂(θ)|^{2β} ≤ Π w_ℓ` turns the Rényi-type quantity of (D)27 into a positive two-copy collision quantity; conditioning KARY2's capped fibre law on a good-path event costs only first moments (Lemma 2.1, Prop 4.1). Thm 4.2 (PROVED implication): the all-level 3/4 cap for ALL forced mixtures follows from a sup-decay hypothesis (A*) of the conditioned fibre laws at any fixed rate γ.
+    * Thm 5.2 (PROVED, with LS3 Thm 3.1's inputs): the 3/4 cap at every frequency level holds for every mixture whose classes with ≥ 2 primes above `exp((log N)^{1/4})` are residue-sparse (`U(Res_ℓ) ≤ ℓ^{−γ}`); Cor 5.3: in particular for all small-height classes −r/s, r, s ≤ z^{1/4}/2, over all moduli (incl. −4, −1, −1/4 mod M). So residue concentration is the easy case.
+    * Open: (A*) for residue-dense multi-rough classes (generic ℛ(M)); the covering-count statement (CC) is a CONJECTURE.
+    * **PROVED as labelled** (internal; review `reviews/exceptional-largesieve4-review.md`, no FATAL/MAJOR, minors applied).
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
