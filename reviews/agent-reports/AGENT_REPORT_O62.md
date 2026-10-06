@@ -75,3 +75,25 @@ uniformity in γ, script headers.
 * Cor 5.3's height notion (as a rational −r/s, not TUPLES2's rsm = A form).
 
 Numerics: EVIDENCE only (§6). Replay in the document.
+
+## Review R62 (hostile, `reviews/exceptional-largesieve4-review.md`)
+
+No FATAL, no MAJOR; all PROVED items SOUND. MINOR D1–D6 applied in
+separate commits: D1 `N ≥ N₀(γ) = exp(Cγ^{−4})` quantifier in Thms 4.2 and
+5.2; D2 Lemma 5.1 statement (fixed sets R_ℓ, independent of pinned values
+and outside coins); D3 status/summary, stale Plan removed; D4 input
+provisos (K2 (Q1)–(Q4), ElT Prop 1.4) on Thm 4.2 and Cor 5.3; D5
+structured example now `P(E_S) ≤ Π_ℓ τ(F²/16)/ℓ`, cover count marked
+heuristic; D6 Thm 4.2 Remark (c) aligned with repaired §3.2, comparison
+with LS2 tagged Assessment.
+
+## Suggested ledger entry (DISCOVERIES.md, (D)28)
+
+28. **All-level large sieve: (H_rough) reduced to qualitative sup decay; residue-sparse multi-rough mixtures capped (EXCEPTIONAL_LARGESIEVE4.md).**
+    * Damped-collision reduction (Lemma 1.1): per-prime sup decay `|σ̂(θ)|^{2β} ≤ Π_{ℓ∈supp θ}w_ℓ` turns LS3's `ℓ^{2+2β}` mass into a positive two-copy collision on a random sparse prime set; LS3's signed `P_S` is never inverted. Tilted pair law (Lemma 2.1).
+    * (B) is free (Prop 4.1): conditioning K2's capped fibre law on `{no leak, Σw_ℓp̃_ℓ ≤ B}` bounds the damped collision by `e^{2B}/Q'(G)²` — first moments only, no large deviations, no comparison-at-level.
+    * Thm 4.2 (PROVED implication; K2 (Q1)–(Q4), ElT for Case A): for every forced mixture, every CRT-admissible large sieve at any level saves `≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` (N ≥ N₀(γ)) provided the conditioned fibre laws satisfy (A*): sup decay at any fixed rate γ in the rough level, per-prime losses up to `z^{γ/2}`, `z = exp((log N)^{1/4})`. This is the Hölder/H_rough route, not LS2's (H_LS∞) criterion.
+    * Lemma 5.1 (pinned Efron–Stein bound): with the support coordinates pinned, pivotality forces the pinned value into a fixed residue set, giving exact product decay `Π_ℓ 4U(R_ℓ)/(1−δ_ℓ)`.
+    * Thm 5.2 / Cor 5.3 (PROVED, same inputs): the all-level cap holds whenever classes with ≥ 2 primes above z are residue-sparse (`U(Res_ℓ) ≤ ℓ^{−γ}`), one-rough-prime classes arbitrary — strictly extends LS3 Thm 3.1; in particular for all small-height classes `−r/s` (`r,s ≤ z^{1/4}/2`) over all moduli, including LS3 Lemma 4.2's `−4 mod M`. Residue concentration is the easy case.
+    * Open: (A*) for residue-dense multi-rough classes, reduced to a covering-probability count (CC) about divisors of `(Q+1)/4` over subset products (CONJECTURE). No family beating 3/4 found.
+    * **PROVED as labelled** (internal; self-review plus hostile review `reviews/exceptional-largesieve4-review.md`, no FATAL/MAJOR, MINOR D1–D6 applied).
