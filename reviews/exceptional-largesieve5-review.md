@@ -14,7 +14,13 @@ the author's self-review R67. From-scratch scripts: `scripts/review_ls5_*.py`.
 | Prop 2.1 ((B) for the tilted law) | SOUND |
 | "LS4 Thm 4.2 holds with (A*_tilt)" | SOUND-AFTER-REPAIRS (the base law Q' changed; (Q1)–(Q4) must be re-asserted, D4) |
 | Caution (LS4 Lemma 5.1 does not transfer) / Rem 2.2 | correct retraction; Rem 2.2 correctly labelled Assessment |
-(further rows added below as the review proceeds)
+| Lemma 3.1 (label partition, product model) | SOUND (CS_j needs a convention when `q | den λ_j`, D5) |
+| §4 caveat (undamped product model fails uniformly in X) | correct retraction (verified); quantitative aside slightly off, D7 |
+| (LCH) withdrawal | correct |
+| Cor 4.2 | correctly labelled SKETCH; sketch arithmetic checks out given its stated gap |
+| §4 (C1)–(C3), (S) | Assessment; minor wording, D8–D9 |
+| §5 numerics | reproduced independently (EVIDENCE) |
+| Overall labels | nothing claims (CC)/(A*); no overclaim beyond D1 |
 
 ## Claim-by-claim
 
@@ -95,6 +101,62 @@ The *Caution* paragraph (LS4 Lemma 5.1/Thm 5.2 do not transfer: prefactor
 `4D | M+1`, `D | A`, `D ≤ A`); the rest is heuristic and labelled
 Assessment. Typo "only yields only" (applied by reviewer, see below).
 
+### Lemma 3.1
+
+Re-derived: the witness at ℓ gives `v_ℓ ≡ λ(ℓ)`; for `q ∈ G_j ∩ S`
+matching gives `v_q ≡ λ_j`, and `v_q ≡ λ_{j(q)}`, so `q ∈ U_j` or
+`λ_j ≡ λ_{j(q)} (q)`; on `Q_j ⊆ U_j ∪ CS_j` the class condition is then
+automatic, so only `y ≡ λ_j` on `m_j` remains, and v, y are independent.
+The `Π ℓ^{−1}` is exact for squarefree coordinates. Correct.
+
+From scratch: `scripts/review_ls5_partition.py 3,7,11,19 3` (full ℛ(M)
+family + selectors over the pool, 78 classes, 51 labels) computes
+`P(E_S)` and the full right-hand side of Lemma 3.1 exactly in ℚ for all
+`|S| ≤ 3` (all partitions, all distinct label tuples, y enumerated), and
+checks the proof's pointwise construction at every point of `E_S`.
+Inequality holds in all 14 cases (LHS/RHS between 0.37 and 0.97). The
+first run crashed exactly at the ambiguity D5 (a label `−1/(4D')` with
+`q | 4D'`, q ∈ S).
+
+### §4: retractions and Assessment
+
+*Caveat (undamped model fails uniformly in X).* Verified: for `a ≢ 0 (ℓ)`
+take `D ≡ −a/4 (ℓ)`, `1 ≤ D < ℓ`; for every prime `q ≡ −ℓ^{−1} (4D)`,
+`M = ℓq ≡ −1 (4D)` so `D | A` and `(−4D, ℓq)` is an ℛ(M) class with
+residue a at ℓ, matched with probability `1/q` independently; `Σ1/q = ∞`
+over such q, so `P(E_{{ℓ}}) → (ℓ−1)/ℓ`, and `→ 1` with the selector
+`0 mod ℓ`. The retraction is correct and necessary, and it also
+correctly downgrades everything else in §4 to the regime
+`log X ≤ z^c`. The aside "`P(E_{{ℓ}}) ≤ (log X)³/ℓ`" is slightly off (D7).
+
+*(LCH) withdrawal.* The counterexample (one block, `2^t` labels `−4d`,
+`d | P | A_M`) is valid; withdrawing is right.
+
+*Cor 4.2.* Labelled SKETCH with the gap stated (moments of `τ(A²)` over
+shared primes). Given that gap, the bookkeeping is consistent: with
+`|S| ≤ c₀ log log N`, `(C log X)^{2^{|S|}}` costs
+`exp(A (log N)^{c₀ log 2} log log N) = z^{o(1)}` for `c₀ log 2 < 1/4`, so
+`c₀ < 1/5` suffices. Fine as a calibration.
+
+*(S).* `−4D ∈ Λ(Q'm) ⟺ 4D^♮ | Q'm + 1` (and `D ≤ A`) is right
+(`D | A² ⟺ D^♮ | A`); at most one short m per label is right. The
+Lenstra/CHN threshold `A^{1/2+ε}` (divisors of `A²` in a class mod
+`g > (A²)^{1/4+ε}`) matches the statements I know (Lenstra 1984: modulus
+`> n^{1/3}`, ≤ 11 divisors; Coppersmith–Howgrave-Graham–Nagaraj 2008:
+`> n^{1/4+ε}`, `O_ε(1)`); sources not available in `sources/`, checked
+from memory only. Correctly Assessment.
+
+### §5 numerics
+
+Independent numpy re-implementation `scripts/review_ls5_cover.py`
+(same pool {7,11,19,23,31,43}, 4.485·10⁷ points): coverage
+probabilities 0.121–0.467, max ratios 1.558 / 2.443 / 4.092 for
+|S| = 2/3/4 — identical to the document. (I count 1504 classes by
+divisor D, the document 1428, presumably after merging coincident
+residues; coverage is unaffected.) For |S| = 5, 6 the per-prime ratio is
+1.427 / 1.405, so "≈ 1.42 at most" is accurate only for |S| ≤ 4, as
+stated. EVIDENCE, correctly labelled.
+
 ## Defects
 
 **D1 (MAJOR; §1, paragraph after Lemma 1.1, last two sentences).** The
@@ -132,3 +194,50 @@ The base law Q' is changed (truncated forbidding), so Thm 4.2's inputs
 (Q1)–(Q4) must be re-asserted for it. They hold (all follow from the
 chain rule, which only needs per-step forbidden mass `≤ δ_ℓ`). *Repair
 (applied by reviewer):* one sentence saying so.
+
+**D5 (MINOR; Lemma 3.1, definition of CS_j).** `λ_j ≡ λ_{j(q)} (mod q)` is
+undefined when q divides the denominator of `λ_j` or `λ_{j(q)}` (e.g.
+`λ = −1/(4D')`, `q | D'`). Such q cannot divide the modulus of a class
+with that label, so the convention "not congruent" is the right one.
+*Repair (applied by reviewer):* add "(q ∉ CS_j if q divides the
+denominator of λ_j or of λ_{j(q)})".
+
+**D6 (MINOR; §3 first paragraph, "the path law dominates this up to
+Π(1+2p^{−1/2})").** Direction reversed: the inflation bound says the
+product model dominates the path law (`P_path(match) ≤ Γ(G)/G`). *Repair
+(applied by reviewer):* "the path law is dominated by this up to …".
+
+**D7 (MINOR; §4 Caveat, "then `P(E_{{ℓ}}) ≤ (log X)³/ℓ`").** The union
+bound gives `P(E_{{ℓ}}) ≤ Mass(ℓ)/ℓ` (+`1/ℓ` for the selector), and by
+the document's own bound `Mass(ℓ) ≤ C(log X)³ + ℓ^{O(1/log log ℓ)}`; the
+`ℓ^{o(1)}` term is not dominated by `(log X)³` for large ℓ. *Repair
+(applied by reviewer):* "`≤ (C(log X)³ + ℓ^{o(1)})/ℓ`".
+
+**D8 (MINOR; §4, bound on `Mass(Q')`).** Stated as "standard" without a
+label or proof; it is a K2-Lemma-4.2-type Shiu estimate (needs Shiu's
+range `Q' < x^{1−ε}`, short range by the pointwise divisor bound; Case-A
+labels need the ElT input as in K2 Lemma 3.6). *Repair (applied by
+reviewer):* tag it "(Assessment: standard, as in K2 Lemmas 3.3–3.6 and
+4.2; not re-proved here)".
+
+**D9 (MINOR; §4 (C2)).** "harmless iff `|S| ≤ (1/2 − γ)log₂ z`" — the
+trivial count gives total `≤ 2^{|S|+k|S|}`, i.e. `≤ 2^{1+|S|}` per
+S-prime, so the condition is sufficient but not necessary (and not
+sharp). *Repair (applied by reviewer):* "iff" → "if". Same for "harmless
+iff" in (C3).
+
+**D10 (MINOR; Rem 2.2).** Typo "only yields only one prime of decay".
+*Repair (applied by reviewer).*
+
+## Summary
+
+No FATAL defect in what is claimed. The four PROVED items (Lemmas 1.1,
+1.2, Prop 2.1, Lemma 3.1) are correct; independent exact computations
+confirm them. The retractions (undamped product model, (LCH), LS4 Lemma
+5.1 for σ_tilt) are correct and needed. One MAJOR item: D1, the claim
+that fibres are "full" — the fibre family at a smooth c filters labels
+by `c ≡ λ (mod G_s)`, so the "complete cofactor sum" mechanism promised
+for §4 is only available for rough moduli or on average over c. Nothing
+in the document claims (CC) or (A*); the open problem is correctly
+located in (C2)/(C3) for damped witness weights, now additionally with
+the c-filter of D1.
