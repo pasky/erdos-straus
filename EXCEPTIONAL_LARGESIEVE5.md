@@ -1,6 +1,10 @@
 # EXCEPTIONAL_LARGESIEVE5 — the covering count (CC) for residue-dense multi-rough classes (task O67)
 
-Status: **in progress** (agent O67, branch `side-agent/astar-dense`).
+Status: **checkpoint 1, self-reviewed** (agent O67, branch `side-agent/astar-dense`;
+hostile review R67 via the review tool: Lemmas 1.1, 1.2, Prop 2.1, Lemma 3.1
+sound; FATAL/MAJOR items on the *route* applied below — undamped product
+model fails uniformly in X, (LCH) withdrawn, tilt does not transfer LS4
+Lemma 5.1 verbatim, caps made continuous).
 Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`
 (all its notation is used: Setting 4.0, Lemma 5.1, (A*), (CC)), LS3, LS =
 `EXCEPTIONAL_LARGESIEVE.md`, K2 = `EXCEPTIONAL_KARY2.md`.
@@ -11,10 +15,10 @@ Labels as in `DISCOVERIES.md`. Notation: LS4 = `EXCEPTIONAL_LARGESIEVE4.md`
 |---|---|---|
 | Lemma 1.1 | caps are inherited by subfamilies: it suffices to prove the all-level cap for the **full** forced family `𝔊_X` (all classes of the four types with modulus ≤ X), uniformly in X | PROVED (trivial) |
 | Lemma 1.2 | **rational labels**: every forced class is `−r/s mod G` with `r, s ≤ G²`; two classes with *different* labels that agree mod g have height product `≥ g/2` | PROVED (elementary) |
-| Prop 2.1 | **tilted fibre law** `σ ∝ Q'·1_𝒜·e^{−2Σw_ℓp̃_ℓ}`: damped collision `≤ Z^{−2} ≤ e^{6m_c+1}` — LS4's (B) without a global threshold; Thm 4.2 / Thm 5.2 of LS4 hold verbatim with it | PROVED |
+| Prop 2.1 | **tilted fibre law** (truncated forbidding) `σ ∝ Q'·1_𝒜·e^{−2Σw_ℓp̃_ℓ}`: damped collision `≤ Z^{−2} ≤ e^{6m_c+1}` — LS4's (B) without a global threshold; LS4 Thm 4.2 holds with (A*) for this law. LS4 Lemma 5.1/Thm 5.2 do **not** transfer verbatim (prefactor `Z^{−1}`, tilt bias; R67 M3) | PROVED |
 | Rem 2.2 | LS4's threshold-conditioned law `σ_B` is unsuitable for pivotal bounds at large support (every coordinate moves `Σwp̃`) | Assessment |
 | Lemma 3.1 | **label partition**: (CC) in the product model = exact `Π_{ℓ∈S}ℓ^{−1}` × a sum over partitions and *distinct* labels; same-label coincidences collapse exactly | PROVED |
-| §4 | what remains: cross-label S-coincidences (C2) and outside sharing (C3); pointwise divisor-in-residue-class bounds (Lenstra/CHN) do **not** suffice because of *short witnesses*; (LCH) stated | Assessment; (LCH) CONJECTURE |
+| §4 | what remains: cross-label S-coincidences (C2) and outside sharing (C3); the undamped product model fails uniformly in X (R67), witnesses with outside tops must be charged their damping; pointwise divisor-in-residue-class bounds (Lenstra/CHN) do **not** suffice because of *short witnesses* | Assessment |
 | Cor 4.2 | (CC) in the product model for `|S| ≤ c₀ log log N` | SKETCH (gap: moments of `τ(A²)` over shared primes) |
 | §5 | toy: exact covering probabilities for the full ℛ family on 6 primes: per-prime correlation loss ≤ 1.42 for |S| ≤ 4 | EVIDENCE |
 
@@ -79,15 +83,22 @@ which by Lemma 1.2 cost height: one of the two labels is `≥ √(g/2)`.
 
 LS4 obtains (B) by conditioning the capped fibre law on the global event
 `G_B = {Σ_ℓ w_ℓp̃_ℓ ≤ B} ∩ 𝒜` (Prop 4.1). For (A*) at large support this
-is a bad choice (§3): `Σ_ℓ w_ℓp̃_ℓ` is moved by *every* coordinate (see
-Remark 3.1), so a sharp threshold couples all coordinates, and the
+is a bad choice: `Σ_ℓ w_ℓp̃_ℓ` is moved by *every* coordinate (see
+Remark 2.2), so a sharp threshold couples all coordinates, and the
 pivotal method of LS4 (which takes absolute values pointwise in the coins)
 cannot see the smoothing that makes the true correlation small. An
 exponential tilt gives (B) equally cheaply and has **product structure**.
 
 **Setting 2.0.** Q' is the capped fibre law of LS4 Setting 4.0 (caps
-`δ_ℓ ≤ 1/2`), `Y(x) = Σ_ℓ w_ℓ p̃_ℓ(x)` with `w_ℓ ∈ [0,1]`, `𝒜` the avoider
-set, and
+`δ_ℓ ≤ 1/2`), **with truncated instead of all-or-nothing forbidding**:
+at step ℓ the forbidden set is `F̃_ℓ` = the first `⌊δ_ℓ|Ω_ℓ|⌋` elements
+of `F_ℓ` in a fixed order of `Ω_ℓ` (so `F̃_ℓ = F_ℓ` when `p_ℓ ≤ δ_ℓ`),
+`p̃_ℓ = U(F̃_ℓ) = min(p_ℓ, ⌊δ_ℓ|Ω_ℓ|⌋/|Ω_ℓ|)`. Adding one residue to
+`F_ℓ` changes `F̃_ℓ` by at most two elements and `p̃_ℓ` by at most
+`1/|Ω_ℓ|` (with LS4's light/heavy rule a crossing of `δ_ℓ` moves `p̃_ℓ`
+by `≈ δ_ℓ`; review R67 M4). The leak is `≤ E Σ_ℓ(p_ℓ − p̃_ℓ) ≤
+E Σ_ℓ p_ℓ1[p_ℓ > δ_ℓ]`, so K2 Lemma 4.3 bounds it exactly as before.
+`Y(x) = Σ_ℓ w_ℓ p̃_ℓ(x)` with `w_ℓ ∈ [0,1]`, `𝒜` the avoider set, and
 
     σ_tilt(x) := Q'(x)·1_𝒜(x)·e^{−2Y(x)} / Z,    Z = E_{Q'}[1_𝒜 e^{−2Y}].
 
@@ -113,27 +124,35 @@ the rest of the proof of Thm 4.2 is unchanged, and the open input becomes
 > **(A\*_tilt)** for c off an exceptional event of probability ≤ 1/32 and
 > every θ ≠ 0 with z-rough denominator, `|σ̂_tilt,c(θ)| ≤ Π_{ℓ∈supp θ}Kℓ^{−γ}`.
 
-(Lemma 5.1 / Thm 5.2 of LS4 also hold for σ_tilt: their proof only uses
-that the weight is a function of the activated sets and of
-avoider-membership, and that nothing changes when no pinned value meets
-`R_ℓ`; `e^{−2Y}` is such a function. So the residue-sparse case is not
-lost.)
+*Caution (review R67 M3; an earlier version claimed the opposite).* LS4
+Lemma 5.1 / Thm 5.2 do **not** transfer verbatim to σ_tilt: the pinned
+representation gives the prefactor `Z^{−1}` (exponentially large in
+`m_c`) instead of `Q'(G_B)^{−1} ≤ 2`, and the tilt may favour the
+pivotal residues (the reviewer exhibits a Setting-4.0 example with
+tilted Fourier coefficient ≈ 1 against 0.044 for the untilted bound).
+The pivotal probability must be taken *under the tilt* (weight inside the
+expectation, not `‖Φ‖_∞`), which needs a per-coordinate bound on the
+tilt's bias. LS4 Thm 5.2 remains proved for LS4's `σ_B`. So Prop 2.1
+buys (B) without a global threshold, at the price that (A\*) must now be
+proved for σ_tilt, normalisation included.
 
-The advantage: `e^{−2Y} = Π_q e^{−2w_q p̃_q}` is a **product of local
-factors**, each moved by an activation at q only by a factor
-`e^{−2w_q·O(1/q)}`. A change of activation at a top q is therefore
-*paid* by `w_q/q` (or by the coin at q), never by a global threshold.
+What the tilt offers: `e^{−2Y} = Π_q e^{−2w_q p̃_q}`, and with truncated
+forbidding an extra activation at a top q multiplies the weight by
+`e^{−2w_q·O(1/q)}` — a *small* change, paid by `w_q/q`, never a 0/1 flip
+of a global event. (The factors depend on overlapping pasts, so this is
+not coordinate-product structure; a "soft pivotal" lemma that charges
+small multiplicative changes is needed and is not written.)
 
 **Remark 2.2 (why not the threshold; Assessment).** For the full family,
-for every rough ℓ and every residue `a mod ℓ` there are many tops `q > ℓ`
-with a class `(λ, ℓq)`, `λ ≡ a (ℓ)` (the sets `Λ(ℓq)`, `q` varying, cover
-`ℤ/ℓ`). Such a class is matched off its top as soon as `x_ℓ ≡ a`, so
+for every rough ℓ and every **nonzero** residue `a mod ℓ` there are many
+tops `q > ℓ` with a class `(λ, ℓq)`, `λ ≡ a (ℓ)` (for `1 ≤ D < ℓ` with
+`−4D ≡ a`, every prime `q ≡ −ℓ^{−1} (mod 4D)` works; review R67). Such a class is matched off its top as soon as `x_ℓ ≡ a`, so
 **every** value of every rough coordinate changes the activated sets at
 many later tops and moves `Y` by `≍ (log)^{O(1)}/ℓ`. Under `σ_B` a change
 at ℓ can therefore flip `1_{G_B}` without any further coincidence, and
 LS4's pivotal bound (which takes `|·|` pointwise in the coins) only yields
-`|σ̂_B(θ)| ≲ 2^{|S|}(log)^{O(1)}/(min_{ℓ∈S}ℓ·B)`: one prime of decay, not
-`Π_{ℓ∈S}`. The *true* coefficient is presumably product-small (a smooth
+only one prime of decay, not `Π_{ℓ∈S}` (heuristic: the size of the
+flip probability needs an anti-concentration bound for `Y`, not given). The *true* coefficient is presumably product-small (a smooth
 threshold of a sum of weakly dependent terms has `|S|`-th mixed
 differences of size `Π_ℓ δ_ℓ`), but the pivotal method cannot see this.
 With the tilt, the `|S|`-th mixed difference of `e^{−2Y}` *is* a product
@@ -146,7 +165,7 @@ To isolate the arithmetic, consider the **product model** of LS4 §3.2:
 `S` a finite set of primes `> z`, `v` uniform on `Ω_S = Π_{ℓ∈S}ℤ/ℓ`,
 and the other rough coordinates `y` uniform and independent (the path
 law dominates this up to `Π(1+2p^{−1/2})` per matched class, LS4 Lemma 2.1
-inflation; transfer to the fibre law is §6). Coordinates are taken
+inflation; transfer to the fibre law is not written). Coordinates are taken
 squarefree for readability (prime powers change nothing below but
 notation). The family is the full family of Lemma 1.1, restricted to rough
 parts; `Λ(G)` is the set of labels of classes of modulus G, and a class
@@ -190,12 +209,29 @@ more than `log(2H(λ_j)H(λ_{j'}))/log z` primes `> z`.
 
 ## 4. What the label reduction leaves: three correlation inputs
 
-By Lemma 3.1, (CC) in the product model reduces to bounding, for each
-partition `S = ⊔U_j` and distinct labels `λ_j`,
+**Caveat (review R67, FATAL for the undamped model).** The product-model
+event `E_S` is too large uniformly in X: fix ℓ and a nonzero residue a,
+choose `1 ≤ D < ℓ` with `−4D ≡ a`; every prime `q ≡ −ℓ^{−1} (mod 4D)`
+gives a class `(−4D, ℓq)`, matched by independent uniform outside
+coordinates with probability `1/q`, and `Σ_q 1/q = ∞`. So
+`P(E_{{ℓ}}) → (ℓ−1)/ℓ` as `X → ∞` (→ 1 with selectors). In the true
+sequential law a witness whose top q lies outside S acts on Ψ only
+through the path after q, i.e. through the tilt (`≤ 2w_q/q`) or through
+further coincidences, so the relevant model event must **charge each
+outside top by its damping** (a soft-pivotal statement); with the
+undamped event, everything below is meaningful only for
+`log X ≤ z^{c}` (then `P(E_{{ℓ}}) ≤ (log X)³/ℓ`). The label calculus
+(Lemma 3.1) is unaffected and applies verbatim to damped witness
+weights.
 
-    Σ_{(λ_j)} P_y(∀j : block j has a witness)  ≤  Π_{ℓ∈S} K ℓ^{1−γ}.     (4.1)
+By Lemma 3.1, (CC) in the product model reduces to bounding
 
-(The `Π ℓ^{−1}` is already exact; the slack per S-prime is `ℓ^{1−γ}`.)
+    Σ_{partitions (U_j)} Σ_{(λ_j) distinct} P_y(∀j : block j has a witness)
+        ≤  Π_{ℓ∈S} K ℓ^{1−γ}.     (4.1)
+
+(Lemma 3.1 is an inequality — one witness touching each block, then a
+union bound; the `Π ℓ^{−1}` factor is exact for each term. The slack per
+S-prime is `ℓ^{1−γ}`.)
 Write `Mass(Q') := Σ_m |Λ(Q'm)|/m` (m over rough squarefree outside
 cofactors, `Q'm ≤ X`); by Shiu's theorem in progressions (A runs over an
 AP mod Q') plus `τ(A²) ≤ A^{O(1/log log A)}` for the short range,
@@ -256,8 +292,11 @@ for configurations with many distinct labels.**
 witness weight `ν(λ,Q') = Σ_m [λ ∈ Λ(Q'm)]/m` splits as
 * a **long** part (`m ≥ 4D^♮`): `≤ 2(1+log X)/D^♮`, uniform in Q' — these
   witnesses behave like random residues, and (C2), (C3) for them are
-  harmless (the label sum converges and congruence conditions mod p cost
-  `≍ 1/p` on average by Lemma 1.2 and Shiu in progressions);
+  plausibly harmless (Assessment: the label sum is polylogarithmic,
+  `Σ_{D≤X}(log X)/D^♮ ≍ (log X)²`, and congruence conditions mod p should
+  cost `≍ 1/p` on average; a joint-equidistribution proof is not
+  given). Here `λ = −4D` is a label of `Q'm` only if moreover `D ≤ A`,
+  i.e. `m ≳ 4D/Q'`;
 * a **short** part: at most one `m < 4D^♮` (namely `m ≡ −1/Q' mod 4D^♮`),
   contributing up to 1, **for every label, however high**.
 Short witnesses are classes whose label height exceeds the outside
@@ -276,12 +315,15 @@ divisor bound. The random-residue model predicts (4.1) with
 compatibility saves; LS4 §3.2's heuristic), and no ES configuration
 violating it is known.
 
-> **(LCH) label-correlation hypothesis** (CONJECTURE; sufficient for (CC)
-> in the product model). For every finite set S of primes `> z`, every
-> partition `S = ⊔_{j≤k}U_j` and every choice of witness S-parts, the sum
-> over distinct labels `λ_1,…,λ_k` and witness moduli of
-> `Π_j[λ_j ∈ Λ(G_j)]·[compatibility at every shared prime]/lcm(outside parts)`
-> is `≤ Π_j (C(log X)^C)^{|U_j|}·2^{O(|S|)}`.
+*(An earlier version stated a "label-correlation hypothesis" (LCH) with
+the bound `Π_j(C(log X)^C)^{|U_j|}2^{O(|S|)}` per choice of witness
+S-parts. Review R67 showed it is **false**: for `M = ℓq` with
+`P | (M+1)/4`, P a product of t small primes (Linnik), the `2^t` labels
+`−4d`, `d | P`, give a one-block sum `≥ 2^t ≫ (log X)^{O(1)}`; and it
+omitted the sum over witness S-parts, which is where (C2) lives. The
+correct target is simply (4.1) with per-prime slack `ℓ^{1−γ}` —
+`τ(A_M²) ≤ M^{o(1)}` is absorbed there — for damped witness weights;
+no separate conjecture is proposed.)*
 
 ## 5. Numerics (EVIDENCE only)
 
@@ -292,7 +334,7 @@ product model by exact enumeration of all `4.49·10⁷` points:
   pairs of congruent distinct labels, `min H₁H₂/(g/2) = 2.000` (≥ 1 as
   proved).
 * [2] `P(E_S)/Π_{ℓ∈S}P(ℓ covered)`: max 1.56 (|S|=2), 2.44 (|S|=3),
-  4.09 (|S|=4) over all S; per prime `ratio^{1/|S|} ≤ 1.42`. So on this
+  4.09 (|S|=4) over all S; per prime `ratio^{1/|S|} ≈ 1.42` at most. So on this
   toy the covering events are positively correlated only by a bounded
   factor per prime — the behaviour (CC) needs (with K ≈ 1.4), far from
   the `2^{|S|}`-per-prime losses of the union bounds of §4. (Toy scale:
