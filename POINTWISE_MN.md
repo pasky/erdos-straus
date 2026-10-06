@@ -27,8 +27,7 @@ Let `e = e(m,D)` be the squarefree part of `mD` (equivalently of `m·w` in (5.1)
 * (c) If `M ≡ 1 (mod 4)`: `(−mD | M) = (2|M)^t · (−1)^{(e_o−1)/2}`.
 * (d) **If `m ≡ 0 (mod 4)`, then `(−mD | M) = −1` for every atom** (OMEGA13 Lemma 3.1 verbatim).
 
-*Proof.* (a) `gcd(M, mA) = 1` and every prime of D divides A, so `ℓ ∤ 2mD`'s odd part… precisely
-`ℓ ∤ mD`, and `−mD = −e·□` with the square prime to ℓ. (Also ℓ odd as M is odd.)
+*Proof.* (a) `gcd(M, mA) = 1` and every prime of D divides A, so `ℓ ∤ mD`, and `−mD = −e·□` with the square prime to ℓ. (Also ℓ odd as M is odd.)
 For (b),(c): every prime `q | e` divides `mA = M + 1`, so `M ≡ −1 (mod q)`. For odd q,
 reciprocity gives `(q|M) = (M|q)(−1)^{((q−1)/2)((M−1)/2)} = (−1)^{((q−1)/2)((M+1)/2)}`,
 i.e. `(q|M) = 1` if `M ≡ 3 (4)` and `(q|M) = (−1|q)` if `M ≡ 1 (4)`. Multiply with
