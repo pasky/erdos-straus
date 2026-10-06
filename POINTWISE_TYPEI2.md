@@ -401,3 +401,22 @@ by compactness this is exactly the question `C(7)=∞` vs `<∞` under H.
 divisors of `1+4ck²` in a fixed class `ε (mod n)` below
 `≈2^{α+2γ}k_o`, uniform in the slice. That is a divisor-in-short-ranges
 problem of the type in POINTWISE_TYPEI §4.2.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/signcheck scripts/typei2_signcheck.c -lm
+/tmp/signcheck 7 9 100000000            # C3.2: 0 certificates, 18 s
+/tmp/signcheck 7 9 3000000000           # C3.2: 0 certificates, ~10 min
+/tmp/signcheck 7 1 1000; /tmp/signcheck 11 9 1000; /tmp/signcheck 19 9 1000   # sanity: (14,2,15), (33,2,23), (95,2,39)
+for r in 23 31 47; do /tmp/signcheck $r 9 1000000000; done                    # §4: 0 certificates each
+cd scripts
+PYTHONPATH=. uv run python typei2_formal.py 600 1 2:25:14 3:7:9 7:6:6          # reproduces 539 (POINTWISE_TYPEI Cor 6.4)
+PYTHONPATH=. uv run python typei2_formal.py 1000000 1 2:9:80 7:$(python3 -c 'print(7**60-1)'):60   # C3.2 second engine (~10 min)
+PYTHONPATH=. uv run python typei2_balls.py 20000 3 1 2:25:14 3:7:9           # §2: (21,351,155) kills x_7=6
+PYTHONPATH=. uv run python typei2_balls.py 3000 4 1                           # P2.3: 3 level-1 balls
+gcc -O2 -o /tmp/typei2_s27 typei2_s27.c && /tmp/typei2_s27 300000000 > /tmp/s27_3e8.txt   # ~8 min
+PYTHONPATH=. uv run python typei2_union.py /tmp/s27_3e8.txt 300000000         # §2.2 table
+PYTHONPATH=. uv run python typei2_points.py /tmp/s27_3e8.txt                  # §2.2 integral points
+gcc -O2 -o /tmp/nearmiss typei2_nearmiss.c -lm && /tmp/nearmiss 7 2000000000  # §5 table (~4 min)
+```
