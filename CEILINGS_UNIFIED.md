@@ -166,3 +166,55 @@ side the critical level for the system at cutoff `T` is `λ*(T) ≍ 𝓛⁴`.
 
 (The selector classes are needed only to make the void small on `Ẑ`; without
 them `n ≡ 0 mod P_z` keeps the integer-CRT void `≥ e^{−O(z)}`.)
+
+## 4. The common sieve limit (goal (c))
+
+### 4.1 The abstract statement
+
+**Setting 4.0** (= POINTWISE_OMEGA14 Setting 1.2). Independent coordinates:
+small `X_s`, big `(X_b)_{b∈𝔅}`, each big `b` of cost `c_b ≥ L`. A family 𝓕
+of events, each `{X_s ∈ Σ_E} ∩ {X_{b(E)} ∈ Γ_E}` with exactly one big
+coordinate. Given `x_s`: `Ω_b(x_s)`, `p_b(x_s) = P(X_b ∈ Ω_b)`, assume
+`p_b ≤ p* ≤ 1/4`; `P(x_s) = Σ_b p_b`, `R(x_s) = Σ_b p_b/(1−p_b)`
+(`P ≤ R ≤ 4P/3`); `H = Σ_b 1[X_b ∈ Ω_b(x_s)]`; `F = 1[H = 0]`.
+`𝒱_k` = span of functions of `X_s` and at most `k` big coordinates. A
+function of level `λ` (cost `≤ λ`) lies in `𝒱_k`, `k = ⌊λ/L⌋`. `E_s` =
+conditional expectation given `x_s`.
+
+**Theorem 4.1 (two-sided order-k sieve limit; PROVED, from cited lemmas).**
+Fix `x_s`, write `P = P(x_s)`.
+* (U−) *Upper limit.* Every `G ∈ 𝒱_k` with `G ≥ F` has
+  `log(1/E_s G) ≤ k·log(C₀(P+4k)/k) + (4/3)k + ½log(22k+22) + 3`.
+  In particular a saving `log(1/E_s G) ≥ P/2` forces `k ≥ c₀P` (absolute `c₀ > 0`).
+* (U+) *Upper achievability.* For even `k ≥ e²P`, `G = Q_k(H) ∈ 𝒱_k`,
+  `G ≥ F`, `E_s G ≤ e^{−P} + e^{−(k+1)} ≤ 2e^{−P}`.
+* (L−) *Lower limit.* Every `B ∈ 𝒱_k` with `B ≤ F` has `E_s B ≤ 0` once
+  `P ≥ (5/3)(k+1)`, i.e. whenever `k < 0.6P − 1`.
+* (L+) *Lower achievability.* For odd `k ≥ e²P`, `B = Q_k(H) ∈ 𝒱_k`, `B ≤ F`,
+  `E_s B ≥ e^{−(4/3)P} − e^{−(k+1)} > 0`.
+
+So the critical order is `k* ≍ P` **for both one-sided problems**, and the
+critical level is `λ* ≍ L·P`: "dimension times log-size". This is the
+large-dimension sieve limit (`β_κ ≍ κ`) in the one-big-coordinate setting.
+
+*Proof.* (U−): given `x_s`, the big coordinates with unary patterns
+`X_b ∈ Ω_b` form EXCEPTIONAL_KARY's §1 setting with every coordinate light
+(`p_b ≤ 1/4 = δ`); the sequential process replaces every hit coordinate, so
+its output `y` always lies in the avoider set and `G(y) ≥ 1`; `G` is k-local.
+KARY Thm 2.5 gives `E_s G ≥ E e^{−Φ} ≥ e^{−EΦ}`, and KARY Cor 2.6 with
+`M = m̄ = P` (deterministic here) bounds `EΦ`. For the consequence, at
+`k = εP` the right side is `≤ εP(log(C₀(1+4ε)/ε) + 4/3) + O(log P) < P/2` for
+`ε ≤ c₀`, `P ≥ P₀`. (U+), (L+): `Q_k(h) = Σ_{j≤k}(−1)^j C(h,j)` equals 1 at
+`h = 0` and `(−1)^k C(h−1,k)` for `h ≥ 1`, with `|C(h−1,k)| ≤ C(h,k+1)` (note
+Lemma 8.1); `C(H,j)` is a sum of products of `j` indicators of distinct big
+coordinates, so `Q_k(H) ∈ 𝒱_k`; `E_s C(H,k+1) = e_{k+1}(p) ≤ (eP/(k+1))^{k+1}
+≤ e^{−(k+1)}`; and `E_s F = ∏(1−p_b) ∈ [e^{−(4/3)P}, e^{−P}]`. (L−): OMEGA14
+Thm 1.3 (fibrewise form, which is how it is proved): planting applies when
+`R ≥ (k+1)+(2k+1)r*`, `r* ≤ 1/3`, which follows from `R ≥ P ≥ (5/3)(k+1)`. ∎
+
+*Novelty: none claimed for Thm 4.1 itself.* (U−) is KARY's binomial
+extrapolation (its core is Peled–Yadin–Yehudayoff / Benjamini–Gurel-Gurevich–Peled,
+`reviews/novelty-audit-2026-10.md`); (L−) is OMEGA14's planting (LP dual of
+lower-bound sieves); (U+),(L+) are Bonferroni. The point is that the *same*
+statement, at the *same* scale, with the *same* mass function, drives both
+ceilings (§4.2).
