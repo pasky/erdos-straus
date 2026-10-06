@@ -6,7 +6,7 @@ Checked against EXCEPTIONAL_SPW.md (SPW1; Lemma 1.4, Thm 3.2, Lemma 3.1),
 EXCEPTIONAL_INTERFREQ2.md (IF2; Def 1.2, Flat, Thm 5.2 + proof, Prop 9.1),
 EXCEPTIONAL_KARY3.md §4.3. From-scratch scripts: scripts/review_spw2_*.py.
 
-## Summary verdicts (filled in progressively)
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
