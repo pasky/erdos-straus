@@ -70,3 +70,47 @@ have an explicit, Fraction-verified ES solution (0 failures). Consistent, as exp
    it removes the "B" in the compactness paragraph for the certificates used.
 3. MINOR (label). "PROVED by finite computation; independent re-check pending" → can now read
    "PROVED (finite computation, independently re-checked by R80: scripts/review_mordell_check.py)".
+
+## 2. Computation 4.1 and the "modulus > 10⁶" consequence — SOUND (bullet 1 fully re-checked; bullet 2 re-checked except F = 11³·13³)
+
+### 2.1 Class family
+I checked ET Prop 1.9 (statement p. 8 and proof §10 of the PDF in `sources/`) against the families
+used. The seven families, their side-conditions and the solution formulas in §10 agree with my
+re-derivation in §1.1 (e.g. ET's I1 `b=(n+f)e/(4ad)−a` = my `(ne+1)/(4ad)` since `fe=4a²d+1`).
+Class moduli as used by me: I1 `4ad`; I2 `4ac·f`; I3 `4cd·f`; I4, II1 `4ab`; II2 `f`; II3 `4ade`.
+ET prove (not merely assert) the converse: a primitive class solvable by polynomials has all large
+primes in finitely many family classes; the word "essentially complete" (p. 8) refers to this.
+So "ET class" = class of one of these seven families is the right object.
+
+### 2.2 From-scratch re-check (`scripts/review_mordell_point.py`)
+Exact membership test of `x*` (CRT residue `x* mod M`) against every class of every family with
+modulus `M ≤ Mmax` (I1: all `f | 4a²d+1`; II2: all `ad | (f+1)/4`; I2/I3: all coprime triples).
+* Positive control: 13-generic point `x_13=5` → hits II2 (1,2,39), II3 (1,2,39), I2 (5,1,39) at
+  `Mmax=10⁴`, consistent with §1 of the document.
+* `x*` (11:2, 13:2): **0 hits at Mmax = 10⁴, 10⁵ and 10⁶** (10⁶ run: 2.7·10⁷ I1, 1.5·10⁷ I4/II1,
+  2.2·10⁷ II2, 9.5·10⁶ II3, 1.7·10⁵ admissible I2/I3 parameter sets). Bullet 1 CONFIRMED in full.
+
+### 2.3 Rigid II1/I4/II2 enumeration (`scripts/review_mordell_rigid.py`)
+Re-derived the rigid forms myself: for x* in an II1/I4 class (modulus 4ab, T-part F, N=4ab/F) one
+needs `N | e+1`; with `e+1=Ni`, `k=(a+b)/e`: `4iabk = F(a+b+k)`, sorted `s≤t≤w` ⇒ `4ist ≤ 3F`,
+finite. For II2 (`f=Fg`): `g | 4a²d+1`, `4adm=f+1` ⇒ `g | a+m`; `a+m=gj` gives
+`(4dja−F)(4djm−F) = F²+4dj²`; both factors must be positive and then `j(4d−1) ≤ 2F` — finite.
+(The document's §2.1 rigid forms agree.) Controls: `x_13=5` → II2 (1,2,39); `(x_11,x_13)=(1,7)` →
+II2 (2,2,143); `(1,2)` → II2 (9,2,143), matching the document's §1 "13-generic" claims.
+* `x*`: 0 hits for every F | 11³·13³ **except F = 11³·13³ itself**, which my pure-Python
+  enumeration could not finish (≈2·10⁷ factorizations); bullet 2 is re-checked for 15 of the 16
+  T-levels only.
+
+### 2.4 Logic of the consequence
+"Every finite covering of Σ₁₃ (main) by ET classes contains a class of modulus > 10⁶" follows
+trivially from bullet 1 (x* ∈ Σ₁₃ must be covered by some class). The Dirichlet sentence is a
+correct strengthening (a finite union of classes of modulus ≤ 10⁶ missing x* misses the class
+`p ≡ x* (mod lcm)`, which contains infinitely many primes, all Mordell-hard with (p/13)=(p/11)=−1).
+`x* ∈ Σ₁₃`: x*≡1 (24), square at 5, 7; `(2/13) = −1` ✓.
+
+Defects for §4:
+4. MINOR. The neighbourhood "p≡1 (mod Q), p≡2 (mod 11⁸·13⁸)" — the exponent 8 is arbitrary; the
+   correct statement is "p ≡ x* modulo the lcm of the moduli" (for moduli ≤10⁶ any exponent ≥5
+   suffices). Harmless; reword.
+5. MINOR. Label "CERTIFIED by one engine, re-check pending" can become "CERTIFIED, two independent
+   engines (R80: review_mordell_point.py at 10⁶; rigid bullet re-checked for F ≠ 11³13³)".
