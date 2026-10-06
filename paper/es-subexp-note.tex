@@ -68,7 +68,8 @@ lower-bound sieve of dimension $\asymp(\log T)^3$, and the planted law is
 exponentially pseudorandom against classes and characters of every
 modulus.  Hence linear certificates with full-orbit uniform accounting
 cannot pass $1/4$ whatever the prime input (Bombieri--Vinogradov,
-Elliott--Halberstam, GRH below $x$, Siegel-model main terms).  Conversely, a
+Elliott--Halberstam, GRH below $x$, Siegel-model main terms, each through its
+consequences for prime counts at the scale $x$).  Conversely, a
 Linnik-type hypothesis for sifted sets gives
 $W(p)\ge\exp((\log p)^{1/3-o(1)})$ infinitely often, the exponent suggested by the
 Haar density, while a Hardy--Littlewood-type hypothesis for product sets
@@ -210,7 +211,8 @@ norm of its coefficients in classes and characters
 full-orbit uniform error accounting cannot beat the exponent $1/4$, whatever
 true prime input they use, including Bombieri--Vinogradov,
 Elliott--Halberstam, GRH restricted to moduli $\le x$, and Siegel-model main
-terms (Corollary~\ref{cor:orbit}, Proposition~\ref{prop:EH}).  If primes
+terms, each used through its consequences for the unweighted prime counts
+at the scale $x$ (Corollary~\ref{cor:orbit}, Proposition~\ref{prop:EH}).  If primes
 behaved like a set of Haar density $\delta^*(T)$, Theorem~\ref{thm:haar} would
 suggest $\log W(p)\approx(\log p)^{1/3}$ for the extremal primes.  We isolate a
 hypothesis that gives this.
@@ -228,7 +230,8 @@ theorem.  It is not reachable by the linear certificates above
 (\S\ref{sec:wiener}), and the analogous hypothesis restricted to CRT product
 sets (a Hardy--Littlewood-type singular series) gives
 $W(p)\ge(\log p)^{2-o(1)}$ infinitely often and, applied to product subsets of
-the avoiding set, cannot certify more than $W(p)\ge(\log p)^{2+o(1)}$
+the avoiding set, cannot certify more than $W(p)\ge(\log p)^{2+o(1)}$ (modulo the
+Barban--Davenport--Halberstam theorem)
 (Proposition~\ref{prop:product}).  Altogether, with
 $\Lc=\log T$: the extremal primes have $\Lc\ge(\log p)^{1/4-o(1)}$ (proved), the
 minorant method stops at $(\log p)^{1/4+o(1)}$ (proved, within its scope), the
@@ -411,7 +414,10 @@ Shiu); the prime number theorem in progressions with a Landau--Page term
 theorem.  Unlike the other cited inputs, the exact form of these last two
 was recalled from the textbooks \cite[Chs.~20, 29]{Dav}, not re-checked
 against the source (no copy archived); our use needs only their standard
-forms.  \emph{Conditional on LS} marks a statement that assumes the
+forms.  Results quoted from the working notes \cite{O15,O16} and from
+\cite{SL} (internally reviewed, not externally refereed) are labelled as
+proved \emph{in} those notes; their proofs are sketched or referenced here,
+not given in full.  \emph{Conditional on LS} marks a statement that assumes the
 conjectural Hypothesis~LS of \S\ref{sec:LS}.  In the labels,
 ``modulo Theorem~\ref{thm:G}'' includes Theorem~\ref{thm:xz}.  Classical
 results whose proof we include, or which are standard textbook facts (the
@@ -2256,7 +2262,7 @@ Section~\ref{sec:LS} shows that a Linnik-type hypothesis for sifted sets
 (Theorem~\ref{thm:LS}) gives the exponent $1/3$ up to logarithms.
 \end{remark}
 
-\section{One-big-prime atoms: the Haar exponent without loss, typical size, and the ceiling at level \texorpdfstring{$\Lc^4$}{L^4}}\label{sec:atoms34}
+\section{One-big-prime atoms: the Haar exponent without loss, typical size, and the ceiling at level \texorpdfstring{$\Lc^4$}{L\textasciicircum 4}}\label{sec:atoms34}
 
 This section imports one input from the companion note \cite{TQ}, which
 proves the exceptional-set bound $E(N)\ll N\exp(-c(\log N)^{3/4})$.  That note is
@@ -2385,9 +2391,10 @@ is the opposite inequality to Theorem~\ref{thm:main}: an upper bound for
 the number of primes with $W(p)>T$ needs a \emph{majorant}, and for majorants
 the exceptional character costs only the factor $1+\epsilon\le3$; Theorem~\ref{thm:main}
 needs a minorant.  Heuristically (Assessment) the count is
-$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$; a matching lower bound in the
-range $\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ would follow from the main term of
-Theorem~\ref{thm:transfer} except when an exceptional character divides the
+$\pi(x)e^{-\Lc^{3+o(1)}}$ up to $\Lc\approx(\log x)^{1/3}$.  We expect (Assessment, not
+checked) that a matching lower bound in the range
+$\log T\le c(\log x)^{1/4}/(\log\log x)^{O(1)}$ could be derived from the main term of
+Theorem~\ref{thm:transfer}, except when an exceptional character divides the
 quarantine modulus; we have not pursued this.
 
 The same atoms sharpen the ceiling of Theorem~\ref{thm:ceiling}.
@@ -2433,13 +2440,17 @@ coordinates.  For such a system, order-$k$ certificates are trivial below
 $k\asymp P$ on \emph{both} sides (proved, no novelty claimed): a minorant of
 $\mathbf 1[\text{no event}]$ depending on at most $k\le0.6P-1$ big coordinates has
 conditional mean $\le0$ (Lemma~\ref{lem:planting}); a majorant of order $k$ saves
-at most $k\log(C(P+4k)/k)+O(k+\log k)$ in $\log(1/\E)$ (the binomial extrapolation of
-\cite[Lemma~8.3]{SL}, whose core is \cite{PYY,BGP}); and the Bonferroni truncations
+at most $k\log(C(P+4k)/k)+O(k+\log k)$ in $\log(1/\E)$, if $p^*\le1/4$ (the weighted
+$k$-ary comparison and mean cost of \cite[Thm.~8.5 and Cor.~8.6]{SL}, via the
+thinned law and binomial extrapolation of \cite[Lemmas~8.3--8.4]{SL}, applied
+fibrewise; their core is \cite{PYY,BGP}); and the Bonferroni truncations
 $Q_k(H)$ of order $k\ge e^2P$ achieve both (as minorant for odd $k$, as majorant
 for even $k$).  So the critical level is $\asymp\Lc\cdot\Lc^3=\Lc^4$.  A budget
 $\lambda\asymp\log N$ (rounding to integers) then exploits $\Lc\asymp\lambda^{1/4}$ and saves
 $\asymp\lambda^{3/4}$: this is the exceptional-set exponent $3/4$ of \cite{TQ}, which is
-sharp for coefficient-sum congruence majorants \cite[Thm.~10.14]{SL}.  A
+sharp for coefficient-sum congruence majorants \cite[Thm.~10.14]{SL} (for CRT
+majorants that are $\ge0$ on $\mathbb Z$, with coefficient sum $<N$ and all family primes
+$\le N^A$; for Case-A classes modulo Elsholtz--Tao \cite[\S7]{ET}).  A
 budget $\lambda\asymp\log x$ (transfer to primes $\le x$) exploits $\Lc\lesssim\lambda^{1/4}$:
 the exponent $1/4$ of Theorem~\ref{thm:main}, sharp in the sense of
 Proposition~\ref{prop:ceiling4}.  Within the stated scopes of these two
@@ -2545,7 +2556,7 @@ Dirichlet characters (or all additive characters) modulo $q$, then
 $\mathfrak E^2\ge N_x/2$ (\cite[Lemma~2.3]{O15}, by orthogonality, as soon as $N_x$ is at most half
 the number of units of the fibre modulo $q$).
 
-\begin{corollary}[Full-orbit uniform linear certificates are capped at $1/4$; proved implication, same inputs]\label{cor:orbit}
+\begin{corollary}[Full-orbit uniform linear certificates are capped at $1/4$; proved implication in {\cite[Cor.~2.4]{O15}}, same inputs; sketch here]\label{cor:orbit}
 Let a linear certificate use a family $\mathfrak h$ of residue classes, Dirichlet
 characters or additive characters which contains, with each member of
 modulus $>x$, its whole translation orbit, with one error bound per orbit.
@@ -2562,7 +2573,7 @@ $\sqrt{N_x/2}$ (characters), while by Theorem~\ref{thm:wiener} it contributes at
 $\eta$ per unit of coefficient to the mean, so positivity needs $N_x\eta>1/2$.
 One-sided accounting (dropping deep classes with positive coefficients)
 and Hölder-averaged accounting over an orbit do not help
-\cite[Cor.~2.4 and Prop.~2.5]{O15}.  \emph{Siegel zeros} \cite[Thm.~3.1]{O15}: for
+\cite[Cor.~2.4 and Prop.~2.5]{O15}.  \emph{Siegel zeros} (proved in \cite[Thm.~3.1]{O15}, same inputs; statement only here): for
 any real character $\chi_1$ and $\epsilon\in[0,1]$, the reweighted fake $(1-\epsilon\chi_1)\nu$
 is nonnegative, has $F=0$ almost surely, and agrees with the Siegel-model
 law $(1-\epsilon\chi_1)\PP$ to within $2(4r^*)^{k+1}$ on every class, Dirichlet character
@@ -2582,7 +2593,10 @@ characters or additive characters $h$ of moduli $q\le x$, individually with
 $\mathfrak E_h\ge2\log x$, or summed over a set of moduli with an allowance at least
 $2\log x$ times the number of terms (for example Bombieri--Vinogradov, the
 Elliott--Halberstam conjecture at any level $\theta<1$, GRH restricted to
-moduli $\le x$).  A linear certificate (with $N$ as the total mass) that uses
+moduli $\le x$), in the form of their consequences for the unweighted counts
+at the given $x$ (information about several scales or the weight $\log p$ uses
+the position of the primes in $[1,x]$ and is outside the framework; see the
+Scope paragraph below).  A linear certificate (with $N$ as the total mass) that uses
 $\mathcal I$ and produces a prime $p\le x$ in $H$ with $W(p)>T$ needs
 $\log x\ge c\Lc^4/\log\Lc$.
 \end{proposition}
@@ -2694,7 +2708,7 @@ sequences of primes.
 \emph{Other strengths} \cite[\S\S2,5]{O16}.  (i) A Cram\'er form
 ($\log p\le\log(1/\delta)+A\log T$) implies LS($\max(1,A)$); a log-scale counting form
 $\#\{T<p\le x:\ p\in S(\mathcal E)\}\ge c_0\delta^C\pi(x)$ for $\log x\ge C(\log T+\log(1/\delta))$ implies
-LS($C+1$).  (ii) Main-term forms are too strong: in the integer analogue
+LS($C'$) for some $C'=C'(C,c_0)$.  (ii) Main-term forms are too strong: in the integer analogue
 (events $n\equiv0\pmod\ell$, $\ell\le z$, at $x=z^u$) the count is $(e^\gamma\omega(u)+o(1))\delta x$ with
 Buchstab's function $\omega$, not $\sim\delta x$ (proved, classical); for primes a
 uniform $\kappa$-tuple heuristic predicts a compounding deficit $(e^\gamma\omega(u))^\kappa$
