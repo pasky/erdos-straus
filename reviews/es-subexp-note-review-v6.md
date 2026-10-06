@@ -130,3 +130,94 @@ From scratch (`scripts/review_r77_planting.py`): the identical-marginal case of 
 law with correct k-marginals and ν(all-ones)=0 at that N (k ≤ 3, p ∈ {1/2,2/3,3/4,4/5}, N ≤ 13). Ratio to BGP's
 lower bound (as quoted in the audit, p ≥ 1/2) is ≤ 3 for all k < 200, p ∈ [1/2,1). BGP itself not re-read
 (PDF not in sources/; I rely on the audit's quotation of arXiv:1201.3261 §4.9).
+
+### Abstract / intro / §16 consistency — SOUND up to D1, D2, D3, D9
+Abstract and Thm 1.3 match Thm 12.1/Cor 12.2 (range, labels: lower bound mod G+NT alone for
+`log x ≥ CΛ⁴logΛ`; two-sided mod G, NT, TQ, Page). m/n sentences match §15 (Jacobi dichotomy "exactly when
+m ≡ 0 (4)" = Lemma 15.1(d) + Prop 15.2 with M = ℓ prime; 1/5 for every m; 1/4 under ADM_m; "internally
+reviewed working notes"). §16 lists every new item with a label no stronger than in the text; "Not
+claimed" covers ES, Sierpiński, outside-(15.1), ADM_m, SI. No label in the paper is stronger than in
+POINTWISE_TAIL / MN / MN2 (checked item by item above).
+
+## Numbered defects
+
+No FATAL or MAJOR defect found. All MINOR.
+
+**D1 (MINOR, labels in §12/§15).** Lemmas 12.3, 15.6 say "modulo Theorems 5.1 (xz) and 5.2 (G)", while
+Thm 12.1, Cor 12.2, Thm 15.3, 15.5, 15.7 say only "modulo Theorem G". Correct under the convention of
+l. 499 ("modulo Thm G includes Thm xz"), but mixed within one section. The one-fibre paragraph after
+Lemma 12.3 (`exp(−CΛ³(logΛ)⁵)`) carries no label at all and is not in §16.
+*Repair:* use one form throughout §§12, 15 (e.g. drop "xz" from the two lemma labels or add it everywhere);
+add "(proved modulo Theorems G and NT)" to the one-fibre paragraph.
+
+**D2 (MINOR, ET Remark 1.2 comparison; after Cor 12.2 and in "The exponent 3").** The quotation of
+[ET, Rem. 1.2] is accurate (checked in sources/elsholtz-tao-1107.1010.pdf: "probability 1 − O(exp(−c log³ p))").
+But ET's heuristic is at the scale T ≈ p (all moduli up to p), whereas Cor 12.2 holds only for
+`log T ≤ c'(log x/loglog x)^{1/4}`. "Corollary 12.2 [is a] rigorous statement of this exponent 3 … over primes"
+reads as if it confirmed the ET heuristic. *Repair:* add "(in the range log T ≤ (log x)^{1/4−o(1)}, far from
+the scale log T ≍ log p of the heuristic)".
+
+**D3 (MINOR, label of Thm 15.7 and §16).** The text correctly says that for odd m the NT step (fixed prime
+divisor 2 of n(mn−1)) is "not written out in [MN]", yet the label and §16 say "the implication is proved in
+[MN]". I verified that the proposed parity split is correct (no fixed prime divisor for either pair; odd
+m ≤ 199), so this is a presentation gap, not a mathematical one. *Repair:* label "… proved in [MN] for even m;
+for odd m modulo the parity split described below (not written out in [MN])", same in §16; parent should
+also repair POINTWISE_MN.md §5 (its own label inherits the gap).
+
+**D4 (MINOR, Lemma 15.6 hypothesis 8 | Q in the m ≢ 0 (4) setting).** Lemma 15.6 keeps `8 | Q` (needed for
+`f₁ | Q` in (c) of Thm 6.1). Nothing in the summary of the AUP / Thm 15.7 guarantees it: for m ≡ 2 (4) the
+prime 2 never divides an M and MN2's prefix `Q(q₀) = lcm{q ≤ q₀ : ℓ ∤ m}` excludes 2 altogether; for odd m
+the 2-adic coordinate may be raised fewer than three times. *Repair:* one sentence — "we always include 8
+in Q₀ (for even m no atom involves 2, so take r ≡ 1 (8); for odd m require 8 | Q₀, as MN's
+Q₀ = ∏_{ℓ≤L₀}ℓ^{k₀}, k₀ ≥ 3, does)"; flag the same in MN2 for m ≡ 2 (4).
+
+**D5 (MINOR, "Towards ADM_m").** (a) ADM_m is defined in the paper for the adaptive AUP, but MN2 Thm 3.1 /
+Prop 5.1 give it for the *ordered* variant (forced stage A up to Z). Theorem 15.7 does hold for the ordered
+variant (MN2 "Order": forced steps are ordinary supermartingale steps, cost ψ(Z) ≪ Λ³(logΛ)^B), but the
+paper does not say so; as written, "SI implies ADM_m" is about a different process from the one in the
+hypothesis of Thm 15.7. *Repair:* define ADM_m for "the admissible process, adaptive or with a forced
+increasing-order stage up to Z = Λ³(logΛ)^B" and say that Thm 15.7 holds for both. (b) MN2 §4 carries
+R74 D4's caveat that the threshold q₀^{1/2} comes from a Markov step and may become q₀^{1−ε} with a second
+moment; the paper's "does not obviously close" is weak enough, but one clause ("the threshold q₀^{1/2} is
+method-dependent") would make it faithful.
+
+**D6 (MINOR, Thm 15.5 commentary).** "M | D + A is impossible as 0 < D+A ≤ 2A < M, after D ↦ A²/D" skips why
+the class of one corresponds to `M | D+A`. *Repair:* "1 ≡ −mD (mod M) ⇔ M | mD+1 ⇔ M | D+A (as mA ≡ 1),
+and D ↦ A²/D preserves this (gcd(AD,M)=1), so WLOG D ≤ A; then 0 < D+A ≤ 2A < M since (m−2)A > 1." Brute-forced
+(m ≤ 40, M ≤ 2·10⁴).
+
+**D7 (MINOR, internal inconsistency on planting novelty).** The literature section now claims an improvement
+of BGP Thm 27, but §10 after Lemma 10.1 (l. ≈2096) still says "we claim no novelty for it". *Repair:* replace
+by "the construction is elementary; in the identical-marginal case it improves [BGP, Thm 27], see §1".
+
+**D8 (MINOR, BGP comparison precision).** BGP's lower bound (as quoted by the audit) is for p ≥ 1/2, and the
+ratio of `(k+1)p/(1−p)+2k+2` to it tends to `2(k+1)/k` (k even) or 2 (k odd) as p → 1 — e.g. for k = 2 it is 3 for
+every p. I confirmed "≤ 3 for p ∈ [1/2,1)" numerically (k < 200). *Repair:* "within a factor 3 of their lower
+bound for p ≥ 1/2 (a factor 2 + O(1/k) as p → 1)". BGP's PDF is not in sources/; I could not re-read Thm 27
+myself (relying on audit 10b's quotation, ll. 604–635, 1125–1135 of its text dump).
+
+**D9 (MINOR, §16 Evidence list).** The computer check of Lemma 15.1 (M ≤ 5·10⁴, 11 values of m, "not used")
+is not listed under "Evidence, not used". *Repair:* add it.
+
+## Bibliography advice (audit 10b suggestions)
+* **Yamamoto (1965)** — recommend citing, with ET Prop. 1.6 ("Vanishing": f_I(n) = f_II(n) = 0 for odd squares,
+  attributed by ET to Schinzel and Yamamoto [ET ref. 88]), next to Mordell in "The exponent 3": Lemma 3.2 /
+  15.1 are the Jacobi-symbol mechanism behind this qualitative vanishing. Data (from ET's bibliography,
+  checked): K. Yamamoto, On the Diophantine equation 4/n = 1/x+1/y+1/z, Mem. Fac. Sci. Kyushu Univ. Ser. A 19
+  (1965), 37–47. Primary text not accessed — say "cited via [ET]".
+* **Graham–Ringrose (1990)** — recommend, as the classical template for Ω-results of this shape (choose a
+  residue class by CRT, then Linnik), e.g. at "Linnik's theorem gives W(p) ≫ log p" in §1. Data verified via
+  the Lau–Wu reference list (sources/lit2026): S. W. Graham and C. J. Ringrose, Lower bounds for least quadratic
+  nonresidues, in: Analytic Number Theory, Progr. Math. 85, Birkhäuser, Boston, 1990, 269–309.
+* **Granville–Pomerance (1990)** — optional; relevant only to the LS discussion (single-class least-prime
+  conjectures are stronger than LS). Audit data is "[memory]"; do not add without checking.
+* [MN], [MN2] as "working note, internally reviewed": acceptable for internal circulation; for submission they
+  must be appended or made public (the abstract leans on them).
+
+## Recommendation
+**Accept v6 for internal circulation after the MINOR repairs D1–D9** (all are local wording/label fixes; none
+affects a proof). The new mathematics — Lemma 12.3, Lemmas 12.4–12.5, Thm 12.1, Cor 12.2, Lemma 15.1,
+Prop 15.2, Lemma 15.6 — I re-derived and found sound; brute-force checks (from scratch):
+`scripts/review_r77_leaves.py`, `scripts/review_r77_mjacobi.py`, `scripts/review_r77_planting.py`.
+Summaries of [MN]/[MN2] (Thms 15.3, 15.5, 15.7, Prop 15.4, "Towards ADM_m") are faithful and not stronger
+than the sources, modulo D3–D5.
