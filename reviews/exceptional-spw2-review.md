@@ -175,3 +175,39 @@ Q′ = lcm(1..T), T ≥ CN²/ε′ (if η*_per < 1); η*_per is non-increasing a
 divisibility. State this; then the "η* = 0 iff" holds on ℤ as well.
 
 Verdict Lemma 4.1: **SOUND-AFTER-REPAIRS** (m10).
+
+## Claim 6: EVIDENCE sections and Assessment 4.2 (labels)
+
+Independent re-solves (`scripts/review_spw2_rspw_lp.py`, own LP on
+[−L, N+L], moduli > span treated pointwise, HiGHS): N = 12, L = 96: η = 1.000;
+N = 20, L = 160: 0.9552 (K = ∞), 0.6667 (K = 1); N = 30, L = 480: 0.8613
+(K = ∞), 0.8595 (K = 1.5); N = 50, L = 200: 0.4821. All match the §2 table. ✔
+Sawtooth table §6 recomputed exactly (`scripts/review_spw2_sawtooth.py`):
+all entries for N = 100, 1000, 10000 match. ✔
+
+Label issues:
+* m11. §4 "Numerics: at L ≈ N²/2 the LP gives 0.86, 0.83, 0.78, 0.80, ≈ 0.75
+  for N = 30…80": data/spw2 contains runs only for N = 30 (L = 480 ≈ N²/2),
+  40 (L = 800), 60 (L = 1800), 80 (L = 2560 = 0.8·N²/2). The N = 50 value 0.78
+  is not at L = 1250 in any data file (closest: 0.755 at 800, 0.798 at 1600),
+  and N = 80's "≈ 0.75" is an extrapolation from 0.732 at L = 2560. Mark these
+  two as interpolated/extrapolated. More importantly, finite-L optima are
+  *lower* bounds for η*_ℤ (genuine measures), and the §5 local values are
+  upper bounds; a decay *rate* cannot be read off lower bounds that grow
+  with L. "Consistent with logarithmic decay" should be weakened to "no
+  N^{−1/2} decay of the lower bounds visible for N ≤ 80".
+* m12. "RSPW(2, 0.82, K ≈ 1.6) at N = 50": η = 0.82 is the L = 64N run, while
+  max sparse class 1.60 was reported for the L = 16N run (η = 0.755); the
+  L = 64N run's sparse maximum is not recorded. Either report the pair from one
+  run or say RSPW(2, 0.755, 1.60). (Also: SPW(2, ≈ 0.25) at N = 50 is weaker
+  than IF2 §9's SPW(2, 2/5) LP evidence at N ≤ 60, so it is not new.)
+* m13. Report headline "Small-N numerics favour weak SPW being true": SPW1 §2
+  (BDW) and SPW1 Thm 3.2 vs IF2 §9 already show small-N LP behaviour
+  misleading at N ≲ 60. Assessment-level at most; say so in the headline.
+* Assessment 4.2: correctly labelled heuristic; the withdrawn N^{−1/2} claim is
+  clearly marked as withdrawn ✔. The last sentence of bullet 3 ("points to η*
+  decaying only like a power of log N, i.e. weak SPW true") rests on a
+  heuristic the author himself says underestimates edge concentration; keep
+  it, but as "Assessment, weak" — no defect beyond m13.
+* §5 local LPs: labelled EVIDENCE, "upper bounds for η*" ✔ (projection argument
+  is correct, cf. SPW1 Lemma 3.1).
