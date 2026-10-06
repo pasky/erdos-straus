@@ -114,3 +114,38 @@ Defects for §4:
    suffices). Harmless; reword.
 5. MINOR. Label "CERTIFIED by one engine, re-check pending" can become "CERTIFIED, two independent
    engines (R80: review_mordell_point.py at 10⁶; rigid bullet re-checked for F ≠ 11³13³)".
+
+## 3. Novelty — Thm 3.1 is correct but is essentially a read-out of Salez's sieve
+
+Sources: Salez arXiv:1406.6307 (`sources/lit2026/arxiv-1406.6307.pdf`, read), Mihnea–Dumitru
+arXiv:2509.00128 (`sources/lit2026/`, read: they extend Salez's residue sets R_i to G_8 =
+25878772920, |R_8| = 2101514). Bradford (arXiv:1906.00561, 2403.16047, 2602.11774) only via the
+campaign's LITERATURE_2026.md notes — no filter/covering statement of this type there. Mordell's
+theorem: classical mod-840 statement (re-verified in §1.3); I did not access Mordell's book itself.
+
+`scripts/review_mordell_level.py L` (all ET classes with modulus | L) reproduces **exactly** Salez's
+sieve counts #R_3 = 34 at G_3 = 9240 and #R_4 = 192 at G_4 = 120120 (Salez §4.1 table). So ET's
+seven families with "modulus | L" are, empirically, the same certification notion as Salez's
+seven modular equations, and Salez's sieve contains *composite* filters (S_m for composite m;
+shortened filters S*_55, S*_65, S*_77, …), i.e. multi-prime filters are already in the literature.
+
+From the same computation, Salez's own R_4 (mod 120120) contains only **7** residues with
+(p/13) = −1: {3361, 20521, 57961, 79081, 90721, 112561, 113401}, of which 2 have (p/11)=+1. At
+L = 240240 / 720720 my run gives 6 / 6 such residues (720720: exactly Thm 3.1(b)'s list).
+So a Thm-3.1-type statement mod 120120 (7 exceptions) follows directly from data Salez computed
+in 2014; Thm 3.1 is the same sieve one level deeper (2⁴, 3²), sliced by (p/13).
+
+6. MAJOR (novelty framing, §3 "Context" and O80 report item 1). "Salez's single-prime filter
+   S_13 … Theorem 3.1 adds the residues 2 and 7 mod 13" and "a two-prime filter; I found no
+   published statement" misrepresent the literature: Salez's sieve already uses composite
+   (multi-prime) filters and its R_4 implies the (p/13)=−1 statement mod 120120 with 7 exceptional
+   classes. Repair: state Thm 3.1 as "the (p/13)=−1 slice of the Salez/ET level sieve at level
+   720720 (resp. 240240 with (p/11)=+1), with explicit certificates"; cite Salez §3–4 and
+   Mihnea–Dumitru for the R_i; downgrade novelty to "explicit packaging", and put the weight on §4
+   (the sterile-point analysis), which I did not find in Salez/M–D.
+7. MINOR (§1/§3 numbers). Independent recount (`scripts/review_mordell_deep.py`, lifting the six
+   720720-survivors to L = 2⁴3²5·7·11·13²·17·19·23, classes with M | L, M ≤ Mmax):
+   Mmax = 10⁵: 2620; 10⁶: 1499; 10⁷: 1438; 10⁸: 1412 (the author's own `mordell_cover.py` also
+   gives 2620 at 10⁵). So "1499 at 10⁵" should read "1499 at 10⁶". The "relative density 1.6·10⁻⁶"
+   is not reproduced: 1412 / (2160·13·16·18·22) = 7.9·10⁻⁶ of the (p/13)=−1 Mordell-hard residues
+   (3.97·10⁻⁶ of all Mordell-hard residues). Fix the figure or state the normalisation.
