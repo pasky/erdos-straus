@@ -56,5 +56,41 @@ def main():
                   % (Y, s, s / Y, math.log(Y) ** 3, h, math.log(Y) ** 4))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and len(sys.argv) == 3:
     main()
+
+
+def moments(m, X):
+    """second moment and prime values of R (EVIDENCE)."""
+    import math
+    from sympy import isprime
+    import io, contextlib
+    R = [0] * (X + 1)
+    for a in range(1, X + 1):
+        for d in range(1, X // a + 1):
+            if not squarefree(d):
+                continue
+            P = m * a * a * d + 1
+            for f in divisors(P):
+                if f > (m - 1) * X:
+                    break
+                e = P // f
+                c = max(1, -(-f // ((m - 1) * a * d)))
+                while True:
+                    N = m * a * d * c - f
+                    if N > X:
+                        break
+                    if N >= 1 and c * e - a >= a and gcd(e * N, P) == e:
+                        R[N] += 1
+                    c += 1
+    for Y in [10 ** 3, 3 * 10 ** 3, 10 ** 4, 3 * 10 ** 4, 10 ** 5]:
+        if Y > X:
+            break
+        s1 = sum(R[1:Y + 1]); s2 = sum(r * r for r in R[1:Y + 1])
+        pr = [R[p] for p in range(Y // 2, Y + 1) if isprime(p)]
+        print("Y=%6d  S1/Y=%7.2f  S2/Y=%9.1f  S2/(Y log^6 Y)=%.4f  primes in (Y/2,Y]: mean R=%.2f max R=%d"
+              % (Y, s1 / Y, s2 / Y, s2 / (Y * math.log(Y) ** 6), sum(pr) / len(pr), max(pr)))
+
+
+if __name__ == "__main__" and len(sys.argv) > 3 and sys.argv[3] == "moments":
+    moments(int(sys.argv[1]), int(sys.argv[2]))

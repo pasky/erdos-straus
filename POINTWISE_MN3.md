@@ -142,3 +142,56 @@ factor `1/φ(g/s) ≤ B^{−1/2+o(1)}` is a power saving that beats the pointwis
 `B ≤ (Q_0 q)^{O(1)}`: for `q ≥ Q_0` this is a **polynomially bounded box** (pointwise bounds for h,
 q-gain needed from counting alone), and for `q_0 < q < Q_0 = e^{(1+o(1))q_0}` it is the range where the
 prefix part s itself can be huge.
+
+**EVIDENCE for the residual (`scripts/mn3_resid.py 5 3000000`).** Share of `U_1(q)` (K = 1, atoms with
+`M ≤ 3·10⁶`) lying in the residual (`c < q`, `d < fq`, `d < eq`, `a < fq`; exponents δ = 0): 0.91, 0.82,
+0.80, 0.81, 0.78, 0.73, 0.74, 0.72, 0.72, 0.79, 0.74 for `q = 11, 13, 17, 23, 29, 31, 47, 53, 97, 101, 199`.
+So the residual is not a corner: at accessible scales it **is** `U_1(q)`. Its mass sits mostly on
+`N = q·N''` with `N''` small (atoms whose class-of-one gcd g is all of M except the new digit and a few
+small primes).
+
+## 5. The exact missing input (where SI fails for the available tools)
+
+**Lemma 5.1 (the dominant term is a pointwise multiplicity; PROVED).** For a prime `ℓ > q_0`,
+`U_1(ℓ) ≥ R_ℓ(ℓ)/(ℓ−1)`, where `R_ℓ(N) := #{atoms in C_ℓ, D ≤ A : M/gcd(M,mD+1) = N}`. Moreover, if the
+earlier stage-A digits all equal those of 1 (an admissible path: the class 1 is never forbidden,
+TRANSFER Lemma 5.1(ii)), the number of consistent completed atoms at the level-0 step ℓ is exactly
+`#{(M,D) : M = ℓM_1, M_1 | L(ℓ), (M/ℓ) | mD+1}`, i.e. the atoms with `ℓ | N`... and `N/ℓ | ` the
+revealed part — the deterministic count `Y(ℓ)` of `scripts/mn3_first.py`.
+
+*Proof.* Atoms with `N = ℓ` have weight `K^{ω}/φ(ℓ) ≥ 1/(ℓ−1)`. The second statement is the definition
+of consistency with r ≡ 1 on all revealed digits (`M/ℓ` is fully revealed at a level-0 step). ∎
+
+(`scripts/mn3_first.py 5 q0 4`: along the all-ones path the level-0 forbidden fractions at
+`ℓ = 11, 13, 17, 19, 23, 29, 31` are `0.20–0.46`; they are not small at accessible ℓ, consistent with
+`Y(ℓ) ≍ (log ℓ)³`.)
+
+So SI for `ν = δ_1` contains, as its main term, averages over primes ℓ of
+`(1/ℓ)Σ_{N''} R_ℓ(ℓN'')/N''`, where `R(N) ≤ #{(f,δ) : f ≤ N+1, δ | (N+f)², δ ≡ −1 (mod f), m | δ}`
+(from `(ef−1) | (N+f)²`, Lemma 2.1 and `D | A²`) is an Erdős–Straus-type representation count
+(it is a Type II solution count of the shape `μyz − y − z = K` after the substitutions of §2).
+What a proof of SI at level 0 needs is, roughly, **one** of:
+
+* (P) a pointwise bound `R(N) ≪ N^{θ}` with `θ < 1/K_0`, where `N ≤ ℓ^{K_0}` is the residual scale
+  (`K_0 ≈ 10` from §4 and Lemma 4.1). The best pointwise bounds of this type known for ES counts are
+  `n^{3/5+o(1)}` (Elsholtz–Tao, `sources/elsholtz-tao-1107.1010.pdf`, via "one of e, f, cd, ac is
+  `O(n^{3/5})`"); the same device gives only `R(N) ≪ N^{2/3+o(1)}` here (one of `ac, ad, cd ≤ N^{2/3}`,
+  and each fixed pair leaves `N^{o(1)}` choices). Far from `1/K_0`.
+* (AP) equidistribution of `R(N)` over `N ≡ 0 (mod ℓ)`, `N ≤ X`, with saving `ℓ^{−δ}` relative to
+  `X/ℓ`, for `ℓ` up to `X^{1−δ}` — a level of distribution beyond what is known even for `τ_3`.
+* (M2) via Cauchy–Schwarz over `ℓ ~ L` (only averages over ℓ enter SI, Lemma 3.1): an unrestricted
+  second moment `Σ_{N≤X} R(N)² ≪ X^{1+η}` with `η < 1/K_0`. EVIDENCE (`scripts/mn3_rn.py 5 30000
+  moments`): `Σ_{N≤Y}R(N)²/Y = 367, 803, 1679, 3082` for `Y = 10³, 3·10³, 10⁴, 3·10⁴`
+  (`≈ 0.003(log Y)⁶`), and the mean of `R(ℓ)` over primes `ℓ ∈ (Y/2,Y]` is `35, 57, 78, 106`
+  (`≍ (log Y)³`). So (M2) looks true with `η = o(1)`; proving it is a 6-variable counting problem
+  (pairs of O12 tuples with equal N) whose "first-term" regime is again of Kloosterman type.
+
+**Assessment.** The q-free part of SI (the c-, N-, d- and a-routes with (H)) is routine; all the
+difficulty is concentrated in one place: the class-of-one multiplicity `R(N)` of atoms with a given
+non-consistent cofactor N, at `N` a small multiple of the new prime. This is an Erdős–Straus-type
+counting problem whose pointwise version is open (ET's `3/5`), and the averaged versions needed (AP or
+second moment) are not available from (H), ET Prop 1.4/Thm 7.1, Weil, or elementary counting. The
+`(M2)` route reduces SI(δ_1) at level 0 to a **congruence-free** second-moment statement; this is the
+cleanest form of the missing input found here (CONJECTURE, supported by the data above). The
+correlation terms of `E^ν_2` and the large-scale regime (§4, Lemma 4.1) would still have to be written
+out under (M2); not done.
