@@ -55,7 +55,15 @@ for K in range(1, 2 * L + 1):
     if not os.path.exists(fn):
         missing.append(fn); continue
     for line in open(fn):
-        _, f, fs, ap, dp = line.split(); f, fs, ap, dp = map(int, (f, fs, ap, dp))
+        w = line.split(); f, ap, dp = int(w[1]), int(w[3]), int(w[4])
+        # rebuild i, j and f* exactly (old C output printed an overflowing f* for K=9)
+        assert (f + 1) % (4 * ap * dp) == 0
+        i = (f + 1) // (4 * ap * dp)
+        num, den = i + p**K * ap, 4 * ap * dp * i - 1
+        assert num % den == 0
+        j = num // den
+        assert 4 * ap * dp * i * j == i + j + p**K * ap and j >= i and ap % p and dp % p
+        fs = 4 * ap * dp * j - 1
         for alpha in range(0, K // 2 + 1):
             k = K - alpha
             if k > L:

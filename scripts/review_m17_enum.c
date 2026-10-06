@@ -83,7 +83,8 @@ int main(int argc, char **argv) {
                     u64 j = (u64)(num / den);
                     if (j < i) continue;
                     cnt++;
-                    printf("P %llu %llu %llu %llu\n", 4 * ap * dp * i - 1, 4 * ap * dp * j - 1, ap, dp);
+                    /* f* = 4a'd'j-1 can exceed 2^64 (K=9): print j, f* is rebuilt exactly in Python */
+                    printf("P %llu %llu %llu %llu %llu\n", 4 * ap * dp * i - 1, j, ap, dp, i);
                 }
             }
     }
