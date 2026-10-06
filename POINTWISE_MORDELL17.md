@@ -326,11 +326,14 @@ in-cell boxes the ratio `t = min(z_r, z_{1/r})/17^k` has median ≈0.15–0.2 an
 (levels 3–7). So no fixed θ works, and the boxes are only mildly biased toward small integer centres.
 
 *Equivalent parametrisation and the discrete-log heuristic (Assessment).* Put `(s,t)=(c,d)`.
-Then (2.20) says the P-data at level K are exactly the `(a,s,t)` with `f=4ast−1 | s·17^K+a` and
-`b=(s17^K+a)/f ≥ a`. In that case `s | a+b` is automatic (`f≡−1 (mod s)`), and so is (2.15):
+Then (2.20) says the P-data at level K are exactly the `(a,s,t)` with `17∤st`, `f=4ast−1 | s·17^K+a` and
+`b=(s17^K+a)/f ≥ a`. Without `17∤st` (= `17∤cd`) one gets all N-points of `Σ^II_{17^K}`, not only P-data.
+(R83 round-2 repair n4, applied by reviewer. Checked by brute force for K = 1, 3, 5: the set equals the
+P-data exactly; `scripts/review_m17_round2.py`.) In that case `s | a+b` is automatic (`f≡−1 (mod s)`), and so is (2.15):
 `4abst = bf+b = s17^K+a+b`. As `gcd(s,f)=1`, the condition is `17^K ≡ −a/s (mod f)`. So `(a,s,t)` is
-ever admissible iff `−a/s ∈ ⟨17⟩ ⊂ (ℤ/f)^×`, and then exactly for `K ≡ log_17(−a/s) (mod ord_f 17)`
-with `17^K ≳ 4a²t` (from `b≥a`). Under a random model for this discrete logarithm (17^K equidistributed
+ever admissible iff `−a/s ∈ ⟨17⟩ ⊂ (ℤ/f)^×`, which tacitly requires `gcd(a,f)=1`. It is then
+admissible exactly for `K ≡ log_17(−a/s) (mod ord_f 17)` with `4a²t ≤ 17^K + 2a/s` (this is `b≥a`)
+(R83 round-2 repair n4, applied by reviewer). Under a random model for this discrete logarithm (17^K equidistributed
 modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³`. The weighted tail
 `Σ_K 17^{−K/2} D_P(K)` is then tiny. The quantity to control is **how often `−a/s` lies in `⟨17⟩`
 modulo `4ast−1`, and where its logarithm falls**. That is an Artin / discrete-log equidistribution
