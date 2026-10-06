@@ -51,3 +51,23 @@ Remarks: (i) for m = 6, 7 the quantity `q_0^{−1/2}/δ` grows slowly (m = 6: 0.
 q_0 = 11..19) — seven/five data points with `q_0 ≤ 19` say nothing about growth "faster than
 `q_0^{1/2}`" asymptotically; (ii) the heuristic `log(1/δ) ≍ (log q_0)³` is not visible at this
 range either (m = 5, q_0 = 19: `log(1/δ) = 4.1`, `(log 19)³ = 25.5`). See defect D3.
+
+## B. Input (H) vs. the source — SOUND as quoted (constants not explicit, but effective)
+
+Checked against `sources/henriot-1102.1643.pdf` (pdftotext), §2 (definitions: `‖P‖` = sum of
+|coefficients| of P; `M_k(A,B,ε)` via (2.10); `Q* = ∏R_h`, `D* = disc Q*`), Thm 5 (p. 6) and
+Cor 1 (p. 7):
+* hypotheses: Q primitive (no "no fixed prime divisor" needed — that is exactly Henriot's gain
+  over NT Thm 1), `0 < ε < α/(50g(g+1/δ))`, `F ∈ M_k(A,B,ε)`, `x ≥ c_0‖Q‖^δ`, `x^α ≤ y ≤ x`;
+  `c_0` and the implied constant depend at most on `g, α, δ, A, B` — quoted correctly;
+* Cor 1's RHS carries the extra restrictions `(n_1⋯n_r, D*) = 1`, `(n_i,n_j) = 1`; MN2 drops them,
+  which is legitimate for `F ≥ 0` (upper bound). Product is over `g < p ≤ x` — quoted correctly.
+* Application in Lemma 2.1(i): `Q_1 = qX + c_1`, `Q_2 = mX + c_2`, `qc_2 − mc_1 = −1`. Re-derived:
+  both primitive and coprime; `Q = Q_1Q_2 = qmX² + (qc_2+mc_1)X + c_1c_2` has discriminant
+  `(qc_2+mc_1)² − 4qmc_1c_2 = (qc_2−mc_1)² = 1`, so `D* = 1`, `Δ_{D*} = 1` (empty product).
+  `‖Q‖ ≤ ‖Q_1‖‖Q_2‖ ≤ (2q+1)·2m ≤ 6qm` ✓. `ρ(p) = 2` for `p ∤ qm` (distinct roots since the
+  resultant is ±1), `ρ(p) = 1` for `p | qm` ✓; `ρ_{R_h}(n) ≤ 1` ✓. `ε_0 = 1/1001 < 1/800 =
+  α/(50g(g+1/δ))` at `g = 2, α = δ = 1/2` ✓.
+* "Ineffective": the source gives no explicit constants, but nothing in the NT/Henriot argument
+  is ineffective (no Siegel-type input); the constants are computable in principle. MN2 calls
+  `c_1` "ineffective" (§3 Thm 3.1, §4 item 1, §6 table) — wrong word, see defect D2.
