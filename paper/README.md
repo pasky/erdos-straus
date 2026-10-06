@@ -1,6 +1,6 @@
 # Paper draft status
 
-**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v5** (task O64, 50 pages). The proof of
+**New (2026-10-05): `es-subexp-note.tex` / `.pdf`, v5** (task O64, 51 pages). The proof of
 the main theorem (exponent 1/4, mod Gallagher + Nair–Tenenbaum) is unchanged from v4; v5 adds
 the surrounding picture from ledger (H)28–(H)30. New §11 (via the atoms of the 3/4 note,
 INTERNALLY PROVED, inputs BV/BT/Shiu, ineffective; source `CEILINGS_UNIFIED.md`): Haar lower
