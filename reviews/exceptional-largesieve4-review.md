@@ -120,7 +120,7 @@ m | 4d+1 coprime to G = 4rh, ℛ(M)-classes −4, −1 (D = A), −1/4 (D = A²)
 
 **D1 (MINOR, hidden quantifier; Thm 5.2 statement and Thm 4.2 statement).**
 Both theorems quantify over `γ ∈ (0,1]` but the proofs need N ≥ N₀(γ):
-Thm 5.2 needs `K = 32 ≤ z^{γ'/2}`, i.e. `(log N)^{1/4} ≥ 4 log 32/γ'`, and
+Thm 5.2 needs `K = 32 ≤ z^{γ'/2}`, i.e. `(log N)^{1/4} ≥ 2 log 32/γ'`, and
 Thm 4.2 needs `1 ≤ K ≤ z^{γ/2}` to be non-empty for the K one has (plus
 "Q'(E) ≤ 1/8 for N large"). For γ ≲ (log N)^{−1/4} the conclusion is
 vacuous anyway (γ^{−3}(log N)^{3/4} ≥ log N), so nothing is lost, but say
