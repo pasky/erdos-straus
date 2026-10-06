@@ -108,3 +108,36 @@ Numerical side claims:
   ≤ Φ(D) points, i.e. some mass at distance ≥ (Φ(D) − N)/2 ≈ 0.076N² from W.
 
 Verdict Lemma 2.3: **SOUND** (m7, m8 wording).
+
+## Claim 4: Theorem 3.1 (K-free edge bound η ≲_C (log N)^{−1/3})
+
+Line-by-line re-derivation:
+* Pinning: for m₀ ≤ |k| ≤ M, |k| | L_M | e so the character has order
+  e/|k| ≤ D, divides e, and is fixed by (P1) ✔. T̂ = K̂(ρ̂ − 1̂_W) supported in
+  |k| < m₀ ✔; |T̂| ≤ |ρ̂| + |1̂_W| ≤ 2N (mass N from d = 1) ✔.
+* (b) every y ∉ W is at cyclic distance ≥ min(r+1, N−r) = r+1 from
+  x_in = 1+r ✔; A = eN/(4(M+1)r²) ✔ (uses only Σρ = N, so no K) ✔;
+  T(x_in) ≤ −ηφ(x_in) + A ≤ −η + ητ + A ✔ (η ≤ 1 automatically).
+* (c) dist(x_out, W) ≥ min(r+1, e−N−r) = r+1 ✔ (needs r < ((C−1)N−1)/2).
+* Final inequality and the r = ⌈NM^{−1/3}⌉ asymptotics (three terms
+  O_C(M^{−1/3}), O_C(M^{−2/3}), ≈ 32πM^{−1/3}·(N/2D)²) ✔. Admissibility of r
+  needs M^{1/3} ≳ 2/(C−1) — implicit "N large" ✔. Constants depend on C only
+  (e ≤ CN + L_M ≤ (C+1)N) and not on K or any other class ✔.
+* **Defect m9 (constant).** (a) uses Σ_{|k|<m₀}|k| ≤ m₀², but
+  Σ_{|k|<m₀}|k| = m′(m′+1), m′ = ⌈m₀⌉ − 1, which exceeds m₀² when m₀ is just
+  above an integer (m₀ = 3.05: 12 > 9.3). m₀ = e/D is generically non-integer.
+  Replace m₀² by m₀(m₀+1) (or ⌈m₀⌉²) in (a) and (3.1); asymptotics unchanged.
+  (The §2 remark's 8πm₀² is a valid bound since m₀ ≥ 2C > 1.)
+
+From scratch (`scripts/review_spw2_thm31.py`): Fejér pointwise bound and
+tail bound checked exactly-in-float for (e, M) ∈ {(120,6), (420,7), (840,8),
+(2520,10)}; then an LP on ℤ/e with *exactly* the theorem's hypotheses
+(profile mod d | e, d ≤ D; ρ ≤ 1 − η on W only) at (N, C, e, M) = (60, 1.5,
+120, 6), (60, 2, 180, 6), (100, 1.5, 180, 6), (84, 2, 420, 7), and every
+inequality of the proof chain (Fourier support, |T̂| ≤ 2N, φ tails, T(x_in),
+T(x_out), Lipschitz with the true Σ|k|, (3.1)) verified at all admissible r
+on the optimiser and on 5 random feasible points each. No violation.
+(At these sizes (3.1) is ≫ 1, so this checks the chain, not the rate.)
+
+Labels: "RSPW with fixed η is false for large N even with K = ∞" ✔ (follows).
+Verdict Thm 3.1: **SOUND** (m9 constant).
