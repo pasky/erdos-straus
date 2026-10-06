@@ -89,3 +89,17 @@ Writing `m'` for the T-free part, the T-generic conditions are:
 `f'∣1+4a²d`.) Rigid forms: II1/I4 ⟺ `4iabk=F(a+b+k)` with `k=(a+b)/e`, `e+1=4i·ab/F`
 (symmetric in a,b,k); II2 ⟺ `4adm=f+1`, `g∣a+m` (f=Fg), equivalently with `a+m=gj`:
 `(4dja−F)(4djm−F)=F²+4dj²`; I1 ⟺ `(4ni−1)(4nj−1)=4naF+1`, `ad=Fn`.
+* c²-generic points (x_q = c² for q∉T, c a T-unit rational), np variant, M≤10⁵, k=1:
+  (c,T) = (2,{2,13}), (3,{3,13}), (5,{5,13}), (6,{2,3,13}), (7,{7,13}), (11,{11,13}), (1/2,·),
+  (1/3,·), (2/3,·), (3/2,·): all covered. Also c-generic with c=−1 (T={2,3,7,11,13}),
+  c=2, 1/2 (T={2,3,5,11,13}), c=−2 (T={2,5,7,13}): all covered. **No structured obstruction
+  found for the np variant.**
+* np DFS (Mmax=10⁷, primes ≤100): open mass ≈2.2·10⁻⁶ after 3600 nodes, decreasing slowly, queue
+  growing ≈6/node. The heaviest open nodes are squares at every prime ≠13 they fix (x_13≡7).
+  Probing one (L=10760950200, x=10675056841) at new primes ℓ≤100: surviving children are
+  mostly, not only, squares; for ℓ≥61 more than half survive (the Mmax cap bites: M=ℓ·D needs
+  D≤Mmax/ℓ).
+* In the (2,2) cell of the main variant, the boxes found (M≤10⁶) mostly have F a pure power of 11
+  or of 13 (53 boxes: F=1331: 20, 2197: 14, 121: 5, 169: 3, mixed F: 11), often with large T-free
+  part (e.g. II2 f=1331·709). Since brute force in M truncates the T-free part, a complete
+  enumeration per T-level F (rigid forms of §2.1) is needed.
