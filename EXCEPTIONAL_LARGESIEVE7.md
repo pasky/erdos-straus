@@ -386,3 +386,39 @@ pinning mechanism is available:
   divisors of `4rh²+1` in progressions (the ElT Prop 1.4 / K2 Lemma 3.6
   inputs, in damped form); the short regime is a count of points of
   `mm′ = 4rh²+1` with both factors pinned mod p. Not written.
+
+## 6. Fibres
+
+Theorems 3.1/4.3 bound the **full-family** sums (all moduli `M = s·M_r`,
+weight `Γ(M)P̄/M`). In the fibre at a smooth residue c the class
+`(M_r, b mod M_r)` is present iff `c` matches the class mod s (LS5 R67b);
+its fibre weight is `Γ(M_r)P̄/M_r`, and `π_s(c ≡ λ mod s) ≤ Γ(s)/s` (K2
+chain rule). Hence, with `Γ(M) = Γ(s)Γ(M_r)`:
+
+**Corollary 6.1 (fibre average; PROVED).** `E_{c∼π_s} μ^{ℛ}_{c,a}(P) ≤
+μ^{ℛ,full}_a(P)` for each fixed `(P, a)` and each cut, so Theorems 3.1
+and 4.3 hold for the fibre sums **on average over c**; the rough-modulus
+subfamily (present in every fibre) obeys them **for every c**.
+
+What is *not* proved: a bound holding for c off one exceptional event
+simultaneously for all `(P, a)`. A fixed c can make the fibre family
+dense (classes with smooth parts land on arbitrary residues mod `M_r`),
+and Markov per `(P,a)` cannot be unioned over infinitely many P. Since
+LS3 Thm 1.1 needs only `E_c𝓡_{2+2β}(π_c)`, an averaged input may suffice
+for (DCC) — Assessment, not checked.
+
+## 7. Numerics (EVIDENCE only)
+
+`scripts/largesieve7_triples.py`: Lemmas 1.1–1.2 for all `M ≡ 3 (4)`,
+`M < 20000`, every `p | M` (159390 triples) — exact check.
+
+`scripts/largesieve7_dispersion.py 10 101 211 401 809 1601 3203`: toy
+full-family model (`M = pn`, `n ≤ 10p`, `P(n) > p`, weight
+`P(n)^{−0.05}/n`). Max residue mass with the Thm 3.1 cut
+(`min(max(u,v),4u²t,4v²t) > p^{1/4}`): 0.295, 0.219, 0.103, 0.089, 0.073,
+0.066 (total ν ≈ 10–14); without the cut the maximum sits at `−4` and
+`−1/4` (LS6 Prop 6.2) and is 2× larger at the top end. With the cut the
+maximum is attained at the labels of least height above the cut (e.g.
+p = 3203: `−8` and `−1/8 ≡ 1201`), i.e. `≍ 1/H₀ ≍ p^{−1/4}` — the
+label mechanism of Prop 4.1 at one prime. So Theorem 3.1's exponent 1/12 is
+lossy; `1/4` (the cut exponent) looks like the truth. Toy scale only.
