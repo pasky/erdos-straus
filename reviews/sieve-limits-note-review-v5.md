@@ -160,7 +160,7 @@ moduli ≤ x — for GEH only its specialisation to primes in progressions, and 
 review R61 M1). *Repair:* "Haar-centred progression input (BV, EH(θ), the progression part of GEH;
 not full GRH or GEH)". (c) O16 Thm 1.2 is conditional on LS *and* modulo Nair–Tenenbaum; say so.
 
-**D7 (MINOR, wording). "Only residue-dense classes remain" (§17 (iii), §16 item 1, intro item 7).**
+**D7 (MINOR, wording). "Only residue-dense classes remain" (§17 (iii), §16 item 1, intro item 8).**
 (RS_γ) is a property of the *union* Res_ℓ(𝔊₂) over all multi-rough classes, not of single classes:
 many individually H-small classes with different (r,s) can make the union dense. *Repair:* "only
 mixtures whose multi-rough part violates (RS_γ) for every fixed γ > 0".
