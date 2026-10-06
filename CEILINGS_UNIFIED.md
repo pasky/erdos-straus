@@ -65,3 +65,65 @@ for this purpose: one large prime per atom plus a revealed small coordinate
 replaces Janson. The two documents were never cross-referenced. The new
 dependency is BV (via the note's supply theorem); POINTWISE_HAAR used only the
 fundamental lemma. Both lower bounds remain valid.
+
+## 2. Witness-modulus tail relative to π(x) (goal (b))
+
+**Theorem 2.1 (PROVED given the note (INTERNALLY PROVED, (B)11) and Page's
+theorem in the form of Davenport, *Multiplicative Number Theory*, Ch. 20).**
+There are absolute `c, c₁ > 0` such that, uniformly for `x ≥ 3` and
+`3 ≤ T ≤ exp(c₁(log x)^{1/4})`,
+```
+#{p ≤ x prime : W(p) > T} ≪ π(x)·exp(−c(log T)³).
+```
+This upgrades ledger (A)9 / notes Thm 51.2(2) in two ways: the label (it
+was CLAIMED/PROVISIONAL because Thm 34.8 was; the note now proves that input),
+and the normalisation (`π(x)` instead of `N`, which matters when
+`(log T)³ ≲ log log x`). No `polylog` loss.
+
+*Proof.* Bounded `T` is trivial; let `T ≥ T_0`. Put `X = T^{1/(1+κ)}`,
+`t = log X`, so `KX ≤ T`; let `y = Bt³` and `r` the least even integer
+`≥ D_B t³`, with `B, D_B` as in note Thm 8.2 (enlarging `D_B` is allowed
+there). Put `ν = S_y Q_r(H_X)`. Then `ν ≥ 0` on ℤ (note Lemma 8.1), and for a
+prime `p > y` with `W(p) > T` we have `H_X(p) = 0` (an active atom is a
+witness of modulus `kℓ ≤ T`, notes (51.2)), so `ν(p) = 1`. Hence
+`#{p ≤ x : W(p) > T} ≤ y + Σ_{p≤x} ν(p)`, and `y = Bt³` is negligible.
+
+*Case A: `c_a t³ ≥ 2 log log x`.* Choose `c₁` with `log x ≥ C_0 t⁴`. By note
+Thm 8.2, `Σ_{p≤x} ν(p) ≤ Σ_{n≤x} ν(n) ≪ x e^{−c_a t³} ≤ x e^{−c_a t³/2}/log x`.
+
+*Case B: `c_a t³ < 2 log log x`.* Then `t⁴ ≪ (log log x)^{4/3}`, so by the
+ledger (note (8.3)) every term modulus `q` and the coefficient sum satisfy
+`q, T_abs ≤ e^{C t⁴} ≤ exp(c₂√log x)` for `x ≥ x_0`.
+(i) *Prime sum.* Write `ν = Σ_i c_i 1[n ≡ a_i (q_i)]`. Then
+`Σ_{p≤x} ν(p) ≤ T_abs√x + (2/log x)Σ_{n≤x} ν(n)Λ(n)` (`ν ≥ 0`, `‖ν‖_∞ ≤ T_abs`),
+and `Σ_{n≤x}νΛ = Σ_i c_i ψ(x; q_i, a_i)`. Terms with `(a_i,q_i) > 1` contribute
+`≤ T_abs(log x)²`. For `(a,q)=1`, `q ≤ exp(c₂√log x)`, Page's theorem gives
+`ψ(x;q,a) = x/φ(q) − 1_{q_1|q} χ_1(a) x^{β_1}/(φ(q)β_1) + O(x e^{−c₃√log x})`,
+where `χ_1` (primitive mod `q_1`) is the possible exceptional real character
+for this range. Define the unit-Haar functional `E_*f = Σ_{(a_i,q_i)=1} c_i/φ(q_i)`
+and `χ̃_1 = χ_1(n mod q_1)` on `Ẑ^×`. Since `∫_{n≡a (q)} χ̃_1 dP_* = χ_1(a)/φ(q)`
+if `q_1 | q` and `= 0` otherwise (primitivity: `χ_1` is non-trivial on the kernel of
+`(ℤ/q_1)^× → (ℤ/(q,q_1))^×` when `q_1 ∤ q`), the main terms sum to
+`x·E_*[ν(1 − εχ̃_1)]`, `ε = x^{β_1−1}/β_1 ∈ [0, 2]` (`β_1 ≥ 1/2`). As `ν ≥ 0`
+on every residue class, hence on `Ẑ^×`, this is `≤ 3x E_*ν`. So
+```
+Σ_{p≤x} ν(p) ≤ (6x/log x)·E_*ν + O(x e^{−c₃√log x /2}).
+```
+The error is `≪ π(x)e^{−t³}`-negligible since `t³ ≪ log log x`.
+(ii) *Unit mean.* On units `S_y = 1`, so `E_*ν = E_* Q_r(H_X)`. Condition on
+the unit `c = n mod L_K`; as in Prop 1.1, `H_X = Σ_ℓ I_ℓ` with independent
+Bernoulli `I_ℓ` of mean `f_c(ℓ)/(ℓ−1) ≤ 2f_c(ℓ)/ℓ`, so
+`E_*((H_X)_m | c) ≤ (2μ_c)^m ≤ (2C_u t³)^m` (note Cor 4.3) and
+`P_*(H_X = 0 | c) ≤ e^{−μ_c} ≤ e^{−a t³}` (Prop 1.1). By note Lemma 8.1,
+`E_*Q_r(H) ≤ P_*(H=0) + E_*(H)_{r+1}/(r+1)! ≤ e^{−a t³} + (2eC_u t³/(r+1))^{r+1}
+≤ 2e^{−a t³}` once `D_B ≥ 2e²C_u` and `D_B ≥ 2a`.
+Combining: `Σ_{p≤x}ν(p) ≪ π(x)e^{−a t³}`. In both cases `t ≍ log T`. ∎
+
+*Remark 2.2 (scope).* Case B is exactly the Siegel-model transfer
+`(1 − εχ_1)P` that POINTWISE_OMEGA15 Thm 3.1 analyses for minorants: for
+*majorants* the exceptional character costs only the factor `1 + ε ≤ 3`,
+because a majorant is non-negative. This asymmetry (upper bounds tolerate
+Siegel zeros, lower bounds need `E_*[B(1−εχ)] > 0`) is the familiar one.
+Theorem 2.1 is the "typical-size" statement on the exceptional side; the
+pointwise side asks for the *opposite* inequality (some `p ≤ x` with
+`W(p) > T`), whose certificate must be a minorant (§4).
