@@ -15,8 +15,9 @@ scripts `scripts/largesieve4_checks.py`, `scripts/largesieve4_toy_es.py`.
    path event `G_B = {no leak} ∩ {Σ_ℓ w_ℓp̃_ℓ ≤ B}` gives damped collision
    `≤ e^{2B}/Q'(G_B)²`; with Markov this needs **first moments only**
    (no large deviations, no comparison-at-level hypothesis).
-3. **Theorem 4.2 (PROVED implication):** H_LS∞ for **all** forced
-   mixtures (cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` for every
+3. **Theorem 4.2 (PROVED implication):** the all-level large-sieve cap
+   for **all** forced mixtures — via the Hölder/H_rough route, *not* LS2's
+   (H_LS∞) criterion itself (cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` for every
    CRT-admissible large sieve at any level) follows from a purely
    qualitative-looking sup decay (A*) of the conditioned fibre laws, at
    **any fixed rate γ** with per-prime losses up to `z^{γ/2}`.
@@ -37,14 +38,29 @@ scripts `scripts/largesieve4_checks.py`, `scripts/largesieve4_toy_es.py`.
 ## What is still open (precisely)
 
 (A*) for *residue-dense* multi-rough classes (generic ℛ(M) with many moduli
-through a rough ℓ, where `Res_ℓ` is ~all non-squares). Then the
-deterministic residue set must be replaced by the random set of classes
-whose other coordinates are matched, i.e. a covering count (§3.2, (CC)):
-the trivial count works for supports of ≤ `(1−2γ)log₂ z ≈ 1.4(log N)^{1/4}`
-rough primes (bookkeeping of outside coordinates not yet written); beyond
-that the union bound over covers overcounts (structured example in §3.2),
-and an assignment count controlling divisors of `(Q+1)/4` over subset
-products Q ⊆ S is needed. CONJECTURE; no counterexample known.
+through a rough ℓ, whose projected residues can fill essentially all of
+ℤ/ℓ). Then the deterministic residue set must be replaced by the random
+set of classes whose other coordinates are matched, i.e. a covering
+probability (§3.2, (CC), probability form). The trivial cover count gives
+a per-prime factor `2^{|S|}T_S/ℓ` (T_S = max number of classes per
+modulus), useful only for small supports with few classes per modulus,
+and even that needs outside-coordinate bookkeeping not yet written;
+beyond `log₂ z` primes the union bound over covers overcounts
+(structured example in §3.2), and an assignment count controlling
+divisors of `(Q+1)/4` over subset products Q ⊆ S is needed. CONJECTURE.
+
+## Self-review (deep reviewer subagent, before handing over)
+
+No FATAL; Lemmas 1.1, 2.1, 3.1, Prop 4.1, Thm 4.2, Lemma 5.1 (incl. prime
+powers and the conditioned law), Thm 5.2, Cor 5.3 judged sound; the
+reviewer independently checked Lemma 5.1 and Prop 4.1 on 19 capped,
+conditioned prime-power examples. Repaired: (M1) the small-support count
+had omitted the class choice per modulus (now `2^{|S|}T_S`); (M2) (CC)
+restated in probability form (cardinality form wrong for prime powers);
+(M3) "H_LS∞" renamed to "all-level cap via H_rough"; minor: Cor 5.3 uses
+the projection mod ℓ, unit v in Lemma 3.2, `Q'(G_B) > 0`, (A*) exceptional
+event in Thm 5.2 made explicit, "non-squares" remark corrected, J bound
+uniformity in γ, script headers.
 
 ## Things the reviewer should check hardest
 

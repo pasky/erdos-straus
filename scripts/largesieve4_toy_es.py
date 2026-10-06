@@ -62,7 +62,8 @@ def main(primes, include_single):
             sub = A[sl]
             mx = sub.max(); PS = (sub ** 2).sum()
             pred = prod(g[primes[i]] for i in S)
-            print(f"S={[primes[i] for i in S]}: max|hat|={mx:.3e}  P_S={PS:.3e}  prod g={pred:.3e}  max/prod(p)^(-1)... ratio P_S/prod g={PS/pred:.3f}")
+            ratio = f"{PS/pred:.3f}" if pred > 0 else "n/a (some l in S is never a top prime)"
+            print(f"S={[primes[i] for i in S]}: max|hat|={mx:.3e}  P_S={PS:.3e}  prod g={pred:.3e}  P_S/prod g={ratio}")
 
 if __name__ == "__main__":
     main([11, 19, 23, 31, 43], include_single=False)

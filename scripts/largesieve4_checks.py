@@ -1,8 +1,9 @@
 """EXCEPTIONAL_LARGESIEVE4 sanity checks (EVIDENCE only).
-(1) Lemma 1.1: Sum_S (Prod_{l in S} w_l) P_S == E_T R_2(sigma_T), and R_{2+2b} <= it when (A_w) holds
-    with w_l := max over theta with l in supp of ... (we take w_l = 1 and the tight per-prime choice below).
-(2) Lemma 2.1: eta formula E[l^E 1[x_l=x'_l] | past] - 1 = (U(F∩F') - p p')/((1-p)(1-p')) for the
-    always-forbid sequential law, by exact enumeration; and the tilted identity.
+(1) The identity in Lemma 1.1: Sum_S (Prod_{l in S} w_l) P_S == E_T R_2(sigma_T) (R_{2+2b} is only printed).
+(2) Lemma 2.1's local eta formula E[l 1[x_l=x'_l] | past] - 1 = (U(F∩F') - p p')/((1-p)(1-p')) for the
+    always-forbid sequential law, by exact enumeration (the global tilted identity is a change of measure
+    and is not tested separately).
+(3) Lemma 5.1 for the always-forbid law, squarefree coordinates, no conditioning (G = everything).
 """
 import itertools, random
 import numpy as np

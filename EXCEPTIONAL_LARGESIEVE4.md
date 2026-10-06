@@ -22,7 +22,7 @@ frequency θ (`den θ | M_r`) let `supp θ` be the set of primes dividing
 | Lemma 2.1 | tilted pair law: the damped collision is `E_Q Π(1+w_ℓη_ℓ)`, η explicit | PROVED |
 | Lemma 3.1, 3.2 | Fourier coefficients ≤ `2^{|S|}`·P(all of S pivotal) (coin coupling); one class per modulus | PROVED |
 | Prop 4.1 | (B) is free: for the K2 fibre law conditioned on a good path event, the damped collision is `≤ e^{2B}/Q'(G)²` — **first moments only** | PROVED |
-| Thm 4.2 | **H_LS∞ for all forced families ⟸ (A\*)**: sup decay of the conditioned fibre laws at any fixed rate γ (losses up to `z^{γ/2}` per prime allowed); cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` | PROVED (implication) |
+| Thm 4.2 | **the 3/4 cap for every large sieve at every level, for all forced families ⟸ (A\*)** (via the Hölder/H_rough route; this is not LS2's (H_LS∞) criterion itself): sup decay of the conditioned fibre laws at any fixed rate γ (losses up to `z^{γ/2}` per prime allowed); cap `(log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³` | PROVED (implication) |
 | Lemma 5.1 | pinned pivotal bound with a **deterministic** residue set per prime: exact product decay `Π_{ℓ∈S}4U(R_ℓ)/(1−δ_ℓ)` | PROVED |
 | Thm 5.2 | **3/4 cap at every frequency level for mixtures whose multi-rough classes are residue-sparse** (`U(Res_ℓ) ≤ ℓ^{−γ}` at primes > z); one-rough-prime classes arbitrary. Extends LS3 Thm 3.1 | PROVED (K2 inputs; Case A via ElT) |
 | Cor 5.3 | the same for all **small-height** classes `−r/s`, `r,s ≤ z^{1/4}/2` (incl. LS3 Lemma 4.2's `−4 mod M` for all M): residue concentration is the *easy* case | PROVED |
@@ -219,7 +219,9 @@ the signed one-step bounds lose.
 
 **Lemma 3.2 (one class per modulus; PROVED, trivial).** For a modulus Q
 and an assignment v of residues to the primes of Q, at most one class
-mod Q is consistent with v (namely v mod Q). For ℛ(Q) (`Q ≡ 3 (4)`,
+mod Q is consistent with v (namely v mod Q). (A modulus may of course
+carry several classes, `|ℛ(Q)| ≤ τ(A_Q²)`; consistency with a *fixed*
+assignment selects at most one.) For ℛ(Q) and v a unit mod Q (`Q ≡ 3 (4)`,
 `A = (Q+1)/4`): `v mod Q ∈ ℛ(Q)` iff `r̃ | A²` or `s̃ | A²`, where r̃, s̃
 are the least positive residues of `−v/4` and `−1/(4v)` mod Q.
 
@@ -238,13 +240,21 @@ coordinates are matched (S-coordinates by the pinned values in some
 corner, outside coordinates by the path) — a **covering** event.
 
 *The covering count.* Ignoring outside coordinates, the event is
-`E_S = {v : every ℓ ∈ S lies in some Q ⊆ S with v mod Q a class of 𝔊}`,
-and the target is `|E_S| ≤ Π_{ℓ∈S}K ℓ^{1−γ}` (`P(E_S) = |E_S|/M_S`).
-* *Small supports.* Each ℓ has at most `2^{|S|−1}` candidate moduli Q and
-  each Q one consistent class (Lemma 3.2), so the trivial encoding
-  (a minimal cover by ≤ |S| moduli plus their classes) gives
-  `|E_S| ≤ (2^{|S|})^{|S|}`, i.e. a per-prime factor `2^{|S|}`. This is
-  within the slack of Cor 1.2 iff `|S| ≤ (1−2γ)log₂ z ≈ 1.44(log N)^{1/4}`.
+`E_S = {v ∈ Ω_S : every ℓ ∈ S lies in some Q with v mod Q a class of 𝔊}`
+(Q ranging over the S-parts of the moduli), and the target is the
+**probability** form `P_{v∼U_S}(E_S) ≤ Π_{ℓ∈S}Kℓ^{−γ}` (review: a
+cardinality form with `Π Kℓ^{1−γ}` is wrongly normalised for prime-power
+coordinates).
+* *Small supports (squarefree S-parts).* A minimal cover uses ≤ |S| moduli,
+  each chosen among `≤ 2^{|S|}` subsets and carrying `≤ T_S` classes,
+  `T_S := max_Q #{classes of 𝔊 mod Q}`; the cover and the chosen classes
+  determine v. So `P(E_S) ≤ (2^{|S|}T_S)^{|S|}/M_S`: per prime a factor
+  `2^{|S|}T_S/ℓ`. This is within the slack of Cor 1.2 only when
+  `2^{|S|}T_S ≤ z^{1−2γ}`, e.g. `|S| ≤ c log z` **and** `T_S ≤ z^{c}`
+  (for ℛ-classes `T_S ≤ max τ(A_Q²)`, which can exceed any power of z when
+  Q is huge). Even this regime additionally needs the bookkeeping of
+  outside coordinates (not written). (Corrected after self-review: an
+  earlier version omitted the class choice `T_S`.)
 * *Beyond `log₂ z` primes the union bound over covers is false in the
   right direction.* Example (structured family): primes of S all
   `≡ −1 (mod F)`, 𝔊 ⊇ {−4d mod Q : Q ⊆ S of odd size, d | F²/16}
@@ -258,7 +268,7 @@ and the target is `|E_S| ≤ Π_{ℓ∈S}K ℓ^{1−γ}` (`P(E_S) = |E_S|/M_S`).
   random-residue model).
 * So the missing input is a count of **assignments**, not of covers:
   > **(CC)** for every finite set S of primes `> z` and every family 𝔊 of
-  > forced classes, `|E_S| ≤ Π_{ℓ∈S} K ℓ^{1−γ}` with `K = (log N)^{O(1)}`
+  > forced classes, `P_{v∼U_S}(E_S) ≤ Π_{ℓ∈S} K ℓ^{−γ}` with `K ≤ z^{γ/2}`
   > (and the analogue with outside coordinates matched by the path).
   (CC) is a CONJECTURE. Structured coincidences (equal integers d across
   moduli) collapse to few assignments; unstructured ones are rare in the
@@ -284,7 +294,7 @@ Put `p̃_ℓ = p_ℓ1[ℓ light]`. For `B > 0` let
 σ_B lives on the avoider set (G_B contains "no leak").
 
 **Proposition 4.1 (damped collision of the conditioned law; PROVED).**
-For `w_ℓ ∈ [0,1]`,
+For `w_ℓ ∈ [0,1]`, `B ≥ 0` and `Q'(G_B) > 0`,
 
     E_T 𝓡_2((σ_B)_T) ≤ e^{2B} / Q'(G_B)².
 
@@ -332,7 +342,8 @@ so `Q'(leak_c > 1/4) ≤ 4Cz^{−1/4}(log z)^c`; Markov gives
 `E_{Q'}p̃_ℓ ≤ E p_ℓ ≤ Σ_{C: P(G_C) = ℓ}Γ(G_C)/G_C` (K2 (Q4)) and
 `w_ℓ ≤ K^{2β}ℓ^{−2βγ}` with `K^{2β} ≤ e^{γ}`, so by partial summation as
 in LS3 Thm 3.1 (with `α = 2βγ`),
-`J ≤ e·K₃α^{−3}·C(log(e+1/α))³ ≤ Cγ^{−3}(log N)^{3/4}(log log N)³`, and
+`J ≤ e·K₃α^{−3}·C(log(e+1/α))³ ≤ Cγ^{−3}(log N)^{3/4}(log log N)³` (for γ
+fixed, or `γ ≥ (log N)^{−o(1)}`; uniformly in γ keep `(log(e+1/(βγ)))³`), and
 `𝔐(z) ≤ K₃(log N)^{3/4}(log log N)³`. ∎
 
 *Remarks.* (a) **Everything quantitative is now proved**; the only
@@ -403,7 +414,9 @@ Then every CRT-admissible N-large-sieve bound for 𝒜(𝔊) — any rational
 frequencies, any denominators, any weights — saves
 `log(N/B) ≤ (log N)^{3/4} + Cγ^{−3}(log N)^{3/4}(log log N)³`.
 
-*Proof.* Theorem 4.2 with (A*) verified as follows. In the fibre at c,
+*Proof.* Theorem 4.2 with (A*) verified as follows (the (A*) exceptional
+event is `E₁ ∪ {leak_c > 1/4}`, probability `≤ 1/64 + o(1) ≤ 1/32`; off it
+`Q'_c(G_{B_c}) ≥ 1/2` as in Theorem 4.2). In the fibre at c,
 the classes through a rough ℓ are (i) classes of 𝔊₂ (residues in
 `Res_ℓ(𝔊₂)`), and (ii) classes of 𝔊₁ with rough prime ℓ whose smooth part
 is matched by c; the latter are decided at ℓ (top prime) and their
@@ -428,8 +441,9 @@ If every class of 𝔊 with two or more prime factors `> z` is H-small with
 `H ≤ z^{1/4}/2`, the conclusion of Theorem 5.2 holds with γ = 1/4.
 
 *Proof.* The ℓ-residue of an H-small class is `−r/s mod ℓ`
-(`ℓ > z > H`), so `Res_ℓ(𝔊₂)` has at most `(H+1)H ≤ z^{1/2}` elements and
-`U(Res_ℓ(𝔊₂)) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}`. ∎ (Note: the TUPLES2 form
+(`ℓ > z > H`), so the **projection mod ℓ** of `Res_ℓ(𝔊₂)` has at most
+`(H+1)H ≤ z^{1/2}` elements; each class mod `ℓ^v` lies in its residue
+class mod ℓ, so `U(Res_ℓ(𝔊₂)) ≤ z^{1/2}/ℓ ≤ ℓ^{−1/2}`. ∎ (Note: the TUPLES2 form
 `−r/s` with `rsm = A_M` is *not* the relevant height; e.g. `−4 ≡ −1/A_M`.)
 
 *Remarks.* (a) Corollary 5.3 contains the family of LS3 Lemma 4.2
@@ -441,11 +455,13 @@ exactly the easy (deterministic-residue) case. LS3 §4.2's difficulty
 came from summing class masses at a residue; Lemma 5.1 never sums masses
 at the S-primes — it only uses that the residues lie in a fixed small set.
 (b) Theorem 5.2 strictly extends LS3 Theorem 3.1 (the case 𝔊₂ = ∅).
-(c) What remains for H_LS∞ over *all* forced families is the
+(c) What remains for the all-level cap over *all* forced families is the
 **residue-dense, multi-rough** part: classes with two or more primes
 `> z` whose residues at some rough ℓ fill a fraction `> ℓ^{−γ}` of
 `ℤ/ℓ`. For generic ℛ(M) with many moduli through ℓ this happens
-(`|Res_ℓ|` up to `(ℓ−1)/2`, the non-squares), and then the
+(projected residues at ℓ can cover essentially all nonzero residues:
+the Jacobi obstruction is modulo the whole modulus, not prime by prime;
+e.g. `−4 ∈ ℛ(15)` is the square 1 mod 5), and then the
 deterministic set must be replaced by the random set of residues of
 classes whose *other* coordinates are matched: the covering problem
 (CC) of §3.2, now only for "large-height" classes (Cor 5.3 removes the
