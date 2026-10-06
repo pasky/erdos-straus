@@ -189,8 +189,9 @@ The near-miss data agree. In the dump `typei3_nmdump 7 9 10⁸` (932 near misses
 `δ=(e−F)/16n`. Then `Fe=1+4c̃K²` and `e−F=4c̃Kδ`, and the step
 `(K,F)↦(ρ,F')=(K−δF, F−4c̃ρδ)` still preserves the equation. It is multiplication by a
 fixed real quadratic unit, so it ends after finitely many steps at a reduced pair with
-`F_end∈ℤ[1/2]`, `0<F_end≤1`. (If `ρ_end≤0`, then `F_end²≤1`. In the data
-`scripts/typei3_descent.py` the chains are short, except for `δ` small with `c̃` tiny.)
+`F_end∈ℤ[1/2]`, `0<F_end≤1`. (If `ρ_end≤0`, then `F_end²≤1`. On all 932 near misses of the dump, `scripts/typei3_descent.py`
+terminates within ≤156 steps. Long chains occur when `δ` is small and `c̃` tiny. The intermediate F have
+2-adic valuation decreasing by a fixed amount per step.)
 The steps move F by `4c̃ρδ`, which is divisible by `c_o` (the odd part of c) at every odd prime.
 So `F≡F_end (mod c_o)`, `F_end=a/2^m≤1`. Lemma 5.1 is the case `F_end=1`. When
 `c̃∉ℤ`, `F_end<1` occurs, and the congruence `F≡a/2^m (mod c_o)` does not contradict

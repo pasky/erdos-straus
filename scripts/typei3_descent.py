@@ -7,7 +7,7 @@ def v2(x):
     while n%2==0: n//=2; e+=1
     while d%2==0: d//=2; e-=1
     return e
-rows=[l.split() for l in open('sys.argv[1]')]
+rows=[l.split() for l in open(sys.argv[1])]
 seen=0
 for r in rows:
     c,k,al,ga,t,F,e,d=map(int,r)
@@ -17,7 +17,7 @@ for r in rows:
     delta=(e-F)//(16*n); lam=2**(t-4)
     ct=Fr(c,lam*lam); K=lam*k
     chain=[]; Fc=Fr(F); Kc=Fr(K)
-    for step in range(60):
+    for step in range(100000):
         if Fc==1: chain.append('END1'); break
         rho=Kc-delta*Fc
         if rho<=0: chain.append('rho<=0'); break
@@ -25,4 +25,4 @@ for r in rows:
         chain.append((str(Fc) if Fc.denominator==1 else 'v2=%d'%v2(Fc)))
         Fc,Kc=Fp,rho
     seen+=1
-    if seen<=25: print(c,k,al,ga,t,F,e,'delta',delta,'|',chain[:8], '...' if len(chain)>8 else '', chain[-1], len(chain))
+    if seen<=400 and (len(chain)>8 or seen<=3): print(c,k,al,ga,t,F,e,'delta',delta,'|',chain[:4], chain[-1], 'steps',len(chain))
