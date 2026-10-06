@@ -6,7 +6,7 @@ Status: IN PROGRESS.
 ## Verdicts per claim
 (filled in below as checked)
 
-### Claim 1 — Lemma 1.1 (quantitative coset transfer): **SOUND** (MINOR D1)
+### Claim 1 — Lemma 1.1 (quantitative coset transfer): **SOUND**
 
 Re-derived from O9 Thm 1.1 (lines 111–196) + O11 Lemma 3.1 (lines 223–246) + O13 I3.
 * The proof of O9 Thm 1.1 fixes `Q_G:=x^{1/(κL)}` *as a function of x*; every derived
@@ -43,5 +43,21 @@ Re-derived from O9 Thm 1.1 (lines 111–196) + O11 Lemma 3.1 (lines 223–246) +
   `log x·#{…}≥Σ_{B(p)>0}B(p)log p≥S_r(x)` ✓. Losses: `log(1/λ_Q)≤½log Q+O(loglog Q)`,
   `log φ(Q)`, `(4/3)S_res` — all `≪𝓛³(log𝓛)^5` ✓. Threshold `log Z≤log Q+2τ+3𝓛`,
   `τ≍𝓛(S_res+𝓛)` ⇒ `≪𝓛^4log𝓛` ✓; range `𝓛≤c(log x/loglog x)^{1/4}` ⇒ threshold ✓.
+
+### Claim 3 — Lemma 3.1 (leaf calculus): **SOUND**
+
+* Re-derived: start mass `Haar{n≡1 (8)}=1/4`, process prob 1; an `(ℓ,0)` step has process
+  prob `2/(ℓ−1)` vs conditional Haar `1/(ℓ−1)` (ratio 2); an `(ℓ,a≥1)` step has `1/ℓ` vs `1/ℓ`
+  (every lift of a nonzero square mod odd ℓ is a square mod `ℓ^{a+1}`, Hensel); forced step at 3:
+  `1 = 2/(3−1)` ✓. Product: `P_proc(L)=4·2^{k_L}/φ(Q_L)`, `k_L=ω(Q_L)−1` ✓. Disjointness:
+  the rule depends only on `(Q,r)`, so it is a decision tree on digits ✓.
+* **From-scratch brute force** `scripts/review_tail_leaves.py` (6 random deterministic
+  state-dependent rules, forced 3,5,7, then steps at 11 (≤2 levels) and 13; 308–1190 leaves each,
+  enumerated mod `N=840·11²·13`): (1) all lifts are squares; (2) `ΣP_proc=1` exactly; (3) the
+  formula holds for every leaf (exact rationals); (4) leaf fibres are pairwise disjoint, lie in
+  the square classes mod 840, and n is covered iff its own path never meets a non-square at an
+  `a=0` step; Haar mass of the union `=Σ1/φ(Q_L)`. All OK.
+* Note (not a defect): the leaves do *not* cover the hard set; the uncovered mass (non-squares at
+  stepped primes) is exactly why the sum pays `2^{−k_L}` — consistent with Thm 3.3's display.
 
 ## Defects
