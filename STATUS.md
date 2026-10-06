@@ -44,7 +44,9 @@ with its status label. Read it before starting new work.
   audit (`reviews/es-threequarter-blind-audit.md`, SOUND). It has not been
   externally refereed.
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
-  analysed (see "Exceptional-set exponent: where it stands" below). The cubic
+  analysed except residue-dense all-level large sieves and hybrids, which
+  are reduced to open statements (see "Exceptional-set exponent: where it
+  stands" below). The cubic
   witness tail (ledger (A)9) is now INTERNALLY PROVED via the 3/4 note.
 
 ### 2. Pointwise signed-graph line (wave 33–34): CLOSED
@@ -186,8 +188,9 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
 
 ## Exceptional-set exponent: where it stands (2026-10-06)
 
-**3/4 is sharp for every CRT architecture analysed so far** (ledger
-(D)9–(D)28; all internal, reviewed, unrefereed). The 3/4 note's own majorant
+**3/4 is proved sharp for the CRT architectures below; the remaining cases
+are reduced to precisely stated open statements** (ledger (D)9–(D)28; all
+internal, reviewed, unrefereed). The 3/4 note's own majorant
 is in the class, so the note is sharp for its method.
 * *Coefficient-sum sieves:* over any mixture of forced (ℛ(M), (a,D),
   Case-A) and selector classes, arbitrary moduli, no B, no `log log` loss:
