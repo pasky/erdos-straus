@@ -115,3 +115,54 @@ The Y-smooth variant: same proof with `σ := min(1/log Y, ε_0/2)` and `p < Y`. 
 *Why Rankin is needed.* Without the weight `(M_1/X)^σ` each dyadic block contributes
 `≍ (log X)/q`-size terms and the sum over the `≍ log L(q) ≍ q` blocks is not uniform; NT/Henriot
 see the smoothness of `M_1` only through the Euler factor, not through Dickman decay.
+
+## 3. After any prefix, the rest of ADM costs only the prefix distortion
+
+Fix `θ ∈ (0,1)`, `K := (1−θ)^{−2}`, `q_0 ≥ 8`, a prefix law ν on hard classes mod `Q_0 = Q(q_0)`
+with density `≤ C_ν`, and run stage A then stage B, stopped (MN Thm 5.1) before any step that
+would make some `Λ(ℓ) > K`. For a prime ℓ let `a_ℓ` be its first post-prefix level
+(`ℓ^{a_ℓ} ≤ q_0 < ℓ^{a_ℓ+1}`). A step at `(ℓ,a)` is **bad** if `a ∈ {a_ℓ, a_ℓ+1}` and `Y > θN`,
+or `a ≥ a_ℓ+2` and `Y ≥ 1` (Y as in Lemma 1.3).
+
+**Theorem 3.1 (PROVED modulo (H)).** For every `ε > 0` there is `c_1 = c_1(m,θ,ε)` (ineffective:
+it contains the constants of (H)) such that, uniformly in large T,
+
+```
+P(the process dies or is stopped)  ≤  P(some step is bad)  ≤  C_ν·( c_1 q_0^{−1/2+ε} + o_{T→∞}(1) ).
+```
+
+Consequently, if `C_ν c_1 q_0^{−1/2+ε} ≤ 1/4` for some admissible `(q_0,ν)`, then ADM_m(K, Q(q_0))
+holds with success probability ≥ 1/2 (enough by Lemma 1.1), `K = (1−θ)^{−2}` (e.g. `K = 4`).
+
+*Proof.* *No bad step ⇒ success.* Death is `f = 1 > θ`. If no step is bad then every ℓ has at most
+two post-prefix levels with `0 < f ≤ θ` and `f = 0` elsewhere (Lemma 1.3), so `Λ(ℓ) ≤ K` and the
+stopping rule never fires. So it suffices to bound `Σ_steps P(bad ∧ alive)`.
+*First moments.* Let E be completed at a step at `(ℓ,a)` and `E^-` its restriction to `M/ℓ`
+(`M_{E^-} = M_1ℓ^a`). On "alive", `1[E^- consistent] = p(E^-) ≤ p(E^-)Ψ(E^-)`, and
+`Σ p Ψ` is a supermartingale up to the stopping time (MN Thm 5.1(a)); optional stopping at the
+(stopping) time of the step and the prefix bound give
+`E[1[E^- cons]·1_alive] ≤ C_ν K^{ω(M_1)+1}/φ(M_1ℓ^a)`. Summing over `D | A²` and over `M_1`:
+`E[Y·1_alive] ≤ C_ν K S_1(q)/φ(ℓ^a)` (Lemma 2.1 with `K_1 = K`; in stage B use the Y-smooth
+variant, since an adaptive step may complete atoms with any revealed, hence Y-smooth, cofactor).
+*Second moment at a = 0.* For `E, E'` completed at the same level-0 step,
+`E[1[E^- cons]1[E'^- cons]1_alive] ≤ C_ν K^{ω(M_1)+ω(M_1')}φ(g)/(φ(M_1)φ(M_1'))`,
+`g = gcd(M_1,M_1')` — this is O13 Lemma 3.2(d)'s pair potential with caps (MN Thm 5.1(d)): just
+before the step both restrictions are fully revealed, so `Π = 1[both consistent]`, and
+`Π_0^{Haar} ≤ φ(g)/(φ(M_1)φ(M_1'))`. Write `M_1 = gu`; `1/(φ(g)φ(u)) ≤ (M_1/φ(M_1))/φ(M_1)`,
+`τ(A²)τ(A'²) ≤ (τ(A²)²+τ(A'²)²)/2`, `Σ_{u'|L(q)}K^{ω(u')}/φ(u') ≪ (log q)^{2K}`,
+`Σ_{g|M_1}K^{ω(g)} ≤ τ(M_1)K^{ω(M_1)}`. Hence
+`E[Y²1_alive] ≪ C_ν(log ℓ)^{2K}S_2(ℓ)` with `K_1 = 4K²`.
+*Bad probabilities.* (a) `a = 0`, `ℓ > q_0`: Chebyshev,
+`P ≤ C_ν(log ℓ)^{2K}S_2(ℓ)/(θ(ℓ−1))² ≪ C_ν ℓ^{−2+ε}`.
+(b) `a ∈ {a_ℓ, a_ℓ+1}`, `a ≥ 1` (so `q = ℓ^{a+1} > q_0` with `a ≥ 1`): Markov,
+`P ≤ C_ν K S_1(q)/(θℓφ(ℓ^a)) ≪ C_ν q^{−1+ε}`; the number of such q in `(x,2x]` is `≪ x^{1/2}`, so the
+sum over `q > q_0` is `≪ C_ν q_0^{−1/2+ε}`.
+(c) `a ≥ a_ℓ+2`: `P(Y ≥ 1) ≤ C_ν K S_1(q)/φ(ℓ^a) ≪ C_ν q^{ε}ℓ^{−a}`. If `ℓ > q_0` then `a ≥ 2`
+and the sum over ℓ, a is `≪ C_ν q_0^{−1+2ε}`; if `ℓ ≤ q_0` then `ℓ^a ≥ ℓ^{a_ℓ+2} > ℓq_0`, and the sum
+over a (geometric) and `ℓ ≤ q_0` is `≪ C_ν q_0^{−1+2ε}log log q_0`.
+(d) Stage B steps have `q > Z`; (a)–(c) with the Y-smooth variant give
+`≪ C_ν(log Y)^{C}Z^{−1/2+ε} = o(1)` as `Z = 𝓛³(log𝓛)^B → ∞`, `log Y ≍ log 𝓛`. ∎
+
+*Remark (the level count).* "Two levels with `Y ≤ θN`, then `Y = 0`" is forced: for `ℓ > q_0` the
+level-1 first moment `≍ (log ℓ)^C/ℓ` is not summable over primes, so level 1 must be allowed to
+forbid; level 0 needs the second moment for the same reason (MN §6 (ii)).
