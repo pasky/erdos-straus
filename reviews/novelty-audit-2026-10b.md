@@ -245,3 +245,57 @@ Lemma 1.1".
 
 **Not new.** The LP/sandwich duality, the Bonferroni sufficiency side and the moment-problem
 framing.
+
+---
+
+## 5. Haar-avoidance → primes via Gallagher (`POINTWISE_OMEGA9.md` Thm 1.1, `POINTWISE_TRANSFER.md`)
+
+**Object.** Let B be a minorant of the avoidance indicator F on units mod `Q·D`, with Haar
+mean μ. Put `A = E|B|/μ`, and suppose every cell modulus is `≤ Z`. Then some prime
+`p ≡ 1 (Q)` with `B(p) > 0` satisfies `log p ≪ (1+log A)·log Z`. The proof:
+* expand B in Dirichlet characters mod `QD` (so `|c(χ)| ≤ E|B|/φ(Q)`);
+* note that every χ with `c(χ) ≠ 0` has conductor `≤ Z`;
+* sum Gallagher's log-free zero-density estimate over all primitive characters of conductor
+  `≤ Z`, with Landau–Page for the exceptional zero.
+
+The result is PROVED modulo (G) and was reviewed (R33b, R42).
+* `POINTWISE_TRANSFER.md` §4.6 itself states (Assessment) that **no system is known on
+  which Thm 1.1 provably beats quarantine + coarsening + Bonferroni with the same
+  transfer**.
+* `POINTWISE_TRANSFER.md` §4 already contains an honest [memory] comparison.
+
+**Closest known results** (all [memory] unless stated):
+
+| Prior work | Relation |
+|---|---|
+| **Linnik's theorem in Gallagher's form** (Gallagher, *Invent. Math.* 11 (1970); Montgomery's *Topics*; Iwaniec–Kowalski Ch. 18; the MV3 draft Thm 28.19 as quoted in [SN]) | The analytic engine is **verbatim** Gallagher's proof of Linnik: log-free zero density over all characters of conductor `≤ Z`, Deuring–Heilbronn / Landau–Page for the exceptional zero. Thm 1.1 is Linnik with the single-class indicator replaced by a weight whose character coefficients are controlled by its Haar ℓ¹ norm. |
+| **Linnik-range results with sieve weights**: Heath-Brown's Linnik constant L=5.5 (Proc. LMS 1992), which inserts sieve weights into the zero-density machinery; Maynard, "Dense clusters of primes in subsets" (Compositio 2016) and "Small gaps between primes" in the Linnik range (`q` a power of x); the Thorner–Zaman sieve-weighted Linnik/Chebotarev variants [TZ PNT in APs checked in `sources/lit2026/arxiv-2108.10878-thorner-zaman-pntap.txt` for the relative-error theorem PO Thm 4.1 uses] | "Insert a nonnegative or minorant weight into Gallagher/Linnik" is **standard**. The specific bookkeeping (only `E|B|/μ` and the maximal *cell* modulus enter, not the lcm D, the ℓ¹ mass of the cell expansion, or the number of cells) is not recalled from these papers. |
+| **Least prime in a union of classes / Chebotarev**: Lagarias–Montgomery–Odlyzko (1979); Thorner–Zaman (2017–19); Pierce–Turnage-Butterbaugh–Wood (2020) [memory] | Discriminant-based. For cyclotomic fields of huge modulus D they lose `φ(D)`. Conductor-based abelian versions give `log p ≪ log(QD)`. Thm 1.1's gain is that the **conductor of the relevant characters** stays `≤ Z ≪ D`. That gain is the conductor–discriminant refinement for abelian fields, applied to a weight with low-conductor Fourier support. |
+| **Least primes with many prescribed local conditions**: least prime simultaneously a residue/non-residue for many small moduli (Linnik–Vinogradov; Pollack, e.g. "Bounds for the first several prime character nonresidues", PAMS 2017; Pollack and coauthors on the least prime splitting in multiquadratic fields) [memory] | The closest "sifted-set Linnik" results the auditor recalls. They use characters of small conductor to handle many local conditions at once. Thm 1.1 is a general abstract version of this pattern, for *bounded-width* congruence DNFs. |
+| **Granville–Pomerance**, "On the least prime in certain arithmetic progressions" (JLMS 1990) [memory] | Lower bounds and conjectures for the least prime in a class: `P(q,a) ≫ φ(q)log q·log₂…` for some a. This is the **Ω-direction**, relevant to item 6's ceilings, not to the transfer. Conjecture LS (OMEGA16) is a log-scale sifted-set analogue of the Linnik upper bound. It is *weaker* than the Granville–Pomerance / Heath-Brown `φ(q)log²q` conjectures in the single-class case. |
+| **Maynard, restricted-digit primes** (Invent. Math. 2019) [memory; OMEGA15 §5 already compares] | Primes in a sparse, highly structured set via Fourier and Type I/II input. The campaign explains why that analogy fails. |
+| **Jacobsthal / sieved sets** (FGKMT; FKMPT) [checked in `sources/jacobsthal-literature/` for scope] | Lower bounds (long gaps). The opposite direction. |
+
+**What is genuinely new (apparently).**
+1. **The abstract transfer statement** (cost `(1+log A)log Z`, independent of the lcm and the
+   number of cells). It is new as a stated theorem.
+   * *Confidence: low–medium.* It is an easy corollary of Gallagher-Linnik for anyone in the
+     field, and similar bookkeeping is likely inside Pollack-type or Thorner–Zaman-type
+     papers without being isolated.
+   * Its *value* is also unproven: by the campaign's own §4.6 no separating example exists.
+   * It should be presented as "a convenient packaging of Gallagher's proof of Linnik's
+     theorem", **not** as a new transfer principle.
+2. **The composite pipeline** (Haar avoidance density from LLL/Janson → BRW sandwich →
+   character expansion → least prime) applied to covering-avoidance systems with lcm far
+   beyond the Linnik range. As in `novelty-audit-omega8.md` (iii), the auditor knows no
+   prior least-**prime**-in-uncovered-set result of this kind.
+   * *Confidence: medium.*
+   * This, not Thm 1.1 alone, is the reportable novelty.
+3. **Conjecture LS** (OMEGA16) as a formulated hypothesis ("Linnik for sifted sets",
+   log-scale). The auditor knows no identical named conjecture. It is a natural
+   log-scale weakening of Cramér/Granville random-model heuristics and is folklore in
+   spirit. OMEGA16 Prop 3.1 shows that LS lies beyond linear certificates; that is an
+   apparently new and useful observation (*medium*).
+
+**Not new.** Gallagher's log-free density, Landau–Page / Deuring–Heilbronn, the idea of
+inserting sieve weights into Linnik's theorem, and the conductor-vs-discriminant point.
