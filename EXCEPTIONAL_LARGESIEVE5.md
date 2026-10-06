@@ -45,8 +45,10 @@ So (A*) is needed only for the fibre laws of the **full** family `𝔊_X`
 bounds uniform in X. In particular no adversarial sub-selection of
 moduli has to be handled: every sum over classes through a prime is a
 complete sum over cofactors (this is what makes divisor-in-progression
-averages over moduli available below). Fibres at a smooth part c are
-still full in the rough direction (all rough cofactors occur).
+averages over moduli available below). Caveat (R67): a fibre at a smooth
+part c keeps only the classes whose smooth residues match c, so fibre
+sums over rough cofactors are complete sums *filtered by smooth
+congruences*; they are complete only on average over c.
 
 **Lemma 1.2 (rational labels and compatibility; PROVED).** Every class of
 the four types can be written `b ≡ −r/s (mod G)` with integers `r ≥ 0`,
