@@ -395,8 +395,8 @@ r, the chain rule gives `E[Y_{>r}(x) | 𝓕_{≤r}] ≤ Θ_r(x_{≤r})`,
 off-top by x or x′. Given `𝓕_{<r}`, the probability that r is divergent
 **and** `x_r ≡ b′ (mod r^{e})` (e = `v_r(G_{C′})`, possibly 0) is at most
 `U(D_r ∩ [b′]) + P(c_r ∈ D_r, replacement ≡ b′) + P(c_r ∈ F^∩_r, first of
-π_r outside F^∩_r in D_r, x_r ≡ b′)` `≤ min(U(D_r), r^{−e}) + 2U(D_r)·2r^{−e}
-+ min(2U(D_r), 2r^{−e})` `≤ 10Σ_C r^{−max(v_r(G_C), e)}` (use
+π_r outside F^∩_r in D_r, x_r ≡ b′)` `≤ min(U(D_r), r^{−e}) + U(D_r)·2r^{−e}
++ min(2U(D_r), 2r^{−e})` (π_r is independent of c_r; reviewer R71 D-b) `≤ 10Σ_C r^{−max(v_r(G_C), e)}` (use
 `min(Σa_i, b) ≤ Σmin(a_i, b)`; the replacement is uniform on the
 complement of a set of mass `≤ 1/2`). Hence
 `E[1{τ=r}Θ_r(x_{≤r})] ≤ Σ_{C∋ℓ, top r}Σ_{C′}a_{C′}·10r^{−max(v_r(G_C),e)}·
