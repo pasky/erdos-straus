@@ -89,3 +89,70 @@ In the product case (LS3 Thm 3.1) the per-prime collision factor is
   (residue concentration, LS3 Lemma 4.2, becomes harmless: the forbidden
   set at ℓ is a set, so the class −4 mod pM' contributes one residue per
   ℓ, and the damping `w_ℓ` cuts the `Σ1/ℓ` sum to O(1)).
+
+## 2. (B) for sequential laws: the tilted pair process
+
+**Setting 2.0 (always-forbid sequential law).** 𝒫 is ordered increasingly,
+`Ω_ℓ = ℤ/ℓ^{E_ℓ}`, U the uniform law. A *rough family* is a finite set of
+patterns `C = (b_C mod G_C)`, `G_C | M_r`; `top(C)` is the largest prime
+of `G_C`. Given `x_{<ℓ}`, the activated set `F_ℓ(x_{<ℓ}) ⊆ Ω_ℓ` is the union
+of the classes `b_C mod ℓ^{v_ℓ(G_C)}` over C with `top(C) = ℓ` and
+`x_q ≡ b_C (mod q^{v_q(G_C)})` for all other primes q of `G_C`;
+`p_ℓ = U(F_ℓ)`. Assume `p_ℓ < 1` on every path (true off K2's leak event
+for the fibres of LS3, where `p_ℓ ≤ 1/2`). σ draws `x_ℓ ~ U(·|Ω_ℓ∖F_ℓ)`
+in increasing order. It lives on the avoider set (the top of every class is
+forbidden when the class is activated), and it is the law of LS3 §3 when
+every class has one rough prime. (Differences from K2's capped plain
+rule: no caps, heavy steps still forbid.)
+
+**Lemma 2.1 (tilted pair law; PROVED).** Let x, x' be independent copies
+of σ, run jointly in increasing ℓ; `p = U(F_ℓ(x_{<ℓ}))`,
+`p' = U(F_ℓ(x'_{<ℓ}))`, and
+
+    η_ℓ := E[h_ℓ(x_ℓ,x'_ℓ) | past] = (U(F_ℓ∩F'_ℓ) − pp') / ((1−p)(1−p')).
+
+For `w_ℓ ∈ [0,1]` let Q be the law of the pair under which, given the past,
+`(x_ℓ, x'_ℓ) = (a,a')` with probability
+`k(a)k'(a')(1 + w_ℓh_ℓ(a,a'))/(1 + w_ℓη_ℓ)`, k, k' the σ-step laws. Then
+
+    E_{σ⊗σ} Π_ℓ(1 + w_ℓh_ℓ) = E_Q Π_ℓ(1 + w_ℓη_ℓ) ≤ E_Q exp(Σ_ℓ w_ℓ ξ_ℓ),
+    ξ_ℓ := U(F_ℓ∩F'_ℓ)/((1−p)(1−p')).
+
+Under Q, given the past, `P_Q(x_ℓ = a) ≤ U(a)/((1−p)(1−p')(1+w_ℓη_ℓ))`, and
+the same for `x'_ℓ` (per-coordinate inflation, as EK Lemma 2.1(2)).
+
+*Proof.* Given the past, x_ℓ, x'_ℓ are independent with laws
+`k = U(·|F^c)`, `k' = U(·|F'^c)`; so
+`E[ℓ^{E}1[x_ℓ=x'_ℓ]|past] = ℓ^{E}Σ_a k(a)k'(a) = U(F^c∩F'^c)/((1−p)(1−p'))`
+and `U(F^c∩F'^c) = 1 − p − p' + U(F∩F')`, which gives η. Since
+`1 + w h ≥ 1 − w ≥ 0`, `1 + wη = E[1+wh | past] ≥ 0`; if `1 + wη = 0` then
+`1 + wh = 0` a.s. given the past and both sides of the identity vanish on
+that branch (set the Q-step arbitrarily). Otherwise `Z_ℓ = (1+wh)/(1+wη)`
+is ≥ 0 with conditional mean 1, `dQ/d(σ⊗σ) = Π_ℓ Z_ℓ`, and
+`Π(1+wh) = Π(1+wη)·ΠZ_ℓ` with `Π(1+wη)` predictable step by step, so
+`E_{σ⊗σ}Π(1+wh) = E_QΠ(1+wη)`. Drop `−pp' ≤ 0` and use `1+u ≤ e^u`.
+Inflation: `Σ_{a'}k'(a')(1+w h(a,a')) = 1 − w + w ℓ^{E}k'(a) ≤ (1−p')^{−1}`
+(as `ℓ^{E}k' ≤ (1−p')^{−1}` and `1 − w + w·t ≤ t` for `t ≥ 1`), and
+`k(a) ≤ U(a)/(1−p)`. ∎
+
+*Remarks.* (a) `ξ_ℓ ≤ min(p,p')/((1−p)(1−p'))`; the copies interact only
+through the **common** activated residues `F_ℓ ∩ F'_ℓ`. Under Q the copies
+are glued at ℓ with probability ≈ `w_ℓ` (the factor `1 + wh` rewards
+`x_ℓ = x'_ℓ`), so typically `F_ℓ ∩ F'_ℓ ≈ F_ℓ` and ξ_ℓ ≈ p_ℓ: (B) is an
+**exponential moment of the damped activated mass** `Σ_ℓ w_ℓ p_ℓ` under a
+pair law with bounded per-coordinate inflation. The first moment is the
+right size (Cor 1.2 scale remark); what is needed is that the upper tail
+is not heavier than `exp(−c·deviation)` at scale `(log N)^{3/4}` — a
+large-deviation statement, not a correlation-decay statement.
+(b) (Fibres.) In LS3's setting the fibre law at c is Setting 2.0 for the
+fibre family 𝔊_c, and Theorem 1.1 needs only `E_{c∼π_s}𝓡_{p'}(π_c)`. Since
+`π_s` is K2's law conditioned on an event of probability ≥ 1/2, the
+c-average may be taken under the unconditioned sequential law, and bad c
+(say `E[Σ_ℓ w_ℓ p_ℓ | c] > 16·mean`) may be put into LS3 Lemma 2.1's
+exceptional event E (Markov). So (B) is needed only **fibrewise, for
+fibres whose conditional mean damped mass is ≤ 16J** — an exponential
+moment over the *rough* coordinates only.
+
+`scripts/largesieve4_checks.py` checks (EVIDENCE): the identity
+`Σ_S w_S P_S = E_T𝓡_2(σ_T)` and the η formula by exact enumeration
+(random toy families over primes 3, 5, 7, 11; errors ≤ 3·10⁻¹⁴).
