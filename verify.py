@@ -20452,4 +20452,60 @@ print("\n== (dn) EXCEPTIONAL_LARGESIEVE4: Lemma 1.1 damped-collision toys, Lemma
 check_dn()
 
 
+
+# ---------------------------------------------------------------- (do)
+# EXCEPTIONAL_LARGESIEVE5.md Lemma 1.2 (rational labels and compatibility; PROVED, elementary; cf.
+# scripts/review_ls5_labels.py, run with GMAX = 600; it asserts internally).  Checked:
+# (1) R67b brute force over all classes of the four types (R(M), (a,D), Case A, selectors) with
+#     modulus <= 600: every label -r/s represents its class with the stated height bound; every
+#     congruent distinct-label pair mod g has H1 H2 >= g/2 (observed min H1 H2/g ~ 1); at most one
+#     label of height < sqrt(g/2) per class mod g;
+# (2) inline, R(M) labels for all M = 3 (4), M < 6000: -4D (D <= A) or -1/(4D') (D' = A^2/D < A)
+#     is = -4D mod M with height <= M + 1.
+
+def check_do():
+    from time import perf_counter
+    import io
+    import contextlib
+    import os
+    import runpy
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    buf = io.StringIO()
+    old_argv = sys.argv
+    try:
+        sys.argv = ["review_ls5_labels.py", "600"]
+        with contextlib.redirect_stdout(buf):
+            runpy.run_path(os.path.join(sdir, "review_ls5_labels.py"), run_name="__main__")
+    finally:
+        sys.argv = old_argv
+    out = buf.getvalue()
+    assert "[i] 6792 classes (G<=600): labels represent classes, heights OK" in out, ("LS5 Lemma 1.2 (i)", out)
+    assert "[iii] at most one low-height label per class mod g: OK" in out, "LS5 Lemma 1.2 (iii)"
+    npairs = int(out.split("[ii] ")[1].split()[0])
+    mq = float(out.split("min H1H2/g = ")[1].split()[0])
+    assert npairs == 1444997 and mq >= 0.5, ("LS5 Lemma 1.2 (ii) compatibility", npairs, mq)
+    nlab = 0
+    for M in range(3, 6000, 4):
+        A = (M + 1) // 4
+        for D in divisors_of_square(A):
+            if D <= A:
+                r, s = 4 * D, 1
+            else:
+                Dp = A * A // D
+                assert Dp < A and (16 * D * Dp) % M == 1, ("LS5 Lemma 1.2: D' < A, 16 D D' = 1", M, D)
+                r, s = 1, 4 * Dp
+            assert gcd(s, M) == 1 and max(r, s) <= M + 1, ("LS5 Lemma 1.2: R(M) label height", M, D)
+            assert (-r * pow(s, -1, M) + 4 * D) % M == 0, ("LS5 Lemma 1.2: R(M) label != class", M, D)
+            nlab += 1
+    print(f"do Lemma 1.2: R67b brute force G <= 600 (6792 classes, {npairs} congruent distinct-label pairs, "
+          f"min H1H2/g = {mq:.4f} >= 1/2, low-height uniqueness ok); {nlab} R(M) labels (M < 6000) exact; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (do) EXCEPTIONAL_LARGESIEVE5: Lemma 1.2 rational labels, heights, compatibility ==")
+check_do()
+
+
 print("\nall checks passed")
