@@ -143,3 +143,50 @@ It is PROVED and reviewed (`reviews/pointwise-haar-review.md`). Inside the same 
 **Not new.** Lemmas 1.2 and 1.3 (already labelled standard). Lemma 1.1 is an elementary
 observation that underlies the lopsided-LLL treatment of SAT-type conflict graphs
 [memory].
+
+---
+
+## 3. The β-weighted local lemma (`POINTWISE_OMEGA13.md` Lemma 1.1)
+
+**Object.** On a product space, set `x_E = β^{s(E)}P(E)` and `η = (3/4)log β`. If the
+per-coordinate sums `w̃_ℓ = Σ_{E∋ℓ} x_E ≤ η` for every coordinate, then:
+
+* `P(∩Ē) ≥ exp(−(4/3)Σ x_E)`;
+* `P(E | ∩_𝒮F̄) ≤ x_E`;
+* `P(A | ∩_𝒮F̄) ≤ β^{|supp A|}P(A)`.
+
+It is PROVED (R48–R48c).
+
+**Closest known results.**
+* **Asymmetric LLL** (Lovász; Spencer 1977; Alon–Spencer Ch. 5, Lemma 5.1.1) [memory].
+  The proof *is* the asymmetric LLL with a specific choice of `x_E`. The only step beyond
+  verifying the hypothesis is the standard estimate `−log(1−x) ≤ (4/3)x` for `x ≤ 1/4`.
+* **Size-exponential weights in the variable setting** [memory].
+  * The choice `x_E ∝ c^{|E|}P(E)` is the classical device for **non-uniform** hypergraph
+    problems: the Erdős–Lovász (1975) non-uniform Property B criterion and Beck's
+    non-uniform colouring arguments.
+  * It is also the standard "per-variable" corollary: if every variable lies in events of
+    total weight `Σ_{E∋v}(1+ε)^{|E|}P(E) ≤ c(ε)`, the events are avoidable. This appears
+    in many textbook exercises and in algorithmic-LLL papers in the per-variable form.
+  * The auditor cannot give an exact citation with these constants, but the pattern is
+    folklore.
+* **Conditional / "LLL-distribution" bound** `P(A|∩F̄) ≤ P(A)Π(1−x_F)^{−1}`:
+  Haeupler–Saha–Srinivasan (JACM 2011) [memory]. The file already cites it.
+* **Cluster-expansion and Shearer refinements** (Bissacot–Fernández–Procacci–Scoppola
+  2011; Kolipaka–Szegedy; Scott–Sokal) [Scott–Sokal checked in
+  `sources/scott-sokal-0309352.pdf` for topic only]. These sharpen the region. They are
+  not needed here.
+
+**What is genuinely new.** Nothing at the level of the lemma.
+* Lemma 1.1 is a **routine instance of the asymmetric LLL**. The file's label "PROVED" is
+  fine, but it should also say "standard" (as POINTWISE_HAAR Lemma 1.3 does).
+* *Confidence that the lemma is not new: high.*
+* The campaign-specific content is the **parameter choice** `β = 1+1/log𝓛`, which makes
+  the per-coordinate threshold `η ≍ 1/log𝓛` independent of the prime ℓ and of the level.
+  This replaces O11's `θ ≍ log ℓ/𝓛`.
+* That choice drives the 1/5 → 1/4 step for the ES witness modulus (item 6). It is part
+  of the *application's* novelty and should not be presented as a new local lemma.
+
+**Recommended wording.** "Lemma 1.1 (a standard per-coordinate form of the asymmetric local
+lemma with weights `x_E = β^{|supp E|}P(E)`; cf. Alon–Spencer Lemma 5.1.1 and HSS for the
+conditional bound)."
