@@ -222,3 +222,57 @@ Prop 6.2 of LS6 (the class `−4`, triple `(1, A, 1)`, height `4u²t = 4`)
 is exactly the kind of triple removed by the cut: in Case L_v the term
 `1/max(U,T)` is attained by a single pair `(u,t)` of small `4u²t` in the
 pinned class, carrying damped mass `≍ 1/(ut)` over all cofactors.
+
+## 4. Several primes: (RD) as stated in LS6 is false; what survives
+
+LS6's (RD) asks, for sets P of up to `(log N)^C` rough primes, for
+`μ^>_a(P) ≤ (log N)^C Π_{p∈P}p^{−γ₀}` with the height cut
+`H*(C) > max_{p∈P}p^{1/4}`. The cut depends only on the **largest** prime,
+while the claimed gain is a product over **all** of P. A single label of
+height just above `(max P)^{1/4}` refutes it.
+
+**Proposition 4.1 (label obstruction; PROVED, elementary — fundamental
+lemma of the sieve for the fibre version).** Let `y ≥ z^{16}`, let
+`P ⊆ (z, y]` be any set of primes, `P̄ = Π_{p∈P}p`, and let k be a prime
+in `(2y^{1/4}, 4y^{1/4}]`. Put `a_p ≡ −1/k (mod p)` (p ∈ P). Then the
+rough-modulus classes alone give
+
+    μ^>_a(P) ≥ c · w_{2y} / (y^{1/4} log z)        (c > 0 absolute).
+
+Consequently, for every fixed `γ₀ > 0` and C, (RD) fails (for N large)
+for every P consisting of at least `⌈1/(2γ₀)⌉ + 1` primes in `[y/2, y]`,
+`y = z^{16}` — in every fibre, since rough-modulus classes are present in
+every fibre (LS5 §1, R67b).
+
+*Proof.* For a prime `r ∈ (y, 2y]` and a z-rough `j ≤ y` with
+`j ≡ −(P̄r)^{−1} (mod 4k)` put `M = P̄rj`. Then `4k | M+1`, so
+(Lemma 1.1 with `(u,v) = (1,k)`) the class `−1/k mod M` belongs to ℛ(M);
+its residue at every `p ∈ P` is `a_p`; `top = r > max P` (as `j ≤ y < r`);
+and its least label height is exactly k: the label `−1/k` has height
+`k < √(M/2)`, and by LS5 Lemma 1.2 every other label of the class has
+height `≥ M/(2k) > k`. So `H* = k > (max P)^{1/4}`, and the class
+contributes `w_rΓ(M)P̄/M ≥ w_{2y}/(rj)`. Distinct (r, j) give distinct
+moduli. The fundamental lemma (sifting `j ≤ x`, `j ≡ c (mod 4k)`, by the
+primes `≤ z` not dividing 4k; `x/(4k) ≥ y^{3/4}/16 ≥ z^{11}`) gives
+`#{j ≤ x : …} ≫ x/(k log z)` for `x ∈ [y^{7/8}, y]`, hence
+`Σ_j 1/j ≫ log y/(k log z)`; and `Σ_{y<r≤2y}1/r ≫ 1/log y`. Multiply. For
+the consequence: with `|P| = m` primes in `[y/2, y]`,
+`Π_{p∈P}p^{−γ₀} ≤ (y/2)^{−mγ₀} ≤ (y/2)^{−1/2−γ₀}`, while
+`μ^>_a(P) ≥ c e^{−32γ−1}y^{−1/4}/log z` (`w_{2y} ≥ e^{−2γ log 2y/log z}` up to
+`K^{2β} ≥ 1`); the ratio is `≥ y^{1/4+γ₀}/(log N)^{O(1)} → ∞` since
+`y ≥ z = e^{(log N)^{1/4}}`. ∎
+
+So the height cut must scale with the **product** P̄ (a label of height H
+puts mass `≍ 1/H` — times the cofactor mass — on one residue vector
+mod P̄ whatever P is). Even then a second effect appears:
+
+*Remark 4.2 (short cofactors relative to P̄; Assessment).* A single class
+C through P with cofactor `n = G_C/P̄` contributes `w_{P(n)}Γ/n` to
+`μ_{b_C}(P)` — independently of its residue and height. If some class with
+`H*(C) > P̄^{κ}` has `n < P̄^{γ₀}/(log N)^C`, the product-cut (RD) fails at
+that P. Generic classes of ℛ(P̄n) have `H* ≍ √(P̄n)`; but proving that
+some `(P̄n+1)/4` with `y < n < P̄^{γ₀}`, `P(n) > y`, has a factorisation
+`uvt` with all three heights `> P̄^{κ}` is a sieve problem beyond the
+sifting range (the n-range is far shorter than the moduli involved), and
+is not done here. So: product-cut (RD) for **short** cofactors
+`n < P̄^{1/2}` — open in both directions; for long cofactors see Thm 4.3.
