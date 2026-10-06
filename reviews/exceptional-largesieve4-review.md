@@ -115,3 +115,79 @@ m | 4d+1 coprime to G = 4rh, ℛ(M)-classes −4, −1 (D = A), −1/4 (D = A²)
   ℛ(ℓq), q < 3000, cover all ℓ−1 nonzero residues for ℓ = 11, 19, 23
   (so (RS_γ) genuinely fails for generic ℛ — the author's "open" part is
   real).
+
+## Defects
+
+**D1 (MINOR, hidden quantifier; Thm 5.2 statement and Thm 4.2 statement).**
+Both theorems quantify over `γ ∈ (0,1]` but the proofs need N ≥ N₀(γ):
+Thm 5.2 needs `K = 32 ≤ z^{γ'/2}`, i.e. `(log N)^{1/4} ≥ 4 log 32/γ'`, and
+Thm 4.2 needs `1 ≤ K ≤ z^{γ/2}` to be non-empty for the K one has (plus
+"Q'(E) ≤ 1/8 for N large"). For γ ≲ (log N)^{−1/4} the conclusion is
+vacuous anyway (γ^{−3}(log N)^{3/4} ≥ log N), so nothing is lost, but say
+so. *Repair:* add "for N ≥ N₀(γ) (N₀(γ) = exp(Cγ^{−4}) suffices)" to both
+statements, or note that the bound is trivial below that range.
+
+**D2 (MINOR, statement wording; Lemma 5.1).** "any sets `R_ℓ ⊇
+F̃_ℓ`-candidates as below" is garbled, and the one hypothesis that really
+matters is only implicit: R_ℓ must not depend on the pinned values
+(v, v') nor on the outside coins (otherwise the product over ℓ ∈ S of
+P({v_ℓ,v'_ℓ} ∩ R_ℓ ≠ ∅) is not justified). *Repair:* "Let R_ℓ ⊆ ℤ/ℓ^{E_ℓ}
+(ℓ ∈ S) be fixed sets (in Thm 5.2: c-measurable) containing, for every
+class of the (fibre) family with ℓ in its modulus, its class mod
+ℓ^{v_ℓ(G_C)}. Then …" (this also gives F̃_ℓ ⊆ R_ℓ automatically).
+
+**D3 (MINOR, stale text; header, §0 title, "Plan (not yet results)").**
+"Status: in progress", "Summary (so far)" and the Plan section are stale.
+The Plan's §4 bullet ("the class −4 mod pM' contributes one residue per ℓ,
+and the damping w_ℓ cuts the Σ1/ℓ sum to O(1)") describes a mechanism that
+is *not* the one used (Cor 5.3 goes through Lemma 5.1's deterministic
+residue sets, not damping), and the section numbers in the Plan do not
+match the document. *Repair:* delete the Plan section or mark it
+historical; update status.
+
+**D4 (MINOR, label provisos; §0 rows for Thm 4.2 and Cor 5.3).** Thm 5.2's
+row carries "(K2 inputs; Case A via ElT)", but Thm 4.2 (uses (Q1)–(Q4),
+i.e. the same inputs) and Cor 5.3 (a corollary of 5.2) are labelled bare
+"PROVED (implication)" / "PROVED". *Repair:* append the same proviso
+"(LS3 Lemma 2.1 inputs: K2 (Q1)–(Q4); Case A via ElT Prop 1.4)" to both rows
+and to the Cor 5.3 heading.
+
+**D5 (MINOR, Assessment text; §3.2 structured example).** The claim
+"`|E_S|` stays `≤ τ(F²)^{O(1)}·|S|^{|S|}`" is wrong as written: with the
+singleton moduli present every coordinate may independently be any of the
+values −4d mod ℓ (d | F²/16), so `|E_S| = Π_ℓ #{−4d mod ℓ}` which is
+`τ(F²/16)^{|S|}`, larger than `τ^{O(1)}|S|^{|S|}` when τ ≫ |S|. The
+conclusion drawn (product constraints, per-prime probability `≤ τ/ℓ`) is
+right with the corrected count. The "2^{Θ(|S|²)} minimal covers" count is
+asserted without proof. *Repair:* replace by "`P(E_S) ≤ Π_{ℓ∈S}τ(F²/16)/ℓ`
+(each coordinate must be some −4d mod ℓ)"; mark the cover count as
+heuristic or give the construction.
+
+**D6 (MINOR, inconsistency left by the self-review repair M1; Thm 4.2
+Remark (c)).** Remark (c) still says "for supports of size
+`≤ (1−2γ)log₂ z` the count is trivially within the slack (§3.2)", but the
+repaired §3.2 says this holds only when *also* `2^{|S|}T_S ≤ z^{1−2γ}`, and
+`T_S` (classes per modulus, ≤ τ(A_Q²) for ℛ) can exceed any power of z.
+*Repair:* "…within the slack when `2^{|S|}T_S ≤ z^{1−2γ}` (§3.2)…". In the
+same Remark (a), "far weaker than LS2's (H_LS∞)(b)" is a comparison, not a
+theorem — tag it Assessment.
+
+## Points checked and found fine (for the record)
+
+* Thm 4.2 / 5.2 do not secretly rely on (CC) or (A*) for the families
+  claimed: Thm 5.2 verifies (A*) completely via Lemma 5.1.
+* No circularity: σ_c depends on (w, K, γ) through B_c, but (A*) is a
+  hypothesis on these explicitly defined measures; in Thm 5.2 it is
+  verified for exactly those measures (G_{B_c} is admissible in Lemma 5.1
+  since Σwp̃ is a function of activated sets and light/heavy flags).
+* LS3 review D1/D2 (overclaims about equivalence / mixed frequencies) do
+  not propagate: LS4 claims only sufficiency and handles mixed
+  frequencies through fibre measures σ_c with an explicit (A*).
+* Lemma 3.1's "Moreover" clause and Lemma 3.2 (incl. the converse
+  direction: D = A²/s̃ gives −4D ≡ 16A²v ≡ v) — fine.
+
+## Verdict
+
+SOUND-AFTER-REPAIRS only in the cosmetic sense: D1–D6 are all MINOR. The
+document's PROVED labels are earned (modulo the inherited K2/ElT inputs,
+D4). Ledger entry can proceed after D1, D2, D4, D6 (one-line fixes).
