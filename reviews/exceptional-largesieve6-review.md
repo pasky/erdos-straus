@@ -158,3 +158,22 @@ right side, constant 160) 0.083. Thm 5.1 sub-bounds checked separately:
 per divergence point r `E[1{τ=r}min(1,2Y_{>r}+2Y′_{>r})] ≤ 80·(…)_r`
 (0.002). Limitations: squarefree moduli (so the exponent caps of ν are not
 exercised), tiny primes, `Γ = 2^ω`.
+
+### Prop 6.2 and (RD)
+Prop 6.2: the lower bound is immediate once the family contains the
+classes `−4 mod pm` (weight `w_{top}Γ(pm)p/(pm) = w_{top}Γ(pm)/m`) ✓; this
+hypothesis (family ⊇ ℛ(M) for all `M ≡ 3 (4)` up to X) was only implicit —
+made explicit (MINOR D-g, applied). Asymptotic re-derived:
+`Σ_{m rough, P(m)<q}1/m ≈ log q/log z = t`, `Σ_q(w_q/q)t ≈ ∫e^{−2γt}dt`
+(`d log log q = dt/t`), so `≈ e^{−2γt_p}/(4γ)` ✓ (needs Mertens in classes
+mod 4 — correctly left as Assessment). Height facts: LS5 Lemma 1.2
+(`p | r₁s₂−r₂s₁ ≠ 0` ⇒ `H₁H₂ ≥ p`) ✓; example `G = 167`, class `131 = −36`
+(`A = 42`, `D = 9 | 1764`): brute force gives `H* = 13` (label `−13/5`)
+`> √167 ≈ 12.92` ✓. The small-height residue set has
+`(H₀+1)H₀ ≤ 2p^{1/2}` elements, not `≤ p^{1/2}` (MINOR D-f, applied; only
+the constant in `ℓ^{−1/2}` changes).
+(RD): correctly CONJECTURE; the remark that uncapped gains make it false
+(`−4D mod p^eq`, e = 1, 2, …) is plausible (each e gives a fixed residue
+`−4D mod p` and damped mass `≍ Σ_q w_q/(φ(4D)q)`), but the "large height"
+of these classes was not verified by the reviewer — it is a remark, not a
+claim used anywhere. The §6.1/§6.2 route statements are Assessment/SKETCH ✓.
