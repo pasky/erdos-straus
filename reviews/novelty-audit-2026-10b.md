@@ -299,3 +299,61 @@ The result is PROVED modulo (G) and was reviewed (R33b, R42).
 
 **Not new.** Gallagher's log-free density, Landau–Page / Deuring–Heilbronn, the idea of
 inserting sieve weights into Linnik's theorem, and the conductor-vs-discriminant point.
+
+---
+
+## 6. Ω-results for the ES witness modulus, the Haar exponent 3, the 1/4 ceiling, LS ⇒ 1/3
+
+**Objects.** These are `paper/es-subexp-note.tex` v5, POINTWISE_OMEGA13 Thm 5.1, HAAR, OMEGA14
+Thm 4.5 and OMEGA16 Thm 1.2. `W(p)` is the least `M ≡ 3 (4)` with `p ≡ −uv^{−1} (mod M)`
+for some `uvw = (M+1)/4`, i.e. the least modulus of a Mordell/Yamamoto-type multiplier
+congruence. The results:
+
+* (a) `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many Mordell-hard p,
+  modulo Gallagher (G), Nair–Tenenbaum and Elsholtz–Tao Prop 1.4.
+* (b) The Haar exponent: `𝓛³ ≪ log(1/δ*(T)) ≪ 𝓛³(log𝓛)^5`.
+* (c) Typical size: `#{p ≤ x : W(p) > T} ≪ π(x)e^{−c(log T)³}` for `log T ≤ c₁(log x)^{1/4}`.
+* (d) The 1/4 ceiling: no minorant of level `exp(c𝓛⁴/log𝓛)` has positive Haar mean on the
+  fibres, so linear certificates with full-orbit uniform accounting cannot pass 1/4
+  whatever the prime input.
+* (e) LS ⇒ `W(p) ≥ exp((log p)^{1/3−o(1)})` i.o.; a Hardy–Littlewood hypothesis for product
+  sets ⇒ only `(log p)^{2+o(1)}`.
+
+**Prior results on ES certificates.**
+
+| Source | Content | Relation |
+|---|---|---|
+| Mordell (*Diophantine Equations*, 1969); Yamamoto (1965); Schinzel (2000) [via ET p. 8 and BL Cor 1.3, checked in `sources/lit2026/audit-elsholtz-tao-1107.1010.txt` and `audit-bright-loughran-1908.02526.txt` in the earlier audit; the primary texts are not accessed] | Polynomial identities cannot cover quadratic-residue classes. Multiplier congruences need `n` to be a non-residue in a suitable sense. `W(m²) = ∞` | **Qualitative** obstructions only. They give `W(n) = ∞` on squares, not a quantitative lower bound at primes. (a)–(e) are the first *quantitative* statements. |
+| Elsholtz–Tao, Thm 1.1 and Remark 1.2 [checked: `audit-elsholtz-tao-1107.1010.txt`, ll. 210–226] | `Σ_{p≤N} f(p) ≍ N log³N`. Heuristic: a prime has a solution with "probability `1−O(exp(−c log³p))`". ET add that the large-sieve results of Vaughan [82] and [15] are "a rigorous analogue of this type of reasoning" | **(b) is the rigorous profinite version of ET's Poisson heuristic**, with the same exponent 3. (c) is the corresponding Vaughan-style large-sieve statement for the parameter W. ET anticipate both in spirit. The new content of (b) is the matching **lower** bound `log(1/δ*) ≫ 𝓛³` (Janson-type, item 2) and the identification of the exponent as exact up to logs. |
+| ET Thm 1.8 [same file, l. 313] | `f(n)` large for infinitely many n | A lower bound on the *number* of solutions for special n, not a lower bound for the least certificate. |
+| Vaughan (Mathematika 1970) [primary text not accessed; method via PW §4, `sources/pomerance-weingartner-2025.pdf`] | `E(N) ≪ N exp(−c(log N)^{2/3})` by sieving out the multiplier classes | (c) is **Vaughan's method applied to W** (large-sieve / Selberg upper bound for the avoider set): known in substance, new as a statement about W (*confidence that the method is Vaughan's: high*). |
+| Dahan arXiv:2608.24035; Salez arXiv:1406.6307; Pomerance–Weingartner [checked in the earlier audit, `reviews/lit-audit-B-pointwise.md`] | Fixed-depth / filter counts; exceptions for varying m | No Ω-result for a least witness. Unchanged from `novelty-audit-2026-10.md` row 2a. |
+| Least non-residue / primitive root Ω: Fridlender, Salié, Graham–Ringrose `Ω(log p·log₃p)`, Montgomery (GRH) [checked in secondary form: `sources/lit2026/lau-wu-least-quadratic-nonresidue.txt` (1.7)] | Prime-local: one CRT class, avoider density `2^{−π(T)}` | The **method template** for every Ω-result here (choose a residue class / fibre, then find a prime by Linnik). The ES system differs: its avoider density is `e^{−𝓛^{3+o(1)}}`, not `e^{−T/log T}`. That is why the exponent is a power of `log p` in the exponent rather than `log p`. |
+| Granville–Pomerance (JLMS 1990) [memory] | Ω-results and conjectures for the least prime in a class | Same template on the prime side. LS is a sifted-set Linnik analogue; see item 5. |
+
+**What is genuinely new (apparently).**
+* **(a) as a statement** — new (*high*, consistent with both earlier audits). The method is
+  classical in outline (CRT fibre + least prime). The novelty is the machinery that reaches
+  sub-exponential rates: LLL quarantine, BRW sandwich, energy bound, Gallagher transfer.
+  Caveat (unchanged): W is campaign-defined, though it is the natural "least Mordell-type
+  identity" parameter.
+* **(b) lower bound** — new as a theorem (*medium-high*). Upper bound and exponent:
+  anticipated heuristically by ET Remark 1.2 (now checked). Cite ET Remark 1.2 explicitly
+  as the heuristic source of "exponent 3".
+* **(c)** — Vaughan's argument transported to W. Present it as such (*not new in method*).
+* **(d) the 1/4 ceiling** — a scope-limited barrier theorem ("no linear certificate with
+  full-orbit uniform accounting"). The auditor knows no ES analogue and no general
+  barrier of this exact form.
+  * Conceptually it belongs with sieve-limit / parity barriers (Selberg's parity example,
+    the Bombieri asymptotic sieve, Friedlander–Iwaniec *Opera de Cribro* Ch. 16 on
+    barriers [memory]) and with the "planted fake" constructions of the sieve-limits note.
+  * New as a statement (*medium-high*). Its value is entirely tied to the precisely stated
+    scope.
+* **(e) LS ⇒ 1/3, HL ⇒ only exponent 2** — new conditional statements (*high*). LS is a new
+  named hypothesis (folklore in spirit, see item 5).
+
+**Suggested citation hygiene.**
+* Cite ET Remark 1.2 at the Haar-exponent statement.
+* Cite Vaughan/PW §4 at the typical-size theorem.
+* Cite Fridlender/Salié/Graham–Ringrose (via Lau–Wu) and Granville–Pomerance as the
+  template for Ω-results by fibre choice plus least primes.
