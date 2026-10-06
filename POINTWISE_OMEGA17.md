@@ -167,3 +167,49 @@ whose planting obstructs only `log x≲𝓛³`, the range where no avoider prime
 integer realisation needs the conditioning on `x_s` to be shallow, and in the ES instance it is
 not. This is the precise reason why the support-aware question is not settled by "discretising
 the planted law", and it does not by itself suggest a certificate either.
+
+## 5. Atomicity (the box) and toy LPs (brief item (c))
+
+**Lemma 5.1 (aggregation; PROVED).** Let 𝒢 be a finite partition of S such that F and every
+`C∩S`, `C∈𝒞`, are unions of cells. Then 𝔐 is nonempty with `min Σ mF=μ` iff the LP in the
+variables `M_G∈[0,|G|]` (`G∈𝒢`), `Σ_GM_G=N_x`, `l_C≤Σ_{G⊆C}M_G≤u_C`, has minimum `Σ_{G:F=1}M_G=μ`.
+*Proof.* Aggregate (`M_G:=m(G)`) / spread uniformly (`m:=M_G/|G|` on G). ∎
+So support and atomicity enter only through the **capacities** `|G|=|S∩G|` of the atoms of the
+information; the diffuse problem (O15 Def 2.1) is the same LP with Haar-type capacities
+`∞`. In particular the box can only bind on atoms with `|S∩G|<` (fake mass on G).
+
+**Lemma 5.2 (capped planting; PROVED).** In O14 Lemma 1.1's setting (independent bits, odds
+`r_b≤r*`, `R=Σr_b`), let `1<s≤2` and `R≥kr*+(k+1)/(s−1)`. Then the planted law ν has `ν(0)=0`,
+the same ≤k-marginals as P, and `|dν/dP−1|≤s−1` on every nonzero configuration; in
+particular `ν≤sP`.
+*Proof.* ν−P is supported on the configurations `1_y`, `|y|≤k+1`, where (O14 Lemma 1.1's formula)
+`(ν−P)(1_y)/P(1_y)=(−1)^{|y|+1}e_{k+1−|y|}(r_{∖y})/e_{k+1}(r)`, `r_{∖y}` = the odds off y. With
+`e_{k+1−j}(r_{∖y})≤e_{k+1−j}(r)` and the chain `ne_n(r)≥e_{n−1}(r)(R−(n−1)r*)` (O14 proof of
+Lemma 1.1, valid for `n≤k+1` since `R−kr*≥k+1`),
+`e_{k+1−j}(r)/e_{k+1}(r)≤∏_{i<j}(k+1−i)/(R−(k−i)r*)≤((k+1)/(R−kr*))^j≤(s−1)^j≤s−1` for `j≥1`. ∎
+(For `s=2` this is O14's `dν/dP≤2` with a slightly different hypothesis.) So a flat fake costs
+only a constant factor in R: if the information atoms are configurations whose integer
+capacities exceed `s·N_xP(G)`, the box is irrelevant whenever `R≥kr*+(k+1)/(s−1)`. The
+support `S_T` has slack `|S_T|/N_x≍log x/𝓛≫2`; supports rough up to `z=x^θ` (θ<1/2) have slack
+`≍1/θ`·(1+o(1)) > 1, so they also only move constants — *if* the integer capacities of the
+atoms the fake uses are Haar-like, which is the unproved point of §§2–4. Only `z≥√x`
+(slack 1: S = the primes) pins the measure; that is a search.
+
+**Toy LP (EVIDENCE; `scripts/omega17_toylp.py`, `data/omega17/toylp.txt`).** 14 sieve primes
+`17..71`, `⌊0.12ℓ⌉` resp. `⌊0.17ℓ⌉` random excluded classes (odds-mass R=1.94 resp. 2.92), true
+measure = primes `71<p≤x`; information = the *exact* prime counts on all bit-cells of ≤k primes
+(k-juntas), exact LP (HiGHS) via Lemma 5.1 with atoms = the 2^14 configurations. Minimal fake mass
+on the avoider configuration (certificate exists iff >0), `x=10⁶`, seed 1 (seeds 2,3 and
+`x=3·10⁵` agree):
+
+| R | k | diffuse | S slack 8.5 / 4.2 / 2.8 / 2.3 | slack 1.94 | 1.77 | 1.63 (71-rough) | true avoiders |
+|---|---|---|---|---|---|---|---|
+| 1.94 | 2 | 0 | 0 | 1581 | 3568 | 5183 | 12668 |
+| 1.94 | 3 | 7101 | 7101 | 7105 | 7231 | 8110 | 12668 |
+| 2.92 | 3 | 0 | 0 | 0 | 465 | 1170 | 5519 |
+| 4.07 | ≤3 | 0 | 0 | 0 | 0 | 0 | 2219 |
+
+(slack := |S|/N_x; S = integers ≤x coprime to the sieve primes and to the first j small
+primes.) Support awareness changes nothing until the slack drops below ≈2, then gains one
+junta level — the box binding on the planted density (Lemma 5.2's regime). EVIDENCE only;
+toy scale (`R≤3`, `k≤3`).

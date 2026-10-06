@@ -1,0 +1,25 @@
+seed=1 x=1000000 nbits=14 R(odds)=1.94 N_x=78478 prime avoiders=12668 |S1|=128075 |S2|=666043
+  k=0: rows=1  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=1: rows=29  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=2: rows=393  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=1580.875  slack1.77=3568.000  slack1.63=5182.667  S1(rough)=5182.667  S2(coprime)=0.000
+  k=3: rows=3305  min fake avoider mass: diffuse=7101.333  slack8.49=7101.333  slack4.24=7101.333  slack2.83=7101.333  slack2.26=7101.333  slack1.94=7104.667  slack1.77=7230.799  slack1.63=8110.267  S1(rough)=8110.267  S2(coprime)=7101.333
+seed=1 x=1000000 nbits=14 R(odds)=2.92 N_x=78478 prime avoiders=5519 |S1|=128075 |S2|=666043
+  k=0: rows=1  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=1: rows=29  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=2: rows=393  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=3: rows=3305  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=464.600  slack1.63=1169.827  S1(rough)=1169.827  S2(coprime)=0.000
+seed=2 x=1000000 nbits=14 R(odds)=1.94 N_x=78478 prime avoiders=12644 |S1|=128075 |S2|=666043
+  k=0: rows=1  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=1: rows=29  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=2: rows=393  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=1589.000  slack1.77=3516.000  slack1.63=5108.667  S1(rough)=5108.667  S2(coprime)=0.000
+  k=3: rows=3305  min fake avoider mass: diffuse=7026.333  slack8.49=7026.333  slack4.24=7026.333  slack2.83=7026.333  slack2.26=7026.333  slack1.94=7033.667  slack1.77=7190.052  slack1.63=8060.467  S1(rough)=8060.467  S2(coprime)=7026.333
+seed=2 x=1000000 nbits=14 R(odds)=2.92 N_x=78478 prime avoiders=5541 |S1|=128075 |S2|=666043
+  k=0: rows=1  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=1: rows=29  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=2: rows=393  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=0.000  slack1.63=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=3: rows=3305  min fake avoider mass: diffuse=0.000  slack8.49=0.000  slack4.24=0.000  slack2.83=0.000  slack2.26=0.000  slack1.94=0.000  slack1.77=462.867  slack1.63=1200.883  S1(rough)=1200.883  S2(coprime)=0.000
+seed=3 x=300000 nbits=14 R(odds)=1.94 N_x=25977 prime avoiders=4181 |S1|=38426 |S2|=199862
+  k=0: rows=1  min fake avoider mass: diffuse=0.000  slack7.69=0.000  slack3.84=0.000  slack2.56=0.000  slack2.05=0.000  slack1.76=0.000  slack1.60=0.000  slack1.48=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=1: rows=29  min fake avoider mass: diffuse=0.000  slack7.69=0.000  slack3.84=0.000  slack2.56=0.000  slack2.05=0.000  slack1.76=0.000  slack1.60=0.000  slack1.48=0.000  S1(rough)=0.000  S2(coprime)=0.000
+  k=2: rows=393  min fake avoider mass: diffuse=0.000  slack7.69=0.000  slack3.84=0.000  slack2.56=0.000  slack2.05=153.625  slack1.76=1217.667  slack1.60=1829.000  slack1.48=2309.000  S1(rough)=2309.000  S2(coprime)=0.000
+  k=3: rows=3305  min fake avoider mass: diffuse=2288.667  slack7.69=2288.667  slack3.84=2288.667  slack2.56=2288.667  slack2.05=2309.888  slack1.76=2437.999  slack1.60=2739.519  slack1.48=3021.325  S1(rough)=3021.325  S2(coprime)=2288.667
