@@ -39,8 +39,8 @@ model, and for a single residue class it *is* Linnik's theorem.
   absorbed by the `log T`, `C` slack). Matches POINTWISE_SIZE's `log W≍(log p)^{1/3}`; RA ⇒ LS for the ES family `𝓔_T`.
   LS = "remove the sieve-limit factor `log z` from O13 Thm 5.1".
 * **EVIDENCE (§6):** Buchstab compounding for primes to `10^9` (N1); on the ES family the LS
-  ratio `log p_min/(𝓛+log(1/δ*))` is 0.64–1.29 for `T≤2047`, and `>0.94` at T=4095 (no hard
-  `p<10^{11}` has `W>4095`) (N2); greedy adversarial sieve systems of dimension `κ≤8` stay at LS
+  ratio `log p_min/(𝓛+log(1/δ*))` is 0.64–1.29 for `T≤4095` (least hard p with `W>4095` is
+  `133050918961`, `W=5935`) (N2); greedy adversarial sieve systems of dimension `κ≤8` stay at LS
   ratio `≤1.15` on the resolved configurations (3 of 69 unresolved), gaining `≈z^{0.85–0.9}` over
 the random model with no visible growth in κ on this grid (N3).
 
@@ -371,13 +371,16 @@ POINTWISE_SIZE §7.2; `x_C` solves `δ*·li(x_C)/8=1` (Cramér/RA prediction for
 | 511 | 2031121 | 14.52 | 9.40 | 14.04 | 0.93 |
 | 1023 | 2031121 | 14.52 | 12.02 | 16.85 | 0.77 |
 | 2047 | 2031121 | 14.52 | 15.11 | 20.14 | 0.64 |
-| 4095 | `>10^{11}` | `>25.33` | 18.77 | 23.98 | `>0.94` |
+| 4095 | 133050918961 | 25.61 | 18.77 | 23.98 | 0.95 |
 
 (Counts of hard `p<10^{11}` with `W>T`: 40313, 2776, 107, 0 for `T=511,…,4095`, against
 `δ*π_h(10^{11})≈42400, 3120, 141, 3.6`; the deficit at fixed T shrinks as x grows — at T=511
 it is 18% at `10^9` and 5% at `10^{11}` — as Prop 7.1(a) of SIZE forces eventually.) The
 LS ratio stays `≈1` (CR with `A≈1`); the outlier `p=2031121` (`W>2047`) is a lucky early
-record. A scan of `[10^{11},10^{12})` for T=4095 is running (`data/omega16/esleast_1e11_1e12.*`).
+record. The T=4095 entry is from the scan of `[10^{11},2.27·10^{11})`
+(`data/omega16/esleast_1e11_1e12.log`): `p=133050918961` (`≡121 (840)`, a square), with
+`W(p)=5935` recomputed independently by direct divisor search; it lies a factor ≈5 beyond the
+Cramér/RA estimate `x_C≈2.6·10^{10}`, consistent with the deficit noted above.
 
 **(N3) Adversarial sieve systems** (`scripts/omega16_adversary.py`, `data/omega16/adversary_1e9.*`).
 Remove `κ` unit classes mod each prime `3≤ℓ≤z` (`z≤1000`, `κ≤8`), chosen greedily to kill the

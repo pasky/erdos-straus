@@ -25,9 +25,9 @@ data `data/omega16/`.
 
 ## EVIDENCE
 * N1: Buchstab compounding for primes (κ=1,2,3, x≤1e9).
-* N2: least hard prime with W>T: LS ratio 0.64–1.29 for T≤2047; no hard p<1e11 has W>4095 (expected
-  ~2–3.6; ratio >0.94). Scan of [1e11,1e12) was started in the background (may be cut by its 4 h timeout;
-  output `data/omega16/esleast_1e11_1e12.*`, not committed if incomplete).
+* N2: least hard prime with W>T: LS ratio 0.64–1.29 for T≤4095; the least hard p with W>4095 is
+  133050918961 (W=5935, independently recomputed), ≈5× the Cramér/RA estimate. Background scan of
+  [1e11,1e12) may still be running (log `data/omega16/esleast_1e11_1e12.log`).
 * N3: greedy adversarial κ-dimensional systems (z≤1000, κ≤8): LS ratio ≤1.15, adversary gains only
   ≈z^{0.85–0.9} over the random model, no visible growth in κ on this finite censored grid (3/69 unresolved).
 
