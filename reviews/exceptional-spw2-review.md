@@ -167,11 +167,11 @@ periodic model" does not say which Q′, and "plus SPW1 Lemma 1.1" does not
 apply verbatim: SPW1 Lemma 1.1(b) needs (P3) with Δ₀ and T ≥ 4(2+Δ₀)CN,
 whereas RSPW leaves medium classes unconstrained. The repair is easy: in
 the lift, for e ∤ Q′ with g = gcd(e,Q′) ≤ CN use the trivial ρ(s mod g) ≤ N
-(total mass), so T ≥ 2CN² gives sparse/full mass ≤ 1/2 + ε there. Then
-η*_ℤ ≤ η*_per(Q′) for every Q′ (projection) and η*_ℤ ≥ min(η*_per(Q′), 1/2)
-for Q′ = lcm(1..T), T ≥ 2CN²; η*_per is non-increasing along divisibility.
-State this; the "η* = 0 iff" is then valid on ℤ for the T ≥ 2CN² model.
-(Minor: the 1/2 clipping means the formula identifies η*_ℤ only when
-η* ≤ 1/2, which is the relevant regime.)
+(total mass), so for g ≤ CN the lifted class has mass ≤ CN²/T + ε, while
+for g > CN it has mass ≤ (1/2 + ε)(1 − η) ≤ 1 − η (full) — sparse classes are
+unconstrained when K = ∞, so **no clipping at 1/2 is needed** here. Hence
+η*_ℤ ≤ η*_per(Q′) for every Q′ (projection) and η*_ℤ ≥ η*_per(Q′) − ε for
+Q′ = lcm(1..T), T ≥ CN²/ε′ (if η*_per < 1); η*_per is non-increasing along
+divisibility. State this; then the "η* = 0 iff" holds on ℤ as well.
 
 Verdict Lemma 4.1: **SOUND-AFTER-REPAIRS** (m10).
