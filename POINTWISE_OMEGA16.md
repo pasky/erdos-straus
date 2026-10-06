@@ -275,9 +275,28 @@ cost at most a factor `T^{O(1)}` or `δ^{o(1)}`, which LS absorbs through `C·lo
 same log-scale strength (e.g. `π_{𝓔_T}(x)≤x·δ(𝓔_T)^{1/C}` for `log x≥Cλ`, a hypothetical upper
 companion of LS) would make 1/3 the true i.o. exponent up to log factors. Consistent.
 
-**5.5 What is proved unconditionally in the LS shape.** O13 Thm 5.1 is, for the family `𝓔_T`,
+**5.5 What is proved unconditionally in the LS shape (restatement of O13 Thm 5.1 and O14 §4, up to `(log𝓛)^{O(1)}`).** O13 Thm 5.1 is, for the family `𝓔_T`,
 an unconditional statement `π_{𝓔_T}(x)≥1` for `log x≥C·𝓛·log(1/δ_{rH})·(log𝓛)^{O(1)}`: LS with
 an extra factor `log T=𝓛` (the junta/sieve-limit factor). By O14/O15 that factor is forced for
 every linear certificate. So LS is exactly "remove the sieve-limit factor `log z` from the
 unconditional theorem", the analogue for this sieve of going from Linnik-by-sieve to the
 Cramér-type prediction.
+
+## 6. Numerics (EVIDENCE only)
+
+**(N1) Buchstab deficit for primes, compounding in κ** (`scripts/omega16_buchstab.py`,
+`data/omega16/buchstab_1e{8,9}.txt`). Events `n≡−h_i (mod ℓ)`, `3≤ℓ≤z=x^{1/u}`, shifts
+`H=(2), (2,6), (2,6,8)` (κ=1,2,3); ratio of `#{z<p≤x: p+h_i z-rough ∀i}` to `δ·(π(x)−π(z))`,
+δ the exact Haar density in `Ẑ^×`. At `x=10^9`:
+
+| u | κ=1 | κ=2 | κ=3 | `(e^γω(u))^κ` (κ=1,2,3) |
+|---|---|---|---|---|
+| 1.5 | 1.254 | 1.578 | 1.995 | 1.187, 1.410, 1.674 |
+| 2.0 | 0.942 | 0.890 | 0.846 | 0.891, 0.793, 0.706 |
+| 3.0 | 1.007 | 1.014 | 1.023 | 1.005, 1.010, 1.016 |
+| 4.0, 5.0 | 1.000 | 1.000 | 1.000 | 1.000 |
+
+The ratio is visibly multiplicative in κ (at u=2: `0.942^κ≈0.942, 0.887, 0.836`), and at u=2
+it drifts toward the prediction as x grows (κ=3: 0.958, 0.881, 0.846 at `x=10^7,10^8,10^9`;
+the gap is the usual `1/log x` secondary terms). This supports Prop 2.1(b): main-term forms
+fail by a factor `c^κ`, while log-scale forms (LS, PS_log) are untouched.
