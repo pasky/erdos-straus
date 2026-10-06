@@ -55,3 +55,19 @@ Deliverable: `POINTWISE_TYPEI2.md` (results table at top, Replay at the end); sc
 * `typei2_signcheck.c` completeness. Every divisor pair has a member `≤√N` in the class ξ or `ξ^{−1}`,
   because `N≡1 (mod 4ck)`; the arithmetic is 128-bit.
 * The Haar-measure normalisation in `typei2_union.py`. The §2.2 numbers are EVIDENCE only.
+
+## Update after review R69 (no FATAL/MAJOR; MINOR D1–D5 applied)
+* **D1.** Theorem A(i) now holds for `p>max(2X_r, F_max)`. The membership convention "p∈Σ_r" for
+  primes (via components at q≤r) is now stated explicitly. The limsup bound `C*(r)≤X_r` is
+  unchanged.
+* **D2.** Cor 3.3(ii) applies Theorem A verbatim. The optional reduction to the slices with
+  `v_7(c)` odd is spelled out (`χ_s(p)=χ_s(x̂)=1` on 𝒞, then notes Thm 48.1).
+* **D3.** The C3.2 label now reads "one engine to 3·10⁹, cross-checked by two others on smaller
+  ranges, independently re-run to the full ranges in R69". The stale §3 heading now says
+  `C(7)>3·10⁹`.
+* **D4.** The "iff" statements are made for `C*`; the relation between `C` and `C*` is spelled out.
+  Sterile ⇒ `C(7)≥C*(7)=∞`.
+* **D5.** Theorem A(iii) now spells out the finite-intersection step: the closed sets `U_X` are
+  nonempty and decreasing, so their intersection contains a sterile point.
+* `reviews/pointwise-typei2-review.md` (cited in the text) lives on branch `side-agent/review-typei2`.
+  It should be merged together with this branch.
