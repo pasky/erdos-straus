@@ -157,6 +157,12 @@ a neighbourhood of `x(u)`, i.e. a class `x ≡ u (mod 17^L)`, `x ≡ 1 (mod Q)` 
 contains infinitely many primes (Dirichlet), all with `x_17 ≡ 5`, i.e. `(p/17)=−1`, and squares at
 every other prime ≤ 13 (as `x_q=1`).
 
+**Conjecture 4.3.** `C_5` (equivalently `C_7`, by inversion) contains a sterile point. EVIDENCE:
+67.72% of each cell lies in no box of level ≤5 (Comp. 3.1), and the measure added per level decays
+geometrically. By Theorem 4.1 (a PROVED reduction) and Corollary 4.2, the conjecture follows from an
+explicit tail bound (§6). It would imply that no finite set of polynomial ES identities covers the
+Mordell-hard primes with `n_p=17`.
+
 **Status of the hypothesis of Theorem 4.1.**
 * *Ineffective convergence (PROVED).* By §2 and ET Prop 1.7, `D_Q, D_U ≪ 17^{(3/5+o(1))k}` and
   `D_P(K) ≪ 17^{(2/5+o(1))K}`, so `Σ_k 17^{−k}B_k < ∞`; the tail beyond level `k₀` tends to 0.
@@ -266,6 +272,20 @@ avoid the top digits would be sterile. The digit-wise choice is possible because
 `−f` of P-boxes with `cd` small do satisfy this (`min(f,f*) ≤ √(4c²dN+1)`). But over all new
 in-cell boxes the ratio `t = min(z_r, z_{1/r})/17^k` has median ≈0.15–0.2 and maximum 0.87–0.99
 (levels 3–7). So no fixed θ works, and the boxes are only mildly biased toward small integer centres.
+
+*Equivalent parametrisation and the discrete-log heuristic (Assessment).* Put `(s,t)=(c,d)`.
+Then (2.20) says the P-data at level K are exactly the `(a,s,t)` with `f=4ast−1 | s·17^K+a` and
+`b=(s17^K+a)/f ≥ a`. In that case `s | a+b` is automatic (`f≡−1 (mod s)`), and so is (2.15):
+`4abst = bf+b = s17^K+a+b`. As `gcd(s,f)=1`, the condition is `17^K ≡ −a/s (mod f)`. So `(a,s,t)` is
+ever admissible iff `−a/s ∈ ⟨17⟩ ⊂ (ℤ/f)^×`, and then exactly for `K ≡ log_17(−a/s) (mod ord_f 17)`
+with `17^K ≳ 4a²t` (from `b≥a`). Under a random model for this discrete logarithm (17^K equidistributed
+modulo f, for fixed K and f varying), `E[D_P(K)] ≈ Σ_{a,s,t} 1/(4ast) ≍ K³`. The weighted tail
+`Σ_K 17^{−K/2} D_P(K)` is then tiny. The quantity to control is **how often `−a/s` lies in `⟨17⟩`
+modulo `4ast−1`, and where its logarithm falls**. That is an Artin / discrete-log equidistribution
+question for one fixed base, many moduli, and a fixed exponent K. Divisor-bound methods (ET,
+Lenstra, CHN, Nicolas–Robin) treat `N` as an arbitrary integer and never see the special form
+`N=17^K`. That is why they stop at `N^{2/5+o(1)}` ineffectively and at `O(N)` effectively, and why
+no method of that kind can reach the `N^{1/2−δ}` that is needed.
 
 **Assessment after round 2.** (a) Nesting: U contributes nothing (PROVED); Q⁻¹ = Q; the new-box
 counts are about ½ of all boxes; the exponents are unchanged. (b) Prime-power structure:
