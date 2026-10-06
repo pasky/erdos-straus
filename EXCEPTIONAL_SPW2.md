@@ -142,32 +142,36 @@ modulus N + 1.) Weak duality direction is elementary:
 Consequences for certificates (PROVED, by Lemma 2.2): ν must vanish on W and
 be ≥ 0 on the near zone Z, where P ≡ 0; so g ≥ 0 on Z, g = −P ≤ 0 on W.
 
-**Assessment 4.2 (heuristic dichotomy; not proved).** Write R = R_Z + R_F
-(near / far, R ≈ 0 on W as in all LP optima).
-* *Near part.* R_Z − W has Fourier transform E(α), a trigonometric
-  polynomial of degree ≲ 2CN. Farey points of order D are a sampling set at
-  that scale except within ≍ 1/(qD) of a/q, q ≲ 8C. The η-jump of R − W at
-  each edge puts ≍ η²D energy of E into the dense part, hence (large-sieve
-  heuristic, ≈ 0.3D² samples per unit frequency) Σ_{F_D}|E|² ≳ cη²D³.
-  So the far part must carry F_D-content of ℓ²-size ≳ ηN^{3/2}.
-* *Spread far part.* A far part with density profile "smooth envelope ×
-  bounded weights" carries F_D-content of ℓ²-size ≲ (its mass) ≤ N
-  (random-design/min-norm computation; the same mechanism as SPW1 Prop 2.3).
-  This alone would force η ≲ N^{−1/2}.
-* *Structured far part.* Content can also be carried coherently (mass at x
-  with x ≡ edge mod many d); but coherence mod d and d′ puts x on the full
-  line through the edge point of modulus lcm(d,d′) > CN, and a
-  Cauchy–Schwarz count over pairs (d,d′) again gives η ≲ √(λ/D) (λ = line
-  capacity) for *exact* coherence. Partial coherence (x ≡ edge + small mod d)
-  escapes this count — it is exactly what near-zone mass does, and far
-  points can do it only with a bias of size ≍ η in Σ_d cos(2π(x−c)/d), whose
-  positivity again costs ≍ 1/√D.
-
-So all *natural* construction mechanisms point to a barrier at η ≍ N^{−1/2},
-which would **refute** weak SPW (Lemma 1.1 needs η_N/K_N ≥ e^{−O((log N)^{3/4})}).
-The LP values (η ≈ 0.9, 0.82, ≥ 0.73 at N = 30, 50, 80) are not in
-conflict (the heuristic constants give ≈ 6/√D ≥ 0.9 there). Nothing here is
-proved; the rigorous obstruction is only Thm 3.1 ((log N)^{−1/3}).
+**Assessment 4.2 (heuristics; not proved; revised).**
+* *Near part.* Write R = R_Z + R_F (near / far; R ≈ 0 on W in all LP
+  optima). R_Z − W has Fourier transform E(α), a trigonometric polynomial of
+  degree ≲ 2CN. Farey points of order D sample that scale densely except
+  within ≍ 1/(qD) of a/q, q ≲ 8C. The η-jump of R − W at each edge puts
+  ≍ η²D of the energy of E outside those gaps, so (sampling heuristic,
+  ≈ 0.3D² Farey points per unit frequency) Σ_{F_D}|E|² ≳ cη²D³: the far part
+  must carry F_D-content of ℓ²-size ≳ ηN^{3/2}.
+* *A false alarm.* If the far part had *bounded relative density* on ℤ/L₀
+  (a lift "envelope × function of x mod L₀" with density ≤ A·average), the
+  SPW1 Prop 2.3 test function (sawtooth g = Σ_d d·E_d(x mod d)) forces
+  A ≳ η√D, and line loads ≈ A·m_F/e would give η ≲ C/√N. An earlier draft
+  of this section took this as the likely truth. It is **not** forced:
+  the far part may have unbounded relative density as long as its *absolute*
+  line loads stay below 1.
+* *Exponential tilting.* The natural candidate is a Gibbs/max-entropy far
+  part R_F ∝ exp(Σ_{d≤D} φ_d(x mod d)) on ℤ/L₀ (exact profiles by convex
+  duality whenever the residual profile is interior). Its one-step version
+  exp(s·g), s ≈ η/(13.5D), produces the required correlation with the
+  sawtooth while the mass on a full line n₀ + eℤ is ≈ (N/e)·exp(s·Σ_{d|e,
+  d≤D} dθ_d(n₀)) ≲ (N/e)·M^{0.15Cη} for e = L_M·j (σ(e)/e ≍ log M). This
+  suggests η* ≍ 1/log log N for this mechanism — but SPW1 Thm 3.2 / Thm 3.1
+  force η* ≲ (log N)^{−1/3}, so the heuristic underestimates the edge
+  concentration at e = L_M·j. Either way it points to **η* decaying only
+  like a power of log N, i.e. weak SPW true** (Lemma 1.1 tolerates
+  η ≥ e^{−C(log N)^{3/4}}).
+* *Numerics.* At support L ≈ N²/2 the LP gives η ≈ 0.86, 0.83, 0.78,
+  0.80, ≈ 0.75 for N = 30, 40, 50, 60, 80 (§2; data/spw2/relaxed_halfN2.txt):
+  far slower than N^{−1/2} (which would predict 0.61 at N = 60 from 0.86 at
+  N = 30), consistent with logarithmic decay.
 
 ## 5. Local (single-modulus) bounds with K = ∞ (EVIDENCE)
 
