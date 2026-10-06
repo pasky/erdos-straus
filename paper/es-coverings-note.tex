@@ -241,10 +241,10 @@ Let $\mathcal P$ be an infinite set of primes and $\mathcal P'$ its set of
 accumulation points in $\Zh$.
 
 \begin{lemma}[\status{proved}]\label{lem:accum}
-$\mathcal P'$ is a compact subset of $\Zhu$.  If $\Sigma\subset\Zhu$ is
-clopen, defined modulo $M$ (a union of reduced classes modulo $M$), and
-$\mathcal P(\Sigma)$ is the set of primes $p\nmid M$ with $p\bmod M$ in
-$\Sigma\bmod M$, then $\mathcal P(\Sigma)'=\Sigma$.
+$\mathcal P'$ is a compact subset of $\Zhu$.  If
+$\Sigma=\{x\in\Zhu: x\bmod M\in R\}$ for a set $R$ of reduced residues
+modulo $M$, and $\mathcal P(\Sigma)$ is the set of primes $p\nmid M$ with
+$p\bmod M\in R$, then $\mathcal P(\Sigma)'=\Sigma$.
 \end{lemma}
 
 \begin{proof}
@@ -253,13 +253,17 @@ $p\in\mathcal P$ satisfy $p\equiv x\pmod{q^k}$; all but one of them are
 prime to $q$, so $x_q\in\Z_q^\times$.  Derived sets in the compact metric
 space $\Zh$ are closed, hence compact.  For the second statement, a
 point of $\mathcal P(\Sigma)'$ is congruent modulo $M$ to some element of
-$\mathcal P(\Sigma)$, so it lies in $\Sigma$.  Conversely every
+$\mathcal P(\Sigma)$ and, by the first statement, is a unit, so it lies
+in $\Sigma$.  Conversely every
 neighbourhood $x+Q\Zh$ ($M\mid Q$) of $x\in\Sigma$ is a reduced class
 modulo $Q$ and contains infinitely many primes by Dirichlet's theorem;
 they lie in $\mathcal P(\Sigma)$.
 \end{proof}
 
-The sets of primes studied below are all of the form $\mathcal
+Such a $\Sigma$ is clopen in $\Zhu$, and by compactness every clopen
+subset of $\Zhu$ has this form for some $M$.  Note that $\Zhu$ is closed
+but not open in $\Zh$, so ``clopen'' always refers to the topology of
+$\Zhu$.  The sets of primes studied below are all of the form $\mathcal
 P(\Sigma)$.  The prime $p$ itself is never a unit of $\Z_p$, which is why
 we work with accumulation points rather than with the primes as points of
 $\Zh$.
@@ -300,7 +304,10 @@ closed and misses $x$, so some neighbourhood $V=x+Q\Zh\subset C_j$
 misses it.  As $x$ is a unit, $V$ is a reduced class modulo $Q$, and by
 Dirichlet's theorem it contains infinitely many primes.  These lie in
 $C_j$ and in no $K_i$, a contradiction.  The final equivalence combines
-(a), (b) and Lemma~\ref{lem:solve}.
+(a), (b) and Lemma~\ref{lem:solve}: each ET class is a finite union of
+residue classes modulo $M(\kappa)$; the non-primitive ones contain at
+most finitely many primes, and each primitive one is solvable by
+polynomials by Lemma~\ref{lem:solve}.
 \end{proof}
 
 \begin{remark}[Direction of the implications]\label{rem:direction}
@@ -1169,7 +1176,12 @@ levels $3$--$7$.
 \begin{problem}
 Is there a sterile point in $\Zhu$ that is not a square point?
 Equivalently, is there a clopen set $\Sigma\subset\Zhu$ without square
-points whose primes admit no finite covering by polynomial identities?
+points such that no finite set of polynomial identities covers all but
+finitely many of the primes $\mathcal P(\Sigma)$?  (The square points form
+a closed set, so a non-square sterile point has a clopen neighbourhood
+$\Sigma$ without square points; conversely a clopen $\Sigma$ is defined
+modulo some $M$.  Apply Lemma~\ref{lem:accum} and
+Proposition~\ref{prop:compact}.)
 Each of Conjectures~\ref{conj:xstar} and~\ref{conj:17} would give one;
 Conjecture~\ref{conj:sign} would give a Type~I analogue.
 \end{problem}
