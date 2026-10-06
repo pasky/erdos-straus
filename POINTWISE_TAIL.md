@@ -184,26 +184,31 @@ class (A=12, uniform in T), and the Euler-product ratio is
 `scripts/review_tail_twist.py`, R76.)
 
 **Theorem 3.3 (lower tail, smaller log power; PROVED modulo (G), NT, OMEGA10 Thm 3.4).** There are
-absolute effective `C, T_0` such that for `T≥T_0` and `log x≥C𝓛^4log𝓛`,
+absolute constants `C, T_0` (effective, given that the implied constants of the cited inputs (G), NT,
+O13 Lemma 3.3(B)'s `C_0` and OMEGA10 Thm 3.4 are; R76 D6) such that for `T≥T_0` and
+`log x≥C𝓛^4log𝓛`,
 
 ```
-N(x,T) ≥ #{p≤x Mordell-hard: W(p)>T} ≥ π(x)·exp(−C𝓛³(log𝓛)³loglog𝓛).
+N(x,T) ≥ #{p≤x Mordell-hard: W(p)>T} ≥ π(x)·exp(−C𝓛³(log𝓛)³).
 ```
 
-If no character of conductor `≤x` has a Landau–Siegel zero in the sense of (G) (e.g. under GRH for
-real characters; CONDITIONAL), the bound improves to `π(x)exp(−C𝓛³(log𝓛)²loglog𝓛)`.
+CONDITIONAL improvement (R76 D4): if every real zero β of `L(s,χ)`, χ real primitive of conductor
+`q≥3`, satisfies the classical zero-free bound `1−β≥c_0/log q` (implied by GRH for real characters),
+the bound improves to `π(x)exp(−C𝓛³(log𝓛)²loglog𝓛)`.
 
 *Proof.* Call a leaf L *good* if (i) every `ℓ>Y` has `w̃_ℓ(L)≤η`; (ii) `log Q_L≤8E[log Q_end]`;
-(iii) `S_res(L)≤8E[S_res]`; (iv) `k_L≤8E[k]`. By O13 Lemma 3.2(d)+3.3(B) (as in O13 Thm 3.4),
-`P(not (i))≤1/4`; by Markov each of (ii)–(iv) fails with probability `≤1/8`. So
-`P_proc(good)≥3/8`. Every good leaf satisfies the hypotheses used in Thm 2.1's proof, with the
-ledger constants at most doubled: (1.1) at all coordinates, no deterministic event (O13 Lemma 3.1),
-`S_res≪𝓛³log𝓛`, `log Q_L≪𝓛³(log𝓛)^5`, hence `log Z_L≤C_3𝓛^4log𝓛` with one absolute `C_3` for all
-good leaves. So for `log x≥C𝓛^4log𝓛` Lemma 1.1 applies to every good leaf at the same x.
+(iii) `S_res(L)≤8E[S_res]`; (iv) `k_L≤8E[k]`; (v) `log rad_odd(Q_L)≤8E[log rad_odd(Q_end)]`. By O13
+Lemma 3.2(d)+3.3(B) (as in O13 Thm 3.4), `P(not (i))≤1/4`; by Markov each of (ii)–(v) fails with
+probability `≤1/8`. So `P_proc(good)≥1/4`. Every good leaf satisfies the hypotheses used in Thm 2.1's
+proof, with the ledger constants at most doubled: (1.1) at all coordinates, no deterministic event
+(O13 Lemma 3.1), `S_res≪𝓛³log𝓛`, `log Q_L≪𝓛³(log𝓛)^5`, hence `log Z_L≤C_3𝓛^4log𝓛` with one
+absolute `C_3` for all good leaves (τ is built from the leaf's own `S_res(L)`). So for
+`log x≥C𝓛^4log𝓛` Lemma 1.1 applies to every good leaf at the same x. The exceptional zero of (G)
+depends only on x, and leaf L is in Case A iff `q_1|Q_L`.
 
-*Refined Siegel factor.* In Case A for leaf L, `q_1|Q_L`; a real primitive conductor is
-`2^e·(odd squarefree)` with `e≤3`, so `q_1 ≤ 8∏_{ℓ|Q_L odd}ℓ ≤ 8Y^{k_L}` and Lemma 1.1's proof gives
-`λ_L ≥ min(1, c_P q_1^{−1/2}(log 3q_1)^{−2}) ≥ exp(−(1/2)k_L logY − O(log(k_L logY)+1))`.
+*Refined Siegel factor (R76 S1).* In Case A for leaf L, `q_1|Q_L`; a real primitive conductor is
+`2^e·(odd squarefree)` with `e≤3`, so `q_1 ≤ 8·rad_odd(Q_L)` and Lemma 1.1 gives
+`λ_L = min(1, c_P q_1^{−1/2}(log 3q_1)^{−2}) ≥ exp(−(1/2)log rad_odd(Q_L) − O(loglog Q_L+1))`.
 
 *Summation.* The fibres of distinct leaves are disjoint (Lemma 3.1), so the prime counts add:
 
@@ -211,22 +216,25 @@ good leaves. So for `log x≥C𝓛^4log𝓛` Lemma 1.1 applies to every good lea
 N(x,T) ≥ Σ_{L good} #{p≤x: p≡r_L (Q_L), W(p)>T}
        ≥ (x/(3log x))·Σ_{L good} λ_Lμ_L/φ(Q_L)
        = (x/(12log x))·Σ_{L good} P_proc(L)·2^{−k_L}λ_Lμ_L
-       ≥ (x/(12log x))·(3/8)·min_{L good} 2^{−k_L}λ_Lμ_L.
+       ≥ (x/(12log x))·(1/4)·min_{L good} 2^{−k_L}λ_Lμ_L.
 ```
 
 On good leaves: `k_L log2 ≤ 8log2·E[k] ≪ 𝓛³(log𝓛)²loglog𝓛` (Lemma 3.2);
-`log(1/μ_L) ≤ (4/3)·8E[S_res]+0.02 ≪ 𝓛³log𝓛`; `log(1/λ_L) ≤ (1/2)·8E[k]logY+O(log𝓛)
-≪ 𝓛³(log𝓛)³loglog𝓛` (`logY≍log𝓛`). Without an exceptional zero, Case A does not occur and
-`λ_L≥1/3`-type constants replace `λ_L` (Lemma 1.1, Cases 0/B). ∎
+`log(1/μ_L) ≤ (4/3)·8E[S_res]+0.02 ≪ 𝓛³log𝓛`; `log(1/λ_L) ≤ 4E[log rad_odd Q_end]+O(log𝓛)
+≪ 𝓛³(log𝓛)³` (Lemma 3.2′). All three are `≪𝓛³(log𝓛)³`.
+
+*Conditional clause.* If `1−β_1≥c_0/log q_1`, then in Case A `u=(1−β_1)log x ≥ c_0log x/log q_1 ≥ 1`,
+because `log q_1≤log Q_L≪𝓛³(log𝓛)^5` while `log x≥C𝓛^4log𝓛` (T≥T_0). So `λ_L≥1/2` in Case A,
+`λ_L=1` otherwise, and only the losses `k_Llog2` and `log(1/μ_L)` remain. ∎
 
 *Where the logs go (Assessment).* Thm 3.3's three losses are (a) the square-class restriction
 `2^{−k}` (the Haar price of never firing an atom, O13 Lemma 3.1), (b) the residual mass `S_res`,
 and (c) the Siegel factor. (b) is `≍` the Haar truth `𝓛³` up to `log𝓛`; (a) comes from Lemma 3.2's
 `1/η≍log𝓛` and the `2^{ω_Y}` drift weight. Only (c) is new relative to the Haar bound, and it is
 the familiar asymmetry of CU Remark 2.2: majorants absorb `1+ε≤3`, minorants pay `1−ε`. Siegel's
-(ineffective) theorem gives `λ_L≥c(ε)q_1^{−ε}`, which still costs `ε·k_LlogY`, so it does not remove
-the third log; restricting to leaves with `q_1∤Q_L` would, if those carry a fixed proportion of the
-good mass (not shown).
+(ineffective) theorem gives `λ_L≥c(ε)q_1^{−ε}`, which still costs `ε·log rad Q_L`, so it does not
+remove the third log; restricting to leaves with `q_1∤Q_L` would, if those carry a fixed proportion
+of the good mass (not shown).
 
 ## 4. Status (checkpoint 1)
 
