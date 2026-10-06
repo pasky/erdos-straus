@@ -191,6 +191,36 @@ with K = 1 − σ); Thm 3.1's decay is invisible at these sizes. They neither
 confirm nor refute Assessment 4.2, which is a statement about the coupling
 of *all* moduli.
 
+## 6. Structure of spread RSPW measures (EVIDENCE) and the sawtooth test
+
+*Spread optimum* (`scripts/spw2_smooth_qp.py`, N = 30, C = 2, support
+[−16N, 17N], η fixed to 0.7, minimise ΣR²): R ≡ 0 on W; 4.7 of mass in each
+half of the near zone (max 0.32); the remaining ≈ 19.6 spread over the far
+region at density ≈ 0.02–0.08 with no visible decay up to |x| = 16N. Class
+averages of the far part mod d show exactly the window's sawtooth: excess on
+the residues (0, r_d], r_d = N mod d (e.g. mod 12: 0.029 on 1..6 vs 0.017 on
+0, 7..11; mod 9: 0.0285 on 1..3 vs 0.020), i.e. a ≈ ±25% modulation. A
+least-squares fit of the far values by V_D (class indicators mod d ≤ D)
+explains only 34% of their variance, so the far part is not simply a lifted
+V_D-function.
+
+*Sawtooth test function* g(x) = Σ_{d≤D} d(c(x,d) − N/d) (SPW1 Prop 2.3), which
+satisfies Σ_x R g = Σ_W g for every pseudo-window
+(`scripts/spw2_sawtooth_stats.py`; exact integer data):
+
+| N | Σ_W g | D³/27 | Σ_W g⁺ | Σ_W g⁻ | max_Z g (C = 2) |
+|---|---|---|---|---|---|
+| 100 | 6600 | 4630 | 12864 | 6264 | 135 |
+| 1000 | 6.64e6 | 4.63e6 | 1.28e7 | 6.20e6 | 10550 |
+| 10000 | 6.64e9 | 4.63e9 | 1.28e10 | 6.20e9 | 992919 (≈ D²/25) |
+
+So max_Z g is of the order of the average of g on W (≈ D²/38): the near zone
+*can* absorb sawtooth content, and this test function alone yields no
+obstruction. (If the far part were a lift with bounded relative modulation,
+|h| ≤ 1, its g-correlation would be ≤ m_F·E|g| ≤ N·D^{3/2}/2, which caps
+nothing until the near zone fails; we found no rigorous way to force the
+near zone to fail.)
+
 ## Replay
 
 ```
@@ -199,4 +229,6 @@ uv run --with scipy python scripts/spw2_relaxed_lp.py 50 800 8 inf inf - offW   
 uv run --with scipy python scripts/spw2_relaxed_fast.py 50 3200 2       # eta=0.8203 (~8 min)
 uv run --with scipy python scripts/spw2_relaxed_fast.py 30 3840 2       # eta=0.9050 (~5 min)
 uv run --with scipy python scripts/spw2_local_K.py 300 2 630 2520 27720 # local K=inf bounds (~min)
+uv run --with cvxpy --with scipy python scripts/spw2_smooth_qp.py 30 480 2 0.7 /tmp/q30.npy   # spread optimum (s)
+uv run python scripts/spw2_sawtooth_stats.py 100 1000 10000             # sawtooth table (s)
 ```
