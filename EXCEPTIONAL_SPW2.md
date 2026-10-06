@@ -168,3 +168,31 @@ which would **refute** weak SPW (Lemma 1.1 needs η_N/K_N ≥ e^{−O((log N)^{3
 The LP values (η ≈ 0.9, 0.82, ≥ 0.73 at N = 30, 50, 80) are not in
 conflict (the heuristic constants give ≈ 6/√D ≥ 0.9 there). Nothing here is
 proved; the rigorous obstruction is only Thm 3.1 ((log N)^{−1/3}).
+
+## 5. Local (single-modulus) bounds with K = ∞ (EVIDENCE)
+
+`scripts/spw2_local_K.py`: ρ ≥ 0 on ℤ/e, pinned profile mod d | e (d ≤ D),
+ρ(s) ≤ 1 − η on every class of every modulus e′ | e, e′ > CN, meeting W;
+nothing else. Every global RSPW measure projects to a feasible ρ, so these
+are upper bounds for η* (floating point, not certified):
+
+| N | e | η_loc |
+|---|---|---|
+| 100 | 27720 / 55440 | 0.947 / 0.889 |
+| 300 | 630, 1260 / 2520 / 27720 / 55440 | 0.799 / 0.798 / 0.798 / 0.795 |
+| 1150 | 2310, 4620 | 0.873 |
+
+So single-modulus relaxations stay near 0.8 (compare SPW1's σ_loc ≈ 0.38
+with K = 1 − σ); Thm 3.1's decay is invisible at these sizes. They neither
+confirm nor refute Assessment 4.2, which is a statement about the coupling
+of *all* moduli.
+
+## Replay
+
+```
+uv run --with scipy python scripts/spw2_relaxed_lp.py 30 480 2 1.5      # RSPW, eta=0.860 (s)
+uv run --with scipy python scripts/spw2_relaxed_lp.py 50 800 8 inf inf - offW   # displaced pseudo-window, eta=1
+uv run --with scipy python scripts/spw2_relaxed_fast.py 50 3200 2       # eta=0.8203 (~8 min)
+uv run --with scipy python scripts/spw2_relaxed_fast.py 30 3840 2       # eta=0.9050 (~5 min)
+uv run --with scipy python scripts/spw2_local_K.py 300 2 630 2520 27720 # local K=inf bounds (~min)
+```
