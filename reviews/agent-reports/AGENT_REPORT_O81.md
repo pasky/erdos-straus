@@ -15,16 +15,17 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
    (open question (W)). No arithmetic-free argument can cap it; an escape exists iff M(N) is
    below the sieve-limit scale (and then the escaping majorant is the LP optimum, as hard as
    the count).
-3. **Thm 3.3 (PROVED): sharp weights (any w ≥ c₀|sin πNθ|), hit-pattern majorants, Q₀ = 1,
-   prime slices with |F_ℓ| ≤ ℓ^γ (γ<1/3) and the ET mass bound ⇒ saving ≤ C(log N)^{3/4},
+3. **Thm 3.3 (PROVED): sharp weights (any w with w(0)=N, w ≥ c₀|sin πNθ| off 0), hit-pattern
+   majorants, Q₀ = 1, prime slices with |F_ℓ| ≤ ℓ^γ (γ<1/3), boundedly many bad primes, and the
+   uniform mass hypothesis (M) ⇒ saving ≤ C(log N)^{3/4},
    without (H_eq).** Proof: `|S_N| ≥ sin²(πNθ)` turns `M_S` into `½A_S(1−Πφ_ℓ(N))`; one prime
    ℓ₀ ∤ N gives `1−|φ_{ℓ₀}(N)| ≥ 9/(256|F|²)` (anti-concentration, Lemma 3.2); the loss |F|² is
    absorbed into modified Walsh weights `s_ℓ = log(ℓ/(2|F_ℓ|³))`.
 4. **Smooth windows, hit-pattern (§4):** (H_eq) ⇐ characteristic-function bound (Lemma 4.1);
    proved for a single prime ≥ 2|F|N/c (Lemma 4.2, loss √|F|). Several primes: still
    CONJECTURE.
-5. **Sharp weights, general majorants (Lemma 6.1):** best bound ≥ max(M(N), LP₁(h/N)) where
-   LP₁(h/N) is the w ≥ 1 LP for the window-average function ("window sieve limit" (W′), open).
+5. **Sharp weights, general majorants (§6):** only ≥ M(N) known. (An earlier "window sieve
+   limit (W′)" route was shown redundant by the self-review: LP₁(h/N) ≤ M(N) via ν ≡ M(N)/N.)
 6. **M(N) itself (§5):** E(N) ≤ M(N) ≤ N e^{−c(log N)^{3/4}}; random-translate and greedy lower
    bounds are far below. Toy numerics (EVIDENCE, §5.1, N=300/1000): local-search M(N) savings 2.4/3.0 vs
    large-sieve bound 0.7/0.9 vs random translates 12.5/15.9 — consistent with (W), no exponent info.
@@ -33,7 +34,7 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
 * (W) `M(N) ≥ N e^{−C(log N)^{3/4}}` for forced-class families — closes ALL per-frequency doors
   (every weight, every majorant class). Its negation gives a (non-constructive) escape.
 * (H_eq) for several primes (hit-pattern + smooth windows).
-* (W′) window sieve limit (general majorants + sharp weights).
+* Sharp weights + general majorants: is the best bound ≍ M(N), or w ≥ 1-type capped? (W) closes it.
 
 ## Self-check notes for the reviewer
 * Thm 3.3 relies on NC Prop 2.1/Thm 2.3 only through the tail estimate; the weight change
@@ -41,3 +42,9 @@ Deliverable: `EXCEPTIONAL_WEIGHTS.md` (§0 summary table), `scripts/weights_tran
   worth re-deriving). The Erdős–Turán/Vaaler claim is hedged (weights not checked to dominate
   c₀|sin πNθ|).
 * Thm 2.1 constants: |v| ≤ 5δ min(1,(πδx)^{−2}), block sum ≤ 12δM(L).
+
+## Self-review (reviewer subagent, deep) — applied
+No FATAL. MAJOR: (i) §6's (W′) was redundant (LP₁(h/N) ≤ M(N)) — removed, now Remark 6.1;
+(ii) summary scope of Thm 3.3 omitted (M) and w(0)=N — fixed. MINOR: ceilings in Lemmas 4.1/4.2,
+Ψ̌(−θ), duality attainment (w(0)>0), fixed K in Cor 2.2, moduli reduction restricted to prime
+slices — all fixed. Passed: Thm 2.1 (constants), Lemmas 3.1–3.2, Thm 3.3 tail transfer, Prop 5.1.

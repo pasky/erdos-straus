@@ -18,16 +18,16 @@ common period). Fourier coefficients `ν̂(θ) = E_{n mod Q} ν(n) e(−nθ)`,
 | Lemma 1.1 | every per-frequency bound with weights `w ≥ |W_N|` or `w ≥ |S_N|` is translation invariant, hence ≥ `M(N) = max_t #(𝒜∩(t,t+N])` | PROVED (trivial) |
 | Lemma 1.2 | LP duality: best per-frequency bound = `max ⟨g,1_𝒜⟩` over `g ≥ 0`, `|Qĝ| ≤ w` | PROVED |
 | Thm 2.1, Cor 2.2 | band-limited (Selberg-majorant) windows, **general majorants**: best per-frequency bound lies in `[M(N), 12(K+1)M(N)]`. So this door is capped at 3/4 **iff** `M(N) ≥ Ne^{−C(log N)^{3/4}}` | PROVED |
-| Thm 3.3 | sharp weight `|S_N|` (and any `w ≥ c₀|sin πNθ|`), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ`, γ < 1/3: saving `≤ C(log N)^{3/4}`, no (H_eq) needed | PROVED |
+| Thm 3.3 | sharp weight `|S_N|` (and any w with `w(0) = N`, `w ≥ c₀|sin πNθ|` off 0), **hit-pattern majorants**, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ` (γ < 1/3), boundedly many bad primes, and the uniform mass hypothesis (M) (ℛ(ℓ)-slices): saving `≤ C(log N)^{3/4}`, without (H_eq) | PROVED |
 | Lemmas 4.1–4.2 | smooth windows, hit-pattern majorants: (H_eq) ⇐ a characteristic-function bound (4.1); true for one prime ≥ 2|F|N/c (loss √|F|); several primes open | PROVED / (H_eq) CONJECTURE |
-| Prop 5.1 | `E(N) ≤ M(N) ≤ Ne^{−c(log N)^{3/4}}`; random-translate and greedy lower bounds are far below the 3/4 scale | PROVED |
+| Prop 5.1 | `E(N) ≤ M(N) ≤ Ne^{−c(log N)^{3/4}}` (families of the 3/4 note); random-translate and greedy lower bounds (prime slices) are far below the 3/4 scale | PROVED |
 | (W) | is `M(N) ≥ Ne^{−C(log N)^{3/4}}`? | OPEN QUESTION |
-| Lemma 6.1 | sharp weights, general majorants: best bound ≥ `max(M(N), LP₁(h/N))` (window sieve limit (W′)) | PROVED; (W′) open |
+| §6 | sharp weights, general majorants: only `≥ M(N)` known (a window-averaged w ≥ 1 certificate gives nothing more, Rem 6.1) | PROVED / open |
 | §5.1 | toy translate sieve (ℛ(ℓ) prime slices, N = 300, 1000): optimised translates reach savings 2.4, 3.0 (large-sieve upper bound 0.7, 0.9; random translates 12.5, 15.9): near the sieve scale, consistent with (W) | EVIDENCE |
 
 **Verdict.** Weights below 1 split into two very different doors.
-* *Hit-pattern majorants* (NC §2.5's class): the sharp weight is closed
-  unconditionally (Thm 3.3): a weight that is small only near `‖Nθ‖ = 0`
+* *Hit-pattern majorants* (NC §2.5's class, Q₀ = 1 prime slices under the mass
+  hypothesis (M)): the sharp weight is closed without (H_eq) (Thm 3.3): a weight that is small only near `‖Nθ‖ = 0`
   cannot hurt, because the product spectral measure of the forced classes
   cannot concentrate there (one-prime anti-concentration). Smooth windows still
   need (H_eq), reduced to a characteristic-function bound (Lemma 4.1).
@@ -401,36 +401,6 @@ translates decides which. The random choice (b) is far from optimal (§5.1
 EVIDENCE), so translates do correlate kills strongly; whether up to the
 sieve-limit scale is not known.
 
-## 6. Sharp weights for general majorants
-
-For `w = |S_N|` the dual g need not be smooth (`|S_N(θ)| ≥ |sin πNθ|` is ≥ 1/2 on
-two thirds of the circle), so Theorem 2.1's upper bound does not apply. A
-lower bound comes from the w ≥ 1 world.
-
-**Lemma 6.1 (PROVED).** Let `h(t) = #(𝒜 ∩ (t, t+N])` and, for f ≥ 0,
-`LP₁(f) := min{ N·Eν + Σ_{θ≠0}|ν̂(θ)| : ν ≥ f on ℤ }`. Then
-
-    min_{ν majorant of 𝒜} R_{|S_N|}(ν) ≥ max( M(N), LP₁(h/N) ).
-
-*Proof.* M(N): Lemma 1.1. For the second, Lemma 1.2 (whose proof works verbatim
-with `1_𝒜` replaced by any f ≥ 0) gives a `g₁ ≥ 0` with `Qĝ₁(0) ≤ N`,
-`|Qĝ₁(θ)| ≤ 1` (θ ≠ 0) and `⟨g₁, h/N⟩ = LP₁(h/N)`. Put
-`g(n) = N^{−1}Σ_{m=1}^{N} g₁(n − m) ≥ 0`. Then `Qĝ(θ) = Qĝ₁(θ)·conj(S_N(θ))/N`, so
-`|Qĝ| ≤ |S_N|` at every θ (at θ = 0: `Qĝ₁(0) ≤ N = S_N(0)`), and
-`⟨g, 1_𝒜⟩ = Σ_r g₁(r) N^{−1}#(𝒜∩(r, r+N]) = ⟨g₁, h/N⟩`. Apply Lemma 1.2 for
-`w = |S_N|`. ∎
-
-So the sharp door for general majorants is closed if either (W) holds or the
-**window sieve limit** (W′) `LP₁(h/N) ≥ N e^{−C(log N)^{3/4}}` holds. (W′) is a
-statement in the w ≥ 1 world of NC Thm 2.3 (rough certificates allowed), but
-for the *window-average* `h/N` instead of `1_𝒜`. Note
-`LP₁(h/N) ≤ LP₁(1_𝒜)` (average a majorant of 𝒜 over the N shifts), so (W′)
-says the KARY/NC cap is not lowered by passing from a point to a window. NC's
-proof does not transfer: it works fibrewise with `f(0) ≥ 1` at the single
-all-avoid pattern, whereas `h(t)/N` is not a function of the hit pattern of t.
-(W′) is open; we do not know whether (W) ⇒ (W′) or conversely. For
-hit-pattern majorants §3 closes the sharp door unconditionally.
-
 ### 5.1 Toy translate sieve (EVIDENCE only)
 
 `scripts/weights_translate_sieve.py`: family = primes ℓ ≤ 100N, ℓ ≡ 3 (4), with
@@ -453,6 +423,24 @@ inflated by squares (which avoid every forced class). This is consistent with
 (W) — translates can realise near-sieve-limit correlations — but N ≤ 1000
 says nothing about exponents, and local search gives only lower bounds.
 (N = 3000 was started and stopped for time.)
+
+## 6. Sharp weights for general majorants
+
+For `w = |S_N|` the dual g need not be smooth (`|S_N(θ)| ≥ |sin πNθ|` is ≥ 1/2 on
+two thirds of the circle), so Theorem 2.1's upper bound does not apply. The
+only lower bound we have is M(N) (Lemma 1.1).
+
+*Remark 6.1 (a route that adds nothing; PROVED).* Averaging a w ≥ 1
+certificate over the window — `g = N^{−1}Σ_{m≤N} g₁(· − m)` with `g₁ ≥ 0`,
+`Qĝ₁(0) ≤ N`, `|Qĝ₁| ≤ 1` off 0 — is admissible for `w = |S_N|`, and gives the lower
+bound `LP₁(h/N) := min{N·Eν + Σ_{θ≠0}|ν̂(θ)| : ν ≥ h/N}`, `h(t) = #(𝒜∩(t,t+N])`.
+But the constant `ν ≡ M(N)/N` is feasible, so `LP₁(h/N) ≤ M(N)`: this route never
+beats Lemma 1.1. (Reviewer's observation.)
+
+So for general majorants with sharp weights we know only `≥ M(N)`; whether the
+best sharp bound is ≍ M(N) (as for band-limited windows) or is capped by a
+w ≥ 1–type argument is open. Either way (W) would close it. For hit-pattern
+majorants §3 closes the sharp door without (H_eq).
 
 ## Replay
 
