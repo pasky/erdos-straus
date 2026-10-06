@@ -20918,4 +20918,61 @@ print("\n== (dt) EXCEPTIONAL_LARGESIEVE7: Lemmas 1.1-1.2 (M < 2000), Prop 4.1 / 
 check_dt()
 
 
+
+# ---------------------------------------------------------------- (du)
+# POINTWISE_MN2.md §4 table: exact density delta_m(Q(q_0)) of Type-II-hard units mod Q(q_0) (EVIDENCE
+# data for the circularity Assessment).  Cf. scripts/mn2_delta.py (author) and review_mn2_delta.py (R74,
+# independent CRT-tensor implementation), run as subprocesses.  Checked:
+# (1) author, m = 5, q_0 = 8, 9, 11, 13, 16, 17: |H| = 12, 18, 132, 898, 1796, 17510 (1/delta = 4, 8,
+#     10.91, 19.24, 19.24, 31.58); m = 7, q_0 = 8, 11: 1/delta = 3.2, 4.103;
+# (2) R74, m = 5, q_0 = 8, 9, 11, 13 (exact fractions 1/4, 1/8, 11/120, 449/8640); m = 6, q_0 = 11, 13
+#     (7/20, 421/1440);
+# (3) inline from the definition: delta_5(Q(8)) = 12/48, delta_5(Q(9)) = 18/144, and MN's
+#     |H_5(840)| = 48 of phi(840) = 192.
+
+def check_du():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(name, *args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, name), *map(str, args)],
+                           capture_output=True, text=True, env=env, timeout=600)
+        assert r.returncode == 0, ("MN2 script failed", name, r.stderr[-1500:])
+        return r.stdout
+    o = run("mn2_delta.py", 5, 8, 9, 11, 13, 16, 17)
+    for q0, h, inv in ((8, 12, "4"), (9, 18, "8"), (11, 132, "10.91"), (13, 898, "19.24"), (16, 1796, "19.24"),
+                       (17, 17510, "31.58")):
+        assert f"m=5 q0={q0} " in o and f"|H|={h} " in o and f"1/delta={inv} " in o, ("MN2 §4 table m = 5", q0, o)
+    o = run("mn2_delta.py", 7, 8, 11)
+    assert "m=7 q0=8 " in o and "1/delta=3.2 " in o and "1/delta=4.103 " in o, ("MN2 §4 table m = 7", o)
+    o = run("review_mn2_delta.py", 5, 8, 9, 11, 13)
+    for fr in ("delta=1/4 ", "delta=1/8 ", "delta=11/120 ", "delta=449/8640 "):
+        assert fr in o, ("MN2 §4 table m = 5 (R74)", fr, o)
+    o = run("review_mn2_delta.py", 6, 11, 13)
+    assert "delta=7/20 " in o and "delta=421/1440 " in o, ("MN2 §4 table m = 6 (R74)", o)
+
+    def hard(m, Q):
+        forb = []
+        for M in range(3, Q + 1):
+            if Q % M == 0 and M % m == m - 1:
+                A = (M + 1) // m
+                forb.append((M, {(-m * D) % M for D in range(1, A * A + 1) if A * A % D == 0}))
+        units = [r for r in range(1, Q) if gcd(r, Q) == 1]
+        return sum(1 for r in units if all(r % M not in S for M, S in forb)), len(units)
+    assert hard(5, 168) == (12, 48), ("MN2: delta_5(Q(8)) != 1/4", hard(5, 168))
+    assert hard(5, 504) == (18, 144), ("MN2: delta_5(Q(9)) != 1/8", hard(5, 504))
+    assert hard(5, 840) == (48, 192), ("MN2: |H_5(840)| != 48/192", hard(5, 840))
+    print(f"du §4 table: author m = 5 (q_0 <= 17), m = 7 (q_0 = 8, 11); R74 exact fractions m = 5, 6; inline "
+          f"delta_5(Q(8)) = 1/4, delta_5(Q(9)) = 1/8, |H_5(840)| = 48/192; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (du) POINTWISE_MN2: §4 exact hard densities delta_m(Q(q_0)) (m = 5, 6, 7) ==")
+check_du()
+
+
 print("\nall checks passed")
