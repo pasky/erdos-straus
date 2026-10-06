@@ -91,3 +91,25 @@ Re-derived:
   - (U+)/(L+): exact means on 200 random systems with `n ≤ 40` meet the stated
     bounds.
   - The Bonferroni identity and sandwich hold for `h<30`, `k<12`.
+
+### Claim 5 — Prop 4.2 (no positive minorant below `log D ≤ c𝓛⁴` on every fibre with `log Q ≤ T^{0.05}`): **SOUND** (given the note), minor repairs
+
+Re-derived:
+* Atoms are ES events of modulus `kℓ ≤ T` (Claim 1), so `F_T ≤ F_𝓕`. Each atom is
+  `{n mod k = −uv^{-1}} ∩ {n mod ℓ = −uv^{-1}}`. The first factor is a function of
+  the small coordinate `c` (`k|L_K`, primes `≤ K < X^{1/2}`). This is Setting 1.2
+  with one big coordinate per event. ✔
+* `p_ℓ = f_c(ℓ)/(ℓ−1) ≤ ℓ^{1/3}/(ℓ−1) ≤ 2ℓ^{−2/3} ≤ 2X^{−1/3}` (`f_c(ℓ) ≤ z_j² ≤ ℓ^{1/3}`,
+  note Lemma 2.2 proof). ✔
+* Uniformity in `c`: note Cor 4.3 is stated for *every* residue `c mod L_K`.
+  `J_c = K(K)` for unit `c`, and `a_h` depends only on `κ,D`. So `R(x_s) ≥ μ_c −
+  #{big ℓ|Q}·p* ≥ a t³ − (2log Q/t)·2X^{−1/3}` for *every* small configuration. With
+  `log Q ≤ T^{0.05}` and `X^{−1/3} ≈ T^{−0.33}` the loss is negligible. ✔
+* Level → order: big primes exceed `e^{t/2}`, so `q ≤ D` has `< 2log D/t` of them;
+  `k ≤ 2c(1+κ)⁴t³`, and `(k+1)(1+3r*) ≤ (5/3)(k+1) ≤ at³/2` for `c` small. OMEGA14
+  Lemma 4.1 applies with an empty exceptional set. ✔
+* The OMEGA14 Thm 4.5 / Cor 4.6 comparison is correct: `𝓛³/log𝓛 → 𝓛³` in the mass, so
+  the minorant-architecture gap to OMEGA13 Thm 5.1 is `(log log p)^{1/4}` in `log W`.
+  The "every fibre" scope is inherited from Cor 4.6's own remark (R49b D4). ✔
+
+Defects: D4 (coordinate definition) and D5 (inputs list).
