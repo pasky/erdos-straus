@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-01)
+ (2026-10-06; ledger through (D)28 and (H)33)
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -43,9 +43,9 @@ with its status label. Read it before starting new work.
   INTERNALLY PROVED: three internal reviews, the last a blind from-scratch
   audit (`reviews/es-threequarter-blind-audit.md`, SOUND). It has not been
   externally refereed.
-* **Open target.** θ > 3/4 (the 3/4 note's mass-driven heuristic ceiling
-  is θ=B/(B+1) with B=3). See `PROJECT.md`, Outcome 36, and the agent
-  workstream `EXCEPTIONAL_THETA.md` (in progress).
+* **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
+  analysed (see "Exceptional-set exponent: where it stands" below). The cubic
+  witness tail (ledger (A)9) is now INTERNALLY PROVED via the 3/4 note.
 
 ### 2. Pointwise signed-graph line (wave 33–34): CLOSED
 
@@ -184,36 +184,39 @@ scale). **Pointwise state (ledger (H)16–(H)33):**
   Lemma 3.1 square families; Prop 4.1(i) r ≡ 3 (8) identity) and POINTWISE_MN (Lemma 1.1 Jacobi
   symbols for several m; §1 square-consistency counts).
 
-## Exceptional-set exponent: where it stands (2026-10-04)
+## Exceptional-set exponent: where it stands (2026-10-06)
 
-**3/4 is now proved sharp for coefficient-sum congruence sieves over any
-mixture of forced (and selector) classes, with no B-hypothesis and no
-`(log log N)^{3/4}` loss (`EXCEPTIONAL_KARY3.md`, ledger (D)24; reviewed).** See
-`EXCEPTIONAL_KARY2.md` Thm 5.1 / Cor 6.1, which builds on `EXCEPTIONAL_KARY.md`
-Thm 4.5. The 3/4 note's own majorant is literally in the class, so the 3/4
-note is sharp for its method.
-* For every family of ℛ(M) forced classes with `M ≤ P(M)^{1+B}` (B fixed),
-  every nonnegative CRT majorant saves at most `≪_B (log N)^{3/4}`. This
-  includes twin and balanced moduli.
-* Earlier steps: `EXCEPTIONAL_THETA.md` (dominant primes),
-  `EXCEPTIONAL_TWIN*.md` (gapped moduli; Λ² sieves with r large primes, B
-  removed for fixed r), `EXCEPTIONAL_NONCRT.md` (per-frequency signed
-  rounding, prime-only majorants and CRT moment methods are also capped at
-  3/4).
-* So the 3/4 note's exponent cannot be improved within this architecture.
+**3/4 is sharp for every CRT architecture analysed so far** (ledger
+(D)9–(D)28; all internal, reviewed, unrefereed). The 3/4 note's own majorant
+is in the class, so the note is sharp for its method.
+* *Coefficient-sum sieves:* over any mixture of forced (ℛ(M), (a,D),
+  Case-A) and selector classes, arbitrary moduli, no B, no `log log` loss:
+  saving `≤ C_A(log N)^{3/4}` (`EXCEPTIONAL_KARY3.md`, (D)24, building on
+  KARY2/KARY). Also prime-only majorants ((D)22), interval cancellation at
+  moduli `≤ N/2` ((D)20), Bessel-type large sieves of polynomial period
+  ((D)19, (D)25).
+* *All-level large sieves* (any frequency, any level): capped at 3/4 for
+  mixtures with one prime factor above `exp((log N)^{1/4})` per modulus
+  (`EXCEPTIONAL_LARGESIEVE3.md`, (D)27) and for residue-sparse multi-rough
+  classes, incl. all small-height classes such as −4 mod M
+  (`EXCEPTIONAL_LARGESIEVE4.md`, (D)28).
+* *One sieve limit:* the 3/4 cap and the pointwise 1/4 ceiling are the same
+  order-k limit at critical level `≍ 𝓛⁴` (`CEILINGS_UNIFIED.md`, (H)29).
 
-The large sieve is capped as well (`EXCEPTIONAL_LARGESIEVE.md`, via duality).
-
-A θ>3/4 proof would need at least one of:
-* cancellation between frequencies, which is now known to be worthless for
-  classes of modulus ≤ N/2 (`EXCEPTIONAL_INTERFREQ.md`); what remains is
-  multi-witness tuple counting above modulus N. `EXCEPTIONAL_TUPLES.md`:
-  CRT-accurate witness correlations up to order `(log N)^θ` (TC_θ) would
-  give exponent θ; bounded-order input cannot help;
-* per-frequency weights below 1;
-* non-CRT tuple counts or other genuinely arithmetic input;
-* classes outside the ℛ(M) family with unbounded `log M/log P(M)` for
-  general majorants (B-removal is sketched only).
+**Open (each precisely stated):**
+* (A*) for residue-dense multi-rough classes (generic ℛ(M)), reduced to a
+  damped covering count (DCC) and then to residue dispersion (RD′)
+  (LS5–LS7; (RD) PROVED at one prime for ℛ(M) and for long cofactors, false
+  as first stated for several primes; short cofactors and (a,D)/Case-A
+  classes open);
+* hybrid interval methods: reduced to **weak SPW** (`EXCEPTIONAL_SPW2.md`:
+  exact requirement `log(K/η) = O((log N)^{3/4})`; fixed-σ SPW and fixed-η
+  RSPW refuted); right-signed mass at moduli in `(N, CN]`;
+* tuple counts of growing order: TC^alt_θ for θ > 3/4 (CONJECTURE,
+  `EXCEPTIONAL_TUPLES2.md`); per-frequency weights below 1; genuinely
+  non-CRT input.
+The first two are *closing* questions (they would extend the cap); a θ > 3/4
+proof needs the third kind of input.
 
 Papers in `paper/`:
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
@@ -221,8 +224,8 @@ Papers in `paper/`:
 * `pointwise-obstruction` (refereed internally, ACCEPT pending authorship);
 * `sieve-limits-note` v5: why 3/4 is sharp for congruence sieves, now with
   no log log loss, all-level large sieves (residue-sparse), tuple and hybrid
-  doors, and the unified sieve-limit picture (refereed, R36/R65;
-  internally; fixes applied);
+  doors, and the unified sieve-limit picture (refereed internally, R36/R65;
+  fixes applied);
 * `es-omega-note` v3: every fixed exponent (refereed internally; P1–P4
   applied).
 * `es-window-note` (new): the window statistic `a_min(p)` — half-set lemma,
@@ -237,6 +240,7 @@ Papers in `paper/`:
   architecture (and of full-orbit uniform linear certificates), and the
   conjecture LS ("Linnik for sifted sets") gives 1/3 (refereed internally
   five times: R33, R33b, R47, R56, R64; novelty audit
-  `reviews/novelty-audit-omega8.md`).
+  `reviews/novelty-audit-omega8.md`). A v6 adding the two-sided tail
+  (`POINTWISE_TAIL.md`) is in preparation (task O77; not yet merged).
 
 Authorship and the citation form for astra are still undecided.
