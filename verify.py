@@ -71,6 +71,19 @@ Blocks (cz)..(df) (task O54) replay the documents merged after that:
   (de) POINTWISE_TRANSFER: Lemma 5.1 (m = 4..8, 11), identity (5.1), Lemma 5.0 Type II completeness;
   (df) EXCEPTIONAL_SPW: embedded exact certificate sigma <= 72/185 at N = 300, e = 630
        (LP re-derivation needs scipy).
+Blocks (dg)..(dm) (task O66) replay the documents merged after that:
+  (dg) POINTWISE_OMEGA14: planting Lemma 1.1 in exact rationals (k <= 3); toy LP thresholds (scipy);
+  (dh) POINTWISE_OMEGA15: Lemma 1.1 closed form / bound (4r*)^{k+1} on toy planted systems
+       (author + R57 scripts), Lemma 2.3 with actual primes;
+  (di) POINTWISE_OMEGA16 §6: W(133050918961) = 5935, least-p table T <= 2047 (exhaustive),
+       Buchstab ratios at x = 10^7, 10^8;
+  (dj) EXCEPTIONAL_LARGESIEVE3: Thm 1.1 toy inequality (author + R59), Thm 3.1, Lemma 4.1,
+       Lemma 4.2 (-4 in R(M), exact (16.1) solutions);
+  (dk) EXCEPTIONAL_SPW2: Lemma 2.2 near zone, Lemma 2.3 sharp (exact ranks, cyclotomic witnesses),
+       Lemma 9.3 thresholds; RSPW LP rows (scipy);
+  (dl) CEILINGS_UNIFIED §4.4: exact toy LP thresholds (dual simplex; sympy primal agrees);
+  (dm) POINTWISE_WINDOW3 §3, §8.1: certified one-window LP, 50-digit verified K = 2.5 fake
+       (scipy + mpmath; skipped otherwise).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root

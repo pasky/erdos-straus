@@ -149,6 +149,13 @@ moduli are `≤ exp((log p)^{1/4−ε})` can prove ES. The heuristic truth is `l
   Thm 1.4 by exact enumeration), POINTWISE_OMEGA13 (Lemma 3.1 Jacobi, M ≤ 3·10⁴; β-weighted LLL
   Lemma 1.1), POINTWISE_TRANSFER (Lemmas 5.0, 5.1, identity (5.1)) and EXCEPTIONAL_SPW (embedded
   exact certificate σ ≤ 72/185 at N = 300, e = 630; LP re-derivation needs scipy).
+* `verify.py` blocks (dg)–(dm) (O66, ~33 s; full run ≈ 4.4 min, 2 threads) add POINTWISE_OMEGA14
+  (planting Lemma 1.1 exact, k ≤ 3; toy LP thresholds), POINTWISE_OMEGA15 (Lemma 1.1 closed form and
+  `(4r*)^{k+1}` bound on toy planted systems; Lemma 2.3 with actual primes), POINTWISE_OMEGA16 §6
+  (W(133050918961) = 5935; least-p table T ≤ 2047 exhaustive; Buchstab ratios at 10⁷, 10⁸),
+  EXCEPTIONAL_LARGESIEVE3 (Thm 1.1 toys, Thm 3.1, Lemma 4.1, Lemma 4.2), EXCEPTIONAL_SPW2 (Lemmas
+  2.2, 2.3 sharp; RSPW LP rows), CEILINGS_UNIFIED §4.4 (exact toy LP thresholds) and POINTWISE_WINDOW3
+  (certified one-window LP 0.4893; 50-digit verified K = 2.5 fake; needs scipy + mpmath).
 
 ## Exceptional-set exponent: where it stands (2026-10-04)
 
