@@ -3221,19 +3221,27 @@ the \emph{admissible unit process}: at each step reveal the next digit of $n$
 uniformly among the classes that do not complete an event (the
 \emph{non-forbidden} classes), after a fixed prefix in which $r_0\bmod Q_0$ is
 uniform on the Type-II-hard classes modulo a constant modulus $Q_0=Q_0(m)$.
-The prime $2$ is an ordinary coordinate for odd $m$.  If $f$ is the forbidden
-fraction at a step, put $\Lambda(\ell)=\prod(1-f)^{-1}$ over the steps at $\ell$ after the
-prefix ($\Lambda=\infty$ if some $f=1$).
+The prime $2$ is an ordinary coordinate for odd $m$.  We always take $8\mid Q_0$,
+as Lemma~\ref{lem:anyr} requires (for $m\equiv2\pmod4$ no $M$ is even, so this
+changes no mass; for odd $m$ the class of one is hard, so the hard set
+modulo $Q_0$ is non-empty).  If $f$ is the forbidden fraction at a step, put
+$\Lambda(\ell)=\prod(1-f)^{-1}$ over the steps at $\ell$ after the prefix ($\Lambda=\infty$ if some
+$f=1$).  The process may be run adaptively (step at the least heavy $\ell\le Y$,
+as in \S\ref{sec:system}), or with a forced first stage that reveals the
+digits modulo all powers $q\le Z=\Lc^3(\log\Lc)^B$ of primes not dividing $m$, in increasing order of $q$,
+before the adaptive stage; the forced steps are ordinary steps for the
+supermartingales and cost $\log\lcm\{q\le Z\}\ll\Lc^3(\log\Lc)^B$.
 
 \emph{Hypothesis} $\mathrm{ADM}_m(K,Q_0)$: uniformly in large $T$ (with $\beta$, $\eta$ as
 before and $Y=\Lc^{C}$ for a suitable $C=C(K)$), with probability at least $7/8$ the
-admissible unit process satisfies $\Lambda(\ell)\le K$ for every $\ell\le Y$.
+admissible unit process (in either variant) satisfies $\Lambda(\ell)\le K$ for every
+$\ell\le Y$.
 
 For $m\equiv0\pmod4$ the square-restricted version holds with $K=2$, by
 Lemma~\ref{lem:mjacobi}(d).
 
-\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT}]\label{thm:madm}
-Assume $\mathrm{ADM}_m(K,Q_0)$.  Then $\log(1/\delta^*_m(T))\ll\Lc^3(\log\Lc)^{K+4}$, and
+\begin{theorem}[Conditional on $\mathrm{ADM}_m$; the implication is proved in {\cite{MN}} modulo Theorems~\ref{thm:G} and~\ref{thm:NT} for even $m$, and for odd $m$ modulo also the parity split described below, not written out in {\cite{MN}}]\label{thm:madm}
+Assume $\mathrm{ADM}_m(K,Q_0)$ for either variant of the process.  Then $\log(1/\delta^*_m(T))\ll\Lc^3(\log\Lc)^{K+4}$, and
 $W_m(p)\ge\exp\big(c(\log p)^{1/4}(\log\log p)^{-B_K}\big)$ for infinitely many primes $p$,
 Type-II-hard modulo their quarantine modulus.
 \end{theorem}
@@ -3243,7 +3251,8 @@ factor $2^{u_i(E)}$ is replaced by $\prod_{\ell\mid M,\,\ell\le Y}K/\Lambda_i(\e
 is stopped before a step that would make some $\Lambda(\ell)>K$, and the prefix
 costs a factor $1/\delta_0$ (the density of the hard classes modulo $Q_0$) in all
 initial masses; the transfer uses Lemma~\ref{lem:anyr}.  Success probability
-$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}.  For odd $m$
+$7/8$ can be replaced by any fixed $s_0>0$ \cite[Lemma~1.1]{MN2}, and the forced
+stage changes nothing in this argument \cite[\S1, ``Order'']{MN2}.  For odd $m$
 the pair of forms $n$, $mn-1$ of Lemma~\ref{lem:masses}(A) has the fixed prime
 divisor $2$, so Theorem~\ref{thm:NT} does not apply verbatim; one splits by the
 parity of $n$ (forms $t$, $2mt-1$ for $n=2t$, and $2t+1$, $mt+(m-1)/2$ for $n=2t+1$,
@@ -3254,9 +3263,9 @@ at $2$.  This step is not written out in \cite{MN}.
 Numerically the drift is small: for $m\in\{5,6,7,9,10,11,13\}$ and
 $T\le3\cdot10^5$, a simplified full-depth version of the process with a $2$- and
 $3$-adic prefix never died and had $\max_\ell\Lambda(\ell)\le4.3$, the maximum being at
-$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite{MN2} uses an ordered variant of the process: after a
+$\ell\le19$ (Evidence, \cite[\S6]{MN}).  Rigorously, \cite{MN2} uses the ordered variant of the process: after a
 prefix modulo $Q(q_0)=\lcm\{q\le q_0\}$ (over the powers $q$ of primes not dividing
-$m$), a forced stage reveals the digits $r\bmod q$ for all such prime powers
+$m$, with $8$ adjoined as above), a forced stage reveals the digits $r\bmod q$ for all such prime powers
 $q_0<q\le Z=\Lc^3(\log\Lc)^B$ in increasing order of $q$ (so that an atom completed at
 $q$ has its cofactor composed of smaller prime powers), followed by the
 adaptive threshold stage, and the process is stopped before any step that
@@ -3266,12 +3275,13 @@ modulo Henriot's coefficient-uniform form of Theorem~\ref{thm:NT}
 completed at a step are uniform in $T$, and that after any prefix law $\nu$ on
 the hard classes modulo $Q(q_0)$ with density at most $C_\nu$ relative to Haar
 measure, the process fails with probability at most
-$C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with $c_1$ not explicit.  So $\mathrm{ADM}_m$ reduces to the prefix: a hypothesis SI on
+$C_\nu(c_1q_0^{-1/2+\varepsilon}+o(1))$, with $c_1$ not explicit.  So $\mathrm{ADM}_m$ for the ordered variant reduces to the prefix: a hypothesis SI on
 $\nu$-weighted completed-atom sums (a conjecture) implies $\mathrm{ADM}_m$, and hence
 exponent $1/4$ for $W_m$ \cite[Prop.~5.1]{MN2}.  For the uniform prefix law,
 the data for $q_0\le19$ suggest that $C_\nu$ grows faster than $q_0^{1/2}$, so the
 plan ``certified finite prefix plus moments'' does not obviously close
-(Assessment, \cite[\S4]{MN2}).
+(Assessment, \cite[\S4]{MN2}); the threshold $q_0^{1/2}$ comes from a Markov step
+and is method-dependent (a second moment might replace it by $q_0^{1-\varepsilon}$).
 
 \section{Summary of status}\label{sec:status}
 
@@ -3342,7 +3352,8 @@ lower bound in (i) modulo the fundamental lemma), Proposition~\ref{prop:mlower}
 modulo the fundamental lemma, Theorem~\ref{thm:mfifth} modulo Gallagher's
 theorem and the Elsholtz--Tao estimates.  Theorem~\ref{thm:madm} is
 conditional on the open hypothesis $\mathrm{ADM}_m$ (the implication is proved
-in \cite{MN}); the reduction of $\mathrm{ADM}_m$ to the prefix is proved in
+in \cite{MN} for even $m$; for odd $m$ it also needs the parity split described
+after the theorem, which is not written out in \cite{MN}); the reduction of $\mathrm{ADM}_m$ to the prefix is proved in
 \cite{MN2} modulo Henriot's form of the Nair--Tenenbaum theorem, and the
 hypothesis SI is a conjecture.  The numerics for $\mathrm{ADM}_m$ are Evidence.
 \item Evidence, not used: the computer check of Lemma~\ref{lem:jacobi} for
