@@ -322,7 +322,7 @@ had `r` or `1/r ≡ −z (mod 17^k)` with `0<z<θ·17^k`, a 17-adic `u` whose di
 avoid the top digits would be sterile. The digit-wise choice is possible because the new digit of
 `1/u` is an affine function with slope `−u₀^{−2} ≡ 2` of the new digit of `u`. The integer centres
 `−f` of P-boxes with `cd` small do satisfy this (`min(f,f*) ≤ √(4c²dN+1)`). But over all new
-in-cell boxes the ratio `t = min(z_r, z_{1/r})/17^k` has median ≈0.15–0.2 and maximum 0.87–0.99
+in-cell boxes the ratio `t = min(z_r, z_{1/r})/17^k` has median 0.179, 0.249, 0.176, 0.121 and maximum 0.857, 0.867, 0.989, 0.883 at levels 3, 4, 5, 7 (new boxes in `C_5`; `z_r = (−r mod 17^k)`; reviewer's recomputation, R83 round-2 repair n5, applied by reviewer)
 (levels 3–7). So no fixed θ works, and the boxes are only mildly biased toward small integer centres.
 
 *Equivalent parametrisation and the discrete-log heuristic (Assessment).* Put `(s,t)=(c,d)`.
