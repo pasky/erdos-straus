@@ -56,3 +56,11 @@ search; each node refined at the prime (power) with the fewest uncovered childre
   * M≤3·10⁴: 225 boxes, uncovered 3.05% (cells ≡ (9,7), (2,2), (2,7) mod (11,13));
   * M≤10⁶: 534 boxes, uncovered 0.57%: **only cells ≡ (2,2) mod (11,13) remain** (49 of the 143
     cells mod `11²·13²` above (2,2)).
+  The 49 uncovered cells are nearly a product: `x_11 mod 121 ∈ {2,57,68,79,101}` (5 of the 11
+  lifts of 2) times `x_13 mod 169 ∈ {2,15,28,41,54,67,80,93,132,145}` (10 of 13 lifts), minus (57,41).
+* Other T (coarse resolution k=1, i.e. cells mod ∏_{q∈T} q, boxes with `v_q(M)≤1`, M≤3·10⁴):
+  T={13,ℓ} for ℓ=2,3,5,7,17,19,23 — every target cell covered (main variant).
+  np variant (x_11 square), M≤10⁵: T={11,13,ℓ} for ℓ=2,3,5,7,17,19,23 and T={13,17,19} — all
+  covered except `(x_2≡1 (16), 9, 7)` for T={2,11,13}, which is the cell (9,7) covered at M≤10⁶.
+  So **for the np variant no T-generic obstruction is visible** for |T|≤3; for the main variant
+  the cell `x_11≡2 (11), x_13≡2 (13)` is the only T-generic survivor found.
