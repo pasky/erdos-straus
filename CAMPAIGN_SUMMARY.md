@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)28 and (H)33)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)29 and (H)34, incl. the 2026-10-06 follow-ups under (H)17, (H)32, (H)34)
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -63,8 +63,9 @@ The campaign ran two lines of research.
   hypothesis (A*) and further to a residue-dispersion statement (RD′)
   (open; (RD) is proved at one prime for ℛ(M) and false as first stated
   for several primes); the combinatorial statement "weak SPW" for hybrid
-  methods (open; the fixed-σ version and fixed-η RSPW are refuted); and
-  genuinely non-CRT arithmetic input.
+  methods (open; the fixed-σ version and fixed-η RSPW are refuted);
+  per-frequency weights below 1, reduced to one shift-uniform avoider
+  count (W_𝔊) ((D)29; open); and genuinely non-CRT arithmetic input.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -84,8 +85,13 @@ The campaign ran two lines of research.
   The one hypothesis known to give 1/3 is the CONJECTURE LS ("Linnik for
   sifted sets"). Support-aware certificates are the open door; their
   ceiling is reduced to a CONJECTURE SAP. The m/n analogues reach 1/4
-  for m ≡ 0 (4) and 1/5 for every m. Window results give exact orders
-  for bounded windows and show that parity input is necessary.
+  for m ≡ 0 (4) and 1/5 for every m; for m ≢ 0 (4) the missing input SI
+  is not proved, and its failure is localised ((H)32). Window results give
+  exact orders for bounded windows and show that parity input is
+  necessary. Finite coverings: every Type-I covering of `{n_p = 7}` has
+  height > 1.32·10¹² (CERTIFIED), ES holds for primes with `(p/13) = −1`
+  outside six classes mod 720720 (PROVED by finite computation), and
+  candidate sterile points for r = 13, 17 are CONJECTURES ((H)17, (H)34).
 
 ---
 
@@ -444,7 +450,7 @@ factor quoted in this subsection can be dropped.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)28, KARY2 §6, NONCRT §6 and STATUS.md.
+The sources are ledger (D)18–(D)29, KARY2 §6, NONCRT §6, WEIGHTS and STATUS.md.
 The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
 coefficient-sum sieves, large sieves of every Bessel type (at every
 frequency level for one-rough-prime and residue-sparse mixtures), prime-only
@@ -468,8 +474,19 @@ majorants, and interval cancellation at moduli `≤ N/2`. A proof of
   (SPW2). Weak SPW is open; the fixed-σ SPW and fixed-η RSPW versions are
   refuted. Right-signed mass at moduli in `(N, CN]` is also open.
 * **Per-frequency weights below 1.** Weights `w ≥ 1` are capped (NONCRT
-  Thm 2.3). Weights `< 1` are open, except a smooth-window case that is
-  CONDITIONAL on an equidistribution conjecture.
+  Thm 2.3). For weights `< 1`, `EXCEPTIONAL_WEIGHTS.md` ((D)29) proves
+  that every per-frequency bound is at least the shift-uniform avoider
+  count `M_𝔊(N) = max_t #(𝒜 ∩ (t, t+N])` (Lemmas 1.1–1.2, PROVED), and,
+  for Selberg's band-limited window, at most `12(K+1)M_𝔊(N)` (Thm 2.1,
+  PROVED). So this door is capped at 3/4 **iff** (W_𝔊)
+  `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}` holds, uniformly over the families a
+  method may use (Cor 2.2). (W_𝔊) is open; that no arithmetic-free
+  argument decides it is an Assessment. Sharp weights with hit-pattern
+  majorants, `Q₀ = 1`, small prime slices (`|F_ℓ| ≤ ℓ^γ`, γ < 1/3) and the
+  uniform mass hypothesis (M) are capped without (H_eq) (Thm 3.3, PROVED);
+  (H_eq) itself is proved at one large prime for smooth windows and is a
+  CONJECTURE for several primes. Review
+  `reviews/exceptional-weights-review.md` (no FATAL; one MAJOR repaired).
 * **Genuinely arithmetic, non-CRT input** of another kind.
 * **Other ingredients outside the class:** majorants with `ν ≥ 0` only
   at primes `≤ N` when the period exceeds `N^c` (Assessment: open);
@@ -681,6 +698,17 @@ original paper was not obtained.
   POINTWISE_MN2 reduces ADM_m to the prefix law and to a CONJECTURE SI
   (PROVED modulo Henriot's uniform Nair–Tenenbaum bound). Reviews
   `reviews/pointwise-mn-review.md`, `-mn2-review.md`, repairs applied.
+  Follow-up (POINTWISE_MN3, review `reviews/pointwise-mn3-review.md`,
+  repairs applied): SI is **not** proved; the file records where it
+  fails. For the class-of-one prefix the weights are bounded by
+  class-of-one sums `U_1(q)` (Lemma 1.1, PROVED), and with three
+  admissible levels a variant SI_3 (which also implies ADM_m) needs only a
+  square-root saving `U_1(q) ≪ q^{−1/2−δ}` plus level-0 pair sums
+  (Lemma 3.1, PROVED). The multiplicity `R(N)` satisfies
+  `R(N) ≪ N^{3/5+o(1)}` (Lemma 5.2). Assessment: the obstruction is a
+  Kloosterman-range residual; for `q ≥ Q_0` a second moment
+  (M2) `Σ_{N≤X} R(N)² ≪ X(log X)^C` would remove it (CONJECTURE); the
+  range `q_0 < q < Q_0` is a separate open component.
 
 **The Haar exponent is exactly 3, and 1/4 is a ceiling.**
 * *Haar side.* For the profinite avoider density `δ*(T)`,
