@@ -199,6 +199,23 @@ So `F≡F_end (mod c_o)`, `F_end=a/2^m≤1`. Lemma 5.1 is the case `F_end=1`. Wh
 `α+2γ≤4`. It does not extend unless the 2-adic part of the orbit is controlled exactly.
 That is possible only with the exact value `w=9`, never modulo a fixed `2^j` (compare Prop 3.1).
 
+**Proposition 5.3 (levels `α+2γ∈{5,6}`; PROVED).** Let `w≡9 (16)` and let `(c,k,F)` be a
+certificate at `x̂_w` with `α+2γ∈{5,6}`. Then `c'=1`, i.e. `c=2^α7^a`. Moreover
+`F≡e≡1 (mod 7^aδ_o)`, where `δ=(e−F)/16n` is odd.
+*Proof.* With the notation of the scope remark, `4c̃=2^{6−α−2γ}c_o∈ℤ`. The descent step then
+keeps `F'`, `ρ` integral, and `F'=(1+4c̃ρ²)/F>0`, so `F'≥1`. As in Lemma 5.1, it ends at `F=1`.
+Each step changes F by a multiple of the integer `4c̃δ`, so `F≡1 (mod c_oδ)` (odd parts).
+Since `F≡−1 (mod c')` (Lemma 1.1), `c'|2`, so `c'=1`. `δ` is odd because
+`v_2(e−F)=v_2(w−w^{−1})=4<t`. ∎
+
+*No 2-adic obstruction at these levels.* `scripts/typei3_lowlevel.py 9` runs the chain
+`F_{i+1}=F_i+4c̃K_iδ`, `K_{i+1}=F_{i+1}δ+K_i` from `(K_0,F_0)=(δ,1)` modulo `2^{10}`, for all odd
+`c_o, δ mod 2^{10}`. For each of the 7 levels `(α,γ)` it finds admissible residues: `v_2(K_i)=α+2γ−2`, with
+the two divisors `≡−w, −w^{−1} (mod 2^t)`. So excluding these levels would need the odd-prime
+sign split. It needs: the odd 7-free part of `k` divides `F+1`, while `F≡1 (mod 7^aδ_o)`. This is a
+primitive-divisor question for the Lucas-type chain. It is not pursued here. The near-miss dump to
+`ck≤10⁸` contains no near miss at these levels at all.
+
 ## Replay
 
 ```
