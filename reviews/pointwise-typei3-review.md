@@ -1,0 +1,211 @@
+# R72 — hostile review of POINTWISE_TYPEI3.md (task O72)
+
+Reviewer: side agent R72 (branch `side-agent/review-typei3`), merged author branch
+`side-agent/sign-point-sterility` (incl. Prop 5.5 / Remark 5.6). From-scratch code:
+`scripts/review_typei3_fs.c` (f-graded engine), `scripts/review_typei3_naive.c` (definition-only brute
+force, no Lemma 1.1), `scripts/review_typei3_check.py` (exact verifier/converter).
+
+Status: round 1 complete.
+
+## Summary verdict
+
+| claim | verdict |
+|---|---|
+| L1.1 small-divisor reduction (finite role depth) | SOUND |
+| L1.2 height constant `1.3229(Y−1)` (and `√r/2` for r=23,31,47) | SOUND |
+| C2.1 no certificate at `x̂_9` with `f<10¹²` | SOUND as CERTIFIED; `f<10¹¹` now reproduced by an independent engine (0 hits); `[10¹¹,10¹²)` one engine |
+| C2.2 heights `>1.32·10¹²`; `C(7)>1.32·10¹²` under H | SOUND (CERTIFIED / CONDITIONAL) |
+| C2.3 r=23,31,47, `f<10¹¹` | SOUND as CERTIFIED; r=23 reproduced independently (0 hits, item 9); r=31,47 one engine |
+| P3.1 sterile set closed, nowhere dense | SOUND (scope statement accurate; MINOR wording) |
+| §4 ≈61% survival, `t_min≈½log₂f` | EVIDENCE, numbers reproduced independently to 10¹⁰ |
+| Remark 4.1 measure route | SOUND as a reduction (MINOR citation fix) |
+| L5.1, C5.2, P5.3, P5.4, P5.5 | SOUND (re-derived; brute-forced) |
+| Remark 5.6 (level 7 open) | correctly labelled |
+
+No FATAL or MAJOR defects found. The self-review's three MAJOR items are correctly repaired in the text.
+
+## Defects
+
+* **D1 (MINOR) — a listed cross-check is no longer replayable.** §2 "Cross-check" lists `(7,−15)` at
+  `X=2·10⁵` (35 certificates) and `X=3·10⁶` (58=58), and the Replay loop includes `"7 -15"`. With the current
+  `typei3_fsearch.c` this aborts (exit 3) at `f=15` (`w=−f`, infinite depth), so `typei3_cmp.sh 7 -15 200000`
+  exits 3 (verified). The old comparisons were valid only because the `ck≤X` filter bounds `t`.
+  *Repair:* let `typei3_cmp.sh` pass an explicit depth cap derived from X (`t≤log₂(4X)`) to the f-engine, or
+  start at `f=16` and say so; or drop `(7,−15)` from the list. (My engine reproduces the `(7,−15)` sets on
+  `f≥16`: naive vs engine 12=12, engine vs author 101=101 at `f<10⁷`.)
+* **D2 (MINOR) — §4 / Remark 4.1 cite the wrong result for `t≤3`.** §4 says "`t≤3` certificates would kill all
+  of Φ; Computation 2.1 shows none has `f<10¹¹`". For the tail `f≥Y` in Remark 4.1 one needs absence of `t≤4`
+  certificates for **all** f and all `w∈Φ`; that is Cor 5.2 (any `w≡9 (16)`), not a finite computation. Also the
+  computational bound is now `10¹²`. *Repair:* cite Cor 5.2 in §4 and in Remark 4.1, and note that `f≢7 (16)`
+  carries no certificate at any `w∈Φ` for the same reason (so `mass(f)=0` there). Optionally use
+  `t_min≥5` (or the level bound `α+2γ≥7`) instead of the clamp `t≥4`; this only makes the masses smaller.
+* **D3 (MINOR) — Prop 3.1's consequence is not specific to `x̂_9`.** The statement "no ambient cylinder around
+  `x̂_9` is sterile" holds for every point of `Σ_7` (that is what nowhere density says). The status table/report
+  should phrase it as "no clopen subset of `Σ_7` is sterile", to avoid suggesting a special obstruction at `x̂_9`.
+  Also worth one sentence: inside Φ a closed positive-measure nowhere-dense sterile set is not excluded.
+* **D4 (MINOR) — labels after this review.** Computation 2.1 on `f<10¹¹` is now reproduced by an independent
+  engine (this review, item 7); so is C2.3 for r=23 (item 9); the `[10¹¹,10¹²)` part and r=31, 47 remain one-engine. Update the
+  status table/report wording ("one engine" → "two engines to 10¹¹, one engine to 10¹²").
+* **D5 (MINOR, presentation) — Lemma 5.1 is used with `B` in place of `4c`.** P5.3–P5.5 apply the descent with
+  `B=4c̃=2^{6−α−2γ}c_o`, which is odd at level 6. The proof of L5.1 never uses `4|B`, but the lemma is stated for
+  `4c`. *Repair:* state L5.1 for an arbitrary integer `B≥1` (`Fe=1+BK²`, `e−F=BKδ` ⇒ `F≡e≡1 (mod Bδ)`); my brute
+  force checks this general form (9102 pairs, 0 failures).
+* **D6 (MINOR) — "fundamental solution" in the remark after L5.1** is true but unproved in the text: any Pell
+  solution `(A,K)`, `K>0`, gives `F=A−2cKδ>0` (since `A²>4c²δ²K²`) and `e=A+2cKδ` with `Fe=1+4cK²`,
+  `e−F=4cKδ`, and descends to `(δ,1)`. One sentence suffices.
+
+## Verdicts
+
+### Lemma 1.1 (small-divisor reduction) — SOUND
+Re-derived. With `c=2^α7^a c'`, `k=2^γ7^b k'`: `4ck²=2^{2+α+2γ}7^{a+2b}c'k'²=2^{t+γ}·7^{v+b}m'k'`, so (iii)
+is exactly `f|N`. `N≡1 (mod 4ck)` makes `e≡F^{-1}`, and `(−x̂)^{-1}` has components `−1, 1, −w^{-1}`
+at `m'`, `7^v`, `2^t`, giving (i), (ii). Converse: `f|N` ⇒ `(f,4ck)=1`; in the e-role `N/f≡f^{-1}` lands
+in the `−x̂` class. `a≥1` odd ⇒ `7|sf(c)`. Both roles force `f≡1 (7)` and `f≡−w (4)` (odd `w` is its own
+inverse mod 4), so the engines' progression filter `f≡f₀ (mod 4r)` loses nothing.
+Search criterion: `γ≥0 ⇔ t≤s`, `γ≤t−2 ⇔ t≥⌈(s+2)/2⌉`; correct. Finiteness only for finite role depth
+(the author's restriction after the self-review is correct; my engine reproduces the abort at
+`(r,w,f)=(7,−15,15)`).
+
+Lemma 2.1 of TYPEI2 (only `v_7(c)` odd can occur at `x̂`) is used implicitly to restrict the search.
+Independent check: the naive search with **no** parity filter (`… all`, any `c` with `sf(c)∉{1,2,3,6}`,
+`ck≤10⁵`, divisor ≤1000) finds no certificate with `v_r(c)` even at `(7,9),(7,25),(23,9),(7,1)`.
+
+### Lemma 1.2 (height constant) — SOUND
+`7|c ⇒ 4ck²=4(ck)²/c≤4X²/7`, `√(1+A²)<A+1`. So a certificate with `min(F,e)≥Y` has
+`ck>(Y−1)√7/2=1.32288(Y−1)`. For r: `√r/2` = 2.3979 (23), 2.7839 (31), 3.4278 (47); the stated
+`2.39/2.78/3.42·10¹¹` are correct, conservative roundings. Note the constant uses only `r|c` (c≥r), which
+holds for every certificate at `x̂` by Lemma 2.1 of TYPEI2.
+
+### Computation 2.1 / Cor 2.3 (f-graded searches) — see "Independent computations" below.
+
+### Lemma 5.1 (Vieta descent) — SOUND
+Re-derived: `F²+4ckδF=1+4ck²` ⇒ `F²−1=4ckρ`, `ρ=k−δF∈[1,k)` when `F>1`; `F'F=1+4cρ²`; induction on k.
+The proof never uses that the coefficient is `4c`: it holds verbatim for any integer `B≥1` in place of `4c`
+(this generalisation is what P5.3–P5.5 actually use, with `B=4c̃` odd at level 6). Brute force
+(`review_typei3_vieta.py` (1), general `B≤60`, `K≤150`): 9102 pairs, 0 failures.
+
+### Cor 5.2 (`t≥5`, `α+2γ≥5`) — SOUND
+Rescaling `c̃=c/4^{t−4}`, `k̃=2^{t−4}k` is integral iff `α≥2(t−4)` ⇔ `α+2γ≤4`; `4c̃k̃=16n` and `e≡F (16n)`
+since `w≡w^{-1} (16)`. `F≠e` by TYPEI2 L3.1. Brute force (vieta.py (2)): all `(c,k)`, `ck≤2·10⁴`, `v_7(c)` odd,
+`t≤4` or `α+2γ≤4`, all divisors F, conditions for *some* `w∈9+16ℤ_2` (`F≡7 mod 2^{min(t,4)}`): 0 certificates.
+
+### Prop 5.3 (levels 5,6 ⇒ `c'=1`; δ odd) — SOUND
+At levels 5/6 `B=4c̃=2^{6−α−2γ}c_o∈ℤ`, and `e−F=16nδ=B·Kδ` with `K=2^{t−4}k` (checked: `B·K=c_o k_o 2^{α+2γ−2}·2^{6−α−2γ}=16n`).
+Lemma 5.1 (general B) ⇒ `F≡1 (mod Bδ)` ⊇ `c_o`. With `F≡−1 (c')`: `c'|2` ⇒ `c'=1`. `v_2(e−F)=v_2(w−w^{-1})=v_2(w²−1)=4`
+for `w≡9 (16)`, and `t≥5` makes this the valuation of `e−F`; so δ odd. Brute force (vieta.py (3), odd parts <60,
+no certificate conditions): 6360 pairs with `16n|e−F`, all `F≡1 (mod c_o)`.
+
+### Prop 5.4 (level 5 empty) — SOUND
+Mod-16 chain `(F,H)↦(F+14H,F+15H)` re-derived; from-scratch run over `a∈{1,3,5,7}`, odd δ<32, 64 steps:
+divisor residues mod 16 are exactly `{1,15}`, never 7 (`review_typei3_level6.py` (a)).
+
+### Prop 5.5 (level 6 empty) — SOUND
+Re-derived every step:
+* Chain: `F_{i+1}=F_i+BK_iδ`, `K_{i+1}=F_{i+1}δ+K_i` preserves `F_iF_{i+1}=1+BK_i²`, `F_{i+1}−F_i=BK_iδ` (checked by
+  `F_{i+1}²=F_{i+1}(F_i+BK_iδ)=1+BK_i²+BK_iδF_{i+1}`); the descent of L5.1 (general B) lands every oriented pair on
+  the chain from `(δ,1)` with the *same* δ. `H=K/δ`, `D=Bδ²`, `v_2(H)=v_2(K)=α+2γ−2=4`.
+* Norm: `(F+e)²−dH²=(e−F)²+4Fe−D(D+4)H²=D²H²+4+4DH²−D²H²−4DH²=4`. The step equals multiplication by
+  `ε=(D+2+√d)/2` (checked both coordinates: `X'=((D+2)X+dH)/2`, `H'=((D+2)H+X)/2`). ε is integral
+  (root of `x²−(D+2)x+1`), `η²=ε`, `η−η^{-1}=√D`, `η+η^{-1}=√(D+4)`, so for odd m `X−2=DU_m²`, `H=U_mW_m`
+  with `U_m,W_m∈ℤ`; `U_3=D+3`, and `U_3|U_{3j}` for odd j.
+* Mod-32 claim: `D=7^aδ²` mod 32 ∈ {7,15,23,31} (a odd); from-scratch run mod 2¹⁰ over all 128 residues
+  `7^aδ² mod 2¹⁰`: every index with `H≡16 (32)` has `m≡3 (mod 6)`; 0 violations.
+* Clash: `D≡7 (8)` ⇒ `(D+3)/2` odd, ≥5, prime to 7; `q|(D+3)|H` ⇒ `q|k'` ⇒ `F≡e≡−1 (q)`; but
+  `F,e=(X∓DH)/2≡1 (q)`. Correct.
+* Exact check (level6.py (b)): `a∈{1,3,5}`, odd δ<400, 60 chain steps: 3000 positions with `v_2(H)=4`, all
+  satisfy `(D+3)|H`, `D(D+3)²|X−2`, and the clash at the least prime of `(D+3)/2`; Pell identity holds everywhere.
+* Definition-level brute force without any chain/Pell input (level6.py (c), `c=2^α7^a c'`, `k=2^γ7^b k'`, odd
+  7-free `c',k'≤25`, `a∈{1,3}`, `b∈{0,1}`, all divisors F, `F≡7 (16)` + odd-prime conditions): 0 hits at levels
+  5, 6 (and 7). Controls: dropping `F≡−1 (m')` gives 66/40/32 hits, so the test has power.
+Remark (not a defect): P5.5 does not use `w` beyond `δ` odd and `F≢1`; it is a statement about odd-part
+conditions. Remark 5.6 (level 7 open) is correctly labelled.
+
+### Prop 3.1 (sterile set closed, nowhere dense) — SOUND; scope correctly weakened
+Re-checked: `U⊂Σ_7` once `2^3·3·5·7 | Q`. For `F≡3 (4)`: `(−7/F)=(−1/F)(7/F)=(−1)(−(F/7))=(F/7)=(−x_7/7)=1`;
+`(p/F)=(F/p)(−1)^{(p−1)/2}`, so all conditions on F are classes mod `28p` (coprime pieces) and Dirichlet applies.
+`Cl(7p,1,F)∩U≠∅` by CRT (2: `1 mod 4` vs `x_2≡1 (8)`; 7: `−F≡x_7`; p, F free; root of `y²≡−28p (F)` is a unit).
+`sf(7p)=7p∉{1,2,3,6}`. Closedness from `St_7=⋂U_X`.
+What it does **not** say (the current text is accurate on this after the self-review): nothing about
+non-emptiness of `St_7`; nothing about thin sets (the fibre Φ is itself nowhere dense in `Σ_7`, so a sterile
+positive-Φ-measure set is not excluded; a closed positive-measure nowhere-dense set — fat Cantor type — is
+perfectly possible inside Φ); nothing about arguments using infinitely many coordinates of `x̂_9`. Note also
+that the heights `7p` of the killing certificates are unbounded as `U` shrinks, as they must be.
+Minor wording: "no ambient cylinder around `x̂_9` is sterile" is true for *every* point of `Σ_7`, so it carries
+no information specific to `x̂_9` (MINOR, see D-list).
+
+### §4 near-miss mass ≈61% — EVIDENCE label correct; numbers independently reproduced to 10⁸ (more below)
+From-scratch `tmin` mode of `review_typei3_fs.c` vs author `mass` mode on `f<10⁸`: the 198 `B f t_min` lines are
+**identical**. From-scratch exact union (`review_typei3_union.py`, exact rationals, nested/disjoint balls):
+uncovered 0.641806 at the last f below 10⁸, identical to `typei3_union.py`.
+Ball measure: `w∈−f+2^tℤ_2` has measure `2^{−t}/2^{−4}=2^{4−t}` in Φ, two roles ⇒ `2^{5−t}`; truncation error
+`(Y/112+1)·2^{−36}≈0.0013` at `Y=10¹⁰` re-derived. Heuristic tail `Σ_{j≥37}40·2^{5−j/2}=0.01179` re-derived.
+
+### Remark 4.1 (measure route) — SOUND (as a reduction)
+Φ compact, balls clopen; every certificate at `x̂_w` is recorded at both of its divisors, in particular at
+`f=min(F,e)`, so the killed set is `⊆ ⋃_{f<Y}B_f ∪ ⋃_{f≥Y}B_f`; `μ(U_Y)>Σ_{f≥Y}mass(f)` gives `w∈Φ` killed by no
+certificate with `v_7(c)` odd, and TYPEI2 L2.1 (x̂_w is a "square point": `w≡1 (8)` is a 2-adic square) removes
+`v_7(c)` even; so `x̂_w` is sterile in `Σ_7` and Theorem A(iii) applies (CONDITIONAL on H). f's with `f≢7 (16)`
+carry no certificates at any `w∈Φ` by Cor 5.2 (`t≥5`), so restricting the mass to `f≡7 (16)` is justified —
+the text should cite Cor 5.2 for this (currently it says "`t≤3` certificates would kill all of Φ; Computation 2.1
+shows none has f<10¹¹", which is weaker than needed for a tail over *all* f≥Y; see D-list).
+"not necessarily `x̂_9`": correct and important — positive measure gives no information about `w=9`.
+
+## Independent computations (priority 1: completeness of the f-graded search)
+
+All with my own engine `review_typei3_fs.c` (written from the definition; own sieve with Fermat inverses,
+own `(c',k')` enumeration as exponent pairs `i+j≤E`, `R=7^{a+2b}c'k'²`, explicit `(α,γ)` loop), its output
+re-verified line by line with exact integers by `review_typei3_check.py`.
+
+1. *Engine vs naive definition-level brute force* (`review_typei3_naive.c`: all `(c,k)` with `ck≤3·10⁵`,
+   `v_r(c)` odd, every odd divisor ≤3000 of N in **both** roles, conditions (2.2) tested directly — no use of
+   Lemma 1.1, no progression filter) — identical certificate sets for
+   `(r,w)=(7,1),(7,9),(7,17),(7,25),(7,41),(7,−7),(7,5),(7,−3),(11,9),(19,9),(23,9),(23,1),(31,9)`
+   (3,0,14,0,0,0,0,0,8,3,0,1,0 certificates) and `(7,−15)` on `f≥16` (12=12).
+2. *Engine vs author's `typei3_fsearch`, full output at all heights, `f<10⁷`*: identical certificate sets for
+   `(7,1)` 10, `(7,17)` 47, `(7,−15)` (f≥16) 101, `(11,9)` 28, `(19,9)` 31, `(23,1)` 9, `(7,−7)` 0, and the
+   deep test point `w=2⁴³−743` (2 certificates, incl. `(14,2⁴⁰,743)` with `t=43`): both engines find
+   the `t=43` certificate. All of my reported certificates verify exactly (0 invalid).
+3. *No-parity control*: naive search over all c with `sf(c)∉{1,2,3,6}` (`ck≤10⁵`, divisor ≤1000) at
+   `(7,9),(7,25),(23,9),(7,1)` finds no certificate with `v_r(c)` even (TYPEI2 L2.1 consistent).
+4. *`w=9`, `f<10⁸`*: both engines test 3 571 429 values of f, 0 certificates.
+5. *Near-miss (`t_min`) data, `f<10⁸`*: identical 198 `B` lines (see §4 above).
+6. Overflow/array audit of `typei3_fsearch.c`: modular products are `u128`; `xs<f<2⁴⁰` doubling cannot
+   overflow; the `(m',k')` table (400 000) exceeds the maximum `∏(E+1)(E+2)/2=91 854` over odd 7-free
+   `A≤2.5·10¹¹` (my DP over non-increasing exponent vectors); `MAXF=16` distinct primes suffices. Hit
+   detection precedes the `u128` reconstruction, so overflow there could only garble *printed* hits.
+7. **Independent re-run of Computation 2.1 to `10¹¹`** (my engine, 2 cores, ≈1 h): `[1,10⁸)`,
+   `[10⁸,5.5·10¹⁰)`, `[5.5·10¹⁰,10¹¹)`: 3 571 429 + 1 960 714 285 + 1 607 142 857 = 3 571 428 571 values of f
+   (equal to the author's total 3 571 429 + 1 782 142 857 + 1 785 714 285), **0 certificates**.
+   So `f<10¹¹` at `x̂_9` is now CERTIFIED by two independent engines; `[10¹¹,10¹²)` remains one engine.
+8. **§4 table reproduced to 10¹⁰** (my `tmin` mode + my union script, no author code): per-bin counts/masses
+   for `[2²⁸,2²⁹)…[2³²,10¹⁰)` = 30/0.0628, 27/0.00113, 35/0.00124, 42/0.00158, 39/0.00030 and uncovered measures
+   0.663564 (2²⁰), 0.641226 (2²⁸), 0.610322 (2²⁹), 0.609862 (all `f<10¹⁰`) — all match the table.
+9. **Independent re-run of C2.3 for r=23** (`review_typei3_fs 23 9 1 10¹¹`, ≈50 min one core): 1 086 956 522
+   values of f (= author's count), **0 certificates**. r=31, 47 not re-run.
+
+## Replay (reviewer)
+```
+gcc -O2 -o /tmp/r72fs scripts/review_typei3_fs.c; gcc -O2 -o /tmp/r72naive scripts/review_typei3_naive.c
+/tmp/r72naive 7 17 300000 3000 | sort -u                      # vs:
+/tmp/r72fs 7 17 1 3001 | PYTHONPATH=scripts uv run python scripts/review_typei3_check.py 7 17 300000
+/tmp/r72fs 7 9 1 100000000000            # split in 2 ranges; 0 hits;   /tmp/r72fs 23 9 1 100000000000
+/tmp/r72fs 7 9 1 10000000000 tmin > B.txt; uv run python scripts/review_typei3_union.py B.txt
+uv run --with sympy python scripts/review_typei3_vieta.py 20000 60
+uv run --with sympy python scripts/review_typei3_level6.py 25
+```
+
+## Repairs applied (by reviewer, at parent's request)
+
+All marked "(R72 repair Dn, applied by reviewer)" in the edited files; one commit per defect.
+* **D1** `scripts/typei3_cmp.sh`: for `w<0` runs the f-engine on `[1,−w)` and `[−w+1,B)` and removes certificates
+  having `−w` as a divisor from both sets. Re-run: `(7,−15)` 7=7 at `X=2·10⁵`, 13=13 at `X=3·10⁶`; `(7,17)`,
+  `(7,−7)`, `(23,1)`, `(7,9)` unchanged/identical. POINTWISE_TYPEI3 §2 notes that the old `(7,−15)` counts came
+  from the earlier depth-capped binary.
+* **D2** §4 and Remark 4.1 cite Cor 5.2: no certificate has `t≤4` (any f, any `w∈Φ`), and `mass(f)=0` for `f≢7 (16)`.
+* **D3** status table, §3 consequence, agent report: "no non-empty clopen subset of `Σ_7` is sterile", not
+  specific to `x̂_9`; positive-measure sterile subsets of Φ are not excluded.
+* **D4** labels in status table, C2.1, C2.3, Cor 2.2 and the report: "two engines to 10¹¹ (incl. r=23), one
+  engine to 10¹²" (r=31, 47 one engine).
+* **D5** Lemma 5.1 general form for any integer `B≥1` (as used in P5.3–P5.5).
+* **D6** one-paragraph proof that `(1+2cδ²,δ)` is the fundamental Pell solution. Each descent step is division
+  by that unit (checked: `KA₀−Aδ=K−δF=ρ` with `A=F+2cKδ`, `A₀=1+2cδ²`).
