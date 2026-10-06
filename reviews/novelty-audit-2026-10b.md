@@ -404,3 +404,50 @@ and Ford–Halberstam are not archived):
 * At CEILINGS_UNIFIED §4 / sieve-limits note, keep "no novelty for Thm 4.1", and say:
   "the 3/4 and 1/4 ceilings are instances of the large-dimension sieve limit
   `log D ≍ κ log z`, here proved as a barrier for all certificates in the stated classes".
+
+---
+
+## 8. Window statistic: XWIN stacking and WINDOW2 parity
+
+**Objects.**
+* `POINTWISE_XWIN.md`:
+  * the half-set lemma (1.1);
+  * Thm 1.2/Cor 1.3: for each fixed Z, `T(N,Z) ≪_Z N/(log N)^{1+J(Z)/2}` with
+    `J = ⌊(Z+1)/4⌋`, the random-model exponent;
+  * Cor 1.4: sharpness, `#{a_min ≥ 7} ≍ x/(log x)^{3/2}`, `#{a_min ≥ 11} ≍ x/(log x)²`,
+    with the lower halves from WINDOW W1 / W2 (W2 on EH);
+  * Cor 1.5: the uniform version;
+  * Cor 2.3: an independent re-proof of notes Thm 14.4/14.9.
+* `paper/es-window-note.tex` packages these.
+* `POINTWISE_WINDOW2.md`:
+  * Lemma 1.2: both windows clean ⟺ an FI09-type quadric;
+  * Thm P1: the classes `(p/3) = ±1` have identical sieve data, yet −1 never has window 3
+    clean, so parity input is necessary;
+  * model-level fakes (Prop 3.7, CERTIFIED in a discrete model only).
+
+**Closest known results.**
+
+| Prior work | Relation |
+|---|---|
+| **Friedlander–Iwaniec, "Hyperbolic prime number theorem"** (Acta Math. 202 (2009) 1–19) [checked: `sources/window2/fi09-hyperbolic-pnt.txt`, title/§1; the campaign reviewer read the body] | Primes p with `p∓2` both sums of two squares: two half-dimensional absence conditions on shifted primes. Upper bound unconditional, lower bound on a level `θ < 1` near 1. **W2 (two windows on EH) is an FI09-type theorem** with two different imaginary quadratic fields (`Q(√−3)`, `Q(√−7)`). The campaign already says so and claims no novelty of technique. |
+| **Sedunova, arXiv:2609.28200** (2026) [checked: `sources/window2/2609.28200.txt`, abstract] | Confirms that FI09's lower bound is still conditional. Unconditionally: square-free distances with ≤7 prime factors. This supports WINDOW's Assessment that unconditional `a_min ≥ 11` is the window analogue of a known open problem. |
+| **Fuchs–Hsu–Rickards–Schindler–Stange, arXiv:2504.20289** (2025) [checked: `sources/sieve/2504.20289.txt`, abstract and Thm 1.1] | `≫ N/(log N)^{3/2}` primes primitively represented by a shifted binary form, in a progression, extending Iwaniec 1972. **FHRSS Thm 1.1(2) implies W1** (the lower half of Cor 1.4 at Z=3). The window note uses it as a cross-check. So W1 is known in substance. Its novelty is the ES translation. |
+| Iwaniec (1972, Acta Arith.; 1976 semi-linear sieve) [memory] | One half-dimensional condition on shifted primes (`p = φ(x,y)+A`). This is the template for W1. |
+| **Nath–Xie, arXiv:2501.16723** [archived in `sources/window2/`; per WINDOW2 §1] | `p = m²+n²+1` with `Ω(p+2) ≤ 9`. The best unconditional "one absence + one almost-prime" result. A precedent for what is reachable on two windows. |
+| **Fixed-dimension upper sieve** (Selberg / β-sieve, Halberstam–Richert) [memory] | Thm 1.2's bound `N/(log N)^{1+|A|/2}` is a routine dimension-`|A|/2` upper sieve *once* the half-set lemma supplies exactly half the residue classes per window. Technique: standard. |
+| **Parity barrier**: Selberg's parity example; Bombieri's asymptotic sieve; *Opera de Cribro* Ch. 16; the standard device of a sequence twisted by a quadratic character or λ(n) that has the same sieve data as the primes [memory] | **Thm P1 is a concrete realisation of the parity phenomenon by actual primes**: the two classes `(p/3) = ±1` share all sieve data, but one of them never has window 3 clean. The phenomenon is classical. The realisation as an ES window statement is apparently new (*high*, but of modest significance). The model-level fakes (Prop 3.7, §§3.5–6) are LP versions of Selberg-type fake sequences, in the same LP-duality family as item 4. They are statements about a coarse heuristic model only, as the file labels them. |
+| ES search literature: classical "x = ⌈p/4⌉ + j" search (Obláth, Rosati, Swett; Salez's filters arXiv:1406.6307; Dahan arXiv:2608.24035) [Salez/Dahan checked in the earlier audit `lit-audit-B-pointwise.md`; the rest is memory] | `a_min(p)` is the least step of the classical near-`p/4` search. Salez and Dahan use filters or count fixed depths. The auditor knows **no** distributional theorem on the least window. |
+
+**What is genuinely new (apparently).**
+* **The half-set lemma and the exact fixed-Z exponent `1+J(Z)/2`** (Thm 1.2/Cor 1.3), with
+  two-sided sharpness at Z=3 (unconditional; lower half via FHRSS/Iwaniec) and at Z=7
+  (on EH).
+  * New as statements about ES (*high*). The half-set lemma is the ES-specific ingredient.
+  * The sieve technique is standard. This matches the window note's own wording ("what is
+    new … is the exact exponent"), which is **accurate**.
+* **Cor 2.3** is not new: it re-proves the notes. The file says so.
+* **W2** is FI09-type. Its method and its conditional shape are known.
+* **Thm P1 (parity necessity)**: a new instance of a classical phenomenon. Present it as
+  "an explicit realisation of Selberg's parity obstruction in the window problem".
+* **WINDOW2 §§3, 6, 7 model fakes**: Assessment/model-level. Make no novelty claims
+  beyond the model.
