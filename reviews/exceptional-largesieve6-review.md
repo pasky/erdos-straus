@@ -81,3 +81,35 @@ on cubes of dim ≤ 5 with the XOR-family sum computed exactly by group-algebra
 DP; 300 random products of 0/1 and Lipschitz factors): Lemma 4.1 both
 inequalities, the coefficient facts, Lemma 2.1(b),(c) all hold (Lemma
 2.1(b) is attained with equality in some one-factor cases, as it must).
+
+### Thm 5.1 (one rough prime, fixed fibre)
+Re-derived line by line.
+* `|Ψ(x)−Ψ(x′)| ≤ 2·1[H≠H′] + 2min(1, 2|Y−Y′|)` (`g_ℓ` is a function of the
+  common past, `e^{−2Y} ≤ 1`) ✓. Leaks below ℓ are common to both paths,
+  so only `q > ℓ` count ✓; `p_q > p̃_q ⟺ p_q > δ_q` because `p_q|Ω_q|` is an
+  integer ✓; hard part `≤ 2(2Ep_ℓ + 4Λ_{>ℓ})` ✓.
+* Soft part: for `q ≤ τ` only direct classes differ ✓; `min(1,a+b) ≤ a +
+  min(1,b)` gives `4EV_dir + 2Σ_rE[1{τ=r}min(1, 2Y_{>r}(x)+2Y_{>r}(x′))]` ✓;
+  `E V_dir ≤ 2μ̄(ℓ)` by the chain rule (ℓ-kernel uniform ≤ `(1−δ)^{−1}U`) ✓.
+* `E[Y_{>r}(x)|𝓕_{≤r}] ≤ Θ_r(x_{≤r})`: coins at `q > r` are independent of
+  `𝓕_{≤r}` (both paths), so x's future follows Q′ kernels from x's own past
+  ✓; Θ_r keeps the r-coordinate congruence ✓.
+* Truncation: `|F̃(F₁)ΔF̃(F₂)| ≤ 2|F₁ΔF₂|` (go through `F₁∩F₂`; adding k
+  elements pushes out ≤ k) ✓. Coin step: the three cases are exhaustive
+  ✓. **But the written intermediate does not give 10**: as written,
+  `min(U,r^{−e}) + 2U·2r^{−e} + min(2U,2r^{−e}) = 3min(U,r^{−e}) + 4Ur^{−e}`,
+  and with `U ≤ 2Σ_Cr^{−v_C}` this is `≤ (6+8)Σ_C r^{−max(v_C,e)} = 14Σ`.
+  The second term is in fact `P(c_r∈D_r)·max_b P(repl ≡ b) ≤ U·2r^{−e}`
+  (π_r ⊥ c_r), giving `6 + 4 = 10` ✓. Defect MINOR D-b (applied).
+* Shared-prime bookkeeping re-derived: with `a = G_C/r^v`, `b = G′_{<r}`,
+  `Γ(L)/L ≤ Γ(a)Γ(b)gcd(a,b)/(ab)`; multiplying by `a_{C′}r^{−max(v,e)}`
+  leaves `(Γ(G_C)/G_C)·w_qΓ(G_{C′})Π_{p∈P₀∪{r: e>0}}p^{min(v_p(G_C),v_p(G_{C′}))}/G_{C′}`
+  because `r^{v+e−max(v,e)} = r^{min(v,e)}` ✓ — this is exactly the
+  exponent-capped `ν_{>r}(P;C)` ✓. The case "C by x′, C′ by x" at the
+  shared prime ℓ: independent pinned values give `ℓ^{−v−v′} ≤ ℓ^{−max}` ✓.
+  Constants `2·10 = 20`, `2·(20+20) = 80`, `2·80 = 160` ✓.
+* The hypothesis "w non-increasing" is never used in the proof (harmless;
+  MINOR D-c, noted only).
+Verdict: SOUND (after the D-b repair of an intermediate expression).
+The label "PROVED (fixed fibre)" is right for the inequality; everything
+about *uniformity in X* is conditional on (FM2) — see §5 notes below.
