@@ -6,7 +6,7 @@ Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computati
 | # | statement | label |
 |---|---|---|
 | L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: for w=9, a finite explicit check per f, at all heights. If no certificate has `min(F,e)<Y`, then none has `ck≤1.32(Y−1)` | PROVED |
-| C2.1–2.3 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`). For r=23, 31, 47 the bound is `>2.39·10¹¹` (was `>10⁹`) | CERTIFIED / CONDITIONAL (H) |
+| C2.1–2.3 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`). For r=23, 31, 47 the bound is `>2.39·10¹¹` (was `>10⁹`) | CERTIFIED: two engines to 10¹¹ (incl. r=23), one engine to 10¹² (and r=31, 47) (R72 repair D4, applied by reviewer) / CONDITIONAL (H) |
 | P3.1 | the sterile set of `Σ_7` is closed and nowhere dense, i.e. no non-empty clopen subset of `Σ_7` is sterile (true around every point, nothing specific to `x̂_9`; R72 repair D3, applied by reviewer) | PROVED |
 | §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰` (depth-truncated, error ≤0.0013); measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
 | L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
@@ -85,7 +85,9 @@ on `[1,−w)` and `[−w+1,B)` and removes from **both** sets every certificate 
 divisors. Re-run (reviewer): `(7,−15)` at `X=2·10⁵` 7=7 (28 resp. 17 excluded), at `X=3·10⁶` 13=13 (45 resp. 27
 excluded); `(7,17)`, `(7,−7)`, `(23,1)`, `(7,9)` at `2·10⁵` unchanged and identical.
 
-**Computation 2.1 (CERTIFIED by one engine; cross-checked as above).**
+**Computation 2.1 (CERTIFIED: two engines to 10¹¹, one engine to 10¹²; cross-checked as above).**
+(R72 repair D4, applied by reviewer: review R72 re-ran `[1,10¹¹)` with its independent engine
+`scripts/review_typei3_fs.c` — 3 571 428 571 values of f, 0 certificates; see `reviews/pointwise-typei3-review.md`.)
 `typei3_fsearch 7 9 1 10^11` (run as `[1,10⁸)`, `[10⁸,5·10¹⁰)`, `[5·10¹⁰,10¹¹)`;
 3 571 429 + 1 782 142 857 + 1 785 714 285 values of f; ≈55 min per half on one core
 before the speed-ups): **0 certificates.**
@@ -94,14 +96,14 @@ Extension: `[10¹¹,5.5·10¹¹)` and `[5.5·10¹¹,10¹²)` (16 071 428 572 + 1
 ≈4.2 h and ≈4.7 h on one core each, speed-up binary): **0 certificates.** So no certificate at
 `x̂_9` has a divisor `f<10¹²`.
 
-**Computation 2.3 (other r ≡ 7 (8); CERTIFIED, one engine).** Lemmas 1.1–1.2 hold verbatim with 7
+**Computation 2.3 (other r ≡ 7 (8); CERTIFIED: r=23 by two engines, r=31, 47 by one engine — R72 repair D4, applied by reviewer; R72 re-ran r=23 to 10¹¹: 1 086 956 522 values of f, 0 certificates).** Lemmas 1.1–1.2 hold verbatim with 7
 replaced by r, where `min(F,e)<2X/√r+1`. `typei3_fsearch r 9 1 10^11` for `r=23, 31, 47`
 (1 086 956 522 / 806 451 613 / 531 914 894 values of f): **0 certificates.** Hence every
 Type-I covering of `{n_p=r}` has height `>2.39·10¹¹` (r=23), `>2.78·10¹¹` (r=31) and `>3.42·10¹¹` (r=47)
 (was `>10⁹`). Under H (Theorem A with POINTWISE_TYPEI2 §4), `C(r)` exceeds these bounds.
 Extra cross-check at `X=3·10⁶` with `typei3_cmp.sh`: `(7,−15)` 58=58 (old binary; see D1 note above), `(7,17)` 15=15 and `(11,9)` 14=14 certificates; the sets agree.
 
-**Corollary 2.2.** (i) *(CERTIFIED)* No certificate at `x̂_9` has a divisor
+**Corollary 2.2.** (i) *(CERTIFIED: two engines to 10¹¹ (incl. r=23), one engine to 10¹²; R72 repair D4, applied by reviewer)* No certificate at `x̂_9` has a divisor
 `f=min(F,e)<10¹²`, at any height. Hence (Lemma 1.2) none has `ck≤1.32·10¹²`,
 and every finite Type-I covering of `{n_p=7}` has height `>1.32·10¹²`
 (was `>3·10⁹`, POINTWISE_TYPEI2 Cor 3.3). (ii) *(CONDITIONAL on H for the finite family `𝓟_X` of

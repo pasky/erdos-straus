@@ -18,10 +18,10 @@ an explicit tail bound for the near-miss count would give a sterile point
 | item | label |
 |---|---|
 | L1.1 small-divisor reduction; L1.2 f-bound ⇒ height bound `1.3229(Y−1)` | PROVED |
-| C2.3 r=23,31,47: no certificate with f<10¹¹ ⇒ covering heights >2.39/2.78/3.42·10¹¹ | CERTIFIED (one engine) |
+| C2.3 r=23,31,47: no certificate with f<10¹¹ ⇒ covering heights >2.39/2.78/3.42·10¹¹ | CERTIFIED (r=23: two engines, R72 re-run; r=31, 47: one engine — R72 repair D4, applied by reviewer) |
 | Prop 3.1 sterile points nowhere dense (no non-empty clopen subset of Σ_7 is sterile; not specific to x̂_9 — R72 repair D3, applied by reviewer) | PROVED |
 | L5.1 Vieta descent (`Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 mod 4cδ`); C5.2 certificates at x̂_9 need `t≥5`, `α+2γ≥5`; P5.3 levels `α+2γ∈{5,6}` force `c'=1`; P5.4 level `α+2γ=5` empty (deduction from self-review R72); P5.5 level `α+2γ=6` empty ⇒ certificates need `α+2γ≥7` | PROVED |
-| C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (one engine, cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵ and 3 at X=3·10⁶) / CONDITIONAL (H) |
+| C2.1 no certificate at x̂_9 with f<10¹² ⇒ covering height >1.32·10¹²; C(7)>1.32·10¹² under H | CERTIFIED (two engines to 10¹¹ (incl. r=23), one engine to 10¹² — R72 repair D4, applied by reviewer; cross-checked vs typei2_signcheck on 10 (r,w) pairs at X=2·10⁵ and 3 at X=3·10⁶) / CONDITIONAL (H) |
 | §4 f-graded mass, 60.9–61.0% of the fibre uncovered for f<10¹⁰ (depth-truncated t≤40), t_min ≈ ½log₂f | EVIDENCE / Assessment |
 | Remark 4.1 measure route (tail bound ⇒ sterile point) | PROVED reduction; input open |
 
@@ -35,8 +35,9 @@ levels. A heuristic Lenstra-type sketch suggests only ≪Λ^{1/2+ε} near misses
 ## Self-review
 `reviews/pointwise-typei3-selfreview.md` (deep reviewer subagent). Verdict: request changes. Three MAJOR findings
 (an unrestricted completeness claim, depth truncation in §4, an overreaching Prop 3.1 consequence) are all fixed.
-The review also contributed Prop 5.4. The full 10¹²/10¹¹ searches have NOT been independently re-run; they were
-cross-checked against typei2_signcheck on small ranges (X≤3·10⁶) only.
+The review also contributed Prop 5.4. The full 10¹²/10¹¹ searches were cross-checked against typei2_signcheck on small ranges (X≤3·10⁶). (R72 repair D4,
+applied by reviewer:) review R72 re-ran `x̂_9` with `f<10¹¹` and r=23 with `f<10¹¹` using an independent engine
+(0 certificates, same f counts); `[10¹¹,10¹²)` and r=31, 47 remain one-engine.
 
 ## Follow-up (parent request): level α+2γ=6 — CLOSED (Prop 5.5, PROVED)
 The integral chain is a Pell orbit `ε^m`, with `ε=(D+2+√(D(D+4)))/2` and `D=7^aδ²`. Mod 32, `v_2(H)=4` forces m to be an odd
@@ -52,7 +53,7 @@ Unlike levels 5–6, level 7 already contains 34 near misses up to ck ≤ 10⁸.
   on each orbit, as in P5.5.
 * Measure route (Remark 4.1): an explicit summable bound for near-miss counts would give `C(7)=∞` under H
   without deciding `x̂_9`.
-* An independent re-run of Computation 2.1 to `10¹²` (≈9 core-hours).
+* An independent re-run of Computation 2.1 on `[10¹¹,10¹²)` (≈9–18 core-hours; `[1,10¹¹)` done in R72).
 
 ## Replay
 See POINTWISE_TYPEI3.md, Replay section.
