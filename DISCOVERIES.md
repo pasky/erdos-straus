@@ -165,6 +165,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * *Follow-up (EXCEPTIONAL_LARGESIEVE5.md; review `reviews/exceptional-largesieve5-review.md`, one MAJOR overclaim and minors repaired by the reviewer):* (CC)/(A*) is **not** proved. PROVED structural steps: (A*) is needed only for the full forced family (Lemma 1.1); every forced class is a rational label −r/s mod G, and distinct labels congruent mod g have heights H₁H₂ ≥ g/2 (Lemma 1.2); a tilted fibre law with truncated forbidding has damped collision ≤ e^{6m_c+1}, so LS4 Thm 4.2 holds with (A*) for it (Prop 2.1); a label-partition bound in the product model (Lemma 3.1). The undamped product model fails uniformly in X (outside tops must be charged by their damping); a soft-pivotal lemma is the missing step (Assessment).
     * **PROVED as labelled** (internal; review `reviews/exceptional-largesieve4-review.md`, no FATAL/MAJOR, minors applied).
 
+29. **Per-frequency weights below 1 (the NONCRT "w < 1" door) reduced to one avoider count (EXCEPTIONAL_WEIGHTS.md).**
+    * Lemmas 1.1–1.2: every per-frequency bound `Σ w(θ)|ν̂(θ)|` with `w ≥ |W_N|` (smooth window) or `w ≥ |S_N|` (sharp) is at least the shift-uniform avoider count `M_𝔊(N) = max_t #(𝒜 ∩ (t, t+N])`. The best such bound is an LP value, `max{⟨g,1_𝒜⟩ : g ≥ 0, |Qĝ| ≤ w}`. PROVED.
+    * Thm 2.1: for Selberg's band-limited window Φ_K and general majorants, `M(N) ≤ min_ν R(ν) ≤ 12(K+1)M(N)`. PROVED, per family. Cor 2.2: this door is capped at 3/4 iff (W_𝔊) `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`, which is open. For the method class this is needed uniformly over the families 𝔉_A that a method may use. The view that no arithmetic-free argument can decide (W) is an Assessment.
+    * Thm 3.3: sharp weights, hit-pattern majorants, Q₀ = 1, prime slices with `|F_ℓ| ≤ ℓ^γ` (γ < 1/3), uniform mass hypothesis (M) ⇒ saving `≤ C(log N)^{3/4}` without (H_eq). PROVED, via anti-concentration at one prime. The application to ℛ(ℓ) slices is restricted to ℓ ≥ ℓ₀. (H_eq) is proved at one large prime for smooth windows (Lemma 4.2) and is a CONJECTURE for several primes.
+    * Prop 5.1: `E_pr(N) ≤ K + y + M(N)`, and `M_{𝔊_X}(N) ≤ N e^{−c(log N)^{3/4}}` for the 3/4-note family. Toy numerics are EVIDENCE only.
+    * Review `reviews/exceptional-weights-review.md`: no FATAL. One MAJOR (the family was never fixed) and minors; repairs applied by the reviewer.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
