@@ -1,7 +1,17 @@
 # Is the sign point `x̂_9` sterile? (task O72)
 
-Status: in progress (side agent O72, branch `side-agent/sign-point-sterility`).
+Status: checkpoint 1 (side agent O72, branch `side-agent/sign-point-sterility`). Not yet reviewed.
 Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 2.4, Lemma 3.1, Computation 3.2, Conjecture 3.4).
+
+| # | statement | label |
+|---|---|---|
+| L1.1, L1.2 | certificates graded by a divisor `f∈{F,e}`: finite explicit check per f, at all heights; `f<Y` ⇒ `ck>1.32(Y−1)` | PROVED |
+| C2.1–2.2 | no certificate at `x̂_9` with `f<10¹²`. Hence every Type-I covering of `{n_p=7}` has height `>1.32·10¹²`, and under H `C(7)>1.32·10¹²` (was `>3·10⁹`) | CERTIFIED / CONDITIONAL (H) |
+| P3.1 | the sterile set of `Σ_7` is closed and nowhere dense: no fixed-modulus congruence proof of sterility of `x̂_9` exists | PROVED |
+| §4 | sign fibre: `t_min(f)≈½log₂f`; ≈61% of `w∈9+16ℤ_2` survive all `f<10¹⁰`; measure route (Remark 4.1) | EVIDENCE / PROVED reduction |
+| L5.1, C5.2 | Vieta descent: `Fe=1+4ck²`, `e−F=4ckδ` ⇒ `F≡1 (mod 4cδ)`. Hence certificates at `x̂_w` (`w≡9 (16)`) need `t≥5` and `α+2γ≥5` | PROVED |
+| P5.3 | levels `α+2γ∈{5,6}` force `c=2^α7^a` | PROVED |
+| Conj 3.4 (TYPEI2) | `x̂_9` is sterile | still CONJECTURE |
 
 Notation. `x̂=x̂_w`: `w` at 2 (`w≡9 (16)`), `−1` at 7, `1` elsewhere. A certificate
 at `x̂` is `(c,k,F)`, `v_7(c)` odd, `F | N=1+4ck²`, and `F≡−x̂ (mod 4ck)`, i.e.
