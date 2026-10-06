@@ -345,15 +345,17 @@ fixed, or `γ ≥ (log N)^{−o(1)}`; uniformly in γ keep `(log(e+1/(βγ)))³`
 open input is the *qualitative-looking* sup decay (A*), at **any fixed
 rate** γ (even `γ = (log log N)^{−1}` costs only `(log log N)^3` more) and
 with per-prime losses `K` up to `z^{γ/2} = exp(γ(log N)^{1/4}/2)` —
-far weaker than LS2's (H_LS∞)(b) (`|π̂|² ≤ e^{S}/N` with `S ≍ (log N)^{3/4}`)
+(Assessment:) far weaker than LS2's (H_LS∞)(b) (`|π̂|² ≤ e^{S}/N` with `S ≍ (log N)^{3/4}`)
 in the per-prime sense, and with **no comparison-at-level hypothesis**
 (LS2 Prop 5.2(a) is replaced by Prop 4.1).
 (b) If the large sieve uses only frequencies whose z-rough parts have
 support in a class 𝒮 of prime sets, (A*) is needed only for `supp θ_r ∈ 𝒮`
 (Theorem 1.1's Hölder step and Lemma 1.1 only see the frequencies used).
-(c) By §3, (A*) reduces to a covering count; for supports of size
-`≤ (1−2γ)log₂ z` the count is trivially within the slack (§3.2), modulo
-the outside-coordinate bookkeeping (to be written, §5).
+(c) By §3, (A*) reduces to a covering count; the trivial count is
+within the slack only when `2^{|S|}T_S ≤ z^{1−2γ}` (§3.2; `T_S` = classes
+per modulus, which for ℛ can exceed any power of z), and even then modulo
+outside-coordinate bookkeeping not written. §5 instead proves (A*) for
+residue-sparse multi-rough classes.
 
 ## 5. Sup decay from deterministic residue sets
 
