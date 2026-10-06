@@ -1,0 +1,72 @@
+# R80 — hostile review of POINTWISE_MORDELL.md (branch side-agent/mordell-13)
+
+Reviewer: side agent R80 (branch `side-agent/review-mordell`). All checks below are FROM SCRATCH;
+no `scripts/mordell_*` code was imported. Scripts: `scripts/review_mordell_*.py`.
+
+## Summary verdicts
+
+| claim | verdict |
+|---|---|
+| Thm 3.1(a),(b) (finite-computation theorem) | **SOUND** (independently re-certified; minor wording) |
+| Computation 4.1 + "every finite covering needs modulus > 10⁶" | see §2 |
+| Novelty vs Salez / Mordell / literature | see §3 |
+| Labels: Conj 4.2, §5 EVIDENCE, Theorem C discussion | see §4 |
+
+## 1. Theorem 3.1 — SOUND
+
+### 1.1 What I re-derived
+Family formulas re-derived directly from the ET varieties Σᴵ (2.1)–(2.9) and Σᴵᴵ (2.13)–(2.21)
+(arXiv:1107.1010, PDF in `sources/`), with πᴵ=(abdn,acd,bcd), πᴵᴵ=(abd,acdn,bcdn):
+
+* I1 (a,d,f), f | 4a²d+1: e=(4a²d+1)/f, b=(ne+1)/(4ad), c=(n+f)/(4ad).
+* I2 (a,c,f): d=(n+f)/(4ac), b=(na+c)/f.
+* I3 (c,d,f): a=(n+f)/(4cd), b=(n+(n²+4c²d)/f)/(4cd)  [from (2.6),(2.9)].
+* I4 (a,b,e), e | a+b: c=(a+b)/e, d=(ne+1)/(4ab).
+* II1 (a,b,e): c=(a+b)/e, d=(n+e)/(4ab).
+* II2 (a,d,f), 4ad | f+1: c=(f+1)/(4ad), b=(nc+a)/f.
+* II3 (a,d,e): c=(n+4a²d+e)/(4ade), b=ce−a=(n+e)/(4ad).
+
+All coordinates are polynomials of degree ≤2 in n with positive coefficients (II3: b=(n+e)/(4ad)>0),
+so x,y,z>0 for every n≥1 — slightly stronger than the document's "n>1".
+The parameter order in the JSON certificates matches the §2.1 table (I1 a,d,f; I2 a,c,f; I3 c,d,f;
+I4/II1 a,b,e; II2 a,d,f; II3 a,d,e); every certificate class satisfies its family side-condition.
+
+### 1.2 From-scratch check (`scripts/review_mordell_check.py`)
+* identity 4xyz = n(xy+yz+zx) verified at 12 values of n (degree ≤7 ⇒ polynomial identity);
+* integrality: for n=t+Ls the coordinates are degree-≤2 polynomials in s, integer-valued on ℤ iff
+  integral at s=0,1,2 — checked exactly with Fractions (no sampling);
+* target set enumerated independently: units t mod L with t≡1 (24), t a QR mod 5 and 7,
+  (t/13)=−1 [and (t/11)=+1 for np].
+
+Result: np/240240: 360 targets, uncovered = {112561} exactly; main/720720: 2160 targets,
+uncovered = {112561, 352801, 380881, 418321, 473761, 483841} exactly. Every certificate class covers
+≥1 target (no dead classes). So the exception lists are exactly the complement of the certificate
+coverage (sharp for these certificates).
+
+### 1.3 Mordell step (`scripts/review_mordell_840.py`)
+Independent check that each of the 186 non-square unit residues mod 840 lies in an ET class whose
+coordinates are integral on the whole progression t+840ℤ (8 witness classes, params ≤40), and that
+no candidate class covers any of the 6 squares {1,121,169,289,361,529}. Also confirms "not a square
+mod 840" ⇔ "not (≡1 (24), QR mod 5, QR mod 7)" for units. Primes dividing 840·11·13 (2,3,5,7,11,13)
+are trivially fine (ES known/explicit); the theorem's phrasing via "p not a square mod 840" implicitly
+uses p∤840 — harmless.
+
+### 1.4 Residue bookkeeping
+(p/13)=−1 ⇔ p mod 13 ∈ {2,5,6,7,8,11}; (p/11)=+1 ⇔ p mod 11 ∈ {1,3,4,5,9}. 240240=2⁴·3·5·7·11·13
+contains 8 (for ≡1 mod 8 — 16 is used), 3, 5, 7, 11, 13; 720720 adds 3². Both suffice. The stated
+CRT description of 112561 (≡1 mod 16,3,5,7; 9 mod 11; 7 mod 13) is correct.
+
+### 1.5 Exceptional classes, numerical ES
+`scripts/review_mordell_exc.py 1e8`: all 248 primes ≤10⁸ in the six exceptional classes mod 720720
+have an explicit, Fraction-verified ES solution (0 failures). Consistent, as expected.
+
+### Defects for §3
+1. MINOR (sharpening, Thm 3.1(a)). The (a) exception class 112561 mod 240240 lifts to three classes
+   mod 720720: 112561, 352801, 592801. The main certificate covers 592801. So, combining the two
+   certificates, (a) holds with exceptions only `p mod 720720 ∈ {112561, 352801}` (the (b) exceptions
+   with (p/11)=+1). Suggest stating this, or remarking that (a) is not the sharpest consequence.
+2. MINOR (wording). §0 says each class solves "every sufficiently large n in the class"; for these seven
+   explicit parametrisations it is every n≥1 in the class (all coefficients positive). State it, since
+   it removes the "B" in the compactness paragraph for the certificates used.
+3. MINOR (label). "PROVED by finite computation; independent re-check pending" → can now read
+   "PROVED (finite computation, independently re-checked by R80: scripts/review_mordell_check.py)".
