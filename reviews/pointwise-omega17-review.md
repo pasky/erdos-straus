@@ -18,6 +18,7 @@ From-scratch scripts: `scripts/review_o17_*.py` (none reuse the author's code).
 | Lemma 4.1 | SOUND | entire-function argument correct; scope example `j(j−5)²/12` re-checked exactly at R=2,3. |
 | Lemma 5.1 | SOUND | aggregated LP = full LP on 200 random instances (max diff 9e-16). |
 | Toy LP table (§5) | SOUND as EVIDENCE (MINOR reading, D5) | independent re-implementation `scripts/review_o17_toylp.py` (own sieve, own LP assembly; atoms = 2^14 configurations) reproduces **every** entry of the 4 rows to the unit (seed 1, x=10⁶; numpy default_rng happens to coincide), `data/review_o17/toylp.txt`. |
+| Conjecture SAP | GAP (as stated false: D6; MINOR D7) | profile (iii) infeasible on fibres with Q≈x^δ; easy repair. Label CONJECTURE otherwise appropriate; "Consequence (exact scope)" logic correct (fake ⇒ Σm F=0 ⇒ LP-SALC invalid). |
 | Prop 3.1 (iv) table | SOUND (EVIDENCE label correct; can be strengthened) | all 15 R_min values reproduced, positivity on **all** integers j≥0 with a rigorous (Fujiwara) root cutoff, `scripts/review_o17_charlier.py`, `data/review_o17/charlier.txt`. |
 
 ## Lemma 5.2 — details
@@ -109,3 +110,28 @@ diffuse 0, slack ≤1.94 positive; diffuse becomes positive at k=3). For R=2.92 
 show the diffuse value at k=4, so "one level" there is not demonstrated; for R=1.94, k=3 the gain
 at slack 1.94 is 7104.7 vs 7101.3 (negligible). Repair: "gains up to one junta level (shown for
 R=1.94)". Not applied (the author's §5 already says EVIDENCE, toy scale).
+
+**D6 (MAJOR) — Conjecture SAP as stated is false (profile item (iii) uses `log(x/q)` instead of
+`log(x/lcm(q,Q))`).** (iii) caps `m(C)≤2N_xP_H(C)·log x/log(x/q)` for classes C mod
+`q′:=lcm(q,Q)`, but only `q≤x^{1−δ}` is imposed, so `q′` can be as large as `x`, where classes
+hold O(1) integers. Counterexample (any δ, all large 𝓛): take the fibre with `Q` a prime in
+`[x^δ/2, x^δ]` (so `Q>T`), any unit r, and `q=2^a` the largest power of 2 `≤x^{1−δ}`
+(admissible: 2|L). Then `q′=2^aQ∈[x/4,x]`; the reduced classes C⊂H mod q′ number `2^{a−1}`, each
+with `P_H(C)=2^{1−a}`, and every `n∈S_T` (odd, unit mod Q) lies in one of them. By (iii) and
+`log(x/q)≥δlog x`,
+`Σ_{S_T}m ≤ |S_T|·2N_x2^{1−a}/δ`. Upper-bound sieve: `|S_T|≤(1+o(1))(x/Q)∏_{p≤T}(1−1/p)
+≤(1+o(1))2x^{1−δ}e^{−γ}/𝓛`, and `2^{a−1}≥x^{1−δ}/4`; hence `Σm≤(1+o(1))(16e^{−γ}/(δ𝓛))N_x<N_x`
+once `𝓛>9/δ`, contradicting (i). So no m satisfies 𝒥(δ), for every δ and every large T — SAP
+fails on these fibres (which are within `Q≤x^δ`). The same computation with `m=m_x` shows (iii)
+is *false for the primes* there (Brun–Titchmarsh for modulus q′ has `log(x/q′)`, which is
+`≤log 4`, not `≥δlog x`).
+Repair (author): in (iii) use `log(x/lcm(q,Q))` and require `lcm(q,Q)≤x^{1−δ}` (the actual
+Montgomery–Vaughan form), or require `q·Q≤x^{1−δ}`. Not a change of the intended content.
+*Applied by reviewer* only as a flagged note after SAP (statement left to the author).
+
+**D7 (MINOR) — SAP (ii): `η_q` depends on q, not on the modulus `lcm(q,Q)` of the class.** For Q
+near `x^δ`, (ii) demands relative accuracy `x^{−δ/log 3}` for primes in classes mod `3Q≈x^δ`,
+far beyond any unconditional theorem (Gallagher-type bounds at modulus `x^δ` give relative error
+`e^{−c/δ}`-type). Logically harmless (it only makes SAP stronger: any weaker true bound is still
+implied by 𝒥(δ)), but it contradicts the motivation "𝒥(δ) models the known information" and makes
+the conjecture needlessly hard. Repair: `η_{q′}` with `q′=lcm(q,Q)`, or restrict `Q≤x^{δ²}`.
