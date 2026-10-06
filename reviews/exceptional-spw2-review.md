@@ -141,3 +141,37 @@ on the optimiser and on 5 random feasible points each. No violation.
 
 Labels: "RSPW with fixed η is false for large N even with K = ∞" ✔ (follows).
 Verdict Thm 3.1: **SOUND** (m9 constant).
+
+## Claim 5: Lemma 4.1 (dual of RSPW, K = ∞)
+
+Re-derivation. Primal on ℤ/Q′: max η, ρ ≥ 0, (P1), ρ(s) ≤ 1 − η on full
+classes (e | Q′, e > CN). Feasible (ρ = 1_W, η = 0) and bounded (η ≤ 1), so
+finite LP strong duality applies. Weak duality: for g ∈ V_D, z ≥ 0 with
+g + Σz_s1_s ≥ 0: 0 ≤ ⟨ρ, g + P⟩ = Σ_W g + Σz_sρ(s) ≤ Σ_W g + (1−η)Z ✔ —
+the formula is right. η* = 0 ⇔ optimum ratio 1 attained ⇔ ∃ ν = g + P ≥ 0
+with Σ_W ν = Σ_W g + Z = 0 (each full class meets W exactly once since
+e > N) ⇔ ν ≡ 0 on W ✔. The ℤ-version of weak duality ("elementary
+direction") is correct as stated (g bounded, R summable). Certificate
+consequences via Lemma 2.2 ✔ (for e | Q′, x ∈ Z lies in n₀ mod e in ℤ/Q′
+iff it does in ℤ, so P ≡ 0 on Z). IF2 Example 3.2 (ν = 1[0 mod 21] at
+N = 20) is indeed such a ν with P at modulus 21 = N + 1 ✔.
+
+From scratch (`scripts/review_spw2_dual.py`): primal LP vs the dual formula
+as an independent LP (Z normalised to 1) on ℤ/Q′ for 8 parameter sets
+(N ≤ 20, Q′ up to 27720, C ∈ {1, 1.1, 1.2, 1.5, 2}); agreement to 1e−13,
+including non-trivial optima η* = 0.5 (N = 20, C = 1.2, Q′ = 2520) and
+η* = 0 (C ≤ 1.1). ✔
+
+**Defect m10 (periodic model unspecified / wrong citation).** "On the
+periodic model" does not say which Q′, and "plus SPW1 Lemma 1.1" does not
+apply verbatim: SPW1 Lemma 1.1(b) needs (P3) with Δ₀ and T ≥ 4(2+Δ₀)CN,
+whereas RSPW leaves medium classes unconstrained. The repair is easy: in
+the lift, for e ∤ Q′ with g = gcd(e,Q′) ≤ CN use the trivial ρ(s mod g) ≤ N
+(total mass), so T ≥ 2CN² gives sparse/full mass ≤ 1/2 + ε there. Then
+η*_ℤ ≤ η*_per(Q′) for every Q′ (projection) and η*_ℤ ≥ min(η*_per(Q′), 1/2)
+for Q′ = lcm(1..T), T ≥ 2CN²; η*_per is non-increasing along divisibility.
+State this; the "η* = 0 iff" is then valid on ℤ for the T ≥ 2CN² model.
+(Minor: the 1/2 clipping means the formula identifies η*_ℤ only when
+η* ≤ 1/2, which is the relevant regime.)
+
+Verdict Lemma 4.1: **SOUND-AFTER-REPAIRS** (m10).
