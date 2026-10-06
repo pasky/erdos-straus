@@ -285,3 +285,23 @@ tests (OMEGA14 planting). Together: for `𝓛 ≫ λ^{1/4}` (up to logs), level-
 information cannot tell the true law apart from a law living on `{F_T = 0}`,
 nor (up to `e^{Cλ^{3/4}}`) from one living on `{F_T = 1}`. Neither direction
 implies the other in general; what they share is the threshold `k ≍ P`.
+
+### 4.4 Toy LP (EVIDENCE)
+
+`scripts/unify_toy_lp.py` (exact rational LP, output `data/unify_toy_lp.txt`):
+`n = 40` i.i.d. bits, mass `P = np`; optimal symmetric order-`k` majorant
+and minorant of `F = 1[no bit]` (symmetrisation loses nothing, KARY Lemma 2.3).
+
+| `P` | `log(1/E F)` | least `k` with minorant `E B > 0` | least `k` with majorant saving `≥ 90%` |
+|---|---|---|---|
+| 2 | 2.05 | 3 | 6 |
+| 4 | 4.21 | 7 | 10 |
+| 6 | 6.50 | 11 | 14 |
+| 8 | 8.93 | 15 | 18 |
+
+Both thresholds are `≈ 2P + O(1)`: the same order for both one-sided
+problems, as Theorem 4.1 asserts (its constants `0.6` and `e²` are not
+sharp). Below threshold the majorant still saves about `0.55k` (cf. (U−)),
+while the minorant is identically useless (cf. (L−)): the asymmetry that
+makes the exceptional side degrade gracefully (saving `λ^{3/4}` from any level)
+and the pointwise side fail sharply (no positive minorant below `λ*`).
