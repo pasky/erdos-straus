@@ -803,8 +803,8 @@ original paper was not obtained.
   (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
   typical size `≪ π(x)e^{−c𝓛³}`, the ceiling at level `c𝓛⁴`, the
   Wiener-norm barrier, and LS ⇒ 1/3; refereed internally five times, R33,
-  R33b, R47, R56, R64). A v6 adding the two-sided tail of (H)33 is in
-  preparation (task O77; not yet merged or refereed). `paper/energy-dnf-note.tex`
+  R33b, R47, R56, R64). v6 (merged) adds the two-sided tail of (H)33 and the m/n
+  analogues (refereed, R77 minor revision applied). `paper/energy-dnf-note.tex`
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
 
@@ -1159,7 +1159,7 @@ ratings are this summary's judgement, not ledger labels.
    witness tail (A)9 and the CEILINGS_UNIFIED bounds now also rest on it)
    and the 2/3-loglog note (`paper/README.md` recommends showing the
    loglog note to a human referee first); then the sieve-limits note v5,
-   the subexp note v5 (v6 in preparation), the window note and the
+   the subexp note v6, the window note and the
    energy/DNF note. Related tasks: read Vaughan 1970 itself and complete
    the priority searches (§5).
 2. **θ > 3/4 for `E(N)`.** (I high, F low.) The cap is now exactly
