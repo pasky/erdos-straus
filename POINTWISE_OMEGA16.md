@@ -33,12 +33,13 @@ model, and for a single residue class it *is* Linnik's theorem.
   of Haar onto the complement of the avoider set, not prime-like sequences), but it is provably
   *not* reachable by linear certificates (Prop 3.1): a beyond-the-barrier hypothesis like twin
   primes. Robust to Siegel zeros (Linnik + Deuring–Heilbronn) and Jacobsthal/Maier effects (all
-  absorbed by the `log T`, `C` slack). Matches POINTWISE_SIZE's `log W≍(log p)^{1/3}`; RA ⇒ LS.
+  absorbed by the `log T`, `C` slack). Matches POINTWISE_SIZE's `log W≍(log p)^{1/3}`; RA ⇒ LS for the ES family `𝓔_T`.
   LS = "remove the sieve-limit factor `log z` from O13 Thm 5.1".
 * **EVIDENCE (§6):** Buchstab compounding for primes to `10^9` (N1); on the ES family the LS
   ratio `log p_min/(𝓛+log(1/δ*))` is 0.64–1.29 for `T≤2047`, and `>0.94` at T=4095 (no hard
   `p<10^{11}` has `W>4095`) (N2); greedy adversarial sieve systems of dimension `κ≤8` stay at LS
-  ratio `≤1.15`, gaining only `≈z^{0.9}` over the random model, independent of κ (N3).
+  ratio `≤1.15` on the resolved configurations (3 of 69 unresolved), gaining `≈z^{0.85–0.9}` over
+the random model with no visible growth in κ on this grid (N3).
 
 ## 1. The hypothesis and the conditional theorem
 
@@ -61,8 +62,9 @@ More generally, **LS(Φ)** replaces the right side of (1.1) by `Φ(log T+log(1/�
 increasing function Φ.
 
 *Remarks.* (a) For a single class (all classes mod q but one removed; `T=q`,
-`δ=1/φ(q)`), LS(C) is Linnik's theorem with exponent `≤2C` — a theorem (any `C≥5/2`
-suffices, Xylouris). LS is the statement that a sifted set behaves, for the purpose of
+`δ=1/φ(q)`), LS(C) asks for a prime `p>q`, `p≡a (q)`, `p≤q^{2C}` — Linnik's theorem, which
+holds for some absolute C (Linnik's lower bound `π(x;q,a)≫x/(φ(q)√q log x)` for `x≥q^L` gives at
+least two such primes, so one exceeds q; we do not track the best admissible C). LS is the statement that a sifted set behaves, for the purpose of
 containing *one* prime, like a residue class of the same density: the *log-scale* (Linnik,
 not Cramér) form of the random-set model. (b) The term `log T` is needed: events
 `n≡ℓ (mod m_ℓ)` with distinct primes `m_ℓ∈(T/2,T]` kill every prime `ℓ≤T/4` at total cost
@@ -117,13 +119,15 @@ Write `π_𝓔(x):=#{T<p≤x: p avoids 𝓔}` and `λ:=log T+log(1/δ(𝓔))`.
 | name | statement (for all unit-class systems, moduli ≤ T) | gives (via Thm 1.2) | status |
 |---|---|---|---|
 | CR(A) (Cramér form) | `π_𝓔(x)≥1` for `log x≥log(1/δ)+A log T` | 1/3 | Assessment: plausible |
-| LS(C) (Linnik form) | `π_𝓔(x)≥1` for `log x≥Cλ` | 1/3 | Assessment: plausible; C≥5/2 needed (Linnik) |
+| LS(C) (Linnik form) | `π_𝓔(x)≥1` for `log x≥Cλ` | 1/3 | Assessment: plausible; true for single classes for some absolute C (Linnik) |
 | LS(Φ) | `π_𝓔(x)≥1` for `log x≥Φ(λ)` | `log W≫Φ^{−1}(log p)^{1/3}` up to logs | e.g. `Φ(λ)=λ^θ` gives exponent `1/(3θ)` |
-| PS_log(C) | `π_𝓔(x)≥δ^{C}π(x)` for `log x≥Cλ` (at `log x=Cλ` the right side is `≥T^C/(Cλ)≥1`) | 1/3 | implies LS(C) |
+| PS_log(C,c_0) | `π_𝓔(x)≥c_0δ^{C}π(x)` for `log x≥Cλ` (some `c_0∈(0,1/2]`) | 1/3 | implies LS(C+1) for large T |
 | PS(C,c) (constant-factor lower bound) | `π_𝓔(x)≥c·δ·π(x)` for `log x≥Cλ` | 1/3 | **heuristically false** (Prop 2.1) |
 | AS(C) (asymptotic, "main term") | `π_𝓔(x)~δπ(x)` for `log x≥Cλ` | 1/3 | **false in the integer analogue, heuristically false for primes** (Prop 2.1) |
 
-CR ⇒ LS(max(1,A)) and PS_log(C) ⇒ LS(C) are immediate; PS ⇒ PS_log. So among these the
+CR ⇒ LS(max(1,A)) is immediate. PS_log(C,c_0) ⇒ LS(C+1): at `log x=(C+1)λ`,
+`c_0δ^Cπ(x)≫c_0δ^C(T/δ)^{C+1}/λ≥c_0T^{C+1}/λ≥1`. PS(C,c) ⇒ PS_log(C,c) since `δ≤1`, `C≥1`
+(take `c≤1/2`; the empty system shows `c` must be `<1` — `π_𝓔(x)=π(x)−π(T)`). So among these the
 weakest natural form is LS: *existence of one prime* at *Linnik scale* in the log of the
 inverse density. Theorem 1.2 needs LS only for the single family `𝓔_T` (for infinitely many T).
 
@@ -136,13 +140,18 @@ Haar on `Ẑ`, and take the events `n≡0 (mod ℓ)`, ℓ prime `≤z=T`. Then `
 are `u≥2C` with `Φ(x,z)/(δx)↛1`, while `log x=u log z≥Cλ` for large z. So the integer AS(C)
 is false for every C.
 
-(b) (*Primes; Assessment, conditional on the Hardy–Littlewood heuristic.*) For the unit classes
+(b) (*Primes; Assessment.*) For the unit classes
 `n≡−h (mod ℓ)`, `3≤ℓ≤z`, `h` even fixed, the prime count `#{p≤x: p+h z-rough}` is predicted to
 be `(e^γω(u)+o(1))·δ·π(x)·(1+o(1))` with the same Buchstab factor (the roughness of `p+h≤x+h`
-is an archimedean constraint invisible to Haar). For a κ-tuple version (classes `−h_1,…,−h_κ`
-mod every `ℓ≤z`, `κ<ℓ`) the factor compounds to `(e^γω(u))^κ`. Choosing
-`κ≍log z/log log z` (so `λ≍log z`) and u fixed with `e^γω(u)<1`, `u≥2C`, the ratio
-`π_𝓔(x)/(δπ(x))` tends to 0: PS(C,c) fails for every fixed C, c. CR, LS and PS_log are not
+is an archimedean constraint invisible to Haar). For a κ-tuple version (distinct even shifts
+`h_1,…,h_κ≤y`, classes `−h_i` mod every prime `ℓ∈(y,z]`, so all are distinct units and
+`κ<ℓ−1`; small primes `ℓ≤y` carry no events) the factor is predicted to compound to
+`(e^γω(u))^κ`. Choosing `κ≍log z/log log z`, `y=κ²` (so `λ≍log z`) and u fixed with
+`e^γω(u)<1`, `u≥2C`, the ratio `π_𝓔(x)/(δπ(x))` would tend to 0: PS(C,c) fails for every fixed
+C, c. *Assumptions beyond fixed-tuple HL:* this needs the Buchstab factor to compound *uniformly*
+for κ growing with z (a uniform k-tuple heuristic with archimedean corrections), which is
+stronger than any fixed-tuple Hardy–Littlewood statement; hence the label Assessment. Part (a)
+shows the failure of the integer AS (not of an integer PS: `ω(u)>0`). CR, LS and PS_log are not
 affected: the deficit `(e^γω(u))^κ=e^{−O(κ)}=δ^{O(1/log log z)}`.
 
 So "primes in sifted sets of dimension κ *with main term*" (brief item (i)) is, as literally
@@ -290,8 +299,9 @@ for "not refuted"; PROVED for "not implied by linear certificates", by Prop 3.1.
 
 **5.2 Exceptional zeros.** If a real χ_1 mod `q_1≤T` has a Siegel zero, a system may keep
 only `{χ_1=1}` (δ=1/2), where primes are depleted below `q_1^{O(1)}`. LS(C) still holds for
-such systems with `C≥5/2`: Linnik's theorem (uniform, with Deuring–Heilbronn) supplies primes
-`≡1 (q_1)` up to `q_1^5`. So LS is consistent with exceptional zeros; it is the log scale that
+such systems once C is at least a Linnik exponent: Linnik's theorem (uniform in q, exceptional zero
+included, via Deuring–Heilbronn) supplies primes `p>q_1`, `p≡1 (q_1)`, below `q_1^L≤T^L`, while
+LS asks for `log p≤C(log T+log 2)`. So LS is consistent with exceptional zeros; it is the log scale that
 makes it robust (the Cramér form CR(A) needs A at least Linnik's constant for the same reason).
 
 **5.3 Jacobsthal / Maier.** The known mechanisms that push the first element of a sifted set
@@ -361,9 +371,9 @@ primes" adversary). Over the 66 of 69 configurations with an answer below `10^9`
 `log p_min/(log z+log(1/δ))` lies in `[0.75,1.15]`; the best (increasing-order) adversary
 reaches 1.12–1.15 and does not grow with κ (z=100: 1.00, 1.07, 1.12, 1.15, 1.15, 1.14 for
 κ=1,2,3,4,6,8). Against the random-set prediction `p≈log p/δ` the adversary gains a factor
-`≈z^{0.85–0.9}` (e.g. z=1000, κ=6: `p_min=5.6·10^8`, `δp_min/log p_min≈425`), *independent of
-κ* — exactly the `T^{O(1)}` slack that the `log T` term of LS (or `A log T` of CR) absorbs, and
-never a factor growing with the dimension. No resolved toy system violates LS(1.2); the three
+`≈z^{0.85–0.9}` (e.g. z=1000, κ=6: `p_min=5.6·10^8`, `δp_min/log p_min≈425`), with no visible
+growth in κ on this grid — exactly the `T^{O(1)}` slack that the `log T` term of LS (or `A log T` of CR) absorbs, and
+no factor growing with the dimension was observed (a finite, censored grid). No resolved toy system violates LS(1.2); the three
 unresolved ones (`p_min>10^9`) have ratio `>0.98`, `>0.98`, `>1.12`.
 
 ## 7. Status
