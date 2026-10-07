@@ -187,10 +187,17 @@ Prime input enters only if one wants a *relative* statement (proportion of
 primes in the interval), i.e. a lower bound for the denominator:
 
 **Corollary 3.2 (relative density; PROVED rel. note + cited theorems).**
-(a) [Baker–Harman–Pintz 2001: `π(x+H) − π(x) ≫ H/log x` for `x^{0.525} ≤ H ≤ x`.]
-For `x^{0.525} ≤ H ≤ x`:
+(a) [Baker–Harman–Pintz, Proc. LMS (3) 83 (2001) 532–562: for `u ≥ u_0`,
+`π(u) − π(u − u^{0.525}) ≫ u^{0.525}/log u` (stated in the literature as "a positive
+proportion of the expected count"; R88 repair D7: exact statement and constant
+**not** checked against the original, only via secondary sources).]
+For `x^{0.525} ≤ H ≤ x` (x large): tile `(x, x+H]` by `⌊H/(2x)^{0.525}⌋ ≥ 1`
+disjoint intervals `(u − u^{0.525}, u]` with `u ∈ (x, x+H]`, `u^{0.525} ≤ (2x)^{0.525}`
+(R88 repair D7: tiling made explicit); each contributes `≫ x^{0.525}/log x` primes,
+so `π(x+H) − π(x) ≫ H/log x`. With Theorem 1 (θ = 0.525):
 `E_pr((x,x+H]) / (π(x+H) − π(x)) ≪ exp(−c(log x)^{3/4})`.
-(Huxley 1972 gives the asymptotic for `H ≥ x^{7/12+ε}`, with the same conclusion.)
+(Huxley, Invent. Math. 15 (1972) 164–170, gives the asymptotic for
+`H ≥ x^{7/12+ε}`, with the same conclusion; also checked from secondary sources only.)
 (b) [Huxley's zero-density estimate: `π(x+H)−π(x) ∼ H/log x` for almost all
 `x ∈ [Y,2Y]` (exceptional measure `o(Y)`), uniformly for `x^{1/6+ε} ≤ H ≤ x`.]
 The same ratio bound holds for almost all `x ∈ [Y, 2Y]` when `H ≥ x^{1/6+ε}`.
