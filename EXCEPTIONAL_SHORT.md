@@ -72,7 +72,8 @@ in the chain that exceeds D_0).
 `Σ_{p≤y} p^{-1/2} ≤ 2√y`.
 
 **Theorem 1 (short-interval 3/4 bound; PROVED rel. note).** There are
-absolute constants `c, C > 0` such that for every real `z` and every `H ≥ 2`,
+absolute constants `c, C > 0` (ineffective, as in the note; absolute once κ is
+fixed, e.g. κ = 1/480 — R88 repair D1) such that for every real `z` and every `H ≥ 2`,
 `E((z, z+H]) ≤ C·H·exp(−c (log H)^{3/4}).`
 In particular, for `x ≥ 3` and `x^θ ≤ H ≤ x` (`0 < θ ≤ 1`),
 `E((x,x+H]) ≤ C·H·exp(−c θ^{3/4} (log x)^{3/4})`, and for
@@ -90,7 +91,12 @@ Altogether `E(I) ≤ C_1 H e^{-c_a t^3/2} + e^{C_2 t^4}` for X ≥ X_1, with
 C_1, C_2 depending only on the note's fixed constants. Take
 `t = (log H / (2C_2))^{1/4}`; then `e^{C_2 t^4} = H^{1/2}` and the bound is
 `≪ H exp(−c (log H)^{3/4})`. If this t is below `log X_1`, H is bounded and
-the trivial bound `E(I) ≤ H + 1` suffices after enlarging C. ∎
+the trivial bound `E(I) ≤ H + 1` suffices after enlarging C. (R88 repair D1:
+the threshold is explicit, `H ≥ H_* := exp(2C_2 (log X_1)^4)` with
+`X_1 ≥ X_a` the note's threshold of thm:assembly, enlarged for the finitely many
+"t large" steps above; X_a, hence H_*, is ineffective because the note uses
+standard Bombieri–Vinogradov. thm:assembly holds for every real X ≥ X_a, so the
+continuous choice of t is legitimate.) ∎
 
 Remarks. (1) Theorem 1 contains the note's theorem (I = (0,N]) and gives it
 *without* the Rankin/semigroup step of note §9: the transfer to all
@@ -114,7 +120,8 @@ function ν_X depends only on the first coordinate while `1_{β(Q_2)}` depends
 only on the second. Drop `1_{β(Q_1)} ≤ 1` (ν_X ≥ 0). ∎
 
 **Theorem 2 (short intervals in progressions; PROVED rel. note).** There are
-absolute `c, c', C, α > 0` with the following property. Let I be any interval
+absolute `c, c', C, α > 0` (ineffective, as in the note — R88 repair D1) with the
+following property. Let I be any interval
 of length H, `q ≥ 1`, `b ∈ Z`, `H/q ≥ 2`, and put
 `X_q = exp(α (log(H/q))^{1/4})`, `q_1` = the `X_q`-smooth part of q. Then
 `E(I; q, b) ≤ C·q_1·(H/q)·exp(−c (log(H/q))^{3/4})`.
@@ -153,6 +160,7 @@ OPEN, not attempted further here.
 ## 3. Primes in short intervals
 
 **Corollary 3.1 (PROVED rel. note; no prime-distribution input at scale x).**
+Constants ineffective, as in the note (R88 repair D1).
 For `x ≥ 3` and `exp(C_3 (log log x)^{4/3}) ≤ H ≤ x`,
 `E_pr((x,x+H]) ≤ E((x,x+H]) ≪ (H/log x)·exp(−(c/2)(log H)^{3/4})`;
 for `H ≥ x^θ`: `≪_θ (H/log x) exp(−c_θ (log x)^{3/4})`.
