@@ -263,7 +263,12 @@ mechanism that makes perfect squares avoiders at t = 0). But such H, for all pri
 
 *Proof.* Large sieve with `ω(ℓ) = (ℓ−1)/2` excluded classes for ℓ ≡ 3 (4), ℓ ≤ √N:
 `|H| ≤ (N + Q²)/L`, `L ≥ Σ_{q≤√N} μ²(q)Π_{ℓ|q}ω/(ℓ−ω) ≥ #{q ≤ √N squarefree, all ℓ | q are
-≡ 3 (4)} ≫ √N/√(log N)` (Landau). ∎
+≡ 3 (4)} ≫ √N/√(log N)` (Landau). *(R90 repair, D11: the second inequality is false, since
+omega/(l - omega) = (l-1)/(l+1) < 1. Correct: L = sum over squarefree q <= sqrt N with all prime
+factors = 3 (mod 4) of prod_{l|q} (l-1)/(l+1); this multiplicative function has mean value 1/2
+on primes (it is 0 on primes = 1 (4) and 1 - O(1/l) on primes = 3 (4)), so Wirsing's theorem
+gives L >> sqrt N / sqrt(log N). Note omega = (l-1)/2 counts the non-residues only; 0 is a
+square. Conclusion |H| << sqrt(N log N) unchanged.)*. ∎
 
 So the one global structure that makes *all* ℛ-classes vanish simultaneously (residuosity)
 is useless at the 3/4 scale: it caps at N^{1/2+o(1)}. A proof of (W) needs a structure
