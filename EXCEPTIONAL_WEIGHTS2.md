@@ -1,6 +1,6 @@
 # EXCEPTIONAL_WEIGHTS2 — CRT alignment and the shift-uniform count (task O90)
 
-Status: **O90, in progress (author draft, not yet reviewed).** Labels follow `DISCOVERIES.md`.
+Status: **O90 checkpoint (author draft, not yet reviewed). Verdict §7: (W) open; the CRT-alignment plan provably fails as specified; report `reviews/agent-reports/AGENT_REPORT_O90.md`.** Labels follow `DISCOVERIES.md`.
 PROVED means proved here, internal checks only. No θ > 3/4 is claimed. ES is not solved.
 
 Notation of `EXCEPTIONAL_WEIGHTS.md` (W1). 𝔊 a finite family of residue classes, 𝒜 = 𝒜(𝔊)
