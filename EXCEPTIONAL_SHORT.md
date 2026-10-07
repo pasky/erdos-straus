@@ -183,3 +183,54 @@ the literature before external use — Assessment, not part of the PROVED core.]
 
 The PROVED core of this section is 3.1 and 3.2(a); 3.2(b),(c) are only as
 reliable as the quoted ranges.
+
+## 4. The lower end: where short-interval statements stop
+
+**Proposition 4.1 (the target form below `e^{c(log x)^{3/4}}` is ES itself; PROVED, trivial).**
+Suppose that for some `x_0, C, c > 0` and some `H_0(x) ≥ 1` with
+`C·H_0(x)·e^{−c(log x)^{3/4}} < 1` one has
+`E((x, x+H_0(x)]) ≤ C H_0(x) e^{−c(log x)^{3/4}}` for all real `x ≥ x_0`.
+Then there is no exceptional `n > x_0`.
+*Proof.* Each such window then contains no exceptional integer, and the
+windows `(x, x+H_0(x)]`, `x ≥ x_0`, cover `(x_0, ∞)`. ∎
+
+So the brief's target form `E((x,x+H]) ≪ H e^{−c(log x)^{3/4}}` **cannot** be
+proved for any `H ≤ e^{c(log x)^{3/4}}/C` (in particular not for polylogarithmic H)
+without proving ES for all large n. More generally, in a window of length H a
+bound `H e^{−S}` with `S > log H` (+ constant) is already the full conjecture
+on that window; the natural scale of savings is `S = (log H)^θ`, with θ = 1 the
+trivial ceiling (zero exceptions).
+
+Define the **window exponent** `θ_win` as the sup of θ for which
+`E(I) ≪ |I| exp(−c(log|I|)^θ)` holds uniformly over all intervals I.
+
+**Proposition 4.2 (PROVED rel. note).** (a) `θ_win ≥ 3/4` (Theorem 1).
+(b) Any `θ_win > 3/4` gives the global exponent `> 3/4` (take `I = (0, N]`);
+the short-interval problem is at least as hard as the global one.
+(c) For the target form in `(x, x+H]` the three regimes are:
+`H ≥ x^θ`: saving `≍_θ (log x)^{3/4}` (Theorem 1, the brief's target);
+`e^{c(log x)^{3/4}} ≲ H ≤ x^{o(1)}`: Theorem 1 gives only `(log H)^{3/4} = o((log x)^{3/4})`,
+and the full target saving here would need saving exceeding `(log H)^{3/4}`, i.e.
+`θ_win > 3/4`-type input *or* position-dependent input;
+`H ≲ e^{c(log x)^{3/4}}`: target ⇒ ES (Prop 4.1).
+
+**Shift-uniform methods (relation to (W)).** Lemma 1.1 is shift-uniform: it
+bounds `M_{𝔊_X}(H) = max_z #(𝒜_X ∩ (z,z+H])` (this observation is
+EXCEPTIONAL_WEIGHTS Prop 5.1(a), for primes; Theorem 1 adds composites and
+small primes via Lemma 1.2). Any argument that uses only "exceptional n avoid
+the classes of a family 𝔊" and the window length is bounded below by
+`M_𝔊(H)`. Hence, for such methods, *the short-window exponent at length H equals
+the long-interval exponent at N = H*: position cannot help, and whether
+`(log H)^{3/4}` is optimal for them is exactly the open question (W_𝔊) of
+EXCEPTIONAL_WEIGHTS at window length H. Known lower bounds for M (Prop 5.1(b),(d)
+there; random translates `N e^{−(log N)^{c}}`, greedy `e^{c(log N)^{1/3}}`, toy
+family 𝔊_ℛ only) are far from the 3/4 scale, so **no Jacobsthal/Maier-type
+construction of windows of length H with ≥ H e^{−C(log H)^{3/4}} avoiders is known**;
+for 𝔊_X itself the period 𝓜 = e^{O(X)} far exceeds x, so such windows, even if
+they exist as translates, need not occur inside [x, 2x]. Status: OPEN (= (W)).
+
+**What position-dependent input would be.** To beat `(log H)^{3/4}` in
+`(x,x+H]` with `H = x^{o(1)}` one must use classes of modulus `q > H` (each
+meets the window in ≤ 1 point, so exact CRT counting gives nothing) — i.e.
+information about *which* residues the specific integers near x occupy, of
+the same non-CRT kind needed for global θ > 3/4 (STATUS "third kind of input").
