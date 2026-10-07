@@ -87,7 +87,8 @@ not `(log N)^{ε}` (the true mass may well be polylogarithmic, but that needs an
 about τ((M+1)/4)² on divisors M of L, not given). What is easy for ℛ-classes: for
 `4uv | M+1` the Jacobi symbol `(−u/v | M) = −1` (reciprocity, as in Prop 5.3's premise), so
 unit squares mod L avoid every ℛ(M), M | L, and δ′ ≥ (density of unit squares mod L)
-`≫ 2^{−ω(L)}/log log N`, i.e. cost `≤ (log 2)·log N/log log N + O(log log log N)` — far below the 3/4 scale, which is all §§2–3 actually need, but
+`≫ 2^{−ω(L)}/log log N` (ℛ-classes only; Case-A classes need their own non-residuosity
+statement or a separate count), i.e. cost `≤ (log 2)·log N/log log N + O(log log log N)` — far below the 3/4 scale, which is all §§2–3 actually need, but
 not `(log N)^{o(1)}`. (Selector classes 0 mod p, p | L add only `Π(1−1/p)`, cost
 `≪ log log log N`, harmless.) *Repair.* Either restrict the `(log N)^{o(1)}` claim to prime
 slices, or replace it by the proved bound `cost ≤ ω(L) log 2 + O(log log log N) ≪ log N/log log N`
@@ -197,8 +198,8 @@ Fix x large, A_ℓ = (ℓ+1)/4 for primes ℓ ≡ 3 (4).
 4. *Main term.* `Σ_{q≤z} 2^{ω(q)}/φ(4q) ≫ Σ_{q≤z, q odd} 2^{ω(q)}/q ≫ (log z)²`
    (φ(4q) = 2φ(q) for odd q, φ(q) ≤ q). Contribution `≫ (x/log x)(log x)² = x log x`.
 5. *Error.* `Σ_{q≤z} 2^{ω(q)}|E(x;4q)| ≤ (Σ 4^{ω(q)}|E|)^{1/2}(Σ|E|)^{1/2}`. Trivially
-   `|E(x;4q)| ≪ x/q` (Brun–Titchmarsh not even needed: π(2x;4q,−1) ≤ x/(4q)+1 and the
-   main term is ≤ that), so the first factor is `≪ (x Σ_{q≤z} 4^{ω(q)}/q)^{1/2} ≪ (x(log x)⁴)^{1/2}`;
+   `|E(x;4q)| ≪ x log log x/q` (π(2x;4q,−1) ≤ x/(4q)+1, main term ≪ x/(φ(q) log x)), so the
+   first factor is `≪ (x log log x Σ_{q≤z} 4^{ω(q)}/q)^{1/2} ≪ (x(log x)^{4+o(1)})^{1/2}`;
    BV (moduli 4q ≤ 4x^{1/3} ≤ x^{1/2}(log x)^{−B′}) gives the second factor `≪_B (x(log x)^{−B})^{1/2}`.
    With B = 10 the error is `≪ x(log x)^{−3} = o(x log x)`.
 6. Divide by ℓ ≤ 2x: `Σ_{x<ℓ≤2x} p_ℓ ≥ c log x`; dyadic sum gives `Σ_{ℓ≤Y} p_ℓ ≥ c(log Y)²`.
