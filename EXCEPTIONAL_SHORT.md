@@ -18,9 +18,9 @@ Parameters: `t = log X`, `K = ⌊X^κ⌋` (κ < 1/240 fixed), `y = B t^3`,
 |---|---|---|
 | atom `E_A` (A=(k,ℓ,u,v)) | `kℓ`, k ≤ K, ℓ ∈ (X^{1/2},X] prime | ≤ KX = e^{(1+κ)t} |
 | fibre variable c | `L_K = lcm{k ≤ K, k≡1(4)}` | e^{O(K)} — **never expanded** (void lemma reveals c inside the exact CRT expectation only) |
-| selector `S_y = 1_{(n,P_y)=1}` | `d | P_y`, 2^{π(y)} terms | P_y = e^{O(t^3)} |
+| selector `S_y = 1_{(n,P_y)=1}` | d ∣ P_y, 2^{π(y)} terms | P_y = e^{O(t^3)} |
 | Bonferroni term (j ≤ r atoms + selector) | `q = lcm(d, k_1ℓ_1, …)` | `log q_max ≤ C t^3 + r(1+κ)t = O(t^4)` |
-| total coefficient mass | `T_abs ≤ 2^{π(y)} Σ_{j≤r} C(|A_X|, j)` | `log T_abs ≤ C_L t^4` |
+| total coefficient mass | T_abs ≤ 2^{π(y)} Σ_{j≤r} C(#A_X, j) | `log T_abs ≤ C_L t^4` |
 | BV / Brun–Titchmarsh / Shiu | used at scale X only, to *construct* atom mass | — |
 
 Counting over `[1,N]` occurs in exactly one place: (eq:transfer) of
@@ -156,12 +156,15 @@ OPEN, not attempted further here.
 For `x ≥ 3` and `exp(C_3 (log log x)^{4/3}) ≤ H ≤ x`,
 `E_pr((x,x+H]) ≤ E((x,x+H]) ≪ (H/log x)·exp(−(c/2)(log H)^{3/4})`;
 for `H ≥ x^θ`: `≪_θ (H/log x) exp(−c_θ (log x)^{3/4})`.
-Likewise with `n ≡ b (q)` in the ranges of Theorem 2, with `H/(q log x)`.
+Likewise with `n ≡ b (q)` and `H/(q log x)`, provided q is in the range of
+Theorem 2(a) or 2(b) **and** `log(H/q) ≥ C_3 (log log x)^{4/3}` (the saving
+there is in `log(H/q)`, not `log H`).
 *Proof.* Theorem 1 (resp. 2); `(c/2)(log H)^{3/4} ≥ log log x` in the range. ∎
 
 So the brief's prime target needs **no** primes-in-short-intervals input:
 the `1/log x` is absorbed by the saving once `(log H)^{3/4} ≫ log log x`.
-(Below that range neither form says anything beyond the trivial bound.)
+(Below that range Theorem 1 still gives an unbounded saving over H, e.g. for
+`H = (log x)^A`, but not enough to absorb the `1/log x` normalisation.)
 Prime input enters only if one wants a *relative* statement (proportion of
 primes in the interval), i.e. a lower bound for the denominator:
 
@@ -195,11 +198,12 @@ Then there is no exceptional `n > x_0`.
 windows `(x, x+H_0(x)]`, `x ≥ x_0`, cover `(x_0, ∞)`. ∎
 
 So the brief's target form `E((x,x+H]) ≪ H e^{−c(log x)^{3/4}}` **cannot** be
-proved for any `H ≤ e^{c(log x)^{3/4}}/C` (in particular not for polylogarithmic H)
-without proving ES for all large n. More generally, in a window of length H a
-bound `H e^{−S}` with `S > log H` (+ constant) is already the full conjecture
-on that window; the natural scale of savings is `S = (log H)^θ`, with θ = 1 the
-trivial ceiling (zero exceptions).
+proved for any `H(x)` with `C·H(x) < e^{c(log x)^{3/4}}` (strictly; in
+particular not for polylogarithmic H) without proving ES for all large n.
+More generally, in a window of length H a bound `C H e^{−S}` with
+`S > log(CH)` forces zero exceptions on that window. On the scale
+`S = c(log H)^θ`, any θ > 1 (or θ = 1 with c > 1) is the full conjecture on
+windows of large length; θ ≤ 1 with small c is not.
 
 Define the **window exponent** `θ_win` as the sup of θ for which
 `E(I) ≪ |I| exp(−c(log|I|)^θ)` holds uniformly over all intervals I.
@@ -212,7 +216,7 @@ the short-interval problem is at least as hard as the global one.
 `e^{c(log x)^{3/4}} ≲ H ≤ x^{o(1)}`: Theorem 1 gives only `(log H)^{3/4} = o((log x)^{3/4})`,
 and the full target saving here would need saving exceeding `(log H)^{3/4}`, i.e.
 `θ_win > 3/4`-type input *or* position-dependent input;
-`H ≲ e^{c(log x)^{3/4}}`: target ⇒ ES (Prop 4.1).
+`C·H < e^{c(log x)^{3/4}}` (strict): target ⇒ ES (Prop 4.1).
 
 **Shift-uniform methods (relation to (W)).** Lemma 1.1 is shift-uniform: it
 bounds `M_{𝔊_X}(H) = max_z #(𝒜_X ∩ (z,z+H])` (this observation is
@@ -226,14 +230,19 @@ EXCEPTIONAL_WEIGHTS at window length H. Known lower bounds for M (Prop 5.1(b),(d
 there; random translates `N e^{−(log N)^{c}}`, greedy `e^{c(log N)^{1/3}}`, toy
 family 𝔊_ℛ only) are far from the 3/4 scale, so **no Jacobsthal/Maier-type
 construction of windows of length H with ≥ H e^{−C(log H)^{3/4}} avoiders is known**;
-for 𝔊_X itself the period 𝓜 = e^{O(X)} far exceeds x, so such windows, even if
-they exist as translates, need not occur inside [x, 2x]. Status: OPEN (= (W)).
+Status: OPEN (= (W)). Position: for the family used at length H,
+`X = exp(α(log H)^{1/4})` and the period is `𝓜 = e^{O(X)}`. If
+`H ≤ exp(c(log log x)^4)` (suitable c), then `𝓜 + H ≤ x` and every translate class
+of the period occurs inside `[x, 2x]`, so for that family the worst window
+lies in `[x,2x]` and position genuinely cannot help. For larger H, `𝓜` may
+exceed x and windows near x form only part of the translates.
 
-**What position-dependent input would be.** To beat `(log H)^{3/4}` in
-`(x,x+H]` with `H = x^{o(1)}` one must use classes of modulus `q > H` (each
-meets the window in ≤ 1 point, so exact CRT counting gives nothing) — i.e.
-information about *which* residues the specific integers near x occupy, of
-the same non-CRT kind needed for global θ > 3/4 (STATUS "third kind of input").
+**What position-dependent input might be (Assessment, no barrier claimed).**
+To beat `(log H)^{3/4}` in `(x,x+H]` with `H = x^{o(1)}` a method must use
+something beyond the window length: rounding of counts of classes `q ≤ H`
+at the specific position, correlations of intersections with modulus > H, or
+classes of modulus > H (≤ 1 point each, so exact counting with O(1) error per
+class gives nothing). No result here excludes exploiting any of these; (W) is open.
 
 ## 5. Literature and novelty (Assessment)
 

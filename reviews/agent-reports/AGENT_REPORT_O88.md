@@ -24,7 +24,7 @@ Results
    for almost all x) only for relative densities (Cor 3.2; (b),(c) ranges quoted,
    not re-verified).
 4. **Lower end (Prop 4.1, PROVED, trivial).** The target form for any
-   `H ≤ e^{c(log x)^{3/4}}/C` (in particular polylog H) implies ES for all large n.
+   H with `C·H < e^{c(log x)^{3/4}}` (strict; in particular polylog H) implies ES for all large n.
    For `e^{c(log x)^{3/4}} ≲ H ≤ x^{o(1)}` Theorem 1 gives only `(log H)^{3/4}`;
    beating it needs either θ_win > 3/4 (⇒ global θ > 3/4) or position-dependent
    input. For shift-uniform methods the threshold question is exactly (W) of
