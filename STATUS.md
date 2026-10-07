@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-06, refresh 3; ledger through (D)29 and (H)34, incl. the 2026-10-06 follow-ups under (H)17, (H)32, (H)34)
+ (2026-10-07, refresh 4; ledger through (D)30 and (H)34, incl. the 2026-10-07 follow-ups (D)29 [WEIGHTS2] and (H)17 follow-up 3 [TYPEI4])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -43,6 +43,14 @@ with its status label. Read it before starting new work.
   INTERNALLY PROVED: three internal reviews, the last a blind from-scratch
   audit (`reviews/es-threequarter-blind-audit.md`, SOUND). It has not been
   externally refereed.
+* **Short intervals and progressions** (`EXCEPTIONAL_SHORT.md`, ledger (D)30;
+  PROVED relative to the 3/4 note). For every interval I of length H ≥ 2, at
+  any position, `E(I) ≪ H exp(−c(log H)^{3/4})`; the same in progressions
+  n ≡ b (mod q) for `q ≤ exp(c'(log(H/q))^{3/4})` and for q with all prime
+  factors > X; for primes in (x, x+H] once `H ≥ exp(C(log log x)^{4/3})`.
+  The reason: the note's majorant is shift-uniform. Novelty is modest; large
+  smooth q are open, and below `H = e^{c(log x)^{3/4}}` such a bound would
+  imply ES for all large n (Prop 4.1).
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
@@ -147,6 +155,16 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     {n_p = r} (TYPEI2 Thm A); no certificate exists at the sign point `x̂_9` with f < 10¹²,
     so `C(7) > 1.32·10¹²` under H (CERTIFIED). Levels 5–6 of the Vieta/Pell
     descent are empty (PROVED); sterility of `x̂_9` is open.
+    `POINTWISE_TYPEI4.md` (follow-up 3): a fibre certificate at 2-adic level L is a
+    norm-1 unit of ℤ[√d], `d = c_o(c_oδ² + 2^{L−4})`, of the shape
+    `16PX² − Q·49^b = 1`, `PQ = d` (Pell form, Prop 1.2 / Cor 1.4, PROVED); finite with
+    explicit bounds for each (L, b) at all heights (Lemma 3.1, PROVED). CERTIFIED (two
+    independent complete engines on the replayed ranges): no certificate at `x̂_9` with
+    L ≤ 22, v_7(k) ≤ 3, or L ≤ 26, v_7(k) ≤ 1, **at any height** — complementary to
+    the f < 10¹² search. For L ∈ {11, 13, 14, 16, 18–22} the fibre is inhabited at
+    other w ≡ 9 (16) (Prop 4.1, CERTIFIED), so arguments that see w only mod 16 cannot
+    work there (Assessment). Open: the 7-adic tower b → ∞ at L = 7..10 (at L = 7,
+    Lemma 3.6 excludes j = 1 for all b; j ≥ 2 and 7 | j open).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
@@ -230,10 +248,10 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   Lemma 1.3 on all data plus an inline brute force; Lemmas 5.1–5.2 and the §6 (a,b)-characterisation at
   levels ≤ 5; needs gcc/cc).
 
-## Exceptional-set exponent: where it stands (2026-10-06)
+## Exceptional-set exponent: where it stands (2026-10-07)
 
 **3/4 is proved sharp for the CRT architectures below; the remaining cases
-are reduced to precisely stated open statements** (ledger (D)9–(D)29; all
+are reduced to precisely stated open statements** (ledger (D)9–(D)30; all
 internal, reviewed, unrefereed). The 3/4 note's own majorant
 is in the class, so the note is sharp for its method.
 * *Coefficient-sum sieves:* over any mixture of forced (ℛ(M), (a,D),
@@ -268,6 +286,15 @@ is in the class, so the note is sharp for its method.
   the families a method may use (open). Sharp weights with hit-pattern
   majorants, Q₀ = 1, prime slices `|F_ℓ| ≤ ℓ^γ` (γ < 1/3) and the uniform
   mass hypothesis (M) are capped at 3/4 without (H_eq) (Thm 3.3, PROVED).
+  Follow-up (`EXCEPTIONAL_WEIGHTS2.md`): (W) is **neither proved nor refuted**,
+  and the CRT-alignment plan provably fails. One maximal family suffices
+  (Lemma 1.1); prime slices ℓ ≤ Y push the avoider density below
+  exp(−c(log Y)²) (Prop 3.1, PROVED, ineffective via BV), but windows are forced
+  to pay only (log N)^{o(1)} of it (Lemmas 2.1–2.2, prime slices; composite case
+  partly open); random shifts lose e^{−c(log N)²} (Prop 4.1); quadratic alignment
+  caps at √(N log N) (Prop 5.3). For prime slices (W) is a growing-dimension
+  Hensley–Richards attainment question (Lemma 5.1, Prop 5.2). A refutation of (W)
+  would not by itself give θ > 3/4 (R90 D1/D2).
 The first two and the last are *closing* questions (they would extend the
 cap); a θ > 3/4 proof needs the third kind of input.
 
