@@ -38,3 +38,16 @@ instead, with a precise statement of where it blocks.
 
 ## Replay
 See `POINTWISE_TYPEI4.md` § Replay. All runs take seconds to minutes; the longest is `lb` at `L=23..26` (~15 min).
+
+## Checkpoint 2 (one bounded step on the 7-adic tower, `L=7`)
+* **Lemma 3.6 (PROVED; `POINTWISE_TYPEI4.md` §3.6).** At `L=7` put `u=7^b` and `j=4u−y` (the "gap"), and assume
+  `7∤j`. Then the reduced equation becomes (3.1), `ρ[(4u−j)²−2mj7^au]=m(4u+j)` with `m=c'δ²`, `m j 7^a<8u`.
+  A congruence mod `u` introduces an even integer `λ∈[2,4j+j²/u]` (`λ=0` is impossible mod 7). A resultant
+  divisibility then bounds `7^{b−a}<2λj³+10j²+37j` and `m`, and `u` is a root of a non-zero quadratic: the leading
+  coefficient would need `jm=8·7^e`, which is impossible by parity. **So for each fixed gap `j`, `b` is bounded
+  explicitly.** `j=1` is excluded for all `b` by hand.
+* **Not closed:** the regime `j→∞`, `b→∞`, with `m<8u/(7j)` small. For fixed `(m,a,ρ)` it is a conic whose
+  points with `u=7^b` are finite only by Baker/S-unit theory (not made explicit), and `ρ` is unbounded. The case
+  `7|j` is not treated. `L=8..10` follow the same method but were not done.
+* No literature citation was needed. Bilu–Hanrot–Voutier would only enter for the fixed-coefficient Pell
+  sub-family of Assessment 4.2(c).
