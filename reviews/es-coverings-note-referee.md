@@ -257,3 +257,9 @@ The usual caveats for external submission remain:
 D16's author-name change was reverted. The arXiv *metadata* lists "Dumitru C. Bogdan", but the byline of the PDF
 (arXiv:2509.00128v1, p. 1) reads "Spiridon Mihnea, Bogdan C. Dumitru". This agrees with PAPER_B_ISSUES item 7 and
 LITERATURE_2026. The paper now cites "S. Mihnea and B. C. Dumitru".
+
+### Post-referee addition (O91): TYPEI4 paragraph, from reviewed source; not re-refereed
+§4.6 "Fibre certificates: a Pell form and an any-height bound" (Prop 4.12 Pell form with proof sketch,
+Computation 4.13 with engine scope, Remark 4.14 scope/example (42,32,71), Lemma 3.6 partial result as text),
+the updated sentence on the 34 level-7 near misses, the Results bullet and Problem 2 were added from
+POINTWISE_TYPEI4.md as repaired in review R89 (`reviews/pointwise-typei4-review.md`). Not re-refereed.
