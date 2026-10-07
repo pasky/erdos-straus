@@ -154,12 +154,18 @@ cost of the crude bound `E[ν 1_{β(q_1)}] ≤ E ν`. Conditioning on n mod q_1
 fixes n mod primes of L_K and of P_y, i.e. it fixes the multiplier-fibre
 variable c of the void lemma (lem:void) *partially and adversarially*: the
 void bound is an average over c, with bad fibres (large Z(c)) having
-probability `e^{-ηy}` only. For q_1 = ∏_{y<p≤z} p and b ≡ 0 (q_1) the CRT
-majorant is genuinely large in that progression. (Such progressions are not
-dangerous for ES itself: all n ≡ 0 (q_1) inherit representability from any
-representable p | q_1; see §4.) Extending (a) to all q ≤ H^{1−δ} needs a
-fibre-uniform void bound, which the note's architecture does not provide —
-OPEN, not attempted further here.
+probability `e^{-ηy}` only. (R88 repair D6:) For q_1 = ∏_{y<p≤z} p and
+b ≡ 0 (q_1) the void lemma's *bound* gives nothing in that progression
+(`Z(c) ≥ Σ_{y<p≤z, p|L_K} 1/p` may exceed η); it is **not** shown that
+`E[ν_X | n ≡ b (q_1)]` is actually large (R88's toy computation saw increases
+≤ 30% only). Such progressions are in any case harmless for ES itself: every
+n ≡ 0 (q_1) is representable as soon as one prime p | q_1 is.
+Precise open sub-step (R88 observation, Assessment): for `(b, q_1) = 1`,
+conditioning on n ≡ b (q_1) forces `p ∤ c` for every p | q_1 (which only helps the
+bad event `{Z(c) > η}`), and fixing the coordinates `n mod ℓ` for ℓ | q_1 changes the
+fibre product by a factor `≤ exp(Σ_{ℓ|q_1} 2ℓ^{−2/3}) = 1 + o(1)`; what is missing to
+remove the factor q_1 for such b is a conditional version of the factorial-moment
+bound (thm:moments) under n ≡ b (q_1). Likely routine, not attempted here — OPEN.
 
 ## 3. Primes in short intervals
 
