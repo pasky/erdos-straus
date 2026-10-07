@@ -119,7 +119,7 @@ Put `T:=2^{L−4}`, `y:=c'gδ`, `z:=T7^b−y`, `D=7^{a+b}δ`.
 many and are found by the finite search: `y<T7^b` odd, `y=c'gδ`, `a` odd with (iv), `P_1` from (iii) with
 `1≤P_1`, `P_1|z`, `7∤P_1`, and `X=(1+7^{a+b}z/P_1)/(4c'g)` an odd integer prime to 7.
 
-**Proposition 3.3 (`b=0`, `L=7`, by hand; PROVED).** `T=8`, so `7^a<16` (both cases), `a=1`, `y∈{1,3,5,7}`.
+**Proposition 3.3 (`b=0`, `L=7`, by hand; PROVED).** `T=8`, so `7^a<16` (and case `2y>T` is even vacuous, as it needs `7^a<T/2=4`; R89, applied by reviewer), `a=1`, `y∈{1,3,5,7}`.
 `y=5,7`: `2y>8` and `P_1=c'g²+7(2y−8)≥15>z=8−y`. `y=1,3`: `P_1=c'g²−7(8−2y)≤y²−14(4−y)<0`. No solution.
 So no certificate at any `x̂_w` (`w≡9 (16)`) has `α+2γ=7` and `7∤k`. ∎
 
@@ -151,7 +151,12 @@ in 128-bit arithmetic). It reproduces exactly the solutions of `typei4_level` / 
 `max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` in every case (the role of `e` is covered by `v_2(e+9)`, since `F`/`e` is
 symmetric in (1.2) up to orientation). ∎
 For `b=0` (i.e. `7∤k`) at `L≤10` this is a finite hand-checkable statement (Lemma 3.1(iv): `a=1` only, as
-`7^a<T²/4≤2^{12}` gives `a≤3`, and `a=3` needs `7³<T²/4`, i.e. `L=10` only).
+`7^a<T²/4≤2^{10}` gives `a≤3`, and `a=3` needs `7³<T²/4`, i.e. `L=10` only; `2^{12}` corrected to `2^{10}`, R89, applied by reviewer).
+*Replication (R89 repair D5, applied by reviewer).* `typei4_pqsearch` and `typei4_dgraded` are height-/d-bounded, so they
+confirm Comp 3.4 only on overlaps. A second **complete** engine, written independently in review R89
+(`scripts/review_typei4_jsearch.c`, TYPEI2 (2.1) coordinates with its own bounds), reproduces Comp 3.4 exactly on
+`L≤8, b≤6`; `L≤10, b≤5`; `L≤17, b≤3`; `L≤18, b≤2`; `L≤23, b≤1`; `L≤26, b=0`. The remaining ranges of Cor 3.5
+(`L=7,8`, `b=7`; `L=9,10`, `b=6,7`; `L=18…22`, `b=3`; `L=19…24`, `b=2`; `L=24…26`, `b=1`) rest on `typei4_lb` alone.
 
 **Example (level 11 is genuinely inhabited in the fibre).** `(c,k,F)=(42,32,71)`: `N=172033=71·2423`, `t=8`,
 `c'=3`, `71≡−1 (3)`, `71≡1 (7)`; it is a certificate at `x̂_w` for every `w≡185 (mod 256)`
