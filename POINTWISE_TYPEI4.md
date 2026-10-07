@@ -149,6 +149,41 @@ For `b=0` (i.e. `7∤k`) at `L≤10` this is a finite hand-checkable statement (
 `c'=3`, `71≡−1 (3)`, `71≡1 (7)`; it is a certificate at `x̂_w` for every `w≡185 (mod 256)`
 (`typei3_verify.py 7 185 42 32 71`: CERTIFICATE), but not at `w=9` (`v_2(71+9)=4`).
 
+### 3.6 The 7-adic tower at `L=7`: bounded `b` for each fixed gap `j` (PROVED)
+
+At `L=7` (`T=8`) case A of Lemma 3.1(iv) is impossible (`7^a<4`), so `2y<8·7^b`. Put `u:=7^b`,
+`j:=4u−y` (odd, `1≤j<4u`), `m:=c'δ²` (odd), `ρ:=z/P_1=(4u+j)/P_1`. Since `c'g²=y²/m`, Lemma 3.1(iii) reads
+`mP_1=y²−2mj7^au`, hence
+
+```
+ρ·[(4u−j)² − 2mj·7^a·u] = m(4u+j),        m·j·7^a < 8u.                                  (3.1)
+```
+
+**Lemma 3.6 (PROVED).** Let `L=7` and `7∤j`. Then `λ:=(ρj−m)/u` is an even integer, `2≤λ≤4j+j²/u`, and
+`u(16ρ+4λ)=j(12ρ+2·7^aρm−λ)` (3.2). Moreover `7^{b−a}<2λj³+10j²+37j`, `m<8·7^{b−a}/j`, and `u` is a root
+of the non-zero quadratic
+`(2jm−16·7^{e})λu² + (2jm²−16·7^e m+8·7^eλj)u + 7^e(12jm−λj²) = 0`, `e:=b−a`. Hence **for each fixed `j`
+(prime to 7) only finitely many `b` occur, with an explicit bound.**
+*Proof.* (3.1) mod `u` gives `ρj²≡mj`, so `ρj≡m (mod u)` and `λ∈ℤ`. Substituting `m=ρj−λu` into (3.1) and
+dividing by `u` gives (3.2). LHS of (3.2) is even and `j` odd, so `λ` is even. `λ>−m/u>−1` (by (3.1),
+`m<8u/7`), so `λ≥0`. `λ=0`: (3.2) gives `8u=j(6+7^am)`; for `b≥1` this needs `7|6`; for `b=0`, `j≤3` and
+`8=j(6+7^am)` fails. `λ≤ρj/u≤(4u+j)j/u` as `P_1≥1`. Write (3.2) as `Dd | Nn` with `Dd=A_1ρ+4λ`,
+`A_1=2·7^aλj+16`, `Nn=2·7^aj²ρ²+12jρ−λj`. Then `A_1²Nn ≡ C (mod Dd)` with
+`C=−λj(4·49^aλ²j²+128·7^aλj+1024)≠0`, so `A_1ρ<|C|`, i.e. `ρ<2·7^aλ²j²+64λj+512/7^a`, and
+`u<ρj/λ` gives the bound on `7^{b−a}`. `m<8·7^{b−a}/j` is (3.1). Multiplying (3.2) by `j7^e` and using
+`jρ=m+λu`, `7^a7^e=u` gives the quadratic. Its leading coefficient vanishes only if `jm=8·7^e`, which is
+impossible as `jm` is odd. ∎
+
+*Examples.* For `j=1` the cases `λ∈{2,4}` reduce to `7^am=8u−5` resp. `8u=7^a+4`, both impossible mod 7. So
+`j=1` is excluded for all `b` (direct check of Lemma 3.6).
+*What remains at `L=7`.* By (3.1) `m·7^a<8u/j`. So large `j` forces small `m=c'δ²`, and the open regime
+is `j→∞` together with `b→∞`. For fixed `(m,a,ρ)`, (3.1) is a conic in `(u,j)` of non-square discriminant
+`4ρ²(μ²−16)`, `μ=m7^a+4`. Its points with `u=7^b` are finite (a non-degenerate binary recurrence meets the powers
+of 7 finitely often; Baker/S-unit theory, not made explicit here). But `ρ` is not bounded in terms of `(m,a)`.
+So for `L=7` the tower is reduced to the regime `j, b → ∞` with `m` bounded by `8u/(7j)`. This is not closed.
+The same method applies verbatim to `L=8,9,10` (`T=16,32,64`; for `L≥8` case A of Lemma 3.1 adds `a=1` with
+`P_1>7^{1+b}`), but it was not carried out.
+
 ## 4. What this says about higher reciprocity obstructions (Assessment, with one PROVED scope statement)
 
 **Proposition 4.1 (scope; PROVED).** Any argument excluding certificates at `x̂_9` of level `L` that uses the
