@@ -288,11 +288,11 @@ it says nothing for sparse P_Q. Section 7 item 4 should be read as "full residuo
 `scripts/weights2_checks.py` (primes ℓ ≡ 3 (4), ℓ ≤ 3·10⁶; F_ℓ = {−4D : D | A²}):
 * every class of every ℛ(ℓ) is a quadratic non-residue (0 failures; Prop 5.3 premise, which
   is proved anyway);
-* prime-slice mass `S(Y) = Σ_{ℓ≤Y} p_ℓ`: 2.86, 6.03, 10.50, 16.23, 23.17, 26.90 at
-  Y = 10², …, 10⁶, 3·10⁶, i.e. `S(Y)/(log Y)² = 0.135 → 0.121`, slowly decreasing and
+* prime-slice mass `S(Y) = Σ_{ℓ≤Y} p_ℓ`: 2.773, 6.001, 10.491, 16.225, 23.165, 26.898 (R90 repair, D13: the first draft printed the 10², 10³ rows one prime past Y; script fixed and rerun) at
+  Y = 10², …, 10⁶, 3·10⁶, i.e. `S(Y)/(log Y)² = 0.131 → 0.121`, slowly decreasing and
   consistent with Prop 3.1's ≫ (log Y)² and with a matching upper bound (the upper bound would need a Shiu/Nair–Tenenbaum bound for Σ τ(((ℓ+1)/4)²) over shifted primes; not proved — R90 repair, D5);
-* self-overlap mass `O_h(Y) = Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` (h = 1, 2, 3, 6, 10): 0.6–1.0 at
-  Y = 10², 1.8–2.9 at 3·10⁶, with decreasing increments per decade (O₁: +0.55, +0.49,
+* self-overlap mass `O_h(Y) = Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` (h = 1, 2, 3, 6, 10): 0.56–1.03 at
+  Y = 10², 1.8–2.9 at 3·10⁶, with decreasing increments per decade (O₁: +0.56, +0.49,
   +0.41, +0.35). It is a vanishing fraction of S(Y) (≈ 10% at 3·10⁶), consistent with the
   Assessment in Prop 4.3 that pair correlations recover only a factor `e^{O(O_h)}`.
 

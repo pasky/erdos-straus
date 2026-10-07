@@ -49,6 +49,11 @@ def main():
     over = {h: 0.0 for h in hs}
     nqr_fail = 0
     for l in range(3, Y + 1, 4):
+        while checkpoints and l > checkpoints[0]:  # R90 repair D13: report exactly at Y
+            c = checkpoints.pop(0)
+            lg = math.log(c)
+            print(f"Y={c:>9}  mass={mass:8.3f}  mass/(logY)^2={mass/lg**2:.4f}  "
+                  + " ".join(f"O{h}={over[h]:.3f}" for h in (1, 2, 3, 6, 10)), flush=True)
         if spf[l] != l:
             continue
         F = R(l, spf)
@@ -58,11 +63,6 @@ def main():
         mass += len(F) / l
         for h in hs:
             over[h] += sum(1 for a in F if (a + h) % l in F) / l
-        while checkpoints and l + 4 > checkpoints[0]:
-            c = checkpoints.pop(0)
-            lg = math.log(c)
-            print(f"Y~{c:>9}  mass={mass:8.3f}  mass/(logY)^2={mass/lg**2:.4f}  "
-                  + " ".join(f"O{h}={over[h]:.3f}" for h in (1, 2, 3, 6, 10)), flush=True)
     lg = math.log(Y)
     print(f"Y={Y:>9}  mass={mass:8.3f}  mass/(logY)^2={mass/lg**2:.4f}  "
           + " ".join(f"O{h}={over[h]:.3f}" for h in (1, 2, 3, 6, 10)))
