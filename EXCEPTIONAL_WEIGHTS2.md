@@ -131,8 +131,13 @@ since D determines (u,v) for fixed A). Dividing by ℓ ≤ 2x and summing dyadic
 `ℓ ≤ Y = exp((log N)^{3/8+ε})` (ε > 0) push the avoider density below
 `exp(−c(log N)^{3/4+2ε})`; with ℓ ≤ N it is `≤ exp(−c(log N)²)`. (With all composite moduli
 the mass is ≍ (log Y)³ by Elsholtz–Tao, which would suggest Y = exp((log N)^{1/4+ε});
-the union of composite classes is not a product, so only the prime-slice statement is
-claimed.) So: **yes, moduli between `exp((log N)^{3/8+ε})` and N push the density far
+*(R90 repair, D6.)* On **units** the composite statement is already PROVED: CEILINGS_UNIFIED
+Prop 1.1 gives the unit-Haar void `δ*(Y) ≤ 8e^{−c(log Y)³}` (via the note's atoms), whose
+threshold Y = exp((log N)^{1/4}) is exactly the brief's; this agrees with the Haar exponent 3.
+What is missing is the passage from the unit-Haar density to the *integer* density of 𝒜
+(non-units mod M escape all ℛ(M)-classes; one needs selector classes or a fibre
+argument), which is why for integers only the prime-slice statement is claimed.)
+So: **yes, moduli between `exp((log N)^{3/8+ε})` and N push the density far
 below the 3/4 scale.**
 
 **But this does not refute (W).** `M(N) ≥ N·dens` (average over t), so the density is a
