@@ -20,7 +20,8 @@ Call it a **fibre certificate** if `F≡7 (mod 16)`. Then:
 Conversely, if `F≡7 (16)` put `w:=−F` (or any `w≡−F (mod 2^t)`); then `w≡9 (16)` and the converse part of
 TYPEI3 Lemma 1.1 applies. (ii) TYPEI3 Lemma 1.1 gives `e≡F (mod n)` (both `≡−1` mod `c'k'`, `≡1` mod `7^{a+b}`),
 and `e≡F^{−1} (mod 2^{L+2})`. For odd `F`, `F^{−1}≡F+16 (mod 32)` iff `F²≡17 (mod 32)` iff `F≡7,9 (mod 16)`;
-otherwise `F²≡1 (32)`. ∎
+otherwise `F^{−1}−F≢16 (mod 32)`, i.e. `v_2(e−F)≠4` (R89 repair D1, applied by reviewer: the earlier
+"otherwise `F²≡1 (32)`" was false for `F≡±3,±5 (16)`, where `F²≡9,25 (32)`). ∎
 (The case `F≡9 (16)` belongs to the fibre `w≡7 (16)` and is not considered further.)
 
 **Proposition 1.2 (Pell form; PROVED).** Let `(c,k,F)` be a fibre certificate of level `L≥5`, oriented
