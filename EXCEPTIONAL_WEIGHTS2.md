@@ -245,7 +245,14 @@ cost `exp(−c(log N)²)` under random translates (Prop 4.1), against the large-
 `exp(−c(log N)^{2/3})` (primes) / `exp(−c(log N)^{3/4})` (all moduli). **(W) is precisely the
 question whether the large sieve of growing dimension is attained by an actual
 admissible set of integers (CRT translates), not just by a pseudo-distribution on the
-torus.** (The KARY/LS sieve-limit constructions are pseudo-distributions; W1 §5.)
+torus.** *(R90 repair, D10: overclaimed. Correct reading: for the prime-slice family,
+(W) at that family's own exponent is such an attainment question (Lemma 5.1 is for prime
+slices only); (W) itself concerns F_A, with composite R(M)-, Case-A and selector classes whose
+translates must be CRT-consistent jointly, and for prime slices (W) at 3/4 is weaker than
+attaining their own limit. The upper bound M <= N exp(-c(log N)^{2/3}) for prime slices follows
+from the large sieve (q = products of about (log N)^{2/3} primes up to exp(C(log N)^{1/3}));
+that no large sieve does better, i.e. that 2/3 is the limit, is the a/(a+1) extrapolation of
+CEILINGS_UNIFIED section 4.3, labelled CONDITIONAL there: Assessment here.)* (The KARY/LS sieve-limit constructions are pseudo-distributions; W1 §5.)
 
 **Proposition 5.3 (quadratic alignment caps at √(N log N); PROVED).** All classes of every
 ℛ(ℓ) are quadratic non-residues mod ℓ (for 4uv | ℓ+1, every prime q | uv has ℓ ≡ −1 (4q),
@@ -310,6 +317,8 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
    bound `e^{−c(log N)^{2/3}}`, and (W) at the family's own exponent asks whether actual
    admissible sets attain the large-sieve limit (an inverse/attainment problem for the
    large sieve; the sieve-limit objects of KARY/LS are pseudo-distributions on the torus).
+   (R90 repair, D10: this is for prime slices only; that 2/3 is their limit is Assessment
+   (CONDITIONAL in CEILINGS section 4.3); (W) for F_A is a different, joint CRT problem.)
 
 *Assessment.* Both directions look as hard as a new sieve theorem: refuting (W) needs a
 shift-uniform count below the sieve limit (beyond every known method), proving it needs

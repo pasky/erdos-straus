@@ -12,7 +12,7 @@ Branch `side-agent/crt-alignment-w`. Deliverable: `EXCEPTIONAL_WEIGHTS2.md`, `sc
 | Prop 3.1, Cor 3.2 | prime slices ℓ ≤ Y give dens ≤ exp(−c(log Y)²) (BV, ineffective); so step (2): YES, density < e^{−(log N)^{3/4+2ε}} from Y = exp((log N)^{3/8+ε}) — but not forced, M ≫ N·dens·N^{100} | PROVED |
 | Prop 4.1, Cor 4.2 | random shifts uniform on a prime set L give E count ≤ NΠ_L(1−p_ℓ): step (1) loses e^{−c(log N)²}; a proof of (W) must align the primes carrying all but O((log N)^{3/4}) of the medium mass jointly (R90 repair, D7) | PROVED |
 | Prop 4.3 | size-biased bound = Fejér sum of r(h); r(h)/dens = e^{O(self-overlap mass)} | formula PROVED; size Assessment + EVIDENCE |
-| Lemma 5.1, Prop 5.2 | prime slices: M(N) = largest F-admissible subset of an N-interval (growing-dimension Hensley–Richards); bounded dimension: max ≍ density | PROVED |
+| Lemma 5.1, Prop 5.2 | prime slices: M(N) = largest F-admissible subset of an N-interval (growing-dimension Hensley–Richards); bounded dimension: max ≍ density. (R90 repair, D10:) "(W) is precisely attainment" holds only for prime slices at their own exponent; the 2/3 limit is Assessment | PROVED |
 | Prop 5.3 | all ℛ(ℓ) ⊆ QNR; quadratic alignment caps at √(N log N) | PROVED |
 | §6 | mass/(log Y)² ≈ 0.12 to Y = 3·10⁶; self-overlap ≈ 10% of mass; 0 QNR failures | EVIDENCE |
 
