@@ -20,7 +20,7 @@ Results
    conditioning of the void lemma (Remark 2.2, OPEN).
 3. **Primes (Cor 3.1, PROVED rel. note).** No primes-in-short-intervals input
    is needed: `E_pr((x,x+H]) ≪ (H/log x)e^{−c(log H)^{3/4}}` once
-   `H ≥ exp(C(log log x)^{4/3})`. Prime input (BHP x^{0.525}; Huxley x^{1/6+ε}
+   `H ≥ exp(C(log log x)^{4/3})`. Prime input (BHP H ≥ 2x^{0.525}; Huxley x^{1/6+ε}
    for almost all x) only for relative densities (Cor 3.2; (b),(c) ranges quoted,
    not re-verified).
 4. **Lower end (Prop 4.1, PROVED, trivial).** The target form for any

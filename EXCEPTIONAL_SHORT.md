@@ -191,8 +191,8 @@ primes in the interval), i.e. a lower bound for the denominator:
 `π(u) − π(u − u^{0.525}) ≫ u^{0.525}/log u` (stated in the literature as "a positive
 proportion of the expected count"; R88 repair D7: exact statement and constant
 **not** checked against the original, only via secondary sources).]
-For `x^{0.525} ≤ H ≤ x` (x large): tile `(x, x+H]` by `⌊H/(2x)^{0.525}⌋ ≥ 1`
-disjoint intervals `(u − u^{0.525}, u]` with `u ∈ (x, x+H]`, `u^{0.525} ≤ (2x)^{0.525}`
+For `2x^{0.525} ≤ H ≤ x` (x large; R88 repair D7: lower end raised from x^{0.525} to 2x^{0.525} so that the tiling is nonempty): tile `(x, x+H]` by `⌊H/(2x)^{0.525}⌋ ≥ 1`
+disjoint intervals `(u − u^{0.525}, u]` (greedily from u = x+H downward; each has length `≤ (2x)^{0.525} ≤ H`)
 (R88 repair D7: tiling made explicit); each contributes `≫ x^{0.525}/log x` primes,
 so `π(x+H) − π(x) ≫ H/log x`. With Theorem 1 (θ = 0.525):
 `E_pr((x,x+H]) / (π(x+H) − π(x)) ≪ exp(−c(log x)^{3/4})`.
