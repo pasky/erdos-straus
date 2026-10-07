@@ -13,7 +13,8 @@ instead, with a precise statement of where it blocks.
 2. **Reduced equation (PROVED, Cor 1.4 / Remark 1.6).** Fibre certificates of level `L` ⇔ `c'gh−P_1=2^{L−4}7^{a+2b}`,
    `g+h=8P_1X`, `h−g=2·7^{a+b}δ`; equivalently `F=8c'Xg−1`, `e=8c'Xh−1`, `Fe=1+2^{L+2}c'7^{a+2b}X²`.
 3. **Finite per `(L,b)` with explicit bounds (PROVED, Lemma 3.1).** `c'gδ<2^{L−4}7^b`, `P_1 | 2^{L−4}7^b−c'gδ`, and
-   `7^a<2^{2L−10}7^b`. `L=7`, `7∤k` is done by hand (Prop 3.3).
+   `7^a<max(2^{L−5}, 2^{2L−10}7^b)=2^{2L−10}7^b` (max over the two cases of Lemma 3.1(iv); R89 repair D4, applied by
+   reviewer). `L=7`, `7∤k` is done by hand (Prop 3.3).
 4. **Computations (CERTIFIED once replayed; complete at all heights).** There is no fibre certificate at `L=7..10` with
    `v_7(k)≤7`. Fibre certificates exist at `L=11,13,14,16,18–26`, but none at `L=12,15,17` with `v_7(k)≤3`.
    **No certificate at `x̂_9` has `L≤22`, `v_7(k)≤3`, or `L≤26`, `v_7(k)≤1`, at any height** (Cor 3.5). This is a
