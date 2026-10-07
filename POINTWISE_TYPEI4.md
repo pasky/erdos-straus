@@ -79,3 +79,19 @@ Note `g>0` (as `c'gh=P_1+K>0`, `h>0`), so `h≥8P_1X−g`… and `4c'gP_1<c'gh=P
 **Observation 1.5 (EVIDENCE).** All fibre certificates found so far (`typei4_pqsearch 3·10⁵ 10⁴`, 87 solutions;
 `typei4_dgraded.py 5 24 3000`) use the **fundamental** unit (`m=1`), have `a=1`, `b≤1`, and level `L≥11`.
 Levels 12, 15, 17 are also absent so far.
+
+**Remark 1.6 (dictionary).** (1.2) is TYPEI2 Lemma 2.4 / (2.1) in disguise: `F=8c'Xg−1`, `e=8c'Xh−1`
+(so `J=8g`, `J'=8h`, `u=64P_1`), and `(8c'Xg−1)(8c'Xh−1)=1+2^{L+2}c'7^sX²` with `s=a+2b`. Hence the fibre
+problem at level `L` is simply: **does `N=1+2^{L+2}c'7^sX²` (`s` odd; `c',X` odd, prime to 7) have a divisor
+`F≡7 (mod 16)` with `F≡−1 (mod c'X)` and `F≡1 (mod 7^{(s+1)/2})`?** (`a=1`, `b=(s−1)/2` is the weakest split;
+`F≡7 (16)` already forces `e≡F^{−1}≢F (mod 32)`, i.e. δ odd.)
+
+## 2. Computation: the low levels are empty for small `s` (CERTIFIED once replayed)
+
+**Computation 2.1.** `scripts/typei4_level.c L s` enumerates **all** solutions of (1.2) with given `(L,s)`,
+at all heights (all `c'`, `X`), using the bounds of Cor 1.4. Cross-check: it reproduces exactly the
+`L=11,13,14,16` solutions found by the independent engines `typei4_pqsearch.c` and `typei4_dgraded.py`
+(`(L,s)=(11,1)`: `(c',P_1,X,δ)=(3,13,1,7)`; `(13,3)`: `(79,1,17,1)`; `(14,1)`: 2; `(16,1)`: 3).
+Result: **no fibre certificate** for `L∈{7,8,9,10,12,15}` and `s∈{1,3,5,7,9}`, nor for `L=17`, `s≤7`
+(each run < 1 min except `L=15,s=9`). So: *no certificate at any `x̂_w`, `w≡9 (16)`, with
+`α+2γ∈{7,8,9,10,12,15}` and `v_7(ck²)≤9`, of any height.*
