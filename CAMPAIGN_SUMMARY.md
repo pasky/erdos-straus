@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)29 and (H)34, incl. the 2026-10-06 follow-ups under (H)17, (H)32, (H)34)
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)30 and (H)34, incl. the 2026-10-07 follow-ups (D)29 [WEIGHTS2] and (H)17 follow-up 3 [TYPEI4])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -65,7 +65,12 @@ The campaign ran two lines of research.
   for several primes); the combinatorial statement "weak SPW" for hybrid
   methods (open; the fixed-σ version and fixed-η RSPW are refuted);
   per-frequency weights below 1, reduced to one shift-uniform avoider
-  count (W_𝔊) ((D)29; open); and genuinely non-CRT arithmetic input.
+  count (W_𝔊) ((D)29; open — neither proved nor refuted, and the
+  CRT-alignment plan for it provably fails, EXCEPTIONAL_WEIGHTS2); and
+  genuinely non-CRT arithmetic input. The 3/4 bound also holds in every
+  interval of length H at any position, `E(I) ≪ H exp(−c(log H)^{3/4})`,
+  and in progressions of small or rough modulus ((D)30, PROVED relative
+  to the 3/4 note; modest novelty).
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -89,7 +94,9 @@ The campaign ran two lines of research.
   is not proved, and its failure is localised ((H)32). Window results give
   exact orders for bounded windows and show that parity input is
   necessary. Finite coverings: every Type-I covering of `{n_p = 7}` has
-  height > 1.32·10¹² (CERTIFIED), ES holds for primes with `(p/13) = −1`
+  height > 1.32·10¹² (CERTIFIED); no certificate at the sign point `x̂_9`
+  exists with 2-adic level ≤ 22 and `v_7(k) ≤ 3` at **any** height
+  (CERTIFIED, via a Pell form of fibre certificates, PROVED); ES holds for primes with `(p/13) = −1`
   outside six classes mod 720720 (PROVED by finite computation), and
   candidate sterile points for r = 13, 17 are CONJECTURES ((H)17, (H)34).
 
@@ -450,7 +457,7 @@ factor quoted in this subsection can be dropped.
 
 ### 2.4 What remains open above 3/4
 
-The sources are ledger (D)18–(D)29, KARY2 §6, NONCRT §6, WEIGHTS and STATUS.md.
+The sources are ledger (D)18–(D)29, KARY2 §6, NONCRT §6, WEIGHTS, WEIGHTS2 and STATUS.md.
 The cap is now exactly `(log N)^{3/4}` (no `log log` loss, (D)24) for
 coefficient-sum sieves, large sieves of every Bessel type (at every
 frequency level for one-rough-prime and residue-sparse mixtures), prime-only
@@ -487,6 +494,21 @@ majorants, and interval cancellation at moduli `≤ N/2`. A proof of
   (H_eq) itself is proved at one large prime for smooth windows and is a
   CONJECTURE for several primes. Review
   `reviews/exceptional-weights-review.md` (no FATAL; one MAJOR repaired).
+  Follow-up `EXCEPTIONAL_WEIGHTS2.md` (review
+  `reviews/exceptional-weights2-review.md`: no FATAL; 3 MAJOR and minors
+  repaired by the author): (W) is **neither proved nor refuted**, and the
+  CRT-alignment plan provably fails. One maximal family suffices (Lemma 1.1).
+  For prime slices only subfamilies of period ≤ N are forced to pay their
+  density in every window, and that forced mass is `(log N)^{o(1)}`
+  (Lemmas 2.1–2.2; composite case partly open). Prime slices `ℓ ≤ Y` push the
+  avoider density below `exp(−c(log Y)²)` (Prop 3.1, PROVED, ineffective via
+  Bombieri–Vinogradov), but windows need not pay it. Random shifts lose
+  `e^{−c(log N)²}` (Prop 4.1), so a proof of (W) must align almost all medium
+  primes jointly; all ℛ(ℓ) classes are quadratic non-residues, so quadratic
+  alignment caps at `√(N log N)` (Prop 5.3). For prime slices (W) is an
+  attainment question for a growing-dimension large sieve of Hensley–Richards
+  type (Lemma 5.1, Prop 5.2). A refutation of (W) would not by itself give
+  θ > 3/4 (R90 D1/D2).
 * **Genuinely arithmetic, non-CRT input** of another kind.
 * **Other ingredients outside the class:** majorants with `ν ≥ 0` only
   at primes `≤ N` when the period exceeds `N^c` (Assessment: open);
@@ -497,6 +519,28 @@ Model-only remark: the a-frame/multiplicative route sits at
 `θ* ≈ 0.52` under its model, below 3/4 (**Assessment**, ET §5.2). The
 proposed universal "0.5823 ceiling" was withdrawn as restricted-model only
 (ledger (F)6).
+
+### 2.5 Short intervals and progressions
+
+`EXCEPTIONAL_SHORT.md` (ledger (D)30; review
+`reviews/exceptional-short-review.md`, no FATAL/MAJOR, 8 minors repaired by
+the author). All statements are PROVED relative to the 3/4 note.
+* Thm 1: for every interval I of length H ≥ 2, at any position,
+  `E(I) ≪ H exp(−c(log H)^{3/4})`; hence `E((x,x+H]) ≪_θ H exp(−c(log x)^{3/4})`
+  for `H ≥ x^θ`. The note's majorant is a finite combination of congruence
+  classes counted class by class, so it is shift-uniform; a local
+  decomposition n = d·m (d smooth) replaces the note's global Rankin step.
+* Thm 2: the same bound in progressions n ≡ b (mod q), uniformly for
+  `q ≤ exp(c'(log(H/q))^{3/4})` and for q with all prime factors > X. Large
+  smooth q are open.
+* Cor 3.1: the bound holds for primes in (x, x+H] once
+  `H ≥ exp(C(log log x)^{4/3})`, with no primes-in-short-intervals input.
+* Prop 4.1: such a bound for `H < e^{c(log x)^{3/4}}` would imply ES for all
+  large n; beyond that range shift-uniform methods are governed by (W) of
+  (D)29 (Assessment).
+* Novelty is modest (shift-uniformity is routine); no published
+  short-interval or progression result was found (Li Delang 1981 not read
+  in full).
 
 ---
 
@@ -838,6 +882,23 @@ original paper was not obtained.
     closed and nowhere dense (Prop 3.1), and an explicit summable tail bound
     for near misses would give a sterile point (Remark 4.1, PROVED
     reduction).
+  * Follow-up 3 (POINTWISE_TYPEI4, review `reviews/pointwise-typei4-review.md`,
+    no FATAL/MAJOR, minors applied by the reviewer): sterility of `x̂_9` is
+    still **not** proved. A certificate in the fibre at 2-adic level L is a
+    norm-1 unit of ℤ[√d], `d = c_o(c_oδ² + 2^{L−4})`, which is a square of a
+    specific shape: `16PX² − Q·49^b = 1`, `PQ = d` (Prop 1.2, Cor 1.4, PROVED).
+    No higher-reciprocity obstruction exists in these coordinates (the quadratic
+    test is an identity, quartic symbols are vacuous; Assessment). For fixed
+    (L, b) the problem is finite with explicit bounds at all heights (Lemma 3.1,
+    PROVED). CERTIFIED (two independent complete engines on the replayed
+    ranges): no certificate at `x̂_9` with L ≤ 22 and `v_7(k) ≤ 3`, or L ≤ 26
+    and `v_7(k) ≤ 1`, **at any height** — complementary to the f < 10¹² search.
+    For L ∈ {11, 13, 14, 16, 18–22} the fibre is inhabited at other
+    w ≡ 9 (16) (Prop 4.1, CERTIFIED), so no argument that sees w only mod 16
+    can work there (Assessment). At L = 7 a partial 7-adic tower argument
+    (Lemma 3.6, PROVED) rules out the gap j = 1 for every b; j ≥ 2 and 7 | j
+    are open. Assessment: the remaining problem is exponential-Diophantine (a
+    7-power tower), so linear forms in logarithms look like the right tool.
 * *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
   (H)34).
   * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
@@ -995,6 +1056,8 @@ them.
 | E24 | Rational labels −r/s mod G; tilted law satisfies (A*); (DCC) ⇒ all-level cap (PROVED implication); (RD) at one prime for ℛ(M) classes and for long cofactors; (RD) as first stated false for several primes, height-cut form fails with (a,D) classes; target is (RD′) | PROVED as labelled; one-rough-prime bound of LS6 CONDITIONAL on (FM2); (RD), (CC) CONJECTURES; (A*)/(DCC)/(RD′) open | `EXCEPTIONAL_LARGESIEVE5.md`, `-6.md` Thm 6.1, `-7.md` Lemmas 1.1–1.2, Thms 3.1, 4.3, Props 4.1, 5.1 | `reviews/exceptional-largesieve5-review.md`, `-largesieve6-review.md`, `-largesieve7-review.md` (repairs applied) | Shiu; Nair–Tenenbaum (LS7) |
 | E25 | Cubic witness tail `#{p≤x: W(p)>T} ≪ π(x)exp(−c(log T)³)` for `log T ≤ c₁(log x)^{1/4}` | INTERNALLY PROVED (via E2; constants not effective) | ledger (A)9; `CEILINGS_UNIFIED.md` Thm 2.1; `paper/es-subexp-note.tex` v5 Thm 11.2 | `reviews/ceilings-unified-review.md` (SOUND); `reviews/es-subexp-note-review-v5.md` | as E2; uniform PNT in progressions with Landau–Page term (small T, cited from memory) |
 | E26 | Per-frequency weights below 1: every bound whose weights dominate the window transform (smooth or sharp) is ≥ the shift-uniform avoider count `M_𝔊(N)`; for Selberg's window ≤ `12(K+1)M_𝔊(N)`; door capped at 3/4 iff (W_𝔊); sharp weights with hit-pattern majorants capped without (H_eq) | PROVED (internal); (W_𝔊) open; (H_eq) at several primes a CONJECTURE; toy numerics EVIDENCE | `EXCEPTIONAL_WEIGHTS.md` Lemmas 1.1–1.2, Thm 2.1, Cor 2.2, Thm 3.3, Prop 5.1 | `reviews/exceptional-weights-review.md` (no FATAL; one MAJOR repaired) | Selberg majorant; as E22 |
+| E27 | (W) neither proved nor refuted; CRT alignment fails: one maximal family suffices; forced window mass of prime slices `(log N)^{o(1)}`; prime-slice density `≤ exp(−c(log Y)²)`; random shifts lose `e^{−c(log N)²}`; quadratic alignment caps at `√(N log N)`; (W) for prime slices = growing-dimension Hensley–Richards attainment | PROVED as labelled (Prop 3.1 ineffective); composite case of Lemma 2.2 partly open; §6 numerics EVIDENCE; refutation of (W) does not give θ > 3/4 | `EXCEPTIONAL_WEIGHTS2.md` Lemmas 1.1, 2.1–2.3, 5.1, Props 3.1, 4.1, 4.3, 5.2, 5.3 | `reviews/exceptional-weights2-review.md` (no FATAL; 3 MAJOR repaired by the author) | Bombieri–Vinogradov (Prop 3.1); Montgomery large sieve; Wirsing (Prop 5.3) |
+| E28 | Short intervals and progressions: `E(I) ≪ H exp(−c(log H)^{3/4})` for every interval of length H; progressions with `q ≤ exp(c'(log(H/q))^{3/4})` or q X-rough; primes in (x, x+H] for `H ≥ exp(C(log log x)^{4/3})` | PROVED relative to the 3/4 note; Prop 4.1 consequence an Assessment beyond its range | `EXCEPTIONAL_SHORT.md` Thms 1–2, Cor 3.1, Prop 4.1 | `reviews/exceptional-short-review.md` (no FATAL/MAJOR) | the 3/4 note |
 
 ### 4.2 Pointwise line
 
@@ -1049,6 +1112,7 @@ them.
 | P47 | r = 13: if `(p/13) = −1`, ES holds for prime p outside 6 classes mod 720720 (2 if also `(p/11) = +1`); x* in no ET class of modulus ≤ 10⁶ | Thm 3.1 PROVED by finite computation; Comp 4.1 CERTIFIED; sterility of x* a CONJECTURE (Conj 4.2) | `POINTWISE_MORDELL.md` Thm 3.1, Comp 4.1, Conj 4.2 | `reviews/pointwise-mordell-review.md` (no FATAL; two MAJOR repaired) | Elsholtz–Tao Prop 1.9 (certificate classes) |
 | P48 | r = 17: ET families reduce to explicit ℤ_17 boxes; levels ≤ 5 leave 67.7% of each non-residue cell uncovered; explicit prime-power count ⇒ sterile point ⇒ no finite polynomial covering of n_p = 17 | Lemmas PROVED; Comp 3.1 CERTIFIED; Thm 4.1 PROVED sufficient condition; Cor 4.2 CONDITIONAL; Conj 4.3 CONJECTURE | `POINTWISE_MORDELL17.md` Lemmas 1.1–1.3, 2.1–2.3, 5.1–5.2, Comp 3.1, Thm 4.1, Cor 4.2 | `reviews/pointwise-mordell17-review.md` (rounds 1–2, no FATAL/MAJOR) | Elsholtz–Tao (families) |
 | P49 | m/n, SI localised: class-of-one weights ≤ `2ℓ·U_1(q)`; SI_3 needs only `U_1(q) ≪ q^{−1/2−δ}`; `R(N) ≪ N^{3/5+o(1)}` | PROVED lemmas; SI not proved; (M2) a CONJECTURE; Kloosterman-range obstruction an Assessment | `POINTWISE_MN3.md` Lemmas 1.1, 3.1, 5.2 | `reviews/pointwise-mn3-review.md` (repairs applied) | Elsholtz–Tao Type I count method (Lemma 5.2) |
+| P50 | Type-I at `x̂_9`, Pell form: fibre certificates = norm-1 units `16PX² − Q·49^b = 1`, `PQ = d`; finite per (L, b) at all heights; no certificate at `x̂_9` with level ≤ 22 and `v_7(k) ≤ 3` (or ≤ 26, ≤ 1) at any height; fibre inhabited at levels 11, 13, 14, 16, 18–22; L = 7, gap j = 1 excluded for all b | Prop 1.2, Cor 1.4, Lemmas 3.1, 3.6 PROVED; Cor 3.5 and Prop 4.1 CERTIFIED (two complete engines on replayed ranges); Obs 1.5 EVIDENCE; §4 Assessment; sterility open | `POINTWISE_TYPEI4.md` Prop 1.2, Cor 1.4, Lemma 3.1, Cor 3.5, Lemma 3.6, Prop 4.1 | `reviews/pointwise-typei4-review.md` (no FATAL/MAJOR) | none (BHV cited in an Assessment) |
 
 ---
 
@@ -1200,8 +1264,8 @@ specialist search would not find an identical prior statement.
   the stated classes.
 * *Not audited by either pass:* EXCEPTIONAL_SPW/SPW2, LARGESIEVE5–7,
   TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2/MN3, POINTWISE_TAIL,
-  POINTWISE_TYPEI2/TYPEI3, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS,
-  POINTWISE_MORDELL and POINTWISE_MORDELL17.
+  POINTWISE_TYPEI2/TYPEI3/TYPEI4, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS/WEIGHTS2,
+  EXCEPTIONAL_SHORT, POINTWISE_MORDELL and POINTWISE_MORDELL17.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
@@ -1257,7 +1321,9 @@ ratings are this summary's judgement, not ledger labels.
      ((D)26; requirement exact, `log(K/η) = O((log N)^{3/4})`);
      **(W_𝔊)** for per-frequency weights below 1 ((D)29: for Selberg's
      window the door is capped at 3/4 iff the shift-uniform avoider count
-     satisfies `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`).
+     satisfies `M_𝔊(N) ≥ N e^{−C(log N)^{3/4}}`; WEIGHTS2: neither proved
+     nor refuted, the CRT-alignment plan fails, and for prime slices it is a
+     growing-dimension Hensley–Richards attainment question).
 3. **The pointwise exponent 1/3.** (I medium–high, F low.) The proved
    rate is `log W ≫ (log p)^{1/4}` up to logs; the Haar exponent and the
    tail exponent over primes are both 3 (§3.3); 1/4 is the ceiling of the
@@ -1297,7 +1363,9 @@ ratings are this summary's judgement, not ledger labels.
    of `{n_p = 7}` has height > 1.32·10¹² (CERTIFIED, POINTWISE_TYPEI3), and
    under H, `C*(r) = ∞` iff a sterile profinite point exists (TYPEI2
    Thm A); the sign point `x̂_9` is the candidate (Conjecture 3.4; descent
-   levels 5–6 empty, level 7 open). Analogous candidate sterile points
+   levels 5–6 empty; TYPEI4: no certificate at level ≤ 22 with `v_7(k) ≤ 3` at
+   any height, CERTIFIED; the open part is the 7-adic tower `v_7(k) → ∞` at
+   levels 7–10, an exponential-Diophantine problem). Analogous candidate sterile points
    for Mordell-type coverings: x* for r = 13 (Conj 4.2) and r = 17
    (Conj 4.3, reduced by MORDELL17 Thm 4.1 to an explicit prime-power
    count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`).
@@ -1351,7 +1419,8 @@ ratings are this summary's judgement, not ledger labels.
 | the sieve-limit theorem and the Rankin functional | `EXCEPTIONAL_THETA.md` §§0–3 |
 | the Λ² route with twin and r-prime moduli | `EXCEPTIONAL_TWIN.md` → `TWIN2` → `TWIN3` → `TWIN4` |
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
-| per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md` |
+| per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md`, then `EXCEPTIONAL_WEIGHTS2.md` (why CRT alignment fails) |
+| the 3/4 bound in short intervals and progressions | `EXCEPTIONAL_SHORT.md` |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
 | large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
@@ -1372,7 +1441,7 @@ ratings are this summary's judgement, not ledger labels.
 | an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md`, `POINTWISE_MN3.md` (where SI fails) |
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
-| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent) |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent), `POINTWISE_TYPEI4.md` (Pell form, any-height bound) |
 | finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md` (r = 13), `POINTWISE_MORDELL17.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
