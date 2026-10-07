@@ -44,7 +44,9 @@ Key structural facts used below (all from the note):
 
 **Lemma 1.1 (local mean of the majorant; PROVED rel. note).** Let `X ≥ X_a`
 (thm:assembly), `Q ≥ 1`, `β ∈ Z`, and let `I = (z, z+H]` be any real interval
-(`z ∈ R`, `H > 0`). Then
+(`z ∈ R`, `H > 0`). Then (R88 repair D3: exact form stated, as used in Theorem 2)
+`Σ_{n ∈ I, n ≡ β (Q)} ν_X(n) = H·E_{Z/lcm(𝓜,Q)}[ν_X 1_{β(Q)}] + θ·T_abs`, `|θ| ≤ 1`,
+and consequently
 `Σ_{n ∈ I, n ≡ β (Q)} ν_X(n) ≤ H·e^{-c_a t^3} + e^{C_L t^4}.`
 
 *Proof.* Expand `ν_X` into its plain congruence terms `±1_{a (mod q)}`
@@ -138,7 +140,7 @@ In particular
 class mod `lcm(d',q)` (or none), a multiple of `d'q_2`; count
 `≤ H/(d'q_2) + 1`, total `≤ (H/q_2) e^{-c_a t^3 + 4√B t^{3/2}} + yD_0`.
 (ii) `d ≤ D_0`: `n = dm ≡ b (q)` confines m to one class mod
-`q/(d,q)`, whose X-rough part is q_2; Lemmas 1.1 and 2.1 give
+`q/(d,q)`, whose X-rough part is q_2; Lemma 1.1 (exact form) and Lemma 2.1 give
 `≤ (H/(d q_2)) e^{-c_a t^3} + e^{C_L t^4}`. Summing as before,
 `E(I;q,b) ≤ C_1 (H/q_2) e^{-c_a t^3/2} + e^{C_2 t^4}`.
 Choose `t^4 = log(H/q)/(2C_2)` (i.e. `α = (2C_2)^{-1/4}`), so the error is
