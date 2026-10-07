@@ -193,6 +193,13 @@ and for the prime-slice family (exact CRT)
     r(h) = Π_ℓ (1 − |F_ℓ \ (F_ℓ − h)| / (ℓ − |F_ℓ|))         (h mod ℓ).        (4.1)
 
 The factor at ℓ is 1 when ℓ | h and otherwise `1 − (|F_ℓ| − |F_ℓ ∩ (F_ℓ−h)|)/(ℓ−|F_ℓ|)`.
+*(R90 repair, D9: the heuristic below is mis-stated. Membership x, x+h in R(l) is the
+congruence (u - hv)v' = u'v (mod l) with u, v, u', v' up to about l/4, not an equation over
+Z; the heuristic must add the generic coincidences, about |F_l|^2/l per prime (summable,
+sum of l^{-2+o(1)}), and treat only small-height labels as structured; and the bound is
+needed uniformly in |h| < N, not for fixed h. Label stays Assessment. R90 EVIDENCE, Y = 10^5,
+all 1 <= h <= 2*10^4: O_h mean 1.12, max 2.46 (h = 3), max O_h/S = 0.15,
+max_h log(r(h)/dens) = 1.79, uniformly supporting it.)* Original text:
 *Assessment (not proved):* for fixed h ≠ 0 the self-overlap mass
 `Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` is bounded by the number of solutions of
 `(u+hv)v′ = u′v` with both uv, u′v′ | (ℓ+1)/4, a convergent sum over (u,v,u′,v′) times
