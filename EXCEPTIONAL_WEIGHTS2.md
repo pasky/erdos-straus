@@ -98,3 +98,50 @@ on average), and if they did, (W) would be false by Cor 3.2.
 
 So the whole of (W) sits in the *correlation* between the translates `t mod ℓ` of the
 medium moduli `exp((log N)^{c}) < ℓ ≲ N`.
+
+## 4. Step (1): random CRT shifts cannot prove (W)
+
+The brief's plan: fix t modulo the small-moduli period and take t random otherwise, then
+bound the expected loss from the larger moduli (second moment / Janson). The expectation
+is computed exactly by CRT and is far too small.
+
+**Proposition 4.1 (first-moment obstruction; PROVED).** Let 𝔊 ⊇ {F_ℓ : ℓ ∈ L} (L a set
+of primes ≡ 3 (4)) and let t be random with `(t mod ℓ)_{ℓ∈L}` uniform, independent of each
+other and of `t mod Q_rest` (Q_rest = the part of the period of 𝔊 coprime to Π_L ℓ;
+the classes with moduli divisible by some ℓ ∈ L are simply dropped, which only increases
+the count). Then
+
+    E count_t ≤ N · Π_{ℓ∈L}(1 − p_ℓ).
+
+*Proof.* For each j ≤ N, the events {t + j ∉ F_ℓ (mod ℓ)}, ℓ ∈ L, are independent of
+each other and of t mod Q_rest, each of probability 1 − p_ℓ. ∎
+
+**Corollary 4.2.** Any proof of (W) by "choose t mod (small period) well, then average"
+must leave t uniform only on a set L of primes with `Σ_{ℓ∈L} p_ℓ ≤ C(log N)^{3/4}`.
+By Prop 3.1 the prime-slice mass in `(Y, N]` is ≍ (log N)² − (log Y)², so for
+`Y ≤ N^{1−ε}` the translates of essentially all medium primes ℓ ∈ (exp((log N)^{3/8}), N^{1−ε}]
+must be chosen **non-uniformly, jointly**. In particular the planned estimate "expected
+loss for random t restricted to a good class mod the small-moduli period" is
+`≥ (1 − e^{−c(log N)²})` of the window for ℓ ≤ N alone: step (1) as specified **cannot**
+succeed, with or without second-moment/Janson refinements (they control the variance
+around this mean, while (W) needs the maximum to exceed the mean by a factor
+`exp(c(log N)²)`).
+
+**Proposition 4.3 (size-biasing; PROVED).** For any law of t, `M(N) ≥ E[count²]/E[count]`
+(since count ≤ M). For t uniform mod the full period this equals
+
+    Σ_{|h|<N} (1 − |h|/N)·r(h),      r(h) = dens(𝒜 ∩ (𝒜 − h)) / dens 𝒜,
+
+and for the prime-slice family (exact CRT)
+
+    r(h) = Π_ℓ (1 − |F_ℓ \ (F_ℓ − h)| / (ℓ − |F_ℓ|))         (h mod ℓ).        (4.1)
+
+The factor at ℓ is 1 when ℓ | h and otherwise `1 − (|F_ℓ| − |F_ℓ ∩ (F_ℓ−h)|)/(ℓ−|F_ℓ|)`.
+*Assessment (not proved):* for fixed h ≠ 0 the self-overlap mass
+`Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` is bounded by the number of solutions of
+`(u+hv)v′ = u′v` with both uv, u′v′ | (ℓ+1)/4, a convergent sum over (u,v,u′,v′) times
+`log log`, i.e. O_h((log log N)^{O(1)}); h has ≤ log N prime factors. So
+`r(h) = dens · e^{O((log log N)^{O(1)})}` and the size-biased bound is
+`N·dens·e^{o(log N)}`: pair correlations do not help either. Higher moments
+`(E count^k)^{1/k} → M(N)` (k → ∞) recover M exactly, but only through the
+k-point structure of §5.
