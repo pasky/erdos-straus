@@ -172,6 +172,14 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * Prop 5.1: `E_pr(N) ≤ K + y + M(N)`, and `M_{𝔊_X}(N) ≤ N e^{−c(log N)^{3/4}}` for the 3/4-note family. Toy numerics are EVIDENCE only.
     * Review `reviews/exceptional-weights-review.md`: no FATAL. One MAJOR (the family was never fixed) and minors; repairs applied by the reviewer.
 
+30. **Exceptional sets in short intervals and progressions (EXCEPTIONAL_SHORT.md).**
+    * Thm 1 (PROVED relative to the 3/4 note): for every interval I of length H ≥ 2, at any position, `E(I) ≪ H exp(−c(log H)^{3/4})`. Hence `E((x,x+H]) ≪_θ H exp(−c(log x)^{3/4})` for `H ≥ x^θ`. Proof idea: the note's majorant is a finite combination of congruence classes counted class by class, so it is shift-uniform. A local decomposition n = d·m (d smooth) replaces the note's global Rankin step.
+    * Thm 2 (PROVED rel. note): the same bound in progressions n ≡ b (mod q), uniformly for `q ≤ exp(c'(log(H/q))^{3/4})` and for q with all prime factors > X. Large smooth q are open.
+    * Cor 3.1 (PROVED rel. note): the bound holds for primes in (x, x+H] as soon as `H ≥ exp(C(log log x)^{4/3})`, with no primes-in-short-intervals input.
+    * Prop 4.1: a bound of this form for `H < e^{c(log x)^{3/4}}` would imply ES for all large n. Beyond that range, shift-uniform methods are governed by (W) of (D)29 (Assessment).
+    * No published short-interval or progression result was found (Li Delang 1981 not read in full; BHP and Huxley statements checked via secondary sources only). Novelty is modest: shift-uniformity is routine.
+    * Review `reviews/exceptional-short-review.md`: no FATAL/MAJOR; 8 minors repaired by the author.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
