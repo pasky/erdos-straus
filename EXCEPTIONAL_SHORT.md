@@ -130,10 +130,12 @@ of length H, `q ≥ 1`, `b ∈ Z`, `H/q ≥ 2`, and put
 In particular
 (a) uniformly for all `b` and all `q ≤ exp(c' (log(H/q))^{3/4})`
 (e.g. `q ≤ (log x)^A` with `H ≥ exp((log log x)^{4/3+ε})`, or
-`q ≤ exp(c'θ^{3/4}(log x)^{3/4})` with `H ≥ x^θ`):
+`q ≤ exp((c'/2)θ^{3/4}(log x)^{3/4})` with `H ≥ x^θ`, x large — R88 repair D4: c'/2
+because `log(H/q) < θ log x`):
 `E(I; q, b) ≪ (H/q) exp(−(c/2)(log(H/q))^{3/4})`;
-(b) for every q all of whose prime factors exceed `X_q` (e.g. q prime,
-`exp((log H)^{1/4+ε}) < q ≤ H^{1−δ}`): `E(I;q,b) ≪ (H/q) exp(−c(log(H/q))^{3/4})`.
+(b) for every q all of whose prime factors exceed `X_q` (e.g. every prime
+`q > X_q`; primes `q ≤ X_q` are covered by (a) for large H/q, so in fact every
+prime q with `H/q ≥ 2` gets the bound of (a) — R88 observation): `E(I;q,b) ≪ (H/q) exp(−c(log(H/q))^{3/4})`.
 
 *Proof.* As for Theorem 1, with `t = log X`. Since d is y-smooth and y < X,
 `(d, q_2) = 1`. (i) `d > D_0`: n ∈ I with `d' | n`, `n ≡ b (q)` lie in one
