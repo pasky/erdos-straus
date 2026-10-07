@@ -10,19 +10,18 @@ Notation as in TYPEI3: certificate `(c,k,F)` at `x̂_w`, `e=N/F`, `N=1+4ck²`,
 
 ## 1. Fibre certificates are norm-one units of a Pell order (PROVED)
 
-**Lemma 1.1 (fibre certificates).** Fix `L≥5`. The following are equivalent for `(c,k,F)` with
-`v_7(c)` odd and `α+2γ=L`:
-(i) `(c,k,F)` is a near miss (TYPEI2 §5: `F|N`, `F≡−1 (mod c'k')`, `F≡1 (mod 7^{a+b})`) with
-`F≡7 (mod 16)` and `t≥5`; equivalently, `(c,k,F)` is a certificate at `x̂_w` for some `w≡9 (16)`
-(namely every `w≡−F (mod 2^t)`).
-(ii) Writing `e=N/F`, `δ:=(e−F)/16n` is an odd integer (possibly negative).
-(Under (i) the cofactor `e` automatically satisfies `e≡−w^{−1} (mod 2^t)`.)
-
-*Proof.* (i)⇒(ii): Lemma 1.1 of TYPEI3 gives `e≡F (mod n)` (both `≡−1` mod `c'k'`, `≡1` mod `7^{a+b}`), and
-`e≡F^{−1} (mod 2^{t+γ})` with `t+γ≥5`; `F≡7 (16)` gives `F^{−1}≡F+16 (mod 32)` (`7·23≡1`, `23·7≡1` mod 32).
-So `v_2(e−F)=4`, `16n | e−F`, quotient odd. (ii)⇒(i): if δ is odd then `e≢F (mod 32)`; since `F≡7 (8)`
-(near misses in the dump have `−F≡1 (8)`) this forces `F≡7 (16)`. For `L≥7`, `t=2+α+γ≥2+⌈L/2⌉≥6`.
-The converse direction of TYPEI3 Lemma 1.1 then gives a certificate at every `w≡−F (mod 2^t)`. ∎
+**Lemma 1.1 (fibre certificates; PROVED).** Let `(c,k,F)` have `v_7(c)` odd and level `L=α+2γ≥7` (so
+`t=2+α+γ≥2+⌈L/2⌉≥6`), and let it be a near miss (TYPEI2 §5: `F|N`, `F≡−1 (mod c'k')`, `F≡1 (mod 7^{a+b})`).
+Call it a **fibre certificate** if `F≡7 (mod 16)`. Then:
+(i) it is a fibre certificate iff it is a certificate at `x̂_w` for some `w≡9 (16)` (namely every `w≡−F (mod 2^t)`);
+(ii) if it is a fibre certificate, then `e=N/F` satisfies `e≡F (mod n)`, `v_2(e−F)=4`, so
+`δ:=(e−F)/16n` is an odd integer (possibly negative). Conversely `δ` odd forces `F≡7` or `9 (mod 16)`.
+*Proof.* (i) A certificate at `x̂_w` has `F≡−w (mod 2^t)` with `t≥6`; for `w≡9 (16)` that is `F≡7 (16)`.
+Conversely, if `F≡7 (16)` put `w:=−F` (or any `w≡−F (mod 2^t)`); then `w≡9 (16)` and the converse part of
+TYPEI3 Lemma 1.1 applies. (ii) TYPEI3 Lemma 1.1 gives `e≡F (mod n)` (both `≡−1` mod `c'k'`, `≡1` mod `7^{a+b}`),
+and `e≡F^{−1} (mod 2^{L+2})`. For odd `F`, `F^{−1}≡F+16 (mod 32)` iff `F²≡17 (mod 32)` iff `F≡7,9 (mod 16)`;
+otherwise `F²≡1 (32)`. ∎
+(The case `F≡9 (16)` belongs to the fibre `w≡7 (16)` and is not considered further.)
 
 **Proposition 1.2 (Pell form; PROVED).** Let `(c,k,F)` be a fibre certificate of level `L≥5`, oriented
 so that `δ>0` (swap `F,e` otherwise). Put
@@ -124,6 +123,8 @@ in 128-bit arithmetic). It reproduces exactly the solutions of `typei4_level` / 
 * `L=11…22`, `b≤3`: fibre certificates exist exactly for
   `(L,b)=(11,0),(13,1),(14,0)×2,(14,3),(16,0)×3,(18,0),(18,1),(19,0)×2,(20,0)×4,(21,0),(22,1)×2`;
   none at `L=12,15,17` (b≤3).
+* `L=23…26`, `b≤1`, and `L=23,24`, `b=2`: 6+0, 2+1, 3+2, 3+0, 0, 0 solutions; `max(v_2(F+9),v_2(e+9))≤10`
+  throughout (`≤8` for `L≤25`).
 
 | L | b | (c',g,δ,P₁,X) | F | e | v₂(F+9) | v₂(e+9) | t_min=2+⌈L/2⌉ |
 |---|---|---|---|---|---|---|---|
@@ -135,7 +136,8 @@ in 128-bit arithmetic). It reproduces exactly the solutions of `typei4_level` / 
 | 18–22 | | eleven | | | ≤8 | ≤6 | 11–13 |
 
 **Corollary 3.5 (CERTIFIED; new type of bound — unbounded height).** No certificate at `x̂_9` has
-(`α+2γ≤10` and `v_7(k)≤7`) or (`α+2γ≤22` and `v_7(k)≤3`), **at any height** `c,k` and for any `v_7(c)`.
+(`α+2γ≤10` and `v_7(k)≤7`) or (`α+2γ≤22` and `v_7(k)≤3`) or (`α+2γ≤24`, `v_7(k)≤2`) or
+(`α+2γ≤26`, `v_7(k)≤1`), **at any height** `c,k` and for any `v_7(c)`.
 *Proof.* A certificate at `x̂_9` is a fibre certificate (Lemma 1.1) with, for the divisor in the F-role,
 `v_2(F+9)≥t≥2+⌈L/2⌉` (as `γ≤L/2`). Levels `≤6` are empty by TYPEI3 §5. In the complete lists of Comp 3.4,
 `max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` in every case (the role of `e` is covered by `v_2(e+9)`, since `F`/`e` is
@@ -202,6 +204,5 @@ python3 scripts/typei4_dgraded.py 5 24 3000 6                                   
 gcc -O2 -o /tmp/lev scripts/typei4_level.c && for L in 7 8 9 10 12 15; do for s in 1 3 5 7 9; do /tmp/lev $L $s; done; done
 gcc -O2 -o /tmp/lb scripts/typei4_lb.c && for L in 7 8 9 10; do for b in 0 1 2 3 4 5 6 7; do /tmp/lb $L $b; done; done
 for L in $(seq 11 22); do for b in 0 1 2 3; do /tmp/lb $L $b; done; done        # Comp 3.4 table (minutes)
-for Lb in "23 0" "23 1" "24 0" "24 1" "25 0" "25 1" "26 0" "26 1" "23 2" "24 2"; do /tmp/lb $Lb; done   # ~15 min
 PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 185 42 32 71            # level-11 fibre example
 ```
