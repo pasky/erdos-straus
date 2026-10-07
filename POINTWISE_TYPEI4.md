@@ -34,9 +34,10 @@ so that `δ>0` (swap `F,e` otherwise). Put
 16·P·X² − Q·Y² = 1,     P·Q = c_o(c_oδ²+2^{L−4}),     c'|P, 7^a‖Q, Y=7^b, X=k'.     (1.1)
 ```
 
-Conversely every solution of (1.1) in positive integers with `δ` odd, `a` odd, `7∤c'X`, gives a
+Conversely every solution of (1.1) in positive integers with `δ` odd, `a` odd, `c'` and `X` odd, `7∤c'X`, gives a
 fibre certificate `c=2^α c_o, k=2^γ k_o` for each split `α+2γ=L` (with `F=A−8nδ`, `e=A+8nδ`,
-`A=2QY²+1`, `k_o=XY`).
+`A=2QY²+1`, `k_o=XY`). (R89 repair D2, applied by reviewer: "`c'`, `X` odd" added. For even `X`, (1.1) gives
+`QY²≡−1 (64)`, `A≡−1 (128)` and `F≡−1 (16)`, so the converse fails; Cor 1.4 already assumes `X` odd.)
 *Proof.* `A²−(e−F)²/4=Fe=1+4ck²` and `(e−F)/2=8nδ`; `4ck²=2^{L+2}c_ok_o²`, so
 `A²=1+64k_o²(c_o2^{L−4}+c_o²δ²)=1+64dk_o²`. Mod 32: `F≡7, e≡23` or vice versa, so `F+e≡30 (32)`
 and `A≡15 (16)`; so `v_2(A−1)=1` and `v_2(A+1)=5` because `(A+1)(A−1)=64dk_o²` with `d,k_o` odd
@@ -47,13 +48,19 @@ Comparing odd parts gives the stated shapes; (1.1) is `(A+1)/2−(A−1)/2=1`, d
 Converse: `ε:=(4X√P+Y√Q)²=A+8XY√d` with `A=16PX²+QY²=2QY²+1`, and `A²−64dX²Y²=N(ε)=1`.
 Then `F,e=A∓8nδ` satisfy `Fe=A²−64n²δ²=1+64k_o²(d−c_o²δ²)=1+2^{L+2}c_ok_o²`. The congruences:
 `F≡A≡−1 (mod c'k')` since `c'k'²|P X²|A+1`, `F≡A≡1 (mod 7^{a+b})` since `7^{a+2b}|A−1`, and
-`F≡A−8≡7 (mod 16)` as `A≡−1 (32)` and `nδ` odd. ∎
+`F≡A−8≡7 (mod 16)` as `A≡−1 (32)` and `nδ` odd (here `X` odd is used). Finally `F>0` because
+`A²=1+64dk_o²>(8nδ)²`. ∎
 
 *Remarks.* (a) The sign conditions of (2.2) (`−1` at `c'k'`, `+1` at 7) are **built into** the
 factorisation `(A+1)(A−1)`: (1.1) is the classical "Legendre/Dirichlet square root" `ε=ζ²`,
 `ζ=4X√P+Y√Q` of the unit `ε`. (b) For `L≥7`: `d≡c_o²δ²≡1 (mod 8)`, so 2 **splits** in `Q(√d)`; for
-`L=5,6` it ramifies resp. stays inert. And `d=(c_oδ)²+2^{L−4}c_o` is of Richaud–Degert type
-(`r|4c_oδ`) exactly when `L≤6` — which is why the descent of TYPEI3 §5 stays in ℤ for `L≤6` only.
+`L=5,6` it ramifies resp. stays inert. And the representation `d=(c_oδ)²+2^{L−4}c_o` is of Richaud–Degert
+shape (`r|4c_oδ`) exactly when `L≤6`. *(Assessment)* This is presumably why the descent of TYPEI3 §5 stays in ℤ
+for `L≤6` only. (R89 repair D3, applied by reviewer: the statement concerns this representation only; other
+representations `d=m²+r` are not excluded, so this is an Assessment, not part of the PROVED proposition.)
+(c) The map from certificates to units is not injective: the two `L=14`, `b=0` certificates `(c',δ)=(101,5)` and
+`(3,173)` have the same `d=13220193` and the same unit `A=87263`. They come from two different splittings `PQ=d`
+(R89 observation, applied by reviewer).
 Checked: `scripts/typei4_pell.py` on all 461 oriented non-square near misses of `typei3_nmdump 7 9 10⁸`
 (`A²−d(8k_o)²=1` in all cases).
 
