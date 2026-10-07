@@ -156,3 +156,51 @@ For `b=0` (i.e. `7∤k`) at `L≤10` this is a finite hand-checkable statement (
 So at `L≥11` the exact value `w=9` (at depth `≥t`) must enter, and for `L≤10` a fibre-uniform proof is
 **not** excluded (no fibre certificate known). In the Pell picture (Prop 1.2) the `w`-dependence is the
 position of the unit `ε=A+8k_o√d` at a split prime `𝔭|2` of `ℚ(√d)`: `ε_𝔭≡−w` resp. `−w^{−1} (mod 2^t)`.
+
+**Assessment 4.2 (why residue symbols do not obviously help).**
+(a) *Quadratic data are already exhausted and pass.* In (1.2) the Jacobi conditions mod `P_1`, `c'`, 7 combine (by
+reciprocity, using `P=c'P_1≡7 (8)`, forced by (1.2) mod 16 for `L≥7`) to `(2/P)^L=(−1)^{(c'−1)(P_1−1)/4}`, which
+holds identically. This is the Lemma 2.1 / genus test of TYPEI2 in the present coordinates.
+(b) *At fixed `(L,a,b)` the problem is finite for archimedean reasons* (Lemma 3.1, Cor 3.2), so a reciprocity
+obstruction has nothing to add there: the finite lists are simply computed (Comp 3.4).
+(c) *Across levels the problem is exponential-Diophantine.* For fixed `(L,a,c',X,δ)`, (1.2) in the unknowns
+`(P_1,b)` says `(32c'X²P_1−1)² − E·(7^b)² = 1`, `E=64c'X²7^a(c'7^aδ²+T)`: a Pell equation whose `y`-coordinate
+must be a pure power of 7. By primitive divisors of the associated Lucas sequence this has `O(1)` solutions, i.e.
+`b` is bounded for fixed `(L,a,c',X,δ)`. But `c'`, `δ`, `X` are not bounded uniformly in `b` (Lemma 3.1 only gives
+`c'gδ<T7^b`). The natural tools for the whole tower are linear forms in logarithms (7-adic and archimedean),
+not residue symbols. The same holds 2-adically for the original tower in `L`.
+(d) *The 2-adic position at `x̂_9` looks random.* In the Pell picture the certificate unit is (in all 87 examples)
+the **fundamental** unit `ε_d`, and the condition at `x̂_9` is `ε_d≡−9^{±1} (mod 𝔭^t)` at a split `𝔭|2`. Over the
+fibre certificates with a divisor `f<10⁹` (`typei3_fsearch 7 9 1 10⁹ mass`), the 2-adic closeness
+`max(v_2(f+9),v_2(9f+1))` reaches 14 (`f=212983`, ball radius `2^{−35}`), 12, 10, 10, …; no bound is visible.
+If it is unbounded, no test that sees `w` only modulo a fixed `2^j` can prove sterility of `x̂_9` (TYPEI3 Prop 3.1
+is the analogous statement for the odd components).
+(e) Concretely tested and found uninformative: quartic symbols `(·/F)_4` are undefined/trivial since all
+certificate divisors are `≡7 (16)`, i.e. `≡3 (4)`; the residue class of `−F` in `9^{ℤ_2}` modulo `2^7`
+(`z≡1,3,5,7 (8)`) is hit in every class by fibre certificates (Comp 3.4 table: `v_2(F+9)=7,8` occur).
+
+## 5. Status and open problems
+
+* PROVED: Pell form (Prop 1.2); reduced equation (Cor 1.4, Remark 1.6); finiteness per `(L,b)` with explicit
+  bounds (Lemma 3.1, Cor 3.2); `L=7`, `7∤k` by hand (Prop 3.3); scope Prop 4.1.
+* CERTIFIED (once replayed): no fibre certificate at `L∈{7,8,9,10}` with `v_7(k)≤7`, nor at `L∈{12,15,17}` with
+  `v_7(k)≤3`; no certificate at `x̂_9` with `L≤22`, `v_7(k)≤3` (Cor 3.5), at any height.
+* OPEN (the precise blocking point): the **7-adic tower** `b→∞` at fixed `L∈{7,…,10}`. Each `b` is a finite
+  check, but for `L=7,8` already the window condition `1≤P_1≤z` of Lemma 3.1 is met by only 0–2 candidates per
+  `b≤3` (`typei4_lb` instrumented), against 10–44 at `L=11`. A proof for all `b` would need a uniform bound on `b`
+  (e.g. via (c) above with a bound on `c'δ` in terms of `L` alone), which we do not have.
+* OPEN: whether `max v_2(f+9)` over fibre certificates is bounded (if yes, a ball around 9 in the fibre is sterile
+  and `x̂_9` is sterile by a finite 2-adic test; if no, any proof must use the exact 2-adic number 9).
+
+## Replay
+
+```
+gcc -O2 -o /tmp/nmdump scripts/typei3_nmdump.c -lm && /tmp/nmdump 7 9 100000000 > /tmp/nm8.txt   # 8 s
+uv run --with sympy python scripts/typei4_pell.py /tmp/nm8.txt 5 | tail -1    # Prop 1.2 check: 461 rows, 0 failures
+gcc -O2 -o /tmp/pq scripts/typei4_pqsearch.c -lm && /tmp/pq 300000 10001 > /tmp/pq3.txt      # 87 solutions, 3 min
+python3 scripts/typei4_dgraded.py 5 24 3000 6                                     # 8 hits, all m=1, L>=11
+gcc -O2 -o /tmp/lev scripts/typei4_level.c && for L in 7 8 9 10 12 15; do for s in 1 3 5 7 9; do /tmp/lev $L $s; done; done
+gcc -O2 -o /tmp/lb scripts/typei4_lb.c && for L in 7 8 9 10; do for b in 0 1 2 3 4 5 6 7; do /tmp/lb $L $b; done; done
+for L in $(seq 11 22); do for b in 0 1 2 3; do /tmp/lb $L $b; done; done        # Comp 3.4 table (minutes)
+PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 185 42 32 71            # level-11 fibre example
+```
