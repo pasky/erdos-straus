@@ -39,3 +39,61 @@ Key structural facts used below (all from the note):
 * (F2) lem:identity holds for **every** positive integer n in an atom class,
   so `H_X(m) = 0` for every exceptional m ≥ 1; hence `ν_X(m) = 1` for every
   exceptional m with `(m, P_y) = 1` (Q_r(0) = 1).
+
+## 1. Integers in arbitrary intervals
+
+**Lemma 1.1 (local mean of the majorant; PROVED rel. note).** Let `X ≥ X_a`
+(thm:assembly), `Q ≥ 1`, `β ∈ Z`, and let `I = (z, z+H]` be any real interval
+(`z ∈ R`, `H > 0`). Then
+`Σ_{n ∈ I, n ≡ β (Q)} ν_X(n) ≤ H·e^{-c_a t^3} + e^{C_L t^4}.`
+
+*Proof.* Expand `ν_X` into its plain congruence terms `±1_{a (mod q)}`
+(thm:assembly, total absolute coefficient sum `T_abs ≤ e^{C_L t^4}`).
+For each term, `{n ≡ a (q)} ∩ {n ≡ β (Q)}` is empty or one class mod
+`lcm(q,Q)`, and `#{n ∈ I : n ≡ a' (lcm)} = H/lcm + θ`, `|θ| ≤ 1`, for every
+real interval of length H. Summing with signs,
+`Σ = H·E[ν_X·1_{β (Q)}] + O_{≤1}(T_abs)`, the expectation being the uniform
+average over `Z/lcm(𝓜, Q)` (𝓜 as in eq:space; ν_X is 𝓜-periodic). Since
+`ν_X ≥ 0` pointwise, `E[ν_X 1_{β(Q)}] ≤ E_CRT ν_X ≤ e^{-c_a t^3}` (eq:majorant). ∎
+
+This is literally eq:transfer with `[1,N]` replaced by I; no step of the note
+uses the left endpoint. (The case Q = 1 is the one needed now.)
+
+**Lemma 1.2 (smooth-part decomposition; PROVED).** Write each `n ≥ 1` as
+`n = d·m` with `P⁺(d) ≤ y` and `(m, P_y) = 1` (d = y-smooth part).
+(a) If n is exceptional, so is m (the empty case m = 1 included: 1 is
+exceptional). Indeed if m > 1 were representable, `4/m = Σ1/x_i` gives
+`4/n = Σ 1/(d x_i)`. (This is the divisor-closure used in note §9.)
+(b) If `d > D_0 ≥ 1` then d has a divisor `d' ∈ (D_0, yD_0]` with
+`P⁺(d') ≤ y` (strip prime factors ≤ y one at a time; take the last divisor
+in the chain that exceeds D_0).
+(c) Rankin: `Σ_{d' > D_0, P⁺(d') ≤ y} 1/d' ≤ D_0^{-1/2} Π_{p≤y}(1-p^{-1/2})^{-1}
+≤ D_0^{-1/2} e^{4√y}`, using `-log(1-u) ≤ 2u` for `0 ≤ u ≤ 2^{-1/2}` and
+`Σ_{p≤y} p^{-1/2} ≤ 2√y`.
+
+**Theorem 1 (short-interval 3/4 bound; PROVED rel. note).** There are
+absolute constants `c, C > 0` such that for every real `z` and every `H ≥ 2`,
+`E((z, z+H]) ≤ C·H·exp(−c (log H)^{3/4}).`
+In particular, for `x ≥ 3` and `x^θ ≤ H ≤ x` (`0 < θ ≤ 1`),
+`E((x,x+H]) ≤ C·H·exp(−c θ^{3/4} (log x)^{3/4})`, and for
+`H ≥ exp((log x)^λ)` the saving is `exp(−c (log x)^{3λ/4})`.
+
+*Proof.* Let `I = (z, z+H]`, X ≥ X_a to be chosen, `D_0 = e^{2c_a t^3}`.
+Split exceptional `n ∈ I` by their y-smooth part d.
+(i) `d > D_0`: by 1.2(b),(c) at most
+`Σ_{d' ∈ (D_0,yD_0]} (H/d' + 1) ≤ H e^{-c_a t^3 + 4√B t^{3/2}} + yD_0`.
+(ii) `d ≤ D_0`: m lies in `I/d = (z/d,(z+H)/d]` (length H/d), m is
+exceptional and coprime to P_y, so `ν_X(m) = 1` by (F2). By Lemma 1.1 (Q=1),
+the count is at most `Σ_{d ≤ D_0} (H/d·e^{-c_a t^3} + e^{C_L t^4})
+≤ H(1 + 2c_a t^3) e^{-c_a t^3} + e^{(2c_a + C_L) t^4}` (t ≥ 1).
+Altogether `E(I) ≤ C_1 H e^{-c_a t^3/2} + e^{C_2 t^4}` for X ≥ X_1, with
+C_1, C_2 depending only on the note's fixed constants. Take
+`t = (log H / (2C_2))^{1/4}`; then `e^{C_2 t^4} = H^{1/2}` and the bound is
+`≪ H exp(−c (log H)^{3/4})`. If this t is below `log X_1`, H is bounded and
+the trivial bound `E(I) ≤ H + 1` suffices after enlarging C. ∎
+
+Remarks. (1) Theorem 1 contains the note's theorem (I = (0,N]) and gives it
+*without* the Rankin/semigroup step of note §9: the transfer to all
+denominators is now local. (2) The majorant depends only on H, not on the
+location z: the bound is uniform in z, with no requirement H ≤ z.
+(3) The prime analogue is automatic in the relevant range, see §3.
