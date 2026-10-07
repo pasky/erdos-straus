@@ -63,7 +63,7 @@ For every t, `⌊N/Q′⌋Q′δ′ ≤ #(𝒜(𝔊′)∩(t,t+N]) ≤ ⌈N/Q′
 
 *Proof.* (t, t+N] contains ⌊N/Q′⌋ and is contained in ⌈N/Q′⌉ consecutive full periods. ∎
 
-So a subfamily costs its density in **every** window only if its period is ≤ N/k (then the
+So a subfamily costs its density in **every** window if its period is ≤ N/k (R90 repair, D4: "if", not "only if") (then the
 count is within a factor 1 ± 1/k of Nδ′). Classes with a *single* modulus m ≤ N hit
 every window ≈ N/m times, but the *joint* count of several classes is forced only up to
 the lcm of their moduli. The brief's heuristic "moduli ≤ N cost their density" is
