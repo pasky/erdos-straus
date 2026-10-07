@@ -169,9 +169,9 @@ For `x ≥ 3` and `exp(C_3 (log log x)^{4/3}) ≤ H ≤ x`,
 `E_pr((x,x+H]) ≤ E((x,x+H]) ≪ (H/log x)·exp(−(c/2)(log H)^{3/4})`;
 for `H ≥ x^θ`: `≪_θ (H/log x) exp(−c_θ (log x)^{3/4})`.
 Likewise with `n ≡ b (q)` and `H/(q log x)`, provided q is in the range of
-Theorem 2(a) or 2(b) **and** `log(H/q) ≥ C_3 (log log x)^{4/3}` (the saving
+Theorem 2(a) or 2(b) **and** `log(H/q) ≥ C_3' (log log x)^{4/3}` with `C_3' = (4/c)^{4/3}` (R88 repair D5: Theorem 2(a) has saving constant c/2; the saving
 there is in `log(H/q)`, not `log H`).
-*Proof.* Theorem 1 (resp. 2); `(c/2)(log H)^{3/4} ≥ log log x` in the range. ∎
+*Proof.* Theorem 1 (resp. 2); `(c/2)(log H)^{3/4} ≥ log log x` (resp. `(c/4)(log(H/q))^{3/4} ≥ log log x`) in the range, so `C_3 = (2/c)^{4/3}`, `C_3' = (4/c)^{4/3}`. ∎
 
 So the brief's prime target needs **no** primes-in-short-intervals input:
 the `1/log x` is absorbed by the saving once `(log H)^{3/4} ≫ log log x`.
