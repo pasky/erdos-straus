@@ -56,3 +56,45 @@ The same holds for any subfamily with lcm ≤ N (composite moduli, |ℛ(M)| = M^
 period forcing never costs more than `(log N)^{o(1)}`, far below `(log N)^{3/4}`. The
 only known shift-uniform *upper* bounds for M are sieve bounds (large sieve, the 3/4
 note), which are position-blind (W1 §5).
+
+## 3. Step (2): the density is far below the 3/4 scale — and irrelevant
+
+**Proposition 3.1 (PROVED; ineffective constant via Bombieri–Vinogradov).** Let 𝔊 contain
+the prime slices `F_ℓ`, ℓ ≡ 3 (4), ℓ ≤ Y. Then
+
+    dens 𝒜(𝔊) ≤ Π_{ℓ≤Y, ℓ≡3(4)} (1 − p_ℓ) ≤ exp(−c (log Y)²)      (Y ≥ Y₀).
+
+*Proof.* The prime slices are CRT-independent, so their avoider density is the product, and
+𝒜(𝔊) is a subset. For the mass: with A = (ℓ+1)/4 the classes `−4D`, D | A², D ≤ A are
+distinct mod ℓ (0 < 4D < ℓ+1), and `#{D | A² : D ≤ A} = (τ(A²)+1)/2`. Coprime pairs
+(u,v) with uv = q | A give distinct D = u²·A/q (LS7 Lemma 1.1), and there are 2^{ω(q)} of
+them. So for x ≥ x₀,
+
+    Σ_{x<ℓ≤2x, ℓ≡3(4)} |F_ℓ| ≥ ½ Σ_{q ≤ x^{1/3}} 2^{ω(q)} (π(2x; 4q, −1) − π(x; 4q, −1))
+                          ≥ c₁ (x/log x) Σ_{q≤x^{1/3}} 2^{ω(q)}/φ(4q) ≥ c₂ x log x,
+
+by Bombieri–Vinogradov with the weight 2^{ω(q)} (Cauchy–Schwarz against
+`Σ_{q≤x^{1/3}} 4^{ω(q)} x/φ(q) ≪ x(log x)^4` and the BV saving `x(log x)^{−B}`; the main
+term uses `Σ_{q≤z} 2^{ω(q)}/φ(q) ≍ (log z)²`; the pairs (q, D) are counted once each
+since D determines (u,v) for fixed A). Dividing by ℓ ≤ 2x and summing dyadically,
+`Σ_{ℓ≤Y} p_ℓ ≥ c₃ Σ_{k ≤ log₂Y} k ≥ c(log Y)²`. ∎
+
+**Corollary 3.2 (answer to step (2) of the brief).** Already the prime slices with
+`ℓ ≤ Y = exp((log N)^{3/8+ε})` (ε > 0) push the avoider density below
+`exp(−c(log N)^{3/4+2ε})`; with ℓ ≤ N it is `≤ exp(−c(log N)²)`. (With all composite moduli
+the mass is ≍ (log Y)³ by Elsholtz–Tao, which would suggest Y = exp((log N)^{1/4+ε});
+the union of composite classes is not a product, so only the prime-slice statement is
+claimed.) So: **yes, moduli between `exp((log N)^{3/8+ε})` and N push the density far
+below the 3/4 scale.**
+
+**But this does not refute (W).** `M(N) ≥ N·dens` (average over t), so the density is a
+*lower* bound mechanism only, and Lemma 2.1/2.2 show the window maximum is not forced to
+pay it. Concretely, for the prime-slice family 𝔊_ℛ with ℓ ≤ N^A, W1 Prop 5.1(d) gives
+`M(N) ≥ exp(c(log N)^{1/3})`, while `N·dens ≤ N exp(−c(log N)²) < 1`: the maximum over
+shifts beats the density by more than any power of N. The brief's splitting "moduli
+≤ N cost their density, moduli > N are moved away by CRT" thus **fails in both
+directions**: moduli ≤ N need not cost their density in the best window (they cost it only
+on average), and if they did, (W) would be false by Cor 3.2.
+
+So the whole of (W) sits in the *correlation* between the translates `t mod ℓ` of the
+medium moduli `exp((log N)^{c}) < ℓ ≲ N`.
