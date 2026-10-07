@@ -184,7 +184,7 @@ certificate divisors are `≡7 (16)`, i.e. `≡3 (4)`; the residue class of `−
 * PROVED: Pell form (Prop 1.2); reduced equation (Cor 1.4, Remark 1.6); finiteness per `(L,b)` with explicit
   bounds (Lemma 3.1, Cor 3.2); `L=7`, `7∤k` by hand (Prop 3.3); scope Prop 4.1.
 * CERTIFIED (once replayed): no fibre certificate at `L∈{7,8,9,10}` with `v_7(k)≤7`, nor at `L∈{12,15,17}` with
-  `v_7(k)≤3`; no certificate at `x̂_9` with `L≤22`, `v_7(k)≤3` (Cor 3.5), at any height.
+  `v_7(k)≤3`; no certificate at `x̂_9` with `L≤22`, `v_7(k)≤3` (or `L≤26`, `v_7(k)≤1`) (Cor 3.5), at any height.
 * OPEN (the precise blocking point): the **7-adic tower** `b→∞` at fixed `L∈{7,…,10}`. Each `b` is a finite
   check, but for `L=7,8` already the window condition `1≤P_1≤z` of Lemma 3.1 is met by only 0–2 candidates per
   `b≤3` (`typei4_lb` instrumented), against 10–44 at `L=11`. A proof for all `b` would need a uniform bound on `b`
@@ -202,5 +202,6 @@ python3 scripts/typei4_dgraded.py 5 24 3000 6                                   
 gcc -O2 -o /tmp/lev scripts/typei4_level.c && for L in 7 8 9 10 12 15; do for s in 1 3 5 7 9; do /tmp/lev $L $s; done; done
 gcc -O2 -o /tmp/lb scripts/typei4_lb.c && for L in 7 8 9 10; do for b in 0 1 2 3 4 5 6 7; do /tmp/lb $L $b; done; done
 for L in $(seq 11 22); do for b in 0 1 2 3; do /tmp/lb $L $b; done; done        # Comp 3.4 table (minutes)
+for Lb in "23 0" "23 1" "24 0" "24 1" "25 0" "25 1" "26 0" "26 1" "23 2" "24 2"; do /tmp/lb $Lb; done   # ~15 min
 PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 185 42 32 71            # level-11 fibre example
 ```
