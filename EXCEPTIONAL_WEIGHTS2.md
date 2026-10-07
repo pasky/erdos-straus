@@ -274,6 +274,15 @@ So the one global structure that makes *all* ℛ-classes vanish simultaneously (
 is useless at the 3/4 scale: it caps at N^{1/2+o(1)}. A proof of (W) needs a structure
 adapted to the small, sparse sets F_ℓ (size ℓ^{o(1)}), not to half the residues.
 
+*(R90 repair, D12: scope.)* Prop 5.3 covers *full* residuosity: H quadratically aligned at
+**all** primes l = 3 (4), l <= sqrt N. Mixed strategies (alignment on a subset P_Q of primes,
+other translates elsewhere) are not covered by its statement. The same large sieve, restricted
+to q composed of primes of P_Q, gives `|H| << N / L(P_Q)` with
+L(P_Q) = sum over squarefree q <= sqrt N, q | prod P_Q, of prod_{l|q}(l-1)/(l+1). This still
+kills the 3/4 scale whenever log L(P_Q) >> (log N)^{3/4}, e.g. when P_Q has prime mass
+(sum of 1/l, l in P_Q, at scale where products of its primes reach sqrt N) large enough;
+it says nothing for sparse P_Q. Section 7 item 4 should be read as "full residuosity".
+
 ## 6. Numerical checks (EVIDENCE)
 
 `scripts/weights2_checks.py` (primes ℓ ≡ 3 (4), ℓ ≤ 3·10⁶; F_ℓ = {−4D : D | A²}):
@@ -314,7 +323,7 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
    the translates of the primes carrying all but O((log N)^{3/4}) of the mass in
    `(exp((log N)^{3/8}), N]` jointly and non-uniformly (Cor 4.2; R90 repair, D7).
 4. The one global mechanism that kills all ℛ-classes at once (residuosity: every ℛ(ℓ) ⊆ QNR)
-   caps at `√(N log N)` (Prop 5.3).
+   caps at `√(N log N)` (Prop 5.3) when used at all primes l = 3 (4) up to sqrt N (full residuosity; partial alignment: |H| << N/L(P_Q), R90 repair D12; proof corrected, D11).
 5. For prime slices, (W) is exactly a **growing-dimension Hensley–Richards problem**
    (Lemma 5.1): the largest F-admissible subset of an interval of length N. In bounded
    dimension the maximum is ≍ the density (Prop 5.2); in the ES dimension
