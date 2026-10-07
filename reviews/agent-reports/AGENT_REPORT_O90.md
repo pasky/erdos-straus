@@ -1,7 +1,7 @@
 # AGENT REPORT O90 — CRT alignment for (W)
 
-Branch `side-agent/crt-alignment-w`. Deliverable: `EXCEPTIONAL_WEIGHTS2.md`, `scripts/weights2_checks.py`,
-`data/weights2/checks.txt`. Not reviewed yet. No θ > 3/4 claimed; ES not solved.
+Branch `side-agent/crt-alignment-w`. R90 repairs D1–D13 applied (each marked "(R90 repair)" in the doc). Deliverable: `EXCEPTIONAL_WEIGHTS2.md`, `scripts/weights2_checks.py`,
+`data/weights2/checks.txt`. No θ > 3/4 claimed; ES not solved.
 
 **Outcome: (W) neither proved nor refuted; the CRT-alignment plan as specified provably fails.**
 
@@ -17,6 +17,6 @@ Branch `side-agent/crt-alignment-w`. Deliverable: `EXCEPTIONAL_WEIGHTS2.md`, `sc
 | §6 | mass/(log Y)² ≈ 0.12 to Y = 3·10⁶; self-overlap ≈ 10% of mass; 0 QNR failures | EVIDENCE |
 
 Points for the reviewer: the BV-with-2^{ω(q)} weights step in Prop 3.1 (sketched, standard);
-the exchange argument in Lemma 2.2; the Assessment in Prop 4.3 (overlap mass bound not proved).
+the exchange argument in Lemma 2.2; the new Lemma 2.3 (composite ℛ/selector cost via Jacobi symbols, R90 D3); the Assessment in Prop 4.3 (overlap mass bound not proved).
 Open: an attainment/inverse theorem for the growing-dimension large sieve (would prove (W));
 any shift-uniform bound below the sieve limit (would refute it).

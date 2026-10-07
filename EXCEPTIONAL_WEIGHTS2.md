@@ -1,6 +1,6 @@
 # EXCEPTIONAL_WEIGHTS2 — CRT alignment and the shift-uniform count (task O90)
 
-Status: **O90 checkpoint (author draft, not yet reviewed). Verdict §7: (W) open; the CRT-alignment plan provably fails as specified; report `reviews/agent-reports/AGENT_REPORT_O90.md`.** Labels follow `DISCOVERIES.md`.
+Status: **O90; hostile review R90 (`reviews/exceptional-weights2-review.md`, on the review branch): no FATAL; MAJOR D1–D3 and minors D4–D13 repaired by the author, marked "(R90 repair)". Verdict §7: (W) open; the CRT-alignment plan provably fails as specified; report `reviews/agent-reports/AGENT_REPORT_O90.md`.** Labels follow `DISCOVERIES.md`.
 PROVED means proved here, internal checks only. No θ > 3/4 is claimed. ES is not solved.
 
 Notation of `EXCEPTIONAL_WEIGHTS.md` (W1). 𝔊 a finite family of residue classes, 𝒜 = 𝒜(𝔊)
@@ -13,7 +13,7 @@ its avoider set, `M_𝔊(N) = max_{t∈ℤ} #(𝒜 ∩ (t, t+N])`, `count_t := #
 
 **Lemma 1.1 (PROVED, trivial).** If 𝔊 ⊆ 𝔊′ then 𝒜(𝔊′) ⊆ 𝒜(𝔊) and `M_{𝔊′}(N) ≤ M_𝔊(N)`.
 𝔉_A is closed under finite unions (it is the class of *all* finite families of admissible
-classes with moduli ≤ N^A), and for fixed N there are finitely many such classes. Let
+classes with moduli ≤ N^A; "admissible" = ℛ(M)-, Case-A or selector class as in W1 — R90 review §C), and for fixed N there are finitely many such classes. Let
 𝔊_max(N) be the union of all of them. Then
 
     min_{𝔊∈𝔉_A} M_𝔊(N) = M_{𝔊_max(N)}(N),
