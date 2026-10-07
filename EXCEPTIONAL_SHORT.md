@@ -161,8 +161,8 @@ b ≡ 0 (q_1) the void lemma's *bound* gives nothing in that progression
 ≤ 30% only). Such progressions are in any case harmless for ES itself: every
 n ≡ 0 (q_1) is representable as soon as one prime p | q_1 is.
 Precise open sub-step (R88 observation, Assessment): for `(b, q_1) = 1`,
-conditioning on n ≡ b (q_1) forces `p ∤ c` for every p | q_1 (which only helps the
-bad event `{Z(c) > η}`), and fixing the coordinates `n mod ℓ` for ℓ | q_1 changes the
+conditioning on n ≡ b (q_1) forces `p ∤ c` for every p | q_1 (which only makes the
+bad event `{Z(c) > η}` less likely), and fixing the coordinates `n mod ℓ` for ℓ | q_1 changes the
 fibre product by a factor `≤ exp(Σ_{ℓ|q_1} 2ℓ^{−2/3}) = 1 + o(1)`; what is missing to
 remove the factor q_1 for such b is a conditional version of the factorial-moment
 bound (thm:moments) under n ≡ b (q_1). Likely routine, not attempted here — OPEN.
