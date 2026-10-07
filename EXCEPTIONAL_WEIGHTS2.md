@@ -198,7 +198,10 @@ The factor at ℓ is 1 when ℓ | h and otherwise `1 − (|F_ℓ| − |F_ℓ ∩
 `(u+hv)v′ = u′v` with both uv, u′v′ | (ℓ+1)/4, a convergent sum over (u,v,u′,v′) times
 `log log`, i.e. O_h((log log N)^{O(1)}); h has ≤ log N prime factors. So
 `r(h) = dens · e^{O((log log N)^{O(1)})}` and the size-biased bound is
-`N·dens·e^{o(log N)}`: pair correlations do not help either. Higher moments
+`N·dens·e^{o(log N)}`: pair correlations do not help either. *(R90 repair, D8: since r(0) = 1 the
+bound is `1 + N dens e^{O(max_h O_h)}` rather than `N dens e^{o(log N)}`; as N dens < 1 for the
+R-family it is about 1 (R90 run, Y = 10^5: B(N) = 1.00005 at N = 10^3, 1.0009 at
+N = 2*10^4). Conclusion unchanged.)* Higher moments
 `(E count^k)^{1/k} → M(N)` (k → ∞) recover M exactly, but only through the
 k-point structure of §5.
 
