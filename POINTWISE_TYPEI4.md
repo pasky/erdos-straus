@@ -115,3 +115,44 @@ many and are found by the finite search: `y<T7^b` odd, `y=c'gδ`, `a` odd with (
 **Proposition 3.3 (`b=0`, `L=7`, by hand; PROVED).** `T=8`, so `7^a<16` (both cases), `a=1`, `y∈{1,3,5,7}`.
 `y=5,7`: `2y>8` and `P_1=c'g²+7(2y−8)≥15>z=8−y`. `y=1,3`: `P_1=c'g²−7(8−2y)≤y²−14(4−y)<0`. No solution.
 So no certificate at any `x̂_w` (`w≡9 (16)`) has `α+2γ=7` and `7∤k`. ∎
+
+**Computation 3.4 (CERTIFIED once replayed; complete per `(L,b)`, all `a`, all heights).**
+`scripts/typei4_lb.c L b` implements Cor 3.2 (each solution re-verified by the identity `Fe=1+2^{L+2}c'7^{a+2b}X²`
+in 128-bit arithmetic). It reproduces exactly the solutions of `typei4_level` / `typei4_pqsearch` for
+`L=11,13,14,16`, `b≤1`.
+* `L∈{7,8,9,10}`, `b≤7`: **0 solutions** (40 s for `b=6,7`).
+* `L=11…22`, `b≤3`: fibre certificates exist exactly for
+  `(L,b)=(11,0),(13,1),(14,0)×2,(14,3),(16,0)×3,(18,0),(18,1),(19,0)×2,(20,0)×4,(21,0),(22,1)×2`;
+  none at `L=12,15,17` (b≤3).
+
+| L | b | (c',g,δ,P₁,X) | F | e | v₂(F+9) | v₂(e+9) | t_min=2+⌈L/2⌉ |
+|---|---|---|---|---|---|---|---|
+| 11 | 0 | (3,3,7,13,1) | 71 | 2423 | 4 | 7 | 8 |
+| 13 | 1 | (79,19,1,1,17) | 204135 | 1257047 | 4 | 5 | 9 |
+| 14 | 0 | (101,1,5,3,3) / (3,1,173,101,3) | 2423 / 71 | 172103 / 174455 | 7 / 4 | 4 / 7 | 9 |
+| 14 | 3 | — | 281104279 | 49335587512359 | 5 | 4 | 9 |
+| 16 | 0 | three | 5335, 9479, 11159 | 7911, 14519, 66599 | ≤5 | ≤6 | 10 |
+| 18–22 | | eleven | | | ≤8 | ≤6 | 11–13 |
+
+**Corollary 3.5 (CERTIFIED; new type of bound — unbounded height).** No certificate at `x̂_9` has
+(`α+2γ≤10` and `v_7(k)≤7`) or (`α+2γ≤22` and `v_7(k)≤3`), **at any height** `c,k` and for any `v_7(c)`.
+*Proof.* A certificate at `x̂_9` is a fibre certificate (Lemma 1.1) with, for the divisor in the F-role,
+`v_2(F+9)≥t≥2+⌈L/2⌉` (as `γ≤L/2`). Levels `≤6` are empty by TYPEI3 §5. In the complete lists of Comp 3.4,
+`max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` in every case (the role of `e` is covered by `v_2(e+9)`, since `F`/`e` is
+symmetric in (1.2) up to orientation). ∎
+For `b=0` (i.e. `7∤k`) at `L≤10` this is a finite hand-checkable statement (Lemma 3.1(iv): `a=1` only, as
+`7^a<T²/4≤2^{12}` gives `a≤3`, and `a=3` needs `7³<T²/4`, i.e. `L=10` only).
+
+**Example (level 11 is genuinely inhabited in the fibre).** `(c,k,F)=(42,32,71)`: `N=172033=71·2423`, `t=8`,
+`c'=3`, `71≡−1 (3)`, `71≡1 (7)`; it is a certificate at `x̂_w` for every `w≡185 (mod 256)`
+(`typei3_verify.py 7 185 42 32 71`: CERTIFICATE), but not at `w=9` (`v_2(71+9)=4`).
+
+## 4. What this says about higher reciprocity obstructions (Assessment, with one PROVED scope statement)
+
+**Proposition 4.1 (scope; PROVED).** Any argument excluding certificates at `x̂_9` of level `L` that uses the
+2-adic component only through `w mod 16` (as TYPEI3 Props 5.4, 5.5 do) fails for
+`L∈{11,13,14,16,18,19,20,21,22}`. *Proof.* Comp 3.4 lists, for each such `L`, a certificate at some `x̂_{w'}`,
+`w'≡9 (16)`, of level `L`; such an argument would exclude it too. ∎
+So at `L≥11` the exact value `w=9` (at depth `≥t`) must enter, and for `L≤10` a fibre-uniform proof is
+**not** excluded (no fibre certificate known). In the Pell picture (Prop 1.2) the `w`-dependence is the
+position of the unit `ε=A+8k_o√d` at a split prime `𝔭|2` of `ℚ(√d)`: `ε_𝔭≡−w` resp. `−w^{−1} (mod 2^t)`.
