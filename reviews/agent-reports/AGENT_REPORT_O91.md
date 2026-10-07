@@ -24,7 +24,7 @@ Branch `side-agent/consolidate-oct7`. No new mathematics; no label changed. ES i
    TYPEI4 follow-up 3; table rows E27 (WEIGHTS2), E28 (SHORT), P50 (TYPEI4); §5 not-audited list; §6 items 2, 6;
    §7 reading guide.
 3. **paper/es-coverings-note.tex**: new §4.6 placed after "Low 2-adic levels". It cannot go directly after the f-graded
-   Computation 4.7 because it uses Prop 4.10 (levels ≥ 7). It contains Prop 4.12 (Pell form, PROVED, with a proof sketch
+   Computation 4.8 because it uses Prop 4.11 (levels ≥ 7). It contains Prop 4.12 (Pell form, PROVED, with a proof sketch
    and pointer), the Lemma 3.1 bounds in the text, Computation 4.13 (the CERTIFIED any-height bound, with the per-range scope of the two engines), Remark 4.14
    (scope / example (42,32,71); the falsity statement is CERTIFIED, the "mod 16 arguments" sentence is an Assessment), and a paragraph on Lemma 3.6 (PROVED partial; j ≥ 2 and 7 | j open; LFL
    Assessment). The level-7 sentence of §4.5, the Results bullet, Problem 2, the provenance line and bibitem PT4 were also updated.
