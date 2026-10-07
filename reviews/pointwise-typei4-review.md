@@ -63,3 +63,35 @@ which is the max of the two — fine, but say "max of the two cases".
 ### Prop 3.3 (L=7, 7∤k, by hand) — SOUND
 `T=8`, `b=0`: case `2y>8` needs `7^a<4` — impossible, so the sub-case `y=5,7` is in fact vacuous by (iv) already
 (the author's extra argument `P_1≥15>z` is also correct). Case `y∈{1,3}`: `P_1≤y²−14(4−y)<0` ✓.
+
+### Observation 1.3 / "the 34 level-7 near misses are not fibre certificates" — SOUND (independently confirmed)
+From-scratch height-bounded enumerator `scripts/review_typei4_nm.c` (all slices `ck≤X`, CRT class of the divisor,
+direct test `D|N`, `D≤√N`): at `L=7`, `ck≤10⁸`: 17 near-miss pairs with `D≡15 (16)`, **0** with `D≡7 (16)`
+(17 pairs = 34 divisors, matching TYPEI3 Remark 5.6's 34). At `ck≤10⁹`, `L=7…12`: `D≡7 (16)` hits only at `L=11`
+(the single pair 71·2423, under its 6 splits `α+2γ=11`); `L=8,9,10,12` have no near misses with `D≡7 (8)` at all.
+(At `ck≤10⁶`, `L≤16`: fibre hits at `L=11,14,16` only, consistent with Obs 1.3.)
+
+### Computation 2.1 / 3.4 and Cor 3.5 (CERTIFIED; no certificate at x̂_9 for L≤22, v_7(k)≤3 etc.) — SOUND (on the overlap I could replay)
+Logic of Cor 3.5 re-checked: a certificate at `x̂_9` is a fibre certificate whose divisor in the F-role has
+`v_2(F+9)≥t=2+L−γ≥2+⌈L/2⌉`; both members of each oriented pair are tested; levels `≤6` are TYPEI3 Cor 5.2 /
+Props 5.4–5.5 (reviewed in R72); all `a` and all heights by Lemma 3.1 ✓.
+**Independent complete search** (`scripts/review_typei4_jsearch.c`, J-coordinates, own bounds, see Lemma 3.1 above;
+every hit re-verified with big integers against the definition by `scripts/review_typei4_verify.py`):
+
+| range | my result | author (Comp 3.4) |
+|---|---|---|
+| `L=7…10`, `b≤3` | 0 | 0 |
+| `L=11…14`, `b≤3` | (11,0) F=71; (13,1) F=204135; (14,0) F=71, 2423; (14,3) F=281104279 | identical |
+| `L=15…18`, `b≤2` | (16,0)×3 (F=5335, 9479, 11159); (18,0) F=1639; (18,1) F=6186839 | identical |
+| `L=19…22`, `b=0`; `L=19…21`, `b=1` | (19,0)×2, (20,0)×4, (21,0)×1; none else | identical |
+
+In every case `max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` (max 8 at `L=20`, `t_min=12`), so none is a certificate at `x̂_9`.
+Cross-check with the R72 f-graded engine `scripts/review_typei3_fs.c` at 12 values `w≡9 (16)` (`w=25,…,201`), all
+`f<3·10⁶`: its 14 certificate rows are exactly pairs from the list above (levels 11, 13, 14, 16) ✓.
+The ranges `L=7…10`, `b=4…7`, `L=12…22` with `b=3` beyond `L=14`, and `L=23…26` were **not** replayed by me (cost);
+they rest on the author's `typei4_lb.c` alone, though its agreement with my engine on all overlaps is strong evidence.
+**D5 (MINOR, labels)**: the CERTIFIED label for Cor 3.5 is right in kind (finite computation + PROVED reduction),
+but "three engines agree" (report item 4) is true only on overlaps: `typei4_pqsearch` and `typei4_dgraded` are
+height-/d-bounded searches, so the **complete** ranges `L≥15` with `b=3`, `L=23–26`, and `b=4…7` at `L≤10` are
+single-engine (`typei4_lb`). Repair: state per range which engines replayed it; after this review, `L≤14, b≤3`,
+`L≤18, b≤2`, `L≤21, b≤1`, `L≤22, b=0` are two independent complete engines.
