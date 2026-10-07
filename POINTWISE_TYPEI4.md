@@ -95,3 +95,23 @@ at all heights (all `c'`, `X`), using the bounds of Cor 1.4. Cross-check: it rep
 Result: **no fibre certificate** for `L∈{7,8,9,10,12,15}` and `s∈{1,3,5,7,9}`, nor for `L=17`, `s≤7`
 (each run < 1 min except `L=15,s=9`). So: *no certificate at any `x̂_w`, `w≡9 (16)`, with
 `α+2γ∈{7,8,9,10,12,15}` and `v_7(ck²)≤9`, of any height.*
+
+## 3. Fixed 7-depth `b`: a finite problem per `(L,b)`; `b=0` closes levels 7–10 (PROVED)
+
+Put `T:=2^{L−4}`, `y:=c'gδ`, `z:=T7^b−y`, `D=7^{a+b}δ`.
+
+**Lemma 3.1 (PROVED).** Every solution of (1.2) satisfies
+(i) `y<T·7^b`; (ii) `P_1(4c'gX−1)=7^{a+b}z`, hence `P_1 | z`; (iii) `P_1=c'g²+7^{a+b}(2y−T7^b)`;
+(iv) `7^a<T/2` if `2y>T7^b`, and `7^a<T²7^b/4` if `2y<T7^b` (`2y≠T7^b` as y is odd and `L≥5`).
+*Proof.* `h=4P_1X+D=g+2D`. (1.2) gives `4c'gP_1X+c'gD=P_1+K`, i.e. `K−c'gD=P_1(4c'gX−1)≥3P_1>0`; with
+`K−c'gD=7^{a+b}(T7^b−y)` this is (i), (ii), and `7∤P_1` gives `P_1|z`. (iii) is `P_1=c'g(g+2D)−K`.
+(iv) If `2y>T7^b`, (iii) gives `P_1>7^{a+b}`, while `P_1≤z<T7^b/2`. If `2y<T7^b`, `P_1≥1` gives
+`7^{a+b}≤7^{a+b}(T7^b−2y)<c'g²≤(c'g)²≤y²<T²7^{2b}/4`. ∎
+
+**Corollary 3.2 (PROVED).** For fixed `(L,b)` the fibre certificates of level `L` with `v_7(k)=b` are finitely
+many and are found by the finite search: `y<T7^b` odd, `y=c'gδ`, `a` odd with (iv), `P_1` from (iii) with
+`1≤P_1`, `P_1|z`, `7∤P_1`, and `X=(1+7^{a+b}z/P_1)/(4c'g)` an odd integer prime to 7.
+
+**Proposition 3.3 (`b=0`, `L=7`, by hand; PROVED).** `T=8`, so `7^a<16` (both cases), `a=1`, `y∈{1,3,5,7}`.
+`y=5,7`: `2y>8` and `P_1=c'g²+7(2y−8)≥15>z=8−y`. `y=1,3`: `P_1=c'g²−7(8−2y)≤y²−14(4−y)<0`. No solution.
+So no certificate at any `x̂_w` (`w≡9 (16)`) has `α+2γ=7` and `7∤k`. ∎
