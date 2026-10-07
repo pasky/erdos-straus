@@ -26,10 +26,35 @@ selector class of modulus ≤ N^A? Every subfamily (e.g. the prime slices `F_ℓ
 has M at least as large, so a *refutation* may use any subfamily, while a *proof* must
 handle 𝔊_max.
 
-*Consequence for refutations (PROVED, from W1 Prop 5.1(a′)).* If 𝔊 ⊇ 𝔊_X then
-`E_pr(N) ≤ K + y + M_𝔊(N)`. Refuting (W) with a family containing 𝔊_X, i.e. proving
-`M_𝔊(N) ≤ Ne^{−(log N)^θ}` with θ > 3/4, would prove θ > 3/4 for E_pr. A refutation
-therefore needs an argument at least as strong as a new exceptional-set theorem.
+*Consequence for refutations (R90 repair, D1).* Lemma 1.1 gives `M_𝔊 ≤ M_{𝔊_X}` for
+𝔊 ⊇ 𝔊_X, which says nothing about E_pr; W1 Prop 5.1(a′) is about 𝔊_X only. What is true:
+
+*Lemma 1.2 (PROVED, given the identities).* Let 𝔊_X ⊆ 𝔊 and suppose every class of
+𝔊 ∖ 𝔊_X is **prime-forced above K′**: every prime p > K′ in the class has an ES solution.
+(This hypothesis holds for ℛ(M)- and Case-A classes by their polynomial identities, LS7
+Lemma 1.1 / Elsholtz–Tao; the threshold K′ is that of the identity and is not
+computed here.) Then `E_pr(N) ≤ max(K, K′) + y + M_𝔊(N)`.
+
+*Proof.* An exceptional prime p > max(K,K′,y) lies in 𝒜(𝔊_X) (W1 Prop 5.1(a′)) and in no
+class of 𝔊 ∖ 𝔊_X (it would then have a solution), so p ∈ 𝒜(𝔊); take t = 0. ∎
+
+**𝔊_max is not such a family.** 𝔉_A admits the selector classes `0 mod p` for all
+p ≤ N^A (W1/KARY2). The class 0 mod p contains the prime p, so 𝒜(𝔊_max) contains no prime in
+(y, N^A]. For 𝔊_max one has only
+`E_pr(N) ≤ K + y + #{exceptional p ≤ N in some class of 𝔊_max∖𝔊_X} + M_{𝔊_max}(N)`, with an
+uncontrolled middle term. So a refutation of (W) through 𝔊_max yields **no** E_pr bound.
+(Equivalently, one could redefine 𝔉_A to allow selector moduli ≤ y only, as in 𝔊_X;
+Lemma 1.1 survives, with a different 𝔊_max.)
+
+*Quantifiers (R90 repair, D2).* (W) reads `∃C, N₀ ∀N ≥ N₀: min_𝔊 M_𝔊(N) ≥ Ne^{−C(log N)^{3/4}}`.
+Its negation gives, for every C, infinitely many N with `min_𝔊 M_𝔊(N) < Ne^{−C(log N)^{3/4}}`,
+i.e. `M ≤ N e^{−ω(N)(log N)^{3/4}}` along a **subsequence**, with ω → ∞ arbitrarily slowly
+(as in W1 Prop 5.1(c)). That is neither θ > 3/4 nor valid for all N. Correct statement:
+a bound `M_𝔊(N) ≤ N e^{−(log N)^θ}` (θ > 3/4, all large N) for a 𝔊 as in Lemma 1.2 would
+prove θ > 3/4 for E_pr. A mere refutation of (W), even via such a 𝔊, gives only
+`E_pr(N_k) ≤ max(K,K′) + y + N_k e^{−ω(N_k)(log N_k)^{3/4}}` on a sequence N_k. Only
+refutations or bounds that use prime-forced families containing 𝔊_X are tied to
+exceptional-set theorems in this way.
 
 ## 2. What every window must pay (forced costs)
 
@@ -216,9 +241,12 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
 
 **(W) is neither proved nor refuted.** What is established:
 
-1. (W) ⟺ a lower bound for the single maximal family 𝔊_max(N) (Lemma 1.1). A refutation
-   by a family containing 𝔊_X would itself be a θ > 3/4 exceptional-set theorem
-   (via W1 Prop 5.1(a′)), so it cannot come cheaply; no contradiction with KARY3/LS3/LS4
+1. (W) ⟺ a lower bound for the single maximal family 𝔊_max(N) (Lemma 1.1). *(R90 repair,
+   D1/D2.)* A bound `M_𝔊(N) ≤ Ne^{−(log N)^θ}`, θ > 3/4, for all large N and a
+   prime-forced family 𝔊 ⊇ 𝔊_X (Lemma 1.2) would be a θ > 3/4 theorem for E_pr. A bare
+   refutation of (W) gives only an ω(N)→∞ improvement along a subsequence, and a refutation
+   via 𝔊_max (whose selector classes 0 mod p delete all primes in (y, N^A]) gives no E_pr
+   bound at all. No contradiction with KARY3/LS3/LS4
    arises, since those caps concern w ≥ 1 certificates, not the shift-uniform count.
 2. Step (2) of the brief: **yes**, the moduli between `exp((log N)^{3/8+ε})` and N push the
    avoider *density* below `e^{−(log N)^{3/4+2ε}}` — already the prime slices do

@@ -7,7 +7,7 @@ Branch `side-agent/crt-alignment-w`. Deliverable: `EXCEPTIONAL_WEIGHTS2.md`, `sc
 
 | item | statement | label |
 |---|---|---|
-| Lemma 1.1 | (W_{𝔉_A}) ⟺ (W) for the single maximal family 𝔊_max(N); refuting it with 𝔊 ⊇ 𝔊_X = a θ>3/4 theorem for E_pr | PROVED |
+| Lemma 1.1, 1.2 | (W_{𝔉_A}) ⟺ (W) for the single maximal family 𝔊_max(N). (R90 repair, D1/D2:) only a bound M_𝔊 ≤ Ne^{−(log N)^θ}, θ>3/4, for all large N and a prime-forced 𝔊 ⊇ 𝔊_X gives θ>3/4 for E_pr; a bare refutation of (W) gives an ω(N)→∞ gain along a subsequence; via 𝔊_max (selector classes 0 mod p) no E_pr bound at all | PROVED |
 | Lemmas 2.1–2.2 | windows are forced to pay the density only for subfamilies of period ≤ N; that mass is (log N)^{o(1)} | PROVED |
 | Prop 3.1, Cor 3.2 | prime slices ℓ ≤ Y give dens ≤ exp(−c(log Y)²) (BV, ineffective); so step (2): YES, density < e^{−(log N)^{3/4+2ε}} from Y = exp((log N)^{3/8+ε}) — but not forced, M ≫ N·dens·N^{100} | PROVED |
 | Prop 4.1, Cor 4.2 | random shifts uniform on a prime set L give E count ≤ NΠ_L(1−p_ℓ): step (1) loses e^{−c(log N)²}; a proof of (W) must align almost all medium primes jointly | PROVED |
