@@ -233,17 +233,17 @@ windows of large length; θ ≤ 1 with small c is not.
 Define the **window exponent** `θ_win` as the sup of θ for which
 `E(I) ≪ |I| exp(−c(log|I|)^θ)` holds uniformly over all intervals I.
 
-**Proposition 4.2 (PROVED rel. note).** (a) `θ_win ≥ 3/4` (Theorem 1).
+**Proposition 4.2.** (R88 repair D8: (a),(b) PROVED rel. note; (c) is Assessment.) (a) `θ_win ≥ 3/4` (Theorem 1).
 (b) Any `θ_win > 3/4` gives the global exponent `> 3/4` (take `I = (0, N]`);
 the short-interval problem is at least as hard as the global one.
-(c) For the target form in `(x, x+H]` the three regimes are:
-`H ≥ x^θ`: saving `≍_θ (log x)^{3/4}` (Theorem 1, the brief's target);
+(c) [Assessment — heuristic trichotomy, not a theorem] For the target form in `(x, x+H]` the three regimes are:
+`H ≥ x^θ`: saving `≥ c_θ (log x)^{3/4}` (Theorem 1, the brief's target);
 `e^{c(log x)^{3/4}} ≲ H ≤ x^{o(1)}`: Theorem 1 gives only `(log H)^{3/4} = o((log x)^{3/4})`,
 and the full target saving here would need saving exceeding `(log H)^{3/4}`, i.e.
 `θ_win > 3/4`-type input *or* position-dependent input;
 `C·H < e^{c(log x)^{3/4}}` (strict): target ⇒ ES (Prop 4.1).
 
-**Shift-uniform methods (relation to (W)).** Lemma 1.1 is shift-uniform: it
+**Shift-uniform methods (relation to (W)) [Assessment, R88 repair D8: the first sentence (Lemma 1.1 bounds M) is PROVED; the rest is heuristic].** Lemma 1.1 is shift-uniform: it
 bounds `M_{𝔊_X}(H) = max_z #(𝒜_X ∩ (z,z+H])` (this observation is
 EXCEPTIONAL_WEIGHTS Prop 5.1(a), for primes; Theorem 1 adds composites and
 small primes via Lemma 1.2). Any argument that uses only "exceptional n avoid
@@ -261,7 +261,7 @@ Status: OPEN (= (W)). Position: for the family used at length H,
 `X = exp(α(log H)^{1/4})` and the period is `𝓜 = e^{O(X)}`. If
 `H ≤ exp(c(log log x)^4)` (suitable c), then `𝓜 + H ≤ x` and every translate class
 of the period occurs inside `[x, 2x]`, so for that family the worst window
-lies in `[x,2x]` and position genuinely cannot help. For larger H, `𝓜` may
+lies in `[x,2x]` and position cannot help *a method that uses only this family and the window length* (Assessment). For larger H, `𝓜` may
 exceed x and windows near x form only part of the translates.
 
 **What position-dependent input might be (Assessment, no barrier claimed).**

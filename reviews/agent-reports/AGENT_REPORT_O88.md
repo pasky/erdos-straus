@@ -38,3 +38,19 @@ Results
 
 No numerics (pure deduction); replay = audit points in §6.
 Suggested ledger entries: Theorem 1, Theorem 2, Cor 3.1 (PROVED rel. note).
+
+## R88 repairs (all MINOR; no FATAL/MAJOR found)
+* D1 constants ineffective (as in the note); explicit threshold H_* in Thm 1 proof.
+* D2 §4: "equals" → both controlled by M_𝔊(H).
+* D3 Lemma 1.1 now states the exact identity H·E[ν 1_β] + θT_abs used by Thm 2.
+* D4 Thm 2(a) example uses c'/2; noted (b) in fact covers every prime q.
+* D5 Cor 3.1 progression clause: separate C_3' = (4/c)^{4/3}.
+* D6 Remark 2.2: "majorant genuinely large" withdrawn (only the void *bound* fails);
+  dangling "§4" ref removed; precise open sub-step stated (conditional
+  factorial-moment bound for (b,q_1)=1).
+* D7 Cor 3.2(a): exact BHP form, explicit tiling, range 2x^{0.525} ≤ H; BHP/Huxley
+  flagged as checked from secondary sources only.
+* D8 Prop 4.2(c) and the shift-uniform paragraph relabelled Assessment.
+Suggested ledger: Theorem 1, Theorem 2 (PROVED rel. note); Cor 3.1 trivial corollary.
+Back-port suggestion (R88): the local d·m decomposition can replace the note's §9
+Rankin/semigroup transfer.
