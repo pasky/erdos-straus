@@ -195,3 +195,65 @@ mechanism that makes perfect squares avoiders at t = 0). But such H, for all pri
 So the one global structure that makes *all* ℛ-classes vanish simultaneously (residuosity)
 is useless at the 3/4 scale: it caps at N^{1/2+o(1)}. A proof of (W) needs a structure
 adapted to the small, sparse sets F_ℓ (size ℓ^{o(1)}), not to half the residues.
+
+## 6. Numerical checks (EVIDENCE)
+
+`scripts/weights2_checks.py` (primes ℓ ≡ 3 (4), ℓ ≤ 3·10⁶; F_ℓ = {−4D : D | A²}):
+* every class of every ℛ(ℓ) is a quadratic non-residue (0 failures; Prop 5.3 premise, which
+  is proved anyway);
+* prime-slice mass `S(Y) = Σ_{ℓ≤Y} p_ℓ`: 2.86, 6.03, 10.50, 16.23, 23.17, 26.90 at
+  Y = 10², …, 10⁶, 3·10⁶, i.e. `S(Y)/(log Y)² = 0.135 → 0.121`, slowly decreasing and
+  consistent with Prop 3.1's ≍ (log Y)²;
+* self-overlap mass `O_h(Y) = Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` (h = 1, 2, 3, 6, 10): 0.6–1.0 at
+  Y = 10², 1.8–2.9 at 3·10⁶, with decreasing increments per decade (O₁: +0.55, +0.49,
+  +0.41, +0.35). It is a vanishing fraction of S(Y) (≈ 10% at 3·10⁶), consistent with the
+  Assessment in Prop 4.3 that pair correlations recover only a factor `e^{O(O_h)}`.
+
+The toy translate sieve of W1 §5.1 (N = 300, 1000) remains the only direct numerics for M;
+N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so no new run was made.
+
+## 7. Verdict for O90
+
+**(W) is neither proved nor refuted.** What is established:
+
+1. (W) ⟺ a lower bound for the single maximal family 𝔊_max(N) (Lemma 1.1). A refutation
+   by a family containing 𝔊_X would itself be a θ > 3/4 exceptional-set theorem
+   (via W1 Prop 5.1(a′)), so it cannot come cheaply; no contradiction with KARY3/LS3/LS4
+   arises, since those caps concern w ≥ 1 certificates, not the shift-uniform count.
+2. Step (2) of the brief: **yes**, the moduli between `exp((log N)^{3/8+ε})` and N push the
+   avoider *density* below `e^{−(log N)^{3/4+2ε}}` — already the prime slices do
+   (Prop 3.1, BV). This would refute (W) **only if** windows were forced to pay the density;
+   they are not (Lemma 2.1–2.2: forcing reaches only subfamilies of period ≤ N, mass
+   `(log N)^{o(1)}`), and indeed M(N) ≫ N·dens·N^{100} for the prime slices (Cor 3.2).
+3. Step (1) of the brief **fails as specified**: random shifts restricted to a good class mod
+   the small period give `E count ≤ N Π_L(1 − p_ℓ)` (Prop 4.1), i.e. a loss
+   `e^{−c(log N)²}` from the medium primes; size-biasing/pair correlations recover only
+   the self-overlap mass (Prop 4.3, Assessment + §6 EVIDENCE). A proof of (W) must choose
+   the translates of essentially all primes in `(exp((log N)^{3/8}), N^{1−ε}]` jointly and
+   non-uniformly (Cor 4.2).
+4. The one global mechanism that kills all ℛ-classes at once (residuosity: every ℛ(ℓ) ⊆ QNR)
+   caps at `√(N log N)` (Prop 5.3).
+5. For prime slices, (W) is exactly a **growing-dimension Hensley–Richards problem**
+   (Lemma 5.1): the largest F-admissible subset of an interval of length N. In bounded
+   dimension the maximum is ≍ the density (Prop 5.2); in the ES dimension
+   (`Σ_{ℓ≤x}p_ℓ ≍ (log x)²` over primes) the density is `e^{−c(log N)²}`, the large sieve
+   bound `e^{−c(log N)^{2/3}}`, and (W) at the family's own exponent asks whether actual
+   admissible sets attain the large-sieve limit (an inverse/attainment problem for the
+   large sieve; the sieve-limit objects of KARY/LS are pseudo-distributions on the torus).
+
+*Assessment.* Both directions look as hard as a new sieve theorem: refuting (W) needs a
+shift-uniform count below the sieve limit (beyond every known method), proving it needs
+an explicit construction of a structured window adapted to the sparse sets ℛ(ℓ), for
+which no candidate structure is known (Prop 5.3 excludes residuosity, Prop 4.1 excludes
+randomness). The per-frequency door therefore remains formally open but is **not a
+practical route to θ > 3/4**: any escape through it requires proving an upper bound for
+M_𝔊(N) below the sieve limit, i.e. solving the counting problem uniformly over all
+CRT translates (W1 Cor 2.2: the escaping majorant *is* the LP optimum).
+
+## Replay
+
+```
+cd scripts
+ulimit -v 8000000
+timeout 3000 uv run python weights2_checks.py 3000000 > ../data/weights2/checks.txt   # ~15 s, <200 MB, 1 core
+```
