@@ -1,0 +1,352 @@
+# EXCEPTIONAL_WEIGHTS2 — CRT alignment and the shift-uniform count (task O90)
+
+Status: **O90; hostile review R90 (`reviews/exceptional-weights2-review.md`, on the review branch): no FATAL; MAJOR D1–D3 and minors D4–D13 repaired by the author, marked "(R90 repair)". Verdict §7: (W) open; the CRT-alignment plan provably fails as specified; report `reviews/agent-reports/AGENT_REPORT_O90.md`.** Labels follow `DISCOVERIES.md`.
+PROVED means proved here, internal checks only. No θ > 3/4 is claimed. ES is not solved.
+
+Notation of `EXCEPTIONAL_WEIGHTS.md` (W1). 𝔊 a finite family of residue classes, 𝒜 = 𝒜(𝔊)
+its avoider set, `M_𝔊(N) = max_{t∈ℤ} #(𝒜 ∩ (t, t+N])`, `count_t := #(𝒜∩(t,t+N])`.
+ℛ(M) = {−u/v mod M : gcd(u,v)=1, 4uv | M+1} = {−4D mod M : D | A²}, A = (M+1)/4
+(LS7 Lemma 1.1). For a prime ℓ ≡ 3 (4) write `F_ℓ = ℛ(ℓ)`, `p_ℓ = |F_ℓ|/ℓ`.
+(W) = (W_{𝔉_A}) of W1 §5.
+
+## 1. Reduction to the maximal family
+
+**Lemma 1.1 (PROVED, trivial).** If 𝔊 ⊆ 𝔊′ then 𝒜(𝔊′) ⊆ 𝒜(𝔊) and `M_{𝔊′}(N) ≤ M_𝔊(N)`.
+𝔉_A is closed under finite unions (it is the class of *all* finite families of admissible
+classes with moduli ≤ N^A; "admissible" = ℛ(M)-, Case-A or selector class as in W1 — R90 review §C), and for fixed N there are finitely many such classes. Let
+𝔊_max(N) be the union of all of them. Then
+
+    min_{𝔊∈𝔉_A} M_𝔊(N) = M_{𝔊_max(N)}(N),
+
+so (W) ⟺ `M_{𝔊_max(N)}(N) ≥ N e^{−C(log N)^{3/4}}` (N ≥ N₀). ∎
+
+So (W) is one concrete question about one avoider set: is there a window of length N in
+which a fraction `e^{−C(log N)^{3/4}}` of the integers lies in **no** ℛ(M)-, Case-A or
+selector class of modulus ≤ N^A? Every subfamily (e.g. the prime slices `F_ℓ`, ℓ ≤ N^A)
+has M at least as large, so a *refutation* may use any subfamily, while a *proof* must
+handle 𝔊_max.
+
+*Consequence for refutations (R90 repair, D1).* Lemma 1.1 gives `M_𝔊 ≤ M_{𝔊_X}` for
+𝔊 ⊇ 𝔊_X, which says nothing about E_pr; W1 Prop 5.1(a′) is about 𝔊_X only. What is true:
+
+*Lemma 1.2 (PROVED, given the identities).* Let 𝔊_X ⊆ 𝔊 and suppose every class of
+𝔊 ∖ 𝔊_X is **prime-forced above K′**: every prime p > K′ in the class has an ES solution.
+(This hypothesis holds for ℛ(M)- and Case-A classes by their polynomial identities, LS7
+Lemma 1.1 / Elsholtz–Tao; the threshold K′ is that of the identity and is not
+computed here.) Then `E_pr(N) ≤ max(K, K′) + y + M_𝔊(N)`.
+
+*Proof.* An exceptional prime p > max(K,K′,y) lies in 𝒜(𝔊_X) (W1 Prop 5.1(a′)) and in no
+class of 𝔊 ∖ 𝔊_X (it would then have a solution), so p ∈ 𝒜(𝔊); take t = 0. ∎
+
+**𝔊_max is not such a family.** 𝔉_A admits the selector classes `0 mod p` for all
+p ≤ N^A (W1/KARY2). The class 0 mod p contains the prime p, so 𝒜(𝔊_max) contains no prime in
+(y, N^A]. For 𝔊_max one has only
+`E_pr(N) ≤ K + y + #{exceptional p ≤ N in some class of 𝔊_max∖𝔊_X} + M_{𝔊_max}(N)`, with an
+uncontrolled middle term. So a refutation of (W) through 𝔊_max yields **no** E_pr bound.
+(Equivalently, one could redefine 𝔉_A to allow selector moduli ≤ y only, as in 𝔊_X;
+Lemma 1.1 survives, with a different 𝔊_max.)
+
+*Quantifiers (R90 repair, D2).* (W) reads `∃C, N₀ ∀N ≥ N₀: min_𝔊 M_𝔊(N) ≥ Ne^{−C(log N)^{3/4}}`.
+Its negation gives, for every C, infinitely many N with `min_𝔊 M_𝔊(N) < Ne^{−C(log N)^{3/4}}`,
+i.e. `M ≤ N e^{−ω(N)(log N)^{3/4}}` along a **subsequence**, with ω → ∞ arbitrarily slowly
+(as in W1 Prop 5.1(c)). That is neither θ > 3/4 nor valid for all N. Correct statement:
+a bound `M_𝔊(N) ≤ N e^{−(log N)^θ}` (θ > 3/4, all large N) for a 𝔊 as in Lemma 1.2 would
+prove θ > 3/4 for E_pr. A mere refutation of (W), even via such a 𝔊, gives only
+`E_pr(N_k) ≤ max(K,K′) + y + N_k e^{−ω(N_k)(log N_k)^{3/4}}` on a sequence N_k. Only
+refutations or bounds that use prime-forced families containing 𝔊_X are tied to
+exceptional-set theorems in this way.
+
+## 2. What every window must pay (forced costs)
+
+**Lemma 2.1 (period forcing; PROVED).** Let 𝔊′ have period Q′ and avoider density δ′.
+For every t, `⌊N/Q′⌋Q′δ′ ≤ #(𝒜(𝔊′)∩(t,t+N]) ≤ ⌈N/Q′⌉Q′δ′`.
+
+*Proof.* (t, t+N] contains ⌊N/Q′⌋ and is contained in ⌈N/Q′⌉ consecutive full periods. ∎
+
+So a subfamily costs its density in **every** window if its period is ≤ N/k (R90 repair, D4: "if", not "only if") (then the
+count is within a factor 1 ± 1/k of Nδ′). Classes with a *single* modulus m ≤ N hit
+every window ≈ N/m times, but the *joint* count of several classes is forced only up to
+the lcm of their moduli. The brief's heuristic "moduli ≤ N cost their density" is
+therefore not a valid lower bound mechanism, and not a valid upper bound either: see §3.
+
+**Lemma 2.2 (forced mass is tiny — prime slices only; PROVED; scope fixed in R90 repair, D3).** Let P′ be any set of primes ℓ ≡ 3 (4) with
+`Π_{ℓ∈P′} ℓ ≤ N`. Then `Σ_{ℓ∈P′} p_ℓ ≤ (log N)^{o(1)}`.
+
+*Proof.* `|F_ℓ| ≤ τ(A²) ≤ ℓ^{o(1)}`, so `p_ℓ ≤ ℓ^{−1+o(1)}`. Among sets with
+`Σ log ℓ ≤ log N`, `Σ ℓ^{−1+ε}` is maximised (exchange argument: replace a prime by a
+smaller unused one) by an initial segment of primes ℓ ≤ y with `θ(y) ≤ log N`, i.e.
+y ≪ log N; then `Σ_{ℓ≤y} ℓ^{−1+ε} ≪ y^{ε} ≤ (log N)^{ε}` (any ε > 0). ∎
+
+*(R90 repair, D3.)* For prime slices the cost `log(1/δ′) = −Σ log(1−p_ℓ) ≤ 2Σ p_ℓ` is
+`(log N)^{o(1)}`. For composite moduli the union of classes is not a product, and the earlier
+claim "the same holds for lcm ≤ N" is **withdrawn**. What is proved instead:
+
+**Lemma 2.3 (composite ℛ- and selector subfamilies; PROVED; R90 repair, D3).** Let 𝔊′
+consist of ℛ(M)-classes and selector classes `0 mod p`, with all moduli dividing L ≤ N.
+Then `δ′ ≥ (φ(L)/L)·2^{−ω(L)−1}`, so the forced cost is
+`log(1/δ′) ≤ ω(L) log 2 + log log log N + O(1) ≪ log N/log log N`.
+
+*Proof.* (i) *Jacobi sign.* Let M ≡ 3 (4), 4uv | M+1, gcd(u,v) = 1 (so gcd(uv, M) = 1).
+(−1|M) = −1. For an odd prime q | uv, M ≡ −1 (mod 4q), so Jacobi reciprocity gives
+`(q|M) = (M|q)(−1)^{(q−1)/2} = (−1|q)(−1)^{(q−1)/2} = 1`. If 2 | uv then 8 | M+1 and
+(2|M) = 1. Hence (uv|M) = 1 and `(−u/v | M) = (−uv|M) = −1`: every ℛ(M)-class has Jacobi
+symbol −1 (EVIDENCE: all 3647 classes for composite M ≤ 10³, R90 §B).
+(ii) Let n be a unit square mod L. For M | L, n is a unit square mod M, so (n|M) = 1 and n
+lies in no ℛ(M)-class; being a unit, n ≢ 0 mod p for p | L, so it lies in no selector class.
+(iii) Unit squares mod p^a have density (φ(p^a)/p^a)/2 for odd p and ≥ (φ(2^a)/2^a)/4 for
+p = 2; by CRT their density mod L is ≥ (φ(L)/L)2^{−ω(L)−1}. Finally ω(L) ≤ (1+o(1))log N/log log N
+and L/φ(L) ≪ log log N. ∎
+
+This is far below the 3/4 scale, which is all §§2–3 use. *Case-A classes* are not covered
+(they need their own non-residuosity statement; not checked). *CONJECTURE (Assessment
+basis: with all moduli ≤ e^𝓛 the Haar cost is ≍ 𝓛³ by CEILINGS_UNIFIED, 𝓛 ≍ log log N
+when lcm ≤ N):* for every subfamily of 𝔉_A with lcm ≤ N the forced cost is
+`(log N)^{o(1)}`. Not used below. The
+only known shift-uniform *upper* bounds for M are sieve bounds (large sieve, the 3/4
+note), which are position-blind (W1 §5).
+
+## 3. Step (2): the density is far below the 3/4 scale — and irrelevant
+
+**Proposition 3.1 (PROVED; ineffective constant via Bombieri–Vinogradov).** Let 𝔊 contain
+the prime slices `F_ℓ`, ℓ ≡ 3 (4), ℓ ≤ Y. Then
+
+    dens 𝒜(𝔊) ≤ Π_{ℓ≤Y, ℓ≡3(4)} (1 − p_ℓ) ≤ exp(−c (log Y)²)      (Y ≥ Y₀).
+
+*Proof.* The prime slices are CRT-independent, so their avoider density is the product, and
+𝒜(𝔊) is a subset. For the mass: with A = (ℓ+1)/4 the classes `−4D`, D | A², D ≤ A are
+distinct mod ℓ (0 < 4D < ℓ+1), and `#{D | A² : D ≤ A} = (τ(A²)+1)/2`. Coprime pairs
+(u,v) with uv = q | A give distinct D = u²·A/q (LS7 Lemma 1.1), and there are 2^{ω(q)} of
+them. So for x ≥ x₀,
+
+    Σ_{x<ℓ≤2x, ℓ≡3(4)} |F_ℓ| ≥ ½ Σ_{q ≤ x^{1/3}} 2^{ω(q)} (π(2x; 4q, −1) − π(x; 4q, −1))
+                          ≥ c₁ (x/log x) Σ_{q≤x^{1/3}} 2^{ω(q)}/φ(4q) ≥ c₂ x log x,
+
+by Bombieri–Vinogradov with the weight 2^{ω(q)} (Cauchy–Schwarz against
+`Σ_{q≤x^{1/3}} 4^{ω(q)} x/φ(q) ≪ x(log x)^4` and the BV saving `x(log x)^{−B}`; the main
+term uses `Σ_{q≤z} 2^{ω(q)}/φ(q) ≍ (log z)²`; the pairs (q, D) are counted once each
+since D determines (u,v) for fixed A). Dividing by ℓ ≤ 2x and summing dyadically,
+`Σ_{ℓ≤Y} p_ℓ ≥ c₃ Σ_{k ≤ log₂Y} k ≥ c(log Y)²`. ∎
+
+**Corollary 3.2 (answer to step (2) of the brief).** Already the prime slices with
+`ℓ ≤ Y = exp((log N)^{3/8+ε})` (ε > 0) push the avoider density below
+`exp(−c(log N)^{3/4+2ε})`; with ℓ ≤ N it is `≤ exp(−c(log N)²)`. (With all composite moduli
+the mass is ≍ (log Y)³ by Elsholtz–Tao, which would suggest Y = exp((log N)^{1/4+ε});
+*(R90 repair, D6.)* On **units** the composite statement is already PROVED: CEILINGS_UNIFIED
+Prop 1.1 gives the unit-Haar void `δ*(Y) ≤ 8e^{−c(log Y)³}` (via the note's atoms), whose
+threshold Y = exp((log N)^{1/4}) is exactly the brief's; this agrees with the Haar exponent 3.
+What is missing is the passage from the unit-Haar density to the *integer* density of 𝒜
+(non-units mod M escape all ℛ(M)-classes; one needs selector classes or a fibre
+argument), which is why for integers only the prime-slice statement is claimed.)
+So: **yes, moduli between `exp((log N)^{3/8+ε})` and N push the density far
+below the 3/4 scale.**
+
+**But this does not refute (W).** `M(N) ≥ N·dens` (average over t), so the density is a
+*lower* bound mechanism only, and Lemmas 2.1–2.3 show the window maximum is not forced to
+pay it. Concretely, for the prime-slice family 𝔊_ℛ with ℓ ≤ N^A, W1 Prop 5.1(d) gives
+`M(N) ≥ exp(c(log N)^{1/3})`, while `N·dens ≤ N exp(−c(log N)²) < 1`: the maximum over
+shifts beats the density by more than any power of N. The brief's splitting "moduli
+≤ N cost their density, moduli > N are moved away by CRT" thus **fails in both
+directions**: moduli ≤ N need not cost their density in the best window (they cost it only
+on average), and if they did, (W) would be false by Cor 3.2.
+
+So the whole of (W) sits in the *correlation* between the translates `t mod ℓ` of the
+medium moduli `exp((log N)^{c}) < ℓ ≲ N`.
+
+## 4. Step (1): random CRT shifts cannot prove (W)
+
+The brief's plan: fix t modulo the small-moduli period and take t random otherwise, then
+bound the expected loss from the larger moduli (second moment / Janson). The expectation
+is computed exactly by CRT and is far too small.
+
+**Proposition 4.1 (first-moment obstruction; PROVED).** Let 𝔊 ⊇ {F_ℓ : ℓ ∈ L} (L a set
+of primes ≡ 3 (4)) and let t be random with `(t mod ℓ)_{ℓ∈L}` uniform, independent of each
+other and of `t mod Q_rest` (Q_rest = the part of the period of 𝔊 coprime to Π_L ℓ;
+the classes with moduli divisible by some ℓ ∈ L are simply dropped, which only increases
+the count). Then
+
+    E count_t ≤ N · Π_{ℓ∈L}(1 − p_ℓ).
+
+*Proof.* For each j ≤ N, the events {t + j ∉ F_ℓ (mod ℓ)}, ℓ ∈ L, are independent of
+each other and of t mod Q_rest, each of probability 1 − p_ℓ. ∎
+
+**Corollary 4.2.** Any proof of (W) by "choose t mod (small period) well, then average"
+must leave t uniform only on a set L of primes with `Σ_{ℓ∈L} p_ℓ ≤ C(log N)^{3/4}`.
+By Prop 3.1 the prime-slice mass in `(Y, N]` is ≫ (log N)² − (log Y)² (R90 repair, D5: only the lower bound is proved and only it is used), so for
+`Y ≤ N^{1−ε}` the translates of the primes carrying all but O((log N)^{3/4}) of the mass in
+(exp((log N)^{3/8}), N] must be chosen **non-uniformly, jointly**. *(R90 repair, D7: the
+constraint is `Σ_L −log(1−p_ℓ) ≤ C(log N)^{3/4}`, a statement about mass, not about the number
+of primes — e.g. primes with (ℓ+1)/4 prime have |F_ℓ| = 3 and may all stay uniform at total
+mass ≪ log log N; the cutoff N^{1−ε} was cosmetic, only ℓ ≥ (N+1)|F_ℓ| are free.)* In particular the planned estimate "expected
+loss for random t restricted to a good class mod the small-moduli period" is
+`≥ (1 − e^{−c(log N)²})` of the window for ℓ ≤ N alone: step (1) as specified **cannot**
+succeed, with or without second-moment/Janson refinements (they control the variance
+around this mean, while (W) needs the maximum to exceed the mean by a factor
+`exp(c(log N)²)`).
+
+**Proposition 4.3 (size-biasing; PROVED).** For any law of t, `M(N) ≥ E[count²]/E[count]`
+(since count ≤ M). For t uniform mod the full period this equals
+
+    Σ_{|h|<N} (1 − |h|/N)·r(h),      r(h) = dens(𝒜 ∩ (𝒜 − h)) / dens 𝒜,
+
+and for the prime-slice family (exact CRT)
+
+    r(h) = Π_ℓ (1 − |F_ℓ \ (F_ℓ − h)| / (ℓ − |F_ℓ|))         (h mod ℓ).        (4.1)
+
+The factor at ℓ is 1 when ℓ | h and otherwise `1 − (|F_ℓ| − |F_ℓ ∩ (F_ℓ−h)|)/(ℓ−|F_ℓ|)`.
+*(R90 repair, D9: the heuristic below is mis-stated. Membership x, x+h in R(l) is the
+congruence (u - hv)v' = u'v (mod l) with u, v, u', v' up to about l/4, not an equation over
+Z; the heuristic must add the generic coincidences, about |F_l|^2/l per prime (summable,
+sum of l^{-2+o(1)}), and treat only small-height labels as structured; and the bound is
+needed uniformly in |h| < N, not for fixed h. Label stays Assessment. R90 EVIDENCE, Y = 10^5,
+all 1 <= h <= 2*10^4: O_h mean 1.12, max 2.46 (h = 3), max O_h/S = 0.15,
+max_h log(r(h)/dens) = 1.79, uniformly supporting it.)* Original text:
+*Assessment (not proved):* for fixed h ≠ 0 the self-overlap mass
+`Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` is bounded by the number of solutions of
+`(u+hv)v′ = u′v` with both uv, u′v′ | (ℓ+1)/4, a convergent sum over (u,v,u′,v′) times
+`log log`, i.e. O_h((log log N)^{O(1)}); h has ≤ log N prime factors. So
+`r(h) = dens · e^{O((log log N)^{O(1)})}` and the size-biased bound is
+`N·dens·e^{o(log N)}`: pair correlations do not help either. *(R90 repair, D8: since r(0) = 1 the
+bound is `1 + N dens e^{O(max_h O_h)}` rather than `N dens e^{o(log N)}`; as N dens < 1 for the
+R-family it is about 1 (R90 run, Y = 10^5: B(N) = 1.00005 at N = 10^3, 1.0009 at
+N = 2*10^4). Conclusion unchanged.)* Higher moments
+`(E count^k)^{1/k} → M(N)` (k → ∞) recover M exactly, but only through the
+k-point structure of §5.
+
+## 5. Exact reformulation: a growing-dimension Hensley–Richards problem
+
+**Lemma 5.1 (PROVED).** For the prime-slice family 𝔊 = {F_ℓ : ℓ ∈ P} (P finite),
+
+    M_𝔊(N) = max{ |H| : H ⊆ [1,N], H is F-admissible },
+
+where H is *F-admissible* if for every ℓ ∈ P some residue c has `(c + F_ℓ) ∩ H ≡ ∅ (mod ℓ)`,
+i.e. `H − F_ℓ ≠ ℤ/ℓ`. Primes with `ℓ ≥ (N+1)|F_ℓ|` impose nothing (W1 Prop 5.1(b)).
+
+*Proof.* If H ⊆ 𝒜 − t then c = −t works for every ℓ. Conversely choose t ≡ −c_ℓ (mod ℓ)
+by CRT; then H + t ⊆ 𝒜. ∎
+
+(For composite moduli the residues c_M must be CRT-consistent; admissibility becomes a joint
+condition, and Lemma 5.1 is a lower bound for the subfamily of prime slices only.)
+
+For `F_ℓ = {0}` (all ℓ) this is the Hensley–Richards function ρ*(N), the largest admissible
+set in an interval of length N; there `π(N) ≲ ρ*(N) ≤ 2N/log N` (primes in (N, 2N] are
+admissible; Montgomery–Vaughan large sieve). The analogue for fixed dimension:
+
+**Proposition 5.2 (fixed dimension: max ≍ density; PROVED).** If `|F_ℓ| = κ_ℓ ≤ κ` for all ℓ
+and Σ_{ℓ≤x} κ_ℓ/ℓ = κ log log x + O(1), then `N·Π_{ℓ≤(N+1)κ}(1−p_ℓ) ≤ M(N) ≪_κ N(log N)^{−κ}`
+(where defined), and the lower bound is ≍_κ N(log N)^{−κ}.
+
+*Proof.* Lower: W1 Prop 5.1(b) and Mertens. Upper: the large sieve with Q = √N, whose
+denominator is `≫_κ (log N)^κ`. ∎
+
+So in bounded dimension random translates are optimal up to constants: the medium primes
+`(N^{1/β}, N]` cost only `Π(1−κ_ℓ/ℓ) ≍ β^{−κ}`. In the ES system the dimension grows
+(`Σ_{ℓ≤x} p_ℓ ≫ (log x)²` over primes, PROVED; ≍ is Assessment/EVIDENCE, R90 repair D5; ≍ (log x)³ over all moduli), and the medium primes
+cost `exp(−c(log N)²)` under random translates (Prop 4.1), against the large-sieve limit
+`exp(−c(log N)^{2/3})` (primes) / `exp(−c(log N)^{3/4})` (all moduli). **(W) is precisely the
+question whether the large sieve of growing dimension is attained by an actual
+admissible set of integers (CRT translates), not just by a pseudo-distribution on the
+torus.** *(R90 repair, D10: overclaimed. Correct reading: for the prime-slice family,
+(W) at that family's own exponent is such an attainment question (Lemma 5.1 is for prime
+slices only); (W) itself concerns F_A, with composite R(M)-, Case-A and selector classes whose
+translates must be CRT-consistent jointly, and for prime slices (W) at 3/4 is weaker than
+attaining their own limit. The upper bound M <= N exp(-c(log N)^{2/3}) for prime slices follows
+from the large sieve (q = products of about (log N)^{2/3} primes up to exp(C(log N)^{1/3}));
+that no large sieve does better, i.e. that 2/3 is the limit, is the a/(a+1) extrapolation of
+CEILINGS_UNIFIED section 4.3, labelled CONDITIONAL there: Assessment here.)* (The KARY/LS sieve-limit constructions are pseudo-distributions; W1 §5.)
+
+**Proposition 5.3 (quadratic alignment caps at √(N log N); PROVED).** All classes of every
+ℛ(ℓ) are quadratic non-residues mod ℓ (for 4uv | ℓ+1, every prime q | uv has ℓ ≡ −1 (4q),
+so (q|ℓ) = 1, (2|ℓ)=1 if 2 | uv, and (−1|ℓ) = −1). Hence any H with
+`H − c_ℓ ⊆ {squares mod ℓ}` for all ℓ ∈ P is F-admissible ("quadratic alignment": the
+mechanism that makes perfect squares avoiders at t = 0). But such H, for all primes
+ℓ ≡ 3 (4) up to √N, satisfies `|H| ≪ √(N log N)`.
+
+*Proof.* Large sieve with `ω(ℓ) = (ℓ−1)/2` excluded classes for ℓ ≡ 3 (4), ℓ ≤ √N:
+`|H| ≤ (N + Q²)/L`, `L ≥ Σ_{q≤√N} μ²(q)Π_{ℓ|q}ω/(ℓ−ω) ≥ #{q ≤ √N squarefree, all ℓ | q are
+≡ 3 (4)} ≫ √N/√(log N)` (Landau). *(R90 repair, D11: the second inequality is false, since
+omega/(l - omega) = (l-1)/(l+1) < 1. Correct: L = sum over squarefree q <= sqrt N with all prime
+factors = 3 (mod 4) of prod_{l|q} (l-1)/(l+1); this multiplicative function has mean value 1/2
+on primes (it is 0 on primes = 1 (4) and 1 - O(1/l) on primes = 3 (4)), so Wirsing's theorem
+gives L >> sqrt N / sqrt(log N). Note omega = (l-1)/2 counts the non-residues only; 0 is a
+square. Conclusion |H| << sqrt(N log N) unchanged.)*. ∎
+
+So the one global structure that makes *all* ℛ-classes vanish simultaneously (residuosity)
+is useless at the 3/4 scale: it caps at N^{1/2+o(1)}. A proof of (W) needs a structure
+adapted to the small, sparse sets F_ℓ (size ℓ^{o(1)}), not to half the residues.
+
+*(R90 repair, D12: scope.)* Prop 5.3 covers *full* residuosity: H quadratically aligned at
+**all** primes l = 3 (4), l <= sqrt N. Mixed strategies (alignment on a subset P_Q of primes,
+other translates elsewhere) are not covered by its statement. The same large sieve, restricted
+to q composed of primes of P_Q, gives `|H| << N / L(P_Q)` with
+L(P_Q) = sum over squarefree q <= sqrt N, q | prod P_Q, of prod_{l|q}(l-1)/(l+1). This still
+kills the 3/4 scale whenever log L(P_Q) >> (log N)^{3/4}, e.g. when P_Q has prime mass
+(sum of 1/l, l in P_Q, at scale where products of its primes reach sqrt N) large enough;
+it says nothing for sparse P_Q. Section 7 item 4 should be read as "full residuosity".
+
+## 6. Numerical checks (EVIDENCE)
+
+`scripts/weights2_checks.py` (primes ℓ ≡ 3 (4), ℓ ≤ 3·10⁶; F_ℓ = {−4D : D | A²}):
+* every class of every ℛ(ℓ) is a quadratic non-residue (0 failures; Prop 5.3 premise, which
+  is proved anyway);
+* prime-slice mass `S(Y) = Σ_{ℓ≤Y} p_ℓ`: 2.773, 6.001, 10.491, 16.225, 23.165, 26.898 (R90 repair, D13: the first draft printed the 10², 10³ rows one prime past Y; script fixed and rerun) at
+  Y = 10², …, 10⁶, 3·10⁶, i.e. `S(Y)/(log Y)² = 0.131 → 0.121`, slowly decreasing and
+  consistent with Prop 3.1's ≫ (log Y)² and with a matching upper bound (the upper bound would need a Shiu/Nair–Tenenbaum bound for Σ τ(((ℓ+1)/4)²) over shifted primes; not proved — R90 repair, D5);
+* self-overlap mass `O_h(Y) = Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` (h = 1, 2, 3, 6, 10): 0.56–1.03 at
+  Y = 10², 1.8–2.9 at 3·10⁶, with decreasing increments per decade (O₁: +0.56, +0.49,
+  +0.41, +0.35). It is a vanishing fraction of S(Y) (≈ 10% at 3·10⁶), consistent with the
+  Assessment in Prop 4.3 that pair correlations recover only a factor `e^{O(O_h)}`.
+
+The toy translate sieve of W1 §5.1 (N = 300, 1000) remains the only direct numerics for M;
+N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so no new run was made.
+
+## 7. Verdict for O90
+
+**(W) is neither proved nor refuted.** What is established:
+
+1. (W) ⟺ a lower bound for the single maximal family 𝔊_max(N) (Lemma 1.1). *(R90 repair,
+   D1/D2.)* A bound `M_𝔊(N) ≤ Ne^{−(log N)^θ}`, θ > 3/4, for all large N and a
+   prime-forced family 𝔊 ⊇ 𝔊_X (Lemma 1.2) would be a θ > 3/4 theorem for E_pr. A bare
+   refutation of (W) gives only an ω(N)→∞ improvement along a subsequence, and a refutation
+   via 𝔊_max (whose selector classes 0 mod p delete all primes in (y, N^A]) gives no E_pr
+   bound at all. No contradiction with KARY3/LS3/LS4
+   arises, since those caps concern w ≥ 1 certificates, not the shift-uniform count.
+2. Step (2) of the brief: **yes**, the moduli between `exp((log N)^{3/8+ε})` and N push the
+   avoider *density* below `e^{−(log N)^{3/4+2ε}}` — already the prime slices do
+   (Prop 3.1, BV). This would refute (W) **only if** windows were forced to pay the density;
+   they are not (Lemmas 2.1–2.3: forcing reaches only subfamilies of period ≤ N, of cost
+   `(log N)^{o(1)}` for prime slices and `≪ log N/log log N` for composite ℛ/selector
+   subfamilies — R90 repair, D3), and indeed M(N) ≫ N·dens·N^{100} for the prime slices (Cor 3.2).
+3. Step (1) of the brief **fails as specified**: random shifts restricted to a good class mod
+   the small period give `E count ≤ N Π_L(1 − p_ℓ)` (Prop 4.1), i.e. a loss
+   `e^{−c(log N)²}` from the medium primes; size-biasing/pair correlations recover only
+   the self-overlap mass (Prop 4.3, Assessment + §6 EVIDENCE). A proof of (W) must choose
+   the translates of the primes carrying all but O((log N)^{3/4}) of the mass in
+   `(exp((log N)^{3/8}), N]` jointly and non-uniformly (Cor 4.2; R90 repair, D7).
+4. The one global mechanism that kills all ℛ-classes at once (residuosity: every ℛ(ℓ) ⊆ QNR)
+   caps at `√(N log N)` (Prop 5.3) when used at all primes l = 3 (4) up to sqrt N (full residuosity; partial alignment: |H| << N/L(P_Q), R90 repair D12; proof corrected, D11).
+5. For prime slices, (W) is exactly a **growing-dimension Hensley–Richards problem**
+   (Lemma 5.1): the largest F-admissible subset of an interval of length N. In bounded
+   dimension the maximum is ≍ the density (Prop 5.2); in the ES dimension
+   (`Σ_{ℓ≤x}p_ℓ ≫ (log x)²` over primes; ≍ Assessment, R90 repair D5) the density is `e^{−c(log N)²}`, the large sieve
+   bound `e^{−c(log N)^{2/3}}`, and (W) at the family's own exponent asks whether actual
+   admissible sets attain the large-sieve limit (an inverse/attainment problem for the
+   large sieve; the sieve-limit objects of KARY/LS are pseudo-distributions on the torus).
+   (R90 repair, D10: this is for prime slices only; that 2/3 is their limit is Assessment
+   (CONDITIONAL in CEILINGS section 4.3); (W) for F_A is a different, joint CRT problem.)
+
+*Assessment.* Both directions look as hard as a new sieve theorem: refuting (W) needs a
+shift-uniform count below the sieve limit (beyond every known method), proving it needs
+an explicit construction of a structured window adapted to the sparse sets ℛ(ℓ), for
+which no candidate structure is known (Prop 5.3 excludes residuosity, Prop 4.1 excludes
+randomness). The per-frequency door therefore remains formally open but is **not a
+practical route to θ > 3/4**: any escape through it requires proving an upper bound for
+M_𝔊(N) below the sieve limit, i.e. solving the counting problem uniformly over all
+CRT translates (W1 Cor 2.2: the escaping majorant *is* the LP optimum).
+
+## Replay
+
+```
+cd scripts
+ulimit -v 8000000
+timeout 3000 uv run python weights2_checks.py 3000000 > ../data/weights2/checks.txt   # ~15 s, <200 MB, 1 core
+```
