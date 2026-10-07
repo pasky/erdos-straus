@@ -1,0 +1,62 @@
+# Higher reciprocity / Pell structure at the sign point `x̂_9` (task O89)
+
+Status: work in progress (side agent O89, branch `side-agent/redei-sign-point`). Not reviewed.
+Builds on POINTWISE_TYPEI2.md (Theorem A, (2.2), Lemma 3.1, Conj 3.4) and POINTWISE_TYPEI3.md
+(Lemma 1.1, Cor 5.2, Props 5.3–5.5: certificates at `x̂_w`, `w≡9 (16)`, need level `L:=α+2γ≥7`).
+
+Notation as in TYPEI3: certificate `(c,k,F)` at `x̂_w`, `e=N/F`, `N=1+4ck²`,
+`c=2^α7^a c'`, `k=2^γ7^b k'` (`a` odd, `c'k'` odd and prime to 7), `c_o=7^a c'`, `k_o=7^b k'`,
+`n=c_ok_o`, `t=2+α+γ`, `L=α+2γ`. The **fibre** is `Φ={x̂_w : w≡9 (16)}`.
+
+## 1. Fibre certificates are norm-one units of a Pell order (PROVED)
+
+**Lemma 1.1 (fibre certificates).** Fix `L≥5`. The following are equivalent for `(c,k,F)` with
+`v_7(c)` odd and `α+2γ=L`:
+(i) `(c,k,F)` is a near miss (TYPEI2 §5: `F|N`, `F≡−1 (mod c'k')`, `F≡1 (mod 7^{a+b})`) with
+`F≡7 (mod 16)` and `t≥5`; equivalently, `(c,k,F)` is a certificate at `x̂_w` for some `w≡9 (16)`
+(namely every `w≡−F (mod 2^t)`).
+(ii) Writing `e=N/F`, `δ:=(e−F)/16n` is an odd integer (possibly negative).
+(Under (i) the cofactor `e` automatically satisfies `e≡−w^{−1} (mod 2^t)`.)
+
+*Proof.* (i)⇒(ii): Lemma 1.1 of TYPEI3 gives `e≡F (mod n)` (both `≡−1` mod `c'k'`, `≡1` mod `7^{a+b}`), and
+`e≡F^{−1} (mod 2^{t+γ})` with `t+γ≥5`; `F≡7 (16)` gives `F^{−1}≡F+16 (mod 32)` (`7·23≡1`, `23·7≡1` mod 32).
+So `v_2(e−F)=4`, `16n | e−F`, quotient odd. (ii)⇒(i): if δ is odd then `e≢F (mod 32)`; since `F≡7 (8)`
+(near misses in the dump have `−F≡1 (8)`) this forces `F≡7 (16)`. For `L≥7`, `t=2+α+γ≥2+⌈L/2⌉≥6`.
+The converse direction of TYPEI3 Lemma 1.1 then gives a certificate at every `w≡−F (mod 2^t)`. ∎
+
+**Proposition 1.2 (Pell form; PROVED).** Let `(c,k,F)` be a fibre certificate of level `L≥5`, oriented
+so that `δ>0` (swap `F,e` otherwise). Put
+`M:=c_oδ²+2^{L−4}`, `d:=c_oM`, `A:=(F+e)/2`. Then
+`A²−d·(8k_o)²=1`, `A≡−1 (mod 32)`, and
+`A+1=32·P·X²`, `A−1=2·Q·Y²` with `P=c'P_1`, `Q=7^aQ_1`, `P_1Q_1=M`, `X=k'`, `Y=7^b`. Equivalently:
+
+```
+16·P·X² − Q·Y² = 1,     P·Q = c_o(c_oδ²+2^{L−4}),     c'|P, 7^a‖Q, Y=7^b, X=k'.     (1.1)
+```
+
+Conversely every solution of (1.1) in positive integers with `δ` odd, `a` odd, `7∤c'X`, gives a
+fibre certificate `c=2^α c_o, k=2^γ k_o` for each split `α+2γ=L` (with `F=A−8nδ`, `e=A+8nδ`,
+`A=2QY²+1`, `k_o=XY`).
+*Proof.* `A²−(e−F)²/4=Fe=1+4ck²` and `(e−F)/2=8nδ`; `4ck²=2^{L+2}c_ok_o²`, so
+`A²=1+64k_o²(c_o2^{L−4}+c_o²δ²)=1+64dk_o²`. Mod 32: `F≡7, e≡23` or vice versa, so `F+e≡30 (32)`
+and `A≡15 (16)`; so `v_2(A−1)=1` and `v_2(A+1)=5` because `(A+1)(A−1)=64dk_o²` with `d,k_o` odd
+(`d≡c_o²δ²` mod 2). The odd parts: `gcd(A+1,A−1)=2`; `c'k'|F+1` and `F≡A (mod n)` (as `F=A−8nδ`)
+give `c'k'|A+1`, hence `k'²|A+1` (k' is prime to `A−1`); `7^{a+b}|A−1` similarly gives `7^{a+2b}|A−1`.
+`M` is prime to `c_o` and split between the two factors arbitrarily; `M` is prime to 7 (`M≡2^{L−4}` mod 7).
+Comparing odd parts gives the stated shapes; (1.1) is `(A+1)/2−(A−1)/2=1`, divided appropriately.
+Converse: `ε:=(4X√P+Y√Q)²=A+8XY√d` with `A=16PX²+QY²=2QY²+1`, and `A²−64dX²Y²=N(ε)=1`.
+Then `F,e=A∓8nδ` satisfy `Fe=A²−64n²δ²=1+64k_o²(d−c_o²δ²)=1+2^{L+2}c_ok_o²`. The congruences:
+`F≡A≡−1 (mod c'k')` since `c'k'²|P X²|A+1`, `F≡A≡1 (mod 7^{a+b})` since `7^{a+2b}|A−1`, and
+`F≡A−8≡7 (mod 16)` as `A≡−1 (32)` and `nδ` odd. ∎
+
+*Remarks.* (a) The sign conditions of (2.2) (`−1` at `c'k'`, `+1` at 7) are **built into** the
+factorisation `(A+1)(A−1)`: (1.1) is the classical "Legendre/Dirichlet square root" `ε=ζ²`,
+`ζ=4X√P+Y√Q` of the unit `ε`. (b) For `L≥7`: `d≡c_o²δ²≡1 (mod 8)`, so 2 **splits** in `Q(√d)`; for
+`L=5,6` it ramifies resp. stays inert. And `d=(c_oδ)²+2^{L−4}c_o` is of Richaud–Degert type
+(`r|4c_oδ`) exactly when `L≤6` — which is why the descent of TYPEI3 §5 stays in ℤ for `L≤6` only.
+Checked: `scripts/typei4_pell.py` on all 461 oriented non-square near misses of `typei3_nmdump 7 9 10⁸`
+(`A²−d(8k_o)²=1` in all cases).
+
+**Observation 1.3 (EVIDENCE).** In the dump `ck≤10⁸`, the fibre certificates (δ odd) occur only at
+levels `L ∈ {11,13,14,16,18,19,…}` — none at `L=7,8,9,10,12`. The 34 "level-7 near misses" of TYPEI3
+Remark 5.6 all have δ even (`F≡15 (16)`); they are not fibre certificates at all.
