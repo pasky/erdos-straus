@@ -234,3 +234,39 @@ they exist as translates, need not occur inside [x, 2x]. Status: OPEN (= (W)).
 meets the window in ≤ 1 point, so exact CRT counting gives nothing) — i.e.
 information about *which* residues the specific integers near x occupy, of
 the same non-CRT kind needed for global θ > 3/4 (STATUS "third kind of input").
+
+## 5. Literature and novelty (Assessment)
+
+* Checked: LITERATURE_2026.md (no short-interval or progression-in-short-
+  interval exceptional-set result recorded); web searches (Jina, 2026-10-06)
+  for "Erdős–Straus short interval(s) exceptional set", "… x+H", "… almost all
+  n short interval", Vaughan/Elsholtz–Tao/progressions: nothing found. Salez
+  (arXiv:1406.6307) verifies ES for n ≤ 10^17 — a statement about all small
+  windows, not a density result. Not checked: Li Delang, Yang Xun Qian, Jia
+  Chaohua papers directly (no hits surfaced); this is a gap, flagged.
+* Folklore caveat. Every forced class is position-independent (an identity
+  valid for all n in the class), and large-sieve/CRT-counting arguments are
+  translation invariant. So Vaughan's 1970 argument presumably yields
+  `E(I) ≪ |I| exp(−c(log|I|)^{2/3})` for intervals too, and an expert would
+  regard "transfer to short intervals" as routine for the *prime/avoider* part.
+  The campaign itself already noted shift-uniformity of the 3/4 majorant
+  (EXCEPTIONAL_WEIGHTS Prop 5.1(a), primes > max(K,y) only).
+* What is (to our knowledge) new here, modestly: (i) Theorem 1 for **all**
+  integers in arbitrary windows, via the local smooth-part decomposition
+  (Lemma 1.2) which replaces the note's global Rankin/semigroup step;
+  (ii) Theorem 2, the progression version with the explicit `q_1` (smooth part)
+  loss and the large-prime-modulus independence (Lemma 2.1); (iii) the
+  observation that the prime version needs no primes-in-short-intervals input
+  (Cor 3.1), prime input entering only for relative densities (Cor 3.2);
+  (iv) Prop 4.1 (the target form below `e^{c(log x)^{3/4}}` is equivalent in
+  strength to ES on the window) and the window-exponent framing linking the
+  short-interval threshold to (W). None of this improves the exponent 3/4.
+
+## 6. Replay
+
+No numerics are needed: every statement is a deduction from thm:assembly
+(eq:majorant, eq:ledger, eq:transfer) and lem:identity of the note, plus the
+elementary Lemma 1.2. To audit: check (F2) against lem:identity ("every
+positive integer in the class … is representable"), that eq:transfer's
+counting step `N/q + O(1)` is valid for any real interval, and that all primes
+of 𝓜 (eq:space) are ≤ X (used in Lemma 2.1).
