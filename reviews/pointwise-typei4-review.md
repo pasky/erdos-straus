@@ -150,3 +150,18 @@ exactly one of `c',P_1` is `≡3 (4)`, so both sides of the stated identity are 
 `y`-coordinates) but no reference or argument is given; **D8 (MINOR)**: cite BHV (J. reine angew. Math. 539 (2001))
 and spell out that 7 can be a primitive divisor of at most one index, or label the sentence Assessment explicitly.
 (e) Fine as stated (`F≡3 (4)` for every fibre divisor, since `F≡7 (16)`).
+
+### Trivia
+* Prop 3.3: "`7^a<16` (both cases)" — in the case `2y>T` the bound is `7^a<T/2=4` (vacuous); harmless.
+* After Cor 3.5: "`7^a<T²/4≤2^{12}`" — for `L≤10`, `T²/4≤2^{10}`; harmless.
+
+## Replay (reviewer)
+```
+uv run --with sympy python scripts/review_typei4_identities.py 101 18          # 8 fibre certs, 0 fails (~1 min)
+gcc -O2 -o /tmp/r89js scripts/review_typei4_jsearch.c
+for L in 7 8 9 10 11 12 13 14; do for b in 0 1 2 3; do /tmp/r89js $L $b; done; done | python3 scripts/review_typei4_verify.py
+/tmp/r89js 22 1; /tmp/r89js 26 0; /tmp/r89js 23 1                              # ~15–30 min each
+gcc -O2 -o /tmp/r89nm scripts/review_typei4_nm.c -lm && /tmp/r89nm 1000000000 7 12   # 11 s
+grep HIT <jsearch output> | python3 scripts/review_typei4_fundunit.py
+gcc -O2 -o /tmp/r89fs scripts/review_typei3_fs.c && /tmp/r89fs 7 185 2 3000000  # R72 engine cross-check
+```
