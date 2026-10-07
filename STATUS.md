@@ -247,6 +247,13 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   0.314879 at levels 2, 3 in C_5 and C_7 via R83's union, with a brute-force completeness check (M ≤ 3·10⁴);
   Lemma 1.3 on all data plus an inline brute force; Lemmas 5.1–5.2 and the §6 (a,b)-characterisation at
   levels ≤ 5; needs gcc/cc).
+* `verify.py` blocks (eb)–(ec) (O91, ~28 s; full run ≈ 7.5 min on the shared machine, 2 threads, scipy +
+  mpmath) add POINTWISE_TYPEI4 (R89 complete engine `review_typei4_jsearch.c` on L = 7..22, b ≤ 1 and
+  L = 7..10, b ≤ 3: the 18 fibre certificates and F values of Comp 3.4, none at x̂_9, re-checked with big
+  integers; Prop 1.2 (and converse), Cor 1.4, Remark 1.6, Lemma 3.1(iii) on every hit; R89 brute force from
+  the definition; example (42,32,71); Prop 4.1 levels; Lemma 3.6 sympy identities and j = 1 for b < 30; needs
+  gcc/cc) and EXCEPTIONAL_WEIGHTS2 (Prop 5.3 premise: all ℛ(ℓ) classes QNR for ℓ ≤ 3000, Jacobi −1 for all
+  M ≡ 3 (4) ≤ 300, R90 script + inline from the (u,v) definition; §6 mass S(Y)/(log Y)² at Y ≤ 10⁵).
 
 ## Exceptional-set exponent: where it stands (2026-10-07)
 
