@@ -99,3 +99,83 @@ mean "all moduli ≤ e^𝓛" and the general case needs proof).
 
 **D4 (MINOR) — Lemma 2.1 follow-up sentence.** "a subfamily costs its density in every
 window **only if** its period is ≤ N/k": Lemma 2.1 gives "if", not "only if". Repair: "if".
+
+**D5 (MINOR) — "≍ (log Y)²" for the prime-slice mass is only half proved.** Location: Cor 4.2
+("the prime-slice mass in `(Y, N]` is ≍ (log N)² − (log Y)²"), §5 ("Σ_{ℓ≤x} p_ℓ ≍ (log x)²"),
+§7 item 5, §6 ("consistent with Prop 3.1's ≍"). Prop 3.1 proves only `≫`. The upper bound
+needs a Shiu/Nair–Tenenbaum-type bound `Σ_{ℓ≤x} τ(((ℓ+1)/4)²) ≪ x log x` over shifted primes
+(not trivial; τ(n²) = Σ_{q|n}2^{ω(q)} has q up to n, beyond BV range). Every *use* of the
+statement needs only the lower bound (Cor 4.2 needs mass in (Y,N] ≥ c((log N)²−(log Y)²),
+which follows from the dyadic lower bound). *Repair:* write ≫ and cite the upper bound as
+Assessment/EVIDENCE (my run: S(Y)/(log Y)² = 0.131, 0.126, 0.124, 0.122, 0.121 at Y = 10²…10⁶).
+
+**D6 (MINOR) — Cor 3.2 composite remark vs CEILINGS_UNIFIED.** The brief asked for a sanity
+check against the Haar exponent 3. They agree: prime slices have mass ≍ (log Y)² (exponent 2,
+sieve-limit `a/(a+1) = 2/3` *under* CEILINGS §4.3's one-big-prime mechanism), all moduli
+have mass ≍ (log Y)³ (Elsholtz–Tao) and Haar void `δ*(Y) ≤ 8e^{−c(log Y)³}` (CEILINGS
+Prop 1.1, PROVED from the note), whose threshold `Y = exp((log N)^{1/4})` is exactly the
+brief's. So the author's caution "the union of composite classes is not a product, so only
+the prime-slice statement is claimed" is unnecessary **on units**: CEILINGS Prop 1.1 already
+gives the composite statement for the unit-Haar density (via the note's atoms, conditional
+independence after revealing c mod L_K). What is genuinely missing is the passage from
+unit-Haar density to the *integer* density of 𝒜 (non-units mod M escape all ℛ(M)-classes;
+one needs the selector classes or a fibre argument). *Repair:* cite CEILINGS Prop 1.1 for
+the units statement and state the units/integers caveat as the reason for restricting.
+
+**D7 (MINOR) — Cor 4.2 "essentially all medium primes".** The first-moment constraint is
+`Σ_{ℓ∈L} −log(1−p_ℓ) ≤ C(log N)^{3/4}` (from `−log(1−p) ≥ p`, fine). This forces
+non-uniform translates for primes carrying all but `O((log N)^{3/4})` of the mass ≍ (log N)²
+in (Y, N^{1−ε}]; it says nothing about the *number* of such primes (primes with A = (ℓ+1)/4
+prime have |F_ℓ| = 3 and may all be left uniform at total mass `≪ log log N`). Repair: "the
+translates of primes carrying all but O((log N)^{3/4}) of the mass". Also the cutoff N^{1−ε}
+is cosmetic (primes in (N^{1−ε}, N] carry mass ≍ ε(log N)² as well; only ℓ ≥ (N+1)|F_ℓ| are
+free).
+
+**D8 (MINOR) — Prop 4.3, size-biased bound.** Re-derived: `E count = N·dens`,
+`E count² = Σ_{|h|<N}(N−|h|)·dens·r(h)`, so the ratio is the Fejér sum, and (4.1) is exact
+(per prime: `(ℓ − 2|F| + |F∩(F−h)|)/(ℓ−|F|)`). But r(0) = 1, so the bound is
+`1 + Σ_{h≠0}… ≈ 1 + N·dens·e^{O(·)}`, and since N·dens < 1 for the ℛ-family it is ≈ **1**
+(my run, Y = 10⁵: B(N) = 1.00005 at N = 10³, 1.0009 at N = 2·10⁴, equal to 1 + N·dens to 5
+digits). "N·dens·e^{o(log N)}" should read "1 + N·dens·e^{O(max_h O_h)}". Conclusion unchanged.
+
+**D9 (MINOR, inside an Assessment) — Prop 4.3 heuristic.** "the number of solutions of
+`(u+hv)v′ = u′v`" — the condition `x, x+h ∈ ℛ(ℓ)` is the **congruence**
+`(u − hv)v′ ≡ u′v (mod ℓ)` (sign also off, immaterial by h ↔ −h), with u, v, u′, v′ up to
+~ℓ/4, so it is not an equation over ℤ. The "convergent sum" heuristic must add the generic
+coincidences `≈ |F_ℓ|²/ℓ` per prime (summable: Σ ℓ^{−2+o(1)} < ∞) and treat small-height
+labels only. Also the bound must be **uniform in |h| < N**, not "for fixed h, O_h(…)".
+My EVIDENCE (`scripts/review_weights2_overlap.py`, Y = 10⁵, all 1 ≤ h ≤ 2·10⁴): O_h mean 1.12,
+max 2.46 (h = 3), max O_h/S = 0.15; `max_h log(r(h)/dens) = 1.79`. Supports the Assessment
+uniformly in this range; keep the label Assessment.
+
+**D10 (MINOR) — §5 bold sentence and the 2/3 exponent.** "(W) is precisely the question
+whether the large sieve of growing dimension is attained by an actual admissible set":
+(i) Lemma 5.1 holds for prime slices only, while (W) is about 𝔉_A (composite ℛ(M), Case-A,
+selector classes; CRT-consistency of composite translates is a joint condition, as the author
+notes in parentheses); (ii) for the prime-slice family, (W) at 3/4 is *weaker* than attainment
+of its own large-sieve limit (2/3 < 3/4). The "large-sieve limit exp(−c(log N)^{2/3}) (primes)":
+the *upper* bound `M ≤ N e^{−c(log N)^{2/3}}` is derivable (L ≥ Σ over q = products of
+k ≍ (log N)^{2/3} primes ≤ exp(C(log N)^{1/3}) gives log L ≫ (log N)^{2/3}), but that no large
+sieve does better is the a/(a+1) extrapolation, which CEILINGS §4.3 labels CONDITIONAL. Repair:
+"for prime slices, (W_{𝔊_ℛ}) at the family's own exponent is …"; label the 2/3 limit
+Assessment (or CONDITIONAL as in CEILINGS).
+
+**D11 (MINOR) — Prop 5.3 proof, false inequality.** "`L ≥ Σ_{q≤√N} μ²(q)Π_{ℓ|q}ω/(ℓ−ω) ≥
+#{q ≤ √N squarefree, all ℓ | q ≡ 3 (4)}`": here `ω/(ℓ−ω) = (ℓ−1)/(ℓ+1) < 1`, so the second
+`≥` is false. Correct: L = Σ over such q of `Π_{ℓ|q}(ℓ−1)/(ℓ+1)`, a multiplicative sum with
+mean value ½ on primes, ≍ √N/√(log N) by Wirsing (or: ≥ Σ_q Π(1−2/(ℓ+1)) ≥ Σ_q φ(q)²/q²·…,
+then partial summation). Conclusion `|H| ≪ √(N log N)` unchanged. (Also: ω(ℓ) excluded
+residues counts the QNR only; residue 0 is a square, so ω = (ℓ−1)/2 is right.)
+
+**D12 (MINOR) — Prop 5.3 scope.** The cap is for H quadratically aligned at **all** primes
+ℓ ≡ 3 (4), ℓ ≤ √N. Mixed strategies (quadratic alignment on a subset P_Q of primes, other
+choices elsewhere) are not covered by the statement; the same large sieve gives
+`|H| ≪ N/L(P_Q)` which still kills the 3/4 scale whenever P_Q has mass ≫ (log N)^{3/4} in
+a range where products of its primes reach √N. §7 item 4 "residuosity caps at √(N log N)"
+should say "full residuosity"; add the one-line partial version.
+
+**D13 (MINOR) — §6 numbers, cutoff off by one prime.** My independent S(Y) at Y = 10², 10³:
+2.773, 6.001 (author 2.86, 6.03). The differences are exactly the next prime ≡ 3 (4) above Y
+(ℓ = 103: 9/103 = 0.087; ℓ = 1019: 27/1019 = 0.026); from 10⁴ on the values agree to the
+printed digits (10.491, 16.225, 23.165 vs 10.50, 16.23, 23.17). The author's script includes
+one prime beyond Y (or prints after the update). Harmless; fix the loop.
