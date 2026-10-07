@@ -187,13 +187,16 @@ dividing by `u` gives (3.2). LHS of (3.2) is even and `j` odd, so `λ` is even. 
 `jρ=m+λu`, `7^a7^e=u` gives the quadratic. Its leading coefficient vanishes only if `jm=8·7^e`, which is
 impossible as `jm` is odd. ∎
 
-*Examples.* For `j=1` the cases `λ∈{2,4}` reduce to `7^am=8u−5` resp. `8u=7^a+4`, both impossible mod 7. So
+*Examples.* For `j=1` the cases `λ∈{2,4}` reduce to `7^am=8u−5` resp. `8u=7^a+4`, both impossible mod 7. (R89 repair S1, applied by reviewer — the reduction: for `j=1`, (3.2) with `ρ=m+λu`, `s:=7^am<8u`, `t:=s−8u<0` becomes
+`2u(t+4)+m(t+6)=1` (`λ=2`) resp. `4u(t+4)+m(t+6)=2` (`λ=4`). For `λ=2` only `t=−5`, `m=2u+1` survives, so `7^am=8u−5`. For `λ=4`,
+`t=−5` forces `m` even and only `t=−4`, `m=1` survives, so `7^a=8u−4`.) So
 `j=1` is excluded for all `b` (direct check of Lemma 3.6).
 *What remains at `L=7`.* By (3.1) `m·7^a<8u/j`. So large `j` forces small `m=c'δ²`, and the open regime
 is `j→∞` together with `b→∞`. For fixed `(m,a,ρ)`, (3.1) is a conic in `(u,j)` of non-square discriminant
 `4ρ²(μ²−16)`, `μ=m7^a+4`. Its points with `u=7^b` are finite (a non-degenerate binary recurrence meets the powers
 of 7 finitely often; Baker/S-unit theory, not made explicit here). But `ρ` is not bounded in terms of `(m,a)`.
-So for `L=7` the tower is reduced to the regime `j, b → ∞` with `m` bounded by `8u/(7j)`. This is not closed.
+So for `L=7` the tower is reduced to the regime `j, b → ∞` with `m` bounded by `8u/(7j)`, **plus the case `7|j`,
+which Lemma 3.6 does not treat** (the congruence `ρj≡m (mod u)` needs `7∤j`; R89 repair S2, applied by reviewer). This is not closed.
 The same method applies verbatim to `L=8,9,10` (`T=16,32,64`; for `L≥8` case A of Lemma 3.1 adds `a=1` with
 `P_1>7^{1+b}`), but it was not carried out.
 
@@ -241,7 +244,8 @@ certificate divisors are `≡7 (16)`, i.e. `≡3 (4)`; the residue class of `−
   bounds (Lemma 3.1, Cor 3.2); `L=7`, `7∤k` by hand (Prop 3.3). CERTIFIED: scope Prop 4.1 (R89 repair D7).
 * CERTIFIED (once replayed): no fibre certificate at `L∈{7,8,9,10}` with `v_7(k)≤7`, nor at `L∈{12,15,17}` with
   `v_7(k)≤3`; no certificate at `x̂_9` with `L≤22`, `v_7(k)≤3` (or `L≤26`, `v_7(k)≤1`) (Cor 3.5), at any height.
-* OPEN (the precise blocking point): the **7-adic tower** `b→∞` at fixed `L∈{7,…,10}`. Each `b` is a finite
+* OPEN (the precise blocking point): the **7-adic tower** `b→∞` at fixed `L∈{7,…,10}`. At `L=7`, Lemma 3.6 bounds `b` for each
+  fixed gap `j` with `7∤j`; open are `j→∞` and `7|j` (R89 repair S2, applied by reviewer). Each `b` is a finite
   check, but for `L=7,8` already the window condition `1≤P_1≤z` of Lemma 3.1 is met by only 0–2 candidates per
   `b≤3` (`typei4_lb` instrumented), against 10–44 at `L=11`. A proof for all `b` would need a uniform bound on `b`
   (e.g. via (c) above with a bound on `c'δ` in terms of `L` alone), which we do not have.
