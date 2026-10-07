@@ -1,3 +1,4 @@
+#include <math.h>
 /* O89 (POINTWISE_TYPEI4.md Cor 3.2): complete enumeration of fibre certificates with level L and
    v_7(k) = b (all a, all heights), via Lemma 3.1:
      y = c' g delta < T 7^b (y odd), z = T 7^b - y, a odd with 7^a < T/2 (2y>T7^b) or 7^a < T^2 7^b/4,
@@ -29,7 +30,12 @@ int main(int argc,char**argv){
           i128 P1=cg2+p*twoy; if(P1<1)continue; if(z%P1)continue; if(P1%7==0)continue;
           i128 num=1+p*(z/P1); if(num%(4*(i128)cp*g))continue; i128 X=num/(4*(i128)cp*g);
           if(X%2==0||X%7==0)continue;
-          i128 h=g+2*p*dl; i128 F=8*cp*X*g-1, e=8*cp*X*h-1;
+          i128 h=g+2*p*dl;
+          /* R89 repair D6 (applied by reviewer): refuse to compute e, N if they could exceed 2^126 */
+          { long double lx=log2l((long double)X), le=log2l(8.0L*cp)+lx+log2l((long double)h),
+              ln=(L+2)+log2l((long double)cp)+log2l((long double)(p7a*p7b*p7b))+2*lx;
+            if(le>125||ln>125){fprintf(stderr,"OVERFLOW RISK L=%d b=%d a=%d: re-verify with big ints\n",L,b,a);return 3;} }
+          i128 F=8*cp*X*g-1, e=8*cp*X*h-1;
           i128 N=1+((i128)1<<(L+2))*cp*(p7a*p7b*p7b)*X*X;
           if(F*e!=N){fprintf(stderr,"IDENTITY FAIL\n");return 1;}
           printf("%d %d %d %lld %lld %lld ",L,b,a,cp,g,dl);pr(P1);putchar(' ');pr(X);putchar(' ');pr(F);putchar(' ');pr(e);putchar('\n');cnt++;

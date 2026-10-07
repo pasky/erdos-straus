@@ -250,7 +250,7 @@ uv run --with sympy python scripts/typei4_pell.py /tmp/nm8.txt 5 | tail -1    # 
 gcc -O2 -o /tmp/pq scripts/typei4_pqsearch.c -lm && /tmp/pq 300000 10001 > /tmp/pq3.txt      # 87 solutions, 3 min
 python3 scripts/typei4_dgraded.py 5 24 3000 6                                     # 8 hits, all m=1, L>=11
 gcc -O2 -o /tmp/lev scripts/typei4_level.c && for L in 7 8 9 10 12 15; do for s in 1 3 5 7 9; do /tmp/lev $L $s; done; done
-gcc -O2 -o /tmp/lb scripts/typei4_lb.c && for L in 7 8 9 10; do for b in 0 1 2 3 4 5 6 7; do /tmp/lb $L $b; done; done
+gcc -O2 -o /tmp/lb scripts/typei4_lb.c -lm && for L in 7 8 9 10; do for b in 0 1 2 3 4 5 6 7; do /tmp/lb $L $b; done; done
 for L in $(seq 11 22); do for b in 0 1 2 3; do /tmp/lb $L $b; done; done        # Comp 3.4 table (minutes)
 PYTHONPATH=scripts uv run python scripts/typei3_verify.py 7 185 42 32 71            # level-11 fibre example
 ```
