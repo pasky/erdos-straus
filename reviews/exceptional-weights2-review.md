@@ -13,8 +13,25 @@ Reviewer branch `side-agent/review-weights2`; author branch `side-agent/crt-alig
 | Lemma 2.1 (period forcing) | SOUND |
 | Lemma 2.2 (prime case) | SOUND |
 | Lemma 2.2 "same holds for composite moduli" | GAP (D3) |
+| Prop 3.1 (prime-slice mass ≫ (log Y)², BV with 2^{ω(q)} weights) | SOUND (lower bound; ineffective) — written out in §A |
+| "≍ (log Y)²" (upper bound, used in Cor 4.2/§5/§7) | GAP, harmless (D5) |
+| Cor 3.2 | SOUND; composite remark can be upgraded on units via CEILINGS Prop 1.1 (D6) |
+| Prop 4.1 | SOUND (trivial first moment) |
+| Cor 4.2 | SOUND-AFTER-REPAIRS ("essentially all" is in mass, not in number; D7) |
+| Prop 4.3 formula (4.1) and Fejér identity | SOUND (re-derived; D8 minor) |
+| Prop 4.3 size Assessment | correctly labelled; heuristic mis-stated (congruence, not equation; D9); my EVIDENCE supports it uniformly in h ≤ 2·10⁴ |
+| Lemma 5.1 | SOUND (prime slices only, as the author says) |
+| Prop 5.2 | SOUND |
+| "(W) is precisely … attainment of the growing-dimension large sieve"; 2/3 prime exponent | overclaimed prose (D10) |
+| Prop 5.3 premise ℛ(ℓ) ⊆ QNR | SOUND (re-proved; brute force ℓ ≤ 10⁴: 0 failures; also Jacobi(·|M) = −1 for all composite M ≤ 10³) |
+| Prop 5.3 √(N log N) cap | SOUND-AFTER-REPAIRS (one false inequality in the proof, D11; scope D12) |
+| §6 EVIDENCE | REPRODUCED (independent code, Y ≤ 10⁶); off-by-one-prime cutoff in the author's S(Y) (D13) |
+| §7 verdict "(W) open; CRT plan as specified fails" | SOUND, after D1–D3 (item 1 must be weakened) |
 
-(table continued below as the review proceeds)
+**Overall.** No FATAL defect. The mathematical core (Props 3.1, 4.1, 5.3, Lemmas 2.1, 5.1)
+is correct. Two MAJOR defects are in the one sentence that sells a refutation of (W) as "a
+θ > 3/4 theorem for E_pr" (D1 direction of inclusion + selector classes; D2 quantifier). D3
+is an unproved extension used in prose.
 
 ## Defects
 
