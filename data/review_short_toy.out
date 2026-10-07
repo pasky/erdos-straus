@@ -1,0 +1,13 @@
+1. identity failures: 0
+2. atoms: 36 moduli: [11, 19, 23, 31, 55, 95, 155] M = 4470510
+   E nu = 0.12810395234548183  P(H=0,S=1) = 0.10540408141353  T_abs = 2668
+   max |sum - H E nu| / T_abs over random windows: 0.0116 (must be <= 1)
+   H=50: max_z sum = 22, H*Enu = 6.4, bound H*Enu+T_abs = 2674.4
+   H=500: max_z sum = 86, H*Enu = 64.1, bound H*Enu+T_abs = 2732.1
+   H=5000: max_z sum = 675, H*Enu = 640.5, bound H*Enu+T_abs = 3308.5
+3. Lemma 2.1 independence exact for Q in {61, 67*71} (primes > 31 )
+4. E[nu | n=0 mod 5] = 0.1457 vs E nu = 0.1281
+   p=11: E[nu | n=b mod p] ranges 0.0614..0.1543; ratio max/E = 1.20 (<= p)
+   p=19: E[nu | n=b mod p] ranges 0.1082..0.1374; ratio max/E = 1.07 (<= p)
+   p=23: E[nu | n=b mod p] ranges 0.0552..0.1670; ratio max/E = 1.30 (<= p)
+5. chain lemma ok; Rankin y=13,D0=1e4: sum_(D0,1e12] 1/d = 0.04742 <= 0.4654 <= e^(4 sqrt y)/sqrt(D0) = 1.834e+04
