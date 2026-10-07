@@ -246,13 +246,34 @@ class gives nothing). No result here excludes exploiting any of these; (W) is op
 
 ## 5. Literature and novelty (Assessment)
 
-* Checked: LITERATURE_2026.md (no short-interval or progression-in-short-
-  interval exceptional-set result recorded); web searches (Jina, 2026-10-06)
-  for "Erdős–Straus short interval(s) exceptional set", "… x+H", "… almost all
-  n short interval", Vaughan/Elsholtz–Tao/progressions: nothing found. Salez
-  (arXiv:1406.6307) verifies ES for n ≤ 10^17 — a statement about all small
-  windows, not a density result. Not checked: Li Delang, Yang Xun Qian, Jia
-  Chaohua papers directly (no hits surfaced); this is a gap, flagged.
+* Checked (2026-10-07 update, Jina web search + page reads):
+  - **Elsholtz–Tao**, J. Aust. Math. Soc. 94 (2013) 50–105, arXiv:1107.1010v6,
+    §1 (p. 2 of the arXiv PDF): the only exceptional-set statement is Vaughan's
+    `N exp(−c log^{2/3} N)` over `n < N`, "Compare also [48, 84, 39, 89] for some
+    weaker results", where [39] = Li Delang, *On the equation 4/n = 1/x+1/y+1/z*,
+    J. Number Theory 13 (1981) 485–494, and [89] = Xun Qian Yang, *A note on
+    4/n = 1/x+1/y+1/z*, Proc. AMS 85 (1982) 496–498 (references verified from the
+    v5/v6 bibliography snippets; [48], [84] not identified with certainty).
+    Yang's abstract (JSTOR 2044050) concerns S(N) = #{n < N exceptional}, i.e. an
+    initial-segment count. No short-interval or AP statement in Elsholtz–Tao.
+  - **Jia Chaohua** ([34] in Elsholtz–Tao) is cited only for a correction to the
+    *average* count of Type II solutions, not for the exceptional set.
+  - **Pomerance–Weingartner**, arXiv:2511.16817v2 (Jan 2026), §1: "The count of
+    possible exceptions has been strongly improved, though not recently: In 1970,
+    Vaughan gave the upper bound N/exp(c log^{2/3} N)". Their Thm 1.3 makes
+    Vaughan's bound explicit in m for m/n (`N/exp(C log^{2/3}N/φ(m)^{1/3})`,
+    `4 ≤ m ≤ log² N`), again over `n ≤ N`; their exceptional *primes* in
+    `(m², 2m²)` are a statement for growing numerator m, not for 4/n.
+  - Salez arXiv:1406.6307 (10^17) and Mihnea–Dumitru arXiv:2509.00128 (10^18):
+    verification, not density.
+  - Searches for "Erdős–Straus short intervals", "… x+H", "… almost all short
+    intervals", "… arithmetic progression exceptional set" returned nothing relevant.
+  - Not read in full: Li Delang 1981 and Yang 1982 (paywalled; only titles,
+    venues and Yang's abstract line seen); Webb (Proc. AMS 1970) not located.
+    Their scope is reported via Elsholtz–Tao as "weaker" initial-segment bounds.
+  Conclusion (Assessment): no published short-interval or progression version of
+  an ES exceptional-set bound was found; the most recent expert survey
+  (Pomerance–Weingartner 2026) lists Vaughan 1970 as the state of the art.
 * Folklore caveat. Every forced class is position-independent (an identity
   valid for all n in the class), and large-sieve/CRT-counting arguments are
   translation invariant. So Vaughan's 1970 argument presumably yields
