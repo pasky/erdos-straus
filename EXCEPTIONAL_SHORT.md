@@ -97,3 +97,55 @@ Remarks. (1) Theorem 1 contains the note's theorem (I = (0,N]) and gives it
 denominators is now local. (2) The majorant depends only on H, not on the
 location z: the bound is uniform in z, with no requirement H ≤ z.
 (3) The prime analogue is automatic in the relevant range, see §3.
+
+## 2. Progressions in short intervals
+
+For `q ≥ 1`, `b ∈ Z` put `E(I; q, b) = #{n ∈ I : n ≡ b (q), n exceptional}`.
+For a parameter `X` split `q = q_1 q_2`, `q_1 = ∏_{p^a ∥ q, p ≤ X} p^a`
+(so every prime of q_2 exceeds X).
+
+**Lemma 2.1 (independence of large-prime progressions; PROVED rel. note).**
+If every prime factor of `Q` exceeds X then, in Lemma 1.1,
+`E[ν_X 1_{β(Q)}] = E_CRT ν_X / Q`. More generally for `Q = Q_1Q_2` split as
+above, `E[ν_X 1_{β(Q)}] ≤ E_CRT ν_X / Q_2`.
+*Proof.* Every prime dividing 𝓜 (eq:space) is ≤ X (primes ≤ y, primes of
+L_K ≤ K, and ℓ ≤ X). So `(Q_2, 𝓜) = 1`, and in `Z/𝓜Q_2 ≅ Z/𝓜 × Z/Q_2` the
+function ν_X depends only on the first coordinate while `1_{β(Q_2)}` depends
+only on the second. Drop `1_{β(Q_1)} ≤ 1` (ν_X ≥ 0). ∎
+
+**Theorem 2 (short intervals in progressions; PROVED rel. note).** There are
+absolute `c, c', C, α > 0` with the following property. Let I be any interval
+of length H, `q ≥ 1`, `b ∈ Z`, `H/q ≥ 2`, and put
+`X_q = exp(α (log(H/q))^{1/4})`, `q_1` = the `X_q`-smooth part of q. Then
+`E(I; q, b) ≤ C·q_1·(H/q)·exp(−c (log(H/q))^{3/4})`.
+In particular
+(a) uniformly for all `b` and all `q ≤ exp(c' (log(H/q))^{3/4})`
+(e.g. `q ≤ (log x)^A` with `H ≥ exp((log log x)^{4/3+ε})`, or
+`q ≤ exp(c'θ^{3/4}(log x)^{3/4})` with `H ≥ x^θ`):
+`E(I; q, b) ≪ (H/q) exp(−(c/2)(log(H/q))^{3/4})`;
+(b) for every q all of whose prime factors exceed `X_q` (e.g. q prime,
+`exp((log H)^{1/4+ε}) < q ≤ H^{1−δ}`): `E(I;q,b) ≪ (H/q) exp(−c(log(H/q))^{3/4})`.
+
+*Proof.* As for Theorem 1, with `t = log X`. Since d is y-smooth and y < X,
+`(d, q_2) = 1`. (i) `d > D_0`: n ∈ I with `d' | n`, `n ≡ b (q)` lie in one
+class mod `lcm(d',q)` (or none), a multiple of `d'q_2`; count
+`≤ H/(d'q_2) + 1`, total `≤ (H/q_2) e^{-c_a t^3 + 4√B t^{3/2}} + yD_0`.
+(ii) `d ≤ D_0`: `n = dm ≡ b (q)` confines m to one class mod
+`q/(d,q)`, whose X-rough part is q_2; Lemmas 1.1 and 2.1 give
+`≤ (H/(d q_2)) e^{-c_a t^3} + e^{C_L t^4}`. Summing as before,
+`E(I;q,b) ≤ C_1 (H/q_2) e^{-c_a t^3/2} + e^{C_2 t^4}`.
+Choose `t^4 = log(H/q)/(2C_2)` (i.e. `α = (2C_2)^{-1/4}`), so the error is
+`(H/q)^{1/2} ≤ (H/q)e^{-t^3}` for large H/q, and `H/q_2 = q_1·H/q`. Small H/q is
+trivial. (a): `q_1 ≤ q ≤ e^{(c/2)(log(H/q))^{3/4}}`. (b): `q_1 = 1`. ∎
+
+Remark 2.2 (what is lost for smooth moduli). The factor q_1 is the honest
+cost of the crude bound `E[ν 1_{β(q_1)}] ≤ E ν`. Conditioning on n mod q_1
+fixes n mod primes of L_K and of P_y, i.e. it fixes the multiplier-fibre
+variable c of the void lemma (lem:void) *partially and adversarially*: the
+void bound is an average over c, with bad fibres (large Z(c)) having
+probability `e^{-ηy}` only. For q_1 = ∏_{y<p≤z} p and b ≡ 0 (q_1) the CRT
+majorant is genuinely large in that progression. (Such progressions are not
+dangerous for ES itself: all n ≡ 0 (q_1) inherit representability from any
+representable p | q_1; see §4.) Extending (a) to all q ≤ H^{1−δ} needs a
+fibre-uniform void bound, which the note's architecture does not provide —
+OPEN, not attempted further here.
