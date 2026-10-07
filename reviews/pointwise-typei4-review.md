@@ -95,3 +95,43 @@ but "three engines agree" (report item 4) is true only on overlaps: `typei4_pqse
 height-/d-bounded searches, so the **complete** ranges `L≥15` with `b=3`, `L=23–26`, and `b=4…7` at `L≤10` are
 single-engine (`typei4_lb`). Repair: state per range which engines replayed it; after this review, `L≤14, b≤3`,
 `L≤18, b≤2`, `L≤21, b≤1`, `L≤22, b=0` are two independent complete engines.
+
+### Author's engine `typei4_lb.c` (code read) — SOUND, one MINOR robustness defect
+It loops over odd `y<T7^b`, all factorisations `y=c'·g·δ` (`7∤c'`; `g,δ` unrestricted odd — correct, no hidden
+filter), odd `a` with exactly the two bounds of Lemma 3.1(iv) (monotone in `a`, so `break` is correct), then
+(iii), `P_1|z`, `7∤P_1`, `X` from (ii), `X` odd and `7∤X`. This is exactly Cor 3.2. **D6 (MINOR)**: `e=8c'Xh−1`
+and `N` are computed in signed `__int128` without overflow guard; for `L=26` the a priori ranges allow
+`X≈10²²`, `h≈10²²`, so `e`, `N` can exceed 2¹²⁷ (signed overflow is UB; with wrap-around the identity test
+`F·e==N` degenerates to a test mod 2¹²⁸, and `pr()` prints garbage for negative values). Only the output
+stage is affected (all filters stay in range), and all actual hits have `e<10¹⁴`, so no result changes. Repair:
+guard with a bit-length check or verify hits in Python (as `scripts/review_typei4_verify.py` does).
+
+### Example (42,32,71) and Prop 4.1 (scope) — SOUND as mathematics; label should be weakened
+Checked by hand: `N=1+4·42·32²=172033=71·2423`; `t=v_2(4·42·32)=8`; `m'=3|72`; `7|70`; `v_7(42)=1`;
+`−71≡185 (256)`, `185≡9 (16)`; `v_2(71+9)=4`, `v_2(2423+9)=7<8`, so neither divisor serves at `w=9` ✓.
+Also found independently by my `jsearch` (L=11), `nm` (all six splits of `L=11`) and the R72 engine at `w=185` ✓.
+Prop 4.1's levels `{11,13,14,16,18,19,20,21,22}`: I have independently produced fibre certificates at
+`11,13,14,16,18,19,20,21`; `22` (author: `(22,1)×2`) is being replayed (see below).
+**D7 (MINOR, label)**: "any argument … that uses the 2-adic component only through `w mod 16`" is not a
+mathematical object, so "PROVED" is a category error. The provable content is: *for each such L, the statement
+"no certificate at `x̂_w` of level L for every `w≡9 (16)`" is false* (explicit, CERTIFIED by direct verification).
+Repair: state it that way, keep the "fibre-uniform arguments fail" sentence as Assessment. Same for the sentence
+"for `L≤10` a fibre-uniform proof is not excluded": add "by the data `b≤7`".
+
+### Observation 1.5 / Assessment 4.2(d) (fundamental unit) — EVIDENCE label correct; confirmed
+`scripts/review_typei4_fundunit.py` (own continued-fraction code) on my 17 complete-search hits: in every case
+`ε=A+8k_o√d` **is** the fundamental unit of `ℤ[√d]` (norm of the fundamental unit is +1), hence also of `O_K`
+(`d≡1 (8)`: 2 splits, unit index 1). New small observation: the two `(14,0)` certificates `(c',δ)=(101,5)`,
+`(3,173)` have the **same** `d=13220193` and the same unit `A=87263`; they are two different splittings `PQ=d`
+of one unit — so "certificates ↔ units" is not injective (worth one sentence in Prop 1.2).
+`f=212983` (4.2(d)): `f+9=2¹⁴·13` ✓; the R72 engine confirms it is a fibre divisor, with minimal `t=35`
+(`(α,γ)=(0,33)`, `c'=337`, level 66), so ball radius `2^{−35}` ✓.
+
+### Assessment 4.2 (a), (c), (e) — acceptable as Assessment
+(a) From (1.1) mod 16, `QY²≡−1` and `Y²=49^b≡1`, so `Q≡15 (16)`; `PQ=d≡1 (8)` ⇒ `P≡7 (8)` ✓. Then `(2/P)=1` and
+exactly one of `c',P_1` is `≡3 (4)`, so both sides of the stated identity are 1 ✓ (so "holds identically" is right).
+(c) The Pell reformulation is correct: `A=32c'X²P_1−1`, `64dk_o²=E·49^b` with `E=64c'X²7^a(c'7^aδ²+T)` ✓. The
+"`O(1)` solutions by primitive divisors" claim is plausible (Bilu–Hanrot–Voutier for the Lucas sequence of
+`y`-coordinates) but no reference or argument is given; **D8 (MINOR)**: cite BHV (J. reine angew. Math. 539 (2001))
+and spell out that 7 can be a primitive divisor of at most one index, or label the sentence Assessment explicitly.
+(e) Fine as stated (`F≡3 (4)` for every fibre divisor, since `F≡7 (16)`).
