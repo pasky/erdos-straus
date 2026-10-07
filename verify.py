@@ -104,6 +104,10 @@ Blocks (dw)..(dz) (task O85) replay the documents merged after that (reviewers' 
   (dz) POINTWISE_MN3: Lemma 1.1 exact probabilities, Lemma 2.1 atoms, ET 3/5 product bound.
   (ea) POINTWISE_MORDELL17: R83 enumerator data counts, Comp 3.1 at levels <= 3 (R83 union + brute force),
        Lemma 1.3, Lemmas 5.1-5.2 (levels <= 5), §6 (a,b)-characterisation of P data (gcc).
+Blocks (eb)..(ec) (task O91) replay the 2026-10-07 round (reviewers' from-scratch code):
+  (eb) POINTWISE_TYPEI4: R89 complete engine on L <= 22, b <= 1 and L <= 10, b <= 3 (gcc; skipped otherwise),
+       Prop 1.2 / Cor 1.4 identities on all hits, example (42,32,71), Prop 4.1 levels, Lemma 3.6 (j = 1, b < 30);
+  (ec) EXCEPTIONAL_WEIGHTS2: Prop 5.3 premise (QNR l <= 2000, Jacobi M <= 300), §6 mass at Y <= 10^5.
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -21732,6 +21736,249 @@ def check_ea():
 
 print("\n== (ea) POINTWISE_MORDELL17: Lemma 1.3, Comp 3.1 (levels <= 3), Lemmas 5.1-5.2, §6 (a,b) char ==")
 check_ea()
+
+
+
+# ---------------------------------------------------------------- (eb)
+# POINTWISE_TYPEI4.md (Pell structure at x^_9; task O89, review R89).  Uses R89's from-scratch complete engine
+# review_typei4_jsearch.c (gcc; block skipped otherwise), review_typei4_verify.py (big-integer re-check against the
+# certificate definition), review_typei4_identities.py (fibre certificates by factoring N from the definition),
+# review_typei4_lemma36.py (sympy identities of Lemma 3.6), typei3_verify.py (stand-alone certificate checker).
+# Checked:
+# (1) Comp 3.4 / Cor 3.5 on a sub-range, complete at any height: R89 jsearch for L = 7..22, b <= 1, and
+#     L = 7..10, b <= 3: hits exactly at (11,0), (13,1), (14,0)x2,
+#     (16,0)x3, (18,0), (18,1), (19,0)x2, (20,0)x4, (21,0), (22,1)x2 with the F values of the Comp 3.4 table;
+#     none at L = 7..10, 12, 15, 17; every hit re-verified (big ints) and none is a certificate at x^_9
+#     (max(v2(F+9), v2(e+9)) < 2 + ceil(L/2));
+# (2) Prop 1.2 (forward and converse) and Cor 1.4 / Remark 1.6 / Lemma 3.1(iii) identities on every hit (inline);
+#     R89 brute force from the definition (c', X <= 45, L <= 14): 2 fibre certificates, 0 failures;
+# (3) Example (42,32,71): certificate at x^_185 (typei3_verify), not at x^_9; Prop 4.1: for each
+#     L in {11,13,14,16,18,19,20,21,22} a hit gives a certificate at x^_w, w := -F mod 2^t, w = 9 (16);
+# (4) Lemma 3.6: sympy identities ((3.1) = u (3.2) after m = rho j - lam u; quadratic; resultant C); R89 generic
+#     brute force; j = 1: no positive odd root m of (3.2) with lam in {2, 4} for b < 30, all odd a <= b, and
+#     direct search of (3.1) at j = 1, b <= 5 (all odd m with m 7^a < 8u): no solution.
+
+def check_eb():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts"))
+    from typei3_verify import check as t3check
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    if not cc:
+        print("eb SKIPPED (no C compiler for review_typei4_jsearch.c)")
+        return
+
+    def v2(x):
+        x, e = abs(x), 0
+        while x and x % 2 == 0:
+            x //= 2
+            e += 1
+        return e
+    runs = [(L, b) for L in range(7, 23) for b in (0, 1)] + [(L, b) for L in range(7, 11) for b in (2, 3)]
+    hits = []
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "js")
+        r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_typei4_jsearch.c")],
+                           capture_output=True, text=True, timeout=120)
+        assert r.returncode == 0, ("TYPEI4: compile failed", r.stderr[-1000:])
+        for L, b in runs:
+            r = subprocess.run([exe, str(L), str(b)], capture_output=True, text=True, timeout=300)
+            lines = r.stdout.splitlines()
+            assert r.returncode == 0 and lines and lines[-1].startswith(f"DONE L={L} b={b} "), ("TYPEI4 jsearch", L, b)
+            assert not any(ln.startswith("BUG") for ln in lines), ("TYPEI4 jsearch BUG line", L, b)
+            hl = [ln for ln in lines if ln.startswith("HIT")]
+            assert lines[-1].endswith(f"hits={len(hl)}"), ("TYPEI4 jsearch hit count", L, b)
+            hits += hl
+    r = subprocess.run([sys.executable, os.path.join(sdir, "review_typei4_verify.py")], input="\n".join(hits) + "\n",
+                       capture_output=True, text=True, timeout=120)
+    assert r.returncode == 0 and f"hits {len(hits)} bad 0 certificates at x9: 0" in r.stdout, ("TYPEI4 verify", r.stdout[-500:])
+    H = []
+    for ln in hits:
+        d_ = dict(kv.split("=") for kv in ln.split()[1:])
+        H.append(tuple(int(d_[x]) for x in ("L", "a", "b", "c'", "k'", "F", "e", "delta")))
+    cnt = Counter((h[0], h[2]) for h in H)
+    assert cnt == Counter({(11, 0): 1, (13, 1): 1, (14, 0): 2, (16, 0): 3, (18, 0): 1, (18, 1): 1, (19, 0): 2,
+                           (20, 0): 4, (21, 0): 1, (22, 1): 2}), ("TYPEI4 Comp 3.4 (L,b) pattern", cnt)
+    Fs = {(L, b): sorted(min(F, e) for L_, a, b_, c, k, F, e, dl in H if (L_, b_) == (L, b)) for L, b in cnt}
+    assert Fs[11, 0] == [71] and Fs[13, 1] == [204135] and Fs[14, 0] == [71, 2423] and \
+        Fs[16, 0] == [5335, 9479, 11159] and Fs[18, 1] == [6186839] and Fs[22, 1] == [330359, 21528935], \
+        ("TYPEI4 Comp 3.4 F values", Fs)
+    assert all(h[1] == 1 for h in H), "TYPEI4: hit with a > 1 (Obs 1.5 says a = 1)"
+    # (2) Prop 1.2 / Cor 1.4 / Remark 1.6 / Lemma 3.1(iii) on every hit, both orientations of the pair
+    for L, a, b, cp, X, F, e, _ in H:
+        T = 2 ** (L - 4)
+        if F > e:
+            F, e = e, F
+        co, ko = 7 ** a * cp, 7 ** b * X
+        n = co * ko
+        assert F * e == 1 + 2 ** (L + 2) * co * ko * ko and F % 16 == 7 and e % 16 == 7, ("TYPEI4 hit", L, F)
+        assert (e - F) % (16 * n) == 0 and ((e - F) // (16 * n)) % 2 == 1, ("TYPEI4 Lemma 1.1(ii) delta odd", L, F)
+        dl = (e - F) // (16 * n)
+        M = co * dl * dl + T
+        d = co * M
+        A = (F + e) // 2
+        assert A * A - d * (8 * ko) ** 2 == 1 and A % 32 == 31, ("TYPEI4 Prop 1.2 Pell", L, F)
+        assert (A + 1) % (32 * cp * X * X) == 0 and (A - 1) % (2 * 7 ** (a + 2 * b)) == 0, ("TYPEI4 Prop 1.2 shapes", L, F)
+        P1, Q1 = (A + 1) // (32 * cp * X * X), (A - 1) // (2 * 7 ** (a + 2 * b))
+        assert P1 * Q1 == M and P1 % 7 and Q1 % 7, ("TYPEI4 Prop 1.2 P1 Q1 = M", L, F)
+        P, Q, Y = cp * P1, 7 ** a * Q1, 7 ** b
+        assert 16 * P * X * X - Q * Y * Y == 1 and P * Q == d, ("TYPEI4 (1.1)", L, F)
+        A2 = 2 * Q * Y * Y + 1                       # converse: rebuild F, e from (P, Q, X, Y, delta)
+        assert A2 == A and (A2 - 8 * n * dl, A2 + 8 * n * dl) == (F, e), ("TYPEI4 Prop 1.2 converse", L, F)
+        D = 7 ** (a + b) * dl
+        g, h = 4 * P1 * X - D, 4 * P1 * X + D
+        assert cp * g * h - P1 == T * 7 ** (a + 2 * b) and g > 0, ("TYPEI4 Cor 1.4 (1.2)", L, F)
+        assert F == 8 * cp * X * g - 1 and e == 8 * cp * X * h - 1, ("TYPEI4 Remark 1.6", L, F)
+        y = cp * g * dl
+        assert 0 < y < T * 7 ** b and P1 == cp * g * g + 7 ** (a + b) * (2 * y - T * 7 ** b), ("TYPEI4 L3.1(iii)", L, F)
+    o = subprocess.run([sys.executable, os.path.join(sdir, "review_typei4_identities.py"), "45", "14"],
+                       capture_output=True, text=True, env=env, timeout=300).stdout
+    assert "found 2 by level {11: 1, 14: 1} fails 0" in o, ("TYPEI4 R89 brute-force identities", o[-300:])
+    # (3) Example (42,32,71) and Prop 4.1
+    ok, info = t3check(7, 185, 42, 32, 71)
+    assert all(ok.values()) and info["N"] == 172033 == 71 * 2423 and info["t"] == 8, ("TYPEI4 example", ok, info)
+    ok9, _ = t3check(7, 9, 42, 32, 71)
+    assert not ok9["F = -w mod 2^t"] and 185 % 16 == 9 and v2(71 + 9) == 4 and v2(2423 + 9) == 7, "TYPEI4 example at w=9"
+    lv41 = set()
+    for L, a, b, cp, X, F, e, _ in H:
+        for al in range(L % 2, L + 1, 2):         # every split alpha + 2 gamma = L
+            ga = (L - al) // 2
+            c, k, t = 2 ** al * 7 ** a * cp, 2 ** ga * 7 ** b * X, 2 + al + ga
+            for FF in (F, e):
+                w = (-FF) % 2 ** t
+                ok, _ = t3check(7, w, c, k, FF)
+                assert all(ok.values()) and w % 16 == 9, ("TYPEI4 Prop 4.1 certificate", L, al, FF)
+                ok, _ = t3check(7, 9, c, k, FF)
+                assert not all(ok.values()), ("TYPEI4: certificate at x^_9!", L, al, FF)
+        lv41.add(L)
+    assert lv41 == {11, 13, 14, 16, 18, 19, 20, 21, 22}, ("TYPEI4 Prop 4.1 levels", lv41)
+    # (4) Lemma 3.6
+    import sympy as sp
+    u, j, m, Aa, rho, lam, E = sp.symbols("u j m A rho lam E")
+    eq31 = rho * ((4 * u - j) ** 2 - 2 * m * j * Aa * u) - m * (4 * u + j)
+    eq32 = u * (16 * rho + 4 * lam) - j * (12 * rho + 2 * Aa * rho * m - lam)
+    sub = {m: rho * j - lam * u}
+    assert sp.expand(eq31.subs(sub) - u * eq32.subs(sub)) == 0, "TYPEI4 Lemma 3.6: (3.1) != u (3.2)"
+    quad = (2 * j * m - 16 * E) * lam * u ** 2 + (2 * j * m ** 2 - 16 * E * m + 8 * E * lam * j) * u + E * (12 * j * m - lam * j ** 2)
+    assert sp.simplify(quad + j * E * eq32.subs({rho: (m + lam * u) / j, Aa: u / E})) == 0, "TYPEI4 Lemma 3.6 quadratic"
+    A1 = 2 * Aa * lam * j + 16
+    Cc = -lam * j * (4 * Aa ** 2 * lam ** 2 * j ** 2 + 128 * Aa * lam * j + 1024)
+    rem = sp.rem(sp.expand(A1 ** 2 * (2 * Aa * j ** 2 * rho ** 2 + 12 * j * rho - lam * j) - Cc),
+                 sp.expand(A1 * rho + 4 * lam), rho)
+    assert sp.simplify(rem) == 0, "TYPEI4 Lemma 3.6 resultant C"
+    o = subprocess.run([sys.executable, os.path.join(sdir, "review_typei4_lemma36.py"), "300"],
+                       capture_output=True, text=True, env=env, timeout=300).stdout
+    assert "A1^2 Nn - C mod Dd (in rho) = 0" in o and "quad - (-j E (3.2)) = 0" in o and o.rstrip().endswith("failures 0"), \
+        ("TYPEI4 R89 Lemma 3.6 script", o[-400:])
+    nq = 0
+    for b in range(30):                            # j = 1: lam in {2, 4} (2 <= lam <= 4 + 1/u); rho = m + lam u
+        uu = 7 ** b
+        for a in range(1, b + 1, 2):
+            A7 = 7 ** a
+            for lm in (2, 4):                      # (3.2): 2A m^2 + (2A lam u + 12 - 16u) m + lam(12u - 1 - 16u^2 - 4u) = 0
+                q2, q1, q0 = 2 * A7, 2 * A7 * lm * uu + 12 - 16 * uu, lm * (12 * uu - 1 - 16 * uu * uu - 4 * uu)
+                disc = q1 * q1 - 4 * q2 * q0
+                assert disc >= 0
+                s = isqrt(disc)
+                if s * s == disc:
+                    for num in (-q1 + s, -q1 - s):
+                        assert not (num > 0 and num % (2 * q2) == 0 and (num // (2 * q2)) % 2 == 1), \
+                            ("TYPEI4 Lemma 3.6: j = 1 root", b, a, lm)
+                nq += 1
+    nd = 0
+    for b in range(1, 6):                          # direct (3.1) at j = 1, no Lemma 3.6 input
+        uu = 7 ** b
+        for a in range(1, b + 1, 2):
+            for mm in range(1, (8 * uu - 1) // 7 ** a + 1, 2):
+                den = (4 * uu - 1) ** 2 - 2 * mm * 7 ** a * uu
+                assert not (den > 0 and (mm * (4 * uu + 1)) % den == 0), ("TYPEI4 (3.1) j = 1 solution", b, a, mm)
+                nd += 1
+    print(f"eb jsearch (R89) L = 7..22, b <= 1 and L = 7..10, b <= 3: {len(H)} fibre certificates, pattern and F values "
+          f"of Comp 3.4, none at x^_9 (R89 verify); Prop 1.2 (+converse), Cor 1.4, Rem 1.6, L3.1(iii) on all; R89 brute "
+          f"force 2 certs 0 fails; example (42,32,71); Prop 4.1 levels {sorted(lv41)}; Lemma 3.6 sympy + R89 script, "
+          f"j = 1: {nq} quadratics (b < 30), {nd} direct (3.1) cases (b <= 5), no solution; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eb) POINTWISE_TYPEI4: Comp 3.4 sub-range (R89 engine), Prop 1.2/Cor 1.4, example, Prop 4.1, Lemma 3.6 ==")
+check_eb()
+
+
+
+# ---------------------------------------------------------------- (ec)
+# EXCEPTIONAL_WEIGHTS2.md (task O90, review R90): Prop 5.3 premise and §6 EVIDENCE.  Uses R90's from-scratch
+# review_weights2_slices.py plus an inline (sympy) re-computation from the (u, v) definition
+# R(M) = {-u/v mod M : gcd(u, v) = 1, 4uv | M + 1}.  Checked:
+# (1) Prop 5.3 premise: every class of R(l) is a quadratic non-residue for all primes l = 3 (4), l <= 2000
+#     (R90 script: R(l) = {-4D : D | ((l+1)/4)^2} from both definitions, Euler criterion; inline: Legendre symbol);
+#     Jacobi(r | M) = -1 for every class r of R(M), all M = 3 (4) <= 300 (the fact used by Lemma 2.3, R90 D3;
+#     inline restricted to composite M as well);
+# (2) §6: prime-slice mass S(Y) = sum_{l <= Y} |R(l)|/l = 2.773, 6.001, 10.491, 16.225 at Y = 10^2..10^5, i.e.
+#     S(Y)/(log Y)^2 = 0.1308, 0.1258, 0.1237, 0.1224 (R90 script and inline from the (u, v) definition).
+
+def check_ec():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    from sympy import divisors, legendre_symbol, isprime
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    o = subprocess.run([sys.executable, os.path.join(sdir, "review_weights2_slices.py"), "3000", "100000"],
+                       capture_output=True, text=True, timeout=300).stdout
+    assert "def!=D-form 0; |R|<(tau+1)/2 0;" in o and o.splitlines()[0].endswith("non-QNR classes 0"), ("W2 QNR", o[:400])
+    assert "Jacobi != -1: 0" in o, ("W2 Jacobi", o[:400])
+    exp = {100: ("2.773", "0.1308"), 1000: ("6.001", "0.1258"), 10000: ("10.491", "0.1237"), 100000: ("16.225", "0.1224")}
+    import re
+    got = {int(Y): (S_, rat) for Y, S_, rat in re.findall(r"Y=\s*(\d+) S=\s*([\d.]+) S/\(logY\)\^2=([\d.]+)", o)}
+    assert got == exp, ("W2 §6 mass (R90)", got)
+
+    def R(M):
+        B = (M + 1) // 4
+        out = set()
+        for q in divisors(B):
+            for uu in divisors(q):
+                vv = q // uu
+                if gcd(uu, vv) == 1:
+                    out.add((-uu * pow(vv, -1, M)) % M)
+        return out
+    nql = nqc = 0
+    for l in primerange(3, 2001):
+        if l % 4 == 3:
+            for r in R(l):
+                assert legendre_symbol(r, l) == -1, ("W2 Prop 5.3 premise", l, r)
+                nql += 1
+    ncomp = 0
+    for M in range(3, 301, 4):
+        if isprime(M):
+            continue
+        ncomp += 1
+        for r in R(M):
+            assert jacobi_symbol(r, M) == -1, ("W2 Jacobi composite", M, r)
+            nqc += 1
+    S, mass = 0.0, {}
+    marks = sorted(exp)
+    for l in primerange(3, 100001):
+        while marks and l > marks[0]:
+            mass[marks.pop(0)] = S
+        if l % 4 == 3:
+            S += len(R(l)) / l
+    mass[100000] = S
+    for Y, (S_, rat) in exp.items():
+        assert abs(mass[Y] - float(S_)) < 6e-4 and abs(mass[Y] / log(Y) ** 2 - float(rat)) < 6e-5, ("W2 §6 mass", Y, mass[Y])
+    print(f"ec R90 slices: QNR l <= 3000, Jacobi M <= 300, mass Y <= 10^5 reproduced; inline (u,v) definition: {nql} classes "
+          f"QNR (l <= 2000), {nqc} classes Jacobi -1 ({ncomp} composite M <= 300), S(Y)/(log Y)^2 = "
+          + ", ".join(f"{mass[Y] / log(Y) ** 2:.4f}" for Y in sorted(mass)) + f"; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ec) EXCEPTIONAL_WEIGHTS2: Prop 5.3 premise (QNR, Jacobi), §6 prime-slice mass ==")
+check_ec()
 
 
 print("\nall checks passed")
