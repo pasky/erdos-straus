@@ -199,12 +199,14 @@ The same method applies verbatim to `L=8,9,10` (`T=16,32,64`; for `L≥8` case A
 
 ## 4. What this says about higher reciprocity obstructions (Assessment, with one PROVED scope statement)
 
-**Proposition 4.1 (scope; PROVED).** Any argument excluding certificates at `x̂_9` of level `L` that uses the
-2-adic component only through `w mod 16` (as TYPEI3 Props 5.4, 5.5 do) fails for
-`L∈{11,13,14,16,18,19,20,21,22}`. *Proof.* Comp 3.4 lists, for each such `L`, a certificate at some `x̂_{w'}`,
-`w'≡9 (16)`, of level `L`; such an argument would exclude it too. ∎
+**Proposition 4.1 (scope; CERTIFIED by explicit examples).** For each `L∈{11,13,14,16,18,19,20,21,22}` the statement
+"no certificate of level `L` at `x̂_w` for every `w≡9 (16)`" is **false**. *Proof.* Comp 3.4 lists, for each such `L`, a
+certificate at some `x̂_{w'}`, `w'≡9 (16)`, of level `L` (each directly verifiable). ∎
+*(Assessment.)* Hence any argument excluding certificates at `x̂_9` of level `L` that uses the 2-adic component only
+through `w mod 16` (as TYPEI3 Props 5.4, 5.5 do) cannot work at these levels. (R89 repair D7, applied by reviewer:
+"any argument" is not a mathematical object, so the PROVED content is the falsity statement above.)
 So at `L≥11` the exact value `w=9` (at depth `≥t`) must enter, and for `L≤10` a fibre-uniform proof is
-**not** excluded (no fibre certificate known). In the Pell picture (Prop 1.2) the `w`-dependence is the
+**not** excluded by the data (no fibre certificate known with `v_7(k)≤7`; R89 repair D7). In the Pell picture (Prop 1.2) the `w`-dependence is the
 position of the unit `ε=A+8k_o√d` at a split prime `𝔭|2` of `ℚ(√d)`: `ε_𝔭≡−w` resp. `−w^{−1} (mod 2^t)`.
 
 **Assessment 4.2 (why residue symbols do not obviously help).**
@@ -216,7 +218,11 @@ obstruction has nothing to add there: the finite lists are simply computed (Comp
 (c) *Across levels the problem is exponential-Diophantine.* For fixed `(L,a,c',X,δ)`, (1.2) in the unknowns
 `(P_1,b)` says `(32c'X²P_1−1)² − E·(7^b)² = 1`, `E=64c'X²7^a(c'7^aδ²+T)`: a Pell equation whose `y`-coordinate
 must be a pure power of 7. By primitive divisors of the associated Lucas sequence this has `O(1)` solutions, i.e.
-`b` is bounded for fixed `(L,a,c',X,δ)`. But `c'`, `δ`, `X` are not bounded uniformly in `b` (Lemma 3.1 only gives
+`b` is bounded for fixed `(L,a,c',X,δ)`. (R89 repair D8, applied by reviewer: `E` is not a square (`a` odd). If
+`(x_1,y_1)` is the fundamental solution, then `y_n=y_1U_n` with `U_n=(ε^n−ε^{−n})/(ε−ε^{−1})` a Lucas sequence. By
+Bilu–Hanrot–Voutier (J. reine angew. Math. 539 (2001) 75–122), `U_n` has a primitive prime divisor for `n>30`.
+Such a divisor would be a prime `≠7` dividing `7^b` once `n` exceeds the rank of apparition of 7 (`≤8`). Hence
+`n≤30`.) But `c'`, `δ`, `X` are not bounded uniformly in `b` (Lemma 3.1 only gives
 `c'gδ<T7^b`). The natural tools for the whole tower are linear forms in logarithms (7-adic and archimedean),
 not residue symbols. The same holds 2-adically for the original tower in `L`.
 (d) *The 2-adic position at `x̂_9` looks random.* In the Pell picture the certificate unit is (in all 87 examples)
@@ -232,7 +238,7 @@ certificate divisors are `≡7 (16)`, i.e. `≡3 (4)`; the residue class of `−
 ## 5. Status and open problems
 
 * PROVED: Pell form (Prop 1.2); reduced equation (Cor 1.4, Remark 1.6); finiteness per `(L,b)` with explicit
-  bounds (Lemma 3.1, Cor 3.2); `L=7`, `7∤k` by hand (Prop 3.3); scope Prop 4.1.
+  bounds (Lemma 3.1, Cor 3.2); `L=7`, `7∤k` by hand (Prop 3.3). CERTIFIED: scope Prop 4.1 (R89 repair D7).
 * CERTIFIED (once replayed): no fibre certificate at `L∈{7,8,9,10}` with `v_7(k)≤7`, nor at `L∈{12,15,17}` with
   `v_7(k)≤3`; no certificate at `x̂_9` with `L≤22`, `v_7(k)≤3` (or `L≤26`, `v_7(k)≤1`) (Cor 3.5), at any height.
 * OPEN (the precise blocking point): the **7-adic tower** `b→∞` at fixed `L∈{7,…,10}`. Each `b` is a finite

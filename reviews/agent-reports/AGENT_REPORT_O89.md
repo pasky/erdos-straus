@@ -22,7 +22,7 @@ instead, with a precise statement of where it blocks.
    d-graded Pell, level/lb); only `lb` is complete. A second complete engine (review R89, `review_typei4_jsearch.c`)
    reproduces it on `L≤17, b≤3`; `L≤18, b≤2`; `L≤23, b≤1`; `L≤26, b=0`; `L≤10, b≤5`; the rest is single-engine
    (R89 repair D5, applied by reviewer).
-5. **Scope (PROVED, Prop 4.1).** For `L≥11`, no argument that sees `w` only mod 16 can work: the fibre is
+5. **Scope (CERTIFIED by explicit examples, Prop 4.1; R89 repair D7).** For `L≥11`, no argument that sees `w` only mod 16 can work: the fibre is
    inhabited, e.g. `(42,32,71)` is a certificate at every `w≡185 (256)`. The 34 "level-7 near misses" of TYPEI3
    Remark 5.6 have δ even (`F≡15 (16)`), so they are not fibre certificates at all.
 
