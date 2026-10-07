@@ -69,7 +69,7 @@ every window ≈ N/m times, but the *joint* count of several classes is forced o
 the lcm of their moduli. The brief's heuristic "moduli ≤ N cost their density" is
 therefore not a valid lower bound mechanism, and not a valid upper bound either: see §3.
 
-**Lemma 2.2 (forced mass is tiny; PROVED).** Let P′ be any set of primes ℓ ≡ 3 (4) with
+**Lemma 2.2 (forced mass is tiny — prime slices only; PROVED; scope fixed in R90 repair, D3).** Let P′ be any set of primes ℓ ≡ 3 (4) with
 `Π_{ℓ∈P′} ℓ ≤ N`. Then `Σ_{ℓ∈P′} p_ℓ ≤ (log N)^{o(1)}`.
 
 *Proof.* `|F_ℓ| ≤ τ(A²) ≤ ℓ^{o(1)}`, so `p_ℓ ≤ ℓ^{−1+o(1)}`. Among sets with
@@ -77,8 +77,31 @@ therefore not a valid lower bound mechanism, and not a valid upper bound either:
 smaller unused one) by an initial segment of primes ℓ ≤ y with `θ(y) ≤ log N`, i.e.
 y ≪ log N; then `Σ_{ℓ≤y} ℓ^{−1+ε} ≪ y^{ε} ≤ (log N)^{ε}` (any ε > 0). ∎
 
-The same holds for any subfamily with lcm ≤ N (composite moduli, |ℛ(M)| = M^{o(1)}). So
-period forcing never costs more than `(log N)^{o(1)}`, far below `(log N)^{3/4}`. The
+*(R90 repair, D3.)* For prime slices the cost `log(1/δ′) = −Σ log(1−p_ℓ) ≤ 2Σ p_ℓ` is
+`(log N)^{o(1)}`. For composite moduli the union of classes is not a product, and the earlier
+claim "the same holds for lcm ≤ N" is **withdrawn**. What is proved instead:
+
+**Lemma 2.3 (composite ℛ- and selector subfamilies; PROVED; R90 repair, D3).** Let 𝔊′
+consist of ℛ(M)-classes and selector classes `0 mod p`, with all moduli dividing L ≤ N.
+Then `δ′ ≥ (φ(L)/L)·2^{−ω(L)−1}`, so the forced cost is
+`log(1/δ′) ≤ ω(L) log 2 + log log log N + O(1) ≪ log N/log log N`.
+
+*Proof.* (i) *Jacobi sign.* Let M ≡ 3 (4), 4uv | M+1, gcd(u,v) = 1 (so gcd(uv, M) = 1).
+(−1|M) = −1. For an odd prime q | uv, M ≡ −1 (mod 4q), so Jacobi reciprocity gives
+`(q|M) = (M|q)(−1)^{(q−1)/2} = (−1|q)(−1)^{(q−1)/2} = 1`. If 2 | uv then 8 | M+1 and
+(2|M) = 1. Hence (uv|M) = 1 and `(−u/v | M) = (−uv|M) = −1`: every ℛ(M)-class has Jacobi
+symbol −1 (EVIDENCE: all 3647 classes for composite M ≤ 10³, R90 §B).
+(ii) Let n be a unit square mod L. For M | L, n is a unit square mod M, so (n|M) = 1 and n
+lies in no ℛ(M)-class; being a unit, n ≢ 0 mod p for p | L, so it lies in no selector class.
+(iii) Unit squares mod p^a have density (φ(p^a)/p^a)/2 for odd p and ≥ (φ(2^a)/2^a)/4 for
+p = 2; by CRT their density mod L is ≥ (φ(L)/L)2^{−ω(L)−1}. Finally ω(L) ≤ (1+o(1))log N/log log N
+and L/φ(L) ≪ log log N. ∎
+
+This is far below the 3/4 scale, which is all §§2–3 use. *Case-A classes* are not covered
+(they need their own non-residuosity statement; not checked). *CONJECTURE (Assessment
+basis: with all moduli ≤ e^𝓛 the Haar cost is ≍ 𝓛³ by CEILINGS_UNIFIED, 𝓛 ≍ log log N
+when lcm ≤ N):* for every subfamily of 𝔉_A with lcm ≤ N the forced cost is
+`(log N)^{o(1)}`. Not used below. The
 only known shift-uniform *upper* bounds for M are sieve bounds (large sieve, the 3/4
 note), which are position-blind (W1 §5).
 
@@ -113,7 +136,7 @@ claimed.) So: **yes, moduli between `exp((log N)^{3/8+ε})` and N push the densi
 below the 3/4 scale.**
 
 **But this does not refute (W).** `M(N) ≥ N·dens` (average over t), so the density is a
-*lower* bound mechanism only, and Lemma 2.1/2.2 show the window maximum is not forced to
+*lower* bound mechanism only, and Lemmas 2.1–2.3 show the window maximum is not forced to
 pay it. Concretely, for the prime-slice family 𝔊_ℛ with ℓ ≤ N^A, W1 Prop 5.1(d) gives
 `M(N) ≥ exp(c(log N)^{1/3})`, while `N·dens ≤ N exp(−c(log N)²) < 1`: the maximum over
 shifts beats the density by more than any power of N. The brief's splitting "moduli
@@ -251,8 +274,9 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
 2. Step (2) of the brief: **yes**, the moduli between `exp((log N)^{3/8+ε})` and N push the
    avoider *density* below `e^{−(log N)^{3/4+2ε}}` — already the prime slices do
    (Prop 3.1, BV). This would refute (W) **only if** windows were forced to pay the density;
-   they are not (Lemma 2.1–2.2: forcing reaches only subfamilies of period ≤ N, mass
-   `(log N)^{o(1)}`), and indeed M(N) ≫ N·dens·N^{100} for the prime slices (Cor 3.2).
+   they are not (Lemmas 2.1–2.3: forcing reaches only subfamilies of period ≤ N, of cost
+   `(log N)^{o(1)}` for prime slices and `≪ log N/log log N` for composite ℛ/selector
+   subfamilies — R90 repair, D3), and indeed M(N) ≫ N·dens·N^{100} for the prime slices (Cor 3.2).
 3. Step (1) of the brief **fails as specified**: random shifts restricted to a good class mod
    the small period give `E count ≤ N Π_L(1 − p_ℓ)` (Prop 4.1), i.e. a loss
    `e^{−c(log N)²}` from the medium primes; size-biasing/pair correlations recover only
