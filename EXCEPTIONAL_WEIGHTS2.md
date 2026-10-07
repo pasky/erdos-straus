@@ -172,8 +172,11 @@ each other and of t mod Q_rest, each of probability 1 − p_ℓ. ∎
 **Corollary 4.2.** Any proof of (W) by "choose t mod (small period) well, then average"
 must leave t uniform only on a set L of primes with `Σ_{ℓ∈L} p_ℓ ≤ C(log N)^{3/4}`.
 By Prop 3.1 the prime-slice mass in `(Y, N]` is ≫ (log N)² − (log Y)² (R90 repair, D5: only the lower bound is proved and only it is used), so for
-`Y ≤ N^{1−ε}` the translates of essentially all medium primes ℓ ∈ (exp((log N)^{3/8}), N^{1−ε}]
-must be chosen **non-uniformly, jointly**. In particular the planned estimate "expected
+`Y ≤ N^{1−ε}` the translates of the primes carrying all but O((log N)^{3/4}) of the mass in
+(exp((log N)^{3/8}), N] must be chosen **non-uniformly, jointly**. *(R90 repair, D7: the
+constraint is `Σ_L −log(1−p_ℓ) ≤ C(log N)^{3/4}`, a statement about mass, not about the number
+of primes — e.g. primes with (ℓ+1)/4 prime have |F_ℓ| = 3 and may all stay uniform at total
+mass ≪ log log N; the cutoff N^{1−ε} was cosmetic, only ℓ ≥ (N+1)|F_ℓ| are free.)* In particular the planned estimate "expected
 loss for random t restricted to a good class mod the small-moduli period" is
 `≥ (1 − e^{−c(log N)²})` of the window for ℓ ≤ N alone: step (1) as specified **cannot**
 succeed, with or without second-moment/Janson refinements (they control the variance
@@ -286,8 +289,8 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
    the small period give `E count ≤ N Π_L(1 − p_ℓ)` (Prop 4.1), i.e. a loss
    `e^{−c(log N)²}` from the medium primes; size-biasing/pair correlations recover only
    the self-overlap mass (Prop 4.3, Assessment + §6 EVIDENCE). A proof of (W) must choose
-   the translates of essentially all primes in `(exp((log N)^{3/8}), N^{1−ε}]` jointly and
-   non-uniformly (Cor 4.2).
+   the translates of the primes carrying all but O((log N)^{3/4}) of the mass in
+   `(exp((log N)^{3/8}), N]` jointly and non-uniformly (Cor 4.2; R90 repair, D7).
 4. The one global mechanism that kills all ℛ-classes at once (residuosity: every ℛ(ℓ) ⊆ QNR)
    caps at `√(N log N)` (Prop 5.3).
 5. For prime slices, (W) is exactly a **growing-dimension Hensley–Richards problem**
