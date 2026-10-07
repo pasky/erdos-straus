@@ -231,8 +231,10 @@ bounds `M_{𝔊_X}(H) = max_z #(𝒜_X ∩ (z,z+H])` (this observation is
 EXCEPTIONAL_WEIGHTS Prop 5.1(a), for primes; Theorem 1 adds composites and
 small primes via Lemma 1.2). Any argument that uses only "exceptional n avoid
 the classes of a family 𝔊" and the window length is bounded below by
-`M_𝔊(H)`. Hence, for such methods, *the short-window exponent at length H equals
-the long-interval exponent at N = H*: position cannot help, and whether
+`M_𝔊(H)`. Hence, for such methods, *the short-window bound at length H is controlled by
+the same quantity `M_𝔊(H)` as the long-interval bound at N = H* (R88 repair D2:
+not an equality — (0,H] is one shift, `M_𝔊(H)` the max over all shifts; a lower
+bound on `M_𝔊(H)` obstructs only the window problem). Whether
 `(log H)^{3/4}` is optimal for them is exactly the open question (W_𝔊) of
 EXCEPTIONAL_WEIGHTS at window length H. Known lower bounds for M (Prop 5.1(b),(d)
 there; random translates `N e^{−(log N)^{c}}`, greedy `e^{c(log N)^{1/3}}`, toy
