@@ -179,3 +179,63 @@ should say "full residuosity"; add the one-line partial version.
 (ℓ = 103: 9/103 = 0.087; ℓ = 1019: 27/1019 = 0.026); from 10⁴ on the values agree to the
 printed digits (10.491, 16.225, 23.165 vs 10.50, 16.23, 23.17). The author's script includes
 one prime beyond Y (or prints after the update). Harmless; fix the loop.
+(Addendum: the author's data file prints these rows as `Y~100`, `Y~1000`, i.e. at the first
+prime past the decade — so this is a labelling issue in the doc's prose, not a bug. Cosmetic.)
+
+## §A. Prop 3.1 written out (reviewer's re-derivation)
+
+Fix x large, A_ℓ = (ℓ+1)/4 for primes ℓ ≡ 3 (4).
+1. *Distinctness.* For D | A², D ≤ A: 4 ≤ 4D ≤ ℓ+1, a range of ℓ−2 < ℓ consecutive integers,
+   so the classes −4D are distinct; #{D | A², D ≤ A} = (τ(A²)+1)/2. Hence
+   `|F_ℓ| ≥ ½τ(A²)` (brute force ℓ ≤ 10⁴: 0 failures; |F_ℓ| = τ(A²) for 464 of 619 primes).
+2. *Divisor identity.* `τ(n²) = Σ_{q|n} 2^{ω(q)}` (multiplicative; at p^a: 1 + 2a = 2a+1).
+   This is the author's "2^{ω(q)} coprime pairs (u,v) with uv = q" (LS7 Lemma 1.1 bijection,
+   grouped by q = uv). Truncating, `τ(A²) ≥ Σ_{q|A, q≤x^{1/3}} 2^{ω(q)}`, and q | A ⟺
+   ℓ ≡ −1 (mod 4q).
+3. So `Σ_{x<ℓ≤2x} |F_ℓ| ≥ ½ Σ_{q≤z} 2^{ω(q)} Δ(x;4q)`, z = x^{1/3},
+   `Δ(x;4q) = π(2x;4q,−1) − π(x;4q,−1) = li-term/φ(4q) + E(x;4q)` with li-term ≍ x/log x.
+4. *Main term.* `Σ_{q≤z} 2^{ω(q)}/φ(4q) ≫ Σ_{q≤z, q odd} 2^{ω(q)}/q ≫ (log z)²`
+   (φ(4q) = 2φ(q) for odd q, φ(q) ≤ q). Contribution `≫ (x/log x)(log x)² = x log x`.
+5. *Error.* `Σ_{q≤z} 2^{ω(q)}|E(x;4q)| ≤ (Σ 4^{ω(q)}|E|)^{1/2}(Σ|E|)^{1/2}`. Trivially
+   `|E(x;4q)| ≪ x/q` (Brun–Titchmarsh not even needed: π(2x;4q,−1) ≤ x/(4q)+1 and the
+   main term is ≤ that), so the first factor is `≪ (x Σ_{q≤z} 4^{ω(q)}/q)^{1/2} ≪ (x(log x)⁴)^{1/2}`;
+   BV (moduli 4q ≤ 4x^{1/3} ≤ x^{1/2}(log x)^{−B′}) gives the second factor `≪_B (x(log x)^{−B})^{1/2}`.
+   With B = 10 the error is `≪ x(log x)^{−3} = o(x log x)`.
+6. Divide by ℓ ≤ 2x: `Σ_{x<ℓ≤2x} p_ℓ ≥ c log x`; dyadic sum gives `Σ_{ℓ≤Y} p_ℓ ≥ c(log Y)²`.
+   CRT-independence of distinct prime slices gives dens = Π(1 − p_ℓ) ≤ exp(−Σp_ℓ). ∎
+
+All steps check. *Ineffectivity:* the BV constant (via Siegel–Walfisz) is ineffective, hence
+c, Y₀ are ineffective, as labelled. (One could avoid BV with an effective level-of-distribution
+statement excluding one exceptional modulus, but nothing downstream needs effectivity.)
+The author's "Cauchy–Schwarz against `Σ 4^{ω(q)} x/φ(q) ≪ x(log x)⁴`" is exactly step 5.
+Constants do not secretly depend on parameters: z = x^{1/3} and B are absolute.
+
+## §B. Reproduction of §6 (independent code)
+
+`scripts/review_weights2_slices.py 10000 1000000` → `data/review_weights2/slices.txt`
+(2 s, 1 core): ℛ(ℓ) built both from the (u,v) definition and as {−4D}: identical for all 619
+primes ℓ ≡ 3 (4) ≤ 10⁴ (19551 classes), 0 non-QNR classes (Euler criterion); for all
+composite M ≡ 3 (4) ≤ 10³ every class has Jacobi symbol −1 (3647 classes) — this is the
+fact D3's repair needs. Mass and overlaps agree with the author's table (D13).
+`scripts/review_weights2_overlap.py 100000 20000` → `data/review_weights2/overlap.txt`
+(1 s): uniform-in-h overlap check and exact size-biased bound (D8, D9).
+No toy M(N) run was made (as the author says, N ≤ 10⁴ cannot separate exponents); Lemma 5.1
+is a two-line CRT argument which I re-derived and found correct.
+
+## §C. Lemma 1.1 core, Lemmas 2.1/2.2, 4.1, 5.1, 5.2 — re-derivation notes
+
+* Lemma 1.1: 𝔉_A is finite for fixed N and union-closed, M is antitone; correct. "admissible
+  classes" is undefined in EW2 (W1 says ℛ(M)-, Case-A, selector classes) — say so.
+  𝔊_X ∈ 𝔉_A (atoms are ℛ(kℓ)-classes, kℓ ≤ KX = N^{o(1)}; selectors mod p ≤ y).
+* Lemma 2.1: blocks (t + kQ′, t + (k+1)Q′] contain exactly Q′δ′ avoiders each; correct.
+* Lemma 2.2 (primes): g(ℓ) = C_ε ℓ^{−1+ε} decreasing ⇒ any k-set is dominated by the first
+  k primes, whose product is ≤ the k-set's product ≤ N; Σ_{ℓ≤y} ℓ^{−1+ε} ≪ y^ε/ε with
+  y ≍ log N; correct (constant depends on ε, hence "(log N)^{o(1)}").
+* Prop 4.1: dropping classes only increases count_t; independence of t+j mod ℓ across ℓ ∈ L
+  and from t mod Q_rest; correct.
+* Lemma 5.1: H := (𝒜 − t) ∩ [1,N] is admissible with c_ℓ = −t; conversely t ≡ −c_ℓ (CRT)
+  gives H + t ⊆ 𝒜; free primes: |H − F_ℓ| ≤ N|F_ℓ| < ℓ. Correct.
+* Prop 5.2: lower bound W1 5.1(b) + Mertens; upper bound Montgomery large sieve, L ≫ (log N)^κ
+  (needs κ_ℓ < ℓ, covered by "where defined"). Correct.
+* Prop 5.3 premise: for q | uv odd, ℓ ≡ −1 (4q) ⇒ (q|ℓ) = (ℓ|q)(−1)^{(q−1)/2} = (−1|q)(−1)^{(q−1)/2} = 1;
+  2 | uv ⇒ 8 | ℓ+1 ⇒ (2|ℓ) = 1; (−1|ℓ) = −1. Correct.
