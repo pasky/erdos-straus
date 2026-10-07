@@ -166,7 +166,7 @@ each other and of t mod Q_rest, each of probability 1 − p_ℓ. ∎
 
 **Corollary 4.2.** Any proof of (W) by "choose t mod (small period) well, then average"
 must leave t uniform only on a set L of primes with `Σ_{ℓ∈L} p_ℓ ≤ C(log N)^{3/4}`.
-By Prop 3.1 the prime-slice mass in `(Y, N]` is ≍ (log N)² − (log Y)², so for
+By Prop 3.1 the prime-slice mass in `(Y, N]` is ≫ (log N)² − (log Y)² (R90 repair, D5: only the lower bound is proved and only it is used), so for
 `Y ≤ N^{1−ε}` the translates of essentially all medium primes ℓ ∈ (exp((log N)^{3/8}), N^{1−ε}]
 must be chosen **non-uniformly, jointly**. In particular the planned estimate "expected
 loss for random t restricted to a good class mod the small-moduli period" is
@@ -222,7 +222,7 @@ denominator is `≫_κ (log N)^κ`. ∎
 
 So in bounded dimension random translates are optimal up to constants: the medium primes
 `(N^{1/β}, N]` cost only `Π(1−κ_ℓ/ℓ) ≍ β^{−κ}`. In the ES system the dimension grows
-(`Σ_{ℓ≤x} p_ℓ ≍ (log x)²` over primes, ≍ (log x)³ over all moduli), and the medium primes
+(`Σ_{ℓ≤x} p_ℓ ≫ (log x)²` over primes, PROVED; ≍ is Assessment/EVIDENCE, R90 repair D5; ≍ (log x)³ over all moduli), and the medium primes
 cost `exp(−c(log N)²)` under random translates (Prop 4.1), against the large-sieve limit
 `exp(−c(log N)^{2/3})` (primes) / `exp(−c(log N)^{3/4})` (all moduli). **(W) is precisely the
 question whether the large sieve of growing dimension is attained by an actual
@@ -251,7 +251,7 @@ adapted to the small, sparse sets F_ℓ (size ℓ^{o(1)}), not to half the resid
   is proved anyway);
 * prime-slice mass `S(Y) = Σ_{ℓ≤Y} p_ℓ`: 2.86, 6.03, 10.50, 16.23, 23.17, 26.90 at
   Y = 10², …, 10⁶, 3·10⁶, i.e. `S(Y)/(log Y)² = 0.135 → 0.121`, slowly decreasing and
-  consistent with Prop 3.1's ≍ (log Y)²;
+  consistent with Prop 3.1's ≫ (log Y)² and with a matching upper bound (the upper bound would need a Shiu/Nair–Tenenbaum bound for Σ τ(((ℓ+1)/4)²) over shifted primes; not proved — R90 repair, D5);
 * self-overlap mass `O_h(Y) = Σ_ℓ |F_ℓ ∩ (F_ℓ − h)|/ℓ` (h = 1, 2, 3, 6, 10): 0.6–1.0 at
   Y = 10², 1.8–2.9 at 3·10⁶, with decreasing increments per decade (O₁: +0.55, +0.49,
   +0.41, +0.35). It is a vanishing fraction of S(Y) (≈ 10% at 3·10⁶), consistent with the
@@ -288,7 +288,7 @@ N ≤ 10⁴ cannot separate exponents (log N ≤ 9.2, (log N)^{3/4} ≤ 5.3), so
 5. For prime slices, (W) is exactly a **growing-dimension Hensley–Richards problem**
    (Lemma 5.1): the largest F-admissible subset of an interval of length N. In bounded
    dimension the maximum is ≍ the density (Prop 5.2); in the ES dimension
-   (`Σ_{ℓ≤x}p_ℓ ≍ (log x)²` over primes) the density is `e^{−c(log N)²}`, the large sieve
+   (`Σ_{ℓ≤x}p_ℓ ≫ (log x)²` over primes; ≍ Assessment, R90 repair D5) the density is `e^{−c(log N)²}`, the large sieve
    bound `e^{−c(log N)^{2/3}}`, and (W) at the family's own exponent asks whether actual
    admissible sets attain the large-sieve limit (an inverse/attainment problem for the
    large sieve; the sieve-limit objects of KARY/LS are pseudo-distributions on the torus).
