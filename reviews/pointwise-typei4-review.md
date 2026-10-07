@@ -165,3 +165,51 @@ gcc -O2 -o /tmp/r89nm scripts/review_typei4_nm.c -lm && /tmp/r89nm 1000000000 7 
 grep HIT <jsearch output> | python3 scripts/review_typei4_fundunit.py
 gcc -O2 -o /tmp/r89fs scripts/review_typei3_fs.c && /tmp/r89fs 7 185 2 3000000  # R72 engine cross-check
 ```
+
+## Repairs applied / §3.6 check (round 1b)
+
+The author's new material after my start is **§3.6 "The 7-adic tower at L=7"** (Lemma 3.6) plus report checkpoint 2.
+(The parent calls it "§5"; in the document it is §3.6, and §5 is still the status list.)
+
+### §3.6 / Lemma 3.6 — SOUND (two MINOR repairs S1, S2)
+Re-derived by hand, and checked symbolically and by brute force (`scripts/review_typei4_lemma36.py`):
+* (3.1): with `j=4u−y`, `z=4u+j`, `c'g²=y²/m`, Lemma 3.1(iii) gives `mP_1=y²−2mj7^au`; `ρ=z/P_1` ✓. `mj7^a<8u` from
+  `P_1≥1` ✓. Case A is impossible at `L=7` (`7^a<4`) ✓.
+* `ρj≡m (mod u)` needs `7∤j` ✓. Substituting `m=ρj−λu` makes (3.1) equal to `u·(3.2)` (sympy: identity) ✓. `λ` is even
+  by parity ✓. `λ≥0` uses `m<8u/7` ✓. `λ=0` is excluded mod 7 (`b≥1`) and by size (`b=0`) ✓. `λ≤4j+j²/u` ✓.
+* Resultant: `A_1²Nn≡C (mod Dd)` with the stated `C` (sympy: the remainder in `ρ` is 0) ✓. The bound
+  `ρ<|C|/A_1=2λj(X+16)²/(X+8)`, `X=7^aλj`, is implied by the stated, looser bound ✓, and so is `7^{b−a}<2λj³+10j²+37j` ✓.
+* Quadratic: it equals `−j7^e·(3.2)` after `ρ=(m+λu)/j`, `7^a=u/7^e` (sympy) ✓. Its leading coefficient is non-zero by
+  parity ✓. Finiteness for fixed `j`: `e=b−a` is bounded on both sides (`j/8<7^e<…`), `m` and `λ` are bounded, so
+  there are finitely many non-zero quadratics, each with ≤2 roots `u`. Hence `b` is bounded ✓. (The proof leaves this
+  last step implicit. It is fine.)
+* Brute force over generic integers (`u≤2000` not necessarily a power of 7, `7^a∈{7,343}`, `gcd(j,u)=1`): all solutions
+  of (3.1) satisfy every conclusion that does not use `u=7^b`. There are 0 failures, but only 6 solutions, so this is a
+  weak test; the symbolic checks carry the weight. (With `7^a=1` the `λ≥0` step fails, as expected. It needs `a≥1`.)
+* **S1 (MINOR)**: the `j=1` example states the reductions "`7^am=8u−5` resp. `8u=7^a+4`" without derivation, and they
+  are **not** literal rewritings of (3.2). sympy gives an irreducible quadratic in `m`. They do follow, using
+  `s=7^am<8u`: with `t=s−8u<0` the equation is `2u(t+4)+m(t+6)=1` resp. `4u(t+4)+m(t+6)=2`, and the size and parity
+  cases leave only those two. The claim is correct; a large-range direct check (`b<60`, all odd `a`) finds no integer
+  root. Repair applied: derivation added.
+* **S2 (MINOR)**: "What remains at `L=7`" omitted the case `7|j`. It is excluded from Lemma 3.6, which the report
+  mentions but the document did not. Repair applied in §3.6 and §5.
+* The conic remark is correct: its discriminant is `4ρ²(μ²−16)`, which is non-square since `μ` is odd and `≥11`. Baker/S-unit
+  finiteness is correctly flagged as not explicit. Assessment-level; fine.
+* Consistency with computation: Lemma 3.6 + `j=1` agree with my complete search (no `L=7` solution for `b≤6`).
+
+### Repairs applied (each committed separately on `side-agent/review-typei4`, marked "R89 repair …, applied by reviewer")
+| defect | where | change |
+|---|---|---|
+| D1 | Lemma 1.1(ii) | "otherwise `F²≡1 (32)`" → "otherwise `v_2(e−F)≠4`" |
+| D2 | Prop 1.2 converse | added "`c'`, `X` odd" (with the counterexample mechanism) and `F>0` |
+| D3 | Prop 1.2 Remark (b) | RD statement restricted to this representation; "why the descent…" marked Assessment; added remark (c): certificates → units is not injective (the `L=14` pair) |
+| D4 | AGENT_REPORT_O89 item 3 | bound on `a` stated as the max of both cases |
+| D5 | after Cor 3.5; report item 4 | replication status per range (second complete engine R89 vs single-engine ranges) |
+| D6 | `scripts/typei4_lb.c` | overflow guard before computing `e`, `N` (aborts with a message); replay line gets `-lm`. Re-run `L=7,11,14` (`b=3`, `b=0`): unchanged output |
+| D7 | Prop 4.1, §5, report item 5 | restated as the falsity of "no level-`L` certificate anywhere in the fibre", label CERTIFIED; the "any argument" sentence is now Assessment |
+| D8 | Assessment 4.2(c) | BHV citation plus the primitive-divisor argument (`n≤30`) |
+| trivia | Prop 3.3, after Cor 3.5 | "`7^a<16` (both cases)" clarified; `2^{12}`→`2^{10}` |
+| S1, S2 | §3.6, §5 | `j=1` derivation; `7|j` listed as open |
+
+No defect remains open from round 1. The document's mathematical claims are unchanged in substance; only labels,
+hypotheses and replication statements were adjusted.
