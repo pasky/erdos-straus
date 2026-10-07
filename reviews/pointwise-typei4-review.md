@@ -80,21 +80,22 @@ every hit re-verified with big integers against the definition by `scripts/revie
 
 | range | my result | author (Comp 3.4) |
 |---|---|---|
-| `L=7…10`, `b≤3` | 0 | 0 |
+| `L=7,8`, `b≤6`; `L=9,10`, `b≤5` | 0 | 0 |
 | `L=11…14`, `b≤3` | (11,0) F=71; (13,1) F=204135; (14,0) F=71, 2423; (14,3) F=281104279 | identical |
-| `L=15…18`, `b≤2` | (16,0)×3 (F=5335, 9479, 11159); (18,0) F=1639; (18,1) F=6186839 | identical |
-| `L=19…22`, `b=0`; `L=19…21`, `b=1` | (19,0)×2, (20,0)×4, (21,0)×1; none else | identical |
+| `L=15…17`, `b≤3`; `L=18`, `b≤2` | (16,0)×3 (F=5335, 9479, 11159); (18,0) F=1639; (18,1) F=6186839; none at 15, 17 | identical |
+| `L=19…22`, `b≤1` | (19,0)×2, (20,0)×4, (21,0)×1, (22,1)×2 (F=330359, 21528935); none else | identical |
+| `L=23,24,25`, `b=0` | 6, 2, 3 solutions | 6, 2, 3 |
 
-In every case `max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` (max 8 at `L=20`, `t_min=12`), so none is a certificate at `x̂_9`.
+In every case `max(v_2(F+9),v_2(e+9))<2+⌈L/2⌉` (max 8; `t_min≥8`), so none is a certificate at `x̂_9`.
 Cross-check with the R72 f-graded engine `scripts/review_typei3_fs.c` at 12 values `w≡9 (16)` (`w=25,…,201`), all
 `f<3·10⁶`: its 14 certificate rows are exactly pairs from the list above (levels 11, 13, 14, 16) ✓.
-The ranges `L=7…10`, `b=4…7`, `L=12…22` with `b=3` beyond `L=14`, and `L=23…26` were **not** replayed by me (cost);
+Not replayed by me (cost): `L=7,8`, `b=7`; `L=9,10`, `b=6,7`; `L=18…22`, `b=2,3`; `L=23…26` except as listed;
 they rest on the author's `typei4_lb.c` alone, though its agreement with my engine on all overlaps is strong evidence.
 **D5 (MINOR, labels)**: the CERTIFIED label for Cor 3.5 is right in kind (finite computation + PROVED reduction),
 but "three engines agree" (report item 4) is true only on overlaps: `typei4_pqsearch` and `typei4_dgraded` are
 height-/d-bounded searches, so the **complete** ranges `L≥15` with `b=3`, `L=23–26`, and `b=4…7` at `L≤10` are
-single-engine (`typei4_lb`). Repair: state per range which engines replayed it; after this review, `L≤14, b≤3`,
-`L≤18, b≤2`, `L≤21, b≤1`, `L≤22, b=0` are two independent complete engines.
+single-engine (`typei4_lb`). Repair: state per range which engines replayed it; after this review, `L≤17, b≤3`,
+`L≤18, b≤2`, `L≤22, b≤1`, `L≤25, b=0`, and `L≤8, b≤6`, `L≤10, b≤5` have two independent complete engines.
 
 ### Author's engine `typei4_lb.c` (code read) — SOUND, one MINOR robustness defect
 It loops over odd `y<T7^b`, all factorisations `y=c'·g·δ` (`7∤c'`; `g,δ` unrestricted odd — correct, no hidden
@@ -111,7 +112,7 @@ Checked by hand: `N=1+4·42·32²=172033=71·2423`; `t=v_2(4·42·32)=8`; `m'=3|
 `−71≡185 (256)`, `185≡9 (16)`; `v_2(71+9)=4`, `v_2(2423+9)=7<8`, so neither divisor serves at `w=9` ✓.
 Also found independently by my `jsearch` (L=11), `nm` (all six splits of `L=11`) and the R72 engine at `w=185` ✓.
 Prop 4.1's levels `{11,13,14,16,18,19,20,21,22}`: I have independently produced fibre certificates at
-`11,13,14,16,18,19,20,21`; `22` (author: `(22,1)×2`) is being replayed (see below).
+`11,13,14,16,18,19,20,21`; `22` too (`(22,1)×2`, identical to the author's).
 **D7 (MINOR, label)**: "any argument … that uses the 2-adic component only through `w mod 16`" is not a
 mathematical object, so "PROVED" is a category error. The provable content is: *for each such L, the statement
 "no certificate at `x̂_w` of level L for every `w≡9 (16)`" is false* (explicit, CERTIFIED by direct verification).
@@ -119,7 +120,7 @@ Repair: state it that way, keep the "fibre-uniform arguments fail" sentence as A
 "for `L≤10` a fibre-uniform proof is not excluded": add "by the data `b≤7`".
 
 ### Observation 1.5 / Assessment 4.2(d) (fundamental unit) — EVIDENCE label correct; confirmed
-`scripts/review_typei4_fundunit.py` (own continued-fraction code) on my 17 complete-search hits: in every case
+`scripts/review_typei4_fundunit.py` (own continued-fraction code) on my first 10 complete-search hits (L≤18): in every case
 `ε=A+8k_o√d` **is** the fundamental unit of `ℤ[√d]` (norm of the fundamental unit is +1), hence also of `O_K`
 (`d≡1 (8)`: 2 splits, unit index 1). New small observation: the two `(14,0)` certificates `(c',δ)=(101,5)`,
 `(3,173)` have the **same** `d=13220193` and the same unit `A=87263`; they are two different splittings `PQ=d`
