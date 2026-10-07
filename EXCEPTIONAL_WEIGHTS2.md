@@ -145,3 +145,53 @@ The factor at ℓ is 1 when ℓ | h and otherwise `1 − (|F_ℓ| − |F_ℓ ∩
 `N·dens·e^{o(log N)}`: pair correlations do not help either. Higher moments
 `(E count^k)^{1/k} → M(N)` (k → ∞) recover M exactly, but only through the
 k-point structure of §5.
+
+## 5. Exact reformulation: a growing-dimension Hensley–Richards problem
+
+**Lemma 5.1 (PROVED).** For the prime-slice family 𝔊 = {F_ℓ : ℓ ∈ P} (P finite),
+
+    M_𝔊(N) = max{ |H| : H ⊆ [1,N], H is F-admissible },
+
+where H is *F-admissible* if for every ℓ ∈ P some residue c has `(c + F_ℓ) ∩ H ≡ ∅ (mod ℓ)`,
+i.e. `H − F_ℓ ≠ ℤ/ℓ`. Primes with `ℓ ≥ (N+1)|F_ℓ|` impose nothing (W1 Prop 5.1(b)).
+
+*Proof.* If H ⊆ 𝒜 − t then c = −t works for every ℓ. Conversely choose t ≡ −c_ℓ (mod ℓ)
+by CRT; then H + t ⊆ 𝒜. ∎
+
+(For composite moduli the residues c_M must be CRT-consistent; admissibility becomes a joint
+condition, and Lemma 5.1 is a lower bound for the subfamily of prime slices only.)
+
+For `F_ℓ = {0}` (all ℓ) this is the Hensley–Richards function ρ*(N), the largest admissible
+set in an interval of length N; there `π(N) ≲ ρ*(N) ≤ 2N/log N` (primes in (N, 2N] are
+admissible; Montgomery–Vaughan large sieve). The analogue for fixed dimension:
+
+**Proposition 5.2 (fixed dimension: max ≍ density; PROVED).** If `|F_ℓ| = κ_ℓ ≤ κ` for all ℓ
+and Σ_{ℓ≤x} κ_ℓ/ℓ = κ log log x + O(1), then `N·Π_{ℓ≤(N+1)κ}(1−p_ℓ) ≤ M(N) ≪_κ N(log N)^{−κ}`
+(where defined), and the lower bound is ≍_κ N(log N)^{−κ}.
+
+*Proof.* Lower: W1 Prop 5.1(b) and Mertens. Upper: the large sieve with Q = √N, whose
+denominator is `≫_κ (log N)^κ`. ∎
+
+So in bounded dimension random translates are optimal up to constants: the medium primes
+`(N^{1/β}, N]` cost only `Π(1−κ_ℓ/ℓ) ≍ β^{−κ}`. In the ES system the dimension grows
+(`Σ_{ℓ≤x} p_ℓ ≍ (log x)²` over primes, ≍ (log x)³ over all moduli), and the medium primes
+cost `exp(−c(log N)²)` under random translates (Prop 4.1), against the large-sieve limit
+`exp(−c(log N)^{2/3})` (primes) / `exp(−c(log N)^{3/4})` (all moduli). **(W) is precisely the
+question whether the large sieve of growing dimension is attained by an actual
+admissible set of integers (CRT translates), not just by a pseudo-distribution on the
+torus.** (The KARY/LS sieve-limit constructions are pseudo-distributions; W1 §5.)
+
+**Proposition 5.3 (quadratic alignment caps at √(N log N); PROVED).** All classes of every
+ℛ(ℓ) are quadratic non-residues mod ℓ (for 4uv | ℓ+1, every prime q | uv has ℓ ≡ −1 (4q),
+so (q|ℓ) = 1, (2|ℓ)=1 if 2 | uv, and (−1|ℓ) = −1). Hence any H with
+`H − c_ℓ ⊆ {squares mod ℓ}` for all ℓ ∈ P is F-admissible ("quadratic alignment": the
+mechanism that makes perfect squares avoiders at t = 0). But such H, for all primes
+ℓ ≡ 3 (4) up to √N, satisfies `|H| ≪ √(N log N)`.
+
+*Proof.* Large sieve with `ω(ℓ) = (ℓ−1)/2` excluded classes for ℓ ≡ 3 (4), ℓ ≤ √N:
+`|H| ≤ (N + Q²)/L`, `L ≥ Σ_{q≤√N} μ²(q)Π_{ℓ|q}ω/(ℓ−ω) ≥ #{q ≤ √N squarefree, all ℓ | q are
+≡ 3 (4)} ≫ √N/√(log N)` (Landau). ∎
+
+So the one global structure that makes *all* ℛ-classes vanish simultaneously (residuosity)
+is useless at the 3/4 scale: it caps at N^{1/2+o(1)}. A proof of (W) needs a structure
+adapted to the small, sparse sets F_ℓ (size ℓ^{o(1)}), not to half the residues.
