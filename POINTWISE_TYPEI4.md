@@ -60,3 +60,22 @@ Checked: `scripts/typei4_pell.py` on all 461 oriented non-square near misses of 
 **Observation 1.3 (EVIDENCE).** In the dump `ck≤10⁸`, the fibre certificates (δ odd) occur only at
 levels `L ∈ {11,13,14,16,18,19,…}` — none at `L=7,8,9,10,12`. The 34 "level-7 near misses" of TYPEI3
 Remark 5.6 all have δ even (`F≡15 (16)`); they are not fibre certificates at all.
+
+**Corollary 1.4 (the reduced equation; PROVED).** With `P=c'P_1`, `X=k'`, `D:=7^{a+b}δ`, (1.1) is
+equivalent to
+
+```
+c'·g·h − P_1 = K:=2^{L−4}·7^{a+2b},    g:=4P_1X−D,  h:=4P_1X+D,                     (1.2)
+```
+
+with `a` odd, `b≥0`, and `c',P_1,X,δ` odd positive, `7∤c'P_1X`.
+*Proof.* (1.2) reads `16c'P_1²X²−c'D²−P_1=K`, i.e. `P_1(16c'X²P_1−1)=7^{a+2b}(c_oδ²+2^{L−4})=7^{a+2b}M`.
+As `7∤P_1`, `Q_1:=(16c'X²P_1−1)/7^{a+2b}` is an integer, `P_1Q_1=M`, which is (1.1). Conversely (1.1)⇒(1.2)
+by the same computation. ∎
+Note `g>0` (as `c'gh=P_1+K>0`, `h>0`), so `h≥8P_1X−g`… and `4c'gP_1<c'gh=P_1+K`; hence for fixed
+`(L,a,b)` the solutions are finitely many and enumerable: `(4c'g−1)P_1<K` and `h(8c'g−1)≤8K+g`
+(from `g+h=8P_1X≥8P_1=8(c'gh−K)`). This is TYPEI2 Cor 2.5 in the present coordinates.
+
+**Observation 1.5 (EVIDENCE).** All fibre certificates found so far (`typei4_pqsearch 3·10⁵ 10⁴`, 87 solutions;
+`typei4_dgraded.py 5 24 3000`) use the **fundamental** unit (`m=1`), have `a=1`, `b≤1`, and level `L≥11`.
+Levels 12, 15, 17 are also absent so far.
