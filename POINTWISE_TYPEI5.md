@@ -76,14 +76,56 @@ and must be checked separately), and these residues are computed exactly along t
 * Regression: `typei5_dmod 5 24 3000` returns exactly the 8 hits of `typei4_dgraded.py 5 24 3000 6` (0.07 s);
   residues of `ε_f` agree with exact big-integer units for `d = 497, 21777, 13220193, 1234567, 991`.
 * `typei5_dmod 7 10 300000`: 466 876 fields, 6.8·10⁹ CF steps, **0 survivors** (71 s).
-* `L = 7,8,9,10`, `CD = 10⁶`: running.
+* `typei5_dmod L L 1000000`: `L=7`: 426 697 fields, 2.0·10¹⁰ CF steps, **0 survivors**; `L=8`: same counts, **0 survivors**
+  (≈15 min each); `L=9,10`: running.
 
 **Corollary 2.3 (CERTIFIED once replayed).** There is no fibre certificate (hence no certificate at `x̂_9`) of level
 `L ∈ {7,8,9,10}` with `c_oδ ≤ 3·10⁵`, **for any `v_7(k)`** (and any height `X = k'`).
 Together with TYPEI4 Cor 3.5 (`v_7(k) ≤ 7`, any `c_oδ`): a certificate at `x̂_9` of level `7…10` needs
 **both** `v_7(k) ≥ 8` **and** `c_oδ > 3·10⁵`.
 
-## 3. Plan of the remaining sections (working notes)
+## 3. The gap parametrisation at general `L`: one regime is finite, one is two-parametric (PROVED)
 
-* §4: why linear forms in logarithms do not close the tower at fixed `L` (b is a function of the unit of a
-  two-parameter family of fields; Lemma 3.6 of TYPEI4 = small-unit regime).
+Case B of TYPEI4 Lemma 3.1 (`2y < Tu`), `u = 7^b`, `j := Tu/2 − y > 0` (odd), `m := c'δ²`, `ρ := z/P_1`, so
+`ρP_1 = Tu/2 + j` and `mP_1 = y² − 2·7^a·m·u·j` (TYPEI4 Lemma 3.1(iii)).
+
+**Lemma 3.1 (PROVED; removes the hypothesis `7∤j` of TYPEI4 Lemma 3.6, all `L ≥ 5`).** `λ := (ρj − m)/u` is an integer.
+*Proof.* Mod `u`: `ρP_1 ≡ j` and `mP_1 ≡ y² ≡ j²` (`T` even). So `(ρj − m)P_1 ≡ 0`, and `7 ∤ P_1`. ∎
+
+**Lemma 3.2 (exact identities; PROVED).** Put `κ := 8·7^aλ` and `Δ := 8j·7^a·m + 6Tj − T²u`. Then
+(H) `ρΔ = 2λ(Tu + 2j)`, and, if `λ ≠ 0`,
+(Lin) `u·[κj(2Tj − Δ) − ΔT²] = Δ(Δ − 6Tj) − 4κj³`.
+*Proof.* Substitute `m = ρj − λu` into `ρ(y² − 2·7^amuj) = m(Tu/2 + j)` (= `mP_1·ρ = m·ρP_1`), divide by `u`, and
+collect; this gives (H). (Lin): from (H) `m = λ[u(2Tj−Δ) + 4j²]/Δ`, insert into the definition of `Δ`. ∎
+(Checked on all 9 relaxed solutions of `typei5_relax` at `L = 7, 9, 10`, including `λ < 0` and both signs of `2Tj − Δ`.)
+
+**Proposition 3.3 (PROVED).** Fix `L`. (i) `λ = 0` is impossible. (ii) If `λ < 0`, then `7^a|λ|j < T²/8` and `u` is
+bounded explicitly in terms of `(a,λ,j)`. (iii) If `λ > 0` and `Δ < 2Tj` (put `s := 2Tj − Δ ≥ 1`), then
+`7^a λ s < T³/4` and, with `g := 2T³ − sκ > 0`, `(gj − sT²) | R := 4κs³T⁶ + gs³κ(4T³+g)`, so `j ≤ (R + sT²)/g` and `u`
+is bounded: **this regime is a finite, explicit computation at each `L`**.
+(iv) If `λ > 0` and `Δ = 2Tj`, then `u = (2κj² + 4T²j)/T³`, which forces `b = v_7(j)`, `T ≡ 4 (mod 7)`.
+(v) If `λ > 0` and `σ := Δ − 2Tj ≥ 1`: `u < 4j²/σ`, and with `ω := 4j² − uσ ≥ 1`
+`κ·j·ω·σ = (2Tj + σ)[(2Tj − σ)² − ωT²]`; for fixed `(σ,κ)`, `((2T³+σκ)j + σT²) | 4κσ³T⁶ + (2T³+σκ)σ³κ(4T³+2T³+σκ)`,
+so `j`, `u` are bounded polynomially in `(σ, κ)` — but `σ` and `κ = 8·7^aλ` are **not** bounded.
+*Proof.* (i) (H) gives `uT² = 6Tj + κj²ρ`·(…); directly: `λ=0` in (H) forces `Δ = 0`, i.e. `T²u = 8j·7^am + 6Tj` with
+`m = ρj`; then `j | T²u`, `j = 7^r`, and comparing 7-adic valuations gives `r = b` and `T(T−6) = 8·7^{a+b}ρ`,
+impossible as `2^k ≢ 6 (mod 7)`. (ii) `m = ρj + |λ|u > u` and `P_1 ≥ 1` gives `2·7^amuj < y² < T²u²/4`, so
+`8·7^aj|λ| < T²`; in (Lin) with `x := |Δ|` (Δ<0 by (H)) `u = (x² + 6Tjx + 4|κ|j³)/(Kx − E)`, `K = T² − |κ|j > 0`,
+`E = 2|κ|Tj²`, and `Kx − E` divides the positive constant `E² + 6TjEK + 4|κ|j³K²`. (iii) In (Lin) the right side is
+`−4κj³ − Δ(6Tj − Δ) < 0` for `0 < Δ < 2Tj` (`Δ > 0` by (H)), so the bracket is negative: `j(2T³ − sκ) − sT² > 0`
+after writing `Δ = 2Tj − s`, whence `sκ < 2T³`. Then `u = N(j)/(gj − sT²)` with `N(j) = 4κj³ + (2Tj−s)(4Tj+s)`, and
+`g³N(sT²/g) = R ≠ 0`. (iv) Substitute `Δ = 2Tj`; `j·(2κj + 4T²) = T³u`, `j` odd ⇒ `j = 7^r`; mod 7 ⇒ `r = b`, then
+`κ7^b = T²(T−4)/2`… (v) `ρ > λu/j` and (H) give `Δ < 2Tj + 4j²/u`; the displayed identity is (Lin) rewritten with
+`uσ = 4j² − ω`, and the divisibility is the same polynomial-remainder argument as in (iii). ∎
+
+*Interpretation (Assessment).* At `L = 7`, `j ≈ 8u/μ` (`μ = 7^am + 4`), so regime (v) has `u ≈ σμ²/256`: `σ` measures
+how large the certificate unit `ν_0 ≈ 4Qu²` is compared with `d²`. Regime (iii) is the "unit linear in `μ`" (Richaud–
+Degert-like) regime and is finite. **What remains open at each fixed `L` is the two-parameter regime (v)**; for each
+fixed `(σ, a, λ)` it is finite (explicit), so the obstruction is exactly that `σ` and `κ` are unbounded — equivalently
+(Cor 1.2) that `7^b = u_1(d)` is the unit coefficient of a two-parameter family of fields `d = c_o(c_oδ² + T)`.
+Linear forms in logarithms bound exponents in a **fixed** field / fixed recurrence; here the field moves with two free
+parameters and no LFL bound applies. (Not a theorem; the PROVED content is Lemmas 1.1, 3.1–3.3.)
+
+## 4. Open / next steps
+* Implement regime (iii) (and (ii), (iv)) as a complete computation at `L = 7…10` (finite by Prop 3.3).
+* Regime (v): for `σ, λ` up to a bound — finite; full closure would need a new idea (a relation bounding `σ`).
