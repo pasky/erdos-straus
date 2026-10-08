@@ -59,3 +59,11 @@ In particular **no fibre certificate at `L ∈ {7,…,10}` with `c_oδ ≤ 3000`
 
 *Remark 1.4 (what Lemma 1.1 does not do).* It does not bound `b` at fixed `L`: it only says that `b` is read off from
 the unit of `d = c_o(c_oδ² + T)`. Assessment 4.2(c) of TYPEI4 (BHV, `n ≤ 30`) is superseded by `n = 1` (elementary).
+
+## 2. Plan of the remaining sections (working notes)
+
+* §3: a d-graded engine that needs no big integers: the generator `ν_0 = ε_f^k` of `G` computed **modulo `2^64` and
+  `7^22`** along the continued fraction of `√d`; Lemma 1.1 makes "certificate ⟺ `ν_0 = α²` of the Legendre shape with
+  `u = 7^b`" exact, and the 7-adic valuations `v_7(B) = b`, `v_7(A−1) = a+2b` are read off modulo `7^22`.
+* §4: why linear forms in logarithms do not close the tower at fixed `L` (b is a function of the unit of a
+  two-parameter family of fields; Lemma 3.6 of TYPEI4 = small-unit regime).
