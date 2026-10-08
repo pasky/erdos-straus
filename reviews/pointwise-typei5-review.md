@@ -46,3 +46,28 @@ Defects:
   `typei4_dgraded.py` uses `fund(d)` = least `x > 1` with `x² − dy² = 1` in `ℤ[√d]`, i.e. exactly `ε_f`, so the
   completeness transfer is valid.
 * Comp 1.3 relies on the replay of `typei4_dgraded.py 5 24 3000 6`; see the §2 checks below (my own engine).
+
+## Lemma 2.1, `typei5_dmod`, Comp 2.2 / Cor 2.3 — SOUND (CERTIFIED part replayed, cross-checked on small range)
+
+* Lemma 2.1 re-derived: `α² = (16PX²+Qu²) + 8Xu√d = (2Qu²+1) + 8Xu√d`. `A = 32PX² − 1 ≡ −1 (mod 32)` follows directly from (1.1),
+  without citing TYPEI4 Prop 1.2. `B = 8Xu ≡ 8 (mod 16)` (`Xu` odd). `v_7(B) = b` (`7∤X`). `v_7(A−1) = v_7(2·7^aQ_1·7^{2b}) = a+2b`
+  (`7∤Q_1`, since `Q_1 | M ≡ T (mod 7)`). `(A−1)/(2·7^{a+2b}) = Q_1 | M` ✓.
+* Code audit of `scripts/typei5_dmod.c`. The CF loop stops at the first `q = 1`. Then `p1/q1` is the convergent of index
+  `per−1`, with `p²−dq² = (−1)^per`, and it is squared when `per` is odd ✓. The residues mod `2^64` (wrap-around) and mod `7^22`
+  (u128 mulmod) are exact ✓. `ν_0` is the least power with `4 | B` (by L3 that is `k ≤ 2`) ✓. Each test is only a
+  **necessary** condition. Edge cases: `v_7(B) ≥ 22` gives `B7 = 0`, `vB := 22`, and the run then requires `vA ≥ 22`, which a
+  genuine certificate meets. If `a+2vB ≥ 22`, it also requires `vA ≥ 22` (necessary). The `Q_1` filter compares
+  `Q_1 mod 7^{22−sh}` with all divisors `q_1` of `M` and with `M/q_1`. That is necessary and exact when `7^{22−sh} > M`. If `sh > 18`,
+  the field is flagged `WEAK` and not filtered. Overflow: `d ≤ 10^{12} + 64·10^6`, and `m²`, `q·a` stay below `2^63` ✓. Loop range:
+  `c_o` odd with `v_7(c_o)` odd, `δ` odd, `c_oδ ≤ CD`, which covers all fibre certificates oriented with `δ > 0` ✓.
+  **No soundness defect found.**
+* From-scratch exact engine `scripts/review_typei5_engine.py`. It uses big-integer `ε_f` and `ν_0`, then for **every** divisor
+  `P_1 | M` it tests exactly whether `A+1 = 32c'P_1X²`, `A−1 = 2·7^aQ_1u²`, with `X` odd, `7∤X`, `u = 7^b`. Results:
+  - `L = 5..24`, `c_oδ ≤ 3000`: exactly the 8 certificates of Comp 1.3/2.2. They are identical to `typei5_dmod 5 24 3000`
+    (same `(L,c_o,δ)`, same `b`, `k = 1` in all).
+  - `L = 7..12`, `c_oδ ≤ 10⁴`: 16 980 fields, exactly 1 certificate (`L = 11`, `c_o = 21`, `δ = 7`). `typei5_dmod 7 12 10000`
+    has the same single survivor. **No certificate at `L = 7..10`.**
+  - `L = 13..26`, `c_oδ ≤ 6000`: see below.
+  So on these ranges the filter drops no certificate, and its only survivors are genuine certificates.
+* Replay of the 10⁶ runs (Comp 2.2, last bullet): not replayed in full (4 × 15 min). Partial replay: see below.
+* Cor 2.3 (combination with TYPEI4 Cor 3.5) ✓ as a logical statement. The label is fine once the 10⁶ runs are replayed.
