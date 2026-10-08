@@ -14,6 +14,8 @@ Reviewer: side agent R95 (branch `side-agent/review-m13b`). Reviewed author comm
 | Lemmas 2.1–2.4, Cor 2.5 (ES level, M_T≤N≤M_T², recoverability) | SOUND |
 | §4 enumeration (x* only in the two data, N≤4·10⁷) | SOUND (independently re-run to N≤4·10⁵; author boxes re-verified) |
 | §4 coverage table | SOUND-AFTER-REPAIRS (labelling, defect 1) |
+| §5 Comp 5.1 ((2,15), (2,1/7) in no II3/I3/I1 class, e≤10⁸) | SOUND (independently re-run; the λ-cap is vacuous, defect 5) |
+| Report: small-height k=4 survivors (2,15), (2,1/7), (2,−7/3) | SOUND as EVIDENCE |
 
 ## Claim-by-claim
 
@@ -81,6 +83,19 @@ T-free, `e_T=B`, `(ab)_T=N`, …; `review_m13b_enum.invert`) recover the datum: 
   level M_T ≤ 6324* (my independent run to 4·10⁵ certifies this for M_T ≤ 632), i.e. M_T ∈ {11,13,121,143,169,1331,1573,1859,2197}: x* lies in no T-generic class
   of those levels except the two of Thm 3.1.
 
+### §5 targeted search, Computation 5.1 — SOUND
+Own program `scripts/review_m13b_target.c` (different method: no discrete log, **no T-level cap**). Key
+observation: the box condition `e≡−u_q (mod q^{v_q(ad)})` forces `v_q(a)+v_q(d) ≤ v_q(e+u_q)` (and =0 if
+q∣e), so all T-parts are enumerated exhaustively for each `e=4a′d′m−1`. Conditions re-derived from
+ET Prop 1.9: II3 `e′∣4a²d+1`, `e_T∣u+4a²d`; I3 `f′∣4c²d+1`, `f_T∣u²+4c²d`; I1 `f∣4a²d+1`.
+* Validation (`review_m13b_target_validate.py`): 150/150 random II3/I3/I1 data from my §4 run recovered
+  at their box residue; at x* it finds (8,33,11999).
+* Runs at X=10⁸ (3.05·10⁹ (a′,d′,m) triples each): `(2,15)`: 0 hits; `(2,1/7)` (u₁₃=7⁻¹ mod 13¹⁶): 0 hits.
+  **Comp 5.1 confirmed.**
+* `review_m13b_points.py`: (2,15), (2,1/7), (2,−7/3) lie in none of the 209295 re-verified author boxes nor
+  my boxes; x* lies in exactly the two Thm 3.1 boxes. (EVIDENCE for the report's x** candidates.)
+* I did not review the U/I2 targeted program `m13b_target2.c` (Comp 5.1 does not use it).
+
 ## Defects
 
 1. **MINOR (labelling), §4 coverage table, rows k=2 and k=3.** Only k=4 is marked "incomplete: needs N
@@ -96,3 +111,7 @@ T-free, `e_T=B`, `(ab)_T=N`, …; `review_m13b_enum.invert`) recover the datum: 
 3. **MINOR, Lemma 1.2 (i).** "and q∤g" belongs to (ii), not (i).
 4. **MINOR, Lemma 2.1 hypothesis.** "with x(u) in the class" — only the T-free conditions are used;
    state the lemma for T-generic data (as Cor 2.5 does) to avoid suggesting a dependence on u.
+5. **MINOR, Comp 5.1 statement.** The cap `v_11(λ),v_13(λ)≤20` is vacuous for e≤10⁸: since
+   `v_q(ad) ≤ v_q(e+u_q) ≤ log_q(7e+1) < 8` (for u₁₃=1/7, `v_13(e+1/7)=v_13(7e+1)`), `v_q(λ)≤2v_q(ad)<16`.
+   *Repair:* state Comp 5.1 as "no II3/I3/I1 class with e≤10⁸" (no T-level restriction), citing this bound.
+   Also say explicitly that II2 and the U/I2 families are *not* covered by Comp 5.1, so x\*\* is EVIDENCE only.
