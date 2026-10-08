@@ -103,3 +103,30 @@ All five regimes re-derived by hand; the algebra was checked in sympy (same scri
 * **P2 (MINOR)**, (iii)/(v): say explicitly that the quotient `g²q(j)` has integer coefficients (see above). Otherwise
   "`(gj − sT²) | R`" reads as if `gcd(g, gj − sT²) = 1` were assumed.
 * Label: PROVED is appropriate. The "Interpretation" paragraph is correctly labelled Assessment.
+
+## Computation 3.4 — SOUND (independently reproduced)
+
+From-scratch implementation from my own derivation (I did not read or reuse `typei5_regimes.py`):
+* Regime (ii), `scripts/review_typei5_regimes.py`. For every `(a, λ<0, j)` with `8·7^a|λ|j < T²` and every `b` up to a
+  rigorous bound (`u ≤ N(x_max)`, `x_max = (C+E)/K`), it solves the quadratic `x² + (6Tj − uK)x + 4K_1j³ + uE = 0` exactly.
+  Cases: 1 / 5 / 35 / 189 at `L = 7/8/9/10`. 7-power solutions of (Lin): 0 / 0 / 2 / 4. All of them have `b ≤ 1` and all fail
+  integrality of `ρ`, of `P_1`, or positivity.
+* Regime (iii), `scripts/review_typei5_reg3.c`. For every `(a,λ,s)` with `7^aλs < T³/4`, it enumerates all divisors `e` of
+  `R = κs³(4T³−sκ)²` with `e ≡ −sT² (mod g)` and `j` odd, and tests `N(j)/e ∈ 7^ℤ` modulo two 61-bit moduli. A genuine solution
+  always passes, and `b ≤ 400` is asserted per case. Survivors are verified exactly. Divisor counts: 28 200 / 963 240 /
+  26 784 792 / 582 233 076 (the author has 28 320 / 9.6·10⁵ / 2.7·10⁷ / 5.8·10⁸; the small difference at `L = 7` is presumably
+  a `≤`/`<` boundary convention and harmless). Survivors: 0 / 0 / 2 / 4. All have `u ∈ {1, 7, 343}` and all fail the full
+  conditions (non-integral `ρ` or `P_1`, or `X` even).
+* Positive controls. Run with the target `u = 4003` (`L = 7`) resp. `u = 293` (`L = 9`) instead of 7-powers, the regime-(iii)
+  engine finds exactly the relaxed regime-(iii) solutions `(a,λ,s,j) = (1,2,8,31)` resp. `(1,2,440,73)`. With `u = 293` at
+  `L = 7` (a regime-(v) solution) it correctly finds nothing.
+* The full conditions (`m = c'δ²`, `y = c'gδ`, TYPEI4 Lemma 3.1(iii), `X` odd and prime to 7, `7 ∤ P_1`) are re-implemented in
+  `full_check`.
+* Relaxed brute force `scripts/review_typei5_relax.c` (TYPEI4 Cor 3.2 with `7^b` replaced by an arbitrary odd `u`; own loops), with
+  `u ≤ 6001 / 4001 / 2001 / 2001` at `L = 7/8/9/10`: 2 / 0 / 6 / 2 solutions, i.e. `L=7`: `u = 293, 4003`; `L=9`: `u = 5` (×3),
+  `37, 293, 1853`; `L=10`: `u = 293, 1159`. `scripts/review_typei5_classify.py` classifies them exactly as the author does:
+  4003 → (iii), 293(L7) → (v); `L=9`: 5 → (ii) and case A ×2, 37 → (ii), 293 → (iii), 1853 → (v); `L=10`: 1159 → (ii), 293 → (v).
+  In all 8 case-B solutions (H), (Lin) and the bound of the regime hold, and (iii) satisfies `e | R`.
+* **C1 (MINOR)**, §3, after Lemma 3.2: "Checked on all 9 relaxed solutions … at `L = 7, 9, 10`". My brute force gives 10 in the
+  same ranges: 8 in case B and 2 in case A. Repair: state the count per case.
+* Regime (iv): re-derived. Empty unless `L ≡ 0 (mod 3)`. At `L = 9` it forces `(a,b,λ) = (1,0,256)`, which is covered by TYPEI4 ✓.
