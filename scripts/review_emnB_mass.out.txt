@@ -1,0 +1,18 @@
+x=1000000 K=20 z=99 Hfl=1 #primes=70435
+m=   4 phi=  2 mu=0.67288 pred=0.67342 mu/pred=0.999 m*mu=2.6915 phi*mu=1.3458 dedup_loss=0.000
+m=   5 phi=  4 mu=0.59748 pred=0.59573 mu/pred=1.003 m*mu=2.9874 phi*mu=2.3899 dedup_loss=0.000
+m=   6 phi=  2 mu=0.44700 pred=0.44754 mu/pred=0.999 m*mu=2.6820 phi*mu=0.8940 dedup_loss=0.000
+m=   7 phi=  6 mu=0.43231 pred=0.43132 mu/pred=1.002 m*mu=3.0262 phi*mu=2.5938 dedup_loss=0.000
+m=   8 phi=  4 mu=0.33754 pred=0.33937 mu/pred=0.995 m*mu=2.7003 phi*mu=1.3502 dedup_loss=0.000
+m=   9 phi=  6 mu=0.32076 pred=0.32187 mu/pred=0.997 m*mu=2.8869 phi*mu=1.9246 dedup_loss=0.000
+m=  10 phi=  4 mu=0.27966 pred=0.27822 mu/pred=1.005 m*mu=2.7966 phi*mu=1.1186 dedup_loss=0.000
+m=  12 phi=  4 mu=0.22463 pred=0.22629 mu/pred=0.993 m*mu=2.6956 phi*mu=0.8985 dedup_loss=0.000
+m=  13 phi= 12 mu=0.23037 pred=0.22862 mu/pred=1.008 m*mu=2.9948 phi*mu=2.7644 dedup_loss=0.000
+m=  30 phi=  8 mu=0.09329 pred=0.09346 mu/pred=0.998 m*mu=2.7986 phi*mu=0.7463 dedup_loss=0.000
+m=  60 phi= 16 mu=0.04652 pred=0.04713 mu/pred=0.987 m*mu=2.7911 phi*mu=0.7443 dedup_loss=0.000
+m= 105 phi= 48 mu=0.02951 pred=0.02940 mu/pred=1.004 m*mu=3.0985 phi*mu=1.4164 dedup_loss=0.000
+m= 210 phi= 48 mu=0.01387 pred=0.01375 mu/pred=1.008 m*mu=2.9121 phi*mu=0.6656 dedup_loss=0.000
+
+real	1m19.758s
+user	1m22.035s
+sys	0m0.304s

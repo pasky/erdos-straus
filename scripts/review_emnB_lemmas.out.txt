@@ -1,0 +1,4 @@
+Lemma 1.1: 73497 instances, 0 failures
+Lemma 2.1: 302 values of m, Kmax=100000, failures=0
+  S_m(K)/((phi(m)/m) log K) in [1.052,1.261]  (m<=Kmax)
+  h_m/S_m in [0.637,0.988]
