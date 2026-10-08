@@ -76,3 +76,60 @@ where `S = Σ_{K≥K0 odd} 17^{θK+(1−K)/2}`:
 The data ratios `D_P/17^{0.4K}` match as well.
 Several table entries are rounded **up**: 87.9, 11.8, **1.41**, 0.569, 0.128, 273, 2.49. In particular the headline
 constant fails. At θ = 2/5, C = 1.41, K0 = 13: `T_P + T_Q = 0.677230 > ρ₁ = 0.677133`. See defect M1.
+
+## Claim (4): Lemma 5.1 and the §5 obstruction
+
+**Lemma 5.1, re-derived.** The lemma silently assumes `17 ∤ ab`. If `17 | ab`, then 17 is not a unit mod `m = 4ab`, and
+"residue classes mod ord_m(17)" is meaningless. Such pairs exist (`17 | a`, `17 | b`, `17 ∤ cd`), but their boxes are
+`≡ 1 (mod 17)` (M17 Lemma 5.1 remark), so they do not meet the cells and the gap is harmless. Under `17 ∤ ab`:
+* `0 < e ≤ a+b < 4ab`, so `e` is the least positive residue of `−17^K`, and `17^K ≡ −e` fixes K mod `ord_m(17)`.
+* There is one class per admissible `e`.
+* Nesting inside a class holds: same `(a,b,c)`, and only `d` varies with K.
+SOUND.
+
+It is also *weaker than available*. By M17 Lemma 5.1(ii), **every** box of the pair `(a,b)`, for every K and every class,
+is the ball of radius `17^{−(K+1)/2}` around `−a/b`. So all boxes of a pair are nested, and
+`T_P ≤ 2 Σ_{(a,b)} 17^{(1−K_min(a,b))/2}`, with a single term per pair. Pairs with an admissible `K ≤ 11` (or `≤ 13`)
+contribute nothing at all. This is not a defect of the lemma. But the sentence "This is the same sum as
+`Σ_K 17^{(1−K)/2} NB_P(K)`, only reorganised" is wrong: the Lemma 5.1 sum is ≥ the NB-sum, not equal to it (defect m4).
+
+**§5 prose.** Three statements in it need correction:
+* "Averaging over K gives no unconditional gain" (bold) is a heuristic judgement, not a proved statement. It is unlabelled
+  and should be an Assessment (m5).
+* "Pairs with `ord_{4ab}(17) = L` … live at levels `≲ L/2`" is not right. The first admissible K lies in
+  `[K_min, K_min + L)` with `K_min ≈ log_17(4ab) ≤ L`. That gives `K < 2L`, i.e. level `≲ L`, not `L/2` (m5).
+* "Mostly inside the exact range" is unproved (m5).
+
+**Assessment 5.2.** It is labelled correctly. I checked the following pieces.
+* The Nicolas–Robin form `τ(M) ≤ M^{1.5379 log 2/log log M}` is the standard one (I could not access the paper; this is
+  from memory).
+* The arithmetic is right, assuming `M ≈ n^{1.8}`: `1.066·1.8 ≈ 1.92`, `log log M > 19.2` ⇒ `K ≈ 4·10⁷`. That assumption
+  should be stated.
+* "the tail series converges only once" is loose wording: convergence never depends on a finite set of terms. What is
+  meant is that the terms are not summable to below ρ₁ before that K.
+
+More substantively, the "precise obstruction" ignores the extension of Lenstra's theorem by Coppersmith–Howgrave-Graham–Nagaraj
+(Math. Comp. 2008, from memory, not accessed): divisors of M in a class mod `s ≥ M^{1/4+ε}` number `O_ε(1)`. In the `ad` regime
+(`M ≍ n`, modulus `4ad`) this covers all pairs with `ad ≥ n^{1/4+ε}`. Those are almost all of the `≍ n^{2/5} log n` pairs.
+The remaining `n^{1/4+o(1)}` pairs are negligible against `n^{2/5}`. The `ac` regime is similar. So the honest bottleneck is
+different from the one stated:
+1. the `e`-regime, an average of `τ_3((n+e)/4)` over a short interval `e ≤ n^{2/5}` (Shiu type);
+2. the explicit constants (of CHN and of the short-interval divisor sums).
+These would at best give `D_P ≪ n^{2/5}(log n)^{O(1)}` with explicit but large constants. That needs `θ > 2/5`, and from
+the table a tiny constant at θ ≈ 0.45, or exact data up to large K. So the *conclusion* (no unconditional sterile point
+within reach) stands, but the stated obstruction should be revised (m6).
+
+Verdict (4): Lemma 5.1 SOUND (hidden hypothesis `17 ∤ ab`, harmless). §5 prose: SOUND-AFTER-REPAIRS (labels and
+imprecisions). Assessment 5.2: GAP in the obstruction analysis (CHN), conclusion unaffected.
+
+## Claim (5): Conjecture 4.2 label
+
+The heading reads "Conjecture 4.2 (explicit, EVIDENCE)". The statement is a CONJECTURE, and the data are EVIDENCE for it.
+The heading should read "Conjecture 4.2 (CONJECTURE; EVIDENCE: …)" (m7). The numbers are right:
+* `D_P/2K³` = 1.00, 0.59, 0.48, 0.38, 0.41, 0.31, 0.33. The bound is attained with equality at K = 1.
+* `D_Q/3k³` = 0.67, 0.90, 0.65, 0.69.
+* `2k³` fails for Q at k = 3 and k = 7.
+The Q part rests on four data points, one of which is at 90%. A pointwise conjecture with a tight constant is fragile under
+the random model, which predicts fluctuations. The theorem needs much less, e.g. `D_P, D_Q ≤ K⁵`: tail 0.035 ≪ ρ₁.
+Suggest stating the weaker, more robust form as the main conjecture, keeping 2K³/3k³ as an observation.
+Verdict: SOUND-AFTER-REPAIRS (label).
