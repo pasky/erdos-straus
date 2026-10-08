@@ -187,3 +187,52 @@ with `D_B = max(e² C_u, a_v)`. (iii) note (eq:termcount): `log T_abs ≤ π(y) 
 
 So the **whole m-dependence is the substitution `t³ → s = t³/m`** in the saving and in the
 Bonferroni depth, while the per-atom modulus cost `(1+κ)t` stays — hence the ledger `e^{O(t s)}`.
+
+## 5. Main theorem: E_m in arbitrary intervals, uniformly in m
+
+**Lemma 5.1 (divisor closure for m; PROVED, trivial).** If `n = d n'` and `n'` is
+m-representable, so is n (`m/n = Σ 1/(d x_i)`). Hence the `y`-rough part `n'` of an
+m-exceptional n is m-exceptional (n' = 1 is m-exceptional for m ≥ 4).
+
+**Theorem A (PROVED rel. note).** There are absolute `c, C > 0` (ineffective, as in the note)
+such that for **every** integer `m ≥ 4`, every real z and every `H ≥ 2`,
+`E_m((z, z+H]) ≤ C · H · exp(−c (log H)^{3/4} m^{−1/4})`.
+In particular `E_m(N) ≤ C N exp(−c (log N)^{3/4}/m^{1/4})` for all `N ≥ 2`, `m ≥ 4`
+(non-trivial for `m ≤ ε (log N)^3`).
+
+*Proof.* SHORT Theorem 1's proof with t³ → s. Fix m, put `𝓗 = log H`. Let X be chosen below
+(with `X ≥ X_a`, `m ≤ t³`, `s ≥ s_0`), `D_0 = e^{a_v s}`. Split m-exceptional `n ∈ I` by
+their y-smooth part d (SHORT Lemma 1.2; it is m-free).
+(i) `d > D_0`: SHORT Lemma 1.2(b),(c): `≤ H D_0^{−1/2} e^{4√y} + y D_0`.
+(ii) `d ≤ D_0`: `n' ∈ I/d` is m-exceptional and `(n',P_y) = 1` (Lemma 5.1), so `ν_X(n') ≥ 1`;
+SHORT Lemma 1.1 (it uses only that ν_X is a finite combination of congruence classes —
+Theorem 4.3(iii)) gives `≤ Σ_{d≤D_0}(2(H/d) e^{−a_v s} + T_abs) ≤ 2H(1 + a_v s) e^{−a_v s} + D_0 e^{C_L t s}`.
+Since `y ≤ Bs + 2`, `4√y ≤ a_v s/4` once `s ≥ s_1` (absolute). Altogether
+`E_m(I) ≤ C_1 H e^{−a_v s/4} + e^{C_2 t s}`, `C_2 = C_L + a_v + 1`.
+Choose `t = (m 𝓗/(2C_2))^{1/4}`, so `e^{C_2 t s} = e^{C_2 t⁴/m} = H^{1/2}` and
+`s = t³/m = (𝓗/(2C_2))^{3/4} m^{−1/4}`. The side conditions read
+`t ≥ log X_a`, `m ≤ t³ ⟺ m ≤ (𝓗/(2C_2))³`, `s ≥ max(s_0,s_1)`; each fails only if
+`𝓗^{3/4} m^{−1/4} ≤ C_3` (absolute) — note `t ≥ m^{1/4}·(stuff)` and `m ≤ t³ ⟸ s ≥ 1` since
+`s ≥ 1 ⟺ t³ ≥ m` — and then the claim is trivial (`E_m(I) ≤ H + 1 ≤ 2H ≤ C H e^{−c C_3}`).
+Otherwise `E_m(I) ≤ C_1 H e^{−(a_v/4) s} + H^{1/2} ≤ C H exp(−c 𝓗^{3/4} m^{−1/4})`
+(`H^{1/2} ≤ H e^{−s}` as `s ≤ 𝓗^{3/4} ≤ 𝓗/2` for 𝓗 large). ∎
+
+**Theorem B (progressions; PROVED rel. note).** SHORT Theorem 2 holds verbatim for E_m with
+saving `exp(−c (log(H/q))^{3/4} m^{−1/4})` and `X_q = exp((m log(H/q)/(2C_2))^{1/4})`:
+`E_m(I; q, b) ≤ C q_1 (H/q) exp(−c (log(H/q))^{3/4} m^{−1/4})`, `q_1` the X_q-smooth part of q.
+*Proof.* SHORT Lemma 2.1 uses only that all primes of 𝓜 are ≤ X (true: ℓ ≤ X, primes of
+`L_K` ≤ K, of `P_y` ≤ y); the rest is the proof of Theorem A with SHORT §2's bookkeeping. ∎
+
+**Corollary C (primes; PROVED rel. note).** For `x ≥ 3`, `H ≤ x` with
+`(log H)^{3/4} m^{−1/4} ≥ (2/c) log log x`:
+`#{p ∈ (x, x+H] : p m-exceptional} ≪ (H/log x) exp(−(c/2)(log H)^{3/4} m^{−1/4})`.
+E.g. for fixed m: `H ≥ exp(C_m (log log x)^{4/3})`, `C_m ≍ m^{1/3}`.
+*Proof.* As SHORT Cor. 3.1. ∎
+
+**Comparison with Pomerance–Weingartner Thm 1.3** (`N/exp(C L^{2/3} φ(m)^{−1/3})`,
+`4 ≤ m ≤ L²`). Ratio of exponents: `L^{3/4} m^{−1/4} / (L^{2/3} φ(m)^{−1/3}) =
+L^{1/12} φ(m)^{1/3} m^{−1/4} ≫ (Lm)^{1/12}/(log log 3m)^{1/3} → ∞`. So Theorem A is stronger
+for every m in PW's range, and non-trivial in the wider range `m ≤ εL³` (PW: `m ≤ εL²`).
+Heuristic reason for the shape: both arguments balance a fibre mass μ against a ledger
+`e^{O(tμ)}` with `tμ ≍ L`; Vaughan/PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
+here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
