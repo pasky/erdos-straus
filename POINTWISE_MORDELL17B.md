@@ -78,13 +78,13 @@ primes `p ≡ 1 (24)` with `(p/17) = −1` and `(p/q) = 1` for `q = 5, 7, 11, 13
 *Proof.* Lemma 1.1, Computation 3.1, and `NB ≤ 2D`. The two series are summed numerically, with a geometric remainder bound. ∎
 
 In words: **ET's own exponent 2/5, with constant 1.41 and no `o(1)`, from K = 13 on, suffices.** For Q, ET's exponent 3/5
-with constant 1 suffices; even `17^{3k/4}` gives `T_Q = 0.076`. For comparison, the data give `D_P(K)/17^{0.4K}` = 0.39, 0.10,
-0.026, 0.0056, 0.0013, 3.2·10⁻⁴ (K = 1, …, 11). Polynomial versions of the hypothesis:
+with constant 1 suffices; even `17^{3k/4}` gives `T_Q = 0.076`. For comparison, the data give `D_P(K)/17^{0.4K}` = 0.64, 1.07,
+0.42, 0.093, 0.022, 0.0032 (K = 1, …, 11). So the needed constant 1.41 is exceeded by none of the computed K. Polynomial versions of the hypothesis:
 `D_P, D_Q ≤ 2K³` gives `T_P+T_Q = 4.0·10⁻⁴`, `≤ K⁴` gives `2.6·10⁻³`, and `≤ K⁵` gives `3.5·10⁻²`, all far below ρ₁.
 
-**Conjecture 4.2 (explicit, EVIDENCE).** `D_P(K) ≤ 2K³` for all odd K, and `D_Q(k) ≤ 2k³` for all odd k.
-Data: D_P = 2, 32, 121, 258, 604, 836 against 2K³ = 2, 54, 250, 686, 1458, 2662; D_Q = 2, 73, 245, 707 against
-2, 54, 250, 686 (k = 1, 3, 5, 7). **Correction:** this fails at k = 3 and k = 7, so take `D_Q(k) ≤ 3k³`
-(3, 81, 375, 1029); then `T_Q < 10⁻⁶`. With Conjecture 4.2 thus amended, Theorem 4.1 holds with an enormous margin.
+**Conjecture 4.2 (explicit, EVIDENCE).** `D_P(K) ≤ 2K³` for all odd K, and `D_Q(k) ≤ 3k³` for all odd k.
+Data: D_P = 2, 32, 121, 258, 604, 836 against 2K³ = 2, 54, 250, 686, 1458, 2662 (K = 1, …, 11); D_Q = 2, 73, 245, 707
+against 3k³ = 3, 81, 375, 1029 (k = 1, …, 7). (`2k³` fails for Q at k = 3 and k = 7.) Under Conjecture 4.2,
+`T_P + T_Q < 4.1·10⁻⁴ ≪ ρ₁`, so Theorem 4.1 applies with an enormous margin.
 The random discrete-log model of M17 §6 (`17^K` equidistributed mod `f = 4ast−1`) predicts
 `D_P(K) ≍ K³`. The conjecture is a *quantitative* form of it, for one base and prime-power ES denominators.
