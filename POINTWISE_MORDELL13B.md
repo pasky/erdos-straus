@@ -198,6 +198,12 @@ within the following ranges:
 
 In all cases the T-exponents are `≤20` (P/Q) resp. `|i|,|j|≤12` (U/I2), and the height is otherwise
 unrestricted. For comparison, x* is caught at `e=11999`.
+(R95 repair, applied by reviewer.) For P/Q the cap `≤20` is vacuous in these ranges.
+For II3/I3/I1, the box condition `e≡−u_q (mod q^{v_q(ad)})` with `u_q=p/s` forces `v_q(ad)≤v_q(se+p)≤7`.
+For II2, `a_Td_T∣(f+1)/(4a'd')≤7.5·10⁶` gives `v_q(a_Td_T)≤6`. Hence `v_q(λ)≤14`, and the P/Q parts of
+Computation 5.1 hold with no restriction on the T-level (independently confirmed for II3/I3/I1 at (2,15) and (2,1/7),
+`e≤10⁸`, by `scripts/review_m13b_target.c`, which has no T-cap).
+
 *Consequence (PROVED from 5.1, as POINTWISE_MORDELL §4).* Every finite ET covering of the Mordell-hard primes
 with `(p/11)=(p/13)=−1` contains a class outside these ranges. Indeed the point `x**=x(2,15)` lies in
 `Σ_13` (main) (`x**_q=1` for q∉T), and Dirichlet applies near it.
