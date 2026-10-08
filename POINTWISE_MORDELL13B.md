@@ -113,3 +113,44 @@ covering of `Σ_13` (main)?" is reopened; x* is no longer evidence against it.
 *Independent check:* `scripts/m13b_check_hit.py` uses the stand-alone sympy engine of `mordell_check.py`
 (ET coordinates rebuilt from the paper, not mordell_lib): polynomial identity holds, `x,y,z>0` for `n>1`,
 and `x,y,z` are integer-valued on `t+Mℤ`, `t` = CRT lift of x* (`t≡1 (M')`, `t≡2 (M_T)`), for both classes. OK.
+
+## 4. Complete enumeration by ES level (CERTIFIED, one engine + brute-force cross-check)
+
+`scripts/m13b_es.c N` lists all `x≤y≤z` with `4/N=1/x+1/y+1/z` (divisor method; equal to an exact-fraction
+brute force for N<90 and N=121,143,169,1331). `scripts/m13b_invert.py` applies the inverse maps of
+Lemmas 2.1–2.4 to every permutation and unitary split, and tests each candidate exactly (T-free class
+condition via `mordell_lib`, then `r≡2 (mod M_T)`). `scripts/m13b_run.sh 40000000` covers all 32
+T-units `1<N≤4·10⁷`.
+* *Completeness cross-check:* `scripts/m13b_validate.py`: of the 1306 brute-force T-generic boxes of
+  POINTWISE_MORDELL §2 (`mordell_tgen.py 1000000 13 3 11,13`, all families, `M≤10⁶`), the 1157 whose
+  witness has ES level `≤3·10⁶` all appear in the engine output (0 missing). (A first run had 374 missing
+  P-type boxes due to an `a_T` loop bug; found by this check and fixed.)
+* *x\*:* among all T-generic data of ES level `N≤4·10⁷` exactly two contain x\*: the II3 and I2 data of
+  Theorem 3.1 (level 1859; they reappear at `N=1859·13^k` via dilation). **No other datum through
+  `4·10⁷`.**
+* *Coverage of the cell `(x_11,x_13)≡(2,2) (mod 11,13)`* (`scripts/m13b_cell.py k`, boxes with
+  `M_T∣11^k13^k` and ES level ≤ 4·10⁷; all other non-residue cells of `x_13` are fully covered at k=3,
+  `scripts/m13b_cover.py`):
+
+| k | uncovered subcells of the (2,2) cell | fraction | distinct `x_11 mod 11^k` × `x_13 mod 13^k` |
+|---|---|---|---|
+| 2 | 15 / 143 | 10.5% | 3 × 5 (exact product) |
+| 3 | 970 / 20449 | 4.74% | 20 × 51 = 1020 |
+| 4 | 135639 / 2924207 | 4.64% (incomplete: needs `N` up to `F²`) | 216 × 661 = 142776 |
+
+  Before this work: 24.8% at k=4 (POINTWISE_MORDELL §4.1). So the (2,2) cell is still **not** covered.
+  Sterile candidates, if any, are now off x*; at k=2 the survivors are
+  `x_11 mod 121 ∈ {2,57,79}`, `x_13 mod 169 ∈ {15,28,54,132,145}` (EVIDENCE).
+
+## Replay
+
+```
+gcc -O2 -o /tmp/o95/es scripts/m13b_es.c
+PYTHONPATH=scripts uv run python scripts/m13b_table_check.py 14000 2          # Lemma 1.1, ~10 min
+PYTHONPATH=scripts uv run python scripts/m13b_check_hit.py                    # Thm 3.1 (independent sympy engine)
+PYTHONPATH=scripts uv run python scripts/m13b_verify_hit.py                   # Thm 3.1 (mordell_lib, prime member)
+scripts/m13b_run.sh 40000000 /tmp/o95/run                                     # §4, ~25 min, one core
+PYTHONPATH=scripts uv run python scripts/m13b_validate.py /tmp/o80_boxes_1000000_11,13_3.pkl /tmp/o95/run 3000000
+PYTHONPATH=scripts uv run python scripts/m13b_cover.py 3 /tmp/o95/run
+for k in 2 3 4; do PYTHONPATH=scripts uv run python scripts/m13b_cell.py $k /tmp/o95/run; done
+```
