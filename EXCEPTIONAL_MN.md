@@ -236,3 +236,37 @@ for every m in PW's range, and non-trivial in the wider range `m ≤ εL³` (PW:
 Heuristic reason for the shape: both arguments balance a fibre mass μ against a ledger
 `e^{O(tμ)}` with `tμ ≍ L`; Vaughan/PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
 here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
+
+## 6. Consequence: the Schinzel transition is at log n = m^{1/3+o(1)}
+
+Pomerance–Weingartner (arXiv:2511.16817v2, Thm 3.1 and its proof, p. 3–4 of `sources/pw.txt`)
+show: with `log N = (φ(m)/(C log² m))^{1/3}`, *most primes* `p ∈ (N/2, N]` are m-exceptional
+(m large). Their Thm 1.3 gives the converse only for `log N ≫ m^{1/2}(log m)^{3/2}`, and they
+write (p. 2): "between exp(m^{1/3}) and exp(m^{1/2}) there is a transition from 'usually false'
+to 'usually true'"; their Poisson heuristic (p. 3) predicts the transition at `exp(m^{1/3+ε})`.
+
+**Corollary D (PROVED rel. note).** There is an absolute `C_D` such that for all `m ≥ 4`
+and all N with `log N ≥ C_D m^{1/3} (log m)^{4/3}`:
+`#{p ∈ (N/2, N] : p prime, m-exceptional} ≤ N/(log N)² = o(π(N) − π(N/2))`;
+and for integers, `E_m(N) = o(N)` as soon as `log N / m^{1/3} → ∞`.
+
+*Proof.* Theorem A with I = (N/2, N]: `≤ C N exp(−c L'^{3/4} m^{−1/4})`, `L' = log(N/2)`.
+If `L' ≥ A m^{1/3}(log m)^{4/3}` then `c L'^{3/4} m^{−1/4} ≥ c A^{3/4} log m`, and
+`log(C N (log N)²/N) ≤ 2 log L' + O(1) ≤ (2/3+o(1)) log m + 2 log A + 2(4/3) log log m + O(1)`;
+take A large absolute (and use `L'^{3/4}m^{−1/4} ≥ c' L'^{1/2}` … for small m the condition
+`log N ≥ C_D` handles it; m ≥ 4 is bounded below, so the inequality
+`c L'^{3/4} m^{−1/4} ≥ 2 log L' + log C` holds for `L' ≥ A m^{1/3}(log m)^{4/3}` with A absolute,
+by monotonicity in L' of `L'^{3/4} − (2/c) m^{1/4} log L'`). Integers: the saving
+`(log N)^{3/4} m^{−1/4} = (log N/m^{1/3})^{3/4} → ∞`. ∎
+
+So the threshold exponent 1/3 of PW Thm 1.1 is **sharp**: most primes near N are
+m-exceptional when `log N ≤ c m^{1/3}/(log m)^{2/3}` (PW), and m-representable when
+`log N ≥ C m^{1/3}(log m)^{4/3}` (Corollary D). The remaining gap is a factor `(log m)^2` in
+log N. This confirms PW's heuristic transition point rigorously (relative to the note).
+
+**Why it matches the heuristic exactly (Assessment).** Our fibre mass `μ_c ≍ (log X)³/m`
+(Cor. 3.2) is the PW/Elsholtz–Tao first-moment intensity `(log p)³/m` of Type II
+solutions restricted to `k ≤ X^κ`, `ℓ ∈ (X^{1/2}, X]`; the 3/4 mechanism converts mass μ at
+ledger cost `e^{O(tμ)}` into saving `e^{−cμ}`. With `t⁴/m ≍ L` the mass at the chosen scale is
+`L^{3/4}m^{−1/4} = (L/m^{1/3})^{3/4}`, which is ≥ 1 exactly when `L ≥ m^{1/3}`, i.e. exactly where
+the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
