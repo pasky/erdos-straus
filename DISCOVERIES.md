@@ -181,6 +181,13 @@ This ledger records mathematical discoveries formulated by this campaign, rather
     * No published short-interval or progression result was found (Li Delang 1981 not read in full; BHP and Huxley statements checked via secondary sources only). Novelty is modest: shift-uniformity is routine.
     * Review `reviews/exceptional-short-review.md`: no FATAL/MAJOR; 8 minors repaired by the author.
 
+31. **The 3/4 bound for m/n, uniformly in m (EXCEPTIONAL_MN.md).**
+    * Thm A (PROVED relative to the 3/4 note): there are absolute constants c, C such that for every m ≥ 4 and every interval I of length H ≥ 2, `E_m(I) ≤ C H exp(−c(log H)^{3/4} m^{−1/4})`. In particular `E_m(N) ≤ C N exp(−c(log N)^{3/4}/m^{1/4})`. The note's argument transfers with 4 → m: the identity is kℓ+1 = m·uvw, the multipliers satisfy (k, m) = 1, and the modulus is q = muv. The whole m-dependence is `t³ → t³/m`. The Jacobi dichotomy of POINTWISE_MN (m ≡ 0 (4) or not) plays no role in the density proof.
+    * Asymptotically this improves Pomerance–Weingartner's explicit-in-m Vaughan bound `exp(−C(log N)^{2/3}/φ(m)^{1/3})` (arXiv:2511.16817 Thm 1.3), and it is non-trivial up to m ≤ ε(log N)³. Thm B / Cor C: progression and short-interval prime versions, transferred from EXCEPTIONAL_SHORT.
+    * Cor D (PROVED rel. note): most primes in (N/2, N] are m-representable once `log N ≥ C m^{1/3}(log m)^{4/3}`. Together with PW Thm 3.1 this places the density transition at `log n = m^{1/3+o(1)}`, with a gap factor `(log m)²(m/φ(m))^{1/3}`.
+    * No 3/4-type, short-interval or progression result for m/n was found in the literature. Assessment: new for m ≠ 4, by the note's method.
+    * Two independent hostile reviews (`reviews/exceptional-mn-review-A.md`, `-B.md`): no FATAL/MAJOR; minors repaired by the author.
+
 ## (E) Precisely stated open hypotheses and conditional theorems
 
 1. `H_kBV(κ)`: a weighted, residue-varying `k`-aspect BV estimate for the full `(u,v,k)` incidence family at `K=X^κ`. **Hypothesis (restated, not assumed here)** — notes §34.1 and §18.2; open, with Theorem 34.8 showing the pruned substitute.
