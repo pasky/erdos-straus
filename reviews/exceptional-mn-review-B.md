@@ -175,10 +175,11 @@ fixed m once N is large, and for all m ≥ Λ_0^{12+ε} in PW's range). *Repair:
 
 **D3 (MINOR) — Cor. D / §6: cite the range PW's proof gives, not a single N.** "Density transition at
 `log n = m^{1/3+o(1)}`" is a statement about a range of N. PW's proof (l.360–448) shows "most primes in
-(N/2,N] are m-exceptional" for every N with `e^{m^{1/6}} ≪ N < e^{m^{1/4}}` and `log³N·log²m ≤ φ(m)/C`
-(Type I bound needs the first, Type II the second), i.e. on `log N ∈ [m^{1/6}, (φ(m)/(C log²m))^{1/3}]`.
+(N/2,N] are m-exceptional" for every N with `e^{m^{1/4}} ≪ N < e^{m}` and `log³N·log²m ≤ φ(m)/C`
+(Type I bound needs the first, Type II the second), i.e. on `log N ∈ [≍m^{1/4}, (φ(m)/(C log²m))^{1/3}]`
+(exponents read off the PDF page 7 image; the `pw.txt` extraction loses them).
 *Repair:* state that range explicitly (and that it is PW's proof, not the statement of Thm 3.1), so the
-transition claim is "most primes exceptional for log N ≤ m^{1/3−o(1)} (down to m^{1/6}), most
+transition claim is "most primes exceptional for m^{1/4} ≪ log N ≤ m^{1/3−o(1)}, most
 representable for log N ≥ m^{1/3+o(1)}".
 
 **D4 (MINOR) — §8 Vaughan attribution unsupported by the cited source.** §8 states Vaughan gave
