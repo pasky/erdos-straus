@@ -155,13 +155,23 @@ s=0,…,k). ∎
   sieve also handles the residues 2 and 7 mod 13, except for the listed classes, which carry 1/360 (a) resp. 6/2160 (b) of the Mordell-hard primes with `(p/13)=−1`.
   Deeper levels shrink the exceptional set (e.g. 1412 residues mod `L=2^4·3^2·5·7·11·13^2·17·19·23`
   in case (b); R80 repair, applied by reviewer: relative density 7.9e-6 of the (p/13)=-1 Mordell-hard
-  residues, or 4.0e-6 of all Mordell-hard residues; this previously read 1.6·10⁻⁶) but, by §1–2, apparently never to zero in case (b).
+  residues, or 4.0e-6 of all Mordell-hard residues; this previously read 1.6·10⁻⁶). Whether they reach zero in case (b) is **open** (O96 correction: this
+  previously read "by §1–2, apparently never to zero", an inference from the now refuted Conj 4.2. The point x*
+  is covered by a class of modulus 12670944 (POINTWISE_MORDELL13B Thm 3.1); the current candidate x** = x(2,15)
+  survives the targeted searches of POINTWISE_MORDELL13B Comp 5.1, which is EVIDENCE only).
 
 ## 4. The candidate sterile point x* for the main variant (EVIDENCE / CERTIFIED computation)
 
+> **REFUTED (O95): Conjecture 4.2 below is FALSE.** x* lies in the ET **II3 class
+> (a,d,e) = (8,33,11999)**, of modulus `M = 4ade = 12670944 = 2⁵·3·11·13²·71 > 10⁶` and residue
+> `12650497` (≡ 1 mod `M' = 6816`, ≡ 2 mod `11·13²`). It also lies in the I2 class (125,88,11999).
+> See POINTWISE_MORDELL13B.md Thm 3.1 (reviewed) and DISCOVERIES (F)11. Computation 4.1 and its
+> Consequence (modulus `≤ 10⁶`) remain correct. The covering question for `Σ_13` (main) is open again;
+> the new candidate `x** = x(2,15)` (POINTWISE_MORDELL13B Conj 5.2) is EVIDENCE-level only.
+
 (R80 repair, applied by reviewer.) Label scope: the next paragraph, with its survivor rates and
 uncovered percentages, is EVIDENCE only. Computation 4.1 is CERTIFIED. Its Consequence is PROVED.
-Conjecture 4.2 is a CONJECTURE.
+Conjecture 4.2 was a CONJECTURE and is now REFUTED (O95, see the box above).
 
 Complete rigid enumeration of the II1, II2, I4 boxes with T-level `F | 11³·13³`
 (`mordell_rigid.py 11,13 3`; any T-free part; validated: it contains all 164 brute-force boxes
@@ -190,20 +200,25 @@ neighbourhood of `x*`, i.e. a reduced residue class `p≡1 (mod Q)`, `p≡2 (mod
 coprime to 143, which contains infinitely many primes (Dirichlet), all Mordell-hard with
 `(p/13)=−1`.
 
-**Conjecture 4.2.** `x*` is sterile: it lies in no ET Prop 1.9 class. In particular (R80 repair,
+**Conjecture 4.2 (REFUTED, O95; POINTWISE_MORDELL13B Thm 3.1: x* lies in the II3 class (8,33,11999)).** `x*` is sterile: it lies in no ET Prop 1.9 class. In particular (R80 repair,
 applied by reviewer; this is an implication, not an equivalence, since another point of `Σ_13` (main) could be
 sterile even if `x*` is not; the argument is Dirichlet near `x*`, then ET Prop 1.9's converse on
 the identity's primitive class containing `x*`, then compactness + Dirichlet again) no finite set of polynomial ES identities covers all sufficiently
 large Mordell-hard primes with `(p/13)=(p/11)=−1`; Theorem 3.1(b) cannot be improved to zero
-exceptions.
+exceptions. *(O96: since x* is not sterile, this consequence is no longer supported by x*; it is
+open. It would follow from sterility of any other point of `Σ_13` (main), e.g. the candidate x** of
+POINTWISE_MORDELL13B Conj 5.2.)*
 
-*Why Theorem C does not explain it (Assessment; R80 repair, applied by reviewer).* The first
+*Why Theorem C does not explain it (Assessment; R80 repair, applied by reviewer; O96: kept as a historical
+remark, since there is nothing left to explain at x* — it is covered at modulus `1.27·10⁷`; the remarks apply
+verbatim to the candidate x**).* The first
 statement is correct: x* is not square-mimicking, so Theorem C does not apply. The parity remark
 and the "TYPEI2 mechanism" below are heuristic; no lemma or computation backs them here. `x*` is not square-mimicking: `x*_11, x*_13` are
 non-residues, and Jacobi-parity arguments (ET Prop 1.6 style) only force odd total
 {11,13}-valuation in the relevant parameters — satisfiable. The mechanism is the TYPEI2 one:
 at T-generic points the classes become rigid (finitely many boxes per T-level, §2.1), so a
-specific T-adic point can escape all of them. Like `x̂_9` of TYPEI2 (Conj 3.4) this is open.
+specific T-adic point can escape all of them. *(O96: for x* this did not happen — the escape was only from
+the classes of modulus `≤ 10⁶`; for x** and for `x̂_9` of TYPEI2 (Conj 3.4) it is open.)*
 
 ### 4.1 Background runs completed (2026-10-06)
 
