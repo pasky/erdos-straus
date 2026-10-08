@@ -135,13 +135,24 @@ larger `u` (`L=8`: 6, `L=9`: 23, `L=10`: 60), while the remaining brute-force so
 `L=10`: `u=293`) are in regime (v), and the `L=9`, `u=5`, `j=−1` ones in case A — as predicted.
 Regime (iv) is empty at `L = 7, 8, 10` (`T ≢ 4 mod 7`) and at `L = 9` forces `b = 0` (covered by TYPEI4 Comp 3.4).
 
-**Theorem 3.5 (summary; PROVED + CERTIFIED once replayed).** A certificate at `x̂_9` of level `L ∈ {7,…,10}` must satisfy
+**Lemma 3.6 (case A at `L ≤ 10` is empty; PROVED, by hand).** Case A of TYPEI4 Lemma 3.1 (`2y > Tu`, `J := y − Tu/2 > 0`)
+has no fibre certificate at `L ∈ {7,8,9,10}`, for any `b`.
+*Proof.* `P_1 = c'g² + 7^a u(2y − Tu) = c'g² + 2·7^a uJ` and `1 ≤ P_1 ≤ z = Tu/2 − J` (`P_1 | z`), so `2·7^a uJ < Tu/2`,
+i.e. `J < T/(4·7^a)`. `L = 7, 8` (`T ≤ 16`): no `J ≥ 1`. `L = 9, 10` (`T = 32, 64`): `a = 1`, `J = 1`. Then
+`ρ = z/P_1 < (Tu/2)/(14u) = T/28 < 3`, and `ρ` is odd (`z = Tu/2 − 1` odd), so `ρ = 1`, `P_1 = Tu/2 − 1`. Put `G := c'g`. Then
+`c'g² = P_1 − 14u = Ku − 1` (`K := T/2 − 14 ∈ {2, 18}`), `Gδ = y = Tu/2 + 1`, and `X = (1 + 7uρ)/(4G)` integral gives `4G | 7u + 1`.
+`G` is odd and divides `Tu/2 + 1` and `7u + 1`, hence `G | 7(Tu/2+1) − (T/2)(7u+1) = 7 − T/2 ∈ {−9, −25}`. So `G ≤ 25` and
+`Ku − 1 = c'g² ≤ G² ≤ 625`, so `u ≤ 41`, `u ∈ {1, 7}`. For `u = 7`, `4G | 50` is impossible. For `u = 1`, `4G | 8` gives `G = 1`, so `c' = g = 1`
+and `Ku − 1 = 1`. For `L = 10` (`K = 18`) that fails. For `L = 9` (`K = 2`) it gives `X = (1+7)/4 = 2`, which is even. ∎
+(Consistency: the two relaxed case-A solutions of `typei5_relax 9`, at `u = 5`, `j = −1`, have `ρ = 1`, `G ∈ {3, 9}`, `G | 9`, `c'g² = 2u − 1 = 9`,
+`4G | 36`, exactly as in the proof. They survive only because `u = 5` is not a power of 7.)
+
+**Theorem 3.7 (summary; PROVED + CERTIFIED once replayed).** A certificate at `x̂_9` of level `L ∈ {7,…,10}` must satisfy
 all of: `v_7(k) ≥ 8` (TYPEI4 Cor 3.5); `c_oδ > 10⁶` (Cor 2.3); `2y < T7^b` with `λ ≥ 1` and `Δ > 2Tj` (regime (v) of
-Prop 3.3; Comp 3.4), **or** (only for `L = 8, 9, 10`) case A of TYPEI4 Lemma 3.1 (`2y > T7^b`, `a = 1`), which is not
-treated here. In regime (v), `u = 7^b < 4j²/σ` and, for fixed `(σ, a, λ)`, everything is bounded explicitly.
+Prop 3.3; Comp 3.4); case A is empty (Lemma 3.6). In regime (v), `u = 7^b < 4j²/σ` and, for fixed `(σ, a, λ)`, everything is bounded explicitly.
 
 ## 4. Open / next steps
-* Case A (`j < 0`) at `L = 8, 9, 10`: the identities (H), (Lin) hold verbatim; a sign analysis as in Prop 3.3 is needed.
+* Case A: done (Lemma 3.6; the bound `J < T/(4·7^a)` also makes case A a small finite check at every `L`).
 * Implement regime (iii) (and (ii), (iv)) as a complete computation at `L = 7…10` (finite by Prop 3.3).
 * Regime (v): for `σ, λ` up to a bound — finite; full closure would need a new idea (a relation bounding `σ`).
 * Regime (v): finite for each `(σ,a,λ)` (Prop 3.3(v)); a sweep over `σ, λ ≤` some bound is a cheap extension.

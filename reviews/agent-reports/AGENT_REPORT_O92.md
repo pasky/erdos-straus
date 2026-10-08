@@ -16,15 +16,18 @@ Deliverable: POINTWISE_TYPEI5.md, scripts/typei5_{relax.c,dmod.c,regimes.py,lehm
    bounded for fixed (σ,a,λ), but σ, λ are unbounded.
 4. **Comp 3.4 (CERTIFIED once replayed):** regimes (ii)–(iv) contain no certificate at L = 7..10, for any b. In relax mode it reproduces
    the brute-force relaxed solutions.
-5. **Theorem 3.5:** a certificate at x̂_9 of level 7..10 must have v_7(k) ≥ 8 **and** c_oδ > 10⁶ **and** lie in regime (v). At L = 8..10
-   there is the alternative of case A (2y > T7^b, a=1). Case A was not analysed.
+5. **Lemma 3.6 (PROVED, by hand; follow-up turn): case A (2y > T7^b) is empty at L = 7..10, for all b.**
+   P_1 ≤ z gives J < T/(4·7^a), so J = 1 and ρ = 1 at L = 9, 10. Then G = c'g divides 7 − T/2 ∈ {−9, −25}, which forces u ∈ {1, 7}, and
+   both are excluded by hand.
+6. **Theorem 3.7:** a certificate at x̂_9 of level 7..10 must have v_7(k) ≥ 8 **and** c_oδ > 10⁶ **and** lie in regime (v) of case B
+   (λ ≥ 1, Δ > 2Tj).
 
 ## Not achieved / honest assessment
 - No level is closed for all b. At L = 7 everything reduces to regime (v): a two-parameter family (σ ≈ 256u/μ², κ = 8·7^aλ). Equivalently
   (Cor 1.2), we need the unit coefficient u_1(d) of the moving family d = c_o(c_oδ²+T) to be a power of 7. LFL/BHV/Baker–Davenport bound
   exponents in a *fixed* field or recurrence. Here the field moves with two free parameters, so they do not apply. This is an Assessment
   of the obstruction, not a theorem. Fixed-(σ,a,λ) slices are finite by Prop 3.3(v), and sweeping them is a cheap extension.
-- Case A at L = 8, 9, 10 is not treated. The identities hold, but the sign analysis is still to be done.
+- Regime (v) is the only open part at L = 7..10.
 
 ## Review hints
 Check the Lemma 1.1(a) unit-group argument (m=2 case, P a square), and the sign claims in Prop 3.3(ii)/(iii)/(v). Also check the
