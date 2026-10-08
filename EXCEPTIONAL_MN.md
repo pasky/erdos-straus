@@ -13,8 +13,10 @@ has no solution in positive integers. `E_m(N) = #{n ≤ N : n m-exceptional}`;
 
 * **Theorem A (PROVED rel. note).** Absolute `c, C`: for every `m ≥ 4`, every interval I of
   length `H ≥ 2`: `E_m(I) ≤ C H exp(−c (log H)^{3/4} m^{−1/4})`; in particular
-  `E_m(N) ≤ C N exp(−c (log N)^{3/4}/m^{1/4})`. Beats Pomerance–Weingartner's
-  `exp(−C (log N)^{2/3}/φ(m)^{1/3})` for every m in their range and extends it to `m ≤ ε(log N)³`.
+  `E_m(N) ≤ C N exp(−c (log N)^{3/4}/m^{1/4})`. Asymptotically beats Pomerance–Weingartner's
+  `exp(−C (log N)^{2/3}/φ(m)^{1/3})`: the exponents' ratio is `≫ (Lm)^{1/12}/(log log 3m)^{1/3}`, so
+  Theorem A's bound is smaller once this exceeds an absolute (ineffective) Λ_0. The saving tends
+  to ∞ iff `m = o((log N)³)`. (R94A repair D1, D2; R94B repair D2)
 * **Theorem B / Cor. C:** progressions and primes in short intervals, as in SHORT (§5).
 * **Corollary D:** most primes in `(N/2,N]` are m-representable once
   `log N ≥ C m^{1/3}(log m)^{4/3}`; with PW Thm 3.1 the *density* transition ("most primes
@@ -208,7 +210,8 @@ m-exceptional n is m-exceptional (n' = 1 is m-exceptional for m ≥ 4).
 such that for **every** integer `m ≥ 4`, every real z and every `H ≥ 2`,
 `E_m((z, z+H]) ≤ C · H · exp(−c (log H)^{3/4} m^{−1/4})`.
 In particular `E_m(N) ≤ C N exp(−c (log N)^{3/4}/m^{1/4})` for all `N ≥ 2`, `m ≥ 4`
-(non-trivial for `m ≤ ε (log N)^3`).
+(the saving `→ ∞` iff `m = o((log N)³)`; for `m ≤ ε(log N)³` with ε = ε(C) small it is a
+non-trivial constant factor — R94A repair D2).
 
 *Proof.* SHORT Theorem 1's proof with t³ → s. Fix m, put `𝓗 = log H`. Let X be chosen below
 (with `X ≥ X_a`, `m ≤ t³`, `s ≥ s_0`), `D_0 = e^{a_v s}`. Split m-exceptional `n ∈ I` by
@@ -246,8 +249,13 @@ E.g. for fixed m: `H ≥ exp(C_m (log log x)^{4/3})`, `C_m ≍ m^{1/3}`.
 
 **Comparison with Pomerance–Weingartner Thm 1.3** (`N/exp(C L^{2/3} φ(m)^{−1/3})`,
 `4 ≤ m ≤ L²`). Ratio of exponents: `L^{3/4} m^{−1/4} / (L^{2/3} φ(m)^{−1/3}) =
-L^{1/12} φ(m)^{1/3} m^{−1/4} ≫ (Lm)^{1/12}/(log log 3m)^{1/3} → ∞`. So Theorem A is stronger
-for every m in PW's range, and non-trivial in the wider range `m ≤ εL³` (PW: `m ≤ εL²`).
+L^{1/12} φ(m)^{1/3} m^{−1/4} ≫ (Lm)^{1/12}/(log log 3m)^{1/3} → ∞`. Both bounds have
+unrelated, ineffective constants, so the comparison is asymptotic only. There is an absolute
+(ineffective) Λ_0 such that Theorem A's bound is below PW's whenever `(Lm)^{1/12} ≥ Λ_0 (log log 3m)^{1/3}`.
+In particular this holds for each fixed m once N is large, uniformly in `4 ≤ m ≤ L²` for `N ≥ N_0`.
+Theorem A's saving tends to ∞ iff `m = o(L³)` (PW's is non-trivial for `m = o(L²)`).
+PW's proof also uses Bombieri–Vinogradov, so there is no effectivity trade-off.
+(R94A repair D1, D2; R94B repair D2)
 Heuristic reason for the shape: both arguments balance a fibre mass μ against a ledger
 `e^{O(tμ)}` with `tμ ≍ L`; Vaughan/PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
 here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.

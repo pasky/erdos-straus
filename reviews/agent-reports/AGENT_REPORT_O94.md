@@ -16,7 +16,8 @@ Branch `side-agent/mn-threequarter`. Deliverable: `EXCEPTIONAL_MN.md`, plus `scr
      The whole m-dependence is the substitution `t³ → t³/m`.
 2. **Uniformity (goal 3).** `c_m = c·m^{−1/4}` exactly, with absolute c: no φ(m) or log m loss. The BV range `m ≤ t³` is automatic
    whenever the saving is ≥ 1. This beats Pomerance–Weingartner Thm 1.3 (`exp(−C (log N)^{2/3}/φ(m)^{1/3})`, m ≤ log² N)
-   for every m in their range, since the exponent ratio is ≫ `(Lm)^{1/12}/(log log m)^{1/3}`. It is also non-trivial up to `m ≤ ε(log N)³`.
+   asymptotically: the exponent ratio is ≫ `(Lm)^{1/12}/(log log 3m)^{1/3}`, so Theorem A's bound wins once that exceeds an absolute
+   ineffective Λ_0 (e.g. for fixed m and N large). The saving → ∞ iff `m = o((log N)³)` (R94A repair D1, D2; R94B repair D2).
 3. **Theorem B / Cor. C (goal 2).** SHORT's progression and prime-short-interval statements carry over with saving
    `(log(H/q))^{3/4} m^{−1/4}` and the same q₁ (smooth-part) loss. Caveat: SHORT's "every prime q" remark does **not**
    transfer automatically (`log X_q`/saving ≍ `(m/log(H/q))^{1/2}`).
