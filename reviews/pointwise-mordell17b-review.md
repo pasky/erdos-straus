@@ -150,3 +150,10 @@ reduction with exact fractions, in both cells.
   `272·17⁻⁶ = 1.127·10⁻⁵`. The Q part alone is `94·17⁻⁶ = 3.89·10⁻⁶` (my run), and the P part is `178·17⁻⁶ = 7.37·10⁻⁶`
   (= ρ₁ − ρ₂). So 6.6·10⁻⁶ matches neither (m3).
 Verdict (2): ρ₁ SOUND (reproduced exactly). ρ₂: see below.
+
+**D_P(13) = 1463 and ρ₂: VERIFIED.**
+* `scripts/review_m17b_k13.c` is the K = 11 engine with `A0 = 20000`, `X = 10⁸`, and compressed sieve storage. It reproduces
+  K = 9 and K = 11 as sets. At K = 13 it gives **1463** points, which equals the author's count. (The author's K = 13 point
+  set is not in the repo, so I compared counts only.) Run time ≈ 12 CPU-min.
+* The union with my P-data through K = 13 gives **ρ₂ = 961421/1419857, equal**, in both cells. Level 7 has 485 in-cell
+  boxes, of which 272 are new (P 178, Q 94). That is a measure of 1.127·10⁻⁵ (confirms m3).
