@@ -44,3 +44,33 @@ complete by its own argument and uses no external factoriser:
 **Code reading, `factor`.** Coreutils `factor` gives a Miller–Rabin probable-prime verdict, then a Lucas
 proof (`PROVE_PRIMALITY`). A wrong "prime" verdict would lose divisors and so lose data; for K ≤ 11 the
 independent engines exclude this. For K = 13 there is no second engine (see defect m1).
+
+## Claim (3): Lemma 1.1 and Theorem 4.1
+
+**Lemma 1.1, re-derived.** The pieces are as follows.
+* Q⁻¹ = Q as sets of boxes. A (Q)-datum has `4abd − 1 = 17^k e`, so `17 ∤ b` and the box is `−4a²d ≡ −a/b`. The reflection
+  `(b,a,c,d)` is again an N-point of `Σ^I` (equation (2.3) is symmetric in a, b) with the same `e`, so it is also a (Q)-datum,
+  with box `−b/a = (−a/b)⁻¹`. Hence Q⁻¹ ⊂ Q, and so `NB_Q ≤ 2D_Q`. My union code confirms this: every in-cell Q box is also a Q⁻¹ box.
+* √Q = ∅: M17 Lemma 1.3 (reciprocity). My union code asserts that `−4a²d` is a non-residue for every Q-datum (k ≤ 5).
+* U ⊂ P in the cells: M17 Lemma 5.2. The P-box lies at level `⌈(α−β)/2⌉`, at some K, and it is counted by the P-union whatever K is.
+  Since U⁻¹ = (U-box meeting C_7)⁻¹ and P is inversion-closed, U⁻¹ is covered too. My union code finds no new U/U⁻¹ box at any level.
+* P-boxes sit at level `(K+1)/2`, and only odd K occur (M17 Lemma 1.3). The nested boxes for `α ≤ K/2` (M17 Lemma 2.3) are
+  dominated by the one of lowest level, `⌈K/2⌉`. Q occurs only at odd k. So T_Q starts at k = 9 and T_P at K = 11 (level 6).
+* Measure: a level-L box has cell-relative measure `17^{1−L}`; for P, `17^{(1−K)/2}`. Correct.
+* Strict `T_P + T_Q < ρ` gives a covered measure below 1, so the complement in `C_5` is nonempty. Inversion maps the union to
+  itself and `C_5` to `C_7`, so `C_7` follows. Correct.
+Verdict: SOUND.
+
+**Theorem 4.1 table, recomputed** (`scripts/review_m17b_tail.py`, closed-form geometric sums, mpmath). C_max = (ρ − T_Q)/(2S),
+where `S = Σ_{K≥K0 odd} 17^{θK+(1−K)/2}`:
+
+| θ | 0.25 | 0.30 | 0.35 | 0.40 | 0.42 | 0.45 |
+|---|---|---|---|---|---|---|
+| K0 = 13, ρ₁ | 619.2 | 87.89 | 11.77 | 1.410 | 0.5687 | 0.1275 |
+| K0 = 15, ρ₂ | 2553 | 273.0 | 27.53 | 2.485 | 0.8948 | 0.1693 |
+
+`T_Q = 1.4106·10⁻³` (θ_Q = 3/5, C = 1) and `0.0765` (3/4), as claimed. The polynomial variants are also as claimed:
+2K³ → 4.005·10⁻⁴, K⁴ → 2.64·10⁻³, K⁵ → 3.49·10⁻², and Conj. 4.2 (2K³, 3k³) → 4.007·10⁻⁴.
+The data ratios `D_P/17^{0.4K}` match as well.
+Several table entries are rounded **up** (87.9, 11.8, 0.569, 0.128, 2.49): see defect m2. The headline value 1.41 is
+correct, since 1.4103 ≥ 1.41.
