@@ -154,3 +154,26 @@ PYTHONPATH=scripts uv run python scripts/m13b_validate.py /tmp/o80_boxes_1000000
 PYTHONPATH=scripts uv run python scripts/m13b_cover.py 3 /tmp/o95/run
 for k in 2 3 4; do PYTHONPATH=scripts uv run python scripts/m13b_cell.py $k /tmp/o95/run; done
 ```
+
+## 5. Targeted search at a given T-generic point, without a T-level cap (CERTIFIED within stated ranges)
+
+For a point `x(u)` with `x_11=u_11`, `x_13=u_13` (any 11-, 13-adic units, given mod `q^16`), the classes
+containing it are searched directly. The T-free part is enumerated and the T-part is solved as a
+discrete logarithm in the T-units.
+* `scripts/m13b_target.c` (P/Q types: II3, I3, I1, II2). Loop over `e=4a'd'm−1≤X`, with `a',d'` prime to 143
+  and `B=e_T`, `g=e/B`. The T-free condition `g∣4λa'²d'+1` is equivalent to `λ≡−1/(4a'²d') (mod g)`, solved over
+  `λ=a_T²d_T=11^i13^j`, `i,j≤E`. Every split `λ=a_T²d_T` is then tested against the box conditions of
+  Lemma 1.1. II2 with T-primes in `ad` additionally needs `a_Td_T∣(e+1)/(4a'd')`. II2 with T-free `ad` is
+  literally II3 with `(ad)_T=1`, so it is reported as II3.
+* `scripts/m13b_target2.c` (U types II1, I4, and I2). Loop over `h=4xyt−1≤X`, with `x,y` prime to 143.
+  `(first,second)=(R_n x,R_d y)` with `R_n/R_d=ρ=11^i13^j`, `|i|,|j|≤E`, `ρ≡−y/x` modulo `h` (U) resp. `h/h_T` (I2).
+  A common T-factor s of the two parameters can be dropped: `gcd(s,h)=1`, so s does not affect the T-free
+  conditions, and it only refines the box.
+* *Validation against the complete engine of §4.* At box centres of random engine data:
+  - II3/I3/I1: 60/60 recovered;
+  - II2: 60/60, and the T-in-`ad` datum `(26,1,6655)` is recovered;
+  - I2/II1/I4: 60/60.
+  At x* both programs recover Theorem 3.1's II3 and I2 data (`e=f=11999`).
+
+**Computation 5.1.** The point `(u_11,u_13)=(2,15)`, and also `(2,1/7)`, lies in **no** II3/I3/I1 class with
+`e≤10⁸` and `v_11(λ),v_13(λ)≤20` (the T-level is otherwise unrestricted).
