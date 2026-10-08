@@ -269,3 +269,47 @@ solutions restricted to `k ≤ X^κ`, `ℓ ∈ (X^{1/2}, X]`; the 3/4 mechanism 
 ledger cost `e^{O(tμ)}` into saving `e^{−cμ}`. With `t⁴/m ≍ L` the mass at the chosen scale is
 `L^{3/4}m^{−1/4} = (L/m^{1/3})^{3/4}`, which is ≥ 1 exactly when `L ≥ m^{1/3}`, i.e. exactly where
 the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
+
+## 7. Checks, uniformity, and where things could fail
+
+**7.1 Machine checks.**
+* `scripts/emn_identity.py`: Lemma 1.1 identity on 4 821 random (m ≤ 60, k ≤ 50, prime ℓ, u,v,w)
+  instances, exact rational arithmetic, 0 failures; Lemma 1.3 distinct projections at fixed ℓ
+  (m ∈ {4,5,6,7,11,12}, ℓ ∈ (1000,3000), K = 6, `u,v ≤ √ℓ`, `muv > K`): 19 446 atoms, 0 collisions.
+* `scripts/emn_hm.py 100000`: Lemma 2.1, 0 failures.
+* `scripts/emn_mass.py 1e6 30 40` (EVIDENCE, toy scale, no H floor; output in
+  `scripts/emn_mass.out.txt`): actual-prime fibre mass `μ_c` averaged over 4 reduced c,
+  m = 4..30, 60, 105, 210: `m·μ_c ∈ [3.85, 4.58]`, and the BV-main-term prediction
+  `Σ log2/(log x·φ(muv))` agrees to ≤ 1.2%. I.e. the `1/m` scaling of Cor. 3.2 is visible
+  already at x = 10⁶, and the residual m-dependence is the bounded factor
+  `Π_{p|m} p/(p+1) · (m/φ(m))`-type Euler correction (odd primes vs 2: m·μ ≈ 3.9 for
+  m ∈ {4,6,8,12,16,18,24}, ≈ 4.4 for odd prime m).
+
+**7.2 Uniformity in m (goal 3).** All constants in Theorems A, B, Cor. C, D are absolute;
+the m-dependence is *exactly* `c_m = c·m^{−1/4}` in the exponent (no φ(m), no log m loss).
+Where m enters: (a) `μ ≍ t³/m` (Cor. 3.2, two-sided); (b) the BV range `m ≤ t³`
+(Prop. 3.1), automatically satisfied whenever the saving `s = t³/m ≥ 1`; (c) `K ≥ m²` for
+Lemma 2.1 (automatic, K = e^{κt}). Lower-order point: m·μ_c is bounded above and below by
+absolute constants; nothing is lost from m/φ(m) because the `1/φ(muv)` gain and the
+`h_m ≍ (φ(m)/m) log K` loss are both measured in the same Euler factors (7.1 data).
+
+**7.3 Is `m^{−1/4}` the right m-dependence for this method? (Assessment.)** Given a mass
+`μ ≍ t³/m` at ledger `e^{O(tμ)}`, `μ = (L/m^{1/3})^{3/4}` is forced by `tμ ≍ L`. A larger
+mass would need more multipliers: the k-range `K = X^κ` is already a power of X; the
+u,v-range `≤ X^{1/6}` per block is what keeps `z² < ℓ` (distinctness). So within the note's
+architecture `m^{−1/4}` is the mass-driven ceiling, mirroring note §10's 3/4 ceiling. The
+PW lower construction (Thm 3.1) shows the shape `(L/m^{1/3})^{θ}` cannot be improved to
+anything non-trivial at `L ≤ m^{1/3−ε}`; it does not decide θ = 3/4.
+
+**7.4 Where the argument fails / what is m-specific (goal 1).**
+* Nothing fails for any m ≥ 4. (m ≤ 3: every n is trivially representable.)
+* The POINTWISE_MN dichotomy `m ≡ 0 (4)` vs not is **irrelevant** here (§1.4): it concerns
+  whether a revealed quadratic class can dodge all events (pointwise witness modulus); the
+  density argument only needs *first-moment mass per fibre* and *conditional independence*,
+  both character-blind.
+* Type I solutions (`m/n` with x_1 ∤ n-structure of PW Cor. 2.2) are not used, exactly as
+  in the note for m = 4: Type II atoms alone carry the mass `t³/m`.
+* The only genuinely m-sensitive inputs are BV (range of moduli `muv`) and Lemma 2.1; both
+  are uniform in the range where the theorem is non-trivial.
+* Effectivity: as in the note, ineffective (standard BV). Only lower bounds use BV; the
+  constants `c, C` are absolute but not computable from the proof.
