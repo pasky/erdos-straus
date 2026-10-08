@@ -22,8 +22,8 @@ Branch `side-agent/mn-threequarter`. Deliverable: `EXCEPTIONAL_MN.md`, plus `scr
    `(log(H/q))^{3/4} m^{−1/4}` and the same q₁ (smooth-part) loss. Caveat: SHORT's "every prime q" remark does **not**
    transfer automatically (`log X_q`/saving ≍ `(m/log(H/q))^{1/2}`).
 4. **Corollary D (new consequence).** Most primes in (N/2, N] are m-representable once `log N ≥ C m^{1/3}(log m)^{4/3}`.
-   PW Thm 3.1 shows most primes there are m-exceptional at `log N = (φ(m)/(C log² m))^{1/3}`. So the **density** transition is
-   at `log n = m^{1/3+o(1)}`, with a gap factor `(log m)²(m/φ(m))^{1/3}`; PW's rigorous bounds had left it between m^{1/3} and m^{1/2}.
+   The proof of PW Thm 3.1 shows most primes there are m-exceptional for `m^{1/4} ≪ log N ≤ (φ(m)/(C log² m))^{1/3}`.
+   So the **density** transition is at `log n = m^{1/3+o(1)}`. Monotonicity in between is unknown (R94A D3, R94B D3), with a gap factor `(log m)²(m/φ(m))^{1/3}`; PW's rigorous bounds had left it between m^{1/3} and m^{1/2}.
    This says nothing about the largest exception (PW's heuristic puts that near exp(m^{1/2})).
 5. **Literature (goal 4).** I found no 3/4-type, short-interval or progression result for m/n. Searches were 2026-10-07, plus
    LITERATURE_2026 and the PW text; Dartmouth "ESS-ExceptionsV8" has the same Thm 1.3. The known results are Vaughan 1970

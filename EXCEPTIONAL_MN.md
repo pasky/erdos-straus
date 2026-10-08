@@ -19,9 +19,10 @@ has no solution in positive integers. `E_m(N) = #{n ≤ N : n m-exceptional}`;
   to ∞ iff `m = o((log N)³)`. (R94A repair D1, D2; R94B repair D2)
 * **Theorem B / Cor. C:** progressions and primes in short intervals, as in SHORT (§5).
 * **Corollary D:** most primes in `(N/2,N]` are m-representable once
-  `log N ≥ C m^{1/3}(log m)^{4/3}`; with PW Thm 3.1 the *density* transition ("most primes
-  exceptional" → "most primes representable") is at `log n = m^{1/3+o(1)}` (PW's rigorous
-  bounds left it between `m^{1/3}` and `m^{1/2}`). Nothing is said about the largest exception.
+  `log N ≥ C m^{1/3}(log m)^{4/3}`; with the proof of PW Thm 3.1 (most primes exceptional for
+  `m^{1/4} ≪ log N ≤ (φ(m)/(C log² m))^{1/3}`), the *density* transition ("most primes exceptional" →
+  "most primes representable") is at `log n = m^{1/3+o(1)}`. Monotonicity in between is unknown.
+  PW's rigorous bounds left it between `m^{1/3}` and `m^{1/2}` (R94A D3, R94B D3). Nothing is said about the largest exception.
 * **Mechanism:** nothing in the note's density argument is m-specific. Take multipliers
   `k ≤ X^κ` coprime to m; fibre mass becomes `≍ t³/m` on reduced/good fibres (upper bound
   `≪ t³/m` on every fibre; absolute constants); the ledger
@@ -263,8 +264,12 @@ here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
 ## 6. Consequence: the density transition for m/n is at log n = m^{1/3+o(1)}
 
 Pomerance–Weingartner (arXiv:2511.16817v2, Thm 3.1 and its proof, PDF pp. 6–8; `sources/pw.txt` lines ~270–450)
-show: with `log N = (φ(m)/(C log² m))^{1/3}`, *most primes* `p ∈ (N/2, N]` are m-exceptional
-(m large). Their Thm 1.3 gives the converse only for `log N ≫ m^{1/2}(log m)^{3/2}`, and they
+show *in the proof* of Thm 3.1 (the statement itself only counts exceptional primes) that *most
+primes* `p ∈ (N/2, N]` are m-exceptional (m large) for every N in the range
+`e^{m^{1/4}} ≪ N < e^m` (needed for their Type I count `≪ (N/φ(m)) log²N log²m`) with
+`log³N · log²m ≤ φ(m)/C` (Type II count `≪ (N/φ(m)) log²N log log N`). That is, for
+`m^{1/4} ≪ log N ≤ (φ(m)/(C log² m))^{1/3}`. The exponents were read from the rendered PDF p. 7 by both
+reviewers, since `pw.txt` drops superscripts. (R94A repair D3; R94B repair D3) Their Thm 1.3 gives the converse only for `log N ≫ m^{1/2}(log m)^{3/2}`, and they
 write (p. 2): "between exp(m^{1/3}) and exp(m^{1/2}) there is a transition from 'usually false'
 to 'usually true'"; their Poisson heuristic (p. 3) predicts the transition at `exp(m^{1/3+ε})`.
 
@@ -282,19 +287,24 @@ Let `f(L) = c L^{3/4} m^{−1/4} − 2 log L`; `f′(L) > 0` iff `L > (8/(3c))^{
 So for `L ≥ L_0`: count `≤ C N e^{−f(L) − 2 log L} ≤ N/(2L²) ≤ N/(log N)²` (`√2·log(N/2) ≥ log N` for N ≥ 2^{2+√2}; N ≥ 16 suffices).
 Integers: the saving `(log N)^{3/4} m^{−1/4} = (log N/m^{1/3})^{3/4} → ∞`. ∎
 
-So the *density* transition is at `log N = m^{1/3+o(1)}`: PW prove that most primes in
-`(N/2, N]` are m-exceptional at their specific `log N = (φ(m)/(C log² m))^{1/3}` (m large), and
-Corollary D shows most are m-representable once `log N ≥ C m^{1/3}(log m)^{4/3}`. The remaining
+So the *density* transition is at `log N = m^{1/3+o(1)}` in the following sense.
+* PW's proof: most primes in `(N/2, N]` are m-exceptional for `m^{1/4} ≪ log N ≤ (φ(m)/(C log² m))^{1/3}`.
+* Corollary D: most primes there are m-representable for **all** `log N ≥ C m^{1/3}(log m)^{4/3}`.
+
+Monotonicity in between is not known (R94A repair D3). The remaining
 gap is a factor `≍ (log m)² (m/φ(m))^{1/3}` in log N. This confirms the *density* part of PW's
 heuristic. It says nothing about the **largest** m-exceptional n (Schinzel's threshold), which
 PW's heuristic places near `exp(m^{1/2})` (PW p. 3); Corollary D bounds proportions only.
 
-**Why it matches the heuristic exactly (Assessment).** Our reduced-fibre mass `μ_c ≍ (log X)³/m`
-(Cor. 3.2) is the PW/Elsholtz–Tao first-moment intensity `(log p)³/m` of Type II
-solutions restricted to `k ≤ X^κ`, `ℓ ∈ (X^{1/2}, X]`; the 3/4 mechanism converts mass μ at
+**Why it matches the heuristic up to bounded and log log factors (Assessment; R94A repair D4).**
+Our reduced-fibre mass `μ_c ≍ (log X)³/m` (Cor. 3.2) agrees, up to bounded and `log log` factors, with:
+* PW's heuristic intensity `(log³ p/m)(log log p)^{O(1)}` (PW p. 3);
+* their rigorous Type II first-moment count `≪ (N/φ(m)) log²N log log N`.
+
+Our count is at scale `X = e^t`, `t ≍ (m log N)^{1/4} ≪ log N`, restricted to `k ≤ X^κ`, `ℓ ∈ (X^{1/2}, X]`; the 3/4 mechanism converts mass μ at
 ledger cost `e^{O(tμ)}` into saving `e^{−cμ}`. With `t⁴/m ≍ L` the mass at the chosen scale is
-`L^{3/4}m^{−1/4} = (L/m^{1/3})^{3/4}`, which is ≥ 1 exactly when `L ≥ m^{1/3}`, i.e. exactly where
-the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
+`L^{3/4}m^{−1/4} = (L/m^{1/3})^{3/4}`, which is ≥ 1 when `L ≥ m^{1/3}`, i.e. (up to the factors
+above) where the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
 
 ## 7. Checks, uniformity, and where things could fail
 
