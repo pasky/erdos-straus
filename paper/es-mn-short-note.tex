@@ -51,7 +51,8 @@ intervals that uses no information about primes at the scale of the
 interval; and a density statement locating the transition from ``most
 primes are $m$-exceptional'' to ``most primes are $m$-representable'' at
 $\log n=m^{1/3+o(1)}$, up to a factor $(\log m)^2(m/\varphi(m))^{1/3}$ in
-$\log n$.  For comparison, Pomerance and Weingartner proved the
+$\log n$ (the ``exceptional'' side comes from the proof of a theorem of
+Pomerance and Weingartner).  For comparison, Pomerance and Weingartner proved the
 exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments.
 The method is the one of an earlier internal note on $4/n$ over
 $[1,N]$, which we use as a black box.  What we add is a local transfer
@@ -1073,9 +1074,13 @@ $m$-exceptional whenever
 \begin{equation}\label{eq:PWrange}
  m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}
 \end{equation}
-with a suitable absolute $C$.  (This reading of \cite{PW} was checked
-independently by two internal reviewers against the rendered PDF; it is
-not a statement made in \cite{PW}.)  Pomerance and Weingartner's own
+with a suitable absolute $C$.  Pomerance and Weingartner state this for
+$N=N(m)$: ``In our proof of Theorem~1.1 we actually show that not only
+is there one exceptional $n>\exp(m^{1/3-\epsilon})$, but that most prime
+values of $n$ near this bound are exceptions'' \cite[p.~2]{PW}.  The
+extension to the whole range \eqref{eq:PWrange} is our reading of their
+proof, checked independently by two internal reviewers against the
+rendered PDF.  Pomerance and Weingartner's own
 upper bound \eqref{eq:PW} gives ``most primes representable'' only for
 $\log N\gg m^{1/2}(\log m)^{3/2}$, and they wrote that between
 $\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition from
@@ -1091,7 +1096,8 @@ largest $m$-exceptional integer, which the heuristic of \cite[p.~3]{PW}
 places near $\exp(m^{1/2})$, is not addressed by any of this.
 
 \begin{assessment}[why the shapes are what they are]\label{ass:shape}
-Both our argument and Vaughan's balance a fibre mass $\mu$ against a
+Both our argument and Vaughan's, as reconstructed in \cite[\S4]{PW},
+balance a fibre mass $\mu$ against a
 ledger $\e^{O(t\mu)}$, with $t\mu\asymp L=\log N$.  With
 $\mu\asymp t^2/\varphi(m)$, the mass of the forced classes of Vaughan and
 Pomerance--Weingartner, this gives $\mu\asymp L^{2/3}\varphi(m)^{-1/3}$.
@@ -1110,7 +1116,8 @@ This mirrors the three-quarter ceiling of \cite[\S10]{TQ}.
 \section{The lower end of the window range}\label{sec:lowerend}
 \begin{introprop}\label{prop:E}
 Let $m\geq4$.  Suppose that for some $x_0,C,c>0$ and some function
-$H_0(x)\geq1$ with $CH_0(x)\e^{-c(\log x)^{3/4}}<1$ one has
+$H_0(x)\geq1$ with $CH_0(x)\e^{-c(\log x)^{3/4}}<1$ for all real
+$x\geq x_0$ one has
 \[
  E_m((x,x+H_0(x)])\leq CH_0(x)\e^{-c(\log x)^{3/4}}\qquad\text{for all real }x\geq x_0.
 \]
