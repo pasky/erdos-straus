@@ -5,7 +5,7 @@ Reviewed: `EXCEPTIONAL_MN.md` at merge of `side-agent/mn-threequarter` (0bc7efc)
 `sources/pw.txt` / `sources/pomerance-weingartner-2511.16817/…v2.pdf` ("PW").
 From-scratch scripts: `scripts/review_emnA_*.py`.
 
-Status: IN PROGRESS (claims are appended one at a time).
+Status: COMPLETE (round 1).
 
 ## Verdict summary (filled in as claims are checked)
 
@@ -138,3 +138,83 @@ of `L_K` ≤ K, of `P_y` ≤ y). The proof of SHORT Thm 2 (smooth part d is copr
 transfers. MN's caveat that SHORT's "every prime q" remark does *not* transfer is correct:
 `log X_q / saving ≍ (m/log(H/q))^{1/2}` and `m` may be as large as `(log(H/q))³`. Cor C:
 `(c/2)S ≥ log log x` absorbs `1/log x`. ✓
+
+### PW comparison (§5) — checked against `sources/pw.txt` (text of arXiv:2511.16817v2)
+PW Thm 1.3 (pw.txt l.69–71): absolute C, for `4 ≤ m ≤ (log N)²`, `#{n ≤ N : m/n not a sum of 3
+unit fractions} ≤ N/exp(C(log² N/φ(m))^{1/3})` — counts **integers** n, (x,y,z) ∈ N³ not
+necessarily distinct (PW (2.1)), same notion as MN. Exponent ratio
+`L^{1/12} φ(m)^{1/3} m^{−1/4} ≫ (Lm)^{1/12}/(log log 3m)^{1/3}` ✓. Since c is unspecified and
+ineffective, "beats" is an asymptotic statement (D1). Vaughan's per-m `exp(−c(log N)^{2/3})` is as
+quoted by PW (l.48–49); Vaughan 1970 itself not accessed (same as the author).
+
+### Corollary D — re-derived
+`f(L) = cL^{3/4}m^{−1/4} − 2 log L` is increasing for `L > (8/(3c))^{4/3}m^{1/3}`; at
+`L_0 = A m^{1/3}(log m)^{4/3}`: `f(L_0) = cA^{3/4} log m − 2log A − (2/3)log m − (8/3)log log m
+≥ (cA^{3/4} − 10/3 − 2 log A/log 4) log m ≥ log(2C)` for A large. Count `≤ N/(2L²) ≤ N/(log N)²`
+(`√2 log(N/2) ≥ log N` iff `N ≥ 2^{3.41}`). ✓ PW Thm 3.1 proof (pw.txt l.276–450): most primes
+in `(N/2, N]` are m-exceptional at `N = exp((φ(m)/(C log² m))^{1/3})` ✓; PW p.2 quote on the
+`exp(m^{1/3})`–`exp(m^{1/2})` window ✓. Gap factor `(log m)²(m/φ(m))^{1/3}` ✓. Consistency check:
+at PW's N, Theorem A's saving is `≍ (φ(m)/log² m)^{1/4} m^{−1/4} ≪ (log m)^{−1/2}` — trivial, no
+contradiction.
+
+### Brute force: actual m-exceptional n (EVIDENCE; `scripts/review_emnA_exceptions.py`)
+Independent solver (x = smallest denominator in `(n/m, 3n/m]`, two-unit-fraction criterion
+"∃ d₁,d₂ | b with a | d₁+d₂" — necessity proof: write y = g y', z = g z', (y',z') = 1; then
+`y'z' | b`, `ag = e(y'+z')` with `b = y'z'e`, and `d_i = (a,e)·y', (a,e)·z'` work — cross-checked
+against naive search, 0 mismatches; composites enumerated from exceptional primes via divisor
+closure). Output `scripts/review_emnA_exceptions.out.txt`.
+* m = 4..15, n ≤ 10⁶: exactly PW Table 1 (pw.txt l.837–896) restricted to n ≤ 10⁶ (e.g. m = 8:
+  {1,2,3,11,17,131,241}; m = 12: 24 values up to 12241; m = 15: 32 values up to 20521).
+* m = 16..24, n ≤ 10⁶: counts 48, 21, 54, 24, 80, 35, 68, 65, 194 — all exceptions small;
+  highly composite m (12, 16, 18, 20, 24) have visibly more exceptions (local factors), consistent
+  with bounded Euler factors, not with any m-uniformity failure.
+* N = 10⁵: `E_m(N)/N` = 1.6 %, 6.1 %, 11.9 %, 25.8 %, 43.5 % for m = 60, 120, 210, 420, 840
+  (`log N / m^{1/3}` = 2.9, 2.3, 1.9, 1.5, 1.2): the qualitative density transition at
+  `log N ≍ m^{1/3}` is visible. None of this can test Theorem A (c, C unspecified).
+
+## Defects
+
+No FATAL and no MAJOR defect found. The transfer 4 → m is lemma-by-lemma correct and every
+constant I traced is absolute; the claimed `m^{−1/4}` uniformity holds.
+
+**D1 (MINOR) — §0 bullet 1, §5 "Comparison", AGENT_REPORT item 2.** "Beats PW … for every m in
+their range" is asymptotic only (c ineffective, unrelated to PW's C). *Repair:* "for
+`N ≥ N_0` (absolute, ineffective), uniformly in `4 ≤ m ≤ (log N)²`, the exponent of Theorem A
+exceeds PW's; the ratio is `≫ (Lm)^{1/12}/(log log 3m)^{1/3}`."
+
+**D2 (MINOR) — §0, Theorem A "(non-trivial for m ≤ ε(log N)³)", §5 "extends it to m ≤ εL³".**
+At `m ≍ εL³` the saving is a bounded constant `≍ c ε^{−1/4}`, so the bound beats the trivial one
+only if ε is small in terms of the ineffective C. *Repair:* "the saving tends to ∞ iff
+`m = o((log N)³)`; for `m ≤ ε(log N)³` with ε = ε(C) small it is a non-trivial constant factor".
+
+**D3 (MINOR) — §6 Cor. D framing.** "Density transition at `log n = m^{1/3+o(1)}`" is correct
+only as: (PW) most primes exceptional at (a range of) N with `log N ≤ (φ(m)/(C log² m))^{1/3}`,
+(MN) most primes representable for *all* `log N ≥ C_D m^{1/3}(log m)^{4/3}`; monotonicity in
+between is not known. MN states "at their specific log N"; PW's proof actually gives a range
+(it requires roughly `e^{m^{1/6}} ≲ N` and `log³N ≪ φ(m)/log² m`, pw.txt l.~330–380) — citing the
+range would strengthen the statement. *Repair:* one sentence, as above.
+
+**D4 (MINOR, Assessment wording) — §0 "Mechanism", §6 "Why it matches the heuristic exactly".**
+PW's heuristic intensity is `(log³ p/m)(log log p)^{O(1)}` (pw.txt l.80–84) and their rigorous Type II
+first-moment count is `≪ (N/φ(m)) log² N log log N` (l.~430), i.e. intensity `≲ (log N)³ loglog N/φ(m)`.
+MN's `μ_c ≍ t³/m` agrees up to bounded/loglog factors, at scale `t ≍ (m log N)^{1/4} ≪ log N`. *Repair:*
+replace "exactly" by "up to bounded and log log factors".
+
+**D5 (MINOR) — §7.1 toy masses.** The author's toy has no common floor for u,v, so the
+`muv > K`-type truncation and u = v = 1 collisions depend on m (author's own caveat). *Repair:*
+use a deduplicated toy with an m-independent floor and `K ≥ m²`; mine
+(`review_emnA_mass.py 1e7 170 0.33 0 7`) gives `m·μ_c ∈ [11.1, 12.8]` for m = 4..13 vs
+`φ(m)μ_c ∈ [3.7, 11.8]` — a cleaner confirmation of the `1/m` scaling.
+
+**D6 (MINOR, cosmetic) — Thm 4.3(iii) proof "`s ≤ t s`".** Spell out: `π(y)log 2 ≤ y ≤ Bs+2
+≤ (B+2)ts`, `log(r+1) ≤ r ≤ (D_B+2)s`, `r(4/3+κ)t ≤ 2(D_B+2)ts` (uses `s, t ≥ 1`).
+
+**D7 (MINOR, scope) — Def 1.2 parenthesis on the simplified route.** Only the original (ω-cutoff,
+pruned) route of the note is re-derived for m. Using the no-ω family is still fine (superset:
+lower bound via the ω-subfamily; BT upper bound and inventory unchanged), but say so rather than
+implying note §6 was transferred.
+
+## Overall
+Theorem A, Theorem B, Cor. C, Cor. D: **SOUND relative to the note (and SHORT)**, with MINOR
+wording repairs D1–D7. The label "PROVED rel. note" is appropriate; the note itself remains
+internally reviewed only, so nothing here is externally verified.
