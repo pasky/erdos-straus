@@ -107,15 +107,14 @@ is bounded: **this regime is a finite, explicit computation at each `L`**.
 (v) If `λ > 0` and `σ := Δ − 2Tj ≥ 1`: `u < 4j²/σ`, and with `ω := 4j² − uσ ≥ 1`
 `κ·j·ω·σ = (2Tj + σ)[(2Tj − σ)² − ωT²]`; for fixed `(σ,κ)`, `((2T³+σκ)j + σT²) | 4κσ³T⁶ + (2T³+σκ)σ³κ(4T³+2T³+σκ)`,
 so `j`, `u` are bounded polynomially in `(σ, κ)` — but `σ` and `κ = 8·7^aλ` are **not** bounded.
-*Proof.* (i) (H) gives `uT² = 6Tj + κj²ρ`·(…); directly: `λ=0` in (H) forces `Δ = 0`, i.e. `T²u = 8j·7^am + 6Tj` with
-`m = ρj`; then `j | T²u`, `j = 7^r`, and comparing 7-adic valuations gives `r = b` and `T(T−6) = 8·7^{a+b}ρ`,
-impossible as `2^k ≢ 6 (mod 7)`. (ii) `m = ρj + |λ|u > u` and `P_1 ≥ 1` gives `2·7^amuj < y² < T²u²/4`, so
+*Proof.* (i) `λ = 0` in (H) gives `Δ = 0`, i.e. `T²u = 8·7^aρj² + 6Tj` (as `m = ρj`); `j` odd divides `T²u`, so
+`j = 7^r`, `r ≤ b`; `7 ∤ 6T` gives `r = b`, then `T(T−6) = 8·7^{a+b}ρ`, impossible as `2^k ≢ 6 (mod 7)`. (ii) `m = ρj + |λ|u > u` and `P_1 ≥ 1` gives `2·7^amuj < y² < T²u²/4`, so
 `8·7^aj|λ| < T²`; in (Lin) with `x := |Δ|` (Δ<0 by (H)) `u = (x² + 6Tjx + 4|κ|j³)/(Kx − E)`, `K = T² − |κ|j > 0`,
 `E = 2|κ|Tj²`, and `Kx − E` divides the positive constant `E² + 6TjEK + 4|κ|j³K²`. (iii) In (Lin) the right side is
 `−4κj³ − Δ(6Tj − Δ) < 0` for `0 < Δ < 2Tj` (`Δ > 0` by (H)), so the bracket is negative: `j(2T³ − sκ) − sT² > 0`
 after writing `Δ = 2Tj − s`, whence `sκ < 2T³`. Then `u = N(j)/(gj − sT²)` with `N(j) = 4κj³ + (2Tj−s)(4Tj+s)`, and
-`g³N(sT²/g) = R ≠ 0`. (iv) Substitute `Δ = 2Tj`; `j·(2κj + 4T²) = T³u`, `j` odd ⇒ `j = 7^r`; mod 7 ⇒ `r = b`, then
-`κ7^b = T²(T−4)/2`… (v) `ρ > λu/j` and (H) give `Δ < 2Tj + 4j²/u`; the displayed identity is (Lin) rewritten with
+`g³N(sT²/g) = R ≠ 0`. (iv) Substitute `Δ = 2Tj` in (Lin): `T³u = j(2κj + 4T²)`; `j` odd ⇒ `j = 7^r`; the bracket `16·7^{a+r}λ + 4T²` is prime
+to 7, so `r = b` and `T²(T−4) = 16·7^{a+b}λ`: finitely many `(a,b,λ)`, none unless `7 | T−4`. (v) `ρ > λu/j` and (H) give `Δ < 2Tj + 4j²/u`; the displayed identity is (Lin) rewritten with
 `uσ = 4j² − ω`, and the divisibility is the same polynomial-remainder argument as in (iii). ∎
 
 *Interpretation (Assessment).* At `L = 7`, `j ≈ 8u/μ` (`μ = 7^am + 4`), so regime (v) has `u ≈ σμ²/256`: `σ` measures
