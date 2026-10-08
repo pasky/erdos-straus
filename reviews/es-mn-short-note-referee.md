@@ -174,3 +174,35 @@ threshold (X_h, X_v, X_a, s₀, s₁, s_*) is absolute, because m ≤ t³ is bui
 t⁴ = m𝓗/(2C₂). The only constants that depend on parameters are κ and D, and both are fixed. I
 found no circularity: the m = 4 route and the general-m route both feed the same Prop 7.4, and
 neither uses [TQ] §9.
+
+## Round 2: repairs applied
+
+All repairs were applied by the referee to `paper/es-mn-short-note.tex` (commits d76ccca..52066b4).
+
+| defect | repair applied |
+|---|---|
+| D1 (MAJOR) | §10: the v2 abstract of PW is now quoted verbatim, and the v1 wording is noted as such. "According to [PW], Vaughan's result already covers each fixed m", with an explicit caveat that this is a secondary source. The "first bound explicit in m" claim is kept. §1 Background now says that Vaughan's result covers each fixed m (per [PW, abstract]). |
+| D2 | ET is now described as "cite Vaughan's bound … (for instance) … other results as weaker". "Only" and "state of the art" are no longer attributed to ET; "state of the art" is attributed to PW p.2. |
+| D3 | "unrelated constants (ours ineffective)". The comparison is restricted to PW's range 4 ≤ m ≤ L², with the remark that the PW exponent is ≥ 1 there and absorbs C, and that (PW) is not available outside that range. |
+| D4 | Open Problem 1: the factor is now ≤ exp{2ω(q₁)X^{−1/3}} (via f_c(ℓ) ≤ ℓ^{1/3}, only ℓ > X^{1/2} matter). This is 1+o(1) only when ω(q₁) = o(X^{1/3}). |
+| D5 | §2.2: the list of occurrences of 4 in [TQ] is now complete, with the unused parts named. |
+| D6 | Remark 7.5: "without the factor q₁ (with saving constant c/2)". |
+| D7 | Remark 7.6: the conclusion is labelled CONDITIONAL on the quoted BHP statement, which is not checked against the source. |
+| D8 | §8: PW's own p.2 sentence is quoted. The extension to (PWrange) is called "our reading of their proof". The abstract now says that the exceptional side comes from the proof of a PW theorem. |
+| D9 | Assessment 8.1: "Vaughan's, as reconstructed in [PW, §4]". |
+| D10 | Prop E: the inequality is assumed "for all real x ≥ x₀". |
+| D11 | ε = ε(c,C). |
+| D12 | Lemma 3.3(3): "any residue c compatible with S_y = 1". |
+| D13 | §10: a new bibliographic-status item says which entries were consulted in full, checked secondarily, inaccessible, or not re-read. |
+
+Recompiled twice: there are no undefined references and no overfull boxes. The six underfull
+hboxes were present before the repairs (bibliography and one display-heavy paragraph). The paper
+is 18 pp. No mathematical statement or proof was changed apart from the D4 side-remark in an open
+problem and the D3/D10/D12 quantifier tightenings.
+
+**Final recommendation: ACCEPT (as an internal note).** All results are SOUND relative to [TQ],
+and the labels and status statements are honest. The only remaining caveats are inherent and are
+disclosed in the paper:
+* [TQ] itself is internally proved and externally unrefereed;
+* Vaughan 1970 and BHP were not read;
+* the PW range (PWrange) is a reading of PW's proof.
