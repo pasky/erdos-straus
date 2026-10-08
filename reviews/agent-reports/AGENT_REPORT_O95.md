@@ -49,3 +49,32 @@ The Consequence of Computation 4.1 is still correct as stated.
 Rerun the uncovered-cell analysis with the engine at larger N (k=4 needs N up to `(11⁴13⁴)²`, so a
 targeted search is needed). Then test x\*\* = (2,15), and decide whether the T-generic set for
 T={11,13} can be covered at all.
+
+# Checkpoint 3 (after the parent's steps 1–3)
+
+(1) **Targeted searches at a given point, with no cap on the {11,13}-level** (§5). The T-part is solved as a
+discrete logarithm in the T-units:
+* `m13b_target.c` covers II3/I3/I1/II2;
+* `m13b_target2.c` covers I2/II1/I4.
+
+Validated against the complete engine of §4 at random box centres: 60/60 for each of the three family
+groups, plus a T-in-`ad` II2 example. At x* both programs recover Theorem 3.1's data.
+
+(2) **The small-height survivors are not covered within the searched ranges** (Computation 5.1). The points
+`(u_11,u_13)=(2,15), (2,1/7), (2,−7/3), (−5/3,15)` lie in no class within these ranges:
+* II3/I3/I1: `e≤10⁸` (first two), `3·10⁷` (last two);
+* II2: `f≤3·10⁷`;
+* U/I2: `≤2·10⁷` resp. `10⁷`;
+* T-exponents `≤20` resp. `≤12`.
+
+For comparison, x* was caught at `e=11999`. New **Conjecture 5.2:** `x** = x(2,15)` is sterile. This is
+EVIDENCE only; the near-product survivor set is in §4. The Consequence (every finite covering needs a class
+outside these ranges) is PROVED from 5.1.
+
+(3) **Coverability of the T-generic set.** Not settled. The candidates did not fall, so I did **not**
+attempt a finite-exception improvement of Theorem 3.1(b): its exceptional classes contain the surviving
+points. Settling it would need a tail bound in the style of MORDELL17 Theorem 4.1, which is out of reach.
+
+Possible next steps:
+* push the targeted search for x** to `e≤10⁹` (about 4 h per point on one core);
+* run the complete engine of §4 restricted to boxes that contain x** (the k=4 levels).
