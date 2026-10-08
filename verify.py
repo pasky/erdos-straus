@@ -21981,4 +21981,279 @@ print("\n== (ec) EXCEPTIONAL_WEIGHTS2: Prop 5.3 premise (QNR, Jacobi), §6 prime
 check_ec()
 
 
+# ---------------------------------------------------------------- (ed)
+# POINTWISE_MORDELL13B.md (task O95, review R95): Theorem 3.1 refutes POINTWISE_MORDELL Conj 4.2 (x* sterile).
+# Uses R95's from-scratch review_m13b_thm31.py (ET Prop 1.9 + §10 parametrisations, no repo library),
+# review_m13b_lem11.py (Lemma 1.1 table and Lemma 1.2 parities vs literal classes, random parameters),
+# review_m13b_sec2.py (Lemmas 2.1-2.4 forward/inverse maps), and the author's m13b_check_hit.py (stand-alone
+# sympy engine of mordell_check.py: identity, positivity, integrality on t + MZ).  Inline, from scratch:
+# (1) x* = x(2) (x_11 = x_13 = 2, x_q = 1 otherwise) lies in the II3 class (a,d,e) = (8,33,11999):
+#     M = 4ade = 12670944 = 2^5*3*11*13^2*71, r = -4a^2 d - e mod M = 12650497, r = 1 mod M' = 6816,
+#     r = 2 mod M_T = 1859; side condition (4ad, e) = 1; the Lemma 1.1 conditions of the proof;
+#     also in the I2 class (125,88,11999) (M = 527956000, residue 426568001 by CRT);
+# (2) integrality on the class: II3 coordinates b = (n+e)/(4ad), c = (n+4a^2d+e)/(4ade) are integers and
+#     the pi^II solution (abd, acdn, bcdn) satisfies 4/n = sum exactly at n = r + sM, s = 0..4, all positive;
+#     the I2 coordinates d = (n+f)/(4ac), b = (na+c)/f likewise;
+# (3) p = 12650497 is prime and 4/p = 1/3165624 + 1/3339731208 + 1/5005839614391;
+# (4) Lemma 2.1 at the datum: ES level N = e_T a_T^2 d_T = 1859, j = (lam a' + m)/g = 3, and
+#     4/1859 = 1/(d' m j) + 1/(lam a' d' j) + 1/(B lam a' d' m).
+
+def check_ed():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    from fractions import Fraction as Fr
+    from sympy import isprime, factorint
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        return subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True,
+                              text=True, timeout=300, env=env, cwd=sdir).stdout
+    o = run("review_m13b_thm31.py")
+    assert o.rstrip().endswith("ALL OK") and "II3 M,r = 12670944 12650497" in o and "I2 M,r = 527956000 426568001" in o, \
+        ("M13B R95 Thm 3.1", o[-600:])
+    o = run("m13b_check_hit.py")
+    assert o.count("integral on t+MZ: True") == 2 and "t = 12650497" in o, ("M13B check_hit", o)
+    o = run("review_m13b_lem11.py", "100", "7", "bias")
+    assert "mismatches 0" in o and "parity failures 0" in o, ("M13B R95 Lemma 1.1/1.2", o[-600:])
+    o = run("review_m13b_sec2.py", "200", "7")
+    assert "failures 0" in o, ("M13B R95 Lemmas 2.1-2.4", o[-400:])
+
+    def split(M):
+        MT = 1
+        for q in (11, 13):
+            while M % q == 0:
+                M //= q
+                MT *= q
+        return M, MT
+    a, d, e = 8, 33, 11999
+    M = 4 * a * d * e
+    r = (-4 * a * a * d - e) % M
+    Mp, MT = split(M)
+    assert (M, r, Mp, MT) == (12670944, 12650497, 6816, 1859) and factorint(M) == {2: 5, 3: 1, 11: 1, 13: 2, 71: 1}
+    assert r % Mp == 1 and r % MT == 2 and gcd(4 * a * d, e) == 1, "M13B x* in II3 class"
+    assert (e + 1) % 96 == 0 and (e + 2) % 11 == 0 and (4 * a * a * d + 1) % 71 == 0 and (2 * a * a * d + 1) % 169 == 0
+    for s in range(5):
+        n = r + s * M
+        assert (n + e) % (4 * a * d) == 0 and (n + 4 * a * a * d + e) % (4 * a * d * e) == 0
+        b, c = (n + e) // (4 * a * d), (n + 4 * a * a * d + e) // (4 * a * d * e)
+        x, y, z = a * b * d, a * c * d * n, b * c * d * n
+        assert min(x, y, z) > 0 and Fr(1, x) + Fr(1, y) + Fr(1, z) == Fr(4, n), ("M13B II3 solution", s)
+    a2, c2, f2 = 125, 88, 11999
+    assert gcd(4 * a2 * c2, f2) == 1
+    M2 = 4 * a2 * c2 * f2
+    r2 = next(t for t in range((-f2) % (4 * a2 * c2), M2, 4 * a2 * c2) if (t * a2 + c2) % f2 == 0)
+    Mp2, MT2 = split(M2)
+    assert (M2, r2, MT2) == (527956000, 426568001, 1859) and r2 % Mp2 == 1 and r2 % MT2 == 2, "M13B x* in I2 class"
+    for s in range(5):
+        n = r2 + s * M2
+        dd, bb = (n + f2) // (4 * a2 * c2), (n * a2 + c2) // f2
+        assert (n + f2) % (4 * a2 * c2) == 0 and (n * a2 + c2) % f2 == 0
+        x, y, z = a2 * bb * dd * n, a2 * c2 * dd, bb * c2 * dd
+        assert Fr(1, x) + Fr(1, y) + Fr(1, z) == Fr(4, n), ("M13B I2 solution", s)
+    p = 12650497
+    assert isprime(p) and Fr(1, 3165624) + Fr(1, 3339731208) + Fr(1, 5005839614391) == Fr(4, p)
+    # Lemma 2.1 at the II3 datum: a = a_T a', d = d_T d', lam = a_T^2 d_T, B = e_T, e = B g
+    aT, ap, dT, dp, B, g = 1, 8, 11, 3, 169, 71
+    lam, m = aT * aT * dT, (e + 1) // (4 * ap * dp)
+    assert B * g == e and (lam * ap + m) % g == 0
+    j = (lam * ap + m) // g
+    assert j == 3 and Fr(4, B * lam) == Fr(1, dp * m * j) + Fr(1, lam * ap * dp * j) + Fr(1, B * lam * ap * dp * m)
+    print(f"ed R95 Thm 3.1 + Lemma 1.1/1.2 (100 random P per family) + Lemmas 2.1-2.4 (200) OK; author check_hit OK; "
+          f"inline: x* in II3 (8,33,11999) mod {M} (res {r}) and I2 (125,88,11999) mod {M2}; exact solutions at 5 class "
+          f"members each; p = {p} prime; Lemma 2.1: 4/1859 with j = {j}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ed) POINTWISE_MORDELL13B: Thm 3.1 (x* in II3 (8,33,11999), I2 (125,88,11999)), Lemmas 1.1-2.4 ==")
+check_ed()
+
+# ---------------------------------------------------------------- (ee)
+# EXCEPTIONAL_MN.md (task O94, reviews R94A/R94B): the 3/4 bound for m/n uniformly in m.  Uses the author's
+# emn_identity.py, emn_hm.py, emn_mass2.py and the reviewers' from-scratch review_emnA_lemmas.py,
+# review_emnB_lemmas.py.  Checked:
+# (1) Lemma 1.1: m/n = 1/(suw) + 1/(nsvw) + 1/(nuvw) with s = (nv+u)/(k l) a positive integer whenever
+#     k l + 1 = m uvw and nv = -u (mod k l): author (random atoms) and R94B (exhaustive small ranges), and
+#     inline exhaustively for m = 4..9, k l <= 60, all factorisations uvw = (k l + 1)/m and n <= 3 k l;
+#     Lemma 1.3 distinct projections (author toy, 0 collisions);
+# (2) Lemma 2.1 (a)-(d) for S_m, h_m: author (m = 4..60, 210) and both reviewers (incl. m = 2310, 30030) with
+#     K <= 2*10^4; inline (a) at x = m^2 and (b) h_m(K) >= 0.54 S_m(K) for m = 4..40, K = m^2 and 5000;
+# (3) toy fibre mass (EVIDENCE only; author emn_mass2.py at x = 10^5, K = 170, F = 7, z = 60): 0 Lemma-1.3
+#     collisions; m*mu in [1.18, 1.37] for m = 4..13 (max/min < 1.2) while phi(m)*mu varies by a factor > 3,
+#     i.e. the fibre mass scales like 1/m, not 1/phi(m) (§2-3).
+
+def check_ee():
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    from fractions import Fraction as Fr
+    from sympy import divisors, totient
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        return subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True,
+                              text=True, timeout=300, env=env, cwd=sdir).stdout
+    o = run("emn_identity.py")
+    assert re.search(r"identity checks \d+ failures 0", o) and "collisions 0" in o, ("EMN identity", o)
+    o = run("emn_hm.py", "20000")
+    assert o.rstrip().endswith("failures 0"), ("EMN h_m author", o[-300:])
+    o = run("review_emnA_lemmas.py", "20000")
+    assert "TOTAL FAILS 0" in o, ("EMN R94A lemmas", o[-300:])
+    o = run("review_emnB_lemmas.py", "20000")
+    assert re.search(r"Lemma 1\.1: \d+ instances, 0 failures", o) and "failures=0" in o, ("EMN R94B lemmas", o[-300:])
+    o = run("emn_mass2.py", "1e5", "170", "7")
+    rows = [(int(m_), float(mu), float(a_), float(b_)) for m_, mu, a_, b_ in
+            re.findall(r"m=\s*(\d+) mu=([\d.]+) m\*mu=([\d.]+) phi\(m\)\*mu=([\d.]+)", o)]
+    assert "collisions 0" in o and [r_[0] for r_ in rows] == list(range(4, 14)), ("EMN mass toy", o[-500:])
+    mm = [r_[2] for r_ in rows]
+    pm = [r_[3] for r_ in rows]
+    assert 1.15 < min(mm) and max(mm) < 1.4 and max(mm) / min(mm) < 1.2 and max(pm) / min(pm) > 3, ("EMN 1/m", rows)
+    # inline Lemma 1.1, exhaustive small ranges
+    nid = 0
+    for m in range(4, 10):
+        for kl in range(1, 61):
+            if (kl + 1) % m:
+                continue
+            P = (kl + 1) // m
+            for u in divisors(P):
+                for v in divisors(P // u):
+                    w = P // (u * v)
+                    assert gcd(u * v, kl) == 1
+                    r0 = (-u * pow(v, -1, kl)) % kl if kl > 1 else 0
+                    for n in range(r0 if r0 else kl, 3 * kl + 1, kl):
+                        assert (n * v + u) % kl == 0
+                        s = (n * v + u) // kl
+                        assert s >= 1 and Fr(m, n) == Fr(1, s * u * w) + Fr(1, n * s * v * w) + Fr(1, n * u * v * w)
+                        nid += 1
+    # inline Lemma 2.1 (a), (b)
+    for m in range(4, 41):
+        ph = int(totient(m))
+        for K in (m * m, 5000):
+            S = sum(Fr(1, j) for j in range(1, K + 1) if gcd(j, m) == 1)
+            h = sum(Fr(int(totient(k)), k * k) for k in range(1, K + 1) if gcd(k, m) == 1)
+            assert float(S) >= ph / m * log(K) and float(h) >= 0.54 * float(S), ("EMN Lemma 2.1 inline", m, K)
+    print(f"ee author identity/h_m/mass + R94A/R94B lemmas OK; toy mass m*mu in [{min(mm):.3f}, {max(mm):.3f}], "
+          f"phi(m)*mu in [{min(pm):.3f}, {max(pm):.3f}] (1/m scaling, EVIDENCE); inline Lemma 1.1: {nid} identities; "
+          f"Lemma 2.1(a),(b) m = 4..40; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ee) EXCEPTIONAL_MN: Lemma 1.1 identity, Lemma 2.1 (S_m, h_m), toy fibre mass 1/m ==")
+check_ee()
+
+# ---------------------------------------------------------------- (ef)
+# POINTWISE_TYPEI5.md (task O92, review R92): the 7-power tower at x^_9.  Uses R92's from-scratch
+# review_typei5_lehmer.py, review_typei5_relax.c (complete TYPEI4 Cor 3.2 search for one u = 7^b, all a, all
+# heights; gcc, block part skipped otherwise), review_typei5_regimes.py, and the author's typei5_lehmer_check.py,
+# typei5_regimes.py.  Checked:
+# (1) Lemma 1.1 / Cor 1.2: R92 brute force (P <= 60, 7 | Q <= 700, u <= 3000): every 7-power solution is the
+#     minimal one, u_n = u_1 L_n with L_n = n (mod 7); index k in {1, 2} for odd non-square d <= 1500; systems
+#     built to have u = 7^b (b <= 3) have no smaller solution; author check (P <= 100, Q1 <= 30); inline brute
+#     force: for P <= 60, 7 | Q <= 420, PQ non-square, all solutions of 16PX^2 - Qu^2 = 1 with u <= 1500: if some
+#     u is a power of 7, it is the least u;
+# (2) Lemma 3.2 identities (H) and (Lin) by sympy (inline): with m = rho j - lam u, y = Tu/2 - j, Delta as stated,
+#     rho(y^2 - 2W m u j) - m(Tu/2 + j) is a multiple of (H), and (Lin) follows from (H) and the definition of
+#     Delta; Prop 3.3(iii) factorisation R = kappa s^3 (4T^3 - s kappa)^2;
+# (3) small complete regime check at L = 7: R92 engine at u = 7^b, b = 0..3: 0 fibre certificates (positive
+#     controls (L, u) = (11, 1): 1, (13, 7): 1, (14, 1): 2, (16, 1): 3 solutions, as in TYPEI4 Comp 3.4);
+#     regimes (ii), (iii) at L = 7 complete (author: 28320 divisor cases, 0 solutions; R92 regime (ii): 0).
+
+def check_ef():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    from math import isqrt
+    from sympy import symbols, expand, factor, cancel, solve
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        return subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True,
+                              text=True, timeout=300, env=env, cwd=sdir).stdout
+    o = run("review_typei5_lehmer.py", "60", "700", "3000", "1500", "4", "1500", "3")
+    assert re.search(r"7pow-sols=\d+ bad=\[\] nbad=0", o) and "smaller-u solutions found: [] n=0" in o, ("T5 R92 Lehmer", o)
+    kd = re.search(r"index k distribution over odd nonsquare d <= 1500 (\{.*\})", o).group(1)
+    assert set(eval(kd)) <= {1, 2}, ("T5 Cor 1.2 index", kd)
+    o = run("typei5_lehmer_check.py", "100", "30")
+    assert "7-power u_n with n>=3: 0" in o, ("T5 author Lehmer", o)
+    o = run("typei5_regimes.py", "7", "cert")
+    assert "28320 divisor cases, 0 solutions" in o, ("T5 author regimes L=7", o)
+    o = run("review_typei5_regimes.py", "7")
+    assert "0 7-power solutions" in o, ("T5 R92 regime (ii) L=7", o)
+    # inline Lemma 1.1 brute force
+    nsys = n7 = 0
+    for P in range(1, 61):
+        for Q in range(7, 421, 7):
+            if isqrt(P * Q) ** 2 == P * Q:
+                continue
+            us = []
+            for u in range(1, 1501):
+                num = 1 + Q * u * u
+                if num % (16 * P) == 0 and isqrt(num // (16 * P)) ** 2 == num // (16 * P):
+                    us.append(u)
+            if not us:
+                continue
+            nsys += 1
+            for u in us:
+                x = u
+                while x % 7 == 0:
+                    x //= 7
+                if x == 1:
+                    n7 += 1
+                    assert u == us[0], ("T5 Lemma 1.1 inline", P, Q, us)
+    assert n7 > 0
+    # inline Lemma 3.2 (H), (Lin)
+    rho, lam, u, j, T, W, Dl, s, ka = symbols('rho lambda u j T W Delta s kappa')
+    m = rho * j - lam * u
+    y = T * u / 2 - j
+    Delta = 8 * j * W * m + 6 * T * j - T ** 2 * u
+    H = rho * Delta - 2 * lam * (T * u + 2 * j)
+    lhs = rho * (y ** 2 - 2 * W * m * u * j) - m * (T * u / 2 + j)
+    q = cancel(lhs / H)
+    assert q.free_symbols <= {u} and q != 0, ("T5 (H)", q)
+    # (Lin): m from (H) with Delta symbolic, inserted into Delta's definition
+    mH = lam * (u * (2 * T * j - Dl) + 4 * j ** 2) / Dl
+    rhoH = solve(rho * Dl - 2 * lam * (T * u + 2 * j), rho)[0]
+    assert expand(cancel(rhoH * j - lam * u - mH)) == 0, "T5 m formula"
+    kap = 8 * W * lam
+    lin = u * (kap * j * (2 * T * j - Dl) - Dl * T ** 2) - (Dl * (Dl - 6 * T * j) - 4 * kap * j ** 3)
+    # Delta = 8 j W m + 6Tj - T^2 u with m = mH, times Delta, is exactly (Lin) (lhs - rhs)
+    assert expand((8 * j * W * mH + 6 * T * j - T ** 2 * u - Dl) * Dl - lin) == 0, "T5 (Lin)"
+    g = 2 * T ** 3 - s * ka
+    R = 4 * ka * s ** 3 * T ** 6 + g * s ** 3 * ka * (4 * T ** 3 + g)
+    assert expand(R - ka * s ** 3 * (4 * T ** 3 - s * ka) ** 2) == 0, "T5 Prop 3.3(iii) R"
+    # (3) complete search at L = 7, b <= 3 with R92's engine
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "relax engine SKIPPED (no C compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "relax")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_typei5_relax.c")], check=True)
+
+            def nsol(L, uu):
+                out = subprocess.run([exe, str(L), "0", str(uu)], capture_output=True, text=True, timeout=120)
+                return int(re.search(r"(\d+) relaxed solutions", out.stderr + out.stdout).group(1))
+            for b in range(4):
+                assert nsol(7, 7 ** b) == 0, ("T5 L=7 certificate", b)
+            ctl = {(11, 1): 1, (13, 7): 1, (14, 1): 2, (16, 1): 3}
+            assert {k_: nsol(*k_) for k_ in ctl} == ctl, "T5 positive controls"
+            msg = "R92 engine L = 7, b <= 3: 0 certificates; controls (11,0),(13,1),(14,0),(16,0) = 1,1,2,3"
+    print(f"ef R92 Lehmer/index/constructed + author Lehmer OK; inline Lemma 1.1: {nsys} systems, {n7} 7-power "
+          f"solutions all minimal; (H), (Lin), R(iii) identities OK; regimes (ii),(iii) at L = 7: 0; {msg}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ef) POINTWISE_TYPEI5: Lemma 1.1 (minimal solution), Lemma 3.2 (H)/(Lin), L = 7 regime/engine check ==")
+check_ef()
+
 print("\nall checks passed")
