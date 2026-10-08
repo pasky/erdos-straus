@@ -76,13 +76,13 @@ and must be checked separately), and these residues are computed exactly along t
 * Regression: `typei5_dmod 5 24 3000` returns exactly the 8 hits of `typei4_dgraded.py 5 24 3000 6` (0.07 s);
   residues of `ε_f` agree with exact big-integer units for `d = 497, 21777, 13220193, 1234567, 991`.
 * `typei5_dmod 7 10 300000`: 466 876 fields, 6.8·10⁹ CF steps, **0 survivors** (71 s).
-* `typei5_dmod L L 1000000`: `L=7`: 426 697 fields, 2.0·10¹⁰ CF steps, **0 survivors**; `L=8`: same counts, **0 survivors**
-  (≈15 min each); `L=9,10`: running.
+* `typei5_dmod L L 1000000`, `L = 7, 8, 9, 10`: 426 697 fields each, 1.5–2.0·10¹⁰ CF steps each, **0 survivors**
+  (≈15 min each).
 
 **Corollary 2.3 (CERTIFIED once replayed).** There is no fibre certificate (hence no certificate at `x̂_9`) of level
-`L ∈ {7,8,9,10}` with `c_oδ ≤ 3·10⁵`, **for any `v_7(k)`** (and any height `X = k'`).
+`L ∈ {7,8,9,10}` with `c_oδ ≤ 10⁶`, **for any `v_7(k)`** (and any height `X = k'`).
 Together with TYPEI4 Cor 3.5 (`v_7(k) ≤ 7`, any `c_oδ`): a certificate at `x̂_9` of level `7…10` needs
-**both** `v_7(k) ≥ 8` **and** `c_oδ > 3·10⁵`.
+**both** `v_7(k) ≥ 8` **and** `c_oδ > 10⁶`.
 
 ## 3. The gap parametrisation at general `L`: one regime is finite, one is two-parametric (PROVED)
 
@@ -125,6 +125,22 @@ fixed `(σ, a, λ)` it is finite (explicit), so the obstruction is exactly that 
 Linear forms in logarithms bound exponents in a **fixed** field / fixed recurrence; here the field moves with two free
 parameters and no LFL bound applies. (Not a theorem; the PROVED content is Lemmas 1.1, 3.1–3.3.)
 
+**Computation 3.4 (CERTIFIED once replayed).** `scripts/typei5_regimes.py L cert` enumerates regimes (ii) and (iii)
+of Prop 3.3 completely (all `a`, `λ`, `s` resp. `|λ|`, `j` allowed by the bounds; the divisibility constants factor as
+`R = κs³(4T³ − sκ)²` in (iii), since `4T⁶ + g(4T³+g) = (g+2T³)²`; then every candidate `(u,a,j,m)` is run through the
+full conditions of TYPEI4 Cor 3.2). Result: **0 fibre certificates at `L = 7, 8, 9, 10`** (28 320 / 9.6·10⁵ / 2.7·10⁷ /
+5.8·10⁸ divisor cases; ≤ 90 s). Regression (`relax` mode, `u` any odd integer): it finds exactly the regime-(ii)/(iii)
+solutions of the brute-force `typei5_relax` (`L=7`: `u=4003`; `L=9`: `u=5, 37, 293`; `L=10`: `u=1159`) and many more with
+larger `u` (`L=8`: 6, `L=9`: 23, `L=10`: 60), while the remaining brute-force solutions (`L=7`: `u=293`; `L=9`: `u=1853`;
+`L=10`: `u=293`) are in regime (v), and the `L=9`, `u=5`, `j=−1` ones in case A — as predicted.
+Regime (iv) is empty at `L = 7, 8, 10` (`T ≢ 4 mod 7`) and at `L = 9` forces `b = 0` (covered by TYPEI4 Comp 3.4).
+
+**Theorem 3.5 (summary; PROVED + CERTIFIED once replayed).** A certificate at `x̂_9` of level `L ∈ {7,…,10}` must satisfy
+all of: `v_7(k) ≥ 8` (TYPEI4 Cor 3.5); `c_oδ > 10⁶` (Cor 2.3); `2y < T7^b` with `λ ≥ 1` and `Δ > 2Tj` (regime (v) of
+Prop 3.3; Comp 3.4), **or** (only for `L = 8, 9, 10`) case A of TYPEI4 Lemma 3.1 (`2y > T7^b`, `a = 1`), which is not
+treated here. In regime (v), `u = 7^b < 4j²/σ` and, for fixed `(σ, a, λ)`, everything is bounded explicitly.
+
 ## 4. Open / next steps
+* Case A (`j < 0`) at `L = 8, 9, 10`: the identities (H), (Lin) hold verbatim; a sign analysis as in Prop 3.3 is needed.
 * Implement regime (iii) (and (ii), (iv)) as a complete computation at `L = 7…10` (finite by Prop 3.3).
 * Regime (v): for `σ, λ` up to a bound — finite; full closure would need a new idea (a relation bounding `σ`).
