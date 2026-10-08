@@ -123,3 +123,20 @@ the later additions are §5 (targeted search) and Comp 5.1, reviewed above.
    `v_q(ad) ≤ v_q(e+u_q) ≤ log_q(7e+1) < 8` (for u₁₃=1/7, `v_13(e+1/7)=v_13(7e+1)`), `v_q(λ)≤2v_q(ad)<16`.
    *Repair:* state Comp 5.1 as "no II3/I3/I1 class with e≤10⁸" (no T-level restriction), citing this bound.
    Also say explicitly that II2 and the U/I2 families are *not* covered by Comp 5.1, so x\*\* is EVIDENCE only.
+
+## Repairs applied (by reviewer, on branch side-agent/review-m13b, after merging the author's latest §5)
+Each change is marked "(R95 repair, applied by reviewer)" in POINTWISE_MORDELL13B.md and committed separately.
+1. Defect 1: the k=4-only "incomplete" note was removed from the table. A note after the table now says all
+   three rows are upper bounds (ES level ≤4·10⁷ only). It also says the enumeration is complete for
+   M_T ≤ 6324, i.e. M_T∈{11,…,2197}.
+2. Defect 2: "reappear at N=1859·13^k via dilation" is replaced by "re-found at N=24167, 314171 by
+   non-canonical inversion (same data)". The m13b_invert.py docstring is not touched (author's script).
+3. Defect 3 (Lemma 1.2): `q∤g` moved from (i) to (ii).
+4. Defect 4 (Lemma 2.1): the lemma is now stated for T-generic data (only the T-free conditions are used).
+5. Defect 5 (§5): Computation 5.1 has meanwhile been extended by the author to II2 and U/I2 and to four
+   points, and Conjecture 5.2 is labelled with an Assessment. The "x** is EVIDENCE only" part of the defect
+   is therefore obsolete. The repair adds a note after the ranges: the P/Q T-exponent cap ≤20 is vacuous,
+   because `v_q(ad)≤v_q(se+p)≤7` for II3/I3/I1 and `v_q(a_Td_T)≤6` for II2, so `v_q(λ)≤14`.
+Not reviewed (new since round 1): the extended Comp 5.1 ranges for II2, U/I2 and the points (2,−7/3),
+(−5/3,15); the U/I2 program m13b_target2.c; and "Consequence (PROVED from 5.1)" and Conjecture 5.2.
+These are candidates for a round 2.
