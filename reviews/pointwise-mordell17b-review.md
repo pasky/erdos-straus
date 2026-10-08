@@ -31,3 +31,16 @@ Then `d = (n+e)/(4ab)`, `c = (a+b)/e`, and the equation is checked in 128-bit.
 Results, compared with `m17b_penum.py` **as sets of (a,b,c,d)**:
 * K = 1, 3, 5, 7: 2, 32, 121, 258 data; set-equal.
 * K = 2, 4, 6: 0 data (consistent with M17 Lemma 1.3).
+* K = 9: 604 data; set-equal (naive scan, 2 cores, ≈ 6 min).
+* K = 7, 9 also with the second engine `scripts/review_m17b_k11.c` (below); set-equal.
+
+For K = 11 the naive scan is too slow (≈ n log n). `scripts/review_m17b_k11.c` is a second from-scratch engine that is
+complete by its own argument and uses no external factoriser:
+* `a ≥ 50`: naive scan over `(a,d)`. For each, `b` runs over the short interval forced by `1 ≤ e = 4abd − n ≤ a+b`.
+* `a < 50`: from `acde ≤ n`, either `e ≤ X = 10⁷` or `cd ≤ n/(aX)`. For `e ≤ X`, the numbers `n+e` are factored by a
+  segmented sieve, and all divisors `d` of `(n+e)/(4a)` are tried. For `cd ≤ n/(aX)`, `f = 4acd−1 | nc+a` is tested directly.
+(In the K = 11 data, 420 of the 836 points have `a < 50`, so both parts matter.)
+
+**Code reading, `factor`.** Coreutils `factor` gives a Miller–Rabin probable-prime verdict, then a Lucas
+proof (`PROVE_PRIMALITY`). A wrong "prime" verdict would lose divisors and so lose data; for K ≤ 11 the
+independent engines exclude this. For K = 13 there is no second engine (see defect m1).
