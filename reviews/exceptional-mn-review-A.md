@@ -191,8 +191,11 @@ only if ε is small in terms of the ineffective C. *Repair:* "the saving tends t
 only as: (PW) most primes exceptional at (a range of) N with `log N ≤ (φ(m)/(C log² m))^{1/3}`,
 (MN) most primes representable for *all* `log N ≥ C_D m^{1/3}(log m)^{4/3}`; monotonicity in
 between is not known. MN states "at their specific log N"; PW's proof actually gives a range
-(it requires roughly `e^{m^{1/6}} ≲ N` and `log³N ≪ φ(m)/log² m`, pw.txt l.~330–380) — citing the
-range would strengthen the statement. *Repair:* one sentence, as above.
+(PDF p. 7, read from the rendered page since pw.txt drops superscripts: the Type I count
+`≪ (N/φ(m)) log² N log² m` is proved under `e^{m^{1/4}} ≪ N < e^m`, and the Type II count is
+`≪ (N/φ(m)) log² N log log N`; so the argument gives "most primes in (N/2,N] are m-exceptional"
+for every N with `m^{1/4} ≲ log N ≤ (φ(m)/(C log² m))^{1/3}`) — citing the range would strengthen
+the statement. *Repair:* one sentence, as above.
 
 **D4 (MINOR, Assessment wording) — §0 "Mechanism", §6 "Why it matches the heuristic exactly".**
 PW's heuristic intensity is `(log³ p/m)(log log p)^{O(1)}` (pw.txt l.80–84) and their rigorous Type II
