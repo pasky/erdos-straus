@@ -1,6 +1,7 @@
 # POINTWISE_MORDELL17B — the r = 17 tail: union measure, exact level 6, explicit hypotheses (task O93)
 
-Status: O93 (branch `side-agent/r17-explicit-tail`), work in progress, not reviewed.
+Status: O93 (branch `side-agent/r17-explicit-tail`). Hostile review R93 (`reviews/pointwise-mordell17b-review.md`): no FATAL;
+M1 and m1–m8 applied, marked "(R93 repair)".
 Builds on POINTWISE_MORDELL17.md (= "M17"; reviewed R83 rounds 1–2). Notation and labels as there.
 `N = 17^K`, K odd; P-data at level K = N-points `(a,b,c,d)` of `Σ^II_N` with `a ≤ b`, `17∤cd`
 (equivalently `(a,s,t) = (a,c,d)` with `f = 4ast−1 | s·N + a`, `b = (sN+a)/f ≥ a`); each gives the
