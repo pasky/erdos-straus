@@ -250,14 +250,13 @@ and all N with `log N ≥ C_D m^{1/3} (log m)^{4/3}`:
 `#{p ∈ (N/2, N] : p prime, m-exceptional} ≤ N/(log N)² = o(π(N) − π(N/2))`;
 and for integers, `E_m(N) = o(N)` as soon as `log N / m^{1/3} → ∞`.
 
-*Proof.* Theorem A with I = (N/2, N]: `≤ C N exp(−c L'^{3/4} m^{−1/4})`, `L' = log(N/2)`.
-If `L' ≥ A m^{1/3}(log m)^{4/3}` then `c L'^{3/4} m^{−1/4} ≥ c A^{3/4} log m`, and
-`log(C N (log N)²/N) ≤ 2 log L' + O(1) ≤ (2/3+o(1)) log m + 2 log A + 2(4/3) log log m + O(1)`;
-take A large absolute (and use `L'^{3/4}m^{−1/4} ≥ c' L'^{1/2}` … for small m the condition
-`log N ≥ C_D` handles it; m ≥ 4 is bounded below, so the inequality
-`c L'^{3/4} m^{−1/4} ≥ 2 log L' + log C` holds for `L' ≥ A m^{1/3}(log m)^{4/3}` with A absolute,
-by monotonicity in L' of `L'^{3/4} − (2/c) m^{1/4} log L'`). Integers: the saving
-`(log N)^{3/4} m^{−1/4} = (log N/m^{1/3})^{3/4} → ∞`. ∎
+*Proof.* Theorem A with I = (N/2, N] gives `≤ C N exp(−c L^{3/4} m^{−1/4})`, `L = log(N/2)`.
+Let `f(L) = c L^{3/4} m^{−1/4} − 2 log L`; `f′(L) > 0` iff `L > (8/(3c))^{4/3} m^{1/3}`. At
+`L_0 = A m^{1/3}(log m)^{4/3}` with `A ≥ (8/(3c))^{4/3}`:
+`f(L_0) = c A^{3/4} log m − 2 log A − (2/3) log m − (8/3) log log m
+≥ (c A^{3/4} − 10/3 − 2 log A/log 4) log m ≥ log(2C)` for A large absolute (`log m ≥ log 4`).
+So for `L ≥ L_0`: count `≤ C N e^{−f(L) − 2 log L} ≤ N/(2L²) ≤ N/(log N)²` (N ≥ 4).
+Integers: the saving `(log N)^{3/4} m^{−1/4} = (log N/m^{1/3})^{3/4} → ∞`. ∎
 
 So the threshold exponent 1/3 of PW Thm 1.1 is **sharp**: most primes near N are
 m-exceptional when `log N ≤ c m^{1/3}/(log m)^{2/3}` (PW), and m-representable when
