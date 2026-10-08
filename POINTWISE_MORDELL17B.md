@@ -44,8 +44,9 @@ coincides *as a set of (a,b,c,d)* with the naive scan `scripts/m17b_brute.py` (a
 `2ab ≤ n`, `e = (−n mod 4ab) | a+b`, M17 §6) for K = 5, 7. Its counts equal M17's `D_P(K)` (both engines)
 for K = 1, 3, 5, 7, 9. Run times: K = 9 takes 9 s and K = 11 a few minutes (vs 8 min for K = 9 with `m17_enum`).
 
-**Computation 2.2 (CERTIFIED by one engine, validated above).** `D_P(11) = 836`.
-So `D_P(K) = 2, 32, 121, 258, 604, 836` for K = 1, …, 11 (odd).
+**Computation 2.2 (CERTIFIED by one engine, validated above).** `D_P(11) = 836` and `D_P(13) = 1463`. K = 13 took ≈ 1.5 h:
+the regimes `e ad` and `ac cd` ran in parallel and gave 1415 and 925 data, overlapping. So
+`D_P(K) = 2, 32, 121, 258, 604, 836, 1463` for K = 1, …, 13 (odd).
 
 ## 3. Exact union through level 6 (CERTIFIED)
 
@@ -58,10 +59,11 @@ also reproducing M17. Adding the **P-boxes of level 6 (K = 11)** gives 161 boxes
 |---|---|---|
 | 5 | 83 (P 54, Q 29) | 9.94·10⁻⁴ |
 | 6 | 100 (P) | 7.04·10⁻⁵ |
-| 7 | 94 (Q only; P K=13 pending) | 3.9·10⁻⁶ |
+| 7 | 272 (P 178, Q 94) | 6.6·10⁻⁶ |
 
 **Computation 3.1.** After all P-boxes of level ≤ 6 and all Q/U boxes of level ≤ 7, the uncovered
-fraction of `C_5` is **ρ₁ = 16344335/24137569 = 0.677132606…** (CERTIFIED).
+fraction of `C_5` is **ρ₁ = 16344335/24137569 = 0.677132606…** (CERTIFIED). Adding P-level 7 (K = 13), the uncovered fraction after
+all boxes of level ≤ 7 is **ρ₂ = 961421/1419857 = 0.677125231…** (CERTIFIED; `m17b_union.py . 13 7`).
 
 ## 4. Explicit conditional theorem (PROVED reduction; hypothesis = CONJECTURE)
 
@@ -74,16 +76,17 @@ primes `p ≡ 1 (24)` with `(p/17) = −1` and `(p/q) = 1` for `q = 5, 7, 11, 13
 | θ | 0.25 | 0.30 | 0.35 | **0.40** | 0.42 | 0.45 |
 |---|---|---|---|---|---|---|
 | largest admissible C | 619 | 87.9 | 11.8 | **1.41** | 0.569 | 0.128 |
+| same, hypothesis from K ≥ 15 (base ρ₂) | 2553 | 273 | 27.5 | **2.49** | — | 0.169 |
 
 *Proof.* Lemma 1.1, Computation 3.1, and `NB ≤ 2D`. The two series are summed numerically, with a geometric remainder bound. ∎
 
 In words: **ET's own exponent 2/5, with constant 1.41 and no `o(1)`, from K = 13 on, suffices.** For Q, ET's exponent 3/5
 with constant 1 suffices; even `17^{3k/4}` gives `T_Q = 0.076`. For comparison, the data give `D_P(K)/17^{0.4K}` = 0.64, 1.07,
-0.42, 0.093, 0.022, 0.0032 (K = 1, …, 11). So the needed constant 1.41 is exceeded by none of the computed K. Polynomial versions of the hypothesis:
+0.42, 0.093, 0.022, 0.0032, 0.00058 (K = 1, …, 13). So the needed constant 1.41 is exceeded by none of the computed K. Polynomial versions of the hypothesis:
 `D_P, D_Q ≤ 2K³` gives `T_P+T_Q = 4.0·10⁻⁴`, `≤ K⁴` gives `2.6·10⁻³`, and `≤ K⁵` gives `3.5·10⁻²`, all far below ρ₁.
 
 **Conjecture 4.2 (explicit, EVIDENCE).** `D_P(K) ≤ 2K³` for all odd K, and `D_Q(k) ≤ 3k³` for all odd k.
-Data: D_P = 2, 32, 121, 258, 604, 836 against 2K³ = 2, 54, 250, 686, 1458, 2662 (K = 1, …, 11); D_Q = 2, 73, 245, 707
+Data: D_P = 2, 32, 121, 258, 604, 836, 1463 against 2K³ = 2, 54, 250, 686, 1458, 2662, 4394 (K = 1, …, 13); D_Q = 2, 73, 245, 707
 against 3k³ = 3, 81, 375, 1029 (k = 1, …, 7). (`2k³` fails for Q at k = 3 and k = 7.) Under Conjecture 4.2,
 `T_P + T_Q < 4.1·10⁻⁴ ≪ ρ₁`, so Theorem 4.1 applies with an enormous margin.
 The random discrete-log model of M17 §6 (`17^K` equidistributed mod `f = 4ast−1`) predicts
@@ -129,5 +132,7 @@ for m in Q U; do for k in 1 3 5 7; do ./m17_enum $m $k | sort -u > $m$k.txt; don
 python3 $W/scripts/m17b_union.py . 9 5     # = 56561/83521 (M17 Comp. 3.1)
 python3 $W/scripts/m17b_union.py . 11 7    # rho_1 = 16344335/24137569
 python3 $W/scripts/m17b_tail.py 13 9 16344335 24137569   # Theorem 4.1 table
-# K=13 (≈ 2 h on 2 cores): run m17b_penum.py 13 "e ad" and "ac cd" in parallel, sort -u the union into p13.txt
+# K=13 (≈ 1.5 h on 2 cores): run m17b_penum.py 13 "e ad" and "ac cd" in parallel, sort -u the union into p13.txt (1463)
+python3 $W/scripts/m17b_union.py . 13 7   # rho_2 = 961421/1419857
+python3 $W/scripts/m17b_tail.py 15 9 961421 1419857
 ```
