@@ -1028,8 +1028,10 @@ $L>(8/(3c))^{4/3}m^{1/3}$.  Let $L_0=Am^{1/3}(\log m)^{4/3}$ with
 $A\geq(8/(3c))^{4/3}(\log4)^{-4/3}$, so that $f$ increases on
 $[L_0,\infty)$.  Since $\log\log m\leq\log m$,
 \[
- f(L_0)=cA^{3/4}\log m-2\log A-\tfrac23\log m-\tfrac83\log\log m
- \geq\Bigl(cA^{3/4}-\tfrac{10}3-\tfrac{2\log A}{\log4}\Bigr)\log m,
+ \begin{aligned}
+ f(L_0)&=cA^{3/4}\log m-2\log A-\tfrac23\log m-\tfrac83\log\log m\\
+ &\geq\Bigl(cA^{3/4}-\tfrac{10}3-\tfrac{2\log A}{\log4}\Bigr)\log m,
+ \end{aligned}
 \]
 which is at least $\log(2C)$ for $A$ large enough (absolute), as
 $\log m\geq\log4$.  Put $C_D=2A$.  If $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
@@ -1166,6 +1168,83 @@ intersections, or classes of modulus $>H$, each of which contains at most
 one point of the window.  Nothing here excludes such input.
 \end{assessment}
 
+\section{Literature}\label{sec:literature}
+The following was checked in October 2026 by web searches and by
+reading the papers where accessible.  It is an assessment, not an
+exhaustive survey.
+\begin{itemize}
+\item Elsholtz and Tao \cite[\S1]{ET} quote Vaughan's bound
+$N\exp\{-c(\log N)^{2/3}\}$ over $n<N$ as the only exceptional-set
+result, and refer to Li Delang \cite{Li} and Yang \cite{Yang}, among
+others, for weaker results.  Yang's abstract concerns the initial-segment
+count; we did not read Li's or Yang's papers in full.  There is no
+short-interval or progression statement in \cite{ET}.
+\item Pomerance and Weingartner \cite{PW} describe Vaughan's 1970
+bound as the state of the art for $4/n$ \cite[p.~2]{PW}, and prove
+\eqref{eq:PW} for general $m$, again over $n\leq N$.  Their abstract says
+that they ``generalize a result of Vaughan''.  Whether Vaughan's paper,
+whose title names Schinzel, itself treats general $m$ we could not check:
+we did not have access to its full text.  So \cite[Thm.~1.3]{PW} is the
+first bound explicit in $m$ that we can cite.
+\item Searches for short-interval, almost-all-short-interval and
+progression versions of exceptional-set bounds for $4/n$ or $m/n$, for
+``Sierpi\'nski $5/n$ exceptional set'' and for ``$(\log N)^{3/4}$''
+returned nothing relevant.  Verification papers (to $10^{17}$ and
+$10^{18}$) concern computation, not density.
+\end{itemize}
+We found no published short-interval or progression version, and no
+$3/4$-type bound for $m\neq4$.  The bound with exponent $3/4$ is itself
+only internally established, even for $m=4$ \cite{TQ}.  As far as we can
+tell, Theorem~\ref{thm:A} is new for every $m\neq4$, and its uniform
+dependence on $m$ and Corollary~\ref{cor:D} are new relative to
+\cite{PW}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
+As explained in the introduction, a specialist would expect the
+short-interval transfer, and presumably Vaughan's argument already gives
+$E_4(I)\ll|I|\exp\{-c(\log|I|)^{2/3}\}$ for intervals.  An earlier
+internal document observed the shift-uniformity of the $3/4$ majorant
+for large primes \cite{WEIGHTS}; Lemma~\ref{lem:smooth} extends this to
+all integers.
+
+\section{Open problems}\label{sec:open}
+\begin{problem}[large smooth moduli]
+Remove the factor $q_1$ in Theorem~\ref{thm:B}, at least for
+$(b,q_1)=1$.  For such $b$, conditioning on $n\equiv b\ (q_1)$ forces
+$p\nmid c$ for every $p\mid q_1$, which only makes the bad event
+$\{Z(c)>1/4\}$ less likely.  Fixing the coordinates $n\bmod\ell$ for
+$\ell\mid q_1$ changes the fibre product by a factor
+$\leq\exp\{\sum_{\ell\mid q_1}2\ell^{-2/3}\}=1+o(1)$.  What is missing is a
+version of Lemma~\ref{lem:moments} conditional on $n\equiv b\ (q_1)$.
+This is probably routine but has not been attempted.  A related question
+is whether every prime modulus $q$ is covered for general $m$
+(Remark~\ref{rem:smoothq}).
+\end{problem}
+
+\begin{problem}[the transition gap]
+Close the gap $(\log m)^2(m/\varphi(m))^{1/3}$ between
+\eqref{eq:PWrange} and Corollary~\ref{cor:D}.  The lower side is the
+first-moment count of \cite{PW}; the upper side is ours.  Is the
+proportion of $m$-exceptional primes in $(N/2,N]$ monotone in $N$ in
+this range?  For $m\geq\varepsilon(\log N)^3$ Theorem~\ref{thm:A} is
+trivial, and in the range \eqref{eq:PWrange} most primes are
+exceptional, so $E_m(N)\gg N/\log N$ there and no saving beyond
+$\log\log N+O(1)$ is possible.  What is the true size of $E_m(N)/N$ in
+between?
+\end{problem}
+
+\begin{problem}[position-dependent input]
+Determine $\theta_{\rm win}(m)$.  Equivalently for the methods of
+Assessment~\ref{ass:shift}: are there windows of length $H$ that contain
+$\geq H\e^{-C(\log H)^{3/4}}$ integers avoiding the forced classes?  If
+not, what position-dependent input could improve on $(\log H)^{3/4}$ in
+$(x,x+H]$ for $H=x^{o(1)}$?
+\end{problem}
+
+\begin{problem}[the exponent]
+Improve the exponent $3/4$ itself, for any $m$.  The ceiling discussion
+of \cite[\S10]{TQ} and Assessment~\ref{ass:shape} indicate that this
+needs a new source of class mass, not a better transfer.
+\end{problem}
+
 \begin{thebibliography}{99}
 \bibitem[BHP]{BHP}
 R. C. Baker, G. Harman and J. Pintz, The difference between consecutive
@@ -1179,6 +1258,9 @@ Springer, 2000.
 C. Elsholtz and T. Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math.
 Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[Li]{Li}
+Delang Li, On the equation $4/n=1/x+1/y+1/z$, \emph{J. Number Theory}
+\textbf{13} (1981), 485--494.
 \bibitem[MN]{MN}
 \emph{EXCEPTIONAL\_MN: the $3/4$ exceptional-set bound for $m/n$},
 internal working document \texttt{EXCEPTIONAL\_MN.md}, this repository,
@@ -1207,6 +1289,12 @@ equation: an internally proved research note},
 \texttt{paper/es-threequarter-note.tex}, this repository, 2026;
 internally proved, not externally refereed.  Numbering of statements
 and displays as in the compiled version.
+\bibitem[W]{WEIGHTS}
+\emph{EXCEPTIONAL\_WEIGHTS}, internal working document
+\texttt{EXCEPTIONAL\_WEIGHTS.md}, this repository, 2026, Prop.~5.1.
+\bibitem[Y]{Yang}
+Xun Qian Yang, A note on $4/n=1/x+1/y+1/z$, \emph{Proc. Amer. Math. Soc.}
+\textbf{85} (1982), 496--498.
 \bibitem[V]{Vaughan}
 R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), 193--198.
