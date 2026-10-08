@@ -459,8 +459,7 @@ have distinct primes $\ell_i$, and
  =\frac{\ind_{\rm compatible}}{\lcm(k_1,\ldots,k_j)\prod_i\ell_i};
 \]
 \item conditional on any residue $c\pmod{L_K}$ compatible with
-$S_y=1$ \textup{(}and on
-$S_y=1$\textup{)}, the coordinates $n\bmod\ell$, $X^{1/2}<\ell\leq X$,
+$S_y=1$ \textup{(}and on $S_y=1$\textup{)}, the coordinates $n\bmod\ell$, $X^{1/2}<\ell\leq X$,
 are independent and uniform, and the atom $A$ is \emph{active} in the
 fibre $c$, i.e.\ $E_A$ meets it, precisely when $k\mid u+cv$.
 \end{enumerate}
@@ -995,7 +994,7 @@ $Z(c)\geq\sum_{y<p\leq w,\,p\mid L_K}1/p$ may exceed $1/4$.  We have
 Such progressions are harmless for the equation itself: every
 $n\equiv0\ (q_1)$ is representable as soon as one prime $p\mid q_1$ is.
 For $m=4$, every prime modulus $q$ with $H/q$ large is covered without
-loss: if $q\leq X_q$ then $q\leq\exp\{\frac c2(\log(H/q))^{3/4}4^{-1/4}\}$
+the factor $q_1$ (with saving constant $c/2$): if $q\leq X_q$ then $q\leq\exp\{\frac c2(\log(H/q))^{3/4}4^{-1/4}\}$
 for large $H/q$.  For general $m$ this absorption fails, because
 $\log X_q/((\log(H/q))^{3/4}m^{-1/4})\asymp(m/\log(H/q))^{1/2}$ need not be
 bounded.  Primes $q$ with
@@ -1029,7 +1028,8 @@ by $\lfloor H/(2x)^{0.525}\rfloor\geq1$ disjoint intervals
 $(u-u^{0.525},u]$.  This gives $\pi(x+H)-\pi(x)\gg H/\log x$, and with
 Theorem~\ref{thm:A} the proportion of $m$-exceptional primes in
 $(x,x+H]$ is $\ll(\log x)\exp\{-c'(\log x)^{3/4}m^{-1/4}\}$, with
-$c'=0.525^{3/4}c$, conditionally on the quoted result.  This is
+$c'=0.525^{3/4}c$.  This conclusion is \status{conditional} on the quoted
+statement of \cite{BHP}, which we could not check against the source.  It is
 $\ll\exp\{-\frac{c'}2(\log x)^{3/4}m^{-1/4}\}$ once
 $(\log x)^{3/4}m^{-1/4}\geq(2/c')\log\log x$.  Almost-all versions for shorter $H$, and versions for
 primes in progressions, follow in the same way from the corresponding
@@ -1233,7 +1233,10 @@ $(b,q_1)=1$.  For such $b$, conditioning on $n\equiv b\ (q_1)$ forces
 $p\nmid c$ for every $p\mid q_1$, which only makes the bad event
 $\{Z(c)>1/4\}$ less likely.  Fixing the coordinates $n\bmod\ell$ for
 $\ell\mid q_1$ changes the fibre product by a factor
-$\leq\exp\{\sum_{\ell\mid q_1}2\ell^{-2/3}\}=1+o(1)$.  What is missing is a
+$\leq\exp\{\sum_{\ell\mid q_1,\,\ell>X^{1/2}}2\ell^{-2/3}\}
+\leq\exp\{2\omega(q_1)X^{-1/3}\}$, using $f_c(\ell)\leq z_j^2\leq\ell^{1/3}$;
+this is $1+o(1)$ when $\omega(q_1)=o(X^{1/3})$, but not for every $q_1$.
+What is missing is a
 version of Lemma~\ref{lem:moments} conditional on $n\equiv b\ (q_1)$.
 This is probably routine but has not been attempted.  A related question
 is whether every prime modulus $q$ is covered for general $m$
