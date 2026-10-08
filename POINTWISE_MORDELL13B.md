@@ -60,7 +60,9 @@ of T-level 143, 11², 13², 11·13³ …, but no family entirely (no uniform qua
 
 ## 2. Data at x* are ES solutions of 4/N, N a T-unit (in progress)
 
-**Lemma 2.1 (II3, all placements of 11, 13; PROVED).** Let `(a,d,e)` be II3 data with x(u) in the class.
+**Lemma 2.1 (II3, all placements of 11, 13; PROVED).** Let `(a,d,e)` be T-generic II3 data, i.e. `(4ad,e)=1` and the T-free conditions
+`e≡−1 (4(ad)')`, `e'∣4a²d+1` of Lemma 1.1 hold (R95 repair, applied by reviewer: the proof uses only these, so
+x(u) need not lie in the class).
 Write `a=a_Ta'`, `d=d_Td'`, `λ=a_T²d_T`, `B=e_T`, `e=Bg`, `m=(e+1)/(4a'd')`. Then `j:=(λa'+m)/g` is a
 positive integer, `4a'd'mj = Bλa'+Bm+j`, and
 `4/(Bλ) = 1/(d'mj) + 1/(λa'd'j) + 1/(Bλa'd'm)` — an ES solution of `4/N`, `N=e_T·a_T²·d_T`.
