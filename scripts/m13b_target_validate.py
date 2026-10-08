@@ -4,10 +4,11 @@ usage: m13b_target_validate.py rundir target_binary X E nsamples"""
 import glob, pickle, random, subprocess, sys
 from m13b_invert import tpart
 run, binary, X, E, ns = sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+import os; FAMS = tuple(os.environ.get('FAMS', 'II3,I3,I1').split(','))
 data = []
 for fn in glob.glob(run + '/inv_*.pkl'):
     for (fam, MT, r), P in pickle.load(open(fn, 'rb'))['boxes'].items():
-        if fam in ('II3', 'I3', 'I1') and P[2] <= X and MT > 1 and r % 11 and r % 13:
+        if fam in FAMS and P[2] <= X and MT > 1 and r % 11 and r % 13:
             data.append((fam, MT, r, P))
 random.seed(5); sample = random.sample(sorted(set(data)), ns)
 bad = 0

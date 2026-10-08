@@ -59,7 +59,7 @@ int main(int argc, char **argv) {
                     int I = tab[k].i, J = tab[k].j;
                     /* splits lam = a_T^2 d_T: a_T = 11^x 13^y with 2x<=I, 2y<=J */
                     for (int x = 0; 2 * x <= I; x++) for (int y = 0; 2 * y <= J; y++) {
-                        int va[2] = {x, y}, vd[2] = {I - 2 * x, J - 2 * y}; int ok3 = 1, okI3 = 1, ok1 = 1;
+                        int va[2] = {x, y}, vd[2] = {I - 2 * x, J - 2 * y}; int ok3 = 1, okI3 = 1, ok1 = 1, ok2 = 1;
                         u64 a2d[2];
                         for (int t = 0; t < 2; t++) {
                             /* a^2 d mod q^16 (zero if divisible enough) */
@@ -77,10 +77,17 @@ int main(int argc, char **argv) {
                             if (vB[t]) {
                                 u64 qv = ipow(QQ[t], vB[t]);
                                 u64 s1 = (U[t] + 4 * a2d[t]) % qv, s2 = (mulm(U[t], U[t], qv) + 4 * a2d[t]) % qv;
-                                if (s1) ok3 = 0;
+                                if (s1) ok3 = ok2 = 0;
                                 if (s2) okI3 = 0;
                                 if ((4 * a2d[t] + 1) % qv) ok1 = 0;  /* I1 needs B | 4a^2d+1 */
                             }
+                        }
+                        /* II2 with T in ad: (a,d) = (a_T a', d_T d'), 4ad | e+1, box only at B (no condition at lam) */
+                        if (ok2 && B > 1) {
+                            u64 aTdT = 1; int ex11 = va[0] + vd[0], ex13 = va[1] + vd[1];
+                            if (ex11 < 40 && ex13 < 40) { u128 w = 1; for (int z = 0; z < ex11; z++) w *= 11; for (int z = 0; z < ex13; z++) w *= 13;
+                                if (w <= n4 && (n4 / (ap * dp)) % (u64)w == 0 && n4 % (ap * dp) == 0) { aTdT = (u64)w;
+                                    printf("HIT II2 aT=11^%d*13^%d a'=%llu dT=11^%d*13^%d d'=%llu f=%llu (aTdT=%llu)\n", va[0], va[1], ap, vd[0], vd[1], dp, e, aTdT); hits++; } }
                         }
                         if (ok3) { printf("HIT II3 aT=11^%d*13^%d a'=%llu dT=11^%d*13^%d d'=%llu e=%llu\n", va[0], va[1], ap, vd[0], vd[1], dp, e); hits++; }
                         if (okI3) { printf("HIT I3 cT=11^%d*13^%d c'=%llu dT=11^%d*13^%d d'=%llu f=%llu\n", va[0], va[1], ap, vd[0], vd[1], dp, e); hits++; }
