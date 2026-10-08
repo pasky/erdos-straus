@@ -189,3 +189,26 @@ gcc -O2 -o /tmp/reg3 scripts/review_typei5_reg3.c -lm && /tmp/reg3 10 > c10.txt 
 uv run python scripts/review_typei5_regimes.py 10 c10.txt                              # regime (ii) + exact check of (iii)
 gcc -O2 -o /tmp/dmod scripts/typei5_dmod.c -lm && /tmp/dmod 7 7 1000000                # author engine replay (also 8, 9, 10)
 ```
+
+## Repairs applied (by reviewer, on `side-agent/review-typei5`; each marked "(R92 repair …, applied by reviewer)")
+
+| Id | Location in POINTWISE_TYPEI5.md | Change |
+|---|---|---|
+| L1 | Lemma 1.1(a) | `G_+ = G ∩ (0,∞)` is the infinite cyclic group (G contains −1). `ν_0` generates `G_+`, and `G_+ = ⟨α²⟩`. |
+| L2 | Lemma 1.1(a), `m = 2` | `√P ∈ ℚ(√d)` ⇒ `P` or `Q` is a square. `Q` square is impossible since `Q ≡ 7, 15 (mod 16)`. |
+| L3 | Cor 1.2 | `k ∈ {1,2}` with proof (the quotient has exponent 2). `mmax ≥ 2` suffices. |
+| P1 | Prop 3.3(v) | the constant is factored as `κσ³(4T³+σκ)²`, with a sign remark |
+| P2 | Prop 3.3 proof (iii) | integrality of the quotient `q(j)` stated, so no coprimality is needed |
+| C1 | after Lemma 3.2 | "9 relaxed solutions" corrected to 8 in case B + 2 in case A, with ranges |
+| A1 | Lemma 3.6 proof | `J ∈ {1,2}` at `L = 10`. `J = 1` by parity. |
+| T1 | after Theorem 3.7 | Provenance paragraph. The single-engine gap is closed: see below. |
+
+**T1 closure (computation).** `scripts/review_typei5_relax.c` got a single-`u` mode (`review_typei5_relax L 0 u`). With `u = 7^b`
+it is exactly the complete TYPEI4 Cor 3.2 search for `(L,b)` (all odd `a` with `7^a < T²7^b`, all heights, `y < T7^b`).
+* Positive controls: it reproduces the TYPEI4 Comp 3.4 table at `(11,0)`, `(13,1)`, `(14,0)×2`, `(14,3)` (`X = 226697`) and `(16,0)×3`.
+* `L = 7…10`, `b = 0…9`: **0 solutions** (31 min CPU in total, almost all of it in `b = 9`; `b ≤ 7` takes seconds).
+* So TYPEI4 Cor 3.5 at `L ≤ 10`, `b ≤ 7` is now confirmed by two independent complete engines, which resolves R89-D5 for these
+  levels. The reviewer's engine alone extends this to `b ≤ 9`, i.e. `v_7(k) ≥ 10` (CERTIFIED, single engine). This is recorded in
+  the T1 note. Theorem 3.7 itself still states `v_7(k) ≥ 8`.
+
+T2 needed no text change: the CERTIFIED inputs (Cor 2.3, Comp 3.4) are now replayed or independently reproduced, and the T1 note says so.
