@@ -94,3 +94,51 @@ for m = 4..60 and 210: 0 failures; observed `S_m(K)/((φ(m)/m) log K) ∈ [1.05,
 
 So `h_m(K) ≍ (φ(m)/m) log K` uniformly for `K ≥ m²` (the note's lem:h is the special
 case of the sub-progression `k ≡ 1 (4)`, `h = (2/π²) log K`).
+
+## 3. Fibre masses for general m (replaces note thm:harvest, cor:fibremass)
+
+Standing range: **`4 ≤ m ≤ t³`** (t = log X). Then for X ≥ X_0 (absolute) `m ≤ t³ ≤ K^{1/2}`,
+so Lemma 2.1 applies with `K ≥ m²`, and every modulus below is `muv ≤ t³ x^{1/3} ≤ x^{0.34}`.
+
+Unchanged inputs (they involve only `k ≤ K`, `(c,k) = 1`, never m or `k mod 4`):
+note lem:lattice (stated for every `1 ≤ k ≤ K`), lem:omega, lem:congestion (stated for every
+`𝒥 ⊆ 𝒦(K)`; its proof uses only `𝒥 ⊆ [1,K]`, so it holds for `𝒥 ⊆ 𝒦_m(K)`), Shiu, BT, BV.
+For `(c, L_𝒥) = 1` put `r_𝒥(u,v;c) = #{k ∈ 𝒥 : k | u + cv}` as in the note.
+
+**Proposition 3.1 (pruned prime slice for m; PROVED rel. note).** Fix κ, D as in the note.
+There are absolute `a_h, A_h > 0`, `X_h` such that for `X ≥ X_h`, `4 ≤ m ≤ t³`,
+every `1 ∈ 𝒥 ⊆ 𝒦_m(K)` and every `(c, L_𝒥) = 1`, with the note's pruning (eq:pruning) except
+`4uv | kℓ+1` → `muv | kℓ+1`,
+`a_h t² h(𝒥)/φ(m) ≤ Σ_{X^{1/2}<ℓ≤X} f^{good}_{c;𝒥}(ℓ)/ℓ ≤ A_h t² h(𝒥)/φ(m)`.
+
+*Proof (only the changed lines of the note's proof).*
+* Prime condition: `ℓ ≡ −k^{−1} (mod q)`, `q = muv`; reduced since `(k, muv) = 1`.
+* Main-term weight of a triple: `(li 2x − li x)/φ(muv) ≥ x/(φ(m) uv log 2x)` because
+  `φ(ab) ≤ φ(a)·b`. Harmonic mass after pruning is `≥ (1/8 − o(1))(log z)² h(𝒥)` exactly as in
+  the note (lem:omega, lem:congestion, `h(𝒥) ≥ 1`). Removed *weighted* mass: `1/φ(muv) ≤
+  (muv/φ(muv))/(muv) ≪ log t/(φ(m)uv)` since `muv/φ(muv) ≪ log log(3muv) ≪ log t` and `m ≥ φ(m)`;
+  so relative loss is `O(log t / t)` as in the note. Block main term `≥ a x log x · h(𝒥)/φ(m)`.
+* BV: for fixed q, `uv = q/m` is determined, ≤ `2^{ω(uv)}` allocations, ≤ `T_X = t⁴` multipliers
+  each: `W_good(q) ≤ t^{4+D log 2}` (unchanged). Choose `R > 4 + D log 2 + 13` in (eq:BV);
+  `q ≤ x^{0.34}` is below the BV level. Total error `O(x (log x)^{−13})`, while the main term is
+  `≥ a x log x /φ(m) ≥ a x log x · t^{−3} ≫ x (log x)^{−2}` (`h(𝒥) ≥ 1`, `φ(m) ≤ m ≤ t³`,
+  `log x ≍ t`). **This is the only place the range `m ≤ t³` is used for the lower bound**; any
+  fixed power `m ≤ t^{A}` works with R depending on A.
+* Distinctness of the counted classes: Lemma 1.3.
+* Upper bound: BT (eq:BT) with `q = muv ≤ x^{0.34}` and `φ(muv) ≥ φ(m)φ(u)φ(v)`, then
+  lem:lattice (eq:latupper). ∎
+
+**Corollary 3.2 (uniform fibre masses for m; PROVED rel. note).** For `X ≥ X_h`,
+`4 ≤ m ≤ t³` and **every** residue `c (mod L_K)`, with `𝒥_c = {k ∈ 𝒦_m(K) : (k,c) = 1}`,
+`μ_c = Σ_ℓ f_c(ℓ)/ℓ` (f_c counts active atoms of `𝒜^{(m)}_X` at ℓ):
+`a_h t² h(𝒥_c)/φ(m) ≤ μ_c ≤ A_h t² h(𝒥_c)/φ(m) ≤ C_u t³/m`,
+with `C_u` absolute (Lemma 2.1(d), `log K ≤ κt`). For `(c, L_K) = 1`: `μ_c ≥ a_u t³/m`,
+`a_u = 0.54 κ a_h/2` (Lemma 2.1(a),(b), `log K ≥ κt/2`).
+
+*Proof.* Note cor:fibremass verbatim (active atoms have `(k,c) = 1`; `1 ∈ 𝒥_c`), with
+Proposition 3.1 and `h(𝒥) ≤ h_m(K) ≤ C(φ(m)/m) κ t`. ∎
+
+**Scaling.** Fibre mass `≍ t³/m` (lower and upper, absolute constants): the `1/φ(m)` from
+the prime progression mod `muv` is partly cancelled by `h_m ≍ (φ(m)/m) log K`. Compare the
+note's m = 4 family (`k ≡ 1 (4)` only): `t³ · (1/4)·(1/φ(4))`-type constant; our wider
+multiplier set gains a constant factor at m = 4 but this is irrelevant there.
