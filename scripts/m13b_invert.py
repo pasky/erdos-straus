@@ -74,8 +74,8 @@ def cands(N, X, Y, Z):
         if (B * X * Y) % Z == 0 and (X * Z) % (B * Y) == 0 and (Y * Z) % (B * lam * lam * X) == 0:
             for dp, j, m, ap in sq_triples(B * X * Y // Z, X * Z // (B * Y), Y * Z // (B * lam * lam * X)):
                 e = 4 * ap * dp * m - 1
-                for aT in divisors(isqrt(lam)):
-                    if lam % (aT * aT):
+                for aT in divisors(lam):
+                    if aT * aT > lam or lam % (aT * aT):
                         continue
                     a, d = aT * ap, (lam // (aT * aT)) * dp
                     if gcd(4 * a * d, e) == 1:
