@@ -71,8 +71,8 @@ Special cases: `B=1` is MORDELL17 Lemma 2.3 (P, "half level": `N=a_T²d_T` vs bo
 Consequently, at each fixed T-level the II3 data containing x* are finitely many and are recovered from
 the finitely many ES solutions of `4/N`, `N | F²`.
 Remark: Lemma 2.1 uses only `e=4a'd'm−1=Bg` and `g∣4a²d+1`; hence it applies verbatim to **I3**
-`(c,d,f)` (same shape, `B=f_T`) and to **I1** `(a,d,f)` (`f∣4a²d+1`; `B=f_T`, usually 1), giving
-`4/N` with `N=f_T·a_T²·d_T` (MORDELL17 Lemma 2.3 is the case `B=1`).
+`(c,d,f)` (same shape, `B=f_T`) and to **I1** `(a,d,f)` (`f∣4a²d+1`, so one may take `B=1`, `g=f`; then `N=a_T²d_T`), giving
+`4/N` with `N=f_T·a_T²·d_T` resp. `a_T²d_T` (I1) (MORDELL17 Lemma 2.3 is the case `B=1`).
 
 **Lemma 2.2 (II1, I4; PROVED — MORDELL17 Lemma 2.2 verbatim).** For `(a,b,e)` with `e∣a+b`, `(e,4ab)=1`,
 `e≡−1 (4(ab)')`, put `F=(ab)_T`, `c=(a+b)/e`, `i=(e+1)F/(4ab)`. Then `4/F=1/(iab)+1/(iac)+1/(ibc)`.
