@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-07, refresh 4; ledger through (D)30 and (H)34, incl. the 2026-10-07 follow-ups (D)29 [WEIGHTS2] and (H)17 follow-up 3 [TYPEI4])
+ (2026-10-08, refresh 5; ledger through (D)31 and (H)34, incl. the 2026-10-08 follow-ups (H)17 follow-up 4 [TYPEI5], (H)34 follow-up 2 [MORDELL17B] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -51,6 +51,13 @@ with its status label. Read it before starting new work.
   The reason: the note's majorant is shift-uniform. Novelty is modest; large
   smooth q are open, and below `H = e^{c(log x)^{3/4}}` such a bound would
   imply ES for all large n (Prop 4.1).
+* **m/n, uniformly in m** (`EXCEPTIONAL_MN.md`, ledger (D)31; PROVED relative to
+  the 3/4 note; two hostile reviews, no FATAL/MAJOR). For every m ≥ 4 and every
+  interval of length H ≥ 2, `E_m(I) ≤ C H exp(−c(log H)^{3/4} m^{−1/4})` with absolute
+  c, C. This is non-trivial up to m ≤ ε(log N)³ and asymptotically improves
+  Pomerance–Weingartner's explicit-in-m Vaughan bound. Progression/prime versions
+  are included. The density transition lies at `log n = m^{1/3+o(1)}` (Cor D with PW
+  Thm 3.1). Novelty is an Assessment: new for m ≠ 4, by the note's method.
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
@@ -165,11 +172,25 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     other w ≡ 9 (16) (Prop 4.1, CERTIFIED), so arguments that see w only mod 16 cannot
     work there (Assessment). Open: the 7-adic tower b → ∞ at L = 7..10 (at L = 7,
     Lemma 3.6 excludes j = 1 for all b; j ≥ 2 and 7 | j open).
+    `POINTWISE_TYPEI5.md` (follow-up 4; review: no FATAL/MAJOR): the tower is **not** closed.
+    A solution with u = 7^b is the minimal one (Lemma 1.1, PROVED, all L), so b is determined
+    and the d-graded search is complete for all b; Lemma 3.1 repairs TYPEI4 Lemma 3.6 (7 | j).
+    Thm 3.7 (PROVED + CERTIFIED, two engines): a certificate at `x̂_9` with 7 ≤ L ≤ 10 needs
+    `v_7(k) ≥ 8`, `c_oδ > 10⁶` and lies in the two-parameter regime (v); all other regimes
+    are excluded for all b. Regime (v) has σ, λ unbounded; linear forms in logarithms do
+    not apply (Assessment).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
-    sieve). The point x* lies in no ET class of modulus ≤ 10⁶ (CERTIFIED);
-    that it is sterile is Conj 4.2 (CONJECTURE).
+    sieve). The point x* lies in no ET class of modulus ≤ 10⁶ (CERTIFIED), but
+    **Conj 4.2 ("x* is sterile") is REFUTED** (ledger (F)11; `POINTWISE_MORDELL13B.md`
+    Thm 3.1, reviewed): x* lies in the II3 class (a,d,e) = (8,33,11999), modulus
+    12670944 = 2⁵·3·11·13²·71 (and in the I2 class (125,88,11999)). MORDELL13B attaches every
+    {11,13}-generic class to an ES solution of 4/N, N an {11,13}-unit (PROVED), and
+    enumerates to N ≤ 4·10⁷ (CERTIFIED). The (2,2) cell is still not covered (EVIDENCE).
+    The new candidate x** = x(2,15) lies in no class with e ≤ 10⁸ (II3/I3/I1), f ≤ 3·10⁷ (II2),
+    f, e ≤ 2·10⁷ (I2/II1/I4) (Comp 5.1, CERTIFIED within these ranges); that it is sterile is
+    Conj 5.2 (CONJECTURE, EVIDENCE only). The main-variant r = 13 covering question is open again.
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
@@ -177,9 +198,18 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     primes with n_p = 17
     (CONDITIONAL, Cor 4.2). Existence is Conj 4.3 (CONJECTURE). Levels ≤ 5
     leave 67.7% of each non-residue cell uncovered (CERTIFIED).
-  * Candidate sterile points (r = 13, 17, and `x̂_9` for Type I) remain
-    candidates: no sterile point is proved. A write-up
-    `paper/es-coverings-note` (20 pp, task O86) is refereed internally (R86: accept after minor revision; repairs applied).
+    `POINTWISE_MORDELL17B.md` (follow-up 2; one MAJOR rounding error repaired): still
+    CONDITIONAL. An exact four-regime P-enumerator (Lemma 2.1) gives D_P(13) = 1463
+    (CERTIFIED, two engines); exact unions through P-level 6 leave ρ₁ ≈ 0.677133 uncovered.
+    Thm 4.1 (PROVED reduction): `D_P(K) ≤ C·17^{θK}` (odd K ≥ 13) and `D_Q(k) ≤ 17^{3k/5}`
+    (odd k ≥ 9) give a sterile point, e.g. θ = 2/5, C ≤ 1.40, i.e. ET's own exponent with an
+    explicit constant and no o(1). Conj 4.2 there (D_P(K) ≤ K⁵, D_Q(k) ≤ k⁵) is a CONJECTURE.
+  * Candidate sterile points (x** for r = 13, the 17-generic line for r = 17, and `x̂_9` for
+    Type I) remain candidates: no sterile point other than the square points is proved, and the
+    first r = 13 candidate x* was refuted. A write-up `paper/es-coverings-note` (task O86) is refereed
+    internally (R86: accept after minor revision; repairs applied). Post-referee updates (not
+    re-refereed): TYPEI4 (O91); the x* refutation as Prop 5.4 and x** as an EVIDENCE-level
+    Conjecture 5.6 (O96; 24 pp).
 
 ## Housekeeping
 
@@ -255,10 +285,10 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   gcc/cc) and EXCEPTIONAL_WEIGHTS2 (Prop 5.3 premise: all ℛ(ℓ) classes QNR for ℓ ≤ 3000, Jacobi −1 for all
   M ≡ 3 (4) ≤ 300, R90 script + inline from the (u,v) definition; §6 mass S(Y)/(log Y)² at Y ≤ 10⁵).
 
-## Exceptional-set exponent: where it stands (2026-10-07)
+## Exceptional-set exponent: where it stands (2026-10-08)
 
 **3/4 is proved sharp for the CRT architectures below; the remaining cases
-are reduced to precisely stated open statements** (ledger (D)9–(D)30; all
+are reduced to precisely stated open statements** (ledger (D)9–(D)31; all
 internal, reviewed, unrefereed). The 3/4 note's own majorant
 is in the class, so the note is sharp for its method.
 * *Coefficient-sum sieves:* over any mixture of forced (ℛ(M), (a,D),
@@ -328,6 +358,6 @@ Papers in `paper/`:
   R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
   `reviews/novelty-audit-2026-10b.md`).
 * `es-coverings-note`: finite coverings and candidate sterile points
-  (TYPEI2/3, MORDELL, MORDELL17) — 20 pp (O86); internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`).
+  (TYPEI2/3/4, MORDELL, MORDELL13B, MORDELL17) — 24 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). Post-referee corrections O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) are not re-refereed.
 
 Authorship and the citation form for astra are still undecided.
