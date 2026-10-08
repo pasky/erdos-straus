@@ -111,9 +111,10 @@ contribute nothing at all. This is not a defect of the lemma. But the sentence "
 More substantively, the "precise obstruction" ignores the extension of Lenstra's theorem by Coppersmith–Howgrave-Graham–Nagaraj
 (Math. Comp. 2008, from memory, not accessed): divisors of M in a class mod `s ≥ M^{1/4+ε}` number `O_ε(1)`. In the `ad` regime
 (`M ≍ n`, modulus `4ad`) this covers all pairs with `ad ≥ n^{1/4+ε}`. Those are almost all of the `≍ n^{2/5} log n` pairs.
-The remaining `n^{1/4+o(1)}` pairs are negligible against `n^{2/5}`. The `ac` regime is similar. So the honest bottleneck is
-different from the one stated:
-1. the `e`-regime, an average of `τ_3((n+e)/4)` over a short interval `e ≤ n^{2/5}` (Shiu type);
+The remaining `n^{1/4+o(1)}` pairs are negligible against `n^{2/5}`. The `ac` regime is similar: the failing pairs number
+`≲ n^{0.35}`. The `cd` regime is worse, because there `M ≈ c²dn` and the modulus is `4cd`; it would need a rebalanced cover.
+So the honest bottleneck is different from the one stated:
+1. the `e`-regime, an average of `τ_3((n+e)/4)` over a short interval `e ≤ n^{2/5}` (Shiu type), together with the `cd` regime;
 2. the explicit constants (of CHN and of the short-interval divisor sums).
 These would at best give `D_P ≪ n^{2/5}(log n)^{O(1)}` with explicit but large constants. That needs `θ > 2/5`, and from
 the table a tiny constant at θ ≈ 0.45, or exact data up to large K. So the *conclusion* (no unconditional sterile point
