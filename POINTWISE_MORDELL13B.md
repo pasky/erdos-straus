@@ -93,3 +93,6 @@ as stated; only Conjecture 4.2 (and the evidence read into it) fails. Note both 
 (the I2/II3 coincidence is the Q⁻¹/Q pairing at 13 of MORDELL17 Lemma 1.1).
 *Consequence.* A neighbourhood of x* is covered. The question "is Theorem 3.1(b) improvable to a finite
 covering of `Σ_13` (main)?" is reopened; x* is no longer evidence against it.
+*Independent check:* `scripts/m13b_check_hit.py` uses the stand-alone sympy engine of `mordell_check.py`
+(ET coordinates rebuilt from the paper, not mordell_lib): polynomial identity holds, `x,y,z>0` for `n>1`,
+and `x,y,z` are integer-valued on `t+Mℤ`, `t` = CRT lift of x* (`t≡1 (M')`, `t≡2 (M_T)`), for both classes. OK.
