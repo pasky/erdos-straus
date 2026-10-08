@@ -27,7 +27,7 @@ Branch `side-agent/mn-threequarter`. Deliverable: `EXCEPTIONAL_MN.md`, plus `scr
    This says nothing about the largest exception (PW's heuristic puts that near exp(m^{1/2})).
 5. **Literature (goal 4).** I found no 3/4-type, short-interval or progression result for m/n. Searches were 2026-10-07, plus
    LITERATURE_2026 and the PW text; Dartmouth "ESS-ExceptionsV8" has the same Thm 1.3. The known results are Vaughan 1970
-   (exponent 2/3, per m) and PW (explicit in m). Assessment: the results are new for m ≠ 4; the method is the note with 4 → m.
+   (exponent 2/3; quoted for m = 4 only, general-m content unverified, R94B D4) and PW (explicit in m). Assessment: the results are new for m ≠ 4; the method is the note with 4 → m.
 
 ## Checks
 * `emn_hm.py 100000` (Lemma 2.1): 0 failures. `emn_identity.py`: Lemma 1.1 on 4 821 random instances (exact rationals), and

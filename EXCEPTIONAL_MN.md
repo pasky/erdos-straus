@@ -258,7 +258,7 @@ Theorem A's saving tends to ∞ iff `m = o(L³)` (PW's is non-trivial for `m = o
 PW's proof also uses Bombieri–Vinogradov, so there is no effectivity trade-off.
 (R94A repair D1, D2; R94B repair D2)
 Heuristic reason for the shape: both arguments balance a fibre mass μ against a ledger
-`e^{O(tμ)}` with `tμ ≍ L`; Vaughan/PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
+`e^{O(tμ)}` with `tμ ≍ L`; Vaughan (m = 4) / PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
 here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
 
 ## 6. Consequence: the density transition for m/n is at log n = m^{1/3+o(1)}
@@ -356,7 +356,10 @@ it does not decide θ = 3/4.
 ## 8. Literature (goal 4; web search 2026-10-07 + campaign files)
 
 * **Vaughan 1970** (Mathematika 17; full text not accessible, `sources/vaughan-1970-access-log.md`):
-  for each m, `E_m(N) ≪_m N exp(−c_m (log N)^{2/3})` (as quoted by PW p. 2 and the campaign).
+  `E(N) ≪ N exp(−c (log N)^{2/3})`. PW p. 2 and Elsholtz–Tao quote it for **4/n only**. PW's
+  abstract says they "generalize a result of Vaughan to show that for each m, most n's have m/n"
+  representable. Whether Vaughan's paper itself treats general m is **unverified**: its title names
+  Schinzel, but the full text is inaccessible (R94B repair D4). PW Thm 1.3 is the first m-explicit bound we can cite.
 * **Pomerance–Weingartner** arXiv:2511.16817v2 (= Dartmouth "ESS-ExceptionsV8", checked
   identical statement of Thm 1.3, 2026-10-07): `E_m(N) ≤ N/exp(C (log² N/φ(m))^{1/3})`,
   `4 ≤ m ≤ log² N`; Thm 1.1/3.1 lower constructions; Poisson heuristic `exp(−(log p)³/m)`.
