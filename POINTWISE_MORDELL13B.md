@@ -128,7 +128,9 @@ T-units `1<N≤4·10⁷`.
   witness has ES level `≤3·10⁶` all appear in the engine output (0 missing). (A first run had 374 missing
   P-type boxes due to an `a_T` loop bug; found by this check and fixed.)
 * *x\*:* among all T-generic data of ES level `N≤4·10⁷` exactly two contain x\*: the II3 and I2 data of
-  Theorem 3.1 (level 1859; they reappear at `N=1859·13^k` via dilation). **No other datum through
+  Theorem 3.1 (level 1859; the same parameter triples are re-found at `N=24167, 314171` because the inversion of
+`m13b_invert.py` is non-canonical (its candidates are a superset of the canonical inverse images; no new
+datum) — R95 repair, applied by reviewer). **No other datum through
   `4·10⁷`.**
 * *Coverage of the cell `(x_11,x_13)≡(2,2) (mod 11,13)`* (`scripts/m13b_cell.py k`, boxes with
   `M_T∣11^k13^k` and ES level ≤ 4·10⁷; all other non-residue cells of `x_13` are fully covered at k=3,
