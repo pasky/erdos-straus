@@ -5,7 +5,20 @@ Reviewer: R93 (branch `side-agent/review-m17b`). Document reviewed at the merge 
 
 ## Summary verdicts
 
-(filled in claim by claim below; final table at the end)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (union = P ∪ Q; U ⊂ P, Q⁻¹ = Q, odd levels) | SOUND |
+| Lemma 2.1 (cover, `acde ≤ n`, recovery formulas) | SOUND |
+| P-enumerator completeness; D_P(K), K ≤ 13 | SOUND. Sets equal to two from-scratch engines for K ≤ 11; count equal at K = 13 |
+| Computation 3.1 (ρ₁, ρ₂) | SOUND. Both reproduced exactly; the §3 table level-7 measure is wrong (m3) |
+| Theorem 4.1 (reduction) | SOUND as a statement (its hypothesis is the inequality `T_P + T_Q < ρ₁`) |
+| Theorem 4.1 table / "constant 1.41 suffices" | **SOUND-AFTER-REPAIRS (M1)**: 1.41 is inadmissible, C_max = 1.40980 |
+| Conjecture 4.2 | SOUND-AFTER-REPAIRS (label, m7) |
+| Lemma 5.1 | SOUND (hidden `17 ∤ ab`, harmless; m4) |
+| §5 prose, Assessment 5.2 | GAP in the obstruction analysis (m5, m6). The conclusion "no unconditional sterile point" stands |
+
+No FATAL defects. Overall: the CONDITIONAL outcome is correct, and every number except the ones listed below was reproduced
+independently.
 
 ## Claim (1): Lemma 2.1 and the P-enumerator
 
@@ -43,7 +56,7 @@ complete by its own argument and uses no external factoriser:
 
 **Code reading, `factor`.** Coreutils `factor` gives a Miller–Rabin probable-prime verdict, then a Lucas
 proof (`PROVE_PRIMALITY`). A wrong "prime" verdict would lose divisors and so lose data; for K ≤ 11 the
-independent engines exclude this. For K = 13 there is no second engine (see defect m1).
+independent engines exclude this. For K = 13 the R93 engine agrees in count (below).
 
 ## Claim (3): Lemma 1.1 and Theorem 4.1
 
@@ -157,3 +170,74 @@ Verdict (2): ρ₁ SOUND (reproduced exactly). ρ₂: see below.
   set is not in the repo, so I compared counts only.) Run time ≈ 12 CPU-min.
 * The union with my P-data through K = 13 gives **ρ₂ = 961421/1419857, equal**, in both cells. Level 7 has 485 in-cell
   boxes, of which 272 are new (P 178, Q 94). That is a measure of 1.127·10⁻⁵ (confirms m3).
+
+## Defects
+
+**M1 (MAJOR, numerical headline; trivial repair).** The headline constant is rounded up and is not admissible.
+* Where: §4 Theorem 4.1 table (θ = 0.40, C = 1.41); the "In words" paragraph ("constant 1.41 … suffices", "the needed
+  constant 1.41"); AGENT_REPORT_O93 items 3 and the summary.
+* What is wrong: with θ = 2/5 and K0 = 13, the exact C_max is `(ρ₁ − T_Q)/(2S) = 1.409796…`. At C = 1.41,
+  `T_P + T_Q = 0.677230 > ρ₁ = 0.677133`, so the hypothesis of Theorem 4.1 fails.
+* Repair: state C ≤ 1.40 (or "C < 1.4097"), and round every "largest admissible C" *down* (see m2).
+  `m17b_tail.py` should print floor-rounded values.
+
+**m1 (MINOR, label).** Computation 2.2 calls `D_P(13) = 1463` "CERTIFIED by one engine". This review supplies the
+second engine (count agreement, `review_m17b_k13.c`), so it may now read "CERTIFIED (O93 engine + R93 engine)".
+Also store the K = 11 and K = 13 point sets in the repo (or their hashes), so that later checks can compare sets, not
+only counts. (sha256 of the sorted R93 sets: see the Replay section.)
+
+**m2 (MINOR).** The other table entries are rounded up as well: 87.9 (exact 87.888), 11.8 (11.768), 0.569 (0.5687),
+0.128 (0.12750); in the K0 = 15 row 273 (272.96) and 2.49 (2.4845). The K0 = 15, θ = 0.42 entry "—" should read 0.894.
+Repair: round down throughout.
+
+**m3 (MINOR).** §3 table, level-7 row: "measure added 6.6·10⁻⁶" is wrong. The 272 new boxes (P 178, Q 94) have measure
+`272·17⁻⁶ = 1.127·10⁻⁵`, consistent with ρ₀ − ρ₂. Repair: 1.13·10⁻⁵ (P 7.37·10⁻⁶, Q 3.89·10⁻⁶).
+
+**m4 (MINOR).** Lemma 5.1 has two problems.
+* It needs `17 ∤ ab`, since otherwise 17 is not invertible mod 4ab. Pairs with `17 | ab` only give boxes `≡ 1 (mod 17)`,
+  outside the cells, so state this exclusion.
+* "This is the same sum as `Σ_K 17^{(1−K)/2} NB_P(K)`, only reorganised" is false. The Lemma 5.1 bound is ≥ that sum.
+  By M17 Lemma 5.1(ii) all boxes of a pair `(a,b)` (any K, any class `e`) are concentric at `−a/b`, so
+  `T_P ≤ 2Σ_{(a,b)} 17^{(1−K_min(a,b))/2}`, with one term per pair. That is the correct first-occurrence form; pairs with
+  `K_min ≤ 11` contribute 0.
+* Repair: state the pair form, and replace "same sum" with "an upper bound for".
+
+**m5 (MINOR, labels and statements in the §5 prose).**
+* "Averaging over K gives no unconditional gain" and "Any unconditional statement placing K_e … is again … a bound on D_P(K)"
+  are judgements; label them Assessment.
+* "Pairs with `ord_{4ab}(17) = L` … live at levels `≲ L/2`" should be `≲ L`, since `K_first < K_min + L ≤ 2L`.
+* "Mostly inside the exact range" is unsupported; drop it or give data.
+
+**m6 (MINOR, Assessment 5.2 imprecise).**
+* (a) The Nicolas–Robin step silently takes `M ≈ n^{1.8}`; state it. "the tail series converges only once …" should say
+  the *terms* are not small before that K; convergence does not depend on finitely many terms.
+* (b) The obstruction overlooks Coppersmith–Howgrave-Graham–Nagaraj (divisors in a class mod `s ≥ M^{1/4+ε}` are
+  `O_ε(1)`). That covers most `ad` and `ac` pairs. The real bottleneck is the `e`-regime (short-interval `τ_3` sums), the
+  `cd` regime, and the explicit constants, which would give at best `n^{2/5}(log n)^{O(1)}`.
+* Repair: revise the "precise obstruction" accordingly. The conclusion (CONDITIONAL; no unconditional sterile point) is unchanged.
+
+**m7 (MINOR, label).** "Conjecture 4.2 (explicit, EVIDENCE)" should read CONJECTURE, with the data as EVIDENCE.
+* The Q half rests on four data points, one at 90% of the bound.
+* The K = 1 case is attained with equality.
+* Consider promoting a robust sufficient form (e.g. `D_P, D_Q ≤ K⁵` for K ≥ 13 / k ≥ 9; tail 0.035) to the main conjecture.
+
+**m8 (cosmetic).** §2 says `X_cd ≈ n^{0.3}` keeps `4c²dn+1 < 10²⁵`. At K = 13 (`X_cd ≈ 6·10⁴`) the value reaches
+`≈ 1.5·10²⁶`. This is harmless, since `factor` is GMP-based; fix the number or drop the remark.
+
+## Replay
+
+```
+ulimit -v 8000000; mkdir -p /tmp/r93 && cd /tmp/r93; W=<worktree>
+gcc -O2 -o brute $W/scripts/review_m17b_brute.c; gcc -O2 -o k13 $W/scripts/review_m17b_k13.c
+gcc -O2 -o r83enum $W/scripts/review_m17_enum.c
+for K in 1 3 5 7; do ./brute $K 1 0 | sort > b$K.txt; done
+./brute 9 2 0 > x0 & ./brute 9 2 1 > x1; wait; sort x0 x1 > b9.txt                 # ~6 min/core
+(./k13 A0 11 2000 10000000; ./k13 A1 11 2000 10000000; ./k13 B 11 2000 10000000) | sort -u > b11.txt   # 20 s
+(./k13 A0 13 20000 100000000; ./k13 A1 13 20000 100000000; ./k13 B 13 20000 100000000) | sort -u > b13.txt  # ~12 min, 3.3 GB
+for k in 1 2 3 4 5 7; do ./r83enum S $k > S$k.txt; ./r83enum U $k > U$k.txt; done     # U 7 ~ minutes
+uv run python $W/scripts/review_m17b_union.py . 1,3,5,7,9,11 7      # rho_1
+uv run python $W/scripts/review_m17b_union.py . 1,3,5,7,9,11,13 7   # rho_2
+uv run --with mpmath python $W/scripts/review_m17b_tail.py           # Thm 4.1 table
+```
+sha256 prefixes of the sorted R93 sets (lines `a b c d`): K = 11 `19cbd5acdd8af29a`, K = 13 `2ec22df715d4108e`.
+(`review_m17b_k11.c` is the first version with A0 = 50, X = 10⁷, used for the K = 11 set check.)
