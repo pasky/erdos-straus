@@ -70,10 +70,27 @@ Special cases: `B=1` is MORDELL17 Lemma 2.3 (P, "half level": `N=a_T²d_T` vs bo
 `λ=1` is Lemma 2.1 there (Q). In the mixed case (11 in ad, 13 in e) the ES level is `13^β·11^{2α_a+α_d}`.
 Consequently, at each fixed T-level the II3 data containing x* are finitely many and are recovered from
 the finitely many ES solutions of `4/N`, `N | F²`.
-*Plan (not done):* the analogous correspondences for I1, I2, I3 (mixed √Q), II1/I4 (MORDELL17 Lemma 2.2),
-II2; then a complete enumerator `m13b_enum` over all ES solutions of `4/11^i13^j` (generalising
-`m17_enum.c`), testing each recovered datum with Lemma 1.1 at u=2, cross-checked against Comp. 4.1.
+Remark: Lemma 2.1 uses only `e=4a'd'm−1=Bg` and `g∣4a²d+1`; hence it applies verbatim to **I3**
+`(c,d,f)` (same shape, `B=f_T`) and to **I1** `(a,d,f)` (`f∣4a²d+1`; `B=f_T`, usually 1), giving
+`4/N` with `N=f_T·a_T²·d_T` (MORDELL17 Lemma 2.3 is the case `B=1`).
 
+**Lemma 2.2 (II1, I4; PROVED — MORDELL17 Lemma 2.2 verbatim).** For `(a,b,e)` with `e∣a+b`, `(e,4ab)=1`,
+`e≡−1 (4(ab)')`, put `F=(ab)_T`, `c=(a+b)/e`, `i=(e+1)F/(4ab)`. Then `4/F=1/(iab)+1/(iac)+1/(ibc)`.
+
+**Lemma 2.3 (II2; PROVED — MORDELL17 Lemma 2.1, any placement).** For `(a,d,f)` with `4ad∣f+1`, `f'∣4a²d+1`,
+put `F=f_T`, `m=(f+1)/(4ad)`, `j=(a+m)/f'` (an integer). Then `4amjd=F(a+m)+j`, i.e.
+`4/F=1/(amdF)+1/(ajd)+1/(mjd)`. (T-primes in `ad` are allowed; they impose no box condition.)
+
+**Lemma 2.4 (I2, all placements; PROVED).** For `(a,c,f)`, `(4ac,f)=1`, `f≡−1 (4(ac)')`, `f'∣a+c`, put
+`A=(ac)_T`, `B=f_T`, `t=(f+1)/(4(ac)')`, `h=(a+c)/f'`. Then `4/(AB)=1/(cth)+1/(ath)+1/(Bact)`.
+*Proof.* `fh=Bf'h=B(a+c)` and `f=4(ac)'t−1` give `4(ac)'th=B(a+c)+h`; multiply by A (`A(ac)'=ac`) and
+divide by `AB·acth`. ∎
+
+**Corollary 2.5 (finiteness per ES level; PROVED).** Every T-generic datum of any family (only the T-free
+conditions of Lemma 1.1 are used) yields an ordered ES solution of `4/N` for an explicit T-unit `N`
+(its *ES level*: `(ab)_T`, `f_T`, `(ac)_T f_T`, or `B·a_T²d_T`), and the datum is recovered from the
+solution by the inverse maps `XY/Z=t·A²`, … (`scripts/m13b_invert.py`). As `N ≥ F=M_T` and `N ≤ F²`,
+each box level carries finitely many data, all found among the ES solutions of `4/N`, `F ≤ N ≤ F²`.
 ## 3. x* is NOT sterile: Conjecture 4.2 of POINTWISE_MORDELL is false (PROVED by explicit check)
 
 **Theorem 3.1.** x* lies in the ET class
