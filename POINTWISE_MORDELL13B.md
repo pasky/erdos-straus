@@ -73,3 +73,23 @@ the finitely many ES solutions of `4/N`, `N | F²`.
 *Plan (not done):* the analogous correspondences for I1, I2, I3 (mixed √Q), II1/I4 (MORDELL17 Lemma 2.2),
 II2; then a complete enumerator `m13b_enum` over all ES solutions of `4/11^i13^j` (generalising
 `m17_enum.c`), testing each recovered datum with Lemma 1.1 at u=2, cross-checked against Comp. 4.1.
+
+## 3. x* is NOT sterile: Conjecture 4.2 of POINTWISE_MORDELL is false (PROVED by explicit check)
+
+**Theorem 3.1.** x* lies in the ET class
+* II3 `(a,d,e)=(8,33,11999)`: modulus `M=4ade=12670944=2⁵·3·11·13²·71`, residue `r=12650497`
+  (`= −4a²d−e mod M`), with `r≡1 (mod 6816=M')` and `r≡2 (mod 1859=11·13²)`;
+* and also I2 `(a,c,f)=(125,88,11999)`: `M=527956000`, `M_T=1859`, residue `426568001`.
+Hence every `n≡12650497 (mod 12670944)` satisfies ES with the II3 polynomial solution (positive for all n ≥ 1,
+POINTWISE_MORDELL §0), e.g. the prime `p=12650497` (`p≡2 mod 11, mod 13`):
+`4/p = 1/3165624 + 1/3339731208 + 1/5005839614391`.
+*Proof.* Lemma 1.1 conditions for II3: `(4ad,e)=(1056,11999)=1`; `e+1=12000≡0 (mod 4(ad)'=4·8·3=96)`;
+`(ad)_T=11` and `e+2=12001=11·1091`; `e'=71 | 4a²d+1=8449=71·119`; `e_T=169 | 2a²d+1=4225=25·169`. ∎
+Checked: `mordell_lib.solve` gives exact positive integer solutions at 200 members of each class
+(`/tmp/o95/verify_hit.py` and inline check, see Replay).
+Data: ES level `N=e_T·a_T²·d_T=169·11=1859` (Lemma 2.1, mixed type: P at 11, Q at 13). Both classes
+have modulus `>10⁶` and are outside the families of the rigid search (II1/II2/I4), so Comp. 4.1 is correct
+as stated; only Conjecture 4.2 (and the evidence read into it) fails. Note both data share `f=e=11999`
+(the I2/II3 coincidence is the Q⁻¹/Q pairing at 13 of MORDELL17 Lemma 1.1).
+*Consequence.* A neighbourhood of x* is covered. The question "is Theorem 3.1(b) improvable to a finite
+covering of `Σ_13` (main)?" is reopened; x* is no longer evidence against it.
