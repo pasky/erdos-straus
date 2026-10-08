@@ -69,20 +69,24 @@ all boxes of level ≤ 7 is **ρ₂ = 961421/1419857 = 0.677125231…** (CERTIFI
 
 **Theorem 4.1.** Suppose that for some θ, C > 0
 `(H_P)  D_P(K) ≤ C·17^{θK}` for every odd `K ≥ 13`, and `(H_Q)  D_Q(k) ≤ 17^{3k/5}` for every odd `k ≥ 9`,
-and that `T_P + T_Q < ρ₁` with `T_P = 2C Σ_{K≥13 odd} 17^{θK+(1−K)/2}` and `T_Q = 2Σ_{k≥9 odd} 17^{3k/5+1−k} = 1.41·10⁻³`.
+and that `T_P + T_Q < ρ₁` with `T_P = 2C Σ_{K≥13 odd} 17^{θK+(1−K)/2}` and `T_Q = 2Σ_{k≥9 odd} 17^{3k/5+1−k} = 1.4106·10⁻³ < 1.411·10⁻³` (R93 repair: no rounding down of a subtracted term).
 Then `C_5` and `C_7` contain sterile points. Hence (M17 Cor. 4.2) no finite set of ET Prop. 1.9 classes covers all sufficiently large
 primes `p ≡ 1 (24)` with `(p/17) = −1` and `(p/q) = 1` for `q = 5, 7, 11, 13`. The admissible pairs, from `scripts/m17b_tail.py 13 9 16344335 24137569`, are:
 
 | θ | 0.25 | 0.30 | 0.35 | **0.40** | 0.42 | 0.45 |
 |---|---|---|---|---|---|---|
-| largest admissible C | 619 | 87.9 | 11.8 | **1.41** | 0.569 | 0.128 |
-| same, hypothesis from K ≥ 15 (base ρ₂) | 2553 | 273 | 27.5 | **2.49** | — | 0.169 |
+| largest admissible C (rounded **down**) | 619.2 | 87.88 | 11.76 | **1.409** | 0.5686 | 0.1275 |
+| same, hypothesis from K ≥ 15 (base ρ₂) | 2553 | 272.9 | 27.53 | **2.484** | 0.8947 | 0.1692 |
+
+(R93 repair M1/m2: entries previously rounded *up*. In particular C = 1.41 at θ = 0.4 is **not** admissible: the exact
+threshold is 1.409796…, and C = 1.41 gives `T_P + T_Q = 0.677230 > ρ₁`. `m17b_tail.py` now prints floor-rounded values
+and adds the exact geometric remainder of the power series beyond K = 999.)
 
 *Proof.* Lemma 1.1, Computation 3.1, and `NB ≤ 2D`. The two series are summed numerically, with a geometric remainder bound. ∎
 
-In words: **ET's own exponent 2/5, with constant 1.41 and no `o(1)`, from K = 13 on, suffices.** For Q, ET's exponent 3/5
+In words: **ET's own exponent 2/5, with constant 1.40 and no `o(1)`, from K = 13 on, suffices** (R93 repair M1: was 1.41; with K ≥ 15 and base ρ₂, constant 2.48). For Q, ET's exponent 3/5
 with constant 1 suffices; even `17^{3k/4}` gives `T_Q = 0.076`. For comparison, the data give `D_P(K)/17^{0.4K}` = 0.64, 1.07,
-0.42, 0.093, 0.022, 0.0032, 0.00058 (K = 1, …, 13). So the needed constant 1.41 is exceeded by none of the computed K. Polynomial versions of the hypothesis:
+0.42, 0.093, 0.022, 0.0032, 0.00058 (K = 1, …, 13). So the needed constant 1.40 is exceeded by none of the computed K (R93 repair M1). Polynomial versions of the hypothesis:
 `D_P, D_Q ≤ 2K³` gives `T_P+T_Q = 4.0·10⁻⁴`, `≤ K⁴` gives `2.6·10⁻³`, and `≤ K⁵` gives `3.5·10⁻²`, all far below ρ₁.
 
 **Conjecture 4.2 (explicit, EVIDENCE).** `D_P(K) ≤ 2K³` for all odd K, and `D_Q(k) ≤ 3k³` for all odd k.
@@ -110,7 +114,7 @@ difficulty sits entirely with typical `m`, where `ord_m(17)` is large and nothin
 discrete log.
 
 **Assessment 5.2 (precise obstruction).** Theorem 4.1 needs, for *every* odd `K ≥ 13`, a bound
-`D_P(K) ≤ 1.41·17^{0.4K}` (or an equivalent trade-off from the table). The only unconditional route known (ET §3,
+`D_P(K) ≤ 1.40·17^{0.4K}` (R93 repair M1) (or an equivalent trade-off from the table). The only unconditional route known (ET §3,
 Lemma 2.1 here) bounds `D_P(K)` by `Σ_{regimes} Σ_{pairs ≤ X} #{divisors of M in a class}`. That sum has `≍ X log X`
 terms with `X ≥ n^{2/5}`. Each term is bounded only by `τ(M)`, and Lenstra's O(1) applies only when the modulus
 exceeds `M^{1/3}`, which fails for small pairs. With the explicit Nicolas–Robin bound
