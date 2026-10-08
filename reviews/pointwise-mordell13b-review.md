@@ -78,7 +78,7 @@ T-free, `e_T=B`, `(ab)_T=N`, …; `review_m13b_enum.invert`) recover the datum: 
   every point of the T-generic target with `x_13` a non-residue mod 13 is covered except inside
   the (2,2) cell — confirms the author's `m13b_cover.py 3` claim.
 * Clean corollary worth stating (since `N≤M_T²`): the enumeration to 4·10⁷ is *complete for every box
-  level M_T ≤ 6324*, i.e. M_T ∈ {11,13,121,143,169,1331,1573,1859,2197}: x* lies in no T-generic class
+  level M_T ≤ 6324* (my independent run to 4·10⁵ certifies this for M_T ≤ 632), i.e. M_T ∈ {11,13,121,143,169,1331,1573,1859,2197}: x* lies in no T-generic class
   of those levels except the two of Thm 3.1.
 
 ## Defects
