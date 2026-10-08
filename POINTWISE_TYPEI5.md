@@ -41,3 +41,21 @@ and the `k = 1` term is `n·s^{n−1} = n(s²)^{(n−1)/2} ≡ n`.
 `L_{n'}(α) | L_n(α)` and `L_{n'} ≡ n' ≢ 0 (mod 7)` by (c), so `L_{n'} = 1`, `n' = 1`. Then
 `L_{7^r}(α) = ∏_{i<r} L_7(α^{7^i})` and by (d) (applied to the solutions `α^{7^i}`, for which still `7 | Q`) each factor is
 `7·w_i` with `w_i > 1`, `7 ∤ w_i`. So `L_n` is not a power of 7. ∎
+
+**Corollary 1.2 (PROVED; b is a function of the field data).** A fibre certificate of level `L` is determined by
+`(a, c', δ, P_1)` (with `P_1 | M`), and then `7^b = u_1(P,Q)` is the `√Q`-coefficient of the minimal solution, i.e.
+`α² = ν_0` is the generator of `G = {A+4B√d : A²−16dB²=1}`. Since `G` has index `k ∈ {1,2,4}` in the norm-one units
+of `ℤ[√d]` (the image of a unit in `(ℤ[√d]/4)^×`, a group of order 8, has order dividing 4 modulo `{±1}+4ℤ[√d]`),
+**the certificate unit is `ε_f^k`, `k ∈ {1,2,4}`, with `ε_f` the fundamental norm-one unit of `ℤ[√d]`.**
+This proves (and sharpens) TYPEI4 Obs 1.5 ("`m=1` in all examples"): `m ∈ {1,2,4}` always.
+Consequently the d-graded engine `typei4_dgraded.py` (which tests `ε_f^m`, `m ≤ mmax`) is **complete for all `b`** as
+soon as `mmax ≥ 4`.
+*Proof.* Lemma 1.1 (hypotheses: `7 | Q` as `a ≥ 1`; `d` is not a square as `v_7(d) = a` is odd; `u = 7^b` odd).
+The certificate is recovered from `(a,c',δ,P_1)` and `(X,u)` by TYPEI4 Prop 1.2, and `(X,u) = (X_1,u_1)`. ∎
+
+**Computation 1.3 (CERTIFIED once replayed).** `typei4_dgraded.py 5 24 3000 6` (TYPEI4 replay) therefore shows:
+*for `5 ≤ L ≤ 24` and `c_oδ ≤ 3000`, the only fibre certificates, for any `b`, are the 8 listed hits (all `L ≥ 11`).*
+In particular **no fibre certificate at `L ∈ {7,…,10}` with `c_oδ ≤ 3000`, for any `v_7(k)`.**
+
+*Remark 1.4 (what Lemma 1.1 does not do).* It does not bound `b` at fixed `L`: it only says that `b` is read off from
+the unit of `d = c_o(c_oδ² + T)`. Assessment 4.2(c) of TYPEI4 (BHV, `n ≤ 30`) is superseded by `n = 1` (elementary).
