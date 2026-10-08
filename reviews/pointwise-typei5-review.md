@@ -91,8 +91,7 @@ Defects:
 
 Re-derived. TYPEI4 Lemma 3.1(iii) with `y = c'gδ` gives `mP_1 = y² − 2·7^a m u j`. Since `T/2 ∈ ℤ` (`L ≥ 5`), we have
 `ρP_1 = Tu/2 + j ≡ j` and `y ≡ −j (mod u)`, so `(ρj − m)P_1 ≡ j² − j² = 0`, and `7 ∤ P_1`. The hypothesis `7 ∤ j` is not used ✓.
-This closes the `7 | j` gap of TYPEI4 Lemma 3.6 (R89-S2). Note: TYPEI4 Lemma 3.6's other claims ("`λ` even", `λ ≥ 0`) were
-proved with `7∤j` only through integrality. Their proofs are otherwise independent of `7 ∤ j`, so the whole Lemma 3.6 now holds for all `j`.
+This closes the `7 | j` gap of TYPEI4 Lemma 3.6 (R89-S2). Side remark (not re-audited in full): the remaining steps of TYPEI4 Lemma 3.6 (`λ` even, `λ ≥ 0` via `m < 8u/7`, the bound via `A_1²Nn ≡ C (mod Dd)`) do not use `7 ∤ j` as far as I can see. If so, Lemma 3.6 now holds for all `j`. The author could state this explicitly.
 
 ## Lemma 3.2 (H), (Lin) — SOUND
 
@@ -177,3 +176,16 @@ are excluded by hand. (ii) and (iii) are excluded by Comp 3.4, which I reproduce
 * **T2 (MINOR, label)**: "PROVED + CERTIFIED once replayed". The CERTIFIED inputs are Cor 2.3 (10⁶ dmod runs) and Comp 3.4. The
   status of my replays is in the summary table. The theorem is a summary of exclusions and claims nothing about regime (v) beyond
   the per-`(σ,a,λ)` finiteness, so it does not overclaim.
+
+## Replay (reviewer scripts)
+
+```
+uv run python scripts/review_typei5_lehmer.py 40 280 20000 3000 60 20000 3   # Lemma 1.1 brute force, unit index k
+uv run python scripts/review_typei5_engine.py 5 24 3000      # 8 certs  (also: 7 12 10000 -> 1 cert at L=11; 13 26 6000 -> 10)
+uv run --with sympy python scripts/review_typei5_identities.py
+gcc -O2 -o /tmp/relax92 scripts/review_typei5_relax.c && /tmp/relax92 7 6001 > r.txt   # likewise 8 4001, 9 2001, 10 2001
+uv run python scripts/review_typei5_classify.py r.txt
+gcc -O2 -o /tmp/reg3 scripts/review_typei5_reg3.c -lm && /tmp/reg3 10 > c10.txt       # L = 7..10; '/tmp/reg3 7 4003' = control
+uv run python scripts/review_typei5_regimes.py 10 c10.txt                              # regime (ii) + exact check of (iii)
+gcc -O2 -o /tmp/dmod scripts/typei5_dmod.c -lm && /tmp/dmod 7 7 1000000                # author engine replay (also 8, 9, 10)
+```
