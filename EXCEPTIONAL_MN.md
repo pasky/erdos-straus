@@ -9,13 +9,20 @@ Notation. Fix an integer `m ≥ 4`. `n ≥ 1` is *m-exceptional* if `m/n = 1/x_1
 has no solution in positive integers. `E_m(N) = #{n ≤ N : n m-exceptional}`;
 `E_m(I)` the same over an interval `I`. `L = log N`. `ρ(m) = m/φ(m)`.
 
-## 0. Summary (filled in as the work proceeds)
+## 0. Summary
 
-Target: `E_m(N) ≪ N exp(−c L^{3/4} m^{−1/4})`, `c` absolute, uniformly in a range of m;
-plus SHORT's interval/progression transfer. Main structural finding so far: **nothing in
-the note's density argument is m-specific**; the Jacobi-symbol obstruction of
-POINTWISE_MN Lemma 1.1 concerns the *pointwise* witness-modulus process (square-class
-revelation), which the density argument never uses (§1.3).
+* **Theorem A (PROVED rel. note).** Absolute `c, C`: for every `m ≥ 4`, every interval I of
+  length `H ≥ 2`: `E_m(I) ≤ C H exp(−c (log H)^{3/4} m^{−1/4})`; in particular
+  `E_m(N) ≤ C N exp(−c (log N)^{3/4}/m^{1/4})`. Beats Pomerance–Weingartner's
+  `exp(−C (log N)^{2/3}/φ(m)^{1/3})` for every m in their range and extends it to `m ≤ ε(log N)³`.
+* **Theorem B / Cor. C:** progressions and primes in short intervals, as in SHORT (§5).
+* **Corollary D:** most primes in `(N/2,N]` are m-representable once
+  `log N ≥ C m^{1/3}(log m)^{4/3}`; with PW Thm 3.1 the Schinzel transition is at
+  `log n = m^{1/3+o(1)}` (PW left it between `m^{1/3}` and `m^{1/2}`).
+* **Mechanism:** nothing in the note's density argument is m-specific. Take multipliers
+  `k ≤ X^κ` coprime to m; fibre mass becomes `≍ t³/m` (two-sided, absolute constants); the ledger
+  stays `e^{O(t·mass)}`; the whole m-dependence is `t³ → t³/m`. The Jacobi-symbol obstruction of
+  POINTWISE_MN Lemma 1.1 is about the pointwise witness-modulus process and does not enter (§1.4).
 
 ## 1. The atom family for general m
 
