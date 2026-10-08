@@ -127,7 +127,7 @@ $N\geq2$.
 The bound depends only on the length of the interval.  It contains the
 theorem of \cite{TQ}, which is the case $m=4$, $z=0$.  The saving tends
 to infinity if and only if $m=o((\log H)^3)$.  For
-$m\leq\varepsilon(\log H)^3$ with $\varepsilon=\varepsilon(C)$ small it is
+$m\leq\varepsilon(\log H)^3$ with $\varepsilon=\varepsilon(c,C)$ small it is
 a nontrivial constant factor; for larger $m$ it is no better than the
 trivial bound $E_m(I)\leq H+1$.
 
@@ -184,18 +184,21 @@ $(\log m)^2(m/\varphi(m))^{1/3}$ in $\log N$.  We do not know that the
 proportion of exceptional primes is monotone in between, and nothing is
 said about the \emph{largest} $m$-exceptional integer.
 
-Theorem~\ref{thm:A} and \eqref{eq:PW} have unrelated ineffective
-constants, so their comparison is asymptotic.  The ratio of the
+Theorem~\ref{thm:A} and \eqref{eq:PW} have unrelated constants (ours
+ineffective), so their comparison is asymptotic.  The ratio of the
 exponents is
 \begin{equation}\label{eq:ratio}
  \frac{L^{3/4}m^{-1/4}}{L^{2/3}\varphi(m)^{-1/3}}
  =L^{1/12}\frac{\varphi(m)^{1/3}}{m^{1/4}}
  \gg\frac{(Lm)^{1/12}}{(\log\log3m)^{1/3}},\qquad L=\log N,
 \end{equation}
-by $\varphi(m)\gg m/\log\log3m$.  Hence there is an absolute
-(ineffective) $\Lambda_0$ such that Theorem~\ref{thm:A} is stronger than
-\eqref{eq:PW} whenever $(Lm)^{1/12}\geq\Lambda_0(\log\log3m)^{1/3}$; in
-particular for all $4\leq m\leq L^2$ once $N\geq N_0$.
+by $\varphi(m)\gg m/\log\log3m$.  In the range $4\leq m\leq L^2$ of
+\eqref{eq:PW} its exponent $L^{2/3}\varphi(m)^{-1/3}$ is at least $1$, which
+absorbs the factor $C$ of Theorem~\ref{thm:A}.  Hence there is an absolute
+(ineffective) $\Lambda_0$ such that, for $4\leq m\leq L^2$,
+Theorem~\ref{thm:A} is stronger than \eqref{eq:PW} as soon as
+$(Lm)^{1/12}\geq\Lambda_0(\log\log3m)^{1/3}$; in particular for all such
+$m$ once $N\geq N_0$.  Outside this range \eqref{eq:PW} is not available.
 
 Finally (Section~\ref{sec:lowerend}) a bound with saving in $\log x$
 rather than $\log H$, of the shape
