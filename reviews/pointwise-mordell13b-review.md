@@ -94,7 +94,15 @@ ET Prop 1.9: II3 `e′∣4a²d+1`, `e_T∣u+4a²d`; I3 `f′∣4c²d+1`, `f_T∣
   **Comp 5.1 confirmed.**
 * `review_m13b_points.py`: (2,15), (2,1/7), (2,−7/3) lie in none of the 209295 re-verified author boxes nor
   my boxes; x* lies in exactly the two Thm 3.1 boxes. (EVIDENCE for the report's x** candidates.)
+* By-product (CERTIFIED, my program, X=10⁸): at x* itself the **only** II3/I3/I1 class with e≤10⁸ (any
+  T-level) is II3 (8,33,11999).
 * I did not review the U/I2 targeted program `m13b_target2.c` (Comp 5.1 does not use it).
+
+## Overall
+No FATAL or MAJOR defects. The headline (Conjecture 4.2 of POINTWISE_MORDELL is false; x* lies in
+II3 (8,33,11999) and I2 (125,88,11999)) is independently confirmed from the ET Prop 1.9 statement.
+Item (4) of the brief: the author has added no improved finite-exception theorem (none to certify);
+the later additions are §5 (targeted search) and Comp 5.1, reviewed above.
 
 ## Defects
 
