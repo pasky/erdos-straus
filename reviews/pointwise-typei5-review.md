@@ -9,7 +9,18 @@ Reviewer: side agent R92 (branch `side-agent/review-typei5`). Reviewed: `side-ag
 |---|---|
 | Lemma 1.1 (Lehmer minimality) | SOUND (MINOR wording: L1, L2) |
 | Cor 1.2 (`k ∈ {1,2,4}`; engine complete) | SOUND, can be sharpened to `k ∈ {1,2}` (L3) |
-| (filled in below) | |
+| Lemma 2.1 + `typei5_dmod` filter | SOUND (code audited; agrees exactly with independent exact engine) |
+| Comp 2.2 / Cor 2.3 (`L=7..10`, `c_oδ ≤ 10⁶`) | CERTIFIED: replayed (0 survivors ×4) |
+| Comp 1.3 (`L=5..24`, `c_oδ ≤ 3000`) | CERTIFIED: reproduced by independent exact engine (same 8 certificates) |
+| Lemma 3.1 (`λ ∈ ℤ` without `7∤j`) | SOUND; closes R89-S2 |
+| Lemma 3.2 (H), (Lin) | SOUND (sympy from scratch) |
+| Prop 3.3 (i)–(v) | SOUND (MINOR P1, P2) |
+| Comp 3.4 (regimes (ii),(iii) empty at `L=7..10`, all `b`) | CERTIFIED: independently reproduced with own engines + positive controls (MINOR C1) |
+| Lemma 3.6 (case A empty, `L ≤ 10`) | SOUND (MINOR A1) |
+| Theorem 3.7 (only regime (v), `b ≥ 8`, `c_oδ > 10⁶` remain) | SOUND (MINOR T1, T2) |
+
+**Overall: no FATAL or MAJOR defect.** The labels are justified. The only open part at `L = 7..10` is regime (v), and the
+document states this honestly. Defects: L1, L2, L3, P1, P2, C1, A1, T1 (all MINOR).
 
 ## Lemma 1.1 — SOUND
 
@@ -67,9 +78,13 @@ Defects:
     (same `(L,c_o,δ)`, same `b`, `k = 1` in all).
   - `L = 7..12`, `c_oδ ≤ 10⁴`: 16 980 fields, exactly 1 certificate (`L = 11`, `c_o = 21`, `δ = 7`). `typei5_dmod 7 12 10000`
     has the same single survivor. **No certificate at `L = 7..10`.**
-  - `L = 13..26`, `c_oδ ≤ 6000`: see below.
+  - `L = 13..26`, `c_oδ ≤ 6000`: 22 484 fields and exactly 10 certificates. The list is identical to the 10 survivors of
+    `typei5_dmod 13 26 6000`, including the TYPEI4 `L = 14` pair `(c_o,δ) = (21,173), (707,5)` and a new `L = 26` one
+    `(21,131)`. All have `k = 1` and `b ≤ 1`.
   So on these ranges the filter drops no certificate, and its only survivors are genuine certificates.
-* Replay of the 10⁶ runs (Comp 2.2, last bullet): not replayed in full (4 × 15 min). Partial replay: see below.
+* **Replay of Comp 2.2 (10⁶)**: `typei5_dmod L L 1000000` for `L = 7, 8, 9, 10` gives 426 697 fields each, 2.02/2.02/1.52/1.90·10¹⁰
+  CF steps, **0 survivors each**, matching the author. Comp 2.2 / Cor 2.3 are therefore **CERTIFIED (replayed)**, with the
+  filter validated against an independent exact engine on the smaller ranges above.
 * Cor 2.3 (combination with TYPEI4 Cor 3.5) ✓ as a logical statement. The label is fine once the 10⁶ runs are replayed.
 
 ## Lemma 3.1 — SOUND (fixes R89-S2)
