@@ -37,14 +37,14 @@ as soon as `T_P + T_Q < ρ₀`** (same proof as M17 Theorem 4.1).
 `acde ≤ 2abd ≤ n` (the proof of ET Lemma 2.8, which uses only the equations). Hence
 `e²(ad)(ac)(cd) = (acde)² ≤ n²`. ∎
 
-`scripts/m17b_penum.py K` implements this with `X_cd ≈ n^{0.3}` (so that `4c²dn+1 < 10^{25}`) and
+`scripts/m17b_penum.py K` implements this with `X_cd ≈ n^{0.3}`, to keep `4c²dn+1` moderate (≈ 1.5·10²⁶ at K = 13; harmless, as `factor` is GMP-based; R93 repair m8: was "< 10²⁵"), and
 `X_e = X_ad = X_ac = ⌈(n²/X_cd)^{1/4}⌉+1`. Factorisations use GNU coreutils `factor` (GMP; primality
 proved by a Lucas test). Every candidate is checked against `4abcd = a+b+nc`. **Validation:** the output
 coincides *as a set of (a,b,c,d)* with the naive scan `scripts/m17b_brute.py` (all `a ≤ b`,
 `2ab ≤ n`, `e = (−n mod 4ab) | a+b`, M17 §6) for K = 5, 7. Its counts equal M17's `D_P(K)` (both engines)
 for K = 1, 3, 5, 7, 9. Run times: K = 9 takes 9 s and K = 11 a few minutes (vs 8 min for K = 9 with `m17_enum`).
 
-**Computation 2.2 (CERTIFIED by one engine, validated above).** `D_P(11) = 836` and `D_P(13) = 1463`. K = 13 took ≈ 1.5 h:
+**Computation 2.2 (CERTIFIED: O93 engine + R93 engine; R93 repair m1).** The R93 review (`review_m17b_k11.c`, `review_m17b_k13.c`, independent sieve-based C code) reproduces both counts. Its sorted point sets have the same sha256 as ours (K = 11 `19cbd5ac…`, K = 13 `2ec22df7…`). The sets for K ≤ 13 are stored in `data/m17b/p{K}.txt` with `SHA256SUMS`. `D_P(11) = 836` and `D_P(13) = 1463`. K = 13 took ≈ 1.5 h:
 the regimes `e ad` and `ac cd` ran in parallel and gave 1415 and 925 data, overlapping. So
 `D_P(K) = 2, 32, 121, 258, 604, 836, 1463` for K = 1, …, 13 (odd).
 
@@ -59,7 +59,7 @@ also reproducing M17. Adding the **P-boxes of level 6 (K = 11)** gives 161 boxes
 |---|---|---|
 | 5 | 83 (P 54, Q 29) | 9.94·10⁻⁴ |
 | 6 | 100 (P) | 7.04·10⁻⁵ |
-| 7 | 272 (P 178, Q 94) | 6.6·10⁻⁶ |
+| 7 | 272 (P 178, Q 94) | 1.13·10⁻⁵ (P 7.37·10⁻⁶, Q 3.89·10⁻⁶; R93 repair m3: was 6.6·10⁻⁶) |
 
 **Computation 3.1.** After all P-boxes of level ≤ 6 and all Q/U boxes of level ≤ 7, the uncovered
 fraction of `C_5` is **ρ₁ = 16344335/24137569 = 0.677132606…** (CERTIFIED). Adding P-level 7 (K = 13), the uncovered fraction after
