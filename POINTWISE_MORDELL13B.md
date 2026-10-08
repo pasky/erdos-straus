@@ -38,3 +38,22 @@ II2 `−4a²d mod f`; II3 `−4a²d−e mod 4ade`; I2 `≡−f (4ac)`, `≡−c/
 
 This is the §2.1 table of POINTWISE_MORDELL evaluated at `u=2`; the point of the lemma is that at x*
 every condition is a polynomial congruence with integer right-hand sides `−1`/`−2`.
+
+**Lemma 1.2 (reciprocity at x*; PROVED).** Write `v_T(m)=v_11(m)+v_13(m)`. If x* lies in the class, then
+* II1, I4 (P=(a,b,e)): `v_T(ab)` is odd; II2: `v_T(f)` odd; I2: `v_T(ac)+v_T(f)` odd
+  (i.e. **the T-level `F=M_T` has odd total valuation** for these four families);
+* I1: `v_T(d)` odd; I3: `v_T(d)` odd; II3: `v_T(d)+v_T(e)` odd.
+*Proof.* Facts: `(2/11)=(2/13)=−1`, `(−1/11)=−1`, `(−1/13)=1`, so `(−2/11)=1`, `(−2/13)=−1`.
+(i) If `g≡−1 (mod 4m')` for an integer m' and q∤g, then `(m'/g)=1` (Jacobi; odd p∣m': `(p/g)=(g/p)(−1)^{(p−1)/2}=1`;
+if `2∣m'`, `g≡7 (8)`). (ii) If moreover `g≡−2` or `g≡−1/2 (mod q)`, q∈T, then
+`(q/g)=(g/q)(−1)^{(q−1)/2}=(−2/q)(−1)^{(q−1)/2}=−1` for both q=11, 13. Also `(−1/g)=−1`.
+II1/I4: `e∣a+b`, `(e,ab)=1` give `(−ab/e)=(b²/e)=1`; by (i),(ii) `(−ab/e)=−(−1)^{v_T(ab)}`.
+I1: `f∣4a²d+1` gives `(−d/f)=1`; by (i),(ii) (q∣d ⇒ q∣(ad)_T ⇒ `f≡−2 (q)`) `(−d/f)=−(−1)^{v_T(d)}`.
+I3: `(−d/f')=1` from `f'∣4c²d+1`, and `(−d/q)=1` for q∣f_T from `f_T∣c²d+1`; so `(−d/f)=1`; the
+right side is as for I1. II3: `(−d/e')=1`; for q∣e_T, `2a²d≡−1` gives `(−d/q)=(2/q)=−1`; so
+`(−d/e)=(−1)^{v_T(e)}`, against `−(−1)^{v_T(d)}` from (i),(ii). II2: `f≡−1 (mod 4ad)` with full d, so
+`(−d/f)=−1` (MORDELL17 Lemma 1.3), while `(−d/f')=1`, `(−d/q)=−1` for q∣f_T: `(−1)^{v_T(f)}=−1`.
+I2: `f'∣a+c` gives `(−ac/f')=1`; for q∣f_T, `c≡−2a` gives `(−ac/q)=(2/q)=−1`; so `(−ac/f)=(−1)^{v_T(f)}`,
+against `−(−1)^{v_T(ac)}` from (i),(ii) (`(4ac)`-coprimality makes q∣ac and q∣f exclusive). ∎
+*Scope.* Reciprocity only gives these parities, all satisfiable; it kills e.g. every II1/II2/I4 class
+of T-level 143, 11², 13², 11·13³ …, but no family entirely (no uniform quadratic obstruction).
