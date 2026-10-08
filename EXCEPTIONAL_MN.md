@@ -48,14 +48,19 @@ m-representable.)
 `𝒜^{(m)}_X` = quadruples `(k, ℓ, u, v)` with
 `k ∈ 𝒦_m(K)`, `ℓ ∈ I_j` prime, `H < u, v ≤ z_j`, `(u,v) = (uv,k) = 1`,
 `m·uv | kℓ + 1`
-(and `ω(uv) ≤ D log log X` on the retained original route; the simplified route of note
-§6 drops it). Atom event `E_A = {n ≡ −u v^{−1} (mod kℓ)}`, `H_X = Σ_A 1_{E_A}`.
+and `ω(uv) ≤ D log log X`. Only the note's *retained original* (ω-cutoff, pruned) route is
+re-derived here. Using the larger no-ω family `𝒜′` is still fine: the lower bound comes from the ω-subfamily,
+and the BT upper bound and the inventory are unchanged. The note's §6 Cauchy–Schwarz route itself also transfers
+via `φ(muv) ≥ φ(m)φ(u)φ(v)`:
+`Σ_q W_c(q)² E*_x(q) ≪ x t⁶/φ(m)`, so the error is
+`≪ x t³ φ(m)^{−1/2}(log x)^{−R/2}` against a main term `≫ x t h(𝒥)/φ(m)`. Their ratio is `≪ t^{7/2}(log x)^{−R/2} → 0`
+for R = 26 (R94B's sketch, not written out further). (R94A repair D7; R94B repair D1) Atom event `E_A = {n ≡ −u v^{−1} (mod kℓ)}`, `H_X = Σ_A 1_{E_A}`.
 `(k,m) = 1` is forced: `kℓ ≡ −1 (mod m)`. Unlike the note (`k ≡ 1 (4)`) we allow every
 k coprime to m and let `ℓ ≡ −k^{−1} (mod m)` vary with k; this is what makes the
 fibre mass `≍ t^3/m` rather than `t^3/(mφ(m))` (§2).
 
 **Lemma 1.3 (deduplication and conditional independence; PROVED).** For `X ≥ X_0`
-(absolute) and every `m ≤ K`, note lem:CRT holds verbatim for `𝒜^{(m)}_X`: every
+(absolute) and every `m ≤ t³` (R94B repair D5: only `ℓ ∤ m` uses the size of m), note lem:CRT holds verbatim for `𝒜^{(m)}_X`: every
 m-exceptional integer avoids every atom; at fixed ℓ the atoms have distinct projections
 mod ℓ; the exact CRT intersection formula (eq:intersection) holds; conditional on
 `c (mod L_K)` the coordinates `n mod ℓ` are independent uniform; an atom is active in
@@ -64,7 +69,7 @@ fibre c iff `k | u + cv`.
 *Proof.* The note's proof uses only: (i) the identity (Lemma 1.1); (ii) `|uv'−u'v| < z_j^2 < ℓ`
 (unchanged); (iii) from `kℓ ≡ k'ℓ ≡ −1 (mod m uv)` and `(ℓ, muv) = 1`: `k ≡ k' (mod muv)`,
 and `muv > H^2 > K` gives `k = k'`; (iv) `ℓ > X^{1/2} > K` so all ℓ are coprime to `L_K`
-(and to m, as `m ≤ K`). ∎
+(and to m, as `ℓ > X^{1/2} > t³ ≥ m`). ∎
 
 **1.4 Where m = 4 was used in the note, and why the Jacobi obstruction is irrelevant here.**
 Grep of the note for every occurrence of `4`/`mod 4`: (a) lem:identity (→ Lemma 1.1);
@@ -196,7 +201,9 @@ such that for `X ≥ X_a`, `4 ≤ m ≤ t³`, `s = t³/m ≥ s_0`, and r the lea
 *Proof.* (i) Lemma 1.1 ⇒ `H_X(n) = 0`; `Q_r(0) = 1`. (ii) note lem:Bonferroni, Lemmas 4.1, 4.2:
 `E(Q_r(H_X) | S_y=1) ≤ e^{−a_v s} + (e C_u s/(r+1))^{r+1} ≤ e^{−a_v s} + e^{−(r+1)}`
 with `D_B = max(e² C_u, a_v)`. (iii) note (eq:termcount): `log T_abs ≤ π(y) log 2 + log(r+1)
-+ r (4/3+κ) t`, with `|𝒜^{(m)}_X| ≤ K X^{4/3}` unchanged, `y ≤ Bs + 2`, `r ≤ D_B s + 2`, `s ≤ t s`. ∎
++ r (4/3+κ) t`, with `|𝒜^{(m)}_X| ≤ K X^{4/3}` unchanged, `y ≤ Bs + 2`, `r ≤ D_B s + 2`. Explicitly, using `s, t ≥ 1` (R94A repair D6):
+`π(y) log 2 ≤ y ≤ Bs + 2 ≤ (B+2)ts`, `log(r+1) ≤ r ≤ (D_B+2)s`, and `r(4/3+κ)t ≤ 2(D_B+2)ts`.
+So `C_L = B + 3(D_B+2) + 2` works. ∎
 
 So the **whole m-dependence is the substitution `t³ → s = t³/m`** in the saving and in the
 Bonferroni depth, while the per-atom modulus cost `(1+κ)t` stays — hence the ledger `e^{O(t s)}`.
@@ -226,8 +233,8 @@ Since `y ≤ Bs + 2`, `4√y ≤ a_v s/4` once `s ≥ s_1` (absolute). Altogethe
 Choose `t = (m 𝓗/(2C_2))^{1/4}`, so `e^{C_2 t s} = e^{C_2 t⁴/m} = H^{1/2}` and
 `s = t³/m = (𝓗/(2C_2))^{3/4} m^{−1/4}`. The side conditions read
 `t ≥ log X_a`, `m ≤ t³ ⟺ m ≤ (𝓗/(2C_2))³`, `s ≥ max(s_0,s_1)`; each fails only if
-`𝓗^{3/4} m^{−1/4} ≤ C_3` (absolute) — note `t ≥ m^{1/4}·(stuff)` and `m ≤ t³ ⟸ s ≥ 1` since
-`s ≥ 1 ⟺ t³ ≥ m` — and then the claim is trivial (`E_m(I) ≤ H + 1 ≤ 2H ≤ C H e^{−c C_3}`).
+`𝓗^{3/4} m^{−1/4} ≤ C_3` (absolute). Indeed `s ≥ 1 ⟺ t³ ≥ m`, and `t³ = ms ≥ 4s`, so
+`t ≥ log X_a` follows from `s ≥ (log X_a)³/4` (R94B repair D5). In that case the claim is trivial (`E_m(I) ≤ H + 1 ≤ 2H ≤ C H e^{−c C_3}`).
 Otherwise `E_m(I) ≤ C_1 H e^{−(a_v/4) s} + H^{1/2} ≤ C H exp(−c 𝓗^{3/4} m^{−1/4})`
 (`H^{1/2} ≤ H e^{−s}` as `s ≤ 𝓗^{3/4} ≤ 𝓗/2` for 𝓗 large). ∎
 
