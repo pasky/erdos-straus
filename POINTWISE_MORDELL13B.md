@@ -200,3 +200,15 @@ cap. The (2,2)-cell survivors also form a near-product set (§4). Both facts fav
 region, but this is EVIDENCE, not proof. A proof would need a tail bound of MORDELL17 Theorem 4.1 type,
 and that is out of reach (MORDELL17 §6). The finite-exception theorem 3.1(b) is therefore **not** improved
 here: its exceptions contain survivor points of the targeted searches.
+
+**Computation 5.3 (CERTIFIED, one engine; extends 5.1 for x\*\*).** `x**=x(2,15)` lies in **no** II3/I3/I1/II2
+class with `e` (resp. `f`) `≤10⁹` and `v_11(λ),v_13(λ)≤20`, where λ is the {11,13}-part `a_T²d_T` (II2: `a_Td_T`, with
+`a_T²d_T` in the same exponent range). The search is complete per range. Ranges covered:
+* `(0,10⁸]`: the run of Comp. 5.1 for II3/I3/I1, plus `logs/o95_xss_gap*.log` for II2 on `(3·10⁷,10⁸]`
+  (the II2 part for `≤3·10⁷` is in 5.1);
+* `(10⁸,10⁹]`: `logs/o95_xss_A.log` and `logs/o95_xss_B.log`, all four families.
+
+All runs report 0 hits. Total time ≈ 80 min on 2 cores, using `m13b_target` with the optional start
+argument `X0`. **x\*\* survives.** U/I2 types (II1, I4, I2) remain as in 5.1 (`≤2·10⁷`, `|i|,|j|≤12`).
+Replay: `/tmp/o95/target $(python3 scripts/m13b_pt.py 2 15) 550000000 20 100000000` and
+`... 1000000000 20 550000000` (each ≈ 75 min).
