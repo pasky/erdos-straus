@@ -22,20 +22,25 @@ def iroot(x, num, den):  # ceil(x^(num/den))
     while r > 1 and (r - 1) ** den >= x ** num: r -= 1
     return r
 
-def factor_many(nums):
-    """yield (m, {p:e}) using coreutils factor in chunks"""
+def factor_many(items):
+    """items: iterable of (key, m); yield ((m, {p:e}), key) using coreutils factor, streamed in chunks"""
     CH = 200000
-    for i in range(0, len(nums), CH):
-        chunk = nums[i:i + CH]
+    it = iter(items)
+    while True:
+        keys, chunk = [], []
+        for key, m in it:
+            keys.append(key); chunk.append(m)
+            if len(chunk) >= CH: break
+        if not chunk: return
         out = subprocess.run(["factor"], input="\n".join(map(str, chunk)) + "\n",
                              capture_output=True, text=True, check=True).stdout.split("\n")
-        for m, line in zip(chunk, out):
+        for key, m, line in zip(keys, chunk, out):
             lhs, rhs = line.split(":")
             assert int(lhs) == m
             fac = {}
             for p in rhs.split():
                 p = int(p); fac[p] = fac.get(p, 0) + 1
-            yield m, fac
+            yield (m, fac), key
 
 def divisors(fac):
     ds = [1]
@@ -59,8 +64,7 @@ def main():
         sols.add((a, b, c, d))
 
     if "e" in regs:
-        es = [e for e in range(1, Xe + 1) if (n + e) % 4 == 0]
-        for (m, fac), e in zip(factor_many([(n + e) // 4 for e in es]), es):
+        for (m, fac), e in factor_many((e, (n + e) // 4) for e in range(1, Xe + 1) if (n + e) % 4 == 0):
             for a in divisors(fac):
                 if a * a > m: continue
                 r = m // a
@@ -69,23 +73,23 @@ def main():
                     d = r // b
                     check(a, b, (a + b) // e, d)
     if "ad" in regs:
-        pairs = [(a, d) for a in range(1, Xad + 1) for d in range(1, Xad // a + 1) if d % 17]
-        for (M, fac), (a, d) in zip(factor_many([n + 4 * a * a * d for a, d in pairs]), pairs):
+        pairs = ((a, d) for a in range(1, Xad + 1) for d in range(1, Xad // a + 1) if d % 17)
+        for (M, fac), (a, d) in factor_many(((a, d), n + 4 * a * a * d) for a, d in pairs):
             L = 4 * a * d
             for f in divisors(fac):
                 if (f + 1) % L == 0:
                     c = (f + 1) // L
                     check(a, c * (M // f) - a, c, d)
     if "ac" in regs:
-        pairs = [(a, c) for a in range(1, Xac + 1) for c in range(1, Xac // a + 1) if c % 17]
-        for (M, fac), (a, c) in zip(factor_many([n * c + a for a, c in pairs]), pairs):
+        pairs = ((a, c) for a in range(1, Xac + 1) for c in range(1, Xac // a + 1) if c % 17)
+        for (M, fac), (a, c) in factor_many(((a, c), n * c + a) for a, c in pairs):
             L = 4 * a * c
             for f in divisors(fac):
                 if (f + 1) % L == 0:
                     check(a, M // f, c, (f + 1) // L)
     if "cd" in regs:
-        pairs = [(c, d) for c in range(1, Xcd + 1) for d in range(1, Xcd // c + 1) if c % 17 and d % 17]
-        for (M, fac), (c, d) in zip(factor_many([4 * c * c * d * n + 1 for c, d in pairs]), pairs):
+        pairs = ((c, d) for c in range(1, Xcd + 1) for d in range(1, Xcd // c + 1) if c % 17 and d % 17)
+        for (M, fac), (c, d) in factor_many(((c, d), 4 * c * c * d * n + 1) for c, d in pairs):
             L = 4 * c * d
             for f in divisors(fac):
                 g = M // f
