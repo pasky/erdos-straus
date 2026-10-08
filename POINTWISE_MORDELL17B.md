@@ -89,41 +89,59 @@ with constant 1 suffices; even `17^{3k/4}` gives `T_Q = 0.076`. For comparison, 
 0.42, 0.093, 0.022, 0.0032, 0.00058 (K = 1, …, 13). So the needed constant 1.40 is exceeded by none of the computed K (R93 repair M1). Polynomial versions of the hypothesis:
 `D_P, D_Q ≤ 2K³` gives `T_P+T_Q = 4.0·10⁻⁴`, `≤ K⁴` gives `2.6·10⁻³`, and `≤ K⁵` gives `3.5·10⁻²`, all far below ρ₁.
 
-**Conjecture 4.2 (explicit, EVIDENCE).** `D_P(K) ≤ 2K³` for all odd K, and `D_Q(k) ≤ 3k³` for all odd k.
-Data: D_P = 2, 32, 121, 258, 604, 836, 1463 against 2K³ = 2, 54, 250, 686, 1458, 2662, 4394 (K = 1, …, 13); D_Q = 2, 73, 245, 707
-against 3k³ = 3, 81, 375, 1029 (k = 1, …, 7). (`2k³` fails for Q at k = 3 and k = 7.) Under Conjecture 4.2,
-`T_P + T_Q < 4.1·10⁻⁴ ≪ ρ₁`, so Theorem 4.1 applies with an enormous margin.
-The random discrete-log model of M17 §6 (`17^K` equidistributed mod `f = 4ast−1`) predicts
-`D_P(K) ≍ K³`. The conjecture is a *quantitative* form of it, for one base and prime-power ES denominators.
+**Conjecture 4.2 (CONJECTURE; EVIDENCE: data below; R93 repair m7).** `D_P(K) ≤ K⁵` for every odd `K ≥ 15`, and
+`D_Q(k) ≤ k⁵` for every odd `k ≥ 9`. With base ρ₂ this gives `T_P + T_Q ≤ 4.2·10⁻³ ≪ ρ₂`, so Theorem 4.1 (K ≥ 15 row)
+applies with a wide margin. From K ≥ 13 with base ρ₁ the tail would be 0.035.
+*Observation (EVIDENCE, tighter and more fragile).* Data: D_P = 2, 32, 121, 258, 604, 836, 1463 against
+2K³ = 2, 54, 250, 686, 1458, 2662, 4394 (K = 1, …, 13), with equality at K = 1. D_Q = 2, 73, 245, 707 against
+3k³ = 3, 81, 375, 1029 (k = 1, …, 7): only four points, one at 90% of the bound. `2k³` fails for Q at k = 3 and k = 7.
+The random discrete-log model of M17 §6 (`17^K` equidistributed mod `f = 4ast−1`) predicts `D_P(K) ≍ K³` *on average*,
+with fluctuations. That is why the main conjecture is stated with the robust exponent 5 rather than with 2K³/3k³.
+(R93 repair m7: previously the 2K³/3k³ form was the conjecture, labelled "explicit, EVIDENCE".)
 
 ## 5. Unconditional explicit bounds: what averaging over K does and does not give
 
-**Lemma 5.1 (first-occurrence form; PROVED).** For a pair `(a,b)`, put `m = 4ab`. The admissible K, i.e. those with
-`(−17^K mod m) | a+b`, `4ab ≤ 17^K + a + b`, and the side conditions `17∤cd`, lie in at most
-`#{e | a+b : −e ∈ ⟨17⟩ ⊂ (ℤ/m)^×}` residue classes mod `ord_m(17)`, one class per `e`. The boxes of `(a,b)` in one
-class are nested (M17 §6), so `T_P ≤ 2 Σ_{(a,b)} Σ_e 17^{(1−K_e)/2}`, where `K_e ≥ 13` is the first admissible element of the class of `e`.
-*Proof.* `17^K ≡ −e (mod m)` fixes K mod `ord_m(17)`, and `d = (17^K+e)/m`, `c = (a+b)/e`. ∎
+**Lemma 5.1 (first-occurrence form; PROVED; R93 repair m4).** Only pairs `(a,b)` with `17 ∤ ab` matter. If `17 | ab`, then
+`17 | a` and `17 | b` (M17 §6), and the boxes are `≡ 1 (mod 17)`, which miss the cells. For `17 ∤ ab` put `m = 4ab`.
+* The admissible K are those with `(−17^K mod m) | a+b`, `4ab ≤ 17^K + a + b` and `17∤cd`. Since `0 < e ≤ a+b < 4ab`,
+  `e` is the least positive residue of `−17^K`, so `17^K ≡ −e (mod m)` fixes K mod `ord_m(17)`. Hence the admissible K
+  lie in at most `#{e | a+b : −e ∈ ⟨17⟩ ⊂ (ℤ/m)^×}` residue classes mod `ord_m(17)`, one per `e`.
+* By M17 Lemma 5.1(ii), every box of `(a,b)`, for every K and every `e`, is a ball around the same centre `−a/b`.
+  So all boxes of the pair are nested, and
+  `T_P ≤ 2 Σ_{(a,b): 17∤ab, K_min(a,b) ≥ 13} 17^{(1−K_min(a,b))/2}`, where `K_min(a,b)` is the least admissible K.
+  Pairs with an admissible `K ≤ 11` contribute nothing.
+*Proof.* As stated; `d = (17^K+e)/m` and `c = (a+b)/e` are determined by `(a,b,K)`. ∎
+This is an upper bound for `Σ_K 17^{(1−K)/2} NB_P(K)`, not equal to it (R93 repair m4: was "the same sum").
 
-This is the same sum as `Σ_K 17^{(1−K)/2} NB_P(K)`, only reorganised. **Averaging over K gives no unconditional gain.**
-Lemma 5.1 bounds the *number* of classes, but not the position of their first element `K_e`. That position is
-a discrete logarithm of `−e` modulo `4ab`. Any unconditional statement placing `K_e` well above `log_17(4ab)` for
-most `(a,b)` is again a count of ES solutions of `4/17^K` with small `d = (17^K+e)/(4ab)`, i.e. a bound on `D_P(K)`.
-The separation by small order does not help either. Pairs with `ord_{4ab}(17) = L` satisfy `4ab | 17^L − 1`, so
-`4ab ≤ 17^L`. They are finitely many for each L and live at levels `≲ L/2`, mostly inside the exact range. The
-difficulty sits entirely with typical `m`, where `ord_m(17)` is large and nothing unconditional locates the
-discrete log.
+*Assessment (R93 repair m5: previously unlabelled).* Averaging over K gives no unconditional gain that I can see.
+Lemma 5.1 bounds the *number* of classes but not where `K_min` falls, and that position is a discrete logarithm of
+`−e` modulo `4ab`. An unconditional statement placing `K_min` well above `log_17(4ab)` for most `(a,b)` amounts to
+counting ES solutions of `4/17^K` with small `d = (17^K+e)/(4ab)`, i.e. to a bound on `D_P(K)`. Separating out small
+order does not obviously help. Pairs with `ord_{4ab}(17) = L` satisfy `4ab | 17^L − 1`, so `4ab ≤ 17^L`. They are finitely
+many for each L, and their first admissible K lies in `[K_min, K_min + L)` with `K_min ≈ log_17(4ab) ≤ L`, so `K < 2L`,
+i.e. level `≲ L`. (R93 repair m5: was "`≲ L/2`, mostly inside the exact range"; the latter is unsupported and dropped.)
+The difficulty is with typical `m`, where `ord_m(17)` is large and nothing unconditional locates the discrete log.
 
-**Assessment 5.2 (precise obstruction).** Theorem 4.1 needs, for *every* odd `K ≥ 13`, a bound
-`D_P(K) ≤ 1.40·17^{0.4K}` (R93 repair M1) (or an equivalent trade-off from the table). The only unconditional route known (ET §3,
-Lemma 2.1 here) bounds `D_P(K)` by `Σ_{regimes} Σ_{pairs ≤ X} #{divisors of M in a class}`. That sum has `≍ X log X`
-terms with `X ≥ n^{2/5}`. Each term is bounded only by `τ(M)`, and Lenstra's O(1) applies only when the modulus
-exceeds `M^{1/3}`, which fails for small pairs. With the explicit Nicolas–Robin bound
-`τ(M) ≤ M^{1.5379 log 2 / log log M}`, the tail series converges only once `0.4 + 1.92/log log M < 0.5`, i.e.
-`log log M > 19.2`, `K ≳ 4·10⁷`. Any *fixed finite* set of pairs `(a,d)` is harmless: e.g. `τ(M) ≤ C M^{1/4}` gives a convergent,
-explicit contribution. The obstruction is uniformity over the `≍ n^{2/5}` pairs, i.e. an explicit *average* divisor-in-class
-bound over the four ET families. That is the missing input, and it is of Shiu / Brun–Titchmarsh type for
-divisor functions of polynomial values with explicit constants. I do not see how to prove it here. So the outcome
-remains CONDITIONAL; **no unconditional sterile point.**
+**Assessment 5.2 (obstruction; revised, R93 repair m6).** Theorem 4.1 needs, for *every* odd `K ≥ 13`, a bound
+`D_P(K) ≤ 1.40·17^{0.4K}` (R93 repair M1), or `≤ 2.48·17^{0.4K}` for `K ≥ 15`, or a trade-off from the table. The known
+unconditional route (ET §3, Lemma 2.1 here) bounds `D_P(K)` by a sum over four regimes, each a sum over `≍ X log X` pairs
+(`X ≈ n^{2/5}`) of a count of divisors of some `M` in a residue class. The ingredients:
+* *Pointwise divisor bound.* With Nicolas–Robin, `τ(M) ≤ M^{1.5379 log 2 / log log M}`, and taking `M ≈ n^{1.8}` (the size in
+  the `cd` regime), the per-K terms `17^{(1−K)/2}·X log X·τ(M)` decay only once `0.4 + 1.92/log log M < 0.5`, i.e.
+  `log log M > 19.2`, `K ≳ 4·10⁷`. Before that they are not small, so this route alone is useless.
+  (R93 repair m6a: the size assumption is now stated, and the claim is about the terms, not about convergence.)
+* *Divisors in residue classes.* Lenstra (O(1) divisors in a class mod `s ≥ M^{1/3}`) and Coppersmith–Howgrave-Graham–Nagaraj
+  (`O_ε(1)` for `s ≥ M^{1/4+ε}`; cited from the reviewer's memory, not checked here) make the count per pair O(1) for most
+  pairs of the `ad` regime (`M ≍ n`, modulus `4ad ≥ n^{1/4+ε}`). The failing pairs, `n^{1/4+o(1)}` of them, are negligible.
+  The `ac` regime is similar: its failing pairs number `≲ n^{0.35}`. (R93 repair m6b: previously these regimes were
+  described as blocked by Lenstra's `M^{1/3}` threshold.)
+* *The actual bottleneck.* It is (i) the `e`-regime, an average of `τ_3((n+e)/4)` over the short interval `e ≤ n^{2/5}`
+  (Shiu type); (ii) the `cd` regime, where `M ≈ c²dn` and the modulus `4cd` is small relative to M, so the cover would have to be
+  rebalanced; and (iii) the explicit constants (of CHN and of the short-interval divisor sums). Even a successful version would
+  give at best `D_P ≪ n^{2/5}(log n)^{O(1)}`, with large explicit constants. By the table that needs a tiny constant at
+  θ ≈ 0.45 (≤ 0.169 from K ≥ 15), or exact data up to a large K.
+I do not see how to make this explicit at the required strength. So the outcome remains CONDITIONAL; **no unconditional
+sterile point.**
 
 ## Replay
 
