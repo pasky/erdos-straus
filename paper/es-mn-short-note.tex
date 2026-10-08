@@ -508,9 +508,11 @@ $\varphi(m)\geq2$ and $2\gamma>1$.
 and $k\in\K_m(K)$ with $p\mid k$ means $k=pj$ with $p\nmid m$ and
 $j\in\K_m(K/p)$,
 \[
- h_m(K)\geq S_m(K)-\sum_{p\nmid m}\frac1p\sum_{\substack{k\in\K_m(K)\\p\mid k}}\frac1k
- =S_m(K)-\sum_{p\nmid m}\frac{S_m(K/p)}{p^2}
+ \begin{aligned}
+ h_m(K)&\geq S_m(K)-\sum_{p\nmid m}\frac1p\sum_{\substack{k\in\K_m(K)\\p\mid k}}\frac1k\\
+ &=S_m(K)-\sum_{p\nmid m}\frac{S_m(K/p)}{p^2}
  \geq\Bigl(1-\sum_pp^{-2}\Bigr)S_m(K),
+ \end{aligned}
 \]
 and $\sum_pp^{-2}<0.4523$.
 
@@ -537,8 +539,8 @@ constant fraction of $h_4$.
 \section{Fibre masses for general $m$}\label{sec:fibre}
 For $k\geq1$, $(c,k)=1$ and $1\leq H_K<z$ let, as in \cite[\S3]{TQ},
 \[
- \Sset(k,c;H_K,z)=\{(u,v):H_K<u,v\leq z,\ (u,v)=1,\ (v,k)=1,\
- u\equiv-cv\ (\mathrm{mod}\ k)\}
+ \Sset(k,c;H_K,z)=\{(u,v):H_K<u,v\leq z,\ (u,v)=(v,k)=1,\
+ u\equiv-cv\ (k)\}
 \]
 (so $(u,k)=1$ automatically), and for $\J\subseteq\K_m(K)$ and
 $(c,L_{\J})=1$ let $r_{\J}(u,v;c)=\#\{k\in\J:k\mid u+cv\}$.
@@ -552,8 +554,10 @@ every integer $4\leq m\leq t^3$, every $\J$ with
 $1\in\J\subseteq\K_m(K)$ and every $(c,L_{\J})=1$ the following holds.
 In each block $I_j$ keep only the triples $(k,u,v)$ with
 \begin{equation}\label{eq:pruning}
- (u,v)\in\Sset(k,c;H_K,z_j),\quad k\in\J,\quad
+ \begin{gathered}
+ (u,v)\in\Sset(k,c;H_K,z_j),\quad k\in\J,\\
  \omega(uv)\leq D\log\log X,\quad r_{\J}(u,v;c)\leq T_X:=t^4,
+ \end{gathered}
 \end{equation}
 and let $f^{\rm good}_{c;\J}(\ell)$ be the number of such triples with
 $m\,uv\mid k\ell+1$, for $\ell\in I_j$ prime.  Then
@@ -668,6 +672,134 @@ $u,v\in(7,60]$, two reduced fibres) gave $m\mu_c\in[0.98,1.13]$ for
 $m=4,\ldots,13$, while $\varphi(m)\mu_c$ ranged over $[0.33,1.04]$.
 This is \status{evidence} for the scaling only; the corollary does not
 use it.
+
+\section{Void, moments and the assembly for general $m$}\label{sec:assembly}
+Throughout this section $4\leq m\leq t^3$ and
+\[
+ s=t^3/m\geq1,\qquad y=\max(2,Bs),\qquad S_y(n)=\ind_{(n,P_y)=1},
+\]
+with an absolute $B$ fixed in Lemma~\ref{lem:void}.  For large $X$,
+$y\leq\max(2,Bt^3/4)<K<X^{1/2}$.
+
+\begin{lemma}[conditioned void for $m$]\label{lem:void}
+There are absolute $a_v,B,s_0>0$ and $X_v$ such that for $X\geq X_v$,
+$4\leq m\leq t^3$ and $s\geq s_0$,
+\[
+ \Prob(H_X=0\mid S_y=1)\leq\e^{-a_vs}.
+\]
+\end{lemma}
+
+\begin{proof}
+We re-run \cite[Lemma~7.1]{TQ}.  Reveal $c\equiv n\pmod{L_K}$, keeping
+the condition $S_y=1$, and put
+\[
+ Z(c)=\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac1p.
+\]
+For the supported primes $p>y$ the events $p\mid c$ are independent
+with probabilities $1/p$, also given $S_y=1$, and the computation
+\cite[(39)--(40)]{TQ} gives
+$\E(\e^{yZ}\mid S_y=1)\leq\exp\{(\e-1)y\sum_{p>y}p^{-2}\}\leq\e^{C_Z}$
+with $C_Z$ absolute; it uses only $y/p<1$, so it holds for every
+$y\geq2$.  Hence $\Prob(Z>1/4\mid S_y=1)\leq\e^{-y/4+C_Z}$.
+
+If $p\mid L_K$ then $p\mid c$ if and only if $p\mid n$; so on $S_y=1$
+no prime $p\leq y$ dividing $L_K$ divides $c$.  A multiplier
+$k\in\K_m(K)\setminus\J_c$ is divisible by some prime $p\mid(c,L_K)$,
+and such $p$ satisfy $p>y$ and $p\nmid m$.  By Lemma~\ref{lem:hm}(b),(c),
+\[
+ h(\J_c)\geq h_m(K)-\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac{S_m(K)}p
+ \geq(0.54-Z(c))S_m(K).
+\]
+On $Z(c)\leq1/4$, Lemma~\ref{lem:hm}(a) (as $K\geq m^2$) and
+$\log K\geq\kappa t/2$ give
+$h(\J_c)\geq0.29\,(\varphi(m)/m)\log K\geq0.145\,\kappa t\,\varphi(m)/m$.
+By Lemma~\ref{lem:CRT}(3), in the fibre $c$ the event $H_X=0$ asks that
+each coordinate $n\bmod\ell$ avoid $f_c(\ell)$ distinct classes,
+independently in $\ell$.  With Corollary~\ref{cor:fibre},
+\[
+ \Prob(H_X=0\mid c,S_y=1)=\prod_\ell\Bigl(1-\frac{f_c(\ell)}\ell\Bigr)
+ \leq\e^{-\mu_c}\leq\exp\Bigl\{-a_h\,0.145\,\kappa\frac{t^3}m\Bigr\}
+ =\e^{-2a_vs},
+\]
+with $a_v:=0.0725\,\kappa a_h$.  Put $B=8a_v$.  For $s\geq2/B$ we have
+$y=Bs$, and the bad fibres have probability at most
+$\e^{-2a_vs+C_Z}$.  Averaging over $c$,
+$\Prob(H_X=0\mid S_y=1)\leq(1+\e^{C_Z})\e^{-2a_vs}\leq\e^{-a_vs}$ for
+$s\geq s_0:=\max(2/B,\log(1+\e^{C_Z})/a_v)$.
+\end{proof}
+
+The threshold for $Z$ is the absolute number $1/4$: the union-bound loss
+$Z\cdot S_m(K)$ is measured against $h_m\geq0.54\,S_m$ in the same units,
+so no dependence on $m$ enters.  In \cite{TQ} the corresponding constant
+is called $\eta$.
+
+\begin{lemma}[factorial moments]\label{lem:moments}
+For $X\geq X_h$, $4\leq m\leq t^3$, every real $2\leq y<X^{1/2}$ and every
+integer $j\geq1$,
+$\E((H_X)_j\mid S_y=1)\leq(C_us)^j$, where
+$(h)_j=h(h-1)\cdots(h-j+1)$.
+\end{lemma}
+
+\begin{proof}
+The conditional-independence proof of \cite[Theorem~6.3]{TQ} applies
+verbatim.  In a fibre $c$ (with $S_y=1$, which conditions no coordinate
+$n\bmod\ell$ as $y<X^{1/2}$), Lemma~\ref{lem:CRT} shows that $H_X$ is a
+sum of independent Bernoulli variables with means $f_c(\ell)/\ell$, at
+most one atom being hit at each $\ell$.  So
+$\E((H_X)_j\mid c,S_y=1)=\sum_{\ell_1,\ldots,\ell_j\text{ distinct}}\prod_i f_c(\ell_i)/\ell_i\leq\mu_c^j$,
+and $\mu_c\leq C_us$ for \emph{every} $c$ by Corollary~\ref{cor:fibre}.
+\end{proof}
+
+\begin{theorem}[assembly for $m$]\label{thm:assembly}
+Let $a_v,B,s_0$ be as in Lemma~\ref{lem:void} and put
+$D_B=\max(\e^2C_u,a_v)$ and $C_L=B+3D_B+8$.  There is an absolute
+$X_a$ such that for $X\geq X_a$, $4\leq m\leq t^3$ and $s=t^3/m\geq s_0$,
+with $r$ the least even integer $\geq D_Bs$, the function
+\[
+ \nu_X(n)=S_y(n)\,Q_r(H_X(n)),\qquad
+ Q_r(h)=\sum_{i=0}^r(-1)^i\binom hi,
+\]
+together with $\M$ from \eqref{eq:space}, is an $(m;X,s,y)$-package with
+constants $(a_v,C_L)$.  In particular Proposition~\ref{prop:package}
+holds.
+\end{theorem}
+
+\begin{proof}
+(P1) By \cite[Lemma~8.1]{TQ}, $Q_r(0)=1$ and $Q_r(h)\geq0$ for all
+integers $h\geq0$; so $\nu_X\geq0$.  If $n$ is $m$-exceptional with
+$(n,P_y)=1$, then $H_X(n)=0$ by Lemma~\ref{lem:CRT}(1), and
+$\nu_X(n)=1$.
+
+(P3) By \cite[Lemma~8.1]{TQ}, $Q_r(h)\leq\ind_{h=0}+\binom h{r+1}$.  By
+Lemmas~\ref{lem:void} and~\ref{lem:moments} and $(r+1)!\geq((r+1)/\e)^{r+1}$,
+\[
+ \E(Q_r(H_X)\mid S_y=1)\leq\e^{-a_vs}+\Bigl(\frac{\e C_us}{r+1}\Bigr)^{r+1}
+ \leq\e^{-a_vs}+\e^{-(r+1)}\leq2\e^{-a_vs},
+\]
+since $r+1\geq D_Bs\geq\e^2C_us$ and $D_B\geq a_v$.  Multiply by
+$\Prob(S_y=1)\leq1$.
+
+(P2) For all integers $n$,
+$\binom{H_X(n)}i=\sum_{\mathcal B\subseteq\A^{(m)}_X,\,|\mathcal B|=i}\prod_{A\in\mathcal B}\ind_{E_A}(n)$
+and $S_y(n)=\sum_{d\mid P_y}\mu(d)\ind_{d\mid n}$.  Expanding, each term
+has coefficient $\pm1$ and is empty or a single class modulo
+$\lcm(d,k_1\ell_1,\ldots,k_i\ell_i)$, which divides $\M$.  Choosing
+$k\leq K$, $\ell\leq X$ and $u,v\leq X^{1/6}$ shows
+$|\A^{(m)}_X|\leq KX^{4/3}\leq\e^{(4/3+\kappa)t}$, as in \cite[(48)]{TQ}.
+Hence, as in \cite[(49)]{TQ},
+\[
+ \log\Tabs\leq\pi(y)\log2+\log(r+1)+r(4/3+\kappa)t.
+\]
+Using $s,t\geq1$: $\pi(y)\log2\leq y\leq Bs+2\leq(B+2)ts$;
+$\log(r+1)\leq r\leq D_Bs+2\leq(D_B+2)ts$; and
+$r(4/3+\kappa)t\leq2(D_B+2)ts$.  So $\log\Tabs\leq C_Lts$.  All prime
+factors of $\M$ are at most $X$, and $2\leq y<X^{1/2}$.
+\end{proof}
+
+The whole dependence on $m$ is the substitution $t^3\to s=t^3/m$ in the
+saving, the selector and the Bonferroni depth.  The cost $(1+\kappa)t$ of
+a single atom modulus does not change, which is why the ledger is
+$\e^{O(ts)}=\e^{O(t^4/m)}$ and not $\e^{O(s)}$.
 
 \begin{thebibliography}{99}
 \bibitem[BHP]{BHP}
