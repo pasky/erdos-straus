@@ -49,3 +49,17 @@ Branch `side-agent/mn-threequarter`. Deliverable: `EXCEPTIONAL_MN.md`, plus `scr
 * What most needs an independent re-check: Prop. 3.1, the BV step uniform in m ≤ t³ with modulus muv and its multiplicity.
   Also Lemma 4.1, where the union bound with absolute η = 1/4 is measured against h_m ≥ 0.54 S_m.
 * Open: close the `(log m)²(m/φ(m))^{1/3}` gap in Cor. D. SHORT's smooth-q progression gap is inherited.
+
+## Repairs after independent reviews (R94A = exceptional-mn-review-A.md D1–D7, R94B = exceptional-mn-review-B.md D1–D6)
+Neither review found a FATAL or MAJOR defect, and all repairs below are applied, each tagged "(R94A/R94B repair Dk)" in EXCEPTIONAL_MN.md. Commits are grouped:
+1. **PW comparison and range** (A D1, D2; B D2). The comparison is now explicitly asymptotic, with an absolute ineffective Λ_0. The saving → ∞ iff m = o((log N)³).
+2. **Cor. D** (A D3, D4; B D3). It now cites the range from PW's *proof*, `m^{1/4} ≪ log N ≤ (φ(m)/(C log² m))^{1/3}`, and notes that monotonicity in between is unknown. The heuristic match now reads "up to bounded and log log factors".
+3. **Vaughan attribution** (B D4). Vaughan is quoted for m = 4 only, and his general-m content is unverified.
+4. **Scope and bookkeeping** (A D6, D7; B D1, D5):
+   * only the pruned ω-route is re-derived; the no-ω family and the §6 Cauchy–Schwarz route are sketched as transferring;
+   * Lemma 1.3 now assumes m ≤ t³;
+   * the Theorem A side conditions are made explicit via t³ = ms ≥ 4s;
+   * the Thm 4.3 ledger is spelled out.
+5. **Toy evidence** (A D5; B D6). There is a new deduplicated `emn_mass2.py` with an m-independent floor. The Euler-factor/parity explanation is demoted to an observation.
+
+No PROVED statement changed.
