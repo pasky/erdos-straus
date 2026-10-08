@@ -88,3 +88,32 @@ against 3k³ = 3, 81, 375, 1029 (k = 1, …, 7). (`2k³` fails for Q at k = 3 an
 `T_P + T_Q < 4.1·10⁻⁴ ≪ ρ₁`, so Theorem 4.1 applies with an enormous margin.
 The random discrete-log model of M17 §6 (`17^K` equidistributed mod `f = 4ast−1`) predicts
 `D_P(K) ≍ K³`. The conjecture is a *quantitative* form of it, for one base and prime-power ES denominators.
+
+## 5. Unconditional explicit bounds: what averaging over K does and does not give
+
+**Lemma 5.1 (first-occurrence form; PROVED).** For a pair `(a,b)`, put `m = 4ab`. The admissible K, i.e. those with
+`(−17^K mod m) | a+b`, `4ab ≤ 17^K + a + b`, and the side conditions `17∤cd`, lie in at most
+`#{e | a+b : −e ∈ ⟨17⟩ ⊂ (ℤ/m)^×}` residue classes mod `ord_m(17)`, one class per `e`. The boxes of `(a,b)` in one
+class are nested (M17 §6), so `T_P ≤ 2 Σ_{(a,b)} Σ_e 17^{(1−K_e)/2}`, where `K_e ≥ 13` is the first admissible element of the class of `e`.
+*Proof.* `17^K ≡ −e (mod m)` fixes K mod `ord_m(17)`, and `d = (17^K+e)/m`, `c = (a+b)/e`. ∎
+
+This is the same sum as `Σ_K 17^{(1−K)/2} NB_P(K)`, only reorganised. **Averaging over K gives no unconditional gain.**
+Lemma 5.1 bounds the *number* of classes, but not the position of their first element `K_e`. That position is
+a discrete logarithm of `−e` modulo `4ab`. Any unconditional statement placing `K_e` well above `log_17(4ab)` for
+most `(a,b)` is again a count of ES solutions of `4/17^K` with small `d = (17^K+e)/(4ab)`, i.e. a bound on `D_P(K)`.
+The separation by small order does not help either. Pairs with `ord_{4ab}(17) = L` satisfy `4ab | 17^L − 1`, so
+`4ab ≤ 17^L`. They are finitely many for each L and live at levels `≲ L/2`, mostly inside the exact range. The
+difficulty sits entirely with typical `m`, where `ord_m(17)` is large and nothing unconditional locates the
+discrete log.
+
+**Assessment 5.2 (precise obstruction).** Theorem 4.1 needs, for *every* odd `K ≥ 13`, a bound
+`D_P(K) ≤ 1.41·17^{0.4K}` (or an equivalent trade-off from the table). The only unconditional route known (ET §3,
+Lemma 2.1 here) bounds `D_P(K)` by `Σ_{regimes} Σ_{pairs ≤ X} #{divisors of M in a class}`. That sum has `≍ X log X`
+terms with `X ≥ n^{2/5}`. Each term is bounded only by `τ(M)`, and Lenstra's O(1) applies only when the modulus
+exceeds `M^{1/3}`, which fails for small pairs. With the explicit Nicolas–Robin bound
+`τ(M) ≤ M^{1.5379 log 2 / log log M}`, the tail series converges only once `0.4 + 1.92/log log M < 0.5`, i.e.
+`log log M > 19`, `K ≳ 10⁸`. Any *fixed finite* set of pairs `(a,d)` is harmless: e.g. `τ(M) ≤ C M^{1/4}` gives a convergent,
+explicit contribution. The obstruction is uniformity over the `≍ n^{2/5}` pairs, i.e. an explicit *average* divisor-in-class
+bound over the four ET families. That is the missing input, and it is of Shiu / Brun–Titchmarsh type for
+divisor functions of polynomial values with explicit constants. I do not see how to prove it here. So the outcome
+remains CONDITIONAL; **no unconditional sterile point.**
