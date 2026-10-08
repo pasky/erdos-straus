@@ -65,3 +65,32 @@ quadratic character of the atom classes. POINTWISE_MN Lemma 1.1(d) / Prop. 2.1 a
 statements about which *square classes* a revealed residue can avoid — needed for the
 pointwise witness-modulus exponent 1/4, not for E_m(N). So the m ≡ 0 (4) dichotomy of
 POINTWISE_MN does **not** reappear in the density problem.
+
+## 2. The multiplier harmonic sum h_m (replaces note lem:h)
+
+Put `S_m(x) = Σ_{j ≤ x, (j,m)=1} 1/j`, `h(𝒥) = Σ_{k∈𝒥} φ(k)/k²`, `h_m(K) = h(𝒦_m(K))`.
+
+**Lemma 2.1 (PROVED).** Let `m ≥ 4`.
+(a) For `x ≥ m²`: `S_m(x) ≥ (φ(m)/m) log x`.
+(b) For every K ≥ 1: `h_m(K) ≥ (1 − Σ_p p^{−2}) S_m(K) ≥ 0.54 S_m(K)`.
+(c) For every prime `p ∤ m`: `Σ_{k ∈ 𝒦_m(K), p | k} φ(k)/k² ≤ S_m(K)/p`.
+(d) `h_m(K) ≤ S_m(K) ≤ C (φ(m)/m) log K` for `K ≥ m`, C absolute.
+
+*Proof.* (a) Möbius over `e | m`: `S_m(x) = Σ_{e|m} μ(e)/e · Σ_{i ≤ x/e} 1/i`, and
+`Σ_{i≤y} 1/i = log y + γ + θ/y`, `|θ| ≤ 1` (y ≥ 1; here `x/e ≥ m ≥ 1`). Hence
+`S_m(x) = (φ(m)/m)(log x + γ) − Σ_{e|m} μ(e) log e / e + θ' 2^{ω(m)}/x`, and
+`−Σ_{e|m} μ(e) log e/e = (φ(m)/m) Σ_{p|m} log p/(p−1) ≥ 0` (logarithmic derivative of
+`Π_{p|m}(1−p^{−s})` at s = 1). So `S_m(x) ≥ (φ(m)/m) log x + γφ(m)/m − 2^{ω(m)}/m²`, and
+`2^{ω(m)} ≤ m ≤ γ m φ(m)` for m ≥ 4 (φ(m) ≥ 2).
+(b) `φ(k)/k ≥ 1 − Σ_{p|k} 1/p`, so `h_m ≥ S_m(K) − Σ_{p ∤ m} p^{−2} S_m(K/p)` and
+`S_m(K/p) ≤ S_m(K)`; `Σ_p p^{−2} < 0.4523`.
+(c) Write `k = pj`, `(j,m) = 1`, `j ≤ K/p`; `φ(k)/k² ≤ 1/(pj)`.
+(d) `S_m(K) ≤ Π_{p ≤ K, p∤m}(1−1/p)^{−1} ≤ (e^γ+o(1)) log K · Π_{p|m, p≤K}(1−1/p)`, and for
+`K ≥ m` every prime of m is ≤ K. ∎
+
+*Check.* `scripts/emn_hm.py 100000`: (a) at x = m² and x = K, (b), (c) for p ∈ {3,5,7,11,101},
+for m = 4..60 and 210: 0 failures; observed `S_m(K)/((φ(m)/m) log K) ∈ [1.05, 1.23]`,
+`h_m/S_m ∈ [0.63, 0.98]`.
+
+So `h_m(K) ≍ (φ(m)/m) log K` uniformly for `K ≥ m²` (the note's lem:h is the special
+case of the sub-progression `k ≡ 1 (4)`, `h = (2/π²) log K`).
