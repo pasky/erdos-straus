@@ -44,8 +44,8 @@ every condition is a polynomial congruence with integer right-hand sides `−1`/
   (i.e. **the T-level `F=M_T` has odd total valuation** for these four families);
 * I1: `v_T(d)` odd; I3: `v_T(d)` odd; II3: `v_T(d)+v_T(e)` odd.
 *Proof.* Facts: `(2/11)=(2/13)=−1`, `(−1/11)=−1`, `(−1/13)=1`, so `(−2/11)=1`, `(−2/13)=−1`.
-(i) If `g≡−1 (mod 4m')` for an integer m' and q∤g, then `(m'/g)=1` (Jacobi; odd p∣m': `(p/g)=(g/p)(−1)^{(p−1)/2}=1`;
-if `2∣m'`, `g≡7 (8)`). (ii) If moreover `g≡−2` or `g≡−1/2 (mod q)`, q∈T, then
+(i) If `g≡−1 (mod 4m')` for an integer m', then `(m'/g)=1` (Jacobi; odd p∣m': `(p/g)=(g/p)(−1)^{(p−1)/2}=1`;
+if `2∣m'`, `g≡7 (8)`). (ii) If moreover `q∤g` and `g≡−2` or `g≡−1/2 (mod q)`, q∈T (R95 repair, applied by reviewer: the hypothesis `q∤g` moved here from (i)), then
 `(q/g)=(g/q)(−1)^{(q−1)/2}=(−2/q)(−1)^{(q−1)/2}=−1` for both q=11, 13. Also `(−1/g)=−1`.
 II1/I4: `e∣a+b`, `(e,ab)=1` give `(−ab/e)=(b²/e)=1`; by (i),(ii) `(−ab/e)=−(−1)^{v_T(ab)}`.
 I1: `f∣4a²d+1` gives `(−d/f)=1`; by (i),(ii) (q∣d ⇒ q∣(ad)_T ⇒ `f≡−2 (q)`) `(−d/f)=−(−1)^{v_T(d)}`.
