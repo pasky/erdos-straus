@@ -142,3 +142,48 @@ Proposition 3.1 and `h(𝒥) ≤ h_m(K) ≤ C(φ(m)/m) κ t`. ∎
 the prime progression mod `muv` is partly cancelled by `h_m ≍ (φ(m)/m) log K`. Compare the
 note's m = 4 family (`k ≡ 1 (4)` only): `t³ · (1/4)·(1/φ(4))`-type constant; our wider
 multiplier set gains a constant factor at m = 4 but this is irrelevant there.
+
+## 4. Void, moments and Bonferroni assembly with the m-scaling
+
+Write `s = t³/m` (the fibre-mass scale; `s ≥ 1` in the range `m ≤ t³`). Selector
+`y = max(2, B s)`, `S_y = 1_{(n,P_y)=1}`, B absolute (fixed in Lemma 4.1).
+
+**Lemma 4.1 (conditioned void for m; PROVED rel. note).** There are absolute `a_v, B, s_0 > 0`
+and `X_v` such that for `X ≥ X_v`, `4 ≤ m ≤ t³` with `s = t³/m ≥ s_0`:
+`P(H_X = 0 | S_y = 1) ≤ e^{−a_v s}`.
+
+*Proof.* Note lem:void with these changes. Reveal `c (mod L_K)`; `Z(c) = Σ_{y<p≤K, p|L_K, p|c} 1/p`.
+The moment bound (eq:Zmoment) `E(e^{yZ} | S_y=1) ≤ e^{C_Z}` holds for every `y ≥ 2` (C_Z absolute),
+so `P(Z > 1/4 | S_y = 1) ≤ e^{−y/4 + C_Z}`. The selector removes every `p ≤ y`, `p | c`
+(`p | L_K` ⇒ `p | c ⟺ p | n`). On `Z ≤ 1/4`, by Lemma 2.1(b),(c),(a) and `log K ≥ κt/2`:
+`h(𝒥_c) ≥ h_m(K) − Σ_{p|c, y<p≤K, p|L_K} S_m(K)/p ≥ (0.54 − Z) S_m(K) ≥ 0.29 (φ(m)/m)·κt/2`.
+Then (Cor. 3.2, lower bound with 𝒥 = 𝒥_c; `1 ∈ 𝒥_c`, `(c, L_{𝒥_c}) = 1`) and Lemma 1.3:
+`P(H_X = 0 | c, S_y = 1) = Π_ℓ (1 − f_c(ℓ)/ℓ) ≤ e^{−μ_c} ≤ exp(−a_h t²·0.145 κ t/m) = e^{−2a_v s}`,
+`a_v := 0.0725 κ a_h`. Take `B = 8a_v`: for `s ≥ 2/B` the bad-fibre probability is
+`≤ e^{C_Z − 2a_v s}`. Total `≤ (1 + e^{C_Z}) e^{−2a_v s} ≤ e^{−a_v s}` for `s ≥ s_0 := (1+C_Z+log 2)/a_v + 2/B`. ∎
+
+(Note: the threshold η of the note is now the absolute 1/4 — the union-bound loss
+`Z·S_m(K)` is measured against `h_m ≥ 0.54 S_m` in the same units, so no m-dependence enters.)
+
+**Lemma 4.2 (factorial moments; PROVED rel. note).** For `X ≥ X_h`, `4 ≤ m ≤ t³`, every
+`2 ≤ y < X^{1/2}` and every integer `j ≥ 1`: `E((H_X)_j | S_y = 1) ≤ (C_u s)^j`.
+
+*Proof.* Note thm:moments, conditional-independence proof, verbatim: in a fibre c, H_X is a
+sum of independent Bernoulli(`f_c(ℓ)/ℓ`) over ℓ (Lemma 1.3), so `E((H_X)_j | c) ≤ μ_c^j`, and
+`μ_c ≤ C_u t³/m` for **every** c (Cor. 3.2). ∎
+
+**Theorem 4.3 (assembly for m; PROVED rel. note).** There are absolute `a_v, D_B, C_L, X_a, s_0`
+such that for `X ≥ X_a`, `4 ≤ m ≤ t³`, `s = t³/m ≥ s_0`, and r the least even integer
+`≥ D_B s`, `ν_X = S_y·Q_r(H_X) ≥ 0` satisfies
+(i) `ν_X(n) ≥ 1` for every m-exceptional n with `(n, P_y) = 1` (incl. n = 1);
+(ii) `E_CRT ν_X ≤ 2 e^{−a_v s}`;
+(iii) its expansion into congruence classes has total absolute coefficient sum
+`T_abs ≤ e^{C_L t s}` (= `e^{C_L t⁴/m}`), every modulus dividing 𝓜 (eq:space, all primes ≤ X).
+
+*Proof.* (i) Lemma 1.1 ⇒ `H_X(n) = 0`; `Q_r(0) = 1`. (ii) note lem:Bonferroni, Lemmas 4.1, 4.2:
+`E(Q_r(H_X) | S_y=1) ≤ e^{−a_v s} + (e C_u s/(r+1))^{r+1} ≤ e^{−a_v s} + e^{−(r+1)}`
+with `D_B = max(e² C_u, a_v)`. (iii) note (eq:termcount): `log T_abs ≤ π(y) log 2 + log(r+1)
++ r (4/3+κ) t`, with `|𝒜^{(m)}_X| ≤ K X^{4/3}` unchanged, `y ≤ Bs + 2`, `r ≤ D_B s + 2`, `s ≤ t s`. ∎
+
+So the **whole m-dependence is the substitution `t³ → s = t³/m`** in the saving and in the
+Bonferroni depth, while the per-atom modulus cost `(1+κ)t` stays — hence the ledger `e^{O(t s)}`.
