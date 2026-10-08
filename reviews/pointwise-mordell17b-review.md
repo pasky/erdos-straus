@@ -134,3 +134,19 @@ The Q part rests on four data points, one of which is at 90%. A pointwise conjec
 the random model, which predicts fluctuations. The theorem needs much less, e.g. `D_P, D_Q ≤ K⁵`: tail 0.035 ≪ ρ₁.
 Suggest stating the weaker, more robust form as the main conjecture, keeping 2K³/3k³ as an observation.
 Verdict: SOUND-AFTER-REPAIRS (label).
+
+## Claim (1) continued: D_P(11) and Claim (2): exact unions
+
+**D_P(11) = 836: VERIFIED as a set.** `review_m17b_k11.c` (parts A0/A1/B; ≈ 15 CPU-min) gives 836 points, set-equal to `m17b_penum.py 11`.
+
+**Unions (independent code `scripts/review_m17b_union.py`).** P-data come from my own engines (K ≤ 11). Q- and U-data come from the R83
+engine `review_m17_enum.c` (S and U modes), which is independent of the O93 author. The union is computed by maximal-box
+reduction with exact fractions, in both cells.
+* Levels ≤ 5: uncovered `56561/83521`. Equal.
+* + Q/U level 7: `16346035/24137569`. Equal.
+* + P level 6 (K = 11): **ρ₁ = 16344335/24137569. Equal**, in both C_5 and C_7. Level 6 has 161 in-cell boxes, of which 100 are new. Equal.
+* U and U⁻¹ never contribute a new box. Q and Q⁻¹ give identical box sets. √Q never occurs.
+* Table §3, level-7 row: "272 (P 178, Q 94) | 6.6·10⁻⁶" is inconsistent. 272 boxes of level 7 have measure
+  `272·17⁻⁶ = 1.127·10⁻⁵`. The Q part alone is `94·17⁻⁶ = 3.89·10⁻⁶` (my run), and the P part is `178·17⁻⁶ = 7.37·10⁻⁶`
+  (= ρ₁ − ρ₂). So 6.6·10⁻⁶ matches neither (m3).
+Verdict (2): ρ₁ SOUND (reproduced exactly). ρ₂: see below.
