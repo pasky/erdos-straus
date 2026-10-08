@@ -112,8 +112,22 @@ Lemma 2.1 here) bounds `D_P(K)` by `Σ_{regimes} Σ_{pairs ≤ X} #{divisors of 
 terms with `X ≥ n^{2/5}`. Each term is bounded only by `τ(M)`, and Lenstra's O(1) applies only when the modulus
 exceeds `M^{1/3}`, which fails for small pairs. With the explicit Nicolas–Robin bound
 `τ(M) ≤ M^{1.5379 log 2 / log log M}`, the tail series converges only once `0.4 + 1.92/log log M < 0.5`, i.e.
-`log log M > 19`, `K ≳ 10⁸`. Any *fixed finite* set of pairs `(a,d)` is harmless: e.g. `τ(M) ≤ C M^{1/4}` gives a convergent,
+`log log M > 19.2`, `K ≳ 4·10⁷`. Any *fixed finite* set of pairs `(a,d)` is harmless: e.g. `τ(M) ≤ C M^{1/4}` gives a convergent,
 explicit contribution. The obstruction is uniformity over the `≍ n^{2/5}` pairs, i.e. an explicit *average* divisor-in-class
 bound over the four ET families. That is the missing input, and it is of Shiu / Brun–Titchmarsh type for
 divisor functions of polynomial values with explicit constants. I do not see how to prove it here. So the outcome
 remains CONDITIONAL; **no unconditional sterile point.**
+
+## Replay
+
+```
+mkdir -p /tmp/o93 && cd /tmp/o93 && W=<worktree>
+for K in 1 3 5 7 9 11; do PYTHONPATH=$W/scripts uv run --project $W python $W/scripts/m17b_penum.py $K > p$K.txt; done   # K=11: minutes
+uv run python $W/scripts/m17b_brute.py 5 | sort | diff - <(sort p5.txt)        # and K=7 (slow): completeness check
+gcc -O2 -o m17_enum $W/scripts/m17_enum.c
+for m in Q U; do for k in 1 3 5 7; do ./m17_enum $m $k | sort -u > $m$k.txt; done; done
+python3 $W/scripts/m17b_union.py . 9 5     # = 56561/83521 (M17 Comp. 3.1)
+python3 $W/scripts/m17b_union.py . 11 7    # rho_1 = 16344335/24137569
+python3 $W/scripts/m17b_tail.py 13 9 16344335 24137569   # Theorem 4.1 table
+# K=13 (≈ 2 h on 2 cores): run m17b_penum.py 13 "e ad" and "ac cd" in parallel, sort -u the union into p13.txt
+```
