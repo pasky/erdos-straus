@@ -71,3 +71,35 @@ Defects:
   So on these ranges the filter drops no certificate, and its only survivors are genuine certificates.
 * Replay of the 10⁶ runs (Comp 2.2, last bullet): not replayed in full (4 × 15 min). Partial replay: see below.
 * Cor 2.3 (combination with TYPEI4 Cor 3.5) ✓ as a logical statement. The label is fine once the 10⁶ runs are replayed.
+
+## Lemma 3.1 — SOUND (fixes R89-S2)
+
+Re-derived. TYPEI4 Lemma 3.1(iii) with `y = c'gδ` gives `mP_1 = y² − 2·7^a m u j`. Since `T/2 ∈ ℤ` (`L ≥ 5`), we have
+`ρP_1 = Tu/2 + j ≡ j` and `y ≡ −j (mod u)`, so `(ρj − m)P_1 ≡ j² − j² = 0`, and `7 ∤ P_1`. The hypothesis `7 ∤ j` is not used ✓.
+This closes the `7 | j` gap of TYPEI4 Lemma 3.6 (R89-S2). Note: TYPEI4 Lemma 3.6's other claims ("`λ` even", `λ ≥ 0`) were
+proved with `7∤j` only through integrality. Their proofs are otherwise independent of `7 ∤ j`, so the whole Lemma 3.6 now holds for all `j`.
+
+## Lemma 3.2 (H), (Lin) — SOUND
+
+`scripts/review_typei5_identities.py` (sympy, from scratch):
+`ρ(y² − 2Wmuj) − m(Tu/2+j) = −(u/4)·[ρΔ − 2λ(Tu+2j)]` identically after `m = ρj − λu`. This is (H). (Lin) is exactly what you get from substituting
+`m = λ[u(2Tj−Δ)+4j²]/Δ` into the definition of `Δ`. `Δ ≠ 0` is automatic when `λ ≠ 0` (since `ρ ≥ 1` in (H)) ✓.
+
+## Proposition 3.3 — SOUND (MINOR remarks P1, P2)
+
+All five regimes re-derived by hand; the algebra was checked in sympy (same script):
+* (i) ✓. `j | T²u ⇒ j = 7^r`. If `r < b` then `7 | 8Wρj + 6T`, which fails both for `r ≥ 1` and for `r = 0`, `b ≥ 1` (here `7 | W`).
+  Hence `T(T−6) = 8·7^{a+b}ρ`, and `2^k ≢ 6 (mod 7)`.
+* (ii) ✓. `m > |λ|u` and `P_1 ≥ 1` give `8W|λ|j < T²`. Then (Lin) with `Δ = −x`, `κ = −K_1` gives `u(Kx − E) = x² + 6Tjx + 4K_1j³`,
+  with `K = T² − K_1j > 0` (sympy ✓). The constant `K²N(E/K) = E² + 6TjEK + 4K_1j³K²` is correct.
+* (iii) ✓. Sign: the RHS is `< 0` because `0 < Δ < 2Tj`, hence `g > 0` and `Wλs < T³/4`. `R := g³N(sT²/g) = κs³(4T³ − sκ)²`
+  (sympy ✓, so it also equals the author's other form). The polynomial division `g³N(j) − R = (gj − sT²)·q(j)` has
+  `q ∈ ℤ[s,T,κ][j]` (sympy ✓). That integrality is what makes `(gj − sT²) | R` legitimate. It is implicit in the text.
+* (iv) ✓. (Lin) gives `−2j(T³u − 4T²j − 2κj²) = 0`, so `T²(T−4) = 16·7^{a+b}λ` and `7 | T−4`, i.e. `L ≡ 0 (mod 3)`. At `L = 9`:
+  `7^{a+b}λ = 1792 = 7·256`, so `a = 1`, `b = 0` ✓.
+* (v) ✓. `ρ > λu/j` (from `m > 0`) and (H) give `σ < 4j²/u`. The displayed identity `κjωσ = (2Tj+σ)[(2Tj−σ)² − ωT²]` holds (sympy ✓).
+* **P1 (MINOR)**, (v): the displayed divisibility constant `4κσ³T⁶ + (2T³+σκ)σ³κ(6T³+σκ)` equals `κσ³(4T³+σκ)²` (sympy ✓).
+  It is `−g'³N_v(−σT²/g')`, i.e. the sign is flipped relative to (iii). That is harmless for divisibility, but write the factored form `κσ³(4T³+σκ)²`.
+* **P2 (MINOR)**, (iii)/(v): say explicitly that the quotient `g²q(j)` has integer coefficients (see above). Otherwise
+  "`(gj − sT²) | R`" reads as if `gcd(g, gj − sT²) = 1` were assumed.
+* Label: PROVED is appropriate. The "Interpretation" paragraph is correctly labelled Assessment.
