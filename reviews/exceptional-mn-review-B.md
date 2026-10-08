@@ -114,3 +114,95 @@ is m-free; `1` is m-exceptional for m ≥ 4 since m/1 > 3): (i) `H e^{−a_v s/2
 reduce to `s ≥ C_3` because `t³ = ms ≥ 4s`; otherwise the bound is trivial. Final constant
 `c = (a_v/4)(2C_2)^{−3/4}`, absolute. SOUND (relative to the note's thm:assembly machinery and SHORT
 Lemmas 1.1–1.2, which I did not re-audit).
+
+**1.9 Theorem B / Cor. C.** SHORT Lemma 2.1 needs only that every prime of 𝓜 is ≤ X (ℓ ≤ X,
+primes of `L_K` ≤ K, of `P_y` ≤ y) — m-free. Cor. C is Theorem A plus `e^{−cS/2} ≤ 1/log x` when
+`S ≥ (2/c) log log x`; `C_m ≍ m^{1/3}` checks. The author's caveat that SHORT's "every prime q"
+remark does not transfer is correct: `log X_q = (m log(H/q)/(2C_2))^{1/4}` vs saving
+`≍ (log(H/q))^{3/4}m^{−1/4}`, ratio `≍ (m/log(H/q))^{1/2}`. SOUND (rel. SHORT).
+(The hypothesis `H ≤ x` in Cor. C is unused; harmless.)
+
+## 2. Pomerance–Weingartner comparison and Corollary D (checked against `sources/pw.txt`)
+
+* **Definition.** PW (2.1): `m/n = 1/x+1/y+1/z`, `x,y,z ∈ ℕ`, repetitions allowed — same as
+  EXCEPTIONAL_MN. Confirmed operationally: my from-scratch brute force (below) reproduces PW Table 1.
+* **PW Thm 1.3 (pw.txt l.69–71):** "for each pair m, N with `4 ≤ m ≤ (log N)²` the number of n ≤ N
+  with m/n not the sum of 3 unit fractions is at most `N/exp(C(log²N/φ(m))^{1/3})`". Counts
+  **integers**, has **φ(m)**, range `m ≤ (log N)²` — all as quoted by the author (after the
+  self-review repair). PW's proof also uses Bombieri–Vinogradov (pw.txt l.600), so it is no more
+  effective than Theorem A — there is no effectivity trade-off to mention.
+* **Exponent ratio** `L^{3/4}m^{−1/4}/(L^{2/3}φ(m)^{−1/3}) = L^{1/12}φ(m)^{1/3}m^{−1/4} ≫
+  (Lm)^{1/12}/(log log 3m)^{1/3}` — correct (φ(m) ≫ m/log log 3m). See D2 for the quantifier.
+* **PW Thm 3.1 (l.270–273)** as *stated* only gives "more than `exp{cφ(m)^{1/3}/(log m)^{2/3}}`
+  exceptional primes". The "most primes in (N/2,N] are m-exceptional" statement is in the
+  **proof** (l.437–448: "most primes p ∈ (N/2,N] are covered neither by Type I nor Type II
+  congruences if `φ(m)/log²m = C log³N`") and in the intro (l.74–79). The author cites "Thm 3.1
+  and its proof" — acceptable; see D3.
+* **Cor. D arithmetic** re-checked: `f′(L) > 0 ⟺ L > (8/(3c))^{4/3}m^{1/3}`; at
+  `L_0 = A m^{1/3}(log m)^{4/3}`, `cL_0^{3/4}m^{−1/4} = cA^{3/4} log m`; `−(2/3)log m − (8/3)log log m
+  ≥ −(10/3) log m`; `(log N)² ≤ 2 log²(N/2)` for `N ≥ 11`. Gap factor `(log m)²(m/φ(m))^{1/3}` = ratio
+  of `m^{1/3}(log m)^{4/3}` to `(φ(m)/log²m)^{1/3}` — correct. Consistency: at PW's N the saving
+  `(L³/m)^{1/4} = (φ(m)/(Cm log²m))^{1/4} < 1`, so Theorem A is trivial there (no contradiction).
+
+## 3. Brute force (from scratch; EVIDENCE)
+
+`scripts/review_emnB_exc.py` decides m-representability of m/n for *every* n ≤ N0 directly
+(x ∈ (n/m, 3n/m]; then `a/b = 1/y+1/z` iff ∃ coprime y′,z′ with `y′z′ | b`, `a | y′+z′`).
+* m = 4..15, **all n ≤ 25 000**: the exceptional sets coincide **exactly** with PW Table 1
+  (pw.txt l.882–896), including composites (m=12: 25; m=13: 14; m=14: 841; m=15: 16, 34, 122, 226)
+  — `scripts/review_emnB_exc.out.txt`, 2 s.
+* Larger m, n ≤ 10⁵ (`review_emnB_exc_bigm.out.txt`), `E_m(10^j)`, j = 1..5:
+  m=16 [8,18,32,44,48], 30 [9,36,93,147,184], 60 [10,65,262,740,1570], 210 [10,95,636,3055,11908].
+  Densities fall with n for fixed m and rise with m, as the theory predicts; with ineffective c, C
+  these data cannot test Theorem A quantitatively (they are not offered as such).
+
+## 4. Defects
+
+**D1 (MINOR) — simplified (unpruned) route asserted but not re-run.** Def. 1.2 says the
+`ω(uv) ≤ D log log X` cutoff is kept "on the retained original route; the simplified route of note §6
+drops it", and §1.4 lists only the pruned route's uses of 4. The note's §6 (thm:unpruned, lem:wsecond)
+uses `φ(4uv) ≥ 2φ(u)φ(v)` and a Cauchy–Schwarz with weight `1/φ(4uv)`; its m-version is not written.
+*Repair:* add one paragraph: `φ(muv) ≥ φ(m)φ(u)φ(v)`, so `Σ_q W_c(q)²E^*_x(q) ≪ (x/log x)φ(m)^{−1}C_3(log z)⁴(1+log K)³
+≪ x t⁶/φ(m)`; with `Σ_{q≤m x^{1/3}}E^* ≤ C x(log x)^{−R}` the error is `≪ x t³φ(m)^{−1/2}(log x)^{−R/2}`,
+against main `≫ x t h(𝒥)/φ(m)`: ratio `≪ t²φ(m)^{1/2}(log x)^{−R/2} ≤ t^{7/2}(log x)^{−R/2}` → 0 for
+R = 26. (So the route does transfer; alternatively delete the parenthetical.)
+
+**D2 (MINOR) — "beats PW Thm 1.3 for every m in their range" is an asymptotic, not literal, statement.**
+Location: §0 bullet 1, §5 "Comparison", O94 report item 2. Both bounds have unrelated, ineffective
+constants (c, C here; C in PW). What is proved is: there is an absolute (ineffective) Λ_0 such that
+Theorem A's bound is below PW's whenever `(Lm)^{1/12} ≥ Λ_0 (log log 3m)^{1/3}` (in particular for each
+fixed m once N is large, and for all m ≥ Λ_0^{12+ε} in PW's range). *Repair:* say exactly that.
+
+**D3 (MINOR) — Cor. D / §6: cite the range PW's proof gives, not a single N.** "Density transition at
+`log n = m^{1/3+o(1)}`" is a statement about a range of N. PW's proof (l.360–448) shows "most primes in
+(N/2,N] are m-exceptional" for every N with `e^{m^{1/6}} ≪ N < e^{m^{1/4}}` and `log³N·log²m ≤ φ(m)/C`
+(Type I bound needs the first, Type II the second), i.e. on `log N ∈ [m^{1/6}, (φ(m)/(C log²m))^{1/3}]`.
+*Repair:* state that range explicitly (and that it is PW's proof, not the statement of Thm 3.1), so the
+transition claim is "most primes exceptional for log N ≤ m^{1/3−o(1)} (down to m^{1/6}), most
+representable for log N ≥ m^{1/3+o(1)}".
+
+**D4 (MINOR) — §8 Vaughan attribution unsupported by the cited source.** §8 states Vaughan gave
+"for each m, `E_m(N) ≪_m N exp(−c_m(log N)^{2/3})` (as quoted by PW p. 2 and the campaign)". PW p. 2
+(pw.txt l.46–50) quotes Vaughan's bound only for 4/n; Elsholtz–Tao (1107.1010, l.103–105) likewise; PW's
+abstract says they "generalize a result of Vaughan to show that for each m, most n's have m/n
+representable". Vaughan's paper is inaccessible. *Repair:* "Vaughan 1970 (quoted for m = 4 by PW and
+E–T; whether the paper treats general m — its title mentions Schinzel — is unverified)". This does not
+affect any PROVED claim, only the novelty Assessment.
+
+**D5 (MINOR, cosmetic) — Theorem A side-condition sentence.** "note `t ≥ m^{1/4}·(stuff)`" is vague;
+the clean statement is `t³ = m s ≥ 4s`, so `t ≥ log X_a` follows from `s ≥ (log X_a)³/4`.
+Likewise Lemma 1.3's hypothesis "every m ≤ K" should read "m ≤ t³" (only `ℓ ∤ m` is used).
+
+**D6 (MINOR) — §7.1 Euler-factor explanation is unverified.** The sentence attributing the residual
+m-dependence to "`Π_{p|m} p/(p+1)·(m/φ(m))`-type" factors and the parity pattern (3.9 vs 4.4) is a
+configuration-specific observation (my K = 20, z = x^{1/3} run gives `m·μ` ≈ 2.7 for even m, 2.9–3.1 for
+odd m). Label as EVIDENCE/observation or drop; Cor. 3.2 does not need it.
+
+## 5. Bottom line
+
+Theorem A (with the exact `m^{−1/4}` uniformity and absolute c, C), Theorem B, Cor. C and Cor. D are
+SOUND relative to the note and SHORT; the m-transfer was re-derived line by line and the decisive
+`1/φ(m) × φ(m)/m = 1/m` cancellation was confirmed numerically from scratch. Only MINOR repairs
+(D1–D6), all wording/citation level. Novelty (§8) remains an Assessment; ES is not solved.
+
+Scripts: `scripts/review_emnB_lemmas.py`, `review_emnB_exc.py`, `review_emnB_mass.py` (+ `.out.txt`).
