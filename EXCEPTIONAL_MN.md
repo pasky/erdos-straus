@@ -320,15 +320,18 @@ above) where the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 
   instances, exact rational arithmetic, 0 failures; Lemma 1.3 distinct projections at fixed ℓ
   (m ∈ {4,5,6,7,11,12}, ℓ ∈ (1000,3000), K = 6, `u,v ≤ √ℓ`, `muv > K`): 19 446 atoms, 0 collisions.
 * `scripts/emn_hm.py 100000`: Lemma 2.1, 0 failures.
-* `scripts/emn_mass.py 1e6 30 40` (EVIDENCE, toy scale, no H floor; output in
-  `scripts/emn_mass.out.txt`): actual-prime fibre mass `μ_c` averaged over 4 reduced c,
-  m = 4..30, 60, 105, 210: `m·μ_c ∈ [3.85, 4.58]`. Caveat (review): the script counts
-  *incidences* (no `muv > K` filter, no deduplication of equal classes mod ℓ; at this toy scale
-  e.g. u = v = 1 lets several k hit the same class), so it checks the incidence scaling only, and the BV-main-term prediction
-  `Σ log2/(log x·φ(muv))` agrees to ≤ 1.2%. I.e. the `1/m` scaling of Cor. 3.2 is visible
-  already at x = 10⁶, and the residual m-dependence is the bounded factor
-  `Π_{p|m} p/(p+1) · (m/φ(m))`-type Euler correction (odd primes vs 2: m·μ ≈ 3.9 for
-  m ∈ {4,6,8,12,16,18,24}, ≈ 4.4 for odd prime m).
+* `scripts/emn_mass2.py 1e6 170 7 60 2` is the primary toy (EVIDENCE, R94A repair D5; output
+  `scripts/emn_mass2.out.txt`, 25 s). It is deduplicated, with an m-independent floor `u, v ∈ (7, 60]`, K = 170 ≥ m²,
+  `muv > K`, `z² < ℓ`, actual primes ℓ ∈ (10⁶, 2·10⁶], and 2 reduced c.
+  * Collisions at fixed ℓ: 0 (Lemma 1.3).
+  * For m = 4..13: `m·μ_c ∈ [0.976, 1.129]` while `φ(m)·μ_c ∈ [0.325, 1.042]`. The scaling is `1/m`, not `1/φ(m)`.
+  * Independent reviewer toys agree: R94A `m·μ ∈ [11.1, 12.8]`; R94B (dedup, m up to 210) `m·μ ∈ [2.68, 3.10]`.
+* The older `scripts/emn_mass.py 1e6 30 40` (output `scripts/emn_mass.out.txt`) counts *incidences*: there is no floor,
+  no `muv > K` filter and no deduplication, and its truncation depends on m. It gave `m·μ ∈ [3.85, 4.58]` for
+  m = 4..30, 60, 105, 210, and the BV-main-term prediction agreed to ≤ 1.2%. It is superseded by `emn_mass2.py`.
+* The residual parity pattern in `m·μ` (≈ 1.0 for even m, ≈ 1.1 for odd m in the v2 run) is a
+  configuration-specific observation. No Euler-factor explanation is claimed (R94B repair D6), and Cor. 3.2 does not
+  need one.
 
 **7.2 Uniformity in m (goal 3).** All constants in Theorems A, B, Cor. C, D are absolute;
 the m-dependence is *exactly* `c_m = c·m^{−1/4}` in the exponent (no φ(m), no log m loss).
@@ -336,7 +339,7 @@ Where m enters: (a) `μ ≍ t³/m` (Cor. 3.2, two-sided on reduced fibres); (b) 
 (Prop. 3.1), automatically satisfied whenever the saving `s = t³/m ≥ 1`; (c) `K ≥ m²` for
 Lemma 2.1 (automatic, K = e^{κt}). Lower-order point: on reduced fibres `m·μ_c/t³` is bounded
 above and below by absolute constants; nothing is lost from m/φ(m) because the `1/φ(muv)` gain and the
-`h_m ≍ (φ(m)/m) log K` loss are both measured in the same Euler factors (7.1 data).
+`h_m ≍ (φ(m)/m) log K` loss cancel to `1/m` with absolute constants (Lemma 2.1, Cor. 3.2; 7.1 data).
 
 **7.3 Is `m^{−1/4}` the right m-dependence for this method? (Assessment.)** Given a mass
 `μ ≍ t³/m` at ledger `e^{O(tμ)}`, `μ = (L/m^{1/3})^{3/4}` is forced by `tμ ≍ L`. A larger
@@ -393,5 +396,7 @@ it does not decide θ = 3/4.
 uv run --with sympy python scripts/emn_hm.py 100000            # Lemma 2.1, ~1 min
 uv run --with sympy python scripts/emn_identity.py             # Lemmas 1.1, 1.3, ~1 min
 ulimit -v 8000000; timeout 1800 uv run --with sympy --with numpy \
-    python scripts/emn_mass.py 1e6 30 40                       # §7.1 toy masses, ~10 min
+    python scripts/emn_mass2.py 1e6 170 7 60 2                 # §7.1 dedup toy masses, ~30 s
+ulimit -v 8000000; timeout 1800 uv run --with sympy --with numpy \
+    python scripts/emn_mass.py 1e6 30 40                       # §7.1 old incidence toy, ~10 min
 ```

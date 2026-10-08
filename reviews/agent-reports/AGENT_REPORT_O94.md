@@ -32,8 +32,9 @@ Branch `side-agent/mn-threequarter`. Deliverable: `EXCEPTIONAL_MN.md`, plus `scr
 ## Checks
 * `emn_hm.py 100000` (Lemma 2.1): 0 failures. `emn_identity.py`: Lemma 1.1 on 4 821 random instances (exact rationals), and
   Lemma 1.3 distinctness on 19 446 atoms: 0 failures. Both scripts now exit non-zero on failure.
-* `emn_mass.py 1e6 30 40` (EVIDENCE, toy, **incidence** mass, no muv > K filter and no dedup):
-  `m·μ_c ∈ [3.85, 4.58]` for m = 4..30, 60, 105, 210, matching the BV-main-term prediction to ≤ 1.2%.
+* `emn_mass2.py 1e6 170 7 60 2` (EVIDENCE, toy; deduplicated; m-independent floor; K ≥ m²; R94A D5):
+  `m·μ_c ∈ [0.98, 1.13]` vs `φ(m)·μ_c ∈ [0.33, 1.04]` for m = 4..13, with 0 collisions.
+  The older incidence toy `emn_mass.py` (`m·μ ∈ [3.85, 4.58]`) is superseded. The parity-pattern remark is an observation only (R94B D6).
 * Self-review: a `review` subagent (deep) ran a hostile pass. It found the core transfer sound and listed 6 repairs, all applied (commit "repairs after self-review"):
   1. PW threshold has φ(m), not m;
   2. "sharp" was restricted to the density transition, not Schinzel's eventual threshold;
