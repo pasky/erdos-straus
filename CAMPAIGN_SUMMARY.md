@@ -927,6 +927,19 @@ original paper was not obtained.
     (Lemma 3.6, PROVED) rules out the gap j = 1 for every b; j ≥ 2 and 7 | j
     are open. Assessment: the remaining problem is exponential-Diophantine (a
     7-power tower), so linear forms in logarithms look like the right tool.
+  * Follow-up 4 (POINTWISE_TYPEI5, review `reviews/pointwise-typei5-review.md`,
+    no FATAL/MAJOR, minors applied by the reviewer): the 7-power tower is
+    **not** closed. PROVED (Lemma 1.1, all L): if `16PX² − Qu² = 1` with 7 | Q has a
+    solution with u = 7^b, it is the minimal solution. So b is determined by
+    the other parameters, the certificate unit is `ε_f^k` with k ∈ {1, 2, 4},
+    and the d-graded search is complete for all b. Lemma 3.1 also repairs
+    TYPEI4 Lemma 3.6 (the case 7 | j). Thm 3.7 (PROVED + CERTIFIED, two
+    independent engines): a certificate at `x̂_9` with level 7 ≤ L ≤ 10 must have
+    `v_7(k) ≥ 8` and `c_oδ > 10⁶`, and must lie in the two-parameter regime (v)
+    (λ ≥ 1, Δ > 2Tj). Every other regime, including case A at L = 8–10, is
+    excluded for all b. Regime (v) is finite for each fixed (σ, a, λ), but σ and
+    λ are unbounded; linear-forms-in-logarithms bounds do not apply because the
+    field moves with two free parameters (Assessment).
 * *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
   (H)34).
   * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
@@ -934,11 +947,26 @@ original paper was not obtained.
     `p mod 720720 ∈ {112561, 352801, 380881, 418321, 473761, 483841}`;
     if also `(p/11) = +1`, only the first two classes remain. Novelty is
     modest: it packages the Salez/ET level sieve explicitly.
-  * No finite covering was found. The point x* (`x*_11 = x*_13 = 2`,
-    `x*_q = 1` otherwise) lies in no ET class of modulus ≤ 10⁶
-    (Computation 4.1, CERTIFIED), so every finite covering of `Σ_13` needs
-    a class of modulus > 10⁶ (PROVED). That x* is sterile is Conj 4.2
-    (CONJECTURE). The obstruction is TYPEI2-type rigidity, not Theorem C.
+  * No finite covering is known, and none is ruled out. The point x*
+    (`x*_11 = x*_13 = 2`, `x*_q = 1` otherwise) lies in no ET class of
+    modulus ≤ 10⁶ (Computation 4.1, CERTIFIED), so every finite covering of
+    `Σ_13` needs a class of modulus > 10⁶ (PROVED). The conjecture that x*
+    is sterile (POINTWISE_MORDELL Conj 4.2) is **REFUTED** (ledger (F)11;
+    POINTWISE_MORDELL13B Thm 3.1, review `reviews/pointwise-mordell13b-review.md`,
+    no FATAL/MAJOR). x* lies in the II3 class (a,d,e) = (8,33,11999), of
+    modulus 12670944 = 2⁵·3·11·13²·71, and in the I2 class (125,88,11999).
+    For example the prime p = 12650497 has
+    4/p = 1/3165624 + 1/3339731208 + 1/5005839614391.
+  * MORDELL13B also attaches every class meeting the {11,13}-generic points
+    to an ES solution of 4/N with N an {11,13}-unit (Lemmas 2.1–2.4,
+    Cor 2.5, PROVED). This allows a complete enumeration by N (to 4·10⁷,
+    CERTIFIED, one engine plus a brute-force cross-check). The (2,2) cell is
+    still not covered (≤ 4.64% uncovered at resolution 11⁴·13⁴; an upper
+    bound, EVIDENCE). The new candidate x** = x(2,15) lies in no class with
+    e ≤ 10⁸ (II3/I3/I1), f ≤ 3·10⁷ (II2), or f, e ≤ 2·10⁷ (I2/II1/I4)
+    (Comp 5.1, CERTIFIED within these ranges). That x** is sterile is Conj 5.2
+    (CONJECTURE, supported only by this EVIDENCE). The main-variant r = 13
+    covering question is open again.
   * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
     17-generic line the seven ET families become explicit boxes in ℤ_17
     (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
@@ -952,6 +980,20 @@ original paper was not obtained.
     Existence of a sterile point is Conj 4.3 (CONJECTURE); making the
     bound explicit is a discrete-log equidistribution question
     (Assessment).
+  * Follow-up 2 (POINTWISE_MORDELL17B, review `reviews/pointwise-mordell17b-review.md`,
+    one MAJOR numerical rounding error and minors repaired by the author):
+    still CONDITIONAL; no sterile point is proved. An exact form of ET's
+    four-regime cover (Lemma 2.1) gives a complete P-enumerator about 50×
+    faster, with D_P(11) = 836 and D_P(13) = 1463 (CERTIFIED by two engines
+    for K = 13). Exact unions through P-level 6 leave ρ₁ = 16344335/24137569
+    ≈ 0.677133 of each cell uncovered. Thm 4.1 (PROVED reduction): a sterile
+    point in C_5 and C_7 follows from `D_P(K) ≤ C·17^{θK}` for odd K ≥ 13
+    together with `D_Q(k) ≤ 17^{3k/5}` for odd k ≥ 9, e.g. with θ = 2/5 and
+    C ≤ 1.40. So ET's own exponent with an explicit constant below 1.4097
+    and no o(1) would suffice. Conj 4.2 (CONJECTURE): D_P(K) ≤ K⁵ (K ≥ 15)
+    and D_Q(k) ≤ k⁵ (k ≥ 9), which would give a tail ≤ 4.2·10⁻³. Averaging
+    over K is only a reorganisation (Lemma 5.1); the bottleneck is an
+    explicit count in the e- and cd-regimes.
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
   internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v5
   (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
@@ -962,7 +1004,9 @@ original paper was not obtained.
   (17 pp) writes up the energy bound C-1 and the DNF tails as a
   stand-alone result (refereed internally, R50 minor revision applied).
   `paper/es-coverings-note` (finite coverings and candidate sterile points:
-  TYPEI2/3, MORDELL, MORDELL17) (20 pp) is written and refereed internally (R86, repairs applied).
+  TYPEI2/3, MORDELL, MORDELL17) is written and refereed internally (R86, repairs applied); post-referee
+  additions TYPEI4 (O91) and the refutation of the x* conjecture with the new candidate x** (O96;
+  24 pp; not re-refereed).
 
 ### 3.4 Window results
 
