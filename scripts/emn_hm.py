@@ -25,4 +25,4 @@ for m in list(range(4, 61)) + [210, 2310, 30030, 4096, 9973]:
         sp = sum(ph[k] / k**2 for k in range(p, K + 1, p) if cop[k])
         if sp > S / p: bad += 1; print("p fail", m, p)
     print(m, f"S/(rat logK)={S/(rat*math.log(K)):.3f} h/S={h/S:.3f}")
-print("failures", bad)
+print("failures", bad); sys.exit(1 if bad else 0)

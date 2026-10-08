@@ -17,10 +17,12 @@ has no solution in positive integers. `E_m(N) = #{n ≤ N : n m-exceptional}`;
   `exp(−C (log N)^{2/3}/φ(m)^{1/3})` for every m in their range and extends it to `m ≤ ε(log N)³`.
 * **Theorem B / Cor. C:** progressions and primes in short intervals, as in SHORT (§5).
 * **Corollary D:** most primes in `(N/2,N]` are m-representable once
-  `log N ≥ C m^{1/3}(log m)^{4/3}`; with PW Thm 3.1 the Schinzel transition is at
-  `log n = m^{1/3+o(1)}` (PW left it between `m^{1/3}` and `m^{1/2}`).
+  `log N ≥ C m^{1/3}(log m)^{4/3}`; with PW Thm 3.1 the *density* transition ("most primes
+  exceptional" → "most primes representable") is at `log n = m^{1/3+o(1)}` (PW's rigorous
+  bounds left it between `m^{1/3}` and `m^{1/2}`). Nothing is said about the largest exception.
 * **Mechanism:** nothing in the note's density argument is m-specific. Take multipliers
-  `k ≤ X^κ` coprime to m; fibre mass becomes `≍ t³/m` (two-sided, absolute constants); the ledger
+  `k ≤ X^κ` coprime to m; fibre mass becomes `≍ t³/m` on reduced/good fibres (upper bound
+  `≪ t³/m` on every fibre; absolute constants); the ledger
   stays `e^{O(t·mass)}`; the whole m-dependence is `t³ → t³/m`. The Jacobi-symbol obstruction of
   POINTWISE_MN Lemma 1.1 is about the pointwise witness-modulus process and does not enter (§1.4).
 
@@ -121,7 +123,7 @@ every `1 ∈ 𝒥 ⊆ 𝒦_m(K)` and every `(c, L_𝒥) = 1`, with the note's pr
 *Proof (only the changed lines of the note's proof).*
 * Prime condition: `ℓ ≡ −k^{−1} (mod q)`, `q = muv`; reduced since `(k, muv) = 1`.
 * Main-term weight of a triple: `(li 2x − li x)/φ(muv) ≥ x/(φ(m) uv log 2x)` because
-  `φ(ab) ≤ φ(a)·b`. Harmonic mass after pruning is `≥ (1/8 − o(1))(log z)² h(𝒥)` exactly as in
+  `φ(ab) ≤ φ(a)·b`. Harmonic mass after pruning is `≥ (1/8 − o(1))Λ² h(𝒥) ≥ (1/32 − o(1))(log z)² h(𝒥)` exactly as in
   the note (lem:omega, lem:congestion, `h(𝒥) ≥ 1`). Removed *weighted* mass: `1/φ(muv) ≤
   (muv/φ(muv))/(muv) ≪ log t/(φ(m)uv)` since `muv/φ(muv) ≪ log log(3muv) ≪ log t` and `m ≥ φ(m)`;
   so relative loss is `O(log t / t)` as in the note. Block main term `≥ a x log x · h(𝒥)/φ(m)`.
@@ -145,7 +147,8 @@ with `C_u` absolute (Lemma 2.1(d), `log K ≤ κt`). For `(c, L_K) = 1`: `μ_c �
 *Proof.* Note cor:fibremass verbatim (active atoms have `(k,c) = 1`; `1 ∈ 𝒥_c`), with
 Proposition 3.1 and `h(𝒥) ≤ h_m(K) ≤ C(φ(m)/m) κ t`. ∎
 
-**Scaling.** Fibre mass `≍ t³/m` (lower and upper, absolute constants): the `1/φ(m)` from
+**Scaling.** Fibre mass `≍ t³/m` on reduced fibres (lower and upper, absolute constants;
+on a general fibre only `μ_c ≪ t³/m` — e.g. c = 0 has `𝒥_c = {1}`, `μ_c ≍ t²/φ(m)`): the `1/φ(m)` from
 the prime progression mod `muv` is partly cancelled by `h_m ≍ (φ(m)/m) log K`. Compare the
 note's m = 4 family (`k ≡ 1 (4)` only): `t³ · (1/4)·(1/φ(4))`-type constant; our wider
 multiplier set gains a constant factor at m = 4 but this is irrelevant there.
@@ -224,11 +227,16 @@ Choose `t = (m 𝓗/(2C_2))^{1/4}`, so `e^{C_2 t s} = e^{C_2 t⁴/m} = H^{1/2}` 
 Otherwise `E_m(I) ≤ C_1 H e^{−(a_v/4) s} + H^{1/2} ≤ C H exp(−c 𝓗^{3/4} m^{−1/4})`
 (`H^{1/2} ≤ H e^{−s}` as `s ≤ 𝓗^{3/4} ≤ 𝓗/2` for 𝓗 large). ∎
 
-**Theorem B (progressions; PROVED rel. note).** SHORT Theorem 2 holds verbatim for E_m with
-saving `exp(−c (log(H/q))^{3/4} m^{−1/4})` and `X_q = exp((m log(H/q)/(2C_2))^{1/4})`:
-`E_m(I; q, b) ≤ C q_1 (H/q) exp(−c (log(H/q))^{3/4} m^{−1/4})`, `q_1` the X_q-smooth part of q.
+**Theorem B (progressions; PROVED rel. note).** For `q ≥ 1`, `b ∈ Z`, `H/q ≥ 2`, with
+`X_q = exp((m log(H/q)/(2C_2))^{1/4})` and `q_1` the X_q-smooth part of q:
+`E_m(I; q, b) ≤ C q_1 (H/q) exp(−c (log(H/q))^{3/4} m^{−1/4})`.
+Hence the bound without `q_1` (halved c) for `q ≤ exp((c/2)(log(H/q))^{3/4} m^{−1/4})`, and
+without loss for q whose prime factors all exceed X_q.
 *Proof.* SHORT Lemma 2.1 uses only that all primes of 𝓜 are ≤ X (true: ℓ ≤ X, primes of
 `L_K` ≤ K, of `P_y` ≤ y); the rest is the proof of Theorem A with SHORT §2's bookkeeping. ∎
+(SHORT's extra remark that *every prime* q is covered does **not** transfer automatically:
+it absorbs `log X_q` into the saving, and here `log X_q / ((log(H/q))^{3/4}m^{−1/4}) ≍
+(m/log(H/q))^{1/2}` need not be bounded. Primes `q ∈ (exp((c/2)𝓢), X_q]`, `𝓢` the saving, are not covered.)
 
 **Corollary C (primes; PROVED rel. note).** For `x ≥ 3`, `H ≤ x` with
 `(log H)^{3/4} m^{−1/4} ≥ (2/c) log log x`:
@@ -244,33 +252,36 @@ Heuristic reason for the shape: both arguments balance a fibre mass μ against a
 `e^{O(tμ)}` with `tμ ≍ L`; Vaughan/PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
 here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
 
-## 6. Consequence: the Schinzel transition is at log n = m^{1/3+o(1)}
+## 6. Consequence: the density transition for m/n is at log n = m^{1/3+o(1)}
 
-Pomerance–Weingartner (arXiv:2511.16817v2, Thm 3.1 and its proof, p. 3–4 of `sources/pw.txt`)
+Pomerance–Weingartner (arXiv:2511.16817v2, Thm 3.1 and its proof, PDF pp. 6–8; `sources/pw.txt` lines ~270–450)
 show: with `log N = (φ(m)/(C log² m))^{1/3}`, *most primes* `p ∈ (N/2, N]` are m-exceptional
 (m large). Their Thm 1.3 gives the converse only for `log N ≫ m^{1/2}(log m)^{3/2}`, and they
 write (p. 2): "between exp(m^{1/3}) and exp(m^{1/2}) there is a transition from 'usually false'
 to 'usually true'"; their Poisson heuristic (p. 3) predicts the transition at `exp(m^{1/3+ε})`.
 
 **Corollary D (PROVED rel. note).** There is an absolute `C_D` such that for all `m ≥ 4`
-and all N with `log N ≥ C_D m^{1/3} (log m)^{4/3}`:
+and all N ≥ 16 with `log N ≥ C_D m^{1/3} (log m)^{4/3}`:
 `#{p ∈ (N/2, N] : p prime, m-exceptional} ≤ N/(log N)² = o(π(N) − π(N/2))`;
 and for integers, `E_m(N) = o(N)` as soon as `log N / m^{1/3} → ∞`.
 
 *Proof.* Theorem A with I = (N/2, N] gives `≤ C N exp(−c L^{3/4} m^{−1/4})`, `L = log(N/2)`.
 Let `f(L) = c L^{3/4} m^{−1/4} − 2 log L`; `f′(L) > 0` iff `L > (8/(3c))^{4/3} m^{1/3}`. At
-`L_0 = A m^{1/3}(log m)^{4/3}` with `A ≥ (8/(3c))^{4/3}`:
+`L_0 = A m^{1/3}(log m)^{4/3}` with `A ≥ (8/(3c))^{4/3}` (take `C_D = 2A`, so that
+`log(N/2) ≥ L_0` under the hypothesis):
 `f(L_0) = c A^{3/4} log m − 2 log A − (2/3) log m − (8/3) log log m
 ≥ (c A^{3/4} − 10/3 − 2 log A/log 4) log m ≥ log(2C)` for A large absolute (`log m ≥ log 4`).
-So for `L ≥ L_0`: count `≤ C N e^{−f(L) − 2 log L} ≤ N/(2L²) ≤ N/(log N)²` (N ≥ 4).
+So for `L ≥ L_0`: count `≤ C N e^{−f(L) − 2 log L} ≤ N/(2L²) ≤ N/(log N)²` (`√2·log(N/2) ≥ log N` for N ≥ 2^{2+√2}; N ≥ 16 suffices).
 Integers: the saving `(log N)^{3/4} m^{−1/4} = (log N/m^{1/3})^{3/4} → ∞`. ∎
 
-So the threshold exponent 1/3 of PW Thm 1.1 is **sharp**: most primes near N are
-m-exceptional when `log N ≤ c m^{1/3}/(log m)^{2/3}` (PW), and m-representable when
-`log N ≥ C m^{1/3}(log m)^{4/3}` (Corollary D). The remaining gap is a factor `(log m)^2` in
-log N. This confirms PW's heuristic transition point rigorously (relative to the note).
+So the *density* transition is at `log N = m^{1/3+o(1)}`: PW prove that most primes in
+`(N/2, N]` are m-exceptional at their specific `log N = (φ(m)/(C log² m))^{1/3}` (m large), and
+Corollary D shows most are m-representable once `log N ≥ C m^{1/3}(log m)^{4/3}`. The remaining
+gap is a factor `≍ (log m)² (m/φ(m))^{1/3}` in log N. This confirms the *density* part of PW's
+heuristic. It says nothing about the **largest** m-exceptional n (Schinzel's threshold), which
+PW's heuristic places near `exp(m^{1/2})` (PW p. 3); Corollary D bounds proportions only.
 
-**Why it matches the heuristic exactly (Assessment).** Our fibre mass `μ_c ≍ (log X)³/m`
+**Why it matches the heuristic exactly (Assessment).** Our reduced-fibre mass `μ_c ≍ (log X)³/m`
 (Cor. 3.2) is the PW/Elsholtz–Tao first-moment intensity `(log p)³/m` of Type II
 solutions restricted to `k ≤ X^κ`, `ℓ ∈ (X^{1/2}, X]`; the 3/4 mechanism converts mass μ at
 ledger cost `e^{O(tμ)}` into saving `e^{−cμ}`. With `t⁴/m ≍ L` the mass at the chosen scale is
@@ -286,7 +297,9 @@ the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
 * `scripts/emn_hm.py 100000`: Lemma 2.1, 0 failures.
 * `scripts/emn_mass.py 1e6 30 40` (EVIDENCE, toy scale, no H floor; output in
   `scripts/emn_mass.out.txt`): actual-prime fibre mass `μ_c` averaged over 4 reduced c,
-  m = 4..30, 60, 105, 210: `m·μ_c ∈ [3.85, 4.58]`, and the BV-main-term prediction
+  m = 4..30, 60, 105, 210: `m·μ_c ∈ [3.85, 4.58]`. Caveat (review): the script counts
+  *incidences* (no `muv > K` filter, no deduplication of equal classes mod ℓ; at this toy scale
+  e.g. u = v = 1 lets several k hit the same class), so it checks the incidence scaling only, and the BV-main-term prediction
   `Σ log2/(log x·φ(muv))` agrees to ≤ 1.2%. I.e. the `1/m` scaling of Cor. 3.2 is visible
   already at x = 10⁶, and the residual m-dependence is the bounded factor
   `Π_{p|m} p/(p+1) · (m/φ(m))`-type Euler correction (odd primes vs 2: m·μ ≈ 3.9 for
@@ -294,10 +307,10 @@ the Poisson intensity at scale `X = e^t` with `t ≤ L` can exceed 1.
 
 **7.2 Uniformity in m (goal 3).** All constants in Theorems A, B, Cor. C, D are absolute;
 the m-dependence is *exactly* `c_m = c·m^{−1/4}` in the exponent (no φ(m), no log m loss).
-Where m enters: (a) `μ ≍ t³/m` (Cor. 3.2, two-sided); (b) the BV range `m ≤ t³`
+Where m enters: (a) `μ ≍ t³/m` (Cor. 3.2, two-sided on reduced fibres); (b) the BV range `m ≤ t³`
 (Prop. 3.1), automatically satisfied whenever the saving `s = t³/m ≥ 1`; (c) `K ≥ m²` for
-Lemma 2.1 (automatic, K = e^{κt}). Lower-order point: m·μ_c is bounded above and below by
-absolute constants; nothing is lost from m/φ(m) because the `1/φ(muv)` gain and the
+Lemma 2.1 (automatic, K = e^{κt}). Lower-order point: on reduced fibres `m·μ_c/t³` is bounded
+above and below by absolute constants; nothing is lost from m/φ(m) because the `1/φ(muv)` gain and the
 `h_m ≍ (φ(m)/m) log K` loss are both measured in the same Euler factors (7.1 data).
 
 **7.3 Is `m^{−1/4}` the right m-dependence for this method? (Assessment.)** Given a mass
@@ -305,8 +318,9 @@ absolute constants; nothing is lost from m/φ(m) because the `1/φ(muv)` gain an
 mass would need more multipliers: the k-range `K = X^κ` is already a power of X; the
 u,v-range `≤ X^{1/6}` per block is what keeps `z² < ℓ` (distinctness). So within the note's
 architecture `m^{−1/4}` is the mass-driven ceiling, mirroring note §10's 3/4 ceiling. The
-PW lower construction (Thm 3.1) shows the shape `(L/m^{1/3})^{θ}` cannot be improved to
-anything non-trivial at `L ≤ m^{1/3−ε}`; it does not decide θ = 3/4.
+PW lower construction (Thm 3.1: `≫ N/log N` exceptional primes at their
+`log N ≍ (φ(m)/log² m)^{1/3}`) only forces any saving there to be `≤ log log N + O(1)`;
+it does not decide θ = 3/4.
 
 **7.4 Where the argument fails / what is m-specific (goal 1).**
 * Nothing fails for any m ≥ 4. (m ≤ 3: every n is trivially representable.)
@@ -342,8 +356,8 @@ anything non-trivial at `L ≤ m^{1/3−ε}`; it does not decide θ = 3/4.
   same internal-only status; the m-transfer is lemma-by-lemma (§§1–5), every change listed.
 * §7.1 toy masses: EVIDENCE. §7.3, §6 last paragraph, §8 novelty: Assessment.
 * Open: (i) close the `(log m)²` gap in Corollary D (lower side is PW's first-moment count, upper
-  side ours); (ii) a version for m growing faster than `(log N)³` is impossible in this form
-  (PW Thm 1.1); (iii) SHORT's open smooth-q progression step carries over unchanged.
+  side ours); (ii) for `m ≥ ε(log N)³` Theorem A is trivial; PW Thm 3.1 shows no
+  saving beyond `log log N + O(1)` is possible at `log N ≍ (φ(m)/log² m)^{1/3}`; (iii) SHORT's open smooth-q progression step carries over unchanged.
 
 ## Replay
 

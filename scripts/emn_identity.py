@@ -47,3 +47,4 @@ for m in (4, 5, 6, 7, 11, 12):
                     if cls in seen: bad2 += 1
                     seen[cls] = (k, u, v)
 print("dedup atoms", tot, "collisions", bad2)
+import sys; sys.exit(1 if bad or bad2 else 0)
