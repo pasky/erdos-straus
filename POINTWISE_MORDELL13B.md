@@ -145,6 +145,11 @@ T-units `1<N≤4·10⁷`.
 ## Replay
 
 ```
+gcc -O2 -o /tmp/o95/target scripts/m13b_target.c; gcc -O2 -o /tmp/o95/target2 scripts/m13b_target2.c
+/tmp/o95/target $(python3 scripts/m13b_pt.py 2 15) 100000000 20      # Comp 5.1, ~25 min
+/tmp/o95/target2 $(python3 scripts/m13b_pt.py 2 15) 20000000 12     # Comp 5.1, ~20 min
+PYTHONPATH=scripts uv run python scripts/m13b_target_validate.py /tmp/o95/run /tmp/o95/target 2000000 20 60   # FAMS=II2 for II2
+PYTHONPATH=scripts uv run python scripts/m13b_target2_validate.py /tmp/o95/run /tmp/o95/target2 300000 8 60
 gcc -O2 -o /tmp/o95/es scripts/m13b_es.c
 PYTHONPATH=scripts uv run python scripts/m13b_table_check.py 14000 2          # Lemma 1.1, ~10 min
 PYTHONPATH=scripts uv run python scripts/m13b_check_hit.py                    # Thm 3.1 (independent sympy engine)
@@ -175,5 +180,23 @@ discrete logarithm in the T-units.
   - I2/II1/I4: 60/60.
   At x* both programs recover Theorem 3.1's II3 and I2 data (`e=f=11999`).
 
-**Computation 5.1.** The point `(u_11,u_13)=(2,15)`, and also `(2,1/7)`, lies in **no** II3/I3/I1 class with
-`e≤10⁸` and `v_11(λ),v_13(λ)≤20` (the T-level is otherwise unrestricted).
+**Computation 5.1 (CERTIFIED, one engine per family group; validated as above).** Each of the four
+small-height survivors of §4, `(u_11,u_13) = (2,15), (2,1/7), (2,−7/3), (−5/3,15)`, lies in no ET class
+within the following ranges:
+* II3/I3/I1 with `e≤10⁸` for the first two, `≤3·10⁷` for the last two;
+* II2 with `f≤3·10⁷`;
+* I2/II1/I4 with `f, e≤2·10⁷` for the first two, `≤10⁷` for the last two.
+
+In all cases the T-exponents are `≤20` (P/Q) resp. `|i|,|j|≤12` (U/I2), and the height is otherwise
+unrestricted. For comparison, x* is caught at `e=11999`.
+*Consequence (PROVED from 5.1, as POINTWISE_MORDELL §4).* Every finite ET covering of the Mordell-hard primes
+with `(p/11)=(p/13)=−1` contains a class outside these ranges. Indeed the point `x**=x(2,15)` lies in
+`Σ_13` (main) (`x**_q=1` for q∉T), and Dirichlet applies near it.
+
+**Conjecture 5.2.** `x**` (`x_11=2`, `x_13=15`, `x_q=1` otherwise) is sterile.
+*Assessment.* The status of x* shows that such conjectures can fail at moderate height (`e≈1.2·10⁴`,
+modulus `1.3·10⁷`). Here, however, the search goes 4 orders of magnitude further in `e` with no T-level
+cap. The (2,2)-cell survivors also form a near-product set (§4). Both facts favour a genuinely uncovered
+region, but this is EVIDENCE, not proof. A proof would need a tail bound of MORDELL17 Theorem 4.1 type,
+and that is out of reach (MORDELL17 §6). The finite-exception theorem 3.1(b) is therefore **not** improved
+here: its exceptions contain survivor points of the targeted searches.
