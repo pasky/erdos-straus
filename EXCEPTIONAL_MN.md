@@ -307,9 +307,42 @@ anything non-trivial at `L ≤ m^{1/3−ε}`; it does not decide θ = 3/4.
   whether a revealed quadratic class can dodge all events (pointwise witness modulus); the
   density argument only needs *first-moment mass per fibre* and *conditional independence*,
   both character-blind.
-* Type I solutions (`m/n` with x_1 ∤ n-structure of PW Cor. 2.2) are not used, exactly as
+* Type I solutions (PW Cor. 2.2) are not used, exactly as
   in the note for m = 4: Type II atoms alone carry the mass `t³/m`.
 * The only genuinely m-sensitive inputs are BV (range of moduli `muv`) and Lemma 2.1; both
   are uniform in the range where the theorem is non-trivial.
 * Effectivity: as in the note, ineffective (standard BV). Only lower bounds use BV; the
   constants `c, C` are absolute but not computable from the proof.
+
+## 8. Literature (goal 4; web search 2026-10-07 + campaign files)
+
+* **Vaughan 1970** (Mathematika 17; full text not accessible, `sources/vaughan-1970-access-log.md`):
+  for each m, `E_m(N) ≪_m N exp(−c_m (log N)^{2/3})` (as quoted by PW p. 2 and the campaign).
+* **Pomerance–Weingartner** arXiv:2511.16817v2 (= Dartmouth "ESS-ExceptionsV8", checked
+  identical statement of Thm 1.3, 2026-10-07): `E_m(N) ≤ N/exp(C (log² N/φ(m))^{1/3})`,
+  `4 ≤ m ≤ log² N`; Thm 1.1/3.1 lower constructions; Poisson heuristic `exp(−(log p)³/m)`.
+* No 3/4-type, short-interval or progression result for m/n found (searches: "exceptional set
+  m/n three unit fractions", "Erdős–Straus–Schinzel almost all n", "Sierpiński 5/n exceptional set",
+  "(log N)^{3/4}"; LITERATURE_2026.md: PW is the only substantial recent work on Sierpiński/Schinzel).
+  The 3/4 bound itself is campaign-internal even at m = 4 (novelty audit: "apparently new").
+* Hence (Assessment): Theorem A is, as far as we can tell, new for every m ≠ 4 (and its m = 4
+  case is SHORT Theorem 1); its m-uniform form and Corollary D (sharp m^{1/3} transition) are new
+  relative to PW. Novelty of the *method* is nil beyond the note: it is the note with 4 → m.
+
+## 9. Status
+
+* Theorem A, B, Cor. C, D: **PROVED relative to the note** (and SHORT for the local transfer),
+  same internal-only status; the m-transfer is lemma-by-lemma (§§1–5), every change listed.
+* §7.1 toy masses: EVIDENCE. §7.3, §6 last paragraph, §8 novelty: Assessment.
+* Open: (i) close the `(log m)²` gap in Corollary D (lower side is PW's first-moment count, upper
+  side ours); (ii) a version for m growing faster than `(log N)³` is impossible in this form
+  (PW Thm 1.1); (iii) SHORT's open smooth-q progression step carries over unchanged.
+
+## Replay
+
+```
+uv run --with sympy python scripts/emn_hm.py 100000            # Lemma 2.1, ~1 min
+uv run --with sympy python scripts/emn_identity.py             # Lemmas 1.1, 1.3, ~1 min
+ulimit -v 8000000; timeout 1800 uv run --with sympy --with numpy \
+    python scripts/emn_mass.py 1e6 30 40                       # §7.1 toy masses, ~10 min
+```
