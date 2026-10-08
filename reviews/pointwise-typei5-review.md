@@ -130,3 +130,35 @@ From-scratch implementation from my own derivation (I did not read or reuse `typ
 * **C1 (MINOR)**, §3, after Lemma 3.2: "Checked on all 9 relaxed solutions … at `L = 7, 9, 10`". My brute force gives 10 in the
   same ranges: 8 in case B and 2 in case A. Repair: state the count per case.
 * Regime (iv): re-derived. Empty unless `L ≡ 0 (mod 3)`. At `L = 9` it forces `(a,b,λ) = (1,0,256)`, which is covered by TYPEI4 ✓.
+
+## Lemma 3.6 (case A empty at `L ≤ 10`) — SOUND (MINOR A1)
+
+Re-derived line by line:
+* `P_1 = c'g² + 2·7^a uJ`, and `P_1 | z = Tu/2 − J > 0` (TYPEI4 L3.1(i)), so `2·7^a uJ < Tu/2`, i.e. `J < T/(4·7^a)` ✓.
+  `L = 7, 8`: none. `L = 9`: `J = 1`, `a = 1`.
+* **A1 (MINOR)**: at `L = 10` the bound only gives `J < 64/28`, i.e. `J ∈ {1, 2}`, and `a = 1`. `J = 2` is excluded because
+  `J = y − Tu/2` is odd (`y` odd, `T/2` even for `L ≥ 6`), but the text never says so. Repair: add "(`J` is odd since `y` is odd
+  and `Tu/2` is even)".
+* `ρ = z/P_1 < (Tu/2)/(14u) = T/28 < 3`, and `ρ` is odd (`z` odd), so `ρ = 1` ✓. `c'g² = Ku − 1` ✓. `X = (1+7u)/(4G)` (since
+  `7^{a+b}z/P_1 = 7uρ`) ✓. `G | 7(Tu/2+1) − (T/2)(7u+1) = 7 − T/2 ∈ {−9, −25}` ✓. Then `c'g² ≤ G²` gives `u ≤ 41` (`L=9`: `2u−1 ≤ 81`;
+  `L=10`: `18u−1 ≤ 625`) ✓. `u = 7`: `4 ∤ 50` ✓. `u = 1`: `G = 1`, `K = 2`, so `X = 2` is even ✓. (`g` is odd because `g = 4P_1X − D`
+  with `D` odd, so `G` is odd ✓.)
+* The proof never uses `u = 7^b` before the last line, so it also bounds **relaxed** case-A solutions at `L = 9, 10` by `u ≤ 41`.
+  My relaxed brute force (`u ≤ 2001`) finds exactly the two `L = 9`, `u = 5` solutions, with `ρ = 1` and `G ∈ {3, 9}`, which
+  divide `9` ✓. None at `L = 10` ✓.
+* §4's remark ("case A is a small finite check at every `L`") is correct. `J`, `a` and `ρ < T/(4·7^aJ)` are bounded. Also
+  `G | 7^aρJ − T/2 ≠ 0`, and `c'g² = (Tu/2 − J)/ρ − 2·7^auJ ≤ G²` bounds `u` (the coefficient `T/(2ρ) − 2·7^aJ` of `u` is
+  nonzero by 7-adic valuation and must be positive). It is not labelled as a theorem, which is fine.
+
+## Theorem 3.7 — SOUND as a summary (MINOR T1, T2)
+
+The case split is exhaustive: case A/B (`2y ≠ Tu` by parity). In case B, `λ <0, =0, >0` and `Δ <, =, > 2Tj`. Cases A, (i), (iv)
+are excluded by hand. (ii) and (iii) are excluded by Comp 3.4, which I reproduced independently for all `b`. That leaves regime
+(v). Exactly this remains: **regime (v) at `L = 7..10` with `v_7(k) ≥ 8` and `c_oδ > 10⁶`**.
+* **T1 (MINOR, provenance)**: "`v_7(k) ≥ 8` (TYPEI4 Cor 3.5)" inherits R89-D5. At `L = 7,8, b = 7` and `L = 9,10, b = 6,7`,
+  TYPEI4 Cor 3.5 rests on `typei4_lb` alone. Since TYPEI5 now excludes regimes (ii)–(iv) and case A for **all** `b` (here
+  independently replicated), only the regime-(v) part of those `(L,b)` slices depends on the single engine. Repair: mention
+  this in the theorem, or replicate `typei4_lb` on those slices restricted to regime (v).
+* **T2 (MINOR, label)**: "PROVED + CERTIFIED once replayed". The CERTIFIED inputs are Cor 2.3 (10⁶ dmod runs) and Comp 3.4. The
+  status of my replays is in the summary table. The theorem is a summary of exclusions and claims nothing about regime (v) beyond
+  the per-`(σ,a,λ)` finiteness, so it does not overclaim.
