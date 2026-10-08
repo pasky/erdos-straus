@@ -88,9 +88,12 @@ $b\in\Z$ put
 and $E_m(N)=E_m((0,N])$.
 
 \subsection*{Background}
-Vaughan \cite{Vaughan} proved $E_4(N)\ll N\exp\{-c(\log N)^{2/3}\}$; this
-is the bound quoted as the state of the art by Elsholtz and Tao
-\cite[\S1]{ET} and by Pomerance and Weingartner \cite[p.~2]{PW}.
+Vaughan \cite{Vaughan} proved $E_4(N)\ll N\exp\{-c(\log N)^{2/3}\}$, and,
+according to \cite[abstract]{PW}, the analogous statement that most $n$
+are $m$-representable for each fixed $m$.  Elsholtz and Tao
+\cite[\S1]{ET} cite Vaughan's bound, listing other results as weaker,
+and Pomerance and Weingartner \cite[p.~2]{PW} describe it as the state of
+the art for $4/n$.
 Pomerance and Weingartner \cite[Thm.~1.3]{PW} made it uniform in the
 numerator: for $4\leq m\leq(\log N)^2$,
 \begin{equation}\label{eq:PW}
@@ -1178,19 +1181,23 @@ The following was checked in October 2026 by web searches and by
 reading the papers where accessible.  It is an assessment, not an
 exhaustive survey.
 \begin{itemize}
-\item Elsholtz and Tao \cite[\S1]{ET} quote Vaughan's bound
-$N\exp\{-c(\log N)^{2/3}\}$ over $n<N$ as the only exceptional-set
-result, and refer to Li Delang \cite{Li} and Yang \cite{Yang}, among
-others, for weaker results.  Yang's abstract concerns the initial-segment
+\item Elsholtz and Tao \cite[\S1]{ET} cite Vaughan's bound
+$N\exp\{-c(\log N)^{2/3}\}$ over $n<N$ (``for instance''), and refer to
+Li Delang \cite{Li} and Yang \cite{Yang}, among others, for weaker
+results.  Yang's abstract concerns the initial-segment
 count; we did not read Li's or Yang's papers in full.  There is no
 short-interval or progression statement in \cite{ET}.
 \item Pomerance and Weingartner \cite{PW} describe Vaughan's 1970
 bound as the state of the art for $4/n$ \cite[p.~2]{PW}, and prove
-\eqref{eq:PW} for general $m$, again over $n\leq N$.  Their abstract says
-that they ``generalize a result of Vaughan''.  Whether Vaughan's paper,
-whose title names Schinzel, itself treats general $m$ we could not check:
-we did not have access to its full text.  So \cite[Thm.~1.3]{PW} is the
-first bound explicit in $m$ that we can cite.
+\eqref{eq:PW} for general $m$, again over $n\leq N$.  The abstract of the
+cited version (v2) says: ``A result of Vaughan is that for each $m$, most
+$n$'s have $m/n$ representable; we make the dependence on $m$ in this
+result explicit.''  (The first arXiv version said instead that they
+``generalize a result of Vaughan''.)  So, according to \cite{PW},
+Vaughan's result already covers each fixed $m$.  We could not read
+Vaughan's paper and rely on this secondary statement for the dependence
+on $m$.  \cite[Thm.~1.3]{PW} is the first bound \emph{explicit} in $m$
+that we can cite.
 \item Searches for short-interval, almost-all-short-interval and
 progression versions of exceptional-set bounds for $4/n$ or $m/n$, for
 ``Sierpi\'nski $5/n$ exceptional set'' and for ``$(\log N)^{3/4}$''
