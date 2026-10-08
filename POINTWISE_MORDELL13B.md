@@ -145,7 +145,7 @@ datum) — R95 repair, applied by reviewer). **No other datum through
   (R95 repair, applied by reviewer.) All three rows are incomplete. Every row counts only boxes of ES level
   `N≤4·10⁷`, but a box of T-level `F` can have ES level up to `F²`. Already k=2 needs `N` up to
   `(11²13²)²≈4.2·10⁸`, and k=3 needs about `8.6·10¹²`. The uncovered counts are therefore upper bounds, and the k=2
-  survivor list may shrink. Since `N≤M_T²`, the enumeration is complete exactly for box levels
+  survivor list may shrink. Since `N≤M_T²`, the enumeration is complete for all box levels
   `M_T≤√(4·10⁷)≈6324`, i.e. `M_T∈{11,13,121,143,169,1331,1573,1859,2197}`.
   Before this work: 24.8% at k=4 (POINTWISE_MORDELL §4.1). So the (2,2) cell is still **not** covered.
   Sterile candidates, if any, are now off x*; at k=2 the survivors are
