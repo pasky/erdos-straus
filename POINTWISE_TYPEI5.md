@@ -19,13 +19,13 @@ In particular, for each `(P,Q)` with `7|Q` at most one `b` gives a solution of (
 *Proof.* Put `s = 4X_1√P`, `r = u_1√Q`, `α = s + r`, `β = s − r`, so `αβ = s² − r² = 1`, `α > 1`.
 (a) *If some solution has `u` odd, all positive solutions are odd powers of `α`.* For two solutions
 `η = 4X√P + u√Q`, `η' = 4X'√P + u'√Q` (norm form `16PX² − Qu² = 1`; note `1/η' = 4X'√P − u'√Q`),
-`η/η' = (16PXX' − Quu') + 4(X'u − Xu')√d` lies in the group `G := {A + 4B√d : A² − 16dB² = 1}`, which is infinite
-cyclic (`d` not a square); let `ν_0 > 1` generate it. Conversely `α·(A + 4B√d) = (4X_1A + 4u_1BQ)√P + (16X_1BP + u_1A)√Q`
+`η/η' = (16PXX' − Quu') + 4(X'u − Xu')√d` lies in the group `G := {A + 4B√d : A² − 16dB² = 1}`, whose positive part
+`G_+ := G ∩ (0,∞)` is infinite cyclic (`d` not a square; `G = ±G_+`); let `ν_0 > 1` generate `G_+` (R92 repair L1, applied by reviewer: `G` itself contains `−1`; only positive elements are used below). Conversely `α·(A + 4B√d) = (4X_1A + 4u_1BQ)√P + (16X_1BP + u_1A)√Q`
 has the shape again. So the solutions are exactly the elements of `αG` of the shape, and those with `X, u > 0` are exactly
 the elements `> 1` of `αG` (for `η > 1`: `4X√P = (η+η^{−1})/2 > 0`, `u√Q = (η−η^{−1})/2 > 0`). `α` is the smallest
 of them. `α² = (16PX_1² + Qu_1²) + 8X_1u_1√d ∈ G`, so `α² = ν_0^m`, `m ≥ 1`. If `m ≥ 3`, `αν_0^{−1} = ν_0^{m/2−1}`
-is an element of `αG` in `(1, α)`, i.e. a positive solution with smaller `u` (`u√Q = (η−η^{−1})/2` increases with `η`), contradicting minimality. If `m = 2`, `α = ν_0 ∈ ℤ[√d]`, so `√P = p ∈ ℤ` (`√P ∈ ℚ(√d)`, `Q ≠ 1/k²`) and every element of `αG = G` is `A + 4B√d = 4X√P + u√Q`
-with `u = 4Bp` even — excluded by hypothesis. So `m = 1`, `G = ⟨α²⟩` and the positive solutions are
+is an element of `αG` in `(1, α)`, i.e. a positive solution with smaller `u` (`u√Q = (η−η^{−1})/2` increases with `η`), contradicting minimality. If `m = 2`, `α = ν_0 ∈ ℤ[√d]`, so `√P = (α+α^{−1})/(8X_1) ∈ ℚ(√d)`, hence `P` or `Q` is a perfect square; `Q` square is impossible because some `u` is odd and `Qu² ≡ −1 (mod 16)` forces `Q ≡ 7, 15 (mod 16)` (R92 repair L2, applied by reviewer); so `√P = p ∈ ℤ` and every element of `αG = G` is `A + 4B√d = 4X√P + u√Q`
+with `u = 4Bp` even — excluded by hypothesis. So `m = 1`, `G_+ = ⟨α²⟩` and the positive solutions are
 `α^n`, `n ≥ 1` odd.
 (b) *Integrality.* `α^n = Σ_k C(n,k) s^{n−k} r^k`. For `n` odd, the terms with `k` even are integer multiples of
 `4√P` (since `s^{n−k} = (4X_1)^{n−k}P^{(n−k−1)/2}√P`), the terms with `k` odd are integer multiples of `√Q`; so
@@ -47,9 +47,12 @@ and the `k = 1` term is `n·s^{n−1} = n(s²)^{(n−1)/2} ≡ n`.
 `α² = ν_0` is the generator of `G = {A+4B√d : A²−16dB²=1}`. Since `G` has index `k ∈ {1,2,4}` in the norm-one units
 of `ℤ[√d]` (the image of a unit in `(ℤ[√d]/4)^×`, a group of order 8, has order dividing 4 modulo `{±1}+4ℤ[√d]`),
 **the certificate unit is `ε_f^k`, `k ∈ {1,2,4}`, with `ε_f` the fundamental norm-one unit of `ℤ[√d]`.**
-This proves (and sharpens) TYPEI4 Obs 1.5 ("`m=1` in all examples"): `m ∈ {1,2,4}` always.
+In fact `k ∈ {1,2}` (R92 repair L3, applied by reviewer): `d` is odd, so a unit `x+y√d` has `x+y` odd, hence `xy` even and
+`(x+y√d)² = (x²+dy²) + 2xy√d` with `4 | 2xy`; i.e. the quotient group above has exponent 2. (Checked: all 1473 odd non-square
+`d ≤ 3000` have `k ∈ {1,2}`, `scripts/review_typei5_lehmer.py`.)
+This proves (and sharpens) TYPEI4 Obs 1.5 ("`m=1` in all examples"): `m ∈ {1,2}` always.
 Consequently the d-graded engine `typei4_dgraded.py` (which tests `ε_f^m`, `m ≤ mmax`) is **complete for all `b`** as
-soon as `mmax ≥ 4`.
+soon as `mmax ≥ 2` (a fortiori `mmax ≥ 4`).
 *Proof.* Lemma 1.1 (hypotheses: `7 | Q` as `a ≥ 1`; `d` is not a square as `v_7(d) = a` is odd; `u = 7^b` odd).
 The certificate is recovered from `(a,c',δ,P_1)` and `(X,u)` by TYPEI4 Prop 1.2, and `(X,u) = (X_1,u_1)`. ∎
 
@@ -97,7 +100,7 @@ Case B of TYPEI4 Lemma 3.1 (`2y < Tu`), `u = 7^b`, `j := Tu/2 − y > 0` (odd), 
 (Lin) `u·[κj(2Tj − Δ) − ΔT²] = Δ(Δ − 6Tj) − 4κj³`.
 *Proof.* Substitute `m = ρj − λu` into `ρ(y² − 2·7^amuj) = m(Tu/2 + j)` (= `mP_1·ρ = m·ρP_1`), divide by `u`, and
 collect; this gives (H). (Lin): from (H) `m = λ[u(2Tj−Δ) + 4j²]/Δ`, insert into the definition of `Δ`. ∎
-(Checked on all 9 relaxed solutions of `typei5_relax` at `L = 7, 9, 10`, including `λ < 0` and both signs of `2Tj − Δ`.)
+(Checked on all 8 case-B relaxed solutions of `typei5_relax` at `L = 7, 9, 10` (`u ≤ 6001/2001/2001`; there are 2 more, in case A, at `L = 9`; R92 repair C1, applied by reviewer), including `λ < 0` and both signs of `2Tj − Δ`.)
 
 **Proposition 3.3 (PROVED).** Fix `L`. (i) `λ = 0` is impossible. (ii) If `λ < 0`, then `7^a|λ|j < T²/8` and `u` is
 bounded explicitly in terms of `(a,λ,j)`. (iii) If `λ > 0` and `Δ < 2Tj` (put `s := 2Tj − Δ ≥ 1`), then
@@ -105,7 +108,7 @@ bounded explicitly in terms of `(a,λ,j)`. (iii) If `λ > 0` and `Δ < 2Tj` (put
 is bounded: **this regime is a finite, explicit computation at each `L`**.
 (iv) If `λ > 0` and `Δ = 2Tj`, then `u = (2κj² + 4T²j)/T³`, which forces `b = v_7(j)`, `T ≡ 4 (mod 7)`.
 (v) If `λ > 0` and `σ := Δ − 2Tj ≥ 1`: `u < 4j²/σ`, and with `ω := 4j² − uσ ≥ 1`
-`κ·j·ω·σ = (2Tj + σ)[(2Tj − σ)² − ωT²]`; for fixed `(σ,κ)`, `((2T³+σκ)j + σT²) | 4κσ³T⁶ + (2T³+σκ)σ³κ(4T³+2T³+σκ)`,
+`κ·j·ω·σ = (2Tj + σ)[(2Tj − σ)² − ωT²]`; for fixed `(σ,κ)`, `((2T³+σκ)j + σT²) | 4κσ³T⁶ + (2T³+σκ)σ³κ(4T³+2T³+σκ) = κσ³(4T³+σκ)²` (this is `−g'³N_v(−σT²/g')`, `g' = 2T³+σκ`; the sign is irrelevant for divisibility; R92 repair P1, applied by reviewer),
 so `j`, `u` are bounded polynomially in `(σ, κ)` — but `σ` and `κ = 8·7^aλ` are **not** bounded.
 *Proof.* (i) `λ = 0` in (H) gives `Δ = 0`, i.e. `T²u = 8·7^aρj² + 6Tj` (as `m = ρj`); `j` odd divides `T²u`, so
 `j = 7^r`, `r ≤ b`; `7 ∤ 6T` gives `r = b`, then `T(T−6) = 8·7^{a+b}ρ`, impossible as `2^k ≢ 6 (mod 7)`. (ii) `m = ρj + |λ|u > u` and `P_1 ≥ 1` gives `2·7^amuj < y² < T²u²/4`, so
@@ -113,7 +116,7 @@ so `j`, `u` are bounded polynomially in `(σ, κ)` — but `σ` and `κ = 8·7^a
 `E = 2|κ|Tj²`, and `Kx − E` divides the positive constant `E² + 6TjEK + 4|κ|j³K²`. (iii) In (Lin) the right side is
 `−4κj³ − Δ(6Tj − Δ) < 0` for `0 < Δ < 2Tj` (`Δ > 0` by (H)), so the bracket is negative: `j(2T³ − sκ) − sT² > 0`
 after writing `Δ = 2Tj − s`, whence `sκ < 2T³`. Then `u = N(j)/(gj − sT²)` with `N(j) = 4κj³ + (2Tj−s)(4Tj+s)`, and
-`g³N(sT²/g) = R ≠ 0`. (iv) Substitute `Δ = 2Tj` in (Lin): `T³u = j(2κj + 4T²)`; `j` odd ⇒ `j = 7^r`; the bracket `16·7^{a+r}λ + 4T²` is prime
+`g³N(sT²/g) = R ≠ 0`; here `g³N(j) − R = (gj − sT²)·q(j)` with `q` a polynomial in `j` with **integer** coefficients (the powers of `g` clear the denominators of `sT²/g`), so `(gj − sT²) | N(j)` implies `(gj − sT²) | R` without any coprimality assumption (R92 repair P2, applied by reviewer). (iv) Substitute `Δ = 2Tj` in (Lin): `T³u = j(2κj + 4T²)`; `j` odd ⇒ `j = 7^r`; the bracket `16·7^{a+r}λ + 4T²` is prime
 to 7, so `r = b` and `T²(T−4) = 16·7^{a+b}λ`: finitely many `(a,b,λ)`, none unless `7 | T−4`. (v) `ρ > λu/j` and (H) give `Δ < 2Tj + 4j²/u`; the displayed identity is (Lin) rewritten with
 `uσ = 4j² − ω`, and the divisibility is the same polynomial-remainder argument as in (iii). ∎
 
@@ -138,7 +141,7 @@ Regime (iv) is empty at `L = 7, 8, 10` (`T ≢ 4 mod 7`) and at `L = 9` forces `
 **Lemma 3.6 (case A at `L ≤ 10` is empty; PROVED, by hand).** Case A of TYPEI4 Lemma 3.1 (`2y > Tu`, `J := y − Tu/2 > 0`)
 has no fibre certificate at `L ∈ {7,8,9,10}`, for any `b`.
 *Proof.* `P_1 = c'g² + 7^a u(2y − Tu) = c'g² + 2·7^a uJ` and `1 ≤ P_1 ≤ z = Tu/2 − J` (`P_1 | z`), so `2·7^a uJ < Tu/2`,
-i.e. `J < T/(4·7^a)`. `L = 7, 8` (`T ≤ 16`): no `J ≥ 1`. `L = 9, 10` (`T = 32, 64`): `a = 1`, `J = 1`. Then
+i.e. `J < T/(4·7^a)`. `L = 7, 8` (`T ≤ 16`): no `J ≥ 1`. `L = 9, 10` (`T = 32, 64`): `a = 1`, `J ∈ {1, 2}`, and `J = 1` since `J = y − Tu/2` is odd (`y` odd, `T/2` even for `L ≥ 6`; R92 repair A1, applied by reviewer). Then
 `ρ = z/P_1 < (Tu/2)/(14u) = T/28 < 3`, and `ρ` is odd (`z = Tu/2 − 1` odd), so `ρ = 1`, `P_1 = Tu/2 − 1`. Put `G := c'g`. Then
 `c'g² = P_1 − 14u = Ku − 1` (`K := T/2 − 14 ∈ {2, 18}`), `Gδ = y = Tu/2 + 1`, and `X = (1 + 7uρ)/(4G)` integral gives `4G | 7u + 1`.
 `G` is odd and divides `Tu/2 + 1` and `7u + 1`, hence `G | 7(Tu/2+1) − (T/2)(7u+1) = 7 − T/2 ∈ {−9, −25}`. So `G ≤ 25` and
@@ -150,6 +153,13 @@ and `Ku − 1 = 1`. For `L = 10` (`K = 18`) that fails. For `L = 9` (`K = 2`) it
 **Theorem 3.7 (summary; PROVED + CERTIFIED once replayed).** A certificate at `x̂_9` of level `L ∈ {7,…,10}` must satisfy
 all of: `v_7(k) ≥ 8` (TYPEI4 Cor 3.5); `c_oδ > 10⁶` (Cor 2.3); `2y < T7^b` with `λ ≥ 1` and `Δ > 2Tj` (regime (v) of
 Prop 3.3; Comp 3.4); case A is empty (Lemma 3.6). In regime (v), `u = 7^b < 4j²/σ` and, for fixed `(σ, a, λ)`, everything is bounded explicitly.
+*Provenance (R92 repair T1, applied by reviewer).* Per R89-D5, TYPEI4 Cor 3.5 rested on `typei4_lb` alone for
+`L = 7, 8`, `b = 7` and `L = 9, 10`, `b = 6, 7`. Review R92 ran its own complete per-`(L,b)` engine
+(`scripts/review_typei5_relax.c L 0 7^b`: TYPEI4 Cor 3.2 search, all `a`, all heights; positive controls reproduce the
+TYPEI4 Comp 3.4 table at `(L,b) = (11,0), (13,1), (14,0)×2, (14,3), (16,0)×3`) for `L = 7…10`, `b = 0…9`: **0 solutions**.
+So `v_7(k) ≥ 8` is now confirmed by two independent complete engines. The reviewer's engine alone (CERTIFIED, single engine)
+also excludes `b = 8, 9`, which gives `v_7(k) ≥ 10`. Cor 2.3 (`typei5_dmod`, `c_oδ ≤ 10⁶`, `L = 7…10`) and Comp 3.4 were
+replayed resp. independently reproduced in R92 (`reviews/pointwise-typei5-review.md`).
 
 ## 4. Open / next steps
 * Case A: done (Lemma 3.6; the bound `J < T/(4·7^a)` also makes case A a small finite check at every `L`).
