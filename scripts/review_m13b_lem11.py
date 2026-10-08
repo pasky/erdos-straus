@@ -87,43 +87,44 @@ def table(fam, P, u):
     if fam == 'II3':
         a, d, e = P; X = tpart(a*d); Xp = a*d//X; eT = tpart(e); ep = e//eT
         return (e+1) % (4*Xp) == 0 and (e+u) % X == 0 and (4*a*a*d+1) % ep == 0 and (u+4*a*a*d) % eT == 0
-BIAS = len(sys.argv) > 3 and sys.argv[3] == 'bias'
-random.seed(int(sys.argv[2]) if len(sys.argv) > 2 else 7)
-N = int(sys.argv[1]) if len(sys.argv) > 1 else 300
-bad = 0; hits = {}; nontriv = {}
-for fam in ('I1', 'I2', 'I3', 'I4', 'II1', 'II2', 'II3'):
-    hits[fam] = 0; nontriv[fam] = 0
-    for _ in range(N):
-        P = gen(fam); R, M = classres(fam, P)
-        L, MT = lit(R, M)
-        Tb = {u for u in range(MT) if table(fam, P, u)}
-        if MT > 1: nontriv[fam] += 1
-        hits[fam] += len(L)
-        if L != Tb:
-            bad += 1; print('MISMATCH', fam, P, sorted(L)[:5], sorted(Tb)[:5])
-print('mismatches', bad, 'u-hits per family', hits, 'cases with M_T>1', nontriv)
+if __name__ == '__main__':
+    BIAS = len(sys.argv) > 3 and sys.argv[3] == 'bias'
+    random.seed(int(sys.argv[2]) if len(sys.argv) > 2 else 7)
+    N = int(sys.argv[1]) if len(sys.argv) > 1 else 300
+    bad = 0; hits = {}; nontriv = {}
+    for fam in ('I1', 'I2', 'I3', 'I4', 'II1', 'II2', 'II3'):
+        hits[fam] = 0; nontriv[fam] = 0
+        for _ in range(N):
+            P = gen(fam); R, M = classres(fam, P)
+            L, MT = lit(R, M)
+            Tb = {u for u in range(MT) if table(fam, P, u)}
+            if MT > 1: nontriv[fam] += 1
+            hits[fam] += len(L)
+            if L != Tb:
+                bad += 1; print('MISMATCH', fam, P, sorted(L)[:5], sorted(Tb)[:5])
+    print('mismatches', bad, 'u-hits per family', hits, 'cases with M_T>1', nontriv)
 
-# ---- Lemma 1.2 parity check: for every hit u in L with (u/q)=-1 for every q | M_T, check claimed parity
-def v(m):
-    s = 0
-    for q in T:
-        while m % q == 0: m //= q; s += 1
-    return s
-def leg(u, q): return pow(u % q, (q-1)//2, q)
-def parity(fam, P):
-    x, y, z = P
-    return {'II1': v(x*y), 'I4': v(x*y), 'II2': v(z), 'I2': v(x*y)+v(z), 'I1': v(y), 'I3': v(y), 'II3': v(y)+v(z)}[fam] % 2 == 1
-random.seed(99); pbad = 0; ptested = {}; pfail_res = 0
-for fam in ('I1', 'I2', 'I3', 'I4', 'II1', 'II2', 'II3'):
-    ptested[fam] = 0
-    for _ in range(N):
-        P = gen(fam); R, M = classres(fam, P); L, MT = lit(R, M)
-        qs = [q for q in T if MT % q == 0]
-        for u in L:
-            if gcd(u, 143) > 1: continue
-            if all(leg(u, q) == q-1 for q in qs):
-                ptested[fam] += 1
-                if not parity(fam, P): pbad += 1; print('PARITY FAIL', fam, P, u, MT)
-            elif all(leg(u, q) == 1 for q in qs) and qs and not parity(fam, P) is False:
-                pass
-print('Lemma 1.2: parity failures', pbad, 'tested (nonresidue-u hits) per family', ptested)
+    # ---- Lemma 1.2 parity check: for every hit u in L with (u/q)=-1 for every q | M_T, check claimed parity
+    def v(m):
+        s = 0
+        for q in T:
+            while m % q == 0: m //= q; s += 1
+        return s
+    def leg(u, q): return pow(u % q, (q-1)//2, q)
+    def parity(fam, P):
+        x, y, z = P
+        return {'II1': v(x*y), 'I4': v(x*y), 'II2': v(z), 'I2': v(x*y)+v(z), 'I1': v(y), 'I3': v(y), 'II3': v(y)+v(z)}[fam] % 2 == 1
+    random.seed(99); pbad = 0; ptested = {}; pfail_res = 0
+    for fam in ('I1', 'I2', 'I3', 'I4', 'II1', 'II2', 'II3'):
+        ptested[fam] = 0
+        for _ in range(N):
+            P = gen(fam); R, M = classres(fam, P); L, MT = lit(R, M)
+            qs = [q for q in T if MT % q == 0]
+            for u in L:
+                if gcd(u, 143) > 1: continue
+                if all(leg(u, q) == q-1 for q in qs):
+                    ptested[fam] += 1
+                    if not parity(fam, P): pbad += 1; print('PARITY FAIL', fam, P, u, MT)
+                elif all(leg(u, q) == 1 for q in qs) and qs and not parity(fam, P) is False:
+                    pass
+    print('Lemma 1.2: parity failures', pbad, 'tested (nonresidue-u hits) per family', ptested)
