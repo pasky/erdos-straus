@@ -1,5 +1,17 @@
 # Paper draft status
 
+**New (2026-10-08): `es-mn-short-note.tex` / `.pdf`** (task O97, 18 pages, 10pt) — "The exponent 3/4
+for the exceptional set of m/n, in short intervals and progressions". Consolidates EXCEPTIONAL_SHORT
+((D)30, review R88) and EXCEPTIONAL_MN ((D)31, reviews R94A/B): Theorem A (`E_m(I) ≤ C H exp(−c(log H)^{3/4}
+m^{−1/4})`, every interval, absolute constants, m ≥ 4), Theorem B (progressions, loss = smooth part q_1),
+Cor C (primes in short intervals, no prime input at scale x), Cor D (density transition at
+`log n = m^{1/3+o(1)}` vs PW's proof range, gap `(log m)²(m/φ(m))^{1/3}`), Prop E (lower end), window exponent,
+literature, open problems. The 3/4 note is a black box (§2 lists every statement used / re-run / replaced;
+majorant-package abstraction); full proofs of the 4 → m re-runs (identity, CRT, h_m, prime slice, void,
+assembly) and of the local transfer (Lemmas 7.1–7.3, Prop 7.4). All PROVED *relative to the note*
+(internally proved, not externally refereed). Change list: `reviews/agent-reports/AGENT_REPORT_O97.md`.
+Not yet refereed.
+
 **New (2026-10-06): `es-coverings-note.tex` / `.pdf`** (task O86, 20 pages) — "Finite congruence
 coverings for the Erdős–Straus equation and sterile profinite points". Consolidates the reviewed
 covering results: ET Prop 1.9 classes as clopen sets in Ẑ, compactness + Dirichlet (Prop 2.5: a cofinite

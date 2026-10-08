@@ -1,0 +1,1338 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{introthm}{Theorem}
+\renewcommand{\theintrothm}{\Alph{introthm}}
+\newtheorem{introcor}[introthm]{Corollary}
+\newtheorem{introprop}[introthm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\K}{\mathcal K}
+\newcommand{\J}{\mathcal J}
+\newcommand{\A}{\mathcal A}
+\newcommand{\M}{\mathcal M}
+\newcommand{\Sset}{\mathcal S}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\li}{\operatorname{li}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\e}{\mathrm e}
+\newcommand{\Tabs}{T_{\rm abs}}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\title[The exponent $3/4$ for $m/n$ in short intervals]{The exponent $3/4$ for the exceptional set of $m/n$, in short intervals and progressions}
+\author{Anonymous}
+\date{Draft, 8 October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+For an integer $m\geq4$ call $n$ \emph{$m$-exceptional} if $m/n$ is not a
+sum of three unit fractions.  We show that there are absolute constants
+$c,C>0$ such that every interval $I$ of length $H\geq2$ contains at most
+\[
+ C\,H\exp\{-c(\log H)^{3/4}m^{-1/4}\}
+\]
+$m$-exceptional integers, uniformly in $m\geq4$ and in the position of
+$I$.  We also give a version for arithmetic progressions, whose only loss
+is the smooth part of the modulus; a bound for exceptional primes in short
+intervals that uses no information about primes at the scale of the
+interval; and a density statement locating the transition from ``most
+primes are $m$-exceptional'' to ``most primes are $m$-representable'' at
+$\log n=m^{1/3+o(1)}$, up to a factor $(\log m)^2(m/\varphi(m))^{1/3}$ in
+$\log n$ (the ``exceptional'' side comes from the proof of a theorem of
+Pomerance and Weingartner).  For comparison, Pomerance and Weingartner proved the
+exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments.
+The method is the one of an earlier internal note on $4/n$ over
+$[1,N]$, which we use as a black box.  What we add is a local transfer
+to arbitrary windows, through a smooth-part decomposition, and the
+replacement of the numerator $4$ by $m$, which turns cubic logarithmic
+class mass into $(\log X)^3/m$.  \textbf{Status:} every result is proved
+\emph{relative to that note}, which is internally proved and has
+\emph{not} been externally refereed; the same applies to this note.
+Nothing here bears on the existence of exceptions; this is not a proof of
+the Erd\H{o}s--Straus conjecture or of Schinzel's conjecture.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+Let $m\geq2$ be an integer.  A positive integer $n$ is
+\emph{$m$-representable} if
+\begin{equation}\label{eq:mn}
+ \frac mn=\frac1{x_1}+\frac1{x_2}+\frac1{x_3}
+\end{equation}
+has a solution in positive integers, not necessarily distinct, and
+\emph{$m$-exceptional} otherwise.
+For $m\leq3$ every $n$ is representable; for $m\geq4$ the integer $n=1$
+is exceptional.  The Erd\H{o}s--Straus conjecture is the case $m=4$ with
+no exception $n\geq2$; Sierpi\'nski conjectured the analogue for $5/n$, and
+Schinzel conjectured that for each $m\geq4$ there are only finitely many
+$m$-exceptional $n$.  For a real interval $I$, a modulus $q\geq1$ and
+$b\in\Z$ put
+\[
+ \begin{aligned}
+ E_m(I)&=\#\{n\in I\cap\Z_{\geq1}:n\ m\text{-exceptional}\},\\
+ E_m(I;q,b)&=\#\{n\in I\cap\Z_{\geq1}:n\equiv b\ (q),\ n\ m\text{-exceptional}\},
+ \end{aligned}
+\]
+and $E_m(N)=E_m((0,N])$.
+
+\subsection*{Background}
+Vaughan \cite{Vaughan} proved $E_4(N)\ll N\exp\{-c(\log N)^{2/3}\}$, and,
+according to \cite[abstract]{PW}, the analogous statement that most $n$
+are $m$-representable for each fixed $m$.  Elsholtz and Tao
+\cite[\S1]{ET} cite Vaughan's bound, listing other results as weaker,
+and Pomerance and Weingartner \cite[p.~2]{PW} describe it as the state of
+the art for $4/n$.
+Pomerance and Weingartner \cite[Thm.~1.3]{PW} made it uniform in the
+numerator: for $4\leq m\leq(\log N)^2$,
+\begin{equation}\label{eq:PW}
+ E_m(N)\leq N\exp\{-C_{\rm PW}(\log N)^{2/3}\varphi(m)^{-1/3}\}.
+\end{equation}
+An internal research note \cite{TQ} (``the note'' below) proves the
+bound
+\[
+ E_4(N)\ll N\exp\{-c(\log N)^{3/4}\}
+\]
+by an argument that has been internally checked but not externally
+refereed.  All results below are
+proved relative to \cite{TQ}; Section~\ref{sec:blackbox} lists exactly
+which of its statements are used.
+
+\subsection*{Results}
+All constants $c,C,\ldots$ below are absolute.  As in \cite{TQ} they
+are not effective, because the standard Bombieri--Vinogradov theorem is
+used.
+
+\begin{introthm}[short intervals, uniform in $m$]\label{thm:A}
+There are absolute constants $c,C>0$ such that for every integer $m\geq4$,
+every real $z$ and every $H\geq2$,
+\[
+ E_m((z,z+H])\leq C\,H\exp\{-c(\log H)^{3/4}m^{-1/4}\}.
+\]
+In particular $E_m(N)\leq C N\exp\{-c(\log N)^{3/4}m^{-1/4}\}$ for all
+$N\geq2$.
+\end{introthm}
+
+The bound depends only on the length of the interval.  It contains the
+theorem of \cite{TQ}, which is the case $m=4$, $z=0$.  The saving tends
+to infinity if and only if $m=o((\log H)^3)$.  For
+$m\leq\varepsilon(\log H)^3$ with $\varepsilon=\varepsilon(c,C)$ small it is
+a nontrivial constant factor; for larger $m$ it is no better than the
+trivial bound $E_m(I)\leq H+1$.
+
+\begin{introthm}[progressions]\label{thm:B}
+There are absolute $c,C,\alpha>0$ with the following property.  Let
+$m\geq4$, let $I$ be an interval of length $H$, let $q\geq1$ and $b\in\Z$
+with $H/q\geq2$, put
+$X_q=\exp\{\alpha(m\log(H/q))^{1/4}\}$, and let $q_1$ be the
+$X_q$-smooth part of $q$ (the product of the prime powers $p^a\Vert q$
+with $p\leq X_q$).  Then
+\[
+ E_m(I;q,b)\leq C\,q_1\frac Hq
+     \exp\{-c(\log(H/q))^{3/4}m^{-1/4}\}.
+\]
+Consequently $E_m(I;q,b)\leq C(H/q)\exp\{-\tfrac c2(\log(H/q))^{3/4}m^{-1/4}\}$
+whenever $q\leq\exp\{\tfrac c2(\log(H/q))^{3/4}m^{-1/4}\}$, and the
+factor $q_1$ is absent when every prime factor of $q$ exceeds $X_q$.
+\end{introthm}
+
+\begin{introcor}[exceptional primes in short intervals]\label{cor:C}
+With $c,C$ as in Theorem~\ref{thm:A}: for $m\geq4$, $x\geq3$ and $H\geq2$
+with $(\log H)^{3/4}m^{-1/4}\geq(2/c)\log\log x$,
+\[
+ \#\{p\in(x,x+H]:p\ m\text{-exceptional}\}
+ \leq C\frac H{\log x}\exp\{-\tfrac c2(\log H)^{3/4}m^{-1/4}\}
+\]
+($p$ prime).  For fixed $m$ this holds for $H\geq\exp\{C_m(\log\log x)^{4/3}\}$ with
+$C_m=(2/c)^{4/3}m^{1/3}$.
+\end{introcor}
+
+No information on primes at scale $x$ enters: the factor $1/\log x$ is
+paid for by the saving.  Prime-number input is needed only for relative
+statements (Remark~\ref{rem:relative}).
+
+\begin{introcor}[the density transition]\label{cor:D}
+There is an absolute $C_D$ such that for all $m\geq4$ and all $N\geq16$
+with $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
+\[
+ \#\{p\in(N/2,N]:p\text{ prime},\ m\text{-exceptional}\}
+ \leq\frac N{(\log N)^2}.
+\]
+Moreover $E_m(N)=o(N)$ whenever $\log N/m^{1/3}\to\infty$.
+\end{introcor}
+
+In the other direction, the proof of \cite[Thm.~3.1]{PW} shows that most
+primes in $(N/2,N]$ are $m$-exceptional when
+$m^{1/4}\ll\log N\leq(\varphi(m)/(C\log^2m))^{1/3}$
+(Section~\ref{sec:transition}).  Pomerance and Weingartner's rigorous
+bounds placed the transition between $\log N=m^{1/3}$ and
+$\log N=m^{1/2}$ \cite[p.~2]{PW}; their Poisson heuristic \cite[p.~3]{PW}
+predicts $m^{1/3+o(1)}$.  Corollary~\ref{cor:D} confirms the density
+part of that prediction, up to the factor
+$(\log m)^2(m/\varphi(m))^{1/3}$ in $\log N$.  We do not know that the
+proportion of exceptional primes is monotone in between, and nothing is
+said about the \emph{largest} $m$-exceptional integer.
+
+Theorem~\ref{thm:A} and \eqref{eq:PW} have unrelated constants (ours
+ineffective), so their comparison is asymptotic.  The ratio of the
+exponents is
+\begin{equation}\label{eq:ratio}
+ \frac{L^{3/4}m^{-1/4}}{L^{2/3}\varphi(m)^{-1/3}}
+ =L^{1/12}\frac{\varphi(m)^{1/3}}{m^{1/4}}
+ \gg\frac{(Lm)^{1/12}}{(\log\log3m)^{1/3}},\qquad L=\log N,
+\end{equation}
+by $\varphi(m)\gg m/\log\log3m$.  In the range $4\leq m\leq L^2$ of
+\eqref{eq:PW} its exponent $L^{2/3}\varphi(m)^{-1/3}$ is at least $1$, which
+absorbs the factor $C$ of Theorem~\ref{thm:A}.  Hence there is an absolute
+(ineffective) $\Lambda_0$ such that, for $4\leq m\leq L^2$,
+Theorem~\ref{thm:A} is stronger than \eqref{eq:PW} as soon as
+$(Lm)^{1/12}\geq\Lambda_0(\log\log3m)^{1/3}$; in particular for all such
+$m$ once $N\geq N_0$.  Outside this range \eqref{eq:PW} is not available.
+
+Finally (Section~\ref{sec:lowerend}) a bound with saving in $\log x$
+rather than $\log H$, of the shape
+$E_m((x,x+H])\ll H\e^{-c(\log x)^{3/4}}$, cannot be proved for windows
+with $H<\e^{c(\log x)^{3/4}}/C$ without proving that there are no
+exceptions at all beyond some point (Proposition~\ref{prop:E}).
+
+\subsection*{Status and novelty}
+Every statement labelled \status{proved} here is proved \emph{relative to}
+\cite{TQ}: the steps that change are written out in full, and the
+remaining steps are cited from \cite{TQ} by name.  The note \cite{TQ}
+is internally proved; it has \emph{not} been refereed externally, and
+neither has this note.  The underlying working documents
+\cite{SHORT,MN} received three internal hostile reviews, and their
+repairs are incorporated.
+
+We found no published short-interval or progression version of an
+exceptional-set bound for \eqref{eq:mn}, for any $m$
+(Section~\ref{sec:literature}); the searches were not exhaustive.  We
+make no novelty claim for the \emph{method}, which is that of \cite{TQ},
+and the forced classes are those of Vaughan, Elsholtz--Tao and
+Pomerance--Weingartner.  Every forced class is an identity valid for all
+$n$ in the class, and counting congruence classes is translation
+invariant.  An expert would therefore regard the transfer to short
+intervals as routine for the part of the argument that concerns integers
+free of small prime factors.  What we add is the following: a local
+replacement for the global semigroup step of \cite{TQ}
+(Lemma~\ref{lem:smooth}); the bookkeeping that turns $t^3$ into $t^3/m$
+with absolute constants, with no loss of $\varphi(m)$ or $\log m$
+(Sections~\ref{sec:atoms}--\ref{sec:assembly}); and the consequences
+above.  None of this improves the exponent $3/4$.
+
+\subsection*{Organisation}
+Section~\ref{sec:blackbox} lists what is taken from \cite{TQ} and
+isolates the single object the rest of the argument needs, a
+\emph{majorant package} (Definition~\ref{def:package}).
+Sections~\ref{sec:atoms}--\ref{sec:assembly} construct the package for
+general $m$, writing out every step that differs from \cite{TQ}.
+Section~\ref{sec:transfer} contains the local transfer to arbitrary
+windows and progressions and proves Theorems~\ref{thm:A},~\ref{thm:B}
+and Corollary~\ref{cor:C}.  Section~\ref{sec:transition} proves
+Corollary~\ref{cor:D}, Section~\ref{sec:lowerend} discusses the lower
+end of the window range, Section~\ref{sec:literature} the literature,
+and Section~\ref{sec:open} lists open problems.
+
+\section{The black box and the majorant package}\label{sec:blackbox}
+\subsection{Parameters}
+We use the parameters of \cite[(2)]{TQ} with one change.  Fix
+$\kappa=1/480$ and the integer $D$ of \cite[Lemma~3.3]{TQ}.  For $X\geq3$
+put
+\[
+ t=\log X,\qquad K=\lfloor X^\kappa\rfloor,\qquad H_K=K^{10},
+\]
+and use the blocks $I_j=(x_j,\min(2x_j,X)]$, $x_j=2^jX^{1/2}$, with
+$z_j=x_j^{1/6}$; for large $X$ one has $z_j\geq X^{1/12}>H_K^2$
+\cite[(3)]{TQ}.  (The note calls $H_K$ simply $H$; here $H$ is the length of
+a window.)  The change is the multiplier set:
+\[
+ \K_m(K)=\{1\leq k\leq K:(k,m)=1\},\qquad L_K=\lcm\K_m(K),
+\]
+in place of $\K(K)=\{k\leq K:k\equiv1\ (4)\}$.  For
+$\J\subseteq\K_m(K)$ put $h(\J)=\sum_{k\in\J}\varphi(k)/k^2$ and
+$L_{\J}=\lcm\J$.  Throughout, $P_y=\prod_{p\leq y}p$ and
+$S_y(n)=\ind_{(n,P_y)=1}$.
+
+\subsection{What is used from the note}
+External inputs are those of \cite[\S3]{TQ}: Brun--Titchmarsh in the
+Montgomery--Vaughan form \cite{MV}, the Bombieri--Vinogradov theorem
+\cite[Ch.~28]{Davenport}, and Shiu's theorem \cite{Shiu} (inside
+\cite[Lemma~3.3]{TQ}).  The statements of \cite{TQ} enter as follows.
+
+\smallskip
+\noindent\textbf{Used verbatim.}
+\begin{itemize}
+\item \cite[Lemma~3.1]{TQ} (elementary lattice sums); it is stated for
+every integer $1\leq k\leq K$ and every $(c,k)=1$.
+\item \cite[Lemma~3.3]{TQ} (low-$\omega$ mass), stated for every
+$k\leq K$, $(c,k)=1$.
+\item \cite[Lemma~4.1]{TQ} (second incidence moment).  It is stated for
+$\J\subseteq\K(K)$, but its proof uses only $\J\subseteq[1,K]$, so it
+holds for $\J\subseteq\K_m(K)$.
+\item The conditional-independence proof of \cite[Theorem~6.3]{TQ}
+(factorial moments) and \cite[Lemma~8.1]{TQ} (the even Bonferroni
+polynomial $Q_r$).
+\item For $m=4$ only: \cite[Theorem~8.2]{TQ} (the assembly) as stated,
+together with the identity \cite[Lemma~2.1]{TQ}.
+\end{itemize}
+
+\noindent\textbf{Re-run with $4$ replaced by $m$} (each change is written
+out below): \cite[Lemma~2.1]{TQ} (the identity; Lemma~\ref{lem:identity}),
+\cite[Lemma~2.2]{TQ} (deduplication and CRT; Lemma~\ref{lem:CRT}),
+\cite[Lemma~3.2]{TQ} (harmonic sum; replaced by Lemma~\ref{lem:hm}),
+\cite[Theorem~4.2, Corollary~4.3]{TQ} (prime slice and fibre masses;
+Proposition~\ref{prop:harvest}, Corollary~\ref{cor:fibre}),
+\cite[Lemma~7.1]{TQ} (void; Lemma~\ref{lem:void}) and
+\cite[Theorem~8.2]{TQ} (assembly; Theorem~\ref{thm:assembly}).
+
+\noindent\textbf{Replaced.}  The counting step \cite[(50)]{TQ} over
+$[1,N]$ is replaced by its local form (Lemma~\ref{lem:localmean}), and
+the global transfer to all denominators \cite[\S9]{TQ} (semigroup of
+exceptional primes and Rankin's trick) is replaced by a local smooth-part
+decomposition (Lemma~\ref{lem:smooth}).
+
+\noindent\textbf{Not used.}  The simplified route \cite[\S5]{TQ}, the
+ordered-atom replay after \cite[Theorem~6.3]{TQ} with
+\cite[Lemmas~6.1, 6.2]{TQ}, and \cite[\S\S10--11]{TQ} (heuristic ceiling,
+checkpoints).  We re-derive only the retained original route of
+\cite{TQ}, with the cutoff $\omega(uv)\leq D\log\log X$ and congestion
+pruning.  (The Cauchy--Schwarz route of \cite[\S5]{TQ} also appears to
+transfer, via $\varphi(muv)\geq\varphi(m)\varphi(u)\varphi(v)$, but we
+have not written it out.)
+
+\smallskip
+The substitutions are summarised in Table~\ref{tab:subst}.  Where the
+numerator $4$ occurs in \cite{TQ} we checked it occurrence by occurrence.
+Apart from the unused \cite[\S5]{TQ}, the remark after \cite[(21)]{TQ}
+and \cite[\S\S10--11]{TQ}, it appears only in statements that are re-run
+below: in the identity, in the multiplier condition $k\equiv1\ (4)$ and
+\cite[Lemma~3.2]{TQ}, in the deduplication bound $4uv>K$ of
+\cite[Lemma~2.2]{TQ}, in the prime modulus $4uv$ (including the level
+$q\leq4x^{1/3}$ in \cite[(8), (9)]{TQ} and the main-term step of
+\cite[Theorem~4.2]{TQ}), in the inequality
+$\varphi(4uv)\geq2\varphi(u)\varphi(v)$, and in the remark on primes
+$p\equiv3\ (4)$ in the proof of \cite[Lemma~7.1]{TQ}.  The inventory bound
+$|\A_X|\leq KX^{4/3}$ does not involve the numerator.  No step of the
+density argument (lattice sums, Shiu, congestion, moments, void,
+Bonferroni) looks at the quadratic character of the forced classes.  So
+the dichotomy between $m\equiv0\pmod 4$ and $m\not\equiv0\pmod4$ that
+governs \emph{pointwise} questions for $m/n$ \cite[\S15]{SUBEXP} plays no
+role here.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+object & note \cite{TQ} ($m=4$) & here (general $m$)\\
+\midrule
+identity & $k\ell+1=4uvw$ & $k\ell+1=m\,uvw$\\
+multipliers & $k\leq K$, $k\equiv1\ (4)$ & $k\leq K$, $(k,m)=1$\\
+prime progression & $\ell\equiv-k^{-1}\ (4uv)$ & $\ell\equiv-k^{-1}\ (muv)$\\
+totient bound & $\varphi(4uv)\geq2\varphi(u)\varphi(v)$ &
+   $\varphi(muv)\geq\varphi(m)\varphi(u)\varphi(v)$\\
+harmonic sum & $h=\tfrac2{\pi^2}\log K+O(1)$ &
+   $h_m\asymp(\varphi(m)/m)\log K$\\
+fibre mass & $\asymp t^3$ & $\asymp s:=t^3/m$\\
+selector, depth & $y=Bt^3$, $r\approx D_Bt^3$ & $y=\max(2,Bs)$, $r\approx D_Bs$\\
+ledger & $\e^{O(t^4)}$ & $\e^{O(ts)}=\e^{O(t^4/m)}$\\
+transfer & $[1,N]$, then Rankin & any window, smooth parts\\
+\bottomrule
+\end{tabular}
+\caption{The substitutions $4\to m$ and $[1,N]\to$ window.}
+\label{tab:subst}
+\end{table}
+
+\subsection{The majorant package}
+The transfer of Section~\ref{sec:transfer} uses only the following
+properties.
+
+\begin{definition}\label{def:package}
+Let $m\geq4$, $X\geq3$, $t=\log X$, $s\geq1$ and $2\leq y<X^{1/2}$.  An
+\emph{$(m;X,s,y)$-package with constants $(a,C_L)$} is a function
+$\nu:\Z\to\mathbb R$ together with a positive integer $\M$ all of whose
+prime factors are at most $X$, such that:
+\begin{enumerate}
+\item[(P1)] $\nu(n)\geq0$ for all $n$, and $\nu(n)\geq1$ for every
+$m$-exceptional $n\geq1$ with $(n,P_y)=1$;
+\item[(P2)] $\nu=\sum_i\epsilon_i\ind_{a_i\ (q_i)}$ is a finite signed
+combination of residue classes with every $q_i\mid\M$ and
+$\Tabs:=\sum_i|\epsilon_i|\leq\e^{C_Lts}$;
+\item[(P3)] $\E_{\M}\nu\leq2\e^{-as}$, where $\E_{\M}$ is the uniform
+average over $\Z/\M\Z$ (well defined by (P2)).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[packages exist]\label{prop:package}
+There are absolute constants $a,B,C_L,s_0>0$ and $X_a$ such that for
+every $X\geq X_a$ and every integer $4\leq m\leq t^3$ with
+$s:=t^3/m\geq s_0$ there is an $(m;X,s,\max(2,Bs))$-package with
+constants $(a,C_L)$.
+\end{proposition}
+
+For $m=4$ the note gives such a package directly.  Indeed
+\cite[Theorem~8.2]{TQ}, with its own family and fixed constants, yields a
+$(4;X,t^3/4,B_4t^3)$-package with constants $(4c_a,4C_L)$ in the notation
+of \cite{TQ}: property (P1) holds because every
+exceptional $n$ avoids every atom \cite[Lemma~2.2]{TQ}, so $H_X(n)=0$ and
+$\nu_X(n)=S_y(n)Q_r(0)=1$ when $(n,P_y)=1$; (P2) is \cite[(44)]{TQ} with
+$\M$ from \cite[(7)]{TQ}; and (P3) is \cite[(43)]{TQ}.  Note that
+\cite[Theorem~8.2]{TQ} states the lower bound $\nu_X\geq1$ only for
+exceptional primes $n>\max(K,y)$.  Its proof, however, uses only the
+identity, which holds for every positive integer in a forced class, so
+it gives (P1) as stated.  The transfer of Section~\ref{sec:transfer}
+needs only $y\leq B's+2$ for some absolute $B'$, which holds here with
+$B'=4B_4$.  Thus the case $m=4$ of Theorems~\ref{thm:A} and~\ref{thm:B}
+follows from \cite{TQ} and Section~\ref{sec:transfer} alone.  For general $m$,
+Proposition~\ref{prop:package} is Theorem~\ref{thm:assembly} below.
+
+\section{The atom family for general $m$}\label{sec:atoms}
+\begin{lemma}[multiplier identity for $m$]\label{lem:identity}
+Let $m,k,\ell,u,v,w$ be positive integers with $k\ell+1=m\,uvw$.  If
+$n\geq1$ and $nv\equiv-u\pmod{k\ell}$, then $s=(nv+u)/(k\ell)$ is a
+positive integer and
+\[
+ \frac mn=\frac1{suw}+\frac1{nsvw}+\frac1{nuvw}.
+\]
+In particular every positive integer in the class $-uv^{-1}\pmod{k\ell}$
+is $m$-representable; the inverse exists because $uv\mid k\ell+1$.
+\end{lemma}
+
+\begin{proof}
+Over the common denominator $nsuvw$ the numerators sum to
+$nv+u+s=sk\ell+s=s(k\ell+1)=m\,suvw$.
+\end{proof}
+
+For $m=4$ this is \cite[Lemma~2.1]{TQ}.  The identity was checked in
+exact rational arithmetic on $4821$ random instances with $m\leq60$
+(\texttt{scripts/emn\_identity.py}); this is a sanity check only.
+
+\begin{definition}[atom family]\label{def:atoms}
+Let $\A^{(m)}_X$ be the set of quadruples $A=(k,\ell,u,v)$ with
+\begin{equation}\label{eq:atomdef}
+ \begin{gathered}
+ k\in\K_m(K),\quad \ell\in I_j\text{ prime},\quad H_K<u,v\leq z_j,\\
+ (u,v)=(uv,k)=1,\quad \omega(uv)\leq D\log\log X,
+ \quad m\,uv\mid k\ell+1,
+ \end{gathered}
+\end{equation}
+with atoms and atom count
+\[
+ E_A=\{n:n\equiv-uv^{-1}\pmod{k\ell}\},\qquad
+ H_X(n)=\sum_{A\in\A^{(m)}_X}\ind_{E_A}(n).
+\]
+\end{definition}
+
+The divisibility $m\mid k\ell+1$ forces $(k,m)=(\ell,m)=1$.  Unlike
+\cite{TQ}, which uses $k\equiv1\pmod 4$ only, we admit every multiplier
+coprime to $m$ and let the class $\ell\equiv-k^{-1}\pmod m$ vary with $k$.
+Restricting to $k\equiv1\pmod m$ would lose a factor of order
+$\varphi(m)$ in the multiplier harmonic sum, hence in the fibre mass.
+As in \cite{TQ}, the family is fixed and unpruned, and it does not depend
+on any residue.  We use the probability space of uniform $n$ modulo
+\begin{equation}\label{eq:space}
+ \M=\lcm(L_K,P_y)\prod_{\substack{X^{1/2}<\ell\leq X\\\ell\text{ prime}}}\ell,
+ \qquad 2\leq y<X^{1/2},
+\end{equation}
+as in \cite[(7)]{TQ}.  Every prime factor of $\M$ is at most $X$.
+
+\begin{lemma}[deduplication and conditional independence]\label{lem:CRT}
+For all $X\geq X_0$ \textup{(}absolute\textup{)} and every $m\geq4$:
+\begin{enumerate}
+\item every $m$-exceptional integer $n\geq1$ avoids every atom;
+\item at a fixed $\ell$, distinct atoms have distinct projections
+modulo $\ell$; hence the atoms of a compatible set of distinct atoms
+have distinct primes $\ell_i$, and
+\[
+ \Prob\Bigl(\bigcap_iE_{A_i}\Bigr)
+ =\frac{\ind_{\rm compatible}}{\lcm(k_1,\ldots,k_j)\prod_i\ell_i};
+\]
+\item conditional on any residue $c\pmod{L_K}$ compatible with
+$S_y=1$ \textup{(}and on $S_y=1$\textup{)}, the coordinates $n\bmod\ell$, $X^{1/2}<\ell\leq X$,
+are independent and uniform, and the atom $A$ is \emph{active} in the
+fibre $c$, i.e.\ $E_A$ meets it, precisely when $k\mid u+cv$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+This is \cite[Lemma~2.2]{TQ}; we repeat the proof with $4$ replaced by
+$m$.  Part~(1) is Lemma~\ref{lem:identity}.  If two atoms at the same
+$\ell\in I_j$ have the same projection modulo $\ell$, then
+$\ell\mid uv'-u'v$; as $|uv'-u'v|<z_j^2<\ell$, we get $uv'=u'v$, and
+reducedness gives $(u,v)=(u',v')$.  Then
+$k\ell\equiv k'\ell\equiv-1\pmod{m\,uv}$ and $(\ell,m\,uv)=1$ give
+$k\equiv k'\pmod{m\,uv}$; since $m\,uv>H_K^2>K$, $k=k'$.  So two distinct
+atoms with the same $\ell$ are incompatible.  All $\ell>X^{1/2}>K$ are
+coprime to $L_K$ and to $P_y$, so the Chinese remainder theorem gives the
+intersection formula and the conditional independence; reduction modulo
+$k\mid L_K$ gives the activation criterion.
+\end{proof}
+
+No upper bound on $m$ is needed here: $(\ell,m)=1$ is forced by
+$m\mid k\ell+1$.  Lemma~\ref{lem:CRT} was also checked numerically for
+$m\in\{4,5,6,7,11,12\}$ and $\ell\in(1000,3000)$ (19\,446 atoms, no
+collision; \texttt{scripts/emn\_identity.py}).
+
+\section{The multiplier harmonic sum}\label{sec:hm}
+This section replaces \cite[Lemma~3.2]{TQ}.  Put
+\[
+ S_m(x)=\sum_{\substack{j\leq x\\(j,m)=1}}\frac1j,\qquad
+ h_m(K)=h(\K_m(K))=\sum_{k\in\K_m(K)}\frac{\varphi(k)}{k^2}.
+\]
+
+\begin{lemma}\label{lem:hm}
+Let $m\geq4$.
+\begin{enumerate}
+\item[(a)] For $x\geq m^2$: $S_m(x)\geq(\varphi(m)/m)\log x$.
+\item[(b)] For every $K\geq1$: $h_m(K)\geq(1-\sum_pp^{-2})S_m(K)\geq0.54\,S_m(K)$.
+\item[(c)] For every $K\geq1$ and every prime $p\nmid m$:
+$\sum_{k\in\K_m(K),\,p\mid k}\varphi(k)/k^2\leq S_m(K)/p$.
+\item[(d)] There is an absolute $C_h$ such that
+$h_m(K)\leq S_m(K)\leq C_h(\varphi(m)/m)\log K$ for $K\geq\max(m,3)$.
+\end{enumerate}
+In particular $0.54\,(\varphi(m)/m)\log K\leq h_m(K)\leq
+C_h(\varphi(m)/m)\log K$ for $K\geq m^2$.
+\end{lemma}
+
+\begin{proof}
+(a) By M\"obius inversion over $e\mid m$,
+$S_m(x)=\sum_{e\mid m}\mu(e)e^{-1}\sum_{i\leq x/e}i^{-1}$.  For real
+$y\geq1$ one has $\sum_{i\leq y}i^{-1}=\log y+\gamma+\theta_y/y$ with
+$|\theta_y|\leq1$, and here $x/e\geq x/m\geq m$.  Hence
+\[
+ S_m(x)=\frac{\varphi(m)}m(\log x+\gamma)
+  -\sum_{e\mid m}\frac{\mu(e)\log e}e+R,\qquad|R|\leq\frac{2^{\omega(m)}}x.
+\]
+Differentiating $f(\sigma)=\sum_{e\mid m}\mu(e)e^{-\sigma}=\prod_{p\mid m}(1-p^{-\sigma})$
+at $\sigma=1$ gives
+$-\sum_{e\mid m}\mu(e)\log e/e=f'(1)=(\varphi(m)/m)\sum_{p\mid m}\log p/(p-1)\geq0$.
+Finally $2^{\omega(m)}/x\leq m/m^2=1/m<\gamma\varphi(m)/m$, because
+$\varphi(m)\geq2$ and $2\gamma>1$.
+
+(b) Since $\varphi(k)/k=\prod_{p\mid k}(1-1/p)\geq1-\sum_{p\mid k}1/p$,
+and $k\in\K_m(K)$ with $p\mid k$ means $k=pj$ with $p\nmid m$ and
+$j\in\K_m(K/p)$,
+\[
+ \begin{aligned}
+ h_m(K)&\geq S_m(K)-\sum_{p\nmid m}\frac1p\sum_{\substack{k\in\K_m(K)\\p\mid k}}\frac1k\\
+ &=S_m(K)-\sum_{p\nmid m}\frac{S_m(K/p)}{p^2}
+ \geq\Bigl(1-\sum_pp^{-2}\Bigr)S_m(K),
+ \end{aligned}
+\]
+and $\sum_pp^{-2}<0.4523$.
+
+(c) Write $k=pj$ as in (b) and use $\varphi(k)/k^2\leq1/k$.
+
+(d) The first inequality is $\varphi(k)\leq k$.  Every $j\leq K$ coprime to
+$m$ has all its prime factors in $\{p\leq K:p\nmid m\}$, so
+\[
+ S_m(K)\leq\prod_{\substack{p\leq K\\p\nmid m}}\Bigl(1-\frac1p\Bigr)^{-1}
+ =\prod_{p\leq K}\Bigl(1-\frac1p\Bigr)^{-1}\prod_{\substack{p\mid m\\p\leq K}}\Bigl(1-\frac1p\Bigr).
+\]
+For $K\geq m$ every prime factor of $m$ is at most $K$, so the last
+product is $\varphi(m)/m$.  Mertens' theorem bounds the first by an
+absolute multiple of $\log K$ for $K\geq3$.
+\end{proof}
+
+A numerical check of (a)--(c) for $m=4,\ldots,60$ and $m=210$ up to
+$K=10^5$ found no failure, with
+$S_m(K)/((\varphi(m)/m)\log K)\in[1.05,1.23]$
+(\texttt{scripts/emn\_hm.py}).  For $m=4$ the note's sub-progression
+$k\equiv1\pmod 4$ gives $(2/\pi^2)\log K+O(1)$ \cite[Lemma~3.2]{TQ}, a
+constant fraction of $h_4$.
+
+\section{Fibre masses for general $m$}\label{sec:fibre}
+For $k\geq1$, $(c,k)=1$ and $1\leq H_K<z$ let, as in \cite[\S3]{TQ},
+\[
+ \Sset(k,c;H_K,z)=\{(u,v):H_K<u,v\leq z,\ (u,v)=(v,k)=1,\
+ u\equiv-cv\ (k)\}
+\]
+(so $(u,k)=1$ automatically), and for $\J\subseteq\K_m(K)$ and
+$(c,L_{\J})=1$ let $r_{\J}(u,v;c)=\#\{k\in\J:k\mid u+cv\}$.
+For $\J\subseteq\K_m(K)$ and a residue $c$ let $f_{c;\J}(\ell)$ be the
+number of atoms $A\in\A^{(m)}_X$ with $\ell_A=\ell$, $k_A\in\J$ and
+$k_A\mid u_A+cv_A$.
+
+\begin{proposition}[pruned prime slice for $m$]\label{prop:harvest}
+There are absolute $a_h,A_h>0$ and $X_h$ such that for every $X\geq X_h$,
+every integer $4\leq m\leq t^3$, every $\J$ with
+$1\in\J\subseteq\K_m(K)$ and every $(c,L_{\J})=1$ the following holds.
+In each block $I_j$ keep only the triples $(k,u,v)$ with
+\begin{equation}\label{eq:pruning}
+ \begin{gathered}
+ (u,v)\in\Sset(k,c;H_K,z_j),\quad k\in\J,\\
+ \omega(uv)\leq D\log\log X,\quad r_{\J}(u,v;c)\leq T_X:=t^4,
+ \end{gathered}
+\end{equation}
+and let $f^{\rm good}_{c;\J}(\ell)$ be the number of such triples with
+$m\,uv\mid k\ell+1$, for $\ell\in I_j$ prime.  Then
+\[
+ a_h\frac{t^2h(\J)}{\varphi(m)}\leq\sum_{X^{1/2}<\ell\leq X}
+ \frac{f^{\rm good}_{c;\J}(\ell)}\ell
+ \leq\sum_{X^{1/2}<\ell\leq X}\frac{f_{c;\J}(\ell)}\ell
+ \leq A_h\frac{t^2h(\J)}{\varphi(m)}.
+\]
+\end{proposition}
+
+\begin{proof}
+We follow the proof of \cite[Theorem~4.2]{TQ}; the changes are the
+modulus $m\,uv$ in place of $4uv$ and the resulting factor
+$1/\varphi(m)$.  Each counted triple $(k,u,v)$ together with $\ell$ is an
+atom of $\A^{(m)}_X$, active in the fibre $c$.  By
+Lemma~\ref{lem:CRT}(2) distinct such atoms at the same $\ell$ have
+distinct classes modulo $\ell$, so $f^{\rm good}_{c;\J}\leq f_{c;\J}$, and
+both count distinct classes.  Fix a full block, $x=x_j$, $z=z_j=x^{1/6}$,
+$\Lambda=\log(z/H_K)\geq\frac12\log z$.
+
+\emph{Harmonic mass.}  Summing \cite[Lemma~3.3]{TQ} over $k\in\J$ (its
+cutoff $D\log\log z$ is at most $D\log\log X$) gives
+$\sum_{k\in\J}\sum 1/(uv)\geq\frac18\Lambda^2h(\J)\geq\frac1{32}(\log z)^2h(\J)$,
+the inner sum over $(u,v)\in\Sset(k,c;H_K,z)$ with
+$\omega(uv)\leq D\log\log X$.  The triples removed by $r_{\J}>T_X$ carry
+harmonic mass at most
+\[
+ \sum_{r_{\J}(u,v;c)>T_X}\frac{r_{\J}(u,v;c)}{uv}
+ \leq\frac1{t^4}\sum_{\substack{H_K<u,v\leq z\\(u,v)=1}}\frac{r_{\J}(u,v;c)^2}{uv}
+ \leq\frac{C_{\rm cg}(\log z)^2(1+\kappa t)^3}{t^4}
+\]
+by \cite[Lemma~4.1]{TQ} (whose constant is called $C_2$ there), which applies to $\J\subseteq[1,K]$.  Since
+$h(\J)\geq1$ (as $1\in\J$), the retained harmonic mass is at least
+$\frac1{64}(\log z)^2h(\J)$ for large $X$.
+
+\emph{Main term.}  A retained triple asks for primes
+$\ell\equiv-k^{-1}\pmod q$, $q=m\,uv$; this class is reduced because
+$(k,m)=(k,uv)=1$.  As $m\leq t^3$ and $uv\leq x^{1/3}$, $q\leq t^3x^{1/3}$.
+Using $\li(2x)-\li(x)\geq x/\log(2x)$ and
+$\varphi(m\,uv)\leq\varphi(m)\,uv$, the total main-term weight of the
+retained triples is at least
+\[
+ \frac x{\varphi(m)\log 2x}\sum_{\rm retained}\frac1{uv}
+ \geq a_1\frac{x\log x\,h(\J)}{\varphi(m)}\qquad(a_1>0\text{ absolute}).
+\]
+
+\emph{Bombieri--Vinogradov.}  For a fixed $q$, the quotient $uv=q/m$ is
+fixed, it has at most $2^{\omega(uv)}\leq(\log X)^{D\log2}$ ordered
+coprime splittings $(u,v)$, and each splitting has at most $T_X$ retained
+multipliers.  So the retained multiplicity of $q$ is
+$W(q)\leq t^{4+D\log2}$, exactly as in \cite[(26)]{TQ}.  Fix
+$R=D\log2+17$ in \cite[(9)]{TQ}.  As $x\geq X^{1/2}$ we have
+$t\leq2\log x$, and $q\leq t^3x^{1/3}$ is below the level
+$x^{1/2}(\log x)^{-A_R}$ for large $X$.  Grouping the retained triples by
+$q$, the total error is therefore at most
+$(2\log x)^{4+D\log2}C_Rx(\log x)^{-R}\ll x(\log x)^{-13}$.  The main term
+is at least $a_1x\log x\,t^{-3}\gg x(\log x)^{-2}$, by $h(\J)\geq1$ and
+$\varphi(m)\leq m\leq t^3$.  \emph{This is the only place where the
+range $m\leq t^3$ is used for the lower bound}; any range
+$m\leq t^A$ would do with $R$ depending on $A$.  Hence the retained
+triples have at least $\frac{a_1}2x\log x\,h(\J)/\varphi(m)$ prime
+incidences $\ell\in(x,2x]$, all distinct classes, and dividing by $2x$
+gives $\sum_{\ell\in(x,2x]}f^{\rm good}_{c;\J}(\ell)/\ell\geq\frac{a_1}4\log x\,h(\J)/\varphi(m)$.
+Summing over the $\asymp t$ full blocks, with $\log x\asymp t$, proves the
+lower bound.
+
+\emph{Upper bound.}  Drop the pruning and the cutoff.  For
+$(u,v)\in\Sset(k,c;H_K,z)$, Brun--Titchmarsh \cite[(8)]{TQ} with $V=2x$
+and $q=m\,uv\leq x^{0.34}$, together with
+$\varphi(m\,uv)\geq\varphi(m)\varphi(u)\varphi(v)$ (valid since
+$\varphi(ab)\geq\varphi(a)\varphi(b)$ for all $a,b$), gives at most
+$8x/(\varphi(m)\varphi(u)\varphi(v)\log x)$ primes $\ell\in(x,2x]$.
+By \cite[(12)]{TQ} the sum over $k\in\J$ and $(u,v)$ is
+$\ll x\log x\,h(\J)/\varphi(m)$.  Divide by $x$ and sum over the blocks,
+enlarging the last one.
+\end{proof}
+
+\begin{corollary}[uniform fibre masses]\label{cor:fibre}
+There are absolute $a_u,C_u>0$ such that for $X\geq X_h$, every integer
+$4\leq m\leq t^3$ and \emph{every} residue $c\pmod{L_K}$, with
+$\J_c=\{k\in\K_m(K):(k,c)=1\}$, $f_c=f_{c;\J_c}$ and
+$\mu_c=\sum_\ell f_c(\ell)/\ell$,
+\[
+ a_h\frac{t^2h(\J_c)}{\varphi(m)}\leq\mu_c
+ \leq A_h\frac{t^2h(\J_c)}{\varphi(m)}\leq C_u\frac{t^3}m.
+\]
+If $(c,L_K)=1$, then moreover $\mu_c\geq a_ut^3/m$.
+\end{corollary}
+
+\begin{proof}
+As in \cite[Corollary~4.3]{TQ}.  An atom active in the fibre $c$ has
+$c\equiv-uv^{-1}\pmod k$, a unit, so $k\in\J_c$; thus $f_c$ counts all
+active atoms, $1\in\J_c$ and $(c,L_{\J_c})=1$, and
+Proposition~\ref{prop:harvest} applies to $\J=\J_c$.  For large $X$,
+$K\geq t^6\geq m^2$ and $\kappa t/2\leq\log K\leq\kappa t$.
+Lemma~\ref{lem:hm}(d) gives
+$h(\J_c)\leq h_m(K)\leq C_h\kappa t\,\varphi(m)/m$, hence the upper bound with
+$C_u=A_hC_h\kappa$.  If $(c,L_K)=1$, then $\J_c=\K_m(K)$ and
+Lemma~\ref{lem:hm}(a),(b) give $h(\J_c)\geq0.27\,\kappa t\,\varphi(m)/m$, so
+$a_u=0.27\,\kappa a_h$ works.
+\end{proof}
+
+So on reduced fibres the mass is $\asymp t^3/m$ with absolute constants,
+and on every fibre it is $\ll t^3/m$; for instance $c=0$ has
+$\J_0=\{1\}$ and $\mu_0\asymp t^2/\varphi(m)$.  The factor $1/\varphi(m)$
+from the prime progression modulo $m\,uv$ and the factor
+$\varphi(m)/m$ in $h_m$ cancel to $1/m$, so nothing is lost from
+$m/\varphi(m)$.  A deduplicated toy computation
+(\texttt{scripts/emn\_mass2.py}; $\ell\in(10^6,2\cdot10^6]$, $K=170$,
+$u,v\in(7,60]$, two reduced fibres) gave $m\mu_c\in[0.98,1.13]$ for
+$m=4,\ldots,13$, while $\varphi(m)\mu_c$ ranged over $[0.33,1.04]$.
+This is \status{evidence} for the scaling only; the corollary does not
+use it.
+
+\section{Void, moments and the assembly for general $m$}\label{sec:assembly}
+Throughout this section $4\leq m\leq t^3$ and
+\[
+ s=t^3/m\geq1,\qquad y=\max(2,Bs),\qquad S_y(n)=\ind_{(n,P_y)=1},
+\]
+with an absolute $B$ fixed in Lemma~\ref{lem:void}.  For large $X$,
+$y\leq\max(2,Bt^3/4)<K<X^{1/2}$.
+
+\begin{lemma}[conditioned void for $m$]\label{lem:void}
+There are absolute $a_v,B,s_0>0$ and $X_v$ such that for $X\geq X_v$,
+$4\leq m\leq t^3$ and $s\geq s_0$,
+\[
+ \Prob(H_X=0\mid S_y=1)\leq\e^{-a_vs}.
+\]
+\end{lemma}
+
+\begin{proof}
+We re-run \cite[Lemma~7.1]{TQ}.  Reveal $c\equiv n\pmod{L_K}$, keeping
+the condition $S_y=1$, and put
+\[
+ Z(c)=\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac1p.
+\]
+For the supported primes $p>y$ the events $p\mid c$ are independent
+with probabilities $1/p$, also given $S_y=1$, and the computation
+\cite[(39)--(40)]{TQ} gives
+$\E(\e^{yZ}\mid S_y=1)\leq\exp\{(\e-1)y\sum_{p>y}p^{-2}\}\leq\e^{C_Z}$
+with $C_Z$ absolute; it uses only $y/p<1$, so it holds for every
+$y\geq2$.  Hence $\Prob(Z>1/4\mid S_y=1)\leq\e^{-y/4+C_Z}$.
+
+If $p\mid L_K$ then $p\mid c$ if and only if $p\mid n$; so on $S_y=1$
+no prime $p\leq y$ dividing $L_K$ divides $c$.  A multiplier
+$k\in\K_m(K)\setminus\J_c$ is divisible by some prime $p\mid(c,L_K)$,
+and such $p$ satisfy $p>y$ and $p\nmid m$.  By Lemma~\ref{lem:hm}(b),(c),
+\[
+ h(\J_c)\geq h_m(K)-\sum_{\substack{y<p\leq K,\ p\mid L_K\\p\mid c}}\frac{S_m(K)}p
+ \geq(0.54-Z(c))S_m(K).
+\]
+On $Z(c)\leq1/4$, Lemma~\ref{lem:hm}(a) (as $K\geq m^2$) and
+$\log K\geq\kappa t/2$ give
+$h(\J_c)\geq0.29\,(\varphi(m)/m)\log K\geq0.145\,\kappa t\,\varphi(m)/m$.
+By Lemma~\ref{lem:CRT}(3), in the fibre $c$ the event $H_X=0$ asks that
+each coordinate $n\bmod\ell$ avoid $f_c(\ell)$ distinct classes,
+independently in $\ell$.  With Corollary~\ref{cor:fibre},
+\[
+ \begin{aligned}
+ \Prob(H_X=0\mid c,S_y=1)&=\prod_\ell\Bigl(1-\frac{f_c(\ell)}\ell\Bigr)\\
+ &\leq\e^{-\mu_c}\leq\exp\Bigl\{-a_h\,0.145\,\kappa\frac{t^3}m\Bigr\}
+ =\e^{-2a_vs},
+ \end{aligned}
+\]
+with $a_v:=0.0725\,\kappa a_h$.  Put $B=8a_v$.  For $s\geq2/B$ we have
+$y=Bs$, and the bad fibres have probability at most
+$\e^{-2a_vs+C_Z}$.  Averaging over $c$,
+$\Prob(H_X=0\mid S_y=1)\leq(1+\e^{C_Z})\e^{-2a_vs}\leq\e^{-a_vs}$ for
+$s\geq s_0:=\max(2/B,\log(1+\e^{C_Z})/a_v)$.
+\end{proof}
+
+The threshold for $Z$ is the absolute number $1/4$: the union-bound loss
+$Z\cdot S_m(K)$ is measured against $h_m\geq0.54\,S_m$ in the same units,
+so no dependence on $m$ enters.  In \cite{TQ} the corresponding constant
+is called $\eta$.
+
+\begin{lemma}[factorial moments]\label{lem:moments}
+For $X\geq X_h$, $4\leq m\leq t^3$, every real $2\leq y<X^{1/2}$ and every
+integer $j\geq1$,
+$\E((H_X)_j\mid S_y=1)\leq(C_us)^j$, where
+$(h)_j=h(h-1)\cdots(h-j+1)$.
+\end{lemma}
+
+\begin{proof}
+The conditional-independence proof of \cite[Theorem~6.3]{TQ} applies
+verbatim.  In a fibre $c$ (with $S_y=1$, which conditions no coordinate
+$n\bmod\ell$ as $y<X^{1/2}$), Lemma~\ref{lem:CRT} shows that $H_X$ is a
+sum of independent Bernoulli variables with means $f_c(\ell)/\ell$, at
+most one atom being hit at each $\ell$.  So
+$\E((H_X)_j\mid c,S_y=1)=\sum_{\ell_1,\ldots,\ell_j\text{ distinct}}\prod_i f_c(\ell_i)/\ell_i\leq\mu_c^j$,
+and $\mu_c\leq C_us$ for \emph{every} $c$ by Corollary~\ref{cor:fibre}.
+\end{proof}
+
+\begin{theorem}[assembly for $m$]\label{thm:assembly}
+Let $a_v,B,s_0$ be as in Lemma~\ref{lem:void} and put
+$D_B=\max(\e^2C_u,a_v)$ and $C_L=B+3D_B+8$.  There is an absolute
+$X_a$ such that for $X\geq X_a$, $4\leq m\leq t^3$ and $s=t^3/m\geq s_0$,
+with $r$ the least even integer $\geq D_Bs$, the function
+\[
+ \nu_X(n)=S_y(n)\,Q_r(H_X(n)),\qquad
+ Q_r(h)=\sum_{i=0}^r(-1)^i\binom hi,
+\]
+together with $\M$ from \eqref{eq:space}, is an $(m;X,s,y)$-package with
+constants $(a_v,C_L)$.  In particular Proposition~\ref{prop:package}
+holds.
+\end{theorem}
+
+\begin{proof}
+(P1) By \cite[Lemma~8.1]{TQ}, $Q_r(0)=1$ and $Q_r(h)\geq0$ for all
+integers $h\geq0$; so $\nu_X\geq0$.  If $n$ is $m$-exceptional with
+$(n,P_y)=1$, then $H_X(n)=0$ by Lemma~\ref{lem:CRT}(1), and
+$\nu_X(n)=1$.
+
+(P3) By \cite[Lemma~8.1]{TQ}, $Q_r(h)\leq\ind_{h=0}+\binom h{r+1}$.  By
+Lemmas~\ref{lem:void} and~\ref{lem:moments} and $(r+1)!\geq((r+1)/\e)^{r+1}$,
+\[
+ \E(Q_r(H_X)\mid S_y=1)\leq\e^{-a_vs}+\Bigl(\frac{\e C_us}{r+1}\Bigr)^{r+1}
+ \leq\e^{-a_vs}+\e^{-(r+1)}\leq2\e^{-a_vs},
+\]
+since $r+1\geq D_Bs\geq\e^2C_us$ and $D_B\geq a_v$.  Multiply by
+$\Prob(S_y=1)\leq1$.
+
+(P2) For all integers $n$,
+$\binom{H_X(n)}i=\sum_{\mathcal B\subseteq\A^{(m)}_X,\,|\mathcal B|=i}\prod_{A\in\mathcal B}\ind_{E_A}(n)$
+and $S_y(n)=\sum_{d\mid P_y}\mu(d)\ind_{d\mid n}$.  Expanding, each term
+has coefficient $\pm1$ and is empty or a single class modulo
+$\lcm(d,k_1\ell_1,\ldots,k_i\ell_i)$, which divides $\M$.  Choosing
+$k\leq K$, $\ell\leq X$ and $u,v\leq X^{1/6}$ shows
+$|\A^{(m)}_X|\leq KX^{4/3}\leq\e^{(4/3+\kappa)t}$, as in \cite[(48)]{TQ}.
+Hence, as in \cite[(49)]{TQ},
+\[
+ \log\Tabs\leq\pi(y)\log2+\log(r+1)+r(4/3+\kappa)t.
+\]
+Using $s,t\geq1$: $\pi(y)\log2\leq y\leq Bs+2\leq(B+2)ts$;
+$\log(r+1)\leq r\leq D_Bs+2\leq(D_B+2)ts$; and
+$r(4/3+\kappa)t\leq2(D_B+2)ts$.  So $\log\Tabs\leq C_Lts$.  All prime
+factors of $\M$ are at most $X$, and $2\leq y<X^{1/2}$.
+\end{proof}
+
+The whole dependence on $m$ is the substitution $t^3\to s=t^3/m$ in the
+saving, the selector and the Bonferroni depth.  The cost $(1+\kappa)t$ of
+a single atom modulus does not change, which is why the ledger is
+$\e^{O(ts)}=\e^{O(t^4/m)}$ and not $\e^{O(s)}$.
+
+\section{Local transfer to windows and progressions}\label{sec:transfer}
+In \cite{TQ} the majorant is counted on $[1,N]$ in exactly one place,
+\cite[(50)]{TQ}, using only
+$\#\{n\leq N:n\equiv a\ (q)\}=N/q+O(1)$ with error at most one.  Nothing
+in that step uses the left endpoint.  The prime-number inputs (BV, BT,
+Shiu) live at the scale $X=\e^t$ and serve only to construct the
+package.  The one step of \cite{TQ} that is not local is the passage from
+primes to all integers in \cite[\S9]{TQ}, through the semigroup generated
+by exceptional primes and Rankin's trick.  We replace it by
+Lemma~\ref{lem:smooth}.
+
+\begin{lemma}[local mean, class by class]\label{lem:localmean}
+Let $\nu=\sum_i\epsilon_i\ind_{a_i\ (q_i)}$ be a finite signed combination
+of residue classes with every $q_i\mid\M$ and $\Tabs=\sum_i|\epsilon_i|$.
+Let $Q\geq1$, $\beta\in\Z$, and let $I=(z,z+H]$ be any real interval,
+$H>0$.  Then
+\[
+ \sum_{\substack{n\in I\cap\Z\\n\equiv\beta\ (Q)}}\nu(n)
+ =H\,\E_{\Z/\lcm(\M,Q)}\bigl[\nu\,\ind_{\beta\ (Q)}\bigr]+\theta\,\Tabs,
+ \qquad|\theta|\leq1.
+\]
+\end{lemma}
+
+\begin{proof}
+For each $i$ the set $\{n\equiv a_i\ (q_i)\}\cap\{n\equiv\beta\ (Q)\}$ is
+empty or a single class modulo $q_i'=\lcm(q_i,Q)$.  In the second case
+it has density $1/q_i'$ in $\Z/\lcm(\M,Q)$, and every half-open real
+interval of length $H$ contains $H/q_i'+\theta_i$ of its elements, with
+$|\theta_i|\leq1$.  Multiply by $\epsilon_i$ and sum over $i$.
+\end{proof}
+
+\begin{lemma}[large-prime moduli are independent]\label{lem:indep}
+Let $\nu\geq0$ be $\M$-periodic, and let $Q=Q_1Q_2$ with
+$(Q_1,Q_2)=(Q_2,\M)=1$.  Then for every $\beta$,
+$\E_{\Z/\lcm(\M,Q)}[\nu\,\ind_{\beta\ (Q)}]\leq\E_{\M}\nu/Q_2$.
+\end{lemma}
+
+\begin{proof}
+By the Chinese remainder theorem
+$\Z/\lcm(\M,Q)\cong\Z/\lcm(\M,Q_1)\times\Z/Q_2$.  The function $\nu$
+depends only on the first coordinate, with mean $\E_{\M}\nu$ there, and
+$\ind_{\beta\ (Q)}\leq\ind_{\beta\ (Q_2)}$, which depends only on the
+second coordinate and has mean $1/Q_2$.  Use $\nu\geq0$.
+\end{proof}
+
+\begin{lemma}[smooth-part decomposition]\label{lem:smooth}
+Let $m\geq4$ and $y\geq2$.  Write each integer $n\geq1$ uniquely as
+$n=dn'$ with $P^+(d)\leq y$ and $(n',P_y)=1$, where $P^+(d)$ is the
+largest prime factor of $d$ \textup{(}$P^+(1)=1$\textup{)}.
+\begin{enumerate}
+\item[(a)] If $n$ is $m$-exceptional, then so is $n'$; here $n'=1$ is
+allowed and is $m$-exceptional.
+\item[(b)] If $d>D_0\geq1$, then $d$ has a divisor
+$d'\in(D_0,yD_0]$ with $P^+(d')\leq y$.
+\item[(c)] For $D_0\geq1$,
+$\sum_{d'>D_0,\ P^+(d')\leq y}1/d'\leq D_0^{-1/2}\e^{4\sqrt y}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) If $m/n'=\sum_i1/x_i$, then $m/n=\sum_i1/(dx_i)$.  The integer $1$ is
+$m$-exceptional because three unit fractions sum to at most $3<m$.
+(b) Write $d=p_1\cdots p_r$ with primes $p_i\leq y$ and let $i$ be least
+with $p_1\cdots p_i>D_0$; then $d'=p_1\cdots p_i\leq yD_0$.
+(c) By Rankin's trick the sum is at most
+$D_0^{-1/2}\prod_{p\leq y}(1-p^{-1/2})^{-1}$.  By convexity,
+$-\log(1-u)\leq2u$ for $0\leq u\leq2^{-1/2}$, and
+$\sum_{p\leq y}p^{-1/2}\leq\sum_{j\leq y}j^{-1/2}\leq2\sqrt y$.
+\end{proof}
+
+Part (a) is the divisor closure used in \cite[\S9]{TQ}; we apply it to
+the smooth part only, which keeps everything inside the window.
+
+\begin{proposition}[transfer]\label{prop:transfer}
+Let $\nu,\M$ be an $(m;X,s,y)$-package with constants $(a,C_L)$, and put
+$D_0=\e^{as}$.  Let $I$ be an interval of length $H>0$, let $q\geq1$,
+$b\in\Z$, and let $q_2$ be the largest divisor of $q$ all of whose
+prime factors exceed $X$.  Then
+\[
+ E_m(I;q,b)\leq\frac H{q_2}\Bigl(\e^{-as/2+4\sqrt y}+2(1+as)\e^{-as}\Bigr)
+ +yD_0+D_0\e^{C_Lts}.
+\]
+\end{proposition}
+
+\begin{proof}
+Split the $m$-exceptional $n\in I$ with $n\equiv b\ (q)$ according to
+their $y$-smooth part $d$ (Lemma~\ref{lem:smooth}).  Since $d$ is
+$y$-smooth and $y<X$, $(d,q_2)=1$.
+
+\emph{Case $d>D_0$.}  By Lemma~\ref{lem:smooth}(b), $d'\mid n$ for some
+$y$-smooth $d'\in(D_0,yD_0]$.  For fixed $d'$, the $n\in I$ with
+$d'\mid n$ and $n\equiv b\ (q)$ form at most one class modulo
+$\lcm(d',q)$, a multiple of $d'q_2$; there are at most $H/(d'q_2)+1$ of
+them.  Summing over $d'$ and using Lemma~\ref{lem:smooth}(c) gives at
+most $(H/q_2)D_0^{-1/2}\e^{4\sqrt y}+yD_0$.
+
+\emph{Case $d\leq D_0$.}  Then $n'=n/d$ lies in $I/d$, an interval of
+length $H/d$; it is $m$-exceptional and coprime to $P_y$, so
+$\nu(n')\geq1$ by (P1).  The congruence $dn'\equiv b\ (q)$ is either
+insoluble or confines $n'$ to one class $\beta_d$ modulo $Q_d=q/(d,q)$.
+As $(d,q_2)=1$, $Q_d=Q_{d,1}q_2$ with $(Q_{d,1},q_2)=(q_2,\M)=1$.  By
+Lemmas~\ref{lem:localmean} and~\ref{lem:indep} and (P2), (P3), the
+number of such $n$ is at most
+\[
+ \sum_{\substack{n'\in I/d\\n'\equiv\beta_d\ (Q_d)}}\nu(n')
+ \leq\frac Hd\cdot\frac{2\e^{-as}}{q_2}+\e^{C_Lts}.
+\]
+Summing over $d\leq D_0$ with $\sum_{d\leq D_0}1/d\leq1+\log D_0=1+as$
+gives at most $2(H/q_2)(1+as)\e^{-as}+D_0\e^{C_Lts}$.
+\end{proof}
+
+If $I$ contains integers $n\leq0$, they are simply not counted on the
+left; on the right, $\nu\geq0$ makes the count over all integers of
+$I/d$ an upper bound.  Every bound depends on $I$ only through $H$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:A} and Theorem~\ref{thm:B}]
+Take $a,B,C_L,s_0,X_a$ from Theorem~\ref{thm:assembly}, so that
+$y=\max(2,Bs)\leq Bs+2$.  (For $m=4$ one may instead use \cite{TQ}
+directly, as explained after Proposition~\ref{prop:package}.)
+Fix $s_1$ with $4\sqrt{Bs+2}\leq as/4$ for $s\geq s_1$.  For
+$s\geq\max(s_0,s_1)$, Proposition~\ref{prop:transfer} gives
+\begin{equation}\label{eq:twoterms}
+ E_m(I;q,b)\leq C_1\frac H{q_2}\e^{-as/4}+\e^{C_2ts},
+\end{equation}
+with $C_1$ absolute and $C_2=C_L+a+B+3$; for the second term use
+$y\leq(B+2)s$, $D_0=\e^{as}$ and $s,t\geq1$.
+
+Let $\mathcal H=\log(H/q)$, which is $\log H$ for Theorem~\ref{thm:A}
+(where $q=1$).  Choose $X$ through
+\[
+ t^4=\frac{m\mathcal H}{2C_2},\qquad\text{so that}\qquad
+ \e^{C_2ts}=\e^{C_2t^4/m}=(H/q)^{1/2}
+\]
+and
+\[
+ s=\frac{t^3}m=\Bigl(\frac{\mathcal H}{2C_2}\Bigr)^{3/4}m^{-1/4}.
+\]
+This is $X=X_q$ with $\alpha=(2C_2)^{-1/4}$ in Theorem~\ref{thm:B}.  The
+side conditions are: $X\geq X_a$; $m\leq t^3$, i.e.\ $s\geq1$; and
+$s\geq\max(s_0,s_1)$.  Since $t^3=ms\geq4s$, the first follows from
+$s\geq(\log X_a)^3/4$.  Choose an absolute $s_*$ at least all these
+thresholds and so large that $s\geq s_*$ implies $as/4\leq\mathcal H/2$;
+this is possible since $s\leq\mathcal H^{3/4}$ once $2C_2\geq1$.
+
+If $s\geq s_*$, then $(H/q)^{1/2}\leq(H/q)\e^{-as/4}$ and $H/q_2=q_1H/q$,
+so \eqref{eq:twoterms} gives
+$E_m(I;q,b)\leq(C_1+1)q_1(H/q)\e^{-as/4}$, which is the claim with
+$c=(a/4)(2C_2)^{-3/4}$.  If $s<s_*$, then
+$\mathcal H^{3/4}m^{-1/4}<C_3:=(2C_2)^{3/4}s_*$, and the trivial bound
+$E_m(I;q,b)\leq H/q+1\leq2H/q\leq2\e^{cC_3}(H/q)\e^{-c\mathcal H^{3/4}m^{-1/4}}$
+suffices.  Take $C=\max(C_1+1,2\e^{cC_3})$.  The two consequences in
+Theorem~\ref{thm:B} follow from $q_1\leq q$ and from $q_1=1$.
+\end{proof}
+
+The parameter $X$ is a real number; the package exists for every real
+$X\geq X_a$, so the continuous choice of $t$ is legitimate.  The proof
+does not use the semigroup step of \cite[\S9]{TQ}, so for $m=4$,
+$I=(0,N]$ it gives a second derivation of the integer statement of
+\cite[Theorem~1.1]{TQ} from its prime-free core
+\cite[Theorem~8.2]{TQ}.
+
+\begin{remark}[smooth moduli and prime moduli]\label{rem:smoothq}
+The factor $q_1$ comes from the crude bound
+$\ind_{\beta\ (Q)}\leq\ind_{\beta\ (q_2)}$ in Lemma~\ref{lem:indep}.
+Conditioning on $n\bmod q_1$ fixes $n$ modulo primes of $L_K$ and $P_y$,
+that is, it partially fixes the fibre variable $c$ of
+Lemma~\ref{lem:void}, and it may do so adversarially: the void bound is
+an average over $c$ in which bad fibres have probability
+$\e^{-\Omega(y)}$.  For example, for $q_1=\prod_{y<p\leq w}p$ and
+$b\equiv0\ (q_1)$ the void lemma's \emph{bound} gives nothing, since
+$Z(c)\geq\sum_{y<p\leq w,\,p\mid L_K}1/p$ may exceed $1/4$.  We have
+\emph{not} shown that the conditional mean of $\nu_X$ is then large.
+Such progressions are harmless for the equation itself: every
+$n\equiv0\ (q_1)$ is representable as soon as one prime $p\mid q_1$ is.
+For $m=4$, every prime modulus $q$ with $H/q$ large is covered without
+the factor $q_1$ (with saving constant $c/2$): if $q\leq X_q$ then $q\leq\exp\{\frac c2(\log(H/q))^{3/4}4^{-1/4}\}$
+for large $H/q$.  For general $m$ this absorption fails, because
+$\log X_q/((\log(H/q))^{3/4}m^{-1/4})\asymp(m/\log(H/q))^{1/2}$ need not be
+bounded.  Primes $q$ with
+$\exp\{\frac c2(\log(H/q))^{3/4}m^{-1/4}\}<q\leq X_q$ are not covered by
+Theorem~\ref{thm:B}.
+\end{remark}
+
+\begin{proof}[Proof of Corollary~\ref{cor:C}]
+Put $\mathcal S=(\log H)^{3/4}m^{-1/4}$.  Theorem~\ref{thm:A} bounds the
+count by $CH\e^{-c\mathcal S}=CH\e^{-c\mathcal S/2}\e^{-c\mathcal S/2}$, and
+$\e^{-c\mathcal S/2}\leq1/\log x$ by hypothesis.
+\end{proof}
+
+In the same way Theorem~\ref{thm:B} gives, for primes $p\equiv b\ (q)$
+in $(x,x+H]$, the bound
+$C(H/(q\log x))\exp\{-\frac c4(\log(H/q))^{3/4}m^{-1/4}\}$ whenever
+$q\leq\exp\{\frac c2(\log(H/q))^{3/4}m^{-1/4}\}$ and
+$(\log(H/q))^{3/4}m^{-1/4}\geq(4/c)\log\log x$.  Below the range of
+Corollary~\ref{cor:C}, Theorem~\ref{thm:A} still saves an unbounded
+factor over $H$ (for fixed $m$ and, say, $H=(\log x)^A$), but not enough to
+absorb the normalisation $1/\log x$.
+
+\begin{remark}[relative statements need prime input]\label{rem:relative}
+To bound the \emph{proportion} of exceptional primes in $(x,x+H]$ one
+needs a lower bound for $\pi(x+H)-\pi(x)$.  For instance, Baker, Harman
+and Pintz \cite{BHP} show that $(u-u^{0.525},u]$ contains
+$\gg u^{0.525}/\log u$ primes for $u\geq u_0$; we quote this from the
+literature and did not re-check the exact form of the statement.  For
+$2x^{0.525}\leq H\leq x$, tile $(x,x+H]$ greedily from $u=x+H$ downward
+by $\lfloor H/(2x)^{0.525}\rfloor\geq1$ disjoint intervals
+$(u-u^{0.525},u]$.  This gives $\pi(x+H)-\pi(x)\gg H/\log x$, and with
+Theorem~\ref{thm:A} the proportion of $m$-exceptional primes in
+$(x,x+H]$ is $\ll(\log x)\exp\{-c'(\log x)^{3/4}m^{-1/4}\}$, with
+$c'=0.525^{3/4}c$.  This conclusion is \status{conditional} on the quoted
+statement of \cite{BHP}, which we could not check against the source.  It is
+$\ll\exp\{-\frac{c'}2(\log x)^{3/4}m^{-1/4}\}$ once
+$(\log x)^{3/4}m^{-1/4}\geq(2/c')\log\log x$.  Almost-all versions for shorter $H$, and versions for
+primes in progressions, follow in the same way from the corresponding
+prime-counting results; we have not checked their ranges.
+\end{remark}
+
+\section{The density transition}\label{sec:transition}
+\begin{proof}[Proof of Corollary~\ref{cor:D}]
+Apply Theorem~\ref{thm:A} to $I=(N/2,N]$ and put $L=\log(N/2)$; the
+count is at most $CN\exp\{-cL^{3/4}m^{-1/4}\}$.  Let
+$f(L)=cL^{3/4}m^{-1/4}-2\log L$; then $f'(L)>0$ for
+$L>(8/(3c))^{4/3}m^{1/3}$.  Let $L_0=Am^{1/3}(\log m)^{4/3}$ with
+$A\geq(8/(3c))^{4/3}(\log4)^{-4/3}$, so that $f$ increases on
+$[L_0,\infty)$.  Since $\log\log m\leq\log m$,
+\[
+ \begin{aligned}
+ f(L_0)&=cA^{3/4}\log m-2\log A-\tfrac23\log m-\tfrac83\log\log m\\
+ &\geq\Bigl(cA^{3/4}-\tfrac{10}3-\tfrac{2\log A}{\log4}\Bigr)\log m,
+ \end{aligned}
+\]
+which is at least $\log(2C)$ for $A$ large enough (absolute), as
+$\log m\geq\log4$.  Put $C_D=2A$.  If $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
+then $L\geq\frac12\log N\geq L_0$ (as $\log N\geq2\log2$), so the count
+is at most $CN\e^{-f(L)}L^{-2}\leq N/(2L^2)\leq N/(\log N)^2$; the last
+step uses $\sqrt2\log(N/2)\geq\log N$, which holds for $N\geq16$.  This
+is $o(\pi(N)-\pi(N/2))$.  For integers, the saving in
+Theorem~\ref{thm:A} is $(\log N)^{3/4}m^{-1/4}=(\log N/m^{1/3})^{3/4}$.
+\end{proof}
+
+\subsection*{The other side}
+Pomerance and Weingartner \cite[Thm.~3.1]{PW} construct many
+$m$-exceptional primes.  Their proof counts, for primes $p\leq N$, the
+ones covered by Type~I congruences, at most
+$\ll(N/\varphi(m))\log^2N\log^2m$ when
+$\e^{m^{1/4}}\ll N<\e^m$, and the ones covered by Type~II congruences,
+at most $\ll(N/\varphi(m))\log^2N\log\log N$ \cite[pp.~6--8]{PW}.  A prime
+covered by neither is $m$-exceptional.  The proof is written for one
+$N=N(m)$, with $\varphi(m)/\log^2m=C\log^3N$, but the two counts hold for
+every $N$ in the stated range.  So most primes in $(N/2,N]$ are
+$m$-exceptional whenever
+\begin{equation}\label{eq:PWrange}
+ m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}
+\end{equation}
+with a suitable absolute $C$.  Pomerance and Weingartner state this for
+$N=N(m)$: ``In our proof of Theorem~1.1 we actually show that not only
+is there one exceptional $n>\exp(m^{1/3-\epsilon})$, but that most prime
+values of $n$ near this bound are exceptions'' \cite[p.~2]{PW}.  The
+extension to the whole range \eqref{eq:PWrange} is our reading of their
+proof, checked independently by two internal reviewers against the
+rendered PDF.  Pomerance and Weingartner's own
+upper bound \eqref{eq:PW} gives ``most primes representable'' only for
+$\log N\gg m^{1/2}(\log m)^{3/2}$, and they wrote that between
+$\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition from
+`usually false' to `usually true' '' \cite[p.~2]{PW}.
+
+Combining \eqref{eq:PWrange} with Corollary~\ref{cor:D}: most primes
+near $N$ are $m$-exceptional for $\log N$ up to
+$(\varphi(m)/(C\log^2m))^{1/3}$, and most are $m$-representable for all
+$\log N\geq C_Dm^{1/3}(\log m)^{4/3}$.  The two thresholds differ by a
+factor $\asymp(\log m)^2(m/\varphi(m))^{1/3}$.  We do not know whether
+the proportion of exceptional primes is monotone in between.  The
+largest $m$-exceptional integer, which the heuristic of \cite[p.~3]{PW}
+places near $\exp(m^{1/2})$, is not addressed by any of this.
+
+\begin{assessment}[why the shapes are what they are]\label{ass:shape}
+Both our argument and Vaughan's, as reconstructed in \cite[\S4]{PW},
+balance a fibre mass $\mu$ against a
+ledger $\e^{O(t\mu)}$, with $t\mu\asymp L=\log N$.  With
+$\mu\asymp t^2/\varphi(m)$, the mass of the forced classes of Vaughan and
+Pomerance--Weingartner, this gives $\mu\asymp L^{2/3}\varphi(m)^{-1/3}$.
+With $\mu\asymp t^3/m$ (Corollary~\ref{cor:fibre}) it gives
+$\mu\asymp L^{3/4}m^{-1/4}=(L/m^{1/3})^{3/4}$, which is at least one
+exactly when $L\gg m^{1/3}$.  Up to bounded and $\log\log$ factors, the
+mass $t^3/m$ agrees with the heuristic intensity
+$(\log^3p/m)(\log\log p)^{O(1)}$ of \cite[p.~3]{PW} and with their
+rigorous Type~II first-moment count.  Within the architecture of
+\cite{TQ}, the dependence $m^{-1/4}$ is the mass-driven ceiling: the
+multiplier range $K=X^\kappa$ is already a power of $X$, and the range
+$u,v\leq x^{1/6}$ is what keeps $z_j^2<\ell$, which distinctness needs.
+This mirrors the three-quarter ceiling of \cite[\S10]{TQ}.
+\end{assessment}
+
+\section{The lower end of the window range}\label{sec:lowerend}
+\begin{introprop}\label{prop:E}
+Let $m\geq4$.  Suppose that for some $x_0,C,c>0$ and some function
+$H_0(x)\geq1$ with $CH_0(x)\e^{-c(\log x)^{3/4}}<1$ for all real
+$x\geq x_0$ one has
+\[
+ E_m((x,x+H_0(x)])\leq CH_0(x)\e^{-c(\log x)^{3/4}}\qquad\text{for all real }x\geq x_0.
+\]
+Then there is no $m$-exceptional $n>x_0$.
+\end{introprop}
+
+\begin{proof}
+Each such window contains fewer than one, hence no, exceptional integer.
+Every integer $n>x_0$ lies in one of them: take $x=n-1$ if
+$n-1\geq x_0$, and $x=x_0$ otherwise, using $H_0\geq1$.
+\end{proof}
+
+Thus the target shape $E_m((x,x+H])\ll H\e^{-c(\log x)^{3/4}}$ cannot be
+proved for any $H(x)$ with $CH(x)<\e^{c(\log x)^{3/4}}$, for instance for
+polylogarithmic $H$, without proving that all large $n$ are
+$m$-representable.  More generally, a bound $CH\e^{-S}$ with
+$S>\log(CH)$ on a window of length $H$ forces it to be free of
+exceptions.  On the scale $S=c(\log H)^\theta$, any $\theta>1$, or
+$\theta=1$ with $c>1$, is the full conjecture on long windows, while
+$\theta\leq1$ with small $c$ is not.
+
+Define the \emph{window exponent} $\theta_{\rm win}(m)$ as the supremum
+of the $\theta$ for which $E_m(I)\ll_m|I|\exp\{-c(\log|I|)^\theta\}$
+holds for some $c>0$, uniformly over all intervals $I$ with $|I|\geq2$.
+
+\begin{proposition}\label{prop:win}
+\textup{(a)} $\theta_{\rm win}(m)\geq3/4$ for every $m\geq4$.
+\textup{(b)} If $\theta_{\rm win}(m)>3/4$, then
+$E_m(N)\ll N\exp\{-c(\log N)^\theta\}$ for some $\theta>3/4$.
+\end{proposition}
+
+\begin{proof}
+(a) is Theorem~\ref{thm:A}; (b) is the case $I=(0,N]$.
+\end{proof}
+
+So the window problem is at least as hard as the problem over initial
+segments.  The remaining statements of this section are heuristic.
+
+\begin{assessment}[three regimes]\label{ass:regimes}
+For windows $(x,x+H]$ and fixed $m$:
+if $H\geq x^\theta$, Theorem~\ref{thm:A} gives saving
+$\geq c_\theta(\log x)^{3/4}$;
+if $\e^{c(\log x)^{3/4}}\lesssim H\leq x^{o(1)}$, it gives only
+$(\log H)^{3/4}=o((\log x)^{3/4})$, and a saving of order
+$(\log x)^{3/4}$ would need either $\theta_{\rm win}>3/4$ or input that
+depends on the position of the window;
+if $CH<\e^{c(\log x)^{3/4}}$, such a saving is equivalent to having no
+exception in the window (Proposition~\ref{prop:E}).
+\end{assessment}
+
+\begin{assessment}[shift-uniform methods]\label{ass:shift}
+Lemma~\ref{lem:localmean} is shift-uniform: it bounds the maximum over
+$z$ of the number of integers in $(z,z+H]$ that avoid every class of the
+family.  Any argument that uses only ``exceptional $n$ avoid the classes
+of a fixed family $\mathfrak G$'' and the window length is bounded below
+by this maximum $M_{\mathfrak G}(H)$.  For such methods, the short-window
+bound at length $H$ is controlled by the same quantity as the bound over
+$(0,H]$; it is not equal to it, since $(0,H]$ is one shift among many.
+Whether $(\log H)^{3/4}$ is optimal for such methods is open.  We know
+of no Jacobsthal- or Maier-type construction of windows of length $H$
+containing $\geq H\e^{-C(\log H)^{3/4}}$ avoiders.  Concerning position:
+the family used at length $H$ has $X=\exp\{\alpha(m\log H)^{1/4}\}$ and
+period $\M=\e^{O(X)}$.  If $\M+H\leq x$, which holds for
+$H\leq\exp\{c(\log\log x)^4/m\}$ with a suitable $c$, every translate
+class of the period occurs inside $[x,2x]$.  So for that family the
+worst window lies in $[x,2x]$, and the position cannot help a method that
+uses only this family and the window length.  To go beyond
+$(\log H)^{3/4}$ in $(x,x+H]$ with $H=x^{o(1)}$, a method would have to
+use something else: rounding effects of the counts of classes of modulus
+$q\leq H$ at the specific position, correlations between their
+intersections, or classes of modulus $>H$, each of which contains at most
+one point of the window.  Nothing here excludes such input.
+\end{assessment}
+
+\section{Literature}\label{sec:literature}
+The following was checked in October 2026 by web searches and by
+reading the papers where accessible.  It is an assessment, not an
+exhaustive survey.
+\begin{itemize}
+\item Elsholtz and Tao \cite[\S1]{ET} cite Vaughan's bound
+$N\exp\{-c(\log N)^{2/3}\}$ over $n<N$ (``for instance''), and refer to
+Li Delang \cite{Li} and Yang \cite{Yang}, among others, for weaker
+results.  Yang's abstract concerns the initial-segment
+count; we did not read Li's or Yang's papers in full.  There is no
+short-interval or progression statement in \cite{ET}.
+\item Pomerance and Weingartner \cite{PW} describe Vaughan's 1970
+bound as the state of the art for $4/n$ \cite[p.~2]{PW}, and prove
+\eqref{eq:PW} for general $m$, again over $n\leq N$.  The abstract of the
+cited version (v2) says: ``A result of Vaughan is that for each $m$, most
+$n$'s have $m/n$ representable; we make the dependence on $m$ in this
+result explicit.''  (The first arXiv version said instead that they
+``generalize a result of Vaughan''.)  So, according to \cite{PW},
+Vaughan's result already covers each fixed $m$.  We could not read
+Vaughan's paper and rely on this secondary statement for the dependence
+on $m$.  \cite[Thm.~1.3]{PW} is the first bound \emph{explicit} in $m$
+that we can cite.
+\item Searches for short-interval, almost-all-short-interval and
+progression versions of exceptional-set bounds for $4/n$ or $m/n$, for
+``Sierpi\'nski $5/n$ exceptional set'' and for ``$(\log N)^{3/4}$''
+returned nothing relevant.  Verification papers (to $10^{17}$ and
+$10^{18}$) concern computation, not density.
+\item Bibliographic status: \cite{ET}, \cite{PW} (arXiv v2) and
+\cite{Shiu} were consulted in full text.  The entries \cite{Li} and \cite{Yang} were checked only
+against the bibliography of \cite{ET}; \cite{Vaughan} was not accessible
+to us; \cite{MV}, \cite{Davenport} and \cite{BHP} are standard references
+that we did not re-read for this note.
+\end{itemize}
+We found no published short-interval or progression version, and no
+$3/4$-type bound for $m\neq4$.  The bound with exponent $3/4$ is itself
+only internally established, even for $m=4$ \cite{TQ}.  As far as we can
+tell, Theorem~\ref{thm:A} is new for every $m\neq4$, and its uniform
+dependence on $m$ and Corollary~\ref{cor:D} are new relative to
+\cite{PW}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
+As explained in the introduction, a specialist would expect the
+short-interval transfer, and presumably Vaughan's argument already gives
+$E_4(I)\ll|I|\exp\{-c(\log|I|)^{2/3}\}$ for intervals.  An earlier
+internal document observed the shift-uniformity of the $3/4$ majorant
+for large primes \cite{WEIGHTS}; Lemma~\ref{lem:smooth} extends this to
+all integers.
+
+\section{Open problems}\label{sec:open}
+\begin{problem}[large smooth moduli]
+Remove the factor $q_1$ in Theorem~\ref{thm:B}, at least for
+$(b,q_1)=1$.  For such $b$, conditioning on $n\equiv b\ (q_1)$ forces
+$p\nmid c$ for every $p\mid q_1$, which only makes the bad event
+$\{Z(c)>1/4\}$ less likely.  Fixing the coordinates $n\bmod\ell$ for
+$\ell\mid q_1$ changes the fibre product by a factor
+$\leq\exp\{\sum_{\ell\mid q_1,\,\ell>X^{1/2}}2\ell^{-2/3}\}
+\leq\exp\{2\omega(q_1)X^{-1/3}\}$, using $f_c(\ell)\leq z_j^2\leq\ell^{1/3}$;
+this is $1+o(1)$ when $\omega(q_1)=o(X^{1/3})$, but not for every $q_1$.
+What is missing is a
+version of Lemma~\ref{lem:moments} conditional on $n\equiv b\ (q_1)$.
+This is probably routine but has not been attempted.  A related question
+is whether every prime modulus $q$ is covered for general $m$
+(Remark~\ref{rem:smoothq}).
+\end{problem}
+
+\begin{problem}[the transition gap]
+Close the gap $(\log m)^2(m/\varphi(m))^{1/3}$ between
+\eqref{eq:PWrange} and Corollary~\ref{cor:D}.  The lower side is the
+first-moment count of \cite{PW}; the upper side is ours.  Is the
+proportion of $m$-exceptional primes in $(N/2,N]$ monotone in $N$ in
+this range?  For $m\geq\varepsilon(\log N)^3$ Theorem~\ref{thm:A} is
+trivial, and in the range \eqref{eq:PWrange} most primes are
+exceptional, so $E_m(N)\gg N/\log N$ there and no saving beyond
+$\log\log N+O(1)$ is possible.  What is the true size of $E_m(N)/N$ in
+between?
+\end{problem}
+
+\begin{problem}[position-dependent input]
+Determine $\theta_{\rm win}(m)$.  Equivalently for the methods of
+Assessment~\ref{ass:shift}: are there windows of length $H$ that contain
+$\geq H\e^{-C(\log H)^{3/4}}$ integers avoiding the forced classes?  If
+not, what position-dependent input could improve on $(\log H)^{3/4}$ in
+$(x,x+H]$ for $H=x^{o(1)}$?
+\end{problem}
+
+\begin{problem}[the exponent]
+Improve the exponent $3/4$ itself, for any $m$.  The ceiling discussion
+of \cite[\S10]{TQ} and Assessment~\ref{ass:shape} indicate that this
+needs a new source of class mass, not a better transfer.
+\end{problem}
+
+\begin{thebibliography}{99}
+\bibitem[BHP]{BHP}
+R. C. Baker, G. Harman and J. Pintz, The difference between consecutive
+primes, II, \emph{Proc. London Math. Soc. (3)} \textbf{83} (2001),
+532--562.
+\bibitem[D]{Davenport}
+H. Davenport, \emph{Multiplicative Number Theory}, third edition,
+revised by H. L. Montgomery, Graduate Texts in Mathematics 74,
+Springer, 2000.
+\bibitem[ET]{ET}
+C. Elsholtz and T. Tao, Counting the number of solutions to the
+Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math.
+Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[Li]{Li}
+Delang Li, On the equation $4/n=1/x+1/y+1/z$, \emph{J. Number Theory}
+\textbf{13} (1981), 485--494.
+\bibitem[MN]{MN}
+\emph{EXCEPTIONAL\_MN: the $3/4$ exceptional-set bound for $m/n$},
+internal working document \texttt{EXCEPTIONAL\_MN.md}, this repository,
+2026; hostile reviews \texttt{reviews/exceptional-mn-review-A.md},
+\texttt{reviews/exceptional-mn-review-B.md}.
+\bibitem[MV]{MV}
+H. L. Montgomery and R. C. Vaughan, The large sieve,
+\emph{Mathematika} \textbf{20} (1973), 119--134.
+\bibitem[PW]{PW}
+C. Pomerance and A. Weingartner, Exceptions to the
+Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817v2, 2026.
+\bibitem[S]{Shiu}
+P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
+\emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[SH]{SHORT}
+\emph{EXCEPTIONAL\_SHORT: exceptional sets in short intervals and
+progressions}, internal working document \texttt{EXCEPTIONAL\_SHORT.md},
+this repository, 2026; hostile review
+\texttt{reviews/exceptional-short-review.md}.
+\bibitem[SX]{SUBEXP}
+\emph{Large Erd\H{o}s--Straus witnesses II}, research note,
+\texttt{paper/es-subexp-note.tex}, this repository, 2026.
+\bibitem[TQ]{TQ}
+\emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
+equation: an internally proved research note},
+\texttt{paper/es-threequarter-note.tex}, this repository, 2026;
+internally proved, not externally refereed.  Numbering of statements
+and displays as in the compiled version.
+\bibitem[W]{WEIGHTS}
+\emph{EXCEPTIONAL\_WEIGHTS}, internal working document
+\texttt{EXCEPTIONAL\_WEIGHTS.md}, this repository, 2026, Prop.~5.1.
+\bibitem[Y]{Yang}
+Xun Qian Yang, A note on $4/n=1/x+1/y+1/z$, \emph{Proc. Amer. Math. Soc.}
+\textbf{85} (1982), 496--498.
+\bibitem[V]{Vaughan}
+R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
+\emph{Mathematika} \textbf{17} (1970), 193--198.
+\end{thebibliography}
+\end{document}
