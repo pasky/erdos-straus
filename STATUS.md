@@ -284,6 +284,17 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   the definition; example (42,32,71); Prop 4.1 levels; Lemma 3.6 sympy identities and j = 1 for b < 30; needs
   gcc/cc) and EXCEPTIONAL_WEIGHTS2 (Prop 5.3 premise: all ℛ(ℓ) classes QNR for ℓ ≤ 3000, Jacobi −1 for all
   M ≡ 3 (4) ≤ 300, R90 script + inline from the (u,v) definition; §6 mass S(Y)/(log Y)² at Y ≤ 10⁵).
+* `verify.py` blocks (ed)–(eg) (O96, ~29 s; full run ≈ 6.6 min on the shared machine, 2 threads, scipy +
+  mpmath) add POINTWISE_MORDELL13B (R95 `review_m13b_thm31.py` + author sympy engine; inline: x* in the II3 class
+  (8,33,11999) mod 12670944 and the I2 class (125,88,11999), exact solutions on 5 class members each, the prime
+  p = 12650497, Lemma 2.1 at the datum; R95 Lemma 1.1/1.2 and Lemmas 2.1–2.4 random tests), EXCEPTIONAL_MN
+  (Lemma 1.1 identity by author/R94B scripts and inline exhaustive small ranges; Lemma 2.1 S_m, h_m by author,
+  R94A, R94B and inline; toy fibre mass m·μ ∈ [1.18, 1.37] for m = 4..13, EVIDENCE), POINTWISE_TYPEI5 (Lemma 1.1
+  minimal-solution brute force, R92 + author + inline; (H), (Lin), Prop 3.3(iii) identities by sympy; L = 7
+  regimes (ii)/(iii) and R92's complete engine at b ≤ 3, with positive controls; needs gcc/cc) and
+  POINTWISE_MORDELL17B (Lemma 2.1 enumerator = R93 naive scan = stored data at K = 5, 7 as sets; ρ₁, ρ₂ exact by
+  both union scripts, with the level-7 Q/U data read from `data/m17b/qu7_*` (two engines, re-validated against
+  their definitions); Theorem 4.1 tables floor-rounded vs inline closed forms; needs gcc/cc and GNU `factor`).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
