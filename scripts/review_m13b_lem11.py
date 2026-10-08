@@ -55,7 +55,12 @@ def classres(fam, P):
     if fam == 'I2':
         a, c, f = P; r, M = crt((-f) % (4*a*c), 4*a*c, (-c*pow(a, -1, f)) % f if f > 1 else 0, f); return [r], M
     if fam == 'I3':
-        c, d, f = P; roots = [n for n in range(f) if (n*n + 4*c*c*d) % f == 0]
+        c, d, f = P
+        if f <= 5000: roots = [n for n in range(f) if (n*n + 4*c*c*d) % f == 0]
+        else:
+            from sympy.ntheory.residue_ntheory import sqrt_mod
+            roots = sorted(set(sqrt_mod((-4*c*c*d) % f, f, all_roots=True) or []))
+            assert all((n*n + 4*c*c*d) % f == 0 for n in roots)
         out = [crt((-f) % (4*c*d), 4*c*d, s, f)[0] for s in roots]; return out, 4*c*d*f
     if fam == 'I4':
         a, b, e = P; M = 4*a*b; return [(-pow(e, -1, M)) % M], M
