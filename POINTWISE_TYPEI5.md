@@ -144,3 +144,19 @@ treated here. In regime (v), `u = 7^b < 4j²/σ` and, for fixed `(σ, a, λ)`, e
 * Case A (`j < 0`) at `L = 8, 9, 10`: the identities (H), (Lin) hold verbatim; a sign analysis as in Prop 3.3 is needed.
 * Implement regime (iii) (and (ii), (iv)) as a complete computation at `L = 7…10` (finite by Prop 3.3).
 * Regime (v): for `σ, λ` up to a bound — finite; full closure would need a new idea (a relation bounding `σ`).
+* Regime (v): finite for each `(σ,a,λ)` (Prop 3.3(v)); a sweep over `σ, λ ≤` some bound is a cheap extension.
+* Closing regime (v) for all `(σ,κ)` would need a relation bounding `σ` (≈ size of the unit relative to `d²`);
+  LFL does not provide it (moving field).
+
+## Replay
+
+```
+gcc -O2 -o /tmp/dmod scripts/typei5_dmod.c -lm
+/tmp/dmod 5 24 3000                       # regression: the 8 hits of typei4_dgraded.py 5 24 3000 6
+for d in 497 21777 13220193; do /tmp/dmod 0 0 $d s; done   # residues of eps_f (cf. exact units)
+for L in 7 8 9 10; do /tmp/dmod $L $L 1000000; done        # 0 survivors each, ~15 min each
+for L in 7 8 9 10; do uv run --with sympy python scripts/typei5_regimes.py $L cert; done   # 0 each, <90 s
+for L in 7 9 10; do uv run --with sympy python scripts/typei5_regimes.py $L relax; done    # regression
+gcc -O2 -o /tmp/relax scripts/typei5_relax.c && /tmp/relax 7 1 6001 && /tmp/relax 9 1 2001 && /tmp/relax 10 1 2001
+python3 scripts/typei5_lehmer_check.py 300 60                   # Lemma 1.1 sanity (shape algebra)
+```
