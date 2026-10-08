@@ -3,8 +3,174 @@
 ("The exponent 3/4 for the exceptional set of m/n, in short intervals and progressions";
 author report `reviews/agent-reports/AGENT_REPORT_O97.md`; merged from `side-agent/mn-short-note`.)
 
-Referee: R97 side agent. Everything below is relative to `paper/es-threequarter-note.tex` (= [TQ],
-internally proved, not externally refereed). Labels of [TQ] were checked against a fresh two-pass
-compilation of [TQ] (aux file), not against the author's claims.
+Everything is relative to `paper/es-threequarter-note.tex` (= [TQ]; internally proved, not
+externally refereed). I checked the [TQ] labels against my own fresh two-pass compile of [TQ]
+(aux file), not against the author's claims. Sources consulted: `sources/pw.txt` (= arXiv v1 /
+author draft of 20 Nov 2025), `sources/pomerance-weingartner-2511.16817/…v2.pdf` (the cited
+version), `sources/elsholtz-tao-1107.1010.pdf`, `sources/vaughan-1970-access-log.md`. **Not
+accessible locally:** Vaughan 1970, Baker–Harman–Pintz 2001, Montgomery–Vaughan 1973, Li 1981,
+Yang 1982, Davenport.
 
-(Work in progress — filled in claim by claim.)
+From-scratch scripts (EVIDENCE only, independent of the author's `scripts/emn_*`):
+* `scripts/review_r97_arith.py`: an exact-rational check of the identity (3000 random instances, 0
+  failures). It also brute-forces m-representability for m ∈ {4,…,9,12,13}, n ≤ 1200 (two-unit
+  test via `(ay−b)(az−b)=b²`). Results: every n in every forced class `−uv⁻¹ (mod kℓ)` with
+  `kℓ+1 = muvw`, `kℓ ≤ 1200`, is representable (≈25 000 classes, 0 violations). Smooth-part
+  closure (Lemma 7.3(a)) has 0 violations for y ∈ {2,…,11}. n = 1 is exceptional for m ≥ 4, and
+  no n < 300 is exceptional for m ≤ 3. The m = 8 exceptions 2, 3 agree with PW §3.
+* `scripts/review_r97_analytic.py`, covering these checks:
+  * harmonic remainder: `|θ_y| ≤ 0.541` (≤ 1 is needed);
+  * Lemma 4.1(a)–(c): 0 failures for m = 4..60, 210, 2310, 5040, 30030 (and the primorials) with
+    K ≤ 2·10⁵;
+  * the ratio `S_m/((φ(m)/m)log K)` lies in [1.05, 1.37];
+  * `min h_m/S_m = 0.635` (≥ 0.54 is needed);
+  * Rankin (Lemma 7.3(b),(c)): exact for y ≤ 13;
+  * Lemma 7.1: max |θ| = 0.42 over 1000 random windows, with exact rationals and a random signed
+    class combination;
+  * Lemma 7.2: 0 violations;
+  * the algebra of Cor D and the √2·log(N/2) ≥ log N threshold: N ≥ 10.7, so N ≥ 16 suffices;
+  * eq. (ratio): `min_{4≤m≤2·10⁶} φ(m)loglog(3m)/m = 0.354` at m = 6.
+
+## Recommendation
+
+**Accept after minor revision (one MAJOR citation defect).** I re-derived every new proof line by
+line and found no FATAL defect and no mathematical gap. The labels are honest: everything is
+"proved relative to [TQ]", and the abstract, intro and bibliography say so. The only MAJOR defect
+is a misquotation of the cited version of Pomerance–Weingartner, which bears on the literature
+and novelty paragraph (D1). The rest are wording, quantifier and attribution repairs.
+
+## Per-section / per-claim verdicts
+
+| item | verdict |
+|---|---|
+| Abstract, §1 statements vs SHORT/MN + reviews R88, R94A/B | SOUND. They are no stronger than the reviewed sources. Every repair from R88 D1–D8 and R94A/B D1–D7 is reflected: ineffective constants; asymptotic-only PW comparison; PW *proof* range; the c/2 and (4/c) constants in the AP prime clause; the q₁ caveat; Assessment labels. Wording issues are in D2–D4 and D8. |
+| §2 black-box list (labels) | SOUND. Every cited [TQ] number matches the compiled aux, from Lemma 2.1 through §§10–11 (Lemma 2.1/2.2/3.1/3.2/3.3/4.1, Thm 4.2, Cor 4.3, §5, Lemmas 6.1/6.2, Thm 6.3, Lemma 7.1, Lemma 8.1, Thm 8.2, §9, (2)(3)(7)(8)(9)(12)(26)(39)(40)(43)(44)(48)(49)(50)). [TQ] Lemma 4.1 does use only 𝒥 ⊆ [1,K]: its proof sums over all k,k′ ≤ K. [TQ] Lemma 3.1/3.3 are stated for every k ≤ K, (c,k)=1. The "only occurrences of 4" sentence is incomplete but harmless (D5). |
+| Def 2.1 / Prop 2.2; m = 4 package from [TQ] Thm 8.2 | SOUND. The paper notes that [TQ] states ν ≥ 1 only for primes > max(K,y). Its proof (identity + Q_r(0)=1) gives (P1) for every exceptional n coprime to P_y, as claimed. (P2) follows from (44) and (7), and (P3) from (43), with s = t³/4. |
+| Lemma 3.1 (identity), Def 3.2, Lemma 3.3 (dedup/CRT, every m) | SOUND. Re-derived: `muv ∣ kℓ+1` forces (ℓ,m)=(k,m)=1. Distinct projections follow from `z_j² < ℓ`, and `muv > K` gives k = k′. No bound on m is needed. |
+| Lemma 4.1 (h_m) | SOUND. Re-derived (a)–(d): the Möbius/f′(1) ≥ 0 step, then `2^{ω(m)}/x ≤ 1/m < γφ(m)/m`, Σp⁻² < 0.4523, and the Euler-product upper bound for K ≥ m. Numerics are clean. |
+| Prop 5.1 (prime slice for m) | SOUND, uniformly in 4 ≤ m ≤ t³. Re-derived as follows. The retained harmonic mass is ≥ (1/64)(log z)²h(𝒥): Lemma 3.3 gives 1/32, and the congestion loss is ≤ C₂(log z)²(1+κt)³/t⁴. The main term uses φ(muv) ≤ φ(m)uv. The BV level is q ≤ t³x^{1/3}, multiplicity W(q) ≤ t^{4+D log 2} and R = D log 2+17, so the error is O(x(log x)^{−13}). The main term is ≫ x(log x)^{−2}, using h ≥ 1 and φ(m) ≤ t³. The upper bound uses BT with q ≤ x^{0.34} and φ(ab) ≥ φ(a)φ(b) for all a,b. The new step (using φ(muv) ≤ φ(m)uv directly on the *retained* mass) is valid and simpler than [TQ]'s O(log t) step. |
+| Cor 5.2 (fibre masses ≍ t³/m) | SOUND. K ≥ t⁶ ≥ m² for X ≥ X_h, uniformly over m ≤ t³. The upper bound holds for every c, the lower bound for reduced c. |
+| Lemma 6.1 (void, η = 1/4) | SOUND. Re-derived. Given S_y = 1, the events p∣c for p∣L_K, p > y are independent of probability 1/p. E e^{yZ} ≤ e^{C_Z} for every y ≥ 2, and h(𝒥_c) ≥ (0.54 − Z)S_m(K) by 4.1(b),(c). With B = 8a_v, the bad fibres have probability e^{−y/4+C_Z} = e^{−2a_v s+C_Z}. Nothing in this step depends on m. |
+| Lemma 6.2, Thm 6.3 (moments, Bonferroni, ledger) | SOUND. I re-derived C_L = B+3D_B+8 term by term (π(y)log 2 ≤ y ≤ (B+2)ts, etc.). The ledger e^{O(t⁴/m)} is correctly *not* e^{O(s)}. |
+| Lemma 7.1 (local mean) | SOUND (also numerically exact). Shift-uniformity is genuinely just "each class meets any half-open interval of length H in H/q′ + θ points, \|θ\| ≤ 1". |
+| Lemma 7.2 (large-prime moduli) | SOUND. q₂ is the X-rough part, so (Q_{d,1}, q₂) = 1 automatically. |
+| Lemma 7.3 (smooth-part decomposition) | SOUND. Convexity: −log(1−u) ≤ 2u on [0, 2^{−1/2}] (end value 1.228 ≤ 1.414). |
+| Prop 7.4 (transfer) | SOUND. d ↦ n′ = n/d is injective for fixed d. lcm(d′,q) is a multiple of d′q₂. Q_d = q/(d,q) has X-rough part q₂. ν ≥ 0 covers n′ ≤ 0. |
+| Proof of Thms A, B | SOUND. I checked C₂ = C_L+a+B+3 (log(yD₀+D₀e^{C_Lts}) ≤ 1+(B+2)s+as+C_Lts) and the choice t⁴ = m𝓗/(2C₂), which makes e^{C₂ts} = (H/q)^{1/2}. The side conditions are X ≥ X_a (via t³ = ms ≥ 4s), s ≥ 1 and s ≥ s₀, s₁. The trivial range is s < s_* ⇒ 𝓗^{3/4}m^{−1/4} < C₃, and H/q₂ = q₁H/q. The constants are absolute (κ = 1/480 fixed; ineffective via BV). |
+| Remark 7.5 (q₁, prime moduli) | SOUND. The ratio log X_q/(𝓗^{3/4}m^{−1/4}) = α(m/𝓗)^{1/2} is right. Wording issue: D6. |
+| Cor C (+ AP variant) | SOUND (trivial from A/B; the constants 2/c, (2/c)^{4/3}m^{1/3}, c/4, 4/c check out). |
+| Remark 7.6 (BHP) | SOUND *conditionally on the quoted BHP lower bound*, which I could not verify (no source; D7). The tiling and the extra log x factor are handled correctly. |
+| Cor D | SOUND. I re-derived f′ > 0 for L > (8/(3c))^{4/3}m^{1/3}, and f(L₀) ≥ (cA^{3/4} − 10/3 − 2log A/log 4)log m. L ≥ ½ log N ≥ L₀ for N ≥ 4, and N/(2L²) ≤ N/(log N)² for N ≥ 10.7. |
+| "The other side" (PWrange) | SOUND as a reading of [PW v2, pp. 6–8]. The Type I count ≪ (N/φ(m))log²N log²m for e^{m^{1/4}} ≪ N < e^m and the Type II count ≪ (N/φ(m))log²N loglog N are verbatim there. "Most primes in (N/2,N] uncovered" follows for log N ≤ (φ(m)/(C log²m))^{1/3}. Attribution wording: D8. |
+| eq. (ratio) and the PW comparison | SOUND asymptotically. The quantifier and range should be tightened (D3). |
+| Assessment 8.1 | Assessment, correctly labelled. The algebra (tμ ≍ L ⇒ μ ≍ L^{2/3}φ^{−1/3}, resp. L^{3/4}m^{−1/4}) checks out. Attribution to "Vaughan's" argument: D9. |
+| Prop E, Prop 9.1 | SOUND (trivial). Quantifier wording: D10. |
+| Assessments 9.2, 9.3 | Correctly labelled heuristics. The claim "M ≤ x for H ≤ exp{c(loglog x)⁴/m}" checks out (log 𝓜 = O(X)). |
+| §10 Literature | GAP in citation accuracy (D1, D2). The novelty hedging itself is appropriate. |
+| §11 Open problems | One false side-claim, inherited from SHORT (D4). |
+| Interface with [TQ] (task item 3) | SOUND. Nothing unproved in [TQ] is used. Uniformity in m is *not* taken from [TQ]: Prop 5.1, Cor 5.2, Lemma 6.1 and Thm 6.3 are re-proved here with all m-dependence explicit. The only [TQ] statements used for general m are Lemmas 3.1 ((12) only), 3.3 and 4.1, Lemma 8.1 and the analytic inputs (8), (9). All of these are m-free and stated for every k ≤ K. The void lemma is a statement about the CRT space, so no "shifted void" is needed. Shifts enter only through Lemma 7.1. |
+
+## Numbered defects
+
+**D1 (MAJOR — misquoted source; §10 bullet 2, also §1 "Background").** The paper cites
+`arXiv:2511.16817v2` but quotes the *v1* abstract ("generalize a result of Vaughan", as in
+`sources/pw.txt` l.19–20). The v2 abstract (cited version, `…v2.pdf` p.1) reads instead: "A result
+of Vaughan is that for each m, most n's have m/n representable; we make the dependence on m in
+this result explicit." This matters for two reasons.
+1. It is a misquotation of the cited text.
+2. It is the one available secondary statement that **settles the question the paper leaves
+   open**, namely "Whether Vaughan's paper … itself treats general m we could not check". Per PW v2,
+   Vaughan's 1970 theorem treats each fixed m.
+
+*Repair.* Quote the v2 abstract verbatim. In §10 replace "Whether Vaughan's paper … could not
+check" with: "According to [PW, abstract], Vaughan's result already covers each fixed m. We could
+not read Vaughan's paper, so we rely on this secondary statement for the dependence on m." Keep
+"[PW, Thm 1.3] is the first bound *explicit* in m that we can cite" (still correct). In §1
+Background, add after the Vaughan sentence: "(for each fixed m, according to [PW]; the
+m-dependence was made explicit in [PW])." The novelty claims (Thm A new for m ≠ 4 at exponent
+3/4; m-uniformity) are unaffected.
+
+**D2 (MINOR — ET paraphrase; §1 Background l.~"quoted as the state of the art by Elsholtz and
+Tao [§1]" and §10 bullet 1 "as the only exceptional-set result").** ET §1 actually says: "For
+instance, it was shown by Vaughan [82] … (Compare also [48, 84, 39, 89] for some weaker results)."
+ET say neither "only" nor "state of the art". *Repair:* "ET [§1] cite Vaughan's bound, and
+list Nakayama, Webb, Li and Yang as weaker results". In Background, keep "state of the art" for
+PW only, since PW p.2 says the count "has been strongly improved, though not recently: In 1970,
+Vaughan …".
+
+**D3 (MINOR — PW comparison quantifiers; §1 after Cor D, eq. (ratio) paragraph).**
+1. "Theorem A and (PW) have unrelated ineffective constants": PW do not claim ineffectivity (the
+   large sieve plus elementary steps). *Repair:* "unrelated constants (ours ineffective)".
+2. "Theorem A is stronger than (PW) whenever (Lm)^{1/12} ≥ Λ₀(loglog 3m)^{1/3}" should be stated
+   only inside PW's range m ≤ L². Outside it, (PW) is not a theorem. Also, "stronger" needs
+   S′ := L^{2/3}φ(m)^{−1/3} ≥ 1 to absorb the prefactor C of Thm A (cΛS′ − C_PW S′ ≥ log C), and
+   S′ ≥ 1 holds exactly because m ≤ L². *Repair:* "Hence there is Λ₀ such that, for 4 ≤ m ≤ L²,
+   Theorem A is stronger than (PW) as soon as (Lm)^{1/12} ≥ Λ₀(loglog 3m)^{1/3}; in particular
+   for all such m once N ≥ N₀."
+
+**D4 (MINOR — false side-claim; §11 Problem 1, inherited from SHORT Remark 2.2).** "Fixing the
+coordinates n mod ℓ for ℓ ∣ q₁ changes the fibre product by a factor ≤ exp{Σ_{ℓ∣q₁}2ℓ^{−2/3}}
+= 1+o(1)" is not true for general q₁. The sum over the primes in (X^{1/2}, X] dividing q₁ can be
+as large as Σ_{X^{1/2}<ℓ≤X} 2ℓ^{−2/3} ≍ X^{1/3}/log X → ∞. *Repair:* "by a factor
+≤ exp{2ω(q₁)X^{−1/3}} (using f_c(ℓ) ≤ z_j² ≤ ℓ^{1/3}, [TQ, proof of Lemma 2.2]), which is 1+o(1)
+when ω(q₁) = o(X^{1/3})".
+
+**D5 (MINOR — §2.2 "It appears only in …").** The list of places where the numerator 4 occurs
+in [TQ] omits several:
+* the dedup step `4uv > 4H² > K` (Lemma 2.2), which is re-run here as Lemma 3.3;
+* `q ≤ 4x^{1/3}` in (8)/(9);
+* the main-term step in Thm 4.2 (1/φ(4uv) ≥ 1/(4uv) and the O(log t) removal);
+* §5 (W_c(q) with q/4; φ(4uv) ≥ 2φφ there);
+* the "L_𝒥 odd" remark after (21);
+* "p ≡ 3 (mod 4)" in the proof of Lemma 7.1.
+
+All of these lie in statements that are re-run or not used, so there is no gap. *Repair:* "Apart
+from the unused §5, the (21)-remark and §§10–11, it appears only in statements that are re-run
+below."
+
+**D6 (MINOR — Remark 7.5).** "every prime modulus q with H/q large is covered without loss":
+the bound obtained is the halved-exponent consequence of Thm B (c/2). *Repair:* "without the
+factor q₁ (with saving constant c/2)".
+
+**D7 (MINOR — Remark 7.6, bibliography [BHP]).** The BHP lower bound
+π(u) − π(u − u^{0.525}) ≫ u^{0.525}/log u is not in `sources/` or in LITERATURE_2026.md. The
+author flags this ("did not re-check"). The bibliographic data agree with my knowledge, but I
+could not verify the statement. *Repair:* label the remark's conclusion explicitly as
+**CONDITIONAL** (on the cited BHP statement), in line with the status labels. Optionally add a
+source file.
+
+**D8 (MINOR — §8 "The other side" and abstract).** "(This reading of [PW] … it is not a
+statement made in [PW].)" is slightly too strong. PW p.2 state: "In our proof of Theorem 1.1 we
+actually show that not only is there one exceptional n > exp(m^{1/3−ε}), but that most prime
+values of n near this bound are exceptions." Only the extension to the whole range (PWrange) is
+the authors' reading. Conversely, the abstract's "locating the transition at log n = m^{1/3+o(1)}"
+does not say that the lower side rests on that reading of PW's proof. *Repair:* cite the p.2
+sentence. Change the parenthetical to "PW state this for N = N(m); the extension to the range
+(PWrange) is our reading of their proof, checked by two internal reviewers". In the abstract,
+add "(the lower side from the proof of [PW, Thm 3.1])".
+
+**D9 (MINOR — Assessment 8.1).** "Both our argument and Vaughan's balance a fibre mass μ against
+a ledger e^{O(tμ)}." Nobody in the campaign has read Vaughan's paper (see
+`sources/vaughan-1970-access-log.md`). *Repair:* "Vaughan's argument as reconstructed in
+[PW, §4]".
+
+**D10 (MINOR — Prop E hypothesis).** "some function H₀(x) ≥ 1 with C H₀(x)e^{−c(log x)^{3/4}} < 1"
+should read "… < 1 for all x ≥ x₀". The proof uses it at every x ≥ x₀.
+
+**D11 (MINOR — §1 after Thm A).** "For m ≤ ε(log H)³ with ε = ε(C) small": the saving there is
+cε^{−1/4}, so ε depends on c and C. *Repair:* "ε = ε(c,C)".
+
+**D12 (MINOR — Lemma 3.3(3)).** "conditional on any residue c (mod L_K) (and on S_y = 1)": the
+conditioning event is empty when a prime p ≤ y divides (c, L_K). This is harmless, since only
+c compatible with S_y = 1 are averaged. *Repair:* "on any residue c compatible with S_y = 1".
+
+**D13 (MINOR — bibliography, verification status).** [Li] and [Yang] match ET's bibliography
+(entries [39], [89]), which is only a secondary check. [MV], [Davenport] and [BHP] are not in
+`sources/`. [Vaughan] is inaccessible (access log). The data agree with my knowledge.
+*Repair:* none required. Optionally add one sentence in §10 saying which entries were read.
+
+No other defects. In particular I found no quantifier error in the uniformity in m. Every
+threshold (X_h, X_v, X_a, s₀, s₁, s_*) is absolute, because m ≤ t³ is built into the choice
+t⁴ = m𝓗/(2C₂). The only constants that depend on parameters are κ and D, and both are fixed. I
+found no circularity: the m = 4 route and the general-m route both feed the same Prop 7.4, and
+neither uses [TQ] §9.
