@@ -60,10 +60,30 @@ In particular **no fibre certificate at `L ∈ {7,…,10}` with `c_oδ ≤ 3000`
 *Remark 1.4 (what Lemma 1.1 does not do).* It does not bound `b` at fixed `L`: it only says that `b` is read off from
 the unit of `d = c_o(c_oδ² + T)`. Assessment 4.2(c) of TYPEI4 (BHV, `n ≤ 30`) is superseded by `n = 1` (elementary).
 
-## 2. Plan of the remaining sections (working notes)
+## 2. A d-graded engine valid for all `b` without big integers (CERTIFIED once replayed)
 
-* §3: a d-graded engine that needs no big integers: the generator `ν_0 = ε_f^k` of `G` computed **modulo `2^64` and
-  `7^22`** along the continued fraction of `√d`; Lemma 1.1 makes "certificate ⟺ `ν_0 = α²` of the Legendre shape with
-  `u = 7^b`" exact, and the 7-adic valuations `v_7(B) = b`, `v_7(A−1) = a+2b` are read off modulo `7^22`.
+**Lemma 2.1 (filter; PROVED).** Let `ν_0 = A + B√d` be the generator of `G` (Cor 1.2). If `(L,a,c',δ)` carries a fibre
+certificate (any `b`), then: `A ≡ −1 (mod 32)`, `B ≡ 8 (mod 16)`, `b = v_7(B)`, `v_7(A−1) = a + 2b`, and
+`(A−1)/(2·7^{a+2b}) = Q_1` is a divisor of `M = c_oδ² + T`.
+*Proof.* `ν_0 = α² = (2Qu²+1) + 8Xu√d` with `u = 7^b`, `X` odd, `7∤X`, `Q = 7^aQ_1`, `7∤Q_1` (`Q_1 | M`, `M ≡ T ≢ 0 (mod 7)`);
+`A ≡ −1 (mod 32)` is TYPEI4 Prop 1.2. ∎
+All five conditions only need `A, B` modulo `2^64` and `7^22` (for `a+2b ≤ 18`; otherwise the survivor is flagged `WEAK`
+and must be checked separately), and these residues are computed exactly along the continued fraction of `√d`
+(convergent recursion mod `2^64` and mod `7^22`; `ε_f = p+q√d` from the period, squared if the period is odd;
+`ν_0 = ε_f^k`, `k` the least of `1,2,4` with `4 | B`).
+
+**Computation 2.2.** `scripts/typei5_dmod.c Lmin Lmax CD` (all `a` odd, `c'`, `δ` with `c_oδ ≤ CD`).
+* Regression: `typei5_dmod 5 24 3000` returns exactly the 8 hits of `typei4_dgraded.py 5 24 3000 6` (0.07 s);
+  residues of `ε_f` agree with exact big-integer units for `d = 497, 21777, 13220193, 1234567, 991`.
+* `typei5_dmod 7 10 300000`: 466 876 fields, 6.8·10⁹ CF steps, **0 survivors** (71 s).
+* `L = 7,8,9,10`, `CD = 10⁶`: running.
+
+**Corollary 2.3 (CERTIFIED once replayed).** There is no fibre certificate (hence no certificate at `x̂_9`) of level
+`L ∈ {7,8,9,10}` with `c_oδ ≤ 3·10⁵`, **for any `v_7(k)`** (and any height `X = k'`).
+Together with TYPEI4 Cor 3.5 (`v_7(k) ≤ 7`, any `c_oδ`): a certificate at `x̂_9` of level `7…10` needs
+**both** `v_7(k) ≥ 8` **and** `c_oδ > 3·10⁵`.
+
+## 3. Plan of the remaining sections (working notes)
+
 * §4: why linear forms in logarithms do not close the tower at fixed `L` (b is a function of the unit of a
   two-parameter family of fields; Lemma 3.6 of TYPEI4 = small-unit regime).
