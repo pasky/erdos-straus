@@ -66,11 +66,13 @@ where `S = Σ_{K≥K0 odd} 17^{θK+(1−K)/2}`:
 
 | θ | 0.25 | 0.30 | 0.35 | 0.40 | 0.42 | 0.45 |
 |---|---|---|---|---|---|---|
-| K0 = 13, ρ₁ | 619.2 | 87.89 | 11.77 | 1.410 | 0.5687 | 0.1275 |
-| K0 = 15, ρ₂ | 2553 | 273.0 | 27.53 | 2.485 | 0.8948 | 0.1693 |
+| K0 = 13, ρ₁ | 619.21 | 87.888 | 11.768 | **1.40980** | 0.56866 | 0.12750 |
+| K0 = 15, ρ₂ | 2553.0 | 272.96 | 27.533 | 2.4845 | 0.89479 | 0.16926 |
+
+(θ is taken as an exact rational, e.g. 2/5.)
 
 `T_Q = 1.4106·10⁻³` (θ_Q = 3/5, C = 1) and `0.0765` (3/4), as claimed. The polynomial variants are also as claimed:
 2K³ → 4.005·10⁻⁴, K⁴ → 2.64·10⁻³, K⁵ → 3.49·10⁻², and Conj. 4.2 (2K³, 3k³) → 4.007·10⁻⁴.
 The data ratios `D_P/17^{0.4K}` match as well.
-Several table entries are rounded **up** (87.9, 11.8, 0.569, 0.128, 2.49): see defect m2. The headline value 1.41 is
-correct, since 1.4103 ≥ 1.41.
+Several table entries are rounded **up**: 87.9, 11.8, **1.41**, 0.569, 0.128, 273, 2.49. In particular the headline
+constant fails. At θ = 2/5, C = 1.41, K0 = 13: `T_P + T_Q = 0.677230 > ρ₁ = 0.677133`. See defect M1.
