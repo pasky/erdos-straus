@@ -6,7 +6,7 @@
  * B = e_T.  T-free conditions: g | 4 lam a'^2 d' + 1  <=>  lam = -1/(4a'^2 d')  (mod g).
  * Box conditions (Lemma 1.1): q | lam:  e = -u_q (mod q^{v_q(ad)});  q | B:  q^{v_q(e)} | u_q + 4a^2 d (II3),
  * | u_q^2 + 4a^2 d (I3);  I1: e | 4a^2 d + 1 (then no condition at q | B).  gcd(lam, B) = 1 throughout.
- * usage: m13b_target u11 u13 X E   (u_q as integers mod q^16; searches all e = 4a'd'm - 1 <= X)
+ * usage: m13b_target u11 u13 X E [X0]  (u_q as integers mod q^16; searches all e = 4a'd'm - 1 in (X0, X])
  * prints "HIT fam a d e" with a, d as (a_T, a', d_T, d') and the T-exponents.
  */
 #include <stdio.h>
@@ -30,7 +30,10 @@ int main(int argc, char **argv) {
     uint32_t *spf = calloc(L + 1, 4);
     for (u64 i = 2; i <= L; i++) if (!spf[i]) for (u64 j = i; j <= L; j += i) if (!spf[j]) spf[j] = (uint32_t)i;
     static u64 dv[1 << 16]; int nd;
-    for (u64 e = 3; e <= X; e += 4) {           /* e = -1 mod 4 */
+    u64 X0 = argc > 5 ? strtoull(argv[5], 0, 10) : 0;   /* optional start: search X0 < e <= X */
+    u64 e0 = X0 - X0 % 4 + 3; if (e0 <= X0) e0 += 4;
+    for (u64 e = e0; e <= X; e += 4) {           /* e = -1 mod 4 */
+        if ((e & ((1ULL << 24) - 1)) == 3) { fprintf(stderr, "# progress e=%llu\n", e); fflush(stderr); }
         u64 B = 1, g = e; int vB[2] = {0, 0};
         for (int t = 0; t < 2; t++) while (g % QQ[t] == 0) { g /= QQ[t]; B *= QQ[t]; vB[t]++; }
         /* T-units mod g, avoiding primes of B */
