@@ -10,19 +10,21 @@ literature, open problems. The 3/4 note is a black box (§2 lists every statemen
 majorant-package abstraction); full proofs of the 4 → m re-runs (identity, CRT, h_m, prime slice, void,
 assembly) and of the local transfer (Lemmas 7.1–7.3, Prop 7.4). All PROVED *relative to the note*
 (internally proved, not externally refereed). Change list: `reviews/agent-reports/AGENT_REPORT_O97.md`.
-Not yet refereed.
+Refereed internally (R97: accept after minor revision; repairs applied, `reviews/es-mn-short-note-referee.md`).
 
-**New (2026-10-06): `es-coverings-note.tex` / `.pdf`** (task O86, 20 pages) — "Finite congruence
+**New (2026-10-06): `es-coverings-note.tex` / `.pdf`** (task O86; 24 pages after the O91/O96 additions) — "Finite congruence
 coverings for the Erdős–Straus equation and sterile profinite points". Consolidates the reviewed
 covering results: ET Prop 1.9 classes as clopen sets in Ẑ, compactness + Dirichlet (Prop 2.5: a cofinite
 polynomial covering of a prime set exists ⟺ its accumulation set has no sterile point; for one given
 point only ⇒, R80 #8); square points sterile (Mordell–Schinzel, known) and Theorem C of POINTWISE_SIZE
 (CONDITIONAL on H, partial novelty); Type I: C(5)=10, Theorem A (TYPEI2), sign point x̂_9, heights
 >1.32·10¹² (CERTIFIED) and C(7)>1.32·10¹² under H, levels 5–6 empty, nowhere density, measure route;
-r=13: Thm 3.1 of POINTWISE_MORDELL (explicit packaging of Salez's sieve), x* (Comp 4.1), Conj 4.2 as an
-implication; r=17: box calculus, Comp 3.1, Thm 4.1 (PROVED reduction), Cor 4.2 (CONDITIONAL), the
+r=13: Thm 3.1 of POINTWISE_MORDELL (explicit packaging of Salez's sieve), x* (Comp 4.1); post-referee (O96): Conj 4.2 (x* sterile) REFUTED
+by MORDELL13B Thm 3.1 (Prop 5.4: II3 class (8,33,11999), modulus 12670944), new candidate x** = x(2,15)
+as an EVIDENCE-level Conj 5.6; r=17: box calculus, Comp 3.1, Thm 4.1 (PROVED reduction), Cor 4.2 (CONDITIONAL), the
 P-count and the discrete-log Assessment; open problems. Change list:
-`reviews/agent-reports/AGENT_REPORT_O86.md`. Not yet refereed.
+`reviews/agent-reports/AGENT_REPORT_O86.md`. Refereed internally (R86, `reviews/es-coverings-note-referee.md`); the post-referee
+additions O91 (TYPEI4) and O96 (x* refutation) are not re-refereed.
 
 **New: `es-subexp-note.tex` / `.pdf`, v6** (task O77, 62 pages; refereed R77, D1–D9 applied). The proof of the main
 theorem is unchanged. New §12 (source `POINTWISE_TAIL.md`, ledger (H)33): quantitative transfer

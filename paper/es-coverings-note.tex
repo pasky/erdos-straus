@@ -49,8 +49,10 @@ the limsup of the Type~I depth under Hypothesis~H.  For $r=7$ every
 covering has height greater than $1.32\cdot10^{12}$ (finite computation),
 because of an explicit ``sign point'' at which the two lowest admissible
 $2$-adic levels are proved empty.  For $r=13$ we give an explicit
-finite-exception theorem, a repackaging of Salez's level sieve, and a
-candidate sterile point that lies in no class of modulus at most $10^6$.
+finite-exception theorem, a repackaging of Salez's level sieve.  We show
+that a point that lies in no class of modulus at most $10^6$, and was
+earlier conjectured to be sterile, does lie in an explicit class of
+modulus $12670944$.  A new candidate survives targeted searches.
 For $r=17$ the classes meeting the $17$-generic line are balls around
 solutions of $4/17^K=1/x+1/y+1/z$; an explicit bound on the number of
 such solutions would produce a sterile point and rule out every finite
@@ -121,7 +123,13 @@ $C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
 satisfy ES outside six classes modulo $720720$ (\status{proved} by
 certified finite computation; an explicit packaging of Salez's sieve).
 The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
-$\le10^6$ (\status{certified}); that it is sterile is a conjecture.
+$\le10^6$ (\status{certified}).  It is nevertheless not sterile: it
+lies in an explicit II3 class of modulus $12670944$
+(Proposition~\ref{prop:xstarcovered}, \status{proved}).  This refutes an
+earlier conjecture.  The point $x^{**}$ with $(x^{**}_{11},x^{**}_{13})=(2,15)$
+survives targeted searches far beyond that height (\status{certified}
+within stated ranges); that it is sterile is a conjecture supported only
+by this evidence.
 \item \emph{$r=17$} (\S\ref{sec:r17}).  On the $17$-generic line the
 classes become balls around solutions of $4/17^K=1/x+1/y+1/z$
 (\status{proved}); levels $\le5$ leave $67.7\%$ of each non-residue cell
@@ -431,7 +439,7 @@ The target sets of \S\S\ref{sec:typeI}--\ref{sec:r17} require $x_r$ to be a
 non-square for some prime $r$, so they contain no point that is
 square-mimicking for $P=X$, and neither Proposition~\ref{prop:square} nor
 Cited Theorem~\ref{cit:C} applies to them.  The candidate sterile points
-below (the sign point $\hat x_9$, the point $x^*$ for $r=13$, the
+below (the sign point $\hat x_9$, the point $x^{**}$ for $r=13$, the
 $17$-generic line) are therefore not explained by the odd-square
 obstruction.  If they are sterile, the reason is a different, rigidity
 type of obstruction (\S\ref{sec:typeI}); this is a heuristic reading,
@@ -1001,8 +1009,9 @@ sliced by $(p/13)$, with certificates that can be checked independently.
 The exceptional classes carry $1/360$ (a) and $6/2160$ (b) of the
 relevant residues; deeper levels shrink them (to $1412$ residues modulo
 $2^4 3^2\cdot5\cdot7\cdot11\cdot13^2\cdot17\cdot19\cdot23$ with moduli
-$\le10^8$ in case (b)), but apparently never to zero
-(\status{evidence}).
+$\le10^8$ in case (b)).  Whether they ever reach zero is open: the
+point $x^*$ below was a candidate obstruction but is covered
+(Proposition~\ref{prop:xstarcovered}).
 
 \subsection{Generic points and boxes}
 For a finite set $T$ of primes call $x\in\Zhu$ \emph{$T$-generic} if
@@ -1029,7 +1038,7 @@ points for $r=13$ need special residues at $11$ as well.  For
 $T=\{11,13\}$ the classes of modulus $\le10^6$ leave uncovered only cells
 above $(x_{11},x_{13})\equiv(2,2)\pmod{(11,13)}$ (\status{evidence}).
 
-\subsection{The candidate sterile point $x^*$}
+\subsection{The point $x^*$ and the candidate $x^{**}$}
 
 \begin{computation}[\status{certified}; {\cite[Comp.~4.1, \S4.1]{PM}}]\label{comp:xstar}
 Let $x^*\in\Zhu$ have $x^*_{11}=x^*_{13}=2$ and $x^*_q=1$ for every other
@@ -1058,32 +1067,85 @@ Remark~\ref{rem:direction}: $x^*$ is an accumulation point of these
 primes by Lemma~\ref{lem:accum} ($(2/11)=(2/13)=-1$).
 \end{proof}
 
-\begin{conjecture}[{\cite[Conj.~4.2]{PM}}]\label{conj:xstar}
-The point $x^*$ is sterile.
+An earlier version of this note conjectured, following
+\cite[Conj.~4.2]{PM}, that $x^*$ is sterile.  That conjecture is false.
+
+\begin{proposition}[\status{proved}; {\cite[Thm.~3.1]{PM13B}}]\label{prop:xstarcovered}
+The point $x^*$ lies in the II3 class with $(a,d,e)=(8,33,11999)$, that
+is, $n\equiv12650497\pmod{12670944}$, where
+$12670944=4ade=2^5\cdot3\cdot11\cdot13^2\cdot71$.  It also lies in the I2
+class with $(a,c,f)=(125,88,11999)$, of modulus $527956000$.  In
+particular $x^*$ is not sterile.
+\end{proposition}
+
+\begin{proof}
+Write $M=4ade=M'M_T$ with $M_T=11\cdot13^2$ and $M'=6816$.  The residue
+$r=-4a^2d-e\bmod M$ equals $12650497$.  We have $r\equiv1\pmod{M'}$ and
+$r\equiv2\pmod{M_T}$; equivalently, $e+1=12000\equiv0\pmod{96}$,
+$11\mid e+2=11\cdot1091$, $71\mid 4a^2d+1=71\cdot119$, and
+$13^2\mid 2a^2d+1=25\cdot13^2$.  So the clopen class contains $x^*$.  The
+side condition $(4ad,e)=(1056,11999)=1$ holds, and
+Lemma~\ref{lem:solve} applies.  For example, $p=12650497$ is prime, and
+the II3 solution is $4/p=1/3165624+1/3339731208+1/5005839614391$.
+\end{proof}
+
+Computation~\ref{comp:xstar} is not affected: both classes have modulus
+$>10^6$, and they belong to the families II3 and I2, which are outside
+the rigid enumeration~(b).  The covering question for the primes with
+$(p/11)=(p/13)=-1$ is therefore open again.  In \cite{PM13B} every class
+meeting the $\{11,13\}$-generic points is attached to a solution of
+$4/N=1/x+1/y+1/z$ with $N$ an $\{11,13\}$-unit; this makes complete
+enumeration by $N$ possible.  The (II3, I2) pair above has $N=11\cdot13^2$.
+Among the $\{11,13\}$-generic points above the cell $(2,2)$, the
+enumeration with $N\le4\cdot10^7$ leaves $15$ of $143$ subcells modulo
+$(11^2,13^2)$ uncovered.  A targeted search was run at four points of
+small height in these subcells.  One of them is the point
+$x^{**}$ with $x^{**}_{11}=2$, $x^{**}_{13}=15$ and $x^{**}_q=1$ for
+every other prime $q$; it also lies in $\Sigma_{13}$.
+
+\begin{computation}[\status{certified} within the stated ranges, one
+engine per family group; {\cite[Comp.~5.1]{PM13B}}]\label{comp:xss}
+The point $x^{**}$ lies in no ET class of family II3, I3 or I1 with
+$e$ (resp.\ $f$) $\le10^8$; of family II2 with $f\le3\cdot10^7$; or of
+family I2, II1 or I4 with $f$ (resp.\ $e$) $\le2\cdot10^7$ and
+$\{11,13\}$-exponents of absolute value at most $12$.  For II3, I3, I1 and
+II2 these ranges impose no restriction on the $\{11,13\}$-part of the
+modulus.
+\end{computation}
+
+\begin{conjecture}[\status{evidence} only; {\cite[Conj.~5.2]{PM13B}}]\label{conj:xss}
+The point $x^{**}$ is sterile.
 \end{conjecture}
 
-By Proposition~\ref{prop:compact}(b), Conjecture~\ref{conj:xstar}
+By Proposition~\ref{prop:compact}(b), Conjecture~\ref{conj:xss}
 \emph{implies} that no finite set of primitive classes solvable by
 polynomials contains all but finitely many Mordell-hard primes with
-$(p/11)=(p/13)=-1$, so that the method of Theorem~\ref{thm:r13}(b), a
-finite list of polynomial classes, cannot be extended to cover all such
+$(p/11)=(p/13)=-1$.  So the method of Theorem~\ref{thm:r13}(b), a
+finite list of polynomial classes, could not be extended to cover all such
 primes up to finitely many exceptions.  This would say nothing about
 whether ES holds for these primes.  The conjecture is not equivalent to
-the non-existence of such a covering (Remark~\ref{rem:direction}).
+the non-existence of such a covering (Remark~\ref{rem:direction}).  The
+support for it is weak.  The point $x^*$ was covered at
+$e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes four orders of
+magnitude further in $e$.  No tail bound of the kind in
+Theorem~\ref{thm:tail17} is available here.
 
-\emph{Why the odd-square obstruction does not explain $x^*$.}  The point
-$x^*$ is not square-mimicking, as $x^*_{11}$ and $x^*_{13}$ are
-non-residues; so Proposition~\ref{prop:square} and Cited
-Theorem~\ref{cit:C} do not apply (\status{proved}, trivially).  That the
-mechanism is instead the rigidity of classes at $T$-generic points, as for
-the sign point, is an \status{Assessment}: Jacobi-parity arguments of the
-kind in \cite[Prop.~1.6]{ET} force only an odd total $\{11,13\}$-valuation
-of the relevant parameters, which can be satisfied.
+\emph{Why the odd-square obstruction would not explain $x^{**}$.}  The
+point $x^{**}$ is not square-mimicking, since $x^{**}_{11}$ and
+$x^{**}_{13}$ are non-residues.  Hence Proposition~\ref{prop:square} and
+Cited Theorem~\ref{cit:C} do not apply (\status{proved}, trivially).
+Jacobi-parity arguments of the kind in \cite[Prop.~1.6]{ET} force only
+odd total $\{11,13\}$-valuations of the relevant parameters, which can be
+satisfied (\cite[Lemma~1.2]{PM13B} works this out at $x^*$).  The case of
+$x^*$ is a warning here.  A point can escape every class up to a large
+modulus through rigidity and still be covered.
 
 \emph{Data} (\status{evidence}).  With all-family boxes of modulus
 $\le10^6$ and the rigid II boxes, $24.8\%$ of the $(2,2)$ cell remains
-uncovered at resolution $11^4\cdot13^4$, and the exponent-$4$ rigid level
-barely changes this.  For the np variant no $T$-generic obstruction with
+uncovered at resolution $11^4\cdot13^4$.  The classes of ES level
+$N\le4\cdot10^7$ alone leave $4.64\%$.  This is an upper bound,
+since that enumeration is complete only for $\{11,13\}$-levels
+$\le6324$ \cite[\S4]{PM13B}.  For the np variant no $T$-generic obstruction with
 $|T|\le3$ was found; a best-first tree search over $\Sigma_{13}^{\rm np}$
 stopped at $30000$ nodes with open Haar mass $4.1\cdot10^{-7}$, so that
 variant is undecided.
@@ -1308,7 +1370,7 @@ a closed set, so a non-square sterile point has a clopen neighbourhood
 $\Sigma$ without square points; conversely a clopen $\Sigma$ is defined
 modulo some $M$.  Apply Lemma~\ref{lem:accum} and
 Proposition~\ref{prop:compact}.)
-Each of Conjectures~\ref{conj:xstar} and~\ref{conj:17} would give one;
+Each of Conjectures~\ref{conj:xss} and~\ref{conj:17} would give one;
 Conjecture~\ref{conj:sign} would give a Type~I analogue.
 \end{problem}
 
@@ -1343,7 +1405,7 @@ logarithm falls.
 \end{problem}
 
 \begin{problem}
-Decide whether $x^*$ is sterile (Conjecture~\ref{conj:xstar}), and
+Decide whether $x^{**}$ is sterile (Conjecture~\ref{conj:xss}), and
 whether the np variant $\Sigma^{\rm np}_{13}$ has a sterile point at all.
 A finite-level reduction analogous to Theorem~\ref{thm:tail17} for the
 two-dimensional $\{11,13\}$-generic set is not available.
@@ -1414,6 +1476,9 @@ conjecture, research note, this repository
 \bibitem{PM} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell-review.md}.
+\bibitem{PM13B} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL13B.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell13b-review.md}.
 \bibitem{PM17} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL17.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell17-review.md}.

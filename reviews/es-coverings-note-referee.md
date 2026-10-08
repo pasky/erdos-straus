@@ -263,3 +263,14 @@ LITERATURE_2026. The paper now cites "S. Mihnea and B. C. Dumitru".
 Computation 4.13 with engine scope, Remark 4.14 scope/example (42,32,71), Lemma 3.6 partial result as text),
 the updated sentence on the 34 level-7 near misses, the Results bullet and Problem 2 were added from
 POINTWISE_TYPEI4.md as repaired in review R89 (`reviews/pointwise-typei4-review.md`). Not re-refereed.
+
+### Post-referee correction (O96): Conjecture 5.4 (x* sterile) refuted; not re-refereed
+The former Conjecture 5.4 (`x*` is sterile, from POINTWISE_MORDELL Conj 4.2) is **false**. §5 "The point x* and the
+candidate x**" now states the refutation as Proposition 5.4 (`prop:xstarcovered`). It gives the II3 class (a,d,e) = (8,33,11999),
+of modulus 12670944 = 2⁵·3·11·13²·71 and residue 12650497, and the I2 class (125,88,11999). The proposition comes with a
+proof and cites POINTWISE_MORDELL13B Thm 3.1 (reviewed, `reviews/pointwise-mordell13b-review.md`). The new candidate
+`x** = x(2,15)` appears only as the EVIDENCE-level Conjecture 5.6 (`conj:xss`), together with the CERTIFIED search ranges (Computation 5.5) of
+MORDELL13B Comp 5.1. The abstract, the r = 13 Results bullet, Remark 3.3, the "apparently never to zero" sentence
+(now: open), Problem 1, Problem 5 and the bibliography (PM13B) are updated. Computation 5.2 and its Corollary are
+unchanged. Build: two pdflatex passes give 24 pp, 0 overfull boxes and 0 undefined references. The pre-existing
+underfull hbox and hyperref warnings remain, and there is one harmless underfull vbox at a page break.
