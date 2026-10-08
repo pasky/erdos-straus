@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)30 and (H)34, incl. the 2026-10-07 follow-ups (D)29 [WEIGHTS2] and (H)17 follow-up 3 [TYPEI4])
+# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)31 and (H)34, incl. the 2026-10-08 follow-ups (H)17 follow-up 4 [TYPEI5], (H)34 follow-up 2 [MORDELL17B] and the refutation (F)11 [MORDELL13B])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -70,7 +70,9 @@ The campaign ran two lines of research.
   genuinely non-CRT arithmetic input. The 3/4 bound also holds in every
   interval of length H at any position, `E(I) ≪ H exp(−c(log H)^{3/4})`,
   and in progressions of small or rough modulus ((D)30, PROVED relative
-  to the 3/4 note; modest novelty).
+  to the 3/4 note; modest novelty). For m/n the same argument gives
+  `E_m(N) ≤ C N exp(−c(log N)^{3/4} m^{−1/4})` uniformly in m ≥ 4
+  ((D)31, PROVED relative to the 3/4 note).
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -97,8 +99,12 @@ The campaign ran two lines of research.
   height > 1.32·10¹² (CERTIFIED); no certificate at the sign point `x̂_9`
   exists with 2-adic level ≤ 22 and `v_7(k) ≤ 3` at **any** height
   (CERTIFIED, via a Pell form of fibre certificates, PROVED); ES holds for primes with `(p/13) = −1`
-  outside six classes mod 720720 (PROVED by finite computation), and
-  candidate sterile points for r = 13, 17 are CONJECTURES ((H)17, (H)34).
+  outside six classes mod 720720 (PROVED by finite computation). The
+  first candidate sterile point x* for r = 13 turned out to lie in an
+  explicit class of modulus 12670944 (its conjecture is REFUTED, (F)11).
+  The remaining candidates, `x̂_9` for Type I, x** = x(2,15) for r = 13,
+  and a point on the 17-generic line for r = 17, are CONJECTURES
+  ((H)17, (H)34). No sterile point other than the square points is proved.
 
 ---
 
@@ -541,6 +547,28 @@ the author). All statements are PROVED relative to the 3/4 note.
 * Novelty is modest (shift-uniformity is routine); no published
   short-interval or progression result was found (Li Delang 1981 not read
   in full).
+
+### 2.6 The 3/4 bound for m/n, uniformly in m
+
+`EXCEPTIONAL_MN.md` (ledger (D)31; two independent hostile reviews
+`reviews/exceptional-mn-review-A.md`, `-B.md`, no FATAL/MAJOR, minors
+repaired by the author). All statements are PROVED relative to the 3/4 note.
+* Thm A: there are absolute constants c, C such that for every m ≥ 4 and
+  every interval I of length H ≥ 2,
+  `E_m(I) ≤ C H exp(−c(log H)^{3/4} m^{−1/4})`. The note transfers with
+  4 → m: the identity is kℓ + 1 = m·uvw, the multipliers satisfy
+  (k, m) = 1, and the modulus is q = muv. The whole m-dependence is
+  `t³ → t³/m`. The Jacobi dichotomy of POINTWISE_MN plays no role here.
+* This improves Pomerance–Weingartner's explicit-in-m Vaughan bound
+  `exp(−C(log N)^{2/3}/φ(m)^{1/3})` (arXiv:2511.16817 Thm 1.3)
+  asymptotically. It is non-trivial up to m ≤ ε(log N)³.
+* Thm B / Cor C: progression and short-interval prime versions, as in §2.5.
+* Cor D: most primes in (N/2, N] are m-representable once
+  `log N ≥ C m^{1/3}(log m)^{4/3}`. With PW Thm 3.1 this places the density
+  transition at `log n = m^{1/3+o(1)}`, up to a gap factor
+  `(log m)²(m/φ(m))^{1/3}`.
+* Novelty (Assessment): no 3/4-type, short-interval or progression result
+  for m/n was found in the literature; new for m ≠ 4, by the note's method.
 
 ---
 
