@@ -57,3 +57,19 @@ I2: `f'∣a+c` gives `(−ac/f')=1`; for q∣f_T, `c≡−2a` gives `(−ac/q)=(
 against `−(−1)^{v_T(ac)}` from (i),(ii) (`(4ac)`-coprimality makes q∣ac and q∣f exclusive). ∎
 *Scope.* Reciprocity only gives these parities, all satisfiable; it kills e.g. every II1/II2/I4 class
 of T-level 143, 11², 13², 11·13³ …, but no family entirely (no uniform quadratic obstruction).
+
+## 2. Data at x* are ES solutions of 4/N, N a T-unit (in progress)
+
+**Lemma 2.1 (II3, all placements of 11, 13; PROVED).** Let `(a,d,e)` be II3 data with x(u) in the class.
+Write `a=a_Ta'`, `d=d_Td'`, `λ=a_T²d_T`, `B=e_T`, `e=Bg`, `m=(e+1)/(4a'd')`. Then `j:=(λa'+m)/g` is a
+positive integer, `4a'd'mj = Bλa'+Bm+j`, and
+`4/(Bλ) = 1/(d'mj) + 1/(λa'd'j) + 1/(Bλa'd'm)` — an ES solution of `4/N`, `N=e_T·a_T²·d_T`.
+*Proof.* `Bg=4a'd'm−1` gives `4a'd'm≡1 (g)`; `a²d=λa'²d'`, so `m(4a²d+1)≡λa'+m (g)`, and `g∣4a²d+1`
+(Lemma 1.1) gives `g∣λa'+m`. Then `jBg=j(4a'd'm−1)=B(λa'+m)`; multiply the ES identity by `Bλa'd'mj`. ∎
+Special cases: `B=1` is MORDELL17 Lemma 2.3 (P, "half level": `N=a_T²d_T` vs box level `(ad)_T`),
+`λ=1` is Lemma 2.1 there (Q). In the mixed case (11 in ad, 13 in e) the ES level is `13^β·11^{2α_a+α_d}`.
+Consequently, at each fixed T-level the II3 data containing x* are finitely many and are recovered from
+the finitely many ES solutions of `4/N`, `N | F²`.
+*Plan (not done):* the analogous correspondences for I1, I2, I3 (mixed √Q), II1/I4 (MORDELL17 Lemma 2.2),
+II2; then a complete enumerator `m13b_enum` over all ES solutions of `4/11^i13^j` (generalising
+`m17_enum.c`), testing each recovered datum with Lemma 1.1 at u=2, cross-checked against Comp. 4.1.
