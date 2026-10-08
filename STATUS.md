@@ -370,5 +370,6 @@ Papers in `paper/`:
   `reviews/novelty-audit-2026-10b.md`).
 * `es-coverings-note`: finite coverings and candidate sterile points
   (TYPEI2/3/4, MORDELL, MORDELL13B, MORDELL17) — 24 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). Post-referee corrections O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) are not re-refereed.
+* `es-mn-short-note` (18 pp, O97): the 3/4 exponent for m/n uniformly in m (`E_m(I) ≪ H exp(−c(log H)^{3/4}m^{−1/4})`), in short intervals and progressions, and the density transition at `log n = m^{1/3+o(1)}`. Everything is PROVED relative to the 3/4 note. Internal referee R97: accept after minor revision; repairs applied (`reviews/es-mn-short-note-referee.md`).
 
 Authorship and the citation form for astra are still undecided.

@@ -1,6 +1,6 @@
 # POINTWISE_MORDELL13B — the candidate sterile point x* (r = 13) as a Diophantine problem (task O95)
 
-Status: work in progress (side agent O95, branch `side-agent/r13-diophantine`). Not reviewed.
+Status: O95 (branch `side-agent/r13-diophantine`); hostile review R95 (`reviews/pointwise-mordell13b-review.md`): no FATAL/MAJOR, minors applied by the reviewer. §5 may receive the e ≤ 10⁹ result for x** later.
 Builds on POINTWISE_MORDELL.md (§2.1 table, Comp. 4.1, Conj. 4.2), POINTWISE_MORDELL17.md
 (Lemmas 1.1–1.3, 2.1–2.3, 5.1), POINTWISE_TYPEI4.md. Labels as in DISCOVERIES.md.
 

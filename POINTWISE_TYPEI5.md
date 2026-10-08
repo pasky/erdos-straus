@@ -1,6 +1,6 @@
 # The 7-power tower at the sign point `x̂_9` (task O92)
 
-Status: work in progress (side agent O92, branch `side-agent/lfl-sign-point`). Not reviewed.
+Status: O92 (branch `side-agent/lfl-sign-point`); hostile review R92 (`reviews/pointwise-typei5-review.md`): no FATAL/MAJOR, minors applied by the reviewer.
 Builds on POINTWISE_TYPEI4.md (Prop 1.2 / (1.1), Cor 1.4 / (1.2), Lemma 3.1, Lemma 3.6).
 Notation as there: a fibre certificate of level `L` is a solution of
 
