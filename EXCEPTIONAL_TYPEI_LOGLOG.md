@@ -7,7 +7,7 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
 ## 0. Summary
 
 * **Main result — Theorem 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture (SEL) for the congruence
-  groups `Γ₀(M)` with even nebentypus mod `2q`, `M | 16dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
+  groups `Γ₀(M)` with even nebentypus mod `2q`, `M = 4dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
   conjectured (OPEN-I). Proof: §§2–8. The proof is at outline level in places (Prop 5.1, Prop 7.1, the cell
   bookkeeping), and step (2a) inherits MN3's unwritten routine BT sums. A self-review (R1) found 3 FATAL
   and 5 MAJOR issues in the first draft; all were repaired in place but have not been re-reviewed.
@@ -20,7 +20,8 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
   **uniformly separated** in ℍ: distinct points have `cosh dist ≥ 3/2`, for every d (because
   `4d | disc(Q−Q')`). (ii) Prop 4.3 (PROVED): with separation, `|Σ_z P(z) − #Λ·⟨P⟩| ≪ (#Λ)^{1/2}‖(1−Δ)P₀‖₂`,
   uniformly in the group. (iii) Prop 5.1 (under SEL, via the Deshouillers–Iwaniec/Drappeau spectral large
-  sieve; for `Y ≤ λ𝓛^{−3}`): the box Poincaré series has variance `≪ 𝓛^C(area + (Yλ)^{−ε}/(Y·level))`. (iv) So the per-d
+  sieve; for `Y ≤ λ𝓛^{−3}`): the box Poincaré series has variance `≪ 𝓛^C(area·(1 + q^{1/2}M^{−1}(𝓛/λ)^{1+ε}) + λ²/Y)`, i.e. area plus a cusp term
+  `≈ q^{1/2}/(MY)` (O112, D9: unified with Prop 5.1). (iv) So the per-d
   relative error is `≈ (d/a)^{1/2}`, and MN3's per-a Weil count (K_a) has relative error `≈ a/d`: the two
   are **complementary at exactly d = a**, and Lemma 1.1 shows that a saving that degenerates linearly at a
   boundary costs only `O(N log² N)`.
@@ -56,7 +57,8 @@ cells with no power saving at all does.
 *Proof.* `Σ_{j,k≤L} min(1/j,1/k) = Σ_{m≤L} (2m−1)/m ≤ 2L`. ∎
 *Use.* j indexes the dyadic c-block (`c ≍ 2^j`; BT gives saving `1/j`), k a dyadic distance from the bad
 boundary (e.g. `a ≍ N^{1/2}2^{k}`, saving `≍ 1/k` once a level of distribution `N^{κ k/L}` is available);
-`m_{jk} ≪ N log N` is the Type I mass of one (c-block, a-block) pair (ET (8.2) per dyadic box). So a
+`m_{jk} ≪ N log N` is the Type I mass of one (c-block, a-block) pair (ET (8.2) per dyadic box). The block
+j = 0 (`c ≍ 1`, no BT saving) costs only `Σ_k NL·C/k ≪ NL log L` (O112, D12). So a
 saving `min(1/j, 1/k)` costs `O(N log² N)` in total.
 
 ## 2. Separation of the level-d Heegner points
@@ -171,19 +173,21 @@ definite form of given discriminant is determined by its root), and `⟨P_ψ⟩ 
 
 ## 5. Variance of the box Poincaré series (PROVED conditional on (SEL); standard spectral input)
 
-**Groups.** Let `d ≥ 1`, `q` squarefree, `(q, 2d) = 1`. On the `w`-side the sieve condition `q | n`
+**Groups (O112 repair, D9: one normalisation throughout, the one forced by the parity of §6).** Let `d ≥ 1`,
+`q` squarefree, `(q, 2d) = 1`. On the `w`-side the Type I set with the sieve condition `q | n`
 (`n = cB − A` for `Q = [A,B,C] = [f,4ad,de]`, i.e. `n = 4acd − f`) is invariant under
-`Γ₀(d) ∩ Γ(q)` (if `γ ≡ ±I (q)` then `Q∘γ ≡ Q (q)`). Conjugating by `u = w/q` turns it into
-`Γ_{M,q} := ±(Γ₀(M) ∩ Γ₁(q))`, `M = dq²`, whose cusp ∞ has width 1, and
-`L²(Γ_{M,q}\ℍ) = ⊕_{χ mod q, χ(−1)=1} L²(Γ₀(M)\ℍ, χ)` (weight 0, nebentypus χ).
-In `u`-coordinates a form `Q ∈ 𝓕_d` sits at `u_Q = (−2a + i/√d)/(fq)`.
+`Γ' := Γ₀(2d) ∩ Γ(2q)` (§6 'Parity'; if `γ ≡ ±I (q)` then `Q∘γ ≡ Q (q)`). Conjugating by `u = w/(2q)` turns it
+into `Γ'' = {±[[p,t],[r,s]] ∈ Γ₀(M) : p ≡ s ≡ 1 (2q)} ⊇ Γ₁(M)`, `M = 4dq²`, whose cusp ∞ has width 1, and
+`Γ₀(M)/±Γ'' ≅ (ℤ/q)^×/±1`, so `L²(Γ''\ℍ) = ⊕_{χ mod q, χ(−1)=1} L²(Γ₀(M)\ℍ, χ)` (weight 0, nebentypus χ;
+characters mod 2q and mod q coincide, q odd). In `u`-coordinates `u_Q = (−2a + i/√d)/(2qf)`.
 
 **Hypothesis (SEL).** For all `M, q` as above and all even χ mod q, the Laplacian on
 `L²(Γ₀(M)\ℍ, χ)` has no eigenvalue in `(0, 1/4)` (Selberg's eigenvalue conjecture for these congruence
 groups; known unconditionally only with `λ₁ ≥ 975/4096` (Kim–Sarnak), which is **not** enough here, §3.2).
 
 **Spectral large sieve (cited).** DI Thm 2 (trivial χ) and Drappeau, Proc. LMS 114 (2017),
-arXiv:1504.05549, §4.2.2 Prop. 1 (nebentypus χ of conductor `q₀ | q`): for `K ≥ 1`, `N₀ ≥ 1/2`,
+arXiv:1504.05549, Prop 4.7 in §4.2.2 (arXiv numbering; published numbering not checked; O112, D7)
+(nebentypus χ of conductor `q₀ | q`): for `K ≥ 1`, `N₀ ≥ 1/2`,
 `Σ_{|t_j|≤K} |Σ_{N₀<n≤2N₀} a_n ρ_j(n)|²/cosh(πt_j)` and the analogous Eisenstein integrals over all
 singular cusps are `≪_ε (K² + q₀^{1/2} M^{−1} N₀^{1+ε}) ‖a‖²` (`μ(∞) = 1/M`; ρ_j the Fourier
 coefficients at ∞ of an orthonormal basis of `L²(Γ₀(M)\ℍ, χ)`, normalised as in DI (1.34)).
@@ -229,7 +233,7 @@ that `(nY)^{−s}` has modulus `≍ 1` and the Gamma factors have an integrable 
 ranges. With `|Γ(it)|²cosh(πt) ≍ 1/(1+|t|)` this gives
 `Σ_χ Σ_j |⟨P,u_j⟩|² ≪ (φ(q)/2)·𝓛^C Y^{−1}·λ·(1 + q^{1/2}M^{−1}(𝓛/λ)^{1+ε})`, and the same for the
 Eisenstein part. Multiply by `2/φ(q)`. ∎
-*Remark.* `(λ/Y)·q^{1/2}M^{−1}λ^{−1} = q^{1/2}/(MY) = F/(q^{1/2}√d)` (since `1/Y = qF√d`, `M = dq²`):
+*Remark.* `(λ/Y)·q^{1/2}M^{−1}λ^{−1} = q^{1/2}/(MY) = F/(2q^{1/2}√d)` (since `1/Y = 2qF√d`, `M = 4dq²`):
 this is the "cusp" term `1/(Y·level)` of §3.
 
 ## 6. Per-d counts with the sieve congruence (conditional on (SEL))
@@ -240,7 +244,7 @@ under `Γ₀(2d) ∩ Γ⁰(2)` (w-side; R1: *not* `Γ₀(d)∩Γ(2)` when d is e
 `[[1,0],[2,1]]` maps `[1,8,18]` to a form with `B = 44`): with `γ_z = [[p,t],[r,s]] ∈ Γ⁰(2d) ∩ Γ₀(2)` (z-side),
 `B' = 2Apt + B(ps+tr) + 2Crs ≡ 0 (4d)` because `2d | t`, `4d | B`, `C = de`, `2 | r`. So take
 `Γ' := Γ₀(2d) ∩ Γ(2q)` (w-side) and `u = w/(2q)`: `u_Q = (−2a + i/√d)/(2qf)`, cusp width 1, and
-`Γ'' ⊇ Γ₁(M)` with `M | 16dq²`; (SEL) and the large sieve are applied to `Γ₀(M)` with characters mod `2q`.
+`Γ'' ⊇ Γ₁(M)` with `M = 4dq²` (§5); (SEL) and the large sieve are applied to `Γ₀(M)` with even characters mod `q`.
 
 **Local densities.** For a prime `ℓ ∤ 2d` put
 `g_{c,d}(ℓ) := #{(A,B,C) ∈ 𝔽_ℓ³ : B² − 4AC = −4d, cB − A = 0} / #{(A,B,C) : B² − 4AC = −4d}`,
@@ -251,12 +255,13 @@ and `g_{c,d}(q) = Π_{ℓ|q} g_{c,d}(ℓ)`. Then `g = (ℓ−1)/(ℓ² + χ(ℓ)
 **Lemma 6.1 (main term factorises; PROVED).** For `q` squarefree, `(q,2d) = 1`, let
 `Λ̃(q) = {u_Q : Q ∈ 𝓕_d^I, q | cB − A}`, `#Λ(q)` its orbifold count mod `Γ'_q := Γ₀(2d)∩Γ(2q)`,
 `V(q) = vol(Γ'_q\ℍ)` (w-side). Then `#Λ(q)/V(q) = g_{c,d}(q) · #Λ(1)/V(1)`.
-*Proof.* `[Γ'_1 : Γ'_q] = |SL₂(ℤ/q)|` (strong approximation, `(q,2d) = 1`). For one `Γ'_1`-orbit
+*Proof.* As matrix groups `[Γ'_1 : Γ'_q] = |SL₂(ℤ/q)|` (strong approximation, `(q,2d) = 1`); as Möbius groups it
+is `|SL₂(ℤ/q)|/2` (`−I ∈ Γ(2)`, `−I ∉ Γ(2q)`), which cancels in the ratio (O112, D10). For one `Γ'_1`-orbit
 `O = Γ'_1·Q₀`, the weighted number of `Γ'_q`-orbits in `O ∩ Λ̃(q)` is
 `e_{Q₀}^{−1} · #{g ∈ SL₂(ℤ/q) : Q̄₀∘g ∈ S_q}` with `S_q = {cB − A ≡ 0}`; by orbit–stabiliser this is
 `e_{Q₀}^{−1}|SL₂(ℤ/q)| · |S_q ∩ 𝒪(Q̄₀)|/|𝒪(Q̄₀)|`. For `ℓ ∤ 2d` the orbit `𝒪(Q̄₀)` mod ℓ is the whole
-quadric `{B² − 4AC = −4d}` (SL₂(𝔽_ℓ) acts on binary forms through SO of the discriminant form, which is
-transitive on each non-zero level set — Witt), so the ratio is `g_{c,d}(ℓ)`, independent of Q₀; CRT. ∎
+quadric `{B² − 4AC = −4d}` (O112, D10: the stabiliser of `Q̄₀` in SL₂(𝔽_ℓ) is `SO(Q̄₀)`, a torus of order `ℓ−χ(ℓ)`, so the orbit has
+`ℓ(ℓ²−1)/(ℓ−χ) = ℓ² + χℓ` elements = the whole quadric), so the ratio is `g_{c,d}(ℓ)`, independent of Q₀; CRT. ∎
 
 **Theorem 6.2 (per-d count; PROVED conditional on (SEL) and the cited large sieve).** Let
 `ψ(u) = φ(x/λ)W(y/Y)` as in §5, with `λ ≍ A/(qF)`, `Y ≍ 1/(qF√d)` (i.e. `f ≍ F`, `a ≍ A`), `F ≥ 8A`.
@@ -264,18 +269,23 @@ Then with `𝔐_d := (#Λ(1)/V(1)) ∫ψ dμ` (independent of q and of the sieve
 `|Σ_{Q∈𝓕_d^I, q | n(Q)} ψ(u_Q) − g_{c,d}(q) 𝔐_d| ≪_ε 𝓛^C q (#Λ(1))^{1/2} (A√d + F^{1+ε} d^{−1/2})^{1/2}`.
 *Proof.* Cor 4.4 (separation, Lemma 2.2, holds for the subset `Λ̃(q)`), Lemma 6.1 for the main term, and
 Prop 5.1 with `λ/Y ≍ A√d`, `q^{1/2}/(MY) ≍ F/(q^{1/2}√d)`, `λ²/Y ≤ λ/Y`; finally
-`#Λ(q) = g(q)|SL₂(ℤ/q)| #Λ(1) ≪ q² #Λ(1)`. ∎
+`#Λ(q) = g(q)·½|SL₂(ℤ/q)|·#Λ(1) ≪ q² #Λ(1)` (D10). ∎
+*Remark (O112, D11).* The per-d *relative* error is not uniform in d (by Siegel, `#Λ_d(1)` may be as small as
+`d^{1/2−ε}` and the main term `𝔐_d` correspondingly small); the assembly never uses per-d relative errors, only
+the absolute errors above summed over `d ≍ D` by Cauchy–Schwarz and Lemma 6.3.
 
 **Lemma 6.3 (class numbers; PROVED, standard).** `#Λ(1) ≤ 6·h(−4d)·r(d)` where `h(−4d) ≪ d^{1/2} log d`
-is the number of SL₂(ℤ)-classes of forms of discriminant −4d and `r(d) ≤ 4·∏_{p^k∥d} p^{⌊k/2⌋}`.
-Hence `Σ_{d≤D} #Λ_d(1) ≪ D^{3/2}(log D)^3`.
+is the number of SL₂(ℤ)-classes of forms of discriminant −4d and `r(d) ≤ ∏_{p^k∥d} p^{⌊k/2⌋}` (O112, D13: no factor 4 at p = 2).
+Hence `Σ_{d≤D} #Λ_d(1) ≪ D^{3/2}(log D)^2`.
 *Proof.* `#Λ(1) ≤ [Γ₀(d)∩Γ(2) : …]`-weighted count of pairs (SL₂-class `[Q₀]`, coset `γ ∈ Γ⁰(d)\SL₂(ℤ)`)
 with `Q₀∘γ ∈ 𝓕_d`; the factor 6 = `[Γ₀(d) : Γ₀(d)∩Γ(2)] ≤ 6`. Cosets ↔ second columns `(t:s) ∈ ℙ¹(ℤ/d)`,
 and `Q₀∘γ ∈ 𝓕_d` forces `Q₀(t,s) ≡ 0 (d)`. `𝓕_d` forms are primitive (`gcd(f, 4ad) = 1` since `ef − 4a²d = 1`; R1: `(f,e) = 1` is false in general).
 For odd `p^k ∥ d` and primitive `Q₀ = [A,B,C]` with `p ∤ A` (WLOG after SL₂-change), points with
 `p | s` give `Q₀ ≡ A t² ≢ 0`; points `(t:1)` need `(2At + B)² ≡ B² − 4AC ≡ 0 (p^k)`, i.e. t in one class
-mod `p^{⌈k/2⌉}`: `p^{⌊k/2⌋}` points. For `p = 2` the same argument with `4A` gives `≤ 4·2^{⌊k/2⌋}`.
-`Σ_{d≤D} r(d) d^{1/2} log d ≪ D^{3/2} (log D) Σ_{m} m/m^{3}·… ≪ D^{3/2}(log D)^3`. ∎
+mod `p^{⌈k/2⌉}`: `p^{⌊k/2⌋}` points. For `p = 2` (D13, from the review): WLOG A odd, `B = 2B'`, `A·Q₀(t,1) = (At+B')² + d`, so `2^k | Q₀(t,1)` iff
+`At + B' ≡ 0 (2^{⌈k/2⌉})` — `2^{⌊k/2⌋}` points — and points `(1:s)`, `2 | s`, give `Q₀ ≡ A` odd. (Brute force over all
+primitive reduced forms, d ≤ 150: `scripts/review_ttl_*.py`, max ratio 1.0.)
+`Σ_{d≤D} r(d) ≤ Σ_{m} m·#{d ≤ D : m² | d} ≪ D log D`, so `Σ_{d≤D} r(d) d^{1/2} log d ≪ D^{3/2}(log D)^2`. ∎
 
 ## 7. The complementary counts (PROVED, unconditional; Poisson + Weil)
 
@@ -298,7 +308,8 @@ smooth k-sum of Ramanujan sums is `Σ_{δ|m} δμ(m/δ) Σ_{δ|k≠0} Ŵ(0,k/mq)
 the k = 0 term cancels against `Σ_{δ|m}μ(m/δ) = 0`); this is `≪ 𝓛^C τ(m) q D/F`. `hk ≠ 0`: Weil,
 `|S(h',k';m)| ≤ τ(m)(h,k,m)^{1/2}m^{1/2}`, and there are `≪ 𝓛^2 (mq)²/(EF)` effective pairs (none if
 `E` or `F > mq𝓛`), giving `≪ 𝓛^C τ(m)^2 3^{ω(q)} q m^{1/2}`. Total error `≪ 𝓛^C τ(a)^C q (a + D/F + D/E)`;
-cells with `min(E,F) ≤ 𝓛^{C'}` are treated by Prop 7.2 instead. ∎
+in the application (fixed-a part of R_bad, §8 (b1)) one has `e, f ≥ N^{1/2−3η₁}` (§8 (2a)), so the hypothesis
+`min(E,F) ≥ N^{c₀}` holds (O112, D6: Prop 7.2 is retired). ∎
 *Consequence.* Summing `|R|` over `a ≍ A` and `q ≤ Q`: `≪ 𝓛^C Q² A²` against the mass `≍ A D`: a level
 `Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`, i.e. `α < (1−γ)/2`.
 
