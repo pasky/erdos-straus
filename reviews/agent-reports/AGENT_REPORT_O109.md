@@ -31,10 +31,12 @@ would suffice, `v_2(F+9) < 2+⌈L/2⌉`, is equivalent to sterility of `x̂_9` a
   made unconditional, heuristic labels, completion records + nonzero exit in the cross-check tooling).
 
 ## Caveats for the reviewer
-* Cor 3.2's new cells rest on `typei4_lb` alone except where `typei7_xcheck.py` reports agreement (below).
+* Cor 3.2: see the cross-check status below for which cells are two-engine.
 * Thm 2.1 / 2.4 certificates have astronomically large height; they are valid Type-I certificates (TYPEI2 (2.2)) but say
   nothing about `C(7)` directly — their role is the scope statement (density / no neighbourhood test).
 * STATUS.md / DISCOVERIES.md not edited (parent merges).
 
 ## Cross-check status
-(updated at the end of the run)
+`review_typei4_jsearch.c` on the new cells b=0 L=27–32, b=1 L=24–29, b=2 L=25,26, b=3 L=23 (+ (22,0),(24,0)):
+17/17 cells agree with `typei4_lb` (`typei7_xcheck.py`, exit 0). Single-engine cells of Cor 3.2: b=2 L=19–24,
+b=3 L=18–22, b=4–7 at L ≥ 11 (Comp 3.4).

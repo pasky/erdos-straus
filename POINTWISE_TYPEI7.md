@@ -176,11 +176,18 @@ By Remark 2.1(b) the `L=11` triple recurs at `L=46, 81, …`, outside the grid.
 **Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
 `v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
 `b=0, L=27–32`; `b=1, L=27–29`; `b=2, L=25,26`; `b=3, L=23`; `b=4, L=11–20`; `b=5, L=11–17`; `b=6, L=11–15`;
-`b=7, L=11,12`. *(Engines: `typei4_lb` alone so far; cross-check with `review_typei4_jsearch.c`: Computation 3.4 below.)*
+`b=7, L=11,12`. *(Engines: see Computation 3.4.)*
 
 **Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
 `L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
 visibly (≤ 9 per `(L,b)`).
+
+**Computation 3.4 (second engine).** The independent complete engine `review_typei4_jsearch.c` (R89) was run on the new
+cells `b=0: L=27–32`, `b=1: L=24–29`, `b=2: L=25,26`, `b=3: L=23` (plus `(22,0)`, `(24,0)`; ≈ 6.5 h on two cores; longest
+`(32,0)` 66 min). `scripts/typei7_xcheck.py` compares the certificate sets `(L,b,c',k',F,e)` cell by cell: **17/17 cells agree**
+(43 certificates). Together with R89's ranges (TYPEI4 Cor 3.5 replication) the grid of Cor 3.2 is now two-engine on
+`b=0: L≤32`, `b=1: L≤29`, `b=2: L≤18` and `L=25,26`, `b=3: L≤17` and `L=23`; single-engine (`typei4_lb`) remain
+`b=2: L=19–24`, `b=3: L=18–22`, and `b=4–7` at `L ≥ 11`.
 
 ## 4. Level-graded heuristic (Assessment)
 
