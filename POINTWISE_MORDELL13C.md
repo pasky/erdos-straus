@@ -82,3 +82,22 @@ Sanity: the same binary re-finds x*'s I2 datum (125, 88, 11999) on `(10⁴, 2·1
 condition is `e≡−u_q`, `u_q e≡−1` or `f≡−u_q (mod q^{v_q(ab)})` with `u_q∈{2,15}`, so
 `q^{v_q(ab)} ≤ 15·2·10⁸+1 < 11¹⁰`, i.e. `v_q ≤ 9`; for `q | f` (I2) the T-exponents of `a, c` are 0 by coprimality.
 After dropping a common T-factor, `|i|,|j| ≤ 9`. So Computation 5.1 holds with no T-level restriction.
+
+## 6. Theorem 3.1(b) sharpened (PROVED by finite computation; two independent checkers)
+
+**Theorem 6.1.** Let p be a prime with `(p/13) = −1`. Then `4/p = 1/x+1/y+1/z` has a solution in positive
+integers unless p lies in one of the 35459 residue classes listed as *open* leaves of
+`data/mordell13c/tree6_6000.json.gz` (moduli `L | 2^7·3^5·5^4·7^4·11^4·13^4·∏_{17≤ℓ≤83}ℓ`, all of them
+refinements of the six classes of POINTWISE_MORDELL Thm 3.1(b)). Their union has Haar density
+**8.42·10⁻⁵ of the six classes** of Thm 3.1(b) (i.e. `≈2.3·10⁻⁷` of the Mordell-hard residues with `(p/13)=−1`,
+using the 6/2160 of POINTWISE_MORDELL §3).
+
+*Proof.* Thm 3.1(b) outside the six roots. Inside: the tree (`m13c_dfs.py` with brute-force classes `M≤10⁶`,
+primes ≤ 100, 6000 expansions) has 136494 covered leaves using 2140 distinct ET classes; `m13c_check.py` and
+`m13c_review_tree.py` (§4) both accept it (`CERTIFICATE OK`, `REVIEW OK`; 15 s resp. 7 s). The split primes are ≤ 83
+and satisfy ES directly. ∎
+
+*Scope.* This is the Salez/ET level sieve pushed adaptively, with explicit certificate; it shrinks the exceptional
+set by a factor ≈1.2·10⁴ but **does not remove any of the six classes**: in every root, open leaves remain
+(the open mass decays like a power of the node count, cf. §1). It is not progress towards zero exceptions
+in any structural sense.

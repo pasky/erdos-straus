@@ -53,7 +53,8 @@ def integral_on(cs_list, t, L):
     return True
 
 def main():
-    T = json.load(open(sys.argv[1]))
+    import gzip
+    T = json.load((gzip.open if sys.argv[1].endswith(".gz") else open)(sys.argv[1], "rt"))
     roots = T['roots']
     assert {r['x'] % 720720 for r in roots} == ROOTS and all(r['L'] == 720720 for r in roots) and len(roots) == 6
     stats = {'leaf': 0, 'open': 0, 'split': 0}

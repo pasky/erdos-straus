@@ -9,7 +9,8 @@ from fractions import Fraction as Fr
 from review_mordell_check import family_ok, identity_ok, covers
 
 def main():
-    T = json.load(open(sys.argv[1]))
+    import gzip
+    T = json.load((gzip.open if sys.argv[1].endswith(".gz") else open)(sys.argv[1], "rt"))
     assert sorted(r['x'] for r in T['roots']) == [112561, 352801, 380881, 418321, 473761, 483841]
     seen = {}; nleaf = nopen = 0; openm = Fr(0); total = Fr(0)
     def visit(nd, m):
