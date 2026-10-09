@@ -2,7 +2,8 @@
 
 witness_all(x, L, fams=None) -> list of (fam, P) of classes with modulus M | L that contain the whole
 progression x + L*Z (i.e. x mod M is a class residue).  Complete by the following reductions
-(POINTWISE_MORDELL13C §2):
+(POINTWISE_MORDELL13C §2).  Hypothesis: 4 | L (for 4 ∤ L the function returns [] although II2 classes of odd
+modulus f | L exist; R100 repair, applied by reviewer: documentation only):
   pairs (a,d) with 4ad | L, K = L/(4ad), Kc = part of K coprime to 4ad;
   I1 (a,d,f), f | N=4a^2d+1, f = -x (4ad):  f = (-x mod 4ad) or N/g with g = (-1/x mod 4ad)
      (if f > 4ad then g = N/f <= a < 4ad);

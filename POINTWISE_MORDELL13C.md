@@ -33,7 +33,8 @@ Observation (trivial). Only the last four classes contain {11,13}-generic points
 
 ## 2. Complete witness at a fixed level (CERTIFIED engine, validated)
 
-`scripts/m13c_witness.py` lists **all** ET classes with modulus `M | L` (no size cap) containing a node
+`scripts/m13c_witness.py` (hypothesis `4 | L` — R100 repair, applied by reviewer: for `4 ∤ L` it returns no classes,
+although II2 classes of odd modulus `f | L` exist; never triggered, all campaign levels are multiples of 16) lists **all** ET classes with modulus `M | L` (no size cap) containing a node
 `x + Lℤ`. Reductions (each elementary; see the docstring): for every pair `(a,d)` with `4ad | L`, the
 parameters of I1, II1, I4 are determined by `x mod 4ad` (a divisor below `4ad` is the least positive residue;
 for I1 a cofactor argument); II3/I2/I3 parameters are divisors of `gcd(K_c, x+4a²d)`, `gcd(K_c, ax+d)`,
