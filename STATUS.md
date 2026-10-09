@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-08, refresh 5; ledger through (D)31 and (H)34, incl. the 2026-10-08 follow-ups (H)17 follow-up 4 [TYPEI5], (H)34 follow-up 2 [MORDELL17B] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile])
+ (2026-10-09, refresh 6; ledger through (D)31 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -58,6 +58,15 @@ with its status label. Read it before starting new work.
   Pomerance–Weingartner's explicit-in-m Vaughan bound. Progression/prime versions
   are included. The density transition lies at `log n = m^{1/3+o(1)}` (Cor D with PW
   Thm 3.1). Novelty is an Assessment: new for m ≠ 4, by the note's method.
+  Follow-up `EXCEPTIONAL_MN2.md` (two reviews, no FATAL/MAJOR), with `A = log N/m^{1/3}`:
+  Thm U (PROVED relative to (D)31 Cor 3.2, Bombieri–Vinogradov and Shiu; ineffective): for every
+  ε there is A_ε such that at most a proportion ε of the primes in (N/2, N] are m-exceptional once
+  A ≥ A_ε, uniformly in m ≥ 4 (removes Cor D's `(log m)^{4/3}`). Thm L (PROVED relative to ET Thm 7.1
+  and the structure of ET's proof of Prop 1.4, plus BT and Shiu):
+  `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`. The remaining gap is a factor
+  `(m log m/φ(m))^{1/3}` in log N (ET's Type I Brun–Titchmarsh log log N, open even at m = 4, and
+  m/φ(m)). EVIDENCE: `L_{1/2} = (1.95 ± 0.05) m^{1/3}` for even m ∈ [60, 300]. Conj C2 (CONJECTURE):
+  `ρ_rep = F(A) + o(1)` with F non-degenerate (no sharp threshold constant).
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
