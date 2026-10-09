@@ -90,8 +90,9 @@ would cover only thin subsets of the two-parameter family, so they could not clo
 (a) `uX > 16c_o³δ⁷/T⁴`; (b) `c := 16PX² = Qu² + 1 > 64c_o³δ⁷√d/T⁴ ≥ 64c_o⁴δ⁸/T⁴`;
 (c) asymptotically `u ≳ 8c_oδ³√P/T²` (`u` is at least of order `d^{1/2}·δ²√P/T²`).
 *Proof.* `σ = μj − T²u` (as `8·7^am = μ − 4T`); insert `j = uθ − δ√P/ζ` (Lemma 1.1(d)) and use
-`μθ − T² = T²ψ² = 4θ²`, `ψ := (√d − c_oδ)/(√d + c_oδ)`, `θ = Tψ/2`: indeed `(√d + c_oδ)² = c_o(2c_oδ² + T + 2δ√d)` and
-`c_oμ − 2(√d + c_oδ)²·(1/1) = 2(√d − c_oδ)²`, which divided by `2(√d + c_oδ)²/T²` is `μθ − T² = T²ψ²`.
+`μθ − T² = T²ψ² = 4θ²`, `ψ := (√d − c_oδ)/(√d + c_oδ)`, `θ = Tψ/2`. Indeed `θ = T²c_o/(2(√d + c_oδ)²)` and
+`c_oμ − 2(√d + c_oδ)² = 2(√d − c_oδ)²` (both sides expand with `(√d ± c_oδ)² = 2c_o²δ² + c_oT ± 2c_oδ√d`), so
+`μθ − T² = T²(c_oμ − 2(√d + c_oδ)²)/(2(√d + c_oδ)²) = T²ψ²`.
 (a) `σ > 0` gives `4uθ²ζ > μδ√P`; use `θ < T²/(8c_oδ²)` (as `(√d + c_oδ)² > 4c_o²δ²`), `ζ < 8X√P` (as `u√Q < 4X√P`),
 `μ > 8c_oδ²`. (b) `u < 4X√(P/Q)` and (a) give `X² > 4c_o³δ⁷√(Q/P)/T⁴ = 4c_o³δ⁷Q/(T⁴√d)`; multiply by `16P`, `PQ = d`.
 (c) from (b) with `c ≈ 4Qu²`. ∎
