@@ -259,19 +259,17 @@ Then `S_a(q) = g'_{c,a}(q) S_a(1)·(1 + O(N^{−10})) + O(𝓛^C τ(a)^C q · a)
 `g'_{c,a}(ℓ) = #{(e,f) ∈ 𝔽_ℓ² : f(ce − a) ≡ c}/ℓ² = (ℓ−1)/ℓ²` (ℓ ∤ c) resp. `1/ℓ` (ℓ | c), and
 `S_a(1) ≍ D φ(m)/m` (main term `= (φ(m)/m²)∫∫W₁(e/E)W₂((ef−1)/(mD)) de df`).
 *Proof.* For `(q,2a)=1`, `q | n ⟺ f(ce − a) ≡ c (q)` (multiply `a n = c(ef−1) − af` by `ā`). So
-`(e,f)` runs over a set `𝒮 ⊂ (ℤ/mq)²` of residue pairs, `|𝒮| = φ(m)·ℓ-counts`. Poisson in `(e,f)`
-mod `mq`: `S = (mq)^{−2} Σ_{h,k} Ŵ(h/(mq), k/(mq)) Σ_{(e,f)∈𝒮} e((he+kf)/(mq))`, with
-`Ŵ(ξ,η) = ∫∫W₁(x/E)W₂((xy−1)/(mD)) e(−ξx−ηy)dxdy`. The function has `x ≍ E`, `y ≍ mD/E =: F`, and
-derivatives `∂_x^i ∂_y^j ≪ E^{−i}F^{−j}`, so `Ŵ(h/(mq), k/(mq)) ≪_B EF (1+|h|E/(mq))^{−B}(1+|k|F/(mq))^{−B}`.
-By CRT the complete sum is `S(h q̄, k q̄; m)·T_q(h m̄, k m̄)` with `|T_q| ≤ Π_{ℓ|q} 2ℓ` (a sum over a
-curve mod ℓ; trivially `≤ ℓ`… `≤ ℓ+1`) and Weil `|S(h',k';m)| ≤ τ(m)(h',k',m)^{1/2} m^{1/2}`. The
-`(h,k) = (0,0)` term is the main term (`|𝒮|EF·…/(mq)²`, which factorises as `g'(q)` times the q = 1 term).
-The remaining terms: `≪ (EF/(mq)²) Σ_{(h,k)≠0} (1+|h|E/mq)^{−B}(1+|k|F/mq)^{−B} τ(m)(h,k,m)^{1/2} m^{1/2} 3^{ω(q)}q`
-`≪ 𝓛^C τ(a)^C q m^{1/2} (1 + EF/(mq)^2·…)`; using `EF ≍ mD` and `(1 + mq/E)(1 + mq/F) ≥ …` this is
-`≪ 𝓛^C τ(a)^C q·(a + D/q^{…})`, and the `D/q`-type pieces are the Ramanujan-sum terms `h = 0` or `k = 0`,
-which are `≪ (E + F)/m^{1/2}·q ≤ …`; in all cases `≪ 𝓛^C τ(a)^C q (a + (E+F)/a)`. Since `E,F ≤ 2mD` and
-`(E+F)/a ≤ a` unless one of e, f exceeds `a²`, in which case the corresponding dual sum is empty and
-the bound is `≪ q a`. ∎
+`(e,f)` runs over a set `𝒮 ⊂ (ℤ/mq)²` (CRT: `ef ≡ 1 (m)` times the curve `f(ce−a) ≡ c` mod q). Poisson
+in `(e,f)` mod `mq`: `S = (mq)^{−2} Σ_{h,k} Ŵ(h/(mq), k/(mq)) Σ_{(e,f)∈𝒮} e((he+kf)/(mq))`,
+`Ŵ(ξ,η) = ∫∫W₁(x/E)W₂((xy−1)/(mD)) e(−ξx−ηy)dxdy`. On the support `x ≍ E`, `y ≍ F := mD/E`, with
+`∂_x^i∂_y^j ≪ E^{−i}F^{−j}`, so `Ŵ(h/mq, k/mq) ≪_B EF(1+|h|E/mq)^{−B}(1+|k|F/mq)^{−B}`. The complete
+sum factors as `S(h',k';m)·T_q` with `|T_q| ≤ 3^{ω(q)} q`. `(h,k) = (0,0)`: the main term, which
+factorises as `g'(q)×`(q = 1 term). `h = 0 ≠ k` (and symmetrically): `S(0,k';m) = c_m(k')`, and the
+smooth k-sum of Ramanujan sums is `Σ_{δ|m} δμ(m/δ) Σ_{δ|k≠0} Ŵ(0,k/mq) ≪ 𝓛^C τ(m) q·E/m` (Poisson back in k;
+the k = 0 term cancels against `Σ_{δ|m}μ(m/δ) = 0`); this is `≪ 𝓛^C τ(m) q D/F`. `hk ≠ 0`: Weil,
+`|S(h',k';m)| ≤ τ(m)(h,k,m)^{1/2}m^{1/2}`, and there are `≪ 𝓛^2 (mq)²/(EF)` effective pairs (none if
+`E` or `F > mq𝓛`), giving `≪ 𝓛^C τ(m)^2 3^{ω(q)} q m^{1/2}`. Total error `≪ 𝓛^C τ(a)^C q (a + D/F + D/E)`;
+cells with `min(E,F) ≤ 𝓛^{C'}` are treated by Prop 7.2 instead. ∎
 *Consequence.* Summing `|R|` over `a ≍ A` and `q ≤ Q`: `≪ 𝓛^C Q² A²` against the mass `≍ A D`: a level
 `Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`, i.e. `α < (1−γ)/2`.
 
