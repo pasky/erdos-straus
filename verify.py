@@ -108,6 +108,13 @@ Blocks (eb)..(ec) (task O91) replay the 2026-10-07 round (reviewers' from-scratc
   (eb) POINTWISE_TYPEI4: R89 complete engine on L <= 22, b <= 1 and L <= 10, b <= 3 (gcc; skipped otherwise),
        Prop 1.2 / Cor 1.4 identities on all hits, example (42,32,71), Prop 4.1 levels, Lemma 3.6 (j = 1, b < 30);
   (ec) EXCEPTIONAL_WEIGHTS2: Prop 5.3 premise (QNR l <= 2000, Jacobi M <= 300), §6 mass at Y <= 10^5.
+Blocks (ed)..(eg) replay POINTWISE_MORDELL13B, EXCEPTIONAL_MN, POINTWISE_TYPEI5, POINTWISE_MORDELL17B.
+Blocks (eh)..(ek) (task O105) replay the 2026-10-09 round (reviewers' from-scratch code):
+  (eh) POINTWISE_MORDELL13C: Thm 6.1 tree certificate in full (R100 checker + negative controls), §2 witness
+       engine vs brute force (L = 840, 9240), Comp 3.1 (gcc);
+  (ei) POINTWISE_MORDELL17C: Lemma 1.1 (exact Abel summation, floor-rounded cumulative table), Lemma 2.1 brute force;
+  (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 (gcc+gmp);
+  (ek) EXCEPTIONAL_MN2: emn2_scan vs from-scratch brute force (m <= 60), §1 small cases, L_1/2(60).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -22685,6 +22692,86 @@ def check_ej():
 
 print("\n== (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 ==")
 check_ej()
+
+
+# ---------------------------------------------------------------- (ek)
+# EXCEPTIONAL_MN2.md (task O102, reviews R102A, R102B).  Uses R102A/R102B's from-scratch exact deciders
+# review_emn2A_brute.representable, review_emn2B_brute.representable (smallest denominator x in (p/m, 3p/m], then
+# (Ay-B)(Az-B) = B^2; independent of Pomerance-Weingartner's Type I/II parametrisation), review_emn2A_identities.py,
+# review_emn2B_half.py, and the author's scanner emn2_scan.c (PW Cor 2.2/2.4; gcc, part (1) skipped otherwise).
+# Checked:
+# (1) the scanner's exceptional-prime lists (count = 2 mode) equal R102B's brute force for every m = 4..60 and all
+#     primes p <= 600, p not | m, and for m in {60, 61, 64, 100, 101, 128} on (1000, 1600]; R102A's brute force
+#     agrees with R102B's on m in {12, 40, 60}, p <= 600;
+# (2) R102A small-case identities for §1 (Bonferroni, e_j bound, MN Lemma 1.1 identity, toy atom distinctness);
+# (3) one L_{1/2} data point at reduced size: m = 60, all primes in each window (no sampling), N <= 2^11.25:
+#     R102B gives L_{1/2}(60) = 7.636, L/m^{1/3} = 1.950 (EVIDENCE table: 7.64, 1.95); the scanner (stride 1) gives
+#     the same proportions at the two bracketing grid points.
+
+def check_ek():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    if sdir not in sys.path:
+        sys.path.insert(0, sdir)
+    import review_emn2A_brute as RA
+    import review_emn2B_brute as RB
+    ps = [p for p in range(2, 1601) if RB.is_prime(p)]
+    for m in (12, 40, 60):
+        assert all(RA.representable(m, p) == RB.representable(m, p) for p in ps if p <= 600 and m % p), ("MN2 A vs B", m)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "scanner SKIPPED (no C compiler)"
+    npairs = nexc = 0
+    with tempfile.TemporaryDirectory() as td:
+        exe = None
+        if cc:
+            exe = os.path.join(td, "scan")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "emn2_scan.c"), "-lm"], check=True)
+
+            def scan_exc(m, P1, P2):
+                out = subprocess.run([exe, str(m), str(P1), str(P2), "2"], capture_output=True, text=True, timeout=120).stdout
+                return {int(ln.split()[1]) for ln in out.splitlines() if ln.startswith("E ")}
+            for m, P1, P2 in [(m, 1, 600) for m in range(4, 61)] + [(m, 1000, 1600) for m in (60, 61, 64, 100, 101, 128)]:
+                mine = {p for p in ps if P1 < p <= P2 and m % p and not RB.representable(m, p)}
+                npairs += sum(1 for p in ps if P1 < p <= P2 and m % p)
+                nexc += len(mine)
+                assert scan_exc(m, P1, P2) == mine, ("MN2 scanner vs brute force", m, P1, P2)
+            msg = f"scanner = R102B brute force on {npairs} (m, p) pairs ({nexc} exceptional)"
+        r = subprocess.run([sys.executable, os.path.join(sdir, "review_emn2A_identities.py")], capture_output=True,
+                           text=True, timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0 and "FAILURES 0" in r.stdout, ("MN2 R102A identities", r.stdout[-2000:])
+        r = subprocess.run([sys.executable, os.path.join(sdir, "review_emn2B_half.py"), "60"], capture_output=True,
+                           text=True, timeout=300, env=env, cwd=sdir)
+        mh = re.search(r"60 L_\.5=([\d.]+) ratio=([\d.]+)\s+grid (.*)", r.stdout)
+        assert mh and (mh.group(1), mh.group(2)) == ("7.636", "1.950"), ("MN2 L_1/2(60)", r.stdout)
+        if exe:
+            import math
+            grid = [tuple(map(float, x.split(":"))) for x in mh.group(3).split()]
+            nhit = 0
+            for j in range(4 * 10, 4 * 12):
+                N = int(2 ** (j / 4))
+                Lg = math.log(N)
+                hit = [f for L_, f in grid if abs(L_ - Lg) < 5e-3]
+                if hit:
+                    o = subprocess.run([exe, "60", str(N // 2), str(N), "0", "1"], capture_output=True, text=True,
+                                       timeout=120).stdout.split()
+                    assert abs(int(o[4]) / int(o[3]) - hit[0]) < 6e-4, ("MN2 scanner proportion", N, o, hit)
+                    nhit += 1
+            assert nhit == len(grid) == 3, ("MN2 grid points", grid, nhit)
+    print(f"ek {msg}; R102A = R102B on m = 12, 40, 60; R102A §1 identities OK; L_1/2(60) = {mh.group(1)} "
+          f"(ratio {mh.group(2)}; scanner agrees on the grid); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ek) EXCEPTIONAL_MN2: exact scanner vs from-scratch brute force, §1 small cases, L_1/2(60) ==")
+check_ek()
 
 
 print("\nall checks passed")
