@@ -34,7 +34,9 @@ of the 13C §8.2 tree, each truncated to `x mod L'` (`L'` = L without its k larg
 the Python engine costs ≈ ×3.5 per prime; `L'` ≈ 10¹⁰–10¹⁵): full sets agree, **0 mismatches** (90 nonempty).
 (iii) `req` mode, `m13d_validate.py … 20 3 20 5 7`: all 583 children `y mod L'q` of 20 truncated leaves:
 C set (req) = Python set restricted to `req | M`, and first-mode answers lie in it — **0 mismatches**
-(only 2 nonempty; a heavier req check at k ∈ [3,4] and 30 untruncated / k ≤ 2 leaves: logs/o103_val_deep.log).
+(only 2 nonempty). (iv) logs/o103_val_deep.log: req check on all 207 children of 10 leaves truncated at k ∈ [3,4]
+(7 leaves with nonempty sets), and full sets on 30 leaves with k ∈ [0,2] (untruncated or nearly, `L` up to ≈10²⁰,
+26 nonempty, Python ≈ 3 min per leaf): **0 mismatches**. In total 240 random leaves + 790 children, 0 mismatches.
 
 Speed (300 random open leaves of the 13C §8.2 tree, `L ≈ 10¹⁸–10²⁰`, 14–15 primes): ≈ 45 ms per node for the
 full set, single core. 31 of the 300 leaves (10%) lie in no class with `M | L` (13C Comp 8.3 found 4%, sample of 52).
