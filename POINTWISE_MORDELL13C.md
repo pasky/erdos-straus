@@ -184,3 +184,22 @@ two: moduli 283140 and 235352). So **no S-generic sterile candidate sits at the 
 are spread (no dominant joint residue pattern at 19, 23, 31, 41, 43, 71), not converging to a few points.
 The open set persists because each covering class of P needs `x≡1` modulo its S-free part N, and the complement
 `x≢1 (mod N)` opens new nodes.
+
+**Computation 8.2 (EVIDENCE).** Root 418321 alone, `m13c_dfs.py 418321:720720 1000000 100 3 20000` (61 min,
+logs/o100_dfs418_P100.log): 142088 nodes, 122088 open leaves, open mass `1.95·10⁻⁸` of the root; decay ≈ nodes^−0.65,
+queue ≈ 6 per expansion, ≈30% of the children survive each split (e.g. 11/36, 12/78). With Pmax = 300 (stopped at
+12400 expansions) the open mass behaves the same. With these tables (M ≤ 10⁶) the tree does not close.
+
+**Computation 8.3 (EVIDENCE; the key new observation).** At *deep* open leaves the modulus cap **is** the bottleneck
+(contrast Comp. 2.1 at L ≈ 7·10¹⁰): `scripts/m13c_deepwit.py` — of 40 random open leaves of the 8.2 tree
+(L up to ≈10¹⁸), **38 are covered by a class with M | L** found by the complete witness `m13c_witness.py`
+(912 s). `scripts/m13c_deepwit2.py` (12 more): all 12 covered, by I3 (6), I2 (4), I1, II3, with moduli only just above
+10⁶ (e.g. I3 (1,546,1007): M = 2.2·10⁶; I2 (1,33,11339): M = 1.5·10⁶; I1 (371,713,326311): M = 1.06·10⁶).
+So most open leaves of Thm 6.1-type trees are artefacts of `Mmax`, and closing class 418321 is
+**not excluded**; it needs a fast complete witness inside the DFS.
+
+**Plan (not yet done).** A C port of `m13c_witness.py` (L is 100-smooth, so every divisor enumeration uses the known
+factorisation; I1/II1/I4 are O(1) per pair (a,d); I2/I3/II3 enumerate divisors of a gcd with L; II2 can be skipped)
+should be ~10³× faster than the Python (2–15 s per deep node). Hybrid loop: brute DFS → C witness on all open
+leaves → expand the survivors → repeat. A leaf covered by the C witness is re-checked by both tree checkers (they
+test integrality directly, independent of M). If the open set reaches 0 for a root, that root is removed from Thm 3.1(b).

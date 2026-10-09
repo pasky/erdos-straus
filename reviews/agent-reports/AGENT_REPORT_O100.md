@@ -23,3 +23,15 @@ Deliverable: POINTWISE_MORDELL13C.md, data/mordell13c/tree6_6000.json.gz, script
 Not achieved: zero exceptions, or a proved sterile point. Next steps proposed: locate limit points of the open
 leaves in the five non-(2,2) classes (418321 is smallest: open leaves ≡1 (17), three values at each of 19, 23, 31)
 and test them with the targeted engines generalised to S-generic points.
+
+## Checkpoint 2 (limit points, §8)
+
+* No S-generic sterile candidate in 418321: the S-generic points of all 455 open leaves of the Thm 6.1 tree lie in
+  classes of modulus ≤ 10⁶ (Comp 8.1). Open leaves are spread, not converging to a few points.
+* 418321 alone with brute tables M ≤ 1e6 (142088 nodes): open mass 1.95e-8, does not close (Comp 8.2).
+* **Key observation (Comp 8.3):** at deep leaves (L ≈ 1e18) the cap M ≤ 1e6 *is* the bottleneck: 50 of 52 sampled open
+  leaves are covered by classes with M | L, mostly I2/I3 with M ≈ 1–2·10⁶. So closing 418321 (and maybe more
+  roots) is plausible. It needs a C complete-witness engine inside a hybrid DFS (plan in §8); the Python engine is
+  too slow (2–15 s per node; 10⁵ leaves).
+* Context budget reached; recommend a fresh session (handoff) for the C hybrid, starting from
+  /tmp/o100/t418_100.json (68 MB tree of Comp 8.2; regenerate with the command in §8.2 if /tmp is cleared).
