@@ -103,3 +103,51 @@ covers `A ≥ C (log m)^{4/3}` effectively-in-form. (ii) The m-dependence enters
 MN Cor 3.2 (`μ_c ≍ t³/m` on every reduced fibre, absolute constants) — the *same* scaling the
 lower side must match. (iii) No GRH: BV level 1/2 is ample since the Bonferroni level is
 `e^{O(rt)}` with r bounded.
+
+## 2. Numerics: locating the transition for m ≤ 300 (EVIDENCE)
+
+Tool: `scripts/emn2_scan.c` decides m-representability of a prime p exactly via PW Cor 2.4
+(Type II: `e | a+b`, `mab | p+e`, `mab ≤ 2p`, e forced to be `−p mod mab`) and PW Cor 2.2 (Type I:
+`f | ma²d+1`, `mad | p+f`, `mad ≤ 3p` by PW Lemma 7.4; divisors f and cofactors `g ≤ √(ma²d+1)`
+enumerated in their forced classes `−p`, `−p^{−1} (mod mad)`). Validated against an independent
+brute force (`scripts/emn2_brute.py`: smallest denominator `s ∈ (p/m, 3p/m]` plus the criterion
+`A/B = 1/y+1/z ⟺ ∃ u, v | B, A | u+v`): 0 mismatches for all `4 ≤ m ≤ 40`, `p < 1500`
+(e.g. 105 exceptional primes for m = 40). Primes are sampled (every k-th prime, ~600–800 per window).
+
+**2.1 Half-point `L_{1/2}(m)`** (`scripts/emn2_half.py 800 …`, output `scripts/emn2_half.out.txt`):
+L_q = log N at which the representable proportion in (N/2, N] reaches q.
+
+| m | φ/m | L_.25 | L_.5 | L_.75 | L_.5/m^{1/3} |
+|---|---|---|---|---|---|
+| 60 | .267 | 5.68 | 7.64 | 9.41 | 1.95 |
+| 64 | .500 | 5.81 | 7.72 | 9.21 | 1.93 |
+| 100 | .400 | 7.26 | 9.21 | 10.73 | 1.98 |
+| 128 | .500 | 7.16 | 9.65 | 11.42 | 1.91 |
+| 150 | .267 | 7.93 | 10.54 | 12.60 | 1.98 |
+| 200 | .400 | 8.57 | 11.21 | 13.40 | 1.92 |
+| 240 | .267 | 9.89 | 12.50 | 14.88 | 2.01 |
+| 256 | .500 | 9.84 | 12.22 | 14.71 | 1.92 |
+| 300 | .267 | 10.48 | 13.06 | 15.82 | 1.95 |
+| 101 (prime) | .990 | 5.29 | 7.59 | 9.73 | 1.63 |
+| 127 (prime) | .992 | 5.87 | 8.84 | 11.05 | 1.76 |
+| 199 (prime) | .995 | 8.31 | 10.38 | 12.63 | 1.78 |
+
+* For composite m in [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05` with no trend; the local
+  log-log slope from m = 60 to 300 is `log(13.06/7.64)/log 5 = 0.333`. A `(log m)^{4/3}` (MN Cor D)
+  or `(log m)^{−2/3}` (PW) correction would change the ratio by factors 1.53 resp. 0.76 over this
+  range; neither is visible. No visible φ(m)/m dependence among composites (φ/m from .23 to .5).
+* Prime m sit lower (1.63–1.78) but drift upward (slope ≈ 0.46 from 101 to 199); finite-size.
+* **The transition is not sharp:** the window `L_.75 − L_.25 ≈ 0.4 L_.5` does not shrink. In
+  `A = L/m^{1/3}` the profile collapses (composite m): `A_.25 ≈ 1.45–1.57`, `A_.5 ≈ 1.95`,
+  `A_.75 ≈ 2.36–2.40`. The one-parameter Poisson profile `F(A) = 1 − exp(−κA³)` with κ fitted
+  at A_.5 (κ = ln 2/1.95³ ≈ 0.094) predicts F(1.5) = 0.27, F(2.37) = 0.71 — a good fit. This is
+  PW's heuristic `exp(−(log p)³/m)` with an effective constant κ ≈ 0.09.
+* **Overdispersion** (`scripts/emn2_lambda.out.txt`, count mode): the mean number of Type I+II
+  tuples per prime is far above `−log(1−F)`: e.g. m = 200, N = 2^20: mean 4.85 tuples, yet only
+  74% of primes are representable (Poisson would give 99.2%). Solutions cluster (fibre effect:
+  `p mod m` and p modulo small primes fix most of the mass, cf. MN §4). Type I solutions dominate
+  (e.g. m = 200, N = 2^20: Type II-only 2.3%... Type I alone covers 71%, Type II alone 23%).
+
+Assessment: the data support "transition at `log N ≍ m^{1/3}` exactly, with a non-degenerate
+profile F(A)", i.e. g ≡ 1 and **no sharp threshold constant** — the right theorem is two-sided
+at the scale, not a 0–1 law at a constant. (Conjecture C2 below.)
