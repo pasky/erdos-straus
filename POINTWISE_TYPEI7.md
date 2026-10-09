@@ -189,3 +189,37 @@ and least level `L` (discrete log mod `35·71^{e−1}`, Pohlig–Hellman), each 
 So the approximating certificates exist explicitly, but their level is of the size of `F` itself (the discrete log is
 "random" in `[0, ord_F(2))`), while `e` (hence `log_2 F`) grows like `2^m`; so `v_2(F+9) ≈ log_2 log_2 L` in this family,
 whereas `x̂_9` needs `v_2(F+9) ≥ 2+⌈L/2⌉`.
+
+## 5. Status and what remains open
+
+* PROVED: the exact closeness formula (Lemma 1.1: `v_2(F+9) = 3 + v_2(5 − 9nδ − 2^{L−2}c_ok_o²)`; a certificate at
+  `x̂_9` ⟺ `nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`); unboundedness of the closeness (Thm 2.1 — answers the open question of TYPEI4
+  §5 / Assessment 4.2(d) negatively: **no** ball around 9 in the fibre is sterile); recurrence of every fibre triple at all
+  levels `≡ L_0 (mod ord_F(2))` with constant closeness (Remark 2.1(b)); the covered part of `Φ` is open and dense and
+  the sterile part nowhere dense (Cor 2.3), already with `F = 71^e`, `k = 2^γ`, `7 ∤ k` (Thm 2.4).
+* CERTIFIED once replayed: Comp 2.2, 2.5 (explicit approximants up to closeness 14); Comp 3.1 / Cor 3.2 (complete
+  `(L,b)` grid `2^{L−4}7^b ≤ 2^{28}`: no certificate at `x̂_9`; max closeness ≤ 10, margin ≥ 1, ≥ 10 for `L ≥ 28`).
+* Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; tail ≲ 10^{−2}).
+* NOT achieved (precise negative statement): an inequality `v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates is exactly
+  sterility of `x̂_9` (by Lemma 1.1 and the Criterion), and by Cor 2.3 / Thm 2.4 it cannot follow from any statement
+  about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9`, nor from
+  bounded 7-depth or `k'=1` restrictions alone (Thm 2.4 lives at `b=0, k'=1`). A proof must couple the 2-adic size of
+  `F+9` with the level, e.g. a bound of the form "`F ≡ −9 (mod 2^t)` forces `ord`/discrete-log information on `2 mod F`
+  incompatible with `2^{L−1}7^sX ≡ −g (mod F)`" (Remark 1.6 / §2 form: `F | 2^{L−1}7^sX + g`, `(F+1)/8 = c'gX`). We have
+  no such tool; sterility of `x̂_9` remains open (Conjecture TYPEI2 3.4), and so does `C(7) = ∞` under H.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/lb scripts/typei4_lb.c -lm
+# Comp 3.1 grid (≈1 h, one core): all (L,b) with L>=7, 2^(L-4)*7^b <= 2^28
+for b in 0 1 2 3 4 5 6 7 8; do for L in $(seq 7 32); do
+  python3 -c "import math,sys;sys.exit(0 if $L-4+$b*math.log2(7)<=28.01 else 1)" && /tmp/lb $L $b > /tmp/t7/lb_${L}_${b}.txt
+done; done
+uv run python scripts/typei7_tab.py /tmp/t7/lb_*.txt          # table of §3; 67 certs, 134 Lemma-1.1 checks, no HIT
+gcc -O2 -o /tmp/t7/js scripts/review_typei4_jsearch.c -lm     # second engine (R89), per cell: /tmp/t7/js L b > /tmp/t7/js_L_b.txt
+uv run python scripts/typei7_xcheck.py /tmp/t7                # compares lb vs js cell by cell
+PYTHONPATH=scripts uv run --with sympy python scripts/typei7_unbounded.py 5    # Comp 2.2 (m = 4, 5)
+uv run --with sympy python scripts/typei7_dense71.py 14                         # Comp 2.5 (1 min)
+uv run --with sympy python scripts/typei7_family.py 30 11 14 3                  # fixed-(c',g) family engine, sanity (2 rows)
+```
