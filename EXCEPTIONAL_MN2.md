@@ -27,7 +27,7 @@ Let `ρ_exc(m,N)` / `ρ_rep(m,N)` be the proportions of m-exceptional / m-repres
   (ET Thm 1.7, open at m = 4) and `m/φ(m)` from Type I.
 * **Remaining gap** in `log N`: factor `(m log m/φ(m))^{1/3} ≪ (log m · log log m)^{1/3}`
   (was `(log m)² (m/φ(m))^{1/3}`). Removing the Type I BT loss and tracking the coprimality gain in
-  ET Prop 1.4 would give the exact scale: `ρ_exc → 0` iff ... `A → ∞`, `ρ_rep → 0` iff `A → 0`.
+  ET Prop 1.4 would give the exact scale: `ρ_rep → 0` if `A → 0`, with Theorem U's `ρ_exc → 0` if `A → ∞`.
 * **Numerics (EVIDENCE; §2).** m ≤ 300: for composite m ∈ [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05`,
   local exponent 0.333; profile in A collapses to `F(A) ≈ 1 − exp(−κA³)`, κ ≈ 0.094.
 * **Conjecture C2 (CONJECTURE; supported by §2).** `ρ_rep(m, N) = F(A) + o(1)` as `m → ∞`, for a
