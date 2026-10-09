@@ -129,8 +129,9 @@ It reproduces Comp 3.4 of TYPEI4 exactly on its range. All 67 certificates (59 d
 | 32 | 0 | 4 | 6,6,5,5 | 18 | 12 |
 
 (All other grid cells, in particular every `L ≤ 10` and `L ∈ {12,15,17}`, are empty.) Equal closeness values within a cell
-are mostly one divisor pair `(F,e)` reached by two factorisations `c'X² = c''X'²` (e.g. `L=30`: `F=71`, `c'X²=9`, which is the
-`m=4` certificate of Comp 2.2, recurring from `L=11+35j`? no — `c'=9 ≠ 3`; it is a different triple with the same `F`).
+are mostly one divisor pair `(F,e)` reached by two factorisations `c'X² = c''X'²` (e.g. `L=30`: `F=71`, `c'X² = 9·1² = 1·3²`; the
+first is the `m=4` certificate of Comp 2.2. It is not a recurrence of the `L=11` triple `(42,32,71)`, which has `c'X²=3`).
+By Remark 2.1(b) the `L=11` triple recurs at `L=46, 81, …`, outside the grid.
 
 **Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
 `v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
@@ -140,3 +141,16 @@ are mostly one divisor pair `(F,e)` reached by two factorisations `c'X² = c''X'
 **Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
 `L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
 visibly (≤ 9 per `(L,b)`).
+
+## 4. Level-graded heuristic (Assessment)
+
+Model: the divisor `F` of a fibre certificate is a random class `≡ 7 (mod 16)` modulo `2^{t_min}`; then each of the two roles
+hits `x̂_9` with probability `2^{4−t_min}`. Over the 67 certificates of the grid the expected number of hits is
+`Σ 2^{5−t_min} ≈ 0.59` (observed: 0); the 31 certificates with `L ≥ 27` contribute only `0.009`. With ≤ 10 certificates per
+`(L,b)` cell and `t_min = 2+⌈L/2⌉`, each further `b`-row contributes `≲ 10·Σ_{L≥L_0} 2^{3−⌈L/2⌉}`, e.g. `≈ 2·10^{−3}` for
+`L_0 = 33`. This agrees in order of magnitude with the f-graded estimate of TYPEI3 §4 (`≈ 0.012` for `f ≥ 10¹¹`).
+The model is **not** a proof: Theorem 2.1 shows that the classes do accumulate at `w = 9`, and nothing excludes a
+structured family whose `F mod 2^{t}` drifts towards `−9` with the level. What the exact formula (1.1) shows is that such a
+family would need `nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`, a condition on which the Pell structure (TYPEI4 Cor 1.4) imposes no
+local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 − c'D² ≡ 0 (mod 2^{L−4})` has a unique
+2-adic root `P_1` (Hensel; the derivative `32c'X²P_1 − 1` is odd), so every class of `nδ = c'XD` is locally realised.
