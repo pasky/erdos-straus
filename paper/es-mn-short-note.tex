@@ -13,6 +13,9 @@
 \renewcommand{\theintrothm}{\Alph{introthm}}
 \newtheorem{introcor}[introthm]{Corollary}
 \newtheorem{introprop}[introthm]{Proposition}
+\newtheorem*{thmU}{Theorem U}
+\newtheorem*{thmL}{Theorem L}
+\newtheorem*{conjC2}{Conjecture C2}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
@@ -1045,6 +1048,14 @@ prime-counting results; we have not checked their ranges.
 \end{remark}
 
 \section{The density transition}\label{sec:transition}
+Throughout this section $L=\log N$, $A=L/m^{1/3}$,
+$\pi^*(N)=\pi(N)-\pi(N/2)$, and $\pi^*(N;q,a)$ counts the primes
+$p\in(N/2,N]$ with $p\equiv a\ (q)$.  Let $\rho_{\rm exc}(m,N)$ and
+$\rho_{\rm rep}(m,N)=1-\rho_{\rm exc}(m,N)$ be the proportions of
+$m$-exceptional and $m$-representable primes in $(N/2,N]$.  The working
+document for Theorems~U and~L is \cite{MN2}.
+
+\subsection{Corollary~\ref{cor:D}: integers first}
 \begin{proof}[Proof of Corollary~\ref{cor:D}]
 Apply Theorem~\ref{thm:A} to $I=(N/2,N]$ and put $L=\log(N/2)$; the
 count is at most $CN\exp\{-cL^{3/4}m^{-1/4}\}$.  Let
@@ -1066,6 +1077,158 @@ step uses $\sqrt2\log(N/2)\geq\log N$, which holds for $N\geq16$.  This
 is $o(\pi(N)-\pi(N/2))$.  For integers, the saving in
 Theorem~\ref{thm:A} is $(\log N)^{3/4}m^{-1/4}=(\log N/m^{1/3})^{3/4}$.
 \end{proof}
+
+The loss $(\log m)^{4/3}$ arises because Theorem~\ref{thm:A} counts
+integers: primes have density $1/L$, so the integer saving
+$\e^{-cA^{3/4}}$ says something about primes only once it beats
+$1/L$, i.e.\ once $A^{3/4}\gg\log L\asymp\log m$ near the transition.
+To see the transition at the scale $A\asymp1$ we count primes directly,
+with Bonferroni depth \emph{bounded} in terms of the required saving;
+then the moduli stay below $N^{0.45}$ and the Bombieri--Vinogradov
+theorem suffices.
+
+\subsection{The upper side: Theorem~U}\label{sec:upper}
+We use the atom family $\A^{(m)}_X$ of Definition~\ref{def:atoms},
+$t=\log X$, $s=t^3/m$, $H=H_X$ and the even Bonferroni polynomial
+$Q_r$ of Theorem~\ref{thm:assembly}; recall
+$\ind_{h=0}\leq Q_r(h)\leq\ind_{h=0}+\binom h{r+1}$ for integers
+$h\geq0$ \cite[Lemma~8.1]{TQ}.  No selector $S_y$ is used.
+
+\begin{lemma}[reduced model]\label{lem:reduced}
+Let $\M'=L_K\prod_{X^{1/2}<\ell\leq X}\ell$ and let $\tilde n$ be
+uniform on $(\Z/\M'\Z)^\times$.  For $X\geq X_h$, $4\leq m\leq t^3$
+and every even $r\geq2\e^2C_us$,
+\[
+ \E\,Q_r(H(\tilde n))\leq\e^{-a_us}+\e^{-(r+1)},
+\]
+with $a_u,C_u$ from Corollary~\ref{cor:fibre}.
+\end{lemma}
+
+\begin{proof}
+By the Chinese remainder theorem for unit groups, $c=\tilde n\bmod L_K$
+is uniform on the reduced classes and the coordinates
+$\tilde n\bmod\ell$ are uniform on $(\Z/\ell\Z)^\times$, all independent
+($\ell>X^{1/2}>K$, so $\ell\nmid L_K$).  Given $c$, the atom $A$ meets
+the fibre iff $k\mid u+cv$ (Lemma~\ref{lem:CRT}(3)), and the active
+atoms at a fixed $\ell$ have pairwise distinct classes modulo $\ell$
+(Lemma~\ref{lem:CRT}(2)), all non-zero since $0<u<\ell$.  So, given
+$c$, $H=\sum_\ell\xi_\ell$ with independent
+$\xi_\ell\sim{\rm Bernoulli}(f_c(\ell)/(\ell-1))$, whence
+$\Prob(H=0\mid c)\leq\e^{-\mu_c}$ and
+$\E(\binom H{r+1}\mid c)\leq(2\mu_c)^{r+1}/(r+1)!$, using
+$\ell/(\ell-1)\leq2$.  Every fibre is reduced, so
+$a_us\leq\mu_c\leq C_us$ by Corollary~\ref{cor:fibre}, and
+$(r+1)!\geq((r+1)/\e)^{r+1}$ gives
+$\E(Q_r(H)\mid c)\leq\e^{-a_us}+(2\e C_us/(r+1))^{r+1}
+\leq\e^{-a_us}+\e^{-(r+1)}$.  Average over $c$.
+\end{proof}
+
+Compared with Lemma~\ref{lem:void}, neither the selector nor the
+bad-fibre event $Z(c)>1/4$ is needed: in the reduced model every fibre
+is reduced, which is exactly the situation for primes.  Since both
+$a_us$ and $C_us$ bound $\mu_c$ on the nonempty set of reduced fibres,
+$a_u\leq C_u$.
+
+Expand
+$Q_r(H(n))=\sum_{\mathcal B}(-1)^{|\mathcal B|}\ind[n\in\bigcap_{A\in\mathcal B}E_A]$
+over $\mathcal B\subseteq\A^{(m)}_X$ with $|\mathcal B|\leq r$, dropping
+the $\mathcal B$ with empty intersection.  By Lemma~\ref{lem:CRT}(2) each
+remaining $\mathcal B$ has distinct primes $\ell_A$, and
+$\bigcap_{\mathcal B}E_A$ is one unit class $a_{\mathcal B}$ modulo
+$q_{\mathcal B}=q'_{\mathcal B}\prod_{A\in\mathcal B}\ell_A$, where
+$q'_{\mathcal B}=\lcm(k_A)\leq K^r$.  Let
+$M(q)=\#\{\mathcal B:q_{\mathcal B}=q\}$.
+
+\begin{lemma}[multiplicity of moduli]\label{lem:mult}
+For fixed $r$ and $X\geq X_h$,
+$S_2:=\sum_qM(q)^2/\varphi(q)\leq C(r)\,t^{17r+4^r}$, with $C(r)$
+depending only on $r$ \textup{(}and the fixed $\kappa$\textup{)}.
+\end{lemma}
+
+\begin{proof}
+As $k\leq K<X^{1/2}<\ell$, the primes $\ell_A$ of $\mathcal B$ are
+exactly the prime factors of $q$ above $X^{1/2}$, each carrying one
+atom, which is fixed by a divisor $k\leq K$ of $q'=q/\prod\ell$ and a
+pair $u,v\mid k\ell+1$.  So
+$M(q)\leq\prod_{\ell\mid q,\,\ell>X^{1/2}}g_{q'}(\ell)$ with
+$g_{q'}(\ell)=\sum_{k\mid q',\,k\leq K}\tau(k\ell+1)^2$, and
+$g_{q'}(\ell)^2\leq\tau(q')\sum_{k\mid q',\,k\leq K}\tau(k\ell+1)^4$.
+Shiu's theorem \cite[Thm.~1]{Shiu} for $\tau^4$ on the progression
+$1\bmod k$ in $(kx,2kx]$, $x\geq X^{1/2}\geq k^{2}$, gives
+$\sum_{x<\ell\leq2x}\tau(k\ell+1)^4\ll(k/\varphi(k))\,x\,t^{15}$; summing
+dyadically and using $k/\varphi(k)\ll\log t$,
+$\sum_\ell\tau(k\ell+1)^4/(\ell-1)\ll t^{17}$.  Hence
+$\sum_\ell g_{q'}(\ell)^2/(\ell-1)\leq C\tau(q')^2t^{17}$.  Since $q'$
+and the $\ell$'s are coprime and $\varphi$ is multiplicative,
+\[
+ S_2\leq\sum_{q'\leq K^r}\frac1{\varphi(q')}\sum_{j\leq r}
+ \frac{(C\tau(q')^2t^{17})^j}{j!}
+ \leq(r+1)C^rt^{17r}\sum_{q'\leq K^r}\frac{\tau(q')^{2r}}{\varphi(q')},
+\]
+and $\sum_{n\leq x}\tau(n)^{2r}/\varphi(n)\leq\prod_{p\leq x}
+(1+\sum_{\nu\geq1}(\nu+1)^{2r}/\varphi(p^\nu))\ll_r(\log x)^{4^r}$,
+with $\log K^r\leq r\kappa t$.
+\end{proof}
+
+\begin{theorem}\label{thm:U13}
+There are absolute $a,C_1,s_0>0$ and for each $s\geq s_0$ an
+\textup{(}ineffective\textup{)} $N_0(s)$ such that for all $m\geq4$ and
+$N\geq N_0(s)$ with $\log N\geq C_1s^{4/3}m^{1/3}$,
+\[
+ \#\{p\in(N/2,N]:p\ m\text{-exceptional}\}\leq3\e^{-as}\pi^*(N).
+\]
+\end{theorem}
+
+\begin{proof}
+Take $t=(sm)^{1/3}$, $X=\e^t$ and $r$ the least even integer
+$\geq2\e^2C_us$.  Then $m\leq t^3$, and $X\geq X_h$ once $s_0$ is
+large, as $t\geq(4s)^{1/3}$.  All moduli satisfy
+$q_{\mathcal B}\leq(KX)^r=\e^{(1+\kappa)rt}$, and
+$(1+\kappa)rt\leq(1+\kappa)(2\e^2C_us+2)(sm)^{1/3}\leq0.45L$ for $C_1$
+large; so $q_{\mathcal B}\leq N^{0.45}$.  An $m$-exceptional prime $p$
+has $H(p)=0$ (Lemma~\ref{lem:CRT}(1)), hence $Q_r(H(p))=1$, so
+\[
+ \#\{\text{exc.\ }p\}\leq\sum_{N/2<p\leq N}Q_r(H(p))
+ =\sum_{\mathcal B}(-1)^{|\mathcal B|}\pi^*(N;q_{\mathcal B},a_{\mathcal B}).
+\]
+Write $\pi^*(N;q,a)=\pi^*(N)/\varphi(q)+\Delta(q,a)$.  As
+$\Prob(\tilde n\equiv a_{\mathcal B}\ (q_{\mathcal B}))=1/\varphi(q_{\mathcal B})$,
+the main terms sum exactly to $\pi^*(N)\,\E\,Q_r(H(\tilde n))\leq
+\pi^*(N)(\e^{-a_us}+\e^{-(r+1)})$ by Lemma~\ref{lem:reduced}.  For the
+errors, Brun--Titchmarsh gives $|\Delta(q,a)|\leq CN/(\varphi(q)L)$ for
+$q\leq N^{0.45}$, and the Bombieri--Vinogradov theorem (applied at $N$
+and $N/2$) gives $\sum_{q\leq N^{0.45}}\max_{(a,q)=1}|\Delta(q,a)|
+\ll_{A'}NL^{-A'}$; recentring from $(\li N-\li(N/2))/\varphi(q)$ to
+$\pi^*(N)/\varphi(q)$ costs
+$\ll N\e^{-c\sqrt L}\sum_qM(q)/\varphi(q)\ll N\e^{-c\sqrt L}(S_2\sum_{q\leq N}1/\varphi(q))^{1/2}$
+by the prime number theorem.  By Cauchy--Schwarz and Lemma~\ref{lem:mult},
+\[
+ \sum_{\mathcal B}|\Delta(q_{\mathcal B},a_{\mathcal B})|
+ \leq\Bigl(\sum_qM(q)^2\frac{CN}{\varphi(q)L}\Bigr)^{1/2}
+ \bigl(C_{A'}NL^{-A'}\bigr)^{1/2}\leq C'(r)\frac N{L^3}
+\]
+for $A'=17r+4^r+5$, using $t\leq L$.  For $N\geq N_0(s)$ this and the
+recentring cost are at most $N/L^2\leq\e^{-a_us}\pi^*(N)$, as
+$\pi^*(N)\geq N/(3L)$.  Finally $\e^{-(r+1)}\leq\e^{-a_us}$ since
+$r\geq2\e^2C_us\geq a_us$; take $a=a_u$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~U]
+Fix $s\geq s_0$ with $3\e^{-as}\leq\varepsilon$, and put
+$A_\varepsilon=\max(C_1s^{4/3},\log N_0(s))$.  If
+$\log N\geq A_\varepsilon m^{1/3}$, then also $\log N\geq A_\varepsilon$,
+so both hypotheses of Theorem~\ref{thm:U13} hold.
+\end{proof}
+
+Quantitatively, Theorem~\ref{thm:U13} gives
+$\rho_{\rm exc}\leq3\exp\{-a(A/C_1)^{3/4}\}$ once $N$ is large in terms
+of $A$; the dependence of $N_0$ on $s$ comes from the Bombieri--Vinogradov
+constant at level $L^{-A'(r)}$, $r\asymp s$.  Theorem~U does \emph{not}
+improve the rate $\rho_{\rm exc}\ll1/L$ of Corollary~\ref{cor:D}: that
+would need $s\asymp\log L$, hence depth $r\asymp\log L$, outside the
+fixed-$A'$ range of Bombieri--Vinogradov.  The dependence on $m$ enters
+only through Corollary~\ref{cor:fibre} ($\mu_c\asymp t^3/m$ on every
+reduced fibre), the scaling that the lower side has to match.
 
 \subsection*{The other side}
 Pomerance and Weingartner \cite[Thm.~3.1]{PW} construct many
@@ -1324,6 +1487,11 @@ Delang Li, On the equation $4/n=1/x+1/y+1/z$, \emph{J. Number Theory}
 internal working document \texttt{EXCEPTIONAL\_MN.md}, this repository,
 2026; hostile reviews \texttt{reviews/exceptional-mn-review-A.md},
 \texttt{reviews/exceptional-mn-review-B.md}.
+\bibitem[MN2]{MN2}
+\emph{EXCEPTIONAL\_MN2: the density transition for $m/p$},
+internal working document \texttt{EXCEPTIONAL\_MN2.md}, this repository,
+2026; hostile reviews \texttt{reviews/exceptional-mn2-review-A.md},
+\texttt{reviews/exceptional-mn2-review-B.md}.
 \bibitem[MV]{MV}
 H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
