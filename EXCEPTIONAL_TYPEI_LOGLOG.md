@@ -306,6 +306,64 @@ level `Q = (A/E)^{1/2}𝓛^{−C}` when `E < A`. The same with f in place of e.
 
 ## 8. Assembly: (OPEN-I) under (SEL)
 
+### 8.0 Brun–Titchmarsh outside R_bad (O112 repair, D2; PROVED, unconditional)
+
+Notation: `g(x) := x/φ(x)`; `L = log N`; `x ≍ X` means `X < x ≤ 2X`. A w_c-tuple (MN3 §3.7) is
+`(c,a,d,f) ∈ ℕ⁴` with `f | 4a²d+1`, `n := 4acd − f`, `n/4 < acd ≤ 3n/4` (⇔ `0 < f ≤ 2n`).
+Put `e := (4a²d+1)/f`, `b := ce − a`. Then (direct check) `4abd = ne + 1` and `bf = na + c`; hence
+`b > 0`, `e | a+b`, and `b = (na+c)/f ≥ a/2` (as `f ≤ 2n`). Thus `4bd ≥ 2ad` and `4acd ≍ n`, so for
+`c ≤ N^η` the moduli `4ad`, `4bd` are `≥ N^{1−η}/8`, and the twin moduli `4bcf' ≥ N^{1−o(1)}`,
+`4cdf' ≥ N^{1−o(1)}` (MN3 Prop 3.3 exponents `1+2β+γ−α ≥ 1+β`, `2−2α+β ≥ 2−α`) — so **only `4ab`, `4acf`,
+`4cdf` can be short** when `c ≤ N^η`. The four fibre parametrisations (MN3 Lemma 3.2) are:
+* `acf`: fix `T = (a,c,f)`; then `(f,2a) = 1`, `d ≡ d_T := −(4a²)^{−1} (mod f)`, and `d ↦ n = 4acd − f` is
+  injective with `n` in one class mod `m_T = 4acf`;
+* `cdf`: fix `T = (c,d,f)`; then `a` lies in one of `ρ_d(f) := #{x mod f : 4dx² + 1 ≡ 0 (f)}` classes mod f,
+  and `a ↦ n` is injective with `n` in `ρ_d(f)` classes mod `m_T = 4cdf`;
+* `ab`: fix `T = (a,b,c)`; then `e = (a+b)/c ∈ ℕ`, `(e,4ab) = 1`, `d ≡ (4ab)^{−1} (mod e)` (from `4abd = ne+1`),
+  `n = (4abd−1)/e`, and `d ↦ n` is injective with `n` in one class mod `m_T = 4ab`. Each `(a,b)` has
+  `≤ τ(a+b)` admissible c.
+
+**Lemma 8.2 (PROVED).** Fix `0 < η₁ < 1/2`. For `P ∈ {ab, acf, cdf}` let `𝒮_P(N)` be the set of
+w_c-tuples (any c) with n prime in `(N/2, N]` and `m_P ≤ N^{1−η₁}` (`m_ab = 4ab`, `m_acf = 4acf`,
+`m_cdf = 4cdf`). Then `#𝒮_P(N) ≪ η₁^{−1} N L²` for `N ≥ N₀(η₁)`.
+*Proof.* Brun–Titchmarsh (Montgomery–Vaughan): for `m < y`, `π(x+y; m, r) − π(x; m, r) ≤ 2y/(φ(m) log(y/m))`.
+With `x = y = N/2` and `m ≤ N^{1−η₁}`, `log(y/m) ≥ η₁L − log 2 ≥ η₁L/2` for `N ≥ N₀(η₁)`. A class with
+`(r,m) > 1` contains at most one prime. So, by the injectivity above, a fibre over T contributes
+`≤ ρ_T (2N/(η₁ L φ(m_T)) + 1)` (`ρ_T = 1` for ab, acf; `ρ_T = ρ_d(f)` for cdf). Since `φ(4x) ≥ 2φ(x)` and
+`φ(xy) ≥ φ(x)φ(y)`:
+* acf: `Σ_{acf ≤ N} 1/(φ(a)φ(c)φ(f)) ≤ (Σ_{x≤N} 1/φ(x))³ ≪ L³` (Landau: `Σ_{x≤X}1/φ(x) ≪ log 2X`);
+* ab: `Σ_{ab ≤ N, a ≤ 2b} τ(a+b)/(φ(a)φ(b)) ≪ L³` by Lemma 8.3(b) summed over the `≪ L²` dyadic boxes;
+* cdf: `Σ_{c ≤ N} 1/φ(c) · Σ_{df ≤ N} ρ_d(f)/(φ(d)φ(f)) ≪ L · L²` by Lemma 8.3(c) over `≪ L²` boxes.
+The `+1` terms total `≤ Σ_{T: m_T ≤ N^{1−η₁}} ρ_T ≪ N^{1−η₁+ε}` (`ρ_T`, `τ(a+b) ≪ N^ε`). ∎
+
+**Lemma 8.3 (weighted divisor sums; PROVED, elementary + Pólya–Vinogradov).** Uniformly in `A, B, D, F ≥ 1`:
+(a) `Σ_{x≍X} g(x)² ≪ X`; `g(x) = Σ_{l|x} μ²(l)/φ(l)`.
+(b) `Σ_{a≍A, b≍B, a ≤ 2b} τ(a+b) g(a) g(b) ≪ AB log 2B`.
+(c) `Σ_{d≍D} g(d) Σ_{f≍F} ρ_d(f)/φ(f) ≪ D`.
+*Proof.* (a) standard (`g² = Σ_{l|x} h(l)`, `h(p) ≤ 3/p`, `Σ h(l)/l < ∞`).
+(b) Fix a. For squarefree l, `τ(n) ≤ 2#{δ | n : δ ≤ √n}` and `n = a + b ≤ 6B` give
+`Σ_{b≍B, l|b} τ(a+b) ≤ 2Σ_{δ ≤ √(6B)} #{b' ≤ 2B/l : lb' ≡ −a (δ)} ≤ 2Σ_{δ≤√(6B)} (2B(l,δ)/(lδ) + 1)
+≤ 4(B/l)τ(l)(1 + log 6B) + 2√(6B)` (`Σ_{δ≤Z}(l,δ)/δ ≤ τ(l)(1+log Z)`). Multiply by `μ²(l)/φ(l)` and sum over
+`l ≤ 2B`: `Σ_l μ²(l)τ(l)/(lφ(l)) < ∞`, `Σ_{l≤2B} 1/φ(l) ≪ log 2B`, so `Σ_{b≍B} τ(a+b)g(b) ≪ B log 2B`. Sum over a
+with (a).
+(c) Let `χ_d := (−4d/·)` (Kronecker), a non-principal real character mod 4d, and `S_d(Y) := Σ_{g≤Y} χ_d(g)/g`
+(`S_d(Y) := 0` for `Y < 1`). Facts: (i) `ρ_d(2^k) = 0` (k ≥ 1); for odd p, `ρ_d(p^k) = 1 + χ_d(p)` (`p ∤ d`, Hensel),
+`= 0` (`p | d`); hence `ρ_d(f) ≤ (1∗χ_d)(f)` for all f (for `χ_d(p) = −1`: `0 ≤ Σ_{i≤k}(−1)^i`), and
+`ρ_d(kf') ≤ ρ_d(k)ρ_d(f') ≤ 2^{ω(k)}ρ_d(f')` for squarefree k (`ρ_d(p^{1+j}) = ρ_d(p^j)` for j ≥ 1).
+(ii) `R_d(Y) := Σ_{Y<f≤2Y} (1∗χ_d)(f) = Σ_{g≤2Y} χ_d(g)(Y/g + O(1)) = Y·S_d(2Y) + O(Y)` for `Y ≥ 1`.
+(iii) Mean square: `Σ_{d≍D} |S_d(Y)|² ≪ D` for all `Y ≥ 1`. Indeed for `Y ≤ Y₀ := D/log²(2D)`, expand:
+`Σ_{g,g'≤Y} (gg')^{−1} Σ_{d≍D} χ_d(gg')`; the terms with `χ_d(gg') ≠ 0` need gg' odd, and then
+`χ_d(gg') = (−d/gg')` (Jacobi); if gg' is a square the inner sum is `≤ D` and `Σ_{gg'=□}(gg')^{−1} < ∞`; if not,
+`d ↦ (d/gg')` is a non-principal character mod gg' and PV gives `≪ (gg')^{1/2} log(gg')`; total
+`≪ D + Y log 2Y ≪ D`. For `Y > Y₀`, partial summation and PV in g (`|Σ_{g≤u} χ_d(g)| ≪ √d log d`) give
+`S_d(Y) = S_d(Y₀) + O(√D log(2D)/Y₀) = S_d(Y₀) + O(1)` (for `D ≤ D₀` absolute, `|S_d(Y)| ≪ 1` trivially by PV).
+Now `1/φ(f) = f^{−1}Σ_{k|f} μ²(k)/φ(k)`, so by (i), (ii)
+`Σ_{f≍F} ρ_d(f)/φ(f) ≤ Σ_k (μ²(k)2^{ω(k)}/(kφ(k))) Σ_{f'≍F/k} ρ_d(f')/f' ≤ Σ_k (2^{ω(k)}/(kφ(k)))(|S_d(2F/k)| + C)`
+(for `F/k < 1` the inner sum is `≤ 1`). Average over d with weight g(d), Cauchy–Schwarz with (a) and (iii):
+`Σ_{d≍D} g(d)(|S_d(·)| + C) ≪ D`; the k-sum converges. ∎
+*Remark.* (c) is the "`L(1,χ_{−4d})` is O(1) on average" input; PV suffices because only a mean square over
+a full dyadic d-range is needed. (c) is also uniform per box, which §8 (D1 repair) uses.
+
 **Theorem 8.1 (CONDITIONAL on (SEL) of §5; relative to ET Prop 2.2/Lemma 2.8/(8.1)–(8.2), MN3 Prop 2.3,
 Brun–Titchmarsh, Selberg's upper-bound sieve, Weil's bound, and the DI/Drappeau large sieve).**
 `Σ_{p≤N} f_I(p) ≪ N log² N`.
@@ -315,12 +373,12 @@ Brun–Titchmarsh, Selberg's upper-bound sieve, Weil's bound, and the DI/Drappea
 (2) `c ≤ N^η`, fixed c; `γ := log c/L`, `a ≍ A = N^α`, `d ≍ D`, `AD ≍ N/c`, `e ≍ N^{β−γ}`. Smooth dyadic
 partition of unity in `(a, d, e)` (for spectral cells in `(f', a/f')`, `f' ∈ {e, f}`, §5), dropping ET's size
 constraints (upper bound).
-(2a) Cells **outside** `R_bad(η₁)` (MN3 Prop 3.3; `η₁ > 0` fixed small): one of the moduli
-`4ad, 4bd, 4ab, 4acf, 4cdf` is `≤ N^{1−η₁}`; Brun–Titchmarsh on that progression costs
-`≪ η₁^{−1}·(cell mass)/L`. **Caveat (inherited, Assessment):** turning "per fixed other coordinates" BT
-bounds into `(mass)/L` needs the weighted harmonic sums that MN3 §3.3 calls routine but did not write out
-(for 4ad it is ET (8.2)). Inside `R_bad(η₁)` one has `e, f ≥ N^{1/2−2η₁}` (exponent check from the
-inequalities defining `R_bad`), so no tiny divisors remain (R1: this replaces the retired Prop 7.2).
+(2a) (O112 repair, D2.) Tuples with `min(4ab, 4acf, 4cdf) ≤ N^{1−η₁}` (`η₁ ≥ η` fixed small): Lemma 8.2,
+`≪ η₁^{−1} N L²` in total (all c at once; no cells needed). The remaining tuples (c ≤ N^η, all three
+moduli `> N^{1−η₁}`; `4ad, 4bd ≥ N^{1−η}/8` automatically, §8.0) have exponents in `R_bad(η₁)` up to
+`O(1/L)`; the smooth cells of (2b) are taken with support in `R_bad(2η₁)` (positive weights: an upper bound).
+Inside `R_bad(2η₁)` one has `e, f ≥ N^{1/2−3η₁}` (MN3 Prop 3.3: `β ≥ (1−2η₁)/2`, and
+`1+α−β ≥ max(1−α−γ−2η₁, α−2η₁)`), so no tiny divisors remain (R1: this replaces the retired Prop 7.2).
 (2b) Inside `R_bad(η₁)`, split each cell into sequences σ: fixed a if `D ≥ A` (Prop 7.1), fixed d if
 `D < A` (Thm 6.2 with the cusp `f' = min(e,f)`, after splitting the x-range into `O(1)` periods when
 `a/(qf') > 1/4`). This needs `f' ≥ A/8`. That fails only on the thin strip `a ≤ b < 8ca`
