@@ -85,3 +85,15 @@ for `m = 4, 5` and checks them (two splits each) with the stand-alone checker `t
 `m=4`: `s=1, i=6, F=71, c'=9, L=30` (`ord_71(2)=35`); `m=5`: `s=3, b=1, i=21, F=7³+2²¹=2097495,
 c'=262187, L=93184` (`ord_F(2)=93204`), `v_2(F+9)=5`. For `m ≥ 6` the construction needs `s ≥ 7`, `i ≥ 3·7³`, and
 `ord_F(2)` for `F > 2^{1029}` is not computed; the proof does not need it (`L` exists since `F` is odd).
+
+**Corollary 2.3 (the covered part of the fibre is open and dense; PROVED).** Identify `Φ` with `9 + 16ℤ_2` via `x̂_w ↦ w`.
+The set `C_Φ` of points of `Φ` lying in some certificate class is open and dense in `Φ`; so the sterile part
+`Φ ∖ C_Φ` is closed and **nowhere dense**.
+*Proof.* Open: a union of clopen classes. Dense: given `w_0 ≡ 9 (16)` and `m ≥ 4`, run the construction of Theorem 2.1
+with `s` odd chosen so that `7^s ≡ −w_0 (mod 2^m)` (possible since `−w_0 ≡ 7 (16)`). The resulting certificate covers
+`x̂_w` for `w = −F ≡ w_0 (mod 2^m)`. ∎
+*Consequence (Assessment).* This is compatible with TYPEI3 §4 (EVIDENCE that the sterile part of `Φ` has Haar measure
+≈ 0.6): the sterile part, if non-empty, is a "fat Cantor set". No sterile point of `Φ` has a sterile neighbourhood, so any
+proof that a given point (e.g. `w = 9`) is sterile must use its exact 2-adic coordinate (not `w mod 2^j` for any fixed
+`j`), and the measure route of TYPEI3 Remark 4.1 must control infinitely many scales. This upgrades TYPEI4 Prop 4.1
+(levels 11–22, `w` only mod 16) to all depths.
