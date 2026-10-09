@@ -73,3 +73,56 @@ Internal review only; not external refereeing.
   "unconditional" rests on it (m8; repaired by one parenthesis in the abstract).
 * §10, Prop 5.1 and the open problems are consistent with §9 (old "no unconditional improvement" removed;
   residual spectrum no longer attributed to (SEL)). No stale statement found by grep.
+
+## D. Summary verdicts per claim
+
+| Claim | Verdict |
+|---|---|
+| DI Thm 7 quote, Σ^{(q)} definition, (8.18) misprint | SOUND (verbatim, scan p. 233 / p. 277) |
+| Drappeau Lemma 4.10 quote, E_{q,a} definition, setting | SOUND (verbatim, arXiv p. 16) |
+| q₀ = q uniformity | SOUND as flagged reading (our reading of `≪_ε`; Drappeau §4.3.1 uses it so) |
+| Cor 9.1 prefix sums | SOUND-AFTER-REPAIRS (m1) |
+| Lemma 9.2 partial summation | SOUND |
+| Lemma 9.3 shifted line | SOUND-AFTER-REPAIRS (m2) |
+| Prop 9.4 averaged exceptional variance; Remark 9.5 | SOUND |
+| (9.1), residual spectrum without (SEL) | SOUND (cited standard fact; locators unverified, flagged) |
+| Thm 9.6 averaged per-d count | SOUND-AFTER-REPAIRS (m3, m4, m5) |
+| Cor 9.7 cases (ii)–(iv), F' ≪ A√D | SOUND-AFTER-REPAIRS (m6) |
+| Thm 9.9(i) = Theorem 1 (unconditional, unquantified) | SOUND, PROVED relative to cited inputs + q₀ reading |
+| Thm 9.9(ii) = Theorem 2 under (EFF); Thm 8.1 = Theorem 2 under (SEL) | SOUND, CONDITIONAL — labels correct |
+| Thm 9.9(iii) quantified form | SOUND |
+| Assessment 9.11, (EFF) | correctly labelled Assessment / hypothesis |
+| Title / abstract / intro honesty | SOUND-AFTER-REPAIRS (m8) |
+
+## E. Defects (none FATAL, none MAJOR)
+
+All applied in `paper/es-typei-heegner-note.tex`, marked "(R118 repair)"; two pdflatex runs clean (no errors,
+no undefined references, no overfull boxes; the 9 underfull warnings are pre-existing, same count as before).
+
+* **m1 (MINOR, Cor 9.1 proof).** "`K ≤ 1+log₂t` intervals" — actually `⌈log₂t⌉+1 ≤ 2+log₂t`. Repaired.
+* **m2 (MINOR, def. of 𝒲* before Lemma 9.3).** sup over `0 ≤ σ ≤ 1/2`, but `Re s_v = σ_j+1/𝓛` reaches 3/4 for
+  `𝓛 = 2`. Repaired: sup over `0 ≤ σ ≤ 1`.
+* **m3 (MINOR, Thm 9.6 proof / Thm 9.9 "𝓛 = log N").** Prop 9.4 needs `𝓛 ≥ log(2+(λ₋Y₀)^{−1})`, which can be
+  ≈ `1.7 log N` (`Y₀^{−1} ≤ 6qN`, `λ₋^{−1} ≤ N^{2/3}`). Harmless (only `𝓛^C`, and `Y₀^{−1/𝓛}` stays bounded).
+  Repaired: apply Prop 9.4 with `𝓛 ≍ log N` large enough.
+* **m4 (MINOR, after (9.1)).** The second box of `(1−Δ)ψ_d` has the d-dependent factor `(Y_d/λ)² ≤ 1`, whereas
+  Prop 9.4 needs fixed weights. Repaired by a sentence (drop the factor; it only enlarges `𝓔^{(2)}`).
+* **m5 (MINOR, Thm 9.6 hypothesis `q ≤ N^{1/100}`).** In Thm 9.9 the sieve uses `q ≤ Q = N^{δ/64}` with δ up to
+  ≈ 1 on `D<A` (script (e): max δ = 0.997), i.e. q up to `N^{1/64} > N^{1/100}`. The hypothesis is only used for
+  `1/λ ≤ N^{2/3}` and `M₀/λ₋ ≤ N³`, both still true for `q ≤ N^{1/50}`. Repaired (`N^{1/50}`, plus a remark
+  `Q ≤ N^{1/64}` in Thm 9.9's proof). Also `F' ≤ 3A√D` replaced by `F' ≪ A√D` (Cor 9.7 only proves `≪`).
+* **m6 (MINOR, Cor 9.7 proof).** Third term written without its `q^{5/4}`. Repaired (bound unaffected, `≤ q²`).
+* **m7 (MINOR, not repaired, cosmetic).** Abstract says "for every ε₀ > 0", the theorem `ε₀ ∈ (0,1/4]`; trivial.
+* **m8 (MINOR, abstract).** "Without any hypothesis" rests in part on reading Drappeau's `≪_ε` as uniform in q₀;
+  flagged in §9 and the status paragraph, not in the abstract. Repaired with a parenthesis in the abstract.
+
+Not re-verified by me (could not access): Iwaniec §11 / Huxley 1984 locators for the residual spectrum
+(paper flags this); DI pp. 228–278 effectivity audit (Assessment only); Drappeau's twisted trace formulae.
+
+## F. Recommendation
+
+**Accept as internal draft (after the R118 repairs, already applied).** No FATAL or MAJOR defect. Theorem 1
+(`o(N log²N log log N)`, unquantified) is PROVED relative to the listed cited inputs and the flagged q₀-uniformity
+reading of Drappeau Lemma 4.10; Theorem 2 is correctly CONDITIONAL on (SEL) or (EFF). The new §9 is a faithful
+and correct write-up of EXCEPTIONAL_TYPEI_LOGLOG2 that also absorbs the R116 review points (t=0 not exceptional,
+reflection, w_N ≤ 1/4, q₀ reading). Internal review only; not external refereeing. ES is not claimed.
