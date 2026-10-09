@@ -960,6 +960,19 @@ original paper was not obtained.
     excluded for all b. Regime (v) is finite for each fixed (σ, a, λ), but σ and
     λ are unbounded; linear-forms-in-logarithms bounds do not apply because the
     field moves with two free parameters (Assessment).
+  * Follow-up 5 (POINTWISE_TYPEI6, review `reviews/pointwise-typei6-review.md`,
+    no FATAL/MAJOR, 7 minors applied by the reviewer): regime (v) is **not**
+    closed. Over ℚ[δ] no norm-1 unit of the family d = c_o(c_oδ² + T) is integral for
+    L ≥ 7, and continued-fraction periods are unbounded along every progression
+    (Prop 2.1, PROVED), so the polynomial fundamental-unit route
+    (Richaud–Degert / Yokoi type) provably fails. Regime (v) is the large-unit
+    (generic) regime (Lemma 3.1); it is inhabited at L = 13 (Remark 1.2), so a
+    closing argument must use T ≤ 64. Under abc each level has only finitely
+    many certificates (Thm 3.2, CONDITIONAL; explicit abc forms do not give
+    emptiness). CERTIFIED: no fibre certificate at L = 7–10 with v_7(k) ≤ 15, at
+    any height (two engines except (L, b) = (9,15), (10,14), (10,15)). What
+    remains: fields with c_oδ > 10⁶ and u_1(d) = 7^b, b ≥ 16; a naive model
+    predicts fewer than 10⁻¹¹ such certificates (EVIDENCE).
 * *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
   (H)34).
   * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
