@@ -29,7 +29,12 @@ a child `y mod Lp` with `M | Lp` must have `v_p(M) = v_p(Lp)`; `req = p^{v_p(Lp)
 
 **Validation.** (i) every unit `x` mod `L ∈ {9240, 10920, 65520, 720720}` (156288 nodes): full witness sets of
 the C engine and `m13c_witness.witness_all(first=False)` agree — **0 mismatches**.
-(ii) random open leaves of the 13C §8.2 tree (in progress, see below).
+(ii) `m13d_validate.py /tmp/o100/t418_100.json 200 1 0 2 5` (logs/o103_val_trunc.log): 200 random open leaves
+of the 13C §8.2 tree, each truncated to `x mod L'` (`L'` = L without its k largest prime powers, k ∈ [2,5] —
+the Python engine costs ≈ ×3.5 per prime; `L'` ≈ 10¹⁰–10¹⁵): full sets agree, **0 mismatches** (90 nonempty).
+(iii) `req` mode, `m13d_validate.py … 20 3 20 5 7`: all 583 children `y mod L'q` of 20 truncated leaves:
+C set (req) = Python set restricted to `req | M`, and first-mode answers lie in it — **0 mismatches**
+(only 2 nonempty; a heavier req check at k ∈ [3,4] and 30 untruncated / k ≤ 2 leaves: logs/o103_val_deep.log).
 
 Speed (300 random open leaves of the 13C §8.2 tree, `L ≈ 10¹⁸–10²⁰`, 14–15 primes): ≈ 45 ms per node for the
 full set, single core. 31 of the 300 leaves (10%) lie in no class with `M | L` (13C Comp 8.3 found 4%, sample of 52).
