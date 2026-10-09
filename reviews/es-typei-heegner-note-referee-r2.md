@@ -46,3 +46,30 @@ Internal review only; not external refereeing.
   stated combined form is a valid over-estimate), `q^{5/4}F'^{1/4}D^{1/8}/A^{1/2}`. The second box of
   `(1−Δ)ψ` carries the d-dependent scalar `(Y_d/λ)² ≤ 1`, which only decreases `𝓔^{(2)}`; fine but unstated (m4).
   `(1+λ_j)² ≤ 25/16` on the exceptional part, also fine.
+* **Cor 9.7 (cases (ii)–(iv))** — SOUND after repairs m5/m6. `D/A = N^{−δ}`; first term: (ii) `(A/E)^{1/2} ≪ N^{γ/2}
+  ≤ N^{δ/4}` for `k ≥ 2j`, (iv) `(A/F)^{1/2} = N^{(β−1)/2} ≤ N^{δ/4}` for `k' ≤ k/2`, (iii) `λ ≪ 1/q`.
+  `F' ≪ A√D` in all three cases (`E ≪ A`; `min(e,f) ≤ (ef)^{1/2} = (4a²d+1)^{1/2}`; `F < A`). Third term
+  `≤ q^{5/4}(D/A)^{1/4}`, second `≤ q^{3/2}N^{ε₁/2}A^{−1/4}(D/A)^{1/4} ≤ q²(D/A)^{1/4}` since `A ≥ N^{1/3−2η₁}`.
+  From-scratch exponent scan (`scripts/review_r118_checks.py` (e), 2·10⁵ random cells of 𝓡_bad(0.01) on `D<A`):
+  `max(T1,T2,T3)+δ/4 ≤ 0` in every case, no `F' > A√D` violation; the (iii) third term is tight (equality at
+  `F' = A√D`), so there is no spare margin there, but none is needed.
+* **Thm 9.9 (i)–(iii) bookkeeping** — SOUND. `−16/64+3/64+2/64 = −11/64`; `11/64 > 1/6`; good layers;
+  strip = non-good layers ⊂ {δ<w}, each costs `O(N𝓛 log 𝓛)` by (C:eq:BT-layer) (valid: `k ≤ 𝓛/3`), at most `w𝓛+1`
+  layers; (i) `C_{ε₀/64}` fixed, threshold `N₀(ε₀)` only enters `O_{ε₀}`, and `C` is absolute (BT); (ii)
+  `ε = 2A₀/log𝓛`, `log C_ε ≤ 𝓛^{1/2}`, `(11/64)δ𝓛 ≥ 22A₀𝓛/log𝓛`; strip `≪ A₀N𝓛²`; (iii) `9/64·δ𝓛 ≥ (C+2)log𝓛`
+  for `δ ≥ 𝓛^{−1/2}`, threshold independent of G. The uses of (SEL) in Thm 8.1 are exactly those listed (step 3
+  (ii) k≥2j, (iii), (iv) k'≤k/2, and the `|r_σ(1)|` comparison in step 4, which is the q=1 case of Cor 9.7). The
+  residual-spectrum point (b) is a genuine standard fact, correctly flagged as cited-with-unverified-locator.
+* **Assessment 9.11 / open problem "effective constants"** — honest labels. The claim that a loss
+  `exp(o(log X/log log X))` suffices is correct: it yields `log C_ε ≤ exp(o(1/ε))`, hence `log G(64/w) = 𝓛^{o(1)}`
+  at `w ≍ 1/log𝓛`. (Checked by hand.)
+
+## C. Title, abstract, intro, consistency
+
+* Title "an unconditional improvement" + abstract "without any hypothesis … All results are relative to cited
+  inputs" — acceptable; the improvement is honestly described as unquantified. Theorem 2 is conditional and labelled
+  so (abstract, intro, Thm 8.1, Thm 9.9(ii)). (EFF) is an Assessment, never a PROVED input. ES is nowhere claimed.
+* The q₀-uniformity reading is flagged in §9 and in the status paragraph but not in the abstract, although the word
+  "unconditional" rests on it (m8; repaired by one parenthesis in the abstract).
+* §10, Prop 5.1 and the open problems are consistent with §9 (old "no unconditional improvement" removed;
+  residual spectrum no longer attributed to (SEL)). No stale statement found by grep.
