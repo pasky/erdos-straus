@@ -96,7 +96,7 @@ exponent, come from my deliberately including the `a/2 ≤ b < a` cells at expon
 **V6. The d-average is of the form DI Thm 7 / Drappeau 4.10 needs (brief item 2) — SOUND.** TTL §8 (3) sieves
 *per sequence σ with fixed d* (cases (b2), (b3), (b5): `s = d`), with remainder `Σ_{q≤Q, q|P(z), (q,2cd)=1}
 3^{ω(q)}|r_σ(q)|`, and only the *sum over σ* (over d ≍ D in the cell) is ever needed (TTL Remark D11). Interchanging,
-`Σ_d Σ_{q:(q,2cd)=1} = Σ_q Σ_{d:(d,2q)... }`, so for each fixed squarefree q one needs `Σ_{d≍D,(d,q)=1}|E_d(q)|`,
+`Σ_d Σ_{q:(q,2cd)=1} = Σ_{q:(q,2c)=1} Σ_{d:(d,q)=1}`, so for each fixed squarefree q one needs `Σ_{d≍D,(d,q)=1}|E_d(q)|`,
 which is Thm 3.1. In the spectral problem q and χ mod q are fixed while the level `M = 4dq²` runs over distinct
 values (d ↦ 4dq² injective), all divisible by q₀ = q, with cusp ∞ / identity scaling matrix — exactly Drappeau's
 `Σ_{M≤Q, q₀|M}` with `Q = 8Dq²`. The average over q is not needed (q-powers are paid: `Σ_{q≤Q}3^{ω(q)}q² ≪ Q³𝓛^C`).
