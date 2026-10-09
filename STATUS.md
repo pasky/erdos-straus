@@ -1,11 +1,32 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-09, refresh 7; ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
+ (2026-10-10, refresh 8; ledger through (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]. Refresh 7 (2026-10-09): ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
+
+**Headline results of the current phase (2026-10-06 – 10-10; all internal, hostile-reviewed, not externally
+refereed; none of them solves ES or any case of it):**
+* *m/n uniformly in m* ((D)31, `EXCEPTIONAL_MN.md`; PROVED relative to the 3/4 note):
+  `E_m(I) ≪ H exp(−c(log H)^{3/4} m^{−1/4})` for every m ≥ 4 and every interval of length H.
+* *Density transition for m/p* ((D)31 follow-ups 1–3). Upper side Thm U (PROVED relative to (D)31, BV,
+  Shiu; ineffective): most primes are m-representable once log N ≥ A_ε m^{1/3}. Lower side Thm L′ (PROVED
+  relative to ET Thm 7.1, BT, Shiu, PV): `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`, gap `(log log N)^{1/3}`.
+  **Sharp order** `log N ≍ m^{1/3}` (MN4 Thm 5.2): CONDITIONAL on SEL_m for the lower half (for m ≤ L⁵);
+  the upper half is Thm U. No sharp threshold constant is claimed (Conj C2 is open).
+* *Elsholtz–Tao's Type I sum* ((D)32/(D)32a). Unconditionally, relative to Deshouillers–Iwaniec 1982 Thm 7
+  and Drappeau 2017 Lemma 4.10: `Σ_{p≤N} f_I(p) = o(N log² N log log N)` (TYPEI_LOGLOG2 Thm 4.1(i), PROVED rel.
+  those inputs; no quantified rate). `≪ N log² N` is CONDITIONAL on Selberg's eigenvalue conjecture (TYPEI_LOGLOG
+  Thm 8.1) or on (EFF), an effectivity statement for the ε-constants of DI/Drappeau (Thm 4.1(ii); that (EFF)
+  holds is an Assessment).
+* *x\* refuted* ((F)11, MORDELL13B): the r = 13 candidate sterile point x* lies in an ET class (modulus
+  12670944). The new candidate x** survives through ES level 2.59·10¹⁰ (MORDELL13E, CERTIFIED); sterility
+  is a CONJECTURE. For Type I, TYPEI7 proves that 2-adic closeness tests cannot show `x̂_9` sterile.
+* *Papers:* `es-mn-short-note` (m/n, density transition; Thm L′ section not yet re-refereed) and
+  `es-typei-heegner-note` (the conditional Type I bound). The unconditional (D)32a, MN4, TYPEI7 and
+  MORDELL13E are **not yet in any paper**.
 
 A novelty audit was run on 2026-10-04 (`reviews/novelty-audit-2026-10.md`).
 * **Known in sharper form:** the exchangeable core of the sieve-limit
@@ -80,9 +101,21 @@ with its status label. Read it before starting new work.
   `Σ_{p≤N} f_I(p) ≪ N log² N`, removing the log log N in Elsholtz–Tao Thm 1.1. Ingredients: the SL₂ form
   `ef − 4a²d = 1`, uniform separation of the level-d Heegner roots (Lemma 2.2, PROVED, sharp constant
   3/2), Sobolev duality (PROVED), the Deshouillers–Iwaniec/Drappeau spectral large sieve (cited; uses
-  SEL) and a per-a Weil count. Unconditionally (Kim–Sarnak) a strip of positive width remains, so **no
-  unconditional improvement of ET**. It is m = 4 only; an m-uniform version would close the Thm U / Thm L′
-  gap (not attempted).
+  SEL) and a per-a Weil count. With Kim–Sarnak alone this argument leaves a strip of positive width.
+  *Unconditional follow-up* (`EXCEPTIONAL_TYPEI_LOGLOG2.md`, ledger (D)32a; two independent reviews R116,
+  R116-B, no FATAL/MAJOR): the strip is handled by DI Thm 7's level-averaged exceptional large sieve (the
+  assembly already averages over d; the exceptional term is reduced to interval sums by partial summation).
+  Thm 4.1(i) (PROVED relative to DI 1982 Thm 7 and Drappeau 2017 Lemma 4.10):
+  `Σ_{p≤N} f_I(p) ≤ Cε₀ N log²N log log N + O_{ε₀}(N log²N)` for every ε₀ > 0, i.e. `o(N log²N log log N)`,
+  an unconditional improvement of ET's Type I bound without a rate. Thm 4.1(ii) `≪ N log²N` is CONDITIONAL on
+  (EFF) (ε-constants ≤ exp(exp(A/ε))); that (EFF) holds is an Assessment. Uniformity in Drappeau's character
+  modulus q₀ is the reviewers' reading of his paper.
+  *m-uniform version* (`EXCEPTIONAL_MN4.md`, ledger (D)31 follow-up 3; review R117, no FATAL/MAJOR): Thm 4.1
+  (CONDITIONAL on SEL_m for Γ₀(mdq²), even nebentypus): `Σ_{N/2<p≤N} f_{I,m}(p) ≪ N(L² + L log² m)/m +
+  N m^{−0.35}/L` for 4 ≤ m ≤ L⁵; hence Thm 5.1 `ρ_rep ≪ (L³ + L² log² m)/m + m^{−0.35}` (unconditional for m > L⁵,
+  Lemma 0.1) and Thm 5.2: under SEL the density transition for m/p is at log N ≍ m^{1/3}, matching orders on both
+  sides (upper half = Thm U, unconditional). R117 also found the displayed (b3) exponent of TYPEI_LOGLOG §8 too
+  strong (erratum added there; Thm 8.1 unaffected).
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
@@ -210,6 +243,12 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     inhabited (Remark 1.2), so a closing argument must use T ≤ 64. Under abc each level has finitely
     many certificates (Thm 3.2, CONDITIONAL). CERTIFIED: no fibre certificate at `x̂_9` with
     L = 7–10 and v_7(k) ≤ 15, at any height (two engines except (L, b) = (9,15), (10,14), (10,15)).
+    `POINTWISE_TYPEI7.md` (follow-up 6; review R109: no FATAL/MAJOR): a precise **negative** result on
+    2-adic closeness. A fibre certificate is at `x̂_9` iff nδ ≡ 5·9⁻¹ (mod 2^{⌈L/2⌉−1}) (Lemma 1.1, PROVED, exact
+    formula for v_2(F+9)); certificates come arbitrarily close to w = 9 (Thm 2.1, PROVED, F = 7^s + 2^i) and the
+    covered part of the fibre is open and dense (Thm 2.4, PROVED, F = 71^ν). So no 2-adic neighbourhood test can
+    prove sterility. CERTIFIED: no certificate at `x̂_9` in the grid 2^{L−4}7^b ≤ 2²⁸ (67 fibre certificates;
+    two engines except a few listed one-engine cells).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
@@ -234,6 +273,13 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     13C engine (0 mismatches; replayed in `verify.py` (en) at L = 9240, 10920). A hybrid DFS does not
     close root 418321 (each open node leaves ≈ 1.3–3 open children); Assessment: closing a root needs a
     structural idea, not more computation.
+    `POINTWISE_MORDELL13E.md` (follow-up 3; review R107: no FATAL/MAJOR): x** **survives**. Comp 3.1 (CERTIFIED,
+    validated faster engine m13e_es): x** lies in no ET class of any family and any T-free modulus whose ES level
+    is N < 2.59·10¹⁰ — all 54 T-units up to 13⁹, so no class of T-level ≤ 161050, e unbounded (2 865 550 ES
+    solutions). Since x** ≡ x* (mod 143) and x* is covered, no argument seeing only x mod 143 can prove x** sterile
+    (PROVED). Lemma 2.1 (PROVED): parity constraints on v_T(N) in the (2,2) cell. Prop 4.1 (PROVED reduction): a mass
+    bound for boxes of level > 13⁹ meeting C_3(x**) would give a sterile point in C_3, hence no finite ET covering
+    for (p/11) = (p/13) = −1. Survival looks generic (Assessment); sterility of x** stays Conj 5.2 (CONJECTURE).
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
@@ -260,7 +306,7 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     were refereed in round 2 (R98: no FATAL/MAJOR, D1–D7 applied, TYPEI5 added as Prop 4.15 /
     Thm 4.16). The O106 additions TYPEI6, MORDELL13C, MORDELL17B/17C were refereed in round 3 (R106,
     `reviews/es-coverings-note-referee-r3.md`: accept, minor repairs applied; 29 pp). MORDELL13D
-    (EVIDENCE only) is not in the paper.
+    (EVIDENCE only), TYPEI7 and MORDELL13E are not in the paper.
 
 ## Housekeeping
 
