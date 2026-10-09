@@ -68,3 +68,26 @@ real part `1/(2𝓛)` and `σ_j + 1/(2𝓛) ≥ 1/(2𝓛)`, `≤ 1`, so by TTL S
 with the measure `|G𝒲| dv` as in TTL Step 4. ∎
 (No contour shift is made, so the `1/σ_j` singularities of `Γ(±σ_j)` never appear; for `σ_j ≤ 1/𝓛` the factor
 `Y^{−2σ_j} ≤ e²` and Lemma 2.1 is TTL Step 4 verbatim.)
+
+**Proposition 2.2 (averaged exceptional variance; PROVED rel. (DI7_ε)).** Fix q, `λ > 0`, `D ≥ 1`, `F' ≥ 1`, and for
+each `d ≍ D`, `(d, 2q) = 1`, the TTL test function `ψ_d(u) = φ(x/λ)W(y/Y_d)` with `Y_d = 1/(2qF'√d)` and `Y_d ≤ λ𝓛^{−3}`. Put
+`M₀ := 8Dq²`, `Y₀ := 1/(2qF'√D)` (so `Y_d ≍ Y₀`), `X₀ := (2Y₀)^{−1/2}`, `λ₋ := min(λ, 1)`, and let `𝓔_d` be the
+exceptional part of TTL Prop 5.1 Step 1 for `P = P_{ψ_d}` on `Γ_{M,q}`, `M = 4dq²`:
+`𝓔_d := (2/φ(q)) Σ_{χ even mod q} Σ_{u_j ∈ 𝓑(M,χ), t_j ∈ iℝ} |⟨P_χ, u_j⟩|²`. Then for every `ε ∈ (0, 1/4]`
+`Σ_{d≍D} 𝓔_d ≪ 𝓛^C C_ε (M₀/λ₋)^{2ε} Y₀^{−1} [λ₋M₀ + 1 + (λ₋X₀)^{1/2}]`,
+with C and the implied constant depending only on φ, W.
+*Proof.* Lemma 2.1 with `Y_d^{−2σ_j} ≤ X₀^{4σ_j}`. Split `B_j(s) = Σ_{n≥1} ρ̄_j(n)c₊(n) + Σ_{n≥1} ρ̄_j(−n)c₋(n)`,
+`c_±(t) = λφ̂(±λt)t^{−s}`; the `n < 0` part is the `n > 0` part of the reflected basis `u_j(−z̄)` of `(Γ₀(M), χ̄)`
+(TTL Step 6), which is again exceptional with the same σ_j, so it suffices to treat `n > 0` and to sum over all
+even χ. For `s = s_v` (`0 < Re s ≤ 1/2`): `|c_±'(t)| ≤ (2+|v|)Φ(t)`, `Φ(t) := λ²|φ̂'(±λt)| + λ|φ̂(±λt)|/t`, uniformly
+in σ_j. Lemma 1.2 gives `|Σ_n ρ̄_j(n)c₊(n)|² ≤ (2+|v|)²(∫_1^∞Φ)·∫_1^∞Φ(t)|S_j(t)|²dt`. Summing over d, χ, j and
+using (DI7_ε) with `X = X₀` and the levels `{4dq² : d ≍ D}` (`≤ M₀`, divisible by the conductor of χ):
+`Σ_d 𝓔_d ≪ 𝓛⁴ Y₀^{−1} (∫|𝒲(s_v)|(2+|v|)²dv)(∫Φ) ∫_1^∞ Φ(t) C_ε(M₀t)^ε log²(2t)(M₀ + t + (tX₀)^{1/2}) t dt`
+(the average `(2/φ(q))Σ_χ` of a maximum over χ is that maximum). `∫|𝒲(σ+iv)|(2+|v|)²dv ≪ 1` uniformly for
+`0 ≤ σ ≤ 1/2` (TTL Step 2), and since `φ̂` is Schwartz, `∫_1^∞Φ ≪ 𝓛λ₋` and `∫_1^∞ Φ(t) t^{1+a}dt ≪_a λ₋^{−a}` for
+`0 ≤ a ≤ 2` (for `λ ≤ 1` the integrand is `≪ λt^a` on `t ≤ 1/λ` and Schwartz-small beyond; for `λ > 1` it is
+`≪ λ^{−B}`). With `a ∈ {ε', 1+ε', 1/2+ε'}`, `ε' = 2ε` absorbing `(M₀t)^ε log²(2t)` up to `(M₀/λ₋)^{2ε}𝓛²`,
+the claim follows. ∎
+*Remark.* Note the weights: DI7 is applied with `X₀ = (2Y₀)^{−1/2}`, i.e. **no** dyadic n-blocks and no
+`X = 1/(N₀Y)`: the a_n = 1 structure absorbs the whole n-range at once, which is what TTL §3.2's DI Thm 5/6
+bookkeeping could not do (Thm 6 has `NX` instead of `√(NX)`).
