@@ -1040,6 +1040,16 @@ original paper was not obtained.
     and D_Q(k) ≤ k⁵ (k ≥ 9), which would give a tail ≤ 4.2·10⁻³. Averaging
     over K is only a reorganisation (Lemma 5.1); the bottleneck is an
     explicit count in the e- and cd-regimes.
+  * Follow-up 3 (POINTWISE_MORDELL17C, review `reviews/pointwise-mordell17c-review.md`,
+    minors applied by the reviewer): still CONDITIONAL. By Abel summation,
+    cumulative bounds `S_P(K) = sum_{13<=K'<=K} D_P(K') <= C*17^{theta*K}` suffice,
+    raising the admissible constant at theta = 2/5 to 1.497 for K >= 13
+    (Lemma 1.1, PROVED). The Q-points with c >= F^{1/2} are bounded
+    unconditionally (at most 2 per (a,d); Lemma 2.1 and Cor 2.2, PROVED).
+    Assessment/EVIDENCE: averaging over K cannot rescue P. Arguments that ignore
+    the size of the discrete log of -e mod 4ab give only theta ~ 1, so a proof
+    must show that these discrete logs rarely fall in the short window
+    [log_17 4ab, K].
 * *Write-ups.* `paper/es-omega-note.tex` v3 (every fixed exponent; 31 pp;
   internal referee, P1–P4 applied) and `paper/es-subexp-note.tex` v5
   (51 pp; exponent 1/4, Haar exponent 3 with the log-free lower bound,
