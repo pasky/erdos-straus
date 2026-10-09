@@ -1,0 +1,577 @@
+\section{The per-$a$ Weil count}\label{sec:pera}
+The complementary estimate is unconditional.  It counts a modular hyperbola
+rather than a packet of forms.  Write $e(t)=\exp(2\pi it)$ in this section,
+and put
+\[
+ S(h,k;m)=\sum_{x\bmod m}^{*}e\bigl((hx+k\bar x)/m\bigr).
+\]
+All smooth weights below have fixed derivative bounds.  For upper bounds
+we take them nonnegative, with positive integral.
+
+\begin{proposition}[the count $(K_a)$; \status{proved}]\label{L:7.1}
+Let $a,c\geq1$, let $q$ be squarefree with $(q,2a)=1$, and set
+$m=4a^2$, $r=mq$.  For $D,E\geq1$ put $F=mD/E$, and let
+$W_1,W_2\in C_c^\infty((1,2))$.  Define
+\[
+ S_a(q)=\sum_{\substack{e,f\geq1\\ef\equiv1\ (m)\\q\mid4acd-f}}
+ W_1(e/E)W_2(d/D),\qquad d=(ef-1)/m.
+\]
+Then $S_a(q)=g'_{c,a}(q)X_a+R_a(q)$, where
+\begin{align}
+ X_a&=\frac{\varphi(m)}{m^2}\iint_{\R^2}
+ W_1(x/E)W_2\bigl((xy-1)/(mD)\bigr)\,dx\,dy
+ \asymp D\frac{\varphi(m)}m,\label{C:eq:Ka-main}\\
+ |R_a(q)|&\ll 2^{\omega(q)}\tau(m)^2
+ \left(qa+\frac DE+\frac DF\right),\label{C:eq:Ka-error}
+\end{align}
+and $g'_{c,a}$ is multiplicative on squarefree numbers, with
+\[
+ g'_{c,a}(\ell)=
+ \begin{cases}(\ell-1)/\ell^2,&\ell\nmid c,\\1/\ell,&\ell\mid c.
+ \end{cases}
+\]
+The constants depend only on the weights.
+\end{proposition}
+\begin{proof}
+The identity
+\[
+ an=f(ce-a)-c
+\]
+shows that the residue conditions on $(e,f)$ modulo $r$ are the CRT
+product of
+\[
+ \cS_m=\{(e,f):ef=1\pmod m\},\qquad
+ \cS_q=\{(e,f):f(ce-a)=c\pmod q\}.
+\]
+Put $W(x,y)=W_1(x/E)W_2((xy-1)/(mD))$.  On its support
+$x\asymp E$, $y\asymp F$, and
+$\partial_x^i\partial_y^jW\ll_{i,j}E^{-i}F^{-j}$.
+Two-dimensional Poisson summation gives
+\begin{equation}\label{C:eq:poisson}
+ \begin{aligned}
+ S_a(q)&=r^{-2}\sum_{h,k\in\Z}\widehat W(h/r,k/r)\mathcal K(h,k),\\
+ |\widehat W(h/r,k/r)|&\ll_B EF
+ (1+E|h|/r)^{-B}(1+F|k|/r)^{-B}.
+ \end{aligned}
+\end{equation}
+The sign in the finite Fourier transform is immaterial; with the
+positive sign, CRT gives
+\[
+ \mathcal K(h,k)=S(\bar qh,\bar qk;m)T_q(\bar mh,\bar mk),
+ \quad T_q(u,v)=\sum_{(e,f)\in\cS_q}e((ue+vf)/q).
+\]
+The prime factors of $T_q$ have CRT-rescaled arguments.  For a prime
+$\ell\mid q$, if $\ell\nmid c$, the substitution $w=ce-a$ gives
+\[
+ T_\ell(u,v)=e(u\bar ca/\ell)S(u\bar c,vc;\ell).
+\]
+If $\ell\mid c$, then $f=0$ and
+$T_\ell(u,v)=\ell\ind_{\ell\mid u}$.  In particular
+$|T_q(u,v)|\leq2^{\omega(q)}q$ (the trivial cardinality bound suffices).
+At $(h,k)=(0,0)$ we have $|\cS_m|=\varphi(m)$ and
+$|\cS_\ell|=\ell-1$ or $\ell$, respectively.  This gives exactly
+\eqref{C:eq:Ka-main} times $g'_{c,a}(q)$.
+
+We retain the axial frequencies: they are important if a divisor is
+small.  For $B>2$ and every integer $v\geq1$,
+\begin{equation}\label{C:eq:frequency-tail}
+ \sum_{\substack{k\ne0\\v\mid k}}(1+F|k|/r)^{-B}\ll_B\frac r{vF}.
+\end{equation}
+Indeed, if $vF\leq r$, compare with an integral; otherwise the left side
+is $O_B((r/(vF))^B)$.  Since
+$|S(0,\bar qk;m)|=|c_m(k)|\leq(k,m)$, expanding
+$(k,m)\leq\sum_{v\mid(k,m)}v$ in \eqref{C:eq:frequency-tail} gives
+\[
+ \sum_{k\ne0}(k,m)(1+F|k|/r)^{-B}\ll\tau(m)r/F.
+\]
+Thus the frequencies $h=0\ne k$ contribute at most
+$2^{\omega(q)}\tau(m)E/m=2^{\omega(q)}\tau(m)D/F$;
+$k=0\ne h$ contributes at most $2^{\omega(q)}\tau(m)D/E$.
+
+For $hk\ne0$ use the classical Weil--prime-power bound
+\cite{Weil}, in the convenient form
+\[
+ |S(u,v;m)|\leq3\tau(m)m^{1/2}(u,v,m)^{1/2}.
+\]
+The constant allows the prime $2$.  Expanding the gcd as before yields
+\begin{align*}
+ &\sum_{h,k\ne0}(h,k,m)^{1/2}
+ (1+E|h|/r)^{-B}(1+F|k|/r)^{-B}\\
+ &\hspace{20mm}\leq
+ \sum_{v\mid m}v^{1/2}\,O_B\left(\frac r{vE}\frac r{vF}\right)
+ \ll_B\frac{r^2}{EF},
+\end{align*}
+since $\sum_{v\geq1}v^{-3/2}<\infty$.  This remains valid when
+$vE>r$ or $vF>r$.  Inserting it in \eqref{C:eq:poisson} bounds the
+nonaxial contribution by
+$O(2^{\omega(q)}q\tau(m)m^{1/2})$.  As $m^{1/2}=2a$, the claimed
+error follows, even with one power of $\tau(m)$ here.
+\end{proof}
+
+For later use, if $\min(E,F)\geq N^{c_0}$, summation over $a\asymp A$
+and squarefree $q\leq Q$ gives
+\begin{equation}\label{C:eq:Ka-summed}
+ \sum_{a\asymp A}\sum_{\substack{q\leq Q\\(q,2a)=1}}
+ \mu^2(q)3^{\omega(q)}|R_a(q)|
+ \ll\cL^C\bigl(Q^2A^2+QADN^{-c_0}\bigr).
+\end{equation}
+Here we used the elementary divisor-moment bound
+$\sum_{a\asymp A}\tau(4a^2)^2\ll A(\log(2A))^C$.
+Measured against the scale $AD$, the error is
+$\cL^C(Q^2A/D+QN^{-c_0})$.  This gives a useful sieve level on the
+side $D>A$.  The axial errors explain why a uniform density assertion
+with no lower bound on $E,F$ would be false.  No small-divisor substitute
+for this proposition is used below.
+
+\section{Assembly}\label{sec:assembly}
+We begin with the elementary accounting fact that permits a sieve level
+to approach $1$ at the boundary $A=D$.
+
+\begin{lemma}[linearly degenerating savings; \status{proved}]\label{L:1.1}
+Let $L\geq2$, and let $m_{jk}\geq0$, $1\leq j,k\leq\lfloor L\rfloor$,
+with $\sum_km_{jk}\leq M$ for each $j$.  Then
+\[
+ \sum_{j,k}m_{jk}\min(1/j,1/k)\leq M(1+\log L).
+\]
+If also $m_{jk}\leq M/L$, the same sum is at most $2M$.
+\end{lemma}
+\begin{proof}
+The first assertion follows by using $1/j$ and summing the harmonic
+series.  For the second, group pairs by $h=\max(j,k)$:
+\[
+ \sum_{j,k\leq L}\min(1/j,1/k)
+ =\sum_{h\leq L}\frac{2h-1}{h}\leq2L.
+\]
+Multiply by $M/L$.  Fixed constant multiples of either saving only
+change the resulting absolute constant.
+\end{proof}
+Here $j$ indexes a $c$-block, $k$ the distance from $A=D$, and the mass
+of a $(j,k)$ layer will be $O(N\cL)$.  Thus $M\asymp N\cL^2$ is
+appropriate.  The block $j=0$ has no Brun--Titchmarsh saving, but costs
+only $O(N\cL\log\cL)$ after summing $1/k$; its innermost layers can
+be bounded trivially.  It must not be included in a sum containing $1/j$.
+
+\begin{theorem}[\status{conditional} on (SEL)]\label{L:8.1}
+Assume \textup{(SEL)} as stated in Section~\ref{sec:intro}, uniformly for
+$\Gamma_0(4dq^2)$ and the even nebentypus characters modulo $2q$.
+Then
+\[
+ \sum_{p\leq N}f_I(p)\ll N\log^2N.
+\]
+\end{theorem}
+\begin{proof}
+We work with $N/2<p\leq N$ and write $\cL=\log N$.
+The reduction of Section~\ref{sec:reduction}, from
+\cite[Proposition~2.2 and Lemma~2.8]{ET}, gives
+$f_I(p)\leq2\sum_cw_c(p)$.  Fix small constants
+$0<\eta\leq\eta_1$; all subsequent constants may depend on them.
+
+\smallskip\noindent
+\emph{1. Removing the short-progression ranges.}
+The part $c>N^\eta$ is $O_\eta(N\cL^2)$ by the first part of
+Theorem~\ref{M:3.8}, namely the Brun--Titchmarsh argument of
+\cite[(8.1)--(8.2)]{ET}.  For $c\leq N^\eta$, Lemma~\ref{L:8.2}
+disposes, all $c$ at once, of tuples with
+\[
+ \min(4ab,4acf,4cdf)\leq N^{1-\eta_1}.
+\]
+Indeed $bf=na+c$ and $f\leq2n$ imply $b\geq a/2$, so $4ad$ and
+$4bd$ are already $\gg N^{1-\eta}$; no other short modulus is needed.
+The remaining tuples lie in $R_{\rm bad}(\eta_1)$ up to
+$O(1/\cL)$ in their exponents.
+
+Use nonnegative smooth cells, with bounded overlap, supported in
+$R_{\rm bad}(2\eta_1)$.  Write
+\begin{equation}\label{C:eq:cell-scales}
+ c=N^\gamma,\quad a\asymp A=N^\alpha,\quad
+ d\asymp D,\quad AD\asymp N/c,\quad
+ e\asymp N^{\beta-\gamma},\quad f\asymp N^{1+\alpha-\beta}.
+\end{equation}
+Cells have side $O(1/\cL)$ in the exponent variables.  The spectral
+weights may instead be chosen in $(f',a/f')$, $f'\in\{e,f\}$;
+these coordinates give the same bounded-overlap covering.  Positive
+majorants allow us to drop the original size restrictions inside a cell.
+Proposition~\ref{M:3.3} gives, throughout the enlarged bad region,
+\begin{equation}\label{C:eq:large-divisors}
+ e,f\gg N^{1/2-3\eta_1}.
+\end{equation}
+For example $\beta\geq(1-2\eta_1)/2+O(1/\cL)$, while
+$1+\alpha-\beta\geq
+\max(1-\alpha-\gamma-2\eta_1,\alpha-2\eta_1)+O(1/\cL)$.
+
+\smallskip\noindent
+\emph{2. Bands and layers.}
+Let $c\asymp2^j$, $0\leq j\ll\eta\cL$, and put
+\[
+ \delta=|2\alpha-1+\gamma|,\qquad k=\lfloor\delta\cL\rfloor.
+\]
+A layer means fixed $(j,k)$ and all its $\beta$-cells; there are only
+$O(1)$ choices of the $a$-block for each $c$-block and $k$.
+Fixed shifts in $j,k$ and fixed changes of logarithm base are absorbed
+in constants.  Remove bands of width $C_0/\cL$ about
+$\beta=\alpha+\gamma$ and $\beta=1$, and also the cells with $D\leq64$.
+In each such cell one of $e,f$ is $O_{C_0}(A)$ (for the last band use
+$ef=4a^2d+1$).  Lemma~\ref{L:8.4}(b), with a fixed enlarged constant
+in $F\leq4A$, bounds its mass by $O(2^jAD)=O(N)$.
+There are $O(\cL)$ band cells per $c$-block, so all bands cost
+$O(N\cL^2)$ without a sieve.  Layers $k\leq C_1\log\cL$ are postponed.
+
+For reference, Brun--Titchmarsh on $4ad$ bounds a whole layer by
+\begin{equation}\label{C:eq:BT-layer}
+ O(N\cL/j),\qquad j\geq1,
+\end{equation}
+whenever $k\leq\cL/3$.  For fixed $(a,d,f)$ the $c$-block maps into
+an interval of length $4ad\,2^j$ in one residue class modulo $4ad$.
+Brun--Titchmarsh \cite[(A.10)]{ET} gives
+$8ad\,2^j/(\varphi(4ad)j\log2)$ for a reduced class.  In a
+nonreduced class there is at most one prime, which is absorbed by the
+same upper bound.  Now $k\leq\cL/3$ implies $A,D\geq N^{1/4}$ for
+our fixed small $\eta$, and Lemma~\ref{L:8.4}(a2), summed over the
+divisors $f$, proves \eqref{C:eq:BT-layer}.  For $j=0$ use its trivial
+analogue $O(N\cL)$.
+
+\smallskip\noindent
+\emph{3. The cell estimates away from the bands.}
+All errors in the next paragraphs are \emph{summed absolute errors}
+normalized by $AD$ (and by $N$ after the $c$-sum).  They are not
+pointwise relative errors for an individual $d$.  In particular
+Theorem~\ref{L:6.2} is always summed by Cauchy--Schwarz and
+Lemma~\ref{L:6.3} before making this comparison.
+
+\emph{(i) $D\geq A$.}
+Use the fixed-$a$ sequences of Proposition~\ref{L:7.1}.
+By \eqref{C:eq:Ka-summed} and \eqref{C:eq:large-divisors} their
+normalized error, summed with sieve weights through $q\leq Q$, is
+\[
+ \ll\cL^C\bigl(Q^2N^{-\delta}+QN^{-c_0}\bigr),
+ \qquad c_0=\tfrac12-3\eta_1.
+\]
+There is no restriction on $\beta$.  The bad region gives
+$\alpha\geq1/3-2\eta_1$, hence $\delta\leq1/3+4\eta_1$ here.
+Thus $Q\leq N^{\delta/4}$ makes the second term an absolute power
+saving, for sufficiently small $\eta_1$.
+
+\emph{(ii) $D<A$ and $\beta<\alpha+\gamma$.}
+Here $e\ll A$.  If $k\geq2j$ (allowing fixed shifts of the thresholds),
+use the $e$-cusp: replace $[f,4ad,de]$ by $[e,4ad,df]$ and the linear
+functional $cB-A$ by $cB-C/d$.  This is the same set of forms.
+In coordinates $(A,B,C/d)$ the discriminant equation is
+$B^2-4dA(C/d)=-4d$; interchanging $A$ and $C/d$ preserves it and
+interchanges the two linear conditions.  Consequently
+Lemma~\ref{L:6.1} has the same local density, and
+Theorem~\ref{L:6.2} applies with $F'=e$ and
+$\lambda\asymp A/(qe)$, including $\lambda>1$.
+Its summed error is
+\begin{equation}\label{C:eq:e-cusp}
+ \ll\cL^C Q^2
+ \left[N^{-\delta/2}(1+A/e)^{1/2}
+       +\frac{e^{1/2+\varepsilon}}A\right].
+\end{equation}
+Since $b\geq a/2$, we have $\beta\geq\alpha-O(1/\cL)$ and
+$(A/e)^{1/2}\ll N^{\gamma/2}\ll N^{\delta/4}$ in this range.
+The other term is $\ll A^{-1/2+2\varepsilon}$ and is
+$O(N^{-\delta/4})$ on the bad region, for a fixed sufficiently small
+$\varepsilon$.  This gives $\cL^CQ^2N^{-\delta/4}$.
+Cells with $a/2\leq b<a$ are included: they satisfy $e\leq3a/c$.
+If $k<2j$, use \eqref{C:eq:BT-layer} instead; its hypotheses hold
+because $j\ll\eta\cL$.
+
+\emph{(iii) $D<A$ and $\alpha+\gamma<\beta<1$.}
+Off the bands, both $e,f\geq8A$.  Choose the smaller divisor
+$f'=\min(e,f)\leq3A\sqrt D$ as cusp parameter.  Then
+$\lambda\ll1/q$, and Theorem~\ref{L:6.2} gives
+\[
+ \ll\cL^C Q^2
+ \left[N^{-\delta/2}+N^\varepsilon D^{1/4}A^{-1/2}\right].
+\]
+The second exponent is $(1-\gamma-3\alpha)/4+\varepsilon$;
+its difference from $-\delta/4$ is $-\alpha/4+\varepsilon$.
+It is therefore bounded by $N^{-\delta/4}$ with an absolute margin.
+We use the weaker common error $\cL^CQ^2N^{-\delta/4}$.
+
+\emph{(iv) $D<A$ and $1<\beta\leq1+2\eta_1$.}
+This strip cannot be discarded: here $f<A$, even though $e$ is large.
+Put $k'=\lfloor(\beta-1)\cL\rfloor$, which exceeds a fixed constant
+off the band.  If $k'\leq k/2$, use the $f$-cusp, not the $e$-cusp.
+For all $\lambda\asymp A/(qf)$, Theorem~\ref{L:6.2} gives
+\[
+ \ll\cL^CQ^2
+ \left[N^{-\delta/2}(1+A/f)^{1/2}+f^{1/2+\varepsilon}/A\right]
+ \ll\cL^CQ^2N^{-\delta/4},
+\]
+because $(A/f)^{1/2}\ll N^{(\beta-1)/2}\ll N^{\delta/4}$.
+The cusp term has an absolute margin.  Crucially, the first term
+carries no $N^\varepsilon$ loss at the degenerating boundary.
+If $k'>k/2$, use the $cdf$ fibres of Lemma~\ref{L:8.2}:
+$4cdf\asymp N^{2-\beta}$ and $\log(N/(4cdf))\gg k'$.
+Brun--Titchmarsh costs $O(N/k')$ per cell.  Indeed its reciprocal-totient
+sum is bounded by
+\[
+ \sum_{c\asymp2^j}\frac1{\varphi(c)}
+ \sum_{d\asymp D}\frac1{\varphi(d)}
+ \sum_{f\asymp F}\frac{\rho_d(f)}{\varphi(f)}\ll1
+\]
+by Lemma~\ref{L:8.3}(c).  The possible nonreduced classes contribute
+at most $\sum_{c,d,f}\rho_d(f)\ll CDF\asymp N\exp(-k')$, also
+$O(N/k')$; the same lemma proves this by comparison with the displayed
+weighted sum.  On the sieve side the weighted cell mass is $O(N)$
+by Lemma~\ref{L:8.4}(b), since $F\leq A$.  Thus in either treatment
+the cell costs $O(N/\max(k,k'))$ once the sieve saving below is established.
+
+These cases cover every remaining cell: on $D\geq A$ use (i), and on
+$D<A$ the three intervals separated by $\alpha+\gamma$ and $1$ give
+(ii)--(iv).  Their boundaries and $A\asymp D$ were already set aside.
+
+\smallskip\noindent
+\emph{4. Obtaining the prime saving from the cell errors.}
+For a sequence $\sigma$ with fixed $s\in\{a,d\}$ and fixed $c$, choose
+\[
+ z=N^{\kappa\delta/8},\qquad Q=z^2,
+ \quad \kappa=1\text{ in (i)},\quad \kappa=1/4\text{ in (ii)--(iv)}.
+\]
+Sieve only by primes $\ell>\ell_0\geq3$ with $\ell\nmid2cs$.
+Both density families satisfy
+\[
+ \frac1\ell-\frac2{\ell^2}\leq g_\sigma(\ell)\leq\frac1\ell<1.
+\]
+Selberg's upper-bound sieve \cite[Theorem~4.1 and Lemma~4.1]{HR}
+for nonnegative weighted sequences therefore gives
+\begin{equation}\label{C:eq:sieve}
+ \begin{aligned}
+ \#\{n\in\sigma:n\text{ prime},\ n>N/2\}
+ &\leq\frac{X_\sigma}{G_\sigma(z)}+
+ \sum_{\substack{q\leq Q\\q\mid P_\sigma(z)}}
+ 3^{\omega(q)}|r_\sigma(q)|,\\
+ G_\sigma(z)&\gg\frac{\varphi(2cs)}{2cs}\log z.
+ \end{aligned}
+\end{equation}
+Here counts are weighted if the cell is smooth; $z<N/2$.
+The lower bound on the local density, not merely its upper bound,
+is used in the estimate for $G_\sigma$.
+
+The model mass $X_\sigma$ need not be compared from below to the actual
+mass.  At $q=1$, Theorem~\ref{L:6.2} or Proposition~\ref{L:7.1} gives
+\[
+ X_\sigma\leq\#\sigma+|r_\sigma(1)|.
+\]
+Also $2cs/\varphi(2cs)\leq2g(c)g(s)$.
+Lemma~\ref{L:8.4}(a1) and $\sum_{c\asymp2^j}g(c)\ll2^j$ bound
+the weighted mass of a layer in (i) or (iii) by $O(N\cL)$.
+Lemma~\ref{L:8.4}(b) bounds each cell in (ii) or (iv) by $O(N)$;
+in particular their layer masses are $O(N\cL)$.
+The $q=1$ errors introduced in this comparison have only the extra
+factor $\max g(c)g(s)\ll(\log\cL)^2$.
+Since $Q^2=N^{\kappa\delta/2}$, the summed errors are
+$\ll\cL^CN^{-\kappa\delta/2}$ times the relevant mass scale;
+the additional term in (i) has an absolute power saving.
+All these errors are $O(1/k)$ times that scale once
+$k\geq C_1\log\cL$, with $C_1$ fixed sufficiently large.
+The main term in \eqref{C:eq:sieve} has the same saving, since
+$\log z\asymp k$.  This proves all the sieve savings asserted in step~3.
+
+\smallskip\noindent
+\emph{5. Summing all cells.}
+For $1\leq j\ll\eta\cL$, the layers $k\leq C_1\log\cL$ cost,
+by \eqref{C:eq:BT-layer},
+\[
+ \ll N\cL\log\cL\sum_{j\ll\eta\cL}\frac1j
+ \ll N\cL(\log\cL)^2\ll N\cL^2.
+\]
+For $j=0$ these layers cost $O(N\cL\log\cL)$ trivially.
+In (i), (iii), and (ii) with $k\geq2j$, a layer costs
+\[
+ \ll N\cL\min(1/j,C/k)\qquad(k\leq\cL/3).
+\]
+One takes the better bound for the whole portion of the layer in
+question, not an unweighted average of the two methods.
+Lemma~\ref{L:1.1} sums these costs to $O(N\cL^2)$.
+For $k>\cL/3$ the sieve alone suffices:
+$\sum_j\sum_{k>\cL/3}N\cL/k\ll N\cL^2$.
+Case (ii) with $k<2j$ costs
+$\sum_j\sum_{k<2j}O(N\cL/j)=O(N\cL^2)$.
+In (iv) the per-cell bound gives, for each $c$-block,
+\[
+ \sum_{k,k'\ll\cL}\frac{CN}{\max(k,k')}
+ \ll N\sum_{h\ll\cL}\frac{2h-1}{h}\ll N\cL.
+\]
+Summing over $j$ gives $O(N\cL^2)$ again.  For $j=0$ outside the
+innermost layers the $1/k$ bound costs at most $O(N\cL\log\cL)$,
+and the preceding two-dimensional sum still applies to (iv).
+Together with the bands and step~1, this proves the bound on
+$(N/2,N]$.  Summing dyadically in $N$ proves the theorem.
+\end{proof}
+
+\begin{remark}[scope and imported inputs]\label{C:rem:status}
+The theorem is conditional on the uniform hypothesis (SEL), not on an
+unspecified equidistribution assertion.  Its imported inputs are
+\cite[Proposition~2.2, Lemma~2.8, (8.1)--(8.2)]{ET} and the large-$c$
+part of Theorem~\ref{M:3.8}; Proposition~\ref{M:2.3}, relative to
+\cite[Theorem~7.1]{ET}; the spectral theorem with nebentypus and
+\cite[Theorem~2]{DI}/\cite[Proposition~4.7]{Dr}; Brun--Titchmarsh,
+Selberg's upper-bound sieve, the Weil bound, and P\'olya--Vinogradov.
+The internal review R111, rounds 1--2, records the repaired argument
+as a complete conditional proof relative to these inputs; it checks
+Proposition~\ref{L:7.1} and the cell coverage above.  It does not
+re-prove the cited spectral large sieve, nor re-check the inherited
+ET/MN3 reduction.  The divisor-sum input from the internal note had
+its separate R108 review.  These are internal checks, not external
+refereeing, and do not make (SEL) unconditional.
+\end{remark}
+
+\section{What is unconditional}\label{sec:uncond}
+The separation argument, Sobolev duality, the local-density computation,
+the per-$a$ count, and the arithmetic mass estimates are unconditional.
+The use of (SEL) is confined to the exceptional spectrum in
+Proposition~\ref{L:5.1}.  It is nevertheless essential to the present
+proof of the prime-counting theorem.
+
+\subsection{The exceptional-spectrum obstruction}
+An eigenvalue $\lambda_j=1/4-\sigma_j^2$, $0<\sigma_j<1/2$, introduces
+in the unfolded coefficient the factor $(nY)^{-\sigma_j}$, since
+$K_{\sigma_j}(2\pi ny)$ grows like a constant times $(ny)^{-\sigma_j}$
+when $ny$ is small.  The unconditional Kim--Sarnak bound
+\cite[Appendix~2]{KS} is $\sigma_j\leq7/64$, including the
+nebentypus forms at issue here.  A direct use of this bound permits the
+loss
+\begin{equation}\label{C:eq:exceptional-loss}
+ Y^{-7/64}\asymp(qF'\sqrt d)^{7/64}
+\end{equation}
+in the spectral error.  On the $D<A$ side this must be compared with
+$(D/A)^{1/2}=N^{-\delta/2}$, $\delta=2\alpha-1+\gamma>0$.
+In the worst cells $qF'\sqrt d$ has size about $N$, so the exponent
+comparison leaves a strip
+\[
+ 0<2\alpha-1+\gamma\lesssim7/32.
+\]
+Even the smallest cusp parameters at the boundary, with
+$F'\gg N^{1/2-3\eta_1}$ and $D$ near $N^{1/2}$, give a loss of
+size $N^{21/256-O(\eta_1)}$, corresponding to the comparison
+$\delta\approx21/128-O(\eta_1)$.  These numbers describe the
+obstruction to the estimates, not a sharp geometric boundary or a
+lower bound for an actual spectral contribution.  In particular a
+fixed positive width, rather than a single line, remains untreated.
+
+\begin{assessment}[partial exceptional-spectrum estimates]\label{C:ass:exceptional}
+Deshouillers--Iwaniec's exceptional large sieve
+\cite[Theorem~5]{DI} improves on a pointwise insertion of
+\eqref{C:eq:exceptional-loss}, but does not supply the needed uniform
+saving at $A\asymp D$.  On a Fourier block $n\asymp N_0$ its parameter
+must be
+\[
+ X=\frac1{N_0Y},
+\]
+not $1/Y$, because the squared exceptional weight is
+$(nY)^{-2\sigma_j}$.  In its usual notation the bound has the shape
+\[
+ \sum_{\rm exc}X^{2\sigma_j}
+ \left|\sum_{n\asymp N_0}a_n\rho_j(n)\right|^2
+ \ll (1+\sqrt{\mu N_0X})(1+\sqrt{\mu N_0^{1+\varepsilon}})
+ \sum_n|a_n|^2,
+\]
+with $\mu\asymp1/M$, $M=4dq^2$.  The first factor is of size
+$1+(F'/(q\sqrt d))^{1/2}$, which is not uniformly harmless near the
+boundary.  The level average in \cite[Theorem~6]{DI} offers further
+partial control.  The source calculation reports an extra factor
+$(F')^{3/4}D^{1/8}/A$ there; its detailed bookkeeping was not re-checked
+in the internal review, and we do not use it as a proved obstruction
+theorem.  The same caveat applies to the source's exploratory
+exceptional-density calculations.  None enters the conditional proof.
+\end{assessment}
+
+A positive-width region bounded only by the original $1/j$ saving
+still contributes at the level of the available upper bounds
+$N\cL^2\sum_{j\ll\cL}1/j$.  Unlike the linearly degenerating
+saving in Lemma~\ref{L:1.1}, this does not remove $\log\log N$.
+Thus \emph{this argument gives no unconditional improvement} of
+\cite[Theorem~1.1]{ET}; this is not a claim that an unconditional
+improvement by other methods is impossible.  Sufficient replacements
+for (SEL) would include a large sieve for the exceptional spectrum
+with precisely these Fourier weights and $X\asymp1/(N_0Y)$, with
+errors that still allow the layer summation, or cancellation beyond
+termwise Weil in $\sum_{a\asymp A}S(h,k;4a^2)$.
+
+\subsection{Lifts versus equidistribution of a finite packet}
+The lift-counting target (H**) of \cite[\S3.5]{MN3} is stronger than
+what the proof above uses.  For the packets of natural class-number
+size $d^{1/2+o(1)}$ on a surface of volume $d^{1+o(1)}$, a box of
+hyperbolic area $V$ has expected packet count $Vd^{-1/2+o(1)}$.
+Consequently a uniform relative equidistribution statement in
+\emph{all} boxes cannot extend below area $d^{1/2-o(1)}$: integrality
+and boxes containing a packet point already prevent it.  Here
+``scale'' is area, not hyperbolic radius.  This elementary granularity
+obstruction does \emph{not} refute (H**) as formulated for lifts,
+averaged in $d$, with congruence conditions.  Nor does it obstruct the
+second-moment method here: the lift-counting Poincar\'e function has
+box area $\asymp A\sqrt d$, and Proposition~\ref{L:4.3} uses only its
+variance against a separated packet.
+
+For comparison, Liu--Masri--Young
+\cite[Theorem~1.4, and the more general Theorem~7.1]{LMY} prove a
+joint level--discriminant equidistribution result in the range
+$q\leq |D|^{1/20-\varepsilon}$.  Their $q$ is a prime level, $-D$ is
+an odd fundamental discriminant, and $q$ splits in
+$\Q(\sqrt{-D})$.  Their count is in translates of a level-one
+fundamental domain; it is not the present thin-box count with sieve
+twists.  Here level and discriminant are tied, already $d$ and $-4d$
+before inserting $q$, and the coprimality/splitting hypotheses do not
+match.  Thus that theorem does not supply (H**) or the needed per-$d$
+estimate.  We make no exhaustive literature claim that no other
+joint-aspect theorem exists.
+
+\section{Open problems}\label{sec:open}
+\begin{problem}[unconditional removal]
+Prove $\sum_{p\leq N}f_I(p)\ll N\log^2N$ without (SEL), or obtain an
+unconditional improvement of its present $\log\log N$ loss.  A proof
+must address a positive-width strip adjacent to $A=D$, not merely
+the line $A=D$ itself.
+\end{problem}
+
+\begin{problem}[weighted exceptional density]
+Prove a density or large-sieve theorem for exceptional eigenvalues
+on $\Gamma_0(4dq^2)$, with even nebentypus modulo $2q$, incorporating
+the coefficients of the box Poincar\'e series and the weights
+$(N_0Y)^{-2\sigma_j}$.  The relevant target is an averaged error that
+retains a saving degenerating at most linearly in
+$|2\alpha-1+\gamma|$, after summation in $d$ and the sieve modulus;
+a count of exceptional eigenvalues alone need not suffice.
+\end{problem}
+
+\begin{problem}[square-modulus Kloosterman sums]
+Obtain useful cancellation in $\sum_{a\asymp A}S(h,k;a^2)$, or its
+$4a^2$ variant, uniformly in the Fourier ranges produced by
+\eqref{C:eq:poisson}.  For the application the averaging must handle
+the accompanying smooth weights, gcd factors, and the sieve
+congruence.  Termwise square-root cancellation is exactly the
+estimate that stops at $D\asymp A$.
+\end{problem}
+
+\begin{problem}[joint level--discriminant counting]
+Establish a version of the lift-counting target (H**) at level
+comparable to the discriminant, with the parity restriction and
+congruence twists retained.  A second-moment theorem for the
+appropriate Poincar\'e functions could suffice and would avoid a
+false assertion of uniform fine-scale equidistribution of a finite
+packet.
+\end{problem}
+
+\begin{problem}[general numerators]
+Extend the conditional Type~I estimate uniformly from $4/n$ to
+$m/n$.  Primes dividing $m$ must be omitted from the sieve, and the
+mass gain $\varphi(m)/m$ must be tracked against the sieve-product
+inflation $m/\varphi(m)$ and all remainder terms
+\cite[remarks after Theorem~3.8]{MN3}.  The earlier internal transition
+gap $(m\log m/\varphi(m))^{1/3}$ is historical: the refined lower-side
+bound in \cite[\S2, Theorem~L$'$]{MN3} reduces it to
+$(\log\log N)^{1/3}$.  An $m$-uniform removal of the Type~I logarithmic
+loss would close that remaining gap at the scale
+$\log N\asymp m^{1/3}$.  Such an extension is not proved here.
+\end{problem}
+
+\begin{remark}[numerical status: \status{evidence}]
+The script \texttt{scripts/ttl\_perd.py} supplies only a weak sanity
+check for per-$d$ counts.  Its weights are normalized to mass about
+$20$, and its local-density comparison is not the orbital main term
+of Theorem~\ref{L:6.2}.  Small observed errors are therefore neither
+evidence for a uniform spectral error bound at the required scales
+nor a test of (SEL).  No numerical observation is used in any proof.
+\end{remark}
