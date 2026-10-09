@@ -18,7 +18,7 @@ TTL §9 transfers unchanged); new unconditional ingredients are the m-uniform ga
 parity-free level-md normalisation of §2. Self-review issues (from the drafts of §§2–3) are listed at the
 ends of §2 and §3; in particular the all-ranges extension of §3.2(c) is false; §3.2(c) is stated and used only for
 `D, F ≥ L^{100}`. Review status: self-review `reviews/emn4-selfreview.md` (no FATAL/MAJOR; minors R1–R6
-repaired); no independent hostile review yet.
+repaired); hostile review R117 `reviews/exceptional-mn4-review.md` (no FATAL/MAJOR; minors applied, marked "R117 repair").
 
 **Why m ≤ L^5 suffices (Lemma 0.1, PROVED, elementary from MN3 Thm L' and MN2 Lemma 3.5).** If `m > L^5` then
 `(L³ + L² log² m) log L/m ≪ m^{−0.35}`, so MN3 Thm L' (range `log m ≤ L/10`) already reads `ρ_rep ≪ m^{−0.35}`;
@@ -122,6 +122,9 @@ Passing to Möbius groups, adjoin `−I` without changing the quotient. With `u=
 `H_q` becomes `G_{M,q}={γ∈Γ₀(M): γ₁₁≡γ₂₂≡±1 (q), with the same sign}`,
 where `M=tq²=mdq²`. Conversely every such matrix conjugates back into `±H_q`.
 The infinity cusp has width **1**, and `G_{M,q}⊇Γ₁(M)`.
+(R117 repair: unlike TTL's `4|M`, `Γ₀(md)` (q = 1) may contain elliptic elements, e.g. md = 5, 10, 7. TTL §§4–5 use orbifold
+weights and a general spectral expansion, never torsion-freeness; and `e_z = 1` for every Heegner point here, since the
+stabiliser of `z_Q` lies in `SO(Q)`, which is `{±I}` for discriminants `−4t`, `−t` with `t ≥ 4`.)
 For odd q>1,
 `Γ₀(M)/G_{M,q}≅(ℤ/q)×/{±1}` and
 `L²(G_{M,q}\ℍ)=⊕_{χ mod q, χ(−1)=1}L²(Γ₀(M)\ℍ,χ)`.
@@ -277,6 +280,10 @@ This is both `≪N^{-1/9}` (using m≤L^5 and sufficiently small ε,η₁) and
 `≪m^{C'}N^{-δ/4}`, since the latter comparison leaves a fixed margin `(1−γ+δ)/8−2ε`.
 Thus the required remainder is `≪L^C m^{C'}Q²N^{-δ/4}`.
 TTL's stronger displayed `Q²N^{-δ/2}` does not follow uniformly from its `F'^{1/2+ε}` bound;
+(R117 repair: precisely, the cusp term exceeds `N^{-δ/2}` by `N^{O(ε)}D^{-1/4}`, i.e. the gap to `−δ/2` is
+`(1−γ−δ)/8−2ε = (log D/L)/4−2ε`, negative for `D < N^{8ε}`; such (b3) cells exist in `R_bad(2η₁)` near `α = 1`.
+The paper version `es-typei-heegner-note` already states `N^{-δ/4}`; TTL's `N^{-1/9}` alone would not give
+`N^{-δ/4}` for `δ > 4/9`, so the direct exponent comparison above is the one to use.)
 the weaker exponent here is exactly sufficient for its chosen κ=1/4.
 
 **(b5), D<A, f-cusp (CONDITIONAL).** Write `v=β−1>0`. When `v≤δ/2+O(1/L)`,
@@ -534,8 +541,8 @@ fix η, η₁ small as in TTL). By Lemma 1.1, bound `Σ_c Σ_{N/2<p≤N} w_{c,m}
 * (2b-0) Index conventions and the bounded-c endpoint (R2 of the self-review): `j ≥ 1` indexes `c ∈ (2^{j−1}, 2^j]`
   for `c ≥ 2`; `k = ⌊δL⌋`, `k' = ⌊(β−1)L⌋`. The block `c = 1` is treated separately with the same low-D and band
   arguments, and: for `k ≤ C₁ log L` the trivial c-count and §3.3(a2) give `≪ hADL·g(m) ≍ (N/m)L` per layer, total
-  `≪ (N/m)L log L`; for larger k, (b1)/(b3) cost `≪ (N/m)L/k` per layer (total `≪ (N/m)L log L`), (b2) applies since
-  `γ = 0` (so `δ ≥ 2γ`), and (b5) costs `≪ (N/m)/max(k,k')` per cell, total `≪ (N/m)L`. All `≪ NL²/m`.
+  `≪ (N/m)L log L`; for larger k, (b1)/(b3) cost `≪ (N/m)L/k` per layer (total `≪ (N/m)L log L`), (b2) is vacuous since
+  `γ = 0` (its range `α ≤ β < α+γ` is empty, and `a/2 ≤ b < a` lies in the band; R117 repair), and (b5) costs `≪ (N/m)/max(k,k')` per cell, total `≪ (N/m)L`. All `≪ NL²/m`.
 * (4) Layers `k ≤ C₁ log L`: (b4) on every cell, `≪ Σ_{j≤ηL}(C₁ log L)(N/m)L/j ≪ (N/m)L(log L)²`.
 * (5) Summation exactly as TTL (5), every term multiplied by `1/m`: TTL Lemma 1.1 gives
   `Σ_{j,k≤L}(N/m)L·min(1/j, C/k) ≪ NL²/m`; (b5) `≪ ηNL²/m`; (b2) with `k < 2j`: `≪ NL²/m`.

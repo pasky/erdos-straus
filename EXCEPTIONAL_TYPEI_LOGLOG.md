@@ -486,6 +486,10 @@ cost is below the cell's weighted mass.
 * (b3) `D < A`, `α+γ < β < 1` (`e, f ≥ 8A` off the bands): fixed d, cusp `f' = min(e,f) ≤ (ef)^{1/2} ≤ 3A√D`, Thm 6.2
   with `λ ≤ 1/4` (`F' ≥ 8A`); cusp term `f'^{1/2+ε}/A ≪ N^{ε}D^{1/4}A^{−1/2} = N^{(1−γ−3α)/4+ε} ≤ N^{−1/9}` (as
   `α ≥ (1−γ)/2`, `γ ≤ η`); relative remainder `≪ L^C Q² N^{−δ/2}`; saving `C/k`.
+  (R117 erratum: read `≪ L^C Q² N^{−δ/4}`. The cusp term is `N^{−δ/2}·N^{O(ε)}D^{−1/4}`, which exceeds `N^{−δ/2}` for
+  `D < N^{4ε}` (such cells occur near α = 1), and `N^{−1/9}` alone is weaker than `N^{−δ/4}` for `δ > 4/9`. The direct comparison
+  `(1−γ−3α)/4+ε = −δ/4 − α/4 + ε` gives `N^{−δ/4}` with absolute margin. Step (3) already uses κ = 1/4 for (b3), so
+  Thm 8.1 is unaffected. The paper es-typei-heegner-note already states the δ/4 bound.)
 * (b4) per layer: the 4ad Brun–Titchmarsh bound. For fixed `(a,d,f)` the n's with `c ≍ 2^j` lie in an
   interval of length `≤ 4ad·2^j` in one class mod 4ad, so BT gives `≤ 8ad2^j/(φ(4ad)·j log 2)`;
   by Lemma 8.4(a2) the layer (`a ≍ A`, all f, `c ≍ 2^j`) costs `≪ N L/j` (used only for `k ≤ L/3`, where
