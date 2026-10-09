@@ -100,7 +100,13 @@ children open.
   progress beyond a few levels (dives v1: 25 levels of `2^k` with both children open): covering classes
   need `4ad | x+f` for divisors `f | L`, which pins only `τ(L)` discs per level.
 * The open set is concentrated on points that are quadratic residues at almost all primes `∉ {11,13}`
-  (run 2.2), consistent with the non-square lemma (13C §1). Whether the uncovered set of the root in
+  (run 2.2), consistent with the non-square lemma (13C §1).
+* **Dives v2** (logs/o103_dive12.log; `m13d_dive.py` over 12 open leaves of run 2.2, primes < 80, splits that leave
+  all children open excluded; stopped by the 14000 s timeout after 2 dives). Dive 0 closed at once (bits 62: split 43,
+  0 open). In dive 1 the minimum number of open children was 1, 4, 2, 2, 5, 5, 3 at bits 65, 66, 72, 77, 82, 88, 94
+  (best splits 3⁵, 37, 41, 29, 53, 71, 67), mean ≈ 3.1. The branch was still open at L ≈ 2¹⁰⁰. The cost per step
+  explodes: 3 s at 2⁶², 531 s at 2⁸², 2328 s at 2⁸⁸, 10269 s at 2⁹⁴ (complete engine × every candidate split).
+  This is consistent with the supercritical picture above. It is only one branch, i.e. weak EVIDENCE. Whether the uncovered set of the root in
   `∏_{p≤P} ℤ_p` is empty for some P (which is necessary and, by compactness, sufficient for a finite tree) is
   open; this work gives no evidence either way beyond the growth rates above.
 
