@@ -11,7 +11,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{introthm}{Theorem}
-\renewcommand{\theintrothm}{\Alph{introthm}}
+\renewcommand{\theintrothm}{\arabic{introthm}}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{hypothesis}[theorem]{Hypothesis}
@@ -37,27 +37,31 @@
 \DeclareMathOperator{\disc}{disc}
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
-\title[The Elsholtz--Tao Type I sum under Selberg's conjecture]{The Elsholtz--Tao Type~I sum under Selberg's eigenvalue conjecture}
+\title[The Elsholtz--Tao Type I sum]{The Elsholtz--Tao Type~I sum: an unconditional improvement, and the removal of the double logarithm under Selberg's conjecture}
 \author{Anonymous}
 \date{Draft, October 2026; internal checks only, not externally refereed}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
-Assuming Selberg's eigenvalue conjecture for $\Gamma_0(4dq^2)$ with
-even nebentypus modulo $2q$, uniformly for $d\ge1$ and odd squarefree
-$q$ coprime to $d$, we prove $\sum_{p\le N}f_I(p)\ll N\log^2N$, removing the
-$\log\log N$ from Elsholtz--Tao's upper bound for Type~I solutions of
-$4/p=1/x+1/y+1/z$. The associated CM lifts of discriminant $-4d$ are
-uniformly separated in $\HH$ ($\cosh\operatorname{dist}\ge3/2$).
-Sobolev duality and the Deshouillers--Iwaniec/Drappeau spectral large
-sieve give a per-$d$ count complementary to a per-$a$ Poisson--Weil count.
-Their savings degenerate linearly at $d=a$, without costing $\log\log N$.
-The proof is \emph{conditional} on the stated spectral hypothesis and
+We prove without any hypothesis that the sum
+$\sum_{p\le N}f_I(p)$ is $o(N\log^2N\log\log N)$, improving the upper bound of
+Elsholtz--Tao for Type~I solutions of $4/p=1/x+1/y+1/z$; more precisely
+the sum is at most $C\varepsilon_0N\log^2N\log\log N+O_{\varepsilon_0}(N\log^2N)$
+for every $\varepsilon_0>0$. Assuming Selberg's eigenvalue conjecture for
+$\Gamma_0(4dq^2)$ with even nebentypus modulo $2q$, or alternatively a
+bound $C_\varepsilon\le\exp(\exp(A/\varepsilon))$ for the constants in
+Deshouillers--Iwaniec's Theorem~7 and its nebentypus form due to Drappeau,
+we prove $\sum_{p\le N}f_I(p)\ll N\log^2N$.
+The associated CM lifts of discriminant $-4d$ are uniformly separated
+in $\HH$. Sobolev duality and the spectral large sieve give a per-$d$
+count complementary to a per-$a$ Poisson--Weil count; their savings
+degenerate linearly at $d=a$. Without a spectral hypothesis, the
+exceptional spectrum is controlled on average over the levels
+$4dq^2$, $d\asymp D$, by Deshouillers--Iwaniec's bound for $a_n=1$,
+after partial summation; only the unquantified $\varepsilon$-constant in
+that bound prevents the full removal of $\log\log N$. All results are
 relative to cited inputs, including the inherited Elsholtz--Tao/internal-note
-reduction. It has received two rounds of internal review only, not external
-refereeing; that review did not re-check the inherited reduction.
-Exceptional-spectrum estimates leave a positive-width strip untreated,
-so this argument gives no unconditional improvement.
+reduction, and have received internal review only, not external refereeing.
 \end{abstract}
 \maketitle
 \setcounter{tocdepth}{1}
@@ -85,8 +89,21 @@ Their parenthesis nevertheless says no similar trick seems available in the
 ``Type II case'' [sic]; reading this as Type~I is the interpretation of
 \cite[\S1]{MN3}, not the literal quotation.
 
+Our first result is unconditional.
+\begin{introthm}\label{thm:uncond}
+There is an absolute constant $C$ such that for every $\varepsilon_0\in(0,1/4]$
+\[
+ \sum_{p\le N}f_I(p)\le C\varepsilon_0N\log^2N\log\log N+O_{\varepsilon_0}(N\log^2N).
+\]
+In particular $\sum_{p\le N}f_I(p)=o(N\log^2N\log\log N)$.
+\end{introthm}
+This is Theorem~\ref{E:main}(i). The improvement is not quantified: the
+rate is governed by the $\varepsilon$-dependence of the constant in a
+cited estimate of Deshouillers and Iwaniec \cite[Theorem~7]{DI} and in its
+nebentypus form \cite[Lemma~4.10]{Dr}, which those papers do not specify
+(Theorem~\ref{E:main}(iii) gives the rate in terms of that dependence).
+Under either of two hypotheses the double logarithm disappears.
 Put $\Delta=y^2(\partial_x^2+\partial_y^2)$, so that $-\Delta$ is nonnegative.
-Here is the precise spectral hypothesis used in this note.
 \begin{hypothesis}[SEL]\label{hyp:sel}
 For every $d\ge1$, every odd squarefree $q\ge1$ with $(q,d)=1$, and every
 even Dirichlet character $\chi$ modulo $2q$ (equivalently modulo $q$),
@@ -95,39 +112,61 @@ $(0,1/4)$.
 \end{hypothesis}
 The hypothesis covers the whole family; estimates are uniform in levels
 and characters. Constants are removed before applying the spectral estimate.
+The second hypothesis, (EFF) (Hypothesis~\ref{hyp:eff}), states that the
+constants $C_\varepsilon$ in \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr}
+satisfy $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$. It concerns
+the bookkeeping in two published proofs, not automorphic spectra; an
+internal audit suggests that it holds (Assessment~\ref{E:ass}).
 \begin{introthm}\label{thm:main}
-Assume \textup{(SEL)}. Then
+Assume \textup{(SEL)} or \textup{(EFF)}. Then
 \[
  \sum_{p\le N}f_I(p)\ll N\log^2N.
 \]
 \end{introthm}
-This is Theorem~\ref{L:8.1} below. It concerns an average upper bound, not
-existence of an Erd\H{o}s--Straus representation for every prime.
+Under (SEL) this is Theorem~\ref{L:8.1}; under (EFF) it is
+Theorem~\ref{E:main}(ii). Neither theorem concerns the existence of an
+Erd\H{o}s--Straus representation for every prime; they are average upper bounds.
 
 The new input is uniform separation of the level-$d$ CM points of
 discriminant $-4d$. Sobolev duality then pairs them with a mean-zero
 Poincar\'e series at a cost equal to the square root of their number times
 a second-order Sobolev norm, with no level loss. A spectral large sieve
-controls that norm under (SEL). The fixed-$d$ count complements a
-fixed-$a$ Weil count precisely at $d=a$; Lemma~\ref{L:1.1} sums the saving
-even though it degenerates linearly at that boundary. Only absolute
-errors averaged over $d$, not uniform per-packet relative errors, are used.
+controls that norm, apart from the exceptional spectrum. The fixed-$d$
+count complements a fixed-$a$ Weil count precisely at $d=a$;
+Lemma~\ref{L:1.1} sums the saving even though it degenerates linearly at
+that boundary. Only absolute errors averaged over $d$, not uniform
+per-packet relative errors, are used.
 
-Unconditionally, the available estimates leave a positive-width strip
-next to $d=a$; a direct exponent comparison gives a scale about $7/32$
-in $2\alpha-1+\gamma$, not a sharp boundary. This argument gives
-\emph{no unconditional improvement} of \eqref{A:eq:et}; see \S\ref{sec:uncond}.
+The exceptional spectrum is the only obstacle to an unconditional
+version. Single-level estimates (Kim--Sarnak, \cite[Theorem~5]{DI}) leave a
+strip of positive width next to $d=a$ (Section~\ref{sec:uncond}). The
+remedy (Section~\ref{sec:exc}) is that the assembly already sums over
+$d\asymp D$, i.e.\ over the levels $4dq^2$, and that the unfolded
+coefficients of a box Poincar\'e series are smooth in $n$. Partial
+summation reduces them to $a_n=1$, where \cite[Theorem~7]{DI} bounds the
+whole level-averaged exceptional spectrum at the size of the regular
+spectrum, up to $C_\varepsilon N^{O(\varepsilon)}$. Against the saving
+$N^{-\delta/4}$, $\delta=2\alpha-1+\gamma$, this leaves untreated only the
+layers with $\delta<w$, for any fixed $w>0$; they cost
+$O(wN\log^2N\log\log N)$, which gives Theorem~\ref{thm:uncond}, and (EFF)
+allows $w\asymp1/\log\log N$.
 
 \paragraph{Status and dependencies.}
-Theorem~\ref{thm:main} is \status{conditional} on (SEL), with a proof relative
-to cited inputs. These are the ET reduction (Proposition~2.2, Lemma~2.8,
+Theorem~\ref{thm:uncond} is \status{proved} relative to cited inputs, with no
+spectral hypothesis; Theorem~\ref{thm:main} is \status{conditional} on (SEL) or
+on (EFF), with a proof relative to the same inputs. These are the ET reduction (Proposition~2.2, Lemma~2.8,
 and (8.1)--(8.2)); the internal note \cite[Proposition~2.3 and
 proof of Theorem~3.8, step~(1)]{MN3} (MN3's Proposition~2.3 is
 Proposition~\ref{M:2.3} here; R114 repair); Deshouillers--Iwaniec \cite[Theorem~2]{DI} and
 Drappeau \cite[Proposition~4.7, arXiv numbering]{Dr}; the spectral theorem;
 Weil's bound; Brun--Titchmarsh; Selberg's upper-bound sieve; and
-P\'olya--Vinogradov. DI Theorem~5 enters the discussion of exceptional
-spectrum, not the conditional proof. The new argument received internal
+P\'olya--Vinogradov. Theorem~\ref{thm:uncond} and the (EFF) case of
+Theorem~\ref{thm:main} use in addition \cite[Theorem~7]{DI},
+\cite[Lemma~4.10]{Dr} (read as uniform in the character modulus), and the
+absence of nonconstant residual spectrum for congruence subgroups
+\cite{Iw,Hux}. Section~\ref{sec:exc} (O118) received two internal reviews of its
+source note, not of this write-up. DI Theorem~5 enters the discussion of exceptional
+spectrum, not the proofs. The (SEL) argument received internal
 adversarial review (R111, rounds 1--2), not external refereeing. That review did
 not re-check the inherited ET/MN3 reduction; MN3 received a separate internal
 review. (R114 repair) A later internal referee pass (R114) re-derived the
@@ -889,8 +928,8 @@ The spectral expansion, with Eisenstein measure \(dt/(4\pi)\), is the
 usual Parseval formula \cite[Theorem 7.3]{Iw} (with the character
 spaces and singular cusps as in \cite[\S4.1]{Dr}).
 \emph{This is the sole use of (SEL):} after removing the constant,
-all discrete parameters are real, and there is no nonconstant residual
-spectrum. Thus the squared norm for a fixed character is the sum of
+all discrete parameters are real. (There is no nonconstant residual
+spectrum in any case; see Section~\ref{sec:exc}.) Thus the squared norm for a fixed character is the sum of
 \(|\langle P_\chi,u_j\rangle|^2\) over cusp forms and
 \((4\pi)^{-1}\sum_{\mathfrak c}\int_\R
 |\langle P_\chi,E_{\mathfrak c}(\cdot,1/2+it)\rangle|^2dt\).
@@ -1040,10 +1079,11 @@ Without (SEL), the terms with \(t_j=i\sigma_j\) remain. On a block
 \(|n|\asymp H\), the Bessel factor has additional size
 \((HY)^{-\sigma_j}\). Thus \eqref{B:eq:exceptional-sieve} is used with
 \(X=(HY)^{-1}\) when \(HY\le1\), not with \(X=Y^{-1}\).
-It does not recover Proposition~\ref{L:5.1} in the required cells;
-Section~\ref{sec:uncond} records precisely the resulting unconditional
-limitation. Neither the Sobolev argument nor the regular-spectrum large
-sieve depends on (SEL).
+For a single $d$ it does not recover Proposition~\ref{L:5.1} in the
+required cells (Section~\ref{sec:uncond}). On average over $d\asymp D$ the
+exceptional part is bounded unconditionally in Section~\ref{sec:exc}
+(Proposition~\ref{E:var}). Neither the Sobolev argument nor the
+regular-spectrum large sieve depends on (SEL).
 
 \section{Per-\texorpdfstring{$d$}{d} counts}\label{sec:perd}
 Fix $c\ge1$ and use $\cF_d^I$, $\Gamma'_q$ from \S\ref{sec:heegner},
@@ -1516,7 +1556,10 @@ $\lambda\ll1/q$, and Theorem~\ref{L:6.2} gives
 The second exponent is $(1-\gamma-3\alpha)/4+\varepsilon$;
 its difference from $-\delta/4$ is $-\alpha/4+\varepsilon$.
 It is therefore bounded by $N^{-\delta/4}$ with an absolute margin.
-We use the weaker common error $\cL^CQ^2N^{-\delta/4}$.
+We use the weaker common error $\cL^CQ^2N^{-\delta/4}$. (This corrects the
+source note \cite[\S8~(b3)]{TTL}, whose displayed $N^{-\delta/2}$ fails for
+$D<N^{4\varepsilon}$ or $\delta>4/9$; the erratum R117 there does not
+affect the theorem, since step~4 already uses $\kappa=1/4$ in (iii).)
 
 \emph{(iv) $D<A$ and $1<\beta\leq1+2\eta_1$.}
 This strip cannot be discarded: here $f<A$, even though $e$ is large.
@@ -1632,7 +1675,7 @@ $(N/2,N]$.  Summing dyadically in $N$ proves the theorem.
 
 \section{The exceptional spectrum on average over the level}\label{sec:exc}
 This section removes (SEL) from Theorem~\ref{L:8.1} at the cost of an
-unquantified $\varepsilon$-constant. Throughout, $\cL\ge2$ is as in
+unquantified $\varepsilon$-constant; it is a write-up of \cite{TTL2}. Throughout, $\cL\ge2$ is as in
 Proposition~\ref{L:5.1} (we may take $\cL=\log N$ in the application),
 and an exceptional form of $(\Gamma_0(M),\chi)$ is an orthonormal cusp
 form $u_j$ with $t_j=i\sigma_j$, $0<\sigma_j<1/2$; Selberg's bound
@@ -1842,10 +1885,12 @@ re-verified). Every other step of that proof, and the large sieve
 to the continuous spectrum; restricting a large sieve to a subset of the
 spectrum only decreases its left side. Hence, \emph{unconditionally},
 \begin{equation}\label{E:eq:gen}
+ \begin{gathered}
  \|(1-\Delta)(P_\psi-\langle P_\psi\rangle)\|_2^2
- \ll V^{\rm gen}+\mathcal E^{(1)}+\mathcal E^{(2)},\qquad
+ \ll V^{\rm gen}+\mathcal E^{(1)}+\mathcal E^{(2)},\\
  V^{\rm gen}\ll\cL^C\Bigl\{\frac\lambda Y\Bigl(1+\frac{q^{1/2}}M
  (\cL/\lambda)^{1+\varepsilon_1}\Bigr)+\frac{\lambda^2}Y\Bigr\},
+ \end{gathered}
 \end{equation}
 with the fixed exponent $\varepsilon_1=1/100$ (so that its constant is
 absolute), where $\mathcal E^{(1)},\mathcal E^{(2)}$ are the exceptional parts
@@ -1862,10 +1907,12 @@ $Y_d\le\lambda\cL^{-3}$. Write
 $E_d(q)=\sum_{Q\in\cF_d^I,\,q\mid n(Q)}\psi_d(u_Q)-g_{c,d}(q)\mathfrak M_d$.
 Then for every $\varepsilon\in(0,1/4]$,
 \[
- \sum_{d}|E_d(q)|\ll\cL^CC_\varepsilon^{1/2}N^{2\varepsilon}AD
+ \begin{aligned}
+ \sum_{d}|E_d(q)|\ll{}&\cL^CC_\varepsilon^{1/2}N^{2\varepsilon}AD
  \Bigl[q^2\Bigl(\frac DA\Bigr)^{1/2}\Bigl(1+\frac A{qF'}\Bigr)^{1/2}
- +\frac{q^{3/2}N^{\varepsilon_1/2}F'^{1/2}}A
+ \\&+\frac{q^{3/2}N^{\varepsilon_1/2}F'^{1/2}}A
  +\frac{q^{5/4}F'^{1/4}D^{1/8}}{A^{1/2}}\Bigr].
+ \end{aligned}
 \]
 \end{theorem}
 \begin{proof}
@@ -2032,12 +2079,13 @@ uniformly in $m$ (levels $mdq^2$, sieve omitting the primes dividing $m$)
 has not been checked.
 \end{remark}
 
-\section{What is unconditional}\label{sec:uncond}
+\section{Single-level exceptional estimates}\label{sec:uncond}
 The separation argument, Sobolev duality, the local-density computation,
 the per-$a$ count, and the arithmetic mass estimates are unconditional.
-The use of (SEL) is confined to the exceptional spectrum in
-Proposition~\ref{L:5.1}.  It is nevertheless essential to the present
-proof of the prime-counting theorem.
+In Theorem~\ref{L:8.1} the use of (SEL) is confined to the exceptional
+spectrum in Proposition~\ref{L:5.1}. This section records why estimates
+\emph{at a single level} do not suffice; it explains why the level average
+of Section~\ref{sec:exc} is needed, and is not used in any proof.
 
 \subsection{The exceptional-spectrum obstruction}
 An eigenvalue $\lambda_j=1/4-\sigma_j^2$, $0<\sigma_j<1/2$, introduces
@@ -2094,15 +2142,15 @@ exceptional-density calculations.  None enters the conditional proof.
 
 A positive-width region bounded only by the original $1/j$ saving
 still contributes at the level of the available upper bounds
-$N\cL^2\sum_{j\ll\cL}1/j$.  Unlike the linearly degenerating
+$N\cL^2\sum_{j\ll\cL}1/j$. Unlike the linearly degenerating
 saving in Lemma~\ref{L:1.1}, this does not remove $\log\log N$.
-Thus \emph{this argument gives no unconditional improvement} of
-\cite[Theorem~1.1]{ET}; this is not a claim that an unconditional
-improvement by other methods is impossible.  Sufficient replacements
-for (SEL) would include a large sieve for the exceptional spectrum
-with precisely these Fourier weights and $X\asymp1/(N_0Y)$, with
-errors that still allow the layer summation, or cancellation beyond
-termwise Weil in $\sum_{a\asymp A}S(h,k;4a^2)$.
+With single-level estimates the strip has fixed width, so they give no
+improvement of \cite[Theorem~1.1]{ET}. Section~\ref{sec:exc} replaces
+them by the level-averaged bound \cite[Theorem~7]{DI} for $a_n=1$ (the
+partial-control level average \cite[Theorem~6]{DI}, for general $a_n$,
+does not suffice). The strip then shrinks to $\delta<w$ for every fixed
+$w>0$, which gives Theorem~\ref{thm:uncond}, and to
+$w\asymp1/\log\log N$ under (EFF).
 
 \subsection{Lifts versus equidistribution of a finite packet}
 The lift-counting target (H**) of \cite[\S3.5]{MN3} is stronger than
@@ -2133,21 +2181,23 @@ estimate.  We make no exhaustive literature claim that no other
 joint-aspect theorem exists.
 
 \section{Open problems}\label{sec:open}
-\begin{problem}[unconditional removal]
-Prove $\sum_{p\leq N}f_I(p)\ll N\log^2N$ without (SEL), or obtain an
-unconditional improvement of its present $\log\log N$ loss.  A proof
-must address a positive-width strip adjacent to $A=D$, not merely
-the line $A=D$ itself.
+\begin{problem}[effective constants]
+Prove (EFF), i.e.\ make \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr}
+effective with $C_\varepsilon\le\exp(\exp(A/\varepsilon))$, or with any loss
+$\exp(o(\log(QN)/\log\log(QN)))$ in place of $(QN)^\varepsilon$. By
+Theorem~\ref{E:main}(ii),(iii) this would prove
+$\sum_{p\le N}f_I(p)\ll N\log^2N$ unconditionally. Assessment~\ref{E:ass}
+suggests a careful rewrite of DI \S\S5, 7.1, 8 and Drappeau \S4.2 with an
+explicit Gevrey cutoff suffices.
 \end{problem}
 
-\begin{problem}[weighted exceptional density]
-Prove a density or large-sieve theorem for exceptional eigenvalues
-on $\Gamma_0(4dq^2)$, with even nebentypus modulo $2q$, incorporating
-the coefficients of the box Poincar\'e series and the weights
-$(N_0Y)^{-2\sigma_j}$.  The relevant target is an averaged error that
-retains a saving degenerating at most linearly in
-$|2\alpha-1+\gamma|$, after summation in $d$ and the sieve modulus;
-a count of exceptional eigenvalues alone need not suffice.
+\begin{problem}[quantified rate]
+Short of (EFF), obtain any explicit $G$ with $C_\varepsilon\le G(1/\varepsilon)$.
+Theorem~\ref{E:main}(iii) then turns it into an explicit rate in
+$\sum_{p\le N}f_I(p)\ll N\log^2N(1+w_N\log\log N)$, $w_N\to0$. Alternatively,
+remove the $\log\log N$ by another route, e.g.\ an exceptional large sieve
+for the box coefficients at a single level with losses
+$N^{o(1/\log\log N)}$.
 \end{problem}
 
 \begin{problem}[square-modulus Kloosterman sums]
@@ -2169,7 +2219,9 @@ packet.
 \end{problem}
 
 \begin{problem}[general numerators]
-Extend the conditional Type~I estimate uniformly from $4/n$ to
+Extend the conditional estimate (see Remark~\ref{E:mn4} for the
+(SEL$_m$) version of \cite{MN4}) and the unconditional estimate of
+Section~\ref{sec:exc} uniformly from $4/n$ to
 $m/n$.  Primes dividing $m$ must be omitted from the sieve, and the
 mass gain $\varphi(m)/m$ must be tracked against the sieve-product
 inflation $m/\varphi(m)$ and all remainder terms
@@ -2178,7 +2230,8 @@ gap $(m\log m/\varphi(m))^{1/3}$ is historical: the refined lower-side
 bound in \cite[\S2, Theorem~L$'$]{MN3} reduces it to
 $(\log\log N)^{1/3}$.  An $m$-uniform removal of the Type~I logarithmic
 loss would close that remaining gap at the scale
-$\log N\asymp m^{1/3}$.  Such an extension is not proved here.
+$\log N\asymp m^{1/3}$; \cite{MN4} does this under (SEL$_m$). An
+unconditional or (EFF)-conditional $m$-uniform version is not proved here.
 \end{problem}
 
 \begin{remark}[numerical status: \status{evidence}]
@@ -2192,6 +2245,8 @@ nor a test of (SEL).  No numerical observation is used in any proof.
 \begin{thebibliography}{99}
 \bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010v6. Page and equation references in this note refer to that arXiv version.
 \bibitem[MN3]{MN3} \emph{The lower side of the $m/n$ transition: the $m/\varphi(m)$ loss and the Type I $\log\log$}, internal note, \texttt{EXCEPTIONAL\_MN3.md}, with internal review \texttt{reviews/exceptional-mn3-review.md}.
+\bibitem[TTL]{TTL} \emph{The Type~I $\log\log$ under Selberg's conjecture}, internal source note of this paper, \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG.md}, with internal review \texttt{reviews/exceptional-typei-loglog-review.md}.
+\bibitem[TTL2]{TTL2} \emph{Closing the exceptional-eigenvalue strip}, internal source note of Section~\ref{sec:exc}, \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG2.md}, with internal reviews \texttt{reviews/exceptional-typei-loglog2-review.md} and \texttt{-review-B.md}.
 \bibitem[MN2]{MN2} \emph{The density transition for $m/p$}, internal note, \texttt{EXCEPTIONAL\_MN2.md} (Theorem~U).
 \bibitem[MN4]{MN4} \emph{The $m/p$ density transition under Selberg's eigenvalue conjecture}, internal note, \texttt{EXCEPTIONAL\_MN4.md}, with internal review \texttt{reviews/exceptional-mn4-review.md}.
 \bibitem[Hux]{Hux} M. N. Huxley, Scattering matrices for congruence subgroups, in \emph{Modular forms (Durham, 1983)}, Ellis Horwood, Chichester, 1984, 141--156.
