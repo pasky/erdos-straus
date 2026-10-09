@@ -12,7 +12,9 @@ as merged at the start of R100. All code from scratch: `scripts/review_m13c_*.py
 | §2 witness engine completeness (all M ∣ L) | CERTIFIED | **SOUND** (brute force, 6 levels, 0 mismatches) |
 | Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | **SOUND**; its new part is empty by a one-line reciprocity argument (D4) |
 | §5 x** search extensions | CERTIFIED within ranges | **SOUND** as labelled (one engine; not recomputed; D5) |
-| §1, §3, Comp. 2.1 | EVIDENCE | pending |
+| §1 non-square lemma (M ≤ 6000) | EVIDENCE | **SOUND** (recomputed: 102124 classes, 0 exceptions) |
+| §3, Comp. 2.1 | EVIDENCE | not recomputed; logical inferences in §3/§7 checked (SOUND) |
+| §7 418321 open-leaf residues | — | **SOUND** (recomputed) |
 
 ## A. Theorem 6.1 — independent re-check
 
@@ -108,6 +110,20 @@ uncovered subcells (consistent). [B = 120 run: see below.]
   11¹⁰, so v ≤ 9 ✓; P/Q: `v_q(λ) = 2v_q(a)+v_q(d) ≤ 2·8 = 16 ≤ 20` ✓.
 * Not recomputed (≈ 2·80 core-min + 4.3 core-h); label "CERTIFIED within ranges, one engine" is honest.
 
+## E. §1, §3, §7 (EVIDENCE / Assessment)
+
+* §1 (`scripts/review_m13c_misc.py 6000`, own class enumeration): 102124 distinct unit classes `(M, r)` with
+  `M ≤ 6000` (= the author's count), 255735 (family, P, r) incidences; none is a local square at every prime
+  of M (2-adic test `r ≡ 1 (8)` if 8 | M, `r ≡ 1 (4)` if 4 ∥ M). This is the expected consequence of
+  Mordell's obstruction (ET Prop. 1.6: square classes are not polynomially solvable), so the "lemma" is
+  really a corollary of ET Prop 1.6 + 1.9 for all M, not only M ≤ 6000 — label could be upgraded (D6).
+* §3: the logical step "uncovered cells all have x_3 ≡ 1 (9) [resp. x_7 ≡ 1 (7)] and (x_11,x_13) ≡ (2,2),
+  hence class 112561 (x_3 ≡ 7) and 380881 (x_7 ≡ 4) contain no uncovered such point; only 473761 has
+  (x_11,x_13) ≡ (2,2)" checked against the §0 table ✓. The counts 49 / 25740 and 147 / 180180 were not
+  recomputed (EVIDENCE, `mordell_tgen` engine).
+* §7: root 418321 has 455 open leaves, all with 17, 19, 23, 31 | L; residues mod 17: {1}; mod 19: {1,13,17};
+  mod 23: {1,13,16}; mod 31: {1,21,26} ✓ (13 mod 19, 13 mod 23, 21 and 26... mod 31 include non-squares, as stated).
+
 ## Defects
 
 * **D1 (MINOR, §6 proof, "two independent checkers").** Both author checkers are campaign engines
@@ -142,3 +158,10 @@ Independent complete enumeration: `scripts/review_m13c_cell22.c`.
   (the same issue R98 flagged for the o95 logs); the first progress lines are consistent with the stated
   starts but do not prove them. Repair: prepend the exact command to each log (or record it in §5, as already
   done in the Replay block) and say the logs are from those commands.
+* **D6 (MINOR, §1 label).** The non-square statement holds for **all** ET classes, not just M ≤ 6000: a Prop 1.9
+  class is polynomially solvable (ET Prop 1.9 "conversely"), and a class that is a square at every prime of
+  M contains a square residue class mod M, contradicting ET Prop 1.6 / Mordell (squares are not polynomially
+  solvable). Repair: state it as PROVED (from ET Prop. 1.6, 1.9) with the computation as a check — after
+  verifying in ET that Prop 1.6 applies to classes q mod r with q a square modulo r (it does as quoted in
+  ET p. 8: "a primitive congruence class n = r mod q which is a perfect square cannot be solved by
+  polynomials"); "local square at every p | M" ⇔ "square mod M" for units (Hensel; 2-adic via mod 8).
