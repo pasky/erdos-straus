@@ -110,3 +110,10 @@ Observations that need no change:
 * Jia 2012 and Duke 1988 (cited only in the literature paragraph).
 
 None of these affects the logic beyond the standard forms of these results.
+
+## Post-referee addition (O118)
+After this referee pass the paper was extended (task O118): new title/abstract; Theorem 1 (unconditional,
+`o(N log²N log log N)`, PROVED relative to DI Thm 7 and Drappeau Lemma 4.10) and Theorem 2 (`≪ N log²N` under (SEL)
+or (EFF)); new §9 (write-up of EXCEPTIONAL_TYPEI_LOGLOG2, itself reviewed twice); §10 and open problems rewritten;
+residual-spectrum fact now cited separately (Iwaniec §11, Huxley 1984; locators unverified). **This referee report
+does not cover §9 or the new theorems**; a new referee pass is required.

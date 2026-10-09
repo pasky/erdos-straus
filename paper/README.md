@@ -1,5 +1,18 @@
 # Paper draft status
 
+**Update (O118): `es-typei-heegner-note.tex` / `.pdf` v2** — new title "The Elsholtz–Tao Type I sum: an
+unconditional improvement, and the removal of the double logarithm under Selberg's conjecture". Theorem 1
+(**PROVED** relative to cited inputs incl. DI 1982 Thm 7 and Drappeau 2017 Lemma 4.10; no spectral hypothesis):
+`Σ_{p≤N} f_I(p) ≤ Cε₀ N log²N log log N + O_{ε₀}(N log²N)`, i.e. `o(N log²N log log N)`. Theorem 2: `≪ N log²N`
+**CONDITIONAL** on (SEL) (old Thm A = Thm 8.1) **or** on (EFF) (`C_ε ≤ exp(exp(A/ε))` in DI Thm 7 / Drappeau
+Lemma 4.10; an Assessment suggests it holds). New §9 writes up EXCEPTIONAL_TYPEI_LOGLOG2 ((D)32a; reviews
+`reviews/exceptional-typei-loglog2-review*.md`): verbatim DI Thm 7 / Drappeau Lemma 4.10, prefix-sum corollary,
+partial summation, shifted-line lemma, d-averaged exceptional variance (n-dependent weight), averaged per-d count,
+cases (ii)–(iv), strip/ε bookkeeping, quantified form (iii), effectivity Assessment, MN4 remark. §10 (old
+"What is unconditional") now explains why single-level estimates fail; open problems: (EFF), quantified rate.
+TTL (b3) erratum (R117) noted in the assembly. The §9 write-up itself awaits a referee pass
+(`reviews/agent-reports/AGENT_REPORT_O118.md`).
+
 **New (2026-10-09): `es-typei-heegner-note.tex` / `.pdf`** (task O114, 25 pages incl. TOC/bibliography) — "The
 Elsholtz–Tao Type I sum under Selberg's eigenvalue conjecture". Writes up EXCEPTIONAL_TYPEI_LOGLOG ((D)32;
 review R111 rounds 1–2) with the needed parts of EXCEPTIONAL_MN3 §3. Theorem A: under (SEL) for `Γ₀(4dq²)` with
