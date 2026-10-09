@@ -259,3 +259,28 @@ Prop 1.4, with Brun–Titchmarsh, Shiu and Pólya–Vinogradov; effective. Chang
   references, no overfull boxes.
 
 **A referee pass on Lemma 8.6 / Prop 8.8 / Remark 8.10 as written in the paper is still required.**
+
+## Post-referee addition (O120)
+
+*Added by the O120 agent; not covered by any referee verdict above.* New **§9 "Under Selberg's eigenvalue
+conjecture"** from `EXCEPTIONAL_MN4.md` (DISCOVERIES (D)31 follow-up 3; hostile review R117
+`reviews/exceptional-mn4-review.md`, no FATAL/MAJOR, minors applied):
+* Def 9.1 (SEL_m): no eigenvalue in (0,1/4) on Γ₀(mdq²) with even nebentypus mod q, `(q,2md)=1` squarefree;
+  implied by Selberg for all Γ₁(M); for m = 4 the family of [HN, Hyp 1.1].
+* Thm 9.2 = MN4 Thm 4.1 (CONDITIONAL on SEL_m; 4 ≤ m ≤ L⁵): `Σ_{N/2<p≤N} f_{I,m}(p) ≪ N(L²+L log²m)/m + N m^{−0.35}/L`.
+  Proof *sketch* with exact pointers (MN4 Lemma 0.1, Lemma 1.1, §2.1, §2.2, Thm 6.2_m, Lemma 6.1_m, §2.6, §3,
+  §3.2(c) only for D,F ≥ L^100, §3.4, Thm 4.1; HN Lemmas 3.1–3.2, Prop 5.1, Thm 6.2, Prop 7.1, Lemma 8.1, Thm 8.2).
+* Thm 9.3 = MN4 Thm 5.1 (Thm L″): `ρ_rep ≪ (L³+L² log² m)/m + m^{−0.35}`; conditional for m ≤ L⁵, PROVED
+  (from Thm L′ + Lemma 8.9) for m > L⁵. Full proof given (three cases, from Thm 9.2, Prop 8.5, Lemma 8.9, Thm L′).
+* Cor 9.4 = MN4 Thm 5.2 (sharp order): lower half CONDITIONAL, upper half = Theorem U (unconditional).
+* Remark 9.5: unconditional content of MN4 §6; (D)32a (HN Thm 1 = Thm 9.9(i), unconditional o(N log²N log log N),
+  m = 4) is **not** transferred to general m by MN4 or LOGLOG2 → stated as open; noted that even an m-uniform
+  transfer would only give an unquantified o(1) gain over Thm L′, and an m-uniform (EFF) version would make
+  Cor 9.4(a) conditional on (EFF) instead.
+* Remark 8.10 (rem:sel) rewritten (extension now carried out, pointer to §9); §8.4 gap paragraph, abstract,
+  intro (after Theorem L′), status/novelty, organisation, Problem 2 (now labelled, asks about the unconditional
+  m-uniform transfer) updated. Bibliography: [HN] (`paper/es-typei-heegner-note.tex`, compiled numbering),
+  [MN4]. 29 pp; two compiles; no warnings, no undefined references, no overfull boxes (the 10 underfull
+  bibliography lines are pre-existing).
+
+**A referee pass on §9 (esp. the proof sketch's pointers and Remark 9.5) is still required.**
