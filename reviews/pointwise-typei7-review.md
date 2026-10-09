@@ -46,3 +46,32 @@ small `j`). 1442 checks, 0 failures. All 9 pairs occur in the author's complete 
 
 MINOR m1 (no repair needed). Lemma 1.1 lists "`nδ` odd" as a hypothesis; the proof never uses it (only `16 | 16nδ`).
 Harmless.
+
+## 2. Theorem 2.1, Remark 2.1, Comp 2.2
+
+Every step re-derived: `49` generates `1+16ℤ_2` (`v_2(48) = 4`), so `{7^s : s odd}` is dense in `7+16ℤ_2` ✔;
+`ord_{7^j}(2) = 3·7^{j−1}` (checked `j ≤ 4`; `2³ = 8 ≢ 1 (49)`) ✔; `F = 7^s+2^i ≡ 2^i ≡ 1 (mod 7^{b+1})` as
+`s = 2b+1 ≥ b+1` ✔; `c' = (F+1)/8` odd, prime to 7 and to `F` ✔; `N = 1+2^{L+2}7^s c' ≡ 1−2^{L−1+i} (mod F)` ✔.
+`v_7(c) = 1` odd ⇒ `sf(c) ∉ {1,2,3,6}` ✔; `L ≥ 7` ⇒ it is a fibre certificate in the TYPEI4 sense ✔.
+
+*From scratch* (`review_typei7_check.py`, direct TYPEI2-definition checker `cert_at`): `m = 4`: `(s,i,F,c',L) =
+(1,6,71,9,30)`, `ord_71(2) = 35`; `m = 5`: `(3,21,2097495,262187,93184)`, `ord_F(2) = 93204`, `v_2(F+9) = 5`.
+Both are certificates at `x̂_{−F}` for two splits each and again at level `L + ord_F(2)`; neither is at `x̂_9`.
+For `m = 6,7,8` the construction gives `s = 7`, `i = 1029`, `F ≈ 2^{1030}` with `v_2(F+9) = 8`, `F ≡ 1 (7^4)`,
+`F ≡ 7 (16)` (`L` not computed, as the author says; existence of `L` only needs `F` odd). Matches Comp 2.2.
+
+Remark 2.1(b): only `F | N` depends on `L`, through `2^L mod F` ✔; `e ≡ F^{−1} (2^{L+2})` ⇒ `v_2(e+9) = v_2(9F+1)` once
+`L+2 > v_2(9F+1)` ✔; levels with `L+2 ≤ v_2(9F+1)` also satisfy `2+⌈L/2⌉ ≤ v_2(9F+1)`, so the finiteness clause
+covers both roles ✔. Replayed for `(c_o,k_o,F) = (21,1,71)` at `L = 11, 46, 81, 116`: certificate each time,
+`v_2(e+9) = 7 = v_2(9·71+1)` constant ✔. (Brute force also finds `(c_o,k_o,F) = (7,1,71)` at `L = 27`, i.e.
+`c = 14, k = 8192`, closeness 7 via `e = 52930935` — consistent with the `(27,0)` row.)
+
+The claim "answers the open question of TYPEI4 §5" is correct: §5 asks whether `max v_2(f+9)` over fibre
+certificates is bounded; Thm 2.1 gives `v_2(F+9) ≥ m` for each `m`. (TYPEI4 Assess. 4.2(d) had already observed
+closeness 14 at `f = 212983`; the novelty is the proof of unboundedness.)
+
+MINOR m2 (wording, not repaired). "sterility of `x̂_9` … cannot be proved by any test that sees `w` only modulo a
+fixed `2^j`" — the precise PROVED content is: for every `j`, the statement "every `x̂_w` with `w ≡ 9 (2^j)` is
+sterile" is false. As in R89 D7, "any test" is not a mathematical object. Suggested: add "(i.e. for every `j` the
+ball `w ≡ 9 (mod 2^j)` of `Φ` contains covered points)". I leave the author's sentence, since it is immediately
+followed by the precise statement "no 2-adic neighbourhood of 9 in `Φ` is sterile".
