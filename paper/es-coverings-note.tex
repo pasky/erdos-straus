@@ -29,7 +29,7 @@
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
 \title[Finite coverings for Erd\H{o}s--Straus and sterile points]{Finite congruence coverings for the Erd\H{o}s--Straus equation and sterile profinite points}
 \author{Anonymous}
-\date{Draft, 6 October 2026; internal checks only, not externally refereed}
+\date{Draft, 6 October 2026, updated 9 October 2026; internal checks only, not externally refereed}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
@@ -985,8 +985,8 @@ exponents in a fixed field or a fixed recurrence, so they do not apply
 directly, and reciprocity gives no obstruction either (\status{Assessment},
 \cite[\S3]{PT5}).
 
-The regime $\sigma\ge1$ was studied further in \cite{PT6} (reviewed in
-\texttt{reviews/pointwise-typei6-review.md}).  It is not closed.  We
+The regime $\sigma\ge1$ was studied further in \cite{PT6}, which was
+reviewed in \texttt{reviews/pointwise-typei6-review.md}.  It is not closed.  We
 record the three results and the computation.  Write
 $P=c'P_1$, $Q=7^aQ_1$, $u=7^b$ and $Y:=16PX^2=Qu^2+1$ as in
 Proposition~\ref{prop:minunit}, so that $A=2Y-1$.
@@ -1619,8 +1619,10 @@ for every $C\le1.497$.
 The (Q)-term is at most $2\sum_{k\ge9}17^{3k/5+1-k}<1.411\cdot10^{-3}$.
 For (P), the weights $w_K=17^{(1-K)/2}$ satisfy
 $w_K-w_{K+2}=\tfrac{16}{17}w_K$, and Abel summation gives
-$\sum_Kw_KD_P(K)\le\tfrac{16}{17}\sum_Kw_KS_P(K)$.  The series are summed
-numerically, with floor rounding of $C$.
+\[
+\textstyle\sum_{K\ge13}w_KD_P(K)\le\frac{16}{17}\sum_{K\ge13}w_KS_P(K).
+\]
+The series are summed numerically, with floor rounding of $C$.
 \end{proof}
 
 So ET's own exponent $2/5$, with explicit constant $1.497$ and no $o(1)$,
@@ -1629,7 +1631,7 @@ cumulatively, the constant is $1.409$ \cite[\S4]{PM17B}.  The data are far
 inside this: $D_P(13)/17^{5.2}\approx6\cdot10^{-4}$.  It is conjectured in
 \cite[Conj.~4.2]{PM17B} (\status{conjecture}) that $D_P(K)\le K^5$ for
 $K\ge15$ and $D_Q(k)\le k^5$ for $k\ge9$, which would give a tail
-$\le4.2\cdot10^{-3}$.  On the (Q) side, the points with $c\ge17^{k/2}$
+$\le4.2\cdot10^{-3}$.  On the (Q) side, the points with ET coordinate $c\ge17^{k/2}$
 are bounded unconditionally, since a pair $(a,d)$ carries at most two
 (Q)-points; they cost at most $4.3\cdot10^{-3}$ of the budget
 \cite[Lemma~2.1, Cor.~2.2]{PM17C} (\status{proved}).  Nothing comparable
