@@ -1062,7 +1062,11 @@ original paper was not obtained.
   `paper/es-coverings-note` (finite coverings and candidate sterile points:
   TYPEI2/3, MORDELL, MORDELL17) is written and refereed internally (R86, repairs applied); post-referee
   additions TYPEI4 (O91) and the refutation of the x* conjecture with the new candidate x** (O96;
-  24 pp; not re-refereed).
+  25 pp) were refereed in round 2 (R98, `reviews/es-coverings-note-referee-r2.md`: no FATAL/MAJOR,
+  seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). TYPEI6, MORDELL13C, MORDELL17B and
+  MORDELL17C are not yet in the note. `paper/es-mn-short-note` (25 pp; O97 + O104) writes up
+  EXCEPTIONAL_SHORT, EXCEPTIONAL_MN and, in Section 8, EXCEPTIONAL_MN2 (referees R97 and R104,
+  repairs applied; R104: ACCEPT).
 
 ### 3.4 Window results
 
