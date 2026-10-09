@@ -90,7 +90,7 @@ children open.
 * **No root is closed; Theorem 3.1(b) of POINTWISE_MORDELL is unchanged; no certificate was produced** (no tree
   with zero open leaves exists to check). The claimed "ES for all p with (p/13) = −1" is **not** reached.
 * What is established: a validated complete-witness engine (§1; 0 mismatches on 240 random leaves + 790 children)
-  — ≈ 10⁴× faster than `m13c_witness.py` at `L ≈ 10¹⁹` — and a hybrid DFS (§2) whose output is in the 13C
+  — ≈ 5·10³× faster than `m13c_witness.py` for full sets at `L ≈ 10¹⁹` (≈ 45 ms vs ≈ 3–4 min) — and a hybrid DFS (§2) whose output is in the 13C
   tree format (both 13C checkers apply unchanged to any closed tree it may produce).
 * EVIDENCE that closing 418321 with splits at primes `≤ 100–120` is out of reach of this method: at every depth
   sampled (`L` from 2⁴⁰ to 2⁹⁰), the best split (complete engine, *all* candidate splits) leaves on average
@@ -108,7 +108,7 @@ children open.
 
 ```
 gcc -O2 -o /tmp/o103/wit scripts/m13d_wit.c          # (m13d_wit.py rebuilds automatically; env M13D_WIT = binary)
-PYTHONPATH=scripts uv run python scripts/m13d_validate_small.py 9240 10920 65520 720720       # §1 (i) (script inlined in report)
+PYTHONPATH=scripts uv run python scripts/m13d_validate_small.py 9240 10920 65520 720720       # §1 (i)
 PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 200 1 0 2 5            # §1 (ii), T = 13C §8.2 tree
 PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 20 3 20 5 7            # §1 (iii)
 PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 10 4 10 3 4; … T 30 2 0 0 2   # §1 (iv)
