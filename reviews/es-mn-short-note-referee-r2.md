@@ -31,3 +31,57 @@ ineffective A_ε, all m ≥ 4, all N with log N ≥ A_ε m^{1/3}); no strengthen
 * Cauchy–Schwarz: N (C S_2 L^{−1−A'})^{1/2} = C'(r) N L^{−3} for A' = 17r+4^r+5 and t ≤ L. ✓
 
 Minor points: see defects m1, m2 below.
+
+## 2. Lower side (Lemma 8.4, Prop 8.5, Lemma 8.6, Prop 8.7, Lemma 8.8, Thm L)
+
+**Verdict: SOUND (as a proof relative to ET Thm 7.1 + ET's proof of Prop 1.4); minor repairs.**
+Statement, ranges, label and "effective" of Theorem L coincide with MN2 Thm L (both ranges
+`log m ≤ L/10, L ≤ m^{1/2}` and `log m > L/10`; the range `log m ≤ L/10 < …, L > m^{1/2}` is, as in
+MN2, not covered, which is harmless since the consequence forces L ≤ m^{1/3} eventually). No
+strengthening. Re-derived:
+
+* **PW inputs** (checked against `sources/pw.txt`): Cor 2.2 / Cor 2.4 / Lemma 7.4 / (3.2) / (3.4)
+  are quoted correctly; "(a,b)=1 may be assumed" is PW p. 7 ("follows from gcd(x',y',z')=1").
+  PW's unsimplified counts are Type I `(N/φ(m)) L² log L log m`, Type II `(N/φ(m)) L² log L`
+  (PW pp. 6–8) — so the comparison "factor min(log m, L/log m)" against the *unsimplified* Type I
+  bound is right: PW/ours = L log m/(L + log² m).
+* **Lemma 8.4(a)** re-derived (g-expansion of b/φ(b); per e ≥ 2 the double sum is
+  ≪ log²(2e)/e + log Y log e/e + log² Y/e; S'_m via Euler product needs E ≥ log m because
+  Π_{p|m,p>E}(1−1/p)^{−1} ≤ exp(2ω(m)/E)). Numerically sane (`review_r104_harm.py`). ✓
+* **Lemma 8.4(b)** re-derived: n/φ(n) ≤ e⁴ Σ_{s|n, s|P_y} μ²/φ (ω(n) ≤ 1.45y); Rankin tail
+  S^{−σ}(log y)^e with S = U^{1/2}, log U ≥ y/2 gives exp(−y/(4 log y)) ≪ y^{−10}; large-u part via
+  Shiu Thm 1 (F = τ₃, modulus s ≤ x^{1/1.1}, so β fixed) converges after Σ_s μ²(s)/φ(s)²; small-u
+  part ≪ m^{0.01}/m. ✓ (Condensed in the paper but every step is named.)
+* **Prop 8.5** re-derived: abd ≤ 2N/m (from e ≤ a+b ≤ 2ab, m ≥ 4); ET product
+  ≤ m^{5/2}a^{5/2}b^{1/2}cd²e ≤ 2m^{1/2}(mabd)² ≤ 8m^{1/2}N²; min modulus ≤ 8^{2/5}m^{1/5}N^{4/5} ≤
+  3N^{0.82} (m ≤ N^{1/10}); (ii) p = (macd−1)e − ma²d ✓; U = 3N^{0.82}/m satisfies log U ≥ ½log(mU). ✓
+  Numerical check of the product inequality on random admissible tuples: `review_r104_typeII.py`.
+  Minor: in (i) "one class modulo made" needs (e, ad) = 1 — true ((e,a) | (a,b); (e,d) | p) but not
+  said (defect m3).
+* **Lemma 8.6 vs ET pp. 30–32** (read in `sources/elsholtz-tao-1107.1010.pdf`): variable dictionary
+  (ET linear a = our d, ET quadratic b = our a, ET case A ≤ B = our D ≤ A), (7.11) and the three
+  q-ranges are quoted correctly; ET's q<A claim "sums to zero" is false for square q (principal
+  character) — the paper's "harmless slip" remark is right (cost Σ_r A log B/r²). The q > kA range:
+  c(q)(q/k'a) is χ_{−4}χ_8^{m'}·(·/k'a), non-principal, so mean zero ✓. PV in the middle range:
+  d ↦ (d/q)1_{d odd} is a single non-principal character mod 2q for odd non-square q (the paper's
+  "combination of two" is harmless). Middle cost D'log A(1+√(k/D')log(kD')) ✓. The 2^j-reduction:
+  k_j = 2^j k, D'_j = D/2^j; lossy iff 4^j ≳ D/(k log²); bounding the lossy j by ET's own
+  log(1+k_j) gives Σ 2^{−j} log(1+kD) over 2^j ≥ (D/(k log²))^{1/2}, i.e.
+  ≪ (k log²/D)^{1/2} log(kAD) ≤ 1 for D ≥ k log⁴(kAD). ✓ ET Rem 1.5 indeed suggests PV ✓.
+  Minor: the paper drops MN2's "boxes with A or D = 1 are enlarged to 2 by positivity", but
+  Prop 8.7 does use boxes with A' = 1 or D' = 1 (defect m4).
+* **Prop 8.7** re-derived (with ET (A.12) checked verbatim, ET p. 34–35): k = ms²t; Lemma 8.6 with
+  l = 10 needs k ≤ (2A'D')^{10} ✓; lossy boxes ≤ #{dyadic D' < k log⁴(kN)} ≪ log m + log st + log L;
+  weighted per block Σ(st)^{−2}[log²X + L log m log(ms²t)] ≪ log²X + L log²m ✓ (log L ≪ log m
+  uses L ≤ m^{1/2}); small boxes: n ≤ 8k^{1.2}, occurrence ⇒ X ≤ m^{0.1}(st)^{1.2}, tail
+  Σ_{st≥Y}(st)^{−1.94} ≪ Y^{−0.94}log Y, number of small boxes ≪ log(mst); total
+  (N/φ(m))m^{0.03}log²m ≪ N m^{−0.9} ≤ (N/L)m^{−0.35} ✓. Blocks j ≤ log₂(3N) ≤ 2L for N ≥ 16 ✓.
+  The paper's condensation "≪ log m+log(st)+log L lossy ones" and "occur only for (st)^{1.2}m^{0.1} ≫ X"
+  keeps every load-bearing range; the dropped "number of small boxes ≪ log(mst)" is implicit in
+  "in total contribute" (acceptable).
+* **Lemma 8.8**: classes for Type II need mab ≤ 2N (PW (3.4)) and τ(a+b) ≤ e^{CL/log L}; the extra
+  L³ from dividing by π* is absorbed into e^{CL/log L} (enlarge C). ✓ (Proof says "Type II likewise";
+  acceptable.)
+* **Consequence**: if ρ_rep > 0 then m ≤ 3p (Lemma 7.4 / (3.4)) so L ≥ log(m/3); L³log L/φ(m) → 0
+  forces φ(m) → ∞, then L ≤ m^{1/3} eventually, the L²log²m term is ≤ (L³+log⁶m)log L/φ(m), and in
+  the range log m > L/10, e^{CL/log L}/m ≤ m^{10C/log L − 1} → 0. ✓
