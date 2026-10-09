@@ -80,3 +80,45 @@ the criterion reads `T | 4c_o·gcd(N,δ_0)²`, i.e. `T ≤ 4` (`c_o`, `δ_0` odd
 *Scope (Assessment).* Prop 2.1 excludes polynomial units along lines in the `(c_o, δ)`-plane. Along higher-degree curves
 `(c_o(t), δ(t))` the polynomial `d(t)` has degree ≥ 4 and polynomial Pell solutions can exist for special curves; but they
 would cover only thin subsets of the two-parameter family, so they could not close regime (v) by themselves.
+
+## 3. Regime (v) is the "large unit" regime; under abc it is finite (PROVED / CONDITIONAL)
+
+**Lemma 3.1 (PROVED).** In case B, with `θ`, `ζ`, `μ` as in Lemma 1.1,
+`σ = 4uθ² − μδ√P/ζ` (exactly). Consequently in regime (v) (`σ ≥ 1`):
+(a) `uX > 16c_o³δ⁷/T⁴`; (b) `c := 16PX² = Qu² + 1 > 64c_o³δ⁷√d/T⁴ ≥ 64c_o⁴δ⁸/T⁴`;
+(c) asymptotically `u ≳ 8c_oδ³√P/T²` (`u` is at least of order `d^{1/2}·δ²√P/T²`).
+*Proof.* `σ = μj − T²u` (as `8·7^am = μ − 4T`); insert `j = uθ − δ√P/ζ` (Lemma 1.1(d)) and use
+`μθ − T² = T²ψ² = 4θ²`, `ψ := (√d − c_oδ)/(√d + c_oδ)`, `θ = Tψ/2`: indeed `(√d + c_oδ)² = c_o(2c_oδ² + T + 2δ√d)` and
+`c_oμ − 2(√d + c_oδ)²·(1/1) = 2(√d − c_oδ)²`, which divided by `2(√d + c_oδ)²/T²` is `μθ − T² = T²ψ²`.
+(a) `σ > 0` gives `4uθ²ζ > μδ√P`; use `θ < T²/(8c_oδ²)` (as `(√d + c_oδ)² > 4c_o²δ²`), `ζ < 8X√P` (as `u√Q < 4X√P`),
+`μ > 8c_oδ²`. (b) `u < 4X√(P/Q)` and (a) give `X² > 4c_o³δ⁷√(Q/P)/T⁴ = 4c_o³δ⁷Q/(T⁴√d)`; multiply by `16P`, `PQ = d`.
+(c) from (b) with `c ≈ 4Qu²`. ∎
+(Checked numerically: the identity to 40 digits and (a), (b) on all relaxed regime-(v) rows, `scripts/typei6_identities.py`.)
+
+*Interpretation.* By (b) the certificate unit `ν_0 = 2c − 1` is `> 128 d^{2}δ⁶/T⁴`-ish; regimes (ii)/(iii) are the units
+below this size. Regime (v) is therefore **not a degenerate corner but the generic case** (a typical fundamental unit has
+size `exp(≍√d)`); closing it unconditionally means showing that `u_1(d)` (TYPEI5 Cor 1.2) is never a power of 7 for the
+large-unit fields of the family — a statement about the fundamental units of a two-parameter family of real quadratic
+fields, of the same kind as "the Pell `y`-coefficient is never a prime power", for which no unconditional method is known
+(Assessment).
+
+**Theorem 3.2 (CONDITIONAL on abc).** Suppose `c < K·rad(abc)^{1+ε}` for all coprime `a + b = c` (fixed `0 < ε < 1/7`,
+`K = K_ε`). Then every fibre certificate of level `L` in regime (v) satisfies
+`δ^{2−6ε}·7^{a(1−3ε)}·P^{(1−7ε)/2} < K·(3.5τ)^{1+ε}·(T²/8)^{1−ε}`, `τ := 1 + T/(c_oδ²)`.
+In particular, **under abc there are only finitely many fibre certificates of each level `L`** (all regimes), and their
+number and size are bounded in terms of `(K_ε, ε, L)`.
+*Proof.* Apply abc to `1 + Qu² = 16PX² = c`: `rad = rad(2·7·Q_1PX) ≤ 14PXQ_1` (`u = 7^b`, `Q = 7^aQ_1`), and
+`X = √(c/16P)`, `PQ_1 = d/7^a` give `rad ≤ (7/2)(d/7^a)√(c/P)`. Hence `c^{(1−ε)/2} < K(3.5d/7^a)^{1+ε}P^{−(1+ε)/2}`.
+Insert Lemma 3.1(b), `c > 64c_o⁴δ⁸/T⁴`, and `d = c_o²δ²τ`: `(8/T²)^{1−ε}c_o^{2−2ε}δ^{4−4ε} < K(3.5τ)^{1+ε}c_o^{2+2ε}δ^{2+2ε}·
+7^{−a(1+ε)}P^{−(1+ε)/2}`; finally `c_o^{4ε} = 7^{4aε}c'^{4ε} ≤ 7^{4aε}P^{4ε}`. The bound fixes `δ`, `a`, `P ≥ c'`,
+hence `c_o` and `d`, to a finite set; each `d` has finitely many splittings `PQ` and each carries at most one `b`
+(TYPEI5 Lemma 1.1). Case A and regimes (ii)–(iv) are finite at each `L` unconditionally (TYPEI5 Lemma 3.6, Prop 3.3). ∎
+
+*Remarks.* (i) The abc input is exactly the 7-power: for general `u` the radical is `≍ c` and nothing follows; abc turns
+"`u = 7^b`" into "`u ≪ d^{1/2+O(ε)}/7^a`" (small unit), contradicting Lemma 3.1(c).
+(ii) Effectivity: in the idealised limit `ε → 0`, `K = 1`, the bound reads `49^aδ⁴P < 49T⁴τ³ᐟ²/256`, which forces
+`c_oδ ≤ 7P·δ < 4.6·10⁵` even at `L = 10` (`δ = 1`, `a = 1` is the worst case) — inside Cor 2.3 of TYPEI5 (`c_oδ ≤ 10⁶`, all `b`),
+so levels 7–10 would be empty. With any *published* explicit form of abc (Baker 2004: `c < (6/5)N(log N)^ω/ω!`; or `c < N^{7/4}`)
+the constant is far too large (or the exponent `> 8/7`), so **emptiness of levels 7–10 is not obtained conditionally on
+any standard explicit abc** (Assessment). Theorem 3.2 is a finiteness statement only.
+(iii) Theorem 3.2 does not touch sterility of `x̂_9` (unbounded `L`).

@@ -30,6 +30,12 @@ for fn in sys.argv[1:]:
         sd = sqrt(mpf(d)); theta = mpf(T) / 2 * (sd - co * dl) / (sd + co * dl)
         zeta = 4 * X * sqrt(mpf(P)) + u * sqrt(mpf(Q))
         assert abs(u * theta - dl * sqrt(mpf(P)) / zeta - j) < mpf(10) ** -50
+        # Lemma 3.1: sigma = 4 u theta^2 - mu delta sqrt(P)/zeta (exact); regime (v) => uX > 16 c_o^3 delta^7/T^4
+        mu = 8 * co * dl * dl + 4 * T
+        assert abs(4 * u * theta ** 2 - mu * dl * sqrt(mpf(P)) / zeta - sigma) < mpf(10) ** -40
+        if sigma > 0:
+            assert u * X * T ** 4 > 16 * co ** 3 * dl ** 7
+            assert 16 * P * X * X * T ** 4 > 64 * co ** 3 * dl ** 7 * sqrt(mpf(d))
         # quadratic in u
         k7 = 7 ** a
         val = (2 * k7 * T * (T * rho + 2 * lam) * u * u
