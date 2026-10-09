@@ -201,38 +201,61 @@ applications `Y/λ ≍ 1/(A√d)`).
 `(log f, log(a/f))` is as good as one in `(log f, log a)` for the sieve.) Its hyperbolic area is
 `∫ψ dμ ≍ λ/Y`.
 
-**Proposition 5.1 (variance; PROVED conditional on (SEL), modulo the cited large sieve).** Let
+**Proposition 5.1 (variance; PROVED conditional on (SEL) and the cited DI/Drappeau large sieve; O112: proof written in full).** Let
 `P = P_ψ` on `Γ_{M,q}`, `P₀ = P − ⟨P⟩`, and `𝓛 = log(2 + 1/(λY) + M)`. Then
 `‖(1−Δ)P₀‖₂² ≪_{φ,W,ε} 𝓛^{C} · [ (λ/Y)(1 + q^{1/2} M^{−1} (𝓛/λ)^{1+ε}) + λ²/Y ]`,
 with `L²` norms on `Γ_{M,q}\ℍ`.
-*Proof (outline with all steps; the analytic facts used are standard).*
-(1) `(1−Δ)P_ψ = P_{ψ'}` with `ψ' = (1−Δ)ψ = φ(x/λ)W̃(y/Y) − (y/λ)² φ''(x/λ)W(y/Y)`,
-`W̃ = W − v²W''`; the second piece is `O((Y/λ)²)` times a function of the same type, so it suffices to
-bound `‖P₀‖₂²` for `ψ = φ(x/λ)W(y/Y)` with arbitrary fixed `φ, W`.
-(2) Spectral decomposition (no residual spectrum except constants for χ = 1; no exceptional spectrum by
-(SEL)): `‖P₀‖² = (2/φ(q))·Σ_χ [Σ_j |⟨P,u_j⟩|² + (4π)^{−1}Σ_𝔠 ∫|⟨P,E_𝔠(·,½+it)⟩|² dt]`, the factor
-being the index normalisation between `Γ₀(M)\ℍ` and `Γ_{M,q}\ℍ`.
-(3) Unfolding: `⟨P,u_j⟩ = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) ∫ W(y/Y) √y K_{it_j}(2π|n|y) dy/y²`, and the same with
-the Eisenstein coefficients `φ_𝔠(n,t)`, plus for `n = 0` the constant terms
-`δ_{𝔠∞}y^{1/2+it} + φ_{𝔠∞}(½+it) y^{1/2−it}` (for every even χ: ∞ is singular for all of them —
-R1 correction; unitarity of the scattering matrix still gives `≪ λ²/Y` after the `2/φ(q)` normalisation).
-(4) `n = 0`: `|∫W(y/Y)y^{1/2±it}dy/y²| ≤ Y^{−1/2}|Ŵ(t)|` with `Ŵ` rapidly decreasing; the scattering
-matrix is unitary on the critical line, so the n = 0 part contributes `≪ λ²/Y`.
-(5) `n ≠ 0`: `|n| ≤ 𝓛/λ` up to a negligible tail (φ̂ decays rapidly), so `2π|n|y ≤ 4π𝓛Y/λ`. By the domain hypothesis `2π|n|y ≪ 𝓛^{−2}`; expand
-`K_{it}(x) = ½Σ_± Γ(±it)(x/2)^{∓it}(1 + O(x²))`. Then
-`⟨P,u_j⟩ = Σ_± ½Γ(±it_j)π^{∓it_j} Y^{−1/2∓it_j} Ŵ_±(t_j) Σ_n ρ̄_j(n) λφ̂(λn)|n|^{∓it_j} + (O((𝓛Y/λ)²)-terms of the same shape)`,
-with `|Γ(it)|² = π/(t sinh πt)` and `Ŵ_±` rapidly decreasing, so only `|t_j| ≤ K = 𝓛` matters.
-For `|t_j| ≤ 1` the two `±` terms must not be separated (each is `≍ 1/|t|`); there use instead the Mellin
-representation `K_{it}(x) = (4πi)^{−1}∫_{(σ₀)} Γ((s+it)/2)Γ((s−it)/2)(x/2)^{−s} ds` with `σ₀ = 1/𝓛`, so
-that `(nY)^{−s}` has modulus `≍ 1` and the Gamma factors have an integrable `1/|v ± t|` singularity
-(cost `O(𝓛)` at `t ≈ 0`, where the two Gamma poles coalesce — R1 correction; still polylog); the large sieve is then applied for each fixed `s` on the contour.
-(6) The `|n|^{∓it_j}`: split `t_j` into unit intervals `[k, k+1]`; for `t = k+τ`,
-`sup_{τ∈[0,1]} |S(τ)|² ≤ |S(0)|² + ∫_0^1 (|S|² + |S'|²) dτ` with `S'` having coefficients multiplied by
-`−i log|n| = O(𝓛)`; apply the large sieve to each fixed-τ coefficient vector `b_n = λφ̂(λn)|n|^{−ik−iτ}`
-(`‖b‖² ≪ λ²·(𝓛/λ) = 𝓛λ`) on dyadic n-ranges `N₀ ≤ 𝓛/λ`, sum over `≪ 𝓛` intervals and `≪ 𝓛` dyadic
-ranges. With `|Γ(it)|²cosh(πt) ≍ 1/(1+|t|)` this gives
-`Σ_χ Σ_j |⟨P,u_j⟩|² ≪ (φ(q)/2)·𝓛^C Y^{−1}·λ·(1 + q^{1/2}M^{−1}(𝓛/λ)^{1+ε})`, and the same for the
-Eisenstein part. Multiply by `2/φ(q)`. ∎
+*Proof (O112 repair: written at proof level; replaces the R1 outline, and settles D8).*
+**Step 0 (reductions).** `P_ψ` is smooth, bounded, and vanishes high in every cusp (in ∞ only `γ = 1` contributes
+and `ψ = 0` for `y > 2Y`; at other cusps `Im γσ_𝔞z ≤ 1/(c²y) → 0`), so `P_ψ, ΔP_ψ, Δ²P_ψ ∈ L²`.
+`(1−Δ)P_ψ = P_{ψ'}`, `ψ' = (1−Δ)ψ = φ(x/λ)W̃(y/Y) − (Y/λ)²φ''(x/λ)W₂(y/Y)`, `W̃ = W − v²W''`, `W₂ = v²W`,
+and `∫Δψ dμ = 0`, so `(1−Δ)P₀ = P_{ψ'} − ⟨P_{ψ'}⟩`. As `Y ≤ λ`, it suffices to prove
+`‖P_ψ − ⟨P_ψ⟩‖² ≪ 𝓛^C[(λ/Y)(1 + q^{1/2}M^{−1}(𝓛/λ)^{1+ε}) + λ²/Y]` for `ψ = φ(x/λ)W(y/Y)` with `φ ∈ C_c^∞([−2,−1])`,
+`W ∈ C_c^∞([1,2])` arbitrary, the constant depending on finitely many derivatives of φ, W.
+**Step 1 (spectral decomposition).** With `P_χ := Σ_{γ∈Γ_∞\Γ₀(M)} χ̄(γ)ψ∘γ` one has `P_ψ = (2/φ(q))Σ_χ P_χ` and
+`‖P_ψ − ⟨P_ψ⟩‖²_{Γ''} = (2/φ(q))Σ_{χ even} ‖P_χ − δ_{χ=1}⟨P_1⟩‖²_{Γ₀(M),χ}` (orthogonality of the χ-isotypic parts;
+`[Γ₀(M):±Γ''] = φ(q)/2`). For each χ, Parseval in `L²(Γ₀(M)\ℍ,χ)` (Iwaniec, *Spectral methods*, Thm 7.3; DI §1 for
+nebentypus): `‖P_χ − δ⟨⟩‖² = Σ_j |⟨P_χ,u_j⟩|² + (4π)^{−1}Σ_𝔠 ∫_ℝ |⟨P_χ,E_𝔠(·,½+it,χ)⟩|² dt`, where `u_j` runs over an
+orthonormal basis of Maass cusp forms (by (SEL) all `t_j ∈ ℝ`; the residual spectrum of a congruence group is the
+constants, present only for χ = 1, and removed) and 𝔠 over the χ-singular cusps (∞ is singular for every χ).
+**Step 2 (unfolding).** `u_j(z) = √y Σ_{n≠0} ρ_j(n)K_{it_j}(2π|n|y)e(nx)` (DI (1.34); cusp width 1). Since the
+x-support of ψ has length `λ < 1`, `⟨P_χ,u_j⟩ = ∫_0^∞∫_0^1 ψ ū_j dx dy/y² = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) I_{t_j}(n)`,
+`I_t(n) := ∫_0^∞ W(y/Y) y^{1/2} K_{it}(2π|n|y) dy/y²`. Mellin: `K_{it}(x) = (4πi)^{−1}∫_{(σ)} G_t(s)(x/2)^{−s}ds`,
+`G_t(s) := Γ((s+it)/2)Γ((s−it)/2)`, `σ > 0`; hence `I_t(n) = Y^{−1/2}(4πi)^{−1}∫_{(σ)} G_t(s)𝒲(s)(π|n|Y)^{−s}ds` with
+`𝒲(s) := ∫_0^∞ W(v)v^{−3/2−s}dv`, entire, `|𝒲(σ+iv)| ≪_{B,σ} (1+|v|)^{−B}` uniformly for `|σ| ≤ 2`. Therefore
+`⟨P_χ,u_j⟩ = Y^{−1/2}(4πi)^{−1}∫_{(σ)} G_{t_j}(s)𝒲(s)(πY)^{−s} B_j(s) ds`, `B_j(s) := Σ_{n≠0} ρ̄_j(n) b_n(s)`,
+`b_n(s) := λφ̂(λn)|n|^{−s}` (absolutely convergent: `φ̂` is Schwartz, `ρ_j(n) ≪_j |n|^{1/2}`).
+**Step 3 (Gamma bounds; Stirling).** For `|Re w| ≤ 1`: `|Γ(w)| ≍ |Im w|^{Re w − 1/2}e^{−π|Im w|/2}` if `|Im w| ≥ 1`, and
+`|Γ(w)| ≪ 1/dist(w, −ℕ₀)` if `|Im w| ≤ 1`. Hence (a) for `|t| ≤ 1`, `s = σ₀ + iv`, `σ₀ := 1/𝓛`:
+`|G_t(s)| ≪ 𝓛²e^{−π|v|/2}`; (b) for `|t| ≥ 1`, `s = −1 + iv` (distance `≥ 1/2` from all poles):
+`|G_t(s)| ≪ e^{−π|t|/2}(1+|t|)^{−2}(1+|v|)^{4}` (if `|v| ≤ |t|/2` both `|v ± t| ≍ |t|`; otherwise use
+`e^{−π max(|v|,|t|)/2} ≤ e^{−π|t|/2}` and `1+|t| ≤ 3(1+|v|)`).
+**Step 4 (|t_j| ≤ 1).** Take `σ = σ₀`. Since `1/Y ≤ e^{𝓛}`, `|(πY)^{−s}| ≤ e`; Cauchy–Schwarz in v with the measure
+`|G𝒲|dv` and (a): `|⟨P_χ,u_j⟩|² ≪ Y^{−1}𝓛⁴ ∫|𝒲(σ₀+iv)| |B_j(σ₀+iv)|² dv`.
+**Step 5 (|t_j| ≥ 1).** Shift to `σ = −1`, crossing only the simple poles `s = ±it_j` (residue of `Γ((s∓it)/2)` is 2):
+`⟨P_χ,u_j⟩ = Y^{−1/2}[Σ_± Γ(±it_j)𝒲(±it_j)(πY)^{∓it_j}B_j(±it_j) + (4πi)^{−1}∫_{(−1)} G_{t_j}(s)𝒲(s)B̃_j(s)ds]`, with
+`B̃_j(s) := Σ ρ̄_j(n) b̃_n(s)`, `b̃_n(s) := (πY)^{−s}b_n(s)`, `|b̃_n(−1+iv)| = πY|n|·λ|φ̂(λn)|`. Using
+`|Γ(it)|² = π/(t sinh πt) ≪ 1/((1+|t|) cosh πt)`, `|𝒲(±it)| ≪ (1+|t|)^{−B}` and (b) with Cauchy–Schwarz:
+`|⟨P_χ,u_j⟩|² ≪ Y^{−1}cosh(πt_j)^{−1}[(1+|t_j|)^{−B}Σ_±|B_j(±it_j)|² + (1+|t_j|)^{−4}∫|𝒲(−1+iv)|(1+|v|)^4|B̃_j(−1+iv)|²dv]`.
+**Step 6 (large sieve).** Let `𝒮(K; b) := Σ_{|t_j|≤K} cosh(πt_j)^{−1}|Σ_n ρ̄_j(n)b_n|²`. Split n into `±` and dyadic
+blocks `N₀ < |n| ≤ 2N₀` (`N₀ = 2^i/2`, i ≥ 0; negative n via the reflection `z ↦ −z̄`, which maps an orthonormal basis of
+`L²(Γ₀(M),χ)` onto one of `L²(Γ₀(M),χ̄)`, χ̄ also even). Cauchy–Schwarz over blocks with weights `w_{N₀} := 1 + |log(λN₀)|`
+(`Σ_{N₀} w_{N₀}^{−2} ≪ 1`) and DI Thm 2 / Drappeau Prop 4.7 per block give
+`𝒮(K; b) ≪ Σ_{N₀} w_{N₀}²(K² + q^{1/2}M^{−1}N₀^{1+ε})‖b^{(N₀)}‖²`.
+For `b = b(σ₀+iv)`: `‖b^{(N₀)}‖² ≪ λ²N₀ min(1,(λN₀)^{−2B})` (and `|n|^{−σ₀} ≤ 1`), so `𝒮(K; b) ≪ 𝓛²λ(K² + q^{1/2}M^{−1}λ^{−1−ε})`.
+For `b̃(−1+iv)`: `‖b̃^{(N₀)}‖² ≪ (Y/λ)²·λ²N₀ min(1,(λN₀)^{−2B})`, the same bound times `(Y/λ)² ≤ 1`.
+For the `t_j`-dependent vectors `b_n(±it_j)`: on each unit interval `t_j ∈ [k, k+1]` use
+`|B(t)|² ≤ 2|B(k)|² + 2∫_k^{k+1}|∂_τB(τ)|²dτ` (Gallagher); `∂_τ` multiplies `b_n` by `∓i log|n|`, i.e. by
+`≪ 𝓛 + |log(λ|n|)|`, absorbed by the rapid decay of φ̂. So
+`Σ_{K<|t_j|≤2K} cosh^{−1}|B_j(±it_j)|² ≪ 𝓛⁴ λ(K² + q^{1/2}M^{−1}λ^{−1−ε})`.
+**Step 7 (assembly).** Steps 4–6, summing dyadically over K with the weights `(1+K)^{−B}`, `(1+K)^{−4}` against `K²`, and
+integrating in v against `|𝒲|(1+|v|)^4`: `Σ_j |⟨P_χ,u_j⟩|² ≪ 𝓛^C Y^{−1}λ(1 + q^{1/2}M^{−1}λ^{−1−ε})`.
+*Eisenstein part.* The n ≠ 0 terms are identical with `ρ_j(n)` replaced by `φ_𝔠(n,t)` and `Σ_j` by `Σ_𝔠(4π)^{−1}∫dt`; the
+cited large sieves include this part. The constant term `δ_{𝔠∞}y^{½+it} + φ_{𝔠∞}(½+it)y^{½−it}` contributes
+`λφ̂(0)Y^{−1/2}[δ_{𝔠∞}Y^{−it}𝒲(it) + φ̄_{𝔠∞}Y^{it}𝒲(−it)]`; by unitarity of the scattering matrix
+(`Σ_𝔠 |φ_{𝔠∞}(½+it)|² = 1`) its total is `≪ λ²Y^{−1}∫(|𝒲(it)|² + |𝒲(−it)|²)dt ≪ λ²/Y` per χ.
+Summing over the `φ(q)/2` even χ (conductor `q₀ ≤ q`) and multiplying by `2/φ(q)` gives the claim, with
+`λ^{−1−ε}` written as `(𝓛/λ)^{1+ε}`. ∎
 *Remark.* `(λ/Y)·q^{1/2}M^{−1}λ^{−1} = q^{1/2}/(MY) = F/(2q^{1/2}√d)` (since `1/Y = 2qF√d`, `M = 4dq²`):
 this is the "cusp" term `1/(Y·level)` of §3.
 
