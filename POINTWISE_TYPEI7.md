@@ -187,5 +187,5 @@ and least level `L` (discrete log mod `35·71^{e−1}`, Pohlig–Hellman), each 
 | 12–14 | 399 | 2454 | 14 | ≈ 2^2452 | ≈ 2^2451 |
 
 So the approximating certificates exist explicitly, but their level is of the size of `F` itself (the discrete log is
-"random" in `[0, ord_F(2))`), i.e. `v_2(F+9) ≈ log_2 log_2(height)`: the opposite of what `x̂_9` would need
-(`v_2(F+9) ≥ 2+⌈L/2⌉ ≈ ½·log_2(height)`).
+"random" in `[0, ord_F(2))`), while `e` (hence `log_2 F`) grows like `2^m`; so `v_2(F+9) ≈ log_2 log_2 L` in this family,
+whereas `x̂_9` needs `v_2(F+9) ≥ 2+⌈L/2⌉`.
