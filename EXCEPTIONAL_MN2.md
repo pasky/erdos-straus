@@ -28,8 +28,9 @@ Let `ρ_exc(m,N)` / `ρ_rep(m,N)` be the proportions of m-exceptional / m-repres
 * **Remaining gap** in `log N`: factor `(m log m/φ(m))^{1/3} ≪ (log m · log log m)^{1/3}`
   (was `(log m)² (m/φ(m))^{1/3}`). Removing the Type I BT loss and tracking the coprimality gain in
   ET Prop 1.4 would give the exact scale: `ρ_rep → 0` if `A → 0`, with Theorem U's `ρ_exc → 0` if `A → ∞`.
-* **Numerics (EVIDENCE; §2).** m ≤ 300: for composite m ∈ [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05`,
-  local exponent 0.333; profile in A collapses to `F(A) ≈ 1 − exp(−κA³)`, κ ≈ 0.094.
+* **Numerics (EVIDENCE; §2).** m ≤ 300: for even m ∈ [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05`,
+  local exponent 0.333; profile in A ≈ `1 − exp(−κA³)`, κ ≈ 0.094. Odd m: ratio 1.63–1.92, drifting up
+  (local exponents 0.36–0.40) — a parity effect at these sizes.
 * **Conjecture C2 (CONJECTURE; supported by §2).** `ρ_rep(m, N) = F(A) + o(1)` as `m → ∞`, for a
   continuous increasing F with F(0+) = 0, F(∞) = 1 (possibly depending on m only through
   bounded arithmetic data). In particular there is **no sharp threshold constant**: the
@@ -158,25 +159,35 @@ L_q = log N at which the representable proportion in (N/2, N] reaches q.
 | 127 (prime) | .992 | 5.87 | 8.84 | 11.05 | 1.76 |
 | 199 (prime) | .995 | 8.31 | 10.38 | 12.63 | 1.78 |
 
-* For composite m in [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05` with no trend; the local
-  log-log slope from m = 60 to 300 is `log(13.06/7.64)/log 5 = 0.333`. A `(log m)^{4/3}` (MN Cor D)
-  or `(log m)^{−2/3}` (PW) correction would change the ratio by factors 1.53 resp. 0.76 over this
-  range; neither is visible. No visible φ(m)/m dependence among composites (φ/m from .23 to .5).
-* Prime m sit lower (1.63–1.78) but drift upward (slope ≈ 0.46 from 101 to 199); finite-size.
-* **The transition is not sharp:** the window `L_.75 − L_.25 ≈ 0.4 L_.5` does not shrink. In
-  `A = L/m^{1/3}` the profile collapses (composite m): `A_.25 ≈ 1.45–1.57`, `A_.5 ≈ 1.95`,
-  `A_.75 ≈ 2.36–2.40`. The one-parameter Poisson profile `F(A) = 1 − exp(−κA³)` with κ fitted
-  at A_.5 (κ = ln 2/1.95³ ≈ 0.094) predicts F(1.5) = 0.27, F(2.37) = 0.71 — a good fit. This is
-  PW's heuristic `exp(−(log p)³/m)` with an effective constant κ ≈ 0.09.
+**Odd m** (`scripts/emn2_half_odd.out.txt`, same command with
+`61,63,75,81,99,105,135,151,165,189,225,251,255,273,293,297`): `L_{1/2}/m^{1/3}` = 1.79 (63), 1.79 (75),
+1.77 (81), 1.78 (99), 1.83 (105), 1.83 (135), 1.85 (165), 1.84 (189), 1.92 (225), 1.81 (255), 1.87 (273);
+primes 1.63 (61), 1.79 (151), 1.71 (251), 1.80 (293).
+
+* **Even m ∈ [60, 300]** (all sampled composites in the table above are even; R-self MAJOR 5):
+  `L_{1/2}/m^{1/3} = 1.95 ± 0.05` with no trend; local log-log slope 60 → 300: `0.333`. A
+  `(log m)^{4/3}` (MN Cor D) or `(log m)^{−2/3}` (PW) correction would change the ratio by factors
+  1.53 resp. 0.76 over this range; neither is visible.
+* **Odd m** sit lower (odd composites 1.77–1.92, odd primes 1.63–1.80) and drift upward: local
+  slopes 0.36 (odd composites 63 → 273) and 0.40 (primes 61 → 293). This is a **parity effect**, not a
+  prime/composite effect. The data are consistent with a common limit near 1.95 approached from
+  below for odd m, but cannot by themselves exclude a slowly varying factor for odd m. Within each
+  parity class there is no visible dependence on φ(m)/m.
+* **Width.** The window `L_.75 − L_.25 ≈ 0.4 L_.5` does not shrink over this range. In
+  `A = L/m^{1/3}` the profile for even m ≥ 60 roughly collapses: `A_.25 ∈ [1.27, 1.59]`,
+  `A_.5 ≈ 1.95`, `A_.75 ∈ [2.27, 2.41]`. The one-parameter Poisson-cube profile
+  `F(A) = 1 − exp(−κA³)` fitted at A_.5 (κ = ln 2/1.95³ ≈ 0.094) predicts F(1.5) = 0.27,
+  F(2.37) = 0.71, consistent with the data. This matches PW's heuristic `exp(−(log p)³/m)` with an
+  effective constant κ ≈ 0.09. Finite data; a non-shrinking window is conjectural (C2).
 * **Overdispersion** (`scripts/emn2_lambda.out.txt`, count mode): the mean number of Type I+II
   tuples per prime is far above `−log(1−F)`: e.g. m = 200, N = 2^20: mean 4.85 tuples, yet only
   74% of primes are representable (Poisson would give 99.2%). Solutions cluster (fibre effect:
   `p mod m` and p modulo small primes fix most of the mass, cf. MN §4). Type I solutions dominate
   (m = 200, N = 2^20: 72% of primes have a Type I solution, 24% a Type II solution, 75% either).
 
-Assessment: the data support "transition at `log N ≍ m^{1/3}` exactly, with a non-degenerate
-profile F(A)", i.e. g ≡ 1 and **no sharp threshold constant** — the right theorem is two-sided
-at the scale, not a 0–1 law at a constant. (Conjecture C2 below.)
+Assessment: the data (even m especially) support "transition at `log N ≍ m^{1/3}` with a
+non-degenerate profile F(A)", i.e. g ≡ 1 and no sharp threshold constant (Conjecture C2). Odd m
+show a slower approach. Proportions are over primes `p ∤ m` (the scanner skips p | m).
 
 ## 3. Lower side: re-deriving PW's first moment with smaller losses
 
@@ -297,7 +308,7 @@ Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, e.g. when `L �
 
 ```
 gcc -O2 -o /tmp/emn2_scan scripts/emn2_scan.c -lm
-uv run --with sympy python scripts/emn2_brute.py 40 1500                      # validation, ~1 min
+uv run --with sympy python scripts/emn2_brute.py 40 1500   # per-prime validation, exit 1 on mismatch, ~1 min
 ulimit -v 8000000; timeout 3000 uv run python scripts/emn2_transition.py 600 8,16,32,64,128,200 6 22
                                                      # -> scripts/emn2_transition.out.txt, ~20 min
 ulimit -v 8000000; timeout 3000 uv run python scripts/emn2_transition.py 300 16,64,128,200 8 20 1
@@ -306,4 +317,6 @@ ulimit -v 8000000; timeout 3500 uv run --with sympy python scripts/emn2_half.py 
   6,8,10,12,16,20,24,30,36,48,60,64,72,90,100,101,120,127,128,150,180,199,200,210,240,256,300
                                                      # -> scripts/emn2_half.out.txt, ~40 min
 ```
+ulimit -v 8000000; timeout 5000 uv run --with sympy python scripts/emn2_half.py 800 \
+  61,63,75,81,99,105,135,151,165,189,225,251,255,273,293,297   # -> scripts/emn2_half_odd.out.txt
 (Sampling is deterministic: every k-th prime; 2 worker processes.)
