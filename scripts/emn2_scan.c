@@ -3,7 +3,7 @@
  *   Type II: exists a,b,e: e | a+b, mab | p+e   (then mab <= 2p, PW (3.4); e < mab so
  *            e = (-p mod mab) is forced)
  *   Type I : exists a,d,f: f | m a^2 d + 1, mad | p+f   (mad <= 3p, PW Lemma 7.4)
- * Usage: emn2_scan m P1 P2 [count]   -> scans primes p in (P1, P2]
+ * Usage: emn2_scan m P1 P2 [count [stride]]  (stride k: test every k-th prime)   -> scans primes p in (P1, P2]
  * Output: m P1 P2 nprimes nrep nTypeIIonly nTypeIonly [sumII sumI] (counts of tuples if count=1)
  * Counting mode counts Type II tuples (a,b) and Type I tuples (a,d,f) (f a divisor in the class).
  */
@@ -35,9 +35,9 @@ static long typeI(u64 m, u64 p, int count){ long c=0;
   }
   return c; }
 int main(int argc,char**argv){ if(argc<4){fprintf(stderr,"usage\n");return 1;}
-  u64 m=strtoull(argv[1],0,10), P1=strtoull(argv[2],0,10), P2=strtoull(argv[3],0,10); int count=argc>4?atoi(argv[4]):0;
+  u64 m=strtoull(argv[1],0,10), P1=strtoull(argv[2],0,10), P2=strtoull(argv[3],0,10); int count=argc>4?atoi(argv[4]):0; u64 stride=argc>5?strtoull(argv[5],0,10):1; u64 idx=0;
   long np=0,nrep=0,n2only=0,n1only=0; double s2=0,s1=0;
-  for(u64 p=P1+1;p<=P2;p++){ if(!isprime(p)) continue; if(m%p==0) continue; np++;
+  for(u64 p=P1+1;p<=P2;p++){ if(!isprime(p)) continue; if(m%p==0) continue; if((idx++)%stride) continue; np++;
     long t2=typeII(m,p,count), t1=typeI(m,p,count);
     if(t2||t1) nrep++; if(t2&&!t1) n2only++; if(t1&&!t2) n1only++; s2+=t2; s1+=t1; }
   printf("%llu %llu %llu %ld %ld %ld %ld %.6f %.6f\n",m,P1,P2,np,nrep,n2only,n1only,count?s2/np:-1.0,count?s1/np:-1.0);
