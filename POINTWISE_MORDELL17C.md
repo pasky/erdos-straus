@@ -99,3 +99,36 @@ python3 $W/scripts/m17c_tail_cum.py 15 9 961421 1419857        # §1 table, row 
 for F in 17 4913 1001 9999; do python3 $W/scripts/m17c_qcheck.py $F; done   # Lemma 2.1 (9999: ~1 min)
 python3 -c "import math;print(sum(3*17**(1-k/2)*(1+k*math.log(17)) for k in range(9,401,2)))"  # Cor 2.2: 4.2254e-3
 ```
+
+## 4. Averaging over K cannot rescue P (Assessment, with EVIDENCE)
+
+Lemma 1.1 allows averaging over `K' ≤ K`. Fix `(a,b)`, `17∤ab`, `a ≤ b`, `m = 4ab`, and a divisor `e | a+b`. By M17B
+Lemma 5.1, the admissible exponents are the odd `K'` with `17^{K'} ≡ −e (mod m)` and `17^{K'} + e ≥ m`. Hence:
+* *(PROVED.)* The admissible `K'` form one class mod `lcm(2, ord_m 17)`, or none. A triple `(a,b,e)` is
+  counted in `S_P(K)` iff its least admissible exponent `K_min(a,b,e)` (a discrete logarithm of `−e`, lifted above
+  `log_17 m`) is `≤ K`.
+* *(PROVED.)* Correction to a tempting simplification: 17 is never a primitive root mod `m` when `ab > 1`.
+  `(ℤ/4ab)^×` is not cyclic once `ab` has an odd prime factor, and `17 ≡ 1 (mod 16)` forces `−e ≡ 1 (mod gcd(m,16))`.
+  So only a *proportion* of the divisors `e | a+b` can qualify, never all of them.
+* *(EVIDENCE, `scripts/m17c_dlog.py B`, all pairs with `ab ≤ B`, `17∤ab`, `17∤cd` ignored, so an over-count.)* Let
+  `E_∞` be the number of triples `(a,b,e)` that admit *some* odd exponent. That is what any argument blind to the size of the
+  discrete log can at best bound.
+
+  | B | pairs | Σ τ(a+b) | E_∞ | E_∞/Σ τ | E_∞/(B ln B) | #K_min ≤ 13 | median K_min | max K_min |
+  |---|---|---|---|---|---|---|---|---|
+  | 3000 | 11344 | 78148 | 1361 | 1.7 % | 0.057 | 123 | 167 | 2811 |
+  | 30000 | 143819 | 1237333 | 14901 | 1.2 % | 0.048 | 231 | 1411 | 28795 |
+
+  So `E_∞` grows like `B·(log B)^{≈1}`, a positive-proportion slice of `Σ τ(a+b) ≍ B log² B`. The exponents are spread
+  up to `≈ m` (median `K_min ≈ 0.05·B`, while `log_17(4B) ≈ 4`), and only a tiny, slowly growing set has
+  `K_min ≤ 13`.
+* *(Assessment.)* Every P-point of level `≤ K` has `4ab ≤ 17^K + a + b`, so the pairs entering `S_P(K)` have
+  `B ≈ 17^K/4`. An argument that uses only "some exponent works", which is all that averaging over `K'` without
+  locating the discrete log provides, therefore bounds `S_P(K)` by something of order `E_∞ ≈ 17^K·K`. That is θ ≈ 1,
+  far above any admissible `C·17^{θK}` with θ < 1/2. A proof of (H_P^cum) must show that
+  `#{(a,b,e): 4ab ≲ 17^K, K_min(a,b,e) ≤ K}` is `≪ 17^{θK}`. That is a statement that the discrete logs of `−e` modulo `4ab`
+  rarely fall in the short initial window `[log_17 4ab, K]`, i.e. a discrete-log equidistribution bound (in the heuristic
+  model the window has relative length `≈ K/ord_m 17`, giving the observed `≍ K³`). Nothing explicit of this kind is known.
+  So the cumulative form (Lemma 1.1) improves the constant but not the difficulty. **(H_P) stays CONDITIONAL.**
+
+Replay: `python3 scripts/m17c_dlog.py 3000; python3 scripts/m17c_dlog.py 30000` (< 1 min each).
