@@ -116,7 +116,9 @@ height $>1.32\cdot10^{12}$, and $C(7)>1.32\cdot10^{12}$ under H.  The
 $2$-adic levels $5$ and $6$ are empty (\status{proved}).  Certificates in
 the sign fibre are norm-one units of a Pell order of a special shape
 (\status{proved}), and none at $\hat x_9$ has $2$-adic level $\le22$ and
-$v_7(k)\le3$, at any height (\status{certified}).  The Type~I-sterile
+$v_7(k)\le3$, at any height (\status{certified}).  At the levels $7$--$10$
+a certificate at $\hat x_9$ needs $v_7(k)\ge8$ and lies in one explicit
+two-parameter regime (\status{proved} and \status{certified}).  The Type~I-sterile
 set is nowhere dense (\status{proved}), and a measure criterion would give
 $C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
 \item \emph{$r=13$} (\S\ref{sec:mordell}).  Primes with $(p/13)=-1$
@@ -799,7 +801,7 @@ Equivalently, with $D:=7^{a+b}\delta$, $g:=4P_1k'-D$ and $h:=4P_1k'+D$,
 \[
 c'gh-P_1=2^{L-4}\,7^{a+2b},\qquad F=8c'k'g-1,\quad e=8c'k'h-1 .
 \]
-Conversely, every solution of \eqref{eq:pell} in positive integers with
+Conversely, for $L\ge7$ (R98 repair), every solution of \eqref{eq:pell} in positive integers with
 $P_1Q_1=c_o\delta^2+2^{L-4}$, $\delta$, $a$, $c'$, $k'$ odd and
 $7\nmid c'k'$ gives a fibre certificate, with $F,e=A\mp8n\delta$ and
 $A=2\cdot7^aQ_1\cdot49^b+1$, for each split $\alpha+2\gamma=L$.
@@ -854,8 +856,14 @@ at any height and for any $v_7(c)$.  The author's engine
 written independently by the reviewer in other coordinates and with its
 own bounds (\texttt{review\_typei4\_jsearch.c}), reproduces the lists
 exactly for $L\le8$, $b\le6$; $L\le10$, $b\le5$; $L\le17$, $b\le3$;
-$L\le18$, $b\le2$; $L\le23$, $b\le1$; and $L\le26$, $b=0$.  The remaining
-ranges rest on one engine.
+$L\le18$, $b\le2$; $L\le23$, $b\le1$; and $L\le26$, $b=0$.  A third
+complete engine, written from scratch in a later review in the
+coordinates of \cite[Lemma~3.1]{PT4} and checked against a
+height-bounded brute force from the definition
+(\texttt{review\_r98\_fibre.c}), reproduces the lists exactly on all
+ranges of the computation, and the engine \texttt{review\_typei5\_relax.c}
+of the review of \cite{PT5} finds no fibre certificate with $L\le10$,
+$b\le9$ (R98 repair).
 \end{computation}
 
 This bound is of a different type from Computation~\ref{comp:sign}: the
@@ -883,12 +891,76 @@ $m:=c'\delta^2$.  Then for $7\nmid j$ the integer $\lambda:=(\rho j-m)/u$,
 where $\rho:=(4u+j)/P_1$, is even with $2\le\lambda\le4j+j^2/u$, and
 $7^{b-a}<2\lambda j^3+10j^2+37j$.  So for each fixed $j$ prime to $7$
 only finitely many $b$ occur, and $j=1$ occurs for no $b$
-\cite[Lemma~3.6]{PT4} (\status{proved}).  Unbounded $j$ together with
-$b\to\infty$, and the case $7\mid j$, remain open.  The method should
-apply verbatim to $L=8,9,10$, but this has not been carried out.  Our
-assessment is that the remaining question is exponential-Diophantine
-(a tower of powers of $7$), so linear forms in logarithms are more likely
-to help than reciprocity (\status{Assessment}).
+\cite[Lemma~3.6]{PT4} (\status{proved}).  The integrality of $\lambda$
+holds without the hypothesis $7\nmid j$, and at every level $L\ge5$, if
+one puts $j:=T7^b/2-y$: modulo $u$ one has $\rho P_1\equiv j$,
+$mP_1\equiv j^2$ and $7\nmid P_1$ \cite[Lemma~3.1]{PT5}.  The following
+results of \cite{PT5} (reviewed in
+\texttt{reviews/pointwise-typei5-review.md}) treat the levels
+$L=7,\dots,10$ uniformly (R98 repair).
+
+\begin{proposition}[\status{proved}; {\cite[Lemma~1.1, Cor.~1.2]{PT5}}]\label{prop:minunit}
+Let $P,Q\ge1$ be integers with $7\mid Q$ and $PQ$ not a square, and let
+$(X_1,u_1)$ be the solution of $16PX^2-Qu^2=1$ in positive integers with
+$u_1$ least.  If some solution has $u$ odd, then no positive solution
+other than $(X_1,u_1)$ has $u$ a power of $7$.  Consequently a fibre
+certificate is determined by $(a,c',\delta,P_1)$, with $7^b=u_1$, and its
+unit $A+8k_o\sqrt d$ is $\varepsilon$ or $\varepsilon^2$, where
+$\varepsilon$ is the fundamental norm-one unit of $\Z[\sqrt d]$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Put $\alpha=4X_1\sqrt P+u_1\sqrt Q$.  The positive solutions are the
+$\alpha^n$ with $n$ odd: $\alpha^2$ generates the positive part of the
+group $\{A+4B\sqrt d:A^2-16dB^2=1\}$, since otherwise there would be a
+smaller solution, or $P$ would be a square and every $u$ even.  Write
+$\alpha^n=4X_n\sqrt P+u_n\sqrt Q$.  Then $u_n=u_1L_n$ with integers
+$L_n\equiv n\pmod7$, $L_7\equiv7\pmod{49}$, $L_7>7$, and
+$L_{mn}(\alpha)=L_n(\alpha)L_m(\alpha^n)$.  Writing $n=7^rn'$ with
+$7\nmid n'$ shows that $L_n$ is a power of $7$ only for $n=1$.  For the
+certificate apply this to $P=c'P_1$, $Q=7^aQ_1$ of
+Proposition~\ref{prop:pell}; $d=PQ$ is not a square as $v_7(d)=a$ is
+odd.  Details are in \cite[\S1]{PT5}.
+\end{proof}
+
+In particular $b$ is a function of the field data, and an engine that
+runs over $d$ and tests $\varepsilon$ and $\varepsilon^2$ is complete for
+all $b$.  Such an engine, which needs $\varepsilon$ only modulo $2^{64}$
+and $7^{22}$ along the continued fraction of $\sqrt d$, is
+\texttt{typei5\_dmod.c} \cite[\S2]{PT5}.
+
+\begin{theorem}[\status{proved} and \status{certified}; {\cite[Prop.~3.3, Lemma~3.6, Thm.~3.7]{PT5}}]\label{thm:L710}
+Let $L\in\{7,8,9,10\}$, put $u=7^b$, $j:=Tu/2-y$, $m:=c'\delta^2$,
+$\rho:=(Tu-y)/P_1$, $\lambda:=(\rho j-m)/u$ and
+$\Delta:=8j\cdot7^am+6Tj-T^2u$.  A certificate at $\hat x_9$ of level $L$
+satisfies all of the following.
+\begin{enumerate}
+\item[(a)] $2y<T7^b$ (\status{proved}, by hand).
+\item[(b)] $\lambda\ge1$ and $\Delta>2Tj$.  (\status{proved} that
+$\lambda=0$ is impossible and that $\Delta=2Tj$ forces $L=9$, $b=0$,
+which Computation~\ref{comp:anyheight} excludes;
+\status{proved} that the regimes $\lambda<0$ and $\Delta<2Tj$ are finite
+at each $L$, and \status{certified} that they are empty by a complete
+computation, reproduced independently in review.)
+\item[(c)] $v_7(k)\ge8$ (\status{certified},
+Computation~\ref{comp:anyheight} and two further complete engines;
+$v_7(k)\ge10$ by one engine).
+\item[(d)] $c_o\delta>10^6$ (\status{certified} by
+\texttt{typei5\_dmod.c}, valid for all $b$ by
+Proposition~\ref{prop:minunit}; one engine, replayed in review).
+\end{enumerate}
+\end{theorem}
+
+In the remaining regime, with $\sigma:=\Delta-2Tj\ge1$, one has
+$7^b<4j^2/\sigma$, and for each fixed $(\sigma,a,\lambda)$ there are
+finitely many explicit candidates \cite[Prop.~3.3(v)]{PT5}.  What is open
+is that $\sigma$ and $\lambda$ are unbounded.  By
+Proposition~\ref{prop:minunit} this asks whether $7^b$ can be the
+$\sqrt Q$-coefficient of the minimal solution for a two-parameter family
+of fields $d=c_o(c_o\delta^2+T)$.  Linear forms in logarithms bound
+exponents in a fixed field or a fixed recurrence, so they do not apply
+directly, and reciprocity gives no obstruction either (\status{Assessment},
+\cite[\S3]{PT5}).
 
 \subsection{Scope of a sterility proof}
 
@@ -1103,14 +1175,21 @@ small height in these subcells.  One of them is the point
 $x^{**}$ with $x^{**}_{11}=2$, $x^{**}_{13}=15$ and $x^{**}_q=1$ for
 every other prime $q$; it also lies in $\Sigma_{13}$.
 
-\begin{computation}[\status{certified} within the stated ranges, one
-engine per family group; {\cite[Comp.~5.1]{PM13B}}]\label{comp:xss}
-The point $x^{**}$ lies in no ET class of family II3, I3 or I1 with
-$e$ (resp.\ $f$) $\le10^8$; of family II2 with $f\le3\cdot10^7$; or of
-family I2, II1 or I4 with $f$ (resp.\ $e$) $\le2\cdot10^7$ and
-$\{11,13\}$-exponents of absolute value at most $12$.  For II3, I3, I1 and
-II2 these ranges impose no restriction on the $\{11,13\}$-part of the
-modulus.
+\begin{computation}[\status{certified} within the stated ranges; {\cite[Comp.~5.1, 5.3]{PM13B}}]\label{comp:xss}
+The point $x^{**}$ lies in no ET class of family II3, I3, I1 or II2 with
+$e$ (resp.\ $f$) $\le10^9$, and in no class of family I2, II1 or I4 with
+$f$ (resp.\ $e$) $\le2\cdot10^7$ and $\{11,13\}$-exponents of absolute
+value at most $12$.  For II3, I3, I1 and II2 these ranges impose no
+restriction on the $\{11,13\}$-part of the modulus: the box conditions
+force $v_q(ad)\le v_q(e+x^{**}_q)\le8$ for $q\in\{11,13\}$ (II2:
+$v_q(ad)\le v_q(f+1)\le8$), within the engine's exponent cap.
+Engines: \texttt{m13b\_target.c} (all four families, $e\le10^9$) and
+\texttt{m13b\_target2.c} (I2, II1, I4).  The ranges $e\le10^8$ for II3, I3,
+I1 were reproduced by an independent engine in the review of
+\cite{PM13B}, and $e,f\le10^7$ for all four families by a further
+engine written from scratch from the ET class definitions
+(\texttt{review\_r98\_xss.c}, R98 repair); the rest rests on one
+engine.
 \end{computation}
 
 \begin{conjecture}[\status{evidence} only; {\cite[Conj.~5.2]{PM13B}}]\label{conj:xss}
@@ -1126,8 +1205,8 @@ primes up to finitely many exceptions.  This would say nothing about
 whether ES holds for these primes.  The conjecture is not equivalent to
 the non-existence of such a covering (Remark~\ref{rem:direction}).  The
 support for it is weak.  The point $x^*$ was covered at
-$e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes four orders of
-magnitude further in $e$.  No tail bound of the kind in
+$e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes almost five
+orders of magnitude further in $e$ (R98 repair).  No tail bound of the kind in
 Theorem~\ref{thm:tail17} is available here.
 
 \emph{Why the odd-square obstruction would not explain $x^{**}$.}  The
@@ -1379,8 +1458,9 @@ Prove Conjecture~\ref{conj:sign}, or find a certificate at $\hat x_9$.
 Two routes are visible.  The first is the $7$-adic tower of
 \S\ref{subsec:pell}.  By Proposition~\ref{prop:pell} each pair (level
 $L$, $v_7(k)=b$) is a finite computation at all heights, so what is open is
-$b\to\infty$ at the levels $L=7,\dots,10$ (at $L=7$: gaps $j\ge2$ and
-$7\mid j$ in \cite[Lemma~3.6]{PT4}).  At the levels $L\ge11$, where the
+$b\to\infty$ at the levels $L=7,\dots,10$; by Theorem~\ref{thm:L710} only
+the regime $\Delta>2Tj$ with unbounded $(\sigma,\lambda)$ remains there
+(R98 repair).  At the levels $L\ge11$, where the
 fibre is inhabited (Remark~\ref{rem:fibrescope}), the exact value $w=9$
 must be used.  The second route is an explicit bound for the
 near-miss count of Remark~\ref{rem:measure}, small enough that the tail
@@ -1422,7 +1502,7 @@ suggest sterile sets of positive measure \emph{within} these thin fibres
 
 \section*{Acknowledgements and provenance}
 This note collects results first written up in the working notes
-\cite{PS,PT1,PT2,PT3,PT4,PM,PM17} of this project, each internally reviewed
+\cite{PS,PT1,PT2,PT3,PT4,PT5,PM,PM13B,PM17} of this project, each internally reviewed
 by a hostile reviewer who re-derived the proofs and re-ran the main
 computations from independent code (reports in \texttt{reviews/}).  The
 certificates of Theorem~\ref{thm:r13} are in \texttt{data/mordell/}, and
@@ -1473,6 +1553,9 @@ conjecture, research note, this repository
 \bibitem{PT4} Companion note in this repository,
 \texttt{POINTWISE\_TYPEI4.md}; internally reviewed in
 \texttt{reviews/pointwise-typei4-review.md}.
+\bibitem{PT5} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI5.md}; internally reviewed in
+\texttt{reviews/pointwise-typei5-review.md}.
 \bibitem{PM} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell-review.md}.
