@@ -39,8 +39,16 @@ static u128 mulmod(u128 a, u128 b, u128 m) {
 }
 static u128 gcd128(u128 a, u128 b) { while (b) { u128 t = a % b; a = b; b = t; } return a; }
 /* inverse of a mod m (gcd must be 1), m >= 1 */
+static u64 inv64(u64 a, u64 m) {
+    int64_t t = 0, nt = 1; u64 r = m, nr = a % m;
+    while (nr) { u64 q = r / nr; int64_t tt = t - (int64_t)q * nt; t = nt; nt = tt; u64 rr = r - q * nr; r = nr; nr = rr; }
+    if (r != 1) { fprintf(stderr, "inv64: not invertible\n"); exit(2); }
+    if (t < 0) t += (int64_t)m;
+    return (u64)t;
+}
 static u128 inv128(u128 a, u128 m) {
     if (m == 1) return 0;
+    if ((m >> 63) == 0) return inv64((u64)(a % m), (u64)m);
     i128 t = 0, nt = 1; u128 r = m, nr = a % m;
     while (nr) { u128 q = r / nr; i128 tt = t - (i128)q * nt; t = nt; nt = tt; u128 rr = r - q * nr; r = nr; nr = rr; }
     if (r != 1) { fprintf(stderr, "inv128: not invertible\n"); exit(2); }
@@ -254,45 +262,55 @@ static void factorA(u128 A) {
     qsort(fs, nf, sizeof(u128), cmpu);
     for (int i = 0; i < nf; i++) { if (nAP && AP[nAP - 1] == fs[i]) AE[nAP - 1]++; else { AP[nAP] = fs[i]; AE[nAP++] = 1; } }
 }
-/* per-L cache: for each f = 3 mod 4 in ODD: sorted residues r = -4a^2 d mod f with ad | A */
+/* global cache f -> sorted residues r = -4a^2 d mod f over ad | A = (f+1)/4 (built lazily, flushed when full) */
 typedef struct { u128 r, a, d; } II2e;
 typedef struct { u128 f; II2e *e; int n; } II2f;
-static II2f *C2 = 0; static int nC2 = 0;
 static u128 *ADV; static int nADV, capADV;
 static void gen_A(int i, u128 v) {
     if (i == nAP) { if (nADV == capADV) { capADV = capADV ? 2 * capADV : 1024; ADV = realloc(ADV, capADV * sizeof(u128)); } ADV[nADV++] = v; return; }
     u128 w = v; for (int e = 0; e <= AE[i]; e++) { gen_A(i + 1, w); w *= AP[i]; }
 }
 static int cmpe(const void *a, const void *b) { u128 x = ((const II2e *)a)->r, y = ((const II2e *)b)->r; return x < y ? -1 : x > y; }
-static void build_II2(void) {
-    for (int j = 0; j < nC2; j++) free(C2[j].e);
-    free(C2); C2 = malloc(sizeof(II2f) * (nODD + 1)); nC2 = 0;
-    for (int j = 0; j < nODD; j++) {
-        u128 f = ODD[j].v; if (f % 4 != 3) continue;
-        u128 A = (f + 1) / 4; factorA(A); nADV = 0; gen_A(0, 1);
-        int cap = 0;
-        /* pairs (a,d): a | A, d | A/a */
-        II2e *arr = 0; int n = 0;
-        for (int t = 0; t < nADV; t++) {
-            u128 a = ADV[t], R = A / a;
-            for (int s = 0; s < nADV; s++) {
-                u128 d = ADV[s]; if (R % d) continue;
-                if (n == cap) { cap = cap ? 2 * cap : 64; arr = realloc(arr, cap * sizeof(II2e)); }
-                u128 r = (f - mulmod(mulmod(4 * a % f, a, f), d, f)) % f;
-                arr[n].r = r; arr[n].a = a; arr[n].d = d; n++;
-            }
-        }
-        qsort(arr, n, sizeof(II2e), cmpe);
-        C2[nC2].f = f; C2[nC2].e = arr; C2[nC2].n = n; nC2++;
+#define HBITS 21
+#define HCAP (1L << HBITS)
+static II2f *H = 0; static long Hused = 0, Hent = 0;
+static long hslot(u128 f) {
+    long h = (long)(((u64)f ^ (u64)(f >> 64)) * 0x9E3779B97F4A7C15ull >> (64 - HBITS));
+    while (H[h].f && H[h].f != f) h = (h + 1) & (HCAP - 1);
+    return h;
+}
+static II2f *get_II2(u128 f) {
+    if (!H) H = calloc(HCAP, sizeof(II2f));
+    long h = hslot(f);
+    if (H[h].f == f) return &H[h];
+    if (Hused > HCAP / 2 || Hent > 4000000) {
+        for (long t = 0; t < HCAP; t++) free(H[t].e);
+        memset(H, 0, HCAP * sizeof(II2f)); Hused = Hent = 0; h = hslot(f);
     }
+    u128 A = (f + 1) / 4; factorA(A); nADV = 0; gen_A(0, 1);
+    II2e *arr = 0; int n = 0, cap = 0;
+    for (int t = 0; t < nADV; t++) {             /* pairs (a,d): a | A, d | A/a */
+        u128 a = ADV[t], R = A / a;
+        for (int s = 0; s < nADV; s++) {
+            u128 d = ADV[s]; if (R % d) continue;
+            if (n == cap) { cap = cap ? 2 * cap : 64; arr = realloc(arr, cap * sizeof(II2e)); }
+            u128 r = (f - mulmod(mulmod(4 * a % f, a, f), d, f)) % f;
+            arr[n].r = r; arr[n].a = a; arr[n].d = d; n++;
+        }
+    }
+    qsort(arr, n, sizeof(II2e), cmpe);
+    H[h].f = f; H[h].e = arr; H[h].n = n; Hused++; Hent += n;
+    return &H[h];
 }
 static int famC(void) {
-    for (int j = 0; j < nC2; j++) {
-        u128 f = C2[j].f;
+    for (int j = 0; j < nODD; j++) {
+        u128 f = ODD[j].v;
+        if (f % 4 != 3) continue;
         if (REQ > 1 && f % REQ) continue;
-        u128 r = X % f; II2e *e = C2[j].e; int lo = 0, hi = C2[j].n;
+        II2f *c = get_II2(f);
+        u128 r = X % f; II2e *e = c->e; int lo = 0, hi = c->n;
         while (lo < hi) { int md = (lo + hi) / 2; if (e[md].r < r) lo = md + 1; else hi = md; }
-        for (; lo < C2[j].n && e[lo].r == r; lo++) if (emit("II2", e[lo].a, e[lo].d, f)) return 1;
+        for (; lo < c->n && e[lo].r == r; lo++) if (emit("II2", e[lo].a, e[lo].d, f)) return 1;
     }
     return 0;
 }
@@ -304,7 +322,6 @@ static void setL(u128 L) {
     for (int i = 0; i < K; i++) E4[i] = (P[i] == 2) ? E[i] - 2 : E[i];
     nD4 = 0; gen_d4(0, 1);
     qsort(D4, nD4, sizeof(u128), cmpu);
-    build_II2();
 }
 
 int main(int argc, char **argv) {
