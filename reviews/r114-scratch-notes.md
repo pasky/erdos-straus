@@ -12,3 +12,7 @@
 - ET checks: Thm 1.1 quote OK; p.5 quote OK; p.36 parenthesis "[sic] Type II case" OK; (1.4) OK; Prop 2.2 map (abdn,acd,bcd) OK; Lemma 2.8 bounds OK; (8.1)-(8.2) OK.
 - DEFECT: BT-layer cites [ET,(A.10)] with explicit constant 2y/(phi(q)log(y/q)) for an interval of length y. ET (A.10) is pi(N;q,a) << N/(phi(q)log(N/q)) (initial segment, implied const). Should cite MV (interval version, const 2). MINOR.
 - Prop 3.3 exponents/area 1/6 OK; Rem 3.2 fibres OK; L8.3, L8.4, L8.2 re-derived OK. Notation clash: Prop 2.3 "Fix l" (exponent) vs l squarefree divisor in L8.4 proof. MINOR.
+- Source consistency: (SEL) quantifiers match LOGLOG §5; Prop 2.3 matches MN3 (renamed vars); Prop 3.3 matches; MN3 Thm 3.8 step (1) matches (split by ad vs c, equivalent); Theorem L' exists in MN3 §2; remark (b) after Thm 3.8 exists; (H**) §3.5 ok.
+- char-norm identity with h_q (incl. q=1) re-derived OK; Deviation 2 confirmed.
+- Deviation 1 (kappa_c) confirmed: l|c, chi=1 gives 2l(l-1).
+- Fricke/e-cusp involution OK.
