@@ -248,3 +248,35 @@ For odd `p^k ∥ d` and primitive `Q₀ = [A,B,C]` with `p ∤ A` (WLOG after SL
 `p | s` give `Q₀ ≡ A t² ≢ 0`; points `(t:1)` need `(2At + B)² ≡ B² − 4AC ≡ 0 (p^k)`, i.e. t in one class
 mod `p^{⌈k/2⌉}`: `p^{⌊k/2⌋}` points. For `p = 2` the same argument with `4A` gives `≤ 4·2^{⌊k/2⌋}`.
 `Σ_{d≤D} r(d) d^{1/2} log d ≪ D^{3/2} (log D) Σ_{m} m/m^{3}·… ≪ D^{3/2}(log D)^3`. ∎
+
+## 7. The complementary counts (PROVED, unconditional; Poisson + Weil)
+
+Fix `c`, a squarefree `q` and smooth weights `W_i ∈ C_c^∞([1,2])`. 𝓛 = log N.
+
+**Proposition 7.1 ((K_a): fixed a).** Let `(q, 2a) = 1`, `m = 4a²`, and
+`S_a(q) := Σ_{e,f ≥ 1, ef ≡ 1 (m), q | n} W₁(e/E) W₂(d/D)`, `d := (ef−1)/m`, `n := 4acd − f`.
+Then `S_a(q) = g'_{c,a}(q) S_a(1)·(1 + O(N^{−10})) + O(𝓛^C τ(a)^C q · a)`, where
+`g'_{c,a}(ℓ) = #{(e,f) ∈ 𝔽_ℓ² : f(ce − a) ≡ c}/ℓ² = (ℓ−1)/ℓ²` (ℓ ∤ c) resp. `1/ℓ` (ℓ | c), and
+`S_a(1) ≍ D φ(m)/m` (main term `= (φ(m)/m²)∫∫W₁(e/E)W₂((ef−1)/(mD)) de df`).
+*Proof.* For `(q,2a)=1`, `q | n ⟺ f(ce − a) ≡ c (q)` (multiply `a n = c(ef−1) − af` by `ā`). So
+`(e,f)` runs over a set `𝒮 ⊂ (ℤ/mq)²` of residue pairs, `|𝒮| = φ(m)·ℓ-counts`. Poisson in `(e,f)`
+mod `mq`: `S = (mq)^{−2} Σ_{h,k} Ŵ(h/(mq), k/(mq)) Σ_{(e,f)∈𝒮} e((he+kf)/(mq))`, with
+`Ŵ(ξ,η) = ∫∫W₁(x/E)W₂((xy−1)/(mD)) e(−ξx−ηy)dxdy`. The function has `x ≍ E`, `y ≍ mD/E =: F`, and
+derivatives `∂_x^i ∂_y^j ≪ E^{−i}F^{−j}`, so `Ŵ(h/(mq), k/(mq)) ≪_B EF (1+|h|E/(mq))^{−B}(1+|k|F/(mq))^{−B}`.
+By CRT the complete sum is `S(h q̄, k q̄; m)·T_q(h m̄, k m̄)` with `|T_q| ≤ Π_{ℓ|q} 2ℓ` (a sum over a
+curve mod ℓ; trivially `≤ ℓ`… `≤ ℓ+1`) and Weil `|S(h',k';m)| ≤ τ(m)(h',k',m)^{1/2} m^{1/2}`. The
+`(h,k) = (0,0)` term is the main term (`|𝒮|EF·…/(mq)²`, which factorises as `g'(q)` times the q = 1 term).
+The remaining terms: `≪ (EF/(mq)²) Σ_{(h,k)≠0} (1+|h|E/mq)^{−B}(1+|k|F/mq)^{−B} τ(m)(h,k,m)^{1/2} m^{1/2} 3^{ω(q)}q`
+`≪ 𝓛^C τ(a)^C q m^{1/2} (1 + EF/(mq)^2·…)`; using `EF ≍ mD` and `(1 + mq/E)(1 + mq/F) ≥ …` this is
+`≪ 𝓛^C τ(a)^C q·(a + D/q^{…})`, and the `D/q`-type pieces are the Ramanujan-sum terms `h = 0` or `k = 0`,
+which are `≪ (E + F)/m^{1/2}·q ≤ …`; in all cases `≪ 𝓛^C τ(a)^C q (a + (E+F)/a)`. Since `E,F ≤ 2mD` and
+`(E+F)/a ≤ a` unless one of e, f exceeds `a²`, in which case the corresponding dual sum is empty and
+the bound is `≪ q a`. ∎
+*Consequence.* Summing `|R|` over `a ≍ A` and `q ≤ Q`: `≪ 𝓛^C Q² A²` against the mass `≍ A D`: a level
+`Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`, i.e. `α < (1−γ)/2`.
+
+**Proposition 7.2 (M2: a small divisor).** Let `(q, 2d) = 1`, `e ≤ E`. For fixed `(d, e)`,
+`#{a : a ≍ A, e | 4a²d+1, q | n} = W-weighted (A/(eq))·ρ_{d,e,c}(q) + O(ρ_{d}(e)·3^{ω(q)})`, where
+`ρ_d(e) = #{x mod e: 4dx²+1 ≡ 0}` and `ρ_{d,e,c}(q)` counts the admissible classes mod `eq`. (Poisson in
+`a` mod `eq`, trivial.) Summed over `d ≍ D`, `e ≍ E`, `q ≤ Q`: error `≪ 𝓛^C D E Q²`… against mass `AD`:
+level `Q = (A/E)^{1/2}𝓛^{−C}` when `E < A`. The same with f in place of e.
