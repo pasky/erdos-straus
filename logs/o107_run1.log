@@ -1,0 +1,63 @@
+# Fri Oct  9 13:49:20 CEST 2026 m13e_run.sh 1 4600000000 /tmp/o107/run  (git 91a45ed)
+N=11 ES=9 boxes=30 hits2,15=0 hits2,2=0
+N=13 ES=4 boxes=26 hits2,15=0 hits2,2=0
+N=121 ES=24 boxes=24 hits2,15=0 hits2,2=0
+N=143 ES=218 boxes=377 hits2,15=0 hits2,2=0
+N=169 ES=24 boxes=22 hits2,15=0 hits2,2=0
+N=1331 ES=204 boxes=467 hits2,15=0 hits2,2=0
+N=1573 ES=672 boxes=843 hits2,15=0 hits2,2=0
+N=1859 ES=918 boxes=994 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=2197 ES=212 boxes=641 hits2,15=0 hits2,2=0
+N=14641 ES=401 boxes=282 hits2,15=0 hits2,2=0
+N=17303 ES=3193 boxes=3676 hits2,15=0 hits2,2=0
+N=20449 ES=2645 boxes=949 hits2,15=0 hits2,2=0
+N=24167 ES=3529 boxes=3952 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=28561 ES=412 boxes=388 hits2,15=0 hits2,2=0
+N=161051 ES=1178 boxes=1769 hits2,15=0 hits2,2=0
+N=190333 ES=6458 boxes=4785 hits2,15=0 hits2,2=0
+N=224939 ES=11896 boxes=8029 hits2,15=0 hits2,2=0
+N=265837 ES=10182 boxes=6589 hits2,15=0 hits2,2=0
+N=314171 ES=7465 boxes=5540 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=371293 ES=1399 boxes=2651 hits2,15=0 hits2,2=0
+N=1771561 ES=1823 boxes=1114 hits2,15=0 hits2,2=0
+N=2093663 ES=16413 boxes=14194 hits2,15=0 hits2,2=0
+N=2474329 ES=22118 boxes=5579 hits2,15=0 hits2,2=0
+N=2924207 ES=38741 boxes=22732 hits2,15=0 hits2,2=0
+N=3455881 ES=21063 boxes=5207 hits2,15=0 hits2,2=0
+N=4084223 ES=18106 boxes=14786 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=4826809 ES=2296 boxes=1553 hits2,15=0 hits2,2=0
+N=19487171 ES=4103 boxes=5037 hits2,15=0 hits2,2=0
+N=23030293 ES=27872 boxes=15052 hits2,15=0 hits2,2=0
+N=27217619 ES=58657 boxes=30630 hits2,15=0 hits2,2=0
+N=32166277 ES=70285 boxes=25116 hits2,15=0 hits2,2=0
+N=38014691 ES=72578 boxes=26261 hits2,15=0 hits2,2=0
+N=44926453 ES=50677 boxes=21446 hits2,15=0 hits2,2=0
+N=53094899 ES=32148 boxes=18764 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=62748517 ES=5371 boxes=7868 hits2,15=0 hits2,2=0
+N=214358881 ES=6194 boxes=2915 hits2,15=0 hits2,2=0
+N=253333223 ES=53341 boxes=33863 hits2,15=0 hits2,2=0
+N=299393809 ES=93301 boxes=18106 hits2,15=0 hits2,2=0
+N=353829047 ES=153217 boxes=56844 hits2,15=0 hits2,2=0
+N=418161601 ES=131104 boxes=20668 hits2,15=0 hits2,2=0
+N=494190983 ES=147231 boxes=55404 hits2,15=0 hits2,2=0
+N=584043889 ES=87551 boxes=16905 hits2,15=0 hits2,2=0
+N=690233687 ES=65248 boxes=46711 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+N=815730721 ES=7839 boxes=4253 hits2,15=0 hits2,2=0
+N=2357947691 ES=12890 boxes=13320 hits2,15=0 hits2,2=0
+N=2786665453 ES=82161 boxes=37918 hits2,15=0 hits2,2=0
+N=3293331899 ES=169830 boxes=55803 hits2,15=0 hits2,2=0
+N=3892119517 ES=251233 boxes=68110 hits2,15=0 hits2,2=0
+N=4599777611 ES=281231 boxes=73091 hits2,15=0 hits2,2=0
+# Fri Oct  9 16:34:39 CEST 2026 done
