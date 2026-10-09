@@ -58,6 +58,10 @@ proportion of $m$-exceptional primes tends to $1$ when
 $\log N\,(\log\log N)^{1/3}/m^{1/3}\to0$ (a sharpening of a first-moment count of Pomerance and Weingartner).
 The remaining gap is a factor $(\log\log N)^{1/3}$ in $\log N$, which is
 exactly the open $\log\log N$ in Elsholtz and Tao's Type~I prime count.
+Conditionally on Selberg's eigenvalue conjecture for the groups
+$\Gamma_0(mdq^2)$ with even nebentypus, this loss disappears: the proportion
+of representable primes is $\ll(\log N)^3/m+(\log N)^2\log^2m/m+m^{-0.35}$,
+so the transition is at $\log N\asymp m^{1/3}$, with matching orders on both sides.
 Numerically (even $m\in[60,300]$) % R104 repair
 half of the primes are representable at
 $\log N\approx1.95\,m^{1/3}$, and we conjecture a non-degenerate profile
@@ -67,11 +71,14 @@ The method is the one of an earlier internal note on $4/n$ over
 $[1,N]$, which we use as a black box.  What we add is a local transfer
 to arbitrary windows, through a smooth-part decomposition, and the
 replacement of the numerator $4$ by $m$, which turns cubic logarithmic
-class mass into $(\log X)^3/m$.  \textbf{Status:} every result except the
+class mass into $(\log X)^3/m$.  \textbf{Status:} every unconditional result except the
 lower side of the transition is proved \emph{relative to that note},
 which is internally proved and has \emph{not} been externally refereed;
 the lower side is proved relative to a published divisor-sum bound of
 Elsholtz and Tao and to a modification of the proof of another.  % R104 repair
+The conditional sharp order is proved relative to a further internal
+note on the Type~I sum for $m=4$ and an internal working document; the
+range in which it actually uses the conjecture is $m\leq(\log N)^5$.
 This note has not been externally refereed either.
 Nothing here bears on the existence of exceptions; this is not a proof of
 the Erd\H{o}s--Straus conjecture or of Schinzel's conjecture.
@@ -227,8 +234,18 @@ $(\log L)^{1/3}=(\log\log N)^{1/3}$ in $\log N$ (near the transition
 $\log L\asymp\log m$);
 Corollary~\ref{cor:D} with \cite{PW} gave $(\log m)^2(m/\varphi(m))^{1/3}$.
 The remaining loss is exactly the Brun--Titchmarsh $\log\log N$ of
-\cite[Thm.~1.1]{ET}, open even for $m=4$ (for $m=4$ it is removed
-conditionally on Selberg's eigenvalue conjecture, Remark~\ref{rem:sel}).
+\cite[Thm.~1.1]{ET}, open even for $m=4$.  Conditionally on a uniform
+form (SEL$_m$) of Selberg's eigenvalue conjecture it is removed,
+uniformly in $m$ (Section~\ref{sec:sel}, from \cite{MN4}):
+\[
+ \rho_{\rm rep}(m,N)\ll\frac{L^3+L^2\log^2m}m+m^{-0.35}\qquad(L=\log N),
+\]
+where (SEL$_m$) is used only when $m\leq L^5$ (Theorem~\ref{thm:selL}).  With
+Theorem~U this places the transition at $\log N\asymp m^{1/3}$, with
+matching orders on both sides (Corollary~\ref{cor:sharp}).  Unconditionally,
+for $m=4$, the $\log\log N$ is reduced to $o(\log\log N)$ without a rate
+\cite[Thm.~1]{HN}; whether this transfers to general $m$ is open
+(Remark~\ref{rem:seluncond}).
 For even $m\in[60,300]$ the computed half-point is
 $\log N=(1.95\pm0.05)m^{1/3}$, and the transition window does not shrink
 (\status{evidence}, Section~\ref{sec:numerics}); Conjecture~C2 asserts
@@ -262,8 +279,9 @@ with $H<\e^{c(\log x)^{3/4}}/C$ without proving that there are no
 exceptions at all beyond some point (Proposition~\ref{prop:E}).
 
 \subsection*{Status and novelty}
-Every statement labelled \status{proved} here, except Theorem~L$'$ and
-the lemmas of Section~\ref{sec:lower}, is proved \emph{relative to}
+Every statement labelled \status{proved} here, except Theorem~L$'$,
+the lemmas of Section~\ref{sec:lower} and the unconditional range of
+Theorem~\ref{thm:selL} (which follows from them), is proved \emph{relative to}
 \cite{TQ}: the steps that change are written out in full, and the
 remaining steps are cited from \cite{TQ} by name.  The note \cite{TQ}
 is internally proved; it has \emph{not} been refereed externally, and
@@ -274,7 +292,10 @@ received two further independent internal reviews (no fatal or major
 defect; minor repairs incorporated); the Type~I count of Theorem~L$'$ comes from \cite{MN3},
 which replaces the divisor-sum lemma of \cite{MN2} and received one
 further internal hostile review (no fatal or major defect; minor repairs
-incorporated).  Theorem~L$'$ is proved relative to
+incorporated).  Section~\ref{sec:sel} comes from \cite{MN4} (one further
+internal hostile review, no fatal or major defect) and is \status{conditional}
+on (SEL$_m$); its proof is relative to \cite{HN}, which is internally
+reviewed only.  Theorem~L$'$ is proved relative to
 \cite[Thm.~7.1]{ET}; from the proof of \cite[Prop.~1.4]{ET} we
 depart by keeping a coprimality indicator and using P\'olya--Vinogradov
 (Lemma~\ref{lem:ETPV}, checked against \cite[pp.~25--32]{ET} by a
@@ -314,7 +335,8 @@ windows and progressions and proves Theorems~\ref{thm:A},~\ref{thm:B}
 and Corollary~\ref{cor:C}.  Section~\ref{sec:transition} proves
 Corollary~\ref{cor:D} and Theorems~U and~L$'$, compares them with
 \cite{PW} and \cite{Els}, and reports numerics and Conjecture~C2;
-Section~\ref{sec:lowerend} discusses the lower
+Section~\ref{sec:sel} gives the sharp order of the transition under
+Selberg's eigenvalue conjecture; Section~\ref{sec:lowerend} discusses the lower
 end of the window range, Section~\ref{sec:literature} the literature,
 and Section~\ref{sec:open} lists open problems.
 
@@ -1528,9 +1550,10 @@ $(\log m)^2(m/\varphi(m))^{1/3}$, and the version of Theorem~L$'$ in
 \cite{MN2}, with $\varphi(m)$ in place of $m$, gave
 $(m\log m/\varphi(m))^{1/3}$.  The remaining loss has a single source, on
 the lower side: the Brun--Titchmarsh $\log L$ in the Type~I count, which
-is the open $\log\log N$ of \cite[Thm.~1.1]{ET}.  Removing it would give
+is the open $\log\log N$ of \cite[Thm.~1.1]{ET}.  Removing it gives
 the exact scale: $\rho_{\rm rep}\to0$ if $A\to0$ and $\rho_{\rm exc}\to0$
-if $A\to\infty$.
+if $A\to\infty$.  This is done conditionally on Selberg's eigenvalue
+conjecture in Section~\ref{sec:sel}.
 
 \begin{remark}[a conditional route to the exact scale]\label{rem:sel}
 For $m=4$, an internal working document \cite{TTL} proves
