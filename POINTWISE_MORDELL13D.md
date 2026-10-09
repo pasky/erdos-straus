@@ -67,3 +67,8 @@ open mass `4.6·10⁻⁶` (×900 worse than 2.2), open children per expansion st
 *every* split `q` (each prime `< 120`, or the next power of a prime of L): minimum **2** (at `2⁷`: 2/2 and `3⁵`: 2/3);
 best non-trivial: `29` 4/28, `37` 5/36, `53` 6/52, `11²` 5/11; powers of primes where `x ≡ 1` (17, 23, 31, 43, 47, 5, 7)
 leave ≈ all children open; new primes `> 60` leave 20–40% open. No split leaves ≤ 1 open child.
+
+**Computation 2.6 (20 random open leaves of run 2.2, all splits, primes < 120; logs/o103_minopen20.log).**
+Minimum number of open children over all splits: 0 (3 nodes), 1 (9), 2 (8); mean 1.25. The argmin is mostly
+`2⁷` or `3⁵` — **beyond the exponent caps of runs 2.1–2.2** (2⁶, 3⁴), which is why those runs looked so
+supercritical — or a new prime 29, 37, 53. Next: unbounded-ish 2-/3-adic refinement, always C-scored.
