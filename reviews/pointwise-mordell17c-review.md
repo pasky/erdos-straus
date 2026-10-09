@@ -7,7 +7,17 @@ From-scratch scripts: `scripts/review_m17c_*.py` (the author's scripts were not 
 
 | claim | verdict |
 |---|---|
-| Lemma 1.1 (cumulative (H_P),(H_Q)) + table | SOUND (minor wording) |
+| Lemma 1.1 (cumulative (H_P),(H_Q)) + table | SOUND (m1) |
+| Lemma 2.1 (i)–(iv) | SOUND |
+| Cor 2.2 (c ≥ F^{1/2} unconditional, cost 4.3·10⁻³) | SOUND |
+| Assessment 2.3 | label correct; SOUND-AFTER-REPAIRS (m2) |
+| §3 Assessment | SOUND-AFTER-REPAIRS (m3, m4) |
+| §4 PROVED bullets | SOUND-AFTER-REPAIRS (m6) |
+| §4 EVIDENCE table | SOUND (reproduced exactly); growth description wrong (m5) |
+| §4 Assessment, (H_P) CONDITIONAL | SOUND |
+
+No FATAL or MAJOR defects. All repairs below are MINOR and have been applied in this branch to POINTWISE_MORDELL17C.md,
+marked "(R98b repair, applied by reviewer)".
 
 ## Claim-by-claim
 
@@ -76,3 +86,36 @@ methodological and correctly not claimed as theorems, but two sentences overclai
 * Assessment: the reduction "(H_P^cum) ⇔ discrete logs of −e rarely fall in `[log_17 4ab, K]`" is a correct reformulation
   (modulo the multiplicity remark m7). Label CONDITIONAL for (H_P) correct.
 
+## Defects (all MINOR; repairs applied)
+
+**m1 (Lemma 1.1, table row 3).** `S_P` is defined from `K' = 13`, but the K ≥ 15 / ρ₂ row needs the sum from `K' = 15`
+(K = 13 is already in ρ₂). Repair: state that for that row `S_P` starts at 15 (a bound for the sum from 13 implies it).
+
+**m2 (Assessment 2.3, coverage list).** The corner `α, γ → 0`, `δ → 1` (a, c tiny, d ≈ F/4) has cost → 1 in both the
+`(a,d)` and `(c,d)` regimes and fails both Lenstra and the 1/4-threshold in `(a,c)`. It is covered only by a τ-bound for
+`τ(aF+c)` in the `(a,c)` regime (cost `α+γ+o(1)`), which the list does not mention (it mentions only `τ(F²+4c²d)` for tiny
+`cd`, i.e. the corner `α → 1`). Repair: add it.
+
+**m3 (§3, first bullet label).** "(PROVED, exponent bookkeeping)" is a statement about a class of methods ("a bound that
+charges ≥ 1 per parameter pair"), not a theorem about D_P. Repair: relabel "Assessment (exponent bookkeeping; trivially
+true in the stated cost model)".
+
+**m4 (§3, second bullet).** "So the θ = 0.4 constant cannot be met at any K" rests on (a) the unproved claim that every
+proved e-regime bound is `≫ X_e (ln N)²` with an unspecified constant, and (b) fixing `X_ad = N^{0.4}` instead of optimising
+the four thresholds. Also "Only θ close to 1/2 leaves room" is inaccurate: every θ > 0.4 leaves room asymptotically;
+the K beyond which it does grows as θ ↓ 0.4. Repair: soften both sentences.
+
+**m5 (§4 EVIDENCE, growth).** "E_∞ grows like `B·(log B)^{≈1}`, a positive-proportion slice of `Σ τ(a+b) ≍ B log² B`" is
+internally inconsistent (B log B is not a positive proportion of B log² B) and the data contradict "positive proportion":
+E_∞/Στ = 1.74, 1.40, 1.20, 1.04, 0.92 % for B = 3·10³, 10⁴, 3·10⁴, 10⁵, 3·10⁵ (this review), and E_∞/(B ln B) falls
+0.057 → 0.044; locally `E_∞ ≈ B(log B)^{0.4–0.5}`. Consequently "E_∞ ≈ 17^K·K" should read `17^{K}·K^{O(1)}`.
+The conclusion θ ≈ 1 is unaffected. Repair: replace the sentence, add the extended rows.
+
+**m6 (§4, "counted in S_P(K) iff K_min ≤ K").** `S_P(K) = Σ_{13≤K'≤K} D_P(K')` counts a triple once *per* admissible
+`K' ∈ [13, K]`, and a triple with `K_min < 13` still contributes through `K_min + j·lcm(2, ord)` ≥ 13. Repair: "contributes
+`#{admissible K' ∈ [13,K]}` to `S_P(K)`; for `K_min ≥ 13` it is counted iff `K_min ≤ K`".
+
+## Overall
+The O98 claims are correct where labelled PROVED, and the numbers are reproducible: table of Lemma 1.1 (18/18 entries),
+Lemma 2.1 counts (4/4 F values + exhaustive sweep F ≤ 1500), Cor 2.2 sum, §4 table (2/2 rows, all columns). (H_P) correctly
+stays CONDITIONAL; no unconditional sterile point is claimed. Defects are presentational/overclaim-level only.
