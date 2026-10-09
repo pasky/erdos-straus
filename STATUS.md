@@ -209,7 +209,7 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     (Prop 2.1, PROVED); regime (v) is the generic large-unit regime (Lemma 3.1), and at L = 13 it is
     inhabited (Remark 1.2), so a closing argument must use T ≤ 64. Under abc each level has finitely
     many certificates (Thm 3.2, CONDITIONAL). CERTIFIED: no fibre certificate at `x̂_9` with
-    L = 7–10 and v_7(k) ≤ 15, at any height (two engines except (L, b) = (9,15), (10,14), (10,15)).
+    L = 7–10 and v_7(k) ≤ 15, at any height (two engines, all cells; O115).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level

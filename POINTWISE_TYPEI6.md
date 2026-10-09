@@ -177,7 +177,24 @@ Lemma 3.6, Comp 3.4, Prop 3.3(iv)); regime (v) for `b ≤ 15` by Comp 4.1 (the o
 `L = 9`, `b = 12`). It also checked completeness against R92's size-free relaxed brute force (all odd `u ≤ 20001/10001/6001/4001`
 at `L = 7/8/9/10`): exactly the 5 regime-(v) relaxed solutions `(L,u) = (7,293), (8,9883), (9,1853), (9,4003), (10,293)` are found
 and nothing else. R99 also ran `(L,b) = (7,14), (7,15), (8,14), (8,15), (9,14)`: 0 solutions, same candidate counts. So everything in Cor 4.2 is
-confirmed by two engines except `(L,b) = (9,15), (10,14), (10,15)`, which rest on Comp 4.1 alone.
+confirmed by two engines except `(L,b) = (9,15), (10,14), (10,15)`, which rest on Comp 4.1 alone. *(O115: these three are now
+two-engine as well, see below "Two-engine completion (O115)"; **all of Cor 4.2 is two-engine**.)*
+
+*Two-engine completion (O115).* `scripts/review_typei6_vsearch.c` (R99; `gcc -O2 -lgmp`, `ulimit -v 8000000`, one core)
+on the three remaining cells (control first: `(9,13)` reproduces R99's log line exactly):
+
+| `(L,b)` | solutions | divisors | pass exact bound (R99) | Comp 4.1 candidates | time |
+|---|---|---|---|---|---|
+| `(10,14)` | 0 | 8 002 236 766 | 1 499 924 669 | 1 499 924 669 | 2289 s |
+| `(9,15)` | 0 | 11 791 748 895 | 2 178 532 979 | 2 178 532 980 | 3855 s |
+| `(10,15)` | 0 | 30 779 322 842 | 5 491 182 408 | 5 491 182 409 | 13187 s |
+
+Both engines: 0 solutions in all three cells. The two off-by-one counts are the same safe-direction slack effect as at
+`(9,12)`, `(9,14)` (author's `1+10⁻⁹` long-double slack admits a superset): `scripts/o115_slack_boundary.py` (exact
+rationals; boundary `c'` per `(a,δ,P_1)`, `P_1 ≤ 999`) finds exactly one slack-only candidate in each off-by-one cell and none in the third
+— `(9,15)`: `(a,c',δ,P_1) = (1, 1359402097, 1, 3)`, relative violation `3.2·10⁻¹⁰`; `(10,15)`: `(1, 4940395087, 1, 1)`,
+`7.4·10⁻¹⁰`; `(10,14)`: none — and, as controls, re-finds R99's `(9,12)` extra `(1, 40012187, 1, 1)`, one at `(9,14)`, none at
+`(10,13)`. Logs: `reviews/agent-reports/O115_two_engine_log.txt`.
 So a certificate at `x̂_9` of level 7–10 needs `v_7(k) ≥ 16` and `c_oδ > 10⁶` and, by Lemma 3.1(c), `7^{v_7(k)} ≳ 8c_oδ³√P/T²`.
 
 ## 5. Heuristic size of what remains (EVIDENCE / Assessment)
