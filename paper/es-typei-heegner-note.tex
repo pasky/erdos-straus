@@ -18,6 +18,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{assessment}[theorem]{Assessment}
 \newtheorem{problem}{Problem}
+\newtheorem*{theorem*}{Theorem}
 \numberwithin{equation}{section}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\N}{\mathbb N}
@@ -37,32 +38,32 @@
 \DeclareMathOperator{\disc}{disc}
 \DeclareMathOperator{\lcm}{lcm}
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
-\title[The Elsholtz--Tao Type I sum]{The Elsholtz--Tao Type~I sum: an unconditional improvement, and the removal of the double logarithm under Selberg's conjecture}
+\title[The Elsholtz--Tao Type I sum]{The Elsholtz--Tao Type~I sum is $O(N\log^2N)$}
 \author{Anonymous}
 \date{Draft, October 2026; internal checks only, not externally refereed}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
-We prove without any hypothesis that the sum
-$\sum_{p\le N}f_I(p)$ is $o(N\log^2N\log\log N)$, improving the upper bound of
-Elsholtz--Tao for Type~I solutions of $4/p=1/x+1/y+1/z$; more precisely
-the sum is at most $C\varepsilon_0N\log^2N\log\log N+O_{\varepsilon_0}(N\log^2N)$
-for every $\varepsilon_0>0$. Assuming Selberg's eigenvalue conjecture for
-$\Gamma_0(4dq^2)$ with even nebentypus modulo $2q$, or alternatively a
-bound $C_\varepsilon\le\exp(\exp(A/\varepsilon))$ for the constants in
-Deshouillers--Iwaniec's Theorem~7 and its nebentypus form due to Drappeau,
-we prove $\sum_{p\le N}f_I(p)\ll N\log^2N$.
+We prove that $\sum_{p\le N}f_I(p)\ll N\log^2N$, where $f_I(p)$ counts the
+Type~I solutions of $4/p=1/x+1/y+1/z$. This removes the double logarithm
+from the upper bound of Elsholtz--Tao, who conjectured that it can be
+removed; with their lower bound the sum has exact order $N\log^2N$.
 The associated CM lifts of discriminant $-4d$ are uniformly separated
 in $\HH$. Sobolev duality and the spectral large sieve give a per-$d$
 count complementary to a per-$a$ Poisson--Weil count; their savings
-degenerate linearly at $d=a$. Without a spectral hypothesis, the
-exceptional spectrum is controlled on average over the levels
-$4dq^2$, $d\asymp D$, by Deshouillers--Iwaniec's bound for $a_n=1$
-(in Drappeau's nebentypus form, which we read as uniform in the
-character modulus), after partial summation; only the unquantified $\varepsilon$-constant in
-that bound prevents the full removal of $\log\log N$. All results are
-relative to cited inputs, including the inherited Elsholtz--Tao/internal-note
-reduction, and have received internal review only, not external refereeing.
+degenerate linearly at $d=a$. The exceptional spectrum is controlled on
+average over the levels $4dq^2$, $d\asymp D$, by Deshouillers--Iwaniec's
+Theorem~7 for $a_n=1$ and its nebentypus form due to Drappeau, after
+partial summation. To remove the last $\log\log N$ we make both estimates
+effective, with $\varepsilon$-constant $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$;
+this requires repairs of a few printed details and, for nebentypus, an
+extra branch of the induction. Using only the published, unquantified
+form of these estimates one gets $o(N\log^2N\log\log N)$; under Selberg's
+eigenvalue conjecture a shorter proof gives $O(N\log^2N)$.
+The results are proved relative to classical inputs listed explicitly
+(exact trace formulae, Weil-type bounds, Selberg's $3/16$, and others) and to
+the inherited Elsholtz--Tao/internal-note reduction. They have been
+reviewed internally only and need expert scrutiny.
 \end{abstract}
 \maketitle
 \setcounter{tocdepth}{1}
@@ -90,20 +91,43 @@ Their parenthesis nevertheless says no similar trick seems available in the
 ``Type II case'' [sic]; reading this as Type~I is the interpretation of
 \cite[\S1]{MN3}, not the literal quotation.
 
-Our first result is unconditional.
+Our main result removes the double logarithm.
+\begin{introthm}\label{thm:main}
+\[
+ \sum_{p\le N}f_I(p)\ll N\log^2N .
+\]
+Hence, by \eqref{A:eq:et}, $\sum_{p\le N}f_I(p)\asymp N\log^2N$.
+\end{introthm}
+This is Theorem~\ref{E:main}(ii). It is \status{proved} relative to the
+cited inputs listed under ``Status and dependencies'' below, which include the
+classical black boxes (B1)--(B5) of Appendix~\ref{sec:eff}:
+\begin{enumerate}
+\item[(B1)] the Petersson and Kuznetsov trace formulae for $\Gamma_0(q)$, for
+$(\Gamma_0(M),\chi)$ \cite[Lemma~4.5]{Dr}, and for $\SL_2(\Z)$;
+\item[(B2)] Weil's bound for Kloosterman sums;
+\item[(B3)] a twisted Weil bound with absolute constants \cite[Lemma~4.2]{Dr};
+\item[(B4)] Selberg's eigenvalue bound $\lambda_1\ge3/16$ for congruence subgroups;
+\item[(B5)] $\lambda_1(\SL_2(\Z))>1/4$ \cite[Theorem~3]{DI}.
+\end{enumerate}
+The proof uses Deshouillers--Iwaniec's bound \cite[Theorem~7]{DI} for the
+exceptional spectrum averaged over the level, and its nebentypus form
+\cite[Lemma~4.10]{Dr}, with a quantified $\varepsilon$-constant
+$C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$. Neither paper specifies this dependence. Appendix~\ref{sec:eff}
+proves it (Theorem~\ref{A:eff}) by re-deriving the proofs with explicit constants.
+Two weaker statements need less.
 \begin{introthm}\label{thm:uncond}
-There is an absolute constant $C$ such that for every $\varepsilon_0\in(0,1/4]$
+Using \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr} only in their published,
+unquantified form \textup(and not Appendix~\ref{sec:eff}\textup), there is an
+absolute constant $C$ such that for every $\varepsilon_0\in(0,1/4]$
 \[
  \sum_{p\le N}f_I(p)\le C\varepsilon_0N\log^2N\log\log N+O_{\varepsilon_0}(N\log^2N).
 \]
 In particular $\sum_{p\le N}f_I(p)=o(N\log^2N\log\log N)$.
 \end{introthm}
-This is Theorem~\ref{E:main}(i). The improvement is not quantified: the
-rate is governed by the $\varepsilon$-dependence of the constant in a
-cited estimate of Deshouillers and Iwaniec \cite[Theorem~7]{DI} and in its
-nebentypus form \cite[Lemma~4.10]{Dr}, which those papers do not specify
-(Theorem~\ref{E:main}(iii) gives the rate in terms of that dependence).
-Under either of two hypotheses the double logarithm disappears.
+This is Theorem~\ref{E:main}(i); Theorem~\ref{E:main}(iii) gives the rate for
+any growth of $C_\varepsilon$. Second, Theorem~\ref{thm:main} has a shorter
+proof under Selberg's eigenvalue conjecture for the relevant family, which
+avoids \cite[Theorem~7]{DI}, \cite[Lemma~4.10]{Dr} and the appendix.
 Put $\Delta=y^2(\partial_x^2+\partial_y^2)$, so that $-\Delta$ is nonnegative.
 \begin{hypothesis}[SEL]\label{hyp:sel}
 For every $d\ge1$, every odd squarefree $q\ge1$ with $(q,d)=1$, and every
@@ -111,22 +135,14 @@ even Dirichlet character $\chi$ modulo $2q$ (equivalently modulo $q$),
 $-\Delta$ on $L^2(\Gamma_0(4dq^2)\backslash\HH,\chi)$ has no eigenvalue in
 $(0,1/4)$.
 \end{hypothesis}
-The hypothesis covers the whole family; estimates are uniform in levels
-and characters. Constants are removed before applying the spectral estimate.
-The second hypothesis, (EFF) (Hypothesis~\ref{hyp:eff}), states that the
-constants $C_\varepsilon$ in \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr}
-satisfy $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$. It concerns
-the bookkeeping in two published proofs, not automorphic spectra; an
-internal audit suggests that it holds (Assessment~\ref{E:ass}).
-\begin{introthm}\label{thm:main}
-Assume \textup{(SEL)} or \textup{(EFF)}. Then
-\[
- \sum_{p\le N}f_I(p)\ll N\log^2N.
-\]
-\end{introthm}
-Under (SEL) this is Theorem~\ref{L:8.1}; under (EFF) it is
-Theorem~\ref{E:main}(ii). Neither theorem concerns the existence of an
-Erd\H{o}s--Straus representation for every prime; they are average upper bounds.
+\begin{theorem*}[Theorem~\ref{L:8.1}]
+Under \textup{(SEL)}, $\sum_{p\le N}f_I(p)\ll N\log^2N$.
+\end{theorem*}
+This was the first route (Sections~\ref{sec:reduction}--\ref{sec:assembly}); the
+estimates are uniform in levels and characters, and constants are removed
+before the spectral estimate is applied. None of these results concerns the
+existence of an Erd\H{o}s--Straus representation for every prime; they are
+average upper bounds.
 
 The new input is uniform separation of the level-$d$ CM points of
 discriminant $-4d$. Sobolev duality then pairs them with a mean-zero
@@ -138,8 +154,8 @@ Lemma~\ref{L:1.1} sums the saving even though it degenerates linearly at
 that boundary. Only absolute errors averaged over $d$, not uniform
 per-packet relative errors, are used.
 
-The exceptional spectrum is the only obstacle to an unconditional
-version. Single-level estimates (Kim--Sarnak, \cite[Theorem~5]{DI}) leave a
+The exceptional spectrum is the only obstacle to removing (SEL).
+Single-level estimates (Kim--Sarnak, \cite[Theorem~5]{DI}) leave a
 strip of positive width next to $d=a$ (Section~\ref{sec:uncond}). The
 remedy (Section~\ref{sec:exc}) is that the assembly already sums over
 $d\asymp D$, i.e.\ over the levels $4dq^2$, and that the unfolded
@@ -149,24 +165,44 @@ whole level-averaged exceptional spectrum at the size of the regular
 spectrum, up to $C_\varepsilon N^{O(\varepsilon)}$. Against the saving
 $N^{-\delta/4}$, $\delta=2\alpha-1+\gamma$, this leaves untreated only the
 layers with $\delta<w$, for any fixed $w>0$; they cost
-$O(wN\log^2N\log\log N)$, which gives Theorem~\ref{thm:uncond}, and (EFF)
-allows $w\asymp1/\log\log N$.
+$O(wN\log^2N\log\log N)$, which gives Theorem~\ref{thm:uncond}. The
+effective bound $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$ allows
+$w\asymp1/\log\log N$, which gives Theorem~\ref{thm:main}.
+
+Appendix~\ref{sec:eff} proves that bound. Every $\varepsilon$-loss in DI's
+proof of Theorem~7 (via their Theorems~2 and~14 and Lemma~8.1) is replaced
+by an explicit constant. A Gevrey-class cutoff controls the integrations
+by parts of growing order, and explicit divisor bounds produce the double
+exponential. The induction on $Q$ \cite[(8.19)]{DI} then closes with
+explicit constants (Proposition~\ref{A:ind}). In Drappeau's nebentypus
+version the switched modulus carries a factor $1/q_0$ and may fall below
+the induction range; an extra branch handles it. Several minor slips in
+the printed proofs were found and repaired (Section~\ref{sec:eff:corr}); none
+affects the theorems of \cite{DI,Dr}.
 
 \paragraph{Status and dependencies.}
-Theorem~\ref{thm:uncond} is \status{proved} relative to cited inputs, with no
-spectral hypothesis; Theorem~\ref{thm:main} is \status{conditional} on (SEL) or
-on (EFF), with a proof relative to the same inputs. These are the ET reduction (Proposition~2.2, Lemma~2.8,
+Theorems~\ref{thm:main} and~\ref{thm:uncond} are \status{proved} relative to
+cited inputs, with no spectral hypothesis, and Theorem~\ref{L:8.1} is
+\status{conditional} on (SEL). The cited inputs are the ET reduction (Proposition~2.2, Lemma~2.8,
 and (8.1)--(8.2)); the internal note \cite[Proposition~2.3 and
 proof of Theorem~3.8, step~(1)]{MN3} (MN3's Proposition~2.3 is
 Proposition~\ref{M:2.3} here; R114 repair); Deshouillers--Iwaniec \cite[Theorem~2]{DI} and
 Drappeau \cite[Proposition~4.7, arXiv numbering]{Dr}; the spectral theorem;
 Weil's bound; Brun--Titchmarsh; Selberg's upper-bound sieve; and
-P\'olya--Vinogradov. Theorem~\ref{thm:uncond} and the (EFF) case of
-Theorem~\ref{thm:main} use in addition \cite[Theorem~7]{DI},
-\cite[Lemma~4.10]{Dr} (read as uniform in the character modulus), and the
+P\'olya--Vinogradov. Theorems~\ref{thm:main} and~\ref{thm:uncond} use in
+addition \cite[Theorem~7]{DI}, \cite[Lemma~4.10]{Dr} (read as uniform in the
+character modulus; for Theorem~\ref{thm:main} this uniformity is proved in
+Appendix~\ref{sec:eff}), and the
 absence of nonconstant residual spectrum for congruence subgroups
-\cite{Iw,Hux}. Section~\ref{sec:exc} (O118) received two internal reviews of its
-source note, not of this write-up. DI Theorem~5 enters the discussion of exceptional
+\cite{Iw,Hux}. Theorem~\ref{thm:main} also uses Appendix~\ref{sec:eff}, which is
+\status{proved} relative to (B1)--(B5) and to the derivation files of its
+source note \cite{TTL3}. Some fixed absolute numerical majorants there were
+only shape-checked; this affects the numerical value of $A_0$, not the
+result. Appendix~\ref{sec:eff} and its source received
+three internal referee reports and two independent deep reviews, with no
+fatal or major findings; it has not been externally refereed.
+Section~\ref{sec:exc} (O118) received two internal reviews of its
+source note and an internal referee pass of the write-up (R118). DI Theorem~5 enters the discussion of exceptional
 spectrum, not the proofs. The (SEL) argument received internal
 adversarial review (R111, rounds 1--2), not external refereeing. That review did
 not re-check the inherited ET/MN3 reduction; MN3 received a separate internal
@@ -178,6 +214,7 @@ The book locators in \cite{Iw} are inherited from the source note
 and have not been independently verified; the same applies to the
 locators in \cite{HR} and to the precise statements of \cite{MV} and
 \cite{KS}, which were not available to the internal reviewers (R114 repair). Computational checks are not proofs.
+The result needs expert scrutiny before it is relied upon.
 
 \paragraph{Literature and scope.}
 A limited literature search found no later removal of the Type~I double
