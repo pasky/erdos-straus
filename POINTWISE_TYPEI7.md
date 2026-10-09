@@ -22,19 +22,21 @@ iff `v_2(F+9) ≥ t`. Since `t ≥ 2+⌈L/2⌉` with equality for `γ = ⌊L/2�
 v_2(F + 9) = 3 + v_2(E),     E := 5 − 9nδ − 2^{L−2} c_o k_o².                                  (1.1)
 ```
 
-In particular, for the minimal split, `F` is a certificate at `x̂_9` iff
-`9nδ + 2^{L−2}c_ok_o² ≡ 5 (mod 2^{⌈L/2⌉−1})`, and for `L ≥ 5` (where `⌈L/2⌉−1 ≤ L−2`) iff
+In particular, for a given split `(α,γ)`, `F` is a certificate at `x̂_9` iff
+`9nδ + 2^{L−2}c_ok_o² ≡ 5 (mod 2^{t−3})`, `t = 2+α+γ`; for **some** split (equivalently the minimal one,
+`t = 2+⌈L/2⌉`) iff this holds mod `2^{⌈L/2⌉−1}`, and as `⌈L/2⌉−1 ≤ L−2` for `L ≥ 2`, iff
 
 ```
-nδ ≡ 5·9^{−1} ≡ 5·57 ≡ 285 (mod 2^{⌈L/2⌉−1})     [9^{−1} ≡ 57 (mod 512)].                      (1.2)
+nδ ≡ 5·9^{−1} (mod 2^{⌈L/2⌉−1})     (inverse taken modulo 2^{⌈L/2⌉−1}; e.g. ≡ 285 mod 2^9, ≡ 797 mod 2^{10}).   (1.2)
 ```
 
-The cofactor `e` (the other orientation, `δ ↦ −δ`) is a certificate at `x̂_9` iff `−nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`.
+The cofactor `e` (the other orientation, `δ ↦ −δ`) is a certificate at `x̂_9` for some split iff
+`−nδ ≡ 5·9^{−1} (mod 2^{⌈L/2⌉−1})`.
 *Proof.* `e = F + 16nδ` and `Fe = N` give the exact identity `F² + 16nδF − 1 = 2^{L+2}c_ok_o²`.
 With `G := F + 9`: `(G−9)² + 16nδ(G−9) − 1 = G(G − 18 + 16nδ) + 80 − 144nδ`, so
 
 ```
-G·(G − 18 + 16nδ) = 16·E.
+G·(G − 18 + 16nδ) = −16·E.
 ```
 
 `F ≡ 7 (16)` gives `16 | G`, so `v_2(G − 18 + 16nδ) = 1`, and `v_2(G) + 1 = 4 + v_2(E)`. ∎
@@ -71,8 +73,9 @@ odd integer; `F ≡ 2^i ≡ 1 (mod 7)` gives `F+1 ≡ 2 (mod 7)`, so `7 ∤ c'`;
 `gcd(F, c') | gcd(F, F+1) = 1`. So `(c,k,F)` is a certificate at `x̂_w` (TYPEI2 §3), and it is a fibre certificate
 (TYPEI4 Lemma 1.1, `F ≡ 7 (16)`). ∎
 
-*Remarks.* (a) The certificate is **not** at `x̂_9`: its level satisfies `L ≡ 1−i (mod ord_F(2))` with `L−1+i ≥ log_2 F`,
-so `L` is of size `ord_F(2)` (typically ≈ `F ≥ 2^i ≥ 2^m`), far above `2·v_2(F+9)`. (b) The same argument shows that
+*Remarks.* (a) `L` may be taken arbitrarily large in its class mod `ord_F(2)`; by (b), once
+`2+⌈L/2⌉ > max(v_2(F+9), v_2(9F+1))` the certificate is **not** at `x̂_9`. (Heuristically even the least admissible `L`
+is of the size of `ord_F(2)`, as `2^{L−1+i} ≡ 1 (mod F)` forces `L−1+i ≥ log_2 F`; this is not needed.) (b) The same argument shows that
 every fixed triple `(c_o, k_o, F)` that is a fibre certificate at one level `L_0` is one at every level
 `L ≡ L_0 (mod ord_F(2))`, `L ≥ 7` (only `F | N` depends on `L`, and only through `2^L mod F`); for those `L` the
 closeness `v_2(F+9)` is constant and `v_2(e+9) = v_2(9F+1)` once `L+2 > v_2(9F+1)` (as `e ≡ F^{−1} (mod 2^{L+2})`).
@@ -93,10 +96,47 @@ The set `C_Φ` of points of `Φ` lying in some certificate class is open and den
 with `s` odd chosen so that `7^s ≡ −w_0 (mod 2^m)` (possible since `−w_0 ≡ 7 (16)`). The resulting certificate covers
 `x̂_w` for `w = −F ≡ w_0 (mod 2^m)`. ∎
 *Consequence (Assessment).* This is compatible with TYPEI3 §4 (EVIDENCE that the sterile part of `Φ` has Haar measure
-≈ 0.6): the sterile part, if non-empty, is a "fat Cantor set". No sterile point of `Φ` has a sterile neighbourhood, so any
+≈ 0.6): if TYPEI3's positive-measure evidence is right, the sterile part is a closed nowhere-dense set of positive measure
+(perfectness etc. not examined). No sterile point of `Φ` has a sterile neighbourhood, so any
 proof that a given point (e.g. `w = 9`) is sterile must use its exact 2-adic coordinate (not `w mod 2^j` for any fixed
 `j`), and the measure route of TYPEI3 Remark 4.1 must control infinitely many scales. This upgrades TYPEI4 Prop 4.1
 (levels 11–22, `w` only mod 16) to all depths.
+
+**Theorem 2.4 (density with `7 ∤ k` and `k` a power of 2; PROVED).** For every `w_0 ≡ 9 (mod 16)` and `m ≥ 4` there is a
+certificate of the shape
+
+```
+F = 71^ν (ν odd),   c = 2^α·7·c',  c' = (71^ν+1)/8,   k = 2^γ,   α+2γ = L,   7·2^{L−1} ≡ −1 (mod 71^ν),
+```
+
+with `−F ≡ w_0 (mod 2^m)`. So Corollary 2.3 holds already for the sub-union of classes with `a=1, b=0, k'=1`: neither the
+7-adic tower nor odd parts of `k` are needed to approximate any fibre point, in particular `x̂_9`.
+*Proof.* (i) `71 ≡ 7 (16)` and `v_2(71²−1) = v_2(5040) = 4`, so `71²` topologically generates `1+16ℤ_2` and `{71^ν : ν odd}` is
+dense in `7+16ℤ_2`; pick `ν` odd with `71^ν ≡ −w_0 (mod 2^m)`. (ii) `ord_71(2) = 35 = (71−1)/2` and `2^{70} ≢ 1 (mod 71²)`
+(`2^{70} ≡ 143`), so `ord_{71^ν}(2) = 35·71^{ν−1}` and `⟨2⟩` is the subgroup of squares of `(ℤ/71^ν)^×` (2 is a square as `71 ≡ 7 (8)`). `−7^{−1}` is a square
+mod 71 (`2^{29} ≡ −7^{−1} (mod 71)`), hence mod `71^ν` (Hensel). So an `L ≥ 7` with `2^{L−1} ≡ −7^{−1} (mod 71^ν)` exists
+(namely `L ≡ 1 + log_2(−7^{−1}) (mod 35·71^{ν−1})`). (iii) Certificate conditions: `F ≡ 7 (16)` so `c'` is odd;
+`F ≡ 1 (mod 7)` so `7 ∤ c'` and `F ≡ 1 (mod 7^{v_7(ck)} = 7)`; `c' | F+1`; `F` is prime to `4ck = 2^{2+α+γ}·7c'`;
+`N = 1+2^{L+2}·7c' ≡ 1 + 7·2^{L−1} ≡ 0 (mod F)` since `8c' ≡ 1 (mod F)`; `v_7(c) = 1` is odd. ∎
+*Check.* `ν = 1` gives `L ≡ 30 (mod 35)`; the `L = 30` certificate `(c',X) = (9,1)`, `F = 71` of Comp 3.1 is this one.
+
+**Computation 2.5 (CERTIFIED once replayed; `scripts/typei7_dense71.py 14`, 1 min).** Least odd `ν` with `71^ν ≡ −9 (mod 2^m)`
+and least level `L ≥ 7` (discrete log mod `35·71^{ν−1}`, Pohlig–Hellman), each certificate checked by modular arithmetic
+(`F | N`, (2.2)):
+
+| m | ν | bits of F | v_2(F+9) | L | t_min |
+|---|---|---|---|---|---|
+| 4 | 1 | 7 | 4 | 30 | 17 |
+| 5 | 3 | 19 | 5 | 109 685 | 54 845 |
+| 6 | 7 | 44 | 6 | 419 119 864 270 | ≈ 2.1·10¹¹ |
+| 7–10 | 15 | 93 | 10 | ≈ 2^91 | ≈ 2^90 |
+| 11 | 143 | 880 | 11 | ≈ 2^879 | ≈ 2^878 |
+| 12–14 | 399 | 2454 | 14 | ≈ 2^2452 | ≈ 2^2451 |
+
+So the approximating certificates exist explicitly; in these six rows (observation, not a theorem) the least level is of
+the size of `F` and `ν` grows roughly like `2^m`, so the closeness is tiny compared with what `x̂_9` needs
+(`v_2(F+9) ≥ 2+⌈L/2⌉`); none is at `x̂_9` (`at_x9=False` in the script output). *(Heuristic: the discrete log is
+"random" in `[0, ord_F(2))`, giving `v_2(F+9) ≈ log_2 log_2 L` in this family.)*
 
 ## 3. Data: closeness vs. level on complete `(L,b)` lists (CERTIFIED once replayed)
 
@@ -154,41 +194,6 @@ structured family whose `F mod 2^{t}` drifts towards `−9` with the level. What
 family would need `nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`, a condition on which the Pell structure (TYPEI4 Cor 1.4) imposes no
 local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 − c'D² ≡ 0 (mod 2^{L−4})` has a unique
 2-adic root `P_1` (Hensel; the derivative `32c'X²P_1 − 1` is odd), so every class of `nδ = c'XD` is locally realised.
-
-**Theorem 2.4 (density with `7 ∤ k` and `k` a power of 2; PROVED).** For every `w_0 ≡ 9 (mod 16)` and `m ≥ 4` there is a
-certificate of the shape
-
-```
-F = 71^e (e odd),   c = 2^α·7·c',  c' = (71^e+1)/8,   k = 2^γ,   α+2γ = L,   7·2^{L−1} ≡ −1 (mod 71^e),
-```
-
-with `−F ≡ w_0 (mod 2^m)`. So Corollary 2.3 holds already for the sub-union of classes with `a=1, b=0, k'=1`: neither the
-7-adic tower nor odd parts of `k` are needed to approximate any fibre point, in particular `x̂_9`.
-*Proof.* (i) `71 ≡ 7 (16)` and `v_2(71²−1) = v_2(5040) = 4`, so `71²` topologically generates `1+16ℤ_2` and `{71^e : e odd}` is
-dense in `7+16ℤ_2`; pick `e` odd with `71^e ≡ −w_0 (mod 2^m)`. (ii) `ord_71(2) = 35 = (71−1)/2` and `2^{70} ≢ 1 (mod 71²)`
-(`2^{70} ≡ 143`), so `ord_{71^e}(2) = 35·71^{e−1}` and `⟨2⟩` is the subgroup of squares of `(ℤ/71^e)^×`. `−7^{−1}` is a square
-mod 71 (`2^{29} ≡ −7^{−1} (mod 71)`), hence mod `71^e` (Hensel). So an `L ≥ 7` with `2^{L−1} ≡ −7^{−1} (mod 71^e)` exists
-(namely `L ≡ 1 + log_2(−7^{−1}) (mod 35·71^{e−1})`). (iii) Certificate conditions: `F ≡ 7 (16)` so `c'` is odd;
-`F ≡ 1 (mod 7)` so `7 ∤ c'` and `F ≡ 1 (mod 7^{v_7(ck)} = 7)`; `c' | F+1`; `F` is prime to `4ck = 2^{L+2}·7c'`;
-`N = 1+2^{L+2}·7c' ≡ 1 + 7·2^{L−1} ≡ 0 (mod F)` since `8c' ≡ 1 (mod F)`; `v_7(c) = 1` is odd. ∎
-*Check.* `e = 1` gives `L ≡ 30 (mod 35)`; the `L = 30` certificate `(c',X) = (9,1)`, `F = 71` of Comp 3.1 is this one.
-
-**Computation 2.5 (CERTIFIED once replayed; `scripts/typei7_dense71.py 14`, 1 min).** Least odd `e` with `71^e ≡ −9 (mod 2^m)`
-and least level `L` (discrete log mod `35·71^{e−1}`, Pohlig–Hellman), each certificate checked by modular arithmetic
-(`F | N`, (2.2)):
-
-| m | e | bits of F | v_2(F+9) | L | t_min |
-|---|---|---|---|---|---|
-| 4 | 1 | 7 | 4 | 30 | 17 |
-| 5 | 3 | 19 | 5 | 109 685 | 54 845 |
-| 6 | 7 | 44 | 6 | 419 119 864 270 | ≈ 2.1·10¹¹ |
-| 7–10 | 15 | 93 | 10 | ≈ 2^91 | ≈ 2^90 |
-| 11 | 143 | 880 | 11 | ≈ 2^879 | ≈ 2^878 |
-| 12–14 | 399 | 2454 | 14 | ≈ 2^2452 | ≈ 2^2451 |
-
-So the approximating certificates exist explicitly, but their level is of the size of `F` itself (the discrete log is
-"random" in `[0, ord_F(2))`), while `e` (hence `log_2 F`) grows like `2^m`; so `v_2(F+9) ≈ log_2 log_2 L` in this family,
-whereas `x̂_9` needs `v_2(F+9) ≥ 2+⌈L/2⌉`.
 
 ## 5. Status and what remains open
 
