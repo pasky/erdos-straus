@@ -159,6 +159,16 @@ s=0,…,k). ∎
   previously read "by §1–2, apparently never to zero", an inference from the now refuted Conj 4.2. The point x*
   is covered by a class of modulus 12670944 (POINTWISE_MORDELL13B Thm 3.1); the current candidate x** = x(2,15)
   survives the targeted searches of POINTWISE_MORDELL13B Comp 5.1, which is EVIDENCE only).
+* Older literature (O101 audit, `reviews/novelty-audit-2026-10c.md` §2). Finite-exception statements
+  with 11 and 13 predate Salez: Terzi (BIT 11 (1971) 212–216; via Ionascu–Wilson) lists 198 exceptional
+  residues mod 120120, and Ionascu–Wilson (Rev. Roum. Math. Pures Appl. 56 (2011) 21–30) carry the analysis
+  to 9240 and 2762760 = 2³·3·5·7·11·13·23. Yamamoto (Mem. Fac. Sci. Kyushu Univ. A 19 (1965), Table 1, p. 44)
+  leaves open at level q exactly the non-residues 2, 6 (mod 11), 2, 7 (mod 13), 3, 5, 6, 7 (mod 17): the
+  residues of x* (2, 2) and of the r = 17 cells C_5, C_7 are among them, so the first layer of §4–5 is in
+  Yamamoto. The joint cell (2,2) and the profinite point x* are not treated there. Yamamoto p. 47 ("it is
+  believed that any positive integer … not a perfect square, is contained in some covering") and
+  Ionascu–Wilson's conjecture expect the opposite of sterility at integer level; a sterile non-square
+  profinite point would not contradict them.
 
 ## 4. The candidate sterile point x* for the main variant (EVIDENCE / CERTIFIED computation)
 
@@ -236,7 +246,7 @@ the classes of modulus `≤ 10⁶`; for x** and for `x̂_9` of TYPEI2 (Conj 3.4)
 ## 5. r=11 and r=17 (EVIDENCE)
 
 * Level-wise covering (Mmax=10⁷): r=11 main/np: 8 survivors mod `2^4·3^2·5·7·11` (np = main,
-  as no prime 5≤ℓ<11 besides 5,7). Survivors have `x_11∈{2,6}` (Salez: `S_11={0,7,8,10}`).
+  as no prime 5≤ℓ<11 besides 5,7). Survivors have `x_11∈{2,6}` (Salez: `S_11={0,7,8,10}`; Yamamoto 1965 Table 1 leaves exactly 2, 6 mod 11 open — O101 audit).
   r=17 main: 50 survivors mod `2^4·3^2·5·7·11·13·17`; np: 19/1440 at the base `L=2042040`.
 * T-generic (M≤10⁵): r=11: T={11} covered (k=2); T={11,13}: cells (2,2),(2,7) uncovered at k=1;
   T={11,17}: covered.

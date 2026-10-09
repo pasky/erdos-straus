@@ -264,6 +264,8 @@ In particular this holds for each fixed m once N is large, uniformly in `4 ≤ m
 Theorem A's saving tends to ∞ iff `m = o(L³)` (PW's is non-trivial for `m = o(L²)`).
 PW's proof also uses Bombieri–Vinogradov, so there is no effectivity trade-off.
 (R94A repair D1, D2; R94B repair D2)
+Against Elsholtz's non-uniform constant `c_{m,3} ≍ m^{−1/3}` (Trans. AMS 2001, Rem 7.3; valid for `N > N_m`) the ratio
+of exponents is exactly `(Lm)^{1/12}`, without the log log loss (O101 audit).
 Heuristic reason for the shape: both arguments balance a fibre mass μ against a ledger
 `e^{O(tμ)}` with `tμ ≍ L`; Vaughan (m = 4) / PW have `μ ≍ t²/φ(m)` ⇒ `μ ≍ L^{2/3}φ(m)^{−1/3}`;
 here `μ ≍ t³/m` ⇒ `μ ≍ L^{3/4}m^{−1/4}`.
@@ -369,8 +371,15 @@ it does not decide θ = 3/4.
   `E(N) ≪ N exp(−c (log N)^{2/3})`. PW p. 2 and Elsholtz–Tao quote it for **4/n only**. PW's
   abstract says they "generalize a result of Vaughan to show that for each m, most n's have m/n"
   representable. Whether Vaughan's paper itself treats general m is **unverified**: its title names
-  Schinzel, but the full text is inaccessible (R94B repair D4). PW Thm 1.3 is the first m-explicit bound we can cite.
-* **Pomerance–Weingartner** arXiv:2511.16817v2 (= Dartmouth "ESS-ExceptionsV8", checked
+  Schinzel, but the full text is inaccessible (R94B repair D4). (O101 audit:) Elsholtz, Trans. AMS 353 (2001) 3209–3227,
+  Rem 7.3 (p. 3225), gives the admissible constant `c_{m,3} = 3e^{−2/3}(8m)^{−1/3} − ε` in Vaughan's bound, for
+  `N > N_m` with `N_m` unspecified (`c_{4,3} = 0.5645`); this is the first m-explicit constant. PW Thm 1.3 is the
+  first bound **uniform** in m that we can cite. Elsholtz p. 3210: for k ≥ 3 unit fractions exponent
+  `1−1/(2^{k−1}−1)`, improving Viola 1973 (`1−1/(k−1)`) and Shen 1986 (`1−1/k`); none exceeds 2/3 at k = 3.
+* **Sander** (Acta Arith. 59 (1991) 183–204; JNT 46 (1994) 123–136; zbMATH reviews only, O101 audit): for one Type II
+  subfamily, a *lower* bound `≫ x/(log x)^{3/2}` for primes in a progression where that subfamily fails — the only
+  progression-restricted ES sieve result found; not an exceptional-set upper bound.
+* **Pomerance–Weingartner**, Ramanujan J. 69 (2026), no. 2, Paper 31 (O101 audit); cited as arXiv:2511.16817v2 (= Dartmouth "ESS-ExceptionsV8", checked
   identical statement of Thm 1.3, 2026-10-07): `E_m(N) ≤ N/exp(C (log² N/φ(m))^{1/3})`,
   `4 ≤ m ≤ log² N`; Thm 1.1/3.1 lower constructions; Poisson heuristic `exp(−(log p)³/m)`.
 * No 3/4-type, short-interval or progression result for m/n found (searches: "exceptional set

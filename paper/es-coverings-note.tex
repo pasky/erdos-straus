@@ -142,7 +142,14 @@ reduction; Corollary~\ref{cor:17}, \status{conditional}).  The missing
 bound is a discrete-logarithm count (\status{Assessment}).
 \end{itemize}
 Section~\ref{sec:open} lists open problems.  No sterile point other than
-a square point is known to us.  A sterile point would show that a particular
+a square point is known to us.  The literature expects the opposite at
+the level of integers: Yamamoto \cite[p.~47]{Yamamoto} writes that ``it
+is believed that any positive integer, which is a quadratic residue of
+3, 5, 7 and 8, and still is not a perfect square, is contained in some
+covering'', and Ionascu and Wilson \cite{IW} conjecture that the excluded
+residues of ever larger moduli are eventually all squares or composite.
+These are statements about integers and residues.  A sterile non-square
+point of $\Zhu$ would not contradict them (O101 audit).  A sterile point would show that a particular
 set of primes cannot be handled by finitely many polynomial identities;
 it would say nothing about whether ES holds for those primes.
 
@@ -917,7 +924,9 @@ smaller solution, or $P$ would be a square and every $u$ even.  Write
 $\alpha^n=4X_n\sqrt P+u_n\sqrt Q$.  Then $u_n=u_1L_n$ with integers
 $L_n\equiv n\pmod7$, $L_7\equiv7\pmod{49}$, $L_7>7$, and
 $L_{mn}(\alpha)=L_n(\alpha)L_m(\alpha^n)$.  Writing $n=7^rn'$ with
-$7\nmid n'$ shows that $L_n$ is a power of $7$ only for $n=1$.  For the
+$7\nmid n'$ shows that $L_n$ is a power of $7$ only for $n=1$.  This is
+a routine lifting-the-exponent argument for the Lucas sequence $u_n/u_1$
+(O101 audit).  For the
 certificate apply this to $P=c'P_1$, $Q=7^aQ_1$ of
 Proposition~\ref{prop:pell}; $d=PQ$ is not a square as $v_7(d)=a$ is
 odd.  Details are in \cite[\S1]{PT5}.
@@ -1078,6 +1087,11 @@ only $7$ classes with $(p/13)=-1$, so a statement of the shape of
 Theorem~\ref{thm:r13} modulo $120120$ follows from his 2014 data.
 Theorem~\ref{thm:r13} is the same sieve one level deeper ($2^4$, $3^2$),
 sliced by $(p/13)$, with certificates that can be checked independently.
+Finite-exception statements involving $11$ and $13$ are older still:
+Terzi \cite{Terzi} lists $198$ exceptional residues modulo $120120$, and
+Ionascu and Wilson \cite{IW} carry the analysis to the moduli $9240$
+and $2762760=2^3\cdot3\cdot5\cdot7\cdot11\cdot13\cdot23$ (O101 audit;
+\cite{Terzi} only via \cite{IW}).
 The exceptional classes carry $1/360$ (a) and $6/2160$ (b) of the
 relevant residues; deeper levels shrink them (to $1412$ residues modulo
 $2^4 3^2\cdot5\cdot7\cdot11\cdot13^2\cdot17\cdot19\cdot23$ with moduli
@@ -1109,6 +1123,13 @@ re-checked in review).  So hard
 points for $r=13$ need special residues at $11$ as well.  For
 $T=\{11,13\}$ the classes of modulus $\le10^6$ leave uncovered only cells
 above $(x_{11},x_{13})\equiv(2,2)\pmod{(11,13)}$ (\status{evidence}).
+The first layer of this is in Yamamoto's Table~1 \cite[p.~44]{Yamamoto}:
+the non-residue classes modulo $q$ that his simplified coverings of
+level $q$ leave open are $2,6\pmod{11}$, $2,7\pmod{13}$ and
+$3,5,6,7\pmod{17}$.  The residues $x_{11}\equiv x_{13}\equiv2$ are among
+them, and so are the residues modulo $13$ of all six exceptional classes
+of Theorem~\ref{thm:r13}.  The joint cell $(2,2)$ and the profinite
+points above it are not treated there (O101 audit).
 
 \subsection{The point $x^*$ and the candidate $x^{**}$}
 
@@ -1238,7 +1259,9 @@ $u=x_{17}\in\Z_{17}^\times$.  If $u$ is a non-residue modulo $17$ then
 $x(u)\in\Sigma_{17}^{\rm np}$, and by Lemma~\ref{lem:accum} the
 Mordell-hard primes with $n_p=17$ accumulate at $x(u)$.  The non-residue
 cells $C_5=\{u\equiv5\}$ and $C_7=\{u\equiv7\pmod{17}\}$ are exchanged by
-$u\mapsto1/u$ ($5\cdot7\equiv1$).  A class of modulus $17^kN$ with
+$u\mapsto1/u$ ($5\cdot7\equiv1$).  Both residues are among the classes
+$3,5,6,7\pmod{17}$ left open at level $17$ in Yamamoto's Table~1
+\cite[p.~44]{Yamamoto} (O101 audit).  A class of modulus $17^kN$ with
 $17\nmid N$ contains $x(u)$ if and only if its residue $\rho$ satisfies
 $\rho\equiv1\pmod N$ and $u\equiv\rho\pmod{17^k}$; it then contributes the
 \emph{box} $\rho+17^k\Z_{17}$ of \emph{level} $k$.  We use Haar measure
@@ -1450,7 +1473,10 @@ $\Sigma$ without square points; conversely a clopen $\Sigma$ is defined
 modulo some $M$.  Apply Lemma~\ref{lem:accum} and
 Proposition~\ref{prop:compact}.)
 Each of Conjectures~\ref{conj:xss} and~\ref{conj:17} would give one;
-Conjecture~\ref{conj:sign} would give a Type~I analogue.
+Conjecture~\ref{conj:sign} would give a Type~I analogue.  The
+integer-level expectations of \cite[p.~47]{Yamamoto} and \cite{IW}
+point the other way but do not decide the question
+(\S\ref{sec:intro}; O101 audit).
 \end{problem}
 
 \begin{problem}
@@ -1523,6 +1549,8 @@ Divisors in residue classes, constructively, Math.\ Comp.\ 77 (2008),
 \bibitem{ET} C.~Elsholtz and T.~Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, J.\ Aust.\ Math.\ Soc.\ 94
 (2013), 50--105; arXiv:1107.1010v6.
+\bibitem{IW} E.~J.~Ionascu and A.~Wilson, On the Erd\H{o}s--Straus
+conjecture, Rev.\ Roumaine Math.\ Pures Appl.\ 56 (2011), 21--30.
 \bibitem{Lenstra} H.~W.~Lenstra Jr., Divisors in residue classes, Math.\
 Comp.\ 42 (1984), 331--340.
 \bibitem{MD} S.~Mihnea and B.~C.~Dumitru, Further verification and empirical
@@ -1572,8 +1600,10 @@ polynomial denominators, Funct.\ Approx.\ Comment.\ Math.\ 28 (2000),
 187--194 (not accessed; cited via \cite{ET}).
 \bibitem{SS} A.~Schinzel and W.~Sierpi\'nski, Sur certaines hypoth\`eses
 concernant les nombres premiers, Acta Arith.\ 4 (1958), 185--208.
+\bibitem{Terzi} D.~G.~Terzi, On a conjecture by Erd\H{o}s--Straus,
+Nordisk Tidskr.\ Informationsbehandling (BIT) 11 (1971), 212--216 (not
+accessed; cited via \cite{IW}).
 \bibitem{Yamamoto} K.~Yamamoto, On the Diophantine equation
-$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47
-(not accessed; cited via \cite{ET}).
+$4/n=1/x+1/y+1/z$, Mem.\ Fac.\ Sci.\ Kyushu Univ.\ Ser.\ A 19 (1965), 37--47.
 \end{thebibliography}
 \end{document}
