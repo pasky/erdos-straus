@@ -323,7 +323,7 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   POINTWISE_MORDELL17B (Lemma 2.1 enumerator = R93 naive scan = stored data at K = 5, 7 as sets; ρ₁, ρ₂ exact by
   both union scripts, with the level-7 Q/U data read from `data/m17b/qu7_*` (two engines, re-validated against
   their definitions); Theorem 4.1 tables floor-rounded vs inline closed forms; needs gcc/cc and GNU `factor`).
-* `verify.py` blocks (eh)–(ek) (O105, ~42 s) add POINTWISE_MORDELL13C (Thm 6.1 tree certificate in full with
+* `verify.py` blocks (eh)–(ek) (O105, ~43 s; full run ≈ 7.4 min on the shared machine, 2 threads, scipy + mpmath; log `logs/o105_verify.log`) add POINTWISE_MORDELL13C (Thm 6.1 tree certificate in full with
   R100's from-scratch checker: 6000 splits, 136494 covered / 35459 open leaves, 2140 classes, 0 errors, mean
   open density 8.424e-5, per-root open counts; R100 identities, split primes ≤ 83, open moduli, roots and four
   negative controls; §2 witness engine = R100 brute force at L = 840, 9240; Comp 3.1 enumerator: 0 data at
