@@ -58,11 +58,14 @@ partial summation. To remove the last $\log\log N$ we make both estimates
 effective, with $\varepsilon$-constant $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$;
 this requires repairs of a few printed details and, for nebentypus, an
 extra branch of the induction. Using only the published, unquantified
-form of these estimates one gets $o(N\log^2N\log\log N)$; under Selberg's
+form of these estimates (Drappeau's read as uniform in the character
+modulus) one gets $o(N\log^2N\log\log N)$; under Selberg's
 eigenvalue conjecture a shorter proof gives $O(N\log^2N)$.
 The results are proved relative to classical inputs listed explicitly
 (exact trace formulae, Weil-type bounds, Selberg's $3/16$, and others) and to
-the inherited Elsholtz--Tao/internal-note reduction. They have been
+the inherited Elsholtz--Tao/internal-note reduction; the long computations
+behind the effective constants are in internal derivation files that are
+only summarised here (R122 repair). They have been
 reviewed internally only and need expert scrutiny.
 \end{abstract}
 \maketitle
@@ -105,7 +108,10 @@ classical black boxes (B1)--(B5) of Appendix~\ref{sec:eff}:
 \item[(B1)] the Petersson and Kuznetsov trace formulae for $\Gamma_0(q)$, for
 $(\Gamma_0(M),\chi)$ \cite[Lemma~4.5]{Dr}, and for $\SL_2(\Z)$;
 \item[(B2)] Weil's bound for Kloosterman sums;
-\item[(B3)] a twisted Weil bound with absolute constants \cite[Lemma~4.2]{Dr};
+\item[(B3)] a twisted Weil bound with absolute constants \cite[Lemma~4.2]{Dr}; there the
+constant and the exponent of $\tau(c)$ are unspecified and the proof is only
+sketched, and their values are not certified here (only their finiteness
+enters Theorem~\ref{thm:main}; R122 repair);
 \item[(B4)] Selberg's eigenvalue bound $\lambda_1\ge3/16$ for congruence subgroups;
 \item[(B5)] $\lambda_1(\SL_2(\Z))>1/4$ \cite[Theorem~3]{DI}.
 \end{enumerate}
@@ -197,8 +203,9 @@ absence of nonconstant residual spectrum for congruence subgroups
 \cite{Iw,Hux}. Theorem~\ref{thm:main} also uses Appendix~\ref{sec:eff}, which is
 \status{proved} relative to (B1)--(B5) and to the derivation files of its
 source note \cite{TTL3}. Some fixed absolute numerical majorants there were
-only shape-checked; this affects the numerical value of $A_0$, not the
-result. Appendix~\ref{sec:eff} and its source received
+only shape-checked; since the internal reviews checked that no parameter
+enters those steps, this affects the numerical value of $A_0$, not the
+result (R122 repair). Appendix~\ref{sec:eff} and its source received
 three internal referee reports and two independent deep reviews, with no
 fatal or major findings; it has not been externally refereed.
 Section~\ref{sec:exc} (O118) received two internal reviews of its
@@ -1776,7 +1783,7 @@ the bound also holds for any subset of the levels $q\le Q$, $q_0\mid q$.
 
 \begin{corollary}[prefix sums; \status{proved} relative to \cite{DI,Dr}]\label{E:DI7}
 For each $\varepsilon\in(0,1/4]$ there is $C_\varepsilon$ such that the
-following holds. Let $q_0\ge1$, $\chi$ a character modulo $q_0$, $M_0\ge q_0$,
+following holds. Let $q_0\ge1$, $\chi$ an even character modulo $q_0$ (R122 repair: only even $\chi$ are used, in Proposition~\ref{E:var}; in \cite{Dr} odd $\chi$ means weight~$1$, which Appendix~\ref{sec:eff} does not treat), $M_0\ge q_0$,
 $\mathcal M$ a set of levels $M\le M_0$ with $q_0\mid M$, $t\ge1$ and
 $Y\ge1$. Put $S_j(t)=\sum_{1\le n\le t}\rho_{j\infty}(n)$. Then
 \[
@@ -2189,7 +2196,7 @@ partial control.  The source calculation reports an extra factor
 $(F')^{3/4}D^{1/8}/A$ there; its detailed bookkeeping was not re-checked
 in the internal review, and we do not use it as a proved obstruction
 theorem.  The same caveat applies to the source's exploratory
-exceptional-density calculations.  None enters the conditional proof.
+exceptional-density calculations.  None enters any proof in this note (R122 repair).
 \end{assessment}
 
 A positive-width region bounded only by the original $1/j$ saving
@@ -2352,7 +2359,8 @@ $\infty$ \cite[Lemma~4.5, (4.13)--(4.17)]{Dr} (from Blomer--Harcos--Michel),
 and for $\SL_2(\Z)$.
 \item[(B2)] Weil's bound $|S(m,n;c)|\le\tau(c)(m,n,c)^{1/2}c^{1/2}$.
 \item[(B3)] A twisted Weil bound $|S_\chi(m,n;c)|\le C_W\tau(c)^{B_W}(m,n,c)^{1/2}(cq_0)^{1/2}$
-for $\chi$ modulo $q_0\mid c$, with absolute $C_W,B_W$ \cite[Lemma~4.2]{Dr}.
+for $\chi$ modulo $q_0\mid c$, with absolute $C_W,B_W$ \cite[Lemma~4.2]{Dr}
+(stated there with $\tau(c)^{O(1)}$ and a proof sketch; R122 repair).
 Their numerical values are not certified here; any absolute values suffice
 for the form $\exp(\exp(A_0/\varepsilon))$, and only the numerical $A_0$
 depends on them. ($C_W=B_W=1$ was checked for $c\le90$: \status{evidence} only.)
@@ -2370,7 +2378,7 @@ three elementary lemmas \cite[\S1]{TTL3}.
 \begin{lemma}[\status{proved}]\label{A:tools}
 \textup{(a)} If $f$ is multiplicative with $0\le f(p^a)\le(a+1)^B$ \textup($B\ge1$\textup),
 then $f(n)\le(2B/\delta)^{B\cdot2^{B/\delta}}n^\delta$ for $0<\delta\le1$
-\textup(class $\mathcal E(B\log2+o(1))$\textup).
+\textup(in particular of class $\mathcal E(2B)$ for $0<\delta\le1/4$; R122 repair\textup).
 \textup{(b)} $(\log x)^r\le(r/(e\delta))^rx^\delta$ for $x\ge1$, $r,\delta>0$.
 \textup{(c)} There is $\eta\in C^\infty(\R)$ with $0\le\eta\le1$, $\eta=1$ on $[1,2]$,
 $\operatorname{supp}\eta\subset[3/4,9/4]$ and $\|\eta^{(p)}\|_\infty\le8e^{16}36^p(p!)^2$
@@ -2439,7 +2447,7 @@ which is $\le45cHQ^{1+4\delta-10\delta^2}N\le\tfrac H2Q^{1+4\delta}N$,
 using $\int(1+t^2)dt/(1+t^4)=\sqrt2\pi$, $C^{5\delta}\le\pi^{5\delta}Q^{5\delta-10\delta^2}$ and $Q^{10\delta^2}\ge90c$.
 \emph{(C2) $C<N$.} No induction: (M) with $Y_1=C+N\in[1,2N]$ and (P1) at $C$ give
 $S^*_\chi(C,Y,N)\le(1+\sqrt{Y/N})K_1(2N^2)^\delta4N^2\le10K_1Q^{1+2\delta}N$
-(as $\sqrt{YN}=Q^{1-\delta}$), so the main term is $\le90cK_1Q^{1+2\delta}N$.
+(as $\sqrt{YN}=Q^{1-\delta}$), so by (PS) the main term is $\le2\sqrt2\pi\cdot10cK_1Q^{1+2\delta}N\le90cK_1Q^{1+2\delta}N$ (R122 repair: (PS) made explicit).
 In both cases $S_\chi(Q,Y,N,0;I)\le(H/2+90cK_1+3c)Q^{1+4\delta}N\le HQ^{1+4\delta}N$;
 take the supremum over $I$.
 \end{proof}
@@ -2461,7 +2469,9 @@ Proposition~\ref{A:ind}; otherwise $S^*_\chi\le(Y/Y_2)^{1/2}HQ^{1+4\delta}N=HQ^{
 $N>Q$ or $Q<1$: (M) with $Y_1=Q+N\le2N$ (resp.\ $1+N$) and (P1) give
 $\le(1+\sqrt{Y/N})K_1(2N^2)^\delta4N^2\le10K_1N^{2\delta}(N+\sqrt{NY})N$.
 Growth: $\log Q_0\le(\log90+e^{B/\delta})/(10\delta^2)+\delta^{-1}$, and
-$\delta^{-2}\le e^{2/\delta}/4$, $e^{B/\delta}\ge e^{10}$ \cite[Corollary~2.3]{TTL3}.
+$\delta^{-2}\le e^{2/\delta}/4$, $e^{B/\delta}\ge e^{10}$ \cite[Corollary~2.3]{TTL3}, so
+$\log(2K_2Q_0)\le e^{(B+3)/\delta}$; also $\log(200cK_1)\le\log200+2e^{B/\delta}\le e^{(B+3)/\delta}$ and
+$\log(10K_1)\le e^{(B+3)/\delta}$ (R122 repair: the $200cK_1$ term checked directly).
 \end{proof}
 
 \subsection{The three inputs}
@@ -2535,8 +2545,8 @@ $K_1^\chi,c^\chi\le\exp(\exp((4B_\chi+1)/\delta))$, $K_2^\chi=32K_{LS}^\chi(\del
 $K_7^\chi(\delta)\le\exp(\exp((4B_\chi+4)/\delta))$. Conversion to
 Corollary~\ref{E:DI7}: the levels $M=q_0q\le M_0$ are covered by
 $\le2+\log M_0$ blocks $Q_i<q\le16Q_i$ with $Q_i\ge1/16$, and $[1,t]$ by the
-$\lfloor\log_2t\rfloor+1\le3\log^2(2t)$ closed intervals
-$[2^k,\min(2^{k+1}-1,t)]$; Cauchy--Schwarz over the latter, positivity over
+$K=\lfloor\log_2t\rfloor+1$ closed intervals
+$[2^k,\min(2^{k+1}-1,t)]$; Cauchy--Schwarz over the latter (cost $K^2\le3\log^2(2t)$; R122 repair), positivity over
 the former, and Theorem~\ref{A:neb} with $\delta=\varepsilon/6$ give, using
 Lemma~\ref{A:tools}(b) for $(2M_0t)^{5\delta}(2+\log M_0)\le(12/\varepsilon)(M_0t)^\varepsilon$,
 the bound of Corollary~\ref{E:DI7} with $C_\varepsilon\le200\varepsilon^{-1}K_7^\chi(\varepsilon/6)$.
@@ -2584,7 +2594,8 @@ shape-checked (asserted parameter-independent, not re-derived in detail):
 \nolinkurl{ttl3_thm2_effective.md} Steps~6--8 (angular split of $E_K$,
 Gaussian lower bound $2^{-20}$), \nolinkurl{ttl3_thm14_effective.md} \S\S2--4
 (Mellin--Barnes residues, the constants $2^{50}$, $2^{1000}$), and the numerals
-$2^{512}$, $2^{2048}$ of \nolinkurl{ttl3_lemma81_effective.md}. Hence the numerical
+$2^{512}$, $2^{2048}$ of \nolinkurl{ttl3_lemma81_effective.md}. Their independence of $\delta,Q,N,q_0,\chi$ was checked structurally (no
+parameter enters those steps; R122 repair). Hence the numerical
 value of $A_0$ is explicit only modulo these allowances and certified values
 of $C_W,B_W$; the form $\exp(\exp(A_0/\varepsilon))$, and therefore
 Theorem~\ref{E:main}(ii), need only their finiteness and independence of the
