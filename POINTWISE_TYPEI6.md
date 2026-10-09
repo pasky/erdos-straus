@@ -123,3 +123,28 @@ so levels 7–10 would be empty. With any *published* explicit form of abc (Bake
 the constant is far too large (or the exponent `> 8/7`), so **emptiness of levels 7–10 is not obtained conditionally on
 any standard explicit abc** (Assessment). Theorem 3.2 is a finiteness statement only.
 (iii) Theorem 3.2 does not touch sterility of `x̂_9` (unbounded `L`).
+
+## 4. A per-`b` engine for regime (v) from the size condition (CERTIFIED once replayed)
+
+Lemma 3.1(b) turns regime (v) into a *lower* bound on the unit, i.e. an *upper* bound on the field for fixed `b`:
+`Qu² + 1 > 64c_o⁴δ⁸/T⁴` with `Q = d/P` gives
+
+```
+P·(64c_o⁴δ⁸ − T⁴) < u²·d·T⁴,     d = c_o(c_oδ² + T),  P = c'P_1,  u = 7^b,                          (4.1)
+```
+
+so `49^a c'³δ⁶P_1 ≲ u²T⁴/64`. The number of `(a, c', δ)` is `≍ (u²T⁴)^{1/3}`, far below the `≍ T·7^b·(divisors)` of the
+TYPEI4 Cor 3.2 search, and every candidate needs only a divisor `P_1 | M` below the bound (4.1).
+
+**Computation 4.1.** `scripts/typei6_vsearch.c L b [u]`: for all odd `a`, odd `δ`, odd `c'` with `7 ∤ c'`, all divisors
+`P_1 | M = c_oδ² + T` satisfying (4.1) (evaluated in long double with relative margin `10⁻⁹`; vacuous when
+`64c_o⁴δ⁸ ≤ T⁴`), tests exactly (GMP) whether `(Qu² + 1)/(16P) = X²` with `X` odd, `7 ∤ X`. `M` is factored completely by a
+sieve along the arithmetic progression `c' ↦ M` while the bound on `P_1` is `≥ 64`, otherwise `P_1` runs over all odd
+numbers below the bound. By Lemma 3.1(b) and Prop 1.2 of TYPEI4 the output contains **every regime-(v) fibre certificate
+of level `L` with `v_7(k) = b`** (it may contain other solutions of (1.1) satisfying (4.1); none occurred).
+*Regression / positive controls.*
+* Complete lists of `typei4_lb` for `L = 11…18`, `b ≤ 3` (10 certificates): the 5 lying in regime (v) (`(L,b) = (13,1)`,
+  `(16,0)×3`, `(18,1)`) are all found, and nothing else (`scripts/typei6_regress.py`).
+* Relaxed mode (`u` an arbitrary odd number instead of `7^b`): it recovers every regime-(v) relaxed solution of
+  `typei5_relax` (`L = 7`, `u = 293`; `L = 9`, `u = 1853`; `L = 10`, `u = 293`; `L = 12`, `u = 27, 37`; `L = 13`, `u = 7, 29`)
+  — positive controls **at the levels 7, 9, 10 themselves**.
