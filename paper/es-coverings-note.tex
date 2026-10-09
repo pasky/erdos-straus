@@ -1186,10 +1186,10 @@ $v_q(ad)\le v_q(f+1)\le8$), within the engine's exponent cap.
 Engines: \texttt{m13b\_target.c} (all four families, $e\le10^9$) and
 \texttt{m13b\_target2.c} (I2, II1, I4).  The ranges $e\le10^8$ for II3, I3,
 I1 were reproduced by an independent engine in the review of
-\cite{PM13B}, and $e,f\le10^8$ for all four families by a further
-engine written from scratch from the ET class definitions
-(\texttt{review\_r98\_xss.c}, R98 repair); the rest rests on one
-engine.
+\cite{PM13B}, and the full range $e,f\le10^9$ for all four families by a
+further engine written from scratch from the ET class definitions, without
+discrete logarithms or exponent cap (\texttt{review\_r98\_xss.c}, R98
+repair).  The ranges for I2, II1 and I4 rest on one engine.
 \end{computation}
 
 \begin{conjecture}[\status{evidence} only; {\cite[Conj.~5.2]{PM13B}}]\label{conj:xss}

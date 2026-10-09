@@ -121,7 +121,7 @@ Validation against direct class membership (CRT lift + ET class test), `scripts/
 42 points (incl. `x*`, `x**`), `a,d≤24/30`, `e≤1200/1500`: 176 brute-force memberships, engine output identical
 on every point (`logs/r98_xss_validate.log` + first run, 0 mismatches). Positive control: at `x*` the engine
 finds exactly II3 `(8,33,11999)` for `e≤10⁵`. **Result at `x**=x(2,15)`: 0 data of II3/I3/I1/II2 with `e,f≤10⁷`**
-(`logs/r98_xss_2_15_1e7.log`, 6.3·10⁸ parameter tuples tested), **and none with `e,f≤10⁸`** (`logs/r98_xss_2_15_1e8.log`, 8.3·10⁹ tuples, 211 s). So the II2 range `(3·10⁷,10⁸]` and all four families to `10⁸` are now confirmed by an independent engine. A run to `10⁹` was started (see end).
+(`logs/r98_xss_2_15_1e7.log`, 6.3·10⁸ parameter tuples tested), **and none with `e,f≤10⁸`** (`logs/r98_xss_2_15_1e8.log`, 8.3·10⁹ tuples, 211 s). So the II2 range `(3·10⁷,10⁸]` and all four families to `10⁸` are now confirmed by an independent engine. **And none with `e,f≤10⁹`** (`logs/r98_xss_2_15_1e9.log`, 1.06·10¹¹ tuples, 43 min): PM13B Comp 5.3 is now reproduced in full by an independent engine.
 
 ## Defects
 
@@ -146,7 +146,7 @@ LFL Assessment, an updated Problem 2, a sentence in the Results bullet for `r=7`
 **D4 (MINOR) — Comp 5.5 outdated.** PM13B Comp 5.3 extends II3/I3/I1/II2 at `x**` to `e,f≤10⁹`; the paper stopped at
 `10⁸` / `3·10⁷`, and "one engine per family group" understated the replication (R95 reproduced II3/I3/I1 to `10⁸`).
 Repair (applied): Comp 5.5 restated with `10⁹`, engine names and replication scopes (R95: II3/I3/I1 `≤10⁸`; R98: all
-four families `≤10⁸`; `(10⁸,10⁹]` one engine).
+four families `≤10⁹`, i.e. the whole P/Q range is now two-engine; I2/II1/I4 remain one engine).
 
 **D5 (MINOR) — after Conj 5.6.** "four orders of magnitude further in `e`" → "almost five" (`10⁹/1.2·10⁴≈8·10⁴`).
 Repair applied.
@@ -176,7 +176,7 @@ transcription (A3); the Conj 5.6 label; `x**∈Σ_13`; abstract (consistent afte
 | Prop 5.4 (x* covered) | SOUND (verified from scratch from ET Prop 1.9) |
 | Comp 5.5 (x** ranges) | SOUND-AFTER-REPAIRS (D4, D7) |
 | Conj 5.6 | label correct (EVIDENCE only); D5 wording |
-| PM13B §5 1e9 extension (`m13b_target` completeness) | SOUND (audited); independent from-scratch search to `10⁸`: 0 hits; D6 provenance |
+| PM13B §5 1e9 extension (`m13b_target` completeness) | SOUND (audited); independent from-scratch search to `10⁹`: 0 hits; D6 provenance |
 | abstract / intro / open problems | consistent after repairs (D3: Problem 2, Results bullet) |
 
 ## Repairs applied
@@ -191,5 +191,5 @@ All in commits on `side-agent/referee-coverings-r2`; paper recompiled twice: no 
 ## Scripts and logs (R98)
 * `scripts/review_r98_fibre.c`, `scripts/review_r98_fibre_brute.py`; `logs/r98_fibre_{A,B,b8}.log`.
 * `scripts/review_r98_xss.c`, `scripts/review_r98_xss_validate.py`; `logs/r98_xss_validate.log`,
-  `logs/r98_xss_2_15_1e7.log`, `logs/r98_xss_2_15_1e8.log`.
+  `logs/r98_xss_2_15_1e{7,8,9}.log`.
 * `scripts/review_r98_prop54.py` (Prop 5.4).

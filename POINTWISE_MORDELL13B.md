@@ -233,7 +233,7 @@ The `# done` lines give `X` and `E=20`; the point is not recorded. The progress 
 *Independent check (R98).* `scripts/review_r98_xss.c` was written from scratch from the ET class definitions,
 with no discrete logarithms and no T-cap. It was validated against direct CRT class membership
 (`scripts/review_r98_xss_validate.py`: 42 point-runs, 176 memberships, 0 mismatches) and re-finds `(8,33,11999)` at x\*.
-It finds no II3/I3/I1/II2 datum at x\*\* with `e,f≤10⁸` (`logs/r98_xss_2_15_1e7.log`, `…_1e8.log`; 8.3·10⁹ parameter tuples, 211 s).
+It finds no II3/I3/I1/II2 datum at x\*\* with `e,f≤10⁹` (`logs/r98_xss_2_15_1e{7,8,9}.log`; 1.06·10¹¹ parameter tuples, 43 min on one core). So Comp. 5.3 is now confirmed by two independent engines.
 U/I2 types (II1, I4, I2) remain as in 5.1 (`≤2·10⁷`, `|i|,|j|≤12`).
 Replay: `/tmp/o95/target $(python3 scripts/m13b_pt.py 2 15) 550000000 20 100000000` and
 `... 1000000000 20 550000000` (each ≈ 75 min).
