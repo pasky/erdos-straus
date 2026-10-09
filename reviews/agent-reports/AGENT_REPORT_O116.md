@@ -8,7 +8,7 @@ Branch `side-agent/ttl-unconditional`. Main file: `EXCEPTIONAL_TYPEI_LOGLOG2.md`
    `Σ_{p≤N} f_I(p) = o(N log²N log log N)`. The improvement is unconditional but unquantified.
 2. **Thm 4.1(ii) — CONDITIONAL on (EFF).** `Σ_{p≤N} f_I(p) ≪ N log²N`. (EFF) asks that the `≪_ε` constant of DI Thm 7
    and of Drappeau Lemma 4.10 be `≤ exp(exp(A/ε))`.
-   * The deep audit (§5, `scripts/ttl2_di7_effectivity_audit.md`) finds that the proofs give (EFF): divisor bounds, logs,
+   * The deep audit (§5, `scripts/ttl2_di7_effectivity_audit.md`) suggests (Assessment) that the proofs give (EFF) (R116B repair, D8): divisor bounds, logs,
      an induction with threshold `Q₀(ε)`, and an order-`1/ε` integration by parts that is effective once DI's unspecified
      cutoff is chosen Gevrey-2. No Siegel-type input occurs.
    * Label: Assessment. (EFF) is not written as a proof.
@@ -73,3 +73,20 @@ Each repair is marked "(R116 repair)" in the text.
 * m5: the Pascadi side remark is labelled unverified.
 * m6: forward pointers are added in TTL §9 and DISCOVERIES (D)32, both marked pending parent acceptance.
 * m7: the q₀-uniformity is stated explicitly as our reading of Drappeau §4.3.1.
+
+## R116B minors (D1–D11) applied
+Each repair is marked "(R116B repair)" in the text.
+* D1: Drappeau's page and setting references are added.
+* D2: the (DI7_ε) log factor is noted, and the level condition is now "q | level", using the modulus of χ.
+* D3: the reflection is corrected to the same (Γ₀(M), χ).
+* D4: `t_j = 0` is excluded from `𝓔_d`.
+* D6: the dropped `q^{3/2}` and `√3` are restored in the Cor 3.2 proof.
+* D7: the threshold `log L ≥ 1024A₀` for (ii) is stated.
+* D8: "finds" is changed to "suggests (Assessment)".
+* D9: Drappeau p. 19 is quoted for the q₀-uniformity.
+* Already done in the R116 round:
+  * D1's stale /tmp path (m1).
+  * D5 (m2).
+  * D7(iii) (m4).
+  * D10 (m6: pointers, pending acceptance).
+  * D11 (m5).

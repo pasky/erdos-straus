@@ -13,7 +13,7 @@ journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`.
   `O(N log²N log log N)`. Like TTL, it inherits the ET/MN3 reduction `f_I ≤ 2Σ_c w_c` and MN3 Thm 3.8(1).
   (ii) **`Σ_{p≤N} f_I(p) ≪ N log²N`, CONDITIONAL on (EFF)** (§4). (EFF) says that the implied constant in DI Thm 7 and in
   Drappeau Lemma 4.10 grows at most like `exp(exp(A/ε))`. It is a statement about the *constants* in two published
-  proofs, not about automorphic forms. An audit (§5, Assessment) finds that DI's proof gives it once DI's unspecified
+  proofs, not about automorphic forms. An audit (§5, Assessment) suggests that DI's proof gives it once DI's unspecified
   smooth cutoff is chosen explicitly. For Drappeau's nebentypus version the audit only finds it very plausible
   (same two inductions; his twisted trace formulae were not audited). So (SEL) is replaced by a bookkeeping hypothesis.
   (iii) Any explicit `C_ε ≤ G(1/ε)` gives an explicit bound `N L²(1 + w_N log L)`.
@@ -50,7 +50,8 @@ measurable with `|c'(t)| ≤ Ψ(t)Ψ'(t)` and `∫_1^∞Ψ < ∞`, and `S_j(t) :
 `Ψ = Φ`, `Ψ' = e²(2+|v|)w(t)^{σ_j}`.)
 
 **Drappeau's nebentypus version (cited; Drappeau, Proc. LMS 114 (2017), arXiv:1504.05549, §4.2.3, Lemma 4.10;
-checked against arXiv:1504.05549 p. 16 (Lemmas 4.9–4.10; normalisation (4.7) and the Whittaker expansion on p. 13);
+checked against arXiv:1504.05549 pp. 15–16 (Lemmas 4.9–4.10; setting §4.1 p. 10: `Γ₀(q)`, χ a character modulo
+`q₀ | q`; normalisation (4.7) and the Whittaker expansion on p. 13; R116B repair, D1);
 Drappeau's proof of 4.10 is a transposition sketch of DI pp. 274–277 (R116 repair, m1)).** For a Dirichlet
 character χ mod `q₀`, `Y ≥ 1`, `Q ≥ q₀`, and `a_n = 1_{N<n≤2N}`-type interval coefficients,
 `Σ_{q≤Q, q₀|q} Σ_{f ∈ 𝓑(q,χ), t_f ∈ iℝ} Y^{2|t_f|} |Σ_{N<n≤2N} a_n n^{1/2}ρ_{f,∞}(n)|² ≪_ε (QN)^ε (Q/q₀ + N + (NY)^{1/2}) N`
@@ -64,6 +65,7 @@ subset of the levels `q ≤ Q, q₀ | q` — e.g. `{4dq² : d ≍ D}` when `q₀
 Notation for the rest: **(DI7_ε)** denotes the resulting bound, uniformly in `M₀, t, X ≥ 1` and in the
 character modulus `q₀ | q`:
 `Σ_{M ≤ M₀, q₀|M} Σ_{j exc} Y^{2σ_j} |S_j(t)|² ≤ C_ε (M₀ t)^ε (log 2t)² (M₀ + t + √(tY)) t`  for all `Y ≥ 1`.
+(`(log 2t)²` could be `log 2t`: Cauchy–Schwarz over the `K ≍ log t` blocks costs only K; harmless — R116B repair, D2.)
 
 ## 2. The exceptional part of TTL Prop 5.1, averaged over d (PROVED rel. (DI7_ε))
 
@@ -84,18 +86,19 @@ Setting of TTL §5–§6: q squarefree, `(q,2d) = 1`, `M = 4dq²`, χ even mod q
 each `d ≍ D` with `(q, 2d) = 1` (TTL §5), the TTL test function `ψ_d(u) = φ(x/λ)W(y/Y_d)` with `Y_d = 1/(2qF'√d)`. Put
 `M₀ := 8Dq²`, `Y₀ := 1/(2qF'√D)` (so `Y_d ∈ [Y₀/√2, Y₀]`), `λ₋ := min(λ, 1)`, and let `𝓔_d` be the exceptional part
 of TTL Prop 5.1 Step 1 for `P = P_{ψ_d}` on `Γ_{M,q}`, `M = 4dq²`:
-`𝓔_d := (2/φ(q)) Σ_{χ even mod q} Σ_{u_j ∈ 𝓑(M,χ), t_j ∈ iℝ} |⟨P_χ, u_j⟩|²`. Then for every `ε ∈ (0, 1/4]`
+`𝓔_d := (2/φ(q)) Σ_{χ even mod q} Σ_{u_j ∈ 𝓑(M,χ), t_j ∈ iℝ∖{0}} |⟨P_χ, u_j⟩|²`
+(`t_j = 0`, i.e. `λ_j = 1/4`, is not exceptional and belongs to `V^{gen}`; R116B repair, D4). Then for every `ε ∈ (0, 1/4]`
 `Σ_{d≍D} 𝓔_d ≪ 𝓛^C C_ε (M₀/(λ₋Y₀))^{2ε} Y₀^{−1} [λ₋M₀ + 1 + λ₋Y₀^{−1/2}]`,
 with C and the implied constant depending only on φ, W (𝓛 as in TTL Prop 5.1, `≥ log(1/Y₀)`).
 *Proof.* Split `B̃_j(s) = Σ_{n≥1} ρ̄_j(n)c₊(n) + Σ_{n≥1} ρ̄_j(−n)c₋(n)`, `c_±(t) := λφ̂(±λt)(πtY_d)^{−s}`; the `n < 0`
-part is the `n > 0` part of the reflected basis `u_j(−z̄)` of `(Γ₀(M), χ̄)` (TTL Step 6), again exceptional with the
-same σ_j, so it suffices to treat `n > 0` and all even χ. Put `w(t) := max(1, 1/(πtY₀))` and
+part is the `n > 0` part of the reflected basis `u_j(−z̄)` of the **same** `(Γ₀(M), χ)` (`[[a,b],[c,d]] ↦ [[a,−b],[−c,d]]` keeps d; R116B repair, D3 — TTL Step 6 says χ̄,
+harmlessly), again exceptional with the same σ_j, so it suffices to treat `n > 0` and all even χ. Put `w(t) := max(1, 1/(πtY₀))` and
 `Φ(t) := λ²|φ̂'(±λt)| + λ|φ̂(±λt)|/t` (max over ±). For `s = s_v`: `|(πtY_d)^{−s}| = (πtY_d)^{−σ_j−1/𝓛} ≤ e²w(t)^{σ_j}`
 (if `πtY_d ≤ 1` use `Y_d ≥ Y₀/√2` and `(1/Y₀)^{1/𝓛} ≤ e`; otherwise it is ≤ 1), so `|c₊'(t)| ≤ e²(2+|v|)Φ(t)w(t)^{σ_j}`.
 Lemma 1.2 with `Ψ = Φ`, `Ψ' = e²(2+|v|)w^{σ_j}`:
 `|Σ_n ρ̄_j(n)c₊(n)|² ≤ e⁴(2+|v|)²(∫_1^∞Φ)·∫_1^∞ Φ(t) w(t)^{2σ_j}|S_j(t)|² dt`.
 Sum over d, χ, j and apply (DI7_ε) for each t with weight `Y = w(t) ≥ 1` and the levels `{4dq² : d ≍ D}` (`≤ M₀`,
-divisible by the conductor of χ; positivity); note `√(t·w(t)) ≤ √t + (πY₀)^{−1/2}`. With Lemma 2.1 and
+divisible by `q`, the **modulus** of χ, as Drappeau requires `q₀ | level` — R116B repair, D2; positivity); note `√(t·w(t)) ≤ √t + (πY₀)^{−1/2}`. With Lemma 2.1 and
 `Y_d^{−1} ≤ √2 Y₀^{−1}`:
 `Σ_d 𝓔_d ≪ 𝓛⁴Y₀^{−1}(∫|𝒲(s_v)|(2+|v|)²dv)(∫Φ)∫_1^∞Φ(t)C_ε(M₀t)^ε log²(2t)(M₀ + 2t + Y₀^{−1/2}) t dt`
 (the average `(2/φ(q))Σ_χ` of a maximum over χ is ≤ that maximum). Here the j-dependent factor `|𝒲(s_v)|` is replaced by the common majorant
@@ -136,14 +139,16 @@ With `λ/Y₀ ≍ A√D` and `1/Y₀ = 2qF'√D` the three terms `q²Dλ(1+λ)/Y
 `≪ 𝓛^C C_ε^{1/2} N^{4ε} q² N^{−δ/4}`, for every `δ > 0` (no upper bound on δ is needed).
 *Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}` as `δ ≥ 2γ`;
 b5: by hypothesis), and `λ ≤ 1/8` in (b3); so it is `≪ q²N^{−δ/4}`. In all three cases `F' ≤ 3A√D` (review R116 repair), so the second term (with its `N^{ε₁/2}`)
-is `≪ N^{ε₁/2}D^{1/4}A^{−1/2} = N^{ε₁/2}A^{−1/4}(D/A)^{1/4} ≤ (D/A)^{1/4}` (as `D < A` gives `A ≫ N^{(1−η)/2}`), and the
+is `q^{3/2}N^{ε₁/2}F'^{1/2}/A ≤ √3 q^{3/2}N^{ε₁/2}D^{1/4}A^{−1/2} = √3 q^{3/2}N^{ε₁/2}A^{−1/4}(D/A)^{1/4} ≪ q²(D/A)^{1/4}`
+(R116B repair, D6: the `q^{3/2}` and `√3` are covered by the `q²` of the conclusion) (as `D < A` gives `A ≫ N^{(1−η)/2}`), and the
 third is `F'^{1/4}D^{1/8}A^{−1/2} ≪ (A√D)^{1/4}D^{1/8}A^{−1/2} = (D/A)^{1/4}`; both are `≍ N^{−δ/4}`. ∎
 
 ## 4. The Type I sum
 
 **Hypothesis (EFF).** (DI7_ε) holds with `C_ε ≤ exp(exp(A₀/ε))` for an absolute `A₀` and all `ε ∈ (0,1/4]`, for DI
 Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the character modulus. (Uniformity in q₀ is our
-reading of Drappeau's `≪_ε`: he uses it so in §4.3.1, noting that the bounds decrease with q₀; R116 repair, m7.) (DI and Drappeau state
+reading of Drappeau's `≪_ε`: he uses it so in §4.3.1, noting that the bounds decrease with q₀; R116 repair, m7. Drappeau p. 19: "q₀ appears only
+with negative powers in the error terms", which helps the induction; R116B repair, D9.) (DI and Drappeau state
 `≪_ε` and do not give the ε-dependence. §5 explains why their proofs give EFF; this is an Assessment.)
 
 **Theorem 4.1.** Let `L = log N`.
@@ -173,7 +178,8 @@ It costs `≪ NL/j` for each c-block `j ≥ 1`, plus `≪ NL` for the block `c �
 (i) Take `w = ε₀`. Then `C_ε = C_{ε₀/128}` is a constant, and `N^{−11δ/64} ≤ N^{−ε₀/6}`. So for `N ≥ N₀(ε₀)` every
 layer with `δ ≥ ε₀` is good. There are `≤ ε₀L + 1` bad layers, costing `≪ ε₀NL² log L + NL log L`. The rest is TTL's
 `O(NL²)`. Then sum dyadically over N.
-(ii) Take `w = w_N := 256A₀/log L`. Then `log C_ε ≤ exp(A₀/ε) = exp(128A₀/w) = L^{1/2}`. For `δ ≥ w` we have
+(ii) Take `w = w_N := 256A₀/log L`; this needs `w_N ≤ 1/4`, i.e. `log L ≥ 1024A₀`, so (ii) is asymptotic: the
+implied constant does not depend on this threshold, only the range of N does (R116B repair, D7). Then `log C_ε ≤ exp(A₀/ε) = exp(128A₀/w) = L^{1/2}`. For `δ ≥ w` we have
 `(11/64)δL ≥ 44A₀L/log L ≥ L^{1/2}/2 + (C+1)log L + log L` when `L ≥ L₀(A₀)`. So every layer with `δ ≥ w_N` is good.
 The `≤ w_N L + 1` bad layers cost `≪ (w_N L + 1)NL log L ≪ A₀NL²`.
 (iii) As in (ii), with the given w. For `δ ≥ w` we have `log C_ε ≤ log G(128/w) ≤ wL/32 ≤ δL/32`, and
