@@ -8,7 +8,7 @@
    otherwise P1 runs over odd numbers <= P1max.
    Output: one line per solution "L b a c' delta P1 X" (every solution of (1.1) with the size condition, regime
    (v) or not); stderr: counts.
-   Usage: typei6_vsearch L b [cmax_override]   */
+   Usage: typei6_vsearch L b [u]   (u: test an arbitrary odd u instead of 7^b; regression only)   */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,10 +19,10 @@ typedef long double ld;
 #define SMALL 64
 #define BLK (1<<18)
 #define MAXF 20
-static int L, b; static u64 T; static mpz_t U2, N, Qz, X;
+static int L, b; static u64 T, UU = 0; /* UU: optional odd u replacing 7^b (relaxed regression) */ static mpz_t U2, N, Qz, X;
 static long nsol = 0, ncand = 0, nmod = 0;
 static u64 mulmod(u64 a, u64 c, u64 m) { return (u64)((u128)a * c % m); }
-static u64 u2mod(u64 m) { /* 49^b mod m */ u64 r = 1 % m, p = 49 % m; int e = b; while (e) { if (e & 1) r = mulmod(r, p, m); p = mulmod(p, p, m); e >>= 1; } return r; }
+static u64 u2mod(u64 m) { /* u^2 mod m */ if (UU) return mulmod(UU % m, UU % m, m); u64 r = 1 % m, p = 49 % m; int e = b; while (e) { if (e & 1) r = mulmod(r, p, m); p = mulmod(p, p, m); e >>= 1; } return r; }
 static u64 *primes; static long np;
 static void test(int a, u64 p7a, u64 cp, u64 dl, u64 M, u64 P1) {
   ncand++;
@@ -49,7 +49,7 @@ static ld p1max(u64 p7a, u64 cp, u64 dl) {
   ld co = (ld)p7a * cp, D = (ld)dl, Tl = (ld)T;
   ld lhs = 64 * powl(co, 4) * powl(D, 8) - powl(Tl, 4);
   ld d = co * (co * D * D + Tl);
-  ld u2 = powl(7.0L, 2 * b);
+  ld u2 = UU ? (ld)UU * UU : powl(7.0L, 2 * b);
   if (lhs <= 0) return 1e30L;
   return u2 * d * powl(Tl, 4) / (lhs * cp) * (1 + 1e-9L);
 }
@@ -61,7 +61,8 @@ static void divisors_test(int a, u64 p7a, u64 cp, u64 dl, u64 M, u64 *pf, int *p
 }
 int main(int argc, char **argv) {
   L = atoi(argv[1]); b = atoi(argv[2]); T = 1ULL << (L - 4);
-  mpz_init(U2); mpz_init(N); mpz_init(Qz); mpz_init(X); mpz_ui_pow_ui(U2, 7, 2 * b);
+  mpz_init(U2); mpz_init(N); mpz_init(Qz); mpz_init(X); if (argc > 3) UU = strtoull(argv[3], 0, 10);
+  if (UU) mpz_set_ui(U2, UU), mpz_mul(U2, U2, U2); else mpz_ui_pow_ui(U2, 7, 2 * b);
   /* primes up to 2^32 sqrt bound needed: M < 2^63 -> sqrt < 3.04e9; we sieve primes up to PMAX and require M <= PMAX^2 */
   u64 PMAX = 1ULL << 25; char *isc = calloc(PMAX + 1, 1); primes = malloc(sizeof(u64) * 2200000); np = 0;
   for (u64 i = 2; i <= PMAX; i++) if (!isc[i]) { primes[np++] = i; for (u64 j = i * i; j <= PMAX; j += i) isc[j] = 1; }
