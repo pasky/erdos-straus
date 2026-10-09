@@ -1712,8 +1712,10 @@ $(N/2,N]$.  Summing dyadically in $N$ proves the theorem.
 \end{proof}
 
 \section{The exceptional spectrum on average over the level}\label{sec:exc}
-This section removes (SEL) from Theorem~\ref{L:8.1} at the cost of an
-unquantified $\varepsilon$-constant; it is a write-up of \cite{TTL2}. Throughout, $\cL\ge2$ is as in
+This section removes (SEL) from Theorem~\ref{L:8.1}; it is a write-up of
+\cite{TTL2}. With the published, unquantified $\varepsilon$-constant of the
+cited input it gives Theorem~\ref{E:main}(i), and with the effective
+constant of Appendix~\ref{sec:eff} it gives Theorem~\ref{E:main}(ii). Throughout, $\cL\ge2$ is as in
 Proposition~\ref{L:5.1} (we may take $\cL=\log N$ in the application),
 and an exceptional form of $(\Gamma_0(M),\chi)$ is an orthonormal cusp
 form $u_j$ with $t_j=i\sigma_j$, $0<\sigma_j<1/2$; Selberg's bound
@@ -2200,7 +2202,8 @@ them by the level-averaged bound \cite[Theorem~7]{DI} for $a_n=1$ (the
 partial-control level average \cite[Theorem~6]{DI}, for general $a_n$,
 does not suffice). The strip then shrinks to $\delta<w$ for every fixed
 $w>0$, which gives Theorem~\ref{thm:uncond}, and to
-$w\asymp1/\log\log N$ under (EFF).
+$w\asymp1/\log\log N$ with the effective constants of Appendix~\ref{sec:eff},
+which gives Theorem~\ref{thm:main}.
 
 \subsection{Lifts versus equidistribution of a finite packet}
 The lift-counting target (H**) of \cite[\S3.5]{MN3} is stronger than
@@ -2231,22 +2234,25 @@ estimate.  We make no exhaustive literature claim that no other
 joint-aspect theorem exists.
 
 \section{Open problems}\label{sec:open}
-\begin{problem}[effective constants]
-Prove (EFF), i.e.\ make \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr}
-effective with $C_\varepsilon\le\exp(\exp(A/\varepsilon))$, or with any loss
-$\exp(o(\log(QN)/\log\log(QN)))$ in place of $(QN)^\varepsilon$. By
-Theorem~\ref{E:main}(ii),(iii) this would prove
-$\sum_{p\le N}f_I(p)\ll N\log^2N$ unconditionally. Assessment~\ref{E:ass}
-suggests a careful rewrite of DI \S\S5, 7.1, 8 and Drappeau \S4.2 with an
-explicit Gevrey cutoff suffices.
+\begin{problem}[verification and numerical constants]
+Verify Appendix~\ref{sec:eff} independently (it has had internal review
+only), and make $A_0$ numerically explicit: re-derive the fixed absolute
+majorants that were only shape-checked (listed at the end of
+Appendix~\ref{sec:eff}) and certify absolute values of $C_W,B_W$ in the
+twisted Weil bound (B3). A cleaner route would be a published effective
+form of \cite[Theorem~7]{DI} and \cite[Lemma~4.10]{Dr}, or any loss
+$\exp(o(\log(QN)/\log\log(QN)))$ in place of $(QN)^\varepsilon$, which suffices
+by Theorem~\ref{E:main}(iii).
 \end{problem}
 
-\begin{problem}[quantified rate]
-Short of (EFF), obtain any explicit $G$ with $C_\varepsilon\le G(1/\varepsilon)$.
-Theorem~\ref{E:main}(iii) then turns it into an explicit rate in
-$\sum_{p\le N}f_I(p)\ll N\log^2N(1+w_N\log\log N)$, $w_N\to0$. Alternatively,
-remove the $\log\log N$ by another route, e.g.\ an exceptional large sieve
-for the box coefficients at a single level with losses
+\begin{problem}[asymptotic and other routes]
+Theorem~\ref{thm:main} and \cite[Theorem~1.1]{ET} give
+$\sum_{p\le N}f_I(p)\asymp N\log^2N$. Decide whether
+$\sum_{p\le N}f_I(p)\sim c_IN\log^2N$ for some constant $c_I$;
+the bad region of Section~\ref{sec:reduction} is
+bounded here only up to constants. Independently, a proof that avoids the
+level average over $d$ would be of interest, e.g.\ an exceptional large
+sieve for the box coefficients at a single level with losses
 $N^{o(1/\log\log N)}$.
 \end{problem}
 
@@ -2281,7 +2287,9 @@ bound in \cite[\S2, Theorem~L$'$]{MN3} reduces it to
 $(\log\log N)^{1/3}$.  An $m$-uniform removal of the Type~I logarithmic
 loss would close that remaining gap at the scale
 $\log N\asymp m^{1/3}$; \cite{MN4} does this under (SEL$_m$). An
-unconditional or (EFF)-conditional $m$-uniform version is not proved here.
+$m$-uniform version without (SEL$_m$) is not proved here: it would need the
+level average of Section~\ref{sec:exc} for the levels $mdq^2$ together with
+the effective constants of Appendix~\ref{sec:eff}.
 \end{problem}
 
 \begin{remark}[numerical status: \status{evidence}]
