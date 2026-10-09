@@ -45,3 +45,12 @@ full set, single core. 31 of the 300 leaves (10%) lie in no class with `M | L` (
 `m13d_dfs.py 418321:720720 1000000 100 3 5000 3600 …` (484 s): 5000 pops, 2313 covered by the C engine
 (46%), open mass `5.2·10⁻⁹` of the root (13C Comp 8.2: `1.95·10⁻⁸` after 142088 nodes), but the queue still grows
 (14874 open at stop; ≈ 7.4 children pushed per expansion, ≈ 4 of them open w.r.t. all `M | L`). Supercritical.
+
+**Run 2.2 (CK = 6: the 6 candidate splits with fewest table survivors are scored by the C engine; split = min
+(#children open w.r.t. all `M | L·q`, p)).** Same root, emax 3, 3600 s (logs/o103_dfs418_ck6.log): 6200 expansions,
+open mass `5.1·10⁻⁹`, 16857 open leaves (depth 11–14). Open children per expansion by `log₂ L'`:
+≈ 2.5 (bits 40–50), 3.2 (50–55), 3.6 (55–60), 3.0 (60–65) — not decreasing: supercritical.
+*Shape of the open set:* every open leaf has `x ≡ 1` mod 16, 9, 25, 17; ≈ 85–90% have `x ≡ 1` mod 19, 23; 97–100% are
+quadratic residues mod 19, 23, 29, 47 (cf. the non-square lemma, 13C §1: classes covering points that are
+squares at all `q ∉ {11,13}` need the non-square witness 11 or 13). Most open leaves sit at the exponent caps
+(`2⁶3⁴5³7²⁻³`), so the run cannot separate them from the 2-, 3-, 5-adic point `x = 1` → next: raise emax.
