@@ -144,7 +144,7 @@ the size of `F` and `ν` grows roughly like `2^m`, so the closeness is tiny comp
 `2^{L−4}·7^b ≤ 2^{28}`, i.e. `b=0: L≤32; b=1: L≤29; b=2: L≤26; b=3: L≤23; b=4: L≤20; b=5: L≤17; b=6: L≤15; b=7: L≤12;
 b=8: L≤9` (129 runs, ≈ 1 h on one core). `scripts/typei7_tab.py` re-verifies every row (`Fe = N`, `F ≡ e ≡ 7 (16)`,
 Lemma 1.1 in both orientations: 134 checks) and tabulates `max(v_2(F+9), v_2(e+9))` against `t_min = 2+⌈L/2⌉`.
-It reproduces Comp 3.4 of TYPEI4 exactly on its range. All 67 certificates (59 distinct divisor pairs):
+It reproduces Comp 3.4 of TYPEI4 exactly on its range. All 67 certificates (62 distinct divisor pairs `(F,e)`):
 
 | L | b | # | closeness (both roles, max) | t_min | margin |
 |---|---|---|---|---|---|
@@ -176,7 +176,7 @@ By Remark 2.1(b) the `L=11` triple recurs at `L=46, 81, …`, outside the grid.
 **Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
 `v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
 `b=0, L=27–32`; `b=1, L=27–29`; `b=2, L=25,26`; `b=3, L=23`; `b=4, L=11–20`; `b=5, L=11–17`; `b=6, L=11–15`;
-`b=7, L=11,12`. *(Engines: `typei4_lb` alone so far; cross-check with `review_typei4_jsearch.c` in progress, §3.3.)*
+`b=7, L=11,12`. *(Engines: `typei4_lb` alone so far; cross-check with `review_typei4_jsearch.c`: Computation 3.4 below.)*
 
 **Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
 `L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
@@ -204,7 +204,8 @@ local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 �
   the sterile part nowhere dense (Cor 2.3), already with `F = 71^e`, `k = 2^γ`, `7 ∤ k` (Thm 2.4).
 * CERTIFIED once replayed: Comp 2.2, 2.5 (explicit approximants up to closeness 14); Comp 3.1 / Cor 3.2 (complete
   `(L,b)` grid `2^{L−4}7^b ≤ 2^{28}`: no certificate at `x̂_9`; max closeness ≤ 10, margin ≥ 1, ≥ 10 for `L ≥ 28`).
-* Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; tail ≲ 10^{−2}).
+* Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; per `b`-row tail beyond
+  the grid ≲ 2·10^{−3} if cell counts stay ≤ 10 — no model controls the infinitely many `b`-rows).
 * NOT achieved (precise negative statement): an inequality `v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates is exactly
   sterility of `x̂_9` (by Lemma 1.1 and the Criterion), and by Cor 2.3 / Thm 2.4 it cannot follow from any statement
   about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9` (PROVED, Cor 2.3);
@@ -218,12 +219,13 @@ local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 �
 ```
 gcc -O2 -o /tmp/lb scripts/typei4_lb.c -lm
 # Comp 3.1 grid (≈1 h, one core): all (L,b) with L>=7, 2^(L-4)*7^b <= 2^28
-for b in 0 1 2 3 4 5 6 7 8; do for L in $(seq 7 32); do
-  python3 -c "import math,sys;sys.exit(0 if $L-4+$b*math.log2(7)<=28.01 else 1)" && /tmp/lb $L $b > /tmp/t7/lb_${L}_${b}.txt
+mkdir -p /tmp/t7; for b in 0 1 2 3 4 5 6 7 8; do for L in $(seq 7 32); do
+  python3 -c "import math,sys;sys.exit(0 if $L-4+$b*math.log2(7)<=28.01 else 1)" || continue
+  /tmp/lb $L $b > /tmp/t7/lb_${L}_${b}.txt 2>>/tmp/t7/log.txt || echo "FAILED L=$L b=$b"   # stderr = completion record
 done; done
-uv run python scripts/typei7_tab.py /tmp/t7/lb_*.txt          # table of §3; 67 certs, 134 Lemma-1.1 checks, no HIT
+uv run python scripts/typei7_tab.py /tmp/t7/lb_*.txt   # §3 table; refuses unrecorded cells; 67 certs, 62 pairs, 134 checks, no HIT
 gcc -O2 -o /tmp/t7/js scripts/review_typei4_jsearch.c -lm     # second engine (R89), per cell: /tmp/t7/js L b > /tmp/t7/js_L_b.txt
-uv run python scripts/typei7_xcheck.py /tmp/t7                # compares lb vs js cell by cell
+uv run python scripts/typei7_xcheck.py /tmp/t7                # lb vs js cell by cell; exit 1 on any mismatch/incomplete cell
 PYTHONPATH=scripts uv run --with sympy python scripts/typei7_unbounded.py 5    # Comp 2.2 (m = 4, 5)
 uv run --with sympy python scripts/typei7_dense71.py 14                         # Comp 2.5 (1 min)
 uv run --with sympy python scripts/typei7_family.py 30 11 14 3                  # fixed-(c',g) family engine, sanity (2 rows)

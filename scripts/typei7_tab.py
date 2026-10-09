@@ -11,7 +11,17 @@ def v2(x):
     return (x & -x).bit_length() - 1
 
 
+import re, os
 rows = defaultdict(list)
+# completion records of typei4_lb (stderr collected in log.txt next to the files); refuse incomplete cells
+done = set()
+for fn in sys.argv[1:]:
+    lg = os.path.join(os.path.dirname(fn) or ".", "log.txt")
+    done |= set(tuple(map(int, m)) for m in re.findall(r"L=(\d+) b=(\d+) solutions", open(lg).read()))
+for fn in sys.argv[1:]:
+    L0, b0 = map(int, re.findall(r"lb_(\d+)_(\d+)", fn)[0])
+    if (L0, b0) not in done:
+        sys.exit(f"incomplete or unrecorded run: {fn}")
 nchk = 0
 for fn in sys.argv[1:]:
     for line in open(fn):
@@ -29,7 +39,7 @@ for fn in sys.argv[1:]:
             E = 5 - 9 * nd - (1 << (L - 2)) * co * ko * ko
             assert v2(FF + 9) == 3 + v2(E)   # Lemma 1.1
             nchk += 1
-        rows[(L, b)].append((max(v2(F + 9), v2(e + 9)), v2(F + 9), v2(e + 9), cp, g, dl, a, min(F, e)))
+        rows[(L, b)].append((max(v2(F + 9), v2(e + 9)), v2(F + 9), v2(e + 9), cp, g, dl, a, (min(F, e), max(F, e))))
 tot = 0
 print("L b  count  distinct-(N,F)  closeness-list  t_min  margin(t_min - max)")
 for (L, b) in sorted(rows):
@@ -38,4 +48,4 @@ for (L, b) in sorted(rows):
     tot += len(r)
     cl = sorted((x[0] for x in r), reverse=True)
     print(L, b, len(r), len({x[7] for x in r}), ",".join(map(str, cl)), tmin, tmin - cl[0], "HIT" if cl[0] >= tmin else "")
-print("total certificates", tot, "Lemma 1.1 checks", nchk, file=sys.stderr)
+print("total certificates", tot, "distinct (F,e) pairs", len({x[7] for r in rows.values() for x in r}), "Lemma 1.1 checks", nchk, file=sys.stderr)

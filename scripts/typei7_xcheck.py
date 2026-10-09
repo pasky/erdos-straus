@@ -5,6 +5,8 @@ import sys, glob, os, re
 
 d = sys.argv[1]
 ok = bad = 0
+# lb completion records (stderr of typei4_lb, collected in DIR/log.txt): "L=.. b=.. solutions n"
+done_lb = set(tuple(map(int, m)) for m in re.findall(r"L=(\d+) b=(\d+) solutions", open(os.path.join(d, "log.txt")).read()))
 for js in sorted(glob.glob(os.path.join(d, "js_*.txt"))):
     txt = open(js).read()
     if "DONE" not in txt:
@@ -16,6 +18,8 @@ for js in sorted(glob.glob(os.path.join(d, "js_*.txt"))):
             kv = dict(x.split("=") for x in line.split()[1:])
             J.add((L, b, int(kv["c'"]), int(kv["k'"]), int(kv["F"]), int(kv["e"])))
     lbf = os.path.join(d, f"lb_{L}_{b}.txt")
+    if (L, b) not in done_lb:
+        print(L, b, "lb run not recorded as complete"); bad += 1; continue
     B = set()
     for line in open(lbf):
         f = list(map(int, line.split()))
@@ -27,3 +31,4 @@ for js in sorted(glob.glob(os.path.join(d, "js_*.txt"))):
     ok += same; bad += not same
     print(L, b, len(J), len(B), "OK" if same else "MISMATCH")
 print("cells agree", ok, "disagree", bad)
+sys.exit(1 if bad else 0)
