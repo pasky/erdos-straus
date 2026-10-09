@@ -149,3 +149,42 @@ derivatives and fixed contour shifts occur (a numerical replacement of DI Lemma 
 Thm 13's Fourier separation differentiates up to six times, beyond what (7.7) controls (repaired by product
 cutoffs with seven controlled derivatives); a cosh factor missing on p. 264 is restored; the `C^ε`-only form (1.52)
 is not needed (the `(UV)^{δ/2}` and log factors are summed explicitly over dyadic Fourier blocks).
+
+## 7. Assembly, trivial character
+
+**Theorem 7.1 (effective DI Thm 7; PROVED rel. the black boxes listed in §9).** For `0 < δ ≤ 1/10` and all
+`Q, Y, N ≥ 1`: `S*(Q,Y,N) ≤ K₇(δ)(QN)^{5δ}(Q + N + √(NY))N` with `K₇(δ) ≤ exp(exp(410/δ))`.
+*Proof.* Thm 2.2 with (P1)–(P3) from Props 4.1, 5.1 (via §3) and 6.1. Constants: `K_{T2}(δ) ≤ exp(exp(100/δ))`,
+so `K_{T2}(δ/4) ≤ exp(exp(400/δ))`; `K₁₄(δ/4) ≤ exp(exp(404/δ))`; `D(δ/4) = (8/δ)^{2^{4/δ}} ≤ exp(exp(3/δ))`;
+hence `K₁, c ≤ exp(exp(405/δ))` (the factors `Aδ^{−2}` are absorbed since `exp(405/δ) − exp(404/δ) ≥ e^{4040}`),
+`K₂ = 17K_{T2}(δ)`, and Cor 2.3 with `B = 405` gives `exp(exp(408/δ))`. ∎
+
+## 8. Nebentypus (Drappeau Lemma 4.10) — the induction with repairs (PROVED rel. (P1χ)–(P3χ))
+
+Fix r ≥ 1 and an even character χ mod r. Following Dr p. 17 the level is renamed `L = rq`
+(`scripts/ttl3_nebentypus.md` §1): `Sχ(Q,Y,N,t;I) := Σ_{Q<q≤16Q} Σ_{f∈𝓑(rq,χ) exc} Y^{2σ_f}|Σ_{n∈I}n^{it}ρ_f(n)|²`,
+defined for every `Q > 0` (DI normalisation of ρ_f), `Sχ* := sup_I Sχ(·,0;I)`. (M) and (PS) hold verbatim
+(Selberg's 3/16 holds for Γ₁(L) ⊃ the forms of (Γ₀(L),χ); `scripts/ttl3_thm2_twisted.md`). Inputs, for
+`δ ∈ (0,1/10]`, `Y, N ≥ 1` (`scripts/ttl3_lemma81_twisted.md`, `scripts/ttl3_thm2_twisted.md`):
+* **(P1χ)** for all `Q > 0`: `Sχ*(Q,Y,N) ≤ K₁(δ)(NY)^δ(Q + N + Y)N`;
+* **(P2χ)** for `Q ≥ 1`, with `C := πNY/(rQ)`: `Sχ(Q,Y,N,0;I) ≤ c(δ)∫Sχ(C,Y,N,t;I)dt/(1+t⁴) + c(δ)(QYN)^δ(Q + N + NY/Q)N`;
+* **(P3χ)** for `Q ≥ 1`: `Sχ(Q,1,N,0;I) ≤ K₂(δ)(Q + N^{1+δ})N`;
+with `K₁ = K₁χ, c = cχ, K₂ = 17K_{LSχ}` independent of r and χ. Note the switched parameter C carries the
+factor `1/r` and can be `< N`, even `< 1`; there the induction hypothesis is unavailable (Dr's "r appears only with
+negative powers" needs this extra branch).
+
+**Proposition 8.1 (twisted (8.19)).** With `Q₀ := max((90c)^{1/(10δ²)}, (2π)^{1/(2δ)})` and
+`H := max(2K₂Q₀, 10K₁, 200cK₁)`: for all `Q ≥ 1`, `1 ≤ N ≤ Q`, `Sχ*(Q, Q^{2−2δ}/N, N) ≤ HQ^{1+4δ}N`.
+*Proof.* As Prop 2.1; cases (A), (B) verbatim (using (P3χ), (P1χ)). Case (C), `Q > Q₀`, `N ≤ Q^{1−2δ}`:
+`C = πQ^{1−2δ}/r ≤ Q/2`; the error term of (P2χ) is `≤ c·Q^{3δ}·3Q·N` (`QYN = Q^{3−2δ}`).
+*(C1) C ≥ N.* With `Y_C := C^{2−2δ}/N ≤ Y`, the induction hypothesis at C, (M), (PS):
+the main term is `≤ c·2√2π·(Q/C)^{1−δ}HC^{1+4δ}N = 2√2π c H Q^{1−δ}C^{5δ}N ≤ 45cHQ^{1+4δ−10δ²}N ≤ (H/2)Q^{1+4δ}N`
+(`C^{5δ} ≤ π^{5δ}Q^{5δ−10δ²}`, r ≥ 1).
+*(C2) C < N.* No induction: (M) with `Y₁ := C + N ∈ [1, 2N]` and (P1χ) at C give
+`Sχ*(C,Y,N) ≤ (1 + √(Y/N))K₁(2N²)^δ·4N·N ≤ 5K₁N^{2δ}(N + Q^{1−δ})N ≤ 10K₁Q^{1+δ}N` (`√(YN) = Q^{1−δ}`), so the
+main term is `≤ 2√2π·c·10K₁Q^{1+δ}N ≤ 90cK₁Q^{1+δ}N`.
+In both sub-cases `Sχ ≤ (H/2 + 90cK₁ + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. ∎
+
+**Theorem 8.2 (effective Dr Lemma 4.10).** For `Q ≥ 1/16`, `Y, N ≥ 1`:
+`Sχ*(Q,Y,N) ≤ K₇χ(δ)(QN+1)^{5δ}(Q + N + √(NY))N`, `K₇χ := max(H, 10K₁)`, uniformly in r, χ.
+*Proof.* `Q ≥ 1`: as Thm 2.2. `Q < 1`: (M) with `Y₁ = 1 + N` and (P1χ): `≤ (1+√(Y/N))K₁(2N²)^δ·3N·N ≤ 5K₁N^{2δ}(N+√(NY))N`. ∎
