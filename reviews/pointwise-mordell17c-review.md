@@ -60,7 +60,7 @@ so (H_Q) restricted to `c < F^{1/2}` plus 4.3·10⁻³ is a correct replacement.
 Label correct (Assessment, not carried out). Re-derived the thresholds: (a,c): `M = aF+c ≈ F^{1+α}`, modulus `4ac ≈ F^{α+γ}`;
 `α+γ > (1+α)/3 ⇔ 2α+3γ > 1`, `> (1+α)/4 ⇔ 3α+4γ > 1` ✓. (c,d): `M ≈ F²` (as `2γ+δ ≤ 2`), thresholds 2/3, 1/2 ✓.
 `(0.4,0,0.6)` is indeed uncovered by Lenstra-1/3 in all three regimes ✓. Lenstra (1984) gives ≤ 11 divisors for s > n^{1/3}
-and O_α(1) for α > 1/4 (statement from memory; source PDF not in sources/, not checked). See defect m3 (corner not
+and O_α(1) for α > 1/4 (statement from memory; source PDF not in sources/, not checked). See defect m2 (corner not
 listed). The P-side "no free regime" remark: re-derived, correct.
 
 ### §3 Assessment (P side, ET-type covers)
@@ -68,7 +68,7 @@ Re-derived: P-point constraints `(N+e)/4 ≤ acde ≤ (N+e)/2` ✓; at the symme
 parameter pairs ✓; ET balance with `X_ad,X_ac,X_cd ≤ N^{0.4}` forces `X_e ≥ N^{0.4}` ✓; `#{ad ≤ X} ≥ X ln X − X` and
 `X ln X − X > 1.497X ⇔ ln X > 2.497` ✓ (true for every K ≥ 13, as `ln 17^{5.2} = 14.7`). Nicolas–Robin
 `τ(n) ≤ n^{1.5379 ln 2/ln ln n}` (n ≥ 3): exponent `1.066/ln ln n = 0.189` at `n = 17^{100}` ✓. The conclusions are
-methodological and correctly not claimed as theorems, but two sentences overclaim (defects m4, m5).
+methodological and correctly not claimed as theorems, but two sentences overclaim (defects m3, m4).
 
 ### §4 Assessment + EVIDENCE (averaging over K)
 * Class structure (PROVED): re-derived. For fixed `(a,b,e)`, `17∤cd` is K-independent (`c = (a+b)/e` fixed; `17 | d ⇔ 17 | 17^K+e ⇔ 17 | e`),
@@ -81,10 +81,10 @@ methodological and correctly not claimed as theorems, but two sentences overclai
   `e = −17^K mod 4ab` and returns D_P = 2, 32, 121 for K = 1, 3, 5, matching M17/M17B.
 * Extended range (this review): B = 10⁴, 10⁵, 3·10⁵ give E_∞ = 4698, 52861, 165511; E_∞/Στ = 1.40 %, 1.04 %, 0.92 %;
   E_∞/(B ln B) = 0.051, 0.046, 0.044; #K_min ≤ 13 = 175, 303, 372; median K_min = 491, 4515, 12525. So the
-  growth statement in the text is wrong in detail (defect m6), though the Assessment's conclusion (θ ≈ 1 for K-blind
+  growth statement in the text is wrong in detail (defect m5), though the Assessment's conclusion (θ ≈ 1 for K-blind
   arguments) is unaffected: any `E_∞ ≥ B^{1−o(1)}` gives it.
 * Assessment: the reduction "(H_P^cum) ⇔ discrete logs of −e rarely fall in `[log_17 4ab, K]`" is a correct reformulation
-  (modulo the multiplicity remark m7). Label CONDITIONAL for (H_P) correct.
+  (modulo the multiplicity remark m6). Label CONDITIONAL for (H_P) correct.
 
 ## Defects (all MINOR; repairs applied)
 

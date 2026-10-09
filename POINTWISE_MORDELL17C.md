@@ -25,7 +25,8 @@ reproduces M17B §4):
 | C*, cumulative (H_P^cum), K ≥ 13, base ρ₁ | 657.9 | 93.38 | 12.50 | **1.497** | 0.6042 | 0.1354 |
 | C*, cumulative, K ≥ 15, base ρ₂ | 2712 | 290.0 | 29.25 | **2.639** | 0.9507 | 0.1798 |
 
-(T_Q kept at the un-weakened `1.4106·10⁻³`, a safe over-estimate.) Data check: `S_P(13) = 1463 ≤ 1.497·17^{5.2}`.
+(T_Q kept at the un-weakened `1.4106·10⁻³`, a safe over-estimate.) For the K ≥ 15 row (base ρ₂), `S_P` is summed from
+`K' = 15`; a bound for the sum from 13 implies it. (R98b repair m1, applied by reviewer) Data check: `S_P(13) = 1463 ≤ 1.497·17^{5.2}`.
 The point of Lemma 1.1 is less the constant than the *shape*: a bound for `Σ_{K' ≤ K} D_P(K')` may be attacked by
 averaging over the exponent `K'`, which a pointwise bound cannot (see §3).
 
@@ -58,7 +59,8 @@ threshold.
 (`α+γ+δ ≈ 1`), the regimes `(a,d)` [Lemma 2.1(iv), ≤ 2, cost `1−γ`], `(a,c)` [`f | aF+c`, mod `4ac`; Lenstra (≤ 11)
 if `2α+3γ > 1`, exponent-1/4 bound if `3α+4γ > 1`; cost `α+γ`] and `(c,d)` [`f | F²+4c²d`, mod `4cd`; Lenstra if
 `γ+δ > 2/3`, exponent-1/4 bound if `γ+δ > 1/2`; cost `γ+δ`], plus Nicolas–Robin τ-bounds for `τ(F²+4c²d)` when `cd`
-is tiny, appear to cover the whole simplex with every cost `< 1`. Lenstra alone leaves the region `γ ≈ 0`,
+is tiny, and a τ-bound for `τ(aF+c)` in the `(a,c)` regime near the corner `α, γ → 0` (there both `(a,d)` and `(c,d)` cost
+→ 1; R98b repair m2, applied by reviewer), appear to cover the whole simplex with every cost `< 1`. Lenstra alone leaves the region `γ ≈ 0`,
 `1/3 < α < 1/2` (e.g. `(0.4, 0, 0.6)`), so an explicit Lenstra/Coppersmith–Howgrave-Graham–Nagaraj constant
 above exponent 1/4 is required. Q has margin 2/5 (needs only `θ_Q < 1`), so an explicit, `log`-lossy bound would
 suffice for large k. A finite range of k would remain to be checked.
@@ -71,7 +73,7 @@ sublinear in N.
 
 Recall (M17B Lemma 2.1) a P-point is `(a,c,d,e)` with `4abd = N+e`, `ce = a+b`, `a ≤ b`, hence
 `(N+e)/4 ≤ acde ≤ (N+e)/2` (from `ce/2 ≤ b ≤ ce`).
-* *Symmetric point (PROVED, exponent bookkeeping).* At `a ≍ c ≍ d ≍ e ≍ N^{1/4}` each of the six two-variable
+* *Symmetric point (Assessment; exponent bookkeeping, trivially true in the stated cost model — R98b repair m3, applied by reviewer).* At `a ≍ c ≍ d ≍ e ≍ N^{1/4}` each of the six two-variable
   regimes (fix two of `a,c,d,e`, find the rest by a divisor-in-residue-class problem) ranges over `≍ N^{1/2}` parameter
   pairs. A bound that charges ≥ 1 per parameter pair (Lenstra, CHN, or the "≤ 2" trick of Lemma 2.1(iv)) therefore costs
   `≥ N^{1/2−o(1)}`, beyond any admissible θ < 1/2. A one-variable regime (`e` fixed, count factorisations of `(N+e)/4`,
@@ -79,9 +81,11 @@ Recall (M17B Lemma 2.1) a P-point is `(a,c,d,e)` with `4abd = N+e`, `ce = a+b`, 
 * *The θ = 0.4 row is out of reach of ET-type covers (Assessment).* ET's balance `X_e² X_ad X_ac X_cd ≥ N²` with
   `X_ad, X_ac, X_cd ≤ N^{0.4}` forces `X_e ≥ N^{0.4}`. The pair regime alone, charged ≥ 1 per pair, costs
   `#{ad ≤ X} ≥ X ln X − X`, i.e. more than `1.497·N^{0.4}` (cumulative C*, §1) as soon as `ln N^{0.4} > 2.5`. Any proved
-  bound for the `e`-regime is of the form `Σ_{e ≤ X_e} τ_3`-type, of size `≫ X_e (ln N)²`. So the θ = 0.4 constant cannot
-  be met at any K. Only θ close to 1/2 leaves room, with `C* ≤ 0.1354` at θ = 0.45. That requires
-  `N^{0.05} ≫ (ln N)^{O(1)}`, i.e. K in the hundreds at least, and the range below it would need exact data.
+  bound for the `e`-regime is of the form `Σ_{e ≤ X_e} τ_3`-type, of size `≫ X_e (ln N)²`. So the θ = 0.4 constant appears
+  out of reach at every K for such covers (this rests on the unproved premise that any proved e-regime bound is `≫ X_e (ln N)²`,
+  and on taking `X_ad = N^{0.4}` rather than optimising the thresholds). Every θ > 0.4 leaves room asymptotically, but the K
+  beyond which it does grows as θ ↓ 0.4; e.g. θ = 0.45 has `C* ≤ 0.1354` and requires `N^{0.05} ≫ (ln N)^{O(1)}`, i.e. K in
+  the hundreds at least, and the range below it would need exact data. (R98b repair m4, applied by reviewer)
 * *Pointwise τ-bounds.* Nicolas–Robin `τ(n) ≤ n^{1.5379 ln 2/ln ln n}` gives exponent `≈ 1.07/ln ln n`, which is still
   `≈ 0.19` at `n ≈ 17^{100}`. Squared for `τ_3`, it is far above the margin `1/2 − θ`. This is the M17B §5
   bottleneck, unchanged.
@@ -104,9 +108,9 @@ python3 -c "import math;print(sum(3*17**(1-k/2)*(1+k*math.log(17)) for k in rang
 
 Lemma 1.1 allows averaging over `K' ≤ K`. Fix `(a,b)`, `17∤ab`, `a ≤ b`, `m = 4ab`, and a divisor `e | a+b`. By M17B
 Lemma 5.1, the admissible exponents are the odd `K'` with `17^{K'} ≡ −e (mod m)` and `17^{K'} + e ≥ m`. Hence:
-* *(PROVED.)* The admissible `K'` form one class mod `lcm(2, ord_m 17)`, or none. A triple `(a,b,e)` is
-  counted in `S_P(K)` iff its least admissible exponent `K_min(a,b,e)` (a discrete logarithm of `−e`, lifted above
-  `log_17 m`) is `≤ K`.
+* *(PROVED.)* The admissible `K'` form one class mod `lcm(2, ord_m 17)`, or none. A triple `(a,b,e)`
+  contributes `#{admissible K' ∈ [13, K]}` to `S_P(K)`; if its least admissible exponent `K_min(a,b,e)` (a discrete
+  logarithm of `−e`, lifted above `log_17 m`) is ≥ 13, it is counted iff `K_min ≤ K`. (R98b repair m6, applied by reviewer)
 * *(PROVED.)* Correction to a tempting simplification: 17 is never a primitive root mod `m` when `ab > 1`.
   `(ℤ/4ab)^×` is not cyclic once `ab` has an odd prime factor, and `17 ≡ 1 (mod 16)` forces `−e ≡ 1 (mod gcd(m,16))`.
   So only a *proportion* of the divisors `e | a+b` can qualify, never all of them.
@@ -119,12 +123,15 @@ Lemma 5.1, the admissible exponents are the odd `K'` with `17^{K'} ≡ −e (mod
   | 3000 | 11344 | 78148 | 1361 | 1.7 % | 0.057 | 123 | 167 | 2811 |
   | 30000 | 143819 | 1237333 | 14901 | 1.2 % | 0.048 | 231 | 1411 | 28795 |
 
-  So `E_∞` grows like `B·(log B)^{≈1}`, a positive-proportion slice of `Σ τ(a+b) ≍ B log² B`. The exponents are spread
+  R98b extension (independent code `scripts/review_m17c_dlog.c`, which reproduces both rows above): B = 10⁴, 10⁵, 3·10⁵ give
+  E_∞ = 4698, 52861, 165511; E_∞/Στ = 1.40 %, 1.04 %, 0.92 %; E_∞/(B ln B) = 0.051, 0.046, 0.044; #K_min ≤ 13 = 175, 303, 372.
+  So `E_∞` grows like `B·(log B)^{≈0.4–0.5}` on this range, a slowly *shrinking* fraction of `Σ τ(a+b) ≍ B log² B`
+  (R98b repair m5, applied by reviewer: was "`(log B)^{≈1}`, a positive-proportion slice"). The exponents are spread
   up to `≈ m` (median `K_min ≈ 0.05·B`, while `log_17(4B) ≈ 4`), and only a tiny, slowly growing set has
   `K_min ≤ 13`.
 * *(Assessment.)* Every P-point of level `≤ K` has `4ab ≤ 17^K + a + b`, so the pairs entering `S_P(K)` have
   `B ≈ 17^K/4`. An argument that uses only "some exponent works", which is all that averaging over `K'` without
-  locating the discrete log provides, therefore bounds `S_P(K)` by something of order `E_∞ ≈ 17^K·K`. That is θ ≈ 1,
+  locating the discrete log provides, therefore bounds `S_P(K)` by something of order `E_∞ ≈ 17^K·K^{O(1)}` (R98b repair m5). That is θ ≈ 1,
   far above any admissible `C·17^{θK}` with θ < 1/2. A proof of (H_P^cum) must show that
   `#{(a,b,e): 4ab ≲ 17^K, K_min(a,b,e) ≤ K}` is `≪ 17^{θK}`. That is a statement that the discrete logs of `−e` modulo `4ab`
   rarely fall in the short initial window `[log_17 4ab, K]`, i.e. a discrete-log equidistribution bound (in the heuristic
