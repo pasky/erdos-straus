@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-09 (2) to main after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
+# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-10 to main after ledger (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]; previous refresh 2026-10-09 (2) after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -76,9 +76,16 @@ The campaign ran two lines of research.
   density transition at `log N = m^{1/3}` up to a factor
   `(log log N)^{1/3}` (Thms U and L′, PROVED relative to the inputs
   named in the ledger; the half-point `1.95 m^{1/3}` is EVIDENCE). The
-  remaining factor is exactly Elsholtz–Tao's Type I log log N, which is
-  removed for m = 4 CONDITIONALLY on Selberg's eigenvalue conjecture
-  ((D)32; nothing unconditional).
+  remaining factor is exactly Elsholtz–Tao's Type I log log N. For m = 4
+  that log log N is now beaten **unconditionally** but without a rate:
+  `Σ_{p≤N} f_I(p) = o(N log² N log log N)` ((D)32a, PROVED relative to
+  Deshouillers–Iwaniec 1982 Thm 7 and Drappeau 2017 Lemma 4.10). The full
+  removal, `≪ N log² N`, is CONDITIONAL on Selberg's eigenvalue conjecture
+  ((D)32) or on an effectivity statement (EFF) for the cited ε-constants
+  ((D)32a). The m-uniform version gives the **sharp order** `log N ≍ m^{1/3}`
+  of the m/p density transition, CONDITIONALLY on SEL_m for the lower half
+  ((D)31 follow-up 3, EXCEPTIONAL_MN4); no sharp threshold constant is
+  claimed.
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -115,7 +122,11 @@ The campaign ran two lines of research.
   levels 7-10; for r = 17, cumulative counts suffice (constant 1.497).
   The remaining candidates, `x̂_9` for Type I, x** = x(2,15) for r = 13,
   and a point on the 17-generic line for r = 17, are CONJECTURES
-  ((H)17, (H)34). No sterile point other than the square points is proved.
+  ((H)17, (H)34). x** survives every ET class of ES level < 2.59·10¹⁰
+  (CERTIFIED, MORDELL13E). At `x̂_9`, 2-adic closeness provably cannot
+  decide sterility: fibre certificates approach w = 9 arbitrarily closely
+  and the covered part of the fibre is open and dense (PROVED, TYPEI7).
+  No sterile point other than the square points is proved.
 
 ---
 
