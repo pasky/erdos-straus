@@ -27,3 +27,13 @@ Dives v2 (logs/o103_dive12.log) still running at report time (first dive closed 
 Suggestions: closure needs a structural idea, not more compute — e.g. understand the uncovered set of the root
 in `∏_{p≤P} ℤ_p` (is it empty for some P?), or a reciprocity obstruction for nodes that are QRs at all primes
 ∉ {11,13}; the engine is ready for any such targeted experiment.
+
+## Addendum (parent's follow-ups)
+* Dives v2 finished by timeout (13D §3): dive 0 closed at once. In dive 1 the minimum number of open children was
+  1, 4, 2, 2, 5, 5, 3 at bits 65–94 (mean ≈ 3.1). Step cost grew to 10⁴ s at L ≈ 2⁹⁴. The run is consistent
+  with supercritical branching (one branch, weak evidence).
+* 13D §4 (EVIDENCE + Assessment): 6224 of the 16857 open leaves of run 2.2 are QRs at all primes ∉ {11,13}.
+  Of 400 sampled, **none** lies on the T-generic line, and **all 400** T-projections are covered at the same
+  level. Root 418321 sits in T-cell (2,7), not (2,2). So its failure to close is **not** the T-generic
+  (2,2)/x** phenomenon; it comes from square-mimicking, off-line points. The (2,2) cell concerns root 473761
+  only, which was not run.
