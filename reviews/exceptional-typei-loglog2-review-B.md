@@ -113,3 +113,72 @@ N^{3/8−γ/2}`), so (b4)/Lemma 8.4(a2) apply. In (i) the constant `C` is absolu
 `scripts/review_ttl2b_bookkeeping.py`: for `A₀ = 0.01` the good-layer inequality holds for all `δ ≥ w_N` only from
 `L ≈ 3·10⁴`; harmless, but worth one sentence). A toy layer-cost model in the same script shows the expected
 shapes: cost/L² ≈ const for `w = 2/log L`, grows like `ε₀ log L` for fixed `ε₀`, and like `log L` for `w = 1` (ET).
+
+**DI p. 230 (Thm 2, read by me).** The large sieve (1.29) runs over all `|κ_j| ≤ K`, explicitly including the
+imaginary `κ_j` ("`ch πκ_j > 0`"), so the SEL-free use of the regular-spectrum bound by positivity (Thm 3.1) is
+consistent with DI's own reading.
+
+**Brief item 4 (consistency with TTL).** TTL §3.2/§9 test DI Thm 5 (single level), DI Thm 6 (level average,
+general `a_n`, bracket `Q+N+NX`) and Humphries; DI Thm 7 is never mentioned. I re-checked that Thm 6 really fails
+here: replacing `√(tw(t))` by `t√(w(t))` in Prop 2.2 turns the third term `λ₋Y₀^{−1/2}` into `≍ λ^{−1/2}Y₀^{−1/2}`,
+a loss `λ^{−3/2}`, fatal in (b3) where `λ` can be `≍ D^{−1/2}`. So TTL's narrow claim is right and Thm 7 was
+**overlooked, not inapplicable**. TTL §9's broader sentence "this argument gives no unconditional improvement of ET"
+is now superseded (see D10). Thm 4.1(i) is also consistent with ET's two-sided bound
+`N log²N ≪ Σ_{p≤N} f_I(p) ≪ N log²N log log N` (from memory of ET's paper; not re-opened here).
+
+**Honest label for Thm 4.1(i): PROVED relative to cited inputs** — DI 1982 Thm 7, Drappeau 2017 Lemma 4.10 (whose
+proof is itself "the induction arguments in [DI82b] are easily reproduced"), and the inputs of TTL Thm 8.1 (ET/MN3
+reduction, MN3 Prop 2.3, Brun–Titchmarsh, Selberg sieve, Weil, PV, the DI/Drappeau regular large sieve). No SEL,
+no Kim–Sarnak. The improvement is unquantified (ineffective in form, since `C_{ε₀/128}` is not explicit).
+Thm 4.1(ii) is correctly CONDITIONAL on (EFF); (EFF) is an Assessment. My own reading of DI pp. 277–278 corroborates
+the audit's structure: the induction (8.19) has an unspecified threshold `Q₀(ε)` ("an appropriate manipulation with
+the constants implied in ≪ completes the proof"), and the base case `Q ≤ Q₀` costs `Q₀^{O(1)}`, so
+`C_ε ≈ K(ε)^{O(ε^{−2})}` where `K(ε)` is the constant of the Thm 14 / recurrence step. Whether `K(ε)` is
+`exp(exp(O(1/ε)))` I did not verify.
+
+## 2. Defects
+
+No FATAL, no MAJOR.
+
+* **D1 (MINOR, §1, Drappeau paragraph).** "statement as extracted by a research subagent, `/tmp/o116_lit.md` — to be
+  eyeballed against the PDF" is stale and cites a non-persistent path. *Repair:* replace by the quoted statement
+  (§0 above; arXiv v-numbering pp. 15–16, Lemmas 4.9–4.10, setting §4.1 p. 10) and drop `/tmp`.
+* **D2 (MINOR, §1, (DI7_ε)).** The factor `(log 2t)²` can be `log 2t` (Cauchy–Schwarz over `K ≍ log t` blocks gives
+  `K·Σ_k N_k(…) ≤ K·t(…)`). Harmless. Also Prop 2.2 says the levels are "divisible by the conductor of χ"; what
+  Drappeau needs is `q₀ | level` with `q₀` the **modulus** of χ (here `q`, and `q | 4dq²`). *Repair:* say "modulus".
+* **D3 (MINOR, Prop 2.2 proof; inherited from TTL Prop 5.1 Step 6).** The reflection `u(z) ↦ u(−z̄)` conjugates
+  `γ = [[a,b],[c,d]]` to `[[a,−b],[−c,d]]`, which has the same `d`; it maps `(Γ₀(M), χ)` to **itself**, not to
+  `(Γ₀(M), χ̄)`. Harmless (the bound is uniform in χ, and even if it were χ̄ that is even too). *Repair:* "same χ".
+* **D4 (MINOR, Prop 2.2 statement).** `𝓔_d` sums over `t_j ∈ iℝ`, which includes `t_j = 0` (`λ_j = 1/4`, not
+  exceptional), whereas Lemma 2.1 assumes `σ_j > 0`. *Repair:* `t_j ∈ iℝ∖{0}` (λ = 1/4 belongs to `V^{gen}`), or note
+  that double counting is harmless for an upper bound and Lemma 2.1 also holds at `σ_j = 0`.
+* **D5 (MINOR, Thm 4.1 proof, 4th sentence).** "Their bound differs from TTL's (SEL) bound only by a factor
+  `≪ 𝓛^C C_ε^{1/2}N^{4ε}q`" is inaccurate: Thm 3.1 has two new terms (`q^{3/2}F'^{1/2}/A` with `N^{ε₁/2}`, and
+  `q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}`) that TTL does not have; they are handled by Cor 3.2, not by a factor.
+  *Repair:* "Cor 3.2 gives relative remainder `𝓛^C C_ε^{1/2}N^{4ε}q²N^{−δ/4}`, i.e. TTL's with an extra `q·C_ε^{1/2}N^{4ε}`."
+* **D6 (MINOR, Cor 3.2 proof).** The second term is written `N^{ε₁/2}D^{1/4}A^{−1/2}`, dropping `q^{3/2}` (and the
+  constant `3^{1/2}`). Covered by the `q²` in the conclusion; write it.
+* **D7 (MINOR, Thm 4.1(ii)/(iii)).** (ii) needs `w_N = 256A₀/log L ≤ 1/4`, i.e. `log L ≥ 1024A₀`; state that the
+  bound is asymptotic with this threshold (the `≪` constant does not depend on it, the range of N does). In (iii)
+  the infimum need not be attained: use any `w ∈ [w_N, 2w_N]` in the admissible set (the set is upward closed
+  because G is nondecreasing).
+* **D8 (MINOR, wording, §0 and the agent report).** "An audit … finds that DI's proof gives it" / "finds that the
+  proofs give (EFF)" overstates an Assessment. *Repair:* "suggests"; keep "Assessment" in the same sentence.
+* **D9 (MINOR, §1 uniformity).** The reading "Drappeau's constant is uniform in `q₀` and χ" is the natural one
+  (`≪_ε`, χ arbitrary mod `q₀`; p. 19: "q₀ appears only with negative powers in the error terms … beneficial for the
+  induction"), but it is a reading. Quote that sentence in §1 to justify it.
+* **D10 (MINOR, downstream).** TTL §9 ("this argument gives no unconditional improvement of ET", and "Removing it
+  needs either Selberg's conjecture, or a weighted large sieve … with no loss") is superseded: DI Thm 7 is exactly
+  such a sieve for `a_n = 1`. *Repair (parent):* add a forward pointer in TTL §9 and DISCOVERIES to
+  EXCEPTIONAL_TYPEI_LOGLOG2 Thm 4.1(i).
+* **D11 (MINOR, §6).** The Pascadi 2024 statement is "as reported by the literature subagent" and was not checked
+  (by the author or by me). It is not load-bearing. *Repair:* mark as unverified or drop.
+
+## 3. Summary
+
+The new argument is correct. TTL's exceptional term, after Lemma 2.1 (no contour shift) and partial summation,
+becomes for each `t` exactly the left side of DI (1.41) / Drappeau L4.10 with `X² = w(t)`, summed over the levels
+`4dq²` (q fixed, d ≍ D) — a positive sub-sum of the full level average. The weight `(nY)^{−2σ_j}` is matched
+by letting `X` depend on `t`, which (1.41)'s uniformity in `X` permits. Bookkeeping in §3–§4 re-derived and
+grid-checked from scratch; no errors beyond the minors above. **Thm 4.1(i): SOUND, PROVED relative to DI Thm 7,
+Drappeau L4.10 and TTL's inputs.** Thm 4.1(ii): SOUND as CONDITIONAL on (EFF) (Assessment). Thm 4.1(iii): SOUND.
