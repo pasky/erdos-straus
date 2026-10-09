@@ -114,3 +114,100 @@ explicitly (it follows from `a_u s ≤ μ_c ≤ C_u s` on a nonempty set of fibr
 No FATAL or MAJOR defect found in Theorem U. Its correctness rests entirely on MN Cor 3.2's
 *lower* bound on every reduced fibre (itself PROVED rel. the note and reviewed in R94A/B);
 the new argument adds nothing that could fail beyond the standard BV/BT/Shiu inputs.
+
+## 2. Theorem L (lower side) — lighter check
+
+Checked against `sources/pw.txt` (PW Cor 2.2, Prop 2.3/Cor 2.4, proof of Thm 3.1, (3.2)–(3.4))
+and `sources/elsholtz-tao-1107.1010.pdf` (Prop 1.4, Cor 7.4, proof of Prop 1.4 incl. (7.10),
+(7.11), pp. 29–32).
+
+**PW baseline.** PW's proof of Thm 3.1 gives Type I `≪ (N/φ(m)) L² log L log m` (then simplified to
+`L² log² m` using `N < e^m`) and Type II `≪ (N/φ(m)) L² log L`. So PW's unsimplified proportion is
+`L³ log L log m/φ(m)`; MN2 quotes the simplified `L³ log² m/φ(m)`. The gain "a factor log m" is
+correct relative to either form in the relevant range `L ≥ log² m` (D-L4).
+
+**Lemma 3.1(a)** — re-derived; SOUND. `(e,a) = 1` from `(a,b) = 1`, `e | a+b`; the
+`g`-expansion of `1/φ(b)` and the class-wise bound are right; `(g,e) > 1` contributes nothing
+because `(β,e) = 1`; the `Y ≥ log m` hypothesis (repair) is exactly what S'_m needs.
+
+**Lemma 3.1(b)** (repaired FATAL spot) — re-derived; SOUND.
+* `n/φ(n) = Σ_{s|n} μ²(s)/φ(s)`; large-prime factor `≤ e^{2ω(n)/y} ≤ e^4` ✓ (`ω(n) ≤ 1.45 y`).
+* Rankin: `Σ_{s|P(y), s>S} 1/φ(s) ≤ S^{−σ}Π_{p≤y}(1 + e/(p−1)) ≪ S^{−σ}(log y)^{e}` (text has
+  `(log y)^{2e}`, harmless). `S^{−σ} = exp(−log U/(2 log y)) ≤ exp(−y/(4 log y)) ≪ y^{−10}` ✓.
+* Large u: Shiu for τ_3 in a progression mod s with `s ≤ x^{1/1.1}` is within Shiu's range ✓. Shiu
+  actually gives `(x/φ(s))(log x)²·Π_{p|s}(1−1/p)^{3}`-type saving; the text's `(s/φ(s))³` is a
+  (harmless) overestimate (D-L5).
+* Small u: swap, `#{s | mu−1} ≤ τ(mu−1)`, `1/φ(s) ≪ log log s/s ≤ … u^{−0.909}` ✓;
+  `Σ_u u^{0.01+0.01−1.909} log log u < ∞` ✓, giving `m^{0.01}/m` (text says `m^{0.02}`, fine).
+
+**Prop 3.2 (Type II)** — re-derived; SOUND.
+* `(e,m) = 1`: from `p + e = mabd`, `(e,m) | p`, and `p ∤ m` since `m ≤ N^{0.1} < N/2 < p` ✓.
+* Moduli product: `made·macd·(mab)^{1/2} = m^{5/2}a^{5/2}b^{1/2}c d² e ≤ m^{5/2}a²b·ce·d²` (uses a ≤ b) ✓;
+  `ce = a+b ≤ 2b` ✓; `mabd = p+e ≤ 2p` (as `e ≤ a+b ≤ mab/2`) ⇒ `(abd)² ≤ 4N²/m²` ✓.
+  Hence `min(made, macd, mab) ≤ (8m^{1/2}N²)^{2/5} ≤ 3m^{1/5}N^{4/5}` ✓.
+* (i) one class mod made (b ≡ −a mod e) ✓; (ii) `p = (macd−1)e − ma²d`, unit class since
+  `(mad, macd−1) = 1` ✓, multiplicity of `u = acd` is τ_3(u) ✓, Lemma 3.1(b) hypothesis
+  `log U ≥ ½ log(mU)` holds (`log U ≥ 0.72L − O(1)`) ✓; (iii) one class mod mab ✓, Lemma 3.1(a)
+  with Y = N ✓.
+* Statement has `m^{1/2}` where the proof gives `m^{0.02}` (D-L3).
+
+**Lemma 3.3** (repaired MAJOR spot) — checked against ET pp. 30–32; SOUND at the level of a
+re-derivation that follows ET's text.
+* Variable dictionary (ET linear a ↔ our d, ET quadratic b ↔ our a, ET (A,B) ↔ our (D,A)) ✓.
+* Case D ≥ A: ET Cor 7.4 with `(ka², 1) = 1` ✓.
+* Case D < A: ET's signed expression (7.11) is kept for q < D' (periodicity, O(q)) and q > kD'
+  (reciprocity; the period-8k'a function `c(q)(q/k'a)1_{(q,2ak)=1}` has mean zero even when k'a is
+  a square, because `c` restricted to odd q is a non-principal character mod 8 — I checked this
+  since ET's "mean zero" is asserted without comment). Middle range: for non-square q,
+  `d ↦ (d/q)1_{(d,2q)=1}` is a non-principal character mod 2q ⇒ PV `≪ √q log q` ✓; square q give
+  `≪ D' log A Σ_{r ≥ √D'} r^{−2} ≪ √D' log A` (the text's `D' log A` is weaker but fine) ✓.
+* j-sum: lossy j have `2^{−j} ≤ (k log²/D)^{1/2}`; `Σ 2^{−j} log(1+2^jk) ≪ (k log²(kAD)/D)^{1/2}
+  log(kAD) ≤ 1` for `D ≥ k log⁴(kAD)` ✓.
+* Hypotheses: Lemma 3.3 needs `A, D ≥ 2`; Prop 3.4 applies it to dyadic boxes that can have
+  `A' = 1` or `D' = 1` (D-L2).
+
+**Prop 3.4 (Type I)** — SOUND-AFTER-REPAIRS (bookkeeping only).
+* `1/φ(ad) ≪ (ad)^{−1}Σ_{s|a,t|d} 1/(st)` ✓ (`n/φ(n) ≪ σ(n)/n`, submultiplicativity).
+* Large boxes: lossy boxes are those with `D' < k log⁴(kN)`; their number is
+  `≪ log k + log log(kN) ≪ log m + log(st) + log L` ✓; per block total
+  `Σ_{s,t}(st)^{−2}[log²X + L(log m + log st)²] ≪ log²X + L log² m` ✓ (`log L ≪ log m` from
+  `L ≤ m^{1/2}`).
+* BT weight `1/log(2+2^j/3) ≪ 1/j` ✓; `Σ_{j≤2L} 1/j ≪ log L` — **this is the only BT loss** ✓.
+* Small boxes (`A'D' < k^{1/10}`): I get `≪ (N/φ(m)) m^{0.03} log² m`, the text's `m^{0.1} log² m`
+  is weaker and still enough (`≪ N m^{−0.85}`; proportion `≤ L m^{−0.85} ≤ m^{−0.35}` by `L ≤ m^{1/2}`) ✓.
+  The text is terse: it does not say that for fixed (s,t) the small boxes live in
+  `≪ log(st·k^{0.1})` blocks and that `Σ_{s,t}(st)^{−2+0.03·2}·log²(stm)` converges (D-L1).
+
+**Lemma 3.5** — SOUND (`τ(n) ≤ e^{CL/log L}` for `n ≤ 9N²`; trivial class counts).
+
+**Theorem L** — SOUND-AFTER-REPAIRS (minor). Assembly ✓: `m^{1/2}/m ≤ m^{−0.35}`;
+`L² log² m ≤ L³ + log⁶ m` (Young) ✓; the deduction "ρ_rep → 0 whenever `L³ log L/φ(m) → 0`"
+covers the regime split correctly (ρ_rep > 0 forces `p ≥ m/3`, hence `L ≥ log(m/3) → ∞`,
+which also handles Lemma 3.5's regime; `L > m^{1/2}` is incompatible with the hypothesis) ✓.
+The label "PROVED rel. ET Thm 7.1 + ET's proof of Prop 1.4" is acceptable *as a re-derivation
+following ET's text*; I recommend the explicit qualifier "not line-by-line refereed" stays (it
+does, §4).
+
+### Defects (Theorem L)
+
+**D-L1 (MINOR, Prop 3.4, second bullet).** Small-box bookkeeping is terse; write the
+`Σ_{s,t}` explicitly: for fixed (s,t) small boxes occur only in blocks with
+`X ≤ st k^{0.1}` (`≪ log(stm)` blocks, BT weight ≤ 1), each contributing
+`≪ (st)^{−2} k^{0.03} log X`; `Σ_{s,t}(st)^{−2}(s²t)^{0.03}log²(stm) ≪ log² m`; total
+`≪ (N/φ(m)) m^{0.03} log² m`.
+
+**D-L2 (MINOR, Lemma 3.3 / Prop 3.4).** Lemma 3.3 is stated for `A, D ≥ 2` but applied to boxes with
+`A' = 1` or `D' = 1` (e.g. `a' = 1`). Repair: state Lemma 3.3 for `A, D ≥ 1` (the `A = 1`/`D = 1`
+cases are ET Cor 7.4 / trivial with `log(A+D) ≥ log 2`), or replace `log(A+D)` by `log(2+A+D)`.
+
+**D-L3 (MINOR, Prop 3.2 statement).** `(L³ + m^{1/2})/m` vs proof's `(L³ + m^{0.02})/m`.
+Harmonise (either is enough for Theorem L).
+
+**D-L4 (MINOR, §3 intro and §0).** Quote PW's Type I bound in its unsimplified form
+`(N/φ(m)) L² log L log m` (PW p. 6–7, before using `N < e^m`), so the comparison reads
+"`L³ log L log m/φ(m)` → `L³ log L/φ(m) + L² log² m log L/φ(m)`". The log m gain is real
+for `L ≥ log² m` (which holds at the transition `L ≍ m^{1/3}`), not for small L.
+
+**D-L5 (MINOR, Lemma 3.1(b)).** Shiu's τ_3-bound has `exp(−3Σ_{p|s}1/p)`, i.e. a saving
+`(φ(s)/s)^{3}` roughly, not a loss `(s/φ(s))³`; and Rankin gives `(log y)^{e}`. Both only
+weaken the stated bounds, so harmless; fix for accuracy.
