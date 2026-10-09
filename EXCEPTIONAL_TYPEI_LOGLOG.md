@@ -364,6 +364,30 @@ Now `1/φ(f) = f^{−1}Σ_{k|f} μ²(k)/φ(k)`, so by (i), (ii)
 *Remark.* (c) is the "`L(1,χ_{−4d})` is O(1) on average" input; PV suffices because only a mean square over
 a full dyadic d-range is needed. (c) is also uniform per box, which §8 (D1 repair) uses.
 
+**Lemma 8.4 (weighted Type I masses; O112 repair, D3; PROVED rel. MN3 Prop 2.3).** Let `L² ≤ A ≤ N`, `1 ≤ D ≤ N`.
+(a1) If `D ≤ A`: `Σ_{a≍A, d≍D} τ(4a²d+1) g(d) ≪ AD log N`; if `D ≥ A`: the same with `g(a)` for `g(d)`.
+(a2) If moreover `A, D ≥ N^{1/4}`: `Σ_{a≍A, d≍D} τ(4a²d+1) g(a) g(d) ≪ AD log N`.
+(b) If `F ≤ 4A`: `Σ_{d≍D} g(d) #{(a,f) : a≍A, f≍F, f | 4a²d+1} ≪ AD` (the same with e for f: both are
+divisors of `4a²d+1`).
+*Proof.* (a1) `D ≤ A`: `g(d) = Σ_{l|d} μ²(l)/φ(l)`, `d = ld'`; MN3 Prop 2.3(b) with `k = 4l`, linear variable
+`d' ≤ 2D/l`, quadratic `a ≤ 2A`, `l₀ = 40`: its hypotheses `8D ≤ (2A)^{40}`, `2A ≥ ω(8l)+2` hold for every l, and it
+gives `≪ (AD/l) log N (1 + log(1+4l))`; `Σ_l μ²(l)(1+log(1+4l))/(lφ(l)) < ∞`. `D ≥ A`: `a = ka'`, Prop 2.3(a)
+with `k = 4k²`, linear `d ≤ 2D`, quadratic `a' ≤ 2A/k`: hypotheses `16A² ≤ (2D)^{40}`, `2D ≥ ω(4k²)+2` hold for
+every k; it gives `≪ (AD/k) log N`; `Σ_k 1/(kφ(k)) < ∞`.
+(a2) Write `g(a)g(d) = Σ_{k|a, l|d} μ²(k)μ²(l)/(φ(k)φ(l))`, `a = ka'`, `d = ld'`; the inner sum is
+`Σ_{a' ≤ 2A/k, d' ≤ 2D/l} τ(K d' a'² + 1)`, `K = 4k²l`. *Tail* `k > A^{1/2}` or `l > D^{1/2}`: `τ ≪ N^{ε}`, so it is
+`≪ N^{ε} AD Σ_{k>A^{1/2}} 1/(kφ(k)) + (same in l) ≪ N^{ε}AD(A^{−1/2} + D^{−1/2}) ≪ AD` (as `A, D ≥ N^{1/4}`). *Main*
+`k ≤ A^{1/2}`, `l ≤ D^{1/2}`: apply MN3 Prop 2.3 with linear variable d', quadratic variable a', and `l₀ = 40`
+(fixed). If `D ≥ A`: (a) of Prop 2.3 needs `K(2A/k)² = 16lA² ≤ (2D/l)^{40}` and `2D/l ≥ ω(K)+2` — both hold since
+`2D/l ≥ D^{1/2} ≥ N^{1/8}`, `16lA² ≤ 16N³`; it gives `≪ (φ(K)/K)(AD/(kl)) log N`. If `D < A`: (b) of Prop 2.3 needs
+`K·2D/l = 8k²D ≤ (2A/k)^{40}` and `2A/k ≥ ω(2K)+2` — both hold (`2A/k ≥ A^{1/2} ≥ N^{1/8}`); it gives
+`≪ (φ(K)/K)(AD/(kl)) log N · (1 + log(1+K))`. Summing `μ²(k)μ²(l)(1+log(1+4k²l))/(klφ(k)φ(l))` converges.
+(b) For fixed `(d, f)`, `f | 4a²d+1` puts a in `ρ_d(f)` classes mod f, and `f ≤ 2F ≤ 8A`: `#{a ≍ A} ≤ ρ_d(f)(A/f + 1) ≤
+9ρ_d(f)A/f`. So the sum is `≤ 9A Σ_{d≍D} g(d) Σ_{f≍F} ρ_d(f)/f ≪ AD` by Lemma 8.3(c). ∎
+*Use.* (a2) bounds the Brun–Titchmarsh mass for the modulus 4ad (`Σ τ/φ(4ad) ≪ log N` per (a,d)-box: ET (8.2)
+with the coprimality gain; only needed where `α ≈ 1/2`, so `A, D ≥ N^{1/4}`); (a1) bounds the sieve masses with
+weight `g(s)`, `s ∈ {a,d}` the fixed variable, per (c-block, a-block) summed over all f-cells (no size condition on D); (b) is a **per-cell** bound (no log), needed in the strips `β > 1` (D1) and `β < α+γ`.
+
 **Theorem 8.1 (CONDITIONAL on (SEL) of §5; relative to ET Prop 2.2/Lemma 2.8/(8.1)–(8.2), MN3 Prop 2.3,
 Brun–Titchmarsh, Selberg's upper-bound sieve, Weil's bound, and the DI/Drappeau large sieve).**
 `Σ_{p≤N} f_I(p) ≪ N log² N`.
@@ -379,22 +403,55 @@ moduli `> N^{1−η₁}`; `4ad, 4bd ≥ N^{1−η}/8` automatically, §8.0) have
 `O(1/L)`; the smooth cells of (2b) are taken with support in `R_bad(2η₁)` (positive weights: an upper bound).
 Inside `R_bad(2η₁)` one has `e, f ≥ N^{1/2−3η₁}` (MN3 Prop 3.3: `β ≥ (1−2η₁)/2`, and
 `1+α−β ≥ max(1−α−γ−2η₁, α−2η₁)`), so no tiny divisors remain (R1: this replaces the retired Prop 7.2).
-(2b) Inside `R_bad(η₁)`, split each cell into sequences σ: fixed a if `D ≥ A` (Prop 7.1), fixed d if
-`D < A` (Thm 6.2 with the cusp `f' = min(e,f)`, after splitting the x-range into `O(1)` periods when
-`a/(qf') > 1/4`). This needs `f' ≥ A/8`. That fails only on the thin strip `a ≤ b < 8ca`
-(`α ≤ β < α + γ + o(1)`, using `e = (a+b)/c`), whose mass per c-block `c ≍ 2^j` is `≪ N L j`; there BT
-(saving `1/j`) costs `≪ Σ_{j≤ηL} N L ≪ η N L²`. With `f' = min(e,f) ≤ 2A√D`, the cusp term of Thm 6.2 is
-`f'^{(1+ε)/2}/A ≪ N^{ε} D^{1/4}A^{−1/2}`, which has an **absolute** power margin near `α = (1−γ)/2`
-(`≈ N^{−1/8+ε}`). Relative remainders per cell are then `≪ L^C Q²N^{−κδ}`, `δ := |2α − 1 + γ|`, with
-an absolute κ > 0 (Prop 7.1: `Q²A/D`; Thm 6.2: `Q²(D/A)^{1/2}`).
-(3) Sieve per sequence with `z = N^{θ}`, **`θ = κδ/8`** (R1: θ = κδ/4 made `Q²N^{−κδ}` with `Q = z²` equal
-to 1), sieving only primes `ℓ > ℓ₀`, `ℓ ∤ 2cs` (`s ∈ {a,d}`): the remainder is `≪ L^C N^{−κδ/2}` times
-the mass, and the main term is `≪ X_σ (2cs/φ(2cs))/(θ L)`. Here `Σ_σ X_σ s/φ(s) ≪ (count of the enlarged cell)
-+ remainder`, and `s/φ(s) = Σ_{k|s}μ²(k)/φ(k)` with MN3 Prop 2.3 (`4k` resp. `4k²` in place of 4) gives
-`≪ AD L` summed over the e-cells. The weight `c/φ(c)` is O(1) on average over c.
-(4) Layers with `δ L ≤ C log L` are treated by BT: cost `≪ Σ_{j≤ηL} N L (log L)/j ≪ N L (log L)²`.
-(5) All other cells cost `≪ (N L per (c-block j, a-layer k))·min(1/j, C/k)`, where k is the layer
-distance from `α = (1−γ)/2`. Lemma 1.1 gives `≪ N L²`. ∎
+(2b) (O112 repair, D1/D3/D5.) Inside `R_bad(2η₁)`. Fix the c-block `c ≍ 2^j` (`1 ≤ j ≤ ηL`); write
+`δ := |2α−1+γ|`, `k := ⌊δL⌋` (a-layer index), and use smooth cells of side `O(1/L)` in `(α, β)`.
+A *band* is a set of cells of bounded width (`≤ C₀/L`) in one exponent; it has `O(L)` cells per c-block.
+The bands used are `|β − (α+γ)| ≤ C₀/L`, `|β−1| ≤ C₀/L`, `D ≤ 32`: in each, one of e, f is `≤ 2^{C₀+3}A`
+(`e ≍ (a+b)/c`; `f ≍ N^{1+α−β}`; `f ≤ 4a²d+1`), so by Lemma 8.4(b) (constant `2^{C₀+3}` for 4) a cell has
+`≪ 2^j·AD ≪ N` tuples, and **all bands together cost `≪ Σ_{j≤ηL} N L ≪ N L²` trivially**. Layers
+`k ≤ C₁ log L` are treated in (4).
+Away from the bands, each cell gets one of the following treatments; the *saving* is the factor by which the
+cost is below the cell's weighted mass.
+* (b1) `D ≥ A` (`α < (1−γ)/2`): fixed-a sequences, Prop 7.1 (applicable: `e, f ≥ N^{1/2−3η₁}`, §(2a)),
+  relative remainder `≪ L^C Q² A/D = L^C Q² N^{−δ}`; saving `C/k` by (3). No condition on β.
+* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`, `f ≥ 4A`): if `k ≥ 2j`, fixed-d sequences with the
+  f-cusp: Thm 6.2 (`λ = A/(qf) ≤ 1/4`), relative remainder `≪ L^C Q²(N^{−δ/2} + f^{1/2+ε}/A)`, and
+  `f^{1/2}/A ≍ N^{(1−α−β)/2} ≤ N^{(γ−δ)/2} ≤ N^{−δ/4}` (as `1−2α = γ−δ`, `δ ≥ 2γ`); saving `C/k`. If
+  `k < 2j`: BT on 4ad (saving `1/j ≤ 2/k`), applied to the whole layer (b4).
+* (b3) `D < A`, `α+γ < β < 1` (`e, f ≥ 4A`): fixed d, cusp `f' = min(e,f) ≤ (ef)^{1/2} ≤ 3A√D`, Thm 6.2
+  with `λ ≤ 1/4`; cusp term `f'^{1/2+ε}/A ≪ N^{ε}D^{1/4}A^{−1/2} = N^{(1−γ−3α)/4+ε} ≤ N^{−1/9}` (as
+  `α ≥ (1−γ)/2`, `γ ≤ η`); relative remainder `≪ L^C Q² N^{−δ/2}`; saving `C/k`.
+* (b4) per layer: the 4ad Brun–Titchmarsh bound. For fixed `(a,d,f)` the n's with `c ≍ 2^j` lie in an
+  interval of length `≤ 4ad·2^j` in one class mod 4ad, so BT gives `≤ 8ad2^j/(φ(4ad)·j log 2)`;
+  by Lemma 8.4(a2) the layer (`a ≍ A`, all f, `c ≍ 2^j`) costs `≪ N L/j` (used only for `k < 2j ≤ 2ηL` or
+  `k ≤ C₁ log L`, where `A, D ≥ N^{1/2−2η}`).
+* (b5) **(D1)** `D < A`, `1 < β ≤ 1+2η₁` (`f < A`, possible because `R_bad` allows `β ≤ 1+η₁`; the old text
+  wrongly said f' ≥ A/8 fails only for `β < α+γ`). Put `k' := ⌊(β−1)L⌋ ≥ C₀`. If `k' ≤ k/2`: fixed d with
+  the **e-cusp** (forms `[e, 4ad, df] ∈ 𝓕_d^I`, linear functional `n = cB − C/d`; Lemma 6.1 and Thm 6.2 hold
+  verbatim, the local density being the same `g_{c,d}` — substituting `C/d = cB` gives the same equation
+  `B² − 4cdAB + 4d = 0` as `A = cB` does after `A ↔ C/d`): `λ = A/(qe) ≤ 1/4` since `e/A ≍ N^{β−γ−α} ≥ D/8`
+  (cells with `D < 32` form a band); cusp term `e^{1/2}/A ≍ N^{(β−γ−2α)/2} = N^{(β−1−δ)/2} ≤ N^{−δ/4}`;
+  saving `C/k`. If `k' > k/2`: Brun–Titchmarsh on `4cdf ≍ N^{2−β}` (fibres `cdf` of §8.0), `log(N/m) ≥ k'·log 2/2`,
+  saving `C/k'`. In both cases the saving is `≤ C/max(k, k')`, and the cell's weighted mass is `≪ N`
+  **per cell**: Lemma 8.4(b) (`F ≤ A`; sieve weight `g(c)g(d)`) resp. Lemma 8.3(c) with
+  `Σ_{c≍2^j} 1/φ(c) ≪ 1` (BT weight `ρ_d(f)N/φ(4cdf)`).
+(3) (O112 repair, D3.) Sieve per sequence σ (fixed `s ∈ {a, d}`, all other variables smooth) with
+`z = N^{θ}`, `θ = κδ/8` (κ = 1 in (b1), κ = 1/4 in (b2), (b3), (b5) after the cusp estimates), `Q = z²`,
+sieving only primes `ℓ > ℓ₀`, `ℓ ∤ 2cs`, densities `g ≤ 1/ℓ` (§6, Prop 7.1): Selberg's upper bound sieve
+gives `#{n ∈ σ prime} ≤ X_σ/G(z) + Σ_{q≤Q, q|P(z)} 3^{ω(q)}|r_σ(q)|` with
+`G(z) ≥ c'·(φ(2cs)/(2cs)) log z`. **Main term.** `X_σ` is the model mass (`𝔐_d` resp. the (0,0) Poisson term);
+by Thm 6.2 resp. Prop 7.1 at q = 1, `X_σ ≤ #σ + |r_σ(1)|`. So the main terms of a cell/layer are
+`≤ (8/(c'κδL))·Σ_σ (2cs/φ(2cs))(#σ + |r_σ(1)|)`, and `2cs/φ(2cs) ≤ 2g(c)g(s) ≪ g(c)g(s)`; the `#σ` part is the
+weighted mass, `≪ N` per cell (Lemma 8.4(b): cells of (b2), (b5)) resp. `≪ N L` per layer (Lemma 8.4(a1), with
+`Σ_{c≍2^j} g(c) ≪ 2^j`: cells of (b1), (b3)); the `|r_σ(1)|` part is `≤ (max g)² Σ|r_σ(1)| ≪ (log L)² L^C N^{−κδ/2}`
+times the mass (`g(x) ≪ log log x`). **Remainder.** `≪ L^C N^{−κδ/2}` times the mass (`Q² = N^{κδ/2}`).
+Both are `≪ (C/k)` times the mass once `k ≥ C₁ log L`.
+(4) Layers with `k ≤ C₁ log L`: (b4) for every cell, cost `≪ Σ_{j≤ηL} (C₁ log L)·N L/j ≪ N L (log L)²`.
+(5) Summation. (b1), (b3), and (b2) with `k ≥ 2j`: per (j, k) layer cost `≪ N L·min(1/j, C/k)` (choose per
+layer the better of (b4) and the spectral/Weil bound); by Lemma 1.1, `Σ_{j,k≤L} N L min(1/j, C/k) ≪ N L²`.
+(b2) with `k < 2j`: (b4) on these layers, `≪ Σ_j Σ_{k<2j} NL/j ≪ N L²`. (b5): per c-block,
+`Σ_{k,k'≤L} N·C/max(k,k') = C N Σ_{m≤L}(2m−1)/m ≪ N L`, total `≪ ηN L²`. Bands: `≪ N L²` (above). With
+(1) and (2a), `Σ_{p ≍ N} f_I(p) ≪ N L²`; sum over dyadic N. ∎
 
 *Status of the proof (honest; after the self-review R1 = `review` tool, 2026-10-09).* Every step above is either cited (ET, MN3, DI, Drappeau, Weil, Selberg's
 sieve) or proved in §§2,4,6,7; §5's Prop 5.1 and §7's Prop 7.1 are written at the level of a careful
