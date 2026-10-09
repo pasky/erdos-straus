@@ -70,3 +70,11 @@ or is marked *open*. Two checkers:
 Negative controls (a perturbed leaf parameter; a deleted child): both checkers FAIL.
 If both pass, ES holds for every prime p with `(p/13)=−1` outside the open leaves (Theorem 3.1(b) handles all
 residues outside the six roots).
+
+## 5. x** = x(2,15): extended targeted searches (CERTIFIED within ranges, one engine)
+
+**Computation 5.1.** `scripts/m13c_target2.c` (= `m13b_target2.c` + start offset; validated engine of
+POINTWISE_MORDELL13B §5): x** lies in **no I2, II1, I4 class with `h = f, e ∈ (2·10⁷, 2·10⁸]`** and
+`|i|,|j| ≤ 12` (logs/o100_xss_U_A.log `(2·10⁷,1.1·10⁸]`, logs/o100_xss_U_B.log `(1.1·10⁸,2·10⁸]`, 0 hits,
+≈80 min each). Together with 13B Comp. 5.1: no I2/II1/I4 class up to `2·10⁸`; II3/I3/I1/II2 up to `10⁹` (13B Comp. 5.3).
+Sanity: the same binary re-finds x*'s I2 datum (125, 88, 11999) on `(10⁴, 2·10⁴]`.
