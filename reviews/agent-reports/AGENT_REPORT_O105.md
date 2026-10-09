@@ -29,8 +29,7 @@ ES is stated as not solved throughout.
 ## Notes for the parent
 * R100's tree checker is fast enough to run the full certificate. The brief's fallback (sampling ≥ 2000 leaves)
   was therefore not used.
-* Block (ej) needs libgmp headers; without gcc it skips with a message, but if gcc exists and `-lgmp` fails, the
-  engine part is skipped silently ("SKIPPED" in the printed line).
+* Block (ej) needs libgmp headers; without gcc it skips with a message, but if gcc exists and `-lgmp` fails, the  engine part is skipped without an error (only the printed line says SKIPPED).
 * My Edit calls with non-ASCII text sometimes inserted broken escape sequences. Every one was reverted or fixed,
   and a final grep found no `\uXXXX` remnants or CRs in STATUS.md, CAMPAIGN_SUMMARY.md or verify.py. A few new
   summary lines use ASCII notation (`<=`, `e-5`) for that reason.
