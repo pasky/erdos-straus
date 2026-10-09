@@ -29,13 +29,13 @@ for fn in sys.argv[1:]:
             E = 5 - 9 * nd - (1 << (L - 2)) * co * ko * ko
             assert v2(FF + 9) == 3 + v2(E)   # Lemma 1.1
             nchk += 1
-        rows[(L, b)].append((max(v2(F + 9), v2(e + 9)), v2(F + 9), v2(e + 9), cp, g, dl, a))
+        rows[(L, b)].append((max(v2(F + 9), v2(e + 9)), v2(F + 9), v2(e + 9), cp, g, dl, a, min(F, e)))
 tot = 0
-print("L b  count  closeness-list  t_min  margin(t_min - max)")
+print("L b  count  distinct-(N,F)  closeness-list  t_min  margin(t_min - max)")
 for (L, b) in sorted(rows):
     r = rows[(L, b)]
     tmin = 2 + (L + 1) // 2
     tot += len(r)
     cl = sorted((x[0] for x in r), reverse=True)
-    print(L, b, len(r), cl, tmin, tmin - cl[0], "HIT" if cl[0] >= tmin else "")
+    print(L, b, len(r), len({x[7] for x in r}), ",".join(map(str, cl)), tmin, tmin - cl[0], "HIT" if cl[0] >= tmin else "")
 print("total certificates", tot, "Lemma 1.1 checks", nchk, file=sys.stderr)
