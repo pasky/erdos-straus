@@ -4,14 +4,19 @@ Status labels as in DISCOVERIES.md. References: MN2 = `EXCEPTIONAL_MN2.md`, MN3 
 TTL = `EXCEPTIONAL_TYPEI_LOGLOG.md` ((D)32; Thm 8.1 = ET's (OPEN-I) under (SEL)), ET = Elsholtz–Tao
 arXiv:1107.1010v6. `L = log N`. `g(x) := x/φ(x)`.
 
-## 0. Plan (work in progress)
+## 0. Summary
 
-Target. CONDITIONAL on (SEL) (all levels, even nebentypus — the TTL §5 hypothesis, now needed for levels
-that also involve m):
+Results (§§4–5), CONDITIONAL on (SEL_m) (§2.2: no exceptional eigenvalues for `Γ₀(mdq²)` with even nebentypus
+mod q; implied by Selberg's conjecture for all `Γ₁(M)`; TTL's hypothesis family, now with levels divisible by m):
 * Thm I_m: `Σ_{N/2<p≤N} f_{I,m}(p) ≪ N(L² + L log² m)/m + N m^{−0.35}/L` uniformly for `4 ≤ m ≤ L^5`;
 * Thm L'': `ρ_rep(m,N) ≪ (L³ + L² log² m)/m + m^{−0.35}` uniformly in m (for `m > L^5` this already follows
   unconditionally from MN3 Thm L', see Lemma 0.1);
-* Thm S (sharp order): with MN2 Thm U, the transition for m/p is at `log N ≍ m^{1/3}`.
+* Thm S (= Thm 5.2, sharp order): with MN2 Thm U, the transition for m/p is at `log N ≍ m^{1/3}`.
+
+Unconditional status (§6): nothing changes for the lower side (MN3 Thm L' stays best; the Kim–Sarnak strip of
+TTL §9 transfers unchanged); new unconditional ingredients are the m-uniform gain lemmas of §3 and the
+parity-free level-md normalisation of §2. Self-review issues (from the drafts of §§2–3) are listed at the
+ends of §2 and §3; in particular §3.2(c) is false in all ranges and is used only for `D, F ≥ L^{100}`.
 
 **Why m ≤ L^5 suffices (Lemma 0.1, PROVED, elementary from MN3 Thm L').** If `m > L^5` then
 `(L³ + L² log² m) log L/m ≪ m^{−0.35}`, so MN3 Thm L' already reads `ρ_rep ≪ m^{−0.35}`.
