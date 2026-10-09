@@ -115,6 +115,12 @@ Blocks (eh)..(ek) (task O105) replay the 2026-10-09 round (reviewers' from-scrat
   (ei) POINTWISE_MORDELL17C: Lemma 1.1 (exact Abel summation, floor-rounded cumulative table), Lemma 2.1 brute force;
   (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 (gcc+gmp);
   (ek) EXCEPTIONAL_MN2: emn2_scan vs from-scratch brute force (m <= 60), §1 small cases, L_1/2(60).
+Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' code first):
+  (el) EXCEPTIONAL_MN3: Prop 2.3 pointwise inputs + sums (R108), §2.6 numerics, §3 brute force (R108), Prop 3.3
+       exponent table / R_bad characterisation, areas 1, 1/6, 7/72 exactly (rational polygon clipping);
+  (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111 + author), O112 §8.0 identities (reduced size), Lemma 6.1
+       local transitivity / densities, Lemma 6.3 r(d) bound (R111);
+  (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -22772,6 +22778,259 @@ def check_ek():
 
 print("\n== (ek) EXCEPTIONAL_MN2: exact scanner vs from-scratch brute force, §1 small cases, L_1/2(60) ==")
 check_ek()
+
+
+# ---------------------------------------------------------------- (el)
+# EXCEPTIONAL_MN3.md (task O108, review R108).  Uses R108's from-scratch review_emn3_prop23.py and
+# review_emn3_sec3.py, and the author's emn3_coprime.py (§2.6).  Checked:
+# (1) Prop 2.3(b) proof inputs (R108): rho_{ka}(m0) <= 1[(m0,k)=1] sum_{q|m0} (-ka/q) for all odd m0 <= 400,
+#     k <= 40, a <= 12 (brute-force roots), and rho_K(2^j) <= 4 (K < 200, j <= 8); R108's normalised sums
+#     S(k,A,B)/((phi(k)/k) AB log max(A,B) Lambda) replayed for k = 1, 30, 2310 at (A,B) = (40,150), (150,40)
+#     (identical to the stored table); §2.6 EVIDENCE (A = B = 120): S_k/(AB log(kAB^2)) / (phi(k)/k) in
+#     [0.81, 1.12] while phi(k)/k ranges over [0.19, 0.50];
+# (2) §3 (R108): Type I solutions of 4/p for p < 180 by brute force, f_I(p) <= 2 sum_c w_c(p), all Sigma^I_n /
+#     SL_2 / discriminant -4d / twin identities on every point; inline: the exponent table of Prop 3.3 (the 7
+#     moduli 4ad, 4bd, 4ab, 4acf, 4cdf, 4bcf', 4cdf' from a, b, c, d, e, f, f' exponents, exact), "all >= 1-eta iff
+#     R_bad(eta)" on random rational points (eta = 0, 1/20), and the areas EXACTLY by rational polygon
+#     clipping: slice 1, R_bad 1/6, R** 7/72 (R108's midpoint-grid areas agree to 1e-3).
+
+def check_el():
+    from time import perf_counter
+    import os
+    import random
+    import re
+    import subprocess
+    import sys
+    from fractions import Fraction as Fr
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    if sdir not in sys.path:
+        sys.path.insert(0, sdir)
+    import io
+    import contextlib
+    import review_emn3_prop23 as RP
+    from sympy import totient
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("MN3 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    # (1) Prop 2.3
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        RP.check_pointwise()
+    assert buf.getvalue().strip() == "pointwise checks done, failures: 0", ("MN3 Prop 2.3 pointwise", buf.getvalue())
+    stored = open(os.path.join(sdir, "review_emn3_prop23.out.txt")).read().splitlines()
+    import math
+    nrow = 0
+    for k in (1, 30, 2310):
+        for A, B in ((40, 150), (150, 40)):
+            s = RP.S(k, A, B)
+            ph = int(totient(k)) / k
+            r = s / (A * B * math.log(max(A, B)))
+            row = (f"{k:>12} {A:>4} {B:>5} {ph:6.3f} {r:11.3f} {r/ph:7.3f} {r/ph/RP.Lam(k, A):10.3f} "
+                   f"{r/math.log(2+k):12.3f}")
+            assert row in stored and r / ph / RP.Lam(k, A) < 1.6, ("MN3 Prop 2.3 sums", row)
+            nrow += 1
+    o = run("emn3_coprime.py", "120")
+    rows = [ln.split() for ln in o.splitlines() if re.match(r"^\s+\d+\s+[\d.]+\s+[\d.]+\s+[\d.]+$", ln)]
+    assert [int(r_[0]) for r_ in rows] == [4, 12, 60, 420, 4620, 60060, 4036, 4088468], ("MN3 §2.6 ks", o)
+    rat = [float(r_[3]) for r_ in rows]
+    phis = [float(r_[2]) for r_ in rows]
+    assert 0.81 <= min(rat) and max(rat) <= 1.12 and 0.19 <= min(phis) and max(phis) <= 0.50, ("MN3 §2.6", o)
+    # (2) §3: R108 brute force + identities
+    o = run("review_emn3_sec3.py")
+    assert "identity failures: 0  f_I > 2 sum w_c violations: 0" in o, ("MN3 §3 R108", o[-500:])
+    npr = len(re.findall(r"^p=", o, re.M))
+    ga = [float(v) for v in re.search(r"areas \(slice, R_bad, R\*\*\) ~ \(([\d.]+), ([\d.]+), ([\d.]+)\)", o).groups()]
+    # exponent table: a = al, b = be, c = ga, d = 1-al-ga, e = be-ga, f = 1+al-be, f' = 1-al+be (vectors in (1, al, be, ga))
+    a, b, c = (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)
+    d, e, f, f2 = (1, -1, 0, -1), (0, 0, 1, -1), (1, 1, -1, 0), (1, -1, 1, 0)
+    add = lambda *vs: tuple(sum(t) for t in zip(*vs))
+    mods = {"4ad": add(a, d), "4bd": add(b, d), "4ab": add(a, b), "4acf": add(a, c, f), "4cdf": add(c, d, f),
+            "4bcf'": add(b, c, f2), "4cdf'": add(c, d, f2)}
+    stated = {"4ad": (1, 0, 0, -1), "4bd": (1, -1, 1, -1), "4ab": (0, 1, 1, 0), "4acf": (1, 2, -1, 1),
+              "4cdf": (2, 0, -1, 0), "4bcf'": (1, -1, 2, 1), "4cdf'": (2, -2, 1, 0)}
+    assert mods == stated, ("MN3 Prop 3.3 exponent table", mods)
+    rng = random.Random(113)
+    for eta in (Fr(0), Fr(1, 20)):
+        for _ in range(20000):
+            al = Fr(rng.randrange(0, 1001), 1000)
+            be = al + Fr(rng.randrange(0, 1001), 1000)
+            gm = Fr(rng.randrange(0, 101), 1000) if eta else Fr(0)
+            if al + gm > 1:
+                continue
+            v = (1, al, be, gm)
+            allbig = all(sum(x * y for x, y in zip(m, v)) >= 1 - eta for m in mods.values())
+            rbad = gm <= eta and al + be >= 1 - eta and be <= 2 * al + gm + eta and be <= 1 + eta
+            assert allbig == rbad, ("MN3 Prop 3.3 R_bad", eta, al, be, gm)
+
+    def clip(poly, h):  # keep {h0 + h1 al + h2 be >= 0}
+        out = []
+        for i in range(len(poly)):
+            P, Q = poly[i], poly[(i + 1) % len(poly)]
+            fp, fq = (h[0] + h[1] * P[0] + h[2] * P[1]), (h[0] + h[1] * Q[0] + h[2] * Q[1])
+            if fp >= 0:
+                out.append(P)
+            if (fp >= 0) != (fq >= 0) and fp != fq:
+                t = fp / (fp - fq)
+                out.append((P[0] + t * (Q[0] - P[0]), P[1] + t * (Q[1] - P[1])))
+        return out
+
+    def area(poly):
+        return abs(sum(poly[i][0] * poly[(i + 1) % len(poly)][1] - poly[(i + 1) % len(poly)][0] * poly[i][1]
+                       for i in range(len(poly)))) / 2
+    sl = [(Fr(0), Fr(0)), (Fr(1), Fr(1)), (Fr(1), Fr(2)), (Fr(0), Fr(1))]
+    rb = sl
+    for m in mods.values():  # gamma = eta = 0: m0 - 1 + m1 al + m2 be >= 0
+        rb = clip(rb, (Fr(m[0] - 1), Fr(m[1]), Fr(m[2])))
+    rs = rb
+    for h in ((Fr(-1, 2), Fr(1), Fr(0)), (Fr(-2, 3), Fr(0), Fr(1)), (Fr(1, 3), Fr(1), Fr(-1))):
+        rs = clip(rs, h)
+    A_sl, A_rb, A_rs = area(sl), area(rb), area(rs)
+    assert (A_sl, A_rb, A_rs) == (1, Fr(1, 6), Fr(7, 72)), ("MN3 areas", A_sl, A_rb, A_rs)
+    rb2 = sl
+    for h in ((Fr(-1), Fr(1), Fr(1)), (Fr(0), Fr(2), Fr(-1)), (Fr(1), Fr(0), Fr(-1))):  # al+be>=1, be<=2al, be<=1
+        rb2 = clip(rb2, h)
+    assert area(rb2) == Fr(1, 6), "MN3 R_bad closed form"
+    assert all(abs(x - y) < 1e-3 for x, y in zip(ga, (1, 1 / 6, 7 / 72))), ("MN3 R108 grid areas", ga)
+    print(f"el Prop 2.3 pointwise inputs (R108: odd m0 <= 400, k <= 40, a <= 12; rho(2^j) <= 4): 0 failures; "
+          f"{nrow} R108 sum rows replayed; §2.6 ratio in [{min(rat):.2f}, {max(rat):.2f}] (phi(k)/k in "
+          f"[{min(phis):.2f}, {max(phis):.2f}]); §3 R108 brute force on {npr} primes: identities 0 failures, "
+          f"f_I <= 2 sum w_c; Prop 3.3 exponent table exact, R_bad(eta) characterisation (eta = 0, 1/20); areas "
+          f"exact: slice 1, R_bad 1/6, R** 7/72; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (el) EXCEPTIONAL_MN3: Prop 2.3 inputs + numerics, §3 brute force, exponent table, exact areas ==")
+check_el()
+
+# ---------------------------------------------------------------- (em)
+# EXCEPTIONAL_TYPEI_LOGLOG.md (tasks O111/O112, reviews R111, R112).  Uses R111's from-scratch review_ttl_sep.py
+# and review_ttl_local.py, the author's ttl_separation.py and o112_checks.py (reduced size).  Checked:
+# (1) Lemma 2.1 (distance formula, exact rationals vs the direct hyperbolic formula) and Lemma 2.2 (4d | disc(Q-Q'),
+#     cosh >= 3/2) for all pairs of F_d forms with d <= 30, A <= 40 (R111); the bound 3/2 is attained (d = 1, 5,
+#     11, 19, 29 in the window), Type I pairs have cosh >= 3; Gamma^0(2d) cap Gamma_0(2) preserves Type I forms
+#     (0 failures); author's ttl_separation.py: identity on all pairs, min cosh >= 3 at the listed d;
+# (2) §8.0 (O112) w_c-tuple identities (4abd = ne+1, bf = na+c, b >= a/2, e | a+b, gcd(e,4ab) = gcd(f,2a) = 1) on
+#     all tuples with c <= 5, a <= 20, d <= 40 (13450 tuples, 0 failures), e-cusp density = f-cusp density mod
+#     l <= 13;
+# (3) Lemma 6.1 local input (R111): SL_2(F_l) transitive on the quadric B^2 - 4AC = -4d of size l^2 + chi l
+#     (odd l <= 23, l not | d), g_{c,d}(l) formulas, g'_{c,a}(l) of Prop 7.1; Lemma 6.3: r(d) <= prod p^floor(k/2)
+#     over all primitive reduced forms of discriminant -4d, d <= 150 (max ratio 1.0; no factor 4 at p = 2 needed).
+
+def check_em():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TTL subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ttl_sep.py")
+    for s in ("Lemma 2.1 identity and 4d|disc(Q-Q') verified for all pairs, d<=30, A<=40",
+              "min cosh over F_d pairs: (Fraction(3, 2), 1,",
+              "d attaining cosh=3/2 within window: [1, 5, 11, 19, 29]",
+              "min cosh over Type I pairs: (Fraction(3, 1),",
+              "Gamma^0(2d) cap Gamma_0(2) (z-side) invariance failures: 0"):
+        assert s in o, ("TTL R111 separation", s, o)
+    o = run("ttl_separation.py")
+    import re
+    mins = [float(v) for v in re.findall(r"min cosh dist over distinct pairs = ([\d.]+)", o)]
+    assert len(mins) == 9 and min(mins) >= 3 and "4d | disc(Q-Q') > 0: all pairs OK" in o, ("TTL author separation", o)
+    o = run("o112_checks.py", "5", "20", "40")
+    assert o.split() == "tuples 13450 failures 0 density check done".split(), ("TTL O112 checks", o)
+    o = run("review_ttl_local.py")
+    for s in ("(a),(b) transitivity, |quadric| = l^2+chi*l, g_{c,d} formulas: OK for l<=23", "(c) g'_{c,a}(l) formula OK",
+              "(d) max r(d)/prod p^floor(k/2) over primitive forms, d<=150: 1.0; case exceeding without the 4: None"):
+        assert s in o, ("TTL R111 local", s, o)
+    print(f"em Lemma 2.1 exact + Lemma 2.2 (cosh >= 3/2, attained; Type I >= 3) on all F_d pairs d <= 30, A <= 40 "
+          f"(R111) and author's 9 levels (min cosh {min(mins):.0f}); parity group invariance OK; O112 §8.0 identities "
+          f"on 13450 tuples + e/f-cusp densities OK; Lemma 6.1 transitivity / quadric size / g formulas (l <= 23); "
+          f"Lemma 6.3 r(d) bound d <= 150; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111), O112 §8.0 identities (reduced), Lemmas 6.1/6.3 local ==")
+check_em()
+
+
+# ---------------------------------------------------------------- (en)
+# POINTWISE_MORDELL13D.md (task O103).  The C complete-witness engine scripts/m13d_wit.c (gcc; skipped otherwise)
+# against the complete Python engine m13c_witness.witness_all (itself = R100's brute force at L = 9240, block (eh)).
+# Checked, for EVERY unit x mod L, L = 9240 and 10920: the C 'all' witness set equals the Python set (113942 resp.
+# 132276 incidences; 34 resp. 40 units without witness), every C witness is a class with M | L containing x
+# (mordell_lib.cls_modulus_residues), the 'first' mode returns one element of the set iff it is nonempty; and the
+# 'req' mode at L = 10920, req = 13 returns exactly the Python classes with 13 | M (26424 incidences).
+
+def check_en():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    from math import gcd
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    if sdir not in sys.path:
+        sys.path.insert(0, sdir)
+    cc = shutil.which("gcc")
+    if not cc:
+        print("en SKIPPED (no gcc)")
+        return
+    from m13c_witness import witness_all
+    import mordell_lib
+    from m13d_wit import Engine
+    stats = []
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "wit")
+        subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "m13d_wit.c")], check=True)
+        E = Engine(exe)
+        try:
+            for L in (9240, 10920):
+                ninc = nempty = 0
+                for x in range(1, L):
+                    if gcd(x, L) != 1:
+                        continue
+                    c = set(E.query(x, L, all=True))
+                    assert c == set(witness_all(x, L, first=False)), ("M13D C vs Python", L, x)
+                    ninc += len(c)
+                    nempty += not c
+                    for fam, P in c:
+                        M, R = mordell_lib.cls_modulus_residues(fam, P)
+                        assert L % M == 0 and x % M in R, ("M13D witness class", L, x, fam, P)
+                    fw = E.query(x, L)
+                    assert len(fw) == (1 if c else 0) and set(fw) <= c, ("M13D first mode", L, x)
+                stats.append((L, ninc, nempty))
+            nreq = 0
+            for x in range(1, 10920):
+                if gcd(x, 10920) != 1:
+                    continue
+                c = set(E.query(x, 10920, req=13, all=True))
+                p = {(fam, P) for fam, P in witness_all(x, 10920, first=False)
+                     if mordell_lib.cls_modulus_residues(fam, P)[0] % 13 == 0}
+                assert c == p, ("M13D req mode", x)
+                nreq += len(c)
+        finally:
+            E.close()
+    assert stats == [(9240, 113942, 34), (10920, 132276, 40)] and nreq == 26424, ("M13D counts", stats, nreq)
+    print(f"en m13d_wit.c = m13c_witness.witness_all on every unit mod 9240, 10920 (113942, 132276 incidences; 34, 40 "
+          f"units without witness); all witnesses valid; first mode consistent; req = 13 mode exact (26424); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (en) POINTWISE_MORDELL13D: C witness engine vs complete Python engine (L = 9240, 10920; all/first/req) ==")
+check_en()
 
 
 print("\nall checks passed")

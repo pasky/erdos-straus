@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-09 to main after ledger (D)31 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
+# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-09 (2) to main after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -72,10 +72,13 @@ The campaign ran two lines of research.
   and in progressions of small or rough modulus ((D)30, PROVED relative
   to the 3/4 note; modest novelty). For m/n the same argument gives
   `E_m(N) ≤ C N exp(−c(log N)^{3/4} m^{−1/4})` uniformly in m ≥ 4
-  ((D)31, PROVED relative to the 3/4 note). Its follow-up locates the m/p
+  ((D)31, PROVED relative to the 3/4 note). Its follow-ups locate the m/p
   density transition at `log N = m^{1/3}` up to a factor
-  `(m log m/phi(m))^{1/3}` (Thms U and L, PROVED relative to the inputs
-  named in the ledger; the half-point `1.95 m^{1/3}` is EVIDENCE).
+  `(log log N)^{1/3}` (Thms U and L′, PROVED relative to the inputs
+  named in the ledger; the half-point `1.95 m^{1/3}` is EVIDENCE). The
+  remaining factor is exactly Elsholtz–Tao's Type I log log N, which is
+  removed for m = 4 CONDITIONALLY on Selberg's eigenvalue conjecture
+  ((D)32; nothing unconditional).
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -597,6 +600,49 @@ repaired by the author). All statements are PROVED relative to the 3/4 note.
     no sharp threshold constant.
   * Written up as §8 of `paper/es-mn-short-note` (O104; referee R104: ACCEPT
     after minor repairs, applied).
+* Follow-up 2 `EXCEPTIONAL_MN3.md` (review `reviews/exceptional-mn3-review.md`,
+  no FATAL/MAJOR, minors applied by the reviewer):
+  * Prop 2.3 (PROVED relative to ET Thm 7.1, Brun–Titchmarsh, Shiu and
+    Pólya–Vinogradov; effective): ET Prop 1.4 with a coprimality gain,
+    `Σ_{a≤A, b≤B} τ(kab²+1) ≪ (φ(k)/k)·AB log·Λ`. ET's bound `ρ ≤ 1∗χ` drops
+    the indicator `(m, k) = 1`; keeping it, and using Pólya–Vinogradov in two
+    q-ranges, puts `W_{2k}(B) ≪ (φ(k)/k) log B` on every term.
+  * Thm L′: `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`. The m/φ(m) loss of
+    Thm L is removed; the remaining gap to Thm U is `(log log N)^{1/3}` in the
+    threshold, exactly ET's Type I log log N.
+  * That log log N is **not** removed, but the obstruction is located: on a
+    bad region of area 1/6 (Prop 3.3, PROVED geometry) all progression moduli
+    are ≥ N^{1−η}. Reading ET's "no similar trick" remark (which literally says
+    "Type II case") as covering Type I is the author's interpretation. On a
+    smaller region R** (area 7/72; Assessment) the problem is equidistribution
+    of parity-restricted Heegner points of discriminant −4d on X₀(d), via the
+    SL₂ form `ef − 4a²d = 1` (Lemma 3.1, PROVED). Thm 3.8 (PROVED implication):
+    a level-of-distribution hypothesis LD implies `Σ_{p≤N} f_I(p) ≪ N log² N`.
+  * Paper: O113 replaced Theorem L by Theorem L′ in `paper/es-mn-short-note`
+    (26 pp; post-referee addition, not yet refereed).
+
+### 2.7 Elsholtz–Tao's Type I log log N under Selberg's eigenvalue conjecture
+
+`EXCEPTIONAL_TYPEI_LOGLOG.md` (ledger (D)32; hostile review
+`reviews/exceptional-typei-loglog-review.md`, rounds 1–2; the author's
+self-review found one FATAL and several MAJOR defects, repaired; R111 round 1:
+no FATAL, 2 MAJOR gaps, repaired by O112; round 2: complete CONDITIONAL proof).
+* Thm 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture for Γ₀(4dq²) with
+  even nebentypus, uniformly in the level): `Σ_{p≤N} f_I(p) ≪ N log² N`. This
+  removes the log log N in Elsholtz–Tao's Type I bound, which they list as
+  open. It inherits the ET/MN3 reduction `f_I ≤ 2Σ_c w_c` and MN3 Thm 3.8(1),
+  which the reviewer did not re-check.
+* Method: the level-d Heegner forms of the SL₂ form have uniformly separated
+  roots (Lemma 2.2, PROVED, sharp constant 3/2). A Sobolev-duality discrepancy
+  bound (Prop 4.3, PROVED) is combined with a Deshouillers–Iwaniec/Drappeau
+  large sieve for box Poincaré series (Prop 5.1, uses SEL) and a per-a Weil
+  count (Prop 7.1). The two methods meet at d = a; a linearly degenerating
+  saving costs only O(N log² N) (Lemma 1.1).
+* Unconditionally a strip of positive width next to d = a remains, where exceptional
+  eigenvalues (Kim–Sarnak 7/64) beat the saving. So this argument gives **no
+  unconditional improvement** of ET.
+* For m/n it would close the Thm U / Thm L′ gap only through an m-uniform
+  version, which has not been attempted (`paper/es-mn-short-note`, Remark 8.10).
 
 ---
 
@@ -1021,6 +1067,14 @@ original paper was not obtained.
     {2,57,79} x {15,28,54,132,145}. x** lies in no P/Q-type class with
     e <= 2e9 and in no I2/II1/I4 class with f, e <= 2e8 (one engine);
     it remains a candidate (Conj 5.2, CONJECTURE).
+  * Follow-up 2 POINTWISE_MORDELL13D (EVIDENCE only, no PROVED claims, not
+    separately reviewed): a fast complete C witness engine for all seven ET
+    families with M | L and no size cap, validated against the 13C engine
+    (0 mismatches on 156288 units and 240 deep leaves). In a hybrid DFS it
+    does not close root 418321: each open node leaves about 1.3–3 open
+    children. The open leaves lie off the T-generic line; their T-generic
+    projections are covered. Assessment: closing a root needs a structural
+    idea, not more computation.
   * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
     17-generic line the seven ET families become explicit boxes in ℤ_17
     (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
@@ -1071,10 +1125,13 @@ original paper was not obtained.
   TYPEI2/3, MORDELL, MORDELL17) is written and refereed internally (R86, repairs applied); post-referee
   additions TYPEI4 (O91) and the refutation of the x* conjecture with the new candidate x** (O96;
   25 pp) were refereed in round 2 (R98, `reviews/es-coverings-note-referee-r2.md`: no FATAL/MAJOR,
-  seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). TYPEI6, MORDELL13C, MORDELL17B and
-  MORDELL17C are not yet in the note. `paper/es-mn-short-note` (25 pp; O97 + O104) writes up
+  seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). The O106 additions TYPEI6,
+  MORDELL13C, MORDELL17B and MORDELL17C were refereed in round 3 (R106,
+  `reviews/es-coverings-note-referee-r3.md`: accept, minor repairs applied; now 29 pp).
+  `paper/es-mn-short-note` (26 pp; O97 + O104 + O113) writes up
   EXCEPTIONAL_SHORT, EXCEPTIONAL_MN and, in Section 8, EXCEPTIONAL_MN2 (referees R97 and R104,
-  repairs applied; R104: ACCEPT).
+  repairs applied; R104: ACCEPT); O113 replaced Theorem L by Theorem L′ (EXCEPTIONAL_MN3) and
+  added a remark on (D)32 (post-referee addition, not yet refereed).
 
 ### 3.4 Window results
 
@@ -1200,6 +1257,8 @@ them.
 | E28 | Short intervals and progressions: `E(I) ≪ H exp(−c(log H)^{3/4})` for every interval of length H; progressions with `q ≤ exp(c'(log(H/q))^{3/4})` or q X-rough; primes in (x, x+H] for `H ≥ exp(C(log log x)^{4/3})` | PROVED relative to the 3/4 note; Prop 4.1 consequence an Assessment beyond its range | `EXCEPTIONAL_SHORT.md` Thms 1–2, Cor 3.1, Prop 4.1 | `reviews/exceptional-short-review.md` (no FATAL/MAJOR) | the 3/4 note |
 | E29 | m/n uniformly in m: `E_m(I) ≤ C H exp(−c(log H)^{3/4} m^{−1/4})` for every m ≥ 4 and every interval of length H; progression and short-interval prime versions; density transition at `log n = m^{1/3+o(1)}` | PROVED relative to the 3/4 note; novelty an Assessment | `EXCEPTIONAL_MN.md` Thm A, Thm B, Cor C, Cor D | `reviews/exceptional-mn-review-A.md`, `-B.md` (no FATAL/MAJOR) | 3/4 note; Pomerance–Weingartner Thm 3.1 (Cor D comparison) |
 | E30 | m/p density transition, A = log N/m^{1/3}: Thm U (exceptional proportion <= eps once A >= A_eps, uniformly in m >= 4); Thm L (`rho_rep << L^3/m + (L^3 + L^2 log^2 m) log L/phi(m) + m^{-0.35}`); gap `(m log m/phi(m))^{1/3}` in log N; `L_{1/2} = (1.95 +- 0.05) m^{1/3}` for even m in [60, 300]; Conj C2 | Thm U PROVED rel. (D)31 Cor 3.2 + BV + Shiu (ineffective); Thm L PROVED rel. ET Thm 7.1 / structure of ET's proof of Prop 1.4 + BT + Shiu; numerics EVIDENCE; C2 CONJECTURE | `EXCEPTIONAL_MN2.md` Thms U, L, §2, Conj C2; `paper/es-mn-short-note` §8 | `reviews/exceptional-mn2-review-A.md`, `-B.md` (no FATAL/MAJOR); paper R104 (ACCEPT) | Bombieri-Vinogradov, Shiu, Brun-Titchmarsh, Elsholtz-Tao, Pomerance-Weingartner |
+| E31 | Lower side without the m/φ(m) loss: Prop 2.3 (ET Prop 1.4 with coprimality gain `φ(k)/k`); Thm L′ `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`; gap to Thm U `(log log N)^{1/3}`; bad region R_bad (area 1/6) where all progression moduli are ≥ N^{1−η}; LD ⇒ (OPEN-I) | Prop 2.3, Prop 2.5, Thm L′ PROVED rel. ET Thm 7.1 + BT + Shiu + PV (+ MN2 Prop 3.2); Prop 3.3, Lemma 3.1 PROVED; Lemma 3.2 completeness EVIDENCE; §3.4–3.6 Assessment; Thm 3.8 PROVED implication; §2.6 EVIDENCE | `EXCEPTIONAL_MN3.md`; `paper/es-mn-short-note` §8.3 (O113, not yet refereed) | `reviews/exceptional-mn3-review.md` (no FATAL/MAJOR) | Elsholtz-Tao Thm 7.1, Brun-Titchmarsh, Shiu, Pólya-Vinogradov |
+| E32 | ET's Type I bound without log log: `Σ_{p≤N} f_I(p) ≪ N log² N`; uniform separation (cosh ≥ 3/2) of level-d Heegner roots; no unconditional improvement (Kim-Sarnak strip) | Thm 8.1 CONDITIONAL on Selberg's eigenvalue conjecture for Γ₀(4dq²), even nebentypus, uniformly in the level; Lemma 2.2, Prop 4.3 PROVED | `EXCEPTIONAL_TYPEI_LOGLOG.md` Thm 8.1 | `reviews/exceptional-typei-loglog-review.md` (rounds 1–2; complete CONDITIONAL proof) | Deshouillers-Iwaniec / Drappeau large sieve, Weil, Brun-Titchmarsh, Selberg sieve |
 
 ### 4.2 Pointwise line
 
@@ -1261,6 +1320,7 @@ them.
 | P54 | Type-I at `x̂_9`, regime (v): polynomial fundamental-unit route fails for L >= 7 (no integral norm-1 unit over Q[delta], unbounded CF periods); regime (v) inhabited at L = 13, so closure must use T <= 64; finitely many certificates per level under abc; no certificate at L = 7..10 with v_7(k) <= 15 at any height | Prop 2.1, Lemmas 1.1, 3.1 PROVED; Thm 3.2 CONDITIONAL (abc); Comp 4.1 / Cor 4.2 CERTIFIED (two engines except (L,b) = (9,15), (10,14), (10,15)); §5 model EVIDENCE; sterility open | `POINTWISE_TYPEI6.md` | `reviews/pointwise-typei6-review.md` (no FATAL/MAJOR) | abc (Thm 3.2 only) |
 | P55 | r = 13, (p/13) = -1: ES outside 35459 explicit classes (8.42e-5 of the six classes mod 720720); uncovered part of the (2,2) cell mod 11^2 13^2 is {2,57,79} x {15,28,54,132,145}; x** in no P/Q class with e <= 2e9, no I2/II1/I4 class with f, e <= 2e8 | Thm 6.1 PROVED by finite computation (three checkers); Comp 3.1 CERTIFIED; x** ranges CERTIFIED in range (one engine); Conj 5.2 CONJECTURE | `POINTWISE_MORDELL13C.md` Thm 6.1, Comp 3.1, §5 | `reviews/pointwise-mordell13c-review.md` (no FATAL/MAJOR) | Elsholtz-Tao Prop 1.9 |
 | P56 | r = 17: cumulative bounds `sum_{13<=K'<=K} D_P(K') <= C*17^{theta K}` suffice (C* = 1.497 at theta = 2/5); Q-points with c >= F^{1/2} unconditional (<= 2 per (a,d)); averaging over K cannot rescue P | Lemma 1.1, Lemma 2.1, Cor 2.2 PROVED; §4 PROVED bullets; sterility CONDITIONAL; Assessment 2.3, §3 Assessment, §4 table EVIDENCE | `POINTWISE_MORDELL17C.md` | `reviews/pointwise-mordell17c-review.md` (minors applied) | none |
+| P57 | r = 13: fast complete C witness engine (seven ET families, M ∣ L, no size cap); hybrid DFS does not close root 418321 | EVIDENCE only (engine validated: 0 mismatches vs 13C engine; not separately reviewed); closure Assessment | `POINTWISE_MORDELL13D.md` | none (replayed in `verify.py` (en)) | none |
 
 ---
 
@@ -1415,7 +1475,8 @@ specialist search would not find an identical prior statement.
   POINTWISE_TYPEI2/TYPEI3/TYPEI4, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS/WEIGHTS2,
   EXCEPTIONAL_SHORT, EXCEPTIONAL_MN, POINTWISE_TYPEI5, POINTWISE_MORDELL,
   POINTWISE_MORDELL13B, POINTWISE_MORDELL13C, POINTWISE_MORDELL17,
-  POINTWISE_MORDELL17B, POINTWISE_MORDELL17C, POINTWISE_TYPEI6 and EXCEPTIONAL_MN2.
+  POINTWISE_MORDELL17B, POINTWISE_MORDELL17C, POINTWISE_TYPEI6, EXCEPTIONAL_MN2,
+  EXCEPTIONAL_MN3, EXCEPTIONAL_TYPEI_LOGLOG and POINTWISE_MORDELL13D.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
@@ -1542,7 +1603,10 @@ ratings are this summary's judgement, not ledger labels.
    the replacement conjecture `C'_SQ` (`W = +∞` exactly for squares and
    three sporadic values; ledger (F)9) and `C_POLY`. (I low–medium,
    F varies.) Most of these belong to the a-frame/stacking route, whose
-   model ceiling is below 3/4.
+   model ceiling is below 3/4. Also: Elsholtz–Tao's Type I `log log N`
+   unconditionally (open; (D)32 removes it only under Selberg's eigenvalue
+   conjecture), and an m-uniform version of (D)32, which would close the
+   m/p transition gap `(log log N)^{1/3}` under that conjecture.
 10. **Novelty checks that need library or internet access.** (I medium for
     publication, F high with access.) Mádi-Nagy–Prékopa 2004, Selberg's
     large-κ remarks, *Opera de Cribro* Ch. 7 and 11, Graham–Ringrose 1990,
@@ -1577,7 +1641,8 @@ ratings are this summary's judgement, not ledger labels.
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
 | per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md`, then `EXCEPTIONAL_WEIGHTS2.md` (why CRT alignment fails) |
 | the 3/4 bound in short intervals and progressions | `EXCEPTIONAL_SHORT.md` |
-| the 3/4 bound for m/n, uniformly in m; the m/p density transition | `EXCEPTIONAL_MN.md`, `EXCEPTIONAL_MN2.md`; `paper/es-mn-short-note` (R97, R104) |
+| the 3/4 bound for m/n, uniformly in m; the m/p density transition | `EXCEPTIONAL_MN.md`, `EXCEPTIONAL_MN2.md`, `EXCEPTIONAL_MN3.md` (Thm L′); `paper/es-mn-short-note` (R97, R104; O113 addition) |
+| Elsholtz–Tao's Type I `log log N` (obstruction; removal under Selberg) | `EXCEPTIONAL_MN3.md` §3, then `EXCEPTIONAL_TYPEI_LOGLOG.md` |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
 | large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
@@ -1599,7 +1664,7 @@ ratings are this summary's judgement, not ledger labels.
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
 | the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent), `POINTWISE_TYPEI4.md` (Pell form, any-height bound), `POINTWISE_TYPEI5.md` (7-power tower), `POINTWISE_TYPEI6.md` (regime (v)) |
-| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md`, `POINTWISE_MORDELL13B.md` (r = 13; x* refuted, candidate x**), `POINTWISE_MORDELL13C.md` (tree certificate), `POINTWISE_MORDELL17.md`, `POINTWISE_MORDELL17B.md`, `POINTWISE_MORDELL17C.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86, R98) |
+| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md`, `POINTWISE_MORDELL13B.md` (r = 13; x* refuted, candidate x**), `POINTWISE_MORDELL13C.md` (tree certificate), `POINTWISE_MORDELL13D.md` (C witness engine; EVIDENCE), `POINTWISE_MORDELL17.md`, `POINTWISE_MORDELL17B.md`, `POINTWISE_MORDELL17C.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86, R98, R106) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
 | priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |

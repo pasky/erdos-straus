@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-09, refresh 6; ledger through (D)31 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
+ (2026-10-09, refresh 7; ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -63,10 +63,26 @@ with its status label. Read it before starting new work.
   ε there is A_ε such that at most a proportion ε of the primes in (N/2, N] are m-exceptional once
   A ≥ A_ε, uniformly in m ≥ 4 (removes Cor D's `(log m)^{4/3}`). Thm L (PROVED relative to ET Thm 7.1
   and the structure of ET's proof of Prop 1.4, plus BT and Shiu):
-  `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`. The remaining gap is a factor
-  `(m log m/φ(m))^{1/3}` in log N (ET's Type I Brun–Titchmarsh log log N, open even at m = 4, and
-  m/φ(m)). EVIDENCE: `L_{1/2} = (1.95 ± 0.05) m^{1/3}` for even m ∈ [60, 300]. Conj C2 (CONJECTURE):
-  `ρ_rep = F(A) + o(1)` with F non-degenerate (no sharp threshold constant).
+  `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`. EVIDENCE: `L_{1/2} = (1.95 ± 0.05) m^{1/3}`
+  for even m ∈ [60, 300]. Conj C2 (CONJECTURE): `ρ_rep = F(A) + o(1)` with F non-degenerate (no sharp
+  threshold constant).
+  Follow-up 2 `EXCEPTIONAL_MN3.md` (review R108: no FATAL/MAJOR, minors applied by the reviewer):
+  Prop 2.3 (PROVED relative to ET Thm 7.1, Brun–Titchmarsh, Shiu and Pólya–Vinogradov; effective) is ET Prop 1.4 with the
+  coprimality gain φ(k)/k, and gives **Thm L′** (PROVED relative to ET Thm 7.1, BT, Shiu, PV and MN2
+  Prop 3.2): `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`. The m/φ(m) loss is gone; the remaining
+  gap to Thm U is `(log log N)^{1/3}` in the threshold, exactly ET's Type I Brun–Titchmarsh log log N
+  (not removed). Its obstruction is located: a bad region of area 1/6 where all progression moduli are
+  ≥ N^{1−η} (Prop 3.3, PROVED geometry); method-exclusion claims are Assessment; Thm 3.8 (PROVED
+  implication): a level-of-distribution hypothesis LD implies ET's conjectured `Σ_{p≤N} f_I(p) ≪ N log² N`.
+* **ET's Type I log log N under Selberg** (`EXCEPTIONAL_TYPEI_LOGLOG.md`, ledger (D)32; hostile review
+  R111 rounds 1–2, repairs O112, round 2: complete CONDITIONAL proof). Thm 8.1 (CONDITIONAL on Selberg's
+  eigenvalue conjecture for Γ₀(4dq²) with even nebentypus, uniformly in the level):
+  `Σ_{p≤N} f_I(p) ≪ N log² N`, removing the log log N in Elsholtz–Tao Thm 1.1. Ingredients: the SL₂ form
+  `ef − 4a²d = 1`, uniform separation of the level-d Heegner roots (Lemma 2.2, PROVED, sharp constant
+  3/2), Sobolev duality (PROVED), the Deshouillers–Iwaniec/Drappeau spectral large sieve (cited; uses
+  SEL) and a per-a Weil count. Unconditionally (Kim–Sarnak) a strip of positive width remains, so **no
+  unconditional improvement of ET**. It is m = 4 only; an m-uniform version would close the Thm U / Thm L′
+  gap (not attempted).
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
@@ -213,6 +229,11 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     (2,2) cell mod 11²13² is exactly {2,57,79} × {15,28,54,132,145}. x** lies in no P/Q-type class with
     e ≤ 2·10⁹ and no I2/II1/I4 class with f, e ≤ 2·10⁸ (CERTIFIED within ranges, one engine);
     it stays a candidate (Conj 5.2, CONJECTURE).
+    `POINTWISE_MORDELL13D.md` (follow-up 2; EVIDENCE only, no PROVED claims, not separately reviewed):
+    a fast complete C witness engine (all seven ET families, M | L, no size cap), validated against the
+    13C engine (0 mismatches; replayed in `verify.py` (en) at L = 9240, 10920). A hybrid DFS does not
+    close root 418321 (each open node leaves ≈ 1.3–3 open children); Assessment: closing a root needs a
+    structural idea, not more computation.
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
@@ -237,7 +258,9 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     internally (R86: accept after minor revision; repairs applied). The post-referee additions
     TYPEI4 (O91), the x* refutation as Prop 5.4 and x** as an EVIDENCE-level Conjecture 5.6 (O96)
     were refereed in round 2 (R98: no FATAL/MAJOR, D1–D7 applied, TYPEI5 added as Prop 4.15 /
-    Thm 4.16; 25 pp). TYPEI6, MORDELL13C, MORDELL17B/17C are not yet in the paper.
+    Thm 4.16). The O106 additions TYPEI6, MORDELL13C, MORDELL17B/17C were refereed in round 3 (R106,
+    `reviews/es-coverings-note-referee-r3.md`: accept, minor repairs applied; 29 pp). MORDELL13D
+    (EVIDENCE only) is not in the paper.
 
 ## Housekeeping
 
@@ -334,6 +357,15 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   relaxed control (7,293); L = 7, b ≤ 4: 0 solutions, equal candidate counts; needs gcc + libgmp) and
   EXCEPTIONAL_MN2 (emn2_scan = R102B brute force on 6617 (m,p) pairs, m ≤ 60; R102A = R102B; R102A §1
   identities; L_{1/2}(60) = 7.636 from scratch, scanner agrees on the grid).
+* `verify.py` blocks (el)–(en) (O113, ~42 s; full run ≈ 8.5 min on the shared machine, 2 threads, scipy + mpmath; log `logs/o113_verify.log`) add EXCEPTIONAL_MN3 (Prop 2.3 pointwise inputs by R108's brute force —
+  ρ_{ka}(m₀) ≤ 1[(m₀,k)=1]Σ_{r|m₀}(−ka/r), odd m₀ ≤ 400, k ≤ 40, a ≤ 12; ρ(2^j) ≤ 4 — and six R108 sum rows replayed;
+  §2.6 ratio in [0.81, 1.12]; §3 R108 Type I brute force for p < 180 (identities, f_I ≤ 2Σw_c); inline: Prop 3.3
+  exponent table, R_bad(η) characterisation at η = 0, 1/20, areas 1, 1/6, 7/72 exactly by rational polygon clipping),
+  EXCEPTIONAL_TYPEI_LOGLOG (R111: Lemma 2.1 exact and Lemma 2.2 cosh ≥ 3/2 (attained; Type I ≥ 3) on all F_d pairs,
+  d ≤ 30, A ≤ 40, parity-group invariance; author's ttl_separation; O112 §8.0 identities at reduced size (13450 tuples;
+  `o112_checks.py` now takes optional CMAX AMAX DMAX) and e/f-cusp densities; R111 Lemma 6.1 transitivity, quadric
+  size, g formulas (ℓ ≤ 23) and Lemma 6.3 r(d) bound, d ≤ 150) and POINTWISE_MORDELL13D (m13d_wit.c = m13c_witness on
+  every unit mod 9240, 10920: 113942 / 132276 incidences, all/first/req = 13 modes; needs gcc).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
@@ -408,7 +440,7 @@ Papers in `paper/`:
   R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
   `reviews/novelty-audit-2026-10b.md`).
 * `es-coverings-note`: finite coverings and candidate sterile points
-  (TYPEI2/3/4, MORDELL, MORDELL13B, MORDELL17) — 25 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). The post-referee additions O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) were refereed in round 2 (R98, `reviews/es-coverings-note-referee-r2.md`: no FATAL/MAJOR, seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). TYPEI6, MORDELL13C, MORDELL17B and MORDELL17C are not yet in the note.
-* `es-mn-short-note` (25 pp, O97 + O104): the 3/4 exponent for m/n uniformly in m (`E_m(I) ≪ H exp(−c(log H)^{3/4}m^{−1/4})`), in short intervals and progressions, and the density transition at `log n = m^{1/3+o(1)}`. Everything in Sections 1-7 is PROVED relative to the 3/4 note; Theorems U and L carry the extra inputs listed in the ledger (D)31 follow-up (BV, Shiu; ET Thm 7.1 and the structure of ET's proof of Prop 1.4, BT). Internal referee R97: accept after minor revision; repairs applied (`reviews/es-mn-short-note-referee.md`). O104 added Section 8 "The density transition" from EXCEPTIONAL_MN2 (Theorems U, L; EVIDENCE numerics; Conjecture C2); referee round 2 R104 (`reviews/es-mn-short-note-referee-r2.md`): upper side SOUND, lower side SOUND with minor repairs, m1-m8 applied, recommendation ACCEPT.
+  (TYPEI2/3/4/5/6, MORDELL, MORDELL13B/13C, MORDELL17/17B/17C) — 29 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). The post-referee additions O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) were refereed in round 2 (R98, `reviews/es-coverings-note-referee-r2.md`: no FATAL/MAJOR, seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). The O106 additions (TYPEI6, MORDELL13C, MORDELL17B, MORDELL17C) were refereed in round 3 (R106, `reviews/es-coverings-note-referee-r3.md`: accept with minor repairs, applied).
+* `es-mn-short-note` (26 pp, O97 + O104 + O113): the 3/4 exponent for m/n uniformly in m (`E_m(I) ≪ H exp(−c(log H)^{3/4}m^{−1/4})`), in short intervals and progressions, and the density transition at `log n = m^{1/3+o(1)}`. Everything in Sections 1-7 is PROVED relative to the 3/4 note; Theorems U and L carry the extra inputs listed in the ledger (D)31 follow-up (BV, Shiu; ET Thm 7.1 and the structure of ET's proof of Prop 1.4, BT). Internal referee R97: accept after minor revision; repairs applied (`reviews/es-mn-short-note-referee.md`). O104 added Section 8 "The density transition" from EXCEPTIONAL_MN2 (Theorems U, L; EVIDENCE numerics; Conjecture C2); referee round 2 R104 (`reviews/es-mn-short-note-referee-r2.md`): upper side SOUND, lower side SOUND with minor repairs, m1-m8 applied, recommendation ACCEPT. O113 replaced Theorem L by Theorem L′ from EXCEPTIONAL_MN3 (Lemma 8.6 = MN3 Prop 2.3 with full proof, Prop 8.8 = MN3 Prop 2.5; gap now `(log log N)^{1/3}`) and added Remark 8.10 citing (D)32 (CONDITIONAL on Selberg) as the route to the exact scale; this post-referee addition is not yet refereed (`reviews/es-mn-short-note-referee.md`, "Post-referee addition (O113)").
 
 Authorship and the citation form for astra are still undecided.
