@@ -5,9 +5,17 @@ Deliverable: `EXCEPTIONAL_TYPEI_LOGLOG.md` (§0 summary), scripts `scripts/ttl_s
 
 ## Result
 * **Theorem 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture for Γ₀(M) with even nebentypus mod 2q):**
-  `Σ_{p≤N} f_I(p) ≪ N log² N`, i.e. ET's open (OPEN-I). It is **not** unconditional. Parts of the proof are
-  careful outlines: Prop 5.1 (the Bessel/Mellin bookkeeping in the large-sieve step), Prop 7.1 (the
-  Ramanujan-sum terms) and the cell bookkeeping of Thm 8.1.
+  `Σ_{p≤N} f_I(p) ≪ N log² N`, i.e. ET's open (OPEN-I). It is **not** unconditional, and the proof is at
+  outline level in places: Prop 5.1 (Bessel/Mellin bookkeeping), Prop 7.1 (Ramanujan-sum terms) and the
+  cell bookkeeping. Step (2a) also inherits MN3's unwritten "routine" BT harmonic sums outside R_bad.
+* **Self-review R1** (`review` tool, deep): **FATAL** — Prop 7.1 fails for tiny divisors; the spectral corner
+  `β≈α` lacked a uniform saving; the M2 densities are not ≈1/ℓ. **MAJOR** — the parity group was wrong for
+  even d (fixed to `Γ₀(2d)∩Γ(2q)`); the density signs; Prop 5.1 needs `Y ≤ λ𝓛^{−3}`; θ = κδ/4 ate the
+  saving (fixed to κδ/8); Eisenstein terms occur for every χ. All were repaired in place: Prop 7.1 is
+  restricted to `min(e,f) ≥ N^{c₀}`, M2 is retired, small divisors go to BT outside R_bad, the corner uses
+  the `min(e,f)` cusp with periodisation, and the thin strip `b < 8ca` uses BT (cost `ηNL²`).
+  **The repairs have not been re-reviewed.** R1 confirmed that Lemmas 2.1–2.2, Prop 4.3 (modulo ±I
+  bookkeeping), Lemma 1.1 and the basic large-sieve strategy are sound.
 * **Unconditional status:** the argument covers every cell except a strip `0 < 2α−1+γ ≲ 0.1`, where
   exceptional eigenvalues (Kim–Sarnak 7/64) beat the saving. The strip still costs `log log N`, so there is
   no unconditional improvement of ET. DI Thm 5, DI Thm 6 (level average) and Humphries' density theorem
@@ -27,8 +35,8 @@ Deliverable: `EXCEPTIONAL_TYPEI_LOGLOG.md` (§0 summary), scripts `scripts/ttl_s
    methods meet exactly at `d = a`. Lemma 1.1 shows that a linearly degenerating saving costs only
    `O(N log² N)`, since `Σ_{j,k≤L} min(1/j,1/k) ≤ 2L`. So no third method is needed. MN3's
    W_e/W_f/BT are unnecessary for c ≤ N^η.
-6. MN3's (H**), Heegner equidistribution on X₀(d), cannot hold: there are `≈ √d` points against a volume
-   of `d`. It is also not needed, because only the second moment of the lift count enters.
+6. MN3's (H**) is stronger than needed: only the second moment of the lift count enters. R1 rightly
+   objects that the cardinality count `≈ √d` against volume `d` does not refute MN3's lift-counting form.
 
 ## Literature (search-limited, two research subagents + own checks)
 No removal of ET's log log was found. Jia 2012 (Sci. China Math.) is cited by ET v6, which still says the

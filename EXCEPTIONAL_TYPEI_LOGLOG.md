@@ -8,8 +8,9 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
 
 * **Main result — Theorem 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture (SEL) for the congruence
   groups `Γ₀(M)` with even nebentypus mod `2q`, `M | 16dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
-  conjectured (OPEN-I). Proof: §§2–8. Parts are written as careful outlines (Prop 5.1, Prop 7.1, the cell
-  bookkeeping); hostile review needed.
+  conjectured (OPEN-I). Proof: §§2–8. The proof is at outline level in places (Prop 5.1, Prop 7.1, the cell
+  bookkeeping), and step (2a) inherits MN3's unwritten routine BT sums. A self-review (R1) found 3 FATAL
+  and 5 MAJOR issues in the first draft; all were repaired in place but have not been re-reviewed.
 * **Unconditionally** the same argument removes the obstruction everywhere except on a strip
   `0 < 2α − 1 + γ ≲ 0.1` next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
   (Kim–Sarnak 7/64) beat the saving. A strip of positive width still costs `log log N`, so ET's bound is
@@ -18,19 +19,20 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
   **uniformly separated** in ℍ: distinct points have `cosh dist ≥ 3/2`, for every d (because
   `4d | disc(Q−Q')`). (ii) Prop 4.3 (PROVED): with separation, `|Σ_z P(z) − #Λ·⟨P⟩| ≪ (#Λ)^{1/2}‖(1−Δ)P₀‖₂`,
   uniformly in the group. (iii) Prop 5.1 (under SEL, via the Deshouillers–Iwaniec/Drappeau spectral large
-  sieve): the box Poincaré series has Poisson-size variance `≪ area + 1/(Y·level)`. (iv) So the per-d
+  sieve; for `Y ≤ λ𝓛^{−3}`): the box Poincaré series has variance `≪ 𝓛^C(area + (Yλ)^{−ε}/(Y·level))`. (iv) So the per-d
   relative error is `≈ (d/a)^{1/2}`, and MN3's per-a Weil count (K_a) has relative error `≈ a/d`: the two
   are **complementary at exactly d = a**, and Lemma 1.1 shows that a saving that degenerates linearly at a
   boundary costs only `O(N log² N)`.
-* MN3's target (H**) is the wrong formulation. Equidistribution of the `≈ d^{1/2}` Heegner points on
-  `X₀(d)` (volume `≍ d`) is impossible, and it is not needed: only the second moment of the lift-counting
-  function enters.
+* MN3's (H**) is more than needed. Fine-scale equidistribution of the `≈ d^{1/2}` Heegner classes on
+  `X₀(d)` (volume `≍ d`) cannot hold at scales below `d^{1/2}`. MN3's lift-counting form is not refuted by
+  this (R1), but only the second moment of the lift-counting function enters here.
 * Literature (2026-10, search-limited): no removal of ET's `log log N` was found. ET v6 cites Jia
   (Sci. China Math. 55 (2012) 465–474) and still calls the Type I `log log` open. No joint level–discriminant
   equidistribution with level ≍ |D| exists (Liu–Masri–Young reach `q ≤ |D|^{1/20}`). No result on
   `Σ_a S(h,k;a²)` or on divisor sums in APs to square moduli was found.
 * EVIDENCE: `scripts/ttl_separation.py` (separation; min cosh ≥ 3 observed); `scripts/ttl_perd.py` (per-d
-  errors well inside the Cauchy–Schwarz bound).
+  errors are small, but R1 notes that its weight is normalised to about 20 and that its local-density main
+  term is not the orbital main term of Thm 6.2: weak, sanity-level evidence only).
 
 ## 1. Set-up
 
@@ -106,8 +108,7 @@ exceptional part; DI Thm 5 controls it only partially, see §3.2).
 With `a = N^α`, `d ≍ N^{1−α−γ}`: this is `α > (1−γ)/2` — exactly complementary to MN3's (K_a)
 (`α < (1−γ)/2`). Together with the trivial count when a divisor is below `A^{1−ε}` (a then runs over
 complete residue systems), **every cell is covered, with a saving that degenerates only linearly at
-`α = (1−γ)/2`** — harmless by Lemma 1.1. EVIDENCE that the per-d errors are no larger than this:
-`scripts/ttl_perd.py` (`.out.txt`).
+`α = (1−γ)/2`** — harmless by Lemma 1.1. Weak sanity check only (see §0): `scripts/ttl_perd.py`.
 
 ### 3.2 The obstruction: exceptional eigenvalues (Assessment, to be made precise)
 If `Γ₀(d)` (or the sieve group `Γ₀(d) ∩ Γ(q)`) has an exceptional eigenvalue `λ_j = 1/4 − σ_j²`, then
@@ -184,7 +185,8 @@ coefficients at ∞ of an orthonormal basis of `L²(Γ₀(M)\ℍ, χ)`, normalis
 for dyadic n and bounded K. Not re-derived here.)
 
 **Test functions.** Use cells that are smooth in `(Re u, Im u)` directly:
-`ψ(u) = φ(x/λ) W(y/Y)`, `φ, W ∈ C_c^∞`, `supp φ ⊂ [−2,−1]`, `supp W ⊂ [1,2]`, `0 < λ ≤ 1/4`, `Y ≤ 1`.
+`ψ(u) = φ(x/λ) W(y/Y)`, `φ, W ∈ C_c^∞`, `supp φ ⊂ [−2,−1]`, `supp W ⊂ [1,2]`, `0 < λ ≤ 1/4`, `Y ≤ λ 𝓛^{−3}` (R1: the proposition is false without a bound on `Y/λ`; in all
+applications `Y/λ ≍ 1/(A√d)`).
 (In the original variables this is `f ≍ F := 1/(qY√d)` and `a/f ≍ λq/2`: a smooth partition of unity in
 `(log f, log(a/f))` is as good as one in `(log f, log a)` for the sieve.) Its hyperbolic area is
 `∫ψ dμ ≍ λ/Y`.
@@ -202,18 +204,18 @@ bound `‖P₀‖₂²` for `ψ = φ(x/λ)W(y/Y)` with arbitrary fixed `φ, W`.
 being the index normalisation between `Γ₀(M)\ℍ` and `Γ_{M,q}\ℍ`.
 (3) Unfolding: `⟨P,u_j⟩ = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) ∫ W(y/Y) √y K_{it_j}(2π|n|y) dy/y²`, and the same with
 the Eisenstein coefficients `φ_𝔠(n,t)`, plus for `n = 0` the constant terms
-`δ_{𝔠∞}y^{1/2+it} + φ_{𝔠∞}(½+it) y^{1/2−it}` (only for χ = 1).
+`δ_{𝔠∞}y^{1/2+it} + φ_{𝔠∞}(½+it) y^{1/2−it}` (for every even χ: ∞ is singular for all of them —
+R1 correction; unitarity of the scattering matrix still gives `≪ λ²/Y` after the `2/φ(q)` normalisation).
 (4) `n = 0`: `|∫W(y/Y)y^{1/2±it}dy/y²| ≤ Y^{−1/2}|Ŵ(t)|` with `Ŵ` rapidly decreasing; the scattering
 matrix is unitary on the critical line, so the n = 0 part contributes `≪ λ²/Y`.
-(5) `n ≠ 0`: `|n| ≤ 𝓛/λ` up to a negligible tail (φ̂ decays rapidly), so `2π|n|y ≤ 4π𝓛Y/λ`. If
-`Y/λ ≥ 𝓛^{−2}` the claim is trivial from (6) below with `N₀ ≤ 𝓛³`; otherwise expand
+(5) `n ≠ 0`: `|n| ≤ 𝓛/λ` up to a negligible tail (φ̂ decays rapidly), so `2π|n|y ≤ 4π𝓛Y/λ`. By the domain hypothesis `2π|n|y ≪ 𝓛^{−2}`; expand
 `K_{it}(x) = ½Σ_± Γ(±it)(x/2)^{∓it}(1 + O(x²))`. Then
 `⟨P,u_j⟩ = Σ_± ½Γ(±it_j)π^{∓it_j} Y^{−1/2∓it_j} Ŵ_±(t_j) Σ_n ρ̄_j(n) λφ̂(λn)|n|^{∓it_j} + (O((𝓛Y/λ)²)-terms of the same shape)`,
 with `|Γ(it)|² = π/(t sinh πt)` and `Ŵ_±` rapidly decreasing, so only `|t_j| ≤ K = 𝓛` matters.
 For `|t_j| ≤ 1` the two `±` terms must not be separated (each is `≍ 1/|t|`); there use instead the Mellin
 representation `K_{it}(x) = (4πi)^{−1}∫_{(σ₀)} Γ((s+it)/2)Γ((s−it)/2)(x/2)^{−s} ds` with `σ₀ = 1/𝓛`, so
 that `(nY)^{−s}` has modulus `≍ 1` and the Gamma factors have an integrable `1/|v ± t|` singularity
-(cost `O(log 𝓛)`); the large sieve is then applied for each fixed `s` on the contour.
+(cost `O(𝓛)` at `t ≈ 0`, where the two Gamma poles coalesce — R1 correction; still polylog); the large sieve is then applied for each fixed `s` on the contour.
 (6) The `|n|^{∓it_j}`: split `t_j` into unit intervals `[k, k+1]`; for `t = k+τ`,
 `sup_{τ∈[0,1]} |S(τ)|² ≤ |S(0)|² + ∫_0^1 (|S|² + |S'|²) dτ` with `S'` having coefficients multiplied by
 `−i log|n| = O(𝓛)`; apply the large sieve to each fixed-τ coefficient vector `b_n = λφ̂(λn)|n|^{−ik−iτ}`
@@ -228,19 +230,20 @@ this is the "cusp" term `1/(Y·level)` of §3.
 
 **Parity.** The Type I forms are `𝓕_d^I := {[f, 4ad, de] : ef − 4a²d = 1, e,f > 0, a ∈ ℤ}`
 (`B ≡ 0 (mod 4d)`), a subset of 𝓕_d that is not `Γ₀(d)`-stable (MN3 Lemma 3.1, R108). It **is** stable
-under `Γ₀(d) ∩ Γ(2)` (w-side): with `γ_z = [[p,t],[r,s]] ∈ Γ⁰(2d) ∩ Γ₀(2)` (z-side),
+under `Γ₀(2d) ∩ Γ⁰(2)` (w-side; R1: *not* `Γ₀(d)∩Γ(2)` when d is even — e.g. d = 2,
+`[[1,0],[2,1]]` maps `[1,8,18]` to a form with `B = 44`): with `γ_z = [[p,t],[r,s]] ∈ Γ⁰(2d) ∩ Γ₀(2)` (z-side),
 `B' = 2Apt + B(ps+tr) + 2Crs ≡ 0 (4d)` because `2d | t`, `4d | B`, `C = de`, `2 | r`. So take
-`Γ' := Γ₀(d) ∩ Γ(2q)` (w-side) and `u = w/(2q)`: `u_Q = (−2a + i/√d)/(2qf)`, cusp width 1, and
+`Γ' := Γ₀(2d) ∩ Γ(2q)` (w-side) and `u = w/(2q)`: `u_Q = (−2a + i/√d)/(2qf)`, cusp width 1, and
 `Γ'' ⊇ Γ₁(M)` with `M | 16dq²`; (SEL) and the large sieve are applied to `Γ₀(M)` with characters mod `2q`.
 
 **Local densities.** For a prime `ℓ ∤ 2d` put
 `g_{c,d}(ℓ) := #{(A,B,C) ∈ 𝔽_ℓ³ : B² − 4AC = −4d, cB − A = 0} / #{(A,B,C) : B² − 4AC = −4d}`,
-and `g_{c,d}(q) = Π_{ℓ|q} g_{c,d}(ℓ)`. Then `g = (ℓ−1)/(ℓ² − χ(ℓ)ℓ)` if `ℓ ∤ c` (χ = `(−d/ℓ)`), and
-`g = (1+χ(ℓ))/(ℓ − χ(ℓ))` if `ℓ | c`. For `ℓ | 2d`, no n is divisible by ℓ (n is odd; if `ℓ | d` then
+and `g_{c,d}(q) = Π_{ℓ|q} g_{c,d}(ℓ)`. Then `g = (ℓ−1)/(ℓ² + χ(ℓ)ℓ)` if `ℓ ∤ c` (χ = `(−d/ℓ)`), and
+`g = (1+χ(ℓ))/(ℓ + χ(ℓ))` (R1: the quadric has `ℓ² + χℓ` points) if `ℓ | c`. For `ℓ | 2d`, no n is divisible by ℓ (n is odd; if `ℓ | d` then
 `n ≡ −f` and `f | 4a²d+1 ≡ 1 (ℓ)`), so those primes are not sieved.
 
 **Lemma 6.1 (main term factorises; PROVED).** For `q` squarefree, `(q,2d) = 1`, let
-`Λ̃(q) = {u_Q : Q ∈ 𝓕_d^I, q | cB − A}`, `#Λ(q)` its orbifold count mod `Γ'_q := Γ₀(d)∩Γ(2q)`,
+`Λ̃(q) = {u_Q : Q ∈ 𝓕_d^I, q | cB − A}`, `#Λ(q)` its orbifold count mod `Γ'_q := Γ₀(2d)∩Γ(2q)`,
 `V(q) = vol(Γ'_q\ℍ)` (w-side). Then `#Λ(q)/V(q) = g_{c,d}(q) · #Λ(1)/V(1)`.
 *Proof.* `[Γ'_1 : Γ'_q] = |SL₂(ℤ/q)|` (strong approximation, `(q,2d) = 1`). For one `Γ'_1`-orbit
 `O = Γ'_1·Q₀`, the weighted number of `Γ'_q`-orbits in `O ∩ Λ̃(q)` is
@@ -262,7 +265,7 @@ is the number of SL₂(ℤ)-classes of forms of discriminant −4d and `r(d) ≤
 Hence `Σ_{d≤D} #Λ_d(1) ≪ D^{3/2}(log D)^3`.
 *Proof.* `#Λ(1) ≤ [Γ₀(d)∩Γ(2) : …]`-weighted count of pairs (SL₂-class `[Q₀]`, coset `γ ∈ Γ⁰(d)\SL₂(ℤ)`)
 with `Q₀∘γ ∈ 𝓕_d`; the factor 6 = `[Γ₀(d) : Γ₀(d)∩Γ(2)] ≤ 6`. Cosets ↔ second columns `(t:s) ∈ ℙ¹(ℤ/d)`,
-and `Q₀∘γ ∈ 𝓕_d` forces `Q₀(t,s) ≡ 0 (d)`. `𝓕_d` forms are primitive (`(f,d) = 1`, `(f,e) = 1`).
+and `Q₀∘γ ∈ 𝓕_d` forces `Q₀(t,s) ≡ 0 (d)`. `𝓕_d` forms are primitive (`gcd(f, 4ad) = 1` since `ef − 4a²d = 1`; R1: `(f,e) = 1` is false in general).
 For odd `p^k ∥ d` and primitive `Q₀ = [A,B,C]` with `p ∤ A` (WLOG after SL₂-change), points with
 `p | s` give `Q₀ ≡ A t² ≢ 0`; points `(t:1)` need `(2At + B)² ≡ B² − 4AC ≡ 0 (p^k)`, i.e. t in one class
 mod `p^{⌈k/2⌉}`: `p^{⌊k/2⌋}` points. For `p = 2` the same argument with `4A` gives `≤ 4·2^{⌊k/2⌋}`.
@@ -274,6 +277,7 @@ Fix `c`, a squarefree `q` and smooth weights `W_i ∈ C_c^∞([1,2])`. 𝓛 = lo
 
 **Proposition 7.1 ((K_a): fixed a).** Let `(q, 2a) = 1`, `m = 4a²`, and
 `S_a(q) := Σ_{e,f ≥ 1, ef ≡ 1 (m), q | n} W₁(e/E) W₂(d/D)`, `d := (ef−1)/m`, `n := 4acd − f`.
+Assume `min(E,F) ≥ N^{c₀}` (R1: for tiny e the claimed density is false, e.g. a = c = 1, e = 3, q = 5).
 Then `S_a(q) = g'_{c,a}(q) S_a(1)·(1 + O(N^{−10})) + O(𝓛^C τ(a)^C q · a)`, where
 `g'_{c,a}(ℓ) = #{(e,f) ∈ 𝔽_ℓ² : f(ce − a) ≡ c}/ℓ² = (ℓ−1)/ℓ²` (ℓ ∤ c) resp. `1/ℓ` (ℓ | c), and
 `S_a(1) ≍ D φ(m)/m` (main term `= (φ(m)/m²)∫∫W₁(e/E)W₂((ef−1)/(mD)) de df`).
@@ -292,7 +296,9 @@ cells with `min(E,F) ≤ 𝓛^{C'}` are treated by Prop 7.2 instead. ∎
 *Consequence.* Summing `|R|` over `a ≍ A` and `q ≤ Q`: `≪ 𝓛^C Q² A²` against the mass `≍ A D`: a level
 `Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`, i.e. `α < (1−γ)/2`.
 
-**Proposition 7.2 (M2: a small divisor).** Let `(q, 2d) = 1`, `e ≤ E`. For fixed `(d, e)`,
+**Proposition 7.2 (M2: a small divisor) — NOT USED (R1: for fixed (d,e) the weight n is quadratic in a,
+with local densities `(1 + (d(dc²e²−1)/ℓ))/ℓ`, not `≈ 1/ℓ`; small divisors are instead handled by BT
+outside R_bad, §8).** Let `(q, 2d) = 1`, `e ≤ E`. For fixed `(d, e)`,
 `#{a : a ≍ A, e | 4a²d+1, q | n} = W-weighted (A/(eq))·ρ_{d,e,c}(q) + O(ρ_{d}(e)·3^{ω(q)})`, where
 `ρ_d(e) = #{x mod e: 4dx²+1 ≡ 0}` and `ρ_{d,e,c}(q)` counts the admissible classes mod `eq`. (Poisson in
 `a` mod `eq`, trivial.) Summed over `d ≍ D`, `e ≍ E`, `q ≤ Q`: error `≪ 𝓛^C D E Q²`… against mass `AD`:
@@ -306,33 +312,41 @@ Brun–Titchmarsh, Selberg's upper-bound sieve, Weil's bound, and the DI/Drappea
 
 *Proof.* Dyadic in N; `p ∈ (N/2, N]`, `L = log N`, `f_I(p) ≤ 2Σ_c w_c(p)`.
 (1) `c > N^{η}` (η small fixed): MN3 Thm 3.8 part (1) (= ET (8.1)–(8.2) with BT): `≪ η^{−1}N L²`.
-(2) `c ≤ N^η`, fixed c. Cover the tuples `(a,d,e,f)` (`ef = 4a²d+1`, `acd ≍ N/c`) by a smooth dyadic
-partition of unity in `(a, d, e)` (for spectral cells: in `(f, a/f)` or `(e, a/e)`, §5), dropping ET's
-size constraints (upper bound). `γ := log c/L`, `a ≍ A = N^α`, `d ≍ D`, `AD ≍ N/c`. Each cell is split
-into **sequences** σ: fixed a (if `D ≥ A`: Prop 7.1), fixed d (if `D < A`: Thm 6.2 with the cusp
-`F' ∈ {E, F}` satisfying `F' ≥ A`, and Prop 7.2 if `min(E,F) < A𝓛^{−C}`), each a non-negative integer
-weight on `n = 4acd − f`, with main term `X_σ`, density `g_σ` (§6/§7: `g_σ(ℓ) = 0` for `ℓ | 2s`,
-`s ∈ {a, d}`, `g_σ(ℓ) = (1 + O(1/ℓ))/ℓ` for `ℓ ∤ 2cs`, `g_σ(ℓ) ≤ 2/(ℓ−1)` for `ℓ | c`), and remainders
-summed over the sequences of a cell:
-* (K_a), `D ≥ A`: `Σ_σ Σ_{q≤Q} 3^{ω(q)}|R_σ(q)| ≪ L^C Q² A²` (+ `D/min(E,F)` terms);
-* spectral, `D < A`: `≪ L^C Q^{2} D^{5/4}(A√D + F'^{1+ε}/√D)^{1/2}` (Thm 6.2, Cauchy–Schwarz over d,
-  Lemma 6.3), and `F' ≤ max(2A√D, …) ≤ A^{2−δ₀}` with `δ₀ > 0` absolute near `α = 1/2` (§3);
-against the cell mass `≍ AD`. So the relative remainder is `≤ L^C Q^2 N^{−κ|2α − 1 + γ|}` for an
-absolute `κ > 0`, uniformly over the cells.
-(3) Sieve per sequence with `z = N^{θ}`, `θ = κ|2α−1+γ|/4`, sieving only primes `ℓ > ℓ₀` (MN3 Thm 3.8):
-`Σ_{p} w_σ(p) ≪ X_σ (2cs/φ(2cs))/(θ L) + remainders` for the primes `p > z`; primes `p ≤ z` contribute
-`≪ N^{θ}·τ`-trivially. Summing over σ: `Σ_σ X_σ s/φ(s) ≪ (count of the enlarged cell) + remainder`, and
-the counts with the weight `s/φ(s) = Σ_{k|s}μ²(k)/φ(k)` are `≪ AD L·Λ` summed over the e-cells by MN3
-Prop 2.3 (with `4k`, resp. `4k²`, in place of 4); the weight `c/φ(c)` averages to O(1) over `c`.
-(4) Cells with `θ L ≤ C log L` (the `O(log L)` dyadic a-layers next to `α = (1−γ)/2`) are treated by BT as
-in ET (`saving 1/j`, `c ≍ 2^j`): cost `≪ Σ_{j ≤ ηL} N L·(log L)/j ≪ N L (log L)² = o(N L²)`.
-(5) All other cells: cost `≪ (N L per (c-block, a-layer))·min(1/j, C/(k)) ` with `k` the layer distance
-from `α = (1−γ)/2`; Lemma 1.1 gives `≪ N L²`. ∎
+(2) `c ≤ N^η`, fixed c; `γ := log c/L`, `a ≍ A = N^α`, `d ≍ D`, `AD ≍ N/c`, `e ≍ N^{β−γ}`. Smooth dyadic
+partition of unity in `(a, d, e)` (for spectral cells in `(f', a/f')`, `f' ∈ {e, f}`, §5), dropping ET's size
+constraints (upper bound).
+(2a) Cells **outside** `R_bad(η₁)` (MN3 Prop 3.3; `η₁ > 0` fixed small): one of the moduli
+`4ad, 4bd, 4ab, 4acf, 4cdf` is `≤ N^{1−η₁}`; Brun–Titchmarsh on that progression costs
+`≪ η₁^{−1}·(cell mass)/L`. **Caveat (inherited, Assessment):** turning "per fixed other coordinates" BT
+bounds into `(mass)/L` needs the weighted harmonic sums that MN3 §3.3 calls routine but did not write out
+(for 4ad it is ET (8.2)). Inside `R_bad(η₁)` one has `e, f ≥ N^{1/2−2η₁}` (exponent check from the
+inequalities defining `R_bad`), so no tiny divisors remain (R1: this replaces the retired Prop 7.2).
+(2b) Inside `R_bad(η₁)`, split each cell into sequences σ: fixed a if `D ≥ A` (Prop 7.1), fixed d if
+`D < A` (Thm 6.2 with the cusp `f' = min(e,f)`, after splitting the x-range into `O(1)` periods when
+`a/(qf') > 1/4`). This needs `f' ≥ A/8`. That fails only on the thin strip `a ≤ b < 8ca`
+(`α ≤ β < α + γ + o(1)`, using `e = (a+b)/c`), whose mass per c-block `c ≍ 2^j` is `≪ N L j`; there BT
+(saving `1/j`) costs `≪ Σ_{j≤ηL} N L ≪ η N L²`. With `f' = min(e,f) ≤ 2A√D`, the cusp term of Thm 6.2 is
+`f'^{(1+ε)/2}/A ≪ N^{ε} D^{1/4}A^{−1/2}`, which has an **absolute** power margin near `α = (1−γ)/2`
+(`≈ N^{−1/8+ε}`). Relative remainders per cell are then `≪ L^C Q²N^{−κδ}`, `δ := |2α − 1 + γ|`, with
+an absolute κ > 0 (Prop 7.1: `Q²A/D`; Thm 6.2: `Q²(D/A)^{1/2}`).
+(3) Sieve per sequence with `z = N^{θ}`, **`θ = κδ/8`** (R1: θ = κδ/4 made `Q²N^{−κδ}` with `Q = z²` equal
+to 1), sieving only primes `ℓ > ℓ₀`, `ℓ ∤ 2cs` (`s ∈ {a,d}`): the remainder is `≪ L^C N^{−κδ/2}` times
+the mass, and the main term is `≪ X_σ (2cs/φ(2cs))/(θ L)`. Here `Σ_σ X_σ s/φ(s) ≪ (count of the enlarged cell)
++ remainder`, and `s/φ(s) = Σ_{k|s}μ²(k)/φ(k)` with MN3 Prop 2.3 (`4k` resp. `4k²` in place of 4) gives
+`≪ AD L` summed over the e-cells. The weight `c/φ(c)` is O(1) on average over c.
+(4) Layers with `δ L ≤ C log L` are treated by BT: cost `≪ Σ_{j≤ηL} N L (log L)/j ≪ N L (log L)²`.
+(5) All other cells cost `≪ (N L per (c-block j, a-layer k))·min(1/j, C/k)`, where k is the layer
+distance from `α = (1−γ)/2`. Lemma 1.1 gives `≪ N L²`. ∎
 
-*Status of the proof (honest).* Every step above is either cited (ET, MN3, DI, Drappeau, Weil, Selberg's
+*Status of the proof (honest; after the self-review R1 = `review` tool, 2026-10-09).* Every step above is either cited (ET, MN3, DI, Drappeau, Weil, Selberg's
 sieve) or proved in §§2,4,6,7; §5's Prop 5.1 and §7's Prop 7.1 are written at the level of a careful
 outline (the Bessel/Mellin bookkeeping and the Ramanujan-sum terms are standard but not written in full),
-and the cell bookkeeping in (2)–(5) is not written with explicit constants. Hostile review needed.
+and the cell bookkeeping in (2)–(5) is not written with explicit constants. Step (2a) inherits MN3's unwritten "routine" BT harmonic sums.
+So Thm 8.1 is a **conditional theorem with an outline-level proof**, not a finished proof. Hostile review
+needed. R1 found 3 FATAL items (Prop 7.1 for tiny divisors; the spectral corner `β ≈ α`; the M2 densities)
+and 5 MAJOR items (parity group for even d; density signs; the domain of Prop 5.1; the sieve level eating the
+saving; the Eisenstein terms for χ ≠ 1). All are addressed above by restricting domains, re-routing cells, or
+correcting formulas. They have not been re-reviewed.
 
 ## 9. What is unconditional, and where (SEL) enters
 
@@ -351,9 +365,8 @@ and the cell bookkeeping in (2)–(5) is not written with explicit constants. Ho
   in d; (ii) the observation that the per-d Sobolev bound and the per-a Weil bound are **complementary
   at exactly `d = a`**, so no third method is needed in R_bad; (iii) Lemma 1.1: a linearly degenerating
   saving costs only `O(N log² N)`.
-* MN3's (H**) ("equidistribution of Heegner points on X₀(d)") is **not** what is needed: `#Λ_d ≈ d^{1/2}`
-  points cannot equidistribute on `X₀(d)` (volume `≍ d`). The count is a lattice-point count of lifts in a
-  horocyclic box of area `≍ A√d`, and only the second moment of the counting function enters.
+* MN3's (H**) is stronger than what is used. The count is a lattice-point count of lifts in a horocyclic box of
+  area `≍ A√d`, and only the second moment of the counting function enters, via Prop 4.3.
 
 ## Replay
 
