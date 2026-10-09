@@ -21,6 +21,8 @@ From-scratch checks: `scripts/review_r120_checks.py` → `.out.txt` (no author c
 * E. Thm 9.3 case (i) (`L ≥ e^{20C}` ⇒ `CL/log L ≤ 0.65 log m` when `log m > L/10`) and case (ii)
   (`m > L⁵` ⇒ the two Thm L′ terms are `≤ m^{−2/5}log m/5`, `≤ m^{−3/5}log³m`, and `L ≤ m^{1/2}`) on grids.
 
+Status: complete (round 3). Recommendation: **ACCEPT** with the six MINOR R120 repairs (applied in the paper).
+
 ## Verdict summary
 
 | Claim (paper numbering, compiled) | Verdict |
