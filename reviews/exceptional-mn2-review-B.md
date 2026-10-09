@@ -1,0 +1,9 @@
+# Hostile review B of EXCEPTIONAL_MN2.md (task R102B)
+
+Reviewer: side-agent/review-emn2-b. Reviewed: `EXCEPTIONAL_MN2.md` as merged from
+`side-agent/mn-transition` (HEAD at review start), `reviews/agent-reports/AGENT_REPORT_O102.md`.
+Sources checked against: `sources/elsholtz-tao-1107.1010.pdf` (pdftotext, §7 pp. 25–32, (A.12) p. 49),
+`sources/pw.txt` (PW §2–3, Lemma 7.4), `EXCEPTIONAL_MN.md` (Def 1.2, Lemma 1.3, Prop 3.1, Cor 3.2).
+Shiu 1980 used as quoted (Thm 1 standard form); not re-read from PDF.
+
+(in progress — sections appended per claim)
