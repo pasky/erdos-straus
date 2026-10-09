@@ -118,3 +118,23 @@ M13D_CAPS=2:12,3:8,5:5,7:4 M13D_PRIO=2,3,5,7 PYTHONPATH=scripts uv run python sc
 PYTHONPATH=scripts uv run python scripts/m13d_minopen.py nodes.txt 120             # 2.6 (nodes = 20 open leaves of 2.2)
 PYTHONPATH=scripts uv run python scripts/m13d_dive.py nodes.txt 80 25 1             # dives v2
 ```
+
+## 4. Are the "square-mimicking" open leaves T-generic survivors? (EVIDENCE + Assessment; answer: no)
+
+**Computation 4.1.** `scripts/m13d_tgen_test.py /tmp/o103/t418_ck6.json.gz 400 1` (logs/o103_tgen_test.log), open
+leaves of run 2.2 (root 418321): 6224 of the 16857 are quadratic residues at every prime `q | L`, `q ∉ T = {11,13}`.
+This includes `x ≡ 1 (8)`; at 3, 5, 7 it holds automatically. 400 random such leaves were tested:
+* **none** lies on the T-generic line: in every leaf, `x ≢ 1 mod q^{v_q(L)}` for some `q ∉ T`;
+* for **all 400** the T-projection `x'` is covered at the same level by a class with `M | L` (I1 224, II3 175, I3 1).
+  Here `x' ≡ x mod 11^a13^b` and `x' ≡ 1` on the rest of L, i.e. the T-generic point with the leaf's 11-, 13-adic
+  coordinates.
+* all have `(x mod 11, x mod 13) = (2, 7)` (the root's T-cell).
+
+**Assessment.** For root 418321 the open set is **not** explained by the T-generic (2,2)-cell phenomenon of
+13B/13C. The (2,2) cell `x₁₁ ≡ x₁₃ ≡ 2` and x** belong to class 473761, while 418321 has `(x₁₁, x₁₃) = (2, 7)`.
+Its T-generic points are all covered (13C §3), and here concretely all 400 T-projections are covered at level L.
+The open leaves sit *off* the T-generic line: they are squares, but not ≡ 1, at the other primes. They stay open
+because they avoid the discs `x ≡ −f (mod 4ad)`, `f | L`, of the covering classes. So the failure to close is not
+caused by x**-type points. The limit set (if nonempty) is a different, "square-mimicking but off-line" set, whose
+structure remains open. For 473761 the (2,2)-cell survivors are a genuine additional obstacle. That root was not
+run here.
