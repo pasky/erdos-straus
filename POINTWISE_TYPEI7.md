@@ -177,7 +177,7 @@ By Remark 2.1(b) the `L=11` triple recurs at `L=46, 81, …`, outside the grid.
 **Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
 `v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
 `b=0, L=27–32`; `b=1, L=27–29`; `b=2, L=25,26`; `b=3, L=23`; `b=4, L=11–20`; `b=5, L=11–17`; `b=6, L=11–15`;
-`b=7, L=11,12`. *(Engines: see Computation 3.4.)*
+`b=7, L=11,12`; `b=8, L=7–9` (R109 repair: the `b=8` cells were missing from this list; TYPEI4 Cor 3.5 had `b ≤ 7`). *(Engines: see Computation 3.4.)*
 
 **Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
 `L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
@@ -189,6 +189,11 @@ cells `b=0: L=27–32`, `b=1: L=24–29`, `b=2: L=25,26`, `b=3: L=23` (plus `(22
 (43 certificates). Together with R89's ranges (TYPEI4 Cor 3.5 replication) the grid of Cor 3.2 is now two-engine on
 `b=0: L≤32`, `b=1: L≤29`, `b=2: L≤18` and `L=25,26`, `b=3: L≤17` and `L=23`; single-engine (`typei4_lb`) remain
 `b=2: L=19–24`, `b=3: L=18–22`, and `b=4–7` at `L ≥ 11`.
+*(R109 repair.)* That list omitted `L=7,8, b=7`; `L=9,10, b=6,7` (single-engine already in TYPEI4 Cor 3.5) and the new
+cells `b=8, L=7–9`. Review R109 (`reviews/pointwise-typei7-review.md` §4a) re-ran `review_typei4_jsearch.c` on
+`(14,3)`; `b=2: L=19,20,21,24`; `b=3: L=18,19`; `b=4: L=11–15, 20`; `b=5: L=11–13`; `b=6: L=9–12`;
+`b=7: L=7–11`; `b=8: L=7,8` (all agree with `typei4_lb`). Still single-engine: `b=2: L=22,23`; `b=3: L=20–22`;
+`b=4: L=16–19`; `b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`; `b=8: L=9` (see the review for its status).
 
 ## 4. Level-graded heuristic (Assessment)
 

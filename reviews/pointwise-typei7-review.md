@@ -112,7 +112,7 @@ precisely `2^90 ≤ L < 2^91`, `2^878 ≤ L < 2^879` — fine as orders of magni
   tail `10·2·Σ_{j≥17}2^{3−j} = 2.4·10^{−3}` ✔. Hensel remark: the derivative `32c'X²P_1−1` is odd ✔ (local only; the
   label Assessment is right).
 
-MINOR m4 (bookkeeping, repaired below after my re-runs). Comp 3.4's list of single-engine cells is incomplete:
+MINOR m4 (bookkeeping; repaired in Cor 3.2 and Comp 3.4, marked R109). Comp 3.4's list of single-engine cells is incomplete:
 (i) TYPEI4 Cor 3.5 already flagged `L = 7,8, b = 7` and `L = 9,10, b = 6,7` as single-engine (R89's `jsearch` covered
 `L ≤ 8, b ≤ 6` and `L ≤ 10, b ≤ 5` only); (ii) `b = 8, L = 7–9` are **new** grid cells (TYPEI4 had `b ≤ 7`) and are
 missing from both the "new relative to TYPEI4" list of Cor 3.2 and the single-engine list of Comp 3.4.
@@ -130,5 +130,10 @@ Compared with the author's table (all these cells empty except `(14,3)`):
 | `b=5`: `L=11,12,13` | 0 | ≤ 1 min |
 | `b=6`: `L=11,12` | 0 | 1.5, 3.7 min |
 | `b=7`: `L=11` | 0 | 15 min |
+| `b=4`: `L=20` | 0 | 30 min |
+| `b=6`: `L=9,10`; `b=7`: `L=7,8,9,10` | 0 | 18 s – 6.6 min |
+| `b=8`: `L=7,8` | 0 | 5.2, 10.4 min |
+| `(22,3)` | aborted by me after ≈ 20 min (time budget) — no result | — |
+| `(9,8)` | see §6 | |
 
 All agree with Comp 3.1 / Cor 3.2.
