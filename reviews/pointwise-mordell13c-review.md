@@ -1,16 +1,21 @@
 # R100 — hostile review of POINTWISE_MORDELL13C.md (task O100)
 
 Reviewer: side agent R100 (branch `side-agent/review-m13c`). Reviewed against `side-agent/r13-cover-all`
-as merged at the start of R100. All code from scratch: `scripts/review_m13c_*.py` (no import of `m13c_*`,
-`mordell_lib`, `review_mordell_check`).
+as merged at the start of R100. All checking code from scratch: `scripts/review_m13c_*` (no import of `m13c_*`, `mordell_lib`,
+`review_mordell_check`; the only author code run is the object under test: `m13c_witness.witness_all` in
+`review_m13c_witness.py`, the C targets for a sanity re-run, and the author's `inv_*.pkl` witnesses, which are
+re-verified by own membership tests).
+
+**Overall: no FATAL, no MAJOR defect.** Theorem 6.1 independently re-verified (third checker). Six MINOR
+defects (D1–D6), mostly presentation; D4 is a simplification (the 72-min run was provably unnecessary).
 
 ## Summary verdicts
 
 | Claim | Label claimed | Verdict |
 |---|---|---|
 | Thm 6.1 (tree certificate, 35459 open classes, density 8.42e-5) | PROVED (finite computation) | **SOUND** (conditional on POINTWISE_MORDELL Thm 3.1(b) outside the six roots, as stated) |
-| §2 witness engine completeness (all M ∣ L) | CERTIFIED | **SOUND** (brute force, 6 levels, 0 mismatches) |
-| Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | **SOUND**; its new part is empty by a one-line reciprocity argument (D4) |
+| §2 witness engine completeness (all M ∣ L) | CERTIFIED | **SOUND** (brute force, 5 levels, 0 mismatches) |
+| Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | **SOUND** (covered side: all 128 subcells independently confirmed; uncovered side = 13B engine at N ≤ 4·10⁷ (not recomputed) + reviewer's proof that N = 11⁴13⁴ contributes nothing, D4) |
 | §5 x** search extensions | CERTIFIED within ranges | **SOUND** as labelled (one engine; not recomputed; D5) |
 | §1 non-square lemma (M ≤ 6000) | EVIDENCE | **SOUND** (recomputed: 102124 classes, 0 exceptions) |
 | §3, Comp. 2.1 | EVIDENCE | not recomputed; logical inferences in §3/§7 checked (SOUND) |
