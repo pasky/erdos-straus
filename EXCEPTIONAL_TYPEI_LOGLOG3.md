@@ -105,3 +105,47 @@ Suppose DI Thm 2 (1.29) holds at the cusp ∞ of Γ₀(q) (`μ(∞) = 1/q`) in t
 `Σ_{|κ_j|≤K} |Σ_{N<n≤2N} a_nρ_{j∞}(n)|²/ch(πκ_j) ≤ K_{T2}(δ)(K² + q^{−1}N^{1+δ})‖a‖²`. For exceptional `κ_j = −iσ_j`,
 `ch(πκ_j) = cos(πσ_j) ∈ [2^{−1/2}, 1]` and `|κ_j| ≤ 1/4`; take K = 1, `Y = 1` weights `= 1`, `‖a‖² ≤ N`, and sum over
 `Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + (1 + log 16)N^{1+δ}`. So (P3) holds with `K₂ := 17K_{T2}`. ∎
+
+## 4. (P1), (P2): effective Lemma 8.1 and the preliminary bound (`scripts/ttl3_lemma81_effective.md`)
+
+**Proposition 4.1 (PROVED rel. effective Thm 2 (§5), effective Thm 14 (§6), the exact Kuznetsov formula DI (1.19),
+Selberg's 3/16).** With `e := δ/4`, `D(e) := (2/e)^{2^{1/e}}`, `A := 2^{16384}`, (P1) and (P2) hold with
+`K₁(δ) = Aδ^{−2}[1 + K_{T2}(e) + D(e)K₁₄(e)]`, `c(δ) = Aδ^{−2}[1 + K_{T2}(e)]` (P1 even with `(NY)^δ`).
+Ingredients and repairs (details in the script file): (i) explicit cutoffs `Ψ(u) = η(3u−2)` (plateau `[1,4/3]`,
+support `[11/12,17/12]`), `φ(x) = Ψ(Yx)`, `f(q) = η(q/Q)`: with these, the switched moduli satisfy exactly
+`64C/51 ≤ c ≤ 128C/11 ⊂ (C,16C]` (DI's pictured supports `[1/2,5/2]` only give `16C/25 ≤ c ≤ 32C` — a gap in
+the printed proof, repaired); (ii) the exceptional lower bound `φ̂(−iσ)/cos(πσ) ≥ Y^{2σ}/64` uniformly in
+`σ ∈ (0,1/4]` for `Y ≥ 2^{32}` (DI (8.3) is not uniform near `Y = 1`; `Y < 2^{32}` is handled by (M) and Thm 2 with
+`Y^{2σ} ≤ 2^{16}`); the error term of DI (8.1) is uniform down to `κ = 0` (the `1/sin πσ` cancels against the
+difference of the two Bessel orders); (iii) DI (8.2) needs an extra `log Y` at `κ = 0`, kept as `L_Y = 1 + log Y`
+and absorbed by `(1+1/e)Y^e`; (iv) the Mellin pair (8.9) for `f = η(·/Q)` has `|χ(it)| ≤ 2^{512}/(1+t⁴)`, uniformly
+in Q, c, δ; (v) the exceptional split at `σ = e` costs `e^{−1}` (from `1/sin πσ`) and `Y^{2e}L_Y`; (vi) in (P1) the
+weight `Ψ(4πY√(mn)/k)` is removed by two-variable partial summation with a k-independent majorant measure, then
+`τ(k) ≤ D(e)k^e` (Lemma 1.1) and Thm 14 with `K = 32NY`; (vii) the sign of DI (1.22) vs (8.1) is opposite; both
+trace-formula applications carry the same sign, which cancels. If `πNY/Q < 1` the error term alone suffices.
+
+## 5. Effective DI Theorem 2 at the cusp ∞ (`scripts/ttl3_thm2_effective.md`)
+
+**Proposition 5.1 (PROVED rel. the Petersson/Kuznetsov identities of DI §4, Weil's bound, Selberg's 3/16).**
+For `q ≥ 1`, `K ≥ 1`, `N ≥ 1/2`, `0 < δ ≤ 1/10`, each of DI (1.28), (1.29) (exceptional spectrum included), (1.30) at
+the cusp ∞ of Γ₀(q) is `≤ K_{T2}(δ)(K² + q^{−1}N^{1+δ})‖a‖²` with `K_{T2}(δ) ≤ exp(exp(100/δ))` (explicit formula in
+the script). The only growing-order step is DI p. 257 (Prop 3, (1.27)): with Lemma 1.3's η and `p = ⌊32/δ⌋`
+integrations by parts the non-resonant Poisson terms cost `R_p = 2^{100(p+1)}(p!)⁴`; divisor factors `τ(c)^{≤4}`
+cost `(8/s)^{4·2^{4/s}}`, `s = δ/16` (this dominates). Repairs of DI's printed text: the cutoff support must be checked
+for the derivative separation on p. 257; p. 259 exponent `2s` should be `3s` (harmless); the diagonal is kept as
+`D_K ≤ 2K²` instead of DI's asymptotic (5.2); the Gaussian lower bound pp. 260–261 is restricted to `[|r|, |r|+1]`;
+the exceptional part is handled after first establishing `σ ≤ 1/4` (Selberg) non-circularly.
+
+## 6. Effective DI Theorem 14 (`scripts/ttl3_thm14_effective.md`)
+
+**Proposition 6.1 (PROVED rel. effective Thm 2 at level 1, the Kuznetsov/Petersson identities for SL₂(ℤ), and
+`λ₁(SL₂(ℤ)) > 1/4` (DI Thm 3)).** For `C, M, N ≥ 1`, `0 < δ ≤ 1/10`:
+`Σ_{c≤C} U(c) ≤ K₁₄(δ)(CMN)^δ C(C + MN)`, `K₁₄(δ) = 2^{1200}(1 + K_{T2}(δ))(1 + 6/δ)³`, where
+`U(c) := Σ*_{d mod c} |Σ_{m≤M} e(md/c)|·|Σ_{n≤N} e(nd̄/c)| ≥ |Σ_{m≤M}Σ_{n≤N} S(m,n;c)|`.
+(The U-form is what DI's proof via Lemma 8.2 actually bounds: (8.14) majorises U(c) by the real, non-negative
+`Σ_{m,n} f̂_M(m)f̂_N(n)S(m,n;c)`. It also dominates twisted sums `|Σ_{m,n} S_χ(m,n;c)|`, which §8 uses.)
+Zero frequencies (Ramanujan sums) need only the mean divisor bound `Σ_{c≤Z}τ(c) ≤ Z(1 + log Z)`. Only fixed-order
+derivatives and fixed contour shifts occur (a numerical replacement of DI Lemma 7.1 with three derivatives). Repairs:
+Thm 13's Fourier separation differentiates up to six times, beyond what (7.7) controls (repaired by product
+cutoffs with seven controlled derivatives); a cosh factor missing on p. 264 is restored; the `C^ε`-only form (1.52)
+is not needed (the `(UV)^{δ/2}` and log factors are summed explicitly over dyadic Fourier blocks).
