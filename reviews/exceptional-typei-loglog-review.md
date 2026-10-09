@@ -72,5 +72,24 @@ failure reproduced; consistent with the `qD/E` term). Inside R_bad(η₁) one in
 `1+α−β ≥ max(1−α−γ−η, α−η)`), so Prop 7.1 applies throughout the fixed-a part of R_bad. Defect D6
 (stale reference to the retired Prop 7.2 inside the proof).
 
+**V10. Prop 5.1 (variance of the box Poincaré series, under SEL) — SOUND at outline level; minor gaps
+D7–D9.** Checked against the sources:
+* DI Thm 2 (scan p. 230, (1.29)): `Σ_{|κ_j|≤K} (ch πκ_j)^{−1}|Σ_{N<n≤2N} a_n ρ_{ja}(n)|² ≪_ε (K² + μ(a)N^{1+ε})‖a‖²`,
+  `N ≥ 1/2`, with (1.34) `u_j = √y Σ ρ_j(n) K_{iκ_j}(2π|n|y) e(nx)` — exactly the author's normalisation.
+* Drappeau (arXiv:1504.05549, downloaded by me): the nebentypus version is **Prop 4.7** (§4.2.2), bound
+  `(T² + q₀^{1/2} μ(a) N^{1+ε})‖a‖²` for `(1+|t|)^{±κ}/cosh(πt)·|Σ a_n √n ρ(n)|²` and the Eisenstein
+  analogue over singular cusps; expansion via `W_{0,it}(4π|n|y) = 2(|n|y)^{1/2}K_{it}(2π|n|y)`, so
+  `ρ^{DI} = 2√|n| ρ^{Dr}`; for even χ, κ = 0. The author's "q^{1/2}M^{−1}" term and "immaterial" remark are
+  correct; μ(∞) = 1/M for Γ₀(M).
+* Index normalisation: `Γ₀(M)/±Γ'' ≅ (ℤ/q)^×/±1` (order φ(q)/2 = number of even χ); with
+  `P_χ = |G|^{−1}P_{ψ,χ}` one gets `‖P‖²_{Γ''} = (2/φ(q))Σ_χ‖P_{ψ,χ}‖²_{Γ₀(M)}` — the author's (2) is right,
+  and the sum over χ of the per-χ large sieve exactly cancels it.
+* n = 0 / Eisenstein: `Σ_𝔠|φ_{𝔠∞}(½+it)|² = 1` (unitary scattering matrix, also with nebentypus) gives
+  `≪ λ²/Y` per χ, fine. Small `|t_j|` via Mellin at `σ₀ = 1/𝓛`: `Y^{−2σ₀} ≤ e²` because `Y ≥ λY`; the
+  coalescing Gamma poles cost `𝓛²` in `sup_j|G(s,t_j)|` — polylog, fine. Unit-interval/Gallagher step for
+  `|n|^{−it}` fine (`𝓛²` loss).
+* Plausibility: the bound is the Poisson-level variance (`V·mean = area`) plus the Kloosterman/cusp
+  term `1/(MY)`, the natural truth — no sign of an over-strong claim.
+
 ## Defects
 (filled below)
