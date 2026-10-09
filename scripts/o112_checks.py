@@ -1,9 +1,12 @@
 # O112 checks: (1) section 8.0 identities for w_c-tuples; (2) e-cusp local density = f-cusp density.
 from math import gcd
+import sys
+# optional reduced size: o112_checks.py CMAX AMAX DMAX (defaults 5 39 59 = the recorded run)
+CM, AM, DM = (map(int, sys.argv[1:4]) if len(sys.argv) > 3 else (5, 39, 59))
 bad=0; cnt=0
-for c in range(1,6):
-  for a in range(1,40):
-    for d in range(1,60):
+for c in range(1,CM+1):
+  for a in range(1,AM+1):
+    for d in range(1,DM+1):
       M=4*a*a*d+1
       for f in range(1,M+1):
         if M%f: continue
