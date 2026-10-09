@@ -24,7 +24,7 @@ refereed; none of them solves ES or any case of it):**
 * *x\* refuted* ((F)11, MORDELL13B): the r = 13 candidate sterile point x* lies in an ET class (modulus
   12670944). The new candidate x** survives through ES level 2.59·10¹⁰ (MORDELL13E, CERTIFIED); sterility
   is a CONJECTURE. For Type I, TYPEI7 proves that 2-adic closeness tests cannot show `x̂_9` sterile.
-* *Papers:* `es-mn-short-note` (m/n, density transition; Thm L′ section not yet re-refereed) and
+* *Papers:* `es-mn-short-note` (29 pp; m/n, density transition, sharp order under SEL; R97, R104, R120 refereed) and
   `es-typei-heegner-note` (32 pp, O118: the unconditional (D)32a as Theorem 1 and the conditional bound as
   Theorem 2; referee R118, no FATAL/MAJOR, repairs applied). MN4, TYPEI7 and MORDELL13E are not yet in any paper.
 
