@@ -57,8 +57,9 @@ in $\HH$. Sobolev duality and the spectral large sieve give a per-$d$
 count complementary to a per-$a$ Poisson--Weil count; their savings
 degenerate linearly at $d=a$. Without a spectral hypothesis, the
 exceptional spectrum is controlled on average over the levels
-$4dq^2$, $d\asymp D$, by Deshouillers--Iwaniec's bound for $a_n=1$,
-after partial summation; only the unquantified $\varepsilon$-constant in
+$4dq^2$, $d\asymp D$, by Deshouillers--Iwaniec's bound for $a_n=1$
+(in Drappeau's nebentypus form, which we read as uniform in the
+character modulus), after partial summation; only the unquantified $\varepsilon$-constant in
 that bound prevents the full removal of $\log\log N$. All results are
 relative to cited inputs, including the inherited Elsholtz--Tao/internal-note
 reduction, and have received internal review only, not external refereeing.
@@ -1747,7 +1748,7 @@ $Y\ge1$. Put $S_j(t)=\sum_{1\le n\le t}\rho_{j\infty}(n)$. Then
 \]
 \end{corollary}
 \begin{proof}
-Cover $[1,t]$ by the $K\le1+\log_2t$ intervals
+Cover $[1,t]$ by the $K\le2+\log_2t$ (R118 repair) intervals
 $I_i=(2^{i-1},\min(2^i,t)]$, $i\ge0$; each is an interval of integers
 inside $(N_i,2N_i]$, $N_i=2^{i-1}\in[1/2,t]$. Cauchy--Schwarz gives
 $|S_j(t)|^2\le K\sum_i|\sum_{n\in I_i}\rho_j(n)|^2$. Apply
@@ -1776,7 +1777,7 @@ rapidly. Apply Cauchy--Schwarz with the measure $\Psi(t)\,dt$.
 
 \subsection*{The exceptional part of the box variance, averaged over \texorpdfstring{$d$}{d}}
 Keep the notation of Proposition~\ref{L:5.1} and its proof, and write
-$\mathcal W^*(v)=\sup_{0\le\sigma\le1/2}|\mathcal W(\sigma+iv)|$, so that
+$\mathcal W^*(v)=\sup_{0\le\sigma\le1}|\mathcal W(\sigma+iv)|$ (R118 repair: $\Re s_v=\sigma_j+1/\cL$ may exceed $1/2$), so that
 $\mathcal W^*(v)\ll_B(1+|v|)^{-B}$.
 
 \begin{lemma}[exceptional coefficients on a shifted line; \status{proved}]\label{E:shift}
@@ -1896,14 +1897,16 @@ with the fixed exponent $\varepsilon_1=1/100$ (so that its constant is
 absolute), where $\mathcal E^{(1)},\mathcal E^{(2)}$ are the exceptional parts
 of Proposition~\ref{E:var} for the two boxes into which
 $(1-\Delta)\psi$ decomposes at the start of the proof of
-Proposition~\ref{L:5.1}.
+Proposition~\ref{L:5.1}. (R118 repair: the second box carries the
+$d$-dependent factor $(Y_d/\lambda)^2\le1$; dropping it only enlarges
+$\mathcal E^{(2)}$, so Proposition~\ref{E:var} applies with fixed weights.)
 
 \begin{theorem}[averaged per-$d$ count; \status{proved} relative to \cite{DI,Dr}]\label{E:perd}
-Let $q\le N^{1/100}$ be squarefree, and $(q,2c)=1$. For $d\in(D,2D]$,
+Let $q\le N^{1/50}$ be squarefree (R118 repair: the sieve uses $q\le N^{\delta/64}\le N^{1/64}$), and $(q,2c)=1$. For $d\in(D,2D]$,
 $(q,2d)=1$, let $\psi_d$ be the boxes of Theorem~\ref{L:6.2} (or of its
 $e$-cusp variant) with a common
 $\lambda\asymp A/(qF')$ and $Y_d=1/(2qF'\sqrt d)$, where $F'\ge1$ is the
-scale of the selected cusp divisor, $F'\le3A\sqrt D$, $D\le N$, and
+scale of the selected cusp divisor, $F'\ll A\sqrt D$ (R118 repair: only this order of magnitude is used), $D\le N$, and
 $Y_d\le\lambda\cL^{-3}$. Write
 $E_d(q)=\sum_{Q\in\cF_d^I,\,q\mid n(Q)}\psi_d(u_Q)-g_{c,d}(q)\mathfrak M_d$.
 Then for every $\varepsilon\in(0,1/4]$,
@@ -1929,7 +1932,7 @@ By \eqref{E:eq:gen}, summed over the $\le D$ values of $d$ with $M\ge4Dq^2$,
  \sum_dV_d^{\rm gen}\ll\cL^C\bigl[DA\sqrt D(1+\lambda)
  +N^{\varepsilon_1}q^{-3/2}Y_0^{-1}\bigr].
 \]
-Proposition~\ref{E:var}, with $M_0=8Dq^2$, $\lambda_-M_0\le8q^2D\lambda$ and
+Proposition~\ref{E:var} (applied with $\cL\asymp\log N$ large enough that $\cL\ge\log(2+(\lambda_-Y_0)^{-1})$, which only changes $\cL^C$; R118 repair), with $M_0=8Dq^2$, $\lambda_-M_0\le8q^2D\lambda$ and
 $M_0/\lambda_-\le N^3$ (as $1/\lambda_-\ll\max(1,qF'/A)\le N^{2/3}$), gives
 $\sum_d\mathcal E_d\ll\cL^CC_\varepsilon N^{3\varepsilon}
 [q^2DA\sqrt D+Y_0^{-1}+\lambda_-Y_0^{-3/2}]$. With
@@ -1953,9 +1956,9 @@ No upper bound on $\delta$ is needed.
 On the side $D<A$ we have $D/A\asymp N^{-\delta}$. First term: in (ii)
 and (iv), $(1+A/(qF'))^{1/2}\ll N^{\delta/4}$ as shown in step~3 of the
 proof of Theorem~\ref{L:8.1}; in (iii) $\lambda\le1$. In all three cases
-$F'\le3A\sqrt D$: in (ii) $E\ll A$, in (iii)
+$F'\ll A\sqrt D$: in (ii) $E\ll A$, in (iii)
 $\min(e,f)\le(ef)^{1/2}\le3a\sqrt d$, in (iv) $F<A$. Hence the third term is
-$\ll(A\sqrt D)^{1/4}D^{1/8}A^{-1/2}\ll(D/A)^{1/4}$, and the second is
+$\ll q^{5/4}(A\sqrt D)^{1/4}D^{1/8}A^{-1/2}\ll q^{5/4}(D/A)^{1/4}$ (R118 repair: $q^{5/4}$ restored), and the second is
 $\ll q^{3/2}N^{\varepsilon_1/2}A^{-1/4}(D/A)^{1/4}\le q^2(D/A)^{1/4}$,
 because $A\ge N^{1/3-2\eta_1}$ on the bad region.
 \end{proof}
@@ -1996,7 +1999,7 @@ through $\sum_{d\asymp D}|E_d(q)|$ (step~3: Cauchy--Schwarz and
 Lemma~\ref{L:6.3}). Steps~1 and~2, case~(i), the Brun--Titchmarsh
 alternatives and the bands are unconditional. Replace that use by
 Corollary~\ref{E:cases}, and in step~4 take $\kappa=1/16$ in (ii)--(iv), so
-$z=N^{\delta/128}$, $Q=z^2=N^{\delta/64}$, and the main-term saving is still
+$z=N^{\delta/128}$, $Q=z^2=N^{\delta/64}\le N^{1/64}$ (as $\delta\le1$, so Theorem~\ref{E:perd} applies to every $q\le Q$; R118 repair), and the main-term saving is still
 $1/G_\sigma(z)\ll g(c)g(s)/k$. By
 $\sum_{q\le Q}3^{\omega(q)}q^2\ll\cL^CQ^3$, the sieve remainder and the
 $|r_\sigma(1)|$ part of the main term are, relative to the mass,
