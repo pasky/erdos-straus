@@ -214,26 +214,31 @@ and `q > kD` (reciprocity + partial summation, `O(log A)` per d) without loss, a
 `≪ √q log q`; squares q contribute `≪ D Σ_{r} log A/r² ≪ D log A`. Hence that range contributes
 `≪ log A Σ_{q ≤ kD} log q/√q ≪ √(kD) log(kD) log A ≤ D log A` when `D ≥ k log²(kAD)`. ∎
 
-**Proposition 3.4 (Type I; PROVED rel. Lemma 3.3, BT).** For `log m ≤ L/10` and `L ≤ m^{0.8}`:
-`#{p ∈ (N/2,N] : Type I solution} ≪ (N/L)·(L³ + L² log² m) log L/φ(m) + N m^{−0.8}`.
+**Proposition 3.4 (Type I; PROVED rel. Lemma 3.3, BT).** For `log m ≤ L/10` and `L ≤ m^{1/2}`:
+`#{p ∈ (N/2,N] : Type I solution} ≪ (N/L)·[(L³ + L² log² m) log L/φ(m) + m^{−0.35}]`.
 
 *Proof.* PW (3.2): `≪ Σ_{mad ≤ 3N} τ(ma²d+1) N/(φ(m)φ(ad) log(2+N/mad))`. ET (A.12)
-`1/φ(ad) ≪ (ad)^{−1}Σ_{s|a, t|d} 1/(st)`, `a = sa'`, `d = td'`, `k = ms²t`; dyadic boxes `a' ~ A'`,
-`d' ~ D'` within the block `ad ~ X`. Boxes with `A'D' ≥ k^{1/l}` (l = 10): Lemma 3.3. A block holds
-`≪ log X` boxes; the lossy ones have `D' < k log²(kN)`, at most `≪ log(ms²tL)` of them, each costing an
-extra `log(1+k)`. With the weights `(st)^{−2}` (summable against `log²(ms²t)`), the block sum
-`X^{−1}Σ_{ad~X} τ(ma²d+1) Π... ≪ log² X + log X · log² m` (using `log L ≪ log m` for `L ≤ m^{0.8}`).
-Boxes with `A'D' < k^{1/l}` use `τ(n) ≪ n^{1/(10l)}`, `n ≤ k^{1+3/l}`: total `≪ m^{0.2}` per block
-for the `≪ log m` blocks where they occur, contributing `≪ N m^{0.2} log m/φ(m) ≪ N m^{−0.8}·L^{-1}·L`… ≪ N m^{−0.75}.
-Summing blocks `X = 3N 2^{−j}/m` with BT weight `1/log(2 + 2^j) ≍ 1/j`: `Σ_j 1/j ≪ log L`. ∎
+`1/φ(ad) ≪ (ad)^{−1}Σ_{s|a, t|d} 1/(st)`; put `a = sa'`, `d = td'`, `k = ms²t`, and split the block
+`ad ~ X` into `≪ log X` dyadic boxes `a' ~ A'`, `d' ~ D'`, `A'D' ≍ X/(st)`.
+* Boxes with `A'D' ≥ k^{1/10}`: Lemma 3.3 (l = 10). Non-lossy boxes give `(X/st) log X` each; lossy
+  ones (`D' < k log²(kN)`, at most `≪ log m + log(st) + log L` of them) give `(X/st) L log(1+k)` each.
+  With the weight `(st)^{−1}` and `X^{−1}` this is `Σ_{s,t}(st)^{−2}[log² X + L log²(ms²t L)]
+  ≪ log² X + L log² m` per block (`log L ≪ log m` as `L ≤ m^{1/2}`).
+* Boxes with `A'D' < k^{1/10}`: `τ(n) ≪ n^{1/40}`, `n ≤ k·(A'D')² ≤ k^{1.2}`, so each gives
+  `≪ (X/st)·k^{0.03}`; they exist only in blocks with `X ≤ st·k^{0.1}`, and in total contribute
+  `≪ (N/φ(m)) m^{0.1} log² m ≪ N m^{−0.85}` to the count, i.e. `≪ (N/L) L m^{−0.85} ≤ (N/L) m^{−0.35}`.
+Summing blocks `X = 3N2^{−j}/m` with BT weight `1/log(2 + 2^j/3) ≪ 1/j`, `j ≤ 2L`:
+count `≪ (N/φ(m))(L² + L log² m) log L`, which is the claim. ∎
 
 **Lemma 3.5 (very large m; PROVED, trivial).** For `log m > L/10`: `ρ_rep ≤ e^{C L/log L}/m`.
 *Proof.* Count classes trivially: `#{n ≤ N : n ≡ r (q)} ≤ N/q + 1`, `τ(n) ≤ e^{CL/log L}` for
 `n ≤ 9N²`; Type I: `Σ_{mad≤3N} τ(ma²d+1)(N/(mad)+1) ≪ e^{CL/log L}(N/m)L²`, Type II likewise. ∎
 
-**Theorem L (lower side; PROVED rel. ET Thm 7.1 + proof of Prop 1.4, BT, Shiu).** For all m ≥ 4,
-N ≥ 16: `ρ_rep ≪ L³ log L/φ(m) + L² log² m log L/φ(m) + L^{−1}… + m^{−1/2}`; more precisely
-`ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−3/4}` if `log m ≤ L/10`, `L ≤ m^{0.8}`; `≤ e^{CL/log L}/m`
-if `log m > L/10`. Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, in particular when
-`L ≤ ε(φ(m)/log m)^{1/3}`, ε → 0. (`m → ∞` is forced since `L ≥ log(m/3)` unless ρ_rep = 0; then
-`L² log² m log L/φ(m) → 0` as well, `log² m ≤ max(L, log² m)`.)
+**Theorem L (lower side; PROVED rel. ET Thm 7.1 + ET's proof of Prop 1.4, BT, Shiu).** Let
+`ρ_rep(m, N)` be the proportion of m-representable primes in (N/2, N]. For all `m ≥ 4`, `N ≥ 16`:
+* if `log m ≤ L/10` and `L ≤ m^{1/2}`: `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`
+  (Props 3.2, 3.4; `π*(N) ≫ N/L`);
+* if `log m > L/10`: `ρ_rep ≤ e^{CL/log L}/m` (Lemma 3.5).
+Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, e.g. when `L ≤ ε (φ(m)/log m)^{1/3}` with
+ε → 0. (If `ρ_rep > 0` then `L ≥ log(m/3)`, so `A → 0` forces `m → ∞`; and
+`L² log² m log L/φ(m) ≤ (L³ + log⁶ m) log L/φ(m) → 0`.)
