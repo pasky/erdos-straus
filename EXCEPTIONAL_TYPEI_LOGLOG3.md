@@ -189,3 +189,43 @@ In both sub-cases `Sχ ≤ (H/2 + 90cK₁ + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. ∎
 **Theorem 8.2 (effective Dr Lemma 4.10).** For `Q ≥ 1/16`, `Y, N ≥ 1`:
 `Sχ*(Q,Y,N) ≤ K₇χ(δ)(QN+1)^{5δ}(Q + N + √(NY))N`, `K₇χ := max(H, 10K₁)`, uniformly in r, χ.
 *Proof.* `Q ≥ 1`: as Thm 2.2. `Q < 1`: (M) with `Y₁ = 1 + N` and (P1χ): `≤ (1+√(Y/N))K₁(2N²)^δ·4N·N ≤ 5K₁N^{2δ}(N+√(NY))N` (`Q + N + Y₁ ≤ 4N`). ∎
+
+## 9. Main results
+
+**Black boxes (B1)–(B5)** (exact identities or published theorems with absolute constants; no ε):
+(B1) the Petersson and Kuznetsov trace formulae for Γ₀(q) at the cusp ∞ (DI §4, (1.19)) and for (Γ₀(L), χ) at ∞
+(Dr Lemma 4.5, (4.13)–(4.17), from Blomer–Harcos–Michel 2007 §2.1.4), and for SL₂(ℤ);
+(B2) Weil's bound `|S(m,n;c)| ≤ τ(c)(m,n,c)^{1/2}c^{1/2}`;
+(B3) a twisted Weil bound `|Sχ(m,n;c)| ≤ C_W τ(c)^{B_W}(m,n,c)^{1/2}(cr)^{1/2}` (χ mod r, r | c) with absolute
+`C_W, B_W` (Dr Lemma 4.2; numerical values not certified here — any absolute values suffice);
+(B4) Selberg's `λ₁ ≥ 3/16` for congruence subgroups (applied to Γ₀(q) and Γ₁(L));
+(B5) `λ₁(SL₂(ℤ)) > 1/4` (DI Thm 3).
+
+**Theorem 9.1 ((EFF) holds; PROVED rel. (B1)–(B5) and the derivations in `scripts/ttl3_*.md`).** (DI7_ε) of TTL2 §1
+— DI Thm 7 and Dr Lemma 4.10 for interval/prefix coefficients, all levels `M ≤ M₀` divisible by the modulus r of an
+even character χ (r = 1: trivial character), uniformly in r and χ — holds for `0 < ε ≤ 1/4` with
+`C_ε ≤ 100ε^{−1}K₇χ(ε/6) ≤ exp(exp(A₀/ε))`, `A₀ := 24B_χ + 30`, `B_χ := 400 + 64b + 16 log(2 + C_W)`,
+`b := max(4, ⌈B_W + 1⌉)`. (E.g. `A₀ < 2·10⁴` if `B_W ≤ 3`, `C_W ≤ 10`.)
+*Proof.* Thm 8.2 (r = 1 is Thm 7.1 up to the level renaming). Constants: `K_{LSχ}(δ) ≤ exp(exp(B_χ/δ))`
+(`ttl3_thm2_twisted.md`; for r = 1 one may use `K_{T2}`), hence (`ttl3_lemma81_twisted.md`, with `K₁₄(δ/4) ≤
+exp(exp(404/δ))`) `K₁χ, cχ ≤ exp(exp((4B_χ+1)/δ))`, `K₂χ = 17K_{LSχ}(δ)`; as in Cor 2.3 (with the extra `200cK₁`),
+`K₇χ(δ) ≤ exp(exp((4B_χ+4)/δ))`. Conversion to TTL2's form: levels `L = rq ≤ M₀` are covered by
+`≤ 2 + log M₀` blocks `(Q_i, 16Q_i]`, `Q_i ≥ 1/16`; the prefix `[1,t]` by the closed intervals `[2^k, min(2^{k+1}−1, t)]`,
+`k ≤ log₂ t` (Cauchy–Schwarz over `≤ 1.5 log(2t)` blocks; `Σ 2^k ≤ 2t`). With `δ = ε/6`:
+`(2M₀t)^{5δ}(2 + log M₀) ≤ (12/ε)(M₀t)^ε` (Lemma 1.2), so `C_ε ≤ 2·1.5·2·(12/ε)K₇χ(ε/6) ≤ 100ε^{−1}K₇χ(ε/6)`. ∎
+
+**Theorem 9.2 (Elsholtz–Tao Type I sum).** `Σ_{p≤N} f_I(p) ≪ N log²N`.
+Status: **PROVED relative to** TTL's cited inputs (as in TTL2 Thm 4.1(i): the ET/MN3 reduction `f_I ≤ 2Σ_c w_c`,
+MN3 Thm 3.8(1), DI Thm 2/Drappeau Prop 4.7 at a fixed tolerance, Brun–Titchmarsh, …), (B1)–(B5), and the
+explicit-constant derivations of §§2–8 and `scripts/ttl3_*.md`. *Proof.* TTL2 Thm 4.1(ii) with Theorem 9.1:
+`w_N = 256A₀/log L`. ∎ (Equivalently TTL2 Thm 4.1(iii) with `G(1/ε) = exp(exp(A₀/ε))`.)
+
+**Honest status of the derivations.** §§1–3, 7, 8 and the reductions are written and checked here line by line. The
+analytic estimates of §§4–6 (and their twisted versions) were derived by deep-mode subagents directly from the DI
+scan and Drappeau's text, then checked by me structurally (statements, the ε-bookkeeping, the claimed repairs on
+DI pp. 256–257, 270–278 against the scan); individual numerical majorants like `2^{1000}` were not re-derived.
+They need the parent's independent hostile review before the label PROVED is final. Points most worth attacking:
+(a) `ttl3_thm2_effective.md` Steps 4, 7–9 (growing-order integration by parts; Gaussian lower bound; exceptional
+atoms), (b) `ttl3_thm14_effective.md` §2 (the numerical replacement of DI Lemma 7.1), (c) the uniform-in-σ
+transform bounds in `ttl3_lemma81_effective.md` §2.2, (d) the twisted transfers (`ttl3_thm2_twisted.md`
+resonance step; `ttl3_lemma81_twisted.md` small-C branch).
