@@ -105,3 +105,44 @@ If `Γ₀(d)` (or the sieve group `Γ₀(d) ∩ Γ(q)`) has an exceptional eigen
 conditionally on Selberg's eigenvalue conjecture for congruence subgroups.** Unconditionally it would
 need either a density estimate for exceptional eigenvalues with these weights, or a beyond-Weil bound for
 `Σ_a S(h,k;4a²)` on the (K_a) side.
+
+## 4. Sobolev duality with separated points (PROVED)
+
+Notation: `Δ = y²(∂_x² + ∂_y²)` (so `−Δ ≥ 0`), `dμ = dx dy/y²`, `Γ' ⊂ SL₂(ℤ)` of finite index,
+`⟨F,G⟩ = ∫_{Γ'\ℍ} F Ḡ dμ`, `V = vol(Γ'\ℍ)`. For a finite Γ'-invariant set `Λ̃ ⊂ ℍ` let
+`ν_Λ = Σ_{z ∈ Γ'\Λ̃} δ_z / e_z` with `e_z = |Γ'_z/(Γ'∩{±1})|` (the orbifold weight), and
+`#Λ := Σ_{z∈Γ'\Λ̃} 1/e_z`.
+
+**Lemma 4.1 (the kernel of (1−Δ)^{−2}; standard).** There is a radial `g = g(r) ≥ 0` on ℍ,
+continuous, with `g(r) ≪ (1+r) e^{−φ r}`, `φ = (1+√5)/2`, such that for every `Γ'` the operator
+`(1−Δ)^{−2}` on `L²(Γ'\ℍ)` has kernel `K(z,w) = Σ_{γ∈Γ'} g(dist(z, γw))` (absolutely convergent).
+*Proof.* The Selberg/Harish-Chandra transform pair: `h(t) = (5/4 + t²)^{−2}` (since `−Δ` has eigenvalue
+`1/4 + t²` on `y^{1/2+it}`) is even, holomorphic in `|Im t| < √5/2`, and `∫|h(t)| t dt < ∞`, so its
+point-pair invariant `k = g` is continuous and bounded, `g(0) = (4π)^{−1}∫ h(t) t tanh(πt) dt`
+(Iwaniec, *Spectral methods*, §1.8, (1.62)–(1.64)). Since `h` has its first poles at
+`t = ±i√5/2` (of order 2), contour shift in the inversion formula gives
+`g(r) ≪ (1+r)e^{−(1/2 + √5/2) r}`. As `#{γ ∈ Γ' : dist(z,γw) ≤ R} ≪_{z,w} e^R` and `φ > 1`, the
+automorphic kernel converges absolutely and is the kernel of `h(√(−Δ−1/4)) = (1−Δ)^{−2}`
+(Iwaniec, Thm 1.14 / pre-trace formula). ∎
+
+**Lemma 4.2 (H^{−2} norm of a separated set; PROVED).** If any two distinct points of `Λ̃` are at
+hyperbolic distance `≥ r₀ > 0`, then `⟨ν_Λ, (1−Δ)^{−2} ν_Λ⟩ ≤ C(r₀) · #Λ`, with `C(r₀)` independent
+of `Γ'` and of `Λ̃`.
+*Proof.* Unfolding one variable, `⟨ν,(1−Δ)^{−2}ν⟩ = Σ_{z∈Γ'\Λ̃} e_z^{−1} Σ_{w ∈ Λ̃} g(dist(z,w))`
+(each `w ∈ Λ̃` is hit by `|Γ'_w ∩ …|` group elements, which cancels the weight `e_w^{-1}`; the
+`±1` ambiguity is the same on both sides). The balls `B(w, r₀/2)`, `w ∈ Λ̃`, are disjoint, and those with
+`dist(z,w) ≤ R` lie in `B(z, R + r₀/2)`, so their number is `≤ area B(z,R+r₀/2)/area B(·,r₀/2)
+≪_{r₀} e^{R}`. Hence `Σ_w g(dist(z,w)) ≪_{r₀} Σ_{R≥0} (1+R) e^{(1−φ)R} ≪ 1`. ∎
+
+**Proposition 4.3 (duality; PROVED).** Let `P ∈ C^∞(Γ'\ℍ)` with `P, ΔP, Δ²P ∈ L²`, put
+`⟨P⟩ = V^{−1}∫P dμ`, `P₀ = P − ⟨P⟩`. Under the hypothesis of Lemma 4.2,
+`|Σ_{z∈Γ'\Λ̃} P(z)/e_z − #Λ·⟨P⟩| ≤ C(r₀)^{1/2} (#Λ)^{1/2} ‖(1−Δ)P₀‖₂`.
+*Proof.* `ν(P₀) = ⟨(1−Δ)P₀, (1−Δ)^{−1}ν⟩` (self-adjointness; `(1−Δ)^{−1}ν ∈ L²` because its norm
+squared is `⟨ν,(1−Δ)^{−2}ν⟩ < ∞`), then Cauchy–Schwarz and Lemma 4.2. ∎
+
+**Corollary 4.4 (application to 𝓕_d).** Let `Γ' ⊂ Γ₀(d)` (acting on `w = z/d`) and `𝓕 ⊂ 𝓕_d`
+`Γ'`-invariant, `Λ̃ = {w_Q : Q ∈ 𝓕}`. Lemma 2.2 gives `r₀ = arccosh(3/2)` (the map `z ↦ z/d` is an
+isometry), so Prop 4.3 holds with an absolute constant. If `Γ'_∞ = ⟨±[[1,h],[0,1]]⟩` and
+`P = P_ψ = Σ_{γ∈Γ'_∞\Γ'} ψ∘γ` with `ψ` supported in a strip of x-length `< h`, then
+`Σ_{z∈Γ'\Λ̃} P_ψ(z)/e_z = Σ_{Q ∈ 𝓕/Γ'_∞} ψ(w_Q)` (unfolding; `Q ↦ w_Q` is injective because a positive
+definite form of given discriminant is determined by its root), and `⟨P_ψ⟩ = V^{−1}∫_{Γ'_∞\ℍ} ψ dμ`.
