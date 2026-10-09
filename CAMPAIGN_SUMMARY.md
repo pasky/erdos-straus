@@ -1569,7 +1569,7 @@ ratings are this summary's judgement, not ledger labels.
 | non-CRT inputs, rounding, prime-only majorants | `EXCEPTIONAL_NONCRT.md` |
 | per-frequency weights below 1, reduced to the avoider count (W_𝔊) | `EXCEPTIONAL_WEIGHTS.md`, then `EXCEPTIONAL_WEIGHTS2.md` (why CRT alignment fails) |
 | the 3/4 bound in short intervals and progressions | `EXCEPTIONAL_SHORT.md` |
-| the 3/4 bound for m/n, uniformly in m | `EXCEPTIONAL_MN.md` |
+| the 3/4 bound for m/n, uniformly in m; the m/p density transition | `EXCEPTIONAL_MN.md`, `EXCEPTIONAL_MN2.md`; `paper/es-mn-short-note` (R97, R104) |
 | the large sieve over forced-class mixtures | `EXCEPTIONAL_LARGESIEVE.md`, then `EXCEPTIONAL_LARGESIEVE2.md` (twisted/hybrid forms, larger sieve, band-family escape) |
 | large sieves at every frequency level; what is left ((A*), (DCC), (RD′)) | `EXCEPTIONAL_LARGESIEVE3.md` (smooth–rough splitting), `EXCEPTIONAL_LARGESIEVE4.md` (residue-sparse cap), then `LARGESIEVE5` → `LARGESIEVE6` → `LARGESIEVE7` |
 | prime-only majorants for all mixtures | `EXCEPTIONAL_PRIMELAW.md` |
@@ -1590,8 +1590,8 @@ ratings are this summary's judgement, not ledger labels.
 | an abstract avoidance transfer; m/n analogues | `POINTWISE_TRANSFER.md`, then `POINTWISE_MN.md`, `POINTWISE_MN2.md`, `POINTWISE_MN3.md` (where SI fails) |
 | `W(p)` Ω-results, polylogarithmic (every fixed exponent) | `paper/es-omega-note.tex`; then `POINTWISE_OMEGA.md` → `OMEGA2` → `OMEGA3` |
 | the explicit polylog rate and the (superseded) hub route | `POINTWISE_OMEGA4.md`, `POINTWISE_OMEGA5.md`, `POINTWISE_OMEGA6.md` (`POINTWISE_OMEGA7.md` archived, unreviewed) |
-| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent), `POINTWISE_TYPEI4.md` (Pell form, any-height bound), `POINTWISE_TYPEI5.md` (7-power tower) |
-| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md`, `POINTWISE_MORDELL13B.md` (r = 13; x* refuted, candidate x**), `POINTWISE_MORDELL17.md`, `POINTWISE_MORDELL17B.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86) |
+| the Type-I slice parameter `ck_min` | `POINTWISE_TYPEI.md`, `POINTWISE_TYPEI2.md`, `POINTWISE_TYPEI3.md` (search to f < 10¹², descent), `POINTWISE_TYPEI4.md` (Pell form, any-height bound), `POINTWISE_TYPEI5.md` (7-power tower), `POINTWISE_TYPEI6.md` (regime (v)) |
+| finite coverings mod a further prime r; candidate sterile points | `POINTWISE_MORDELL.md`, `POINTWISE_MORDELL13B.md` (r = 13; x* refuted, candidate x**), `POINTWISE_MORDELL13C.md` (tree certificate), `POINTWISE_MORDELL17.md`, `POINTWISE_MORDELL17B.md`, `POINTWISE_MORDELL17C.md` (r = 17); `paper/es-coverings-note` (refereed internally, R86, R98) |
 | the window statistic `a_min` | `paper/es-window-note.tex`; then `POINTWISE_WINDOW.md`, `POINTWISE_XWIN.md` (stacking orders), `POINTWISE_WINDOW2.md` (parity), `POINTWISE_WINDOW3.md` (faithful model) |
 | what is known in the literature, and claimed proofs | `LITERATURE_2026.md` |
 | priority and attribution | `reviews/novelty-audit-2026-10.md`, `reviews/novelty-audit-2026-10b.md`, `reviews/novelty-audit-omega8.md`, `reviews/lit-audit-*.md` |
