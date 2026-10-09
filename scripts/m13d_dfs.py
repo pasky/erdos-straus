@@ -30,6 +30,9 @@ def modres(fam, P, x):
 
 
 CK = 0
+# per-prime exponent caps (env M13D_CAPS='2:12,3:8') and primes always C-scored (env M13D_PRIO='2,3')
+CAPS = {int(a): int(b) for a, b in (t.split(':') for t in os.environ.get('M13D_CAPS', '').split(',') if t)}
+PRIO = {int(t) for t in os.environ.get('M13D_PRIO', '').split(',') if t}
 STATS = open(os.environ['M13D_STATS'], 'w') if os.environ.get('M13D_STATS') else None
 
 
@@ -72,7 +75,7 @@ def main():
                 e = 0
                 while L % p ** (e + 1) == 0:
                     e += 1
-                if e >= (emax + 3 if p == 2 else emax + 1 if p == 3 else emax):
+                if e >= CAPS.get(p, emax + 3 if p == 2 else emax + 1 if p == 3 else emax):
                     continue
                 q = p ** (e + 1)
             else:
@@ -94,9 +97,10 @@ def main():
         else:
             # C-scored: evaluate the CK candidates with fewest table survivors; children found open by
             # the complete engine are counted; choose min (#open children, p).
-            cands.sort(key=lambda c: (c[1], c[2]))
+            cands.sort(key=lambda c: (c[2] not in PRIO, c[1], c[2]))
+            npr = sum(1 for c in cands if c[2] in PRIO)
             best = None
-            for score, ns, p, L2, Y, cov in cands[:CK]:
+            for score, ns, p, L2, Y, cov in cands[:CK + npr]:
                 rq = p
                 while L2 % (rq * p) == 0:
                     rq *= p
@@ -109,8 +113,8 @@ def main():
                     if best is not None and nop >= best[0][0]:
                         break
                 else:
-                    if best is None or (nop, p) < best[0]:
-                        best = ((nop, p), (score, ns, p, L2, Y, cov), wit)
+                    if best is None or (nop, nop / len(Y), p) < best[0]:
+                        best = ((nop, nop / len(Y), p), (score, ns, p, L2, Y, cov), wit)
                     if nop == 0:
                         break
             _, (score, ns, p, L2, Y, cov), wit = best
