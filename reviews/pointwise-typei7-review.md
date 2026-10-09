@@ -134,7 +134,7 @@ Compared with the author's table (all these cells empty except `(14,3)`):
 | `b=6`: `L=9,10`; `b=7`: `L=7,8,9,10` | 0 | 18 s – 6.6 min |
 | `b=8`: `L=7,8` | 0 | 5.2, 10.4 min |
 | `(22,3)` | aborted by me after ≈ 20 min (time budget) — no result | — |
-| `(9,8)` | see §6 | |
+| `(9,8)` | 0 | 26 min |
 
 All agree with Comp 3.1 / Cor 3.2.
 
@@ -164,7 +164,7 @@ No FATAL, no MAJOR.
 5. m5–m7 (MINOR, §5 wording/labels/notation). Repaired.
 
 Remaining single-engine cells of Cor 3.2 (only `typei4_lb`): `b=2: L=22,23`; `b=3: L=20–22`; `b=4: L=16–19`;
-`b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`; `(9,8)` unless §4a records it. Suggested follow-up: run
+`b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`. (`(9,8)` done, 0 hits.) Suggested follow-up: run
 `review_typei4_jsearch.c` on these (estimated 0.5–1 h per cell for the largest, `R = 2^{L−2}7^b ≈ 10^9`).
 
 ## Replay (R109)
