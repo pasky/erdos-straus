@@ -412,6 +412,15 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   `o112_checks.py` now takes optional CMAX AMAX DMAX) and e/f-cusp densities; R111 Lemma 6.1 transitivity, quadric
   size, g formulas (ℓ ≤ 23) and Lemma 6.3 r(d) bound, d ≤ 150) and POINTWISE_MORDELL13D (m13d_wit.c = m13c_witness on
   every unit mod 9240, 10920: 113942 / 132276 incidences, all/first/req = 13 modes; needs gcc).
+* `verify.py` blocks (eo)–(er) (O119, ~47 s; full run ≈ 8.7 min on the shared machine, 2 threads, scipy + mpmath; log
+  `logs/o119_verify.log`) add EXCEPTIONAL_MN4 (R117 from-scratch Lemma 1.1 / (1.1), §2 separation min cosh 3/2 exact, local
+  densities, content rule and coset count, ρ majorants, exponent algebra of §2.7/§3.5; author's emn4_checks incl. the §3.2(c)
+  EVIDENCE ratios in [1.05, 1.34]), EXCEPTIONAL_TYPEI_LOGLOG2 (R116 analytic steps; R116 Cor 3.2 raw-exponent check at
+  reduced sample 10⁵ — `review_ttl2_exponents.py` now takes an optional sample size; (b3), (b5) 0 violations, (b2) only the
+  deliberate O(1) cells, ≤ 3·10⁻⁴ in exponent; R116-B exponents, Thm 4.1 bookkeeping, Mellin/Abel), POINTWISE_MORDELL13E (R107
+  parity Lemma 2.1 at 400 data/family; m13e_es = m13b_es at N = 1859, 24167; chunked = unchunked; x** no box and x* positive
+  control = the two 13B data at N = 1859; needs gcc) and POINTWISE_TYPEI7 (R109: Thm 2.1/2.4 explicit families, (21,1,71) tower,
+  Comp 2.5 ν table; Lemma 1.1 / criterion / (1.2) / cofactor clause on all 64 fibre certificates with ck ≤ 4·10⁵).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
