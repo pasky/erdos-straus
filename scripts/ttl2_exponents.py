@@ -1,4 +1,5 @@
-"""O116 sanity check of the exponent bookkeeping in EXCEPTIONAL_TYPEI_LOGLOG2.md, Thm 3.1 / Cor 3.2.
+"""O116 sanity check (scope: q = 1, logs, ε- and sieve-losses ignored, δ ≤ 0.35 grid; it does NOT check §4)
+of of the exponent bookkeeping in EXCEPTIONAL_TYPEI_LOGLOG2.md, Thm 3.1 / Cor 3.2.
 
 Exponents of N (q = 1, logs ignored): a = N^alpha, c = N^gamma, d = N^{1-alpha-gamma}, e = N^{beta-gamma},
 f = N^{1+alpha-beta}; delta = 2 alpha - 1 + gamma > 0 (D < A).  For the cusp variable F' of TTL cases

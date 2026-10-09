@@ -39,3 +39,27 @@ over d (Remark D11). That is exactly the setting of **DI Thm 7**, the level-aver
 * Is (EFF) worth a dedicated follow-up? That would be a written effective-constant pass through DI §§5, 7.1, 8 and
   Drappeau §4.2.3, which would make 4.1(ii) PROVED.
 * Should we look for a published version of DI Thm 7 with an explicit loss?
+
+## Self-review round (review tool, deep; "R116")
+No FATAL. Three MAJOR bookkeeping errors in §3–§4, all repaired:
+1. **The sieve exponent.** `Q³` with `Q = N^{δ/16}` was miscounted. The sieve level is now `Q = N^{δ/64}` (`κ = 1/16`).
+2. **The false range `δ ≤ 0.35`.** It came from the D ≥ A side. The repair has two parts:
+   * Cor 3.2 now holds for every δ > 0. Since `F' ≤ 3A√D` in all three cases, the terms T2 and T3 are `≪ (D/A)^{1/4}`.
+   * Bad layers are now `δ < w ≤ 1/4`, where TTL (b4) is valid.
+3. **The ε of the regular-spectrum large sieve.** It is now a fixed `ε₁ = 1/100`, so its constant is absolute.
+
+Minor repairs:
+* Thm 3.1 cusp-term typo.
+* The condition `M₀/(λ₋Y₀) ≤ N³` is now stated explicitly.
+* `(q,2d) = 1` instead of the wrong coprimality condition.
+* Logarithms are integrated rather than absorbed pointwise, uniformly in ε.
+* The Mellin weight now has a common majorant.
+* Lemma 1.2 now assumes Schwartz decay.
+* The note on DI (1.41) is corrected; the misprint claim there was a misreading of mine.
+* The nebentypus part of (EFF) is toned down to "very plausible".
+
+The reviewer confirmed:
+* the corrected normalisation, interval coefficients and positivity restriction to levels `4dq²` (checked against DI pp. 233, 276–278 and Drappeau p. 16);
+* the core of Prop 2.2 (weight `w(t)^{2σ}`, Cauchy–Schwarz with `Φdt`, the moments);
+* that SEL is not needed for the regular spectrum;
+* the case exponents of Cor 3.2, including `δ ≥ 2γ` in (b2).

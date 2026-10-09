@@ -1,3 +1,7 @@
+> **O116 correction (after review R116):** DI (1.41) reads `(QN)^ε(Q + N + X√N)N` with weight `X^{4iκ_j}` (equivalently
+> `√(NY)` with weight `Y^{2iκ_j}`, DI (8.17)); any `√(NX)` below is a misreading. The proof of Thm 7 is in DI §8.3
+> (pp. 276–278), with the recurrence in §8.2.
+
 Deshouillers–Iwaniec, “Kloosterman sums and Fourier coefficients of cusp forms” (Invent. Math. 70 (1982)); PDF p. k = journal p. 218+k.
 
 1. Theorem 7 and its proof

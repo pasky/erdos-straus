@@ -13,8 +13,9 @@ journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`. Wo
   `O(N log²N log log N)`. Like TTL, it inherits the ET/MN3 reduction `f_I ≤ 2Σ_c w_c` and MN3 Thm 3.8(1).
   (ii) **`Σ_{p≤N} f_I(p) ≪ N log²N`, CONDITIONAL on (EFF)** (§4). (EFF) says that the implied constant in DI Thm 7 and in
   Drappeau Lemma 4.10 grows at most like `exp(exp(A/ε))`. It is a statement about the *constants* in two published
-  proofs, not about automorphic forms. An audit (§5, Assessment) finds that the proofs give it once DI's unspecified
-  smooth cutoff is chosen explicitly. So (SEL) is replaced by a bookkeeping hypothesis.
+  proofs, not about automorphic forms. An audit (§5, Assessment) finds that DI's proof gives it once DI's unspecified
+  smooth cutoff is chosen explicitly. For Drappeau's nebentypus version the audit only finds it very plausible
+  (same two inductions; his twisted trace formulae were not audited). So (SEL) is replaced by a bookkeeping hypothesis.
   (iii) Any explicit `C_ε ≤ G(1/ε)` gives an explicit bound `N L²(1 + w_N log L)`.
 * **Why the strip closes.** TTL's exceptional-eigenvalue obstruction disappears once the d-average (which TTL's
   assembly already performs) is used as an average over the level `M = 4dq²`, together with the fact that the unfolded
@@ -41,7 +42,7 @@ exceptional means `λ_j < 1/4`, i.e. `iκ_j ∈ (0, 1/4]` real (DI Thm 4 gives `
 (With `Y := X²`: weight `Y^{2σ_j}`, bracket `Q + N + √(NY)`, as in the proof, DI (8.17)–(8.19), §8.3, pp. 276–278.)
 
 **Lemma 1.2 (partial summation; PROVED, elementary).** Let `c : [1,∞) → ℂ` be `C¹` with
-`c(t) → 0` and `∫_1^∞ |c'(t)| dt < ∞`, and `S_j(t) := Σ_{n≤t} ρ_{j∞}(n)`. Then
+`|c(t)| + |c'(t)| ≪_B t^{−B}` for every B (Schwartz decay, as in all applications below), and `S_j(t) := Σ_{n≤t} ρ_{j∞}(n)`. Then
 `|Σ_{n≥1} c(n) ρ_{j∞}(n)|² ≤ (∫_1^∞|c'|)·∫_1^∞ |c'(t)| |S_j(t)|² dt`.
 *Proof.* `Σ_{n≥1} c(n)ρ(n) = −∫_1^∞ S_j(t) c'(t) dt` (Abel summation; the boundary term vanishes as
 `S_j(t) ≪_j t^{3/2}` and `c(t)`decays as in the application — Schwartz decay), then Cauchy–Schwarz with
@@ -78,7 +79,7 @@ Setting of TTL §5–§6: q squarefree, `(q,2d) = 1`, `M = 4dq²`, χ even mod q
 (No contour shift is made, so the `1/σ_j` singularities of `Γ(±σ_j)` never appear.)
 
 **Proposition 2.2 (averaged exceptional variance; PROVED rel. (DI7_ε)).** Fix q, `λ > 0`, `D ≥ 1`, `F' ≥ 1`, and for
-each `d ≍ D`, `(d, 2q) = 1`, the TTL test function `ψ_d(u) = φ(x/λ)W(y/Y_d)` with `Y_d = 1/(2qF'√d)`. Put
+each `d ≍ D` with `(q, 2d) = 1` (TTL §5), the TTL test function `ψ_d(u) = φ(x/λ)W(y/Y_d)` with `Y_d = 1/(2qF'√d)`. Put
 `M₀ := 8Dq²`, `Y₀ := 1/(2qF'√D)` (so `Y_d ∈ [Y₀/√2, Y₀]`), `λ₋ := min(λ, 1)`, and let `𝓔_d` be the exceptional part
 of TTL Prop 5.1 Step 1 for `P = P_{ψ_d}` on `Γ_{M,q}`, `M = 4dq²`:
 `𝓔_d := (2/φ(q)) Σ_{χ even mod q} Σ_{u_j ∈ 𝓑(M,χ), t_j ∈ iℝ} |⟨P_χ, u_j⟩|²`. Then for every `ε ∈ (0, 1/4]`
@@ -95,10 +96,12 @@ Sum over d, χ, j and apply (DI7_ε) for each t with weight `Y = w(t) ≥ 1` and
 divisible by the conductor of χ; positivity); note `√(t·w(t)) ≤ √t + (πY₀)^{−1/2}`. With Lemma 2.1 and
 `Y_d^{−1} ≤ √2 Y₀^{−1}`:
 `Σ_d 𝓔_d ≪ 𝓛⁴Y₀^{−1}(∫|𝒲(s_v)|(2+|v|)²dv)(∫Φ)∫_1^∞Φ(t)C_ε(M₀t)^ε log²(2t)(M₀ + 2t + Y₀^{−1/2}) t dt`
-(the average `(2/φ(q))Σ_χ` of a maximum over χ is ≤ that maximum). Here `∫|𝒲(σ+iv)|(2+|v|)²dv ≪ 1` for
-`0 ≤ σ ≤ 1/2` (TTL Step 2); since φ̂ is Schwartz, `∫_1^∞Φ ≪ 𝓛λ₋` and `∫_1^∞Φ(t)t^{1+a}dt ≪ λ₋^{−a}` for `0 ≤ a ≤ 2`
+(the average `(2/φ(q))Σ_χ` of a maximum over χ is ≤ that maximum). Here the j-dependent factor `|𝒲(s_v)|` is replaced by the common majorant
+`𝒲*(v) := sup_{0≤σ≤1/2}|𝒲(σ+iv)| ≪_B (1+|v|)^{−B}` (TTL Step 2), so `∫𝒲*(v)(2+|v|)²dv ≪ 1`; since φ̂ is Schwartz, `∫_1^∞Φ ≪ 𝓛λ₋` and `∫_1^∞Φ(t)t^{1+a}dt ≪ λ₋^{−a}` for `0 ≤ a ≤ 2`
 (for `λ ≤ 1` the integrand is `≪ λt^a` on `t ≤ 1/λ` and Schwartz-small beyond; for `λ > 1` everything is `≪ λ^{−B}`).
-Bounding `(M₀t)^ε log²(2t) ≪ 𝓛²M₀^ε t^{2ε}` and using `a ∈ {2ε, 1+2ε}` gives the claim (`λ₋^{−2ε} ≤ (λ₋Y₀)^{−2ε}`). ∎
+The logarithms are integrated, not absorbed pointwise: uniformly in `ε ≤ 1/4` and `0 ≤ a ≤ 2`,
+`∫_1^∞Φ(t)t^{1+a+ε}log²(2t)dt ≪ 𝓛²λ₋^{−a−ε}` (Schwartz decay beyond `t = 1/λ₋`; `log(2/λ₋) ≤ 𝓛`). With `a ∈ {0, 1}` and
+`M₀^ελ₋^{−ε} ≤ (M₀/(λ₋Y₀))^{2ε}` this gives the claim. ∎
 *Remarks.* (1) The weight `w(t)^{2σ_j} ≈ (tY)^{−2σ_j}` must be kept t-dependent: with the crude weight
 `Y₀^{−2σ_j}` the third term would be `λ₋^{1/2}Y₀^{−1/2}·Y₀^{−1}`, larger by `λ^{−1/2}`, which fails in TTL case (b3).
 (2) This is where the `a_n = 1` structure is used: the whole n-range is absorbed at once by partial summation. TTL
@@ -108,28 +111,30 @@ Bounding `(M₀t)^ε log²(2t) ≪ 𝓛²M₀^ε t^{2ε}` and using `a ∈ {2ε,
 
 **Theorem 3.1 (TTL Thm 6.2 averaged over d, unconditional; PROVED rel. (DI7_ε) and the TTL inputs).** In the
 setting of TTL Thm 6.2 (`f' ≍ F'` the cusp variable, `a ≍ A`, `λ ≍ A/(qF')`, `Y_d = 1/(2qF'√d)`), with
-`E_d(q) := Σ_{Q∈𝓕_d^I, q|n(Q)} ψ_d(u_Q) − g_{c,d}(q)𝔐_d`, for every `ε ∈ (0,1/4]` and `A, D, F', q ≤ N`:
+`E_d(q) := Σ_{Q∈𝓕_d^I, q|n(Q)} ψ_d(u_Q) − g_{c,d}(q)𝔐_d`, for every `ε ∈ (0,1/4]`, provided `M₀/(λ₋Y₀) ≤ N³` (true in all
+applications: `M₀ ≤ N`, `1/λ₋ ≤ max(1, qF'/A)`, `1/Y₀ = 2qF'√D`, `F' ≤ 3A√D`, `q ≤ N^{1/100}`):
 `Σ_{d≍D} |E_d(q)| ≪ 𝓛^C C_ε^{1/2} N^{4ε} · AD · [q²(D/A)^{1/2}(1 + A/(qF'))^{1/2} + q^{3/2}F'^{1/2}/A + q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}]`.
 *Proof.* TTL Cor 4.4 and Lemma 6.1/Thm 6.2's last line give `|E_d(q)| ≪ q(#Λ_d(1))^{1/2}V_d^{1/2}`,
 `V_d := ‖(1−Δ)P₀^{(d)}‖²`; TTL Step 0 writes `(1−Δ)P₀` as `P_{ψ'} − ⟨P_{ψ'}⟩` with ψ' a sum of two functions of the
 same type, so it suffices to bound V_d for ψ. Parseval (TTL Step 1) splits `V_d = V_d^{gen} + 𝓔_d`; `V_d^{gen}` (cusp
 forms with `t_j ∈ ℝ`, Eisenstein part, constant terms) is bounded by TTL Steps 2–7 **without (SEL)** (SEL was used
 there only to assert `t_j ∈ ℝ`; the large sieve over the subset `t_j ∈ ℝ` is bounded by the full one, positivity):
-`V_d^{gen} ≪ 𝓛^C[(λ/Y_d)(1+λ) + q^{1/2}M^{−1}λ^{−1−ε}/Y_d]`. Cauchy–Schwarz over d and TTL Lemma 6.3
+`V_d^{gen} ≪ 𝓛^C[(λ/Y_d)(1+λ) + q^{1/2}M^{−1}λ^{−ε₁}/Y_d]` with the **fixed** `ε₁ := 1/100` in the DI Thm 2 /
+Drappeau Prop 4.7 cusp term (so its constant is absolute; the variable ε is reserved for DI7). Cauchy–Schwarz over d and TTL Lemma 6.3
 (`Σ_{d≍D}#Λ_d(1) ≪ D^{3/2}𝓛²`): `Σ_d|E_d(q)| ≪ 𝓛^C q D^{3/4}(Σ_d V_d^{gen} + Σ_d 𝓔_d)^{1/2}`, where
-`Σ_d V_d^{gen} ≪ 𝓛^C N^{ε}[D(λ/Y₀)(1+λ) + q^{−3/2}/Y₀]` and Prop 2.2 (`(M₀/(λ₋Y₀))^{2ε} ≤ N^{8ε}`, `λ₋M₀ ≤ 8q²Dλ`).
+`Σ_d V_d^{gen} ≪ 𝓛^C[D(λ/Y₀)(1+λ) + N^{ε₁}q^{−3/2}/Y₀]` and Prop 2.2 (`(M₀/(λ₋Y₀))^{2ε} ≤ N^{6ε}`, `λ₋M₀ ≤ 8q²Dλ`).
+(The second term then carries `N^{ε₁/2}`; it is absorbed by the margin `A^{−1/4}` in Cor 3.2.)
 With `λ/Y₀ ≍ A√D` and `1/Y₀ = 2qF'√D` the three terms `q²Dλ(1+λ)/Y₀`, `1/Y₀`, `λY₀^{−3/2}` give the relative errors
 `q²(D/A)^{1/2}(1+λ)^{1/2}`, `q^{3/2}F'^{1/2}/A`, `q A^{−1/2}Y₀^{−1/4} ≍ q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}`. ∎
 
 **Corollary 3.2 (the TTL cases (b2), (b3), (b5) unconditionally; PROVED rel. (DI7_ε)).** Let `δ = 2α−1+γ > 0`
 (so `A/D ≍ N^{δ}`) and use the cusp variable chosen in TTL §8: (b2) `F' = e ≤ 4A`, used by TTL only when `k ≥ 2j`, so `δ ≥ 2γ`; (b3) `F' = min(e,f) ∈ [8A, 3A√D]`;
 (b5) `F' = f ≤ A` with `A/f ≤ N^{δ/2}`. Then the relative remainder (Thm 3.1 divided by AD) is
-`≪ 𝓛^C C_ε^{1/2} N^{4ε} q² (N^{−δ/4} + N^{−1/20})`.
+`≪ 𝓛^C C_ε^{1/2} N^{4ε} q² N^{−δ/4}`, for every `δ > 0` (no upper bound on δ is needed).
 *Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}` as `δ ≥ 2γ`;
-b5: by hypothesis), and `λ ≤ 1/8` in (b3); so it is `≪ q²N^{−δ/4}`. Second term: `F'^{1/2}/A ≪ D^{1/4}A^{−1/2} ≤ A^{−1/4}`.
-Third term: in (b3) `F'^{1/4}D^{1/8}A^{−1/2} ≪ (A√D)^{1/4}D^{1/8}A^{−1/2} = (D/A)^{1/4} ≍ N^{−δ/4}`; in (b2), (b5)
-`≪ A^{1/4}D^{1/8}A^{−1/2} ≤ A^{−1/8}`. In all three cases `D < A`, so `A ≫ N^{(1−η)/2}` and `A^{−1/8} ≪ N^{−1/20}`
-for `η ≤ 1/10`. ∎
+b5: by hypothesis), and `λ ≤ 1/8` in (b3); so it is `≪ q²N^{−δ/4}`. In all three cases `F' ≤ 3A√D` (review R116 repair), so the second term (with its `N^{ε₁/2}`)
+is `≪ N^{ε₁/2}D^{1/4}A^{−1/2} = N^{ε₁/2}A^{−1/4}(D/A)^{1/4} ≤ (D/A)^{1/4}` (as `D < A` gives `A ≫ N^{(1−η)/2}`), and the
+third is `F'^{1/4}D^{1/8}A^{−1/2} ≪ (A√D)^{1/4}D^{1/8}A^{−1/2} = (D/A)^{1/4}`; both are `≍ N^{−δ/4}`. ∎
 
 ## 4. The Type I sum
 
@@ -147,13 +152,15 @@ such that for every `ε₀ ∈ (0,1)`: `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log 
 *Proof.* Dyadic in N, as in TTL §8. TTL uses Thm 6.2, and hence (SEL), only in the cases (b2), (b3) and (b5) of (2b).
 It uses them only through `Σ_{d≍D}|E_d(q)|` (TTL §6 Remark D11; Cauchy–Schwarz over d). Replace that use by Thm 3.1 and
 Cor 3.2. Their bound differs from TTL's (SEL) bound only by a factor `≪ 𝓛^C C_ε^{1/2}N^{4ε}q` and by the term `N^{−1/20}`.
-In TTL (3) take `κ = 1/4`, so `z = N^{δ/32}` and `Q = z² = N^{δ/16}`, and use `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³`. Fix a
-threshold `w ∈ (0,1]` and put `ε := w/128`. For `δ ≥ w` the sieve remainder, and the `|r_σ(1)|` part of the main
-term, are then `≪ 𝓛^C C_ε^{1/2}(N^{−δ/4+3δ/64+δ/32} + N^{3δ/64+δ/32−1/20}) ≤ 𝓛^C C_ε^{1/2} N^{−11δ/64}` times the mass.
-This uses `δ ≤ 1/3 + 4η₁ ≤ 0.35` on R_bad, so `N^{5δ/64−1/20} ≤ N^{−11δ/64}`.
+In TTL (3) take `κ = 1/16`, so `z = N^{δ/128}` and `Q = z² = N^{δ/64}` (main-term saving `1/G(z) ≪ 1/(δL)`), and use
+`Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³ = 𝓛^C N^{3δ/64}`. Fix a
+threshold `w ∈ (0,1/4]` and put `ε := w/128`. For `δ ≥ w` the sieve remainder, and the `|r_σ(1)|` part of the main
+term, are then `≪ 𝓛^C C_ε^{1/2}N^{4ε}N^{−δ/4+3δ/64} ≤ 𝓛^C C_ε^{1/2} N^{−11δ/64}` times the mass (`N^{4ε} = N^{w/32} ≤ N^{δ/32}`),
+for every `δ ≥ w` (Cor 3.2 has no upper restriction on δ).
 Call a layer `k = ⌊δL⌋` **good** if `δ ≥ w` and `𝓛^C C_ε^{1/2}N^{−11δ/64} ≤ 1/(δL)`. On good layers TTL's steps (3)
 and (5) apply unchanged (saving `C/k`, Lemma 1.1).
-On every other layer of the `D < A` side, use TTL (b4) (Brun–Titchmarsh on 4ad) for the whole layer, as in TTL (4).
+Every other layer has `δ < w ≤ 1/4` (shown in (i)–(iii) below), so
+`A, D ≥ N^{1/4}` and TTL (b4) is valid there. On these layers of the `D < A` side, use TTL (b4) (Brun–Titchmarsh on 4ad) for the whole layer, as in TTL (4).
 It costs `≪ NL/j` for each c-block `j ≥ 1`, plus `≪ NL` for the block `c ≍ 1` (Lemma 1.1's remark in TTL). That is
 `≪ NL log L` per layer. All other parts of TTL §8 ((1), (2a), bands, (b1), (b4)) are unconditional and unchanged.
 (i) Take `w = ε₀`. Then `C_ε = C_{ε₀/128}` is a constant, and `N^{−11δ/64} ≤ N^{−ε₀/6}`. So for `N ≥ N₀(ε₀)` every
@@ -187,9 +194,9 @@ A deep-mode subagent audited the scan, journal pp. 228–236, 242–245 and 253�
   Prop 4.7, and *untwisted* DI Thm 14. So the same envelope is very plausible. His cited twisted trace formulae were
   not re-audited.
 * **Status.** (EFF) is an **Assessment**: it says the proofs *can be made* effective with this growth by explicit
-  bookkeeping and an explicit cutoff. Neither paper states a quantitative `C_ε`. Two misprints were found in DI. In
-  (1.41) the radical covers only N, i.e. the bracket is `X√N`, consistent with (8.17). Below (8.18), `Y₁ = √(Q+N)`
-  should read `Y₁ = Q+N`. Neither affects the theorem.
+  bookkeeping and an explicit cutoff. Neither paper states a quantitative `C_ε`. One misprint was found in DI: below (8.18),
+  `Y₁ = √(Q+N)` should read `Y₁ = Q+N`. (DI (1.41) itself correctly prints `X√N`; the `√(NX)` was a misreading in
+  this file's first draft.) It does not affect the theorem.
 * **What would make Thm 4.1(ii) PROVED.** A written proof of (EFF). This is a careful but routine rewrite of DI
   §§5, 7.1, 8 and Drappeau §4.2 with explicit constants. An alternative is any published version of DI Thm 7 and
   Drappeau Lemma 4.10 with `(QN)^ε` replaced by an explicit loss of size `exp(o(log(QN)/log log(QN)))`. That suffices
