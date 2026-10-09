@@ -154,3 +154,21 @@ structured family whose `F mod 2^{t}` drifts towards `−9` with the level. What
 family would need `nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`, a condition on which the Pell structure (TYPEI4 Cor 1.4) imposes no
 local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 − c'D² ≡ 0 (mod 2^{L−4})` has a unique
 2-adic root `P_1` (Hensel; the derivative `32c'X²P_1 − 1` is odd), so every class of `nδ = c'XD` is locally realised.
+
+**Theorem 2.4 (density with `7 ∤ k` and `k` a power of 2; PROVED).** For every `w_0 ≡ 9 (mod 16)` and `m ≥ 4` there is a
+certificate of the shape
+
+```
+F = 71^e (e odd),   c = 2^α·7·c',  c' = (71^e+1)/8,   k = 2^γ,   α+2γ = L,   7·2^{L−1} ≡ −1 (mod 71^e),
+```
+
+with `−F ≡ w_0 (mod 2^m)`. So Corollary 2.3 holds already for the sub-union of classes with `a=1, b=0, k'=1`: neither the
+7-adic tower nor odd parts of `k` are needed to approximate any fibre point, in particular `x̂_9`.
+*Proof.* (i) `71 ≡ 7 (16)` and `v_2(71²−1) = v_2(5040) = 4`, so `71²` topologically generates `1+16ℤ_2` and `{71^e : e odd}` is
+dense in `7+16ℤ_2`; pick `e` odd with `71^e ≡ −w_0 (mod 2^m)`. (ii) `ord_71(2) = 35 = (71−1)/2` and `2^{70} ≢ 1 (mod 71²)`
+(`2^{70} ≡ 143`), so `ord_{71^e}(2) = 35·71^{e−1}` and `⟨2⟩` is the subgroup of squares of `(ℤ/71^e)^×`. `−7^{−1}` is a square
+mod 71 (`2^{29} ≡ −7^{−1} (mod 71)`), hence mod `71^e` (Hensel). So an `L ≥ 7` with `2^{L−1} ≡ −7^{−1} (mod 71^e)` exists
+(namely `L ≡ 1 + log_2(−7^{−1}) (mod 35·71^{e−1})`). (iii) Certificate conditions: `F ≡ 7 (16)` so `c'` is odd;
+`F ≡ 1 (mod 7)` so `7 ∤ c'` and `F ≡ 1 (mod 7^{v_7(ck)} = 7)`; `c' | F+1`; `F` is prime to `4ck = 2^{L+2}·7c'`;
+`N = 1+2^{L+2}·7c' ≡ 1 + 7·2^{L−1} ≡ 0 (mod F)` since `8c' ≡ 1 (mod F)`; `v_7(c) = 1` is odd. ∎
+*Check.* `e = 1` gives `L ≡ 30 (mod 35)`; the `L = 30` certificate `(c',X) = (9,1)`, `F = 71` of Comp 3.1 is this one.
