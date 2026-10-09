@@ -126,3 +126,8 @@ i.e. `L ≤ ε(m/log m)^{1/3}`, ε → 0.
 
 So the gap between Thm U and the lower side is now `(log m)^{1/3}` in log N (from the BT log L alone),
 instead of `(m log m/φ(m))^{1/3}`. MN2 open point (ii) is closed.
+
+**2.6 Numerics (EVIDENCE; `scripts/emn3_coprime.py`, output `.out.txt`).** For `A = B = 120`,
+`S_k/(AB log(kAB²))` divided by `φ(k)/k` stays in `[0.81, 1.11]` while `φ(k)/k` ranges over
+`[0.19, 0.50]` (k = 4, 12, 60, 420, 4620, 60060, 4·1009, 4·1009·1013). Without the gain the ratio would
+grow like `k/φ(k)` (×2.6). (Normalising by `log(AB)` instead mixes in the `log k` from the size of n.)
