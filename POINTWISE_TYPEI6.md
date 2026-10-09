@@ -57,14 +57,13 @@ arithmetic progression `δ ≡ δ_0 (mod N)` (`δ_0` odd); for `L ≤ 6` it is b
 Hence for `L ≥ 7` the unit `ν_0` of a certificate is never given by a polynomial formula in `δ` on any
 arithmetic progression of `δ` (at fixed `c_o`), and the same holds with the roles of `c_o` and `δ` exchanged
 (at fixed `δ`, `d` is again quadratic in `c_o` and `η` is the same element). Idea (1) cannot work as stated.
-*Proof.* (a) Over `K = ℚ(δ)`, `d = c_o²δ² + c_oT` is not a square, `R = ℚ[δ][√d]` is the integral closure of `ℚ[δ]` in `K(√d)`
-(`d` is squarefree in `ℚ[δ]`: its discriminant `−4c_o³T ≠ 0`), and `R^×/ℚ^×` is infinite cyclic or trivial (one place at
-infinity splits, the other... standard: the unit rank of `R` over `ℚ[δ]` is 1 because `d` has even degree and a square leading
-coefficient). `η` is a unit of `R` (its norm is a nonzero constant), and it is not a constant times a proper power: a unit of
-`R` has `deg_δ` of `x` equal to `n·deg(η)`-style additivity under the degree valuation at the place where `|√d| ~ c_oδ`,
-and `deg x(η) = 1`, the least positive value (a unit with `deg x = 0` is constant). So `R^× = ℚ^×·η^ℤ`. An element `rη^k` has
-norm `r²(−c_oT)^k`; norm `1` forces `k = 2n` even (`c_oT` is not a square, as `T = 2^{L−4}` with … — if `c_oT` is a square
-then `k` odd is possible only if `−c_oT` is a square, impossible as `c_oT > 0`) and `r = ±(c_oT)^{−n}`.
+*Proof.* (a) In `ℚ((1/δ))`, `√d = c_oδ·(1 + T/(c_oδ²))^{1/2} = c_oδ + T/(2δ) + …`; the two embeddings `√d ↦ ±(this series)` of
+`R := ℚ[δ][√d]` give two degree maps `deg_±`, additive on products, with `deg_+(ξ) + deg_−(ξ) = deg N(ξ)`. On the unit group
+`R^×` (norms are nonzero constants) `deg_+` is a homomorphism to `ℤ`. Its kernel: if `deg_±(ξ) ≤ 0`, then
+`x = (ξ + ξ')/2` is a polynomial of degree `≤ 0` and `y√d = (ξ − ξ')/2` has degree `≤ 0`, but `deg(y√d) = deg y + 1 ≥ 1`
+unless `y = 0`; so the kernel is `ℚ^×`. `η` is a unit (`N(η) = −c_oT`) with `deg_+(η) = 1` (and `deg_−(η) = −1`), so the
+image is `ℤ` and `R^× = ℚ^×·η^ℤ`. Finally `N(rη^k) = r²(−c_oT)^k = 1` forces `k = 2n` even (for odd `k` the right side
+would be `r²·(negative)`), and `r = ±(c_oT)^{−n}`.
 (b) `d ≡ 1 (mod 8)` (`L ≥ 7`), so `√d ∈ ℤ_2`; fix an embedding `K(√d) → ℚ_2`. Then `x_± := c_oδ ± √d ∈ ℤ_2` satisfy
 `x_+ + x_− = 2c_oδ` (`v_2 = 1`) and `x_+x_− = −c_oT` (`v_2 = L − 4 ≥ 3`), so one of them has `v_2 = 1` and the other
 `v_2 = L − 5`. Under the embedding where `v_2(η) = 1`, `v_2(ε_*^n) = n(2 − (L − 4)) = n(6 − L) < 0` for `n > 0`; under the
