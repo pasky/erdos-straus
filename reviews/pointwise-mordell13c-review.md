@@ -178,3 +178,8 @@ the bounded search missed them. **Covered side: 128 subcells independently confi
   from Proposition 1.6", which itself is stated for Type I/II counts f_I, f_II, so the citation of the p. 8
   remark is the cleaner one) — with the computation as a check; "local square at every p | M" ⇔ "square mod M"
   for units (Hensel; 2-adic via mod 8/4).
+
+## Repairs applied (round 1)
+
+D1–D6 applied by the reviewer in POINTWISE_MORDELL13C.md (and the `m13c_witness.py` docstring for D3), each marked
+"(R100 repair, applied by reviewer)", after merging `side-agent/r13-cover-all` at 1ea51a9 (§8.1 S-generic, not yet reviewed).
