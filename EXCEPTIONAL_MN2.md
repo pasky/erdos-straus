@@ -6,12 +6,36 @@ Status labels as in DISCOVERIES.md. "MN" = `EXCEPTIONAL_MN.md` ((D)31; PROVED re
 `π*(N; q, a)` the same in the class `a (mod q)`. A prime p is *m-exceptional* if
 `m/p = 1/x+1/y+1/z` has no solution in positive integers. `A := L / m^{1/3}`.
 
-## 0. Summary (filled in as the work proceeds)
+## 0. Summary
 
-* **Theorem U (upper side; PROVED rel. MN Cor 3.2 + Bombieri–Vinogradov).** For every ε > 0
-  there is `A_ε` such that for all `m ≥ 4` and all N with `log N ≥ A_ε m^{1/3}`, at most
-  `ε π*(N)` primes in `(N/2, N]` are m-exceptional. I.e. the `(log m)^{4/3}` in MN Cor D is
-  removed: g ≡ 1 on the upper side (qualitatively; the dependence of `A_ε` on ε is ineffective).
+Let `ρ_exc(m,N)` / `ρ_rep(m,N)` be the proportions of m-exceptional / m-representable primes in
+(N/2, N], and `A = log N / m^{1/3}`.
+
+* **Theorem U (upper side; PROVED rel. MN Cor 3.2, Bombieri–Vinogradov, Shiu; §1).**
+  `ρ_exc → 0` as `A → ∞`, uniformly in m ≥ 4: for every ε > 0 there is `A_ε` (ineffective) with
+  `ρ_exc ≤ ε` whenever `log N ≥ A_ε m^{1/3}`. Quantitatively (Thm 1.3) `ρ_exc ≤ 3e^{−a s}` for
+  `log N ≥ C_1 s^{4/3} m^{1/3}`, `N ≥ N_0(s)`. This removes the `(log m)^{4/3}` of MN Cor D:
+  **g ≡ 1 on the upper side.** Mechanism: bounded-depth Bonferroni in the *reduced* CRT model
+  (every fibre is reduced for primes, so MN's void needs no selector) + BV at level `N^{0.45}`;
+  the term multiplicities are polylog on average (Shiu), which BV absorbs.
+* **Theorem L (lower side; PROVED rel. ET Thm 7.1/Prop 1.4 proof, BT, Shiu; §3).**
+  `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}` (for `log m ≤ L/10`, `L ≤ m^{1/2}`), so
+  `ρ_rep → 0` whenever `L³ log L/φ(m) → 0`, in particular when `A·(m log m/φ(m))^{1/3} → 0`.
+  Improves PW's `L³ log² m/φ(m)` by a factor log m: Type II is made sharp (`≪ L³/m`, ET's 3-way
+  flip + coprimality of e to m); in Type I, ET Prop 1.4's `log(1+k)` is confined to a lower-order
+  region by Pólya–Vinogradov. **What remains is exactly ET's Type I Brun–Titchmarsh `log log N`**
+  (ET Thm 1.7, open at m = 4) and `m/φ(m)` from Type I.
+* **Remaining gap** in `log N`: factor `(m log m/φ(m))^{1/3} ≪ (log m · log log m)^{1/3}`
+  (was `(log m)² (m/φ(m))^{1/3}`). Removing the Type I BT loss and tracking the coprimality gain in
+  ET Prop 1.4 would give the exact scale: `ρ_exc → 0` iff ... `A → ∞`, `ρ_rep → 0` iff `A → 0`.
+* **Numerics (EVIDENCE; §2).** m ≤ 300: for composite m ∈ [60, 300], `L_{1/2}/m^{1/3} = 1.95 ± 0.05`,
+  local exponent 0.333; profile in A collapses to `F(A) ≈ 1 − exp(−κA³)`, κ ≈ 0.094.
+* **Conjecture C2 (CONJECTURE; supported by §2).** `ρ_rep(m, N) = F(A) + o(1)` as `m → ∞`, for a
+  continuous increasing F with F(0+) = 0, F(∞) = 1 (possibly depending on m only through
+  bounded arithmetic data). In particular there is **no sharp threshold constant**: the
+  transition window is of the same order `m^{1/3}` as its location. (Even the Poisson model with
+  intensity `κ L³/m` predicts this; MN's fibre masses `μ_c ≍ t³/m` are two-sided only up to
+  constants, and the data show strong overdispersion, so F is not expected to be exactly Poisson.)
 
 ## 1. Upper side: prime-model Bonferroni of bounded depth
 
@@ -146,7 +170,7 @@ L_q = log N at which the representable proportion in (N/2, N] reaches q.
   tuples per prime is far above `−log(1−F)`: e.g. m = 200, N = 2^20: mean 4.85 tuples, yet only
   74% of primes are representable (Poisson would give 99.2%). Solutions cluster (fibre effect:
   `p mod m` and p modulo small primes fix most of the mass, cf. MN §4). Type I solutions dominate
-  (e.g. m = 200, N = 2^20: Type II-only 2.3%... Type I alone covers 71%, Type II alone 23%).
+  (m = 200, N = 2^20: 72% of primes have a Type I solution, 24% a Type II solution, 75% either).
 
 Assessment: the data support "transition at `log N ≍ m^{1/3}` exactly, with a non-degenerate
 profile F(A)", i.e. g ≡ 1 and **no sharp threshold constant** — the right theorem is two-sided
@@ -242,3 +266,31 @@ count `≪ (N/φ(m))(L² + L log² m) log L`, which is the claim. ∎
 Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, e.g. when `L ≤ ε (φ(m)/log m)^{1/3}` with
 ε → 0. (If `ρ_rep > 0` then `L ≥ log(m/3)`, so `A → 0` forces `m → ∞`; and
 `L² log² m log L/φ(m) ≤ (L³ + log⁶ m) log L/φ(m) → 0`.)
+
+## 4. Status and open points
+
+* Theorem U, Thm 1.3: PROVED relative to MN Cor 3.2 (itself PROVED rel. the note), BV, Shiu.
+  Ineffective (BV/Siegel at level `L^{−A'(r)}`, r ≍ s).
+* Theorem L: PROVED relative to ET Thm 7.1 and the structure of ET's proof of Prop 1.4 (Lemma 3.3
+  changes one range of q), BT, Shiu, Pólya–Vinogradov. Not machine-checked.
+* §2: EVIDENCE. Conjecture C2: CONJECTURE.
+* Open: (i) Type I prime count without the BT `log L` (= ET's open `log log N` for m = 4); a
+  two-variable (c, w) Selberg sieve handles most of the bad range `c < N^δ`, `d < gN^δ` but not
+  `c, w = O(1)` (scratch analysis, not written up); (ii) the `φ(m)/m` coprimality gain in ET
+  Prop 1.4 (main terms come from square q, which lose the Euler factors at p | m in ET's upper
+  bound `ρ ≤ 1 ∗ χ`); (iii) a quantitative, effective form of Theorem U for `1 ≪ A ≪ (log m)^{4/3}`.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/emn2_scan scripts/emn2_scan.c -lm
+uv run --with sympy python scripts/emn2_brute.py 40 1500                      # validation, ~1 min
+ulimit -v 8000000; timeout 3000 uv run python scripts/emn2_transition.py 600 8,16,32,64,128,200 6 22
+                                                     # -> scripts/emn2_transition.out.txt, ~20 min
+ulimit -v 8000000; timeout 3000 uv run python scripts/emn2_transition.py 300 16,64,128,200 8 20 1
+                                                     # -> scripts/emn2_lambda.out.txt (tuple means)
+ulimit -v 8000000; timeout 3500 uv run --with sympy python scripts/emn2_half.py 800 \
+  6,8,10,12,16,20,24,30,36,48,60,64,72,90,100,101,120,127,128,150,180,199,200,210,240,256,300
+                                                     # -> scripts/emn2_half.out.txt, ~40 min
+```
+(Sampling is deterministic: every k-th prime; 2 worker processes.)
