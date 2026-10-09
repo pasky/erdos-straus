@@ -1,6 +1,6 @@
 # Regime (v) at the sign point `x̂_9` (task O99)
 
-Status: side agent O99 (branch `side-agent/regime-v-units`), checkpoint report `reviews/agent-reports/AGENT_REPORT_O99.md`. Not reviewed.
+Status: side agent O99 (branch `side-agent/regime-v-units`), checkpoint report `reviews/agent-reports/AGENT_REPORT_O99.md`. Hostile review R99 (`reviews/pointwise-typei6-review.md`): no FATAL/MAJOR; minors D1–D7 applied by the reviewer.
 Builds on POINTWISE_TYPEI4.md (Prop 1.2, Cor 1.4, Lemma 3.1) and POINTWISE_TYPEI5.md (Lemma 1.1, Cor 1.2,
 Lemmas 3.1–3.2, Prop 3.3, Thm 3.7). Notation as there: a fibre certificate of level `L` is
 
@@ -15,7 +15,7 @@ Regime (v) of TYPEI5 Prop 3.3 is `λ ≥ 1`, `σ ≥ 1`.
 
 ## 1. The gap parameters are norms (PROVED)
 
-**Lemma 1.1 (PROVED; exact identities, all `L ≥ 5`, case B, any odd `u` with `7 ∤ u`-free hypotheses as in (1.1)).**
+**Lemma 1.1 (PROVED; exact identities, all `L ≥ 5`, case B; valid for any positive integer `u` — not necessarily a power of 7 — and any solution of `16PX² − Qu² = 1` in the notation of (1.1); R99 repair D5, applied by reviewer).**
 (a) `8j − μu = −32·c'δP_1X`, where `μ := 8c_oδ² + 4T`.
 (b) `ω := 4j² − uσ = 4mP_1` (so `ω ≥ 4` always; this is the quadratic form `4j² − μju + T²u²` of discriminant `64δ²d`).
 (c) `σ = 4λP_1 − 2Tj`. Hence **regime (v) ⟺ `2λP_1 > Tj` ⟺ `j² > mP_1`**, regime (iii) ⟺ `0 < 2λP_1 < Tj`.
@@ -70,8 +70,8 @@ would be `r²·(negative)`), and `r = ±(c_oT)^{−n}`.
 `x_+ + x_− = 2c_oδ` (`v_2 = 1`) and `x_+x_− = −c_oT` (`v_2 = L − 4 ≥ 3`), so one of them has `v_2 = 1` and the other
 `v_2 = L − 5`. Under the embedding where `v_2(η) = 1`, `v_2(ε_*^n) = n(2 − (L − 4)) = n(6 − L) < 0` for `n > 0`; under the
 conjugate one it is `n(2(L−5) − (L−4)) = n(L − 6)`, `< 0` for `n < 0`. An algebraic integer has `v_2 ≥ 0` in every
-embedding. ∎ (For `L = 5, 6` the valuations are `n, 0` resp. `0, 0`: then `ε_*` is integral at 2, which is the
-Richaud–Degert case of TYPEI4 Remark 1.2(b).)
+embedding. ∎ (For `L = 5, 6`, `ε_*` is integral: `ε_* = c_oδ² + 1 + δ√d` resp. `(c_oδ² + 2 + δ√d)/2` with `d ≡ 5 (mod 8)`; this is the
+Richaud–Degert case of TYPEI4 Remark 1.2(b). R99 repair D6, applied by reviewer: the earlier valuation bookkeeping does not apply at `L = 5`, where 2 ramifies.)
 (c) Schinzel's criterion: for `f(t) = A²t² + Bt + C`, `Δ = B² − 4A²C ≠ 0`, the period of `√f(t)` is bounded iff
 `Δ | 4·gcd(2A², B)²`. With `δ = δ_0 + Nt`: `A = c_oN`, `B = 2c_o²δ_0N`, `Δ = −4c_o³TN²`, `gcd(2A², B) = 2c_o²N·gcd(N, δ_0)`, and
 the criterion reads `T | 4c_o·gcd(N,δ_0)²`, i.e. `T ≤ 4` (`c_o`, `δ_0` odd). ∎
@@ -88,7 +88,8 @@ would cover only thin subsets of the two-parameter family, so they could not clo
 **Lemma 3.1 (PROVED).** In case B, with `θ`, `ζ`, `μ` as in Lemma 1.1,
 `σ = 4uθ² − μδ√P/ζ` (exactly). Consequently in regime (v) (`σ ≥ 1`):
 (a) `uX > 16c_o³δ⁷/T⁴`; (b) `c := 16PX² = Qu² + 1 > 64c_o³δ⁷√d/T⁴ ≥ 64c_o⁴δ⁸/T⁴`;
-(c) asymptotically `u ≳ 8c_oδ³√P/T²` (`u` is at least of order `d^{1/2}·δ²√P/T²`).
+(c) asymptotically `u ≳ 8c_oδ³√P/T²` (`u` is at least of order `d^{1/2}·δ²√P/T²`); exactly, `u² > 64c_o³δ⁷P/(T⁴√d) − 1/Q`, i.e.
+`u ≳ 8c_oδ³√P/(T²τ^{1/4})` with `τ := 1 + T/(c_oδ²)` (R99 repair D3, applied by reviewer).
 *Proof.* `σ = μj − T²u` (as `8·7^am = μ − 4T`); insert `j = uθ − δ√P/ζ` (Lemma 1.1(d)) and use
 `μθ − T² = T²ψ² = 4θ²`, `ψ := (√d − c_oδ)/(√d + c_oδ)`, `θ = Tψ/2`. Indeed `θ = T²c_o/(2(√d + c_oδ)²)` and
 `c_oμ − 2(√d + c_oδ)² = 2(√d − c_oδ)²` (both sides expand with `(√d ± c_oδ)² = 2c_o²δ² + c_oT ± 2c_oδ√d`), so
@@ -98,7 +99,7 @@ would cover only thin subsets of the two-parameter family, so they could not clo
 (c) from (b) with `c ≈ 4Qu²`. ∎
 (Checked numerically: the identity to 40 digits and (a), (b) on all relaxed regime-(v) rows, `scripts/typei6_identities.py`.)
 
-*Interpretation.* By (b) the certificate unit `ν_0 = 2c − 1` is `> 128 d^{2}δ⁶/T⁴`-ish; regimes (ii)/(iii) are the units
+*Interpretation.* By (b) the certificate unit `ν_0 = A + 8Xu√d` satisfies `ν_0 > A = 2c − 1 > 128c_o⁴δ⁸/T⁴ − 1 ≈ 128d²δ⁴/T⁴` (R99 repair D2, applied by reviewer); regimes (ii)/(iii) are the units
 below this size. Regime (v) is therefore **not a degenerate corner but the generic case** (a typical fundamental unit has
 size `exp(≍√d)`); closing it unconditionally means showing that `u_1(d)` (TYPEI5 Cor 1.2) is never a power of 7 for the
 large-unit fields of the family — a statement about the fundamental units of a two-parameter family of real quadratic
@@ -115,14 +116,17 @@ number and size are bounded in terms of `(K_ε, ε, L)`.
 Insert Lemma 3.1(b), `c > 64c_o⁴δ⁸/T⁴`, and `d = c_o²δ²τ`: `(8/T²)^{1−ε}c_o^{2−2ε}δ^{4−4ε} < K(3.5τ)^{1+ε}c_o^{2+2ε}δ^{2+2ε}·
 7^{−a(1+ε)}P^{−(1+ε)/2}`; finally `c_o^{4ε} = 7^{4aε}c'^{4ε} ≤ 7^{4aε}P^{4ε}`. The bound fixes `δ`, `a`, `P ≥ c'`,
 hence `c_o` and `d`, to a finite set; each `d` has finitely many splittings `PQ` and each carries at most one `b`
-(TYPEI5 Lemma 1.1). Case A and regimes (ii)–(iv) are finite at each `L` unconditionally (TYPEI5 Lemma 3.6, Prop 3.3). ∎
+(TYPEI5 Lemma 1.1). Regimes (i)–(iv) are finite at each `L` unconditionally (TYPEI5 Prop 3.3). Case A is finite at each `L` unconditionally
+(TYPEI5 Lemma 3.6 covers only `L ≤ 10`; general `L`, R99 repair D1, applied by reviewer): `P_1 = c'g² + 2·7^auJ ≤ ρP_1 = Tu/2 − J`
+gives `J < T/(4·7^a)`, `ρ < T/(4·7^aJ)`; with `G := c'g`, `G | Tu/2 + J` and `4G | 1 + 7^auρ` give `G | 7^aρJ − T/2 ≠ 0`, so `G < T`;
+then `c'g² = u(T/(2ρ) − 2·7^aJ) − J/ρ ≤ G²` with the bracket `≥ 1/(2ρ)`, so `u ≤ 2ρ(G² + J) < T³`. ∎
 
 *Remarks.* (i) The abc input is exactly the 7-power: for general `u` the radical is `≍ c` and nothing follows; abc turns
 "`u = 7^b`" into "`u ≪ d^{1/2+O(ε)}/7^a`" (small unit), contradicting Lemma 3.1(c).
-(ii) Effectivity: in the idealised limit `ε → 0`, `K = 1`, the bound reads `49^aδ⁴P < 49T⁴τ²/256`, which forces
+(ii) Effectivity: in the idealised limit `ε → 0`, `K = 1` (a heuristic idealisation, not a form of abc: `1 + 8 = 9` violates `c < rad`; R99 repair D4, applied by reviewer), the bound reads `49^aδ⁴P < 49T⁴τ²/256`, which forces
 `c_oδ ≤ 7^aPδ < 7T⁴τ²/256 ≤ 4.6·10⁵τ²` even at `L = 10` (`δ = 1`, `a = 1` is the worst case), and either `τ ≤ 1.2` or
 `c_oδ ≤ c_oδ² < 5T`; so `c_oδ < 6.7·10⁵` — inside Cor 2.3 of TYPEI5 (`c_oδ ≤ 10⁶`, all `b`),
-so levels 7–10 would be empty. With any *published* explicit form of abc (Baker 2004: `c < (6/5)N(log N)^ω/ω!`; or `c < N^{7/4}`)
+so levels 7–10 would be empty. With any *published* explicit abc conjecture (these are conjectures, not results; Baker 2004: `c < (6/5)N(log N)^ω/ω!`; or `c < N^{7/4}`)
 the constant is far too large (or the exponent `> 8/7`), so **emptiness of levels 7–10 is not obtained conditionally on
 any standard explicit abc** (Assessment). Theorem 3.2 is a finiteness statement only.
 (iii) Theorem 3.2 does not touch sterility of `x̂_9` (unbounded `L`).
