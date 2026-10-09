@@ -90,6 +90,11 @@ condition is `e≡−u_q`, `u_q e≡−1` or `f≡−u_q (mod q^{v_q(ab)})` with
 `q^{v_q(ab)} ≤ 15·2·10⁸+1 < 11¹⁰`, i.e. `v_q ≤ 9`; for `q | f` (I2) the T-exponents of `a, c` are 0 by coprimality.
 After dropping a common T-factor, `|i|,|j| ≤ 9`. So Computation 5.1 holds with no T-level restriction.
 
+**Computation 5.2.** `m13b_target 2 15 2000000000 20 1000000000` (logs/o100_xss_PQ_1e9_2e9.log, ≈4.3 h, one core):
+x** lies in **no II3, I3, I1, II2 class with `e` (resp. `f`) in `(10⁹, 2·10⁹]`**, 0 hits. The cap 20 is vacuous
+(13B §5 argument: `v_q(ad) ≤ log_11(2·10⁹+15) < 9`, so `v_q(λ) ≤ 16`). With 13B Comp. 5.3: no P/Q-type class with
+`e ≤ 2·10⁹`. Extending to `10¹⁰` would take ≈ 36 core-hours with this engine (and a segmented sieve); not done.
+
 ## 6. Theorem 3.1(b) sharpened (PROVED by finite computation; two independent checkers)
 
 **Theorem 6.1.** Let p be a prime with `(p/13) = −1`. Then `4/p = 1/x+1/y+1/z` has a solution in positive

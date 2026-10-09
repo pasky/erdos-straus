@@ -16,7 +16,7 @@ Deliverable: POINTWISE_MORDELL13C.md, data/mordell13c/tree6_6000.json.gz, script
    yet the DFS does not close (open mass decays like a power of the node count).
 4. x** = x(2,15): no I2/II1/I4 class with f,e ≤ 2e8 (was 2e7); T-exponent cap shown vacuous.
    II3 to 1e10 is NOT feasible in 6 h with the current engine (≈150 core-min per 1e9 of e, sieve 1 byte·e);
-   a run (1e9, 2e9] is in progress (logs/o100_xss_PQ_1e9_2e9.log).
+   Done instead: (1e9, 2e9], 0 hits (Comp 5.2) — x** is in no P/Q-type class with e ≤ 2e9.
 5. Computation 3.1 (CERTIFIED): with N = 11⁴13⁴ enumerated (72 min), 13B's k=2 row is now complete: the uncovered
    part of the (2,2) cell mod 11²13² is exactly {2,57,79} × {15,28,54,132,145} for all classes of T-level | 11²13².
 
