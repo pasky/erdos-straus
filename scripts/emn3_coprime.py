@@ -1,6 +1,6 @@
 """EVIDENCE for Prop 2.3 / Remark 2.4 (EXCEPTIONAL_MN3.md): the average of tau(k a b^2 + 1)
 over a<=A, b<=B scales like phi(k)/k (coprimality gain), not like 1.
-Prints S/(A B log(AB)) and its ratio to phi(k)/k for several k."""
+Prints S/(A B log(k A B^2)) and its ratio to phi(k)/k for several k."""
 import math, sys
 from sympy import factorint, totient
 

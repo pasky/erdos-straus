@@ -12,7 +12,7 @@ for a in range(1, N):
             for c in range(1, N // (a*d) + 1):
                 n = 4*a*c*d - f
                 if n <= 0 or n > N: continue
-                if (n*a + c) % f: continue  # automatic? check below
+                assert (n*a + c) % f == 0  # automatic from f | 4a^2d+1, n = 4acd - f
                 b = c*e - a
                 if b <= 0: continue
                 M = ((e, 2*a), (2*a*d, f))
