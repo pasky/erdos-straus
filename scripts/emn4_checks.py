@@ -60,6 +60,7 @@ def check1():
                 bad += 1
                 print("  FAIL", m, n, s, w)
     print(f"check1 (Lemma 1.1): {tested} (m,p) pairs ({solvable} Type I solvable), failures = {bad}")
+    return bad
 
 
 def forms(t, B):
@@ -86,6 +87,7 @@ def check2():
                 if worst is None or ch < worst:
                     worst = ch
     print(f"check2 (separation): {pairs} pairs, min cosh = {float(worst):.4f} (claim >= 1.5)")
+    return int(worst < Fraction(3, 2))
 
 
 def check3():
@@ -115,6 +117,7 @@ def check3():
                     if tot != l * l + chi * l or nf != pred or ne != pred:
                         bad += 1
     print(f"check3 (local densities): {cases} cases, failures = {bad}")
+    return bad
 
 
 def check4():
@@ -125,6 +128,7 @@ def check4():
                 found.append((t, (A, B, C)))
                 break
     print(f"check4 (content-2 forms, t = 3 mod 4): found for {len(found)} values of t, e.g. {found[:2]}")
+    return int(not found)
 
 
 def rho(k, f):
@@ -151,8 +155,8 @@ def check5():
 
 
 if __name__ == "__main__":
-    check1()
-    check2()
-    check3()
-    check4()
-    check5()
+    import sys
+    fails = check1() + check2() + check3() + check4()
+    check5()  # EVIDENCE only, no pass/fail
+    print("ALL EXACT CHECKS PASS" if fails == 0 else f"FAILED: {fails}")
+    sys.exit(1 if fails else 0)

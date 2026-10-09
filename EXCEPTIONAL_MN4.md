@@ -16,13 +16,16 @@ mod q; implied by Selberg's conjecture for all `Γ₁(M)`; TTL's hypothesis fami
 Unconditional status (§6): nothing changes for the lower side (MN3 Thm L' stays best; the Kim–Sarnak strip of
 TTL §9 transfers unchanged); new unconditional ingredients are the m-uniform gain lemmas of §3 and the
 parity-free level-md normalisation of §2. Self-review issues (from the drafts of §§2–3) are listed at the
-ends of §2 and §3; in particular §3.2(c) is false in all ranges and is used only for `D, F ≥ L^{100}`.
+ends of §2 and §3; in particular the all-ranges extension of §3.2(c) is false; §3.2(c) is stated and used only for
+`D, F ≥ L^{100}`. Review status: self-review `reviews/emn4-selfreview.md` (no FATAL/MAJOR; minors R1–R6
+repaired); no independent hostile review yet.
 
-**Why m ≤ L^5 suffices (Lemma 0.1, PROVED, elementary from MN3 Thm L').** If `m > L^5` then
-`(L³ + L² log² m) log L/m ≪ m^{−0.35}`, so MN3 Thm L' already reads `ρ_rep ≪ m^{−0.35}`.
+**Why m ≤ L^5 suffices (Lemma 0.1, PROVED, elementary from MN3 Thm L' and MN2 Lemma 3.5).** If `m > L^5` then
+`(L³ + L² log² m) log L/m ≪ m^{−0.35}`, so MN3 Thm L' (range `log m ≤ L/10`) already reads `ρ_rep ≪ m^{−0.35}`;
+for `log m > L/10` see §5.1(i).
 *Proof.* `L ≤ m^{1/5}`, so `L³ log L/m ≤ m^{3/5}·log m/m = m^{−2/5} log m ≪ m^{−0.35}` and
 `L² log² m log L/m ≤ m^{−3/5} log³ m ≪ m^{−0.35}`. (MN3 Thm L' needs `log m ≤ L/10`, `L ≤ m^{1/2}`; for
-`log m > L/10` MN2 Lemma 3.5 is used unchanged, see §9.) ∎
+`log m > L/10` MN2 Lemma 3.5 is used, see §5.1(i).) ∎
 
 Consequence: in the conditional argument every factor `m^{O(1)}` in a *remainder* term is `L^{O(1)}`, and
 TTL's proof already tolerates `L^C` losses in remainders (layers `k ≤ C₁ log L` go to Brun–Titchmarsh).
@@ -60,7 +63,7 @@ may divide md**, and the m-loss of the sieve product must be paid by the masses 
 (`e = (a+b)/c`, m-free), `f ≍ N^{1+α−β}` (`bf = na + c`, m-free), `d ≍ N^{1−α−γ}/m`. Since
 `m ≤ L^5` in the conditional part (Lemma 0.1), m shifts only the exponent of d, by `≤ 5 log L/L`.
 
-## 1A. Design of the transfer (working notes; superseded by §§2–4 once written)
+## 1A. Design of the transfer (overview; the proofs are in §§2–4)
 
 * **Normalisation (no parity).** For general m use `Q = [f, 2mad, mde]`, disc `4m²a²d² − 4fmde = −4md`,
   level `md`, root `z_Q = (−mad + i√(md))/f`, `w = z/(md) = (−a + i/√(md))/f`, sieve functional
@@ -497,7 +500,7 @@ This is the required aggregated repair of the bounded-D band and also removes th
 * Pairing e with `n/e` need not preserve coprimality to m. Nevertheless the required small-divisor inequality for `τ_m` is true: pair divisors of the largest m-coprime divisor of n instead, as proved in 3.2(b).
 * PV in the character variable introduces `√m`; the TTL bounded-D argument cannot be declared uniform. Removing `D≤L^{100}` repairs this without changing the target bound.
 * MN3 2.5's stated hypothesis `L≤√m` cannot simply be imported. Section 3.4 repairs its logarithmic comparison and obtains the tiny-box `1/L` from BT itself.
-* No mass/BT issue remains in this section after these changes. The m-dependent spectral/Weil remainder formulas and local densities are inputs to 3.5, not proved here; a proof of the complete conditional theorem must establish them separately. No existing repository file was changed.
+* The m-dependent spectral/Weil remainder formulas and local densities used in 3.5 are §2 (2.3, 2.4, 2.6, 2.7).
 
 ## 4. Assembly: Theorem I_m (CONDITIONAL on (SEL_m))
 
@@ -520,22 +523,30 @@ fix η, η₁ small as in TTL). By Lemma 1.1, bound `Σ_c Σ_{N/2<p≤N} w_{c,m}
   `≤ mad·2^{j+1}`, so BT gives `≪ 2^j g(m)g(a)g(d)/j`, and §3.3(a2) (`A, D ≥ N^{1/4}` for `δ ≤ 1/3`,
   since `AD ≥ N^{1−η}L^{−5}`) gives a layer cost `≪ 2^j g(m)·hADL/j ≍ (N/m)L/j` (`h g(m) = 1`, `m2^jAD ≍ N`);
   (b5) f-cusp Thm 6.2_m / §2.7(b5) if `k' ≤ k/2`, else BT on `mcdf ≍ N^{2−β}`: per cell
-  `Σ_{c≍2^j}Σ_{d≍D}Σ_{f≍F} ρ_{md}(f)·N/φ(mcdf) ≤ N g(m)·Σ_c g(c)/c·D^{−1}Σ_d g(d)Σ_f ρ_{md}(f)/φ(f) ≪ N g(m)h/m = N/m`
+  `Σ_{c≍2^j}Σ_{d≍D}Σ_{f≍F} ρ_{md}(f)·N/φ(mcdf) ≤ (N g(m)/m)·Σ_c g(c)/c·D^{−1}Σ_d g(d)Σ_f ρ_{md}(f)/φ(f) ≪ N g(m)h/m = N/m`
+  (as `1/φ(mcdf) ≤ 1/(φ(m)φ(c)φ(d)φ(f))` and `1/(φ(c)φ(d)) = g(c)g(d)/(cd)`, `d ≍ D`)
   by §3.2(c) (`D, F ≥ T`), with the saving `C/k'` from `log(N/(mcdf)) ≫ k'`.
 * (3) Selberg sieve per sequence: §3.5 — main terms `≪ (κδL)^{−1}(N/m)L` per layer ((b1), (b3)) and
   `≪ (κδL)^{−1}N/m` per cell ((b2), (b5)), **with no factor m/φ(m)** (the sieve loss `g(2mcs)` is paid by the
   gain h of the masses: §3.3, and explicitly `g(2mca)φ(ma²)/(ma²) ≤ 2g(c)` in (b1)). Remainders (§2.7):
   `≪ L^C m^{C'}Q²N^{−κδ}` relative to the geometric mass, with `Q = z² = N^{κδ/4}`, i.e. `≪ L^{C''}N^{−κδ/2}`
   as `m ≤ L^5`; this is `≪ C/k` once `k ≥ C₁ log L`.
+* (2b-0) Index conventions and the bounded-c endpoint (R2 of the self-review): `j ≥ 1` indexes `c ∈ (2^{j−1}, 2^j]`
+  for `c ≥ 2`; `k = ⌊δL⌋`, `k' = ⌊(β−1)L⌋`. The block `c = 1` is treated separately with the same low-D and band
+  arguments, and: for `k ≤ C₁ log L` the trivial c-count and §3.3(a2) give `≪ hADL·g(m) ≍ (N/m)L` per layer, total
+  `≪ (N/m)L log L`; for larger k, (b1)/(b3) cost `≪ (N/m)L/k` per layer (total `≪ (N/m)L log L`), (b2) applies since
+  `γ = 0` (so `δ ≥ 2γ`), and (b5) costs `≪ (N/m)/max(k,k')` per cell, total `≪ (N/m)L`. All `≪ NL²/m`.
 * (4) Layers `k ≤ C₁ log L`: (b4) on every cell, `≪ Σ_{j≤ηL}(C₁ log L)(N/m)L/j ≪ (N/m)L(log L)²`.
 * (5) Summation exactly as TTL (5), every term multiplied by `1/m`: TTL Lemma 1.1 gives
   `Σ_{j,k≤L}(N/m)L·min(1/j, C/k) ≪ NL²/m`; (b5) `≪ ηNL²/m`; (b2) with `k < 2j`: `≪ NL²/m`.
 Adding (1), (2a), (2b-low), bands and (5): the claim (`(log L)³ ≪ L`, `L log² m ≥ 0`). ∎
 
 *Remarks.* (i) For m = 4 this is TTL Thm 8.1 restricted to `(N/2, N]` (the `log² m`, `m^{−0.35}` terms are
-O(1) multiples of the main term). (ii) Where m enters: only through `h = φ(m)/m` (main terms, cancelling the
-sieve's `g(m)`) and polynomially in remainders. The restriction `m ≤ L^5` is used only to absorb `m^{C'}`
-into `L^{C}` and `2^{ω(m)}, g(m) ≤ L^{o(1)}` into lower-order terms; it costs nothing by Lemma 0.1.
+O(1) multiples of the main term). (ii) Where m enters: in the retained regular sieve main terms only through `h = φ(m)/m`
+(cancelling the sieve's `g(m)`); polynomially in remainders; and as `log m` in the separately summed lower-order
+pieces (§3.3(a3) in the low-D region, the `L log² m` of §3.4). The restriction `m ≤ L^5` is used to absorb
+`m^{C'}` into `L^{C}`, `2^{ω(m)}, g(m) ≤ L^{o(1)}` and `log m ≪ log L` into lower-order terms; it costs nothing
+by Lemma 0.1.
 
 ## 5. The lower side without log L, and the sharp-order transition (CONDITIONAL on (SEL_m))
 
@@ -591,6 +602,7 @@ PYTHONPATH=scripts uv run python scripts/emn4_checks.py      # ~10 s; output scr
 ```
 Finite checks (not proofs): Lemma 1.1 by brute force (m ≤ 12, p < 120); separation §2.1 (min cosh = 3/2
 exactly, attained: the constant is sharp); local densities §2.3 for both cusps; content-2 forms for
-t ≡ 3 (4) (§2.5); EVIDENCE for the §3.2(c) gain: the ratio `Σ_{d≍D} g(d) Σ_{f≍F} ρ_{md}(f)/φ(f) / (hD)`
+t ≡ 3 (4) (§2.5); EVIDENCE (a small-range heuristic diagnostic of the h-scaling, **outside** §3.2(c)'s hypotheses `D, F ≥ L^{100}`)
+for the §3.2(c) gain: the ratio `Σ_{d≍D} g(d) Σ_{f≍F} ρ_{md}(f)/φ(f) / (hD)`
 stays in `[1.05, 1.34]` (D = F = 300) while `h = φ(m)/m` ranges over `[0.21, 1]` (m = 4 … 2310, 7, 143, 1009);
 the raw sum tracks h. Proof-level claims (§§2.2, 2.4, 2.7, 3, 4, 5) are not machine-checked.

@@ -11,3 +11,4 @@ check5 (EVIDENCE, §3.2(c) gain): ratio = sum_{d~D} g(d) sum_{f~F} rho_{md}(f)/p
   m=    7 phi(m)/m=0.857 ratio=1.055  (raw/D=0.904)
   m=  143 phi(m)/m=0.839 ratio=1.059  (raw/D=0.889)
   m= 1009 phi(m)/m=0.999 ratio=1.056  (raw/D=1.055)
+ALL EXACT CHECKS PASS
