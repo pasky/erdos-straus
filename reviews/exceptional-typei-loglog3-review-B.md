@@ -3,7 +3,14 @@
 Reviewer: side agent `side-agent/review-ttl3-b` (independent of reviewer A). Reviewed: `EXCEPTIONAL_TYPEI_LOGLOG3.md`
 and `scripts/ttl3_*.md` as of merge of `side-agent/eff-di7` @ f0c5fe9. From-scratch scripts: `scripts/review_ttl3b_*.py`.
 
-**Status: IN PROGRESS** (written claim by claim).
+**Status: round 1 COMPLETE. Verdict: no FATAL, no MAJOR, 5 MINOR.**
+Honest labels: **Thm 9.1 — PROVED relative to (B1)–(B5)** (ε-structure, every growing-order/divisor/induction step and
+the r-uniformity independently re-derived; the fixed absolute majorants of `ttl3_thm2_effective.md` Steps 6–8 and
+`ttl3_thm14_effective.md` §§2–4 were checked only in shape — an error there could change an absolute constant but
+not the class `exp(exp(A₀/ε))`, since no δ-dependence enters those steps). The *numerical* `A₀` is CONDITIONAL on
+certified (B3) constants. **Thm 9.2 — PROVED relative to TTL's/TTL2's cited inputs and (B1)–(B5)**, by TTL2 Thm 4.1(ii).
+I concur with the author's label; I would keep the explicit caveat that the result is relative to (B1)–(B5) and to
+TTL's reduction, and should be presented as such (not as an unconditional resolution "from scratch").
 
 ## Verdict per section
 
@@ -37,8 +44,6 @@ Prop 2.1 (A),(B),(C) re-derived: `Q₁ = πQ^{1−2δ} ∈ [N, Q/2]`, `Y/Y₁ = 
 Note: the whole induction is only as good as the *shape* of (P2) (same N, same interval I, `t`-integral with weight
 `(1+t⁴)^{−1}` and the switched parameter `πNY/Q`); this is checked against DI Lemma 8.1 below (§4).
 
-## Defects
-(numbered as found)
 
 ### §8 (nebentypus induction, Prop 8.1, Thm 8.2) — SOUND relative to (P1χ)–(P3χ)
 Re-derived independently. Switching geometry: for the first trace at levels rq the arithmetic side is
@@ -142,3 +147,49 @@ TTL2's other inputs (Drappeau Prop 4.7 at the fixed tolerance `ε₁ = 1/100`, e
 | Dr p. 17: `dx` → `dx/x`; `ρ_f(m)` → `ρ_f(n)`; p. 18 `S(Q,N,Y,0)` → `S(Q,Y,N,0)` | Dr pp. 17–18 | YES (typos) | YES |
 | Dr p. 19: "q₀ only with negative powers" insufficient; C < N branch | Dr p. 19 + §8 | YES (no induction hypothesis when C < N) | YES (Prop 8.1 (C2)) |
 | Thm 13 six derivatives beyond (7.7) | not checked (pp. 268–270 not rendered) | — | moot: T-B uses its own cutoff with 7 derivatives |
+
+## Defects
+
+No FATAL. No MAJOR.
+
+**m1 (MINOR, Thm 9.1 proof, conversion to TTL2 form).** The Cauchy–Schwarz cost `K ≤ 1.5 log(2t)` is put into `C_ε`
+and the remaining `log 2t` into TTL2's `(log 2t)²`; but `log 2t ≤ (log 2t)²` fails for `1 ≤ t < e/2` (where
+`(log 2t)² ≥ (log 2)² ≈ 0.48`). *Repair:* use `K ≤ max(1, 1.5 log 2t) ≤ 3(log 2t)²` for `t ≥ 1` (or note TTL2 allows
+`log 2t` replaced by `1 + log t`); the constant `100ε^{−1}` becomes `200ε^{−1}`. No effect on A₀.
+
+**m2 (MINOR, interval conventions).** Main file §§2, 8 use closed `I = [N,N₁]` (R-C M1 repair), but
+`ttl3_lemma81_effective.md` §1, `ttl3_lemma81_twisted.md` §1 and `ttl3_thm2_twisted.md` §1 still state their results
+for `(N,N₁]` / `N < n ≤ 2N`, and `ttl3_nebentypus.md` §1 for `(N,2N]`. Thm 9.1's prefix blocks start at `n = 2^k = N`.
+All proofs only use `m,n ∈ [N,2N]` (and `ttl3_thm2_effective.md` says so), so this is editorial. *Repair:* restate those
+files' hypotheses for closed `[N,N₁]` with `‖1_I‖² ≤ 2N`.
+
+**m3 (MINOR, `ttl3_thm14_effective.md` §1).** The file's displayed statement is the `|ΣΣS(m,n;c)|` form, whereas main
+§6 Prop 6.1 and the χ-removal in (P1χ) need the U-form (`Σ_c U(c;M,H)` for real prefixes `M,H ≤ 2N`). The proof
+(§5, first line of DI p. 276) does bound U, so only the statement needs updating. *Repair:* state the U-form in §1.
+
+**m4 (MINOR, `ttl3_lemma81_twisted.md` §2 / main §8).** The twisted file defines `Sχ` with `ρ_f = 2√n ρ_f^{Dr}` while
+`ttl3_nebentypus.md` §1 calls `b_f = √n ρ_f` "DI's coefficient up to an absolute factor" and `ttl3_thm2_twisted.md`
+quotes conversion factors `4πHχ, 4Mχ,+, Eχ,+`. These absolute factors are covered by the `2^{20}` reserve, but the main
+file should fix one normalisation (DI's) and say once that `K_{LSχ}` is for it. *Repair:* one sentence in §8.
+
+**m5 (MINOR, honesty of the ledger).** The main file's "Honest status" paragraph should record, after this review,
+which parts were independently re-derived (all of §§1–3, 7–9; the ε-structure and key inequalities of §§4–6 and the
+twisted transfers; the literature repairs above) and which absolute majorants remain only shape-checked
+(T-A Steps 6–8, T-B §§2–4: Gaussian lower bound `2^{−20}`, `E_K` angular split, Mellin–Barnes residues, `2^{1000}` in (B9)).
+Also record (B3) EVIDENCE (`C_W = B_W = 1` for `c ≤ 90`) as EVIDENCE only.
+
+## Things I specifically tried to break and could not
+* Hidden ε-dependence in Kuznetsov transform bounds as σ → 0: the `1/sin πσ` pole cancels against the order difference
+  (mean value in ν), and the `log Y` at κ = 0 is kept; numerics agree (`review_ttl3b_transforms.py`).
+* Uniformity in r: the only r-dependence is `√r/L ≤ 1/q` (large sieve) and `C = πNY/(rQ)`; k-support in (P1χ) is
+  r-free; the extra C < N branch closes with an absolute enlargement of H. No `r^{O(1/δ)}` or conductor loss.
+* Circularity: Selberg's `σ ≤ 1/4` is a black box (B4) (and T-A Step 9 gives a non-circular limiting proof); level-one
+  inputs use only (B5); the induction is on `Q ≤ 2^kQ₀` with `Q₁ ≤ Q/2` (well-founded).
+* Constants depending secretly on parameters: Q₀, H depend only on δ via c, K₁, K₂; `Y₀ = 2^{32}` absolute; cutoffs
+  absolute; `R_p` with `p = ⌊2/s⌋` is single-exponential; divisor constants double-exponential — matches the claim.
+* Gevrey-2 cutoff: re-proved and numerically confirmed; any `(p!)²C^p` growth with `p ≍ 1/δ` is single-exponential.
+
+## Replay
+`PYTHONPATH=scripts uv run --with sympy --with mpmath --with scipy --with numpy python scripts/review_ttl3b_toolkit.py`;
+`… --with mpmath python scripts/review_ttl3b_transforms.py` (~5 min); `… --with mpmath python scripts/review_ttl3b_envelopes.py`;
+`… --with numpy --with sympy python scripts/review_ttl3b_twisted_weil.py 90`.
