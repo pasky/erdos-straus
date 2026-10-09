@@ -4,18 +4,33 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010v6 (`sour
 MN3 = `EXCEPTIONAL_MN3.md` (§3 there: the obstruction region R_bad / R**, Lemma 3.1, Thm 3.8);
 DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
 
-## 0. Summary (work in progress; updated as lemmas are added)
+## 0. Summary
 
-* Literature (2026-10, search-limited, research subagent + own check): no removal of ET's `log log N` found.
-  ET v6 cites Jia, Sci. China Math. 55 (2012) 465–474 ("mean values … 4/p"), yet still states the Type I
-  `log log N` as open (ET p. 5); Jia's text was not accessible (abstract only).
-* Lemma 2.2 (PROVED, elementary): the level-d Heegner points of MN3 Lemma 3.1 are **uniformly separated**
-  in the hyperbolic plane: distinct points satisfy `cosh dist ≥ 3/2`, independently of d.
-  (Numerically the minimum is ≥ 3: `scripts/ttl_separation.py`.)
-* Plan (§3): per-d count = (#classes)·(mean of an automorphic Poincaré-type function) + error, with the
-  error bounded by Cauchy–Schwarz in a Sobolev norm: `‖Σδ_z‖_{H^{-2}}² ≪ #classes` (by separation) times
-  the variance of the counting function (by the DI large sieve). Heuristic outcome: relative error
-  `(d/a)^{1/2}`, complementary to MN3's (K_a) (relative error `a/d`).
+* **Main result — Theorem 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture (SEL) for the congruence
+  groups `Γ₀(M)` with even nebentypus mod `2q`, `M | 16dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
+  conjectured (OPEN-I). Proof: §§2–8. Parts are written as careful outlines (Prop 5.1, Prop 7.1, the cell
+  bookkeeping); hostile review needed.
+* **Unconditionally** the same argument removes the obstruction everywhere except on a strip
+  `0 < 2α − 1 + γ ≲ 0.1` next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
+  (Kim–Sarnak 7/64) beat the saving. A strip of positive width still costs `log log N`, so ET's bound is
+  **not** improved unconditionally (§9).
+* New ingredients. (i) Lemma 2.2 (PROVED, elementary): the level-d Heegner points of MN3 Lemma 3.1 are
+  **uniformly separated** in ℍ: distinct points have `cosh dist ≥ 3/2`, for every d (because
+  `4d | disc(Q−Q')`). (ii) Prop 4.3 (PROVED): with separation, `|Σ_z P(z) − #Λ·⟨P⟩| ≪ (#Λ)^{1/2}‖(1−Δ)P₀‖₂`,
+  uniformly in the group. (iii) Prop 5.1 (under SEL, via the Deshouillers–Iwaniec/Drappeau spectral large
+  sieve): the box Poincaré series has Poisson-size variance `≪ area + 1/(Y·level)`. (iv) So the per-d
+  relative error is `≈ (d/a)^{1/2}`, and MN3's per-a Weil count (K_a) has relative error `≈ a/d`: the two
+  are **complementary at exactly d = a**, and Lemma 1.1 shows that a saving that degenerates linearly at a
+  boundary costs only `O(N log² N)`.
+* MN3's target (H**) is the wrong formulation. Equidistribution of the `≈ d^{1/2}` Heegner points on
+  `X₀(d)` (volume `≍ d`) is impossible, and it is not needed: only the second moment of the lift-counting
+  function enters.
+* Literature (2026-10, search-limited): no removal of ET's `log log N` was found. ET v6 cites Jia
+  (Sci. China Math. 55 (2012) 465–474) and still calls the Type I `log log` open. No joint level–discriminant
+  equidistribution with level ≍ |D| exists (Liu–Masri–Young reach `q ≤ |D|^{1/20}`). No result on
+  `Σ_a S(h,k;a²)` or on divisor sums in APs to square moduli was found.
+* EVIDENCE: `scripts/ttl_separation.py` (separation; min cosh ≥ 3 observed); `scripts/ttl_perd.py` (per-d
+  errors well inside the Cauchy–Schwarz bound).
 
 ## 1. Set-up
 
@@ -335,3 +350,11 @@ and the cell bookkeeping in (2)–(5) is not written with explicit constants. Ho
 * MN3's (H**) ("equidistribution of Heegner points on X₀(d)") is **not** what is needed: `#Λ_d ≈ d^{1/2}`
   points cannot equidistribute on `X₀(d)` (volume `≍ d`). The count is a lattice-point count of lifts in a
   horocyclic box of area `≍ A√d`, and only the second moment of the counting function enters.
+
+## Replay
+
+```
+uv run python scripts/ttl_separation.py                         # Lemma 2.1/2.2 check, ~1 min
+PYTHONPATH=scripts uv run python scripts/ttl_perd.py 20000 400000 7 31 101 1009 3001 10007   # §3 evidence, ~10 min
+```
+Outputs: `scripts/ttl_*.out.txt`. DI 1982 scan: `sources/o111/deshouillers-iwaniec-1982.pdf` (Thm 5 on p. 232).
