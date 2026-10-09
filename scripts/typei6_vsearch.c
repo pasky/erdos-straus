@@ -70,6 +70,7 @@ int main(int argc, char **argv) {
   u64 p7a = 7;
   for (int a = 1;; a += 2, p7a *= 49) {
     if (p1max(p7a, 1, 1) < 1) break;
+    if (p7a > (1ULL << 56)) { fprintf(stderr, "7^a overflow guard (a=%d)\n", a); exit(5); }
     for (u64 dl = 1;; dl += 2) {
       if (p1max(p7a, 1, dl) < 1) break;
       u64 A = p7a * dl * dl;
