@@ -4,7 +4,8 @@ Scope: §4.6 (O91, from PT4 = POINTWISE_TYPEI4.md), Lemma 3.6 paragraph, TYPEI5 
 §5.3 (O96, from PM13B = POINTWISE_MORDELL13B.md: Prop 5.4, Comp 5.5, Conj 5.6), abstract/intro/open problems;
 POINTWISE_MORDELL13B.md §5 post-review extension (x** to e ≤ 1e9).
 
-Status: IN PROGRESS.
+Status: round 1 complete; all repairs applied by the referee (marked "(R98 repair)" in the paper and in POINTWISE_MORDELL13B.md).
+**No FATAL or MAJOR defect.** Seven MINOR defects D1–D7.
 
 ## Verdicts
 
@@ -63,7 +64,7 @@ even; so `m=1`. `L_n≡n (7)` (`s²=1+r²≡1`), `L_7≡7 (49)`, multiplicativit
 latter alone), `c_oδ>10⁶` (`typei5_dmod`, replayed in R92), `2y<T7^b`, and lies in regime (v) of Prop 3.3
 (regimes (ii),(iii) empty by a complete computation reproduced in R92, (i),(iv) and case A by hand). I accept R92's
 verdicts (no FATAL/MAJOR). My own fibre engine (A4) independently confirms `b≤7` at `L=7..10` (third engine) —
-`b=8`: see log `logs/r98_fibre_b8.log` (B8RESULT).
+and `b=8` (0 hits at `L=7,8,9,10`, `logs/r98_fibre_b8.log`), so `v_7(k)≥9` now rests on two complete engines (R92, R98).
 
 **Should it be added?** Yes. Without it §4.6 and Problem 2 misstate the open part (the `7|j` exception is already
 closed, and `L=8,9,10` have been treated). Drafted paragraph (applied, see Repairs): Lemma 1.1 as a PROVED
@@ -120,8 +121,75 @@ Validation against direct class membership (CRT lift + ET class test), `scripts/
 42 points (incl. `x*`, `x**`), `a,d≤24/30`, `e≤1200/1500`: 176 brute-force memberships, engine output identical
 on every point (`logs/r98_xss_validate.log` + first run, 0 mismatches). Positive control: at `x*` the engine
 finds exactly II3 `(8,33,11999)` for `e≤10⁵`. **Result at `x**=x(2,15)`: 0 data of II3/I3/I1/II2 with `e,f≤10⁷`**
-(`logs/r98_xss_2_15_1e7.log`, 6.3·10⁸ parameter tuples tested). XSS1E8
+(`logs/r98_xss_2_15_1e7.log`, 6.3·10⁸ parameter tuples tested), **and none with `e,f≤10⁸`** (`logs/r98_xss_2_15_1e8.log`, 8.3·10⁹ tuples, 211 s). So the II2 range `(3·10⁷,10⁸]` and all four families to `10⁸` are now confirmed by an independent engine. A run to `10⁹` was started (see end).
 
 ## Defects
 
+**D1 (MINOR) — Prop 4.12, converse.** "Fibre certificate" is defined only for `L≥7`; the converse did not say so.
+Repair (applied): "Conversely, for `L≥7`, every solution …".
+
+**D2 (MINOR) — Comp 4.13, provenance.** "The remaining ranges rest on one engine" is obsolete: R92's engine covers
+`L≤10, b≤9`, and R98's from-scratch engine (`review_r98_fibre.c`) reproduces every range of Comp 4.13 exactly
+(36 certificates, identical `(L,b)` multiplicities, `max v_2=10` at `L=26`). Repair (applied): replaced by the
+statement of the two further engines.
+
+**D3 (MINOR, content) — §4.6 last paragraph and Problem 2 outdated; TYPEI5 missing.** "the case `7|j` remain[s] open",
+"The method should apply verbatim to `L=8,9,10`, but this has not been carried out", and Problem 2's "(at `L=7`: gaps
+`j≥2` and `7|j` …)" are superseded by TYPEI5 (Lemma 3.1: `λ∈ℤ` for all `j`, all `L≥5`; Lemma 3.6: case A empty at `L≤10`;
+Prop 3.3 / Comp 3.4: only regime (v) remains; Lemma 1.1: minimal unit, `b` determined by `(a,c',δ,P_1)`; Cor 2.3:
+`c_oδ>10⁶`). The paper's Assessment "linear forms in logarithms are more likely to help than reciprocity" also contradicts
+PT5's Assessment (moving two-parameter family of fields; LFL for a fixed recurrence does not apply directly).
+Repair (applied): added the `λ`-integrality sentence, Proposition 4.15 (= PT5 Lemma 1.1/Cor 1.2, PROVED, with sketch),
+the `typei5_dmod` sentence, Theorem 4.16 (= PT5 Thm 3.7 with per-item labels), a paragraph on regime (v) replacing the
+LFL Assessment, an updated Problem 2, a sentence in the Results bullet for `r=7`, and `\bibitem{PT5}`.
+
+**D4 (MINOR) — Comp 5.5 outdated.** PM13B Comp 5.3 extends II3/I3/I1/II2 at `x**` to `e,f≤10⁹`; the paper stopped at
+`10⁸` / `3·10⁷`, and "one engine per family group" understated the replication (R95 reproduced II3/I3/I1 to `10⁸`).
+Repair (applied): Comp 5.5 restated with `10⁹`, engine names and replication scopes (R95: II3/I3/I1 `≤10⁸`; R98: all
+four families `≤10⁸`; `(10⁸,10⁹]` one engine).
+
+**D5 (MINOR) — after Conj 5.6.** "four orders of magnitude further in `e`" → "almost five" (`10⁹/1.2·10⁴≈8·10⁴`).
+Repair applied.
+
+**D6 (MINOR) — PM13B §5 log provenance.** `logs/o95_xss_*.log` do not record the point, `X0` or the command line; the gap
+logs contain each run twice. The ranges are only inferable from the `2^24` progress markers. Repair (applied in the md): a
+provenance note. Suggested for future runs: echo the full command line into the log.
+
+**D7 (MINOR) — PM13B Comp 5.3 / paper Comp 5.5: "no restriction on the T-part" at `10⁹` was not argued.** The vacuity
+argument of R95 was for `10⁸` (`v_q(ad)≤7`). Re-derived for `10⁹`: `v_q(ad)≤v_q(e+u_q)≤8` (II3/I3/I1), `v_q(a_Td_T)≤8`
+(II2), so `v_q(λ)≤16<E=20`. Repair (applied in md and paper).
+
+Not defects (checked): Prop 5.4 (C1); Remark 4.14 numbers; the fibre definition/orientation (A1); the Lemma 3.1
+transcription (A3); the Conj 5.6 label; `x**∈Σ_13`; abstract (consistent after O96; no change needed).
+
+## Summary table
+
+| claim | verdict |
+|---|---|
+| fibre certificate definition, δ odd (§4.6) | SOUND |
+| Prop 4.12 (Pell form) | forward SOUND; converse SOUND-AFTER-REPAIRS (D1) |
+| Lemma 3.1/Cor 3.2 transcription | SOUND |
+| Comp 4.13 (any-height bound) | SOUND; now three complete engines on all ranges (D2) |
+| Remark 4.14 (scope) | SOUND |
+| Lemma 3.6 paragraph | SOUND but outdated (D3) → repaired with TYPEI5 |
+| TYPEI5 Lemma 1.1 / Thm 3.7 | SOUND (R92 + R98 re-derivation); added as Prop 4.15 / Thm 4.16 |
+| Prop 5.4 (x* covered) | SOUND (verified from scratch from ET Prop 1.9) |
+| Comp 5.5 (x** ranges) | SOUND-AFTER-REPAIRS (D4, D7) |
+| Conj 5.6 | label correct (EVIDENCE only); D5 wording |
+| PM13B §5 1e9 extension (`m13b_target` completeness) | SOUND (audited); independent from-scratch search to `10⁸`: 0 hits; D6 provenance |
+| abstract / intro / open problems | consistent after repairs (D3: Problem 2, Results bullet) |
+
 ## Repairs applied
+
+All in commits on `side-agent/referee-coverings-r2`; paper recompiled twice: no undefined references, no overfull boxes
+(the one underfull `\hbox` at the PM17 proposition pre-exists).
+* paper §4.6: D1, D2, D3 (new Prop 4.15, Thm 4.16, regime-(v) paragraph); Problem 2; Results bullet; PT5 bibitem;
+  acknowledgements list `PT5`, `PM13B`.
+* paper §5.3: D4/D7 (Comp 5.5), D5.
+* POINTWISE_MORDELL13B.md §5: status line, D6, D7, R98 independent check.
+
+## Scripts and logs (R98)
+* `scripts/review_r98_fibre.c`, `scripts/review_r98_fibre_brute.py`; `logs/r98_fibre_{A,B,b8}.log`.
+* `scripts/review_r98_xss.c`, `scripts/review_r98_xss_validate.py`; `logs/r98_xss_validate.log`,
+  `logs/r98_xss_2_15_1e7.log`, `logs/r98_xss_2_15_1e8.log`.
+* `scripts/review_r98_prop54.py` (Prop 5.4).
