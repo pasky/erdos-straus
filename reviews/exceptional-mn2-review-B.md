@@ -134,3 +134,42 @@ used in the text, but mark them as such in the output file.
 **m9 (MINOR, status line of Theorem L).** Lemma 3.3 is now checked against ET line by line (A1); the report's
 suggested fallback "PROVED modulo Lemma 3.3" is unnecessary. Add "effective" to Theorem L's label (all inputs
 are effective), contrasting with Theorem U.
+
+## D. From-scratch numerics (EVIDENCE)
+
+`scripts/review_emn2B_brute.py`: exact test of `m/p = 1/x+1/y+1/z` via smallest denominator
+`x ∈ (p/m, 3p/m]` and `A/B = 1/y+1/z ⟺ (Ay−B)(Az−B) = B²` (enumerate δ | B², `δ ≡ B²/δ ≡ −B mod A`).
+Independent of PW Cor 2.2/2.4 and of the author's u,v-criterion. Sanity: m = 4, 5 no exceptions p ≤ 400;
+m = 8 exceptions include 3; m = 9 include 2, 5 (as PW §3).
+
+* `scripts/review_emn2B_compare.py` vs the author's `emn2_scan.c` (count=2 mode), per prime:
+  m = 4..120 ∪ {150,199,200,256,300}, p ≤ 2000: 36 747 pairs (17 447 exceptional), 0 mismatches;
+  m = 121..300, p ∈ (20000, 22000]: 36 360 pairs (20 803 exceptional), 0 mismatches;
+  m = 40..60 ∪ {100,128,199,200,256,300}, p ∈ (70000, 71000]: 2 646 pairs (325 exceptional), 0 mismatches.
+  Total 75 753 pairs, 0 mismatches. The scanner is exact on this range.
+* `scripts/review_emn2B_half.py` (all primes in each window, no sampling):
+
+| m | L_.5 (mine) | L_.5 (author) | ratio (mine) |
+|---|---|---|---|
+| 60 | 7.636 | 7.636 | 1.950 |
+| 64 | 7.718 | 7.718 | 1.930 |
+| 61 | 6.397 | – (odd file) | 1.625 |
+| 63 | 7.127 | – | 1.791 |
+| 100 | 9.207 | 9.207 | 1.983 |
+| 101 | 7.586 | 7.586 | 1.629 |
+| 127 | 8.842 | 8.842 | 1.759 |
+| 128 | 9.645 | 9.645 | 1.914 |
+| 199 | 10.384 | 10.384 | 1.779 |
+| 200 | 11.143 | 11.209 (sampled) | 1.905 |
+| 256 | 12.277 | 12.217 (sampled) | 1.934 |
+
+  Identical where the author's stride is 1; for m = 200, 256 (sampled) the full count moves L_.5 by
+  ∓0.06 — consistent with m8. m = 300 full count did not finish in 50 min (my Python brute force) — not
+  replicated. The even/odd split (odd m lower) is reproduced.
+
+## E. Bottom line
+
+Theorem U and Theorem L both survive a hostile line-by-line check; no FATAL/MAJOR defects. All four
+self-review repairs are correct. Requested changes are presentational (m1–m9). The labels (PROVED rel. …,
+EVIDENCE, CONJECTURE) are appropriate; I recommend adding "effective" to Theorem L and keeping
+"ineffective" on Theorem U.
