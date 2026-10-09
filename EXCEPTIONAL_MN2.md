@@ -151,3 +151,89 @@ L_q = log N at which the representable proportion in (N/2, N] reaches q.
 Assessment: the data support "transition at `log N ≍ m^{1/3}` exactly, with a non-degenerate
 profile F(A)", i.e. g ≡ 1 and **no sharp threshold constant** — the right theorem is two-sided
 at the scale, not a 0–1 law at a constant. (Conjecture C2 below.)
+
+## 3. Lower side: re-deriving PW's first moment with smaller losses
+
+PW (proof of Thm 3.1) bound the proportion `ρ_rep` of m-representable primes in (N/2, N] by
+`≪ L³ log² m/φ(m)` (range `m^{1/4} ≪ L < m`). Their losses relative to the heuristic `L³/m`:
+(a) Type II: Brun–Titchmarsh (BT) near modulus N (`log L`) and `φ(m)` instead of m (coprimality
+of e to m unused); (b) Type I: ET Prop 1.4's `log(1+k)` (k = m·…) and BT near modulus N (`log L`).
+Below: (a) is removed completely; in (b) the `log(1+k)` loss is confined to a lower-order region;
+the BT loss in Type I is **not** removed — it is exactly the `log log N` gap of ET Thm 1.7
+(`Σ_{p≤N} f_I(p) ≪ N log² N log log N`), which ET could not remove even for m = 4 (ET §9: "it does
+not seem that a similar trick is available").
+
+Standing: `m ≥ 4`, `log m ≤ L/10` (the complementary range is Lemma 3.4). Every bound
+`≪` has an absolute constant. `S'_m(E) := Σ_{e≤E, (e,m)=1} 1/φ(e) ≤ Π_{p≤E, p∤m}(1 + p/(p−1)²) ≪
+(φ(m)/m) log E` for `E ≥ log m` (as MN Lemma 2.1(d): `Π_{p|m, p>E}(1−1/p)^{−1} ≤ e^{2ω(m)/E} ≪ 1`).
+
+**Lemma 3.1 (two harmonic sums; PROVED, elementary).** For `Y ≥ 2`:
+(a) `Σ_{e ≤ Y, (e,m)=1} Σ_{a,b ≤ Y, (a,b)=1, e | a+b} 1/(φ(a)φ(b)) ≪ (φ(m)/m) log³ Y + log² Y`.
+(b) `Σ_{u ≤ U} τ_3(u)/φ(mu − 1) ≪ (log³ U + m^{1/2})/m` for `U ≥ 2`.
+
+*Proof.* (a) Since `(a,b)=1`, `(e,a) = 1`. Using `b/φ(b) = Σ_{g|b} μ²(g)/φ(g)`, for `(β,e) = 1`:
+`Σ_{b≤Y, b≡β (e)} 1/φ(b) ≤ 1/φ(β_0) + Σ_g (μ²(g)/φ(g)) Σ_{β_0<b≤Y, b≡β (e), g|b} 1/b ≪ 1/φ(β_0) + (log Y)/e`
+(β_0 ∈ [1, e] the least representative; for `(g,e) = 1` the inner sum is over one class mod ge with
+`b > e`, so `≤ 1/e + 2 log Y/(ge)`; `(g,e) > 1` gives nothing; `Σ_{g≤Y} μ²(g)/φ(g) ≪ log Y`).
+Summing over a in classes `a_0 (mod e)`: `≪ Σ_{a_0+β_0=e} 1/(φ(a_0)φ(β_0)) + (log Y)(log e)/e + (log² Y)/e`
+(e = 1: just `log² Y`). The convolution `Σ_{a+β=e} 1/(φ(a)φ(β)) ≪ (log 2e)²/e` (same g-expansion).
+Now sum over `e ≤ Y`, `(e,m) = 1`: `Σ (log² Y)/e ≤ log² Y · S'_m(Y) ≪ (φ(m)/m) log³ Y`, plus the e = 1 term.
+(b) `1/φ(n) = (1/n) Σ_{s|n} μ²(s)/φ(s)`, `n = mu − 1`, `(s,m) = 1`. For each s the u lie in one
+class `r_s = m^{−1} (mod s)`; `Σ_{u≤U, u≡r_s (s)} τ_3(u)/(mu−1) ≤ τ_3(u_s)/(mu_s − 1) + (C/m)(log³U)/s·τ(s)`
+(u_s the least element; Shiu for the rest, `τ(s)` absorbing `s/φ(s)`). The tails `Σ_s μ²(s)τ(s)/(sφ(s))`
+converge. The least-element terms: each u is least for at most the s | mu−1 with `s > u`, so they
+sum to `≤ Σ_u τ_3(u) τ(mu−1)/((mu−1)φ(u)) ≪ m^{−1} Σ_u τ_3(u)τ(mu−1)/u² ≪ m^{−1} m^{1/2}`
+(`τ(mu−1) ≪ (mu)^{1/4}`, say). ∎
+
+**Proposition 3.2 (Type II, sharp; PROVED rel. BT).** For `log m ≤ L/10`,
+`#{p ∈ (N/2,N] : p has a Type II solution} ≪ (N/L)(L³ + m^{1/2})/m`.
+
+*Proof.* PW Cor 2.4/Prop 2.3: `p + e = mabd`, `a + b = ce`, `(a,b) = 1`; by the a↔b symmetry
+(y ↔ z) take `a ≤ b`, so `b < ce ≤ 2b`. As `(e, m) | p`, `(e, m) = 1`; likewise `(e, ad) = 1`.
+ET §9 with m: `(made)(macd)(mab)^{1/2} ≤ m^{5/2} a²b·ce·d² ≤ 2m^{5/2}(abd)² ≤ 8 m^{1/2} N²`, so one of
+the three moduli is `≤ 3 m^{1/5} N^{4/5} ≤ 3N^{0.82}`; in each case BT has `log(N/q) ≫ L`.
+(i) `made ≤ 3N^{0.82}`: fix (a, d, e); `b ≡ −a (e)` puts p in one class mod made:
+`≪ Σ N/(L φ(m)φ(a)φ(d)φ(e)) ≪ (N/(Lφ(m))) L² S'_m(N) ≪ N L²/m`.
+(ii) `macd ≤ 3N^{0.82}`: fix (a, c, d); `p = (macd − 1)e − ma²d`, one class mod `macd − 1`:
+`≪ (N/L) Σ_{u ≤ N} τ_3(u)/φ(mu−1) ≪ (N/L)(L³ + m^{1/2})/m` (Lemma 3.1(b)).
+(iii) `mab ≤ 3N^{0.82}`: fix (a, b, e), one class `−e (mod mab)`:
+`≪ (N/(Lφ(m))) Σ 1/(φ(a)φ(b)) ≪ (N/(Lφ(m)))((φ(m)/m)L³ + L²) ≪ N L²/m + N L/φ(m)`, and
+`L/φ(m) ≪ L² log log m/m ≪ L³/m` since `L ≥ log(m/3)`. ∎
+
+**Lemma 3.3 (ET Prop 1.4 with Pólya–Vinogradov; PROVED rel. ET Thm 7.1 and ET's proof).**
+Fix l. For `k ≥ 1`, `A, D ≥ 2`, `k ≤ (AD)^l`:
+`Σ_{a≤A, d≤D} τ(k a² d + 1) ≪_l AD log(A+D) · (1 + 1[D < k log²(kAD)] log(1+k))`.
+
+*Proof.* If `D ≥ A`: ET Cor 7.4 in the linear variable d for each a (coefficient `ka² ≤ D^{3l}`):
+`≪ D log D` per a. If `D < A`: ET's proof of Prop 1.4 (case "A ≤ B", their linear a = our d,
+their quadratic b = our a, their k = our k) verbatim, which reduces to bounding
+`Σ_{q ≤ A odd, (q,2k)=1} (log(A/q)/q) |Σ_{d≤D, (d,2q)=1} (−kd/q)|`. ET treat `q < D` (period, `O(q)`)
+and `q > kD` (reciprocity + partial summation, `O(log A)` per d) without loss, and lose
+`log(1+k)` only on `D ≤ q ≤ kD` by the trivial bound. There, for non-square q,
+`d ↦ (d/q)1_{d odd}` is a non-principal character sum (times a period-2 weight), so Pólya–Vinogradov gives
+`≪ √q log q`; squares q contribute `≪ D Σ_{r} log A/r² ≪ D log A`. Hence that range contributes
+`≪ log A Σ_{q ≤ kD} log q/√q ≪ √(kD) log(kD) log A ≤ D log A` when `D ≥ k log²(kAD)`. ∎
+
+**Proposition 3.4 (Type I; PROVED rel. Lemma 3.3, BT).** For `log m ≤ L/10` and `L ≤ m^{0.8}`:
+`#{p ∈ (N/2,N] : Type I solution} ≪ (N/L)·(L³ + L² log² m) log L/φ(m) + N m^{−0.8}`.
+
+*Proof.* PW (3.2): `≪ Σ_{mad ≤ 3N} τ(ma²d+1) N/(φ(m)φ(ad) log(2+N/mad))`. ET (A.12)
+`1/φ(ad) ≪ (ad)^{−1}Σ_{s|a, t|d} 1/(st)`, `a = sa'`, `d = td'`, `k = ms²t`; dyadic boxes `a' ~ A'`,
+`d' ~ D'` within the block `ad ~ X`. Boxes with `A'D' ≥ k^{1/l}` (l = 10): Lemma 3.3. A block holds
+`≪ log X` boxes; the lossy ones have `D' < k log²(kN)`, at most `≪ log(ms²tL)` of them, each costing an
+extra `log(1+k)`. With the weights `(st)^{−2}` (summable against `log²(ms²t)`), the block sum
+`X^{−1}Σ_{ad~X} τ(ma²d+1) Π... ≪ log² X + log X · log² m` (using `log L ≪ log m` for `L ≤ m^{0.8}`).
+Boxes with `A'D' < k^{1/l}` use `τ(n) ≪ n^{1/(10l)}`, `n ≤ k^{1+3/l}`: total `≪ m^{0.2}` per block
+for the `≪ log m` blocks where they occur, contributing `≪ N m^{0.2} log m/φ(m) ≪ N m^{−0.8}·L^{-1}·L`… ≪ N m^{−0.75}.
+Summing blocks `X = 3N 2^{−j}/m` with BT weight `1/log(2 + 2^j) ≍ 1/j`: `Σ_j 1/j ≪ log L`. ∎
+
+**Lemma 3.5 (very large m; PROVED, trivial).** For `log m > L/10`: `ρ_rep ≤ e^{C L/log L}/m`.
+*Proof.* Count classes trivially: `#{n ≤ N : n ≡ r (q)} ≤ N/q + 1`, `τ(n) ≤ e^{CL/log L}` for
+`n ≤ 9N²`; Type I: `Σ_{mad≤3N} τ(ma²d+1)(N/(mad)+1) ≪ e^{CL/log L}(N/m)L²`, Type II likewise. ∎
+
+**Theorem L (lower side; PROVED rel. ET Thm 7.1 + proof of Prop 1.4, BT, Shiu).** For all m ≥ 4,
+N ≥ 16: `ρ_rep ≪ L³ log L/φ(m) + L² log² m log L/φ(m) + L^{−1}… + m^{−1/2}`; more precisely
+`ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−3/4}` if `log m ≤ L/10`, `L ≤ m^{0.8}`; `≤ e^{CL/log L}/m`
+if `log m > L/10`. Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, in particular when
+`L ≤ ε(φ(m)/log m)^{1/3}`, ε → 0. (`m → ∞` is forced since `L ≥ log(m/3)` unless ρ_rep = 0; then
+`L² log² m log L/φ(m) → 0` as well, `log² m ≤ max(L, log² m)`.)
