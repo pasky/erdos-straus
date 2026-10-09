@@ -74,3 +74,13 @@ leave ≈ all children open; new primes `> 60` leave 20–40% open. No split lea
 Minimum number of open children over all splits: 0 (3 nodes), 1 (9), 2 (8); mean 1.25. The argmin is mostly
 `2⁷` or `3⁵` — **beyond the exponent caps of runs 2.1–2.2** (2⁶, 3⁴), which is why those runs looked so
 supercritical — or a new prime 29, 37, 53. Next: unbounded-ish 2-/3-adic refinement, always C-scored.
+
+**Run 2.7 (caps `2¹²3⁸5⁵7⁴`, splits at 2,3,5,7 always C-scored + 6 table-best, criterion (#open, open fraction)).**
+3600 s (logs/o103_dfs418_p23.log): 9600 expansions, 15786 open leaves, open mass `4.0·10⁻⁷`; open children per
+expansion 1.9–3.0 at every depth (bits 40–60). The criterion degenerates into p-adic refinements at 3 (`3/3` open).
+
+**Dives v1 (logs/o103_dive12_v1.log).** Below open leaves of run 2.2, following the min-count split and a random
+open child: the min-count split is `2^k` with **both** children open, for 25 consecutive levels (`2⁷ … 2³¹`), in
+2 of 3 dives — i.e. the open set contains whole 2-adic discs at these depths (no class with `M | L` separates
+them, however high the 2-power). Pure 2-adic refinement makes no progress; dives v2 exclude splits with all
+children open.
