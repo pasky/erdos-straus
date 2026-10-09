@@ -87,15 +87,21 @@ Comp. 2.1 (1399 survivors at L = 6.96·10¹⁰) is EVIDENCE and was not recomput
 35, 32, 40, 66 data); for the squares λ ∈ {121, 169, 20449}: 0 = 0.
 *Reason (PROVED, reviewer):* `e ≡ −1 (mod 4d')` and `e | 4(λa'²)d'+1` with `λa'²` a perfect square give
 `(−d'/e) = +1`, while `e ≡ −1 (4d')` forces `(−d'/e) = −1` (MORDELL17 Lemma 1.3). Since `λ = a_T²` whenever
-`d_T = e_T = 1`, the 72-minute `N = 11⁴13⁴` run could not add any box of T-level | 11²13²; the 20668 boxes it
-produced all have T-level ∤ 11²13². Hence Comp. 3.1 is correct, but the k = 2 row of 13B was **already
+`d_T = e_T = 1`, the 72-minute `N = 11⁴13⁴` run could not add any box of T-level | 11²13²; of the 20668 boxes it produced,
+355 have T-level | 11²13² (levels 11, 13, 143, 1573, 1859), but every one of these (M_T, r) is already among the
+boxes of the other ES levels (checked on the author's `/tmp/o100/run/inv_*.pkl`) — non-canonical re-finds
+by `m13b_invert`, as R95 noted for x*. Hence Comp. 3.1 is correct, but the k = 2 row of 13B was **already
 complete** at `N ≤ 4·10⁷` (the R95 caveat "already k=2 needs N up to 4.2·10⁸" was over-cautious for k = 2;
 for k = 3 the analogous reduction should be redone before running `N ≈ 8.6·10¹²`, see D4).
 Covered side (own bounded search, `scripts/review_m13c_cell22_cover.py B`: all T-parts | 11²13², T-free
 parameters ≤ B, third parameter from the necessary divisibility, literal class membership at the CRT point):
 B = 4: 53 covered; B = 15: 87; B = 40: 119 covered, 24 uncovered, all inside x_11 ∈ {2,57,68,79},
 x_13 ∈ {15,28,54,93,132,145} — monotone towards the claimed 128 / 15; never covers any of the 15 claimed
-uncovered subcells (consistent). [B = 120 run: see below.]
+uncovered subcells (consistent). B = 120 (12 min): 120 covered, 23 uncovered (the claimed 15 plus 8 subcells with x_11 = 68 or x_13 = 93).
+For those 8 (and (68,93)) the author's witnesses (from `inv_*.pkl`) pass the reviewer's literal membership test
+(`scripts/review_m13c_cell22_wit.py`): II3 `(16819, 1487, 26456703)` (ES level 190333) covers x_11 = 68,
+I3 `(7592, 1482, 14114111)` (ES level 24167) covers x_13 = 93 — both with T-free parameters > 120, which is why
+the bounded search missed them. **Covered side: 128 subcells independently confirmed.**
 
 ## D. §5 x** targeted searches
 

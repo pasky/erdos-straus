@@ -47,26 +47,27 @@ def test(fam, P):
         n = (1 + Mp * ((u - 1) * pow(Mp, -1, MT))) % M if MT > 1 else 1 % M   # n = 1 (M'), u (M_T)
         if member(fam, P, n): covered[u] = (fam, P)
 
-B = int(sys.argv[1])
-free = [x for x in range(1, B + 1) if x % 11 and x % 13]
-for A in TD:
-    for D in TD:
-        if F % (A * D): continue
-        for a1 in free:
-            for d1 in free:
-                a, d = A * a1, D * d1
-                for g in divisors(4 * a * a * d + 1):
-                    test("I1", (a, d, g))
-                    for E in TD:
-                        if F % (A * D * E) == 0:
-                            test("II3", (a, d, E * g)); test("I3", (a, d, E * g))
-                for g in divisors(a + d):           # II1/I4 (a,b=d,e)
-                    test("II1", (a, d, g)); test("I4", (a, d, g))
-                    for E in TD:                     # I2 (a,c=d,f), f' | a+c
-                        if F % (A * D * E) == 0: test("I2", (a, d, E * g))
-                for E in TD:                         # II2 (a,d,f): f = E f', f' | 4a^2d+1, 4ad | f+1
+if __name__ == "__main__":
+    B = int(sys.argv[1])
+    free = [x for x in range(1, B + 1) if x % 11 and x % 13]
+    for A in TD:
+        for D in TD:
+            if F % (A * D): continue
+            for a1 in free:
+                for d1 in free:
+                    a, d = A * a1, D * d1
                     for g in divisors(4 * a * a * d + 1):
-                        if (E * g + 1) % (4 * a * d) == 0: test("II2", (a, d, E * g))
-unc = sorted(cells - set(covered))
-print("B", B, "covered", len(covered), "uncovered", len(unc))
-print("uncovered x11 mod 121:", sorted({u % 121 for u in unc}), "x13 mod 169:", sorted({u % 169 for u in unc}))
+                        test("I1", (a, d, g))
+                        for E in TD:
+                            if F % (A * D * E) == 0:
+                                test("II3", (a, d, E * g)); test("I3", (a, d, E * g))
+                    for g in divisors(a + d):           # II1/I4 (a,b=d,e)
+                        test("II1", (a, d, g)); test("I4", (a, d, g))
+                        for E in TD:                     # I2 (a,c=d,f), f' | a+c
+                            if F % (A * D * E) == 0: test("I2", (a, d, E * g))
+                    for E in TD:                         # II2 (a,d,f): f = E f', f' | 4a^2d+1, 4ad | f+1
+                        for g in divisors(4 * a * a * d + 1):
+                            if (E * g + 1) % (4 * a * d) == 0: test("II2", (a, d, E * g))
+    unc = sorted(cells - set(covered))
+    print("B", B, "covered", len(covered), "uncovered", len(unc))
+    print("uncovered x11 mod 121:", sorted({u % 121 for u in unc}), "x13 mod 169:", sorted({u % 169 for u in unc}))
