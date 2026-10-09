@@ -60,8 +60,10 @@ For $r=17$ the classes meeting the $17$-generic line are balls around
 solutions of $4/17^K=1/x+1/y+1/z$; an explicit bound on the number of
 such solutions would produce a sterile point and rule out every finite
 polynomial covering of the Mordell-hard primes with least non-residue
-$17$; Elsholtz--Tao's exponent $2/5$ with an explicit constant $1.497$
-would suffice.  The bound needed is a discrete-logarithm counting problem,
+$17$; Elsholtz--Tao's exponent $2/5$ with an explicit constant $1.497$,
+for the cumulative count and together with ET's Type~I exponent $3/5$
+with constant $1$, would suffice.% (R106 repair)
+  The bound needed is a discrete-logarithm counting problem,
 which we leave open.  Nothing here proves or disproves the Erd\H{o}s--Straus
 conjecture.
 \end{abstract}
@@ -151,7 +153,9 @@ primes with $n_p=17$ (Theorem~\ref{thm:tail17}, \status{proved}
 reduction; Corollary~\ref{cor:17}, \status{conditional}).  With exact
 data through $17$-adic level $6$, a cumulative bound
 $\sum_{13\le K'\le K}D_P(K')\le1.497\cdot17^{2K/5}$ for the count of
-Type~II solutions of $4/17^{K'}$, plus ET's exponent for Type~I, suffices
+Type~II solutions of $4/17^{K'}$, plus ET's exponent $3/5$ with
+constant $1$ and no $o(1)$ for Type~I, suffices% (R106 repair)
+
 (Theorem~\ref{thm:explicit17}, \status{proved} reduction).  The missing
 bound is a discrete-logarithm count (\status{Assessment}).
 \end{itemize}
@@ -967,14 +971,16 @@ at each $L$, and \status{certified} that they are empty by a complete
 computation, reproduced independently in review.)
 \item[(c)] $v_7(k)\ge8$ (\status{certified},
 Computation~\ref{comp:anyheight} and two further complete engines);
-$v_7(k)\ge9$ by two engines and $v_7(k)\ge10$ by one.
+$v_7(k)\ge9$ by two engines and $v_7(k)\ge10$ by one; superseded by
+$v_7(k)\ge16$ in Computation~\ref{comp:b15} below (R106 repair).
 \item[(d)] $c_o\delta>10^6$ (\status{certified} by
 \texttt{typei5\_dmod.c}, valid for all $b$ by
 Proposition~\ref{prop:minunit}; one engine, replayed in review).
 \end{enumerate}
 \end{theorem}
 
-In the remaining regime, with $\sigma:=\Delta-2Tj\ge1$, one has
+In the remaining regime, with $\lambda\ge1$ and $\sigma:=\Delta-2Tj\ge1$
+(\emph{regime~(v)} of \cite[Prop.~3.3]{PT5}; R106 repair), one has
 $7^b<4j^2/\sigma$, and for each fixed $(\sigma,a,\lambda)$ there are
 finitely many explicit candidates \cite[Prop.~3.3(v)]{PT5}.  What is open
 is that $\sigma$ and $\lambda$ are unbounded.  By
@@ -1039,7 +1045,8 @@ finitely many fibre certificates of level $L$.
 \end{theorem}
 
 \begin{proof}[Sketch]
-Apply abc to $1+Qu^2=Y$.  Since $u$ is a power of $7$,
+Apply abc, $c\ll_\varepsilon\operatorname{rad}(abc)^{1+\varepsilon}$
+with a fixed $\varepsilon<1/7$ (R106 repair), to $1+Qu^2=Y$.  Since $u$ is a power of $7$,
 $\operatorname{rad}(Y\,Qu^2)\le14PXQ_1\ll(d/7^a)\sqrt{Y/P}$.  Together with
 the lower bound on $Y$ in regime~(v), this bounds $\delta$, $a$ and
 $P\ge c'$, hence $d$; each splitting $d=PQ$ carries at most one $b$
@@ -1063,7 +1070,7 @@ $b\le15$.  It finds all the regime-(v) certificates of
 \texttt{typei4\_lb.c} at $L=11$--$18$, $b\le3$, and all relaxed regime-(v)
 solutions at $L=7,9,10$ (positive controls).  An engine written from
 scratch in review (\texttt{review\_typei6\_vsearch.c}) gives $0$ solutions
-for all $(L,b)$ with $L\le10$, $b\le15$ except $(9,15)$, $(10,14)$,
+for all $(L,b)$ with $7\le L\le10$, $b\le15$ except $(9,15)$, $(10,14)$,
 $(10,15)$, which rest on the first engine alone.  With
 Theorem~\ref{thm:L710}: \emph{no certificate at $\hat x_9$ has level
 $7\le L\le10$ and $v_7(k)\le15$, at any height.}
@@ -1347,7 +1354,8 @@ repair).  The ranges for I2, II1 and I4 rest on one engine.
 Later runs of the same engines extend this to II3, I3, I1, II2 with
 $e$ (resp.\ $f$) $\le2\cdot10^9$ and to I2, II1, I4 with $f$ (resp.\ $e$)
 $\le2\cdot10^8$ \cite[Comps.~5.1, 5.2]{PM13C}; these extensions rest on
-one engine.  The exponent cap $12$ for I2, II1, I4 is vacuous in these ranges, since the
+one engine, and their run logs do not record the command lines
+\cite[\S5]{PM13C} (R106 repair).  The exponent cap $12$ for I2, II1, I4 is vacuous in these ranges, since the
 box conditions force $\{11,13\}$-exponents $\le9$ after removing a
 common factor.
 \end{computation}
@@ -1632,7 +1640,8 @@ cumulatively, the constant is $1.409$ \cite[\S4]{PM17B}.  The data are far
 inside this: $D_P(13)/17^{5.2}\approx6\cdot10^{-4}$.  It is conjectured in
 \cite[Conj.~4.2]{PM17B} (\status{conjecture}) that $D_P(K)\le K^5$ for
 $K\ge15$ and $D_Q(k)\le k^5$ for $k\ge9$, which would give a tail
-$\le4.2\cdot10^{-3}$.  On the (Q) side, the points with ET coordinate $c\ge17^{k/2}$
+$\le4.2\cdot10^{-3}$ beyond (P)-level $7$, or $\le4.3\cdot10^{-3}$
+beyond level $6$ with $D_P(13)=1463$ (R106 repair).  On the (Q) side, the points with ET coordinate $c\ge17^{k/2}$
 are bounded unconditionally, since a pair $(a,d)$ carries at most two
 (Q)-points; they cost at most $4.3\cdot10^{-3}$ of the budget
 \cite[Lemma~2.1, Cor.~2.2]{PM17C} (\status{proved}).  Nothing comparable

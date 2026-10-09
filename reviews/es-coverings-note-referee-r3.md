@@ -63,3 +63,36 @@ interface with the new text was checked.
 | "needs v_7(k) ≥ 16 and c_oδ > 10⁶" | SOUND (Comp 4.19 + Thm 4.16(d)). |
 | naive model < 10⁻¹¹ (evidence) | SOUND as EVIDENCE: per-b predictions at b = 15 are ≈ 10⁻¹², decaying ≥ 3× per step, so the four-level tail is ≲ 2·10⁻¹² (extrapolation). |
 | Abstract / intro / Problem 2 wording | SOUND. |
+
+## Defects (no FATAL, no MAJOR)
+
+All repairs applied in `paper/es-coverings-note.tex`, each marked "(R106 repair)" (in text or as a `%` comment).
+
+* **m1 (MINOR, §6 after Thm 6.7).** "Conj 4.2 … would give a tail ≤ 4.2·10⁻³": true for the tail beyond (P)-level 7
+  (base ρ₂, 4.17·10⁻³), not in the K ≥ 13 framework of Thm 6.7 (4.29·10⁻³ with D_P(13) = 1463 exact). *Repair:* both
+  numbers stated with their base.
+* **m2 (MINOR, abstract and intro r = 17 bullet).** "ET's exponent 2/5 with constant 1.497 would suffice" / "plus ET's
+  exponent for Type I": the 1.497 is for the cumulative count, and the Q-hypothesis is D_Q(k) ≤ 17^{3k/5} with constant
+  1 and no o(1). *Repair:* both stated.
+* **m3 (MINOR, Thm 5.2 proof).** "two [checkers] by the author": the second wraps the R80 reviewer engine. Not repaired
+  (harmless).
+* **m4 (MINOR, Comp 5.6 extension).** The PM13C §5 provenance caveat (run logs lack command lines; R100) was dropped.
+  *Repair:* one clause added.
+* **m5 (MINOR, §4.6).** "regime (v)" is used four times but never defined in the note. *Repair:* defined at its first
+  natural place (after Thm 4.16: λ ≥ 1, σ ≥ 1, regime (v) of TYPEI5 Prop 3.3).
+* **m6 (typo, Comp 4.19).** "L ≤ 10" → "7 ≤ L ≤ 10" (review engine scope).
+* **m7 (MINOR, Thm 4.18 sketch, hidden hypothesis).** The finiteness needs abc with a fixed ε < 1/7 (otherwise the
+  P-exponent (1−7ε)/2 is not positive). *Repair:* stated in the sketch.
+* **m8 (MINOR, Thm 4.16(c)).** "v_7(k) ≥ 8" is superseded by Comp 4.19 (≥ 16) without a pointer. *Repair:* pointer.
+
+Build after repairs: two pdflatex passes, 29 pp, 0 overfull boxes, 0 LaTeX warnings (no undefined refs/cites); the
+pre-existing underfull hbox (Prop 6.2) and underfull vboxes at page breaks remain.
+
+## Recommendation
+
+**Accept the O106 additions with the minor repairs above (applied).** Every new number I could check was reproduced
+from scratch: Thm 6.7 thresholds (1.49791 cumulative / 1.40980 pointwise; 1.497 and 1.409 are correct floor roundings,
+1.498 and 1.41 fail), T_Q, the 17C Cor 2.2 cost, D_P(13)/17^{5.2}; the MORDELL13C tree (35459 open, 136494 covered,
+2140 ET triples, mass 8.4241·10⁻⁵, open moduli divide the stated product, all covered-leaf identities). Labels match
+the sources after their reviews (R93, R98b, R99, R100). Not re-checked: the large engine runs themselves (Comp 4.19,
+Comp 5.6 extension, D_P(13)), which rest on the cited reviews; TYPEI5 material (round 2). Schinzel 1961 not accessed.
