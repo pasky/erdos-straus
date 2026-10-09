@@ -30,6 +30,11 @@ Observation (trivial). Only the last four classes contain {11,13}-generic points
   (2-adic: `r≢1 (8)` if `8∣M`, `r≢1 (4)` if `4∥M`). Consequently the points of an exceptional class that are
   local squares at every prime `q∉{11,13}` (resp. `≠13` in the cells `x_11≡9`) can only be covered by classes
   whose "non-square witness" is 11 or 13. This is the hard core the DFS leaves converge to.
+  *(R100 repair, applied by reviewer.)* The statement holds for **all** ET classes, as a known result. ET p. 8, before
+  Prop. 1.9, citing their refs [44], [68]: "a primitive congruence class n = r mod q which is a perfect square, cannot be
+  solved by polynomials". Prop. 1.9 classes are polynomially solvable ("conversely" there). For units, "local square at
+  every prime of M" ⇔ "square mod M" (Hensel; 2-adically via mod 8 resp. 4). The computation (re-done from scratch
+  by R100, `scripts/review_m13c_misc.py`: 102124 classes, 0 exceptions) is a check. Label: known (cited).
 
 ## 2. Complete witness at a fixed level (CERTIFIED engine, validated)
 
