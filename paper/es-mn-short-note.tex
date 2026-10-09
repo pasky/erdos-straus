@@ -76,7 +76,7 @@ lower side of the transition is proved \emph{relative to that note},
 which is internally proved and has \emph{not} been externally refereed;
 the lower side is proved relative to a published divisor-sum bound of
 Elsholtz and Tao and to a modification of the proof of another.  % R104 repair
-The conditional sharp order is proved relative to a further internal
+The conditional sharp order is proved relative to the inputs above together with a further internal % R120 repair
 note on the Type~I sum for $m=4$ and an internal working document; the
 range in which it actually uses the conjecture is $m\leq(\log N)^5$.
 This note has not been externally refereed either.
@@ -1347,9 +1347,9 @@ $S'_m(E)=\sum_{e\leq E,\,(e,m)=1}1/\varphi(e)\ll(\varphi(m)/m)\log E$
 for $E\geq\log m$ (by the Euler product, as in Lemma~\ref{lem:hm}).
 
 \begin{lemma}[two harmonic sums]\label{lem:harm2}
-\textup{(a)} For $Y\geq\max(2,\log m)$:
+\textup{(a)} For $Y\geq\max(2,\log m)$: % R120 repair: e up to 2Y, as e | a+b
 \[
- \sum_{\substack{e\leq Y\\(e,m)=1}}\ \sum_{\substack{a,b\leq Y,\ (a,b)=1\\e\mid a+b}}
+ \sum_{\substack{e\leq 2Y\\(e,m)=1}}\ \sum_{\substack{a,b\leq Y,\ (a,b)=1\\e\mid a+b}}
  \frac1{\varphi(a)\varphi(b)}\ll\frac{\varphi(m)}m\log^3Y+\log^2Y.
 \]
 
@@ -1364,7 +1364,7 @@ $\sum_{b\leq Y,\,b\equiv\beta\,(e)}1/\varphi(b)\ll1/\varphi(\beta_0)+(\log Y)/e$
 Summing over $a$ in classes $a_0\bmod e$ and using
 $\sum_{a_0+\beta_0=e}1/(\varphi(a_0)\varphi(\beta_0))\ll(\log2e)^2/e$
 gives $\ll(\log^2Y)/e$ per $e\geq2$, and $\log^2Y$ for $e=1$; sum over
-$e$ with $S'_m(Y)$.
+$e\leq2Y$ with $S'_m(2Y)$. % R120 repair
 
 (b) Put $n=mu-1$ and $y=\log(mU)$.  As $\omega(n)\leq2y$,
 $n/\varphi(n)\leq\e^4\sum_{s\mid n,\,s\mid P_y}\mu^2(s)/\varphi(s)$.  By
@@ -1560,7 +1560,7 @@ For $m=4$, an internal working document \cite{TTL} proves
 $\sum_{p\leq N}f_I(p)\ll N\log^2N$, i.e.\ removes the $\log\log N$ of
 \cite[Thm.~1.1]{ET}, \status{conditionally} on Selberg's eigenvalue
 conjecture for $\Gamma_0(4dq^2)$ with even nebentypus, uniformly in the
-level (\cite[Thm.~8.1]{TTL}; recorded as (D)32 in the campaign ledger
+level (\cite[Thm.~8.2]{HN}, from \cite[Thm.~8.1]{TTL}; recorded as (D)32 in the campaign ledger % R120 repair
 \texttt{DISCOVERIES.md}, after two rounds of internal hostile review).
 The method writes $ef-4a^2d=1$ as a matrix in $\mathrm{SL}_2(\Z)$, so
 that for fixed $d$ the Type~I solutions are level-$d$ Heegner forms of
@@ -1723,7 +1723,7 @@ for every $\Gamma_1(M)$.  For $m=4$ it is the hypothesis (SEL) of
 characters modulo $2q$, equivalently modulo $q$).  It is used only for
 levels $mdq^2$ with $m\leq(\log N)^5$.
 
-\begin{theorem}[\status{conditional} on (SEL$_m$); relative to the inputs of {\cite[Thm.~8.2]{HN}} and \cite{MN3}]\label{thm:selI}
+\begin{theorem}[\status{conditional} on (SEL$_m$); proved in \cite{MN4} relative to the inputs of {\cite[Thm.~8.2]{HN}} and \cite{MN3}]\label{thm:selI} % R120 repair: proof in MN4, only sketched here
 There is an absolute $N_0$ such that for $N\geq N_0$, $L=\log N$ and
 $4\leq m\leq L^5$,
 \[
@@ -1813,7 +1813,7 @@ $t=md$ the forms $[f,2ta,te]$ with $ef-ta^2=1$ are exactly the positive
 definite forms $[U,B,V]$ of discriminant $-4t$ with $2t\mid B$, $t\mid V$.
 This set is $\Gamma^0(t)$-stable, with no parity condition, and its
 roots satisfy $\cosh\operatorname{dist}\geq3/2$, uniformly in $m$, by
-\cite[Lemmas~3.1--3.2]{HN}.  The level $4dq^2$ of \cite{HN} becomes
+\cite[Lemma~2.2$_m$]{MN4} (cf.\ \cite[Lemma~3.2]{HN}).  The level $4dq^2$ of \cite{HN} becomes % R120 repair
 $M=mdq^2$, and the group $\Gamma(2q)$ becomes $\Gamma(q)$.
 
 \emph{Spectral side} (\cite[\S2.2]{MN4}, \status{conditional} on (SEL$_m$)).
@@ -1841,8 +1841,8 @@ used only there; the range $D\leq L^{100}$ is handled separately by
 aggregated Brun--Titchmarsh.  The large-$c$ part, \cite[\S3.4]{MN4},
 contributes the term $L\log^2m$ and the term $m^{-0.35}$.
 
-\emph{Assembly} (\cite[Thm.~4.1]{MN4}).  Steps (1)--(5) of the proof of
-\cite[Thm.~8.2]{HN} hold with every main term multiplied by $1/m$ and
+\emph{Assembly} (\cite[Thm.~4.1]{MN4}).  Steps (1)--(5) (as in \cite{TTL}) of the proof of
+\cite[Thm.~8.2]{HN}, plus $D\leq L^{100}$, hold with every main term multiplied by $1/m$ and % R120 repair
 with no factor $m/\varphi(m)$.  The degenerating savings are summed by
 \cite[Lemma~8.1]{HN}.
 \end{proof}

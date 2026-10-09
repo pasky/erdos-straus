@@ -114,25 +114,30 @@ of `a+b ≤ 2Y`, so `e ∈ (Y, 2Y]` occurs and is not covered. The proof works v
 bound `≪ log²Y/e` does not use e ≤ Y; `S′_m(2Y) ≪ (φ(m)/m)log Y`). *Repair:* lemma stated with `e ≤ 2Y`.
 
 **m2 (Remark 8.10).** The conditional m = 4 result is cited only as `[TTL, Thm 8.1]`, a working document whose
-(b3) display needed an erratum (R117 D1), while §9 relies on the paper version `[HN, Thm 8.2]`. *Repair:* cite
-`[HN, Thm 8.2]` (written-up version of `[TTL, Thm 8.1]`).
+(b3) display needed an erratum (R117 D1), while §9 relies on the paper version `[HN, Thm 8.2]`. *Repair:* now
+"(`[HN, Thm 8.2]`, from `[TTL, Thm 8.1]`; …)".
 
 **m3 (Thm 9.2 header).** The theorem is labelled "conditional … relative to the inputs of [HN, Thm 8.2] and
 [MN3]" but its proof is **not** in this paper (only a sketch); it is in the internal working document MN4.
-*Repair:* header now reads "… proof in [MN4], sketched below".
+*Repair:* header now reads "conditional on (SEL_m); proved in [MN4] relative to the inputs of
+[HN, Thm 8.2] and [MN3]" (the section intro already says the paper gives only a sketch).
 
 **m4 (sketch, "Heegner forms").** "cosh dist ≥ 3/2, uniformly in m, by [HN, Lemmas 3.1–3.2]": HN Lemma 3.2 is
 stated for its family 𝓕_d (level d); for level md one needs `4md | disc(Q−Q′)`, which is MN4 Lemma 2.2_m.
-*Repair:* "by the distance formula [HN, Lemma 3.1] and the argument of [HN, Lemma 3.2], since 4t | disc(Q−Q′)
-[MN4, Lemma 2.2_m]".
+*Repair:* "by [MN4, Lemma 2.2_m] (cf. [HN, Lemma 3.2])".
 
 **m5 (sketch, "Assembly").** "Steps (1)–(5) of the proof of [HN, Thm 8.2]": HN's proof has five steps, but its
 division (1 short progressions, 2 bands/layers, 3 cell estimates, 4 sieve, 5 summation) is not MN4's (TTL's)
-(1)–(5); MN4 also adds a step (2b-low) for `D ≤ L^{100}`. *Repair:* "The steps of the proof of [HN, Thm 8.2]
-(numbered (1)–(5) as in [TTL] in [MN4, Thm 4.1]), with the extra low-D step, hold …".
+(1)–(5); MN4 also adds a step (2b-low) for `D ≤ L^{100}`. *Repair:* "Steps (1)–(5) (as in [TTL]) of the proof of
+[HN, Thm 8.2], plus D ≤ L^{100}, hold …".
 
 **m6 (abstract).** Dependency sentence for the conditional sharp order incomplete (see §6). *Repair:* "proved
 relative to the inputs above together with a further internal note …".
+
+Compilation after the repairs: two `pdflatex` passes, 29 pp, no warnings, no undefined references, no
+overfull boxes; the 10 underfull boxes are exactly the pre-existing ones (my first wording of m4/m5 pushed the
+§10 heading to a new page — an underfull `\vbox` — so the repair texts were shortened until the layout of
+p. 25 was restored).
 
 ## Recommendation
 
