@@ -1,0 +1,66 @@
+# O115 two-engine completion logs (gcc -O2; ulimit -v 8000000; one core per job)
+## queue logs
+VS L=10 b=15 exit=0 time=13187s
+VS L=10 b=14 exit=0 time=2289s
+JS L=22 b=2 exit=0 time=89s
+JS L=23 b=2 exit=0 time=216s
+JS L=20 b=3 exit=0 time=165s
+JS L=21 b=3 exit=0 time=416s
+JS L=22 b=3 exit=0 time=929s
+JS L=16 b=4 exit=0 time=65s
+JS L=17 b=4 exit=0 time=158s
+JS L=18 b=4 exit=0 time=336s
+JS L=19 b=4 exit=0 time=719s
+JS L=14 b=5 exit=0 time=117s
+JS L=15 b=5 exit=0 time=251s
+JS L=16 b=5 exit=0 time=630s
+JS L=17 b=5 exit=0 time=1218s
+JS L=13 b=6 exit=0 time=425s
+JS L=14 b=6 exit=0 time=1051s
+ALLDONE
+JS L=15 b=6 exit=0 time=2238s
+JS L=12 b=7 exit=0 time=1755s
+ALLDONE
+VS L=9 b=15 exit=0 time=3855s (from file mtimes; queue shell stopped to avoid duplicate js runs)
+## review_typei6_vsearch outputs
+--- vs_10_14.out
+L=10 u=678223072849: triples=771436338 divisors=8002236766 pass-bound=1499924669 solutions=0
+--- vs_10_15.out
+L=10 u=4747561509943: triples=2822933118 divisors=30779322842 pass-bound=5491182408 solutions=0
+--- vs_9_15.out
+L=9 u=4747561509943: triples=1120278746 divisors=11791748895 pass-bound=2178532979 solutions=0
+## review_typei4_jsearch outputs
+--- js_13_6.out
+DONE L=13 b=6 amax=11 triples=25873909394 hits=0
+--- js_14_5.out
+DONE L=14 b=5 amax=11 triples=6586462035 hits=0
+--- js_14_6.out
+DONE L=14 b=6 amax=13 triples=55009113817 hits=0
+--- js_15_5.out
+DONE L=15 b=5 amax=11 triples=14053484522 hits=0
+--- js_16_4.out
+DONE L=16 b=4 amax=11 triples=3566481656 hits=0
+--- js_16_5.out
+DONE L=16 b=5 amax=13 triples=29924789685 hits=0
+--- js_17_4.out
+DONE L=17 b=4 amax=13 triples=7623062177 hits=0
+--- js_17_5.out
+DONE L=17 b=5 amax=13 triples=63598617477 hits=0
+--- js_18_4.out
+DONE L=18 b=4 amax=13 triples=16258717445 hits=0
+--- js_19_4.out
+DONE L=19 b=4 amax=13 triples=34607425922 hits=0
+--- js_20_3.out
+DONE L=20 b=3 amax=13 triples=8822097690 hits=0
+--- js_21_3.out
+DONE L=21 b=3 amax=15 triples=18808583057 hits=0
+--- js_22_2.out
+DONE L=22 b=2 amax=13 triples=4780327187 hits=0
+--- js_22_3.out
+DONE L=22 b=3 amax=15 triples=40019996583 hits=0
+--- js_23_2.out
+DONE L=23 b=2 amax=15 triples=10208932517 hits=0
+--- jsC_12_7.out
+DONE L=12 b=7 amax=11 triples=101000432662 hits=0
+--- jsC_15_6.out
+DONE L=15 b=6 amax=13 triples=116739275404 hits=0
