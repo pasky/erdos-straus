@@ -233,3 +233,22 @@ They need the parent's independent hostile review before the label PROVED is fin
 atoms), (b) `ttl3_thm14_effective.md` §2 (the numerical replacement of DI Lemma 7.1), (c) the uniform-in-σ
 transform bounds in `ttl3_lemma81_effective.md` §2.2, (d) the twisted transfers (`ttl3_thm2_twisted.md`
 resonance step; `ttl3_lemma81_twisted.md` small-C branch).
+
+**Internal referee round (deep-mode, independent of the authoring subagents; reports `scripts/ttl3_review_R{A,B,C}.md`).**
+No FATAL or MAJOR findings. MINOR repairs (none changes an estimate or a constant's growth):
+* R-A 1: the "exact" holomorphic kernel `E_K` in `ttl3_thm2_effective.md` Step 6 has the wrong overall sign (inherited
+  from DI p. 258); only `|E_K|`-bounds are used. R-A 2: Drappeau's pre-Kuznetsov kernel (Dr p. 14) is
+  `cosh(πt)·H_DI(r,t)`, not literally DI's (p. 253); the twisted transfer needs this normalisation bridge (absolute factor).
+* R-B 1: in `ttl3_thm14_effective.md` §2 the holomorphic Gamma quotient equals the reciprocal four-factor product only
+  in modulus. R-B 2: negative frequencies: take a reflection-diagonal Maass basis at level 1 (`ρ_j(−n) = ±ρ_j(n)`),
+  and `S(−m,−n;c) = S(m,n;c)`, `S(−m,n;c) = S(m,−n;c)`.
+* R-C 1 (closed-interval norm, `K₂ = 32K_{T2}`) and R-C 2 (S for Q > 0) are repaired above in §§2–3.
+So after this round the label of Thms 9.1/9.2 is **PROVED relative to (B1)–(B5) and TTL's inputs, pending the
+parent's external hostile review**; the explicit `A₀` additionally needs numerical `C_W, B_W` in (B3).
+
+## Replay
+No computations are needed for the proofs. The documents are `EXCEPTIONAL_TYPEI_LOGLOG3.md` (this file),
+`scripts/ttl3_thm2_effective.md`, `scripts/ttl3_thm14_effective.md`, `scripts/ttl3_lemma81_effective.md`,
+`scripts/ttl3_nebentypus.md`, `scripts/ttl3_thm2_twisted.md`, `scripts/ttl3_lemma81_twisted.md`, and the referee reports
+`scripts/ttl3_review_RA.md`, `…_RB.md`, `…_RC.md`. Scan pages: `pdftoppm -r 110 -gray -png -f K-218 -l K-218
+sources/o111/deshouillers-iwaniec-1982.pdf /tmp/p` for journal page K.
