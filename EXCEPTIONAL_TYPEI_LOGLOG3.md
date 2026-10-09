@@ -181,10 +181,10 @@ negative powers" needs this extra branch).
 the main term is `≤ c·2√2π·(Q/C)^{1−δ}HC^{1+4δ}N = 2√2π c H Q^{1−δ}C^{5δ}N ≤ 45cHQ^{1+4δ−10δ²}N ≤ (H/2)Q^{1+4δ}N`
 (`C^{5δ} ≤ π^{5δ}Q^{5δ−10δ²}`, r ≥ 1).
 *(C2) C < N.* No induction: (M) with `Y₁ := C + N ∈ [1, 2N]` and (P1χ) at C give
-`Sχ*(C,Y,N) ≤ (1 + √(Y/N))K₁(2N²)^δ·4N·N ≤ 5K₁N^{2δ}(N + Q^{1−δ})N ≤ 10K₁Q^{1+δ}N` (`√(YN) = Q^{1−δ}`), so the
-main term is `≤ 2√2π·c·10K₁Q^{1+δ}N ≤ 90cK₁Q^{1+δ}N`.
+`Sχ*(C,Y,N) ≤ (1 + √(Y/N))K₁(2N²)^δ·4N·N ≤ 5K₁N^{2δ}(N + Q^{1−δ})N ≤ 10K₁Q^{1+2δ}N` (`√(YN) = Q^{1−δ}`), so the
+main term is `≤ 2√2π·c·10K₁Q^{1+2δ}N ≤ 90cK₁Q^{1+2δ}N`.
 In both sub-cases `Sχ ≤ (H/2 + 90cK₁ + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. ∎
 
 **Theorem 8.2 (effective Dr Lemma 4.10).** For `Q ≥ 1/16`, `Y, N ≥ 1`:
 `Sχ*(Q,Y,N) ≤ K₇χ(δ)(QN+1)^{5δ}(Q + N + √(NY))N`, `K₇χ := max(H, 10K₁)`, uniformly in r, χ.
-*Proof.* `Q ≥ 1`: as Thm 2.2. `Q < 1`: (M) with `Y₁ = 1 + N` and (P1χ): `≤ (1+√(Y/N))K₁(2N²)^δ·3N·N ≤ 5K₁N^{2δ}(N+√(NY))N`. ∎
+*Proof.* `Q ≥ 1`: as Thm 2.2. `Q < 1`: (M) with `Y₁ = 1 + N` and (P1χ): `≤ (1+√(Y/N))K₁(2N²)^δ·4N·N ≤ 5K₁N^{2δ}(N+√(NY))N` (`Q + N + Y₁ ≤ 4N`). ∎
