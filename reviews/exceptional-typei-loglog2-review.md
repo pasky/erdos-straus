@@ -1,7 +1,7 @@
 # Hostile review R116 of EXCEPTIONAL_TYPEI_LOGLOG2.md (O116, branch side-agent/ttl-unconditional)
 
 Reviewer: side-agent/review-ttl2. Scope: all claims of `reviews/agent-reports/AGENT_REPORT_O116.md`.
-From-scratch scripts: `scripts/review_ttl2_*.py`. Status: round 1 IN PROGRESS.
+From-scratch scripts: `scripts/review_ttl2_*.py`. Status: round 1 COMPLETE. **Verdict: no FATAL, no MAJOR; 7 MINOR. Thm 4.1(i) PROVED (rel. cited results) — agreed.**
 
 ## A. The cited inputs, read against the sources
 
@@ -90,3 +90,81 @@ TTL bounds (not from the author's three terms) on 3.9·10⁵ random points of th
 exponent, come from my deliberately including the `a/2 ≤ b < a` cells at exponent scale, i.e. a factor
 ≤ 2 in `A/e`, an O(1) constant). The author's 3-term form dominates the raw expression everywhere.
 `F' ≤ 3A√D` in (b3) holds since `min(e,f) ≤ (ef)^{1/2}` and `ef = 4a²d+1`. No upper bound on δ is needed.
+
+## C. The assembly (§4), the d-average, the strip, and the labels
+
+**V6. The d-average is of the form DI Thm 7 / Drappeau 4.10 needs (brief item 2) — SOUND.** TTL §8 (3) sieves
+*per sequence σ with fixed d* (cases (b2), (b3), (b5): `s = d`), with remainder `Σ_{q≤Q, q|P(z), (q,2cd)=1}
+3^{ω(q)}|r_σ(q)|`, and only the *sum over σ* (over d ≍ D in the cell) is ever needed (TTL Remark D11). Interchanging,
+`Σ_d Σ_{q:(q,2cd)=1} = Σ_q Σ_{d:(d,2q)... }`, so for each fixed squarefree q one needs `Σ_{d≍D,(d,q)=1}|E_d(q)|`,
+which is Thm 3.1. In the spectral problem q and χ mod q are fixed while the level `M = 4dq²` runs over distinct
+values (d ↦ 4dq² injective), all divisible by q₀ = q, with cusp ∞ / identity scaling matrix — exactly Drappeau's
+`Σ_{M≤Q, q₀|M}` with `Q = 8Dq²`. The average over q is not needed (q-powers are paid: `Σ_{q≤Q}3^{ω(q)}q² ≪ Q³𝓛^C`).
+The main term's `|r_σ(1)|` is the q = 1 case (trivial χ, levels 4d: DI Thm 7 itself). ✓
+
+**V7. Thm 4.1 (i) — SOUND.** Checked: `z = N^{δ/128}`, `Q = N^{δ/64}` (κ = 1/16 absolute, so the main-term saving
+`1/G(z) ≪ 1/(δL)` keeps an absolute constant); remainder exponent `3δ/64 − δ/4 + 4ε ≤ −11δ/64` for `ε ≤ δ/128`
+(script, exact); with `w = ε₀`, `ε = ε₀/128` *fixed*, `C_ε` is a constant and every layer with `δ ≥ ε₀` is good
+for `N ≥ N₀(ε₀)` (`11/64 > 1/6`). Bad layers: `δ < ε₀ ≤ 1/4` ⇒ `A, D ≥ N^{1/4}` (for γ ≤ η), so TTL (b4) (BT on 4ad
+with Lemma 8.4(a2), over all f, hence covering (b2)/(b3)/(b5) cells, bands and β > 1 alike) applies; cost
+`Σ_{1≤j≤ηL} NL/j + NL ≪ NL log L` per layer, `≤ ε₀L + 1` layers. Good layers: TTL's Lemma 1.1 bookkeeping with
+saving `C/k`, C absolute. Hence `≤ Cε₀NL² log L + O_{ε₀}(NL²)`, C absolute, and `o(NL² log L)`. No hidden
+ε₀-dependence in C: the only ε₀-dependent constants are `C_{ε₀/128}` and `N₀(ε₀)`, both on the `O_{ε₀}(NL²)` side.
+(Only DI7_ε at one fixed ε is used — no effectivity needed.) The (b1) side `D ≥ A` is unconditional (Weil),
+unchanged.
+
+**V8. Thm 4.1 (ii) — SOUND as a CONDITIONAL statement.** With `w = 256A₀/log L`, `ε = 2A₀/log L`:
+`log C_ε ≤ exp(A₀/ε) = L^{1/2}`; good-layer test `(11/64)δL ≥ 44A₀L/log L ≫ L^{1/2}/2 + C log L` ✓; bad layers
+`≤ 256A₀L/log L + 1`, cost `≪ A₀NL²` ✓. Note (EFF) must hold uniformly in q₀ (it is so stated).
+
+**V9. Thm 4.1 (iii) — SOUND modulo a wording point (m4).** `log C_ε ≤ log G(128/w_N) ≤ w_N L/32 ≤ δL/32`, the
+`½ log C_ε` costs `δL/64`, leaving `5δL/32 ≥ (C+2)log L` from `δ ≥ L^{−1/2}`. ✓
+
+**V10. §5 (EFF) — Assessment, label honest.** I did not re-audit DI §§5,7,8. What I checked: DI p. 278 says the
+induction closes by "an appropriate manipulation with the constants implied in ≪" (`Q^{1+4ε−8ε²}N`), i.e. the
+induction gains `Q^{−8ε²}`, so `Q₀(ε)` must satisfy `Q₀^{8ε²} ≫ K(ε)` and the base case costs `Q₀^{O(1)}` — consistent
+with the audit's `C_ε ≤ K(ε)^{O(ε^{−2})}`, and `K ≤ exp(exp(B/ε))` ⇒ `C_ε ≤ exp(exp(B'/ε))`. The Gevrey-cutoff point
+is plausible but unverified by me. Thm 4.1(ii) is correctly CONDITIONAL; (EFF) is not "routine" until written.
+
+**V11. §6 / brief item 4 (TTL's negative claim) — SOUND.** TTL §3.2/§9 examined DI Thm 5, Thm 6 (bracket
+`Q+N+NX`, confirmed by DI p. 233's Conjecture sentence) and Humphries, and concluded "no unconditional
+improvement". DI Thm 7 is on the same page (p. 233) as the Conjecture and was simply **overlooked** by TTL and by
+review R111; it **does** apply (V3, V6). TTL §9's sentence "this argument gives no unconditional improvement of ET"
+is now false and should be annotated (outside this document's scope; MINOR m6).
+
+## D. Defects
+
+No FATAL. No MAJOR.
+
+* **m1 (MINOR, §1, "Drappeau's nebentypus version").** Text still says "statement as extracted by a research
+  subagent, `/tmp/o116_lit.md` — to be eyeballed against the PDF". Repair: replace by "checked against
+  arXiv:1504.05549 p. 16 (Lemmas 4.9–4.10; normalisation (4.7) and the Whittaker expansion on p. 13)", and add that
+  Drappeau's proof of 4.10 is a transposition sketch of DI pp. 274–277. Also drop "Work in progress" from the header.
+* **m2 (MINOR, §4 proof, "Their bound differs from TTL's (SEL) bound only by a factor ≪ 𝓛^C C_ε^{1/2}N^{4ε}q").**
+  Inaccurate: Thm 3.1 has a third term `(D/A)^{1/4}` absent under (SEL), and in (b3) TTL had `N^{−δ/2}` where now
+  only `N^{−δ/4}` holds. Repair: "Their bound is `≪ 𝓛^C C_ε^{1/2}N^{4ε}q²N^{−δ/4}` relative to the mass (Cor 3.2)".
+  (The subsequent computation already uses Cor 3.2 correctly, so nothing downstream changes.)
+* **m3 (MINOR, Thm 3.1).** `N^{4ε}` where `(N^{6ε})^{1/2} = N^{3ε}` suffices; harmless. Lemma 1.2 is not used in its
+  stated form (Prop 2.2 redoes it with the majorant Φ); consider stating Lemma 1.2 with a general majorant
+  `|c'| ≤ Ψ` to match the use.
+* **m4 (MINOR, Thm 4.1(iii)).** `w_N := inf{…}` need not belong to the set (G only nondecreasing), and for the empty
+  set the bound is undefined. Repair: "for every `w ∈ [L^{−1/2}, 1/4]` with `log G(128/w) ≤ wL/32`:
+  `Σ f_I ≪ NL²(1 + w log L)`; if no such w exists, use ET's bound".
+* **m5 (MINOR, §6).** The Pascadi 2024 statement is "as reported by the literature subagent" and was not checked
+  against the paper; it supports only a side remark. Repair: label it unverified or drop it.
+* **m6 (MINOR, cross-document).** TTL §9 ("this argument gives no unconditional improvement of ET") and DISCOVERIES
+  (D)32 should get a forward pointer to Thm 4.1(i) once the parent accepts it.
+* **m7 (MINOR, §1 DI7_ε).** The uniformity in q₀ is a reading of Drappeau's `≪_ε` (he uses it so in §4.3.1, noting
+  the bounds "decrease with q₀"); say this explicitly rather than "that is how he states it".
+
+## E. Honest labels
+
+* **Thm 4.1(i): PROVED** relative to cited published results — DI 1982 Thm 7, Drappeau 2017 Lemma 4.10 (whose
+  proof in the source is a transposition sketch of DI), and everything TTL Thm 8.1 cites except (SEL) (ET/MN3
+  reduction, MN3 Prop 2.3, DI Thm 2/Drappeau Prop 4.7, BT, Selberg sieve, Weil, PV). Unconditional, unquantified:
+  `Σ_{p≤N} f_I(p) = o(N log²N log log N)`. I agree with the author's label.
+* **Thm 4.1(ii): CONDITIONAL on (EFF)**; (EFF) itself: Assessment (plausible, not written).
+* **Thm 4.1(iii): PROVED** (conditional form, for any explicit G).
+* Prop 2.2, Thm 3.1, Cor 3.2: PROVED relative to DI Thm 7/Drappeau 4.10 and TTL Prop 5.1.
+
+Round 1 COMPLETE.
