@@ -78,3 +78,7 @@ POINTWISE_MORDELL13B §5): x** lies in **no I2, II1, I4 class with `h = f, e ∈
 `|i|,|j| ≤ 12` (logs/o100_xss_U_A.log `(2·10⁷,1.1·10⁸]`, logs/o100_xss_U_B.log `(1.1·10⁸,2·10⁸]`, 0 hits,
 ≈80 min each). Together with 13B Comp. 5.1: no I2/II1/I4 class up to `2·10⁸`; II3/I3/I1/II2 up to `10⁹` (13B Comp. 5.3).
 Sanity: the same binary re-finds x*'s I2 datum (125, 88, 11999) on `(10⁴, 2·10⁴]`.
+*The cap `|i|,|j|≤12` is vacuous here* (as for P/Q in 13B): at a T-prime q dividing `ab` (resp. `ac`) the box
+condition is `e≡−u_q`, `u_q e≡−1` or `f≡−u_q (mod q^{v_q(ab)})` with `u_q∈{2,15}`, so
+`q^{v_q(ab)} ≤ 15·2·10⁸+1 < 11¹⁰`, i.e. `v_q ≤ 9`; for `q | f` (I2) the T-exponents of `a, c` are 0 by coprimality.
+After dropping a common T-factor, `|i|,|j| ≤ 9`. So Computation 5.1 holds with no T-level restriction.
