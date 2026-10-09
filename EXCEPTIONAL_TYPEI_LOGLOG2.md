@@ -117,5 +117,5 @@ with `F' ≥ 8A`, (b5) `F' = f ≤ A` with `(A/f) ≤ N^{δ/2}`. Then the relati
 `≪ 𝓛^C C_ε^{1/2} N^{2ε} q² (N^{−δ/4} + N^{−c₀})` with an absolute `c₀ > 0` (one can take `c₀ = 1/20` for η, η₁ small).
 *Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}`; b5: by
 hypothesis), and `λ ≤ 1/4` in (b3); so it is `≪ q²N^{−δ/4}`. Second term: `F'^{1/2}/A ≤ (3A√D)^{1/2}/A ≪ D^{1/4}A^{−1/2}
-≤ A^{−1/4}`. Third: `F'^{3/8}D^{1/16}A^{−3/4} ≪ (A√D)^{3/8}D^{1/16}A^{−3/4} = D^{1/4}A^{−3/8} ≤ A^{−1/8}`. In R_bad,
-`A ≥ N^{1/3−2η₁}` (TTL §7, Consequence), so `A^{−1/8} ≤ N^{−1/25}`. ∎
+≤ A^{−1/4}`. Third: `F'^{3/8}D^{1/16}A^{−3/4} ≪ (A√D)^{3/8}D^{1/16}A^{−3/4} = D^{1/4}A^{−3/8} ≤ A^{−1/8}`. In all three cases
+`D < A`, so `A ≥ (N/(2c))^{1/2} ≥ N^{(1−η)/2}/2` and `A^{−1/8} ≪ N^{−1/17}` for `η ≤ 1/20`. ∎
