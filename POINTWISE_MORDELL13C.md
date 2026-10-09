@@ -106,3 +106,30 @@ non-square witness of a covering class (§1) must be 13 alone.
 set by a factor ≈1.2·10⁴ but **does not remove any of the six classes**: in every root, open leaves remain
 (the open mass decays like a power of the node count, cf. §1). It is not progress towards zero exceptions
 in any structural sense.
+
+## 7. What remains (Assessment)
+
+* **Zero exceptions is not reached for any of the six classes.** Theorem 6.1 only thins them. No sterile point is
+  proved anywhere.
+* Class 473761 contains x** (T-generic, survives all targeted searches: I2/II1/I4 to `2·10⁸`, II3/I3/I1/II2 to `10⁹`,
+  §5 and 13B). The other five classes contain **no** uncovered S-generic point for the S tested
+  (S = {11,13}, {3,11,13}, {7,11,13}; §3), so no "simple" sterile candidate exists there; still the DFS open set
+  does not close. Its open leaves in 418321 (the smallest) are all `≡1 (17)` and take exactly three values at each of
+  19, 23, 31 (`{1,13,17}`, `{1,16,13}`, `{1,21,26}`), not all squares — the non-square heuristic of §1 is only
+  approximate. Locating their limit points (candidate sterile points off the T-generic locus) is the natural next step.
+* Fixed-level moduli are not the bottleneck (§2); the bottleneck is the number of primes in the support.
+
+## Replay
+
+```
+R=112561:720720,352801:720720,380881:720720,418321:720720,473761:720720,483841:720720
+PYTHONPATH=scripts uv run python scripts/m13c_dfs.py $R 1000000 100 3 6000 tree.json      # ~11 min; gzip -> data/mordell13c/
+PYTHONPATH=scripts uv run python scripts/m13c_check.py data/mordell13c/tree6_6000.json.gz        # Thm 6.1, 15 s
+PYTHONPATH=scripts uv run python scripts/m13c_review_tree.py data/mordell13c/tree6_6000.json.gz  # Thm 6.1, 7 s
+PYTHONPATH=scripts uv run python scripts/m13c_tree_stats.py data/mordell13c/tree6_6000.json.gz   # per-root stats
+for L in 9240 10920 65520; do PYTHONPATH=scripts uv run python scripts/m13c_witness_validate.py $L; done   # §2
+PYTHONPATH=scripts uv run python scripts/m13c_level.py 1000000 13,17,19,23 complete          # Comp 2.1, ~16 min
+PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 1000000 13 2 3,11,13                 # §3, ~7 min (also 7,11,13)
+uv run python scripts/m13c_sqchk.py                                                          # §1 (PYTHONPATH=scripts)
+gcc -O2 -o /tmp/o100/target2 scripts/m13c_target2.c; /tmp/o100/target2 2 15 110000000 12 20000000   # §5 (also 2e8 from 1.1e8)
+```
