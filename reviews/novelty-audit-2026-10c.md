@@ -63,9 +63,9 @@ Pomerance's 2026 talk text).
   2/3 as the state of the art, PW Thm 1.3, and the open transition question ("This
   raises the question of where the transition is from almost never to almost always to
   always"). PW is listed as "Ramanujan J., to appear". No better exponent, no
-  short-interval or progression result is mentioned. So as of Mar 2026 Pomerance himself
-  regards 2/3 as the record and the m^{1/3}-transition as open (density version) —
-  this supports the significance of Cor D.
+  short-interval or progression result is mentioned. So as of Mar 2026 the talk presents
+  Vaughan's 2/3 ("an excellent upper bound") with no improvement, and the transition
+  question as open — this supports the significance of Cor D.
 * **Other 4/n and m/n exceptional-set literature** (zbMATH Open API reviews, visited
   `https://api.zbmath.org/v1/document/<id>`):
   * Ahmadi–Bleicher 1998 (zbMATH 0919.11027, review by W. Schwarz): for every a ≥ 4,
