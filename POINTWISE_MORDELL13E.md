@@ -111,3 +111,31 @@ explicit-ES-count problem of MORDELL17 §4/§6 (P-type data have box level ≈ `
 It would have to show, for every T-level F with `v_11(F)≥3` or `v_13(F)≥3`, that the box centres at F avoid the
 specific 13-adic digit pattern of 15 (`15 = 2 + 1·13`). Comp. 3.3 shows that the centres come within one digit of x\*\*
 in several unrelated ways. We see no structure to exploit (Assessment).
+
+## 5. Summary (labels)
+
+* PROVED: Lemma 2.1 (parity of the ES level in the (2,2) cell); x\*\* cannot be shown sterile by any argument that
+  depends on `x mod 143` only (since x\* is covered); Prop. 4.1 (measure criterion near x\*\*; a reduction).
+* CERTIFIED (one engine, validated against 13B's engine and an independent Python check): x\*\* lies in no ET class of ES
+  level `< 2.59·10¹⁰` (Comp. 3.1). Only 7 boxes of these levels meet `C_3(x**)`, total mass `7.7·10⁻⁵` (Comp. 3.2).
+  The nearest boxes miss x\*\* by a factor 11 (Comp. 3.3).
+* Conjecture 5.2 of 13B (x\*\* sterile) stays OPEN. EVIDENCE for it is strengthened but not decisive (Assessment):
+  the mass of new boxes near x\*\* per level decays, yet the near misses show no structural reason for survival.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/m13e_boxtest.py 2 15 R13B          # §0 (R13B = 13B/13C run dir); also 2 2
+gcc -O2 -o /tmp/es_old scripts/m13b_es.c; gcc -O2 -march=native -o /tmp/es scripts/m13e_es.c -lm
+for N in 11 121 143 1331 1859 2197 24167 371293 32166277; do diff <(/tmp/es $N|grep -v '#'|sort) <(/tmp/es_old $N 2>/dev/null|cut -d' ' -f1,2|sort); done   # §1 (i)
+N=10604499373; PYTHONPATH=scripts uv run python scripts/m13e_es_check.py /tmp/es $N $((N/4)):3000 $((N/3)):2000 $((N/2-1000)):2000 \
+  $((3*N/4-1500)):2000 3535763724:1000 3536897072:1000 5302146211:1000 2700042196:1000 2706116056:1000 2651124844:200   # §1 (iv)
+scripts/m13e_run.sh 1 4600000000 R1; scripts/m13e_run.sh 4600000000 10700000000 R2     # Comp 3.1 (~6 h on 2 cores)
+PYTHONPATH=scripts uv run python scripts/m13e_cmp_runs.py R13B R1                        # §1 (v)
+PYTHONPATH=scripts uv run python scripts/m13e_summary.py R1 R2                           # Comp 3.1
+PYTHONPATH=scripts uv run python scripts/m13e_parity_check.py R13B                       # Lemma 2.1 check
+mkdir A; ln -s $PWD/R1/inv_*.pkl $PWD/R2/inv_*.pkl A/
+PYTHONPATH=scripts uv run python scripts/m13e_density.py A 2 4; ... A 3 5               # Comp 3.2
+PYTHONPATH=scripts uv run python scripts/m13e_closest.py 2 15 R1 R2                      # Comp 3.3
+```
+(The run of §1 (v) used the first engine version, commit 91a45ed. Run R1 also used it; R2 used the bitmap version.)
