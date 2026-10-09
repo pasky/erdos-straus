@@ -56,6 +56,13 @@ Hence the {3,11,13}-generic points of class 112561 (`x_3≡7 (9)`) and the {7,11
 class 380881 (`x_7≡4 (7)`) are all covered, as are the {11,13}-generic points of 352801, 418321, 483841
 (POINTWISE_MORDELL §2). **Only class 473761 contains known uncovered T-generic points (e.g. x**).**
 
+**Computation 3.1 (CERTIFIED, complete at k = 2; engine of 13B §4).** 13B's k = 2 row was incomplete only because
+ES levels up to `F²` are needed; for T-levels `F | 11²13²` the ES level N divides `F² | 11⁴13⁴` (13B Cor. 2.5), and the
+only such N above 4·10⁷ is `11⁴13⁴ = 418161601`. `m13b_es 418161601` (72 min, 131104 solutions) + `m13b_invert.py`
+(20668 boxes, none containing x*) + `m13b_cell.py 2` over all ES levels: **the uncovered part of the (2,2) cell at
+resolution `11²·13²` is exactly the product `x_11 mod 121 ∈ {2,57,79}` × `x_13 mod 169 ∈ {15,28,54,132,145}`**
+(15 of 143 subcells, 10.5%), now for *all* ET classes whose T-level divides `11²·13²` (any T-free part).
+
 ## 4. Tree certificates (method)
 
 A tree certificate (`m13c_dfs.py` output) refines each of the six roots `x mod 720720` at primes p
@@ -131,5 +138,7 @@ for L in 9240 10920 65520; do PYTHONPATH=scripts uv run python scripts/m13c_witn
 PYTHONPATH=scripts uv run python scripts/m13c_level.py 1000000 13,17,19,23 complete          # Comp 2.1, ~16 min
 PYTHONPATH=scripts uv run python scripts/mordell_tgen.py 1000000 13 2 3,11,13                 # §3, ~7 min (also 7,11,13)
 uv run python scripts/m13c_sqchk.py                                                          # §1 (PYTHONPATH=scripts)
+gcc -O2 -o /tmp/o100/es scripts/m13b_es.c; /tmp/o100/es 418161601 > R/es_418161601.txt   # Comp 3.1, 72 min; R = copy of 13B run dir
+PYTHONPATH=scripts uv run python scripts/m13b_invert.py 418161601 R/es_418161601.txt R/inv_418161601.pkl; PYTHONPATH=scripts uv run python scripts/m13b_cell.py 2 R
 gcc -O2 -o /tmp/o100/target2 scripts/m13c_target2.c; /tmp/o100/target2 2 15 110000000 12 20000000   # §5 (also 2e8 from 1.1e8)
 ```
