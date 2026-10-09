@@ -204,3 +204,47 @@ ranges. With `|Γ(it)|²cosh(πt) ≍ 1/(1+|t|)` this gives
 Eisenstein part. Multiply by `2/φ(q)`. ∎
 *Remark.* `(λ/Y)·q^{1/2}M^{−1}λ^{−1} = q^{1/2}/(MY) = F/(q^{1/2}√d)` (since `1/Y = qF√d`, `M = dq²`):
 this is the "cusp" term `1/(Y·level)` of §3.
+
+## 6. Per-d counts with the sieve congruence (conditional on (SEL))
+
+**Parity.** The Type I forms are `𝓕_d^I := {[f, 4ad, de] : ef − 4a²d = 1, e,f > 0, a ∈ ℤ}`
+(`B ≡ 0 (mod 4d)`), a subset of 𝓕_d that is not `Γ₀(d)`-stable (MN3 Lemma 3.1, R108). It **is** stable
+under `Γ₀(d) ∩ Γ(2)` (w-side): with `γ_z = [[p,t],[r,s]] ∈ Γ⁰(2d) ∩ Γ₀(2)` (z-side),
+`B' = 2Apt + B(ps+tr) + 2Crs ≡ 0 (4d)` because `2d | t`, `4d | B`, `C = de`, `2 | r`. So take
+`Γ' := Γ₀(d) ∩ Γ(2q)` (w-side) and `u = w/(2q)`: `u_Q = (−2a + i/√d)/(2qf)`, cusp width 1, and
+`Γ'' ⊇ Γ₁(M)` with `M | 16dq²`; (SEL) and the large sieve are applied to `Γ₀(M)` with characters mod `2q`.
+
+**Local densities.** For a prime `ℓ ∤ 2d` put
+`g_{c,d}(ℓ) := #{(A,B,C) ∈ 𝔽_ℓ³ : B² − 4AC = −4d, cB − A = 0} / #{(A,B,C) : B² − 4AC = −4d}`,
+and `g_{c,d}(q) = Π_{ℓ|q} g_{c,d}(ℓ)`. Then `g = (ℓ−1)/(ℓ² − χ(ℓ)ℓ)` if `ℓ ∤ c` (χ = `(−d/ℓ)`), and
+`g = (1+χ(ℓ))/(ℓ − χ(ℓ))` if `ℓ | c`. For `ℓ | 2d`, no n is divisible by ℓ (n is odd; if `ℓ | d` then
+`n ≡ −f` and `f | 4a²d+1 ≡ 1 (ℓ)`), so those primes are not sieved.
+
+**Lemma 6.1 (main term factorises; PROVED).** For `q` squarefree, `(q,2d) = 1`, let
+`Λ̃(q) = {u_Q : Q ∈ 𝓕_d^I, q | cB − A}`, `#Λ(q)` its orbifold count mod `Γ'_q := Γ₀(d)∩Γ(2q)`,
+`V(q) = vol(Γ'_q\ℍ)` (w-side). Then `#Λ(q)/V(q) = g_{c,d}(q) · #Λ(1)/V(1)`.
+*Proof.* `[Γ'_1 : Γ'_q] = |SL₂(ℤ/q)|` (strong approximation, `(q,2d) = 1`). For one `Γ'_1`-orbit
+`O = Γ'_1·Q₀`, the weighted number of `Γ'_q`-orbits in `O ∩ Λ̃(q)` is
+`e_{Q₀}^{−1} · #{g ∈ SL₂(ℤ/q) : Q̄₀∘g ∈ S_q}` with `S_q = {cB − A ≡ 0}`; by orbit–stabiliser this is
+`e_{Q₀}^{−1}|SL₂(ℤ/q)| · |S_q ∩ 𝒪(Q̄₀)|/|𝒪(Q̄₀)|`. For `ℓ ∤ 2d` the orbit `𝒪(Q̄₀)` mod ℓ is the whole
+quadric `{B² − 4AC = −4d}` (SL₂(𝔽_ℓ) acts on binary forms through SO of the discriminant form, which is
+transitive on each non-zero level set — Witt), so the ratio is `g_{c,d}(ℓ)`, independent of Q₀; CRT. ∎
+
+**Theorem 6.2 (per-d count; PROVED conditional on (SEL) and the cited large sieve).** Let
+`ψ(u) = φ(x/λ)W(y/Y)` as in §5, with `λ ≍ A/(qF)`, `Y ≍ 1/(qF√d)` (i.e. `f ≍ F`, `a ≍ A`), `F ≥ 8A`.
+Then with `𝔐_d := (#Λ(1)/V(1)) ∫ψ dμ` (independent of q and of the sieve),
+`|Σ_{Q∈𝓕_d^I, q | n(Q)} ψ(u_Q) − g_{c,d}(q) 𝔐_d| ≪_ε 𝓛^C q (#Λ(1))^{1/2} (A√d + F^{1+ε} d^{−1/2})^{1/2}`.
+*Proof.* Cor 4.4 (separation, Lemma 2.2, holds for the subset `Λ̃(q)`), Lemma 6.1 for the main term, and
+Prop 5.1 with `λ/Y ≍ A√d`, `q^{1/2}/(MY) ≍ F/(q^{1/2}√d)`, `λ²/Y ≤ λ/Y`; finally
+`#Λ(q) = g(q)|SL₂(ℤ/q)| #Λ(1) ≪ q² #Λ(1)`. ∎
+
+**Lemma 6.3 (class numbers; PROVED, standard).** `#Λ(1) ≤ 6·h(−4d)·r(d)` where `h(−4d) ≪ d^{1/2} log d`
+is the number of SL₂(ℤ)-classes of forms of discriminant −4d and `r(d) ≤ 4·∏_{p^k∥d} p^{⌊k/2⌋}`.
+Hence `Σ_{d≤D} #Λ_d(1) ≪ D^{3/2}(log D)^3`.
+*Proof.* `#Λ(1) ≤ [Γ₀(d)∩Γ(2) : …]`-weighted count of pairs (SL₂-class `[Q₀]`, coset `γ ∈ Γ⁰(d)\SL₂(ℤ)`)
+with `Q₀∘γ ∈ 𝓕_d`; the factor 6 = `[Γ₀(d) : Γ₀(d)∩Γ(2)] ≤ 6`. Cosets ↔ second columns `(t:s) ∈ ℙ¹(ℤ/d)`,
+and `Q₀∘γ ∈ 𝓕_d` forces `Q₀(t,s) ≡ 0 (d)`. `𝓕_d` forms are primitive (`(f,d) = 1`, `(f,e) = 1`).
+For odd `p^k ∥ d` and primitive `Q₀ = [A,B,C]` with `p ∤ A` (WLOG after SL₂-change), points with
+`p | s` give `Q₀ ≡ A t² ≢ 0`; points `(t:1)` need `(2At + B)² ≡ B² − 4AC ≡ 0 (p^k)`, i.e. t in one class
+mod `p^{⌈k/2⌉}`: `p^{⌊k/2⌋}` points. For `p = 2` the same argument with `4A` gives `≤ 4·2^{⌊k/2⌋}`.
+`Σ_{d≤D} r(d) d^{1/2} log d ≪ D^{3/2} (log D) Σ_{m} m/m^{3}·… ≪ D^{3/2}(log D)^3`. ∎
