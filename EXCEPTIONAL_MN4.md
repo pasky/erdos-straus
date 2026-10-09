@@ -531,3 +531,50 @@ Adding (1), (2a), (2b-low), bands and (5): the claim (`(log L)³ ≪ L`, `L log�
 O(1) multiples of the main term). (ii) Where m enters: only through `h = φ(m)/m` (main terms, cancelling the
 sieve's `g(m)`) and polynomially in remainders. The restriction `m ≤ L^5` is used only to absorb `m^{C'}`
 into `L^{C}` and `2^{ω(m)}, g(m) ≤ L^{o(1)}` into lower-order terms; it costs nothing by Lemma 0.1.
+
+## 5. The lower side without log L, and the sharp-order transition (CONDITIONAL on (SEL_m))
+
+`ρ_rep(m,N)` = proportion of m-representable primes in `(N/2, N]` (MN2 Thm L); `A := L/m^{1/3}`.
+
+**Theorem 5.1 (= Thm L''; CONDITIONAL on (SEL_m)).** For all `m ≥ 4`, `N ≥ 16`:
+`ρ_rep(m,N) ≪ (L³ + L² log² m)/m + m^{−0.35}`, i.e. `ρ_rep ≪ A³ + A² m^{−1/3} log² m + m^{−0.35}`.
+*Proof.* Cases.
+(i) `log m > L/10`: MN2 Lemma 3.5 gives `ρ_rep ≤ e^{CL/log L}/m`. If `L ≥ L₀ := e^{20C}` then
+`CL/log L ≤ 10C log m/log L ≤ 0.65 log m`, so `ρ_rep ≤ m^{−0.35}`; if `L < L₀` then either `ρ_rep = 0` or
+`m ≤ 3e^{L} < 3e^{L₀}` (MN2: `L ≥ log(m/3)` if `ρ_rep > 0`), and the claim is trivial (RHS ≫ 1).
+(ii) `log m ≤ L/10`, `m > L^5`: Lemma 0.1 (MN3 Thm L'; `L ≤ m^{1/5} ≤ m^{1/2}`), unconditional.
+(iii) `m ≤ L^5` (so `log m ≤ L/10` for N ≥ N₀): `π*(N) ≫ N/L`; Type II primes: MN2 Prop 3.2, `≪ (N/L)(L³ + m^{0.02})/m`;
+Type I primes: at most `Σ_{N/2<p≤N} f_{I,m}(p)`, Theorem 4.1 for `N ≥ N₀`. Divide by `π*(N)`;
+`m^{0.02}/m ≤ m^{−0.35}`. For `N < N₀` the claim is trivial as in (i) (m ≤ L^5 bounded). ∎
+
+**Theorem 5.2 (sharp order of the transition; CONDITIONAL on (SEL_m) for the lower half only).**
+For every `ε ∈ (0,1)` there are `c_ε, A_ε > 0` and `m_ε` such that for all `m ≥ m_ε` and `N ≥ 16`:
+* (lower; CONDITIONAL on (SEL_m)) `log N ≤ c_ε m^{1/3}` ⟹ `ρ_rep(m,N) ≤ ε`;
+* (upper; PROVED unconditionally, MN2 Thm U, ineffective) `log N ≥ A_ε m^{1/3}` ⟹ `ρ_rep(m,N) ≥ 1 − ε`.
+So under (SEL_m) the density transition for m/p sits at `log N ≍ m^{1/3}`, with matching orders on
+both sides (absolute constants; only the window constants `c_ε, A_ε` depend on ε).
+*Proof.* Lower: Thm 5.1 with `A ≤ c_ε`: `ρ_rep ≤ C(c_ε³ + c_ε² m^{−1/3}log² m + m^{−0.35}) ≤ ε` for `c_ε = (ε/3C)^{1/3}`
+and `m ≥ m_ε`. Upper: MN2 Thm U (`ρ_exc = 1 − ρ_rep`), valid for all `m ≥ 4`. ∎
+(`m ≥ m_ε` is needed only for the lower half, to make `m^{−0.35}` and `m^{−1/3}log² m` small; for bounded m the
+transition question is about bounded N and is not asymptotic.)
+
+*Remarks.* (i) Theorem 5.1 gives the profile bound `ρ_rep ≪ A³` for `m^{−0.11} ≪ A ≪ 1` (the other two terms
+are then smaller), the same shape as the small-A end of the EVIDENCE fit `1 − exp(−κA³)` of MN2 §2.
+That fit is evidence only. (ii) MN2 Conj C2 (no sharp threshold) is untouched: nothing here says whether
+`ρ_rep` has a limit profile `F(A)`.
+
+## 6. What is unconditional
+
+* Unconditional and new here (PROVED): Lemma 1.1 (reduction for general m); §2.1 (separation and
+  parity-free invariance for the level-md Heegner forms `[f, 2mad, mde]`, all m); §2.3, §2.5, §2.6 (local
+  densities, class counts `≪ √(md) log`, the (K_a) count with modulus `ma²`); §3 (Brun–Titchmarsh masses with
+  the exact `φ(m)/m` gain, uniform for `m ≤ L^5`; §3.4 also drops MN3 Prop 2.5's hypothesis `L ≤ √m` in that
+  range). §3.2(c) needs `D, F ≥ L^{100}`: the all-ranges version is **false** (Issues in §3).
+* Unconditionally the lower side remains MN3 Thm L': `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`, i.e. the
+  transition is pinned to `c(m/log m)^{1/3} ≤ log N ≤ A m^{1/3}` (the `(log m)^{1/3}` gap is the BT `log L`
+  at `L ≍ m^{1/3}`). The SEL-free part of the argument fails exactly as in TTL §9: the strip near `d = a`
+  where Kim–Sarnak's exceptional eigenvalues beat the saving has positive width in `log(A/D)/L`, independent of
+  m (m enters only through `L^{O(1)}` factors), and a positive-width strip still costs `log L`.
+* (SEL_m) is used only in Prop 5.1 of TTL (via Thm 6.2_m) for `Γ₀(mdq²)` with even nebentypus mod q; it is
+  implied by Selberg's conjecture `λ₁ ≥ 1/4` for all `Γ₁(M)`, and is the same hypothesis family as TTL's
+  (levels `4dq²` there), now also with levels divisible by m.
