@@ -72,7 +72,10 @@ The campaign ran two lines of research.
   and in progressions of small or rough modulus ((D)30, PROVED relative
   to the 3/4 note; modest novelty). For m/n the same argument gives
   `E_m(N) ≤ C N exp(−c(log N)^{3/4} m^{−1/4})` uniformly in m ≥ 4
-  ((D)31, PROVED relative to the 3/4 note).
+  ((D)31, PROVED relative to the 3/4 note). Its follow-up locates the m/p
+  density transition at `log N = m^{1/3}` up to a factor
+  `(m log m/phi(m))^{1/3}` (Thms U and L, PROVED relative to the inputs
+  named in the ledger; the half-point `1.95 m^{1/3}` is EVIDENCE).
 * **Pointwise line.** It tried to prove ES prime by prime through a
   signed solution graph. That line is **closed**: under standard prime
   hypotheses, the programme cannot work. The closure grew into a
@@ -102,6 +105,10 @@ The campaign ran two lines of research.
   outside six classes mod 720720 (PROVED by finite computation). The
   first candidate sterile point x* for r = 13 turned out to lie in an
   explicit class of modulus 12670944 (its conjecture is REFUTED, (F)11).
+  A tree certificate (PROVED by finite computation) shrinks the r = 13
+  exceptions to 35459 classes, 8.42e-5 of the six classes mod 720720.
+  The Type-I tower at `x̂_9` is CERTIFIED empty for `v_7(k) <= 15` at
+  levels 7-10; for r = 17, cumulative counts suffice (constant 1.497).
   The remaining candidates, `x̂_9` for Type I, x** = x(2,15) for r = 13,
   and a point on the 17-generic line for r = 17, are CONJECTURES
   ((H)17, (H)34). No sterile point other than the square points is proved.
