@@ -58,12 +58,13 @@ and with `p ≍ 1/δ` this is `exp(O(δ^{−1}log(2/δ)))`, inside 𝓔(·).
 
 ## 2. DI Thm 7 from three effective inputs: the induction made explicit (PROVED rel. (P1)–(P3))
 
-**Notation (DI (8.4)).** For `Q, Y, N ≥ 1`, `t ∈ ℝ` and an interval `I = (N, N₁]`, `N₁ ≤ 2N`, put
+**Notation (DI (8.4)).** For `Q, Y, N ≥ 1`, `t ∈ ℝ` and a closed interval `I = [N, N₁]`, `N ≤ N₁ ≤ 2N` (closed, as in
+DI (8.17), so that n = 1 is covered by `[1,1]`; all input proofs only use `m, n ∈ [N, 2N]`), put
 `S(Q,Y,N,t;I) := Σ_{Q<q≤16Q} Σ_{j exc, Γ₀(q)} Y^{2σ_j} |Σ_{n∈I} n^{it} ρ_{j∞}(n)|²` (σ_j = iκ_j ∈ (0,1/4], DI's
 normalisation, TTL2 §1), and `S*(Q,Y,N) := sup_I S(Q,Y,N,0;I)`. Two trivial facts:
 **(M)** for `Y ≥ Y' ≥ 1`: `S(Q,Y',N,t;I) ≤ S(Q,Y,N,t;I) ≤ (Y/Y')^{1/2} S(Q,Y',N,t;I)` (as `0 < 2σ_j ≤ 1/2`, Selberg
 3/16 = DI Thm 4, proved there with absolute constants).
-**(PS)** `S(Q,Y,N,t;I) ≤ 2(1+t²) S*(Q,Y,N)`. *Proof.* With `A(ξ) := Σ_{N<n≤ξ}ρ(n)`, Abel summation gives
+**(PS)** `S(Q,Y,N,t;I) ≤ 2(1+t²) S*(Q,Y,N)`. *Proof.* With `A(ξ) := Σ_{N≤n≤ξ}ρ(n)` (sum over `[N,ξ]`, again an admissible interval), Abel summation gives
 `Σ_{n∈I} n^{it}ρ(n) = N₁^{it}A(N₁) − it∫_N^{N₁}A(ξ)ξ^{it−1}dξ`; so `|·|² ≤ 2|A(N₁)|² + 2t²(log 2)∫_N^{2N}|A(ξ)|²dξ/ξ`
 (Cauchy–Schwarz for `dξ/ξ` on `[N,2N]`); multiply by `Y^{2σ_j}`, sum, and use `(log 2)² ≤ 1`. ∎
 
