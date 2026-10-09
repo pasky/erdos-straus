@@ -546,5 +546,7 @@ Thm 6.2 used in (b5) (same point set, linear functional `cB − C/d`; the densit
 ```
 uv run python scripts/ttl_separation.py                         # Lemma 2.1/2.2 check, ~1 min
 PYTHONPATH=scripts uv run python scripts/ttl_perd.py 20000 400000 7 31 101 1009 3001 10007   # §3 evidence, ~10 min
+uv run python scripts/o112_checks.py                             # §8.0 identities (b ≥ a/2, e | a+b, coprimalities); e-cusp density = f-cusp density, ~1 min
+uv run --with sympy python scripts/o112_lemma83.py              # Lemma 8.3(c) sanity: normalised sums stay ≈ 0.6, ~5 min
 ```
-Outputs: `scripts/ttl_*.out.txt`. DI 1982 scan: `sources/o111/deshouillers-iwaniec-1982.pdf` (Thm 5 on p. 232).
+Outputs: `scripts/ttl_*.out.txt`, `scripts/o112_*.out.txt`. DI 1982 scan: `sources/o111/deshouillers-iwaniec-1982.pdf` (Thm 5 on p. 232).
