@@ -39,5 +39,24 @@ even d. `Σ_{d≤D} r(d) ≪ D log D`, so the final bound even holds with `(log 
 relative error is **not** uniform in d (Siegel: `#Λ(1)` can be ≈ d^{1/2−ε}); the proof correctly avoids
 this by summing absolute errors via Cauchy–Schwarz — the paper should say so explicitly (D11).
 
+**V6. Lemma 1.1 — SOUND.** `#{(j,k) ∈ [1,L]²: max(j,k) = m} = 2m−1`, so the identity and `≤ 2L` hold;
+the application (m_{jk} ≪ NL per (c-block, a-block), from ET (8.2)-type mass) is consistent. j = 0
+(c ≍ 1, no BT saving) costs only `Σ_k NL·C/k ≪ NL log L` — harmless, but not mentioned (minor).
+
+**V7. Prop 4.3 / Lemmas 4.1–4.2 (Sobolev duality, uniform in Γ') — SOUND (modulo ±I bookkeeping).**
+`h(t) = (5/4+t²)^{−2}` is holomorphic in `|Im t| < √5/2 > 1/2` with `t^{−4}` decay, so the pre-trace
+kernel is legitimate; `1−Δ = −Δ − s(1−s)` at `s = φ`, so the decay rate `e^{−φr}` (times `r` for the
+square) is right; packing only uses the separation radius, hence uniform in Γ', d, q. The pairing
+`ν(P₀) = ⟨(1−Δ)P₀,(1−Δ)^{−1}ν⟩` is fine (resolvent kernel has a log singularity, in L²). If −I ∈ Γ' the
+kernel sum double-counts (factor ≤ 2). P_ψ ∈ L² since ψ has compact y-support (vanishes high in every cusp).
+
+**V8. Thm 6.2 (per-d count) — SOUND at outline level, given Prop 5.1.** Re-derived the bookkeeping:
+`#Λ(q)^{1/2} ≈ q #Λ(1)^{1/2}`, main `≈ 𝔐_d/q`, relative error per q `≈ q²[(d/A)^{1/2} + F'^{1/2}/A]`,
+summed absolutely over d via Lemma 6.3 + Cauchy–Schwarz. Main-term density checked numerically from
+scratch (`scripts/review_ttl_perd.py`: d = 101, 1009, A = 2·10⁴, F' ≈ A√d/2, c ∈ {1,2,3,5}, q ≤ 23 —
+all counts within ~±2σ of `g_{c,d}(q)·N_d(1)`, including the `ℓ | c` cases, e.g. g = 0 for c = q = 3,
+d = 1009). Weak evidence (sharp cut-offs, small sizes) but it confirms the orbital density is the
+arithmetic one. Defects: D5 (cusp-width/period inconsistency F ≥ 8A vs f' ≥ A/8), D10.
+
 ## Defects
 (filled below)
