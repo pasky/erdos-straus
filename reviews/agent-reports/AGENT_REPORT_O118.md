@@ -8,7 +8,7 @@ runs: no errors, no undefined refs, no overfull boxes), `paper/README.md`, `revi
 * **Title/abstract** rewritten. Theorem 1 is unconditional; Theorem 2 is (SEL)-or-(EFF) conditional. The abstract
   keeps the caveats: relative to cited inputs, internal review only.
 * **Intro.** Thm 1 (= Thm 9.9(i), PROVED rel. DI Thm 7 + Drappeau Lemma 4.10): `≤ Cε₀N L² log L + O_{ε₀}(N L²)`.
-  (SEL) is stated as before. (EFF) is described in words, with a forward reference to Hyp 9.x.
+  (SEL) is stated as before. (EFF) is described in words, with a forward reference to Hyp 9.8.
   Thm 2 (`≪ N L²`) holds under (SEL) (Thm 8.1) or under (EFF) (Thm 9.9(ii)). There is a new paragraph explaining the
   level-average remedy. The status paragraph lists the new cited inputs: DI Thm 7; Drappeau L4.10, uniform in q₀
   (our reading); and the residual spectrum of congruence groups (Iwaniec §11, Huxley 1984; locators unverified).
