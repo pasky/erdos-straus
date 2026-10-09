@@ -5,6 +5,7 @@ At each step the current node x mod L is open w.r.t. all classes M | L (complete
 (primes < Pm, or the next power of a prime of L) count the children open w.r.t. all M | L*q; print
 (bits of L, min #open, argmin q, #children); if min = 0 the dive ends ('closed'), else continue with a random
 open child of a random argmin split (ties broken by smaller open fraction).
+Splits leaving ALL children open (no progress, e.g. 2-adic refinement at a 2-adic 'limit point') are excluded.
 """
 import sys, time, random
 from math import gcd
@@ -31,9 +32,13 @@ for k, line in enumerate(open(sys.argv[1])):
                 if not E.query(y, L2, rq):
                     op.append(y)
                     if best is not None and len(op) > best[0][0]: break
+            if len(op) == len(Y) and len(Y) > 0:
+                continue                       # no-progress split (all children open): excluded
             key = (len(op), len(op) / len(Y))
             if best is None or key < best[0]:
                 best = (key, rq, L2, op, len(Y))
+        if best is None:
+            print(f"dive {k} no progressing split", flush=True); break
         (o, fr), rq, L2, op, ny = best
         print(f"dive {k} step {step} bits {L.bit_length()} minopen {o} q {rq} n {ny} t {time.time()-t0:.0f}s", flush=True)
         if o == 0:
