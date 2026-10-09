@@ -25,7 +25,7 @@ hbox in Prop 6.2 ("Put") and one underfull vbox at a page break.
 
 ## Points for the parent's review
 * Thm 6.7 uses 1.411·10⁻³ (strict upper bound for T_Q = 1.4106·10⁻³) and the factor 32/17 = 2·16/17; check against
-  17C Lemma 1.1 / table (1.497 is the floor-rounded cumulative threshold there; not recomputed by me).
+  17C Lemma 1.1 / table (1.497 is the floor-rounded cumulative threshold there; my one-line re-sum gives 1.49791 cumulative, 1.40980 pointwise).
 * Thm 4.18's sketch compresses TYPEI6 Thm 3.2; "the other regimes and the case 2y > T7^b are finite" cites TYPEI5 Prop 3.3
   and TYPEI6 §3 (case A for general L is TYPEI6's R99 D1 repair).
 * No new mathematics, no new computations; nothing re-run except LaTeX.
