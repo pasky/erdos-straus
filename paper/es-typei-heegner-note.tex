@@ -1964,14 +1964,19 @@ because $A\ge N^{1/3-2\eta_1}$ on the bad region.
 \end{proof}
 
 \subsection*{The Type~I sum}
-\begin{hypothesis}[EFF]\label{hyp:eff}
+\begin{theorem}[(EFF); \status{proved} relative to (B1)--(B5), Appendix~\ref{sec:eff}]\label{hyp:eff}
 There is an absolute $A_0$ such that $(\mathrm{DI7}_\varepsilon)$ holds with
 $C_\varepsilon\le\exp(\exp(A_0/\varepsilon))$ for all $\varepsilon\in(0,1/4]$,
-for DI's Theorem~7 and for Drappeau's Lemma~4.10, uniformly in $q_0$.
-\end{hypothesis}
-(EFF) concerns only the constants in two published proofs, which state
-$\ll_\varepsilon$ without specifying the dependence on $\varepsilon$; see
-Assessment~\ref{E:ass}.
+for DI's Theorem~7 and for Drappeau's Lemma~4.10, uniformly in $q_0$ and in
+the even character $\chi$ modulo $q_0$.
+\end{theorem}
+This is Theorem~\ref{A:eff}. The published proofs \cite{DI,Dr} state
+$\ll_\varepsilon$ without specifying the dependence on $\varepsilon$;
+Appendix~\ref{sec:eff} makes them effective (black boxes (B1)--(B5): exact trace
+formulae, Weil's bound and a twisted Weil bound, Selberg's $3/16$, and
+$\lambda_1(\SL_2(\Z))>1/4$). Only even $\chi$ occur below. In earlier versions
+of this note (EFF) was a hypothesis, supported only by an audit
+(Remark~\ref{E:ass}).
 
 \begin{theorem}\label{E:main}
 Let $\cL=\log N$.
@@ -1984,7 +1989,9 @@ $\varepsilon_0\in(0,1/4]$
  \sum_{p\le N}f_I(p)\le C\varepsilon_0N\cL^2\log\cL+O_{\varepsilon_0}(N\cL^2).
 \]
 In particular $\sum_{p\le N}f_I(p)=o(N\log^2N\log\log N)$.
-\item[(ii)] \status{conditional} on \textup{(EFF)}: $\sum_{p\le N}f_I(p)\ll N\log^2N$.
+\item[(ii)] \status{proved} relative to the cited inputs of
+Section~\ref{sec:intro} and to Theorem~\ref{hyp:eff} \textup(i.e.\ to
+(B1)--(B5) and Appendix~\ref{sec:eff}\textup): $\sum_{p\le N}f_I(p)\ll N\log^2N$.
 \item[(iii)] (quantified form) If $C_\varepsilon\le G(1/\varepsilon)$ with $G$
 nondecreasing, then $\sum_{N/2<p\le N}f_I(p)\ll N\cL^2(1+w\log\cL)$ for every
 $w\in[\cL^{-1/2},1/4]$ with $\log G(64/w)\le w\cL/16$, the implied constant
@@ -2047,13 +2054,13 @@ The side $D\ge A$ never used (SEL): it is covered by the per-$a$ Weil
 count (Proposition~\ref{L:7.1}). The ``strip'' of the earlier
 unconditional discussion is therefore exactly the set of non-good layers,
 contained in $0<\delta<w$; its cost $w\,N\cL^2\log\cL$ is $O(N\cL^2)$ if and
-only if $w\ll1/\log\cL$, which is what (EFF) provides. Nothing about the
+only if $w\ll1/\log\cL$, which is what (EFF) (Theorem~\ref{hyp:eff}) provides. Nothing about the
 location of exceptional eigenvalues remains: Kim--Sarnak is not used,
 and only Selberg's $\sigma_j\le1/4$ enters, inside DI's proof.
 \end{remark}
 
-\begin{assessment}[effectivity of DI Theorem~7 and Drappeau's Lemma~4.10]\label{E:ass}
-An internal audit of DI pp.~228--236, 242--245, 253--278 and of
+\begin{remark}[history: the effectivity audit, superseded by Appendix~\ref{sec:eff}]\label{E:ass}
+Before Appendix~\ref{sec:eff} was written, an internal audit of DI pp.~228--236, 242--245, 253--278 and of
 \cite[\S4.2.3]{Dr} locates the $\varepsilon$-losses in divisor bounds
 $\tau(k)\ll k^\varepsilon$, logarithmic factors, an integration by parts of
 order about $2/\varepsilon$ \cite[(1.27), p.~257]{DI}, and the inductions on
@@ -2063,12 +2070,14 @@ exceptional spectrum, and Selberg's $3/16$ is explicit. With DI's
 unspecified $C^\infty$ cutoff chosen of Gevrey class~2, the bookkeeping
 suggests $C_\varepsilon\le\exp(\exp(A/\varepsilon))$. For Drappeau's nebentypus
 version the same two inductions appear; his twisted trace formulae were
-not audited, so (EFF) there is only very plausible. This is an
-assessment, not a proof: neither paper states a quantitative
-$C_\varepsilon$. Any published form of the two estimates with
+not audited, so (EFF) there was only very plausible. Appendix~\ref{sec:eff}
+turns this assessment into a proof; on the way the twisted trace formulae
+were checked, and the nebentypus induction turned out to need an extra
+small-$C$ branch (Proposition~\ref{A:ind}, case (C2)). Independently of the
+appendix, any published form of the two estimates with
 $(QN)^\varepsilon$ replaced by $\exp(o(\log(QN)/\log\log(QN)))$ would suffice
 via Theorem~\ref{E:main}(iii).
-\end{assessment}
+\end{remark}
 
 \begin{remark}[general numerators]\label{E:mn4}
 The internal note \cite{MN4} carries the conditional argument over to
@@ -2286,7 +2295,7 @@ $q_0\ge1$ and every even character $\chi$ modulo $q_0$, holds with
 where $K_7^\chi$ is the constant of Theorem~\ref{A:neb} below. One may take
 $A_0=24B_\chi+30$, $B_\chi=400+64b+16\log(2+C_W)$, $b=\max(4,\lceil B_W+1\rceil)$,
 with $C_W,B_W$ from (B3); e.g.\ $A_0<2\cdot10^4$ if $B_W\le3$, $C_W\le10$.
-In particular Hypothesis~\ref{hyp:eff} holds.
+This is Theorem~\ref{hyp:eff} of Section~\ref{sec:exc}.
 \end{theorem}
 
 \paragraph{Black boxes.} The following are used as exact identities or as
