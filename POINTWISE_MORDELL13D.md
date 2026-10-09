@@ -84,3 +84,37 @@ open child: the min-count split is `2^k` with **both** children open, for 25 con
 2 of 3 dives — i.e. the open set contains whole 2-adic discs at these depths (no class with `M | L` separates
 them, however high the 2-power). Pure 2-adic refinement makes no progress; dives v2 exclude splits with all
 children open.
+
+## 3. Assessment (status after ≈ 7 h; no root closed)
+
+* **No root is closed; Theorem 3.1(b) of POINTWISE_MORDELL is unchanged; no certificate was produced** (no tree
+  with zero open leaves exists to check). The claimed "ES for all p with (p/13) = −1" is **not** reached.
+* What is established: a validated complete-witness engine (§1; 0 mismatches on 240 random leaves + 790 children)
+  — ≈ 10⁴× faster than `m13c_witness.py` at `L ≈ 10¹⁹` — and a hybrid DFS (§2) whose output is in the 13C
+  tree format (both 13C checkers apply unchanged to any closed tree it may produce).
+* EVIDENCE that closing 418321 with splits at primes `≤ 100–120` is out of reach of this method: at every depth
+  sampled (`L` from 2⁴⁰ to 2⁹⁰), the best split (complete engine, *all* candidate splits) leaves on average
+  ≈ 1.3–3 open children per open node (Comp 2.6, runs 2.1–2.7, dives), so the open-leaf count grows
+  geometrically (≈ ×2.5 per expansion) while only the open *mass* decays (`5·10⁻⁹` of the root after one hour,
+  vs `1.95·10⁻⁸` for 13C's tables after 142088 nodes). Pure p-adic refinement at a prime already in L makes no
+  progress beyond a few levels (dives v1: 25 levels of `2^k` with both children open): covering classes
+  need `4ad | x+f` for divisors `f | L`, which pins only `τ(L)` discs per level.
+* The open set is concentrated on points that are quadratic residues at almost all primes `∉ {11,13}`
+  (run 2.2), consistent with the non-square lemma (13C §1). Whether the uncovered set of the root in
+  `∏_{p≤P} ℤ_p` is empty for some P (which is necessary and, by compactness, sufficient for a finite tree) is
+  open; this work gives no evidence either way beyond the growth rates above.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/o103/wit scripts/m13d_wit.c          # (m13d_wit.py rebuilds automatically; env M13D_WIT = binary)
+PYTHONPATH=scripts uv run python scripts/m13d_validate_small.py 9240 10920 65520 720720       # §1 (i) (script inlined in report)
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 200 1 0 2 5            # §1 (ii), T = 13C §8.2 tree
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 20 3 20 5 7            # §1 (iii)
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 10 4 10 3 4; … T 30 2 0 0 2   # §1 (iv)
+PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 5000 3600 out.json.gz       # 2.1
+PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 100000 3600 out.json.gz 6   # 2.2
+M13D_CAPS=2:12,3:8,5:5,7:4 M13D_PRIO=2,3,5,7 PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 100000 3600 out.json.gz 6   # 2.7
+PYTHONPATH=scripts uv run python scripts/m13d_minopen.py nodes.txt 120             # 2.6 (nodes = 20 open leaves of 2.2)
+PYTHONPATH=scripts uv run python scripts/m13d_dive.py nodes.txt 80 25 1             # dives v2
+```
