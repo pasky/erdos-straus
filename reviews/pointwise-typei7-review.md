@@ -75,3 +75,25 @@ fixed `2^j`" — the precise PROVED content is: for every `j`, the statement "ev
 sterile" is false. As in R89 D7, "any test" is not a mathematical object. Suggested: add "(i.e. for every `j` the
 ball `w ≡ 9 (mod 2^j)` of `Φ` contains covered points)". I leave the author's sentence, since it is immediately
 followed by the precise statement "no 2-adic neighbourhood of 9 in `Φ` is sterile".
+
+## 3. Cor 2.3, Thm 2.4, Comp 2.5
+
+Cor 2.3: `Cl(κ) ∩ Φ` is clopen in `Φ` (the 2-adic condition is `w ≡ −F (2^t)`, the others are `w`-independent),
+so `C_Φ` is open; density is Thm 2.1's construction with target `−w_0 ≡ 7 (16)` ✔. Sterile part = complement of an
+open dense set ⇒ closed nowhere dense ✔. "Positive measure if TYPEI3 is right" correctly labelled Assessment.
+
+MINOR m3 (repaired). "This upgrades TYPEI4 Prop 4.1 (levels 11–22, `w` only mod 16) to all depths." Prop 4.1 is a
+**per-level** statement; Cor 2.3 is about the union over all levels and says nothing at a fixed level (at fixed
+`(L,b)` there are finitely many certificates, so a fixed-level test modulo a large `2^j` is not excluded). Repair:
+"This is the all-depth analogue (over all levels together) of TYPEI4 Prop 4.1 (fixed levels 11–22, `w` mod 16)".
+
+Thm 2.4 (re-derived and replayed): `71 ≡ 7 (16)`, `v_2(71²−1) = v_2(5040) = 4` ✔; `ord_71(2) = 35` ✔,
+`2^{70} ≡ 143`, `2^{35} ≡ 72 (mod 71²)`, `ord_{71²}(2) = 2485 = 35·71` ✔ ⇒ `ord_{71^ν}(2) = 35·71^{ν−1}` ✔;
+`(2/71) = 1` (71 ≡ 7 (8)) so `⟨2⟩` = squares ✔; `(−7/71) = (−1/71)(7/71) = (−1)(−1) = 1` and `7·2^{29} ≡ −1 (71)` ✔.
+Certificate conditions ✔ (`71 ∤ c'` since `8c' ≡ 1 (71)`).
+
+Comp 2.5 replay (own code, sympy `discrete_log`, modular verification `F | 1+2^{L+2}·7c'`, (2.2)):
+least odd `ν` and `v_2(71^ν+9)` for `m = 4..14` agree with the table (`ν = 1,3,7,15,15,15,15,143,399,399,399`,
+closeness `4,5,6,10,10,10,10,11,14,14,14`, bits `7,19,44,93,…,880,2454`); least `L`: `ν=1: 30`, `ν=3: 109685`,
+`ν=7: 419119864270` exactly as stated; `ν = 15`: `L` has 91 bits, `ν = 143`: 879 bits (stated "≈2^91", "≈2^879";
+precisely `2^90 ≤ L < 2^91`, `2^878 ≤ L < 2^879` — fine as orders of magnitude). `ν = 399` not replayed.
