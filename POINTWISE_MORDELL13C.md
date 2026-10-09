@@ -64,6 +64,16 @@ only such N above 4·10⁷ is `11⁴13⁴ = 418161601`. `m13b_es 418161601` (72 
 resolution `11²·13²` is exactly the product `x_11 mod 121 ∈ {2,57,79}` × `x_13 mod 169 ∈ {15,28,54,132,145}`**
 (15 of 143 subcells, 10.5%), now for *all* ET classes whose T-level divides `11²·13²` (any T-free part).
 
+*(R100 repair, applied by reviewer.) The N = 11⁴13⁴ run is provably unnecessary; 13B's k = 2 row was already complete.*
+An ES level above 4·10⁷ with T-level | 11²13² arises only for II3/I1/I3 with `a_T` (resp. `c_T`) `= 11²13²`,
+`d_T = e_T (f_T) = 1` (otherwise `N = E·a_T²·d_T ≤ 1859²·11 < 4·10⁷`). Such T-generic data do not exist: the T-free
+conditions give `e ≡ −1 (mod 4d')` and `e | 4(a_T a')²d' + 1`, so `(−d'/e) = +1`, whereas `e ≡ −1 (mod 4d')` forces
+`(−d'/e) = −1` (MORDELL17 Lemma 1.3). This holds at every T-generic point, not only at x*. More generally, I1 data
+with `d_T` a square, and II3 (I3) data with `e_T = 1` (`f_T = 1`) and `d_T` a square, do not exist. This prunes the
+k = 3 programme. Of the 20668 boxes of the run, 355 have T-level | 11²13²; every one is already among the boxes of
+other ES levels (non-canonical re-finds). The independent enumeration `scripts/review_m13c_cell22.c` finds 0 data.
+The covered side, all 128 subcells, was confirmed independently (reviews/pointwise-mordell13c-review.md §C).
+
 ## 4. Tree certificates (method)
 
 A tree certificate (`m13c_dfs.py` output) refines each of the six roots `x mod 720720` at primes p
