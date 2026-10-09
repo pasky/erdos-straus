@@ -177,7 +177,7 @@ By Remark 2.1(b) the `L=11` triple recurs at `L=46, 81, …`, outside the grid.
 **Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
 `v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
 `b=0, L=27–32`; `b=1, L=27–29`; `b=2, L=25,26`; `b=3, L=23`; `b=4, L=11–20`; `b=5, L=11–17`; `b=6, L=11–15`;
-`b=7, L=11,12`; `b=8, L=7–9` (R109 repair: the `b=8` cells were missing from this list; TYPEI4 Cor 3.5 had `b ≤ 7`). *(Engines: see Computation 3.4.)*
+`b=7, L=11,12`; `b=8, L=7–9` (R109 repair: the `b=8` cells were missing from this list; TYPEI4 Cor 3.5 had `b ≤ 7`). *(Engines: see Computation 3.4 and §3a; since O115 every grid cell is two-engine.)*
 
 **Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
 `L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
@@ -193,7 +193,28 @@ cells `b=0: L=27–32`, `b=1: L=24–29`, `b=2: L=25,26`, `b=3: L=23` (plus `(22
 cells `b=8, L=7–9`. Review R109 (`reviews/pointwise-typei7-review.md` §4a) re-ran `review_typei4_jsearch.c` on
 `(14,3)`; `b=2: L=19,20,21,24`; `b=3: L=18,19`; `b=4: L=11–15, 20`; `b=5: L=11–13`; `b=6: L=9–12`;
 `b=7: L=7–11`; `b=8: L=7–9` (all agree with `typei4_lb`). Still single-engine: `b=2: L=22,23`; `b=3: L=20–22`;
-`b=4: L=16–19`; `b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`.
+`b=4: L=16–19`; `b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`. *(O115: these 17 cells are now two-engine too, see §3a — the
+whole grid of Cor 3.2 is two-engine.)*
+
+### 3a. Two-engine completion (O115)
+
+`review_typei4_jsearch.c` (R89; `gcc -O2`, `ulimit -v 8000000`, one core per job) was run on the 17 remaining single-engine
+cells. Its outputs were compared with the author's `typei4_lb` files of Comp 3.1 (`/tmp/t7/lb_L_b.txt`, completion records
+in `/tmp/t7/log.txt`) by `scripts/typei7_xcheck.py`: **17/17 cells agree, 0 disagree**; all 17 are empty in both engines
+(as in the §3 table). Positive control rerun first: `(14,3)` gives the table's single hit (`c'=5, k'=226697, F=281104279`).
+
+| `b` | `L` | jsearch hits | time (s, per `L`) |
+|---|---|---|---|
+| 2 | 22, 23 | 0, 0 | 89, 216 |
+| 3 | 20, 21, 22 | 0, 0, 0 | 165, 416, 929 |
+| 4 | 16, 17, 18, 19 | 0 each | 65, 158, 336, 719 |
+| 5 | 14, 15, 16, 17 | 0 each | 117, 251, 630, 1218 |
+| 6 | 13, 14, 15 | 0, 0, 0 | 425, 1051, 2238 |
+| 7 | 12 | 0 | 1755 |
+
+Largest enumeration: `(15,6)`, 1.17·10¹¹ triples `(δ,c',J)`. Full outputs (with `DONE … triples=… hits=0` lines):
+`reviews/agent-reports/O115_two_engine_log.txt`. Hence **every cell of the Cor 3.2 grid is now confirmed by two independent
+complete engines** (`typei4_lb` and `review_typei4_jsearch`), with identical certificate sets.
 
 ## 4. Level-graded heuristic (Assessment)
 
@@ -216,7 +237,8 @@ local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 �
   levels `≡ L_0 (mod ord_F(2))` with constant closeness (Remark 2.1(b)); the covered part of `Φ` is open and dense and
   the sterile part nowhere dense (Cor 2.3), already with `F = 71^ν`, `k = 2^γ`, `7 ∤ k` (Thm 2.4) (R109 repair: `71^e` → `71^ν`).
 * CERTIFIED once replayed: Comp 2.2, 2.5 (explicit approximants up to closeness 14); Comp 3.1 / Cor 3.2 (complete
-  `(L,b)` grid `2^{L−4}7^b ≤ 2^{28}`: no certificate at `x̂_9`; max closeness ≤ 10, margin ≥ 1, ≥ 10 for `L ≥ 28`).
+  `(L,b)` grid `2^{L−4}7^b ≤ 2^{28}`: no certificate at `x̂_9`; max closeness ≤ 10, margin ≥ 1, ≥ 10 for `L ≥ 28`;
+  every grid cell confirmed by two independent engines — O115, §3a).
 * Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; per `b`-row tail beyond
   the grid ≲ 2·10^{−3} if cell counts stay ≤ 10 — no model controls the infinitely many `b`-rows).
 * NOT achieved (precise negative statement): an inequality `v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates is exactly
@@ -240,6 +262,7 @@ done; done
 uv run python scripts/typei7_tab.py /tmp/t7/lb_*.txt   # §3 table; refuses unrecorded cells; 67 certs, 62 pairs, 134 checks, no HIT
 gcc -O2 -o /tmp/t7/js scripts/review_typei4_jsearch.c -lm     # second engine (R89), per cell: /tmp/t7/js L b > /tmp/t7/js_L_b.txt
 uv run python scripts/typei7_xcheck.py /tmp/t7                # lb vs js cell by cell; exit 1 on any mismatch/incomplete cell
+# §3a (O115): js on b=2 L=22,23; b=3 L=20-22; b=4 L=16-19; b=5 L=14-17; b=6 L=13-15; b=7 L=12 (≈2.9 h CPU total), then xcheck
 PYTHONPATH=scripts uv run --with sympy python scripts/typei7_unbounded.py 5    # Comp 2.2 (m = 4, 5)
 uv run --with sympy python scripts/typei7_dense71.py 14                         # Comp 2.5 (1 min)
 uv run --with sympy python scripts/typei7_family.py 30 11 14 3                  # fixed-(c',g) family engine, sanity (2 rows)

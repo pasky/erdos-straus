@@ -244,13 +244,13 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     (Prop 2.1, PROVED); regime (v) is the generic large-unit regime (Lemma 3.1), and at L = 13 it is
     inhabited (Remark 1.2), so a closing argument must use T ≤ 64. Under abc each level has finitely
     many certificates (Thm 3.2, CONDITIONAL). CERTIFIED: no fibre certificate at `x̂_9` with
-    L = 7–10 and v_7(k) ≤ 15, at any height (two engines except (L, b) = (9,15), (10,14), (10,15)).
+    L = 7–10 and v_7(k) ≤ 15, at any height (two engines, all cells; O115).
     `POINTWISE_TYPEI7.md` (follow-up 6; review R109: no FATAL/MAJOR): a precise **negative** result on
     2-adic closeness. A fibre certificate is at `x̂_9` iff nδ ≡ 5·9⁻¹ (mod 2^{⌈L/2⌉−1}) (Lemma 1.1, PROVED, exact
     formula for v_2(F+9)); certificates come arbitrarily close to w = 9 (Thm 2.1, PROVED, F = 7^s + 2^i) and the
     covered part of the fibre is open and dense (Thm 2.4, PROVED, F = 71^ν). So no 2-adic neighbourhood test can
     prove sterility. CERTIFIED: no certificate at `x̂_9` in the grid 2^{L−4}7^b ≤ 2²⁸ (67 fibre certificates;
-    two engines except a few listed one-engine cells).
+    two engines, all cells; O115).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
