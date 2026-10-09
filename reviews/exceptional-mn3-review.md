@@ -60,3 +60,45 @@ correct but unnecessary — see defect m1.
 * `Σ_j ρ(2^j)/2^j ≤ 1 + 4·1 = 5 ≤ 9` — the constant 9 is safe.
 
 **Numerics (from scratch, part 2 of the script).** See §1.1 below.
+
+### 1.1 Numerics (EVIDENCE; `scripts/review_emn3_prop23.out.txt`)
+`S(k,A,B) = Σ_{a≤A,b≤B} τ(kab²+1)` for 34 values of k (1…6, all primorials up to 29#, primes
+101…100003, 2·3·1009, 4·1009·1013, 2^10, 3^8) and boxes (A,B) ∈ {(2,3000),(6,1000),(40,150),(150,40)}.
+* `S/((φ(k)/k)·AB log max(A,B)·Λ)` ∈ [0.18, 1.6] over all 136 cases, non-increasing in k: no sign of
+  a hidden k-dependence in the constant (the small-A boxes are where `Λ = 1+log(1+k)` is active).
+* The gain is real and visible: `S/(AB log B)` is 2.3–3.0 for prime `k ≈ 10⁵` but 0.85–1.28 for
+  `k = 29# ≈ 6.5·10⁹` (larger n, yet fewer divisors), ratio ≈ `φ(k)/k`-driven.
+* ET's `log(1+k)` normalisation decays to 0.04 — consistent with ET's bound being lossy in k.
+
+## 2. Prop 2.5 and Theorem L'
+
+Re-derived line by line.
+* Substitution `ma²d+1 = k a'²d'+1`, `k = ms²t`, `φ(k)/k ≤ φ(m)/m`: correct; this is the only way the
+  gain enters, and the BT factor `1/φ(m)` (from `φ(mad) ≥ φ(m)φ(ad)`) is then cancelled to `1/m`.
+* Exponent bookkeeping with l = 30: `D' ≥ max(A',k^{1/28}) ⇒ kA'² ≤ D'^{28+2}`; `A' > max(D',k^{1/28})
+  ⇒ kD' ≤ A'^{29}`. Correct. Size hypotheses of Prop 2.3 (`≥ ω(2k)+2`) hold once `k^{1/28} ≥ ω(2k)+2`,
+  true for k ≥ m₀ (absolute, since `ω(n) ≪ log n/log log n`). Correct.
+* Λ: `Λ ≤ 2` unless `D' < k^{1/3} log²(2kD')`; number of such dyadic D' ≪ `log(2k) + log L`. Per
+  (s,t): `(st)^{−2}[L·log X + (log 2k + log L) log X log(1+k)] ≪ (st)^{−2}[L² + L log²(2ms²tL)]`, and
+  `Σ_{s,t}(st)^{−2} log²(ms²tL) ≪ log² m` using `log L ≤ log m`. Correct.
+* Block sum `Σ_{j≤2L} 1/j ≍ log L`: count `≪ (N/φ(m))·(φ(m)/m)(L²+L log² m) log L`. Correct.
+* Tiny boxes: `n ≤ k(2A')²(2D') ≤ 8k^{1+3/28} ≤ 8k^{1.11}`; `τ(n) ≪ n^{0.0108} ≪ k^{0.012}` (absolute
+  constant, effective). Occurrence: `X < st·a'd' ≤ 4st·k^{1/14} ≤ 4m^{1/14}(st)^{8/7}` (s²t ≤ (st)²).
+  Mass: grouping by `u = st` (multiplicity τ(u) — this is where the `τ(st)` comes from; the text should
+  say so, m2), `Σ_{u≥U} τ(u)u^{−2}(mu²)^{0.012}·#boxes ≪ m^{0.013} min(1, U^{−0.97})`,
+  `U = (X/4m^{1/14})^{7/8}`, giving exponent `0.976·7/8 ≈ 0.85`. Summed over blocks: ≪ `log m` blocks
+  with X ≤ m^{0.072}, geometric beyond: `≪ m^{0.014}`. Count `N m^{0.014}/φ(m) ≪ (N/L)m^{−0.35}` needs
+  `L·m^{0.014}·log log m ≤ m^{0.65}`: fine for `L ≤ m^{1/2}`. **Exponents correct.**
+* Theorem L': MN2 Prop 3.2 already has `/m`; `m^{0.02}/m ≤ m^{−0.35}`. The consequence: I checked
+  `L² log² m ≤ L³ + log⁶ m` (case split `log² m ≤ L`), that `L³ log L/m → 0` forces m → ∞ (N ≥ 16),
+  and that the `log m > L/10` range (MN2 Lemma 3.5, `e^{CL/log L}/m = m^{O(1/log L)−1}`) also → 0.
+  Also `L > m^{1/2}` makes the hypothesis `L³ log L/m → 0` impossible, so the range restriction is harmless.
+* Propagation through MN2: MN2 Prop 3.4's skeleton (PW (3.2), ET (A.12), BT weight) is reused
+  unchanged; only MN2 Lemma 3.3 is replaced by Prop 2.3, and MN2 Prop 3.2 (Type II) already had `1/m`
+  after the R102A/B repairs. MN2's lossy-box criterion `D' < k log⁴` is replaced by the sharper
+  `D' < k^{1/3} log²`; both are only used through a box *count* ≪ `log(2k)+log L`, so nothing else changes.
+
+| Claim | Verdict |
+|---|---|
+| Prop 2.5 | SOUND (exponents verified) |
+| Theorem L' | SOUND; label should add PV and "rel. MN2 Prop 3.2" (m3) |
