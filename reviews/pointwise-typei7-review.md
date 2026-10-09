@@ -137,3 +137,41 @@ Compared with the author's table (all these cells empty except `(14,3)`):
 | `(9,8)` | see §6 | |
 
 All agree with Comp 3.1 / Cor 3.2.
+
+## 5. Labels (§4, §5 of the document)
+
+PROVED items (Lemma 1.1, Thm 2.1, Rem 2.1(b), Cor 2.3, Thm 2.4) are proofs, re-derived above. CERTIFIED-once-replayed
+items are replayable and partly replayed (Comp 2.2, 2.5 from scratch; grid cells by the second engine). §4 and
+Obs 3.3 are correctly EVIDENCE / Assessment. ES is nowhere claimed solved; sterility of `x̂_9` and `C(7) = ∞` under H
+are correctly left open.
+
+MINOR m5 (repaired in §5). "it cannot follow … from any argument that is uniform on a neighbourhood of `w = 9`
+(PROVED, Cor 2.3)": metamathematical, relabelled Assessment with the PROVED content stated (cf. R89 D7).
+MINOR m6 (repaired in §5). The equivalence "`v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates ⟺ sterility of `x̂_9`" also
+uses TYPEI3 §5 (levels `≤ 6` carry no certificate at `x̂_9`); reference added.
+MINOR m7 (repaired). §5 writes `F = 71^e`, clashing with the cofactor `e`; → `71^ν`.
+
+## 6. Defect list
+
+No FATAL, no MAJOR.
+1. m1 (MINOR, Lemma 1.1 hypotheses): "`nδ` odd" unused. No repair needed.
+2. m2 (MINOR, Thm 2.1 last sentence): "any test that sees `w` modulo a fixed `2^j`" informal; precise content is the
+   next clause. Optional rewording suggested in §2.
+3. m3 (MINOR, Cor 2.3 Consequence): "upgrades TYPEI4 Prop 4.1 to all depths" overstated (Prop 4.1 is per level).
+   Repaired.
+4. m4 (MINOR, Cor 3.2 / Comp 3.4): single-engine and "new" cell lists incomplete (`b=8, L=7–9`; `L=7,8, b=7`;
+   `L=9,10, b=6,7`). Repaired, with R109's extra second-engine cells recorded.
+5. m5–m7 (MINOR, §5 wording/labels/notation). Repaired.
+
+Remaining single-engine cells of Cor 3.2 (only `typei4_lb`): `b=2: L=22,23`; `b=3: L=20–22`; `b=4: L=16–19`;
+`b=5: L=14–17`; `b=6: L=13–15`; `b=7: L=12`; `(9,8)` unless §4a records it. Suggested follow-up: run
+`review_typei4_jsearch.c` on these (estimated 0.5–1 h per cell for the largest, `R = 2^{L−2}7^b ≈ 10^9`).
+
+## Replay (R109)
+
+```
+ulimit -v 8000000
+PYTHONPATH=scripts timeout 900 uv run --with sympy python scripts/review_typei7_check.py      # Thm 2.1/2.4, Rem 2.1(b), Comp 2.2/2.5 numerics
+timeout 900 uv run --with sympy python scripts/review_typei7_lemma11.py 400000              # 64 certs, 1442 checks, 0 failures (4 s)
+gcc -O2 -o /tmp/r109/js scripts/review_typei4_jsearch.c -lm; /tmp/r109/js L b               # §4a cells
+```
