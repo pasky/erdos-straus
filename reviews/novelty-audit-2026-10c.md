@@ -223,3 +223,59 @@ Pomerance's 2026 talk text).
    square, is contained in some covering") and Ionascu–Wilson's conjecture as the
    opposite expectation at integer level, and say explicitly that a sterile non-square
    profinite point would not contradict them.
+
+(Addendum to §2.1) **Bloom–Elsholtz, "Egyptian fractions", Nieuw Arch. Wisk. 23 (2022)
+237–245, arXiv:2210.04496** [archived `sources/lit2026/arxiv-2210.04496.pdf`, re-read]:
+p. 3 cites Terzi for "corresponding work … modulo 120120"; Schinzel's square obstruction
+("no such explicit formula … for all quadratic residue congruence classes"); Thm 1: ES ⇔
+every prime lies in one of the (infinitely many) Type I/II classes ("similar statements …
+Nakayama, Rosati, Mordell"). Nothing on finite coverings of non-square sets. Confirms the
+§2.2 verdicts.
+
+---
+
+## 3. Pell / Lucas reformulation of Type-I certificates ((H)17 follow-ups 2–4; coverings note §4.4–4.5)
+
+**Objects.** TYPEI3 Lemma 5.1 (Vieta descent `Fe = 1+4ck²`, `e−F = 4ckδ` ⇒
+`F ≡ 1 (mod 4cδ)`) and Prop 5.5 (level 6 empty via Pell/Lucas divisibility `D+3 | H`);
+TYPEI4 Prop 1.2 / Cor 1.4 (fibre certificates = norm-one units of ℤ[√d],
+`d = c_o(c_oδ² + 2^{L−4})`, of the shape `16PX² − Q·49^b = 1`); TYPEI5 Lemma 1.1 (a
+solution with `u = 7^b` is the minimal one; `u_n = u_1L_n`, `L_n ≡ n (mod 7)`).
+
+### 3.1 Findings
+
+* **Elsholtz–Tao** [archived `sources/lit2026/audit-elsholtz-tao-1107.1010.txt`, grep for
+  "quadratic form / binary / class number / unit / Pell"]: Type I is handled through
+  `f | 4a²d+1` and averages of τ(4a²d+1); no Pell or unit-group reformulation. (The only
+  "binary" hits are references to binary forms in divisor-sum papers.)
+* **Yamamoto 1965** [primary, OCR, see §2]: his "connection with the theory of quadratic
+  number fields" (p. 37) is the **Kronecker symbol** (Lemma 4), i.e. the quadratic
+  character obstruction, not units of quadratic orders. No Pell equation appears.
+* **Salez 2014**: the single word "Pell" (p. 2) is a historical remark ("it should be better
+  not to remake what was done with Pell's equation", about misattribution); no
+  reformulation.
+* **Full-text scan** of the 16 archived ES papers (`sources/lit2026/*`, Dahan,
+  Elsholtz–Tao, Dyachenko) for "Pell", "Lucas seq", "Vieta": only Ventas 2605.04551
+  (heuristic "orbit" language, no Pell) and Bloom–Elsholtz (no Pell content).
+* **Web/zbMATH searches** ("Erdős–Straus Pell equation Type I", "Erdős–Straus Vieta
+  jumping / Pell equation quadratic form", "Erdős–Straus Lucas sequence primitive
+  divisor", zbMATH "Egyptian fractions Pell equation"): no ES paper with a Pell/Lucas
+  reformulation. Nearest: Nazardonyavi arXiv:2001.00475 (ES ⇔ solubility of the quadratic
+  `ab(ab−1) − na = Δ²` with b ≡ 3 (4)) — a quadratic reformulation, but not via units or
+  Pell orbits [archived, grep: no "Pell"]; Bradford–Ionascu arXiv:1405.4025 use Pell
+  equations only for unit fractions in norm-Euclidean rings [snippet].
+* **General tools (not ES-specific, [memory])**: Vieta jumping on `Fe − 4ck² = 1`
+  (Markov/Hurwitz-style descent); y-coordinates of Pell solutions as Lucas sequences;
+  prime-power terms of Lucas/Lehmer sequences via primitive divisors (Bilu–Hanrot–Voutier
+  2001) or, as in TYPEI5, the elementary lifting-the-exponent congruence `L_n ≡ n (mod 7)`.
+  TYPEI5 Lemma 1.1 is a routine instance of these; TYPEI4's remark that linear forms in
+  logarithms are the natural next tool is standard.
+
+### 3.2 Verdict
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| Type-I certificates at a 2-adic fibre ↔ norm-one units of a Pell order of special shape (TYPEI4 Prop 1.2) | **APPARENTLY NEW** as an ES statement (confidence medium) | The step "fix the extra parameter and a ternary quadric becomes a Pell conic" is classical; nothing ES-specific found. |
+| Vieta descent / level-5, level-6 emptiness (TYPEI3) | **APPARENTLY NEW** (ES); method classical (Vieta jumping, Pell, Lucas divisibility) | — |
+| TYPEI5 Lemma 1.1 (7-power y-coordinate ⇒ minimal solution) | **KNOWN IN SUBSTANCE** (LTE / prime-power terms of Lucas sequences); new only as applied | Recommend wording "a routine lifting-the-exponent argument for the Lucas sequence u_n/u_1". |
+| C(7) > 1.32·10¹², any-height bounds | **APPARENTLY NEW** (computations) | Depend on the internal Type-I covering framework. |
