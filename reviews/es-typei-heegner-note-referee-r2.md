@@ -39,3 +39,10 @@ Internal review only; not external refereeing.
   `∫Φ t^{1+a+ε}log²(2t) ≪ 𝓛²λ₋^{−a−ε}` after `u=λt`. Assembling: `M₀`-term → `λ₋M₀`, `t`-term (a=1) → `1`,
   `Y₀^{−1/2}`-term → `λ₋Y₀^{−1/2}`, overall `𝓛^7 C_ε (M₀/λ₋)^ε Y₀^{−1}[…]`. Matches the statement.
 * **Remark 9.5** — SOUND: constant weight `Y=Y₀^{−1}` gives the `a=1/2` integral, i.e. `λ₋^{1/2}Y₀^{−3/2}`.
+* **(9.1) / Thm 9.6 (averaged per-d count)** — SOUND (arithmetic re-derived). `Y_d ∈ [Y₀/√2,Y₀)`, `λ/Y₀ ≍ A√D`;
+  `Σ_d V^gen ≪ 𝓛^C[DA√D(1+λ) + N^{ε₁}q^{−3/2}Y₀^{−1}]` using `M ≥ 4Dq²` and `λ^{−ε₁} ≪ N^{ε₁}`
+  (`λ ≥ 1/(3q√D)`); Prop 9.4 with `M₀/λ₋ ≤ N³`; the three terms after `·qD^{3/4}/(AD)` are exactly
+  `q²(D/A)^{1/2}(1+λ)^{1/2}`, `q^{3/2}F'^{1/2}/A` (the gen-part analogue `q^{3/4}N^{ε₁/2}F'^{1/2}/A` is smaller, so the
+  stated combined form is a valid over-estimate), `q^{5/4}F'^{1/4}D^{1/8}/A^{1/2}`. The second box of
+  `(1−Δ)ψ` carries the d-dependent scalar `(Y_d/λ)² ≤ 1`, which only decreases `𝓔^{(2)}`; fine but unstated (m4).
+  `(1+λ_j)² ≤ 25/16` on the exceptional part, also fine.
