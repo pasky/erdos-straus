@@ -1,10 +1,23 @@
 # Hostile review A of EXCEPTIONAL_TYPEI_LOGLOG3.md (task R121A)
 
 Reviewer: side agent R121A (independent of reviewer B). Branch reviewed: `side-agent/eff-di7` (merged into
-`side-agent/review-ttl3-a`). Work in progress; sections filled one at a time.
+`side-agent/review-ttl3-a`). Round 1 COMPLETE.
 
 ## Verdicts (summary)
-(to be filled)
+| Section / claim | Verdict |
+|---|---|
+| §1 toolkit (Lemmas 1.1–1.3) | SOUND |
+| §2 induction (Prop 2.1, Thm 2.2, Cor 2.3) | SOUND (rel. (P1)–(P3)); double-exponential class propagates, no circularity |
+| §3 (P3) | SOUND |
+| §4 / lemma81 file: (P1), (P2) | SOUND (absolute numerals not all re-derived, m2) |
+| §5 / thm2 file: effective DI Thm 2 incl. exceptional | SOUND (m3, m4 minor) |
+| §6 / thm14 file: effective Thm 14, U-form | SOUND |
+| §7 Thm 7.1 | SOUND |
+| §8 nebentypus (twisted resonance, small-C branch) | SOUND |
+| Thm 9.1 | SOUND-AFTER-REPAIRS (m1: constant 100 → 200); label PROVED rel. (B1)–(B5) acceptable |
+| Thm 9.2 | SOUND rel. (B1)–(B5), TTL's inputs, TTL2 Thm 4.1(ii); outward claim should await external expert check |
+
+No FATAL, no MAJOR; 5 MINOR (m1–m5). Scripts: `scripts/review_r121a_{induction,toolkit,thm2,transform}.py`.
 
 ## §2 (induction (8.19), Prop 2.1, Thm 2.2, Cor 2.3) — verdict: SOUND (relative to (P1)–(P3))
 
@@ -99,3 +112,73 @@ Checked against DI pp. 253, 256–261 (scan); from-scratch numerics `scripts/rev
   absorption `(1+log P)³ ≤ (1+6/δ)³P^{δ/2}` ✓; c-decomposition without log loss ✓.
 * The numerical allowances `2^{50}`, `2^{1000}` for the transform/derivative bounds were spot-checked only at the
   level of orders of magnitude (each step is fixed-order, so any finite absolute constant suffices; see m2).
+
+### Transform-ledger uniformity (supports §4 and §8)
+`scripts/review_r121a_transform.py` evaluates the exact Bessel transforms (generic smooth bump on `[11/12,17/12]`,
+mpmath) for `Y ∈ {2³², 2⁶⁴, 2¹²⁸}`: (a) `|φ̂_t(r)|(1+r)⁴/((1+|t|)⁴L_Y) ≤ 0.45` for r ∈ {10⁻⁸, .5, 2, 8}, t ∈ {0,3};
+(d) `|φ̂_t(−iσ)|/(Y^{2σ}L_Y) ≤ 0.19` for σ ∈ {10⁻⁹, 10⁻⁴, 10⁻²} — no blow-up as σ → 0 and no growth in Y;
+(e) `σ·|φ̂_t(−iσ) − main| ≤ 0.031` for σ ∈ [0.01, 1/4]. All consistent with the claimed absolute constants and with
+the `1/sin πσ` cancellation. So the flagged point "transform bounds uniform as σ → 0" is **not** a gap.
+
+## §3, §7 (assembly, trivial character) — verdict: SOUND
+(P3) from Thm 2: `Σ_{Q<q≤16Q}(1+N^{1+δ}/q) ≤ 16(Q+N^{1+δ})`, `cos πσ ≥ 2^{−1/2}` ⇒ `K₂ = 32K_{T2}` ✓. §7 constant chain
+re-derived: `K₁₄(δ/4) ≤ exp(exp(404/δ))` (from `(B₂+1)/δ'`, B₂ = 100, δ' = δ/4), `log log D(δ/4) ≤ 3/δ` (checked at
+δ = 0.1: 29.2 ≤ 30), hence `K₁, c ≤ exp(exp(405/δ))` and `K₇ ≤ exp(exp(408/δ))` ✓.
+
+## §8 / `ttl3_nebentypus.md`, `ttl3_thm2_twisted.md`, `ttl3_lemma81_twisted.md` — verdict: SOUND
+* **Twisted resonance step** (flagged by the author): re-derived. After Cauchy–Schwarz and Poisson in the outer
+  variable, the residue pair `(d₁,d₂)` carries `χ̄(d₁)χ(d₂)`; resonance means `d̄₁ ≡ d̄₂ (mod c)`, hence `d₁ ≡ d₂`, and
+  since `r | c` the character factor is exactly 1, leaving the ordinary Ramanujan sum `≤ (n₁−n₂, c)` ✓. Off resonance
+  the character is t-independent and only `|·| ≤ 1` is used ✓. Twisted Weil (B3) is used only in the `c > N²`
+  ranges, giving the `√r/L` term, never on the diagonal ✓; `√r ≤ L` makes the large-K case of Step 8 work ✓.
+  Dr Lemma 4.2 checked in the PDF: `S_aa(m,n;c) ≪ (m,n,c)^{1/2}τ(c)^{O(1)}(cq₀)^{1/2}` — exactly (B3) ✓.
+* Switching for nebentypus: `k = rqc`; for fixed c the q-sum is Kuznetsov for `(Γ₀(rc), χ)` with the **same**
+  Kloosterman function `Sχ(m,n;rcq)` as in the first trace (both are trace formulas for χ, so no conjugation mismatch)
+  ✓; destination levels `rc`, `c ∈ [64C/51, 128C/11]`, `C = πNY/(rQ)` ✓. Small cofactors (`C < 1/16`: Kloosterman side
+  empty; `1/16 ≤ C < 1`: ≤ 11 cofactors) ✓.
+* **Small-C branch** (flagged): Prop 8.1 (C2) re-derived: `Y₁ = C+N ≤ 2N`, `C+N+Y₁ ≤ 4N`, `√(YN) = Q^{1−δ}`,
+  `5K₁N^{2δ}(N+Q^{1−δ})N ≤ 10K₁Q^{1+2δ}N`, main term `2√2π·c·10K₁ ≤ 90cK₁`, closed by `H ≥ 200cK₁` ✓. (P1χ) for
+  `0 < Q < 1` (`Σ_{Q<q≤16Q}1 ≤ 16Q`) ✓. (C1) needs `1 ≤ N ≤ C ≤ Q/2` ✓. Thm 8.2 for `Q < 1` ✓.
+  The sweep in `review_r121a_induction.py` covers (C1); (C2) is a two-line inequality, checked by hand.
+* Selberg for `Γ₁(L)` (B4) covers `(Γ₀(L),χ)` weight-0 forms ✓; positivity kernel is level/character-free ✓.
+* The author's side remark that "even χ is a square" fails (χ₃χ₇ mod 21) is correct (χ₃ is odd, has no square root
+  mod 3); not used.
+
+## §9 (Thm 9.1, 9.2) — verdicts: Thm 9.1 SOUND-AFTER-REPAIRS (m1 only); Thm 9.2 SOUND relative to its inputs
+* Constants: `K₁χ, cχ ≤ exp(exp((4B_χ+1)/δ))`, Cor 2.3 analogue with `200cK₁` ✓, `A₀ = 24B_χ+30 ≥ 6(4B_χ+4)` ✓.
+* Conversion to TTL2's (DI7_ε): Q-blocks `(Q_i,16Q_i]`, `Q_i ≥ 1/16`, at most `2 + log M₀` of them ✓; prefix split into
+  closed dyadic blocks `[2^k, min(2^{k+1}−1,t)]` ✓; `Σ_k(Q+2^k+√(2^kY))2^k ≤ 2(Q+t+√(tY))t` ✓ (re-derived:
+  `Σ2^{1.5k} ≤ 1.55 t^{1.5}`). Levels in `(Q_i,16Q_i]` beyond M₀ only add positive terms ✓.
+* TTL2 Thm 4.1(ii) needs exactly `log C_ε ≤ exp(A₀/ε)` at `ε = 2A₀/log L` ✓ (LOGLOG2 §4, which had two independent
+  reviews with no FATAL/MAJOR).
+* **Honest label.** I found no FATAL or MAJOR defect. Thm 9.1: **PROVED relative to (B1)–(B5)**, with the caveats that
+  (i) the large absolute numerals (`2^{50}`, `2^{512}`, `2^{1000}`, `2^{2048}`, `2^{10000}`, …) were checked by me only
+  for being fixed-order/parameter-free and, where cheap, numerically (all observed values are tiny fractions of the
+  allowances) — finiteness, not their values, is what Thm 9.2 needs; (ii) the explicit A₀ additionally needs numerical
+  `C_W, B_W` (B3). Thm 9.2: **PROVED relative to (B1)–(B5), TTL's cited inputs and TTL2 Thm 4.1(ii)**. Given that the
+  §§4–6 derivations are machine-written and only internally refereed, I would phrase any outward claim ("resolves
+  Elsholtz–Tao's open Type I bound") as *conditional on external expert verification*, not as an established result.
+
+## Defects
+
+No FATAL. No MAJOR.
+
+* **m1 (MINOR, Thm 9.1 proof, last sentence).** The number of prefix blocks is `⌊log₂t⌋+1 ≤ 1.443·log(2t)`, and turning
+  this single log into the `(log 2t)²` of TTL2's form costs a further factor up to `1/log 2 = 1.443` at small t (and
+  `1.5 log(2t) ≤ (log 2t)²` fails for `2 ≤ t < 2.24`). Then `2·1.5·2·(12/ε)` should be `≈ 2·2.1·2·12 ≈ 101`.
+  *Repair:* write `C_ε ≤ 200ε^{−1}K₇χ(ε/6)` (A₀ unchanged).
+* **m2 (MINOR, §9 "Honest status", all `ttl3_*.md`).** The absolute numerals are asserted, not derived in detail
+  (e.g. `H = 2^{512}`, `B = 2^{2048}`, `2^{50}` in Thm 14 §2, `2^{1000}` in §4 of the Thm 14 file). I re-estimated the
+  D_x^j-norm bound (≈ 2^{212} ≤ 2^{512}) and checked the transform shapes numerically, but not every constant.
+  *Repair:* state explicitly that A₀'s numerical value is "explicit modulo these unverified absolute allowances", while
+  the *form* `exp(exp(A₀/ε))` and Thm 9.2 need only their finiteness/parameter-independence.
+* **m3 (MINOR, `ttl3_thm2_effective.md` Step 7).** The displayed `Φ(x)=√π iK³∫ξe^{−(Kξ)²} sinh ξ sin(x cosh ξ)dξ` should
+  have `tanh ξ` (DI (5.6) `th ξ`; re-derived from `K_{2it}(y)=(y/2t)∫e^{−y chξ}shξ sin(2tξ)dξ` and
+  `∫_{−i}^{i}…dv/v`). Since `|tanh| ≤ |sinh|` the upper bounds derived remain valid, but the identity is false as written.
+  *Repair:* replace `sinh ξ` by `tanh ξ`.
+* **m4 (MINOR, `ttl3_thm2_effective.md` Step 9; LOGLOG3 §5).** The "non-circular limiting proof" of `σ ≤ 1/4` is
+  unnecessary — Selberg 3/16 is black box (B4) — and as written it is only a sketch (`|φ̂(κ)| ≥ c(σ)Y^{2σ}` "for all
+  sufficiently large Y", unquantified `C(n,v)`). *Repair:* cite (B4) directly, as `ttl3_thm2_twisted.md` Step 9 already
+  does, and drop or label the sketch as a remark.
+* **m5 (MINOR, presentation, Prop 2.1 (C)).** The main term is `2√2π·π^{5δ}cHQ^{1+4δ−10δ²}N`; the text's `π^{1+4δ}`
+  (dropping `π^{−(1−δ)}`) is a valid but confusing overestimate. *Repair:* display the exact power.
