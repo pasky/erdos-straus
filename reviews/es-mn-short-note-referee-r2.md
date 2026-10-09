@@ -85,3 +85,16 @@ strengthening. Re-derived:
 * **Consequence**: if ρ_rep > 0 then m ≤ 3p (Lemma 7.4 / (3.4)) so L ≥ log(m/3); L³log L/φ(m) → 0
   forces φ(m) → ∞, then L ≤ m^{1/3} eventually, the L²log²m term is ≤ (L³+log⁶m)log L/φ(m), and in
   the range log m > L/10, e^{CL/log L}/m ≤ m^{10C/log L − 1} → 0. ✓
+
+## 3. From-scratch numerical checks (all pass)
+
+* `review_r104_bonf.py`: Bonferroni sandwich for r ≤ 40, h ≤ 200: 0 failures.
+* `review_r104_typeII.py`: 829 578 admissible Type II tuples (m < 60): abd ≤ 2p/m, (e,ad)=(e,m)=1,
+  ET product ≤ 0.34·8m^{1/2}p², min modulus ≤ 8^{2/5}m^{1/5}p^{4/5}: no violation.
+* `review_r104_harm.py`: Lemma 8.4(a) sum/((φ(m)/m)log³Y+log²Y) ∈ [1.03, 1.41] (Y = 600, m ∈
+  {4,6,7,30,210,2310}); (b) m·Σ/(log³U+m^{0.02}) ∈ [0.34, 0.43]. Bounded, as claimed (sanity only).
+* `review_r104_halfpoint.py` (independent exact decision: x-loop over (p/m, 3p/m] and
+  `(Ay−B)(Az−B)=B²` divisor parametrisation; not the PW criterion): at the table's quartiles
+  ρ_rep(60, e^{5.68}) = .22, ρ_rep(60, e^{7.64}) = .50, ρ_rep(60, e^{9.41}) = .76 (all primes);
+  ρ_rep(64, e^{7.72}) = .48, ρ_rep(101, e^{7.59}) = .49 (all primes), ρ_rep(200, e^{11.21}) = .52
+  (every 8th prime, 422 primes). Consistent with the table in §8.5 (within sampling error).
