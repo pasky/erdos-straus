@@ -2,7 +2,14 @@
 
 Reviewer: side-agent/review-ttl. Scope: all claims of AGENT_REPORT_O111.md, with emphasis on the R1
 repairs (not re-reviewed by the author). From-scratch scripts: `scripts/review_ttl_*.py`.
-Status: IN PROGRESS (written claim by claim).
+Status: round 1 COMPLETE.
+
+**Summary.** No FATAL defect in the repaired document. Lemma 2.1, Lemma 2.2, the parity group, Lemma 4.x/
+Prop 4.3, Lemma 6.1, Lemma 6.3 and Lemma 1.1 are SOUND (brute-force confirmed where possible); Prop 5.1,
+Thm 6.2 and Prop 7.1 are SOUND at outline level (cited large sieves checked against DI 1982 scan and
+Drappeau arXiv:1504.05549 Prop 4.7). Thm 8.1 has a **coverage gap** (D1, MAJOR, easily repairable) and
+two unwritten steps (D2, D3). **Label: Thm 8.1 = CONDITIONAL on (SEL), outline — not yet a proof.**
+The unconditional-strip assessment is right in substance but its numbers/DI-Thm-5 application are off (D4).
 
 ## Verdicts per claim
 
@@ -120,4 +127,66 @@ with `X = 1/(N₀Y)` (weight `(nY)^{−2σ}`), not `X = 1/Y`; then the extra var
 unchanged. DI Thm 6 / Humphries claims: not re-derived (I did not check these).
 
 ## Defects
-(filled below)
+
+**D1 (MAJOR — coverage gap in Thm 8.1 (2b)).** Location: §8 step (2b), "This needs `f' ≥ A/8`. That
+fails only on the thin strip `a ≤ b < 8ca`". False: `f' = min(e,f) = f < a` iff `β > 1`, and R_bad(η₁)
+allows `β ≤ 1+η₁` (MN3 Prop 3.3). Example: η₁ = 0.1, γ = 0, α = 0.55, β = 1.05 lies in R_bad ∩ {D < A}
+with `f ≍ N^{0.5} < a ≍ N^{0.55}`; the region `{1 < β ≤ 1+η₁, (β−γ−η₁)/2 ≤ α ≤ β, D<A}` has area ≍ η₁/2,
+i.e. positive logarithmic mass ≍ η₁NL² per c-block; with BT on 4ad alone it costs `≍ η₁ NL² log L`
+(a log log). Switching to the e-cusp does not help near `α = (1−γ)/2` (cusp term `N^{(β−1−δ)/2}`).
+*Repair:* on `β > 1` use BT on the modulus `4cdf` (exponent `2−β`, saving `1/((β−1)L) = 1/k'`) together
+with 4ad (saving 1/j) and Lemma 1.1 in `(j,k')`; or treat full x-periods (λ > 1/4) via the incomplete
+Eisenstein series (no cusp-form contribution) and prove a separate statement. Either must be written.
+
+**D2 (MAJOR/GAP — step (2a) unproved, inherited).** §8 (2a): BT outside R_bad needs the weighted
+harmonic sums over the 7 moduli that MN3 §3.3 calls routine but never wrote (only 4ad = ET (8.2) is
+available). Until written, Thm 8.1 is conditional on these too. *Repair:* write them (at least for
+`4bd, 4ab, 4acf, 4cdf`, which need ρ-multiplicities and `1/φ(modulus)` sums), or state Thm 8.1 as
+conditional on (SEL) **and** this lemma.
+
+**D3 (MINOR-to-MAJOR — weighted masses in step (3)).** `Σ_σ X_σ s/φ(s) ≪ AD L` via MN3 Prop 2.3 with
+`4k`, `4k²`: Prop 2.3(a)/(b) need `kB² ≤ A^l` / `kA ≤ B^l` and `A ≥ ω(k)+2`, which fail for `k` close to D
+(resp. A) where the reduced variable is bounded; that tail must be handled separately (trivially it is
+`≪ AD N^ε Σ_{k>D^{1−ε}} k^{−2}`, fine). Also X_σ for the fixed-d sequences is the orbital term 𝔐_d, so
+"`≤` count + remainder" must be applied with the weight d/φ(d) on the remainder. Write it.
+
+**D4 (MINOR — strip numerics, §3.2/§9, report).** "≲ 0.1" should be ≈ 0.16–0.22 (worst `1/Y ≍ N`, loss
+`N^{7/64}`); DI Thm 5 must be applied with `X = 1/(N₀Y)` per dyadic block (factor `1+(F'/(q√d))^{1/2}`,
+not `F'A^{−1/2}d^{−1/4}`); rephrase "no unconditional improvement of ET" as "this argument gives no
+unconditional improvement".
+
+**D5 (MINOR).** Thm 6.2 assumes `F ≥ 8A`; step (2b) uses it for `f' ≥ A/8` with "O(1) periods". Prop 5.1
+needs `λ ≤ 1/4`; for small q with `λ = A/(qF') > 1/4` the splitting loses `√(#periods)` (harmless only
+because #periods ≤ 32). State Thm 6.2 for `F ≥ A/8` with this splitting.
+
+**D6 (MINOR).** Prop 7.1 proof ends "cells with `min(E,F) ≤ 𝓛^{C'}` are treated by Prop 7.2 instead" —
+Prop 7.2 is retired; replace by the R_bad bound `e,f ≥ N^{1/2−3η₁/2}`.
+
+**D7 (MINOR).** Drappeau citation: it is Prop 4.7 (§4.2.2) of arXiv:1504.05549, normalisation
+`ρ^{DI}(n) = 2√|n|ρ^{Dr}(n)`; "Prop. 1" is wrong (published numbering not checked).
+
+**D8 (MINOR).** Prop 5.1 step (5): the tails `|t_j| > 𝓛` and `|n| > 𝓛/λ` are called negligible because
+`Ŵ`, `φ̂` decay rapidly — but that decay is only `𝓛^{−B}` at the cut-off, and pointwise K-Bessel bounds
+lose `e^{π|t|/2}` against `cosh(πt_j)` (polynomial in N at `|t| ≈ 𝓛`). Needs: dyadic large sieve in
+`K` and `N₀` (K² growth vs |t|^{−B}), and a uniform bound `|K_{it}(x)| ≪ e^{−π|t|/2}(…)`; polynomial decay
+suffices since `λ/Y`, `1/(λY)`, `M` are polynomially related in all applications. Routine; write it.
+
+**D9 (MINOR).** Inconsistent statements: §0(iii) cusp term `(Yλ)^{−ε}/(Y·level)` vs Prop 5.1
+`q^{1/2}M^{−1}(𝓛/λ)^{1+ε}`; §5 `M = dq²` vs §6 `M | 16dq²` (the conjugated group is
+`{γ ∈ Γ₀(4dq²): p ≡ s ≡ 1 (2q)}`, so `M = 4dq²`).
+
+**D10 (MINOR).** Lemma 6.1/Thm 6.2: as Möbius groups `[Γ'_1:Γ'_q] = |SL₂(ℤ/q)|/2` (−I ∈ Γ(2) \ Γ(2q));
+the ratio statement is unaffected, the constant in "`#Λ(q) = g|SL₂(ℤ/q)|#Λ(1)`" is off by 2. "Witt": SL₂
+maps onto Ω ⊂ SO; transitivity follows from `|Stab| = ℓ−χ` instead.
+
+**D11 (MINOR).** Say explicitly that per-d relative errors are not uniform (Siegel; `#Λ_d(1)` may be
+`d^{1/2−ε}`) and that the proof only uses absolute errors summed via Lemma 6.3 and Cauchy–Schwarz.
+
+**D12 (MINOR).** Lemma 1.1 application omits j = 0 (c ≍ 1, no BT saving); costs `≪ NL log L`, harmless.
+
+**D13 (MINOR).** Lemma 6.3: the factor 4 at p = 2 is unnecessary (exact `2^{⌊k/2⌋}`, brute force
+d ≤ 150); `(log D)³` can be `(log D)²`.
+
+## Not checked / not accessible
+ET Prop 2.2/Lemma 2.8 reduction (inherited from MN3, not re-reviewed here); DI Thm 6 and Humphries
+Thm 1.5 numerics in §3.2/§9; Jia 2012 (not accessed). Drappeau's published (Proc. LMS) numbering.
