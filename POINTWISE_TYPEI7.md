@@ -172,3 +172,20 @@ mod 71 (`2^{29} ≡ −7^{−1} (mod 71)`), hence mod `71^e` (Hensel). So an `L 
 `F ≡ 1 (mod 7)` so `7 ∤ c'` and `F ≡ 1 (mod 7^{v_7(ck)} = 7)`; `c' | F+1`; `F` is prime to `4ck = 2^{L+2}·7c'`;
 `N = 1+2^{L+2}·7c' ≡ 1 + 7·2^{L−1} ≡ 0 (mod F)` since `8c' ≡ 1 (mod F)`; `v_7(c) = 1` is odd. ∎
 *Check.* `e = 1` gives `L ≡ 30 (mod 35)`; the `L = 30` certificate `(c',X) = (9,1)`, `F = 71` of Comp 3.1 is this one.
+
+**Computation 2.5 (CERTIFIED once replayed; `scripts/typei7_dense71.py 14`, 1 min).** Least odd `e` with `71^e ≡ −9 (mod 2^m)`
+and least level `L` (discrete log mod `35·71^{e−1}`, Pohlig–Hellman), each certificate checked by modular arithmetic
+(`F | N`, (2.2)):
+
+| m | e | bits of F | v_2(F+9) | L | t_min |
+|---|---|---|---|---|---|
+| 4 | 1 | 7 | 4 | 30 | 17 |
+| 5 | 3 | 19 | 5 | 109 685 | 54 845 |
+| 6 | 7 | 44 | 6 | 419 119 864 270 | ≈ 2.1·10¹¹ |
+| 7–10 | 15 | 93 | 10 | ≈ 2^91 | ≈ 2^90 |
+| 11 | 143 | 880 | 11 | ≈ 2^879 | ≈ 2^878 |
+| 12–14 | 399 | 2454 | 14 | ≈ 2^2452 | ≈ 2^2451 |
+
+So the approximating certificates exist explicitly, but their level is of the size of `F` itself (the discrete log is
+"random" in `[0, ord_F(2))`), i.e. `v_2(F+9) ≈ log_2 log_2(height)`: the opposite of what `x̂_9` would need
+(`v_2(F+9) ≥ 2+⌈L/2⌉ ≈ ½·log_2(height)`).
