@@ -77,7 +77,7 @@ All of `K₁, c, K₂` are taken `≥ 1`.
 `Q₀ := max((90c)^{1/(10δ²)}, (2π)^{1/(2δ)})`, `H := max(2K₂Q₀, 10K₁, 6c)`. Then for all `Q ≥ 1`, `1 ≤ N ≤ Q`:
 `S*(Q, Q^{2−2δ}/N, N) ≤ H Q^{1+4δ} N`.
 *Proof.* Write `Y := Q^{2−2δ}/N` (≥ 1). Induction on k: the claim holds for `Q ≤ 2^kQ₀`.
-*(A) Q ≤ Q₀.* By (M) with `Y' = 1` and (P3): `S* ≤ Y^{1/2}K₂(16... )` — precisely `S* ≤ Y^{1/2}K₂(Q + N^{1+δ})N ≤
+*(A) Q ≤ Q₀.* By (M) with `Y' = 1` and (P3): `S* ≤ Y^{1/2}K₂(Q + N^{1+δ})N ≤
 Q^{1−δ}N^{−1/2}·2K₂Q^{1+δ}N ≤ 2K₂Q²N ≤ 2K₂Q₀·Q^{1+4δ}N`.
 *(B) Q^{1−2δ} < N ≤ Q.* By (M) with `Y₁ := Q + N ≤ 2Q` and (P1): `S* ≤ (1 + (Y/Y₁)^{1/2})K₁(QNY₁)^δ(Q+N+Y₁)N`.
 Here `Y/Y₁ ≤ Q^{1−2δ}/N < 1` and `(QNY₁)^δ ≤ (2Q³)^δ`, so `S* ≤ 2·2^δ·4K₁Q^{1+3δ}N ≤ 10K₁Q^{1+4δ}N`.
@@ -98,3 +98,10 @@ Then `N ≤ Q₁`, `Y/Y₁ = (Q^{2δ}/π)^{2−2δ} ≥ 1`, and the induction hy
 **Corollary 2.3 (growth).** If `K₁, K₂, c ≤ exp(exp(B/δ))` with `B ≥ 1`, then `K₇(δ) ≤ exp(exp((B+3)/δ))` for
 `δ ≤ 1/10`. *Proof.* `log Q₀ ≤ (log 90 + exp(B/δ))/(10δ²) + δ^{−1}` and `log H ≤ log 2 + exp(B/δ) + log Q₀`;
 use `δ^{−2} ≤ e^{2/δ}/4` and `exp(B/δ) ≥ e^{10}` for δ ≤ 1/10. ∎
+
+## 3. (P3) from DI Thm 2 (PROVED rel. effective Thm 2, §5)
+
+Suppose DI Thm 2 (1.29) holds at the cusp ∞ of Γ₀(q) (`μ(∞) = 1/q`) in the form
+`Σ_{|κ_j|≤K} |Σ_{N<n≤2N} a_nρ_{j∞}(n)|²/ch(πκ_j) ≤ K_{T2}(δ)(K² + q^{−1}N^{1+δ})‖a‖²`. For exceptional `κ_j = −iσ_j`,
+`ch(πκ_j) = cos(πσ_j) ∈ [2^{−1/2}, 1]` and `|κ_j| ≤ 1/4`; take K = 1, `Y = 1` weights `= 1`, `‖a‖² ≤ N`, and sum over
+`Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + N^{1+δ}log 16`. So (P3) holds with `K₂ := 17K_{T2}`. ∎
