@@ -1386,40 +1386,121 @@ $\log m>L/10$ the bound of Lemma~\ref{lem:hugem} is
 $\leq m^{10C/\log L-1}\to0$, as $L\geq\log(m/3)\to\infty$.
 \end{proof}
 
-\subsection*{The other side}
-Pomerance and Weingartner \cite[Thm.~3.1]{PW} construct many
-$m$-exceptional primes.  Their proof counts, for primes $p\leq N$, the
-ones covered by Type~I congruences, at most
-$\ll(N/\varphi(m))\log^2N\log^2m$ when
-$\e^{m^{1/4}}\ll N<\e^m$, and the ones covered by Type~II congruences,
-at most $\ll(N/\varphi(m))\log^2N\log\log N$ \cite[pp.~6--8]{PW}.  A prime
-covered by neither is $m$-exceptional.  The proof is written for one
-$N=N(m)$, with $\varphi(m)/\log^2m=C\log^3N$, but the two counts hold for
-every $N$ in the stated range.  So most primes in $(N/2,N]$ are
-$m$-exceptional whenever
-\begin{equation}\label{eq:PWrange}
- m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}
-\end{equation}
-with a suitable absolute $C$.  Pomerance and Weingartner state this for
-$N=N(m)$: ``In our proof of Theorem~1.1 we actually show that not only
-is there one exceptional $n>\exp(m^{1/3-\epsilon})$, but that most prime
-values of $n$ near this bound are exceptions'' \cite[p.~2]{PW}.  The
-extension to the whole range \eqref{eq:PWrange} is our reading of their
-proof, checked independently by two internal reviewers against the
-rendered PDF.  Pomerance and Weingartner's own
-upper bound \eqref{eq:PW} gives ``most primes representable'' only for
-$\log N\gg m^{1/2}(\log m)^{3/2}$, and they wrote that between
-$\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition from
-`usually false' to `usually true' '' \cite[p.~2]{PW}.
+\subsection{The gap, and comparison with earlier bounds}\label{sec:gap}
+Theorem~U gives $\rho_{\rm exc}\to0$ as $A\to\infty$, uniformly in
+$m\geq4$.  For Theorem~L note that $L\leq m^{1/2}$ gives
+$\log L\leq\frac12\log m$, so
+$L^3\log L/\varphi(m)\leq A^3\,m\log m/(2\varphi(m))$; hence
+$\rho_{\rm rep}\to0$ whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.  So
+the transition lies at $\log N\asymp m^{1/3}$ up to a factor
+\[
+ \Bigl(\frac{m\log m}{\varphi(m)}\Bigr)^{1/3}\ll(\log m\,\log\log m)^{1/3}
+\]
+in $\log N$, a constant times $(\log m)^{1/3}$ when $\varphi(m)\gg m$.  Corollary~\ref{cor:D} together with the
+proof of \cite[Thm.~3.1]{PW} gave the factor
+$(\log m)^2(m/\varphi(m))^{1/3}$.  The remaining loss has two sources,
+both on the lower side: the Brun--Titchmarsh $\log L$ in the Type~I
+count (the open $\log\log N$ of \cite[Thm.~1.1]{ET}) and the factor
+$m/\varphi(m)$ from Type~I.  Removing both would give the exact scale:
+$\rho_{\rm rep}\to0$ if $A\to0$ and $\rho_{\rm exc}\to0$ if $A\to\infty$.
 
-Combining \eqref{eq:PWrange} with Corollary~\ref{cor:D}: most primes
-near $N$ are $m$-exceptional for $\log N$ up to
-$(\varphi(m)/(C\log^2m))^{1/3}$, and most are $m$-representable for all
-$\log N\geq C_Dm^{1/3}(\log m)^{4/3}$.  The two thresholds differ by a
-factor $\asymp(\log m)^2(m/\varphi(m))^{1/3}$.  We do not know whether
-the proportion of exceptional primes is monotone in between.  The
+\emph{Pomerance--Weingartner.}  Their proof of \cite[Thm.~3.1]{PW}
+counts, for primes $p\leq N$, the ones covered by Type~I congruences,
+$\ll(N/\varphi(m))\log^2N\log\log N\log m$, which they simplify to
+$(N/\varphi(m))\log^2N\log^2m$ for $\e^{m^{1/4}}\ll N<\e^m$, and the ones
+covered by Type~II congruences, $\ll(N/\varphi(m))\log^2N\log\log N$
+\cite[pp.~6--8]{PW}.  The proof is written for one $N=N(m)$, with
+$\varphi(m)/\log^2m=C\log^3N$, but the counts hold for every $N$ in that
+range, so most primes in $(N/2,N]$ are $m$-exceptional whenever
+\begin{equation}\label{eq:PWrange}
+ m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}.
+\end{equation}
+They state this for $N=N(m)$: ``In our proof of Theorem~1.1 we actually
+show that not only is there one exceptional $n>\exp(m^{1/3-\epsilon})$,
+but that most prime values of $n$ near this bound are exceptions''
+\cite[p.~2]{PW}.  The extension to the range \eqref{eq:PWrange} is our
+reading of their proof, checked independently by two internal reviewers
+against the rendered PDF.  Theorem~L improves the unsimplified bound
+$\rho_{\rm rep}\ll L^3\log L\log m/\varphi(m)$ by a factor
+$\min(\log m,L/\log m)$, a full $\log m$ once $L\geq\log^2m$, which holds
+near the transition, and extends \eqref{eq:PWrange} to
+$\log N\leq\varepsilon(\varphi(m)/\log m)^{1/3}$, $\varepsilon\to0$,
+with no lower restriction on $\log N$.  On the other side,
+\eqref{eq:PW} gives ``most primes representable'' only for
+$\log N\gg m^{1/2}(\log m)^{3/2}$, and Pomerance and Weingartner wrote
+that between $\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition
+from `usually false' to `usually true' '' \cite[p.~2]{PW}; their
+Poisson heuristic \cite[p.~3]{PW} predicts $m^{1/3+o(1)}$.  Theorem~U
+proves the representable half of this prediction at the exact scale
+$m^{1/3}$, with no logarithmic loss.  Pomerance's 2026 talk still lists
+the location of the transition as open \cite{Pom26}.
+
+\emph{Elsholtz.}  The constant $c_{m,3}\asymp m^{-1/3}$ of
+\cite[Rem.~7.3]{Els} gives the integer saving
+$c(\log^2N/m)^{1/3}$ for $N>N_m$, which exceeds a constant only for
+$\log N\gg m^{1/2}$.  So neither this bound nor \eqref{eq:PW} reaches the
+scale $m^{1/3}$, even for integers.  Theorem~\ref{thm:A} reaches it for
+integers (with the loss $(\log m)^{4/3}$ for primes in
+Corollary~\ref{cor:D}), and Theorem~U for primes.
+
+We do not know whether $\rho_{\rm exc}(m,N)$ is monotone in $N$.  The
 largest $m$-exceptional integer, which the heuristic of \cite[p.~3]{PW}
 places near $\exp(m^{1/2})$, is not addressed by any of this.
+
+\subsection{Numerics and a conjecture}\label{sec:numerics}
+The following is \status{evidence} only.  Representability of a prime
+$p\nmid m$ was decided exactly through \cite[Cor.~2.2, Cor.~2.4]{PW}
+(Type~I with $mad\leq3p$, Type~II with $mab\leq2p$), validated against an
+independent brute force for $4\leq m\leq40$, $p<1500$ (no mismatch), on
+samples of about 800 primes per window $(N/2,N]$
+(\texttt{scripts/emn2\_scan.c}, \texttt{scripts/emn2\_half.py}).  Let
+$L_q(m)$ be the value of $\log N$ at which the representable proportion
+reaches $q$.
+
+\begin{center}
+\small
+\begin{tabular}{rcccccc}
+\toprule
+$m$ & 60 & 100 & 128 & 200 & 256 & 300\\
+\midrule
+$L_{1/2}$ & 7.64 & 9.21 & 9.65 & 11.21 & 12.22 & 13.06\\
+$L_{1/2}/m^{1/3}$ & 1.95 & 1.98 & 1.91 & 1.92 & 1.92 & 1.95\\
+$L_{3/4}-L_{1/4}$ & 3.73 & 3.47 & 4.26 & 4.83 & 4.87 & 5.34\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For even $m\in[60,300]$ one has $L_{1/2}/m^{1/3}=1.95\pm0.05$ with no
+trend (local log-log slope $0.333\pm0.02$; $L_{1/2}$ is uncertain by
+$\pm0.1$--$0.2$).  A factor $(\log m)^{4/3}$ or $(\log m)^{-2/3}$ would
+change the ratio by $1.56$ resp.\ $0.80$ over this range; neither is
+visible, and within each parity class there is no visible dependence on
+$\varphi(m)/m$.  Odd $m$ sit lower (odd composites $1.77$--$1.92$, odd
+primes $1.63$--$1.80$) and drift upward (local slopes $0.36$ and $0.40$);
+this is a parity effect at these sizes, which the data cannot separate
+from a slowly varying factor.  The window $L_{3/4}-L_{1/4}$, between $0.38L_{1/2}$ and $0.49L_{1/2}$,
+does not shrink: in $A$ the profile for even $m$ roughly collapses, and
+$F(A)=1-\exp(-\kappa A^3)$ with $\kappa=\log2/1.95^3\approx0.094$ fits
+the quartiles, matching the shape $\exp(-(\log p)^3/m)$ of the heuristic
+of \cite[p.~3]{PW}.  Solutions are strongly overdispersed (for $m=200$,
+$N=2^{20}$: on average $4.85$ Type~I/II tuples per prime, yet only $74\%$
+of the primes are representable), which reflects the fibre structure of
+Section~\ref{sec:fibre}.  The two independent reviews of \cite{MN2}
+reproduced the half-points with their own decision procedures.
+
+\begin{conjC2}[\status{conjecture}]
+$\rho_{\rm rep}(m,N)=F(A)+o(1)$ as $m\to\infty$, for a continuous
+increasing $F$ with $F(0+)=0$ and $F(\infty)=1$ \textup{(}possibly
+depending on $m$ only through bounded arithmetic data\textup{)}.  In
+particular there is no sharp threshold constant: the transition window
+has the same order $m^{1/3}$ as its location.
+\end{conjC2}
+
+Theorems~U and~L prove the two tails of C2 up to the gap above.  Even
+the Poisson model with intensity $\kappa L^3/m$ predicts a
+non-degenerate $F$; the fibre masses $\mu_c\asymp t^3/m$ of
+Corollary~\ref{cor:fibre} are two-sided only up to constants and the data
+are overdispersed, so $F$ is not expected to be exactly of Poisson shape.
 
 \begin{assessment}[why the shapes are what they are]\label{ass:shape}
 Both our argument and Vaughan's, as reconstructed in \cite[\S4]{PW},
@@ -1655,6 +1736,10 @@ H. L. Montgomery and R. C. Vaughan, The large sieve,
 C. Pomerance and A. Weingartner, Exceptions to the
 Erd\H{o}s--Straus--Schinzel conjecture, \emph{Ramanujan J.} \textbf{69}
 (2026), no.~2, Paper No.~31; arXiv:2511.16817v2 (cited version).
+\bibitem[P]{Pom26}
+C. Pomerance, \emph{The Erd\H{o}s--Straus conjecture}, talk slides,
+March 2026, \url{https://math.dartmouth.edu/~carlp/esconjfl.pdf}
+(archived in \texttt{sources/o101/}).
 \bibitem[S]{Shiu}
 P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
