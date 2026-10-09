@@ -55,3 +55,18 @@ POINTWISE_MORDELL §3). Per root: 352801: 649, 112561: 250, 483841: 174, 473761:
 Hence the {3,11,13}-generic points of class 112561 (`x_3≡7 (9)`) and the {7,11,13}-generic points of
 class 380881 (`x_7≡4 (7)`) are all covered, as are the {11,13}-generic points of 352801, 418321, 483841
 (POINTWISE_MORDELL §2). **Only class 473761 contains known uncovered T-generic points (e.g. x**).**
+
+## 4. Tree certificates (method)
+
+A tree certificate (`m13c_dfs.py` output) refines each of the six roots `x mod 720720` at primes p
+(children = the unit residues `x+Lt mod Lp`; for `p∤L` the one non-unit child can contain only the prime
+p itself); every leaf carries an ET class whose coordinates are integer-valued on the leaf's progression,
+or is marked *open*. Two checkers:
+* `scripts/m13c_check.py` (sympy engine of `mordell_check.py`: identity, positivity for n>1, integrality at
+  s = 0..deg; recomputes the children of every split; ES checked directly for the split primes p with
+  `(p/13)=−1`);
+* `scripts/m13c_review_tree.py` (R80 engine `review_mordell_check.py`: coordinates re-derived from ET,
+  exact Fractions, s = 0..4; re-checks the partition and that the leaf masses sum to 1).
+Negative controls (a perturbed leaf parameter; a deleted child): both checkers FAIL.
+If both pass, ES holds for every prime p with `(p/13)=−1` outside the open leaves (Theorem 3.1(b) handles all
+residues outside the six roots).
