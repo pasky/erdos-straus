@@ -122,15 +122,22 @@ in $2\alpha-1+\gamma$, not a sharp boundary. This argument gives
 Theorem~\ref{thm:main} is \status{conditional} on (SEL), with a proof relative
 to cited inputs. These are the ET reduction (Proposition~2.2, Lemma~2.8,
 and (8.1)--(8.2)); the internal note \cite[Proposition~2.3 and
-proof of Theorem~3.8, step~(1)]{MN3}; Deshouillers--Iwaniec \cite[Theorem~2]{DI} and
+proof of Theorem~3.8, step~(1)]{MN3} (MN3's Proposition~2.3 is
+Proposition~\ref{M:2.3} here; R114 repair); Deshouillers--Iwaniec \cite[Theorem~2]{DI} and
 Drappeau \cite[Proposition~4.7, arXiv numbering]{Dr}; the spectral theorem;
 Weil's bound; Brun--Titchmarsh; Selberg's upper-bound sieve; and
 P\'olya--Vinogradov. DI Theorem~5 enters the discussion of exceptional
 spectrum, not the conditional proof. The new argument received internal
 adversarial review (R111, rounds 1--2), not external refereeing. That review did
 not re-check the inherited ET/MN3 reduction; MN3 received a separate internal
-review. The book locators in \cite{Iw} are inherited from the source note
-and have not been independently verified. Computational checks are not proofs.
+review. (R114 repair) A later internal referee pass (R114) re-derived the
+parts of that reduction used here, namely $f_I(p)\le2\sum_cw_c(p)$ from
+\cite[Proposition~2.2, Lemma~2.8]{ET} and the large-$c$ step from
+\cite[(8.1)--(8.2)]{ET}; this is still internal checking only.
+The book locators in \cite{Iw} are inherited from the source note
+and have not been independently verified; the same applies to the
+locators in \cite{HR} and to the precise statements of \cite{MV} and
+\cite{KS}, which were not available to the internal reviewers (R114 repair). Computational checks are not proofs.
 
 \paragraph{Literature and scope.}
 A limited literature search found no later removal of the Type~I double
@@ -477,7 +484,7 @@ Every form here is positive definite. Type~I forms form the subset
 The unrestricted integer $a$ makes the invariant set convenient; a positive
 box will restore $a>0$. These are CM, or Heegner, forms with discriminant
 $-4d$ and level $d$, not forms satisfying the coprime Heegner hypothesis:
-$(4d,d)$ need not be $1$. Type~I forms are primitive, since $(f,4ad)=1$.
+$(-4d,d)=d>1$ for $d>1$ (R114 repair). Type~I forms are primitive, since $(f,4ad)=1$.
 The larger set $\cF_d$ need not be primitive (e.g.\ $[2,6,6]\in\cF_3$);
 Lemma~\ref{L:6.3} counts only the Type~I subset.
 
@@ -798,6 +805,9 @@ expression
 and its continuous-spectrum analogue by
 \((K^2+\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2\), for trivial
 nebentypus. With an even character of conductor \(q_0\mid q\), the bound is
+(Drappeau's \(q_0\) is the modulus of \(\chi\); on \(\Gamma_0(M)\) the
+multiplier \(\chi(\gamma_{22})\) depends only on the primitive character
+inducing \(\chi\), so \(q_0\) may be taken to be the conductor; R114 repair)
 \begin{equation}\label{B:eq:large-sieve}
  \ll_\varepsilon
  (K^2+q_0^{1/2}\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2.
@@ -1040,7 +1050,8 @@ Fix $c\ge1$ and use $\cF_d^I$, $\Gamma'_q$ from \S\ref{sec:heegner},
 with $n(Q)=cB-A=4acd-f$. In $[A,B,C]$, $A$ is a form coefficient,
 not the dyadic parameter; the parity and sieve invariance were proved there.
 
-For a prime \(\ell\nmid2d\), put \(\chi_d(\ell)=(-d/\ell)\) and define
+For a prime \(\ell\nmid2d\), put \(\chi_d(\ell)=(-d/\ell)\) (this agrees
+with \((\frac{-4d}{\ell})\) of Lemma~\ref{L:8.3}; R114 repair) and define
 \(g_{c,d}(\ell)\) as the proportion on the quadric
 \(B^2-4AC=-4d\) satisfying \(cB-A=0\). Directly,
 \begin{equation}\label{B:eq:density}
@@ -1349,11 +1360,12 @@ to approach $1$ at the boundary $A=D$.
 
 \begin{lemma}[linearly degenerating savings; \status{proved}]\label{L:1.1}
 Let $L\geq2$, and let $m_{jk}\geq0$, $1\leq j,k\leq\lfloor L\rfloor$,
-with $\sum_km_{jk}\leq M$ for each $j$.  Then
+with $\sum_km_{jk}\leq\mathcal M$ for each $j$.  Then
 \[
- \sum_{j,k}m_{jk}\min(1/j,1/k)\leq M(1+\log L).
+ \sum_{j,k}m_{jk}\min(1/j,1/k)\leq\mathcal M(1+\log L).
 \]
-If also $m_{jk}\leq M/L$, the same sum is at most $2M$.
+If also $m_{jk}\leq\mathcal M/L$, the same sum is at most $2\mathcal M$.
+(R114 repair: $\mathcal M$ is a mass bound, not the level $M=4dq^2$.)
 \end{lemma}
 \begin{proof}
 The first assertion follows by using $1/j$ and summing the harmonic
@@ -1362,17 +1374,18 @@ series.  For the second, group pairs by $h=\max(j,k)$:
  \sum_{j,k\leq L}\min(1/j,1/k)
  =\sum_{h\leq L}\frac{2h-1}{h}\leq2L.
 \]
-Multiply by $M/L$.  Fixed constant multiples of either saving only
+Multiply by $\mathcal M/L$.  Fixed constant multiples of either saving only
 change the resulting absolute constant.
 \end{proof}
 Below, $j$ indexes a $c$-block and $k$ its distance from $A=D$.
-Layer masses are $O(N\cL)$, so take $M\asymp N\cL^2$ and $L\asymp\cL$.
+Layer masses are $O(N\cL)$, so take $\mathcal M\asymp N\cL^2$ and $L\asymp\cL$.
 The block $j=0$ is treated separately, never with $1/j$.
 
 \begin{theorem}[\status{conditional} on (SEL)]\label{L:8.1}
 Assume \textup{(SEL)} as stated in Section~\ref{sec:intro}, uniformly for
 $\Gamma_0(4dq^2)$ and the even nebentypus characters modulo $2q$.
-Then
+Then, relative to the cited inputs listed in Section~\ref{sec:intro}
+(R114 repair),
 \[
  \sum_{p\leq N}f_I(p)\ll N\log^2N.
 \]
@@ -1438,7 +1451,10 @@ For reference, Brun--Titchmarsh on $4ad$ bounds a whole layer by
 \end{equation}
 whenever $k\leq\cL/3$.  For fixed $(a,d,f)$ the $c$-block maps into
 an interval of length $4ad\,2^j$ in one residue class modulo $4ad$.
-Brun--Titchmarsh \cite[(A.10)]{ET} gives
+Brun--Titchmarsh in the interval form
+$\pi(x+y;m,b)-\pi(x;m,b)\le2y/(\varphi(m)\log(y/m))$ \cite{MV}
+(R114 repair: not \cite[(A.10)]{ET}, which concerns initial segments),
+with $m=4ad$ and $y=4ad\,2^j$, gives
 $8ad\,2^j/(\varphi(4ad)j\log2)$ for a reduced class.  In a
 nonreduced class there is at most one prime, which is absorbed by the
 same upper bound.  Now $k\leq\cL/3$ implies $A,D\geq N^{1/4}$ for

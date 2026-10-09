@@ -15,8 +15,8 @@ From-scratch code: `scripts/review_r114_sep.py` (+ `.out.txt`). Working notes: `
 No FATAL or MAJOR defect. The main theorem is correctly stated as CONDITIONAL on (SEL) for `Γ₀(4dq²)` with even
 nebentypus mod 2q, uniformly in d ≥ 1 and odd squarefree q coprime to d, and the inherited ET/MN3 reduction is
 flagged. The paper is faithful to EXCEPTIONAL_TYPEI_LOGLOG.md after R111 r2. All three "deviations" in
-AGENT_REPORT_O114 are correct, and the first is a real fix of the source. Compiles in two passes without warnings,
-undefined references, or bad boxes (25 pp). ES is not claimed.
+AGENT_REPORT_O114 are correct, and the first is a real fix of the source. After the repairs the note compiles cleanly (two consecutive passes: no warnings,
+undefined references or bad boxes; 26 pp, up from 25). ES is not claimed.
 
 Numbering note: the PDF numbers are not the label names. "Lemma 1.1" (label `L:1.1`) is **Lemma 8.1**, "Thm 8.1"
 (label `L:8.1`) is **Theorem 8.2**, and MN3 Prop 2.3 / Prop 3.3 / Lemmas 3.1–3.2 are **Prop 2.4 / Prop 2.3 / Lemma 2.1 /
