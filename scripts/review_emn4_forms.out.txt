@@ -1,0 +1,6 @@
+(1) 42184 pairs, disc(Q-Q')=8t(cosh-1) exact, min cosh = 3/2
+(2) local densities: 1340 (l,t,c) cases, both cusps; transitivity checked l<=7,t<=12
+(3) t<=60: content in {1,2} with the stated rule (574 content-2 forms seen); <=1 coset per reduced form; total <= h(-4t)+[t=3(4)]h(-t)  (sum hits 255, sum bounds 255)
+(4) rho majorants checked for 19200 (m,d,f)
+(5) tau_m small-divisor inequality: m in {4,6,12,30,210}, n<3000
+failures = 0
