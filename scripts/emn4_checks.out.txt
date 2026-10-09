@@ -1,0 +1,14 @@
+check1 (Lemma 1.1): 252 (m,p) pairs (229 Type I solvable), failures = 0
+check2 (separation): 36802 pairs, min cosh = 1.5000 (claim >= 1.5)
+check3 (local densities): 924 cases, failures = 0
+check4 (content-2 forms, t = 3 mod 4): found for 15 values of t, e.g. [(3, (2, -30, 114)), (7, (2, -70, 616))]
+check5 (EVIDENCE, §3.2(c) gain): ratio = sum_{d~D} g(d) sum_{f~F} rho_{md}(f)/phi(f) / ((phi(m)/m) D)
+  m=    4 phi(m)/m=0.500 ratio=1.280  (raw/D=0.640)
+  m=    6 phi(m)/m=0.333 ratio=1.326  (raw/D=0.442)
+  m=   30 phi(m)/m=0.267 ratio=1.340  (raw/D=0.357)
+  m=  210 phi(m)/m=0.229 ratio=1.326  (raw/D=0.303)
+  m= 2310 phi(m)/m=0.208 ratio=1.300  (raw/D=0.270)
+  m=    7 phi(m)/m=0.857 ratio=1.055  (raw/D=0.904)
+  m=  143 phi(m)/m=0.839 ratio=1.059  (raw/D=0.889)
+  m= 1009 phi(m)/m=0.999 ratio=1.056  (raw/D=1.055)
+ALL EXACT CHECKS PASS
