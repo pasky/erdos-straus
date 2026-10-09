@@ -120,7 +120,8 @@ data are exactly the (a',d',m,j), a',d' prime to 143, with `4a'd'mj = λa' + m +
 Independent complete enumeration: `scripts/review_m13c_cell22.c`.
 * **D4 (MINOR, Comp. 3.1 / 13B §4 caveat).** The expensive `N = 11⁴13⁴` enumeration was unnecessary: for
   T-level `F | 11²13²` the only ES level above 4·10⁷ comes from II3/I1/I3 with `a_T = 11²13²`, `d_T = e_T = 1`,
-  where `λ = a_T²` is a square and the Mordell-type reciprocity of D4's argument (§C) kills every datum,
+  where `λ = a_T²` is a square and the Mordell-type reciprocity argument of §C kills every datum,
   at every T-generic point, not only at x*. Repair: replace "m13b_es 418161601 (72 min) …" by this argument
-  (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally, any ES level
-  `N = E·a_T²·d_T` with `E·d_T` a square is empty for II3/I1/I3 — this prunes the k = 3 programme.
+  (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally (same proof, any T-generic point): I1/I3 data
+  with `d_T` a square, and II3 data with `e_T = 1` and `d_T` a square, do not exist — this prunes the k = 3
+  programme (cf. 13B Lemma 1.2, which gives the parity only at x*).
