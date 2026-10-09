@@ -105,7 +105,9 @@ it.** Inserting and writing `m₀ = qn`:
 `Σ_{m₀≤B odd} ρ_{ka}(m₀)/m₀ ≤ Σ_{q≤B odd, (q,k)=1} (−ka/q) W(B/q)/q`, `W := W_{2k}`,
 where `W(B/q) ≤ W(B)` and `q ↦ W(B/q)/q` is positive and decreasing. Sum over `a ≤ A`, call it T, and
 split the q-range at `1 ≤ Q₁ ≤ Q₂ ≤ B`:
-* squares `q = r²`: `(−ka/r²) ≤ 1`, contribution `≤ A W(B) Σ_r r^{−2} ≪ A W(B)`;
+* squares `q = r² ≤ Q₂`: `0 ≤ (−ka/r²) ≤ 1`, contribution `≤ A W(B) Σ_r r^{−2} ≪ A W(B)`;
+  (R108 repair, applied by reviewer: with this range read as "squares ≤ Q₂" the four ranges are an
+  exact partition of the q-sum; bounding all squares is an over-count of a non-negative range;)
 * non-squares `q ≤ Q₁`: `Σ_{a≤A}(−ka/q) = (−k/q)Σ_{a≤A}(a/q)` with `(−k/q) = ±1` (as `(q,2k) = 1`),
   and PV for the non-principal character `(·/q)` (Lemma 2.2(a), proof) gives `≪ √q log q`; contribution
   `≪ W(B) Σ_{q≤Q₁} q^{−1/2} log q ≪ W(B) √Q₁ log Q₁`;
@@ -121,7 +123,7 @@ So `T ≪ A W(B) Λ`, and `W(B) = W_{2k}(B) ≪ (φ(k)/k) log B` by Lemma 2.1(b)
 *Remark 2.4.* The gain is exact in order: for `n ≡ 1 (mod k)` all divisors are coprime to k, and
 `Σ_{a,b} τ(kab²+1) ≍ (φ(k)/k)·AB log(AB)` is the heuristic size (EVIDENCE: §2.6 numerics).
 
-**Proposition 2.5 (Type I count with 1/m; PROVED rel. ET Thm 7.1, BT).** For `m ≥ 4`, `log m ≤ L/10`,
+**Proposition 2.5 (Type I count with 1/m; PROVED rel. ET Thm 7.1, BT, PV (via Prop 2.3) and MN2 Prop 3.4's set-up (R108 repair, applied by reviewer)).** For `m ≥ 4`, `log m ≤ L/10`,
 `L ≤ m^{1/2}`:
 `#{p ∈ (N/2,N] : p has a Type I m-solution} ≪ (N/L)·[(L³ + L² log² m) log L/m + m^{−0.35}]`.
 
@@ -139,11 +141,13 @@ positivity). Take `l = 30`, so that `kA'² ≤ D'^l` when `D' ≥ max(A', k^{1/2
 * Boxes with `max(A', D') < k^{1/28}` ("tiny"): `n = ka'²d'+1 ≤ 8k^{1.11}`, `τ(n) ≪ k^{0.012}`. They
   occur in the block only if `X ≤ 4st·k^{1/14} ≤ 4m^{1/14}(st)^{8/7}`, and their weighted mass is
   `≪ Σ_{st ≥ (X/4m^{1/14})^{7/8}} τ(st)(st)^{−2}(m(st)²)^{0.012} log(2mst) ≪ m^{0.013} min(1,(X/m^{0.072})^{−0.85})`.
+  (R108 repair, applied by reviewer: the factor τ(st) is the number of pairs (s,t) with a given
+  product u = st, after grouping the (s,t)-sum by u.)
   Summed over blocks (BT weight ≤ 1): `≪ m^{0.014}`, so a count `≪ N m^{0.014}/φ(m) ≪ (N/L) m^{−0.35}`.
 Summing the first kind over blocks `X = 3N2^{−j}/m` with BT weight `≪ 1/j`, `j ≤ 2L`:
 `≪ (N/φ(m))(φ(m)/m)(L² + L log² m) log L`. ∎
 
-**Theorem L' (lower side without the m/φ(m) loss; PROVED rel. ET Thm 7.1, BT, Shiu; effective).**
+**Theorem L' (lower side without the m/φ(m) loss; PROVED rel. ET Thm 7.1, BT, Shiu, PV, and MN2 Prop 3.2 / Lemma 3.5 (R108 repair, applied by reviewer); effective).**
 For `m ≥ 4`, `N ≥ 16`, `log m ≤ L/10`, `L ≤ m^{1/2}`:
 `ρ_rep(m, N) ≪ (L³ + L² log² m) log L/m + m^{−0.35}`.
 (For `log m > L/10`, MN2 Lemma 3.5 is unchanged.) Consequently `ρ_rep → 0` whenever `L³ log L/m → 0`,
@@ -187,7 +191,10 @@ So, for fixed c, the Type I solutions are an admissible subset of S_d, d ≥ 1 (
 subset is **not** Γ₀(d)-stable (parity: for d = 1, `M = [[1,2],[2,5]]`, `γ = [[1,1],[0,1]]` give
 `γMγᵀ = [[10,7],[7,5]]`, i.e. a = 7/2 — R108 review); a parity-preserving subgroup such as
 `Γ₀(d) ∩ Γ(2)` (or explicit congruence bookkeeping) is needed, and counting orbit lifts in boxes is
-not the same as equidistribution of CM packets on the quotient.
+not the same as equidistribution of CM packets on the quotient. (R108 repair, applied by reviewer:
+here the discriminant −4d is divisible by 4·level, so these are Heegner/CM points in the
+Gross–Kohnen–Zagier sense *without* the Heegner hypothesis `(D, N) = 1`; equidistribution results
+quoted for Heegner points usually assume fixed level or `(D, N) = 1` and do not apply as stated.)
 
 **Lemma 3.2 (single-progression parametrisations; generic elimination + hand check — the
 completeness claim is EVIDENCE: specialisations where an eliminant coefficient vanishes were not
@@ -303,7 +310,8 @@ dyadic blocks), so this part is `≪ η₀^{−1} N log² N`. (2) `ad > N^{1−�
 `ℓ ∈ 𝒫 := {ℓ > ℓ₀}`, `ℓ₀ = ℓ₀(C₀) := 2C₀ + 2`, so that `1/2 ≤ h_c(ℓ) ≤ 1 + C₀/ℓ < ℓ(1 − 1/ℓ₀)` on 𝒫
 (Ω₁) and `Σ_{w≤ℓ<z} h_c(ℓ) log ℓ/ℓ ≤ log(z/w) + O_{C₀}(1)` (Ω₂(1)); omitting `ℓ ≤ ℓ₀` costs only a
 factor `O_{C₀}(1)`. Selberg's upper-bound sieve of dimension 1 (Halberstam–Richert, Thm 4.1 with
-Lemma 4.1) gives
+Lemma 4.1; R108: HR is not in `sources/`, statement checked from memory only — the weights `w_c` are
+non-negative integers, so HR's sequences-with-multiplicity setting applies) gives
 `Σ_{N/2<p≤N} w_c(p) ≪_{C₀} X_c Π_{ℓ₀<ℓ<z}(1 − h_c(ℓ)/ℓ) + Σ_{q<z²} μ²(q)3^{ω(q)}|R_c(q)|`,
 with `Π_{ℓ₀<ℓ<z}(1 − h_c(ℓ)/ℓ) ≪_{C₀} 1/log z` (as `h_c(ℓ) ≥ 1 − C₀/ℓ`). Finally `X_c ≤ Σ_{ad≤3N/(4c)} τ(4a²d+1) ≪ (N/c) log² N`
 (ET Prop 1.4, k = 4, over dyadic boxes). Summing over c: `≪ (η₀/θ) N log² N + C₀ N log N`. ∎

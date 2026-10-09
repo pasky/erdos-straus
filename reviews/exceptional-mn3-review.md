@@ -10,7 +10,7 @@ Reviewer branch: `side-agent/review-emn3`. Source checked: ET = arXiv:1107.1010v
 |---|---|
 | Lemma 2.1 (coprime harmonic sums) | SOUND |
 | Lemma 2.2 (PV / Kronecker PV) | SOUND |
-| Prop 2.3 (ET Prop 1.4 with φ(k)/k) | SOUND (minor presentational defects) |
+| Prop 2.3 (ET Prop 1.4 with φ(k)/k) | SOUND-AFTER-REPAIRS (m1, presentational); see §5 for all claims |
 
 ## 1. Lemma 2.1, Lemma 2.2, Prop 2.3 — re-derivation
 
@@ -169,3 +169,46 @@ main `N log N` re-derived. Labels adequate.
 | Prop 3.3 (R_bad area 1/6) | SOUND |
 | §3.4 R** area 7/72 | SOUND (area); method claims Assessment, correctly labelled |
 | Theorem 3.8 (LD ⟹ OPEN-I) | SOUND (HR not in sources — m5) |
+
+## 4. Defects
+
+No FATAL, no MAJOR found. I specifically looked for, and did not find: a k-dependent constant in
+Prop 2.3 (ET Thm 7.1's constant depends only on degree, l and C = 4; PV constants are absolute);
+a hidden `(q,k)=1` mismatch between the indicator and the Kronecker character (it is automatic);
+circularity between Thm L' and MN2 (only MN2 Lemma 3.3 is replaced); an LD hypothesis that is
+locally impossible (local densities fit the window).
+
+* **m1 (MINOR, Prop 2.3 proof, "squares" bullet / "all q > Q₂" bullet).** The "not a partition"
+  remark is confusing: with the square range read as `q = r² ≤ Q₂` the split *is* a partition; the
+  bound for all squares merely dominates. *Repair (applied, marked):* state the range as `≤ Q₂`.
+* **m2 (MINOR, Prop 2.5 tiny boxes).** `τ(st)` appears without explanation. *Repair (applied):*
+  it counts pairs (s,t) with product u after grouping.
+* **m3 (MINOR, labels of Prop 2.5 / Theorem L').** Dependencies omitted PV (through Prop 2.3) and
+  MN2 Prop 3.2 / Lemma 3.5 / Prop 3.4's set-up. *Repair (applied):* labels extended.
+* **m4 (MINOR, Lemma 3.1 and §3.5).** "Heegner points of discriminant −4d on X₀(d)": correct as
+  forms (`[de,4ad,f]`, d | A, B ≡ 0 (2d), primitive), but `(D,N) ≠ 1` — no Heegner hypothesis; the
+  standard equidistribution theorems do not apply as stated. The report's "(H**) … Heegner points"
+  should carry the same caveat. *Repair (applied at Lemma 3.1).*
+* **m5 (MINOR, Thm 3.8 proof).** Halberstam–Richert is not in `sources/`; Thm 4.1/Lemma 4.1 checked
+  from memory only. *Repair (applied as a note):* flag it; the parent may want to add the HR pages.
+* **m6 (MINOR, §1 quote).** ET's parenthesis literally says "Type II case"; the author's "[means
+  Type I]" gloss is reasonable and flagged, but the report's ledger text ("our reading of ET's 'no
+  similar trick' remark") should keep the [sic] visible. No repair needed in the document.
+
+## 5. Final verdict
+
+| Claim | Verdict |
+|---|---|
+| Lemma 2.1, 2.2 | SOUND |
+| Prop 2.3 (coprimality-gain ET Prop 1.4) | SOUND-AFTER-REPAIRS (m1, presentational) |
+| Prop 2.5 (tiny-box exponents) | SOUND-AFTER-REPAIRS (m2, m3) |
+| Theorem L' | SOUND-AFTER-REPAIRS (m3, label only) |
+| Lemma 3.1 (SL₂; Heegner identification) | SOUND-AFTER-REPAIRS (m4) |
+| Lemma 3.2 (moduli list) | SOUND as labelled (completeness EVIDENCE) |
+| Prop 3.3 (R_bad, area 1/6) | SOUND |
+| §3.4 (R**, area 7/72) | area SOUND; method claims Assessment (correct label) |
+| Theorem 3.8 (LD ⟹ OPEN-I) | SOUND (m5: HR unchecked against source) |
+| Ledger text in AGENT_REPORT_O108 | acceptable; add PV + MN2 dependencies to Thm L' label |
+
+The headline claim — MN2 open point (ii) (the m/φ(m) loss) is closed, Theorem L' holds with `/m`;
+the Type I log log is NOT removed — is supported.
