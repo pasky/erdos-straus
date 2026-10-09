@@ -104,4 +104,4 @@ use `δ^{−2} ≤ e^{2/δ}/4` and `exp(B/δ) ≥ e^{10}` for δ ≤ 1/10. ∎
 Suppose DI Thm 2 (1.29) holds at the cusp ∞ of Γ₀(q) (`μ(∞) = 1/q`) in the form
 `Σ_{|κ_j|≤K} |Σ_{N<n≤2N} a_nρ_{j∞}(n)|²/ch(πκ_j) ≤ K_{T2}(δ)(K² + q^{−1}N^{1+δ})‖a‖²`. For exceptional `κ_j = −iσ_j`,
 `ch(πκ_j) = cos(πσ_j) ∈ [2^{−1/2}, 1]` and `|κ_j| ≤ 1/4`; take K = 1, `Y = 1` weights `= 1`, `‖a‖² ≤ N`, and sum over
-`Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + N^{1+δ}log 16`. So (P3) holds with `K₂ := 17K_{T2}`. ∎
+`Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + (1 + log 16)N^{1+δ}`. So (P3) holds with `K₂ := 17K_{T2}`. ∎
