@@ -27,9 +27,9 @@ static int factor(u64 M, u64 *p, int *e) {
   return k;
 }
 /* exact test of P*(64 c_o^4 delta^8 - T^4) < u^2 * c_o*M * T^4 */
-static int bound_ok(u64 co_hi_7a, u64 cp, u64 de, u64 M, u64 P) {
+static int bound_ok(u64 co_hi_7a, u64 cp, u64 de, u64 M, u64 P1) {
   mpz_set_ui(tmp, co_hi_7a); mpz_mul_ui(tmp, tmp, cp); mpz_mul_ui(tmp, tmp, de); mpz_mul_ui(tmp, tmp, de); /* x = c_o de^2 */
-  mpz_pow_ui(lhs, tmp, 4); mpz_mul_ui(lhs, lhs, 64); mpz_sub(lhs, lhs, T4); mpz_mul_ui(lhs, lhs, cp); mpz_mul_ui(lhs, lhs, P / cp);
+  mpz_pow_ui(lhs, tmp, 4); mpz_mul_ui(lhs, lhs, 64); mpz_sub(lhs, lhs, T4); mpz_mul_ui(lhs, lhs, cp); mpz_mul_ui(lhs, lhs, P1);
   mpz_set_ui(rhs, co_hi_7a); mpz_mul_ui(rhs, rhs, cp); mpz_mul_ui(rhs, rhs, M); mpz_mul(rhs, rhs, U2); mpz_mul(rhs, rhs, T4);
   return mpz_cmp(lhs, rhs) < 0;
 }
@@ -54,11 +54,10 @@ static void report(u64 p7a, int a, u64 cp, u64 de, u64 P1) {
 }
 static void try_div(u64 p7a, int a, u64 cp, u64 de, u64 M, u64 P1) {
   ndiv++;
-  u64 P = cp * P1;  /* < 2^63 guaranteed by caller */
-  if (!bound_ok(p7a, cp, de, M, P)) return;
+  if (!bound_ok(p7a, cp, de, M, P1)) return;
   npass++;
   mpz_set_ui(N, p7a); mpz_mul_ui(N, N, M / P1); mpz_mul(N, N, U2); mpz_add_ui(N, N, 1);
-  mpz_set_ui(Pz, P); mpz_mul_ui(Pz, Pz, 16);
+  mpz_set_ui(Pz, cp); mpz_mul_ui(Pz, Pz, P1); mpz_mul_ui(Pz, Pz, 16);
   if (!mpz_divisible_p(N, Pz)) return;
   mpz_divexact(N, N, Pz);
   if (!mpz_perfect_square_p(N)) return;
@@ -73,7 +72,7 @@ static void divs(u64 p7a, int a, u64 cp, u64 de, u64 M, u64 *p, int *e, int k, i
 /* P1 = 1 instance, used for loop termination (monotone, see header) */
 static int alive(u64 p7a, u64 cp, u64 de) {
   if ((unsigned __int128)p7a * cp * de * de + T >= ((unsigned __int128)1 << 62)) { fprintf(stderr, "overflow guard alive\n"); exit(4); }
-  return bound_ok(p7a, cp, de, p7a * cp * de * de + T, cp); }
+  return bound_ok(p7a, cp, de, p7a * cp * de * de + T, 1); }
 static int vacuous(u64 p7a, u64 cp, u64 de) { /* 64 x^4 <= T^4 */
   long double x = (long double)p7a * cp * de * de; return 64.0L * x * x * x * x <= (long double)T * T * T * T * 1.0000001L; }
 int main(int argc, char **argv) {
@@ -99,7 +98,7 @@ int main(int argc, char **argv) {
         int vac = vacuous(p7a, cp, de);
         if (!vac && !alive(p7a, cp, de)) break;
         u64 M = p7a * cp * de * de + T;
-        if (M >= (1ULL << 62) / 1 || (double)cp * M > 4e18) { fprintf(stderr, "overflow guard M\n"); exit(4); }
+        if (M >= (1ULL << 62)) { fprintf(stderr, "overflow guard M\n"); exit(4); }
         ntriples++;
         int k = factor(M, pf, pe);
         divs(p7a, a, cp, de, M, pf, pe, k, 0, 1);
