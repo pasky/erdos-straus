@@ -119,3 +119,34 @@ with `F' ≥ 8A`, (b5) `F' = f ≤ A` with `(A/f) ≤ N^{δ/2}`. Then the relati
 hypothesis), and `λ ≤ 1/4` in (b3); so it is `≪ q²N^{−δ/4}`. Second term: `F'^{1/2}/A ≤ (3A√D)^{1/2}/A ≪ D^{1/4}A^{−1/2}
 ≤ A^{−1/4}`. Third: `F'^{3/8}D^{1/16}A^{−3/4} ≪ (A√D)^{3/8}D^{1/16}A^{−3/4} = D^{1/4}A^{−3/8} ≤ A^{−1/8}`. In all three cases
 `D < A`, so `A ≥ (N/(2c))^{1/2} ≥ N^{(1−η)/2}/2` and `A^{−1/8} ≪ N^{−1/17}` for `η ≤ 1/20`. ∎
+
+## 4. The Type I sum
+
+**Hypothesis (EFF).** (DI7_ε) holds with `C_ε ≤ exp(exp(A₀/ε))` for some absolute `A₀` and all `ε ∈ (0,1/4]` (for both DI
+Thm 7 and its nebentypus form, Drappeau Lemma 4.10). (DI and Drappeau state `≪_ε` without the ε-dependence; see §5.)
+
+**Theorem 4.1.** (i) (PROVED rel. TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10; **no (SEL)**.) There is an
+absolute C such that for every `ε₀ ∈ (0,1)` and `N ≥ 3`:
+`Σ_{p≤N} f_I(p) ≤ C ε₀ N log²N log log N + O_{ε₀}(N log²N)`. In particular `Σ_{p≤N} f_I(p) = o(N log²N log log N)`.
+(ii) (CONDITIONAL on (EFF).) `Σ_{p≤N} f_I(p) ≪ N log²N`.
+(iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then `Σ_{p≤N} f_I(p) ≪ N L²(1 + w_N log L)` with
+`w_N := inf{w ∈ (0,1] : log G(64/w) ≤ wL/16}` (here L = log N).
+*Proof.* Follow TTL §8 verbatim, with one change: in the cases (b2), (b3), (b5) (the only places where TTL uses Thm 6.2,
+hence (SEL)), Thm 6.2 summed over d is replaced by Cor 3.2 — TTL uses Thm 6.2 only through `Σ_{d≍D}|E_d(q)|` (TTL §6
+Remark D11), and Cor 3.2 differs from TTL's (SEL)-bound by the factor `C_ε^{1/2}N^{2ε}q`. In TTL (3) take `κ = 1/4`, so
+`Q = z² = N^{δ/16}` and `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³ = 𝓛^C N^{3δ/64}`; with `ε := w/64` the sieve remainder and the
+`|r_σ(1)|` part of the main term are `≪ 𝓛^C C_ε^{1/2} N^{−δ/4 + 3δ/64 + w/32}(1 + N^{δ/4 − c₀})` times the mass. For
+`δ ≥ w` this is `≪ 𝓛^C C_{w/64}^{1/2} N^{−11δ/64}` (using `δ ≤ 1/3 + 4η₁ < 4c₀`… as `c₀ = 1/20` and the
+`N^{−c₀}` term is used only with its own margin: `N^{3δ/64+w/32−c₀} ≤ N^{−1/50}` for δ ≤ 0.35). Call a layer k = ⌊δL⌋
+**good** if `δ ≥ w` and `𝓛^C C_{w/64}^{1/2} N^{−11δ/64} ≤ 1/(δL)`; on good layers TTL's step (5) applies unchanged
+(saving `C/k`, Lemma 1.1). On the other layers of the `D < A` side use TTL (b4) (Brun–Titchmarsh on 4ad) for the whole
+layer: cost `≪ NL/j` per c-block `j ≥ 1` and `≪ NL` for `j = 0` (TTL (4) and Lemma 1.1's remark), i.e. `≪ NL log L`
+per layer.
+(i) Fix `w = ε₀`. For `N ≥ N₀(ε₀)` every layer with `δ ≥ ε₀` is good (`C_{ε₀/64}` is a constant, `N^{−11δ/64} ≤ N^{−ε₀/6}`).
+The bad layers number `≤ ε₀L + 1`, cost `≪ ε₀ N L² log L + NL log L`. The rest is TTL's `O(N L²)`. Dyadic summation in N.
+(ii) Take `w = w_N := 128A₀/log L`. Then `log C_{w/64} ≤ exp(64A₀/w) = L^{1/2}`, and for `δ ≥ w`,
+`(11/64)δL ≥ (11·2A₀)L/log L ≥ L^{1/2} + (C+1)log L + log(δL)` for `L ≥ L₀(A₀)`: every layer with `δ ≥ w_N` is good.
+The bad layers number `≤ w_N L + 1`, cost `≪ (w_N L + 1)·NL log L ≪ A₀ N L²`.
+(iii) As (ii), with `w = 2w_N` (then `log G(64/w) ≤ ... ` follows from monotonicity of `w ↦ log G(64/w) − wL/16`… —
+precisely: for `δ ≥ w ≥ w_N`, `log C_{w/64} ≤ log G(64/w_N) ≤ w_N L/16 ≤ δL/16`, and `11δL/64 − δL/32 = 9δL/64 ≥ ...`, good
+once `δL ≥ C' log L`). Bad layers `≪ (w_N + C'log L/L)L`. ∎
