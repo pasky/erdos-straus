@@ -93,3 +93,12 @@ Comp. 2.1 (1399 survivors at L = 6.96·10¹⁰) is EVIDENCE and was not recomput
 * **D3 (MINOR, `m13c_witness.py` docstring / §2).** `witness_all` returns the empty list when `4 ∤ L`
   although II2 classes (modulus f odd) can have `M | L` then. Never triggered in the campaign (all levels
   are multiples of 16). Repair: state the hypothesis `4 | L` in §2 and the docstring.
+
+## C. Computation 3.1 — work log (in progress)
+
+Reduction (reviewer, re-derived): 13B §4 already enumerated every ES level N ≤ 4·10⁷. For T-level F | 11²13²,
+ES level N > 4·10⁷ only for II3/I1/I3 with a_T (resp. c_T) = 11²13², d_T = e_T (f_T) = 1
+(other T-splits give N = E·a_T²·d_T ≤ 1859²·11 < 4·10⁷). For these, with λ = 11⁴13⁴ = N, the T-generic
+data are exactly the (a',d',m,j), a',d' prime to 143, with `4a'd'mj = λa' + m + j` (e = 4a'd'm − 1, cofactor
+4a'd'j − 1 of 4a²d+1), and the subcell is u ≡ −e (mod 11²13²) — the same set for all three families.
+Independent complete enumeration: `scripts/review_m13c_cell22.c`.
