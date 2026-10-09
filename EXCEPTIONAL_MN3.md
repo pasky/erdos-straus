@@ -91,3 +91,38 @@ So `T ≪ A W(B) Λ`, and `W(B) = W_{2k}(B) ≪ (φ(k)/k) log B` by Lemma 2.1(b)
 
 *Remark 2.4.* The gain is exact in order: for `n ≡ 1 (mod k)` all divisors are coprime to k, and
 `Σ_{a,b} τ(kab²+1) ≍ (φ(k)/k)·AB log(AB)` is the heuristic size (EVIDENCE: §2.6 numerics).
+
+**Proposition 2.5 (Type I count with 1/m; PROVED rel. ET Thm 7.1, BT).** For `m ≥ 4`, `log m ≤ L/10`,
+`L ≤ m^{1/2}`:
+`#{p ∈ (N/2,N] : p has a Type I m-solution} ≪ (N/L)·[(L³ + L² log² m) log L/m + m^{−0.35}]`.
+
+*Proof.* For `m ≤ m₀` (absolute) this is MN2 Prop 3.4 (`φ(m) ≍ m`). Let `m > m₀`. Follow MN2 Prop 3.4:
+by PW (3.2) and BT the count is `≪ Σ_{mad≤3N} τ(ma²d+1) N/(φ(m)φ(ad) log(2+N/mad))`; ET (A.12)
+`1/φ(ad) ≤ (ad)^{−1} Σ_{s|a, t|d} 1/(st)`, `a = sa'`, `d = td'`, `k = ms²t ≥ m`; the block `ad ∈ (X, 2X]`
+splits into `≪ L` dyadic boxes `a' ~ A'`, `d' ~ D'` (`A'D' ≍ X/st`; size-1 sides enlarged to 2 by
+positivity). Take `l = 30`, so that `kA'² ≤ D'^l` when `D' ≥ max(A', k^{1/28})` and `kD' ≤ A'^l` when
+`A' > max(D', k^{1/28})`; `m₀` is chosen so that `k^{1/28} ≥ ω(2k) + 2` for `k ≥ m₀`.
+* Boxes with `max(A', D') ≥ k^{1/28}`: Prop 2.3 (linear variable d', quadratic a'; (a) if `D' ≥ A'`,
+  (b) if `D' < A'`) gives `≪ (φ(k)/k)(X/st) log X · Λ`, with `Λ ≤ 2` unless
+  `D' < k^{1/3} log²(2kX)`; at most `≪ log(2k) + log L` boxes per block are of that kind, each with
+  `Λ ≤ 1 + log(1+k)`. As `φ(k)/k ≤ φ(m)/m`, the weighted block sum is
+  `≪ (φ(m)/m) Σ_{s,t}(st)^{−2}[L² + L log²(2ms²tL)] ≪ (φ(m)/m)(L² + L log² m)` (`log L ≤ log m`).
+* Boxes with `max(A', D') < k^{1/28}` ("tiny"): `n = ka'²d'+1 ≤ 8k^{1.11}`, `τ(n) ≪ k^{0.012}`. They
+  occur in the block only if `X ≤ 4st·k^{1/14} ≤ 4m^{1/14}(st)^{8/7}`, and their weighted mass is
+  `≪ Σ_{st ≥ (X/4m^{1/14})^{7/8}} τ(st)(st)^{−2}(m(st)²)^{0.012} log(2mst) ≪ m^{0.013} min(1,(X/m^{0.072})^{−0.85})`.
+  Summed over blocks (BT weight ≤ 1): `≪ m^{0.014}`, so a count `≪ N m^{0.014}/φ(m) ≪ (N/L) m^{−0.35}`.
+Summing the first kind over blocks `X = 3N2^{−j}/m` with BT weight `≪ 1/j`, `j ≤ 2L`:
+`≪ (N/φ(m))(φ(m)/m)(L² + L log² m) log L`. ∎
+
+**Theorem L' (lower side without the m/φ(m) loss; PROVED rel. ET Thm 7.1, BT, Shiu; effective).**
+For `m ≥ 4`, `N ≥ 16`, `log m ≤ L/10`, `L ≤ m^{1/2}`:
+`ρ_rep(m, N) ≪ (L³ + L² log² m) log L/m + m^{−0.35}`.
+(For `log m > L/10`, MN2 Lemma 3.5 is unchanged.) Consequently `ρ_rep → 0` whenever `L³ log L/m → 0`,
+i.e. `L ≤ ε(m/log m)^{1/3}`, ε → 0.
+
+*Proof.* MN2 Prop 3.2 (Type II, `≪ (N/L)(L³ + m^{0.02})/m`) plus Prop 2.5; `π*(N) ≫ N/L`;
+`m^{0.02}/m ≤ m^{−0.35}`. The consequence as in MN2 Thm L (`L ≥ log(m/3)` if `ρ_rep > 0`, so
+`L² log² m log L/m ≤ (L³ + log⁶ m) log L/m`). ∎
+
+So the gap between Thm U and the lower side is now `(log m)^{1/3}` in log N (from the BT log L alone),
+instead of `(m log m/φ(m))^{1/3}`. MN2 open point (ii) is closed.
