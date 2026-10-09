@@ -22492,4 +22492,101 @@ print("\n== (eh) POINTWISE_MORDELL13C: Thm 6.1 tree (R100 checker, full), §2 wi
 check_eh()
 
 
+# ---------------------------------------------------------------- (ei)
+# POINTWISE_MORDELL17C.md (task O98, review R98b).  Uses R98b's from-scratch review_m17c_tail.py,
+# review_m17c_qbrute.py, review_m17c_qsweep.py and the author's m17c_tail_cum.py, m17c_qcheck.py.  Checked:
+# (1) Lemma 1.1: the Abel-summation identity sum w_K D(K) = w_{K1} S(K1) + sum (w_K - w_{K+2}) S(K) exactly
+#     (Fractions, random D, both weight systems w_K = 17^((1-K)/2) on odd K >= 13, w_k = 17^(1-k) on odd k >= 9),
+#     with w_K - w_{K+2} = (16/17) w_K resp. (1 - 17^-2) w_k; the cumulative table (18 entries): author's script and
+#     R98b's mpmath closed form both print exactly the stated floor-rounded entries, and every entry is <= the
+#     inline closed-form threshold (rho - T_Q) / (2 (16/17) S) and within one unit of its last digit; the pointwise
+#     row equals M17B §4; data check S_P(13) = #p13.txt = 1463 <= 1.497 * 17^5.2;
+# (2) Lemma 2.1 (i)-(iv) by R98b's brute force (b solved from the defining equation): F = 17, 4913, 1001, 9999 give
+#     2, 73, 10, 179 points with at most 1, 1, 1, 2 per (a,d) and 0 identity failures (author's m17c_qcheck agrees
+#     for F = 17, 4913, 1001); Cor 2.2 counts below the bound; sweep over all F <= 1500: 27919 points, 0 failures
+#     of (i)-(iii) and of F < 4acd <= 3F, max 2 per pair; Cor 2.2 cost sum_{k >= 9 odd} 3 17^(1-k/2)(1 + k ln 17)
+#     = 4.2254e-3 < 4.3e-3.
+
+def check_ei():
+    from time import perf_counter
+    import os
+    import random
+    import re
+    import subprocess
+    import sys
+    from decimal import Decimal
+    from fractions import Fraction as Fr
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("M17C subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    # (1) Abel summation, exact
+    rng = random.Random(105)
+    for K0, wf, ratio in ((13, lambda K: Fr(17) ** ((1 - K) // 2), Fr(16, 17)), (9, lambda k: Fr(17) ** (1 - k), 1 - Fr(1, 289))):
+        for K1 in range(K0, K0 + 21, 2):
+            Ks = range(K0, K1 + 1, 2)
+            D = {K: rng.randrange(0, 10 ** 6) for K in Ks}
+            S = {K: sum(D[k] for k in Ks if k <= K) for K in Ks}
+            assert all(wf(K) - wf(K + 2) == ratio * wf(K) for K in Ks), "M17C Lemma 1.1 weight ratio"
+            lhs = sum(wf(K) * D[K] for K in Ks)
+            rhs = wf(K1) * S[K1] + sum((wf(K) - wf(K + 2)) * S[K] for K in Ks if K <= K1 - 2)
+            assert lhs == rhs, ("M17C Lemma 1.1 Abel", K0, K1)
+    want = {"pw13": ["619.2", "87.88", "11.76", "1.409", "0.5686", "0.1275"],
+            "cum13": ["657.9", "93.38", "12.50", "1.497", "0.6042", "0.1354"],
+            "pw15": ["2553", "272.9", "27.53", "2.484", "0.8947", "0.1692"],
+            "cum15": ["2712", "290.0", "29.25", "2.639", "0.9507", "0.1798"]}
+    ths = [0.25, 0.3, 0.35, 0.4, 0.42, 0.45]
+    rho = {13: 16344335 / 24137569, 15: 961421 / 1419857}
+    for K0, (num, den) in ((13, (16344335, 24137569)), (15, (961421, 1419857))):
+        o = run("m17c_tail_cum.py", str(K0), "9", str(num), str(den))
+        rows = re.findall(r"theta=([\d.]+): pointwise C\* <= (\S+)\s+cumulative C\* <= (\S+)", o)
+        assert [float(r[0]) for r in rows] == ths, ("M17C author table thetas", o)
+        assert [r[1] for r in rows] == want[f"pw{K0}"] and [r[2] for r in rows] == want[f"cum{K0}"], ("M17C author table", K0, o)
+    o = run("review_m17c_tail.py")
+    rr = re.findall(r"^([\d.]+) \['(\S+)', '(\S+)', '(\S+)', '(\S+)'\]", o, re.M)
+    assert [float(r[0]) for r in rr] == ths, ("M17C R98b table", o)
+    for i, r in enumerate(rr):
+        for col, key in ((1, "pw13"), (2, "cum13"), (3, "cum15"), (4, "pw15")):
+            assert Decimal(r[col]) == Decimal(want[key][i]), ("M17C R98b entry", key, ths[i], r[col])
+    S7 = 17.0
+    TQ = 2 * S7 * S7 ** (9 * (0.6 - 1)) / (1 - S7 ** (2 * 0.6 - 2))
+    for key, vals in want.items():
+        K0, cum = int(key[-2:]), key.startswith("cum")
+        for th, v in zip(ths, vals):
+            tp = 2 * S7 ** 0.5 * S7 ** (K0 * (th - 0.5)) / (1 - S7 ** (2 * th - 1)) * (16 / 17 if cum else 1)
+            exact = (rho[K0] - TQ) / tp
+            ulp = float(Decimal(1).scaleb(Decimal(v).adjusted() - 3))
+            assert float(v) <= exact < float(v) + ulp * 1.0000001, ("M17C floor rounding", key, th, v, exact)
+    np13 = sum(1 for ln in open(os.path.join(root, "data", "m17b", "p13.txt")) if ln.strip())
+    assert np13 == 1463 and np13 <= 1.497 * 17 ** 5.2, "M17C S_P(13) data check"
+    # (2) Lemma 2.1 brute force
+    exp = {17: (2, 1), 4913: (73, 1), 1001: (10, 1), 9999: (179, 2)}
+    for F, (npt, mx) in exp.items():
+        o = run("review_m17c_qbrute.py", str(F))
+        m = re.search(rf"^{F} points (\d+) .* identity-fails (\d+) max per \(a,d\) (\d+) Cor2.2 .*?(\[.*\])", o, re.M)
+        assert m and (int(m.group(1)), int(m.group(2)), int(m.group(3))) == (npt, 0, mx), ("M17C qbrute", F, o)
+        assert all(t[-1] is True for t in eval(m.group(4))), ("M17C Cor 2.2 counts", F, o)
+        if F != 9999:
+            assert f"{F} points {npt} max per (a,d) {mx}" in run("m17c_qcheck.py", str(F)), ("M17C author qcheck", F)
+    o = run("review_m17c_qsweep.py", "1", "1500")
+    assert "points 27919 identity/range fails 0 max per (a,d) 2 #pairs with 2 4601" in o, ("M17C sweep", o)
+    from math import log as ln_
+    cost = sum(3 * 17 ** (1 - k / 2) * (1 + k * ln_(17)) for k in range(9, 801, 2))
+    assert 4.2254e-3 < cost < 4.2255e-3 < 4.3e-3, ("M17C Cor 2.2 cost", cost)
+    print(f"ei Abel summation exact (both weights); cumulative/pointwise tables (24 entries) = author = R98b, floor-"
+          f"rounded vs closed form; S_P(13) = 1463 OK; Lemma 2.1 brute force F = 17, 4913, 1001, 9999: 2, 73, 10, 179 "
+          f"points, max per (a,d) 1, 1, 1, 2; sweep F <= 1500: 27919 points, 0 failures; Cor 2.2 cost = {cost:.5e}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ei) POINTWISE_MORDELL17C: Lemma 1.1 (Abel summation, cumulative table), Lemma 2.1 brute force, Cor 2.2 ==")
+check_ei()
+
+
 print("\nall checks passed")
