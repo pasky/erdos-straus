@@ -21,5 +21,23 @@ counterexample reproduced (`[1,8,18] ↦ [27,44,18]`, B = 44 ≢ 0 mod 8). Conju
 character decomposition over even χ mod q (= mod 2q) with `M = 4dq²` is right (see D-list for the
 normalisation factor).
 
+**V4. Lemma 6.1 (main-term factorisation) and the §6 densities — SOUND.** `scripts/review_ttl_local.py`:
+for all odd primes ℓ ≤ 23, ℓ ∤ d, the quadric `B²−4AC = −4d` has `ℓ²+χℓ` points and SL₂(𝔽_ℓ) is
+transitive on it (orbit size = quadric size; directly: the stabiliser of Q̄ is SO(Q̄), a torus of order
+`ℓ−χ`, and `ℓ(ℓ²−1)/(ℓ−χ) = ℓ(ℓ+χ)`). The 'Witt' justification is imprecise (SL₂ maps onto the
+spinor-kernel Ω ⊂ SO, not SO), but the conclusion is true. Both g_{c,d}(ℓ) formulas verified. The
+orbit-stabiliser/strong-approximation bookkeeping is correct as a *ratio*; `[Γ'_1:Γ'_q]` as Möbius
+groups is `|SL₂(ℤ/q)|/2` (−I ∈ Γ(2), −I ∉ Γ(2q)), which only affects the constant in Thm 6.2's last line
+(minor D10).
+
+**V5. Lemma 6.3 (r(d), incl. 2-adic) — SOUND (with room to spare).** Brute force over every primitive
+reduced form of disc −4d, d ≤ 150: `#{(t:s) ∈ ℙ¹(ℤ/d): Q₀(t,s) ≡ 0 (d)} ≤ ∏ p^{⌊k/2⌋}` with **no**
+extra factor 4 at p = 2 (max ratio 1.0). Re-derivation of the 2-adic case: Q₀ primitive ⇒ WLOG A odd;
+B = 2B'; `4A·Q₀(t,1) = 4((At+B')² + d)` so `2^k | Q₀(t,1)` ⇔ `At+B' ≡ 0 (2^{⌈k/2⌉})`, and points
+`(1:s)`, 2 | s, give `Q₀ ≡ A` odd. The factor 6 = [Γ₀(d):Γ₀(2d)∩Γ(2)] is correct for odd d and is 4 for
+even d. `Σ_{d≤D} r(d) ≪ D log D`, so the final bound even holds with `(log D)²`. Note that the per-d
+relative error is **not** uniform in d (Siegel: `#Λ(1)` can be ≈ d^{1/2−ε}); the proof correctly avoids
+this by summing absolute errors via Cauchy–Schwarz — the paper should say so explicitly (D11).
+
 ## Defects
 (filled below)

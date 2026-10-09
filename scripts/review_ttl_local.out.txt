@@ -1,0 +1,3 @@
+(a),(b) transitivity, |quadric| = l^2+chi*l, g_{c,d} formulas: OK for l<=23
+(c) g'_{c,a}(l) formula OK
+(d) max r(d)/prod p^floor(k/2) over primitive forms, d<=150: 1.0; case exceeding without the 4: None
