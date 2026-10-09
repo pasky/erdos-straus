@@ -276,3 +276,20 @@ unchanged. Build: two pdflatex passes give 24 pp, 0 overfull boxes and 0 undefin
 underfull hbox and hyperref warnings remain, and there is one harmless underfull vbox at a page break.
 
 * Round 2 (R98, post-referee additions §4.6, §5.3, TYPEI5, MORDELL13B §5): `reviews/es-coverings-note-referee-r2.md`.
+
+### Post-referee addition (O106): 2026-10-08/09 results, from reviewed sources; not re-refereed
+Added from reviewed sources only (labels and engine scopes as in the sources and their reviews):
+§4.6 after Thm 4.16: TYPEI6 (R99) — Prop 4.17 (no polynomial norm-one unit in δ or c_o for L ≥ 7; sketch), the
+large-unit inequality of TYPEI6 Lemma 3.1 (PROVED) with the "generic case" Assessment, Thm 4.18 (CONDITIONAL on abc:
+finitely many fibre certificates per level; finiteness only), Comp 4.19 (CERTIFIED: no certificate at x̂_9 with
+L = 7–10 and v_7(k) ≤ 15 at any height; two engines except (L,b) = (9,15), (10,14), (10,15)), EVIDENCE model < 10⁻¹¹.
+§5.1: Thm 5.2 = MORDELL13C Thm 6.1 (R100; 35459 open classes, 8.42·10⁻⁵ of the six classes, three checkers; no class
+closes) and the witness-engine EVIDENCE (1399/1499/1412). §5.3: Comp 5.6 extended by MORDELL13C Comps 5.1–5.2 (one
+engine; caps vacuous); the "Data" paragraph gets MORDELL13C Comp 3.1 (complete (2,2) cell at 11²13²: 15 of 143 subcells).
+§6.3–6.4: D_P(11) = 836, D_P(13) = 1463 (MORDELL17B, R93, two engines), ρ₁, Thm 6.7 (PROVED reduction, cumulative
+form of MORDELL17C Lemma 1.1 (R98b); C ≤ 1.497 at θ = 2/5, pointwise 1.409), MORDELL17B Conj 4.2 (CONJECTURE), MORDELL17C
+Cor 2.2 (large-c Q-points, PROVED), and the discrete-log window Assessment of MORDELL17C §§3–4 appended to Assessment 6.8.
+Abstract, Results bullets, Problems 2 and 4, acknowledgements and bibliography (PT6, PM13C, PM17B, PM17C) updated.
+Numbering shifts: old Prop 4.17 → 4.20 (and later §4 items by 3); old 5.2–5.6 → 5.3–5.7; old Assessment 6.7 → 6.8.
+Build: two pdflatex passes give 29 pp (was 25), 0 overfull boxes, 0 undefined references; the pre-existing underfull
+hbox ("Put", Prop 6.2) and one underfull vbox at a page break remain.

@@ -21,7 +21,7 @@ with Pólya–Vinogradov as a proof sketch with exact pointers), gap `(m log m/�
 Conjecture C2. Abstract, intro, status, literature, open problems updated. Cor D kept (integer route).
 **Needs a referee pass on the new §8** (`reviews/agent-reports/AGENT_REPORT_O104.md`).
 
-**New (2026-10-06): `es-coverings-note.tex` / `.pdf`** (task O86; 24 pages after the O91/O96 additions) — "Finite congruence
+**New (2026-10-06, updated 2026-10-09): `es-coverings-note.tex` / `.pdf`** (task O86; 29 pages after the O91/O96/O106 additions) — "Finite congruence
 coverings for the Erdős–Straus equation and sterile profinite points". Consolidates the reviewed
 covering results: ET Prop 1.9 classes as clopen sets in Ẑ, compactness + Dirichlet (Prop 2.5: a cofinite
 polynomial covering of a prime set exists ⟺ its accumulation set has no sterile point; for one given
@@ -33,7 +33,11 @@ by MORDELL13B Thm 3.1 (Prop 5.4: II3 class (8,33,11999), modulus 12670944), new 
 as an EVIDENCE-level Conj 5.6; r=17: box calculus, Comp 3.1, Thm 4.1 (PROVED reduction), Cor 4.2 (CONDITIONAL), the
 P-count and the discrete-log Assessment; open problems. Change list:
 `reviews/agent-reports/AGENT_REPORT_O86.md`. Refereed internally (R86, `reviews/es-coverings-note-referee.md`); the post-referee
-additions O91 (TYPEI4) and O96 (x* refutation) are not re-refereed.
+additions O91 (TYPEI4) and O96 (x* refutation) are not re-refereed. Post-referee addition O106 (2026-10-09, not
+re-refereed; `reviews/agent-reports/AGENT_REPORT_O106.md`): TYPEI6 (Prop 4.17 no polynomial unit for L ≥ 7, large-unit
+regime, Thm 4.18 CONDITIONAL on abc, Comp 4.19 CERTIFIED v_7(k) ≥ 16 at L = 7–10), MORDELL13C (Thm 5.2: 35459 open
+classes; complete (2,2) cell at 11²13²; x** ranges 2·10⁹ / 2·10⁸), MORDELL17B/17C (D_P(11), D_P(13), ρ₁, Thm 6.7: cumulative
+explicit reduction, C ≤ 1.497 at θ = 2/5; discrete-log window Assessment).
 
 **New: `es-subexp-note.tex` / `.pdf`, v6** (task O77, 62 pages; refereed R77, D1–D9 applied). The proof of the main
 theorem is unchanged. New §12 (source `POINTWISE_TAIL.md`, ledger (H)33): quantitative transfer
