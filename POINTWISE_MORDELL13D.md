@@ -30,3 +30,13 @@ a child `y mod Lp` with `M | Lp` must have `v_p(M) = v_p(Lp)`; `req = p^{v_p(Lp)
 **Validation.** (i) every unit `x` mod `L ∈ {9240, 10920, 65520, 720720}` (156288 nodes): full witness sets of
 the C engine and `m13c_witness.witness_all(first=False)` agree — **0 mismatches**.
 (ii) random open leaves of the 13C §8.2 tree (in progress, see below).
+
+Speed (300 random open leaves of the 13C §8.2 tree, `L ≈ 10¹⁸–10²⁰`, 14–15 primes): ≈ 45 ms per node for the
+full set, single core. 31 of the 300 leaves (10%) lie in no class with `M | L` (13C Comp 8.3 found 4%, sample of 52).
+
+## 2. Hybrid DFS `scripts/m13d_dfs.py` — first runs on root 418321 (EVIDENCE)
+
+**Run 2.1 (CK = 0: split chosen by tables `M ≤ 10⁶` as in 13C; C engine at every popped node).**
+`m13d_dfs.py 418321:720720 1000000 100 3 5000 3600 …` (484 s): 5000 pops, 2313 covered by the C engine
+(46%), open mass `5.2·10⁻⁹` of the root (13C Comp 8.2: `1.95·10⁻⁸` after 142088 nodes), but the queue still grows
+(14874 open at stop; ≈ 7.4 children pushed per expansion, ≈ 4 of them open w.r.t. all `M | L`). Supercritical.
