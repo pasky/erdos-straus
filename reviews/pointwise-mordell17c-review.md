@@ -53,3 +53,26 @@ Label correct (Assessment, not carried out). Re-derived the thresholds: (a,c): `
 and O_α(1) for α > 1/4 (statement from memory; source PDF not in sources/, not checked). See defect m3 (corner not
 listed). The P-side "no free regime" remark: re-derived, correct.
 
+### §3 Assessment (P side, ET-type covers)
+Re-derived: P-point constraints `(N+e)/4 ≤ acde ≤ (N+e)/2` ✓; at the symmetric point each two-variable regime has `≍ N^{1/2}`
+parameter pairs ✓; ET balance with `X_ad,X_ac,X_cd ≤ N^{0.4}` forces `X_e ≥ N^{0.4}` ✓; `#{ad ≤ X} ≥ X ln X − X` and
+`X ln X − X > 1.497X ⇔ ln X > 2.497` ✓ (true for every K ≥ 13, as `ln 17^{5.2} = 14.7`). Nicolas–Robin
+`τ(n) ≤ n^{1.5379 ln 2/ln ln n}` (n ≥ 3): exponent `1.066/ln ln n = 0.189` at `n = 17^{100}` ✓. The conclusions are
+methodological and correctly not claimed as theorems, but two sentences overclaim (defects m4, m5).
+
+### §4 Assessment + EVIDENCE (averaging over K)
+* Class structure (PROVED): re-derived. For fixed `(a,b,e)`, `17∤cd` is K-independent (`c = (a+b)/e` fixed; `17 | d ⇔ 17 | 17^K+e ⇔ 17 | e`),
+  so the admissible set is exactly {odd K ≡ K₀ mod lcm(2, ord_m 17)} ∩ {17^K + e ≥ m} or empty ✓.
+* "17 never a primitive root mod 4ab, ab > 1" ✓ (ab even ⇒ 8 | m; ab odd > 1 ⇒ (ℤ/4)^× × (ℤ/p^j)^× with two even factors;
+  even ab = 1 holds since 17 ≡ 1 mod 4). `−e ≡ 1 mod gcd(m,16)` ✓.
+* EVIDENCE table: independent C code `scripts/review_m17c_dlog.c` reproduces **every entry** for B = 3000 and 30000
+  (pairs, Σ τ, E_∞, ratios, #K_min ≤ 13 = 123/231, median 167/1411, max 2811/28795). The underlying model (M17B Lemma 5.1)
+  was validated from scratch: `scripts/review_m17c_pcount.c` counts N-points of `Σ^II_{17^K}` (a ≤ b, 17∤cd) via
+  `e = −17^K mod 4ab` and returns D_P = 2, 32, 121 for K = 1, 3, 5, matching M17/M17B.
+* Extended range (this review): B = 10⁴, 10⁵, 3·10⁵ give E_∞ = 4698, 52861, 165511; E_∞/Στ = 1.40 %, 1.04 %, 0.92 %;
+  E_∞/(B ln B) = 0.051, 0.046, 0.044; #K_min ≤ 13 = 175, 303, 372; median K_min = 491, 4515, 12525. So the
+  growth statement in the text is wrong in detail (defect m6), though the Assessment's conclusion (θ ≈ 1 for K-blind
+  arguments) is unaffected: any `E_∞ ≥ B^{1−o(1)}` gives it.
+* Assessment: the reduction "(H_P^cum) ⇔ discrete logs of −e rarely fall in `[log_17 4ab, K]`" is a correct reformulation
+  (modulo the multiplicity remark m7). Label CONDITIONAL for (H_P) correct.
+
