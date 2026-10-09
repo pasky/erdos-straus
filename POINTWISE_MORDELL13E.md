@@ -41,7 +41,7 @@ I3 `N=f_T c_T² d_T`; I1 `N=a_T² d_T`. Hence `v_T(N)≡v_T(ab)`, `v_T(f)`, `v_T
 *Check:* `scripts/m13e_parity_check.py`: all 6062 engine boxes (levels ≤ 4·10⁷ and 11⁴13⁴) that meet the (2,2) cell
 satisfy it.
 
-*Scope: why reciprocity cannot separate x\*\* from x\*.* Every quadratic (or higher power-residue) symbol
+*Scope: why reciprocity cannot separate x** from x* (Assessment).* Every quadratic (or higher power-residue) symbol
 of the T-primes is a character of `(ℤ/q)^×` and sees only `x_q mod q`. Since `x**≡x* (mod 143)` and x* *is*
 covered (13B Thm 3.1, level 1859), no argument that depends on `x mod 143` alone can show x** sterile. Sterility
 of x** must use the 13-adic digit `15≢2 (mod 13²)`, i.e. the non-torsion part of `ℤ₁₃^×`, which no reciprocity
