@@ -316,27 +316,37 @@ primitive reduced forms, d ≤ 150: `scripts/review_ttl_*.py`, max ratio 1.0.)
 
 Fix `c`, a squarefree `q` and smooth weights `W_i ∈ C_c^∞([1,2])`. 𝓛 = log N.
 
-**Proposition 7.1 ((K_a): fixed a).** Let `(q, 2a) = 1`, `m = 4a²`, and
-`S_a(q) := Σ_{e,f ≥ 1, ef ≡ 1 (m), q | n} W₁(e/E) W₂(d/D)`, `d := (ef−1)/m`, `n := 4acd − f`.
-Assume `min(E,F) ≥ N^{c₀}` (R1: for tiny e the claimed density is false, e.g. a = c = 1, e = 3, q = 5).
-Then `S_a(q) = g'_{c,a}(q) S_a(1)·(1 + O(N^{−10})) + O(𝓛^C τ(a)^C q · a)`, where
-`g'_{c,a}(ℓ) = #{(e,f) ∈ 𝔽_ℓ² : f(ce − a) ≡ c}/ℓ² = (ℓ−1)/ℓ²` (ℓ ∤ c) resp. `1/ℓ` (ℓ | c), and
-`S_a(1) ≍ D φ(m)/m` (main term `= (φ(m)/m²)∫∫W₁(e/E)W₂((ef−1)/(mD)) de df`).
-*Proof.* For `(q,2a)=1`, `q | n ⟺ f(ce − a) ≡ c (q)` (multiply `a n = c(ef−1) − af` by `ā`). So
-`(e,f)` runs over a set `𝒮 ⊂ (ℤ/mq)²` (CRT: `ef ≡ 1 (m)` times the curve `f(ce−a) ≡ c` mod q). Poisson
-in `(e,f)` mod `mq`: `S = (mq)^{−2} Σ_{h,k} Ŵ(h/(mq), k/(mq)) Σ_{(e,f)∈𝒮} e((he+kf)/(mq))`,
-`Ŵ(ξ,η) = ∫∫W₁(x/E)W₂((xy−1)/(mD)) e(−ξx−ηy)dxdy`. On the support `x ≍ E`, `y ≍ F := mD/E`, with
-`∂_x^i∂_y^j ≪ E^{−i}F^{−j}`, so `Ŵ(h/mq, k/mq) ≪_B EF(1+|h|E/mq)^{−B}(1+|k|F/mq)^{−B}`. The complete
-sum factors as `S(h',k';m)·T_q` with `|T_q| ≤ 3^{ω(q)} q`. `(h,k) = (0,0)`: the main term, which
-factorises as `g'(q)×`(q = 1 term). `h = 0 ≠ k` (and symmetrically): `S(0,k';m) = c_m(k')`, and the
-smooth k-sum of Ramanujan sums is `Σ_{δ|m} δμ(m/δ) Σ_{δ|k≠0} Ŵ(0,k/mq) ≪ 𝓛^C τ(m) q·E/m` (Poisson back in k;
-the k = 0 term cancels against `Σ_{δ|m}μ(m/δ) = 0`); this is `≪ 𝓛^C τ(m) q D/F`. `hk ≠ 0`: Weil,
-`|S(h',k';m)| ≤ τ(m)(h,k,m)^{1/2}m^{1/2}`, and there are `≪ 𝓛^2 (mq)²/(EF)` effective pairs (none if
-`E` or `F > mq𝓛`), giving `≪ 𝓛^C τ(m)^2 3^{ω(q)} q m^{1/2}`. Total error `≪ 𝓛^C τ(a)^C q (a + D/F + D/E)`;
-in the application (fixed-a part of R_bad, §8 (b1)) one has `e, f ≥ N^{1/2−3η₁}` (§8 (2a)), so the hypothesis
-`min(E,F) ≥ N^{c₀}` holds (O112, D6: Prop 7.2 is retired). ∎
-*Consequence.* Summing `|R|` over `a ≍ A` and `q ≤ Q`: `≪ 𝓛^C Q² A²` against the mass `≍ A D`: a level
-`Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`, i.e. `α < (1−γ)/2`.
+**Proposition 7.1 ((K_a): fixed a; PROVED, unconditional — O112: written at proof level).** Let `(q, 2a) = 1`,
+q squarefree, `m = 4a²`, `r = mq`, and
+`S_a(q) := Σ_{e,f ≥ 1, ef ≡ 1 (m), q | n} W₁(e/E) W₂(d/D)`, `d := (ef−1)/m`, `n := 4acd − f`, `F := mD/E`.
+Then `S_a(q) = g'_{c,a}(q) X_a + R_a(q)` with `X_a := (φ(m)/m²)∫∫W₁(x/E)W₂((xy−1)/(mD))dxdy ≍ Dφ(m)/m` and
+`|R_a(q)| ≪ 2^{ω(q)} τ(m)² (q a + D/E + D/F)` uniformly in a, c, q, D, E (constants depending on W₁, W₂), where
+`g'_{c,a}(ℓ) = (ℓ−1)/ℓ²` (ℓ ∤ c), `1/ℓ` (ℓ | c), multiplicative. In particular, if `min(E,F) ≥ N^{c₀}` the terms
+`D/E + D/F` are `≤ D N^{−c₀}`, a relative error `N^{−c₀}` (R1: for tiny e the density is false, e.g. a = c = 1,
+e = 3, q = 5; this is the `D/E` term).
+*Proof.* (i) *Congruences.* `a n = 4a²cd − af = c(ef−1) − af = f(ce−a) − c`, so for `(a,q) = 1`, `q | n ⟺ f(ce−a) ≡ c (q)`.
+Hence `(e,f) mod r` runs over `𝒮 = 𝒮_m × 𝒮_q` (CRT, `(m,q) = 1`), `𝒮_m = {ef ≡ 1 (m)}`, `𝒮_q = {f(ce−a) ≡ c (q)}`.
+(ii) *Poisson.* With `W(x,y) := W₁(x/E)W₂((xy−1)/(mD))` (smooth; on its support `x ≍ E`, `y ≍ F`,
+`∂_x^i∂_y^jW ≪ E^{−i}F^{−j}`), `S_a(q) = r^{−2}Σ_{h,k∈ℤ} Ŵ(h/r, k/r) 𝒦(h,k)`, `𝒦(h,k) := Σ_{(e,f)∈𝒮} e((he+kf)/r)`, and
+`|Ŵ(h/r,k/r)| ≪_B EF(1+E|h|/r)^{−B}(1+F|k|/r)^{−B}`. By CRT (`1/r ≡ q̄/m + m̄/q mod 1`),
+`𝒦(h,k) = S(q̄h, q̄k; m)·T_q(m̄h, m̄k)` with the Kloosterman sum `S(·,·;m)` and
+`T_q(u,v) := Σ_{(e,f)∈𝒮_q} e((ue+vf)/q) = Π_{ℓ|q} T_ℓ`. For `ℓ ∤ c`, substituting `w = ce − a`:
+`T_ℓ(u,v) = e(uc̄a/ℓ) S(uc̄, vc; ℓ)`; for `ℓ | c`: `f ≡ 0`, `T_ℓ = ℓ·1[u ≡ 0]`. So `|T_q| ≤ 2^{ω(q)} q` always.
+(iii) *(h,k) = (0,0):* `r^{−2}Ŵ(0,0)|𝒮_m||𝒮_q| = X_a·|𝒮_q|/q²`, and `|𝒮_ℓ| = ℓ−1` (ℓ ∤ c: `f = c/(ce−a)`, `ce ≠ a`) resp. `ℓ`
+(ℓ | c: `af ≡ 0`, e free), i.e. `g'(q)X_a`. `Ŵ(0,0) ≍ EF = mD` gives `X_a ≍ Dφ(m)/m`.
+(iv) *h = 0 ≠ k:* `S(0,k';m) = c_m(k')`, `|c_m(k')| ≤ (k',m) = (k,m)`. For any `δ ≥ 1`,
+`Σ_{k≠0, δ|k}(1+F|k|/r)^{−B} ≪ r/(δF)` (if `δF ≤ r` there are `≍ r/(δF)` terms of size O(1); otherwise the sum is
+`≪ (r/(δF))^B ≤ r/(δF)`). So `Σ_{k≠0}(k,m)(1+F|k|/r)^{−B} ≤ Σ_{δ|m} δ Σ_{δ|k≠0}(…) ≪ τ(m) r/F`, and the contribution is
+`≪ r^{−2}·EF·2^{ω(q)}q·τ(m)r/F = 2^{ω(q)}τ(m)E/m = 2^{ω(q)}τ(m) D/F`. *k = 0 ≠ h:* symmetrically `≪ 2^{ω(q)}τ(m) D/E`.
+(v) *hk ≠ 0:* Weil and the prime-power bound (`|S(u,v;p^β)| ≤ 2p^{β/2}(u,v,p^β)^{1/2}` for odd p,
+`≤ 2^{3/2}2^{β/2}(u,v,2^β)^{1/2}` for p = 2) give `|S(q̄h,q̄k;m)| ≤ 3τ(m)m^{1/2}(h,k,m)^{1/2}`. Then
+`Σ_{h,k≠0}(h,k,m)^{1/2}(1+E|h|/r)^{−B}(1+F|k|/r)^{−B} ≤ Σ_{δ|m} δ^{1/2}·(r/(δE))(r/(δF)) ≪ r²/(EF)`
+(`Σ_δ δ^{−3/2} < ∞`), so the contribution is `≪ r^{−2}·EF·2^{ω(q)}q·τ(m)m^{1/2}·r²/(EF) = 2^{ω(q)}τ(m) q m^{1/2} = 2^{ω(q)}τ(m)·2qa`.
+In the application (fixed-a part of R_bad, §8 (b1)) `e, f ≥ N^{1/2−3η₁}` (§8 (2a)), so `min(E,F) ≥ N^{c₀}` with
+`c₀ = 1/2 − 3η₁` (O112, D6: the retired Prop 7.2 is not used). ∎
+*Consequence.* `Σ_{a≍A} Σ_{q≤Q} 3^{ω(q)}|R_a(q)| ≪ 𝓛^C(Q²A² + Q·AD·N^{−c₀})` (`Σ_{a≍A}τ(4a²)² ≪ A𝓛^C`), against the mass
+`≍ AD`: relative `𝓛^C(Q²A/D + QN^{−c₀})`, a level `Q = (D/A)^{1/2}𝓛^{−C}` (as `Q ≤ N^{1/4} < N^{c₀/2}`) whenever `D > A`,
+i.e. `α < (1−γ)/2`.
 
 **Proposition 7.2 (M2: a small divisor) — NOT USED (R1: for fixed (d,e) the weight n is quadratic in a,
 with local densities `(1 + (d(dc²e²−1)/ℓ))/ℓ`, not `≈ 1/ℓ`; small divisors are instead handled by BT
