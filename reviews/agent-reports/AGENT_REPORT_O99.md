@@ -1,6 +1,6 @@
 # Agent report O99 — regime (v) at the sign point `x̂_9` (POINTWISE_TYPEI6.md)
 
-Branch `side-agent/regime-v-units`. Goal: close regime (v) (TYPEI5 Thm 3.7) at `L = 7…10`. **Not closed.** Outcome:
+Branch `side-agent/regime-v-units`. Log of Comp 4.1: `reviews/agent-reports/O99_vsearch_log.txt`. Goal: close regime (v) (TYPEI5 Thm 3.7) at `L = 7…10`. **Not closed.** Outcome:
 a proved negative for the suggested route, a structural characterisation, a conditional finiteness theorem, and a new
 complete engine that extends the `v_7(k)` bound.
 
@@ -20,13 +20,13 @@ complete engine that extends the `v_7(k)` bound.
 5. **Comp 4.1 / Cor 4.2 (CERTIFIED once replayed).** New engine `typei6_vsearch.c` (uses Lemma 3.1(b) as a field bound
    for fixed `b`; cost `≍ (49^bT⁴)^{1/3}`). Regressions: all 5 regime-(v) certificates of `typei4_lb` at `L = 11…18`,
    `b ≤ 3` found, nothing extra; relaxed mode recovers all 7 relaxed regime-(v) solutions incl. at `L = 7, 9, 10`.
-   **No fibre certificate at `L ∈ {7,…,10}` with `v_7(k) ≤ 13`** (≤ 15 where completed; see table in §4) — previously
-   `≤ 7` (two engines) / `≤ 9` (one engine).
+   **No fibre certificate at `L ∈ {7,…,10}` with `v_7(k) ≤ 15`**, any height (total ≈ 5.4 h on one core; `L = 10`,
+   `b = 15` alone 2.7 h) — previously `≤ 7` (two engines) / `≤ 9` (one engine). Single engine for `b = 10…15`.
 6. **§5 (EVIDENCE).** Naive square-probability model, calibrated at `L = 11…20` (predicted 4.4, actual 7), predicts
-   `≈ 10⁻⁴` regime-(v) certificates at `L = 7` in total, `< 10⁻¹¹` for `b ≥ 14`.
+   `10⁻⁵…10⁻²` regime-(v) certificates at each of `L = 7…10` (`b ≤ 15`), and `< 10⁻¹¹` for `b ≥ 16`.
 
 ## Open
-Precise residual (§6): fields `d = c_o(c_oδ² + T)`, `c_oδ > 10⁶`, with `u_1(d) = 7^b`, `b > B_L`. Unconditional closure
+Precise residual (§6): fields `d = c_o(c_oδ² + T)`, `c_oδ > 10⁶`, with `u_1(d) = 7^b`, `b ≥ 16`. Unconditional closure
 needs control of fundamental units in a two-parameter family (Assessment: beyond current methods).
 
 ## Files
