@@ -58,5 +58,19 @@ all counts within ~±2σ of `g_{c,d}(q)·N_d(1)`, including the `ℓ | c` cases,
 d = 1009). Weak evidence (sharp cut-offs, small sizes) but it confirms the orbital density is the
 arithmetic one. Defects: D5 (cusp-width/period inconsistency F ≥ 8A vs f' ≥ A/8), D10.
 
+**V9. Prop 7.1 ((K_a), fixed a) — SOUND at outline level (the restriction min(E,F) ≥ N^{c₀} is
+necessary and sufficient for its use).** Re-derived: (0,0) term = `g'(q)·S_a(1)` main term (density
+`φ(m)/m²` × `(ℓ−1)/ℓ²` resp. `1/ℓ`, verified in `review_ttl_local.py`); h = 0 ≠ k: the k-sum is the error
+of replacing `Σ_{(f,m)=1}` by `(φ(m)/m)∫`, giving relative `O(τ(m)·q/F)` (and symmetrically `q/E`); hk ≠ 0:
+Weil for prime-power moduli `|S(h,k;p^β)| ≤ 2p^{β/2}(h,k,p^β)^{1/2}`, `≪ (mq)²/(EF)` effective pairs,
+the gcd sum is `≪ HK` (multiples of δ > H don't occur), total `≪ τ³ 3^{ω(q)} q m^{1/2} = O(qa)`. E or F > m
+is harmless (then only h = 0 resp. k = 0 survive and the bound only improves). From-scratch numerics
+(`scripts/review_ttl_ka.py`, smooth weights): for `E,F ≥ 131`, `|S_a(q) − g'(q)S_a(1)| ≤ 0.1·qa` for all
+q ≤ 41, a ∈ {3,7,10}, c ∈ {1,5}; for `E = 3` (tiny e, a = c = 1) the deviation is `37·qa` at q = 5 (R1's
+failure reproduced; consistent with the `qD/E` term). Inside R_bad(η₁) one indeed has
+`e, f ≥ N^{1/2−3η₁/2}` (re-derived from MN3 Prop 3.3: β ≥ (1−η)/2 from α+β ≥ 1−η, α ≤ β; and
+`1+α−β ≥ max(1−α−γ−η, α−η)`), so Prop 7.1 applies throughout the fixed-a part of R_bad. Defect D6
+(stale reference to the retired Prop 7.2 inside the proof).
+
 ## Defects
 (filled below)
