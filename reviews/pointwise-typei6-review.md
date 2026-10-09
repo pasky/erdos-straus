@@ -80,3 +80,13 @@ it `≲ 1`; and `c < N^{7/4}` has exponent `7/4 > 8/7`. So the author's negative
 
 ## Defects
 (numbered below as found)
+
+### Comp 4.1 engine (`typei6_vsearch.c`) — code audit
+(4.1) is Lemma 3.1(b) weakened by `√d ≥ c_oδ` and rearranged with `Q = d/P`: correct (weaker = safe). Audit of the
+pruning: with `x := c_oδ²`, `p1max = u²T⁴·x(x+T)/(δ²c'(64x⁴ − T⁴))` and `d/dx[x(x+T)/(64x⁴−T⁴)]` has numerator
+`−128x⁵ − 192Tx⁴ − 2T⁴x − T⁵ < 0`; so where `64x⁴ > T⁴` the bound is strictly decreasing in each of `a`, `δ`, `c'`, and
+the three `break`s (`c' = 1, δ = 1` for `a`; `c' = 1` for `δ`; doubling search for `cmax`, forced past the vacuous zone)
+and the sieve/small split at `p1max < 64` are valid. Long-double evaluation with relative slack `10⁻⁹` only enlarges the
+search. Sieve along `M = Ac' + T`: primes `p | A` are correctly skipped (`p ∤ M`), cofactor after primes `≤ √M_hi` is
+prime, overflow guards exit loudly (`M > 2^50`, divisor count, `MAXF`, `7^a`). Final test exact (GMP), checks `X` odd,
+`7 ∤ X`. No soundness defect found in the engine.
