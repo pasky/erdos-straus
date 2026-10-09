@@ -569,6 +569,26 @@ repaired by the author). All statements are PROVED relative to the 3/4 note.
   `(log m)²(m/φ(m))^{1/3}`.
 * Novelty (Assessment): no 3/4-type, short-interval or progression result
   for m/n was found in the literature; new for m ≠ 4, by the note's method.
+* Follow-up `EXCEPTIONAL_MN2.md` (two independent reviews
+  `reviews/exceptional-mn2-review-A.md`, `-B.md`, no FATAL/MAJOR): the
+  density transition for m/p, with `A = log N / m^{1/3}`.
+  * Thm U (PROVED relative to (D)31 Cor 3.2, Bombieri–Vinogradov and Shiu;
+    ineffective): for every ε there is A_ε such that at most a proportion ε
+    of the primes in (N/2, N] are m-exceptional once A ≥ A_ε, uniformly in
+    m ≥ 4. This removes the `(log m)^{4/3}` of Cor D (bounded-depth
+    Bonferroni in a reduced CRT model for primes).
+  * Thm L (PROVED relative to ET Thm 7.1 and the structure of ET's proof of
+    Prop 1.4, plus Brun–Titchmarsh and Shiu):
+    `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`, a factor log m
+    better than Pomerance–Weingartner.
+  * Remaining gap: a factor `(m log m/φ(m))^{1/3}` in log N, from ET's Type I
+    Brun–Titchmarsh log log N (open even for m = 4) and m/φ(m).
+  * EVIDENCE: `L_{1/2} = (1.95 ± 0.05) m^{1/3}` for even m ∈ [60, 300]
+    (reproduced from scratch by both reviewers); profile ≈ 1 − exp(−κA³).
+    Conj C2 (CONJECTURE): `ρ_rep = F(A) + o(1)` with F non-degenerate, i.e.
+    no sharp threshold constant.
+  * Written up as §8 of `paper/es-mn-short-note` (O104; referee R104: ACCEPT
+    after minor repairs, applied).
 
 ---
 
