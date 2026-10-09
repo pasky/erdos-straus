@@ -122,3 +122,104 @@ Pomerance's 2026 talk text).
 3. DISCOVERIES (D)31 bullet 2: "improves PW's explicit-in-m Vaughan bound" →
    "improves the explicit-in-m Vaughan bounds of Elsholtz (2001, Rem 7.3; non-uniform)
    and PW (2026, Thm 1.3; uniform for m ≤ (log N)²)".
+
+---
+
+## 2. Finite polynomial coverings and sterile points ((H)34 + follow-ups, (F)11, `paper/es-coverings-note.tex` §§2–6)
+
+### 2.1 Findings (verified)
+
+* **Yamamoto, Mem. Fac. Sci. Kyushu Univ. Ser. A 19 (1965) 37–47** [visited
+  https://www.jstage.jst.go.jp/article/kyushumfs/19/1/19_1_37/_pdf, image PDF; archived
+  with our OCR as `sources/o101/yamamoto-1965-kyushu.{pdf,ocr.txt}`; Table 1 read from
+  the page image].
+  * Thm 1 (p. 39): p is solvable iff p lies in the union S of his system Σ of
+    "coverings" {r/m} (Type I/II congruences, ≡ ET's families). Lemma 4 + Thm 2
+    (pp. 41–42): every non-empty covering has Kronecker symbol −1, so S contains no
+    square — the square obstruction, as the campaign already cites.
+  * **Table 1 (p. 44): for each prime q, 11 ≤ q ≤ 97, the s with {−s/q} ∈ Σ₁** (his
+    simplified coverings on N₀ = the Mordell-hard classes mod 840). Reading off the
+    non-residue classes mod q **not** covered at level q:
+    * q = 11: covered n ≡ −1, −3, −4 ≡ 10, 8, 7; **uncovered non-residues 2, 6**;
+    * q = 13: covered n ≡ 11, 8, 6, 5; **uncovered non-residues 2, 7**;
+    * q = 17: covered n ≡ 14, 12, 11, 10; **uncovered non-residues 3, 5, 6, 7**.
+    (Each uncovered set is closed under s ↦ s⁻¹, matching his Thm 4 "inverse property".)
+  * **Relevance.** The point x* = (2 mod 11, 2 mod 13) of POINTWISE_MORDELL Comp 4.1 sits
+    exactly on Yamamoto's level-q uncovered residues at both primes; all six exceptional
+    classes of our r = 13 Thm 3.1 are ≡ 2 or 7 (mod 13) and ≡ 2, 6 or 9 (mod 11)
+    (checked: 112561, 352801, 380881, 418321, 473761, 483841 mod 11/13 =
+    (9,7),(9,7),(6,7),(2,7),(2,2),(6,7)); and the r = 17 candidate cells C₅, C₇ are
+    among Yamamoto's uncovered 3, 5, 6, 7 (mod 17). So the *first layer* of the campaign's
+    r = 11/13/17 analysis is in Yamamoto's Table 1 (1965). Nobody (found) treats the joint
+    cell (2,2) mod (11,13) or the profinite point x*.
+  * **Last paragraph (p. 47):** "it is believed that any positive integer, which is a
+    quadratic residue of 3, 5, 7 and 8, and still is not a perfect square, is contained
+    in some covering of the system Σ₁." This is an *integer* statement (for primes it is
+    ES itself, by his Thm 1), so a non-square sterile **profinite** point would not
+    contradict it. But it is the earliest place where "only squares are obstructed" is
+    floated, and should be cited as the historical counterpoint to the sterile-point
+    conjectures (x** sterile, C₅/C₇ on the 17-line, x̂₉ Type-I-sterile).
+* **Terzi, BIT 11 (1971) 212–216** [zbMATH 3355115, no review; content via
+  Ionascu–Wilson below]: a list of **198 exceptional residues mod 120120** (= 840·11·13).
+  Hence a Mordell-type finite-exception statement involving 11 and 13 dates to 1971,
+  earlier than Salez 2014.
+* **Ionascu–Wilson, Rev. Roum. Math. Pures Appl. 56 (2011) 21–30** [visited author
+  copy https://csuepress.columbusstate.edu/cgi/viewcontent.cgi?article=1846&context=bibliography_faculty
+  via Jina reader; archived `sources/o101/ionascu-wilson-2011.md`]:
+  * Thm 3 (mod 1320, "analysis modulo 11") and Thm 4 (mod 9240): explicit exception
+    lists; they give identities removing Terzi's prime residues 2521 and 9601 mod 120120
+    and others (pp. 7–9).
+  * Pushed the sieve to M = 2762760 = 2³·3·5·7·11·13·23 (2299 exceptions).
+  * Conjecture (abstract, p. 8): the excluded residues are eventually all squares or
+    composite, i.e. "Mordell type results for bigger moduli" keep improving. Again an
+    integer/residue-level statement, not a profinite one.
+  * They state that Yamamoto has, for each prime p ≡ 3 (mod 4) between 11 and 97, "a table
+    of exceptions for congruency classes" (p. 9) — consistent with the reading above.
+* **Salez, arXiv:1406.6307** [archived `sources/lit2026/arxiv-1406.6307.pdf`, re-read]:
+  Prop 2 (p. 4) is Schinzel's theorem (polynomial families need b a non-residue mod a);
+  §4.2 (p. 11): empirically every non-square n < 10¹⁷ in N₇ has a certificate with odd
+  modulus < 5000. No covering-impossibility statement beyond squares.
+* **Mihnea–Dumitru, arXiv:2509.00128** [archived, re-read]: purely computational
+  (sieve depth G₈ = 25878772920, verification to 10¹⁸); nothing on coverings or
+  sterile points.
+* **Bright–Loughran, BLMS 52 (2020)** [archived, re-read]: no Brauer–Manin obstruction;
+  App. A relates Yamamoto's conditions to Cor 1.3. Nothing on finite coverings.
+* **Monks–Velingker (2008 preprint)**: only Semantic Scholar/OEIS metadata found
+  [snippet]; title "properties of solutions to its underlying diophantine equation".
+  Not read; no indication of covering results.
+* **Bradford** (Integers 21 (2021) A24; Integers 25 (2025) A54; with Ionascu, Adv. Model.
+  Optim. 17 (2015)) [zbMATH reviews 7342409, 8081443, 7009432]: reductions/patterns,
+  conjectures; nothing on finite coverings. Chamberland, Integers 26 (2026) A42 [zbMATH
+  8192447]: Type II ⇔ `p = qr − 4s₁s₂` (q ≡ 3 (4), s_i | (q+1)/4) — a restatement of the
+  Yamamoto/ET Type II class. Bueno 2026 (academia.edu, abstract only) covers difficult
+  primes ≤ 10⁹ by "a family selected from four prime non-residues" — computational.
+* **Searches with no relevant hit:** "Erdős–Straus polynomial identities cannot cover
+  quadratic non-residue primes / finite covering impossible", "sterile" + Egyptian
+  fractions; Tao's 2011 blog post states only the residue/non-residue heuristic
+  ("congruence relations cannot eliminate quadratic residues, only quadratic
+  non-residues") [snippet].
+
+### 2.2 Verdicts
+
+| Claim | Verdict | Notes |
+|---|---|---|
+| Compactness framework: finite covering of all but finitely many p ∈ 𝒫 ⇔ no sterile accumulation point (coverings note Prop `compact`) | **APPARENTLY NEW as stated; folklore in substance** | ET p. 6 ("rules out … finite set of covering congruence strategies") is the closest; nobody phrases it profinitely. Trivial once stated. |
+| "No finite set of polynomial identities covers a non-square-obstructed set" (sterile non-square points) | **APPARENTLY NEW question**; **no result either way in the literature** | Only the square obstruction is known (Mordell 1969; Yamamoto 1965 Thm 2; Schinzel 2000; ET Prop 1.6; Salez Prop 2). The literature leans the *other* way: Yamamoto p. 47 and Ionascu–Wilson's conjecture expect non-squares to be coverable (at integer level). Our r = 17 result is CONDITIONAL and x** is EVIDENCE, so nothing contradicts the literature. |
+| r = 13 finite-exception Thm 3.1 (6 classes mod 720720) | **KNOWN IN SUBSTANCE** | Terzi 1971 (198 residues mod 120120), Ionascu–Wilson 2011 (mod 9240, 2762760), Salez 2014 (levels 120120 …). Our version: one level deeper, sliced by (p/13), with independently checkable certificates. The note already says "explicit packaging of Salez"; **add Terzi 1971 and Ionascu–Wilson 2011**. |
+| x* = (2 mod 11, 2 mod 13) as the hard cell; 17-cells C₅, C₇ | **PARTIAL** | The residues 2, 6 (mod 11), 2, 7 (mod 13), 3, 5, 6, 7 (mod 17) are exactly Yamamoto's 1965 Table 1 non-residue classes not covered at level q. The joint cell, the profinite point, the 10⁶ / 12670944 covering heights and the refutation (F)11 are apparently new. |
+| r = 17 line → boxes = ES solutions at prime powers (MORDELL17/17B) | **APPARENTLY NEW** | Nothing similar found. |
+| Type-I covering heights C(5) = 10, C(7) > 1.32·10¹² ((H)17) | **APPARENTLY NEW** | Graham–Ringrose / Lau–Wu concern n_p, not ck_min coverings. |
+
+**Required text changes.**
+1. `paper/es-coverings-note.tex` §5 (r = 13 novelty paragraph) and DISCOVERIES (H)34
+   bullet 1: add "a list of 198 exceptional residues mod 120120 is already in Terzi (BIT
+   11 (1971)); Ionascu–Wilson (Rev. Roum. 56 (2011)) push the analysis to 9240 and
+   2762760".
+2. Same section, §"The point x* and the candidate x**": add "the residues 2 (mod 11) and
+   2 (mod 13) are among the non-residue classes not covered at level q in Yamamoto's
+   Table 1 [Yamamoto 1965, p. 44], which leaves 2, 6 (mod 11), 2, 7 (mod 13) and
+   3, 5, 6, 7 (mod 17)". Same remark at the r = 17 section for C₅, C₇.
+3. Introduction / §open: cite Yamamoto p. 47 ("it is believed that any … not a perfect
+   square, is contained in some covering") and Ionascu–Wilson's conjecture as the
+   opposite expectation at integer level, and say explicitly that a sterile non-square
+   profinite point would not contradict them.

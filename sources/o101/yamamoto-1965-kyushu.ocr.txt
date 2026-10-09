@@ -1,0 +1,588 @@
+Memoirs of the Faculty of Science, Kyushu University
+Ser. A, Vol. 19, No. 1, 1965
+
+ON THE DIOPHANTINE EQUATION 1,41
+n x y &
+
+By
+Koichi YAMAMOTO
+(Received Dec. 20, 1964)
+
+Introduction. P. Erdos and E. G. Straus conjectured that if »>1 then the
+Diophantine equation
+
+«) f snit,
+has a solution in positive integers &, y, 2.
+
+It is known that (x) has a solution for smaller values of », for instance,
+for 1<n<8000, as is seen in [1]. In this connection the present author has
+announced [3] the existence of solutions of (x) for 1<m<10,000,000, verified
+on the electronic computer OKITAC 5090 H of Kyushu University. This paper
+is a somewhat detailed report on that subject.
+
+It is interesting to note a connection of the Diophantine equation (#) and
+the theory of quadratic number fields, in particular, of the Kronecker symbol
+(§2 below). This connection is peculiar to the numerator 4 at the left-hand
+side member of (x), and if we replace this by 5, 6, +++, the connection seems
+to be less apparent.
+
+§1. Transformation of the problem.
+
+1.-If » is even, then the Diophantine equation (x) is solvable. More
+generally we may restrict the problem to the case where m»=p is a prime
+number.
+
+LEMMA 1. If n=p is a prime, then the Dophantine equation (%) has a
+solution if and only if one of the following two congruences has a pairwise
+prime positive solutions (a, b, c):
+
+a+pb+pe=0 (mod 4abc), abez0 (mod p);
+pa+b+e=0 - (mod 4abe), abez0 (mod p).
+
+38 Koichi YAMAMOTO
+
+ProoF. If n»=p in (¥), exactly one or exactly two of the three integers
+®, y, z are divisible by p, so that at least one of the two Diophantine
+equations
+
+4 1 1.1
+
+(1) E~EE+§+?, xzy2#0 (mod p);
+4 I1. f 1
+
+(2) E—z-F—py-i-Ez— zy2#0 (mod p)
+
+has a solution.
+
+Let (y, 2)=d, y=db, z=de in (1). Then (1) becomes dbe+- pbx+pez=4dbex,
+so that b\x and c{xz. Therefore by putting z=bem we have d+pm(b+-c)=4dmbe,
+so that d=ma for some a with a+p(b+c)=4mabe. Conversely the last
+equation implies (1). - Similarly (2) has a solution if and only if pa-+-b+ec=4mabe
+for some a, b, c and m.
+
+2.-Denote by N; the totality of positive odd numbers. If m is a positive
+integer, 7:5 a reduced rational such that (m,ab)=1, we denote by {%
+the subset of N;, consisting of zeN, such that z=r (mod m), i.e., az=b
+(mod m). By using this notation we have
+
+LEmmaA 2. The Diophantine equation (¥) for n=p, p being an odd
+prime, has a solution if and only if p belongs either to
+
+b
+(3) { "€ } with q+1=0 (mod 4ab)
+
+or to
+
+for some positive integers a, b, q.
+
+a | &
+
+ProoF. If in bLemma 1, pa+b+e=4mabe, then by putting q=4mab-1
+
+we have pej __4 ( with g+1=4mab. The condition is also sufficient. If
+H
+a+pb+pe=4mabe, on the other hand, then by putting g=4mab-p we have
+pe E and pe{ 27:2 }, and again the condition is sufficient.
+q
+
+Still another formulation in the same line is the following
+
+On the Diophantine Equation i=l-|—-1—+l 89
+no s oy %
+
+LEMMA 3. The Diophantine equation (¥) for n=p, p being an odd
+prime, has a solution if and only if p belongs either to
+
+me .
+(5) {M } with - sla+d,
+or to
+A
+(6) {_S } with sia-+b,
+4ab
+
+for some positive integers a, b, s.
+
+PROOF. Returning to Lemma 1, if pa+b+c=4mabe, then b+c=as for
+some s with p+s=4mbe, i.e., pe{ 4—23 } with s\b+c. The condition is
+
+also sufficient. Similarly the condition a+pb+pe=4mabe is equivalent to
+
+1
+pe{ __8 } with
+Abe
+We summarize the Lemmas above in
+THEOREM 1. The Diophantine equation (#) for n=p, p being an odd
+prime has a solution if and only if p belongs to the union S of the system
+3] of coverings {~-} of N;, where the system Y] consists of
+
+(3) } with - qg+1=0 (mod 446),
+
+ 
+
+a |o
+
+(mod q),
+
+(4) mats } with - s=q (mod 405), _ s=
+
+(6)
+
+(
+(5) {287} with _ sla+b,
+
+1
+} with sla+b .
+4ab
+
+for some positive integers a, b, q, s
+Actually, the union S does not cover any perfect square (Theorem 2).
+
+40 Koichi YAMAMOTO
+
+§2. Connection with Kronecker symbol.
+
+3.-The simplest instance a=b=g=1 of (4), and the simplest instance
+
+a=b=s=1 of (5b) and (6) give the same thing {Si—1} Namely if n=-1
+(mod 4), then (%) has a solution. Therefore we restrict ourselves to a study
+of the set N, of all positive integers » satisfying n=l (mod 4), in the rest
+
+of this paper. The coverings (8), (4), (5), (6) should be restricted to N,, but
+we retain the symbol {ﬁ} unchanged, also the system will be denoted by
+3] as before, and the union of coverings in 3] by the same symbol S.
+
+In this connection it is to be noted that some coverings may turn to be
+empty, for example when q=1 (mod 4) in (4) or when s=1 (mod 4) in (5) or
+in (6). We exclude these by requring that g=-1 (mod 4) in (4), and s=-1
+(mod 4) in (5) and in (6).
+
+4.-Kronecker symbol-Let m be a positive integer, c be an integer #0
+such that (m,c)=1. Then the Kronecker symbol 57> is defined as follows.
+First if m is odd, then £75) is merely the Jacobi symbol. Next if m=2"m,,
+
+with m, odd, >1, then c is odd and
+(G)-E)' G)
+m ) \e mye /*
+c 2 Ci“1,
+where (W) is the Jacobi symbol and <7>Z (1) " ,
+
+0
+
+The Kronecker symbol (77> is a real residue character with conductor
+
+me if m=2"m,, me odd, 4 even, and with conductor 8m, if / is odd. For
+this symbol the following properties are well known.
+
+(M if ci=ce (mod m) then <fi>=<ﬁ€> for m odd or
+ML m
+
+for m a multiple of 8,
+6 (©)-(2)(%)
+m ) \ m
+
+The reciprocity law of Kronecker symbol may be stated in the form
+
+ 
+
+ 
+
+(10) <%>=<—cﬂ£> if c is positive and e=1 (mod 4),
+
+1
+
+On the Diophantine Equation izl+l+— 41
+1 &a % &
+
+(10) <%>=<%> $t a ig positive snd c=-1._ (med 4).
+In particular, if m» is positive and odd, then <%> was Jacobi symbol,
+
+so the symbol may be extended to the rationals r:% with (m, ab)=(a, b)=1
+
+(£)(#)
+
+m
+
+The same process is possible when m is positive and even, since if a and b
+are odd then we have a*=1 (mod 8), or as- (mod 8).
+
+5.-The following Lemma establishes a close connection of the system Y]
+of coverings and the Kronecker symbol.
+
+LEMMA 4. For a " significant" (i.e., nonempty) covering {%} in the
+system 3] we have %>:—1.
+
+PROOF. We verify this fact for coverings (3), (4), (5), (6) successively.
+For (3) we have, by using (10'), that
+
+( f)
+a |= ={ --- )| -- )= -[ -- )s- =- -~)=-1.
+q q q q ab ab
+q
+For (4), we have to assume q=-1 (mod 4) since the covering should be
+nonempty, and we have
+
+()-
+
+4ubg ) \ 4ab \T __\ ab q ¢ / ~ "
+
+by using (10'). For (5) we have to assume s=-1 (mod 4), and by using (10')
+we have
+
+The same applies to (6).
+
+ 
+
+THEOREM 2. The union S of the system 31 of coverings does mot contain
+any perfect square.
+
+42 Koichi Yamamoto
+# 7 r \ .
+ProoFr. If nS, then » E{—} for some {—} E>] and {A} is not
+m m m
+
+empty. We have seen <L>=—1 in Lemma 4. So <~7L>z<i>:—1, and
+m m m
+
+this implies that » cannot be a perfect square.
+In [1] it was conjectured that S covers the whole space N., but this is
+not true by the Theorem 1.
+
+§3. Further restrictions.
+
+6.-We take up some simple members of ~:
+
+(12) {58 (a=3 in (3),
+a - [(F). (2) (7) ust mo.
+(14) (3) (s=3 in (6),
+
+#21. ( -2 1 ( -s (£ _ .
+© (5)-{%)*() «-» mo.
+Combining these we may say that (#) has a solution unless » is a quadratic
+residue of 8, 5, 7, and 8.
+
+We have to consider only those » such that » is a quadratic residues of
+3, 5, 7 and 8, or such that
+
+(16) m=1, 121, 361, 169, 289, 529 (mod 840).
+By the way the smallest prime with this property is 1009.
+Now denote the set of all positive integers » satisfying (16) by Ny. nENo
+
+satisfies n=l (mod 24). If a covering 72- of 3] is such that m=tm;,
+
+s A1 _1Z. gh. A al
+(t, m)=1, {m}%{t}n{ml}’ and {t}DN0, then we can replace {m}
+
+by a simpler {mi} The set of the coverings {7:5} thus obtained will be
+1 1
+denoted by 3}. Obviously since t=1 is always permissible.
+
+THEOREM 3. Let m and q be positive and (4m,q)=1, let 7:5 be a
+
+reduced rational such that (4m, ab)=1, and let m=ed with positive integers c,
+d. If s is positive and sleq+-d, 4m|as+-b then
+
+1
+On the Diophantine Equation i=~-l—l+l 43
+# ¢ y ¢
+
+p+ _g*1
+(®) "{G )=
+Proor. By taking eq and d in place of a, b in (5), (6), we have that
+_st1 _Si1 _811 p*4 _ g*1
+23{4cdq}_{ 4m }n{ a _}_{4m}n{ a }
+_ g*l
+If in particular m{b, and r=1 then {%} E>l,. More precisely:
+es
+b
+Plex.
+_ g*1
+(ii) If q is odd, s=-1 (mod 12) with s|q+-8 or s|3qg+1 then { qs }EZO.
+(iv) If q is odd, s=-1 (mod 24) with s|qg+6, s|2g+8, s|8qg+2 or s|6qg+1
+then { }EZO.
+We add here analogous result from (8).
+
+(v) If g=-1 (mod 4) and s[ (141 then {‘
+
+3q +1
+4
+We denote the system of coverings obtained by (i) (vi) by X}. For this
+
+fammly we see that {fL}ezo together with { }ezo This kind of
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(1) It 9 is #dd. s= 1 rod 8 ana 1 then {
+
+ 
+
+(ii) If q is odd, s=-1 (mod 8) with s|qg+2 or s|2g+1 then {
+
+ 
+
+ 
+
+ 
+
+ 
+
+ﬂ}€20.
+
+ 
+
+(vi) If q=1 (mod 4) and s
+
+ 
+
+gis
+with s=-1 (mod 3), then {Ts}ezo.
+
+ 
+
+"reciprocity law '' does not seem to apply in general. However, we note the
+following "inverse property"
+
+THEOREM 4. If q is a positive odd integer, s; and s; are positive integers,
+such that sis=1 (mod q), then {2 }621 if and only if { }621
+If s is a positive integer, q: and q: are positive odd integms such that
+
+qiq2=1 (mod 4s) then { g }621 if and only if { }€Z1
+
+ProoFr. This is checked directly with definition (i)-(vi) of X;.
+7.-We list several simple coverings in Y]; for smaller numerators. Note
+that q should be positive and odd.
+
+(16) { —Tl } for g=-1 (mod 4),
+
+44 Koichi YAMAMOTO
+
+an {(<)} for g=-1 (mod 4),
+
+(s) {<} for g=-1,5 - (mod 8),
+
+(19) { 551 } for g=-1 (mod 3),
+
+(20) { Zqi } for g=-1, -2, -4 (mod 7),
+(@) { lqs— } for g=-1, 5 (mod 8) -
+
+We may change the numerator from -s to -s, as is stated in Theorem
+4. By the way (17) follows from (i) with SZQ—Ii
+
+of (19), (21) from (vi) by takings s=2,8 respectively. Note that (16)-(21)
+
+, and the second coverings
+
+Table 1. Table of {is} in Zh, q a prime between 11 and 97.
+
+ 
+
+ 
+
+ 
+
+q 5 8
+
+11 | 1, 8, 4
+
+13 | 2, 5, T, 8.
+
+17 8 5 6 7.
+
+19 1, 4, 5, 7, 11.
+
+23 | 1, 9, 5. 4 6 8, 12. 1s 16
+
+29 | 2, 8, 8, 10, 11, 15.
+
+31 1. 2 4. 7. 8. 9. 16,
+
+37 9. 5. 8, 14 15, 10.
+
+41 8, 6, 7, 11, 14, 15.
+
+43 1. 4 1t 15, 95.
+
+47 1, 2 8, 4, 6, 7, 8, 12, 16, 17, 24, 25, 27, 82, 36.
+53 2, 8, 5, 8, 18, 20, 23, 27, 30, 32.
+
+59 1. 8. 4. 5. 7. 19, 1s 17, 20. at.
+
+61 9, s. 28. si.
+
+67 1 4. 9. 13 if. 2s, 85.
+
+71 1, 2, 8, 4, 6, 8, 9 .12, 16, 18, 24, 36, 37, 40, 48.
+73 2, 5, 11, 15, 20, 21, 89, 44.
+
+79 1 2 4 8 8 to. 16. 20, 91. oo go, 4h. 49. 55. 64.
+83 3. 9. 4. 7. 19, 91. #5, 80, s6.
+
+89 8. 6. 7. 15. 25. 80. Si. 51.
+
+97 5 7. is, 14, 15. 89,
+
+ 
+
+On the Diophantine Equation £=l+l+l 45
+x # y #
+
+CSP
+Table 2. Table of {ST} in h for s=1,2,.4, 8.
+
+ 
+
+s | q
+1, 4 q=-1 (mod 4).
+q=5 or 7 (mod 8).
+
+ 
+
+ 
+
+ 
+
+Casi
+Table 3. Table of { «j } in S3, for s=-1 (mod 4). y odd.
+
+ 
+
+ 
+
+ 
+
+8 4
+
+3 q=-1 (mod 3)
+
+7 q=-1, -2, -4 (mod 7)
+
+11 g=-1, -8, -4 (mod 11)
+
+19 q=-1 (mod 19)
+
+23 $= 1. ~23. 9 4 -60, -8, ~19, ~19, ~16 (mod S2)
+
+31 ys -2., -16 (med S1}
+
+43 q=-1 (mod 43)
+
+A7 y= 1. ~2. 98. -6, -8, -16, -24%, -35, ~89° (mod 49
+59 g=-1, -8, -20 (mod 59)
+
+67 I q=-1 (mod 67)
+
+71 -2. -S -p. -~12 ~24, -B6, -S87, -48 (mod 71)
+s q=-1, -2, -40 (mod 79)
+
+83 q=-1, -8, -28 (mod 83)
+
+ 
+
+show that all the "coverings" {is} with the Jacobi symbol <:q§>=—1
+
+are contained in }}, for s=1,2,8, 4,7 and 8.
+
+We attach Tables 1 and 2,8 to show the system Y;, when classified
+by the denominator q and by the numerator s. In Table 1 only prime
+denominators less than 100 are given.
+
+§4. Computations.
+
+8. We verified the solvability of (#) for 1<m<10' by the electronic
+computer OKITAC 5090H of Kyushu University. The programming respon-
+sibility goes to the author. The procedure was as follows.
+
+1) Only the quadratic residues of 8, 5, 7, and 8 are treated. Thus »
+satisfies
+
+46 Koichi YAMAMOTO
+
+1<n<10',
+m=1, 121, 361, 169, 289 or 529 (mod 840).
+
+2) Perfect squares are discarded.
+
+3) If » is either divisible by 11, 18, 19, 23 or 47, or congruent to some
+number found in the corresponding rows of Table 1, then » is discarded.
+
+4) The procedure corresponding to the "complementary law type"
+coverings.
+
+a) If m, n-+1, n-+4 or 4n-+1 is divisible by some integer m such that
+
+1<m<103,
+m=3 (mod 4)
+
+then » was printed out with m.
+b) If », n+2, n+8, 2n+1 or is divisible by some integer m such
+that
+1<m<10,
+ms5 or =7 (mod 8),
+
+then » was printed out with m.
+5) The procedure corresponding to the " reciprocity law type" coverings.
+For 11,19, 23 and 47 the computer was to determine the remainder
+of » when divided by integers m found in the corresponding rows of Table 3,
+such that
+1<m<10.
+
+If the remainder is either =m-s or congruent to —% {(mod m), then » was
+
+printed out with s and m.
+
+The computing time was 122 minutes and the result was that only two
+numbers survived through all this process. These are 1095481 and 7502881,
+
+. aut . 9
+
+both being primes incidentally. Now 1095481 belongs to the covering {~5§@} F
+589=-1 (mod 59) of the "reciprocity law type", and 7502881 belongs to
+_Tl—81_7T}’ 1117=5 (mod 8) of the "comlementary law type".
+Therefore the established fact is that if m is a quadratic residue of 3, 5, 7,
+8 such that n<10° and if m is mot a perfect square, then either n has a
+
+the covering {
+
+divisor dn such that 1<d<103, or mn belongs to some covering {£7} in the
+
+1
+
+On the Diophantine Equation i=l+l+— 47
+2 & y &
+
+system Y). In particular, the solvability of the Diophantine equation (%)
+was verified for all » in the range 1<n»<10'.
+
+Note that the primality of » was not so essential in our computation.
+So it is believed that any positive integer, which is a quadratic residue of 3,
+5, 7 and 8, and still is not a perfect square, is contained in some covering of
+the system
+
+References.
+
+1
+
+z
+sondere im Falle m=4, Journ. f. reine angew. Math., vol. 211 (1962), pp. 1-10.
+
+[2] A. Aigner, Briiche als Summe von Stammbriichen, Journ. f. reine angew. Math.,
+vol. 214/215 (1964), pp. 174-179.
+
+[3] K. Yamamoto, On a conjecture of Erdis, These Memoirs, vol. 18 (1964), pp.
+166-167.
+
+m
+
+[1] L. Berstein, Zur Lisung der diophantischen Gleichung 7=é+i+ insbe-
+
+>
+
