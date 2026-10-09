@@ -16,7 +16,7 @@ iff `v_2(F+9) ≥ t`. Since `t ≥ 2+⌈L/2⌉` with equality for `γ = ⌊L/2�
 
 ## 1. An exact formula for the 2-adic closeness (PROVED)
 
-**Lemma 1.1 (PROVED).** For every fibre certificate (any `L ≥ 1` with `F ≡ 7 (mod 16)`, `nδ` odd),
+**Lemma 1.1 (PROVED).** For every fibre certificate (any `L ≥ 2` with `F ≡ 7 (mod 16)`, `nδ` odd),
 
 ```
 v_2(F + 9) = 3 + v_2(E),     E := 5 − 9nδ − 2^{L−2} c_o k_o².                                  (1.1)
@@ -202,8 +202,8 @@ whereas `x̂_9` needs `v_2(F+9) ≥ 2+⌈L/2⌉`.
 * Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; tail ≲ 10^{−2}).
 * NOT achieved (precise negative statement): an inequality `v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates is exactly
   sterility of `x̂_9` (by Lemma 1.1 and the Criterion), and by Cor 2.3 / Thm 2.4 it cannot follow from any statement
-  about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9`, nor from
-  bounded 7-depth or `k'=1` restrictions alone (Thm 2.4 lives at `b=0, k'=1`). A proof must couple the 2-adic size of
+  about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9` (PROVED, Cor 2.3);
+  *(Assessment)* restricting to bounded 7-depth or `k'=1` does not help either, since Thm 2.4 already lives at `b=0, k'=1`. A proof must couple the 2-adic size of
   `F+9` with the level, e.g. a bound of the form "`F ≡ −9 (mod 2^t)` forces `ord`/discrete-log information on `2 mod F`
   incompatible with `2^{L−1}7^sX ≡ −g (mod F)`" (Remark 1.6 / §2 form: `F | 2^{L−1}7^sX + g`, `(F+1)/8 = c'gX`). We have
   no such tool; sterility of `x̂_9` remains open (Conjecture TYPEI2 3.4), and so does `C(7) = ∞` under H.
