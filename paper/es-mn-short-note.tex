@@ -1544,13 +1544,14 @@ that for fixed $d$ the Type~I solutions are level-$d$ Heegner forms of
 discriminant $-4d$ with uniformly separated roots, and replaces
 Brun--Titchmarsh in the bad range by a spectral large sieve for box
 Poincar\'e series; with only the Kim--Sarnak bound it leaves a strip of
-positive width and gives nothing unconditionally.  An $m$-uniform version
-of that argument, applied to the Type~I count of
-Proposition~\ref{prop:typeI}, would remove the factor $\log L$ from
-Theorem~L$'$ and so give the exact scale $\log N\asymp m^{1/3}$ for the
-transition.  This extension has \emph{not} been carried out; it must
-remove the primes $\ell\mid m$ from the sieving set and track the gain
-$\varphi(m)/m$ against the remainder terms \cite[remarks after Thm.~3.8]{MN3}.
+positive width (a level-averaged variant reduces the loss for $m=4$
+unconditionally to $o(\log\log N)$, \cite[Thm.~1]{HN}).  The $m$-uniform
+version of the conditional argument, for $m\leq L^5$, is carried out in
+\cite{MN4}: it removes the factor $\log L$ from Theorem~L$'$ and gives the
+exact scale $\log N\asymp m^{1/3}$, conditionally on Selberg's
+conjecture (Section~\ref{sec:sel}).  The argument removes the
+primes $\ell\mid m$ from the sieving set and pays for this with the gain
+$\varphi(m)/m$ of the masses \cite[remarks after Thm.~3.8]{MN3}.
 \end{remark}
 
 \emph{Pomerance--Weingartner.}  Their proof of \cite[Thm.~3.1]{PW}
@@ -1670,6 +1671,183 @@ multiplier range $K=X^\kappa$ is already a power of $X$, and the range
 $u,v\leq x^{1/6}$ is what keeps $z_j^2<\ell$, which distinctness needs.
 This mirrors the three-quarter ceiling of \cite[\S10]{TQ}.
 \end{assessment}
+
+\section{Under Selberg's eigenvalue conjecture}\label{sec:sel}
+% O120: source EXCEPTIONAL_MN4.md (DISCOVERIES (D)31 follow-up 3), review R117
+This section removes the factor $(\log\log N)^{1/3}$ of
+Section~\ref{sec:gap} \emph{conditionally} on a uniform form of Selberg's
+eigenvalue conjecture: the transition is then at $\log N\asymp m^{1/3}$
+with matching orders on both sides.  The source is the internal working
+document \cite{MN4}, which carries the conditional $m=4$ argument of
+\cite[Thm.~8.2]{HN} over to general $m$; we state the results and give a
+proof sketch with exact pointers.  \cite{MN4} received one internal
+hostile review (no fatal or major defect; minor repairs applied), not
+external refereeing.  For a prime $p\nmid m$ let $f_{I,m}(p)$ be the
+number of Type~I solutions of $m/p=1/x+1/y+1/z$, i.e.\ those with $p\mid x$
+and $(p,yz)=1$, counted with the order of $y,z$.
+
+\begin{definition}[(SEL$_m$)]\label{def:sel}
+Let $m\geq4$.  \emph{Hypothesis} (SEL$_m$): for every $d\geq1$, every
+squarefree $q\geq1$ with $(q,2md)=1$ and every even Dirichlet character
+$\chi$ modulo $q$, the Laplacian $-\Delta$ on
+$L^2(\Gamma_0(mdq^2)\backslash\mathbb H,\chi)$ has no eigenvalue in
+$(0,1/4)$.
+\end{definition}
+Each character space embeds in $L^2(\Gamma_1(mdq^2)\backslash\mathbb H)$, so
+(SEL$_m$) for all $m$ follows from Selberg's conjecture $\lambda_1\geq1/4$
+for every $\Gamma_1(M)$.  For $m=4$ it is the hypothesis (SEL) of
+\cite[Hyp.~1.1]{HN} (levels $4dq^2$, $q$ odd squarefree, $(q,d)=1$, even
+characters modulo $2q$, equivalently modulo $q$).  It is used only for
+levels $mdq^2$ with $m\leq(\log N)^5$.
+
+\begin{theorem}[\status{conditional} on (SEL$_m$); relative to the inputs of {\cite[Thm.~8.2]{HN}} and \cite{MN3}]\label{thm:selI}
+There is an absolute $N_0$ such that for $N\geq N_0$, $L=\log N$ and
+$4\leq m\leq L^5$,
+\[
+ \sum_{N/2<p\leq N}f_{I,m}(p)\ll\frac{N(L^2+L\log^2m)}m+\frac{N\,m^{-0.35}}L .
+\]
+\end{theorem}
+
+\begin{theorem}[Theorem~L$''$]\label{thm:selL}
+For all $m\geq4$ and $N\geq16$, with $L=\log N$ and $A=L/m^{1/3}$,
+\[
+ \rho_{\rm rep}(m,N)\ll\frac{L^3+L^2\log^2m}m+m^{-0.35}
+ =A^3+A^2m^{-1/3}\log^2m+m^{-0.35}.
+\]
+This is \status{conditional} on (SEL$_m$) when $m\leq L^5$, and
+\status{proved} \textup{(}unconditionally, from Theorem~L$'$ and
+Lemma~\ref{lem:hugem}\textup{)} when $m>L^5$.
+\end{theorem}
+
+\begin{corollary}[sharp order of the transition]\label{cor:sharp}
+For every $\varepsilon\in(0,1)$ there are $c_\varepsilon,A_\varepsilon>0$ and
+$m_\varepsilon$ such that for all $m\geq m_\varepsilon$ and $N\geq16$:
+\begin{itemize}
+\item[(a)] \textup{(}\status{conditional} on (SEL$_m$)\textup{)} if
+$\log N\leq c_\varepsilon m^{1/3}$ then $\rho_{\rm rep}(m,N)\leq\varepsilon$;
+\item[(b)] \textup{(}\status{proved}, Theorem~U; ineffective\textup{)} if
+$\log N\geq A_\varepsilon m^{1/3}$ then $\rho_{\rm exc}(m,N)\leq\varepsilon$.
+\end{itemize}
+So under (SEL$_m$) the density transition for $m/p$ lies at
+$\log N\asymp m^{1/3}$, with matching orders on both sides.
+\end{corollary}
+
+\begin{proof}
+(a) By Theorem~\ref{thm:selL} with $A\leq c_\varepsilon$,
+$\rho_{\rm rep}\leq C(c_\varepsilon^3+c_\varepsilon^2m^{-1/3}\log^2m+m^{-0.35})$,
+which is $\leq\varepsilon$ for $c_\varepsilon=(\varepsilon/3C)^{1/3}$ and $m\geq m_\varepsilon$.
+(b) is Theorem~U, valid for all $m\geq4$.
+\end{proof}
+
+The restriction $m\geq m_\varepsilon$ only makes $m^{-0.35}$ and
+$m^{-1/3}\log^2m$ small; for bounded $m$ the transition concerns bounded
+$N$.  Theorem~\ref{thm:selL} gives the profile bound $\rho_{\rm rep}\ll A^3$
+for $m^{-0.11}\ll A\ll1$, the shape of the small-$A$ end of the fit of
+Section~\ref{sec:numerics} (which is \status{evidence} only).  Nothing
+here bears on Conjecture~C2: Corollary~\ref{cor:sharp} fixes the order of
+the transition, not the existence of a limit profile $F(A)$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:selL}, given Theorem~\ref{thm:selI}]
+This is \cite[Thm.~5.1]{MN4}.
+(i) If $\log m>L/10$, Lemma~\ref{lem:hugem} gives
+$\rho_{\rm rep}\leq\e^{CL/\log L}/m$.  For $L\geq L_0:=\e^{20C}$ we have
+$CL/\log L\leq10C\log m/\log L\leq0.65\log m$, so $\rho_{\rm rep}\leq m^{-0.35}$.
+For $L<L_0$ either $\rho_{\rm rep}=0$ or $m\leq3\e^{L}<3\e^{L_0}$, and the
+claim is trivial.
+(ii) If $\log m\leq L/10$ and $m>L^5$, then $L\leq m^{1/5}$, so
+$L^3\log L/m\leq m^{-2/5}\log m$ and $L^2\log^2m\log L/m\leq m^{-3/5}\log^3m$,
+both $\ll m^{-0.35}$; Theorem~L$'$ (whose hypothesis $L\leq m^{1/2}$ holds)
+gives $\rho_{\rm rep}\ll m^{-0.35}$, unconditionally.
+(iii) If $m\leq L^5$, then $\log m\leq L/10$ for $N\geq N_0$.  The primes with a
+Type~II solution number $\ll(N/L)(L^3+m^{0.02})/m$
+(Proposition~\ref{prop:typeII}), and those with a Type~I solution are at
+most $\sum_{N/2<p\leq N}f_{I,m}(p)$, bounded by Theorem~\ref{thm:selI}.
+Divide by $\pi^*(N)\gg N/L$ and use $m^{0.02}/m\leq m^{-0.35}$.  For
+$N<N_0$ the integer $m\leq L^5$ is bounded and the claim is trivial.
+\end{proof}
+
+\begin{proof}[Sketch of proof of Theorem~\ref{thm:selI}]
+The full argument is \cite[\S\S1--4]{MN4}, which runs the proof of
+\cite[Thm.~8.2]{HN} (the case $m=4$ over $p\leq N$) with $4$ replaced by
+$m$.  We list the steps and what changes.
+
+\emph{Why $m\leq L^5$ costs nothing.}  For $m>L^5$, Theorem~L$'$ already
+gives $\rho_{\rm rep}\ll m^{-0.35}$ (part (ii) above; \cite[Lemma~0.1]{MN4}).  For
+$m\leq L^5$ every factor $m^{O(1)}$ in a \emph{remainder} is $L^{O(1)}$, and
+the proof of \cite[Thm.~8.2]{HN} already absorbs $L^{O(1)}$ losses in
+remainders: the layers with saving parameter $k\leq C_1\log L$ go to
+Brun--Titchmarsh.
+
+\emph{Reduction} (\cite[Lemma~1.1]{MN4}, \status{proved}).  The proof of
+\cite[Prop.~2.2]{ET} with $4$ replaced by $m$ gives
+$f_{I,m}(n)\leq2\sum_{c\geq1}w_{c,m}(n)$, where $w_{c,m}(n)$ counts
+$(a,d,f)$ with $f\mid ma^2d+1$, $n=macd-f$, $0<f\leq2n$.  Since
+$ef=ma^2d+1$, the variables $e,f,n$ are coprime to $m$ and $n$ is coprime
+to $d$; so no prime dividing $md$ can be sieved.
+
+\emph{Heegner forms} (\cite[\S2.1]{MN4}, \status{proved}).  For fixed
+$t=md$ the forms $[f,2ta,te]$ with $ef-ta^2=1$ are exactly the positive
+definite forms $[U,B,V]$ of discriminant $-4t$ with $2t\mid B$, $t\mid V$.
+This set is $\Gamma^0(t)$-stable, with no parity condition, and its
+roots satisfy $\cosh\operatorname{dist}\geq3/2$, uniformly in $m$, by
+\cite[Lemmas~3.1--3.2]{HN}.  The level $4dq^2$ of \cite{HN} becomes
+$M=mdq^2$, and the group $\Gamma(2q)$ becomes $\Gamma(q)$.
+
+\emph{Spectral side} (\cite[\S2.2]{MN4}, \status{conditional} on (SEL$_m$)).
+The box-variance bound \cite[Prop.~5.1]{HN} holds verbatim for the groups
+$\Gamma_0(mdq^2)$ with even nebentypus modulo $q$ (the infinity cusp has
+width $1$; elliptic elements, which occur for small $md$, are harmless
+because \cite{HN} uses orbifold weights).  This is the only place where
+(SEL$_m$) is used.  It gives the per-$d$ count
+\cite[Thm.~6.2$_m$]{MN4}, the analogue of \cite[Thm.~6.2]{HN}, with local
+densities computed in \cite[Lemma~6.1$_m$]{MN4}.  The per-$a$
+Poisson--Weil count \cite[Prop.~7.1]{HN} carries over with modulus $ma^2$
+\cite[\S2.6]{MN4}.  Its saving and that of the per-$d$ count again
+degenerate linearly at $d=a$.  The value of $m$ enters the remainders only
+polynomially, as $(md/A)^{1/2}$ and $m^{1/2}A/D$.
+
+\emph{Main terms} (\cite[\S3]{MN4}, \status{proved}).  Since the sieve
+cannot use the primes $\ell\mid m$, every sieve product loses
+$m/\varphi(m)$.  This is paid for by the coprimality gain $\varphi(m)/m$ of
+the masses: the divisors $e,f$ of $ma^2d+1$ are coprime to $m$
+(Lemma~\ref{lem:ETPV}, i.e.\ \cite[Prop.~2.3]{MN3}).  A Brun--Titchmarsh
+sum over moduli $mx$ alone has no such gain, so each one is arranged to
+take its gain from a variable coprime to $m$.  One weighted divisor-sum
+estimate, \cite[\S3.2(c)]{MN4}, holds only for $D,F\geq L^{100}$ and is
+used only there; the range $D\leq L^{100}$ is handled separately by
+aggregated Brun--Titchmarsh.  The large-$c$ part, \cite[\S3.4]{MN4},
+contributes the term $L\log^2m$ and the term $m^{-0.35}$.
+
+\emph{Assembly} (\cite[Thm.~4.1]{MN4}).  Steps (1)--(5) of the proof of
+\cite[Thm.~8.2]{HN} hold with every main term multiplied by $1/m$ and
+with no factor $m/\varphi(m)$.  The degenerating savings are summed by
+\cite[Lemma~8.1]{HN}.
+\end{proof}
+
+\begin{remark}[what is unconditional for general $m$]\label{rem:seluncond}
+The unconditional parts of \cite{MN4} are the reduction, the separation
+and invariance of the level-$md$ Heegner forms, the local densities, the
+class counts and the per-$a$ count, and the Brun--Titchmarsh masses with
+the exact gain $\varphi(m)/m$ \cite[\S6]{MN4}.  Without (SEL$_m$) the lower
+side is still Theorem~L$'$, and the transition is known only within
+$c(m/\log m)^{1/3}\leq\log N\leq A\,m^{1/3}$.  With the single-level
+Kim--Sarnak bound the argument leaves a strip of positive width next to
+$d=a$, as in \cite[\S10]{HN}, independently of $m$.  For $m=4$,
+\cite[Thm.~1]{HN} (= \cite[Thm.~9.9(i)]{HN}) removes this obstruction
+\emph{unconditionally}, by averaging the exceptional spectrum over the
+levels $4dq^2$, $d\asymp D$, with a level-averaged large sieve of
+Deshouillers and Iwaniec in Drappeau's nebentypus form \cite[\S9]{HN}.  This gives $\sum_{p\leq N}f_I(p)=o(N\log^2N\log\log N)$
+without a rate; the bound $\ll N\log^2N$ \cite[Thm.~9.9(ii)]{HN} is
+conditional on a quantified form (EFF) of the $\varepsilon$-constants in
+those estimates.  Neither \cite{MN4} nor \cite{HN} treats the levels
+$mdq^2$ for general $m$ by this averaging, so whether the unconditional
+result transfers, uniformly for $m\leq L^5$, is \emph{open}
+(Problem~\ref{prob:gap}).  Even an $m$-uniform
+transfer of \cite[Thm.~1]{HN} would only improve Theorem~L$'$ by an
+unquantified factor $o(1)$, not give the exact scale.  An $m$-uniform
+transfer of the (EFF) case would give Corollary~\ref{cor:sharp}(a)
+conditionally on (EFF) instead of (SEL$_m$).
+\end{remark}
 
 \section{The lower end of the window range}\label{sec:lowerend}
 \begin{introprop}\label{prop:E}
@@ -1826,15 +2004,20 @@ is whether every prime modulus $q$ is covered for general $m$
 (Remark~\ref{rem:smoothq}).
 \end{problem}
 
-\begin{problem}[the transition gap]
-Close the gap $(\log\log N)^{1/3}$ between Theorems~L$'$ and~U.
+\begin{problem}[the transition gap]\label{prob:gap}
+Close the gap $(\log\log N)^{1/3}$ between Theorems~L$'$ and~U
+unconditionally.
 One loss remains, on the lower side: (i) a Type~I prime count
 without the Brun--Titchmarsh $\log L$, uniformly in $m$; this is the open
-$\log\log N$ of \cite[Thm.~1.1]{ET} already for $m=4$, where it is
-removed conditionally on Selberg's eigenvalue conjecture
-(Remark~\ref{rem:sel}).  An unconditional proof for $m=4$, or a
-conditional one uniform in $m$, would be progress; the latter would give
-$\rho_{\rm rep}\to0$ for $A\to0$ under that conjecture.  (The factor
+$\log\log N$ of \cite[Thm.~1.1]{ET} already for $m=4$.  It is removed
+conditionally on Selberg's eigenvalue conjecture, uniformly for
+$m\leq L^5$ (Theorem~\ref{thm:selI}, Corollary~\ref{cor:sharp}); for
+$m=4$ it is reduced unconditionally to $o(\log\log N)$ without a rate
+\cite[Thm.~1]{HN}.  Does the level-averaged argument of \cite[\S9]{HN}
+carry over to the levels $mdq^2$, uniformly for $m\leq L^5$
+(Remark~\ref{rem:seluncond})?  With a rate, i.e.\ with an
+$m$-uniform form of \cite[Thm.~9.9(ii)]{HN}, this would make
+Corollary~\ref{cor:sharp}(a) conditional only on (EFF).  (The factor
 $m/\varphi(m)$ of \cite{MN2} is removed by Lemma~\ref{lem:ETPV}.)  Also: (ii) an effective, quantitative
 form of Theorem~U in the range $1\ll A\ll(\log m)^{4/3}$ not covered by
 Corollary~\ref{cor:D}.  Is $\rho_{\rm exc}(m,N)$ monotone in $N$?
@@ -1882,6 +2065,12 @@ C. Elsholtz, Sums of $k$ unit fractions, \emph{Trans. Amer. Math. Soc.}
 C. Elsholtz and T. Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math.
 Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[HN]{HN}
+\emph{The Elsholtz--Tao Type~I sum: an unconditional improvement, and the
+removal of the double logarithm under Selberg's conjecture}, research
+note, \texttt{paper/es-typei-heegner-note.tex}, this repository, 2026;
+internal review only.  Numbering of statements as in the compiled
+version.
 \bibitem[Li]{Li}
 Delang Li, On the equation $4/n=1/x+1/y+1/z$, \emph{J. Number Theory}
 \textbf{13} (1981), 485--494.
@@ -1899,6 +2088,11 @@ internal working document \texttt{EXCEPTIONAL\_MN2.md}, this repository,
 \emph{EXCEPTIONAL\_MN3: the lower side of the $m/n$ transition},
 internal working document \texttt{EXCEPTIONAL\_MN3.md}, this repository,
 2026; hostile review \texttt{reviews/exceptional-mn3-review.md}.
+\bibitem[MN4]{MN4}
+\emph{EXCEPTIONAL\_MN4: the $m/p$ density transition under Selberg's
+eigenvalue conjecture}, internal working document
+\texttt{EXCEPTIONAL\_MN4.md}, this repository, 2026; hostile review
+\texttt{reviews/exceptional-mn4-review.md}.
 \bibitem[MV]{MV}
 H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
