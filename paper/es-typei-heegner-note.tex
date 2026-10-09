@@ -2246,11 +2246,302 @@ of Theorem~\ref{L:6.2}.  Small observed errors are therefore neither
 evidence for a uniform spectral error bound at the required scales
 nor a test of (SEL).  No numerical observation is used in any proof.
 \end{remark}
+%%%%% appendix: effective DI Theorem 7 / Drappeau Lemma 4.10 (O122)
+\appendix
+\section{Effective versions of Deshouillers--Iwaniec Theorem~7 and Drappeau Lemma~4.10}\label{sec:eff}
+This appendix is a write-up of the internal note \cite{TTL3}. Its long
+computations are in derivation files to which we point precisely; here we
+give the statement, the black boxes, the structure of the effective
+induction (with complete proofs of the inductive steps, including the
+small-$C$ branch needed for nebentypus), the effective forms of the three
+inputs, and the corrections to \cite{DI,Dr} found along the way. Status:
+\status{proved} relative to the black boxes (B1)--(B5) below and to the
+derivations in \cite{TTL3}; internally reviewed (three internal referee
+reports and two independent deep reviews, no fatal or major findings),
+not externally refereed. It needs expert scrutiny.
+
+\subsection{Statement}
+Fix $q_0\ge1$ and an even character $\chi$ modulo $q_0$. For a level
+$M$ with $q_0\mid M$ the exceptional forms $u_j$ of $(\Gamma_0(M),\chi)$
+have $t_j=i\sigma_j$, $0<\sigma_j\le1/4$, and DI-normalised coefficients
+$\rho_{j\infty}(n)$ (Drappeau's $\rho_f$ convert by
+$\rho^{\rm DI}(n)=2n^{1/2}\rho^{\rm Dr}(n)$, Section~\ref{sec:exc}). For
+$Q>0$, $Y,N\ge1$, $t\in\R$ and a closed interval $I=[N,N_1]$,
+$N\le N_1\le2N$, put
+\[
+ S_\chi(Q,Y,N,t;I)=\sum_{Q<q\le16Q}\ \sum_{j\ \mathrm{exc}\ (q_0q,\chi)}
+ Y^{2\sigma_j}\Bigl|\sum_{n\in I}n^{it}\rho_{j\infty}(n)\Bigr|^2,
+\]
+and $S_\chi^*(Q,Y,N)=\sup_IS_\chi(Q,Y,N,0;I)$.
+(The level is $M=q_0q$, following \cite[p.~17]{Dr}; for $q_0=1$, $\chi=1$
+this is DI's sum \cite[(8.4)]{DI} and we write $S,S^*$.)
+
+\begin{theorem}[\textup{(EFF)}; \status{proved} relative to (B1)--(B5) and \cite{TTL3}]\label{A:eff}
+There is an absolute $A_0$ such that Corollary~\ref{E:DI7}, for every
+$q_0\ge1$ and every even character $\chi$ modulo $q_0$, holds with
+\[
+ C_\varepsilon\le 200\,\varepsilon^{-1}K_7^\chi(\varepsilon/6)\le\exp(\exp(A_0/\varepsilon))
+ \qquad(0<\varepsilon\le1/4),
+\]
+where $K_7^\chi$ is the constant of Theorem~\ref{A:neb} below. One may take
+$A_0=24B_\chi+30$, $B_\chi=400+64b+16\log(2+C_W)$, $b=\max(4,\lceil B_W+1\rceil)$,
+with $C_W,B_W$ from (B3); e.g.\ $A_0<2\cdot10^4$ if $B_W\le3$, $C_W\le10$.
+In particular Hypothesis~\ref{hyp:eff} holds.
+\end{theorem}
+
+\paragraph{Black boxes.} The following are used as exact identities or as
+published theorems with absolute constants; no $\varepsilon$ enters them.
+\begin{enumerate}
+\item[(B1)] The Petersson and Kuznetsov trace formulae for $\Gamma_0(q)$ at
+the cusp $\infty$ \cite[\S4, (1.19)]{DI}, for $(\Gamma_0(M),\chi)$ at
+$\infty$ \cite[Lemma~4.5, (4.13)--(4.17)]{Dr} (from Blomer--Harcos--Michel),
+and for $\SL_2(\Z)$.
+\item[(B2)] Weil's bound $|S(m,n;c)|\le\tau(c)(m,n,c)^{1/2}c^{1/2}$.
+\item[(B3)] A twisted Weil bound $|S_\chi(m,n;c)|\le C_W\tau(c)^{B_W}(m,n,c)^{1/2}(cq_0)^{1/2}$
+for $\chi$ modulo $q_0\mid c$, with absolute $C_W,B_W$ \cite[Lemma~4.2]{Dr}.
+Their numerical values are not certified here; any absolute values suffice
+for the form $\exp(\exp(A_0/\varepsilon))$, and only the numerical $A_0$
+depends on them. ($C_W=B_W=1$ was checked for $c\le90$: \status{evidence} only.)
+\item[(B4)] Selberg's $\lambda_1\ge3/16$ for $\Gamma_0(q)$ and $\Gamma_1(M)$, i.e.\ $\sigma_j\le1/4$.
+\item[(B5)] $\lambda_1(\SL_2(\Z))>1/4$ \cite[Theorem~3]{DI}.
+\end{enumerate}
+
+\subsection{Effective toolkit}
+A constant $K(\delta)$, $0<\delta\le1/4$, is \emph{of class $\mathcal E(B)$}
+if $K(\delta)\le\exp(\exp(B/\delta))$. The $\varepsilon$-losses in
+\cite{DI,Dr} come from divisor bounds, logarithms, integrations by parts
+of growing order, and the inductions on $Q$. The first three are handled by
+three elementary lemmas \cite[\S1]{TTL3}.
+
+\begin{lemma}[\status{proved}]\label{A:tools}
+\textup{(a)} If $f$ is multiplicative with $0\le f(p^a)\le(a+1)^B$ \textup($B\ge1$\textup),
+then $f(n)\le(2B/\delta)^{B\cdot2^{B/\delta}}n^\delta$ for $0<\delta\le1$
+\textup(class $\mathcal E(B\log2+o(1))$\textup).
+\textup{(b)} $(\log x)^r\le(r/(e\delta))^rx^\delta$ for $x\ge1$, $r,\delta>0$.
+\textup{(c)} There is $\eta\in C^\infty(\R)$ with $0\le\eta\le1$, $\eta=1$ on $[1,2]$,
+$\operatorname{supp}\eta\subset[3/4,9/4]$ and $\|\eta^{(p)}\|_\infty\le8e^{16}36^p(p!)^2$
+for all $p\ge0$ \textup(Gevrey class~$2$\textup).
+\end{lemma}
+\begin{proof}
+(a) $f(n)n^{-\delta}\le\prod_{p^a\|n}((a+1)p^{-a\delta/B})^B$; factors with
+$p\ge2^{B/\delta}$ are $\le1$, and for the at most $2^{B/\delta}$ others
+$\max_a(a+1)2^{-a\delta/B}\le2B/\delta$. (b) Maximise $r\log u-\delta u$.
+(c) $h(x)=e^{-1/x}$ ($x>0$) has $|h^{(p)}|\le9^p(p!)^2$ by Cauchy's formula on
+$|z-x|=x/2$; mollify $\ind_{[7/8,17/8]}$ with the rescaled normalised bump
+$h(1/4+x)h(1/4-x)$, whose mass is $\ge e^{-16}/4$, and use Leibniz.
+\end{proof}
+With $\eta$ from (c) in place of DI's unspecified smooth cutoffs, an
+integration by parts of order $p\asymp1/\delta$ costs
+$\exp(O(\delta^{-1}\log(2/\delta)))$, well inside $\mathcal E(\cdot)$; the
+divisor bounds (a) are what produce the double exponential.
+
+\subsection{The effective induction}
+Two trivial facts hold for every $q_0,\chi$ \cite[\S2]{TTL3}:
+\begin{enumerate}
+\item[(M)] for $Y\ge Y'\ge1$, since $0<2\sigma_j\le1/2$ by (B4),
+\[S_\chi(Q,Y',N,t;I)\le S_\chi(Q,Y,N,t;I)\le(Y/Y')^{1/2}S_\chi(Q,Y',N,t;I);\]
+\item[(PS)] $S_\chi(Q,Y,N,t;I)\le2(1+t^2)S_\chi^*(Q,Y,N)$, by Abel summation over the
+admissible intervals $[N,\xi]$ and Cauchy--Schwarz for $d\xi/\xi$.
+\end{enumerate}
+The non-inductive inputs are, for $\delta\in(0,1/10]$, $Y,N\ge1$ and all
+$I$, with constants $K_1,c,K_2\ge1$ independent of $q_0,\chi$:
+\begin{enumerate}
+\item[(P1)] (\cite[(8.7) and Theorem~14]{DI}) for all $Q>0$: $S_\chi^*(Q,Y,N)\le K_1(\delta)(NY)^\delta(Q+N+Y)N$;
+\item[(P2)] (\cite[Lemma~8.1]{DI}, \cite[pp.~17--18]{Dr}) for $Q\ge1$, with
+$C:=\pi NY/(q_0Q)$:
+$S_\chi(Q,Y,N,0;I)\le c(\delta)\int_\R S_\chi(C,Y,N,t;I)\frac{dt}{1+t^4}+c(\delta)(QYN)^\delta(Q+N+NY/Q)N$;
+\item[(P3)] (\cite[Theorem~2, (1.29)]{DI}, summed over $Q<q\le16Q$) for $Q\ge1$:
+$S_\chi(Q,1,N,0;I)\le K_2(\delta)(Q+N^{1+\delta})N$.
+\end{enumerate}
+In (P2) the sum $S_\chi(C,\dots)$ is defined for every $C>0$ (it is empty if
+$16C<1$). For $q_0=1$ the switched parameter is $C=\pi NY/Q$, and the
+induction below only uses (P2) when $C\ge N$. For $q_0>1$ the factor $1/q_0$
+can make $C<N$, even $C<1$, where no induction hypothesis is available;
+this is the extra branch (C2) below. (Drappeau's remark that $q_0$
+``appears only with negative powers'' needs this branch.)
+
+\begin{proposition}[effective {\cite[(8.19)]{DI}}, with nebentypus; \status{proved} relative to (P1)--(P3)]\label{A:ind}
+Let $\delta\in(0,1/10]$, $Q_0:=\max((90c)^{1/(10\delta^2)},(2\pi)^{1/(2\delta)})$ and
+$H:=\max(2K_2Q_0,10K_1,200cK_1)$. Then for all $Q\ge1$ and $1\le N\le Q$,
+\[
+ S_\chi^*(Q,Q^{2-2\delta}/N,N)\le HQ^{1+4\delta}N .
+\]
+\end{proposition}
+\begin{proof}
+Put $Y=Q^{2-2\delta}/N\ge1$; induct on $k$ with the claim for $Q\le2^kQ_0$.
+(A) $Q\le Q_0$: by (M) with $Y'=1$ and (P3),
+$S^*_\chi\le Y^{1/2}K_2(Q+N^{1+\delta})N\le Q^{1-\delta}N^{-1/2}\cdot2K_2Q^{1+\delta}N\le2K_2Q_0Q^{1+4\delta}N$.
+(B) $Q^{1-2\delta}<N\le Q$: by (M) with $Y_1=Q+N\ge Y$ and (P1),
+$S^*_\chi\le K_1(2Q^2)^\delta\cdot4QN\le10K_1Q^{1+4\delta}N$.
+(C) $Q>Q_0$, $N\le Q^{1-2\delta}$: then $Q^{2\delta}\ge2\pi$ and
+$C=\pi Q^{1-2\delta}/q_0\le Q/2$; the error term of (P2) is $\le3cQ^{1+3\delta}N$.
+\emph{(C1) $C\ge N$.} With $Y_C=C^{2-2\delta}/N\le Y$, the induction
+hypothesis at $(C,N)$, (M) and (PS) bound the main term of (P2) by
+\[
+ c\int\Bigl(\frac{Y}{Y_C}\Bigr)^{1/2}2(1+t^2)HC^{1+4\delta}N\frac{dt}{1+t^4}
+ =2\sqrt2\pi\,cH\,Q^{1-\delta}C^{5\delta}N,
+\]
+which is $\le45cHQ^{1+4\delta-10\delta^2}N\le\tfrac H2Q^{1+4\delta}N$,
+using $\int(1+t^2)dt/(1+t^4)=\sqrt2\pi$, $C^{5\delta}\le\pi^{5\delta}Q^{5\delta-10\delta^2}$ and $Q^{10\delta^2}\ge90c$.
+\emph{(C2) $C<N$.} No induction: (M) with $Y_1=C+N\in[1,2N]$ and (P1) at $C$ give
+$S^*_\chi(C,Y,N)\le(1+\sqrt{Y/N})K_1(2N^2)^\delta4N^2\le10K_1Q^{1+2\delta}N$
+(as $\sqrt{YN}=Q^{1-\delta}$), so the main term is $\le90cK_1Q^{1+2\delta}N$.
+In both cases $S_\chi(Q,Y,N,0;I)\le(H/2+90cK_1+3c)Q^{1+4\delta}N\le HQ^{1+4\delta}N$;
+take the supremum over $I$.
+\end{proof}
+For $q_0=1$ branch (C2) never occurs and one may take $H=\max(2K_2Q_0,10K_1,6c)$
+\cite[Proposition~2.1]{TTL3}. Removing the restrictions $N\le Q$, $Y=Q^{2-2\delta}/N$
+by (M) and (P1) gives:
+
+\begin{theorem}[effective {\cite[Theorem~7]{DI}}, {\cite[Lemma~4.10]{Dr}}; \status{proved} relative to (P1)--(P3)]\label{A:neb}
+For $0<\delta\le1/10$, $Q\ge1/16$ and $Y,N\ge1$, uniformly in $q_0$ and even $\chi$,
+\[
+ S_\chi^*(Q,Y,N)\le K_7^\chi(\delta)(QN+1)^{5\delta}\bigl(Q+N+\sqrt{NY}\bigr)N,
+ \qquad K_7^\chi:=\max(H,10K_1).
+\]
+If $K_1,c,K_2\le\exp(\exp(B/\delta))$ with $B\ge1$, then $K_7^\chi(\delta)\le\exp(\exp((B+3)/\delta))$.
+\end{theorem}
+\begin{proof}
+$Q\ge1$, $N\le Q$: if $Y\le Y_2:=Q^{2-2\delta}/N$ use (M) and
+Proposition~\ref{A:ind}; otherwise $S^*_\chi\le(Y/Y_2)^{1/2}HQ^{1+4\delta}N=HQ^{5\delta}\sqrt{NY}N$.
+$N>Q$ or $Q<1$: (M) with $Y_1=Q+N\le2N$ (resp.\ $1+N$) and (P1) give
+$\le(1+\sqrt{Y/N})K_1(2N^2)^\delta4N^2\le10K_1N^{2\delta}(N+\sqrt{NY})N$.
+Growth: $\log Q_0\le(\log90+e^{B/\delta})/(10\delta^2)+\delta^{-1}$, and
+$\delta^{-2}\le e^{2/\delta}/4$, $e^{B/\delta}\ge e^{10}$ \cite[Corollary~2.3]{TTL3}.
+\end{proof}
+
+\subsection{The three inputs}
+Each input is a re-derivation of a printed proof in which every
+$\varepsilon$-loss is replaced by an explicit constant; the full
+computations are in the derivation files named below.
+
+\begin{proposition}[effective {\cite[Theorem~2]{DI}} at $\infty$; \status{proved} relative to (B1), (B2), (B4)]\label{A:T2}
+For $q,K\ge1$, $N\ge1/2$, $0<\delta\le1/10$, each of \cite[(1.28)--(1.30)]{DI}
+\textup(exceptional spectrum included\textup) at the cusp $\infty$ of
+$\Gamma_0(q)$ is $\le K_{T2}(\delta)(K^2+q^{-1}N^{1+\delta})\|a\|^2$, with
+$K_{T2}(\delta)\le\exp(\exp(100/\delta))$. With nebentypus $\chi$ modulo $q_0$
+at level $M=q_0q$, using (B3) instead of (B2), the same holds with a constant
+$K_{LS}^\chi(\delta)\le\exp(\exp(B_\chi/\delta))$ independent of $q_0,\chi$.
+\end{proposition}
+\emph{Source.} \nolinkurl{scripts/ttl3_thm2_effective.md} (Steps~1--9) and
+\nolinkurl{scripts/ttl3_thm2_twisted.md}. The only growing-order step is
+\cite[Proposition~3, (1.27), p.~257]{DI}: with $\eta$ of
+Lemma~\ref{A:tools}(c) and $p=\lfloor32/\delta\rfloor$ integrations by parts the
+non-resonant Poisson terms cost $2^{100(p+1)}(p!)^4$; the divisor factors
+$\tau(c)^{\le4}$ cost $(8/s)^{4\cdot2^{4/s}}$, $s=\delta/16$, which dominates.
+The diagonal is kept as $D_K\le2K^2$. In the twisted case only the Weil range
+$c>N^2$ acquires a factor $q_0^{1/2}$, which $M^{-1}=(q_0q)^{-1}$ absorbs; the
+diagonal is not multiplied by $q_0^{1/2}$. Then (P3) holds with $K_2=32K_{T2}$
+(resp.\ $32K_{LS}^\chi$): for exceptional $\kappa_j$, $\cosh(\pi\kappa_j)=\cos(\pi\sigma_j)\ge2^{-1/2}$,
+$\|\ind_I\|^2\le2N$, and $\sum_{Q<q\le16Q}(1+N^{1+\delta}/q)\le16(Q+N^{1+\delta})$.
+
+\begin{proposition}[effective {\cite[Theorem~14]{DI}}; \status{proved} relative to (B1), (B5) and Proposition~\ref{A:T2} at level~$1$]\label{A:T14}
+For $C,M,N\ge1$, $0<\delta\le1/10$,
+\[
+ \sum_{c\le C}U(c)\le K_{14}(\delta)(CMN)^\delta C(C+MN),
+\]
+where
+\[
+ U(c):=\sideset{}{^*}\sum_{d\bmod c}\Bigl|\sum_{m\le M}e\Bigl(\frac{md}c\Bigr)\Bigr|\Bigl|\sum_{n\le N}e\Bigl(\frac{n\bar d}c\Bigr)\Bigr|,
+\]
+with $K_{14}(\delta)=2^{1200}(1+K_{T2}(\delta))(1+6/\delta)^3$.
+\end{proposition}
+\emph{Source.} \nolinkurl{scripts/ttl3_thm14_effective.md}. The quantity $U(c)$ dominates
+$|\sum_{m,n}S(m,n;c)|$ and the twisted sums $|\sum_{m,n}S_\chi(m,n;c)|$; it is
+what DI's proof via \cite[Lemma~8.2, (8.14)]{DI} actually bounds. Only
+fixed-order derivatives and fixed contour shifts occur; since $\SL_2(\Z)$
+has no exceptional spectrum (B5), no inductive or ineffective step enters.
+
+\begin{proposition}[effective {\cite[Lemma~8.1]{DI}} and (P1); \status{proved} relative to (B1)--(B4), Propositions~\ref{A:T2}, \ref{A:T14}]\label{A:L81}
+(P1) and (P2) hold with $K_1(\delta)=A\delta^{-2}[1+K_{T2}(e)+D(e)K_{14}(e)]$ and
+$c(\delta)=A\delta^{-2}[1+K_{T2}(e)]$, where $e=\delta/4$, $D(e)=(2/e)^{2^{1/e}}$,
+$A=2^{16384}$; in the twisted case $K_{T2}$ is replaced by $K_{LS}^\chi$, giving
+$K_1^\chi,c^\chi\le\exp(\exp((4B_\chi+1)/\delta))$.
+\end{proposition}
+\emph{Source.} \nolinkurl{scripts/ttl3_lemma81_effective.md} and
+\nolinkurl{scripts/ttl3_lemma81_twisted.md}. Explicit cutoffs
+$\Psi(u)=\eta(3u-2)$, $\varphi(x)=\Psi(Yx)$, $f(q)=\eta(q/Q)$ make the switched
+moduli satisfy $64C/51\le c\le128C/11$, inside $(C,16C]$. The exceptional lower
+bound $\hat\varphi(-i\sigma)/\cos(\pi\sigma)\ge Y^{2\sigma}/64$ holds uniformly in
+$\sigma\in(0,1/4]$ for $Y\ge2^{32}$; smaller $Y$ is handled by (M) and
+Proposition~\ref{A:T2}. The Mellin pair for $f=\eta(\cdot/Q)$ satisfies
+$|\chi_f(it)|\le2^{512}/(1+t^4)$ uniformly. The exceptional spectrum is split at
+$\sigma=e$ (cost $e^{-1}$ from $1/\sin\pi\sigma$, and $Y^{2e}(1+\log Y)$). In (P1)
+the weight $\Psi(4\pi Y\sqrt{mn}/k)$ is removed by two-variable partial
+summation against a $k$-independent majorant, then $\tau(k)\le D(e)k^e$
+(Lemma~\ref{A:tools}(a)) and Proposition~\ref{A:T14} with $K=32NY$. If
+$\pi NY/(q_0Q)<1$ the error term alone suffices.
+
+\subsection{Proof of Theorem~\ref{A:eff}}
+For $q_0=1$: $K_{T2}(\delta/4)\le\exp(\exp(400/\delta))$,
+$K_{14}(\delta/4)\le\exp(\exp(404/\delta))$, $D(\delta/4)\le\exp(\exp(3/\delta))$, so
+$K_1,c\le\exp(\exp(405/\delta))$ and $K_7(\delta)\le\exp(\exp(408/\delta))$ by
+Theorem~\ref{A:neb} \cite[Theorem~7.1]{TTL3}. In general
+$K_1^\chi,c^\chi\le\exp(\exp((4B_\chi+1)/\delta))$, $K_2^\chi=32K_{LS}^\chi(\delta)$, hence
+$K_7^\chi(\delta)\le\exp(\exp((4B_\chi+4)/\delta))$. Conversion to
+Corollary~\ref{E:DI7}: the levels $M=q_0q\le M_0$ are covered by
+$\le2+\log M_0$ blocks $Q_i<q\le16Q_i$ with $Q_i\ge1/16$, and $[1,t]$ by the
+$\lfloor\log_2t\rfloor+1\le3\log^2(2t)$ closed intervals
+$[2^k,\min(2^{k+1}-1,t)]$; Cauchy--Schwarz over the latter, positivity over
+the former, and Theorem~\ref{A:neb} with $\delta=\varepsilon/6$ give, using
+Lemma~\ref{A:tools}(b) for $(2M_0t)^{5\delta}(2+\log M_0)\le(12/\varepsilon)(M_0t)^\varepsilon$,
+the bound of Corollary~\ref{E:DI7} with $C_\varepsilon\le200\varepsilon^{-1}K_7^\chi(\varepsilon/6)$.
+Finally $\log\log(200\varepsilon^{-1}K_7^\chi(\varepsilon/6))\le(24B_\chi+30)/\varepsilon$. \qed
+
+\subsection{Corrections to the printed proofs}\label{sec:eff:corr}
+None of the following affects the theorems of \cite{DI,Dr}; they are
+recorded because an effective version must use the repaired forms
+\cite[\S\S4--6, 8]{TTL3}.
+\begin{enumerate}
+\item \cite[Lemma~8.1]{DI}, \cite[p.~17]{Dr}: the pictured cutoff supports
+$[1/2,5/2]$ give only $16C/25\le c\le32C$, not $C<c\le16C$; repaired by narrower
+cutoffs (above). In \cite[p.~17]{Dr} a single $g(q)=\Phi(q/Q)$ cannot majorise
+$Q<q\le16Q$; DI's four applications at $(2^jQ,2^jY)$, $j=0,\dots,3$, are needed.
+\item \cite[(8.3)]{DI}: the exceptional lower bound is not uniform near $Y=1$;
+\cite[(8.2)]{DI} needs an extra $\log Y$ at $\kappa=0$ (both repaired above).
+The sign convention of \cite[(1.22)]{DI} is opposite to that of (8.1); both
+applications carry the same sign, which cancels.
+\item \cite[p.~257]{DI}: the cutoff support must be checked for the
+derivative separation; \cite[p.~259]{DI}: the exponent $2s$ should be $3s$.
+The asymptotic diagonal \cite[(5.2)]{DI} is replaced by $D_K\le2K^2$; the
+Gaussian lower bound \cite[pp.~260--261]{DI} is restricted to $[|r|,|r|+1]$; the
+kernel in \cite[(5.6)]{DI} has $\tanh\xi$; the holomorphic kernel on p.~258 has
+the wrong overall sign (only its modulus is used).
+\item \cite[Theorem~13]{DI}: the Fourier separation differentiates up to six
+times, beyond what \cite[(7.7)]{DI} controls (repaired by product cutoffs);
+a factor $\cosh$ is missing on p.~264.
+\item \cite[(8.18)]{DI}: $Y_1=\sqrt{Q+N}$ should read $Y_1=Q+N$ (Section~\ref{sec:exc}).
+\item \cite[pp.~17--18]{Dr}: $S_{\infty\infty}(m,n;qc)$ should be $S_\chi(m,n;q_0qc)$; the
+Mellin kernel needs $dx/x$, as in \cite[(4.10)]{Dr}, not $dx$; the second
+coefficient has index $n$, not $m$; $S(Q,N,Y,0)$ should be $S(Q,Y,N,0)$.
+Drappeau's pre-Kuznetsov kernel \cite[p.~14]{Dr} is $\cosh(\pi t)$ times
+DI's (an absolute normalisation factor). The induction needs the small-$C$
+branch (C2) of Proposition~\ref{A:ind}.
+\end{enumerate}
+
+\subsection{Status of the derivations}
+After the internal referee round \cite[referee reports]{TTL3} and two
+independent deep reviews, the following were independently re-derived:
+the toolkit, the induction and its nebentypus branch, the assembly and the
+conversion (all written out above); the $\varepsilon$-structure and the key
+inequalities of Propositions~\ref{A:T2}--\ref{A:L81} and of their twisted
+forms; and the corrections above. Some fixed absolute majorants were only
+shape-checked (asserted parameter-independent, not re-derived in detail):
+\nolinkurl{ttl3_thm2_effective.md} Steps~6--8 (angular split of $E_K$,
+Gaussian lower bound $2^{-20}$), \nolinkurl{ttl3_thm14_effective.md} \S\S2--4
+(Mellin--Barnes residues, the constants $2^{50}$, $2^{1000}$), and the numerals
+$2^{512}$, $2^{2048}$ of \nolinkurl{ttl3_lemma81_effective.md}. Hence the numerical
+value of $A_0$ is explicit only modulo these allowances and certified values
+of $C_W,B_W$; the form $\exp(\exp(A_0/\varepsilon))$, and therefore
+Theorem~\ref{E:main}(ii), need only their finiteness and independence of the
+parameters.
+
 \begin{thebibliography}{99}
 \bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010v6. Page and equation references in this note refer to that arXiv version.
 \bibitem[MN3]{MN3} \emph{The lower side of the $m/n$ transition: the $m/\varphi(m)$ loss and the Type I $\log\log$}, internal note, \texttt{EXCEPTIONAL\_MN3.md}, with internal review \texttt{reviews/exceptional-mn3-review.md}.
 \bibitem[TTL]{TTL} \emph{The Type~I $\log\log$ under Selberg's conjecture}, internal source note of this paper, \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG.md}, with internal review \texttt{reviews/exceptional-typei-loglog-review.md}.
 \bibitem[TTL2]{TTL2} \emph{Closing the exceptional-eigenvalue strip}, internal source note of Section~\ref{sec:exc}, \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG2.md}, with internal reviews \texttt{reviews/exceptional-typei-loglog2-review.md} and \texttt{-review-B.md}.
+\bibitem[TTL3]{TTL3} \emph{Towards an unconditional (EFF)}, internal source note of Appendix~\ref{sec:eff}, \texttt{EXCEPTIONAL\_TYPEI\_LOGLOG3.md}, with derivation files \texttt{scripts/ttl3\_*.md} (effective Theorem~2, Theorem~14, Lemma~8.1, their twisted forms, and the nebentypus induction), internal referee reports \texttt{scripts/ttl3\_review\_R\{A,B,C\}.md}, and deep reviews \texttt{reviews/exceptional-typei-loglog3-review-A.md}, \texttt{-B.md}.
 \bibitem[MN2]{MN2} \emph{The density transition for $m/p$}, internal note, \texttt{EXCEPTIONAL\_MN2.md} (Theorem~U).
 \bibitem[MN4]{MN4} \emph{The $m/p$ density transition under Selberg's eigenvalue conjecture}, internal note, \texttt{EXCEPTIONAL\_MN4.md}, with internal review \texttt{reviews/exceptional-mn4-review.md}.
 \bibitem[Hux]{Hux} M. N. Huxley, Scattering matrices for congruence subgroups, in \emph{Modular forms (Durham, 1983)}, Ellis Horwood, Chichester, 1984, 141--156.
