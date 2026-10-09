@@ -56,7 +56,9 @@ Yokoi type) and solve `u_1 = 7^b` 7-adically. The following shows that no such p
 arithmetic progression `δ ≡ δ_0 (mod N)` (`δ_0` odd); for `L ≤ 6` it is bounded.
 Hence for `L ≥ 7` the unit `ν_0` of a certificate is never given by a polynomial formula in `δ` on any
 arithmetic progression of `δ` (at fixed `c_o`), and the same holds with the roles of `c_o` and `δ` exchanged
-(at fixed `δ`, `d` is again quadratic in `c_o` and `η` is the same element). Idea (1) cannot work as stated.
+(at fixed `δ`, `d = δ²c_o² + Tc_o` is quadratic in `c_o`; by the same degree argument the units of `ℚ[c_o][√d]` are
+`ℚ^×·ξ^ℤ` with `ξ := δc_o + T/(2δ) + √d`, `N(ξ) = T²/(4δ²)`, so the norm-1 ones are `±(2δξ/T)^n` and `2δξ/T = ε_*` is the
+same element; (b) applies verbatim). Idea (1) cannot work as stated.
 *Proof.* (a) In `ℚ((1/δ))`, `√d = c_oδ·(1 + T/(c_oδ²))^{1/2} = c_oδ + T/(2δ) + …`; the two embeddings `√d ↦ ±(this series)` of
 `R := ℚ[δ][√d]` give two degree maps `deg_±`, additive on products, with `deg_+(ξ) + deg_−(ξ) = deg N(ξ)`. On the unit group
 `R^×` (norms are nonzero constants) `deg_+` is a homomorphism to `ℤ`. Its kernel: if `deg_±(ξ) ≤ 0`, then
