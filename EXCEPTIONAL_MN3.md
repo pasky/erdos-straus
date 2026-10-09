@@ -186,3 +186,57 @@ upper bound; the uniformity is the divisor heuristic), so the cells in R_bad(η)
 `≍ (1/6)·N log² N Σ_{j ≤ η log N} 1/j`. **No choice among all 7 progressions removes the log log N**;
 this is the precise content of ET's "no similar trick" remark. (A rigorous lower bound for the mass of
 R_bad ∩ {α < 1/2} follows from the modular-hyperbola count of §3.4; not written out.)
+
+**3.4 Beyond progressions: complete exponential sums (Assessment — standard sketches, not written
+as proofs).** Three further "one fixed coordinate" counts are available in R_bad, each giving a level
+of distribution `N^{θ}` (θ > 0) for the condition `q | n` on the cell, by Weil/Kloosterman:
+* (K_a) fix a: `(e,f)` lie on the modular hyperbola `ef ≡ 1 (mod 4a²)` in an `E×F` box (d is then
+  determined); the class condition mod q is a conic in (e,f) mod q (`a·n = c(ef−1) − af`). Count
+  `= EF·φ(4a²)/(4a²)²·(…) + O(a^{1+ε}q^{O(1)})`; main term per a is `≍ D = N^{1−α−γ}`, so this works iff
+  `α < (1−γ)/2`.
+* (W_e) fix e: `(a,d)` with `d ≡ −\overline{4a²} (mod e)` in an `A×D` box, plus a linear condition
+  mod q on d: Weil for `Σ_a e(h\overline{4a²}/(eq))` gives error `≪ (eq)^{1/2+ε}` per e, against main
+  `AD/e`; works iff `(3/2)(β−γ) < 1−γ`.
+* (W_f) fix f: the same with modulus f: works iff `(3/2)(1+α−β) < 1−γ`.
+At γ = 0 these leave
+`R** = R_bad ∩ {α ≥ 1/2, β ≥ 2/3, β ≤ α+1/3} = {1/2 ≤ α ≤ 1, max(α, 2/3) ≤ β ≤ min(1, α+1/3)}`,
+of area `1/24 + 1/18 = 7/72` (vs 1/6 for R_bad). A positive area still means a `log log N` (with a
+smaller constant), so these sketches are recorded only to locate the obstacle, not as a result.
+(Bilinear Kloosterman-fraction bounds — reciprocity `\overline{4a²}/e ≡ −ē/(4a²) + 1/(4a²e)` — reduce
+(W_e) back to (K_a), so they do not enter R** either.)
+
+**3.5 What is needed in R** (the precise obstacle; Assessment).** In R**: `a ≥ N^{1/2}`, so
+`4a² ≥ N` and the hyperbola of (K_a) is too sparse; `e, f ≥ N^{2/3}`, so (W_e), (W_f) are past the
+Weil range; `d ≤ N^{1/2}`; every one-variable progression is shorter than `N^{o(1)}`·c. By
+Lemma 3.1 the points of a cell with fixed d are the elements `M = [[e,2a],[2ad,f]]` of
+`S_d ∩ {box}`, i.e. Γ₀(d)-translates of the Heegner points of discriminant −4d on X₀(d)
+(`z_M = (−2a + i/√d)/e`, imaginary part `≍ 1/(E√d)`, real part in `[−2A/E, 0]`), and the sieve
+condition is `q | 2cM₂₁ − M₂₂`. A Selberg sieve of any fixed level `N^θ` therefore needs:
+
+  (H**) *Equidistribution, modulo q ≤ N^θ and with a power (or large log-power) saving summed over
+  q, of the points of `⋃_{d≍D} S_d` in boxes of R**-shape*, i.e. of Heegner points of discriminant
+  −4d on X₀(d) (level and discriminant tied) in thin strips near the real axis, on average over
+  `d ≍ D ≤ N^{1/2}`, with congruence conditions.
+
+For a single bounded d this is effective hyperbolic lattice-point counting in a congruence subgroup
+(uniform spectral gap: Selberg 3/16 / Kim–Sarnak), which gives level `N^θ`. The difficulty is the
+**level aspect**: error terms of effective counting grow polynomially in the index `[SL₂(ℤ):Γ₀(dq)]`,
+while each d carries only `≍ A = N^α` points; crude level dependence `d^C` covers only
+`α ≥ 1 − O(δ/C)`, whereas R** reaches down to `α = 1/2` (`d = N^{1/2}`). Closing R** needs a
+Duke/Iwaniec-type equidistribution of Heegner points in the joint level–discriminant aspect
+(averaged over d, which should help via Kuznetsov with level averaging), with congruence twists.
+We did not find such a statement in the literature and do not claim it.
+
+**3.6 Naive approaches that fail (each checked against the R_bad geometry).**
+* (N1) BT on any single progression — Prop 3.3: every modulus ≥ `N^{1−η}` in R_bad.
+* (N2) Cauchy–Schwarz against Barban–Davenport–Halberstam / Montgomery–Hooley (moduli `q ≍ N/C`,
+  valid up to Q = N): the classes `−f (mod 4ad)` number only `≍ (N/C) log² N` among `≍ N²/C` pairs
+  (q, r). The variance `≍ QN/log N = N²/(C log N)` gives error
+  `(R·V)^{1/2} ≍ N^{3/2}(log N)^{1/2}/C ≫ N log N` (the main term). Fails by a power of N.
+* (N3) Selberg sieve in one linear variable: level ≤ that variable's length ≤ `N^{η}` in R_bad, i.e.
+  BT again.
+* (N4) Complete-sum (Weil/Kloosterman) counting with one fixed coordinate — §3.4: fails on R**.
+* (N5) Erdős's trick (ET Thm 7.1), which makes Prop 1.4 work without equidistribution, needs
+  positivity in the *divisor*: it bounds τ by divisors below the variable length. The sieve weight
+  depends on the specific divisor f through `n = 4acd − f`, and in R_bad that f exceeds every
+  variable length (Prop 3.3, last sentence), so the trick does not apply.
