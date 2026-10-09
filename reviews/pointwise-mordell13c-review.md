@@ -10,7 +10,7 @@ as merged at the start of R100. All code from scratch: `scripts/review_m13c_*.py
 |---|---|---|
 | Thm 6.1 (tree certificate, 35459 open classes, density 8.42e-5) | PROVED (finite computation) | **SOUND** (conditional on POINTWISE_MORDELL Thm 3.1(b) outside the six roots, as stated) |
 | §2 witness engine completeness (all M ∣ L) | CERTIFIED | **SOUND** (brute force, 6 levels, 0 mismatches) |
-| Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | pending |
+| Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | **SOUND**; its new part is empty by a one-line reciprocity argument (D4) |
 | §5 x** search extensions | CERTIFIED within ranges | pending |
 | §1, §3, Comp. 2.1 | EVIDENCE | pending |
 
@@ -79,6 +79,22 @@ the docstring reductions: each is correct (I1: if `f > 4ad` then `g = N/f < 4ad`
 irrelevant for the campaign, where `16 | L`; see D3).
 Comp. 2.1 (1399 survivors at L = 6.96·10¹⁰) is EVIDENCE and was not recomputed independently.
 
+**Result (`gcc -O2 scripts/review_m13c_cell22.c`, 1.6 s): there are NO such data at all** (0 solutions of
+`4a'd'mj = λa'+m+j` with λ = 11⁴13⁴). Validation of the enumerator against brute force (a',d' ≤ 60, all
+`e ≡ −1 (4a'd')`, `e | 4λa'²d'+1`) for λ ∈ {11, 13, 143, 1331, 1859, 2197, 24167}: identical sets (5, 2, 34,
+35, 32, 40, 66 data); for the squares λ ∈ {121, 169, 20449}: 0 = 0.
+*Reason (PROVED, reviewer):* `e ≡ −1 (mod 4d')` and `e | 4(λa'²)d'+1` with `λa'²` a perfect square give
+`(−d'/e) = +1`, while `e ≡ −1 (4d')` forces `(−d'/e) = −1` (MORDELL17 Lemma 1.3). Since `λ = a_T²` whenever
+`d_T = e_T = 1`, the 72-minute `N = 11⁴13⁴` run could not add any box of T-level | 11²13²; the 20668 boxes it
+produced all have T-level ∤ 11²13². Hence Comp. 3.1 is correct, but the k = 2 row of 13B was **already
+complete** at `N ≤ 4·10⁷` (the R95 caveat "already k=2 needs N up to 4.2·10⁸" was over-cautious for k = 2;
+for k = 3 the analogous reduction should be redone before running `N ≈ 8.6·10¹²`, see D4).
+Covered side (own bounded search, `scripts/review_m13c_cell22_cover.py B`: all T-parts | 11²13², T-free
+parameters ≤ B, third parameter from the necessary divisibility, literal class membership at the CRT point):
+B = 4: 53 covered; B = 15: 87; B = 40: 119 covered, 24 uncovered, all inside x_11 ∈ {2,57,68,79},
+x_13 ∈ {15,28,54,93,132,145} — monotone towards the claimed 128 / 15; never covers any of the 15 claimed
+uncovered subcells (consistent). [B = 120 run: see below.]
+
 ## Defects
 
 * **D1 (MINOR, §6 proof, "two independent checkers").** Both author checkers are campaign engines
@@ -102,3 +118,9 @@ ES level N > 4·10⁷ only for II3/I1/I3 with a_T (resp. c_T) = 11²13², d_T = 
 data are exactly the (a',d',m,j), a',d' prime to 143, with `4a'd'mj = λa' + m + j` (e = 4a'd'm − 1, cofactor
 4a'd'j − 1 of 4a²d+1), and the subcell is u ≡ −e (mod 11²13²) — the same set for all three families.
 Independent complete enumeration: `scripts/review_m13c_cell22.c`.
+* **D4 (MINOR, Comp. 3.1 / 13B §4 caveat).** The expensive `N = 11⁴13⁴` enumeration was unnecessary: for
+  T-level `F | 11²13²` the only ES level above 4·10⁷ comes from II3/I1/I3 with `a_T = 11²13²`, `d_T = e_T = 1`,
+  where `λ = a_T²` is a square and the Mordell-type reciprocity of D4's argument (§C) kills every datum,
+  at every T-generic point, not only at x*. Repair: replace "m13b_es 418161601 (72 min) …" by this argument
+  (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally, any ES level
+  `N = E·a_T²·d_T` with `E·d_T` a square is empty for II3/I1/I3 — this prunes the k = 3 programme.
