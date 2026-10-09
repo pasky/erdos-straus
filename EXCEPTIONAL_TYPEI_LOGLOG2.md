@@ -4,24 +4,30 @@ Status labels as in DISCOVERIES.md. TTL = `EXCEPTIONAL_TYPEI_LOGLOG.md` (Thm 8.1
 DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288 (scan `sources/o111/deshouillers-iwaniec-1982.pdf`,
 journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`. Work in progress.
 
-## 0. Summary (running)
+## 0. Summary
 
-* **Re-examination of TTL §3.2/§9.** TTL checked DI Thm 5 (one level) and DI Thm 6 (average over the level,
-  general coefficients). It did **not** consider **DI Thm 7** (DI p. 233, (1.41)), the level-averaged
-  exceptional large sieve for the **constant sequence** `a_n = 1`:
-  `Σ_{q≤Q} Σ^{(q)}_{λ_j exc} X^{4iκ_j} |Σ_{n≤N} ρ_{j∞}(n)|² ≪_ε (QN)^ε (Q + N + X√N) N`
-  (DI's "Conjecture" `Q + N + X√N` in place of Thm 6's `Q + N + NX`, proved for `a_n = 1`; equivalently, with the
-  weight `Y^{2σ_j}`, `Y = X²`, the bracket is `Q + N + √(NY)` — DI (8.17), p. 276; the audit (§5) found that the
-  radical in (1.41) covers only N).
-  In TTL Prop 5.1 the unfolded coefficients are `b_n = λφ̂(λn)` — a smooth function of n, not a general
-  sequence — so partial summation reduces them to `a_n = 1` (Lemma 1.2 below), and the levels `M = 4dq²` of
-  TTL vary with `d ≍ D`, which is exactly an average over the level. §1–§2 show that at `q = 1` this
-  removes the exceptional obstruction up to the `(QN)^ε` loss of DI Thm 7, provided the weight
-  `(nY)^{−2σ_j}` is kept n-dependent (the crude weight `Y^{−2σ_j}` fails in TTL case (b3)).
-* Remaining issues, treated below: (i) the `(QN)^ε` (Lemma 1.1 bookkeeping tolerates a loss
-  `N^{O(1/log L)}`, i.e. a strip `δ ≤ C/log L` costs only `O(N L²)`; §3); (ii) the sieve moduli `q > 1`
-  need the exceptional spectrum of `Γ₀(4dq²)` with **even nebentypus mod q** (TTL §5), which DI Thm 7 does not
-  cover (§4).
+* **Main results (Thm 4.1).** Let `L = log N`.
+  (i) **Unconditionally** (no (SEL); PROVED relative to TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10):
+  `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)` for every `ε₀ > 0`, i.e.
+  **`Σ_{p≤N} f_I(p) = o(N log²N log log N)`**. This is the first unconditional improvement of ET's Type I bound in
+  this campaign, but the improvement is not quantified.
+  (ii) **`Σ_{p≤N} f_I(p) ≪ N log²N`, CONDITIONAL on (EFF)** (§4). (EFF) says that the implied constant in DI Thm 7 and in
+  Drappeau Lemma 4.10 grows at most like `exp(exp(A/ε))`. It is a statement about the *constants* in two published
+  proofs, not about automorphic forms. An audit (§5, Assessment) finds that the proofs give it once DI's unspecified
+  smooth cutoff is chosen explicitly. So (SEL) is replaced by a bookkeeping hypothesis.
+  (iii) Any explicit `C_ε ≤ G(1/ε)` gives an explicit bound `N L²(1 + w_N log L)`.
+* **Why the strip closes.** TTL's exceptional-eigenvalue obstruction disappears once the d-average (which TTL's
+  assembly already performs) is used as an average over the level `M = 4dq²`, together with the fact that the unfolded
+  coefficients are a *smooth function of n*. DI Thm 7, "the DI conjecture for `a_n = 1`" with bracket `Q + N + X√N`,
+  then bounds the whole exceptional spectrum at the TTL weight `(nY)^{−2σ_j}` by the regular-spectrum size, up to
+  `C_ε N^{O(ε)}` (Prop 2.2, Thm 3.1, Cor 3.2). TTL checked DI Thm 5/6 and Humphries but not Thm 7 (§6). The remaining
+  loss `C_ε N^{O(ε)}` against the saving `N^{−δ/4}` leaves a strip `δ < w`. By Lemma 1.1 bookkeeping, a strip of width
+  `w` costs `≪ w N L² log L`; this is `O(NL²)` iff `w ≪ 1/log L`, and that is what (EFF) gives.
+* **Remaining obstruction (exact).** Only the ε-dependence of `C_ε` in DI Thm 7 and Drappeau Lemma 4.10 remains. What is
+  needed is `log C_ε ≤ εL/C` at `ε ≍ 1/log L`, e.g. `C_ε ≤ exp(exp(A/ε))`. Nothing about eigenvalues remains.
+* **Corrections found.** DI (1.41)'s bracket is `Q + N + X√N` (weight `X^{4σ}`), not `√(NX)`. With that normalisation,
+  the crude weight `Y^{−2σ_j}` fails in TTL case (b3), and the n-dependent weight `(nY)^{−2σ_j}` is needed (Prop 2.2
+  Remark 1; `scripts/ttl2_exponents.py`). DI also has a misprint below (8.18): `Y₁ = √(Q+N)` should be `Q+N`.
 
 ## 1. The input from DI and the reduction to `a_n = 1`
 
