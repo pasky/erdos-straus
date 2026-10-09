@@ -179,3 +179,18 @@ exit=0
 L=10 u=96889010407: triples=210813258 divisors=2075036964 pass-bound=409633187 solutions=0
 L=10 b=13 time 430.23 s
 exit=0
+L=7 u=678223072849: triples=48213516 divisors=445519793 pass-bound=93595625 solutions=0
+L=8 u=678223072849: triples=121491976 divisors=1168482314 pass-bound=235992259 solutions=0
+L=8 b=14 time 209.77 s
+exit=0
+overflow guard M
+Command exited with non-zero status 4
+L=8 b=15 time 822.09 s
+exit=4
+L=7 u=4747561509943: triples=176430927 divisors=1723815677 pass-bound=342800938 solutions=0
+L=7 b=15 time 373.79 s
+exit=0
+L=9 u=678223072849: triples=306143132 divisors=3060095716 pass-bound=595004179 solutions=0
+L=9 b=14 time 765.61 s
+exit=0
+# NOTE: L=8 b=15 first attempt exited 4 (engine overflow guard c'*M; no result); engine fixed (P in GMP) and rerun below.

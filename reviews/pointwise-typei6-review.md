@@ -103,6 +103,9 @@ scratch. Logs: `reviews/agent-reports/R99_vsearch_log.txt`.
   agree with the author's at every `(L,b)` except `L = 9`, `b = 12`: author 44 351 875, R99 44 351 874. The extra one is
   the triple `(a,c',δ) = (1, 40012187, 1)`, `P_1 = 1`, which violates the exact inequality by a relative `< 10⁻⁹` and was
   admitted only by the author's safety slack — i.e. the difference is in the safe direction (author tests a superset).
+* **Extension `b = 14, 15`:** `L = 7`, `b = 14, 15`; `L = 8`, `b = 14`; `L = 9`, `b = 14`: 0 solutions, candidate counts
+  equal to the author's (`L = 9`, `b = 14`: author 595 004 180, R99 595 004 179 — same slack effect). `L = 8`, `b = 15`:
+  see addendum. Not run: `L = 9`, `b = 15` and `L = 10`, `b = 14, 15` (budget).
 Cor 4.2 logic: case A (TYPEI5 Lemma 3.6), regimes (i)–(iv) (TYPEI5 Prop 3.3, Comp 3.4) for all `b`; regime (v) via
 Lemma 3.1(b) ⇒ (4.1) ⇒ Comp 4.1. Correct. `v_7(k) = b` (`X = k'`, `7 ∤ X`) and all `a = v_7(c)` are enumerated.
 
