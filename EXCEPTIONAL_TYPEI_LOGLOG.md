@@ -278,3 +278,60 @@ cells with `min(E,F) ≤ 𝓛^{C'}` are treated by Prop 7.2 instead. ∎
 `ρ_d(e) = #{x mod e: 4dx²+1 ≡ 0}` and `ρ_{d,e,c}(q)` counts the admissible classes mod `eq`. (Poisson in
 `a` mod `eq`, trivial.) Summed over `d ≍ D`, `e ≍ E`, `q ≤ Q`: error `≪ 𝓛^C D E Q²`… against mass `AD`:
 level `Q = (A/E)^{1/2}𝓛^{−C}` when `E < A`. The same with f in place of e.
+
+## 8. Assembly: (OPEN-I) under (SEL)
+
+**Theorem 8.1 (CONDITIONAL on (SEL) of §5; relative to ET Prop 2.2/Lemma 2.8/(8.1)–(8.2), MN3 Prop 2.3,
+Brun–Titchmarsh, Selberg's upper-bound sieve, Weil's bound, and the DI/Drappeau large sieve).**
+`Σ_{p≤N} f_I(p) ≪ N log² N`.
+
+*Proof.* Dyadic in N; `p ∈ (N/2, N]`, `L = log N`, `f_I(p) ≤ 2Σ_c w_c(p)`.
+(1) `c > N^{η}` (η small fixed): MN3 Thm 3.8 part (1) (= ET (8.1)–(8.2) with BT): `≪ η^{−1}N L²`.
+(2) `c ≤ N^η`, fixed c. Cover the tuples `(a,d,e,f)` (`ef = 4a²d+1`, `acd ≍ N/c`) by a smooth dyadic
+partition of unity in `(a, d, e)` (for spectral cells: in `(f, a/f)` or `(e, a/e)`, §5), dropping ET's
+size constraints (upper bound). `γ := log c/L`, `a ≍ A = N^α`, `d ≍ D`, `AD ≍ N/c`. Each cell is split
+into **sequences** σ: fixed a (if `D ≥ A`: Prop 7.1), fixed d (if `D < A`: Thm 6.2 with the cusp
+`F' ∈ {E, F}` satisfying `F' ≥ A`, and Prop 7.2 if `min(E,F) < A𝓛^{−C}`), each a non-negative integer
+weight on `n = 4acd − f`, with main term `X_σ`, density `g_σ` (§6/§7: `g_σ(ℓ) = 0` for `ℓ | 2s`,
+`s ∈ {a, d}`, `g_σ(ℓ) = (1 + O(1/ℓ))/ℓ` for `ℓ ∤ 2cs`, `g_σ(ℓ) ≤ 2/(ℓ−1)` for `ℓ | c`), and remainders
+summed over the sequences of a cell:
+* (K_a), `D ≥ A`: `Σ_σ Σ_{q≤Q} 3^{ω(q)}|R_σ(q)| ≪ L^C Q² A²` (+ `D/min(E,F)` terms);
+* spectral, `D < A`: `≪ L^C Q^{2} D^{5/4}(A√D + F'^{1+ε}/√D)^{1/2}` (Thm 6.2, Cauchy–Schwarz over d,
+  Lemma 6.3), and `F' ≤ max(2A√D, …) ≤ A^{2−δ₀}` with `δ₀ > 0` absolute near `α = 1/2` (§3);
+against the cell mass `≍ AD`. So the relative remainder is `≤ L^C Q^2 N^{−κ|2α − 1 + γ|}` for an
+absolute `κ > 0`, uniformly over the cells.
+(3) Sieve per sequence with `z = N^{θ}`, `θ = κ|2α−1+γ|/4`, sieving only primes `ℓ > ℓ₀` (MN3 Thm 3.8):
+`Σ_{p} w_σ(p) ≪ X_σ (2cs/φ(2cs))/(θ L) + remainders` for the primes `p > z`; primes `p ≤ z` contribute
+`≪ N^{θ}·τ`-trivially. Summing over σ: `Σ_σ X_σ s/φ(s) ≪ (count of the enlarged cell) + remainder`, and
+the counts with the weight `s/φ(s) = Σ_{k|s}μ²(k)/φ(k)` are `≪ AD L·Λ` summed over the e-cells by MN3
+Prop 2.3 (with `4k`, resp. `4k²`, in place of 4); the weight `c/φ(c)` averages to O(1) over `c`.
+(4) Cells with `θ L ≤ C log L` (the `O(log L)` dyadic a-layers next to `α = (1−γ)/2`) are treated by BT as
+in ET (`saving 1/j`, `c ≍ 2^j`): cost `≪ Σ_{j ≤ ηL} N L·(log L)/j ≪ N L (log L)² = o(N L²)`.
+(5) All other cells: cost `≪ (N L per (c-block, a-layer))·min(1/j, C/(k)) ` with `k` the layer distance
+from `α = (1−γ)/2`; Lemma 1.1 gives `≪ N L²`. ∎
+
+*Status of the proof (honest).* Every step above is either cited (ET, MN3, DI, Drappeau, Weil, Selberg's
+sieve) or proved in §§2,4,6,7; §5's Prop 5.1 and §7's Prop 7.1 are written at the level of a careful
+outline (the Bessel/Mellin bookkeeping and the Ramanujan-sum terms are standard but not written in full),
+and the cell bookkeeping in (2)–(5) is not written with explicit constants. Hostile review needed.
+
+## 9. What is unconditional, and where (SEL) enters
+
+* Everything except Prop 5.1's treatment of exceptional eigenvalues is unconditional. With exceptional
+  eigenvalues `λ = 1/4 − σ²` the unfolded coefficient picks up `(nY)^{−σ}`; with Kim–Sarnak `σ ≤ 7/64` the
+  spectral error is multiplied by `Y^{−7/64} = (qF'√d)^{7/64}`, which kills the saving `(D/A)^{1/2}` on a strip
+  `0 < 2α − 1 + γ ≲ 0.1`; DI Thm 5 (with `X = 1/Y`) and DI Thm 6 (average over the level) were checked
+  (§3.2) and also fail at `α = 1/2`. Humphries' density theorem (ANT 12 (2018), Thm 1.5:
+  `N(σ) ≪ vol^{1−4σ+ε}`) with the pointwise coefficient bound loses `N₀ = F'/A`, again failing near
+  `α = 1/2`. **So unconditionally the method leaves a strip of positive width in `α`, which still costs a
+  `log log N`.** Removing it needs either Selberg's conjecture (exactly, not a numerical approximation of it),
+  or a weighted large sieve for exceptional eigenvalues at `X ≈ 1/Y` with no loss, or a beyond-Weil bound for
+  `Σ_{a≍A} S(h,k;4a²)` (the (K_a) side; MN3 §3.4).
+* The new ingredients that make the conditional result work: (i) **uniform separation** of the level-d
+  Heegner points (Lemma 2.2: `4d | disc(Q − Q')`), which gives `‖Σδ_z‖_{H^{−2}}² ≪ #classes` with no loss
+  in d; (ii) the observation that the per-d Sobolev bound and the per-a Weil bound are **complementary
+  at exactly `d = a`**, so no third method is needed in R_bad; (iii) Lemma 1.1: a linearly degenerating
+  saving costs only `O(N log² N)`.
+* MN3's (H**) ("equidistribution of Heegner points on X₀(d)") is **not** what is needed: `#Λ_d ≈ d^{1/2}`
+  points cannot equidistribute on `X₀(d)` (volume `≍ d`). The count is a lattice-point count of lifts in a
+  horocyclic box of area `≍ A√d`, and only the second moment of the counting function enters.
