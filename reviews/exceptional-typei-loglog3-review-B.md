@@ -31,3 +31,28 @@ Note: the whole induction is only as good as the *shape* of (P2) (same N, same i
 
 ## Defects
 (numbered as found)
+
+### §8 (nebentypus induction, Prop 8.1, Thm 8.2) — SOUND relative to (P1χ)–(P3χ)
+Re-derived independently. Switching geometry: for the first trace at levels rq the arithmetic side is
+`Σ_{q,c} g(q)Sχ(m,n;rqc)φ(4π√mn/(rqc))/(rqc)`; for fixed c this *is* the Kuznetsov sum of `(Γ₀(rc),χ)` at moduli
+`(rc)q` (same χ mod r induced), so the destination levels are `rc`, `c ∈ (C,16C)`, `C = πNY/(rQ)`, with the **same**
+Y (x-support of φ is `≍ 1/Y` on both sides). The `1/r` in C is real and C can be `< N` or `< 1/16`. ✓
+* (C1) `C ≥ N`: `C = πQ^{1−2δ}/r ≤ Q/2`, `Y_C = C^{2−2δ}/N ∈ [1, Y]`, `(Y/Y_C)^{1/2} = (Q/C)^{1−δ}`, giving
+  `2√2π c H Q^{1−δ}C^{5δ}N`, and `C^{5δ} ≤ π^{5δ}Q^{5δ−10δ²}` uses r ≥ 1 only. ✓ (constant `2√2π·π^{1/2} ≈ 15.7 < 45`).
+* (C2) `C < N`: (P1χ) at C with `Y₁ = C+N`: `(C+N+Y₁) ≤ 4N`, `(NY₁)^δ ≤ (2N²)^δ`, `√(YN) = Q^{1−δ}`, `N ≤ Q^{1−2δ}`. ✓
+  (Actually gives `10K₁Q^{1+δ}N`.) If `C < 1/16` the destination sum is empty (main term 0). ✓
+* Error term `c(QYN)^δ·3Q·N = 3cQ^{1+3δ}N` ✓; closing `H/2 + 90cK₁ + 3c ≤ H` with `H ≥ 200cK₁` ✓.
+* Thm 8.2, `Q ∈ [1/16,1)`: (P1χ) at Q with `Y₁ = 1+N`, `Q+N+Y₁ ≤ 4N` ✓.
+So the "extra branch" is genuinely needed (Drappeau's "r appears only with negative powers" is not enough on its own:
+nothing is inducted when the switched level drops below N) and the author's repair works. The new branch costs only
+the absolute factor `200cK₁` in H; class 𝓔 preserved.
+
+### Thm 9.1 conversion and Thm 9.2 deduction — SOUND (relative to Thm 8.2 and TTL2 Thm 4.1)
+Checked against TTL2 §1 (DI7_ε): levels `M = rq ≤ M₀` covered by `≤ 2 + log M₀` blocks with `Q_i ≥ 1/16`; prefix
+`[1,t]` = closed blocks `[2^k, min(2^{k+1}−1,t)]`, `K ≤ log₂t + 1 ≤ 1.5 log 2t` blocks (Cauchy–Schwarz cost K, which
+TTL2 even allows as `(log 2t)²`); `(Q N_k + 1)^{5δ} ≤ (2M₀t)^{5δ}`; with `δ = ε/6`,
+`2^{5ε/6}(2 + log M₀) ≤ (2 + 6/(eε))·1.16·M₀^{ε/6} ≤ (12/ε)M₀^{ε/6}` (Lemma 1.2) ✓. Bracket `Q_i ≤ M₀/r ≤ M₀` ✓.
+Constant chain `K₇χ(δ) ≤ exp(exp((4B_χ+4)/δ))` ⇒ `C_ε ≤ exp(exp((24B_χ+30)/ε))` ✓ (absorbing `100/ε`).
+TTL2 Thm 4.1(ii) uses (DI7_ε) only at `ε = w_N/128`, `w_N = 256A₀/log L`, where `log C_ε ≤ exp(A₀/ε) = L^{1/2}` ✓;
+TTL2 needs χ even mod q, levels `4dq²` (q | level), exceptional `t_j ∈ iℝ∖{0}` — all match Thm 8.2's setting. ✓
+TTL2's other inputs (Drappeau Prop 4.7 at the fixed tolerance `ε₁ = 1/100`, etc.) carry absolute constants. ✓
