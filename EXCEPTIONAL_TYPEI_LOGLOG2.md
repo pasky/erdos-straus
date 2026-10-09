@@ -9,8 +9,8 @@ journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`. Wo
 * **Main results (Thm 4.1).** Let `L = log N`.
   (i) **Unconditionally** (no (SEL); PROVED relative to TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10):
   `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)` for every `ε₀ > 0`, i.e.
-  **`Σ_{p≤N} f_I(p) = o(N log²N log log N)`**. This is the first unconditional improvement of ET's Type I bound in
-  this campaign, but the improvement is not quantified.
+  **`Σ_{p≤N} f_I(p) = o(N log²N log log N)`**. This is an unconditional but unquantified improvement of ET's
+  `O(N log²N log log N)`. Like TTL, it inherits the ET/MN3 reduction `f_I ≤ 2Σ_c w_c` and MN3 Thm 3.8(1).
   (ii) **`Σ_{p≤N} f_I(p) ≪ N log²N`, CONDITIONAL on (EFF)** (§4). (EFF) says that the implied constant in DI Thm 7 and in
   Drappeau Lemma 4.10 grows at most like `exp(exp(A/ε))`. It is a statement about the *constants* in two published
   proofs, not about automorphic forms. An audit (§5, Assessment) finds that the proofs give it once DI's unspecified
