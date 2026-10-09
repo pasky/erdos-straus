@@ -21,3 +21,9 @@ What is new:
 Suggested next steps: (a) carry out Assessment 2.3, which would make (H_Q) unconditional for k ≥ k₀; the remaining
 range would be a finite exact computation of D_Q. (b) For P, more exact data (D_P(15)) moves the base to ρ₃.
 I see no explicit-analytic route for P.
+
+Addendum (parent request): **§4 of M17C** shows that averaging over K cannot rescue P.
+- Each triple `(a,b,e)` counts in `S_P(K)` iff its least admissible exponent `K_min` (a lifted discrete log of `−e` mod `4ab`) is `≤ K`.
+- Correction to the parent's premise: 17 is never a primitive root mod `4ab` for `ab > 1`, since that group is not cyclic and `17 ≡ 1 (mod 16)`. So only a proportion of the divisors `e | a+b` qualify.
+- EVIDENCE (`scripts/m17c_dlog.py`, B = 3000 and 30000): the K-blind count is `E_∞ ≈ 0.05·B ln B`, about 1–2 % of `Σ τ(a+b)`. The median `K_min` is about `0.05·B`, and only 123 resp. 231 triples have `K_min ≤ 13`.
+- Assessment: a K-blind argument gives θ ≈ 1, so (H_P^cum) is a discrete-log equidistribution statement. Stopping here as instructed.
