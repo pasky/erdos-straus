@@ -48,9 +48,11 @@ satisfy it.
 
 *Scope: why reciprocity cannot separate x** from x* (Assessment).* Every quadratic (or higher power-residue) symbol
 of the T-primes is a character of `(ℤ/q)^×` and sees only `x_q mod q`. Since `x**≡x* (mod 143)` and x* *is*
-covered (13B Thm 3.1, level 1859), no argument that depends on `x mod 143` alone can show x** sterile. Sterility
-of x** must use the 13-adic digit `15≢2 (mod 13²)`, i.e. the non-torsion part of `ℤ₁₃^×`, which no reciprocity
-law sees. The usable content is a restriction on the levels: by Lemma 2.1 together with 13C Comp. 3.1
+covered (13B Thm 3.1, level 1859), no argument that depends on `x mod 143` alone can show x** sterile (this
+sentence is PROVED, trivially). Sterility
+of x** must use the 13-adic digit `15≢2 (mod 13²)`, i.e. the non-torsion part of `ℤ₁₃^×`, which no power-residue
+symbol of conductor 13 sees (R107 repair: characters of conductor 13², e.g. of order 13, do separate 15 from 2;
+whether some reciprocity-type argument with such characters could help is open, Assessment). The usable content is a restriction on the levels: by Lemma 2.1 together with 13C Comp. 3.1
 (x** in no box of T-level dividing `11²13²`), a box containing x** has T-level F with `v_11(F)≥3` or
 `v_13(F)≥3`, and every family except I3 has odd `v_T(N)`.
 
