@@ -87,7 +87,7 @@ After dropping a common T-factor, `|i|,|j| ≤ 9`. So Computation 5.1 holds with
 
 **Theorem 6.1.** Let p be a prime with `(p/13) = −1`. Then `4/p = 1/x+1/y+1/z` has a solution in positive
 integers unless p lies in one of the 35459 residue classes listed as *open* leaves of
-`data/mordell13c/tree6_6000.json.gz` (moduli `L | 2^7·3^5·5^4·7^4·11^4·13^4·∏_{17≤ℓ≤83}ℓ`, all of them
+`data/mordell13c/tree6_6000.json.gz` (moduli of the open leaves divide `2⁴·3²·5²·7²·11·13·∏_{17≤ℓ≤83}ℓ`, all of them
 refinements of the six classes of POINTWISE_MORDELL Thm 3.1(b)). Their union has Haar density
 **8.42·10⁻⁵ of the six classes** of Thm 3.1(b) (i.e. `≈2.3·10⁻⁷` of the Mordell-hard residues with `(p/13)=−1`,
 using the 6/2160 of POINTWISE_MORDELL §3).
@@ -96,6 +96,11 @@ using the 6/2160 of POINTWISE_MORDELL §3).
 primes ≤ 100, 6000 expansions) has 136494 covered leaves using 2140 distinct ET classes; `m13c_check.py` and
 `m13c_review_tree.py` (§4) both accept it (`CERTIFICATE OK`, `REVIEW OK`; 15 s resp. 7 s). The split primes are ≤ 83
 and satisfy ES directly. ∎
+
+Open leaves / open density per root: 112561: 13986 / 1.26·10⁻⁴; 352801: 18070 / 3.10·10⁻⁴;
+380881: 873 / 1.93·10⁻⁵; 418321: 455 / 5.8·10⁻⁶; 473761: 871 / 1.62·10⁻⁵; 483841: 1204 / 2.78·10⁻⁵
+(`/tmp`-free replay: see Replay). The two roots with `x_11≡9` (a square) are the hardest in measure: there the
+non-square witness of a covering class (§1) must be 13 alone.
 
 *Scope.* This is the Salez/ET level sieve pushed adaptively, with explicit certificate; it shrinks the exceptional
 set by a factor ≈1.2·10⁴ but **does not remove any of the six classes**: in every root, open leaves remain
