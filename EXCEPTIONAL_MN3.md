@@ -131,3 +131,58 @@ instead of `(m log m/φ(m))^{1/3}`. MN2 open point (ii) is closed.
 `S_k/(AB log(kAB²))` divided by `φ(k)/k` stays in `[0.81, 1.11]` while `φ(k)/k` ranges over
 `[0.19, 0.50]` (k = 4, 12, 60, 420, 4620, 60060, 4·1009, 4·1009·1013). Without the gain the ratio would
 grow like `k/φ(k)` (×2.6). (Normalising by `log(AB)` instead mixes in the `log k` from the size of n.)
+
+## 3. The Type I log log N (MN2 open point (i), ET's (OPEN-I)): obstruction analysis
+
+Literature (web search 2026-10, Jina; ET's citing papers seen: Huang–Vaughan (binary Egyptian
+fractions, mean values), Elsholtz–Planitzer 2020 (k unit fractions), Pomerance–Weingartner, Dahan,
+Jiang (withdrawn)): **no later removal or improvement of the log log N in `Σ_p f_I(p)` was found.**
+(Search-limited; not a full citation crawl.)
+
+Notation (ET Prop 2.2, Lemma 2.8): a Type I solution of n (y ≤ z) is an N-point (a,b,c,d,e,f) of
+`Σ^I_n`: `4abd = ne+1`, `ce = a+b`, `4acd = n+f`, `ef = 4a²d+1`, `bf = na+c`, with `a ≤ b`,
+`b < ce ≤ 2b`, `an ≤ bf ≤ (5/3)an`, `n/4 < acd ≤ 3n/4`. Its twin (y ↔ z) is `(b,a,c,d,e,f')`,
+`f' = 4bcd − n = (n²+4c²d)/f` (ET (2.9)). For a solution with n ≍ N write
+`a = N^α, b = N^β, c = N^γ`; then `d ≍ N^{1−α−γ}`, `e ≍ N^{β−γ}`, `f ≍ N^{1+α−β}`, `f' ≍ N^{1−α+β}`,
+and `0 ≤ α`, `α ≤ β ≤ 1+α` (from `1 ≤ f ≪ n`), `α + γ ≤ 1`.
+
+**Lemma 3.1 (SL₂ form; PROVED, elementary).** `ef − 4a²d = 1` says exactly that
+`M = [[e, 2a],[2ad, f]] ∈ SL₂(ℤ)`, and `n = 2c·M₂₁ − M₂₂`. The set `S_d = {M ∈ SL₂(ℤ) : M₂₁ = d·M₁₂}` is
+the fixed set of the anti-involution `σ_d(M) = T Mᵀ T^{−1}`, `T = diag(1,d)`, and is stable under
+`M ↦ γ M σ_d(γ)` for `γ ∈ Γ₀(d)`. Equivalently `(a,d,e,f) ↔` the positive definite form
+`[f, 4ad, de]` of discriminant `−4d` (Heegner forms of level d and discriminant −4d with root
+`β ≡ 0 (mod 2d)`, after `X ↔ Y`). (Check: `det M = ef − 4a²d`; `σ_d(M) = [[e, 2ad/d],[2a·d, f]] = M`;
+`σ_d(γ) ∈ SL₂(ℤ)` iff `d | γ₂₁`; `σ_d(γMσ_d(γ)) = γ M σ_d(γ)` as σ_d is an anti-involution.)
+So, for fixed c, the Type I solutions are the points of the Γ₀(d)-stable sets S_d, d ≥ 1, and the
+prime is a linear form in the entries.
+
+**Lemma 3.2 (all single-progression parametrisations; PROVED, elimination + hand check).** Call a
+parametrisation *single-progression* if three of the coordinates a..f are fixed and n is an affine
+function of a fourth coordinate v that runs over a union of boundedly many residue classes. Among
+ET's 3-coordinate parametrisations (and their twins) the moduli of the resulting progressions in n
+are exactly `4ad, 4bd, 4ab, 4acf, 4cdf` (twins add `4bcf'`, `4cdf'`).
+*Proof.* `scripts/emn3_modes.py` eliminates, for each of the 60 pairs (fixed triple S, free v), the
+other coordinates by a lex Gröbner basis and lists the cases where n is affine in v
+(`emn3_modes.out.txt`, 24 cases). Of these, 6 are not progressions (v ranges over divisors: fixing
+(a,b,d) or (a,b,f) with c free needs `c | a+b`; fixing (a,b,d) or (a,c,d) with f free needs
+`f | 4a²d+1`). In the other 18, the step of n per admissible step of v is: 4ab (fixed (a,b,·),
+(a,c,e), (b,c,e): `e` fixed, `d ≡ d₀ (e)` resp. `f ≡ ē (4a²)`); 4ad ((a,d,·), (a,e,f): b or c free,
+`b ≡ −a (e)`); 4bd ((b,d,e)); 4acf ((a,c,f): `d ≡ d₀ (f)`, `e ≡ f̄ (4a²)`, `b ≡ cf̄ − a (4a²c)`);
+4cdf ((c,d,f), a free in the ρ(f) roots of `4dx²+1 ≡ 0 (f)`). ∎
+
+**Proposition 3.3 (the bad region; PROVED, elementary).** In exponents, the moduli of Lemma 3.2 are
+`4ad: 1−γ`, `4bd: 1−γ+β−α`, `4ab: α+β`, `4acf: 1+2α+γ−β`, `4cdf: 2−β`, `4bcf': 1+2β+γ−α`,
+`4cdf': 2−2α+β`. All are `≥ 1−η` iff
+`R_bad(η): γ ≤ η, α+β ≥ 1−η, β ≤ 2α+γ+η, β ≤ 1+η` (with `α ≤ β`).
+At γ = 0 (η → 0) this is `{α+β ≥ 1, α ≤ β ≤ min(2α, 1)}`, of area **1/6** inside the slice
+`{0 ≤ α ≤ 1, α ≤ β ≤ 1+α}` (area 1): `∫_{1/3}^{1/2}(3α−1)dα + ∫_{1/2}^{1}(1−α)dα = 1/24 + 1/8`.
+In R_bad both divisors e, f of `4a²d+1` exceed both a and d (`β ≥ max(α, 1−α)`,
+`1+α−β ≥ max(α, 1−α)`).
+
+*Consequence (the naive approach fails; Assessment, mass heuristic).* ET's bound is "for each solution
+cell, apply BT to one progression": a cell with `c ≍ N^γ` gains only `1/log(N/M)` with M the best
+modulus. Type I mass is log-uniform in `(α, β)` and `≍ N log² N` per dyadic c-block (ET (8.2) is the
+upper bound; the uniformity is the divisor heuristic), so the cells in R_bad(η) cost
+`≍ (1/6)·N log² N Σ_{j ≤ η log N} 1/j`. **No choice among all 7 progressions removes the log log N**;
+this is the precise content of ET's "no similar trick" remark. (A rigorous lower bound for the mass of
+R_bad ∩ {α < 1/2} follows from the modular-hyperbola count of §3.4; not written out.)
