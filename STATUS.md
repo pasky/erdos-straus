@@ -206,6 +206,13 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     The new candidate x** = x(2,15) lies in no class with e ≤ 10⁸ (II3/I3/I1), f ≤ 3·10⁷ (II2),
     f, e ≤ 2·10⁷ (I2/II1/I4) (Comp 5.1, CERTIFIED within these ranges); that it is sterile is
     Conj 5.2 (CONJECTURE, EVIDENCE only). The main-variant r = 13 covering question is open again.
+    `POINTWISE_MORDELL13C.md` (review: no FATAL/MAJOR): Thm 6.1 (PROVED by finite computation; three
+    independent checkers): an adaptive tree certificate (136494 covered leaves, 2140 ET classes) shows
+    ES for every prime with (p/13) = −1 outside 35459 explicit classes, 8.42·10⁻⁵ of the six
+    exceptional classes mod 720720; no root class closes. Comp 3.1 (CERTIFIED): the uncovered part of the
+    (2,2) cell mod 11²13² is exactly {2,57,79} × {15,28,54,132,145}. x** lies in no P/Q-type class with
+    e ≤ 2·10⁹ and no I2/II1/I4 class with f, e ≤ 2·10⁸ (CERTIFIED within ranges, one engine);
+    it stays a candidate (Conj 5.2, CONJECTURE).
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
@@ -219,12 +226,18 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     Thm 4.1 (PROVED reduction): `D_P(K) ≤ C·17^{θK}` (odd K ≥ 13) and `D_Q(k) ≤ 17^{3k/5}`
     (odd k ≥ 9) give a sterile point, e.g. θ = 2/5, C ≤ 1.40, i.e. ET's own exponent with an
     explicit constant and no o(1). Conj 4.2 there (D_P(K) ≤ K⁵, D_Q(k) ≤ k⁵) is a CONJECTURE.
+    `POINTWISE_MORDELL17C.md` (follow-up 3; review: minors applied): still CONDITIONAL. Cumulative
+    bounds `Σ_{13≤K'≤K} D_P(K') ≤ C·17^{θK}` suffice (Lemma 1.1, PROVED, Abel summation), raising the
+    admissible C at θ = 2/5 to 1.497; Q-points with c ≥ F^{1/2} are bounded unconditionally (≤ 2 per
+    (a,d); Lemma 2.1, Cor 2.2, PROVED). Assessment/EVIDENCE: averaging over K cannot rescue P; a proof
+    must show that discrete logs of −e mod 4ab rarely fall in the short window [log_17 4ab, K].
   * Candidate sterile points (x** for r = 13, the 17-generic line for r = 17, and `x̂_9` for
     Type I) remain candidates: no sterile point other than the square points is proved, and the
     first r = 13 candidate x* was refuted. A write-up `paper/es-coverings-note` (task O86) is refereed
-    internally (R86: accept after minor revision; repairs applied). Post-referee updates (not
-    re-refereed): TYPEI4 (O91); the x* refutation as Prop 5.4 and x** as an EVIDENCE-level
-    Conjecture 5.6 (O96; 24 pp).
+    internally (R86: accept after minor revision; repairs applied). The post-referee additions
+    TYPEI4 (O91), the x* refutation as Prop 5.4 and x** as an EVIDENCE-level Conjecture 5.6 (O96)
+    were refereed in round 2 (R98: no FATAL/MAJOR, D1–D7 applied, TYPEI5 added as Prop 4.15 /
+    Thm 4.16; 25 pp). TYPEI6, MORDELL13C, MORDELL17B/17C are not yet in the paper.
 
 ## Housekeeping
 
