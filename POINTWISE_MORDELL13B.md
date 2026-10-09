@@ -1,6 +1,6 @@
 # POINTWISE_MORDELL13B — the candidate sterile point x* (r = 13) as a Diophantine problem (task O95)
 
-Status: O95 (branch `side-agent/r13-diophantine`); hostile review R95 (`reviews/pointwise-mordell13b-review.md`): no FATAL/MAJOR, minors applied by the reviewer. §5 includes the post-review e ≤ 10⁹ extension for x** (author, not re-reviewed).
+Status: O95 (branch `side-agent/r13-diophantine`); hostile review R95 (`reviews/pointwise-mordell13b-review.md`): no FATAL/MAJOR, minors applied by the reviewer. §5 includes the post-review e ≤ 10⁹ extension for x** (author), re-refereed in R98 (`reviews/es-coverings-note-referee-r2.md` §D): no FATAL/MAJOR; repairs below marked (R98 repair).
 Builds on POINTWISE_MORDELL.md (§2.1 table, Comp. 4.1, Conj. 4.2), POINTWISE_MORDELL17.md
 (Lemmas 1.1–1.3, 2.1–2.3, 5.1), POINTWISE_TYPEI4.md. Labels as in DISCOVERIES.md.
 
@@ -224,6 +224,16 @@ class with `e` (resp. `f`) `≤10⁹` and `v_11(λ),v_13(λ)≤20`, where λ is 
 * `(10⁸,10⁹]`: `logs/o95_xss_A.log` and `logs/o95_xss_B.log`, all four families.
 
 All runs report 0 hits. Total time ≈ 80 min on 2 cores, using `m13b_target` with the optional start
-argument `X0`. **x\*\* survives.** U/I2 types (II1, I4, I2) remain as in 5.1 (`≤2·10⁷`, `|i|,|j|≤12`).
+argument `X0`. **x\*\* survives.**
+(R98 repair.) *The cap is vacuous at `10⁹`.* For II3/I3/I1, `v_q(ad)≤v_q(e+u_q)≤8` for `e≤10⁹` (`11⁹, 13⁹>10⁹+15`);
+for II2, `a_Td_T∣(f+1)/(4a'd')≤2.5·10⁸` gives `v_q(a_Td_T)≤8`. So `v_q(λ)≤16<20`, and Comp. 5.3 holds with no
+restriction on the T-level. *Provenance of the logs.* The four `logs/o95_xss_*.log` do not record their command lines.
+The `# done` lines give `X` and `E=20`; the point is not recorded. The progress markers (every `2^24`) are consistent with the ranges `(3·10⁷,6.5·10⁷]` (gap1),
+`(6.5·10⁷,10⁸]` (gap2), `(10⁸,5.5·10⁸]` (A), `(5.5·10⁸,10⁹]` (B). The gap logs contain each run twice.
+*Independent check (R98).* `scripts/review_r98_xss.c` was written from scratch from the ET class definitions,
+with no discrete logarithms and no T-cap. It was validated against direct CRT class membership
+(`scripts/review_r98_xss_validate.py`: 42 point-runs, 176 memberships, 0 mismatches) and re-finds `(8,33,11999)` at x\*.
+It finds no II3/I3/I1/II2 datum at x\*\* with `e,f≤10⁸` (`logs/r98_xss_2_15_1e7.log`, `…_1e8.log`; 8.3·10⁹ parameter tuples, 211 s).
+U/I2 types (II1, I4, I2) remain as in 5.1 (`≤2·10⁷`, `|i|,|j|≤12`).
 Replay: `/tmp/o95/target $(python3 scripts/m13b_pt.py 2 15) 550000000 20 100000000` and
 `... 1000000000 20 550000000` (each ≈ 75 min).
