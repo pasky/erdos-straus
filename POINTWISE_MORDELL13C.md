@@ -30,3 +30,28 @@ Observation (trivial). Only the last four classes contain {11,13}-generic points
   (2-adic: `r≢1 (8)` if `8∣M`, `r≢1 (4)` if `4∥M`). Consequently the points of an exceptional class that are
   local squares at every prime `q∉{11,13}` (resp. `≠13` in the cells `x_11≡9`) can only be covered by classes
   whose "non-square witness" is 11 or 13. This is the hard core the DFS leaves converge to.
+
+## 2. Complete witness at a fixed level (CERTIFIED engine, validated)
+
+`scripts/m13c_witness.py` lists **all** ET classes with modulus `M | L` (no size cap) containing a node
+`x + Lℤ`. Reductions (each elementary; see the docstring): for every pair `(a,d)` with `4ad | L`, the
+parameters of I1, II1, I4 are determined by `x mod 4ad` (a divisor below `4ad` is the least positive residue;
+for I1 a cofactor argument); II3/I2/I3 parameters are divisors of `gcd(K_c, x+4a²d)`, `gcd(K_c, ax+d)`,
+`gcd(K_c, x²+4a²d)`; II2 runs over `f | L`, `f≡3 (4)`, `a | (f+1)/4`, with `d` determined mod f.
+*Validation:* `scripts/m13c_witness_validate.py L` compares the full witness sets with brute-force
+`mordell_lib` tables for every unit mod L: L = 9240, 10920, 65520 — 0 mismatches.
+
+**Computation 2.1 (EVIDENCE for the role of moduli).** `scripts/m13c_level.py 1000000 13,17,19,23 complete`:
+refining the six classes at 13, 17, 19, 23 (L = 69604975440) leaves 1499 residues uncovered by classes
+`M | L, M≤10⁶`, and **1399** uncovered by *all* classes `M | L` (any size; cf. 1412 at `M≤10⁸`,
+POINTWISE_MORDELL §3). Per root: 352801: 649, 112561: 250, 483841: 174, 473761: 132, 380881: 116,
+418321: 78. At fixed prime support the modulus cap is not the bottleneck; new primes are.
+
+## 3. T-generic picture for T = {3,11,13} and {7,11,13} (EVIDENCE, brute force M ≤ 10⁶, k = 2)
+
+`mordell_tgen.py 1000000 13 2 3,11,13` (logs/o100_tgen_3,11,13.log): of the 25740 target cells mod
+`9·121·169`, only 49 are uncovered, all with `x_3≡1 (9)` and `(x_11,x_13)≡(2,2)`.
+`mordell_tgen.py 1000000 13 2 7,11,13`: 147 of 180180 uncovered, all `x_7≡1 (7)`, `(x_11,x_13)≡(2,2)`.
+Hence the {3,11,13}-generic points of class 112561 (`x_3≡7 (9)`) and the {7,11,13}-generic points of
+class 380881 (`x_7≡4 (7)`) are all covered, as are the {11,13}-generic points of 352801, 418321, 483841
+(POINTWISE_MORDELL §2). **Only class 473761 contains known uncovered T-generic points (e.g. x**).**
