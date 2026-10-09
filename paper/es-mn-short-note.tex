@@ -13,6 +13,9 @@
 \renewcommand{\theintrothm}{\Alph{introthm}}
 \newtheorem{introcor}[introthm]{Corollary}
 \newtheorem{introprop}[introthm]{Proposition}
+\newtheorem*{thmU}{Theorem U}
+\newtheorem*{thmL}{Theorem L}
+\newtheorem*{conjC2}{Conjecture C2}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
@@ -48,19 +51,27 @@ $m$-exceptional integers, uniformly in $m\geq4$ and in the position of
 $I$.  We also give a version for arithmetic progressions, whose only loss
 is the smooth part of the modulus; a bound for exceptional primes in short
 intervals that uses no information about primes at the scale of the
-interval; and a density statement locating the transition from ``most
-primes are $m$-exceptional'' to ``most primes are $m$-representable'' at
-$\log n=m^{1/3+o(1)}$, up to a factor $(\log m)^2(m/\varphi(m))^{1/3}$ in
-$\log n$ (the ``exceptional'' side comes from the proof of a theorem of
-Pomerance and Weingartner).  For comparison, Pomerance and Weingartner proved the
+interval; and the density transition for primes.  Uniformly in $m$,
+at most a proportion $\varepsilon$ of the primes in $(N/2,N]$ are
+$m$-exceptional once $\log N\geq A_\varepsilon m^{1/3}$; and the
+proportion of $m$-exceptional primes tends to $1$ when
+$\log N/(\varphi(m)/\log m)^{1/3}\to0$ (a sharpening of a first-moment count of Pomerance and Weingartner).
+The remaining gap is a factor $(m\log m/\varphi(m))^{1/3}$ in $\log N$.
+Numerically (even $m\in[60,300]$) % R104 repair
+half of the primes are representable at
+$\log N\approx1.95\,m^{1/3}$, and we conjecture a non-degenerate profile
+in $\log N/m^{1/3}$.  For comparison, Pomerance and Weingartner proved the
 exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments.
 The method is the one of an earlier internal note on $4/n$ over
 $[1,N]$, which we use as a black box.  What we add is a local transfer
 to arbitrary windows, through a smooth-part decomposition, and the
 replacement of the numerator $4$ by $m$, which turns cubic logarithmic
-class mass into $(\log X)^3/m$.  \textbf{Status:} every result is proved
-\emph{relative to that note}, which is internally proved and has
-\emph{not} been externally refereed; the same applies to this note.
+class mass into $(\log X)^3/m$.  \textbf{Status:} every result except the
+lower side of the transition is proved \emph{relative to that note},
+which is internally proved and has \emph{not} been externally refereed;
+the lower side is proved relative to a published divisor-sum bound of
+Elsholtz and Tao and to a modification of the proof of another.  % R104 repair
+This note has not been externally refereed either.
 Nothing here bears on the existence of exceptions; this is not a proof of
 the Erd\H{o}s--Straus conjecture or of Schinzel's conjecture.
 \end{abstract}
@@ -167,7 +178,7 @@ No information on primes at scale $x$ enters: the factor $1/\log x$ is
 paid for by the saving.  Prime-number input is needed only for relative
 statements (Remark~\ref{rem:relative}).
 
-\begin{introcor}[the density transition]\label{cor:D}
+\begin{introcor}[the density transition, via integers]\label{cor:D}
 There is an absolute $C_D$ such that for all $m\geq4$ and all $N\geq16$
 with $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
 \[
@@ -177,17 +188,50 @@ with $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
 Moreover $E_m(N)=o(N)$ whenever $\log N/m^{1/3}\to\infty$.
 \end{introcor}
 
-In the other direction, the proof of \cite[Thm.~3.1]{PW} shows that most
-primes in $(N/2,N]$ are $m$-exceptional when
-$m^{1/4}\ll\log N\leq(\varphi(m)/(C\log^2m))^{1/3}$
-(Section~\ref{sec:transition}).  Pomerance and Weingartner's rigorous
-bounds placed the transition between $\log N=m^{1/3}$ and
-$\log N=m^{1/2}$ \cite[p.~2]{PW}; their Poisson heuristic \cite[p.~3]{PW}
-predicts $m^{1/3+o(1)}$.  Corollary~\ref{cor:D} confirms the density
-part of that prediction, up to the factor
-$(\log m)^2(m/\varphi(m))^{1/3}$ in $\log N$.  We do not know that the
-proportion of exceptional primes is monotone in between, and nothing is
-said about the \emph{largest} $m$-exceptional integer.
+Corollary~\ref{cor:D} follows from Theorem~\ref{thm:A} alone; its loss
+$(\log m)^{4/3}$ comes from passing from integers to primes.  Counting
+primes directly removes it.  Let $\rho_{\rm exc}(m,N)$ and
+$\rho_{\rm rep}(m,N)=1-\rho_{\rm exc}(m,N)$ be the proportions of
+$m$-exceptional and $m$-representable primes in $(N/2,N]$, and put
+$A=\log N/m^{1/3}$.
+
+\begin{thmU}[upper side; \status{proved} relative to \cite{TQ}, with Bombieri--Vinogradov and Shiu]
+For every $\varepsilon>0$ there is $A_\varepsilon$ \textup{(}ineffective\textup{)}
+such that $\rho_{\rm exc}(m,N)\leq\varepsilon$ for all $m\geq4$ and all
+$N$ with $\log N\geq A_\varepsilon m^{1/3}$.
+\end{thmU}
+
+\begin{thmL}[lower side; \status{proved} relative to {\cite[Thm.~7.1]{ET}} and the proof of {\cite[Prop.~1.4]{ET}}, with Brun--Titchmarsh and Shiu]
+Let $m\geq4$, $N\geq16$ and $L=\log N$.  If $\log m\leq L/10$ and
+$L\leq m^{1/2}$, then
+\[
+ \rho_{\rm rep}(m,N)\ll\frac{L^3}m+\frac{(L^3+L^2\log^2m)\log L}{\varphi(m)}
+ +m^{-0.35};
+\]
+if $\log m>L/10$, then $\rho_{\rm rep}(m,N)\leq\e^{CL/\log L}/m$.  The
+constants are absolute and effective.  Consequently
+$\rho_{\rm rep}\to0$ whenever $L^3\log L/\varphi(m)\to0$, in particular
+whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.
+\end{thmL}
+
+Pomerance and Weingartner's rigorous bounds placed the transition
+between $\log N=m^{1/3}$ and $\log N=m^{1/2}$ \cite[p.~2]{PW}; their
+Poisson heuristic \cite[p.~3]{PW} predicts $m^{1/3+o(1)}$.
+Theorem~U proves the representable half of this prediction at the exact
+scale $m^{1/3}$ (without a rate better than Corollary~\ref{cor:D}).
+Theorem~L sharpens the first-moment count in the proof of
+\cite[Thm.~3.1]{PW} by a factor $\log m$ near the transition.  Together
+they locate the transition at $\log N\asymp m^{1/3}$ up to the factor
+$(m\log m/\varphi(m))^{1/3}\ll(\log m\log\log m)^{1/3}$ in $\log N$;
+Corollary~\ref{cor:D} with \cite{PW} gave $(\log m)^2(m/\varphi(m))^{1/3}$.
+The remaining loss is the Brun--Titchmarsh $\log\log N$ of
+\cite[Thm.~1.1]{ET}, open even for $m=4$, and a factor $m/\varphi(m)$.
+For even $m\in[60,300]$ the computed half-point is
+$\log N=(1.95\pm0.05)m^{1/3}$, and the transition window does not shrink
+(\status{evidence}, Section~\ref{sec:numerics}); Conjecture~C2 asserts
+$\rho_{\rm rep}=F(A)+o(1)$ with a non-degenerate profile $F$.  We do not
+know that $\rho_{\rm exc}$ is monotone in $N$, and nothing is said about
+the \emph{largest} $m$-exceptional integer.
 
 Theorem~\ref{thm:A} and \eqref{eq:PW} have unrelated constants (ours
 ineffective), so their comparison is asymptotic.  The ratio of the
@@ -215,13 +259,21 @@ with $H<\e^{c(\log x)^{3/4}}/C$ without proving that there are no
 exceptions at all beyond some point (Proposition~\ref{prop:E}).
 
 \subsection*{Status and novelty}
-Every statement labelled \status{proved} here is proved \emph{relative to}
+Every statement labelled \status{proved} here, except Theorem~L and
+the lemmas of Section~\ref{sec:lower}, is proved \emph{relative to}
 \cite{TQ}: the steps that change are written out in full, and the
 remaining steps are cited from \cite{TQ} by name.  The note \cite{TQ}
 is internally proved; it has \emph{not} been refereed externally, and
 neither has this note.  The underlying working documents
 \cite{SHORT,MN} received three internal hostile reviews, and their
-repairs are incorporated.
+repairs are incorporated.  Theorems~U and~L come from \cite{MN2}, which
+received two further independent internal reviews (no fatal or major
+defect; minor repairs incorporated).  Theorem~L is proved relative to
+\cite[Thm.~7.1]{ET} and the structure of the proof of
+\cite[Prop.~1.4]{ET}, one range of which we modify
+(Lemma~\ref{lem:ETPV}, checked against \cite[pp.~30--32]{ET} by a
+reviewer, not machine-checked).  Theorem~U is ineffective, Theorem~L
+effective.
 
 We found no published short-interval or progression version of an
 exceptional-set bound for \eqref{eq:mn}, for any $m$
@@ -237,7 +289,13 @@ replacement for the global semigroup step of \cite{TQ}
 (Lemma~\ref{lem:smooth}); the bookkeeping that turns $t^3$ into $t^3/m$
 with absolute constants, with no loss of $\varphi(m)$ or $\log m$
 (Sections~\ref{sec:atoms}--\ref{sec:assembly}); and the consequences
-above.  None of this improves the exponent $3/4$.
+above.  For the transition we add a direct prime count with Bonferroni
+depth bounded in terms of the saving, in a reduced residue model in
+which every fibre is reduced (Theorem~U), and, on the lower side, a
+sharp Type~II count via the three-way split of \cite[\S9]{ET} and the
+P\'olya--Vinogradov refinement of \cite[Prop.~1.4]{ET} that
+\cite[Rem.~1.5]{ET} suggests (Theorem~L).  None of this improves the
+exponent $3/4$.
 
 \subsection*{Organisation}
 Section~\ref{sec:blackbox} lists what is taken from \cite{TQ} and
@@ -248,7 +306,9 @@ general $m$, writing out every step that differs from \cite{TQ}.
 Section~\ref{sec:transfer} contains the local transfer to arbitrary
 windows and progressions and proves Theorems~\ref{thm:A},~\ref{thm:B}
 and Corollary~\ref{cor:C}.  Section~\ref{sec:transition} proves
-Corollary~\ref{cor:D}, Section~\ref{sec:lowerend} discusses the lower
+Corollary~\ref{cor:D} and Theorems~U and~L, compares them with
+\cite{PW} and \cite{Els}, and reports numerics and Conjecture~C2;
+Section~\ref{sec:lowerend} discusses the lower
 end of the window range, Section~\ref{sec:literature} the literature,
 and Section~\ref{sec:open} lists open problems.
 
@@ -1045,6 +1105,14 @@ prime-counting results; we have not checked their ranges.
 \end{remark}
 
 \section{The density transition}\label{sec:transition}
+Throughout this section $L=\log N$, $A=L/m^{1/3}$,
+$\pi^*(N)=\pi(N)-\pi(N/2)$, and $\pi^*(N;q,a)$ counts the primes
+$p\in(N/2,N]$ with $p\equiv a\ (q)$.  Let $\rho_{\rm exc}(m,N)$ and
+$\rho_{\rm rep}(m,N)=1-\rho_{\rm exc}(m,N)$ be the proportions of
+$m$-exceptional and $m$-representable primes in $(N/2,N]$.  The working
+document for Theorems~U and~L is \cite{MN2}.
+
+\subsection{Corollary~\ref{cor:D}: integers first}
 \begin{proof}[Proof of Corollary~\ref{cor:D}]
 Apply Theorem~\ref{thm:A} to $I=(N/2,N]$ and put $L=\log(N/2)$; the
 count is at most $CN\exp\{-cL^{3/4}m^{-1/4}\}$.  Let
@@ -1067,40 +1135,440 @@ is $o(\pi(N)-\pi(N/2))$.  For integers, the saving in
 Theorem~\ref{thm:A} is $(\log N)^{3/4}m^{-1/4}=(\log N/m^{1/3})^{3/4}$.
 \end{proof}
 
-\subsection*{The other side}
-Pomerance and Weingartner \cite[Thm.~3.1]{PW} construct many
-$m$-exceptional primes.  Their proof counts, for primes $p\leq N$, the
-ones covered by Type~I congruences, at most
-$\ll(N/\varphi(m))\log^2N\log^2m$ when
-$\e^{m^{1/4}}\ll N<\e^m$, and the ones covered by Type~II congruences,
-at most $\ll(N/\varphi(m))\log^2N\log\log N$ \cite[pp.~6--8]{PW}.  A prime
-covered by neither is $m$-exceptional.  The proof is written for one
-$N=N(m)$, with $\varphi(m)/\log^2m=C\log^3N$, but the two counts hold for
-every $N$ in the stated range.  So most primes in $(N/2,N]$ are
-$m$-exceptional whenever
-\begin{equation}\label{eq:PWrange}
- m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}
-\end{equation}
-with a suitable absolute $C$.  Pomerance and Weingartner state this for
-$N=N(m)$: ``In our proof of Theorem~1.1 we actually show that not only
-is there one exceptional $n>\exp(m^{1/3-\epsilon})$, but that most prime
-values of $n$ near this bound are exceptions'' \cite[p.~2]{PW}.  The
-extension to the whole range \eqref{eq:PWrange} is our reading of their
-proof, checked independently by two internal reviewers against the
-rendered PDF.  Pomerance and Weingartner's own
-upper bound \eqref{eq:PW} gives ``most primes representable'' only for
-$\log N\gg m^{1/2}(\log m)^{3/2}$, and they wrote that between
-$\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition from
-`usually false' to `usually true' '' \cite[p.~2]{PW}.
+The loss $(\log m)^{4/3}$ arises because Theorem~\ref{thm:A} counts
+integers: primes have density $1/L$, so the integer saving
+$\e^{-cA^{3/4}}$ says something about primes only once it beats
+$1/L$, i.e.\ once $A^{3/4}\gg\log L\asymp\log m$ near the transition.
+To see the transition at the scale $A\asymp1$ we count primes directly,
+with Bonferroni depth \emph{bounded} in terms of the required saving;
+then the moduli stay below $N^{0.45}$ and the Bombieri--Vinogradov
+theorem suffices.
 
-Combining \eqref{eq:PWrange} with Corollary~\ref{cor:D}: most primes
-near $N$ are $m$-exceptional for $\log N$ up to
-$(\varphi(m)/(C\log^2m))^{1/3}$, and most are $m$-representable for all
-$\log N\geq C_Dm^{1/3}(\log m)^{4/3}$.  The two thresholds differ by a
-factor $\asymp(\log m)^2(m/\varphi(m))^{1/3}$.  We do not know whether
-the proportion of exceptional primes is monotone in between.  The
+\subsection{The upper side: Theorem~U}\label{sec:upper}
+We use the atom family $\A^{(m)}_X$ of Definition~\ref{def:atoms},
+$t=\log X$, $s=t^3/m$, $H=H_X$ and the even Bonferroni polynomial
+$Q_r$ of Theorem~\ref{thm:assembly}; recall
+$\ind_{h=0}\leq Q_r(h)\leq\ind_{h=0}+\binom h{r+1}$ for integers
+$h\geq0$ \cite[Lemma~8.1]{TQ}.  No selector $S_y$ is used.
+
+\begin{lemma}[reduced model]\label{lem:reduced}
+Let $\M'=L_K\prod_{X^{1/2}<\ell\leq X}\ell$ and let $\tilde n$ be
+uniform on $(\Z/\M'\Z)^\times$.  For $X\geq X_h$, $4\leq m\leq t^3$
+and every even $r\geq2\e^2C_us$,
+\[
+ \E\,Q_r(H(\tilde n))\leq\e^{-a_us}+\e^{-(r+1)},
+\]
+with $a_u,C_u$ from Corollary~\ref{cor:fibre}.
+\end{lemma}
+
+\begin{proof}
+By the Chinese remainder theorem for unit groups, $c=\tilde n\bmod L_K$
+is uniform on the reduced classes and the coordinates
+$\tilde n\bmod\ell$ are uniform on $(\Z/\ell\Z)^\times$, all independent
+($\ell>X^{1/2}>K$, so $\ell\nmid L_K$).  Given $c$, the atom $A$ meets
+the fibre iff $k\mid u+cv$ (Lemma~\ref{lem:CRT}(3)), and the active
+atoms at a fixed $\ell$ have pairwise distinct classes modulo $\ell$
+(Lemma~\ref{lem:CRT}(2)), all non-zero since $0<u<\ell$.  So, given
+$c$, $H=\sum_\ell\xi_\ell$ with independent
+$\xi_\ell\sim{\rm Bernoulli}(f_c(\ell)/(\ell-1))$, whence
+$\Prob(H=0\mid c)\leq\e^{-\mu_c}$ and
+$\E(\binom H{r+1}\mid c)\leq(2\mu_c)^{r+1}/(r+1)!$, using
+$\ell/(\ell-1)\leq2$.  Every fibre is reduced, so
+$a_us\leq\mu_c\leq C_us$ by Corollary~\ref{cor:fibre}, and
+$(r+1)!\geq((r+1)/\e)^{r+1}$ gives
+$\E(Q_r(H)\mid c)\leq\e^{-a_us}+(2\e C_us/(r+1))^{r+1}
+\leq\e^{-a_us}+\e^{-(r+1)}$.  Average over $c$.
+\end{proof}
+
+Compared with Lemma~\ref{lem:void}, neither the selector nor the
+bad-fibre event $Z(c)>1/4$ is needed: in the reduced model every fibre
+is reduced, which is exactly the situation for primes.  Since both
+$a_us$ and $C_us$ bound $\mu_c$ on the nonempty set of reduced fibres,
+$a_u\leq C_u$.
+
+Expand
+$Q_r(H(n))=\sum_{\mathcal B}(-1)^{|\mathcal B|}\ind[n\in\bigcap_{A\in\mathcal B}E_A]$
+over $\mathcal B\subseteq\A^{(m)}_X$ with $|\mathcal B|\leq r$, dropping
+the $\mathcal B$ with empty intersection.  By Lemma~\ref{lem:CRT}(2) each
+remaining $\mathcal B$ has distinct primes $\ell_A$, and
+$\bigcap_{\mathcal B}E_A$ is one unit class $a_{\mathcal B}$ modulo
+$q_{\mathcal B}=q'_{\mathcal B}\prod_{A\in\mathcal B}\ell_A$, where
+$q'_{\mathcal B}=\lcm(k_A)\leq K^r$.  Let
+$M(q)=\#\{\mathcal B:q_{\mathcal B}=q\}$.
+
+\begin{lemma}[multiplicity of moduli]\label{lem:mult}
+For fixed $r$ and $X\geq X_h$,
+$S_2:=\sum_qM(q)^2/\varphi(q)\leq C(r)\,t^{17r+4^r}$, with $C(r)$
+depending only on $r$ \textup{(}and the fixed $\kappa$\textup{)}.
+\end{lemma}
+
+\begin{proof}
+As $k\leq K<X^{1/2}<\ell$, the primes $\ell_A$ of $\mathcal B$ are
+exactly the prime factors of $q$ above $X^{1/2}$, each carrying one
+atom, which is fixed by a divisor $k\leq K$ of $q'=q/\prod\ell$ and a
+pair $u,v\mid k\ell+1$.  So
+$M(q)\leq\prod_{\ell\mid q,\,\ell>X^{1/2}}g_{q'}(\ell)$ with
+$g_{q'}(\ell)=\sum_{k\mid q',\,k\leq K}\tau(k\ell+1)^2$, and
+$g_{q'}(\ell)^2\leq\tau(q')\sum_{k\mid q',\,k\leq K}\tau(k\ell+1)^4$.
+Shiu's theorem \cite[Thm.~1]{Shiu} for $\tau^4$ on the progression
+$1\bmod k$ in $(kx,2kx]$, $x\geq X^{1/2}\geq k^{2}$, gives
+$\sum_{x<\ell\leq2x}\tau(k\ell+1)^4\ll(k/\varphi(k))\,x\,t^{15}$; summing
+dyadically and using $k/\varphi(k)\ll\log t$,
+$\sum_\ell\tau(k\ell+1)^4/(\ell-1)\ll t^{17}$.  Hence
+$\sum_\ell g_{q'}(\ell)^2/(\ell-1)\leq C\tau(q')^2t^{17}$.  Since $q'$
+and the $\ell$'s are coprime and $\varphi$ is multiplicative,
+\[
+ S_2\leq\sum_{q'\leq K^r}\frac1{\varphi(q')}\sum_{j\leq r}
+ \frac{(C\tau(q')^2t^{17})^j}{j!}
+ \leq(r+1)C^rt^{17r}\sum_{q'\leq K^r}\frac{\tau(q')^{2r}}{\varphi(q')},
+\]
+and $\sum_{n\leq x}\tau(n)^{2r}/\varphi(n)\leq\prod_{p\leq x}
+(1+\sum_{\nu\geq1}(\nu+1)^{2r}/\varphi(p^\nu))\ll_r(\log x)^{4^r}$,
+with $\log K^r\leq r\kappa t$.
+\end{proof}
+
+\begin{theorem}\label{thm:U13}
+There are absolute $a,C_1,s_0>0$ and for each $s\geq s_0$ an
+\textup{(}ineffective\textup{)} $N_0(s)$ such that for all $m\geq4$ and
+$N\geq N_0(s)$ with $\log N\geq C_1s^{4/3}m^{1/3}$,
+\[
+ \#\{p\in(N/2,N]:p\ m\text{-exceptional}\}\leq3\e^{-as}\pi^*(N).
+\]
+\end{theorem}
+
+\begin{proof}
+Take $t=(sm)^{1/3}$, $X=\e^t$ and $r$ the least even integer
+$\geq2\e^2C_us$.  Then $m\leq t^3$, and $X\geq X_h$ once $s_0$ is
+large, as $t\geq(4s)^{1/3}$.  All moduli satisfy
+$q_{\mathcal B}\leq(KX)^r=\e^{(1+\kappa)rt}$, and
+$(1+\kappa)rt\leq(1+\kappa)(2\e^2C_us+2)(sm)^{1/3}\leq0.45L$ for $C_1$
+large; so $q_{\mathcal B}\leq N^{0.45}$.  An $m$-exceptional prime $p$
+has $H(p)=0$ (Lemma~\ref{lem:CRT}(1)), hence $Q_r(H(p))=1$, so
+\[
+ \#\{\text{exc.\ }p\}\leq\sum_{N/2<p\leq N}Q_r(H(p))
+ =\sum_{\mathcal B}(-1)^{|\mathcal B|}\pi^*(N;q_{\mathcal B},a_{\mathcal B}).
+\]
+Write $\pi^*(N;q,a)=\pi^*(N)/\varphi(q)+\Delta(q,a)$.  As
+$\Prob(\tilde n\equiv a_{\mathcal B}\ (q_{\mathcal B}))=1/\varphi(q_{\mathcal B})$,
+the main terms sum exactly to $\pi^*(N)\,\E\,Q_r(H(\tilde n))\leq
+\pi^*(N)(\e^{-a_us}+\e^{-(r+1)})$ by Lemma~\ref{lem:reduced}.  For the
+errors, Brun--Titchmarsh gives $|\Delta(q,a)|\leq CN/(\varphi(q)L)$ for
+$q\leq N^{0.45}$, and the Bombieri--Vinogradov theorem (applied at $N$
+and $N/2$) gives $\sum_{q\leq N^{0.45}}\max_{(a,q)=1}|\Delta(q,a)|
+\ll_{A'}NL^{-A'}$; recentring from $(\li N-\li(N/2))/\varphi(q)$ to
+$\pi^*(N)/\varphi(q)$ costs
+$\ll N\e^{-c\sqrt L}\sum_qM(q)/\varphi(q)\ll N\e^{-c\sqrt L}(S_2\sum_{q\leq N}1/\varphi(q))^{1/2}$
+by the prime number theorem.  By Cauchy--Schwarz and Lemma~\ref{lem:mult},
+\[
+ \sum_{\mathcal B}|\Delta(q_{\mathcal B},a_{\mathcal B})|
+ \leq\Bigl(\sum_qM(q)^2\frac{CN}{\varphi(q)L}\Bigr)^{1/2}
+ \bigl(C_{A'}NL^{-A'}\bigr)^{1/2}\leq C'(r)\frac N{L^3}
+\]
+for $A'=17r+4^r+5$, using $t\leq L$.  For $N\geq N_0(s)$ this and the
+recentring cost are at most $N/L^2\leq\e^{-a_us}\pi^*(N)$, as
+$\pi^*(N)\geq N/(3L)$.  Finally $\e^{-(r+1)}\leq\e^{-a_us}$ since
+$r\geq2\e^2C_us\geq a_us$; take $a=a_u$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~U]
+Fix $s\geq s_0$ with $3\e^{-as}\leq\varepsilon$, and put
+\[
+ A_\varepsilon=\max(C_1s^{4/3},\log N_0(s)).
+\]
+If
+$\log N\geq A_\varepsilon m^{1/3}$, then also $\log N\geq A_\varepsilon$,
+so both hypotheses of Theorem~\ref{thm:U13} hold.
+\end{proof}
+
+Quantitatively, Theorem~\ref{thm:U13} gives
+$\rho_{\rm exc}\leq3\exp\{-a(A/C_1)^{3/4}\}$ once $N$ is large in terms
+of $A$; the dependence of $N_0$ on $s$ comes from the Bombieri--Vinogradov
+constant at level $L^{-A'(r)}$, $r\asymp s$.  Theorem~U does \emph{not}
+improve the rate $\rho_{\rm exc}\ll1/L$ of Corollary~\ref{cor:D}: that
+would need $s\asymp\log L$, hence depth $r\asymp\log L$, outside the
+fixed-$A'$ range of Bombieri--Vinogradov.  The dependence on $m$ enters
+only through Corollary~\ref{cor:fibre} ($\mu_c\asymp t^3/m$ on every
+reduced fibre), the scaling that the lower side has to match.
+
+\subsection{The lower side: Theorem~L}\label{sec:lower}
+Let $m\geq4$ and $p$ prime.  Every solution of $m/p=1/x+1/y+1/z$ is of
+Type~I or Type~II, and \cite[Cor.~2.2, Cor.~2.4]{PW}: $p$ has a Type~I
+solution iff there are $a,d,f\in\mathbb N$ with $f\mid ma^2d+1$ and
+$mad\mid p+f$ (then $mad\leq3p$ \cite[Lemma~7.4]{PW}); $p$ has a
+Type~II solution iff there are $a,b,e\in\mathbb N$ with $e\mid a+b$ and
+$mab\mid p+e$ (and then $(a,b)=1$ may be assumed).  Pomerance and
+Weingartner bound the primes covered by these congruences by first
+moments with Brun--Titchmarsh; their losses relative to the heuristic
+$L^3/m$ are (a) in Type~II, Brun--Titchmarsh near modulus $N$ and
+$\varphi(m)$ in place of $m$, and (b) in Type~I, the factor $\log(1+k)$
+of \cite[Prop.~1.4]{ET} and Brun--Titchmarsh near modulus $N$.  Below,
+(a) is removed and the $\log(1+k)$ in (b) is confined to a lower-order
+range; the Brun--Titchmarsh loss in Type~I is not removed.  It is
+exactly the $\log\log N$ in the prime bound
+$\sum_{p\leq N}f_I(p)\ll N\log^2N\log\log N$ of \cite[Thm.~1.1]{ET}, which
+is open even for $m=4$: Elsholtz and Tao attribute it to Brun--Titchmarsh
+for very short progressions and conjecture that it can be removed
+(discussion after \cite[Thm.~1.1]{ET}; see also \cite[\S9]{ET}, whose
+parenthetical says ``Type~II'' where Type~I is evidently meant).  % R104 repair
+In this subsection every $\ll$
+has an absolute constant, and
+$S'_m(E)=\sum_{e\leq E,\,(e,m)=1}1/\varphi(e)\ll(\varphi(m)/m)\log E$
+for $E\geq\log m$ (by the Euler product, as in Lemma~\ref{lem:hm}).
+
+\begin{lemma}[two harmonic sums]\label{lem:harm2}
+\textup{(a)} For $Y\geq\max(2,\log m)$:
+\[
+ \sum_{\substack{e\leq Y\\(e,m)=1}}\ \sum_{\substack{a,b\leq Y,\ (a,b)=1\\e\mid a+b}}
+ \frac1{\varphi(a)\varphi(b)}\ll\frac{\varphi(m)}m\log^3Y+\log^2Y.
+\]
+
+\textup{(b)} For $U\geq2$ with $\log U\geq\frac12\log(mU)$:
+$\sum_{u\leq U}\tau_3(u)/\varphi(mu-1)\ll(\log^3U+m^{0.02})/m$.
+\end{lemma}
+
+\begin{proof}
+(a) As $(a,b)=1$, $(e,a)=1$.  With $b/\varphi(b)=\sum_{g\mid b}\mu^2(g)/\varphi(g)$,
+for $(\beta,e)=1$ and $\beta_0\in[1,e]$ the least representative,
+$\sum_{b\leq Y,\,b\equiv\beta\,(e)}1/\varphi(b)\ll1/\varphi(\beta_0)+(\log Y)/e$.
+Summing over $a$ in classes $a_0\bmod e$ and using
+$\sum_{a_0+\beta_0=e}1/(\varphi(a_0)\varphi(\beta_0))\ll(\log2e)^2/e$
+gives $\ll(\log^2Y)/e$ per $e\geq2$, and $\log^2Y$ for $e=1$; sum over
+$e$ with $S'_m(Y)$.
+
+(b) Put $n=mu-1$ and $y=\log(mU)$.  As $\omega(n)\leq2y$,
+$n/\varphi(n)\leq\e^4\sum_{s\mid n,\,s\mid P_y}\mu^2(s)/\varphi(s)$.  By
+Rankin's trick with $\sigma=1/\log y$,
+$\sum_{s\mid P_y,\,s>U^{1/2}}1/\varphi(s)\ll U^{-\sigma/2}(\log y)^{\e}\ll y^{-10}$,
+so the $s>U^{1/2}$ contribute $\ll1/m$.  For $s\leq U^{1/2}$, $(s,m)=1$,
+the $u$ lie in the class $m^{-1}\bmod s$.  The $u>s^{1.1}$ are handled by
+Shiu's theorem for $\tau_3$ on dyadic ranges (modulus $s\leq u^{1/1.1}$),
+giving $\ll\log^3U/m$ after summing over $s$.  For $u\leq s^{1.1}$ swap
+the sums: the total is
+$\leq\sum_u\tau_3(u)\tau(mu-1)(mu-1)^{-1}\max_{s\geq u^{1/1.1}}\varphi(s)^{-1}
+\ll m^{0.02}/m$.
+\end{proof}
+
+\begin{proposition}[Type~II]\label{prop:typeII}
+For $\log m\leq L/10$, the number of primes $p\in(N/2,N]$ with a Type~II
+solution is $\ll(N/L)(L^3+m^{0.02})/m$.
+\end{proposition}
+
+\begin{proof}
+Write $p+e=mabd$, $a+b=ce$, $(a,b)=1$, and take $a\leq b$ by symmetry.
+As $(e,m)\mid p$, $(e,m)=1$.  Following \cite[\S9]{ET}, with $abd\leq2N/m$,
+$(made)(macd)(mab)^{1/2}\leq m^{5/2}a^2b\cdot ce\cdot d^2\leq8m^{1/2}N^2$,
+so one of the three moduli is $\leq3m^{1/5}N^{4/5}\leq3N^{0.82}$, and
+Brun--Titchmarsh applies with $\log(N/q)\gg L$.  (i) If
+$made\leq3N^{0.82}$, fix $(a,d,e)$; then $p$ lies in one class modulo
+$made$ (note $(e,ad)=1$: $(e,a)\mid(a,b)=1$, and $(e,d)\mid p$ with
+$e\leq a+b<p$), % R104 repair
+ and the count is $\ll(N/(L\varphi(m)))L^2S'_m(N)\ll NL^2/m$.
+(ii) If $macd\leq3N^{0.82}$, fix $(a,c,d)$; then
+$p=(macd-1)e-ma^2d$ lies in one class modulo $mu-1$, $u=acd$, and
+Lemma~\ref{lem:harm2}(b) with $U=3N^{0.82}/m$ gives
+$\ll(N/L)(L^3+m^{0.02})/m$.  (iii) If $mab\leq3N^{0.82}$, fix $(a,b,e)$;
+the class is $-e\bmod mab$, and Lemma~\ref{lem:harm2}(a) gives
+$\ll(N/(L\varphi(m)))((\varphi(m)/m)L^3+L^2)\ll NL^2/m$, using
+$\varphi(m)\gg m/\log\log m$ and $\log\log m\leq L$.
+\end{proof}
+
+\begin{lemma}[{\cite[Prop.~1.4]{ET}} with P\'olya--Vinogradov]\label{lem:ETPV}
+Fix $l$.  For $k\geq1$ and $A,D\geq2$ with $k\leq(2AD)^l$,
+\[
+ \sum_{a\leq A,\,d\leq D}\tau(ka^2d+1)\ll_lAD\log(A+D)\bigl(1+
+ \ind[D<k\log^4(kAD)]\log(1+k)\bigr).
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch with exact pointers]
+If $D\geq A$, apply \cite[Cor.~7.4]{ET} in $d$ for each $a$.  If $D<A$,
+follow the case ``$A\leq B$'' of the proof of \cite[Prop.~1.4]{ET}
+(pp.~30--32; their linear variable is our $d$, their quadratic one our
+$a$), keeping the signed sum \cite[(7.11)]{ET}
+$\sum_{q\leq A,(q,2k)=1}\sum_{d\leq D',(d,2q)=1}(\frac{-kd}q)\frac{\log(A/q)}q$
+after the reduction to odd $d$ ($d=2^jd'$, $2^j$ absorbed into $k$).
+ET treat $q<D'$ (periodicity), $q>kD'$ (reciprocity and partial
+summation) without loss, and lose $\log(1+k)$ only for
+$D'\leq q\leq kD'$, where they bound the symbol by $1$.  We change only
+this range: for non-square odd $q$ the map $d\mapsto(\frac dq)\ind_{d\text{ odd}}$
+is a non-principal character modulo $2q$, % R104 repair
+hence $\ll\sqrt q\log q$ by
+P\'olya--Vinogradov (as suggested in \cite[Rem.~1.5]{ET}); squares
+$q=r^2$ give $\ll D'\log A$ in total (this also covers the square $q<D'$,
+where the character is principal, a harmless slip on \cite[p.~31]{ET}).
+The middle range costs $\ll D'\log A(1+\sqrt{k/D'}\log(kD'))$, which is
+$\ll D'\log A$ for $D'\geq k\log^2(kAD)$.  Summing over $j$ with weight
+$2^{-j}$, the lossy $j$ contribute
+$\ll(k\log^2(kAD)/D)^{1/2}\log(kAD)\leq1$ when $D\geq k\log^4(kAD)$.
+\end{proof}
+
+\begin{proposition}[Type~I]\label{prop:typeI}
+For $\log m\leq L/10$ and $L\leq m^{1/2}$, the number of primes
+$p\in(N/2,N]$ with a Type~I solution is
+$\ll(N/L)\bigl[(L^3+L^2\log^2m)\log L/\varphi(m)+m^{-0.35}\bigr]$.
+\end{proposition}
+
+\begin{proof}
+By Brun--Titchmarsh the count is \cite[(3.2)]{PW}
+\[
+ \ll\sum_{mad\leq3N}\frac{\tau(ma^2d+1)\,N}{\varphi(m)\varphi(ad)\log(2+N/mad)}.
+\]  By \cite[(A.12)]{ET},
+$1/\varphi(ad)\ll(ad)^{-1}\sum_{s\mid a,\,t\mid d}1/(st)$; put $a=sa'$,
+$d=td'$, $k=ms^2t$, and split each block $ad\sim X$ into $\ll\log X$
+boxes $a'\sim A'$, $d'\sim D'$, $A'D'\asymp X/(st)$; a box with $A'<2$ or
+$D'<2$ is enlarged to $A',D'\geq2$ by positivity.  % R104 repair (restores MN2/R102A D-L2)
+Boxes with
+$A'D'\geq k^{1/10}$ are bounded by Lemma~\ref{lem:ETPV} ($l=10$):
+non-lossy boxes give $(X/st)\log X$, and the $\ll\log m+\log(st)+\log L$
+lossy ones ($D'<k\log^4(kN)$) give $(X/st)L\log(1+k)$ each; with the
+weights this is $\ll\log^2X+L\log^2m$ per block (as $\log L\ll\log m$).
+Boxes with $A'D'<k^{1/10}$ use $\tau(n)\ll n^{1/40}$ with $n\leq k^{1.2}$;
+they occur only for $(st)^{1.2}m^{0.1}\gg X$, and in total contribute
+$\ll(N/\varphi(m))m^{0.03}\log^2m\ll(N/L)m^{-0.35}$ (using $L\leq m^{1/2}$).
+Summing the blocks $X=3N2^{-j}/m$, $j\leq2L$, with Brun--Titchmarsh
+weight $\ll1/j$ gives $\ll(N/\varphi(m))(L^2+L\log^2m)\log L$.
+\end{proof}
+
+\begin{lemma}[very large $m$]\label{lem:hugem}
+If $\log m>L/10$, then $\rho_{\rm rep}\leq\e^{CL/\log L}/m$.
+\end{lemma}
+
+\begin{proof}
+Count classes trivially: $\#\{n\leq N:n\equiv r\ (q)\}\leq N/q+1$ and
+$\tau(n)\leq\e^{CL/\log L}$ for $n\leq9N^2$.  The Type~I classes give
+$\sum_{mad\leq3N}\tau(ma^2d+1)(N/(mad)+1)\ll\e^{CL/\log L}(N/m)L^2$, and
+Type~II likewise; then divide by $\pi^*(N)\gg N/L$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~L]
+The first range is Propositions~\ref{prop:typeII} and~\ref{prop:typeI}
+with $\pi^*(N)\gg N/L$; the second is Lemma~\ref{lem:hugem}.  For the
+consequence: if $\rho_{\rm rep}>0$, some $p\leq N$ has a solution, so
+$m\leq3p$ and $L\geq\log(m/3)$; so $L^3\log L/\varphi(m)\to0$ forces
+$m\to\infty$, and then
+$L^2\log^2m\log L/\varphi(m)\leq(L^3+\log^6m)\log L/\varphi(m)\to0$ and
+$m^{-0.35}\to0$, while $L\leq m^{1/2}$ holds eventually.  In the range
+$\log m>L/10$ the bound of Lemma~\ref{lem:hugem} is
+$\leq m^{10C/\log L-1}\to0$, as $L\geq\log(m/3)\to\infty$.
+\end{proof}
+
+\subsection{The gap, and comparison with earlier bounds}\label{sec:gap}
+Theorem~U gives $\rho_{\rm exc}\to0$ as $A\to\infty$, uniformly in
+$m\geq4$.  For Theorem~L note that $L\leq m^{1/2}$ gives
+$\log L\leq\frac12\log m$, so
+$L^3\log L/\varphi(m)\leq A^3\,m\log m/(2\varphi(m))$; hence
+$\rho_{\rm rep}\to0$ whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.  So
+the transition lies at $\log N\asymp m^{1/3}$ up to a factor
+\[
+ \Bigl(\frac{m\log m}{\varphi(m)}\Bigr)^{1/3}\ll(\log m\,\log\log m)^{1/3}
+\]
+in $\log N$, a constant times $(\log m)^{1/3}$ when $\varphi(m)\gg m$.  Corollary~\ref{cor:D} together with the
+proof of \cite[Thm.~3.1]{PW} gave the factor
+$(\log m)^2(m/\varphi(m))^{1/3}$.  The remaining loss has two sources,
+both on the lower side: the Brun--Titchmarsh $\log L$ in the Type~I
+count (the open $\log\log N$ of \cite[Thm.~1.1]{ET}) and the factor
+$m/\varphi(m)$ from Type~I.  Removing both would give the exact scale:
+$\rho_{\rm rep}\to0$ if $A\to0$ and $\rho_{\rm exc}\to0$ if $A\to\infty$.
+
+\emph{Pomerance--Weingartner.}  Their proof of \cite[Thm.~3.1]{PW}
+counts, for primes $p\leq N$, the ones covered by Type~I congruences,
+$\ll(N/\varphi(m))\log^2N\log\log N\log m$, which they simplify to
+$(N/\varphi(m))\log^2N\log^2m$ for $\e^{m^{1/4}}\ll N<\e^m$, and the ones
+covered by Type~II congruences, $\ll(N/\varphi(m))\log^2N\log\log N$
+\cite[pp.~6--8]{PW}.  The proof is written for one $N=N(m)$, with
+$\varphi(m)/\log^2m=C\log^3N$, but the counts hold for every $N$ in that
+range, so most primes in $(N/2,N]$ are $m$-exceptional whenever
+\begin{equation}\label{eq:PWrange}
+ m^{1/4}\ll\log N\leq\bigl(\varphi(m)/(C\log^2m)\bigr)^{1/3}.
+\end{equation}
+They state this for $N=N(m)$: ``In our proof of Theorem~1.1 we actually
+show that not only is there one exceptional $n>\exp(m^{1/3-\epsilon})$,
+but that most prime values of $n$ near this bound are exceptions''
+\cite[p.~2]{PW}.  The extension to the range \eqref{eq:PWrange} is our
+reading of their proof, checked independently by two internal reviewers
+against the rendered PDF.  Theorem~L improves the unsimplified bound
+$\rho_{\rm rep}\ll L^3\log L\log m/\varphi(m)$ by a factor
+$\min(\log m,L/\log m)$, a full $\log m$ once $L\geq\log^2m$, which holds
+near the transition, and extends \eqref{eq:PWrange} to
+$\log N\leq\varepsilon(\varphi(m)/\log m)^{1/3}$, $\varepsilon\to0$,
+with no lower restriction on $\log N$.  On the other side,
+\eqref{eq:PW} gives ``most primes representable'' only for
+$\log N\gg\varphi(m)^{1/2}(\log m)^{3/2}$, % R104 repair
+and Pomerance and Weingartner wrote
+that between $\exp(m^{1/3})$ and $\exp(m^{1/2})$ ``there is a transition
+from `usually false' to `usually true' '' \cite[p.~2]{PW}; their
+Poisson heuristic \cite[p.~3]{PW} predicts $m^{1/3+o(1)}$.  Theorem~U
+proves the representable half of this prediction at the exact scale
+$m^{1/3}$, with no logarithmic loss.  Pomerance's 2026 talk still lists
+the location of the transition as open \cite{Pom26}.
+
+\emph{Elsholtz.}  The constant $c_{m,3}\asymp m^{-1/3}$ of
+\cite[Rem.~7.3]{Els} gives the integer saving
+$c(\log^2N/m)^{1/3}$ for $N>N_m$, which exceeds a constant only for
+$\log N\gg m^{1/2}$.  So neither this bound nor \eqref{eq:PW} reaches the
+scale $m^{1/3}$, even for integers.  Theorem~\ref{thm:A} reaches it for
+integers (with the loss $(\log m)^{4/3}$ for primes in
+Corollary~\ref{cor:D}), and Theorem~U for primes.
+
+We do not know whether $\rho_{\rm exc}(m,N)$ is monotone in $N$.  The
 largest $m$-exceptional integer, which the heuristic of \cite[p.~3]{PW}
 places near $\exp(m^{1/2})$, is not addressed by any of this.
+
+\subsection{Numerics and a conjecture}\label{sec:numerics}
+The following is \status{evidence} only.  Representability of a prime
+$p\nmid m$ was decided exactly through \cite[Cor.~2.2, Cor.~2.4]{PW}
+(Type~I with $mad\leq3p$, Type~II with $mab\leq2p$), validated against an
+independent brute force for $4\leq m\leq40$, $p<1500$ (no mismatch), on
+samples of about 800 primes per window $(N/2,N]$
+(\texttt{scripts/emn2\_scan.c}, \texttt{scripts/emn2\_half.py}).  Let
+$L_q(m)$ be the value of $\log N$ at which the representable proportion
+reaches $q$.
+
+\begin{center}
+\small
+\begin{tabular}{rcccccc}
+\toprule
+$m$ & 60 & 100 & 128 & 200 & 256 & 300\\
+\midrule
+$L_{1/2}$ & 7.64 & 9.21 & 9.65 & 11.21 & 12.22 & 13.06\\
+$L_{1/2}/m^{1/3}$ & 1.95 & 1.98 & 1.91 & 1.92 & 1.92 & 1.95\\
+$L_{3/4}-L_{1/4}$ & 3.73 & 3.47 & 4.26 & 4.83 & 4.87 & 5.34\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For even $m\in[60,300]$ one has $L_{1/2}/m^{1/3}=1.95\pm0.05$ with no
+trend (local log-log slope $0.333\pm0.02$; $L_{1/2}$ is uncertain by
+$\pm0.1$--$0.2$).  A factor $(\log m)^{4/3}$ or $(\log m)^{-2/3}$ would
+change the ratio by $1.56$ resp.\ $0.80$ over this range; neither is
+visible, and within each parity class there is no visible dependence on
+$\varphi(m)/m$.  Odd $m$ sit lower (odd composites $1.77$--$1.92$, odd
+primes $1.63$--$1.80$) and drift upward (local slopes $0.36$ and $0.40$);
+this is a parity effect at these sizes, which the data cannot separate
+from a slowly varying factor.  The window $L_{3/4}-L_{1/4}$, between $0.38L_{1/2}$ and $0.49L_{1/2}$,
+does not shrink: in $A$ the profile for even $m$ roughly collapses, and
+$F(A)=1-\exp(-\lambda A^3)$ with $\lambda=\log2/1.95^3\approx0.094$ % R104 repair: renamed from kappa
+fits
+the quartiles, matching the shape $\exp(-(\log p)^3/m)$ of the heuristic
+of \cite[p.~3]{PW}.  Solutions are strongly overdispersed (for $m=200$,
+$N=2^{20}$: on average $4.85$ Type~I/II tuples per prime, yet only $74\%$
+of the primes are representable), which reflects the fibre structure of
+Section~\ref{sec:fibre}.  The two independent reviews of \cite{MN2}
+reproduced the half-points with their own decision procedures.
+
+\begin{conjC2}[\status{conjecture}]
+$\rho_{\rm rep}(m,N)=F(A)+o(1)$ as $m\to\infty$, for a continuous
+increasing $F$ with $F(0+)=0$ and $F(\infty)=1$ \textup{(}possibly
+depending on $m$ only through bounded arithmetic data\textup{)}.  In
+particular there is no sharp threshold constant: the transition window
+has the same order $m^{1/3}$ as its location.
+\end{conjC2}
+
+Theorems~U and~L prove the two tails of C2 up to the gap above.  Even
+the Poisson model with intensity $\lambda L^3/m$ predicts a
+non-degenerate $F$; the fibre masses $\mu_c\asymp t^3/m$ of
+Corollary~\ref{cor:fibre} are two-sided only up to constants and the data
+are overdispersed, so $F$ is not expected to be exactly of Poisson shape.
 
 \begin{assessment}[why the shapes are what they are]\label{ass:shape}
 Both our argument and Vaughan's, as reconstructed in \cite[\S4]{PW},
@@ -1248,8 +1716,9 @@ We found no published short-interval or progression version, and no
 $3/4$-type bound for $m\neq4$.  The bound with exponent $3/4$ is itself
 only internally established, even for $m=4$ \cite{TQ}.  As far as we can
 tell, Theorem~\ref{thm:A} is new for every $m\neq4$, and its uniform
-dependence on $m$ and Corollary~\ref{cor:D} are new relative to
-\cite{PW}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
+dependence on $m$, Corollary~\ref{cor:D} and Theorems~U and~L are new
+relative to \cite{PW} and \cite[Rem.~7.3]{Els}; the location of the
+transition is posed as open in \cite[p.~2]{PW} and \cite{Pom26}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
 As explained in the introduction, a specialist would expect the
 short-interval transfer, and presumably Vaughan's argument already gives
 $E_4(I)\ll|I|\exp\{-c(\log|I|)^{2/3}\}$ for intervals.  An earlier
@@ -1275,15 +1744,27 @@ is whether every prime modulus $q$ is covered for general $m$
 \end{problem}
 
 \begin{problem}[the transition gap]
-Close the gap $(\log m)^2(m/\varphi(m))^{1/3}$ between
-\eqref{eq:PWrange} and Corollary~\ref{cor:D}.  The lower side is the
-first-moment count of \cite{PW}; the upper side is ours.  Is the
-proportion of $m$-exceptional primes in $(N/2,N]$ monotone in $N$ in
-this range?  For $m\geq\varepsilon(\log N)^3$ Theorem~\ref{thm:A} is
-trivial, and in the range \eqref{eq:PWrange} most primes are
-exceptional, so $E_m(N)\gg N/\log N$ there and no saving beyond
+Close the gap $(m\log m/\varphi(m))^{1/3}$ between Theorems~L and~U.
+Two losses remain, both on the lower side: (i) a Type~I prime count
+without the Brun--Titchmarsh $\log L$, which is the open $\log\log N$ of
+\cite[Thm.~1.1]{ET} already for $m=4$; and (ii) the coprimality gain
+$\varphi(m)/m$ in \cite[Prop.~1.4]{ET}, whose main terms come from square
+$q$ and lose the Euler factors at $p\mid m$.  Removing both would give
+$\rho_{\rm rep}\to0$ for $A\to0$.  Also: (iii) an effective, quantitative
+form of Theorem~U in the range $1\ll A\ll(\log m)^{4/3}$ not covered by
+Corollary~\ref{cor:D}.  Is $\rho_{\rm exc}(m,N)$ monotone in $N$?
+For $m\geq\varepsilon(\log N)^3$ Theorem~\ref{thm:A} is trivial, and
+when $(\log N)^3\log\log N/\varphi(m)\to0$ % R104 repair
+most primes are
+exceptional (Theorem~L), so $E_m(N)\gg N/\log N$ there and no saving beyond
 $\log\log N+O(1)$ is possible.  What is the true size of $E_m(N)/N$ in
 between?
+\end{problem}
+
+\begin{problem}[the profile]
+Prove or disprove Conjecture~C2: is $\rho_{\rm rep}(m,N)=F(A)+o(1)$ with a
+non-degenerate $F$, so that there is no sharp threshold constant?
+Explain the parity effect of Section~\ref{sec:numerics}.
 \end{problem}
 
 \begin{problem}[position-dependent input]
@@ -1324,6 +1805,11 @@ Delang Li, On the equation $4/n=1/x+1/y+1/z$, \emph{J. Number Theory}
 internal working document \texttt{EXCEPTIONAL\_MN.md}, this repository,
 2026; hostile reviews \texttt{reviews/exceptional-mn-review-A.md},
 \texttt{reviews/exceptional-mn-review-B.md}.
+\bibitem[MN2]{MN2}
+\emph{EXCEPTIONAL\_MN2: the density transition for $m/p$},
+internal working document \texttt{EXCEPTIONAL\_MN2.md}, this repository,
+2026; hostile reviews \texttt{reviews/exceptional-mn2-review-A.md},
+\texttt{reviews/exceptional-mn2-review-B.md}.
 \bibitem[MV]{MV}
 H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
@@ -1331,6 +1817,10 @@ H. L. Montgomery and R. C. Vaughan, The large sieve,
 C. Pomerance and A. Weingartner, Exceptions to the
 Erd\H{o}s--Straus--Schinzel conjecture, \emph{Ramanujan J.} \textbf{69}
 (2026), no.~2, Paper No.~31; arXiv:2511.16817v2 (cited version).
+\bibitem[P]{Pom26}
+C. Pomerance, \emph{The Erd\H{o}s--Straus conjecture}, talk slides,
+March 2026, \url{https://math.dartmouth.edu/~carlp/esconjfl.pdf}
+(archived in \texttt{sources/o101/}).
 \bibitem[S]{Shiu}
 P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.

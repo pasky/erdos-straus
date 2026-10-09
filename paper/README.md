@@ -11,6 +11,15 @@ majorant-package abstraction); full proofs of the 4 → m re-runs (identity, CRT
 assembly) and of the local transfer (Lemmas 7.1–7.3, Prop 7.4). All PROVED *relative to the note*
 (internally proved, not externally refereed). Change list: `reviews/agent-reports/AGENT_REPORT_O97.md`.
 Refereed internally (R97: accept after minor revision; repairs applied, `reviews/es-mn-short-note-referee.md`).
+**Post-referee addition (O104, 25 pages):** §8 is now a full section "The density transition" from
+EXCEPTIONAL_MN2 ((D)31 follow-up; reviews R102A/B): Theorem U (ρ_exc ≤ ε once log N ≥ A_ε m^{1/3},
+uniform in m; PROVED rel. the note via Cor 5.2, BV, Shiu; ineffective; reduced CRT model + bounded-depth
+Bonferroni, Lemmas 8.1–8.2, Thm 8.3), Theorem L (ρ_rep ≪ L³/m + (L³+L² log² m) log L/φ(m) + m^{−0.35};
+PROVED rel. ET Thm 7.1 + structure of ET's proof of Prop 1.4, BT, Shiu; effective; Type II sharp, ET Prop 1.4
+with Pólya–Vinogradov as a proof sketch with exact pointers), gap `(m log m/φ(m))^{1/3}` (was
+`(log m)²(m/φ(m))^{1/3}`), PW/Elsholtz comparison, numerics (EVIDENCE: L_{1/2} = 1.95 m^{1/3} for even m),
+Conjecture C2. Abstract, intro, status, literature, open problems updated. Cor D kept (integer route).
+**Needs a referee pass on the new §8** (`reviews/agent-reports/AGENT_REPORT_O104.md`).
 
 **New (2026-10-06): `es-coverings-note.tex` / `.pdf`** (task O86; 24 pages after the O91/O96 additions) — "Finite congruence
 coverings for the Erdős–Straus equation and sterile profinite points". Consolidates the reviewed
