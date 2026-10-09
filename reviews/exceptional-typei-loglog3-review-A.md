@@ -84,3 +84,18 @@ Checked against DI pp. 253, 256–261 (scan); from-scratch numerics `scripts/rev
   and that is (B4). See m4.
 * Step 10: `log log K_{T2} ≤ 96/δ` re-computed from the explicit formula (margin ≥ 500 on δ ∈ [0.01,0.1]) ✓; the
   double-exponential comes solely from the divisor constant `D(s)` (`τ^4`, `s = δ/16`), as claimed.
+
+## §6 / `ttl3_thm14_effective.md` (effective DI Thm 14, U-form) — verdict: SOUND
+* U-form: `|Σ_{m≤M}e(mξ)| ≤ min(M,1/(2‖ξ‖)) ≤ f_M(ξ)`, and `Σ*_d f_M(d/c)f_N(d̄/c) = Σ_{m,n∈ℤ}f̂_M(m)f̂_N(n)S(m,n;c)`
+  (absolutely convergent, `|f̂_M(m)| ≤ (M/m)²`) is real and ≥ 0, so `g_D ≥ 1_{[D,2D)}` may be inserted ✓. This is
+  exactly DI (8.14) and is what (P1) needs (sum of |·| over k after partial summation) ✓. The majorant also covers
+  any interval of length ≤ M, so the prefix decomposition in §4 is not even needed.
+* Fourier separation: x-support `[κ√UV/D, (17/7)²κ√UV/D]`, `κ = 28π/17`, `(17/7)² = 5.90 < 8` ✓;
+  `(1+X+√U)(1+X+√V)/(1+X) ≤ 10√UV` re-derived ✓; `A = U^{(1+δ)/2}` replacement ✓.
+* (B8): dyadic tail sums `Σ2^{−j/2}`, `Σ2^{−2j}` and `R^{−5/2}+X³R^{−4} ≤ 2/(1+X)` (R = 4+X) ✓. Only fixed
+  derivative orders (≤ 7) and fixed contour shifts (to Re s = −3) — no hidden δ ✓. No exceptional term at level 1
+  (B5) ✓; so the σ → 0 non-uniformity of DI (7.1) noted by the author is indeed irrelevant here.
+* Zero frequencies via the *mean* divisor bound `Σ_{c≤Z}τ(c) ≤ Z(1+log Z)` ✓; block sums `Σ_U b_U ≤ 5M^{1+α}` ✓;
+  absorption `(1+log P)³ ≤ (1+6/δ)³P^{δ/2}` ✓; c-decomposition without log loss ✓.
+* The numerical allowances `2^{50}`, `2^{1000}` for the transform/derivative bounds were spot-checked only at the
+  level of orders of magnitude (each step is fixed-order, so any finite absolute constant suffices; see m2).
