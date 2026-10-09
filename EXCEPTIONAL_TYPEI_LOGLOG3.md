@@ -55,3 +55,46 @@ both factors are `≥ e^{−8}`). ρ ≥ 0, `∫ρ = 1`, `supp ρ ⊂ [−1/4,1/
 *Use.* Any of DI's "fixed smooth η" can be taken to be this η (or an affine rescaling of it, which multiplies the
 p-th derivative bound by `(scale)^p`). Then an integration by parts of order p costs at most `C^{p+1}(p!)²`,
 and with `p ≍ 1/δ` this is `exp(O(δ^{−1}log(2/δ)))`, inside 𝓔(·).
+
+## 2. DI Thm 7 from three effective inputs: the induction made explicit (PROVED rel. (P1)–(P3))
+
+**Notation (DI (8.4)).** For `Q, Y, N ≥ 1`, `t ∈ ℝ` and an interval `I = (N, N₁]`, `N₁ ≤ 2N`, put
+`S(Q,Y,N,t;I) := Σ_{Q<q≤16Q} Σ_{j exc, Γ₀(q)} Y^{2σ_j} |Σ_{n∈I} n^{it} ρ_{j∞}(n)|²` (σ_j = iκ_j ∈ (0,1/4], DI's
+normalisation, TTL2 §1), and `S*(Q,Y,N) := sup_I S(Q,Y,N,0;I)`. Two trivial facts:
+**(M)** for `Y ≥ Y' ≥ 1`: `S(Q,Y',N,t;I) ≤ S(Q,Y,N,t;I) ≤ (Y/Y')^{1/2} S(Q,Y',N,t;I)` (as `0 < 2σ_j ≤ 1/2`, Selberg
+3/16 = DI Thm 4, proved there with absolute constants).
+**(PS)** `S(Q,Y,N,t;I) ≤ 2(1+t²) S*(Q,Y,N)`. *Proof.* With `A(ξ) := Σ_{N<n≤ξ}ρ(n)`, Abel summation gives
+`Σ_{n∈I} n^{it}ρ(n) = N₁^{it}A(N₁) − it∫_N^{N₁}A(ξ)ξ^{it−1}dξ`; so `|·|² ≤ 2|A(N₁)|² + 2t²(log 2)∫_N^{2N}|A(ξ)|²dξ/ξ`
+(Cauchy–Schwarz for `dξ/ξ` on `[N,2N]`); multiply by `Y^{2σ_j}`, sum, and use `(log 2)² ≤ 1`. ∎
+
+**Inputs (to be proved effective in §§3–6), for every `δ ∈ (0, 1/10]`, all `Q, Y, N ≥ 1` and all I:**
+* **(P1)** (DI p. 276–277: (8.7) + Thm 14) `S*(Q,Y,N) ≤ K₁(δ)(QNY)^δ (Q + N + Y) N`.
+* **(P2)** (DI Lemma 8.1, (8.5)) `S(Q,Y,N,0;I) ≤ c(δ)∫_ℝ S(πNY/Q, Y, N, t; I) dt/(t⁴+1) + c(δ)(YN)^δ(Q + N + NY/Q)N`.
+* **(P3)** (DI Thm 2, (1.29), summed over `Q < q ≤ 16Q`) `S(Q,1,N,0;I) ≤ K₂(δ)(Q + N^{1+δ})N`.
+All of `K₁, c, K₂` are taken `≥ 1`.
+
+**Proposition 2.1 (effective DI (8.19)).** Fix `δ ∈ (0,1/10]`, put
+`Q₀ := max((90c)^{1/(10δ²)}, (2π)^{1/(2δ)})`, `H := max(2K₂Q₀, 10K₁, 6c)`. Then for all `Q ≥ 1`, `1 ≤ N ≤ Q`:
+`S*(Q, Q^{2−2δ}/N, N) ≤ H Q^{1+4δ} N`.
+*Proof.* Write `Y := Q^{2−2δ}/N` (≥ 1). Induction on k: the claim holds for `Q ≤ 2^kQ₀`.
+*(A) Q ≤ Q₀.* By (M) with `Y' = 1` and (P3): `S* ≤ Y^{1/2}K₂(16... )` — precisely `S* ≤ Y^{1/2}K₂(Q + N^{1+δ})N ≤
+Q^{1−δ}N^{−1/2}·2K₂Q^{1+δ}N ≤ 2K₂Q²N ≤ 2K₂Q₀·Q^{1+4δ}N`.
+*(B) Q^{1−2δ} < N ≤ Q.* By (M) with `Y₁ := Q + N ≤ 2Q` and (P1): `S* ≤ (1 + (Y/Y₁)^{1/2})K₁(QNY₁)^δ(Q+N+Y₁)N`.
+Here `Y/Y₁ ≤ Q^{1−2δ}/N < 1` and `(QNY₁)^δ ≤ (2Q³)^δ`, so `S* ≤ 2·2^δ·4K₁Q^{1+3δ}N ≤ 10K₁Q^{1+4δ}N`.
+(If `Y < Y₁` use the first inequality of (M) instead; same bound.)
+*(C) Q > Q₀, N ≤ Q^{1−2δ}.* Then `Q^{2δ} ≥ 2π`. Put `Q₁ := πNY/Q = πQ^{1−2δ} ≤ Q/2` and `Y₁ := Q₁^{2−2δ}/N`.
+Then `N ≤ Q₁`, `Y/Y₁ = (Q^{2δ}/π)^{2−2δ} ≥ 1`, and the induction hypothesis applies at `(Q₁, N)`. By (P2), (M), (PS):
+`S(Q,Y,N,0;I) ≤ c∫ (Y/Y₁)^{1/2}·2(1+t²)S*(Q₁,Y₁,N) dt/(t⁴+1) + c(Q^{2−2δ})^δ(Q + N + Q^{1−2δ})N`
+`≤ c·2√2π·Q^{2δ(1−δ)}·H π^{1+4δ}Q^{(1−2δ)(1+4δ)}N + 3cQ^{1+2δ}N ≤ 45cH Q^{1+4δ−10δ²}N + 3cQ^{1+2δ}N`
+(`∫(1+t²)dt/(t⁴+1) = √2π`; `2√2π·π^{1.4} < 45`). Since `Q^{10δ²} ≥ 90c` and `Q^{2δ} ≥ 1`, this is
+`≤ (H/2 + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. Taking sup over I closes the induction. ∎
+
+**Theorem 2.2 (effective DI Thm 7, dyadic form; PROVED rel. (P1)–(P3)).** For `δ ∈ (0,1/10]` and all `Q,Y,N ≥ 1`:
+`S*(Q,Y,N) ≤ K₇(δ)(QN)^{5δ}(Q + N + √(NY))N`, `K₇ := max(H, 5K₁)`.
+*Proof.* N ≤ Q: with `Y₂ := Q^{2−2δ}/N`, if `Y ≤ Y₂` use (M) and Prop 2.1; if `Y > Y₂`,
+`S* ≤ (Y/Y₂)^{1/2}HQ^{1+4δ}N = HQ^{5δ}√(NY)N`. N > Q: (M) with `Y₁ := Q+N ≤ 2N` and (P1):
+`S* ≤ (1 + √(Y/N))K₁(2N³)^δ·4N·N ≤ 5K₁N^{3δ}(N + √(NY))N`. ∎
+
+**Corollary 2.3 (growth).** If `K₁, K₂, c ≤ exp(exp(B/δ))` with `B ≥ 1`, then `K₇(δ) ≤ exp(exp((B+3)/δ))` for
+`δ ≤ 1/10`. *Proof.* `log Q₀ ≤ (log 90 + exp(B/δ))/(10δ²) + δ^{−1}` and `log H ≤ log 2 + exp(B/δ) + log Q₀`;
+use `δ^{−2} ≤ e^{2/δ}/4` and `exp(B/δ) ≥ e^{10}` for δ ≤ 1/10. ∎
