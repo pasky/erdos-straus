@@ -1233,6 +1233,159 @@ fixed-$A'$ range of Bombieri--Vinogradov.  The dependence on $m$ enters
 only through Corollary~\ref{cor:fibre} ($\mu_c\asymp t^3/m$ on every
 reduced fibre), the scaling that the lower side has to match.
 
+\subsection{The lower side: Theorem~L}\label{sec:lower}
+Let $m\geq4$ and $p$ prime.  Every solution of $m/p=1/x+1/y+1/z$ is of
+Type~I or Type~II, and \cite[Cor.~2.2, Cor.~2.4]{PW}: $p$ has a Type~I
+solution iff there are $a,d,f\in\mathbb N$ with $f\mid ma^2d+1$ and
+$mad\mid p+f$ (then $mad\leq3p$ \cite[Lemma~7.4]{PW}); $p$ has a
+Type~II solution iff there are $a,b,e\in\mathbb N$ with $e\mid a+b$ and
+$mab\mid p+e$ (and then $(a,b)=1$ may be assumed).  Pomerance and
+Weingartner bound the primes covered by these congruences by first
+moments with Brun--Titchmarsh; their losses relative to the heuristic
+$L^3/m$ are (a) in Type~II, Brun--Titchmarsh near modulus $N$ and
+$\varphi(m)$ in place of $m$, and (b) in Type~I, the factor $\log(1+k)$
+of \cite[Prop.~1.4]{ET} and Brun--Titchmarsh near modulus $N$.  Below,
+(a) is removed and the $\log(1+k)$ in (b) is confined to a lower-order
+range; the Brun--Titchmarsh loss in Type~I is not removed.  It is
+exactly the $\log\log N$ in the prime bound
+$\sum_{p\leq N}f_I(p)\ll N\log^2N\log\log N$ of \cite[Thm.~1.1]{ET}, which
+is open even for $m=4$ \cite[\S9]{ET}.  In this subsection every $\ll$
+has an absolute constant, and
+$S'_m(E)=\sum_{e\leq E,\,(e,m)=1}1/\varphi(e)\ll(\varphi(m)/m)\log E$
+for $E\geq\log m$ (by the Euler product, as in Lemma~\ref{lem:hm}).
+
+\begin{lemma}[two harmonic sums]\label{lem:harm2}
+\textup{(a)} For $Y\geq\max(2,\log m)$:
+\[
+ \sum_{\substack{e\leq Y\\(e,m)=1}}\ \sum_{\substack{a,b\leq Y,\ (a,b)=1\\e\mid a+b}}
+ \frac1{\varphi(a)\varphi(b)}\ll\frac{\varphi(m)}m\log^3Y+\log^2Y.
+\]
+
+\textup{(b)} For $U\geq2$ with $\log U\geq\frac12\log(mU)$:
+$\sum_{u\leq U}\tau_3(u)/\varphi(mu-1)\ll(\log^3U+m^{0.02})/m$.
+\end{lemma}
+
+\begin{proof}
+(a) As $(a,b)=1$, $(e,a)=1$.  With $b/\varphi(b)=\sum_{g\mid b}\mu^2(g)/\varphi(g)$,
+for $(\beta,e)=1$ and $\beta_0\in[1,e]$ the least representative,
+$\sum_{b\leq Y,\,b\equiv\beta\,(e)}1/\varphi(b)\ll1/\varphi(\beta_0)+(\log Y)/e$.
+Summing over $a$ in classes $a_0\bmod e$ and using
+$\sum_{a_0+\beta_0=e}1/(\varphi(a_0)\varphi(\beta_0))\ll(\log2e)^2/e$
+gives $\ll(\log^2Y)/e$ per $e\geq2$, and $\log^2Y$ for $e=1$; sum over
+$e$ with $S'_m(Y)$.
+
+(b) Put $n=mu-1$ and $y=\log(mU)$.  As $\omega(n)\leq2y$,
+$n/\varphi(n)\leq\e^4\sum_{s\mid n,\,s\mid P_y}\mu^2(s)/\varphi(s)$.  By
+Rankin's trick with $\sigma=1/\log y$,
+$\sum_{s\mid P_y,\,s>U^{1/2}}1/\varphi(s)\ll U^{-\sigma/2}(\log y)^{\e}\ll y^{-10}$,
+so the $s>U^{1/2}$ contribute $\ll1/m$.  For $s\leq U^{1/2}$, $(s,m)=1$,
+the $u$ lie in the class $m^{-1}\bmod s$.  The $u>s^{1.1}$ are handled by
+Shiu's theorem for $\tau_3$ on dyadic ranges (modulus $s\leq u^{1/1.1}$),
+giving $\ll\log^3U/m$ after summing over $s$.  For $u\leq s^{1.1}$ swap
+the sums: the total is
+$\leq\sum_u\tau_3(u)\tau(mu-1)(mu-1)^{-1}\max_{s\geq u^{1/1.1}}\varphi(s)^{-1}
+\ll m^{0.02}/m$.
+\end{proof}
+
+\begin{proposition}[Type~II]\label{prop:typeII}
+For $\log m\leq L/10$, the number of primes $p\in(N/2,N]$ with a Type~II
+solution is $\ll(N/L)(L^3+m^{0.02})/m$.
+\end{proposition}
+
+\begin{proof}
+Write $p+e=mabd$, $a+b=ce$, $(a,b)=1$, and take $a\leq b$ by symmetry.
+As $(e,m)\mid p$, $(e,m)=1$.  Following \cite[\S9]{ET}, with $abd\leq2N/m$,
+$(made)(macd)(mab)^{1/2}\leq m^{5/2}a^2b\cdot ce\cdot d^2\leq8m^{1/2}N^2$,
+so one of the three moduli is $\leq3m^{1/5}N^{4/5}\leq3N^{0.82}$, and
+Brun--Titchmarsh applies with $\log(N/q)\gg L$.  (i) If
+$made\leq3N^{0.82}$, fix $(a,d,e)$; then $p$ lies in one class modulo
+$made$, and the count is $\ll(N/(L\varphi(m)))L^2S'_m(N)\ll NL^2/m$.
+(ii) If $macd\leq3N^{0.82}$, fix $(a,c,d)$; then
+$p=(macd-1)e-ma^2d$ lies in one class modulo $mu-1$, $u=acd$, and
+Lemma~\ref{lem:harm2}(b) with $U=3N^{0.82}/m$ gives
+$\ll(N/L)(L^3+m^{0.02})/m$.  (iii) If $mab\leq3N^{0.82}$, fix $(a,b,e)$;
+the class is $-e\bmod mab$, and Lemma~\ref{lem:harm2}(a) gives
+$\ll(N/(L\varphi(m)))((\varphi(m)/m)L^3+L^2)\ll NL^2/m$, using
+$\varphi(m)\gg m/\log\log m$ and $\log\log m\leq L$.
+\end{proof}
+
+\begin{lemma}[{\cite[Prop.~1.4]{ET}} with P\'olya--Vinogradov]\label{lem:ETPV}
+Fix $l$.  For $k\geq1$ and $A,D\geq2$ with $k\leq(2AD)^l$,
+\[
+ \sum_{a\leq A,\,d\leq D}\tau(ka^2d+1)\ll_lAD\log(A+D)\bigl(1+
+ \ind[D<k\log^4(kAD)]\log(1+k)\bigr).
+\]
+\end{lemma}
+
+\begin{proof}[Proof sketch with exact pointers]
+If $D\geq A$, apply \cite[Cor.~7.4]{ET} in $d$ for each $a$.  If $D<A$,
+follow the case ``$A\leq B$'' of the proof of \cite[Prop.~1.4]{ET}
+(pp.~30--32; their linear variable is our $d$, their quadratic one our
+$a$), keeping the signed sum \cite[(7.11)]{ET}
+$\sum_{q\leq A,(q,2k)=1}\sum_{d\leq D',(d,2q)=1}(\frac{-kd}q)\frac{\log(A/q)}q$
+after the reduction to odd $d$ ($d=2^jd'$, $2^j$ absorbed into $k$).
+ET treat $q<D'$ (periodicity), $q>kD'$ (reciprocity and partial
+summation) without loss, and lose $\log(1+k)$ only for
+$D'\leq q\leq kD'$, where they bound the symbol by $1$.  We change only
+this range: for non-square $q$ the inner sum is a combination of two
+non-principal character sums, hence $\ll\sqrt q\log q$ by
+P\'olya--Vinogradov (as suggested in \cite[Rem.~1.5]{ET}); squares
+$q=r^2$ give $\ll D'\log A$ in total (this also covers the square $q<D'$,
+where the character is principal, a harmless slip on \cite[p.~31]{ET}).
+The middle range costs $\ll D'\log A(1+\sqrt{k/D'}\log(kD'))$, which is
+$\ll D'\log A$ for $D'\geq k\log^2(kAD)$.  Summing over $j$ with weight
+$2^{-j}$, the lossy $j$ contribute
+$\ll(k\log^2(kAD)/D)^{1/2}\log(kAD)\leq1$ when $D\geq k\log^4(kAD)$.
+\end{proof}
+
+\begin{proposition}[Type~I]\label{prop:typeI}
+For $\log m\leq L/10$ and $L\leq m^{1/2}$, the number of primes
+$p\in(N/2,N]$ with a Type~I solution is
+$\ll(N/L)\bigl[(L^3+L^2\log^2m)\log L/\varphi(m)+m^{-0.35}\bigr]$.
+\end{proposition}
+
+\begin{proof}
+By Brun--Titchmarsh the count is \cite[(3.2)]{PW}
+\[
+ \ll\sum_{mad\leq3N}\frac{\tau(ma^2d+1)\,N}{\varphi(m)\varphi(ad)\log(2+N/mad)}.
+\]  By \cite[(A.12)]{ET},
+$1/\varphi(ad)\ll(ad)^{-1}\sum_{s\mid a,\,t\mid d}1/(st)$; put $a=sa'$,
+$d=td'$, $k=ms^2t$, and split each block $ad\sim X$ into $\ll\log X$
+boxes $a'\sim A'$, $d'\sim D'$, $A'D'\asymp X/(st)$.  Boxes with
+$A'D'\geq k^{1/10}$ are bounded by Lemma~\ref{lem:ETPV} ($l=10$):
+non-lossy boxes give $(X/st)\log X$, and the $\ll\log m+\log(st)+\log L$
+lossy ones ($D'<k\log^4(kN)$) give $(X/st)L\log(1+k)$ each; with the
+weights this is $\ll\log^2X+L\log^2m$ per block (as $\log L\ll\log m$).
+Boxes with $A'D'<k^{1/10}$ use $\tau(n)\ll n^{1/40}$ with $n\leq k^{1.2}$;
+they occur only for $(st)^{1.2}m^{0.1}\gg X$, and in total contribute
+$\ll(N/\varphi(m))m^{0.03}\log^2m\ll(N/L)m^{-0.35}$ (using $L\leq m^{1/2}$).
+Summing the blocks $X=3N2^{-j}/m$, $j\leq2L$, with Brun--Titchmarsh
+weight $\ll1/j$ gives $\ll(N/\varphi(m))(L^2+L\log^2m)\log L$.
+\end{proof}
+
+\begin{lemma}[very large $m$]\label{lem:hugem}
+If $\log m>L/10$, then $\rho_{\rm rep}\leq\e^{CL/\log L}/m$.
+\end{lemma}
+
+\begin{proof}
+Count classes trivially: $\#\{n\leq N:n\equiv r\ (q)\}\leq N/q+1$ and
+$\tau(n)\leq\e^{CL/\log L}$ for $n\leq9N^2$.  The Type~I classes give
+$\sum_{mad\leq3N}\tau(ma^2d+1)(N/(mad)+1)\ll\e^{CL/\log L}(N/m)L^2$, and
+Type~II likewise; then divide by $\pi^*(N)\gg N/L$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~L]
+The first range is Propositions~\ref{prop:typeII} and~\ref{prop:typeI}
+with $\pi^*(N)\gg N/L$; the second is Lemma~\ref{lem:hugem}.  For the
+consequence: if $\rho_{\rm rep}>0$, some $p\leq N$ has a solution, so
+$m\leq3p$ and $L\geq\log(m/3)$; so $L^3\log L/\varphi(m)\to0$ forces
+$m\to\infty$, and then
+$L^2\log^2m\log L/\varphi(m)\leq(L^3+\log^6m)\log L/\varphi(m)\to0$ and
+$m^{-0.35}\to0$, while $L\leq m^{1/2}$ holds eventually.  In the range
+$\log m>L/10$ the bound of Lemma~\ref{lem:hugem} is
+$\leq m^{10C/\log L-1}\to0$, as $L\geq\log(m/3)\to\infty$.
+\end{proof}
+
 \subsection*{The other side}
 Pomerance and Weingartner \cite[Thm.~3.1]{PW} construct many
 $m$-exceptional primes.  Their proof counts, for primes $p\leq N$, the
