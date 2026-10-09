@@ -240,3 +240,34 @@ We did not find such a statement in the literature and do not claim it.
   positivity in the *divisor*: it bounds τ by divisors below the variable length. The sieve weight
   depends on the specific divisor f through `n = 4acd − f`, and in R_bad that f exceeds every
   variable length (Prop 3.3, last sentence), so the trick does not apply.
+
+**3.7 The conditional statement (PROVED, conditional on the hypothesis LD).** For c ≥ 1 let
+`w_c(n) := #{(a,d,f) ∈ ℕ³ : f | 4a²d+1, n = 4acd − f, n/4 < acd ≤ 3n/4}`; by ET Prop 2.2 and Lemma 2.8,
+`f_I(p) ≤ 2 Σ_c w_c(p)`. Put `X_c := Σ_{N/2<n≤N} w_c(n)`.
+
+*Hypothesis LD(η₀, θ, C₀).* For each `c ≤ N^{η₀}` there is a multiplicative `h_c` on squarefree
+numbers with `0 ≤ h_c(ℓ) ≤ 1 + C₀/ℓ` for all primes ℓ and `h_c(ℓ) ≥ 1 − C₀/ℓ` for `ℓ > 2`, such that
+`R_c(q) := Σ_{N/2<n≤N, q|n} w_c(n) − (h_c(q)/q) X_c` satisfies
+`Σ_{c≤N^{η₀}} Σ_{q≤N^θ} μ²(q) 3^{ω(q)} |R_c(q)| ≤ C₀ N log N`.
+
+**Theorem 3.8.** LD(η₀, θ, C₀) for all large N implies `Σ_{p≤N} f_I(p) ≪_{η₀,θ,C₀} N log² N`
+(i.e. ET's conjecture (OPEN-I)).
+
+*Proof.* It suffices to treat `p ∈ (N/2, N]` and sum dyadically. Split the quadruples (a,c,d,f) by
+`ad`. (1) `ad ≤ N^{1−η₀}`: as in ET (8.1), BT for `p ≡ −f (mod 4ad)` gives
+`≪ N/(φ(ad) η₀ log N)` per (a,d,f) (N large), and `Σ_{ad≤N} τ(4a²d+1)/φ(ad) ≪ log³ N` (ET (8.2) over
+dyadic blocks), so this part is `≪ η₀^{−1} N log² N`. (2) `ad > N^{1−η₀}`: then
+`c < 3N/(4ad) < N^{η₀}`, and these quadruples are counted by `Σ_{c≤N^{η₀}} Σ_{N/2<p≤N} w_c(p)`. With
+`z = N^{θ/2} < N/2`, every such p has no prime factor `< z`, so Selberg's upper-bound sieve of
+dimension 1 (Halberstam–Richert, Thm 4.1 with Lemma 4.1; conditions Ω₁, Ω₂(1) hold by the bounds on
+h_c) gives
+`Σ_{N/2<p≤N} w_c(p) ≪_{C₀} X_c Π_{ℓ<z}(1 − h_c(ℓ)/ℓ) + Σ_{q<z²} μ²(q)3^{ω(q)}|R_c(q)|`,
+with `Π_{ℓ<z}(1 − h_c(ℓ)/ℓ) ≪_{C₀} 1/log z`. Finally `X_c ≤ Σ_{ad≤3N/(4c)} τ(4a²d+1) ≪ (N/c) log² N`
+(ET Prop 1.4, k = 4, over dyadic boxes). Summing over c: `≪ (η₀/θ) N log² N + C₀ N log N`. ∎
+
+*Remarks.* (a) By Prop 3.3 and BT, LD is only needed for the part of w_c lying in cells of
+R_bad(η₀); by §3.4 (Assessment) only in R**. In R** it is (H**). (b) The same proof with `4 → m`,
+`k = m` and LD uniform in m (`LD_m`) removes the `log L` from Prop 2.5, giving
+`ρ_rep ≪ (L³ + L² log² m)/m + m^{−0.35}` — i.e. Thm U's order `L³/m` exactly. (c) LD is true in the
+mean over c with level `≤ c^{1−ε}` trivially (c is a linear variable); this is BT, and is exactly
+what is not enough.
