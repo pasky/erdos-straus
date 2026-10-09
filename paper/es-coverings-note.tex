@@ -117,8 +117,12 @@ $2$-adic levels $5$ and $6$ are empty (\status{proved}).  Certificates in
 the sign fibre are norm-one units of a Pell order of a special shape
 (\status{proved}), and none at $\hat x_9$ has $2$-adic level $\le22$ and
 $v_7(k)\le3$, at any height (\status{certified}).  At the levels $7$--$10$
-a certificate at $\hat x_9$ needs $v_7(k)\ge8$ and lies in one explicit
-two-parameter regime (\status{proved} and \status{certified}).  The Type~I-sterile
+a certificate at $\hat x_9$ lies in one explicit two-parameter regime
+(\status{proved} and \status{certified}) and needs $v_7(k)\ge16$
+(\status{certified}).  That regime is the generic large-unit one: no
+polynomial family of units exists there (\status{proved}), and under abc
+each level carries only finitely many certificates
+(\status{conditional}).  The Type~I-sterile
 set is nowhere dense (\status{proved}), and a measure criterion would give
 $C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
 \item \emph{$r=13$} (\S\ref{sec:mordell}).  Primes with $(p/13)=-1$
@@ -971,6 +975,97 @@ exponents in a fixed field or a fixed recurrence, so they do not apply
 directly, and reciprocity gives no obstruction either (\status{Assessment},
 \cite[\S3]{PT5}).
 
+The regime $\sigma\ge1$ was studied further in \cite{PT6} (reviewed in
+\texttt{reviews/pointwise-typei6-review.md}).  It is not closed.  We
+record the three results and the computation.  Write
+$P=c'P_1$, $Q=7^aQ_1$, $u=7^b$ and $Y:=16PX^2=Qu^2+1$ as in
+Proposition~\ref{prop:minunit}, so that $A=2Y-1$.
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~2.1]{PT6}}]\label{prop:nopoly}
+Fix $c_o$ odd and $L\ge7$, and let $\delta$ be an indeterminate.  The
+elements of norm one of $\Q[\delta][\sqrt d]$, $d=c_o(c_o\delta^2+T)$, are
+the $\pm\varepsilon_*^n$, $n\in\Z$, with
+$\varepsilon_*=(2c_o\delta^2+T+2\delta\sqrt d)/T$.  For every odd integer
+$\delta$ and every $n\ne0$ the specialisation of $\varepsilon_*^n$ is not an
+algebraic integer.  The same holds with $c_o$ as the indeterminate and
+$\delta$ fixed.
+\end{proposition}
+
+\begin{proof}[Sketch]
+The two embeddings of $\sqrt d$ into $\Q((1/\delta))$ give two degree maps.
+They show that the units are $\Q^\times\eta^{\Z}$ with
+$\eta=c_o\delta+\sqrt d$, $N(\eta)=-c_oT$; norm one forces an even
+exponent.  For $L\ge7$ we have $d\equiv1\pmod8$, and the roots
+$c_o\delta\pm\sqrt d\in\Z_2$ have $2$-adic valuations $1$ and $L-5$.  So
+$v_2(\varepsilon_*^n)=\pm n(L-6)$ in the two embeddings, which is negative
+in one of them.
+\end{proof}
+
+So for $L\ge7$ the certificate unit is not given by a polynomial formula
+in $\delta$ (or in $c_o$) on any arithmetic progression.  The
+Richaud--Degert or Yokoi route of solving $u_1=7^b$ along a family with
+an explicit fundamental unit is therefore not available.  (For
+$L=5,6$ the element $\varepsilon_*$ is integral.)  Consistently with this,
+by Schinzel's criterion the period of the continued fraction of $\sqrt d$
+is unbounded along every progression of $\delta$ when $L\ge7$
+\cite[Prop.~2.1(c)]{PT6} (cited via van der Poorten; not needed above).
+
+In regime~(v) the unit is large: $\sigma=4u\theta^2-\mu\delta\sqrt P/\zeta$
+exactly, with $\theta=\tfrac T2(\sqrt d-c_o\delta)/(\sqrt d+c_o\delta)$,
+$\mu=8c_o\delta^2+4T$ and $\zeta=4X\sqrt P+u\sqrt Q$.  Hence $\sigma\ge1$
+implies $Y>64c_o^4\delta^8/T^4$, so $A+8k_o\sqrt d>128c_o^4\delta^8/T^4-1$
+\cite[Lemma~3.1]{PT6} (\status{proved}).  Regimes (ii)--(iv) of
+\cite{PT5} are the units below this size.  A typical fundamental unit of
+$\Q(\sqrt d)$ has size $\exp(d^{1/2+o(1)})$, so regime~(v) is the generic
+case, not a degenerate corner (\status{Assessment}).  Closing it means
+showing that the coefficient $u_1(d)$ of
+Proposition~\ref{prop:minunit} is never a power of $7$ for the large-unit
+fields of a two-parameter family.  We know no unconditional method for
+statements of this kind.
+
+\begin{theorem}[\status{conditional} on abc; {\cite[Thm.~3.2]{PT6}}]\label{thm:abc}
+Assume the abc conjecture.  Then for each level $L$ there are only
+finitely many fibre certificates of level $L$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+Apply abc to $1+Qu^2=Y$.  Since $u$ is a power of $7$,
+$\operatorname{rad}(Y\,Qu^2)\le14PXQ_1\ll(d/7^a)\sqrt{Y/P}$.  Together with
+the lower bound on $Y$ in regime~(v), this bounds $\delta$, $a$ and
+$P\ge c'$, hence $d$; each splitting $d=PQ$ carries at most one $b$
+(Proposition~\ref{prop:minunit}).  The other regimes, and the case
+$2y>T7^b$, are finite at each $L$ unconditionally \cite[Prop.~3.3]{PT5},
+\cite[\S3]{PT6}.
+\end{proof}
+
+Theorem~\ref{thm:abc} gives finiteness only.  With the published
+explicit forms of abc (themselves conjectures) the constants are far too
+large to give emptiness of the levels $7$--$10$ \cite[\S3]{PT6}
+(\status{Assessment}).  It does not touch the sterility of $\hat x_9$,
+since $L$ is unbounded.
+
+\begin{computation}[\status{certified}; {\cite[Comp.~4.1, Cor.~4.2]{PT6}}]\label{comp:b15}
+The lower bound on $Y$ gives, for fixed $(L,b)$,
+$P(64c_o^4\delta^8-T^4)<49^bdT^4$, a finite search over
+$(a,c',\delta,P_1)$ at all heights.  The engine \texttt{typei6\_vsearch.c}
+finds no regime-(v) fibre certificate with $L\in\{7,8,9,10\}$ and
+$b\le15$.  It finds all the regime-(v) certificates of
+\texttt{typei4\_lb.c} at $L=11$--$18$, $b\le3$, and all relaxed regime-(v)
+solutions at $L=7,9,10$ (positive controls).  An engine written from
+scratch in review (\texttt{review\_typei6\_vsearch.c}) gives $0$ solutions
+for all $(L,b)$ with $L\le10$, $b\le15$ except $(9,15)$, $(10,14)$,
+$(10,15)$, which rest on the first engine alone.  With
+Theorem~\ref{thm:L710}: \emph{no certificate at $\hat x_9$ has level
+$7\le L\le10$ and $v_7(k)\le15$, at any height.}
+\end{computation}
+
+So a certificate at $\hat x_9$ of level $7$--$10$ needs $v_7(k)\ge16$ and
+$c_o\delta>10^6$.  A naive model, calibrated at the levels $11$--$20$
+where certificates exist, predicts fewer than $10^{-11}$ such
+certificates with $b\ge16$ (\status{evidence}) \cite[\S5]{PT6}.  A
+certificate there would have to be a structured solution, and
+Proposition~\ref{prop:nopoly} excludes the simplest source of structure.
+
 \subsection{Scope of a sterility proof}
 
 \begin{proposition}[\status{proved}; {\cite[Prop.~3.1]{PT3}}]\label{prop:nowhere}
@@ -1486,7 +1581,10 @@ Two routes are visible.  The first is the $7$-adic tower of
 $L$, $v_7(k)=b$) is a finite computation at all heights, so what is open is
 $b\to\infty$ at the levels $L=7,\dots,10$; by Theorem~\ref{thm:L710} only
 the regime $\Delta>2Tj$ with unbounded $(\sigma,\lambda)$ remains there
-(R98 repair).  At the levels $L\ge11$, where the
+(R98 repair), and by Computation~\ref{comp:b15} only with $b\ge16$.
+This asks whether the $\sqrt Q$-coefficient of a large fundamental unit
+of $\Q(\sqrt{c_o(c_o\delta^2+T)})$ can be a power of $7$
+(Proposition~\ref{prop:nopoly}, Theorem~\ref{thm:abc}).  At the levels $L\ge11$, where the
 fibre is inhabited (Remark~\ref{rem:fibrescope}), the exact value $w=9$
 must be used.  The second route is an explicit bound for the
 near-miss count of Remark~\ref{rem:measure}, small enough that the tail
@@ -1528,7 +1626,7 @@ suggest sterile sets of positive measure \emph{within} these thin fibres
 
 \section*{Acknowledgements and provenance}
 This note collects results first written up in the working notes
-\cite{PS,PT1,PT2,PT3,PT4,PT5,PM,PM13B,PM17} of this project, each internally reviewed
+\cite{PS,PT1,PT2,PT3,PT4,PT5,PT6,PM,PM13B,PM13C,PM17,PM17B,PM17C} of this project, each internally reviewed
 by a hostile reviewer who re-derived the proofs and re-ran the main
 computations from independent code (reports in \texttt{reviews/}).  The
 certificates of Theorem~\ref{thm:r13} are in \texttt{data/mordell/}, and
@@ -1584,15 +1682,27 @@ conjecture, research note, this repository
 \bibitem{PT5} Companion note in this repository,
 \texttt{POINTWISE\_TYPEI5.md}; internally reviewed in
 \texttt{reviews/pointwise-typei5-review.md}.
+\bibitem{PT6} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI6.md}; internally reviewed in
+\texttt{reviews/pointwise-typei6-review.md}.
 \bibitem{PM} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell-review.md}.
 \bibitem{PM13B} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL13B.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell13b-review.md}.
+\bibitem{PM13C} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL13C.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell13c-review.md}.
 \bibitem{PM17} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL17.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell17-review.md}.
+\bibitem{PM17B} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL17B.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell17b-review.md}.
+\bibitem{PM17C} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL17C.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell17c-review.md}.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
 \bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
