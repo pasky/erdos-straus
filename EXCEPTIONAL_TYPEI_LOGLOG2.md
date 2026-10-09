@@ -160,3 +160,55 @@ The `≤ w_N L + 1` bad layers cost `≪ (w_N L + 1)NL log L ≪ A₀NL²`.
 `11δL/64 − δL/64 = 5δL/32 ≥ (C+2)log L` because `δ ≥ L^{−1/2}`. Bad layers number `≤ w_N L + 1`. ∎
 *Remark.* Only the D < A side of the strip ever used (SEL). The (b1) side, `D ≥ A`, is unconditional by Weil (TTL
 Prop 7.1). So "the strip" of TTL §9 is exactly the set of layers that are not good, and it lies inside `0 < δ < w`.
+
+## 5. Effectivity of DI Thm 7 / Drappeau Lemma 4.10 (Assessment; audit `scripts/ttl2_di7_effectivity_audit.md`)
+
+A deep-mode subagent audited the scan, journal pp. 228–236, 242–245 and 253–278. I eyeballed pp. 232–233 and
+273–278 (Thm 6/7 statements, the Thm 6 induction (8.11)–(8.12), and the Thm 7 proof (8.17)–(8.19)) and Drappeau's
+§4.2.3 (statements of Lemmas 4.8–4.10, his normalisation (4.7)ff.).
+* **Sources of the ε-losses.** The losses come from four places: divisor bounds `τ(k) ≪ k^ε` (from Weil's bound with
+  τ(c), and from the multiplicity of `k = qc`); log powers; an integration-by-parts step of order `p = ⌊2/δ⌋` in Prop 3,
+  (1.27), p. 257; and the induction on Q, (8.12)/(8.19). The induction closes once `Q₀(ε)^{cε²} ≥ 2K(ε)`. The base case
+  `Q ≤ Q₀` costs a factor `Q₀^{O(1)}`, so `C_ε ≤ K(ε)^{O(ε^{−2})}`.
+* **No ineffective input.** Thm 14 uses Thm 9 only for the full modular group, which has no exceptional spectrum
+  (DI Thm 3). The bound `iκ_j ≤ 1/4` is Selberg's 3/16 (DI Thm 4). No Siegel-type input occurs.
+* **Growth of the constants.** `sup_n τ(n)^B n^{−δ} ≤ exp(exp(O_B(1/δ)))`. The order-`1/δ` integration by parts costs
+  only `exp(O(δ^{−1}log(2/δ)))` if DI's unspecified C^∞ cutoff η is chosen Gevrey-2. With an arbitrary C^∞ cutoff the
+  derivative norms are unquantified, and this is the only place where a choice must be made. Hence `K(δ) ≤ exp(exp(B/δ))`
+  and `C_ε ≤ exp(exp(A/ε))`.
+* **Nebentypus.** Drappeau proves Lemmas 4.9–4.10 (pp. 16–19) by the same two inductions. His inputs are the recurrence
+  Lemma 4.11 (Kuznetsov with χ, the same small/large `|t_f|` split), the twisted Weil bound `τ(c)^{O(1)}(cq₀)^{1/2}`,
+  Prop 4.7, and *untwisted* DI Thm 14. So the same envelope is very plausible. His cited twisted trace formulae were
+  not re-audited.
+* **Status.** (EFF) is an **Assessment**: it says the proofs *can be made* effective with this growth by explicit
+  bookkeeping and an explicit cutoff. Neither paper states a quantitative `C_ε`. Two misprints were found in DI. In
+  (1.41) the radical covers only N, i.e. the bracket is `X√N`, consistent with (8.17). Below (8.18), `Y₁ = √(Q+N)`
+  should read `Y₁ = Q+N`. Neither affects the theorem.
+* **What would make Thm 4.1(ii) PROVED.** A written proof of (EFF). This is a careful but routine rewrite of DI
+  §§5, 7.1, 8 and Drappeau §4.2 with explicit constants. An alternative is any published version of DI Thm 7 and
+  Drappeau Lemma 4.10 with `(QN)^ε` replaced by an explicit loss of size `exp(o(log(QN)/log log(QN)))`. That suffices
+  by Thm 4.1(iii): with `G(1/ε) = exp(exp(A/ε))` one gets `w_N ≍ 1/log L`.
+
+## 6. Re-examination of TTL §3.2 / §9 (the brief's question)
+
+* TTL's claim "DI Thm 5/Thm 6 and Humphries do not close the strip" is **correct as stated**. Thm 5 (one level) and
+  Thm 6 (level average, general `a_n`, bracket `Q + N + NX`) lose a power at `δ → 0`. Humphries' density theorem
+  (single level, a count with `vol^{1−4σ+ε}`) needs a pointwise coefficient bound, which loses `N₀`. A single-level
+  exceptional large sieve with phases (Pascadi 2024, arXiv:2404.04239, Thm 2: `X ≪ max(N, q)` for α = 0, as reported
+  by the literature subagent) also fails, by a factor `D^{σ_j}`, because the needed weight `1/Y ≈ qF'√D` exceeds the
+  level `4Dq²` once `F' ≫ q√D`.
+* What TTL missed is **DI Thm 7** (and Drappeau's nebentypus form): the level-averaged bound for `a_n = 1`. TTL's
+  unfolded coefficients `λφ̂(λn)(π|n|Y)^{−s}` are smooth in n, and the levels `4dq²` vary with d, so Thm 7 applies
+  after partial summation (Prop 2.2). The averaging over d that TTL already does in its assembly (Remark D11) is exactly
+  the level average Thm 7 needs. The average over the sieve modulus q is *not* needed: `q ≤ N^{δ/16}`, and the powers
+  `q^{O(1)}` are absorbed.
+* Kim–Sarnak is not used at all; only Selberg's `σ_j ≤ 1/4` enters, inside DI's proof.
+
+## Replay
+```
+uv run python scripts/ttl2_exponents.py      # Cor 3.2 exponent grid check (0 violations; crude weight fails in b3), <1 min
+```
+Output: `scripts/ttl2_exponents.out.txt`. Research notes: `scripts/ttl2_di7_notes.md` (DI Thm 2/7 statements and
+normalisation), `scripts/ttl2_literature_notes.md` (Pascadi, Drappeau, Humphries, Iwaniec 1990, Blomer–Milićević),
+`scripts/ttl2_di7_effectivity_audit.md` (§5). Drappeau's paper is in `sources/o116/drappeau-1504.05549.pdf` (Lemma
+4.10, p. 16).
