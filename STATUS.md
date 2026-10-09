@@ -26,8 +26,9 @@ refereed; none of them solves ES or any case of it):**
   12670944). The new candidate x** survives through ES level 2.59·10¹⁰ (MORDELL13E, CERTIFIED); sterility
   is a CONJECTURE. For Type I, TYPEI7 proves that 2-adic closeness tests cannot show `x̂_9` sterile.
 * *Papers:* `es-mn-short-note` (29 pp; m/n, density transition, sharp order under SEL; R97, R104, R120 refereed) and
-  `es-typei-heegner-note` (32 pp, O118: the unconditional (D)32a as Theorem 1 and the conditional bound as
-  Theorem 2; referee R118, no FATAL/MAJOR, repairs applied). MN4, TYPEI7 and MORDELL13E are not yet in any paper.
+  `es-typei-heegner-note` (38 pp, O122: main theorem `Σ_{p≤N} f_I(p) ≪ N log²N` PROVED rel. (B1)–(B5) and cited
+  inputs ((D)32b, new Appendix A on effective DI Thm 7 / Drappeau Lemma 4.10); o(·) and SEL versions kept as weaker /
+  alternative; R118 covered v2 only, a referee pass of v3 is pending). MN4, TYPEI7 and MORDELL13E are not yet in any paper.
 
 A novelty audit was run on 2026-10-04 (`reviews/novelty-audit-2026-10.md`).
 * **Known in sharper form:** the exchangeable core of the sieve-limit

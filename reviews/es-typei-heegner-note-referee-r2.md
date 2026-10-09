@@ -126,3 +126,18 @@ Not re-verified by me (could not access): Iwaniec §11 / Huxley 1984 locators fo
 reading of Drappeau Lemma 4.10; Theorem 2 is correctly CONDITIONAL on (SEL) or (EFF). The new §9 is a faithful
 and correct write-up of EXCEPTIONAL_TYPEI_LOGLOG2 that also absorbs the R116 review points (t=0 not exceptional,
 reflection, w_N ≤ 1/4, q₀ reading). Internal review only; not external refereeing. ES is not claimed.
+
+## Post-referee addition (O122)
+After this referee pass the paper was restructured (task O122, 38 pp): new title "The Elsholtz–Tao Type I sum is
+O(N log²N)"; **Theorem 1 = `Σ_{p≤N} f_I(p) ≪ N log²N` (hence ≍ with ET's lower bound), PROVED relative to the cited
+inputs and the classical black boxes (B1)–(B5)** (trace formulae, Weil, twisted Weil with absolute constants,
+Selberg 3/16, λ₁(SL₂(ℤ)) > 1/4), stated in the intro; Theorem 2 = the o(N log²N log log N) bound from the published,
+unquantified DI Thm 7 / Drappeau Lemma 4.10; the SEL route (Thm 8.2) is kept as an alternative proof. (EFF) is now
+Theorem 9.8 (was Hypothesis 9.8; numbering unchanged), Thm 9.9(ii) is PROVED, and the old effectivity Assessment is
+Remark 9.11 (history). New **Appendix A** (write-up of EXCEPTIONAL_TYPEI_LOGLOG3, (D)32b; reviews
+`reviews/exceptional-typei-loglog3-review-A.md`, `-B.md`): Theorem A.1 with `C_ε ≤ 200ε⁻¹K₇^χ(ε/6) ≤ exp(exp(A₀/ε))`;
+black boxes; toolkit (divisor bound, log absorption, Gevrey-2 cutoff); the effective induction with the nebentypus
+small-C branch (full proofs); effective Thm 2, Thm 14, Lemma 8.1 (statements, key mechanisms, pointers to
+`scripts/ttl3_*.md`); assembly; list of corrections to DI/Drappeau; status of shape-checked majorants. §9 intro, §10,
+open problems (now: independent verification / numerical A₀; asymptotic; other routes; m/n) updated.
+**This referee report does not cover the restructuring or Appendix A**; a new referee pass is required.

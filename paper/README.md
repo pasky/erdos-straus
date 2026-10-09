@@ -1,5 +1,14 @@
 # Paper draft status
 
+**Update (O122): `es-typei-heegner-note.tex` / `.pdf` v3** (38 pp) — new title "The Elsholtz–Tao Type I sum is
+O(N log²N)". Main Theorem 1: `Σ_{p≤N} f_I(p) ≪ N log²N` (≍ with ET's lower bound), **PROVED relative to** the cited
+inputs and the classical black boxes (B1)–(B5) (trace formulae; Weil; twisted Weil with absolute constants; Selberg
+3/16; λ₁(SL₂(ℤ)) > 1/4). Theorem 2 (o(N log²N log log N)) uses only the published DI Thm 7 / Drappeau Lemma 4.10;
+the (SEL) route is an alternative proof. New Appendix A "Effective versions of DI Thm 7 and Drappeau Lemma 4.10"
+(source EXCEPTIONAL_TYPEI_LOGLOG3, (D)32b): `C_ε ≤ exp(exp(A₀/ε))`, effective induction incl. nebentypus small-C
+branch, pointers to `scripts/ttl3_*.md`, list of minor corrections to DI/Drappeau. Internally reviewed only; needs
+expert scrutiny; the restructured paper awaits a referee pass (`reviews/agent-reports/AGENT_REPORT_O122.md`).
+
 **Update (O120): `es-mn-short-note.tex` / `.pdf`** (29 pp) — new §9 "Under Selberg's eigenvalue conjecture"
 (EXCEPTIONAL_MN4, review R117): sharp-order transition CONDITIONAL on SEL_m (PROVED for m > L⁵); m-uniform
 unconditional transfer stated as open. See `reviews/agent-reports/AGENT_REPORT_O120.md`. (This README was
