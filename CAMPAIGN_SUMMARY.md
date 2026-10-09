@@ -1406,7 +1406,8 @@ specialist search would not find an identical prior statement.
   TUPLES2, INTERFREQ2, POINTWISE_OMEGA17, POINTWISE_MN/MN2/MN3, POINTWISE_TAIL,
   POINTWISE_TYPEI2/TYPEI3/TYPEI4, POINTWISE_WINDOW3, EXCEPTIONAL_WEIGHTS/WEIGHTS2,
   EXCEPTIONAL_SHORT, EXCEPTIONAL_MN, POINTWISE_TYPEI5, POINTWISE_MORDELL,
-  POINTWISE_MORDELL13B, POINTWISE_MORDELL17 and POINTWISE_MORDELL17B.
+  POINTWISE_MORDELL13B, POINTWISE_MORDELL13C, POINTWISE_MORDELL17,
+  POINTWISE_MORDELL17B, POINTWISE_MORDELL17C, POINTWISE_TYPEI6 and EXCEPTIONAL_MN2.
 
 **Other attribution notes:**
 * Theorem W1 is also implied by Fuchs–Hsu–Rickards–Schindler–Stange 2025
@@ -1507,14 +1508,15 @@ ratings are this summary's judgement, not ledger labels.
    levels 5–6 empty; TYPEI4: no certificate at level ≤ 22 with `v_7(k) ≤ 3` at
    any height, CERTIFIED; the open part is the 7-adic tower `v_7(k) → ∞` at
    levels 7–10, an exponential-Diophantine problem; TYPEI5: there a certificate
-   needs `v_7(k) ≥ 8` and lies in one two-parameter regime). Analogous candidate
+   needs `v_7(k) ≥ 8` and lies in one two-parameter regime; TYPEI6: `v_7(k) ≥ 16` (CERTIFIED), and the
+   polynomial fundamental-unit route provably fails). Analogous candidate
    sterile points for Mordell-type coverings: x** = x(2,15) for r = 13
    (MORDELL13B Conj 5.2; the earlier candidate x*, Conj 4.2, is REFUTED,
    ledger (F)11) and r = 17
    (Conj 4.3, reduced by MORDELL17 Thm 4.1 to an explicit prime-power
    count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
    MORDELL17B Thm 4.1: ET's exponent 2/5 with an explicit constant below 1.4097
-   and no o(1) would suffice).
+   and no o(1) would suffice; MORDELL17C: cumulative bounds suffice, constant 1.497).
    No sterile point is proved. A proved one would give `C(7) = ∞` under H
    (for `x̂_9`), or show that no finite set of polynomial ES identities
    covers the corresponding primes (r = 13, 17).
