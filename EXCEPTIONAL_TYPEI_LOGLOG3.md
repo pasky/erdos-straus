@@ -68,6 +68,9 @@ normalisation, TTL2 §1), and `S*(Q,Y,N) := sup_I S(Q,Y,N,0;I)`. Two trivial fac
 `Σ_{n∈I} n^{it}ρ(n) = N₁^{it}A(N₁) − it∫_N^{N₁}A(ξ)ξ^{it−1}dξ`; so `|·|² ≤ 2|A(N₁)|² + 2t²(log 2)∫_N^{2N}|A(ξ)|²dξ/ξ`
 (Cauchy–Schwarz for `dξ/ξ` on `[N,2N]`); multiply by `Y^{2σ_j}`, sum, and use `(log 2)² ≤ 1`. ∎
 
+S is defined by the same finite sum for every real `Q > 0` (empty if `16Q < 1`); this is needed only to make sense of
+the right side of (P2) when `πNY/Q < 1` — in that range `ttl3_lemma81_effective.md` §3.5 bounds the left side of (P2) by
+its error term alone, and the induction below only invokes (P2) when `πNY/Q ≥ N ≥ 1` (R-C M2).
 **Inputs (to be proved effective in §§3–6), for every `δ ∈ (0, 1/10]`, all `Q, Y, N ≥ 1` and all I:**
 * **(P1)** (DI p. 276–277: (8.7) + Thm 14) `S*(Q,Y,N) ≤ K₁(δ)(QNY)^δ (Q + N + Y) N`.
 * **(P2)** (DI Lemma 8.1, (8.5)) `S(Q,Y,N,0;I) ≤ c(δ)∫_ℝ S(πNY/Q, Y, N, t; I) dt/(t⁴+1) + c(δ)(YN)^δ(Q + N + NY/Q)N`.
@@ -104,8 +107,9 @@ use `δ^{−2} ≤ e^{2/δ}/4` and `exp(B/δ) ≥ e^{10}` for δ ≤ 1/10. ∎
 
 Suppose DI Thm 2 (1.29) holds at the cusp ∞ of Γ₀(q) (`μ(∞) = 1/q`) in the form
 `Σ_{|κ_j|≤K} |Σ_{N<n≤2N} a_nρ_{j∞}(n)|²/ch(πκ_j) ≤ K_{T2}(δ)(K² + q^{−1}N^{1+δ})‖a‖²`. For exceptional `κ_j = −iσ_j`,
-`ch(πκ_j) = cos(πσ_j) ∈ [2^{−1/2}, 1]` and `|κ_j| ≤ 1/4`; take K = 1, `Y = 1` weights `= 1`, `‖a‖² ≤ N`, and sum over
-`Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + (1 + log 16)N^{1+δ}`. So (P3) holds with `K₂ := 17K_{T2}`. ∎
+`ch(πκ_j) = cos(πσ_j) ∈ [2^{−1/2}, 1]` and `|κ_j| ≤ 1/4`; take K = 1, `Y = 1` weights `= 1`, `‖1_I‖² ≤ N + 1 ≤ 2N` (closed
+intervals; R-C M1), and sum over `Q < q ≤ 16Q`: `Σ_q (1 + N^{1+δ}/q) ≤ 15Q + 1 + (1 + log 16)N^{1+δ} ≤ 16(Q + N^{1+δ})`.
+So (P3) holds with `K₂ := 32K_{T2}` (Thm 2 is proved for closed `[N,2N]`, `ttl3_thm2_effective.md` §1). ∎
 
 ## 4. (P1), (P2): effective Lemma 8.1 and the preliminary bound (`scripts/ttl3_lemma81_effective.md`)
 
@@ -158,7 +162,7 @@ is not needed (the `(UV)^{δ/2}` and log factors are summed explicitly over dyad
 *Proof.* Thm 2.2 with (P1)–(P3) from Props 4.1, 5.1 (via §3) and 6.1. Constants: `K_{T2}(δ) ≤ exp(exp(100/δ))`,
 so `K_{T2}(δ/4) ≤ exp(exp(400/δ))`; `K₁₄(δ/4) ≤ exp(exp(404/δ))`; `D(δ/4) = (8/δ)^{2^{4/δ}} ≤ exp(exp(3/δ))`;
 hence `K₁, c ≤ exp(exp(405/δ))` (the factors `Aδ^{−2}` are absorbed since `exp(405/δ) − exp(404/δ) ≥ e^{4040}`),
-`K₂ = 17K_{T2}(δ)`, and Cor 2.3 with `B = 405` gives `exp(exp(408/δ))`. ∎
+`K₂ = 32K_{T2}(δ)`, and Cor 2.3 with `B = 405` gives `exp(exp(408/δ))`. ∎
 
 ## 8. Nebentypus (Drappeau Lemma 4.10) — the induction with repairs (PROVED rel. (P1χ)–(P3χ))
 
@@ -170,7 +174,7 @@ defined for every `Q > 0` (DI normalisation of ρ_f), `Sχ* := sup_I Sχ(·,0;I)
 * **(P1χ)** for all `Q > 0`: `Sχ*(Q,Y,N) ≤ K₁(δ)(NY)^δ(Q + N + Y)N`;
 * **(P2χ)** for `Q ≥ 1`, with `C := πNY/(rQ)`: `Sχ(Q,Y,N,0;I) ≤ c(δ)∫Sχ(C,Y,N,t;I)dt/(1+t⁴) + c(δ)(QYN)^δ(Q + N + NY/Q)N`;
 * **(P3χ)** for `Q ≥ 1`: `Sχ(Q,1,N,0;I) ≤ K₂(δ)(Q + N^{1+δ})N`;
-with `K₁ = K₁χ, c = cχ, K₂ = 17K_{LSχ}` independent of r and χ. Note the switched parameter C carries the
+with `K₁ = K₁χ, c = cχ, K₂ = 32K_{LSχ}` independent of r and χ. Note the switched parameter C carries the
 factor `1/r` and can be `< N`, even `< 1`; there the induction hypothesis is unavailable (Dr's "r appears only with
 negative powers" needs this extra branch).
 
@@ -208,7 +212,7 @@ even character χ (r = 1: trivial character), uniformly in r and χ — holds fo
 `b := max(4, ⌈B_W + 1⌉)`. (E.g. `A₀ < 2·10⁴` if `B_W ≤ 3`, `C_W ≤ 10`.)
 *Proof.* Thm 8.2 (r = 1 is Thm 7.1 up to the level renaming). Constants: `K_{LSχ}(δ) ≤ exp(exp(B_χ/δ))`
 (`ttl3_thm2_twisted.md`; for r = 1 one may use `K_{T2}`), hence (`ttl3_lemma81_twisted.md`, with `K₁₄(δ/4) ≤
-exp(exp(404/δ))`) `K₁χ, cχ ≤ exp(exp((4B_χ+1)/δ))`, `K₂χ = 17K_{LSχ}(δ)`; as in Cor 2.3 (with the extra `200cK₁`),
+exp(exp(404/δ))`) `K₁χ, cχ ≤ exp(exp((4B_χ+1)/δ))`, `K₂χ = 32K_{LSχ}(δ)`; as in Cor 2.3 (with the extra `200cK₁`),
 `K₇χ(δ) ≤ exp(exp((4B_χ+4)/δ))`. Conversion to TTL2's form: levels `L = rq ≤ M₀` are covered by
 `≤ 2 + log M₀` blocks `(Q_i, 16Q_i]`, `Q_i ≥ 1/16`; the prefix `[1,t]` by the closed intervals `[2^k, min(2^{k+1}−1, t)]`,
 `k ≤ log₂ t` (Cauchy–Schwarz over `≤ 1.5 log(2t)` blocks; `Σ 2^k ≤ 2t`). With `δ = ε/6`:
