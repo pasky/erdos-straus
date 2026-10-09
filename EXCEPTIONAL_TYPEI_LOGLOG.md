@@ -210,6 +210,10 @@ matrix is unitary on the critical line, so the n = 0 part contributes `≪ λ²/
 `K_{it}(x) = ½Σ_± Γ(±it)(x/2)^{∓it}(1 + O(x²))`. Then
 `⟨P,u_j⟩ = Σ_± ½Γ(±it_j)π^{∓it_j} Y^{−1/2∓it_j} Ŵ_±(t_j) Σ_n ρ̄_j(n) λφ̂(λn)|n|^{∓it_j} + (O((𝓛Y/λ)²)-terms of the same shape)`,
 with `|Γ(it)|² = π/(t sinh πt)` and `Ŵ_±` rapidly decreasing, so only `|t_j| ≤ K = 𝓛` matters.
+For `|t_j| ≤ 1` the two `±` terms must not be separated (each is `≍ 1/|t|`); there use instead the Mellin
+representation `K_{it}(x) = (4πi)^{−1}∫_{(σ₀)} Γ((s+it)/2)Γ((s−it)/2)(x/2)^{−s} ds` with `σ₀ = 1/𝓛`, so
+that `(nY)^{−s}` has modulus `≍ 1` and the Gamma factors have an integrable `1/|v ± t|` singularity
+(cost `O(log 𝓛)`); the large sieve is then applied for each fixed `s` on the contour.
 (6) The `|n|^{∓it_j}`: split `t_j` into unit intervals `[k, k+1]`; for `t = k+τ`,
 `sup_{τ∈[0,1]} |S(τ)|² ≤ |S(0)|² + ∫_0^1 (|S|² + |S'|²) dτ` with `S'` having coefficients multiplied by
 `−i log|n| = O(𝓛)`; apply the large sieve to each fixed-τ coefficient vector `b_n = λφ̂(λn)|n|^{−ik−iτ}`
