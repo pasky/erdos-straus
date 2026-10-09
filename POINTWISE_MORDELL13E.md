@@ -88,3 +88,23 @@ first level where they appear.
 
 The deepest 13-adic agreement is `13⁴` (with miss 1331). So x\*\* is not isolated from the boxes by a wide margin: it is
 missed by one digit in several independent ways, and its survival is "generic", not structural.
+
+## 4. What a proof of sterility would need
+
+**Proposition 4.1 (measure criterion near x\*\*; PROVED, as MORDELL17 Thm 4.1).** Let `N₀` be a level through which
+the enumeration is complete, `U = 1 − |C_3 ∩ ⋃_{N(β)≤N₀} β|/|C_3|` (Comp. 3.2: `U ≥ 1−7.7·10⁻⁵` for `N₀=4.6·10⁹`).
+If `Σ_{β: N(β)>N₀} μ_3(β) < U`, then `C_3` contains a sterile point: a point of Σ₁₃(main) in no ET class of the seven families.
+Hence (13B §5, Dirichlet) no finite ET covering exists for the Mordell-hard primes with `(p/11)=(p/13)=−1`.
+*Proof.* Countable additivity: the boxes of level `>N₀` cover at most `Σμ_3 < U` of `C_3`, which is less than what
+the levels `≤N₀` leave uncovered. ∎
+
+*What the hypothesis needs.* A box of T-level F meeting `C_3` without containing all of it has `v_11(F)≥4` or `v_13(F)≥4`,
+and `μ_3(β) = 11^{−max(0,v_11(F)−3)}13^{−max(0,v_13(F)−3)}`. So one needs an explicit bound for the number of T-generic
+data of ES level N whose box lies in `C_3`, summable against these weights, for **every** `N>N₀`. That is the open
+explicit-ES-count problem of MORDELL17 §4/§6 (P-type data have box level ≈ `N^{1/2}`, against ET's
+`N^{2/5+o(1)}` solutions with non-explicit constants). It is now posed at two primes instead of one. Nothing here closes it.
+
+*For x\*\* itself* no measure argument suffices (a point has measure 0). By §2, a proof cannot use only `x mod 143`.
+It would have to show, for every T-level F with `v_11(F)≥3` or `v_13(F)≥3`, that the box centres at F avoid the
+specific 13-adic digit pattern of 15 (`15 = 2 + 1·13`). Comp. 3.3 shows that the centres come within one digit of x\*\*
+in several unrelated ways. We see no structure to exploit (Assessment).
