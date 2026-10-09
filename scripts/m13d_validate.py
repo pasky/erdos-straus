@@ -1,6 +1,8 @@
 """Validate the C engine (m13d_wit.c) against m13c_witness.witness_all (complete Python engine, §2 of 13C).
 
-usage: m13d_validate.py tree.json[.gz] nleaves seed [nchild]
+usage: m13d_validate.py tree.json[.gz] nleaves seed [nchild] [dropmin dropmax]
+  (optionally each leaf x mod L is replaced by x mod L', L' = L without its k largest prime powers,
+   k uniform in [dropmin, dropmax] — to keep the Python reference engine fast)
   * nleaves random open leaves of the tree: full witness SETS must agree (all mode);
   * for nchild of them, a random split prime p: every child y mod L*p, compared with req = p^v_p(Lp):
     C set == Python set restricted to classes with req | M; and first-mode answers must be in the set.
@@ -43,6 +45,14 @@ def main():
     nch = int(sys.argv[4]) if len(sys.argv) > 4 else 0
     random.seed(seed)
     S = random.sample(opens_of(path), nl)
+    if len(sys.argv) > 6:
+        from sympy import factorint
+        d0, d1 = int(sys.argv[5]), int(sys.argv[6]); S2 = []
+        for x, L in S:
+            F = factorint(L); k = random.randint(d0, d1)
+            for p in sorted(F)[len(F) - k:]: L //= p ** F[p]
+            S2.append((x % L, L))
+        S = S2
     E = Engine(); bad = 0; nonempty = 0; tc = tp = 0.0; nchk = 0
     for i, (x, L) in enumerate(S):
         t0 = time.time(); c = set(E.query(x, L, all=True)); t1 = time.time()
