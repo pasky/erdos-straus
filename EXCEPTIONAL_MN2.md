@@ -11,17 +11,19 @@ Status labels as in DISCOVERIES.md. "MN" = `EXCEPTIONAL_MN.md` ((D)31; PROVED re
 Let `ρ_exc(m,N)` / `ρ_rep(m,N)` be the proportions of m-exceptional / m-representable primes in
 (N/2, N], and `A = log N / m^{1/3}`.
 
-* **Theorem U (upper side; PROVED rel. MN Cor 3.2, Bombieri–Vinogradov, Shiu; §1).**
+* **Theorem U (upper side; PROVED rel. MN Cor 3.2, Bombieri–Vinogradov, BT, PNT, Shiu; ineffective; §1).**
   `ρ_exc → 0` as `A → ∞`, uniformly in m ≥ 4: for every ε > 0 there is `A_ε` (ineffective) with
   `ρ_exc ≤ ε` whenever `log N ≥ A_ε m^{1/3}`. Quantitatively (Thm 1.3) `ρ_exc ≤ 3e^{−a s}` for
-  `log N ≥ C_1 s^{4/3} m^{1/3}`, `N ≥ N_0(s)`. This removes the `(log m)^{4/3}` of MN Cor D:
-  **g ≡ 1 on the upper side.** Mechanism: bounded-depth Bonferroni in the *reduced* CRT model
+  `log N ≥ C_1 s^{4/3} m^{1/3}`, `N ≥ N_0(s)`. This removes the `(log m)^{4/3}` of MN Cor D *for the statement* `ρ_exc = o(1)` (resp. `ρ_exc ≤ ε`):
+  **g ≡ 1 on the upper side.** Cor D's rate `ρ_exc ≤ 1/L` is **not** improved (it would need
+  `s ≍ log L`, r ≍ log L, beyond BV's fixed-A range) (R102A/B repair). Mechanism: bounded-depth Bonferroni in the *reduced* CRT model
   (every fibre is reduced for primes, so MN's void needs no selector) + BV at level `N^{0.45}`;
   the term multiplicities are polylog on average (Shiu), which BV absorbs.
 * **Theorem L (lower side; PROVED rel. ET Thm 7.1/Prop 1.4 proof, BT, Shiu; §3).**
   `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}` (for `log m ≤ L/10`, `L ≤ m^{1/2}`), so
   `ρ_rep → 0` whenever `L³ log L/φ(m) → 0`, in particular when `A·(m log m/φ(m))^{1/3} → 0`.
-  Improves PW's `L³ log² m/φ(m)` by a factor log m: Type II is made sharp (`≪ L³/m`, ET's 3-way
+  Improves PW's unsimplified Type I bound `L³ log L log m/φ(m)` (PW §3, before `N < e^m`) by a factor
+  `min(log m, L/log m)` — a full log m for `L ≥ log² m`, which holds at the transition (R102A/B repair): Type II is made sharp (`≪ L³/m`, ET's 3-way
   flip + coprimality of e to m); in Type I, ET Prop 1.4's `log(1+k)` is confined to a lower-order
   region by Pólya–Vinogradov. **What remains is exactly ET's Type I Brun–Titchmarsh `log log N`**
   (ET Thm 1.1's prime bound, open at m = 4) and `m/φ(m)` from Type I.
@@ -69,7 +71,8 @@ is *active* iff `k | u + cv`; at a fixed ℓ the active atoms have pairwise dist
 `E[C(H, r+1) | c] = Σ_{ℓ_1<…<ℓ_{r+1}} Π_i f_c(ℓ_i)/(ℓ_i−1) ≤ (μ'_c)^{r+1}/(r+1)!`,
 with `μ_c = Σ_ℓ f_c(ℓ)/ℓ ≤ μ'_c = Σ_ℓ f_c(ℓ)/(ℓ−1) ≤ 2μ_c`. Since c is reduced mod L_K,
 MN Cor 3.2 gives `a_u s ≤ μ_c ≤ C_u s`. With `(r+1)! ≥ ((r+1)/e)^{r+1}`:
-`E[Q_r(H)|c] ≤ e^{−a_u s} + (2eC_u s/(r+1))^{r+1} ≤ e^{−a_u s} + e^{−(r+1)}`. Average over c. ∎
+`E[Q_r(H)|c] ≤ e^{−a_u s} + (2eC_u s/(r+1))^{r+1} ≤ e^{−a_u s} + e^{−(r+1)}`. Average over c. (Note `a_u ≤ C_u`, as both bound μ_c on the nonempty set of reduced fibres; so
+`r ≥ 2e²C_u s ≥ a_u s` as used in Thm 1.3 (R102A/B repair).) ∎
 
 (Compared with MN Lemma 4.1, no selector `S_y` and no bad-fibre event `Z(c) > η` are needed:
 in the reduced model every fibre is reduced. This is exactly the prime situation.)
@@ -78,8 +81,8 @@ in the reduced model every fibre is reduced. This is exactly the prime situation
 `Q_r(H(n)) = Σ_{B ⊆ 𝒜, |B| ≤ r} (−1)^{|B|} 1[n ∈ ∩_{A∈B} E_A]`. Drop the B with
 `∩ E_A = ∅` (identically zero). Each remaining B has *distinct* ℓ's (MN Lemma 1.3) and
 `∩_B E_A` is one unit class `a_B mod q_B`, `q_B = lcm(k_A ℓ_A) = q'_B Π_{A∈B} ℓ_A`,
-`q'_B = lcm(k_A) ≤ K^r`. Let `M(q) = #{B : q_B = q}`. Then, for fixed r and `X ≥ X_2(r)`,
-`S_2 := Σ_q M(q)²/φ(q) ≤ C(r) t^{17r + 4^r}` (for `X ≥ X_1`; `C(r)` depends on r, κ only).
+`q'_B = lcm(k_A) ≤ K^r`. Let `M(q) = #{B : q_B = q}`. Then, for fixed r,
+`S_2 := Σ_q M(q)²/φ(q) ≤ C(r) t^{17r + 4^r}` (for `X ≥ X_1`; `C(r)` depends on r, κ only; no other size condition (R102A/B repair)).
 
 *Proof.* Since `k ≤ K < X^{1/2} < ℓ`, the ℓ's of B are exactly the prime factors of q above
 `X^{1/2}`, each carrying one atom; given q and ℓ | q, that atom is fixed by `k | q' := q/Πℓ` and
@@ -110,7 +113,8 @@ Every m-exceptional prime p has `Q_r(H(p)) ≥ 1`, so
 Write `π*(N; q, a) = π*(N)/φ(q) + Δ(q, a)`. The main terms sum to `π*(N) E[Q_r(H(ñ))]`
 exactly (`P(ñ ≡ a_B mod q_B) = 1/φ(q_B)`, `a_B` a unit), which is `≤ π*(N)(e^{−a_u s} + e^{−(r+1)})`
 by Lemma 1.1. For the error, by Brun–Titchmarsh `|Δ(q,a)| ≤ C N/(φ(q) L)` (q ≤ N^{0.45}), and by
-BV (with `π*` = difference of two BV sums) `Σ_{q≤N^{0.45}} max_{(a,q)=1}|Δ(q,a)| ≪_{A'} N L^{−A'}`. Cauchy–Schwarz:
+BV (with `π*` = difference of two BV sums) `Σ_{q≤N^{0.45}} max_{(a,q)=1}|Δ(q,a)| ≪_{A'} N L^{−A'}`. (Δ is centred at `π*(N)/φ(q)`, BV at `(li N − li N/2)/φ(q)`; the switch costs
+`|π*(N) − (li N − li N/2)| Σ_q M(q)/φ(q) ≪ N e^{−c√L}(S_2 Σ_{q≤N}1/φ(q))^{1/2} ≪ N e^{−c√L} t^{O_r(1)} L` by PNT (R102A/B repair).) Cauchy–Schwarz:
 `Σ_B |Δ(q_B,a_B)| ≤ Σ_q M(q) max_a|Δ(q,a)| ≤ (Σ_q M(q)² C N/(φ(q)L))^{1/2} (C_{A'} N L^{−A'})^{1/2}`
 `≤ C'(r) N (t^{17r+4^r} L^{−1−A'})^{1/2} ≤ C'(r) N/L^{3}` for `A' = 17r + 4^r + 5` (`t ≤ L`), which is
 `≤ N/L²` for N ≥ N_0(s).
@@ -126,7 +130,7 @@ all `m ≥ 4` and N with `log N ≥ A_ε m^{1/3}`:
 
 *Remarks.* (i) Quantitatively, Theorem 1.3 gives proportion `≤ 3exp(−a (A/C_1)^{3/4})` whenever
 N is large in terms of A (ineffective BV constant at level `L^{−A'(r)}`, `r ≍ A^{3/4}`); MN Cor D
-covers `A ≥ C (log m)^{4/3}` effectively-in-form. (ii) The m-dependence enters only through
+covers `A ≥ C (log m)^{4/3}` with the explicit rate `ρ_exc ≤ 1/L` (also ineffective) (R102A/B repair). (ii) The m-dependence enters only through
 MN Cor 3.2 (`μ_c ≍ t³/m` on every reduced fibre, absolute constants) — the *same* scaling the
 lower side must match. (iii) No GRH: BV level 1/2 is ample since the Bonferroni level is
 `e^{O(rt)}` with r bounded.
@@ -141,7 +145,9 @@ brute force (`scripts/emn2_brute.py`: smallest denominator `s ∈ (p/m, 3p/m]` p
 `A/B = 1/y+1/z ⟺ ∃ u, v | B, A | u+v`): 0 mismatches for all `4 ≤ m ≤ 40`, `p < 1500`
 (e.g. 105 exceptional primes for m = 40). Primes are sampled (every k-th prime, ~600–800 per window).
 
-**2.1 Half-point `L_{1/2}(m)`** (`scripts/emn2_half.py 800 …`, output `scripts/emn2_half.out.txt`):
+**2.1 Half-point `L_{1/2}(m)`** (`scripts/emn2_half.py 800 …`, output `scripts/emn2_half.out.txt`; its rows
+m ≤ 24 are pinned at the grid start N = 16 and are artefacts (R102A/B repair)). Independently reproduced by R102A
+(different exact decision procedure, 3 726 primes, 0 mismatches) and R102B (75 753 (m,p) pairs):
 L_q = log N at which the representable proportion in (N/2, N] reaches q.
 
 | m | φ/m | L_.25 | L_.5 | L_.75 | L_.5/m^{1/3} |
@@ -165,11 +171,11 @@ L_q = log N at which the representable proportion in (N/2, N] reaches q.
 primes 1.63 (61), 1.79 (151), 1.71 (251), 1.80 (293).
 
 * **Even m ∈ [60, 300]** (all sampled composites in the table above are even; R-self MAJOR 5):
-  `L_{1/2}/m^{1/3} = 1.95 ± 0.05` with no trend; local log-log slope 60 → 300: `0.333`. A
+  `L_{1/2}/m^{1/3} = 1.95 ± 0.05` with no trend; local log-log slope 60 → 300: `0.333 ± 0.02` (L_{1/2} uncertain by ±0.1–0.2 at ~800 primes/window (R102A/B repair)). A
   `(log m)^{4/3}` (MN Cor D) or `(log m)^{−2/3}` (PW) correction would change the ratio by factors
-  1.53 resp. 0.76 over this range; neither is visible.
+  1.56 resp. 0.80 over this range (R102A/B repair); neither is visible.
 * **Odd m** sit lower (odd composites 1.77–1.92, odd primes 1.63–1.80) and drift upward: local
-  slopes 0.36 (odd composites 63 → 273) and 0.40 (primes 61 → 293). This is a **parity effect**, not a
+  slopes 0.36 ± 0.03 (odd composites 63 → 273) and 0.40 ± 0.03 (primes 61 → 293) (R102A/B repair). This is a **parity effect**, not a
   prime/composite effect. The data are consistent with a common limit near 1.95 approached from
   below for odd m, but cannot by themselves exclude a slowly varying factor for odd m. Within each
   parity class there is no visible dependence on φ(m)/m.
@@ -192,7 +198,7 @@ show a slower approach. Proportions are over primes `p ∤ m` (the scanner skips
 ## 3. Lower side: re-deriving PW's first moment with smaller losses
 
 PW (proof of Thm 3.1) bound the proportion `ρ_rep` of m-representable primes in (N/2, N] by
-`≪ L³ log² m/φ(m)` (range `m^{1/4} ≪ L < m`). Their losses relative to the heuristic `L³/m`:
+`≪ L³ log² m/φ(m)` (unsimplified: Type I `L³ log L log m/φ(m)`, Type II `L³ log L/φ(m)` (R102A/B repair); range `m^{1/4} ≪ L < m`). Their losses relative to the heuristic `L³/m`:
 (a) Type II: Brun–Titchmarsh (BT) near modulus N (`log L`) and `φ(m)` instead of m (coprimality
 of e to m unused); (b) Type I: ET Prop 1.4's `log(1+k)` (k = m·…) and BT near modulus N (`log L`).
 Below: (a) is removed completely; in (b) the `log(1+k)` loss is confined to a lower-order region;
@@ -218,17 +224,17 @@ Now sum over `e ≤ Y`, `(e,m) = 1`: `Σ (log² Y)/e ≤ log² Y · S'_m(Y) ≪ 
 (b) (Corrected; R-self FATAL 1: the earlier "Shiu after removing the least element" step was false.)
 Put `n = mu − 1 ≤ mU`, `y = log(mU)`. Since `ω(n) ≤ 2y`, `Π_{p|n, p>y}(1−1/p)^{−1} ≤ e^4`, so
 `n/φ(n) ≤ e^4 Σ_{s|n, s|P(y)} μ²(s)/φ(s)`. Rankin with σ = 1/log y:
-`Σ_{s|P(y), s>S} 1/φ(s) ≤ S^{−σ} Π_{p≤y}(1 + p^σ/(p−1)) ≪ S^{−1/log y}(log y)^{2e}`, which for
+`Σ_{s|P(y), s>S} 1/φ(s) ≤ S^{−σ} Π_{p≤y}(1 + p^σ/(p−1)) ≪ S^{−1/log y}(log y)^{e}` (R102A/B repair), which for
 `S = U^{1/2}` is `≪ y^{−10}` (as `log U ≥ y/2`). That part contributes `≪ y^{−10} Σ_u τ_3(u)/(mu) ≪ 1/m`.
 For `s ≤ U^{1/2}`, `(s, m) = 1`, the u lie in one class `r_s ≡ m^{−1} (mod s)`. Split `u ≤ s^{1.1}` /
 `u > s^{1.1}`. *Large u:* on dyadic `(x, 2x]` with `x ≥ s^{1.1}`, Shiu (modulus `s ≤ x^{1/1.1}`, F = τ_3)
-gives `Σ τ_3(u) ≪ (x/φ(s)) (log x)² (s/φ(s))³`; summing `1/(mx)` over dyadic x and then
+gives `Σ τ_3(u) ≪ (x/φ(s)) (log x)²` (Shiu's factor is a saving `≈ (φ(s)/s)³` (R102A/B repair)); summing `1/(mx)` over dyadic x and then
 `μ²(s)(s/φ(s))³/φ(s)²` over s: `≪ log³ U/m`. *Small u:* swap the order:
 `Σ_s (μ²(s)/φ(s)) Σ_{u ≤ s^{1.1}, s | mu−1} τ_3(u)/(mu−1) ≤ Σ_u (τ_3(u)/(mu−1)) τ(mu−1) max_{s ≥ u^{1/1.1}} 1/φ(s)
 ≪ m^{−1} Σ_u τ_3(u) τ(mu−1) log log(3u) u^{−1−0.909} ≪ m^{0.02}/m` (`τ_3(u) ≪ u^{0.01}`, `τ(mu−1) ≪ (mu)^{0.01}`). ∎
 
 **Proposition 3.2 (Type II, sharp; PROVED rel. BT).** For `log m ≤ L/10`,
-`#{p ∈ (N/2,N] : p has a Type II solution} ≪ (N/L)(L³ + m^{1/2})/m`.
+`#{p ∈ (N/2,N] : p has a Type II solution} ≪ (N/L)(L³ + m^{0.02})/m` (R102A/B repair).
 
 *Proof.* PW Cor 2.4/Prop 2.3: `p + e = mabd`, `a + b = ce`, `(a,b) = 1`; by the a↔b symmetry
 (y ↔ z) take `a ≤ b`, so `b < ce ≤ 2b`. As `(e, m) | p`, `(e, m) = 1`; likewise `(e, ad) = 1`.
@@ -244,19 +250,20 @@ hypothesis holds as `m ≤ N^{1/10}`).
 `L/φ(m) ≪ L² log log m/m ≪ L³/m` since `L ≥ log(m/3)`. ∎
 
 **Lemma 3.3 (ET Prop 1.4 with Pólya–Vinogradov; PROVED rel. ET Thm 7.1 and ET's proof of Prop 1.4).**
-Fix l. For `k ≥ 1`, `A, D ≥ 2`, `k ≤ (AD)^l`:
-`Σ_{a≤A, d≤D} τ(k a² d + 1) ≪_l AD log(A+D) · (1 + 1[D < k log⁴(kAD)] log(1+k))`.
+Fix l. For `k ≥ 1`, `A, D ≥ 1`, `k ≤ (2AD)^l` (boxes with A or D = 1 are enlarged to 2 by positivity (R102A/B repair)):
+`Σ_{a≤A, d≤D} τ(k a² d + 1) ≪_l AD log(2+A+D) · (1 + 1[D < k log⁴(kAD)] log(1+k))`.
 
 *Proof.* If `D ≥ A`: ET Cor 7.4 in the linear variable d for each a (coefficient `ka² ≤ D^{3l}`):
 `≪ D log D` per a. If `D < A`: follow ET's proof of Prop 1.4, case "A ≤ B" (their linear variable a
 = our d, their quadratic b = our a, their k = our k; ET pp. 30–32), keeping its **signed**
 expression (7.11) `Σ_{q≤A, (q,2k)=1} Σ_{d≤D, (d,2q)=1} (−kd/q) log(A/q)/q`, after ET's reduction to
 odd d (`d = 2^j d'`, `2^j` absorbed into k, D into `D/2^j`). ET split q into `q < D` (period 2q,
-inner sum O(q): no loss), `q > kD` (reciprocity in q for each fixed d, partial summation over q:
+inner sum O(q) for non-square q; for square q the character is principal and the inner sum is
+`≤ D'`, costing `Σ_r D' log A/r² ≪ D' log A` — a slip in ET p. 31, harmless (R102A/B repair)), `q > kD` (reciprocity in q for each fixed d, partial summation over q:
 `O(log A)` per d, no loss), and `D ≤ q ≤ kD`, where they bound `|(−kd/q)| ≤ 1` and lose `log(1+k)`.
 Only the middle range is changed (absolute values are taken only there, which is legitimate):
 for q non-square, `d ↦ (d/q)1_{d odd}` is a combination of two non-principal character sums, so
-`|Σ_{d≤D'}| ≪ √q log q` (Pólya–Vinogradov); squares `q = r²` give `≤ D' Σ_r log A/r² ≪ D' log A`.
+`|Σ_{d≤D'}| ≪ √q log q` (Pólya–Vinogradov — the improvement ET Remark 1.5 itself suggests (R102A/B repair)); squares `q = r²` give `≤ D' Σ_r log A/r² ≪ D' log A`.
 So the middle range costs `≪ D' log A + log A Σ_{q≤kD'} log q/√q ≪ D' log A (1 + √(k/D') log(kD'))`,
 `≪ D' log A` when `D' ≥ k log²(kAD)`. Summing over j with weight `2^{−j}` (`d' ≤ D/2^j`, `k → 2^j k`): the middle range is lossy only for
 the j with `4^j > D/(k log²(kAD))`, whose total contribution is `≪ Σ_{such j} 2^{−j} log(1+2^j k) ≪
@@ -269,12 +276,14 @@ the j with `4^j > D/(k log²(kAD))`, whose total contribution is `≪ Σ_{such j
 `1/φ(ad) ≪ (ad)^{−1}Σ_{s|a, t|d} 1/(st)`; put `a = sa'`, `d = td'`, `k = ms²t`, and split the block
 `ad ~ X` into `≪ log X` dyadic boxes `a' ~ A'`, `d' ~ D'`, `A'D' ≍ X/(st)`.
 * Boxes with `A'D' ≥ k^{1/10}`: Lemma 3.3 (l = 10). Non-lossy boxes give `(X/st) log X` each; lossy
-  ones (`D' < k log²(kN)`, at most `≪ log m + log(st) + log L` of them) give `(X/st) L log(1+k)` each.
+  ones (`D' < k log⁴(kN)` (R102A/B repair), at most `≪ log m + log(st) + log L` of them) give `(X/st) L log(1+k)` each.
   With the weight `(st)^{−1}` and `X^{−1}` this is `Σ_{s,t}(st)^{−2}[log² X + L log²(ms²t L)]
   ≪ log² X + L log² m` per block (`log L ≪ log m` as `L ≤ m^{1/2}`).
 * Boxes with `A'D' < k^{1/10}`: `τ(n) ≪ n^{1/40}`, `n ≤ k·(A'D')² ≤ k^{1.2}`, so each gives
-  `≪ (X/st)·k^{0.03}`; they exist only in blocks with `X ≤ st·k^{0.1}`, and in total contribute
-  `≪ (N/φ(m)) m^{0.1} log² m ≪ N m^{−0.85}` to the count, i.e. `≪ (N/L) L m^{−0.85} ≤ (N/L) m^{−0.35}`.
+  `≪ (X/st)·k^{0.03}`. In a block `ad ~ X` they occur only for (s,t) with `(st)^{1.2} m^{0.1} ≫ X`; their
+  weighted mass is `≪ Σ_{st ≫ (X/m^{0.1})^{1/1.2}} (st)^{−1.94} m^{0.03} log(mst) ≪ m^{0.03} log m ·
+  min(1, (X/m^{0.1})^{−0.7})`; summing over blocks (BT weight ≤ 1) gives a count
+  `≪ (N/φ(m)) m^{0.03} log² m ≪ N m^{−0.9}`, i.e. `≪ (N/L) m^{−0.35}` as `L ≤ m^{1/2}` (R102A/B repair).
 Summing blocks `X = 3N2^{−j}/m` with BT weight `1/log(2 + 2^j/3) ≪ 1/j`, `j ≤ 2L`:
 count `≪ (N/φ(m))(L² + L log² m) log L`, which is the claim. ∎
 
@@ -282,7 +291,7 @@ count `≪ (N/φ(m))(L² + L log² m) log L`, which is the claim. ∎
 *Proof.* Count classes trivially: `#{n ≤ N : n ≡ r (q)} ≤ N/q + 1`, `τ(n) ≤ e^{CL/log L}` for
 `n ≤ 9N²`; Type I: `Σ_{mad≤3N} τ(ma²d+1)(N/(mad)+1) ≪ e^{CL/log L}(N/m)L²`, Type II likewise. ∎
 
-**Theorem L (lower side; PROVED rel. ET Thm 7.1 + ET's proof of Prop 1.4, BT, Shiu).** Let
+**Theorem L (lower side; PROVED rel. ET Thm 7.1 + ET's proof of Prop 1.4, BT, Shiu; effective (R102A/B repair)).** Let
 `ρ_rep(m, N)` be the proportion of m-representable primes in (N/2, N]. For all `m ≥ 4`, `N ≥ 16`:
 * if `log m ≤ L/10` and `L ≤ m^{1/2}`: `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`
   (Props 3.2, 3.4; `π*(N) ≫ N/L`);
@@ -296,7 +305,8 @@ Consequently **`ρ_rep → 0` whenever `L³ log L/φ(m) → 0`**, e.g. when `L �
 * Theorem U, Thm 1.3: PROVED relative to MN Cor 3.2 (itself PROVED rel. the note), BV, Shiu.
   Ineffective (BV/Siegel at level `L^{−A'(r)}`, r ≍ s).
 * Theorem L: PROVED relative to ET Thm 7.1 and the structure of ET's proof of Prop 1.4 (Lemma 3.3
-  changes one range of q), BT, Shiu, Pólya–Vinogradov. Not machine-checked.
+  changes one range of q, as ET Remark 1.5 suggests), BT, Shiu, Pólya–Vinogradov; effective. Lemma 3.3
+  checked against ET pp. 30–32 by R102B; not machine-checked (R102A/B repair).
 * §2: EVIDENCE. Conjecture C2: CONJECTURE.
 * Open: (i) Type I prime count without the BT `log L` (= ET's open `log log N` for m = 4); a
   two-variable (c, w) Selberg sieve handles most of the bad range `c < N^δ`, `d < gN^δ` but not
