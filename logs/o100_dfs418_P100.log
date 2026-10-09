@@ -1,0 +1,111 @@
+nodes=200 queue=1092 openmass=1.785e-06 split=47 surv=11/46 t=83s
+nodes=400 queue=2314 openmass=8.642e-07 split=7 surv=1/7 t=122s
+nodes=600 queue=2765 openmass=5.691e-07 split=29 surv=5/28 t=144s
+nodes=800 queue=4139 openmass=4.566e-07 split=29 surv=5/28 t=186s
+nodes=1000 queue=5451 openmass=3.969e-07 split=47 surv=11/46 t=224s
+nodes=1200 queue=6776 openmass=3.402e-07 split=43 surv=10/42 t=261s
+nodes=1400 queue=8270 openmass=2.882e-07 split=43 surv=12/42 t=295s
+nodes=1600 queue=9776 openmass=2.362e-07 split=41 surv=10/40 t=327s
+nodes=1800 queue=11245 openmass=1.838e-07 split=43 surv=10/42 t=359s
+nodes=2000 queue=12840 openmass=1.605e-07 split=71 surv=10/70 t=401s
+nodes=2200 queue=13767 openmass=1.486e-07 split=5 surv=1/5 t=434s
+nodes=2400 queue=14383 openmass=1.377e-07 split=5 surv=1/5 t=461s
+nodes=2600 queue=15195 openmass=1.271e-07 split=5 surv=1/5 t=500s
+nodes=2800 queue=16222 openmass=1.188e-07 split=29 surv=5/28 t=540s
+nodes=3000 queue=17009 openmass=1.115e-07 split=5 surv=1/5 t=570s
+nodes=3200 queue=17852 openmass=1.058e-07 split=5 surv=1/5 t=600s
+nodes=3400 queue=18799 openmass=1.001e-07 split=41 surv=7/40 t=632s
+nodes=3600 queue=20037 openmass=9.619e-08 split=53 surv=10/52 t=668s
+nodes=3800 queue=21536 openmass=9.402e-08 split=41 surv=7/40 t=709s
+nodes=4000 queue=22637 openmass=9.185e-08 split=37 surv=4/36 t=747s
+nodes=4200 queue=23751 openmass=8.969e-08 split=47 surv=9/46 t=784s
+nodes=4400 queue=25230 openmass=8.761e-08 split=47 surv=9/46 t=829s
+nodes=4600 queue=26613 openmass=8.554e-08 split=53 surv=11/52 t=870s
+nodes=4800 queue=28044 openmass=8.350e-08 split=43 surv=9/42 t=910s
+nodes=5000 queue=29585 openmass=8.168e-08 split=29 surv=5/28 t=946s
+nodes=5200 queue=30763 openmass=8.005e-08 split=29 surv=6/28 t=984s
+nodes=5400 queue=32199 openmass=7.862e-08 split=29 surv=6/28 t=1020s
+nodes=5600 queue=33652 openmass=7.715e-08 split=53 surv=11/52 t=1059s
+nodes=5800 queue=34837 openmass=7.566e-08 split=37 surv=5/36 t=1096s
+nodes=6000 queue=36303 openmass=7.429e-08 split=29 surv=6/28 t=1133s
+nodes=6200 queue=37809 openmass=7.296e-08 split=59 surv=14/58 t=1168s
+nodes=6400 queue=39358 openmass=7.164e-08 split=59 surv=12/58 t=1204s
+nodes=6600 queue=40977 openmass=7.035e-08 split=43 surv=11/42 t=1241s
+nodes=6800 queue=42579 openmass=6.905e-08 split=59 surv=13/58 t=1278s
+nodes=7000 queue=43898 openmass=6.776e-08 split=29 surv=7/28 t=1313s
+nodes=7200 queue=45114 openmass=6.650e-08 split=37 surv=7/36 t=1344s
+nodes=7400 queue=46342 openmass=6.525e-08 split=29 surv=6/28 t=1376s
+nodes=7600 queue=47544 openmass=6.401e-08 split=29 surv=5/28 t=1407s
+nodes=7800 queue=48657 openmass=6.276e-08 split=37 surv=7/36 t=1439s
+nodes=8000 queue=49934 openmass=6.153e-08 split=37 surv=4/36 t=1471s
+nodes=8200 queue=51616 openmass=6.032e-08 split=37 surv=11/36 t=1504s
+nodes=8400 queue=53327 openmass=5.908e-08 split=59 surv=16/58 t=1540s
+nodes=8600 queue=54976 openmass=5.787e-08 split=59 surv=19/58 t=1574s
+nodes=8800 queue=56546 openmass=5.665e-08 split=29 surv=9/28 t=1609s
+nodes=9000 queue=57810 openmass=5.539e-08 split=41 surv=11/40 t=1641s
+nodes=9200 queue=59332 openmass=5.415e-08 split=2 surv=0/2 t=1675s
+nodes=9400 queue=60615 openmass=5.285e-08 split=83 surv=15/82 t=1707s
+nodes=9600 queue=62045 openmass=5.155e-08 split=29 surv=7/28 t=1741s
+nodes=9800 queue=63312 openmass=5.024e-08 split=83 surv=15/82 t=1773s
+nodes=10000 queue=64579 openmass=4.892e-08 split=83 surv=15/82 t=1806s
+nodes=10200 queue=65527 openmass=4.761e-08 split=37 surv=7/36 t=1834s
+nodes=10400 queue=66821 openmass=4.636e-08 split=53 surv=7/52 t=1867s
+nodes=10600 queue=68009 openmass=4.506e-08 split=29 surv=6/28 t=1900s
+nodes=10800 queue=68985 openmass=4.380e-08 split=29 surv=7/28 t=1928s
+nodes=11000 queue=70158 openmass=4.251e-08 split=59 surv=11/58 t=1958s
+nodes=11200 queue=71483 openmass=4.124e-08 split=41 surv=9/40 t=1994s
+nodes=11400 queue=72911 openmass=3.998e-08 split=37 surv=6/36 t=2031s
+nodes=11600 queue=74292 openmass=3.873e-08 split=37 surv=8/36 t=2066s
+nodes=11800 queue=75804 openmass=3.748e-08 split=29 surv=6/28 t=2104s
+nodes=12000 queue=77247 openmass=3.623e-08 split=41 surv=8/40 t=2142s
+nodes=12200 queue=78508 openmass=3.497e-08 split=29 surv=6/28 t=2179s
+nodes=12400 queue=79691 openmass=3.370e-08 split=79 surv=12/78 t=2216s
+nodes=12600 queue=81017 openmass=3.247e-08 split=43 surv=8/42 t=2254s
+nodes=12800 queue=82330 openmass=3.132e-08 split=29 surv=5/28 t=2296s
+nodes=13000 queue=83484 openmass=3.024e-08 split=37 surv=7/36 t=2340s
+nodes=13200 queue=84413 openmass=2.918e-08 split=2 surv=0/2 t=2373s
+nodes=13400 queue=85673 openmass=2.831e-08 split=47 surv=10/46 t=2409s
+nodes=13600 queue=86897 openmass=2.757e-08 split=29 surv=4/28 t=2445s
+nodes=13800 queue=88280 openmass=2.702e-08 split=7 surv=1/7 t=2490s
+nodes=14000 queue=89553 openmass=2.664e-08 split=71 surv=13/70 t=2529s
+nodes=14200 queue=91036 openmass=2.633e-08 split=71 surv=13/70 t=2564s
+nodes=14400 queue=92737 openmass=2.601e-08 split=37 surv=7/36 t=2604s
+nodes=14600 queue=93907 openmass=2.570e-08 split=5 surv=1/5 t=2640s
+nodes=14800 queue=94509 openmass=2.541e-08 split=41 surv=6/40 t=2672s
+nodes=15000 queue=95224 openmass=2.511e-08 split=29 surv=5/28 t=2704s
+nodes=15200 queue=96333 openmass=2.484e-08 split=59 surv=11/58 t=2745s
+nodes=15400 queue=97394 openmass=2.458e-08 split=5 surv=1/5 t=2784s
+nodes=15600 queue=98493 openmass=2.432e-08 split=5 surv=1/5 t=2824s
+nodes=15800 queue=99698 openmass=2.406e-08 split=59 surv=11/58 t=2867s
+nodes=16000 queue=100924 openmass=2.379e-08 split=5 surv=0/5 t=2909s
+nodes=16200 queue=101971 openmass=2.353e-08 split=5 surv=1/5 t=2949s
+nodes=16400 queue=103037 openmass=2.326e-08 split=5 surv=1/5 t=2987s
+nodes=16600 queue=104051 openmass=2.299e-08 split=53 surv=10/52 t=3023s
+nodes=16800 queue=104978 openmass=2.273e-08 split=5 surv=1/5 t=3058s
+nodes=17000 queue=105997 openmass=2.246e-08 split=5 surv=1/5 t=3093s
+nodes=17200 queue=107426 openmass=2.219e-08 split=37 surv=5/36 t=3141s
+nodes=17400 queue=108616 openmass=2.192e-08 split=71 surv=4/70 t=3181s
+nodes=17600 queue=110016 openmass=2.166e-08 split=5 surv=0/5 t=3222s
+nodes=17800 queue=110857 openmass=2.144e-08 split=47 surv=7/46 t=3259s
+nodes=18000 queue=111496 openmass=2.123e-08 split=2 surv=0/2 t=3293s
+nodes=18200 queue=112374 openmass=2.102e-08 split=37 surv=6/36 t=3332s
+nodes=18400 queue=113989 openmass=2.081e-08 split=79 surv=15/78 t=3377s
+nodes=18600 queue=115166 openmass=2.062e-08 split=43 surv=7/42 t=3416s
+nodes=18800 queue=116883 openmass=2.044e-08 split=41 surv=7/40 t=3458s
+nodes=19000 queue=118104 openmass=2.027e-08 split=47 surv=8/46 t=3497s
+nodes=19200 queue=118986 openmass=2.011e-08 split=47 surv=8/46 t=3532s
+nodes=19400 queue=119826 openmass=1.995e-08 split=29 surv=4/28 t=3565s
+nodes=19600 queue=120528 openmass=1.979e-08 split=47 surv=9/46 t=3597s
+nodes=19800 queue=121419 openmass=1.963e-08 split=29 surv=5/28 t=3627s
+nodes=20000 queue=122088 openmass=1.946e-08 split=5 surv=1/5 t=3655s
+done nodes=142088 open=122088 openmass=1.9465e-08 t=3655s
+open 595947908393535601 993717696707976240 9.56e-13
+open 5595477661872001 993717696707976240 9.56e-13
+open 113024417846518081 993717696707976240 9.56e-13
+open 408454003354294801 993717696707976240 9.56e-13
+open 811312529046717601 993717696707976240 9.56e-13
+open 891884234185202161 993717696707976240 9.56e-13
+open 918741469231363681 993717696707976240 9.56e-13
+open 945598704277525201 993717696707976240 9.56e-13
+open 61336908889754401 993717696707976240 9.56e-13
+open 141908614028238961 993717696707976240 9.56e-13
