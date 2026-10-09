@@ -16,11 +16,12 @@ refereed; none of them solves ES or any case of it):**
   relative to ET Thm 7.1, BT, Shiu, PV): `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}`, gap `(log log N)^{1/3}`.
   **Sharp order** `log N ≍ m^{1/3}` (MN4 Thm 5.2): CONDITIONAL on SEL_m for the lower half (for m ≤ L⁵);
   the upper half is Thm U. No sharp threshold constant is claimed (Conj C2 is open).
-* *Elsholtz–Tao's Type I sum* ((D)32/(D)32a). Unconditionally, relative to Deshouillers–Iwaniec 1982 Thm 7
-  and Drappeau 2017 Lemma 4.10: `Σ_{p≤N} f_I(p) = o(N log² N log log N)` (TYPEI_LOGLOG2 Thm 4.1(i), PROVED rel.
-  those inputs; no quantified rate). `≪ N log² N` is CONDITIONAL on Selberg's eigenvalue conjecture (TYPEI_LOGLOG
-  Thm 8.1) or on (EFF), an effectivity statement for the ε-constants of DI/Drappeau (Thm 4.1(ii); that (EFF)
-  holds is an Assessment).
+* *Elsholtz–Tao's Type I sum* ((D)32/(D)32a/(D)32b). **`Σ_{p≤N} f_I(p) ≪ N log² N` unconditionally**, the
+  bound Elsholtz–Tao list as open. This is PROVED relative to classical inputs: Kuznetsov/Petersson, Weil, twisted
+  Weil, Selberg 3/16 and λ₁(SL₂(ℤ)) > 1/4. The route goes via Deshouillers–Iwaniec 1982 Thm 7 and Drappeau 2017
+  Lemma 4.10 made effective (TYPEI_LOGLOG3 Thm 9.1/9.2), on top of the Heegner-point method of TYPEI_LOGLOG/-2.
+  There were two independent deep internal reviews per step. It is not externally refereed: **needs expert
+  scrutiny.**
 * *x\* refuted* ((F)11, MORDELL13B): the r = 13 candidate sterile point x* lies in an ET class (modulus
   12670944). The new candidate x** survives through ES level 2.59·10¹⁰ (MORDELL13E, CERTIFIED); sterility
   is a CONJECTURE. For Type I, TYPEI7 proves that 2-adic closeness tests cannot show `x̂_9` sterile.
