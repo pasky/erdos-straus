@@ -206,3 +206,28 @@ disclosed in the paper:
 * [TQ] itself is internally proved and externally unrefereed;
 * Vaughan 1970 and BHP were not read;
 * the PW range (PWrange) is a reading of PW's proof.
+
+## Post-referee addition (O104)
+
+*Added by the O104 author after R97; not covered by R97's verdicts above.* §8 ("The density
+transition") was rewritten into a full section from `EXCEPTIONAL_MN2.md` (DISCOVERIES (D)31
+follow-up; independent reviews `reviews/exceptional-mn2-review-A.md`, `-B.md`, no FATAL/MAJOR,
+minors repaired). New material:
+
+* §8.2 Theorem U (PROVED rel. [TQ] via Cor 5.2, Bombieri–Vinogradov, Shiu; ineffective):
+  Lemma 8.1 (reduced CRT model), Lemma 8.2 (Shiu multiplicities), Theorem 8.3, proof of U —
+  full proofs, = MN2 Lemma 1.1, 1.2, Thm 1.3, Thm U.
+* §8.3 Theorem L (PROVED rel. ET Thm 7.1 + structure of ET's proof of Prop 1.4, BT, Shiu;
+  effective): Lemma 8.4 (two harmonic sums; (b) condensed), Prop 8.5 (Type II), Lemma 8.6
+  (ET Prop 1.4 + Pólya–Vinogradov, *proof sketch with exact pointers* to ET pp. 30–32, (7.11)),
+  Prop 8.7 (Type I, condensed), Lemma 8.8 (very large m) — = MN2 Lemma 3.1–3.5, Prop 3.2/3.4.
+* §8.4 gap `(m log m/φ(m))^{1/3}`, comparison with PW (proof range (PWrange) retained, improved by
+  min(log m, L/log m)) and Elsholtz 2001 Rem 7.3 (reaches only log N ≫ m^{1/2}); Pomerance 2026
+  talk cited for the open transition question (novelty audit 2026-10c §1).
+* §8.5 numerics (EVIDENCE; even-m table, odd-m parity effect, non-shrinking window,
+  overdispersion) and Conjecture C2 (CONJECTURE).
+* Abstract, intro (Theorems U and L stated after Cor D), status/novelty, organisation, literature
+  and open problems (gap problem rewritten; new problem "the profile") updated. Cor D and its
+  proof unchanged. 25 pp; two compiles, no undefined references, no overfull boxes.
+
+**A referee pass on the new §8 (and the changed intro/abstract) is still required.**
