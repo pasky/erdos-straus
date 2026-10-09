@@ -141,7 +141,7 @@ strengthening. Re-derived:
 * **m2** Lemma 8.6 proof: "a combination of two non-principal character sums" — for odd non-square q,
   d ↦ (d/q)1_{d odd} is one non-principal character mod 2q. *Repair:* reword (harmless).
 * **m3** Prop 8.5 (i): "one class modulo made" needs (e, ad) = 1; true since (e,a) | (a,b) = 1 and
-  (e,d) | p with p ∤ e (as d < p). *Repair:* add the clause.
+  (e,d) | p with p ∤ e (as e ≤ a+b ≤ ab+1 < p). *Repair:* add the clause.
 * **m4** Lemma 8.6 needs A, D ≥ 2, but Prop 8.7 applies it to dyadic boxes with A' = 1 or D' = 1.
   MN2 had the repair "enlarged to 2 by positivity" (review A D-L2); it was dropped in condensation.
   *Repair:* restore it in Prop 8.7.
@@ -158,3 +158,24 @@ strengthening. Re-derived:
 * **m8** Open problem 2: "is small" → "tends to 0".
 * (no defect) The labels of Theorems U and L omit BT/PNT (U) and Pólya–Vinogradov (L); these are
   classical and named in §1 "Status and novelty" / proofs. Acceptable.
+
+## 6. Repairs applied (R104), recompiled
+
+All eight minor defects m1–m8 were repaired in `paper/es-mn-short-note.tex`; each spot carries a
+LaTeX comment `% R104 repair` (invisible in the PDF, greppable). m1 κ → λ (§8.5, C2 remark);
+m2 single character mod 2q (Lemma 8.6); m3 (e,ad)=1 clause (Prop 8.5(i)); m4 box enlargement
+restored (Prop 8.7); m5 log log N source → discussion after ET Thm 1.1, with the ET §9 slip noted;
+m6 abstract status sentence and "even m ∈ [60,300]"; m7 φ(m)^{1/2}(log m)^{3/2}; m8 "→ 0".
+Recompiled twice: 25 pp., no undefined references, no overfull boxes, no errors (same 6 hyperref
+"Token not allowed" warnings as before). Rendered text of every repaired spot checked via pdftotext.
+
+## 7. Recommendation
+
+**ACCEPT the density-transition section (after the R104 repairs, already applied).** No FATAL or
+MAJOR defect. Theorems U and L are stated exactly as in the reviewed source MN2 (no strengthening;
+ineffective/effective, ranges and relative-proof labels preserved), every load-bearing step of MN2
+§§1, 3 survives the condensation except one dropped MN2 repair (m4, now restored), and the abstract's
+lower-side claim is precisely Thm L's "in particular" clause. Residual risk, honestly stated in the
+paper: Lemma 8.6 is a proof *sketch* relative to ET's proof of Prop 1.4 (I re-checked it against
+ET pp. 30–32 and agree, but it is not a line-by-line written proof); Theorem U inherits everything
+from Cor 5.2, i.e. from the unrefereed 3/4 note.
