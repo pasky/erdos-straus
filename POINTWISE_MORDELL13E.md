@@ -24,10 +24,15 @@ the primes of s into two groups with balanced divisor counts; hash the group-1 r
 values `−s·d₂⁻¹ mod r`). `z` is not printed; `scripts/m13e_inv.py` recomputes `z=1/(4/N−1/x−1/y)` exactly and
 aborts unless it is an integer `≥y`. It also aborts unless the chunk files tile `(N/4,3N/4]` (completion lines).
 Then it applies the validated 13B inversion (`m13b_invert.cands/boxes_of`, Lemmas 2.1–2.4) and tests every box
-against x** and x*. Speed: ≈1.1 µs per x at `N≈3·10⁷` (9× faster than m13b_es).
+against x** and x*. Speed: ≈1.1 µs per x at `N≈3·10⁷` (9× faster than m13b_es); with a bitmap prefilter on the
+hash probes (commit after 91a45ed) ≈0.9 µs per x at `N≈10¹⁰`.
 *Validation.* (i) Output identical (as sets of `(x,y)`) to `m13b_es` for N = 11, 121, 143, 1331, 1859, 2197, 24167,
 371293, 32166277. (ii) At N = 32166277 the box set is identical to the 13B/13C engine output (25116 boxes).
 (iii) At N = 1859 the two x* data are re-found. Chunked and unchunked runs agree.
+(iv) Large N (128-bit regime, `s>2⁶⁴`): `scripts/m13e_es_check.py` (plain Python, sympy factorisation, all divisors
+of `s²`) on 10 x-ranges at `N=10604499373` (near N/4, N/3, N/2, 3N/4, and around engine solutions): 6417 solutions,
+identical. (v) The full rerun of all 32 levels `N≤4·10⁷` gives box sets identical to 13B's run
+(`scripts/m13e_cmp_runs.py`, 209295 boxes).
 
 ## 2. What reciprocity gives at x** (PROVED, elementary)
 

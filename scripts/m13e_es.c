@@ -4,7 +4,8 @@
  * Same method as m13b_es.c (validated): r/s = (4x-N)/(Nx) reduced; y=(D+s)/r, z=(s^2/D+s)/r for divisors
  * D<=s of s^2 with D = -s (mod r) and y>=x.  Differences: segmented sieve (factorisation of x in blocks,
  * sieving primes <= sqrt(xhi)), 128-bit s and D, and the congruence D = -s (mod r) solved by meet-in-the-middle
- * over a split of the primes of s (residues tracked multiplicatively, hash table).
+ * over a split of the primes of s (residues tracked multiplicatively, hash table with a bitmap prefilter;
+ * brute force when n1*n2 <= 64).
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +24,7 @@ static uint32_t fp[BL][MAXF]; static uint8_t fe[BL][MAXF], fn[BL]; static u64 re
 static u64 P[40]; static int E[40]; static int np;
 #define DMAX (1 << 22)
 static u128 dv[DMAX], ev[DMAX]; static u64 dr[DMAX], er[DMAX];
-static uint32_t hs[1 << 24], hi_[1 << 24]; static uint32_t stamp; static double S1, S2, S3, SX;
+typedef struct { u64 res; uint32_t st, idx; } HE; static HE ht[1 << 24]; static u64 bm[64]; static uint32_t stamp; static double S1, S2, S3, SX;
 static double rinv; /* 1.0/r of the current x; mulmod valid for a, b < m < 2^50 (q off by at most 1) */
 static inline u64 mulmod(u64 a, u64 b, u64 m) {
     u64 q = (u64)((double)a * (double)b * rinv); long long t = (long long)(a * b - q * m);
@@ -112,12 +113,26 @@ int main(int argc, char **argv) {
             S1 += n1; S2 += n2; SX++; S3 += np;
 #endif
             /* hash group-1 residues */
+            if (n1 * n2 <= 64) {
+                for (size_t q2 = 0; q2 < n2; q2++) for (size_t q = 0; q < n1; q++) if (dr[q] == er[q2]) {
+                    if (dv[q] > s / ev[q2]) continue;
+                    u128 D = dv[q] * ev[q2]; u128 y = (D + s) / r;
+                    if (y < x) continue;
+                    pr128(x, b1); pr128(y, b2); printf("%s %s\n", b1, b2);
+                    count++;
+                }
+                continue;
+            }
             unsigned hb = 4; while ((1u << hb) < 2 * n1) hb++; u64 hm = (1ull << hb) - 1; stamp++;
-            for (size_t q = 0; q < n1; q++) { u64 h = (dr[q] * 0x9E3779B97F4A7C15ull) >> (64 - hb); while (hs[h] == stamp) h = (h + 1) & hm; hs[h] = stamp; hi_[h] = (uint32_t)q; }
+            memset(bm, 0, sizeof bm);
+            for (size_t q = 0; q < n1; q++) { u64 hh = dr[q] * 0x9E3779B97F4A7C15ull; bm[hh >> 58] |= 1ull << ((hh >> 52) & 63); u64 h = hh >> (64 - hb); while (ht[h].st == stamp) h = (h + 1) & hm; ht[h].st = stamp; ht[h].idx = (uint32_t)q; ht[h].res = dr[q]; }
             for (size_t q2 = 0; q2 < n2; q2++) {
-                u64 h = (er[q2] * 0x9E3779B97F4A7C15ull) >> (64 - hb);
-                for (; hs[h] == stamp; h = (h + 1) & hm) {
-                    size_t q = hi_[h]; if (dr[q] != er[q2]) continue;
+                u64 hh = er[q2] * 0x9E3779B97F4A7C15ull;
+                if (!((bm[hh >> 58] >> ((hh >> 52) & 63)) & 1)) continue;   /* bitmap prefilter (no false negatives) */
+                u64 h = hh >> (64 - hb);
+                for (; ht[h].st == stamp; h = (h + 1) & hm) {
+                    if (ht[h].res != er[q2]) continue;
+                    size_t q = ht[h].idx;
                     if (dv[q] > s / ev[q2]) continue;
                     u128 D = dv[q] * ev[q2]; u128 y = (D + s) / r;
                     if (y < x) continue;
