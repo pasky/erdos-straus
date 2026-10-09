@@ -124,7 +124,7 @@ Not defects, but noted: Props A.5–A.7 are statements with mechanism summaries;
 those derivations in the paper.
 
 ## E. Recommendation
-**Accept as an internal draft after the R122 repairs** (all applied; two clean pdflatex runs). Theorem 1
+**Accept as an internal draft after the R122 repairs** (all applied; clean pdflatex runs: no errors, no undefined references, no overfull boxes, 38 pp). Theorem 1
 (≪ N log²N) is correctly labelled PROVED relative to the classical inputs (B1)–(B5), the inherited ET/MN3 reduction, and
 the internal TTL3 derivation files; it is not externally refereed and the paper says so. Highest-value next step for
 external credibility: write Props A.5–A.7 out in full (or in a supplementary appendix) and certify C_W, B_W.
