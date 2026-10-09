@@ -22406,4 +22406,90 @@ print("\n== (eg) POINTWISE_MORDELL17B: Lemma 2.1 enumerator vs naive (K = 5, 7),
 check_eg()
 
 
+# ---------------------------------------------------------------- (eh)
+# POINTWISE_MORDELL13C.md (task O100, review R100).  Uses R100's from-scratch review_m13c_tree.py,
+# review_m13c_extra.py, review_m13c_witness.py, review_m13c_cell22.c (gcc; part (3) skipped otherwise); the author's
+# m13c_witness.py only as the object under test in (2).  Checked:
+# (1) Thm 6.1 tree certificate data/mordell13c/tree6_6000.json.gz in FULL with R100's checker: 6000 splits, every
+#     split's children are exactly the units mod Lq over x mod L, Haar masses exact; 136494 covered leaves (own ET
+#     coordinates + own CRT, 2140 distinct ET classes, explicit solution checked), 35459 open leaves, 0 errors;
+#     open density per root as stated, mean 8.424e-5; inline per-root open-leaf counts (13986, 18070, 873, 455,
+#     871, 1204); R100 extra: the 7 ES parametrisations are rational identities (sympy), split primes <= 83, open
+#     moduli divide 2^4 3^2 5^2 7^2 11 13 prod_{17<=l<=83} l, the six roots have (x/13) = -1, and four negative
+#     controls (perturbed parameter, deleted child, wrong residue, faked open leaf) are each rejected;
+# (2) §2 witness engine: R100's own enumeration of all ET classes of modulus | L gives exactly the author's
+#     witness_all sets for every unit x mod L, L = 840, 9240;
+# (3) Comp 3.1 reduction (R100): 4a'd'mj = lam a' + m + j has 0 solutions at lam = 11^4 13^4 (and at the square
+#     lam = 20449), while the same enumerator finds 34 data at lam = 143 (positive control).
+
+def check_eh():
+    from time import perf_counter
+    import gzip
+    import json
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    tree = os.path.join(root, "data", "mordell13c", "tree6_6000.json.gz")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args, cwd):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=300, env=env, cwd=cwd)
+        assert r.returncode == 0, ("M13C subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    # (1) full tree check
+    o = run([os.path.join(sdir, "review_m13c_tree.py"), tree], root)
+    assert "{'leaves': 136494, 'open': 35459, 'splits': 6000} distinct ET classes: 2140" in o, ("M13C tree stats", o)
+    assert "errors: 0 []" in o, ("M13C tree errors", o)
+    dens = {int(k): float(v) for k, v in re.findall(r"^(\d{6}) ([\d.e-]+)$", o, re.M)}
+    want = {112561: 1.263e-4, 352801: 3.101e-4, 380881: 1.934e-5, 418321: 5.81e-6, 473761: 1.616e-5, 483841: 2.776e-5}
+    assert set(dens) == set(want) and all(abs(dens[k] / want[k] - 1) < 1e-3 for k in want), ("M13C open mass", dens)
+    mean = float(re.search(r"open density of the six classes: ([\d.e-]+)", o).group(1))
+    assert abs(mean - 8.424e-5) < 5e-9, ("M13C mean open density", mean)
+    t = json.load(gzip.open(tree))
+    nopen = {}
+    for r in t["roots"]:
+        st, c = [r], 0
+        while st:
+            nd = st.pop()
+            st.extend(nd.get("children", []))
+            c += "open" in nd
+        nopen[r["x"]] = c
+    assert nopen == {112561: 13986, 352801: 18070, 380881: 873, 418321: 455, 473761: 871, 483841: 1204}, ("M13C opens", nopen)
+    o = run([os.path.join(sdir, "review_m13c_extra.py")], root)
+    assert o.count("identity True") == 7 and "identity False" not in o, ("M13C identities", o)
+    assert "max 83 open moduli not dividing B: 0" in o and "Legendre(.,13): [-1, -1, -1, -1, -1, -1]" in o, ("M13C extra", o)
+    nc = [int(x) for x in re.findall(r"NC\d .*-> (\d+) errors", o)]
+    assert len(nc) == 4 and min(nc) >= 1, ("M13C negative controls", o)
+    # (2) witness engine vs R100 brute force
+    o = run([os.path.join(sdir, "review_m13c_witness.py"), "840", "9240"], sdir)
+    assert "L=840: 1118 classes, 192 units, 8821 witness incidences, mismatches 0" in o, ("M13C witness 840", o)
+    assert "L=9240: 4117 classes, 1920 units, 113942 witness incidences, mismatches 0" in o, ("M13C witness 9240", o)
+    # (3) Comp 3.1
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "Comp 3.1 enumerator SKIPPED (no C compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "c22")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_m13c_cell22.c")], check=True)
+
+            def ndata(*lam):
+                out = subprocess.run([exe, *lam], capture_output=True, text=True, timeout=120).stdout
+                return int(re.search(r"data (\d+), in \(2,2\) cell (\d+)", out).group(1))
+            assert ndata() == 0 and ndata("20449") == 0 and ndata("143") == 34, "M13C Comp 3.1"
+            msg = "Comp 3.1: 0 data at lam = 11^4 13^4 (control lam = 143: 34)"
+    print(f"eh tree: 6000 splits, 136494 covered / 35459 open leaves, 2140 ET classes, 0 errors, mean open density "
+          f"{mean:.4e}; identities, split primes, open moduli, roots, 4 negative controls OK; witness engine = R100 "
+          f"brute force at L = 840, 9240; {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eh) POINTWISE_MORDELL13C: Thm 6.1 tree (R100 checker, full), §2 witness engine (L = 840, 9240), Comp 3.1 ==")
+check_eh()
+
+
 print("\nall checks passed")
