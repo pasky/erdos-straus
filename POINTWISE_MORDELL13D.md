@@ -54,3 +54,16 @@ open mass `5.1·10⁻⁹`, 16857 open leaves (depth 11–14). Open children per 
 quadratic residues mod 19, 23, 29, 47 (cf. the non-square lemma, 13C §1: classes covering points that are
 squares at all `q ∉ {11,13}` need the non-square witness 11 or 13). Most open leaves sit at the exponent caps
 (`2⁶3⁴5³7²⁻³`), so the run cannot separate them from the 2-, 3-, 5-adic point `x = 1` → next: raise emax.
+
+**Run 2.3 (emax 6, CK 6).** Minimising the open-child *count* now prefers raising 2- and 3-powers: after 9200 pops
+open mass `4.6·10⁻⁶` (×900 worse than 2.2), open children per expansion still ≈ 2.85 (bits 45–55). Stopped.
+
+**Run 2.4 (subtrees of single deep open leaves of run 2.2; emax 4, CK 6, 900 s each; logs/o103_sub6.log).**
+`3466176103402110001 mod 14793247696034808000`: 71 expansions → 150 open leaves; `327585843065779201 mod
+9127748578404456000`: 68 → 151. Deep nodes are as supercritical as shallow ones, and ≈ 13 s per expansion
+(C engine at `L ≈ 10¹⁹–10²¹` and up to 6 candidate splits).
+
+**Computation 2.5 (one node, all splits).** For the first node of 2.4, the complete engine counts the open children of
+*every* split `q` (each prime `< 120`, or the next power of a prime of L): minimum **2** (at `2⁷`: 2/2 and `3⁵`: 2/3);
+best non-trivial: `29` 4/28, `37` 5/36, `53` 6/52, `11²` 5/11; powers of primes where `x ≡ 1` (17, 23, 31, 43, 47, 5, 7)
+leave ≈ all children open; new primes `> 60` leave 20–40% open. No split leaves ≤ 1 open child.
