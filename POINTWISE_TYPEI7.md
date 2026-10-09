@@ -43,3 +43,39 @@ G·(G − 18 + 16nδ) = 16·E.
 `nδ = c'·X·7^{a+b}δ` modulo `2^{⌈L/2⌉−1}` (`nδ = c'XD` in Cor 1.4 coordinates). Whether some fibre
 certificate satisfies (1.2) is therefore the question whether the Pell/archimedean structure
 (TYPEI4 Lemma 3.1) correlates with `nδ mod 2^j`.
+
+## 2. The closeness is unbounded: `x̂_9` is a limit of covered fibre points (PROVED)
+
+**Theorem 2.1 (PROVED).** For every `m ≥ 4` there is a fibre certificate `(c,k,F)` (Type I, `v_7(c)` odd) with
+`v_2(F+9) ≥ m`. Hence, for every `m`, the class `Cl(c,k,F)` contains the point `x̂_w` with `w := −F ∈ ℤ_2`,
+`v_2(w−9) ≥ m`: the sign point `x̂_9` lies in the closure of the union of all certificate classes
+(already inside the fibre `Φ = {x̂_w : w ≡ 9 (16)}`). In particular `max(v_2(F+9), v_2(e+9))` over fibre certificates
+is unbounded (this answers the open question of TYPEI4 §5 / Assessment 4.2(d)), and **no 2-adic neighbourhood of 9
+in `Φ` is sterile**: sterility of `x̂_9`, if true, cannot be proved by any test that sees `w` only modulo a fixed `2^j`.
+
+*Construction.* Since `−9 ≡ 7 (mod 16)` and `7^s` (`s` odd) runs through all classes `≡ 7 (mod 16)` modulo `2^m`
+(`7·⟨49⟩`, `⟨49⟩ = 1 + 16ℤ_2`), choose an odd `s` with `7^s ≡ −9 (mod 2^m)`. Put `b := (s−1)/2`, `a := 1`, choose
+`i ≥ m` with `3·7^b | i` (so `2^i ≡ 1 (mod 7^{b+1})`, as `ord_{7^{b+1}}(2) = 3·7^b`), and set
+
+```
+F := 7^s + 2^i,    c' := (F+1)/8,    X := 1,    c_o := 7c',    k_o := 7^b,
+L ≥ 7 with L ≡ 1 − i (mod ord_F(2)),    c := 2^α c_o, k := 2^γ k_o  (any split α + 2γ = L).
+```
+
+*Proof.* (1) `F ≡ 7^s ≡ −9 (mod 2^m)`, so `v_2(F+9) ≥ m` and `F ≡ 7 (mod 16)`. (2) `F+1 ≡ 8 (mod 16)`, so `c'` is an
+odd integer; `F ≡ 2^i ≡ 1 (mod 7)` gives `F+1 ≡ 2 (mod 7)`, so `7 ∤ c'`; and `v_7(c) = 1` is odd, so `7 | sf(c)`.
+(3) `F | N`: `N = 1 + 2^{L+2}c_ok_o² = 1 + 2^{L+2}7^s c'`, and `8c' ≡ 1 (mod F)` gives
+`N ≡ 1 + 2^{L−1}7^s ≡ 1 − 2^{L−1+i} ≡ 0 (mod F)` by the choice of `L`. (4) The congruences of TYPEI2 (2.2):
+`F ≡ −1 (mod c'k')` since `c'k' = c' | F+1`; `F ≡ 1 (mod 7^{v_7(ck)})`, `v_7(ck) = b+1`, since `7^{b+1} | 7^s` and
+`2^i ≡ 1 (mod 7^{b+1})`; and `F ≡ −w (mod 2^{2+α+γ})` for `w = −F`. (5) `(F, 4ck) = 1`: `F` is odd, `7 ∤ F`, and
+`gcd(F, c') | gcd(F, F+1) = 1`. So `(c,k,F)` is a certificate at `x̂_w` (TYPEI2 §3), and it is a fibre certificate
+(TYPEI4 Lemma 1.1, `F ≡ 7 (16)`). ∎
+
+*Remarks.* (a) The certificate is **not** at `x̂_9`: its level satisfies `L ≡ 1−i (mod ord_F(2))` with `L−1+i ≥ log_2 F`,
+so `L` is of size `ord_F(2)` (typically ≈ `F ≥ 2^i ≥ 2^m`), far above `2·v_2(F+9)`. (b) The same argument shows that
+every fixed triple `(c_o, k_o, F)` that is a fibre certificate at one level `L_0` is one at every level
+`L ≡ L_0 (mod ord_F(2))`, `L ≥ 7` (only `F | N` depends on `L`, and only through `2^L mod F`); for those `L` the
+closeness `v_2(F+9)` is constant and `v_2(e+9) = v_2(9F+1)` once `L+2 > v_2(9F+1)` (as `e ≡ F^{−1} (mod 2^{L+2})`).
+So **every fibre certificate recurs at infinitely many levels, and each triple `(c_o,k_o,F)` is at `x̂_9` for at most
+the finitely many levels with `2+⌈L/2⌉ ≤ max(v_2(F+9), v_2(9F+1))`** (PROVED). E.g. `(42,32,71)` (TYPEI4) recurs at
+`L = 11 + 35j` (`ord_71(2) = 35`).
