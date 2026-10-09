@@ -95,7 +95,11 @@ x** lies in **no II3, I3, I1, II2 class with `e` (resp. `f`) in `(10⁹, 2·10�
 (13B §5 argument: `v_q(ad) ≤ log_11(2·10⁹+15) < 9`, so `v_q(λ) ≤ 16`). With 13B Comp. 5.3: no P/Q-type class with
 `e ≤ 2·10⁹`. Extending to `10¹⁰` would take ≈ 36 core-hours with this engine (and a segmented sieve); not done.
 
-## 6. Theorem 3.1(b) sharpened (PROVED by finite computation; two independent checkers)
+## 6. Theorem 3.1(b) sharpened (PROVED by finite computation, given POINTWISE_MORDELL Thm 3.1(b); three independent checkers)
+
+(R100 repair, applied by reviewer: the dependency on Thm 3.1(b) outside the six roots is now in the label; third checker
+`scripts/review_m13c_tree.py` (R100, from scratch: own ET coordinates, own CRT, exact partition/mass check) also
+accepts the tree with 0 errors, see reviews/pointwise-mordell13c-review.md §A.)
 
 **Theorem 6.1.** Let p be a prime with `(p/13) = −1`. Then `4/p = 1/x+1/y+1/z` has a solution in positive
 integers unless p lies in one of the 35459 residue classes listed as *open* leaves of
