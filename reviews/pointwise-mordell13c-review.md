@@ -122,6 +122,6 @@ Independent complete enumeration: `scripts/review_m13c_cell22.c`.
   T-level `F | 11²13²` the only ES level above 4·10⁷ comes from II3/I1/I3 with `a_T = 11²13²`, `d_T = e_T = 1`,
   where `λ = a_T²` is a square and the Mordell-type reciprocity argument of §C kills every datum,
   at every T-generic point, not only at x*. Repair: replace "m13b_es 418161601 (72 min) …" by this argument
-  (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally (same proof, any T-generic point): I1/I3 data
-  with `d_T` a square, and II3 data with `e_T = 1` and `d_T` a square, do not exist — this prunes the k = 3
+  (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally (same proof, any T-generic point): I1 data
+  with `d_T` a square, and II3 (I3) data with `e_T = 1` (`f_T = 1`) and `d_T` a square, do not exist — this prunes the k = 3
   programme (cf. 13B Lemma 1.2, which gives the parity only at x*).
