@@ -29,3 +29,33 @@ equivalent. DI's step "extend q from [Q,2Q] to [Q,16Q] by applying the estimate 
 the place where C is held fixed; that is inside (P2) (§4), not here.
 
 Minor (§2): m1 below.
+
+## §1 (toolkit) — verdict: SOUND
+From scratch (`scripts/review_r121a_toolkit.py`): Lemma 1.3(a) `max_p≤15 sup|h^{(p)}|/(9^p p!²) = 0.905`; `I = 4.85·10⁻⁵ ≥
+e^{−16}/4`; `|ρ^{(p)}|` (p ≤ 8) at most `2·10⁻⁷` of the stated bound. Lemma 1.1 brute force (`τ^B`, B ∈ {1,2},
+δ ∈ [1/4,1], n ≤ 2·10⁵): ratio ≤ 0.25. Proofs re-read: Cauchy-circle argument, Leibniz sum
+`Σ C(p,k)k!²(p−k)!² ≤ (p+1)p!²`, convolution formula for η^{(p)} — all correct. Lemma 1.2 ✓.
+
+## §4 / `ttl3_lemma81_effective.md` (P1), (P2) — verdict: SOUND (modulo un-re-derived absolute numerals; see m2)
+Checked against DI pp. 271–273, 276–277 (scan).
+* Support repair (§3.2) re-computed exactly: with `q ∈ [3Q/4,9Q/4]`, `xY ∈ [11/12,17/12]`, `√mn ∈ [N,2N]` one gets
+  `c/C ∈ [64/51, 128/11]` ⊂ (1,16]; DI's pictured supports give `[16/25, 32]` — the author's observation of a
+  (harmless) gap in DI's printed bookkeeping is correct. k-range in (P1): `k/(NY) ∈ [8.87, 27.42]` ⊂ (8,32) ✓.
+* Positivity (c): independent mpmath evaluation of the exact kernel `π/(2 sin πσ)(J_{−2σ}−J_{2σ})` (with the
+  sign that makes it positive, i.e. DI (8.1), not printed (1.22)) for `Y ∈ {2³²,2⁴⁰}`, `σ ∈ [10⁻⁶,1/4]`:
+  kernel positive on the whole support, and `φ̂(−iσ)/cos πσ ≥ 0.67·Y^{2σ}` using only the plateau — far above
+  1/64 ✓. The σ → 0 uniformity argument (MVT on the order *difference* before dividing by `sin πσ`) is right; the
+  limit is a `log(2/x)` kernel, which is why (d) carries `L_Y` ✓.
+* Mellin separation, the `m^{−it/2}n^{−it/2}` twists, the Cauchy–Schwarz `|A(t/2)||A(−t/2)| ≤ (|A(t/2)|²+|A(−t/2)|²)/2`,
+  substitution `t = ±2u` ✓; the second trace formula's spectral side carries **no** `1/c` weight, so the regular
+  error is `Σ_{c∈(C,16C]}K_{T2}(1+N^{1+e}/c)‖a‖² ≤ K_{T2}(16C+4N^{1+e})2N` ✓ (matches DI (8.10)).
+* Exceptional split at σ = e: the `1/sin πσ ≤ 1/(2e)` loss for σ > e and `Y^{2e}L_Y` for σ ≤ e are polynomial
+  in 1/δ — consistent with `c(δ) = Aδ^{−2}[1+K_{T2}(δ/4)]` ✓. Four blocks `(2^lQ,2^lY)` keep C fixed ✓ (DI p. 273).
+* Small-Y branch (`Y < 2³²`) and `C < 1` branch: re-derived; with `Q > πNY` one has `Y^{1/2}N^{1+e} ≤ QN^e` ✓.
+* (P1) partial summation with a k-independent majorant measure and prefix rectangles, then Thm 14 in the
+  U-form for each prefix — correct and indeed necessary (sup over prefixes inside the k-sum would not follow).
+  Two-variable Abel summation on `[N,N₁]²` needs `|∂_m w|, |∂_n w| ≤ H/N`, `|∂_m∂_n w| ≤ H/N²` ✓ (u ∈ [11/12,17/12]).
+* Transform bound (a): heuristically re-derived (normalised kernel `≍ r^{−1/2}` via `|Γ(1+2ir)|² = 2πr/sinh 2πr`;
+  Bessel ODE `(D_x²+x²)J_{2ir} = −4r²J_{2ir}` ✓), constants plausible, B = 2^{2048} generous. The claim
+  "H = 2^{512} bounds D_x^j-norms, j ≤ 12" re-estimated: ≈ 2^{212} ✓.
+No growing-order step occurs in §4; the only δ-dependence is `δ^{−2}`, `K_{T2}(δ/4)`, `D(δ/4)`, `K₁₄(δ/4)` ✓.
