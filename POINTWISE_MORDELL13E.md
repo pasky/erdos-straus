@@ -28,3 +28,23 @@ against x** and x*. Speed: ≈1.1 µs per x at `N≈3·10⁷` (9× faster than m
 *Validation.* (i) Output identical (as sets of `(x,y)`) to `m13b_es` for N = 11, 121, 143, 1331, 1859, 2197, 24167,
 371293, 32166277. (ii) At N = 32166277 the box set is identical to the 13B/13C engine output (25116 boxes).
 (iii) At N = 1859 the two x* data are re-found. Chunked and unchunked runs agree.
+
+## 2. What reciprocity gives at x** (PROVED, elementary)
+
+**Lemma 2.1 (parity of the ES level).** Let a T-generic datum have a box containing a point x with
+`x_11≡2 (11)`, `x_13≡2 (13)` (e.g. x* or x**; note `15≡2 (13)`), and let N be its ES level (13B Cor. 2.5). Then
+`v_T(N)=v_11(N)+v_13(N)` is **odd**, except for I3, where `v_T(N)≡v_T(f)+1 (mod 2)`.
+*Proof.* 13B Lemma 1.2 uses only `x_q mod q` (its proof is via `(q/g)`, `(−2/q)`, `(2/q)`), so it holds verbatim
+in the cell. ES levels (13B §2): II1/I4 `N=(ab)_T`; II2 `N=f_T`; I2 `N=(ac)_T f_T`; II3 `N=e_T a_T² d_T`;
+I3 `N=f_T c_T² d_T`; I1 `N=a_T² d_T`. Hence `v_T(N)≡v_T(ab)`, `v_T(f)`, `v_T(ac)+v_T(f)`, `v_T(d)+v_T(e)`,
+`v_T(d)+v_T(f)`, `v_T(d) (mod 2)` respectively, and 13B Lemma 1.2 gives the claim. ∎
+*Check:* `scripts/m13e_parity_check.py`: all 6062 engine boxes (levels ≤ 4·10⁷ and 11⁴13⁴) that meet the (2,2) cell
+satisfy it.
+
+*Scope: why reciprocity cannot separate x\*\* from x\*.* Every quadratic (or higher power-residue) symbol
+of the T-primes is a character of `(ℤ/q)^×` and sees only `x_q mod q`. Since `x**≡x* (mod 143)` and x* *is*
+covered (13B Thm 3.1, level 1859), no argument that depends on `x mod 143` alone can show x** sterile. Sterility
+of x** must use the 13-adic digit `15≢2 (mod 13²)`, i.e. the non-torsion part of `ℤ₁₃^×`, which no reciprocity
+law sees. The usable content is a restriction on the levels: by Lemma 2.1 together with 13C Comp. 3.1
+(x** in no box of T-level dividing `11²13²`), a box containing x** has T-level F with `v_11(F)≥3` or
+`v_13(F)≥3`, and every family except I3 has odd `v_T(N)`.
