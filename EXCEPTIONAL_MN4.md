@@ -578,3 +578,14 @@ That fit is evidence only. (ii) MN2 Conj C2 (no sharp threshold) is untouched: n
 * (SEL_m) is used only in Prop 5.1 of TTL (via Thm 6.2_m) for `Γ₀(mdq²)` with even nebentypus mod q; it is
   implied by Selberg's conjecture `λ₁ ≥ 1/4` for all `Γ₁(M)`, and is the same hypothesis family as TTL's
   (levels `4dq²` there), now also with levels divisible by m.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/emn4_checks.py      # ~10 s; output scripts/emn4_checks.out.txt
+```
+Finite checks (not proofs): Lemma 1.1 by brute force (m ≤ 12, p < 120); separation §2.1 (min cosh = 3/2
+exactly, attained: the constant is sharp); local densities §2.3 for both cusps; content-2 forms for
+t ≡ 3 (4) (§2.5); EVIDENCE for the §3.2(c) gain: the ratio `Σ_{d≍D} g(d) Σ_{f≍F} ρ_{md}(f)/φ(f) / (hD)`
+stays in `[1.05, 1.34]` (D = F = 300) while `h = φ(m)/m` ranges over `[0.21, 1]` (m = 4 … 2310, 7, 143, 1009);
+the raw sum tracks h. Proof-level claims (§§2.2, 2.4, 2.7, 3, 4, 5) are not machine-checked.
