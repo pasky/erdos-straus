@@ -119,3 +119,41 @@ and the sieve/small split at `p1max < 64` are valid. Long-double evaluation with
 search. Sieve along `M = Ac' + T`: primes `p | A` are correctly skipped (`p ∤ M`), cofactor after primes `≤ √M_hi` is
 prime, overflow guards exit loudly (`M > 2^50`, divisor count, `MAXF`, `7^a`). Final test exact (GMP), checks `X` odd,
 `7 ∤ X`. No soundness defect found in the engine.
+No FATAL, no MAJOR defects. All MINOR defects below are applied to POINTWISE_TYPEI6.md, marked
+"(R99 repair, applied by reviewer)".
+
+**D1 (MINOR; Thm 3.2 proof, last sentence).** "Case A … finite at each `L` unconditionally (TYPEI5 Lemma 3.6 …)":
+Lemma 3.6 is proved only for `L ∈ {7,…,10}`; TYPEI5 §4 merely asserts the general case. The claim is true at every `L`:
+in case A, `P_1 = c'g² + 2·7^auJ ≤ ρP_1 = Tu/2 − J` gives `J < T/(4·7^a)` and `ρ < T/(4·7^aJ)`; with `G := c'g`,
+`G | y = Tu/2 + J` and `4G | 1 + 7^auρ` give `G | 7^aρJ − T/2 ≠ 0` (7 divides the first term only), so `G < T`;
+then `c'g² = u(T/(2ρ) − 2·7^aJ) − J/ρ ≤ G²` with the bracket `≥ 1/(2ρ)` (it must be `> 0`), so `u ≤ 2ρ(G² + J) < T³`.
+*Repair:* insert this argument (applied).
+
+**D2 (MINOR; Interpretation after Lemma 3.1).** "`ν_0 = 2c − 1 > 128d²δ⁶/T⁴`-ish": `2c − 1 = A` is the rational part of
+`ν_0 = A + 8Xu√d ≈ 2A`, and Lemma 3.1(b) gives `A > 128c_o⁴δ⁸/T⁴ − 1 = 128d²δ⁴/(τ²T⁴) − 1` (`δ⁴`, not `δ⁶`).
+*Repair:* "`ν_0 > A = 2c − 1 > 128c_o⁴δ⁸/T⁴ − 1 ≈ 128d²δ⁴/T⁴`" (applied).
+
+**D3 (MINOR; Lemma 3.1(c) and its use after Cor 4.2).** The exact consequence of (b) is
+`u² > 64c_o³δ⁷P/(T⁴√d) − 1/Q`, i.e. `u ≳ 8c_oδ³√P/(T²τ^{1/4})`; the stated `8c_oδ³√P/T²` drops `τ^{−1/4}` (harmless
+for large `c_oδ²/T`, but `≳` should say so). *Repair:* add the exact form (applied).
+
+**D4 (MINOR; Remark (ii) after Thm 3.2).** (a) The "idealised limit `ε → 0`, `K = 1`" is not a form of abc at all
+(`1 + 8 = 9` violates `c < rad`); it is a heuristic idealisation, and the "levels 7–10 would be empty" sentence must not
+be read as conditional on any abc statement. (b) Baker's explicit form and `c < N^{7/4}` are *conjectures* ("published
+explicit abc conjectures"), not results. The negative Assessment itself is right: `ω ≥ 3` and `log N ≳ (1/2)log c`
+make Baker's factor `(log N)^ω/ω! ≫ 10³`, whereas emptiness at `L = 10` would need it `≲ 1.2`; `7/4 > 8/7`.
+*Repair:* wording (applied).
+
+**D5 (MINOR; Lemma 1.1 header).** "any odd `u` with `7 ∤ u`-free hypotheses as in (1.1)" is garbled. The identities
+(a)–(d) hold for any positive integer `u` and any solution of `16PX² − Qu² = 1` in the notation (1.1) (verified with `u`
+a free symbol). *Repair:* reword (applied).
+
+**D6 (MINOR, cosmetic; Prop 2.1(b) closing parenthesis).** "For `L = 5, 6` the valuations are `n, 0` resp. `0, 0`": for
+`L = 5`, `d ≡ 3 (4)` and 2 ramifies, so the two-embedding valuation bookkeeping of the proof does not apply as written.
+The conclusion (integrality) is right: `ε_* = c_oδ² + 1 + δ√d` (`L = 5`), `(c_oδ² + 2 + δ√d)/2` with `d ≡ 5 (8)`
+(`L = 6`). *Repair:* state integrality directly (applied).
+
+**D7 (MINOR; provenance of Comp 4.1 / Cor 4.2).** "single engine" should be updated: R99's independent engine
+confirms `b ≤ 13` at `L = 7, 8` with identical candidate counts, and the brute-force cross-check of the engine
+(regime-(v) controls at every level 7–10). See the L = 9, 10 paragraph for what remains single-engine. *Repair:* add a
+provenance note (applied).
