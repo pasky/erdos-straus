@@ -144,14 +144,14 @@ Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the charact
 
 **Theorem 4.1.** Let `L = log N`.
 (i) (PROVED relative to TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10; **no (SEL)**.) There is an absolute C
-such that for every `ε₀ ∈ (0,1)`: `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)`. In particular
+such that for every `ε₀ ∈ (0,1/4]`: `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)`. In particular
 `Σ_{p≤N} f_I(p) = o(N log²N log log N)`.
 (ii) (CONDITIONAL on (EFF).) `Σ_{p≤N} f_I(p) ≪ N log²N`.
 (iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then `Σ_{p≤N} f_I(p) ≪ N L²(1 + w_N log L)`, where
-`w_N := inf{w ∈ [L^{−1/2}, 1] : log G(128/w) ≤ wL/32}`.
+`w_N := inf{w ∈ [L^{−1/2}, 1/4] : log G(128/w) ≤ wL/32}` (if the set is empty, (iii) is ET's bound and there is nothing to prove).
 *Proof.* Dyadic in N, as in TTL §8. TTL uses Thm 6.2, and hence (SEL), only in the cases (b2), (b3) and (b5) of (2b).
 It uses them only through `Σ_{d≍D}|E_d(q)|` (TTL §6 Remark D11; Cauchy–Schwarz over d). Replace that use by Thm 3.1 and
-Cor 3.2. Their bound differs from TTL's (SEL) bound only by a factor `≪ 𝓛^C C_ε^{1/2}N^{4ε}q` and by the term `N^{−1/20}`.
+Cor 3.2. Their bound differs from TTL's (SEL) bound only by a factor `≪ 𝓛^C C_ε^{1/2}N^{4ε}q`.
 In TTL (3) take `κ = 1/16`, so `z = N^{δ/128}` and `Q = z² = N^{δ/64}` (main-term saving `1/G(z) ≪ 1/(δL)`), and use
 `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³ = 𝓛^C N^{3δ/64}`. Fix a
 threshold `w ∈ (0,1/4]` and put `ε := w/128`. For `δ ≥ w` the sieve remainder, and the `|r_σ(1)|` part of the main
