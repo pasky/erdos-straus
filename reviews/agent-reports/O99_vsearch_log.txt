@@ -1,0 +1,128 @@
+L=7 b=0: 1 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=7 b=0 0.12s 50540KB
+L=7 b=1: 5 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=7 b=1 0.12s 50700KB
+L=7 b=2: 12 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=7 b=2 0.12s 50472KB
+L=7 b=3: 56 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=7 b=3 0.12s 50612KB
+L=7 b=4: 201 candidates, 1 pass mod 16P, 0 solutions, heuristic expectation 0.000117
+L=7 b=4 0.12s 50684KB
+L=7 b=5: 758 candidates, 3 pass mod 16P, 0 solutions, heuristic expectation 9.38e-06
+L=7 b=5 0.12s 50804KB
+L=7 b=6: 2809 candidates, 5 pass mod 16P, 0 solutions, heuristic expectation 3.05e-06
+L=7 b=6 0.13s 50528KB
+L=7 b=7: 10357 candidates, 11 pass mod 16P, 0 solutions, heuristic expectation 1.14e-06
+L=7 b=7 0.15s 50680KB
+L=7 b=8: 38213 candidates, 14 pass mod 16P, 0 solutions, heuristic expectation 1.1e-07
+L=7 b=8 0.23s 50892KB
+L=7 b=9: 140742 candidates, 43 pass mod 16P, 0 solutions, heuristic expectation 5.16e-08
+L=7 b=9 0.39s 50492KB
+L=7 b=10: 517457 candidates, 62 pass mod 16P, 0 solutions, heuristic expectation 1.3e-08
+L=7 b=10 1.15s 50456KB
+L=7 b=11: 1899980 candidates, 118 pass mod 16P, 0 solutions, heuristic expectation 6.99e-10
+L=7 b=11 4.01s 71484KB
+L=7 b=12: 6968984 candidates, 138 pass mod 16P, 0 solutions, heuristic expectation 1.32e-10
+L=7 b=12 14.91s 83004KB
+L=7 b=13: 25545422 candidates, 627 pass mod 16P, 0 solutions, heuristic expectation 9.71e-11
+L=7 b=13 45.62s 82640KB
+L=7 b=14: 93595625 candidates, 512 pass mod 16P, 0 solutions, heuristic expectation 5.55e-12
+L=7 b=14 178.00s 82832KB
+L=7 b=15: 342800938 candidates, 2329 pass mod 16P, 0 solutions, heuristic expectation 9.24e-13
+L=7 b=15 636.26s 82860KB
+L=8 b=0: 3 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=8 b=0 0.09s 50624KB
+L=8 b=1: 8 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=8 b=1 0.09s 50628KB
+L=8 b=2: 34 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=8 b=2 0.09s 50656KB
+L=8 b=3: 132 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=8 b=3 0.16s 50200KB
+L=8 b=4: 506 candidates, 1 pass mod 16P, 0 solutions, heuristic expectation 0.000118
+L=8 b=4 0.11s 50628KB
+L=8 b=5: 1897 candidates, 4 pass mod 16P, 0 solutions, heuristic expectation 0.000168
+L=8 b=5 0.11s 50680KB
+L=8 b=6: 7066 candidates, 1 pass mod 16P, 0 solutions, heuristic expectation 3.83e-07
+L=8 b=6 0.21s 50612KB
+L=8 b=7: 26182 candidates, 4 pass mod 16P, 0 solutions, heuristic expectation 1.86e-07
+L=8 b=7 0.23s 50392KB
+L=8 b=8: 96615 candidates, 11 pass mod 16P, 0 solutions, heuristic expectation 3.21e-08
+L=8 b=8 0.25s 50656KB
+L=8 b=9: 355531 candidates, 19 pass mod 16P, 0 solutions, heuristic expectation 3.38e-08
+L=8 b=9 0.75s 50528KB
+L=8 b=10: 1306498 candidates, 97 pass mod 16P, 0 solutions, heuristic expectation 2.69e-09
+L=8 b=10 2.52s 54844KB
+L=8 b=11: 4794523 candidates, 47 pass mod 16P, 0 solutions, heuristic expectation 5.42e-10
+L=8 b=11 9.25s 83016KB
+L=8 b=12: 17580304 candidates, 150 pass mod 16P, 0 solutions, heuristic expectation 6.77e-11
+L=8 b=12 23.65s 82820KB
+L=8 b=13: 64424838 candidates, 168 pass mod 16P, 0 solutions, heuristic expectation 7.97e-12
+L=8 b=13 88.16s 82660KB
+L=8 b=14: 235992259 candidates, 555 pass mod 16P, 0 solutions, heuristic expectation 1.25e-12
+L=8 b=14 318.22s 82952KB
+L=8 b=15: 864201339 candidates, 703 pass mod 16P, 0 solutions, heuristic expectation 1.12e-12
+L=8 b=15 1282.34s 82848KB
+L=9 b=0: 6 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=9 b=0 0.12s 50484KB
+L=9 b=1: 26 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=9 b=1 0.13s 50300KB
+L=9 b=2: 101 candidates, 1 pass mod 16P, 0 solutions, heuristic expectation 0.0051
+L=9 b=2 0.11s 50432KB
+L=9 b=3: 358 candidates, 5 pass mod 16P, 0 solutions, heuristic expectation 0.00679
+L=9 b=3 0.14s 50540KB
+L=9 b=4: 1305 candidates, 4 pass mod 16P, 0 solutions, heuristic expectation 0.000238
+L=9 b=4 0.13s 50360KB
+L=9 b=5: 4870 candidates, 4 pass mod 16P, 0 solutions, heuristic expectation 2.63e-05
+L=9 b=5 0.17s 50892KB
+L=9 b=6: 18014 candidates, 14 pass mod 16P, 0 solutions, heuristic expectation 8.01e-06
+L=9 b=6 0.15s 50432KB
+L=9 b=7: 66537 candidates, 13 pass mod 16P, 0 solutions, heuristic expectation 4.63e-07
+L=9 b=7 0.21s 50432KB
+L=9 b=8: 244744 candidates, 49 pass mod 16P, 0 solutions, heuristic expectation 1.52e-06
+L=9 b=8 0.47s 50388KB
+L=9 b=9: 899348 candidates, 42 pass mod 16P, 0 solutions, heuristic expectation 2.62e-08
+L=9 b=9 1.51s 50676KB
+L=9 b=10: 3300465 candidates, 178 pass mod 16P, 0 solutions, heuristic expectation 4.7e-09
+L=9 b=10 5.14s 82924KB
+L=9 b=11: 12102392 candidates, 384 pass mod 16P, 0 solutions, heuristic expectation 1.53e-09
+L=9 b=11 19.82s 82956KB
+L=9 b=12: 44351875 candidates, 1577 pass mod 16P, 0 solutions, heuristic expectation 1.55e-09
+L=9 b=12 76.35s 82820KB
+L=9 b=13: 162473882 candidates, 1105 pass mod 16P, 0 solutions, heuristic expectation 2.31e-11
+L=9 b=13 286.44s 83036KB
+L=9 b=14: 595004180 candidates, 3380 pass mod 16P, 0 solutions, heuristic expectation 6.84e-12
+L=9 b=14 741.88s 83304KB
+L=9 b=15: 2178532980 candidates, 2105 pass mod 16P, 0 solutions, heuristic expectation 7e-13
+L=9 b=15 2875.81s 82600KB
+L=10 b=0: 21 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=10 b=0 0.14s 50292KB
+L=10 b=1: 68 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=10 b=1 0.11s 50244KB
+L=10 b=2: 243 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=10 b=2 0.10s 50432KB
+L=10 b=3: 882 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=10 b=3 0.11s 50444KB
+L=10 b=4: 3319 candidates, 0 pass mod 16P, 0 solutions, heuristic expectation 0
+L=10 b=4 0.11s 50120KB
+L=10 b=5: 12330 candidates, 3 pass mod 16P, 0 solutions, heuristic expectation 1.02e-05
+L=10 b=5 0.14s 50428KB
+L=10 b=6: 45599 candidates, 10 pass mod 16P, 0 solutions, heuristic expectation 6.6e-06
+L=10 b=6 0.22s 50668KB
+L=10 b=7: 168026 candidates, 54 pass mod 16P, 0 solutions, heuristic expectation 1.5e-06
+L=10 b=7 0.43s 50128KB
+L=10 b=8: 618076 candidates, 28 pass mod 16P, 0 solutions, heuristic expectation 2e-07
+L=10 b=8 1.21s 50440KB
+L=10 b=9: 2270025 candidates, 50 pass mod 16P, 0 solutions, heuristic expectation 1.01e-08
+L=10 b=9 2.82s 81632KB
+L=10 b=10: 8327542 candidates, 56 pass mod 16P, 0 solutions, heuristic expectation 3.2e-09
+L=10 b=10 10.64s 82824KB
+L=10 b=11: 30526020 candidates, 210 pass mod 16P, 0 solutions, heuristic expectation 3.51e-09
+L=10 b=11 40.71s 83100KB
+L=10 b=12: 111843340 candidates, 211 pass mod 16P, 0 solutions, heuristic expectation 3.69e-11
+L=10 b=12 152.37s 82988KB
+L=10 b=13: 409633187 candidates, 789 pass mod 16P, 0 solutions, heuristic expectation 5.11e-11
+L=10 b=13 655.09s 82632KB
+L=10 b=14: 1499924669 candidates, 1093 pass mod 16P, 0 solutions, heuristic expectation 4.25e-12
+L=10 b=14 2440.91s 82820KB
+L=10 b=15: 5491182409 candidates, 2644 pass mod 16P, 0 solutions, heuristic expectation 6.02e-13
+L=10 b=15 9660.15s 82484KB
