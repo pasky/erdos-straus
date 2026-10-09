@@ -22589,4 +22589,102 @@ print("\n== (ei) POINTWISE_MORDELL17C: Lemma 1.1 (Abel summation, cumulative tab
 check_ei()
 
 
+# ---------------------------------------------------------------- (ej)
+# POINTWISE_TYPEI6.md (task O99, review R99).  Uses R99's from-scratch review_typei6_identities.py (sympy),
+# review_typei6_vsearch.c (exact GMP size test) and the author's typei6_vsearch.c (gcc + libgmp; part (3) skipped
+# otherwise).  Checked:
+# (1) Lemma 1.1 (a)-(d), Lemma 1.3, Lemma 3.1 sigma identity, Prop 2.1 algebra symbolically (R99, T eliminated via
+#     the Pell relation); inline integer replay of Lemma 1.1 (a)-(c) and of the regime-(v) criterion j^2 > m P_1 on
+#     the two regime-(v) certificates used below;
+# (2) Remark 1.2 positive control: the L = 13, b = 1 certificate (c',g,delta,P_1,X) = (79,19,1,1,17), u = 7, has
+#     j = 291, lambda = 86582, sigma = 48344 (regime (v)); both Comp 4.1 engines find it at (L,b) = (13,1) with 1143
+#     candidates; R99's engine also finds the relaxed regime-(v) control (L,u) = (7,293);
+# (3) Comp 4.1 at L = 7, b = 0..4: both engines 0 solutions, identical candidate counts 1, 5, 12, 56, 201.
+
+def check_ej():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, os.path.join(sdir, "review_typei6_identities.py")], capture_output=True,
+                       text=True, timeout=300, env=env, cwd=sdir)
+    o = r.stdout
+    assert r.returncode == 0 and "Lemma 1.1(a)(b)(c), discriminant, Lemma 1.3: OK" in o, ("T6 identities", o, r.stderr[-1000:])
+    assert "Lemma 1.1(d), Lemma 3.1 sigma identity (algebraic, sqrt reduced): OK" in o and "Prop 2.1 algebra" in o, ("T6 ids", o)
+    assert "Remark 1.2: j, lambda, sigma = 291 86582 48344 ; j^2 > m P1: True" in o, ("T6 Remark 1.2 (R99)", o)
+
+    def lemma11(L, a, cp, de, P1, X, u):
+        T, W = 2 ** (L - 4), 7 ** a
+        co = W * cp
+        d = co * (co * de * de + T)
+        P = cp * P1
+        assert d % P == 0
+        Q = d // P
+        assert 16 * P * X * X - Q * u * u == 1, "T6 Pell"
+        j = T * u // 2 - cp * de * (4 * P1 * X - W * u * de)
+        m = cp * de * de
+        mu = 8 * co * de * de + 4 * T
+        sig = mu * j - T * T * u
+        assert (T * u // 2 + j) % P1 == 0
+        rho = (T * u // 2 + j) // P1
+        assert (rho * j - m) % u == 0
+        lam = (rho * j - m) // u
+        assert 8 * j - mu * u == -32 * cp * de * P1 * X, "T6 Lemma 1.1(a)"
+        assert 4 * j * j - u * sig == 4 * m * P1, "T6 Lemma 1.1(b)"
+        assert sig == 4 * lam * P1 - 2 * T * j, "T6 Lemma 1.1(c)"
+        assert (sig > 0) == (j * j > m * P1) == (2 * lam * P1 > T * j), "T6 regime (v) criterion"
+        return j, lam, sig
+    assert lemma11(13, 1, 79, 1, 1, 17, 7) == (291, 86582, 48344), "T6 Remark 1.2 inline"
+    assert lemma11(7, 1, 1, 3, 71, 23, 293)[2] > 0, "T6 relaxed control (7,293) regime (v)"
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "Comp 4.1 engines SKIPPED (no C compiler / libgmp)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            ra, rr = os.path.join(td, "avs"), os.path.join(td, "rvs")
+            ok = all(subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, src), "-lgmp", "-lm"],
+                                    capture_output=True).returncode == 0
+                     for exe, src in ((ra, "typei6_vsearch.c"), (rr, "review_typei6_vsearch.c")))
+            if ok:
+                def eng(exe, *args):
+                    p = subprocess.run([exe, *map(str, args)], capture_output=True, text=True, timeout=120)
+                    return p.stdout + p.stderr
+
+                def author(L, b):
+                    m = re.search(rf"L={L} b={b}: (\d+) candidates, \d+ pass mod 16P, (\d+) solutions", eng(ra, L, b))
+                    return int(m.group(1)), int(m.group(2))
+
+                def review(L, b, *u):
+                    out = eng(rr, L, b, *u)
+                    ms = re.findall(r"pass-bound=(\d+) solutions=(\d+)", out)
+                    return sum(int(x) for x, _ in ms), sum(int(y) for _, y in ms), out
+                cands = []
+                for b in range(5):
+                    ca, sa = author(7, b)
+                    cr, sr, _ = review(7, b)
+                    assert sa == sr == 0 and ca == cr, ("T6 Comp 4.1 L = 7", b, ca, cr, sa, sr)
+                    cands.append(ca)
+                assert cands == [1, 5, 12, 56, 201], ("T6 L = 7 candidate counts", cands)
+                assert author(13, 1) == (1143, 1), "T6 author engine (13,1) control"
+                cr, sr, out = review(13, 1)
+                assert (cr, sr) == (1143, 1) and "c'=79 delta=1 P1=1 X=17 j=291 lambda=86582 sigma=48344 regime=v" in out, \
+                    ("T6 R99 engine (13,1) control", out)
+                cr, sr, out = review(7, 0, 293)
+                assert sr == 1 and "regime=v" in out, ("T6 relaxed control (7,293)", out)
+                msg = ("Comp 4.1 L = 7, b <= 4: 0 solutions in both engines, candidates 1, 5, 12, 56, 201 (equal); "
+                       "controls (13,1) [both] and relaxed (7,293) [R99] found in regime (v)")
+    print(f"ej R99 symbolic Lemma 1.1/1.3/3.1/Prop 2.1 OK; inline Lemma 1.1(a)-(c) on both certificates; Remark 1.2: "
+          f"j, lambda, sigma = 291, 86582, 48344 (regime (v)); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 ==")
+check_ej()
+
+
 print("\nall checks passed")
