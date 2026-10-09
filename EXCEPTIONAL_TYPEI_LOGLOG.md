@@ -265,6 +265,8 @@ quadric `{B² − 4AC = −4d}` (O112, D10: the stabiliser of `Q̄₀` in SL₂(
 
 **Theorem 6.2 (per-d count; PROVED conditional on (SEL) and the cited large sieve).** Let
 `ψ(u) = φ(x/λ)W(y/Y)` as in §5, with `λ ≍ A/(qF)`, `Y ≍ 1/(qF√d)` (i.e. `f ≍ F`, `a ≍ A`), `F ≥ 8A`.
+(O112, D5: `F ≥ 8A` makes `λ ≤ 1/4`, one period; in §8 the cells with `A/8 ≤ F' < 8A` lie in bands of
+bounded width and are bounded trivially, so no splitting into periods is ever needed.)
 Then with `𝔐_d := (#Λ(1)/V(1)) ∫ψ dμ` (independent of q and of the sieve),
 `|Σ_{Q∈𝓕_d^I, q | n(Q)} ψ(u_Q) − g_{c,d}(q) 𝔐_d| ≪_ε 𝓛^C q (#Λ(1))^{1/2} (A√d + F^{1+ε} d^{−1/2})^{1/2}`.
 *Proof.* Cor 4.4 (separation, Lemma 2.2, holds for the subset `Λ̃(q)`), Lemma 6.1 for the main term, and
@@ -431,12 +433,12 @@ Away from the bands, each cell gets one of the following treatments; the *saving
 cost is below the cell's weighted mass.
 * (b1) `D ≥ A` (`α < (1−γ)/2`): fixed-a sequences, Prop 7.1 (applicable: `e, f ≥ N^{1/2−3η₁}`, §(2a)),
   relative remainder `≪ L^C Q² A/D = L^C Q² N^{−δ}`; saving `C/k` by (3). No condition on β.
-* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`, `f ≥ 4A`): if `k ≥ 2j`, fixed-d sequences with the
+* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`, and `f ≥ 8A` off the band `|β−1| ≤ C₀/L`, `C₀ ≥ 6`): if `k ≥ 2j`, fixed-d sequences with the
   f-cusp: Thm 6.2 (`λ = A/(qf) ≤ 1/4`), relative remainder `≪ L^C Q²(N^{−δ/2} + f^{1/2+ε}/A)`, and
   `f^{1/2}/A ≍ N^{(1−α−β)/2} ≤ N^{(γ−δ)/2} ≤ N^{−δ/4}` (as `1−2α = γ−δ`, `δ ≥ 2γ`); saving `C/k`. If
   `k < 2j`: BT on 4ad (saving `1/j ≤ 2/k`), applied to the whole layer (b4).
-* (b3) `D < A`, `α+γ < β < 1` (`e, f ≥ 4A`): fixed d, cusp `f' = min(e,f) ≤ (ef)^{1/2} ≤ 3A√D`, Thm 6.2
-  with `λ ≤ 1/4`; cusp term `f'^{1/2+ε}/A ≪ N^{ε}D^{1/4}A^{−1/2} = N^{(1−γ−3α)/4+ε} ≤ N^{−1/9}` (as
+* (b3) `D < A`, `α+γ < β < 1` (`e, f ≥ 8A` off the bands): fixed d, cusp `f' = min(e,f) ≤ (ef)^{1/2} ≤ 3A√D`, Thm 6.2
+  with `λ ≤ 1/4` (`F' ≥ 8A`); cusp term `f'^{1/2+ε}/A ≪ N^{ε}D^{1/4}A^{−1/2} = N^{(1−γ−3α)/4+ε} ≤ N^{−1/9}` (as
   `α ≥ (1−γ)/2`, `γ ≤ η`); relative remainder `≪ L^C Q² N^{−δ/2}`; saving `C/k`.
 * (b4) per layer: the 4ad Brun–Titchmarsh bound. For fixed `(a,d,f)` the n's with `c ≍ 2^j` lie in an
   interval of length `≤ 4ad·2^j` in one class mod 4ad, so BT gives `≤ 8ad2^j/(φ(4ad)·j log 2)`;
