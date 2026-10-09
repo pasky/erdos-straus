@@ -59,3 +59,28 @@ Checked against DI pp. 271–273, 276–277 (scan).
   Bessel ODE `(D_x²+x²)J_{2ir} = −4r²J_{2ir}` ✓), constants plausible, B = 2^{2048} generous. The claim
   "H = 2^{512} bounds D_x^j-norms, j ≤ 12" re-estimated: ≈ 2^{212} ✓.
 No growing-order step occurs in §4; the only δ-dependence is `δ^{−2}`, `K_{T2}(δ/4)`, `D(δ/4)`, `K₁₄(δ/4)` ✓.
+
+## §5 / `ttl3_thm2_effective.md` (effective DI Thm 2 at ∞) — verdict: SOUND (minor defects m3, m4)
+Checked against DI pp. 253, 256–261 (scan); from-scratch numerics `scripts/review_r121a_thm2.py`.
+* **Step 4 (the only growing-order step).** Re-derived: after Cauchy–Schwarz and Poisson in m with the majorant
+  `η(m/N)` (supp `[3/4,9/4]`), the phase derivative ratio is `≤ 2θ(√2−1)/(√3·c|a−u|) ≤ 0.9566 < 31/32` (θ < 2,
+  `|a−u| ≥ 1/c`); with DI's support (1/2,3) it is `1.17 > 1` — the author's repair of DI p. 257 is correct.
+  Cauchy disc radius `2^{−12}`: `min|1 − βz^{−1/2}| = 0.031 ≥ 1/64` numerically ✓ ⇒ `‖g^{(j)}‖ ≤ 64·2^{12j}j!` ✓.
+  Term count of `p` nested Leibniz expansions `(p+1)!`, derivative-factorial products `≤ (p!)²` against the Gevrey-2
+  η ⇒ `R_p = 2^{100(p+1)}(p!)⁴` dominates (re-derived: `2^{40p}36^p·8e^{16}(p+1)(p!)³`) ✓. `sp ≥ 2−s` with
+  `p = ⌊2/s⌋` gives `N(c/N)^p ≤ 1/c` for `c ≤ N^{1−s}` ✓. Cost `log R_p ≍ δ^{−1}log(1/δ)`: single-exponential ✓.
+* Step 5 resonant/Ramanujan term and the final `|B| ≤ Pθ^{−1/2}c^{1/2}N^{1/2+s}‖b‖²` re-derived (`(Σ|b|)² ≤ 2N‖b‖²`,
+  `Σ_{h≤N}(h,c)/h ≤ τ(c)(1+log N)`) ✓; the range `N^{1−s} < c < N` from Step 3 ✓.
+* Step 2 (DI's exercise (5.1)): row-sum constant numerically ≤ 34 < 100 over a grid ✓.
+* Step 6: `D_K ≤ 2K²` (numerically ≤ 0.28·2K²), `∫wξ = 2e^{−1/K}` (exact, verified), `∫wξ^{±1/2} ≤ 32`, angular
+  integrals ≤ 4Δ, 4/Δ ✓; the exponent bookkeeping for `F(c) ≤ AP c^{−s}N^{1+5s}` in all three c-ranges re-derived ✓;
+  the `c^{−s}` is what makes `Σ_{q|c}|F(c)|/c ≤ AP(1+1/s)q^{−1}N^{1+5s}` summable ✓.
+* Step 7: the restricted Gaussian lower bound: numerically `∫_{[|r|,|r|+1]}t sh(πt)H(r,t)e^{−(t/K)²}dt ≥ 0.0067(1+|r|)`
+  (`|r| ≤ K`), far above `2^{−20}` ✓. Step 8 enlargement `L = K + X^s` and `sup_X Xe^{−X^{2s}/2} ≤ (1+1/s)^{1/s}` ✓;
+  partial summation with `1/(1+r)` ✓.
+* Step 9 (exceptional spectrum): `H(iσ,t) = cos πσ/(sh²πt + cos²πσ)` (verified against DI's definition p. 253), so the
+  M-weight `H/ch(πκ)` integrated over `t ∈ [1,2]` is `≥ 0.0038` uniformly for `0 ≤ σ ≤ 1/4` ✓ (it degenerates only
+  as σ → 1/2; at σ = .4999 the bare H-integral is 8·10⁻⁵). So exceptional terms are handled once `σ ≤ 1/4` is known,
+  and that is (B4). See m4.
+* Step 10: `log log K_{T2} ≤ 96/δ` re-computed from the explicit formula (margin ≥ 500 on δ ∈ [0.01,0.1]) ✓; the
+  double-exponential comes solely from the divisor constant `D(s)` (`τ^4`, `s = δ/16`), as claimed.
