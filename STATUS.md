@@ -323,6 +323,17 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   POINTWISE_MORDELL17B (Lemma 2.1 enumerator = R93 naive scan = stored data at K = 5, 7 as sets; ρ₁, ρ₂ exact by
   both union scripts, with the level-7 Q/U data read from `data/m17b/qu7_*` (two engines, re-validated against
   their definitions); Theorem 4.1 tables floor-rounded vs inline closed forms; needs gcc/cc and GNU `factor`).
+* `verify.py` blocks (eh)–(ek) (O105, ~42 s) add POINTWISE_MORDELL13C (Thm 6.1 tree certificate in full with
+  R100's from-scratch checker: 6000 splits, 136494 covered / 35459 open leaves, 2140 classes, 0 errors, mean
+  open density 8.424e-5, per-root open counts; R100 identities, split primes ≤ 83, open moduli, roots and four
+  negative controls; §2 witness engine = R100 brute force at L = 840, 9240; Comp 3.1 enumerator: 0 data at
+  λ = 11⁴13⁴, control λ = 143: 34), POINTWISE_MORDELL17C (Lemma 1.1 Abel summation exact; cumulative and
+  pointwise tables by author + R98b, floor-rounded vs closed forms; Lemma 2.1 by R98b brute force at
+  F = 17, 4913, 1001, 9999 and all F ≤ 1500; Cor 2.2 cost 4.2254e-3), POINTWISE_TYPEI6 (R99 sympy identities;
+  inline Lemma 1.1(a)–(c) on two certificates; Remark 1.2 regime-(v) control (13,1) in both Comp 4.1 engines,
+  relaxed control (7,293); L = 7, b ≤ 4: 0 solutions, equal candidate counts; needs gcc + libgmp) and
+  EXCEPTIONAL_MN2 (emn2_scan = R102B brute force on 6617 (m,p) pairs, m ≤ 60; R102A = R102B; R102A §1
+  identities; L_{1/2}(60) = 7.636 from scratch, scanner agrees on the grid).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
