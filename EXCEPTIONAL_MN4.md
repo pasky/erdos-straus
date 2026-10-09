@@ -54,3 +54,23 @@ may divide md**, and the m-loss of the sieve product must be paid by the masses 
 **Exponents.** For n ≍ N write `a = N^α`, `b = N^β`, `c = N^γ`. Then `acd ≍ N/m`, `e ≍ N^{β−γ}`
 (`e = (a+b)/c`, m-free), `f ≍ N^{1+α−β}` (`bf = na + c`, m-free), `d ≍ N^{1−α−γ}/m`. Since
 `m ≤ L^5` in the conditional part (Lemma 0.1), m shifts only the exponent of d, by `≤ 5 log L/L`.
+
+## 1A. Design of the transfer (working notes; superseded by §§2–4 once written)
+
+* **Normalisation (no parity).** For general m use `Q = [f, 2mad, mde]`, disc `4m²a²d² − 4fmde = −4md`,
+  level `md`, root `z_Q = (−mad + i√(md))/f`, `w = z/(md) = (−a + i/√(md))/f`, sieve functional
+  `n = c·B/2 − A`. The full set `{[A,B,C] : B² − 4AC = −4md, A > 0, B ≡ 0 (2md), C ≡ 0 (md)}` equals the
+  set of these forms (a ∈ ℤ free), and it is `Γ⁰(md)`-stable (z-side: `md | t` gives `B' ≡ 0 (2md)`,
+  `C' = Q(t,s) ≡ 0 (md)`), so TTL's parity bookkeeping (`Γ(2q)`, `M = 4dq²`) is replaced by
+  `Γ(q)`, `M = mdq²`. For m = 4 this is TTL's set under `Y ↦ 2Y` (level 4d instead of d; harmless).
+* **Separation** (TTL Lemma 2.2): `4md | disc(Q − Q')` for two such forms, and by TTL Lemma 2.1
+  `disc(Q−Q') = 8md(cosh − 1)`, so `cosh ≥ 3/2` again — uniformly in m.
+* **m enters remainders only polynomially** (`(md/A)^{1/2}` spectral, `m^{1/2}A/D` Weil); as `m ≤ L^5`
+  these are `L^{O(1)}` and are absorbed by TTL's `L^C` (layers `k ≤ C₁ log L` → Brun–Titchmarsh).
+  The crossing is `D = A` with `δ := |log(A/D)|/L` (TTL's `|2α−1+γ|` up to `O(log L/L)`).
+* **Main terms need the gain.** Sieve products lose `g(2mcs) ≤ 2g(m)g(c)g(s)`; masses must carry
+  `φ(m)/m`. Sources of the gain: divisors `f, e` of `ma²d+1` are coprime to m (MN3 Prop 2.3 with
+  `k = m·…`; for `Σρ_{md}(f)/f`: `ρ_{md}(f) = 0` unless `(f,m) = 1`); in Prop 7.1 the main term
+  `X_a ≍ Dφ(ma²)/(ma²)` carries it explicitly. Note `Σ_{x≤X} 1/φ(mx) ≍ log X/φ(m)` has **no** gain, so
+  every Brun–Titchmarsh sum must take its gain from a variable coprime to m (f, e, or the divisor
+  of `ma²d+1`), never from the modulus alone.
