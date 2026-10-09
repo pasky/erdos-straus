@@ -1517,7 +1517,10 @@ $\le10^6$ (two engines) and in no II1, I4 or II2 class with $17$-part
 dividing $17^4$ \cite[Comp.~5.1]{PM}.
 \end{computation}
 
-The numbers of data are $D_P(K)=2,32,121,258,604$ for $K=1,3,5,7,9$ and
+The numbers of data are $D_P(K)=2,32,121,258,604,836,1463$ for
+$K=1,3,\dots,13$ (the last two \status{certified} by a faster complete
+enumerator built on an exact form of ET's four-regime cover and by an
+independent engine in review, with identical point sets \cite[\S2]{PM17B}) and
 $D_Q(k)=2,73,245,707$, $D_U(k)=4,68,310,826$ for $k=1,3,5,7$; the measure
 added per level is $0.235$, $0.080$, $0.0069$, $0.0010$ at levels $2$--$5$
 (\status{evidence} of decay, from three ratios only).
@@ -1564,9 +1567,11 @@ n^{2/3+\varepsilon}$ of Browning and Elsholtz \cite{BE} handles
 (U).  The constants are not explicit, so this gives no level the
 computation reaches.  The critical family is (P): its boxes have weight
 $\asymp N^{-1/2}$ at ES level $N=17^K$, against the count
-$N^{2/5+o(1)}$, a margin of only $1/10$; even $D_P(K)\le17^{2K/5}$ with
-constant $1$ would leave a tail $\approx0.84$ from $K\ge11$, more than
-$0.677$.  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
+$N^{2/5+o(1)}$, a margin of only $1/10$.  In the crude form of
+Theorem~\ref{thm:tail17}, even $D_P(K)\le17^{2K/5}$ with constant $1$
+would leave a tail $\approx0.84$ from $K\ge11$, more than $0.677$.  With
+exact data through $K=11$ the margin is much better
+(Theorem~\ref{thm:explicit17} below).  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
 $(a,b)$, so it would suffice (\status{Assessment}: this is the natural
 route, not a proved necessity) to have an explicit bound
 \begin{equation}\label{eq:Pcount}
@@ -1575,9 +1580,52 @@ C\cdot17^{(1/2-\delta)K}
 \end{equation}
 with explicit $C$ and $\delta>0$, together with weaker explicit bounds
 for (Q), (U).  The data fit $D_P(K)\approx K^3$
-($2,32,121,258,604$ against $1,27,125,343,729$; \status{evidence}), far
+($2,\dots,604,836,1463$ against $1,\dots,729,1331,2197$; \status{evidence}), far
 below what is needed: $D_Q+D_U\le17^{k/2}$ for $k\ge8$ and $D_P(K)\le
 17^{K/4}$ for $K\ge11$ would make the tail $<0.01$.
+
+The union of all boxes meeting $C_5$ is the union of the (P)- and
+(Q)-boxes (Lemma~\ref{lem:boxtypes}, Proposition~\ref{prop:boxES}(b)).
+Its exact part through (P)-level $6$ ($K\le11$) and (Q)-, (U)-level $7$
+leaves the fraction
+$\rho_1=16344335/24137569=0.677132\ldots$ of $C_5$ uncovered
+(\status{certified}; \cite[Comp.~3.1]{PM17B}, which reproduces
+Computation~\ref{comp:17}).  Each (P)-datum of level $K$ adds at most two
+boxes of relative measure $17^{(1-K)/2}$, and each (Q)-datum of level $k$
+at most two of relative measure $17^{1-k}$.
+
+\begin{theorem}[\status{proved} reduction; {\cite[Thm.~4.1]{PM17B}, \cite[Lemma~1.1]{PM17C}}]\label{thm:explicit17}
+Let $\theta<1/2$ and $C>0$.  Suppose that
+$S_P(K):=\sum_{13\le K'\le K}D_P(K')\le C\cdot17^{\theta K}$ for every
+odd $K\ge13$ (sum over odd $K'$), that $D_Q(k)\le17^{3k/5}$ for every
+odd $k\ge9$, and that
+\[
+\tfrac{32}{17}\,C\sum_{K\ge13\ \mathrm{odd}}17^{\theta K+(1-K)/2}+1.411\cdot10^{-3}<\rho_1 .
+\]
+Then $C_5$ and $C_7$ contain sterile points, and the conclusion of
+Corollary~\ref{cor:17} holds.  At $\theta=2/5$ the last condition holds
+for every $C\le1.497$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+The (Q)-term is at most $2\sum_{k\ge9}17^{3k/5+1-k}<1.411\cdot10^{-3}$.
+For (P), the weights $w_K=17^{(1-K)/2}$ satisfy
+$w_K-w_{K+2}=\tfrac{16}{17}w_K$, and Abel summation gives
+$\sum_Kw_KD_P(K)\le\tfrac{16}{17}\sum_Kw_KS_P(K)$.  The series are summed
+numerically, with floor rounding of $C$.
+\end{proof}
+
+So ET's own exponent $2/5$, with explicit constant $1.497$ and no $o(1)$,
+would suffice.  If the bound is assumed for each $D_P(K)$ rather than
+cumulatively, the constant is $1.409$ \cite[\S4]{PM17B}.  The data are far
+inside this: $D_P(13)/17^{5.2}\approx6\cdot10^{-4}$.  It is conjectured in
+\cite[Conj.~4.2]{PM17B} (\status{conjecture}) that $D_P(K)\le K^5$ for
+$K\ge15$ and $D_Q(k)\le k^5$ for $k\ge9$, which would give a tail
+$\le4.2\cdot10^{-3}$.  On the (Q) side, the points with $c\ge17^{k/2}$
+are bounded unconditionally, since a pair $(a,d)$ carries at most two
+(Q)-points; they cost at most $4.3\cdot10^{-3}$ of the budget
+\cite[Lemma~2.1, Cor.~2.2]{PM17C} (\status{proved}).  Nothing comparable
+is known for (P).
 
 \begin{assessment}[Discrete logarithms]
 With $(s,t)=(c,d)$ the (P)-data of level $K$ are exactly the $(a,s,t)$
@@ -1598,6 +1646,18 @@ for them to reach $N^{1/2-\delta}$ explicitly.  A digit-set (Cantor)
 construction that avoids boxes with small integer centres was tested and
 fails: the normalised centres of new boxes have maxima $0.86$--$0.99$ at
 levels $3$--$7$.
+Averaging over $K$, which Theorem~\ref{thm:explicit17} permits, does not
+by itself help.  For fixed $(a,b)$ and $e\mid a+b$ the admissible $K$
+form one class modulo $\operatorname{lcm}(2,\operatorname{ord}_{4ab}17)$
+(\status{proved}).  But the triples that admit \emph{some} exponent number
+about $B(\log B)^{0.4\text{--}0.5}$ for $ab\le B\le3\cdot10^5$, with
+least exponents up to about $B$, median about $0.05B$ (\status{evidence},
+two engines).  An argument blind to the size of the discrete logarithm gives
+only $\theta\approx1$.  A proof must show that the discrete logarithms of
+$-e$ modulo $4ab$ rarely fall in the short window $[\log_{17}4ab,K]$
+\cite[\S\S3--4]{PM17C}.  An ET-type cover that charges at least one per
+parameter pair also appears unable to reach the constant at $\theta=2/5$
+\cite[\S3]{PM17C}.
 \end{assessment}
 
 \section{Open problems}\label{sec:open}
