@@ -91,6 +91,11 @@ residues outside the six roots).
 
 ## 5. x** = x(2,15): extended targeted searches (CERTIFIED within ranges, one engine)
 
+*Provenance (R100 repair, applied by reviewer).* The three `logs/o100_xss_*.log` record neither the command line nor
+the start `X0`. Only the author's statement below and the Replay block give them. The first progress lines and the
+final `done X=… E=… hits=0` lines are consistent with these commands but do not prove them. Future runs
+should echo the command into the log.
+
 **Computation 5.1.** `scripts/m13c_target2.c` (= `m13b_target2.c` + start offset; validated engine of
 POINTWISE_MORDELL13B §5): x** lies in **no I2, II1, I4 class with `h = f, e ∈ (2·10⁷, 2·10⁸]`** and
 `|i|,|j| ≤ 12` (logs/o100_xss_U_A.log `(2·10⁷,1.1·10⁸]`, logs/o100_xss_U_B.log `(1.1·10⁸,2·10⁸]`, 0 hits,
