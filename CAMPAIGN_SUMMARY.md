@@ -631,8 +631,23 @@ repaired by the author). All statements are PROVED relative to the 3/4 note.
     a level-of-distribution hypothesis LD implies `Σ_{p≤N} f_I(p) ≪ N log² N`.
   * Paper: O113 replaced Theorem L by Theorem L′ in `paper/es-mn-short-note`
     (26 pp; post-referee addition, not yet refereed).
+* Follow-up 3 `EXCEPTIONAL_MN4.md` (review `reviews/exceptional-mn4-review.md`,
+  R117, no FATAL/MAJOR, minors applied by the reviewer): the m-uniform version
+  of §2.7.
+  * Thm 4.1 (CONDITIONAL on SEL_m: no exceptional eigenvalues for Γ₀(mdq²) with
+    even nebentypus): `Σ_{N/2<p≤N} f_{I,m}(p) ≪ N(L² + L log² m)/m + N m^{−0.35}/L`
+    for 4 ≤ m ≤ L⁵.
+  * Thm 5.1: `ρ_rep ≪ (L³ + L² log² m)/m + m^{−0.35}`; conditional for m ≤ L⁵ and
+    unconditional above (Lemma 0.1).
+  * Thm 5.2 (sharp order): under SEL the density transition for m/p is at
+    `log N ≍ m^{1/3}`, with matching orders on both sides. The lower half is
+    conditional; the upper half is Thm U (unconditional). Conj C2 (no sharp
+    threshold constant) is untouched.
+  * R117 also found the displayed exponent in step (b3) of TYPEI_LOGLOG §8 too
+    strong; an erratum is added there, and Thm 8.1 is unaffected.
+  * Not in any paper yet.
 
-### 2.7 Elsholtz–Tao's Type I log log N under Selberg's eigenvalue conjecture
+### 2.7 Elsholtz–Tao's Type I log log N: removed under Selberg, beaten unconditionally
 
 `EXCEPTIONAL_TYPEI_LOGLOG.md` (ledger (D)32; hostile review
 `reviews/exceptional-typei-loglog-review.md`, rounds 1–2; the author's
@@ -649,11 +664,27 @@ no FATAL, 2 MAJOR gaps, repaired by O112; round 2: complete CONDITIONAL proof).
   large sieve for box Poincaré series (Prop 5.1, uses SEL) and a per-a Weil
   count (Prop 7.1). The two methods meet at d = a; a linearly degenerating
   saving costs only O(N log² N) (Lemma 1.1).
-* Unconditionally a strip of positive width next to d = a remains, where exceptional
-  eigenvalues (Kim–Sarnak 7/64) beat the saving. So this argument gives **no
-  unconditional improvement** of ET.
-* For m/n it would close the Thm U / Thm L′ gap only through an m-uniform
-  version, which has not been attempted (`paper/es-mn-short-note`, Remark 8.10).
+* With Kim–Sarnak alone a strip of positive width next to d = a remains, where
+  exceptional eigenvalues (Kim–Sarnak 7/64) beat the saving pointwise.
+* **Unconditional follow-up (D)32a** (`EXCEPTIONAL_TYPEI_LOGLOG2.md`; two
+  independent reviews `reviews/exceptional-typei-loglog2-review.md`, `-review-B.md`,
+  no FATAL/MAJOR, minors repaired by the author). The exceptional term of the box
+  Poincaré series is reduced by partial summation to interval sums (a_n = 1);
+  since the assembly already averages over d, the level-averaged exceptional
+  large sieve of DI Thm 7 applies and the strip costs only a factor that can be
+  made small.
+  * Thm 4.1(i) (PROVED relative to Deshouillers–Iwaniec 1982 Thm 7 and Drappeau
+    2017 Lemma 4.10): for every ε₀ > 0,
+    `Σ_{p≤N} f_I(p) ≤ Cε₀ N log²N log log N + O_{ε₀}(N log²N)`, i.e.
+    `o(N log² N log log N)`. An unconditional improvement of ET's Type I bound,
+    without a quantified rate.
+  * Thm 4.1(ii): `≪ N log²N`, CONDITIONAL on (EFF) — the ε-constants of DI Thm 7
+    and Drappeau Lemma 4.10 are ≤ exp(exp(A/ε)). An audit suggests (EFF) holds;
+    that is an Assessment, not a proof. Uniformity in Drappeau's character
+    modulus q₀ is the reviewers' reading of his paper.
+  * Not yet in `paper/es-typei-heegner-note` (which has the conditional Thm 8.1).
+* For m/n the m-uniform version is §2.6 follow-up 3 (EXCEPTIONAL_MN4; conditional
+  on SEL_m). An m-uniform version of (D)32a has not been attempted.
 
 ---
 
@@ -1038,6 +1069,17 @@ original paper was not obtained.
     any height (two engines except (L, b) = (9,15), (10,14), (10,15)). What
     remains: fields with c_oδ > 10⁶ and u_1(d) = 7^b, b ≥ 16; a naive model
     predicts fewer than 10⁻¹¹ such certificates (EVIDENCE).
+  * Follow-up 6 (POINTWISE_TYPEI7, review `reviews/pointwise-typei7-review.md`,
+    R109, no FATAL/MAJOR, minors applied by the reviewer): a precise **negative**
+    result on 2-adic closeness. A fibre certificate is at `x̂_9` iff
+    nδ ≡ 5·9⁻¹ (mod 2^{⌈L/2⌉−1}) (Lemma 1.1, PROVED, from an exact formula for
+    v_2(F+9)). Fibre certificates come arbitrarily close to w = 9 (Thm 2.1,
+    PROVED, explicit family F = 7^s + 2^i), and the covered part of the fibre is
+    open and dense (Thm 2.4, PROVED, via F = 71^ν). So no 2-adic neighbourhood
+    test can prove sterility; the only sufficient bound, v_2(F+9) < 2 + ⌈L/2⌉, is
+    equivalent to sterility. CERTIFIED: no certificate at `x̂_9` anywhere in the
+    (L,b) grid 2^{L−4}7^b ≤ 2²⁸ (67 fibre certificates found; two engines except
+    a few listed cells that rely on one).
 * *Mordell-type coverings mod a further prime r* (POINTWISE_MORDELL.md,
   (H)34).
   * r = 13 (Thm 3.1, PROVED by finite computation, re-certified by R80):
@@ -1086,6 +1128,19 @@ original paper was not obtained.
     children. The open leaves lie off the T-generic line; their T-generic
     projections are covered. Assessment: closing a root needs a structural
     idea, not more computation.
+  * Follow-up 3 POINTWISE_MORDELL13E (review `reviews/pointwise-mordell13e-review.md`,
+    R107, no FATAL/MAJOR, minors applied by the reviewer): x** = x(2,15)
+    **survives**. Comp 3.1 (CERTIFIED, with a validated faster complete ES
+    engine): x** lies in no ET class of any family and any T-free modulus with
+    ES level N < 2.59·10¹⁰. That covers all 54 T-units up to 13⁹, so x** is in
+    no class of T-level ≤ 161050, with e unbounded (2 865 550 ES solutions
+    examined). Since x** ≡ x* (mod 143) and x* is covered, no argument that sees
+    only x mod 143 can prove x** sterile (PROVED). Lemma 2.1 (PROVED): parity
+    constraints on v_T(N) in the (2,2) cell. Prop 4.1 (PROVED reduction): an
+    explicit mass bound for boxes of level > 13⁹ meeting C_3(x**) would give a
+    sterile point in C_3, hence no finite ET covering for (p/11) = (p/13) = −1.
+    The nearest boxes miss x** by one 11-adic digit; survival looks generic
+    (Assessment). Sterility of x** remains Conj 5.2 (CONJECTURE).
   * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
     17-generic line the seven ET families become explicit boxes in ℤ_17
     (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
