@@ -116,8 +116,9 @@ hence `c_o` and `d`, to a finite set; each `d` has finitely many splittings `PQ`
 
 *Remarks.* (i) The abc input is exactly the 7-power: for general `u` the radical is `≍ c` and nothing follows; abc turns
 "`u = 7^b`" into "`u ≪ d^{1/2+O(ε)}/7^a`" (small unit), contradicting Lemma 3.1(c).
-(ii) Effectivity: in the idealised limit `ε → 0`, `K = 1`, the bound reads `49^aδ⁴P < 49T⁴τ³ᐟ²/256`, which forces
-`c_oδ ≤ 7P·δ < 4.6·10⁵` even at `L = 10` (`δ = 1`, `a = 1` is the worst case) — inside Cor 2.3 of TYPEI5 (`c_oδ ≤ 10⁶`, all `b`),
+(ii) Effectivity: in the idealised limit `ε → 0`, `K = 1`, the bound reads `49^aδ⁴P < 49T⁴τ²/256`, which forces
+`c_oδ ≤ 7^aPδ < 7T⁴τ²/256 ≤ 4.6·10⁵τ²` even at `L = 10` (`δ = 1`, `a = 1` is the worst case), and either `τ ≤ 1.2` or
+`c_oδ ≤ c_oδ² < 5T`; so `c_oδ < 6.7·10⁵` — inside Cor 2.3 of TYPEI5 (`c_oδ ≤ 10⁶`, all `b`),
 so levels 7–10 would be empty. With any *published* explicit form of abc (Baker 2004: `c < (6/5)N(log N)^ω/ω!`; or `c < N^{7/4}`)
 the constant is far too large (or the exponent `> 8/7`), so **emptiness of levels 7–10 is not obtained conditionally on
 any standard explicit abc** (Assessment). Theorem 3.2 is a finiteness statement only.
