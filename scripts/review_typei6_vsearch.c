@@ -71,7 +71,9 @@ static void divs(u64 p7a, int a, u64 cp, u64 de, u64 M, u64 *p, int *e, int k, i
   u64 q = 1; for (int t = 0; t <= e[i]; t++) { divs(p7a, a, cp, de, M, p, e, k, i + 1, cur * q); q *= p[i]; }
 }
 /* P1 = 1 instance, used for loop termination (monotone, see header) */
-static int alive(u64 p7a, u64 cp, u64 de) { return bound_ok(p7a, cp, de, p7a * cp * de * de + T, cp); }
+static int alive(u64 p7a, u64 cp, u64 de) {
+  if ((unsigned __int128)p7a * cp * de * de + T >= ((unsigned __int128)1 << 62)) { fprintf(stderr, "overflow guard alive\n"); exit(4); }
+  return bound_ok(p7a, cp, de, p7a * cp * de * de + T, cp); }
 static int vacuous(u64 p7a, u64 cp, u64 de) { /* 64 x^4 <= T^4 */
   long double x = (long double)p7a * cp * de * de; return 64.0L * x * x * x * x <= (long double)T * T * T * T * 1.0000001L; }
 int main(int argc, char **argv) {
@@ -88,7 +90,7 @@ int main(int argc, char **argv) {
   u64 pf[64]; int pe[64];
   u64 p7a = 7;
   for (int a = 1;; a += 2, p7a *= 49) {
-    if (p7a > (1ULL << 40)) { fprintf(stderr, "a too large guard\n"); exit(5); }
+    if (p7a > (1ULL << 56)) { fprintf(stderr, "a too large guard\n"); exit(5); }
     if (!vacuous(p7a, 1, 1) && !alive(p7a, 1, 1)) break;
     for (u64 de = 1;; de += 2) {
       if (!vacuous(p7a, 1, de) && !alive(p7a, 1, de)) break;

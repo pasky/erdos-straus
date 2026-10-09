@@ -1,0 +1,97 @@
+L=7 u=1: triples=1 divisors=4 pass-bound=1 solutions=0
+L=7 b=0 time 1.71 s
+exit=0
+L=7 u=7: triples=2 divisors=6 pass-bound=5 solutions=0
+L=7 b=1 time 1.75 s
+exit=0
+L=7 u=49: triples=8 divisors=30 pass-bound=12 solutions=0
+L=7 b=2 time 1.75 s
+exit=0
+L=7 u=343: triples=30 divisors=108 pass-bound=56 solutions=0
+L=7 b=3 time 1.71 s
+exit=0
+L=7 u=2401: triples=109 divisors=455 pass-bound=201 solutions=0
+L=7 b=4 time 1.82 s
+exit=0
+L=7 u=16807: triples=405 divisors=1838 pass-bound=758 solutions=0
+L=7 b=5 time 1.77 s
+exit=0
+L=7 u=117649: triples=1491 divisors=7479 pass-bound=2809 solutions=0
+L=7 b=6 time 1.82 s
+exit=0
+L=7 u=823543: triples=5471 divisors=30333 pass-bound=10357 solutions=0
+L=7 b=7 time 1.85 s
+exit=0
+L=7 u=5764801: triples=20048 divisors=121733 pass-bound=38213 solutions=0
+L=7 b=8 time 1.83 s
+exit=0
+L=7 u=40353607: triples=73417 divisors=484274 pass-bound=140742 solutions=0
+L=7 b=9 time 1.83 s
+exit=0
+L=7 u=282475249: triples=268777 divisors=1914622 pass-bound=517457 solutions=0
+L=7 b=10 time 1.89 s
+exit=0
+L=7 u=1977326743: triples=983740 divisors=7527495 pass-bound=1899980 solutions=0
+L=7 b=11 time 2.31 s
+exit=0
+Command exited with non-zero status 5
+L=7 b=12 time 4.27 s
+exit=5
+Command exited with non-zero status 5
+L=7 b=13 time 13.61 s
+exit=5
+L=8 u=1: triples=2 divisors=4 pass-bound=3 solutions=0
+L=8 b=0 time 1.81 s
+exit=0
+L=8 u=7: triples=5 divisors=12 pass-bound=8 solutions=0
+L=8 b=1 time 1.74 s
+exit=0
+L=8 u=49: triples=20 divisors=65 pass-bound=34 solutions=0
+L=8 b=2 time 1.81 s
+exit=0
+L=8 u=343: triples=76 divisors=291 pass-bound=132 solutions=0
+L=8 b=3 time 1.76 s
+exit=0
+L=8 u=2401: triples=277 divisors=1200 pass-bound=506 solutions=0
+L=8 b=4 time 1.78 s
+exit=0
+L=8 u=16807: triples=1022 divisors=4963 pass-bound=1897 solutions=0
+L=8 b=5 time 1.67 s
+exit=0
+L=8 u=117649: triples=3761 divisors=20230 pass-bound=7066 solutions=0
+L=8 b=6 time 1.78 s
+exit=0
+L=8 u=823543: triples=13800 divisors=81538 pass-bound=26182 solutions=0
+L=8 b=7 time 1.84 s
+exit=0
+L=8 u=5764801: triples=50546 divisors=325215 pass-bound=96615 solutions=0
+L=8 b=8 time 1.82 s
+exit=0
+L=8 u=40353607: triples=185060 divisors=1289227 pass-bound=355531 solutions=0
+L=8 b=9 time 1.86 s
+exit=0
+L=8 u=282475249: triples=677380 divisors=5077801 pass-bound=1306498 solutions=0
+L=8 b=10 time 2.12 s
+exit=0
+L=8 u=1977326743: triples=2479100 divisors=19899734 pass-bound=4794523 solutions=0
+L=8 b=11 time 3.26 s
+exit=0
+Command exited with non-zero status 5
+L=8 b=12 time 9.32 s
+exit=5
+Command exited with non-zero status 5
+L=8 b=13 time 45.65 s
+exit=5
+L=7 u=13841287201: triples=3600237 divisors=29454781 pass-bound=6968984 solutions=0
+L=7 b=12 time 4.75 s
+exit=0
+L=7 u=96889010407: triples=13175173 divisors=114765868 pass-bound=25545422 solutions=0
+L=7 b=13 time 13.90 s
+exit=0
+L=8 u=13841287201: triples=9072444 divisors=77636432 pass-bound=17580304 solutions=0
+L=8 b=12 time 9.93 s
+exit=0
+L=8 u=96889010407: triples=33200163 divisors=301709869 pass-bound=64424838 solutions=0
+L=8 b=13 time 45.86 s
+exit=0
+# NOTE: L=7,8 b=12,13 in main_L* exited 5 (guard 7^a < 2^40 too tight; no result); rerun with guard 2^56 above (ext_L*), exit 0.

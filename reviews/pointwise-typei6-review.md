@@ -16,6 +16,9 @@ Status: in progress.
 | Interpretation after Lemma 3.1 | SOUND-AFTER-REPAIRS (D2) |
 | Thm 3.2 (abc ⇒ finiteness per level) | SOUND-AFTER-REPAIRS (D1: case-A citation) |
 | Remarks after Thm 3.2 | SOUND-AFTER-REPAIRS (D4: wording) |
+| Comp 4.1 (engine, (4.1) pruning) | SOUND (code audit + independent engine) |
+| Cor 4.2 (`L = 7…10`, `v_7(k) ≤ 15`) | SOUND as CERTIFIED (single engine for part of the range; provenance D7) |
+| §5 model | SOUND as EVIDENCE/Assessment |
 
 ## Checks
 
@@ -78,8 +81,34 @@ statement at all (`1 + 8 = 9` violates `c < rad`), see D4. Baker's explicit form
 `ω ≥ 3` and `log N ≳ (1/2)log c` large, so the factor `(log N)^ω/ω!` is `≫ 10³` while emptiness at `L = 10` would need
 it `≲ 1`; and `c < N^{7/4}` has exponent `7/4 > 8/7`. So the author's negative Assessment is right.
 
+### Comp 4.1 / Cor 4.2 — independent re-run
+`scripts/review_typei6_vsearch.c` (from scratch; different design from `typei6_vsearch`): (4.1) is checked **exactly**
+in GMP for every divisor (no floating point anywhere in the decision path); `M` is factored with a smallest-prime-factor
+table / trial division (not an AP sieve); all divisors of `M` are generated and filtered; loop termination uses the
+`P_1 = 1` instance of the exact inequality (monotone, see audit); each hit is re-classified (case A / regime) from
+scratch. Logs: `reviews/agent-reports/R99_vsearch_log.txt`.
+* Positive controls: `typei4_lb` regime-(v) certificates `(13,1)`, `(16,0)×3`, `(18,1)` all found, classified
+  regime (v); `(11,0)`, `(14,0)`, `(14,3)` give nothing (not regime (v)), as the author says. Relaxed controls
+  `(L,u) = (7,293), (9,1853), (10,293), (12,27), (12,37), (13,29), (13,7)` all found, regime (v).
+* **Completeness cross-check against brute force.** R92's independent relaxed brute force (`review_typei5_relax`,
+  TYPEI4 Cor 3.2 with arbitrary odd `u`, no size bound) for all odd `u ≤ 20001 / 10001 / 6001 / 4001` at
+  `L = 7 / 8 / 9 / 10` gives 12 solutions; my classifier (`scripts/review_typei6_classify.py`) puts 5 in regime (v):
+  `(7,293)`, `(8,9883)`, `(9,1853)`, `(9,4003)`, `(10,293)`. My engine run on every odd `u` in the same ranges outputs
+  **exactly these 5 and nothing else**. Two of them (`L = 8`, `u = 9883`; `L = 9`, `u = 4003`) are new relative to the
+  author's control list, so there is now a regime-(v) positive control at **every** level 7–10.
+* **Re-run, `L = 7, 8`, `b = 0…13`: 0 solutions** (well beyond the requested `b ≤ 10`; total < 2 min CPU). The number of
+  divisors passing the exact bound equals the author's "candidates" count **for every `(L,b)`, `b ≤ 13`** (e.g. `L = 8`,
+  `b = 13`: 64 424 838 both) — an independent check that the long-double pruning loses nothing.
+* `L = 9, 10`: see below (run in progress at time of writing).
+Cor 4.2 logic: case A (TYPEI5 Lemma 3.6), regimes (i)–(iv) (TYPEI5 Prop 3.3, Comp 3.4) for all `b`; regime (v) via
+Lemma 3.1(b) ⇒ (4.1) ⇒ Comp 4.1. Correct. `v_7(k) = b` (`X = k'`, `7 ∤ X`) and all `a = v_7(c)` are enumerated.
+
+### §5
+A naive square-density model (`1/(2√Y)` per candidate passing the `16P` test, no local factors). It is labelled
+EVIDENCE; the calibration (`4.4` predicted vs `7` found at `L = 11…20`) is consistent with "order of magnitude only".
+Not replayed (not load-bearing). No defect beyond keeping the label.
+
 ## Defects
-(numbered below as found)
 
 ### Comp 4.1 engine (`typei6_vsearch.c`) — code audit
 (4.1) is Lemma 3.1(b) weakened by `√d ≥ c_oδ` and rearranged with `Q = d/P`: correct (weaker = safe). Audit of the
