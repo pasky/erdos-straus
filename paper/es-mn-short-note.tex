@@ -37,7 +37,7 @@
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
 \title[The exponent $3/4$ for $m/n$ in short intervals]{The exponent $3/4$ for the exceptional set of $m/n$, in short intervals and progressions}
 \author{Anonymous}
-\date{Draft, 8 October 2026; internal checks only, not externally refereed}
+\date{Draft, 10 October 2026; internal checks only, not externally refereed}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
@@ -471,7 +471,7 @@ $B'=4B_4$.  Thus the case $m=4$ of Theorems~\ref{thm:A} and~\ref{thm:B}
 follows from \cite{TQ} and Section~\ref{sec:transfer} alone.  For general $m$,
 Proposition~\ref{prop:package} is Theorem~\ref{thm:assembly} below.
 
-\section{The atom family for general $m$}\label{sec:atoms}
+\section{\texorpdfstring{The atom family for general $m$}{The atom family for general m}}\label{sec:atoms}
 \begin{lemma}[multiplier identity for $m$]\label{lem:identity}
 Let $m,k,\ell,u,v,w$ be positive integers with $k\ell+1=m\,uvw$.  If
 $n\geq1$ and $nv\equiv-u\pmod{k\ell}$, then $s=(nv+u)/(k\ell)$ is a
@@ -626,7 +626,7 @@ $S_m(K)/((\varphi(m)/m)\log K)\in[1.05,1.23]$
 $k\equiv1\pmod 4$ gives $(2/\pi^2)\log K+O(1)$ \cite[Lemma~3.2]{TQ}, a
 constant fraction of $h_4$.
 
-\section{Fibre masses for general $m$}\label{sec:fibre}
+\section{\texorpdfstring{Fibre masses for general $m$}{Fibre masses for general m}}\label{sec:fibre}
 For $k\geq1$, $(c,k)=1$ and $1\leq H_K<z$ let, as in \cite[\S3]{TQ},
 \[
  \Sset(k,c;H_K,z)=\{(u,v):H_K<u,v\leq z,\ (u,v)=(v,k)=1,\
@@ -763,7 +763,7 @@ $m=4,\ldots,13$, while $\varphi(m)\mu_c$ ranged over $[0.33,1.04]$.
 This is \status{evidence} for the scaling only; the corollary does not
 use it.
 
-\section{Void, moments and the assembly for general $m$}\label{sec:assembly}
+\section{\texorpdfstring{Void, moments and the assembly for general $m$}{Void, moments and the assembly for general m}}\label{sec:assembly}
 Throughout this section $4\leq m\leq t^3$ and
 \[
  s=t^3/m\geq1,\qquad y=\max(2,Bs),\qquad S_y(n)=\ind_{(n,P_y)=1},
@@ -1296,7 +1296,7 @@ fixed-$A'$ range of Bombieri--Vinogradov.  The dependence on $m$ enters
 only through Corollary~\ref{cor:fibre} ($\mu_c\asymp t^3/m$ on every
 reduced fibre), the scaling that the lower side has to match.
 
-\subsection{The lower side: Theorem~L$'$}\label{sec:lower}
+\subsection{\texorpdfstring{The lower side: Theorem~L$'$}{The lower side: Theorem L'}}\label{sec:lower}
 Let $m\geq4$ and $p$ prime.  Every solution of $m/p=1/x+1/y+1/z$ is of
 Type~I or Type~II, and \cite[Cor.~2.2, Cor.~2.4]{PW}: $p$ has a Type~I
 solution iff there are $a,d,f\in\mathbb N$ with $f\mid ma^2d+1$ and
@@ -1307,9 +1307,12 @@ Weingartner bound the primes covered by these congruences by first
 moments with Brun--Titchmarsh; their losses relative to the heuristic
 $L^3/m$ are (a) in Type~II, Brun--Titchmarsh near modulus $N$ and
 $\varphi(m)$ in place of $m$, and (b) in Type~I, the factor $\log(1+k)$
-of \cite[Prop.~1.4]{ET} and Brun--Titchmarsh near modulus $N$.  Below,
-(a) is removed and the $\log(1+k)$ in (b) is confined to a lower-order
-range; the Brun--Titchmarsh loss in Type~I is not removed.  It is
+of \cite[Prop.~1.4]{ET}, $\varphi(m)$ in place of $m$, and
+Brun--Titchmarsh near modulus $N$.  Below, (a) is removed; in (b) the
+factor $m/\varphi(m)$ is removed by a coprimality gain in
+\cite[Prop.~1.4]{ET} (Lemma~\ref{lem:ETPV}) and the $\log(1+k)$ is
+confined to a lower-order range; the Brun--Titchmarsh loss in Type~I is
+not removed.  It is
 exactly the $\log\log N$ in the prime bound
 $\sum_{p\leq N}f_I(p)\ll N\log^2N\log\log N$ of \cite[Thm.~1.1]{ET}, which
 is open even for $m=4$: Elsholtz and Tao attribute it to Brun--Titchmarsh
@@ -1378,61 +1381,111 @@ $\ll(N/(L\varphi(m)))((\varphi(m)/m)L^3+L^2)\ll NL^2/m$, using
 $\varphi(m)\gg m/\log\log m$ and $\log\log m\leq L$.
 \end{proof}
 
-\begin{lemma}[{\cite[Prop.~1.4]{ET}} with P\'olya--Vinogradov]\label{lem:ETPV}
-Fix $l$.  For $k\geq1$ and $A,D\geq2$ with $k\leq(2AD)^l$,
-\[
- \sum_{a\leq A,\,d\leq D}\tau(ka^2d+1)\ll_lAD\log(A+D)\bigl(1+
- \ind[D<k\log^4(kAD)]\log(1+k)\bigr).
-\]
+\begin{lemma}[{\cite[Prop.~1.4]{ET}} with the coprimality gain]\label{lem:ETPV}
+Fix $l\geq1$.  Let $k\geq1$, $A,B\geq2$, and
+$\Lambda=1+\min\bigl(\log(1+k),\,k^{1/6}\log(2kA)/A^{1/2}\bigr)$.
+\textup{(a)} If $kB^2\leq A^l$ and $A\geq\omega(k)+2$, then
+$\sum_{a\leq A,\,b\leq B}\tau(kab^2+1)\ll_l(\varphi(k)/k)AB\log A$.
+\textup{(b)} If $kA\leq B^l$ and $B\geq\omega(2k)+2$, then
+$\sum_{a\leq A,\,b\leq B}\tau(kab^2+1)\ll_l(\varphi(k)/k)AB\log B\cdot\Lambda$.
 \end{lemma}
 
-\begin{proof}[Proof sketch with exact pointers]
-If $D\geq A$, apply \cite[Cor.~7.4]{ET} in $d$ for each $a$.  If $D<A$,
-follow the case ``$A\leq B$'' of the proof of \cite[Prop.~1.4]{ET}
-(pp.~30--32; their linear variable is our $d$, their quadratic one our
-$a$), keeping the signed sum \cite[(7.11)]{ET}
-$\sum_{q\leq A,(q,2k)=1}\sum_{d\leq D',(d,2q)=1}(\frac{-kd}q)\frac{\log(A/q)}q$
-after the reduction to odd $d$ ($d=2^jd'$, $2^j$ absorbed into $k$).
-ET treat $q<D'$ (periodicity), $q>kD'$ (reciprocity and partial
-summation) without loss, and lose $\log(1+k)$ only for
-$D'\leq q\leq kD'$, where they bound the symbol by $1$.  We change only
-this range: for non-square odd $q$ the map $d\mapsto(\frac dq)\ind_{d\text{ odd}}$
-is a non-principal character modulo $2q$, % R104 repair
-hence $\ll\sqrt q\log q$ by
-P\'olya--Vinogradov (as suggested in \cite[Rem.~1.5]{ET}); squares
-$q=r^2$ give $\ll D'\log A$ in total (this also covers the square $q<D'$,
-where the character is principal, a harmless slip on \cite[p.~31]{ET}).
-The middle range costs $\ll D'\log A(1+\sqrt{k/D'}\log(kD'))$, which is
-$\ll D'\log A$ for $D'\geq k\log^2(kAD)$.  Summing over $j$ with weight
-$2^{-j}$, the lossy $j$ contribute
-$\ll(k\log^2(kAD)/D)^{1/2}\log(kAD)\leq1$ when $D\geq k\log^4(kAD)$.
+\begin{proof}
+Put $W_K(y)=\sum_{n\leq y,\,(n,K)=1}1/n$.  Every $n$ counted has all its
+prime factors $\leq y$ and none dividing $K$, so by Mertens
+$W_K(y)\leq\prod_{p\leq y,\,p\nmid K}(1-1/p)^{-1}\ll(\varphi(K)/K)\log y\cdot\e^{2\omega(K)/y}$,
+which is $\ll(\varphi(K)/K)\log y$ for $y\geq\omega(K)$.
+
+(a) For fixed $b$ apply \cite[Thm.~7.1]{ET} to $P(a)=kb^2a+1$
+(coefficients $\leq A^l$, at most one root modulo every prime power, and
+none modulo $q$ unless $(q,kb)=1$): $\sum_{a\leq A}\tau(P(a))\ll_lA\,W_k(A)$.
+Sum over $b$.
+
+(b) For fixed $a$, \cite[Thm.~7.1]{ET} for $P(b)=kab^2+1$ (degree~$2$,
+coefficients $\leq B^l$, $\rho(p^j)\leq4$ \cite[p.~30]{ET}) gives
+$\sum_{b\leq B}\tau(P(b))\ll_lB\sum_{q\leq B}\rho(q)/q
+\leq9B\sum_{q_0\leq B\text{ odd}}\rho(q_0)/q_0$.  For odd $q_0$,
+\[
+ \rho(q_0)\leq\ind[(q_0,k)=1]\sum_{r\mid q_0}\Bigl(\frac{-ka}r\Bigr).
+\]
+If $(q_0,ka)=1$ this is \cite[p.~31]{ET}; if $(q_0,k)=1<(q_0,a)$ the left
+side is $0$ and the right side is a product of non-negative local
+factors; if $(q_0,k)>1$ both sides vanish.  The indicator is the only new
+input: \cite{ET} drop it, and this is what costs the factor
+$k/\varphi(k)$.  Writing $q_0=rn$ with $(n,2k)=1$,
+$\sum_{q_0}\rho(q_0)/q_0\leq\sum_{r\leq B\text{ odd},\,(r,k)=1}(\frac{-ka}r)W(B/r)/r$
+with $W=W_{2k}$, and $r\mapsto W(B/r)/r$ is positive and decreasing.  Sum
+over $a\leq A$ and split the $r$-range at $1\leq Q_1\leq Q_2\leq B$.
+Squares $r=s^2\leq Q_2$ contribute $\leq AW(B)\sum_ss^{-2}\ll AW(B)$.
+For non-squares $r\leq Q_1$,
+$\sum_{a\leq A}(\frac{-ka}r)=(\frac{-k}r)\sum_{a\leq A}(\frac ar)$ is a sum
+of a non-principal character modulo $r$, so P\'olya--Vinogradov (valid
+for imprimitive characters with $\ll\sqrt r\log r$) gives the
+contribution $\ll W(B)\sqrt{Q_1}\log Q_1$.  Non-squares in $(Q_1,Q_2]$
+contribute trivially $\leq AW(B)(1+\log(Q_2/Q_1))$.  All $r>Q_2$ (square
+terms are non-negative and were already bounded above): for each $a$ the
+Kronecker symbol of $-4ka$ is a non-principal real character modulo
+$4ka$ which equals $(\frac{-ka}r)$ on odd $r$, so P\'olya--Vinogradov and
+partial summation give $\ll\sqrt{ka}\log(2ka)\,W(B)/Q_2$, in total
+$\ll W(B)A^{3/2}k^{1/2}\log(2kA)/Q_2$.  The choice
+$Q_1=\min(B,A^2/\log^2(2A))$, $Q_2=\min(B,\max(Q_1,kA))$ gives
+$\ll AW(B)(1+\log(1+k))$, and $Q_1=Q_2=\min(B,Ak^{1/3})$ gives
+$\ll W(B)(A+A^{1/2}k^{1/6}\log(2kA))$.  So the sum over $a$ is
+$\ll AW(B)\Lambda$, and $W_{2k}(B)\ll(\varphi(k)/k)\log B$.
 \end{proof}
+
+\begin{remark}
+\cite[Prop.~1.4]{ET} bounds the same sum by $AB\log(A+B)\log(1+k)$.  Its
+proof bounds the symbol by $1$ in a middle range of $r$ and drops the
+indicator $(q_0,k)=1$; \cite[Rem.~1.5]{ET} suggests the first repair.
+The square $r$ need a separate range: there the character is principal
+(a harmless slip on \cite[p.~31]{ET}).  For $q\equiv1\ (k)$ all
+divisors of $q$ are coprime to $k$, so the gain $\varphi(k)/k$ has the
+right order (\status{evidence}: for $A=B=120$ and
+$k=4,12,\ldots,60060$ the normalised sum divided by $\varphi(k)/k$ stays in
+$[0.81,1.12]$ \cite{MN3}).
+\end{remark}
 
 \begin{proposition}[Type~I]\label{prop:typeI}
 For $\log m\leq L/10$ and $L\leq m^{1/2}$, the number of primes
 $p\in(N/2,N]$ with a Type~I solution is
-$\ll(N/L)\bigl[(L^3+L^2\log^2m)\log L/\varphi(m)+m^{-0.35}\bigr]$.
+$\ll(N/L)\bigl[(L^3+L^2\log^2m)\log L/m+m^{-0.35}\bigr]$.
 \end{proposition}
 
 \begin{proof}
-By Brun--Titchmarsh the count is \cite[(3.2)]{PW}
+For $m\leq m_0$ (an absolute constant fixed below) the bound is trivial,
+as the count is $\leq N\leq(N/L)\,m_0L^3\log L/m$.  Let $m>m_0$.  By
+Brun--Titchmarsh the count is \cite[(3.2)]{PW}
 \[
  \ll\sum_{mad\leq3N}\frac{\tau(ma^2d+1)\,N}{\varphi(m)\varphi(ad)\log(2+N/mad)}.
-\]  By \cite[(A.12)]{ET},
+\]
+By \cite[(A.12)]{ET},
 $1/\varphi(ad)\ll(ad)^{-1}\sum_{s\mid a,\,t\mid d}1/(st)$; put $a=sa'$,
-$d=td'$, $k=ms^2t$, and split each block $ad\sim X$ into $\ll\log X$
-boxes $a'\sim A'$, $d'\sim D'$, $A'D'\asymp X/(st)$; a box with $A'<2$ or
-$D'<2$ is enlarged to $A',D'\geq2$ by positivity.  % R104 repair (restores MN2/R102A D-L2)
-Boxes with
-$A'D'\geq k^{1/10}$ are bounded by Lemma~\ref{lem:ETPV} ($l=10$):
-non-lossy boxes give $(X/st)\log X$, and the $\ll\log m+\log(st)+\log L$
-lossy ones ($D'<k\log^4(kN)$) give $(X/st)L\log(1+k)$ each; with the
-weights this is $\ll\log^2X+L\log^2m$ per block (as $\log L\ll\log m$).
-Boxes with $A'D'<k^{1/10}$ use $\tau(n)\ll n^{1/40}$ with $n\leq k^{1.2}$;
-they occur only for $(st)^{1.2}m^{0.1}\gg X$, and in total contribute
-$\ll(N/\varphi(m))m^{0.03}\log^2m\ll(N/L)m^{-0.35}$ (using $L\leq m^{1/2}$).
-Summing the blocks $X=3N2^{-j}/m$, $j\leq2L$, with Brun--Titchmarsh
-weight $\ll1/j$ gives $\ll(N/\varphi(m))(L^2+L\log^2m)\log L$.
+$d=td'$, $k=ms^2t\geq m$, so $ma^2d+1=ka'^2d'+1$, and split each block
+$ad\in(X,2X]$ into $\ll L$ boxes $a'\sim A'$, $d'\sim D'$,
+$A'D'\asymp X/(st)$; a box with $A'<2$ or $D'<2$ is enlarged to
+$A',D'\geq2$ by positivity.  Take $l=30$: then $kA'^2\leq D'^l$ if
+$D'\geq\max(A',k^{1/28})$ and $kD'\leq A'^l$ if $A'>\max(D',k^{1/28})$;
+choose $m_0$ with $k^{1/28}\geq\omega(2k)+2$ for $k\geq m_0$.
+\emph{Boxes with $\max(A',D')\geq k^{1/28}$}: Lemma~\ref{lem:ETPV}, with
+linear variable $d'$ and quadratic variable $a'$ (part (a) if $D'\geq A'$,
+(b) if $D'<A'$), gives $\ll(\varphi(k)/k)(X/st)\log X\cdot\Lambda$, where
+$\Lambda\leq2$ unless $D'<k^{1/3}\log^2(2kX)$; at most
+$\ll\log(2k)+\log L$ boxes per block are of that kind, each with
+$\Lambda\leq1+\log(1+k)$.  As $\varphi(k)/k\leq\varphi(m)/m$, the weighted
+block sum is
+$\ll(\varphi(m)/m)\sum_{s,t}(st)^{-2}[L^2+L\log^2(2ms^2tL)]
+\ll(\varphi(m)/m)(L^2+L\log^2m)$, using $\log L\leq\log m$.
+\emph{Boxes with $\max(A',D')<k^{1/28}$}: here $n=ka'^2d'+1\leq8k^{1.11}$
+and $\tau(n)\ll k^{0.012}$.  They occur only if
+$X\leq4st\,k^{1/14}\leq4m^{1/14}(st)^{8/7}$; grouping the pairs $(s,t)$
+by $u=st$ (at most $\tau(u)$ pairs), their weighted mass is
+$\ll m^{0.013}\min\bigl(1,(X/m^{0.072})^{-0.85}\bigr)$, which summed over
+the blocks (Brun--Titchmarsh weight $\leq1$) is $\ll m^{0.014}$: a count
+$\ll Nm^{0.014}/\varphi(m)\ll(N/L)m^{-0.35}$, using $L\leq m^{1/2}$.
+Summing the first kind over the blocks $X=3N2^{-j}/m$, $j\leq2L$, with
+Brun--Titchmarsh weight $\ll1/j$ gives
+$\ll(N/\varphi(m))(\varphi(m)/m)(L^2+L\log^2m)\log L$.
 \end{proof}
 
 \begin{lemma}[very large $m$]\label{lem:hugem}
@@ -1448,11 +1501,12 @@ Type~II likewise; then divide by $\pi^*(N)\gg N/L$.
 
 \begin{proof}[Proof of Theorem~L$'$]
 The first range is Propositions~\ref{prop:typeII} and~\ref{prop:typeI}
-with $\pi^*(N)\gg N/L$; the second is Lemma~\ref{lem:hugem}.  For the
+with $\pi^*(N)\gg N/L$ and $m^{0.02}/m\leq m^{-0.35}$; the second is
+Lemma~\ref{lem:hugem}.  For the
 consequence: if $\rho_{\rm rep}>0$, some $p\leq N$ has a solution, so
-$m\leq3p$ and $L\geq\log(m/3)$; so $L^3\log L/\varphi(m)\to0$ forces
+$m\leq3p$ and $L\geq\log(m/3)$; so $L^3\log L/m\to0$ forces
 $m\to\infty$, and then
-$L^2\log^2m\log L/\varphi(m)\leq(L^3+\log^6m)\log L/\varphi(m)\to0$ and
+$L^2\log^2m\log L/m\leq(L^3+\log^6m)\log L/m\to0$ and
 $m^{-0.35}\to0$, while $L\leq m^{1/2}$ holds eventually.  In the range
 $\log m>L/10$ the bound of Lemma~\ref{lem:hugem} is
 $\leq m^{10C/\log L-1}\to0$, as $L\geq\log(m/3)\to\infty$.
@@ -1460,21 +1514,44 @@ $\leq m^{10C/\log L-1}\to0$, as $L\geq\log(m/3)\to\infty$.
 
 \subsection{The gap, and comparison with earlier bounds}\label{sec:gap}
 Theorem~U gives $\rho_{\rm exc}\to0$ as $A\to\infty$, uniformly in
-$m\geq4$.  For Theorem~L note that $L\leq m^{1/2}$ gives
-$\log L\leq\frac12\log m$, so
-$L^3\log L/\varphi(m)\leq A^3\,m\log m/(2\varphi(m))$; hence
-$\rho_{\rm rep}\to0$ whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.  So
+$m\geq4$.  For Theorem~L$'$ note that $L^3\log L/m=A^3\log L$; hence
+$\rho_{\rm rep}\to0$ whenever $A\,(\log L)^{1/3}\to0$.  So
 the transition lies at $\log N\asymp m^{1/3}$ up to a factor
 \[
- \Bigl(\frac{m\log m}{\varphi(m)}\Bigr)^{1/3}\ll(\log m\,\log\log m)^{1/3}
+ (\log L)^{1/3}=(\log\log N)^{1/3}
 \]
-in $\log N$, a constant times $(\log m)^{1/3}$ when $\varphi(m)\gg m$.  Corollary~\ref{cor:D} together with the
+in $\log N$; near the transition $\log L=\frac13\log m+O(1)$, so this is a
+constant times $(\log m)^{1/3}$, uniformly in the arithmetic of $m$.
+Corollary~\ref{cor:D} together with the
 proof of \cite[Thm.~3.1]{PW} gave the factor
-$(\log m)^2(m/\varphi(m))^{1/3}$.  The remaining loss has two sources,
-both on the lower side: the Brun--Titchmarsh $\log L$ in the Type~I
-count (the open $\log\log N$ of \cite[Thm.~1.1]{ET}) and the factor
-$m/\varphi(m)$ from Type~I.  Removing both would give the exact scale:
-$\rho_{\rm rep}\to0$ if $A\to0$ and $\rho_{\rm exc}\to0$ if $A\to\infty$.
+$(\log m)^2(m/\varphi(m))^{1/3}$, and the version of Theorem~L$'$ in
+\cite{MN2}, with $\varphi(m)$ in place of $m$, gave
+$(m\log m/\varphi(m))^{1/3}$.  The remaining loss has a single source, on
+the lower side: the Brun--Titchmarsh $\log L$ in the Type~I count, which
+is the open $\log\log N$ of \cite[Thm.~1.1]{ET}.  Removing it would give
+the exact scale: $\rho_{\rm rep}\to0$ if $A\to0$ and $\rho_{\rm exc}\to0$
+if $A\to\infty$.
+
+\begin{remark}[a conditional route to the exact scale]\label{rem:sel}
+For $m=4$, an internal working document \cite{TTL} proves
+$\sum_{p\leq N}f_I(p)\ll N\log^2N$, i.e.\ removes the $\log\log N$ of
+\cite[Thm.~1.1]{ET}, \status{conditionally} on Selberg's eigenvalue
+conjecture for $\Gamma_0(4dq^2)$ with even nebentypus, uniformly in the
+level (\cite[Thm.~8.1]{TTL}; recorded as (D)32 in the campaign ledger
+\texttt{DISCOVERIES.md}, after two rounds of internal hostile review).
+The method writes $ef-4a^2d=1$ as a matrix in $\mathrm{SL}_2(\Z)$, so
+that for fixed $d$ the Type~I solutions are level-$d$ Heegner forms of
+discriminant $-4d$ with uniformly separated roots, and replaces
+Brun--Titchmarsh in the bad range by a spectral large sieve for box
+Poincar\'e series; with only the Kim--Sarnak bound it leaves a strip of
+positive width and gives nothing unconditionally.  An $m$-uniform version
+of that argument, applied to the Type~I count of
+Proposition~\ref{prop:typeI}, would remove the factor $\log L$ from
+Theorem~L$'$ and so give the exact scale $\log N\asymp m^{1/3}$ for the
+transition.  This extension has \emph{not} been carried out; it must
+remove the primes $\ell\mid m$ from the sieving set and track the gain
+$\varphi(m)/m$ against the remainder terms \cite[remarks after Thm.~3.8]{MN3}.
+\end{remark}
 
 \emph{Pomerance--Weingartner.}  Their proof of \cite[Thm.~3.1]{PW}
 counts, for primes $p\leq N$, the ones covered by Type~I congruences,
@@ -1492,11 +1569,11 @@ show that not only is there one exceptional $n>\exp(m^{1/3-\epsilon})$,
 but that most prime values of $n$ near this bound are exceptions''
 \cite[p.~2]{PW}.  The extension to the range \eqref{eq:PWrange} is our
 reading of their proof, checked independently by two internal reviewers
-against the rendered PDF.  Theorem~L improves the unsimplified bound
+against the rendered PDF.  Theorem~L$'$ improves the unsimplified bound
 $\rho_{\rm rep}\ll L^3\log L\log m/\varphi(m)$ by a factor
-$\min(\log m,L/\log m)$, a full $\log m$ once $L\geq\log^2m$, which holds
+$(m/\varphi(m))\min(\log m,L/\log m)$, a full $(m/\varphi(m))\log m$ once $L\geq\log^2m$, which holds
 near the transition, and extends \eqref{eq:PWrange} to
-$\log N\leq\varepsilon(\varphi(m)/\log m)^{1/3}$, $\varepsilon\to0$,
+$\log N\leq\varepsilon(m/\log\log N)^{1/3}$, $\varepsilon\to0$,
 with no lower restriction on $\log N$.  On the other side,
 \eqref{eq:PW} gives ``most primes representable'' only for
 $\log N\gg\varphi(m)^{1/2}(\log m)^{3/2}$, % R104 repair
@@ -1750,19 +1827,21 @@ is whether every prime modulus $q$ is covered for general $m$
 \end{problem}
 
 \begin{problem}[the transition gap]
-Close the gap $(m\log m/\varphi(m))^{1/3}$ between Theorems~L and~U.
-Two losses remain, both on the lower side: (i) a Type~I prime count
-without the Brun--Titchmarsh $\log L$, which is the open $\log\log N$ of
-\cite[Thm.~1.1]{ET} already for $m=4$; and (ii) the coprimality gain
-$\varphi(m)/m$ in \cite[Prop.~1.4]{ET}, whose main terms come from square
-$q$ and lose the Euler factors at $p\mid m$.  Removing both would give
-$\rho_{\rm rep}\to0$ for $A\to0$.  Also: (iii) an effective, quantitative
+Close the gap $(\log\log N)^{1/3}$ between Theorems~L$'$ and~U.
+One loss remains, on the lower side: (i) a Type~I prime count
+without the Brun--Titchmarsh $\log L$, uniformly in $m$; this is the open
+$\log\log N$ of \cite[Thm.~1.1]{ET} already for $m=4$, where it is
+removed conditionally on Selberg's eigenvalue conjecture
+(Remark~\ref{rem:sel}).  An unconditional proof for $m=4$, or a
+conditional one uniform in $m$, would be progress; the latter would give
+$\rho_{\rm rep}\to0$ for $A\to0$ under that conjecture.  (The factor
+$m/\varphi(m)$ of \cite{MN2} is removed by Lemma~\ref{lem:ETPV}.)  Also: (ii) an effective, quantitative
 form of Theorem~U in the range $1\ll A\ll(\log m)^{4/3}$ not covered by
 Corollary~\ref{cor:D}.  Is $\rho_{\rm exc}(m,N)$ monotone in $N$?
 For $m\geq\varepsilon(\log N)^3$ Theorem~\ref{thm:A} is trivial, and
-when $(\log N)^3\log\log N/\varphi(m)\to0$ % R104 repair
+when $(\log N)^3\log\log N/m\to0$ % R104 repair; O113: m in place of phi(m)
 most primes are
-exceptional (Theorem~L), so $E_m(N)\gg N/\log N$ there and no saving beyond
+exceptional (Theorem~L$'$), so $E_m(N)\gg N/\log N$ there and no saving beyond
 $\log\log N+O(1)$ is possible.  What is the true size of $E_m(N)/N$ in
 between?
 \end{problem}
@@ -1816,6 +1895,10 @@ internal working document \texttt{EXCEPTIONAL\_MN.md}, this repository,
 internal working document \texttt{EXCEPTIONAL\_MN2.md}, this repository,
 2026; hostile reviews \texttt{reviews/exceptional-mn2-review-A.md},
 \texttt{reviews/exceptional-mn2-review-B.md}.
+\bibitem[MN3]{MN3}
+\emph{EXCEPTIONAL\_MN3: the lower side of the $m/n$ transition},
+internal working document \texttt{EXCEPTIONAL\_MN3.md}, this repository,
+2026; hostile review \texttt{reviews/exceptional-mn3-review.md}.
 \bibitem[MV]{MV}
 H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
@@ -1846,6 +1929,11 @@ this repository, 2026; hostile review
 \bibitem[SX]{SUBEXP}
 \emph{Large Erd\H{o}s--Straus witnesses II}, research note,
 \texttt{paper/es-subexp-note.tex}, this repository, 2026.
+\bibitem[TTL]{TTL}
+\emph{EXCEPTIONAL\_TYPEI\_LOGLOG: Elsholtz--Tao's Type~I bound under
+Selberg's eigenvalue conjecture}, internal working document
+\texttt{EXCEPTIONAL\_TYPEI\_LOGLOG.md}, this repository, 2026; hostile
+review (two rounds) \texttt{reviews/exceptional-typei-loglog-review.md}.
 \bibitem[TQ]{TQ}
 \emph{A three-quarter exceptional-set bound for the Erd\H{o}s--Straus
 equation: an internally proved research note},
