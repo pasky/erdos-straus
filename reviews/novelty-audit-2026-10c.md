@@ -279,3 +279,24 @@ solution with `u = 7^b` is the minimal one; `u_n = u_1L_n`, `L_n ≡ n (mod 7)`)
 | Vieta descent / level-5, level-6 emptiness (TYPEI3) | **APPARENTLY NEW** (ES); method classical (Vieta jumping, Pell, Lucas divisibility) | — |
 | TYPEI5 Lemma 1.1 (7-power y-coordinate ⇒ minimal solution) | **KNOWN IN SUBSTANCE** (LTE / prime-power terms of Lucas sequences); new only as applied | Recommend wording "a routine lifting-the-exponent argument for the Lucas sequence u_n/u_1". |
 | C(7) > 1.32·10¹², any-height bounds | **APPARENTLY NEW** (computations) | Depend on the internal Type-I covering framework. |
+
+---
+
+## 4. Summary
+
+| # | Item | Verdict | Key reference that sharpens/contradicts us |
+|---|---|---|---|
+| 1a | m/n 3/4 bound, uniform in m ((D)31 Thm A) | APPARENTLY NEW | **Elsholtz 2001 Rem 7.3**: explicit `c_{m,3} = 3e^{−2/3}(8m)^{−1/3} − ε` (N > N_m) predates PW → fix "first explicit-in-m" wording |
+| 1b | Density transition `m^{1/3+o(1)}` (Cor D) | APPARENTLY NEW | PW pp. 2–3 and Pomerance's Mar 2026 talk pose it (heuristic only) — strengthens the claim |
+| 1c | Short intervals / progressions ((D)30, Thm B/Cor C) | NEW as stated at 3/4; KNOWN IN SUBSTANCE at 2/3 (translation-invariant large sieve) | Sander 1991/94: only progression ES sieve result found (lower bound, one family) |
+| 2a | Profinite compactness ⇔ finite covering; sterile points | APPARENTLY NEW phrasing; folklore substance | ET p. 6; Bloom–Elsholtz Thm 1 (infinite-covering ⇔ ES) |
+| 2b | Non-square sterile points / "no finite covering of (p/r) = −1" | open in the literature; our results CONDITIONAL/EVIDENCE | Yamamoto 1965 p. 47 and Ionascu–Wilson 2011 expect the opposite at integer level (no contradiction) |
+| 2c | r = 13 finite-exception theorem | KNOWN IN SUBSTANCE | **Terzi 1971** (198 residues mod 120120), Ionascu–Wilson 2011, Salez 2014 |
+| 2d | x* = (2 mod 11, 2 mod 13); 17-cells C₅, C₇ | PARTIAL | **Yamamoto 1965 Table 1**: exactly these residues are the non-residues uncovered at level q |
+| 3 | Pell/Lucas form of Type-I certificates | APPARENTLY NEW (ES); classical tools; TYPEI5 L1.1 known in substance | none ES-specific found |
+
+**Not accessed (limits):** Vaughan 1970, Viola 1973 (IMPAN anti-bot), Shen 1986,
+Li Delang 1981 (Elsevier Cloudflare), Yang 1982 and Webb 1970 (AMS Cloudflare),
+Terzi 1971, Schinzel 2000, Monks–Velingker, Mordell ch. 30. Statements about them are
+secondary (Elsholtz 2001 p. 3210; ET p. 3; zbMATH reviews; Ionascu–Wilson; Bloom–Elsholtz).
+Semantic Scholar citation lookups were rate-limited.
