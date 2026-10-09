@@ -54,34 +54,37 @@ law sees. The usable content is a restriction on the levels: by Lemma 2.1 togeth
 (x** in no box of T-level dividing `11²13²`), a box containing x** has T-level F with `v_11(F)≥3` or
 `v_13(F)≥3`, and every family except I3 has odd `v_T(N)`.
 
-## 3. x** through ES level 4.6·10⁹ (CERTIFIED)
+## 3. x** through ES level 2.59·10¹⁰ (CERTIFIED)
 
-**Computation 3.1.** `scripts/m13e_run.sh 1 4600000000 R` (all 49 T-units `1<N≤4.6·10⁹`; 2 035 665 ES solutions,
-319 007 distinct boxes; ≈2.8 h on 2 cores; `logs/o107_run1.log`): **no box contains x\*\***. The x\* control
-re-finds exactly the two data of 13B Thm 3.1 (at 6 levels, non-canonical re-finds). `scripts/m13e_summary.py R`.
+**Computation 3.1.** `scripts/m13e_run.sh 1 4600000000 R1` and `scripts/m13e_run.sh 4600000000 10700000000 R2`
+(`logs/o107_run1.log`, `logs/o107_run2.log`; ≈2.8 h + 3.2 h on 2 cores). Together they cover all 54 T-units
+`1<N≤10604499373=13⁹`. No T-unit lies in `(13⁹, 11¹⁰=25937424601)`, so this is **every ES level `N<2.59·10¹⁰`**:
+2 865 550 ES solutions, 445 655 distinct boxes. **No box contains x\*\***. The x\* control re-finds exactly the
+two data of 13B Thm 3.1 (at 7 levels, non-canonical re-finds). `scripts/m13e_summary.py R1 R2`.
 
-*Consequences.* (a) Since every class containing the T-generic point x\*\* comes from a T-generic datum (13B Lemma 1.1)
-whose ES level N satisfies `M_T ≤ N ≤ M_T²` (13B Cor. 2.5): **x\*\* lies in no ET class (seven families, any T-free
-modulus) whose ES level is ≤ 4.6·10⁹**, in particular in none with T-level `M_T ≤ 67822`. With 13C Comp. 3.1 the
-T-levels `F∤11²13²` that are now complete are `11³, 13³, 11⁴, 13⁴, 11³·13, 11·13³`.
-(b) This is complementary to the targeted searches (13B Comp. 5.3, 13C Comp. 5.1–5.2), which bound the T-free
-size (`e ≤ 2·10⁹` resp. `2·10⁸`) but not the level. Here the level is bounded and `e` is not: e.g. for II3,
-`e = 4a'd'm−1 ≈ 4z/N` with `z` the largest denominator, which can be as large as `≈ N³`.
+*Consequences.* (a) Every class containing the T-generic point x\*\* comes from a T-generic datum (13B Lemma 1.1)
+whose ES level N satisfies `M_T ≤ N ≤ M_T²` (13B Cor. 2.5). Hence **x\*\* lies in no ET class (seven families, any
+T-free modulus) of ES level `< 2.59·10¹⁰`**, in particular in none of T-level `M_T ≤ 161050` (`<11⁵`). With 13C Comp. 3.1,
+the newly complete T-levels `F∤11²13²` are `11³, 13³, 11⁴, 13⁴, 11³·13, 11·13³`. By Lemma 2.1, at even-`v_T` levels this
+only re-checks I3.
+(b) This is complementary to the targeted searches (13B Comp. 5.3, 13C Comp. 5.1–5.2). Those bound the T-free
+size (`e ≤ 2·10⁹` resp. `2·10⁸`) but not the level. Here the level is bounded and `e` is not. For II3,
+`e = 4a'd'm−1 ≈ 4z/N`, where `z` is the largest denominator of the ES solution and can be of order `N⁴`.
 
 **Computation 3.2 (local box mass near x\*\*; CERTIFIED for the stated levels).** `scripts/m13e_density.py R k K`.
 Put `C_k = {x_11≡2 (11^k), x_13≡15 (13^k)}`, and for a box β let `μ_k(β)=|β∩C_k|/|C_k|`. Boxes are counted at the
 first level where they appear.
-* `C_2` (one of the 15 uncovered k=2 subcells of 13C Comp. 3.1): boxes of level ≤ 4.6·10⁹ cover **56.25%** of it
-  (union, boxes with `M_T | 11⁴13⁴`). Their mass per level falls from 0.1–0.3 at `N≈10⁵–6·10⁷`
-  (dominated by single-prime levels `11⁵`, `13⁵`, `11⁷`) to 0.6–3.6·10⁻² at `N≈2–3·10⁹`.
-* `C_3`: **only 7 boxes of level ≤ 4.6·10⁹ meet `C_3` at all** (levels 2357947691, 2786665453, 3293331899), with
-  total mass `7.7·10⁻⁵`. So `C_3`, a neighbourhood of x\*\* of relative T-measure `1/(1331·2197)`, is at least
-  99.99% free of boxes of level ≤ 4.6·10⁹ (not 100%: the 7 boxes are finer than resolution 5 and were not unioned,
-  hence "at least").
+* `C_2` (one of the 15 uncovered k=2 subcells of 13C Comp. 3.1): boxes of level `<2.59·10¹⁰` cover **56.6%** of it
+  (union of the boxes with `M_T | 11⁴13⁴`; finer boxes add at most their mass). Their mass per level falls from
+  0.1–0.3 at `N≈10⁵–6·10⁷` (dominated by the single-prime levels `11⁵`, `13⁵`, `11⁷`) to `3·10⁻⁶`–`4·10⁻²` at `N≈2·10⁹–10¹⁰`.
+  Cumulative mass: 1.443 at `N≤10⁹`, 1.573 at `N<2.59·10¹⁰`.
+* `C_3`: **only 7 boxes of level `<2.59·10¹⁰` meet `C_3` at all**. They lie at levels 2357947691, 2786665453 and
+  3293331899, with total mass `7.7·10⁻⁵`; no box of the five levels in `(4.6·10⁹, 2.59·10¹⁰)` meets `C_3`. So `C_3`,
+  a neighbourhood of x\*\* of relative T-measure `1/(1331·2197)`, is at least 99.992% free of boxes of these levels.
 
 **Computation 3.3 (near misses; CERTIFIED for the stated levels).** `scripts/m13e_closest.py 2 15 R`. For a box let
 `a_q = min(v_q(M_T), v_q(r−x**_q))` (agreement), *miss* `= ∏ q^{v_q(M_T)−a_q}` (=1 iff the box contains x\*\*). Among the
-319 007 boxes of level ≤ 4.6·10⁹ the smallest miss is **11**, attained by e.g.
+445 655 boxes of level `<2.59·10¹⁰` the smallest miss is **11**, attained by e.g.
 * II3 `(a,d,e)=(183703,3,65219)`, `M_T=11³13²`, ES level 38014691: it agrees with x\*\* modulo `11²13²` and fails only
   in the third 11-adic digit;
 * II3/I3/I1 `(4602,1859,18538271)`, `M_T=11·13³`: it agrees modulo `13³` and fails mod 11.
@@ -92,7 +95,7 @@ missed by one digit in several independent ways, and its survival is "generic", 
 ## 4. What a proof of sterility would need
 
 **Proposition 4.1 (measure criterion near x\*\*; PROVED, as MORDELL17 Thm 4.1).** Let `N₀` be a level through which
-the enumeration is complete, `U = 1 − |C_3 ∩ ⋃_{N(β)≤N₀} β|/|C_3|` (Comp. 3.2: `U ≥ 1−7.7·10⁻⁵` for `N₀=4.6·10⁹`).
+the enumeration is complete, `U = 1 − |C_3 ∩ ⋃_{N(β)≤N₀} β|/|C_3|` (Comp. 3.2: `U ≥ 1−7.7·10⁻⁵` for `N₀=13⁹`).
 If `Σ_{β: N(β)>N₀} μ_3(β) < U`, then `C_3` contains a sterile point: a point of Σ₁₃(main) in no ET class of the seven families.
 Hence (13B §5, Dirichlet) no finite ET covering exists for the Mordell-hard primes with `(p/11)=(p/13)=−1`.
 *Proof.* Countable additivity: the boxes of level `>N₀` cover at most `Σμ_3 < U` of `C_3`, which is less than what
