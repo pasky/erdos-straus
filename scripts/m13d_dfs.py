@@ -110,7 +110,7 @@ def main():
                         wit.append(None); continue
                     w = E.query(y, L2, rq); nC[0] += 1
                     wit.append(w[0] if w else False); nop += not w
-                    if best is not None and nop >= best[0][0]:
+                    if best is not None and nop > best[0][0]:
                         break
                 else:
                     if best is None or (nop, nop / len(Y), p) < best[0]:
