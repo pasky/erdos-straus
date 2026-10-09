@@ -493,3 +493,41 @@ This is the required aggregated repair of the bounded-D band and also removes th
 * PV in the character variable introduces `√m`; the TTL bounded-D argument cannot be declared uniform. Removing `D≤L^{100}` repairs this without changing the target bound.
 * MN3 2.5's stated hypothesis `L≤√m` cannot simply be imported. Section 3.4 repairs its logarithmic comparison and obtains the tiny-box `1/L` from BT itself.
 * No mass/BT issue remains in this section after these changes. The m-dependent spectral/Weil remainder formulas and local densities are inputs to 3.5, not proved here; a proof of the complete conditional theorem must establish them separately. No existing repository file was changed.
+
+## 4. Assembly: Theorem I_m (CONDITIONAL on (SEL_m))
+
+**Theorem 4.1 (= Thm I_m; CONDITIONAL on (SEL_m) of §2.2; relative to the results cited in TTL Thm 8.1,
+MN3 Prop 2.3/2.5, and §§1–3 here).** There is an absolute `N₀` such that for `N ≥ N₀` and `4 ≤ m ≤ L^5`:
+`Σ_{N/2<p≤N} f_{I,m}(p) ≪ N(L² + L log² m)/m + N m^{−0.35}/L`.
+
+*Proof.* TTL Thm 8.1's proof, steps (1)–(5), with the following replacements (all constants absolute;
+fix η, η₁ small as in TTL). By Lemma 1.1, bound `Σ_c Σ_{N/2<p≤N} w_{c,m}(p)` (a count of tuples (c,a,d,f)).
+* (1) `c > N^η`: §3.4 — `≪ η^{−1}N(L² + L log² m)/m + N m^{−0.35}/L` (replaces MN3 Thm 3.8(1)).
+* (2a) some modulus `mab, macf, mcdf ≤ N^{1−η₁}`: §3.1 — `≪ η₁^{−1}NL²/m`. The remaining tuples have
+  `c ≤ N^η`, all seven moduli `≥ N^{1−η₁}` up to the factor `m ≤ L^5`, so their exponents lie in
+  `R_bad(η₁ + O(log L/L)) ⊂ R_bad(2η₁)`, and `e, f ≥ N^{1/2−3η₁}` (e, f have m-free exponents, §1).
+* (2b-low) `D ≤ T = L^{100}`: §3.5 last part (aggregated Brun–Titchmarsh in c) — `≪ NL(log L)³/m`.
+* (2b) `D > T`, smooth cells of side `O(1/L)` in `(α, β)`; `δ := |log(A/D)|/L`, `k := ⌊δL⌋`, c-block `c ≍ 2^j`.
+  Bands (`|β−(α+γ)| ≤ C₀/L`, `|β−1| ≤ C₀/L`): §3.5 — `≪ NL²/m`. Off the bands, the treatments (b1)–(b5) of
+  TTL with: (b1) Prop 7.1_m (§2.6) and §2.7(b1); (b2) (`k ≥ 2j`) Thm 6.2_m in the e-cusp, §2.7(b2), and
+  (`k < 2j`) (b4); (b3) Thm 6.2_m, §2.7(b3) (relative remainder `Q²N^{−δ/4}`, κ = 1/4 as in TTL);
+  (b4) for fixed (a,d,f) the n with `c ≍ 2^j` lie in one class mod `mad` in an interval of length
+  `≤ mad·2^{j+1}`, so BT gives `≪ 2^j g(m)g(a)g(d)/j`, and §3.3(a2) (`A, D ≥ N^{1/4}` for `δ ≤ 1/3`,
+  since `AD ≥ N^{1−η}L^{−5}`) gives a layer cost `≪ 2^j g(m)·hADL/j ≍ (N/m)L/j` (`h g(m) = 1`, `m2^jAD ≍ N`);
+  (b5) f-cusp Thm 6.2_m / §2.7(b5) if `k' ≤ k/2`, else BT on `mcdf ≍ N^{2−β}`: per cell
+  `Σ_{c≍2^j}Σ_{d≍D}Σ_{f≍F} ρ_{md}(f)·N/φ(mcdf) ≤ N g(m)·Σ_c g(c)/c·D^{−1}Σ_d g(d)Σ_f ρ_{md}(f)/φ(f) ≪ N g(m)h/m = N/m`
+  by §3.2(c) (`D, F ≥ T`), with the saving `C/k'` from `log(N/(mcdf)) ≫ k'`.
+* (3) Selberg sieve per sequence: §3.5 — main terms `≪ (κδL)^{−1}(N/m)L` per layer ((b1), (b3)) and
+  `≪ (κδL)^{−1}N/m` per cell ((b2), (b5)), **with no factor m/φ(m)** (the sieve loss `g(2mcs)` is paid by the
+  gain h of the masses: §3.3, and explicitly `g(2mca)φ(ma²)/(ma²) ≤ 2g(c)` in (b1)). Remainders (§2.7):
+  `≪ L^C m^{C'}Q²N^{−κδ}` relative to the geometric mass, with `Q = z² = N^{κδ/4}`, i.e. `≪ L^{C''}N^{−κδ/2}`
+  as `m ≤ L^5`; this is `≪ C/k` once `k ≥ C₁ log L`.
+* (4) Layers `k ≤ C₁ log L`: (b4) on every cell, `≪ Σ_{j≤ηL}(C₁ log L)(N/m)L/j ≪ (N/m)L(log L)²`.
+* (5) Summation exactly as TTL (5), every term multiplied by `1/m`: TTL Lemma 1.1 gives
+  `Σ_{j,k≤L}(N/m)L·min(1/j, C/k) ≪ NL²/m`; (b5) `≪ ηNL²/m`; (b2) with `k < 2j`: `≪ NL²/m`.
+Adding (1), (2a), (2b-low), bands and (5): the claim (`(log L)³ ≪ L`, `L log² m ≥ 0`). ∎
+
+*Remarks.* (i) For m = 4 this is TTL Thm 8.1 restricted to `(N/2, N]` (the `log² m`, `m^{−0.35}` terms are
+O(1) multiples of the main term). (ii) Where m enters: only through `h = φ(m)/m` (main terms, cancelling the
+sieve's `g(m)`) and polynomially in remainders. The restriction `m ≤ L^5` is used only to absorb `m^{C'}`
+into `L^{C}` and `2^{ω(m)}, g(m) ≤ L^{o(1)}` into lower-order terms; it costs nothing by Lemma 0.1.
