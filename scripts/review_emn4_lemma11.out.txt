@@ -1,0 +1,1 @@
+m=4..13, n=2..120: 1190 (m,n) pairs, 548 with Type I sols, 4027 w-tuples checked; failures=0
