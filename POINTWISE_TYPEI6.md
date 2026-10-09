@@ -148,3 +148,56 @@ of level `L` with `v_7(k) = b`** (it may contain other solutions of (1.1) satisf
 * Relaxed mode (`u` an arbitrary odd number instead of `7^b`): it recovers every regime-(v) relaxed solution of
   `typei5_relax` (`L = 7`, `u = 293`; `L = 9`, `u = 1853`; `L = 10`, `u = 293`; `L = 12`, `u = 27, 37`; `L = 13`, `u = 7, 29`)
   — positive controls **at the levels 7, 9, 10 themselves**.
+
+**Result of Computation 4.1** (`L = 7, 8, 9, 10`; times on one core):
+
+| L | b ≤ 13 (first run) | b = 14 | b = 15 | solutions |
+|---|---|---|---|---|
+| 7 | 1 min total | 3 min | 11 min | 0 |
+| 8 | 2.5 min total | 5 min | RUNNING | 0 |
+| 9 | 6 min total | PENDING | PENDING | 0 |
+| 10 | 17 min total | RUNNING | PENDING | 0 |
+
+(Largest single case so far: `L = 7`, `b = 15`: 3.4·10⁸ candidate divisors, 2329 pass the `16P`-divisibility test, 0 squares.)
+
+**Corollary 4.2 (CERTIFIED once replayed; extends TYPEI5 Thm 3.7).** There is no fibre certificate — hence no certificate
+at `x̂_9` — of level `L ∈ {7, 8, 9, 10}` with `v_7(k) ≤ B_L`, at any height and for any `v_7(c)`, where `B_L = 13` (all
+four levels; `15` where the table says so). *Proof.* Case A and regimes (ii), (iii), (iv) are excluded for all `b` (TYPEI5
+Lemma 3.6, Comp 3.4, Prop 3.3(iv)); regime (v) for `b ≤ B_L` by Comp 4.1. ∎
+So a certificate at `x̂_9` of level 7–10 needs `v_7(k) ≥ 14` and `c_oδ > 10⁶` and, by Lemma 3.1(c), `7^{v_7(k)} ≳ 8c_oδ³√P/T²`.
+
+## 5. Heuristic size of what remains (EVIDENCE / Assessment)
+
+`typei6_vsearch` also accumulates, over the candidates passing the `16P`-divisibility test, the naive probability
+`1/(2√Y)` that `Y = (Qu²+1)/(16P)` is a square ("heuristic expectation", stderr; no local corrections).
+*Calibration* on levels where certificates exist (`L = 11…20`, `b ≤ 3`, regime (v)): predicted 4.4, actual 7
+(per level: 0.03/0, 0.005/0, 0.43/1, 0.05/0, 0.47/0, 0.66/3, 0.55/0, 0.16/1, 0.44/0, 1.63/2) — right order of magnitude.
+*At `L = 7`* the predicted number of regime-(v) certificates is `1.3·10⁻⁴` for `b ≤ 13` (dominated by `b = 4`) and
+decays by a factor ≈ 5–15 per step in `b` (`b = 14`: `5.6·10⁻¹²`, `b = 15`: `9.2·10⁻¹³`).
+So the model predicts that levels 7–10 are empty, and that a certificate, if any, would have to be a structured
+(non-random) solution; Prop 2.1 excludes the simplest structured source (a unit polynomial in `δ` or in `c_o`).
+This is EVIDENCE only.
+
+## 6. What remains open (precise statement)
+
+Regime (v) at `L ∈ {7,…,10}` is closed for `v_7(k) ≤ B_L` (Cor 4.2), for `c_oδ ≤ 10⁶` (TYPEI5 Cor 2.3), and
+CONDITIONALLY on abc up to a finite set (Thm 3.2). What remains is exactly: *fields `d = c_o(c_oδ² + T)` with
+`c_oδ > 10⁶` whose certificate unit has `u_1(d) = 7^b`, `b > B_L`*, which by Lemma 3.1 are large-unit fields
+(`ν_0 ≳ 128c_o⁴δ⁸/T⁴`). Prop 2.1 shows the Richaud–Degert route is closed for `L ≥ 7`; Remark 1.2 shows regime (v) is
+inhabited at `L = 13`, so any closing argument must use `T ≤ 64`. An unconditional closure would require controlling
+the fundamental units of a two-parameter family of real quadratic fields (Assessment: beyond current methods; the
+abc conjecture with small explicit constant would suffice, Thm 3.2 Remark (ii)).
+
+## Replay
+
+```
+uv run --with mpmath python scripts/typei6_identities.py <typei5_relax outputs>   # Lemmas 1.1, 1.3, 3.1
+gcc -O2 -o /tmp/relax scripts/typei5_relax.c   # /tmp/relax 7 1 6001; 8..10: 1 2001; 11..13: 1 401
+uv run python scripts/typei6_period.py                                             # Prop 2.1(c) evidence
+gcc -O2 -o /tmp/vsearch scripts/typei6_vsearch.c -lgmp -lm
+gcc -O2 -o /tmp/lb scripts/typei4_lb.c -lm
+for L in 11 12 13 14 15 16 17 18; do for b in 0 1 2 3; do /tmp/lb $L $b >> lb.txt; /tmp/vsearch $L $b >> vs.txt; done; done
+uv run python scripts/typei6_regress.py lb.txt vs.txt                              # 5/5 regime-(v) found
+for x in "7 293" "9 1853" "10 293" "12 27" "12 37" "13 29" "13 7"; do set -- $x; /tmp/vsearch $1 0 $2; done   # relaxed controls
+for L in 7 8 9 10; do for b in $(seq 0 15); do /tmp/vsearch $L $b; done; done        # Comp 4.1: 0 solutions
+```

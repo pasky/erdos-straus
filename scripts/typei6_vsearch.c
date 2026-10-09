@@ -20,7 +20,7 @@ typedef long double ld;
 #define BLK (1<<18)
 #define MAXF 20
 static int L, b; static u64 T, UU = 0; /* UU: optional odd u replacing 7^b (relaxed regression) */ static mpz_t U2, N, Qz, X;
-static long nsol = 0, ncand = 0, nmod = 0;
+static long nsol = 0, ncand = 0, nmod = 0; static ld hexp = 0; /* heuristic: sum over 16P-divisible candidates of 1/(2 sqrt(N/16P)) */
 static u64 mulmod(u64 a, u64 c, u64 m) { return (u64)((u128)a * c % m); }
 static u64 u2mod(u64 m) { /* u^2 mod m */ if (UU) return mulmod(UU % m, UU % m, m); u64 r = 1 % m, p = 49 % m; int e = b; while (e) { if (e & 1) r = mulmod(r, p, m); p = mulmod(p, p, m); e >>= 1; } return r; }
 static u64 *primes; static long np;
@@ -38,6 +38,7 @@ static void test(int a, u64 p7a, u64 cp, u64 dl, u64 M, u64 P1) {
   mpz_t Pz; mpz_init(Pz); mpz_set_ui(Pz, cp); mpz_mul_ui(Pz, Pz, P1); mpz_mul_ui(Pz, Pz, 16);
   if (!mpz_divisible_p(N, Pz)) { mpz_clear(Pz); return; }
   mpz_divexact(N, N, Pz); mpz_clear(Pz);
+  { long ex; double mant = mpz_get_d_2exp(&ex, N); hexp += 0.5L / sqrtl((ld)mant * powl(2.0L, ex)); }
   if (!mpz_perfect_square_p(N)) return;
   mpz_sqrt(X, N);
   if (mpz_even_p(X) || mpz_divisible_ui_p(X, 7)) return;
@@ -109,6 +110,6 @@ int main(int argc, char **argv) {
       }
     }
   }
-  fprintf(stderr, "L=%d b=%d: %ld candidates, %ld pass mod 16P, %ld solutions\n", L, b, ncand, nmod, nsol);
+  fprintf(stderr, "L=%d b=%d: %ld candidates, %ld pass mod 16P, %ld solutions, heuristic expectation %.3Lg\n", L, b, ncand, nmod, nsol, hexp);
   return 0;
 }
