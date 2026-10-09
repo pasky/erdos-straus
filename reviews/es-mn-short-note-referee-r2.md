@@ -98,3 +98,63 @@ strengthening. Re-derived:
   ρ_rep(60, e^{5.68}) = .22, ρ_rep(60, e^{7.64}) = .50, ρ_rep(60, e^{9.41}) = .76 (all primes);
   ρ_rep(64, e^{7.72}) = .48, ρ_rep(101, e^{7.59}) = .49 (all primes), ρ_rep(200, e^{11.21}) = .52
   (every 8th prime, 422 primes). Consistent with the table in §8.5 (within sampling error).
+
+## 4. Abstract / intro / gap / numerics / literature / open problems
+
+* **Abstract lower-side claim — SOUND.** "proportion of m-exceptional primes → 1 when
+  log N/(φ(m)/log m)^{1/3} → 0" is L³log m/φ(m) → 0. Since L > m would make this ≥ m log m/… → ∞,
+  eventually L ≤ m, so log L ≤ log m and L³log L/φ(m) → 0, which is Thm L's consequence. It is
+  exactly Thm L's "in particular" clause (A(m log m/φ(m))^{1/3} = L(log m/φ(m))^{1/3}); weaker than,
+  not stronger than, the theorem. ✓ Gap factor: upper L ≥ A_ε m^{1/3} vs lower L = o((φ(m)/log m)^{1/3})
+  ⇒ ratio (m log m/φ(m))^{1/3} ✓; Cor D + PW: m^{1/3}(log m)^{4/3}/(φ(m)/log²m)^{1/3}
+  = (log m)²(m/φ(m))^{1/3} ✓.
+* **Abstract status sentence — MINOR overclaim** (defect m6): "relative to published divisor-sum
+  bounds of Elsholtz and Tao" — Lemma 8.6 rests on a *modified proof* of ET Prop 1.4, not a published
+  bound. Also "even m ≤ 300" should be "even m ∈ [60,300]" (MN2 §2.1: the rows m ≤ 24 are artefacts;
+  the table and the 1.95 ± 0.05 are for [60,300]).
+* **Intro Theorems U, L** — match §8 and MN2 verbatim in hypotheses/ranges/effectivity. ✓
+* **§8.4 PW wording** — checked against `sources/pw.txt`: p. 2 ("between exp(m^{1/3}) and
+  exp(m^{1/2}) there is a transition from 'usually false' to 'usually true'", "most prime values of n
+  near this bound are exceptions"), p. 3 Poisson heuristic; PW Type I/II unsimplified counts pp. 6–8. ✓
+  Pomerance 2026 talk and Elsholtz Rem 7.3 wording match novelty audit 10c §1.1 (talk: transition
+  question open; Elsholtz: explicit c_{m,3}, N > N_m, ratio (Lm)^{1/12}). ✓
+  One slip (defect m7): "(PW) gives 'most primes representable' only for log N ≫ m^{1/2}(log m)^{3/2}" —
+  PW's saving (L²/φ(m))^{1/3} beats log L once L ≫ φ(m)^{1/2}(log m)^{3/2}, which can be smaller by
+  (log log m)^{1/2}.
+* **§8.5 numerics** — table entries and L_.75 − L_.25 = 3.73, 3.47, 4.26, 4.83, 4.87, 5.34 recomputed
+  from MN2's quartiles ✓; window/L_.5 ∈ [0.377, 0.488] ✓ ("0.38–0.49"); factors 1.56/0.80 =
+  (log300/log60)^{±…} ✓; Poisson-cube κ = ln2/1.95³ = 0.0935 ✓. Independently reproduced at four
+  (m, L) points (§3). Labelled EVIDENCE ✓; Conjecture C2 verbatim from MN2, starred, CONJECTURE ✓.
+  Notation clash (defect m1): κ here vs the multiplier exponent κ = 1/480 used two pages earlier in
+  Lemma 8.2.
+* **Open problems** — "transition gap" matches MN2 §4 (i)–(iii) ✓; "the profile" ✓. Defect m8:
+  "when (log N)³ log log N/φ(m) is small most primes are exceptional (Theorem L)" — Thm L needs this
+  → 0 (with m → ∞, automatic), or "sufficiently small and m large".
+* **Compile**: two pdflatex passes, 25 pp., no undefined references, no overfull boxes; 6 hyperref
+  "Token not allowed" warnings (math in section titles, pre-existing kind), a few underfull boxes in
+  the bibliography (harmless).
+
+## 5. Defects (all MINOR; no FATAL, no MAJOR)
+
+* **m1** §8.5 and C2 discussion: `\kappa` reused for the Poisson-cube constant (κ = 1/480 is the
+  multiplier exponent of §2.1, used in Lemma 8.2). *Repair:* rename to λ.
+* **m2** Lemma 8.6 proof: "a combination of two non-principal character sums" — for odd non-square q,
+  d ↦ (d/q)1_{d odd} is one non-principal character mod 2q. *Repair:* reword (harmless).
+* **m3** Prop 8.5 (i): "one class modulo made" needs (e, ad) = 1; true since (e,a) | (a,b) = 1 and
+  (e,d) | p with p ∤ e (as d < p). *Repair:* add the clause.
+* **m4** Lemma 8.6 needs A, D ≥ 2, but Prop 8.7 applies it to dyadic boxes with A' = 1 or D' = 1.
+  MN2 had the repair "enlarged to 2 by positivity" (review A D-L2); it was dropped in condensation.
+  *Repair:* restore it in Prop 8.7.
+* **m5** §8.3 intro: "open even for m = 4 [ET §9]". ET §9's parenthetical literally reads "it does not
+  seem that a similar trick is available in the Type II case" (an evident slip for Type I, given ET
+  Thm 1.1). The cleaner source is ET p. 4 after Thm 1.1 (the log log N "arises from … the Brun–
+  Titchmarsh inequality … and we conjecture that it should be eliminated"). *Repair:* cite
+  [ET, discussion after Thm 1.1] (keep §9 as secondary).
+* **m6** Abstract: (a) "relative to published divisor-sum bounds of Elsholtz and Tao" → "relative to
+  a published divisor-sum bound of Elsholtz and Tao and a modification of the proof of another";
+  (b) "even m ≤ 300" → "even m ∈ [60,300]".
+* **m7** §8.4: m^{1/2}(log m)^{3/2} → φ(m)^{1/2}(log m)^{3/2} (and "≫" in place of "only for … ≫"
+  is fine).
+* **m8** Open problem 2: "is small" → "tends to 0".
+* (no defect) The labels of Theorems U and L omit BT/PNT (U) and Pólya–Vinogradov (L); these are
+  classical and named in §1 "Status and novelty" / proofs. Acceptable.
