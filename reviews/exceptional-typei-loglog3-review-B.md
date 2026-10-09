@@ -108,3 +108,37 @@ TTL2's other inputs (Drappeau Prop 4.7 at the fixed tolerance `ε₁ = 1/100`, e
 * K-transform: `cosh(πr)K_{2ir}(x) = ∫₀^∞cos(x sinh ξ)cos(2rξ)dξ` is the correct normalised representation; DI p. 264
   (scan) uses `K_{2ir}(x) = ∫e^{−x ch ξ}cos(2rξ)dξ` for `f̌`, which carries a `cosh(πr)` — the missing-cosh repair is real.
 * Level one has no exceptional spectrum (B5) ✓; only fixed-order derivatives ⇒ `K₁₄` is `2^{1200}(1+K_{T2})(1+6/δ)³` ✓.
+
+### §8 inputs: `ttl3_lemma81_twisted.md`, `ttl3_thm2_twisted.md`, `ttl3_nebentypus.md` — SOUND rel. (B1),(B3)
+* (P1χ): `k = rqc ∈ (8NY, 32NY)` independently of r; multiplicity `≤ τ(k/r) ≤ τ(k)`; `|χ| = 1` ⇒
+  `|Σ_{m≤M,n≤H}Sχ(m,n;k)| ≤ U(k;M,H)` and positivity lets one drop `r | k` ✓. Valid for every `Q > 0` (`#(Q,16Q] ≤ 16Q`,
+  `Σ1/q < 4`) ✓. So no positive power of r and no conductor constant enters K₁χ ✓.
+* (P2χ): first trace at levels rq, second at levels rc (same χ induced), switched `C = πNY/(rQ)` ✓; the small-C
+  warning ("do not import the untwisted error-only argument, `Q > πNY/r` does not give `Q > πNY`") is correct and the
+  replacement (keep the ≤ 15 cofactors; `C < 1/16` empty) works ✓.
+* Twisted large sieve: √r enters only through the `c > N²` Weil range (Steps 1, 6, 7), giving `√r L^{−1}N^{1+δ}`;
+  Steps 3–5 are χ-free (Cauchy–Schwarz kills `χ̄(d)`; at resonance `δ₁ ≡ δ₂ (mod c)`, `r | c` ⇒ `χ̄(δ₁)χ(δ₂) = 1`) ✓.
+  Envelope `K_{LSχ} ≤ exp(exp(B_χ/δ))` and the chain to `A₀ = 24B_χ + 30` re-checked in log-log for
+  `(B_W,C_W) ∈ {(1,1),(3,10),(10,10⁶)}`: e.g. at `δ = 1/40`, `loglog K₇χ ≈ 7.1·10³` vs claimed `(4B_χ+4)/δ ≈ 1.1·10⁵` ✓.
+* "Even χ is a square" counterexample: `χ₃χ₇` mod 21 is even, `χ₃` is not a square in the dual of `(ℤ/3)^× ≅ C₂` ✓.
+* (B3) EVIDENCE (`review_ttl3b_twisted_weil.py`, all even χ mod r, all `r | c ≤ 90`, all m,n mod c, via 2-D FFT):
+  `max |Sχ(m,n;c)| / (τ(c)(m,n,c)^{1/2}(cr)^{1/2}) = 1` (attained only at c = 1). So `C_W = 1, B_W = 1` is consistent
+  with all small cases; the author's example `A₀ < 2·10⁴` is plausible but (B3)'s constants remain uncertified.
+
+## Literature repairs claimed by the author — checked against the scans
+
+| Claimed repair | Checked against | Real? | Fix works? |
+|---|---|---|---|
+| DI p. 257: derivative separation fails for η-support (1/2,3) | scan pp. 256–257 | YES: DI's `|B/2√t| ≤ 2(√2−1)c^{−1}` needs `t ≥ N`; true ratio up to `1.1716` | YES (`[3/4,9/4]` ⇒ 0.9566) |
+| DI pp. 271–273: supports `[1/2,5/2]` give `16C/25 ≤ c ≤ 32C`, not `(C,16C]` | scan pp. 271–273 | YES (computed: `[0.64C, 32C]`) | YES (`[1.255C, 11.64C]`); harmless for DI (two extra enlargements) |
+| DI (8.3) lower bound not uniform near Y = 1 | numerics | YES (transform negative at Y = 1 for all σ) | YES (`Y ≥ 2^{32}` + (M)) |
+| DI (8.2) needs `log Y` at κ = 0 | numerics (σ→0 value ≈ 16 ≈ `L_Y`-size at `Y = 2^{32}`) | YES | YES |
+| DI p. 259 `2ε → 3ε` | scan p. 259 | YES | YES (final 5ε unchanged) |
+| DI (5.2) asymptotic with `O(μN^{1+ε})` | scan p. 258 (`D_K = ½K² + O(1)`) | YES for `q ≫ N^{1+ε}` | YES (`D_K ≤ 2K²`) |
+| DI p. 264 missing cosh in `f̌` | scan p. 264 | YES | YES (oscillatory representation) |
+| DI below (8.18): `Y₁ = √(Q+N)` → `Q+N` | scan p. 277 | YES (known from O116) | YES |
+| Dr p. 17: `S∞∞(m,n;qc)` → `Sχ(m,n;q₀qc)` | Dr pp. 17–18 text | YES | YES |
+| Dr p. 17: single `g = Φ(q/Q)` cannot majorise `(Q,16Q]` | Dr p. 17 | YES | YES (DI's four enlargements) |
+| Dr p. 17: `dx` → `dx/x`; `ρ_f(m)` → `ρ_f(n)`; p. 18 `S(Q,N,Y,0)` → `S(Q,Y,N,0)` | Dr pp. 17–18 | YES (typos) | YES |
+| Dr p. 19: "q₀ only with negative powers" insufficient; C < N branch | Dr p. 19 + §8 | YES (no induction hypothesis when C < N) | YES (Prop 8.1 (C2)) |
+| Thm 13 six derivatives beyond (7.7) | not checked (pp. 268–270 not rendered) | — | moot: T-B uses its own cutoff with 7 derivatives |
