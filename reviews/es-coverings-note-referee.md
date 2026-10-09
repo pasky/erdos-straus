@@ -274,3 +274,5 @@ MORDELL13B Comp 5.1. The abstract, the r = 13 Results bullet, Remark 3.3, the "a
 (now: open), Problem 1, Problem 5 and the bibliography (PM13B) are updated. Computation 5.2 and its Corollary are
 unchanged. Build: two pdflatex passes give 24 pp, 0 overfull boxes and 0 undefined references. The pre-existing
 underfull hbox and hyperref warnings remain, and there is one harmless underfull vbox at a page break.
+
+* Round 2 (R98, post-referee additions §4.6, §5.3, TYPEI5, MORDELL13B §5): `reviews/es-coverings-note-referee-r2.md`.
