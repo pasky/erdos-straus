@@ -1,0 +1,7 @@
+b2           max excess = +0.0000
+b2_crudeT3   max excess = -0.0634
+b3           max excess = +0.0000
+b3_crudeT3   max excess = +0.0607
+b5           max excess = +0.0000
+b5_crudeT3   max excess = -0.0605
+violations: 0
