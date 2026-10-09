@@ -122,7 +122,7 @@ uncovered subcells (consistent). [B = 120 run: see below.]
   (x_11,x_13) ≡ (2,2)" checked against the §0 table ✓. The counts 49 / 25740 and 147 / 180180 were not
   recomputed (EVIDENCE, `mordell_tgen` engine).
 * §7: root 418321 has 455 open leaves, all with 17, 19, 23, 31 | L; residues mod 17: {1}; mod 19: {1,13,17};
-  mod 23: {1,13,16}; mod 31: {1,21,26} ✓ (13 mod 19, 13 mod 23, 21 and 26... mod 31 include non-squares, as stated).
+  mod 23: {1,13,16}; mod 31: {1,21,26} ✓ (13 mod 19, 21 and 26 mod 31 are non-squares, so "not all squares" ✓).
 
 ## Defects
 
