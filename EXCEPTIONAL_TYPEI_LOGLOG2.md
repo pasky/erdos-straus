@@ -127,31 +127,36 @@ for `η ≤ 1/10`. ∎
 
 ## 4. The Type I sum
 
-**Hypothesis (EFF).** (DI7_ε) holds with `C_ε ≤ exp(exp(A₀/ε))` for some absolute `A₀` and all `ε ∈ (0,1/4]` (for both DI
-Thm 7 and its nebentypus form, Drappeau Lemma 4.10). (DI and Drappeau state `≪_ε` without the ε-dependence; see §5.)
+**Hypothesis (EFF).** (DI7_ε) holds with `C_ε ≤ exp(exp(A₀/ε))` for an absolute `A₀` and all `ε ∈ (0,1/4]`, for DI
+Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the character modulus. (DI and Drappeau state
+`≪_ε` and do not give the ε-dependence. §5 explains why their proofs give EFF; this is an Assessment.)
 
-**Theorem 4.1.** (i) (PROVED rel. TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10; **no (SEL)**.) There is an
-absolute C such that for every `ε₀ ∈ (0,1)` and `N ≥ 3`:
-`Σ_{p≤N} f_I(p) ≤ C ε₀ N log²N log log N + O_{ε₀}(N log²N)`. In particular `Σ_{p≤N} f_I(p) = o(N log²N log log N)`.
+**Theorem 4.1.** Let `L = log N`.
+(i) (PROVED relative to TTL's cited inputs, DI Thm 7 and Drappeau Lemma 4.10; **no (SEL)**.) There is an absolute C
+such that for every `ε₀ ∈ (0,1)`: `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)`. In particular
+`Σ_{p≤N} f_I(p) = o(N log²N log log N)`.
 (ii) (CONDITIONAL on (EFF).) `Σ_{p≤N} f_I(p) ≪ N log²N`.
-(iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then `Σ_{p≤N} f_I(p) ≪ N L²(1 + w_N log L)` with
-`w_N := inf{w ∈ (0,1] : log G(64/w) ≤ wL/16}` (here L = log N).
-*Proof.* Follow TTL §8 verbatim, with one change: in the cases (b2), (b3), (b5) (the only places where TTL uses Thm 6.2,
-hence (SEL)), Thm 6.2 summed over d is replaced by Cor 3.2 — TTL uses Thm 6.2 only through `Σ_{d≍D}|E_d(q)|` (TTL §6
-Remark D11), and Cor 3.2 differs from TTL's (SEL)-bound by the factor `C_ε^{1/2}N^{2ε}q`. In TTL (3) take `κ = 1/4`, so
-`Q = z² = N^{δ/16}` and `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³ = 𝓛^C N^{3δ/64}`; with `ε := w/64` the sieve remainder and the
-`|r_σ(1)|` part of the main term are `≪ 𝓛^C C_ε^{1/2} N^{−δ/4 + 3δ/64 + w/32}(1 + N^{δ/4 − c₀})` times the mass. For
-`δ ≥ w` this is `≪ 𝓛^C C_{w/64}^{1/2} N^{−11δ/64}` (using `δ ≤ 1/3 + 4η₁ < 4c₀`… as `c₀ = 1/20` and the
-`N^{−c₀}` term is used only with its own margin: `N^{3δ/64+w/32−c₀} ≤ N^{−1/50}` for δ ≤ 0.35). Call a layer k = ⌊δL⌋
-**good** if `δ ≥ w` and `𝓛^C C_{w/64}^{1/2} N^{−11δ/64} ≤ 1/(δL)`; on good layers TTL's step (5) applies unchanged
-(saving `C/k`, Lemma 1.1). On the other layers of the `D < A` side use TTL (b4) (Brun–Titchmarsh on 4ad) for the whole
-layer: cost `≪ NL/j` per c-block `j ≥ 1` and `≪ NL` for `j = 0` (TTL (4) and Lemma 1.1's remark), i.e. `≪ NL log L`
-per layer.
-(i) Fix `w = ε₀`. For `N ≥ N₀(ε₀)` every layer with `δ ≥ ε₀` is good (`C_{ε₀/64}` is a constant, `N^{−11δ/64} ≤ N^{−ε₀/6}`).
-The bad layers number `≤ ε₀L + 1`, cost `≪ ε₀ N L² log L + NL log L`. The rest is TTL's `O(N L²)`. Dyadic summation in N.
-(ii) Take `w = w_N := 128A₀/log L`. Then `log C_{w/64} ≤ exp(64A₀/w) = L^{1/2}`, and for `δ ≥ w`,
-`(11/64)δL ≥ (11·2A₀)L/log L ≥ L^{1/2} + (C+1)log L + log(δL)` for `L ≥ L₀(A₀)`: every layer with `δ ≥ w_N` is good.
-The bad layers number `≤ w_N L + 1`, cost `≪ (w_N L + 1)·NL log L ≪ A₀ N L²`.
-(iii) As (ii), with `w = 2w_N` (then `log G(64/w) ≤ ... ` follows from monotonicity of `w ↦ log G(64/w) − wL/16`… —
-precisely: for `δ ≥ w ≥ w_N`, `log C_{w/64} ≤ log G(64/w_N) ≤ w_N L/16 ≤ δL/16`, and `11δL/64 − δL/32 = 9δL/64 ≥ ...`, good
-once `δL ≥ C' log L`). Bad layers `≪ (w_N + C'log L/L)L`. ∎
+(iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then `Σ_{p≤N} f_I(p) ≪ N L²(1 + w_N log L)`, where
+`w_N := inf{w ∈ [L^{−1/2}, 1] : log G(128/w) ≤ wL/32}`.
+*Proof.* Dyadic in N, as in TTL §8. TTL uses Thm 6.2, and hence (SEL), only in the cases (b2), (b3) and (b5) of (2b).
+It uses them only through `Σ_{d≍D}|E_d(q)|` (TTL §6 Remark D11; Cauchy–Schwarz over d). Replace that use by Thm 3.1 and
+Cor 3.2. Their bound differs from TTL's (SEL) bound only by a factor `≪ 𝓛^C C_ε^{1/2}N^{4ε}q` and by the term `N^{−1/20}`.
+In TTL (3) take `κ = 1/4`, so `z = N^{δ/32}` and `Q = z² = N^{δ/16}`, and use `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³`. Fix a
+threshold `w ∈ (0,1]` and put `ε := w/128`. For `δ ≥ w` the sieve remainder, and the `|r_σ(1)|` part of the main
+term, are then `≪ 𝓛^C C_ε^{1/2}(N^{−δ/4+3δ/64+δ/32} + N^{3δ/64+δ/32−1/20}) ≤ 𝓛^C C_ε^{1/2} N^{−11δ/64}` times the mass.
+This uses `δ ≤ 1/3 + 4η₁ ≤ 0.35` on R_bad, so `N^{5δ/64−1/20} ≤ N^{−11δ/64}`.
+Call a layer `k = ⌊δL⌋` **good** if `δ ≥ w` and `𝓛^C C_ε^{1/2}N^{−11δ/64} ≤ 1/(δL)`. On good layers TTL's steps (3)
+and (5) apply unchanged (saving `C/k`, Lemma 1.1).
+On every other layer of the `D < A` side, use TTL (b4) (Brun–Titchmarsh on 4ad) for the whole layer, as in TTL (4).
+It costs `≪ NL/j` for each c-block `j ≥ 1`, plus `≪ NL` for the block `c ≍ 1` (Lemma 1.1's remark in TTL). That is
+`≪ NL log L` per layer. All other parts of TTL §8 ((1), (2a), bands, (b1), (b4)) are unconditional and unchanged.
+(i) Take `w = ε₀`. Then `C_ε = C_{ε₀/128}` is a constant, and `N^{−11δ/64} ≤ N^{−ε₀/6}`. So for `N ≥ N₀(ε₀)` every
+layer with `δ ≥ ε₀` is good. There are `≤ ε₀L + 1` bad layers, costing `≪ ε₀NL² log L + NL log L`. The rest is TTL's
+`O(NL²)`. Then sum dyadically over N.
+(ii) Take `w = w_N := 256A₀/log L`. Then `log C_ε ≤ exp(A₀/ε) = exp(128A₀/w) = L^{1/2}`. For `δ ≥ w` we have
+`(11/64)δL ≥ 44A₀L/log L ≥ L^{1/2}/2 + (C+1)log L + log L` when `L ≥ L₀(A₀)`. So every layer with `δ ≥ w_N` is good.
+The `≤ w_N L + 1` bad layers cost `≪ (w_N L + 1)NL log L ≪ A₀NL²`.
+(iii) As in (ii), with `w = w_N`. For `δ ≥ w_N` we have `log C_ε ≤ log G(128/w_N) ≤ w_N L/32 ≤ δL/32`, and
+`11δL/64 − δL/64 = 5δL/32 ≥ (C+2)log L` because `δ ≥ L^{−1/2}`. Bad layers number `≤ w_N L + 1`. ∎
+*Remark.* Only the D < A side of the strip ever used (SEL). The (b1) side, `D ≥ A`, is unconditional by Weil (TTL
+Prop 7.1). So "the strip" of TTL §9 is exactly the set of layers that are not good, and it lies inside `0 < δ < w`.
