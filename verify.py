@@ -23033,4 +23033,245 @@ print("\n== (en) POINTWISE_MORDELL13D: C witness engine vs complete Python engin
 check_en()
 
 
+# ---------------------------------------------------------------- (eo)
+# EXCEPTIONAL_MN4.md (task O117, review R117).  Uses R117's from-scratch review_emn4_lemma11.py,
+# review_emn4_forms.py, review_emn4_exponents.py and the author's emn4_checks.py.  Checked:
+# (1) Lemma 1.1 and the identities (1.1) (R117: m = 4..13, n <= 90, 890 pairs, 2493 w-tuples; author: 252 (m,p));
+# (2) §2 separation: disc(Q-Q') = 8t(cosh-1) exactly, min cosh = 3/2 (R117 42184 pairs; author 36802 pairs);
+#     local densities / transitivity (R117 1340 cases, author 924), content-{1,2} rule and the coset count
+#     <= h(-4t) + [t = 3 (4)] h(-t) for t <= 60, rho majorants, tau_m small-divisor inequality;
+# (3) exponent algebra of §2.7 (b2), (b3), (b5), Lemma 0.1, §3.5 sieve denominator, (3.2.2) class identity, the CRT
+#     example of the issues list (R117, 0 failures); author's §3.2(c) EVIDENCE ratio in [1.05, 1.34].
+
+def check_eo():
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("MN4 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_emn4_lemma11.py")
+    assert "890 (m,n) pairs, 397 with Type I sols, 2493 w-tuples checked; failures=0" in o, ("MN4 R117 Lemma 1.1", o)
+    o = run("review_emn4_forms.py")
+    for s in ("(1) 42184 pairs, disc(Q-Q')=8t(cosh-1) exact, min cosh = 3/2", "(2) local densities: 1340 (l,t,c) cases",
+              "(sum hits 255, sum bounds 255)", "(4) rho majorants checked for 19200 (m,d,f)", "failures = 0"):
+        assert s in o, ("MN4 R117 forms", s, o)
+    o = run("review_emn4_exponents.py")
+    assert o.rstrip().endswith("failures = 0") and "(b3) cell alpha=1-4e, beta=1-2e (e=1/1000) lies in R_bad(2eta) " \
+        "and (b3): True" in o and "class identity checked for 184 (m,f)" in o, ("MN4 R117 exponents", o)
+    o = run("emn4_checks.py")
+    for s in ("252 (m,p) pairs (229 Type I solvable), failures = 0", "36802 pairs, min cosh = 1.5000",
+              "924 cases, failures = 0", "ALL EXACT CHECKS PASS"):
+        assert s in o, ("MN4 author checks", s, o)
+    ratios = [float(x) for x in re.findall(r"ratio=([\d.]+)", o)]
+    assert len(ratios) == 8 and 1.05 <= min(ratios) and max(ratios) <= 1.345, ("MN4 §3.2(c) EVIDENCE", ratios)
+    print(f"eo MN4 Lemma 1.1 + (1.1) (R117 890 pairs / author 252); §2 min cosh 3/2 exact (42184 + 36802 pairs); "
+          f"local densities, content rule, coset count (255 <= 255), rho majorants, tau_m; §2.7/§3.5 exponent algebra "
+          f"0 failures; §3.2(c) EVIDENCE ratios in [{min(ratios):.3f}, {max(ratios):.3f}]; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eo) EXCEPTIONAL_MN4: Lemma 1.1, §2 forms/separation/local densities, exponent algebra (R117 + author) ==")
+check_eo()
+
+
+# ---------------------------------------------------------------- (ep)
+# EXCEPTIONAL_TYPEI_LOGLOG2.md (task O116, reviews R116 and R116-B; all scripts from scratch by the reviewers).
+# Checked:
+# (1) R116 review_ttl2_analytic.py: Lemma 1.2 large-sieve-type inequality ratio <= 1, the |c'| majorant, the Mellin
+#     kernel bound |G| << L^2 e^{-pi|v|/2}, and boundedness of the lambda-integrals (a = 0, 1/2, 1);
+# (2) R116 review_ttl2_exponents.py at reduced sample (10^5 instead of 4*10^5 points): Cor 3.2 from the RAW Prop 2.2 +
+#     TTL bounds, 0 violations in (b3), (b5); in (b2) only the deliberate a/2 <= b < a cells exceed, by <= 3*10^-4 in
+#     exponent (an O(1) constant; see review V5); the author's 3-term form dominates; M0/(lam_- Y0) <= N^3; sieve total
+#     exponent = -11 delta/64;
+# (3) R116-B: Thm 3.1/Cor 3.2 exponents (review_ttl2b_exponents.py, max excess < 0 in all three cases), Thm 4.1
+#     bookkeeping (review_ttl2b_bookkeeping.py), Mellin formula / G bound / Abel identity / Lemma 1.2 instance
+#     (review_ttl2b_mellin_abel.py).
+
+def check_ep():
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TTL2 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ttl2_analytic.py")
+    a = float(re.search(r"\(a\) max .*? = ([\d.]+)", o).group(1))
+    b = float(re.search(r"\(b\) max .*? = ([\d.]+)", o).group(1))
+    c = float(re.search(r"\(c\) max .*? = ([\d.]+)", o).group(1))
+    rows = [[float(x) for x in ln.split()] for ln in o.splitlines()[-7:]]
+    assert a <= 1 and b <= 1 and c <= 5 and len(rows) == 7 and all(max(r[1:]) <= 3.5 for r in rows), ("TTL2 R116 an.", o)
+    o = run("review_ttl2_exponents.py", "100000")
+    v = re.search(r"violations .*?: \{'b2': (\d+), 'b3': (\d+), 'b5': (\d+)\}", o)
+    sl = re.search(r"\{'b2': ([-\d.e]+), 'b3': ([-\d.e]+), 'b5': ([-\d.e]+)\}", o.split("per case")[1])
+    sv = float(re.search(r"sieve exponent \+ 11δ/64\): ([-\d.e]+)", o).group(1))
+    assert v.group(2) == v.group(3) == "0" and float(sl.group(1)) <= 3e-4 and max(float(sl.group(2)),
+           float(sl.group(3))) <= 0 and "fails to dominate raw: 0" in o and "> N^3: 0" in o and abs(sv) < 1e-12, \
+        ("TTL2 R116 exponents", o)
+    o = run("review_ttl2b_exponents.py")
+    m = re.search(r"\{'b2': ([-\d.e]+), 'b3': ([-\d.e]+), 'b5': ([-\d.e]+)\}", o)
+    assert max(float(x) for x in m.groups()) < 0 and "simplified Thm 3.1] exponent: 0.0" in o and \
+        float(re.search(r"max \[log_N\(M0/\(lam_- Y0\)\) - 3\]: ([-\d.]+)", o).group(1)) < 0, ("TTL2 R116-B exp", o)
+    o = run("review_ttl2b_bookkeeping.py")
+    assert "(ii) A0=0.01: good-layer inequality holds for all delta>=w_N" in o and \
+        "eps0=0.01: L=200,800,3200 -> [1.38, 1.371, 1.379]" in o, ("TTL2 R116-B bookkeeping", o)
+    o = run("review_ttl2b_mellin_abel.py")
+    e1 = float(re.search(r"\(1\) Mellin formula max rel err: ([\d.e+-]+)", o).group(1))
+    e4 = float(re.search(r"\(4\) Abel identity \|lhs-rhs\|/\|lhs\| = ([\d.e+-]+)", o).group(1))
+    assert e1 < 1e-20 and e4 < 1e-12 and "(3) violations of |(pi t Y_d)^{-s}| <= e^2 w^sigma: 0" in o and \
+        o.rstrip().endswith("True"), ("TTL2 R116-B Mellin/Abel", o)
+    print(f"ep TTL2 R116: Lemma 1.2 ratio {a:.3f} <= 1, |c'| majorant {b:.3f}, |G|/(L^2 e^-pi|v|/2) <= {c:.2f}, "
+          f"lambda-integrals bounded; Cor 3.2 raw exponents (10^5 pts): (b3),(b5) 0 violations, (b2) excess "
+          f"{float(sl.group(1)):.1e} (O(1) cells), 3-term form dominates, M0/(lam Y0) <= N^3, sieve -11delta/64; "
+          f"R116-B exponents/bookkeeping/Mellin ({e1:.0e})/Abel OK; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ep) EXCEPTIONAL_TYPEI_LOGLOG2: analytic steps + Cor 3.2 exponents (R116, reduced) + R116-B checks ==")
+check_ep()
+
+
+# ---------------------------------------------------------------- (eq)
+# POINTWISE_MORDELL13E.md (task O107, review R107).  Checked:
+# (1) R107's from-scratch review_m13e_parity.py (Lemma 2.1: ES level parity in the (2,2) cell; each ES level verified
+#     by the explicit ES identity with exact fractions) at 400 data per family, seed 1: 0 range violations, 0 parity
+#     failures (71 data meeting the cell);
+# (2) the engine m13e_es.c against m13b_es.c (gcc; skipped otherwise): identical (x,y) sets at N = 1859, 24167
+#     (918, 3529 solutions); a two-chunk run at N = 1859 tiles (N/4, 3N/4] and agrees with the unchunked run;
+# (3) m13e_inv.py at N = 1859 (exact z recomputation, 13B inversion): x** = (2,15) has no box, the positive control
+#     x* = (2,2) returns exactly the two data of 13B Thm 3.1, I2 (125,88,11999) and II3 (8,33,11999).
+
+def check_eq():
+    from time import perf_counter
+    import os
+    import pickle
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    from fractions import Fraction
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("M13E subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_m13e_parity.py", "400", "1")
+    assert "range violations 0 ; parity failures 0 of 71" in o, ("M13E R107 parity", o)
+    cc = shutil.which("gcc")
+    if not cc:
+        print(f"eq R107 parity OK (71 data in the (2,2) cell); engine parts SKIPPED (no gcc)")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        new, old = os.path.join(td, "es"), os.path.join(td, "es_old")
+        subprocess.run([cc, "-O2", "-o", new, os.path.join(sdir, "m13e_es.c"), "-lm"], check=True)
+        subprocess.run([cc, "-O2", "-o", old, os.path.join(sdir, "m13b_es.c")], check=True)
+
+        def sols(exe, *a):
+            r = subprocess.run([exe, *map(str, a)], capture_output=True, text=True, timeout=120, check=True)
+            return r.stdout
+        nsol = []
+        for N in (1859, 24167):
+            sn = {tuple(ln.split()[:2]) for ln in sols(new, N).splitlines() if not ln.startswith("#")}
+            so = {tuple(ln.split()[:2]) for ln in sols(old, N).splitlines() if ln.strip() and not ln.startswith("#")}
+            assert sn == so and sn, ("M13E new vs old engine", N, len(sn), len(so))
+            nsol.append(len(sn))
+        assert nsol == [918, 3529], ("M13E solution counts", nsol)
+        N = 1859
+        f1, f2, fu = (os.path.join(td, f) for f in ("c1.txt", "c2.txt", "u.txt"))
+        open(f1, "w").write(sols(new, N, N // 4 + 1, 900))
+        open(f2, "w").write(sols(new, N, 901, 3 * N // 4))
+        open(fu, "w").write(sols(new, N))
+        res = []
+        for files in (f1 + "," + f2, fu):
+            pk = os.path.join(td, "inv.pkl")
+            run("m13e_inv.py", str(N), files, pk)
+            with open(pk, "rb") as fh:
+                res.append(pickle.load(fh))
+    assert res[0] == res[1], "M13E chunked vs unchunked"
+    d = res[0]
+    xss, xs = (Fraction(2), Fraction(15)), (Fraction(2), Fraction(2))
+    assert d["nsol"] == 918 and len(d["boxes"]) == 994 and d["hits"][xss] == [] and sorted(d["hits"][xs]) == [
+        ("I2", (125, 88, 11999), 1859, 2), ("II3", (8, 33, 11999), 1859, 2)], ("M13E x*/x** at 1859", d["hits"])
+    print(f"eq R107 Lemma 2.1 parity (71 data in the (2,2) cell, ES identities exact): 0 failures; m13e_es = m13b_es "
+          f"at N = 1859, 24167 ({nsol[0]}, {nsol[1]} solutions); chunked = unchunked; N = 1859 ({len(d['boxes'])} boxes): "
+          f"x** no box, x* positive control = I2 (125,88,11999), II3 (8,33,11999); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eq) POINTWISE_MORDELL13E: R107 parity check, m13e_es vs m13b_es, x* positive control / x** at 1859 ==")
+check_eq()
+
+
+# ---------------------------------------------------------------- (er)
+# POINTWISE_TYPEI7.md (task O109, review R109).  Uses R109's from-scratch review_typei7_check.py (no author imports)
+# and review_typei7_lemma11.py.  Checked:
+# (1) the explicit families: Thm 2.1 at m = 4, 5 (F = 71, 2097495; certificate at -F on both splits, L + ord
+#     condition, not a certificate at x_9) and the m = 6..8 data (v2(F+9) = 8, F = 1 mod 7^(b+1), F = 7 mod 16); the
+#     (21,1,71) tower L = 11, 46, 81, 116 (v2(e+9) = v2(9F+1) = 7); Thm 2.4 at nu = 1, 3, 7 (stated L = least L =
+#     30, 109685, 419119864270); orders ord_71(2) = 35, ord_{71^2}(2) = 2485, ord_{7^j}(2) = 3*7^(j-1); Comp 2.5's
+#     least odd nu table (m = 4..14: 1, 3, 7, 15 x4, 143, 399 x3);
+# (2) Lemma 1.1 formula v2(F+9) = 3 + v2(5 - 9 n delta - 2^(L-2) c' k'^2), the top criterion on every split, (1.2)
+#     at every 2^j, and the cofactor clause, on all 64 fibre certificates with ck <= 4*10^5 found by direct divisor
+#     enumeration of N = 1 + 4ck^2 (1442 checks, 0 failures).
+
+def check_er():
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TYPEI7 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_typei7_check.py")
+    for s in ("ord_71(2) 35", "ord_{71^2}(2) 2485", "ord_7^1(2) 3 3", "ord_7^4(2) 1029 1029",
+              "Thm2.1 m=4: s=1 b=0 i=6 F=71 c'=9 ordF(2)=35 L=30 v2(F+9)=4 cert@-F splits=[True, True] L+ord=True "
+              "at x9=False",
+              "Thm2.1 m=5: s=3 b=1 i=21 F=2097495 c'=262187 ordF(2)=93204 L=93184 v2(F+9)=5 cert@-F splits=[True, "
+              "True] L+ord=True at x9=False",
+              "Thm2.1 m=8: s=7, i=1029, log2 F~1030, v2(F+9)=8, F%7^(b+1)=1, F%16=7",
+              "Thm2.4 nu=1: v2(F+9)=4 stated L=30 cert=1 least L=30 n_order=True",
+              "Thm2.4 nu=3: v2(F+9)=5 stated L=109685 cert=1 least L=109685 n_order=True",
+              "Thm2.4 nu=7: v2(F+9)=6 stated L=419119864270 cert=1 least L=419119864270 n_order=True"):
+        assert s in o, ("TYPEI7 R109 families", s, o)
+    tower = re.findall(r"\(c_o,k_o,F\)=\(21,1,71\) L= (\d+) True e= \d+ v2\(e\+9\)= 7 v2\(9F\+1\)= 7", o)
+    nus = [int(x) for x in re.findall(r"m=\d+: least odd nu=(\d+)", o)]
+    assert tower == ["11", "46", "81", "116"] and nus == [1, 3, 7, 15, 15, 15, 15, 143, 399, 399, 399], \
+        ("TYPEI7 tower / Comp 2.5", tower, nus)
+    o = run("review_typei7_lemma11.py", "400000")
+    assert "fibre certificates found: 64" in o and "checks: 1442 failures: 0" in o and "FAIL" not in o, \
+        ("TYPEI7 R109 Lemma 1.1", o[-2000:])
+    print(f"er TYPEI7 R109: Thm 2.1 (m = 4, 5 exact; m = 6..8 data), (21,1,71) tower, Thm 2.4 (nu = 1, 3, 7), orders, "
+          f"Comp 2.5 nu table OK; Lemma 1.1 / criterion / (1.2) / cofactor on 64 fibre certificates (ck <= 4e5): "
+          f"1442 checks, 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (er) POINTWISE_TYPEI7: explicit families of Thm 2.1/2.4 + Lemma 1.1 on all small fibre certificates (R109) ==")
+check_er()
+
+
 print("\nall checks passed")

@@ -9,6 +9,8 @@ Raw route (independent of the author's three-term simplification):
 Claims checked: rel ≤ q² N^{-δ/4} N^{3ε} (Cor 3.2) in cases (b2),(b3),(b5), and M0/(λ₋Y0) ≤ N³;
 also the author's 3-term form of Thm 3.1 dominates the raw expression.
 """
+import sys
+
 import numpy as np
 
 rng = np.random.default_rng(1162)
@@ -38,7 +40,8 @@ cnt = {"b2": 0, "b3": 0, "b5": 0}
 worst_slack = {k: -9.0 for k in viol}
 dom_fail = 0
 n3_fail = 0
-for _ in range(400000):
+NSAMP = int(sys.argv[1]) if len(sys.argv) > 1 else 400000  # O119: optional reduced sample
+for _ in range(NSAMP):
     gam = rng.uniform(0, eta)
     delta = rng.uniform(1e-4, 0.6)
     a = (1 - gam + delta) / 2              # δ = 2α − 1 + γ > 0  (D < A side)
