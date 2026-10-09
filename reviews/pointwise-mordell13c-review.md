@@ -11,7 +11,7 @@ as merged at the start of R100. All code from scratch: `scripts/review_m13c_*.py
 | Thm 6.1 (tree certificate, 35459 open classes, density 8.42e-5) | PROVED (finite computation) | **SOUND** (conditional on POINTWISE_MORDELL Thm 3.1(b) outside the six roots, as stated) |
 | §2 witness engine completeness (all M ∣ L) | CERTIFIED | **SOUND** (brute force, 6 levels, 0 mismatches) |
 | Comp. 3.1 ((2,2) cell uncovered set) | CERTIFIED | **SOUND**; its new part is empty by a one-line reciprocity argument (D4) |
-| §5 x** search extensions | CERTIFIED within ranges | pending |
+| §5 x** search extensions | CERTIFIED within ranges | **SOUND** as labelled (one engine; not recomputed; D5) |
 | §1, §3, Comp. 2.1 | EVIDENCE | pending |
 
 ## A. Theorem 6.1 — independent re-check
@@ -95,6 +95,19 @@ B = 4: 53 covered; B = 15: 87; B = 40: 119 covered, 24 uncovered, all inside x_1
 x_13 ∈ {15,28,54,93,132,145} — monotone towards the claimed 128 / 15; never covers any of the 15 claimed
 uncovered subcells (consistent). [B = 120 run: see below.]
 
+## D. §5 x** targeted searches
+
+* `diff m13b_target2.c m13c_target2.c`: only the optional start `X0` (first `h ≡ 3 (4)`, `h > X0`) and a
+  stderr progress line; `m13b_target.c` already had the same `X0` code. Ranges are contiguous:
+  13B Comp. 5.1 `h ≤ 2·10⁷`, then `(2·10⁷, 1.1·10⁸]`, `(1.1·10⁸, 2·10⁸]`; P/Q `(10⁹, 2·10⁹]` after 13B's `≤ 10⁹`.
+  All three logs end `hits=0` with the stated X and cap.
+* Sanity re-run by reviewer: `m13c_target2 2 2 20000 12 10000` → `HIT I2 (125, 11·8, 11999)`;
+  `m13b_target 2 2 20000 20` → `HIT II3 a'=8, d=11·3, e=11999` — the two x* data of 13B Thm 3.1 ✓.
+* Cap arguments re-derived: at q ∈ T with `q^v | e+u_q`, `q^v | u_q e+1` or `q^v | f+u_q` (u_q ∈ {2,15} exact
+  integers, since x** has `x_q` equal to these integers) the number divided is positive and ≤ 15·2·10⁸+1 <
+  11¹⁰, so v ≤ 9 ✓; P/Q: `v_q(λ) = 2v_q(a)+v_q(d) ≤ 2·8 = 16 ≤ 20` ✓.
+* Not recomputed (≈ 2·80 core-min + 4.3 core-h); label "CERTIFIED within ranges, one engine" is honest.
+
 ## Defects
 
 * **D1 (MINOR, §6 proof, "two independent checkers").** Both author checkers are campaign engines
@@ -125,3 +138,7 @@ Independent complete enumeration: `scripts/review_m13c_cell22.c`.
   (keep the run as a cross-check), and note that 13B's k = 2 row was complete. More generally (same proof, any T-generic point): I1 data
   with `d_T` a square, and II3 (I3) data with `e_T = 1` (`f_T = 1`) and `d_T` a square, do not exist — this prunes the k = 3
   programme (cf. 13B Lemma 1.2, which gives the parity only at x*).
+* **D5 (MINOR, §5 provenance).** The three `logs/o100_xss_*.log` do not record the command line / `X0`
+  (the same issue R98 flagged for the o95 logs); the first progress lines are consistent with the stated
+  starts but do not prove them. Repair: prepend the exact command to each log (or record it in §5, as already
+  done in the Replay block) and say the logs are from those commands.
