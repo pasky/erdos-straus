@@ -1000,6 +1000,19 @@ original paper was not obtained.
     (Comp 5.1, CERTIFIED within these ranges). That x** is sterile is Conj 5.2
     (CONJECTURE, supported only by this EVIDENCE). The main-variant r = 13
     covering question is open again.
+  * Follow-up POINTWISE_MORDELL13C (review `reviews/pointwise-mordell13c-review.md`,
+    no FATAL/MAJOR, minors applied by the reviewer). Thm 6.1 (PROVED by finite
+    computation; three independent checkers, one by the reviewer): an adaptive
+    tree certificate with 136494 covered leaves and 2140 ET classes shows that
+    ES holds for every prime with (p/13) = −1 outside 35459 explicit classes,
+    which make up 8.42e-5 of the six old exceptional classes mod 720720
+    (about 2.3e-7 of the Mordell-hard residues with (p/13) = −1). No root
+    class closes completely. A complete fixed-level witness engine (all M | L,
+    no size cap) shows the modulus cap is not the bottleneck. Comp 3.1
+    (CERTIFIED): the uncovered part of the (2,2) cell mod 11^2 13^2 is exactly
+    {2,57,79} x {15,28,54,132,145}. x** lies in no P/Q-type class with
+    e <= 2e9 and in no I2/II1/I4 class with f, e <= 2e8 (one engine);
+    it remains a candidate (Conj 5.2, CONJECTURE).
   * r = 17 (POINTWISE_MORDELL17, review rounds 1–2, no FATAL/MAJOR): on the
     17-generic line the seven ET families become explicit boxes in ℤ_17
     (PROVED). Boxes of level ≤ 5 leave 67.7% of each non-residue cell
