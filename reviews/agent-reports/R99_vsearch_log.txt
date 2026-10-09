@@ -194,3 +194,6 @@ L=9 u=678223072849: triples=306143132 divisors=3060095716 pass-bound=595004179 s
 L=9 b=14 time 765.61 s
 exit=0
 # NOTE: L=8 b=15 first attempt exited 4 (engine overflow guard c'*M; no result); engine fixed (P in GMP) and rerun below.
+L=8 u=4747561509943: triples=444581031 divisors=4511576001 pass-bound=864201339 solutions=0
+L=8 b=15 time 1175.00 s
+exit=0

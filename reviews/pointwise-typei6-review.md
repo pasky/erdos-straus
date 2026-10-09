@@ -1,7 +1,7 @@
 # Hostile review R99 of POINTWISE_TYPEI6.md (task O99, branch `side-agent/regime-v-units`)
 
 Reviewer: side agent R99 (branch `side-agent/review-typei6`). From-scratch scripts: `scripts/review_typei6_*`.
-Status: in progress.
+Status: complete (round 1). Verdict: no FATAL, no MAJOR; 7 MINOR defects, all applied by the reviewer.
 
 ## Verdicts (summary)
 
@@ -105,7 +105,7 @@ scratch. Logs: `reviews/agent-reports/R99_vsearch_log.txt`.
   admitted only by the author's safety slack — i.e. the difference is in the safe direction (author tests a superset).
 * **Extension `b = 14, 15`:** `L = 7`, `b = 14, 15`; `L = 8`, `b = 14`; `L = 9`, `b = 14`: 0 solutions, candidate counts
   equal to the author's (`L = 9`, `b = 14`: author 595 004 180, R99 595 004 179 — same slack effect). `L = 8`, `b = 15`:
-  see addendum. Not run: `L = 9`, `b = 15` and `L = 10`, `b = 14, 15` (budget).
+  0 solutions, 864 201 339 candidates (equal; 20 min). Total R99 CPU ≈ 1.3 h. Not run: `L = 9`, `b = 15` and `L = 10`, `b = 14, 15` (budget).
 Cor 4.2 logic: case A (TYPEI5 Lemma 3.6), regimes (i)–(iv) (TYPEI5 Prop 3.3, Comp 3.4) for all `b`; regime (v) via
 Lemma 3.1(b) ⇒ (4.1) ⇒ Comp 4.1. Correct. `v_7(k) = b` (`X = k'`, `7 ∤ X`) and all `a = v_7(c)` are enumerated.
 
@@ -162,5 +162,5 @@ The conclusion (integrality) is right: `ε_* = c_oδ² + 1 + δ√d` (`L = 5`), 
 **D7 (MINOR; provenance of Comp 4.1 / Cor 4.2).** "single engine" should be updated: R99's independent engine
 confirms regime (v) empty for `b ≤ 13` at all of `L = 7, 8, 9, 10`, with identical candidate counts (up to the one
 slack-admitted extra), and the brute-force completeness cross-check gives regime-(v) controls at every level 7–10.
-Only `b = 14, 15` remain single-engine (see addendum below for any further R99 runs). *Repair:* add a
+After the extension runs, only `(L,b) = (9,15), (10,14), (10,15)` remain single-engine. *Repair:* add a
 provenance note (applied).

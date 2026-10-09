@@ -176,7 +176,8 @@ Lemma 3.6, Comp 3.4, Prop 3.3(iv)); regime (v) for `b ≤ 15` by Comp 4.1 (the o
 `b = 0…13`: 0 solutions, with the same candidate counts as Comp 4.1 (one extra, slack-admitted, candidate on the author's side at
 `L = 9`, `b = 12`). It also checked completeness against R92's size-free relaxed brute force (all odd `u ≤ 20001/10001/6001/4001`
 at `L = 7/8/9/10`): exactly the 5 regime-(v) relaxed solutions `(L,u) = (7,293), (8,9883), (9,1853), (9,4003), (10,293)` are found
-and nothing else. So `b ≤ 13` is confirmed by two engines; `b = 14, 15` rest on Comp 4.1 alone unless stated otherwise in the review.
+and nothing else. R99 also ran `(L,b) = (7,14), (7,15), (8,14), (8,15), (9,14)`: 0 solutions, same candidate counts. So everything in Cor 4.2 is
+confirmed by two engines except `(L,b) = (9,15), (10,14), (10,15)`, which rest on Comp 4.1 alone.
 So a certificate at `x̂_9` of level 7–10 needs `v_7(k) ≥ 16` and `c_oδ > 10⁶` and, by Lemma 3.1(c), `7^{v_7(k)} ≳ 8c_oδ³√P/T²`.
 
 ## 5. Heuristic size of what remains (EVIDENCE / Assessment)
