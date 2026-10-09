@@ -1,0 +1,11 @@
+A: 160 (m,p) pairs checked
+B: 4130 tuples checked
+C: 57600 cases checked
+D: m=4 sum=169.58 ratio to (phi(m)/m)log^3Y+log^2Y = 1.353
+D: m=6 sum=135.72 ratio to (phi(m)/m)log^3Y+log^2Y = 1.438
+D: m=30 sum=117.85 ratio to (phi(m)/m)log^3Y+log^2Y = 1.437
+D: m=210 sum=106.48 ratio to (phi(m)/m)log^3Y+log^2Y = 1.421
+D: m=2310 sum=100.13 ratio to (phi(m)/m)log^3Y+log^2Y = 1.409
+D: m=30030 sum=95.00 ratio to (phi(m)/m)log^3Y+log^2Y = 1.394
+E: 392 grid points
+FAILURES: 0
