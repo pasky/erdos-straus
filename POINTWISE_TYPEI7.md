@@ -79,3 +79,9 @@ closeness `v_2(F+9)` is constant and `v_2(e+9) = v_2(9F+1)` once `L+2 > v_2(9F+1
 So **every fibre certificate recurs at infinitely many levels, and each triple `(c_o,k_o,F)` is at `x̂_9` for at most
 the finitely many levels with `2+⌈L/2⌉ ≤ max(v_2(F+9), v_2(9F+1))`** (PROVED). E.g. `(42,32,71)` (TYPEI4) recurs at
 `L = 11 + 35j` (`ord_71(2) = 35`).
+
+**Computation 2.2 (CERTIFIED once replayed).** `scripts/typei7_unbounded.py 5` builds the Theorem 2.1 certificates
+for `m = 4, 5` and checks them (two splits each) with the stand-alone checker `typei3_verify.check`:
+`m=4`: `s=1, i=6, F=71, c'=9, L=30` (`ord_71(2)=35`); `m=5`: `s=3, b=1, i=21, F=7³+2²¹=2097495,
+c'=262187, L=93184` (`ord_F(2)=93204`), `v_2(F+9)=5`. For `m ≥ 6` the construction needs `s ≥ 7`, `i ≥ 3·7³`, and
+`ord_F(2)` for `F > 2^{1029}` is not computed; the proof does not need it (`L` exists since `F` is odd).
