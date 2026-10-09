@@ -14,7 +14,7 @@
 \newtheorem{introcor}[introthm]{Corollary}
 \newtheorem{introprop}[introthm]{Proposition}
 \newtheorem*{thmU}{Theorem U}
-\newtheorem*{thmL}{Theorem L}
+\newtheorem*{thmL}{Theorem L$'$}
 \newtheorem*{conjC2}{Conjecture C2}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -55,8 +55,9 @@ interval; and the density transition for primes.  Uniformly in $m$,
 at most a proportion $\varepsilon$ of the primes in $(N/2,N]$ are
 $m$-exceptional once $\log N\geq A_\varepsilon m^{1/3}$; and the
 proportion of $m$-exceptional primes tends to $1$ when
-$\log N/(\varphi(m)/\log m)^{1/3}\to0$ (a sharpening of a first-moment count of Pomerance and Weingartner).
-The remaining gap is a factor $(m\log m/\varphi(m))^{1/3}$ in $\log N$.
+$\log N\,(\log\log N)^{1/3}/m^{1/3}\to0$ (a sharpening of a first-moment count of Pomerance and Weingartner).
+The remaining gap is a factor $(\log\log N)^{1/3}$ in $\log N$, which is
+exactly the open $\log\log N$ in Elsholtz and Tao's Type~I prime count.
 Numerically (even $m\in[60,300]$) % R104 repair
 half of the primes are representable at
 $\log N\approx1.95\,m^{1/3}$, and we conjecture a non-degenerate profile
@@ -201,17 +202,17 @@ such that $\rho_{\rm exc}(m,N)\leq\varepsilon$ for all $m\geq4$ and all
 $N$ with $\log N\geq A_\varepsilon m^{1/3}$.
 \end{thmU}
 
-\begin{thmL}[lower side; \status{proved} relative to {\cite[Thm.~7.1]{ET}} and the proof of {\cite[Prop.~1.4]{ET}}, with Brun--Titchmarsh and Shiu]
+\begin{thmL}[lower side; \status{proved} relative to {\cite[Thm.~7.1]{ET}} and the proof of {\cite[Prop.~1.4]{ET}}, with Brun--Titchmarsh, Shiu and P\'olya--Vinogradov]
 Let $m\geq4$, $N\geq16$ and $L=\log N$.  If $\log m\leq L/10$ and
 $L\leq m^{1/2}$, then
 \[
- \rho_{\rm rep}(m,N)\ll\frac{L^3}m+\frac{(L^3+L^2\log^2m)\log L}{\varphi(m)}
+ \rho_{\rm rep}(m,N)\ll\frac{(L^3+L^2\log^2m)\log L}{m}
  +m^{-0.35};
 \]
 if $\log m>L/10$, then $\rho_{\rm rep}(m,N)\leq\e^{CL/\log L}/m$.  The
 constants are absolute and effective.  Consequently
-$\rho_{\rm rep}\to0$ whenever $L^3\log L/\varphi(m)\to0$, in particular
-whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.
+$\rho_{\rm rep}\to0$ whenever $L^3\log L/m\to0$, that is, whenever
+$A\,(\log L)^{1/3}\to0$.
 \end{thmL}
 
 Pomerance and Weingartner's rigorous bounds placed the transition
@@ -219,13 +220,15 @@ between $\log N=m^{1/3}$ and $\log N=m^{1/2}$ \cite[p.~2]{PW}; their
 Poisson heuristic \cite[p.~3]{PW} predicts $m^{1/3+o(1)}$.
 Theorem~U proves the representable half of this prediction at the exact
 scale $m^{1/3}$ (without a rate better than Corollary~\ref{cor:D}).
-Theorem~L sharpens the first-moment count in the proof of
-\cite[Thm.~3.1]{PW} by a factor $\log m$ near the transition.  Together
+Theorem~L$'$ sharpens the first-moment count in the proof of
+\cite[Thm.~3.1]{PW} by a factor $(m/\varphi(m))\log m$ near the transition.  Together
 they locate the transition at $\log N\asymp m^{1/3}$ up to the factor
-$(m\log m/\varphi(m))^{1/3}\ll(\log m\log\log m)^{1/3}$ in $\log N$;
+$(\log L)^{1/3}=(\log\log N)^{1/3}$ in $\log N$ (near the transition
+$\log L\asymp\log m$);
 Corollary~\ref{cor:D} with \cite{PW} gave $(\log m)^2(m/\varphi(m))^{1/3}$.
-The remaining loss is the Brun--Titchmarsh $\log\log N$ of
-\cite[Thm.~1.1]{ET}, open even for $m=4$, and a factor $m/\varphi(m)$.
+The remaining loss is exactly the Brun--Titchmarsh $\log\log N$ of
+\cite[Thm.~1.1]{ET}, open even for $m=4$ (for $m=4$ it is removed
+conditionally on Selberg's eigenvalue conjecture, Remark~\ref{rem:sel}).
 For even $m\in[60,300]$ the computed half-point is
 $\log N=(1.95\pm0.05)m^{1/3}$, and the transition window does not shrink
 (\status{evidence}, Section~\ref{sec:numerics}); Conjecture~C2 asserts
@@ -259,20 +262,23 @@ with $H<\e^{c(\log x)^{3/4}}/C$ without proving that there are no
 exceptions at all beyond some point (Proposition~\ref{prop:E}).
 
 \subsection*{Status and novelty}
-Every statement labelled \status{proved} here, except Theorem~L and
+Every statement labelled \status{proved} here, except Theorem~L$'$ and
 the lemmas of Section~\ref{sec:lower}, is proved \emph{relative to}
 \cite{TQ}: the steps that change are written out in full, and the
 remaining steps are cited from \cite{TQ} by name.  The note \cite{TQ}
 is internally proved; it has \emph{not} been refereed externally, and
 neither has this note.  The underlying working documents
 \cite{SHORT,MN} received three internal hostile reviews, and their
-repairs are incorporated.  Theorems~U and~L come from \cite{MN2}, which
+repairs are incorporated.  Theorem~U and the Type~II count come from \cite{MN2}, which
 received two further independent internal reviews (no fatal or major
-defect; minor repairs incorporated).  Theorem~L is proved relative to
-\cite[Thm.~7.1]{ET} and the structure of the proof of
-\cite[Prop.~1.4]{ET}, one range of which we modify
-(Lemma~\ref{lem:ETPV}, checked against \cite[pp.~30--32]{ET} by a
-reviewer, not machine-checked).  Theorem~U is ineffective, Theorem~L
+defect; minor repairs incorporated); the Type~I count of Theorem~L$'$ comes from \cite{MN3},
+which replaces the divisor-sum lemma of \cite{MN2} and received one
+further internal hostile review (no fatal or major defect; minor repairs
+incorporated).  Theorem~L$'$ is proved relative to
+\cite[Thm.~7.1]{ET}; from the proof of \cite[Prop.~1.4]{ET} we
+depart by keeping a coprimality indicator and using P\'olya--Vinogradov
+(Lemma~\ref{lem:ETPV}, checked against \cite[pp.~25--32]{ET} by a
+reviewer, not machine-checked).  Theorem~U is ineffective, Theorem~L$'$
 effective.
 
 We found no published short-interval or progression version of an
@@ -294,7 +300,7 @@ depth bounded in terms of the saving, in a reduced residue model in
 which every fibre is reduced (Theorem~U), and, on the lower side, a
 sharp Type~II count via the three-way split of \cite[\S9]{ET} and the
 P\'olya--Vinogradov refinement of \cite[Prop.~1.4]{ET} that
-\cite[Rem.~1.5]{ET} suggests (Theorem~L).  None of this improves the
+\cite[Rem.~1.5]{ET} suggests, together with the coprimality gain $\varphi(k)/k$ (Theorem~L$'$).  None of this improves the
 exponent $3/4$.
 
 \subsection*{Organisation}
@@ -306,7 +312,7 @@ general $m$, writing out every step that differs from \cite{TQ}.
 Section~\ref{sec:transfer} contains the local transfer to arbitrary
 windows and progressions and proves Theorems~\ref{thm:A},~\ref{thm:B}
 and Corollary~\ref{cor:C}.  Section~\ref{sec:transition} proves
-Corollary~\ref{cor:D} and Theorems~U and~L, compares them with
+Corollary~\ref{cor:D} and Theorems~U and~L$'$, compares them with
 \cite{PW} and \cite{Els}, and reports numerics and Conjecture~C2;
 Section~\ref{sec:lowerend} discusses the lower
 end of the window range, Section~\ref{sec:literature} the literature,
@@ -1110,7 +1116,7 @@ $\pi^*(N)=\pi(N)-\pi(N/2)$, and $\pi^*(N;q,a)$ counts the primes
 $p\in(N/2,N]$ with $p\equiv a\ (q)$.  Let $\rho_{\rm exc}(m,N)$ and
 $\rho_{\rm rep}(m,N)=1-\rho_{\rm exc}(m,N)$ be the proportions of
 $m$-exceptional and $m$-representable primes in $(N/2,N]$.  The working
-document for Theorems~U and~L is \cite{MN2}.
+documents for Theorems~U and~L$'$ are \cite{MN2} and \cite{MN3}.
 
 \subsection{Corollary~\ref{cor:D}: integers first}
 \begin{proof}[Proof of Corollary~\ref{cor:D}]
@@ -1290,7 +1296,7 @@ fixed-$A'$ range of Bombieri--Vinogradov.  The dependence on $m$ enters
 only through Corollary~\ref{cor:fibre} ($\mu_c\asymp t^3/m$ on every
 reduced fibre), the scaling that the lower side has to match.
 
-\subsection{The lower side: Theorem~L}\label{sec:lower}
+\subsection{The lower side: Theorem~L$'$}\label{sec:lower}
 Let $m\geq4$ and $p$ prime.  Every solution of $m/p=1/x+1/y+1/z$ is of
 Type~I or Type~II, and \cite[Cor.~2.2, Cor.~2.4]{PW}: $p$ has a Type~I
 solution iff there are $a,d,f\in\mathbb N$ with $f\mid ma^2d+1$ and
@@ -1440,7 +1446,7 @@ $\sum_{mad\leq3N}\tau(ma^2d+1)(N/(mad)+1)\ll\e^{CL/\log L}(N/m)L^2$, and
 Type~II likewise; then divide by $\pi^*(N)\gg N/L$.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~L]
+\begin{proof}[Proof of Theorem~L$'$]
 The first range is Propositions~\ref{prop:typeII} and~\ref{prop:typeI}
 with $\pi^*(N)\gg N/L$; the second is Lemma~\ref{lem:hugem}.  For the
 consequence: if $\rho_{\rm rep}>0$, some $p\leq N$ has a solution, so
@@ -1564,7 +1570,7 @@ particular there is no sharp threshold constant: the transition window
 has the same order $m^{1/3}$ as its location.
 \end{conjC2}
 
-Theorems~U and~L prove the two tails of C2 up to the gap above.  Even
+Theorems~U and~L$'$ prove the two tails of C2 up to the gap above.  Even
 the Poisson model with intensity $\lambda L^3/m$ predicts a
 non-degenerate $F$; the fibre masses $\mu_c\asymp t^3/m$ of
 Corollary~\ref{cor:fibre} are two-sided only up to constants and the data
@@ -1716,7 +1722,7 @@ We found no published short-interval or progression version, and no
 $3/4$-type bound for $m\neq4$.  The bound with exponent $3/4$ is itself
 only internally established, even for $m=4$ \cite{TQ}.  As far as we can
 tell, Theorem~\ref{thm:A} is new for every $m\neq4$, and its uniform
-dependence on $m$, Corollary~\ref{cor:D} and Theorems~U and~L are new
+dependence on $m$, Corollary~\ref{cor:D} and Theorems~U and~L$'$ are new
 relative to \cite{PW} and \cite[Rem.~7.3]{Els}; the location of the
 transition is posed as open in \cite[p.~2]{PW} and \cite{Pom26}.  The method is that of \cite{TQ} with $4$ replaced by $m$.
 As explained in the introduction, a specialist would expect the
