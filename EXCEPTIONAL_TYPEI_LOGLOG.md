@@ -8,9 +8,10 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
 
 * **Main result — Theorem 8.1 (CONDITIONAL on Selberg's eigenvalue conjecture (SEL) for the congruence
   groups `Γ₀(M)` with even nebentypus mod `2q`, `M = 4dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
-  conjectured (OPEN-I). Proof: §§2–8. The proof is at outline level in places (Prop 5.1, Prop 7.1, the cell
-  bookkeeping), and step (2a) inherits MN3's unwritten routine BT sums. A self-review (R1) found 3 FATAL
-  and 5 MAJOR issues in the first draft; all were repaired in place but have not been re-reviewed.
+  conjectured (OPEN-I). Proof: §§2–8. After the hostile review R111 (outline; gaps D1–D3) the O112 repair
+  round wrote the missing steps (§8.0 Lemmas 8.2–8.4; §8 (2b) with the strip `β > 1`; Props 5.1, 7.1 at proof
+  level): the proof is now complete **relative to cited results** (list at the end of §8), CONDITIONAL on (SEL),
+  and awaits a round-2 review.
 * **Unconditionally** the same argument removes the obstruction everywhere except on a strip
   `0 < 2α − 1 + γ ≲ 7/32 ≈ 0.22` (`≥ 0.16` even for the smallest cusp parameters in R_bad; O112 repair, D4)
   next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
@@ -458,7 +459,7 @@ Inside `R_bad(2η₁)` one has `e, f ≥ N^{1/2−3η₁}` (MN3 Prop 3.3: `β �
 (2b) (O112 repair, D1/D3/D5.) Inside `R_bad(2η₁)`. Fix the c-block `c ≍ 2^j` (`1 ≤ j ≤ ηL`); write
 `δ := |2α−1+γ|`, `k := ⌊δL⌋` (a-layer index), and use smooth cells of side `O(1/L)` in `(α, β)`.
 A *band* is a set of cells of bounded width (`≤ C₀/L`) in one exponent; it has `O(L)` cells per c-block.
-The bands used are `|β − (α+γ)| ≤ C₀/L`, `|β−1| ≤ C₀/L`, `D ≤ 32`: in each, one of e, f is `≤ 2^{C₀+3}A`
+The bands used are `|β − (α+γ)| ≤ C₀/L`, `|β−1| ≤ C₀/L`, `D ≤ 64`: in each, one of e, f is `≤ 2^{C₀+3}A`
 (`e ≍ (a+b)/c`; `f ≍ N^{1+α−β}`; `f ≤ 4a²d+1`), so by Lemma 8.4(b) (constant `2^{C₀+3}` for 4) a cell has
 `≪ 2^j·AD ≪ N` tuples, and **all bands together cost `≪ Σ_{j≤ηL} N L ≪ N L²` trivially**. Layers
 `k ≤ C₁ log L` are treated in (4).
@@ -482,7 +483,7 @@ cost is below the cell's weighted mass.
   the **e-cusp** (forms `[e, 4ad, df] ∈ 𝓕_d^I`, linear functional `n = cB − C/d`; Lemma 6.1 and Thm 6.2 hold
   verbatim, the local density being the same `g_{c,d}` — substituting `C/d = cB` gives the same equation
   `B² − 4cdAB + 4d = 0` as `A = cB` does after `A ↔ C/d`): `λ = A/(qe) ≤ 1/4` since `e/A ≍ N^{β−γ−α} ≥ D/8`
-  (cells with `D < 32` form a band); cusp term `e^{1/2}/A ≍ N^{(β−γ−2α)/2} = N^{(β−1−δ)/2} ≤ N^{−δ/4}`;
+  (cells with `D ≤ 64` form a band, so `e ≥ 8A`); cusp term `e^{1/2}/A ≍ N^{(β−γ−2α)/2} = N^{(β−1−δ)/2} ≤ N^{−δ/4}`;
   saving `C/k`. If `k' > k/2`: Brun–Titchmarsh on `4cdf ≍ N^{2−β}` (fibres `cdf` of §8.0), `log(N/m) ≥ k'·log 2/2`,
   saving `C/k'`. In both cases the saving is `≤ C/max(k, k')`, and the cell's weighted mass is `≪ N`
   **per cell**: Lemma 8.4(b) (`F ≤ A`; sieve weight `g(c)g(d)`) resp. Lemma 8.3(c) with
@@ -506,15 +507,19 @@ layer the better of (b4) and the spectral/Weil bound; for `k > L/3` only the lat
 `Σ_{k,k'≤L} N·C/max(k,k') = C N Σ_{m≤L}(2m−1)/m ≪ N L`, total `≪ ηN L²`. Bands: `≪ N L²` (above). With
 (1) and (2a), `Σ_{p ≍ N} f_I(p) ≪ N L²`; sum over dyadic N. ∎
 
-*Status of the proof (honest; after the self-review R1 = `review` tool, 2026-10-09).* Every step above is either cited (ET, MN3, DI, Drappeau, Weil, Selberg's
-sieve) or proved in §§2,4,6,7; §5's Prop 5.1 and §7's Prop 7.1 are written at the level of a careful
-outline (the Bessel/Mellin bookkeeping and the Ramanujan-sum terms are standard but not written in full),
-and the cell bookkeeping in (2)–(5) is not written with explicit constants. Step (2a) inherits MN3's unwritten "routine" BT harmonic sums.
-So Thm 8.1 is a **conditional theorem with an outline-level proof**, not a finished proof. Hostile review
-needed. R1 found 3 FATAL items (Prop 7.1 for tiny divisors; the spectral corner `β ≈ α`; the M2 densities)
-and 5 MAJOR items (parity group for even d; density signs; the domain of Prop 5.1; the sieve level eating the
-saving; the Eisenstein terms for χ ≠ 1). All are addressed above by restricting domains, re-routing cells, or
-correcting formulas. They have not been re-reviewed.
+*Status of the proof (O112 repair round, after hostile review R111 = `reviews/exceptional-typei-loglog-review.md`).*
+R111 found no FATAL defect and labelled Thm 8.1 "CONDITIONAL on (SEL), outline". O112 repaired: D1 (the strip
+`1 < β ≤ 1+η₁` on the `D < A` side: e-cusp or BT on 4cdf, saving `C/max(k,k')`, per-cell masses, (b5)); D2 (BT
+outside R_bad written: only `4ab, 4acf, 4cdf` are needed, Lemmas 8.2–8.3, elementary + PV); D3 (weighted masses:
+Lemma 8.4 from MN3 Prop 2.3 with the large-k tail, and `X_σ ≤ #σ + |r_σ(1)|`); D4–D13 (minor). Prop 5.1 and Prop 7.1
+are now written at proof level. **Label: Thm 8.1 is CONDITIONAL on (SEL), with a complete proof relative to the
+cited results** — ET Prop 2.2/Lemma 2.8/(8.1)–(8.2) and MN3 Thm 3.8(1) (the reduction and the `c > N^η` part), MN3
+Prop 2.3 (rel. ET Thm 7.1), the DI Thm 2 / Drappeau Prop 4.7 spectral large sieve (normalisation checked by R111,
+not re-derived), the spectral theorem for `L²(Γ₀(M)\ℍ, χ)`, Brun–Titchmarsh, Selberg's sieve, Weil, Pólya–Vinogradov.
+Points that are argued briefly and deserve the round-2 reviewer's attention: (i) the e-cusp variant of Lemma 6.1/
+Thm 6.2 used in (b5) (same point set, linear functional `cB − C/d`; the density identity is a two-line substitution);
+(ii) the smooth-cell bookkeeping (bands, layers, the choice of treatment per layer in (5)); (iii) Step 6 of Prop 5.1
+(dyadic-weighted large sieve, Gallagher for the `t_j`-dependent coefficients). **Not yet re-reviewed.**
 
 ## 9. What is unconditional, and where (SEL) enters
 
