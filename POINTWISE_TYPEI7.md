@@ -97,3 +97,46 @@ with `s` odd chosen so that `7^s ≡ −w_0 (mod 2^m)` (possible since `−w_0 �
 proof that a given point (e.g. `w = 9`) is sterile must use its exact 2-adic coordinate (not `w mod 2^j` for any fixed
 `j`), and the measure route of TYPEI3 Remark 4.1 must control infinitely many scales. This upgrades TYPEI4 Prop 4.1
 (levels 11–22, `w` only mod 16) to all depths.
+
+## 3. Data: closeness vs. level on complete `(L,b)` lists (CERTIFIED once replayed)
+
+**Computation 3.1.** `typei4_lb L b` (TYPEI4 Comp 3.4; complete per `(L,b)`, all `a`, all heights) was run on the grid
+`2^{L−4}·7^b ≤ 2^{28}`, i.e. `b=0: L≤32; b=1: L≤29; b=2: L≤26; b=3: L≤23; b=4: L≤20; b=5: L≤17; b=6: L≤15; b=7: L≤12;
+b=8: L≤9` (129 runs, ≈ 1 h on one core). `scripts/typei7_tab.py` re-verifies every row (`Fe = N`, `F ≡ e ≡ 7 (16)`,
+Lemma 1.1 in both orientations: 134 checks) and tabulates `max(v_2(F+9), v_2(e+9))` against `t_min = 2+⌈L/2⌉`.
+It reproduces Comp 3.4 of TYPEI4 exactly on its range. All 67 certificates (59 distinct divisor pairs):
+
+| L | b | # | closeness (both roles, max) | t_min | margin |
+|---|---|---|---|---|---|
+| 11 | 0 | 1 | 7 | 8 | 1 |
+| 13 | 1 | 1 | 5 | 9 | 4 |
+| 14 | 0 / 3 | 2 / 1 | 7,7 / 5 | 9 | 2 |
+| 16 | 0 | 3 | 6,5,5 | 10 | 4 |
+| 18 | 0 / 1 | 1 / 1 | 5 / 5 | 11 | 6 |
+| 19 | 0 | 2 | 5,5 | 12 | 7 |
+| 20 | 0 | 4 | 8,6,6,5 | 12 | 4 |
+| 21 | 0 | 1 | 5 | 13 | 8 |
+| 22 | 1 | 2 | 7,5 | 13 | 6 |
+| 23 | 0 | 6 | 8,8,8,8,6,6 | 14 | 6 |
+| 24 | 0 / 1 | 2 / 1 | 6,6 / 5 | 14 | 8 |
+| 25 | 0 / 1 | 3 / 2 | 8,6,5 / 7,6 | 15 | 7 |
+| 26 | 0 | 3 | 10,7,5 | 15 | 5 |
+| 27 | 0 / 1 | 5 / 3 | 7,6,6,5,5 / 7,5,5 | 16 | 9 |
+| 28 | 1 | 2 | 6,6 | 16 | 10 |
+| 29 | 0 | 3 | 6,6,5 | 17 | 11 |
+| 30 | 0 | 9 | 7,7,7,7,7,5,5,5,5 | 17 | 10 |
+| 31 | 0 | 5 | 7,6,5,5,5 | 18 | 11 |
+| 32 | 0 | 4 | 6,6,5,5 | 18 | 12 |
+
+(All other grid cells, in particular every `L ≤ 10` and `L ∈ {12,15,17}`, are empty.) Equal closeness values within a cell
+are mostly one divisor pair `(F,e)` reached by two factorisations `c'X² = c''X'²` (e.g. `L=30`: `F=71`, `c'X²=9`, which is the
+`m=4` certificate of Comp 2.2, recurring from `L=11+35j`? no — `c'=9 ≠ 3`; it is a different triple with the same `F`).
+
+**Corollary 3.2 (CERTIFIED once replayed; extends TYPEI4 Cor 3.5).** No certificate at `x̂_9` has level `L` and
+`v_7(k) = b` with `2^{L−4}7^b ≤ 2^{28}` (grid above), at any height. New relative to TYPEI4 Cor 3.5 / TYPEI6 Cor 4.2:
+`b=0, L=27–32`; `b=1, L=27–29`; `b=2, L=25,26`; `b=3, L=23`; `b=4, L=11–20`; `b=5, L=11–17`; `b=6, L=11–15`;
+`b=7, L=11,12`. *(Engines: `typei4_lb` alone so far; cross-check with `review_typei4_jsearch.c` in progress, §3.3.)*
+
+**Observation 3.3 (EVIDENCE).** The maximal closeness grows very slowly (≤ 10 for `L ≤ 32`) while `t_min` grows like
+`L/2`; the margin `t_min − max` is ≥ 4 for all `L ≥ 16` in the grid and ≥ 10 for `L ≥ 28`. The cell counts do not grow
+visibly (≤ 9 per `(L,b)`).
