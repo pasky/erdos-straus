@@ -99,7 +99,10 @@ scratch. Logs: `reviews/agent-reports/R99_vsearch_log.txt`.
 * **Re-run, `L = 7, 8`, `b = 0…13`: 0 solutions** (well beyond the requested `b ≤ 10`; total < 2 min CPU). The number of
   divisors passing the exact bound equals the author's "candidates" count **for every `(L,b)`, `b ≤ 13`** (e.g. `L = 8`,
   `b = 13`: 64 424 838 both) — an independent check that the long-double pruning loses nothing.
-* `L = 9, 10`: see below (run in progress at time of writing).
+* **Re-run, `L = 9, 10`, `b = 0…13`: 0 solutions** (`L = 10`, `b = 13`: 2.1·10⁹ divisors, 7 min). Candidate counts
+  agree with the author's at every `(L,b)` except `L = 9`, `b = 12`: author 44 351 875, R99 44 351 874. The extra one is
+  the triple `(a,c',δ) = (1, 40012187, 1)`, `P_1 = 1`, which violates the exact inequality by a relative `< 10⁻⁹` and was
+  admitted only by the author's safety slack — i.e. the difference is in the safe direction (author tests a superset).
 Cor 4.2 logic: case A (TYPEI5 Lemma 3.6), regimes (i)–(iv) (TYPEI5 Prop 3.3, Comp 3.4) for all `b`; regime (v) via
 Lemma 3.1(b) ⇒ (4.1) ⇒ Comp 4.1. Correct. `v_7(k) = b` (`X = k'`, `7 ∤ X`) and all `a = v_7(c)` are enumerated.
 
@@ -154,6 +157,7 @@ The conclusion (integrality) is right: `ε_* = c_oδ² + 1 + δ√d` (`L = 5`), 
 (`L = 6`). *Repair:* state integrality directly (applied).
 
 **D7 (MINOR; provenance of Comp 4.1 / Cor 4.2).** "single engine" should be updated: R99's independent engine
-confirms `b ≤ 13` at `L = 7, 8` with identical candidate counts, and the brute-force cross-check of the engine
-(regime-(v) controls at every level 7–10). See the L = 9, 10 paragraph for what remains single-engine. *Repair:* add a
+confirms regime (v) empty for `b ≤ 13` at all of `L = 7, 8, 9, 10`, with identical candidate counts (up to the one
+slack-admitted extra), and the brute-force completeness cross-check gives regime-(v) controls at every level 7–10.
+Only `b = 14, 15` remain single-engine (see addendum below for any further R99 runs). *Repair:* add a
 provenance note (applied).

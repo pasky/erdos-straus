@@ -95,3 +95,87 @@ L=8 u=96889010407: triples=33200163 divisors=301709869 pass-bound=64424838 solut
 L=8 b=13 time 45.86 s
 exit=0
 # NOTE: L=7,8 b=12,13 in main_L* exited 5 (guard 7^a < 2^40 too tight; no result); rerun with guard 2^56 above (ext_L*), exit 0.
+L=9 u=1: triples=3 divisors=8 pass-bound=6 solutions=0
+L=9 b=0 time 2.17 s
+exit=0
+L=9 u=7: triples=14 divisors=56 pass-bound=26 solutions=0
+L=9 b=1 time 1.71 s
+exit=0
+L=9 u=49: triples=51 divisors=192 pass-bound=101 solutions=0
+L=9 b=2 time 1.68 s
+exit=0
+L=9 u=343: triples=192 divisors=814 pass-bound=358 solutions=0
+L=9 b=3 time 1.65 s
+exit=0
+L=9 u=2401: triples=704 divisors=3297 pass-bound=1305 solutions=0
+L=9 b=4 time 1.62 s
+exit=0
+L=9 u=16807: triples=2589 divisors=13610 pass-bound=4870 solutions=0
+L=9 b=5 time 1.69 s
+exit=0
+L=9 u=117649: triples=9499 divisors=54770 pass-bound=18014 solutions=0
+L=9 b=6 time 1.66 s
+exit=0
+L=9 u=823543: triples=34797 divisors=219202 pass-bound=66537 solutions=0
+L=9 b=7 time 1.62 s
+exit=0
+L=9 u=5764801: triples=127417 divisors=869088 pass-bound=244744 solutions=0
+L=9 b=8 time 1.71 s
+exit=0
+L=9 u=40353607: triples=466425 divisors=3427574 pass-bound=899348 solutions=0
+L=9 b=9 time 2.01 s
+exit=0
+L=9 u=282475249: triples=1707084 divisors=13445743 pass-bound=3300465 solutions=0
+L=9 b=10 time 2.78 s
+exit=0
+L=9 u=1977326743: triples=6247301 divisors=52514699 pass-bound=12102392 solutions=0
+L=9 b=11 time 5.57 s
+exit=0
+L=9 u=13841287201: triples=22861835 divisors=204287096 pass-bound=44351874 solutions=0
+L=9 b=12 time 29.13 s
+exit=0
+L=9 u=96889010407: triples=83660495 divisors=791900945 pass-bound=162473882 solutions=0
+L=9 b=13 time 134.50 s
+exit=0
+L=10 u=1: triples=11 divisors=37 pass-bound=21 solutions=0
+L=10 b=0 time 1.55 s
+exit=0
+L=10 u=7: triples=35 divisors=126 pass-bound=68 solutions=0
+L=10 b=1 time 1.65 s
+exit=0
+L=10 u=49: triples=133 divisors=528 pass-bound=243 solutions=0
+L=10 b=2 time 1.66 s
+exit=0
+L=10 u=343: triples=486 divisors=2176 pass-bound=882 solutions=0
+L=10 b=3 time 1.75 s
+exit=0
+L=10 u=2401: triples=1782 divisors=9035 pass-bound=3319 solutions=0
+L=10 b=4 time 1.75 s
+exit=0
+L=10 u=16807: triples=6540 divisors=36572 pass-bound=12330 solutions=0
+L=10 b=5 time 1.63 s
+exit=0
+L=10 u=117649: triples=23957 divisors=146721 pass-bound=45599 solutions=0
+L=10 b=6 time 1.70 s
+exit=0
+L=10 u=823543: triples=87734 divisors=584365 pass-bound=168026 solutions=0
+L=10 b=7 time 1.82 s
+exit=0
+L=10 u=5764801: triples=321167 divisors=2310124 pass-bound=618076 solutions=0
+L=10 b=8 time 1.91 s
+exit=0
+L=10 u=40353607: triples=1175480 divisors=9077028 pass-bound=2270025 solutions=0
+L=10 b=9 time 2.29 s
+exit=0
+L=10 u=282475249: triples=4301884 divisors=35500626 pass-bound=8327542 solutions=0
+L=10 b=10 time 4.47 s
+exit=0
+L=10 u=1977326743: triples=15742776 divisors=138264657 pass-bound=30526020 solutions=0
+L=10 b=11 time 15.47 s
+exit=0
+L=10 u=13841287201: triples=57609308 divisors=536507541 pass-bound=111843340 solutions=0
+L=10 b=12 time 86.91 s
+exit=0
+L=10 u=96889010407: triples=210813258 divisors=2075036964 pass-bound=409633187 solutions=0
+L=10 b=13 time 430.23 s
+exit=0
