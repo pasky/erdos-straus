@@ -78,3 +78,13 @@ first level where they appear.
   total mass `7.7·10⁻⁵`. So `C_3`, a neighbourhood of x\*\* of relative T-measure `1/(1331·2197)`, is at least
   99.99% free of boxes of level ≤ 4.6·10⁹ (not 100%: the 7 boxes are finer than resolution 5 and were not unioned,
   hence "at least").
+
+**Computation 3.3 (near misses; CERTIFIED for the stated levels).** `scripts/m13e_closest.py 2 15 R`. For a box let
+`a_q = min(v_q(M_T), v_q(r−x**_q))` (agreement), *miss* `= ∏ q^{v_q(M_T)−a_q}` (=1 iff the box contains x\*\*). Among the
+319 007 boxes of level ≤ 4.6·10⁹ the smallest miss is **11**, attained by e.g.
+* II3 `(a,d,e)=(183703,3,65219)`, `M_T=11³13²`, ES level 38014691: it agrees with x\*\* modulo `11²13²` and fails only
+  in the third 11-adic digit;
+* II3/I3/I1 `(4602,1859,18538271)`, `M_T=11·13³`: it agrees modulo `13³` and fails mod 11.
+
+The deepest 13-adic agreement is `13⁴` (with miss 1331). So x\*\* is not isolated from the boxes by a wide margin: it is
+missed by one digit in several independent ways, and its survival is "generic", not structural.
