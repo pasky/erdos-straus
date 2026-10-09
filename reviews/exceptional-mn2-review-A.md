@@ -211,3 +211,62 @@ for `L ≥ log² m` (which holds at the transition `L ≍ m^{1/3}`), not for sma
 **D-L5 (MINOR, Lemma 3.1(b)).** Shiu's τ_3-bound has `exp(−3Σ_{p|s}1/p)`, i.e. a saving
 `(φ(s)/s)^{3}` roughly, not a loss `(s/φ(s))³`; and Rankin gives `(log y)^{e}`. Both only
 weaken the stated bounds, so harmless; fix for accuracy.
+
+## 3. Numerics (§2) — from-scratch re-run
+
+`scripts/review_emn2A_brute.py`: independent exact decision of `m/p = 1/x+1/y+1/z`. It does not
+use PW's Type I/II parametrisation: with `x ≤ y ≤ z` it loops over `p/m < x ≤ 3p/m`, reduces
+`m/p − 1/x = A/B`, and decides `A/B = 1/y + 1/z` via `(Ay−B)(Az−B) = B²`, i.e. a divisor
+`d | B²` with `d ≡ −B (mod A)`. It is compared per prime with the author's `scripts/emn2_scan.c`
+(compiled from the merged branch, mode 2, primes `p ∤ m`).
+
+| m | primes (range, stride) | #primes | #exceptional | mismatches | rep. proportion | author's claim |
+|---|---|---|---|---|---|---|
+| 4 | (2, 3000], 1 | 429 | 0 | 0 | 1 | — |
+| 5 | (2, 2000], 1 | 301 | 0 | 0 | 1 | — |
+| 7 | (2, 4000], 1 | 548 | 0 | 0 | 1 | — |
+| 12 | (2, 4000], 1 | 548 | 17 | 0 | — | — |
+| 40 | (2, 3000], 1 | 428 | 128 | 0 | — | — |
+| 60 | (1000, 2100], 1 | 149 | 75 | 0 | 0.50 at L = 7.65 | L_.5 = 7.64 |
+| 63 | (620, 1240], 1 | 89 | 46 | 0 | 0.48 at L = 7.12 | L_.5/m^{1/3} = 1.79 ⇒ L = 7.12 |
+| 101 | (1000, 2000], 1 | 135 | 67 | 0 | 0.50 at L = 7.60 | L_.5 = 7.59 |
+| 100 | (5000, 10000], 2 | 280 | 142 | 0 | 0.49 at L = 9.21 | L_.5 = 9.21 |
+| 128 | (645, 1290], 1 | 92 | 65 | 0 | 0.29 at L = 7.16 | L_.25 = 7.16 |
+| 200 | (37000, 74000], 10 | 338 | 159 | 0 | 0.53 at L = 11.21 | L_.5 = 11.21 |
+| 255 | (48500, 97000], 12 | 363 | 180 | 0 | 0.50 at L = 11.48 | 1.81 ⇒ L = 11.48 |
+| 200 | (2^19, 2^20], 1500 | 26 | 7 | 0 | 0.73 | 0.74 (§2 overdispersion bullet) |
+
+**Total 3 726 primes, 0 mismatches**; the spot proportions reproduce the table's quantiles
+within sampling error (±0.03–0.05). The scanner and the EVIDENCE numbers are confirmed.
+
+**D-N1 (MINOR, §2.1 "Even m" bullet).** "A `(log m)^{4/3}` or `(log m)^{−2/3}` correction would
+change the ratio by factors 1.53 resp. 0.76 over this range": with m = 60 → 300 I get
+`(log 300/log 60)^{4/3} = 1.56` and `(…)^{−2/3} = 0.80`. Conclusion unaffected; fix numbers.
+
+**D-N2 (MINOR, Conjecture C2 / §2 Width).** Fine as CONJECTURE/EVIDENCE. "No sharp threshold
+constant" is supported only over m ≤ 300 (`m^{1/3} ≤ 6.7`), where `L_.75 − L_.25 ≈ 0.4 L_.5`
+is of the same size as any `log log`-type correction; the text says this ("finite data"), keep it.
+
+## 4. Status of labels, hidden dependencies, citations
+
+* Theorem U / Thm 1.3: "PROVED rel. MN Cor 3.2, BV, Shiu" — justified. Add BT and PNT to the list
+  (BT is used for `|Δ(q,a)|`, PNT for the BV main-term switch, D-U3). Ineffectivity correctly flagged.
+* No constant secretly depends on m: checked `C_u, a_u` (MN Cor 3.2, absolute for `m ≤ t³`),
+  `C(r)` (Lemma 1.2: r, κ, Shiu), `N_0(s)` (BV constant at `A'(r)`, `C(r)`, `L ≥ 3e^{a_u s}`),
+  `C_1` (from `r ≤ Cs`). ✓
+* No circularity: Theorem U uses MN only through Lemma 1.1/1.3 (combinatorics) and Cor 3.2
+  (distribution of the primes ℓ), not through MN Theorem A or Cor D.
+* Citations checked: PW Cor 2.2, 2.4, Prop 2.3, Thm 3.1 proof incl. (3.2)–(3.4) (`sources/pw.txt`);
+  ET Prop 1.4, Cor 7.4, proof pp. 29–32 incl. (7.10)–(7.11) and Remark 1.5 (which itself
+  anticipates the Pólya–Vinogradov improvement, worth citing); Shiu 1980 pp. 161–162
+  (Theorem 1 page not re-read; standard statement used). BV, BT, PV: standard.
+* Novelty: Remark 1.5 of ET explicitly says the `log(1+k)` loss "can be reduced (for some ranges)
+  by … Pólya–Vinogradov". **D-L6 (MINOR, Lemma 3.3):** cite ET Remark 1.5 so that Lemma 3.3 is
+  presented as carrying out ET's own suggested improvement, not as a new idea.
+
+## Overall verdict
+
+No FATAL, no MAJOR defect. Theorem U is SOUND (rel. MN Cor 3.2 + BV/BT/Shiu); the uniformity in
+m holds because N_0(s) and all constants are m-free. Theorem L is SOUND-AFTER-REPAIRS (minor
+bookkeeping/statement fixes D-L1–D-L6). Numerics independently reproduced (3 726 primes, 0
+mismatches; quantiles match). Minor defects: D-U1–D-U5, D-L1–D-L6, D-N1–D-N2.
