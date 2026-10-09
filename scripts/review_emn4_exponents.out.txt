@@ -1,0 +1,8 @@
+(b3) gap to N^{-delta/4}: delta/8 - gamma/8 + 1/8   gap to N^{-delta/2}: -delta/8 - gamma/8 + 1/8  = log_N(D)/4 at mu=0: True
+(b3) cell alpha=1-4e, beta=1-2e (e=1/1000) lies in R_bad(2eta) and (b3): True ; log_N D = 1/250 < 4e+... so TTL's N^{-delta/2} display fails there by N^{eps}D^{-1/4} > 1 if eps > (1-alpha)/4
+(b2)/(b5) cusp A^{-1/2} exponent minus (-delta/4): gamma/4 + mu/4 - 1/4 (<0: absolute margin (1-gamma)/4)
+Lemma 0.1: max ratio [(L^3+L^2log^2m)logL/m]/m^{-0.35} over grid = 18.4555
+§3.5 G(z)/(h(M) log z) over z in {1e3,1e4}, M up to primorial(23): [0.795, 1.425, 1.504, 0.807, 0.747, 1.316, 1.373, 0.755]
+(3.2.2) class identity checked for 184 (m,f)
+Issues CRT example: m=167319652 (~3.35e+08); odd squarefree f in (F,2F] have rho = 2^omega: True
+failures = 0
