@@ -1,0 +1,18 @@
+# R114 scratch notes
+- L2.2 / distance formula / sieve group conj (M=4dq^2, index phi(q)/2, q=1 -> Gamma_0(4d)) / box coords: re-derived OK (pending brute force)
+- DI checked from scan: Thm2 p230 (1.28)-(1.30) bound (K^2+mu N^{1+eps})||a||^2, K>=1,N>=1/2, Gamma_0(q) trivial char -- matches. (1.34) p231 normalisation matches. Thm5 (1.38) p232 matches (X^{2 i kappa}, i kappa>0). mu(a)=(w,q/w)/q (1.1) p223 matches. Thm6 (1.39) averaged over levels q<=Q, X^{4 i kappa}.
+- Green fn constant 1/(2 pi sqrt2) ok (G=(1/2pi)Q_{s-1}); s0=(1+sqrt5)/2 ok; L4.2 packing ok.
+- §5 Prop 5.1 rederived: Fourier coeff, unfolding, Mellin const 1/(8 pi i), Stirling bounds, residues (Y^{-1/2}/2), block sieve S<<lambda(K^2+Z) (L^2 factor superfluous), zero mode via unitarity: OK. Continuous-spectrum large sieve in rho_{ca}(n,t) normalisation rests on Drappeau (not in sources) -- DI (1.30) uses n^{ir} phi_{can} normalisation.
+- §6 density g_{c,d}: quadric count l^2+chi l, numerators OK. L6.1 orbit/stabiliser (SO torus order l-chi), index |SL2(Z/q)|/2 OK; surjectivity via Gamma(2d) OK.
+- Thm 6.2: #Lambda_d(q)= g I_q #Lambda_d(1) <= q^2 kappa ... ; variance terms -> A sqrt d (1+A/(qF)) + F^{1+eps}/sqrt d OK (q^{eps-1/2}<=1).
+- L6.3 rederived OK (P^1(Z/d) coset param, index 6/4, p^{floor(k/2)} root count incl. p=2 identity, sum r(d)).
+- Prop 7.1 rederived OK (identity an=f(ce-a)-c, CRT, T_l, axial, Weil). (Ka-summed) OK.
+- Assembly §8 rederived: L1.1 OK; BT-layer OK (A,D>=N^{1/4} from k<=L/3); (i) D/A=N^delta, c0, Q=N^{delta/4} OK; (ii) gamma<=delta/2 from k>=2j OK; (iii) exponent diff -alpha/4 OK; (iv) both branches OK; sieve kappa bookkeeping N^{-kappa delta/2} OK; step 5 sums OK.
+- bad region e,f>=N^{1/2-3eta1} OK.
+- ET checks: Thm 1.1 quote OK; p.5 quote OK; p.36 parenthesis "[sic] Type II case" OK; (1.4) OK; Prop 2.2 map (abdn,acd,bcd) OK; Lemma 2.8 bounds OK; (8.1)-(8.2) OK.
+- DEFECT: BT-layer cites [ET,(A.10)] with explicit constant 2y/(phi(q)log(y/q)) for an interval of length y. ET (A.10) is pi(N;q,a) << N/(phi(q)log(N/q)) (initial segment, implied const). Should cite MV (interval version, const 2). MINOR.
+- Prop 3.3 exponents/area 1/6 OK; Rem 3.2 fibres OK; L8.3, L8.4, L8.2 re-derived OK. Notation clash: Prop 2.3 "Fix l" (exponent) vs l squarefree divisor in L8.4 proof. MINOR.
+- Source consistency: (SEL) quantifiers match LOGLOG §5; Prop 2.3 matches MN3 (renamed vars); Prop 3.3 matches; MN3 Thm 3.8 step (1) matches (split by ad vs c, equivalent); Theorem L' exists in MN3 §2; remark (b) after Thm 3.8 exists; (H**) §3.5 ok.
+- char-norm identity with h_q (incl. q=1) re-derived OK; Deviation 2 confirmed.
+- Deviation 1 (kappa_c) confirmed: l|c, chi=1 gives 2l(l-1).
+- Fricke/e-cusp involution OK.

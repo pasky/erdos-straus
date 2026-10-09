@@ -1,5 +1,18 @@
 # Paper draft status
 
+**New (2026-10-09): `es-typei-heegner-note.tex` / `.pdf`** (task O114, 25 pages incl. TOC/bibliography) — "The
+Elsholtz–Tao Type I sum under Selberg's eigenvalue conjecture". Writes up EXCEPTIONAL_TYPEI_LOGLOG ((D)32;
+review R111 rounds 1–2) with the needed parts of EXCEPTIONAL_MN3 §3. Theorem A: under (SEL) for `Γ₀(4dq²)` with
+even nebentypus mod 2q (uniformly; odd squarefree q, (q,d)=1), `Σ_{p≤N} f_I(p) ≪ N log² N` — removes the
+`log log N` of ET Thm 1.1 (ET p. 5 conjecture it can be removed). **CONDITIONAL** on (SEL), proved relative to
+cited results (ET Prop 2.2/Lemma 2.8/(8.1)–(8.2), MN3 Prop 2.3, DI Thm 2, Drappeau Prop 4.7, Weil, BT, Selberg
+sieve, PV); internal review only; the inherited ET/MN3 reduction was not re-checked by R111; Iwaniec-book
+locators unverified. Sections: reduction to R_bad (MN3 Lemmas 3.1–3.2, Prop 3.3, BT outside R_bad), SL₂/Heegner
+reformulation, uniform separation (cosh dist ≥ 3/2), Sobolev duality, spectral large sieve variance, per-d
+counts, per-a Weil count, assembly (degenerate-saving lemma), unconditional discussion (strip ≈ 7/32 next to
+d = a from Kim–Sarnak: **no** unconditional improvement from this argument), open problems.
+**Needs a referee pass** (`reviews/agent-reports/AGENT_REPORT_O114.md`).
+
 **New (2026-10-08): `es-mn-short-note.tex` / `.pdf`** (task O97, 18 pages, 10pt) — "The exponent 3/4
 for the exceptional set of m/n, in short intervals and progressions". Consolidates EXCEPTIONAL_SHORT
 ((D)30, review R88) and EXCEPTIONAL_MN ((D)31, reviews R94A/B): Theorem A (`E_m(I) ≤ C H exp(−c(log H)^{3/4}

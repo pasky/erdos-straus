@@ -1,0 +1,8 @@
+[L2.2] pairs=5131339 min(cosh-1)=1/2  -> min cosh = 3/2
+[L2.2] d attaining cosh=3/2 (sharp): [1, 5, 11, 19, 29, 31, 41, 55, 59]
+[L2.2] Type I subset (4d|B): min cosh = 3
+[L2.1] formula cosh-1 = disc(Q-Q')/(8d) verified on all pairs
+[groups] tested 23000: parity failures=0, sieve-functional failures=0
+[sec6] densities g_(c,d) verified; l|c & chi=1 gives |SL2|g = 2l(l-1): [(3, 12), (5, 40), (7, 84), (11, 220), (13, 312)]
+[L6.3] max P1-root count / r(d) over reduced primitive forms, d<=80: 1
+[L1.1] identity and <=2L verified up to L=200: True
