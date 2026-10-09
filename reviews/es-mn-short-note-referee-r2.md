@@ -5,7 +5,7 @@ Source compared: `EXCEPTIONAL_MN2.md` + `reviews/exceptional-mn2-review-{A,B}.md
 arXiv:1107.1010 (`sources/elsholtz-tao-1107.1010.pdf`); PW = Pomerance–Weingartner arXiv:2511.16817v2.
 From-scratch checks: `scripts/review_r104_*.py`.
 
-(Work in progress — sections are added claim by claim.)
+Status: complete (round 2). Verdict summary: §1 Upper side SOUND; §2 Lower side SOUND (minor repairs); §4 abstract/intro SOUND-AFTER-REPAIRS; recommendation ACCEPT (§7).
 
 ## 1. Upper side (Lemma 8.1 reduced model, Lemma 8.2 multiplicities, Thm 8.3, Thm U)
 
@@ -22,7 +22,7 @@ ineffective A_ε, all m ≥ 4, all N with log N ≥ A_ε m^{1/3}); no strengthen
 * Main term identity: q_B | 𝓜' (lcm k_A | L_K), a_B a unit, so P(ñ ≡ a_B (q_B)) = 1/φ(q_B). ✓
   Exceptional primes p ∈ (N/2, N]: p > X > K, so p is a unit mod 𝓜', and Lemma 3.3(1) has no
   hypothesis besides n ≥ 1. ✓
-* Moduli: (1+κ)(2e²C_u s+2)(sm)^{1/3} ≤ 0.45 C_1^{-1}… uses s ≥ 1 (2 ≤ 2s) and s·(sm)^{1/3} =
+* Moduli: (1+κ)(2e²C_u s+2)(sm)^{1/3} ≤ 0.45L for L ≥ C_1 s^{4/3}m^{1/3}, C_1 large; uses s ≥ 1 (2 ≤ 2s) and s·(sm)^{1/3} =
   s^{4/3}m^{1/3}. ✓ t ≤ L. ✓
 * Lemma 8.2: Shiu Thm 1 (F = τ⁴, F(p)=16, interval (kx,2kx] of length y = kx, modulus k ≤ y^{1−β})
   gives (kx/φ(k))·(log)^{−1}·exp(16 Σ1/p) ≍ (k/φ(k)) x t^{15}; the restriction to prime ℓ is by
