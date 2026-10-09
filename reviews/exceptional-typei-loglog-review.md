@@ -91,5 +91,33 @@ D7–D9.** Checked against the sources:
 * Plausibility: the bound is the Poisson-level variance (`V·mean = area`) plus the Kloosterman/cusp
   term `1/(MY)`, the natural truth — no sign of an over-strong claim.
 
+**V11. Thm 8.1 (assembly) — GAP (not FATAL).** Re-derived step by step:
+* (1) c > N^η: BT on 4ad, `Σ_{j≥ηL} NL²/j ≪ log(1/η)·NL²` — fine (author's η^{−1} is a valid over-bound).
+* (2b) savings: Prop 7.1 gives relative `Q²A/D = Q²N^{−δ}` (κ = 1), Thm 6.2 `Q²(D/A)^{1/2} = Q²N^{−δ/2}`
+  (κ = ½); cusp term `Q²(D/A²)^{1/4} ≤ Q²N^{−δ/4}A^{−1/4} ≤ Q²N^{−δ/2}` because `A ≥ N^δ` ⇔ `α ≤ 1−γ`. OK.
+* (3) `Q = z² = N^{κδ/4}` ⇒ remainder `L^C N^{−κδ/2}` ✓; main `X/(θL) = 8X/(κδL)` with `δL ≈ 2k log 2` ⇒
+  saving `C/k` ✓; the Selberg sieve densities `g ≤ 1/ℓ` (`(ℓ−1)/(ℓ²+χℓ) ≤ 1/ℓ`) ✓ dimension 1.
+* (4)–(5) with Lemma 1.1: `Σ_{j,k} NL·min(1/j, C/k) ≪ NL²`; layers `k ≤ C log L`: `NL(log L)²` ✓; thin strip
+  `β ∈ [α, α+γ]`: `≈ j` e-blocks × L a-blocks × N per block, BT 1/j ⇒ `ηNL²` ✓.
+* **But** (D1) the case analysis does not cover all of R_bad, (D2) step (2a) is unwritten, (D3) the
+  weighted-mass step is only sketched. None of these looks fatal: D1 has an easy repair (second BT
+  modulus + Lemma 1.1), D2/D3 are routine-looking but are genuinely missing proofs.
+**Honest label for Thm 8.1: CONDITIONAL on (SEL), at outline level — "conditional outline, not yet a
+proof"** (gaps D1–D3, plus the outline-level Props 5.1/7.1). No FATAL defect found in the repaired
+version; I agree with R1 that the strategy is sound.
+
+**V12. The unconditional strip / "no unconditional improvement" (§3.2, §9) — Assessment, correctly
+labelled in substance; the numbers are off (D4).** The statement is correct **as a statement about
+this method** (on the strip `0 < δ = 2α−1+γ < δ₀` there are cells with no power saving, of positive
+logarithmic mass ⇒ `Σ_j Σ_{k≤δ₀L} NL/j ≍ δ₀ NL² log L`), and must not be read as "no unconditional
+improvement is possible" (the report's wording "so there is no unconditional improvement of ET" should say
+"this argument gives no unconditional improvement"). Kim–Sarnak 7/64 does apply to nebentypus forms.
+Quantitatively: with `F' ≤ 2A√D`, `1/Y ≍ qF'√d` reaches `≍ N` at the worst cells, so the loss factor on
+the error is up to `N^{7/64} ≈ N^{0.109}` against the saving `N^{−δ/2}`: the strip is `δ ≲ 7/32 ≈ 0.22`
+(≥ 0.16 even for the smallest F' in R_bad), not "≲ 0.1". DI Thm 5 should be applied per dyadic n-block
+with `X = 1/(N₀Y)` (weight `(nY)^{−2σ}`), not `X = 1/Y`; then the extra variance factor is
+`≈ 1 + (F'/(q√d))^{1/2}` (μ = 1/M, M = 4dq²), still fatal near α = ½ once `F' ≫ √d·(A/d)²` — conclusion
+unchanged. DI Thm 6 / Humphries claims: not re-derived (I did not check these).
+
 ## Defects
 (filled below)
