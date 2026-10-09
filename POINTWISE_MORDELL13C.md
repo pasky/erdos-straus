@@ -111,7 +111,9 @@ using the 6/2160 of POINTWISE_MORDELL §3).
 *Proof.* Thm 3.1(b) outside the six roots. Inside: the tree (`m13c_dfs.py` with brute-force classes `M≤10⁶`,
 primes ≤ 100, 6000 expansions) has 136494 covered leaves using 2140 distinct ET classes; `m13c_check.py` and
 `m13c_review_tree.py` (§4) both accept it (`CERTIFICATE OK`, `REVIEW OK`; 15 s resp. 7 s). The split primes are ≤ 83
-and satisfy ES directly. ∎
+and satisfy ES directly. (R100 repair, applied by reviewer: this step is vacuous — an omitted non-unit child consists of
+multiples of q in a root class, whose only possible prime is q ≤ 83 < 112561 ≤ every positive element of a root class,
+so the omitted children contain no prime at all.) ∎
 
 Open leaves / open density per root: 112561: 13986 / 1.26·10⁻⁴; 352801: 18070 / 3.10·10⁻⁴;
 380881: 873 / 1.93·10⁻⁵; 418321: 455 / 5.8·10⁻⁶; 473761: 871 / 1.62·10⁻⁵; 483841: 1204 / 2.78·10⁻⁵
