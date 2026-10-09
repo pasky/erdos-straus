@@ -167,9 +167,9 @@ squared is `⟨ν,(1−Δ)^{−2}ν⟩ < ∞`), then Cauchy–Schwarz and Lemma 
 
 **Corollary 4.4 (application to 𝓕_d).** Let `Γ' ⊂ Γ₀(d)` (acting on `w = z/d`) and `𝓕 ⊂ 𝓕_d`
 `Γ'`-invariant, `Λ̃ = {w_Q : Q ∈ 𝓕}`. Lemma 2.2 gives `r₀ = arccosh(3/2)` (the map `z ↦ z/d` is an
-isometry), so Prop 4.3 holds with an absolute constant. If `Γ'_∞ = ⟨±[[1,h],[0,1]]⟩` and
-`P = P_ψ = Σ_{γ∈Γ'_∞\Γ'} ψ∘γ` with `ψ` supported in a strip of x-length `< h`, then
-`Σ_{z∈Γ'\Λ̃} P_ψ(z)/e_z = Σ_{Q ∈ 𝓕/Γ'_∞} ψ(w_Q)` (unfolding; `Q ↦ w_Q` is injective because a positive
+isometry), so Prop 4.3 holds with an absolute constant. If `Γ'_∞ = ⟨±[[1,h],[0,1]]⟩`, ψ has compact support in ℍ,
+`ψ_per := Σ_m ψ(·+mh)` and `P = P_ψ = Σ_{γ∈Γ'_∞\Γ'} ψ_per∘γ`, then
+`Σ_{z∈Γ'\Λ̃} P_ψ(z)/e_z = Σ_{Q ∈ 𝓕/Γ'_∞} ψ_per(w_Q) = Σ_{Q∈𝓕} ψ(w_Q)` (unfolding; `Q ↦ w_Q` is injective because a positive
 definite form of given discriminant is determined by its root), and `⟨P_ψ⟩ = V^{−1}∫_{Γ'_∞\ℍ} ψ dμ`.
 
 ## 5. Variance of the box Poincaré series (PROVED conditional on (SEL); standard spectral input)
@@ -196,14 +196,15 @@ coefficients at ∞ of an orthonormal basis of `L²(Γ₀(M)\ℍ, χ)`, normalis
 for dyadic n and bounded K. Not re-derived here.)
 
 **Test functions.** Use cells that are smooth in `(Re u, Im u)` directly:
-`ψ(u) = φ(x/λ) W(y/Y)`, `φ, W ∈ C_c^∞`, `supp φ ⊂ [−2,−1]`, `supp W ⊂ [1,2]`, `0 < λ ≤ 1/4`, `Y ≤ λ 𝓛^{−3}` (R1: the proposition is false without a bound on `Y/λ`; in all
+`ψ(u) = φ(x/λ) W(y/Y)`, `φ, W ∈ C_c^∞`, `supp φ ⊂ [−2,−1]`, `supp W ⊂ [1,2]`, `λ > 0`, `Y ≤ λ 𝓛^{−3}` (R1: the proposition is false without a bound on `Y/λ`; in all
 applications `Y/λ ≍ 1/(A√d)`).
 (In the original variables this is `f ≍ F := 1/(qY√d)` and `a/f ≍ λq/2`: a smooth partition of unity in
 `(log f, log(a/f))` is as good as one in `(log f, log a)` for the sieve.) Its hyperbolic area is
 `∫ψ dμ ≍ λ/Y`.
 
 **Proposition 5.1 (variance; PROVED conditional on (SEL) and the cited DI/Drappeau large sieve; O112: proof written in full).** Let
-`P = P_ψ` on `Γ_{M,q}`, `P₀ = P − ⟨P⟩`, and `𝓛 = log(2 + 1/(λY) + M)`. Then
+`P = P_ψ` on `Γ_{M,q}`, `P₀ = P − ⟨P⟩`, and `𝓛 = log(2 + 1/(λY) + 1/Y + M)`. (Any `λ > 0` is allowed: on
+`Γ_∞\ℍ`, ψ means its periodisation `Σ_{m∈ℤ} ψ(u+m)`; for `λ > 1` the x-range wraps around `≈ λ` periods. O112.) Then
 `‖(1−Δ)P₀‖₂² ≪_{φ,W,ε} 𝓛^{C} · [ (λ/Y)(1 + q^{1/2} M^{−1} (𝓛/λ)^{1+ε}) + λ²/Y ]`,
 with `L²` norms on `Γ_{M,q}\ℍ`.
 *Proof (O112 repair: written at proof level; replaces the R1 outline, and settles D8).*
@@ -219,12 +220,12 @@ and `∫Δψ dμ = 0`, so `(1−Δ)P₀ = P_{ψ'} − ⟨P_{ψ'}⟩`. As `Y ≤ 
 nebentypus): `‖P_χ − δ⟨⟩‖² = Σ_j |⟨P_χ,u_j⟩|² + (4π)^{−1}Σ_𝔠 ∫_ℝ |⟨P_χ,E_𝔠(·,½+it,χ)⟩|² dt`, where `u_j` runs over an
 orthonormal basis of Maass cusp forms (by (SEL) all `t_j ∈ ℝ`; the residual spectrum of a congruence group is the
 constants, present only for χ = 1, and removed) and 𝔠 over the χ-singular cusps (∞ is singular for every χ).
-**Step 2 (unfolding).** `u_j(z) = √y Σ_{n≠0} ρ_j(n)K_{it_j}(2π|n|y)e(nx)` (DI (1.34); cusp width 1). Since the
-x-support of ψ has length `λ < 1`, `⟨P_χ,u_j⟩ = ∫_0^∞∫_0^1 ψ ū_j dx dy/y² = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) I_{t_j}(n)`,
-`I_t(n) := ∫_0^∞ W(y/Y) y^{1/2} K_{it}(2π|n|y) dy/y²`. Mellin: `K_{it}(x) = (4πi)^{−1}∫_{(σ)} G_t(s)(x/2)^{−s}ds`,
-`G_t(s) := Γ((s+it)/2)Γ((s−it)/2)`, `σ > 0`; hence `I_t(n) = Y^{−1/2}(4πi)^{−1}∫_{(σ)} G_t(s)𝒲(s)(π|n|Y)^{−s}ds` with
+**Step 2 (unfolding).** `u_j(z) = √y Σ_{n≠0} ρ_j(n)K_{it_j}(2π|n|y)e(nx)` (DI (1.34); cusp width 1). Unfolding the
+periodisation (any `λ > 0`), `⟨P_χ,u_j⟩ = ∫_0^∞∫_ℝ ψ ū_j dx dy/y² = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) I_{t_j}(n)`,
+`I_t(n) := ∫_0^∞ W(y/Y) y^{1/2} K_{it}(2π|n|y) dy/y²`. Mellin: `K_{it}(x) = (8πi)^{−1}∫_{(σ)} G_t(s)(x/2)^{−s}ds`,
+`G_t(s) := Γ((s+it)/2)Γ((s−it)/2)`, `σ > 0`; hence `I_t(n) = Y^{−1/2}(8πi)^{−1}∫_{(σ)} G_t(s)𝒲(s)(π|n|Y)^{−s}ds` with
 `𝒲(s) := ∫_0^∞ W(v)v^{−3/2−s}dv`, entire, `|𝒲(σ+iv)| ≪_{B,σ} (1+|v|)^{−B}` uniformly for `|σ| ≤ 2`. Therefore
-`⟨P_χ,u_j⟩ = Y^{−1/2}(4πi)^{−1}∫_{(σ)} G_{t_j}(s)𝒲(s)(πY)^{−s} B_j(s) ds`, `B_j(s) := Σ_{n≠0} ρ̄_j(n) b_n(s)`,
+`⟨P_χ,u_j⟩ = Y^{−1/2}(8πi)^{−1}∫_{(σ)} G_{t_j}(s)𝒲(s)(πY)^{−s} B_j(s) ds`, `B_j(s) := Σ_{n≠0} ρ̄_j(n) b_n(s)`,
 `b_n(s) := λφ̂(λn)|n|^{−s}` (absolutely convergent: `φ̂` is Schwartz, `ρ_j(n) ≪_j |n|^{1/2}`).
 **Step 3 (Gamma bounds; Stirling).** For `|Re w| ≤ 1`: `|Γ(w)| ≍ |Im w|^{Re w − 1/2}e^{−π|Im w|/2}` if `|Im w| ≥ 1`, and
 `|Γ(w)| ≪ 1/dist(w, −ℕ₀)` if `|Im w| ≤ 1`. Hence (a) for `|t| ≤ 1`, `s = σ₀ + iv`, `σ₀ := 1/𝓛`:
@@ -234,7 +235,7 @@ x-support of ψ has length `λ < 1`, `⟨P_χ,u_j⟩ = ∫_0^∞∫_0^1 ψ ū_j 
 **Step 4 (|t_j| ≤ 1).** Take `σ = σ₀`. Since `1/Y ≤ e^{𝓛}`, `|(πY)^{−s}| ≤ e`; Cauchy–Schwarz in v with the measure
 `|G𝒲|dv` and (a): `|⟨P_χ,u_j⟩|² ≪ Y^{−1}𝓛⁴ ∫|𝒲(σ₀+iv)| |B_j(σ₀+iv)|² dv`.
 **Step 5 (|t_j| ≥ 1).** Shift to `σ = −1`, crossing only the simple poles `s = ±it_j` (residue of `Γ((s∓it)/2)` is 2):
-`⟨P_χ,u_j⟩ = Y^{−1/2}[Σ_± Γ(±it_j)𝒲(±it_j)(πY)^{∓it_j}B_j(±it_j) + (4πi)^{−1}∫_{(−1)} G_{t_j}(s)𝒲(s)B̃_j(s)ds]`, with
+`⟨P_χ,u_j⟩ = Y^{−1/2}[½Σ_± Γ(±it_j)𝒲(±it_j)(πY)^{∓it_j}B_j(±it_j) + (8πi)^{−1}∫_{(−1)} G_{t_j}(s)𝒲(s)B̃_j(s)ds]`, with
 `B̃_j(s) := Σ ρ̄_j(n) b̃_n(s)`, `b̃_n(s) := (πY)^{−s}b_n(s)`, `|b̃_n(−1+iv)| = πY|n|·λ|φ̂(λn)|`. Using
 `|Γ(it)|² = π/(t sinh πt) ≪ 1/((1+|t|) cosh πt)`, `|𝒲(±it)| ≪ (1+|t|)^{−B}` and (b) with Cauchy–Schwarz:
 `|⟨P_χ,u_j⟩|² ≪ Y^{−1}cosh(πt_j)^{−1}[(1+|t_j|)^{−B}Σ_±|B_j(±it_j)|² + (1+|t_j|)^{−4}∫|𝒲(−1+iv)|(1+|v|)^4|B̃_j(−1+iv)|²dv]`.
@@ -247,8 +248,9 @@ For `b = b(σ₀+iv)`: `‖b^{(N₀)}‖² ≪ λ²N₀ min(1,(λN₀)^{−2B})`
 For `b̃(−1+iv)`: `‖b̃^{(N₀)}‖² ≪ (Y/λ)²·λ²N₀ min(1,(λN₀)^{−2B})`, the same bound times `(Y/λ)² ≤ 1`.
 For the `t_j`-dependent vectors `b_n(±it_j)`: on each unit interval `t_j ∈ [k, k+1]` use
 `|B(t)|² ≤ 2|B(k)|² + 2∫_k^{k+1}|∂_τB(τ)|²dτ` (Gallagher); `∂_τ` multiplies `b_n` by `∓i log|n|`, i.e. by
-`≪ 𝓛 + |log(λ|n|)|`, absorbed by the rapid decay of φ̂. So
-`Σ_{K<|t_j|≤2K} cosh^{−1}|B_j(±it_j)|² ≪ 𝓛⁴ λ(K² + q^{1/2}M^{−1}λ^{−1−ε})`.
+`≪ 𝓛 + |log(λ|n|)|`, absorbed by the rapid decay of φ̂. Summing over the
+`O(K)` unit intervals, `Σ_{K<|t_j|≤2K} cosh^{−1}|B_j(±it_j)|² ≪ K𝓛⁴ λ(K² + q^{1/2}M^{−1}λ^{−1−ε})` (the extra K is
+absorbed by `(1+K)^{−B}` in Step 7).
 **Step 7 (assembly).** Steps 4–6, summing dyadically over K with the weights `(1+K)^{−B}`, `(1+K)^{−4}` against `K²`, and
 integrating in v against `|𝒲|(1+|v|)^4`: `Σ_j |⟨P_χ,u_j⟩|² ≪ 𝓛^C Y^{−1}λ(1 + q^{1/2}M^{−1}λ^{−1−ε})`.
 *Eisenstein part.* The n ≠ 0 terms are identical with `ρ_j(n)` replaced by `φ_𝔠(n,t)` and `Σ_j` by `Σ_𝔠(4π)^{−1}∫dt`; the
@@ -280,22 +282,23 @@ and `g_{c,d}(q) = Π_{ℓ|q} g_{c,d}(ℓ)`. Then `g = (ℓ−1)/(ℓ² + χ(ℓ)
 `Λ̃(q) = {u_Q : Q ∈ 𝓕_d^I, q | cB − A}`, `#Λ(q)` its orbifold count mod `Γ'_q := Γ₀(2d)∩Γ(2q)`,
 `V(q) = vol(Γ'_q\ℍ)` (w-side). Then `#Λ(q)/V(q) = g_{c,d}(q) · #Λ(1)/V(1)`.
 *Proof.* As matrix groups `[Γ'_1 : Γ'_q] = |SL₂(ℤ/q)|` (strong approximation, `(q,2d) = 1`); as Möbius groups it
-is `|SL₂(ℤ/q)|/2` (`−I ∈ Γ(2)`, `−I ∉ Γ(2q)`), which cancels in the ratio (O112, D10). For one `Γ'_1`-orbit
-`O = Γ'_1·Q₀`, the weighted number of `Γ'_q`-orbits in `O ∩ Λ̃(q)` is
-`e_{Q₀}^{−1} · #{g ∈ SL₂(ℤ/q) : Q̄₀∘g ∈ S_q}` with `S_q = {cB − A ≡ 0}`; by orbit–stabiliser this is
-`e_{Q₀}^{−1}|SL₂(ℤ/q)| · |S_q ∩ 𝒪(Q̄₀)|/|𝒪(Q̄₀)|`. For `ℓ ∤ 2d` the orbit `𝒪(Q̄₀)` mod ℓ is the whole
+is `|SL₂(ℤ/q)|/2` (`−I ∈ Γ(2)`, `−I ∉ Γ(2q)`), which cancels in the ratio (O112, D10). For q = 1 there is nothing to prove. For q > 1 and one `Γ'_1`-orbit
+`O = Γ'_1·Q₀`, the weighted number of `Γ'_q`-orbits in `O ∩ Λ̃(q)` is (counting in the Möbius groups, `−I` acting
+trivially on forms) `e_{Q₀}^{−1} · ½#{g ∈ SL₂(ℤ/q) : Q̄₀∘g ∈ S_q}` with `S_q = {cB − A ≡ 0}`; by orbit–stabiliser
+this is `e_{Q₀}^{−1}·½|SL₂(ℤ/q)| · |S_q ∩ 𝒪(Q̄₀)|/|𝒪(Q̄₀)|`, and `V(q) = ½|SL₂(ℤ/q)|·V(1)` (D10). For `ℓ ∤ 2d` the orbit `𝒪(Q̄₀)` mod ℓ is the whole
 quadric `{B² − 4AC = −4d}` (O112, D10: the stabiliser of `Q̄₀` in SL₂(𝔽_ℓ) is `SO(Q̄₀)`, a torus of order `ℓ−χ(ℓ)`, so the orbit has
 `ℓ(ℓ²−1)/(ℓ−χ) = ℓ² + χℓ` elements = the whole quadric), so the ratio is `g_{c,d}(ℓ)`, independent of Q₀; CRT. ∎
 
 **Theorem 6.2 (per-d count; PROVED conditional on (SEL) and the cited large sieve).** Let
-`ψ(u) = φ(x/λ)W(y/Y)` as in §5, with `λ ≍ A/(qF)`, `Y ≍ 1/(qF√d)` (i.e. `f ≍ F`, `a ≍ A`), `F ≥ 8A`.
-(O112, D5: `F ≥ 8A` makes `λ ≤ 1/4`, one period; in §8 the cells with `A/8 ≤ F' < 8A` lie in bands of
-bounded width and are bounded trivially, so no splitting into periods is ever needed.)
+`ψ(u) = φ(x/λ)W(y/Y)` as in §5, with `λ ≍ A/(qF)`, `Y ≍ 1/(qF√d)` (i.e. `f ≍ F`, `a ≍ A`), any `F`.
+(O112, D5: no condition `F ≥ 8A` is needed — Prop 5.1 holds for all `λ > 0` via the periodisation; for
+`λ ≍ A/(qF) > 1` the price is the n = 0 term `λ²/Y = (λ/Y)λ`, i.e. the factor `(1 + A/(qF))` below. This is
+the exact form of the review's `√(#periods)` loss, and it carries no `N^ε`.)
 Then with `𝔐_d := (#Λ(1)/V(1)) ∫ψ dμ` (independent of q and of the sieve),
-`|Σ_{Q∈𝓕_d^I, q | n(Q)} ψ(u_Q) − g_{c,d}(q) 𝔐_d| ≪_ε 𝓛^C q (#Λ(1))^{1/2} (A√d + F^{1+ε} d^{−1/2})^{1/2}`.
+`|Σ_{Q∈𝓕_d^I, q | n(Q)} ψ(u_Q) − g_{c,d}(q) 𝔐_d| ≪_ε 𝓛^C q (#Λ(1))^{1/2} (A√d(1 + A/(qF)) + F^{1+ε} d^{−1/2})^{1/2}`.
 *Proof.* Cor 4.4 (separation, Lemma 2.2, holds for the subset `Λ̃(q)`), Lemma 6.1 for the main term, and
-Prop 5.1 with `λ/Y ≍ A√d`, `q^{1/2}/(MY) ≍ F/(q^{1/2}√d)`, `λ²/Y ≤ λ/Y`; finally
-`#Λ(q) = g(q)·½|SL₂(ℤ/q)|·#Λ(1) ≪ q² #Λ(1)` (D10). ∎
+Prop 5.1 with `λ/Y ≍ A√d`, `q^{1/2}/(MY) ≍ F/(q^{1/2}√d)` (times `λ^{−ε} ≤ F^ε`), `λ²/Y = (λ/Y)λ`; finally
+`#Λ(q) = g(q)·½|SL₂(ℤ/q)|·#Λ(1) ≪ q² #Λ(1)` for q > 1 (D10). ∎
 *Remark (O112, D11).* The per-d *relative* error is not uniform in d (by Siegel, `#Λ_d(1)` may be as small as
 `d^{1/2−ε}` and the main term `𝔐_d` correspondingly small); the assembly never uses per-d relative errors, only
 the absolute errors above summed over `d ≍ D` by Cauchy–Schwarz and Lemma 6.3.
@@ -346,8 +349,9 @@ Hence `(e,f) mod r` runs over `𝒮 = 𝒮_m × 𝒮_q` (CRT, `(m,q) = 1`), `�
 In the application (fixed-a part of R_bad, §8 (b1)) `e, f ≥ N^{1/2−3η₁}` (§8 (2a)), so `min(E,F) ≥ N^{c₀}` with
 `c₀ = 1/2 − 3η₁` (O112, D6: the retired Prop 7.2 is not used). ∎
 *Consequence.* `Σ_{a≍A} Σ_{q≤Q} 3^{ω(q)}|R_a(q)| ≪ 𝓛^C(Q²A² + Q·AD·N^{−c₀})` (`Σ_{a≍A}τ(4a²)² ≪ A𝓛^C`), against the mass
-`≍ AD`: relative `𝓛^C(Q²A/D + QN^{−c₀})`, a level `Q = (D/A)^{1/2}𝓛^{−C}` (as `Q ≤ N^{1/4} < N^{c₀/2}`) whenever `D > A`,
-i.e. `α < (1−γ)/2`.
+`≍ AD`: relative `𝓛^C(Q²A/D + QN^{−c₀})`, a level `Q = (D/A)^{1/2}𝓛^{−C}` whenever `D > A`,
+i.e. `α < (1−γ)/2`. (The term `QN^{−c₀}` is harmless: in §8 (b1) `Q = N^{δ/4}` with `δ ≤ 1/3 + 4η₁` on R_bad,
+as `α ≥ 1/3 − 2η₁` there, so `QN^{−c₀} ≤ N^{−1/3}` for small η₁.)
 
 **Proposition 7.2 (M2: a small divisor) — NOT USED (R1: for fixed (d,e) the weight n is quadratic in a,
 with local densities `(1 + (d(dc²e²−1)/ℓ))/ℓ`, not `≈ 1/ℓ`; small divisors are instead handled by BT
@@ -423,10 +427,11 @@ a full dyadic d-range is needed. (c) is also uniform per box, which §8 (D1 repa
 (b) If `F ≤ 4A`: `Σ_{d≍D} g(d) #{(a,f) : a≍A, f≍F, f | 4a²d+1} ≪ AD` (the same with e for f: both are
 divisors of `4a²d+1`).
 *Proof.* (a1) `D ≤ A`: `g(d) = Σ_{l|d} μ²(l)/φ(l)`, `d = ld'`; MN3 Prop 2.3(b) with `k = 4l`, linear variable
-`d' ≤ 2D/l`, quadratic `a ≤ 2A`, `l₀ = 40`: its hypotheses `8D ≤ (2A)^{40}`, `2A ≥ ω(8l)+2` hold for every l, and it
+`d' ≤ 2D/l`, quadratic `a ≤ 2A`, `l₀ = 40`: its hypotheses `8D ≤ (2A)^{40}`, `2A ≥ ω(8l)+2` hold for every `l ≤ 2D` (if `2D/l < 2`, enlarge the d'-range to `d' ≤ 2`, an upper bound;
+then the hypothesis reads `8l ≤ (2A)^{40}`), and it
 gives `≪ (AD/l) log N (1 + log(1+4l))`; `Σ_l μ²(l)(1+log(1+4l))/(lφ(l)) < ∞`. `D ≥ A`: `a = ka'`, Prop 2.3(a)
 with `k = 4k²`, linear `d ≤ 2D`, quadratic `a' ≤ 2A/k`: hypotheses `16A² ≤ (2D)^{40}`, `2D ≥ ω(4k²)+2` hold for
-every k; it gives `≪ (AD/k) log N`; `Σ_k 1/(kφ(k)) < ∞`.
+every `k ≤ 2A` (if `2A/k < 2`, enlarge to `a' ≤ 2`; then `16k² ≤ (2D)^{40}`); it gives `≪ (AD/k) log N`; `Σ_k 1/(kφ(k)) < ∞`.
 (a2) Write `g(a)g(d) = Σ_{k|a, l|d} μ²(k)μ²(l)/(φ(k)φ(l))`, `a = ka'`, `d = ld'`; the inner sum is
 `Σ_{a' ≤ 2A/k, d' ≤ 2D/l} τ(K d' a'² + 1)`, `K = 4k²l`. *Tail* `k > A^{1/2}` or `l > D^{1/2}`: `τ ≪ N^{ε}`, so it is
 `≪ N^{ε} AD Σ_{k>A^{1/2}} 1/(kφ(k)) + (same in l) ≪ N^{ε}AD(A^{−1/2} + D^{−1/2}) ≪ AD` (as `A, D ≥ N^{1/4}`). *Main*
@@ -467,10 +472,16 @@ Away from the bands, each cell gets one of the following treatments; the *saving
 cost is below the cell's weighted mass.
 * (b1) `D ≥ A` (`α < (1−γ)/2`): fixed-a sequences, Prop 7.1 (applicable: `e, f ≥ N^{1/2−3η₁}`, §(2a)),
   relative remainder `≪ L^C Q² A/D = L^C Q² N^{−δ}`; saving `C/k` by (3). No condition on β.
-* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`, and `f ≥ 8A` off the band `|β−1| ≤ C₀/L`, `C₀ ≥ 6`): if `k ≥ 2j`, fixed-d sequences with the
-  f-cusp: Thm 6.2 (`λ = A/(qf) ≤ 1/4`), relative remainder `≪ L^C Q²(N^{−δ/2} + f^{1/2+ε}/A)`, and
-  `f^{1/2}/A ≍ N^{(1−α−β)/2} ≤ N^{(γ−δ)/2} ≤ N^{−δ/4}` (as `1−2α = γ−δ`, `δ ≥ 2γ`); saving `C/k`. If
-  `k < 2j`: BT on 4ad (saving `1/j ≤ 2/k`), applied to the whole layer (b4).
+* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`): if `k ≥ 2j`, fixed-d sequences with the **e-cusp**
+  (forms `[e, 4ad, df] ∈ 𝓕_d^I` — the same point set with e, f renamed — and linear functional `n = cB − C/d`;
+  Lemma 6.1 and Thm 6.2 hold verbatim with the same density `g_{c,d}`: in coordinates `(A, B, C/d)` the
+  conditions `A = cB` and `C/d = cB` give the same equation `B² − 4cdAB + 4d = 0` up to `A ↔ C/d`; checked
+  in `scripts/o112_checks.py`). Thm 6.2 with `F' = e`, `λ ≍ A/(qe)`: relative remainder
+  `≪ L^C Q²[N^{−δ/2}(1 + A/e)^{1/2} + e^{1/2+ε}/A]`, with `(A/e)^{1/2} ≍ N^{(α+γ−β)/2} ≤ N^{γ/2} ≤ N^{δ/4}`
+  (`β ≥ α`, `δ ≥ 2γ`) and `e^{1/2+ε}/A ≤ A^{−1/2+2ε}` (absolute margin); so `≪ L^C Q² N^{−δ/4}`, saving `C/k`.
+  (O112 self-review: the f-cusp used before had the cusp term `N^{(1−α−β)/2+ε}`, whose `N^ε` destroys the
+  saving for `δ ≪ ε`; the e-cusp moves the degeneracy into the n = 0 term, which has no `N^ε`.) If `k < 2j`:
+  BT on 4ad (saving `1/j ≤ 2/k`), applied to the whole layer (b4).
 * (b3) `D < A`, `α+γ < β < 1` (`e, f ≥ 8A` off the bands): fixed d, cusp `f' = min(e,f) ≤ (ef)^{1/2} ≤ 3A√D`, Thm 6.2
   with `λ ≤ 1/4` (`F' ≥ 8A`); cusp term `f'^{1/2+ε}/A ≪ N^{ε}D^{1/4}A^{−1/2} = N^{(1−γ−3α)/4+ε} ≤ N^{−1/9}` (as
   `α ≥ (1−γ)/2`, `γ ≤ η`); relative remainder `≪ L^C Q² N^{−δ/2}`; saving `C/k`.
@@ -480,11 +491,10 @@ cost is below the cell's weighted mass.
   `δ ≤ 1/3` gives `A, D ≥ N^{1/4}`).
 * (b5) **(D1)** `D < A`, `1 < β ≤ 1+2η₁` (`f < A`, possible because `R_bad` allows `β ≤ 1+η₁`; the old text
   wrongly said f' ≥ A/8 fails only for `β < α+γ`). Put `k' := ⌊(β−1)L⌋ ≥ C₀`. If `k' ≤ k/2`: fixed d with
-  the **e-cusp** (forms `[e, 4ad, df] ∈ 𝓕_d^I`, linear functional `n = cB − C/d`; Lemma 6.1 and Thm 6.2 hold
-  verbatim, the local density being the same `g_{c,d}` — substituting `C/d = cB` gives the same equation
-  `B² − 4cdAB + 4d = 0` as `A = cB` does after `A ↔ C/d`): `λ = A/(qe) ≤ 1/4` since `e/A ≍ N^{β−γ−α} ≥ D/8`
-  (cells with `D ≤ 64` form a band, so `e ≥ 8A`); cusp term `e^{1/2}/A ≍ N^{(β−γ−2α)/2} = N^{(β−1−δ)/2} ≤ N^{−δ/4}`;
-  saving `C/k`. If `k' > k/2`: Brun–Titchmarsh on `4cdf ≍ N^{2−β}` (fibres `cdf` of §8.0), `log(N/m) ≥ k'·log 2/2`,
+  the **f-cusp** and `λ ≍ A/(qf)` (≥ 1/q; any λ is allowed, Thm 6.2): relative remainder
+  `≪ L^C Q²[N^{−δ/2}(1 + A/f)^{1/2} + f^{1/2+ε}/A]`, with `(A/f)^{1/2} ≍ N^{(β−1)/2} ≤ N^{δ/4}` and
+  `f^{1/2+ε}/A ≤ A^{−1/2+ε}` (absolute margin); so `≪ L^C Q² N^{−δ/4}`, saving `C/k` (no `N^ε` at the degenerate
+  end; the e-cusp would have the cusp term `N^{(β−1−δ)/2+ε}`). If `k' > k/2`: Brun–Titchmarsh on `4cdf ≍ N^{2−β}` (fibres `cdf` of §8.0), `log(N/m) ≥ k'·log 2/2`,
   saving `C/k'`. In both cases the saving is `≤ C/max(k, k')`, and the cell's weighted mass is `≪ N`
   **per cell**: Lemma 8.4(b) (`F ≤ A`; sieve weight `g(c)g(d)`) resp. Lemma 8.3(c) with
   `Σ_{c≍2^j} 1/φ(c) ≪ 1` (BT weight `ρ_d(f)N/φ(4cdf)`).
@@ -517,7 +527,7 @@ cited results** — ET Prop 2.2/Lemma 2.8/(8.1)–(8.2) and MN3 Thm 3.8(1) (the 
 Prop 2.3 (rel. ET Thm 7.1), the DI Thm 2 / Drappeau Prop 4.7 spectral large sieve (normalisation checked by R111,
 not re-derived), the spectral theorem for `L²(Γ₀(M)\ℍ, χ)`, Brun–Titchmarsh, Selberg's sieve, Weil, Pólya–Vinogradov.
 Points that are argued briefly and deserve the round-2 reviewer's attention: (i) the e-cusp variant of Lemma 6.1/
-Thm 6.2 used in (b5) (same point set, linear functional `cB − C/d`; the density identity is a two-line substitution);
+Thm 6.2 used in (b2) (same point set, linear functional `cB − C/d`; the density identity is a two-line substitution);
 (ii) the smooth-cell bookkeeping (bands, layers, the choice of treatment per layer in (5)); (iii) Step 6 of Prop 5.1
 (dyadic-weighted large sieve, Gallagher for the `t_j`-dependent coefficients). **Not yet re-reviewed.**
 
