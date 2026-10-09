@@ -1,0 +1,627 @@
+\section{Sobolev duality}\label{sec:sobolev}
+We use the nonpositive Laplacian
+\(\Delta=y^2(\partial_x^2+\partial_y^2)\) and
+\(d\mu=dx\,dy/y^2\). Throughout this section \(\Gamma\) denotes the
+\emph{effective} image in \(\PSL_2(\R)\) of a finite-index subgroup of
+\(\SL_2(\Z)\), or a conjugate thereof. In particular, kernel sums never
+count both signs of a matrix. Write \(V=\vol(\Gamma\backslash\HH)\).
+For a \(\Gamma\)-invariant discrete set \(\widetilde\Lambda\) with finitely
+many orbits, put
+\[
+ e_z=|\Gamma_z|,\qquad
+ \nu_\Lambda=\sum_{z\in\Gamma\backslash\widetilde\Lambda}e_z^{-1}\delta_z,
+ \qquad \#\Lambda=\sum_{z\in\Gamma\backslash\widetilde\Lambda}e_z^{-1}.
+\]
+These weights are necessary at elliptic points.
+
+\begin{lemma}[Resolvent kernel; standard]\label{L:4.1}
+There is a nonnegative continuous radial function \(g\) on \(\HH\), with
+\[
+ g(r)\ll(1+r)e^{-\varphi r},\qquad
+ \varphi=\frac{1+\sqrt5}{2},
+\]
+such that the kernel of \((1-\Delta)^{-2}\) on
+\(L^2(\Gamma\backslash\HH)\) is
+\(K(z,w)=\sum_{\gamma\in\Gamma}g(\operatorname{dist}(z,\gamma w))\).
+The sum converges absolutely.
+\end{lemma}
+\begin{proof}
+% O114-FLAG: The Iwaniec section/theorem numbers here and in the spectral
+% expansion are inherited from the source; the book is not in sources/,
+% so these locators, unlike DI and Drappeau, have not been independently checked.
+The Selberg--Harish-Chandra multiplier is
+\(h(t)=(5/4+t^2)^{-2}\); see \cite[\S1.8]{Iw} for the transform and its
+inversion, and \cite[Theorem 1.14]{Iw} for automorphisation.
+It is even, holomorphic in \(|\Im t|<\sqrt5/2\), and integrable against
+\(t\tanh(\pi t)\,dt\). Inversion therefore gives a continuous bounded
+point-pair kernel, with
+\(g(0)=(4\pi)^{-1}\int_{\R}h(t)t\tanh(\pi t)\,dt\).
+For completeness, the decay can also be read directly from the resolvent
+kernel. For \(s>1\), the kernel of \((-\Delta+s(s-1))^{-1}\) on \(\HH\) is
+\[
+ R_s(r)=\frac1{2\pi\sqrt2}\int_r^\infty
+       \frac{e^{-(s-1/2)v}}{\sqrt{\cosh v-\cosh r}}\,dv.
+\]
+Differentiating in \(s(s-1)\), at \(s=\varphi\), gives
+\[
+ g(r)=\frac1{2\pi\sqrt2(2\varphi-1)}
+       \int_r^\infty\frac{v e^{-(\varphi-1/2)v}}
+                            {\sqrt{\cosh v-\cosh r}}\,dv.
+\]
+This proves positivity. For \(r\ge1\), substitute \(v=r+u\) and use
+\(\cosh(r+u)-\cosh r\gg e^r(e^u-1)\); the resulting integral is
+\(\ll(1+r)e^{-\varphi r}\). At \(r=0\) the numerator cancels the
+singularity, giving the same boundedness and continuity as inversion.
+An orbit of a discrete cofinite group has \(O_{z,w,\Gamma}(e^R)\) points,
+with multiplicity, within distance \(R\). Since \(\varphi>1\), the
+periodisation is absolutely convergent. The automorphic kernel theorem
+identifies it with the multiplier \(h\), which is precisely
+\((1-\Delta)^{-2}\).
+\end{proof}
+
+\begin{lemma}[Separated sets]\label{L:4.2}
+\status{proved}. If distinct points of \(\widetilde\Lambda\) have distance
+at least \(r_0>0\), then
+\[
+ \|\nu_\Lambda\|_{H^{-2}}^2
+ :=\langle\nu_\Lambda,(1-\Delta)^{-2}\nu_\Lambda\rangle
+ \le C(r_0)\#\Lambda,
+\]
+where \(C(r_0)\) is independent of the group and the set.
+\end{lemma}
+\begin{proof}
+Using Lemma~\ref{L:4.1} and cancelling the stabiliser multiplicity in
+one variable gives
+\[
+ \langle\nu_\Lambda,(1-\Delta)^{-2}\nu_\Lambda\rangle
+ =\sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac1{e_z}
+       \sum_{w\in\widetilde\Lambda}g(\operatorname{dist}(z,w)).
+\]
+Indeed each lift of \(w\) occurs \(e_w\) times in the kernel sum.
+The balls of radius \(r_0/2\) around distinct lifts are disjoint.
+Those with centres within distance \(R\) of \(z\) lie in the ball of
+radius \(R+r_0/2\); comparison with its area
+\(4\pi\sinh^2((R+r_0/2)/2)\) bounds their number by \(O_{r_0}(e^R)\).
+Thus each inner sum is at most
+\(O_{r_0}(\sum_{m\ge0}(1+m)e^{(1-\varphi)m})=O_{r_0}(1)\).
+All rearrangements are justified by positivity and this convergent bound.
+\end{proof}
+
+\begin{proposition}[Uniform Sobolev duality]\label{L:4.3}
+\status{proved}. Suppose \(P\) is smooth and
+\(P,\Delta P,\Delta^2P\in L^2(\Gamma\backslash\HH)\). Put
+\(\langle P\rangle=V^{-1}\int P\,d\mu\) and
+\(P_0=P-\langle P\rangle\). Under Lemma~\ref{L:4.2}'s separation hypothesis,
+\[
+ \left|\sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac{P(z)}{e_z}
+           -\#\Lambda\langle P\rangle\right|
+ \le C(r_0)^{1/2}(\#\Lambda)^{1/2}\|(1-\Delta)P_0\|_2.
+\]
+\end{proposition}
+\begin{proof}
+Lemma~\ref{L:4.2} says that \((1-\Delta)^{-1}\nu_\Lambda\in L^2\)
+with squared norm at most \(C(r_0)\#\Lambda\). Self-adjointness, first
+for smooth regularisations of the point masses and then by Sobolev
+duality, gives
+\[
+ \nu_\Lambda(P_0)=
+ \langle(1-\Delta)P_0,(1-\Delta)^{-1}\nu_\Lambda\rangle.
+\]
+Point evaluation agrees with this distributional pairing by local
+Sobolev embedding in dimension two. Cauchy--Schwarz proves the claim.
+\end{proof}
+
+\begin{corollary}[Heegner forms]\label{L:4.4}
+\status{proved}. Let \(\cF\subset\cF_d\) be invariant under a subgroup
+\(\Gamma\subset\Gamma_0(d)\) acting on \(w_Q=z_Q/d\), with finitely many
+orbits. Proposition~\ref{L:4.3} holds with an absolute constant for its
+root set. If the effective stabiliser of infinity consists of translations
+by \(h\Z\), and \(\psi\in C_c^\infty(\HH)\), set
+\[
+ \psi_{\rm per}(w)=\sum_{m\in\Z}\psi(w+mh),\qquad
+ P_\psi(w)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
+                           \psi_{\rm per}(\gamma w).
+\]
+Then
+\[
+ \sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac{P_\psi(z)}{e_z}
+  =\sum_{Q\in\cF}\psi(w_Q),\qquad
+ \langle P_\psi\rangle=V^{-1}\int_{\HH}\psi\,d\mu.
+\]
+The same statements hold after conjugating the group by a real dilation.
+\end{corollary}
+\begin{proof}
+The dilation is a hyperbolic isometry, so Lemma~\ref{L:2.2} supplies the
+absolute separation \(r_0=\operatorname{arccosh}(3/2)\).
+Unfold the group sum, cancelling elliptic stabilisers as in
+Lemma~\ref{L:4.2}, and then unfold translations. The root map is
+injective at fixed discriminant, so this counts forms, not just roots.
+Unfolding the integral proves the mean formula. The Poincar\'e series
+and its Laplacian iterates are smooth and vanish sufficiently high in
+every cusp: for a nonstabilising coset the transformed height tends to
+zero, below the support of \(\psi\), whereas at infinity the stabilising
+coset eventually lies above its support. Thus they satisfy the
+integrability assumptions of Proposition~\ref{L:4.3}.
+\end{proof}
+
+\section{The spectral large sieve and the variance of box Poincar\'e series}
+\label{sec:sieve}
+We recall the coordinates of Section~\ref{sec:heegner}, keeping the parity
+condition throughout. For odd squarefree \(q\) with \((q,d)=1\), conjugation
+by \(u=w/(2q)\) takes the effective image of
+\(\Gamma'_q=\Gamma_0(2d)\cap\Gamma(2q)\) to
+\[
+ \Gamma_{M,q}=\left\{\pm\begin{pmatrix}p&t\\r&s\end{pmatrix}
+       \in\Gamma_0(M):p\equiv s\equiv1\pmod{2q}\right\},
+ \qquad M=4dq^2.
+\]
+Its cusp at infinity has width one. Set
+\(h_q=[\Gamma_0(M):\Gamma_{M,q}]\), with effective groups understood:
+\(h_1=1\) and \(h_q=\varphi(q)/2\) for \(q>1\).
+The quotient is \((\Z/q\Z)^\times/\{\pm1\}\); hence its characters are
+exactly the even characters modulo \(q\), equivalently modulo \(2q\).
+
+\subsection*{The imported spectral estimates}
+We specify normalisations to distinguish a cusp width from the parameter
+in the large sieve. At a singular cusp \(\mathfrak a\), choose a scaling
+matrix giving period one, and write the expansion of an orthonormal
+weight-zero Maass form as
+\begin{equation}\label{B:eq:fourier}
+ u_j(\sigma_{\mathfrak a}z)
+ =\sqrt y\sum_{n\ne0}\rho_{j\mathfrak a}(n)
+                 K_{it_j}(2\pi|n|y)e^{2\pi inx}.
+\end{equation}
+This is DI's normalisation \cite[(1.34), p.~231]{DI}.
+The Eisenstein coefficients \(\rho_{\mathfrak c\mathfrak a}(n,t)\)
+will use the identical \(\sqrt yK_{it}\) convention. The DI cusp
+parameter for \(\Gamma_0(M)\) is
+\[
+ \mu(\mathfrak a)=\frac{(v,M/v)}M
+ \quad\text{if }\mathfrak a\sim u/v,\ v\mid M,\ (u,v)=1;
+ \qquad \mu(\infty)=M^{-1}.
+\]
+It is \emph{not} the literal translation width at infinity, which is one.
+For \(K\ge1\), \(H\ge1/2\), and \(a_n\) supported on \(H<n\le2H\),
+DI \cite[Theorem 2, (1.29)--(1.30), p.~230]{DI} bounds the cuspidal
+expression
+\[
+ \sum_{|t_j|\le K}\frac1{\cosh(\pi t_j)}
+       \left|\sum_n a_n\rho_{j\mathfrak a}(n)\right|^2
+\]
+and its continuous-spectrum analogue by
+\((K^2+\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2\), for trivial
+nebentypus. With an even character of conductor \(q_0\mid q\), the bound is
+\begin{equation}\label{B:eq:large-sieve}
+ \ll_\varepsilon
+ (K^2+q_0^{1/2}\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2.
+\end{equation}
+Here the continuous analogue means
+\(\sum_{\mathfrak c}(4\pi)^{-1}\int_{-K}^K
+\cosh(\pi t)^{-1}|\sum_n a_n\rho_{\mathfrak c\mathfrak a}(n,t)|^2dt\),
+summed over all singular cusps. This is
+\cite[Proposition 4.7, (4.24)--(4.25)]{Dr}, in the arXiv numbering.
+Drappeau uses Whittaker coefficients: since
+\(W_{0,it}(4\pi|n|y)=2\sqrt{|n|y}K_{it}(2\pi|n|y)\),
+\(\rho^{\rm DI}(n)=2\sqrt{|n|}\rho^{\rm Dr}(n)\).
+Thus his \(\sqrt n\rho^{\rm Dr}(\pm n)\) is exactly our coefficient
+up to the constant 2; his factor \((1+|t|)^{\pm\kappa}\) is one because
+\(\kappa=0\). These estimates hold separately for either sign of \(n\).
+
+For later comparison, DI \cite[Theorem 5, (1.38), p.~232]{DI} states,
+for trivial character, \(X\ge1\), and exceptional parameters
+\(t_j=i\sigma_j\), \(0<\sigma_j<1/2\),
+\begin{equation}\label{B:eq:exceptional-sieve}
+ \sum_{j\ {
+m exc}}X^{2\sigma_j}
+   \left|\sum_{H<n\le2H}a_n\rho_{j\mathfrak a}(n)\right|^2
+ \ll_\varepsilon
+ (1+\sqrt{\mu(\mathfrak a)HX})
+ (1+\sqrt{\mu(\mathfrak a)H^{1+\varepsilon}})\|a\|_2^2.
+\end{equation}
+The nebentypus analogue is \cite[Lemma 4.8]{Dr}, with second factor
+\(1+(q_0\mu(\mathfrak a)H)^{1/2+\varepsilon}\).
+The displayed DI statements have been checked against the scan; the
+Drappeau numbering and coefficient conversion refer to arXiv:1504.05549,
+not to an unchecked published numbering.
+
+\subsection*{The box variance}
+Take \(\phi\in C_c^\infty([-2,-1])\), \(W\in C_c^\infty([1,2])\), and
+\[
+ \psi(u)=\phi(x/\lambda)W(y/Y),\qquad
+ L_* =\log(2+(\lambda Y)^{-1}+Y^{-1}+M).
+\]
+Assume \(\lambda>0\) and \(Y\le\lambda L_*^{-3}\). Periodisation is always
+understood; no restriction \(\lambda<1\) is imposed. For nonnegative
+nonzero weights its area is \(\asymp\lambda/Y\). In applications
+\(\lambda\asymp A/(qF)\), \(Y\asymp1/(qF\sqrt d)\), and \(L_*\ll\cL\).
+
+\begin{proposition}[Box variance]\label{L:5.1}
+\status{conditional} on (SEL). On \(\Gamma_{M,q}\backslash\HH\),
+\begin{equation}\label{B:eq:variance}
+ \|(1-\Delta)(P_\psi-\langle P_\psi\rangle)\|_2^2
+ \ll_{\phi,W,\varepsilon}L_*^C
+ \left\{\frac\lambda Y
+   \left(1+\frac{q^{1/2}}M(L_*/\lambda)^{1+\varepsilon}\right)
+       +\frac{\lambda^2}Y\right\}.
+\end{equation}
+The constant is uniform in \(d,q,\lambda,Y\), and depends on only finitely
+many seminorms of the two fixed weights.
+\end{proposition}
+\begin{proof}
+\emph{Reduction and spectral expansion.}
+Differentiation commutes with periodisation and
+\[
+ (1-\Delta)\psi
+ =\phi(x/\lambda)(W(v)-v^2W''(v))
+       -(Y/\lambda)^2\phi''(x/\lambda)v^2W(v),\qquad v=y/Y.
+\]
+Moreover \(\int\Delta\psi\,d\mu=0\). Since \(Y/\lambda\le1\), it suffices
+to bound \(\|P_\psi-\langle P_\psi\rangle\|_2^2\) by the right side of
+\eqref{B:eq:variance}, for arbitrary fixed smooth weights of this type.
+For each even \(\chi\bmod q\), let
+\[
+ P_\chi=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma_0(M)}
+            \overline{\chi(\gamma)}\psi_{\rm per}(\gamma u).
+\]
+Character orthogonality gives \(P_\psi=h_q^{-1}\sum_\chi P_\chi\) and
+\begin{equation}\label{B:eq:char-norm}
+ \|P_\psi-\langle P_\psi\rangle\|_{\Gamma_{M,q}}^2
+ =\frac1{h_q}\sum_\chi
+       \|P_\chi-\ind_{\chi=1}\langle P_1\rangle\|_{\Gamma_0(M),\chi}^2.
+\end{equation}
+The spectral expansion, with Eisenstein measure \(dt/(4\pi)\), is the
+usual Parseval formula \cite[Theorem 7.3]{Iw} (with the character
+spaces and singular cusps as in \cite[\S4.1]{Dr}).
+\emph{This is the sole use of (SEL):} after removing the constant,
+all discrete parameters are real, and there is no nonconstant residual
+spectrum. Thus the squared norm for a fixed character is the sum of
+\(|\langle P_\chi,u_j\rangle|^2\) over cusp forms and
+\((4\pi)^{-1}\sum_{\mathfrak c}\int_\R
+|\langle P_\chi,E_{\mathfrak c}(\cdot,1/2+it)\rangle|^2dt\).
+
+\emph{Unfolding and Mellin inversion.}
+Write \(\widehat\phi(\xi)=\int_\R\phi(v)e^{-2\pi i\xi v}dv\).
+The periodised box has Fourier coefficient
+\(\lambda\widehat\phi(\lambda n)W(y/Y)\), even when \(\lambda>1\).
+Using \eqref{B:eq:fourier}, unfolding gives
+\[
+ \langle P_\chi,u_j\rangle
+ =\sum_{n\ne0}\overline{\rho_j(n)}\lambda\widehat\phi(\lambda n)I_{t_j}(n),
+ \quad I_t(n)=\int_0^\infty W(y/Y)y^{-3/2}K_{it}(2\pi|n|y)\,dy.
+\]
+Set
+\[
+ G_t(s)=\Gamma((s+it)/2)\Gamma((s-it)/2),\qquad
+ \mathcal W(s)=\int_0^\infty W(v)v^{-3/2-s}dv.
+\]
+Write also
+\[
+ B_j(s)=\sum_{n\ne0}\overline{\rho_j(n)}
+              \lambda\widehat\phi(\lambda n)|n|^{-s}.
+\]
+The function \(\mathcal W\) is entire and rapidly decreasing vertically,
+uniformly on fixed strips. Mellin inversion of the Bessel function gives,
+for \(\sigma>0\),
+\begin{equation}\label{B:eq:mellin}
+ \langle P_\chi,u_j\rangle
+ =\frac{Y^{-1/2}}{8\pi i}\int_{(\sigma)}
+        G_{t_j}(s)\mathcal W(s)(\pi Y)^{-s}B_j(s)\,ds.
+\end{equation}
+Absolute convergence follows from the rapid decay of
+\(\widehat\phi\), the polynomial growth of Fourier coefficients, and
+Stirling's formula.
+
+\emph{Uniform spectral bounds.}
+Put \(\sigma_0=1/L_*\). Stirling's formula, including the simple poles
+of \(\Gamma\), gives
+\begin{align*}
+ |G_t(\sigma_0+iv)|&\ll L_*^2e^{-\pi|v|/2} &&(|t|\le1),\\
+ |G_t(-1+iv)|&\ll e^{-\pi|t|/2}(1+|t|)^{-2}(1+|v|)^4
+                                      &&(|t|\ge1).
+\end{align*}
+For the second bound, if \(|v|\le|t|/2\) both gamma arguments have
+imaginary part comparable to \(|t|\); otherwise
+\(1+|t|\ll1+|v|\) and the exponential is
+\(e^{-\pi\max(|v|,|t|)/2}\). On this line both real parts are \(-1/2\),
+a fixed distance from gamma poles. Since \(Y^{-\sigma_0}\ll1\),
+Cauchy--Schwarz in \eqref{B:eq:mellin} yields, for \(|t_j|\le1\),
+\[
+ |\langle P_\chi,u_j\rangle|^2
+ \ll Y^{-1}L_*^4\int_\R |\mathcal W(\sigma_0+iv)|
+                                    |B_j(\sigma_0+iv)|^2\,dv.
+\]
+For \(|t_j|\ge1\), shift to \(\Re s=-1\), crossing only \(s=\pm it_j\).
+The residue contribution is
+\[
+ \frac{Y^{-1/2}}2\sum_\pm
+       \Gamma(\pm it_j)\mathcal W(\pm it_j)(\pi Y)^{\mp it_j}B_j(\pm it_j).
+\]
+Let \(\widetilde B_j(s)=(\pi Y)^{-s}B_j(s)\).
+Using \(|\Gamma(it)|^2=\pi/(|t|\sinh(\pi|t|))\), for any fixed large
+\(B\) the squared coefficient is at most
+\begin{align}\label{B:eq:high-t}
+ \frac{C_BY^{-1}}{\cosh(\pi t_j)}\bigg\{&
+ (1+|t_j|)^{-B}\sum_\pm|B_j(\pm it_j)|^2\notag\\
+ &+(1+|t_j|)^{-4}\int_\R
+  |\mathcal W(-1+iv)|(1+|v|)^4|\widetilde B_j(-1+iv)|^2\,dv\bigg\}.
+\end{align}
+
+\emph{The large sieve, including both tails.}
+Split \(n\) by sign and into dyadic blocks \(H<|n|\le2H\),
+\(H=2^{i-1}\), \(i\ge0\). With
+\(w_H=1+|\log(\lambda H)|\), one has \(\sum_Hw_H^{-2}\ll1\).
+Cauchy--Schwarz across blocks and \eqref{B:eq:large-sieve} imply
+\[
+ \mathcal S(K;b):=\sum_{|t_j|\le K}\frac{|\sum_{n\ne0}\overline{\rho_j(n)}b_n|^2}
+                                             {\cosh(\pi t_j)}
+ \ll_\varepsilon\sum_H w_H^2
+       (K^2+q^{1/2}M^{-1}H^{1+\varepsilon})\|b^{(H)}\|_2^2.
+\]
+Complex conjugation of the coefficient vector causes no change in this
+inequality; either sign is covered by Drappeau's statement (or reflection
+and replacement of \(\chi\) by \(\bar\chi\)). For
+\(b_n(s)=\lambda\widehat\phi(\lambda n)|n|^{-s}\), at
+\(\Re s=\sigma_0\) or \(0\), the block norm is
+\(\ll_B\lambda^2H(1+\lambda H)^{-B}\).
+Summing the geometric tails gives, with
+\(Z=q^{1/2}M^{-1}\lambda^{-1-\varepsilon}\),
+\begin{equation}\label{B:eq:block-sieve}
+ \mathcal S(K;b(s))\ll L_*^2\lambda(K^2+Z).
+\end{equation}
+At \(\Re s=-1\), the coefficients of \(\widetilde B\) have modulus
+\(\pi Y|n|\lambda|\widehat\phi(\lambda n)|\); their bound is
+\eqref{B:eq:block-sieve} multiplied by \((Y/\lambda)^2\le1\), after
+increasing the decay exponent. This also proves the claims when
+\(\lambda>1\): then every nonzero mode lies in the rapidly decreasing tail.
+
+For the varying vectors \(b_n(\pm it_j)\), on each unit interval
+\([k,k+1]\) use the elementary inequality
+\[
+ |B_j(\pm it)|^2\le2|B_j(\pm ik)|^2+
+              2\int_k^{k+1}|\partial_\tau B_j(\pm i\tau)|^2d\tau.
+\]
+Differentiating multiplies a coefficient by \(\log|n|\), bounded on a
+block by \(O(L_*+|\log(\lambda H)|)\); the extra factors are absorbed
+in the same block sums. Consequently the sum on \(K<|t_j|\le2K\)
+for these vectors is \(\ll K L_*^4\lambda(K^2+Z)\).
+Insert these bounds in \eqref{B:eq:high-t} and the small-\(t\) estimate.
+Dyadic summation over \(K\ge1\) converges, since the integral term has
+weight \(K^{-4}\) and the residue term has arbitrary weight \(K^{-B}\).
+Vertical integrals converge by the decay of \(\mathcal W\). We obtain
+\[
+ \sum_j|\langle P_\chi,u_j\rangle|^2
+       \ll L_*^C\frac\lambda Y(1+Z).
+\]
+No truncation at logarithmic frequency or height was made.
+
+\emph{The continuous spectrum and its zero mode.}
+For nonzero modes the identical argument uses the continuous version of
+\eqref{B:eq:large-sieve}. In the unit-interval argument freeze the
+Eisenstein parameter in the Fourier coefficients and differentiate only
+the auxiliary variable in \(|n|^{-i\tau}\), then evaluate on the diagonal
+\(\tau=t\); no derivative of an Eisenstein coefficient is required.
+The constant term at infinity is
+\(\delta_{\mathfrak c\infty}y^{1/2+it}
+ +\Phi_{\mathfrak c\infty}(1/2+it)y^{1/2-it}\).
+Its pairing with the box is
+\[
+ \lambda\widehat\phi(0)Y^{-1/2}
+ \{\delta_{\mathfrak c\infty}Y^{-it}\mathcal W(it)
+  +\overline{\Phi_{\mathfrak c\infty}(1/2+it)}Y^{it}\mathcal W(-it)\}.
+\]
+Unitarity of the scattering matrix on the unitary axis gives
+\(\sum_{\mathfrak c}|\Phi_{\mathfrak c\infty}(1/2+it)|^2=1\).
+Squaring, integrating and summing therefore costs \(O(\lambda^2/Y)\),
+independently of the number of cusps. The cross term with nonzero modes
+is absorbed by \(|a+b|^2\le2|a|^2+2|b|^2\).
+Finally \eqref{B:eq:char-norm} averages exactly \(h_q\) character bounds;
+there is no loss from their number. Enlarging
+\(\lambda^{-1-\varepsilon}\) to \((L_*/\lambda)^{1+\varepsilon}\) proves
+\eqref{B:eq:variance}.
+\end{proof}
+
+Without (SEL), the terms with \(t_j=i\sigma_j\) remain. On a block
+\(|n|\asymp H\), the Bessel factor has additional size
+\((HY)^{-\sigma_j}\). Thus \eqref{B:eq:exceptional-sieve} is used with
+\(X=(HY)^{-1}\) when \(HY\le1\), not with \(X=Y^{-1}\).
+It does not recover Proposition~\ref{L:5.1} in the required cells;
+Section~\ref{sec:uncond} records precisely the resulting unconditional
+limitation. Neither the Sobolev argument nor the regular-spectrum large
+sieve depends on (SEL).
+
+\section{Per-\texorpdfstring{$d$}{d} counts}\label{sec:perd}
+Fix \(c\ge1\). The Type~I subset is
+\[
+ \cF_d^I=\{[f,4ad,de]:ef-4a^2d=1,\ e,f>0,\ a\in\Z\},
+ \qquad n(Q)=cB-A=4acd-f.
+\]
+Here \(A\) in \([A,B,C]\) is a form coefficient, not the dyadic parameter.
+This subset is invariant under \(\Gamma'_1=\Gamma_0(2d)\cap\Gamma(2)\)
+on the \(w\)-side. Indeed, the corresponding matrix on the \(z\)-side
+has upper-right entry divisible by \(2d\) and lower-left entry even, so
+\(B'=2Apt+B(ps+tr)+2Crs\equiv0\pmod{4d}\).
+Reduction modulo \(q\) shows that the additional condition \(q\mid n(Q)\)
+is invariant under \(\Gamma'_q\). These are the groups of
+Section~\ref{sec:sieve}; using \(\Gamma_0(d)\) alone would lose parity.
+
+For a prime \(\ell\nmid2d\), put \(\chi_d(\ell)=(-d/\ell)\) and define
+\(g_{c,d}(\ell)\) as the proportion on the quadric
+\(B^2-4AC=-4d\) satisfying \(cB-A=0\). Directly,
+\begin{equation}\label{B:eq:density}
+ g_{c,d}(\ell)=
+ \begin{cases}
+ (\ell-1)/(\ell^2+\chi_d(\ell)\ell),&\ell\nmid c,\\
+ (1+\chi_d(\ell))/(\ell+\chi_d(\ell)),&\ell\mid c.
+ \end{cases}
+\end{equation}
+Extend multiplicatively to squarefree \(q\) coprime to \(2d\).
+The denominator counts the quadric: for \(A\ne0\) there are
+\(\ell(\ell-1)\) choices, while \(A=0\) gives
+\(\ell(1+\chi_d(\ell))\). If \(\ell\nmid c\), the imposed equation
+forces \(B\ne0\), giving exactly \(\ell-1\) choices. If \(\ell\mid c\),
+it forces \(A=0\), giving the second numerator. Primes dividing \(2d\)
+never divide \(n\): both \(f\) and \(n\) are odd, and \(f\) is a unit
+at every prime dividing \(d\).
+
+\begin{lemma}[Factorisation of the orbital main term]\label{L:6.1}
+\status{proved}. Let \(\#\Lambda_d(q)\) be the orbifold count of
+\(\{Q\in\cF_d^I:q\mid n(Q)\}\) modulo \(\Gamma'_q\), and put
+\(V(q)=\vol(\Gamma'_q\backslash\HH)\). For squarefree \((q,2d)=1\),
+\[
+ \frac{\#\Lambda_d(q)}{V(q)}
+ =g_{c,d}(q)\frac{\#\Lambda_d(1)}{V(1)}.
+\]
+\end{lemma}
+\begin{proof}
+There is nothing to prove for \(q=1\). Reduction of \(\Gamma'_1\)
+onto \(\SL_2(\Z/q\Z)\) is surjective: it contains \(\Gamma(2d)\),
+and the assertion follows from CRT and surjectivity of reduction for
+\(\SL_2(\Z)\). The kernel is \(\Gamma'_q\). Thus the index of effective
+groups is
+\(I_q=|\SL_2(\Z/q\Z)|/2\), since \(-I\) belongs to \(\Gamma'_1\)
+but not to \(\Gamma'_q\).
+At a prime \(\ell\mid q\), the stabiliser of a nondegenerate binary form
+in \(\SL_2(\mathbb F_\ell)\) is its special orthogonal torus, of order
+\(\ell-\chi_d(\ell)\): it is either the split torus or the norm-one
+subgroup of \(\mathbb F_{\ell^2}^{\times}\).
+Its orbit consequently has \(\ell^2+\chi_d(\ell)\ell\) elements, the
+size of the entire quadric. The fraction satisfying the sieve condition
+is therefore \(g_{c,d}(\ell)\), independently of the original orbit.
+CRT gives the product of these fractions.
+For an orbit with stabiliser order \(e_Q\), the weighted number of
+sieved \(\Gamma'_q\)-orbits above it is
+\(e_Q^{-1}I_qg_{c,d}(q)\), by orbit--stabiliser (equivalently, sum over
+the cosets before dividing by the stabiliser). Summing over the original
+orbits, and using \(V(q)=I_qV(1)\), proves the formula.
+\end{proof}
+
+Choose a fixed physical box, so that in the coordinates \(u=w/(2q)\)
+its weights are \(\psi_q(u)=\psi_1(qu)\). Accordingly
+\(\lambda_q=\lambda_1/q\), \(Y_q=Y_1/q\), and
+\(\int\psi_q\,d\mu=\int\psi_1\,d\mu\). Define
+\[
+ \mathfrak M_d=\frac{\#\Lambda_d(1)}{V(1)}\int_{\HH}\psi_q\,d\mu,
+ \qquad \kappa_c(q)=2^{\omega((q,c))}.
+\]
+The first quantity is independent of the sieve modulus. Here and below
+\(\omega(m)\) counts the distinct prime factors of \(m\).
+
+% O114-FLAG: The source's Theorem 6.2 drops a factor at primes dividing c.
+% Its assertion #Lambda_d(q) << q^2 #Lambda_d(1), uniformly in c,q,
+% does not follow for (q,c)>1: a split prime dividing c contributes
+% |SL_2(F_ell)| g(ell) = 2 ell(ell-1). The theorem below retains
+% kappa_c(q)^{1/2}; the source's bound is recovered for (q,c)=1,
+% which is the sieve range excluding primes dividing 2cd in the assembly.
+\begin{theorem}[Per-\(d\) count]\label{L:6.2}
+\status{conditional} on (SEL). Let \(q\) be squarefree, \((q,2d)=1\),
+and let \(\psi_q\) be a box as in Proposition~\ref{L:5.1}, with
+\(\lambda_q\asymp A/(qF)\), \(Y_q\asymp1/(qF\sqrt d)\), \(A,F\ge1\).
+Assume the parameters are of polynomial size in \(N\), so \(L_*\ll\cL\).
+Then, for \(0<\varepsilon<1/2\),
+\begin{align}\label{B:eq:per-d}
+ &\left|\sum_{\substack{Q\in\cF_d^I\\q\mid n(Q)}}\psi_q(u_Q)
+             -g_{c,d}(q)\mathfrak M_d\right|\notag\\
+ &\quad\ll_\varepsilon \cL^C q\kappa_c(q)^{1/2}(\#\Lambda_d(1))^{1/2}
+   \left\{A\sqrt d\left(1+\frac A{qF}\right)
+                     +\frac{F^{1+\varepsilon}}{\sqrt d}\right\}^{1/2}.
+\end{align}
+In particular the factor \(\kappa_c(q)^{1/2}\) is absent when \((q,c)=1\),
+as in the sieve application. There is no lower bound on \(F/A\).
+\end{theorem}
+\begin{proof}
+Corollary~\ref{L:4.4} applies to the sieved subset, because separation
+is preserved by passage to a subset and by the dilation to \(u\).
+Lemma~\ref{L:6.1} identifies its mean as \(g_{c,d}(q)\mathfrak M_d\).
+In Proposition~\ref{L:5.1},
+\[
+ \frac\lambda Y\asymp A\sqrt d,\qquad
+ \frac{\lambda^2}Y\asymp A\sqrt d\frac A{qF},\qquad
+ \frac{q^{1/2}}{MY}\lambda^{-\varepsilon}
+ \ll\frac{F^{1+\varepsilon}}{\sqrt d}
+                 q^{-1/2+\varepsilon}A^{-\varepsilon}
+ \le\frac{F^{1+\varepsilon}}{\sqrt d}.
+\]
+The remaining factor from Sobolev duality is \((\#\Lambda_d(q))^{1/2}\).
+For \(\ell\nmid c\),
+\[
+ |\SL_2(\mathbb F_\ell)|g_{c,d}(\ell)
+       =(\ell-\chi_d(\ell))(\ell-1)\le\ell^2;
+\]
+for \(\ell\mid c\) it is either zero or \(2\ell(\ell-1)\le2\ell^2\).
+The exact identity from Lemma~\ref{L:6.1} therefore gives
+\(\#\Lambda_d(q)\le\kappa_c(q)q^2\#\Lambda_d(1)\), also for \(q=1\).
+Taking square roots proves \eqref{B:eq:per-d}.
+\end{proof}
+
+The term \(A/(qF)\) is the cost of wrapping around several periods;
+it carries no \(N^\varepsilon\) loss. One may instead use the \(e\)-cusp:
+\(w\mapsto-1/(dw)\) sends the point to
+\((2a+i/\sqrt d)/e\), and reflection gives the same boxes.
+Interchanging \(e,f\) replaces the sieve equation \(A=cB\) by
+\(C/d=cB\). The involution
+\((A,B,C)\mapsto(C/d,B,dA)\) is a bijection of the quadric modulo every
+prime not dividing \(2d\); hence the densities and the estimate are
+unchanged.
+
+\begin{lemma}[Class-number bound]\label{L:6.3}
+\status{proved}. With \(h(-4d)\) the number of primitive proper classes
+of discriminant \(-4d\), and
+\(r(d)=\prod_{p^k\parallel d}p^{\lfloor k/2\rfloor}\),
+\[
+ \#\Lambda_d(1)\le6h(-4d)r(d),\qquad
+ \sum_{d\le D}\#\Lambda_d(1)\ll D^{3/2}\log^2(2D).
+\]
+\end{lemma}
+\begin{proof}
+Every Type~I form is primitive: a prime dividing \(f\) divides neither
+\(2ad\) nor \(4ad\), by \(ef-4a^2d=1\).
+For a primitive class represented by \(Q_0\), its admissible level-\(d\)
+cosets are bounded by the number of
+\((t:s)\in\mathbb P^1(\Z/d\Z)\) with \(Q_0(t,s)\equiv0\pmod d\).
+Indeed, the second column of a matrix representing a coset modulo
+\(\Gamma^0(d)\) gives this projective point; the condition that the
+transformed last coefficient be divisible by \(d\) is necessary.
+Passing from \(\Gamma_0(d)\) to \(\Gamma'_1\) costs index at most six
+(exactly six for odd \(d\), four for even \(d\)); imposing Type~I parity
+can only decrease the count. Stabiliser weights only improve this upper bound.
+
+For \(p^k\parallel d\), make an invertible change of variables so that
+\(Q_0=[A_0,B_0,C_0]\) has \(p\nmid A_0\). This is possible by primitivity;
+at 2, \(B_0\) is even and one of the outer coefficients is odd.
+Points with \(p\mid s\) cannot be zeros. At an odd prime, zeros
+\((t:1)\) satisfy
+\((2A_0t+B_0)^2\equiv0\pmod{p^k}\), since the discriminant is \(-4d\).
+There are exactly \(p^{\lfloor k/2\rfloor}\) possibilities.
+At 2, write \(B_0=2B'_0\); the identity
+\[
+ A_0Q_0(t,1)=(A_0t+B'_0)^2+d
+\]
+shows that the condition is
+\(A_0t+B'_0\equiv0\pmod{2^{\lceil k/2\rceil}}\), again giving
+\(2^{\lfloor k/2\rfloor}\) possibilities. CRT proves the first assertion.
+The classical imaginary-quadratic class-number formula
+\cite{IK} is
+\(h(D_0)=w(D_0)\sqrt{|D_0|}L(1,\chi_{D_0})/(2\pi)\),
+where \(w(D_0)\le6\) and \(\chi_{D_0}\) is the Kronecker character,
+possibly imprimitive. Its nonprincipal character sums are bounded by
+\(|D_0|\); splitting the Dirichlet series there and using partial
+summation gives \(L(1,\chi_{D_0})\ll\log(2|D_0|)\).
+Thus \(h(-4d)\ll\sqrt d\log(2d)\), including nonfundamental discriminants.
+Finally,
+\[
+ \sum_{d\le D}r(d)
+ \le\sum_{m\le\sqrt D}m\,\#\{d\le D:m^2\mid d\}
+ \le D\sum_{m\le\sqrt D}\frac1m\ll D\log(2D).
+\]
+Multiplying by \(\sqrt D\log(2D)\) proves the second assertion.
+\end{proof}
+
+There is no uniform per-\(d\) relative-error assertion: the orbital
+main term contains a possibly small class number. Section~\ref{sec:assembly}
+uses only absolute errors and
+\(\sum_{d\asymp D}\sqrt{\#\Lambda_d(1)}\ll D^{5/4}\log(2D)\),
+by Cauchy--Schwarz and Lemma~\ref{L:6.3}. Relative to the box mass
+\(AD\), the first summed error in \eqref{B:eq:per-d} has size
+\(\cL^Cq(D/A)^{1/2}(1+A/(qF))^{1/2}\) when \((q,c)=1\).
+This is an averaged absolute-error calculation, not a lower bound for
+an individual \(\mathfrak M_d\).

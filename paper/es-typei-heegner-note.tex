@@ -1,0 +1,1914 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{introthm}{Theorem}
+\renewcommand{\theintrothm}{\Alph{introthm}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\numberwithin{equation}{section}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\Gam}{\Gamma}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\e}{\mathrm e}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\title[The Elsholtz--Tao Type I sum under Selberg's conjecture]{The Elsholtz--Tao Type~I sum under Selberg's eigenvalue conjecture}
+\author{Anonymous}
+\date{Draft, October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+Elsholtz and Tao showed that the number $f_I(p)$ of Type~I solutions of
+$4/p=1/x+1/y+1/z$ satisfies $\sum_{p\le N}f_I(p)\ll N\log^2N\log\log N$,
+and they left open whether the factor $\log\log N$ can be removed.  We
+show that it can, assuming Selberg's eigenvalue conjecture for the groups
+$\Gamma_0(4dq^2)$ with even nebentypus modulo~$2q$, uniformly in $d$ and
+odd squarefree $q$: then $\sum_{p\le N}f_I(p)\ll N\log^2N$.  Writing a Type~I
+solution as a matrix $\left(\begin{smallmatrix}e&2a\\2ad&f\end{smallmatrix}\right)\in\SL_2(\Z)$,
+the troublesome solutions become CM points of discriminant $-4d$ on
+$X_0(d)$.  We prove that these points are uniformly separated in the
+hyperbolic plane ($\cosh\operatorname{dist}\ge3/2$, for every $d$), which turns
+a Sobolev duality argument into a per-$d$ count with no level loss; the
+remaining input is the spectral large sieve of Deshouillers and Iwaniec
+(as extended by Drappeau).  The per-$d$ count saves a power except near
+$d=a$, and a per-$a$ count by Poisson summation and Weil's bound saves a power
+except near $d=a$ from the other side; a saving that degenerates only
+linearly at this common boundary costs no $\log\log N$.
+\textbf{Status:} the main theorem is \emph{conditional} on Selberg's
+conjecture and is proved relative to the cited results, including the
+Elsholtz--Tao reduction and an earlier internal note; it has had internal
+hostile review only (two rounds) and has not been externally refereed.
+Without the hypothesis, exceptional eigenvalues (Kim--Sarnak) defeat the
+argument on a strip of positive width next to $d=a$, so it gives no
+unconditional improvement of the Elsholtz--Tao bound.
+\end{abstract}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+%%%%% part A
+\section{Introduction}\label{sec:intro}
+The Erd\H{o}s--Straus equation is
+\begin{equation}\label{A:eq:es}
+ \frac4n=\frac1x+\frac1y+\frac1z,\qquad x,y,z\in\N.
+\end{equation}
+Following Elsholtz--Tao \cite{ET}, a solution is of Type~I if $n\mid x$ and
+$(n,yz)=1$, and of Type~II if $n\mid y,z$ and $(n,x)=1$.
+The counts retain coordinate order; for odd primes,
+$f(p)=3f_I(p)+3f_{II}(p)$ \cite[(1.4)]{ET}.
+Their Theorem~1.1 states
+\begin{equation}\label{A:eq:et}
+ N\log^2N\ll\sum_{p\le N}f_I(p)\ll N\log^2N\log\log N,
+ \qquad \sum_{p\le N}f_{II}(p)\asymp N\log^2N.
+\end{equation}
+On p.~5 of arXiv:1107.1010v6, after Theorem~1.1, they attribute the double
+logarithm to Brun--Titchmarsh in very short progressions and conjecture its
+elimination. In \S9, p.~36, a short modulus avoids the loss for Type~II.
+Their parenthesis nevertheless says no similar trick seems available in the
+``Type II case'' [sic]; reading this as Type~I is the interpretation of
+\cite[\S1]{MN3}, not the literal quotation.
+
+Put $\Delta=y^2(\partial_x^2+\partial_y^2)$, so that $-\Delta$ is nonnegative.
+Here is the precise spectral hypothesis used in this note.
+\begin{hypothesis}[SEL]\label{hyp:sel}
+For every $d\ge1$, every odd squarefree $q\ge1$ with $(q,d)=1$, and every
+even Dirichlet character $\chi$ modulo $2q$ (equivalently modulo $q$),
+$-\Delta$ on $L^2(\Gamma_0(4dq^2)\backslash\HH,\chi)$ has no eigenvalue in
+$(0,1/4)$.
+\end{hypothesis}
+The hypothesis covers the whole family; estimates are uniform in levels
+and characters. Constants are removed before applying the spectral estimate.
+\begin{introthm}\label{thm:main}
+Assume \textup{(SEL)}. Then
+\[
+ \sum_{p\le N}f_I(p)\ll N\log^2N.
+\]
+\end{introthm}
+This is Theorem~\ref{L:8.1} below. It concerns an average upper bound, not
+existence of an Erd\H{o}s--Straus representation for every prime.
+
+The new input is uniform separation of the level-$d$ CM points of
+discriminant $-4d$. Sobolev duality then pairs them with a mean-zero
+Poincar\'e series at a cost equal to the square root of their number times
+a second-order Sobolev norm, with no level loss. A spectral large sieve
+controls that norm under (SEL). The fixed-$d$ count complements a
+fixed-$a$ Weil count precisely at $d=a$; Lemma~\ref{L:1.1} sums the saving
+even though it degenerates linearly at that boundary. Only absolute
+errors averaged over $d$, not uniform per-packet relative errors, are used.
+
+Unconditionally, the same estimates leave a strip next to $d=a$, of width
+at most about $7/32$ in the exponent $2\alpha-1+\gamma$.
+The known bound for exceptional eigenvalues does not remove that strip.
+It has positive width, so this argument gives \emph{no unconditional
+improvement} of \eqref{A:eq:et}; see \S\ref{sec:uncond}.
+
+\paragraph{Status and dependencies.}
+Theorem~\ref{thm:main} is \status{conditional} on (SEL), with a proof relative
+to cited inputs. These are the ET reduction (Proposition~2.2, Lemma~2.8,
+and (8.1)--(8.2)); the internal note \cite[Proposition~2.3 and
+Theorem~3.8(1)]{MN3}; Deshouillers--Iwaniec \cite[Theorem~2]{DI} and
+Drappeau \cite[Proposition~4.7, arXiv numbering]{Dr}; the spectral theorem;
+Weil's bound; Brun--Titchmarsh; Selberg's upper-bound sieve; and
+P\'olya--Vinogradov. DI Theorem~5 enters the discussion of exceptional
+spectrum, not the conditional proof. The new argument received two rounds
+of internal adversarial review, not external refereeing. That review did
+not re-check the inherited ET/MN3 reduction; MN3 received a separate internal
+review. Computational checks are evidence only and are not used as proofs.
+
+\paragraph{Literature and scope.}
+A limited literature search found no later removal of the Type~I double
+logarithm; it was not an exhaustive priority search. Jia \cite{Jia} is cited
+in ET's discussion following Theorem~1.1, which still leaves this question
+open. Duke \cite{Duke} and Liu--Masri--Young \cite{LMY} address related CM
+distributions, but do not supply the joint level--discriminant estimate
+needed here, with level comparable to the discriminant.
+
+Section~\ref{sec:reduction} isolates the remaining counting problem;
+\S\ref{sec:heegner} proves separation. Sections~\ref{sec:sobolev}--\ref{sec:perd}
+develop the Sobolev and spectral counts, \S\ref{sec:pera} gives the
+complementary Weil count, and \S\ref{sec:assembly} assembles them.
+Sections~\ref{sec:uncond}--\ref{sec:open} discuss the unconditional obstruction
+and further questions.
+
+\section{The Type I sum and the bad region}\label{sec:reduction}
+Write $\cL=\log N$ and work first with $N/2<n\le N$. The nonnegative weight
+\begin{equation}\label{A:eq:weight}
+ w_c(n)=\#\{(a,d,f)\in\N^3:f\mid4a^2d+1,\ n=4acd-f,
+                         \ n/4<acd\le3n/4\}
+\end{equation}
+satisfies $f_I(p)\le2\sum_c w_c(p)$, by \cite[Proposition~2.2,
+Lemma~2.8]{ET}; the factor two restores the order of $y,z$.
+ET's map is $(x,y,z)=(abdn,acd,bcd)$, with $(abcd,n)=1$ and
+$\gcd(a,b,c)=1$. With $y\le z$, it has
+\begin{equation}\label{A:eq:identities}
+ 4abd=ne+1,\quad ce=a+b,\quad4acd=n+f,\quad
+ ef=4a^2d+1,\quad bf=na+c,
+\end{equation}
+and $a\le b$, $an\le bf\le5an/3$.
+Conversely, for every tuple in \eqref{A:eq:weight}, put
+$e=(4a^2d+1)/f$ and $b=ce-a$. Direct substitution gives all the identities
+\eqref{A:eq:identities}, but only $b\ge a/2$, not necessarily $b\ge a$:
+indeed $0<f\le2n$ and $bf=na+c$. We retain this larger set throughout.
+Writing $a=N^\alpha$, $b=N^\beta$, $c=N^\gamma$, we have
+\begin{equation}\label{A:eq:exponents}
+ d\asymp N^{1-\alpha-\gamma},\quad e\asymp N^{\beta-\gamma},\quad
+ f\asymp N^{1+\alpha-\beta},\quad
+ \beta\ge\alpha-O(\cL^{-1}),\quad\alpha+\gamma\le1+O(\cL^{-1}).
+\end{equation}
+All exponent regions below are understood up to these bounded dyadic errors.
+
+\begin{lemma}[SL$_2$ form; {\cite[Lemma~3.1]{MN3}}]\label{M:3.1}
+The identity $ef-4a^2d=1$ is equivalent to
+\[
+ M=\begin{pmatrix}e&2a\\2ad&f\end{pmatrix}\in\SL_2(\Z),
+ \qquad n=2cM_{21}-M_{22}.
+\]
+If $T=\operatorname{diag}(1,d)$, then
+$\sigma_d(M)=TM^{\mathsf t}T^{-1}$ is an anti-involution and
+$S_d=\{M\in\SL_2(\Z):M_{21}=dM_{12}\}$ is its fixed set.
+It is stable under $M\mapsto\gamma M\sigma_d(\gamma)$ for
+$\gamma\in\Gamma_0(d)$. The positive Type~I data also give the positive
+definite form $[f,4ad,de]$ of discriminant $-4d$.
+\end{lemma}
+\begin{proof}
+The determinant and linear-form assertions follow by multiplication.
+For $\gamma=\left(\begin{smallmatrix}p&t\\r&s\end{smallmatrix}\right)$,
+$\sigma_d(\gamma)=\left(\begin{smallmatrix}p&r/d\\dt&s\end{smallmatrix}\right)$
+is integral exactly when $d\mid r$; reversing products proves stability.
+The form has discriminant $16a^2d^2-4def=-4d$ and positive leading
+coefficient. Conversely its coefficients recover $f,a,e$ when the middle
+coefficient is divisible by $4d$. Positivity and this parity restriction
+are extra conditions, not invariants of all of $S_d$.
+\end{proof}
+
+\begin{remark}[Single-progression parametrisations]\label{M:3.2}
+The generic elimination in \cite[Lemma~3.2]{MN3} produces the moduli
+\[
+ 4ad,\quad4bd,\quad4ab,\quad4acf,\quad4cdf,
+ \qquad4bcf',\quad4cdf',\qquad f'=4bcd-n.
+\]
+Its claim that these exhaust all three-coordinate single-progression
+parametrisations has status \status{evidence}: degenerate eliminants were
+not checked systematically. No completeness claim is used here. The
+following explicit fibres suffice. Fixing $(a,c,f)$ forces
+$d\equiv-(4a^2)^{-1}\pmod f$ and puts $n$ in one class modulo $4acf$.
+Fixing $(c,d,f)$ puts $a$ in
+$\rho_d(f)=\#\{x\bmod f:4dx^2+1\equiv0\pmod f\}$ classes, hence $n$ in
+that many classes modulo $4cdf$. Fixing $(a,b,c)$ fixes $e=(a+b)/c$;
+then $(e,4ab)=1$, $d\equiv(4ab)^{-1}\pmod e$, and
+$n=(4abd-1)/e$ lies in one class modulo $4ab$.
+Every map from the free variable to $n$ is injective. For fixed $(a,b)$
+there are at most $\tau(a+b)$ choices of $c$. The moduli $4ad,4bd$ arise by
+varying $c$ with the appropriate divisor fixed; swapping $a,b$ gives the twins.
+\end{remark}
+
+\begin{proposition}[Bad-region geometry; {\cite[Proposition~3.3]{MN3}}]\label{M:3.3}
+In the ideal exponent domain $0\le\alpha\le\beta$, $\alpha+\gamma\le1$,
+all seven displayed moduli have exponent at least $1-\eta$ exactly on
+\begin{equation}\label{A:eq:bad}
+ \mathcal R_{\rm bad}(\eta)=
+ \{\gamma\le\eta,\ \alpha+\beta\ge1-\eta,\
+              \beta\le2\alpha+\gamma+\eta,\ \beta\le1+\eta\}.
+\end{equation}
+Its limiting $\gamma=\eta=0$ slice has area $1/6$. There
+$e,f$ are at least $\max(a,d)$ in exponent; for positive $\eta$ this holds
+only up to $N^{-O(\eta)}$.
+\end{proposition}
+\begin{proof}
+The seven exponents, in the order of the preceding list, are
+\[
+ 1-\gamma,\quad1-\gamma+\beta-\alpha,\quad\alpha+\beta,\quad
+ 1+2\alpha+\gamma-\beta,\quad2-\beta,\quad
+ 1+2\beta+\gamma-\alpha,\quad2-2\alpha+\beta.
+\]
+The second and last two inequalities are redundant, giving
+\eqref{A:eq:bad}. At $\gamma=\eta=0$ the slice is
+$\alpha+\beta\ge1$, $\alpha\le\beta\le\min(2\alpha,1)$, of area
+$\int_{1/3}^{1/2}(3\alpha-1)\,d\alpha+
+\int_{1/2}^1(1-\alpha)\,d\alpha=1/6$.
+Both $\beta$ and $1+\alpha-\beta$ are at least
+$\max(\alpha,1-\alpha)$ there. Perturbing the inequalities proves the last
+assertion. For our enlarged weights $b\ge a/2$ introduces only
+$O(\cL^{-1})$ errors.
+\end{proof}
+A positive area alone does not prove positive logarithmic mass or exclude
+other parametrisations. We use the region only to organise an upper bound.
+
+\subsection{Arithmetic estimates outside the bad region}
+We record the imported divisor estimate explicitly. Here $\omega(k)$ is
+the number of distinct prime divisors.
+\begin{proposition}[Coprimality gain; {\cite[Proposition~2.3]{MN3}}]\label{M:2.3}
+Fix $l\ge1$ and let $k\ge1$, $U,V\ge2$.
+\textup{(a)} If $kV^2\le U^l$ and $U\ge\omega(k)+2$, then
+\[
+ \sum_{u\le U,v\le V}\tau(kuv^2+1)
+       \ll_l\frac{\varphi(k)}kUV\log U.
+\]
+\textup{(b)} If $kU\le V^l$ and $V\ge\omega(2k)+2$, then the same sum is
+\[
+ \ll_l\frac{\varphi(k)}kUV\log V
+ \left[1+\min\left\{\log(1+k),
+              \frac{k^{1/6}\log(2kU)}{\sqrt U}\right\}\right].
+\]
+\end{proposition}
+This is a proved input relative to \cite[Theorem~7.1, Corollary~7.4]{ET}
+and P\'olya--Vinogradov. Its proof in \cite[\S2]{MN3} keeps the indicator
+that divisors are coprime to $k$, rather than dropping it in the quadratic
+root bound. We do not re-prove that imported proposition.
+
+Put $g(x)=x/\varphi(x)$ and write $x\asymp X$ for a dyadic interval
+$X<x\le2X$, allowing a separate initial interval containing $1$.
+\begin{lemma}[Weighted divisor sums]\label{L:8.3}
+Uniformly in $A,B,D,F\ge1$,
+\begin{align}
+ \textup{(a)}\quad\sum_{x\asymp X}g(x)^2&\ll X,\qquad
+             g(x)=\sum_{l\mid x}\frac{\mu^2(l)}{\varphi(l)},\label{A:eq:gmean}\\
+ \textup{(b)}\quad\sum_{\substack{a\asymp A,b\asymp B\\a\le2b}}
+          \tau(a+b)g(a)g(b)&\ll AB\log(2B),\label{A:eq:abmass}\\
+ \textup{(c)}\quad\sum_{d\asymp D}g(d)\sum_{f\asymp F}\frac{\rho_d(f)}{\varphi(f)}&\ll D.
+                                                        \label{A:eq:rootmass}
+\end{align}
+\end{lemma}
+\begin{proof}
+The identity in \eqref{A:eq:gmean} follows on prime powers. Also
+$g^2=1*h$ with $h\ge0$, supported on squarefree integers, and
+$h(p)=(p/(p-1))^2-1=O(1/p)$. Thus $\sum_lh(l)/l<\infty$, which proves
+the mean square and, by Cauchy--Schwarz, $\sum_{x\asymp X}g(x)\ll X$.
+The same divisor expansion gives $\sum_{x\le X}1/\varphi(x)\ll\log(2X)$.
+
+For \eqref{A:eq:abmass}, fix $a$ and retain $a\le2b$, so $a+b\le6B$.
+The elementary bound $\tau(n)\le2\sum_{\delta\mid n,\,\delta\le\sqrt n}1$
+gives, for squarefree $l$,
+\[
+ \sum_{\substack{b\asymp B,\ l\mid b\\a\le2b}}\tau(a+b)
+ \le2\sum_{\delta\le\sqrt{6B}}
+       \left(\frac{2B(l,\delta)}{l\delta}+1\right)
+ \ll\frac B l\tau(l)\log(2B)+\sqrt B.
+\]
+Multiply by $\mu^2(l)/\varphi(l)$ and sum $l\le2B$.
+The series $\sum_l\mu^2(l)\tau(l)/(l\varphi(l))$ converges and the
+remaining sum is $O(\sqrt B\log(2B))$. Summing with weight $g(a)$ proves
+\eqref{A:eq:abmass}.
+
+For \eqref{A:eq:rootmass}, set $\chi_d=(\frac{-4d}{\cdot})$ and
+$S_d(Y)=\sum_{r\le Y}\chi_d(r)/r$, with $S_d(Y)=0$ if $Y<1$.
+This is a nonprincipal real Dirichlet character modulo $4d$.
+The prime-power root counts give
+\[
+ \rho_d(f)\le(1*\chi_d)(f),\qquad
+ \rho_d(kf)\le2^{\omega(k)}\rho_d(f)\quad(k\text{ squarefree}).
+\]
+Indeed even moduli have no roots; for odd $p\nmid d$ the count at every
+positive power is $1+\chi_d(p)$, and for $p\mid d$ it is zero.
+For $Y\ge1$,
+\begin{equation}\label{A:eq:convolution}
+ \sum_{Y<f\le2Y}(1*\chi_d)(f)=Y S_d(2Y)+O(Y).
+\end{equation}
+The floor-function error is $O(\sum_{r\le2Y}1)=O(Y)$.
+We claim, uniformly in $Y\ge1$,
+\begin{equation}\label{A:eq:PVmean}
+ \sum_{d\asymp D}|S_d(Y)|^2\ll D.
+\end{equation}
+For $Y\le Y_0=D/\log^2(2D)$ expand the square. Terms with $rr'$ even
+vanish. If $rr'$ is a square the inner $d$-sum is at most $O(D)$, and
+$\sum_{rr'=\square}(rr')^{-1}<\infty$ (write $r=su^2,r'=sv^2$ with $s$
+squarefree). Otherwise P\'olya--Vinogradov for
+$d\mapsto(\frac d{rr'})$ bounds that sum by
+$O(\sqrt{rr'}\log(2rr'))$. The total is
+$O(D+Y\log(2Y))=O(D)$. For $Y>Y_0$, partial summation and
+P\'olya--Vinogradov modulo $4d$ give
+\[
+ S_d(Y)-S_d(Y_0)\ll\frac{\sqrt D\log(2D)}{Y_0}=O(1).
+\]
+The last assertion is uniform for large $D$; bounded $D$ are handled
+directly by periodicity and partial summation. This proves
+\eqref{A:eq:PVmean}; see \cite[Chapter~12]{IK} for the character-sum input.
+Finally the divisor expansion of $g(f)$, the root inequalities and
+\eqref{A:eq:convolution} imply
+\[
+ \sum_{f\asymp F}\frac{\rho_d(f)}{\varphi(f)}
+ \ll\sum_{k\ge1}\frac{\mu^2(k)2^{\omega(k)}}{k\varphi(k)}
+                 (|S_d(2F/k)|+1).
+\]
+When $F/k<1$ the inner interval contains at most $1$, so the same bound
+holds. Apply Cauchy--Schwarz using \eqref{A:eq:gmean} and
+\eqref{A:eq:PVmean}, and sum the convergent $k$-series.
+\end{proof}
+
+\begin{lemma}[Brun--Titchmarsh outside the bad region]\label{L:8.2}
+Fix $0<\eta_1<1/2$. For $P\in\{ab,acf,cdf\}$, the number of tuples
+in \eqref{A:eq:weight}, with arbitrary $c$, $n$ prime in $(N/2,N]$, and
+$m_P\le N^{1-\eta_1}$, is $O(\eta_1^{-1}N\cL^2)$, where
+$m_{ab}=4ab$, $m_{acf}=4acf$, $m_{cdf}=4cdf$.
+\end{lemma}
+\begin{proof}
+For $N\ge N_0(\eta_1)$, Brun--Titchmarsh \cite{MV} on an interval of
+length $N/2$ gives $O(N/(\eta_1\cL\varphi(m)))$ primes per primitive
+class. A nonprimitive class contains at most one prime. By the injective
+fibres above, each fixed triple contributes at most
+\[
+ \rho_T\left(\frac{2N}{\eta_1\cL\varphi(m_T)}+1\right),
+ \qquad \rho_T=1,1,\rho_d(f),
+\]
+respectively for $ab,acf,cdf$, with an inessential enlargement of the
+absolute constant. Use $\varphi(4x)\ge2\varphi(x)$ and
+$\varphi(xy)\ge\varphi(x)\varphi(y)$.
+For $acf$ the reciprocal-totient sum is $O(\cL^3)$.
+For $ab$ it is bounded by
+$\sum_{ab\le N,a\le2b}\tau(a+b)/(\varphi(a)\varphi(b))=O(\cL^3)$,
+by \eqref{A:eq:abmass} on $O(\cL^2)$ boxes.
+For $cdf$, \eqref{A:eq:rootmass} gives
+$\sum_{df\le N}\rho_d(f)/(\varphi(d)\varphi(f))=O(\cL^2)$;
+the $c$-sum supplies one more logarithm.
+The $+1$ errors total $O_\epsilon(N^{1-\eta_1+\epsilon})$, by the divisor
+bound and $\rho_d(f)\le2^{\omega(f)}$. Choose $\epsilon<\eta_1/2$.
+\end{proof}
+
+\begin{lemma}[Weighted Type I masses]\label{L:8.4}
+Let $\cL^2\le A\le N$ and $1\le D\le N$.
+\textup{(a1)} If $D\le A$, then
+$\sum_{a\asymp A,d\asymp D}\tau(4a^2d+1)g(d)\ll AD\cL$;
+if $D\ge A$, the same holds with $g(a)$ in place of $g(d)$.
+\textup{(a2)} If also $A,D\ge N^{1/4}$, then
+\begin{equation}\label{A:eq:doublemass}
+ \sum_{a\asymp A,d\asymp D}\tau(4a^2d+1)g(a)g(d)\ll AD\cL.
+\end{equation}
+\textup{(b)} For every $A,D\ge1$ and $F\le4A$,
+\begin{equation}\label{A:eq:smallmass}
+ \sum_{d\asymp D}g(d)\#\{(a,f):a\asymp A,f\asymp F,
+                                    f\mid4a^2d+1\}\ll AD.
+\end{equation}
+The last assertion also holds for $e$ in place of $f$.
+\end{lemma}
+\begin{proof}
+Expand $g(d)=\sum_{l\mid d}\mu^2(l)/\varphi(l)$ when $D\le A$ and put
+$d=ld'$. Proposition~\ref{M:2.3}, second assertion, with coefficient $4l$,
+linear range $2D/l$, quadratic range $2A$, and fixed exponent $40$, gives
+\[
+ \sum_{a\le2A,d'\le2D/l}\tau(4la^2d'+1)
+       \ll\frac{AD}{l}\cL(1+\log(1+4l)).
+\]
+The required size inequalities are $8D\le(2A)^{40}$ and
+$2A\ge\omega(8l)+2$. If a range is smaller than $2$, enlarge it to $2$;
+then $8l\le(2A)^{40}$ suffices and the loss is bounded since $l\le2D$.
+The resulting $l$-series with denominator $l\varphi(l)$ converges.
+For $D\ge A$, expand $g(a)$, put $a=ka'$, and use the first assertion of
+Proposition~\ref{M:2.3} with coefficient $4k^2$, ranges $2D,2A/k$.
+Here $16A^2\le(2D)^{40}$ and $2D\ge\omega(4k^2)+2$; after enlarging a
+small range use $16k^2\le(2D)^{40}$. The bound is
+$O((AD/k)\cL)$, summable against $1/\varphi(k)$.
+
+For \eqref{A:eq:doublemass}, expand both factors and write $a=ka'$,
+$d=ld'$, with coefficient $K=4k^2l$. The part $k>A^{1/2}$ or
+$l>D^{1/2}$ is, for a sufficiently small fixed $\epsilon>0$,
+\[
+ \ll N^\epsilon AD(A^{-1/2}+D^{-1/2})\ll AD.
+\]
+Here the divisor bound is uniform since $4a^2d+1\ll N^3$, and
+$\sum_{k>T}1/(k\varphi(k))\ll T^{-1}$ follows from
+\eqref{A:eq:gmean}. In the remaining part, if $D\ge A$ use the first
+assertion of Proposition~\ref{M:2.3}: its coefficient condition is
+$16lA^2\le(2D/l)^{40}$. If $D<A$ use the second assertion, whose condition
+is $8k^2D\le(2A/k)^{40}$. These hold for all sufficiently large $N$,
+since the relevant large variable is at least $N^{1/8}$ and the left
+side is $O(N^3)$. The conditions involving $\omega(K)$ hold as well.
+Discarding $\varphi(K)/K\le1$, both bounds are summable using
+\[
+ \sum_{k,l\ge1}\frac{\mu^2(k)\mu^2(l)(1+\log(1+4k^2l))}
+                         {kl\varphi(k)\varphi(l)}<\infty.
+\]
+Finally a fixed $(d,f)$ admits at most $\rho_d(f)(A/f+1)$ values of $a$.
+For $f\le2F\le8A$ this is at most $9A\rho_d(f)/f$.
+Equation~\eqref{A:eq:rootmass} proves \eqref{A:eq:smallmass}.
+\end{proof}
+
+\subsection{What remains}
+For clarity we record the earlier distributional formulation, although our
+assembly will use its large-$c$ step rather than assume its full hypothesis.
+\begin{theorem}[LD reduction; {\cite[Theorem~3.8]{MN3}}]\label{M:3.8}
+Put $X_c=\sum_{N/2<n\le N}w_c(n)$. Suppose fixed $\eta_0,\theta,C_0>0$
+exist such that for every $c\le N^{\eta_0}$ there is a multiplicative
+function $h_c$ on squarefree integers, with
+$0\le h_c(\ell)\le1+C_0/\ell$ and
+$h_c(\ell)\ge1-C_0/\ell$ for primes $\ell>2$, satisfying
+\[
+ \sum_{c\le N^{\eta_0}}\sum_{q\le N^\theta}\mu^2(q)3^{\omega(q)}
+ \left|\sum_{\substack{N/2<n\le N\\q\mid n}}w_c(n)
+                       -\frac{h_c(q)}qX_c\right|\le C_0N\cL.
+\]
+Then $\sum_{p\le N}f_I(p)\ll_{\eta_0,\theta,C_0}N\cL^2$.
+\end{theorem}
+The proof in \cite[\S3.7]{MN3} applies the dimension-one upper-bound sieve
+to $X_c\ll (N/c)\cL^2$, with small primes omitted; it is an implication,
+not an established distribution theorem. Its step needed here is
+unconditional: for fixed small $\eta>0$, the contribution of $c>N^\eta$
+is $O(\eta^{-1}N\cL^2)$. Indeed then $ad\ll N^{1-\eta}$, and
+Brun--Titchmarsh in $n\equiv-f\pmod{4ad}$, followed by
+\cite[(8.2)]{ET} on product blocks, gives
+\[
+ \frac{N}{\eta\cL}\sum_{ad\ll N}\frac{\tau(4a^2d+1)}{\varphi(ad)}
+       \ll\eta^{-1}N\cL^2.
+\]
+For our enlarged weights $(f,4ad)=1$ follows from $f\mid4a^2d+1$, so the
+classes here are primitive without another assumption.
+
+It remains to count prime tuples with $c\le N^\eta$ and
+\begin{equation}\label{A:eq:remaining}
+ \min(4ab,4acf,4cdf)>N^{1-\eta_1}\quad(\eta_1\ge\eta).
+\end{equation}
+The moduli $4ad,4bd$ are already $\gg N^{1-\eta}$ because
+$4acd\asymp N$ and $b\ge a/2$; the twin exponents are automatically large.
+Thus \eqref{A:eq:remaining} lies in $\mathcal R_{\rm bad}(\eta_1)$ up to
+$O(\cL^{-1})$. Smooth upper-bound cells may be supported in
+$\mathcal R_{\rm bad}(2\eta_1)$, where
+$e,f\ge N^{1/2-3\eta_1}$ up to absolute constants. This is the only
+remaining region; in particular no assertion of completeness from
+Remark~\ref{M:3.2} is needed.
+
+\section{\texorpdfstring{SL$_2$}{SL2}/Heegner reformulation and separation}\label{sec:heegner}
+For $d\ge1$ define
+\[
+ \cF_d=\{[A,B,C]\in\Z^3:B^2-4AC=-4d,\ A>0,
+                         \ 2d\mid B,\ d\mid C\}.
+\]
+Its root map is $z_Q=(-B+i\sqrt{4d})/(2A)$.
+Every form here is positive definite. Type~I forms form the subset
+\[
+ \cF_d^I=\{[f,4ad,de]:ef-4a^2d=1,\ e,f>0,\ a\in\Z\}.
+\]
+The unrestricted integer $a$ makes the invariant set convenient; a positive
+box will restore $a>0$. These are CM, or Heegner, forms with discriminant
+$-4d$ and level $d$, not forms satisfying the coprime Heegner hypothesis:
+$(4d,d)$ need not be $1$. Type~I forms are primitive, since $(f,4ad)=1$.
+We do not assert that every member of the larger set $\cF_d$ is primitive.
+% O114-FLAG: LOGLOG Lemma 6.3 says F_d is primitive, but its proof
+% establishes primitivity only for F_d^I. For example [2,6,6] lies
+% in F_3 and is imprimitive. The later class-number argument must
+% be restricted to the Type I subset (as its application already is).
+
+\begin{lemma}[Distance formula]\label{L:2.1}
+For positive definite forms $Q,Q'$ of equal discriminant $D<0$,
+\[
+ \cosh\operatorname{dist}_{\HH}(z_Q,z_{Q'})
+             =1+\frac{\disc(Q-Q')}{2|D|}.
+\]
+\end{lemma}
+\begin{proof}
+Write $Q=[A,B,C]$, $Q'=[A',B',C']$. The formula
+$\cosh\operatorname{dist}(z,w)-1=|z-w|^2/(2\Im z\Im w)$ gives
+\[
+ \cosh\operatorname{dist}(z_Q,z_{Q'})-1
+ =\frac{(BA'-B'A)^2+|D|(A-A')^2}{2|D|AA'}.
+\]
+Substituting $4AC=B^2+|D|$ and $4A'C'=B'^2+|D|$ into the discriminant
+of the difference gives
+\[
+ AA'\disc(Q-Q')=(BA'-B'A)^2+|D|(A-A')^2,
+\]
+which proves the assertion.
+\end{proof}
+\begin{lemma}[Uniform separation]\label{L:2.2}
+Distinct $Q,Q'\in\cF_d$ satisfy
+$\cosh\operatorname{dist}_{\HH}(z_Q,z_{Q'})\ge3/2$, independently of $d$.
+\end{lemma}
+\begin{proof}
+We have $4d^2\mid(B-B')^2$ and $4d\mid4(A-A')(C-C')$, hence
+$4d\mid\disc(Q-Q')$. By Lemma~\ref{L:2.1},
+$\cosh\operatorname{dist}-1\in\frac12\Z_{\ge0}$.
+If it is zero, the roots coincide. A positive definite form of given
+negative discriminant is determined by its root: in
+$Q=A(X-zY)(X-\bar zY)$ the discriminant fixes $A>0$.
+Thus equality zero implies $Q=Q'$, which is excluded.
+\end{proof}
+Separation persists on every subset, including parity and sieve subsets.
+It is a statement about all lifts in $\HH$, not just a chosen list of
+representatives on a quotient. This distinction permits the uniform
+Sobolev argument of \S\ref{sec:sobolev}.
+
+\subsection{Coordinates, parity and the sieve group}
+Set
+\begin{equation}\label{A:eq:wcoord}
+ w_Q=z_Q/d=\frac{-2a+i/\sqrt d}{f}\quad(Q\in\cF_d^I).
+\end{equation}
+Dilation is a hyperbolic isometry. The set $\cF_d$ is preserved by
+$Q\mapsto Q\circ\gamma$ for $\gamma\in\Gamma^0(d)$, where
+$\Gamma^0(d)$ means $d\mid\gamma_{12}$. Indeed
+\begin{align*}
+ C'&=At^2+Bts+Cs^2\equiv0\pmod d,\\
+ B'&=2Apt+B(ps+tr)+2Crs\equiv0\pmod{2d}.
+\end{align*}
+for $\gamma=\left(\begin{smallmatrix}p&t\\r&s\end{smallmatrix}\right)$.
+Roots transform by $\gamma^{-1}$. Conjugating by $z=dw$ identifies this
+with $\Gamma_0(d)$ on the $w$-side.
+
+The smaller set $\cF_d^I$ requires $4d\mid B$. On the $z$-side it is
+preserved by $\Gamma^0(2d)\cap\Gamma_0(2)$, since each term in the
+formula for $B'$ is then divisible by $4d$. On the $w$-side this becomes
+$\Gamma_0(2d)\cap\Gamma^0(2)$.
+In particular, for squarefree odd $(q,d)=1$, take
+\begin{equation}\label{A:eq:sievegroup}
+ \Gamma'_q=\Gamma_0(2d)\cap\Gamma(2q),\qquad u=w/(2q),\qquad M=4dq^2.
+\end{equation}
+This preserves both the parity and the condition
+$q\mid n(Q)=cB-A$. To see the latter, the corresponding $z$-matrix is
+congruent to $I$ modulo $q$, using $(q,d)=1$; hence it preserves the
+coefficients of $Q$ modulo $q$. It is important not to replace this group
+by $\Gamma_0(d)\cap\Gamma(2)$: for even $d$ that group need not preserve
+$4d\mid B$ on the $w$-side.
+
+In $u$-coordinates the effective group (adjoining $-I$, which acts trivially)
+is
+\[
+ \Gamma_{M,q}=
+ \left\{\pm\begin{pmatrix}p&t\\r&s\end{pmatrix}\in\Gamma_0(M):
+                                     p\equiv s\equiv1\pmod{2q}\right\}.
+\]
+Its cusp at infinity has width one, and it contains $\Gamma_1(M)$.
+For $q>1$, its index in $\Gamma_0(M)$ is $\varphi(q)/2$; for $q=1$
+the group is simply $\Gamma_0(4d)$ and the index is $1$.
+% O114-FLAG: LOGLOG section 5 writes the character projector 2/phi(q)
+% also at q=1. At q=1 the index is 1, not phi(1)/2; later formulas
+% must use index^{-1} (or treat q=1 separately). This matters for the
+% q=1 model-mass comparison, although only absolute constants change.
+The quotient for $q>1$ is $(\Z/q\Z)^\times/\{\pm1\}$.
+Consequently the spectral decomposition on $\Gamma_{M,q}$ splits into
+the even-character spaces on $\Gamma_0(M)$ (with just the trivial space
+when $q=1$). This explains precisely the family in (SEL).
+
+\subsection{Boxes and Poincar\'e series}
+For a smooth compactly supported weight in $a\asymp A,f\asymp F$, its
+expression on $\HH$ is
+\[
+ \psi(w)=W_1\!\left(\frac{-\Re w}{2A\Im w\sqrt d}\right)
+          W_2\!\left(\frac1{F\sqrt d\Im w}\right).
+\]
+Its height is $Y\asymp(F\sqrt d)^{-1}$, horizontal width
+$\lambda\asymp A/F$, and hyperbolic area $\asymp\lambda/Y\asymp A\sqrt d$.
+For spectral estimates use instead a smooth partition in
+$(\log f,\log(a/f))$. In the $u$-coordinate the cells then have the
+product shape
+\begin{equation}\label{A:eq:box}
+ \psi(u)=\phi(x/\lambda)W(y/Y),\qquad
+ \lambda\asymp\frac A{qF},\qquad Y\asymp\frac1{qF\sqrt d},
+\end{equation}
+where $\operatorname{supp}\phi\subset[-2,-1]$ and
+$\operatorname{supp}W\subset[1,2]$.
+Fixed smooth enlargements cover the original boxes by positivity. In
+particular $Y/\lambda\asymp(A\sqrt d)^{-1}$; the stronger condition
+$Y\le\lambda\cL^{-3}$ required by Proposition~\ref{L:5.1} holds in the
+bad region for all sufficiently large $N$.
+
+Here is the counting identity with the stabilisers made explicit.
+Let $\widetilde\Lambda$ be the set of points arising from an invariant
+subset of $\cF_d$ in the chosen coordinate, let $\Gamma$ be its group,
+and let its cusp width at infinity be $h$. Set
+\[
+ \psi_{\rm per}(z)=\sum_{m\in\Z}\psi(z+mh),\qquad
+ P_\psi(z)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
+                                     \psi_{\rm per}(\gamma z).
+\]
+Write $\Lambda_d=\Gamma\backslash\widetilde\Lambda$ and
+$e_z=|\Gamma_z/(\Gamma\cap\{\pm I\})|$. This quotient set is finite:
+there are finitely many integral-form classes of a fixed negative
+discriminant, and $\Gamma$ has finite index in the appropriate conjugate
+of $\SL_2(\Z)$. With $d\mu=dx\,dy/y^2$ and
+$\#\Lambda_d=\sum_{z\in\Lambda_d}e_z^{-1}$, unfolding gives
+\begin{equation}\label{A:eq:countidentity}
+ N_d(\psi):=\sum_{w\in\widetilde\Lambda}\psi(w)
+ =\sum_{w\in\Gamma_\infty\backslash\widetilde\Lambda}\psi_{\rm per}(w)
+ =\sum_{z\in\Lambda_d}\frac{P_\psi(z)}{e_z}.
+\end{equation}
+Indeed a lift is represented by exactly $e_z$ cosets in the orbit sum,
+which is cancelled by the weight. Injectivity of the root map ensures
+that forms themselves are counted once. Thus the informal notation
+$N_d(\psi)=\sum_{z\in\Lambda_d}P_\psi(z)$ always means this orbifold-weighted
+sum. Also
+\[
+ \langle P_\psi\rangle=
+       \frac1{\vol(\Gamma\backslash\HH)}\int_{\HH}\psi\,d\mu.
+\]
+Periodisation is essential: there is no restriction $\lambda<1$.
+The zero Fourier mode when $\lambda>1$ will contribute a genuine term
+$\lambda^2/Y$ to the variance, not an ignorable boundary error.
+
+Finally the Fricke isometry exchanges the two divisor coordinates:
+\[
+ -\frac1{dw_Q}=\frac{2a+i/\sqrt d}{e}.
+\]
+After reflection in the imaginary axis this is the point for
+$[e,4ad,df]$. Thus one can use the smaller divisor in a suitable cusp.
+When $e,f$ are exchanged the original prime functional becomes
+$cB-C/d$, rather than $cB-A$; the sieve density must be checked for that
+functional too, as in \S\ref{sec:perd}.
+
+\begin{assessment}[Heuristic motivation]
+Ignoring logarithms and arithmetic fluctuations, $\#\Lambda_d\approx\sqrt d$,
+volume $\asymp d$, and area $\asymp A\sqrt d$ suggest a fixed-$d$ main term
+$A$ and error $(Ad+F)^{1/2}$ ($q=1$, narrow boxes). The principal relative
+error $(d/A)^{1/2}$ complements the fixed-$a$ Weil error $a/d$ at $d=a$.
+These heuristics are not used as estimates: class numbers fluctuate and
+wide boxes have an additional zero mode.
+\end{assessment}
+
+%%%%% part B
+\section{Sobolev duality}\label{sec:sobolev}
+We use the nonpositive Laplacian
+\(\Delta=y^2(\partial_x^2+\partial_y^2)\) and
+\(d\mu=dx\,dy/y^2\). Throughout this section \(\Gamma\) denotes the
+\emph{effective} image in \(\PSL_2(\R)\) of a finite-index subgroup of
+\(\SL_2(\Z)\), or a conjugate thereof. In particular, kernel sums never
+count both signs of a matrix. Write \(V=\vol(\Gamma\backslash\HH)\).
+For a \(\Gamma\)-invariant discrete set \(\widetilde\Lambda\) with finitely
+many orbits, put
+\[
+ e_z=|\Gamma_z|,\qquad
+ \nu_\Lambda=\sum_{z\in\Gamma\backslash\widetilde\Lambda}e_z^{-1}\delta_z,
+ \qquad \#\Lambda=\sum_{z\in\Gamma\backslash\widetilde\Lambda}e_z^{-1}.
+\]
+These weights are necessary at elliptic points.
+
+\begin{lemma}[Resolvent kernel; standard]\label{L:4.1}
+There is a nonnegative continuous radial function \(g\) on \(\HH\), with
+\[
+ g(r)\ll(1+r)e^{-\varphi r},\qquad
+ \varphi=\frac{1+\sqrt5}{2},
+\]
+such that the kernel of \((1-\Delta)^{-2}\) on
+\(L^2(\Gamma\backslash\HH)\) is
+\(K(z,w)=\sum_{\gamma\in\Gamma}g(\operatorname{dist}(z,\gamma w))\).
+The sum converges absolutely.
+\end{lemma}
+\begin{proof}
+% O114-FLAG: The Iwaniec section/theorem numbers here and in the spectral
+% expansion are inherited from the source; the book is not in sources/,
+% so these locators, unlike DI and Drappeau, have not been independently checked.
+The Selberg--Harish-Chandra multiplier is
+\(h(t)=(5/4+t^2)^{-2}\); see \cite[\S1.8]{Iw} for the transform and its
+inversion, and \cite[Theorem 1.14]{Iw} for automorphisation.
+It is even, holomorphic in \(|\Im t|<\sqrt5/2\), and integrable against
+\(t\tanh(\pi t)\,dt\). Inversion therefore gives a continuous bounded
+point-pair kernel, with
+\(g(0)=(4\pi)^{-1}\int_{\R}h(t)t\tanh(\pi t)\,dt\).
+For completeness, the decay can also be read directly from the resolvent
+kernel. For \(s>1\), the kernel of \((-\Delta+s(s-1))^{-1}\) on \(\HH\) is
+\[
+ R_s(r)=\frac1{2\pi\sqrt2}\int_r^\infty
+       \frac{e^{-(s-1/2)v}}{\sqrt{\cosh v-\cosh r}}\,dv.
+\]
+Differentiating in \(s(s-1)\), at \(s=\varphi\), gives
+\[
+ g(r)=\frac1{2\pi\sqrt2(2\varphi-1)}
+       \int_r^\infty\frac{v e^{-(\varphi-1/2)v}}
+                            {\sqrt{\cosh v-\cosh r}}\,dv.
+\]
+This proves positivity. For \(r\ge1\), substitute \(v=r+u\) and use
+\(\cosh(r+u)-\cosh r\gg e^r(e^u-1)\); the resulting integral is
+\(\ll(1+r)e^{-\varphi r}\). At \(r=0\) the numerator cancels the
+singularity, giving the same boundedness and continuity as inversion.
+An orbit of a discrete cofinite group has \(O_{z,w,\Gamma}(e^R)\) points,
+with multiplicity, within distance \(R\). Since \(\varphi>1\), the
+periodisation is absolutely convergent. The automorphic kernel theorem
+identifies it with the multiplier \(h\), which is precisely
+\((1-\Delta)^{-2}\).
+\end{proof}
+
+\begin{lemma}[Separated sets]\label{L:4.2}
+\status{proved}. If distinct points of \(\widetilde\Lambda\) have distance
+at least \(r_0>0\), then
+\[
+ \|\nu_\Lambda\|_{H^{-2}}^2
+ :=\langle\nu_\Lambda,(1-\Delta)^{-2}\nu_\Lambda\rangle
+ \le C(r_0)\#\Lambda,
+\]
+where \(C(r_0)\) is independent of the group and the set.
+\end{lemma}
+\begin{proof}
+Using Lemma~\ref{L:4.1} and cancelling the stabiliser multiplicity in
+one variable gives
+\[
+ \langle\nu_\Lambda,(1-\Delta)^{-2}\nu_\Lambda\rangle
+ =\sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac1{e_z}
+       \sum_{w\in\widetilde\Lambda}g(\operatorname{dist}(z,w)).
+\]
+Indeed each lift of \(w\) occurs \(e_w\) times in the kernel sum.
+The balls of radius \(r_0/2\) around distinct lifts are disjoint.
+Those with centres within distance \(R\) of \(z\) lie in the ball of
+radius \(R+r_0/2\); comparison with its area
+\(4\pi\sinh^2((R+r_0/2)/2)\) bounds their number by \(O_{r_0}(e^R)\).
+Thus each inner sum is at most
+\(O_{r_0}(\sum_{m\ge0}(1+m)e^{(1-\varphi)m})=O_{r_0}(1)\).
+All rearrangements are justified by positivity and this convergent bound.
+\end{proof}
+
+\begin{proposition}[Uniform Sobolev duality]\label{L:4.3}
+\status{proved}. Suppose \(P\) is smooth and
+\(P,\Delta P,\Delta^2P\in L^2(\Gamma\backslash\HH)\). Put
+\(\langle P\rangle=V^{-1}\int P\,d\mu\) and
+\(P_0=P-\langle P\rangle\). Under Lemma~\ref{L:4.2}'s separation hypothesis,
+\[
+ \left|\sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac{P(z)}{e_z}
+           -\#\Lambda\langle P\rangle\right|
+ \le C(r_0)^{1/2}(\#\Lambda)^{1/2}\|(1-\Delta)P_0\|_2.
+\]
+\end{proposition}
+\begin{proof}
+Lemma~\ref{L:4.2} says that \((1-\Delta)^{-1}\nu_\Lambda\in L^2\)
+with squared norm at most \(C(r_0)\#\Lambda\). Self-adjointness, first
+for smooth regularisations of the point masses and then by Sobolev
+duality, gives
+\[
+ \nu_\Lambda(P_0)=
+ \langle(1-\Delta)P_0,(1-\Delta)^{-1}\nu_\Lambda\rangle.
+\]
+Point evaluation agrees with this distributional pairing by local
+Sobolev embedding in dimension two. Cauchy--Schwarz proves the claim.
+\end{proof}
+
+\begin{corollary}[Heegner forms]\label{L:4.4}
+\status{proved}. Let \(\cF\subset\cF_d\) be invariant under a subgroup
+\(\Gamma\subset\Gamma_0(d)\) acting on \(w_Q=z_Q/d\), with finitely many
+orbits. Proposition~\ref{L:4.3} holds with an absolute constant for its
+root set. If the effective stabiliser of infinity consists of translations
+by \(h\Z\), and \(\psi\in C_c^\infty(\HH)\), set
+\[
+ \psi_{\rm per}(w)=\sum_{m\in\Z}\psi(w+mh),\qquad
+ P_\psi(w)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}
+                           \psi_{\rm per}(\gamma w).
+\]
+Then
+\[
+ \sum_{z\in\Gamma\backslash\widetilde\Lambda}\frac{P_\psi(z)}{e_z}
+  =\sum_{Q\in\cF}\psi(w_Q),\qquad
+ \langle P_\psi\rangle=V^{-1}\int_{\HH}\psi\,d\mu.
+\]
+The same statements hold after conjugating the group by a real dilation.
+\end{corollary}
+\begin{proof}
+The dilation is a hyperbolic isometry, so Lemma~\ref{L:2.2} supplies the
+absolute separation \(r_0=\operatorname{arccosh}(3/2)\).
+Unfold the group sum, cancelling elliptic stabilisers as in
+Lemma~\ref{L:4.2}, and then unfold translations. The root map is
+injective at fixed discriminant, so this counts forms, not just roots.
+Unfolding the integral proves the mean formula. The Poincar\'e series
+and its Laplacian iterates are smooth and vanish sufficiently high in
+every cusp: for a nonstabilising coset the transformed height tends to
+zero, below the support of \(\psi\), whereas at infinity the stabilising
+coset eventually lies above its support. Thus they satisfy the
+integrability assumptions of Proposition~\ref{L:4.3}.
+\end{proof}
+
+\section{The spectral large sieve and the variance of box Poincar\'e series}
+\label{sec:sieve}
+We recall the coordinates of Section~\ref{sec:heegner}, keeping the parity
+condition throughout. For odd squarefree \(q\) with \((q,d)=1\), conjugation
+by \(u=w/(2q)\) takes the effective image of
+\(\Gamma'_q=\Gamma_0(2d)\cap\Gamma(2q)\) to
+\[
+ \Gamma_{M,q}=\left\{\pm\begin{pmatrix}p&t\\r&s\end{pmatrix}
+       \in\Gamma_0(M):p\equiv s\equiv1\pmod{2q}\right\},
+ \qquad M=4dq^2.
+\]
+Its cusp at infinity has width one. Set
+\(h_q=[\Gamma_0(M):\Gamma_{M,q}]\), with effective groups understood:
+\(h_1=1\) and \(h_q=\varphi(q)/2\) for \(q>1\).
+The quotient is \((\Z/q\Z)^\times/\{\pm1\}\); hence its characters are
+exactly the even characters modulo \(q\), equivalently modulo \(2q\).
+
+\subsection*{The imported spectral estimates}
+We specify normalisations to distinguish a cusp width from the parameter
+in the large sieve. At a singular cusp \(\mathfrak a\), choose a scaling
+matrix giving period one, and write the expansion of an orthonormal
+weight-zero Maass form as
+\begin{equation}\label{B:eq:fourier}
+ u_j(\sigma_{\mathfrak a}z)
+ =\sqrt y\sum_{n\ne0}\rho_{j\mathfrak a}(n)
+                 K_{it_j}(2\pi|n|y)e^{2\pi inx}.
+\end{equation}
+This is DI's normalisation \cite[(1.34), p.~231]{DI}.
+The Eisenstein coefficients \(\rho_{\mathfrak c\mathfrak a}(n,t)\)
+will use the identical \(\sqrt yK_{it}\) convention. The DI cusp
+parameter for \(\Gamma_0(M)\) is
+\[
+ \mu(\mathfrak a)=\frac{(v,M/v)}M
+ \quad\text{if }\mathfrak a\sim u/v,\ v\mid M,\ (u,v)=1;
+ \qquad \mu(\infty)=M^{-1}.
+\]
+It is \emph{not} the literal translation width at infinity, which is one.
+For \(K\ge1\), \(H\ge1/2\), and \(a_n\) supported on \(H<n\le2H\),
+DI \cite[Theorem 2, (1.29)--(1.30), p.~230]{DI} bounds the cuspidal
+expression
+\[
+ \sum_{|t_j|\le K}\frac1{\cosh(\pi t_j)}
+       \left|\sum_n a_n\rho_{j\mathfrak a}(n)\right|^2
+\]
+and its continuous-spectrum analogue by
+\((K^2+\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2\), for trivial
+nebentypus. With an even character of conductor \(q_0\mid q\), the bound is
+\begin{equation}\label{B:eq:large-sieve}
+ \ll_\varepsilon
+ (K^2+q_0^{1/2}\mu(\mathfrak a)H^{1+\varepsilon})\sum_n|a_n|^2.
+\end{equation}
+Here the continuous analogue means
+\(\sum_{\mathfrak c}(4\pi)^{-1}\int_{-K}^K
+\cosh(\pi t)^{-1}|\sum_n a_n\rho_{\mathfrak c\mathfrak a}(n,t)|^2dt\),
+summed over all singular cusps. This is
+\cite[Proposition 4.7, (4.24)--(4.25)]{Dr}, in the arXiv numbering.
+Drappeau uses Whittaker coefficients: since
+\(W_{0,it}(4\pi|n|y)=2\sqrt{|n|y}K_{it}(2\pi|n|y)\),
+\(\rho^{\rm DI}(n)=2\sqrt{|n|}\rho^{\rm Dr}(n)\).
+Thus his \(\sqrt n\rho^{\rm Dr}(\pm n)\) is exactly our coefficient
+up to the constant 2; his factor \((1+|t|)^{\pm\kappa}\) is one because
+\(\kappa=0\). These estimates hold separately for either sign of \(n\).
+
+For later comparison, DI \cite[Theorem 5, (1.38), p.~232]{DI} states,
+for trivial character, \(X\ge1\), and exceptional parameters
+\(t_j=i\sigma_j\), \(0<\sigma_j<1/2\),
+\begin{equation}\label{B:eq:exceptional-sieve}
+ \sum_{j\ {
+m exc}}X^{2\sigma_j}
+   \left|\sum_{H<n\le2H}a_n\rho_{j\mathfrak a}(n)\right|^2
+ \ll_\varepsilon
+ (1+\sqrt{\mu(\mathfrak a)HX})
+ (1+\sqrt{\mu(\mathfrak a)H^{1+\varepsilon}})\|a\|_2^2.
+\end{equation}
+The nebentypus analogue is \cite[Lemma 4.8]{Dr}, with second factor
+\(1+(q_0\mu(\mathfrak a)H)^{1/2+\varepsilon}\).
+The displayed DI statements have been checked against the scan; the
+Drappeau numbering and coefficient conversion refer to arXiv:1504.05549,
+not to an unchecked published numbering.
+
+\subsection*{The box variance}
+Take \(\phi\in C_c^\infty([-2,-1])\), \(W\in C_c^\infty([1,2])\), and
+\[
+ \psi(u)=\phi(x/\lambda)W(y/Y),\qquad
+ L_* =\log(2+(\lambda Y)^{-1}+Y^{-1}+M).
+\]
+Assume \(\lambda>0\) and \(Y\le\lambda L_*^{-3}\). Periodisation is always
+understood; no restriction \(\lambda<1\) is imposed. For nonnegative
+nonzero weights its area is \(\asymp\lambda/Y\). In applications
+\(\lambda\asymp A/(qF)\), \(Y\asymp1/(qF\sqrt d)\), and \(L_*\ll\cL\).
+
+\begin{proposition}[Box variance]\label{L:5.1}
+\status{conditional} on (SEL). On \(\Gamma_{M,q}\backslash\HH\),
+\begin{equation}\label{B:eq:variance}
+ \|(1-\Delta)(P_\psi-\langle P_\psi\rangle)\|_2^2
+ \ll_{\phi,W,\varepsilon}L_*^C
+ \left\{\frac\lambda Y
+   \left(1+\frac{q^{1/2}}M(L_*/\lambda)^{1+\varepsilon}\right)
+       +\frac{\lambda^2}Y\right\}.
+\end{equation}
+The constant is uniform in \(d,q,\lambda,Y\), and depends on only finitely
+many seminorms of the two fixed weights.
+\end{proposition}
+\begin{proof}
+\emph{Reduction and spectral expansion.}
+Differentiation commutes with periodisation and
+\[
+ (1-\Delta)\psi
+ =\phi(x/\lambda)(W(v)-v^2W''(v))
+       -(Y/\lambda)^2\phi''(x/\lambda)v^2W(v),\qquad v=y/Y.
+\]
+Moreover \(\int\Delta\psi\,d\mu=0\). Since \(Y/\lambda\le1\), it suffices
+to bound \(\|P_\psi-\langle P_\psi\rangle\|_2^2\) by the right side of
+\eqref{B:eq:variance}, for arbitrary fixed smooth weights of this type.
+For each even \(\chi\bmod q\), let
+\[
+ P_\chi=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma_0(M)}
+            \overline{\chi(\gamma)}\psi_{\rm per}(\gamma u).
+\]
+Character orthogonality gives \(P_\psi=h_q^{-1}\sum_\chi P_\chi\) and
+\begin{equation}\label{B:eq:char-norm}
+ \|P_\psi-\langle P_\psi\rangle\|_{\Gamma_{M,q}}^2
+ =\frac1{h_q}\sum_\chi
+       \|P_\chi-\ind_{\chi=1}\langle P_1\rangle\|_{\Gamma_0(M),\chi}^2.
+\end{equation}
+The spectral expansion, with Eisenstein measure \(dt/(4\pi)\), is the
+usual Parseval formula \cite[Theorem 7.3]{Iw} (with the character
+spaces and singular cusps as in \cite[\S4.1]{Dr}).
+\emph{This is the sole use of (SEL):} after removing the constant,
+all discrete parameters are real, and there is no nonconstant residual
+spectrum. Thus the squared norm for a fixed character is the sum of
+\(|\langle P_\chi,u_j\rangle|^2\) over cusp forms and
+\((4\pi)^{-1}\sum_{\mathfrak c}\int_\R
+|\langle P_\chi,E_{\mathfrak c}(\cdot,1/2+it)\rangle|^2dt\).
+
+\emph{Unfolding and Mellin inversion.}
+Write \(\widehat\phi(\xi)=\int_\R\phi(v)e^{-2\pi i\xi v}dv\).
+The periodised box has Fourier coefficient
+\(\lambda\widehat\phi(\lambda n)W(y/Y)\), even when \(\lambda>1\).
+Using \eqref{B:eq:fourier}, unfolding gives
+\[
+ \langle P_\chi,u_j\rangle
+ =\sum_{n\ne0}\overline{\rho_j(n)}\lambda\widehat\phi(\lambda n)I_{t_j}(n),
+ \quad I_t(n)=\int_0^\infty W(y/Y)y^{-3/2}K_{it}(2\pi|n|y)\,dy.
+\]
+Set
+\[
+ G_t(s)=\Gamma((s+it)/2)\Gamma((s-it)/2),\qquad
+ \mathcal W(s)=\int_0^\infty W(v)v^{-3/2-s}dv.
+\]
+Write also
+\[
+ B_j(s)=\sum_{n\ne0}\overline{\rho_j(n)}
+              \lambda\widehat\phi(\lambda n)|n|^{-s}.
+\]
+The function \(\mathcal W\) is entire and rapidly decreasing vertically,
+uniformly on fixed strips. Mellin inversion of the Bessel function gives,
+for \(\sigma>0\),
+\begin{equation}\label{B:eq:mellin}
+ \langle P_\chi,u_j\rangle
+ =\frac{Y^{-1/2}}{8\pi i}\int_{(\sigma)}
+        G_{t_j}(s)\mathcal W(s)(\pi Y)^{-s}B_j(s)\,ds.
+\end{equation}
+Absolute convergence follows from the rapid decay of
+\(\widehat\phi\), the polynomial growth of Fourier coefficients, and
+Stirling's formula.
+
+\emph{Uniform spectral bounds.}
+Put \(\sigma_0=1/L_*\). Stirling's formula, including the simple poles
+of \(\Gamma\), gives
+\begin{align*}
+ |G_t(\sigma_0+iv)|&\ll L_*^2e^{-\pi|v|/2} &&(|t|\le1),\\
+ |G_t(-1+iv)|&\ll e^{-\pi|t|/2}(1+|t|)^{-2}(1+|v|)^4
+                                      &&(|t|\ge1).
+\end{align*}
+For the second bound, if \(|v|\le|t|/2\) both gamma arguments have
+imaginary part comparable to \(|t|\); otherwise
+\(1+|t|\ll1+|v|\) and the exponential is
+\(e^{-\pi\max(|v|,|t|)/2}\). On this line both real parts are \(-1/2\),
+a fixed distance from gamma poles. Since \(Y^{-\sigma_0}\ll1\),
+Cauchy--Schwarz in \eqref{B:eq:mellin} yields, for \(|t_j|\le1\),
+\[
+ |\langle P_\chi,u_j\rangle|^2
+ \ll Y^{-1}L_*^4\int_\R |\mathcal W(\sigma_0+iv)|
+                                    |B_j(\sigma_0+iv)|^2\,dv.
+\]
+For \(|t_j|\ge1\), shift to \(\Re s=-1\), crossing only \(s=\pm it_j\).
+The residue contribution is
+\[
+ \frac{Y^{-1/2}}2\sum_\pm
+       \Gamma(\pm it_j)\mathcal W(\pm it_j)(\pi Y)^{\mp it_j}B_j(\pm it_j).
+\]
+Let \(\widetilde B_j(s)=(\pi Y)^{-s}B_j(s)\).
+Using \(|\Gamma(it)|^2=\pi/(|t|\sinh(\pi|t|))\), for any fixed large
+\(B\) the squared coefficient is at most
+\begin{align}\label{B:eq:high-t}
+ \frac{C_BY^{-1}}{\cosh(\pi t_j)}\bigg\{&
+ (1+|t_j|)^{-B}\sum_\pm|B_j(\pm it_j)|^2\notag\\
+ &+(1+|t_j|)^{-4}\int_\R
+  |\mathcal W(-1+iv)|(1+|v|)^4|\widetilde B_j(-1+iv)|^2\,dv\bigg\}.
+\end{align}
+
+\emph{The large sieve, including both tails.}
+Split \(n\) by sign and into dyadic blocks \(H<|n|\le2H\),
+\(H=2^{i-1}\), \(i\ge0\). With
+\(w_H=1+|\log(\lambda H)|\), one has \(\sum_Hw_H^{-2}\ll1\).
+Cauchy--Schwarz across blocks and \eqref{B:eq:large-sieve} imply
+\[
+ \mathcal S(K;b):=\sum_{|t_j|\le K}\frac{|\sum_{n\ne0}\overline{\rho_j(n)}b_n|^2}
+                                             {\cosh(\pi t_j)}
+ \ll_\varepsilon\sum_H w_H^2
+       (K^2+q^{1/2}M^{-1}H^{1+\varepsilon})\|b^{(H)}\|_2^2.
+\]
+Complex conjugation of the coefficient vector causes no change in this
+inequality; either sign is covered by Drappeau's statement (or reflection
+and replacement of \(\chi\) by \(\bar\chi\)). For
+\(b_n(s)=\lambda\widehat\phi(\lambda n)|n|^{-s}\), at
+\(\Re s=\sigma_0\) or \(0\), the block norm is
+\(\ll_B\lambda^2H(1+\lambda H)^{-B}\).
+Summing the geometric tails gives, with
+\(Z=q^{1/2}M^{-1}\lambda^{-1-\varepsilon}\),
+\begin{equation}\label{B:eq:block-sieve}
+ \mathcal S(K;b(s))\ll L_*^2\lambda(K^2+Z).
+\end{equation}
+At \(\Re s=-1\), the coefficients of \(\widetilde B\) have modulus
+\(\pi Y|n|\lambda|\widehat\phi(\lambda n)|\); their bound is
+\eqref{B:eq:block-sieve} multiplied by \((Y/\lambda)^2\le1\), after
+increasing the decay exponent. This also proves the claims when
+\(\lambda>1\): then every nonzero mode lies in the rapidly decreasing tail.
+
+For the varying vectors \(b_n(\pm it_j)\), on each unit interval
+\([k,k+1]\) use the elementary inequality
+\[
+ |B_j(\pm it)|^2\le2|B_j(\pm ik)|^2+
+              2\int_k^{k+1}|\partial_\tau B_j(\pm i\tau)|^2d\tau.
+\]
+Differentiating multiplies a coefficient by \(\log|n|\), bounded on a
+block by \(O(L_*+|\log(\lambda H)|)\); the extra factors are absorbed
+in the same block sums. Consequently the sum on \(K<|t_j|\le2K\)
+for these vectors is \(\ll K L_*^4\lambda(K^2+Z)\).
+Insert these bounds in \eqref{B:eq:high-t} and the small-\(t\) estimate.
+Dyadic summation over \(K\ge1\) converges, since the integral term has
+weight \(K^{-4}\) and the residue term has arbitrary weight \(K^{-B}\).
+Vertical integrals converge by the decay of \(\mathcal W\). We obtain
+\[
+ \sum_j|\langle P_\chi,u_j\rangle|^2
+       \ll L_*^C\frac\lambda Y(1+Z).
+\]
+No truncation at logarithmic frequency or height was made.
+
+\emph{The continuous spectrum and its zero mode.}
+For nonzero modes the identical argument uses the continuous version of
+\eqref{B:eq:large-sieve}. In the unit-interval argument freeze the
+Eisenstein parameter in the Fourier coefficients and differentiate only
+the auxiliary variable in \(|n|^{-i\tau}\), then evaluate on the diagonal
+\(\tau=t\); no derivative of an Eisenstein coefficient is required.
+The constant term at infinity is
+\(\delta_{\mathfrak c\infty}y^{1/2+it}
+ +\Phi_{\mathfrak c\infty}(1/2+it)y^{1/2-it}\).
+Its pairing with the box is
+\[
+ \lambda\widehat\phi(0)Y^{-1/2}
+ \{\delta_{\mathfrak c\infty}Y^{-it}\mathcal W(it)
+  +\overline{\Phi_{\mathfrak c\infty}(1/2+it)}Y^{it}\mathcal W(-it)\}.
+\]
+Unitarity of the scattering matrix on the unitary axis gives
+\(\sum_{\mathfrak c}|\Phi_{\mathfrak c\infty}(1/2+it)|^2=1\).
+Squaring, integrating and summing therefore costs \(O(\lambda^2/Y)\),
+independently of the number of cusps. The cross term with nonzero modes
+is absorbed by \(|a+b|^2\le2|a|^2+2|b|^2\).
+Finally \eqref{B:eq:char-norm} averages exactly \(h_q\) character bounds;
+there is no loss from their number. Enlarging
+\(\lambda^{-1-\varepsilon}\) to \((L_*/\lambda)^{1+\varepsilon}\) proves
+\eqref{B:eq:variance}.
+\end{proof}
+
+Without (SEL), the terms with \(t_j=i\sigma_j\) remain. On a block
+\(|n|\asymp H\), the Bessel factor has additional size
+\((HY)^{-\sigma_j}\). Thus \eqref{B:eq:exceptional-sieve} is used with
+\(X=(HY)^{-1}\) when \(HY\le1\), not with \(X=Y^{-1}\).
+It does not recover Proposition~\ref{L:5.1} in the required cells;
+Section~\ref{sec:uncond} records precisely the resulting unconditional
+limitation. Neither the Sobolev argument nor the regular-spectrum large
+sieve depends on (SEL).
+
+\section{Per-\texorpdfstring{$d$}{d} counts}\label{sec:perd}
+Fix \(c\ge1\). The Type~I subset is
+\[
+ \cF_d^I=\{[f,4ad,de]:ef-4a^2d=1,\ e,f>0,\ a\in\Z\},
+ \qquad n(Q)=cB-A=4acd-f.
+\]
+Here \(A\) in \([A,B,C]\) is a form coefficient, not the dyadic parameter.
+This subset is invariant under \(\Gamma'_1=\Gamma_0(2d)\cap\Gamma(2)\)
+on the \(w\)-side. Indeed, the corresponding matrix on the \(z\)-side
+has upper-right entry divisible by \(2d\) and lower-left entry even, so
+\(B'=2Apt+B(ps+tr)+2Crs\equiv0\pmod{4d}\).
+Reduction modulo \(q\) shows that the additional condition \(q\mid n(Q)\)
+is invariant under \(\Gamma'_q\). These are the groups of
+Section~\ref{sec:sieve}; using \(\Gamma_0(d)\) alone would lose parity.
+
+For a prime \(\ell\nmid2d\), put \(\chi_d(\ell)=(-d/\ell)\) and define
+\(g_{c,d}(\ell)\) as the proportion on the quadric
+\(B^2-4AC=-4d\) satisfying \(cB-A=0\). Directly,
+\begin{equation}\label{B:eq:density}
+ g_{c,d}(\ell)=
+ \begin{cases}
+ (\ell-1)/(\ell^2+\chi_d(\ell)\ell),&\ell\nmid c,\\
+ (1+\chi_d(\ell))/(\ell+\chi_d(\ell)),&\ell\mid c.
+ \end{cases}
+\end{equation}
+Extend multiplicatively to squarefree \(q\) coprime to \(2d\).
+The denominator counts the quadric: for \(A\ne0\) there are
+\(\ell(\ell-1)\) choices, while \(A=0\) gives
+\(\ell(1+\chi_d(\ell))\). If \(\ell\nmid c\), the imposed equation
+forces \(B\ne0\), giving exactly \(\ell-1\) choices. If \(\ell\mid c\),
+it forces \(A=0\), giving the second numerator. Primes dividing \(2d\)
+never divide \(n\): both \(f\) and \(n\) are odd, and \(f\) is a unit
+at every prime dividing \(d\).
+
+\begin{lemma}[Factorisation of the orbital main term]\label{L:6.1}
+\status{proved}. Let \(\#\Lambda_d(q)\) be the orbifold count of
+\(\{Q\in\cF_d^I:q\mid n(Q)\}\) modulo \(\Gamma'_q\), and put
+\(V(q)=\vol(\Gamma'_q\backslash\HH)\). For squarefree \((q,2d)=1\),
+\[
+ \frac{\#\Lambda_d(q)}{V(q)}
+ =g_{c,d}(q)\frac{\#\Lambda_d(1)}{V(1)}.
+\]
+\end{lemma}
+\begin{proof}
+There is nothing to prove for \(q=1\). Reduction of \(\Gamma'_1\)
+onto \(\SL_2(\Z/q\Z)\) is surjective: it contains \(\Gamma(2d)\),
+and the assertion follows from CRT and surjectivity of reduction for
+\(\SL_2(\Z)\). The kernel is \(\Gamma'_q\). Thus the index of effective
+groups is
+\(I_q=|\SL_2(\Z/q\Z)|/2\), since \(-I\) belongs to \(\Gamma'_1\)
+but not to \(\Gamma'_q\).
+At a prime \(\ell\mid q\), the stabiliser of a nondegenerate binary form
+in \(\SL_2(\mathbb F_\ell)\) is its special orthogonal torus, of order
+\(\ell-\chi_d(\ell)\): it is either the split torus or the norm-one
+subgroup of \(\mathbb F_{\ell^2}^{\times}\).
+Its orbit consequently has \(\ell^2+\chi_d(\ell)\ell\) elements, the
+size of the entire quadric. The fraction satisfying the sieve condition
+is therefore \(g_{c,d}(\ell)\), independently of the original orbit.
+CRT gives the product of these fractions.
+For an orbit with stabiliser order \(e_Q\), the weighted number of
+sieved \(\Gamma'_q\)-orbits above it is
+\(e_Q^{-1}I_qg_{c,d}(q)\), by orbit--stabiliser (equivalently, sum over
+the cosets before dividing by the stabiliser). Summing over the original
+orbits, and using \(V(q)=I_qV(1)\), proves the formula.
+\end{proof}
+
+Choose a fixed physical box, so that in the coordinates \(u=w/(2q)\)
+its weights are \(\psi_q(u)=\psi_1(qu)\). Accordingly
+\(\lambda_q=\lambda_1/q\), \(Y_q=Y_1/q\), and
+\(\int\psi_q\,d\mu=\int\psi_1\,d\mu\). Define
+\[
+ \mathfrak M_d=\frac{\#\Lambda_d(1)}{V(1)}\int_{\HH}\psi_q\,d\mu,
+ \qquad \kappa_c(q)=2^{\omega((q,c))}.
+\]
+The first quantity is independent of the sieve modulus. Here and below
+\(\omega(m)\) counts the distinct prime factors of \(m\).
+
+% O114-FLAG: The source's Theorem 6.2 drops a factor at primes dividing c.
+% Its assertion #Lambda_d(q) << q^2 #Lambda_d(1), uniformly in c,q,
+% does not follow for (q,c)>1: a split prime dividing c contributes
+% |SL_2(F_ell)| g(ell) = 2 ell(ell-1). The theorem below retains
+% kappa_c(q)^{1/2}; the source's bound is recovered for (q,c)=1,
+% which is the sieve range excluding primes dividing 2cd in the assembly.
+\begin{theorem}[Per-\(d\) count]\label{L:6.2}
+\status{conditional} on (SEL). Let \(q\) be squarefree, \((q,2d)=1\),
+and let \(\psi_q\) be a box as in Proposition~\ref{L:5.1}, with
+\(\lambda_q\asymp A/(qF)\), \(Y_q\asymp1/(qF\sqrt d)\), \(A,F\ge1\).
+Assume the parameters are of polynomial size in \(N\), so \(L_*\ll\cL\).
+Then, for \(0<\varepsilon<1/2\),
+\begin{align}\label{B:eq:per-d}
+ &\left|\sum_{\substack{Q\in\cF_d^I\\q\mid n(Q)}}\psi_q(u_Q)
+             -g_{c,d}(q)\mathfrak M_d\right|\notag\\
+ &\quad\ll_\varepsilon \cL^C q\kappa_c(q)^{1/2}(\#\Lambda_d(1))^{1/2}
+   \left\{A\sqrt d\left(1+\frac A{qF}\right)
+                     +\frac{F^{1+\varepsilon}}{\sqrt d}\right\}^{1/2}.
+\end{align}
+In particular the factor \(\kappa_c(q)^{1/2}\) is absent when \((q,c)=1\),
+as in the sieve application. There is no lower bound on \(F/A\).
+\end{theorem}
+\begin{proof}
+Corollary~\ref{L:4.4} applies to the sieved subset, because separation
+is preserved by passage to a subset and by the dilation to \(u\).
+Lemma~\ref{L:6.1} identifies its mean as \(g_{c,d}(q)\mathfrak M_d\).
+In Proposition~\ref{L:5.1},
+\[
+ \frac\lambda Y\asymp A\sqrt d,\qquad
+ \frac{\lambda^2}Y\asymp A\sqrt d\frac A{qF},\qquad
+ \frac{q^{1/2}}{MY}\lambda^{-\varepsilon}
+ \ll\frac{F^{1+\varepsilon}}{\sqrt d}
+                 q^{-1/2+\varepsilon}A^{-\varepsilon}
+ \le\frac{F^{1+\varepsilon}}{\sqrt d}.
+\]
+The remaining factor from Sobolev duality is \((\#\Lambda_d(q))^{1/2}\).
+For \(\ell\nmid c\),
+\[
+ |\SL_2(\mathbb F_\ell)|g_{c,d}(\ell)
+       =(\ell-\chi_d(\ell))(\ell-1)\le\ell^2;
+\]
+for \(\ell\mid c\) it is either zero or \(2\ell(\ell-1)\le2\ell^2\).
+The exact identity from Lemma~\ref{L:6.1} therefore gives
+\(\#\Lambda_d(q)\le\kappa_c(q)q^2\#\Lambda_d(1)\), also for \(q=1\).
+Taking square roots proves \eqref{B:eq:per-d}.
+\end{proof}
+
+The term \(A/(qF)\) is the cost of wrapping around several periods;
+it carries no \(N^\varepsilon\) loss. One may instead use the \(e\)-cusp:
+\(w\mapsto-1/(dw)\) sends the point to
+\((2a+i/\sqrt d)/e\), and reflection gives the same boxes.
+Interchanging \(e,f\) replaces the sieve equation \(A=cB\) by
+\(C/d=cB\). The involution
+\((A,B,C)\mapsto(C/d,B,dA)\) is a bijection of the quadric modulo every
+prime not dividing \(2d\); hence the densities and the estimate are
+unchanged.
+
+\begin{lemma}[Class-number bound]\label{L:6.3}
+\status{proved}. With \(h(-4d)\) the number of primitive proper classes
+of discriminant \(-4d\), and
+\(r(d)=\prod_{p^k\parallel d}p^{\lfloor k/2\rfloor}\),
+\[
+ \#\Lambda_d(1)\le6h(-4d)r(d),\qquad
+ \sum_{d\le D}\#\Lambda_d(1)\ll D^{3/2}\log^2(2D).
+\]
+\end{lemma}
+\begin{proof}
+Every Type~I form is primitive: a prime dividing \(f\) divides neither
+\(2ad\) nor \(4ad\), by \(ef-4a^2d=1\).
+For a primitive class represented by \(Q_0\), its admissible level-\(d\)
+cosets are bounded by the number of
+\((t:s)\in\mathbb P^1(\Z/d\Z)\) with \(Q_0(t,s)\equiv0\pmod d\).
+Indeed, the second column of a matrix representing a coset modulo
+\(\Gamma^0(d)\) gives this projective point; the condition that the
+transformed last coefficient be divisible by \(d\) is necessary.
+Passing from \(\Gamma_0(d)\) to \(\Gamma'_1\) costs index at most six
+(exactly six for odd \(d\), four for even \(d\)); imposing Type~I parity
+can only decrease the count. Stabiliser weights only improve this upper bound.
+
+For \(p^k\parallel d\), make an invertible change of variables so that
+\(Q_0=[A_0,B_0,C_0]\) has \(p\nmid A_0\). This is possible by primitivity;
+at 2, \(B_0\) is even and one of the outer coefficients is odd.
+Points with \(p\mid s\) cannot be zeros. At an odd prime, zeros
+\((t:1)\) satisfy
+\((2A_0t+B_0)^2\equiv0\pmod{p^k}\), since the discriminant is \(-4d\).
+There are exactly \(p^{\lfloor k/2\rfloor}\) possibilities.
+At 2, write \(B_0=2B'_0\); the identity
+\[
+ A_0Q_0(t,1)=(A_0t+B'_0)^2+d
+\]
+shows that the condition is
+\(A_0t+B'_0\equiv0\pmod{2^{\lceil k/2\rceil}}\), again giving
+\(2^{\lfloor k/2\rfloor}\) possibilities. CRT proves the first assertion.
+The classical imaginary-quadratic class-number formula
+\cite{IK} is
+\(h(D_0)=w(D_0)\sqrt{|D_0|}L(1,\chi_{D_0})/(2\pi)\),
+where \(w(D_0)\le6\) and \(\chi_{D_0}\) is the Kronecker character,
+possibly imprimitive. Its nonprincipal character sums are bounded by
+\(|D_0|\); splitting the Dirichlet series there and using partial
+summation gives \(L(1,\chi_{D_0})\ll\log(2|D_0|)\).
+Thus \(h(-4d)\ll\sqrt d\log(2d)\), including nonfundamental discriminants.
+Finally,
+\[
+ \sum_{d\le D}r(d)
+ \le\sum_{m\le\sqrt D}m\,\#\{d\le D:m^2\mid d\}
+ \le D\sum_{m\le\sqrt D}\frac1m\ll D\log(2D).
+\]
+Multiplying by \(\sqrt D\log(2D)\) proves the second assertion.
+\end{proof}
+
+There is no uniform per-\(d\) relative-error assertion: the orbital
+main term contains a possibly small class number. Section~\ref{sec:assembly}
+uses only absolute errors and
+\(\sum_{d\asymp D}\sqrt{\#\Lambda_d(1)}\ll D^{5/4}\log(2D)\),
+by Cauchy--Schwarz and Lemma~\ref{L:6.3}. Relative to the box mass
+\(AD\), the first summed error in \eqref{B:eq:per-d} has size
+\(\cL^Cq(D/A)^{1/2}(1+A/(qF))^{1/2}\) when \((q,c)=1\).
+This is an averaged absolute-error calculation, not a lower bound for
+an individual \(\mathfrak M_d\).
+
+%%%%% part C
+\section{The per-\texorpdfstring{$a$}{a} Weil count}\label{sec:pera}
+The complementary estimate is unconditional.  It counts a modular hyperbola
+rather than a packet of forms.  Write $e(t)=\exp(2\pi it)$ in this section,
+and put
+\[
+ S(h,k;m)=\sum_{x\bmod m}^{*}e\bigl((hx+k\bar x)/m\bigr).
+\]
+All smooth weights below have fixed derivative bounds.  For upper bounds
+we take them nonnegative, with positive integral.
+
+\begin{proposition}[the count $(K_a)$; \status{proved}]\label{L:7.1}
+Let $a,c\geq1$, let $q$ be squarefree with $(q,2a)=1$, and set
+$m=4a^2$, $r=mq$.  For $D,E\geq1$ put $F=mD/E$, and let
+$W_1,W_2\in C_c^\infty((1,2))$.  Define
+\[
+ S_a(q)=\sum_{\substack{e,f\geq1\\ef\equiv1\ (m)\\q\mid4acd-f}}
+ W_1(e/E)W_2(d/D),\qquad d=(ef-1)/m.
+\]
+Then $S_a(q)=g'_{c,a}(q)X_a+R_a(q)$, where
+\begin{align}
+ X_a&=\frac{\varphi(m)}{m^2}\iint_{\R^2}
+ W_1(x/E)W_2\bigl((xy-1)/(mD)\bigr)\,dx\,dy
+ \asymp D\frac{\varphi(m)}m,\label{C:eq:Ka-main}\\
+ |R_a(q)|&\ll 2^{\omega(q)}\tau(m)^2
+ \left(qa+\frac DE+\frac DF\right),\label{C:eq:Ka-error}
+\end{align}
+and $g'_{c,a}$ is multiplicative on squarefree numbers, with
+\[
+ g'_{c,a}(\ell)=
+ \begin{cases}(\ell-1)/\ell^2,&\ell\nmid c,\\1/\ell,&\ell\mid c.
+ \end{cases}
+\]
+The constants depend only on the weights.
+\end{proposition}
+\begin{proof}
+The identity
+\[
+ an=f(ce-a)-c
+\]
+shows that the residue conditions on $(e,f)$ modulo $r$ are the CRT
+product of
+\[
+ \cS_m=\{(e,f):ef=1\pmod m\},\qquad
+ \cS_q=\{(e,f):f(ce-a)=c\pmod q\}.
+\]
+Put $W(x,y)=W_1(x/E)W_2((xy-1)/(mD))$.  On its support
+$x\asymp E$, $y\asymp F$, and
+$\partial_x^i\partial_y^jW\ll_{i,j}E^{-i}F^{-j}$.
+Two-dimensional Poisson summation gives
+\begin{equation}\label{C:eq:poisson}
+ \begin{aligned}
+ S_a(q)&=r^{-2}\sum_{h,k\in\Z}\widehat W(h/r,k/r)\mathcal K(h,k),\\
+ |\widehat W(h/r,k/r)|&\ll_B EF
+ (1+E|h|/r)^{-B}(1+F|k|/r)^{-B}.
+ \end{aligned}
+\end{equation}
+The sign in the finite Fourier transform is immaterial; with the
+positive sign, CRT gives
+\[
+ \mathcal K(h,k)=S(\bar qh,\bar qk;m)T_q(\bar mh,\bar mk),
+ \quad T_q(u,v)=\sum_{(e,f)\in\cS_q}e((ue+vf)/q).
+\]
+The prime factors of $T_q$ have CRT-rescaled arguments.  For a prime
+$\ell\mid q$, if $\ell\nmid c$, the substitution $w=ce-a$ gives
+\[
+ T_\ell(u,v)=e(u\bar ca/\ell)S(u\bar c,vc;\ell).
+\]
+If $\ell\mid c$, then $f=0$ and
+$T_\ell(u,v)=\ell\ind_{\ell\mid u}$.  In particular
+$|T_q(u,v)|\leq2^{\omega(q)}q$ (the trivial cardinality bound suffices).
+At $(h,k)=(0,0)$ we have $|\cS_m|=\varphi(m)$ and
+$|\cS_\ell|=\ell-1$ or $\ell$, respectively.  This gives exactly
+\eqref{C:eq:Ka-main} times $g'_{c,a}(q)$.
+
+We retain the axial frequencies: they are important if a divisor is
+small.  For $B>2$ and every integer $v\geq1$,
+\begin{equation}\label{C:eq:frequency-tail}
+ \sum_{\substack{k\ne0\\v\mid k}}(1+F|k|/r)^{-B}\ll_B\frac r{vF}.
+\end{equation}
+Indeed, if $vF\leq r$, compare with an integral; otherwise the left side
+is $O_B((r/(vF))^B)$.  Since
+$|S(0,\bar qk;m)|=|c_m(k)|\leq(k,m)$, expanding
+$(k,m)\leq\sum_{v\mid(k,m)}v$ in \eqref{C:eq:frequency-tail} gives
+\[
+ \sum_{k\ne0}(k,m)(1+F|k|/r)^{-B}\ll\tau(m)r/F.
+\]
+Thus the frequencies $h=0\ne k$ contribute at most
+$2^{\omega(q)}\tau(m)E/m=2^{\omega(q)}\tau(m)D/F$;
+$k=0\ne h$ contributes at most $2^{\omega(q)}\tau(m)D/E$.
+
+For $hk\ne0$ use the classical Weil--prime-power bound
+\cite{Weil}, in the convenient form
+\[
+ |S(u,v;m)|\leq3\tau(m)m^{1/2}(u,v,m)^{1/2}.
+\]
+The constant allows the prime $2$.  Expanding the gcd as before yields
+\begin{align*}
+ &\sum_{h,k\ne0}(h,k,m)^{1/2}
+ (1+E|h|/r)^{-B}(1+F|k|/r)^{-B}\\
+ &\hspace{20mm}\leq
+ \sum_{v\mid m}v^{1/2}\,O_B\left(\frac r{vE}\frac r{vF}\right)
+ \ll_B\frac{r^2}{EF},
+\end{align*}
+since $\sum_{v\geq1}v^{-3/2}<\infty$.  This remains valid when
+$vE>r$ or $vF>r$.  Inserting it in \eqref{C:eq:poisson} bounds the
+nonaxial contribution by
+$O(2^{\omega(q)}q\tau(m)m^{1/2})$.  As $m^{1/2}=2a$, the claimed
+error follows, even with one power of $\tau(m)$ here.
+\end{proof}
+
+For later use, if $\min(E,F)\geq N^{c_0}$, summation over $a\asymp A$
+and squarefree $q\leq Q$ gives
+\begin{equation}\label{C:eq:Ka-summed}
+ \sum_{a\asymp A}\sum_{\substack{q\leq Q\\(q,2a)=1}}
+ \mu^2(q)3^{\omega(q)}|R_a(q)|
+ \ll\cL^C\bigl(Q^2A^2+QADN^{-c_0}\bigr).
+\end{equation}
+Here we used the elementary divisor-moment bound
+$\sum_{a\asymp A}\tau(4a^2)^2\ll A(\log(2A))^C$.
+Measured against the scale $AD$, the error is
+$\cL^C(Q^2A/D+QN^{-c_0})$.  This gives a useful sieve level on the
+side $D>A$.  The axial errors explain why a uniform density assertion
+with no lower bound on $E,F$ would be false.  No small-divisor substitute
+for this proposition is used below.
+
+\section{Assembly}\label{sec:assembly}
+We begin with the elementary accounting fact that permits a sieve level
+to approach $1$ at the boundary $A=D$.
+
+\begin{lemma}[linearly degenerating savings; \status{proved}]\label{L:1.1}
+Let $L\geq2$, and let $m_{jk}\geq0$, $1\leq j,k\leq\lfloor L\rfloor$,
+with $\sum_km_{jk}\leq M$ for each $j$.  Then
+\[
+ \sum_{j,k}m_{jk}\min(1/j,1/k)\leq M(1+\log L).
+\]
+If also $m_{jk}\leq M/L$, the same sum is at most $2M$.
+\end{lemma}
+\begin{proof}
+The first assertion follows by using $1/j$ and summing the harmonic
+series.  For the second, group pairs by $h=\max(j,k)$:
+\[
+ \sum_{j,k\leq L}\min(1/j,1/k)
+ =\sum_{h\leq L}\frac{2h-1}{h}\leq2L.
+\]
+Multiply by $M/L$.  Fixed constant multiples of either saving only
+change the resulting absolute constant.
+\end{proof}
+Here $j$ indexes a $c$-block, $k$ the distance from $A=D$, and the mass
+of a $(j,k)$ layer will be $O(N\cL)$.  Thus $M\asymp N\cL^2$ is
+appropriate.  The block $j=0$ has no Brun--Titchmarsh saving, but costs
+only $O(N\cL\log\cL)$ after summing $1/k$; its innermost layers can
+be bounded trivially.  It must not be included in a sum containing $1/j$.
+
+\begin{theorem}[\status{conditional} on (SEL)]\label{L:8.1}
+Assume \textup{(SEL)} as stated in Section~\ref{sec:intro}, uniformly for
+$\Gamma_0(4dq^2)$ and the even nebentypus characters modulo $2q$.
+Then
+\[
+ \sum_{p\leq N}f_I(p)\ll N\log^2N.
+\]
+\end{theorem}
+\begin{proof}
+We work with $N/2<p\leq N$ and write $\cL=\log N$.
+The reduction of Section~\ref{sec:reduction}, from
+\cite[Proposition~2.2 and Lemma~2.8]{ET}, gives
+$f_I(p)\leq2\sum_cw_c(p)$.  Fix small constants
+$0<\eta\leq\eta_1$; all subsequent constants may depend on them.
+
+\smallskip\noindent
+\emph{1. Removing the short-progression ranges.}
+The part $c>N^\eta$ is $O_\eta(N\cL^2)$ by the first part of
+Theorem~\ref{M:3.8}, namely the Brun--Titchmarsh argument of
+\cite[(8.1)--(8.2)]{ET}.  For $c\leq N^\eta$, Lemma~\ref{L:8.2}
+disposes, all $c$ at once, of tuples with
+\[
+ \min(4ab,4acf,4cdf)\leq N^{1-\eta_1}.
+\]
+Indeed $bf=na+c$ and $f\leq2n$ imply $b\geq a/2$, so $4ad$ and
+$4bd$ are already $\gg N^{1-\eta}$; no other short modulus is needed.
+The remaining tuples lie in $R_{\rm bad}(\eta_1)$ up to
+$O(1/\cL)$ in their exponents.
+
+Use nonnegative smooth cells, with bounded overlap, supported in
+$R_{\rm bad}(2\eta_1)$.  Write
+\begin{equation}\label{C:eq:cell-scales}
+ c=N^\gamma,\quad a\asymp A=N^\alpha,\quad
+ d\asymp D,\quad AD\asymp N/c,\quad
+ e\asymp N^{\beta-\gamma},\quad f\asymp N^{1+\alpha-\beta}.
+\end{equation}
+Cells have side $O(1/\cL)$ in the exponent variables.  The spectral
+weights may instead be chosen in $(f',a/f')$, $f'\in\{e,f\}$;
+these coordinates give the same bounded-overlap covering.  Positive
+majorants allow us to drop the original size restrictions inside a cell.
+Proposition~\ref{M:3.3} gives, throughout the enlarged bad region,
+\begin{equation}\label{C:eq:large-divisors}
+ e,f\gg N^{1/2-3\eta_1}.
+\end{equation}
+For example $\beta\geq(1-2\eta_1)/2+O(1/\cL)$, while
+$1+\alpha-\beta\geq
+\max(1-\alpha-\gamma-2\eta_1,\alpha-2\eta_1)+O(1/\cL)$.
+
+\smallskip\noindent
+\emph{2. Bands and layers.}
+Let $c\asymp2^j$, $0\leq j\ll\eta\cL$, and put
+\[
+ \delta=|2\alpha-1+\gamma|,\qquad k=\lfloor\delta\cL\rfloor.
+\]
+A layer means fixed $(j,k)$ and all its $\beta$-cells; there are only
+$O(1)$ choices of the $a$-block for each $c$-block and $k$.
+Fixed shifts in $j,k$ and fixed changes of logarithm base are absorbed
+in constants.  Remove bands of width $C_0/\cL$ about
+$\beta=\alpha+\gamma$ and $\beta=1$, and also the cells with $D\leq64$.
+In each such cell one of $e,f$ is $O_{C_0}(A)$ (for the last band use
+$ef=4a^2d+1$).  Lemma~\ref{L:8.4}(b), with a fixed enlarged constant
+in $F\leq4A$, bounds its mass by $O(2^jAD)=O(N)$.
+There are $O(\cL)$ band cells per $c$-block, so all bands cost
+$O(N\cL^2)$ without a sieve.  Layers $k\leq C_1\log\cL$ are postponed.
+
+For reference, Brun--Titchmarsh on $4ad$ bounds a whole layer by
+\begin{equation}\label{C:eq:BT-layer}
+ O(N\cL/j),\qquad j\geq1,
+\end{equation}
+whenever $k\leq\cL/3$.  For fixed $(a,d,f)$ the $c$-block maps into
+an interval of length $4ad\,2^j$ in one residue class modulo $4ad$.
+Brun--Titchmarsh \cite[(A.10)]{ET} gives
+$8ad\,2^j/(\varphi(4ad)j\log2)$ for a reduced class.  In a
+nonreduced class there is at most one prime, which is absorbed by the
+same upper bound.  Now $k\leq\cL/3$ implies $A,D\geq N^{1/4}$ for
+our fixed small $\eta$, and Lemma~\ref{L:8.4}(a2), summed over the
+divisors $f$, proves \eqref{C:eq:BT-layer}.  For $j=0$ use its trivial
+analogue $O(N\cL)$.
+
+\smallskip\noindent
+\emph{3. The cell estimates away from the bands.}
+All errors in the next paragraphs are \emph{summed absolute errors}
+normalized by $AD$ (and by $N$ after the $c$-sum).  They are not
+pointwise relative errors for an individual $d$.  In particular
+Theorem~\ref{L:6.2} is always summed by Cauchy--Schwarz and
+Lemma~\ref{L:6.3} before making this comparison.
+
+\emph{(i) $D\geq A$.}
+Use the fixed-$a$ sequences of Proposition~\ref{L:7.1}.
+By \eqref{C:eq:Ka-summed} and \eqref{C:eq:large-divisors} their
+normalized error, summed with sieve weights through $q\leq Q$, is
+\[
+ \ll\cL^C\bigl(Q^2N^{-\delta}+QN^{-c_0}\bigr),
+ \qquad c_0=\tfrac12-3\eta_1.
+\]
+There is no restriction on $\beta$.  The bad region gives
+$\alpha\geq1/3-2\eta_1$, hence $\delta\leq1/3+4\eta_1$ here.
+Thus $Q\leq N^{\delta/4}$ makes the second term an absolute power
+saving, for sufficiently small $\eta_1$.
+
+\emph{(ii) $D<A$ and $\beta<\alpha+\gamma$.}
+Here $e\ll A$.  If $k\geq2j$ (allowing fixed shifts of the thresholds),
+use the $e$-cusp: replace $[f,4ad,de]$ by $[e,4ad,df]$ and the linear
+functional $cB-A$ by $cB-C/d$.  This is the same set of forms.
+In coordinates $(A,B,C/d)$ the discriminant equation is
+$B^2-4dA(C/d)=-4d$; interchanging $A$ and $C/d$ preserves it and
+interchanges the two linear conditions.  Consequently
+Lemma~\ref{L:6.1} has the same local density, and
+Theorem~\ref{L:6.2} applies with $F'=e$ and
+$\lambda\asymp A/(qe)$, including $\lambda>1$.
+Its summed error is
+\begin{equation}\label{C:eq:e-cusp}
+ \ll\cL^C Q^2
+ \left[N^{-\delta/2}(1+A/e)^{1/2}
+       +\frac{e^{1/2+\varepsilon}}A\right].
+\end{equation}
+Since $b\geq a/2$, we have $\beta\geq\alpha-O(1/\cL)$ and
+$(A/e)^{1/2}\ll N^{\gamma/2}\ll N^{\delta/4}$ in this range.
+The other term is $\ll A^{-1/2+2\varepsilon}$ and is
+$O(N^{-\delta/4})$ on the bad region, for a fixed sufficiently small
+$\varepsilon$.  This gives $\cL^CQ^2N^{-\delta/4}$.
+Cells with $a/2\leq b<a$ are included: they satisfy $e\leq3a/c$.
+If $k<2j$, use \eqref{C:eq:BT-layer} instead; its hypotheses hold
+because $j\ll\eta\cL$.
+
+\emph{(iii) $D<A$ and $\alpha+\gamma<\beta<1$.}
+Off the bands, both $e,f\geq8A$.  Choose the smaller divisor
+$f'=\min(e,f)\leq3A\sqrt D$ as cusp parameter.  Then
+$\lambda\ll1/q$, and Theorem~\ref{L:6.2} gives
+\[
+ \ll\cL^C Q^2
+ \left[N^{-\delta/2}+N^\varepsilon D^{1/4}A^{-1/2}\right].
+\]
+The second exponent is $(1-\gamma-3\alpha)/4+\varepsilon$;
+its difference from $-\delta/4$ is $-\alpha/4+\varepsilon$.
+It is therefore bounded by $N^{-\delta/4}$ with an absolute margin.
+We use the weaker common error $\cL^CQ^2N^{-\delta/4}$.
+
+\emph{(iv) $D<A$ and $1<\beta\leq1+2\eta_1$.}
+This strip cannot be discarded: here $f<A$, even though $e$ is large.
+Put $k'=\lfloor(\beta-1)\cL\rfloor$, which exceeds a fixed constant
+off the band.  If $k'\leq k/2$, use the $f$-cusp, not the $e$-cusp.
+For all $\lambda\asymp A/(qf)$, Theorem~\ref{L:6.2} gives
+\[
+ \ll\cL^CQ^2
+ \left[N^{-\delta/2}(1+A/f)^{1/2}+f^{1/2+\varepsilon}/A\right]
+ \ll\cL^CQ^2N^{-\delta/4},
+\]
+because $(A/f)^{1/2}\ll N^{(\beta-1)/2}\ll N^{\delta/4}$.
+The cusp term has an absolute margin.  Crucially, the first term
+carries no $N^\varepsilon$ loss at the degenerating boundary.
+If $k'>k/2$, use the $cdf$ fibres of Lemma~\ref{L:8.2}:
+$4cdf\asymp N^{2-\beta}$ and $\log(N/(4cdf))\gg k'$.
+Brun--Titchmarsh costs $O(N/k')$ per cell.  Indeed its reciprocal-totient
+sum is bounded by
+\[
+ \sum_{c\asymp2^j}\frac1{\varphi(c)}
+ \sum_{d\asymp D}\frac1{\varphi(d)}
+ \sum_{f\asymp F}\frac{\rho_d(f)}{\varphi(f)}\ll1
+\]
+by Lemma~\ref{L:8.3}(c).  The possible nonreduced classes contribute
+at most $\sum_{c,d,f}\rho_d(f)\ll CDF\asymp N\exp(-k')$, also
+$O(N/k')$; the same lemma proves this by comparison with the displayed
+weighted sum.  On the sieve side the weighted cell mass is $O(N)$
+by Lemma~\ref{L:8.4}(b), since $F\leq A$.  Thus in either treatment
+the cell costs $O(N/\max(k,k'))$ once the sieve saving below is established.
+
+These cases cover every remaining cell: on $D\geq A$ use (i), and on
+$D<A$ the three intervals separated by $\alpha+\gamma$ and $1$ give
+(ii)--(iv).  Their boundaries and $A\asymp D$ were already set aside.
+
+\smallskip\noindent
+\emph{4. Obtaining the prime saving from the cell errors.}
+For a sequence $\sigma$ with fixed $s\in\{a,d\}$ and fixed $c$, choose
+\[
+ z=N^{\kappa\delta/8},\qquad Q=z^2,
+ \quad \kappa=1\text{ in (i)},\quad \kappa=1/4\text{ in (ii)--(iv)}.
+\]
+Sieve only by primes $\ell>\ell_0\geq3$ with $\ell\nmid2cs$.
+Both density families satisfy
+\[
+ \frac1\ell-\frac2{\ell^2}\leq g_\sigma(\ell)\leq\frac1\ell<1.
+\]
+Selberg's upper-bound sieve \cite[Theorem~4.1 and Lemma~4.1]{HR}
+for nonnegative weighted sequences therefore gives
+\begin{equation}\label{C:eq:sieve}
+ \begin{aligned}
+ \#\{n\in\sigma:n\text{ prime},\ n>N/2\}
+ &\leq\frac{X_\sigma}{G_\sigma(z)}+
+ \sum_{\substack{q\leq Q\\q\mid P_\sigma(z)}}
+ 3^{\omega(q)}|r_\sigma(q)|,\\
+ G_\sigma(z)&\gg\frac{\varphi(2cs)}{2cs}\log z.
+ \end{aligned}
+\end{equation}
+Here counts are weighted if the cell is smooth; $z<N/2$.
+The lower bound on the local density, not merely its upper bound,
+is used in the estimate for $G_\sigma$.
+
+The model mass $X_\sigma$ need not be compared from below to the actual
+mass.  At $q=1$, Theorem~\ref{L:6.2} or Proposition~\ref{L:7.1} gives
+\[
+ X_\sigma\leq\#\sigma+|r_\sigma(1)|.
+\]
+Also $2cs/\varphi(2cs)\leq2g(c)g(s)$.
+Lemma~\ref{L:8.4}(a1) and $\sum_{c\asymp2^j}g(c)\ll2^j$ bound
+the weighted mass of a layer in (i) or (iii) by $O(N\cL)$.
+Lemma~\ref{L:8.4}(b) bounds each cell in (ii) or (iv) by $O(N)$;
+in particular their layer masses are $O(N\cL)$.
+The $q=1$ errors introduced in this comparison have only the extra
+factor $\max g(c)g(s)\ll(\log\cL)^2$.
+Since $Q^2=N^{\kappa\delta/2}$, the summed errors are
+$\ll\cL^CN^{-\kappa\delta/2}$ times the relevant mass scale;
+the additional term in (i) has an absolute power saving.
+All these errors are $O(1/k)$ times that scale once
+$k\geq C_1\log\cL$, with $C_1$ fixed sufficiently large.
+The main term in \eqref{C:eq:sieve} has the same saving, since
+$\log z\asymp k$.  This proves all the sieve savings asserted in step~3.
+
+\smallskip\noindent
+\emph{5. Summing all cells.}
+For $1\leq j\ll\eta\cL$, the layers $k\leq C_1\log\cL$ cost,
+by \eqref{C:eq:BT-layer},
+\[
+ \ll N\cL\log\cL\sum_{j\ll\eta\cL}\frac1j
+ \ll N\cL(\log\cL)^2\ll N\cL^2.
+\]
+For $j=0$ these layers cost $O(N\cL\log\cL)$ trivially.
+In (i), (iii), and (ii) with $k\geq2j$, a layer costs
+\[
+ \ll N\cL\min(1/j,C/k)\qquad(k\leq\cL/3).
+\]
+One takes the better bound for the whole portion of the layer in
+question, not an unweighted average of the two methods.
+Lemma~\ref{L:1.1} sums these costs to $O(N\cL^2)$.
+For $k>\cL/3$ the sieve alone suffices:
+$\sum_j\sum_{k>\cL/3}N\cL/k\ll N\cL^2$.
+Case (ii) with $k<2j$ costs
+$\sum_j\sum_{k<2j}O(N\cL/j)=O(N\cL^2)$.
+In (iv) the per-cell bound gives, for each $c$-block,
+\[
+ \sum_{k,k'\ll\cL}\frac{CN}{\max(k,k')}
+ \ll N\sum_{h\ll\cL}\frac{2h-1}{h}\ll N\cL.
+\]
+Summing over $j$ gives $O(N\cL^2)$ again.  For $j=0$ outside the
+innermost layers the $1/k$ bound costs at most $O(N\cL\log\cL)$,
+and the preceding two-dimensional sum still applies to (iv).
+Together with the bands and step~1, this proves the bound on
+$(N/2,N]$.  Summing dyadically in $N$ proves the theorem.
+\end{proof}
+
+\begin{remark}[scope and imported inputs]\label{C:rem:status}
+The theorem is conditional on the uniform hypothesis (SEL), not on an
+unspecified equidistribution assertion.  Its imported inputs are
+\cite[Proposition~2.2, Lemma~2.8, (8.1)--(8.2)]{ET} and the large-$c$
+part of Theorem~\ref{M:3.8}; Proposition~\ref{M:2.3}, relative to
+\cite[Theorem~7.1]{ET}; the spectral theorem with nebentypus and
+\cite[Theorem~2]{DI}/\cite[Proposition~4.7]{Dr}; Brun--Titchmarsh,
+Selberg's upper-bound sieve, the Weil bound, and P\'olya--Vinogradov.
+The internal review R111, rounds 1--2, records the repaired argument
+as a complete conditional proof relative to these inputs; it checks
+Proposition~\ref{L:7.1} and the cell coverage above.  It does not
+re-prove the cited spectral large sieve, nor re-check the inherited
+ET/MN3 reduction.  The divisor-sum input from the internal note had
+its separate R108 review.  These are internal checks, not external
+refereeing, and do not make (SEL) unconditional.
+\end{remark}
+
+\section{What is unconditional}\label{sec:uncond}
+The separation argument, Sobolev duality, the local-density computation,
+the per-$a$ count, and the arithmetic mass estimates are unconditional.
+The use of (SEL) is confined to the exceptional spectrum in
+Proposition~\ref{L:5.1}.  It is nevertheless essential to the present
+proof of the prime-counting theorem.
+
+\subsection{The exceptional-spectrum obstruction}
+An eigenvalue $\lambda_j=1/4-\sigma_j^2$, $0<\sigma_j<1/2$, introduces
+in the unfolded coefficient the factor $(nY)^{-\sigma_j}$, since
+$K_{\sigma_j}(2\pi ny)$ grows like a constant times $(ny)^{-\sigma_j}$
+when $ny$ is small.  The unconditional Kim--Sarnak bound
+\cite[Appendix~2]{KS} is $\sigma_j\leq7/64$, including the
+nebentypus forms at issue here.  A direct use of this bound permits the
+loss
+\begin{equation}\label{C:eq:exceptional-loss}
+ Y^{-7/64}\asymp(qF'\sqrt d)^{7/64}
+\end{equation}
+in the spectral error.  On the $D<A$ side this must be compared with
+$(D/A)^{1/2}=N^{-\delta/2}$, $\delta=2\alpha-1+\gamma>0$.
+In the worst cells $qF'\sqrt d$ has size about $N$, so the exponent
+comparison leaves a strip
+\[
+ 0<2\alpha-1+\gamma\lesssim7/32.
+\]
+Even the smallest cusp parameters at the boundary, with
+$F'\gg N^{1/2-3\eta_1}$ and $D$ near $N^{1/2}$, give a loss of
+size $N^{21/256-O(\eta_1)}$, corresponding to the comparison
+$\delta\approx21/128-O(\eta_1)$.  These numbers describe the
+obstruction to the estimates, not a sharp geometric boundary or a
+lower bound for an actual spectral contribution.  In particular a
+fixed positive width, rather than a single line, remains untreated.
+
+\begin{assessment}[partial exceptional-spectrum estimates]\label{C:ass:exceptional}
+Deshouillers--Iwaniec's exceptional large sieve
+\cite[Theorem~5]{DI} improves on a pointwise insertion of
+\eqref{C:eq:exceptional-loss}, but does not supply the needed uniform
+saving at $A\asymp D$.  On a Fourier block $n\asymp N_0$ its parameter
+must be
+\[
+ X=\frac1{N_0Y},
+\]
+not $1/Y$, because the squared exceptional weight is
+$(nY)^{-2\sigma_j}$.  In its usual notation the bound has the shape
+\[
+ \sum_{\rm exc}X^{2\sigma_j}
+ \left|\sum_{n\asymp N_0}a_n\rho_j(n)\right|^2
+ \ll (1+\sqrt{\mu N_0X})(1+\sqrt{\mu N_0^{1+\varepsilon}})
+ \sum_n|a_n|^2,
+\]
+with $\mu\asymp1/M$, $M=4dq^2$.  The first factor is of size
+$1+(F'/(q\sqrt d))^{1/2}$, which is not uniformly harmless near the
+boundary.  The level average in \cite[Theorem~6]{DI} offers further
+partial control.  The source calculation reports an extra factor
+$(F')^{3/4}D^{1/8}/A$ there; its detailed bookkeeping was not re-checked
+in the internal review, and we do not use it as a proved obstruction
+theorem.  The same caveat applies to the source's exploratory
+exceptional-density calculations.  None enters the conditional proof.
+\end{assessment}
+
+A positive-width region bounded only by the original $1/j$ saving
+still contributes at the level of the available upper bounds
+$N\cL^2\sum_{j\ll\cL}1/j$.  Unlike the linearly degenerating
+saving in Lemma~\ref{L:1.1}, this does not remove $\log\log N$.
+Thus \emph{this argument gives no unconditional improvement} of
+\cite[Theorem~1.1]{ET}; this is not a claim that an unconditional
+improvement by other methods is impossible.  Sufficient replacements
+for (SEL) would include a large sieve for the exceptional spectrum
+with precisely these Fourier weights and $X\asymp1/(N_0Y)$, with
+errors that still allow the layer summation, or cancellation beyond
+termwise Weil in $\sum_{a\asymp A}S(h,k;4a^2)$.
+
+\subsection{Lifts versus equidistribution of a finite packet}
+The lift-counting target (H**) of \cite[\S3.5]{MN3} is stronger than
+what the proof above uses.  For the packets of natural class-number
+size $d^{1/2+o(1)}$ on a surface of volume $d^{1+o(1)}$, a box of
+hyperbolic area $V$ has expected packet count $Vd^{-1/2+o(1)}$.
+Consequently a uniform relative equidistribution statement in
+\emph{all} boxes cannot extend below area $d^{1/2-o(1)}$: integrality
+and boxes containing a packet point already prevent it.  Here
+``scale'' is area, not hyperbolic radius.  This elementary granularity
+obstruction does \emph{not} refute (H**) as formulated for lifts,
+averaged in $d$, with congruence conditions.  Nor does it obstruct the
+second-moment method here: the lift-counting Poincar\'e function has
+box area $\asymp A\sqrt d$, and Proposition~\ref{L:4.3} uses only its
+variance against a separated packet.
+
+For comparison, Liu--Masri--Young
+\cite[Theorem~1.4, and the more general Theorem~7.1]{LMY} prove a
+joint level--discriminant equidistribution result in the range
+$q\leq |D|^{1/20-\varepsilon}$.  Their $q$ is a prime level, $-D$ is
+an odd fundamental discriminant, and $q$ splits in
+$\Q(\sqrt{-D})$.  Their count is in translates of a level-one
+fundamental domain; it is not the present thin-box count with sieve
+twists.  Here level and discriminant are tied, already $d$ and $-4d$
+before inserting $q$, and the coprimality/splitting hypotheses do not
+match.  Thus that theorem does not supply (H**) or the needed per-$d$
+estimate.  We make no exhaustive literature claim that no other
+joint-aspect theorem exists.
+
+\section{Open problems}\label{sec:open}
+\begin{problem}[unconditional removal]
+Prove $\sum_{p\leq N}f_I(p)\ll N\log^2N$ without (SEL), or obtain an
+unconditional improvement of its present $\log\log N$ loss.  A proof
+must address a positive-width strip adjacent to $A=D$, not merely
+the line $A=D$ itself.
+\end{problem}
+
+\begin{problem}[weighted exceptional density]
+Prove a density or large-sieve theorem for exceptional eigenvalues
+on $\Gamma_0(4dq^2)$, with even nebentypus modulo $2q$, incorporating
+the coefficients of the box Poincar\'e series and the weights
+$(N_0Y)^{-2\sigma_j}$.  The relevant target is an averaged error that
+retains a saving degenerating at most linearly in
+$|2\alpha-1+\gamma|$, after summation in $d$ and the sieve modulus;
+a count of exceptional eigenvalues alone need not suffice.
+\end{problem}
+
+\begin{problem}[square-modulus Kloosterman sums]
+Obtain useful cancellation in $\sum_{a\asymp A}S(h,k;a^2)$, or its
+$4a^2$ variant, uniformly in the Fourier ranges produced by
+\eqref{C:eq:poisson}.  For the application the averaging must handle
+the accompanying smooth weights, gcd factors, and the sieve
+congruence.  Termwise square-root cancellation is exactly the
+estimate that stops at $D\asymp A$.
+\end{problem}
+
+\begin{problem}[joint level--discriminant counting]
+Establish a version of the lift-counting target (H**) at level
+comparable to the discriminant, with the parity restriction and
+congruence twists retained.  A second-moment theorem for the
+appropriate Poincar\'e functions could suffice and would avoid a
+false assertion of uniform fine-scale equidistribution of a finite
+packet.
+\end{problem}
+
+\begin{problem}[general numerators]
+Extend the conditional Type~I estimate uniformly from $4/n$ to
+$m/n$.  Primes dividing $m$ must be omitted from the sieve, and the
+mass gain $\varphi(m)/m$ must be tracked against the sieve-product
+inflation $m/\varphi(m)$ and all remainder terms
+\cite[remarks after Theorem~3.8]{MN3}.  The earlier internal transition
+gap $(m\log m/\varphi(m))^{1/3}$ is historical: the refined lower-side
+bound in \cite[\S2, Theorem~L$'$]{MN3} reduces it to
+$(\log\log N)^{1/3}$.  An $m$-uniform removal of the Type~I logarithmic
+loss would close that remaining gap at the scale
+$\log N\asymp m^{1/3}$.  Such an extension is not proved here.
+\end{problem}
+
+\begin{remark}[numerical status: \status{evidence}]
+The script \texttt{scripts/ttl\_perd.py} supplies only a weak sanity
+check for per-$d$ counts.  Its weights are normalized to mass about
+$20$, and its local-density comparison is not the orbital main term
+of Theorem~\ref{L:6.2}.  Small observed errors are therefore neither
+evidence for a uniform spectral error bound at the required scales
+nor a test of (SEL).  No numerical observation is used in any proof.
+\end{remark}
+\begin{thebibliography}{99}
+\bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010v6. Page and equation references in this note refer to that arXiv version.
+\bibitem[MN3]{MN3} \emph{The lower side of the $m/n$ transition: the $m/\varphi(m)$ loss and the Type I $\log\log$}, internal note, \texttt{EXCEPTIONAL\_MN3.md}, with internal review \texttt{reviews/exceptional-mn3-review.md}.
+\bibitem[DI]{DI} J.-M. Deshouillers and H. Iwaniec, Kloosterman sums and Fourier coefficients of cusp forms, \emph{Invent. Math.} \textbf{70} (1982), 219--288.
+\bibitem[Dr]{Dr} S. Drappeau, Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method, \emph{Proc. Lond. Math. Soc.} \textbf{114} (2017), 684--732; arXiv:1504.05549. Proposition numbers here use the arXiv version.
+\bibitem[IK]{IK} H. Iwaniec and E. Kowalski, \emph{Analytic number theory}, American Mathematical Society Colloquium Publications \textbf{53}, American Mathematical Society, 2004.
+\bibitem[MV]{MV} H. L. Montgomery and R. C. Vaughan, The large sieve, \emph{Mathematika} \textbf{20} (1973), 119--134.
+\bibitem[Jia]{Jia} C. Jia, The estimate for mean values on prime numbers relative to $4/p=1/n_1+1/n_2+1/n_3$, \emph{Sci. China Math.} \textbf{55} (2012), 465--474.
+\bibitem[LMY]{LMY} S.-C. Liu, R. Masri and M. P. Young, Subconvexity and equidistribution of Heegner points in the level aspect, \emph{Compos. Math.} \textbf{149} (2013), 1150--1174; arXiv:1206.3208.
+\bibitem[Duke]{Duke} W. Duke, Hyperbolic distribution problems and half-integral weight Maass forms, \emph{Invent. Math.} \textbf{92} (1988), 73--90.
+
+\bibitem[Iw]{Iw} H. Iwaniec,
+\emph{Spectral Methods of Automorphic Forms}, second edition,
+Graduate Studies in Mathematics \textbf{53}, American Mathematical Society, 2002.
+
+\bibitem[HR]{HR} H. Halberstam and H.-E. Richert,
+\emph{Sieve Methods}, Academic Press, London, 1974.
+
+\bibitem[KS]{KS} H. H. Kim and P. Sarnak,
+Refined estimates towards the Ramanujan and Selberg conjectures,
+Appendix~2 to H. H. Kim, Functoriality for the exterior square of
+$\mathrm{GL}_4$ and the symmetric fourth of $\mathrm{GL}_2$,
+\emph{J. Amer. Math. Soc.} \textbf{16} (2003), 139--183.
+
+\bibitem[Weil]{Weil} A. Weil,
+On some exponential sums,
+\emph{Proc. Natl. Acad. Sci. USA} \textbf{34} (1948), 204--207.
+
+\end{thebibliography}
+\end{document}
