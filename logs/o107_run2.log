@@ -1,0 +1,9 @@
+# Fri Oct  9 16:53:17 CEST 2026 m13e_run.sh 4600000000 10700000000 /tmp/o107/run2  (git b0d66d3)
+N=5436100813 ES=270175 boxes=69732 hits2,15=0 hits2,2=0
+N=6424482779 ES=266430 boxes=82147 hits2,15=0 hits2,2=0
+N=7592570557 ES=175374 boxes=62806 hits2,15=0 hits2,2=0
+N=8973037931 ES=102727 boxes=49558 hits2,15=0 hits2,2=2
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('II3', (8, 33, 11999), 1859, 2)
+  HIT (Fraction(2, 1), Fraction(2, 1)) ('I2', (125, 88, 11999), 1859, 2)
+N=10604499373 ES=15179 boxes=17527 hits2,15=0 hits2,2=0
+# Fri Oct  9 20:02:38 CEST 2026 done
