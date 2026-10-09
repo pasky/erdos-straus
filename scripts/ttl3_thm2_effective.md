@@ -144,7 +144,7 @@ bounds for sinh and cosh. The Gaussian on these intervals is at least `e⁻⁴`.
 This avoids any assertion about the lower Gaussian envelope for arbitrarily large r.
 Exceptional contributions are nonnegative, so they can initially be discarded.
 DI's exact Gaussian integrations and one integration by parts give
-`Φ(x)=√π iK³∫₀∞ ξe^{−(Kξ)²}sinhξ sin(xcoshξ)dξ`,
+`Φ(x)=√π iK³∫₀∞ ξe^{−(Kξ)²}tanhξ sin(xcoshξ)dξ` (R121A repair, m3: `tanh`, DI (5.6), not `sinh`; bounds unaffected),
 `xΦ(x)=√π iK³∫₀∞ e^{−(Kξ)²}(1−ξtanhξ−2K²ξ²)cos(xcoshξ)dξ/coshξ`.
 Let `F_K(c)=Σ conjugate(a_m)a_n S(m,n;c)xΦ(x)`, `x=4π√(mn)/c`.
 Steps 1, 3, 5 give the following bounds, each with multiplier `A P(s)‖a‖²`:
@@ -178,7 +178,9 @@ If `K≤N`, use `log K≤s⁻¹N^s`; if `K>N`, write `log K=log N+log(K/N)` and 
 `XN^{3s}log(K/N)≤KN^{3s}≤K²`. Thus the real and continuous conclusions hold with exponent 4s
 and constant `128A³P(s)G(s)(1+1/s)²`, which is below the stated K_T2.
 
-**9. Exceptional spectrum: a noncircular repair of the Gaussian positivity issue.**
+**9. Exceptional spectrum: a noncircular repair of the Gaussian positivity issue.** (R121A repair, m4: `σ ≤ 1/4` is
+taken from Selberg's 3/16, black box (B4), as in `ttl3_thm2_twisted.md` Step 9; the limiting argument below is only an
+unquantified remark and is not used.)
 For imaginary r approaching `i/2`, the lower bound for the integrated H itself in Step 7 is NOT
 uniform. First prove `|Im κ_j|≤1/4` by DI §6.2, using only the real/continuous and holomorphic
 results already established, not the exceptional conclusion of Theorem 2.

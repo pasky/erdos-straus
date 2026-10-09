@@ -22,7 +22,8 @@ For the definition of `S` and `S*` in LOGLOG3 §2, these constants give
 **(P2)** `S(Q,Y,N,0;I) ≤ c(δ)∫ S(πNY/Q,Y,N,t;I)dt/(1+t⁴)`
 `                         + c(δ)(YN)^δ(Q + N + NY/Q)N`.
 
-Here `Q,Y,N ≥ 1`, `I = (N,N₁]`, `N₁ ≤ 2N`. If `πNY/Q < 1`, the right-hand `S`
+Here `Q,Y,N ≥ 1`, `I = (N,N₁]`, `N₁ ≤ 2N` — equally for closed `I = [N,N₁]` with `‖1_I‖² ≤ 2N`, since all steps
+only use `m,n ∈ [N,2N]` (R121B repair, m2). If `πNY/Q < 1`, the right-hand `S`
 requires the natural extension of its defining finite level sum to positive `Q`.
 Alternatively, in this range the error term alone bounds the left side; thus no evaluation
 of an out-of-domain `S` is needed. This is a minor domain correction to LOGLOG3's formulation.

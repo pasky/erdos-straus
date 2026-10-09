@@ -10,7 +10,7 @@ Checked Dr pp. 9–14 (including rendered formulas), DI pp. 225–227, 257–261
 ## 1. Statement, conventions, black boxes
 
 Let `r|L`, let χ modulo r be even (not necessarily primitive), and use `σ∞=Id`, `μ(∞)=1/L`.
-For `K≥1`, `N≥1/2`, `0<δ≤1/10`, and a supported on `N<n≤2N`, each of the following is bounded by
+For `K≥1`, `N≥1/2`, `0<δ≤1/10`, and a supported on `N<n≤2N` (equally closed `[N,2N]`; R121B repair, m2), each of the following is bounded by
 
 `K_LSχ(δ) (K² + √r L⁻¹ N^{1+δ}) ‖a‖₂²`.                                            (LSχ)
 

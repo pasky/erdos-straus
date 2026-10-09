@@ -12,7 +12,7 @@ Use the cusp ∞ with scaling matrix Id, level `L = rq`, and **DI coefficients**
 `f(z) = √y Σ_{n≠0} ρ_f(n)K_{it_f}(2π|n|y)e(nx)`.
 Thus `ρ_f(n) = 2√n ρ_f^Dr(n)` for positive n: the b in the nebentypus audit
 is `ρ_f/2`, not literally `ρ_f`. This absolute normalization matters, not r.
-For `I = (N,N₁]`, `N₁ ≤ 2N`, define
+For `I = (N,N₁]`, `N₁ ≤ 2N` (equally closed `[N,N₁]`, `‖1_I‖² ≤ 2N`; only `m,n ∈ [N,2N]` is used — R121B repair, m2), define
 
 `Sχ(Q,Y,N,t;I) = Σ_{Q<q≤16Q} Σ_{f∈B(rq,χ), exc} Y^{2σ_f}|Σ_{n∈I} n^{it}ρ_f(n)|²`,
 

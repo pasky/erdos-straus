@@ -23,7 +23,7 @@ only the even, weight-zero case is needed here.
   `Σ_{L≤R, r|L} E_L(Y,a) ≪ε (RN)^ε(R/r + N + N√Y)‖a‖₂²`.
 * **Lemma 4.10:** for interval indicators a,
   `Σ_{L≤R, r|L} E_L(Y,a) ≪ε (RN)^ε(R/r + N + √(NY))N`.
-  An interval may be any subinterval of (N,2N]; prefix differences cost an absolute factor.
+  An interval may be any subinterval of [N,2N] (closed allowed; R121B repair, m2); prefix differences cost an absolute factor.
 * For the proof Drappeau **renames the level L=rq** and defines
   `Sχ(Q,Y,N,t;I) = Σ_{Q<q≤16Q} Σ_{f∈B(rq,χ), exc} Y^{2σ_f}|Σ_{n∈I} n^{it}b_f(n)|²`.
   Thus the actual level range is **rQ<L≤16rQ, r|L**, not Q<L≤16Q.

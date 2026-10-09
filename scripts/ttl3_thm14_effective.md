@@ -11,7 +11,11 @@ Then, for `C,M,N≥1` and `0<δ≤1/10`, the following admissible constant is
 
 `K14(δ) = 2^1200 (1+K_T2(δ)) (1+6/δ)^3`:
 
-`Σ_{1≤c≤C} |Σ_{1≤m≤M} Σ_{1≤n≤N} S(m,n;c)| ≤ K14(δ)(CMN)^δ C(C+MN)`.
+`Σ_{1≤c≤C} |Σ_{1≤m≤M} Σ_{1≤n≤N} S(m,n;c)| ≤ K14(δ)(CMN)^δ C(C+MN)`,
+
+and in fact the U-form (R121B repair, m3): `Σ_{1≤c≤C} U(c;M,N) ≤ K14(δ)(CMN)^δ C(C+MN)`, real `M,N ≥ 1`, with
+`U(c;M,N) = Σ*_{d mod c}|Σ_{m≤M}e(md/c)||Σ_{n≤N}e(nd̄/c)|` — §5's first step (DI p. 276, first line) majorises U(c),
+not only `|ΣΣS|`, and every later step bounds that majorant.
 
 In particular, if `K_T2(δ)≤exp(exp(B₂/δ))`, `B₂≥1`, then
 `K14(δ)≤exp(exp((B₂+1)/δ))`. No divisor-bound constant is necessary:

@@ -89,7 +89,8 @@ Here `Y/Y₁ ≤ Q^{1−2δ}/N < 1` and `(QNY₁)^δ ≤ (2Q³)^δ`, so `S* ≤ 
 *(C) Q > Q₀, N ≤ Q^{1−2δ}.* Then `Q^{2δ} ≥ 2π`. Put `Q₁ := πNY/Q = πQ^{1−2δ} ≤ Q/2` and `Y₁ := Q₁^{2−2δ}/N`.
 Then `N ≤ Q₁`, `Y/Y₁ = (Q^{2δ}/π)^{2−2δ} ≥ 1`, and the induction hypothesis applies at `(Q₁, N)`. By (P2), (M), (PS):
 `S(Q,Y,N,0;I) ≤ c∫ (Y/Y₁)^{1/2}·2(1+t²)S*(Q₁,Y₁,N) dt/(t⁴+1) + c(Q^{2−2δ})^δ(Q + N + Q^{1−2δ})N`
-`≤ c·2√2π·Q^{2δ(1−δ)}·H π^{1+4δ}Q^{(1−2δ)(1+4δ)}N + 3cQ^{1+2δ}N ≤ 45cH Q^{1+4δ−10δ²}N + 3cQ^{1+2δ}N`
+`= c·2√2π·(Q^{2δ}/π)^{1−δ}·Hπ^{1+4δ}Q^{(1−2δ)(1+4δ)}N + 3cQ^{1+2δ}N = 2√2π·π^{5δ}cHQ^{1+4δ−10δ²}N + 3cQ^{1+2δ}N`
+`≤ 45cH Q^{1+4δ−10δ²}N + 3cQ^{1+2δ}N` (exact power displayed — R121A repair, m5)
 (`∫(1+t²)dt/(t⁴+1) = √2π`; `2√2π·π^{1.4} < 45`). Since `Q^{10δ²} ≥ 90c` and `Q^{2δ} ≥ 1`, this is
 `≤ (H/2 + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. Taking sup over I closes the induction. ∎
 
@@ -139,7 +140,9 @@ integrations by parts the non-resonant Poisson terms cost `R_p = 2^{100(p+1)}(p!
 cost `(8/s)^{4·2^{4/s}}`, `s = δ/16` (this dominates). Repairs of DI's printed text: the cutoff support must be checked
 for the derivative separation on p. 257; p. 259 exponent `2s` should be `3s` (harmless); the diagonal is kept as
 `D_K ≤ 2K²` instead of DI's asymptotic (5.2); the Gaussian lower bound pp. 260–261 is restricted to `[|r|, |r|+1]`;
-the exceptional part is handled after first establishing `σ ≤ 1/4` (Selberg) non-circularly.
+for the exceptional part `σ ≤ 1/4` is taken from Selberg's 3/16, black box (B4); the script's Step 9 limiting argument is
+only a remark (R121A repair, m4). Step 7's Gaussian kernel has `tanh ξ` (DI (5.6)), not `sinh ξ`; the bounds stand
+since `|tanh| ≤ |sinh|` (R121A repair, m3).
 
 ## 6. Effective DI Theorem 14 (`scripts/ttl3_thm14_effective.md`)
 
@@ -168,7 +171,9 @@ hence `K₁, c ≤ exp(exp(405/δ))` (the factors `Aδ^{−2}` are absorbed sinc
 
 Fix r ≥ 1 and an even character χ mod r. Following Dr p. 17 the level is renamed `L = rq`
 (`scripts/ttl3_nebentypus.md` §1): `Sχ(Q,Y,N,t;I) := Σ_{Q<q≤16Q} Σ_{f∈𝓑(rq,χ) exc} Y^{2σ_f}|Σ_{n∈I}n^{it}ρ_f(n)|²`,
-defined for every `Q > 0` (DI normalisation of ρ_f), `Sχ* := sup_I Sχ(·,0;I)`. (M) and (PS) hold verbatim
+defined for every `Q > 0` (DI normalisation of ρ_f), `Sχ* := sup_I Sχ(·,0;I)`. Normalisation fixed once: DI's
+`ρ_f = 2√n ρ_f^{Dr}`, and `K_{LSχ}` refers to it (Drappeau-normalised constants convert by absolute factors
+`≤ 4`, inside the `2^{20}` reserves; R121B repair, m4). (M) and (PS) hold verbatim
 (Selberg's 3/16 holds for Γ₁(L) ⊃ the forms of (Γ₀(L),χ); `scripts/ttl3_thm2_twisted.md`). Inputs, for
 `δ ∈ (0,1/10]`, `Y, N ≥ 1` (`scripts/ttl3_lemma81_twisted.md`, `scripts/ttl3_thm2_twisted.md`):
 * **(P1χ)** for all `Q > 0`: `Sχ*(Q,Y,N) ≤ K₁(δ)(NY)^δ(Q + N + Y)N`;
@@ -208,15 +213,16 @@ In both sub-cases `Sχ ≤ (H/2 + 90cK₁ + 3c)Q^{1+4δ}N ≤ HQ^{1+4δ}N`. ∎
 **Theorem 9.1 ((EFF) holds; PROVED rel. (B1)–(B5) and the derivations in `scripts/ttl3_*.md`).** (DI7_ε) of TTL2 §1
 — DI Thm 7 and Dr Lemma 4.10 for interval/prefix coefficients, all levels `M ≤ M₀` divisible by the modulus r of an
 even character χ (r = 1: trivial character), uniformly in r and χ — holds for `0 < ε ≤ 1/4` with
-`C_ε ≤ 100ε^{−1}K₇χ(ε/6) ≤ exp(exp(A₀/ε))`, `A₀ := 24B_χ + 30`, `B_χ := 400 + 64b + 16 log(2 + C_W)`,
+`C_ε ≤ 200ε^{−1}K₇χ(ε/6) ≤ exp(exp(A₀/ε))`, `A₀ := 24B_χ + 30`, `B_χ := 400 + 64b + 16 log(2 + C_W)`,
 `b := max(4, ⌈B_W + 1⌉)`. (E.g. `A₀ < 2·10⁴` if `B_W ≤ 3`, `C_W ≤ 10`.)
 *Proof.* Thm 8.2 (r = 1 is Thm 7.1 up to the level renaming). Constants: `K_{LSχ}(δ) ≤ exp(exp(B_χ/δ))`
 (`ttl3_thm2_twisted.md`; for r = 1 one may use `K_{T2}`), hence (`ttl3_lemma81_twisted.md`, with `K₁₄(δ/4) ≤
 exp(exp(404/δ))`) `K₁χ, cχ ≤ exp(exp((4B_χ+1)/δ))`, `K₂χ = 32K_{LSχ}(δ)`; as in Cor 2.3 (with the extra `200cK₁`),
 `K₇χ(δ) ≤ exp(exp((4B_χ+4)/δ))`. Conversion to TTL2's form: levels `L = rq ≤ M₀` are covered by
 `≤ 2 + log M₀` blocks `(Q_i, 16Q_i]`, `Q_i ≥ 1/16`; the prefix `[1,t]` by the closed intervals `[2^k, min(2^{k+1}−1, t)]`,
-`k ≤ log₂ t` (Cauchy–Schwarz over `≤ 1.5 log(2t)` blocks; `Σ 2^k ≤ 2t`). With `δ = ε/6`:
-`(2M₀t)^{5δ}(2 + log M₀) ≤ (12/ε)(M₀t)^ε` (Lemma 1.2), so `C_ε ≤ 2·1.5·2·(12/ε)K₇χ(ε/6) ≤ 100ε^{−1}K₇χ(ε/6)`. ∎
+`k ≤ log₂ t` (Cauchy–Schwarz over `⌊log₂t⌋ + 1 ≤ max(1, 1.5 log 2t) ≤ 3(log 2t)²` blocks for `t ≥ 1`; `Σ 2^k ≤ 2t`). With `δ = ε/6`:
+`(2M₀t)^{5δ}(2 + log M₀) ≤ (12/ε)(M₀t)^ε` (Lemma 1.2), and the block count absorbed by TTL2's `(log 2t)²`,
+`C_ε ≤ 3·2·(12/ε)·2·K₇χ(ε/6) ≤ 200ε^{−1}K₇χ(ε/6)` (R121A/B repair, m1: was `100ε^{−1}`; A₀ unchanged). ∎
 
 **Theorem 9.2 (Elsholtz–Tao Type I sum).** `Σ_{p≤N} f_I(p) ≪ N log²N`.
 Status: **PROVED relative to** TTL's cited inputs (as in TTL2 Thm 4.1(i): the ET/MN3 reduction `f_I ≤ 2Σ_c w_c`,
@@ -224,15 +230,15 @@ MN3 Thm 3.8(1), DI Thm 2/Drappeau Prop 4.7 at a fixed tolerance, Brun–Titchmar
 explicit-constant derivations of §§2–8 and `scripts/ttl3_*.md`. *Proof.* TTL2 Thm 4.1(ii) with Theorem 9.1:
 `w_N = 256A₀/log L`. ∎ (Equivalently TTL2 Thm 4.1(iii) with `G(1/ε) = exp(exp(A₀/ε))`.)
 
-**Honest status of the derivations.** §§1–3, 7, 8 and the reductions are written and checked here line by line. The
-analytic estimates of §§4–6 (and their twisted versions) were derived by deep-mode subagents directly from the DI
-scan and Drappeau's text, then checked by me structurally (statements, the ε-bookkeeping, the claimed repairs on
-DI pp. 256–257, 270–278 against the scan); individual numerical majorants like `2^{1000}` were not re-derived.
-They need the parent's independent hostile review before the label PROVED is final. Points most worth attacking:
-(a) `ttl3_thm2_effective.md` Steps 4, 7–9 (growing-order integration by parts; Gaussian lower bound; exceptional
-atoms), (b) `ttl3_thm14_effective.md` §2 (the numerical replacement of DI Lemma 7.1), (c) the uniform-in-σ
-transform bounds in `ttl3_lemma81_effective.md` §2.2, (d) the twisted transfers (`ttl3_thm2_twisted.md`
-resonance step; `ttl3_lemma81_twisted.md` small-C branch).
+**Honest status of the derivations (R121A/B repair, A-m2/B-m5).** After the external reviews R121A/B:
+*independently re-derived* — all of §§1–3, 7–9; the ε-structure and the key inequalities of §§4–6 and of the twisted
+transfers (§8 inputs); the literature repairs listed in the report. *Only shape-checked* (asserted absolute majorants,
+parameter-independent but not re-derived in detail) — `ttl3_thm2_effective.md` Steps 6–8 (`E_K` angular split, Gaussian
+lower bound `2^{−20}`), `ttl3_thm14_effective.md` §§2–4 (Mellin–Barnes residues, `2^{50}`, `2^{1000}` in (B9)), and the
+numerals `H = 2^{512}`, `B = 2^{2048}` of `ttl3_lemma81_effective.md` (R121A re-estimated `H ≈ 2^{212}`). Hence the
+*numerical value* of A₀ is explicit only modulo these unverified absolute allowances (and certified `C_W, B_W`); the
+*form* `exp(exp(A₀/ε))` and Thm 9.2 need only their finiteness and parameter-independence. (B3) numerically:
+`C_W = B_W = 1` checked for `c ≤ 90` is EVIDENCE only.
 
 **Internal referee round (deep-mode, independent of the authoring subagents; reports `scripts/ttl3_review_R{A,B,C}.md`).**
 No FATAL or MAJOR findings. MINOR repairs (none changes an estimate or a constant's growth):
@@ -243,8 +249,8 @@ No FATAL or MAJOR findings. MINOR repairs (none changes an estimate or a constan
   in modulus. R-B 2: negative frequencies: take a reflection-diagonal Maass basis at level 1 (`ρ_j(−n) = ±ρ_j(n)`),
   and `S(−m,−n;c) = S(m,n;c)`, `S(−m,n;c) = S(m,−n;c)`.
 * R-C 1 (closed-interval norm, `K₂ = 32K_{T2}`) and R-C 2 (S for Q > 0) are repaired above in §§2–3.
-So after this round the label of Thms 9.1/9.2 is **PROVED relative to (B1)–(B5) and TTL's inputs, pending the
-parent's external hostile review**; the explicit `A₀` additionally needs numerical `C_W, B_W` in (B3).
+After this round and the external reviews R121A/B (no FATAL/MAJOR) the label of Thms 9.1/9.2 is **PROVED relative to
+(B1)–(B5) and TTL's inputs**; the explicit `A₀` additionally needs numerical `C_W, B_W` in (B3).
 
 ## Replay
 No computations are needed for the proofs. The documents are `EXCEPTIONAL_TYPEI_LOGLOG3.md` (this file),
