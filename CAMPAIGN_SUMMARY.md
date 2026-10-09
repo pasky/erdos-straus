@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed to main after ledger (D)31 and (H)34, incl. the 2026-10-08 follow-ups (H)17 follow-up 4 [TYPEI5], (H)34 follow-up 2 [MORDELL17B] and the refutation (F)11 [MORDELL13B])
+# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-09 to main after ledger (D)31 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
