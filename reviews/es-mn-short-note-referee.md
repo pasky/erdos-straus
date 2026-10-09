@@ -231,3 +231,31 @@ minors repaired). New material:
   proof unchanged. 25 pp; two compiles, no undefined references, no overfull boxes.
 
 **A referee pass on the new §8 (and the changed intro/abstract) is still required.**
+
+## Post-referee addition (O113)
+
+*Added by the O113 consolidation agent; not covered by any referee verdict above (nor by
+`es-mn-short-note-referee-r2.md`).* Theorem L is replaced by **Theorem L′** from `EXCEPTIONAL_MN3.md`
+(DISCOVERIES (D)31 follow-up 2; hostile review `reviews/exceptional-mn3-review.md`, no FATAL/MAJOR,
+minors applied by the reviewer): `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}` (was
+`L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`), PROVED relative to ET Thm 7.1 and ET's proof of
+Prop 1.4, with Brun–Titchmarsh, Shiu and Pólya–Vinogradov; effective. Changes:
+* Lemma 8.6 is now MN3 Prop 2.3 (ET Prop 1.4 with the coprimality gain φ(k)/k; full proof incl. MN3
+  Lemma 2.1 (coprime harmonic sums) and the PV/Kronecker-PV ranges of Lemma 2.2), followed by
+  Remark 8.7 (comparison with ET; §2.6 numerics as EVIDENCE). The old "proof sketch with exact pointers"
+  to ET (7.11) is gone.
+* Prop 8.8 (Type I) is MN3 Prop 2.5 (`/m` instead of `/φ(m)`; l = 30, k^{1/28} box split; tiny boxes
+  with the τ(st) grouping of the R108 repair); for m ≤ m₀ the bound is trivial (count ≤ N).
+* Proof of Theorem L′: `φ(m)` → `m`; Type II (Prop 8.5) and Lemma 8.9 unchanged.
+* Gap (§8.4, abstract, intro): `(m log m/φ(m))^{1/3}` → `(log L)^{1/3} = (log log N)^{1/3}`, a single
+  remaining loss (ET's Type I Brun–Titchmarsh log log N). PW comparison factor now
+  `(m/φ(m)) min(log m, L/log m)`.
+* New Remark 8.10 citing EXCEPTIONAL_TYPEI_LOGLOG Thm 8.1 = DISCOVERIES (D)32 (CONDITIONAL on Selberg's
+  eigenvalue conjecture for Γ₀(4dq²) with even nebentypus; m = 4 only) as the route to the exact scale;
+  the m-uniform extension is stated as not carried out (MN3 remarks after Thm 3.8).
+* Open problem "the transition gap" rewritten (one loss left; old item (ii) removed); bibliography
+  [MN3], [TTL]; status/novelty paragraph updated. Section titles with `$m$` wrapped in
+  `\texorpdfstring` (no hyperref warnings). 26 pp; two compiles, no warnings, no undefined
+  references, no overfull boxes.
+
+**A referee pass on Lemma 8.6 / Prop 8.8 / Remark 8.10 as written in the paper is still required.**
