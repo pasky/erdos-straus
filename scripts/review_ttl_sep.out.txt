@@ -1,0 +1,7 @@
+Lemma 2.1 identity and 4d|disc(Q-Q') verified for all pairs, d<=30, A<=40
+min cosh over F_d pairs: (Fraction(3, 2), 1, (1, -80, 1601), (1, -78, 1522))
+smallest cosh values: [Fraction(3, 2), Fraction(2, 1), Fraction(5, 2), Fraction(3, 1), Fraction(7, 2)]
+d attaining cosh=3/2 within window: [1, 5, 11, 19, 29]
+min cosh over Type I pairs: (Fraction(3, 1), 1, (1, -80, 1601), (1, -76, 1445))
+Gamma^0(2d) cap Gamma_0(2) (z-side) invariance failures: 0
+d=2: [1,8,18] o g_z = (27, 44, 18)  (R1 claims B=44 for the w-side element [[1,0],[2,1]])
