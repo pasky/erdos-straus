@@ -97,3 +97,22 @@ least odd `ν` and `v_2(71^ν+9)` for `m = 4..14` agree with the table (`ν = 1,
 closeness `4,5,6,10,10,10,10,11,14,14,14`, bits `7,19,44,93,…,880,2454`); least `L`: `ν=1: 30`, `ν=3: 109685`,
 `ν=7: 419119864270` exactly as stated; `ν = 15`: `L` has 91 bits, `ν = 143`: 879 bits (stated "≈2^91", "≈2^879";
 precisely `2^90 ≤ L < 2^91`, `2^878 ≤ L < 2^879` — fine as orders of magnitude). `ν = 399` not replayed.
+
+## 4. Comp 3.1 / Cor 3.2 / Comp 3.4
+
+* Grid arithmetic: `2^{L−4}7^b ≤ 2^{28}` gives exactly `L_max(b) = 32,29,26,23,20,17,15,12,9` for `b = 0..8`
+  (none for `b ≥ 9` as `L ≥ 7`) — 26+23+20+17+14+11+9+6+3 = 129 cells ✔ (the replay's `28.01` tolerance changes no
+  cell). The author's `/tmp/t7` has 129 `lb` files and 129 completion records.
+* Table: counts sum to 67 ✔; every margin `t_min − max` re-computed ✔; Obs 3.3 ("≥ 4 for `L ≥ 16`, ≥ 10 for
+  `L ≥ 28`") ✔; consistent with TYPEI4 Comp 3.4 on `L ≤ 26` ✔. 62 distinct `(L,b,{F,e})` in the lb files ✔.
+* Independent height-bounded check: direct divisor enumeration (`ck ≤ 4·10^5`) finds 9 distinct divisor pairs in
+  cells `(11,0),(14,0),(16,0),(18,0),(21,0),(27,0)`; all 9 are in the author's lists, closenesses agree.
+* Second engine (`review_typei4_jsearch.c`, R89, run by me): see §4a for the cells re-run.
+* §4 heuristic: `Σ 2^{5−t_min} = 0.593` over the 67 certificates ✔, `L ≥ 27` part `0.0089` (31 certificates) ✔,
+  tail `10·2·Σ_{j≥17}2^{3−j} = 2.4·10^{−3}` ✔. Hensel remark: the derivative `32c'X²P_1−1` is odd ✔ (local only; the
+  label Assessment is right).
+
+MINOR m4 (bookkeeping, repaired below after my re-runs). Comp 3.4's list of single-engine cells is incomplete:
+(i) TYPEI4 Cor 3.5 already flagged `L = 7,8, b = 7` and `L = 9,10, b = 6,7` as single-engine (R89's `jsearch` covered
+`L ≤ 8, b ≤ 6` and `L ≤ 10, b ≤ 5` only); (ii) `b = 8, L = 7–9` are **new** grid cells (TYPEI4 had `b ≤ 7`) and are
+missing from both the "new relative to TYPEI4" list of Cor 3.2 and the single-engine list of Comp 3.4.

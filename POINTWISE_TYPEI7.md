@@ -99,8 +99,9 @@ with `s` odd chosen so that `7^s ≡ −w_0 (mod 2^m)` (possible since `−w_0 �
 ≈ 0.6): if TYPEI3's positive-measure evidence is right, the sterile part is a closed nowhere-dense set of positive measure
 (perfectness etc. not examined). No sterile point of `Φ` has a sterile neighbourhood, so any
 proof that a given point (e.g. `w = 9`) is sterile must use its exact 2-adic coordinate (not `w mod 2^j` for any fixed
-`j`), and the measure route of TYPEI3 Remark 4.1 must control infinitely many scales. This upgrades TYPEI4 Prop 4.1
-(levels 11–22, `w` only mod 16) to all depths.
+`j`), and the measure route of TYPEI3 Remark 4.1 must control infinitely many scales. This is the all-depth analogue,
+over all levels together, of TYPEI4 Prop 4.1 (fixed levels 11–22, `w` only mod 16); it says nothing at a fixed level
+(R109 repair: "upgrades … to all depths" overstated this).
 
 **Theorem 2.4 (density with `7 ∤ k` and `k` a power of 2; PROVED).** For every `w_0 ≡ 9 (mod 16)` and `m ≥ 4` there is a
 certificate of the shape
@@ -208,14 +209,15 @@ local constraint: for given odd `c', X, D` the equation `16c'X²P_1² − P_1 �
   `x̂_9` ⟺ `nδ ≡ 5/9 (mod 2^{⌈L/2⌉−1})`); unboundedness of the closeness (Thm 2.1 — answers the open question of TYPEI4
   §5 / Assessment 4.2(d) negatively: **no** ball around 9 in the fibre is sterile); recurrence of every fibre triple at all
   levels `≡ L_0 (mod ord_F(2))` with constant closeness (Remark 2.1(b)); the covered part of `Φ` is open and dense and
-  the sterile part nowhere dense (Cor 2.3), already with `F = 71^e`, `k = 2^γ`, `7 ∤ k` (Thm 2.4).
+  the sterile part nowhere dense (Cor 2.3), already with `F = 71^ν`, `k = 2^γ`, `7 ∤ k` (Thm 2.4) (R109 repair: `71^e` → `71^ν`).
 * CERTIFIED once replayed: Comp 2.2, 2.5 (explicit approximants up to closeness 14); Comp 3.1 / Cor 3.2 (complete
   `(L,b)` grid `2^{L−4}7^b ≤ 2^{28}`: no certificate at `x̂_9`; max closeness ≤ 10, margin ≥ 1, ≥ 10 for `L ≥ 28`).
 * Assessment / EVIDENCE: §4 level-graded heuristic (expected hits in the grid 0.59, observed 0; per `b`-row tail beyond
   the grid ≲ 2·10^{−3} if cell counts stay ≤ 10 — no model controls the infinitely many `b`-rows).
 * NOT achieved (precise negative statement): an inequality `v_2(F+9) < 2+⌈L/2⌉` for all fibre certificates is exactly
-  sterility of `x̂_9` (by Lemma 1.1 and the Criterion), and by Cor 2.3 / Thm 2.4 it cannot follow from any statement
-  about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9` (PROVED, Cor 2.3);
+  sterility of `x̂_9` (by Lemma 1.1 and the Criterion, together with TYPEI3 §5 for levels `≤ 6`), and by Cor 2.3 / Thm 2.4 it cannot follow from any statement
+  about `F mod 2^j` for a fixed `j`, nor from any argument that is uniform on a neighbourhood of `w = 9` (Assessment; the PROVED
+  content, Cor 2.3, is that for every `j` the ball `w ≡ 9 (mod 2^j)` of `Φ` contains covered points — R109 repair);
   *(Assessment)* restricting to bounded 7-depth or `k'=1` does not help either, since Thm 2.4 already lives at `b=0, k'=1`. A proof must couple the 2-adic size of
   `F+9` with the level, e.g. a bound of the form "`F ≡ −9 (mod 2^t)` forces `ord`/discrete-log information on `2 mod F`
   incompatible with `2^{L−1}7^sX ≡ −g (mod F)`" (Remark 1.6 / §2 form: `F | 2^{L−1}7^sX + g`, `(F+1)/8 = c'gX`). We have
