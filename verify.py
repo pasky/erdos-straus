@@ -108,6 +108,13 @@ Blocks (eb)..(ec) (task O91) replay the 2026-10-07 round (reviewers' from-scratc
   (eb) POINTWISE_TYPEI4: R89 complete engine on L <= 22, b <= 1 and L <= 10, b <= 3 (gcc; skipped otherwise),
        Prop 1.2 / Cor 1.4 identities on all hits, example (42,32,71), Prop 4.1 levels, Lemma 3.6 (j = 1, b < 30);
   (ec) EXCEPTIONAL_WEIGHTS2: Prop 5.3 premise (QNR l <= 2000, Jacobi M <= 300), §6 mass at Y <= 10^5.
+Blocks (ed)..(eg) replay POINTWISE_MORDELL13B, EXCEPTIONAL_MN, POINTWISE_TYPEI5, POINTWISE_MORDELL17B.
+Blocks (eh)..(ek) (task O105) replay the 2026-10-09 round (reviewers' from-scratch code):
+  (eh) POINTWISE_MORDELL13C: Thm 6.1 tree certificate in full (R100 checker + negative controls), §2 witness
+       engine vs brute force (L = 840, 9240), Comp 3.1 (gcc);
+  (ei) POINTWISE_MORDELL17C: Lemma 1.1 (exact Abel summation, floor-rounded cumulative table), Lemma 2.1 brute force;
+  (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 (gcc+gmp);
+  (ek) EXCEPTIONAL_MN2: emn2_scan vs from-scratch brute force (m <= 60), §1 small cases, L_1/2(60).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -22404,6 +22411,367 @@ def check_eg():
 
 print("\n== (eg) POINTWISE_MORDELL17B: Lemma 2.1 enumerator vs naive (K = 5, 7), rho_1/rho_2 exact unions, Thm 4.1 table ==")
 check_eg()
+
+
+# ---------------------------------------------------------------- (eh)
+# POINTWISE_MORDELL13C.md (task O100, review R100).  Uses R100's from-scratch review_m13c_tree.py,
+# review_m13c_extra.py, review_m13c_witness.py, review_m13c_cell22.c (gcc; part (3) skipped otherwise); the author's
+# m13c_witness.py only as the object under test in (2).  Checked:
+# (1) Thm 6.1 tree certificate data/mordell13c/tree6_6000.json.gz in FULL with R100's checker: 6000 splits, every
+#     split's children are exactly the units mod Lq over x mod L, Haar masses exact; 136494 covered leaves (own ET
+#     coordinates + own CRT, 2140 distinct ET classes, explicit solution checked), 35459 open leaves, 0 errors;
+#     open density per root as stated, mean 8.424e-5; inline per-root open-leaf counts (13986, 18070, 873, 455,
+#     871, 1204); R100 extra: the 7 ES parametrisations are rational identities (sympy), split primes <= 83, open
+#     moduli divide 2^4 3^2 5^2 7^2 11 13 prod_{17<=l<=83} l, the six roots have (x/13) = -1, and four negative
+#     controls (perturbed parameter, deleted child, wrong residue, faked open leaf) are each rejected;
+# (2) §2 witness engine: R100's own enumeration of all ET classes of modulus | L gives exactly the author's
+#     witness_all sets for every unit x mod L, L = 840, 9240;
+# (3) Comp 3.1 reduction (R100): 4a'd'mj = lam a' + m + j has 0 solutions at lam = 11^4 13^4 (and at the square
+#     lam = 20449), while the same enumerator finds 34 data at lam = 143 (positive control).
+
+def check_eh():
+    from time import perf_counter
+    import gzip
+    import json
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    tree = os.path.join(root, "data", "mordell13c", "tree6_6000.json.gz")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(args, cwd):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=300, env=env, cwd=cwd)
+        assert r.returncode == 0, ("M13C subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    # (1) full tree check
+    o = run([os.path.join(sdir, "review_m13c_tree.py"), tree], root)
+    assert "{'leaves': 136494, 'open': 35459, 'splits': 6000} distinct ET classes: 2140" in o, ("M13C tree stats", o)
+    assert "errors: 0 []" in o, ("M13C tree errors", o)
+    dens = {int(k): float(v) for k, v in re.findall(r"^(\d{6}) ([\d.e-]+)$", o, re.M)}
+    want = {112561: 1.263e-4, 352801: 3.101e-4, 380881: 1.934e-5, 418321: 5.81e-6, 473761: 1.616e-5, 483841: 2.776e-5}
+    assert set(dens) == set(want) and all(abs(dens[k] / want[k] - 1) < 1e-3 for k in want), ("M13C open mass", dens)
+    mean = float(re.search(r"open density of the six classes: ([\d.e-]+)", o).group(1))
+    assert abs(mean - 8.424e-5) < 5e-9, ("M13C mean open density", mean)
+    t = json.load(gzip.open(tree))
+    nopen = {}
+    for r in t["roots"]:
+        st, c = [r], 0
+        while st:
+            nd = st.pop()
+            st.extend(nd.get("children", []))
+            c += "open" in nd
+        nopen[r["x"]] = c
+    assert nopen == {112561: 13986, 352801: 18070, 380881: 873, 418321: 455, 473761: 871, 483841: 1204}, ("M13C opens", nopen)
+    o = run([os.path.join(sdir, "review_m13c_extra.py")], root)
+    assert o.count("identity True") == 7 and "identity False" not in o, ("M13C identities", o)
+    assert "max 83 open moduli not dividing B: 0" in o and "Legendre(.,13): [-1, -1, -1, -1, -1, -1]" in o, ("M13C extra", o)
+    nc = [int(x) for x in re.findall(r"NC\d .*-> (\d+) errors", o)]
+    assert len(nc) == 4 and min(nc) >= 1, ("M13C negative controls", o)
+    # (2) witness engine vs R100 brute force
+    o = run([os.path.join(sdir, "review_m13c_witness.py"), "840", "9240"], sdir)
+    assert "L=840: 1118 classes, 192 units, 8821 witness incidences, mismatches 0" in o, ("M13C witness 840", o)
+    assert "L=9240: 4117 classes, 1920 units, 113942 witness incidences, mismatches 0" in o, ("M13C witness 9240", o)
+    # (3) Comp 3.1
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "Comp 3.1 enumerator SKIPPED (no C compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "c22")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_m13c_cell22.c")], check=True)
+
+            def ndata(*lam):
+                out = subprocess.run([exe, *lam], capture_output=True, text=True, timeout=120).stdout
+                return int(re.search(r"data (\d+), in \(2,2\) cell (\d+)", out).group(1))
+            assert ndata() == 0 and ndata("20449") == 0 and ndata("143") == 34, "M13C Comp 3.1"
+            msg = "Comp 3.1: 0 data at lam = 11^4 13^4 (control lam = 143: 34)"
+    print(f"eh tree: 6000 splits, 136494 covered / 35459 open leaves, 2140 ET classes, 0 errors, mean open density "
+          f"{mean:.4e}; identities, split primes, open moduli, roots, 4 negative controls OK; witness engine = R100 "
+          f"brute force at L = 840, 9240; {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eh) POINTWISE_MORDELL13C: Thm 6.1 tree (R100 checker, full), §2 witness engine (L = 840, 9240), Comp 3.1 ==")
+check_eh()
+
+
+# ---------------------------------------------------------------- (ei)
+# POINTWISE_MORDELL17C.md (task O98, review R98b).  Uses R98b's from-scratch review_m17c_tail.py,
+# review_m17c_qbrute.py, review_m17c_qsweep.py and the author's m17c_tail_cum.py, m17c_qcheck.py.  Checked:
+# (1) Lemma 1.1: the Abel-summation identity sum w_K D(K) = w_{K1} S(K1) + sum (w_K - w_{K+2}) S(K) exactly
+#     (Fractions, random D, both weight systems w_K = 17^((1-K)/2) on odd K >= 13, w_k = 17^(1-k) on odd k >= 9),
+#     with w_K - w_{K+2} = (16/17) w_K resp. (1 - 17^-2) w_k; the cumulative table (18 entries): author's script and
+#     R98b's mpmath closed form both print exactly the stated floor-rounded entries, and every entry is <= the
+#     inline closed-form threshold (rho - T_Q) / (2 (16/17) S) and within one unit of its last digit; the pointwise
+#     row equals M17B §4; data check S_P(13) = #p13.txt = 1463 <= 1.497 * 17^5.2;
+# (2) Lemma 2.1 (i)-(iv) by R98b's brute force (b solved from the defining equation): F = 17, 4913, 1001, 9999 give
+#     2, 73, 10, 179 points with at most 1, 1, 1, 2 per (a,d) and 0 identity failures (author's m17c_qcheck agrees
+#     for F = 17, 4913, 1001); Cor 2.2 counts below the bound; sweep over all F <= 1500: 27919 points, 0 failures
+#     of (i)-(iii) and of F < 4acd <= 3F, max 2 per pair; Cor 2.2 cost sum_{k >= 9 odd} 3 17^(1-k/2)(1 + k ln 17)
+#     = 4.2254e-3 < 4.3e-3.
+
+def check_ei():
+    from time import perf_counter
+    import os
+    import random
+    import re
+    import subprocess
+    import sys
+    from decimal import Decimal
+    from fractions import Fraction as Fr
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("M17C subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    # (1) Abel summation, exact
+    rng = random.Random(105)
+    for K0, wf, ratio in ((13, lambda K: Fr(17) ** ((1 - K) // 2), Fr(16, 17)), (9, lambda k: Fr(17) ** (1 - k), 1 - Fr(1, 289))):
+        for K1 in range(K0, K0 + 21, 2):
+            Ks = range(K0, K1 + 1, 2)
+            D = {K: rng.randrange(0, 10 ** 6) for K in Ks}
+            S = {K: sum(D[k] for k in Ks if k <= K) for K in Ks}
+            assert all(wf(K) - wf(K + 2) == ratio * wf(K) for K in Ks), "M17C Lemma 1.1 weight ratio"
+            lhs = sum(wf(K) * D[K] for K in Ks)
+            rhs = wf(K1) * S[K1] + sum((wf(K) - wf(K + 2)) * S[K] for K in Ks if K <= K1 - 2)
+            assert lhs == rhs, ("M17C Lemma 1.1 Abel", K0, K1)
+    want = {"pw13": ["619.2", "87.88", "11.76", "1.409", "0.5686", "0.1275"],
+            "cum13": ["657.9", "93.38", "12.50", "1.497", "0.6042", "0.1354"],
+            "pw15": ["2553", "272.9", "27.53", "2.484", "0.8947", "0.1692"],
+            "cum15": ["2712", "290.0", "29.25", "2.639", "0.9507", "0.1798"]}
+    ths = [0.25, 0.3, 0.35, 0.4, 0.42, 0.45]
+    rho = {13: 16344335 / 24137569, 15: 961421 / 1419857}
+    for K0, (num, den) in ((13, (16344335, 24137569)), (15, (961421, 1419857))):
+        o = run("m17c_tail_cum.py", str(K0), "9", str(num), str(den))
+        rows = re.findall(r"theta=([\d.]+): pointwise C\* <= (\S+)\s+cumulative C\* <= (\S+)", o)
+        assert [float(r[0]) for r in rows] == ths, ("M17C author table thetas", o)
+        assert [r[1] for r in rows] == want[f"pw{K0}"] and [r[2] for r in rows] == want[f"cum{K0}"], ("M17C author table", K0, o)
+    o = run("review_m17c_tail.py")
+    rr = re.findall(r"^([\d.]+) \['(\S+)', '(\S+)', '(\S+)', '(\S+)'\]", o, re.M)
+    assert [float(r[0]) for r in rr] == ths, ("M17C R98b table", o)
+    for i, r in enumerate(rr):
+        for col, key in ((1, "pw13"), (2, "cum13"), (3, "cum15"), (4, "pw15")):
+            assert Decimal(r[col]) == Decimal(want[key][i]), ("M17C R98b entry", key, ths[i], r[col])
+    S7 = 17.0
+    TQ = 2 * S7 * S7 ** (9 * (0.6 - 1)) / (1 - S7 ** (2 * 0.6 - 2))
+    for key, vals in want.items():
+        K0, cum = int(key[-2:]), key.startswith("cum")
+        for th, v in zip(ths, vals):
+            tp = 2 * S7 ** 0.5 * S7 ** (K0 * (th - 0.5)) / (1 - S7 ** (2 * th - 1)) * (16 / 17 if cum else 1)
+            exact = (rho[K0] - TQ) / tp
+            ulp = float(Decimal(1).scaleb(Decimal(v).adjusted() - 3))
+            assert float(v) <= exact < float(v) + ulp * 1.0000001, ("M17C floor rounding", key, th, v, exact)
+    np13 = sum(1 for ln in open(os.path.join(root, "data", "m17b", "p13.txt")) if ln.strip())
+    assert np13 == 1463 and np13 <= 1.497 * 17 ** 5.2, "M17C S_P(13) data check"
+    # (2) Lemma 2.1 brute force
+    exp = {17: (2, 1), 4913: (73, 1), 1001: (10, 1), 9999: (179, 2)}
+    for F, (npt, mx) in exp.items():
+        o = run("review_m17c_qbrute.py", str(F))
+        m = re.search(rf"^{F} points (\d+) .* identity-fails (\d+) max per \(a,d\) (\d+) Cor2.2 .*?(\[.*\])", o, re.M)
+        assert m and (int(m.group(1)), int(m.group(2)), int(m.group(3))) == (npt, 0, mx), ("M17C qbrute", F, o)
+        assert all(t[-1] is True for t in eval(m.group(4))), ("M17C Cor 2.2 counts", F, o)
+        if F != 9999:
+            assert f"{F} points {npt} max per (a,d) {mx}" in run("m17c_qcheck.py", str(F)), ("M17C author qcheck", F)
+    o = run("review_m17c_qsweep.py", "1", "1500")
+    assert "points 27919 identity/range fails 0 max per (a,d) 2 #pairs with 2 4601" in o, ("M17C sweep", o)
+    from math import log as ln_
+    cost = sum(3 * 17 ** (1 - k / 2) * (1 + k * ln_(17)) for k in range(9, 801, 2))
+    assert 4.2254e-3 < cost < 4.2255e-3 < 4.3e-3, ("M17C Cor 2.2 cost", cost)
+    print(f"ei Abel summation exact (both weights); cumulative/pointwise tables (24 entries) = author = R98b, floor-"
+          f"rounded vs closed form; S_P(13) = 1463 OK; Lemma 2.1 brute force F = 17, 4913, 1001, 9999: 2, 73, 10, 179 "
+          f"points, max per (a,d) 1, 1, 1, 2; sweep F <= 1500: 27919 points, 0 failures; Cor 2.2 cost = {cost:.5e}; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ei) POINTWISE_MORDELL17C: Lemma 1.1 (Abel summation, cumulative table), Lemma 2.1 brute force, Cor 2.2 ==")
+check_ei()
+
+
+# ---------------------------------------------------------------- (ej)
+# POINTWISE_TYPEI6.md (task O99, review R99).  Uses R99's from-scratch review_typei6_identities.py (sympy),
+# review_typei6_vsearch.c (exact GMP size test) and the author's typei6_vsearch.c (gcc + libgmp; part (3) skipped
+# otherwise).  Checked:
+# (1) Lemma 1.1 (a)-(d), Lemma 1.3, Lemma 3.1 sigma identity, Prop 2.1 algebra symbolically (R99, T eliminated via
+#     the Pell relation); inline integer replay of Lemma 1.1 (a)-(c) and of the regime-(v) criterion j^2 > m P_1 on
+#     the two regime-(v) certificates used below;
+# (2) Remark 1.2 positive control: the L = 13, b = 1 certificate (c',g,delta,P_1,X) = (79,19,1,1,17), u = 7, has
+#     j = 291, lambda = 86582, sigma = 48344 (regime (v)); both Comp 4.1 engines find it at (L,b) = (13,1) with 1143
+#     candidates; R99's engine also finds the relaxed regime-(v) control (L,u) = (7,293);
+# (3) Comp 4.1 at L = 7, b = 0..4: both engines 0 solutions, identical candidate counts 1, 5, 12, 56, 201.
+
+def check_ej():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, os.path.join(sdir, "review_typei6_identities.py")], capture_output=True,
+                       text=True, timeout=300, env=env, cwd=sdir)
+    o = r.stdout
+    assert r.returncode == 0 and "Lemma 1.1(a)(b)(c), discriminant, Lemma 1.3: OK" in o, ("T6 identities", o, r.stderr[-1000:])
+    assert "Lemma 1.1(d), Lemma 3.1 sigma identity (algebraic, sqrt reduced): OK" in o and "Prop 2.1 algebra" in o, ("T6 ids", o)
+    assert "Remark 1.2: j, lambda, sigma = 291 86582 48344 ; j^2 > m P1: True" in o, ("T6 Remark 1.2 (R99)", o)
+
+    def lemma11(L, a, cp, de, P1, X, u):
+        T, W = 2 ** (L - 4), 7 ** a
+        co = W * cp
+        d = co * (co * de * de + T)
+        P = cp * P1
+        assert d % P == 0
+        Q = d // P
+        assert 16 * P * X * X - Q * u * u == 1, "T6 Pell"
+        j = T * u // 2 - cp * de * (4 * P1 * X - W * u * de)
+        m = cp * de * de
+        mu = 8 * co * de * de + 4 * T
+        sig = mu * j - T * T * u
+        assert (T * u // 2 + j) % P1 == 0
+        rho = (T * u // 2 + j) // P1
+        assert (rho * j - m) % u == 0
+        lam = (rho * j - m) // u
+        assert 8 * j - mu * u == -32 * cp * de * P1 * X, "T6 Lemma 1.1(a)"
+        assert 4 * j * j - u * sig == 4 * m * P1, "T6 Lemma 1.1(b)"
+        assert sig == 4 * lam * P1 - 2 * T * j, "T6 Lemma 1.1(c)"
+        assert (sig > 0) == (j * j > m * P1) == (2 * lam * P1 > T * j), "T6 regime (v) criterion"
+        return j, lam, sig
+    assert lemma11(13, 1, 79, 1, 1, 17, 7) == (291, 86582, 48344), "T6 Remark 1.2 inline"
+    assert lemma11(7, 1, 1, 3, 71, 23, 293)[2] > 0, "T6 relaxed control (7,293) regime (v)"
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "Comp 4.1 engines SKIPPED (no C compiler / libgmp)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            ra, rr = os.path.join(td, "avs"), os.path.join(td, "rvs")
+            ok = all(subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, src), "-lgmp", "-lm"],
+                                    capture_output=True).returncode == 0
+                     for exe, src in ((ra, "typei6_vsearch.c"), (rr, "review_typei6_vsearch.c")))
+            if ok:
+                def eng(exe, *args):
+                    p = subprocess.run([exe, *map(str, args)], capture_output=True, text=True, timeout=120)
+                    return p.stdout + p.stderr
+
+                def author(L, b):
+                    m = re.search(rf"L={L} b={b}: (\d+) candidates, \d+ pass mod 16P, (\d+) solutions", eng(ra, L, b))
+                    return int(m.group(1)), int(m.group(2))
+
+                def review(L, b, *u):
+                    out = eng(rr, L, b, *u)
+                    ms = re.findall(r"pass-bound=(\d+) solutions=(\d+)", out)
+                    return sum(int(x) for x, _ in ms), sum(int(y) for _, y in ms), out
+                cands = []
+                for b in range(5):
+                    ca, sa = author(7, b)
+                    cr, sr, _ = review(7, b)
+                    assert sa == sr == 0 and ca == cr, ("T6 Comp 4.1 L = 7", b, ca, cr, sa, sr)
+                    cands.append(ca)
+                assert cands == [1, 5, 12, 56, 201], ("T6 L = 7 candidate counts", cands)
+                assert author(13, 1) == (1143, 1), "T6 author engine (13,1) control"
+                cr, sr, out = review(13, 1)
+                assert (cr, sr) == (1143, 1) and "c'=79 delta=1 P1=1 X=17 j=291 lambda=86582 sigma=48344 regime=v" in out, \
+                    ("T6 R99 engine (13,1) control", out)
+                cr, sr, out = review(7, 0, 293)
+                assert sr == 1 and "regime=v" in out, ("T6 relaxed control (7,293)", out)
+                msg = ("Comp 4.1 L = 7, b <= 4: 0 solutions in both engines, candidates 1, 5, 12, 56, 201 (equal); "
+                       "controls (13,1) [both] and relaxed (7,293) [R99] found in regime (v)")
+    print(f"ej R99 symbolic Lemma 1.1/1.3/3.1/Prop 2.1 OK; inline Lemma 1.1(a)-(c) on both certificates; Remark 1.2: "
+          f"j, lambda, sigma = 291, 86582, 48344 (regime (v)); {msg}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ej) POINTWISE_TYPEI6: Lemma 1.1 identities, Remark 1.2 regime-(v) control, Comp 4.1 at L = 7, b <= 4 ==")
+check_ej()
+
+
+# ---------------------------------------------------------------- (ek)
+# EXCEPTIONAL_MN2.md (task O102, reviews R102A, R102B).  Uses R102A/R102B's from-scratch exact deciders
+# review_emn2A_brute.representable, review_emn2B_brute.representable (smallest denominator x in (p/m, 3p/m], then
+# (Ay-B)(Az-B) = B^2; independent of Pomerance-Weingartner's Type I/II parametrisation), review_emn2A_identities.py,
+# review_emn2B_half.py, and the author's scanner emn2_scan.c (PW Cor 2.2/2.4; gcc, part (1) skipped otherwise).
+# Checked:
+# (1) the scanner's exceptional-prime lists (count = 2 mode) equal R102B's brute force for every m = 4..60 and all
+#     primes p <= 600, p not | m, and for m in {60, 61, 64, 100, 101, 128} on (1000, 1600]; R102A's brute force
+#     agrees with R102B's on m in {12, 40, 60}, p <= 600;
+# (2) R102A small-case identities for §1 (Bonferroni, e_j bound, MN Lemma 1.1 identity, toy atom distinctness);
+# (3) one L_{1/2} data point at reduced size: m = 60, all primes in each window (no sampling), N <= 2^11.25:
+#     R102B gives L_{1/2}(60) = 7.636, L/m^{1/3} = 1.950 (EVIDENCE table: 7.64, 1.95); the scanner (stride 1) gives
+#     the same proportions at the two bracketing grid points.
+
+def check_ek():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    if sdir not in sys.path:
+        sys.path.insert(0, sdir)
+    import review_emn2A_brute as RA
+    import review_emn2B_brute as RB
+    ps = [p for p in range(2, 1601) if RB.is_prime(p)]
+    for m in (12, 40, 60):
+        assert all(RA.representable(m, p) == RB.representable(m, p) for p in ps if p <= 600 and m % p), ("MN2 A vs B", m)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    msg = "scanner SKIPPED (no C compiler)"
+    npairs = nexc = 0
+    with tempfile.TemporaryDirectory() as td:
+        exe = None
+        if cc:
+            exe = os.path.join(td, "scan")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "emn2_scan.c"), "-lm"], check=True)
+
+            def scan_exc(m, P1, P2):
+                out = subprocess.run([exe, str(m), str(P1), str(P2), "2"], capture_output=True, text=True, timeout=120).stdout
+                return {int(ln.split()[1]) for ln in out.splitlines() if ln.startswith("E ")}
+            for m, P1, P2 in [(m, 1, 600) for m in range(4, 61)] + [(m, 1000, 1600) for m in (60, 61, 64, 100, 101, 128)]:
+                mine = {p for p in ps if P1 < p <= P2 and m % p and not RB.representable(m, p)}
+                npairs += sum(1 for p in ps if P1 < p <= P2 and m % p)
+                nexc += len(mine)
+                assert scan_exc(m, P1, P2) == mine, ("MN2 scanner vs brute force", m, P1, P2)
+            msg = f"scanner = R102B brute force on {npairs} (m, p) pairs ({nexc} exceptional)"
+        r = subprocess.run([sys.executable, os.path.join(sdir, "review_emn2A_identities.py")], capture_output=True,
+                           text=True, timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0 and "FAILURES 0" in r.stdout, ("MN2 R102A identities", r.stdout[-2000:])
+        r = subprocess.run([sys.executable, os.path.join(sdir, "review_emn2B_half.py"), "60"], capture_output=True,
+                           text=True, timeout=300, env=env, cwd=sdir)
+        mh = re.search(r"60 L_\.5=([\d.]+) ratio=([\d.]+)\s+grid (.*)", r.stdout)
+        assert mh and (mh.group(1), mh.group(2)) == ("7.636", "1.950"), ("MN2 L_1/2(60)", r.stdout)
+        if exe:
+            import math
+            grid = [tuple(map(float, x.split(":"))) for x in mh.group(3).split()]
+            nhit = 0
+            for j in range(4 * 10, 4 * 12):
+                N = int(2 ** (j / 4))
+                Lg = math.log(N)
+                hit = [f for L_, f in grid if abs(L_ - Lg) < 5e-3]
+                if hit:
+                    o = subprocess.run([exe, "60", str(N // 2), str(N), "0", "1"], capture_output=True, text=True,
+                                       timeout=120).stdout.split()
+                    assert abs(int(o[4]) / int(o[3]) - hit[0]) < 6e-4, ("MN2 scanner proportion", N, o, hit)
+                    nhit += 1
+            assert nhit == len(grid) == 3, ("MN2 grid points", grid, nhit)
+    print(f"ek {msg}; R102A = R102B on m = 12, 40, 60; R102A §1 identities OK; L_1/2(60) = {mh.group(1)} "
+          f"(ratio {mh.group(2)}; scanner agrees on the grid); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ek) EXCEPTIONAL_MN2: exact scanner vs from-scratch brute force, §1 small cases, L_1/2(60) ==")
+check_ek()
 
 
 print("\nall checks passed")

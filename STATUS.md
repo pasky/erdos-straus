@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-08, refresh 5; ledger through (D)31 and (H)34, incl. the 2026-10-08 follow-ups (H)17 follow-up 4 [TYPEI5], (H)34 follow-up 2 [MORDELL17B] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile])
+ (2026-10-09, refresh 6; ledger through (D)31 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -58,6 +58,15 @@ with its status label. Read it before starting new work.
   Pomerance–Weingartner's explicit-in-m Vaughan bound. Progression/prime versions
   are included. The density transition lies at `log n = m^{1/3+o(1)}` (Cor D with PW
   Thm 3.1). Novelty is an Assessment: new for m ≠ 4, by the note's method.
+  Follow-up `EXCEPTIONAL_MN2.md` (two reviews, no FATAL/MAJOR), with `A = log N/m^{1/3}`:
+  Thm U (PROVED relative to (D)31 Cor 3.2, Bombieri–Vinogradov and Shiu; ineffective): for every
+  ε there is A_ε such that at most a proportion ε of the primes in (N/2, N] are m-exceptional once
+  A ≥ A_ε, uniformly in m ≥ 4 (removes Cor D's `(log m)^{4/3}`). Thm L (PROVED relative to ET Thm 7.1
+  and the structure of ET's proof of Prop 1.4, plus BT and Shiu):
+  `ρ_rep ≪ L³/m + (L³ + L² log² m) log L/φ(m) + m^{−0.35}`. The remaining gap is a factor
+  `(m log m/φ(m))^{1/3}` in log N (ET's Type I Brun–Titchmarsh log log N, open even at m = 4, and
+  m/φ(m)). EVIDENCE: `L_{1/2} = (1.95 ± 0.05) m^{1/3}` for even m ∈ [60, 300]. Conj C2 (CONJECTURE):
+  `ρ_rep = F(A) + o(1)` with F non-degenerate (no sharp threshold constant).
 * **Open target.** θ > 3/4. 3/4 is proved sharp for every CRT architecture
   analysed except residue-dense all-level large sieves, hybrids and tuple
   counts of growing order, which are reduced to open statements (see
@@ -179,6 +188,12 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     `v_7(k) ≥ 8`, `c_oδ > 10⁶` and lies in the two-parameter regime (v); all other regimes
     are excluded for all b. Regime (v) has σ, λ unbounded; linear forms in logarithms do
     not apply (Assessment).
+    `POINTWISE_TYPEI6.md` (follow-up 5; review: no FATAL/MAJOR): regime (v) is **not** closed.
+    The polynomial fundamental-unit route (Richaud–Degert / Yokoi type) provably fails for L ≥ 7
+    (Prop 2.1, PROVED); regime (v) is the generic large-unit regime (Lemma 3.1), and at L = 13 it is
+    inhabited (Remark 1.2), so a closing argument must use T ≤ 64. Under abc each level has finitely
+    many certificates (Thm 3.2, CONDITIONAL). CERTIFIED: no fibre certificate at `x̂_9` with
+    L = 7–10 and v_7(k) ≤ 15, at any height (two engines except (L, b) = (9,15), (10,14), (10,15)).
   * r = 13 (`POINTWISE_MORDELL.md` Thm 3.1, PROVED by finite computation):
     if `(p/13) = −1`, ES holds for p outside 6 classes mod 720720 (2 if also
     `(p/11) = +1`); modest novelty (explicit packaging of the Salez/ET level
@@ -191,6 +206,13 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     The new candidate x** = x(2,15) lies in no class with e ≤ 10⁸ (II3/I3/I1), f ≤ 3·10⁷ (II2),
     f, e ≤ 2·10⁷ (I2/II1/I4) (Comp 5.1, CERTIFIED within these ranges); that it is sterile is
     Conj 5.2 (CONJECTURE, EVIDENCE only). The main-variant r = 13 covering question is open again.
+    `POINTWISE_MORDELL13C.md` (review: no FATAL/MAJOR): Thm 6.1 (PROVED by finite computation; three
+    independent checkers): an adaptive tree certificate (136494 covered leaves, 2140 ET classes) shows
+    ES for every prime with (p/13) = −1 outside 35459 explicit classes, 8.42·10⁻⁵ of the six
+    exceptional classes mod 720720; no root class closes. Comp 3.1 (CERTIFIED): the uncovered part of the
+    (2,2) cell mod 11²13² is exactly {2,57,79} × {15,28,54,132,145}. x** lies in no P/Q-type class with
+    e ≤ 2·10⁹ and no I2/II1/I4 class with f, e ≤ 2·10⁸ (CERTIFIED within ranges, one engine);
+    it stays a candidate (Conj 5.2, CONJECTURE).
   * r = 17 (`POINTWISE_MORDELL17.md`): Thm 4.1 (PROVED) reduces a sterile
     point to an explicit tail bound, whose critical part is the prime-power
     count `#{(a,b): ab ≤ 17^K, (−17^K mod 4ab) | a+b} ≤ C·17^{(1/2−δ)K}`;
@@ -204,12 +226,18 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
     Thm 4.1 (PROVED reduction): `D_P(K) ≤ C·17^{θK}` (odd K ≥ 13) and `D_Q(k) ≤ 17^{3k/5}`
     (odd k ≥ 9) give a sterile point, e.g. θ = 2/5, C ≤ 1.40, i.e. ET's own exponent with an
     explicit constant and no o(1). Conj 4.2 there (D_P(K) ≤ K⁵, D_Q(k) ≤ k⁵) is a CONJECTURE.
+    `POINTWISE_MORDELL17C.md` (follow-up 3; review: minors applied): still CONDITIONAL. Cumulative
+    bounds `Σ_{13≤K'≤K} D_P(K') ≤ C·17^{θK}` suffice (Lemma 1.1, PROVED, Abel summation), raising the
+    admissible C at θ = 2/5 to 1.497; Q-points with c ≥ F^{1/2} are bounded unconditionally (≤ 2 per
+    (a,d); Lemma 2.1, Cor 2.2, PROVED). Assessment/EVIDENCE: averaging over K cannot rescue P; a proof
+    must show that discrete logs of −e mod 4ab rarely fall in the short window [log_17 4ab, K].
   * Candidate sterile points (x** for r = 13, the 17-generic line for r = 17, and `x̂_9` for
     Type I) remain candidates: no sterile point other than the square points is proved, and the
     first r = 13 candidate x* was refuted. A write-up `paper/es-coverings-note` (task O86) is refereed
-    internally (R86: accept after minor revision; repairs applied). Post-referee updates (not
-    re-refereed): TYPEI4 (O91); the x* refutation as Prop 5.4 and x** as an EVIDENCE-level
-    Conjecture 5.6 (O96; 24 pp).
+    internally (R86: accept after minor revision; repairs applied). The post-referee additions
+    TYPEI4 (O91), the x* refutation as Prop 5.4 and x** as an EVIDENCE-level Conjecture 5.6 (O96)
+    were refereed in round 2 (R98: no FATAL/MAJOR, D1–D7 applied, TYPEI5 added as Prop 4.15 /
+    Thm 4.16; 25 pp). TYPEI6, MORDELL13C, MORDELL17B/17C are not yet in the paper.
 
 ## Housekeeping
 
@@ -295,6 +323,17 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   POINTWISE_MORDELL17B (Lemma 2.1 enumerator = R93 naive scan = stored data at K = 5, 7 as sets; ρ₁, ρ₂ exact by
   both union scripts, with the level-7 Q/U data read from `data/m17b/qu7_*` (two engines, re-validated against
   their definitions); Theorem 4.1 tables floor-rounded vs inline closed forms; needs gcc/cc and GNU `factor`).
+* `verify.py` blocks (eh)–(ek) (O105, ~43 s; full run ≈ 7.4 min on the shared machine, 2 threads, scipy + mpmath; log `logs/o105_verify.log`) add POINTWISE_MORDELL13C (Thm 6.1 tree certificate in full with
+  R100's from-scratch checker: 6000 splits, 136494 covered / 35459 open leaves, 2140 classes, 0 errors, mean
+  open density 8.424e-5, per-root open counts; R100 identities, split primes ≤ 83, open moduli, roots and four
+  negative controls; §2 witness engine = R100 brute force at L = 840, 9240; Comp 3.1 enumerator: 0 data at
+  λ = 11⁴13⁴, control λ = 143: 34), POINTWISE_MORDELL17C (Lemma 1.1 Abel summation exact; cumulative and
+  pointwise tables by author + R98b, floor-rounded vs closed forms; Lemma 2.1 by R98b brute force at
+  F = 17, 4913, 1001, 9999 and all F ≤ 1500; Cor 2.2 cost 4.2254e-3), POINTWISE_TYPEI6 (R99 sympy identities;
+  inline Lemma 1.1(a)–(c) on two certificates; Remark 1.2 regime-(v) control (13,1) in both Comp 4.1 engines,
+  relaxed control (7,293); L = 7, b ≤ 4: 0 solutions, equal candidate counts; needs gcc + libgmp) and
+  EXCEPTIONAL_MN2 (emn2_scan = R102B brute force on 6617 (m,p) pairs, m ≤ 60; R102A = R102B; R102A §1
+  identities; L_{1/2}(60) = 7.636 from scratch, scanner agrees on the grid).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
@@ -369,7 +408,7 @@ Papers in `paper/`:
   R33, R33b, R47, R56, R64, R77; novelty audits `reviews/novelty-audit-omega8.md`,
   `reviews/novelty-audit-2026-10b.md`).
 * `es-coverings-note`: finite coverings and candidate sterile points
-  (TYPEI2/3/4, MORDELL, MORDELL13B, MORDELL17) — 24 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). Post-referee corrections O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) are not re-refereed.
-* `es-mn-short-note` (18 pp, O97): the 3/4 exponent for m/n uniformly in m (`E_m(I) ≪ H exp(−c(log H)^{3/4}m^{−1/4})`), in short intervals and progressions, and the density transition at `log n = m^{1/3+o(1)}`. Everything is PROVED relative to the 3/4 note. Internal referee R97: accept after minor revision; repairs applied (`reviews/es-mn-short-note-referee.md`).
+  (TYPEI2/3/4, MORDELL, MORDELL13B, MORDELL17) — 25 pp; internal referee R86 recommended accept after minor revision, and the repairs are applied (`reviews/es-coverings-note-referee.md`). The post-referee additions O91 (TYPEI4) and O96 (x* conjecture refuted, x** candidate) were refereed in round 2 (R98, `reviews/es-coverings-note-referee-r2.md`: no FATAL/MAJOR, seven minors applied; TYPEI5 added as Prop 4.15 / Thm 4.16). TYPEI6, MORDELL13C, MORDELL17B and MORDELL17C are not yet in the note.
+* `es-mn-short-note` (25 pp, O97 + O104): the 3/4 exponent for m/n uniformly in m (`E_m(I) ≪ H exp(−c(log H)^{3/4}m^{−1/4})`), in short intervals and progressions, and the density transition at `log n = m^{1/3+o(1)}`. Everything in Sections 1-7 is PROVED relative to the 3/4 note; Theorems U and L carry the extra inputs listed in the ledger (D)31 follow-up (BV, Shiu; ET Thm 7.1 and the structure of ET's proof of Prop 1.4, BT). Internal referee R97: accept after minor revision; repairs applied (`reviews/es-mn-short-note-referee.md`). O104 added Section 8 "The density transition" from EXCEPTIONAL_MN2 (Theorems U, L; EVIDENCE numerics; Conjecture C2); referee round 2 R104 (`reviews/es-mn-short-note-referee-r2.md`): upper side SOUND, lower side SOUND with minor repairs, m1-m8 applied, recommendation ACCEPT.
 
 Authorship and the citation form for astra are still undecided.
