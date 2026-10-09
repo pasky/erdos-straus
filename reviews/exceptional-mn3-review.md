@@ -102,3 +102,70 @@ Re-derived line by line.
 |---|---|
 | Prop 2.5 | SOUND (exponents verified) |
 | Theorem L' | SOUND; label should add PV and "rel. MN2 Prop 3.2" (m3) |
+
+## 3. §1 and §3 — Type I log log
+
+**§1 quotes.** Checked in ET: p. 5 quote verbatim (line "The double logarithmic factor …"); §9
+p. 36 parenthesis literally reads "Type II case" (pdf line 1931) — the author flags the reading
+"[means Type I]" explicitly; that reading is the natural one (the preceding sentence says the trick
+*avoids* the Type I loss). ET (8.1)/(8.2) and the block cost `N log² N/j` (j = log c) re-derived; the
+"only c ≤ N^ε matters, c > N^ε costs log(1/ε)" claim is correct.
+
+**Lemma 3.1 (SL₂ form).** All four identities re-derived by hand (`σ_d([[p,q],[r,s]]) = [[p,r/d],[dq,s]]`,
+fixed iff `r = dq`; anti-involution; Γ₀(d)-stability). Form `[f,4ad,de]`: disc `16a²d² − 4def = −4d`;
+primitive since f is odd and coprime to ad. After `X↔Y`, `[de, 4ad, f]` has `d | A`, `B ≡ 0 (2d)`,
+`B² ≡ D (4d)`, root `τ = (−2a + i/√d)/e` — matches the text. Parity counterexample `γMγᵀ = [[10,7],[7,5]]`
+re-computed. Brute force (`review_emn3_sec3.py`): all `Σ^I_p` identities, det = 1, `M₂₁ = dM₁₂`,
+`p = 2cM₂₁ − M₂₂`, disc −4d, primitivity and the twin identity hold on every Type I point for all
+primes `3 ≤ p < 180` — 0 failures. **SOUND.** Caveat (m4): here `D = −4d ≡ 0 (mod 4N)` with N = d,
+so these are Heegner/CM points in the Gross–Kohnen–Zagier sense *without* the Heegner hypothesis
+`(D, N) = 1`; the classical equidistribution literature (Duke, Michel–Harcos, …) is mostly stated for
+fixed level or coprime (D,N). The text should say so where it invokes "Heegner points".
+
+**Lemma 3.2.** Spot-checked five moduli by hand ((a,c,f): `d ≡ d₀ (f)` ⇒ step 4acf; (c,d,f): roots
+of `4da²+1 ≡ 0 (f)` ⇒ 4cdf; (a,d,·) ⇒ 4ad; (a,b,·) with e ⇒ 4ab; (b,d,e) ⇒ 4bd). Completeness
+correctly labelled EVIDENCE. SOUND as labelled.
+
+**Prop 3.3.** Exponents re-derived from `acd ≍ n`, `ce ≍ b`, `ef ≍ 4a²d`, `ff' = n²+4c²d`. Of the seven
+inequalities, `4bd`, `4bcf'`, `4cdf'` are automatic (`β ≥ α`, `γ ≤ η`, `α ≤ 1`); the rest give R_bad.
+Areas recomputed exactly (1/24 + 1/8 = 1/6; R**: `∫_{1/2}^{2/3}(α−1/3) + ∫_{2/3}^1(1−α) = 1/24 + 1/18 = 7/72`)
+and by grid (`0.1668`, `0.0973`). Limiting-slice divisor claim and the finite-η counterexample
+(α = β = 0.6, γ = η = 0.05: e-exponent 0.55 < 0.6) checked. **SOUND (PROVED geometry).** The
+mass/"no trick" consequence is correctly labelled Assessment. I also checked the log-uniform heuristic
+is the right one: in coordinates (α, φ = f-exponent) the divisor heuristic gives uniform density on
+the unit square, and `β = 1+α−φ` is area-preserving onto the stated slice.
+
+**§3.4–3.6.** Assessment-labelled sketches. (W_e)/(W_f) thresholds `(3/2)(β−γ) < 1−γ` reproduced from
+"main `AD/e` vs Weil error `(eq)^{1/2+ε}`"; (N2) arithmetic `(RV)^{1/2} ≍ N^{3/2}(log N)^{1/2}/C` vs
+main `N log N` re-derived. Labels adequate.
+
+**Theorem 3.8.** Re-derived:
+* `f_I(p) ≤ 2Σ_c w_c(p)`: ET Prop 2.2 (unique normalized sextuple per solution) + Lemma 2.8 for y ≤ z,
+  and the point is determined by (a,c,d,f) via `e = (4a²d+1)/f`, `b = ce − a`. Brute-forced for all
+  primes 3 ≤ p < 180 (ordered Type I solutions found from scratch by enumerating 4/p = 1/x+1/y+1/z):
+  0 violations.
+* Part (1): BT with `log(N/4ad) ≥ η₀ log N − O(1)`, and `Σ_{ad≤N} τ(4a²d+1)/φ(ad) ≪ log³ N` from ET (8.2)
+  over ≤ log N dyadic blocks: `≪ η₀^{−1} N log² N`. Correct.
+* Part (2): `c < N^{η₀}`; z = `N^{min(θ,1)/2}`, sieve level `z² ≤ N^θ` matches LD's q-range; primes in
+  (N/2, N] are unsifted. (Ω₁) with `ℓ₀ = 2C₀+2`: `h(ℓ)/ℓ ≤ 1/ℓ + C₀/ℓ² < 1/2`. (Ω₂(1)) holds with
+  `A₂ = O(C₀)`. `Π_{ℓ₀<ℓ<z}(1 − h(ℓ)/ℓ) ≪_{C₀} 1/log z` from `h ≥ 1 − C₀/ℓ`. The weights `w_c` are
+  non-negative integers, so the sequence-with-multiplicity setting of Halberstam–Richert applies.
+  `X_c ≪ (N/c) log² N` (ET Prop 1.4 with k = 4 over ≪ log N dyadic boxes per scale, ≪ log N scales).
+  `Σ_{c≤N^{η₀}} X_c/log z ≪ (η₀/θ') N log² N` — the `log N^{η₀}` from Σ 1/c is exactly cancelled by
+  `1/log z`. Correct.
+* Sanity of LD (is it vacuous?): local densities computed heuristically: `h_c(2) = 0` (n odd — allowed,
+  the lower bound is only imposed for ℓ > 2); for `ℓ | c`, `ℓ | n ⇔ ℓ | f`, and the τ-weighted density
+  of `ℓ | f` is `≈ (1/ℓ)·(1 + 1/ℓ)^{−1}`, i.e. `h ≈ 1 − 1/ℓ` — inside the allowed window. So LD is not
+  refuted by local obstructions. (Not a proof that LD is true; it is a hypothesis.)
+* Source: Halberstam–Richert Thm 4.1 / Lemma 4.1 are **not in `sources/`; I could not check the exact
+  statement**. From memory, Thm 4.1 is `S ≤ X/G(z) + Σ_{d<z², d|P(z)} 3^{ν(d)}|R_d|` under (Ω₁), and
+  Lemma 4.1 gives `1/G(z) ≪ W(z)` under (Ω₁), (Ω₂(κ)) — consistent with the use made.
+**Theorem 3.8: SOUND (PROVED implication).** Remark (b) is correctly labelled "proposed, not proved".
+
+| Claim | Verdict |
+|---|---|
+| Lemma 3.1 (SL₂ / Heegner) | SOUND; terminology caveat m4 |
+| Lemma 3.2 | SOUND as labelled (completeness EVIDENCE) |
+| Prop 3.3 (R_bad area 1/6) | SOUND |
+| §3.4 R** area 7/72 | SOUND (area); method claims Assessment, correctly labelled |
+| Theorem 3.8 (LD ⟹ OPEN-I) | SOUND (HR not in sources — m5) |
