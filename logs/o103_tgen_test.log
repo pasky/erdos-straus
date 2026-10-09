@@ -1,0 +1,4 @@
+open leaves 16857, QR off T: 6224
+(on T-generic line, T-projection covered): {(False, True): 400}
+covering families: {'I1': 224, 'II3': 175, 'I3': 1}
+(x mod 11, x mod 13): {(2, 7): 400}

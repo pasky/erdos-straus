@@ -1,0 +1,6 @@
+10 leaves, children 207, bad=0, nonempty=7, C 0.1s Py 52.4s
+DONE leaves=10 children=207 mismatches=0 nonempty=7 C 0.1s Py 52.4s
+10 leaves, children 0, bad=0, nonempty=10, C 0.5s Py 1410.1s
+20 leaves, children 0, bad=0, nonempty=17, C 1.3s Py 4327.0s
+30 leaves, children 0, bad=0, nonempty=26, C 1.8s Py 5788.3s
+DONE leaves=30 children=0 mismatches=0 nonempty=26 C 1.8s Py 5788.3s

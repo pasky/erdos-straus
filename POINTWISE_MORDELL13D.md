@@ -1,0 +1,146 @@
+# POINTWISE_MORDELL13D — closing exceptional root classes with a complete-witness hybrid DFS (task O103)
+
+Status: work in progress (side agent O103, branch `side-agent/r13-hybrid-close`). Labels as in DISCOVERIES.md.
+Continues POINTWISE_MORDELL13C (§6 Thm 6.1, §8 Comp 8.3 and plan).
+
+## 1. The C complete-witness engine `scripts/m13d_wit.c`
+
+Input: a node `x + Lℤ` (`4 | L`, `gcd(x,L)=1`, `L < 2¹²⁶`), optional `req` (a prime power exactly dividing L).
+Output: all (or the first) ET classes (seven families, `mordell_lib` conventions) with modulus `M | L`
+(and `req | M`) containing the node. Same mathematics as `m13c_witness.py` (13C §2), reorganised:
+
+* **(A) II3 / I2 / I3** (`(a,d,f)` with `f` odd, `gcd(f,4ad)=1`, `M = 4adf | L`, `x ≡ −f (4ad)`): loop over odd
+  `f | L`; then `m = 4ad` divides `G_f = gcd(L_f, x+f)`, `L_f` = part of L coprime to f; enumerate
+  `a·d = Q | G_f/4` and test `f | x+4a²d` (II3), `f | ax+d` (I2), `f | x²+4a²d` (I3).
+  Equivalent to 13C's loop (pairs (a,d), `f | gcd(K_c, ·)`, `f ≡ −x (4ad)`): both say `f·4ad | L`, `gcd(f,4ad)=1`.
+* **(B) I1 / II1 / I4** (modulus `m = 4Q | L`): `f0 = −x mod m`, `g0 = −x⁻¹ mod m` (`x⁻¹` taken mod L).
+  I1 `(a,d,f)`, `ad=Q`, `f | am+1`, `f ≡ −x (m)`: either `f = f0` or `g = (am+1)/f = g0` (13C §2); in both cases
+  `h ∈ {f0,g0}` must divide `am+1`, i.e. `a ≡ −m⁻¹ (mod h)`, enumerated among divisors `a | Q`.
+  II1 / I4 `(a,b,e)`, `ab = Q`, `e | a+b`, `e = f0` resp. `g0`: since `a+b ≥ e`, `min(a,b) ≤ 2Q/e` — scan the sorted
+  divisors of `L/4` up to `2Q/e`.
+* **(C) II2** `(a,d,f)`: `f | L`, `f ≡ 3 (4)`, `ad | A = (f+1)/4`, `x ≡ −4a²d (f)`. Per L, A is factored
+  (trial division + Miller–Rabin + Pollard rho, 128-bit) and the residues `−4a²d mod f` are tabulated.
+* 128-bit arithmetic, `mulmod` exact for moduli `< 2¹²⁷`. The Miller–Rabin test (20 prime bases) is used only
+  to *factor* A in (C); a wrong "prime" verdict could only lose II2 witnesses (never create a false one —
+  every witness is re-checked by the tree checkers).
+
+**`req` (used inside the DFS).** If a node `x mod L` is known to lie in no class with `M | L`, a class covering
+a child `y mod Lp` with `M | Lp` must have `v_p(M) = v_p(Lp)`; `req = p^{v_p(Lp)}` restricts the search accordingly.
+
+**Validation.** (i) every unit `x` mod `L ∈ {9240, 10920, 65520, 720720}` (156288 nodes): full witness sets of
+the C engine and `m13c_witness.witness_all(first=False)` agree — **0 mismatches**.
+(ii) `m13d_validate.py /tmp/o100/t418_100.json 200 1 0 2 5` (logs/o103_val_trunc.log): 200 random open leaves
+of the 13C §8.2 tree, each truncated to `x mod L'` (`L'` = L without its k largest prime powers, k ∈ [2,5] —
+the Python engine costs ≈ ×3.5 per prime; `L'` ≈ 10¹⁰–10¹⁵): full sets agree, **0 mismatches** (90 nonempty).
+(iii) `req` mode, `m13d_validate.py … 20 3 20 5 7`: all 583 children `y mod L'q` of 20 truncated leaves:
+C set (req) = Python set restricted to `req | M`, and first-mode answers lie in it — **0 mismatches**
+(only 2 nonempty). (iv) logs/o103_val_deep.log: req check on all 207 children of 10 leaves truncated at k ∈ [3,4]
+(7 leaves with nonempty sets), and full sets on 30 leaves with k ∈ [0,2] (untruncated or nearly, `L` up to ≈10²⁰,
+26 nonempty, Python ≈ 3 min per leaf): **0 mismatches**. In total 240 random leaves + 790 children, 0 mismatches.
+
+Speed (300 random open leaves of the 13C §8.2 tree, `L ≈ 10¹⁸–10²⁰`, 14–15 primes): ≈ 45 ms per node for the
+full set, single core. 31 of the 300 leaves (10%) lie in no class with `M | L` (13C Comp 8.3 found 4%, sample of 52).
+
+## 2. Hybrid DFS `scripts/m13d_dfs.py` — first runs on root 418321 (EVIDENCE)
+
+**Run 2.1 (CK = 0: split chosen by tables `M ≤ 10⁶` as in 13C; C engine at every popped node).**
+`m13d_dfs.py 418321:720720 1000000 100 3 5000 3600 …` (484 s): 5000 pops, 2313 covered by the C engine
+(46%), open mass `5.2·10⁻⁹` of the root (13C Comp 8.2: `1.95·10⁻⁸` after 142088 nodes), but the queue still grows
+(14874 open at stop; ≈ 7.4 children pushed per expansion, ≈ 4 of them open w.r.t. all `M | L`). Supercritical.
+
+**Run 2.2 (CK = 6: the 6 candidate splits with fewest table survivors are scored by the C engine; split = min
+(#children open w.r.t. all `M | L·q`, p)).** Same root, emax 3, 3600 s (logs/o103_dfs418_ck6.log): 6200 expansions,
+open mass `5.1·10⁻⁹`, 16857 open leaves (depth 11–14). Open children per expansion by `log₂ L'`:
+≈ 2.5 (bits 40–50), 3.2 (50–55), 3.6 (55–60), 3.0 (60–65) — not decreasing: supercritical.
+*Shape of the open set:* every open leaf has `x ≡ 1` mod 16, 9, 25, 17; ≈ 85–90% have `x ≡ 1` mod 19, 23; 97–100% are
+quadratic residues mod 19, 23, 29, 47 (cf. the non-square lemma, 13C §1: classes covering points that are
+squares at all `q ∉ {11,13}` need the non-square witness 11 or 13). Most open leaves sit at the exponent caps
+(`2⁶3⁴5³7²⁻³`), so the run cannot separate them from the 2-, 3-, 5-adic point `x = 1` → next: raise emax.
+
+**Run 2.3 (emax 6, CK 6).** Minimising the open-child *count* now prefers raising 2- and 3-powers: after 9200 pops
+open mass `4.6·10⁻⁶` (×900 worse than 2.2), open children per expansion still ≈ 2.85 (bits 45–55). Stopped.
+
+**Run 2.4 (subtrees of single deep open leaves of run 2.2; emax 4, CK 6, 900 s each; logs/o103_sub6.log).**
+`3466176103402110001 mod 14793247696034808000`: 71 expansions → 150 open leaves; `327585843065779201 mod
+9127748578404456000`: 68 → 151. Deep nodes are as supercritical as shallow ones, and ≈ 13 s per expansion
+(C engine at `L ≈ 10¹⁹–10²¹` and up to 6 candidate splits).
+
+**Computation 2.5 (one node, all splits).** For the first node of 2.4, the complete engine counts the open children of
+*every* split `q` (each prime `< 120`, or the next power of a prime of L): minimum **2** (at `2⁷`: 2/2 and `3⁵`: 2/3);
+best non-trivial: `29` 4/28, `37` 5/36, `53` 6/52, `11²` 5/11; powers of primes where `x ≡ 1` (17, 23, 31, 43, 47, 5, 7)
+leave ≈ all children open; new primes `> 60` leave 20–40% open. No split leaves ≤ 1 open child.
+
+**Computation 2.6 (20 random open leaves of run 2.2, all splits, primes < 120; logs/o103_minopen20.log).**
+Minimum number of open children over all splits: 0 (3 nodes), 1 (9), 2 (8); mean 1.25. The argmin is mostly
+`2⁷` or `3⁵` — **beyond the exponent caps of runs 2.1–2.2** (2⁶, 3⁴), which is why those runs looked so
+supercritical — or a new prime 29, 37, 53. Next: unbounded-ish 2-/3-adic refinement, always C-scored.
+
+**Run 2.7 (caps `2¹²3⁸5⁵7⁴`, splits at 2,3,5,7 always C-scored + 6 table-best, criterion (#open, open fraction)).**
+3600 s (logs/o103_dfs418_p23.log): 9600 expansions, 15786 open leaves, open mass `4.0·10⁻⁷`; open children per
+expansion 1.9–3.0 at every depth (bits 40–60). The criterion degenerates into p-adic refinements at 3 (`3/3` open).
+
+**Dives v1 (logs/o103_dive12_v1.log).** Below open leaves of run 2.2, following the min-count split and a random
+open child: the min-count split is `2^k` with **both** children open, for 25 consecutive levels (`2⁷ … 2³¹`), in
+2 of 3 dives — i.e. the open set contains whole 2-adic discs at these depths (no class with `M | L` separates
+them, however high the 2-power). Pure 2-adic refinement makes no progress; dives v2 exclude splits with all
+children open.
+
+## 3. Assessment (status after ≈ 7 h; no root closed)
+
+* **No root is closed; Theorem 3.1(b) of POINTWISE_MORDELL is unchanged; no certificate was produced** (no tree
+  with zero open leaves exists to check). The claimed "ES for all p with (p/13) = −1" is **not** reached.
+* What is established: a validated complete-witness engine (§1; 0 mismatches on 240 random leaves + 790 children)
+  — ≈ 5·10³× faster than `m13c_witness.py` for full sets at `L ≈ 10¹⁹` (≈ 45 ms vs ≈ 3–4 min) — and a hybrid DFS (§2) whose output is in the 13C
+  tree format (both 13C checkers apply unchanged to any closed tree it may produce).
+* EVIDENCE that closing 418321 with splits at primes `≤ 100–120` is out of reach of this method: at every depth
+  sampled (`L` from 2⁴⁰ to 2⁹⁰), the best split (complete engine, *all* candidate splits) leaves on average
+  ≈ 1.3–3 open children per open node (Comp 2.6, runs 2.1–2.7, dives), so the open-leaf count grows
+  geometrically (≈ ×2.5 per expansion) while only the open *mass* decays (`5·10⁻⁹` of the root after one hour,
+  vs `1.95·10⁻⁸` for 13C's tables after 142088 nodes). Pure p-adic refinement at a prime already in L makes no
+  progress beyond a few levels (dives v1: 25 levels of `2^k` with both children open): covering classes
+  need `4ad | x+f` for divisors `f | L`, which pins only `τ(L)` discs per level.
+* The open set is concentrated on points that are quadratic residues at almost all primes `∉ {11,13}`
+  (run 2.2), consistent with the non-square lemma (13C §1).
+* **Dives v2** (logs/o103_dive12.log; `m13d_dive.py` over 12 open leaves of run 2.2, primes < 80, splits that leave
+  all children open excluded; stopped by the 14000 s timeout after 2 dives). Dive 0 closed at once (bits 62: split 43,
+  0 open). In dive 1 the minimum number of open children was 1, 4, 2, 2, 5, 5, 3 at bits 65, 66, 72, 77, 82, 88, 94
+  (best splits 3⁵, 37, 41, 29, 53, 71, 67), mean ≈ 3.1. The branch was still open at L ≈ 2¹⁰⁰. The cost per step
+  explodes: 3 s at 2⁶², 531 s at 2⁸², 2328 s at 2⁸⁸, 10269 s at 2⁹⁴ (complete engine × every candidate split).
+  This is consistent with the supercritical picture above. It is only one branch, i.e. weak EVIDENCE. Whether the uncovered set of the root in
+  `∏_{p≤P} ℤ_p` is empty for some P (which is necessary and, by compactness, sufficient for a finite tree) is
+  open; this work gives no evidence either way beyond the growth rates above.
+
+## Replay
+
+```
+gcc -O2 -o /tmp/o103/wit scripts/m13d_wit.c          # (m13d_wit.py rebuilds automatically; env M13D_WIT = binary)
+PYTHONPATH=scripts uv run python scripts/m13d_validate_small.py 9240 10920 65520 720720       # §1 (i)
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 200 1 0 2 5            # §1 (ii), T = 13C §8.2 tree
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 20 3 20 5 7            # §1 (iii)
+PYTHONPATH=scripts uv run python scripts/m13d_validate.py T 10 4 10 3 4; … T 30 2 0 0 2   # §1 (iv)
+PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 5000 3600 out.json.gz       # 2.1
+PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 100000 3600 out.json.gz 6   # 2.2
+M13D_CAPS=2:12,3:8,5:5,7:4 M13D_PRIO=2,3,5,7 PYTHONPATH=scripts uv run python scripts/m13d_dfs.py 418321:720720 1000000 100 3 100000 3600 out.json.gz 6   # 2.7
+PYTHONPATH=scripts uv run python scripts/m13d_minopen.py nodes.txt 120             # 2.6 (nodes = 20 open leaves of 2.2)
+PYTHONPATH=scripts uv run python scripts/m13d_dive.py nodes.txt 80 25 1             # dives v2
+```
+
+## 4. Are the "square-mimicking" open leaves T-generic survivors? (EVIDENCE + Assessment; answer: no)
+
+**Computation 4.1.** `scripts/m13d_tgen_test.py /tmp/o103/t418_ck6.json.gz 400 1` (logs/o103_tgen_test.log), open
+leaves of run 2.2 (root 418321): 6224 of the 16857 are quadratic residues at every prime `q | L`, `q ∉ T = {11,13}`.
+This includes `x ≡ 1 (8)`; at 3, 5, 7 it holds automatically. 400 random such leaves were tested:
+* **none** lies on the T-generic line: in every leaf, `x ≢ 1 mod q^{v_q(L)}` for some `q ∉ T`;
+* for **all 400** the T-projection `x'` is covered at the same level by a class with `M | L` (I1 224, II3 175, I3 1).
+  Here `x' ≡ x mod 11^a13^b` and `x' ≡ 1` on the rest of L, i.e. the T-generic point with the leaf's 11-, 13-adic
+  coordinates.
+* all have `(x mod 11, x mod 13) = (2, 7)` (the root's T-cell).
+
+**Assessment.** For root 418321 the open set is **not** explained by the T-generic (2,2)-cell phenomenon of
+13B/13C. The (2,2) cell `x₁₁ ≡ x₁₃ ≡ 2` and x** belong to class 473761, while 418321 has `(x₁₁, x₁₃) = (2, 7)`.
+Its T-generic points are all covered (13C §3), and here concretely all 400 T-projections are covered at level L.
+The open leaves sit *off* the T-generic line: they are squares, but not ≡ 1, at the other primes. They stay open
+because they avoid the discs `x ≡ −f (mod 4ad)`, `f | L`, of the covering classes. So the failure to close is not
+caused by x**-type points. The limit set (if nonempty) is a different, "square-mimicking but off-line" set, whose
+structure remains open. For 473761 the (2,2)-cell survivors are a genuine additional obstacle. That root was not
+run here.

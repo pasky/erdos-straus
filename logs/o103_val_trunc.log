@@ -1,0 +1,24 @@
+10 leaves, children 0, bad=0, nonempty=6, C 0.1s Py 147.3s
+20 leaves, children 0, bad=0, nonempty=12, C 0.2s Py 280.3s
+30 leaves, children 0, bad=0, nonempty=19, C 0.2s Py 334.3s
+40 leaves, children 0, bad=0, nonempty=24, C 0.2s Py 415.3s
+50 leaves, children 0, bad=0, nonempty=30, C 0.3s Py 595.2s
+60 leaves, children 0, bad=0, nonempty=34, C 0.3s Py 656.5s
+70 leaves, children 0, bad=0, nonempty=41, C 0.4s Py 811.0s
+80 leaves, children 0, bad=0, nonempty=46, C 0.4s Py 936.8s
+90 leaves, children 0, bad=0, nonempty=51, C 0.4s Py 1016.0s
+100 leaves, children 0, bad=0, nonempty=55, C 0.5s Py 1091.9s
+110 leaves, children 0, bad=0, nonempty=58, C 0.5s Py 1147.9s
+120 leaves, children 0, bad=0, nonempty=62, C 0.5s Py 1274.1s
+130 leaves, children 0, bad=0, nonempty=67, C 0.6s Py 1360.2s
+140 leaves, children 0, bad=0, nonempty=70, C 0.6s Py 1472.5s
+150 leaves, children 0, bad=0, nonempty=75, C 0.6s Py 1613.4s
+160 leaves, children 0, bad=0, nonempty=79, C 0.7s Py 1790.5s
+170 leaves, children 0, bad=0, nonempty=81, C 0.7s Py 1880.0s
+180 leaves, children 0, bad=0, nonempty=84, C 0.7s Py 2003.3s
+190 leaves, children 0, bad=0, nonempty=86, C 0.8s Py 2111.4s
+200 leaves, children 0, bad=0, nonempty=90, C 0.8s Py 2152.4s
+DONE leaves=200 children=0 mismatches=0 nonempty=90 C 0.8s Py 2152.4s
+10 leaves, children 319, bad=0, nonempty=0, C 0.0s Py 2.0s
+20 leaves, children 583, bad=0, nonempty=2, C 0.0s Py 6.2s
+DONE leaves=20 children=583 mismatches=0 nonempty=2 C 0.0s Py 6.2s
