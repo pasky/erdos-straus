@@ -116,10 +116,10 @@ With `λ/Y₀ ≍ A√D` and `1/Y₀ = 2qF'√D` the three terms `q²Dλ(1+λ)/Y
 `q²(D/A)^{1/2}(1+λ)^{1/2}`, `q^{3/2}F'^{1/2}/A`, `q A^{−1/2}Y₀^{−1/4} ≍ q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}`. ∎
 
 **Corollary 3.2 (the TTL cases (b2), (b3), (b5) unconditionally; PROVED rel. (DI7_ε)).** Let `δ = 2α−1+γ > 0`
-(so `A/D ≍ N^{δ}`) and use the cusp variable chosen in TTL §8: (b2) `F' = e ≤ 4A`; (b3) `F' = min(e,f) ∈ [8A, 3A√D]`;
+(so `A/D ≍ N^{δ}`) and use the cusp variable chosen in TTL §8: (b2) `F' = e ≤ 4A`, used by TTL only when `k ≥ 2j`, so `δ ≥ 2γ`; (b3) `F' = min(e,f) ∈ [8A, 3A√D]`;
 (b5) `F' = f ≤ A` with `A/f ≤ N^{δ/2}`. Then the relative remainder (Thm 3.1 divided by AD) is
 `≪ 𝓛^C C_ε^{1/2} N^{4ε} q² (N^{−δ/4} + N^{−1/20})`.
-*Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}`;
+*Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}` as `δ ≥ 2γ`;
 b5: by hypothesis), and `λ ≤ 1/8` in (b3); so it is `≪ q²N^{−δ/4}`. Second term: `F'^{1/2}/A ≪ D^{1/4}A^{−1/2} ≤ A^{−1/4}`.
 Third term: in (b3) `F'^{1/4}D^{1/8}A^{−1/2} ≪ (A√D)^{1/4}D^{1/8}A^{−1/2} = (D/A)^{1/4} ≍ N^{−δ/4}`; in (b2), (b5)
 `≪ A^{1/4}D^{1/8}A^{−1/2} ≤ A^{−1/8}`. In all three cases `D < A`, so `A ≫ N^{(1−η)/2}` and `A^{−1/8} ≪ N^{−1/20}`
