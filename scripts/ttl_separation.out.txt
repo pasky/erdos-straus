@@ -1,0 +1,10 @@
+d=   1  #forms=  227  min cosh dist over distinct pairs = 3.000000
+d=   2  #forms=  324  min cosh dist over distinct pairs = 3.000000
+d=   3  #forms=  225  min cosh dist over distinct pairs = 7.000000
+d=   5  #forms=  367  min cosh dist over distinct pairs = 5.000000
+d=   6  #forms=  315  min cosh dist over distinct pairs = 5.000000
+d=  12  #forms=  247  min cosh dist over distinct pairs = 7.000000
+d=  30  #forms=  255  min cosh dist over distinct pairs = 11.000000
+d=  97  #forms=  107  min cosh dist over distinct pairs = 3.000000
+d= 210  #forms=   84  min cosh dist over distinct pairs = 29.000000
+identity cosh = 1 + disc(Q-Q')/(8d), 4d | disc(Q-Q') > 0: all pairs OK
