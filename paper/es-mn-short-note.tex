@@ -95,6 +95,10 @@ are $m$-representable for each fixed $m$.  Elsholtz and Tao
 \cite[\S1]{ET} cite Vaughan's bound, listing other results as weaker,
 and Pomerance and Weingartner \cite[p.~2]{PW} describe it as the state of
 the art for $4/n$.
+Elsholtz \cite[Rem.~7.3]{Els} gave an admissible constant explicit in
+the numerator, $E_m(N)\ll N\exp\{-c_{m,3}(\log N)^{2/3}\}$ with
+$c_{m,3}=3e^{-2/3}(8m)^{-1/3}-\varepsilon$, for $N>N_m$ with $N_m$
+unspecified (O101 audit).
 Pomerance and Weingartner \cite[Thm.~1.3]{PW} made it uniform in the
 numerator: for $4\leq m\leq(\log N)^2$,
 \begin{equation}\label{eq:PW}
@@ -200,6 +204,9 @@ absorbs the factor $C$ of Theorem~\ref{thm:A}.  Hence there is an absolute
 Theorem~\ref{thm:A} is stronger than \eqref{eq:PW} as soon as
 $(Lm)^{1/12}\geq\Lambda_0(\log\log3m)^{1/3}$; in particular for all such
 $m$ once $N\geq N_0$.  Outside this range \eqref{eq:PW} is not available.
+Against Elsholtz's constant $c_{m,3}\asymp m^{-1/3}$ the ratio of the
+exponents is exactly $(Lm)^{1/12}$, without the $\log\log$ loss, but that
+bound holds only for $N>N_m$ (O101 audit).
 
 Finally (Section~\ref{sec:lowerend}) a bound with saving in $\log x$
 rather than $\log H$, of the shape
@@ -1212,8 +1219,20 @@ result explicit.''  (The first arXiv version said instead that they
 ``generalize a result of Vaughan''.)  So, according to \cite{PW},
 Vaughan's result already covers each fixed $m$.  We could not read
 Vaughan's paper and rely on this secondary statement for the dependence
-on $m$.  \cite[Thm.~1.3]{PW} is the first bound \emph{explicit} in $m$
-that we can cite.
+on $m$.  Elsholtz \cite[Rem.~7.3]{Els} gives the admissible constant
+$c_{m,3}=3e^{-2/3}(8m)^{-1/3}-\varepsilon$ in Vaughan's bound for $N>N_m$
+(with $c_{4,3}=0.5645$); \cite[Thm.~1.3]{PW} is the first bound
+\emph{uniform} in $m$ that we can cite (O101 audit).
+\item Elsholtz \cite[p.~3210]{Els} proves
+$E_{m,k}(N)\ll N\exp\{-c_{m,k}(\log N)^{1-1/(2^{k-1}-1)}\}$ for $k\geq3$
+unit fractions, improving Viola \cite{Viola} (exponent $1-1/(k-1)$) and
+Shen \cite{Shen} (exponent $1-1/k$).  For $k=3$ none of these exceeds
+Vaughan's $2/3$.  Sander \cite{Sander} gives, for a single Type~II
+subfamily, a lower bound $\gg x/(\log x)^{3/2}$ for the primes in a
+progression on which that subfamily fails.  This is the only
+progression-restricted sieve result for $4/n$ that we found, and it is
+not an exceptional-set bound (O101 audit; \cite{Viola,Shen,Sander}
+only via secondary sources).
 \item Searches for short-interval, almost-all-short-interval and
 progression versions of exceptional-set bounds for $4/n$ or $m/n$, for
 ``Sierpi\'nski $5/n$ exceptional set'' and for ``$(\log N)^{3/4}$''
@@ -1290,6 +1309,9 @@ primes, II, \emph{Proc. London Math. Soc. (3)} \textbf{83} (2001),
 H. Davenport, \emph{Multiplicative Number Theory}, third edition,
 revised by H. L. Montgomery, Graduate Texts in Mathematics 74,
 Springer, 2000.
+\bibitem[E]{Els}
+C. Elsholtz, Sums of $k$ unit fractions, \emph{Trans. Amer. Math. Soc.}
+\textbf{353} (2001), 3209--3227.
 \bibitem[ET]{ET}
 C. Elsholtz and T. Tao, Counting the number of solutions to the
 Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math.
@@ -1307,10 +1329,19 @@ H. L. Montgomery and R. C. Vaughan, The large sieve,
 \emph{Mathematika} \textbf{20} (1973), 119--134.
 \bibitem[PW]{PW}
 C. Pomerance and A. Weingartner, Exceptions to the
-Erd\H{o}s--Straus--Schinzel conjecture, arXiv:2511.16817v2, 2026.
+Erd\H{o}s--Straus--Schinzel conjecture, \emph{Ramanujan J.} \textbf{69}
+(2026), no.~2, Paper No.~31; arXiv:2511.16817v2 (cited version).
 \bibitem[S]{Shiu}
 P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions,
 \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[Sa]{Sander}
+J. W. Sander, On $4/n=1/x+1/y+1/z$ and Rosser's sieve, \emph{Acta
+Arith.} \textbf{59} (1991), 183--204; On $4/n=1/x+1/y+1/z$ and
+Iwaniec' half dimensional sieve, \emph{J. Number Theory} \textbf{46}
+(1994), 123--136.
+\bibitem[Sh]{Shen}
+Shen Zun, On the diophantine equation $\sum_{i=0}^k1/x_i=a/n$,
+\emph{Chinese Ann. Math. Ser. B} \textbf{7} (1986), 213--220.
 \bibitem[SH]{SHORT}
 \emph{EXCEPTIONAL\_SHORT: exceptional sets in short intervals and
 progressions}, internal working document \texttt{EXCEPTIONAL\_SHORT.md},
@@ -1331,6 +1362,9 @@ and displays as in the compiled version.
 \bibitem[Y]{Yang}
 Xun Qian Yang, A note on $4/n=1/x+1/y+1/z$, \emph{Proc. Amer. Math. Soc.}
 \textbf{85} (1982), 496--498.
+\bibitem[Vi]{Viola}
+C. Viola, On the diophantine equations $\prod_0^kx_i-\sum_0^kx_i=n$ and
+$\sum_0^k1/x_i=a/n$, \emph{Acta Arith.} \textbf{22} (1973), 339--352.
 \bibitem[V]{Vaughan}
 R. C. Vaughan, On a problem of Erd\H{o}s, Straus and Schinzel,
 \emph{Mathematika} \textbf{17} (1970), 193--198.
