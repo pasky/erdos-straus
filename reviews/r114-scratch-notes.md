@@ -9,3 +9,6 @@
 - Prop 7.1 rederived OK (identity an=f(ce-a)-c, CRT, T_l, axial, Weil). (Ka-summed) OK.
 - Assembly §8 rederived: L1.1 OK; BT-layer OK (A,D>=N^{1/4} from k<=L/3); (i) D/A=N^delta, c0, Q=N^{delta/4} OK; (ii) gamma<=delta/2 from k>=2j OK; (iii) exponent diff -alpha/4 OK; (iv) both branches OK; sieve kappa bookkeeping N^{-kappa delta/2} OK; step 5 sums OK.
 - bad region e,f>=N^{1/2-3eta1} OK.
+- ET checks: Thm 1.1 quote OK; p.5 quote OK; p.36 parenthesis "[sic] Type II case" OK; (1.4) OK; Prop 2.2 map (abdn,acd,bcd) OK; Lemma 2.8 bounds OK; (8.1)-(8.2) OK.
+- DEFECT: BT-layer cites [ET,(A.10)] with explicit constant 2y/(phi(q)log(y/q)) for an interval of length y. ET (A.10) is pi(N;q,a) << N/(phi(q)log(N/q)) (initial segment, implied const). Should cite MV (interval version, const 2). MINOR.
+- Prop 3.3 exponents/area 1/6 OK; Rem 3.2 fibres OK; L8.3, L8.4, L8.2 re-derived OK. Notation clash: Prop 2.3 "Fix l" (exponent) vs l squarefree divisor in L8.4 proof. MINOR.
