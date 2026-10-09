@@ -423,8 +423,8 @@ cost is below the cell's weighted mass.
   `α ≥ (1−γ)/2`, `γ ≤ η`); relative remainder `≪ L^C Q² N^{−δ/2}`; saving `C/k`.
 * (b4) per layer: the 4ad Brun–Titchmarsh bound. For fixed `(a,d,f)` the n's with `c ≍ 2^j` lie in an
   interval of length `≤ 4ad·2^j` in one class mod 4ad, so BT gives `≤ 8ad2^j/(φ(4ad)·j log 2)`;
-  by Lemma 8.4(a2) the layer (`a ≍ A`, all f, `c ≍ 2^j`) costs `≪ N L/j` (used only for `k < 2j ≤ 2ηL` or
-  `k ≤ C₁ log L`, where `A, D ≥ N^{1/2−2η}`).
+  by Lemma 8.4(a2) the layer (`a ≍ A`, all f, `c ≍ 2^j`) costs `≪ N L/j` (used only for `k ≤ L/3`, where
+  `δ ≤ 1/3` gives `A, D ≥ N^{1/4}`).
 * (b5) **(D1)** `D < A`, `1 < β ≤ 1+2η₁` (`f < A`, possible because `R_bad` allows `β ≤ 1+η₁`; the old text
   wrongly said f' ≥ A/8 fails only for `β < α+γ`). Put `k' := ⌊(β−1)L⌋ ≥ C₀`. If `k' ≤ k/2`: fixed d with
   the **e-cusp** (forms `[e, 4ad, df] ∈ 𝓕_d^I`, linear functional `n = cB − C/d`; Lemma 6.1 and Thm 6.2 hold
@@ -448,7 +448,8 @@ times the mass (`g(x) ≪ log log x`). **Remainder.** `≪ L^C N^{−κδ/2}` ti
 Both are `≪ (C/k)` times the mass once `k ≥ C₁ log L`.
 (4) Layers with `k ≤ C₁ log L`: (b4) for every cell, cost `≪ Σ_{j≤ηL} (C₁ log L)·N L/j ≪ N L (log L)²`.
 (5) Summation. (b1), (b3), and (b2) with `k ≥ 2j`: per (j, k) layer cost `≪ N L·min(1/j, C/k)` (choose per
-layer the better of (b4) and the spectral/Weil bound); by Lemma 1.1, `Σ_{j,k≤L} N L min(1/j, C/k) ≪ N L²`.
+layer the better of (b4) and the spectral/Weil bound; for `k > L/3` only the latter, and
+`Σ_j Σ_{L/3<k≤L} NL·C/k ≪ NL·ηL`); by Lemma 1.1, `Σ_{j,k≤L} N L min(1/j, C/k) ≪ N L²`.
 (b2) with `k < 2j`: (b4) on these layers, `≪ Σ_j Σ_{k<2j} NL/j ≪ N L²`. (b5): per c-block,
 `Σ_{k,k'≤L} N·C/max(k,k') = C N Σ_{m≤L}(2m−1)/m ≪ N L`, total `≪ ηN L²`. Bands: `≪ N L²` (above). With
 (1) and (2a), `Σ_{p ≍ N} f_I(p) ≪ N L²`; sum over dyadic N. ∎
