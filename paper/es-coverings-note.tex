@@ -127,8 +127,10 @@ set is nowhere dense (\status{proved}), and a measure criterion would give
 $C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
 \item \emph{$r=13$} (\S\ref{sec:mordell}).  Primes with $(p/13)=-1$
 satisfy ES outside six classes modulo $720720$ (\status{proved} by
-certified finite computation; an explicit packaging of Salez's sieve).
-The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
+certified finite computation; an explicit packaging of Salez's sieve),
+and outside $35459$ explicit subclasses of measure $8.42\cdot10^{-5}$ of
+those six (Theorem~\ref{thm:tree13}, three independent checkers); no
+class closes completely.  The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
 $\le10^6$ (\status{certified}).  It is nevertheless not sterile: it
 lies in an explicit II3 class of modulus $12670944$
 (Proposition~\ref{prop:xstarcovered}, \status{proved}).  This refutes an
@@ -1190,7 +1192,34 @@ and $2762760=2^3\cdot3\cdot5\cdot7\cdot11\cdot13\cdot23$ (O101 audit;
 The exceptional classes carry $1/360$ (a) and $6/2160$ (b) of the
 relevant residues; deeper levels shrink them (to $1412$ residues modulo
 $2^4 3^2\cdot5\cdot7\cdot11\cdot13^2\cdot17\cdot19\cdot23$ with moduli
-$\le10^8$ in case (b)).  Whether they ever reach zero is open: the
+$\le10^8$ in case (b)).  An adaptive refinement shrinks them much
+further.
+
+\begin{theorem}[\status{proved} by finite computation; {\cite[Thm.~6.1]{PM13C}}]\label{thm:tree13}
+Let $p$ be a prime with $(p/13)=-1$.  Then $4/p=1/x+1/y+1/z$ has a
+solution in positive integers unless $p$ lies in one of $35459$ explicit
+residue classes, refinements of the six classes of
+Theorem~\ref{thm:r13}(b) with moduli dividing
+$2^4 3^2 5^2 7^2\cdot11\cdot13\prod_{17\le\ell\le83}\ell$.  Their union has
+Haar measure $8.42\cdot10^{-5}$ of that of the six classes.
+\end{theorem}
+
+\begin{proof}
+Outside the six classes this is Theorem~\ref{thm:r13}(b).  Inside, a tree
+certificate (\texttt{data/mordell13c/tree6\_6000.json.gz}) refines each
+class prime by prime.  It has $136494$ covered leaves, each carrying one
+of $2140$ ET classes of modulus $\le10^6$, and $35459$ open leaves.  The
+omitted non-unit children contain no prime.  Three independent
+checkers (two by the author, one written from scratch in review) verify
+the identities, positivity, integrality, the partition and the masses.
+\end{proof}
+
+No root class closes: each of the six keeps open leaves, and the open
+mass decays only slowly with the number of nodes.  At fixed prime
+support the modulus cap is not the bottleneck: a complete witness engine
+for all moduli dividing the level above leaves $1399$ residues, against
+$1499$ for moduli $\le10^6$ and $1412$ for moduli $\le10^8$
+\cite[\S2]{PM13C} (\status{evidence}).  Whether the exceptions ever reach zero is open: the
 point $x^*$ below was a candidate obstruction but is covered
 (Proposition~\ref{prop:xstarcovered}).
 
@@ -1306,6 +1335,12 @@ I1 were reproduced by an independent engine in the review of
 further engine written from scratch from the ET class definitions, without
 discrete logarithms or exponent cap (\texttt{review\_r98\_xss.c}, R98
 repair).  The ranges for I2, II1 and I4 rest on one engine.
+Later runs of the same engines extend this to II3, I3, I1, II2 with
+$e$ (resp.\ $f$) $\le2\cdot10^9$ and to I2, II1, I4 with $f$ (resp.\ $e$)
+$\le2\cdot10^8$ \cite[Comps.~5.1, 5.2]{PM13C}; these extensions rest on
+one engine.  The exponent cap $12$ is vacuous in these ranges, since the
+box conditions force $\{11,13\}$-exponents $\le9$ after removing a
+common factor.
 \end{computation}
 
 \begin{conjecture}[\status{evidence} only; {\cite[Conj.~5.2]{PM13B}}]\label{conj:xss}
@@ -1322,7 +1357,7 @@ whether ES holds for these primes.  The conjecture is not equivalent to
 the non-existence of such a covering (Remark~\ref{rem:direction}).  The
 support for it is weak.  The point $x^*$ was covered at
 $e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes almost five
-orders of magnitude further in $e$ (R98 repair).  No tail bound of the kind in
+orders of magnitude further in $e$ (R98 repair; now $2\cdot10^9$).  No tail bound of the kind in
 Theorem~\ref{thm:tail17} is available here.
 
 \emph{Why the odd-square obstruction would not explain $x^{**}$.}  The
@@ -1340,7 +1375,16 @@ $\le10^6$ and the rigid II boxes, $24.8\%$ of the $(2,2)$ cell remains
 uncovered at resolution $11^4\cdot13^4$.  The classes of ES level
 $N\le4\cdot10^7$ alone leave $4.64\%$.  This is an upper bound,
 since that enumeration is complete only for $\{11,13\}$-levels
-$\le6324$ \cite[\S4]{PM13B}.  For the np variant no $T$-generic obstruction with
+$\le6324$ \cite[\S4]{PM13B}.  At resolution $11^2\cdot13^2$ the picture
+is complete (\status{certified}, \cite[Comp.~3.1]{PM13C}): for all ET
+classes whose $\{11,13\}$-level divides $11^2\cdot13^2$, with any
+$\{11,13\}$-free part, the uncovered part of the cell $(2,2)$ is exactly
+$x_{11}\bmod121\in\{2,57,79\}$ times $x_{13}\bmod169\in\{15,28,54,132,145\}$,
+$15$ of the $143$ subcells.  The covered $128$ subcells were confirmed
+independently in review.  Of the six exceptional classes of
+Theorem~\ref{thm:r13}(b), only $473761$, which contains $x^{**}$, is known
+to contain uncovered $T$-generic points for the sets $T$ tested
+\cite[\S3]{PM13C} (\status{evidence}).  For the np variant no $T$-generic obstruction with
 $|T|\le3$ was found; a best-first tree search over $\Sigma_{13}^{\rm np}$
 stopped at $30000$ nodes with open Haar mass $4.1\cdot10^{-7}$, so that
 variant is undecided.
