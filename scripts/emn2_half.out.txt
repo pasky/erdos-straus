@@ -1,3 +1,4 @@
+# rows with m <= 24 are pinned at the grid start N = 16 (L = 2.773): artefacts, not used (R102A/B repair)
    6 0.333   2.773   2.773   2.773  1.526
    8 0.500   2.773   2.773   3.388  1.386
   10 0.400   2.773   2.773   2.944  1.287
