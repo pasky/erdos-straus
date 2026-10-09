@@ -6,7 +6,32 @@ arXiv:1107.1010v6 (`sources/elsholtz-tao-1107.1010.pdf`); PV = Pólya–Vinograd
 
 ## 0. Summary
 
-(filled in at the end)
+* **(ii) the m/φ(m) loss — REMOVED (PROVED).** Prop 2.3: ET Prop 1.4 with the coprimality gain,
+  `Σ_{a≤A,b≤B} τ(kab²+1) ≪ (φ(k)/k)·AB log(A+B)·Λ`, Λ = 1 unless the linear variable is
+  `< k^{1/3}·polylog` (then `Λ ≤ 1 + log(1+k)`). New inputs: keep the indicator `(m,k) = 1` that
+  ET's `ρ ≤ 1∗χ` drops, and use Pólya–Vinogradov in both q-ranges, so that main *and* error terms
+  carry `W_{2k}(B) ≪ (φ(k)/k) log B`. Hence **Theorem L'**:
+  `ρ_rep ≪ (L³ + L² log² m) log L/m + m^{−0.35}` (MN2 had `/φ(m)`); the lower side now matches
+  Thm U up to `(log L)^{1/3} = (log log N)^{1/3}` in the threshold, instead of `(m log m/φ(m))^{1/3}`.
+  EVIDENCE for the gain: §2.6.
+* **(i) the Type I log log N (ET's open (OPEN-I), also the `log L` above) — NOT removed; obstacle
+  identified precisely.**
+  - Lemma 3.2 (PROVED): ET's 3-coordinate parametrisations give exactly the progression moduli
+    `4ad, 4bd, 4ab, 4acf, 4cdf` (+ twins `4bcf', 4cdf'`).
+  - Prop 3.3 (PROVED): all of them are `≥ N^{1−η}` on a region R_bad of area 1/6 of the small-c
+    slice — the exact form of ET's "no similar trick" remark. In R_bad both divisors e, f of
+    `4a²d+1` exceed both variables a, d.
+  - Lemma 3.1 (PROVED): `ef − 4a²d = 1` ⟺ `[[e,2a],[2ad,f]] ∈ SL₂(ℤ)`, with n a linear form in the
+    entries; for fixed d these are Heegner points of discriminant −4d on X₀(d).
+  - §3.4 (Assessment): Kloosterman/Weil counts with one fixed coordinate shrink the bad region to
+    R** (area 7/72: `a ≥ N^{1/2}`, `e, f ≥ N^{2/3}`); positive area still costs a log log.
+  - §3.5 (Assessment): on R** a sieve needs (H**), the equidistribution mod q of Heegner points of
+    discriminant −4d on X₀(d) in thin strips, averaged over `d ≤ N^{1/2}` — a joint
+    level/discriminant-aspect problem. Five naive approaches (BT, BDH/Montgomery–Hooley variance,
+    one-variable Selberg, one-coordinate Weil, Erdős's trick) are shown to fail (§3.6).
+  - Theorem 3.8 (PROVED conditional on LD): a level-of-distribution hypothesis for the small-c Type I
+    weights implies (OPEN-I); its m-analogue gives `ρ_rep ≪ (L³ + L² log² m)/m + m^{−0.35}`.
+* Literature: no later removal of ET's log log found (§3, search-limited).
 
 ## 1. What ET say is open
 
@@ -78,8 +103,8 @@ it.** Inserting and writing `m₀ = qn`:
 where `W(B/q) ≤ W(B)` and `q ↦ W(B/q)/q` is positive and decreasing. Sum over `a ≤ A`, call it T, and
 split the q-range at `1 ≤ Q₁ ≤ Q₂ ≤ B`:
 * squares `q = r²`: `(−ka/r²) ≤ 1`, contribution `≤ A W(B) Σ_r r^{−2} ≪ A W(B)`;
-* non-squares `q ≤ Q₁`: `(−ka/q) = (−k/q)(a/q)` with `(−k/q) = ±1` (as `(q,2k) = 1`); restricted to
-  odd a (terms with `(a,q) > 1` vanish on both sides) Lemma 2.2(a) gives `≪ √q log q`; contribution
+* non-squares `q ≤ Q₁`: `Σ_{a≤A}(−ka/q) = (−k/q)Σ_{a≤A}(a/q)` with `(−k/q) = ±1` (as `(q,2k) = 1`),
+  and PV for the non-principal character `(·/q)` (Lemma 2.2(a), proof) gives `≪ √q log q`; contribution
   `≪ W(B) Σ_{q≤Q₁} q^{−1/2} log q ≪ W(B) √Q₁ log Q₁`;
 * non-squares `Q₁ < q ≤ Q₂`: trivially `≤ A W(B) Σ_{Q₁<q≤Q₂} 1/q ≤ A W(B)(1 + log(Q₂/Q₁))`;
 * all `q > Q₂`: for each a, Abel summation with Lemma 2.2(b) (terms with q even or `(q,ka) > 1` are 0
@@ -271,3 +296,13 @@ R_bad(η₀); by §3.4 (Assessment) only in R**. In R** it is (H**). (b) The sam
 `ρ_rep ≪ (L³ + L² log² m)/m + m^{−0.35}` — i.e. Thm U's order `L³/m` exactly. (c) LD is true in the
 mean over c with level `≤ c^{1−ε}` trivially (c is a linear variable); this is BT, and is exactly
 what is not enough.
+
+## Replay
+
+```
+PYTHONPATH=scripts uv run python scripts/emn3_coprime.py 120     # §2.6, ~3 min
+PYTHONPATH=scripts uv run python scripts/emn3_modes.py           # Lemma 3.2, ~5 min
+uv run python scripts/emn3_identities.py                         # Lemma 3.1 / twin sanity, <1 min
+```
+Outputs: `scripts/emn3_*.out.txt`. Proof-level claims (Prop 2.3, Prop 2.5, Thm L', Prop 3.3,
+Thm 3.8) are not machine-checked.

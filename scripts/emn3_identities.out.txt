@@ -1,0 +1,1 @@
+checked 9606 Type I points with n <= 600 : all identities hold
