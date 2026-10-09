@@ -86,6 +86,15 @@ the docstring reductions: each is correct (I1: if `f > 4ad` then `g = N/f < 4ad`
 irrelevant for the campaign, where `16 | L`; see D3).
 Comp. 2.1 (1399 survivors at L = 6.96·10¹⁰) is EVIDENCE and was not recomputed independently.
 
+## C. Computation 3.1
+
+Reduction (reviewer, re-derived): 13B §4 already enumerated every ES level N ≤ 4·10⁷. For T-level F | 11²13²,
+ES level N > 4·10⁷ only for II3/I1/I3 with a_T (resp. c_T) = 11²13², d_T = e_T (f_T) = 1
+(other T-splits give N = E·a_T²·d_T ≤ 1859²·11 < 4·10⁷). For these, with λ = 11⁴13⁴ = N, the T-generic
+data are exactly the (a',d',m,j), a',d' prime to 143, with `4a'd'mj = λa' + m + j` (e = 4a'd'm − 1, cofactor
+4a'd'j − 1 of 4a²d+1), and the subcell is u ≡ −e (mod 11²13²) — the same set for all three families.
+Independent complete enumeration: `scripts/review_m13c_cell22.c`.
+
 **Result (`gcc -O2 scripts/review_m13c_cell22.c`, 1.6 s): there are NO such data at all** (0 solutions of
 `4a'd'mj = λa'+m+j` with λ = 11⁴13⁴). Validation of the enumerator against brute force (a',d' ≤ 60, all
 `e ≡ −1 (4a'd')`, `e | 4λa'²d'+1`) for λ ∈ {11, 13, 143, 1331, 1859, 2197, 24167}: identical sets (5, 2, 34,
@@ -150,14 +159,6 @@ the bounded search missed them. **Covered side: 128 subcells independently confi
   although II2 classes (modulus f odd) can have `M | L` then. Never triggered in the campaign (all levels
   are multiples of 16). Repair: state the hypothesis `4 | L` in §2 and the docstring.
 
-## C. Computation 3.1 — work log (in progress)
-
-Reduction (reviewer, re-derived): 13B §4 already enumerated every ES level N ≤ 4·10⁷. For T-level F | 11²13²,
-ES level N > 4·10⁷ only for II3/I1/I3 with a_T (resp. c_T) = 11²13², d_T = e_T (f_T) = 1
-(other T-splits give N = E·a_T²·d_T ≤ 1859²·11 < 4·10⁷). For these, with λ = 11⁴13⁴ = N, the T-generic
-data are exactly the (a',d',m,j), a',d' prime to 143, with `4a'd'mj = λa' + m + j` (e = 4a'd'm − 1, cofactor
-4a'd'j − 1 of 4a²d+1), and the subcell is u ≡ −e (mod 11²13²) — the same set for all three families.
-Independent complete enumeration: `scripts/review_m13c_cell22.c`.
 * **D4 (MINOR, Comp. 3.1 / 13B §4 caveat).** The expensive `N = 11⁴13⁴` enumeration was unnecessary: for
   T-level `F | 11²13²` the only ES level above 4·10⁷ comes from II3/I1/I3 with `a_T = 11²13²`, `d_T = e_T = 1`,
   where `λ = a_T²` is a square and the Mordell-type reciprocity argument of §C kills every datum,
@@ -172,7 +173,8 @@ Independent complete enumeration: `scripts/review_m13c_cell22.c`.
 * **D6 (MINOR, §1 label).** The non-square statement holds for **all** ET classes, not just M ≤ 6000: a Prop 1.9
   class is polynomially solvable (ET Prop 1.9 "conversely"), and a class that is a square at every prime of
   M contains a square residue class mod M, contradicting ET Prop 1.6 / Mordell (squares are not polynomially
-  solvable). Repair: state it as PROVED (from ET Prop. 1.6, 1.9) with the computation as a check — after
-  verifying in ET that Prop 1.6 applies to classes q mod r with q a square modulo r (it does as quoted in
-  ET p. 8: "a primitive congruence class n = r mod q which is a perfect square cannot be solved by
-  polynomials"); "local square at every p | M" ⇔ "square mod M" for units (Hensel; 2-adic via mod 8).
+  solvable). Repair: cite it as known — ET p. 8 (before Prop 1.9): "a primitive congruence class n = r mod q
+  which is a perfect square, cannot be solved by polynomials" (refs [44], [68] there; ET say it "also follows
+  from Proposition 1.6", which itself is stated for Type I/II counts f_I, f_II, so the citation of the p. 8
+  remark is the cleaner one) — with the computation as a check; "local square at every p | M" ⇔ "square mod M"
+  for units (Hensel; 2-adic via mod 8/4).
