@@ -146,3 +146,61 @@ isometry), so Prop 4.3 holds with an absolute constant. If `Γ'_∞ = ⟨±[[1,h
 `P = P_ψ = Σ_{γ∈Γ'_∞\Γ'} ψ∘γ` with `ψ` supported in a strip of x-length `< h`, then
 `Σ_{z∈Γ'\Λ̃} P_ψ(z)/e_z = Σ_{Q ∈ 𝓕/Γ'_∞} ψ(w_Q)` (unfolding; `Q ↦ w_Q` is injective because a positive
 definite form of given discriminant is determined by its root), and `⟨P_ψ⟩ = V^{−1}∫_{Γ'_∞\ℍ} ψ dμ`.
+
+## 5. Variance of the box Poincaré series (PROVED conditional on (SEL); standard spectral input)
+
+**Groups.** Let `d ≥ 1`, `q` squarefree, `(q, 2d) = 1`. On the `w`-side the sieve condition `q | n`
+(`n = cB − A` for `Q = [A,B,C] = [f,4ad,de]`, i.e. `n = 4acd − f`) is invariant under
+`Γ₀(d) ∩ Γ(q)` (if `γ ≡ ±I (q)` then `Q∘γ ≡ Q (q)`). Conjugating by `u = w/q` turns it into
+`Γ_{M,q} := ±(Γ₀(M) ∩ Γ₁(q))`, `M = dq²`, whose cusp ∞ has width 1, and
+`L²(Γ_{M,q}\ℍ) = ⊕_{χ mod q, χ(−1)=1} L²(Γ₀(M)\ℍ, χ)` (weight 0, nebentypus χ).
+In `u`-coordinates a form `Q ∈ 𝓕_d` sits at `u_Q = (−2a + i/√d)/(fq)`.
+
+**Hypothesis (SEL).** For all `M, q` as above and all even χ mod q, the Laplacian on
+`L²(Γ₀(M)\ℍ, χ)` has no eigenvalue in `(0, 1/4)` (Selberg's eigenvalue conjecture for these congruence
+groups; known unconditionally only with `λ₁ ≥ 975/4096` (Kim–Sarnak), which is **not** enough here, §3.2).
+
+**Spectral large sieve (cited).** DI Thm 2 (trivial χ) and Drappeau, Proc. LMS 114 (2017),
+arXiv:1504.05549, §4.2.2 Prop. 1 (nebentypus χ of conductor `q₀ | q`): for `K ≥ 1`, `N₀ ≥ 1/2`,
+`Σ_{|t_j|≤K} |Σ_{N₀<n≤2N₀} a_n ρ_j(n)|²/cosh(πt_j)` and the analogous Eisenstein integrals over all
+singular cusps are `≪_ε (K² + q₀^{1/2} M^{−1} N₀^{1+ε}) ‖a‖²` (`μ(∞) = 1/M`; ρ_j the Fourier
+coefficients at ∞ of an orthonormal basis of `L²(Γ₀(M)\ℍ, χ)`, normalised as in DI (1.34)).
+(Drappeau's normalisation carries `√n ρ(n)` and a weight `(1+|t|)^{±κ}`; the difference is immaterial
+for dyadic n and bounded K. Not re-derived here.)
+
+**Test functions.** Use cells that are smooth in `(Re u, Im u)` directly:
+`ψ(u) = φ(x/λ) W(y/Y)`, `φ, W ∈ C_c^∞`, `supp φ ⊂ [−2,−1]`, `supp W ⊂ [1,2]`, `0 < λ ≤ 1/4`, `Y ≤ 1`.
+(In the original variables this is `f ≍ F := 1/(qY√d)` and `a/f ≍ λq/2`: a smooth partition of unity in
+`(log f, log(a/f))` is as good as one in `(log f, log a)` for the sieve.) Its hyperbolic area is
+`∫ψ dμ ≍ λ/Y`.
+
+**Proposition 5.1 (variance; PROVED conditional on (SEL), modulo the cited large sieve).** Let
+`P = P_ψ` on `Γ_{M,q}`, `P₀ = P − ⟨P⟩`, and `𝓛 = log(2 + 1/(λY) + M)`. Then
+`‖(1−Δ)P₀‖₂² ≪_{φ,W,ε} 𝓛^{C} · [ (λ/Y)(1 + q^{1/2} M^{−1} (𝓛/λ)^{1+ε}) + λ²/Y ]`,
+with `L²` norms on `Γ_{M,q}\ℍ`.
+*Proof (outline with all steps; the analytic facts used are standard).*
+(1) `(1−Δ)P_ψ = P_{ψ'}` with `ψ' = (1−Δ)ψ = φ(x/λ)W̃(y/Y) − (y/λ)² φ''(x/λ)W(y/Y)`,
+`W̃ = W − v²W''`; the second piece is `O((Y/λ)²)` times a function of the same type, so it suffices to
+bound `‖P₀‖₂²` for `ψ = φ(x/λ)W(y/Y)` with arbitrary fixed `φ, W`.
+(2) Spectral decomposition (no residual spectrum except constants for χ = 1; no exceptional spectrum by
+(SEL)): `‖P₀‖² = (2/φ(q))·Σ_χ [Σ_j |⟨P,u_j⟩|² + (4π)^{−1}Σ_𝔠 ∫|⟨P,E_𝔠(·,½+it)⟩|² dt]`, the factor
+being the index normalisation between `Γ₀(M)\ℍ` and `Γ_{M,q}\ℍ`.
+(3) Unfolding: `⟨P,u_j⟩ = Σ_{n≠0} ρ̄_j(n) λφ̂(λn) ∫ W(y/Y) √y K_{it_j}(2π|n|y) dy/y²`, and the same with
+the Eisenstein coefficients `φ_𝔠(n,t)`, plus for `n = 0` the constant terms
+`δ_{𝔠∞}y^{1/2+it} + φ_{𝔠∞}(½+it) y^{1/2−it}` (only for χ = 1).
+(4) `n = 0`: `|∫W(y/Y)y^{1/2±it}dy/y²| ≤ Y^{−1/2}|Ŵ(t)|` with `Ŵ` rapidly decreasing; the scattering
+matrix is unitary on the critical line, so the n = 0 part contributes `≪ λ²/Y`.
+(5) `n ≠ 0`: `|n| ≤ 𝓛/λ` up to a negligible tail (φ̂ decays rapidly), so `2π|n|y ≤ 4π𝓛Y/λ`. If
+`Y/λ ≥ 𝓛^{−2}` the claim is trivial from (6) below with `N₀ ≤ 𝓛³`; otherwise expand
+`K_{it}(x) = ½Σ_± Γ(±it)(x/2)^{∓it}(1 + O(x²))`. Then
+`⟨P,u_j⟩ = Σ_± ½Γ(±it_j)π^{∓it_j} Y^{−1/2∓it_j} Ŵ_±(t_j) Σ_n ρ̄_j(n) λφ̂(λn)|n|^{∓it_j} + (O((𝓛Y/λ)²)-terms of the same shape)`,
+with `|Γ(it)|² = π/(t sinh πt)` and `Ŵ_±` rapidly decreasing, so only `|t_j| ≤ K = 𝓛` matters.
+(6) The `|n|^{∓it_j}`: split `t_j` into unit intervals `[k, k+1]`; for `t = k+τ`,
+`sup_{τ∈[0,1]} |S(τ)|² ≤ |S(0)|² + ∫_0^1 (|S|² + |S'|²) dτ` with `S'` having coefficients multiplied by
+`−i log|n| = O(𝓛)`; apply the large sieve to each fixed-τ coefficient vector `b_n = λφ̂(λn)|n|^{−ik−iτ}`
+(`‖b‖² ≪ λ²·(𝓛/λ) = 𝓛λ`) on dyadic n-ranges `N₀ ≤ 𝓛/λ`, sum over `≪ 𝓛` intervals and `≪ 𝓛` dyadic
+ranges. With `|Γ(it)|²cosh(πt) ≍ 1/(1+|t|)` this gives
+`Σ_χ Σ_j |⟨P,u_j⟩|² ≪ (φ(q)/2)·𝓛^C Y^{−1}·λ·(1 + q^{1/2}M^{−1}(𝓛/λ)^{1+ε})`, and the same for the
+Eisenstein part. Multiply by `2/φ(q)`. ∎
+*Remark.* `(λ/Y)·q^{1/2}M^{−1}λ^{−1} = q^{1/2}/(MY) = F/(q^{1/2}√d)` (since `1/Y = qF√d`, `M = dq²`):
+this is the "cusp" term `1/(Y·level)` of §3.
