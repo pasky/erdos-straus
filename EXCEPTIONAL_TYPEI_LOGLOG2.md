@@ -91,3 +91,31 @@ the claim follows. ∎
 *Remark.* Note the weights: DI7 is applied with `X₀ = (2Y₀)^{−1/2}`, i.e. **no** dyadic n-blocks and no
 `X = 1/(N₀Y)`: the a_n = 1 structure absorbs the whole n-range at once, which is what TTL §3.2's DI Thm 5/6
 bookkeeping could not do (Thm 6 has `NX` instead of `√(NX)`).
+
+## 3. Unconditional averaged per-d count, and the strip
+
+**Theorem 3.1 (TTL Thm 6.2 averaged over d, unconditional; PROVED rel. (DI7_ε) and the TTL inputs).** In the
+setting of TTL Thm 6.2 (`f' ≍ F'` the cusp variable, `a ≍ A`, `λ ≍ A/(qF')`, `Y_d = 1/(2qF'√d)`), with
+`E_d(q) := Σ_{Q∈𝓕_d^I, q|n(Q)} ψ_d(u_Q) − g_{c,d}(q)𝔐_d`, for every `ε ∈ (0,1/4]`:
+`Σ_{d≍D} |E_d(q)| ≪ 𝓛^C C_ε^{1/2} N^{2ε} · AD · [q²(D/A)^{1/2}(1 + A/(qF'))^{1/2} + q^{3/2}F'^{1/2}/A + q^{11/8}F'^{3/8}D^{1/16}A^{−3/4}]`
+(for `A, D, F', q ≤ N`).
+*Proof.* Cor 4.4 and Lemma 6.1 of TTL give `|E_d(q)| ≪ q(#Λ_d(1))^{1/2}V_d^{1/2}`, `V_d := ‖(1−Δ)P₀^{(d)}‖²`; TTL
+Step 0 writes `(1−Δ)P₀` as `P_{ψ'} − ⟨P_{ψ'}⟩` with ψ' a sum of two functions of the same type, so it suffices to bound
+V_d for ψ. Parseval (TTL Step 1) splits `V_d = V_d^{gen} + 𝓔_d`, where `V_d^{gen}` collects the non-exceptional
+cusp forms (`t_j ∈ ℝ`), the Eisenstein part and the constant terms: TTL Steps 2–7 bound it **without (SEL)**
+(SEL was used there only to assert `t_j ∈ ℝ`; the large sieve over the subset `t_j ∈ ℝ` is bounded by the full
+one by positivity): `V_d^{gen} ≪ 𝓛^C[(λ/Y_d)(1+λ) + q^{1/2}M^{−1}λ^{−1−ε}/Y_d]`. Cauchy–Schwarz over d and
+TTL Lemma 6.3 (`Σ_{d≍D}#Λ_d(1) ≪ D^{3/2}𝓛²`):
+`Σ_d|E_d(q)| ≪ 𝓛^C q D^{3/4}(Σ_d V_d^{gen} + Σ_d 𝓔_d)^{1/2}`. Insert `Σ_d V_d^{gen} ≪ 𝓛^C N^{ε}[D(λ/Y₀)(1+λ) + q^{−3/2}/Y₀]`
+and Prop 2.2 (`(M₀/λ₋)^{2ε} ≤ N^{4ε}`, `λ₋M₀ ≤ 8q²Dλ`), and use `λ/Y₀ ≍ A√D`, `1/Y₀ = 2qF'√D`,
+`(λ₋X₀)^{1/2}/Y₀ ≤ (λ/Y₀)(X₀/λ)^{1/2}`, `X₀/λ ≍ (qF')^{3/2}D^{1/4}/A`: the three terms give relative errors
+`q²(D/A)^{1/2}(1+λ)^{1/2}`, `q^{3/2}F'^{1/2}/A`, `qA^{−1/2}(X₀/λ)^{1/4} ≍ q^{11/8}F'^{3/8}D^{1/16}A^{−3/4}`. ∎
+
+**Corollary 3.2 (the TTL cases (b2), (b3), (b5) unconditionally; PROVED rel. (DI7_ε)).** Let `δ = 2α−1+γ > 0`
+(so `A/D = N^{δ}` up to O(1)) and use the cusp variable chosen in TTL §8 (b2) `F' = e ≤ 4A`, (b3) `F' = min(e,f) ≤ 3A√D`
+with `F' ≥ 8A`, (b5) `F' = f ≤ A` with `(A/f) ≤ N^{δ/2}`. Then the relative remainder (Thm 3.1 divided by AD) is
+`≪ 𝓛^C C_ε^{1/2} N^{2ε} q² (N^{−δ/4} + N^{−c₀})` with an absolute `c₀ > 0` (one can take `c₀ = 1/20` for η, η₁ small).
+*Proof.* First term: as in TTL (b2)/(b5), `(1+A/(qF'))^{1/2} ≤ 2N^{δ/4}` (b2: `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}`; b5: by
+hypothesis), and `λ ≤ 1/4` in (b3); so it is `≪ q²N^{−δ/4}`. Second term: `F'^{1/2}/A ≤ (3A√D)^{1/2}/A ≪ D^{1/4}A^{−1/2}
+≤ A^{−1/4}`. Third: `F'^{3/8}D^{1/16}A^{−3/4} ≪ (A√D)^{3/8}D^{1/16}A^{−3/4} = D^{1/4}A^{−3/8} ≤ A^{−1/8}`. In R_bad,
+`A ≥ N^{1/3−2η₁}` (TTL §7, Consequence), so `A^{−1/8} ≤ N^{−1/25}`. ∎
