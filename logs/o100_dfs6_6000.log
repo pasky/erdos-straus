@@ -1,0 +1,41 @@
+nodes=200 queue=1140 openmass=1.805e-03 split=23 surv=5/22 t=54s
+nodes=400 queue=2165 openmass=9.895e-04 split=53 surv=9/52 t=73s
+nodes=600 queue=3055 openmass=5.151e-04 split=41 surv=5/40 t=93s
+nodes=800 queue=4144 openmass=4.527e-04 split=31 surv=8/30 t=117s
+nodes=1000 queue=5496 openmass=4.039e-04 split=47 surv=12/46 t=136s
+nodes=1200 queue=6772 openmass=3.616e-04 split=23 surv=6/22 t=154s
+nodes=1400 queue=7915 openmass=3.204e-04 split=31 surv=6/30 t=173s
+nodes=1600 queue=9133 openmass=2.889e-04 split=41 surv=13/40 t=190s
+nodes=1800 queue=10508 openmass=2.598e-04 split=37 surv=11/36 t=207s
+nodes=2000 queue=11386 openmass=2.281e-04 split=2 surv=0/2 t=226s
+nodes=2200 queue=12370 openmass=1.969e-04 split=53 surv=5/52 t=245s
+nodes=2400 queue=12976 openmass=1.768e-04 split=37 surv=8/36 t=261s
+nodes=2600 queue=13637 openmass=1.612e-04 split=23 surv=1/22 t=277s
+nodes=2800 queue=14078 openmass=1.466e-04 split=23 surv=4/22 t=289s
+nodes=3000 queue=14539 openmass=1.324e-04 split=17 surv=3/16 t=301s
+nodes=3200 queue=15440 openmass=1.206e-04 split=31 surv=7/30 t=320s
+nodes=3400 queue=16413 openmass=1.116e-04 split=23 surv=5/22 t=339s
+nodes=3600 queue=18447 openmass=1.080e-04 split=71 surv=17/70 t=362s
+nodes=3800 queue=19704 openmass=1.051e-04 split=41 surv=10/40 t=385s
+nodes=4000 queue=21414 openmass=1.032e-04 split=41 surv=12/40 t=407s
+nodes=4200 queue=23014 openmass=1.013e-04 split=41 surv=11/40 t=428s
+nodes=4400 queue=24546 openmass=9.939e-05 split=47 surv=14/46 t=449s
+nodes=4600 queue=25961 openmass=9.749e-05 split=41 surv=11/40 t=470s
+nodes=4800 queue=27388 openmass=9.558e-05 split=41 surv=11/40 t=494s
+nodes=5000 queue=28780 openmass=9.367e-05 split=43 surv=14/42 t=518s
+nodes=5200 queue=30101 openmass=9.180e-05 split=5 surv=1/5 t=540s
+nodes=5400 queue=31486 openmass=8.992e-05 split=5 surv=1/5 t=562s
+nodes=5600 queue=32936 openmass=8.803e-05 split=5 surv=1/5 t=586s
+nodes=5800 queue=34178 openmass=8.614e-05 split=29 surv=5/28 t=607s
+nodes=6000 queue=35459 openmass=8.424e-05 split=59 surv=14/58 t=628s
+done nodes=41459 open=35459 openmass=8.4241e-05 t=628s
+open 6089816725441 11784657764880 1.25e-08
+open 6783031888081 11784657764880 1.25e-08
+open 701572744321 11784657764880 1.25e-08
+open 2088003069601 11784657764880 1.25e-08
+open 2781218232241 11784657764880 1.25e-08
+open 4167648557521 11784657764880 1.25e-08
+open 4860863720161 11784657764880 1.25e-08
+open 746296303201 11784657764880 1.25e-08
+open 1439511465841 11784657764880 1.25e-08
+open 9064878254881 11784657764880 1.25e-08
