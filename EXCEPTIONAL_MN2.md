@@ -24,7 +24,7 @@ Let `ρ_exc(m,N)` / `ρ_rep(m,N)` be the proportions of m-exceptional / m-repres
   Improves PW's `L³ log² m/φ(m)` by a factor log m: Type II is made sharp (`≪ L³/m`, ET's 3-way
   flip + coprimality of e to m); in Type I, ET Prop 1.4's `log(1+k)` is confined to a lower-order
   region by Pólya–Vinogradov. **What remains is exactly ET's Type I Brun–Titchmarsh `log log N`**
-  (ET Thm 1.7, open at m = 4) and `m/φ(m)` from Type I.
+  (ET Thm 1.1's prime bound, open at m = 4) and `m/φ(m)` from Type I.
 * **Remaining gap** in `log N`: factor `(m log m/φ(m))^{1/3} ≪ (log m · log log m)^{1/3}`
   (was `(log m)² (m/φ(m))^{1/3}`). Removing the Type I BT loss and tracking the coprimality gain in
   ET Prop 1.4 would give the exact scale: `ρ_rep → 0` if `A → 0`, with Theorem U's `ρ_exc → 0` if `A → ∞`.
@@ -83,7 +83,8 @@ in the reduced model every fibre is reduced. This is exactly the prime situation
 *Proof.* Since `k ≤ K < X^{1/2} < ℓ`, the ℓ's of B are exactly the prime factors of q above
 `X^{1/2}`, each carrying one atom; given q and ℓ | q, that atom is fixed by `k | q' := q/Πℓ` and
 `(u, v)` with `u, v | kℓ+1`. So `M(q) ≤ Π_{ℓ|q, ℓ>X^{1/2}} g_{q'}(ℓ)`,
-`g_{q'}(ℓ) = Σ_{k|q'} τ(kℓ+1)²`, and `g_{q'}(ℓ)² ≤ τ(q') Σ_{k|q'} τ(kℓ+1)⁴` (Cauchy–Schwarz).
+`g_{q'}(ℓ) = Σ_{k|q', k≤K} τ(kℓ+1)²` (atoms have k ≤ K; R-self repair 3), and
+`g_{q'}(ℓ)² ≤ τ(q') Σ_{k|q', k≤K} τ(kℓ+1)⁴` (Cauchy–Schwarz).
 Shiu's theorem (Shiu 1980, Thm 1, F = τ⁴, progression `n ≡ 1 (mod k)`, `n ∈ (kx, 2kx]`,
 `k ≤ X^κ ≤ x^{2κ}`, `x ≥ X^{1/2}`) gives `Σ_{x<ℓ≤2x} τ(kℓ+1)⁴ ≪ (k/φ(k)) x (log X)^{15}`;
 summing dyadically and using `k/φ(k) ≪ log t`:
@@ -110,7 +111,8 @@ exactly (`P(ñ ≡ a_B mod q_B) = 1/φ(q_B)`, `a_B` a unit), which is `≤ π*(N
 by Lemma 1.1. For the error, by Brun–Titchmarsh `|Δ(q,a)| ≤ C N/(φ(q) L)` (q ≤ N^{0.45}), and by
 BV (with `π*` = difference of two BV sums) `Σ_{q≤N^{0.45}} max_{(a,q)=1}|Δ(q,a)| ≪_{A'} N L^{−A'}`. Cauchy–Schwarz:
 `Σ_B |Δ(q_B,a_B)| ≤ Σ_q M(q) max_a|Δ(q,a)| ≤ (Σ_q M(q)² C N/(φ(q)L))^{1/2} (C_{A'} N L^{−A'})^{1/2}`
-`≤ C(r) N (t^{17r+4^r} L^{−1−A'})^{1/2} ≤ N/L²` for `A' = 17r + 4^r + 3` (`t ≤ L`) and N ≥ N_0(s).
+`≤ C'(r) N (t^{17r+4^r} L^{−1−A'})^{1/2} ≤ C'(r) N/L^{3}` for `A' = 17r + 4^r + 5` (`t ≤ L`), which is
+`≤ N/L²` for N ≥ N_0(s).
 Since `π*(N) ≥ N/(3L)`, `N/L² ≤ e^{−a_u s} π*(N)` for `N ≥ N_0(s)`. Total `≤ 3e^{−a s}π*(N)`
 with `a = a_u` (`e^{−(r+1)} ≤ e^{−a_u s}` as `r ≥ a_u s`). ∎
 
@@ -183,17 +185,17 @@ PW (proof of Thm 3.1) bound the proportion `ρ_rep` of m-representable primes in
 (a) Type II: Brun–Titchmarsh (BT) near modulus N (`log L`) and `φ(m)` instead of m (coprimality
 of e to m unused); (b) Type I: ET Prop 1.4's `log(1+k)` (k = m·…) and BT near modulus N (`log L`).
 Below: (a) is removed completely; in (b) the `log(1+k)` loss is confined to a lower-order region;
-the BT loss in Type I is **not** removed — it is exactly the `log log N` gap of ET Thm 1.7
+the BT loss in Type I is **not** removed — it is exactly the `log log N` gap in ET Thm 1.1
 (`Σ_{p≤N} f_I(p) ≪ N log² N log log N`), which ET could not remove even for m = 4 (ET §9: "it does
 not seem that a similar trick is available").
 
-Standing: `m ≥ 4`, `log m ≤ L/10` (the complementary range is Lemma 3.4). Every bound
+Standing: `m ≥ 4`, `log m ≤ L/10` (the complementary range is Lemma 3.5). Every bound
 `≪` has an absolute constant. `S'_m(E) := Σ_{e≤E, (e,m)=1} 1/φ(e) ≤ Π_{p≤E, p∤m}(1 + p/(p−1)²) ≪
 (φ(m)/m) log E` for `E ≥ log m` (as MN Lemma 2.1(d): `Π_{p|m, p>E}(1−1/p)^{−1} ≤ e^{2ω(m)/E} ≪ 1`).
 
 **Lemma 3.1 (two harmonic sums; PROVED, elementary).** For `Y ≥ 2`:
-(a) `Σ_{e ≤ Y, (e,m)=1} Σ_{a,b ≤ Y, (a,b)=1, e | a+b} 1/(φ(a)φ(b)) ≪ (φ(m)/m) log³ Y + log² Y`.
-(b) `Σ_{u ≤ U} τ_3(u)/φ(mu − 1) ≪ (log³ U + m^{1/2})/m` for `U ≥ 2`.
+(a) For `Y ≥ log m`: `Σ_{e ≤ Y, (e,m)=1} Σ_{a,b ≤ Y, (a,b)=1, e | a+b} 1/(φ(a)φ(b)) ≪ (φ(m)/m) log³ Y + log² Y`.
+(b) For `U ≥ 2` with `log U ≥ (1/2) log(mU)`: `Σ_{u ≤ U} τ_3(u)/φ(mu − 1) ≪ (log³ U + m^{0.02})/m`.
 
 *Proof.* (a) Since `(a,b)=1`, `(e,a) = 1`. Using `b/φ(b) = Σ_{g|b} μ²(g)/φ(g)`, for `(β,e) = 1`:
 `Σ_{b≤Y, b≡β (e)} 1/φ(b) ≤ 1/φ(β_0) + Σ_g (μ²(g)/φ(g)) Σ_{β_0<b≤Y, b≡β (e), g|b} 1/b ≪ 1/φ(β_0) + (log Y)/e`
@@ -202,12 +204,17 @@ Standing: `m ≥ 4`, `log m ≤ L/10` (the complementary range is Lemma 3.4). Ev
 Summing over a in classes `a_0 (mod e)`: `≪ Σ_{a_0+β_0=e} 1/(φ(a_0)φ(β_0)) + (log Y)(log e)/e + (log² Y)/e`
 (e = 1: just `log² Y`). The convolution `Σ_{a+β=e} 1/(φ(a)φ(β)) ≪ (log 2e)²/e` (same g-expansion).
 Now sum over `e ≤ Y`, `(e,m) = 1`: `Σ (log² Y)/e ≤ log² Y · S'_m(Y) ≪ (φ(m)/m) log³ Y`, plus the e = 1 term.
-(b) `1/φ(n) = (1/n) Σ_{s|n} μ²(s)/φ(s)`, `n = mu − 1`, `(s,m) = 1`. For each s the u lie in one
-class `r_s = m^{−1} (mod s)`; `Σ_{u≤U, u≡r_s (s)} τ_3(u)/(mu−1) ≤ τ_3(u_s)/(mu_s − 1) + (C/m)(log³U)/s·τ(s)`
-(u_s the least element; Shiu for the rest, `τ(s)` absorbing `s/φ(s)`). The tails `Σ_s μ²(s)τ(s)/(sφ(s))`
-converge. The least-element terms: each u is least for at most the s | mu−1 with `s > u`, so they
-sum to `≤ Σ_u τ_3(u) τ(mu−1)/((mu−1)φ(u)) ≪ m^{−1} Σ_u τ_3(u)τ(mu−1)/u² ≪ m^{−1} m^{1/2}`
-(`τ(mu−1) ≪ (mu)^{1/4}`, say). ∎
+(b) (Corrected; R-self FATAL 1: the earlier "Shiu after removing the least element" step was false.)
+Put `n = mu − 1 ≤ mU`, `y = log(mU)`. Since `ω(n) ≤ 2y`, `Π_{p|n, p>y}(1−1/p)^{−1} ≤ e^4`, so
+`n/φ(n) ≤ e^4 Σ_{s|n, s|P(y)} μ²(s)/φ(s)`. Rankin with σ = 1/log y:
+`Σ_{s|P(y), s>S} 1/φ(s) ≤ S^{−σ} Π_{p≤y}(1 + p^σ/(p−1)) ≪ S^{−1/log y}(log y)^{2e}`, which for
+`S = U^{1/2}` is `≪ y^{−10}` (as `log U ≥ y/2`). That part contributes `≪ y^{−10} Σ_u τ_3(u)/(mu) ≪ 1/m`.
+For `s ≤ U^{1/2}`, `(s, m) = 1`, the u lie in one class `r_s ≡ m^{−1} (mod s)`. Split `u ≤ s^{1.1}` /
+`u > s^{1.1}`. *Large u:* on dyadic `(x, 2x]` with `x ≥ s^{1.1}`, Shiu (modulus `s ≤ x^{1/1.1}`, F = τ_3)
+gives `Σ τ_3(u) ≪ (x/φ(s)) (log x)² (s/φ(s))³`; summing `1/(mx)` over dyadic x and then
+`μ²(s)(s/φ(s))³/φ(s)²` over s: `≪ log³ U/m`. *Small u:* swap the order:
+`Σ_s (μ²(s)/φ(s)) Σ_{u ≤ s^{1.1}, s | mu−1} τ_3(u)/(mu−1) ≤ Σ_u (τ_3(u)/(mu−1)) τ(mu−1) max_{s ≥ u^{1/1.1}} 1/φ(s)
+≪ m^{−1} Σ_u τ_3(u) τ(mu−1) log log(3u) u^{−1−0.909} ≪ m^{0.02}/m` (`τ_3(u) ≪ u^{0.01}`, `τ(mu−1) ≪ (mu)^{0.01}`). ∎
 
 **Proposition 3.2 (Type II, sharp; PROVED rel. BT).** For `log m ≤ L/10`,
 `#{p ∈ (N/2,N] : p has a Type II solution} ≪ (N/L)(L³ + m^{1/2})/m`.
@@ -219,24 +226,30 @@ the three moduli is `≤ 3 m^{1/5} N^{4/5} ≤ 3N^{0.82}`; in each case BT has `
 (i) `made ≤ 3N^{0.82}`: fix (a, d, e); `b ≡ −a (e)` puts p in one class mod made:
 `≪ Σ N/(L φ(m)φ(a)φ(d)φ(e)) ≪ (N/(Lφ(m))) L² S'_m(N) ≪ N L²/m`.
 (ii) `macd ≤ 3N^{0.82}`: fix (a, c, d); `p = (macd − 1)e − ma²d`, one class mod `macd − 1`:
-`≪ (N/L) Σ_{u ≤ N} τ_3(u)/φ(mu−1) ≪ (N/L)(L³ + m^{1/2})/m` (Lemma 3.1(b)).
+`≪ (N/L) Σ_{u ≤ 3N^{0.82}/m} τ_3(u)/φ(mu−1) ≪ (N/L)(L³ + m^{0.02})/m` (Lemma 3.1(b); its size
+hypothesis holds as `m ≤ N^{1/10}`).
 (iii) `mab ≤ 3N^{0.82}`: fix (a, b, e), one class `−e (mod mab)`:
 `≪ (N/(Lφ(m))) Σ 1/(φ(a)φ(b)) ≪ (N/(Lφ(m)))((φ(m)/m)L³ + L²) ≪ N L²/m + N L/φ(m)`, and
 `L/φ(m) ≪ L² log log m/m ≪ L³/m` since `L ≥ log(m/3)`. ∎
 
-**Lemma 3.3 (ET Prop 1.4 with Pólya–Vinogradov; PROVED rel. ET Thm 7.1 and ET's proof).**
+**Lemma 3.3 (ET Prop 1.4 with Pólya–Vinogradov; PROVED rel. ET Thm 7.1 and ET's proof of Prop 1.4).**
 Fix l. For `k ≥ 1`, `A, D ≥ 2`, `k ≤ (AD)^l`:
-`Σ_{a≤A, d≤D} τ(k a² d + 1) ≪_l AD log(A+D) · (1 + 1[D < k log²(kAD)] log(1+k))`.
+`Σ_{a≤A, d≤D} τ(k a² d + 1) ≪_l AD log(A+D) · (1 + 1[D < k log⁴(kAD)] log(1+k))`.
 
 *Proof.* If `D ≥ A`: ET Cor 7.4 in the linear variable d for each a (coefficient `ka² ≤ D^{3l}`):
-`≪ D log D` per a. If `D < A`: ET's proof of Prop 1.4 (case "A ≤ B", their linear a = our d,
-their quadratic b = our a, their k = our k) verbatim, which reduces to bounding
-`Σ_{q ≤ A odd, (q,2k)=1} (log(A/q)/q) |Σ_{d≤D, (d,2q)=1} (−kd/q)|`. ET treat `q < D` (period, `O(q)`)
-and `q > kD` (reciprocity + partial summation, `O(log A)` per d) without loss, and lose
-`log(1+k)` only on `D ≤ q ≤ kD` by the trivial bound. There, for non-square q,
-`d ↦ (d/q)1_{d odd}` is a non-principal character sum (times a period-2 weight), so Pólya–Vinogradov gives
-`≪ √q log q`; squares q contribute `≪ D Σ_{r} log A/r² ≪ D log A`. Hence that range contributes
-`≪ log A Σ_{q ≤ kD} log q/√q ≪ √(kD) log(kD) log A ≤ D log A` when `D ≥ k log²(kAD)`. ∎
+`≪ D log D` per a. If `D < A`: follow ET's proof of Prop 1.4, case "A ≤ B" (their linear variable a
+= our d, their quadratic b = our a, their k = our k; ET pp. 30–32), keeping its **signed**
+expression (7.11) `Σ_{q≤A, (q,2k)=1} Σ_{d≤D, (d,2q)=1} (−kd/q) log(A/q)/q`, after ET's reduction to
+odd d (`d = 2^j d'`, `2^j` absorbed into k, D into `D/2^j`). ET split q into `q < D` (period 2q,
+inner sum O(q): no loss), `q > kD` (reciprocity in q for each fixed d, partial summation over q:
+`O(log A)` per d, no loss), and `D ≤ q ≤ kD`, where they bound `|(−kd/q)| ≤ 1` and lose `log(1+k)`.
+Only the middle range is changed (absolute values are taken only there, which is legitimate):
+for q non-square, `d ↦ (d/q)1_{d odd}` is a combination of two non-principal character sums, so
+`|Σ_{d≤D'}| ≪ √q log q` (Pólya–Vinogradov); squares `q = r²` give `≤ D' Σ_r log A/r² ≪ D' log A`.
+So the middle range costs `≪ D' log A + log A Σ_{q≤kD'} log q/√q ≪ D' log A (1 + √(k/D') log(kD'))`,
+`≪ D' log A` when `D' ≥ k log²(kAD)`. Summing over j with weight `2^{−j}` (`d' ≤ D/2^j`, `k → 2^j k`): the middle range is lossy only for
+the j with `4^j > D/(k log²(kAD))`, whose total contribution is `≪ Σ_{such j} 2^{−j} log(1+2^j k) ≪
+(k log²(kAD)/D)^{1/2} log(kAD) ≤ 1` when `D ≥ k log⁴(kAD)`. ∎
 
 **Proposition 3.4 (Type I; PROVED rel. Lemma 3.3, BT).** For `log m ≤ L/10` and `L ≤ m^{1/2}`:
 `#{p ∈ (N/2,N] : Type I solution} ≪ (N/L)·[(L³ + L² log² m) log L/φ(m) + m^{−0.35}]`.
