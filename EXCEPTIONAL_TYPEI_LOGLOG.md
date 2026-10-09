@@ -12,9 +12,10 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
   bookkeeping), and step (2a) inherits MN3's unwritten routine BT sums. A self-review (R1) found 3 FATAL
   and 5 MAJOR issues in the first draft; all were repaired in place but have not been re-reviewed.
 * **Unconditionally** the same argument removes the obstruction everywhere except on a strip
-  `0 < 2α − 1 + γ ≲ 0.1` next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
-  (Kim–Sarnak 7/64) beat the saving. A strip of positive width still costs `log log N`, so ET's bound is
-  **not** improved unconditionally (§9).
+  `0 < 2α − 1 + γ ≲ 7/32 ≈ 0.22` (`≥ 0.16` even for the smallest cusp parameters in R_bad; O112 repair, D4)
+  next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
+  (Kim–Sarnak 7/64) beat the saving. A strip of positive width still costs `log log N`, so **this argument gives no unconditional
+  improvement** of ET's bound (§9); nothing is claimed about other arguments.
 * New ingredients. (i) Lemma 2.2 (PROVED, elementary): the level-d Heegner points of MN3 Lemma 3.1 are
   **uniformly separated** in ℍ: distinct points have `cosh dist ≥ 3/2`, for every d (because
   `4d | disc(Q−Q')`). (ii) Prop 4.3 (PROVED): with separation, `|Σ_z P(z) − #Λ·⟨P⟩| ≪ (#Λ)^{1/2}‖(1−Δ)P₀‖₂`,
@@ -113,11 +114,16 @@ complete residue systems), **every cell is covered, with a saving that degenerat
 ### 3.2 The obstruction: exceptional eigenvalues (Assessment, to be made precise)
 If `Γ₀(d)` (or the sieve group `Γ₀(d) ∩ Γ(q)`) has an exceptional eigenvalue `λ_j = 1/4 − σ_j²`, then
 `⟨P_ψ, u_j⟩` picks up a factor `(nY)^{−σ_j}` from `K_{σ}(2πny) ≈ (πny)^{−σ}Γ(σ)/2`. With Kim–Sarnak
-(`σ ≤ 7/64`) the loss is `Y^{−7/64} = (F√d)^{7/64}`, which beats the saving `(d/A)^{1/2}` on a strip
-`α − (1−γ)/2 ≲ 0.1` of positive width, so the strip would still cost `log log N`. DI Thm 5
+(`σ ≤ 7/64`) the loss is `Y^{−7/64} = (qF'√d)^{7/64}`, which beats the saving `(d/A)^{1/2}` on a strip
+`0 < 2α − 1 + γ ≲ 7/32` of positive width (worst cells: `1/Y = qF'√d ≍ N`, loss `N^{7/64}` against the
+saving `N^{−δ/2}`; `≥ 21/128 ≈ 0.16` for the smallest `F' ≥ N^{1/2−3η₁}` — O112 repair, D4), so the strip
+would still cost `log log N` in this argument. DI Thm 5
 (`Σ_exc X^{2σ_j}|Σ a_nρ_j(n)|² ≪ (1+√(μNX))(1+√(μN^{1+ε}))‖a‖²`, checked on the scan of DI p. 232) with
-`X = 1/Y` and DI Thm 6 (average over the level) give extra factors `F A^{−1/2} d^{−1/4}`, resp.
-`F^{3/4}D^{1/8}/A` on average over `d ≍ D`, which still fail near `α = 1/2`. **So the plan gives (OPEN-I)
+`X = 1/(N₀Y)` applied per dyadic n-block `n ≍ N₀` (the weight is `(nY)^{−2σ}`; O112 repair, D4: not `X = 1/Y`)
+gives an extra variance factor `≈ 1 + (F'/(q√d))^{1/2}` (`μ = 1/M`, `M = 4dq²`), and DI Thm 6 (average over
+the level) an extra factor
+`F^{3/4}D^{1/8}/A` on average over `d ≍ D` (DI Thm 6 bookkeeping not re-checked by the review), which still
+fail near `α = 1/2`. **So the plan gives (OPEN-I)
 conditionally on Selberg's eigenvalue conjecture for congruence subgroups.** Unconditionally it would
 need either a density estimate for exceptional eigenvalues with these weights, or a beyond-Weil bound for
 `Σ_a S(h,k;4a²)` on the (K_a) side.
@@ -469,12 +475,12 @@ correcting formulas. They have not been re-reviewed.
 * Everything except Prop 5.1's treatment of exceptional eigenvalues is unconditional. With exceptional
   eigenvalues `λ = 1/4 − σ²` the unfolded coefficient picks up `(nY)^{−σ}`; with Kim–Sarnak `σ ≤ 7/64` the
   spectral error is multiplied by `Y^{−7/64} = (qF'√d)^{7/64}`, which kills the saving `(D/A)^{1/2}` on a strip
-  `0 < 2α − 1 + γ ≲ 0.1`; DI Thm 5 (with `X = 1/Y`) and DI Thm 6 (average over the level) were checked
+  `0 < 2α − 1 + γ ≲ 7/32` (D4); DI Thm 5 (with `X = 1/(N₀Y)` per dyadic block) and DI Thm 6 (average over the level) were checked
   (§3.2) and also fail at `α = 1/2`. Humphries' density theorem (ANT 12 (2018), Thm 1.5:
   `N(σ) ≪ vol^{1−4σ+ε}`) with the pointwise coefficient bound loses `N₀ = F'/A`, again failing near
-  `α = 1/2`. **So unconditionally the method leaves a strip of positive width in `α`, which still costs a
-  `log log N`.** Removing it needs either Selberg's conjecture (exactly, not a numerical approximation of it),
-  or a weighted large sieve for exceptional eigenvalues at `X ≈ 1/Y` with no loss, or a beyond-Weil bound for
+  `α = 1/2` (Humphries/DI Thm 6 numerics not re-checked by the review). **So unconditionally the method leaves a strip of positive width in `α`, which still costs a
+  `log log N`; i.e. this argument gives no unconditional improvement of ET.** Removing it needs either Selberg's conjecture (exactly, not a numerical approximation of it),
+  or a weighted large sieve for exceptional eigenvalues at `X ≈ 1/(N₀Y)` with no loss, or a beyond-Weil bound for
   `Σ_{a≍A} S(h,k;4a²)` (the (K_a) side; MN3 §3.4).
 * The new ingredients that make the conditional result work: (i) **uniform separation** of the level-d
   Heegner points (Lemma 2.2: `4d | disc(Q − Q')`), which gives `‖Σδ_z‖_{H^{−2}}² ≪ #classes` with no loss
