@@ -542,7 +542,9 @@ Thm 6.2 used in (b2) (same point set, linear functional `cB − C/d`; the densit
   (§3.2) and also fail at `α = 1/2`. Humphries' density theorem (ANT 12 (2018), Thm 1.5:
   `N(σ) ≪ vol^{1−4σ+ε}`) with the pointwise coefficient bound loses `N₀ = F'/A`, again failing near
   `α = 1/2` (Humphries/DI Thm 6 numerics not re-checked by the review). **So unconditionally the method leaves a strip of positive width in `α`, which still costs a
-  `log log N`; i.e. this argument gives no unconditional improvement of ET.** Removing it needs either Selberg's conjecture (exactly, not a numerical approximation of it),
+  `log log N`; i.e. this argument gives no unconditional improvement of ET.** [Forward pointer, R116 repair, m6, pending
+  parent acceptance: `EXCEPTIONAL_TYPEI_LOGLOG2.md` Thm 4.1 closes the strip with DI 1982 Thm 7 / Drappeau 2017 Lemma 4.10:
+  unconditionally `Σ f_I(p) = o(N log²N log log N)`, and `≪ N log²N` under the effectivity hypothesis (EFF).] Removing it needs either Selberg's conjecture (exactly, not a numerical approximation of it),
   or a weighted large sieve for exceptional eigenvalues at `X ≈ 1/(N₀Y)` with no loss, or a beyond-Weil bound for
   `Σ_{a≍A} S(h,k;4a²)` (the (K_a) side; MN3 §3.4).
 * The new ingredients that make the conditional result work: (i) **uniform separation** of the level-d

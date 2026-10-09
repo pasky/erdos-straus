@@ -2,7 +2,7 @@
 
 Status labels as in DISCOVERIES.md. TTL = `EXCEPTIONAL_TYPEI_LOGLOG.md` (Thm 8.1, CONDITIONAL on (SEL));
 DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288 (scan `sources/o111/deshouillers-iwaniec-1982.pdf`,
-journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`. Work in progress.
+journal pages 219–288 = PDF pages 1–70; p. 232 = PDF p. 14). `L = log N`.
 
 ## 0. Summary
 
@@ -41,15 +41,17 @@ exceptional means `λ_j < 1/4`, i.e. `iκ_j ∈ (0, 1/4]` real (DI Thm 4 gives `
 `Σ_{q≤Q} Σ_{j exc for Γ₀(q)} X^{4σ_j} |Σ_{n≤N} ρ_{j∞}(n)|² ≪_ε (QN)^ε (Q + N + X√N) N`.
 (With `Y := X²`: weight `Y^{2σ_j}`, bracket `Q + N + √(NY)`, as in the proof, DI (8.17)–(8.19), §8.3, pp. 276–278.)
 
-**Lemma 1.2 (partial summation; PROVED, elementary).** Let `c : [1,∞) → ℂ` be `C¹` with
-`|c(t)| + |c'(t)| ≪_B t^{−B}` for every B (Schwartz decay, as in all applications below), and `S_j(t) := Σ_{n≤t} ρ_{j∞}(n)`. Then
-`|Σ_{n≥1} c(n) ρ_{j∞}(n)|² ≤ (∫_1^∞|c'|)·∫_1^∞ |c'(t)| |S_j(t)|² dt`.
-*Proof.* `Σ_{n≥1} c(n)ρ(n) = −∫_1^∞ S_j(t) c'(t) dt` (Abel summation; the boundary term vanishes as
-`S_j(t) ≪_j t^{3/2}` and `c(t)`decays as in the application — Schwartz decay), then Cauchy–Schwarz with
-the measure `|c'| dt`. ∎
+**Lemma 1.2 (partial summation; PROVED, elementary; R116 repair, m3: stated with a majorant, as used in Prop 2.2).**
+Let `c : [1,∞) → ℂ` be `C¹` with `|c(t)| + |c'(t)| ≪_B t^{−B}` for every B (Schwartz decay), let `Ψ, Ψ' ≥ 0` be
+measurable with `|c'(t)| ≤ Ψ(t)Ψ'(t)` and `∫_1^∞Ψ < ∞`, and `S_j(t) := Σ_{n≤t} ρ_{j∞}(n)`. Then
+`|Σ_{n≥1} c(n) ρ_{j∞}(n)|² ≤ (∫_1^∞Ψ)·∫_1^∞ Ψ(t)Ψ'(t)² |S_j(t)|² dt`.
+*Proof.* `Σ_{n≥1} c(n)ρ(n) = −∫_1^∞ S_j(t) c'(t) dt` (Abel summation; the boundary term vanishes since
+`S_j(t) ≪_j t^{3/2}` and c is Schwartz), then Cauchy–Schwarz with the measure `Ψ dt`. ∎ (In Prop 2.2:
+`Ψ = Φ`, `Ψ' = e²(2+|v|)w(t)^{σ_j}`.)
 
 **Drappeau's nebentypus version (cited; Drappeau, Proc. LMS 114 (2017), arXiv:1504.05549, §4.2.3, Lemma 4.10;
-statement as extracted by a research subagent, `/tmp/o116_lit.md` — to be eyeballed against the PDF).** For a Dirichlet
+checked against arXiv:1504.05549 p. 16 (Lemmas 4.9–4.10; normalisation (4.7) and the Whittaker expansion on p. 13);
+Drappeau's proof of 4.10 is a transposition sketch of DI pp. 274–277 (R116 repair, m1)).** For a Dirichlet
 character χ mod `q₀`, `Y ≥ 1`, `Q ≥ q₀`, and `a_n = 1_{N<n≤2N}`-type interval coefficients,
 `Σ_{q≤Q, q₀|q} Σ_{f ∈ 𝓑(q,χ), t_f ∈ iℝ} Y^{2|t_f|} |Σ_{N<n≤2N} a_n n^{1/2}ρ_{f,∞}(n)|² ≪_ε (QN)^ε (Q/q₀ + N + (NY)^{1/2}) N`
 (Drappeau's `n^{1/2}ρ_f(n)` is DI's `ρ_j(n)` up to an absolute constant; `Y^{2|t_f|} = Y^{2σ_j}`, the same
@@ -90,7 +92,7 @@ part is the `n > 0` part of the reflected basis `u_j(−z̄)` of `(Γ₀(M), χ�
 same σ_j, so it suffices to treat `n > 0` and all even χ. Put `w(t) := max(1, 1/(πtY₀))` and
 `Φ(t) := λ²|φ̂'(±λt)| + λ|φ̂(±λt)|/t` (max over ±). For `s = s_v`: `|(πtY_d)^{−s}| = (πtY_d)^{−σ_j−1/𝓛} ≤ e²w(t)^{σ_j}`
 (if `πtY_d ≤ 1` use `Y_d ≥ Y₀/√2` and `(1/Y₀)^{1/𝓛} ≤ e`; otherwise it is ≤ 1), so `|c₊'(t)| ≤ e²(2+|v|)Φ(t)w(t)^{σ_j}`.
-Abel summation as in Lemma 1.2 and Cauchy–Schwarz with the measure `Φ dt`:
+Lemma 1.2 with `Ψ = Φ`, `Ψ' = e²(2+|v|)w^{σ_j}`:
 `|Σ_n ρ̄_j(n)c₊(n)|² ≤ e⁴(2+|v|)²(∫_1^∞Φ)·∫_1^∞ Φ(t) w(t)^{2σ_j}|S_j(t)|² dt`.
 Sum over d, χ, j and apply (DI7_ε) for each t with weight `Y = w(t) ≥ 1` and the levels `{4dq² : d ≍ D}` (`≤ M₀`,
 divisible by the conductor of χ; positivity); note `√(t·w(t)) ≤ √t + (πY₀)^{−1/2}`. With Lemma 2.1 and
@@ -113,7 +115,8 @@ The logarithms are integrated, not absorbed pointwise: uniformly in `ε ≤ 1/4`
 setting of TTL Thm 6.2 (`f' ≍ F'` the cusp variable, `a ≍ A`, `λ ≍ A/(qF')`, `Y_d = 1/(2qF'√d)`), with
 `E_d(q) := Σ_{Q∈𝓕_d^I, q|n(Q)} ψ_d(u_Q) − g_{c,d}(q)𝔐_d`, for every `ε ∈ (0,1/4]`, provided `M₀/(λ₋Y₀) ≤ N³` (true in all
 applications: `M₀ ≤ N`, `1/λ₋ ≤ max(1, qF'/A)`, `1/Y₀ = 2qF'√D`, `F' ≤ 3A√D`, `q ≤ N^{1/100}`):
-`Σ_{d≍D} |E_d(q)| ≪ 𝓛^C C_ε^{1/2} N^{4ε} · AD · [q²(D/A)^{1/2}(1 + A/(qF'))^{1/2} + q^{3/2}F'^{1/2}/A + q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}]`.
+`Σ_{d≍D} |E_d(q)| ≪ 𝓛^C C_ε^{1/2} N^{4ε} · AD · [q²(D/A)^{1/2}(1 + A/(qF'))^{1/2} + q^{3/2}F'^{1/2}/A + q^{5/4}F'^{1/4}D^{1/8}A^{−1/2}]`
+(`N^{3ε}` would suffice here, since `(N^{6ε})^{1/2} = N^{3ε}`; `N^{4ε}` is kept as a harmless overestimate — R116 repair, m3).
 *Proof.* TTL Cor 4.4 and Lemma 6.1/Thm 6.2's last line give `|E_d(q)| ≪ q(#Λ_d(1))^{1/2}V_d^{1/2}`,
 `V_d := ‖(1−Δ)P₀^{(d)}‖²`; TTL Step 0 writes `(1−Δ)P₀` as `P_{ψ'} − ⟨P_{ψ'}⟩` with ψ' a sum of two functions of the
 same type, so it suffices to bound V_d for ψ. Parseval (TTL Step 1) splits `V_d = V_d^{gen} + 𝓔_d`; `V_d^{gen}` (cusp
@@ -139,7 +142,8 @@ third is `F'^{1/4}D^{1/8}A^{−1/2} ≪ (A√D)^{1/4}D^{1/8}A^{−1/2} = (D/A)^{
 ## 4. The Type I sum
 
 **Hypothesis (EFF).** (DI7_ε) holds with `C_ε ≤ exp(exp(A₀/ε))` for an absolute `A₀` and all `ε ∈ (0,1/4]`, for DI
-Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the character modulus. (DI and Drappeau state
+Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the character modulus. (Uniformity in q₀ is our
+reading of Drappeau's `≪_ε`: he uses it so in §4.3.1, noting that the bounds decrease with q₀; R116 repair, m7.) (DI and Drappeau state
 `≪_ε` and do not give the ε-dependence. §5 explains why their proofs give EFF; this is an Assessment.)
 
 **Theorem 4.1.** Let `L = log N`.
@@ -147,11 +151,14 @@ Thm 7 and for its nebentypus form, Drappeau Lemma 4.10, uniformly in the charact
 such that for every `ε₀ ∈ (0,1/4]`: `Σ_{p≤N} f_I(p) ≤ C ε₀ N L² log L + O_{ε₀}(N L²)`. In particular
 `Σ_{p≤N} f_I(p) = o(N log²N log log N)`.
 (ii) (CONDITIONAL on (EFF).) `Σ_{p≤N} f_I(p) ≪ N log²N`.
-(iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then `Σ_{p≤N} f_I(p) ≪ N L²(1 + w_N log L)`, where
-`w_N := inf{w ∈ [L^{−1/2}, 1/4] : log G(128/w) ≤ wL/32}` (if the set is empty, (iii) is ET's bound and there is nothing to prove).
+(iii) More generally, if `C_ε ≤ G(1/ε)` with G nondecreasing, then for every `w ∈ [L^{−1/2}, 1/4]` with
+`log G(128/w) ≤ wL/32`: `Σ_{p≍N} f_I(p) ≪ N L²(1 + w log L)` (implied constant independent of w and G); if no such w
+exists, use ET's bound (R116 repair, m4).
 *Proof.* Dyadic in N, as in TTL §8. TTL uses Thm 6.2, and hence (SEL), only in the cases (b2), (b3) and (b5) of (2b).
 It uses them only through `Σ_{d≍D}|E_d(q)|` (TTL §6 Remark D11; Cauchy–Schwarz over d). Replace that use by Thm 3.1 and
-Cor 3.2. Their bound differs from TTL's (SEL) bound only by a factor `≪ 𝓛^C C_ε^{1/2}N^{4ε}q`.
+Cor 3.2. Their bound is `≪ 𝓛^C C_ε^{1/2}N^{4ε}q²N^{−δ/4}` relative to the mass (Cor 3.2; R116 repair, m2: this is
+not TTL's (SEL) bound times a factor — Thm 3.1 has the extra term `(D/A)^{1/4}`, and in (b3) only `N^{−δ/4}` remains
+instead of TTL's `N^{−δ/2}`; the computation below uses only Cor 3.2).
 In TTL (3) take `κ = 1/16`, so `z = N^{δ/128}` and `Q = z² = N^{δ/64}` (main-term saving `1/G(z) ≪ 1/(δL)`), and use
 `Σ_{q≤Q}3^{ω(q)}q² ≪ 𝓛^C Q³ = 𝓛^C N^{3δ/64}`. Fix a
 threshold `w ∈ (0,1/4]` and put `ε := w/128`. For `δ ≥ w` the sieve remainder, and the `|r_σ(1)|` part of the main
@@ -169,8 +176,8 @@ layer with `δ ≥ ε₀` is good. There are `≤ ε₀L + 1` bad layers, costin
 (ii) Take `w = w_N := 256A₀/log L`. Then `log C_ε ≤ exp(A₀/ε) = exp(128A₀/w) = L^{1/2}`. For `δ ≥ w` we have
 `(11/64)δL ≥ 44A₀L/log L ≥ L^{1/2}/2 + (C+1)log L + log L` when `L ≥ L₀(A₀)`. So every layer with `δ ≥ w_N` is good.
 The `≤ w_N L + 1` bad layers cost `≪ (w_N L + 1)NL log L ≪ A₀NL²`.
-(iii) As in (ii), with `w = w_N`. For `δ ≥ w_N` we have `log C_ε ≤ log G(128/w_N) ≤ w_N L/32 ≤ δL/32`, and
-`11δL/64 − δL/64 = 5δL/32 ≥ (C+2)log L` because `δ ≥ L^{−1/2}`. Bad layers number `≤ w_N L + 1`. ∎
+(iii) As in (ii), with the given w. For `δ ≥ w` we have `log C_ε ≤ log G(128/w) ≤ wL/32 ≤ δL/32`, and
+`11δL/64 − δL/64 = 5δL/32 ≥ (C+2)log L` because `δ ≥ L^{−1/2}`. Bad layers number `≤ wL + 1`. ∎
 *Remark.* Only the D < A side of the strip ever used (SEL). The (b1) side, `D ≥ A`, is unconditional by Weil (TTL
 Prop 7.1). So "the strip" of TTL §9 is exactly the set of layers that are not good, and it lies inside `0 < δ < w`.
 
@@ -208,7 +215,7 @@ A deep-mode subagent audited the scan, journal pp. 228–236, 242–245 and 253�
   Thm 6 (level average, general `a_n`, bracket `Q + N + NX`) lose a power at `δ → 0`. Humphries' density theorem
   (single level, a count with `vol^{1−4σ+ε}`) needs a pointwise coefficient bound, which loses `N₀`. A single-level
   exceptional large sieve with phases (Pascadi 2024, arXiv:2404.04239, Thm 2: `X ≪ max(N, q)` for α = 0, as reported
-  by the literature subagent) also fails, by a factor `D^{σ_j}`, because the needed weight `1/Y ≈ qF'√D` exceeds the
+  by the literature subagent — **unverified against the paper; side remark only**, R116 repair, m5) also fails, by a factor `D^{σ_j}`, because the needed weight `1/Y ≈ qF'√D` exceeds the
   level `4Dq²` once `F' ≫ q√D`.
 * What TTL missed is **DI Thm 7** (and Drappeau's nebentypus form): the level-averaged bound for `a_n = 1`. TTL's
   unfolded coefficients `λφ̂(λn)(π|n|Y)^{−s}` are smooth in n, and the levels `4dq²` vary with d, so Thm 7 applies

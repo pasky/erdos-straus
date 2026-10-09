@@ -32,7 +32,7 @@ over d (Remark D11). That is exactly the setting of **DI Thm 7**, the level-aver
 * DI misprint below (8.18): `Y₁ = √(Q+N)` should be `Y₁ = Q+N`.
 * **Not re-derived:** the internals of DI Thm 7 and Drappeau Lemma 4.10 (cited), and Drappeau's twisted trace formulae.
 * **Statements eyeballed by me:** DI pp. 232–233 and 273–278, and Drappeau p. 16 together with his normalisation (4.7).
-* **Uniformity:** Drappeau's constant is assumed uniform in the character modulus q₀. That is how he states it (`≪_ε`).
+* **Uniformity:** Drappeau's constant is assumed uniform in the character modulus q₀. This is our reading of his `≪_ε`: he uses it that way in §4.3.1, noting that the bounds decrease with q₀ (R116 repair, m7).
 * Theorem 4.1 inherits everything TTL Thm 8.1 relies on, except (SEL).
 
 ## Questions for the parent
@@ -63,3 +63,13 @@ The reviewer confirmed:
 * the core of Prop 2.2 (weight `w(t)^{2σ}`, Cauchy–Schwarz with `Φdt`, the moments);
 * that SEL is not needed for the regular spectrum;
 * the case exponents of Cor 3.2, including `δ ≥ 2γ` in (b2).
+
+## R116 round 1 minors (m1–m7) applied
+Each repair is marked "(R116 repair)" in the text.
+* m1: the Drappeau statement is now marked as checked against p. 16, and his proof of Lemma 4.10 is noted as a transposition sketch of DI. "Work in progress" is dropped.
+* m2: the §4 proof sentence is corrected to the bound of Cor 3.2.
+* m3: Lemma 1.2 is restated with a majorant `Ψ·Ψ'`, which is how Prop 2.2 uses it. The `N^{3ε}` remark is added.
+* m4: Thm 4.1(iii) is restated for every admissible w, and points to ET's bound when no w exists.
+* m5: the Pascadi side remark is labelled unverified.
+* m6: forward pointers are added in TTL §9 and DISCOVERIES (D)32, both marked pending parent acceptance.
+* m7: the q₀-uniformity is stated explicitly as our reading of Drappeau §4.3.1.
