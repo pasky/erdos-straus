@@ -190,3 +190,93 @@ d ≤ 150); `(log D)³` can be `(log D)²`.
 ## Not checked / not accessible
 ET Prop 2.2/Lemma 2.8 reduction (inherited from MN3, not re-reviewed here); DI Thm 6 and Humphries
 Thm 1.5 numerics in §3.2/§9; Jia 2012 (not accessed). Drappeau's published (Proc. LMS) numbering.
+
+---
+
+# Round 2 (after O112 repairs, branch side-agent/ttl-repair merged)
+
+**Final label: Thm 8.1 is a complete CONDITIONAL proof on (SEL)** (Selberg's eigenvalue conjecture for
+`Γ₀(4dq²)` with even nebentypus mod q), relative to the cited results: ET Prop 2.2/Lemma 2.8/(8.1)–(8.2)
+and MN3 Thm 3.8(1) (the reduction to `w_c` and the part with `c > N^η`; inherited, and **not re-reviewed by me**),
+MN3 Prop 2.3 (reviewed earlier, in R108), the DI Thm 2 / Drappeau Prop 4.7 large sieve (statements and normalisations
+checked by me in round 1), the spectral theorem with nebentypus, Brun–Titchmarsh (Montgomery–Vaughan),
+Selberg's sieve, Weil and Pólya–Vinogradov. I found no FATAL or MAJOR defect in the repaired text. Two
+MINOR wording gaps are fixed in place, marked "(R111 r2)". The unconditional status is unchanged and
+correctly stated: this argument gives no unconditional improvement.
+
+## Round-1 defects
+* **D1 — RESOLVED.** (b5) covers `1 < β ≤ 1+2η₁` on the `D < A` side.
+  * If `k' ≤ k/2`: the f-cusp with `λ = A/(qf) > 1`. The `n = 0` loss is `(A/f)^{1/2} = N^{(β−1)/2} ≤ N^{δ/4}`,
+    and the cusp term is `f^{1/2+ε}/A ≤ A^{−1/2+ε}`.
+  * Otherwise: BT on `4cdf`, with saving `1/k'` (per-cell weight `Σ_c 1/φ(c)·Σ_d φ(d)^{−1}Σ_f ρ_d(f)/φ(f) ≪ 1`
+    by Lemma 8.3(c)).
+  * In both cases the saving is `C/max(k,k')` and the per-cell mass is `≪ N` (Lemma 8.4(b)). The total is
+    `Σ_{k,k'} N/max(k,k') ≪ NL` per c-block, which I verified.
+* **D2 — RESOLVED.** I re-derived §8.0:
+  * The identities `4abd = ne+1`, `bf = na+c` and `n/4 < acd ≤ 3n/4 ⇔ 0 < f ≤ 2n` hold, so `b ≥ a/2`.
+    Hence `4ad` and `4bd` are long for `c ≤ N^η`.
+  * The fibres acf/cdf/ab are injective, each lands in one class (resp. ρ_d(f) classes) mod `m_T`, and BT
+    applies.
+  * The weight sums `Σ 1/φ`, Lemma 8.3(b) (τ(n) ≤ 2#{δ | n, δ ≤ √n}; the count `2B(l,δ)/(lδ)+1`) and
+    Lemma 8.3(c) are correct. For 8.3(c) I checked `ρ_d ≤ 1∗χ_d`, the Jacobi/PV mean square for
+    `Y ≤ D/log²D`, and the PV tail beyond `Y₀`.
+  * From scratch: `D^{−1}Σ_{d≍D} g(d)Σ_{f≍F}ρ_d(f)/φ(f)` is 0.61–1.94 for D ∈ {50, 400} and F from 1 to 3000
+    (`scripts/review_ttl_r2.py`), so it is bounded uniformly in F as claimed.
+* **D3 — RESOLVED.** Lemma 8.4:
+  * (a1): the hypotheses of MN3 Prop 2.3 are checked, including the large-k tails (enlarging the variable
+    range to ≥ 2).
+  * (a2): the tail `k > A^{1/2}` costs `N^ε AD A^{−1/2}`, fine since `A, D ≥ N^{1/4}`. This holds where it is
+    used (`k ≤ L/3` ⇒ `δ ≤ 1/3`).
+  * (b): `ρ_d(f)(A/f+1) ≤ 9ρ_d(f)A/f` for `f ≤ 8A`.
+  * `X_σ ≤ #σ + |r_σ(1)|` is correct.
+* **D4 — RESOLVED.** 7/32, 21/128, `X = 1/(N₀Y)`, and the rephrasing.
+* **D5 — RESOLVED, by a better route than I suggested.** The periodised ψ has Fourier coefficients
+  `λφ̂(λn)` for every λ. For λ > 1 every `n ≠ 0` term is `≪ λ^{−B}`, so only the `n = 0` term `λ²/Y` survives.
+  The resulting factor `(1 + A/(qF))` carries no `N^ε`.
+* **D6–D13 — RESOLVED** (checked each spot).
+
+## Newly written proofs
+* **Prop 5.1 (Steps 0–7) — SOUND.**
+  * Step 1: `P_ψ = (2/φ(q))Σ_χ P_χ` and the norm identity are re-derived.
+  * Step 3, Stirling bound (b): with `Re w = −1/2` the Gamma factors give `e^{−π max(|v|,|t|)/2}` and
+    denominators `≥ 1/2`, so the claimed `e^{−π|t|/2}(1+|t|)^{−2}(1+|v|)^4` follows in both ranges.
+  * Step 5: the residues at `s = ±it_j` are `½Γ(±it)𝒲(±it)(πY)^{∓it}B(±it)`, and no other poles lie in
+    `−1 < σ < 1/𝓛`.
+  * Step 6:
+    * the block weights `w_{N₀} = 1+|log λN₀|` give `Σ w^{−2} ≪ 1`;
+    * `Σ_{N₀} w²λ²N₀ min(1,(λN₀)^{−2B}) ≪ λ`, and the cusp part gives `q^{1/2}λ^{−ε}/M`;
+    * Gallagher's step on each unit interval is valid. For Eisenstein, apply it to `B(t,τ)` on the diagonal.
+    * Reflection to χ̄ for `n < 0` is fine (Kuznetsov/large sieve hold for any orthonormal basis).
+    * The `log|n|` factor is `≤ 𝓛 + |log λ|n||` for λ < 1, and `≤ log(λ|n|)` for λ > 1.
+* **Prop 7.1 (i)–(v) — SOUND.**
+  * The congruence `a n = f(ce−a) − c` is correct.
+  * `T_ℓ = e(uc̄a/ℓ)S(uc̄,vc;ℓ)` resp. `ℓ·1[u≡0]`.
+  * The Ramanujan step is `|c_m(k)| ≤ (k,m) ≤ Σ_{δ|(k,m)}δ`.
+  * The gcd-sum `Σ_δ δ^{1/2}(r/δE)(r/δF)` also covers `δE > r` via `(r/δE)^B ≤ r/δE`.
+  * Round-1 numerics (`review_ttl_ka.py`) are consistent.
+* **Thm 6.2 for all λ and the e-cusp variant — SOUND.**
+  * `[e,4ad,df] ∈ 𝓕_d^I` is the same point set. In the coordinates `(A, B, C/d)` the two conditions `A = cB`
+    and `C/d = cB` give the same quadric equation, so `g_{c,d}` is unchanged.
+  * From scratch (`review_ttl_r2.py`): sieved counts over `(a, e)`, including `A/E = 4` and `10` (λ > 1),
+    are within ±2.6σ of `g_{c,d}(q)N(1)` for d ∈ {101, 1009}, c ∈ {1, 3}, q ≤ 17.
+* **Thm 8.1 bookkeeping (2a)–(5) — SOUND.**
+  * (b2): `k ≥ 2j` ⇒ `δ ≥ 2γ` ⇒ `(A/e)^{1/2} ≤ N^{γ/2} ≤ N^{δ/4}`. The per-(j,k) (b2) mass is `≈ jN ≤ NL`
+    (≈ j β-cells of mass N each). The (b2) total is `Σ_j Σ_{k≥2j} jN/k ≪ η²NL² log(1/η)`, fine.
+  * (b3): the cusp exponent combined with `Q² = N^{δ/8}` is `(1−γ−4α)/8 < 0`, and `cusp ≤ N^{−δ/4}` ⇔ `α ≥ 0`.
+  * (b4): the 4ad progression over `c ≍ 2^j` has length `4ad·2^j`, so `log(y/m) = j log 2`.
+  * Sieve exponents: `Q² = N^{κδ/2}` gives remainder `N^{−κδ/2} ≤ 1/k` once `k ≥ C₁ log L` with C₁ large
+    (κ ≥ 1/4).
+  * Bands: O(L) cells of mass ≪ N per c-block. c ≍ 1 (j = 0): harmless.
+
+## Round-2 minor items (all fixed in place by me, "(R111 r2)")
+* **R2-1.** Step (3) cites only `g ≤ 1/ℓ`; the lower bound `G(z) ≫ (φ(2cs)/2cs) log z` also needs
+  `g(ℓ) ≥ 1/ℓ − 2/ℓ²`. It holds for both density families, and the text now says so.
+* **R2-2.** (b2) is stated for `α ≤ β`, but §8.0 only gives `b ≥ a/2`. Cells with `a/2 ≤ b < a` have
+  `e < 2a/c` and are covered by the same treatment; now said explicitly.
+* §0's "awaits a round-2 review" is replaced by a pointer to this review.
+
+## Residual caveats (not defects)
+* (SEL) is a deep open conjecture, and it is needed uniformly for all levels `4dq²` with `d ≤ N`.
+* The ET/MN3 reduction (`f_I ≤ 2Σ_c w_c`, MN3 Thm 3.8(1)) is inherited and was not re-checked in R111.
+* DI Thm 6 / Humphries numerics in §3.2/§9 are labelled as not re-checked. They only affect the
+  unconditional Assessment.

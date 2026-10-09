@@ -10,8 +10,8 @@ DI = Deshouillers–Iwaniec, Invent. Math. 70 (1982) 219–288. `L = log N`.
   groups `Γ₀(M)` with even nebentypus mod `2q`, `M = 4dq²`):** `Σ_{p≤N} f_I(p) ≪ N log² N`. This is ET's
   conjectured (OPEN-I). Proof: §§2–8. After the hostile review R111 (outline; gaps D1–D3) the O112 repair
   round wrote the missing steps (§8.0 Lemmas 8.2–8.4; §8 (2b) with the strip `β > 1`; Props 5.1, 7.1 at proof
-  level): the proof is now complete **relative to cited results** (list at the end of §8), CONDITIONAL on (SEL),
-  and awaits a round-2 review.
+  level): the proof is now complete **relative to cited results** (list at the end of §8), CONDITIONAL on (SEL).
+  (R111 r2: round-2 hostile review found no FATAL/MAJOR defect; see `reviews/exceptional-typei-loglog-review.md`.)
 * **Unconditionally** the same argument removes the obstruction everywhere except on a strip
   `0 < 2α − 1 + γ ≲ 7/32 ≈ 0.22` (`≥ 0.16` even for the smallest cusp parameters in R_bad; O112 repair, D4)
   next to `d = a` (`a = N^α`, `c = N^γ`), where exceptional eigenvalues
@@ -472,7 +472,8 @@ Away from the bands, each cell gets one of the following treatments; the *saving
 cost is below the cell's weighted mass.
 * (b1) `D ≥ A` (`α < (1−γ)/2`): fixed-a sequences, Prop 7.1 (applicable: `e, f ≥ N^{1/2−3η₁}`, §(2a)),
   relative remainder `≪ L^C Q² A/D = L^C Q² N^{−δ}`; saving `C/k` by (3). No condition on β.
-* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`): if `k ≥ 2j`, fixed-d sequences with the **e-cusp**
+* (b2) `D < A`, `α ≤ β < α+γ` (so `e ≍ (a+b)/c ≤ 4A`; (R111 r2) §8.0 only gives `b ≥ a/2`, i.e. `β ≥ α − O(1/L)`;
+  the cells with `a/2 ≤ b < a` also have `e ≤ 3a/c ≤ 4A` and are treated here verbatim): if `k ≥ 2j`, fixed-d sequences with the **e-cusp**
   (forms `[e, 4ad, df] ∈ 𝓕_d^I` — the same point set with e, f renamed — and linear functional `n = cB − C/d`;
   Lemma 6.1 and Thm 6.2 hold verbatim with the same density `g_{c,d}`: in coordinates `(A, B, C/d)` the
   conditions `A = cB` and `C/d = cB` give the same equation `B² − 4cdAB + 4d = 0` up to `A ↔ C/d`; checked
@@ -500,7 +501,8 @@ cost is below the cell's weighted mass.
   `Σ_{c≍2^j} 1/φ(c) ≪ 1` (BT weight `ρ_d(f)N/φ(4cdf)`).
 (3) (O112 repair, D3.) Sieve per sequence σ (fixed `s ∈ {a, d}`, all other variables smooth) with
 `z = N^{θ}`, `θ = κδ/8` (κ = 1 in (b1), κ = 1/4 in (b2), (b3), (b5) after the cusp estimates), `Q = z²`,
-sieving only primes `ℓ > ℓ₀`, `ℓ ∤ 2cs`, densities `g ≤ 1/ℓ` (§6, Prop 7.1): Selberg's upper bound sieve
+sieving only primes `ℓ > ℓ₀`, `ℓ ∤ 2cs`, densities `g ≤ 1/ℓ` (§6, Prop 7.1) (R111 r2: the lower bound for `G(z)` below also uses
+`g(ℓ) ≥ 1/ℓ − 2/ℓ²`, true for `(ℓ−1)/(ℓ²+χℓ)` and `(ℓ−1)/ℓ²`, with `ℓ₀ ≥ 3` so that `g(ℓ) < 1`): Selberg's upper bound sieve
 gives `#{n ∈ σ prime} ≤ X_σ/G(z) + Σ_{q≤Q, q|P(z)} 3^{ω(q)}|r_σ(q)|` with
 `G(z) ≥ c'·(φ(2cs)/(2cs)) log z`. **Main term.** `X_σ` is the model mass (`𝔐_d` resp. the (0,0) Poisson term);
 by Thm 6.2 resp. Prop 7.1 at q = 1, `X_σ ≤ #σ + |r_σ(1)|`. So the main terms of a cell/layer are
