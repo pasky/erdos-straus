@@ -1,7 +1,7 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-10, refresh 7; ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
+ (2026-10-09, refresh 7; ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
@@ -357,6 +357,15 @@ scale). **Pointwise state (ledger (H)16–(H)34):**
   relaxed control (7,293); L = 7, b ≤ 4: 0 solutions, equal candidate counts; needs gcc + libgmp) and
   EXCEPTIONAL_MN2 (emn2_scan = R102B brute force on 6617 (m,p) pairs, m ≤ 60; R102A = R102B; R102A §1
   identities; L_{1/2}(60) = 7.636 from scratch, scanner agrees on the grid).
+* `verify.py` blocks (el)–(en) (O113, ~42 s; full run ≈ 8.5 min on the shared machine, 2 threads, scipy + mpmath; log `logs/o113_verify.log`) add EXCEPTIONAL_MN3 (Prop 2.3 pointwise inputs by R108's brute force —
+  ρ_{ka}(m₀) ≤ 1[(m₀,k)=1]Σ_{r|m₀}(−ka/r), odd m₀ ≤ 400, k ≤ 40, a ≤ 12; ρ(2^j) ≤ 4 — and six R108 sum rows replayed;
+  §2.6 ratio in [0.81, 1.12]; §3 R108 Type I brute force for p < 180 (identities, f_I ≤ 2Σw_c); inline: Prop 3.3
+  exponent table, R_bad(η) characterisation at η = 0, 1/20, areas 1, 1/6, 7/72 exactly by rational polygon clipping),
+  EXCEPTIONAL_TYPEI_LOGLOG (R111: Lemma 2.1 exact and Lemma 2.2 cosh ≥ 3/2 (attained; Type I ≥ 3) on all F_d pairs,
+  d ≤ 30, A ≤ 40, parity-group invariance; author's ttl_separation; O112 §8.0 identities at reduced size (13450 tuples;
+  `o112_checks.py` now takes optional CMAX AMAX DMAX) and e/f-cusp densities; R111 Lemma 6.1 transitivity, quadric
+  size, g formulas (ℓ ≤ 23) and Lemma 6.3 r(d) bound, d ≤ 150) and POINTWISE_MORDELL13D (m13d_wit.c = m13c_witness on
+  every unit mod 9240, 10920: 113942 / 132276 incidences, all/first/req = 13 modes; needs gcc).
 
 ## Exceptional-set exponent: where it stands (2026-10-08)
 
