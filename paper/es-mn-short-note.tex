@@ -51,19 +51,25 @@ $m$-exceptional integers, uniformly in $m\geq4$ and in the position of
 $I$.  We also give a version for arithmetic progressions, whose only loss
 is the smooth part of the modulus; a bound for exceptional primes in short
 intervals that uses no information about primes at the scale of the
-interval; and a density statement locating the transition from ``most
-primes are $m$-exceptional'' to ``most primes are $m$-representable'' at
-$\log n=m^{1/3+o(1)}$, up to a factor $(\log m)^2(m/\varphi(m))^{1/3}$ in
-$\log n$ (the ``exceptional'' side comes from the proof of a theorem of
-Pomerance and Weingartner).  For comparison, Pomerance and Weingartner proved the
+interval; and the density transition for primes.  Uniformly in $m$,
+at most a proportion $\varepsilon$ of the primes in $(N/2,N]$ are
+$m$-exceptional once $\log N\geq A_\varepsilon m^{1/3}$; and most of them
+are $m$-exceptional when $\log N\leq\varepsilon(\varphi(m)/\log m)^{1/3}$
+(a sharpening of a first-moment count of Pomerance and Weingartner).
+The remaining gap is a factor $(m\log m/\varphi(m))^{1/3}$ in $\log N$.
+Numerically (even $m\leq300$) half of the primes are representable at
+$\log N\approx1.95\,m^{1/3}$, and we conjecture a non-degenerate profile
+in $\log N/m^{1/3}$.  For comparison, Pomerance and Weingartner proved the
 exponent $2/3$ with $\varphi(m)^{-1/3}$ over initial segments.
 The method is the one of an earlier internal note on $4/n$ over
 $[1,N]$, which we use as a black box.  What we add is a local transfer
 to arbitrary windows, through a smooth-part decomposition, and the
 replacement of the numerator $4$ by $m$, which turns cubic logarithmic
-class mass into $(\log X)^3/m$.  \textbf{Status:} every result is proved
-\emph{relative to that note}, which is internally proved and has
-\emph{not} been externally refereed; the same applies to this note.
+class mass into $(\log X)^3/m$.  \textbf{Status:} every result except the
+lower side of the transition is proved \emph{relative to that note},
+which is internally proved and has \emph{not} been externally refereed;
+the lower side is proved relative to published divisor-sum bounds of
+Elsholtz and Tao.  This note has not been externally refereed either.
 Nothing here bears on the existence of exceptions; this is not a proof of
 the Erd\H{o}s--Straus conjecture or of Schinzel's conjecture.
 \end{abstract}
@@ -180,17 +186,50 @@ with $\log N\geq C_Dm^{1/3}(\log m)^{4/3}$,
 Moreover $E_m(N)=o(N)$ whenever $\log N/m^{1/3}\to\infty$.
 \end{introcor}
 
-In the other direction, the proof of \cite[Thm.~3.1]{PW} shows that most
-primes in $(N/2,N]$ are $m$-exceptional when
-$m^{1/4}\ll\log N\leq(\varphi(m)/(C\log^2m))^{1/3}$
-(Section~\ref{sec:transition}).  Pomerance and Weingartner's rigorous
-bounds placed the transition between $\log N=m^{1/3}$ and
-$\log N=m^{1/2}$ \cite[p.~2]{PW}; their Poisson heuristic \cite[p.~3]{PW}
-predicts $m^{1/3+o(1)}$.  Corollary~\ref{cor:D} confirms the density
-part of that prediction, up to the factor
-$(\log m)^2(m/\varphi(m))^{1/3}$ in $\log N$.  We do not know that the
-proportion of exceptional primes is monotone in between, and nothing is
-said about the \emph{largest} $m$-exceptional integer.
+Corollary~\ref{cor:D} follows from Theorem~\ref{thm:A} alone; its loss
+$(\log m)^{4/3}$ comes from passing from integers to primes.  Counting
+primes directly removes it.  Let $\rho_{\rm exc}(m,N)$ and
+$\rho_{\rm rep}(m,N)=1-\rho_{\rm exc}(m,N)$ be the proportions of
+$m$-exceptional and $m$-representable primes in $(N/2,N]$, and put
+$A=\log N/m^{1/3}$.
+
+\begin{thmU}[upper side; \status{proved} relative to \cite{TQ}, with Bombieri--Vinogradov and Shiu]
+For every $\varepsilon>0$ there is $A_\varepsilon$ \textup{(}ineffective\textup{)}
+such that $\rho_{\rm exc}(m,N)\leq\varepsilon$ for all $m\geq4$ and all
+$N$ with $\log N\geq A_\varepsilon m^{1/3}$.
+\end{thmU}
+
+\begin{thmL}[lower side; \status{proved} relative to {\cite[Thm.~7.1]{ET}} and the proof of {\cite[Prop.~1.4]{ET}}, with Brun--Titchmarsh and Shiu]
+Let $m\geq4$, $N\geq16$ and $L=\log N$.  If $\log m\leq L/10$ and
+$L\leq m^{1/2}$, then
+\[
+ \rho_{\rm rep}(m,N)\ll\frac{L^3}m+\frac{(L^3+L^2\log^2m)\log L}{\varphi(m)}
+ +m^{-0.35};
+\]
+if $\log m>L/10$, then $\rho_{\rm rep}(m,N)\leq\e^{CL/\log L}/m$.  The
+constants are absolute and effective.  Consequently
+$\rho_{\rm rep}\to0$ whenever $L^3\log L/\varphi(m)\to0$, in particular
+whenever $A\,(m\log m/\varphi(m))^{1/3}\to0$.
+\end{thmL}
+
+Pomerance and Weingartner's rigorous bounds placed the transition
+between $\log N=m^{1/3}$ and $\log N=m^{1/2}$ \cite[p.~2]{PW}; their
+Poisson heuristic \cite[p.~3]{PW} predicts $m^{1/3+o(1)}$.
+Theorem~U proves the representable half of this prediction at the exact
+scale $m^{1/3}$ (without a rate better than Corollary~\ref{cor:D}).
+Theorem~L sharpens the first-moment count in the proof of
+\cite[Thm.~3.1]{PW} by a factor $\log m$ near the transition.  Together
+they locate the transition at $\log N\asymp m^{1/3}$ up to the factor
+$(m\log m/\varphi(m))^{1/3}\ll(\log m\log\log m)^{1/3}$ in $\log N$;
+Corollary~\ref{cor:D} with \cite{PW} gave $(\log m)^2(m/\varphi(m))^{1/3}$.
+The remaining loss is the Brun--Titchmarsh $\log\log N$ of
+\cite[Thm.~1.1]{ET}, open even for $m=4$, and a factor $m/\varphi(m)$.
+For even $m\in[60,300]$ the computed half-point is
+$\log N=(1.95\pm0.05)m^{1/3}$, and the transition window does not shrink
+(\status{evidence}, Section~\ref{sec:numerics}); Conjecture~C2 asserts
+$\rho_{\rm rep}=F(A)+o(1)$ with a non-degenerate profile $F$.  We do not
+know that $\rho_{\rm exc}$ is monotone in $N$, and nothing is said about
+the \emph{largest} $m$-exceptional integer.
 
 Theorem~\ref{thm:A} and \eqref{eq:PW} have unrelated constants (ours
 ineffective), so their comparison is asymptotic.  The ratio of the
@@ -218,13 +257,21 @@ with $H<\e^{c(\log x)^{3/4}}/C$ without proving that there are no
 exceptions at all beyond some point (Proposition~\ref{prop:E}).
 
 \subsection*{Status and novelty}
-Every statement labelled \status{proved} here is proved \emph{relative to}
+Every statement labelled \status{proved} here, except Theorem~L and
+the lemmas of Section~\ref{sec:lower}, is proved \emph{relative to}
 \cite{TQ}: the steps that change are written out in full, and the
 remaining steps are cited from \cite{TQ} by name.  The note \cite{TQ}
 is internally proved; it has \emph{not} been refereed externally, and
 neither has this note.  The underlying working documents
 \cite{SHORT,MN} received three internal hostile reviews, and their
-repairs are incorporated.
+repairs are incorporated.  Theorems~U and~L come from \cite{MN2}, which
+received two further independent internal reviews (no fatal or major
+defect; minor repairs incorporated).  Theorem~L is proved relative to
+\cite[Thm.~7.1]{ET} and the structure of the proof of
+\cite[Prop.~1.4]{ET}, one range of which we modify
+(Lemma~\ref{lem:ETPV}, checked against \cite[pp.~30--32]{ET} by a
+reviewer, not machine-checked).  Theorem~U is ineffective, Theorem~L
+effective.
 
 We found no published short-interval or progression version of an
 exceptional-set bound for \eqref{eq:mn}, for any $m$
@@ -240,7 +287,13 @@ replacement for the global semigroup step of \cite{TQ}
 (Lemma~\ref{lem:smooth}); the bookkeeping that turns $t^3$ into $t^3/m$
 with absolute constants, with no loss of $\varphi(m)$ or $\log m$
 (Sections~\ref{sec:atoms}--\ref{sec:assembly}); and the consequences
-above.  None of this improves the exponent $3/4$.
+above.  For the transition we add a direct prime count with Bonferroni
+depth bounded in terms of the saving, in a reduced residue model in
+which every fibre is reduced (Theorem~U), and, on the lower side, a
+sharp Type~II count via the three-way split of \cite[\S9]{ET} and the
+P\'olya--Vinogradov refinement of \cite[Prop.~1.4]{ET} that
+\cite[Rem.~1.5]{ET} suggests (Theorem~L).  None of this improves the
+exponent $3/4$.
 
 \subsection*{Organisation}
 Section~\ref{sec:blackbox} lists what is taken from \cite{TQ} and
@@ -251,7 +304,9 @@ general $m$, writing out every step that differs from \cite{TQ}.
 Section~\ref{sec:transfer} contains the local transfer to arbitrary
 windows and progressions and proves Theorems~\ref{thm:A},~\ref{thm:B}
 and Corollary~\ref{cor:C}.  Section~\ref{sec:transition} proves
-Corollary~\ref{cor:D}, Section~\ref{sec:lowerend} discusses the lower
+Corollary~\ref{cor:D} and Theorems~U and~L, compares them with
+\cite{PW} and \cite{Els}, and reports numerics and Conjecture~C2;
+Section~\ref{sec:lowerend} discusses the lower
 end of the window range, Section~\ref{sec:literature} the literature,
 and Section~\ref{sec:open} lists open problems.
 
