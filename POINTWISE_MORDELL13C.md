@@ -147,3 +147,13 @@ gcc -O2 -o /tmp/o100/es scripts/m13b_es.c; /tmp/o100/es 418161601 > R/es_4181616
 PYTHONPATH=scripts uv run python scripts/m13b_invert.py 418161601 R/es_418161601.txt R/inv_418161601.pkl; PYTHONPATH=scripts uv run python scripts/m13b_cell.py 2 R
 gcc -O2 -o /tmp/o100/target2 scripts/m13c_target2.c; /tmp/o100/target2 2 15 110000000 12 20000000   # §5 (also 2e8 from 1.1e8)
 ```
+
+## 8. Limit points of the open leaves (O100 continuation)
+
+**Computation 8.1 (EVIDENCE/CERTIFIED by brute force).** For an open leaf `x mod L` let S = primes of L and
+`P` its S-generic point (`P_q = x` for q∈S, `P_q = 1` otherwise). `scripts/m13c_sgen.py`: for all 455 open leaves of
+root 418321 in Thm 6.1's tree, P lies in an ET class of modulus `≤ 2·10⁵` (453 leaves) resp. `≤ 10⁶` (the other
+two: moduli 283140 and 235352). So **no S-generic sterile candidate sits at the frontier of 418321**; the leaves
+are spread (no dominant joint residue pattern at 19, 23, 31, 41, 43, 71), not converging to a few points.
+The open set persists because each covering class of P needs `x≡1` modulo its S-free part N, and the complement
+`x≢1 (mod N)` opens new nodes.
