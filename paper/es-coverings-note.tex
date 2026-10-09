@@ -29,7 +29,7 @@
 \newcommand{\status}[1]{\textup{\textsc{#1}}}
 \title[Finite coverings for Erd\H{o}s--Straus and sterile points]{Finite congruence coverings for the Erd\H{o}s--Straus equation and sterile profinite points}
 \author{Anonymous}
-\date{Draft, 6 October 2026; internal checks only, not externally refereed}
+\date{Draft, 6 October 2026, updated 9 October 2026; internal checks only, not externally refereed}
 \emergencystretch=3em
 \begin{document}
 \begin{abstract}
@@ -48,8 +48,11 @@ exists for $r=5$ (of height $10$), and the least covering height equals
 the limsup of the Type~I depth under Hypothesis~H.  For $r=7$ every
 covering has height greater than $1.32\cdot10^{12}$ (finite computation),
 because of an explicit ``sign point'' at which the two lowest admissible
-$2$-adic levels are proved empty.  For $r=13$ we give an explicit
-finite-exception theorem, a repackaging of Salez's level sieve.  We show
+$2$-adic levels are proved empty; at the next four levels a certificate
+needs $7$-adic depth at least $16$ and a large unit of a real quadratic
+field.  For $r=13$ we give an explicit
+finite-exception theorem, a repackaging of Salez's level sieve, and an
+adaptive refinement to $35459$ explicit classes.  We show
 that a point that lies in no class of modulus at most $10^6$, and was
 earlier conjectured to be sterile, does lie in an explicit class of
 modulus $12670944$.  A new candidate survives targeted searches.
@@ -57,8 +60,11 @@ For $r=17$ the classes meeting the $17$-generic line are balls around
 solutions of $4/17^K=1/x+1/y+1/z$; an explicit bound on the number of
 such solutions would produce a sterile point and rule out every finite
 polynomial covering of the Mordell-hard primes with least non-residue
-$17$.  The bound needed is a discrete-logarithm counting problem, which we
-leave open.  Nothing here proves or disproves the Erd\H{o}s--Straus
+$17$; Elsholtz--Tao's exponent $2/5$ with an explicit constant $1.497$,
+for the cumulative count and together with ET's Type~I exponent $3/5$
+with constant $1$, would suffice.% (R106 repair)
+  The bound needed is a discrete-logarithm counting problem,
+which we leave open.  Nothing here proves or disproves the Erd\H{o}s--Straus
 conjecture.
 \end{abstract}
 \maketitle
@@ -117,14 +123,20 @@ $2$-adic levels $5$ and $6$ are empty (\status{proved}).  Certificates in
 the sign fibre are norm-one units of a Pell order of a special shape
 (\status{proved}), and none at $\hat x_9$ has $2$-adic level $\le22$ and
 $v_7(k)\le3$, at any height (\status{certified}).  At the levels $7$--$10$
-a certificate at $\hat x_9$ needs $v_7(k)\ge8$ and lies in one explicit
-two-parameter regime (\status{proved} and \status{certified}).  The Type~I-sterile
+a certificate at $\hat x_9$ lies in one explicit two-parameter regime
+(\status{proved} and \status{certified}) and needs $v_7(k)\ge16$
+(\status{certified}).  That regime is the generic large-unit one: no
+polynomial family of units exists there (\status{proved}), and under abc
+each level carries only finitely many certificates
+(\status{conditional}).  The Type~I-sterile
 set is nowhere dense (\status{proved}), and a measure criterion would give
 $C(7)=\infty$ under H (\status{proved} reduction; hypothesis open).
 \item \emph{$r=13$} (\S\ref{sec:mordell}).  Primes with $(p/13)=-1$
 satisfy ES outside six classes modulo $720720$ (\status{proved} by
-certified finite computation; an explicit packaging of Salez's sieve).
-The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
+certified finite computation; an explicit packaging of Salez's sieve),
+and outside $35459$ explicit subclasses of measure $8.42\cdot10^{-5}$ of
+those six (Theorem~\ref{thm:tree13}, three independent checkers); no
+class closes completely.  The point $x^*$ with $x^*_{11}=x^*_{13}=2$ lies in no ET class of modulus
 $\le10^6$ (\status{certified}).  It is nevertheless not sterile: it
 lies in an explicit II3 class of modulus $12670944$
 (Proposition~\ref{prop:xstarcovered}, \status{proved}).  This refutes an
@@ -138,7 +150,13 @@ classes become balls around solutions of $4/17^K=1/x+1/y+1/z$
 uncovered (\status{certified}); an explicit tail bound would give a sterile
 point and rule out every finite polynomial covering of the Mordell-hard
 primes with $n_p=17$ (Theorem~\ref{thm:tail17}, \status{proved}
-reduction; Corollary~\ref{cor:17}, \status{conditional}).  The missing
+reduction; Corollary~\ref{cor:17}, \status{conditional}).  With exact
+data through $17$-adic level $6$, a cumulative bound
+$\sum_{13\le K'\le K}D_P(K')\le1.497\cdot17^{2K/5}$ for the count of
+Type~II solutions of $4/17^{K'}$, plus ET's exponent $3/5$ with
+constant $1$ and no $o(1)$ for Type~I, suffices% (R106 repair)
+
+(Theorem~\ref{thm:explicit17}, \status{proved} reduction).  The missing
 bound is a discrete-logarithm count (\status{Assessment}).
 \end{itemize}
 Section~\ref{sec:open} lists open problems.  No sterile point other than
@@ -953,14 +971,16 @@ at each $L$, and \status{certified} that they are empty by a complete
 computation, reproduced independently in review.)
 \item[(c)] $v_7(k)\ge8$ (\status{certified},
 Computation~\ref{comp:anyheight} and two further complete engines);
-$v_7(k)\ge9$ by two engines and $v_7(k)\ge10$ by one.
+$v_7(k)\ge9$ by two engines and $v_7(k)\ge10$ by one; superseded by
+$v_7(k)\ge16$ in Computation~\ref{comp:b15} below (R106 repair).
 \item[(d)] $c_o\delta>10^6$ (\status{certified} by
 \texttt{typei5\_dmod.c}, valid for all $b$ by
 Proposition~\ref{prop:minunit}; one engine, replayed in review).
 \end{enumerate}
 \end{theorem}
 
-In the remaining regime, with $\sigma:=\Delta-2Tj\ge1$, one has
+In the remaining regime, with $\lambda\ge1$ and $\sigma:=\Delta-2Tj\ge1$
+(\emph{regime~(v)} of \cite[Prop.~3.3]{PT5}; R106 repair), one has
 $7^b<4j^2/\sigma$, and for each fixed $(\sigma,a,\lambda)$ there are
 finitely many explicit candidates \cite[Prop.~3.3(v)]{PT5}.  What is open
 is that $\sigma$ and $\lambda$ are unbounded.  By
@@ -970,6 +990,98 @@ of fields $d=c_o(c_o\delta^2+T)$.  Linear forms in logarithms bound
 exponents in a fixed field or a fixed recurrence, so they do not apply
 directly, and reciprocity gives no obstruction either (\status{Assessment},
 \cite[\S3]{PT5}).
+
+The regime $\sigma\ge1$ was studied further in \cite{PT6}, which was
+reviewed in \texttt{reviews/pointwise-typei6-review.md}.  It is not closed.  We
+record the three results and the computation.  Write
+$P=c'P_1$, $Q=7^aQ_1$, $u=7^b$ and $Y:=16PX^2=Qu^2+1$ as in
+Proposition~\ref{prop:minunit}, so that $A=2Y-1$.
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~2.1]{PT6}}]\label{prop:nopoly}
+Fix $c_o$ odd and $L\ge7$, and let $\delta$ be an indeterminate.  The
+elements of norm one of $\Q[\delta][\sqrt d]$, $d=c_o(c_o\delta^2+T)$, are
+the $\pm\varepsilon_*^n$, $n\in\Z$, with
+$\varepsilon_*=(2c_o\delta^2+T+2\delta\sqrt d)/T$.  For every odd integer
+$\delta$ and every $n\ne0$ the specialisation of $\varepsilon_*^n$ is not an
+algebraic integer.  The same holds with $c_o$ as the indeterminate and
+$\delta$ fixed.
+\end{proposition}
+
+\begin{proof}[Sketch]
+The two embeddings of $\sqrt d$ into $\Q((1/\delta))$ give two degree maps.
+They show that the units are $\Q^\times\eta^{\Z}$ with
+$\eta=c_o\delta+\sqrt d$, $N(\eta)=-c_oT$; norm one forces an even
+exponent.  For $L\ge7$ we have $d\equiv1\pmod8$, and the roots
+$c_o\delta\pm\sqrt d\in\Z_2$ have $2$-adic valuations $1$ and $L-5$.  So
+$v_2(\varepsilon_*^n)=\pm n(L-6)$ in the two embeddings, which is negative
+in one of them.
+\end{proof}
+
+So for $L\ge7$ the certificate unit is not given by a polynomial formula
+in $\delta$ (or in $c_o$) on any arithmetic progression.  The
+Richaud--Degert or Yokoi route of solving $u_1=7^b$ along a family with
+an explicit fundamental unit is therefore not available.  (For
+$L=5,6$ the element $\varepsilon_*$ is integral.)  Consistently with this,
+by Schinzel's criterion the period of the continued fraction of $\sqrt d$
+is unbounded along every progression of $\delta$ when $L\ge7$
+\cite[Prop.~2.1(c)]{PT6} (cited via van der Poorten; not needed above).
+
+In regime~(v) the unit is large: $\sigma=4u\theta^2-\mu\delta\sqrt P/\zeta$
+exactly, with $\theta=\tfrac T2(\sqrt d-c_o\delta)/(\sqrt d+c_o\delta)$,
+$\mu=8c_o\delta^2+4T$ and $\zeta=4X\sqrt P+u\sqrt Q$.  Hence $\sigma\ge1$
+implies $Y>64c_o^4\delta^8/T^4$, so $A+8k_o\sqrt d>128c_o^4\delta^8/T^4-1$
+\cite[Lemma~3.1]{PT6} (\status{proved}).  The regimes with $\sigma<0$,
+excluded in Theorem~\ref{thm:L710}(b), are the units below this size.  A typical fundamental unit of
+$\Q(\sqrt d)$ has size $\exp(d^{1/2+o(1)})$, so regime~(v) is the generic
+case, not a degenerate corner (\status{Assessment}).  Closing it means
+showing that the coefficient $u_1$ of
+Proposition~\ref{prop:minunit} is never a power of $7$ for the large-unit
+fields of a two-parameter family.  We know no unconditional method for
+statements of this kind.
+
+\begin{theorem}[\status{conditional} on abc; {\cite[Thm.~3.2]{PT6}}]\label{thm:abc}
+Assume the abc conjecture.  Then for each level $L$ there are only
+finitely many fibre certificates of level $L$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+Apply abc, $z\ll_\varepsilon\operatorname{rad}(xyz)^{1+\varepsilon}$ for
+coprime $x+y=z$, with a fixed $\varepsilon<1/7$ (R106 repair), to $1+Qu^2=Y$.  Since $u$ is a power of $7$,
+$\operatorname{rad}(Y\,Qu^2)\le14PXQ_1\ll(d/7^a)\sqrt{Y/P}$.  Together with
+the lower bound on $Y$ in regime~(v), this bounds $\delta$, $a$ and
+$P\ge c'$, hence $d$; each splitting $d=PQ$ carries at most one $b$
+(Proposition~\ref{prop:minunit}).  The other regimes, and the case
+$2y>T7^b$, are finite at each $L$ unconditionally \cite[Prop.~3.3]{PT5},
+\cite[\S3]{PT6}.
+\end{proof}
+
+Theorem~\ref{thm:abc} gives finiteness only.  With the published
+explicit forms of abc (themselves conjectures) the constants are far too
+large to give emptiness of the levels $7$--$10$ \cite[\S3]{PT6}
+(\status{Assessment}).  It does not touch the sterility of $\hat x_9$,
+since $L$ is unbounded.
+
+\begin{computation}[\status{certified}; {\cite[Comp.~4.1, Cor.~4.2]{PT6}}]\label{comp:b15}
+The lower bound on $Y$ gives, for fixed $(L,b)$,
+$P(64c_o^4\delta^8-T^4)<49^bdT^4$, a finite search over
+$(a,c',\delta,P_1)$ at all heights.  The engine \texttt{typei6\_vsearch.c}
+finds no regime-(v) fibre certificate with $L\in\{7,8,9,10\}$ and
+$b\le15$.  It finds all the regime-(v) certificates of
+\texttt{typei4\_lb.c} at $L=11$--$18$, $b\le3$, and all relaxed regime-(v)
+solutions at $L=7,9,10$ (positive controls).  An engine written from
+scratch in review (\texttt{review\_typei6\_vsearch.c}) gives $0$ solutions
+for all $(L,b)$ with $7\le L\le10$, $b\le15$ except $(9,15)$, $(10,14)$,
+$(10,15)$, which rest on the first engine alone.  With
+Theorem~\ref{thm:L710}: \emph{no certificate at $\hat x_9$ has level
+$7\le L\le10$ and $v_7(k)\le15$, at any height.}
+\end{computation}
+
+So a certificate at $\hat x_9$ of level $7$--$10$ needs $v_7(k)\ge16$ and
+$c_o\delta>10^6$.  A naive model, calibrated at the levels $11$--$20$
+where certificates exist, predicts fewer than $10^{-11}$ such
+certificates with $b\ge16$ (\status{evidence}) \cite[\S5]{PT6}.  A
+certificate there would have to be a structured solution, and
+Proposition~\ref{prop:nopoly} excludes the simplest source of structure.
 
 \subsection{Scope of a sterility proof}
 
@@ -1095,7 +1207,35 @@ and $2762760=2^3\cdot3\cdot5\cdot7\cdot11\cdot13\cdot23$ (O101 audit;
 The exceptional classes carry $1/360$ (a) and $6/2160$ (b) of the
 relevant residues; deeper levels shrink them (to $1412$ residues modulo
 $2^4 3^2\cdot5\cdot7\cdot11\cdot13^2\cdot17\cdot19\cdot23$ with moduli
-$\le10^8$ in case (b)).  Whether they ever reach zero is open: the
+$\le10^8$ in case (b)).  An adaptive refinement shrinks them much
+further.
+
+\begin{theorem}[\status{proved} by finite computation; {\cite[Thm.~6.1]{PM13C}}]\label{thm:tree13}
+Let $p$ be a prime with $(p/13)=-1$.  Then $4/p=1/x+1/y+1/z$ has a
+solution in positive integers unless $p$ lies in one of $35459$ explicit
+residue classes, refinements of the six classes of
+Theorem~\ref{thm:r13}(b) with moduli dividing
+$2^4 3^2 5^2 7^2\cdot11\cdot13\prod_{17\le\ell\le83}\ell$.  Their union has
+Haar measure $8.42\cdot10^{-5}$ of that of the six classes.
+\end{theorem}
+
+\begin{proof}
+Outside the six classes this is Theorem~\ref{thm:r13}(b).  Inside, a tree
+certificate (\texttt{data/mordell13c/tree6\_6000.json.gz}) refines each
+class prime by prime.  It has $136494$ covered leaves, each carrying one
+of $2140$ ET classes of modulus $\le10^6$, and $35459$ open leaves.  The
+omitted non-unit children contain no prime.  Three independent
+checkers (two by the author, one written from scratch in review) verify
+the identities, positivity, integrality, the partition and the masses.
+\end{proof}
+
+No root class closes: each of the six keeps open leaves, and the open
+mass decays only like a power of the number of expanded nodes
+(\status{evidence}).  At fixed prime
+support the modulus cap is not the bottleneck: a complete witness engine
+for all moduli dividing the level above leaves $1399$ residues, against
+$1499$ for moduli $\le10^6$ and $1412$ for moduli $\le10^8$
+\cite[\S2]{PM13C} (\status{evidence}).  Whether the exceptions ever reach zero is open: the
 point $x^*$ below was a candidate obstruction but is covered
 (Proposition~\ref{prop:xstarcovered}).
 
@@ -1211,6 +1351,13 @@ I1 were reproduced by an independent engine in the review of
 further engine written from scratch from the ET class definitions, without
 discrete logarithms or exponent cap (\texttt{review\_r98\_xss.c}, R98
 repair).  The ranges for I2, II1 and I4 rest on one engine.
+Later runs of the same engines extend this to II3, I3, I1, II2 with
+$e$ (resp.\ $f$) $\le2\cdot10^9$ and to I2, II1, I4 with $f$ (resp.\ $e$)
+$\le2\cdot10^8$ \cite[Comps.~5.1, 5.2]{PM13C}; these extensions rest on
+one engine, and their run logs do not record the command lines
+\cite[\S5]{PM13C} (R106 repair).  The exponent cap $12$ for I2, II1, I4 is vacuous in these ranges, since the
+box conditions force $\{11,13\}$-exponents $\le9$ after removing a
+common factor.
 \end{computation}
 
 \begin{conjecture}[\status{evidence} only; {\cite[Conj.~5.2]{PM13B}}]\label{conj:xss}
@@ -1226,8 +1373,8 @@ primes up to finitely many exceptions.  This would say nothing about
 whether ES holds for these primes.  The conjecture is not equivalent to
 the non-existence of such a covering (Remark~\ref{rem:direction}).  The
 support for it is weak.  The point $x^*$ was covered at
-$e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes almost five
-orders of magnitude further in $e$ (R98 repair).  No tail bound of the kind in
+$e\approx1.2\cdot10^4$, whereas the search at $x^{**}$ goes about five
+orders of magnitude further in $e$ (R98 repair; now $2\cdot10^9$).  No tail bound of the kind in
 Theorem~\ref{thm:tail17} is available here.
 
 \emph{Why the odd-square obstruction would not explain $x^{**}$.}  The
@@ -1245,7 +1392,16 @@ $\le10^6$ and the rigid II boxes, $24.8\%$ of the $(2,2)$ cell remains
 uncovered at resolution $11^4\cdot13^4$.  The classes of ES level
 $N\le4\cdot10^7$ alone leave $4.64\%$.  This is an upper bound,
 since that enumeration is complete only for $\{11,13\}$-levels
-$\le6324$ \cite[\S4]{PM13B}.  For the np variant no $T$-generic obstruction with
+$\le6324$ \cite[\S4]{PM13B}.  At resolution $11^2\cdot13^2$ the picture
+is complete (\status{certified}, \cite[Comp.~3.1]{PM13C}): for all ET
+classes whose $\{11,13\}$-level divides $11^2\cdot13^2$, with any
+$\{11,13\}$-free part, the uncovered part of the cell $(2,2)$ is exactly
+$x_{11}\bmod121\in\{2,57,79\}$ times $x_{13}\bmod169\in\{15,28,54,132,145\}$,
+$15$ of the $143$ subcells.  The covered $128$ subcells were confirmed
+independently in review.  Of the six exceptional classes of
+Theorem~\ref{thm:r13}(b), only $473761$, which contains $x^{**}$, is known
+to contain uncovered $T$-generic points for the sets $T$ tested
+\cite[\S3]{PM13C} (\status{evidence}).  For the np variant no $T$-generic obstruction with
 $|T|\le3$ was found; a best-first tree search over $\Sigma_{13}^{\rm np}$
 stopped at $30000$ nodes with open Haar mass $4.1\cdot10^{-7}$, so that
 variant is undecided.
@@ -1378,7 +1534,10 @@ $\le10^6$ (two engines) and in no II1, I4 or II2 class with $17$-part
 dividing $17^4$ \cite[Comp.~5.1]{PM}.
 \end{computation}
 
-The numbers of data are $D_P(K)=2,32,121,258,604$ for $K=1,3,5,7,9$ and
+The numbers of data are $D_P(K)=2,32,121,258,604,836,1463$ for
+$K=1,3,\dots,13$ (the last two \status{certified} by a faster complete
+enumerator built on an exact form of ET's four-regime cover and by an
+independent engine in review, with identical point sets \cite[\S2]{PM17B}) and
 $D_Q(k)=2,73,245,707$, $D_U(k)=4,68,310,826$ for $k=1,3,5,7$; the measure
 added per level is $0.235$, $0.080$, $0.0069$, $0.0010$ at levels $2$--$5$
 (\status{evidence} of decay, from three ratios only).
@@ -1425,9 +1584,11 @@ n^{2/3+\varepsilon}$ of Browning and Elsholtz \cite{BE} handles
 (U).  The constants are not explicit, so this gives no level the
 computation reaches.  The critical family is (P): its boxes have weight
 $\asymp N^{-1/2}$ at ES level $N=17^K$, against the count
-$N^{2/5+o(1)}$, a margin of only $1/10$; even $D_P(K)\le17^{2K/5}$ with
-constant $1$ would leave a tail $\approx0.84$ from $K\ge11$, more than
-$0.677$.  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
+$N^{2/5+o(1)}$, a margin of only $1/10$.  In the crude form of
+Theorem~\ref{thm:tail17}, even $D_P(K)\le17^{2K/5}$ with constant $1$
+would leave a tail $\approx0.84$ from $K\ge11$, more than $0.677$.  With
+exact data through $K=11$ the margin is much better
+(Theorem~\ref{thm:explicit17} below).  An $\N$-point of $\Sigma^{II}_N$ with $a\le b$ is determined by
 $(a,b)$, so it would suffice (\status{Assessment}: this is the natural
 route, not a proved necessity) to have an explicit bound
 \begin{equation}\label{eq:Pcount}
@@ -1436,9 +1597,55 @@ C\cdot17^{(1/2-\delta)K}
 \end{equation}
 with explicit $C$ and $\delta>0$, together with weaker explicit bounds
 for (Q), (U).  The data fit $D_P(K)\approx K^3$
-($2,32,121,258,604$ against $1,27,125,343,729$; \status{evidence}), far
+($2,\dots,604,836,1463$ against $1,\dots,729,1331,2197$; \status{evidence}), far
 below what is needed: $D_Q+D_U\le17^{k/2}$ for $k\ge8$ and $D_P(K)\le
 17^{K/4}$ for $K\ge11$ would make the tail $<0.01$.
+
+The union of all boxes meeting $C_5$ is the union of the (P)- and
+(Q)-boxes (Lemma~\ref{lem:boxtypes}, Proposition~\ref{prop:boxES}(b)).
+Its exact part through (P)-level $6$ ($K\le11$) and (Q)-, (U)-level $7$
+leaves the fraction
+$\rho_1=16344335/24137569=0.677132\ldots$ of $C_5$ uncovered
+(\status{certified}; \cite[Comp.~3.1]{PM17B}, which reproduces
+Computation~\ref{comp:17}).  Each (P)-datum of level $K$ adds at most two
+boxes of relative measure $17^{(1-K)/2}$, and each (Q)-datum of level $k$
+at most two of relative measure $17^{1-k}$.
+
+\begin{theorem}[\status{proved} reduction; {\cite[Thm.~4.1]{PM17B}, \cite[Lemma~1.1]{PM17C}}]\label{thm:explicit17}
+Let $\theta<1/2$ and $C>0$.  Suppose that
+$S_P(K):=\sum_{13\le K'\le K}D_P(K')\le C\cdot17^{\theta K}$ for every
+odd $K\ge13$ (sum over odd $K'$), that $D_Q(k)\le17^{3k/5}$ for every
+odd $k\ge9$, and that
+\[
+\tfrac{32}{17}\,C\sum_{K\ge13\ \mathrm{odd}}17^{\theta K+(1-K)/2}+1.411\cdot10^{-3}<\rho_1 .
+\]
+Then $C_5$ and $C_7$ contain sterile points, and the conclusion of
+Corollary~\ref{cor:17} holds.  At $\theta=2/5$ the last condition holds
+for every $C\le1.497$.
+\end{theorem}
+
+\begin{proof}[Sketch]
+The (Q)-term is at most $2\sum_{k\ge9}17^{3k/5+1-k}<1.411\cdot10^{-3}$.
+For (P), the weights $w_K=17^{(1-K)/2}$ satisfy
+$w_K-w_{K+2}=\tfrac{16}{17}w_K$, and Abel summation gives
+\[
+\textstyle\sum_{K\ge13}w_KD_P(K)\le\frac{16}{17}\sum_{K\ge13}w_KS_P(K).
+\]
+The series are summed numerically, with floor rounding of $C$.
+\end{proof}
+
+So ET's own exponent $2/5$, with explicit constant $1.497$ and no $o(1)$,
+would suffice.  If the bound is assumed for each $D_P(K)$ rather than
+cumulatively, the constant is $1.409$ \cite[\S4]{PM17B}.  The data are far
+inside this: $D_P(13)/17^{5.2}\approx6\cdot10^{-4}$.  It is conjectured in
+\cite[Conj.~4.2]{PM17B} (\status{conjecture}) that $D_P(K)\le K^5$ for
+$K\ge15$ and $D_Q(k)\le k^5$ for $k\ge9$, which would give a tail
+$\le4.2\cdot10^{-3}$ beyond (P)-level $7$, or $\le4.3\cdot10^{-3}$
+beyond level $6$ with $D_P(13)=1463$ (R106 repair).  On the (Q) side, the points with ET coordinate $c\ge17^{k/2}$
+are bounded unconditionally, since a pair $(a,d)$ carries at most two
+(Q)-points; they cost at most $4.3\cdot10^{-3}$ of the budget
+\cite[Lemma~2.1, Cor.~2.2]{PM17C} (\status{proved}).  Nothing comparable
+is known for (P).
 
 \begin{assessment}[Discrete logarithms]
 With $(s,t)=(c,d)$ the (P)-data of level $K$ are exactly the $(a,s,t)$
@@ -1459,6 +1666,18 @@ for them to reach $N^{1/2-\delta}$ explicitly.  A digit-set (Cantor)
 construction that avoids boxes with small integer centres was tested and
 fails: the normalised centres of new boxes have maxima $0.86$--$0.99$ at
 levels $3$--$7$.
+Averaging over $K$, which Theorem~\ref{thm:explicit17} permits, does not
+by itself help.  For fixed $(a,b)$ and $e\mid a+b$ the admissible $K$
+form one class modulo $\operatorname{lcm}(2,\operatorname{ord}_{4ab}17)$
+(\status{proved}).  But the triples that admit \emph{some} exponent number
+about $B(\log B)^{0.4\text{--}0.5}$ for $ab\le B\le3\cdot10^5$, with
+least exponents up to about $B$, median about $0.05B$ (\status{evidence},
+two engines).  An argument blind to the size of the discrete logarithm gives
+only $\theta\approx1$.  A proof must show that the discrete logarithms of
+$-e$ modulo $4ab$ rarely fall in the short window $[\log_{17}4ab,K]$
+\cite[\S\S3--4]{PM17C}.  An ET-type cover that charges at least one per
+parameter pair also appears unable to reach the constant at $\theta=2/5$
+\cite[\S3]{PM17C}.
 \end{assessment}
 
 \section{Open problems}\label{sec:open}
@@ -1486,7 +1705,11 @@ Two routes are visible.  The first is the $7$-adic tower of
 $L$, $v_7(k)=b$) is a finite computation at all heights, so what is open is
 $b\to\infty$ at the levels $L=7,\dots,10$; by Theorem~\ref{thm:L710} only
 the regime $\Delta>2Tj$ with unbounded $(\sigma,\lambda)$ remains there
-(R98 repair).  At the levels $L\ge11$, where the
+(R98 repair), and by Computation~\ref{comp:b15} only with $b\ge16$.
+This asks whether the coefficient $u_1$ of Proposition~\ref{prop:minunit}
+can be a power of $7$ when the unit of $\Q(\sqrt{c_o(c_o\delta^2+T)})$ is
+large
+(Proposition~\ref{prop:nopoly}, Theorem~\ref{thm:abc}).  At the levels $L\ge11$, where the
 fibre is inhabited (Remark~\ref{rem:fibrescope}), the exact value $w=9$
 must be used.  The second route is an explicit bound for the
 near-miss count of Remark~\ref{rem:measure}, small enough that the tail
@@ -1504,7 +1727,9 @@ first open case of that kind.
 \begin{problem}
 Prove the explicit count \eqref{eq:Pcount} for some $\delta>0$ and
 explicit $C$, or any other bound that makes the series of
-Theorem~\ref{thm:tail17} smaller than $56561/83521$.  By the Assessment
+Theorem~\ref{thm:tail17} smaller than $56561/83521$, for instance the
+cumulative hypothesis of Theorem~\ref{thm:explicit17} at $\theta=2/5$,
+$C=1.497$.  By the Assessment
 of \S\ref{sec:r17} this is a question about how often $-a/s$ lies in the
 subgroup generated by $17$ modulo $4ast-1$, and where its discrete
 logarithm falls.
@@ -1528,7 +1753,7 @@ suggest sterile sets of positive measure \emph{within} these thin fibres
 
 \section*{Acknowledgements and provenance}
 This note collects results first written up in the working notes
-\cite{PS,PT1,PT2,PT3,PT4,PT5,PM,PM13B,PM17} of this project, each internally reviewed
+\cite{PS,PT1,PT2,PT3,PT4,PT5,PT6,PM,PM13B,PM13C,PM17,PM17B,PM17C} of this project, each internally reviewed
 by a hostile reviewer who re-derived the proofs and re-ran the main
 computations from independent code (reports in \texttt{reviews/}).  The
 certificates of Theorem~\ref{thm:r13} are in \texttt{data/mordell/}, and
@@ -1584,15 +1809,27 @@ conjecture, research note, this repository
 \bibitem{PT5} Companion note in this repository,
 \texttt{POINTWISE\_TYPEI5.md}; internally reviewed in
 \texttt{reviews/pointwise-typei5-review.md}.
+\bibitem{PT6} Companion note in this repository,
+\texttt{POINTWISE\_TYPEI6.md}; internally reviewed in
+\texttt{reviews/pointwise-typei6-review.md}.
 \bibitem{PM} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell-review.md}.
 \bibitem{PM13B} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL13B.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell13b-review.md}.
+\bibitem{PM13C} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL13C.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell13c-review.md}.
 \bibitem{PM17} Companion note in this repository,
 \texttt{POINTWISE\_MORDELL17.md}; internally reviewed in
 \texttt{reviews/pointwise-mordell17-review.md}.
+\bibitem{PM17B} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL17B.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell17b-review.md}.
+\bibitem{PM17C} Companion note in this repository,
+\texttt{POINTWISE\_MORDELL17C.md}; internally reviewed in
+\texttt{reviews/pointwise-mordell17c-review.md}.
 \bibitem{Salez} S.~E.~Salez, The Erd\H{o}s--Straus conjecture: new modular
 equations and checking up to $N=10^{17}$, arXiv:1406.6307 (2014).
 \bibitem{Schinzel} A.~Schinzel, On sums of three unit fractions with
