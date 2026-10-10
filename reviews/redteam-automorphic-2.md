@@ -174,6 +174,7 @@ What is **Assessment**, and must stay labelled so:
 * (e) **Scope of "every encoding".** The six encodings examined are all coordinate projections of ET's two
   varieties (§2). An encoding *not* factoring through ET's parametrisation would be new. The only other
   parametrisations are BL's toric model and the ET Type I/II dichotomy, so §2's scope is in practice all of
-  ET-based ES. Solutions with p dividing two or all three denominators exist only for small p (ET §2). So this
-  covers every solution for large p (ET Prop 1.3/2.x; Assessment that nothing is lost, stated at the level of ET's
-  classification).
+  ET-based ES. For odd p every solution has p dividing one or two denominators (none: `p | 4xyz`, impossible;
+  all three: `4 = 1/x'+1/y'+1/z'` has no solution), and ET §2 parametrises both cases by `(a,b,c,d)` with the
+  identities used in §2. So the ET varieties carry *every* solution; "every encoding through a projection of
+  them" is precise, and an encoding not through them would have to forget the parametrisation entirely.
