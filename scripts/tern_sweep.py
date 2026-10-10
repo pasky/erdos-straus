@@ -38,7 +38,8 @@ def quad_report(expr, free, params):
     if len(free) == 2:
         disc = sp.factor(Hs[0,1]**2 - Hs[0,0]*Hs[1,1])   # = B^2-4AC for A x^2+Bxy+Cy^2
         out['disc'] = disc
-        out['isotropic'] = bool(sp.sqrt(disc).is_polynomial(*params)) if disc != 0 else True
+        rt = sp.sqrt(disc)   # symbols are positive, so sqrt of a square rational function simplifies
+        out['isotropic'] = bool(rt.is_rational_function(*params)) if disc != 0 else True
     else:
         out['det'] = sp.factor(Hs.det())
     # trivially isotropic: some free coordinate vector is a zero of the quadratic part

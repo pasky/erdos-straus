@@ -42,12 +42,14 @@ for p in primes:
     amin[best] += 1
     worst.append((best or 10**9, p))
 # side-condition thinness on a sample: all reps with a <= 50, d = 1 vs those with 4a | f+1
+SA = min(50, AMAX)
 for p in primes[:2000]:
-    for a in range(1, 51):
+    for a in range(1, SA+1):
         ds = divisors(p + 4*a*a)
         tot_reps += len(ds); tot_side += sum(1 for f in ds if (f+1) % (4*a) == 0)
 print(f"N={N} DMAX={DMAX} AMAX={AMAX}: {len(primes)} Mordell-hard primes")
 print("a_min distribution:", sorted(amin.items(), key=lambda t: (t[0] is None, t[0] or 0)))
 worst.sort(reverse=True); print("hardest:", worst[:10])
-print(f"sample 2000 primes, d=1, a<=50: all reps (e,f,a) = {tot_reps}, with side condition 4a|f+1: {tot_side}"
-      f" (ratio {tot_side/tot_reps:.4f})")
+if tot_reps:
+    print(f"sample {min(2000,len(primes))} primes, d=1, a<={SA}: all reps (e,f,a) = {tot_reps}, "
+          f"with side condition 4a|f+1: {tot_side} (ratio {tot_side/tot_reps:.4f})")

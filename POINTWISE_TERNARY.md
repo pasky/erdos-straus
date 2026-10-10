@@ -162,24 +162,34 @@ square class (by (M)); every prime `p > p_0` covered by a degenerate piece lies 
 `(J, D)` for a positive definite `Q` in `k ≥ 3` variables, and `U, q*` as in Cor 3.2. Then:
 
 (a) for every prime `p > p_0` with `p ∉ U` (in particular every `p > p_0` that is a square mod `q*`):
-`#R(p) ≤ C(Q, J, D, ε)·f(p)·p^{(k−2)/2 − 1/4 + ε}`;
+`#R(p) ≤ C(Q, κ, η, J, D, ε)·f(p)·p^{(k−2)/2 − 1/4 + ε}` (`p_0` depends on `Q, κ, η` and the recipes);
 
-(b) for every `ε₀ > 0, c > 0`: `#{p ≤ N : p ∉ U, #R(p) ≥ c p^{(k−2)/2 − ε₀}} ≪_{c,ε₀} N^{3/4 + 2ε₀}`.
+(b) for every `0 < ε₀ < 1/4`, `c > 0`, `ε > 0`: `#{p ≤ N : p ∉ U, #R(p) ≥ c p^{(k−2)/2 − ε₀}} ≪ N^{3/4 + ε₀ + ε}`.
 
 *Proof.* (a): for `p ∉ U`, `p > p_0`, only nondegenerate pieces contribute (Cor 3.2); apply Prop 2.2 to each (the
-finite sets `𝔐_j` exclude finitely many `p`). (b): such `p` have, by (a) with `ε = ε₀/2`, `f(p) ≫ p^{1/4 − 3ε₀/2}`.
+finite sets `𝔐_j` exclude finitely many `p`). (b): such `p` have, by (a) with `ε/2` in place of `ε`, `f(p) ≫ p^{1/4 − ε₀ − ε/2}`.
 For prime `p`, `f(p) = 3f_I(p) + 3f_II(p)` and ET Thm 1.1 gives `Σ_{p≤N} f(p) ≪ N log²N log log N`; so the number of
-such `p ∈ (N/2, N]` is `≪ N^{3/4 + 3ε₀/2} log³N`; sum dyadically. ∎
+such `p ∈ (N/2, N]` is `≪ N^{3/4 + ε₀ + ε/2} log³N`; sum dyadically. ∎
 
 **Corollary 4.2 (the representation-theorem route closes; PROVED relative to the cited representation theorems as
 input (R)).** Suppose in addition that the embedding is *mild* in the sense that the input one intends to use holds:
 
 > (R) there are a modulus `L`, a nonempty union `𝒫_R` of primitive classes mod `L`, and a set `ℰ` of primes with
-> `#(ℰ ∩ [1,N]) = o(N/log N)`, such that `#R(p) ≥ c p^{(k−2)/2 − ε₀}` for all large `p ∈ 𝒫_R ∖ ℰ`.
+> `#(ℰ ∩ [1,N]) = o(N/log N)`, and `0 < ε₀ < 1/4`, such that `#R(p) ≥ c p^{(k−2)/2 − ε₀}` for all large
+> `p ∈ 𝒫_R ∖ ℰ`.
 
-Then `𝒫_R ⊆ U` (as sets of classes mod `lcm(L, q*)`). Hence `𝒫_R` contains no prime that is a square mod `q*`, and the
-embedding proves ES only for primes that a **finite polynomial (Mordell-type) covering already handles** (`U`), plus a
-set of `≪ N^{3/4+ε}` primes up to `N` on which `f(p) ≥ p^{1/4−ε}` (which cannot be identified without knowing `f(p)`).
+Then `𝒫_R ⊆ U` (as sets of classes mod `lcm(L, q*)`). Hence `𝒫_R` contains no prime that is a square mod `q*`: **the
+primes on which the representation input (R) delivers ES are exactly primes that a finite polynomial (Mordell-type)
+covering already handles.**
+
+*Caution (R124 review, FATAL in the first draft).* This does **not** say that the embedding proves ES only on `U`.
+A nondegenerate piece on a *thin* set can cover a positive-density set of primes outside `U`. Example: `Q = Σ_{i≤5} v_i²`,
+`η = −1`, `κ = 1`, piece `S = {v₁ = 1, Q(v) ≡ 0 (mod 4)}` (so `p ≡ 3 (4)`), output
+`((p+1)/4 + v₁ − 1, p(p+1)/2, p(p+1)/2)`. It is nondegenerate (it involves `v₁`), and it covers every prime `p ≡ 3 (4)`
+via `≍ p` representations, which is far fewer than `p^{3/2−ε₀}`. What the corollary excludes is that a
+representation *theorem* (which only produces mild, `≍ p^{(k−2)/2}`-sized sets) does any work outside `U`. Any ES
+content outside `U` must come from an existence statement for a thin set of representations, and no representation
+theorem supplies that.
 
 *Proof.* If a primitive class mod `lcm(L, q*)` lay in `𝒫_R ∖ U`, it would contain `≫ N/log N` primes up to `N`
 (Dirichlet), all but `o(N/log N)` of them satisfying `#R(p) ≥ c p^{(k−2)/2−ε₀}`, contradicting Thm 4.1(b). ∎
@@ -188,12 +198,15 @@ set of `≪ N^{3/4+ε}` primes up to `N` on which `f(p) ≥ p^{1/4−ε}` (which
 `S_j ⊇ S° := {v ≡ v_0 (mod M), v ∈ Γ}` (fixed modulus `M`, open cone `Γ`, optionally primitivity):
 * k ≥ 5: the circle method.
 * k = 4: Kloosterman's method (Heath-Brown's δ-method; Hsia–Kitaoka–Kneser for the local–global form). For
-  `m = κp + η`, `p ∤ η`, the divisibility of `m` by anisotropic primes is bounded, so no exception arises.
+  `m = κp + η` the divisibility of `m` by the (finitely many) anisotropic primes `ℓ` must be bounded, `v_ℓ(m) ≤ B`.
+  This is **not** automatic (e.g. `v₂(p + 1)` is unbounded along primes). However, `v_ℓ(κp+η) ≤ B` is a congruence
+  condition on `p` mod `ℓ^{B+1}`, so it can be built into `𝒫_R`.
 * k = 3: Duke 1988 / Iwaniec 1987 (weight-3/2 coefficient bounds), Duke–Schulze-Pillot 1990 (primitive
   representations, all large `m` outside finitely many spinor exceptional square classes `tℤ²`), Golubeva–Fomenko
   and Blomer for congruence/coset conditions, Siegel's ineffective `L(1,χ) ≫_ε m^{−ε}` for the size `m^{1/2−ε}`.
   The spinor exceptions give `ℰ = {p : κp + η ∈ tℤ² for one of finitely many t}`, of size `O(√N)`.
-In each case `𝒫_R` is the set of primes with `κp + η` (primitively) locally represented by the coset `v_0 + Mℤ^k`.
+In each case `𝒫_R` is the set of primes with `κp + η` (primitively) locally represented by the coset `v_0 + Mℤ^k`
+(intersected with the bounded-valuation conditions for k = 4).
 For `ℓ ∤ 2κηM·disc Q` this is automatic (a unimodular rank-≥3 lattice represents every `ℓ`-adic integer
 primitively; at `ℓ = p ∤ η`, `κp + η` is a unit), and at the finitely many other `ℓ` it depends on `p` mod a power of
 `ℓ` — a congruence condition. Corollary 4.2 only needs that (R) holds on **some** primitive class, which is exactly
