@@ -1,0 +1,29 @@
+primes 3..N: 5761454
+f_I(p)=0: 0  f_II(p)=0: 0  both 0: 0  a=1 part 0 (p=1 mod 4): 0
+first primes with f_II=0: []
+classes mod 840 of p with f_II=0 (top): []
+p=1(4) with no a=1 Type I sol: 0 []
+
+ dyadic windows [X,2X): min f_I (argmin), mean f_I, mean/log^2 p, min over Mordell-hard, min f_II, min f_I+f_II
+X=2^ 4 n=       5 minI=   2 @        17 meanI=    8.60 mean/L^2=0.851 min/L=0.63 minI_MH=  -1 minII=  2 min(I+II)=   4 minI1(p=1mod4)=  1
+X=2^ 5 n=       7 minI=   3 @        41 meanI=   11.43 mean/L^2=0.763 min/L=0.77 minI_MH=  -1 minII=  2 min(I+II)=   7 minI1(p=1mod4)=  2
+X=2^ 6 n=      13 minI=   4 @        73 meanI=   14.92 mean/L^2=0.716 min/L=0.88 minI_MH=  -1 minII=  3 min(I+II)=   7 minI1(p=1mod4)=  2
+X=2^ 7 n=      23 minI=   4 @       193 meanI=   25.26 mean/L^2=0.914 min/L=0.76 minI_MH=  -1 minII=  2 min(I+II)=   6 minI1(p=1mod4)=  1
+X=2^ 8 n=      43 minI=   9 @       409 meanI=   32.44 mean/L^2=0.916 min/L=1.51 minI_MH=  -1 minII=  5 min(I+II)=  15 minI1(p=1mod4)=  1
+X=2^ 9 n=      75 minI=  10 @       601 meanI=   38.56 mean/L^2=0.874 min/L=1.51 minI_MH=  11 minII=  5 min(I+II)=  16 minI1(p=1mod4)=  2
+X=2^10 n=     137 minI=   7 @      1201 meanI=   52.18 mean/L^2=0.969 min/L=0.95 minI_MH=   7 minII=  4 min(I+II)=  11 minI1(p=1mod4)=  1
+X=2^11 n=     255 minI=   6 @      2521 meanI=   64.65 mean/L^2=1.003 min/L=0.75 minI_MH=   6 minII=  2 min(I+II)=   9 minI1(p=1mod4)=  1
+X=2^12 n=     464 minI=  13 @      4201 meanI=   79.59 mean/L^2=1.046 min/L=1.49 minI_MH=  13 minII=  7 min(I+II)=  20 minI1(p=1mod4)=  1
+X=2^13 n=     872 minI=  13 @     14401 meanI=   96.91 mean/L^2=1.093 min/L=1.38 minI_MH=  13 minII=  6 min(I+II)=  23 minI1(p=1mod4)=  1
+X=2^14 n=    1612 minI=  14 @     20521 meanI=  114.85 mean/L^2=1.124 min/L=1.38 minI_MH=  14 minII=  9 min(I+II)=  23 minI1(p=1mod4)=  1
+X=2^15 n=    3030 minI=  21 @     44641 meanI=  140.03 mean/L^2=1.200 min/L=1.94 minI_MH=  21 minII= 13 min(I+II)=  34 minI1(p=1mod4)=  1
+X=2^16 n=    5709 minI=  25 @     87481 meanI=  162.99 mean/L^2=1.233 min/L=2.17 minI_MH=  25 minII=  9 min(I+II)=  37 minI1(p=1mod4)=  3
+X=2^17 n=   10749 minI=  30 @    132721 meanI=  191.68 mean/L^2=1.290 min/L=2.46 minI_MH=  30 minII= 12 min(I+II)=  46 minI1(p=1mod4)=  3
+X=2^18 n=   20390 minI=  35 @    471241 meanI=  220.84 mean/L^2=1.331 min/L=2.72 minI_MH=  35 minII= 17 min(I+II)=  52 minI1(p=1mod4)=  3
+X=2^19 n=   38635 minI=  42 @    583801 meanI=  255.31 mean/L^2=1.385 min/L=3.09 minI_MH=  42 minII= 19 min(I+II)=  67 minI1(p=1mod4)=  3
+X=2^20 n=   73586 minI=  57 @   1092961 meanI=  291.52 mean/L^2=1.432 min/L=3.99 minI_MH=  57 minII= 18 min(I+II)=  88 minI1(p=1mod4)=  2
+X=2^21 n=  140336 minI=  60 @   2451289 meanI=  331.85 mean/L^2=1.482 min/L=4.01 minI_MH=  60 minII= 27 min(I+II)=  95 minI1(p=1mod4)=  2
+X=2^22 n=  268216 minI=  62 @   4889641 meanI=  376.17 mean/L^2=1.535 min/L=3.96 minI_MH=  62 minII= 30 min(I+II)= 104 minI1(p=1mod4)=  1
+X=2^23 n=  513708 minI=  82 @   8628481 meanI=  423.03 mean/L^2=1.583 min/L=5.02 minI_MH=  82 minII= 31 min(I+II)= 120 minI1(p=1mod4)=  4
+X=2^24 n=  985818 minI=  98 @  20322481 meanI=  474.36 mean/L^2=1.633 min/L=5.75 minI_MH=  98 minII= 37 min(I+II)= 151 minI1(p=1mod4)=  3
+X=2^25 n= 1894120 minI= 105 @  37117609 meanI=  529.82 mean/L^2=1.685 min/L=5.92 minI_MH= 105 minII= 44 min(I+II)= 171 minI1(p=1mod4)=  5
