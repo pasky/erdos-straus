@@ -274,12 +274,16 @@ are not invariants of the Gram matrix. (iii) Positivity: `(−Q, −S_c)` has th
 `−S_c ~ S_{c,−1}`; so "A > 0" is the choice `k = +1` vs `k = −1`, i.e. achieved inside the orbit exactly when
 the k-class is ±1; it is not an extra restriction beyond the class condition.
 
-**Prop 8.3 (local conditions are vacuous; PROVED).** For every `n` (prime or not, including odd squares) and
-every `(c,d)`, the system `f f' = N_{c,d}`, `f ≡ f' ≡ −1 (mod M)` is solvable in `ℤ_ℓ` for every prime ℓ
-(take `f = −1`, `f' = −N`: `−N ≡ −1 (mod M)`), and the embedding problem `T₀ → L` with the congruence data
-of Prop 7.1 is locally solvable everywhere (the local solution `f = −1` gives `A = −1, B = 0`, … — a local
-vector; positivity is an archimedean sign that is met by `(−Q,−S)`). So **genus (Siegel mass) and spinor
-genus data are identical for every n, and in particular for n = s², where f_II(s²) = 0** (Cor 6.2).
+**Prop 8.3 (everything except one sign is automatic; PROVED).** For every `n ≥ 1` (prime or not, including odd
+squares) and every `(c,d)`, the vector `Q₀ = [−1, 0, −dn] ∈ L` satisfies `q(Q₀) = −4dn`, `b(Q₀, S_c) = 4`,
+`B ≡ 0 (4d)`, `d | C`: a **global integral** solution of the whole embedding problem of Prop 7.1 except
+positivity `A > 0` (it is the trivial factorisation `N = (−1)(−N)`, i.e. `a = 0`). Equivalently `(−Q₀, −S_c)` =
+`([1,0,dn], S_{c,−1})` solves it with `A > 0` but in the class `k = −1`. So all local conditions (all ℓ-adic
+ones, and the archimedean one up to sign) and hence genus and spinor-genus data are satisfied **for every n**,
+in particular for `n = s²`, where `f_II(s²) = 0` (Cor 6.2). The entire content of Type II is: **N has a
+positive divisor in the class `−1 (mod M)`, while it always has the positive divisor `1` in the class `+1`** —
+the two differ exactly by the sign at ∞, i.e. by the ray class group mod `M·∞` (`(ℤ/M)^×`) versus mod M
+(`(ℤ/M)^×/±1`). Odd characters (`η(−1) = −1`) are what detect it (§9).
 *Consequence (PROVED, from 8.3 + Cor 6.2).* No statement of the form "locally represented + spinor
 condition ⇒ represented" can hold for the Type II embedding problem with its congruence data: the odd
 squares are a counterexample at every (c,d). The obstruction at squares is the quadratic-reciprocity
