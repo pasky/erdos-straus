@@ -197,7 +197,45 @@ set**: validity of the ES recipe (positivity of the output!) forces `S_j ∩ E_m
 Thm 4.1(b) (exceptional set `≪ N^{1−δ/2+ε}`) and Cor 4.2 follows verbatim.
 
 *Remark (the split case is a genuine gap).* When `E_m` contains `ℚ`-lines (a square class of `m`, Lemma 5.1), or for
-indefinite forms in `k ≥ 4` variables (whose level sets contain `ℚ`-lines and `ℚ`-planes for most `m` once `k ≥ 5` by
-Meyer's theorem), a fibre of `Φ_j` can be a rational line carrying `≍ T` points, and the counting argument gives
+indefinite forms in `k ≥ 4` variables (whose level sets typically contain `ℚ`-lines once `k ≥ 4`; Assessment), a fibre of `Φ_j` can be a rational line carrying `≍ T` points, and the counting argument gives
 nothing. This is the **divisor-problem** regime: `n + 4a²d = ef` with `(a, d)` fixed is a split binary form, whose
 integer points lie on the rational lines `e = const`. §6 shows that every quadratic substructure of ES is of this kind.
+
+## 6. The quadratic substructures of ES (step 1: systematic search)
+
+**Computation 6.1 (CERTIFIED, exact symbolic; `scripts/tern_sweep.py`, output `logs/tern_sweep.out.txt`).** On ET's
+total spaces `T^I = {4abd = ne+1, ce = a+b, 4acd = n+f, ef = 4a²d+1}` and
+`T^II = {4abd = n+e, ce = a+b, 4acd = f+1, ef = n+4a²d}` (4-dimensional; `n` is a coordinate), for each of the 15
+four-element subsets `V ⊂ {a,…,f}` we eliminate the other two coordinates (lex Gröbner basis) and keep the `V` for
+which `n` is a rational function of `V` (18 of 30). For each such `V` and each choice of 0, 1 or 2 coordinates of `V`
+treated as fixed parameters such that `n` is a **quadratic polynomial** in the free ones, we record the quadratic
+part. Result: 57 quadratic substructures; rank 1: 2, rank 2: 54, rank 3: 1, rank 4: 0. **Every one is isotropic over
+`ℚ(parameters)`**: all binary ones have discriminant a perfect square (e.g. `4ad·ce`, disc `16a²d²`; `−4ad(a − ce)`,
+disc `16c²d²`), i.e. they are split products of two linear forms; the ternary/rank-2 ones in three variables are
+degenerate. The only rank-3 one is
+
+> **(Q_d)** Type II with `d` fixed: `n = ef − 4d a²`, with side conditions `4ad | f + 1` (`c = (f+1)/(4ad)`) and
+> `b = ce − a ≥ 1`.
+
+`Q_d = ef − 4da²` contains the hyperbolic plane `ef`. Also the defining surface itself is split: fixing `x`,
+`4xyz = n(xy+yz+zx)` becomes `((4x−n)y − nx)((4x−n)z − nx) = n²x²`.
+So ES carries **no** positive definite (or anisotropic) quadratic substructure in ET's coordinates; its quadratic
+pieces are divisor problems.
+
+**Proposition 6.2 (the rank-3 piece; PROVED, elementary).**
+(i) `Q_d` represents every integer primitively over `ℤ` (`(e,f,a) = (n,1,0)`); so local representation
+conditions, genus and spinor genus impose nothing: all the arithmetic sits in the side condition `4ad | f + 1`.
+(ii) The side condition is not mild: `{(e,f,a) : 4ad | f+1}` is not a finite union of cosets of a lattice (its
+density in `{a ≍ A}` is `≍ 1/(dA)`), and positivity does not truncate `Q_d`: for fixed `n`, `E_n ∩ ℕ³` is
+infinite (`Σ_{a≤A} τ(n + 4da²) ≍ A log A` points with `a ≤ A`).
+(iii) For fixed `(a, d)` the side condition becomes a fixed-modulus condition, but then the form drops to the split
+binary `ef = n + 4a²d`, `f ≡ −1 (mod 4ad)`: ES(n) via `(a,d)` iff `n + 4a²d` has a divisor `f ≡ −1 (mod 4ad)` with
+`(f+1)e/(4ad) > a`. This is ET's Type II criterion (Prop 2.7 / Prop 1.9 family `−4a²d mod f`), a divisor-in-progression
+problem, not a representation problem.
+*Proof.* (i) direct. (ii) The density: among `f` in a range, a proportion `1/(4ad)` satisfies the congruence; a finite
+union of lattice cosets has a fixed positive density or zero. The `τ` count is ET (A.5)-type standard. (iii) ET (2.18),
+(2.19), (2.14). ∎
+
+*Assessment.* Linear changes of variables preserve isotropy, and the coordinates `x, y, z, a, …, f` and their
+products exhaust the known parametrisations (ET §2 lists all classical ones as charts of `Σ^I, Σ^II`). We did not
+search over arbitrary nonlinear reparametrisations; Theorem 4.1 makes that unnecessary for definite forms.
