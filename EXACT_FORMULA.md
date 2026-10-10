@@ -207,3 +207,67 @@ residual (‖r‖/‖y − ȳ‖) on the test set 0.57 (T1⁺), 0.72 (T1⁻), 0.
 0.50 (f_II-type T2⁺.prim); test rms 61, 49, 21, 21, 31, 11 against means 139, 186, 49, 48, 102, 38. The
 dictionary (mostly τ(p ± 1), τ(4p ± 1), τ(8p + 1)-type columns) captures about half of the fluctuation, as the
 Eisenstein picture (Prop 4.1) predicts (the low levels contribute σ_η at 4p+1, 8p+1, 12p+1, …), and nothing more.
+
+## 5. Round 2: the Type I CM torus (anisotropic) — it collapses too
+
+Setting: p prime, p ∤ 2cd, `K = ℚ(√−d)`, `α = α_{c,d}(p) = p + 2c√−d ∈ ℤ[√−d]`, `N(α) = p² + 4c²d`, q = 4cd.
+Type I solutions with this (c,d) (ordered, i.e. both a ≶ b) are the divisors `f | N(α)` with `f ≡ −p (mod q)`
+(O123 Lemma 2.1(iii)); only p inert in K contribute (O123 Lemma 2.4 / GEOMETRY_ES Prop 5.1).
+
+**Lemma 5.1 (ideal divisors of α = integer divisors of N(α); PROVED).** α is primitive (no rational integer
+m > 1 divides it, as gcd(p, 2c) = 1) and every prime ℓ | N(α) is odd, prime to d (ℓ | d ⇒ ℓ | p), hence prime to
+the conductor of ℤ[√−d] and unramified in K; since α is primitive, ℓ is not inert (ℓ | α would follow), so ℓ splits,
+ℓ = 𝔩𝔩̄, and α is divisible by exactly one of 𝔩, 𝔩̄, to the full power `v_ℓ(N(α))`. Hence
+`𝔞 ↦ N𝔞` is a bijection `{ideals 𝔞 | (α)} → {f ∈ ℕ : f | N(α)}` (inverse `f ↦ (f, α)`). ∎
+Checked with PARI (`scripts/exf_cm_check.py`, maximal orders, idealfactor): 9908 triples (p < 400 inert,
+c ≤ 7, d < 60 squarefree), #ideal divisors = τ(N(α)) and one prime ideal per rational prime, 0 failures.
+
+**Theorem 5.2 (Type I fixed (c,d) is a ray-class divisor count of one element, seen only through norms; PROVED).**
+(i) `T1_{c,d}(p) = #{𝔞 | (α) : N𝔞 ≡ −p (mod 4cd)}`, and the condition depends only on the ray class of 𝔞 in
+`Cl_{4cd}(K)` through the norm map `Cl_{4cd}(K) → (ℤ/4cd)^×`.
+(ii) Expanding in Hecke characters ψ of `Cl_{4cd}(K)`, only the characters trivial on ker(Norm) occur, i.e.
+`ψ = χ∘N` with χ a Dirichlet character mod 4cd:
+  `T1_{c,d}(p) = (1/φ(4cd)) Σ_{χ mod 4cd} χ̄(−p) Σ_{𝔞|α} χ(N𝔞) = (1/φ(4cd)) Σ_χ χ̄(−p) σ_χ(p² + 4c²d)`.
+(iii) The class-group characters of K that occur are exactly those of the form χ∘N, i.e. the **genus characters**;
+every non-genus class-group character (and every Hecke character not factoring through the norm) has coefficient 0.
+Pairing χ ↔ χχ_{−4d} (χ_{−4d}(N𝔞) = 1) gives
+  `T1_{c,d}(p) = ((1 + χ_{−4d}(−p))/φ(4cd)) Σ_{χ mod 4cd / ⟨χ_{−4d}⟩} χ̄(−p) σ_χ(p² + 4c²d)`,
+the genus factor of O123 Lemma 2.4 as an exact identity.
+*Proof.* (i) Lemma 5.1. If 𝔞 ≡ 𝔞' in `Cl_{4cd}` then `𝔞 = 𝔞'(β)`, β ≡ 1 mod 4cd, so `N𝔞 ≡ N𝔞'`. (ii) orthogonality
+on the finite group `(ℤ/4cd)^×` after composing with N; then Lemma 5.1 turns `Σ_{𝔞|α} χ(N𝔞)` into `σ_χ(N(α))`.
+(iii) A character of Cl(K) is of the form χ∘N iff it is a genus character (genus theory). ∎
+
+**Answer to the round-2 question.** The CM torus does **not** bring class-group structure into the count: the ES
+condition sees an ideal divisor 𝔞 of α only through `N𝔞 mod 4cd`. That loses exactly the information of the
+class of 𝔞 beyond its genus. The count is the *same* object as in the split (Type II) case: a divisor count of the
+single integer `p² + 4c²d` in a residue class mod 4cd, expanded in Dirichlet characters (σ_χ = weight-1
+Eisenstein coefficients). The only difference from Type II is the genus factor `1 + χ_{−4d}(−p)` (inert condition).
+It is not "a class-group-theoretic quantity for fixed p": non-genus Hecke-L data enter with coefficient 0. For a
+fixed p there is no Frobenius of p in the Hilbert class field to correlate with either, since p is inert, so pO_K is
+principal and splits completely in H/K.
+
+**5.3 Where the class group does show up: only in the mean (EVIDENCE; `scripts/exf_cm_classes.py`,
+`scripts/exf_cm_bias.py`, outputs `data/exf/cm_*_out.txt`).** For fixed (p,d) all Type I ideals lie in **one genus**
+(N𝔞 ≡ −p fixes every genus character). Within it, the classes of the Heegner forms [f, 4ad, de] (= class of 𝔞,
+up to the principal ramified ideal (√−d)) are **not** uniform. Primes ≤ 2·10⁴:
+* the principal class carries 0.23–0.37 of the solutions for d = 14, 26, 29, 41, against 1/h = 0.25, 0.17, 0.17,
+  0.125 (it is ≈ 2× any other class of its genus; e.g. d = 26: 594 vs 340, 320);
+* the bias persists for f > 100 and does not decay over p ∈ [5, 2·10⁴]. It comes from the complementary norm
+  e = (4a²d+1)/f being small (the class of 𝔞 is that of an ideal of norm e). This is a small-norm
+  (Kronecker-limit / L(1,ψ)) bias of the *averaged* Heegner count, the class-dependent constant in the TTL main term;
+* no class is always hit (P(class hit) 0.24–0.85). Per-p dispersion across the classes of a genus is 2.6–11× the
+  multinomial value, from the clumping of solutions with small e.
+So class-group/Hecke-L data enter only as lower-order constants in averages over p, never as a pointwise identity.
+
+**5.4 Weight 3/2 / Brandt (not done beyond round 1; Assessment).** Round 1 already tested the weight-3/2 Eisenstein
+(Zagier/Cohen) coefficients H(kn) and their convolutions Σ_x H(mn − x²): rank intersection 0. Brandt-matrix
+theta series at level n were not computed. By Thm 5.2 and O128 Prop 9.1, both Type I and Type II fixed-(c,d) counts
+are exactly Dirichlet-twisted divisor counts of the integers p² + 4c²d and 4c²dp + 1, with no definite-quaternion
+or class-group input. A Gross-type formula (which counts ideal classes of a definite order) would have to reproduce
+these divisor counts summed over ≍ p log p levels. I see no mechanism for that, and the √p size of Brandt/class-number
+coefficients against the log³p size of the count would require exact cancellation.
+
+**Net (round 2).** Both tori collapse to the same thing: Type II has a split torus (O128) and Type I an anisotropic CM
+torus (Thm 5.2), but in both cases the ES condition is on norms mod 4cd only. ES at fixed (c,d) is a ray-class
+divisor condition on a single integer, with genus theory as the only class-group content. No class-number
+positivity is available on this route. Negative; ES not proved.
