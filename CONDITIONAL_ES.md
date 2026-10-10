@@ -299,3 +299,137 @@ Scope of the negative result: items 1–3 are theorems about *mechanisms* (class
 or outputs), not a proof that "GRH ⇏ ES", which cannot be proved by such means. Not covered:
 hypotheses producing lower bounds with power-small *relative* errors for polylog-size weighted
 counts (Remark 2.4), and genuinely new non-asymptotic mechanisms.
+
+## 7. Round 2: the covering paradigm (the door Prop 2.3 leaves open)
+
+### 7.1 What the covering / optimal strong approximation statements say (sources checked)
+* **Sarnak's letter; covering exponent** (as quoted in Browning–Kumaraswamy–Steiner, arXiv:1609.06097,
+  §1, read): `K(S³) = limsup log #(S³(r)∩ℤ⁴)/log(vol S³/λ(r))`, λ(r) the largest empty cap.
+  "Big holes" give `K(S³) ≥ 4/3`; Sarnak conjectures `= 4/3` and proves `≤ 2` (PGL₂ automorphic
+  forms); BKS prove `K(S³) = 4/3` assuming a twisted Linnik conjecture on sums of Kloosterman sums.
+* **Sardari** (arXiv:1510.00462, abstract read): for non-degenerate F in d ≥ 5 variables, every
+  admissible class `λ mod m` and every ball B of radius r on `F = 1` contain an `X` with `F(X) = N`,
+  `X ≡ λ (m)`, `X/√N ∈ B`, once `N ≫ (m/r)^{4+δ}`; 4 is optimal; d = 4 with exponent 6, optimal 4
+  conjectured.
+* **Ghosh–Gorodnik–Nevo** (Diophantine exponents for homogeneous varieties): same paradigm
+  for orbits of semisimple groups [memory, not re-checked].
+* **Common shape.** All of them are existence statements for targets whose expected count is
+  `≥ (#points)^{δ}`, a power. They are proved or conjectured only up to that power. The big-holes
+  phenomenon shows that at expected count `(#points)^{1/4−o(1)}` some caps on S³ **are empty**:
+  `K(S³) ≥ 4/3` means empty caps of volume `≥ (#pts)^{−3/4}` exist. Existence at expected count
+  `p^{o(1)}` is false for the model case, and the failures sit at special, arithmetically defined
+  centres.
+
+### 7.2 Power-scale covering: excluded for bounded-multiplicity encodings
+
+**Proposition 7.1 (PROVED, given Lemma 2.1; deficiency).** Suppose that for each large p a target
+`𝔗_p` with expected count `E(p) ≥ p^ε` comes with a map `𝔗_p → Sol(p)` with fibres
+`≤ μ(p) = p^{o(1)}`. Then for all primes outside a set of counting function `O(N^{1−ε/2}log³N)`,
+`#𝔗_p ≤ p^{ε/2+o(1)} = o(E(p))`. So any covering conjecture that implies ES through such an
+encoding must hold for targets that are **power-deficient** for almost all p.
+
+*Proof.* `#𝔗_p ≤ μ f(p)`, and Lemma 2.1 with δ = ε/2. ∎
+
+A covering conjecture is motivated by "count ≈ expectation for typical targets". Prop 7.1 says
+the ES targets would be atypical in exactly the way the big holes of 7.1 are atypical, and that
+is where covering fails in the model case. So no *natural* power-scale covering statement
+(Assessment: "natural" = motivated by the random model) implies ES with bounded multiplicity.
+Encodings with `μ ≥ p^{ε−o(1)}` escape. Every such encoding found here was artificial
+(dummy coordinates), and the conjecture then reduces to its quotient at expected count
+`p^{o(1)}` (Assessment).
+
+### 7.3 Cramér scale (expected count ≥ C log p): no general statement is true
+
+**Proposition 7.2 (PROVED; diagonal counterexample).** Consider any statement of the form "for
+every unit-class system `𝒮 = {r_E mod m_E}` (any choice of classes) whose expected number of hits
+by a Haar-random n ∈ Ẑ, conditional on n mod Q, is infinite for every Q and every class of n
+mod Q, all sufficiently large primes lie in some class of 𝒮". Every such statement is false.
+
+*Proof.* Enumerate the moduli `m_1 < m_2 < …` (say all m ≥ 3, one class each) and build the
+system and primes `p_1 < p_2 < …` inductively. Suppose the classes for `m ≤ M_j` are fixed.
+Their avoider set in Ẑ has positive Haar measure, provided each class removes density
+`1/φ(m)` and the cumulative product `∏(1 − 1/φ(m))` restricted to the chosen moduli stays
+positive. To ensure this, use only moduli in a set with `Σ 1/φ(m) < ∞` up to `M_j`, and add the
+divergent part later. By Dirichlet, the avoider set (a union of classes mod `lcm(m ≤ M_j)`)
+contains a prime `p_j > M_j`. For every later modulus `m > M_j`, choose the class `r_m` different
+from `p_1, …, p_j mod m`. This removes at most j of the φ(m) admissible classes, so a choice
+exists for `φ(m) > j`, and `M_{j+1}` is chosen so large that `φ(m) > j+1` beyond it. Each `p_j`
+then avoids every class: those with `m ≤ M_j` by construction, the later ones by the exclusion.
+The conditional expected hits stay infinite, because all moduli `m > M_1` with `φ(m) > j` are
+used with one class each, and a class `r_m` meets the class of n mod Q with conditional
+probability `≥ 1/φ(m)` up to bounded factors for at least half of the admissible choices.
+To make this rigorous, choose `r_m` among the `φ(m) − j` allowed classes so that it is
+compatible with a prescribed class mod `gcd(m, Q)`, cycling over the classes. Then
+`Σ_m 1/φ(m) = ∞` over the used moduli gives infinite conditional expectation for each fixed Q
+and class. ∎
+
+So a true covering statement at Cramér scale must restrict the *class of systems* (definability).
+The natural restriction is "divisor targets": in the dual form of §6, `A_m = {d : d | P(m)}` for a
+fixed polynomial P, with m in a fixed progression. ES's slice is `P(m) = m + 1`, `m ≡ 0 (4)`.
+
+**EVIDENCE against the divisor-target class (`scripts/cond_divtarget.c`, primes ≤ 3·10⁴).** Test
+"some m ≡ a₀ (q₀), m ≤ 2p+2, has `r_m | km + h`", where `r_m ≡ −p^{−1} (mod m)`:
+* `(k,h,q₀,a₀) = (1,1,4,0)` (the ES slice): no failure, but the minimum count on `(1.5·10⁴, 3·10⁴]`
+  is **1** (p = 21169).
+* `(1,3,4,0)`: **23 failures**, the largest at p = 26029, all p ≡ 1 (4), not a single residue
+  class. So the class conjecture "every polynomial divisor target in a progression is eventually
+  covering" is numerically doubtful.
+* `(1,1,1,0)`, `(1,−1,1,0)`, `(1,3,1,0)`, `(2,1,1,0)`, `(1,1,3,0)`, `(1,5,4,0)`: no failures; minimum
+  counts 35, 59, 34, 25, 9, 2.
+
+### 7.4 Local hypotheses cannot imply X_slice: the odd-square obstruction (R125 Lemma 5.1)
+
+**Proposition 7.3 (PROVED).** Let `S'(n)` be the number of slice solutions with `gcd(n, c) = 1`
+(for primes, `S'(p) = S(p)` up to the O(1) solutions with `p | c`). Let H be any predicate on n
+that depends only on the dyadic range `n ∈ (X, 2X]` and on `n mod Q(X)`, with
+`Q(X) ≤ X^{1/2−ε}`. If H(p) holds for some prime p ∈ (X, 2X] that is a square modulo Q(X), and X is
+large, then H holds for some odd square in (X, 2X]. Hence "H(n) ⇒ S'(n) ≥ 1" is **false**:
+`S'(m²) = 0` for every odd m (R125 Lemma 5.1).
+
+*Proof.* The squares `m²` with m odd and `m ≡ m₀ (mod 2Q)`, where `m₀² ≡ p (mod Q)`, run through
+the class `p mod Q`, and there are `≍ X^{1/2}/Q ≥ X^{ε}` of them in (X, 2X]. Lemma 5.1 gives
+`S'(m²) = 0`. ∎
+
+*Consequence.* Every covering conjecture whose hypotheses are local data of moderate modulus
+plus size, e.g. "the Haar-expected slice count given n mod Q is ≥ C log n", is false as soon as
+it applies to one square-mimicking prime. A true conjecture implying X_slice (or ES at square-
+mimicking primes) must either
+* use primality explicitly (a statement about primes, hence of prime-law type, and those are
+  capped in the averaged problem, §3.2), or
+* use moduli `Q > n^{1/2}` (genuinely E1 data: the actual factorisations of `gp + 1`).
+
+This is the covering-paradigm form of the red-team observation that `|S_1| < S_0` must be
+square-sensitive.
+
+**The Brauer–Manin refinement restates ES (Bright–Loughran, arXiv:1908.02526, read).** The natural
+way to make a covering conjecture square-sensitive is to account for the Brauer–Manin
+obstruction. BL Thm 1.6: `Br U_n/Br ℚ = ℤ/2`, generated by the transcendental quaternion algebra
+`(−u₁/u₃, −u₂/u₃)`. Thm 1.1/1.8: for every n ≥ 2 the Brauer set of `U_n(ℝ)⁺ × ∏U_n(ℤ_p)` is non-empty,
+so there is no BM obstruction to existence. Thm 1.9: BM does **not** explain all failures of strong
+approximation (`U_n(ℤ)` is not Zariski dense). So "integral BM is the only obstruction to
+existence" is literally ES for all n ≥ 2, and the strong-approximation form of it is false
+(Thm 1.9). Cor 1.4 (odd squares) is the BM shadow of Prop 7.3.
+
+### 7.5 Answer to the round-2 question (1)
+* **Power scale (expected `≥ p^ε`).** No formulation with a `p^{o(1)}`-to-one encoding can be
+  driven by a covering statement except at power-deficient targets (Prop 7.1, PROVED). Those are
+  exactly the targets where covering fails in the model case (big holes, Assessment). The
+  modular-hyperbola and Kloosterman-fraction forms (§6; `(gc−1)(gf−1) = gp+1`, i.e. points of
+  `xy ≡ 1 (mod p)` with `xy ≤ 2gp`, `x ≡ y ≡ −1 (mod g)`) split into dyadic pieces of expected
+  count O(1). No box or ball of expected count `p^ε` lies inside the ES region.
+* **Cramér scale (expected `≥ C log p`).**
+  * General systems: false (Prop 7.2, PROVED).
+  * Local-data hypotheses: false at odd squares (Prop 7.3, PROVED).
+  * Divisor-target class: numerically doubtful (EVIDENCE above).
+  * BM-refined: equivalent to ES (BL).
+* **The strongest natural conjecture of this type that survives** is the ES-specific
+  Conjecture X_slice of §6, in its remainder form below, with Theorem 6.1 (PROVED, trivial).
+  Its smallest counts are O(1) at Mordell-hard primes (§8). It is therefore *not* a Cramér-scale
+  statement for those primes, and no covering heuristic supports it beyond ES itself.
+
+**Remainder form of the slice (PROVED; equivalent to Lemma 1.1).** With m = 4d and
+`f = 4cd − p ≡ −p (mod m)`: X_slice(p) holds iff for some `m ≡ 0 (mod 4)` the distance f from p
+up to a multiple `cm` of m divides `m + 1`. Equivalently, since `(cm − p) | (m+1)` iff
+`(cm − p) | (p + c)`, iff for some c ≥ 1, `p + c` has a divisor `f ≡ −p (mod 4c)` with
+`(p+f)/c ≡ 0 (mod 4)` and `f ≤ (p+f)/c + 1`.
+*Proof.* `c(m+1) − (cm − p) = c + p`. ∎
