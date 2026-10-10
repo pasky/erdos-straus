@@ -108,7 +108,72 @@ small T2 lemma are new; nothing is FATAL. Details per document, then a summary t
   `v_p(dpe)` odd, i.e. `p ∤ e` (if `v_p(e)` were odd, B would split at p). This holds: `e | 4a²d + 1`
   (Lemma 1.1), so `p | e` would give `(−d/p) = +1`, contradicting `(−d/p) = −1` (GEOMETRY_ES Prop 5.1). Insert
   the line. Sanity check `scripts/rt2_pdivides_e.py` (p < 60, a, d < 4p): no Type I solution has `p | e`.
+  *(Post-merge note: R130, `reviews/quaternion-es-review.md` MINOR-1, found the same gap independently, and the
+  repair is now in QUATERNION_ES.md. R130 MAJOR-1 adds that GZ's hypotheses (coprime fundamental discriminants)
+  fail here. Prop 5.1 is now a direct local embedding count. My T-verdicts are unchanged by the repairs.)*
 * **Prop 5.1** "PROVED modulo the cited shape of the GZ local factor". The proof uses only that the x = 2 term is
   a function of `n = pe` and the ε-characters at `ℓ | n`, and that for p inert the p-factor is constant in p. The
   explicit pairs then separate ES status. This is fine as stated. The robust content is already Prop 2.2, which
   needs no GZ input.
+
+### 1.5 Test summary
+
+| route | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| O123 fixed-p Type I tubes | genus factor (L2.4) | single targets emptied under H (P5.3) | **example (TS) contains `n_p ≤ L²`** (§1.1) | via d | n/a | fresh primes | P5.4 = exact leak | exact | **negative conclusion correct**; scope repair to the example |
+| O128 Type II shells | `(p/f)=−1` | single shells emptied under Dickson (L1.2.1, new) | PASS | via f | nothing truncated claimed | n/a | §3 flagged | exact | **negative conclusion correct**; add "Assessment" inline in §0/§9 |
+| O131 exact formulas / CM torus | T2⁺(m²)=0, Thm 5.2(iii) | — | — | — | — | — | §5.3 | — | **correct**; Thm 5.2 is PROVED and per slice |
+| O130 quaternion / supersingular | genus (§4) | Prop 2.2: collision automatic | `d ≥ n_p` (Type I) | via d / f | — | — | x-sum = leak (P5.1) | exact | **correct**; p ∤ e gap (also R130) |
+
+No route survives as a *route*. As in red team 1, the surviving objects are *targets*: restatements of Type I/II
+existence at fixed p, each of which is ES-hard.
+
+### 1.6 Second-reviewer audit of the headline "automorphic/geometric routes meet a Planck-scale divisor-in-class barrier"
+
+What is PROVED (all elementary or relative to ET), and where:
+1. **Reductions (equivalences).** Each encoding is *equivalent* at fixed p to "∃ parameter θ such that one
+   specific integer `P_θ(p)` has a divisor in a residue class mod `q_θ`". The sources are O123 L2.1, O128 P8.1,
+   O130 P2.1/P3.2, O131 Thm 5.2, red team 1 P6.2 and CONDITIONAL_ES L1.1. §2 below collects them into one
+   statement.
+2. **Invisibility.** The class-level invariants of the automorphic object do not see the ES condition. For the CM
+   torus, non-genus characters have coefficient 0 (O131 Thm 5.2(iii), PROVED). For the GZ collision, the
+   collision is automatic for admissible `(d,e)` (O130 P2.2, PROVED). For Heegner encodings, ES-goodness is a
+   property of the representative, not of the CM point (GEOMETRY_ES P4.1, O128 §8: `Stab(S_c) = ±I`; PROVED in
+   the form "each class has infinitely many representatives of the shape, finitely many good").
+3. **Scale.** There are three rigorous scale facts:
+   * thickening the Type I tube to width K/p is averaging over `|n−p| ≤ K` (O123 P5.4);
+   * Type II shells have width `|D|^{−1/2}`, below the point spacing `|D|^{−1/4}` (O128 P2.4/2.5, exact
+     incidence);
+   * the integrality and scale constraints (red team 1 P2.1, P2.4 = O127 P2.3).
+4. **Genus data hold at odd squares** (every document; T1).
+
+What is **Assessment**, and must stay labelled so:
+* (a) **"Barrier".** Items 1–4 show the *encodings add nothing*. They do not show that the divisor-in-class event
+  is out of reach of every automorphic input. The word "barrier" is an Assessment about known technology. The
+  defensible PROVED-level phrasing is: *"every automorphic/geometric encoding examined is, at fixed p, exactly
+  equivalent to a divisor-in-class statement for one integer per parameter; the automorphic object's own
+  invariants carry only genus and congruence data (Thms §2)."*
+* (b) **"No standard hypothesis suffices."** This is logically empty unless restricted to a mechanism: if ES is true,
+  every hypothesis implies it. All four source documents do restrict it ("by this route"). The ledger entry (I)2
+  is titled "No standard conjecture is **known** to imply ES", which is correct. Any STATUS / CAMPAIGN_SUMMARY
+  phrasing must keep "by these routes" or "known".
+* (c) **"Planck scale"** means two different things in the documents.
+  * The *geometric* sense (target width ≍ |D|^{−1/2}) is PROVED for the specific encodings.
+  * The *arithmetic* sense is "a single integer's divisors". For small `(c,d)` the modulus `q_θ = 4cd` is tiny, and
+    the difficulty is not equidistribution at a fine scale. It is that `Σ_χ χ̄(r) σ_χ(N)` for one integer N is not
+    controlled by any average (N prime ⇒ only the divisors 1, N).
+  * The second sense is the more fundamental. §2 states it as a theorem, the "single-integer" reading.
+* (d) **Routes dismissed too quickly?** Not dismissed but *untested*:
+  * (i) Brandt matrices / weight-3/2 theta series at level n (O131 §5.4, Assessment only);
+  * (ii) any object of rank > 2 (GL₃, Sym², cubic or non-abelian Frobenius data, POINTWISE_SIZE E3). The whole wave
+    used GL₂/quadratic objects, because ET's varieties are quadric/toric;
+  * (iii) inputs that see the *joint* factorisation of a growing family `{P_θ(p)}_θ`.
+
+    These are the escape hatches of §3. Kudla–GKZ (O128 §9) and fibration/BM (O126, red team 1 §7) were tested
+    adequately.
+* (e) **Scope of "every encoding".** The six encodings examined are all coordinate projections of ET's two
+  varieties (§2). An encoding *not* factoring through ET's parametrisation would be new. The only other
+  parametrisations are BL's toric model and the ET Type I/II dichotomy, so §2's scope is in practice all of
+  ET-based ES. Solutions with p dividing two or all three denominators exist only for small p (ET §2). So this
+  covers every solution for large p (ET Prop 1.3/2.x; Assessment that nothing is lost, stated at the level of ET's
+  classification).
