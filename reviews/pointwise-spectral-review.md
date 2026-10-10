@@ -118,3 +118,18 @@ Divisors of the prime p²+12 are 1 and p²+12 ≡ 1 (mod 12), neither ≡ −p �
   claim "expectation ≍ L" is unaffected. Also note the emptiness is *structural* (an algebraic reason), so the
   example shows that the per-target Poisson expectation is the wrong model for a thin set of p, not that targets
   fail "randomly".
+* Data re-checked from scratch (`scripts/review_r123_prop53.py`, own Miller–Rabin): exactly **3630** primes
+  p ≡ 5 (12) in [10⁶, 3·10⁶) with p²+12 prime; target (1,3) empty for all 3630 ✓.
+
+**Prop 5.4: SOUND-AFTER-REPAIRS (D7).** The integer identity is right: for z = (2ad + i√d)/f ∈ Λ_d,
+(2c√d x − √d − p y)/y = 4acd − f − p = n − p with n := 4acd − f (hand derivation as in Claim 2; also the floating
+test in `review_r123_areas.py` is the K = 0 case). So {|k| ≤ K} picks exactly the points with |n − p| ≤ K, and the
+hyperbolic width of the thickened wedge is ≈ (2K+1)/p (Claim 2's width formula with p ± 1 → p ± (K+1/2)).
+* **D7 (MINOR, overstated "exactly averaging f_I").** For n ≠ p the point counts the ET N-points (a,c,d,f) of n,
+  not Type I *solutions* of n: (i) for composite n the condition gcd(c,n) = 1 (ET Prop 2.3) is not imposed by the
+  region, (ii) non-primitive quadruples are counted (D1), (iii) the f-window is tied to p (f ≤ 2p), not to n's own
+  normalisation a ≤ b. So the thickened count is Σ_{|n−p|≤K} N_{c,d}(n) with N_{c,d}(n) ≥ (Type I count of n with
+  these c, d), equality failing for composite n. (R123 repair): replace "counts exactly Σ_{|n−p|≤K} #{Type I quadruples
+  of n …}" by "counts exactly Σ_{|n−p|≤K} #{(a,f) : f | 4a²d+1, 4acd − f = n, f ≤ 2p}, which for prime n differs from
+  the Type I count only by non-primitive quadruples and the window". The structural consequence (spectral scale V ⇒
+  information only about averages over |n−p| ≲ p/V) is unaffected and is in fact the cleanest point of the document.
