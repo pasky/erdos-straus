@@ -7,7 +7,7 @@ Referee: R134 (hostile, independent). Branch `side-agent/referee-automorphic-not
 
 ### §2 Dictionaries
 * Lemma 2.2 (three shapes): **SOUND-AFTER-REPAIRS** (D1: quantifier of d resp. a in (ii)/(iii)). Proof re-derived line by
-  line; identities checked by `scripts/review_r134_dict.py`.
+  line; identities checked by `scripts/review_r134_slices.py` (all tuples, p<400).
 * Prop 2.3 (T_p Hecke form): **SOUND** (coefficients and root relation re-derived; numerically checked).
 * Prop 2.4 (wedge, width): **SOUND** (x/y = 2a√d, √d/y = f; edges are rays from 1/(2c), i.e. hypercycles of
   Re z = 1/(2c); width = arsinh difference, derivative ≈ 2/√(p²+4c²d) re-derived).
@@ -15,7 +15,7 @@ Referee: R134 (hostile, independent). Branch `side-agent/referee-automorphic-not
 * Prop 2.6 (Type II): (a),(c),(d) **SOUND** (re-derived; lattice 4·[−dp,1,c²] checked). (d) uses gcd(dp,f)=1
   without comment (MINOR D2). (b) is a pointer to O128/TH (not re-derived here beyond a numerical check).
 * Prop 2.7 (Brauer = genus): **SOUND** as a folklore attribution; proof (b) reciprocity step re-derived.
-* Prop 2.8 (B_{p,∞}): **SOUND** (w = 2dv+u anticommutes, w² = −d(4dm−1); Hilbert symbols at p, ℓ|e, ℓ|d, ∞
+* Prop 2.8 (B_{p,∞}): **SOUND** (Gram det −(4dm−1)² and ramification {p,∞} checked on 2632 Type I tuples p<300 by `scripts/review_r134_dict.py`; w = 2dv+u anticommutes, w² = −d(4dm−1); Hilbert symbols at p, ℓ|e, ℓ|d, ∞
   re-derived). GZ correctly labelled formal analogy.
 * Lemma 2.9, Prop 2.10, Prop 2.11: **SOUND** (re-derived).
 
