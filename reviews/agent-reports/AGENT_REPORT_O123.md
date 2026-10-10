@@ -29,10 +29,10 @@ numbers.
 4. **Gap (§4, Assessment).** In the best family:
    * relative measure ≈ L²|D'|^{−1/2} and width |D'|^{−1/2}, i.e. Planck × polylog;
    * gaps of p^{5/6} (Young, unconditional, area), p^{1/2} (Lindelöf), p^{8/9} (cusp strips, width);
-   * the Hecke-orbit bound misses by ≈ p even under Ramanujan + Lindelöf.
+   * the Ramanujan-only Cauchy–Schwarz Hecke-orbit bound misses by ≈ p (R123 repair: Lindelöf does not enter it).
 5. **Step (5) (§5).**
    * Thm 5.1 (PROVED rel. (D)32b): f_I(p) ≤ ψL³ except for a proportion O(1/ψ) of primes.
-   * Prop 5.3 (CONDITIONAL on H): infinitely many p ≡ 5 (12) have the target (c,d) = (1,3) empty (expectation ≈ 0.5L). Data: 3630/3630 such p in [10⁶, 3·10⁶).
+   * Prop 5.3 (CONDITIONAL on H): infinitely many p ≡ 5 (12) have the target (c,d) = (1,3) empty (expectation ≈ 0.17L; R123 repair: was "≈ 0.5L"). Data: 3630/3630 such p in [10⁶, 3·10⁶).
    * Prop 5.4 (PROVED): thickening the target to width K/p is exactly averaging f_I over |n−p| ≤ K. So the spectral scale V gives only interval averages of length p/V, where short-interval results already exist.
    * Verdict (Assessment): GRH, GLH/Lindelöf (any aspect), Ramanujan, Selberg and twisted Linnik do not suffice. A sufficient statement is a Planck-scale, polylog-accurate, genus-aware aggregate, which is just Type I restated.
 

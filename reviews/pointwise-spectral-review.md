@@ -4,6 +4,23 @@ Reviewer branch `side-agent/review-spectral`, merged `side-agent/spectral-flip`.
 from-scratch code `scripts/review_r123_*.py` (no reuse of `scripts/spec_*`). Sources: ET = `sources/elsholtz-tao-1107.1010.pdf`
 (read directly).
 
+## Summary verdict
+
+| Claim | Verdict |
+|---|---|
+| 1. Lemmas 2.1–2.4 (fixed-p forms, Hecke identity, a = 1 / Type II hyperbolas, genus) | **SOUND** (D1, D2 minor) |
+| 2. Props 3.1/3.2 (point-in-wedge ⇔ Type I, areas, widths) | **SOUND** (D3 minor) |
+| 3. §4 gap numbers vs Young / Humphries–Radziwiłł; Assessment labels | **SOUND as Assessment** (D4, D5 minor) |
+| 4a. Thm 5.1 (Markov from (D)32b; f_I conventions compatible) | **SOUND** |
+| 4b. Prop 5.3 (CONDITIONAL on H; 3630/3630) | **SOUND-AFTER-REPAIRS** (D6: expectation is ≈ 0.17 L, not 0.52 L) |
+| 4c. Prop 5.4 (thickening = interval averaging, k(z) = n − p) | **SOUND-AFTER-REPAIRS** (D7: counts ET N-points, not Type I solutions, for n ≠ p) |
+| 5. Verdict reasons 1–3 | **conclusion SOUND as Assessment; reason 1 GAP** (D8 MAJOR: GRH can enter with polylog loss via moments/effective Siegel — repaired by reducing it to reason 2 with an explicit Cauchy–Schwarz computation); D9 minor |
+| 6. Numerics (f_I, f_II ≥ 1 for p ≤ 10⁷; window minima) | **SOUND**, reproduced exactly by independent code (D10 minor) |
+
+No FATAL defects. One MAJOR (D8, an argument gap in an Assessment, not in a PROVED statement). All repairs have been
+applied in `POINTWISE_SPECTRAL.md` (and two in the agent report), each marked "(R123 repair)", as instructed by the
+task (author out of context). ES is not proved; the document's negative conclusion stands.
+
 ## Claim 1 — Lemmas 2.1–2.4 (fixed-p forms)
 
 **Verdict: SOUND (minor presentational defects D1, D2).**

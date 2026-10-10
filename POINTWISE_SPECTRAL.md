@@ -10,6 +10,7 @@ solutions (x,y,z) with y ≤ z (each once; normalisation a ≤ b, gcd(a,b,c) = 1
 * **Numerics (§1, EVIDENCE).** For every prime p ≤ 10⁸, f_I(p) ≥ 1 and f_II(p) ≥ 1; even the a = 1 slice of
   Type I never fails. The window minimum of f_I grows (62 at X = 2²², 105 at 2²⁵) and stays ≈ 0.16–0.2 × the mean ≈ 0.1 L³.
   So "Type I alone fails for infinitely many p" has no numerical support; Type I ∪ Type II is never needed.
+  (R123 repair: the min/mean ratio is ≈ 0.12–0.20, not 0.16–0.2; see §1.)
 * **Exact fixed-p forms (§2, PROVED).** Type I ⇔ `f | p² + 4c²d`, `f ≡ −p (mod 4cd)` (Lemma 2.1). The disc −4dp²
   form of a solution is the T_p-Hecke translate `Q₋∘[[1,2bd],[0,p]]` of the level-d Heegner form (Lemma 2.2). The
   genus condition `χ_{−4d}(−p) = +1` (Lemma 2.4) is the step that fails at every odd square (ET Prop 1.6).
@@ -19,8 +20,9 @@ solutions (x,y,z) with y ≤ z (each once; normalisation a ≤ b, gcd(a,b,c) = 1
   target is ≈ κ_d(1+χ_{−4d}(−p))L/(cd), and 13–89 % of the single targets are empty in the data.
 * **Gap (§4, Assessment).** In the best family the relative target measure is ≈ L²·|D'|^{−1/2} and the width is
   |D'|^{−1/2}, i.e. Planck scale up to a polylog. That is p^{5/6} beyond Young unconditionally and p^{1/2} under
-  Lindelöf (in area), p^{8/9} beyond Young's cusp-strip existence theorem (in width). Even Ramanujan + Lindelöf
-  Hecke-orbit bounds miss by ≈ p.
+  Lindelöf (in area), p^{8/9} beyond Young's cusp-strip existence theorem (in width). The Ramanujan-only,
+  Cauchy–Schwarz-over-the-spectrum Hecke-orbit bound misses by ≈ p (R123 repair: a limitation of that method, not
+  of the truth; Lindelöf does not enter it).
 * **Step (5) (§5).** Thm 5.1 (PROVED rel. (D)32b): f_I(p) ≤ ψL³ outside a proportion O(1/ψ) of primes. Prop 5.3
   (CONDITIONAL on H): single targets with expectation ≍ L are empty infinitely often. Prop 5.4 (PROVED): thickening
   the target to width K/p is exactly averaging f_I over |n − p| ≤ K, so spectral scale V gives only averages over
@@ -56,7 +58,8 @@ Dyadic windows [X, 2X) (L = log(1.5X)):
 | 2²⁵ | 105 (37117609) | 529.8 | 1.69 | 5.92 | 44 | 5 |
 
 * All window minimisers from 2⁹ on are Mordell-hard (p mod 840 ∈ {1,121,169,289,361,529}).
-* The minimum tracks the mean: min/mean ≈ 0.16–0.2, stable over 2¹² … 2²². mean f_I ≈ 0.1·L³ (ET: Σ_{p≤N} f_I ≍ N L²).
+* The minimum tracks the mean: min/mean ≈ 0.12–0.20 over 2¹² … 2²², no clear trend (R123 repair: was "0.16–0.2,
+  stable"; actual 0.163, 0.134, 0.122, 0.150, …, 0.196, 0.181, 0.165). mean f_I ≈ 0.1·L³ (ET: Σ_{p≤N} f_I ≍ N L²).
   So min f_I grows like a power of log p (fit ≈ L^{2.5}·const is indistinguishable from c·L³ here); the
   pointwise count is "polylog with a robust constant fraction of the mean".
 * The a = 1 sub-family alone has minimum 1–3 throughout: the full 3-parameter family is needed for growth.
@@ -71,7 +74,9 @@ Fix a prime p ≥ 5. All variables are positive integers.
 (iii) `f | p² + 4c²d` and `f ≡ −p (mod 4cd)` (then `a = (p+f)/(4cd)`).
 In each case `b := (ap+c)/f`, `e := (4a²d+1)/f`, `g := (p²+4c²d)/f = 4bcd − p` are integers with
 `4abd − pe = 1`, `a + b = ce`, and every Type I solution of p arises exactly once with `a ≤ b`, `gcd(a,b,c) = 1`
-(ET Prop 2.2).
+(ET Prop 2.2). (R123 repair) (iii) parametrises all *quadruples*; f_I(p) counts those with gcd(a,b,c) = 1, and a
+primitive solution with parameter d₀ has exactly #{g : g² | d₀} quadruples (ga, gc, d₀/g², f) (ET (2.10)) — these
+are frequent (6 315 non-primitive quadruples for primes ≤ 3000). `a ≤ b` ⇔ `f ≤ g` ⇔ `f² ≤ p² + 4c²d`.
 *Proof.* (i)⇒(ii): `c(4a²d+1) = a(4acd) + c = a(p+f) + c`, so `ap + c ≡ c(4a²d+1) ≡ 0 (mod f)`.
 (ii)⇒(i): with `4acd = p + f`, `c(4a²d+1) = a(p+f) + c ≡ ap + c ≡ 0 (mod f)` and `gcd(f, c) | gcd(4acd − p, c) | p`;
 if `p | f` and `p | c` then `p | cd`, excluded; so `f | 4a²d+1`. (i)⇔(iii): mod f we have `4acd ≡ p`, hence
@@ -126,6 +131,9 @@ width at height y is `y/(c√d)`, so
 **area(R_c) = log(2p)/(c√d).**
 Shape: both edges are hypercycles of the geodesic `x = 1/(2c)` at distances `arcsinh((p±1)/(2c√d))`, so R_c is a
 **tube of hyperbolic width 2/p + O(c√d/p²)** around a hypercycle arc of length `≈ p·log(2p)/(2c√d)`.
+(R123 repair: exact width arcsinh((p+1)/(2c√d)) − arcsinh((p−1)/(2c√d)) ≈ 2/√(p² + 4c²d); the tube picture needs
+c√d ≪ p. The window f ∈ [1, 2p] also contains reflected copies (b, c, d, g) of solutions with g ≤ 2p, ET Remark
+2.4, so counts in R_c are quadruple counts, not solution counts — constants only.)
 *Proof.* For z ∈ Λ_d: `x/y = 2a√d`, `√d/y = f`; substitute. An integer of absolute value < 1 is 0. The width and
 area are direct integrations (`dx dy/y²`); the hypercycle distance of the ray at angle θ is `arcsinh(cot θ)`. ∎
 
@@ -134,7 +142,8 @@ area are direct integrations (`dx dy/y²`); the hypercycle distance of the ray a
 Lemma 2.2(b) these are T_p-images of disc −4d points). For z' ∈ Λ'_{d,p} and a ≥ 1,
 `(p/y')·(−2a√d x' − √d − y') = 4acd − f − p ∈ ℤ`, so Type I ⇔ `z' ∈ R'_a := {|2a√d x' + √d + y'| < y'/p}`, the wedge at
 `−1/(2a)` between lines of slopes `−2a√d/(1 ± 1/p)` (moderate angle). Width at height y' is `y'/(a√d p)`, and for
-`y' ∈ [√d/2, p√d]` (f ∈ [1, 2p]): **area(R'_a) = log(2p)/(a√d·p)**; shape: a tube of hyperbolic width ≍ 1/p around a
+`y' ∈ [√d/2, p√d]` (f ∈ [1, 2p]): **area(R'_a) = log(2p)/(a√d·p)**; shape: a tube of hyperbolic width ≍ 1/p
+(R123 repair: exactly ≈ 2/(p√(1+4a²d)) ≍ 1/(a√d·p), so ≍ 1/p only for a√d ≍ 1; narrower otherwise) around a
 hypercycle arc of length ≍ log p that runs from the cusp −1/(2a) up to height `√|D'|/2 = p√d` (the top of the
 Heegner set of D' = 4dp²). ∎ (Same computation.)
 
@@ -181,7 +190,10 @@ unconditionally — Burgess; d ≪ L² under GRH — and typically d ≤ 3) and 
 expected count `λ_d ≈ κ_d L²/d`, number of points `h(D') ≍ p√d`, relative measure
 `μ_d ≈ L²/(p d^{3/2}) ≈ L²·|D'|^{−1/2}`, minimal width `w ≍ 1/p ≍ |D'|^{−1/2}`. Against the thresholds of
 `LITERATURE_AUTOMORPHIC.md` (all for one discriminant; Young/Humphries need D fundamental, D' is not — via T_p
-one can transfer, at the cost of Ramanujan-type input for λ_j(p)):
+one can transfer, at the cost of Ramanujan-type input for λ_j(p)). (R123 repair: Young also needs D odd, and
+Λ'_{d,p} are level-d points; the gaps below are scale exponents for the ball-equivalent target. Plugging the tube
+data directly into Young Thm 2.1 — ‖φ‖₁ ≈ L/p, ‖φ‖₂ ≈ (L/p)^{1/2}, V ≈ p, h ≈ p — gives error/main ≈ p^{4/3}L^{−1/2}
+unconditionally and ≈ p·L^{−1/2} under Lindelöf.)
 
 | input | admissible targets (D = |D'| ≍ 4dp²) | ours | gap (powers of p) |
 |---|---|---|---|
@@ -197,6 +209,8 @@ one can transfer, at the cost of Ramanujan-type input for λ_j(p)):
 `Σ_{w ∈ T_p z₀} φ(w) = (p+1)⟨φ⟩ + √p Σ_j λ_j(p)⟨φ,u_j⟩u_j(z₀)`. For φ = 1_{tube}: `(p+1)⟨φ⟩ ≈ λ ≈ L`, while
 `|⟨φ,u_j⟩|` does not decay before `t_j ≍ 1/w ≍ p`; with `|λ_j(p)| ≤ 2` and the local Weyl law
 `Σ_{t_j≤T}|u_j(z₀)|² ≍ T²` the Cauchy–Schwarz error is `≍ √p·‖φ‖₂·p ≈ √p·(L/p)^{1/2}·p = p√L` vs main term L.
+(R123 repair: this uses only |λ_j(p)| ≤ 2 and Cauchy–Schwarz; Lindelöf does not enter. It bounds the method, not
+the truth: with random signs of λ_j(p)u_j(z₀) the error would be ≈ √p‖φ‖₂ ≈ √L, i.e. Poisson scale.)
 
 **Where the slack is (and is not).** The only slack is in the *count*: union over a gives L² per family (one d),
 union over d gives `Σ_d λ_d ≈ mean f_I ≈ 0.1 L³`. There is **no power of p** anywhere: hits are distinct Type I
@@ -213,13 +227,15 @@ such that for every N ≥ 3 and ψ ≥ 1, `#{p ≤ N : f_I(p) > ψ L³} ≤ C·�
 f_I) and `π(N) ≫ N/L`. ∎
 **Corollary 5.2.** In Formulations A and B (and in any formulation where distinct points in the target give
 distinct Type I solutions) the targets attached to p contain ≤ ψL³ points in total, for all but a proportion C/ψ of
-primes. A certificate of `f_I(p) > 0` from an equidistribution statement with the local-density main term
+primes. (R123 repair: in A and B distinct points are distinct *quadruples*, not distinct solutions (dilates, §2;
+reflected copies in the window). The bound still holds with another absolute C, because (D)32's bound
+`f_I(p) ≤ 2Σ_c w_c(p)` already counts all quadruples (a,d,f), primitive or not.) A certificate of `f_I(p) > 0` from an equidistribution statement with the local-density main term
 `M(p) = Σ λ_{c,d}(p)` (≈ 0.1 L³ on average, §1) therefore needs an additive error `< M(p) ≪ L³`: a **Planck-scale
 statement with polylogarithmic (not power) accuracy.**
 
 **Proposition 5.3 (single targets fail at expected count ≍ L; CONDITIONAL on Schinzel's Hypothesis H).** There are
-infinitely many primes p ≡ 5 (mod 12) for which the genus-allowed target (c, d) = (1, 3) (expectation `≈ 0.52 L`,
-§3) is empty.
+infinitely many primes p ≡ 5 (mod 12) for which the genus-allowed target (c, d) = (1, 3) (expectation `≈ 0.17 L`,
+≈ 2.4 at p ≈ 10⁶, §3; R123 repair: was "≈ 0.52 L", which is mean·cd/L with cd = 3) is empty.
 *Proof.* x(x² + 12) on the progression x ≡ 5 (mod 12) has no fixed prime divisor (mod 2, 3: x odd, x ≡ 2 (3) give
 x² + 12 ≡ 1; for q ≥ 5 at most 3 roots), so H gives infinitely many primes p ≡ 5 (12) with p² + 12 prime.
 `χ_{−12}(n) = (n/3)` for n coprime to 6, and −p ≡ 1 (mod 3), so `χ_{−12}(−p) = 1`. By Lemma 2.1(iii) the target counts divisors f ≤ p of
@@ -231,7 +247,9 @@ all allowed p). Applying H to several polynomials p² + 4c²d at once empties an
 **Proposition 5.4 (thickening = averaging over n; PROVED).** In Formulation A, for z ∈ Λ_d the integer
 `k(z) := (2c√d x − √d − p y)/y = 4acd − f − p` is the offset n − p of the integer n = 4acd − f for which (a,c,d,f) is a
 Type I quadruple. Hence the thickened target `R_c^{(K)} = {|2c√d x − √d − p y| ≤ K y}` (hyperbolic width
-≈ (2K+1)/p) counts exactly `Σ_{|n−p| ≤ K} #{Type I quadruples of n with this c, d}`. *Proof.* Prop 3.1 with ℤ ∋ k.
+≈ (2K+1)/p) counts exactly `Σ_{|n−p| ≤ K} #{(a,f) : f | 4a²d+1, 4acd − f = n, f ≤ 2p}` (R123 repair: these are ET
+N-points of n; for composite n the condition gcd(c,n) = 1 is not imposed, and non-primitive quadruples and the
+p-dependent window enter, so this is ≥ the Type I count of n with this c, d, not equal to it). *Proof.* Prop 3.1 with ℤ ∋ k.
 ∎ *Consequence (Assessment).* A spectral bound at Sobolev scale V (target width ≍ 1/V) controls only averages of
 f_I(n) over `|n − p| ≲ p/V`. Young's admissible V ≪ D^{1/24} (and V ≪ D^{1/8} under Lindelöf) — whatever the
 discriminant D of the family — therefore yields at best statements about intervals of length `p^{1−κ}`, a range where
@@ -244,10 +262,16 @@ Kloosterman bound `≪ (mnX)^ε` — suffices by itself to give ES (or Type I) f
 1. the quantity to certify is ≤ ψL³ (Thm 5.1), while every such hypothesis enters with a loss `X^ε` (or, made
    effective under GRH, `exp(c log X/log log X)`), which exceeds any power of log p; individual central values are
    not polylogarithmically bounded (resonance Ω-results), so no termwise use of them can reach this scale;
+   (R123 repair) GRH *does* enter with only loglog/polylog losses in averaged form (GRH-effective Siegel
+   L(1,χ) ≫ 1/log log; Soundararajan/Harper-type moment bounds). But the averaged use still loses ≈ p at Planck
+   scale: with Waldspurger |W_j|² ≍ D^{1/2}L(½,u_j)L(½,u_j⊗χ_D)/L(1,sym²u_j) and Cauchy–Schwarz over t_j ≤ p,
+   error ≤ ‖φ‖₂(Σ_{t_j≤p}|W_j|²)^{1/2} ≈ (L/p)^{1/2}·p^{1/2}·p·L^{O(1)} = p·L^{O(1)} vs main ≈ L. So reason 1 for
+   averaged inputs reduces to reason 2;
 2. the target width is exactly the Planck width `1/p ≍ |D'|^{−1/2}` (Props 3.1/3.2, 5.4), and even assuming
    Ramanujan + Lindelöf the Hecke-orbit spectral error exceeds the main term by ≈ p (§4);
 3. single targets at expected count ≍ L are empty for infinitely many p under H (Prop 5.3), so any sufficient
-   statement must aggregate ≳ L² targets, across different discriminants (d) and cusps (c or a), with the genus
+   statement must aggregate more than any fixed finite set of targets (R123 repair: H for finitely many polynomials
+   empties only finitely many targets; "≳ L²", the full family's size, is Assessment), across different discriminants (d) and cusps (c or a), with the genus
    factor `1 + χ_{−4d}(−p)` built in (Lemma 2.4; without it the statement is false at n = p²).
 A hypothesis that does suffice must be of "Planck-scale, polylogarithmic-accuracy, genus-aware, aggregated" type —
 e.g. `Σ_{d ≤ L²} #(T_p Heeg_d(−4d) ∩ ⋃_a R'_a) ≥ (1 − o(1))·M(p)` for all large p — which is ES-Type-I for large
