@@ -196,7 +196,7 @@ prescribed values of those coordinates. By the symmetry a ↔ b, the pairs are {
 ### 2.1 The slice table
 
 **Lemma 2.1 (slice table; PROVED, elementary; machine check `scripts/rt2_slices.py`: all bijections verified
-for every prime 5 ≤ p < 110 against two independent brute-force enumerations of V(p), see log).**
+for every prime 5 ≤ p < 200 (1596 Type I and 602 Type II ordered tuples) against a brute-force enumeration of V(p), itself cross-checked by a second independent enumeration for p < 60; log `logs/rt2_slices_200.txt`).**
 For each type and each slice θ, exactly one of the following holds.
 * **(C) congruence slice.** For fixed θ, `V_θ(p) ≠ ∅` iff p lies in an explicit finite union of residue
   classes modulo a modulus depending only on θ. Then fixed θ is a polynomial-identity (ET-class) covering.
@@ -211,7 +211,7 @@ For each type and each slice θ, exactly one of the following holds.
 | I | {a,c} | D | `ap + c` | `4acd − p` | `f ≡ −p (4ac)` | Type I multiplier form |
 | I | {a,e} | D | `(pe+1)/(4a)` | `b` | `f ≡ −a (e)` | O127 slice L1.1 (a = 1) |
 | I | {d,e} | D | `m = (pe+1)/(4d)` | `a` | `f² ≡ −m (e)`, `(f,e)=1` | O130 P2.1 (GZ collision in `B_{p,∞}`) |
-| I | {a,d} | C | `4a²d + 1` (no p) | `4acd − p` | `p ≡ −f (4ad)` | O123 Formulation A *per point*; SL₂ `ef − 4a²d = 1` (H5) |
+| I | {a,d} | C | `4a²d + 1` (no p) | `4acd − p` | `p ≡ −f (4ad)` | O123 Formulation B (one tube per (a,d)); SL₂ `ef − 4a²d = 1` (H5) |
 | I | {a,b}, {c,e} | C | — | — | p in classes mod `4ab`, resp. `4a(ce−a)` | ET polynomial classes |
 | II | {c,d} | D | `4c²dp + 1` | `4acd − 1` | `f ≡ −1 (4cd)` | O128 P8.1 (shells, level dp) |
 | II | {a,c} | D | `cp + a` | `4acd − 1` | `f ≡ −1 (4ac)` | multiplier witnesses, notes (51.1) (`f ≥ W(p)`) |
