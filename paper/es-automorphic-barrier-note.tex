@@ -1,0 +1,1114 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\numberwithin{equation}{section}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cT}{\mathcal T}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\Nm}{N}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\title[Automorphic and geometric reformulations of Erd\H{o}s--Straus]{Automorphic and geometric reformulations of the Erd\H{o}s--Straus equation, and a divisor-class barrier}
+\author{Anonymous}
+\date{Draft, October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+For a prime $p$ we collect exact reformulations of the Erd\H{o}s--Straus
+equation $4/p=1/x+1/y+1/z$ in automorphic and arithmetic-geometric
+language. Type~I solutions are $\SL_2(\Z)$ matrices with a prescribed
+entry, equivalently Heegner points of discriminant $-4d$ in a thin wedge,
+whose discriminant-$(-4dp^2)$ forms are $T_p$-Hecke translates. Type~II
+solutions are Heegner points of discriminant $-4dp$ lying on an exact
+shell around a cuspidal geodesic. Further reformulations use orders in the
+quaternion algebra $B_{p,\infty}$, the algebra $(-d,-p)_\Q$, a CM torus,
+and an isotropic ternary form. The Bright--Loughran Brauer class is a
+genus character; this is folklore and goes back to Yamamoto. All these
+encodings reduce to one statement, which we prove: once two of the
+Elsholtz--Tao coordinates are fixed, the solutions are either a finite
+union of congruence classes of $p$, or the divisors of one explicit integer
+$N_\theta(p)$ in one residue class. The only representative-independent
+invariants of the automorphic objects that enter the count of solutions
+are congruence or genus data. We then
+record negative results, each with an exact scope. Fixed ternary embeddings
+reduce to Mordell coverings. Any detector must work at main term
+$p^{o(1)}$. Thickening a target is the same as averaging over $n$. The
+Type~II lattice problem is everywhere locally soluble, and globally soluble
+up to one sign, even at odd squares. Under Schinzel's
+Hypothesis~H, every argument that certifies the equation through a fixed
+finite set of slices fails infinitely often. We give the quantitative gaps
+to known equidistribution theorems, list the escape hatches that remain
+open, and report numerical evidence: $f_I(p)\ge1$ and $f_{II}(p)\ge1$ for
+all primes $p\le10^8$. The Erd\H{o}s--Straus conjecture is \emph{not}
+proved here. The negative statements concern the routes examined and known
+technology. They are not impossibility theorems for the conjecture.
+\end{abstract}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+The Erd\H{o}s--Straus conjecture (ES) asserts that for every integer
+$n\ge2$
+\begin{equation}\label{eq:es}
+ \frac4n=\frac1x+\frac1y+\frac1z,\qquad x,y,z\in\N,
+\end{equation}
+is soluble. It suffices to treat primes $n=p$, and by Mordell's
+identities only primes in six classes modulo $840$ (the squares) remain
+open. ES has been verified to very large bounds and holds for almost all
+$n$ in a strong quantitative sense, but it is open for an individual large
+prime.
+
+\subsection*{Why automorphic and geometric input}
+In earlier internal work of this campaign
+(\cite{PO}, and Theorems~M and~C of \cite{PS}) we proved that
+\emph{congruence-covering} arguments cannot settle ES pointwise. More
+precisely, under Schinzel's Hypothesis~H, every correct bounded
+witness-producing procedure built from ring operations, floor division,
+sign tests and factorisations of the integers it meets fails for
+infinitely many primes $p\equiv1\pmod{24}$ \cite[Thm~C]{PS}. This is the
+procedure-level form of the classical odd-square obstructions (Yamamoto,
+Mordell--Schinzel, Elsholtz--Tao \cite[Prop.~1.6]{ET}, Bright--Loughran
+\cite[Cor.~1.4]{BL}). It leaves room for input that is \emph{not}
+congruence data: spectral, automorphic or arithmetic-geometric
+information about a fixed prime $p$. This note collects what such input
+can see.
+
+\subsection*{What this note contains}
+\begin{enumerate}
+\item \emph{Exact dictionaries} (\S\ref{sec:dict}, \status{proved}). Type~I
+and Type~II solutions are rewritten as Heegner points, $\SL_2$ matrices,
+Hecke translates, shells around cuspidal geodesics, orders in definite
+quaternion algebras, divisors of an element of a CM field, and points on
+an isotropic ternary quadric. Several of these are folklore. We mark
+attributions explicitly; in particular, the identification of the
+Bright--Loughran Brauer class with a genus character is \emph{not} new
+(Yamamoto 1965, via \cite[App.~A]{BL}).
+\item \emph{The divisor-class reduction} (\S\ref{sec:reduction},
+\status{proved}). Each encoding is a ``slice'' of the Elsholtz--Tao
+variety. Fixing two coordinates leaves either a congruence condition on
+$p$ or the divisors of one integer $N_\theta(p)$ in one residue class
+(Lemma~\ref{lem:slices}, Theorem~\ref{thm:reduction}).
+\item \emph{Negative results with exact scope} (\S\ref{sec:negative}):
+ternary embeddings, the scale constraint, thickening, local solubility at
+odd squares, geometry, and Hypothesis-H-conditional emptiness of single
+targets.
+\item \emph{Quantitative gaps} to known equidistribution theorems
+(\S\ref{sec:gaps}, \status{Assessment}), \emph{open problems}
+(\S\ref{sec:open}), and \emph{numerical evidence} (\S\ref{sec:numerics}).
+\end{enumerate}
+
+\subsection*{What this note does not contain}
+ES is not proved here, conditionally or unconditionally. We know of no
+standard conjecture (GRH, GLH, Ramanujan, Selberg's eigenvalue conjecture,
+twisted Linnik--Selberg) that is known to imply ES. The literature survey
+behind this note \cite{LA} found no prior pointwise result for ES,
+conditional or not. Every negative statement below concerns the specific
+encodings and mechanisms analysed, or ``known technology''. None is a
+theorem that ES cannot be proved by automorphic methods. Words like
+``barrier'' are used in that mechanism-scoped sense; where they summarise
+more than a proved statement, they are labelled \status{Assessment}.
+
+\subsection*{Labels}
+Each statement carries one of the labels \status{proved} (a complete proof
+here, or in the cited internal file, relative to explicitly cited
+literature), \status{conditional} (proved assuming a named hypothesis),
+\status{certified} (an exact finite computation), \status{evidence}
+(numerics), or \status{Assessment} (a judgement that is not a theorem).
+Proofs of short items are given in full. For longer ones we give a sketch
+and a pointer to the internal source file, which also records its internal
+review. All internal files have been reviewed internally only; this note
+has not been externally refereed.
+
+\subsection*{Notation}
+$p\ge5$ is prime, $\cL=\log p$, and $\chi_{D}=\leg{D}{\cdot}$ is the
+Kronecker symbol. For a negative discriminant $D$, $\chi_D(-1)=-1$. We
+write $[A,B,C]$ for $AX^2+BXY+CY^2$, and $f_I(p)$, $f_{II}(p)$ for the
+numbers of Type~I and Type~II solutions in the normalisation of
+\cite[\S2]{ET}.
+
+\section{Exact dictionaries}\label{sec:dict}
+
+\subsection{The Elsholtz--Tao normal form}
+For an odd prime $p$, $p$ divides exactly one or exactly two of $x,y,z$ in
+any solution of \eqref{eq:es} (it cannot divide all three, since
+$1/x'+1/y'+1/z'=4$ has no positive solution). Following \cite[\S2]{ET}
+and \cite[\S2.0]{RT2}, put
+\begin{align*}
+V_I(p)&=\{(a,b,c,d,e)\in\N^5:\ 4abd=pe+1,\ a+b=ce\},\\
+V_{II}(p)&=\{(a,b,c,d,e)\in\N^5:\ 4abd=p+e,\ a+b=ce\}.
+\end{align*}
+An element of $V_I(p)$ gives the solution $(abdp,acd,bcd)$, and an element
+of $V_{II}(p)$ gives $(abd,acdp,bcdp)$: indeed
+$(c+p(a+b))/(abcdp)=c(1+pe)/(abcdp)=4/p$ and
+$(cp+a+b)/(abcdp)=c(p+e)/(abcdp)=4/p$. Conversely every solution arises
+in this way \cite[Props.~2.2, 2.6]{ET}. Hence
+\begin{equation}\label{eq:VIVII}
+\mathrm{ES}(p)\iff V_I(p)\cup V_{II}(p)\neq\emptyset.
+\end{equation}
+On $V_I(p)$ one has $p\nmid cd$ \cite[Prop.~2.1]{O130}, \cite[\S5]{O131}.
+The counts $f_I(p)$, $f_{II}(p)$ count primitive tuples ($\gcd(a,b,c)=1$)
+\cite[(2.10)]{ET}. A non-primitive tuple $(ga',gb',gc',d)$ is the primitive
+tuple $(a',b',c',g^2d)$, so existence questions are insensitive to
+primitivity.
+
+\subsection{Type~I: $\SL_2$ matrices, Heegner wedges and the Hecke operator $T_p$}
+The following is \cite[Lemmas~2.1--2.2, 2.4]{O123}; parts (i)--(ii) of
+Lemma~\ref{lem:typeI} are rearrangements of \cite[\S2]{ET}.
+
+\begin{lemma}[\status{proved}]\label{lem:typeI}
+Let $a,c,d,f\ge1$ with $p\nmid cd$. The following are equivalent:
+\textup{(i)} $p=4acd-f$ and $f\mid 4a^2d+1$;
+\textup{(ii)} $f\mid ap+c$ and $p+f=4acd$;
+\textup{(iii)} $f\mid p^2+4c^2d$ and $p+f=4acd$.
+In particular, (ii) holds for some $d$ iff $f\mid ap+c$ and $4ac\mid p+f$, and
+(iii) holds for some $a$ iff $f\mid p^2+4c^2d$ and $f\equiv-p\pmod{4cd}$.
+In that case $e=(4a^2d+1)/f$, $b=(ap+c)/f$ and
+$g=(p^2+4c^2d)/f=4bcd-p$ are integers, $4abd-pe=1$, $a+b=ce$, and
+\[\gamma=\begin{pmatrix}4ad&p\\ e&b\end{pmatrix}\in\SL_2(\Z).\]
+\end{lemma}
+\begin{proof}
+(i)$\Rightarrow$(ii): $c(4a^2d+1)=a\cdot4acd+c=a(p+f)+c$, so
+$f\mid ap+c$. (ii)$\Rightarrow$(i): with $4acd=p+f$ the same identity gives
+$f\mid c(4a^2d+1)$, and $\gcd(f,c)\mid\gcd(4acd-p,c)\mid p$; if $p\mid f$
+and $p\mid c$ then $p\mid cd$, which is excluded. (i)$\Leftrightarrow$(iii):
+modulo $f$ we have $4acd\equiv p$, hence
+$4c^2d(4a^2d+1)\equiv p^2+4c^2d$, and $\gcd(f,4c^2d)\mid p$, which is $1$
+unless $p\mid cd$. For the identities, put $e=(4a^2d+1)/f$ and $b=ce-a$.
+Then $bf=c(4a^2d+1)-a(4acd-p)=ap+c$ (so $b\ge1$),
+$4abd=e\cdot4acd-4a^2d=e(p+f)-4a^2d=pe+1$, and
+$(4acd-p)(4bcd-p)=4c^2d(4abd-pe)+p^2=p^2+4c^2d$, using $a+b=ce$; see
+\cite[(2.8)--(2.9)]{ET}.
+\end{proof}
+
+Write $Q_-=[f,-4ad,de]$ (discriminant $-4d$) and $Q'=[f,4cd,dg]$
+(discriminant $-4dp^2$).
+
+\begin{proposition}[Hecke form; \status{proved}]\label{prop:hecke}
+For every Type~I tuple,
+$Q'(x,y)=Q_-(x+2bd\,y,\ p\,y)$, i.e.
+$Q'=Q_-\circ\left(\begin{smallmatrix}1&2bd\\0&p\end{smallmatrix}\right)$.
+Thus the discriminant-$(-4dp^2)$ form of a Type~I solution is a
+$T_p$-Hecke translate of a level-$d$ Heegner form of discriminant $-4d$,
+and the roots satisfy $z_{Q'}=p\,z_{Q_-}-2bd$.
+\end{proposition}
+\begin{proof}
+The middle coefficient is $2f\cdot2bd-4adp=4d(bf-ap)=4cd$. The last is
+$4b^2d^2f-8abd^2p+dep^2=d\bigl(4bd(ap+c)-8abdp+ep^2\bigr)
+=d\bigl(4bcd-p(4abd-pe)\bigr)=d(4bcd-p)=dg$.
+\end{proof}
+
+\begin{proposition}[the wedge; \status{proved}, {\cite[Prop.~3.1]{O123}}]\label{prop:wedge}
+Let $\Lambda_d=\{z=(2ad+i\sqrt d)/f:\ a,f\ge1,\ f\mid4a^2d+1\}$, the roots
+of the forms $[f,-4ad,de]$. For $z=x+iy\in\Lambda_d$ and $c\ge1$,
+\[\frac{2c\sqrt d\,x-\sqrt d-p\,y}{y}=4acd-f-p\in\Z.\]
+Hence $(a,c,d,f)$ is a Type~I tuple of $p$ if and only if $z$ lies in the
+wedge $R_c=\{x+iy:\ |2c\sqrt d\,x-\sqrt d-py|<y\}$ at the cusp $1/(2c)$.
+The edges of $R_c$ are hypercycles of the geodesic $\{\operatorname{Re}z=1/(2c)\}$,
+and $R_c$ is a tube of hyperbolic width
+$\operatorname{arsinh}\frac{p+1}{2c\sqrt d}-\operatorname{arsinh}\frac{p-1}{2c\sqrt d}
+\approx 2/\sqrt{p^2+4c^2d}$.
+\end{proposition}
+\begin{proof}
+For $z\in\Lambda_d$ we have $x/y=2a\sqrt d$ and $\sqrt d/y=f$; substitute.
+An integer of absolute value $<1$ is $0$. The width is the difference of the
+distances of the two edges from the geodesic.
+\end{proof}
+
+The target is therefore at the \emph{Planck scale}: its width is
+$\le2/p$, and $\asymp1/p$ when $c\sqrt d\ll p$. The same holds in the $T_p$-translated picture,
+where the wedge sits at $-1/(2a)$ \cite[Prop.~3.2]{O123}.
+
+\begin{lemma}[genus condition; \status{proved}; classical]\label{lem:genusI}
+If $(a,c,d,f)$ is a Type~I tuple of an odd $n$ with $\gcd(n,2cd)=1$, then
+$\chi_{-4d}(-n)=1$. For $n=p$ prime this says $\leg{-d}{p}=-1$: $p$ is
+inert in $\Q(\sqrt{-d})$. For an odd square $n=m^2$ the condition fails for
+every $d$.
+\end{lemma}
+\begin{proof}
+Every prime $q\mid f$ divides $n^2+4c^2d$ and is prime to $2cd$, so
+$-4c^2d\equiv n^2$ is a non-zero square mod $q$, and $\chi_{-4d}(f)=1$. As
+$f\equiv-n\pmod{4cd}$ and $\chi_{-4d}$ has period dividing $4d$,
+$\chi_{-4d}(-n)=\chi_{-4d}(f)=1$. For $n=m^2$,
+$\chi_{-4d}(-m^2)=\chi_{-4d}(-1)=-1$. For $n=p$,
+$\chi_{-4d}(-p)=-\chi_{-4d}(p)=-\leg{-d}{p}$.
+\end{proof}
+This is the Type~I half of \cite[Prop.~1.6]{ET}, read at a fixed level.
+Any fixed-$p$ main term at level $d$ must therefore carry the factor
+$(1+\chi_{-4d}(-p))/2$.
+
+\subsection{Type~II: determinant one at level $dp$, and shells}
+The following is \cite[Lemma~1.1, Props.~2.1, 2.5, 7.1, Lemma~6.1]{O128}.
+
+\begin{proposition}[\status{proved}]\label{prop:typeII}
+Let $c,d\ge1$, $M=4cd$ and $N_{c,d}=4c^2dp+1$.
+\begin{enumerate}
+\item[(a)] Type~II tuples of $p$ with these $(c,d)$ correspond to
+factorisations $ff'-4c^2(dp)=1$ with $f\equiv f'\equiv-1\pmod{M}$, via
+$f=4acd-1$, $f'=4bcd-1$. Equivalently, $f$ runs over the divisors of
+$N_{c,d}$ with $f\equiv-1\pmod M$ (the cofactor is then automatically
+$\equiv-1$).
+\item[(b)] The map $(c,f)\mapsto Q=[f,4cdp,dpf']$ sends these solutions
+injectively to Heegner forms of discriminant $-4dp$ at level $dp$. For
+fixed $(p,d)$ the corresponding points of $\HH$ are pairwise at hyperbolic
+distance with $\cosh\ge3/2$.
+\item[(c)] In the determinant-$p$ coordinates $Q=[f,4ad,de]$ (level one,
+discriminant $-4dp$), with $S_c=[0,2c,1]$ and the bilinear form
+$b(x,y)=q(x+y)-q(x)-q(y)$ of $q([A,B,C])=B^2-4AC$, one has
+$q(Q)=-4dp$, $q(S_c)=4c^2$ and $b(Q,S_c)=4$. Thus the Type~II solutions
+are embeddings of the binary lattice $4\cdot[-dp,1,c^2]$ (discriminant
+$4c^2dp+1$ before scaling) into the trace-zero lattice of signature $(2,1)$.
+Geometrically, a Type~II point is a Heegner point of discriminant $-4dp$ at
+hyperbolic distance exactly $\operatorname{arsinh}\bigl(1/(2c\sqrt{dp})\bigr)$
+from the cuspidal geodesic $(\infty,-1/(2c))$: it lies on a \emph{shell}.
+\item[(d)] (genus lemma) $(p/f)=(p/f')=-1$ (Jacobi symbols).
+\end{enumerate}
+\end{proposition}
+\begin{proof}[Proof of (a), (c), (d)]
+(a) $(4acd-1)(4bcd-1)=4c^2d(4abd-e)+1=4c^2dp+1$ using $a+b=ce$ and
+$4abd=p+e$. Conversely, given $f\mid N_{c,d}$ with $f\equiv-1\pmod M$, the
+cofactor $f'$ satisfies $ff'\equiv1$, hence $f'\equiv-1\pmod M$; put
+$a=(f+1)/M$, $b=(f'+1)/M$; expanding $ff'=N_{c,d}$ gives
+$4abcd=a+b+cp$, so $c\mid a+b$ and $e=(a+b)/c=4abd-p$.
+(c) With $e=(p+4a^2d)/f$ (an integer, \cite[(2.19)]{ET}),
+$q(Q)=16a^2d^2-4def=-4dp$ and
+$b(Q,S_c)=2\cdot4ad\cdot2c-4f=4(4acd-f)=4$. The distance formula is
+\cite[Prop.~2.5]{O128}.
+(d) $ef=p+4a^2d$ gives $(2ad)^2\equiv-dp\pmod f$ with $\gcd(dp,f)=1$
+($f=4acd-1$ is prime to $d$, and a prime $\ell\mid(p,f)$ would divide
+$2ad$, whence $f\equiv-1\pmod\ell$), so
+$(-dp/f)=1$. Since $f\equiv-1\pmod{4d}$ and $\chi_{-4d}(-1)=-1$,
+$(-d/f)=\chi_{-4d}(f)=-1$, hence $(p/f)=-1$. The same argument applies to
+$f'$.
+\end{proof}
+Part (b) is \cite[Prop.~2.1, Lemma~2.2]{O128}; the separation is the
+lemma $\cosh\operatorname{dist}-1=\operatorname{disc}(Q-Q')/(8dp)$ of
+\cite[Lemma~2.2]{TH} applied at level $dp$. Part (d) recovers the Type~II
+half of \cite[Prop.~1.6]{ET}: at an odd square $n=s^2$ one has
+$(s^2/f)=1$. As for Type~I, it is a level-wise reading of a classical
+fact; see Proposition~\ref{prop:brauer}.
+
+\subsection{The Brauer class is a genus character (folklore)}
+Bright and Loughran \cite{BL} study the surface
+$U_n:4u_1u_2u_3=n(u_1u_2+u_1u_3+u_2u_3)$ and its integral model. Over $\Q$
+the group $\Br\tilde U_n/\Br\Q$ is $\Z/2$, generated by the transcendental
+quaternion algebra $\alpha=(-u_1/u_3,-u_2/u_3)$ \cite[Cor.~2.7]{BL}. They
+show that there is no Brauer--Manin obstruction to positive integral points
+for $n\ge2$ \cite[Thms.~1.1, 1.8]{BL}, that $\alpha$ obstructs strong
+approximation \cite[Thm.~1.8 (1.5), Thms.~1.2, 1.5]{BL} (though not every
+failure of strong approximation comes from $\alpha$ \cite[Thm.~1.9]{BL}), and that it recovers the
+odd-square obstruction \cite[Thm.~1.2, Cor.~1.4]{BL}.
+
+\begin{proposition}[\status{proved}; folklore, Yamamoto \cite{Ya} via {\cite[App.~A]{BL}}]\label{prop:brauer}
+\textup{(a)} On the Type~I locus at level $d$, the condition imposed by
+$\alpha$ is $\leg{-ab}{p}=\leg{-d}{p}=-1$, i.e. Lemma~\ref{lem:genusI}.
+For $\leg{-d}{p}=+1$ the positive adelic Brauer set of the level-$d$
+chart is empty.
+\textup{(b)} On the Type~II locus, $\alpha$ imposes
+$(f/p)=-(-1/p)$, which is equivalent to Proposition~\ref{prop:typeII}(d)
+and holds automatically. So the Brauer--Manin obstruction never removes a
+Type~II level.
+\end{proposition}
+\begin{proof}[Sketch]
+(a) $4abd=pe+1$ gives $(abd/p)=1$, so $(-ab/p)=(-d/p)$. Lemma~\ref{lem:genusI}
+gives $(-d/p)=-1$. For the local statement, $\operatorname{inv}_p\alpha=(-ab/p)$
+on $p$-adic points of the chart, $\operatorname{inv}_\infty\alpha=-1$ on the
+positive part, and $\operatorname{inv}_\ell\alpha=+1$ for $\ell\ne p$
+\cite[Lemmas~3.1, 3.5, 3.8]{BL}.
+(b) $e\equiv4abd\pmod p$ gives $(-ab/p)=(-de/p)$, and $ef\equiv4a^2d\pmod p$
+gives $(e/p)=(d/p)(f/p)$. Since $f\equiv3\pmod4$, reciprocity gives
+$(f/p)=(p/f)(-1/p)$. Details: \cite[Props.~5.1, 5.2]{O126}.
+\end{proof}
+Nothing here is new. Part (a) is the classical reason why the
+Mordell/Elsholtz--Tao families $n\equiv-f\pmod{4ad}$, $f\mid4a^2d+1$, cover
+only non-residue classes. Part (b) is Yamamoto's lemma $(p/q)=-1$ for
+$q=4abd-1$ in Mordell's notation, as derived from $\alpha$ in
+\cite[App.~A]{BL}. (Yamamoto's paper was not accessed directly.)
+
+\subsection{Quaternion orders}
+For $d,m\ge1$ let $\Lambda_{d,m}=\Z\langle u,v\rangle$ with $u^2=-d$,
+$v^2=-m$, $uv+vu=1$. It is an order $\Z+\Z u+\Z v+\Z uv$ in the definite
+algebra $B_{d,m}\cong(-d,-d(4dm-1))_\Q$ (replace $v$ by $2dv+u$, which
+anticommutes with $u$), of reduced discriminant $4dm-1$: the Gram matrix of
+the reduced trace on $(1,u,v,uv)$ has determinant $-(4dm-1)^2$
+\cite[Lemma~1.2]{O130}.
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~1.3]{O130}}]\label{prop:quat}
+Let $(a,b,c,d,e)\in V_I(p)$ and $m=ab$. Then $B_{d,m}\cong B_{p,\infty}$, the
+quaternion algebra ramified exactly at $p$ and $\infty$, and $\Lambda_{d,m}$
+is an order of reduced discriminant $4abd-1=pe$ in it. Consequently there is
+a supersingular elliptic curve over $\overline{\mathbb F}_p$ with
+endomorphisms $u,v$ satisfying $u^2=-d$, $v^2=-ab$, $uv+vu=1$.
+\end{proposition}
+\begin{proof}[Sketch]
+Compute the Hilbert symbols of $(-d,-dpe)$. At $\ell\nmid2dpe$ they are
+trivial. At $p$: $p\nmid e$ (if $p\mid e$ then $-4a^2d\equiv1\pmod p$,
+contradicting $(-d/p)=-1$), so the symbol is $(-d/p)=-1$ by
+Lemma~\ref{lem:genusI}. At odd $\ell\mid e$: $-d\equiv(2a)^{-2}$ is a square
+mod $\ell$ ($e\mid4a^2d+1$), so the symbol is $1$. At odd $\ell\mid d$:
+$pe\equiv-1\pmod\ell$ gives $1$. At $\infty$ it is $-1$, and the product
+formula gives $2$. The last sentence is Deuring's correspondence.
+\end{proof}
+This was checked on all Type~I tuples with $p<3000$ (\status{evidence},
+\cite{O130}). In the language of Gross--Zagier \cite{GZ}, the identity
+$(16abd-4)/4=pe$ has the shape $(D_1D_2-x^2)/4$ with $D_1=-4d$, $D_2=-4ab$,
+$x=2$, so the CM points of these discriminants have a common supersingular
+reduction. This is a \emph{formal analogy only}: the theorem of \cite{GZ}
+assumes coprime fundamental discriminants, and $-4d,-4ab$ are never
+coprime. No Gross--Zagier formula is used.
+
+\begin{lemma}[\status{proved}; {\cite[Lemma~3.1]{O130}}]\label{lem:dp}
+In $B=(-d,-p)_\Q$ with $i^2=-d$, $j^2=-p$, $k=ij=-ji$, Type~II at level $d$
+holds if and only if, for some $a,b,c,e\ge1$,
+\[(2a\,i+j)(2b\,i-j)=-e(1+2c\,k).\]
+\end{lemma}
+\begin{proof}
+The left side is $-4abd-2(a+b)k+p=-(4abd-p)-2(a+b)k$; compare coefficients
+with $4abd-p=e$, $a+b=ce$.
+\end{proof}
+Taking reduced norms gives $\Nm(2ai+j)=4a^2d+p=ef$ and
+$\Nm(1+2ck)=1+4c^2dp=ff'$, the integers of the ternary form below and of
+the shells of Proposition~\ref{prop:typeII}. The novelty of the quaternion
+dictionary is \emph{unverified}: the survey \cite{LA} found no prior
+occurrence, but we do not claim it is new.
+
+\subsection{The CM torus}
+Let $p\nmid2cd$, $K=\Q(\sqrt{-d})$, $\alpha=p+2c\sqrt{-d}$, so
+$\Nm\alpha=p^2+4c^2d$.
+
+\begin{proposition}[\status{proved}; {\cite[Lemma~5.1, Thm.~5.2]{O131}}]\label{prop:cm}
+\textup{(i)} $\mathfrak a\mapsto\Nm\mathfrak a$ is a bijection from the
+ideal divisors of $(\alpha)$ in $\Z[\sqrt{-d}]$ to the positive divisors of
+$\Nm\alpha$.
+\textup{(ii)} The number $T_{c,d}(p)$ of ordered Type~I tuples with these
+$(c,d)$ equals $\#\{\mathfrak a\mid(\alpha):\Nm\mathfrak a\equiv-p\pmod{4cd}\}$, and
+\[T_{c,d}(p)=\frac1{\varphi(4cd)}\sum_{\chi\bmod4cd}\bar\chi(-p)\,\sigma_\chi(p^2+4c^2d),
+\qquad\sigma_\chi(N)=\sum_{f\mid N}\chi(f).\]
+\textup{(iii)} Only Hecke characters of the form $\chi\circ\Nm$ occur. In
+particular every class-group character of $K$ that is not a genus
+character has coefficient $0$, and pairing $\chi\leftrightarrow\chi\chi_{-4d}$
+produces the factor $1+\chi_{-4d}(-p)$ of Lemma~\ref{lem:genusI}.
+\end{proposition}
+\begin{proof}[Sketch]
+$\alpha$ is primitive since $\gcd(p,2c)=1$. Every prime $\ell\mid\Nm\alpha$
+is odd and prime to $d$, so it is unramified and not inert, and it splits.
+Exactly one of the two primes above $\ell$ divides $\alpha$, to the full
+power. This gives (i). Then (ii) is Lemma~\ref{lem:typeI}(iii) plus
+orthogonality on $(\Z/4cd)^\times$, and (iii) is genus theory.
+\end{proof}
+Thus the dihedral (Frobenius) information carried by the class of
+$(f,\alpha)$ in the ring class field is invisible in the count.
+
+\subsection{The isotropic ternary form $Q_d$}
+Let $Q_d(e,f,a)=ef-4da^2$.
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~6.2]{O124}}, {\cite[\S6]{RT1}}]\label{prop:Qd}
+\textup{(i)} Type~II at level $d$ with parameter $a$ holds if and only if
+$Q_d(e,f,a)=p$ with $4ad\mid f+1$ and $(f+1)e/(4ad)>a$, i.e.
+$p+4a^2d$ has a divisor $f\equiv-1\pmod{4ad}$. (The cofactor condition is
+automatic: with $c=(f+1)/4ad$ one has $ce-a=(fp+p+4a^2d)/(4adf)>0$.)
+\textup{(ii)} $Q_d$ represents every integer primitively over $\Z$
+($(e,f,a)=(n,1,0)$), so local conditions, genus and spinor genus impose
+nothing; all the arithmetic sits in the side condition $4ad\mid f+1$.
+\textup{(iii)} The side condition is not a finite union of lattice cosets:
+its slice at $a=a_0$ has $f$-period $4a_0d$, which is unbounded.
+\textup{(iv)} On such points the cofactor $f=4acd-1$ is a Type~II
+\emph{multiplier witness modulus}; in particular $f\ge W(p)$, the least
+such modulus.
+\end{proposition}
+Among all the parametrisations of \cite[\S2]{ET}, $Q_d$ is the only
+rank-$3$ quadratic piece (\status{certified} by a systematic search,
+\cite[Comp.~6.1]{O124}, reproduced independently in its review).
+
+\section{The divisor-class reduction}\label{sec:reduction}
+This section is \cite[\S2]{RT2}. A \emph{slice} is a choice
+$\theta$ of two of the coordinates $\{a,b,c,d,e\}$ together with prescribed
+values for them; $V_\theta(p)$ denotes the elements of $V_I(p)$ (or
+$V_{II}(p)$) with these values. By the symmetry $a\leftrightarrow b$ the
+coordinate pairs are $\{a,b\},\{a,c\},\{a,d\},\{a,e\},\{c,d\},\{c,e\},\{d,e\}$.
+
+\begin{lemma}[slice table; \status{proved}, elementary]\label{lem:slices}
+For each type and each slice $\theta$ exactly one of the following holds.
+\begin{itemize}
+\item[(C)] \emph{Congruence slice:} $V_\theta(p)\neq\emptyset$ if and only if
+$p$ lies in an explicit finite union of residue classes modulo a modulus
+depending only on $\theta$.
+\item[(D)] \emph{Divisor slice:} there are an integer $N_\theta(p)$ (a
+polynomial in $p$ of degree $\le2$, possibly divided by a constant depending
+on $\theta$), a modulus $q_\theta$ and a residue set $R_\theta(p)\subset\Z/q_\theta$
+such that $V_\theta(p)$ is in bijection with
+$\{f\ge1:\ f\mid N_\theta(p),\ f\bmod q_\theta\in R_\theta(p)\}$. The set
+$R_\theta(p)$ depends only on $\theta$, on $p\bmod q_\theta$ and, in the
+$\{d,e\}$ rows, on $N_\theta(p)\bmod q_\theta$.
+\end{itemize}
+The rows are as follows (Type~I rows containing $c$ or $d$ are for
+$p\nmid cd$; otherwise the fibre is empty).
+\begin{center}\small
+\begin{tabular}{llllll}
+\toprule
+type & $\theta$ & kind & $N_\theta(p)$ & divisor $f$ & class condition\\
+\midrule
+I & $\{c,d\}$ & D & $p^2+4c^2d$ & $4acd-p$ & $f\equiv-p\ (4cd)$\\
+I & $\{a,c\}$ & D & $ap+c$ & $4acd-p$ & $f\equiv-p\ (4ac)$\\
+I & $\{a,e\}$ & D & $(pe+1)/4a$ & $b$ & $f\equiv-a\ (e)$\\
+I & $\{d,e\}$ & D & $m=(pe+1)/4d$ & $a$ & $f^2\equiv-m\ (e)$, $(f,e)=1$\\
+I & $\{a,d\}$ & C & $4a^2d+1$ & $4acd-p$ & $p\equiv-f\ (4ad)$\\
+I & $\{a,b\},\{c,e\}$ & C & --- & --- & $p$ mod $4ab$, resp.\ $4a(ce-a)$\\
+II & $\{c,d\}$ & D & $4c^2dp+1$ & $4acd-1$ & $f\equiv-1\ (4cd)$\\
+II & $\{a,c\}$ & D & $cp+a$ & $4acd-1$ & $f\equiv-1\ (4ac)$\\
+II & $\{a,d\}$ & D & $p+4a^2d$ & $4acd-1$ & $f\equiv-1\ (4ad)$\\
+II & $\{a,e\}$ & D & $(p+e)/4a$ & $b$ & $f\equiv-a\ (e)$\\
+II & $\{d,e\}$ & D & $m=(p+e)/4d$ & $a$ & $f^2\equiv-m\ (e)$, $(f,e)=1$\\
+II & $\{a,b\},\{c,e\}$ & C & --- & --- & $p$ mod $4ab$, resp.\ $4a(ce-a)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+In the $\{a,e\}$ and $\{d,e\}$ rows, $N_\theta(p)$ is required to be an
+integer (otherwise the fibre is empty).
+\end{lemma}
+\begin{proof}
+Each D row is an identity plus a converse.
+\emph{I$\{c,d\}$} is Lemma~\ref{lem:typeI}(iii). For the converse, the
+cofactor $f'=N/f$ satisfies $f'\equiv p^2(-p)^{-1}\equiv-p\pmod{4cd}$; put
+$a=(f+p)/4cd$, $b=(f'+p)/4cd$; expanding $ff'=N$ gives
+$p(a+b)=c(4abd-1)$, so $c\mid a+b$ and $e=(a+b)/c=(4abd-1)/p$.
+\emph{II$\{c,d\}$} is Proposition~\ref{prop:typeII}(a).
+\emph{I$\{a,c\}$} is Lemma~\ref{lem:typeI}(ii).
+\emph{II$\{a,c\}$, II$\{a,d\}$}: with $f=4acd-1$ one has $ef=4a^2d+p$, and
+$c(4a^2d+p)=a(f+1)+cp$, so $f\mid cp+a$ (as $\gcd(f,c)=1$). Conversely put
+$d=(f+1)/4ac$, resp.\ $c=(f+1)/4ad$, then $e=(p+4a^2d)/f$ and $b=ce-a$.
+\emph{$\{a,e\}$, $\{d,e\}$}: with $M=pe+1$ (Type~I) or $M=p+e$ (Type~II)
+the defining equations read $bd=M/4a$, resp.\ $ab=M/4d$, together with
+$e\mid a+b$. For $\gcd(a,e)=1$, $e\mid a+m/a$ is equivalent to
+$e\mid a^2+m$, and every element has $\gcd(a,e)=1$: for Type~I since
+$a\mid pe+1$; for Type~II since $\gcd(a,e)\mid p$ and $p\nmid e$ (if
+$p\mid e$ then $4abd=p+e\le2e\le2(a+b)$ forces $a=b=d=1$ and then
+$4=p+e\ge2p$, impossible).
+\emph{C rows}: for I$\{a,d\}$ the fibre is $\{f\mid4a^2d+1: f\equiv-p\ (4ad)\}$,
+a condition on $p\bmod 4ad$; for $\{a,b\}$, $e$ runs over the divisors of
+$a+b$ and the condition is $4ab\mid pe+1$ (resp.\ $p+e$); for $\{c,e\}$,
+$a$ runs over $[1,ce-1]$ with condition $4a(ce-a)\mid pe+1$ (resp.\ $p+e$).
+\end{proof}
+All bijections were verified mechanically against a brute-force
+enumeration of $V_I(p)\cup V_{II}(p)$ for every prime $5\le p<200$
+(\status{certified}, \cite[Lemma~2.1]{RT2}; script
+\texttt{scripts/rt2\_slices.py}).
+
+\begin{theorem}[divisor-class reduction]\label{thm:reduction}
+Consider the encodings of \S\ref{sec:dict}:
+E1 the Type~I $\SL_2$/Heegner wedge (Proposition~\ref{prop:wedge},
+$\theta=\{c,d\}$; its $T_p$-translated form, per tube, $\theta=\{a,d\}$);
+E2 the Type~II shells (Proposition~\ref{prop:typeII}, $\theta=\{c,d\}$);
+E3 the quaternion order of Proposition~\ref{prop:quat} ($\theta=\{d,e\}$);
+E4 the $(-d,-p)$ factorisation of Lemma~\ref{lem:dp} ($\theta=\{d,e\}$;
+the norms of $2ai+j$ give $\theta=\{a,d\}$);
+E5 the CM torus (Proposition~\ref{prop:cm}, $\theta=\{c,d\}$);
+E6 the ternary form $Q_d$ (Proposition~\ref{prop:Qd}, $\theta=\{a,d\}$).
+\begin{enumerate}
+\item[(i)] \status{(proved)} The E-solutions with parameter $\theta$ are in
+bijection with $V_\theta(p)$. Hence they correspond to the divisors of the
+single integer $N_\theta(p)$ lying in $R_\theta(p)$, or (C rows) to a
+congruence condition on $p$.
+\item[(ii)] \status{(proved, relative to the cited internal statements)}
+The only representative-independent invariants of these objects that
+enter the count of ES points are congruence or genus data, in the
+following precise senses: for E5 only genus characters have non-zero
+coefficient (Proposition~\ref{prop:cm}). For E3 the collision datum is a
+function of $\theta$, of $p\bmod4d$, of $(-d/p)$ and of $(-d/\ell)$ for
+$\ell\mid e$, and it holds automatically on every admissible $\theta$
+\cite[Prop.~2.2]{O130}. For E1, E2 and E6 the property of being an ES point
+belongs to the representative, not to the CM point or $\Gamma$-orbit: each
+class has infinitely many representatives of the required shape and only
+finitely many good ones (\cite[Prop.~4.1]{O126}; \cite[Prop.~8.2]{O128}; the
+stabiliser of $S_c$ in $\SL_2(\Z)$ is $\pm I$). For E4 the ES elements lie
+on the line $\{2xi\pm j\}$, on which the reduced norm is the one-variable
+polynomial $4dx^2+p$ \cite[Prop.~3.2]{O130}.
+\item[(iii)] \status{(conditional on Hypothesis~H)} Let $\Theta_0$ be a finite
+set of slice parameters, of any types and rows, fixed independently of
+$p$. Any argument that certifies $\mathrm{ES}(p)$ by exhibiting an
+E-solution with parameter in $\Theta_0$ fails for infinitely many primes
+$p\equiv1\pmod{24}$. This holds whatever auxiliary automorphic, spectral
+or geometric information the argument uses.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(i) Each source file proves the exact lift from its object to $V_\theta(p)$
+(Propositions~\ref{prop:wedge}, \ref{prop:typeII}, \ref{prop:quat},
+\ref{prop:cm}, \ref{prop:Qd} and Lemma~\ref{lem:dp}); then apply
+Lemma~\ref{lem:slices}. (ii) is a collection of the cited statements.
+(iii) The argument can only succeed at primes with
+$\bigcup_{\theta\in\Theta_0}V_\theta(p)\ne\emptyset$. By Lemma~\ref{lem:slices}
+this predicate is decided, together with a witness, by the bounded and
+correct procedure ``for $\theta\in\Theta_0$: test $p\bmod q_\theta$; factor
+$N_\theta(p)$ (with floor division for the $\{\cdot,e\}$ rows); test each
+divisor against $R_\theta(p)$''. Listing all divisors of an integer and
+looping over a list are primitive instructions of a bounded program in the
+sense of \cite[\S1.2]{PS}, so this procedure is bounded although the number
+of divisors grows with $p$. By \cite[Thm.~C]{PS}, under Hypothesis~H
+every such procedure fails for infinitely many $p\equiv1\pmod{24}$.
+\end{proof}
+
+\begin{remark}[scope]\label{rem:scope}
+Part (iii) says that whatever an automorphic input ``knows'', if it
+certifies ES through a fixed finite set of fibres it is no stronger than
+factoring finitely many fixed polynomials in $p$, and under H that fails.
+It does \emph{not} say that automorphic methods cannot aggregate over a
+parameter set $\Theta(p)$ that grows with $p$; Kuznetsov's formula and
+Heegner equidistribution aggregate over levels and discriminants in
+exactly this way. Aggregation over $\theta$ is legitimate, since $\theta$
+is a coordinate of the solution and not fixed by the problem. By
+Lemma~\ref{lem:slices} it amounts to controlling, at one prime $p$, the
+divisor events of a growing family $\{N_\theta(p)\}_{\theta\in\Theta(p)}$
+jointly. The quantitative obstacles to doing so are in
+\S\S\ref{sec:negative}--\ref{sec:gaps}, and the open routes in
+\S\ref{sec:open}. Unconditional quantitative versions of (iii) exist for
+specific growing boxes. For the Type~II box $\{acd\le T/4\}$ one uses
+$f=4acd-1\ge W(p)$ together with the $\Omega$-result
+$W(p)>\exp\bigl(c(\log p)^{1/4}(\log\log p)^{-1/4}\bigr)$ for infinitely
+many $p$ \cite{SE}. For Type~I
+heights there is $ck_{\min}(p)\gg\log p\cdot\log\log\log p$ infinitely
+often (internal file \texttt{POINTWISE\_OMEGA.md}, Thm.~8.5, modulo
+Lau--Wu). Both are cited as summarised in \cite[\S2.2]{RT2}.
+\end{remark}
+
+\section{Negative results with exact scope}\label{sec:negative}
+Each result in this section concerns a precisely defined mechanism. None of
+them says that ES is false or unprovable.
+
+\subsection{Ternary and higher-rank embeddings}
+Fix $k\ge3$, a non-degenerate integral quadratic form $Q$ in $k$ variables,
+and integers $\kappa\ge1$, $\eta$, all independent of $p$.
+
+\begin{definition}[{\cite[Def.~1.1]{O124}}]
+An \emph{embedding of complexity $(J,D)$} is a family of pieces
+$(S_j,\Phi_j)_{j\le J}$, where $S_j\subseteq\Z^k$ is an \emph{arbitrary}
+subset and $\Phi_j=(X_j,Y_j,Z_j)$ is a triple of rational functions of
+degree $\le D$. It is \emph{valid} if for every prime $p$, every $j$ and
+every $v\in S_j$ with $Q(v)=\kappa p+\eta$, $\Phi_j(v)\in\N^3$ solves
+\eqref{eq:es} for $n=p$. Put $R(p)=\bigcup_j\{v\in S_j: Q(v)=\kappa p+\eta\}$.
+A piece is \emph{degenerate} if $X_j,Y_j,Z_j\in\Q(Q)$.
+\end{definition}
+This covers every statement of the form ``$\kappa p+\eta$ is represented by
+$Q$ with side conditions, hence ES$(p)$ by an explicit piecewise rational
+recipe'' of fixed complexity. It does not cover recipes of unbounded
+algebraic complexity, or families with a parameter that grows with $p$.
+
+\begin{theorem}[\status{proved}, relative to Pila \cite{Pi}, Mordell--Schinzel \cite{Mo,Sch} and {\cite[Thm.~1.1]{ET}}; {\cite[Thm.~4.1, Cor.~4.2]{O124}}]\label{thm:ternary}
+Let $Q$ be positive definite. There is a finite union $U$ of primitive
+classes modulo some $q^*$, containing no square class, such that:
+\begin{enumerate}
+\item[(a)] for every large prime $p\notin U$,
+$\#R(p)\ll f(p)\,p^{(k-2)/2-1/4+\varepsilon}$, where $f(p)$ is the total number
+of solutions;
+\item[(b)] for $0<\varepsilon_0<1/4$ the primes $p\le N$, $p\notin U$, with
+$\#R(p)\ge c\,p^{(k-2)/2-\varepsilon_0}$ number $\ll N^{3/4+\varepsilon_0+\varepsilon}$.
+\end{enumerate}
+Consequently, suppose a representation theorem (circle method for $k\ge5$,
+Kloosterman/$\delta$-method for $k=4$, Duke \cite{Du}, Duke--Schulze-Pillot
+\cite{DSP} and Blomer-type results for $k=3$) gives
+$\#R(p)\ge c\,p^{(k-2)/2-\varepsilon_0}$ on a union $\mathcal P_R$ of primitive
+classes, outside $o(\pi(N))$ exceptions. Then $\mathcal P_R\subseteq U$:
+the representation input proves ES only for primes that a finite
+polynomial (Mordell-type) covering already handles.
+\end{theorem}
+\begin{proof}[Sketch]
+A degenerate piece produces an ES solution depending only on $p$. By a
+rationality and integrality argument it is a polynomial identity on
+finitely many classes, which by Mordell--Schinzel are not square classes;
+this defines $U$. A non-degenerate piece is non-constant on the quadric
+$Q=m$, $m=\kappa p+\eta$, outside finitely many $p$. Group the points of
+$R_j(p)$ by the value of a non-constant coordinate $X_j$; there are at
+most $f(p)$ values. Each group lies on a hypersurface section of the
+bounded quadric $Q=m$. For $k=3$ such a section is a curve whose real
+components have degree $\ge2$ (no real line lies on a bounded quadric). By
+Pila's bound it has $\ll m^{1/4+\varepsilon}$ integer points in a box of side
+$\asymp m^{1/2}$. For $k\ge4$ one slices by the last $k-3$ coordinates. This
+gives (a). Then (b) follows from (a) and the first-moment
+bound $\sum_{p\le N}f(p)\ll N\log^2N\log\log N$ \cite[Thm.~1.1]{ET}, and the
+corollary from Dirichlet's theorem.
+\end{proof}
+The same holds for line-free indefinite ternary forms \cite[\S5]{O124}. The
+theorem does \emph{not} say that an embedding proves ES only on $U$. A
+non-degenerate piece supported on a \emph{thin} set can cover a positive
+proportion of primes. An example from \cite[\S4]{O124}: $Q=\sum_{i\le5}v_i^2$,
+with $Q(v)=p+1$, the piece $v_1=1$, $4\mid Q(v)$, and the output
+$((p+1)/4+v_1-1,\ p(p+1)/2,\ p(p+1)/2)$. What it excludes is that a
+representation \emph{theorem}, which produces only sets of the generic
+size, does any work outside $U$. The only rank-$3$ quadratic piece
+of ES is $Q_d$ (Proposition~\ref{prop:Qd}). It represents everything and is
+isotropic, and its side condition is not mild. \status{evidence}: every
+Mordell-hard prime $\le10^8$ is solved through $Q_d$ with $d\le8$,
+$a\le22$ \cite[\S8]{O124}.
+
+\subsection{The scale constraint}
+\begin{definition}[{\cite[Def.~2.2]{O127}}]
+An \emph{ES-detector} assigns to each large prime $p$ a finite target
+$\cT_p$ and a map $\Phi_p:\cT_p\to\mathrm{Sol}(p)$ whose fibres have size
+$\le\mu(p)$. A hypothesis $\mathsf H$ \emph{drives} it if $\mathsf H$ implies
+$\#\cT_p\ge M(p)-R(p)$ with explicit $M(p)>R(p)$.
+\end{definition}
+
+\begin{proposition}[\status{proved}, relative to {\cite[Thm.~1.1, Prop.~1.7]{ET}}; {\cite[Prop.~2.3]{O127}}, {\cite[Prop.~2.4, \S5.5]{RT1}}]\label{prop:scale}
+If $\mathsf H$ drives a detector with $R(p)\le M(p)/2$, then
+$M(p)\le2\mu(p)f(p)$. Here
+\begin{enumerate}
+\item[(a)] $f(p)\le p^{3/5+O(1/\log\log p)}$ for every $p$ \cite[Prop.~1.7]{ET};
+\item[(b)] for each $\delta>0$, $f(p)\le p^{\delta}$ outside a set of primes
+with counting function $O_\delta(N^{1-\delta}\log^3N)$;
+\item[(c)] for any $\xi(p)\to\infty$, $f(p)\le\xi(p)\log^3p\log\log p$ outside a
+set of primes of relative density $o(1)$.
+\end{enumerate}
+In particular, if $\mu(p)\le p^{o(1)}$, then $M(p)\le p^{o(1)}$ for almost
+all $p$, and no detector with $M(p)\ge p^\eta$ for all large $p$ can be
+driven.
+\end{proposition}
+\begin{proof}
+$M/2\le\#\cT_p\le\mu(p)f(p)$. Part (a) is \cite[Prop.~1.7]{ET}. Parts (b)
+and (c) follow from Markov's inequality applied dyadically to
+$\sum_{p\le N}f(p)\ll N\log^2N\log\log N$ \cite[Thm.~1.1]{ET}.
+\end{proof}
+Every natural parametrisation of solutions by lattice points, Heegner
+points or matrices is $O(1)$-to-one, or $p^{o(1)}$-to-one by the divisor
+bound. So any equidistribution statement whose main term for the target is
+a power of $p$ is excluded as a driver, unless it detects only a coarse
+invariant of solutions (fibres $\mu\ge p^{\eta-o(1)}$). In that case the
+lifting step from the invariant to an integer solution must be supplied
+separately. This applies in particular to small-scale equidistribution of
+Heegner or CM points in families with $|D|\ge p^\kappa$ through a
+$p^{o(1)}$-to-one encoding \cite[Cor.~4.1]{O127}. With the Type~I bound of
+\cite{TH} in place of \cite[Thm.~1.1]{ET}, Markov's inequality gives
+$f_I(p)\le\psi\cL^3$ for all but a proportion $O(1/\psi)$ of primes
+\cite[Thm.~5.1]{O123}. A Planck-scale certificate must therefore have
+\emph{polylogarithmic} accuracy.
+
+\begin{proposition}[local data of moderate modulus; \status{proved}; {\cite[Prop.~7.3]{O127}}, {\cite[Lemma~5.1]{RT1}}]\label{prop:localsize}
+Let $S'(n)$ count the solutions of the $a=1$ Type~I slice
+($t\ge1$, $tn+1=mm''$, $m\equiv m''\equiv-1\pmod t$, $4\mid m$; then
+$c=(m''+1)/t$, \cite[Lemma~1.1]{O127}) with $\gcd(n,c)=1$.
+Let $\mathsf H(n)$ be any predicate depending only on the dyadic range
+$n\in(X,2X]$ and on $n\bmod Q(X)$, where $Q(X)\le X^{1/2-\varepsilon}$. If
+$\mathsf H$ holds at one large prime $p\in(X,2X]$ that is a square modulo
+$Q(X)$, then it holds at an odd square in $(X,2X]$, where $S'=0$. Hence
+``$\mathsf H(n)\Rightarrow S'(n)\ge1$'' is false for any such $\mathsf H$.
+\end{proposition}
+\begin{proof}
+The odd $m\equiv m_0\pmod{2Q}$ with $m_0^2\equiv p\pmod Q$ give $\asymp X^{1/2}/Q$
+squares in the class of $p$. For odd $n=m^2$, a slice solution with
+$\gcd(n,c)=1$ is a Type~I solution, which cannot exist by
+\cite[Prop.~1.6]{ET}.
+\end{proof}
+This does not apply to ``$\mathsf H(n)\Rightarrow\mathrm{ES}(n)$'': odd
+squares satisfy ES, through solutions that are of neither type.
+
+\subsection{Thickening a target is averaging over $n$}
+\begin{proposition}[\status{proved}; {\cite[Prop.~5.4]{O123}}]\label{prop:thick}
+In the setting of Proposition~\ref{prop:wedge}, for $z\in\Lambda_d$ the
+integer $k(z)=(2c\sqrt d\,x-\sqrt d-py)/y=4acd-f-p$ equals $n-p$, where
+$n=4acd-f$ is the integer for which $(a,c,d,f)$ satisfies
+Lemma~\ref{lem:typeI}(i) with $p$ replaced by $n$. Hence the thickened target
+$R_c^{(K)}=\{|2c\sqrt d\,x-\sqrt d-py|\le Ky,\ y\ge\sqrt d/(2p)\}$
+(the size window $f\le2p$ of \cite[Prop.~3.1]{O123}), of hyperbolic width
+$\asymp(2K+1)/p$ when $c\sqrt d\ll p$, counts exactly
+\[\sum_{|n-p|\le K}\#\{(a,f):\ f\mid4a^2d+1,\ 4acd-f=n,\ f\le2p\}.\]
+\end{proposition}
+\begin{proof}
+The computation of Proposition~\ref{prop:wedge}, with $k(z)\in\Z$ allowed
+to range over $[-K,K]$.
+\end{proof}
+The counted points are Elsholtz--Tao points of the integers $n$ near $p$.
+For composite $n$ the coprimality $\gcd(c,n)=1$ is not imposed, so the
+count is at least the Type~I count of $n$ with these $(c,d)$, not equal to
+it. \status{Assessment.} A spectral estimate at Sobolev scale $V$ (target
+width $\asymp1/V$) therefore controls only averages of Type~I counts over
+intervals $|n-p|\lesssim p/V$. With $V$ a small power of the discriminant
+(\S\ref{sec:gaps}) these are intervals of length $p^{1-\kappa}$. In that
+range unconditional exceptional-set bounds are already available, and
+nothing pointwise follows. The pointwise problem is exactly $K=0$.
+
+\subsection{Everything but one sign is soluble at odd squares}
+In the lattice language of Proposition~\ref{prop:typeII}(c), Type~II at
+$(c,d)$ for an integer $n$ asks for $Q=[A,B,C]\in L=\Z^3$ with
+$q(Q)=-4dn$, $b(Q,S_c)=4$, $B\equiv0\pmod{4d}$, $d\mid C$ and $A>0$.
+
+\begin{proposition}[\status{proved}; {\cite[Prop.~8.3]{O128}}]\label{prop:locsq}
+For every $n\ge1$, including odd squares, and every $(c,d)$, the vector
+$Q_0=[-1,0,-dn]$ satisfies every condition above except $A>0$:
+$q(Q_0)=-4dn$, $b(Q_0,S_c)=4$, $B\equiv0\pmod{4d}$, $d\mid C$. Hence the
+Type~II embedding problem is everywhere locally soluble, and even globally
+soluble without the sign condition, for every $n$. For odd squares
+$n=s^2$ it has no solution with $A>0$ (Proposition~\ref{prop:typeII}(d)).
+\end{proposition}
+\begin{proof}
+$q(Q_0)=0-4(-1)(-dn)=-4dn$ and, since $b(Q,S_c)=4(cB-A)$,
+$b(Q_0,S_c)=4$. Solubility at every prime $\ell$ is witnessed by $Q_0$. At
+$\infty$ take $B>0$ large, $A=cB-1>0$ and $C=(B^2+4dn)/(4A)>0$. The last
+sentence is \cite[Prop.~1.6]{ET}.
+\end{proof}
+So no statement ``everywhere locally soluble $\Rightarrow$ soluble'' holds
+for this integral-point problem. $Q_0$ is the trivial factorisation
+$N=(-1)(-N)$ of $N=4c^2dn+1$, i.e.\ $a=0$. The content of Type~II is that
+$N$ has a positive divisor in the class $-1\pmod{4cd}$, while it always has
+the positive divisor $1$ in the class $+1$. The two differ only by the sign
+at $\infty$. The only restriction forced locally is the genus character
+$\chi_{-4d}\cdot(n/\cdot)$, a $\Z/2$ quotient that is non-trivial exactly
+at squares \cite[Prop.~9.2]{O128}. There is no natural spinor genus for
+this pair problem, and the phrase ``spinor obstruction'' does not apply.
+Once $S_c$ is fixed, the stabiliser is a \emph{split} torus, and the
+problem is representation by $x^2-y^2$ in a coset, i.e.\ a
+divisor-in-class question \cite[\S8]{O128}. This is the reason (an
+\status{Assessment}) why the Gauss/three-squares mechanism (class number
+one of a ternary genus, with an anisotropic stabiliser) does not transfer.
+
+\subsection{Geometry: fibrations, strong approximation, Brauer--Manin}
+Let $U_n$ and $\alpha$ be as in Proposition~\ref{prop:brauer}, and let
+$L_{ij}$ be the lines $u_i=u_j=0$ and $M_k$ the lines $u_k=n/4$,
+$u_i=-u_j$ (rational only if $4\mid n$).
+
+\begin{theorem}[\status{proved}, relative to {\cite[Lemma~3.10]{BL}}; {\cite[Thm.~3.1]{O126}}]\label{thm:fibres}
+Let $C\subset U_n$ be an irreducible curve over $\Q$ containing infinitely
+many integral points. Then $C$ is one of the lines $L_{ij}$, or one of the
+$M_k$ (only if $4\mid n$; these carry no positive points). In particular,
+for every dominant map $U_n\to B$ to a curve, all fibres except finitely
+many lines have finitely many integral points, and no fibre has infinitely
+many positive integral points.
+\end{theorem}
+\begin{proof}
+Points with a zero coordinate lie on the $L_{ij}$. By \cite[Lemma~3.10]{BL},
+integral points with $u_1u_2u_3\ne0$ and $u_i\ne-u_j$ are finite in number.
+Points with $u_i=-u_j\ne0$ satisfy $u_k=n/4$ and have a negative coordinate.
+\end{proof}
+The reason is the real place, not the splitness of the fibres: the open
+torus $V_n\subset\tilde U_n$ of \cite[Lemma~2.1]{BL} is split over $\Q$
+\cite[Prop.~3.2]{O126}.
+No fibration argument can produce infinitely many positive points in a
+fibre.
+
+\begin{proposition}[\status{proved}; {\cite[\S1]{O126}}, {\cite{BL}}]\label{prop:BMonly}
+For every $n\ge2$, the statement ``the Brauer--Manin obstruction is the
+only obstruction to positive integral points on $U_n$'' is equivalent to
+$\mathrm{ES}(n)$. For $n=1$ the Brauer--Manin obstruction does obstruct.
+\end{proposition}
+\begin{proof}[Sketch]
+For $n\ge2$ the positive Brauer set is non-empty by \cite[Thm.~1.8]{BL}, so
+``BM is the only obstruction'' says exactly that a positive integral point
+exists. For $n=1$ there is no positive solution, and every point of the positive
+adelic set has $\operatorname{inv}_\infty\alpha=-1$ and $\operatorname{inv}_\ell\alpha=+1$ for all
+finite $\ell$ \cite[Lemmas~3.1, 3.5, 3.8]{BL}, so the Brauer set is empty
+\cite[\S1]{O126}. (The proof of \cite[Thm.~1.8]{BL} needs a prime divisor
+of $n$; their Thm.~1.1 correctly assumes $n\ge2$.)
+\end{proof}
+So a ``BM is the only obstruction'' conjecture for this family is ES
+restated.
+
+On the homogeneous spaces $X_d:\ ef-4da^2=1$ ($\cong\mathrm{Spin}(2,1)/T$,
+where strong approximation holds), the Type~I locus is
+$\{ef-4da^2=1,\ f+p=4cda,\ c\ne0\}$. The ES condition $4da\mid f+p$ is a
+congruence modulo a \emph{coordinate of the point}, not modulo a fixed
+modulus. So it is not an adelic open condition away from $\infty$, and
+strong approximation does not reach it. For each $(p,d)$ the locus has
+finitely many integral points, while $X_d(\Z)$ is infinite
+\cite[Prop.~4.1]{O126} (\status{proved}). That descent and strong
+approximation are irrelevant beyond this is an \status{Assessment}
+\cite[Cor.~4.2]{O126}. The same shape holds for Type~II on $Q_d$ and on the
+level-$dp$ shells.
+
+\subsection{Single targets and fixed shells are empty infinitely often}
+\begin{proposition}[\status{conditional} on Hypothesis~H; {\cite[Prop.~5.3]{O123}}]\label{prop:emptyI}
+There are infinitely many primes $p\equiv5\pmod{12}$ for which the
+genus-allowed Type~I target $(c,d)=(1,3)$ is empty, although its expected
+size is $\approx0.17\,\cL$.
+\end{proposition}
+\begin{proof}
+$x(x^2+12)$ on $x\equiv5\pmod{12}$ has no fixed prime divisor, so H gives
+infinitely many primes $p\equiv5\pmod{12}$ with $p^2+12$ prime. Here
+$\chi_{-12}(-p)=1$. The target counts divisors $f$ of $p^2+12$ with
+$f\equiv-p\equiv7\pmod{12}$ (Lemma~\ref{lem:typeI}(iii)). The only one is
+$f=1\not\equiv7$.
+\end{proof}
+
+\begin{proposition}[\status{conditional} on Dickson's conjecture for two linear forms; {\cite[Lemma~1.2.1]{RT2}}]\label{prop:emptyII}
+For every fixed $(c,d)$ there are infinitely many primes $p$ for which the
+Type~II shell $(c,d)$ is empty, although its mean is
+$\asymp\cL/\varphi(4cd)$.
+\end{proposition}
+\begin{proof}
+The pair $X,\ 4c^2dX+1$ has no fixed prime divisor, so Dickson's
+conjecture gives infinitely many primes $p$ with $4c^2dp+1$ prime. Its
+divisors $1$ and $4c^2dp+1$ are $\equiv1\not\equiv-1\pmod{4cd}$.
+\end{proof}
+Under H, applied to finitely many polynomials at once, any fixed finite
+union of such targets is empty infinitely often. This is
+Theorem~\ref{thm:reduction}(iii) seen from the fixed-$p$ side.
+\status{evidence}: all $3630$ primes $p\equiv5\pmod{12}$ in $[10^6,3\cdot10^6)$
+with $p^2+12$ prime have the $(1,3)$ target empty, and among all
+genus-allowed primes near $10^6$, $13$--$89\%$ of the individual targets
+$(c,d)$ are empty \cite[\S3, \S5]{O123}.
+
+\section{Quantitative gaps to known equidistribution}\label{sec:gaps}
+Everything in this section is an \status{Assessment}: a comparison of
+exponents, not a theorem about what any method can do.
+
+\subsection{What is known}
+Young \cite[Thm.~2.1]{Yo} proves a hybrid subconvexity bound which gives,
+for Heegner points of discriminant $-D$, an error of the shape
+$\|\phi\|_2D^{5/12+\varepsilon}V^{1+\varepsilon}$ for a test function at Sobolev
+scale $V$. Consequently every fixed ball of radius $D^{-\delta}$ with
+$\delta<1/24$ receives its expected share of points, and $\delta<1/8$ under
+the Lindel\"of hypothesis; see also Humphries \cite{Hu}, who also gives the
+genus and closed-geodesic versions. Young's Prop.~1.2 is a
+\emph{single-discriminant existence theorem} proved spectrally:
+$b^2\equiv-D\pmod{4a}$ has solutions with $a\asymp\sqrt D$,
+$|b|\asymp\sqrt D/V$ for every large odd fundamental $D$, in the range
+$V\ll D^{1/18-\varepsilon}$. It is the model of what a spectral pointwise ES
+statement would have to look like \cite{LA}. Humphries and Radziwi\l\l
+\cite{HR} reach much smaller scales, but only for almost all centres. The
+ES targets are specific regions attached to cusps, not random ones.
+
+\subsection{What ES needs}
+\begin{itemize}
+\item \emph{Type~I.} In the $T_p$-translated picture the discriminant is
+$D'=4dp^2$ and the target tubes have width $\asymp1/p\asymp|D'|^{-1/2}$
+(Proposition~\ref{prop:wedge}; \cite[Prop.~3.2]{O123}): exactly the Planck
+scale. In the level-$d$ picture $D=4d$ is tiny and the large parameter
+enters only through the shape of the target. Proposition~\ref{prop:thick}
+shows that thickening to a reachable width $|D'|^{-\delta}$ produces
+averages over $n$ in intervals of length $p^{1-2\delta}$.
+\item \emph{Type~II.} The shells of Proposition~\ref{prop:typeII}(c) have
+width $\asymp D^{-1/2}/c$ with $D=4dp$. Young's method reaches shells of
+width $D^{-1/18}$ unconditionally and $D^{-1/6}$ under the Lindel\"of
+hypothesis \cite[\S4]{O128}. The gap is a factor $D^{4/9}$, resp.\
+$D^{1/3}$, so what is needed goes beyond GLH.
+\item \emph{Accuracy.} By Proposition~\ref{prop:scale} and
+\cite[Thm.~5.1]{O123}, the count to be certified is $\le\psi\cL^3$ for all but
+a proportion $O(1/\psi)$ of primes. Termwise use of GLH or of the
+Linnik--Selberg conjecture loses $p^\varepsilon$, which exceeds every power of
+$\cL$; individual central values are not polylogarithmically bounded.
+GRH can enter with only polylogarithmic losses in averaged form (moments,
+effective Siegel). But a Cauchy--Schwarz estimate over the spectrum at
+Planck scale still loses a factor $\approx p$ against the main term
+$\approx\cL$ \cite[\S5]{O123}.
+\item \emph{Termwise GRH on a character expansion.} Expanding the $a=1$
+slice count into Dirichlet characters and bounding each twisted divisor
+sum by a GRH-type estimate gives error $\ge p^{1-o(1)}$ against a main term
+$\asymp\log^2p$ \cite[Prop.~9.1]{O127} (\status{proved} bookkeeping, mechanism
+scope).
+\end{itemize}
+
+\begin{assessment}\label{ass:verdict}
+No standard hypothesis (GRH, GLH/Lindel\"of in any aspect,
+Ramanujan--Petersson, Selberg's eigenvalue conjecture, twisted
+Linnik--Selberg) is known to suffice, by the routes of this note, to prove
+ES, or the Type~I or Type~II part of ES, for all large primes. A sufficient
+statement would have to be at the Planck scale, of polylogarithmic accuracy,
+genus-aware (carrying $1+\chi_{-4d}(-p)$, without which it is false at
+$n=p^2$) and aggregated over a growing set of levels and cusps. Such a
+statement is ES restated, not a standard conjecture. Its level window must
+also be anchored at the least quadratic non-residue $n_p$. For
+$p\equiv1\pmod4$, Type~I at level $d$ needs $(-d/p)=-1$, so a window
+$d\le D(p)$ forces $n_p\le D(p)$; GRH gives $n_p\ll\cL^2$ (Ankeny, Bach) and
+Burgess gives $n_p\ll p^{1/(4\sqrt e)+\varepsilon}$ unconditionally.
+\end{assessment}
+
+\section{Open problems: the escape hatches}\label{sec:open}
+By Theorem~\ref{thm:reduction}(iii), a route that survives must use a
+parameter set growing with $p$, integers that are not formal polynomials
+in $p$, non-abelian data, or a signed counting certificate. We list the
+concrete forms \cite[\S3]{RT2}. The verdicts are \status{Assessments}. Each
+hatch is equally a hatch for \emph{disproof}: a sterile prime, if one
+exists, would be a failure not explained by Brauer--Manin
+(Proposition~\ref{prop:BMonly}), and none of the encodings above could
+detect it either.
+
+\begin{problem}[H-A: joint factorisation of a growing family]
+Prove, at a single large prime $p$, a lower bound for
+$\sum_{\theta\in\Theta(p)}\#\{f\mid N_\theta(p):\ f\bmod q_\theta\in R_\theta(p)\}$
+for a family $\Theta(p)$ growing with $p$; for example
+$\sum_{a\le A,\,d\le D}\#\{f\mid p+4a^2d:\ f\equiv-1\pmod{4ad}\}$ (row
+II$\{a,d\}$), or the Type~I family $p^2+4c^2d$.
+\end{problem}
+Divisor sums over the values of a \emph{fixed} quadratic polynomial are
+classical \cite{Ho}, and roots of quadratic congruences are equidistributed
+on average over the modulus \cite{DFI}. We know no result uniform in the
+constant term $p$ in the needed range. More seriously, ES needs a
+\emph{moving} modulus $q=4ad$ tied to the variable. Once $q>N^{1/3}$, at
+most $11$ divisors of $N$ lie in one class \cite{Le}, so each $\theta$
+contributes $O(1)$. The family is a sum of $\asymp\cL^3$ events of size
+$O(1)$, with no large sub-family (\S\ref{sec:numerics}). \emph{Verdict:} open;
+no known technology. This is the main hatch, and any automorphic route
+(Kuznetsov over the level) lives here, with the polylogarithmic accuracy
+demanded by Proposition~\ref{prop:scale}.
+
+\begin{problem}[H-B: parity-breaking for a divisor-in-moving-class event]
+A slice is empty when $N_\theta(p)$ is prime
+(Propositions~\ref{prop:emptyI}, \ref{prop:emptyII}). More generally it is
+empty when all prime factors of $N_\theta(p)$ lie in classes generating a
+subgroup that misses $R_\theta(p)$. Exclude, at a fixed $p$, the conspiracy
+in which every $N_\theta(p)$, $\theta\in\Theta(p)$, is bad in this sense.
+\end{problem}
+``Bad'' is a multiplicative-class condition of parity type, which
+lower-bound sieves cannot detect without bilinear input \cite[ch.~16]{FI}.
+Parity-breaking through bilinear sums exists for thin polynomial sequences
+averaged over their variables \cite{FI98,HB,Ma}. At fixed $p$ the variables
+$\theta$ are free to average over. The differences are the target (a divisor
+in a moving class, not primality) and the size of the family ($\asymp\cL^3$
+effective members). \emph{Verdict:} open; the closest existing technology in
+spirit. The best-defined non-automorphic research target in this list is
+a ``Friedlander--Iwaniec theorem for divisors in moving classes over the
+Elsholtz--Tao family at fixed $p$''. The $O(1)$-per-block mass makes
+bilinear methods, which need long sums, hard to apply.
+
+\begin{problem}[H-D: non-abelian or higher-rank data]
+Find an object carrying information not determined by congruences
+(Frobenius in non-abelian extensions, $\mathrm{GL}_3$ or higher automorphic
+forms) with non-zero coefficient in an ES count.
+\end{problem}
+By Proposition~\ref{prop:cm}(iii), in the Type~I CM torus the dihedral data
+have coefficient $0$, so such data could only enter through the choice of
+$\theta$, not by deciding a fibre. The varieties are toric or quadric
+(Lemma~\ref{lem:slices}), so no natural higher-rank object is attached.
+\emph{Verdict:} open, with no candidate object known.
+
+\begin{problem}[H-E: an exact identity with positive main term]
+Find one expansion of an aggregated ES count, with a positive main term
+and cancellation between different $\theta$ that is not visible
+piecewise.
+\end{problem}
+Termwise use of all standard hypotheses is excluded at the level of
+mechanism (\S\ref{sec:gaps}); even the Linnik--Selberg conjecture for sums of
+Kloosterman sums (partial results: \cite{ST}) loses $p^\varepsilon$. The
+search of \cite{O131} found no structurally positive identity. Its exact
+content: the Type~II count $T_2^+(n)$ of \cite{O131} (positive $a,b$, no
+coprimality conditions) vanishes at every square $n=m^2$, odd or even; for $cd\mid6$ the Type~II
+$(c,d)$-slice is an exact combination of binary theta coefficients at
+$4c^2dn+1$; the Type~II count is ``Eisenstein even/odd parts minus a
+boundary $-2$ per level'' \cite[Prop.~4.1]{O131}; and there is no linear
+relation between $56$ ES count variants and $54$ classical arithmetic
+functions on $n\le2\cdot10^4$ (\status{certified}, exact $\Q$-rank; the
+scope is that finite dictionary). In every case positivity is again ``a
+specific integer has a divisor in a residue class''. \emph{Verdict:} open.
+
+\begin{remark}[H-F: integral Hasse principles, a cautionary example]
+ES$(p)$ asks for an integral point on an affine variety whose expected
+number of points is polylogarithmic. In the closest family where the
+integral Hasse principle has been settled, the Markoff-type surfaces, it
+holds for almost all parameters but fails for infinitely many
+\cite[Thm.~1.2]{GS}. In that setting ``almost all'' is what geometry
+delivered, not ``all''.
+\end{remark}
+
+\begin{remark}[non-escapes]
+Anchoring the levels at the least non-residue $n_p$ (H-C) fixes the genus
+condition but leaves H-A at the anchored levels. Taking Type~I and Type~II
+together (H-G) has the same $\cL^3$ mass structure, and
+Theorem~\ref{thm:reduction}(iii) applies to unions of rows of both types
+\cite[\S3]{RT2}.
+\end{remark}
+
+\section{Numerical evidence}\label{sec:numerics}
+All statements here are \status{evidence}. The counts are exact
+enumerations, validated against brute force for $p\le400$ and reproduced
+independently by internal reviewers, as indicated.
+\begin{itemize}
+\item $f_I(p)\ge1$ and $f_{II}(p)\ge1$ for every prime $5\le p\le10^8$, and the
+$a=1$ Type~I slice is non-empty for each of them \cite[\S1]{O123},
+\cite[\S10]{O128}. This was reproduced to $10^7$ (Type~I) and to $10^8$
+(Type~II) by independent code.
+\item Dyadic minima of $f_I$ grow with $p$ and stay at $0.12$--$0.20$ times
+the dyadic mean. The mean is $\approx0.1\cL^3$. For example
+$\min f_I=105$ on $[2^{25},2^{26})$, at $p=37117609$. All window minimisers
+from $2^9$ on are Mordell-hard (in the six square classes modulo $840$).
+The $a=1$ slice alone has minimum $1$--$5$ throughout.
+\item $\min f_{II}/\log^3p\approx0.012$ over $p\ge10^5$, attained at
+$p=2031121$; dyadic minima of $f_{II}$ are $62,74,88,94$ on the blocks
+$2^{23},\dots,2^{26}$ (the last one partial). The hardest primes lie in
+the square classes modulo $840$; the $20$ smallest normalised values are all
+$\equiv1\pmod{24}$ except one.
+\item Single fixed targets are often empty: the $d=1$ Type~II family
+(the single discriminant $-4p$) is empty for $148$--$198$ primes per block
+at $2^{24}$--$2^{26}$. Among primes $p\equiv1\pmod{24}$, $p<10^5$, with
+$(-d/p)=-1$, Type~I at the single level $d=7$, $11$, $13$ fails for
+$42/612$, $23/611$, $88/608$ primes, while $d=5$ never fails. It is an
+``identity level'': a classical polynomial covering \cite[\S5.3]{O126}.
+Type~II at level $d=1$ fails for $73$ of the $14183$ primes
+$p\equiv1\pmod{24}$ below $1.5\cdot10^6$.
+\item The slice of \cite[Lemma~1.1]{O127} solves every Mordell-hard prime
+below $10^7$, but its count drops to $1$ at $p=5101441$, where
+$f_I=188$ and $f_{II}=78$.
+\item Type~II solutions near $10^6$ sit at about one per dyadic $(a,c,d)$
+block \cite[\S3.1]{RT2}: the mass is spread over $\asymp\cL^3$ small
+events, with no large sub-family.
+\end{itemize}
+
+\section{Summary}
+The automorphic and geometric objects naturally attached to
+\eqref{eq:es} at a fixed prime ($\SL_2$ matrices and Heegner points, $T_p$
+translates, shells, quaternion orders, CM tori, an isotropic ternary
+quadric, the Brauer class) are exact reformulations. For fixed $p$ each of
+them reduces to genus or congruence data plus divisor events of specific
+integers at the Planck scale, with polylogarithmic expected counts
+(Theorem~\ref{thm:reduction}). \status{Assessment:} by these routes and
+with known technology, no standard hypothesis is known to suffice. What
+remains open is the joint control of a growing family of divisor events at
+one prime (H-A, H-B), or a genuinely new object (H-D, H-E). The
+Erd\H{o}s--Straus conjecture remains open.
+
+
+\begin{thebibliography}{99}
+\bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[BL]{BL} M. Bright and D. Loughran, Brauer--Manin obstruction for Erd\H{o}s--Straus surfaces, \emph{Bull. Lond. Math. Soc.} \textbf{52} (2020), 746--761; arXiv:1908.02526.
+\bibitem[Ya]{Ya} K. Yamamoto, On the Diophantine equation $4/n=1/x+1/y+1/z$, \emph{Mem. Fac. Sci. Kyushu Univ. Ser. A} \textbf{19} (1965), 37--47. (Not accessed; cited through \cite[App.~A]{BL}.)
+\bibitem[Mo]{Mo} L. J. Mordell, \emph{Diophantine equations}, Academic Press, 1969, pp.~287--290.
+\bibitem[Sch]{Sch} A. Schinzel, On sums of three unit fractions with polynomial denominators, \emph{Funct. Approx. Comment. Math.} \textbf{28} (2000), 187--194.
+\bibitem[Pi]{Pi} J. Pila, Density of integral and rational points on varieties, \emph{Ast\'erisque} \textbf{228} (1995), 183--187.
+\bibitem[Du]{Du} W. Duke, Hyperbolic distribution problems and half-integral weight Maass forms, \emph{Invent. Math.} \textbf{92} (1988), 73--90.
+\bibitem[DSP]{DSP} W. Duke and R. Schulze-Pillot, Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids, \emph{Invent. Math.} \textbf{99} (1990), 49--57.
+\bibitem[Yo]{Yo} M. P. Young, Weyl-type hybrid subconvexity bounds for twisted $L$-functions and Heegner points on shrinking sets, \emph{J. Eur. Math. Soc.} \textbf{19} (2017), 1545--1576; arXiv:1405.5457.
+\bibitem[Hu]{Hu} P. Humphries, Equidistribution in shrinking sets and $L^4$-norm bounds for automorphic forms, \emph{Math. Ann.} \textbf{371} (2018), 1497--1543.
+\bibitem[HR]{HR} P. Humphries and M. Radziwi\l\l, Optimal small scale equidistribution of lattice points on the sphere, Heegner points, and closed geodesics, \emph{Comm. Pure Appl. Math.} \textbf{75} (2022), 1936--1996; arXiv:1910.01360.
+\bibitem[GZ]{GZ} B. H. Gross and D. B. Zagier, On singular moduli, \emph{J. Reine Angew. Math.} \textbf{355} (1985), 191--220.
+\bibitem[GS]{GS} A. Ghosh and P. Sarnak, Integral points on Markoff type cubic surfaces, \emph{Invent. Math.} \textbf{229} (2022), 689--749; arXiv:1706.06712.
+\bibitem[Le]{Le} H. W. Lenstra, Jr., Divisors in residue classes, \emph{Math. Comp.} \textbf{42} (1984), 331--340.
+\bibitem[Ho]{Ho} C. Hooley, On the number of divisors of a quadratic polynomial, \emph{Acta Math.} \textbf{110} (1963), 97--114.
+\bibitem[DFI]{DFI} W. Duke, J. Friedlander and H. Iwaniec, Equidistribution of roots of a quadratic congruence to prime moduli, \emph{Ann. of Math.} \textbf{141} (1995), 423--441.
+\bibitem[FI]{FI} J. Friedlander and H. Iwaniec, \emph{Opera de cribro}, AMS Colloquium Publications \textbf{57}, 2010.
+\bibitem[FI98]{FI98} J. Friedlander and H. Iwaniec, The polynomial $X^2+Y^4$ captures its primes, \emph{Ann. of Math.} \textbf{148} (1998), 945--1040.
+\bibitem[HB]{HB} D. R. Heath-Brown, Primes represented by $x^3+2y^3$, \emph{Acta Math.} \textbf{186} (2001), 1--84.
+\bibitem[Ma]{Ma} J. Maynard, Primes represented by incomplete norm forms, \emph{Forum Math. Pi} \textbf{8} (2020), e3.
+\bibitem[ST]{ST} P. Sarnak and J. Tsimerman, On Linnik and Selberg's conjecture about sums of Kloosterman sums, in \emph{Algebra, Arithmetic, and Geometry}, Progr. Math. \textbf{270}, Birkh\"auser, 2009, 619--635.
+\bibitem[PO]{PO} \emph{Pointwise obstructions for the Erd\H{o}s--Straus seed-component programme}, internal note, \texttt{paper/pointwise-obstruction.tex}.
+\bibitem[PS]{PS} \emph{Formal genericity and pointwise $\Omega$-results}, internal note, \texttt{POINTWISE\_SIZE.md} (Theorems M and C), with internal review \texttt{reviews/pointwise-size-step1-review.md}.
+\bibitem[SE]{SE} \emph{Large Erd\H{o}s--Straus witnesses II}, internal note, \texttt{paper/es-subexp-note.tex}.
+\bibitem[TH]{TH} \emph{The Elsholtz--Tao Type~I sum is $O(N\log^2N)$}, internal note, \texttt{paper/es-typei-heegner-note.tex} (the bound (D)32b).
+\bibitem[O123]{O123} \emph{Flip the average: fixed-$p$ spectral forms of Type~I}, internal note, \texttt{POINTWISE\_SPECTRAL.md}, review \texttt{reviews/pointwise-spectral-review.md}.
+\bibitem[O124]{O124} \emph{Embedding ES into representations by quadratic forms}, internal note, \texttt{POINTWISE\_TERNARY.md}, review \texttt{reviews/pointwise-ternary-review.md}.
+\bibitem[O126]{O126} \emph{Arithmetic geometry of the Erd\H{o}s--Straus surfaces}, internal note, \texttt{GEOMETRY\_ES.md}, review \texttt{reviews/geometry-es-review.md}.
+\bibitem[O127]{O127} \emph{ES for large primes conditional on a standard conjecture?}, internal note, \texttt{CONDITIONAL\_ES.md}, review \texttt{reviews/conditional-es-review.md}.
+\bibitem[O128]{O128} \emph{Automorphic structure of Type~II solutions for fixed $p$}, internal note, \texttt{POINTWISE\_TYPEII\_SPECTRAL.md}, reviews \texttt{reviews/pointwise-typeii-spectral-review.md}, \texttt{-review-r2.md}.
+\bibitem[O130]{O130} \emph{Quaternionic / supersingular reformulation}, internal note, \texttt{QUATERNION\_ES.md}, review \texttt{reviews/quaternion-es-review.md}.
+\bibitem[O131]{O131} \emph{Exact-formula search}, internal note, \texttt{EXACT\_FORMULA.md}, review \texttt{reviews/exact-formula-review.md}.
+\bibitem[RT1]{RT1} \emph{Red team for the automorphic/geometric attack}, internal report, \texttt{reviews/redteam-automorphic.md}.
+\bibitem[RT2]{RT2} \emph{Red team 2 and synthesis: the divisor-class reduction}, internal report, \texttt{reviews/redteam-automorphic-2.md}.
+\bibitem[LA]{LA} \emph{Spectral and geometric tools for pointwise representation (literature survey)}, internal file, \texttt{LITERATURE\_AUTOMORPHIC.md}.
+\end{thebibliography}
+\end{document}

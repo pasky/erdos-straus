@@ -550,6 +550,7 @@ The first two and the last are *closing* questions (they would extend the
 cap); a θ > 3/4 proof needs the third kind of input.
 
 Papers in `paper/`:
+* `es-automorphic-barrier-note` (new, O134, 18 pp): write-up of wave (I) — exact automorphic/geometric dictionaries (PROVED; Brauer class = genus character is folklore/Yamamoto), divisor-class reduction (O132 Lemma 2.1/Thm 2.2), mechanism-scoped negative results, gaps (Assessment), hatches H-A/B/D/E/F, numerics; ES NOT proved; awaits referee (`reviews/agent-reports/AGENT_REPORT_O134.md`).
 * `es-threequarter-note` (INTERNALLY PROVED, blind-audited);
 * `vaughan-loglog-note`;
 * `pointwise-obstruction` (refereed internally, ACCEPT pending authorship);
