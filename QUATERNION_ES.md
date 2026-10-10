@@ -45,3 +45,47 @@ in 24–39% of cases (the Hilbert step at `ℓ | e` uses `−d ≡ □ mod e`, w
 **Remark (where the ES content goes).** The hypothesis of Prop 1.3 that produces `B_{p,∞}` is only:
 `4dm ≡ 1 (mod p)`, `(−d/p) = −1`, and `(−d/ℓ) = 1` for each ℓ dividing `e = (4dm−1)/p` to an odd power.
 Everything else in ES — the condition `e | a + b` — is **not** part of the collision datum; see §2.
+
+## 2. What the collision datum carries, and what it does not
+
+### Proposition 2.1 (exact Type I dictionary; PROVED)
+Type I(p) at level d holds iff there are `m, e ≥ 1` with
+(i) `4dm − 1 = pe` — equivalently (Prop 1.3, Lemma 1.2) `Λ_{d,m}` is an order of reduced discriminant `pe` in
+`B_{d,m}`, and `B_{d,m} ≅ B_{p,∞}` as soon as also (−d/p) = −1 and (−d/ℓ) = 1 for ℓ ∥^{odd} e; and
+(ii) **m has a divisor a with `a + m/a ≡ 0 (mod e)`** (equivalently `a | m`, `a² ≡ −m (mod e)`).
+Then `b = m/a`, `c = (a+b)/e`, and `gcd(c,p) = 1` is automatic (`p | c` would force `a + b ≥ pe = 4abd − 1`,
+impossible for `a,b,d ≥ 1`). *Proof.* Lemma 1.1. ∎
+
+**Isogeny reading of (ii) (PROVED).** If `E` is supersingular with `u, v ∈ End E` as in Prop 1.3 and `a | m`,
+factor `v = ψ_b ∘ ψ_a` through `E' = E/H`, `H ⊂ ker v` of order a (exists in any group of order m). Put
+`φ₁ = ψ̂_a, φ₂ = ψ_b ∈ Hom(E', E)`. Then `deg φ₁ = a`, `deg φ₂ = b`, `tr(φ₁φ̂₂) = tr(v̂) = 0` and
+`deg(φ₁ + φ₂) = a + b`. The lattice `L = ℤφ₁ + ℤφ₂ + ℤuφ₁ + ℤuφ₂` has (degree-form) Gram
+`[a,1,bd] ⊥ [b,−1,ad]` (binary forms of discriminant `−pe`), determinant `(pe/4)²`, hence index e in
+`Hom(E',E)` (determinant `(p/4)²`). So **ES Type I ⟺ there are supersingular E, E', an endomorphism u of E with
+u² = −d, and orthogonal `φ₁, φ₂ ∈ Hom(E',E)` with `tr(uφ₂φ̂₁) = 1`, such that
+`[Hom(E',E) : L] = (4d·deg φ₁·deg φ₂ − 1)/p` divides `deg(φ₁ + φ₂)`.**
+
+### Proposition 2.2 (the quaternionic side is congruence data; PROVED)
+For fixed `(d, e)`, condition (i) and the `B_{p,∞}` conditions depend only on `p mod 4d` (namely
+`p ≡ −e^{−1} (mod 4d)`), on `(−d/p)` and on `e`; and then `m = (pe+1)/4d` is *determined*. Hence for each
+admissible `(d,e)` the existence of the CM collision of Prop 1.3 is automatic, and **all of the ES content is
+(ii): a divisor of the single integer `m = (pe+1)/(4d) ≍ pe/d` in the square-root classes of `−m` mod e.**
+Writing `X = a + b = ce`, `Y = b − a`, (ii) reads `X² − Y² = 4m`, `e | X`: a *split* (isotropic) binary problem,
+exactly the shape of GEOMETRY_ES Prop 3.2. The Siegel-theta reading (count pairs `φ₁ ⟂ φ₂` in `Hom(E',E)`) does
+not absorb (ii) either: `e | a + b` is a condition on the *Gram matrix* `(a, b, d)` being represented, not on the
+representation, so it selects which coefficients to sum over — a p-dependent target set.
+*Assessment.* So, for Type I, the dictionary exists but is a re-encoding: p becomes the level of `B_{p,∞}`, but the
+condition that carries the difficulty is a divisor-in-residue-class statement about `m ≍ pe/d`, i.e. the same
+shrinking-target structure as GEOMETRY_ES Prop 4.1 (modulus `e` is a coordinate of the point).
+
+## 3. Type II is genuinely non-commutative (PROVED identity; analysis in progress)
+
+### Lemma 3.1 (Type II factorisation in (−d, −p))
+Let `B = (−d, −p)_ℚ`, `i² = −d`, `j² = −p`, `ij = −ji`, `k = ij` (`k² = −dp`). Then Type II(p) at level d
+(ET: `4abd − p = e`, `a + b = ce`, `ef − 4a²d = p`, `f = 4acd − 1`) holds iff for some `a, b, c, e ≥ 1`
+`(2a·i + j)(2b·i − j) = −e(1 + 2c·k)`.
+*Proof.* `(2ai+j)(2bi−j) = −4abd − 2a·k − 2b·k + p = −(4abd − p) − 2(a+b)k`; compare coefficients. ∎
+Norms: `N(2ai + j) = 4a²d + p = ef`, `N(2bi − j) = ef'`, `N(1 + 2ck) = 1 + 4c²dp = ff'` (O128's level-dp shell).
+Compare Type I (Lemma 1.1): `(1 + 2ai)(1 + 2bi) = e(2ci + j²)` — commutative, inside `ℚ(i)`. ET's dilation swaps
+`1 ↔ j`. In Type II the product of two elements of the order `ℤ⟨i,j⟩` (reduced disc 4dp) lands in `e·ℤ[k]`:
+a statement about left/right ideals of norm e in a quaternion order of level `4dp` (to be developed: §3.2 ff.).
