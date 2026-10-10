@@ -184,7 +184,7 @@ covering already handles.**
 
 *Caution (R124 review, FATAL in the first draft).* This does **not** say that the embedding proves ES only on `U`.
 A nondegenerate piece on a *thin* set can cover a positive-density set of primes outside `U`. Example: `Q = Σ_{i≤5} v_i²`,
-`η = −1`, `κ = 1`, piece `S = {v₁ = 1, Q(v) ≡ 0 (mod 4)}` (so `p ≡ 3 (4)`), output
+`κ = η = 1` (so `Q(v) = p + 1`), piece `S = {v₁ = 1, Q(v) ≡ 0 (mod 4)}` (so `p ≡ 3 (4)`), output
 `((p+1)/4 + v₁ − 1, p(p+1)/2, p(p+1)/2)`. It is nondegenerate (it involves `v₁`), and it covers every prime `p ≡ 3 (4)`
 via `≍ p` representations, which is far fewer than `p^{3/2−ε₀}`. What the corollary excludes is that a
 representation *theorem* (which only produces mild, `≍ p^{(k−2)/2}`-sized sets) does any work outside `U`. Any ES
@@ -233,20 +233,28 @@ Consequently, for a nondegenerate piece of a valid embedding and `p` with `m = �
 containing two integer points is a `ℚ`-line, so each line carries `≤ 1`; real components of degree `≥ 2` carry
 `≪ T^{1/2+ε}` points by (P). The second part follows as in Prop 2.2. ∎
 
-**Corollary 5.3 (positivity is not mild; PROVED given (P), and given the cited counting input (DRS) for the
-last clause).** Let `p` be as in Prop 5.2 and `G = (v_0 + Mℤ³) ∩ Γ ∩ E_m` with `Γ` an open cone.
-(i) If `G ⊆ R_j(p)` for a nondegenerate piece `j`, then `#(G ∩ {|v| ≤ T}) ≪ f(p) T^{1/2+ε}` for all `T`. Since for a
-Zariski-dense orbit the count `#(G ∩ {|v| ≤ T})` grows like a positive multiple of `T` (Duke–Rudnick–Sarnak,
-Eskin–McMullen; in the ternary case up to log factors), **no valid nondegenerate piece contains an untruncated mild
-set**: validity of the ES recipe (positivity of the output!) forces `S_j ∩ E_m` to be thin.
-(ii) If the piece is mild only on a truncation `G ∩ {|v| ≤ T(p)}` and the counting input gives
-`#(G ∩ {|v| ≤ T(p)}) ≫ T(p)^{1−ε}`, then `f(p) ≫ T(p)^{1/2−2ε}`. With `T(p) ≥ p^{δ}` this is the analogue of
-Thm 4.1(b) (exceptional set `≪ N^{1−δ/2+ε}`) and Cor 4.2 follows verbatim.
+**Corollary 5.3 (positivity is not mild; PROVED given (P); the counting input in (i)/(ii) is a hypothesis).** Let `p`
+be as in Prop 5.2 and `G = (v_0 + Mℤ³) ∩ Γ ∩ E_m` with `Γ` an open cone.
+(i) If `G ⊆ R_j(p)` for a nondegenerate piece `j`, then `#(G ∩ {|v| ≤ T}) ≪ f(p) T^{1/2+ε}` for all `T`. Hence, if
+`#(G ∩ {|v| ≤ T}) ≫ T^{1−ε}` along a sequence `T → ∞`, no valid nondegenerate piece contains `G`. Such growth holds when
+`G` contains a positive-mass sector of a Zariski-dense orbit (Duke–Rudnick–Sarnak, Eskin–McMullen). Whether a given
+cone `Γ` provides one depends on `Γ` meeting `E_m(ℝ)` in an unbounded region; this is Assessment. So validity of the
+ES recipe (positivity of the output) forces `S_j ∩ E_m` to be **thin**, though **not necessarily bounded**. Example
+(R124 review): `Q = x² + y² − 2z²`, piece `{y = 1, Q ≡ 3 (4)}`, output `((Q+1)/4 + y − 1, Q(Q+1)/2, Q(Q+1)/2)`. It is
+valid and nondegenerate, and at `p = 3` the Pell equation `x² − 2z² = 2` gives infinitely many admissible points, all
+mapping to `(1, 6, 6)`.
+(ii) Suppose the piece is mild only on a truncation `G ∩ {|v| ≤ T(p)}`, and the counting input gives
+`#(G ∩ {|v| ≤ T(p)}) ≫ T(p)^{1−ε}`. Then `f(p) ≫ T(p)^{1/2−2ε}`. With `T(p) ≥ p^{δ}` this gives the analogue of
+Thm 4.1(b), with exceptional set `≪ N^{1−δ/2+ε}`, and Cor 4.2 follows with the same caution.
 
-*Remark (the split case is a genuine gap).* When `E_m` contains `ℚ`-lines (a square class of `m`, Lemma 5.1), or for
-indefinite forms in `k ≥ 4` variables (whose level sets typically contain `ℚ`-lines once `k ≥ 4`; Assessment), a fibre of `Φ_j` can be a rational line carrying `≍ T` points, and the counting argument gives
-nothing. This is the **divisor-problem** regime: `n + 4a²d = ef` with `(a, d)` fixed is a split binary form, whose
-integer points lie on the rational lines `e = const`. §6 shows that every quadratic substructure of ES is of this kind.
+*Remark (split level sets are a gap of the method; ES is not in it).* When `E_m` contains `ℚ`-lines (one square class
+of `m`, Lemma 5.1), a fibre of `Φ_j` can be a rational line carrying `≍ T` points, and the counting argument gives
+nothing. The same can happen for indefinite forms in `k ≥ 4` variables, whose level sets often contain `ℚ`-lines
+(Assessment). **ES's own rank-3 piece (Q_d) is not in this gap.** `det Q_d = d`, and `−nd < 0` is never a square, so
+`E_n` is line-free. It is in fact a two-sheeted hyperboloid with no real lines. For fixed `(a, d)` its points lie on
+the hyperbola `ef = n + 4a²d`, a conic. Prop 5.2 applies to the Type II recipe on (Q_d). It is consistent only because
+the side condition `4ad | f + 1` is thin (Prop 6.2). ES escapes the counting obstruction through **non-mild side
+conditions** (§9, item 3), not through rational lines.
 
 ## 6. The quadratic substructures of ES (step 1: systematic search)
 
@@ -264,7 +272,8 @@ degenerate. The only rank-3 one is
 > **(Q_d)** Type II with `d` fixed: `n = ef − 4d a²`, with side conditions `4ad | f + 1` (`c = (f+1)/(4ad)`) and
 > `b = ce − a ≥ 1`.
 
-`Q_d = ef − 4da²` contains the hyperbolic plane `ef`. Also the defining surface itself is split: fixing `x`,
+`Q_d = ef − 4da²` is isotropic (it contains the hyperbolic plane `ef`), but its level sets `E_n`, `n > 0`, contain no
+rational (indeed no real) line (§5 Remark). Also the defining surface itself is split: fixing `x`,
 `4xyz = n(xy+yz+zx)` becomes `((4x−n)y − nx)((4x−n)z − nx) = n²x²`.
 So ES carries **no** positive definite (or anisotropic) quadratic substructure in ET's coordinates; its quadratic
 pieces are divisor problems.
