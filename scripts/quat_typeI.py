@@ -25,31 +25,32 @@ def ram(A, B):
     return frozenset(q for q in ps if hilbert(A, B, q) == -1)
 
 
-stats = Counter()
-nsol = 0
-for p in range(5, P):
-    if not isprime(p):
-        continue
-    seen = set()
-    for sol in es_solutions(p):
-        for perm in [(0, 1, 2), (1, 0, 2), (2, 0, 1)]:
-            x, y, z = [sol[k] for k in perm]
-            if not (x % p == 0 and y % p and z % p):
-                continue
-            a, b, c, d = abcd(p, x//p, y, z)
-            if (a, b, c, d) in seen or (b, a, c, d) in seen:
-                continue
-            seen.add((a, b, c, d))
-            nsol += 1
-            e = (a+b)//c; f = 4*a*c*d - p
-            assert e*f == 4*a*a*d+1 and 4*a*b*d - 1 == p*e
-            # (a) (1+2a w)(1+2b w) = 1 - 4abd + 2(a+b) w  =  e(-p + 2c w)
-            assert 1 - 4*a*b*d == -e*p and 2*(a+b) == e*2*c
-            # (b) splits
-            for name, d1 in [("d|ab", d), ("ad|b", a*d), ("bd|a", b*d), ("1|abd", 1)]:
-                d2 = a*b*d//d1
-                R = ram(-d1, -d1*(4*d1*d2-1))
-                stats[(name, R == frozenset({p}))] += 1
-print(f"Type I unordered-in-(a,b) solutions, p<{P}: {nsol}")
-for k in sorted(stats):
-    print(k, stats[k])
+if __name__ == '__main__':
+    stats = Counter()
+    nsol = 0
+    for p in range(5, P):
+        if not isprime(p):
+            continue
+        seen = set()
+        for sol in es_solutions(p):
+            for perm in [(0, 1, 2), (1, 0, 2), (2, 0, 1)]:
+                x, y, z = [sol[k] for k in perm]
+                if not (x % p == 0 and y % p and z % p):
+                    continue
+                a, b, c, d = abcd(p, x//p, y, z)
+                if (a, b, c, d) in seen or (b, a, c, d) in seen:
+                    continue
+                seen.add((a, b, c, d))
+                nsol += 1
+                e = (a+b)//c; f = 4*a*c*d - p
+                assert e*f == 4*a*a*d+1 and 4*a*b*d - 1 == p*e
+                # (a) (1+2a w)(1+2b w) = 1 - 4abd + 2(a+b) w  =  e(-p + 2c w)
+                assert 1 - 4*a*b*d == -e*p and 2*(a+b) == e*2*c
+                # (b) splits
+                for name, d1 in [("d|ab", d), ("ad|b", a*d), ("bd|a", b*d), ("1|abd", 1)]:
+                    d2 = a*b*d//d1
+                    R = ram(-d1, -d1*(4*d1*d2-1))
+                    stats[(name, R == frozenset({p}))] += 1
+    print(f"Type I unordered-in-(a,b) solutions, p<{P}: {nsol}")
+    for k in sorted(stats):
+        print(k, stats[k])
