@@ -529,3 +529,119 @@ Its side condition `a | u` is thin. That is (H5).
 2. §8's numerics (`a ≤ 22`, `d ≤ 8` up to 10⁸) are a statement about the *small* parameters. By
    Prop 6.2 the witness modulus is f, and X5 says f must be huge i.o. So these numerics are not
    evidence about the pointwise difficulty in the W-scale.
+
+## 7. Phase 2, item 3: O126 (`GEOMETRY_ES.md`) — does §6 close every geometric route? SHT under T1–T8
+
+The formal proof check is R126. Here I ask about scope. Verdict:
+* §6 closes every route whose **output is integral points in an adelic open set** (strong
+  approximation, BM, fibration, descent) and every fibration of a fixed `U_n`.
+* It does **not** close three things:
+  - (G1) value-set arguments on the total space over n;
+  - (G3) reformulations that move p into the *level* (quaternionic/supersingular);
+  - counting on `X_d`, which O126 hands to the spectral agents itself.
+* G1 and G2 collapse under T7 and T8. G3 is live only as a Planck-scale problem.
+* **SHT as stated (unconditional) implies a polylog least-non-residue bound**, an open problem
+  (Prop 7.2).
+
+### 7.1 Escape hatches
+
+**(G1) Total space `Y → A¹_n` with prime base points (Harpaz–Wittenberg, Harpaz–Skorobogatov–
+Wittenberg with Green–Tao–Ziegler input): COLLAPSES (T7, T1).**
+* The fibration method outputs points over *some*, or a positive-proportion set of, base points
+  satisfying prime conditions. It never outputs points over a prescribed n.
+* With GTZ/Dickson/Schinzel input on the base, the best output is "infinitely many primes p with
+  ES(p)". That is already true via the identity covering `p≡3 (4)`.
+* The same prime-value input is what Theorem M/C use to build *failing* primes for bounded
+  procedures. In this problem, GTZ/Schinzel-type input cuts both ways.
+* Value-set/counting versions on Y meet X9: `Σ_{n≤N} f(n) = N·(log N)^{O(1)}`, i.e. Planck scale
+  (Prop 2.4). Without imposing primality of n they also fail T1: odd squares have no Type I/II
+  points.
+* §6's table has no row for `Y → A¹_n`. Suggest adding one (O126 §4.1 has the content).
+
+**(G2) S-integral variants: CLOSED, agreeing with O126 §4.2.**
+* The discreteness argument is airtight for ES as stated.
+* The one genuinely different S-integral problem drops positivity at ∞. That is signed solutions,
+  always solvable (BL Thm 1.5); the signed-graph line is closed by Theorem F.
+
+**(G3) Quaternionic / supersingular reading of α (O130's line): LIVE only as a Planck-scale
+problem. Pre-registered tests for O130:**
+* *Dictionary (PROVED, classical).* For p inert in `K = ℚ(√−d)` (i.e. `(−d/p) = −1`, Prop 5.1
+  there), CM curves with CM by the order of discriminant −4d have supersingular reduction mod p.
+  `O_{−4d}` embeds optimally in some maximal order of `B_{p,∞}`. The Eichler mass formula makes the
+  weighted total number of such embeddings exactly `≍ h(−4d)·(1−(−d/p))`.
+  **So genus-level (mass-formula) existence is exactly BM's α and carries nothing beyond BL
+  Thm 1.8.**
+* *Type I as a collision (Assessment; Gross–Zagier hypotheses — fundamental discriminants,
+  inertness in both fields — not checked).* A Type I solution has `4abd − 1 = pe`, i.e.
+  `p | (d₁d₂ − x²)/4` with `d₁ = 4d`, `d₂ = 4ab`, `x = 2`: the Gross–Zagier/Dorman condition for
+  the supersingular reductions of CM points of discriminants −4d and −4ab to meet. Read
+  arithmetically this is tautological: the identity *is* `4abd = pe+1`. The second order must be
+  found by factoring `pe+1` (E1; T8 lift = a divisor problem).
+* *T2 / Prop 2.4.*
+  - Small side: `h(−4d) ≤ (log p)^{K/2+o(1)}` points against `≍ p/12` supersingular classes, so
+    most bins are empty (pigeonhole). Equidistribution of reductions (Michel; Cornut–Vatsal) needs
+    `h(D) → ∞` relative to p, the opposite regime.
+  - Large side: `h(−4ab)`. ES solutions have `e ≪ p`, so `|D₂| ≲ p²/d`, `h(−4ab) ≲ p/√d`. The
+    expected number of hits on the ≤ polylog target bins is polylog.
+  - So a single-bin, Planck-scale equidistribution statement is needed, i.e. a power saving
+    exceeding the number of bins. Assessment: beyond hybrid subconvexity.
+* *T3.* Needs `d ≥ n_p` (Prop 7.2 below).
+* *T1.* At `n = m²`, `(−d/n) ≠ −1` for every d, so the genus condition already fails. PASS by
+  design.
+* *Survives if* O130 finds a coarse encoding (Prop 2.4: one solution per many bins) or an exact
+  (Gross–Zagier-type) *pointwise* formula whose positivity is not a divisor problem.
+
+**(G4) Beyond-BM obstructions.** These could only *disprove* ES at a sterile point (if one exists,
+BL Thm 1.8 says it is a non-BM failure). They are not a proof route.
+
+### 7.2 SHT against T1–T8
+
+(SHT) ∃ `d ≤ (log p)^K` with `(−d/p) = −1` and a positive `x ∈ X_d(ℤ)` with `4da | f+p`.
+
+**Lemma 7.1 (PROVED, O126 Prop 5.1).** The character condition in SHT is redundant: every Type I
+solution at level d has `(−d/p) = −1`. So SHT ⟺ "p has a Type I solution at some level
+`d ≤ (log p)^K`".
+
+**Proposition 7.2 (PROVED).** SHT with constant K implies `n_p ≤ (log p)^K` for all large primes
+`p ≡ 1 (4)`. This is a polylogarithmic least-non-residue bound, known only under GRH
+(`n_p ≤ 2 log²p`, Bach). Unconditionally only `n_p ≪ p^{1/(4√e)+ε}` (Burgess) is known. Hence SHT
+is at least as hard as an open GRH consequence, and needs `K > 1` (Graham–Ringrose: `n_p ≫ log p
+log₃p` i.o.).
+*Proof.* For `p ≡ 1 (4)`, `(−d/p) = (d/p)`, and the least `d ≥ 1` with `(d/p) = −1` is the least
+non-residue `n_p` (a prime). Lemma 7.1. ∎ (Checked: `min{d : (−d/p) = −1} = n_p` for all 8977
+primes `p ≡ 1 (4)` below 2·10⁵.)
+
+| test | SHT |
+|---|---|
+| T1 odd squares | PASS by design: `(−d/m²) ∈ {0, 1}`, and Type I is empty at odd squares (ET Prop 1.6) |
+| T2 integrality | per-*level* main term `≍ log²p/d ≥ 1/2` for `d ≲ log²p` (O126 heuristic), so level-grouping is legitimate; per-`a` pieces are sub-unit. EVIDENCE: single levels fail for 4–14% of primes, so the union over levels is essential |
+| T3 range | **Prop 7.2**: forces `n_p ≤ (log p)^K` (open unconditionally). Restate as "SHT under GRH" or with `d ≤ n_p·(log p)^K` |
+| T4 non-residue | PASS (built in; d itself is a non-residue) |
+| T5 X5 fibre | not binding (Type I) |
+| T6 x̂₉ | levels `d ∈ 7·{squares}·…` with `(d/p) = −1`. At fine x̂₉ approximants no certificate has `f < 10¹²` (TYPEI3, CERTIFIED), so SHT witnesses there need `a ≥ ((10¹²−1)/4d)^{1/2}`. No contradiction; the witnesses are high on `X_d` |
+| T7 average leak | the averaged SHT is the (D)32 Type I mass (averaged over p); the pointwise flip is O123's open problem |
+| T8 lifting | PASS (ET Prop 2.3, exact) |
+
+**Verdict:** SHT is a **surviving target** once restated relative to GRH (or with the level window
+anchored at `n_p`). As stated, it silently contains Vinogradov-type `n_p ≪ (log p)^K`. Compared with
+O127's X_slice: X_slice fixes `a = 1` with d unbounded, so its non-residue sits inside `d = m/4`.
+SHT fixes d small with a unbounded. The two are complementary Type I sub-conjectures.
+
+## 8. Handover (for a fresh red-team instance)
+
+Tests T1–T8 are defined in §4; constraints in §2 (Props 2.1–2.6); special points in §3.
+1. **O127** (§5): X_slice is a surviving target (T1 Lemma 5.1, T4 Lemma 5.2, T8 exact); not a route.
+   Prop 2.3 (O127) = Prop 2.4 here, merged in §5.5. Repairs requested: §3.2 premise, Type I scope
+   of OMEGA13, Cor 4.1 qualifier.
+2. **O124** (§6): definite/mild routes are closed by its Thm 4.1. Hatches: H1 and H3 collapse, H4
+   reduces to H5. **Live: H5** (fixed level `ef − 4a²d = 1`, p in the side condition = O123) and
+   **H2** (Q_d, Planck-scale cusp excursions = O128). Prop 6.2: a (Q_d) witness modulus is f, so
+   `f ≥ W(p)`.
+3. **O126** (§7): SA/BM/fibration routes are closed. G1 and G2 collapse. G3 (supersingular, O130)
+   is pre-registered against T2 (bins ≫ points), T3 and T8. SHT survives only with GRH or an
+   `n_p`-anchored level window (Prop 7.2).
+4. **O123 / O128 not yet reviewed.** Apply first: T7 (does any step average over p or over the
+   level?), T2 (pieces per `(a,d)` are sub-unit), T3 (Type II: no claim below `log T ≍ (log p)^{1/4}`,
+   Prop 2.3; Type I: below `n_p`), T6 (x̂₉ for O123), T1 (where primality enters).
+5. Scripts: `rt_modeltest.py` (Type II counts at special points), `rt_slice_special.py` (slice:
+   odd squares, symbols, special points). Data in `data/rt/`.

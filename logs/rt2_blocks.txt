@@ -1,0 +1,5 @@
+p=1000003 p%840=403 f_II(a<=b)=106 nonempty blocks=90 max/block=3 top3=[((4, 3, 8), 3), ((5, 8, 1), 3), ((5, 5, 5), 3)] small boxes max(a,c,d)<2^k: {2: 1, 4: 9, 6: 27}
+p=1002121 p%840=1 f_II(a<=b)=94 nonempty blocks=93 max/block=2 top3=[((0, 1, 11), 2), ((0, 0, 1), 1), ((0, 1, 1), 1)] small boxes max(a,c,d)<2^k: {2: 2, 4: 8, 6: 32}
+p=4000037 p%840=797 f_II(a<=b)=81 nonempty blocks=81 max/block=1 top3=[((0, 0, 0), 1), ((0, 18, 0), 1), ((0, 0, 1), 1)] small boxes max(a,c,d)<2^k: {2: 4, 4: 8, 6: 17}
+p=4000081 p%840=1 f_II(a<=b)=97 nonempty blocks=86 max/block=3 top3=[((2, 0, 10), 3), ((4, 2, 5), 3), ((0, 5, 0), 2)] small boxes max(a,c,d)<2^k: {2: 1, 4: 13, 6: 34}
+p=4002721 p%840=121 f_II(a<=b)=73 nonempty blocks=69 max/block=3 top3=[((3, 0, 11), 3), ((7, 0, 3), 2), ((8, 2, 1), 2)] small boxes max(a,c,d)<2^k: {2: 1, 4: 5, 6: 15}

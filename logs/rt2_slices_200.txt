@@ -1,0 +1,3 @@
+p 101
+p 151
+primes 5<=p<200: Type I tuples 1596, Type II tuples 602; independent brute force agreed for p<60; all slice bijections verified
