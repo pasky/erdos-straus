@@ -25,7 +25,7 @@ solutions (x,y,z) with y ≤ z (each once; normalisation a ≤ b, gcd(a,b,c) = 1
   of the truth; Lindelöf does not enter it).
 * **Step (5) (§5).** Thm 5.1 (PROVED rel. (D)32b): f_I(p) ≤ ψL³ outside a proportion O(1/ψ) of primes. Prop 5.3
   (CONDITIONAL on H): single targets with expectation ≍ L are empty infinitely often. Prop 5.4 (PROVED): thickening
-  the target to width K/p is exactly averaging f_I over |n − p| ≤ K, so spectral scale V gives only averages over
+  the target to width K/p is exactly averaging (R123 repair: the ET N-point count, ≥ f_I) over |n − p| ≤ K, so spectral scale V gives only averages over
   intervals of length p/V. **Verdict (Assessment): no standard hypothesis (GRH, GLH/Lindelöf in any aspect,
   Ramanujan, Selberg, twisted Linnik) suffices by this route.** The sufficient statement is a Planck-scale,
   polylog-accuracy, genus-aware aggregate, i.e. Type I for large p restated. Negative result; ES not proved.
