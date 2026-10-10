@@ -1,0 +1,25 @@
+primes in [1000000,1020000): 1472
+d= 2 c=1: allowed p= 725 mean= 4.470 mean*cd/L= 0.647 empty= 0.00
+d= 2 c=2: allowed p= 725 mean= 2.239 mean*cd/L= 0.648 empty= 0.15
+d= 2 c=3: allowed p= 725 mean= 0.981 mean*cd/L= 0.426 empty= 0.43
+d= 2 c=5: allowed p= 725 mean= 1.117 mean*cd/L= 0.809 empty= 0.36
+d= 3 c=1: allowed p= 754 mean= 2.381 mean*cd/L= 0.517 empty= 0.17
+d= 3 c=2: allowed p= 754 mean= 1.166 mean*cd/L= 0.506 empty= 0.35
+d= 3 c=3: allowed p= 754 mean= 0.809 mean*cd/L= 0.527 empty= 0.49
+d= 3 c=5: allowed p= 754 mean= 0.641 mean*cd/L= 0.696 empty= 0.56
+d= 5 c=1: allowed p= 747 mean= 2.444 mean*cd/L= 0.885 empty= 0.13
+d= 5 c=2: allowed p= 747 mean= 1.240 mean*cd/L= 0.897 empty= 0.34
+d= 5 c=3: allowed p= 747 mean= 0.541 mean*cd/L= 0.587 empty= 0.60
+d= 5 c=5: allowed p= 747 mean= 0.471 mean*cd/L= 0.853 empty= 0.63
+d= 6 c=1: allowed p= 728 mean= 1.707 mean*cd/L= 0.742 empty= 0.26
+d= 6 c=2: allowed p= 728 mean= 0.924 mean*cd/L= 0.803 empty= 0.45
+d= 6 c=3: allowed p= 728 mean= 0.585 mean*cd/L= 0.762 empty= 0.59
+d= 6 c=5: allowed p= 728 mean= 0.315 mean*cd/L= 0.683 empty= 0.73
+d= 7 c=1: allowed p= 732 mean= 0.615 mean*cd/L= 0.311 empty= 0.57
+d= 7 c=2: allowed p= 732 mean= 0.327 mean*cd/L= 0.331 empty= 0.73
+d= 7 c=3: allowed p= 732 mean= 0.270 mean*cd/L= 0.411 empty= 0.77
+d= 7 c=5: allowed p= 732 mean= 0.160 mean*cd/L= 0.405 empty= 0.85
+d=10 c=1: allowed p= 745 mean= 0.765 mean*cd/L= 0.554 empty= 0.51
+d=10 c=2: allowed p= 745 mean= 0.356 mean*cd/L= 0.515 empty= 0.71
+d=10 c=3: allowed p= 745 mean= 0.383 mean*cd/L= 0.831 empty= 0.69
+d=10 c=5: allowed p= 745 mean= 0.126 mean*cd/L= 0.457 empty= 0.89
