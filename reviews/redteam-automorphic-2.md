@@ -220,6 +220,8 @@ For each type and each slice θ, exactly one of the following holds.
 | II | {d,e} | D | `m = (p+e)/(4d)` | `a` | `f² ≡ −m (e)`, `(f,e)=1` | O130 P3.2 (quaternion `(−d,−p)`) |
 | II | {a,b}, {c,e} | C | — | — | p in classes mod `4ab`, resp. `4a(ce−a)` | ET polynomial classes |
 
+(In the Type I rows containing c or d, the statement is for `p ∤ cd`. Fibres with `p | cd` are empty, by §2.0.)
+
 *Proof.* Each D row is a one-line identity plus a converse.
 * **I{c,d}.** `(4acd−p)(4bcd−p) = 4c²d(4abd − pe) + p² = p² + 4c²d`. Converse: given `f | N`, `f ≡ −p (4cd)`, put
   `f' = N/f`. Then `f' ≡ p²(−p)^{−1} ≡ −p (4cd)`, since `gcd(p, 4cd) = 1`. Put `a = (f+p)/4cd`, `b = (f'+p)/4cd`.
