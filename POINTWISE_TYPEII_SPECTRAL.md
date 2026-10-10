@@ -131,9 +131,7 @@ A counting version: `#(Λ_{4dp} ∩ T_c) = h·area/vol·(1 + o(1))` on average o
 `w^{3/2} ≫ D^{−1/12+ε}`, i.e. **`w ≫ D^{−1/18}` (unconditional — exactly Young's cusp-strip range)**, and
 `w ≫ D^{−1/6}` under Lindelöf. Type II needs **`w ≍ D^{−1/2}/c`**: gap `D^{4/9}` unconditionally, `D^{1/3}`
 under GLH. Summing over c ≤ C does not change V (the c = 1 shell is the thinnest) and adds at most a factor
-`log C` to the main term. Summing over d ≤ D₀ (several discriminants, DI/Duke–Iwaniec style) gains at most
-`D₀^{1/2}` in the error (square-root cancellation across discriminants), needing `D₀ ≥ p^{2/3}` even under
-GLH, where the per-d main term `log²/d` is already `< 1`. Even optimal pointwise square-root cancellation
+`log C` to the main term. Summing over d ≤ D₀ does not help either: at `w = |D|^{−1/2}` the GLH error per d is `≈ (wℓ)^{1/2}|D|^{1/4}w^{−1} ≈ |D|^{1/2}` (polylog factors dropped) against a per-d main term `≈ log²p/d`; even square-root cancellation across d leaves error `≫ D₀·p^{1/2}` against total main `≪ log³p`. Even optimal pointwise square-root cancellation
 over the class group (error `≈ (h·area)^{1/2}`) would be ≈ `log p` against main `log²p` — fine — but no
 spectral method gives that at Sobolev scale `V = D^{1/2}`: smoothing at the point-spacing scale `D^{−1/4}` is
 the natural limit of any equidistribution statement, and the target is `D^{1/4}` finer. Compare Young
