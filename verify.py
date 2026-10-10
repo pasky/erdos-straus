@@ -126,6 +126,7 @@ Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geomet
   (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
   (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
   (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1 forms vs raw brute force, geometry, genus, Props 7-9, f_II to 10^7 (R128/R128b).
+  (ew) EXACT_FORMULA: Lemma 1.1 (brute = engine, n <= 3000), Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23575,6 +23576,85 @@ def check_ev():
 
 print("\n== (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1, geometry, genus, Props 7-9, f_II to 10^7 (R128, R128b) ==")
 check_ev()
+
+
+# ---------------------------------------------------------------- (ew)
+# EXACT_FORMULA.md (review R131 = reviews/exact-formula-review.md; DISCOVERIES (I)5), elementary part.  Uses R131's
+# from-scratch review_r131_brute.c (direct search of the four equations T1+, T1-, T2+, T2-), review_r131_compare.py
+# and review_r131_slices.py; the author's exf_engine.c is compiled only as the object of comparison.  Checked (gcc
+# needed; skipped otherwise):
+# (1) Lemma 1.1 (completion of the Type I enumeration for composite n): for n <= 3000 the brute-force solution SETS of
+#     T1+, T1-, T2+, T2- (184869 / 235265 / 48693 / 46939 tuples) equal exf_engine + expand_T1; the k-decomposition
+#     holds for every brute tuple and every k-scaling of a k = 1 tuple is present: 0 failures;
+# (2) Prop 2.1 / Prop 4.2 zero sets on n <= 3000 (from the brute-force file, recomputed here): T2+ vanishes exactly at
+#     the squares and 288, 336; T1+ and T1- vanish exactly at the powers of 2 (and n = 1); T2- zeros =
+#     {1,2,3,4,7,8,12,15,24,44,108,168};
+# (3) §3.2 theta/character identities for the nine (c,d) with cd | 6, Prop 4.1 per-slice identities on the support
+#     and on the full (c,d) box for n <= 60, Thm 5.2 divisor form: review_r131_slices.py 1500 60 (R131 ran 3000):
+#     13500 / 80880 / 60 / 70035 cases, 0 failures.
+
+def check_ew():
+    from time import perf_counter
+    from collections import Counter
+    from math import isqrt
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    cc = shutil.which("gcc")
+    if not cc:
+        print("ew EXACT_FORMULA R131: SKIPPED (no gcc)")
+        return
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=root)
+        assert r.returncode == 0, ("EXACT_FORMULA subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        brute, eng = os.path.join(td, "brute"), os.path.join(td, "eng")
+        subprocess.run([cc, "-O2", "-o", brute, os.path.join(sdir, "review_r131_brute.c")], check=True)
+        subprocess.run([cc, "-O2", "-o", eng, os.path.join(sdir, "exf_engine.c"), "-lm"], check=True)
+        sols = {}
+        for N in (3000, 1500):
+            sols[N] = os.path.join(td, f"sol{N}.txt")
+            with open(sols[N], "w") as fh:
+                subprocess.run([brute, str(N)], stdout=fh, timeout=120, check=True)
+        os.mkdir(os.path.join(td, "auth"))
+        for pre, s in (("p", "1"), ("m", "-1")):
+            subprocess.run([eng, "3000", os.path.join(td, "auth", pre), s], capture_output=True, timeout=120,
+                           check=True)
+        o = run("review_r131_compare.py", "3000", sols[3000], os.path.join(td, "auth"))
+        for s in ("{0: 184869, 1: 235265, 2: 48693, 3: 46939}",
+                  "sign 1 T1 equal: True 184869 184869  T2 equal: True 48693 48693",
+                  "sign -1 T1 equal: True 235265 235265  T2 equal: True 46939 46939", "Lemma 1.1 failures: 0"):
+            assert s in o, ("EXACT_FORMULA R131 compare / Lemma 1.1", s, o)
+        cnt = [Counter() for _ in range(4)]
+        with open(sols[3000]) as fh:
+            for ln in fh:
+                fam, n = ln.split(maxsplit=2)[:2]
+                cnt[int(fam)][int(n)] += 1
+        zeros = [[n for n in range(1, 3001) if cnt[f][n] == 0] for f in range(4)]
+        pow2 = [2 ** k for k in range(12)]
+        assert zeros[0] == pow2 and zeros[1] == pow2, ("EXACT_FORMULA Prop 4.2 T1+- zeros", zeros[0][:20], zeros[1][:20])
+        assert zeros[2] == sorted({k * k for k in range(1, isqrt(3000) + 1)} | {288, 336}), \
+            ("EXACT_FORMULA Prop 2.1 T2+ zeros", zeros[2][:60])
+        assert zeros[3] == [1, 2, 3, 4, 7, 8, 12, 15, 24, 44, 108, 168], ("EXACT_FORMULA T2- zeros", zeros[3])
+        o = run("review_r131_slices.py", "1500", "60", sols[1500])
+    assert "tested {'3.2': 13500, '4.1slice': 80880, '4.1total': 60, '5.2': 70035}" in o and "failures {}" in o \
+        and "T1+ prime solutions with p | cd: 0" in o, ("EXACT_FORMULA R131 slices", o)
+    print(f"ew EXACT_FORMULA R131: Lemma 1.1 (brute sets = engine + expand_T1 for n <= 3000, 515766 tuples, "
+          f"0 failures); zeros T2+ = squares + {{288, 336}}, T1+- = powers of 2, T2- = 12 values (n <= 3000); §3.2, "
+          f"Prop 4.1 (support + full box n <= 60), Thm 5.2 at n <= 1500: 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ew) EXACT_FORMULA: Lemma 1.1, Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131) ==")
+check_ew()
 
 
 print("\nall checks passed")
