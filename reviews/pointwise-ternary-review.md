@@ -21,11 +21,11 @@ Blomer, Golubeva–Fomenko, HKK (these enter only through (M), which ET restate,
 | Cor 7.1 (sterile points) | SOUND (square part is immediate from Cor 4.2; x** part imported from MORDELL13E, not rechecked) |
 | Lemma 5.1, Prop 5.2, Cor 5.3, Pell example | SOUND (MINOR m3, m4) |
 | Comp 6.1 (57 substructures, all isotropic, unique rank-3 `Q_d`) | SOUND — reproduced exactly with an independent ideal/saturation setup |
-| Prop 6.2 | SOUND-AFTER-REPAIRS (MINOR m5: "not mild" proof sketch is not a proof as written) |
+| Prop 6.2 | SOUND-AFTER-REPAIRS (MINOR m5: the "not mild" proof sketch is not a proof as written; m7) |
 | §8 Step 4 EVIDENCE | SOUND — reproduced exactly (10⁶ failures, 10⁷ table, 10⁸ extremal prime, 10⁸ 1/20 sample, ratio) |
 | Scope / novelty Assessments | Essentially right, but understated in two places (MAJOR M1, MINOR m6) |
 
-No FATAL defects. One MAJOR (scope presentation), six MINOR.
+No FATAL defects. One MAJOR (scope presentation), eight MINOR (m1–m8).
 
 ## Re-derivations (what I checked and how)
 
