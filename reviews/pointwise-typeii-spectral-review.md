@@ -12,7 +12,7 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
 | 3 | Prop 2.4 / 2.5 exact incidence | SOUND-AFTER-REPAIRS (D3: shell also contains non-primitive points) |
 | 4 | §3 averaged check, constant 0.05 | |
 | 5 | §4.4 gap (Young bookkeeping) | |
-| 6 | Lemma 6.1 / Cor 6.2 / 6.3 genus | |
+| 6 | Lemma 6.1 / Cor 6.2 / 6.3 genus | SOUND as a statement about f; "equivalently genus χ_{−4d} = −1" needs p ≡ 1 (4) (D4) |
 | 7 | §5 numerics | |
 
 ## Defects
@@ -36,6 +36,13 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
   with (c/g, g²d), so existence is unaffected, but every count (§4.2, (TS) counting version) is an overcount
   by a factor ≈ 1/P(gcd(a,c)=1). Repair: add "with gcd(B/4d, c) = 1" or state the count is of the
   non-primitive family Σ_g f_II-type with d ↦ d/g².
+- **D4 (MINOR)** Lemma 6.1 "Equivalently the Type II Heegner forms … lie in the genus 𝔊⁻_d = {χ_{−4d}(Q) = −1}",
+  and §6(ii) (factorisation into `L(·,χ_{−4d})L(·,χ_p)`). χ_{−4d} is a genus character of discriminant −4dp only if
+  `−4dp/(−4d) = p` is a discriminant, i.e. **p ≡ 1 (mod 4)**. For p ≡ 3 (4) it is not a class invariant: e.g. d = 1,
+  the principal form x² + py² represents 1 (χ_{−4} = +1) and p + 4 ≡ 3 (4) (χ_{−4} = −1). There the genus
+  character is χ_{−p}, and the lemma reads χ_{−p}(f) = (f/p) = +1; the factorisation is `L(χ_{−p})L(χ_{4d})`.
+  The arithmetic statement `(p/f) = −1` is correct for all p. Repair: add "for p ≡ 1 (mod 4)" (the only case that
+  matters for ES) to the genus phrasing, Cor 6.2's genus remark and §6(ii).
 
 ### Claim 1 — Lemma 1.1 (five forms), duality
 
@@ -76,3 +83,13 @@ from the real point −1/(2ad) ⇒ hypercycle of the vertical geodesic there ✓
 `sinh dist(z, {Re = x₀}) = |Re z − x₀|/Im z` ✓. For the det-p root `z = (−2ad + i√(dp))/f`:
 `1 + 2c Re z = −1/f` ⇒ ⟨u,v⟩ = −1 exactly ✓. Numerically: max relative error 1e−11 over all 2086 points
 (both Prop 2.4 ray and Prop 2.5 distance `arsinh(1/(c√|D|))`, left side).
+
+### Claim 6 — Lemma 6.1, Cor 6.2, 6.3
+
+Re-derived: `ef = p + 4a²d` ⇒ `(2ad)² ≡ −dp (mod f)`; gcd(d,f)=1 from `f ≡ −1 (4ad)`, p∤f since p | f ⇒ p | ad,
+contradicting p∤x. So `(−dp/f) = 1`; `(−d/f) = (−4d/f)` and `m ↦ (−4d/m)` is a character mod 4d with value −1 at −1,
+so `(−d/f) = −1` and `(p/f) = −1` ✓; f' by the a↔b symmetry (ET (2.17)) ✓. For n = s² the same argument needs
+only gcd(n,f)=1, which follows from gcd(abd,n)=1 ✓, giving f_II(s²) = 0 — this is ET Prop 1.6 Type II (ET omit the
+Type II details; the author's route via (2.19) is a valid fill-in). Cor 6.3 is immediate from multiplicativity
+of the Jacobi symbol ✓. From scratch (`scripts/review_t2s_genus.py`): 29678 moduli f, f' for primes p < 3000,
+0 violations; brute force (`review_t2s_brute.c`) gives f_II(s²) = 0 for every odd square ≤ 2000.
