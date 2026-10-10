@@ -1,0 +1,90 @@
+===== Type I
+(a, b, c, d) : n = c*(4*a*b*d - 1)/(a + b)
+   fix (a, b) -> q = 4*a*b*c*d/(a + b) rank 2 isotropic True
+(a, b, c, e) : V dependent: [a + b - c*e]
+(a, b, c, f) : n = (b*f - c)/a
+   fix (a,) -> q = b*f/a rank 2 isotropic True
+   fix (a, c) -> q = b*f/a rank 2 isotropic True
+(a, b, d, e) : n = (4*a*b*d - 1)/e
+   fix (a, e) -> q = 4*a*b*d/e rank 2 isotropic True
+   fix (b, e) -> q = 4*a*b*d/e rank 2 isotropic True
+   fix (d, e) -> q = 4*a*b*d/e rank 2 isotropic True
+(a, b, d, f) : n = f*(4*a*b*d - 1)/(4*a**2*d + 1)
+   fix (a, d) -> q = 4*a*b*d*f/(4*a**2*d + 1) rank 2 isotropic True
+(a, b, e, f) : n = -(a - b*e*f + b)/(a*e)
+   fix (a, e) -> q = b*f/a rank 2 isotropic True
+(a, c, d, e) : n = -(4*a**2*d - 4*a*c*d*e + 1)/e
+   fix (a, e) -> q = 4*a*c*d rank 2 isotropic True
+   fix (d, e) -> q = -4*a*d*(a - c*e)/e rank 2 isotropic True
+(a, c, d, f) : n = 4*a*c*d - f
+   fix (a,) -> q = 4*a*c*d rank 2 isotropic True
+   fix (c,) -> q = 4*a*c*d rank 2 isotropic True
+   fix (d,) -> q = 4*a*c*d rank 2 isotropic True
+   fix (a, f) -> q = 4*a*c*d rank 2 isotropic True
+   fix (c, f) -> q = 4*a*c*d rank 2 isotropic True
+   fix (d, f) -> q = 4*a*c*d rank 2 isotropic True
+(a, c, e, f) : n = -(a*f - c*e*f + c)/a
+   fix (a, c) -> q = c*e*f/a rank 2 isotropic True
+   fix (a, e) -> q = c*e*f/a rank 2 isotropic True
+   fix (a, f) -> q = c*e*f/a rank 2 isotropic True
+(a, d, e, f) : V dependent: [4*a**2*d - e*f + 1]
+(b, c, d, e) : n = -(4*b**2*d - 4*b*c*d*e + 1)/e
+   fix (b, e) -> q = 4*b*c*d rank 2 isotropic True
+   fix (d, e) -> q = -4*b*d*(b - c*e)/e rank 2 isotropic True
+(b, c, d, f) : no eliminant linear in n (degrees [2])
+(b, c, e, f) : n = -(b*f - c)/(b - c*e)
+(b, d, e, f) : no eliminant linear in n (degrees [2])
+(c, d, e, f) : no eliminant linear in n (degrees [2])
+===== Type II
+(a, b, c, d) : n = (4*a*b*c*d - a - b)/c
+   fix (a, c) -> q = 4*a*b*d rank 2 isotropic True
+   fix (b, c) -> q = 4*a*b*d rank 2 isotropic True
+   fix (c, d) -> q = 4*a*b*d rank 2 isotropic True
+(a, b, c, e) : V dependent: [a + b - c*e]
+(a, b, c, f) : n = -(a - b*f)/c
+   fix (c,) -> q = b*f/c rank 2 isotropic True
+   fix (a, c) -> q = b*f/c rank 2 isotropic True
+(a, b, d, e) : n = 4*a*b*d - e
+   fix (a,) -> q = 4*a*b*d rank 2 isotropic True
+   fix (b,) -> q = 4*a*b*d rank 2 isotropic True
+   fix (d,) -> q = 4*a*b*d rank 2 isotropic True
+   fix (a, e) -> q = 4*a*b*d rank 2 isotropic True
+   fix (b, e) -> q = 4*a*b*d rank 2 isotropic True
+   fix (d, e) -> q = 4*a*b*d rank 2 isotropic True
+(a, b, d, f) : n = -4*a*d*(a - b*f)/(f + 1)
+   fix (a, f) -> q = 4*a*b*d*f/(f + 1) rank 2 isotropic True
+   fix (d, f) -> q = -4*a*d*(a - b*f)/(f + 1) rank 2 isotropic True
+(a, b, e, f) : n = -e*(a - b*f)/(a + b)
+   fix (a, b) -> q = b*e*f/(a + b) rank 2 isotropic True
+(a, c, d, e) : n = -4*a**2*d + 4*a*c*d*e - e
+   fix (a, c) -> q = 4*a*c*d*e rank 2 isotropic True
+   fix (a, d) -> q = 4*a*c*d*e rank 2 isotropic True
+   fix (a, e) -> q = 4*a*c*d*e rank 2 isotropic True
+   fix (c, d) -> q = -4*a*d*(a - c*e) rank 2 isotropic True
+   fix (d, e) -> q = -4*a*d*(a - c*e) rank 2 isotropic True
+(a, c, d, f) : V dependent: [4*a*c*d - f - 1]
+(a, c, e, f) : n = -(a*f + a - c*e*f)/c
+   fix (c,) -> q = -f*(a - c*e)/c rank 2 isotropic True
+   fix (a, c) -> q = e*f rank 2 isotropic True
+   fix (c, e) -> q = -a*f/c rank 2 isotropic True
+(a, d, e, f) : n = -4*a**2*d + e*f
+   fix (a,) -> q = e*f rank 2 isotropic True
+   fix (d,) -> q = -4*a**2*d + e*f rank 3 isotropic check by hand
+   fix (a, d) -> q = e*f rank 2 isotropic True
+   fix (d, e) -> q = -4*a**2*d rank 1 isotropic True
+   fix (d, f) -> q = -4*a**2*d rank 1 isotropic True
+(b, c, d, e) : n = -4*b**2*d + 4*b*c*d*e - e
+   fix (b, c) -> q = 4*b*c*d*e rank 2 isotropic True
+   fix (b, d) -> q = 4*b*c*d*e rank 2 isotropic True
+   fix (b, e) -> q = 4*b*c*d*e rank 2 isotropic True
+   fix (c, d) -> q = -4*b*d*(b - c*e) rank 2 isotropic True
+   fix (d, e) -> q = -4*b*d*(b - c*e) rank 2 isotropic True
+(b, c, d, f) : n = (4*b*c*d*f - f - 1)/(4*c**2*d)
+   fix (c, d) -> q = b*f/c rank 2 isotropic True
+(b, c, e, f) : n = (b*f + b - c*e)/c
+   fix (c,) -> q = b*f/c rank 2 isotropic True
+   fix (c, e) -> q = b*f/c rank 2 isotropic True
+(b, d, e, f) : no eliminant linear in n (degrees [2])
+(c, d, e, f) : n = (4*c**2*d*e*f - f**2 - 2*f - 1)/(4*c**2*d)
+   fix (c, d) -> q = f*(4*c**2*d*e - f)/(4*c**2*d) rank 2 isotropic True
+TOTAL 57 by rank {2: 54, 3: 1, 1: 2}
