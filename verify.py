@@ -121,6 +121,14 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
   (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111 + author), O112 §8.0 identities (reduced size), Lemma 6.1
        local transitivity / densities, Lemma 6.3 r(d) bound (R111);
   (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
+Blocks (es)..(ey) (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
+  (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
+  (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
+  (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
+  (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1 forms vs raw brute force, geometry, genus, Props 7-9, f_II to 10^7 (R128/R128b).
+  (ew) EXACT_FORMULA: Lemma 1.1 (brute = engine, n <= 3000), Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131).
+  (ex) EXACT_FORMULA: CERTIFIED exact Q-rank test (columns regenerated in a tempdir; ~2 min) (R131).
+  (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols (p < 3000), brute force p < 200, Lemmas 1.2/3.1 symbolic, §3.4 (R130).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23272,6 +23280,508 @@ def check_er():
 
 print("\n== (er) POINTWISE_TYPEI7: explicit families of Thm 2.1/2.4 + Lemma 1.1 on all small fibre certificates (R109) ==")
 check_er()
+
+
+
+# ---------------------------------------------------------------- (es)
+# POINTWISE_TERNARY.md (task O124-author, review R124 = reviews/pointwise-ternary-review.md; DISCOVERIES (I)1).
+# Uses R124's from-scratch scripts (not the author's tern_sweep.py / tern_qd.py).  Checked:
+# (1) Comp 6.1 (CERTIFIED): review_tern_sweep.py (sympy elimination on ET's (a,b,c,d) parametrisation of T^I, T^II)
+#     reproduces the stored log logs/review_tern_sweep.out.txt line for line: 30 four-subsets, 22 with n in Q(V),
+#     4 algebraically dependent, 4 with n quadratic over Q(V); 57 quadratic substructures with ranks
+#     {2: 54, 3: 1, 1: 2}, all 56 non-rank-3 ones isotropic; the unique rank-3 piece is Type II (a,d,e,f), d fixed:
+#     n = e*f - 4*a^2*d (= Q_d);
+# (2) Section 8 Step 4 (EVIDENCE, small sample): review_tern_qd.py (every hit checked as an exact ES identity) at
+#     N = 10^6, DMAX = 4, AMAX = 100: failures exactly {3361, 7681}; at N = 10^7, DMAX = 8, AMAX = 200: 20513
+#     Mordell-hard primes, histogram {1: 19634, 2: 682, 3: 160, 4: 21, 5: 11, 7: 1, 8: 2, 9: 1, 13: 1}, worst
+#     a_min(733321) = 13, no failure; spot value a_min(84525841) = 22 (with d = 3), the 10^8 worst case.
+
+def check_es():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TERNARY subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run(os.path.join(sdir, "review_tern_sweep.py"))
+    with open(os.path.join(root, "logs", "review_tern_sweep.out.txt")) as fh:
+        assert o == fh.read(), "TERNARY R124 sweep differs from logs/review_tern_sweep.out.txt"
+    lines = o.splitlines()
+    subsets = [ln for ln in lines if ln.startswith("(")]
+    rank3 = [ln for ln in lines if " rank 3 " in ln]
+    t2 = lines.index("===== Type II")
+    assert len(subsets) == 30 and sum(" : n = " in ln for ln in subsets) == 22 and \
+        sum("V dependent" in ln for ln in subsets) == 4 and sum("no eliminant" in ln for ln in subsets) == 4, \
+        ("TERNARY Comp 6.1 subset census", len(subsets))
+    assert "TOTAL 57 by rank {2: 54, 3: 1, 1: 2}" in o and o.count("isotropic True") == 56, "TERNARY Comp 6.1 ranks"
+    assert len(rank3) == 1 and "fix (d,) -> q = -4*a**2*d + e*f rank 3" in rank3[0] and \
+        lines.index(rank3[0]) > t2 and lines[lines.index(rank3[0]) - 2].startswith("(a, d, e, f) : n = "), \
+        ("TERNARY Comp 6.1 unique rank-3 piece", rank3)
+    qd = os.path.join(sdir, "review_tern_qd.py")
+    o = run(qd, "1000000", "4", "100")
+    assert "fails [3361, 7681] 2" in o, ("TERNARY Step 4 at 1e6 / DMAX 4", o)
+    o = run(qd, "10000000", "8", "200")
+    assert "primes 20513" in o and "hist {1: 19634, 2: 682, 3: 160, 4: 21, 5: 11, 7: 1, 8: 2, 9: 1, 13: 1} " \
+        "worst (13, 733321) fails [] 0" in o, ("TERNARY Step 4 at 1e7", o)
+    o = run("-c", "import review_tern_qd as r; print(r.amin(84525841, 8, 200))")
+    assert o.strip() == "(22, 3)", ("TERNARY a_min(84525841)", o)
+    print(f"es TERNARY R124: Comp 6.1 sweep = stored log (30 subsets, 57 quadratic pieces, ranks {{2: 54, 3: 1, 1: 2}}, "
+          f"unique rank 3 = Type II Q_d = ef - 4da^2); Step 4: fails {{3361, 7681}} at (1e6, 4, 100), 20513 hard primes "
+          f"<= 1e7 solved with worst a = 13 at 733321, a_min(84525841) = 22 (d = 3); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep + Step 4 (Q_d) sample (R124) ==")
+check_es()
+
+
+# ---------------------------------------------------------------- (et)
+# CONDITIONAL_ES.md (review R127 = reviews/conditional-es-review.md; DISCOVERIES (I)2).  Uses R127's from-scratch
+# scripts (not the author's cond_* scripts).  Checked:
+# (1) Lemma 1.1 (PROVED): review_r127_lemma11.py 200: for every 1 <= n < 200 the three forms of the slice give
+#     identical (c,f,g) solution sets, all 600 solutions rebuilt and 4/n checked exactly, 0 mismatches (incl. the §6
+#     dual form and the §7.5 remainder form for odd n), no solution with n | c (n > 3);
+# (2) Prop 7.2 (PROVED, diagonal construction): review_r127_diag.py: M_j = 3, 6, 7, 12, 13, 18, 19, primes
+#     p_j = 59, 419, 55439, 1081079, 24504479, none in any class of the system with m <= 20000;
+# (3) §8 EVIDENCE (gcc; skipped otherwise): review_r127_counts.c reproduces ET's f(2..8) = 3, 12, 10, 12, 39, 36, 46,
+#     the slice counts S(13, 29, 193) = 2, 3, 3, and at p = 5101441: S = 1 (the slice solution (c,f,g) =
+#     (890, 39, 147)) while f = 798, f_I = 188, f_II = 78.
+
+def check_et():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("CONDITIONAL_ES subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_r127_lemma11.py", "200")
+    assert "n< 200 slice solutions checked: 600 mismatches: 0 solutions with n|c (n>3): 0" in o and \
+        "MISMATCH" not in o, ("CONDITIONAL_ES R127 Lemma 1.1", o)
+    o = run("review_r127_diag.py")
+    assert "M_j: [3, 6, 7, 12, 13, 18, 19]" in o and "p_j: [59, 419, 55439, 1081079, 24504479]" in o and \
+        "hits of p_j in the system (m<=20000): []" in o, ("CONDITIONAL_ES R127 Prop 7.2", o)
+    cc = shutil.which("gcc")
+    if not cc:
+        print(f"et CONDITIONAL_ES R127: Lemma 1.1 (n < 200, 600 solutions) and Prop 7.2 diagonal OK; "
+              f"counts part SKIPPED (no gcc)")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "counts")
+        subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_r127_counts.c")], check=True)
+        r = subprocess.run([exe, *map(str, (2, 3, 4, 5, 6, 7, 8, 13, 29, 193, 5101441))], capture_output=True,
+                           text=True, timeout=300, check=True)
+    o = r.stdout
+    f = {int(n): int(v) for n, v in re.findall(r"^n=(\d+) f=(\d+) ", o, re.M)}
+    S = {int(n): int(v) for n, v in re.findall(r"^n=(\d+) S=(\d+)$", o, re.M)}
+    assert [f[n] for n in range(2, 9)] == [3, 12, 10, 12, 39, 36, 46], ("CONDITIONAL_ES ET f(2..8)", f)
+    assert (S[13], S[29], S[193], S[5101441]) == (2, 3, 3, 1), ("CONDITIONAL_ES slice counts", S)
+    assert "slice sol c=890 f=39 g=147  m=gf-1=5732 m''=gc-1=130829" in o and \
+        "n=5101441 f=798  exactly0=0 one=564 two=234 three=0  f_I=188 f_II=78" in o, ("CONDITIONAL_ES 5101441", o)
+    print(f"et CONDITIONAL_ES R127: Lemma 1.1 three forms + dual + remainder (n < 200, 600 solutions, 0 mismatches); "
+          f"Prop 7.2 diagonal p_j avoid all classes m <= 20000; ET f(2..8) reproduced; S(5101441) = 1 with "
+          f"f = 798, f_I = 188, f_II = 78; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (et) CONDITIONAL_ES: Lemma 1.1 brute force, Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127) ==")
+check_et()
+
+
+# ---------------------------------------------------------------- (eu)
+# POINTWISE_SPECTRAL.md (review R123 = reviews/pointwise-spectral-review.md; DISCOVERIES (I)3).  Uses R123's
+# from-scratch scripts (not the author's spec_*).  Checked:
+# (1) Lemmas 2.1-2.4 (PROVED) by review_r123_lemmas.py 1000 300 (R123 ran 3000 400, 10.6 min): route 1 (ET
+#     parametrisation, exact 4/n identity, (ii) f | an + c) vs route 2 (Lemma 2.1(iii) divisor form) identical for all
+#     primes <= 1000; Lemma 2.4: 11581 quadruples with gcd(n, 2cd) = 1, 0 violations of chi_{-4d}(-n) = 1, no odd square
+#     has a quadruple; Lemma 2.3(a) a = 1 slice; raw ES brute force = Type I count and Type II factorisation count for
+#     all primes <= 300;
+# (2) Props 3.1/3.2 + Prop 5.4 at K = 0 (scipy; skipped otherwise): review_r123_areas.py: point-in-wedge (float) =
+#     integer Type I test for p <= 400 (0 mismatches, 1962 hits); quadrature areas vs log(2p)/(c sqrt d) within 1% (A)
+#     and 0.1% (B); hyperbolic widths = arcsinh-difference / 2/sqrt(1+K^2) to 5 digits;
+# (3) Prop 5.3 data: review_r123_prop53.py: 3630 primes p = 5 (12) in [10^6, 3*10^6) with p^2+12 prime, target (1,3)
+#     empty for all;
+# (4) §8 EVIDENCE at reduced size (gcc; skipped otherwise): review_r123_count.c at N = 10^6: f_I(p) >= 1 and a Type II
+#     solution for all 78496 primes 5 <= p <= 10^6; review_r123_cmp.py: = independent Python count on the 428 primes
+#     <= 3000; review_r123_windows.py: dyadic minima 7 at 1201, 14 at 20521, 35 at 471241 (all in square classes
+#     mod 840), min/mean 0.163, 0.134, 0.122 at 2^12, 2^13, 2^14.
+
+def check_eu():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SPECTRAL subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_r123_lemmas.py", "1000", "300")
+    for s in ("route1 done; (ii) divisibility failures: 0 ;", "route2 (Lemma 2.1(iii)) mismatches over primes <= 1000 : 0",
+              "Lemma 2.4: quadruples 11581 violations 0 odd-square hits 0", "odd squares with a route-1 quadruple: []",
+              "Lemma 2.3(a): a=1 slice matches for all primes <= 1000",
+              "raw ES brute force: TypeI mismatches 0 (p<=300); TypeII-factorisation mismatches 0 (p<=300)"):
+        assert s in o, ("SPECTRAL R123 Lemmas 2.1-2.4", s, o)
+    done = ["Lemmas 2.1-2.4 (n <= 1000, raw brute force p <= 300)"]
+    if importlib.util.find_spec("scipy"):
+        o = run("review_r123_areas.py")
+        assert "mismatches 0 hits 1962" in o, ("SPECTRAL point-in-wedge", o)
+        ar = re.findall(r"numeric ([\d.]+)  formula ([\d.]+)", o)
+        assert len(ar) == 8 and all(abs(float(x) / float(y) - 1) < (0.01 if i < 4 else 0.001)
+                                    for i, (x, y) in enumerate(ar)), ("SPECTRAL areas", ar)
+        wa = re.findall(r"width\*p = ([\d.]+)   arcsinh-difference\*p = ([\d.]+)", o)
+        wb = re.findall(r"width\*p = ([\d.]+)  \(2/sqrt\(1\+K\^2\) = ([\d.]+)\)", o)
+        assert len(wa) == 5 and len(wb) == 3 and all(x == y for x, y in wa + wb), ("SPECTRAL widths", wa, wb)
+        done.append("Props 3.1/3.2 areas, widths, point-in-wedge = Type I (p <= 400, 1962 hits)")
+    else:
+        done.append("Props 3.1/3.2 SKIPPED (no scipy)")
+    o = run("review_r123_prop53.py")
+    assert "count 3630 nonempty targets 0" in o, ("SPECTRAL Prop 5.3 data", o)
+    done.append("Prop 5.3 data (3630 primes, target (1,3) empty)")
+    cc = shutil.which("gcc")
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe, pre = os.path.join(td, "count"), os.path.join(td, "r123")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_r123_count.c"), "-lm"], check=True)
+            r = subprocess.run([exe, "1000000", pre], capture_output=True, text=True, timeout=300, check=True)
+            assert "N=1000000 primes(>=5)=78496  f_I=0: 0   no TypeII found: 0" in r.stdout, ("SPECTRAL count", r.stdout)
+            o = run("review_r123_cmp.py", "3000", pre + "_fI.bin")
+            assert "primes 428 mismatches 0 []" in o, ("SPECTRAL C vs Python count", o)
+            o = run("review_r123_windows.py", "1000000", pre + "_fI.bin", "10", "12", "13", "14", "18")
+        rows = {ln.split(":")[0]: ln for ln in o.splitlines()}
+        for k, head, ratio in (("2^10", "primes 137 min 7 at 1201 (mod 840 = 361) mean 52.2", None),
+                               ("2^12", "primes 464 min 13 at 4201 (mod 840 = 1)", "0.163"),
+                               ("2^13", "primes 872 min 13 at 14401 (mod 840 = 121) mean 96.9", "0.134"),
+                               ("2^14", "primes 1612 min 14 at 20521 (mod 840 = 361) mean 114.9", "0.122"),
+                               ("2^18", "primes 20390 min 35 at 471241 (mod 840 = 1) mean 220.8", None)):
+            ln = rows.get(k, "")
+            assert ln.startswith(f"{k}: {head}") and (ratio is None or ln.endswith(f"min/mean {ratio}")), \
+                ("SPECTRAL dyadic windows", k, o)
+        done.append("f_I >= 1 and Type II for all 78496 primes 5 <= p <= 1e6, C = Python on p <= 3000, dyadic minima")
+    else:
+        done.append("counts SKIPPED (no gcc)")
+    print(f"eu SPECTRAL R123: {'; '.join(done)}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4, Props 3.1/3.2, Prop 5.3 data, f_I/f_II to 10^6 (R123) ==")
+check_eu()
+
+
+# ---------------------------------------------------------------- (ev)
+# POINTWISE_TYPEII_SPECTRAL.md (reviews R128 = reviews/pointwise-typeii-spectral-review.md and R128b = ...-review-r2.md;
+# DISCOVERIES (I)4).  Uses the reviewers' from-scratch scripts review_t2s_* (R128) and review_r128b_* (R128b).
+# Checked:
+# (1) Lemma 1.1 (PROVED; the SL2 identity ff' - 4c^2(dp) = 1 and forms 1-5): review_t2s_brute.c (raw sorted-triple
+#     ES enumeration, gcc) at n <= 2000; review_t2s_param.py: form 1 = brute f_II for all 2 <= n <= 2000 (sum 30610),
+#     forms 2-5 for primes 5 <= p <= 150 (R128 ran 400), every triple exact, 0 mismatches; review_t2s_sieve.c (form 4
+#     AP sieve) = brute for all n <= 2000;
+# (2) Prop 2.1 / Lemma 2.2 / Props 2.4-2.5 (PROVED geometry): review_t2s_geom.py 250 (R128 ran 600): 671 primitive
+#     Heegner points, min same-level cosh = 3 (claim >= 3/2), det-p (cosh-1)*2p >= 4, incidence <v,u> = -1 to 1e-10;
+# (3) Lemma 6.1 / Cor 6.2 (genus lemma (p/f) = -1, f_II(odd square) = 0): review_t2s_genus.py 3000 (29678 moduli,
+#     0 violations); brute f_II(s^2) = 0 for every odd square s^2 <= 2000;
+# (4) Props 7.1, 7.2, 8.1, 8.2, 8.3 (R128b): review_r128b_lattice.py (p < 300: 990 solutions, 869 primitive; Q0 for
+#     n <= 50; -S_c ~ [0,2c,2c-1] for c <= 6);
+# (5) Props 9.1-9.2 (R128b): review_r128b_eis.py: 332176 triples (n,c,d), n <= 500, character-free form and
+#     psi(f) = (n/f); 40102 with explicit character tables (M <= 96); all counts 0 at odd squares;
+# (6) §10 EVIDENCE at 10^7 (gcc): review_r128b_count.c 10^7 and review_t2s_sieve.c 10^7 (two independent programs)
+#     reproduce their stored outputs scripts/review_r128b_count_1e7.out.txt, review_t2s_sieve.out.txt byte for byte
+#     (f_II(p) >= 1 for all primes 5 <= p <= 10^7, dyadic minima, min f/log^3 p over p >= 1e5 = 0.0117).
+
+def check_ev():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TYPEII_SPECTRAL subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    done = []
+    o = run("review_t2s_genus.py", "3000")
+    assert "primes < 3000: 29678 moduli f,f'; violations of (p/f)=-1: 0" in o, ("TYPEII genus lemma", o)
+    o = run("review_t2s_geom.py", "250")
+    assert "primes<250: primitive Type II points 671; min cosh (level dp, same d) = 3.000000" in o and \
+        "min (cosh-1)*2p in det-p coords = 4.000000" in o, ("TYPEII geometry", o)
+    err = float(o.split("max relative incidence error = ")[1].split(";")[0])
+    assert err < 1e-10, ("TYPEII incidence error", err)
+    o = run("review_r128b_lattice.py")
+    assert "p<300: all solutions 990, primitive 869; Props 7.1, 7.2, 8.1 identities OK" in o and \
+        "Prop 8.3 Q0 OK (n<=50, c,d<=5)" in o and \
+        all(f"c={c}: -S_c ~ [0,2c,k] for k mod 2c in [{2 * c - 1}]" in o for c in range(1, 7)), ("TYPEII R128b §7-8", o)
+    o = run("review_r128b_eis.py")
+    assert "n<=500: 332176 (n,c,d) triples checked (9.2 char-free form, psi=(n/.)); 40102 with explicit character " \
+           "tables (M<=96); odd squares: all counts 0. OK" in o, ("TYPEII R128b Props 9.1-9.2", o)
+    done.append("genus lemma (29678 moduli, p < 3000), geometry (671 points, min cosh 3), Props 7.1-8.3 (p < 300), "
+                "Props 9.1-9.2 (332176 triples, n <= 500)")
+    cc = shutil.which("gcc")
+    if not cc:
+        print(f"ev TYPEII_SPECTRAL R128/R128b: {done[0]}; Lemma 1.1 brute force and counts SKIPPED (no gcc); "
+              f"seconds = {perf_counter() - t0:.1f}")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        ex = {}
+        for name in ("review_t2s_brute", "review_t2s_sieve", "review_r128b_count"):
+            ex[name] = os.path.join(td, name)
+            subprocess.run([cc, "-O2", "-o", ex[name], os.path.join(sdir, name + ".c"), "-lm"], check=True)
+
+        def cout(name, *a):
+            return subprocess.run([ex[name], *map(str, a)], capture_output=True, text=True, timeout=300,
+                                  check=True).stdout
+        brute = cout("review_t2s_brute", 2000)
+        bf = os.path.join(td, "brute.txt")
+        with open(bf, "w") as fh:
+            fh.write(brute)
+        o = run("review_t2s_param.py", bf, "2000", "150")
+        assert "n<=2000: form1 vs brute; primes 5..150: forms 2-5; total f_II 30610; mismatches 0" in o, \
+            ("TYPEII Lemma 1.1 forms", o)
+        sv = cout("review_t2s_sieve", 2000).splitlines()
+        assert sv[:1999] == brute.splitlines() and len(sv) == 1999, "TYPEII sieve vs brute (n <= 2000)"
+        fb = {int(a): int(b) for a, b in (ln.split() for ln in brute.splitlines())}
+        assert all(fb[s * s] == 0 for s in range(3, 45, 2)), "TYPEII f_II(odd square) = 0"
+        for name, ref in (("review_r128b_count", "review_r128b_count_1e7.out.txt"),
+                          ("review_t2s_sieve", "review_t2s_sieve.out.txt")):
+            with open(os.path.join(sdir, ref)) as fh:
+                assert cout(name, 10 ** 7) == fh.read(), ("TYPEII §10 counts differ from stored", ref)
+    done.append("Lemma 1.1 forms 1-5 = raw brute force (n <= 2000; forms 2-5 p <= 150), sieve = brute, f_II(odd "
+                "square) = 0; f_II >= 1 to 1e7 by two programs = stored outputs")
+    print(f"ev TYPEII_SPECTRAL R128/R128b: {'; '.join(done)}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1, geometry, genus, Props 7-9, f_II to 10^7 (R128, R128b) ==")
+check_ev()
+
+
+# ---------------------------------------------------------------- (ew)
+# EXACT_FORMULA.md (review R131 = reviews/exact-formula-review.md; DISCOVERIES (I)5), elementary part.  Uses R131's
+# from-scratch review_r131_brute.c (direct search of the four equations T1+, T1-, T2+, T2-), review_r131_compare.py
+# and review_r131_slices.py; the author's exf_engine.c is compiled only as the object of comparison.  Checked (gcc
+# needed; skipped otherwise):
+# (1) Lemma 1.1 (completion of the Type I enumeration for composite n): for n <= 3000 the brute-force solution SETS of
+#     T1+, T1-, T2+, T2- (184869 / 235265 / 48693 / 46939 tuples) equal exf_engine + expand_T1; the k-decomposition
+#     holds for every brute tuple and every k-scaling of a k = 1 tuple is present: 0 failures;
+# (2) Prop 2.1 / Prop 4.2 zero sets on n <= 3000 (from the brute-force file, recomputed here): T2+ vanishes exactly at
+#     the squares and 288, 336; T1+ and T1- vanish exactly at the powers of 2 (and n = 1); T2- zeros =
+#     {1,2,3,4,7,8,12,15,24,44,108,168};
+# (3) §3.2 theta/character identities for the nine (c,d) with cd | 6, Prop 4.1 per-slice identities on the support
+#     and on the full (c,d) box for n <= 60, Thm 5.2 divisor form: review_r131_slices.py 1500 60 (R131 ran 3000):
+#     13500 / 80880 / 60 / 70035 cases, 0 failures.
+
+def check_ew():
+    from time import perf_counter
+    from collections import Counter
+    from math import isqrt
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    cc = shutil.which("gcc")
+    if not cc:
+        print("ew EXACT_FORMULA R131: SKIPPED (no gcc)")
+        return
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=root)
+        assert r.returncode == 0, ("EXACT_FORMULA subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    with tempfile.TemporaryDirectory() as td:
+        brute, eng = os.path.join(td, "brute"), os.path.join(td, "eng")
+        subprocess.run([cc, "-O2", "-o", brute, os.path.join(sdir, "review_r131_brute.c")], check=True)
+        subprocess.run([cc, "-O2", "-o", eng, os.path.join(sdir, "exf_engine.c"), "-lm"], check=True)
+        sols = {}
+        for N in (3000, 1500):
+            sols[N] = os.path.join(td, f"sol{N}.txt")
+            with open(sols[N], "w") as fh:
+                subprocess.run([brute, str(N)], stdout=fh, timeout=120, check=True)
+        os.mkdir(os.path.join(td, "auth"))
+        for pre, s in (("p", "1"), ("m", "-1")):
+            subprocess.run([eng, "3000", os.path.join(td, "auth", pre), s], capture_output=True, timeout=120,
+                           check=True)
+        o = run("review_r131_compare.py", "3000", sols[3000], os.path.join(td, "auth"))
+        for s in ("{0: 184869, 1: 235265, 2: 48693, 3: 46939}",
+                  "sign 1 T1 equal: True 184869 184869  T2 equal: True 48693 48693",
+                  "sign -1 T1 equal: True 235265 235265  T2 equal: True 46939 46939", "Lemma 1.1 failures: 0"):
+            assert s in o, ("EXACT_FORMULA R131 compare / Lemma 1.1", s, o)
+        cnt = [Counter() for _ in range(4)]
+        with open(sols[3000]) as fh:
+            for ln in fh:
+                fam, n = ln.split(maxsplit=2)[:2]
+                cnt[int(fam)][int(n)] += 1
+        zeros = [[n for n in range(1, 3001) if cnt[f][n] == 0] for f in range(4)]
+        pow2 = [2 ** k for k in range(12)]
+        assert zeros[0] == pow2 and zeros[1] == pow2, ("EXACT_FORMULA Prop 4.2 T1+- zeros", zeros[0][:20], zeros[1][:20])
+        assert zeros[2] == sorted({k * k for k in range(1, isqrt(3000) + 1)} | {288, 336}), \
+            ("EXACT_FORMULA Prop 2.1 T2+ zeros", zeros[2][:60])
+        assert zeros[3] == [1, 2, 3, 4, 7, 8, 12, 15, 24, 44, 108, 168], ("EXACT_FORMULA T2- zeros", zeros[3])
+        o = run("review_r131_slices.py", "1500", "60", sols[1500])
+    assert "tested {'3.2': 13500, '4.1slice': 80880, '4.1total': 60, '5.2': 70035}" in o and "failures {}" in o \
+        and "T1+ prime solutions with p | cd: 0" in o, ("EXACT_FORMULA R131 slices", o)
+    print(f"ew EXACT_FORMULA R131: Lemma 1.1 (brute sets = engine + expand_T1 for n <= 3000, 515766 tuples, "
+          f"0 failures); zeros T2+ = squares + {{288, 336}}, T1+- = powers of 2, T2- = 12 values (n <= 3000); §3.2, "
+          f"Prop 4.1 (support + full box n <= 60), Thm 5.2 at n <= 1500: 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ew) EXACT_FORMULA: Lemma 1.1, Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131) ==")
+check_ew()
+
+
+# ---------------------------------------------------------------- (ex)
+# EXACT_FORMULA.md §6 rank test (CERTIFIED by R131 = reviews/exact-formula-review.md C8; DISCOVERIES (I)5).  The
+# column file data/exf/columns_2e4.npz is git-ignored, so it is regenerated here in a temporary directory with the
+# author's pipeline (exf_hurwitz.c to 1.4*10^6, exf_engine.c to 2*10^4 for both signs, exf_columns.py), and then
+# R131's from-scratch review_r131_rank.py (own brute-force tuples n <= 3000 from review_r131_brute.c, own Hurwitz
+# class numbers by reduced forms, own seeded random rows, fraction-free exact Bareiss) is run.  Checked (gcc needed):
+# (a) all 56 ES columns = R131 brute force for n <= 3000, 12H(D) table = own reduced-form count, classical spot
+#     columns: 0 mismatches;
+# (b) for the six row sets (all n >= 2, odd n, primes >= 5, p = 1 (4), p = 3 (4), p = 1 (24)) the exact Q-ranks
+#     (rk C, rk E, rk C u E) = (46,56,102), (41,52,93), (27,50,77), (22,47,69), (22,49,71), (18,45,63), so the
+#     intersection span E n span C is 0 on the sampled rows, and the kernel of E on the sample kills all rows of the
+#     set (injectivity of the restriction): no linear relation between the 56 ES count variants and the 54 classical
+#     columns on n <= 2*10^4 (scope: that finite dictionary on that range).
+
+def check_ex():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    cc = shutil.which("gcc")
+    if not cc:
+        print("ex EXACT_FORMULA rank test SKIPPED (no gcc)")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        os.makedirs(os.path.join(td, "data", "exf"))
+        exe = {}
+        for name in ("exf_hurwitz", "exf_engine", "review_r131_brute"):
+            exe[name] = os.path.join(td, name)
+            subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c"), "-lm"], check=True)
+        subprocess.run([exe["exf_hurwitz"], "1400000", "data/exf/H12_1p4e6.bin"], cwd=td, timeout=120, check=True)
+        for pre, s in (("n2e4", "1"), ("m2e4", "-1")):
+            subprocess.run([exe["exf_engine"], "20000", "data/exf/" + pre, s], cwd=td, capture_output=True,
+                           timeout=120, check=True)
+        sol = os.path.join(td, "sol3000.txt")
+        with open(sol, "w") as fh:
+            subprocess.run([exe["review_r131_brute"], "3000"], stdout=fh, timeout=120, check=True)
+
+        def run(*args):
+            r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True,
+                               text=True, timeout=600, env=env, cwd=td)
+            assert r.returncode == 0, ("EXACT_FORMULA rank subprocess", args, r.stderr[-2000:])
+            return r.stdout
+        o = run("exf_columns.py")
+        assert "56 ES columns, 54 classical columns" in o, ("EXACT_FORMULA columns", o[-500:])
+        o = run("review_r131_rank.py", sol)
+    assert "12H table mismatches (D<=3000 + 300 random up to 1.4e6): 0" in o and \
+        "ES (56 cols, n<=3000) + sample classical column mismatches: 0" in o, ("EXACT_FORMULA R131 spot checks", o)
+    rows = re.findall(r"^\[(.+?)\] rows=(\d+) exact rkC=(\d+) rkE=(\d+) rk\(C∪E\)=(\d+) dim∩=(\d+)  kerE\(sub\) "
+                      r"dim=\d+ kills all \d+ rows: (\w+)$", o, re.M)
+    want = [("all n>=2", "500", "46", "56", "102"), ("odd n", "500", "41", "52", "93"),
+            ("primes>=5", "500", "27", "50", "77"), ("p=1(4)", "500", "22", "47", "69"),
+            ("p=3(4)", "500", "22", "49", "71"), ("p=1(24)", "267", "18", "45", "63")]
+    assert [r[:5] for r in rows] == want and all(r[5] == "0" and r[6] == "True" for r in rows), \
+        ("EXACT_FORMULA R131 exact ranks", rows)
+    print(f"ex EXACT_FORMULA R131 rank test (columns regenerated): 56 ES columns = brute force (n <= 3000), 12H "
+          f"table OK; six row sets, exact ranks as certified, span E n span C = 0, restriction injective; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ex) EXACT_FORMULA: CERTIFIED exact-rank test, 56 ES variants vs 54 classical columns, n <= 2*10^4 (R131) ==")
+check_ex()
+
+
+# ---------------------------------------------------------------- (ey)
+# QUATERNION_ES.md (review R130 = reviews/quaternion-es-review.md; DISCOVERIES (I)6).  Uses R130's from-scratch
+# scripts (own Type I enumeration, own Hilbert symbols incl. l = 2, own quaternion multiplication); each output is
+# compared byte for byte with the stored R130 log in logs/.  Checked:
+# (1) Prop 1.3 (PROVED): review_quat_hilbert.py 3000: for all 26007 Type I solutions (a <= b) with p < 3000 the algebra
+#     (-d, -d(4dm-1)) is ramified exactly at {p, oo} (Hilbert symbols at every prime dividing 2dpe), 4dm - 1 = pe,
+#     p never divides e: 0 bad;
+# (2) Lemma 1.1 / Prop 3.2 parametrisations: review_quat_brute.py 200: raw Egyptian-fraction search = the Type I
+#     (a,c,d) and Type II (e, m, a) parametrisations as triple sets for all 45 primes 3 <= p < 200;
+# (3) Lemma 1.2, Lemma 3.1 (PROVED, symbolic): review_quat_symbolic.py: u^2 = -d, v^2 = -m, uv + vu = 1, Gram det
+#     -(4dm-1)^2; (2ai + j)(2bi - j) = -(4abd - p) - 2(a+b)k in (-d,-p), norms 4a^2d + p and 4c^2dp + 1; §2 isogeny
+#     lattice det (pe/4)^2;
+# (4) §3.4 / Prop 5.1 examples: review_quat_fixed_de.py: the named opposite-status pairs with equal (d,e) and the
+#     filtered counts 40/93 (Type I), 120/450 (Type II).
+
+def check_ey():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    for args, log in ((("review_quat_hilbert.py", "3000"), "review_quat_hilbert_3000.txt"),
+                      (("review_quat_brute.py", "200"), "review_quat_brute_200.txt"),
+                      (("review_quat_symbolic.py",), "review_quat_symbolic.txt"),
+                      (("review_quat_fixed_de.py",), "review_quat_fixed_de.txt")):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("QUATERNION subprocess", args, r.stderr[-2000:])
+        with open(os.path.join(root, "logs", log)) as fh:
+            assert r.stdout == fh.read(), ("QUATERNION R130 output differs from stored log", log, r.stdout[-1500:])
+        o = r.stdout
+        if log.startswith("review_quat_hilbert"):
+            assert o.strip() == "PMAX=3000 TypeI solutions (a<=b)=26007 bad=0 p|e cases=0", ("QUATERNION Prop 1.3", o)
+        elif log.startswith("review_quat_brute"):
+            ls = o.splitlines()
+            assert len(ls) == 45 and all(ln.count("True") == 2 and "False" not in ln for ln in ls), \
+                ("QUATERNION brute force", o)
+        elif log.startswith("review_quat_symbolic"):
+            for s in ("u^2+d, v^2+m, uv+vu: [0, 0, [1, 0, 0, 0]]", "det: -(4*d*m - 1)**2", "vu - (1-uv): [0, 0, 0, 0]",
+                      "Lemma 3.1 product: [-4*a*b*d + p, 0, 0, -2*a - 2*b]  expected: [-4*a*b*d + p, 0, 0, -2*a - 2*b]",
+                      "N(2ai+j) = 4*a**2*d + p  N(1+2ck) = 4*c**2*d*p + 1", "isogeny lattice det: (4*a*b*d - 1)**2/16"):
+                assert s in o, ("QUATERNION symbolic", s, o)
+        else:
+            assert "filtered TypeI: 40/93   TypeII: 120/450" in o, ("QUATERNION fixed (d,e)", o)
+    print(f"ey QUATERNION R130: Prop 1.3 ramification {{p, oo}} on all 26007 Type I solutions p < 3000; raw brute "
+          f"force = Type I/II parametrisations (45 primes < 200); Lemmas 1.2, 3.1 and isogeny det symbolic; §3.4 "
+          f"pairs and 40/93, 120/450; all = stored R130 logs; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols, Lemma 1.1/3.2 brute force, Lemmas 1.2/3.1 symbolic (R130) ==")
+check_ey()
 
 
 print("\nall checks passed")
