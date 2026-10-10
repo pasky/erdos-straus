@@ -437,3 +437,25 @@ The boxes `max(a,c,d) < 2⁶` carry only 15–34 of the solutions.
 * *Assessment:* a fixed-p route cannot pick a sub-family where the expected count is large and prove an asymptotic
   there. It must aggregate ≍ 𝓛³ blocks of expected size O(1). This is the arithmetic form of "Planck scale", the
   reason H-A/H-B are hard, and the exact analogue of red team 1 P2.1 at the level of blocks.
+
+## 4. Recommendations to the maintainer
+
+1. **Ledger (I), new entry (suggested wording).** "Divisor-class reduction (reviews/redteam-automorphic-2.md §2;
+   PROVED, elementary). Every ET slice by two coordinates is either an ET congruence class or 'one integer
+   N_θ(p) has a divisor in a residue class mod q_θ' (Lemma 2.1, 14-row table). The six automorphic/geometric
+   encodings of wave (I) are slices (Thm 2.2(i)), and their representative-independent invariants are
+   congruence/genus data (Thm 2.2(ii), collecting O131 Thm 5.2, O130 P2.2, GEOMETRY P4.1, O128 §8). Any route
+   certifying ES(p) through a fixed finite set of slices, with whatever auxiliary input, fails i.o. under H
+   (Thm 2.2(iii), via POINTWISE_SIZE Thm C). The remaining freedom is a growing parameter set, i.e. joint
+   factorisation of ≍ 𝓛³ O(1)-blocks (§3.1 EVIDENCE). 'Barrier' is an Assessment about known technology."
+2. **Wording.** Keep "by these routes" / "known" in every "no standard hypothesis" sentence (§1.6(b)). Add an
+   inline "(Assessment)" to O128 §0's "No automorphic pointwise route" sentence.
+3. **O123 §5 example.** Anchor the level window at `n_p`, or flag that `d ≤ L²` implies `n_p ≤ L²` (§1.1 T3).
+4. **O128.** Optionally add Lemma 1.2.1 (single shells emptied under Dickson) next to §5's d = 1 numerics.
+5. **O130.** The p ∤ e repair is already applied by R130.
+6. **Forward-looking.** The escape-hatch list §3 (H-A … H-G). The best-defined open research targets are:
+   * H-A: aggregation over a growing family, with a moving modulus;
+   * H-B: a parity-breaking, Friedlander–Iwaniec-type divisor-in-moving-class count at fixed p.
+
+   Neither has known technology. H-F (integral Hasse beyond BM) is cautionary: Markoff-type families satisfy
+   integral Hasse for almost all parameters, but it fails infinitely often.
