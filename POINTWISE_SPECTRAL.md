@@ -119,6 +119,14 @@ allowed p, `mean·cd/L` is ≈ constant in c for each d (d=3: 0.52, 0.51, 0.53, 
 0.76, 0.68), while the **fraction of empty targets is 13–89 %** (e.g. d=10, c=5: λ ≈ 0.13, empty 89 %; d=3, c=1:
 λ ≈ 2.4, still empty 17 %). Summing, `Σ_{c,d} λ_{c,d} ≈ mean f_I ≈ 0.1 L³` (§1).
 
+**The sufficient statement (S) (exact; Formulation B).** Let `φ_a ≥ 0` be smooth with `φ_a = 1` on
+`{|k'| ≤ 1/2}` and `supp φ_a ⊂ {|k'| < 1}`, where `k'(z') := (p/y')(−2a√d x' − √d − y')` (so `k' = 4acd − f − p ∈ ℤ` on
+Λ'_{d,p}), cut off to `y' ∈ [√d/2, p√d]`. Then `Σ_{d} Σ_a Σ_{z' ∈ Λ'_{d,p}} φ_a(z') > 0 ⇒ f_I(p) > 0`, since φ_a(z') > 0
+forces k' = 0. Data of (S) for one (a, d): number of points ≍ h(−4dp²) ≍ p√d L(1, χ_{−4d}); `‖φ_a‖₁ ≍ L/(a√d p)`,
+`‖φ_a‖₂ ≍ ‖φ_a‖₁^{1/2}`, and `‖Δ^k φ_a‖₂ ≍ p^{2k}‖φ_a‖₂` (derivative scale V ≍ p across the tube, O(1) along it);
+main term `λ_{a,d} ≍ L/(ad)` per (a, d), `≍ L²/d` per d after summing a ≤ p. (S) needs, for the aggregate,
+error < main ≍ L³ — no power saving is needed, but the error must be polylogarithmic (§5).
+
 **Consequence (the decisive numbers).** In Formulation B the number of points is `h(−4dp²) ≍ p√d·L(1,χ_{−4d})`, so the
 relative measure of one target is
 `μ_{a,d} = λ_{a,d}/h(−4dp²) ≍ L/(a d^{3/2} p) = (Planck scale |D'|^{−1/2}) × O(L/(a d))`,
@@ -128,8 +136,9 @@ target is a 2/p-tube along a hypercycle of length ≍ pL, and the large paramete
 ## 4. The cleanest family, and the gap to what is known (Assessment unless stated)
 
 **Which family.** Of the brief's candidates:
-* (b) is realised exactly by **Formulation B**: for fixed p and d, the Type I solutions are the points of the
-  **T_p-Hecke orbit of the level-d Heegner points of discriminant −4d** (equivalently Heegner points of discriminant
+* (b) is realised exactly by **Formulation B**: for fixed p and d, the Type I solutions are points of the
+  **T_p-Hecke orbit of the level-d Heegner points of discriminant −4d** (Lemma 2.2(b) exhibits each solution point
+  as such a translate) (equivalently Heegner points of discriminant
   `D' = −4dp²`, conductor p) lying in the tubes R'_a (Prop 3.2, Lemma 2.2(b)); the genus factor `1 + χ_{−4d}(−p)`
   (Lemma 2.4) is the only arithmetic of p visible in the main term. Discriminants −p, −4p, −16p themselves do not
   occur; p enters as the Hecke index.
@@ -185,7 +194,7 @@ infinitely many primes p ≡ 5 (mod 12) for which the genus-allowed target (c, d
 §3) is empty.
 *Proof.* x(x² + 12) on the progression x ≡ 5 (mod 12) has no fixed prime divisor (mod 2, 3: x odd, x ≡ 2 (3) give
 x² + 12 ≡ 1; for q ≥ 5 at most 3 roots), so H gives infinitely many primes p ≡ 5 (12) with p² + 12 prime.
-`χ_{−12}(−p) = (−p/3)·[−p odd] = 1` since −p ≡ 1 (mod 3). By Lemma 2.1(iii) the target counts divisors f ≤ p of
+`χ_{−12}(n) = (n/3)` for n coprime to 6, and −p ≡ 1 (mod 3), so `χ_{−12}(−p) = 1`. By Lemma 2.1(iii) the target counts divisors f ≤ p of
 p² + 12 with f ≡ −p ≡ 7 (mod 12); the only divisor ≤ p is 1 ≢ 7. ∎ EVIDENCE: all 3630 such p in [10⁶, 3·10⁶) have
 this target empty (one-liner in the commit log of §5; `scripts/spec_target_mean.py` gives the 17 % empty rate among
 all allowed p). Applying H to several polynomials p² + 4c²d at once empties any fixed finite set of targets
