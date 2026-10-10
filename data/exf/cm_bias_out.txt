@@ -1,0 +1,12 @@
+d=14 p in [5,2000): n_sol=258, principal share 0.298, uniform 0.250, share of f<=10: 0.43, principal share among f>100: 0.281
+d=14 p in [2000,8000): n_sol=1124, principal share 0.365, uniform 0.250, share of f<=10: 0.40, principal share among f>100: 0.330
+d=14 p in [8000,20001): n_sol=2562, principal share 0.339, uniform 0.250, share of f<=10: 0.35, principal share among f>100: 0.313
+d=26 p in [5,2000): n_sol=138, principal share 0.297, uniform 0.167, share of f<=10: 0.42, principal share among f>100: 0.326
+d=26 p in [2000,8000): n_sol=598, principal share 0.263, uniform 0.167, share of f<=10: 0.39, principal share among f>100: 0.276
+d=26 p in [8000,20001): n_sol=1423, principal share 0.278, uniform 0.167, share of f<=10: 0.36, principal share among f>100: 0.262
+d=29 p in [5,2000): n_sol=107, principal share 0.121, uniform 0.167, share of f<=10: 0.35, principal share among f>100: 0.167
+d=29 p in [2000,8000): n_sol=490, principal share 0.273, uniform 0.167, share of f<=10: 0.34, principal share among f>100: 0.304
+d=29 p in [8000,20001): n_sol=1149, principal share 0.231, uniform 0.167, share of f<=10: 0.33, principal share among f>100: 0.263
+d=41 p in [5,2000): n_sol=88, principal share 0.148, uniform 0.125, share of f<=10: 0.27, principal share among f>100: 0.148
+d=41 p in [2000,8000): n_sol=365, principal share 0.186, uniform 0.125, share of f<=10: 0.38, principal share among f>100: 0.194
+d=41 p in [8000,20001): n_sol=814, principal share 0.230, uniform 0.125, share of f<=10: 0.30, principal share among f>100: 0.217
