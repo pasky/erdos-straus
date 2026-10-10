@@ -10,7 +10,27 @@ Notation (all n ≥ 1, not only primes). "Algebraic" counts, no coprimality filt
   equivalently `(4cd·a − 1)(4cd·b − 1) = 4c²d·n + 1`.
 * f_I, f_II (ET): T1, T2 with gcd(a,b,c) = 1 (and for Type II gcd(abd, n) = 1).
 
-(work log follows; sections are added as steps complete)
+## 0. Summary (verdict: negative, with exact scope)
+
+* **Engine (§1).** Exact dumps of all solutions, n ≤ 2·10⁴, of four families T1± (Type I and its sign flip), T2±
+  (Type II and its sign flip). They are validated against O123's counts and an independent brute force. Lemma 1.1
+  completes O123's Type I enumeration for composite n (PROVED).
+* **Exact identities that do exist (PROVED; all elementary):**
+  (a) Type II slices with cd | 6 (where (ℤ/4cd)^× has exponent 2) are exact combinations of weight-1 binary theta
+  coefficients `Σ_χ χ(−1)σ_χ(4c²dn+1)`, χ quadratic (§3.2);
+  (b) every (c,d) slice is an exact finite Eisenstein combination (§3.1, = O128 Prop 9.1);
+  (c) the signed decomposition: `2(T2⁻ ∓ T2⁺) − diag = Σ_{c,d}[(2/φ(4cd))·(odd resp. even Eisenstein part) − 2]`,
+  where the `−2` per level is a Kronecker–Hurwitz-type boundary term (§4.1; checked n ≤ 40);
+  (d) T2⁺(m²) = 0 for all m, no gcd hypotheses (§2.1); T1±(2^k) = 0 (§4.2).
+  **None has a structurally positive part.** In (a)–(c) positivity is "some 4c²dn + 1 has a divisor in a given
+  class", which is the original problem.
+* **No identity with classical functions (§2; EVIDENCE, exact computation).** There is no exact Hecke relation (§2.2).
+  The rank test of 56 ES variants against 54 classical columns (Hurwitz class numbers, class-number convolutions
+  Σ_x H(mn − x²) with twists, divisor and character sums) on six row sets gives intersection dimension 0 (§2.3).
+  The best fit leaves ≈ 50–70 % of the fluctuation (§4.3).
+* **Siegel–Weil route (§3).** The ES orbit is not its genus. The genus average matches the slice only when
+  genus = class (cd | 6); otherwise corr ≈ 0.5–0.75. The genus masses summed over c diverge (≍ log²C) while the
+  ES count is finite. Hence no "Eisenstein main term + small cusp error" formula exists for the total count.
 
 ## 1. Exact engine (step 1)
 
