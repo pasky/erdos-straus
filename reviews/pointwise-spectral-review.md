@@ -97,3 +97,24 @@ computation: with (p+1)·area ≈ L, ‖φ‖₂ ≈ (L/p)^{1/2}, T ≍ p, local
   and add the direct Thm 2.1 ratio. Also Young needs odd fundamental D; D' = −4dp² is neither odd nor fundamental and
   the points Λ'_{d,p} are level-d (Γ₀(d)-type) points — the table already flags non-fundamentality; add "even" and
   "level d". None of this changes the conclusion (all gaps are positive powers of p).
+
+## Claim 4 — Thm 5.1, Prop 5.3, Prop 5.4
+
+**Thm 5.1: SOUND.** (D)32b (DISCOVERIES l. 201; EXCEPTIONAL_TYPEI_LOGLOG l. 43, 451) is `Σ_{p≤N} f_I(p) ≪ N log²N` with
+ET's f_I (ordered (y,z); bounded there by 2Σ_c w_c(p), w_c counting *all* (a,d,f), primitive or not). The O123 f_I
+(y ≤ z, primitive) is ≤ ET's f_I, so Markov gives #{p ≤ N : f_I(p) > ψL³} ≤ C N L²/(ψL³) ≤ C'π(N)/ψ. ✓ The f(p)
+variant: ET Thm 1.1 (checked in the PDF) gives Σ_{p≤N} f_I(p) ≪ N L² log log N and Σ_{p≤N} f_II(p) ≪ N L², and
+f(p) = 3f_I(p) + 3f_II(p); so #{f(p) > ψ L³ log log N} ≪ π(N)/ψ ✓ (read "threshold ψL³ replaced by ψL³ log log N").
+Since w_c counts non-primitive quadruples too, the same Markov bound holds for the quadruple count of D1.
+
+**Prop 5.3: SOUND-AFTER-REPAIRS (D6).** Re-derived: on x = 12k+5, P(k) = x(x²+12) has no fixed prime divisor
+(q = 2: both factors odd; q = 3: x ≡ 2, x²+12 ≡ 1; q ≥ 5: cubic in k with leading coefficient 12³ ≢ 0, ≤ 3 < q roots),
+x²+12 irreducible, so Schinzel H applies ✓. χ_{−12}(−p): −p ≡ 7 (mod 12), (−12/7) = (2/7) = +1 ✓ (genus-allowed).
+Divisors of the prime p²+12 are 1 and p²+12 ≡ 1 (mod 12), neither ≡ −p ≡ 7 (mod 12), so the target is empty in
+*every* f-window ✓ (the proof does not even need f ≤ p).
+* **D6 (MINOR, wrong constant).** "expectation ≈ 0.52 L": the data line `d= 3 c=1 … mean= 2.381 mean*cd/L= 0.517`
+  (`data/spec/target_mean_1e6.txt`) means mean·cd/L = 0.52 with cd = 3, i.e. **expectation ≈ 0.17 L** (= 2.38 at
+  L ≈ 13.8). (R123 repair): replace "≈ 0.52 L" by "≈ 0.17 L (≈ 2.4 at p ≈ 10⁶)" in Prop 5.3 and the report. The
+  claim "expectation ≍ L" is unaffected. Also note the emptiness is *structural* (an algebraic reason), so the
+  example shows that the per-target Poisson expectation is the wrong model for a thin set of p, not that targets
+  fail "randomly".
