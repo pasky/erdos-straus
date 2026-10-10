@@ -1,0 +1,1 @@
+PMAX=3000 TypeI solutions (a<=b)=26007 bad=0 p|e cases=0
