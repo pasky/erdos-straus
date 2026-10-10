@@ -222,8 +222,7 @@ dyadic range (E1/E2: then the route must say how S(p) is chosen and why it is co
 * **Square-mimicking points** (`q*_univ`, the class of one `x=1`): every prime visible to a bounded
   procedure is a residue (Theorem C). *Tests:* every route — but only through moduli/primes whose
   local data the route fixes. **Lemma 3.1 (PROVED).** If `p≡1 (mod M)` then `N_M(p)=0`
-  (`1 ≡ −4D` with `D|A_M²` would make `−D·A_M^{-2}... `; directly: Lemma CT(a) applied to the Type II
-  solution that a witness at M produces). Hence at `p≡1 (mod Q)` every Type II witness modulus has a
+  (`1∉𝓡(M)`: POINTWISE_OMEGA Fact 1.1 = notes Thm 17.3(c)). Hence at `p≡1 (mod Q)` every Type II witness modulus has a
   prime-power factor not dividing Q, and `W(p) > ` (least prime `>y` in a usable class) when Q
   contains all primes `≤ y`.
 * **x\*\*** (`x_11=2, x_13=15`, `x_q=1` otherwise; MORDELL13B Conj 5.2, CONJECTURE): a point with
