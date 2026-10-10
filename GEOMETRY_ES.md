@@ -7,7 +7,33 @@ Scripts: `scripts/geo_*.py` (run with `PYTHONPATH=scripts uv run python ...`).
 
 ## 0. Summary
 
-(filled in at the checkpoint, §9)
+Checkpoint 1 (round 1). **No proof of ES, conditional or otherwise.** The output is a precise map of what
+arithmetic geometry can and cannot do here.
+* **§1** records BL exactly. For fixed n, "BM is the only obstruction to the integral Hasse principle" for
+  `(𝒰_n, U_n(ℝ)⁺ × ∏𝒰_n(ℤ_p))` is *literally equivalent* to ES(n), since BL Thm 1.8 says the Brauer set is
+  non-empty. Strong approximation fails for every n even with Br (BL Thm 1.9).
+* **§2 (PROVED):** all nine lines are rational. Toric model (Prop 2.1): `Ũ_n` is `ℙ²` blown up at one point on
+  each side of the toric triangle, the three points collinear, minus the strict transform of the triangle; the
+  node comes from the collinearity. Positive points are the primitive `s ∈ ℕ³` with `4s_i | nS`. Prop 2.2:
+  Type I = `SL₂(ℤ)` matrices `[[e,g],[h,f]]` with `g` even, `g | h`, `2h | n+f`; Type II = the same with
+  `det = n` and `2h | f+1`.
+* **§3 (PROVED):** the three conic bundles (from boundary edges, from `L_ij`, from `M_k`) have **split** torus
+  fibres. α restricts to `(n(n−4t), −w)` on (F1) and to `(−λ, −nZ)` on (F2), checked at all places; it is
+  horizontal, and `Br_vert = Br ℚ`. Thm 3.1: only the lines carry infinitely many integral points. Prop 3.2:
+  no non-split torus maps non-constantly to `V_n ≅ G_m²`. **There is no Pell fibre** (aim (B) is answered
+  negatively for every fibration of `U_n`).
+* **§4:** on the total family, ES is a value-set problem for `H(u) = 4/Σ1/u_i`. S-integral reformulations
+  cannot help (PROVED). The genuine homogeneous spaces are the hyperboloids `X_d : ef − 4da² = 1` (Type I;
+  Spin(2,1)/T, real place non-compact, integral points = Heegner forms) and O128's level-`dp` space (Type II).
+  On them the ES condition is the integrality of `κ_p = (f+p)/4da`: a congruence with a **point-dependent
+  modulus**, i.e. a shrinking target, never an adelic open set (Prop 4.1, Cor 4.2). The geometric route collapses
+  into the spectral route.
+* **§5 (PROVED):** BL's transcendental α *is* genus theory. On Type I it is the CM condition `(−d/p) = −1` (p
+  inert in `ℚ(√−d)`, Prop 5.1); on Type II it is automatic quadratic reciprocity for f (Prop 5.2, = O128's genus
+  lemma). Quadratic-form dictionary for O124/O128 in §5.2. EVIDENCE: single fixed levels fail for a few percent
+  of primes, except identity levels such as d = 5.
+* **§6:** a machine-by-machine scope table, and the shrinking-target statement (SHT) that would suffice.
+  (SHT) is not a standard conjecture.
 
 ## 1. What Bright–Loughran prove (exact statements) and what they leave open
 
@@ -86,8 +112,8 @@ is produced by the collinearity of `V₁, V₂, V₃`). `U_n` is obtained by con
 
 So `(Bl_V Π̄, D)` with `D` = the strict transform of the triangle `s₁s₂s₃ = 0` (a cycle of three curves of
 self-intersection 0) is a **Looijenga pair with toric model `(ℙ², triangle)` blown up at one point on each side**,
-the three points collinear. Compare: Markoff-type cubic surfaces have toric model with *two* points blown up on
-each side, which is what produces their Vieta involutions and infinite integral orbits. The ES surface has one
+the three points collinear. Compare (from memory, not re-derived here): Markoff-type cubic surfaces, compactified
+with the triangle of lines at infinity, have a toric model with *two* points blown up on each side, which is what produces their Vieta involutions and infinite integral orbits. The ES surface has one
 point per side: no involutions, and the only automorphisms visible are `S₃` (and, over ℚ, the rescalings
 `U_n ≅ U_{n'}`). `V_n = Ũ_n \ (L₁₂ ∪ L₂₃ ∪ L₃₁) = Π̄ \ (triangle)` (it contains `E^∘ = ℓ_∞ \ {V_k}`) — this is
 BL's `V_n ≅ G_m²`, with characters `y_i/y_j = u_i/u_j = s_j/s_i`. (Consistency: the tangent cone of `U_n` at
