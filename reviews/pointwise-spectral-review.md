@@ -133,3 +133,39 @@ hyperbolic width of the thickened wedge is ≈ (2K+1)/p (Claim 2's width formula
   of n …}" by "counts exactly Σ_{|n−p|≤K} #{(a,f) : f | 4a²d+1, 4acd − f = n, f ≤ 2p}, which for prime n differs from
   the Type I count only by non-primitive quadruples and the window". The structural consequence (spectral scale V ⇒
   information only about averages over |n−p| ≲ p/V) is unaffected and is in fact the cleanest point of the document.
+
+## Claim 5 — the verdict and its three reasons (Assessment)
+
+**Verdict: the conclusion ("no standard hypothesis suffices *by this route*") is a fair Assessment, correctly
+labelled; but reason 1 is weaker than stated (D8, MAJOR as an argument defect) and reason 3 overstates what H gives
+(D9).** Reason 2 carries the verdict.
+
+* **D8 (MAJOR — reason 1 does not cover non-termwise uses of GRH).** Reason 1 says every standard hypothesis "enters
+  with a loss X^ε (or exp(c log X/log log X) under GRH)". That is true for *individual* L-values, and the text
+  restricts the conclusion to "termwise use". But GRH also enters with only (log log)- or polylog losses in two
+  standard ways: (a) effective Siegel: under GRH L(1,χ_D) ≫ 1/log log D (Littlewood), so h(D') and every main-term
+  normalisation lose only log log; (b) *moments*: under GRH, Soundararajan/Harper-type upper bounds give
+  Σ_{t_j≤T} L(½,u_j)L(½,u_j⊗χ_D) ≪ T²(log)^{O(1)}-type bounds (the spectral second-moment in the Planck range is
+  only conjectural, but it is the natural "standard-type" input and it is polylog). So "X^ε loss" is not why the
+  route fails. What actually fails is the *use* of the spectral expansion at Planck scale: with Waldspurger,
+  |W_j|² ≍ D^{1/2} L(½,u_j)L(½,u_j⊗χ_D)/L(1,sym²u_j) for the Weyl sums W_j = Σ_{z∈Λ_{D'}} u_j(z), and Cauchy–Schwarz
+  over t_j ≤ T ≍ p,
+  |error| ≤ ‖φ‖₂ (Σ_{t_j≤p}|W_j|²)^{1/2} ≈ (L/p)^{1/2} · p^{1/2} · p · (log)^{O(1)} = p·L^{O(1)}
+  against a main term ≈ L: **even with polylog (GRH-moment) L-value input the loss is ≈ p**, coming from
+  Cauchy–Schwarz over ≍ p² spectral terms (no cancellation among the signs of ⟨φ,u_j⟩W_j is available from any
+  standard hypothesis). (R123 repair): rewrite reason 1 as "(1) the quantity to certify is ≤ ψL³ (Thm 5.1). Individual
+  central values are not polylog-bounded even under GRH (exp(c log X/log log X); resonance Ω-results), so termwise use
+  fails; and the averaged (moment) use — where GRH does give polylog losses, as do GRH-effective Siegel bounds — still
+  loses ≈ p at Planck scale through Cauchy–Schwarz over the ≍ p² spectral terms with t_j ≤ p (displayed computation),
+  i.e. reason 1 reduces to reason 2." With this repair the verdict stands as an Assessment about this route.
+* **D9 (MINOR — reason 3 overstated).** "any sufficient statement must aggregate ≳ L² targets": Prop 5.3 (and H
+  applied to *finitely many* polynomials p² + 4c_i²d_i) only shows that every *fixed finite* set of targets is empty
+  for infinitely many p. Emptying a growing number (≍ L²) of targets would need H for a growing family of polynomials,
+  which is not a standard consequence of H. (R123 repair): "must aggregate an unbounded number of targets (under H:
+  more than any fixed finite set)"; keep "≳ L²" only as the Assessment that the aggregate should be of the full
+  family's size.
+* Reason 2: sound as an Assessment (Claims 2–3; with D3 the widths are even ≤ 1/p). The document correctly says
+  the implication from a Planck-scale aggregate statement is trivial and claims no theorem.
+* Label check (§0/§5): "Verdict (Assessment)" ✓; Thm 5.1 "PROVED rel. (D)32b" ✓ (and in fact ET's own upper bound
+  ≪ N L² log log N gives the same with ψ → ψ log log N unconditionally of (D)32b); Prop 5.3 "CONDITIONAL on H" ✓;
+  Prop 5.4 "PROVED" ✓ after D7 wording. No over-labelled PROVED found.
