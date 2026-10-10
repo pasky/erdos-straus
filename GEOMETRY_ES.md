@@ -255,11 +255,15 @@ For a primitive `s ∈ ℕ³` the set of n with `s ∈ Y_n(ℕ)` is `m(s)ℤ_{>0
 
 ### 4.2 S-integral reformulations do not help (PROVED, elementary)
 Over ℚ, `U_n ≅ U₁`; ES(p) ⟺ `U₁(ℚ)` meets `W = U₁(ℝ)⁺ × {v_p(u_i) ≤ −1 ∀i} × ∏_{ℓ≠p} 𝒰₁(ℤ_ℓ)` (BL §1.2).
-The set `𝒰₁(ℤ[1/p])⁺` is infinite (it contains `p^{−k}·U_{p^k}(ℕ)` for all k), so for `S = {∞, p}` an
-S-integral strong-approximation statement is not excluded by finiteness. But such a statement constrains only
+The set `𝒰₁(ℤ[1/p])⁺` contains `p^{−k}·U_{p^k}(ℕ)` for all k (R126 repair: it is infinite e.g. for p ≡ 3 (4) or
+p ≡ 2 (3) by explicit families, but in general infinitude needs solutions of 4/p^k with some `u_i` prime to p, an
+ES-type statement; it is not needed here), so for `S = {∞, p}` an S-integral strong-approximation statement is
+at least not excluded by finiteness. But such a statement constrains only
 the places off S, while ES imposes an open condition at **every** place, including both places of S; and
-`U₁(ℚ) ∩ W` is finite (it is `p^{−1}U_p(ℕ)`). In general `X(ℚ)` is discrete in `X(𝔸)` for affine X, so a
-condition at all places is a Hasse-principle question for a finite set, never an approximation question.
+`U₁(ℚ) ∩ W` is finite (it is `p^{−1}U_p(ℕ)`, finite by BL Lemma 3.10). `X(ℚ)` is discrete in `X(𝔸)` for affine
+X, and here (by BL Lemma 3.10, not in general — R126 repair: e.g. `x² − 2y² = 1` with `ℝ_{>0}² × ∏ℤ_p` has infinitely
+many points) a condition at all places is a Hasse-principle question for a finite set, not an approximation
+question.
 The same applies to every `S`.
 
 ### 4.3 The genuine homogeneous spaces: the hyperboloids `X_d` (PROVED; cf. O124, O128)
@@ -278,16 +282,21 @@ The ES condition sits on top of `X_d` as follows. Type I(p) at level d ⟺ there
 `κ_p(x) := (f + p)/(4da) ∈ ℤ_{≥1}` (and `gcd(κ_p, p) = 1`)   (ET (2.6), c = κ_p).
 `κ_p` is the pencil of planes `f + p = 4cd·a` through the line `ℓ_p = {a = 0, f = −p}`; each plane cuts
 `X_d` in the conic `e(4cda − p) − 4da² = 1`, whose quadratic part `4da(ce − a)` splits: **each member of
-the pencil is a split conic** with finitely many integral points (Prop 3.2 again). So
+the pencil is a split conic** with finitely many integral points (a divisor problem `XY = N`, `N ≠ 0`). So
 
 **Proposition 4.1 (shape of the problem on the homogeneous space).** `Σ^I_{p,d} = {(a,c,e,f) :
-ef − 4da² = 1, f + p = 4cda}` maps injectively to `X_d`; it is the affine modification of `X_d` adjoining
+ef − 4da² = 1, f + p = 4cda, c ≠ 0}` (R126 repair: `c ≠ 0` added) maps injectively to `X_d`; it is the affine modification of `X_d` adjoining
 the rational function `κ_p`, whose polar divisor is `{a = 0}` and whose centre is the point
 `(e,f,a) = (−1/p, −p, 0)` (not ℤ_p-integral). `Σ^I_{p,d}(ℤ)` is finite for each `(p, d)`, while `X_d(ℤ)` is
-infinite. Hence: strong approximation on `X_d` gives integral points in every adelic open set defined by
+infinite. *Finiteness (R126 repair).* Without `c ≠ 0` it is false: `c = 0` forces `f = −p`, `e = −(4da²+1)/p`,
+integral for all a in a residue class mod p whenever (−d/p) = +1 (p = 5, d = 1: `(e,f,a,c) = (−1,−5,1,0),
+(−13,−5,4,0), (−29,−5,6,0), …`; these map to `(−a²dp, 0, 0) ∈ L₂₃`). With `c ≠ 0`: the map
+`(a,c,e,f) ↦ u = π^I_p = (abdp, acd, bcd)`, `b = ce − a`, is at most 2:1 (sign `(a,b,c) ↦ −(a,b,c)` at fixed d);
+`b = 0` would give `pe = −1`, `b = −a` would give `ce = 0`, and `bp = −c` would put u on `M_k` with `u_k = p/4 ∉ ℤ`;
+also `a ≠ 0` (else `ef = 1`, `f = −p`). So the image avoids the lines and BL Lemma 3.10 gives finiteness. Hence: strong approximation on `X_d` gives integral points in every adelic open set defined by
 congruences modulo a **fixed** modulus, but the ES condition `4da | f + p` is a congruence modulo a
 **point-dependent** modulus (one coordinate of the point itself). It is a shrinking-target condition on an
-orbit of an arithmetic group, not an adelic open condition. (PROVED.)
+orbit of an arithmetic group, not an adelic open condition away from ∞. (PROVED.)
 
 Type II has the same shape. ET (2.19) gives `ef − 4da² = p` (O124's `Q_d` with side condition
 `4ad | f+1`); O128 rewrites it as `ff' − 4c²(dp) = 1` with `f ≡ f' ≡ −1 (mod 4cd)` (ET (2.21)). That is,
@@ -300,7 +309,16 @@ ES solutions on `X_d` (or on O128's level-`dp` space). What is needed is a **poi
 statement**: an integral point `x` of the orbit with `x ≡ x₀ (mod N(x))`, where `N(x)` grows with `x`. The tools
 for that are equidistribution with power savings in the level (spectral: Duke, Iwaniec, Kloosterman sums).
 This is exactly the spectral agents' territory (O123/O127/O128). The geometric route **collapses into** the
-spectral route at this point. (Assessment for the "collapses" sentence; the rest is PROVED.)
+spectral route at this point. (R126 repair: the paragraph above is an Assessment; a real open box isolates any single
+integral point, so "adelic open set" must be restricted. The PROVED core is the following.)
+
+*Precise form (PROVED, R126 repair).* For every open `W_f ⊂ ∏_ℓ X_d(ℤ_ℓ)` the set `X_d(ℤ) ∩ W_f` is empty or
+infinite: if `x ∈ X_d(ℤ) ∩ W_f`, then for N large the principal congruence subgroup `Γ(N)` of the arithmetic group
+`SO(q_d)(ℤ)` fixes x mod N, so `Γ(N)x ⊂ W_f`; and `Γ(N)x` is infinite because `Γ(N)` is infinite (`SO(1,2)` is
+non-compact) while the stabiliser of x is finite (it is the ℤ-points of the anisotropic torus T, compact at ∞).
+The level-d ES set of p is finite (Prop 4.1 with `c ≠ 0`). Hence no statement of the form `X_d(ℤ) ∩ W_f ≠ ∅`
+(strong approximation away from ∞, with or without Brauer–Manin) certifies an ES point at level d; the same
+argument applies to O128's level-`dp` space.
 
 ## 5. The Brauer class is genus theory; quadratic-form structure (for O124 / O123 / O127 / O128)
 
