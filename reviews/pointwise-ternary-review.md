@@ -93,3 +93,80 @@ ES identity `4/p = 1/(abd) + 1/(acdp) + 1/(bcdp)`, ET (2.22)):
   worst 6. (Full 10⁸ run not repeated.)
 * Ratio claim (first 2000 hard primes, d = 1, a ≤ 50): 14109 / 562792 = 0.0251, identical.
 
+## Defects
+
+### MAJOR
+
+**M1 (scope presentation; the brief's "does the scope exclude the natural routes" question).** Location: §0 first
+bullet, Cor 4.2 bold sentence, §7 *Interpretation*, suggested ledger entry in AGENT_REPORT. Theorem 4.1 is correct,
+and its setting is not rigged: arbitrary `S_j` and rational recipes are generous. But `Q, κ, η, J, D` are fixed
+independently of `p`, and **no ES route actually in use has this form**. ES's only rank-3 quadratic piece `Q_d` is
+indefinite, so Thm 4.1 does not apply to it, and §5 needs extra counting inputs. It also works only with `(a, d)`
+unbounded. The author's own Step 4 shows `a_min` growing (22 at 84525841), and the ET Type I/II families with `a, d`
+free are exactly the growing-parameter families of §9.1, which are only an Assessment. Two statements therefore hold
+only for a single fixed embedding: the headline "representation theorems contribute nothing beyond finite polynomial
+coverings", and the §7 sentence "Theorem 4.1 shows that this extra length is wasted". Neither covers a family
+`(Q_t)_{t ≤ T(p)}` used as a multiplier, which is the natural route. §9 says this, but §0 and the ledger entry do not.
+*Repair:* in §0 bullet 1, Cor 4.2, §7 and the ledger entry, add: "for one fixed `(Q, κ, η)` and fixed `(J, D)`. Not
+covered: families with a parameter growing with `p`, which includes every known ES parametrisation (ET Type I/II with
+`a, d` unbounded)". Keep the §9.1 Assessment label.
+
+### MINOR
+
+**m1.** Cor 4.2, bold sentence: "the primes on which (R) delivers ES are **exactly** primes that a finite polynomial
+covering already handles". What is proved is an inclusion. Replace "exactly" with "among the".
+
+**m2.** §3, (M): "a consequence of ET Prop 1.6". Prop 1.6 says `f_I(n) = f_II(n) = 0` at odd squares. To deduce (M)
+from it, you also need that the polynomial solution at a large odd square `n` in the class is of Type I or II. That
+requires `gcd(P_i(n), n) = 1` for every `P_i` with a nonzero constant term, which is not automatic for composite `n`.
+ET p.8 say "also follows" without proof. *Repair:* cite Mordell [44] and Schinzel [68] (via ET p.8) as the primary
+source, and either drop the parenthetical or say "essentially follows".
+
+**m3.** Prop 5.2's bound `C T^{1/2+ε} + 4D²` leaves out the up to `2D` real lines not defined over ℚ. Each carries at
+most 1 integer point, as the proof itself says. *Repair:* `+ 4D² + 2D`.
+
+**m4.** Lemma 5.1, §5 Remark, Comp 6.1: "det" is used without fixing a convention. The criterion
+`−m·det Q ∈ ℚ^{×2}` needs the Gram matrix of `B(x,y) = ½(Q(x+y) − Q(x) − Q(y))`. The Hessian convention multiplies
+det by `2^k`, which for `k = 3` changes the square class by 2. Both scripts report `det = 8d`, while the text says
+`det Q_d = d`. This is harmless for `Q_d`, where the sign alone decides, but Lemma 5.1 should state its convention.
+
+**m5.** Prop 6.2(ii) argues that "a finite union of lattice cosets has a fixed positive density or zero". This does
+not prove non-mildness: in boxes `{a ≍ A}`, a finite union of cosets of rank-2 lattices also has proportion `≍ 1/A`.
+*Repair:* argue by slices. For `S = {4ad | f+1}`, the slice `S ∩ {a = a₀}` is `{f ≡ −1 (mod 4a₀d)}`, and its
+`f`-period `4a₀d` is unbounded. For a finite union of cosets `v_i + L_i`, every slice is a union of cosets of the
+finitely many lattices `L_i ∩ {a = 0}`, so the periods are bounded. Separately, "`Σ τ(n+4da²) ≍ A log A`" for fixed
+`n` has a constant that depends on `n`. Either cite it (Erdős/Hooley-type) or replace it by `≫ A`, which is all
+that is used.
+
+**m6.** Novelty (§0): ET make two relevant remarks, not one. The first (p.5, after Thm 1.1) is about polylog `f(p)`
+and the circle method. The second (p.6, after Prop 1.6) is that vanishing at odd squares "rules out many strategies
+(e.g. a finite set of covering congruence strategies, or the circle method)". The square-point parts of Cor 3.2 and
+Cor 7.1 restate the second remark. The genuine additions are two. First, a version for methods valid only at primes,
+which ET's square argument does not directly constrain. Second, the fibre-count formalisation. *Repair:* cite both
+remarks. "Modest" is accurate, arguably generous.
+
+**m7.** §5 Remark: "Prop 5.2 applies to the Type II recipe on (Q_d). It is consistent only because the side condition
+`4ad | f+1` is thin". For fixed `d`, the Type II map `(a,b,c,d,e,f) ↦ (abd, acdp, bcdp)` is injective: ET p.14 call it
+injective modulo the dilation (2.10), and that dilation moves `d`. So `#R(p) ≤ f(p)` holds trivially for this piece,
+and the fibre bound says nothing there. *Repair:* say so. It also makes the "divisor problem, not representation
+problem" point more cleanly.
+
+**m8.** Comp 6.1: "So ES carries no positive definite (or anisotropic) quadratic substructure in ET's coordinates".
+The sweep only records quadrics in which `n` is a quadratic polynomial. Quadrics that do not involve `n` are dropped
+as "V dependent". For example, Type I's `ef − 4da² = 1` is the same form `Q_d` at level 1. The conclusion stands,
+since `Q_d` is isotropic, but the claim should be scoped: "among substructures where `n` is a quadratic polynomial
+in the free coordinates".
+
+## Honest assessment of the two questions in the brief
+
+* **Does the scope exclude the growing-parameter families?** Yes, completely (M1). The theorem is a correct
+  obstruction for one fixed form with a bounded-complexity recipe. The natural ES routes lie outside it: Type I/II
+  with `d, a` growing, and multiplier families `Q_t`. The author correctly diagnoses why the extension fails. The
+  exceptional levels `𝔐_{t,j}` are not uniform in `t`, as the perturbation `(Q_t − m_t)v₁` shows. I see no quick fix,
+  and the §9.1 Assessment label is right.
+* **Is "novelty modest" right?** Yes. ET's two remarks (m6) anticipate the conclusion heuristically, and the
+  Bombieri–Pila fibre count is standard dimension-growth technology. What is new is:
+  * the clean dichotomy: a degenerate piece is a Mordell identity, a nondegenerate one has `p^{−1/4}`-thin fibres;
+  * the prime-only formulation;
+  * the explicit thin-set counterexample, which shows that the obstruction concerns representation *theorems*, not
+    embeddings.
