@@ -165,3 +165,41 @@ it misses by `p^{1−o(1)}`. Two further GRH mechanisms:
 L-function averages; ES(p) for fixed p is the factorisation pattern of the ≤ p+2 integers
 `gp + 1` (or `p + e`). The needed cancellation is Poisson-scale and pointwise in p, which is a
 different kind of statement from any listed hypothesis.
+
+## 4. Small-scale equidistribution (Heegner points, lattice points on spheres)
+
+**What is known (checked in the source, `arXiv:1910.01360v2`, Humphries–Radziwiłł, CPAM 2022).**
+Let `Λ_D` be the Heegner points of discriminant D (`#Λ_D = h(D) = |D|^{1/2±o(1)}`).
+* HR Thm 1.12(1), unconditional: for annuli with `|D|^{−1/12+δ} ≪ r < R ≪ 1` and
+  `|D|^{−1/2+δ} ≪ μ(A_{r,R}) ≪ 1`, the count is asymptotic to the expectation for **almost
+  all centres** w. Expected count `≥ |D|^{δ}`.
+* All centres: HR Thm 1.6 (sphere) under GLH for balls of area `n^{−δ}`, `δ < 1/4`; the Heegner
+  analogue is Young [You17 Thm 2.1] / Humphries [Hum18 Thm 1.24] (cited by HR; exponents not
+  re-checked here). Expected count `≥ |D|^{1/2−1/4−o(1)} = |D|^{1/4−o(1)}`.
+* HR §1 (end) note that even balls (r = 0) at radius `|D|^{−1/4+δ}`, expected count `|D|^{2δ}`,
+  are beyond their method; Linnik/Bourgain–Rudnick-type conjectures are `|D|^{ε}`-lossy.
+
+**Corollary 4.1 (PROVED, given Prop 2.3).** Let `Λ_{D(p)}` be any Heegner family with
+`|D(p)| ≥ p^κ` (κ > 0 fixed) and let `Φ_p` map target points to ES solutions of p at most
+`p^{o(1)}`-to-one. No asymptotic equidistribution statement in any of the three ranges above
+(nor in any range whose expected count is `≥ |D|^{η}`, η > 0) drives an ES-detector for all
+large p: Prop 2.3 forces the expected count to be `≤ p^{o(1)}` for all p outside a set of
+counting function `O(N^{1−δ}log³N)`, while these ranges have expected count `≥ p^{κη}`.
+The almost-all-centres results fail a second time: the ES target is a specific region
+determined by p, and "almost all w" says nothing about one w.
+
+**Remark 4.2 (covering-type hypotheses escape Prop 2.3 formally, but not usefully).** A pure
+existence hypothesis ("every ball of expected count ≥ X^ε contains a point": optimal strong
+approximation / covering exponent, Sarnak's letter, Sardari, Browning–Kumaraswamy–Steiner) gives
+`#𝔗_p ≥ 1` without `#𝔗_p ≍ M`, so Prop 2.3 does not apply. But then the target ball would have
+expected count `X^ε ≥ p^{κε}` and actual count `≤ p^{o(1)}` (Lemma 2.1, for almost all p): it
+would be a *deficient* ball, contradicting the (believed, and partly GLH-proved) asymptotic for
+balls at that scale. So if the asymptotic small-scale conjecture holds at expected count
+`X^{ε}`, ES-targets in families of size `≥ p^κ` are never balls (or other regions of bounded
+Sobolev complexity), for almost all p (PROVED implication). The targets that actually encode ES
+are cut out by divisibility conditions (§1: the modulus of the congruence depends on the
+point), to which ball-covering statements do not apply. Moreover, the parameter equations of §1
+are split (`(gc−1)(gf−1) = gp+1`: for fixed g a hyperbola `XY = N` with `τ(N) = N^{o(1)}`
+points) or have point-dependent moduli (ET's quadric `ef − dA² = 1`, A = 2a, with the condition
+`f ≡ −p (mod 2dA)`); no fixed anisotropic quadric with `≥ p^κ` points on which ES is a
+fixed-modulus congruence condition was found (Assessment).
