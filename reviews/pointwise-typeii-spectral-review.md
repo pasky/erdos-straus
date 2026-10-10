@@ -11,7 +11,7 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
 | 2 | Prop 2.1 / Lemma 2.2 Heegner + separation | SOUND (bound has slack: min cosh = 3 observed) |
 | 3 | Prop 2.4 / 2.5 exact incidence | SOUND-AFTER-REPAIRS (D3: shell also contains non-primitive points) |
 | 4 | §3 averaged check, constant 0.05 | SOUND (constant correctly labelled Assessment); D5 misquote of ET |
-| 5 | §4.4 gap (Young bookkeeping) | |
+| 5 | §4.4 gap (Young bookkeeping) | SOUND as Assessment (exponents verified against arXiv 1405.5457); D7 hypotheses of Young not met, D8 overstated slogan |
 | 6 | Lemma 6.1 / Cor 6.2 / 6.3 genus | SOUND as a statement about f; "equivalently genus χ_{−4d} = −1" needs p ≡ 1 (4) (D4) |
 | 7 | §5 numerics | SOUND (reproduced exactly to 10⁷); D6 R-trend partly a filter artefact; predictor not re-run |
 
@@ -50,6 +50,21 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
   drops classes with < 30 members, which at k = 16 (≈ 30 primes per class mod 840) removes many primes. Without
   the filter min R at k = 16 is **0.333** (p = 76441), so the trend is 0.33 → 0.31 → 0.30 → 0.28: much flatter
   than stated. Repair: state the ≥ 30 filter, or quote unfiltered values; soften "widening".
+- **D7 (MINOR, hidden hypotheses in an Assessment)** §4.4 applies Young Thm 2.1 to discriminant −4dp with the
+  level data `B ≡ 0 (4d)`, `d | C`, and to shells along the cuspidal geodesic γ_c. Young's theorem needs −D **odd
+  fundamental**, level 1, full class group, and φ **compactly supported** on SL₂(ℤ)\H. −4dp is even (fundamental
+  only if dp ≡ 1, 2 mod 4 squarefree); the level data is a congruence-subgroup (level ≍ 4d) restriction, i.e. a
+  sum over part of 𝓕_{dp}, not Λ_D; and the shell periodised to Γ\H runs up the cusp to height ≍ √(dp)/(4cd) ≫ 1
+  (a = 1 end). None of these weakens the negative conclusion (each makes the available theorem worse), but the text
+  should say "heuristic bookkeeping with Young's error shape, under the (unproved) assumption that it extends to
+  even, non-fundamental discriminants with level-4d data and non-compact shells".
+- **D8 (MINOR, overstatement)** §4.4 last sentence / §0 "the obstruction is the exact-incidence nature …, not the
+  strength of subconvexity". The same paragraph admits that pointwise square-root cancellation of the Weyl sums
+  (error ≈ (h·area)^{1/2}) would suffice. So the correct statement is: at Sobolev scale V = |D|^{1/2} the spectral
+  sum has ≍ V² = |D| terms and needs cancellation **among** the Weyl sums far beyond GLH (which bounds them only
+  individually); "exact incidence" is the reason GLH-strength input is insufficient, not a proof that no
+  L-function input could work. Repair: replace "not the strength of subconvexity" by "not merely the exponent of
+  subconvexity: any spectral route needs cancellation across ≍ |D| spectral terms, beyond GLH" (Assessment).
 
 ### Claim 1 — Lemma 1.1 (five forms), duality
 
@@ -121,3 +136,17 @@ f_II(p) ≥ 2 for all primes 5 ≤ p ≤ 10⁷ ✓. Smallest class means mod 840
 (0.0368–0.0411), then 673, 601 (0.045); class 839: 0.323 ✓. R(p) with the author's definition: k = 20, 22, 23 give
 min R 0.305, 0.297, 0.280 and sd 0.288, 0.301, 0.302 ✓ (see D6 for k = 16). Not re-run: the t2s_predict
 E_heeg / E_avg comparison (EVIDENCE feeding an Assessment only).
+
+### Claim 5 — §4.4 gap
+
+Source: Young, arXiv:1405.5457 (fetched; JEMS 19 (2017) is the published version, not accessed — numbering below is
+arXiv's). Thm 2.1 (p. 4): for φ smooth compactly supported on SL₂(ℤ)\H with `|Δⁿφ| ≤ C(n)V²ⁿ` and **−D an odd
+fundamental discriminant**, `Σ_{τ∈Λ_D} φ(τ) = h(−D)∫φ·3/π + O(‖φ‖₂D^{5/12+ε}V^{1+ε} + (DV)^{−100})`; Lindelöf for
+L(u_j×χ_{−D}) and L(χ_{−D}) gives D^{1/4} ✓ (matches LITERATURE_AUTOMORPHIC.md §1). Young's strip application
+(p. 5): ‖φ‖₁ ≍ V^{−1}, ‖φ‖₂ ≍ V^{−1/2}, valid for V ≪ D^{1/18−ε} ✓; Prop 1.2(1) η > 4/9 ✓.
+Bookkeeping re-derived: shell of width w, length ℓ ≈ log D: `D^{1/2}wℓ ≫ (wℓ)^{1/2}D^{5/12}w^{−1}` ⟺ `w^{3/2} ≫ D^{−1/12}`
+(ℓ-powers dropped) ⟺ **w ≫ D^{−1/18}**; with D^{1/4}: **w ≫ D^{−1/6}** ✓. Needed w = 1/(c√|D|) ⇒ gaps D^{4/9}, D^{1/3} ✓.
+Averaging over c: the c = 1 shell fixes V = √|D|; error ≈ (ℓ log C/√D)^{1/2}D^{5/12}D^{1/2} vs main ℓ log C ✓.
+Over d: per-d GLH error at w = |D|^{−1/2} is ℓ^{1/2}|D|^{1/2} ✓; even square-root cancellation over d ≤ D₀ gives
+`(Σ_d dp)^{1/2} ≈ D₀p^{1/2}` ✓ ≫ log³p. Root-condition remark: `2c·2ad = f + 1` ⇒ ν ≡ (2c)^{−1} (mod f) ✓.
+All conclusions are labelled Assessment in §0, §4.4 and the report ✓ — nothing here is claimed as a theorem.
