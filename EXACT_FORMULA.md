@@ -92,6 +92,12 @@ pure-ES relations on primes are elementary: `(−1)^c = (−1)^{a+b}` (reduce th
 
 ## 3. The Siegel–Weil route at fixed (c,d), computed in divisor language (step 3)
 
+*Overlap note.* O128 round 2 (POINTWISE_TYPEII_SPECTRAL.md §§8–9, merged here afterwards) independently proves the
+character expansion of 3.1 (its Prop 9.1, with the weight-1/weight-0 Eisenstein identification), the genus pairing at
+squares (Prop 9.2) and that all local/genus/spinor data hold for every n (Prop 8.3: the obstruction is the sign at ∞,
+ray class group mod 4cd·∞ of a split torus). 3.1 is kept as the computational dictionary; 3.2 (the exponent-2
+levels where genus = class) and 3.3–3.4 (numerical genus-vs-orbit comparison, non-summability in c) are additions.
+
 **3.1 Dictionary (PROVED, elementary).** Fix (c,d), q = 4cd, `M = 4c²dn + 1`. By O128 Prop 2.5 the Type II
 solutions with this (c,d) are the forms Q = [A,B,C] in the level lattice `L_d = {4d | B, d | C}` with
 disc −4dn, Q > 0, and `ℓ_c(Q) := A − cB = −1`, i.e. vectors Q with a prescribed Gram matrix T against the fixed
@@ -151,3 +157,33 @@ plus a lower-order cuspidal error; the Eisenstein part summed over the ES range 
 cancel exactly against the character parts. This is the representation-theoretic form of the "Planck-scale
 barrier": ES selects one orbit of second vectors, and orbit-level counts in a genus are governed by the
 non-principal characters, which are as large as the main term.
+
+## 4. Signed decomposition, boundary terms, residuals (steps 2 and 4)
+
+**Prop 4.1 (Type II: positive = signed − boundary, exactly; PROVED).** For q = 4cd, N = 4c²dn + 1 let
+`A_{±1}(c,d) = #{X | N : X ≡ ±1 (mod q)}`. Lemma 1.2 gives `A_{+1} = 2 + 2T2⁻_{c,d} − δ⁻_{c,d}`,
+`A_{−1} = 2T2⁺_{c,d} − δ⁺_{c,d}` (δ = diagonal a = b), and orthogonality gives
+
+  `2(T2⁻ − T2⁺)(n) − (δ⁻ − δ⁺)(n) = Σ_{c,d ≥ 1} [ (2/φ(4cd)) Σ_{η odd mod 4cd} σ_η(4c²dn + 1) − 2 ]`,
+  `2(T2⁻ + T2⁺)(n) − (δ⁻ + δ⁺)(n) = Σ_{c,d ≥ 1} [ (2/φ(4cd)) Σ_{η even mod 4cd} σ_η(4c²dn + 1) − 2 ]`,
+
+each sum having only finitely many non-zero terms. The constant `−2` per level is the trivial factorisation
+N = 1·N (a = 0): it is the exact analogue of the boundary term `λ(n) = Σ min(d, n/d)` in Kronecker–Hurwitz, and it
+is what makes the sums finite. Thus ES Type II = (even part − odd part)/2 of a family of weight-1/weight-0
+Eisenstein coefficients, *minus* a boundary. Neither part is sign-definite. On primes 5 ≤ p ≤ 2·10⁴,
+`T2⁻ − T2⁺` ranges over [−276, 288] (mean +22 for p ≡ 1 (4), −24 for p ≡ 3 (4); corr(T2⁻ − T2⁺, T2⁺) = −0.77):
+the "signed total" T2⁺ + T2⁻ does not dominate T2⁺ in any structural way. For Type I the signed manoeuvre gives
+nothing (Lemma 1.2); the sign-flipped family T1⁻ satisfies `T1⁻ − T1⁺ < 0` for 21 % of primes (2.8 % of p ≡ 1 (4)).
+
+**Prop 4.2 (zero sets of T1±; PROVED).** `T1⁺(2^k) = T1⁻(2^k) = 0` for all k. *Proof.* By Lemma 1.1 every
+solution of n is a k-scaling of a solution of an odd m = 4ac'd − h with h | 4a²d ± 1 (h odd), m | n. m = 1 is
+impossible: for S = +1, h = 4ac'd − 1 would divide a + c' < h; for S = −1 it forces a = c', b = 0. ∎ Conversely
+`T1⁺(n) ≥ T1⁺(m)` for every odd m | n (scaling), so "T1⁺(n) > 0 unless n = 2^k" (EVIDENCE, n ≤ 2·10⁴) is just
+Type I solvability of the odd primes ≤ 2·10⁴.
+
+**4.3 Residuals of the best classical fit (`scripts/exf_residual.py`; EVIDENCE).** Least squares of each family
+on the 54 classical columns of §2.3, trained on primes < 10⁴, tested on primes in [10⁴, 2·10⁴]: relative
+residual (‖r‖/‖y − ȳ‖) on the test set 0.57 (T1⁺), 0.72 (T1⁻), 0.60 (T2⁺), 0.63 (T2⁻), 0.46 (f_I = T1⁺.prim),
+0.50 (f_II-type T2⁺.prim); test rms 61, 49, 21, 21, 31, 11 against means 139, 186, 49, 48, 102, 38. The
+dictionary (mostly τ(p ± 1), τ(4p ± 1), τ(8p + 1)-type columns) captures about half of the fluctuation, as the
+Eisenstein picture (Prop 4.1) predicts (the low levels contribute σ_η at 4p+1, 8p+1, 12p+1, …), and nothing more.
