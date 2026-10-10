@@ -63,9 +63,8 @@ Thm A; for plane curves Bombieri–Pila, Duke Math. J. 59 (1989)).** If `C ⊂ �
 
 *Proof.* *Case k = 3.* `E_m` is an irreducible surface (Lemma 1.3(i)), so `W = E_m ∩ {H = 0}` is a curve of degree
 `≤ 2D` (Bézout) with at most `2D` irreducible components `C`. If `C ≠ C̄` (complex conjugate), its real points lie in
-the finite set `C ∩ C̄` (`≤ 4D²` points). If `C = C̄` is a line, it is a real line, and a real line meets the bounded
-real ellipsoid `E_m(ℝ)` in `≤ 2` points; so `C` is not contained in `E_m`, absurd — hence lines contribute `≤ 2`
-points anyway. If `C = C̄` has degree `δ ≥ 2`, (P) with `B = B_m` gives `≪ B_m^{1/2+ε} ≪ m^{1/4+ε}` points.
+the finite set `C ∩ C̄` (`≤ 4D²` points). If `C = C̄` were a line, `C(ℝ)` would be an (unbounded) real line inside the bounded set
+`E_m(ℝ)` — impossible; so no component is a line defined over ℝ. If `C = C̄` has degree `δ ≥ 2`, (P) with `B = B_m` gives `≪ B_m^{1/2+ε} ≪ m^{1/4+ε}` points.
 *Case k ≥ 4 (slicing).* Write `v = (v', t)`, `v' ∈ ℂ³`, `t ∈ ℂ^{k−3}`, and complete the square:
 `Q(v', t) = Q_3(v' + Mt) + Q*(t)` with `Q_3` (restriction to the first 3 coordinates) and `Q*` (Schur complement)
 positive definite, `M` a rational matrix. For integer `t` the slice `E_m^t = {v' : Q_3(v'+Mt) = m − Q*(t)}` is empty
@@ -96,3 +95,70 @@ together with `0` and the finitely many `m` with `(Q − m) | B`. For `p` as sta
 values come from distinct solutions). Each group lies in `{Q = m} ∩ {H_x = 0}`, `H_x = A − xB`, of degree `≤ D`. If
 `H_x` vanished on `E_m`, then `X_j ≡ x` on the dense open set `E_m ∖ {B = 0}`, contradicting `m ∉ 𝔐_j`. Apply
 Lemma 2.1. ∎
+
+## 3. Degenerate pieces are polynomial (Mordell-type) identities
+
+**Cited input (M) (Mordell, *Diophantine Equations* (1969) p. 287–290; Schinzel; restated in ET p. 8, and a
+consequence of ET Prop 1.6).** Call a primitive class `r mod q` *solvable by polynomials* if there are
+`P_1,P_2,P_3 ∈ ℚ[n]` with `P_i(n) ∈ ℕ` for all large `n ≡ r (q)` and `4/n = Σ 1/P_i(n)` identically. A primitive
+class `r mod q` with `r ≡ s² (mod q)` is **not** solvable by polynomials.
+
+**Lemma 3.1 (PROVED).** Let piece `j` of a valid embedding be degenerate and suppose `R_j(p) ≠ ∅` for infinitely many
+primes `p`. Then there are `P_1,P_2,P_3 ∈ ℚ[n]` and `q_j ≥ 1` such that every prime `p > p_j` with `R_j(p) ≠ ∅` lies in a
+primitive class mod `q_j` that is solvable by polynomials (by the `P_i`).
+
+*Proof.* `X_j = G_1(Q)` etc. with `G_i ∈ ℚ(t)`, so on `R_j(p)` the solution is `(P̃_1(p), P̃_2(p), P̃_3(p))` with
+`P̃_i(n) = G_i(κn + η) ∈ ℚ(n)`. The identity `4/n = Σ 1/P̃_i(n)` holds at infinitely many `n`, hence identically.
+*Polynomiality:* write `P̃_i = P_i + S/T` with `P_i ∈ ℚ[n]`, `deg S < deg T`, and let `δ` be a common denominator of the
+coefficients of all `P_i`. For large `p`, `|S(p)/T(p)| < 1/δ`, while `P̃_i(p) ∈ ℤ` and `P_i(p) ∈ δ^{−1}ℤ` force
+`S(p)/T(p) ∈ δ^{−1}ℤ`; so `S(p) = 0` for infinitely many `p`, `S = 0`. *Periodicity:* if `δ c ∈ ℤ` then
+`c((n+δt)^ℓ − n^ℓ) ∈ ℤ`, so the set `{n : P_i(n) ∈ ℤ ∀i}` is a union of classes mod `q_j := δ`. Each `P_i` takes
+positive values at infinitely many large `p`, so has positive leading coefficient (or is a positive constant) and is
+positive for all large `n`. Hence for `p > max(q_j, p'_j)` the (primitive) class of `p` mod `q_j` is solvable by
+polynomials. ∎
+
+**Corollary 3.2.** Let `U` be the union over degenerate pieces (with infinitely many covered primes) of the solvable
+classes of Lemma 3.1, `q* = lcm q_j`. Then `U` is a finite union of primitive classes mod `q*`, none of which is a
+square class (by (M)); every prime `p > p_0` covered by a degenerate piece lies in `U`. In particular **no prime
+`p > p_0` that is a square mod `q*` is covered by a degenerate piece.**
+
+## 4. Main theorem: definite embeddings are disguised congruence coverings
+
+**Theorem 4.1 (PROVED, given (P), (M) and ET Thm 1.1).** Let `(S_j, Φ_j)_{j≤J}` be a valid embedding of complexity
+`(J, D)` for a positive definite `Q` in `k ≥ 3` variables, and `U, q*` as in Cor 3.2. Then:
+
+(a) for every prime `p > p_0` with `p ∉ U` (in particular every `p > p_0` that is a square mod `q*`):
+`#R(p) ≤ C(Q, J, D, ε)·f(p)·p^{(k−2)/2 − 1/4 + ε}`;
+
+(b) for every `ε₀ > 0, c > 0`: `#{p ≤ N : p ∉ U, #R(p) ≥ c p^{(k−2)/2 − ε₀}} ≪_{c,ε₀} N^{3/4 + 2ε₀}`.
+
+*Proof.* (a): for `p ∉ U`, `p > p_0`, only nondegenerate pieces contribute (Cor 3.2); apply Prop 2.2 to each (the
+finite sets `𝔐_j` exclude finitely many `p`). (b): such `p` have, by (a) with `ε = ε₀/2`, `f(p) ≫ p^{1/4 − 3ε₀/2}`.
+For prime `p`, `f(p) = 3f_I(p) + 3f_II(p)` and ET Thm 1.1 gives `Σ_{p≤N} f(p) ≪ N log²N log log N`; so the number of
+such `p ∈ (N/2, N]` is `≪ N^{3/4 + 3ε₀/2} log³N`; sum dyadically. ∎
+
+**Corollary 4.2 (the representation-theorem route closes; PROVED relative to the cited representation theorems as
+input (R)).** Suppose in addition that the embedding is *mild* in the sense that the input one intends to use holds:
+
+> (R) there is a set `𝒫_R` of primes, defined up to finitely many exceptions by congruence conditions (a union of
+> primitive classes mod some `L`), such that `#R(p) ≥ c p^{(k−2)/2 − ε₀}` for all large `p ∈ 𝒫_R`.
+
+Then `𝒫_R ⊆ U` up to finitely many primes. Hence `𝒫_R` contains no prime that is a square mod `q*`, and the embedding
+proves ES only for primes that a **finite polynomial (Mordell-type) covering already handles** (`U`), plus a set of
+`≪ N^{3/4+ε}` primes up to `N` on which `f(p) ≥ p^{1/4−ε}` (which can only be identified by knowing `f(p)`).
+
+*Proof.* `𝒫_R ∖ U` is, up to finitely many primes, a union of primitive classes mod `lcm(L, q*)`. If it contained one
+such class, it would contain `≫ N/log N` primes up to `N` (Dirichlet), contradicting Thm 4.1(b). ∎
+
+*Where (R) comes from.* For `S_j ⊇ {v ≡ v_0 (mod M), v ∈ Γ}` (fixed modulus, open cone `Γ`, optionally primitivity):
+k ≥ 5 circle method; k = 4 Kloosterman's method (Heath-Brown's δ-method; Hsia–Kitaoka–Kneser for the
+local–global form; for κp + η with p prime the anisotropic-prime divisibility issue is bounded); k = 3
+Duke 1988 / Iwaniec 1987 bounds for coefficients of weight-3/2 cusp forms, Duke–Schulze-Pillot 1990 (primitive,
+outside finitely many spinor exceptional square classes `tℤ²` — each contains at most one prime `κp+η`… up to the
+finitely many `p` with `κp + η ∈ tℤ²`, which for fixed `t` is a sparse set `≪ √N`), Golubeva–Fomenko and Blomer for
+congruence / coset conditions, and Siegel's ineffective bound `L(1,χ) ≫ m^{−ε}` for the lower bound `p^{1/2−ε}`. In
+each case `𝒫_R` = primes `p` such that `κp + η` is (primitively) locally represented by the coset, which is a
+congruence condition on `p` (at `ℓ ∤ 2κMη·disc Q`, `κp+η` is an `ℓ`-adic unit... for `ℓ = p ∤ η` it is a unit and a
+unimodular form of rank ≥ 3 represents all units). We have not re-verified every coset/cone version of these theorems
+(Assessment); Corollary 4.2 only needs **some** positive-density congruence set on which (R) holds, which is exactly
+what an application of these theorems would deliver.
