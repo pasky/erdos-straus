@@ -6,40 +6,47 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010v6 (`sour
 ## 0. Summary
 
 **Outcome: a precise negative result.** Pointwise representation theorems for quadratic forms (Duke–Schulze-Pillot,
-Kloosterman/HKK, circle method) cannot prove ES through any embedding of bounded algebraic complexity.
+Kloosterman/HKK, the circle method) contribute nothing beyond finite polynomial (Mordell-type) coverings when
+combined with an ES recipe of bounded algebraic complexity. Any ES content outside such a covering must come from
+*thin* sets of representations, which these theorems do not control.
 
 * **Theorem 4.1 (PROVED, given Pila's bound (P), Mordell–Schinzel (M) and ET Thm 1.1).** Let `Q` be positive definite
-  in `k ≥ 3` variables. Suppose a recipe of complexity `(J, D)` (piecewise rational, arbitrary side-condition sets)
-  turns every representation `Q(v) = κp + η` with `v ∈ S_j` into an ES solution of `4/p`. Call a piece *degenerate*
-  if its output depends on `v` only through `Q(v)`. Degenerate pieces are polynomial (Mordell-type) identities on
-  finitely many residue classes forming a set `U`, and no class of `U` is a square class. For `p ∉ U`, in particular for
-  `p` a square mod `q*`, the recipe sees at most `C f(p) p^{(k−2)/2 − 1/4 + ε}` representations. That is a
-  `p^{−1/4+ε}f(p)` fraction of the `≍ p^{(k−2)/2}` that a mild (congruence + cone) side condition leaves.
-  The mechanism (Lemmas 1.3, 2.1) is that a nondegenerate rational map is non-constant on almost every level set, and
-  its fibres there are curves (or slices) carrying `≪ p^{1/4+ε}` lattice points, by Bombieri–Pila/Pila.
-* **Cor 4.2.** If the representation theorems give `≫ p^{(k−2)/2−ε}` admissible representations on a congruence set of
-  primes `𝒫_R`, then `𝒫_R ⊆ U`. The embedding proves nothing beyond a finite polynomial covering, except on
-  `≪ N^{3/4+ε}` primes where `f(p) ≥ p^{1/4−ε}`. **Cor 7.1:** the closure of `𝒫_R` contains no sterile point (no square
-  point; x** only through an ET class of ES level `≥ 2.59·10¹⁰`, by MORDELL13E).
-* **Answer to the "sanity count" (step 3).** The map from representations to ES solutions cannot be highly
-  non-injective unless it is degenerate (constant on level sets), so the side conditions must be non-mild
-  (relative density `≤ p^{−1/4+ε}f(p)`).
-* **Indefinite ternary forms (§5).** The same holds when `E_m` has no rational line, which is true for all `m` outside
-  one square class (Lemma 5.1, Prop 5.2). Positivity of the ES output forces the valid set to be bounded, so an
-  untruncated mild set is impossible (Cor 5.3). Split level sets and `k ≥ 4` indefinite forms remain a gap (rational
-  lines). That gap is the divisor-problem regime.
-* **Step 1, systematic search (Comp 6.1, CERTIFIED symbolic).** All 57 quadratic substructures of ET's Type I/II
-  varieties are isotropic: 56 are split binary or degenerate, and one is the rank-3 indefinite form
-  `Q_d = ef − 4da²` (Type II, `d` fixed). It represents every integer, so it has no local or spinor content; its side
-  condition `4ad | f+1` is not mild (Prop 6.2). ES has no definite quadratic substructure in these coordinates.
+  in `k ≥ 3` variables, and let a recipe of complexity `(J, D)` (piecewise rational, arbitrary side-condition sets
+  `S_j`) turn every representation `Q(v) = κp + η`, `v ∈ S_j`, into an ES solution of `4/p`. Call a piece
+  *degenerate* if its output depends on `v` only through `Q(v)`.
+  * Degenerate pieces are polynomial identities on finitely many residue classes, forming a set `U`. No class of `U`
+    is a square class (Lemma 3.1, Cor 3.2).
+  * For `p ∉ U`, in particular for `p` a square mod `q*`, the recipe uses at most `C f(p) p^{(k−2)/2 − 1/4 + ε}`
+    representations. Mechanism: a nondegenerate rational map is non-constant on all but finitely many level sets
+    (Lemma 1.3), and its fibres there carry `≪ p^{1/4+ε}` lattice points per slice (Bombieri–Pila/Pila, Lemma 2.1).
+* **Cor 4.2 (PROVED relative to the input (R)).** Suppose the representation theorems give
+  `≫ p^{(k−2)/2−ε₀}` admissible representations (`ε₀ < 1/4`) on a congruence set of primes `𝒫_R`. Then `𝒫_R ⊆ U`.
+  Caution: thin nondegenerate pieces *can* cover positive-density sets outside `U` (explicit example after
+  Cor 4.2), but no representation theorem certifies them.
+* **Cor 7.1.** The closure of `𝒫_R` in `Ẑ^×` contains no sterile point. So it contains no square point, and it contains
+  x** only through an ET class of ES level `≥ 2.59·10¹⁰` (by MORDELL13E).
+* **Step 3, the "sanity count".** The map from representations to ES solutions cannot be highly non-injective on a
+  mild set unless it is degenerate. Side conditions that do work must be non-mild, of relative density
+  `≤ p^{−1/4+ε}f(p)`.
+* **Indefinite ternary forms (§5).** The fibre bound holds in balls `|v| ≤ T` whenever `E_m` has no rational line,
+  which holds for all `m` outside one square class (Lemma 5.1, Prop 5.2). Validity forces the admissible set to be
+  thin, though not necessarily bounded (Cor 5.3, with a Pell example). Split level sets (rational lines) and
+  `k ≥ 4` indefinite forms are a gap of the method.
+* **Step 1, systematic search (Comp 6.1, CERTIFIED symbolic).** There are 57 quadratic substructures in ET's Type I/II
+  charts, and all are isotropic. Of these, 56 are split binary or degenerate. The remaining one is the rank-3 form
+  `Q_d = ef − 4da²` (Type II, `d` fixed). It represents every integer, so it has no local or spinor content. Its
+  positive level sets are line-free, and its side condition `4ad | f+1` is not mild (Prop 6.2). ES escapes the
+  counting obstruction only through such non-mild conditions.
 * **Step 4 (EVIDENCE).** Every Mordell-hard prime `≤ 10⁸` gets a Type II solution through (Q_d) with `d ≤ 8`,
-  `a ≤ 22` (max at p = 84525841). This is a divisor search of growing length, not a representation statement.
-* **Not excluded (§9).** Recipes of unbounded complexity, families with growing parameters (reduced to growing
-  congruence coverings, Assessment), and side conditions of density `≤ p^{−1/4}` that no representation theorem
-  controls.
-* Novelty (Assessment): the counting heuristic is ET's own remark (after their Thm 1.1: analytic methods such as the circle method appear insufficient because f(p) is polylogarithmic); the
-  formalisation as a theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems
-  new but is a modest observation.
+  `a ≤ 22` (the maximum is at p = 84525841). This is a divisor search of growing length, not a representation
+  statement.
+* **Not excluded (§9).** Recipes of unbounded complexity; families with a growing parameter (only an Assessment, since
+  exceptional levels are not uniformly controlled); thin side conditions; split level sets.
+* **Novelty (Assessment).** The counting heuristic is ET's own remark: after their Thm 1.1 they note that analytic
+  methods such as the circle method appear insufficient because `f(p)` is polylogarithmic. Formalising it as a
+  theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems new but is a
+  modest observation. An internal review (R124, codex deep) found one FATAL overclaim in the first draft of Cor 4.2
+  and five MAJOR issues; all are repaired (§§4, 5, 7, 9).
 
 ## 1. Setting: what an "embedding" is
 
