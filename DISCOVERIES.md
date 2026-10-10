@@ -456,6 +456,16 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Gap (Assessment): the shell width needed is D^{−1/2}, against D^{−1/18} reachable unconditionally (Young) and D^{−1/6} under Lindelöf; what is needed goes beyond GLH.
    * EVIDENCE (reproduced independently to 10⁸): `f_II(p) ≥ 1` for all p ≤ 10⁸, and `min f_II/log³p ≈ 0.012`. The hardest primes lie in the square classes mod 840.
 
+5. **Exact-formula hunt: no structurally positive identity (EXACT_FORMULA.md; review `reviews/exact-formula-review.md` (R131): no FATAL/MAJOR, 8 minors repaired by the reviewer).**
+   * PROVED, elementary:
+     * completion of the Type I enumeration for composite n (Lemma 1.1);
+     * T2⁺(m²) = 0 for every m (Prop 2.1), and T1±(2^k) = 0 (Prop 4.2);
+     * for cd | 6 the Type II (c,d)-slice is an exact combination of binary theta (genus-character) coefficients at 4c²dn+1 (§3.2);
+     * a signed decomposition: Eisenstein even/odd parts minus a boundary −2 per level (Prop 4.1);
+     * Thm 5.2: the Type I count, read on the anisotropic CM torus (ideal divisors of p + 2c√−d), reduces to norm/genus data.
+   * In every case positivity is again "some specific integer has a divisor in a residue class".
+   * CERTIFIED (exact ℚ-rank, R131): no linear relation between 56 ES count variants and 54 classical functions (Hurwitz class-number convolutions, divisor sums, …) on n ≤ 2·10⁴. The scope is that finite dictionary.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
