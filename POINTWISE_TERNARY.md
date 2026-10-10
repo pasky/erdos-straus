@@ -5,7 +5,41 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010v6 (`sour
 
 ## 0. Summary
 
-(written at the end; see §§1–6)
+**Outcome: a precise negative result.** Pointwise representation theorems for quadratic forms (Duke–Schulze-Pillot,
+Kloosterman/HKK, circle method) cannot prove ES through any embedding of bounded algebraic complexity.
+
+* **Theorem 4.1 (PROVED, given Pila's bound (P), Mordell–Schinzel (M) and ET Thm 1.1).** Let `Q` be positive definite
+  in `k ≥ 3` variables. Suppose a recipe of complexity `(J, D)` (piecewise rational, arbitrary side-condition sets)
+  turns every representation `Q(v) = κp + η` with `v ∈ S_j` into an ES solution of `4/p`. Call a piece *degenerate*
+  if its output depends on `v` only through `Q(v)`. Degenerate pieces are polynomial (Mordell-type) identities on
+  finitely many residue classes forming a set `U`, and no class of `U` is a square class. For `p ∉ U`, in particular for
+  `p` a square mod `q*`, the recipe sees at most `C f(p) p^{(k−2)/2 − 1/4 + ε}` representations. That is a
+  `p^{−1/4+ε}f(p)` fraction of the `≍ p^{(k−2)/2}` that a mild (congruence + cone) side condition leaves.
+  The mechanism (Lemmas 1.3, 2.1) is that a nondegenerate rational map is non-constant on almost every level set, and
+  its fibres there are curves (or slices) carrying `≪ p^{1/4+ε}` lattice points, by Bombieri–Pila/Pila.
+* **Cor 4.2.** If the representation theorems give `≫ p^{(k−2)/2−ε}` admissible representations on a congruence set of
+  primes `𝒫_R`, then `𝒫_R ⊆ U`. The embedding proves nothing beyond a finite polynomial covering, except on
+  `≪ N^{3/4+ε}` primes where `f(p) ≥ p^{1/4−ε}`. **Cor 7.1:** the closure of `𝒫_R` contains no sterile point (no square
+  point; x** only through an ET class of ES level `≥ 2.59·10¹⁰`, by MORDELL13E).
+* **Answer to the "sanity count" (step 3).** The map from representations to ES solutions cannot be highly
+  non-injective unless it is degenerate (constant on level sets), so the side conditions must be non-mild
+  (relative density `≤ p^{−1/4+ε}f(p)`).
+* **Indefinite ternary forms (§5).** The same holds when `E_m` has no rational line, which is true for all `m` outside
+  one square class (Lemma 5.1, Prop 5.2). Positivity of the ES output forces the valid set to be bounded, so an
+  untruncated mild set is impossible (Cor 5.3). Split level sets and `k ≥ 4` indefinite forms remain a gap (rational
+  lines). That gap is the divisor-problem regime.
+* **Step 1, systematic search (Comp 6.1, CERTIFIED symbolic).** All 57 quadratic substructures of ET's Type I/II
+  varieties are isotropic: 56 are split binary or degenerate, and one is the rank-3 indefinite form
+  `Q_d = ef − 4da²` (Type II, `d` fixed). It represents every integer, so it has no local or spinor content; its side
+  condition `4ad | f+1` is not mild (Prop 6.2). ES has no definite quadratic substructure in these coordinates.
+* **Step 4 (EVIDENCE).** Every Mordell-hard prime `≤ 10⁸` gets a Type II solution through (Q_d) with `d ≤ 8`,
+  `a ≤ 22` (max at p = 84525841). This is a divisor search of growing length, not a representation statement.
+* **Not excluded (§9).** Recipes of unbounded complexity, families with growing parameters (reduced to growing
+  congruence coverings, Assessment), and side conditions of density `≤ p^{−1/4}` that no representation theorem
+  controls.
+* Novelty (Assessment): the counting heuristic is ET's own remark (§1.1, "circle method insufficient"); the
+  formalisation as a theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems
+  new but is a modest observation.
 
 ## 1. Setting: what an "embedding" is
 
@@ -278,7 +312,7 @@ For the Mordell-hard primes `p ≤ N` (`p mod 840 ∈ {1,121,169,289,361,529}`) 
 
 (DMAX = 8, AMAX = 200; at N = 10⁶ with DMAX = 4, AMAX = 100 the two small primes 3361, 7681 are not covered — they
 need `d > 4`.) So every Mordell-hard prime below 10⁸ is reached by (Q_d) with `d ≤ 8`, `a ≤ 22` (EVIDENCE). This is
-a **divisor search of growing length** (the window regime of STATUS, `a_min ≍ log p/log log p` heuristically), not a
+a **divisor search of growing length** (cf. the window regime (E1) of STATUS), not a
 representation statement: for a sample of 2000 such primes, `d = 1`, `a ≤ 50`, only 14109 of the 562792 points
 `(e, f, a) ∈ ℕ³` of `E_p` satisfy `4a | f + 1` (ratio 0.025, and the ratio → 0 as the `a`-range grows, Prop 6.2(ii)).
 
