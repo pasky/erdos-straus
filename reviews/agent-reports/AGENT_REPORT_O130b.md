@@ -21,17 +21,19 @@ Branch `side-agent/quaternion-es`. File `QUATERNION_ES.md` (§§3.2–6 new). Sc
      Type II, `(n/f) = −1` is impossible.
    * Hence everything quaternionic here is congruence/genus data, inside the scope of Theorems M/C.
    * Square-mimicking primes are consistent with this and give nothing new.
-3. **GZ/GKZ sum over x (§5, Prop 5.1).** The x = 2 term depends only on `n = pe` and the genus characters at the
-   primes of n. The GZ local-factor shape is cited, not re-derived.
-   * Explicit counterexample: `(d,e) = (5,23)`. Here p = 313 has ES at that (d,e) and p = 73 does not, yet e and the
-     characters are the same.
+3. **GZ/GKZ sum over x (§5, Prop 5.1; R130 repair).** The GZ local-factor citation was misapplied: GZ assumes coprime
+   fundamental discriminants. It is replaced by a direct PROVED count. The weighted number of pairs (E, Λ ↪ End E) is
+   `#{maximal orders ⊇ Λ} = ∏_{ℓ^k∥e} N_ℓ`, which equals `2^{ω(e)}` for squarefree e (Eichler level ℓ at ℓ ∥ e) and is
+   independent of p and m.
+   * Explicit counterexample: `(d,e) = (5,23)`. Here p = 313 has ES at that (d,e) and p = 73 does not, yet e, the
+     characters and the x = 2 count (= 2) are the same.
    * Summing over (d,e) gives a congruence-weighted divisor sum in e. The class-number product of the full GZ
      quantity needs the ≍ √(dm) values of x, and forcing x = 2 kills it.
    * EVIDENCE (`quat_residual.py`), for p ≡ 1 (24), p < 1500, d ≤ 12, e < 60, with all collision/genus data in place:
      the divisor condition holds in 40/93 Type I cases and 120/450 Type II cases.
 
 ## Verdict (Assessment; PROVED parts listed in QUATERNION_ES §6)
-The quaternionic dictionaries exist and are exact: Type I is an x = 2 GZ collision in `B_{p,∞}`, and Type II is a
+The quaternionic dictionaries exist and are exact: Type I is an x = 2 collision (relative-trace-1 order of reduced disc pe) in `B_{p,∞}`, and Type II is a
 non-commutative factorisation in `(−d,−p)` with matched level-e structures. But the level-p object carries only
 congruence/genus data. The ES difficulty stays in an isotropic divisor-in-residue-class problem whose modulus e is
 a coordinate of the solution. Michel/EMV/Kane/LMY have nothing to equidistribute that is not automatic.

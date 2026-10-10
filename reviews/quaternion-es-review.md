@@ -209,3 +209,16 @@ binary form in Prop 3.2 is isotropic".
 description covers all of e.
 
 No FATAL defects. All identities and all numerical claims I could test are correct.
+
+## Repairs applied (round 1, at parent's request)
+All repairs above were applied by the reviewer directly in QUATERNION_ES.md and in AGENT_REPORT_O130{,b}.md. Each is
+marked "(R130 repair)":
+* MINOR-1: p ∤ e in Prop 1.3 and the §4 symbol at p. Also: v_p(pe) odd in the Remark and in Prop 2.1(i).
+* MAJOR-1: the GZ reading is qualified (x is notation only). Prop 5.1 is rewritten as the direct count
+  `C(d,m) = #{maximal O ⊇ Λ} = ∏ N_ℓ`, which is `2^{ω(e)}` for squarefree e. The new derivation includes the Deuring
+  weight `2/[N(O):ℚ^×O^×]` (1 or 2 curves per type).
+* MINOR-2: the Siegel-theta sentence is now Assessment.
+* MINOR-3: x = 2 is stated relative to the chosen orders.
+* MINOR-4: the 19690 figure is explained as triples, versus 26007 tuples.
+* MINOR-5: §6 last sentence weakened.
+* MINOR-6: Prop 3.2 now states that ℓ ∤ 2dp holds automatically for every ℓ | e.
