@@ -1,0 +1,1 @@
+{'sol': 16622, 'I': 11998, 'II': 4624, 'bad': 0} max a/(sqrt p/2) TypeII: 1.1547 max 4ad/3p TypeI: 0.6522
