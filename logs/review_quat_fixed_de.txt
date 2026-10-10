@@ -1,0 +1,9 @@
+TypeI d=5 e=23 p=313 m=360 (-d/p)=-1 genus(-d/l) l|e: {23: 1} m mod e 15 ES divisors a: [10]
+TypeI d=5 e=23 p=73 m=84 (-d/p)=-1 genus(-d/l) l|e: {23: 1} m mod e 15 ES divisors a: []
+TypeI d=10 e=7 p=457 m=80 (-d/p)=-1 genus(-d/l) l|e: {7: 1} m mod e 3 ES divisors a: [2, 5]
+TypeI d=10 e=7 p=97 m=17 (-d/p)=-1 genus(-d/l) l|e: {7: 1} m mod e 3 ES divisors a: []
+TypeII d=1 e=7 p=73 m=20 ES divisors a: [1] genus (-p/l): {7: 1}
+TypeII d=1 e=7 p=97 m=26 ES divisors a: [] genus (-p/l): {7: 1}
+TypeII d=1 e=11 p=73 m=21 ES divisors a: [1] genus (-p/l): {11: 1}
+TypeII d=1 e=11 p=193 m=51 ES divisors a: [] genus (-p/l): {11: 1}
+filtered TypeI: 40/93   TypeII: 120/450
