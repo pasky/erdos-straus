@@ -1,0 +1,7 @@
+u^2+d, v^2+m, uv+vu: [0, 0, [1, 0, 0, 0]]
+Gram trd(x_i x_j): [[2, 0, 0, 1], [0, -2*d, 1, 0], [0, 1, -2*m, 0], [1, 0, 0, -2*d*m + 1]]
+det: -(4*d*m - 1)**2
+vu - (1-uv): [0, 0, 0, 0]
+Lemma 3.1 product: [-4*a*b*d + p, 0, 0, -2*a - 2*b]  expected: [-4*a*b*d + p, 0, 0, -2*a - 2*b]
+N(2ai+j) = 4*a**2*d + p  N(1+2ck) = 4*c**2*d*p + 1
+isogeny lattice det: (4*a*b*d - 1)**2/16  (claimed (pe/4)^2 with pe=4abd-1)
