@@ -8,7 +8,7 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010 (`source
 
 Type II solutions of a fixed prime p carry an exact SL₂ structure: `ff' − 4c²(dp) = 1`, `f ≡ f' ≡ −1 (mod 4cd)`
 (Lemma 1.1.3). This is the Type I Heegner structure of TTL with **p moved from the congruence (`f ≡ −p mod 4ad`)
-into the level/discriminant (−4dp)** — ET's dilation Σᴵ → Σᴵᴵ on the SL₂ side (§1, PROVED). Consequences:
+into the level/discriminant (−4dp)** — a description of the table in §1, not a dilation image (R128 D2). Consequences:
 * Prop 2.1/Lemma 2.2 (PROVED): for fixed (p,d), Type II points are Heegner points of discriminant −4dp at level
   dp, uniformly separated (`cosh ≥ 3/2`). Remark 2.3: the det-p matrix `[[e,2a],[2ad,f]]` is a `T_p`-Hecke element.
 * Prop 2.4/2.5 (PROVED): the Type II condition is an **exact incidence**: the point lies at hyperbolic distance
@@ -18,9 +18,10 @@ into the level/discriminant (−4dp)** — ET's dilation Σᴵ → Σᴵᴵ on t
   BV/BT problem, no spectral input (PROVED reduction; constant ≈ 0.05 Assessment).
 * §4 (Assessment): the sufficient statement (TS) is a shell-incidence statement; Young's method reaches shells
   of width `|D|^{−1/18}` (`|D|^{−1/6}` under GLH); Type II needs `|D|^{−1/2}`. Gap `D^{4/9}` (`D^{1/3}` under GLH),
-  not closed by averaging over c or d. Precise negative conclusion: no existing or GLH-conditional
-  equidistribution theorem implies `f_II(p) > 0`.
-* §6 Lemma 6.1 (PROVED): Type II points lie in the genus `χ_{−4d} = −1`, i.e. `(p/f) = −1`; this recovers ET
+  not closed by averaging over c or d. Negative conclusion (heuristic bookkeeping, §4.4, R128 D7/D8): no existing or
+  GLH-conditional equidistribution theorem implies `f_II(p) > 0`. A spectral route would need cancellation across
+  `≍ |D|` spectral terms, beyond GLH.
+* §6 Lemma 6.1 (PROVED): `(p/f) = −1`, i.e. (for p ≡ 1 mod 4) Type II points lie in the genus `χ_{−4d} = −1`; this recovers ET
   Prop 1.6 (`f_II(s²) = 0`), and shows the shell main term is false at squares — any correct method must carry
   the genus character. At reachable scales the automorphic input cannot see square-mimicking primes.
 * §5 (EVIDENCE, p ≤ 10⁷): `f_II(p) ≥ 1` throughout; `min f_II/log³p ≈ 0.012–0.017`; hard primes are the
@@ -29,6 +30,19 @@ into the level/discriminant (−4dp)** — ET's dilation Σᴵ → Σᴵᴵ on t
 **Net:** Type II has the hoped-for SL₂/Heegner structure, but for fixed p it is an exact-incidence problem at
 scale `|D|^{−1/2}`, out of reach of spectral equidistribution by a power `D^{1/3}` even under GLH. No step
 toward ES is claimed.
+
+**Round 2 (§§7–10).**
+* §7 (PROVED): exact lattice data. `(Q, S_c)` spans `4[−dp, 1, c²]` in the ternary lattice of binary forms.
+  Type II solutions are unusually small Pell units `T + 2c√(d²m² + dp)`.
+* §8 (PROVED): there is no reduction-theory freedom, since `Stab(S_c) = ±I`. Type II is one class `k ≡ 1 (mod 2c)`
+  of the isotropic-type vector S, plus level data. All local, genus and spinor data hold for every n,
+  globally up to the sign at ∞ (`Q₀ = [−1,0,−dn]`). The problem collapses **exactly** to: `4c²dp+1` has a
+  positive divisor ≡ −1 (mod 4cd). The obstruction group is the ray class group mod `4cd·∞` of a split
+  torus, so there is no strong approximation and no Gauss/three-squares mechanism.
+* §9 (PROVED identities + Assessment): every generating series in sight is Eisenstein. Odd/even Eisenstein
+  coefficients cancel exactly at odd squares. Kudla/GKZ gives no fixed modular form and no cusp part.
+  **No automorphic pointwise route** comes out of this structure.
+* §10 (EVIDENCE): `f_II(p) ≥ 1` for all p ≤ 10⁸; the minimum in the top block is 94; `min R` ≈ 0.24.
 
 ## 1. Type II parametrisations (PROVED, elementary)
 
@@ -48,7 +62,7 @@ toward ES is claimed.
 *Proof.* 1 is ET Prop 2.6. (1⇒3) `(4acd−1)(4bcd−1) = 16abc²d² − 4cd(a+b) + 1 = 4cd(4abcd − a − b) + 1 =
 4c²dp + 1`. (3⇒1) reverse the computation. (1⇔2) is ET (2.19) with `e = (a+b)/c` (an integer: (2.15)
 mod c). (1⇔4): `b(4acd−1) = a + pc`. (1⇔5): `4abd = p + e` (ET (2.13)), `e | a + b`; and `e ≤ a+b < 4ab`
-unless a = b = 1 (then e ∈ {1,2} < 4), so e is the least positive residue of −p mod 4ab. ∎
+(since `4ab − a − b ≥ 3b − 1 > 0`; R128 repair D1), so e is the least positive residue of −p mod 4ab. ∎
 Checked against brute force for all primes 5 ≤ p < 400 (1243 solutions; `scripts/t2s_param.py`).
 
 **Duality with Type I (PROVED, same computation).** Type I (TTL §1): `(4acd − p) | (pa + c)`; Type II:
@@ -59,8 +73,10 @@ Checked against brute force for all primes 5 ≤ p < 400 (1243 solutions; `scrip
 | Type I | −4d | `ef − 4a²·d = 1` | `f ≡ −p (mod 4ad)` |
 | Type II | −4dp | `ff' − 4c²·(dp) = 1` | `f ≡ −1 (mod 4cd)` |
 
-This is ET's non-isotropic dilation `(a,b,c,d,e,f) ↦ (a,b,c/n²,dn,n²e,f/n)` between Σᴵ and Σᴵᴵ read on
-the SL₂ side: **p moves from the congruence into the level.**
+(R128 repair D2) The two rows are *not* dilation images of each other. Under ET's dilation `(a,b,c,d,e,f) ↦
+(a,b,c/n²,dn,n²e,f/n)` the dilation exchanges which identity is unimodular: Type I is det 1 in (a,e,f) and
+det n² in (c,f,f'); Type II is det n in (a,e,f) and det 1 in (c,f,f'). "p moves from the congruence into the
+level" describes the table; it is not a theorem.
 
 ## 2. Heegner / SL₂ structure
 
@@ -107,7 +123,10 @@ Heegner forms of discriminant `−4dp`, and the Type II condition is `A ≡ −1
 **a Type II point is a Heegner point of discriminant −4dp at hyperbolic distance exactly
 `arsinh(1/(c√|D|))` from the cuspidal geodesic `γ_c = (∞, −1/(2c))`, on its left.** Integrality of
 ⟨u,v⟩ makes the shell `T_c = {z left of γ_c : sinh dist(z,γ_c) ∈ [½, 3/2]/(c√|D|)}` an honest region whose
-Heegner points (of disc −4dp with the B, C congruences) are exactly the Type II points with this c (and d).
+Heegner points (of disc −4dp with the B, C congruences) are exactly the solutions of Lemma 1.1.2 with this c
+and d **without** the condition gcd(a,c) = 1 (R128 repair D3). Non-primitive points are common (≈ 18% for p < 600,
+e.g. p = 29, (a,c,d) = (2,2,1)); each is the primitive solution with `(c/g, g²d)`, `g = gcd(a,c)`. Existence is
+unaffected, but the counts in §4.2/(TS) are of this non-primitive family (`F(p)` of Prop 8.1).
 *Proof.* Direct substitution; `⟨u,v⟩_Q = A − cB` since `⟨e₁,e₂⟩ = B/2`. ∎ (Same as Prop 2.4, written
 intrinsically.)
 
@@ -119,7 +138,8 @@ residue class `p ≡ −(4c²d)^{−1} (mod f)` (note `gcd(f, 2cd) = 1`). Hence
 `Σ_{p≤N} f_II(p) = Σ_{c,d,a; gcd(a,c)=1} w·π(N; 4acd−1, r_{c,d}) ` (range/weights as in Lemma 2.8 of ET).
 So **averaging over p collapses the Heegner incidence of Prop 2.4 to one arithmetic progression mod f**:
 the averaged Type II sum is a Bombieri–Vinogradov/Brun–Titchmarsh problem, and no spectral input is
-needed (consistent with ET, who get `≍ N log³N` for Type II with no log log loss; the spectral input in TTL
+needed (consistent with ET Thm 1.1: `Σ_{p≤N} f_II(p) ≍ N log²N` over primes, `Σ_{n≤N} f_II(n) ≍ N log³N` over all n, i.e.
+average `f_II(p) ≍ log³p`, with no log log loss (R128 repair D5); the spectral input in TTL
 was needed only for Type I). The Heegner picture "reproduces" ET only in this trivial sense.
 
 *Heuristic constant (Assessment).* With `π(N;f,r) ≈ π(N)/φ(f)`, the region `a ≤ b` (`2α+δ ≤ 1`) and
@@ -147,7 +167,11 @@ the Heegner points of discriminant −4dp (with the level data of Prop 2.5) meet
 genus `𝔊⁻ = {χ_{−4d}(Q) = −1}`* (Lemma 6.1 below: Type II points automatically lie there). (TS) ⇒ f_II(p) > 0.
 A counting version: `#(Λ_{4dp} ∩ T_c) = h·area/vol·(1 + o(1))` on average over c ≤ C.
 
-**4.4 Gap to known results (Assessment, using `LITERATURE_AUTOMORPHIC.md`).** Young 2017 Thm 2.1 error
+**4.4 Gap to known results (Assessment, using `LITERATURE_AUTOMORPHIC.md`).** (R128 repair D7) This is heuristic
+bookkeeping with Young's error shape. It assumes, without proof, that the shape extends to even, non-fundamental
+discriminants −4dp, to the level-4d data (a sum over part of 𝓕_{dp}, not the full Λ_D), and to non-compact shells
+that run up the cusp to height `≍ √(dp)/(4cd)`. Each of these makes the available theorem worse, so the negative
+conclusion is not weakened. Young 2017 Thm 2.1 error
 `‖φ‖₂ D^{5/12+ε} V^{1+ε}` (Lindelöf: `D^{1/4+ε}`) against main `D^{1/2}‖φ‖₁`. For a shell of width w and length
 `ℓ ≈ log D`: `‖φ‖₁ ≈ wℓ`, `‖φ‖₂ ≈ (wℓ)^{1/2}`, `V ≈ w^{−1}`. Main beats error iff
 `w^{3/2} ≫ D^{−1/12+ε}`, i.e. **`w ≫ D^{−1/18}` (unconditional — exactly Young's cusp-strip range)**, and
@@ -160,8 +184,10 @@ the natural limit of any equidistribution statement, and the target is `D^{1/4}`
 Prop 1.2 (existence of roots of `b² ≡ −D (mod 4a)` with `a ≍ √D`, `|b| ≍ √D/V`, `V ≪ D^{1/18}`): the Type II
 root condition is `ν = 2ad` with `ν² ≡ −dp (mod f)` **and `f ≡ −1 (mod 2ν)`**, i.e. ν is pinned to one residue
 (`ν ≡ (2c)^{−1} mod f`), not to an interval of length `f/V`. **Conclusion (Assessment): no existing or
-GLH-conditional equidistribution theorem reaches (TS); the obstruction is the exact-incidence nature of the
-Type II condition (Prop 2.4/2.5), not the strength of subconvexity.**
+GLH-conditional equidistribution theorem reaches (TS); exact incidence (Prop 2.4/2.5) is the reason GLH-strength input is insufficient — not merely the exponent of
+subconvexity: at Sobolev scale `V = |D|^{1/2}` the spectral sum has `≍ |D|` terms, and any spectral route needs
+cancellation *across* them, beyond GLH (which bounds them only individually). This is not a proof that no
+L-function input could work (R128 repair D8).**
 
 ## 5. Numerics (EVIDENCE; `scripts/t2s_count.c`, `t2s_numerics.py` → `t2s_numerics.out.txt`; `t2s_predict.c` → `t2s_predict.out.txt`)
 
@@ -176,8 +202,9 @@ independent Python enumeration for all primes < 700 (which is validated against 
 * Every one of the 20 smallest normalised values (p ≥ 10⁵) has `p ≡ 1 (mod 24)` except one (`p ≡ 13`); the six
   smallest class means mod 840 are exactly the six square classes `{1,121,169,289,361,529}` (≈ 0.037–0.042
   vs 0.32 for `p ≡ 839`): **square-mimicking primes are the hard ones for Type II.**
-* `R(p) = f_II(p)/mean(f_II over q ≡ p mod 840, same dyadic block)`: min R = 0.43 (2¹⁶), 0.31 (2²⁰), 0.28 (2²³);
-  sd of R grows slowly 0.257 → 0.301. Relative fluctuations do **not** shrink with p (divisor-type
+* `R(p) = f_II(p)/mean(f_II over q ≡ p mod 840, same dyadic block)`, computed only over classes with ≥ 30 members
+  in the block: min R = 0.43 (2¹⁶, filtered; **0.333 at p = 76441 unfiltered**, R128 repair D6), 0.31 (2²⁰), 0.28 (2²³).
+  The trend is flat to slowly decreasing, and the sd of R grows slowly (0.257 → 0.301). Relative fluctuations do **not** shrink with p (divisor-type
   fluctuation of the integers `4c²dp + 1`), so a pointwise lower bound must survive an `R ≈ 1/4` lower tail
   even after the mod-840 singular series.
 * Per-family predictions (30 primes in [0.67, 2.1]·10⁶: the 10 hardest + 20 random). The fixed-p
@@ -192,8 +219,10 @@ independent Python enumeration for all primes < 700 (which is validated against 
 ## 6. Square-mimicking primes and the genus obstruction
 
 **Lemma 6.1 (genus lemma; PROVED).** For every Type II solution of a prime p, with `f = 4acd − 1`,
-`f' = 4bcd − 1` coprime to p: `(p/f) = (p/f') = −1` (Jacobi). Equivalently the Type II Heegner forms of
-discriminant −4dp lie in the genus `𝔊⁻_d = {χ_{−4d}(Q) = −1}`.
+`f' = 4bcd − 1` coprime to p: `(p/f) = (p/f') = −1` (Jacobi). For **p ≡ 1 (mod 4)** (the only case that matters for ES; R128 repair D4) this says that the Type II Heegner
+forms of discriminant −4dp lie in the genus `𝔊⁻_d = {χ_{−4d}(Q) = −1}`. For p ≡ 3 (4), χ_{−4d} is not a genus
+character of −4dp; the genus character is χ_{−p} and the lemma reads `(f/p) = +1`. The arithmetic statement
+`(p/f) = −1` holds for all p.
 *Proof.* `ef = p + 4a²d` gives `(2ad)² ≡ −dp (mod f)` with `gcd(dp, f) = 1` (`f ≡ −1 mod 4ad`), so
 `(−dp/f) = 1`. `(−d/f) = (−4d/f)` and the Kronecker symbol `(−4d/·)` is a character mod 4d with value
 `sign(−4d) = −1` at `−1`; `f ≡ −1 (mod 4d)` gives `(−d/f) = −1`, so `(p/f) = −1`. Same for f'
@@ -211,7 +240,7 @@ shells are below every equidistribution scale, and that any correct count must c
 
 **What the automorphic input sees (Assessment).** (i) Measures: genus-restricted equidistribution
 (Duke; Humphries Thm 1.24-type for genera) holds for every prime p; at any scale where it is a theorem it
-is blind to square-mimicking (the genus `𝔊⁻_d` has the full share h/#genera of points). (ii) The ψ_d-twisted
+is blind to square-mimicking (the genus `𝔊⁻_d` has the full share h/#genera of points). (ii) (p ≡ 1 mod 4; for p ≡ 3 mod 4 read `L(χ_{−p})L(χ_{4d})`, R128 D4) The ψ_d-twisted
 Weyl sums factor (genus characters) into `L(·, χ_{−4d})·L(·, χ_p)` (constant/Eisenstein part) and
 `L(½, u_j×χ_{−4d})L(½, u_j×χ_p)` (cusp part); for square-mimicking p, `L(s, χ_p)` agrees with ζ at all small
 primes, so these terms grow toward the size of the main term — the analytic shadow of Cor 6.2 — but at the
