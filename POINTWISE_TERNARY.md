@@ -263,3 +263,24 @@ length is wasted: on a mild representation set, a bounded-complexity ES recipe i
 `p^{−1/4}f(p)`-thin subset, so it is a congruence covering in disguise and inherits the formal obstruction. To escape,
 an argument must use representation sets of relative density `≤ p^{−1/4+ε}f(p)` (non-mild side conditions, which no
 representation theorem controls), or a recipe of unbounded algebraic complexity (§9).
+
+## 9. Scope: what the theorem does not exclude
+
+1. **Families with a growing parameter** (`∃ t ≤ T(p)` such that `κ_t p + η_t` is represented by `Q_t` with
+   recipe `Φ_t`). For k = 3 the constants of Lemma 2.1 and Prop 2.2 are **uniform in `Q_t`** given `D` (Minkowski-reduce
+   `Q_t` by a `GL₃(ℤ)` change, which preserves `D`; a reduced integral form has `Q(v) ≫ Σ v_i²`; Pila's constant
+   depends only on the degree; `|𝔐_{t,j}| ≤ C(D)` because `Q_t − m` must divide a fixed nonzero polynomial of degree
+   `O(D)`). So each nondegenerate `(t, j)` still sees `≤ C f(p) p^{1/4+ε}` representations, while a mild `(t, j)`
+   needs `≫ p^{1/2−ε} disc(Q_t)^{−O(1)}` (Siegel; the exponent is not made explicit here). Hence for
+   `disc Q_t ≤ p^{δ}` (small δ) the nondegenerate parts are again useless (PROVED modulo the uniform form of (R)), and
+   what remains is the union of the degenerate parts: a congruence covering whose moduli grow with `T(p)`. That is
+   the multiplier/covering mechanism of the OMEGA line, subject to its Ω-results (`W(p)` can be as large as
+   `exp(c(log p)^{1/4−o(1)})`): Assessment.
+2. **Unbounded algebraic complexity.** Recipes that divide by `gcd`s of unbounded size, or use floor functions, or
+   have degree growing with `p`, are `J, D → ∞` and are not covered (constants in Prop 2.2 depend on `J, D`).
+3. **Non-mild side conditions.** Side conditions of relative density `≤ p^{−1/4+ε}f(p)` (e.g. divisibility conditions
+   with moduli depending on the variables, as in (Q_d)) are allowed by Theorem 4.1(a), but no representation theorem
+   controls them; proving that such a set meets `E_m` is as hard as the original divisor problem (Prop 6.2(iii)).
+4. **Split indefinite forms** (§5 Remark): fibres can be rational lines; this is where ES's own structure lives.
+5. **Higher-degree forms / norm forms.** Not considered (the count of representations would be smaller, so the
+   counting argument is weaker; Assessment).
