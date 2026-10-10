@@ -189,3 +189,28 @@ the quotient" are marked Assessment.
   H(n) ⇒ f_I(n)+f_II(n) ≥ 1. Repair: replace "(or ES at square-mimicking primes)" by "(or
   `f_I + f_II ≥ 1`, which is ES at primes)". Also "use moduli `Q > n^{1/2}`" should read "use
   local data whose total modulus (lcm) exceeds `n^{1/2−ε}`".
+
+### §7.5 remainder form — SOUND-AFTER-REPAIRS
+* `(cm−p) | (m+1) ⟹ (cm−p) | (p+c)` ✓ (from `c(m+1) − (cm−p) = c+p`). The converse needs
+  `gcd(cm−p, c) = gcd(p, c) = 1`. **D10 (MINOR).** For composite n the second ("divisor of n+c")
+  form is *not* equivalent: my brute force finds spurious hits at n = 9, 49, 81, 105, 121 (e.g.
+  n = 9, c = f = 3), where the slice has no solution. For primes p > 3 it is fine: p | c with
+  `f ≡ −p (mod 4c)` forces p | f, and then `f ≤ (p+f)/c + 1` fails. Repair: state "for a prime p"
+  (or add `gcd(c, p) = 1`). The condition `(p+f)/c ≡ 0 (mod 4)` is implied by `f ≡ −p (mod 4c)`
+  (redundant, harmless).
+
+## 9. Prop 9.1 and the §9 Assessment — Prop 9.1 SOUND as bookkeeping; Assessment GAP (D8)
+
+* Prop 9.1 re-derived: n = `(qjp+1)/4` with j in one class mod 4 is an AP of modulus qp inside
+  `[1, X]`, `X ≍ p²`, of length ≍ p/q. Detecting it by the φ(qp) characters ψ and bounding each
+  twisted sum by `O(X^{1/2+ε})` gives total error `X^{1/2+ε} = p^{1+o(1)}` (the factor `1/φ(qp)`
+  cancels the number of ψ), against p/q terms. ✓ Since this is a statement about one route
+  (triangle inequality over ψ, square-root error per ψ) the label "bookkeeping, mechanism scope"
+  is honest. **D11 (MINOR wording).** The proof says "error ≥ X^{1/2} = p per ψ, after the
+  `1/φ(qp)` normalisation"; it is ≈ `X^{1/2}/φ(qp)` per ψ and `X^{1/2}` in total. Repair: "in
+  total over ψ".
+* Assessment third bullet and closing paragraph: see **D8** (MAJOR) — the claimed rigorous
+  support is not valid for joint data over many moduli. With the repair, the rigorous content is
+  only: arguments that see p through a single modulus (lcm) ≤ `p^{1/2−ε}` plus size cannot prove
+  `S'(p) ≥ 1`. GRH for all characters of modulus ≤ p is *not* such an argument; so the third
+  fact supports the Assessment only heuristically. The Assessment label itself is honest.
