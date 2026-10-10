@@ -1,0 +1,10 @@
+levels 73 TypeI [5, 7, 10, 11] TypeII [1, 2]
+levels 97 TypeI [5, 14, 17, 26] TypeII [2, 5]
+levels 193 TypeI [5, 10, 26, 29] TypeII [2, 5]
+levels 673 TypeI [5, 17, 19, 20, 30, 31, 43, 86, 101] TypeII [2, 3, 5, 17]
+TypeII d=1: primes 14183 failures 73 [97, 193, 673, 1033, 1297, 1777, 2473, 3361, 6481, 7681, 7753, 8017] ... [1312921, 1445137, 1456921]
+TypeI d=5: primes 603 failures 0 []
+TypeI d=7: primes 612 failures 42 [97, 433, 601, 769, 937, 1777, 2113, 2281]
+TypeI d=11: primes 611 failures 23 [193, 457, 673, 1297, 3361, 7321, 9433, 10177]
+TypeI d=13: primes 608 failures 88 [73, 97, 193, 241, 577, 1201, 1321, 1801]
+Sigma^I_{5,1}(Z) with c=0 (e,f,a): [(-1, -5, 1), (-13, -5, 4), (-29, -5, 6), (-65, -5, 9), (-97, -5, 11), (-157, -5, 14)] ... (infinite family a ≡ ±1 mod 5)
