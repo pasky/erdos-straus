@@ -140,25 +140,27 @@ such `p ∈ (N/2, N]` is `≪ N^{3/4 + 3ε₀/2} log³N`; sum dyadically. ∎
 **Corollary 4.2 (the representation-theorem route closes; PROVED relative to the cited representation theorems as
 input (R)).** Suppose in addition that the embedding is *mild* in the sense that the input one intends to use holds:
 
-> (R) there is a set `𝒫_R` of primes, defined up to finitely many exceptions by congruence conditions (a union of
-> primitive classes mod some `L`), such that `#R(p) ≥ c p^{(k−2)/2 − ε₀}` for all large `p ∈ 𝒫_R`.
+> (R) there are a modulus `L`, a nonempty union `𝒫_R` of primitive classes mod `L`, and a set `ℰ` of primes with
+> `#(ℰ ∩ [1,N]) = o(N/log N)`, such that `#R(p) ≥ c p^{(k−2)/2 − ε₀}` for all large `p ∈ 𝒫_R ∖ ℰ`.
 
-Then `𝒫_R ⊆ U` up to finitely many primes. Hence `𝒫_R` contains no prime that is a square mod `q*`, and the embedding
-proves ES only for primes that a **finite polynomial (Mordell-type) covering already handles** (`U`), plus a set of
-`≪ N^{3/4+ε}` primes up to `N` on which `f(p) ≥ p^{1/4−ε}` (which can only be identified by knowing `f(p)`).
+Then `𝒫_R ⊆ U` (as sets of classes mod `lcm(L, q*)`). Hence `𝒫_R` contains no prime that is a square mod `q*`, and the
+embedding proves ES only for primes that a **finite polynomial (Mordell-type) covering already handles** (`U`), plus a
+set of `≪ N^{3/4+ε}` primes up to `N` on which `f(p) ≥ p^{1/4−ε}` (which cannot be identified without knowing `f(p)`).
 
-*Proof.* `𝒫_R ∖ U` is, up to finitely many primes, a union of primitive classes mod `lcm(L, q*)`. If it contained one
-such class, it would contain `≫ N/log N` primes up to `N` (Dirichlet), contradicting Thm 4.1(b). ∎
+*Proof.* If a primitive class mod `lcm(L, q*)` lay in `𝒫_R ∖ U`, it would contain `≫ N/log N` primes up to `N`
+(Dirichlet), all but `o(N/log N)` of them satisfying `#R(p) ≥ c p^{(k−2)/2−ε₀}`, contradicting Thm 4.1(b). ∎
 
-*Where (R) comes from.* For `S_j ⊇ {v ≡ v_0 (mod M), v ∈ Γ}` (fixed modulus, open cone `Γ`, optionally primitivity):
-k ≥ 5 circle method; k = 4 Kloosterman's method (Heath-Brown's δ-method; Hsia–Kitaoka–Kneser for the
-local–global form; for κp + η with p prime the anisotropic-prime divisibility issue is bounded); k = 3
-Duke 1988 / Iwaniec 1987 bounds for coefficients of weight-3/2 cusp forms, Duke–Schulze-Pillot 1990 (primitive,
-outside finitely many spinor exceptional square classes `tℤ²` — each contains at most one prime `κp+η`… up to the
-finitely many `p` with `κp + η ∈ tℤ²`, which for fixed `t` is a sparse set `≪ √N`), Golubeva–Fomenko and Blomer for
-congruence / coset conditions, and Siegel's ineffective bound `L(1,χ) ≫ m^{−ε}` for the lower bound `p^{1/2−ε}`. In
-each case `𝒫_R` = primes `p` such that `κp + η` is (primitively) locally represented by the coset, which is a
-congruence condition on `p` (at `ℓ ∤ 2κMη·disc Q`, `κp+η` is an `ℓ`-adic unit... for `ℓ = p ∤ η` it is a unit and a
-unimodular form of rank ≥ 3 represents all units). We have not re-verified every coset/cone version of these theorems
-(Assessment); Corollary 4.2 only needs **some** positive-density congruence set on which (R) holds, which is exactly
+*Where (R) comes from (Assessment as to the exact form of each cited theorem).* For
+`S_j ⊇ S° := {v ≡ v_0 (mod M), v ∈ Γ}` (fixed modulus `M`, open cone `Γ`, optionally primitivity):
+* k ≥ 5: the circle method.
+* k = 4: Kloosterman's method (Heath-Brown's δ-method; Hsia–Kitaoka–Kneser for the local–global form). For
+  `m = κp + η`, `p ∤ η`, the divisibility of `m` by anisotropic primes is bounded, so no exception arises.
+* k = 3: Duke 1988 / Iwaniec 1987 (weight-3/2 coefficient bounds), Duke–Schulze-Pillot 1990 (primitive
+  representations, all large `m` outside finitely many spinor exceptional square classes `tℤ²`), Golubeva–Fomenko
+  and Blomer for congruence/coset conditions, Siegel's ineffective `L(1,χ) ≫_ε m^{−ε}` for the size `m^{1/2−ε}`.
+  The spinor exceptions give `ℰ = {p : κp + η ∈ tℤ² for one of finitely many t}`, of size `O(√N)`.
+In each case `𝒫_R` is the set of primes with `κp + η` (primitively) locally represented by the coset `v_0 + Mℤ^k`.
+For `ℓ ∤ 2κηM·disc Q` this is automatic (a unimodular rank-≥3 lattice represents every `ℓ`-adic integer
+primitively; at `ℓ = p ∤ η`, `κp + η` is a unit), and at the finitely many other `ℓ` it depends on `p` mod a power of
+`ℓ` — a congruence condition. Corollary 4.2 only needs that (R) holds on **some** primitive class, which is exactly
 what an application of these theorems would deliver.
