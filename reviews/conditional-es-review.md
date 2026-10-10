@@ -41,3 +41,38 @@ works, so the equivalence holds; checked numerically.)
 Side fact: no slice solution with `n | c` exists for any 3 < n < 200; for primes p > 3 it is
 impossible (p | c forces p | f and then `pl(pg−1)… = 2`-type contradiction), so `S'(p) = S(p)`
 exactly, not "up to O(1)" (§7.4) — MINOR, harmless.
+
+## 8. §8 EVIDENCE and the full Type I / II counts — SOUND (EVIDENCE confirmed); new data
+
+From-scratch tool `scripts/review_r127_counts.c` (gcc -O2): (a) `S(p)` by *direct* enumeration of
+all pairs (c, f) with `(c−1)(f−1) ≤ p+1` (a different algorithm from the author's dual-form scan);
+(b) the FULL ordered solution count `f(n)` of `4/n = 1/x+1/y+1/z` by enumerating `x ≤ y ≤ z`,
+`x ∈ (n/4, 3n/4]`, and all divisors u ≤ B' of `B'²` (`1/y+1/z = A'/B'`, `(A'y−B')(A'z−B') = B'²`),
+each sorted triple weighted by its number of permutations and classified by how many coordinates
+n divides; `f_I = #(exactly one)/3`, `f_II = #(exactly two)/3` (ET (1.4)). Validation: the tool
+reproduces ET's list `f(2..8) = 3, 12, 10, 12, 39, 36, 46` exactly, and `S` matches the Python
+brute force of §1 at 13, 29, 193. Output: `data/review_r127/counts.txt` (2.3 s total).
+
+| p | S(p) (slice) | the slice solution (c, f, g) | f(p) | f_I(p) | f_II(p) |
+|---|---|---|---|---|---|
+| 2521 | 1 | (2, 87, 15) | 54 | 12 | 6 |
+| 5569 | 1 | (17, 7, 47) | 162 | 34 | 20 |
+| 21169 | 1 | (4, 31, 171) | 222 | 38 | 36 |
+| 43969 | 1 | (20, 31, 71) | 300 | 60 | 40 |
+| 5101441 | **1** | (890, 39, 147): `147p+1 = 5732·130829` ✓ | 798 | **188** | **78** |
+
+* **S(5101441) = 1 is CONFIRMED independently** (EVIDENCE), with exactly the author's witness
+  (g = 147, m = 5732, m'' = 130829).
+* Also confirmed: S = 3 at 943009 and 830041 (least g = 367 at 830041 ✓), S = 2 at all 11
+  primes listed in §8 (1201, …, 2922529); the slice (I1) solves every prime 3 ≤ p < 3000 (429
+  primes); the Type II a = 1 slice fails exactly at p ∈ {193, 2521} below 3000 ✓.
+* Not re-checked: the full 20513-prime scan below 10⁷ (the table's means/minima) — too costly with
+  the independent O(p log p) algorithm; spot checks above all agree.
+* **New EVIDENCE (answers the author's "suggested next step").** At the slice-singleton primes the
+  full counts are *not* O(1): `f_I(5101441) = 188` (`≈ 0.79 log²p`), `f_II = 78`; at the four
+  smaller singletons `f_I ∈ [12, 60]`, `f_II ∈ [6, 40]`. So the a = 1 slice is a thin (≈ 1/188 at
+  p = 5101441) and fragile part of a Type I family of normal polylog size. The report O127b's
+  conditional "if those are also O(1) … ES at hard primes is decided at Planck scale with no
+  margin" does **not** occur at these primes. This supports §8's own recommendation (state any
+  conjecture for full Type I ∪ II) and weakens nothing else. (R127 repair: a sentence recording
+  this has been added below §8's "Reading" — see repairs list.)
