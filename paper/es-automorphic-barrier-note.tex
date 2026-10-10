@@ -146,6 +146,292 @@ write $[A,B,C]$ for $AX^2+BXY+CY^2$, and $f_I(p)$, $f_{II}(p)$ for the
 numbers of Type~I and Type~II solutions in the normalisation of
 \cite[\S2]{ET}.
 
+\section{Exact dictionaries}\label{sec:dict}
+
+\subsection{The Elsholtz--Tao normal form}
+For an odd prime $p$, $p$ divides exactly one or exactly two of $x,y,z$ in
+any solution of \eqref{eq:es} (it cannot divide all three, since
+$1/x'+1/y'+1/z'=4$ has no positive solution). Following \cite[\S2]{ET}
+and \cite[\S2.0]{RT2}, put
+\begin{align*}
+V_I(p)&=\{(a,b,c,d,e)\in\N^5:\ 4abd=pe+1,\ a+b=ce\},\\
+V_{II}(p)&=\{(a,b,c,d,e)\in\N^5:\ 4abd=p+e,\ a+b=ce\}.
+\end{align*}
+An element of $V_I(p)$ gives the solution $(abdp,acd,bcd)$, and an element
+of $V_{II}(p)$ gives $(abd,acdp,bcdp)$: indeed
+$(c+p(a+b))/(abcdp)=c(1+pe)/(abcdp)=4/p$ and
+$(cp+a+b)/(abcdp)=c(p+e)/(abcdp)=4/p$. Conversely every solution arises
+in this way \cite[Props.~2.2, 2.6]{ET}. Hence
+\begin{equation}\label{eq:VIVII}
+\mathrm{ES}(p)\iff V_I(p)\cup V_{II}(p)\neq\emptyset.
+\end{equation}
+On $V_I(p)$ one has $p\nmid cd$ \cite[Prop.~2.1]{O130}, \cite[\S5]{O131}.
+The counts $f_I(p)$, $f_{II}(p)$ count primitive tuples ($\gcd(a,b,c)=1$)
+\cite[(2.10)]{ET}. A non-primitive tuple $(ga',gb',gc',d)$ is the primitive
+tuple $(a',b',c',g^2d)$, so existence questions are insensitive to
+primitivity.
+
+\subsection{Type~I: $\SL_2$ matrices, Heegner wedges and the Hecke operator $T_p$}
+The following is \cite[Lemmas~2.1--2.2, 2.4]{O123}; parts (i)--(ii) of
+Lemma~\ref{lem:typeI} are rearrangements of \cite[\S2]{ET}.
+
+\begin{lemma}[\status{proved}]\label{lem:typeI}
+Let $a,c,d,f\ge1$ with $p\nmid cd$. The following are equivalent:
+\textup{(i)} $p=4acd-f$ and $f\mid 4a^2d+1$;
+\textup{(ii)} $f\mid ap+c$ and $4ac\mid p+f$;
+\textup{(iii)} $f\mid p^2+4c^2d$ and $f\equiv-p\pmod{4cd}$.
+In that case $e=(4a^2d+1)/f$, $b=(ap+c)/f$ and
+$g=(p^2+4c^2d)/f=4bcd-p$ are integers, $4abd-pe=1$, $a+b=ce$, and
+\[\gamma=\begin{pmatrix}4ad&p\\ e&b\end{pmatrix}\in\SL_2(\Z).\]
+\end{lemma}
+\begin{proof}
+(i)$\Rightarrow$(ii): $c(4a^2d+1)=a\cdot4acd+c=a(p+f)+c$, so
+$f\mid ap+c$. (ii)$\Rightarrow$(i): with $4acd=p+f$ the same identity gives
+$f\mid c(4a^2d+1)$, and $\gcd(f,c)\mid\gcd(4acd-p,c)\mid p$; if $p\mid f$
+and $p\mid c$ then $p\mid cd$, which is excluded. (i)$\Leftrightarrow$(iii):
+modulo $f$ we have $4acd\equiv p$, hence
+$4c^2d(4a^2d+1)\equiv p^2+4c^2d$, and $\gcd(f,4c^2d)\mid p$, which is $1$
+unless $p\mid cd$. For the identities, put $e=(4a^2d+1)/f$ and $b=ce-a$.
+Then $bf=c(4a^2d+1)-a(4acd-p)=ap+c$ (so $b\ge1$),
+$4abd=e\cdot4acd-4a^2d=e(p+f)-4a^2d=pe+1$, and
+$(4acd-p)(4bcd-p)=4c^2d(4abd-pe)+p^2=p^2+4c^2d$, using $a+b=ce$; see
+\cite[(2.8)--(2.9)]{ET}.
+\end{proof}
+
+Write $Q_-=[f,-4ad,de]$ (discriminant $-4d$) and $Q'=[f,4cd,dg]$
+(discriminant $-4dp^2$).
+
+\begin{proposition}[Hecke form; \status{proved}]\label{prop:hecke}
+For every Type~I tuple,
+$Q'(x,y)=Q_-(x+2bd\,y,\ p\,y)$, i.e.
+$Q'=Q_-\circ\left(\begin{smallmatrix}1&2bd\\0&p\end{smallmatrix}\right)$.
+Thus the discriminant-$(-4dp^2)$ form of a Type~I solution is a
+$T_p$-Hecke translate of a level-$d$ Heegner form of discriminant $-4d$,
+and the roots satisfy $z_{Q'}=p\,z_{Q_-}-2bd$.
+\end{proposition}
+\begin{proof}
+The middle coefficient is $2f\cdot2bd-4adp=4d(bf-ap)=4cd$. The last is
+$4b^2d^2f-8abd^2p+dep^2=d\bigl(4bd(ap+c)-8abdp+ep^2\bigr)
+=d\bigl(4bcd-p(4abd-pe)\bigr)=d(4bcd-p)=dg$.
+\end{proof}
+
+\begin{proposition}[the wedge; \status{proved}, \cite[Prop.~3.1]{O123}]\label{prop:wedge}
+Let $\Lambda_d=\{z=(2ad+i\sqrt d)/f:\ a,f\ge1,\ f\mid4a^2d+1\}$, the roots
+of the forms $[f,-4ad,de]$. For $z=x+iy\in\Lambda_d$ and $c\ge1$,
+\[\frac{2c\sqrt d\,x-\sqrt d-p\,y}{y}=4acd-f-p\in\Z.\]
+Hence $(a,c,d,f)$ is a Type~I tuple of $p$ if and only if $z$ lies in the
+wedge $R_c=\{x+iy:\ |2c\sqrt d\,x-\sqrt d-py|<y\}$ at the cusp $1/(2c)$.
+The edges of $R_c$ are hypercycles of the geodesic $\{\operatorname{Re}z=1/(2c)\}$,
+and $R_c$ is a tube of hyperbolic width
+$\operatorname{arsinh}\frac{p+1}{2c\sqrt d}-\operatorname{arsinh}\frac{p-1}{2c\sqrt d}
+\approx 2/\sqrt{p^2+4c^2d}$.
+\end{proposition}
+\begin{proof}
+For $z\in\Lambda_d$ we have $x/y=2a\sqrt d$ and $\sqrt d/y=f$; substitute.
+An integer of absolute value $<1$ is $0$. The width is the difference of the
+distances of the two edges from the geodesic.
+\end{proof}
+
+The target is therefore at the \emph{Planck scale} $\asymp1/p$ of the
+relevant discriminant. The same holds in the $T_p$-translated picture,
+where the wedge sits at $-1/(2a)$ \cite[Prop.~3.2]{O123}.
+
+\begin{lemma}[genus condition; \status{proved}; classical]\label{lem:genusI}
+If $(a,c,d,f)$ is a Type~I tuple of an odd $n$ with $\gcd(n,2cd)=1$, then
+$\chi_{-4d}(-n)=1$. For $n=p$ prime this says $\leg{-d}{p}=-1$: $p$ is
+inert in $\Q(\sqrt{-d})$. For an odd square $n=m^2$ the condition fails for
+every $d$.
+\end{lemma}
+\begin{proof}
+Every prime $q\mid f$ divides $n^2+4c^2d$ and is prime to $2cd$, so
+$-4c^2d\equiv n^2$ is a non-zero square mod $q$, and $\chi_{-4d}(f)=1$. As
+$f\equiv-n\pmod{4cd}$ and $\chi_{-4d}$ has period dividing $4d$,
+$\chi_{-4d}(-n)=\chi_{-4d}(f)=1$. For $n=m^2$,
+$\chi_{-4d}(-m^2)=\chi_{-4d}(-1)=-1$. For $n=p$,
+$\chi_{-4d}(-p)=-\chi_{-4d}(p)=-\leg{-d}{p}$.
+\end{proof}
+This is the Type~I half of \cite[Prop.~1.6]{ET}, read at a fixed level.
+Any fixed-$p$ main term at level $d$ must therefore carry the factor
+$(1+\chi_{-4d}(-p))/2$.
+
+\subsection{Type~II: determinant one at level $dp$, and shells}
+The following is \cite[Lemma~1.1, Props.~2.1, 2.5, 7.1, Lemma~6.1]{O128}.
+
+\begin{proposition}[\status{proved}]\label{prop:typeII}
+Let $c,d\ge1$, $M=4cd$ and $N_{c,d}=4c^2dp+1$.
+\begin{enumerate}
+\item[(a)] Type~II tuples of $p$ with these $(c,d)$ correspond to
+factorisations $ff'-4c^2(dp)=1$ with $f\equiv f'\equiv-1\pmod{M}$, via
+$f=4acd-1$, $f'=4bcd-1$. Equivalently, $f$ runs over the divisors of
+$N_{c,d}$ with $f\equiv-1\pmod M$ (the cofactor is then automatically
+$\equiv-1$).
+\item[(b)] The map $(c,f)\mapsto Q=[f,4cdp,dpf']$ sends these solutions
+injectively to Heegner forms of discriminant $-4dp$ at level $dp$. For
+fixed $(p,d)$ the corresponding points of $\HH$ are pairwise at hyperbolic
+distance with $\cosh\ge3/2$.
+\item[(c)] In the determinant-$p$ coordinates $Q=[f,4ad,de]$ (level one,
+discriminant $-4dp$), with $S_c=[0,2c,1]$ and the bilinear form
+$b(x,y)=q(x+y)-q(x)-q(y)$ of $q([A,B,C])=B^2-4AC$, one has
+$q(Q)=-4dp$, $q(S_c)=4c^2$ and $b(Q,S_c)=4$. Thus the Type~II solutions
+are embeddings of the binary lattice $4\cdot[-dp,1,c^2]$ (discriminant
+$4c^2dp+1$ before scaling) into the trace-zero lattice of signature $(2,1)$.
+Geometrically, a Type~II point is a Heegner point of discriminant $-4dp$ at
+hyperbolic distance exactly $\operatorname{arsinh}\bigl(1/(2c\sqrt{dp})\bigr)$
+from the cuspidal geodesic $(\infty,-1/(2c))$: it lies on a \emph{shell}.
+\item[(d)] (genus lemma) $(p/f)=(p/f')=-1$ (Jacobi symbols).
+\end{enumerate}
+\end{proposition}
+\begin{proof}[Proof of (a), (c), (d)]
+(a) $(4acd-1)(4bcd-1)=4c^2d(4abd-e)+1=4c^2dp+1$ using $a+b=ce$ and
+$4abd=p+e$. Conversely, given $f\mid N_{c,d}$ with $f\equiv-1\pmod M$, the
+cofactor $f'$ satisfies $ff'\equiv1$, hence $f'\equiv-1\pmod M$; put
+$a=(f+1)/M$, $b=(f'+1)/M$; expanding $ff'=N_{c,d}$ gives
+$4abcd=a+b+cp$, so $c\mid a+b$ and $e=(a+b)/c=4abd-p$.
+(c) With $e=(p+4a^2d)/f$ (an integer, \cite[(2.19)]{ET}),
+$q(Q)=16a^2d^2-4def=-4dp$ and
+$b(Q,S_c)=2\cdot4ad\cdot2c-4f=4(4acd-f)=4$. The distance formula is
+\cite[Prop.~2.5]{O128}.
+(d) $ef=p+4a^2d$ gives $(2ad)^2\equiv-dp\pmod f$ with $\gcd(dp,f)=1$, so
+$(-dp/f)=1$. Since $f\equiv-1\pmod{4d}$ and $\chi_{-4d}(-1)=-1$,
+$(-d/f)=\chi_{-4d}(f)=-1$, hence $(p/f)=-1$. The same argument applies to
+$f'$.
+\end{proof}
+Part (b) is \cite[Prop.~2.1, Lemma~2.2]{O128}; the separation is the
+lemma $\cosh\operatorname{dist}-1=\operatorname{disc}(Q-Q')/(8dp)$ of
+\cite[Lemma~2.2]{TH} applied at level $dp$. Part (d) recovers the Type~II
+half of \cite[Prop.~1.6]{ET}: at an odd square $n=s^2$ one has
+$(s^2/f)=1$. As for Type~I, it is a level-wise reading of a classical
+fact; see Proposition~\ref{prop:brauer}.
+
+\subsection{The Brauer class is a genus character (folklore)}
+Bright and Loughran \cite{BL} study the surface
+$U_n:4u_1u_2u_3=n(u_1u_2+u_1u_3+u_2u_3)$ and its integral model. Over $\Q$
+the group $\Br\tilde U_n/\Br\Q$ is $\Z/2$, generated by the transcendental
+quaternion algebra $\alpha=(-u_1/u_3,-u_2/u_3)$ \cite[Cor.~2.7]{BL}. They
+show that the positive integral points avoid the Brauer--Manin obstruction
+for every $n$ \cite[Thm.~1.1]{BL}, and that $\alpha$ obstructs strong
+approximation \cite[Thm.~1.2, Cor.~1.4]{BL}.
+
+\begin{proposition}[\status{proved}; folklore, Yamamoto \cite{Ya} via \cite[App.~A]{BL}]\label{prop:brauer}
+\textup{(a)} On the Type~I locus at level $d$, the condition imposed by
+$\alpha$ is $\leg{-ab}{p}=\leg{-d}{p}=-1$, i.e. Lemma~\ref{lem:genusI}.
+For $\leg{-d}{p}=+1$ the positive adelic Brauer set of the level-$d$
+chart is empty.
+\textup{(b)} On the Type~II locus, $\alpha$ imposes
+$(f/p)=-(-1/p)$, which is equivalent to Proposition~\ref{prop:typeII}(d)
+and holds automatically. So the Brauer--Manin obstruction never removes a
+Type~II level.
+\end{proposition}
+\begin{proof}[Sketch]
+(a) $4abd=pe+1$ gives $(abd/p)=1$, so $(-ab/p)=(-d/p)$. Lemma~\ref{lem:genusI}
+gives $(-d/p)=-1$. For the local statement, $\operatorname{inv}_p\alpha=(-ab/p)$
+on $p$-adic points of the chart, $\operatorname{inv}_\infty\alpha=-1$ on the
+positive part, and $\operatorname{inv}_\ell\alpha=+1$ for $\ell\ne p$
+\cite[Lemmas~3.1, 3.5, 3.8]{BL}.
+(b) $e\equiv4abd\pmod p$ gives $(-ab/p)=(-de/p)$, and $ef\equiv4a^2d\pmod p$
+gives $(e/p)=(d/p)(f/p)$. Since $f\equiv3\pmod4$, reciprocity gives
+$(f/p)=(p/f)(-1/p)$. Details: \cite[Props.~5.1, 5.2]{O126}.
+\end{proof}
+Nothing here is new. Part (a) is the classical reason why the
+Mordell/Elsholtz--Tao families $n\equiv-f\pmod{4ad}$, $f\mid4a^2d+1$, cover
+only non-residue classes. Part (b) is Yamamoto's lemma $(p/q)=-1$ for
+$q=4abd-1$ in Mordell's notation, as derived from $\alpha$ in
+\cite[App.~A]{BL}. (Yamamoto's paper was not accessed directly.)
+
+\subsection{Quaternion orders}
+For $d,m\ge1$ let $\Lambda_{d,m}=\Z\langle u,v\rangle$ with $u^2=-d$,
+$v^2=-m$, $uv+vu=1$. It is an order $\Z+\Z u+\Z v+\Z uv$ in the definite
+algebra $B_{d,m}\cong(-d,-d(4dm-1))_\Q$ (replace $v$ by $2dv+u$, which
+anticommutes with $u$), of reduced discriminant $4dm-1$: the Gram matrix of
+the reduced trace on $(1,u,v,uv)$ has determinant $-(4dm-1)^2$
+\cite[Lemma~1.2]{O130}.
+
+\begin{proposition}[\status{proved}; \cite[Prop.~1.3]{O130}]\label{prop:quat}
+Let $(a,b,c,d,e)\in V_I(p)$ and $m=ab$. Then $B_{d,m}\cong B_{p,\infty}$, the
+quaternion algebra ramified exactly at $p$ and $\infty$, and $\Lambda_{d,m}$
+is an order of reduced discriminant $4abd-1=pe$ in it. Consequently there is
+a supersingular elliptic curve over $\overline{\mathbb F}_p$ with
+endomorphisms $u,v$ satisfying $u^2=-d$, $v^2=-ab$, $uv+vu=1$.
+\end{proposition}
+\begin{proof}[Sketch]
+Compute the Hilbert symbols of $(-d,-dpe)$. At $\ell\nmid2dpe$ they are
+trivial. At $p$: $p\nmid e$ (if $p\mid e$ then $-4a^2d\equiv1\pmod p$,
+contradicting $(-d/p)=-1$), so the symbol is $(-d/p)=-1$ by
+Lemma~\ref{lem:genusI}. At odd $\ell\mid e$: $-d\equiv(2a)^{-2}$ is a square
+mod $\ell$ ($e\mid4a^2d+1$), so the symbol is $1$. At odd $\ell\mid d$:
+$pe\equiv-1\pmod\ell$ gives $1$. At $\infty$ it is $-1$, and the product
+formula gives $2$. The last sentence is Deuring's correspondence.
+\end{proof}
+This was checked on all Type~I tuples with $p<3000$ (\status{evidence},
+\cite{O130}). In the language of Gross--Zagier \cite{GZ}, the identity
+$(16abd-4)/4=pe$ has the shape $(D_1D_2-x^2)/4$ with $D_1=-4d$, $D_2=-4ab$,
+$x=2$, so the CM points of these discriminants have a common supersingular
+reduction. This is a \emph{formal analogy only}: the theorem of \cite{GZ}
+assumes coprime fundamental discriminants, and $-4d,-4ab$ are never
+coprime. No Gross--Zagier formula is used.
+
+\begin{lemma}[\status{proved}; \cite[Lemma~3.1]{O130}]\label{lem:dp}
+In $B=(-d,-p)_\Q$ with $i^2=-d$, $j^2=-p$, $k=ij=-ji$, Type~II at level $d$
+holds if and only if, for some $a,b,c,e\ge1$,
+\[(2a\,i+j)(2b\,i-j)=-e(1+2c\,k).\]
+\end{lemma}
+\begin{proof}
+The left side is $-4abd-2(a+b)k+p=-(4abd-p)-2(a+b)k$; compare coefficients
+with $4abd-p=e$, $a+b=ce$.
+\end{proof}
+Taking reduced norms gives $\Nm(2ai+j)=4a^2d+p=ef$ and
+$\Nm(1+2ck)=1+4c^2dp=ff'$, the integers of the ternary form below and of
+the shells of Proposition~\ref{prop:typeII}. The novelty of the quaternion
+dictionary is \emph{unverified}: the survey \cite{LA} found no prior
+occurrence, but we do not claim it is new.
+
+\subsection{The CM torus}
+Let $p\nmid2cd$, $K=\Q(\sqrt{-d})$, $\alpha=p+2c\sqrt{-d}$, so
+$\Nm\alpha=p^2+4c^2d$.
+
+\begin{proposition}[\status{proved}; \cite[Lemma~5.1, Thm.~5.2]{O131}]\label{prop:cm}
+\textup{(i)} $\mathfrak a\mapsto\Nm\mathfrak a$ is a bijection from the
+ideal divisors of $(\alpha)$ in $\Z[\sqrt{-d}]$ to the positive divisors of
+$\Nm\alpha$.
+\textup{(ii)} The number $T_{c,d}(p)$ of ordered Type~I tuples with these
+$(c,d)$ equals $\#\{\mathfrak a\mid(\alpha):\Nm\mathfrak a\equiv-p\pmod{4cd}\}$, and
+\[T_{c,d}(p)=\frac1{\varphi(4cd)}\sum_{\chi\bmod4cd}\bar\chi(-p)\,\sigma_\chi(p^2+4c^2d),
+\qquad\sigma_\chi(N)=\sum_{f\mid N}\chi(f).\]
+\textup{(iii)} Only Hecke characters of the form $\chi\circ\Nm$ occur. In
+particular every class-group character of $K$ that is not a genus
+character has coefficient $0$, and pairing $\chi\leftrightarrow\chi\chi_{-4d}$
+produces the factor $1+\chi_{-4d}(-p)$ of Lemma~\ref{lem:genusI}.
+\end{proposition}
+\begin{proof}[Sketch]
+$\alpha$ is primitive since $\gcd(p,2c)=1$. Every prime $\ell\mid\Nm\alpha$
+is odd and prime to $d$, so it is unramified and not inert, and it splits.
+Exactly one of the two primes above $\ell$ divides $\alpha$, to the full
+power. This gives (i). Then (ii) is Lemma~\ref{lem:typeI}(iii) plus
+orthogonality on $(\Z/4cd)^\times$, and (iii) is genus theory.
+\end{proof}
+Thus the dihedral (Frobenius) information carried by the class of
+$(f,\alpha)$ in the ring class field is invisible in the count.
+
+\subsection{The isotropic ternary form $Q_d$}
+Let $Q_d(e,f,a)=ef-4da^2$.
+
+\begin{proposition}[\status{proved}; \cite[Prop.~6.2]{O124}, \cite[\S6]{RT1}]\label{prop:Qd}
+\textup{(i)} Type~II at level $d$ with parameter $a$ holds if and only if
+$Q_d(e,f,a)=p$ with $4ad\mid f+1$ and $(f+1)e/(4ad)>a$, i.e.
+$p+4a^2d$ has a divisor $f\equiv-1\pmod{4ad}$ with large enough cofactor.
+\textup{(ii)} $Q_d$ represents every integer primitively over $\Z$
+($(e,f,a)=(n,1,0)$), so local conditions, genus and spinor genus impose
+nothing; all the arithmetic sits in the side condition $4ad\mid f+1$.
+\textup{(iii)} The side condition is not a finite union of lattice cosets:
+its slice at $a=a_0$ has $f$-period $4a_0d$, which is unbounded.
+\textup{(iv)} On such points the cofactor $f=4acd-1$ is a Type~II
+\emph{multiplier witness modulus}; in particular $f\ge W(p)$, the least
+such modulus.
+\end{proposition}
+Among all the parametrisations of \cite[\S2]{ET}, $Q_d$ is the only
+rank-$3$ quadratic piece (\status{certified} by a systematic search,
+\cite[Comp.~6.1]{O124}, reproduced independently in its review).
+
 %%CONTINUE
 
 \begin{thebibliography}{99}
