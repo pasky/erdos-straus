@@ -425,3 +425,63 @@ up to a multiple `cm` of m divides `m + 1`. Equivalently, since `(cm − p) | (m
 `(cm − p) | (p + c)`, iff for some c ≥ 1, `p + c` has a divisor `f ≡ −p (mod 4c)` with
 `(p+f)/c ≡ 0 (mod 4)` and `f ≤ (p+f)/c + 1`.
 *Proof.* `c(m+1) − (cm − p) = c + p`. ∎
+
+## 8. Round 2 numerics: the lower tail of S(p) at Mordell-hard primes (EVIDENCE)
+
+`scripts/cond_slice_scan.c` computes S(p) exactly, by the dual form, for **all 20513 Mordell-hard
+primes p < 10⁷** (p a square mod 840). Output: `data/cond/scan_hard_1e7.txt` (p, S(p), least g).
+The tool reproduces the Python values of §3.1, and the singleton at p = 5101441 was re-derived
+independently in Python.
+
+| range | # hard p | mean S | mean S/log²p | min S/log²p (at p, S) | # S ≤ 3 | max least g |
+|---|---|---|---|---|---|---|
+| ≤ 10⁵ | 273 | 8.8 | 0.079 | 0.0087 (43969, 1) | 26 | 171 |
+| (10⁵, 10⁶] | 2097 | 15.2 | 0.089 | 0.0159 (943009, 3) | 15 | 367 |
+| (10⁶, 3·10⁶] | 4258 | 20.0 | 0.096 | 0.0090 (2922529, 2) | 4 | 143 |
+| (3·10⁶, 10⁷] | 13885 | 24.2 | 0.099 | **0.0042 (5101441, 1)** | 2 | 239 |
+
+* X_slice holds for every hard prime below 10⁷.
+* **S(p) = 1** at p = 2521, 5569, 21169, 43969 and **5101441**. The last has the single solution
+  g = 147, `147p + 1 = 5732·130829`; p ≡ 121 (mod 840), p ≡ 81 (mod 121).
+* S(p) = 2 at 1201, 3361, 5209, 9601, 12289, 16921, 20521, 21841, 30241, 1282009, 2922529.
+* The mean grows like `≈ 0.1 log²p`, as predicted. The minimum does not grow: `min S/log²p`
+  falls to 0.004.
+
+**Reading (Assessment).** The lower tail of S(p) over hard primes is heavy. Singletons still occur
+at 5·10⁶, so S(p) is *not* concentrated at Cramér scale for these primes. This agrees with
+Prop 7.3: the local data of square-mimicking primes is that of odd squares, where S' ≡ 0. X_slice
+may well fail for some larger hard prime. Full ES does not depend on it, because general a,
+Type II and the other permutations remain available. Any conditional route through the a = 1
+slice alone is therefore fragile, and a conjecture of X_slice type should be stated for the
+full Type I (or Type I ∪ II) count.
+
+## 9. Round 2 item (3): the "single-coefficient" GRH limitation — downgraded to Assessment
+
+A precise non-implication ("GRH does not imply X") cannot be proved by the means used here: GRH
+is either true or false, and if ES is true it is implied by every true statement. What can be
+stated with exact scope is a statement about **mechanisms**. As repaired (R125), §3.2 proves one
+mechanism-level fact:
+
+**Proposition 9.1 (PROVED, mechanism scope).** Expand S_1(p) by (3.2) into primitive characters.
+Bound each resulting sum `Σ_{j ≤ p/q} τ_{χ*}((qjp+1)/4)` only through GRH-type estimates for
+`L(s, χ*ψ)ζ(s)` (ψ mod ≍ qp) of the form "main term + `O(X^{1/2}(qpX)^{ε})`" with `X ≍ p²`. Then
+the error is at least `p^{1−o(1)}` per primitive character class, which exceeds the length
+`p/q` of the sum, so the resulting bound for `|S_1|` is no better than the trivial one,
+`≫ p^{1−o(1)}`, against `S_0 ≍ log²p`.
+
+*Proof.* The AP `{(qjp+1)/4 : j ≤ p/q}` has modulus ≍ qp and length p/q inside `[1, X]`, `X ≍ p²`.
+Detecting it with characters ψ mod ≍ qp and applying a GRH bound to each twisted sum gives
+error `≥ X^{1/2} = p` per ψ, after the `1/φ(qp)` normalisation, against `p/q` terms. ∎
+
+**Assessment (not a theorem).** The broader claim, "no use of GRH/GLH can give |S_1| < S_0", is
+supported by three facts:
+* Prop 9.1;
+* Prop 2.3, for any power-error mechanism;
+* Prop 7.3 / R125 Lemma 5.1: the needed bound must distinguish primes from odd squares at the
+  level of individual factorisations of `gp + 1`, and L-function hypotheses about characters
+  of moduli ≤ p see p only through `p mod q`, which is shared with odd squares for `q ≤ p^{1/2−ε}`.
+
+The third fact is the strongest form available here. Any argument using p only through
+`(p mod q)_{q ≤ p^{1/2−ε}}` and size gives the same output at an odd square in the same classes,
+where `S' = 0`. This is PROVED as a statement about such arguments: it is Prop 7.3 with H the
+argument's hypothesis.
