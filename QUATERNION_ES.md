@@ -38,9 +38,9 @@ symbol is `(−d/ℓ)^{v_ℓ(e)} = 1`. At odd `ℓ | d`: `(−d,−dpe)_ℓ = (�
 and `pe = 4abd − 1 ≡ −1 (ℓ)`, so 1. At ∞: −1. Product formula ⇒ unramified at 2. The rest is Lemma 1.2 and
 Deuring's correspondence (maximal orders of `B_{p,∞}` = endomorphism rings of supersingular curves;
 Deuring lifting of `(E, u)` and of `(E, v)`). ∎
-Check (`scripts/quat_typeI.py 1000`): all 5071 Type I solutions with `p < 1000` (unordered in a,b): the split
+Check (`scripts/quat_typeI.py 3000`, log `logs/quat_typeI_3000.txt`): all 19690 Type I solutions with `p < 3000` (unordered in a,b): the split
 `(d | ab)` gives exactly `Ram = {p, ∞}` in every case; the other splits `(ad | b)`, `(bd | a)`, `(1 | abd)` fail
-in 24–39% of cases (the Hilbert step at `ℓ | e` uses `−d ≡ □ mod e`, which is the level-d genus condition).
+in 27–42% of cases (the Hilbert step at `ℓ | e` uses `−d ≡ □ mod e`, which is the level-d genus condition).
 
 **Remark (where the ES content goes).** The hypothesis of Prop 1.3 that produces `B_{p,∞}` is only:
 `4dm ≡ 1 (mod p)`, `(−d/p) = −1`, and `(−d/ℓ) = 1` for each ℓ dividing `e = (4dm−1)/p` to an odd power.

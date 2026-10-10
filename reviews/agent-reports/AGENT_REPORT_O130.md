@@ -8,8 +8,8 @@ Branch `side-agent/quaternion-es`; file `QUATERNION_ES.md`; script `scripts/quat
    `Λ = ℤ⟨u,v⟩`, `u² = −d`, `v² = −ab`, `uv+vu = 1`, of reduced discriminant `4abd − 1 = pe`, inside an algebra
    that is **exactly `B_{p,∞}`** (Hilbert-symbol proof; the step at primes of e uses `e | 4a²d+1`). So the CM points
    of discriminant −4d and −4ab collide mod p, with Gross–Zagier parameter **x = 2**: `(D₁D₂ − 4)/4 = pe`.
-   EVIDENCE: all 5071 Type I solutions with p < 1000 (run to 3000 in progress / see log); other splits
-   (ad|b, bd|a, 1|abd) fail in 24–39% of cases.
+   EVIDENCE: all 19690 Type I solutions with p < 3000 (log `logs/quat_typeI_3000.txt`); other splits
+   (ad|b, bd|a, 1|abd) fail in 27–42% of cases.
 2. **Isogeny form (PROVED, §2).** ES Type I ⟺ supersingular E, E', `u ∈ End E` (u² = −d), orthogonal
    `φ₁, φ₂ ∈ Hom(E',E)` with `tr(uφ₂φ̂₁) = 1`, such that the index e of `L = ⟨φ₁,φ₂,uφ₁,uφ₂⟩` in `Hom(E',E)`
    (Gram `[a,1,bd] ⊥ [b,−1,ad]`) divides `deg(φ₁+φ₂) = a+b`.
