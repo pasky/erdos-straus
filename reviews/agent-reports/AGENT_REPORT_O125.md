@@ -37,3 +37,23 @@ Branch `side-agent/redteam-automorphic`. Main file `reviews/redteam-automorphic.
 
 ## Waiting for
 Phase 2: checkpoints of O123, O124, O126, O127, O128 from the parent.
+
+## Phase 2, item 1: O127 (section 5 of reviews/redteam-automorphic.md)
+Verdict: the negative conclusions of CONDITIONAL_ES survive; X_slice is a *surviving target* (E1; passes
+T1/T4/T8), not a route.
+* New (PROVED): no slice solution at an odd square with gcd(n,c)=1 (ET Prop 1.6); EVIDENCE: no slice solution at
+  all at odd squares m ≤ 61 (complete) / m ≤ 151 (g ≤ 3000). So `|S_1| < S_0` fails at every odd square, and any
+  bound must use primality.
+* New (PROVED via notes Lemma 77.6): every slice solution has (d/p) = (b/p) = −1, so m = 4d has a prime ≥ n_p.
+* Under H, g_min is unbounded (Theorem C). At approximants of the special points (p up to 10³¹) g_min ≤ 19
+  (EVIDENCE), so the special points are invisible to the slice.
+* Prop 2.3 (O127) and my Prop 2.4 are the same inequality and both correct. O127 has a power-sparse exceptional
+  set; mine has an every-p bound (p^{3/5}) and a polylog density-1 bound. Merged in §5.5. Both are blind to
+  coarse (non-injective) encodings.
+* Repairs requested:
+  - (a) §3.2's "each χ at one argument" is false: a primitive χ* mod q recurs at ~p/q arguments in an AP of
+    modulus ≍qp. The conclusion holds anyway, since the GRH error p^{1+ε} exceeds the p/q terms.
+  - (b) "OMEGA13 kills polylog Chebotarev witnesses" is Type II only; for Type I/X_slice nothing beyond
+    `ck_min ≫ log p log₃p` is known.
+  - (c) The `μ ≤ p^{o(1)}` qualifier is missing in the §5 table and report item 3.
+  - (d) Add the odd-square fact to Prop 3.1.
