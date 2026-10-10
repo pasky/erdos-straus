@@ -1,0 +1,32 @@
+2^2: primes 2  min f_II 2 (p=5)  min f/log^3 0.4071 (p=7)  d=1 empty 0
+2^3: primes 2  min f_II 2 (p=13)  min f/log^3 0.1185 (p=13)  d=1 empty 1
+2^4: primes 5  min f_II 4 (p=17)  min f/log^3 0.1571 (p=29)  d=1 empty 0
+2^5: primes 7  min f_II 4 (p=37)  min f/log^3 0.0850 (p=37)  d=1 empty 1
+2^6: primes 13  min f_II 6 (p=73)  min f/log^3 0.0627 (p=97)  d=1 empty 1
+2^7: primes 23  min f_II 4 (p=193)  min f/log^3 0.0274 (p=193)  d=1 empty 2
+2^8: primes 43  min f_II 10 (p=313)  min f/log^3 0.0453 (p=421)  d=1 empty 2
+2^9: primes 75  min f_II 10 (p=673)  min f/log^3 0.0362 (p=673)  d=1 empty 4
+2^10: primes 137  min f_II 8 (p=1201)  min f/log^3 0.0224 (p=1201)  d=1 empty 5
+2^11: primes 255  min f_II 4 (p=3361)  min f/log^3 0.0075 (p=3361)  d=1 empty 7
+2^12: primes 464  min f_II 14 (p=4201)  min f/log^3 0.0241 (p=4201)  d=1 empty 9
+2^13: primes 872  min f_II 12 (p=9601)  min f/log^3 0.0156 (p=9601)  d=1 empty 17
+2^14: primes 1612  min f_II 18 (p=20521)  min f/log^3 0.0184 (p=20521)  d=1 empty 15
+2^15: primes 3030  min f_II 26 (p=44641)  min f/log^3 0.0212 (p=44641)  d=1 empty 24
+2^16: primes 5709  min f_II 18 (p=76441)  min f/log^3 0.0127 (p=76441)  d=1 empty 38
+2^17: primes 10749  min f_II 24 (p=225289)  min f/log^3 0.0128 (p=225289)  d=1 empty 57
+2^18: primes 20390  min f_II 34 (p=291481)  min f/log^3 0.0153 (p=471241)  d=1 empty 67
+2^19: primes 38635  min f_II 38 (p=670849)  min f/log^3 0.0154 (p=733321)  d=1 empty 79
+2^20: primes 73586  min f_II 36 (p=2031121)  min f/log^3 0.0117 (p=2031121)  d=1 empty 79
+2^21: primes 140336  min f_II 54 (p=2255089)  min f/log^3 0.0170 (p=4076881)  d=1 empty 121
+2^22: primes 268216  min f_II 60 (p=5410441)  min f/log^3 0.0157 (p=6080881)  d=1 empty 135
+2^23: primes 100416  min f_II 72 (p=9744001)  min f/log^3 0.0172 (p=9935641)  d=1 empty 21 [partial]
+primes 5..10000000: 664577, with f_II=0: 0; min f/log^3 over p>=1e5: 0.0117 at p=2031121 (f_II=36)
+f_II(5)=2
+f_II(7)=3
+f_II(11)=5
+f_II(13)=2
+f_II(17)=4
+f_II(29)=6
+f_II(73)=6
+f_II(193)=4
+f_II(409)=12
