@@ -169,3 +169,23 @@ labelled; but reason 1 is weaker than stated (D8, MAJOR as an argument defect) a
 * Label check (§0/§5): "Verdict (Assessment)" ✓; Thm 5.1 "PROVED rel. (D)32b" ✓ (and in fact ET's own upper bound
   ≪ N L² log log N gives the same with ψ → ψ log log N unconditionally of (D)32b); Prop 5.3 "CONDITIONAL on H" ✓;
   Prop 5.4 "PROVED" ✓ after D7 wording. No over-labelled PROVED found.
+
+## Claim 6 — numerics (§1)
+
+**Verdict: SOUND (CERTIFIED-grade for p ≤ 10⁷ by two independent programs; one minor misstatement D10).**
+
+Own code `scripts/review_r123_count.c` (exact f_I(p), y ≤ z, primitive; factorisation of 4a²d+1 by a linear sieve in
+d for a ≤ √N and a quadratic sieve in a with Tonelli–Shanks roots of −1/(4d) for a > √N; a ≤ b via c·m ≥ 2af; Type II
+existence via (4acd−1) | a + cp with p ∤ abd), validated against an independent Python count
+(`scripts/review_r123_cmp.py`, 428 primes ≤ 3000, 0 mismatches), which in turn matched the raw ES brute force for
+p ≤ 400 (Claim 1). Run for N = 10⁷ (77 s, one core):
+**all 664 577 primes 5 ≤ p ≤ 10⁷ have f_I(p) ≥ 1 and a Type II solution** (p = 3 trivially). The 10⁸ extension and
+the a = 1 slice were not re-run.
+
+Dyadic windows (`scripts/review_r123_windows.py`), reproducing the table exactly:
+2¹⁰: min 7 at 1201, mean 52.2; 2¹⁴: 14 at 20521, 114.9; 2¹⁸: 35 at 471241, 220.8; 2²⁰: 57 at 1092961, 291.5;
+2²²: 62 at 4889641, 376.2 (mean/L² = 1.535, table 1.54 — rounding). All minimisers ≡ 1, 121, 169 or 361 (mod 840)
+✓; mean/L³ = 0.098–0.13 ✓.
+* **D10 (MINOR).** "min/mean ≈ 0.16–0.2, stable over 2¹² … 2²²": the actual ratios are 0.163 (2¹²), **0.134 (2¹³),
+  0.122 (2¹⁴)**, 0.150, 0.153, 0.157, 0.158, 0.165, 0.196, 0.181, 0.165 (2¹⁵…2²²). (R123 repair): "≈ 0.12–0.20 over
+  2¹²…2²², no clear trend".
