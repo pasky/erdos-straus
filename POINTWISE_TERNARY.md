@@ -347,6 +347,12 @@ let `Q'` be the lcm of these moduli and `q`. By Dirichlet, every primitive class
 large primes, so it lies in one of the ET classes. Hence `C(r, q)` is covered by the cylinders of these ET classes,
 and `x` lies in an ET class, a contradiction. ∎
 
+*Scope of Cor 7.1 (R124 repair, red team §6).* Cor 7.1 is about **mild** inputs (R) to one fixed embedding. It says
+nothing about two routes, and that is where the ES content lives:
+* thin side conditions on a level set (H2): ES's own (Q_d) with `4ad | f+1`;
+* routes where `p` enters only through a side condition on a fixed level set (H5): Type I's `ef − 4a²d = 1` with
+  `f ≡ −p (mod 4ad)`, the (D)32 / O123 set-up.
+
 *Interpretation.* The campaign's formal obstruction (POINTWISE_SIZE Thms M, C) says that procedures using only
 congruence data fail at square-mimicking points; a representation-theorem argument is **not** congruence-only (it
 searches over `≍ p^{1/2}` representations, a search of growing length, type (E1)). For one fixed embedding (R124 repair M1), Theorem 4.1 shows that this extra
@@ -378,6 +384,12 @@ relevant statement (no mild embedding reaches a sterile point). The ET class `�
 (Q_d) acts at a *fixed* `(a, d, f)` is one of the Type II families tested in MORDELL13E Comp 3.1, so no such class of
 ES level `< 2.59·10¹⁰` contains x** (CERTIFIED there; not re-run here).
 
+*What the numerics do not show (R124 repair, red team Prop 6.2).* The table bounds only the **small** parameters
+`a, d`. A (Q_d) point is a Type II multiplier witness with modulus `f`: `p ≡ −4a²d (mod f)` and `(f+1)/4 = acd`, so
+`f ≥ W(p)`. Here `f` is the large cofactor of `p + 4a²d`, and by the OMEGA results `W(p) ≥ exp(c(log p)^{1/4−o(1)})`
+infinitely often on Mordell-hard primes. So small `a_min` is **not** evidence of small witness moduli, and the table
+says nothing about congruence coverings.
+
 ## 9. Scope: what the theorem does not exclude
 
 1. **Families with a growing parameter** (`∃ t ≤ T(p)` such that `κ_t p + η_t` is represented by `Q_t` with
@@ -396,5 +408,8 @@ ES level `< 2.59·10¹⁰` contains x** (CERTIFIED there; not re-run here).
    controls them; proving that such a set meets `E_m` is as hard as the original divisor problem (Prop 6.2(iii)).
 4. **Split level sets** (`E_m` containing `ℚ`-lines; indefinite `k ≥ 4`; §5 Remark): fibres can be rational lines.
    ES's own quadratic piece is *not* of this kind; it escapes via item 3.
-5. **Higher-degree forms / norm forms.** Not considered (the count of representations would be smaller, so the
+5. **Fixed level set, `p` in the side condition (H5; R124 repair, red team §6).** Example: Type I `ef − 4a²d = 1`
+   (level 1 for every `p`) with side condition `f ≡ −p (mod 4ad)` (`4acd = p + f`). Def 1.1 requires
+   `Q(v) = κp + η`, so Thm 4.1 is silent here. This is the (D)32 Heegner/Kuznetsov set-up (O123's route).
+6. **Higher-degree forms / norm forms.** Not considered (the count of representations would be smaller, so the
    counting argument is weaker; Assessment).
