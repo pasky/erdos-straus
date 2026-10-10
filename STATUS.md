@@ -1,13 +1,85 @@
 # START HERE — campaign status
 
 (For a human-readable overview of all results, see `CAMPAIGN_SUMMARY.md`.)
- (2026-10-10, refresh 8; ledger through (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]. Refresh 7 (2026-10-09): ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
+ (2026-10-10, refresh 9: new headline section for the automorphic/geometric phase, ledger (I)1–(I)8, tasks O123–O133. Refresh 8 (2026-10-10): ledger through (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]. Refresh 7 (2026-10-09): ledger through (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2: density transition for m/p; follow-up 2 EXCEPTIONAL_MN3: the m/φ(m) loss removed, Thm L′], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG: ET's Type I log log N removed under Selberg's eigenvalue conjecture], (H)17 follow-ups 4–5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B: the r = 13 candidate x* is not sterile; x** is the new candidate])
 
 **Erdős–Straus (ES) is not solved, here or anywhere.** The literature has
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
-**Headline results of the current phase (2026-10-06 – 10-10; all internal, hostile-reviewed, not externally
+**Headline of the current phase: automorphic/geometric attack on pointwise ES (2026-10-10; tasks O123–O132,
+ledger (I)1–(I)8; all internal and hostile-reviewed, none externally refereed).** **Outcome: a precise negative
+map. ES is not solved, and no case of it is.** No automorphic, spectral, quaternionic or geometric input found here
+proves ES(p) for every large prime p, conditionally or not.
+* *Aim.* Theorems M, C, F and Prop A exclude arguments that use only congruence data, so a pointwise proof needs
+  other input. This phase tested non-congruence inputs. The survey `LITERATURE_AUTOMORPHIC.md` (O129) found no prior
+  pointwise ES result, conditional or not.
+* *What was tried* (document, then review):
+  * Type I at fixed p as SL₂/Heegner points with Hecke operators: `POINTWISE_SPECTRAL.md` (O123; R123).
+  * Ternary-form embeddings with representation inputs: `POINTWISE_TERNARY.md` (O124; R124).
+  * Fibrations, descent, strong approximation and the Brauer–Manin obstruction: `GEOMETRY_ES.md` (O126; R126).
+  * Standard conjectures (GRH, GLH, covering conjectures, Heegner equidistribution): `CONDITIONAL_ES.md` (O127; R127).
+  * Type II shells and Eisenstein generating series: `POINTWISE_TYPEII_SPECTRAL.md` (O128; R128, R128b).
+  * Quaternion orders and supersingular reduction: `QUATERNION_ES.md` (O130; R130).
+  * Exact identities and the CM torus: `EXACT_FORMULA.md` (O131; R131).
+  * Two red teams: `reviews/redteam-automorphic.md` (O125, collapse tests T1–T8) and
+    `reviews/redteam-automorphic-2.md` (O132, second red team plus the synthesis).
+* *Structural dictionaries* (PROVED; elementary or relative to ET; novelty modest, partly folklore):
+  * Type I ⟺ `f | p² + 4c²d` with `f ≡ −p (mod 4cd)`. The solution forms of discriminant −4dp² are `T_p`-translates of
+    level-d forms of discriminant −4d (a Hecke identity). The targets are tubes of hyperbolic width ≍ 1/p ((I)3).
+  * Type II ⟺ `ff' − 4c²(dp) = 1` with `f ≡ f' ≡ −1 (mod 4cd)`. This is the Type I SL₂ identity with p moved into the level;
+    there is also a det-p / `T_p` form. The solutions are Heegner points of discriminant −4dp on the shell ⟨u,v⟩ = −1 ((I)4).
+  * Bright–Loughran's Brauer class is genus theory: on the Type I locus of level d it is (−d/p) = −1, and on Type II it is
+    (f/p) = −(−1/p). This is folklore, resp. Yamamoto 1965 ((I)7).
+  * Quaternions. A Type I solution gives an order of reduced discriminant `4abd − 1 = pe` in exactly `B_{p,∞}`
+    (for p ∤ e), so CM points of discriminants −4d and −4ab collide mod p. This is an "x = 2" Gross–Zagier shape, but a
+    formal analogy only, since GZ's hypotheses fail. Type II ⟺ `(2ai + j)(2bi − j) = −e(1 + 2ck)` in (−d,−p) ((I)6).
+  * The only rank-3 quadratic piece of ET's charts is the isotropic form `Q_d = ef − 4da²` (Comp 6.1, CERTIFIED).
+    On its points the cofactor f is a Type II witness modulus ((I)1).
+* *Negative results* (exact scopes are in the ledger):
+  * *Ternary forms* (Thm 4.1 / Cor 4.2; PROVED relative to Pila, Mordell–Schinzel and ET). Fix one form and a recipe of
+    fixed complexity. Then a mild representation input proves ES only for primes that already lie in a finite
+    polynomial covering ((I)1).
+  * *Scale constraint* (Prop 2.3; PROVED relative to ET). A certificate that bounds a target with main term M from below,
+    through a bounded-multiplicity encoding, needs `M ≤ p^{o(1)}` outside a power-sparse set of primes. Consequences
+    follow for Heegner/CM equidistribution, power-scale covering conjectures and termwise GRH. No standard conjecture is
+    *known* to imply ES ((I)2).
+  * *Thickening = interval averaging* (Prop 5.4, PROVED). Widening the Type I tube to width K/p counts exactly the ET
+    points of n with `|n − p| ≤ K`. So spectral control at scale V yields only averages over intervals of length p/V ((I)3).
+  * *Local and spinor conditions hold at odd squares* (Prop 8.3, PROVED). `Q₀ = [−1, 0, −dn]` meets every condition except the sign,
+    for every n including odd squares, where Type II is empty. So "local + spinor ⇒ global" is false here. The genus
+    pairing of the Eisenstein series (Props 9.1–9.2) cancels exactly at odd squares ((I)4).
+  * *Geometry.* Only lines carry infinitely many integral points (Thm 3.1, via BL Lemma 3.10). On X_d, strong
+    approximation sees the ES condition only as a congruence modulo a coordinate. "BM is the only obstruction" on U_n
+    is literally ES(n) ((I)7).
+  * *Exact formulas.* No structurally positive identity was found. CERTIFIED: no linear relation between 56 ES counts and
+    54 classical functions on n ≤ 2·10⁴; the scope is that finite dictionary ((I)5).
+  * **Divisor-class reduction** (O132 Lemma 2.1 / Thm 2.2; (I)8).
+    * Every two-coordinate slice of ET's varieties is either a finite union of congruence classes of p, or "one integer
+      N_θ(p) has a divisor in a residue class mod q_θ" (PROVED, elementary).
+    * The six encodings above are such slices, and their invariants are congruence or genus data (Thm 2.2(i),(ii);
+      PROVED relative to the reviewed statements).
+    * Any argument that certifies ES(p) through a fixed finite set of slices fails for infinitely many p ≡ 1 (24),
+      whatever auxiliary input it uses (Thm 2.2(iii); CONDITIONAL on Hypothesis H, via POINTWISE_SIZE Thm C).
+* *The barrier* (Assessment, scoped to the mechanisms tested).
+  * By these routes, every encoding reduces at fixed p to genus/congruence data plus divisor events of specific integers
+    at Planck scale, with polylogarithmic expected counts.
+  * A sufficient statement would have to be Planck-scale, accurate to polylog factors and genus-aware. That is Type I or
+    Type II restated.
+  * "No standard hypothesis suffices" always means "by these routes, with known technology".
+* *Escape hatches* (O132 §3; none has known technology):
+  * **H-A**: aggregate the joint factorisation of a parameter family Θ(p) growing with p, with a moving modulus. EVIDENCE:
+    the mass is spread over ≍ 𝓛³ blocks of expected size O(1).
+  * **H-B**: a parity-breaking (Friedlander–Iwaniec-type) count of divisors in a moving class at fixed p.
+  * Also untested: objects of rank > 2 or non-abelian objects, and exact positive identities (H-D, H-E).
+  * H-F is a caution: Markoff-type families satisfy the integral Hasse principle for almost all parameters but fail it
+    infinitely often (Ghosh–Sarnak).
+* *EVIDENCE.* `f_I(p) ≥ 1` and `f_II(p) ≥ 1` for every prime 5 ≤ p ≤ 10⁸ (f_I reproduced independently to 10⁷, f_II
+  to 10⁸). min f_II/log³p ≈ 0.012, and the hardest primes lie in the square classes mod 840. The a = 1 slice has a
+  single solution at p = 5101441, where f_I = 188 and f_II = 78.
+* *Replay.* `verify.py` blocks (es)–(ez) (O133) re-run the reviewers' from-scratch checks for (I)1–(I)7.
+
+**Headline results of the previous phase (2026-10-06 – 10-10; all internal, hostile-reviewed, not externally
 refereed; none of them solves ES or any case of it):**
 * *m/n uniformly in m* ((D)31, `EXCEPTIONAL_MN.md`; PROVED relative to the 3/4 note):
   `E_m(I) ≪ H exp(−c(log H)^{3/4} m^{−1/4})` for every m ≥ 4 and every interval of length H.
@@ -183,7 +255,10 @@ length grows with p, or (E2) non-polynomial primitives such as `⌊p^θ⌋` or
 the least non-residue, and then control actual factorisations. The natural
 E1 target is the window statement `a_min(p)≪log p` (conjecture X_win;
 heuristically `a_min≍log p/log log p`, just above the formal-obstruction
-scale). **Pointwise state (ledger (H)16–(H)34):**
+scale). The automorphic/geometric phase (ledger (I), headline above) confirms this from the other side. Every encoding
+found there factors through a slice of ET's varieties, i.e. a divisor-in-class event for one integer
+(O132 Thm 2.2). The concrete E1 targets are therefore the escape hatches H-A and H-B.
+**Pointwise state (ledger (H)16–(H)34):**
 * *Rate.* `W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many
   Mordell-hard primes (`POINTWISE_OMEGA13.md` Thm 5.1, PROVED modulo
   Gallagher's theorem, Nair–Tenenbaum and the campaign's energy bound; chain
