@@ -239,3 +239,27 @@ union of lattice cosets has a fixed positive density or zero. The `τ` count is 
 *Assessment.* Linear changes of variables preserve isotropy, and the coordinates `x, y, z, a, …, f` and their
 products exhaust the known parametrisations (ET §2 lists all classical ones as charts of `Σ^I, Σ^II`). We did not
 search over arbitrary nonlinear reparametrisations; Theorem 4.1 makes that unnecessary for definite forms.
+
+## 7. Consequences for square-mimicking primes and for the candidate sterile points
+
+Call a point `x ∈ Ẑ^×` *sterile* if it lies in no ET class (no class of ET Prop 1.9's seven families); square points
+(`x ≡ s²` at every modulus) are sterile by (M), and x** (MORDELL13E), `x̂_9` (TYPEI2–7), the r = 17 line (MORDELL17–17C)
+are candidates.
+
+**Corollary 7.1 (PROVED, given Thm 4.1 / Cor 4.2 / Cor 5.3 and ET Prop 1.9).** For every valid embedding which is
+mild in the sense of (R) (definite `Q`, any `k ≥ 3`; or indefinite ternary with the truncated counting input of
+Cor 5.3(ii)), the closure of `𝒫_R` in `Ẑ^×` contains **no sterile point**. In particular it contains no square
+point, and it contains x** only if the embedding's degenerate pieces produce an ET class containing x**, which by
+MORDELL13E Comp 3.1 (CERTIFIED) must have ES level `≥ 2.59·10¹⁰`; if Conj 5.2 of MORDELL13B (x** sterile) holds, never.
+*Proof.* `𝒫_R ⊆ U` (Cor 4.2), a finite union of polynomially solvable primitive classes. If a sterile `x` were in
+the clopen closure of `𝒫_R`, it would lie in one of these classes, `r mod q`. By ET Prop 1.9 all large primes of
+`r mod q` lie in finitely many ET classes; primes are dense in `r + qẐ` (Dirichlet), so `r + qẐ ⊆` this finite
+(clopen) union, and `x` lies in an ET class. ∎
+
+*Interpretation.* The campaign's formal obstruction (POINTWISE_SIZE Thms M, C) says that procedures using only
+congruence data fail at square-mimicking points; a representation-theorem argument is **not** congruence-only (it
+searches over `≍ p^{1/2}` representations, a search of growing length, type (E1)). Theorem 4.1 shows that this extra
+length is wasted: on a mild representation set, a bounded-complexity ES recipe is constant on level sets except on a
+`p^{−1/4}f(p)`-thin subset, so it is a congruence covering in disguise and inherits the formal obstruction. To escape,
+an argument must use representation sets of relative density `≤ p^{−1/4+ε}f(p)` (non-mild side conditions, which no
+representation theorem controls), or a recipe of unbounded algebraic complexity (§9).
