@@ -121,13 +121,14 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
   (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111 + author), O112 §8.0 identities (reduced size), Lemma 6.1
        local transitivity / densities, Lemma 6.3 r(d) bound (R111);
   (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
-Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
+Blocks (es)..(ey) (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
   (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
   (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
   (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
   (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1 forms vs raw brute force, geometry, genus, Props 7-9, f_II to 10^7 (R128/R128b).
   (ew) EXACT_FORMULA: Lemma 1.1 (brute = engine, n <= 3000), Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131).
   (ex) EXACT_FORMULA: CERTIFIED exact Q-rank test (columns regenerated in a tempdir; ~2 min) (R131).
+  (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols (p < 3000), brute force p < 200, Lemmas 1.2/3.1 symbolic, §3.4 (R130).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23725,6 +23726,62 @@ def check_ex():
 
 print("\n== (ex) EXACT_FORMULA: CERTIFIED exact-rank test, 56 ES variants vs 54 classical columns, n <= 2*10^4 (R131) ==")
 check_ex()
+
+
+# ---------------------------------------------------------------- (ey)
+# QUATERNION_ES.md (review R130 = reviews/quaternion-es-review.md; DISCOVERIES (I)6).  Uses R130's from-scratch
+# scripts (own Type I enumeration, own Hilbert symbols incl. l = 2, own quaternion multiplication); each output is
+# compared byte for byte with the stored R130 log in logs/.  Checked:
+# (1) Prop 1.3 (PROVED): review_quat_hilbert.py 3000: for all 26007 Type I solutions (a <= b) with p < 3000 the algebra
+#     (-d, -d(4dm-1)) is ramified exactly at {p, oo} (Hilbert symbols at every prime dividing 2dpe), 4dm - 1 = pe,
+#     p never divides e: 0 bad;
+# (2) Lemma 1.1 / Prop 3.2 parametrisations: review_quat_brute.py 200: raw Egyptian-fraction search = the Type I
+#     (a,c,d) and Type II (e, m, a) parametrisations as triple sets for all 45 primes 3 <= p < 200;
+# (3) Lemma 1.2, Lemma 3.1 (PROVED, symbolic): review_quat_symbolic.py: u^2 = -d, v^2 = -m, uv + vu = 1, Gram det
+#     -(4dm-1)^2; (2ai + j)(2bi - j) = -(4abd - p) - 2(a+b)k in (-d,-p), norms 4a^2d + p and 4c^2dp + 1; §2 isogeny
+#     lattice det (pe/4)^2;
+# (4) §3.4 / Prop 5.1 examples: review_quat_fixed_de.py: the named opposite-status pairs with equal (d,e) and the
+#     filtered counts 40/93 (Type I), 120/450 (Type II).
+
+def check_ey():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    for args, log in ((("review_quat_hilbert.py", "3000"), "review_quat_hilbert_3000.txt"),
+                      (("review_quat_brute.py", "200"), "review_quat_brute_200.txt"),
+                      (("review_quat_symbolic.py",), "review_quat_symbolic.txt"),
+                      (("review_quat_fixed_de.py",), "review_quat_fixed_de.txt")):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("QUATERNION subprocess", args, r.stderr[-2000:])
+        with open(os.path.join(root, "logs", log)) as fh:
+            assert r.stdout == fh.read(), ("QUATERNION R130 output differs from stored log", log, r.stdout[-1500:])
+        o = r.stdout
+        if log.startswith("review_quat_hilbert"):
+            assert o.strip() == "PMAX=3000 TypeI solutions (a<=b)=26007 bad=0 p|e cases=0", ("QUATERNION Prop 1.3", o)
+        elif log.startswith("review_quat_brute"):
+            ls = o.splitlines()
+            assert len(ls) == 45 and all(ln.count("True") == 2 and "False" not in ln for ln in ls), \
+                ("QUATERNION brute force", o)
+        elif log.startswith("review_quat_symbolic"):
+            for s in ("u^2+d, v^2+m, uv+vu: [0, 0, [1, 0, 0, 0]]", "det: -(4*d*m - 1)**2", "vu - (1-uv): [0, 0, 0, 0]",
+                      "Lemma 3.1 product: [-4*a*b*d + p, 0, 0, -2*a - 2*b]  expected: [-4*a*b*d + p, 0, 0, -2*a - 2*b]",
+                      "N(2ai+j) = 4*a**2*d + p  N(1+2ck) = 4*c**2*d*p + 1", "isogeny lattice det: (4*a*b*d - 1)**2/16"):
+                assert s in o, ("QUATERNION symbolic", s, o)
+        else:
+            assert "filtered TypeI: 40/93   TypeII: 120/450" in o, ("QUATERNION fixed (d,e)", o)
+    print(f"ey QUATERNION R130: Prop 1.3 ramification {{p, oo}} on all 26007 Type I solutions p < 3000; raw brute "
+          f"force = Type I/II parametrisations (45 primes < 200); Lemmas 1.2, 3.1 and isogeny det symbolic; §3.4 "
+          f"pairs and 40/93, 120/450; all = stored R130 logs; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols, Lemma 1.1/3.2 brute force, Lemmas 1.2/3.1 symbolic (R130) ==")
+check_ey()
 
 
 print("\nall checks passed")
