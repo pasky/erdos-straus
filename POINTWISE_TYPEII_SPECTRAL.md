@@ -140,3 +140,63 @@ root condition is `ν = 2ad` with `ν² ≡ −dp (mod f)` **and `f ≡ −1 (mo
 (`ν ≡ (2c)^{−1} mod f`), not to an interval of length `f/V`. **Conclusion (Assessment): no existing or
 GLH-conditional equidistribution theorem reaches (TS); the obstruction is the exact-incidence nature of the
 Type II condition (Prop 2.4/2.5), not the strength of subconvexity.**
+
+## 5. Numerics (EVIDENCE; `scripts/t2s_count.c`, `t2s_numerics.py` → `t2s_numerics.out.txt`; `t2s_predict.c` → `t2s_predict.out.txt`)
+
+Engine: all ET quadruples with `a ≤ b` via `(a,c,d,e)`, weight 2 (1 if a = b); validated against an
+independent Python enumeration for all primes < 700 (which is validated against brute force < 400).
+`n ≤ 10⁷`: 9.2·10⁸ tuples, 8 s.
+* `f_II(p) > 0` for every prime `5 ≤ p ≤ 10⁷` (known: ES has been verified far beyond). Dyadic minima of
+  `f_II` grow: 4 (2¹¹), 18 (2¹⁶), 36 (2²⁰), 60 (2²²), 72 (2²³, p = 9744001). `min f_II/log³p` is flat:
+  0.0117–0.017 for p ≥ 10⁵ (smallest: p = 2031121, f_II = 36), against mean ≈ 0.068.
+* Subfamilies: `d = 1` and `c = 1` are each empty for some p in every block (e.g. 135 primes in 2²² have no
+  d = 1 solution): no single Heegner discriminant (d = 1) suffices numerically; the full d-family is needed.
+* Every one of the 20 smallest normalised values (p ≥ 10⁵) has `p ≡ 1 (mod 24)` except one (`p ≡ 13`); the six
+  smallest class means mod 840 are exactly the six square classes `{1,121,169,289,361,529}` (≈ 0.037–0.042
+  vs 0.32 for `p ≡ 839`): **square-mimicking primes are the hard ones for Type II.**
+* `R(p) = f_II(p)/mean(f_II over q ≡ p mod 840, same dyadic block)`: min R = 0.43 (2¹⁶), 0.31 (2²⁰), 0.28 (2²³);
+  sd of R grows slowly 0.257 → 0.301. Relative fluctuations do **not** shrink with p (divisor-type
+  fluctuation of the integers `4c²dp + 1`), so a pointwise lower bound must survive an `R ≈ 1/4` lower tail
+  even after the mod-840 singular series.
+* Per-family predictions (30 primes in [0.67, 2.1]·10⁶: the 10 hardest + 20 random). The fixed-p
+  "random root" Heegner prediction `E_heeg = Σ w·ρ_{−dp}(f)/f` (chance that ν = 2ad is a root of
+  `ν² ≡ −dp (mod f)`) and the averaged `E_avg = Σ w/φ(f)` are both ≈ 110–180 for **all** 30 primes; actual
+  `f_II` is 36–48 for the hard ten (actual/E_heeg 0.27–0.37) and 122–619 for the random twenty
+  (0.9–3.5). By families (d = 1 | 2–7 | 8–63 | ≥ 64) the hard primes are depleted in every family, worst at
+  d = 1 (0–8 vs predicted 12–21). **Assessment:** the Heegner/random-root model averages out exactly the
+  information (p mod small moduli, through the factorisation of `4c²dp+1` at small c, d) that decides the
+  hard primes; the singular series it produces is p-blind to leading order.
+
+## 6. Square-mimicking primes and the genus obstruction
+
+**Lemma 6.1 (genus lemma; PROVED).** For every Type II solution of a prime p, with `f = 4acd − 1`,
+`f' = 4bcd − 1` coprime to p: `(p/f) = (p/f') = −1` (Jacobi). Equivalently the Type II Heegner forms of
+discriminant −4dp lie in the genus `𝔊⁻_d = {χ_{−4d}(Q) = −1}`.
+*Proof.* `ef = p + 4a²d` gives `(2ad)² ≡ −dp (mod f)` with `gcd(dp, f) = 1` (`f ≡ −1 mod 4ad`), so
+`(−dp/f) = 1`. `(−d/f) = (−4d/f)` and the Kronecker symbol `(−4d/·)` is a character mod 4d with value
+`sign(−4d) = −1` at `−1`; `f ≡ −1 (mod 4d)` gives `(−d/f) = −1`, so `(p/f) = −1`. Same for f'
+(Lemma 1.1.3 symmetry). ∎ Checked for all 2486 moduli with p < 400 (`t2s_param.py`).
+**Cor 6.2 (ET Prop 1.6, Type II half, recovered).** For `n = s²` odd, `(s²/f) = 1` (gcd(s,f) = 1 since a common
+prime would divide `4a²d`, coprime to f), so `f_II(s²) = 0`. **Our route fails at n = p², as it must:** the
+genus `𝔊⁻_d` is empty for discriminant `−4ds²` (every represented A coprime to 2ds has `χ_{−4d}(A) = +1`),
+although the shells `T_c` have the same area `≈ log²/(c√|D|)`, and the CM points of `ℤ[s√−d]` equidistribute
+(Hecke orbits). So the shell main term `h·area/vol ≈ log²` is **false** at squares: a second proof that the
+shells are below every equidistribution scale, and that any correct count must carry the genus projector
+`(1 − ψ_d)/2`, `ψ_d(Q) = χ_{−4d}(A)`.
+**Cor 6.3 (PROVED).** If `(p/q) = 1` for all primes `q ≤ y`, every Type II f (and f') has a prime factor
+`q > y` with `(p/q) = −1`. (Type II solvability is a non-residue phenomenon; cf. the Mordell-hard primes,
+`n_p`, of the pointwise line.)
+
+**What the automorphic input sees (Assessment).** (i) Measures: genus-restricted equidistribution
+(Duke; Humphries Thm 1.24-type for genera) holds for every prime p; at any scale where it is a theorem it
+is blind to square-mimicking (the genus `𝔊⁻_d` has the full share h/#genera of points). (ii) The ψ_d-twisted
+Weyl sums factor (genus characters) into `L(·, χ_{−4d})·L(·, χ_p)` (constant/Eisenstein part) and
+`L(½, u_j×χ_{−4d})L(½, u_j×χ_p)` (cusp part); for square-mimicking p, `L(s, χ_p)` agrees with ζ at all small
+primes, so these terms grow toward the size of the main term — the analytic shadow of Cor 6.2 — but at the
+shell scale `|D|^{−1/2}` they are not controlled anyway (§4.4). (iii) Relation to POINTWISE_SIZE Thms M, C,
+Prop A: a spectral existence theorem is analytic (E2-type) input and is not itself a congruence procedure,
+so Theorem C does not forbid it; but §4.4 shows the only available spectral statements live at scales
+`≥ |D|^{−1/18}` (`|D|^{−1/6}` under GLH), while the Type II target is at `|D|^{−1/2}`; at the reachable scales the
+input is genus-equidistribution, which is identical for square-mimicking and generic primes. So the automorphic
+input **cannot distinguish** square-mimicking primes at any reachable scale, and the numerically decisive
+information (§5) sits exactly in the unreachable `|D|^{−1/2}` regime.
