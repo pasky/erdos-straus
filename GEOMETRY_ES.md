@@ -199,8 +199,9 @@ The same applies to every `S`.
 Fix the ET parameter d. The Type I relation `ef − 4da² = 1` (ET (2.7)) defines the affine quadric
 `X_d = {q_d = 1}`, `q_d(e,f,a) = ef − 4da²`, a ternary form of signature (1,2): `X_d(ℝ)` is a **two-sheeted
 hyperboloid**, each sheet a copy of ℍ (the space of positive binary forms `[f, 4ad, de]` of discriminant −4d).
-`X_d = Spin(q_d)/T` with `T` the norm-one torus of `ℚ(√−d)` (anisotropic over ℝ). Its integral points are the
-level-d Heegner forms of discriminant −4d (the family 𝓕_d of EXCEPTIONAL_TYPEI_LOGLOG §2): finitely many
+`X_d = Spin(q_d)/T` with `T` the norm-one torus of `ℚ(√−d)` (anisotropic over ℝ). Its integral points `(e,f,a)` are the
+forms `[f, 4ad, de]` of discriminant −4d (the subfamily `4d | B` of the level-d Heegner family 𝓕_d of
+EXCEPTIONAL_TYPEI_LOGLOG §2): finitely many
 `Γ`-orbits, each orbit infinite, the real place non-compact. **This is the parent's hoped-for structure, and it
 is honest**: strong approximation (Spin(q_d) is simply connected and ℝ-isotropic) holds on `X_d` up to the
 usual Brauer–Manin / spinor obstruction of Colliot-Thélène–Xu for the torus T.
@@ -233,3 +234,56 @@ statement**: an integral point `x` of the orbit with `x ≡ x₀ (mod N(x))`, wh
 for that are equidistribution with power savings in the level (spectral: Duke, Iwaniec, Kloosterman sums).
 This is exactly the spectral agents' territory (O123/O127/O128). The geometric route **collapses into** the
 spectral route at this point. (Assessment for the "collapses" sentence; the rest is PROVED.)
+
+## 5. The Brauer class is genus theory; quadratic-form structure (for O124 / O123 / O127 / O128)
+
+### 5.1 α on Type I and Type II solutions (PROVED; checked by `scripts/geo_genus.py` on all 31718 Type I and 12094 Type II ordered solutions, p < 2500)
+By BL Cor 1.3 a natural solution for a prime p satisfies `((−u_i/u_j)/p) = −1` for the pair with
+`u_i/u_j ∈ ℤ_p^*`. In ET coordinates (`u = (abdp, acd, bcd)`, Type I; `u = (abd, acdp, bcdp)`, Type II) that pair
+is `(a, b)`, and the condition reads `((−ab)/p) = −1`.
+
+**Proposition 5.1 (Type I: α = the CM condition "p inert in ℚ(√−d)").** For every Type I solution,
+`((−ab)/p) = ((−d)/p) = −1`. Directly: `p ≡ −f (mod 4d)`, and `f | 4a²d + 1` gives `−d ≡ (2a)^{−2} (mod f)`, so
+`(−4d/f) = 1`; the Kronecker character `(−4d/·)` has modulus 4d and `(−4d/−1) = −1`, so `(−4d/p) = −1`.
+Equivalence with BL: `4abd = pe + 1` (ET (2.1)) gives `(abd/p) = 1`. ∎
+So **the transcendental Brauer class, restricted to the Type I locus of level d, is the quadratic character of
+`ℚ(√−d)` at p**: the level-d hyperboloid `X_d` (§4.3) can contribute only if p is inert in `ℚ(√−d)`. This is the
+classical condition (Yamamoto / ET), now identified as BL's α.
+
+**Proposition 5.2 (Type II: α is quadratic reciprocity for the divisor f, no condition on p at a fixed level).**
+For every Type II solution, `(f/p) = −(−1/p)` and `(−d/f) = −1`, and BL's condition `((−ab)/p) = −1` is
+*equivalent* to `(f/p) = −(−1/p)`, which holds automatically. Proof: `f ≡ −1 (mod 4ad)`, so `(−4d/f) =
+(−4d/−1) = −1`. `p ≡ −4a²d (mod f)` gives `(p/f) = (−d/f) = −1`, and reciprocity (f ≡ 3 mod 4) gives
+`(f/p) = (p/f)(−1/p)`. Equivalence: `e ≡ 4abd (mod p)` (ET (2.13)), so `(−ab/p) = (−de/p)`, and
+`ef ≡ 4a²d (mod p)` gives `(e/p) = (d/p)(f/p)`. ∎ (This is O128's genus lemma `(p/f) = −1`.)
+
+So the Brauer–Manin obstruction **never** removes a level for Type II and removes exactly the levels with
+`(−d/p) = +1` for Type I. For a "square-mimicking" p (`(−d/p) = +1` for all small d) Type I needs a level
+`d ≥ d*(p) := min{d : (−d/p) = −1}`. That is a least-non-residue quantity: `≪ p^{1/(4√e)+ε}` (Burgess),
+`≪ log² p` under GRH (Ankeny/Bach). (PROVED; the bounds are classical.)
+
+### 5.2 Quadratic-form dictionary (flag for O124 / O123 / O127 / O128)
+1. Type I, level d: `x = (e,f,a)` on the signature-(1,2) quadric `ef − 4da² = 1` (binary forms
+   `[f, 4ad, de]`, disc −4d, i.e. ℍ). ES condition: `4da | f + p`, i.e. `p ≡ −A (mod B)` for the form `[A,B,C]`.
+2. Type II, level d: `ef − 4da² = p` (disc of `[f,4ad,de]` is −4dp), side condition `4ad | f + 1`
+   (`A ≡ −1 (mod B)`), equivalently O128's `ff' − 4c²dp = 1`, `f ≡ f' ≡ −1 (mod 4cd)`.
+3. Every two-variable slice of 1–2 (fix `a` or `c` in addition to d) is a split binary form `XY = N`
+   (Prop 3.2): the rank-3 forms `q_d` are the **only** non-split quadratic structure. This agrees with O124's
+   finding that `Q_d` is the only rank-3 quadratic piece of ET's charts.
+4. The positive-definite reading: the binary forms are positive definite, so their roots are points of ℍ;
+   positivity of `e, f, a` is "upper sheet + a > 0". **Positivity is not the obstruction on `X_d`**: the
+   obstruction is the point-dependent modulus in `4da | f + p`.
+
+### 5.3 Fixed-level experiment (EVIDENCE; `scripts/geo_levels.py`, `a ≤ 3000`)
+Primes `p ≡ 1 (mod 24)`, `p < 1.5·10⁶` (14183 primes):
+* Type II at level `d = 1` (`∃a: p + 4a²` has a divisor `≡ −1 (mod 4a)`) **fails for 73 primes** (49 below
+  `3·10⁵`, 24 in `[3·10⁵, 1.5·10⁶]`, e.g. 97, 193, 673, …, 1456921). The `a`-range is complete: Type II
+  forces `a ≪ √p`. The failing primes show no square-mimicking pattern in their Legendre symbols mod
+  `q < 60`. The failure rate decreases (1.5% → 0.2%), as a Poisson heuristic with mean `≍ log²p/d` predicts.
+* Type I at level `d*(p)`: 79 + 257 "failures", but these are cap-limited (the largest minimal `a` found,
+  2966, is at the cap; Type I allows `a` up to `≍ p`). No conclusion.
+Assessment: a "fixed level suffices" conjecture is not supported for small d at this range. The natural
+uniform version — Type I(p) at some level `d ≤ (log p)^K` with `(−d/p) = −1` — is a **shrinking-target
+statement on `X_d`** (Prop 4.1). With GRH (least such d `≪ log²p`) it would imply ES for large p. It is
+*not* a standard conjecture, and it is not implied by any known equidistribution theorem (Duke's theorem
+concerns `|D| → ∞` at a fixed level; here `D = −4d` is fixed and the target shrinks with p).
