@@ -11,38 +11,51 @@ space sits. That space is the hyperboloid `X_d : ef − 4da² = 1` (Type I), res
 spectral territory.
 
 ## Results (labels as in the file)
-1. **BL recorded exactly** (§1). For fixed n, "BM is the only obstruction to the integral Hasse principle" is
+1. **BL recorded exactly** (§1). For fixed n ≥ 2, "BM is the only obstruction to the integral Hasse principle" is
    literally ES(n), because BL Thm 1.8 says the Brauer set is non-empty. Strong approximation fails for every n
    even with Br (BL Thm 1.9). So aim (A) for fixed n is a restatement of ES, not a reduction.
-2. **Models, PROVED** (§2). All 9 lines are rational. Toric model (Prop 2.1): `Ũ_n` is `ℙ²` blown up at one
+   (R126 repair: BL Thm 1.8 is false at n = 1. There the Brauer set is empty, so the equivalence holds only for
+   n ≥ 2. BL Thm 1.9 concerns rational points `U_n(ℚ)`.)
+2. **Models, PROVED** (§2). All 9 lines are rational. Toric model (Prop 2.1; R126 repair: symbolic proof via
+   Cayley's six-point model added): `Ũ_n` is `ℙ²` blown up at one
    point on each side of the triangle, the three points collinear, which produces the node. Positive points:
    primitive `s ∈ ℕ³` with `4s_i | nS`. Prop 2.2 gives the matrix forms. Type I is `SL₂(ℤ)` with `g` even,
    `g | h`, `2h | n+f`. Type II is the same with `det = n` and `2h | f+1`.
-3. **No Pell fibres, PROVED** (§3). The conic bundles (F1)–(F3) all have split torus fibres. α restricts to
+3. **No Pell fibres, PROVED** (§3). The plane-conic bundles (F1)–(F3) all have split torus fibres. α restricts to
    `(n(n−4t), −w)` and `(−λ, −nZ)`; this was checked at every place on about 10⁵ points. α is horizontal and
    `Br_vert = Br ℚ`. Thm 3.1 (via BL 3.10): only lines carry infinitely many integral points. Prop 3.2: every
    non-split 1-dim torus maps constantly to `V_n ≅ G_m²`. **Aim (B) is answered negatively for every fibration
-   of `U_n`.**
+   of `U_n`.** (R126 repair: the reason is Thm 3.1 = BL Lemma 3.10, a real-place bound valid for every curve.
+   Prop 3.2 covers only curves inside `V_n`: fibres meeting the lines can be punctured non-split tori. So "all
+   conic bundles are split" is not claimed. The (F2) restriction of α now has a proof, and the "n²" size bound is
+   corrected to `≪ n⁴`.)
 4. **Homogeneous spaces** (§4). S-integral reformulations cannot help (PROVED, elementary). On `X_d`
    (Spin(2,1)/T, real place non-compact, integral points are Heegner forms, SA holds), the ES points form an
    affine modification adjoining `κ_p = (f+p)/4da`. Each member of the pencil is a split conic, and the
-   condition is a congruence modulo a coordinate of the point (Prop 4.1, PROVED). Cor 4.2: SA, descent and
-   fibration outputs cannot produce it; shrinking-target equidistribution is needed. The sentence "collapses
-   into the spectral route" is an Assessment.
+   condition is a congruence modulo a coordinate of the point (Prop 4.1, PROVED; R126 repair: `c ≠ 0` is needed,
+   because without it `Σ^I_{p,d}(ℤ)` is infinite when (−d/p) = +1). Cor 4.2: SA, descent and fibration outputs
+   cannot produce it; shrinking-target equidistribution is needed. R126 repair: the PROVED core is now stated
+   precisely: for open `W_f ⊂ ∏X_d(ℤ_ℓ)`, the set `X_d(ℤ) ∩ W_f` is empty or infinite, while the ES set is finite.
+   The rest, including "collapses into the spectral route", is an Assessment.
 5. **The Brauer class is genus theory, PROVED** (§5; checked on all 43812 Type I/II ordered solutions with
    p < 2500).
    * Type I: α is exactly `(−d/p) = −1`, i.e. p is inert in `ℚ(√−d)`.
    * Type II: α is automatic quadratic reciprocity `(f/p) = −(−1/p)`, which is O128's genus lemma.
    * So the Brauer–Manin obstruction rules out exactly the Type I levels with `(−d/p) = +1`, and never a Type II
      level.
-   * This identification of BL's α is probably folklore-adjacent (Yamamoto). **Novelty unchecked.**
+   * R126 repair, novelty settled: **not new**. Prop 5.2's `(p/f) = −1` is Yamamoto 1965 Lem. 4 (Mordell's
+     `q = 4abd − 1` = ET's f), and BL Appendix A already derives it from α. Prop 5.1 is folklore: the Mordell/ET
+     families `n ≡ −f (mod 4ad)` only cover non-residues mod 4d. R126 also added a local form: at level d with
+     (−d/p) = +1 the positive adelic Brauer set of the level-d chart is empty.
 6. **EVIDENCE** (§5.3). Single fixed levels fail for a few percent of primes `p ≡ 1 (24)`:
    * Type II at d = 1: 73 failures below 1.5·10⁶;
    * Type I at d = 7, 11, 13: 7%, 4% and 14% below 10⁵, with complete searches and brute-force spot checks;
    * exception: "identity levels" such as d = 5, which cover all of `(5/p) = −1` with a = 1;
    * the failures are not square-mimicking.
+   * R126 reproduced all counts and level sets exactly with independent code.
 7. **Scope table** (§6), machine by machine: SA/BM, fibration method, Harpaz/Swinnerton-Dyer descent (needs
-   non-split fibres, and here everything is split), Markoff orbits, SA on `X_d`, Duke.
+   non-split fibres; R126 repair: (F1)–(F3) are split, and finiteness on every fibre comes from Thm 3.1),
+   Markoff orbits, SA on `X_d`, Duke.
    The sufficient target (SHT) is stated; it is **not** a standard conjecture.
 
 ## Flags for other agents
@@ -63,3 +76,17 @@ spectral territory.
 (b) Classify *all* genus-0 fibrations of `Ũ_n`, not only those coming from lines. Thm 3.1 already makes this
 moot arithmetically.
 (c) A literature check of the "α = genus character" identification.
+
+## R126 repairs (applied by the reviewer)
+D1–D10 and remarks R2–R4 of `reviews/geometry-es-review.md` have been applied in `GEOMETRY_ES.md`, each marked
+"(R126 repair)". The repairs are:
+* n = 1 is excluded from BL Thm 1.8 and from the §1 equivalence;
+* the BL Thm 1.9 quote is corrected;
+* a symbolic proof of Prop 2.1 is added;
+* the α|F2 restriction now has a proof, and the Br_vert sketch is made precise;
+* the scope of Prop 3.2 and the Harpaz/SwD row are corrected (D3);
+* the size bound is now `≪ n⁴`;
+* §4.2 wording is fixed;
+* Prop 4.1 now requires `c ≠ 0`, with a counterexample to the old statement and a finiteness proof;
+* Cor 4.2 is restated in a precise provable form;
+* Props 5.1/5.2 are attributed to folklore and to Yamamoto Lem. 4 via BL App. A, and the local BM form is added.

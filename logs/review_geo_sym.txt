@@ -1,0 +1,15 @@
+(A) phi lands in S_n: True
+    sum 1/u_i = 4/n: True
+    base locus (affine cone sols): [{X1: 0, X2: 0}, {X1: 0, X2: -X3}, {X1: 0, X3: 0}, {X1: -X2, X3: 0}, {X1: -X3, X2: 0}, {X2: 0, X3: 0}]
+    base pt (1, 0, 0) mult 1
+    base pt (0, 1, 0) mult 1
+    base pt (0, 0, 1) mult 1
+    base pt (0, 1, -1) mult 1
+    base pt (1, 0, -1) mult 1
+    base pt (1, -1, 0) mult 1
+    image of s=0: [-4*X1*X2*(X1 + X2), 0, 0, 0]
+(B) nine lines on S_n: True
+    u1=-u2 => -u1**2*(-n + 4*u3)
+(C) F1: XY-(nt)^2 = (4t-n)*eq/? -n + 4*t
+    F2: ZW-N over residual eq: 4*lam
+    F3 restricted eq: (u2 + u3)*(-lam*n*u2 - lam*n*u3 + 4*lam*u2*u3 - n**2)/4

@@ -9,26 +9,31 @@ Scripts: `scripts/geo_*.py` (run with `PYTHONPATH=scripts uv run python ...`).
 
 Checkpoint 1 (round 1). **No proof of ES, conditional or otherwise.** The output is a precise map of what
 arithmetic geometry can and cannot do here.
-* **§1** records BL exactly. For fixed n, "BM is the only obstruction to the integral Hasse principle" for
+* **§1** records BL exactly. For fixed n ≥ 2, "BM is the only obstruction to the integral Hasse principle" for
   `(𝒰_n, U_n(ℝ)⁺ × ∏𝒰_n(ℤ_p))` is *literally equivalent* to ES(n), since BL Thm 1.8 says the Brauer set is
-  non-empty. Strong approximation fails for every n even with Br (BL Thm 1.9).
+  non-empty. (R126 repair: for n = 1 the Brauer set is empty, so the equivalence fails there; see §1.)
+  Strong approximation fails for every n even with Br (BL Thm 1.9).
 * **§2 (PROVED):** all nine lines are rational. Toric model (Prop 2.1): `Ũ_n` is `ℙ²` blown up at one point on
   each side of the toric triangle, the three points collinear, minus the strict transform of the triangle; the
-  node comes from the collinearity. Positive points are the primitive `s ∈ ℕ³` with `4s_i | nS`. Prop 2.2:
+  node comes from the collinearity (R126 repair: symbolic proof via Cayley's six-point model added). Positive points are the primitive `s ∈ ℕ³` with `4s_i | nS`. Prop 2.2:
   Type I = `SL₂(ℤ)` matrices `[[e,g],[h,f]]` with `g` even, `g | h`, `2h | n+f`; Type II = the same with
   `det = n` and `2h | f+1`.
-* **§3 (PROVED):** the three conic bundles (from boundary edges, from `L_ij`, from `M_k`) have **split** torus
-  fibres. α restricts to `(n(n−4t), −w)` on (F1) and to `(−λ, −nZ)` on (F2), checked at all places; it is
+* **§3 (PROVED):** the three plane-conic bundles (from boundary edges, from `L_ij`, from `M_k`) have **split**
+  torus fibres. α restricts to `(n(n−4t), −w)` on (F1) and to `(−λ, −nZ)` on (F2), checked at all places; it is
   horizontal, and `Br_vert = Br ℚ`. Thm 3.1: only the lines carry infinitely many integral points. Prop 3.2:
   no non-split torus maps non-constantly to `V_n ≅ G_m²`. **There is no Pell fibre** (aim (B) is answered
-  negatively for every fibration of `U_n`).
+  negatively for every fibration of `U_n`). (R126 repair: the reason is Thm 3.1 = BL Lemma 3.10, a real-place
+  bound, which covers every curve; splitness is proved only for (F1)–(F3) and for curves inside `V_n`, not for
+  all conic bundles.)
 * **§4:** on the total family, ES is a value-set problem for `H(u) = 4/Σ1/u_i`. S-integral reformulations
   cannot help (PROVED). The genuine homogeneous spaces are the hyperboloids `X_d : ef − 4da² = 1` (Type I;
   Spin(2,1)/T, real place non-compact, integral points = Heegner forms) and O128's level-`dp` space (Type II).
   On them the ES condition is the integrality of `κ_p = (f+p)/4da`: a congruence with a **point-dependent
-  modulus**, i.e. a shrinking target, never an adelic open set (Prop 4.1, Cor 4.2). The geometric route collapses
+  modulus**, i.e. a shrinking target, never an adelic open set away from ∞ (Prop 4.1, Cor 4.2; R126 repair:
+  `c ≠ 0` added to Prop 4.1, precise provable form of Cor 4.2). The geometric route collapses
   into the spectral route.
-* **§5 (PROVED):** BL's transcendental α *is* genus theory. On Type I it is the CM condition `(−d/p) = −1` (p
+* **§5 (PROVED; known — R126 repair: Prop 5.2 is Yamamoto 1965 Lem. 4, already derived from α in BL App. A;
+  Prop 5.1 is folklore):** BL's transcendental α *is* genus theory. On Type I it is the CM condition `(−d/p) = −1` (p
   inert in `ℚ(√−d)`, Prop 5.1); on Type II it is automatic quadratic reciprocity for f (Prop 5.2, = O128's genus
   lemma). Quadratic-form dictionary for O124/O128 in §5.2. EVIDENCE: single fixed levels fail for a few percent
   of primes, except identity levels such as d = 5.
@@ -67,9 +72,14 @@ Arithmetic results (BL §3; local invariants in `{±1}`, `inv_v α(u) = (−u₁
   Cor 1.4: Elsholtz–Tao's odd-square obstruction.
 * Thm 1.8: `(U_n(ℝ)⁺ × ∏_p 𝒰_n(ℤ_p))^{Br} ≠ ∅` (**no BM obstruction to ES**, for every n), but `≠` the whole
   adelic set (**BM obstruction to strong approximation** for natural-number points).
+  (R126 repair.) BL state Thm 1.8 "for all n ∈ ℕ", but the proof (BL §3.8) needs a prime p | n (Lemmas
+  3.6/3.7). For **n = 1** it is false: `W₁ ≠ ∅` (the node 0 is integral), and by Lemmas 3.1, 3.5, 3.8 every
+  point of `W₁` has `inv_∞ = −1` and `inv_p = +1` for all finite p, so `W₁^{Br} = ∅`: BM *does* explain the
+  failure of ES(1). BL's Thm 1.1 correctly says n ≥ 2. Below, "every n" in connection with Thm 1.8 means n ≥ 2.
 * Lemma 3.10: `{u ∈ 𝒰_n(ℤ) : u₁u₂u₃ ≠ 0, u_i ≠ −u_j}` is **finite**; `𝒰_n(ℤ)` is not Zariski dense.
   Lemma 3.11: for all but finitely many ℓ, `𝒰_n(ℤ) → 𝒰_n(𝔽_ℓ)` is not surjective.
-* Thm 1.9: `𝒰_n(ℤ) → U_n(𝔸_ℚ)^{Br}_•` does **not** have dense image: Brauer–Manin is *not* the only
+* Thm 1.9: `U_n(ℚ) → U_n(𝔸_ℚ)^{Br}_•` does **not** have dense image (R126 repair: BL quote is about
+  rational points `U_n(ℚ)`, not `𝒰_n(ℤ)`): Brauer–Manin is *not* the only
   obstruction to strong approximation on 𝒰_n (for every n). Remark 3.12: although `Ũ_n ⊃ G_m²` with
   trivial units and torsion-free Pic, the torus action does not extend, and the Cao–Xu/Wei theorem for
   toric varieties does not apply (and its conclusion is false here).
@@ -79,7 +89,8 @@ What BL leave open (and what this means for O126):
 1. **The integral Hasse principle question is ES itself.** For fixed n the only open question is
    `𝒰_n(ℤ) ∩ W_n ≠ ∅` for `W_n = U_n(ℝ)⁺ × ∏_p 𝒰_n(ℤ_p)`. BL Thm 1.8 says `W_n^{Br} ≠ ∅`. So
    "BM is the only obstruction to the integral Hasse principle for (𝒰_n, W_n)" is *literally equivalent* to
-   ES(n) (given Thm 1.8). Aim (A) for fixed n is therefore a restatement of ES, not a reduction.
+   ES(n) (given Thm 1.8), **for n ≥ 2** (R126 repair: at n = 1 the left side holds vacuously, `W₁^{Br} = ∅`, while
+   ES(1) is false). Aim (A) for fixed n is therefore a restatement of ES, not a reduction.
 2. **Strong approximation is false** (Thm 1.9), for every n, even with the Brauer–Manin condition — so
    no theorem of the form "BM is the only obstruction to strong approximation" can hold for 𝒰_n, and any
    proof of ES via a strong-approximation theorem *on the fixed surface* is impossible. (PROVED, by BL.)
@@ -109,6 +120,18 @@ the line `s_k = 1/u_k`; approaching `P` means `s → ∞` in a direction off the
 Under this isomorphism `L_ij` = exceptional curve over `V_k` minus its point on `s̃_k = 0` (coordinate `u_k`,
 meeting `E` at `u_k = 0`), and `E` = strict transform of `ℓ_∞` (self-intersection `1 − 3 = −2`: the node `P`
 is produced by the collinearity of `V₁, V₂, V₃`). `U_n` is obtained by contracting `Ẽ`.
+
+*Symbolic proof (R126 repair; `scripts/review_geo_sym.py` (A)).* In `ℙ²` with coordinates X and
+`σ = X₁+X₂+X₃`, the cubic system `φ(X) = (4X₁X₂X₃ : nσX₂X₃ : nσX₁X₃ : nσX₁X₂)` maps into `S_n`
+(`S_n∘φ ≡ 0`), and `1/u_i = 4X_i/(nσ) = s_i` with `Σs_i = 4/n`. Its base locus consists of exactly six simple
+base points: the three coordinate points and `V₁, V₂, V₃ = (0:1:−1), (1:0:−1), (1:−1:0)` (each of multiplicity 1).
+Each of the four lines `X_i = 0`, `σ = 0` contains three base points, so it becomes a (−2)-curve in `Bl₆ℙ²`
+and is contracted to one of the four nodes; `σ = 0` goes to `P = (1:0:0:0)`. Hence `Bl₆ℙ² → S_n` is the
+minimal resolution (Cayley's classical model). Pulling back `x₀ = 4X₁X₂X₃` gives the total transform
+`ΣX̃_i + 2ΣE_coord + ΣE_{V_k}`; subtracting the base divisor `ΣE` leaves `x₀^* = ΣX̃_i + ΣE_coord`. Therefore
+`Ũ_n = Bl₆ℙ² \ (ΣX̃_i ∪ ΣE_coord) = Bl_Vℙ² \ (strict transform of X₁X₂X₃ = 0)`, with `E = σ̃` and
+`L_ij = E_{V_k} \ X̃_k`. In `Bl_Vℙ²` we have `σ̃² = 1 − 3 = −2` and `X̃_k² = 1 − 1 = 0`. ∎ (The Markoff comparison below
+is consistent with this: two points per side give a boundary of three (−1)-curves, `D² = 9 − 6 = 3`.)
 
 So `(Bl_V Π̄, D)` with `D` = the strict transform of the triangle `s₁s₂s₃ = 0` (a cycle of three curves of
 self-intersection 0) is a **Looijenga pair with toric model `(ℙ², triangle)` blown up at one point on each side**,
@@ -159,10 +182,17 @@ and the Steinberg relation `(1+w, −w) = 0`. Checked at every place on 46044 (s
 point, or (at `t = 0, n/4`) have only multiplicity-one components that are geometrically integral with rational
 points; so a class of `Br ℚ(t)` unramified on `Ũ_n` has zero residues on `A¹`: `Br_vert = Br ℚ`.
 α is **horizontal** (it restricts to the non-constant class `(n(n−4t), −w)` on the generic fibre).
+(R126 repair, precision.) In `Ũ_n` the fibre of `u₁` over `t = 0` is `L₁₂ + L₁₃ + E` (u₁ vanishes on E, to order 1);
+`L₁₂` and `L₁₃` meet E, not each other ("meeting at P" describes `U_n`). Rational points on fibres are not needed:
+one geometrically integral multiplicity-one component in each closed fibre over `A¹`, plus Faddeev's exact
+sequence (the residue at ∞ is determined by the others), already gives `Br_vert = Br ℚ`.
 
 **(F2) Planes through `L₁₂`: the fibration `u₁ = λu₂`.** Residual conic, with `Z = 4λu₂ − n(λ+1)`,
 `W = 4λu₃ − nλ`: `ZW = n²λ(λ+1)` — again a split hyperbola. Degenerate at `λ ∈ {0, −1, ∞}`.
-`α|_λ = (−λ, −u₂/u₃) = (−λ, −nZ)`.
+`α|_λ = (−λ, −u₂/u₃) = (−λ, −nZ)`. *Proof (R126 repair).* On `u₁ = λu₂` the residual equation is
+`u₃·Z = nλu₂`, so `−u₂/u₃ = −Z/(nλ) ≡ −nλZ` mod squares; and
+`α = (−λ·u₂/u₃, −u₂/u₃) = (λ, −u₂/u₃) + (−u₂/u₃, −1) = (−λ, −u₂/u₃) = (−λ, −nλZ) = (−λ, −nZ) + (−λ, λ) = (−λ, −nZ)`.
+Checked at every place on all 16622 solutions with p < 2000 (`scripts/review_geo_genus.py`). ∎
 
 **(F3) Planes through `M₁`: `4u₁ − n = λ(u₂+u₃)`.** The residual conic meets the boundary triangle in
 `(0:λ:0:4) ∈ {x₀=x₂=0}` and `(0:λ:4:0) ∈ {x₀=x₃=0}` — two rational points on different components:
@@ -173,7 +203,7 @@ In the toric model (Prop 2.1) the conic-bundle classes on `Bl_{V}Π̄` are the s
 this is (F1), `s_k = 1/u_k` constant). (F2), (F3) live on toric blow-ups of the boundary corners, resp. use
 `M_k`; in all cases the two points at infinity lie on two *different* boundary components.
 
-### 3.2 Why no fibre can be a Pell conic (PROVED)
+### 3.2 Why no fibre can be a Pell conic (PROVED; reason = BL Lemma 3.10, see R126 repair after Prop 3.2)
 **Theorem 3.1 (no infinite integral fibres).** Let `n ≥ 1` and `C ⊂ U_n` an irreducible curve over ℚ.
 If `C ∩ 𝒰_n(ℤ)` is infinite then `C` is one of the lines `L_ij` (all `n`) or `M_k` (only if `4 | n`; these
 carry only non-positive points). In particular: (i) for every dominant `φ : U_n → B` to a curve, all fibres
@@ -183,7 +213,7 @@ many integral points, and no fibre has infinitely many positive integral points;
 `u₁u₂u₃ ≠ 0` and `u_i ≠ −u_j` are finite. Points with `u_i = −u_j` and `u₁u₂u₃ ≠ 0` satisfy (substitute)
 `u_k = n/4`, i.e. lie on `M_k`, and have a negative coordinate. ∎
 
-**Proposition 3.2 (structural reason: the torus is split).** `V_n ≅ G_m²` *over ℚ*, with characters
+**Proposition 3.2 (the torus is split).** `V_n ≅ G_m²` *over ℚ*, with characters
 `u_i/u_j`. Any morphism from a non-split one-dimensional torus `T = R¹_{K/ℚ}G_m` to `V_n` is constant
 (`X^*(T)^{Gal} = 0`, so `T` has no non-constant units, and a morphism to `G_m²` is a pair of units). Every
 subtorus of `V_n` and every translate of one is split. So the "Pell" mechanism (a non-split torus whose unit
@@ -193,12 +223,23 @@ slice of every ES parametrisation is a *split* binary problem `XY = N` with cong
 ("divisors in residue classes"): e.g. (F1) `X | (nt)², X ≡ −nt (mod 4t−n)`; Type II with `a, d` fixed:
 `f | n + 4a²d, f ≡ −1 (mod 4ad)`; Type I with `a, d` fixed: `f | 4a²d+1, f ≡ −n (mod 4ad)`.
 
+*Scope of Prop 3.2 (R126 repair).* Prop 3.2 excludes non-split tori only among curves **contained in `V_n`**. A
+fibre C of an arbitrary fibration of `U_n` need not lie in `V_n`: `C ∩ V_n = C \ (L₁₂ ∪ L₂₃ ∪ L₃₁ ∪ E)` can be a
+*punctured* non-split torus, and punctured tori do have non-constant units (on `T : x² − 2y² = 1`, `x − 1` is a
+unit on `T \ {(1,0)}`; with two rational punctures the unit rank is 2 and embeddings into `G_m²` exist).
+Splitness is therefore PROVED only for the plane-conic bundles (F1)–(F3) and for curves inside `V_n`; "every conic
+bundle of `U_n` is split" is **not claimed**. The arithmetic conclusion does not need it: Thm 3.1 (= BL Lemma
+3.10, a real-place bound from `min|u_i| ≤ 3n/4`) gives finiteness of integral points on every non-line curve,
+split or not. That, not splitness, is the reason there is no Pell fibre.
+
 **Corollary 3.3 (answer to aim (B) for fixed n).** There is no fibration of `U_n` (or of `Ũ_n`, or of any
 model birational to it over ℚ that preserves the integral points) on which the archimedean place is
 non-compact on fibres in the integral sense, i.e. whose fibres carry infinitely many positive integral points.
-The positivity region `U_n(ℝ)⁺` is non-compact, but its integral points are bounded (`u_i ≤ n²`-type bounds
-from `min u_i ≤ 3n/4`), so no strong-approximation statement involving `U_n(ℝ)⁺` and integrality at all finite
-places can be "non-compact". (PROVED; it is a reformulation of BL Lemma 3.10 plus Prop 3.2.)
+The positivity region `U_n(ℝ)⁺` is non-compact, but its integral points are bounded (`u_i ≪ n⁴`, from
+`u₁ ≤ 3n/4`, `u₂ ≤ 2nu₁/(4u₁−n)`, `u₃ ≤ nu₁u₂`; R126 repair: the earlier "n²-type" was wrong, e.g.
+4/7 = 1/2 + 1/15 + 1/210 and in general `((n+1)/4, nu₁+1, nu₁(nu₁+1))` for n ≡ 3 (4)), so no strong-approximation
+statement involving `U_n(ℝ)⁺` and integrality at all finite places can be "non-compact". (PROVED; it is a
+reformulation of BL Lemma 3.10 — R126 repair: Prop 3.2 is not needed, see the scope note after it.)
 
 ## 4. The total family, S-integral points, and the homogeneous spaces
 
@@ -214,11 +255,15 @@ For a primitive `s ∈ ℕ³` the set of n with `s ∈ Y_n(ℕ)` is `m(s)ℤ_{>0
 
 ### 4.2 S-integral reformulations do not help (PROVED, elementary)
 Over ℚ, `U_n ≅ U₁`; ES(p) ⟺ `U₁(ℚ)` meets `W = U₁(ℝ)⁺ × {v_p(u_i) ≤ −1 ∀i} × ∏_{ℓ≠p} 𝒰₁(ℤ_ℓ)` (BL §1.2).
-The set `𝒰₁(ℤ[1/p])⁺` is infinite (it contains `p^{−k}·U_{p^k}(ℕ)` for all k), so for `S = {∞, p}` an
-S-integral strong-approximation statement is not excluded by finiteness. But such a statement constrains only
+The set `𝒰₁(ℤ[1/p])⁺` contains `p^{−k}·U_{p^k}(ℕ)` for all k (R126 repair: it is infinite e.g. for p ≡ 3 (4) or
+p ≡ 2 (3) by explicit families, but in general infinitude needs solutions of 4/p^k with some `u_i` prime to p, an
+ES-type statement; it is not needed here), so for `S = {∞, p}` an S-integral strong-approximation statement is
+at least not excluded by finiteness. But such a statement constrains only
 the places off S, while ES imposes an open condition at **every** place, including both places of S; and
-`U₁(ℚ) ∩ W` is finite (it is `p^{−1}U_p(ℕ)`). In general `X(ℚ)` is discrete in `X(𝔸)` for affine X, so a
-condition at all places is a Hasse-principle question for a finite set, never an approximation question.
+`U₁(ℚ) ∩ W` is finite (it is `p^{−1}U_p(ℕ)`, finite by BL Lemma 3.10). `X(ℚ)` is discrete in `X(𝔸)` for affine
+X, and here (by BL Lemma 3.10, not in general — R126 repair: e.g. `x² − 2y² = 1` with `ℝ_{>0}² × ∏ℤ_p` has infinitely
+many points) a condition at all places is a Hasse-principle question for a finite set, not an approximation
+question.
 The same applies to every `S`.
 
 ### 4.3 The genuine homogeneous spaces: the hyperboloids `X_d` (PROVED; cf. O124, O128)
@@ -237,16 +282,21 @@ The ES condition sits on top of `X_d` as follows. Type I(p) at level d ⟺ there
 `κ_p(x) := (f + p)/(4da) ∈ ℤ_{≥1}` (and `gcd(κ_p, p) = 1`)   (ET (2.6), c = κ_p).
 `κ_p` is the pencil of planes `f + p = 4cd·a` through the line `ℓ_p = {a = 0, f = −p}`; each plane cuts
 `X_d` in the conic `e(4cda − p) − 4da² = 1`, whose quadratic part `4da(ce − a)` splits: **each member of
-the pencil is a split conic** with finitely many integral points (Prop 3.2 again). So
+the pencil is a split conic** with finitely many integral points (a divisor problem `XY = N`, `N ≠ 0`). So
 
 **Proposition 4.1 (shape of the problem on the homogeneous space).** `Σ^I_{p,d} = {(a,c,e,f) :
-ef − 4da² = 1, f + p = 4cda}` maps injectively to `X_d`; it is the affine modification of `X_d` adjoining
+ef − 4da² = 1, f + p = 4cda, c ≠ 0}` (R126 repair: `c ≠ 0` added) maps injectively to `X_d`; it is the affine modification of `X_d` adjoining
 the rational function `κ_p`, whose polar divisor is `{a = 0}` and whose centre is the point
 `(e,f,a) = (−1/p, −p, 0)` (not ℤ_p-integral). `Σ^I_{p,d}(ℤ)` is finite for each `(p, d)`, while `X_d(ℤ)` is
-infinite. Hence: strong approximation on `X_d` gives integral points in every adelic open set defined by
+infinite. *Finiteness (R126 repair).* Without `c ≠ 0` it is false: `c = 0` forces `f = −p`, `e = −(4da²+1)/p`,
+integral for all a in a residue class mod p whenever (−d/p) = +1 (p = 5, d = 1: `(e,f,a,c) = (−1,−5,1,0),
+(−13,−5,4,0), (−29,−5,6,0), …`; these map to `(−a²dp, 0, 0) ∈ L₂₃`). With `c ≠ 0`: the map
+`(a,c,e,f) ↦ u = π^I_p = (abdp, acd, bcd)`, `b = ce − a`, is at most 2:1 (sign `(a,b,c) ↦ −(a,b,c)` at fixed d);
+`b = 0` would give `pe = −1`, `b = −a` would give `ce = 0`, and `bp = −c` would put u on `M_k` with `u_k = p/4 ∉ ℤ`;
+also `a ≠ 0` (else `ef = 1`, `f = −p`). So the image avoids the lines and BL Lemma 3.10 gives finiteness. Hence: strong approximation on `X_d` gives integral points in every adelic open set defined by
 congruences modulo a **fixed** modulus, but the ES condition `4da | f + p` is a congruence modulo a
 **point-dependent** modulus (one coordinate of the point itself). It is a shrinking-target condition on an
-orbit of an arithmetic group, not an adelic open condition. (PROVED.)
+orbit of an arithmetic group, not an adelic open condition away from ∞. (PROVED.)
 
 Type II has the same shape. ET (2.19) gives `ef − 4da² = p` (O124's `Q_d` with side condition
 `4ad | f+1`); O128 rewrites it as `ff' − 4c²(dp) = 1` with `f ≡ f' ≡ −1 (mod 4cd)` (ET (2.21)). That is,
@@ -259,11 +309,20 @@ ES solutions on `X_d` (or on O128's level-`dp` space). What is needed is a **poi
 statement**: an integral point `x` of the orbit with `x ≡ x₀ (mod N(x))`, where `N(x)` grows with `x`. The tools
 for that are equidistribution with power savings in the level (spectral: Duke, Iwaniec, Kloosterman sums).
 This is exactly the spectral agents' territory (O123/O127/O128). The geometric route **collapses into** the
-spectral route at this point. (Assessment for the "collapses" sentence; the rest is PROVED.)
+spectral route at this point. (R126 repair: the paragraph above is an Assessment; a real open box isolates any single
+integral point, so "adelic open set" must be restricted. The PROVED core is the following.)
+
+*Precise form (PROVED, R126 repair).* For every open `W_f ⊂ ∏_ℓ X_d(ℤ_ℓ)` the set `X_d(ℤ) ∩ W_f` is empty or
+infinite: if `x ∈ X_d(ℤ) ∩ W_f`, then for N large the principal congruence subgroup `Γ(N)` of the arithmetic group
+`SO(q_d)(ℤ)` fixes x mod N, so `Γ(N)x ⊂ W_f`; and `Γ(N)x` is infinite because `Γ(N)` is infinite (`SO(1,2)` is
+non-compact) while the stabiliser of x is finite (it is the ℤ-points of the anisotropic torus T, compact at ∞).
+The level-d ES set of p is finite (Prop 4.1 with `c ≠ 0`). Hence no statement of the form `X_d(ℤ) ∩ W_f ≠ ∅`
+(strong approximation away from ∞, with or without Brauer–Manin) certifies an ES point at level d; the same
+argument applies to O128's level-`dp` space.
 
 ## 5. The Brauer class is genus theory; quadratic-form structure (for O124 / O123 / O127 / O128)
 
-### 5.1 α on Type I and Type II solutions (PROVED; checked by `scripts/geo_genus.py` on all 31718 Type I and 12094 Type II ordered solutions, p < 2500)
+### 5.1 α on Type I and Type II solutions (PROVED; known, see R126 attribution notes; checked by `scripts/geo_genus.py` on all 31718 Type I and 12094 Type II ordered solutions, p < 2500)
 By BL Cor 1.3 a natural solution for a prime p satisfies `((−u_i/u_j)/p) = −1` for the pair with
 `u_i/u_j ∈ ℤ_p^*`. In ET coordinates (`u = (abdp, acd, bcd)`, Type I; `u = (abd, acdp, bcdp)`, Type II) that pair
 is `(a, b)`, and the condition reads `((−ab)/p) = −1`.
@@ -274,14 +333,26 @@ is `(a, b)`, and the condition reads `((−ab)/p) = −1`.
 Equivalence with BL: `4abd = pe + 1` (ET (2.1)) gives `(abd/p) = 1`. ∎
 So **the transcendental Brauer class, restricted to the Type I locus of level d, is the quadratic character of
 `ℚ(√−d)` at p**: the level-d hyperboloid `X_d` (§4.3) can contribute only if p is inert in `ℚ(√−d)`. This is the
-classical condition (Yamamoto / ET), now identified as BL's α.
+classical condition (Yamamoto / ET). (R126 repair, attribution: the statement is folklore — it is the two-line
+reason why the Mordell/ET families `{n ≡ −f (mod 4ad), f | 4a²d+1}` (ET Prop 1.9, first family) cover only
+non-residue classes mod 4d — and the derivation of Yamamoto's Type 1 condition `(p/4abq) = −1` from α is already in
+BL Appendix A. We only record it in ET coordinates; it is not new. Yamamoto 1965 itself was not accessed.)
+
+*Local form (R126 repair).* The obstruction is a genuine Brauer–Manin obstruction on the level-d chart. On
+`Σ^I_{p,d}(ℤ_p)`, `4abd = pe + 1` gives `(abd/p) = 1`, hence `inv_p α = ((−ab)/p) = (−d/p)` **locally**; with
+`inv_∞ α = −1` on the positive part and `inv_ℓ α = +1` for ℓ ≠ p (BL Lemmas 3.1, 3.5, 3.8), every positive adelic
+point of `Σ^I_{p,d}` has invariant product `−(−d/p)`. So for `(−d/p) = +1` the positive adelic Brauer set of the
+level-d chart is empty.
 
 **Proposition 5.2 (Type II: α is quadratic reciprocity for the divisor f, no condition on p at a fixed level).**
 For every Type II solution, `(f/p) = −(−1/p)` and `(−d/f) = −1`, and BL's condition `((−ab)/p) = −1` is
 *equivalent* to `(f/p) = −(−1/p)`, which holds automatically. Proof: `f ≡ −1 (mod 4ad)`, so `(−4d/f) =
 (−4d/−1) = −1`. `p ≡ −4a²d (mod f)` gives `(p/f) = (−d/f) = −1`, and reciprocity (f ≡ 3 mod 4) gives
 `(f/p) = (p/f)(−1/p)`. Equivalence: `e ≡ 4abd (mod p)` (ET (2.13)), so `(−ab/p) = (−de/p)`, and
-`ef ≡ 4a²d (mod p)` gives `(e/p) = (d/p)(f/p)`. ∎ (This is O128's genus lemma `(p/f) = −1`.)
+`ef ≡ 4a²d (mod p)` gives `(e/p) = (d/p)(f/p)`. ∎ (This is O128's genus lemma `(p/f) = −1`. R126 repair, attribution: it is **Yamamoto 1965, Lem. 4**. In
+Mordell's Type 2 notation `(u₁, u₂/p, u₃/p) = (bcd, abd, acd)`, Yamamoto's `q = 4abd − 1` satisfies `(p/q) = −1`.
+Under `(a,b,c)_Mordell = (c,a,b)_ET` this q is ET's `f = 4acd − 1`. BL Appendix A (pp. 15–16) already derives it
+from Cor 1.3, i.e. from α. Not new.)
 
 So the Brauer–Manin obstruction **never** removes a level for Type II and removes exactly the levels with
 `(−d/p) = +1` for Type I. For a "square-mimicking" p (`(−d/p) = +1` for all small d) Type I needs a level
@@ -305,7 +376,9 @@ Primes `p ≡ 1 (mod 24)`, `p < 1.5·10⁶` (14183 primes):
 * Type II at level `d = 1` (`∃a: p + 4a²` has a divisor `≡ −1 (mod 4a)`) **fails for 73 primes** (49 below
   `3·10⁵`, 24 in `[3·10⁵, 1.5·10⁶]`, e.g. 97, 193, 673, …, 1456921). The `a`-range is complete: by the
   reflection `a ↔ b` one may take `a ≤ b`, and then `4abcd = a + b + pc` gives `a² ≤ a/(2cd) + p/(4d)`, so
-  `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. The failing primes show no square-mimicking pattern in their Legendre symbols mod
+  `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. (R126: all §5.3
+counts and level sets were reproduced exactly by independent code, `scripts/review_geo_levels.py`; both completeness
+bounds were re-derived, and no solution with p < 2000 violates them.) The failing primes show no square-mimicking pattern in their Legendre symbols mod
   `q < 60`. The failure rate decreases (1.5% → 0.2%), as a Poisson heuristic with mean `≍ log²p/d` predicts.
 * Type I at a fixed level d, complete search (`scripts/geo_levelsI.py`; with `a ≤ b`, ET Lemma 2.8 gives
   `a ≤ 3p/4d`), primes `p ≡ 1 (24)`, `p < 10⁵`, `(−d/p) = −1`:
@@ -326,7 +399,7 @@ concerns `|D| → ∞` at a fixed level; here `D = −4d` is fixed and the targe
 |---|---|---|---|
 | Strong approximation with BM on `𝒰_n` (Cao–Xu, Wei, CT–Xu) | integral points dense off S | `𝒰_n(ℤ)` finite off lines; SA fails even with Br (BL Thm 1.9) | impossible (PROVED, BL) |
 | Fibration method for integral points (CT–Xu quadric fibrations; Harpaz–Wittenberg) | fibres with SA (homogeneous / quadrics of dim ≥ 2) and a sieve-type input on the base | every fibration of `U_n` has finite fibres (Thm 3.1) | impossible on `U_n` (PROVED) |
-| Harpaz / Swinnerton-Dyer descent on conic log K3 (GTZ input) | conic bundle with **non-split** generic fibre `f x² + g y² = 1`, 2-Selmer groups of norm-one tori | all conic bundles of `U_n` are **split** (§3.1, Prop 3.2); for a split torus `H¹(k, G_m) = 0` (Hilbert 90) and the descent has nothing to work with: integral points on `XY = N` are a divisor problem | does not apply (PROVED that the fibres split; "nothing to work with" is an Assessment) |
+| Harpaz / Swinnerton-Dyer descent on conic log K3 (GTZ input) | conic bundle with **non-split** generic fibre `f x² + g y² = 1`, 2-Selmer groups of norm-one tori | the plane-conic bundles (F1)–(F3) and all curves inside `V_n` are **split** (§3.1, Prop 3.2); R126 repair: splitness of *all* conic bundles of `U_n` is **not** proved (fibres meeting the lines can be punctured non-split tori), but every non-line curve has finitely many integral points anyway (Thm 3.1 = BL Lemma 3.10); for a split torus `H¹(k, G_m) = 0` (Hilbert 90) and the descent has nothing to work with: integral points on `XY = N` are a divisor problem | does not apply (PROVED: (F1)–(F3) split, and finiteness on every fibre by Thm 3.1; "nothing to work with" is an Assessment) |
 | Markoff-type (Ghosh–Sarnak, Whang): non-linear automorphism group with infinite orbits | Vieta involutions (toric model with 2 points per side) | toric model with 1 point per side (Prop 2.1); equation linear in each variable | no orbit structure (Assessment, supported by Thm 3.1) |
 | Strong approximation on the homogeneous spaces `X_d` / O128's level-`dp` space | adelic open target sets (fixed modulus) | point-dependent modulus `4da \| f+p` (Prop 4.1) | needs shrinking-target equidistribution, i.e. spectral input (Cor 4.2) |
 | Duke-type equidistribution of Heegner points | `|D| → ∞` at a fixed level | Type I: `D = −4d` fixed, target shrinks with p; Type II: `D = −4dp` grows, but the side condition `A ≡ −1 (mod B)` has a point-dependent modulus | not directly (Assessment) |
@@ -346,7 +419,7 @@ mass bound of EXCEPTIONAL_TYPEI_LOGLOG.
 ## 7. Test bench: square-mimicking primes and sterile candidates
 * Everything PROVED above holds for every n (Thms 3.1, Props 3.2, 4.1, 5.1, 5.2) or is a restatement. It is
   therefore automatically compatible with the square-mimicking primes and with x** (POINTWISE_SIZE,
-  MORDELL13E). BL Thm 1.8 says the BM set is non-empty for **every** n, so the Brauer class can never certify
+  MORDELL13E). BL Thm 1.8 says the BM set is non-empty for **every** n ≥ 2 (R126 repair: for n = 1 it is empty, §1), so the Brauer class can never certify
   sterility: a sterile point, if one exists, is a failure of the integral Hasse principle **not explained by
   BM** (cf. BL Thm 1.9 for strong approximation). (PROVED, from BL.)
 * Prop 5.1 says what a square-mimicking prime does to the geometry. If `(−d/p) = +1` for all `d < D`,
