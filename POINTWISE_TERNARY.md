@@ -307,10 +307,13 @@ mild in the sense of (R) (definite `Q`, any `k ≥ 3`; or indefinite ternary wit
 Cor 5.3(ii)), the closure of `𝒫_R` in `Ẑ^×` contains **no sterile point**. In particular it contains no square
 point, and it contains x** only if the embedding's degenerate pieces produce an ET class containing x**, which by
 MORDELL13E Comp 3.1 (CERTIFIED) must have ES level `≥ 2.59·10¹⁰`; if Conj 5.2 of MORDELL13B (x** sterile) holds, never.
-*Proof.* `𝒫_R ⊆ U` (Cor 4.2), a finite union of polynomially solvable primitive classes. If a sterile `x` were in
-the clopen closure of `𝒫_R`, it would lie in one of these classes, `r mod q`. By ET Prop 1.9 all large primes of
-`r mod q` lie in finitely many ET classes; primes are dense in `r + qẐ` (Dirichlet), so `r + qẐ ⊆` this finite
-(clopen) union, and `x` lies in an ET class. ∎
+*Proof.* Work with primitive cylinders `C(r, q) = {x ∈ Ẑ^× : x ≡ r (q)}`, `gcd(r, q) = 1`, and let `𝒫̂_R`, `Û` be
+the (clopen) unions of the cylinders of the classes making up `𝒫_R`, `U`. Cor 4.2 gives `𝒫̂_R ⊆ Û`. If a sterile `x`
+lay in `𝒫̂_R`, it would lie in `C(r, q)` for one of the polynomially solvable classes `r mod q` of `U`. By ET Prop 1.9,
+all large primes `≡ r (q)` lie in a finite union of ET classes, each a union of primitive classes mod some modulus;
+let `Q'` be the lcm of these moduli and `q`. By Dirichlet, every primitive class mod `Q'` inside `r mod q` contains
+large primes, so it lies in one of the ET classes. Hence `C(r, q)` is covered by the cylinders of these ET classes,
+and `x` lies in an ET class, a contradiction. ∎
 
 *Interpretation.* The campaign's formal obstruction (POINTWISE_SIZE Thms M, C) says that procedures using only
 congruence data fail at square-mimicking points; a representation-theorem argument is **not** congruence-only (it
@@ -346,20 +349,20 @@ ES level `< 2.59·10¹⁰` contains x** (CERTIFIED there; not re-run here).
 ## 9. Scope: what the theorem does not exclude
 
 1. **Families with a growing parameter** (`∃ t ≤ T(p)` such that `κ_t p + η_t` is represented by `Q_t` with
-   recipe `Φ_t`). For k = 3 the constants of Lemma 2.1 and Prop 2.2 are **uniform in `Q_t`** given `D` (Minkowski-reduce
-   `Q_t` by a `GL₃(ℤ)` change, which preserves `D`; a reduced integral form has `Q(v) ≫ Σ v_i²`; Pila's constant
-   depends only on the degree; `|𝔐_{t,j}| ≤ C(D)` because `Q_t − m` must divide a fixed nonzero polynomial of degree
-   `O(D)`). So each nondegenerate `(t, j)` still sees `≤ C f(p) p^{1/4+ε}` representations, while a mild `(t, j)`
-   needs `≫ p^{1/2−ε} disc(Q_t)^{−O(1)}` (Siegel; the exponent is not made explicit here). Hence for
-   `disc Q_t ≤ p^{δ}` (small δ) the nondegenerate parts are again useless (PROVED modulo the uniform form of (R)), and
-   what remains is the union of the degenerate parts: a congruence covering whose moduli grow with `T(p)`. That is
-   the multiplier/covering mechanism of the OMEGA line, subject to its Ω-results (`W(p)` can be as large as
-   `exp(c(log p)^{1/4−o(1)})`): Assessment.
+   recipe `Φ_t`). Assessment only, not proved. For fixed `t` everything above applies. For k = 3, the Lemma 2.1 bound
+   is uniform in `Q_t` given `D`: Minkowski-reduce, and Pila's constant depends only on the degree. But two things
+   are not controlled. (i) The exceptional levels `𝔐_{t,j}` are finite for each `t` (`|𝔐_{t,j}| ≤ C(D)`), yet their
+   union over `t` is not: the recipe chosen for `p` can be one whose exceptional level is `κ_t p + η_t`, e.g. after a
+   perturbation by `(Q_t − m_t)v₁` (R124 review). (ii) The bounds are in `(κ_t p + η_t)`, not `p`, and the lower bound
+   (R) is uniform in `disc Q_t` only up to `disc^{−O(1)}`. Heuristically, the nondegenerate parts are again useless,
+   and what remains is a congruence covering whose moduli grow with `T(p)`. That is the multiplier mechanism of the
+   OMEGA line, subject to its Ω-results.
 2. **Unbounded algebraic complexity.** Recipes that divide by `gcd`s of unbounded size, or use floor functions, or
    have degree growing with `p`, are `J, D → ∞` and are not covered (constants in Prop 2.2 depend on `J, D`).
 3. **Non-mild side conditions.** Side conditions of relative density `≤ p^{−1/4+ε}f(p)` (e.g. divisibility conditions
    with moduli depending on the variables, as in (Q_d)) are allowed by Theorem 4.1(a), but no representation theorem
    controls them; proving that such a set meets `E_m` is as hard as the original divisor problem (Prop 6.2(iii)).
-4. **Split indefinite forms** (§5 Remark): fibres can be rational lines; this is where ES's own structure lives.
+4. **Split level sets** (`E_m` containing `ℚ`-lines; indefinite `k ≥ 4`; §5 Remark): fibres can be rational lines.
+   ES's own quadratic piece is *not* of this kind; it escapes via item 3.
 5. **Higher-degree forms / norm forms.** Not considered (the count of representations would be smaller, so the
    counting argument is weaker; Assessment).
