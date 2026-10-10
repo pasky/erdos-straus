@@ -17,6 +17,7 @@ that the author's dump was *read* for comparison.
 | Prop 4.1 signed decomposition, −2 boundary | SOUND (checked n ≤ 3000 on support, full box n ≤ 60) |
 | Lemma 5.1 (ideal divisors of α ↔ divisors of N(α)) | SOUND |
 | Thm 5.2 (Type I CM torus) | SOUND-AFTER-REPAIRS (D3, D4: notation + missing p | cd case) |
+| §2.3 rank search, "dim(span E ∩ span C) = 0" | SOUND as EVIDENCE; now upgraded to CERTIFIED (exact ℚ-rank, R131) for the 54-column dictionary, n ≤ 2·10⁴; headline wording overclaims (D1) |
 | (further claims appended below as checked) | |
 
 ## Checks
@@ -64,7 +65,7 @@ T2⁻ (ordered, so 2T2⁻ − δ⁻); X ≡ −1 gives 2T2⁺ − δ⁺. A₊₁
 so both displayed formulas hold, and each bracket vanishes exactly when the (c,d) slice is empty (finite support). ✓
 Numerics (same script): per-slice identities A₊₁ = 2 + 2T2⁻_{c,d} − δ⁻, A₋₁ = 2T2⁺_{c,d} − δ⁺ on every (c,d) in the
 support for all n ≤ 3000 (143 012 slices), and for n ≤ 60 on the full box c ≤ n + 1, d ≤ n/2 + 1 (which contains
-all solutions: T2⁺ has c ≤ a + b ≤ (n+4)/3·…, d ≤ (n+2)/4; T2⁻ has d < n/4, c < n), with the summed totals
+all solutions: T2⁺ has c ≤ a + b ≤ 2b ≤ 2(n+1)/3, d ≤ (n+2)/4; T2⁻ has d < n/4, c < n), with the summed totals
 2(T2⁻ ∓ T2⁺) − (δ⁻ ∓ δ⁺) reproduced exactly. 0 failures. (The author checked n ≤ 40 only.)
 
 ### C7. Lemma 5.1 / Theorem 5.2 — SOUND-AFTER-REPAIRS
@@ -79,3 +80,35 @@ Numerics (same script; primes 5 ≤ p ≤ 3000, all (c,d) in the support plus th
 131 863 cases): #{f | p² + 4c²d : f ≡ −p (mod 4cd)} = 2T1⁺_{c,d}(p) − δ; nonzero only when (−4d/p) = −1 (inert);
 (−4d/f) = 1 for **every** divisor f of N(α). 0 failures. I did not re-run the PARI ideal-factorisation check
 (the elementary argument above suffices). See D3, D4.
+
+### C8. §2.3 rank search — SOUND, upgradeable to CERTIFIED; validity questions answered
+*Is a mod-p rank valid for real-coefficient relations?* Real relations among rational vectors exist iff rational
+ones do, so ℚ is the right field. For an integer matrix rk_p ≤ rk_ℚ, hence rk_p(C∪E) is a valid **lower** bound
+for rk_ℚ(C∪E), but rk_p C, rk_p E are only lower bounds for rk_ℚ C, rk_ℚ E, so `rkC + rkE − rk(C∪E)` computed mod p
+is *not* a rigorous upper bound for the ℚ-intersection dimension (dim_ℚ ≤ (rk_ℚC − rk_pC) + (rk_ℚE − rk_pE)).
+The author's code (`exf_nullspace.py`) does only the mod-p computation, although its docstring says "then exact
+verification" (none is performed). *Is the 500-random-row restriction valid?* Yes in the direction claimed, but
+only if the restriction π is injective on span E: a relation Eu = Cw on all rows restricts to the subset, and
+π(Eu) ≠ 0 needs injectivity; for 5 of the 6 row sets rk E < #E columns, so this has to be checked.
+**R131 check (`scripts/review_r131_rank.py`, own code):** I regenerated the author's columns
+(`exf_engine`, `exf_hurwitz`, `exf_columns.py`) and spot-checked them: all 56 ES columns equal my brute-force values
+for n ≤ 3000; 12H(D) equals my reduced-form count for D ≤ 3000 and 300 random D ≤ 1.4·10⁶; H(n), H(4n), τ(4n+1),
+τ(n²+4), Σ_x H(4n − x²) (n ≤ 600), τ(n): 0 mismatches. Then, on 500 **own** random rows per set (all 267 rows for
+p ≡ 1 (24) — the author's "500 random rows of each row set" is not literally true there), fraction-free exact
+ℚ-ranks:
+
+| rows | rk_ℚ C | rk_ℚ E | rk_ℚ(C∪E) | dim_ℚ ∩ | ker_ℚ E(subset) kills all rows of the set |
+|---|---|---|---|---|---|
+| all n ≥ 2 | 46 | 56 | 102 | 0 | (trivial kernel) |
+| odd n | 41 | 52 | 93 | 0 | yes (dim 4) |
+| primes ≥ 5 | 27 | 50 | 77 | 0 | yes (dim 6) |
+| p ≡ 1 (4) | 22 | 47 | 69 | 0 | yes (dim 9) |
+| p ≡ 3 (4) | 22 | 49 | 71 | 0 | yes (dim 7) |
+| p ≡ 1 (24) | 18 | 45 | 63 | 0 | yes (dim 11) |
+
+(rk C for p ≡ 1 (4) is 22 on my rows vs 23 on the author's; immaterial.) Since π is injective on span E, a nonzero
+v ∈ span E ∩ span C on the full row set would restrict to a nonzero element of the subset intersection.
+Therefore: **CERTIFIED (R131): for each of the six row sets ⊂ [2, 2·10⁴], no nonzero linear combination (real
+coefficients) of the 56 ES columns equals a linear combination of the 54 classical columns.** This is the correct
+scope: a finite dictionary on a finite range — it says nothing about classical functions outside the dictionary
+(e.g. Σ_{c,d} twisted divisor sums at 4c²dn + 1, which Prop 4.1 shows *do* give exact identities).
