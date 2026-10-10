@@ -29,7 +29,7 @@ PDFs: `sources/autgeo/`.
    * *What O123 must compute.* For a fixed prime `p`, find the discriminant and the target region in which an ES Type I solution corresponds to a Heegner point. Then compare the region's area with `D^{−1/12}` (unconditional) or `D^{−1/4}` (GLH).
      * If the area is a fixed power of `D` above that threshold, the method would give a pointwise statement. It would be ineffective through Siegel; effective under GRH.
      * If the area is below the threshold, the method is out of range. That would be the expected outcome, and it is a precise one.
-2. **(all) The odd-square sanity check.** Elsholtz–Tao Prop. 1.6 ✔ (p. 7 of arXiv:1107.1010): `f_I(n) = f_II(n) = 0` for every odd perfect square `n`.
+2. **(all) The odd-square sanity check.** Elsholtz–Tao Prop. 1.6 ✔ (§1 of arXiv:1107.1010, checked in the local PDF): `f_I(n) = f_II(n) = 0` for every odd perfect square `n`.
    * Any method that proves `f_I(p) > 0` must therefore fail at `n = p²`. ET note that this already rules out finite covering congruences and the circle method.
    * A spectral/Heegner route passes this check only if its discriminant or target degenerates at squares. Check this first.
 3. **(O123, O124) Optimal lifting benchmarks.** Sardari ✔ (Duke 2019, arXiv:1510.00462):
