@@ -1,4 +1,4 @@
-# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-10 to main after ledger (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]; previous refresh 2026-10-09 (2) after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
+# Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-10 (2) after ledger (I)1–(I)8, the automorphic/geometric attack on pointwise ES, §3.5; previous refresh 2026-10-10 to main after ledger (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]; previous refresh 2026-10-09 (2) after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
 
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
@@ -127,6 +127,12 @@ The campaign ran two lines of research.
   decide sterility: fibre certificates approach w = 9 arbitrarily closely
   and the covered part of the fibre is open and dense (PROVED, TYPEI7).
   No sterile point other than the square points is proved.
+* **Automorphic/geometric attack on pointwise ES** (2026-10-10, ledger (I), §3.5). Spectral (SL₂/Heegner, Hecke,
+  Eisenstein), quaternionic, ternary-form, exact-formula and arithmetic-geometric (fibrations, descent, Brauer–Manin)
+  inputs were all tested and red-teamed twice. The outcome is a precise negative map. Every encoding found reduces at
+  fixed p to congruence/genus data plus a divisor-in-class event for one integer (the divisor-class reduction, PROVED).
+  Any fixed finite set of such slices fails infinitely often under Hypothesis H (CONDITIONAL). No standard conjecture
+  is known to imply ES. Two escape hatches without known technology remain (H-A, H-B). ES is not solved.
 
 ---
 
@@ -1278,6 +1284,57 @@ was **not** reached.
 half-set lemma, stacking, W1/W2 and exact orders, Prop P1, with the model
 and data as labelled remarks (refereed internally, R41 minor revision
 applied).
+
+### 3.5 The automorphic/geometric attack (2026-10-10)
+
+**Why.** Theorems M, C, F and Prop A (§3.2) exclude every argument that uses only congruence data. So a pointwise
+proof needs spectral, automorphic or arithmetic-geometric input. This phase (tasks O123–O132, ledger (I)1–(I)8) tested
+such inputs. The literature survey (`LITERATURE_AUTOMORPHIC.md`) found no prior pointwise ES result, conditional or not.
+
+**Dictionaries** (PROVED; elementary or relative to ET; novelty modest, partly folklore):
+* Type I at fixed p consists of SL₂/Heegner points in tubes of hyperbolic width ≍ 1/p. Its solution forms are
+  `T_p`-translates of level-d forms (Hecke) (`POINTWISE_SPECTRAL.md`).
+* Type II solutions are Heegner points of discriminant −4dp on an exact shell, `ff' − 4c²(dp) = 1`
+  (`POINTWISE_TYPEII_SPECTRAL.md`).
+* Bright–Loughran's Brauer class is genus theory: (−d/p) = −1 on Type I level d, and (f/p) = −(−1/p) on Type II.
+  This is folklore, resp. Yamamoto 1965 (`GEOMETRY_ES.md`).
+* A Type I solution gives an order of discriminant `pe` in `B_{p,∞}`. This is a Gross–Zagier-shaped "x = 2" collision,
+  but a formal analogy only. Type II is a factorisation in (−d,−p) (`QUATERNION_ES.md`).
+* The only rank-3 quadratic piece of ET's charts is `Q_d = ef − 4da²` (`POINTWISE_TERNARY.md`, CERTIFIED).
+
+**Negative results** (exact scopes are in the ledger):
+* Fixed ternary forms with mild representation inputs give only finite polynomial coverings (Thm 4.1, PROVED relative to
+  Pila / Mordell–Schinzel / ET).
+* The scale constraint (`CONDITIONAL_ES.md` Prop 2.3, PROVED relative to ET): bounded-multiplicity lower-bound
+  certificates need main term `p^{o(1)}`. So no standard conjecture is *known* to imply ES; GRH and GLH are covered
+  "by these routes".
+* Thickening the Type I tube to width K/p is exactly averaging over `|n − p| ≤ K` (PROVED).
+* Local and spinor conditions, and the Eisenstein genus pairing, all hold or cancel exactly at odd squares
+  (PROVED). So "local + spinor ⇒ global" is false here.
+* Only lines carry infinitely many integral points, so fibrations cannot help (BL Lemma 3.10).
+* No exact positive identity was found. CERTIFIED: no linear relation between 56 ES counts and 54 classical
+  functions on n ≤ 2·10⁴.
+* **Synthesis** (`reviews/redteam-automorphic-2.md`, O132):
+  * every two-coordinate slice of ET's varieties is a congruence class of p or "one integer N_θ(p) has a divisor in a
+    residue class mod q_θ" (PROVED, elementary);
+  * the six encodings are such slices, with congruence/genus invariants (PROVED relative to the reviewed statements);
+  * any fixed finite set of slices fails for infinitely many p ≡ 1 (24), whatever auxiliary input is used
+    (CONDITIONAL on H, via Thm C).
+
+**Assessment.** By these routes the difficulty is a Planck-scale divisor-in-class event with polylogarithmic expected
+counts. A sufficient hypothesis would be Type I/II restated.
+
+**Open doors** (no known technology):
+* **H-A:** aggregate the joint factorisation of a parameter family growing with p (≍ 𝓛³ blocks of expected size O(1),
+  EVIDENCE).
+* **H-B:** a parity-breaking, Friedlander–Iwaniec-type count of divisors in a moving class at fixed p.
+* Also untested: objects of rank > 2 or non-abelian objects.
+
+**EVIDENCE.** `f_I(p), f_II(p) ≥ 1` for every prime 5 ≤ p ≤ 10⁸.
+
+**Replay.** `verify.py` blocks (es)–(ez).
+
+**ES is not solved.**
 
 ---
 
