@@ -76,10 +76,51 @@ with `gcd(n, 2cd) = 1`, then `χ_{−4d}(−n) = +1`, where `χ_{−4d} = (−4d
 mod q, so `(−4d/q) = 1`; hence `χ_{−4d}(f) = 1`. As `f ≡ −n (mod 4cd)` and `χ_{−4d}` has period 4d,
 `χ_{−4d}(−n) = χ_{−4d}(f) = 1`. ∎
 *Consequences.* (1) For an odd square n = m², `χ_{−4d}(−m²) = χ_{−4d}(−1) = −1` for **every** d (the character of a
-negative discriminant is odd), so `f_I(m²) = 0` (gcd(m, 2cd) = 1 is automatic for c d small... and in general
-`gcd(f, cd) | m` handles the rest as in ET) — this recovers the Type I half of ET Prop 1.6. **Any fixed-p method
+negative discriminant is odd), so n = m² has no Type I solution with `gcd(m, 2cd) = 1`; in particular n = p² has
+none with p ∤ cd — the Type I half of ET Prop 1.6 in this case (the case p | cd is ET's). **Any fixed-p method
 must therefore carry the factor `(1 + χ_{−4d}(−p))/2` in its d-th main term**; an "area" main term that does not
 see χ_{−4d}(−p) is false (it would predict solutions for p²).
 (2) For p prime only the d with `(−4d/p)·(−1) = +1`, i.e. `(−d/p) = −1` (p inert in ℚ(√−d)) contribute; e.g.
 d = 1 contributes iff p ≡ 3 (mod 4). Check: `scripts/spec_genus_check.py` (all 1615 solutions for p ≤ 400: 0
 violations; shares by d: d=1 22% (all from p ≡ 3 mod 4), d=2 15%, d=3 8%, …).
+
+## 3. The fixed-p target regions (PROVED geometry; counts are EVIDENCE/Assessment)
+
+Two "Heegner" formulations; both are exact (point in region ⇔ Type I quadruple).
+
+**Prop 3.1 (Formulation A: level-d points of disc −4d, wedge at the cusp 1/(2c)).** Let
+`Λ_d = {z = (2ad + i√d)/f : a, f ≥ 1, f | 4a²d+1}` (roots of `[f, −4ad, de]`, the family 𝓕_d of TYPEI_LOGLOG §2).
+For z ∈ Λ_d and c ≥ 1, `(2c√d·x − √d − p·y)/y = 4acd − f − p ∈ ℤ`. Hence
+`(a,c,d,f)` is a Type I quadruple of p ⇔ `z ∈ R_c := {x+iy : |2c√d x − √d − p y| < y}`.
+R_c is the wedge at the boundary point `1/(2c)` between the Euclidean lines of slopes `2c√d/(p±1)`; its horizontal
+width at height y is `y/(c√d)`, so
+`area_hyp(R_c ∩ {y₁ ≤ y ≤ y₂}) = log(y₂/y₁)/(c√d)`; with the size window `f ∈ [1, 2p]` (y ∈ [√d/2p, √d]):
+**area(R_c) = log(2p)/(c√d).**
+Shape: both edges are hypercycles of the geodesic `x = 1/(2c)` at distances `arcsinh((p±1)/(2c√d))`, so R_c is a
+**tube of hyperbolic width 2/p + O(c√d/p²)** around a hypercycle arc of length `≈ p·log(2p)/(2c√d)`.
+*Proof.* For z ∈ Λ_d: `x/y = 2a√d`, `√d/y = f`; substitute. An integer of absolute value < 1 is 0. The width and
+area are direct integrations (`dx dy/y²`); the hypercycle distance of the ray at angle θ is `arcsinh(cot θ)`. ∎
+
+**Prop 3.2 (Formulation B: disc −4dp² points = T_p-translates, wedge at the cusp −1/(2a)).** Let
+`Λ'_{d,p} = {z' = (−2cd + ip√d)/f : c, f ≥ 1, f | p² + 4c²d}` (roots of `Q' = [f, 4cd, dg]`, disc −4dp²; by
+Lemma 2.2(b) these are T_p-images of disc −4d points). For z' ∈ Λ'_{d,p} and a ≥ 1,
+`(p/y')·(−2a√d x' − √d − y') = 4acd − f − p ∈ ℤ`, so Type I ⇔ `z' ∈ R'_a := {|2a√d x' + √d + y'| < y'/p}`, the wedge at
+`−1/(2a)` between lines of slopes `−2a√d/(1 ± 1/p)` (moderate angle). Width at height y' is `y'/(a√d p)`, and for
+`y' ∈ [√d/2, p√d]` (f ∈ [1, 2p]): **area(R'_a) = log(2p)/(a√d·p)**; shape: a tube of hyperbolic width ≍ 1/p around a
+hypercycle arc of length ≍ log p that runs from the cusp −1/(2a) up to height `√|D'|/2 = p√d` (the top of the
+Heegner set of D' = 4dp²). ∎ (Same computation.)
+
+**Expected counts (Assessment + EVIDENCE).** The point density of Λ_d is `ρ̄_d/(2√d)` per unit hyperbolic area
+(ρ̄_d = mean number of a mod f with 4a²d ≡ −1 (f)), and Λ'_{d,p} is p(1+O(1/p)) times denser. Both formulations give
+the same per-target expectation, which must carry the genus factor of Lemma 2.4:
+`λ_{c,d}(p) ≈ κ_d·(1 + χ_{−4d}(−p))·log p/(c d)` (Formulation A; for B read a for c).
+EVIDENCE (`scripts/spec_target_mean.py`, primes in [10⁶, 10⁶+2·10⁴], `data/spec/target_mean_1e6.txt`): among genus-
+allowed p, `mean·cd/L` is ≈ constant in c for each d (d=3: 0.52, 0.51, 0.53, 0.70 for c=1,2,3,5; d=6: 0.74, 0.80,
+0.76, 0.68), while the **fraction of empty targets is 13–89 %** (e.g. d=10, c=5: λ ≈ 0.13, empty 89 %; d=3, c=1:
+λ ≈ 2.4, still empty 17 %). Summing, `Σ_{c,d} λ_{c,d} ≈ mean f_I ≈ 0.1 L³` (§1).
+
+**Consequence (the decisive numbers).** In Formulation B the number of points is `h(−4dp²) ≍ p√d·L(1,χ_{−4d})`, so the
+relative measure of one target is
+`μ_{a,d} = λ_{a,d}/h(−4dp²) ≍ L/(a d^{3/2} p) = (Planck scale |D'|^{−1/2}) × O(L/(a d))`,
+and its minimal width is `≍ 1/p ≍ |D'|^{−1/2}`. In Formulation A, D = 4d is tiny (only d ≲ L² have λ ≳ 1/L), the
+target is a 2/p-tube along a hypercycle of length ≍ pL, and the large parameter enters only through the shape.
