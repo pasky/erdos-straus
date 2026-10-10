@@ -57,3 +57,22 @@ T1/T4/T8), not a route.
     `ck_min ≫ log p log₃p` is known.
   - (c) The `μ ≤ p^{o(1)}` qualifier is missing in the §5 table and report item 3.
   - (d) Add the odd-square fact to Prop 3.1.
+
+## Phase 2, item 2: O124 escape hatches (§6 of reviews/redteam-automorphic.md)
+* New PROVED facts:
+  - Prop 6.1: a valid recipe is constant on every irreducible curve carrying infinitely many admissible points,
+    because Sol(p) is finite. So lines and Pell orbits are coarse invariants: one curve gives one solution.
+  - Prop 6.2: a (Q_d) point with 4ad | f+1 is a Type II witness of modulus f, so f ≥ W(p) and X5 applies.
+  - Lemma 6.3: (Q_d) points correspond to forms [de, 4ad, f] of discriminant −4dp. The side condition is not
+    Γ₀(d)-invariant (Assessment); it selects orbit representatives at cusp height ≍ √p.
+* Verdicts:
+  - H1 (growing families) collapses to ET-class coverings with growing moduli. The exceptional-level loophole
+    is a parameter search (Assessment).
+  - H2 (thin side conditions, Q_d) is live only as a Planck-scale cusp-excursion problem (Kuznetsov on
+    Γ₀(4ad), DFI roots), which is O128's domain.
+  - H3 (split ternary level sets) collapses (Prop 6.1, Hasse–Minkowski, O(√N) primes).
+  - H4 (k ≥ 4 indefinite) reduces to H5.
+  - H5 (fixed level set ef − 4a²d = 1, p only in the side condition f ≡ −p mod 4ad) is outside O124's
+    Def 1.1 entirely. It is the live automorphic route (O123 / (D)32); x̂₉ is its binding sterile candidate.
+* Minor points on O124: Cor 7.1 covers mild inputs only. The §8 numerics bound the small parameters, not the
+  witness modulus f.
