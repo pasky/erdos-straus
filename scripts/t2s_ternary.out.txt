@@ -1,0 +1,2 @@
+primes < 160: Gram, Pell and divisor identities checked; failures so far = 0
+odd squares s^2, s <= 21: F(s^2) = 0 checked; total failures = 0
