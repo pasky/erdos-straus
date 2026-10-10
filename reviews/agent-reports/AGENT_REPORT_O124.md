@@ -44,12 +44,44 @@ All of these are repaired. The reviewer confirmed that Lemma 1.3, Lemma 2.1 (inc
 Lemma 3.1, Lemma 5.1, Prop 5.2 and the Thm 4.1 mechanism are sound. A from-scratch hostile review by the parent is
 still needed.
 
-## Suggested ledger entry (for the parent)
+## Suggested ledger entry (for the parent; updated after R124 and the red team)
 
-(H)/(F)-type negative result: "Representation theorems for definite (and line-free indefinite ternary) forms plus
-bounded-complexity ES recipes reduce to finite Mordell-type coverings (POINTWISE_TERNARY Thm 4.1, Cor 4.2; PROVED rel.
-Pila, Mordell–Schinzel, ET Thm 1.1). ES's only rank-3 quadratic piece is `ef − 4da²` with a non-mild side condition
-(Comp 6.1 CERTIFIED)." Novelty is modest (it formalises ET's remark on the circle method).
+(H)-type negative result, scoped. POINTWISE_TERNARY Thm 4.1 and Cor 4.2 (PROVED relative to Pila,
+Mordell–Schinzel and ET Thm 1.1). The setting is **one fixed** `(Q, κ, η)`, with `Q` definite (or line-free
+indefinite ternary), and a recipe of fixed complexity `(J, D)`, all independent of `p`. In that setting:
+* a mild representation input (R) proves ES only for primes among those a finite Mordell-type polynomial covering
+  already handles;
+* Cor 7.1: no sterile point lies in the closure of `𝒫_R`.
+
+**Not covered:**
+* families with a parameter growing with `p`, which includes every known ES parametrisation (ET Type I/II with
+  `a, d` unbounded); this stays an Assessment (§9.1);
+* thin side conditions on a level set (H2), which is where ES's own (Q_d) sits;
+* routes where `p` enters only through a side condition on a fixed level set (H5; Type I `ef − 4a²d = 1`,
+  `f ≡ −p (mod 4ad)`; O123).
+
+Comp 6.1 (CERTIFIED): among substructures in which `n` is a quadratic polynomial, ES's only rank-3 quadratic piece
+is `ef − 4da²`, isotropic, with a non-mild side condition.
+
+§8 (EVIDENCE): small `a, d` suffice up to 10⁸. This says nothing about the witness modulus `f ≥ W(p)`.
+
+Novelty is modest: the result formalises ET's two remarks (p. 5 and p. 6).
+
+## R124 / red-team repairs applied
+
+* M1: scope box in §0, plus the fixed-embedding caveat in Cor 4.2 and §7.
+* m1–m8:
+  * m1: "exactly" → "among".
+  * m2: (M) is cited to Mordell–Schinzel.
+  * m3: Prop 5.2 gains the `+2D` term.
+  * m4: det convention fixed.
+  * m5: slice argument and `≫ A` count.
+  * m6: both ET remarks cited.
+  * m7: the Type II map is injective, so `#R ≤ f(p)` trivially.
+  * m8: Comp 6.1 claim scoped.
+* Red team:
+  * Cor 7.1 is restricted to mild inputs (H2/H5 named), in §0, §7 and §9 item 5.
+  * §8 now notes that it bounds `a, d`, not `f ≥ W(p)`.
 
 ## Open / not done
 

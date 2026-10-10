@@ -30,7 +30,8 @@ combined with **one fixed** ES embedding of bounded algebraic complexity.
   Caution: thin nondegenerate pieces *can* cover positive-density sets outside `U` (explicit example after
   Cor 4.2), but no representation theorem certifies them. This holds for one fixed embedding only (scope box above).
 * **Cor 7.1.** The closure of `𝒫_R` in `Ẑ^×` contains no sterile point. So it contains no square point, and it contains
-  x** only through an ET class of ES level `≥ 2.59·10¹⁰` (by MORDELL13E).
+  x** only through an ET class of ES level `≥ 2.59·10¹⁰` (by MORDELL13E). This covers mild inputs only; it says
+  nothing about thin side conditions (H2) or about `p` entering through a side condition (H5).
 * **Step 3, the "sanity count".** The map from representations to ES solutions cannot be highly non-injective on a
   mild set unless it is degenerate. Side conditions that do work must be non-mild, of relative density
   `≤ p^{−1/4+ε}f(p)`.
@@ -45,7 +46,8 @@ combined with **one fixed** ES embedding of bounded algebraic complexity.
   counting obstruction only through such non-mild conditions.
 * **Step 4 (EVIDENCE).** Every Mordell-hard prime `≤ 10⁸` gets a Type II solution through (Q_d) with `d ≤ 8`,
   `a ≤ 22` (the maximum is at p = 84525841). This is a divisor search of growing length, not a representation
-  statement.
+  statement. It bounds only `a, d`: the witness modulus `f` satisfies `f ≥ W(p)`, which is huge infinitely often
+  (§8; red team Prop 6.2).
 * **Not excluded (§9).** Recipes of unbounded complexity; families with a growing parameter (only an Assessment, since
   exceptional levels are not uniformly controlled); thin side conditions; split level sets.
 * **Novelty (Assessment; R124 repair m6).** ET make two relevant remarks.
