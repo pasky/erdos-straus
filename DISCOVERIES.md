@@ -481,6 +481,20 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Props 5.1/5.2 (PROVED; checked on all solutions with p < 2000). On the Type I locus of level d, BL's class α is exactly (−d/p) = −1 (p inert in ℚ(√−d)); on Type II it is the genus character (f/p) = −(−1/p). Hence BM removes exactly the Type I levels with (−d/p) = +1, and never a Type II level. Not new: Prop 5.1 is folklore, and Prop 5.2 is Yamamoto 1965 Lem 4 (as reported in BL App. A).
    * EVIDENCE: single fixed levels fail for a few percent of primes p ≡ 1 (24), except "identity levels" such as d = 5. The target (SHT) — Type I at some level d ≤ (log p)^K with (−d/p) = −1 — implies ES under GRH. It is not a standard conjecture.
 
+8. **Synthesis: divisor-class reduction; second red team (reviews/redteam-automorphic-2.md (O132); red team 1: reviews/redteam-automorphic.md (O125)).**
+   * Lemma 2.1 (PROVED, elementary; machine-checked for primes 5 ≤ p < 200, 14-row table): fix any two of ET's coordinates, Type I or II. The fibre is then either a finite union of congruence classes of p, or the set of divisors of ONE integer N_θ(p) (for example p² + 4c²d, p + 4a²d, 4c²dp + 1, (pe+1)/4a) in a residue class mod q_θ.
+   * Thm 2.2:
+     * (i), (ii) (PROVED relative to the cited reviewed statements): the six encodings of this wave are slices — SL₂/Heegner Type I, Type II shells, the x = 2 quaternion collision, the (−d,−p) factorisation, the CM torus and Q_d. Their representative-independent invariants are congruence or genus data.
+     * (iii) (CONDITIONAL on Hypothesis H, via POINTWISE_SIZE Thm C): any argument that certifies ES(p) through a fixed finite set of slices fails for infinitely many p ≡ 1 (24), whatever auxiliary automorphic, spectral or geometric input it uses.
+   * The remaining freedom is a parameter set growing with p, i.e. the joint factorisation of ≍ 𝓛³ blocks of expected size O(1). EVIDENCE: Type II solutions near 10⁶ sit about one per dyadic (a,c,d) block.
+   * Second red team, as independent reviewer of the wave's headline: all negative conclusions survive (no FATAL/MAJOR). "Barrier" and "no standard hypothesis suffices" are Assessments and mechanism-scoped; read them as "by these routes" and "known technology".
+   * Escape hatches with no known technology (§3):
+     * H-A: aggregating joint factorisations over a growing family with a moving modulus;
+     * H-B: parity-breaking (Friedlander–Iwaniec-type) divisor-in-moving-class counts at a fixed p;
+     * also: higher-rank or non-abelian objects with non-zero coefficient, and exact positive identities (H-D, H-E).
+     * H-F is cautionary: Markoff-type families satisfy the integral Hasse principle for almost all parameters but fail infinitely often (Ghosh–Sarnak).
+   * **Wave verdict (Assessment): ES is not solved. Every automorphic or geometric encoding found here reduces, for fixed p, to genus/congruence data plus divisor events of specific integers at Planck scale, with polylogarithmic expected counts.**
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

@@ -44,7 +44,7 @@ toward ES is claimed.
   of `4c²dp+1` hit the class −1 is a global question (Assessment). No Gauss/three-squares mechanism applies.
 * §9 (PROVED identities + Assessment): every generating series in sight is Eisenstein. Odd/even Eisenstein
   coefficients cancel exactly at odd squares. Kudla/GKZ gives no fixed modular form and no cusp part.
-  **No automorphic pointwise route** comes out of this structure.
+  **No automorphic pointwise route** comes out of this structure (Assessment; O132 wording repair).
 * §10 (EVIDENCE): `f_II(p) ≥ 1` for all p ≤ 10⁸; the minimum in the top block is 94; `min R` ≈ 0.24.
 
 ## 1. Type II parametrisations (PROVED, elementary)

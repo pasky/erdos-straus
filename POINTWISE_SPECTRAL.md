@@ -275,5 +275,5 @@ Kloosterman bound `≪ (mnX)^ε` — suffices by itself to give ES (or Type I) f
    factor `1 + χ_{−4d}(−p)` built in (Lemma 2.4; without it the statement is false at n = p²).
 A hypothesis that does suffice must be of "Planck-scale, polylogarithmic-accuracy, genus-aware, aggregated" type —
 e.g. `Σ_{d ≤ L²} #(T_p Heeg_d(−4d) ∩ ⋃_a R'_a) ≥ (1 − o(1))·M(p)` for all large p — which is ES-Type-I for large
-p restated, not a standard conjecture. The implication from such a statement is trivial (Prop 3.2) and is not
+p restated, not a standard conjecture. (O132 note: as written, the window `d ≤ L²` forces the least quadratic non-residue `n_p ≤ L²` for `p ≡ 1 (4)`, since Type I at level d needs `(−d/p) = −1`; that bound is open even under GRH, so the window should be anchored at `n_p`.) The implication from such a statement is trivial (Prop 3.2) and is not
 claimed as a result.
