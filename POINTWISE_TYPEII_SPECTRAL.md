@@ -222,3 +222,80 @@ so Theorem C does not forbid it; but §4.4 shows the only available spectral sta
 input is genus-equidistribution, which is identical for square-mimicking and generic primes. So the automorphic
 input **cannot distinguish** square-mimicking primes at any reachable scale, and the numerically decisive
 information (§5) sits exactly in the unreachable `|D|^{−1/2}` regime.
+
+---
+# Round 2 (O128b): the algebraic angle
+
+## 7. Exact lattice data
+
+**Set-up.** `L = {[A,B,C]} ≅ ℤ³` (integral binary quadratic forms), `q([A,B,C]) = B² − 4AC` (signature (2,1);
+q < 0 ⇔ definite form ⇔ point of ℍ, q > 0 ⇔ indefinite form ⇔ geodesic), bilinear form
+`b(x,y) = q(x+y) − q(x) − q(y) = 2BB' − 4AC' − 4A'C`. `SL₂(ℤ)` acts by `x ↦ x∘γ`, isometrically; this is the
+standard isomorphism `PSL₂(ℤ) ≅ SO⁺(L)` up to finite index (L ≅ the trace-zero matrices `[[B/2·, ·],[·, ·]]`
+up to scaling: `[A,B,C] ↔ [[B, 2C],[−2A, −B]]` has `−det = B² − 4AC`).
+
+**Prop 7.1 (Gram data; PROVED).** For a Type II quadruple (a,b,c,d) of p (Lemma 1.1.2) let
+`Q = [f, 4ad, de]`, `S_c = [0, 2c, 1]`. Then `q(Q) = −4dp`, `q(S_c) = 4c²`, `b(Q, S_c) = 4(cB − A) = 4`. So
+`ℤQ + ℤS_c ⊂ L` has Gram matrix (w.r.t. `q`) `T = 4·T₀`, **`T₀ = [−dp, 1, c²]`** (the binary form
+`−dp x² + xy + c² y²`), `disc T₀ = 1 + 4c²dp =: N_{c,d}`. Conversely a vector `Q = [A,B,C] ∈ L` with
+`q(Q) = −4dp`, `A > 0`, `b(Q, S_c) = 4`, `B ≡ 0 (4d)`, `d | C`, `gcd(B/4d, c) = 1` is a Type II solution
+(`a = B/4d`, `f = A = cB − 1`, `e = C/d`). (Checked, `t2s_ternary.py`.)
+`S_c` is the split form `Y(2cX + Y)`; its geodesic is `(∞, −1/2c)` (§2.5).
+
+**Prop 7.2 (Pell form; PROVED).** With `m = a − b`, `D' = d²m² + dp`, `T = 2cd(a+b) − 1`:
+`T² − D'(2c)² = 1`. Conversely every solution `(T, 2c)` of `x² − D'y² = 1` with `D' = d²m² + dp` and
+`T ≡ −1 (mod 2cd)`, `(T+1)/2cd ≡ m (mod 2)`, `|m| < (T+1)/2cd` gives a Type II quadruple (up to gcd(a,c)).
+*Proof.* `T² − 4c²d²m² = (T − 2cdm)(T + 2cdm) = (4bcd − 1)(4acd − 1) = 1 + 4c²dp` (Lemma 1.1.3). ∎
+So Type II solutions are **unusually small units** `T + 2c√D'` (`T ≍ c√D'`) of the orders `ℤ[√(d²m² + dp)]` —
+the Type II analogue of TYPEI4's "fibre certificates are norm-1 units". Since `h(D')·log ε_{D'} ≍ √D'·L(1,χ)`,
+a small unit forces `log ε ≪ log(c√D')`, i.e. near-maximal class number of `ℚ(√D')`: one more way to see that
+Type II lives in a thin, arithmetically special set.
+
+## 8. Reduction theory, invariance, and the collapse to the divisor condition
+
+**Prop 8.1 (exact reduction; PROVED).** For fixed `(c,d)` put `M = 4cd`, `N = N_{c,d} = 4c²dp + 1`. Then
+`f_II(p) = Σ_{c,d ≥ 1} #{f | N : f ≡ −1 (mod M), gcd((f+1)/M, c) = 1}` (both orientations a ≶ b counted), and
+`F(p) := Σ_{c,d} #{f | N : f ≡ −1 (mod M)} = Σ_{(a,b,c,d) primitive} #{g : g² | d} ≥ f_II(p)`, with
+`F(p) > 0 ⇔ f_II(p) > 0`.
+*Proof.* Lemma 1.1.3: (a,b) ↔ f = 4acd − 1, with `f' = N/f ≡ −1` automatic (`ff' ≡ 1 mod M`); `f, f' > 0` gives
+`a, b ≥ 1`, and `c | a+b` is automatic from `4abcd = a + b + pc`; so the sum over (c,d) is finite. A
+non-primitive solution `(ga', gb', gc', d)` satisfies `4g²a'b'c'd = a' + b' + pc'`, i.e. it is the primitive
+`(a', b', c', g²d)`. ∎ (Checked for p < 160 against the quadruple enumeration.)
+
+**Prop 8.2 (the group acting, and what is invariant; PROVED).** (i) The stabiliser of `S_c` in `SL₂(ℤ)` is
+`{±I}` (a split form of square discriminant has no non-trivial automorphs: `t² − 4c²u² = 4` forces u = 0).
+Hence, once S is normalised to `S_c` inside its `SL₂(ℤ)`-orbit, **Q is determined: there is no residual
+group action and no reduction-theory freedom.** (ii) The `SL₂(ℤ)`-classes of primitive vectors with `q = 4c²`
+are `S_{c,k} = [0, 2c, k]`, `k ∈ (ℤ/2c)^×` (translation `X ↦ X + jY` shifts k by 2cj). The pair-invariants
+are the Gram matrix `T`, the class k of S, and (with the level structure) the classes of `Q` mod `Γ⁰(d)`-type
+data. For class `k`, `b(Q, S_{c,k}) = 4(cB − kA)`, so the general condition `b = 4` reads `kA = cB − 1`;
+**Type II is the single class `k ≡ 1 (mod 2c)` together with the congruences `B ≡ 0 (4d)`, `d | C`** — these
+are not invariants of the Gram matrix. (iii) Positivity: `(−Q, −S_c)` has the same Gram matrix, and
+`−S_c ~ S_{c,−1}`; so "A > 0" is the choice `k = +1` vs `k = −1`, i.e. achieved inside the orbit exactly when
+the k-class is ±1; it is not an extra restriction beyond the class condition.
+
+**Prop 8.3 (local conditions are vacuous; PROVED).** For every `n` (prime or not, including odd squares) and
+every `(c,d)`, the system `f f' = N_{c,d}`, `f ≡ f' ≡ −1 (mod M)` is solvable in `ℤ_ℓ` for every prime ℓ
+(take `f = −1`, `f' = −N`: `−N ≡ −1 (mod M)`), and the embedding problem `T₀ → L` with the congruence data
+of Prop 7.1 is locally solvable everywhere (the local solution `f = −1` gives `A = −1, B = 0`, … — a local
+vector; positivity is an archimedean sign that is met by `(−Q,−S)`). So **genus (Siegel mass) and spinor
+genus data are identical for every n, and in particular for n = s², where f_II(s²) = 0** (Cor 6.2).
+*Consequence (PROVED, from 8.3 + Cor 6.2).* No statement of the form "locally represented + spinor
+condition ⇒ represented" can hold for the Type II embedding problem with its congruence data: the odd
+squares are a counterexample at every (c,d). The obstruction at squares is the quadratic-reciprocity
+(genus-character) obstruction of Lemma 6.1 — in the language of the ES surface, the integral Brauer–Manin
+obstruction (Bright–Loughran 2020, already cited in STATUS) — and it lives in the **split torus**: the
+orthogonal complement of `S_c` in `L ⊗ ℚ` is split binary (q(S_c) is a square), and with S fixed the problem is
+`N = (T − U)(T + U)`, `(T, U) ≡ (−1, 0) (mod 2cd)`: representations of a number by the isotropic form
+`x² − y²` in a coset. For a split torus `𝔾_m` strong approximation fails; the obstruction group is
+`(ℤ/M)^×` and the question is exactly whether the divisors of N hit the class −1. **Answer to (iii): the
+ternary/spinor formulation collapses exactly to the divisor condition** (Prop 8.1), adds no information,
+and is not weaker; Gauss/three-squares-type local–global arguments do not apply because the relevant
+stabiliser is a split torus, not a semisimple group with strong approximation.
+
+*Remark 8.4 (why three squares works and this does not).* In the three-squares theorem the stabiliser of the
+represented vector is `SO(w^⊥)` for a positive definite binary `w^⊥`, i.e. an anisotropic torus whose class
+group is controlled by genus theory + Siegel. Here the class of `S` is the binding constraint and its
+stabiliser is the split torus: the counting is not by class numbers but by divisors in residue classes.
+Choosing instead to fix `Q` and vary `S` (§9.2) brings back an anisotropic torus (the CM torus of ℚ(√−dp)),
+but the Type II sum then runs over the whole genus 𝔊⁻ of Q, which averages the class-group information away.
