@@ -124,3 +124,45 @@ relative measure of one target is
 `μ_{a,d} = λ_{a,d}/h(−4dp²) ≍ L/(a d^{3/2} p) = (Planck scale |D'|^{−1/2}) × O(L/(a d))`,
 and its minimal width is `≍ 1/p ≍ |D'|^{−1/2}`. In Formulation A, D = 4d is tiny (only d ≲ L² have λ ≳ 1/L), the
 target is a 2/p-tube along a hypercycle of length ≍ pL, and the large parameter enters only through the shape.
+
+## 4. The cleanest family, and the gap to what is known (Assessment unless stated)
+
+**Which family.** Of the brief's candidates:
+* (b) is realised exactly by **Formulation B**: for fixed p and d, the Type I solutions are the points of the
+  **T_p-Hecke orbit of the level-d Heegner points of discriminant −4d** (equivalently Heegner points of discriminant
+  `D' = −4dp²`, conductor p) lying in the tubes R'_a (Prop 3.2, Lemma 2.2(b)); the genus factor `1 + χ_{−4d}(−p)`
+  (Lemma 2.4) is the only arithmetic of p visible in the main term. Discriminants −p, −4p, −16p themselves do not
+  occur; p enters as the Hecke index.
+* (a) Kuznetsov with p as frequency: by Lemma 2.2(a) the relevant matrices have `γ₁₂ = p`, i.e. points (A, D) of the
+  modular hyperbola `AD ≡ 1 (mod p)`; the box counts are controlled by Weil (`√p log²p`), but the Type I condition
+  ("a | A/4, a ≡ −D mod (AD−1)/p") is a divisor condition, not a box; after summing it over a one is back to the
+  counts of §3 (same λ's). No new slack.
+* (c) is the a = 1 slice (Lemma 2.3(a)): `λ ≍ L²` in total, minimum 1–3 in the data (§1); strictly worse.
+
+**Decisive numbers (Formulation B, best case).** Take d the least integer with `(−d/p) = −1` (so d ≪ p^{1/4+ε}
+unconditionally — Burgess; d ≪ L² under GRH — and typically d ≤ 3) and the union over a of the tubes R'_a:
+expected count `λ_d ≈ κ_d L²/d`, number of points `h(D') ≍ p√d`, relative measure
+`μ_d ≈ L²/(p d^{3/2}) ≈ L²·|D'|^{−1/2}`, minimal width `w ≍ 1/p ≍ |D'|^{−1/2}`. Against the thresholds of
+`LITERATURE_AUTOMORPHIC.md` (all for one discriminant; Young/Humphries need D fundamental, D' is not — via T_p
+one can transfer, at the cost of Ramanujan-type input for λ_j(p)):
+
+| input | admissible targets (D = |D'| ≍ 4dp²) | ours | gap (powers of p) |
+|---|---|---|---|
+| Duke / Iwaniec (fixed nice sets, rate D^{−1/28}-type) | μ ≍ 1 | μ ≈ L²/p | p¹ |
+| Young Thm 2.1, balls, unconditional | radius ≥ D^{−1/24}, μ ≥ D^{−1/12} | μ ≈ L² D^{−1/2}, w ≈ D^{−1/2} | μ: p^{5/6}; w: p^{11/12} |
+| Young Thm 2.1 under Lindelöf | radius ≥ D^{−1/8}, μ ≥ D^{−1/4} | same | μ: p^{1/2}; w: p^{3/4} |
+| Young Prop 1.2, cusp strips (existence, single D) | width ≥ D^{−1/18} | width D^{−1/2} | p^{8/9} |
+| Humphries–Radziwiłł Thm 1.12 (annuli, **almost all centres**) | μ ≥ D^{−1/2+δ}, r ≥ D^{−1/12+δ} | μ = D^{−1/2}·L² (fixed centre, tube) | p^{2δ}/L² in μ, plus "almost all"→"this target", plus shape |
+| Liu–Masri–Young (joint level–disc.) | level q < D^{1/20}, compact targets | level d (fine), Planck targets | as Duke |
+| Sardari / BKS optimal covering (S³, SL₂ lifts) | caps of volume N^{−3/4} (N points); exponent 4/3 is *sharp* (big holes) | Planck × polylog (exponent 1) | beyond what is true for worst-case caps |
+
+**Hecke-orbit version with Ramanujan (a standard conjecture) still fails by ≈ p.** For a single z₀ of disc −4d,
+`Σ_{w ∈ T_p z₀} φ(w) = (p+1)⟨φ⟩ + √p Σ_j λ_j(p)⟨φ,u_j⟩u_j(z₀)`. For φ = 1_{tube}: `(p+1)⟨φ⟩ ≈ λ ≈ L`, while
+`|⟨φ,u_j⟩|` does not decay before `t_j ≍ 1/w ≍ p`; with `|λ_j(p)| ≤ 2` and the local Weyl law
+`Σ_{t_j≤T}|u_j(z₀)|² ≍ T²` the Cauchy–Schwarz error is `≍ √p·‖φ‖₂·p ≈ √p·(L/p)^{1/2}·p = p√L` vs main term L.
+
+**Where the slack is (and is not).** The only slack is in the *count*: union over a gives L² per family (one d),
+union over d gives `Σ_d λ_d ≈ mean f_I ≈ 0.1 L³`. There is **no power of p** anywhere: hits are distinct Type I
+solutions, and §5 shows `f_I(p) ≤ ψ L³` for all but a proportion O(1/ψ) of primes. Positivity ("one point in one
+of many targets") does not change the scale: it lowers the needed relative accuracy from o(1) to < 1, which at
+expected count L³ is still a Planck-scale statement.
