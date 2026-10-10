@@ -18,7 +18,12 @@ that the author's dump was *read* for comparison.
 | Lemma 5.1 (ideal divisors of α ↔ divisors of N(α)) | SOUND |
 | Thm 5.2 (Type I CM torus) | SOUND-AFTER-REPAIRS (D3, D4: notation + missing p | cd case) |
 | §2.3 rank search, "dim(span E ∩ span C) = 0" | SOUND as EVIDENCE; now upgraded to CERTIFIED (exact ℚ-rank, R131) for the 54-column dictionary, n ≤ 2·10⁴; headline wording overclaims (D1) |
-| (further claims appended below as checked) | |
+| §3.3–3.4 genus-vs-orbit numerics | SOUND (all numbers reproduced from scratch); one conclusion overclaimed (D7) |
+| §5.3 class bias in means (EVIDENCE) | not re-checked (context budget) |
+| Overlap/credit with O128 | ACCURATE for §3; two missing credits (D6) |
+
+**Overall: no FATAL or MAJOR defect. The negative verdict and all PROVED labels stand. Eight MINOR defects, all
+repaired in EXACT_FORMULA.md (marked "(R131 repair)").**
 
 ## Checks
 
@@ -112,3 +117,41 @@ Therefore: **CERTIFIED (R131): for each of the six row sets ⊂ [2, 2·10⁴], n
 coefficients) of the 56 ES columns equals a linear combination of the 54 classical columns.** This is the correct
 scope: a finite dictionary on a finite range — it says nothing about classical functions outside the dictionary
 (e.g. Σ_{c,d} twisted divisor sums at 4c²dn + 1, which Prop 4.1 shows *do* give exact identities).
+
+### C9. §3.3–3.4 numerics — reproduced
+`scripts/review_r131_genus.py` (own code): Σ_{c≤C} A_{c,1}, Σ G_{c,1} for p = 101, 1009, 2003 and C ∈ {10, …, 2000}
+reproduce the §3.4 table exactly; §3.3 rows (1,5), (1,7), (5,2) reproduce (mean|A−G| for (1,5) is 0.25 vs printed
+0.26, rounding). The identity "genus average = projection on characters with χ² = 1" re-derived ✓.
+
+### C10. Overlap with O128 and citations
+O128 Prop 9.1 (character expansion + Eisenstein identification), Prop 9.2 (genus pairing) and Prop 8.3 (a = 0
+trivial factorisation; sign at ∞) are as stated and are credited in §3. ET Prop 1.6 (sources/elsholtz-tao-1107.1010.pdf,
+l. 275) is "for any odd perfect square n, f_I(n) = f_II(n) = 0": Prop 2.1's "without the gcd hypotheses" (and for
+even m) is an accurate description of the extension. Missing credits: D6.
+
+## Defects (all MINOR; repaired in EXACT_FORMULA.md, marked "(R131 repair)")
+
+1. **D1 (MINOR, §0 bullet "No identity with classical functions", §2.3).** Scope and rigour overstated/understated:
+   the claim is for a 54-column dictionary and n ≤ 2·10⁴ only; the mod-p rank does not rigorously bound the
+   ℚ-intersection from above (C8); the 500-row restriction needs injectivity on span E; p ≡ 1 (24) has only 267
+   rows; `exf_nullspace.py` docstring claims an exact verification it does not do. *Repair:* scope the headline;
+   add the R131 exact-ℚ certification (C8), which makes the statement CERTIFIED.
+2. **D2 (MINOR, §3.2 "Every slice with cd | 6 vanishes exactly on a union of square classes").** False:
+   A_{1,1}(n) = 0 iff 4n + 1 has no prime factor ≡ 3 (mod 4); e.g. A_{1,1}(3) = 0 but A_{1,1}(12) > 0
+   (49 = 7²), both n ≡ 0 (mod 3). The zero set lies inside the residue classes not covered by Mordell's
+   congruences but is not itself a congruence set. *Repair:* reword.
+3. **D3 (MINOR, Thm 5.2 notation).** `T1_{c,d}(p)` in §5 is the *ordered* count 2T1⁺_{c,d}(p) − δ, whereas T1 is
+   defined with a ≤ b; diagonal solutions exist (c = 2a, p = 4a²d − 1). Also (iii) for non-squarefree d is about
+   the ring class group of ℤ[√−d]. *Repair:* define T1^{ord}; note.
+4. **D4 (MINOR, Thm 5.2 hypothesis p ∤ 2cd vs. "Answer" about all of T1(p)).** Needed: (c,d) with p | cd carry no
+   Type I solution. *Proof (R131):* p | d ⇒ p | c (as c = 4abcd − p(a+b)); c = pc₁ ⇒ 4abc₁d = a + b + c₁, a Type II
+   solution for n = 1, impossible by Prop 2.1 (m = 1). Numerically 0 such tuples for p ≤ 3000. *Repair:* add.
+5. **D5 (MINOR, §0(c), Prop 4.1).** "checked n ≤ 40" — now checked n ≤ 3000 (C6). *Repair:* update.
+6. **D6 (MINOR, credit).** Prop 4.1's boundary reading (a = 0, divisor 1 in class +1, sign at ∞) is O128 Prop 8.3,
+   not credited in §4; §5's conclusion (class-group characters cancel, only genus data survive) parallels O128
+   §9.3 for the Type II CM theta series of ℚ(√−dp). *Repair:* add credits.
+7. **D7 (MINOR, §0 Siegel–Weil bullet).** "Hence no 'Eisenstein main term + small cusp error' formula exists for
+   the total count" is an Assessment: §3.4 shows only that the *untruncated* genus mass diverges and §3.3 that
+   the per-slice error is as large as the main term. *Repair:* relabel as Assessment.
+8. **D8 (MINOR, §2.3 text).** "Exact rank computation mod 2³¹−1" — the computation is modular, not exact over ℚ.
+   *Repair:* covered by the D1 note.
