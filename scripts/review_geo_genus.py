@@ -78,64 +78,69 @@ def solutions(p):
             if u2 >= u1: out.append((u1, u2, u3))
     return out
 
-PMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
-stats = dict(sol=0, I=0, II=0, bad=0)
-maxratioII = 0; maxratioI = 0
-for p in primerange(3, PMAX):
-    sols = solutions(p)
-    if not sols: print('NO SOLUTION', p); stats['bad'] += 1
-    for u in sols:
-        stats['sol'] += 1
-        ru = [Fr(x) for x in u]
-        # BL Thm 1.2 + local lemmas: invariants at all places
-        a1, a2 = -ru[0] / ru[2], -ru[1] / ru[2]
-        inv = {v: hs(a1, a2, v) for v in places(a1, a2)}
-        assert inv[0] == -1 and inv[p] == -1 and all(inv[v] == 1 for v in inv if v not in (0, p)), (p, u, inv)
-        # Cor 1.3
-        V = [vp(x, p) for x in u]
-        pairs = [(i, j) for i in range(3) for j in range(3) if i != j and V[i][0] == V[j][0]]
-        assert pairs and all(legendre(-V[i][1] * pow(V[j][1], -1, p), p) == -1 for i, j in pairs)
-        # F1 restriction (u1 = t fibre, any ordering of coordinates), at all places
-        for (i, j, k) in [(0, 1, 2), (1, 0, 2), (2, 0, 1)]:
-            t = ru[i]; w = ru[j] / ru[k]
-            if 4 * t == p: continue
-            b1 = Fr(p) * (p - 4 * t)
-            for v in places(b1, -w, a1, a2):
-                assert hs(b1, -w, v) == hs(a1, a2, v), ('F1', p, u, v)
-        # F2: u_i = lam u_j, Z = 4 lam u_j - n(lam+1)
-        for (i, j, k) in [(0, 1, 2), (1, 2, 0), (2, 0, 1), (0, 2, 1)]:
-            lam = ru[i] / ru[j]; Z = 4 * lam * ru[j] - p * (lam + 1)
-            if Z == 0 or lam == -1: continue
-            for v in places(lam, Z, a1, a2):
-                assert hs(-lam, -p * Z, v) == hs(a1, a2, v), ('F2', p, u, v)
-        # classification
-        div = [x % p == 0 for x in u]
-        if sum(div) == 1:
-            stats['I'] += 1
-            x = u[div.index(True)]; y, z = [u[m] for m in range(3) if not div[m]]
-            if y > z: y, z = z, y
-            d = gcd(gcd(x // p, y), z)
-            xp, yp, zp = x // p // d, y // d, z // d
-            a2_ = xp * yp // zp; a = isqrt(a2_); assert a * a == a2_
-            b = xp // a; c = yp // a
-            assert legendre(-d, p) == -1, ('5.1', p, u, d)
-            assert legendre(-a * b, p) == -1
-            f = 4 * a * c * d - p; assert f > 0 and (4 * a * a * d + 1) % f == 0
-            assert a <= b and a * 4 * d <= 3 * p; maxratioI = max(maxratioI, 4 * a * d / (3 * p))
-        elif sum(div) == 2:
-            stats['II'] += 1
-            x = u[div.index(False)]; y, z = [u[m] for m in range(3) if div[m]]
-            if y > z: y, z = z, y
-            d = gcd(gcd(x, y // p), z // p)
-            xp, yp, zp = x // d, y // p // d, z // p // d
-            a2_ = xp * yp // zp; a = isqrt(a2_); assert a * a == a2_
-            b = xp // a; c = yp // a
-            f = 4 * a * c * d - 1; e = (p + 4 * a * a * d) // f
-            assert e * f == p + 4 * a * a * d and a <= b
-            assert jacobi(-d, f) == -1 and jacobi(p, f) == -1
-            assert legendre(f, p) == -legendre(-1, p)
-            assert a <= isqrt(p) / 2 + 1, ('IIbound', p, u)
-            maxratioII = max(maxratioII, a / (p ** 0.5 / 2))
-        else:
-            raise AssertionError(('type?', p, u))
-print(stats, 'max a/(sqrt p/2) TypeII:', round(maxratioII, 4), 'max 4ad/3p TypeI:', round(maxratioI, 4))
+def main():
+    PMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 2000
+    stats = dict(sol=0, I=0, II=0, bad=0)
+    maxratioII = 0; maxratioI = 0
+    for p in primerange(3, PMAX):
+        sols = solutions(p)
+        if not sols: print('NO SOLUTION', p); stats['bad'] += 1
+        for u in sols:
+            stats['sol'] += 1
+            ru = [Fr(x) for x in u]
+            # BL Thm 1.2 + local lemmas: invariants at all places
+            a1, a2 = -ru[0] / ru[2], -ru[1] / ru[2]
+            inv = {v: hs(a1, a2, v) for v in places(a1, a2)}
+            assert inv[0] == -1 and inv[p] == -1 and all(inv[v] == 1 for v in inv if v not in (0, p)), (p, u, inv)
+            # Cor 1.3
+            V = [vp(x, p) for x in u]
+            pairs = [(i, j) for i in range(3) for j in range(3) if i != j and V[i][0] == V[j][0]]
+            assert pairs and all(legendre(-V[i][1] * pow(V[j][1], -1, p), p) == -1 for i, j in pairs)
+            # F1 restriction (u1 = t fibre, any ordering of coordinates), at all places
+            for (i, j, k) in [(0, 1, 2), (1, 0, 2), (2, 0, 1)]:
+                t = ru[i]; w = ru[j] / ru[k]
+                if 4 * t == p: continue
+                b1 = Fr(p) * (p - 4 * t)
+                for v in places(b1, -w, a1, a2):
+                    assert hs(b1, -w, v) == hs(a1, a2, v), ('F1', p, u, v)
+            # F2: u_i = lam u_j, Z = 4 lam u_j - n(lam+1)
+            for (i, j, k) in [(0, 1, 2), (1, 2, 0), (2, 0, 1), (0, 2, 1)]:
+                lam = ru[i] / ru[j]; Z = 4 * lam * ru[j] - p * (lam + 1)
+                if Z == 0 or lam == -1: continue
+                for v in places(lam, Z, a1, a2):
+                    assert hs(-lam, -p * Z, v) == hs(a1, a2, v), ('F2', p, u, v)
+            # classification
+            div = [x % p == 0 for x in u]
+            if sum(div) == 1:
+                stats['I'] += 1
+                x = u[div.index(True)]; y, z = [u[m] for m in range(3) if not div[m]]
+                if y > z: y, z = z, y
+                d = gcd(gcd(x // p, y), z)
+                xp, yp, zp = x // p // d, y // d, z // d
+                a2_ = xp * yp // zp; a = isqrt(a2_); assert a * a == a2_
+                b = xp // a; c = yp // a
+                assert legendre(-d, p) == -1, ('5.1', p, u, d)
+                assert legendre(-a * b, p) == -1
+                f = 4 * a * c * d - p; assert f > 0 and (4 * a * a * d + 1) % f == 0
+                assert a <= b and a * 4 * d <= 3 * p; maxratioI = max(maxratioI, 4 * a * d / (3 * p))
+            elif sum(div) == 2:
+                stats['II'] += 1
+                x = u[div.index(False)]; y, z = [u[m] for m in range(3) if div[m]]
+                if y > z: y, z = z, y
+                d = gcd(gcd(x, y // p), z // p)
+                xp, yp, zp = x // d, y // p // d, z // p // d
+                a2_ = xp * yp // zp; a = isqrt(a2_); assert a * a == a2_
+                b = xp // a; c = yp // a
+                f = 4 * a * c * d - 1; e = (p + 4 * a * a * d) // f
+                assert e * f == p + 4 * a * a * d and a <= b
+                assert jacobi(-d, f) == -1 and jacobi(p, f) == -1
+                assert legendre(f, p) == -legendre(-1, p)
+                assert a <= isqrt(p) / 2 + 1, ('IIbound', p, u)
+                maxratioII = max(maxratioII, a / (p ** 0.5 / 2))
+            else:
+                raise AssertionError(('type?', p, u))
+    print(stats, 'max a/(sqrt p/2) TypeII:', round(maxratioII, 4), 'max 4ad/3p TypeI:', round(maxratioI, 4))
+
+
+if __name__ == '__main__':
+    main()
