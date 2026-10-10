@@ -98,3 +98,70 @@ they test; `q = cf` for (I1)) are `≤ exp((log p)^{1/4−ε})` are excluded by 
 Thm 5.1 for the Type II multiplier witnesses (and by POINTWISE_OMEGA Thm 8.5,
 `ck_min ≫ log p·log₃p` i.o., for Type I slices). A family such as `{g ≤ G}` with G small but
 `c, f` unrestricted is not of either kind, and is not excluded by anything in this section.
+
+## 3. The fixed-p count, and what GRH gives
+
+### 3.1 The slice count and its character expansion
+
+Let `S(p) := #{(c,f,g) ∈ ℕ³ : cfg − c − f = p, fg ≡ 1 (mod 4)}` (Lemma 1.1). Since `fg ≡ 1 (4)`
+forces g odd, Lemma 1.1(1) gives, with `n_g := gp + 1`,
+
+```
+S(p) = Σ_{g ≤ p+2, g odd, gp ≡ 3 (4)}  #{m | n_g : 4 | m, m ≡ −1 (mod g)}            (3.1)
+     = Σ_g  φ(g)^{−1} Σ_{χ mod g} χ(−4) τ_χ(n_g/4),      τ_χ(k) := Σ_{m | k} χ(m).     (3.2)
+```
+
+(3.2) is orthogonality (every divisor of `n_g` is prime to g). The principal characters give
+`S_0(p) = Σ_g τ(n_g/4)/φ(g)`; heuristically `S(p) ≍ log² p` (each g ≤ p contributes
+`≈ τ(n_g)/g` on average). **EVIDENCE** (`scripts/cond_slice_count.py 100000 8`): for the first
+8 primes above 10⁵, S(p) ∈ [17, 42] (`S/log²p ∈ [0.13, 0.32]`); for the first 8 Mordell-hard
+primes above 10⁵, S(p) ∈ [6, 16] (`[0.045, 0.12]`), least g ∈ {3, 11, 19, 23}. Both are polylog,
+as Prop 2.3 requires of any driver.
+
+**Proposition 3.1 (the cancellation needed; PROVED bookkeeping).** Write
+`S(p) = S_0(p) + S_1(p)` with `S_1` the non-principal part of (3.2). Then ES(p) follows from
+`|S_1(p)| < S_0(p)`. The available bounds are:
+1. *Character-by-character.* `|τ_χ(k)| ≤ τ(k)`, so `|S_1(p)| ≤ Σ_{g ≤ p+2} τ(n_g/4) ≍ p log p`
+   (the last sum is a divisor sum over an arithmetic progression mod p of length p,
+   `≍ p log p` by Shiu/standard). Gap: a factor `≍ p/log p`.
+2. *Termwise in g.* `S_1` is the sum over g of `D_g := #{m | n_g: class} − τ(n_g/4)/φ(g)`, and
+   `Σ_g |D_g| ≤ S(p) + S_0(p)`. So the problem is exactly the **pointwise concentration of a
+   sum of ≍ p nonnegative integer variables with total mean ≍ log² p**: S(p) ≥ 1 is a
+   Poisson-scale lower-tail statement. A square-root-cancellation hypothesis in g (errors
+   `≪ (Σ_g D_g²)^{1/2} ≈ (log p)^{1+o(1)}` in a random model) would suffice; anything with a
+   power of p in the error does not.
+
+### 3.2 What GRH (and BV/EH/Montgomery/Hooley-type prime statements) give
+
+*Fixed p.* In (3.2) each character χ (mod g) occurs at **one** argument `n_g/4`. GRH for
+L(s,χ) (and for L(s,χ)ζ(s), whose coefficients are τ_χ) controls weighted sums
+`Σ_k τ_χ(k)w(k/X)` with errors `≪ X^{1/2}(gX)^ε` (or `X^{1/2}log²(gX)` for primes); it gives
+nothing about a single coefficient beyond the trivial bound of item 1, since one coefficient
+is a sum of length 1. Item 1 is therefore what "GRH applied character by character" gives, and
+it misses by `p^{1−o(1)}`. Two further GRH mechanisms:
+* *Least primes with prescribed Frobenius* (Ankeny, Lagarias–Odlyzko under GRH: `ℓ ≪ (log d_K)²`).
+  The ES witness conditions are divisibility conditions `ℓ | N` for the specific integers
+  `N = tp+1` or `p+e` (Lemma 1.2), coupled to congruences of ℓ modulo the free parameter.
+  A divisibility condition `ℓ | N` is a *ramification* condition in fields like `ℚ(√N)`, not a
+  Frobenius condition, and the set of ℓ with `ℓ | N` is finite, whereas a Chebotarev set has
+  positive density. Where Frobenius data does help (quadratic characters such as `(ℓ/p) = −1`,
+  `ℓ ≡ 3 (4)`), the witnesses produced have size `(log p)^{O(1)}` for fields of discriminant
+  `p^{O(1)}`, and **multiplier mechanisms with witness moduli ≤ exp((log p)^{1/4−ε}) fail
+  infinitely often** (POINTWISE_OMEGA13 Thm 5.1, unconditional). To reach moduli
+  `exp((log p)^{1/4})` one needs fields with `log d_K ≥ exp((1/2)(log p)^{1/4})`, e.g.
+  `ℚ(ζ_M, √p)` with `M ≈ exp((log p)^{1/4})`; Frobenius in such a field determines
+  `(ℓ mod M, (p/ℓ))`, not the residue `p mod ℓ` that the witness condition needs (Assessment;
+  power-residue symbols `(p/ℓ)_k` give p only modulo k-th powers).
+* *Averages over p (the dual direction).* GRH/EH/BV give `π(x; q, a)` for q up to `x^{1/2}` (GRH,
+  BV on average) or `x^{1−ε}` (EH). Through any forced-class (CRT) majorant they cannot beat the
+  exceptional-set saving `exp(−C(log N)^{3/4}(log log N)^{3/4})`, at any polynomial level
+  (EXCEPTIONAL_PRIMELAW Cor 4.2, PROVED; Montgomery's conjecture `π(x;q,a) − li(x)/φ(q) ≪
+  (x/q)^{1/2+ε}` and Hooley-type variance asymptotics are prime-law inputs of this kind). And
+  any average-over-p statement is blind to a set of exceptions of counting function
+  `o(x^{1/2})`; it can give `E(N) = o(π(N))`-type results, never finiteness, unless supplemented
+  by a pointwise input.
+
+**Conclusion of §3 (Assessment, with the PROVED parts cited).** GRH controls primes and
+L-function averages; ES(p) for fixed p is the factorisation pattern of the ≤ p+2 integers
+`gp + 1` (or `p + e`). The needed cancellation is Poisson-scale and pointwise in p, which is a
+different kind of statement from any listed hypothesis.
