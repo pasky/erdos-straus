@@ -579,6 +579,134 @@ often (internal file \texttt{POINTWISE\_OMEGA.md}, Thm.~8.5, modulo
 Lau--Wu). Both are cited as summarised in \cite[\S2.2]{RT2}.
 \end{remark}
 
+\section{Negative results with exact scope}\label{sec:negative}
+Each result in this section concerns a precisely defined mechanism. None of
+them says that ES is false or unprovable.
+
+\subsection{Ternary and higher-rank embeddings}
+Fix $k\ge3$, a non-degenerate integral quadratic form $Q$ in $k$ variables,
+and integers $\kappa\ge1$, $\eta$, all independent of $p$.
+
+\begin{definition}[\cite[Def.~1.1]{O124}]
+An \emph{embedding of complexity $(J,D)$} is a family of pieces
+$(S_j,\Phi_j)_{j\le J}$, where $S_j\subseteq\Z^k$ is an \emph{arbitrary}
+subset and $\Phi_j=(X_j,Y_j,Z_j)$ is a triple of rational functions of
+degree $\le D$. It is \emph{valid} if for every prime $p$, every $j$ and
+every $v\in S_j$ with $Q(v)=\kappa p+\eta$, $\Phi_j(v)\in\N^3$ solves
+\eqref{eq:es} for $n=p$. Put $R(p)=\bigcup_j\{v\in S_j: Q(v)=\kappa p+\eta\}$.
+A piece is \emph{degenerate} if $X_j,Y_j,Z_j\in\Q(Q)$.
+\end{definition}
+This covers every statement of the form ``$\kappa p+\eta$ is represented by
+$Q$ with side conditions, hence ES$(p)$ by an explicit piecewise rational
+recipe'' of fixed complexity. It does not cover recipes of unbounded
+algebraic complexity, or families with a parameter that grows with $p$.
+
+\begin{theorem}[\status{proved}, relative to Pila \cite{Pi}, Mordell--Schinzel \cite{Mo,Sch} and {\cite[Thm.~1.1]{ET}}; {\cite[Thm.~4.1, Cor.~4.2]{O124}}]\label{thm:ternary}
+Let $Q$ be positive definite. There is a finite union $U$ of primitive
+classes modulo some $q^*$, containing no square class, such that:
+\begin{enumerate}
+\item[(a)] for every large prime $p\notin U$,
+$\#R(p)\ll f(p)\,p^{(k-2)/2-1/4+\varepsilon}$, where $f(p)$ is the total number
+of solutions;
+\item[(b)] for $0<\varepsilon_0<1/4$ the primes $p\le N$, $p\notin U$, with
+$\#R(p)\ge c\,p^{(k-2)/2-\varepsilon_0}$ number $\ll N^{3/4+\varepsilon_0+\varepsilon}$.
+\end{enumerate}
+Consequently, suppose a representation theorem (circle method for $k\ge5$,
+Kloosterman/$\delta$-method for $k=4$, Duke \cite{Du}, Duke--Schulze-Pillot
+\cite{DSP} and Blomer-type results for $k=3$) gives
+$\#R(p)\ge c\,p^{(k-2)/2-\varepsilon_0}$ on a union $\mathcal P_R$ of primitive
+classes, outside $o(\pi(N))$ exceptions. Then $\mathcal P_R\subseteq U$:
+the representation input proves ES only for primes that a finite
+polynomial (Mordell-type) covering already handles.
+\end{theorem}
+\begin{proof}[Sketch]
+A degenerate piece produces an ES solution depending only on $p$. By a
+rationality and integrality argument it is a polynomial identity on
+finitely many classes, which by Mordell--Schinzel are not square classes;
+this defines $U$. A non-degenerate piece is non-constant on the quadric
+$Q=m$, $m=\kappa p+\eta$, outside finitely many $p$. Group the points of
+$R_j(p)$ by the value of a non-constant coordinate $X_j$; there are at
+most $f(p)$ values. Each group lies on a hypersurface section of the
+bounded quadric $Q=m$. For $k=3$ such a section is a curve whose real
+components have degree $\ge2$ (no real line lies on a bounded quadric). By
+Pila's bound it has $\ll m^{1/4+\varepsilon}$ integer points in a box of side
+$\asymp m^{1/2}$. For $k\ge4$ one slices by the last $k-3$ coordinates. This
+gives (a). Then (b) follows from (a) and the first-moment
+bound $\sum_{p\le N}f(p)\ll N\log^2N\log\log N$ \cite[Thm.~1.1]{ET}, and the
+corollary from Dirichlet's theorem.
+\end{proof}
+The same holds for line-free indefinite ternary forms \cite[\S5]{O124}. The
+theorem does \emph{not} say that an embedding proves ES only on $U$. A
+non-degenerate piece supported on a \emph{thin} set can cover a positive
+proportion of primes. An example from \cite[\S4]{O124}: $Q=\sum_{i\le5}v_i^2$,
+with $Q(v)=p+1$, the piece $v_1=1$, $4\mid Q(v)$, and the output
+$((p+1)/4+v_1-1,\ p(p+1)/2,\ p(p+1)/2)$. What it excludes is that a
+representation \emph{theorem}, which produces only sets of the generic
+size, does any work outside $U$. The only rank-$3$ quadratic piece
+of ES is $Q_d$ (Proposition~\ref{prop:Qd}). It represents everything and is
+isotropic, and its side condition is not mild. \status{evidence}: every
+Mordell-hard prime $\le10^8$ is solved through $Q_d$ with $d\le8$,
+$a\le22$ \cite[\S8]{O124}.
+
+\subsection{The scale constraint}
+\begin{definition}[\cite[Def.~2.2]{O127}]
+An \emph{ES-detector} assigns to each large prime $p$ a finite target
+$\cT_p$ and a map $\Phi_p:\cT_p\to\mathrm{Sol}(p)$ whose fibres have size
+$\le\mu(p)$. A hypothesis $\mathsf H$ \emph{drives} it if $\mathsf H$ implies
+$\#\cT_p\ge M(p)-R(p)$ with explicit $M(p)>R(p)$.
+\end{definition}
+
+\begin{proposition}[\status{proved}, relative to {\cite[Thm.~1.1, Prop.~1.7]{ET}}; {\cite[Prop.~2.3]{O127}}, {\cite[Prop.~2.4, \S5.5]{RT1}}]\label{prop:scale}
+If $\mathsf H$ drives a detector with $R(p)\le M(p)/2$, then
+$M(p)\le2\mu(p)f(p)$. Here
+\begin{enumerate}
+\item[(a)] $f(p)\le p^{3/5+O(1/\log\log p)}$ for every $p$ \cite[Prop.~1.7]{ET};
+\item[(b)] for each $\delta>0$, $f(p)\le p^{\delta}$ outside a set of primes
+with counting function $O_\delta(N^{1-\delta}\log^3N)$;
+\item[(c)] for any $\xi(p)\to\infty$, $f(p)\le\xi(p)\log^3p\log\log p$ outside a
+set of primes of relative density $o(1)$.
+\end{enumerate}
+In particular, if $\mu(p)\le p^{o(1)}$, then $M(p)\le p^{o(1)}$ for almost
+all $p$, and no detector with $M(p)\ge p^\eta$ for all large $p$ can be
+driven.
+\end{proposition}
+\begin{proof}
+$M/2\le\#\cT_p\le\mu(p)f(p)$. Part (a) is \cite[Prop.~1.7]{ET}. Parts (b)
+and (c) follow from Markov's inequality applied dyadically to
+$\sum_{p\le N}f(p)\ll N\log^2N\log\log N$ \cite[Thm.~1.1]{ET}.
+\end{proof}
+Every natural parametrisation of solutions by lattice points, Heegner
+points or matrices is $O(1)$-to-one, or $p^{o(1)}$-to-one by the divisor
+bound. So any equidistribution statement whose main term for the target is
+a power of $p$ is excluded as a driver, unless it detects only a coarse
+invariant of solutions (fibres $\mu\ge p^{\eta-o(1)}$). In that case the
+lifting step from the invariant to an integer solution must be supplied
+separately. This applies in particular to small-scale equidistribution of
+Heegner or CM points in families with $|D|\ge p^\kappa$ through a
+$p^{o(1)}$-to-one encoding \cite[Cor.~4.1]{O127}. With the Type~I bound of
+\cite{TH} in place of \cite[Thm.~1.1]{ET}, Markov's inequality gives
+$f_I(p)\le\psi\cL^3$ for all but a proportion $O(1/\psi)$ of primes
+\cite[Thm.~5.1]{O123}. A Planck-scale certificate must therefore have
+\emph{polylogarithmic} accuracy.
+
+\begin{proposition}[local data of moderate modulus; \status{proved}; {\cite[Prop.~7.3]{O127}}, {\cite[Lemma~5.1]{RT1}}]\label{prop:localsize}
+Let $S'(n)$ count the solutions of the $a=1$ Type~I slice
+($tn+1=mm''$, $m\equiv m''\equiv-1\pmod t$, $4\mid m$) with $\gcd(n,c)=1$.
+Let $\mathsf H(n)$ be any predicate depending only on the dyadic range
+$n\in(X,2X]$ and on $n\bmod Q(X)$, where $Q(X)\le X^{1/2-\varepsilon}$. If
+$\mathsf H$ holds at one large prime $p\in(X,2X]$ that is a square modulo
+$Q(X)$, then it holds at an odd square in $(X,2X]$, where $S'=0$. Hence
+``$\mathsf H(n)\Rightarrow S'(n)\ge1$'' is false for any such $\mathsf H$.
+\end{proposition}
+\begin{proof}
+The odd $m\equiv m_0\pmod{2Q}$ with $m_0^2\equiv p\pmod Q$ give $\asymp X^{1/2}/Q$
+squares in the class of $p$. For odd $n=m^2$, a slice solution with
+$\gcd(n,c)=1$ is a Type~I solution, which cannot exist by
+\cite[Prop.~1.6]{ET}.
+\end{proof}
+This does not apply to ``$\mathsf H(n)\Rightarrow\mathrm{ES}(n)$'': odd
+squares satisfy ES, through solutions that are of neither type.
+
 %%CONTINUE
 
 \begin{thebibliography}{99}
