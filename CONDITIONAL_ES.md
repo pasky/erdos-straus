@@ -17,9 +17,9 @@ negative result with exact scope, plus exact reformulations.
   all p (bounded-multiplicity encodings). Power-size main terms are excluded whatever H is.
 * §3: the fixed-p count is a sum of ≍ p rare events with mean ≍ log² p (character expansion
   (3.2)); GRH character by character misses by `p^{1−o(1)}`; GRH-Chebotarev witnesses are
-  polylog-size and die by OMEGA13; averaged prime laws are capped by PRIMELAW.
+  polylog-size and, for Type II multiplier mechanisms only, die by OMEGA13 (R125 repair: not for the Type I slice); averaged prime laws are capped by PRIMELAW.
 * §4 (PROVED given §2): Heegner/CM small-scale equidistribution (Humphries–Radziwiłł, Young; GLH)
-  cannot drive ES for families with `|D| ≥ p^κ`; covering-type hypotheses (optimal strong
+  cannot drive ES for families with `|D| ≥ p^κ` through a `p^{o(1)}`-to-one encoding (R125 repair); covering-type hypotheses (optimal strong
   approximation, twisted Linnik) escape §2 only formally (Remark 4.2).
 * §5: ranked table of hypotheses with the exact gap. §6: Theorem 6.1, X_slice ⇒ ES (PROVED;
   X_slice is ES-strength, not a standard conjecture), with EVIDENCE and the list of what is and
@@ -152,15 +152,24 @@ as Prop 2.3 requires of any driver.
    Poisson-scale lower-tail statement. A square-root-cancellation hypothesis in g (errors
    `≪ (Σ_g D_g²)^{1/2} ≈ (log p)^{1+o(1)}` in a random model) would suffice; anything with a
    power of p in the error does not.
+3. *(R125 repair, red-team Lemma 5.1.)* For odd `n = m²` no slice solution has `gcd(n, c) = 1`
+   (the solution `(bdn, cd, bcd)` would be a Type I solution with `n | x`, `gcd(n, yz) = 1`,
+   excluded by ET Prop 1.6 / Bright–Loughran Cor 1.4), and EVIDENCE (red team): no odd square
+   `m²`, `m ≤ 61`, has any slice solution. Since `S_0(m²) > 0` is of the same size as at primes,
+   **any proof of `|S_1(p)| < S_0(p)` must fail at odd squares**: it must use that p is prime,
+   not only size, coprimality or `p ≡ 1 (4)`. The required cancellation is square-sensitive.
 
 ### 3.2 What GRH (and BV/EH/Montgomery/Hooley-type prime statements) give
 
-*Fixed p.* In (3.2) each character χ (mod g) occurs at **one** argument `n_g/4`. GRH for
-L(s,χ) (and for L(s,χ)ζ(s), whose coefficients are τ_χ) controls weighted sums
-`Σ_k τ_χ(k)w(k/X)` with errors `≪ X^{1/2}(gX)^ε` (or `X^{1/2}log²(gX)` for primes); it gives
-nothing about a single coefficient beyond the trivial bound of item 1, since one coefficient
-is a sum of length 1. Item 1 is therefore what "GRH applied character by character" gives, and
-it misses by `p^{1−o(1)}`. Two further GRH mechanisms:
+*Fixed p (R125 repair of the checkpoint-1 wording "each χ occurs at one argument", which was
+false).* Every divisor of `n_g` is prime to g, so `τ_χ(n_g/4) = τ_{χ*}(n_g/4)` for the primitive
+`χ*` (mod q) inducing χ; hence each primitive `χ*` occurs at all `g ∈ qℕ`, i.e. at the ≈ `p/q`
+arguments `(qjp+1)/4`, an arithmetic progression of modulus ≍ qp inside `[1, p²]`. GRH for
+`L(s, χ*ψ)` (ψ running over characters mod ≍ qp) controls such AP sums with error
+`≫ X^{1/2} = p^{1−o(1)}` at `X ≍ p²`, which exceeds the number `p/q` of terms. So for this
+mechanism GRH gives only the trivial bound of item 1, missing by `p^{1−o(1)}`. A level-of-
+distribution input does not help either: the weights `1/φ(g)` put mass ≍ log p in each dyadic
+g-block, against power-size errors (Prop 2.3 shape). Two further GRH mechanisms:
 * *Least primes with prescribed Frobenius* (Ankeny, Lagarias–Odlyzko under GRH: `ℓ ≪ (log d_K)²`).
   The ES witness conditions are divisibility conditions `ℓ | N` for the specific integers
   `N = tp+1` or `p+e` (Lemma 1.2), coupled to congruences of ℓ modulo the free parameter.
@@ -168,8 +177,12 @@ it misses by `p^{1−o(1)}`. Two further GRH mechanisms:
   Frobenius condition, and the set of ℓ with `ℓ | N` is finite, whereas a Chebotarev set has
   positive density. Where Frobenius data does help (quadratic characters such as `(ℓ/p) = −1`,
   `ℓ ≡ 3 (4)`), the witnesses produced have size `(log p)^{O(1)}` for fields of discriminant
-  `p^{O(1)}`, and **multiplier mechanisms with witness moduli ≤ exp((log p)^{1/4−ε}) fail
-  infinitely often** (POINTWISE_OMEGA13 Thm 5.1, unconditional). To reach moduli
+  `p^{O(1)}`. For **Type II** multiplier mechanisms, witness moduli ≤ exp((log p)^{1/4−ε}) fail
+  infinitely often (POINTWISE_OMEGA13 Thm 5.1, unconditional). *(R125 repair: this does not
+  cover the Type I slice X_slice.)* For Type I the only Ω-results are `ck_min ≫ log p·log₃p` i.o.
+  (unconditional) and `≫ log p log log p` i.o. under GRH (via Montgomery's `n_p`); nothing in the
+  campaign excludes polylog Type I witnesses for all large p, except bounded ones under H
+  (Theorem C). To reach moduli
   `exp((log p)^{1/4})` one needs fields with `log d_K ≥ exp((1/2)(log p)^{1/4})`, e.g.
   `ℚ(ζ_M, √p)` with `M ≈ exp((log p)^{1/4})`; Frobenius in such a field determines
   `(ℓ mod M, (p/ℓ))`, not the residue `p mod ℓ` that the witness condition needs (Assessment;
@@ -234,9 +247,9 @@ driver needs main term `p^{o(1)}` for almost all p.
 | H (weaker → stronger, roughly) | best mechanism toward ES(p), p fixed | outcome / exact gap |
 |---|---|---|
 | Selberg eigenvalue conj. (SEL) | Kuznetsov / DI spectral large sieve for the Type I SL₂ form `ef − 4a²d = 1` ((D)32) | gives `Σ_{p≤N} f_I(p) ≪ N log²N` (an average; now unconditional, (D)32b). At fixed p the Kloosterman-sum error terms are power-size in the level; Prop 2.3 gap. |
-| GRH (Dirichlet, Hecke) | (a) character expansion (3.2); (b) least prime with given Frobenius; (c) primes in APs on average over p | (a) trivial bound only, misses by `p^{1−o(1)}` (Prop 3.1.1); (b) witnesses of size `(log p)^{O(1)}`: multiplier mechanisms with moduli `≤ exp((log p)^{1/4−ε})` fail i.o. (OMEGA13 Thm 5.1); ES conditions are divisibility (ramification-type), not Frobenius, conditions (§3.2); (c) capped at saving `exp(−C(log N)^{3/4+o(1)})` in E(N) (PRIMELAW Cor 4.2). |
+| GRH (Dirichlet, Hecke) | (a) character expansion (3.2); (b) least prime with given Frobenius; (c) primes in APs on average over p | (a) trivial bound only, misses by `p^{1−o(1)}` (Prop 3.1.1); (b) witnesses of size `(log p)^{O(1)}`: Type II multiplier mechanisms with moduli `≤ exp((log p)^{1/4−ε})` fail i.o. (OMEGA13 Thm 5.1); for Type I (incl. X_slice) only `ck_min ≫ log p·log₃p` i.o. is known (R125 repair); ES conditions are divisibility (ramification-type), not Frobenius, conditions (§3.2); (c) capped at saving `exp(−C(log N)^{3/4+o(1)})` in E(N) (PRIMELAW Cor 4.2). |
 | EH / GEH, BV, Montgomery's and Hooley's AP conjectures | prime-law / linear certificates | same as GRH (c); linear certificates capped at exponent 1/4 in the W(p) scale (OMEGA15/16). Averages over p never give finiteness of the exceptional set. |
-| GLH, Lindelöf in level–discriminant aspect, GRH for Rankin–Selberg | Weyl sums of Heegner/CM points, small-scale equidistribution | all-centre range: expected count `≥ |D|^{1/4−o(1)}`; almost-all range: `≥ |D|^{δ}` and wrong quantifier. Cor 4.1: no driver for families with `|D| ≥ p^κ`. |
+| GLH, Lindelöf in level–discriminant aspect, GRH for Rankin–Selberg | Weyl sums of Heegner/CM points, small-scale equidistribution | all-centre range: expected count `≥ |D|^{1/4−o(1)}`; almost-all range: `≥ |D|^{δ}` and wrong quantifier. Cor 4.1: no driver for families with `|D| ≥ p^κ` through a `p^{o(1)}`-to-one encoding (R125 repair). |
 | Twisted Linnik / optimal strong approximation (covering exponent) | covering of balls on a quadric | escapes Prop 2.3 formally (existence, not asymptotic), but ES targets are not balls if the small-scale asymptotic holds (Remark 4.2, PROVED implication); the ES parameter varieties are split or have point-dependent moduli; no admissible quadric found (Assessment). Gap: structural, not a numerical exponent. |
 | Schinzel H / Bateman–Horn (not on the list; for comparison) | prime values of polynomials in p | works *against* ES-proofs: every bounded witness procedure fails i.o. under H (POINTWISE_SIZE Thm C). |
 

@@ -18,12 +18,12 @@ under GRH (LITERATURE_2026 has no such result). What was produced:
    hypothesis is.
 3. **Heegner/CM small scale (Cor 4.1, PROVED given 2).** The Humphries–Radziwiłł ranges were
    checked in arXiv:1910.01360v2: almost-all-centres down to expected count `|D|^δ`, and the GLH
-   all-centre ranges. These cannot drive ES for families with `|D| ≥ p^κ`. Covering-type
+   all-centre ranges. These cannot drive ES for families with `|D| ≥ p^κ` through a `p^{o(1)}`-to-one encoding (R125 repair). Covering-type
    hypotheses escape item 2 only formally (Remark 4.2, a PROVED implication: if the small-scale
    asymptotic holds, ES targets are not balls).
 4. **GRH (§3.2).** In the character expansion (3.2), each χ is used at one argument. Applying GRH
    character by character therefore gives only the trivial bound, which misses by `p^{1−o(1)}`.
-   Chebotarev witnesses are polylog-size, and OMEGA13 kills those. Averaged prime laws are capped
+   Chebotarev witnesses are polylog-size; OMEGA13 kills those only for Type II multiplier mechanisms, not for the Type I slice (R125 repair). Averaged prime laws are capped
    by PRIMELAW. Parts of this are Assessment, and are labelled as such.
 5. **Ranked table (§5)** gives each listed hypothesis with its mechanism and gap. The contrast
    with Borwein–Choi (xy+yz+zx, where GRH works because the count is a class number) is the
