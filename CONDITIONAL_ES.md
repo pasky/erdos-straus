@@ -28,7 +28,11 @@ negative result with exact scope, plus exact reformulations.
 * **Round 2.** §7, covering paradigm:
   * Prop 7.1 (PROVED): power-scale covering implies ES only at power-deficient targets, the
     big-holes regime.
-  * Prop 7.2 (PROVED): every general Cramér-scale covering statement is false (diagonal).
+  * Prop 7.2 (PROVED): every Cramér-scale covering statement quantified over *arbitrary*
+    unit-class systems is false (diagonal); definable classes are tested only numerically
+    (R127 repair: wording).
+  * (R127 EVIDENCE) At the slice-singleton primes the full counts are healthy:
+    `f_I(5101441) = 188`, `f_II = 78` (§8).
   * Prop 7.3 (PROVED): local-data hypotheses fail at odd squares.
   * Bright–Loughran: the BM-refined version is ES itself.
   * No natural covering conjecture implying ES was found. The survivor is the ES-specific
@@ -98,7 +102,9 @@ Write `f(p)` for the number of ordered positive solutions of `4/p = 1/x+1/y+1/z`
 **Lemma 2.1 (PROVED relative to ET Thm 1.1 and (1.4)).** `Σ_{p≤N} f(p) ≪ N log²N log log N`
 (ET, display after Thm 1.1; the campaign's (D)32b improves this to `≪ N log² N`). Hence for
 every λ > 0, `#{p ≤ N : f(p) > λ} ≪ N log²N log log N/λ`; in particular for fixed δ > 0 all but
-`O(N^{1−δ} log³N)` primes p ≤ N have `f(p) ≤ N^δ`. (Markov.)
+`O(N^{1−δ} log³N)` primes p ≤ N have `f(p) ≤ N^δ`. (Markov.) *(R127 repair.)* Applying this on
+each dyadic block `(N/2^{k+1}, N/2^k]` and summing gives the same bound `O_δ(N^{1−δ}log³N)` for
+the exceptions to `f(p) ≤ p^δ`, which is the form used below.
 
 **Definition 2.2.** An *ES-detector* is, for each large prime p, a finite set `𝔗_p` (the target)
 and a map `Φ_p : 𝔗_p → Sol(p)` whose fibres have size ≤ μ(p). A hypothesis H *drives* the
@@ -109,6 +115,10 @@ then `M(p) ≤ 2μ(p) f(p)`; hence for every δ > 0, `M(p) ≤ 2μ(p) p^{δ}` fo
 set of counting function `O(N^{1−δ} log³ N)`. If μ(p) ≤ p^{o(1)} (every natural parametrisation
 of solutions by lattice points, Heegner points, matrices `γ = (e 2a; 2ad f)` etc. is O(1)-to-one
 or `p^{o(1)}`-to-one by the divisor bound), then `M(p) ≤ p^{o(1)}` for almost all p.
+*(R127 repair: quantifiers.)* Here `μ(p) ≤ p^{o(1)}` means a single function o(1), and "M(p) ≤
+p^{o(1)} for almost all p" means: there is δ(p) → 0 with `M(p) ≤ p^{δ(p)}` outside a set of
+density 0 (diagonalise over δ = 1/k). The consequence used below (no driver with `M(p) ≥ p^η` for
+all large p) needs only one fixed δ < η.
 
 *Proof.* `#𝔗_p ≤ μ(p)·#Sol(p) = μ(p) f(p)`, and `#𝔗_p ≥ M − R ≥ M/2`. Apply Lemma 2.1. ∎
 
@@ -220,10 +230,12 @@ Let `Λ_D` be the Heegner points of discriminant D (`#Λ_D = h(D) = |D|^{1/2±o(
 * HR Thm 1.12(1), unconditional: for annuli with `|D|^{−1/12+δ} ≪ r < R ≪ 1` and
   `|D|^{−1/2+δ} ≪ μ(A_{r,R}) ≪ 1`, the count is asymptotic to the expectation for **almost
   all centres** w. Expected count `≥ |D|^{δ}`.
-* All centres: HR Thm 1.6 (sphere) under GLH for balls of area `n^{−δ}`, `δ < 1/4`; the Heegner
+* Fixed centre (R127 repair: HR Thm 1.6 is stated for a fixed w ∈ S², n → ∞; uniformity in w is
+  not asserted): HR Thm 1.6 (sphere) for balls of area `n^{−δ}`, `δ < 1/12` unconditionally and
+  `δ < 1/4` under GLH; the Heegner
   analogue is Young [You17 Thm 2.1] / Humphries [Hum18 Thm 1.24] (cited by HR; exponents not
   re-checked here). Expected count `≥ |D|^{1/2−1/4−o(1)} = |D|^{1/4−o(1)}`.
-* HR §1 (end) note that even balls (r = 0) at radius `|D|^{−1/4+δ}`, expected count `|D|^{2δ}`,
+* HR, closing paragraph of §6 (R127 repair: not §1), note that even balls (r = 0) at radius `|D|^{−1/4+δ}`, expected count `|D|^{2δ}`,
   are beyond their method; Linnik/Bourgain–Rudnick-type conjectures are `|D|^{ε}`-lossy.
 
 **Corollary 4.1 (PROVED, given Prop 2.3).** Let `Λ_{D(p)}` be any Heegner family with
@@ -241,7 +253,8 @@ approximation / covering exponent, Sarnak's letter, Sardari, Browning–Kumarasw
 `#𝔗_p ≥ 1` without `#𝔗_p ≍ M`, so Prop 2.3 does not apply. But then the target ball would have
 expected count `X^ε ≥ p^{κε}` and actual count `≤ p^{o(1)}` (Lemma 2.1, for almost all p): it
 would be a *deficient* ball, contradicting the (believed, and partly GLH-proved) asymptotic for
-balls at that scale. So if the asymptotic small-scale conjecture holds at expected count
+balls at that scale (R127 repair: believed for S² / Heegner families; on S³ it is false at
+expected count `(#pts)^{1/4−o(1)}`, big holes, §7.1). So if the asymptotic small-scale conjecture holds at expected count
 `X^{ε}`, ES-targets in families of size `≥ p^κ` are never balls (or other regions of bounded
 Sobolev complexity), for almost all p (PROVED implication). The targets that actually encode ES
 are cut out by divisibility conditions (§1: the modulus of the congruence depends on the
@@ -289,7 +302,9 @@ to Type I: it is one slice of it. **EVIDENCE:** X_slice holds for every prime 3 
 every Mordell-hard prime below 2·10⁶ (§1); the dual form holds for every prime < 20000 (`scripts/cond_dual_check.py 20000`, each hit rebuilt and checked); counts `S(p) ∈ [6, 42]` near 10⁵ (§3.1); in the
 random model `S(p)` is a sum of ≍ p rare events with mean `≍ log² p`, so
 `P(S(p) = 0) ≈ exp(−c log² p)`, summable (Assessment; the true lower tail is governed by the
-correlated small-modulus part, cf. the exponent-3 tail of W, so this model is only indicative).
+correlated small-modulus part, cf. the exponent-3 tail of W, so this model is only indicative;
+(R127 repair) at Mordell-hard primes it is contradicted by §8: mean ≈ 24 near 5·10⁶ predicts
+`P(S ≤ 1) ≈ 10⁻⁹`, yet singletons occur).
 
 **Why no listed hypothesis implies X_slice (the negative result, with scope).**
 1. (PROVED, Prop 2.3) No hypothesis delivering a lower bound `≥ M/2` for a target with main
@@ -364,8 +379,11 @@ Dirichlet a prime `p_j > M_j` with `p_j ≡ −1 (mod lcm(m ≤ M_j))`. It avoid
 `m ≤ M_j` because `r_m ≢ −1`. For `M_j < m ≤ M_{j+1}` choose `r_m ∉ {−1, p_1, …, p_j} (mod m)`,
 which is possible since `φ(m) > j + 1`. Then every `p_j` lies in no class of 𝒮.
 *Infinite expectation:* for any Q and any class b mod Q, every m coprime to Q carries a unit class
-that a Haar-random n with `n ≡ b (Q)` hits with probability exactly `1/φ(m)`, and
-`Σ_{(m,Q)=1} 1/φ(m) = ∞` (already over primes m). ∎
+that a Haar-random n with `n ≡ b (Q)` hits with probability exactly `1/m` (R127 repair: not
+`1/φ(m)`, which is the probability for a random unit), and `Σ_{(m,Q)=1} 1/m = ∞` (already over
+primes m). ∎ (R127: the refuted statement quantifies over adversarial systems and is not a
+conjecture from the literature; with K classes per modulus the same diagonal refutes it at any
+expected count `C log p`.)
 
 So a true covering statement at Cramér scale must restrict the *class of systems* (definability).
 The natural restriction is "divisor targets": in the dual form of §6, `A_m = {d : d | P(m)}` for a
@@ -384,7 +402,8 @@ fixed polynomial P, with m in a fixed progression. ES's slice is `P(m) = m + 1`,
 ### 7.4 Local hypotheses cannot imply X_slice: the odd-square obstruction (R125 Lemma 5.1)
 
 **Proposition 7.3 (PROVED).** Let `S'(n)` be the number of slice solutions with `gcd(n, c) = 1`
-(for primes, `S'(p) = S(p)` up to the O(1) solutions with `p | c`). Let H be any predicate on n
+(for primes p > 3, `S'(p) = S(p)` exactly: `p | c` forces `p | f` and then `l(pg−1) ≤ 2`, impossible;
+R127 repair). Let H be any predicate on n
 that depends only on the dyadic range `n ∈ (X, 2X]` and on `n mod Q(X)`, with
 `Q(X) ≤ X^{1/2−ε}`. If H(p) holds for some prime p ∈ (X, 2X] that is a square modulo Q(X), and X is
 large, then H holds for some odd square in (X, 2X]. Hence "H(n) ⇒ S'(n) ≥ 1" is **false**:
@@ -396,11 +415,13 @@ the class `p mod Q`, and there are `≍ X^{1/2}/Q ≥ X^{ε}` of them in (X, 2X]
 
 *Consequence.* Every covering conjecture whose hypotheses are local data of moderate modulus
 plus size, e.g. "the Haar-expected slice count given n mod Q is ≥ C log n", is false as soon as
-it applies to one square-mimicking prime. A true conjecture implying X_slice (or ES at square-
-mimicking primes) must either
+it applies to one square-mimicking prime. A true conjecture implying X_slice (or
+`f_I + f_II ≥ 1`, which is ES at primes; R127 repair: odd squares *do* satisfy ES, so Prop 7.3 says
+nothing against `H(n) ⇒ ES(n)`) must either
 * use primality explicitly (a statement about primes, hence of prime-law type, and those are
   capped in the averaged problem, §3.2), or
-* use moduli `Q > n^{1/2}` (genuinely E1 data: the actual factorisations of `gp + 1`).
+* use local data whose total modulus (the lcm of all moduli used) exceeds `n^{1/2−ε}`
+  (R127 repair; the joint residues of p modulo all `q ≤ n^{1/2−ε}` already determine p by CRT).
 
 This is the covering-paradigm form of the red-team observation that `|S_1| < S_0` must be
 square-sensitive.
@@ -422,7 +443,7 @@ existence" is literally ES for all n ≥ 2, and the strong-approximation form of
   `xy ≡ 1 (mod p)` with `xy ≤ 2gp`, `x ≡ y ≡ −1 (mod g)`) split into dyadic pieces of expected
   count O(1). No box or ball of expected count `p^ε` lies inside the ES region.
 * **Cramér scale (expected `≥ C log p`).**
-  * General systems: false (Prop 7.2, PROVED).
+  * Arbitrary (adversarial) systems: false (Prop 7.2, PROVED; R127 repair: wording).
   * Local-data hypotheses: false at odd squares (Prop 7.3, PROVED).
   * Divisor-target class: numerically doubtful (EVIDENCE above).
   * BM-refined: equivalent to ES (BL).
@@ -434,7 +455,9 @@ existence" is literally ES for all n ≥ 2, and the strong-approximation form of
 **Remainder form of the slice (PROVED; equivalent to Lemma 1.1).** With m = 4d and
 `f = 4cd − p ≡ −p (mod m)`: X_slice(p) holds iff for some `m ≡ 0 (mod 4)` the distance f from p
 up to a multiple `cm` of m divides `m + 1`. Equivalently, since `(cm − p) | (m+1)` iff
-`(cm − p) | (p + c)`, iff for some c ≥ 1, `p + c` has a divisor `f ≡ −p (mod 4c)` with
+`(cm − p) | (p + c)` (R127 repair: this step uses `gcd(c, p) = 1`, automatic for a prime
+p > 3 in this setting; for composite n, e.g. n = 9, c = f = 3, the divisor form gives spurious
+hits), iff for some c ≥ 1, `p + c` has a divisor `f ≡ −p (mod 4c)` with
 `(p+f)/c ≡ 0 (mod 4)` and `f ≤ (p+f)/c + 1`.
 *Proof.* `c(m+1) − (cm − p) = c + p`. ∎
 
@@ -463,7 +486,11 @@ independently in Python.
 at 5·10⁶, so S(p) is *not* concentrated at Cramér scale for these primes. This agrees with
 Prop 7.3: the local data of square-mimicking primes is that of odd squares, where S' ≡ 0. X_slice
 may well fail for some larger hard prime. Full ES does not depend on it, because general a,
-Type II and the other permutations remain available. Any conditional route through the a = 1
+Type II and the other permutations remain available. (R127 EVIDENCE, independent code
+`scripts/review_r127_counts.c`: S(5101441) = 1 confirmed; full counts
+`(f_I, f_II) = (12, 6), (34, 20), (38, 36), (60, 40), (188, 78)` at p = 2521, 5569, 21169, 43969,
+5101441. The full Type I family is of normal polylog size there; only the a = 1 slice is thin.)
+Any conditional route through the a = 1
 slice alone is therefore fragile, and a conjecture of X_slice type should be stated for the
 full Type I (or Type I ∪ II) count.
 
@@ -483,17 +510,23 @@ the error is at least `p^{1−o(1)}` per primitive character class, which exceed
 
 *Proof.* The AP `{(qjp+1)/4 : j ≤ p/q}` has modulus ≍ qp and length p/q inside `[1, X]`, `X ≍ p²`.
 Detecting it with characters ψ mod ≍ qp and applying a GRH bound to each twisted sum gives
-error `≥ X^{1/2} = p` per ψ, after the `1/φ(qp)` normalisation, against `p/q` terms. ∎
+error `≥ X^{1/2} = p` in total over ψ (≈ `X^{1/2}/φ(qp)` per ψ after the `1/φ(qp)`
+normalisation; R127 repair: wording), against `p/q` terms. ∎
 
 **Assessment (not a theorem).** The broader claim, "no use of GRH/GLH can give |S_1| < S_0", is
 supported by three facts:
 * Prop 9.1;
 * Prop 2.3, for any power-error mechanism;
 * Prop 7.3 / R125 Lemma 5.1: the needed bound must distinguish primes from odd squares at the
-  level of individual factorisations of `gp + 1`, and L-function hypotheses about characters
-  of moduli ≤ p see p only through `p mod q`, which is shared with odd squares for `q ≤ p^{1/2−ε}`.
+  level of individual factorisations of `gp + 1`. (R127 repair: the former claim that L-function
+  hypotheses about characters of moduli ≤ p "see p only through `p mod q`, shared with odd
+  squares" is withdrawn: characters of all moduli `q ≤ p^{1/2−ε}` *jointly* see
+  `p mod lcm(q ≤ p^{1/2−ε})`, which determines p by CRT. Only a single modulus is shared.)
 
 The third fact is the strongest form available here. Any argument using p only through
-`(p mod q)_{q ≤ p^{1/2−ε}}` and size gives the same output at an odd square in the same classes,
-where `S' = 0`. This is PROVED as a statement about such arguments: it is Prop 7.3 with H the
-argument's hypothesis.
+`p mod Q` for a single modulus `Q ≤ p^{1/2−ε}` (equivalently, finitely many moduli with
+**lcm** `≤ p^{1/2−ε}`) and size gives the same output at an odd square in the same class, where
+`S' = 0`. This is PROVED as a statement about such arguments: it is Prop 7.3 with H the
+argument's hypothesis. (R127 repair: the earlier version, with the joint data
+`(p mod q)_{q ≤ p^{1/2−ε}}`, was false — that data determines p. In particular GRH for all
+characters of modulus ≤ p is *not* covered by Prop 7.3; for it the third fact is only heuristic.)

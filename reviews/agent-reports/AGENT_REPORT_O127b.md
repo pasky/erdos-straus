@@ -53,6 +53,8 @@ This is now **Prop 9.1, PROVED as bookkeeping with mechanism scope**: the per-pr
 AP-sum GRH bound exceeds the length of the sum. The broad claim "no use of GRH helps" is
 **explicitly an Assessment**. Its strongest rigorous support is Prop 7.3 applied to arguments
 that see p only through `p mod q` with `q ≤ p^{1/2−ε}`.
+(R127 repair: only for a *single* modulus, i.e. lcm of moduli used `≤ p^{1/2−ε}`; the joint
+residues mod all `q ≤ p^{1/2−ε}` determine p, so GRH for all small moduli is not covered.)
 
 ## Weak points
 * Prop 7.1's "natural ⇒ not deficient" step is an Assessment, and so is "artificial

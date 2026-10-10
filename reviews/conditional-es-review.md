@@ -11,14 +11,19 @@ Reviewer: R127 side agent (branch `side-agent/review-conditional`). Author files
 |---|---|
 | Lemma 1.1 (slice, lift to ES solution) | SOUND |
 | Dual form (§6) and remainder form (§7.5) | SOUND-AFTER-REPAIRS (minor: coprimality in the "iff") |
-| Prop 2.3 / Lemma 2.1 (scale constraint) | (see §2 below) |
-| Cor 4.1 / Remark 4.2 | (see §4 below) |
-| Thm 6.1 | (see §6 below) |
-| Prop 7.1 | (see §7 below) |
-| Prop 7.2 | (see §7 below) |
-| Prop 7.3 | (see §7 below) |
-| Prop 9.1 + §9 Assessment | (see §9 below) |
-| §8 EVIDENCE S(5101441) = 1 | (see §8 below) |
+| Prop 2.3 / Lemma 2.1 (scale constraint) | SOUND-AFTER-REPAIRS (D1 dyadic, D2 quantifiers; minor) |
+| Cor 4.1 / Remark 4.2 | SOUND-AFTER-REPAIRS (HR ranges quoted correctly; D3, D4 minor) |
+| Thm 6.1 | SOUND (trivial); D5 on the random-model Assessment |
+| Prop 7.1 | SOUND |
+| Prop 7.2 | SOUND-AFTER-REPAIRS (D6 1/φ(m)→1/m; D7 §0 overclaim). Not a straw man *as stated*, but it refutes only the adversarial-universal statement |
+| Prop 7.3 | SOUND as stated; its use in §7.4/§9 has a **MAJOR** gap (D8, D9) |
+| Prop 9.1 | SOUND (bookkeeping, mechanism scope; D11 wording) |
+| §9 Assessment | GAP (D8): the "PROVED" support for joint small-moduli data is false; repaired to single-modulus scope |
+| §8 EVIDENCE S(5101441) = 1 | SOUND — confirmed by independent algorithm; full f_I/f_II computed (new) |
+
+No FATAL defects. One MAJOR (D8), ten MINOR. All repairs applied in `CONDITIONAL_ES.md`
+(and one line in report O127b), each marked "(R127 repair)". Overall: the document's headline
+(no conditional proof of ES; negative results of mechanism scope; X_slice ⇒ ES trivial) stands.
 
 ## 1. Lemma 1.1 — SOUND
 
@@ -214,3 +219,28 @@ the quotient" are marked Assessment.
   only: arguments that see p through a single modulus (lcm) ≤ `p^{1/2−ε}` plus size cannot prove
   `S'(p) ≥ 1`. GRH for all characters of modulus ≤ p is *not* such an argument; so the third
   fact supports the Assessment only heuristically. The Assessment label itself is honest.
+
+## Defect list (consolidated)
+
+1. **D8 MAJOR** — §9 third bullet + closing paragraph (+ O127b (3)): joint residues
+   `(p mod q)_{q ≤ p^{1/2−ε}}` determine p (CRT, lcm ≫ p); Prop 7.3 covers only a single modulus /
+   lcm ≤ `p^{1/2−ε}`. Repaired (wording + scope; GRH-for-all-small-moduli now explicitly not covered).
+2. D1 MINOR — Lemma 2.1/Prop 2.3: N^δ vs p^δ threshold; dyadic summation added.
+3. D2 MINOR — Prop 2.3: "p^{o(1)} for almost all p" quantifiers made explicit.
+4. D3 MINOR — §4: HR Thm 1.6 is for fixed w (not "all centres"); unconditional δ < 1/12 added;
+   HR "§1 (end)" → closing paragraph of HR §6.
+5. D4 MINOR — Remark 4.2: believed asymptotic restricted to S²/Heegner (false on S³).
+6. D5 MINOR — §6: Poisson model contradicted at hard primes by §8.
+7. D6 MINOR — Prop 7.2 proof: Haar probability is 1/m, not 1/φ(m).
+8. D7 MINOR — §0/§7.5: "every general Cramér-scale covering statement" → "over arbitrary systems".
+9. D9 MINOR — §7.4: odd squares satisfy ES; Prop 7.3 refutes `H ⇒ S' ≥ 1` / `f_I+f_II ≥ 1`, not
+   `H ⇒ ES`; "moduli Q > n^{1/2}" → total modulus (lcm) > n^{1/2−ε}.
+10. D10 MINOR — §7.5: the divisor-of-(p+c) form needs gcd(c,p)=1 (automatic for primes p > 3;
+    spurious at n = 9, 49, 81, 105, 121).
+11. D11 MINOR — Prop 9.1 proof wording ("per ψ" → "in total over ψ").
+12. (side) §7.4: S'(p) = S(p) exactly for p > 3, not "up to O(1)" — repaired.
+
+## Not checked / caveats
+* Young [You17], Humphries [Hum18], Sardari, BKS, GGN: not accessed by me.
+* The 20513-prime scan below 10⁷ (§8 table statistics) not re-run in full; 14 spot values agree.
+* (D)32b, POINTWISE_* and PRIMELAW citations taken as campaign results, not re-reviewed here.
