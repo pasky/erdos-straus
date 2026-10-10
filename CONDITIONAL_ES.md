@@ -1,7 +1,29 @@
 # ES for large primes conditional on a standard conjecture? (task O127)
 
-Status: IN PROGRESS. Labels as in DISCOVERIES.md. ES is not proved here, and (checked against
-`LITERATURE_2026.md`, which has no such entry) ES is not known even under GRH.
+Status: CHECKPOINT 1 (not yet reviewed). Labels as in DISCOVERIES.md. ES is not proved here, and
+(checked against `LITERATURE_2026.md`, which has no such entry) ES is not known even under GRH.
+
+## 0. Summary
+
+**No conditional proof of ES from a standard conjecture was obtained.** The outcome is a
+negative result with exact scope, plus exact reformulations.
+* §1 (PROVED): the brief's divisor form made exact. ES(p) holds if for some t,
+  `tp + 1 = m·m''` with `m ≡ m'' ≡ −1 (mod t)` and `4 | m` (the cofactor condition is
+  automatic); equivalently `cf | p + c + f` (with a mod-4 condition), i.e. p is a value of the
+  cubic `cfg − c − f`. This single slice solves every prime < 3000 and every Mordell-hard prime
+  < 2·10⁶ (EVIDENCE).
+* §2 (PROVED, relative to ET Thm 1.1): **scale constraint.** Any hypothesis that proves ES(p)
+  through a lower bound `≥ M/2` for a target with main term M must have `M ≤ p^{o(1)}` for almost
+  all p (bounded-multiplicity encodings). Power-size main terms are excluded whatever H is.
+* §3: the fixed-p count is a sum of ≍ p rare events with mean ≍ log² p (character expansion
+  (3.2)); GRH character by character misses by `p^{1−o(1)}`; GRH-Chebotarev witnesses are
+  polylog-size and die by OMEGA13; averaged prime laws are capped by PRIMELAW.
+* §4 (PROVED given §2): Heegner/CM small-scale equidistribution (Humphries–Radziwiłł, Young; GLH)
+  cannot drive ES for families with `|D| ≥ p^κ`; covering-type hypotheses (optimal strong
+  approximation, twisted Linnik) escape §2 only formally (Remark 4.2).
+* §5: ranked table of hypotheses with the exact gap. §6: Theorem 6.1, X_slice ⇒ ES (PROVED;
+  X_slice is ES-strength, not a standard conjecture), with EVIDENCE and the list of what is and
+  is not covered by the negative results.
 
 ## 1. Exact divisor-in-progression forms
 
@@ -239,7 +261,7 @@ solution `(bdp, cd, bcd)` (Lemma 1.1).
 X_slice is a single two-variable divisibility condition (a "Kloosterman fraction `−p̄/m` hits
 the divisor set of `m + 1`" statement), but it is **not** weaker in difficulty than ES restricted
 to Type I: it is one slice of it. **EVIDENCE:** X_slice holds for every prime 3 ≤ p < 3000 and
-every Mordell-hard prime below 2·10⁶ (§1); counts `S(p) ∈ [6, 42]` near 10⁵ (§3.1); in the
+every Mordell-hard prime below 2·10⁶ (§1); the dual form holds for every prime < 20000 (`scripts/cond_dual_check.py 20000`, each hit rebuilt and checked); counts `S(p) ∈ [6, 42]` near 10⁵ (§3.1); in the
 random model `S(p)` is a sum of ≍ p rare events with mean `≍ log² p`, so
 `P(S(p) = 0) ≈ exp(−c log² p)`, summable (Assessment; the true lower tail is governed by the
 correlated small-modulus part, cf. the exponent-3 tail of W, so this model is only indicative).
