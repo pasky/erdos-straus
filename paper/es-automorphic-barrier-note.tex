@@ -432,6 +432,153 @@ Among all the parametrisations of \cite[\S2]{ET}, $Q_d$ is the only
 rank-$3$ quadratic piece (\status{certified} by a systematic search,
 \cite[Comp.~6.1]{O124}, reproduced independently in its review).
 
+\section{The divisor-class reduction}\label{sec:reduction}
+This section is \cite[\S2]{RT2}. A \emph{slice} is a choice
+$\theta$ of two of the coordinates $\{a,b,c,d,e\}$ together with prescribed
+values for them; $V_\theta(p)$ denotes the elements of $V_I(p)$ (or
+$V_{II}(p)$) with these values. By the symmetry $a\leftrightarrow b$ the
+coordinate pairs are $\{a,b\},\{a,c\},\{a,d\},\{a,e\},\{c,d\},\{c,e\},\{d,e\}$.
+
+\begin{lemma}[slice table; \status{proved}, elementary]\label{lem:slices}
+For each type and each slice $\theta$ exactly one of the following holds.
+\begin{itemize}
+\item[(C)] \emph{Congruence slice:} $V_\theta(p)\neq\emptyset$ if and only if
+$p$ lies in an explicit finite union of residue classes modulo a modulus
+depending only on $\theta$.
+\item[(D)] \emph{Divisor slice:} there are an integer $N_\theta(p)$ (a
+polynomial in $p$ of degree $\le2$, possibly divided by a constant depending
+on $\theta$), a modulus $q_\theta$ and a residue set $R_\theta(p)\subset\Z/q_\theta$
+such that $V_\theta(p)$ is in bijection with
+$\{f\ge1:\ f\mid N_\theta(p),\ f\bmod q_\theta\in R_\theta(p)\}$. The set
+$R_\theta(p)$ depends only on $\theta$, on $p\bmod q_\theta$ and, in the
+$\{d,e\}$ rows, on $N_\theta(p)\bmod q_\theta$.
+\end{itemize}
+The rows are as follows (Type~I rows containing $c$ or $d$ are for
+$p\nmid cd$; otherwise the fibre is empty).
+\begin{center}\small
+\begin{tabular}{llllll}
+\toprule
+type & $\theta$ & kind & $N_\theta(p)$ & divisor $f$ & class condition\\
+\midrule
+I & $\{c,d\}$ & D & $p^2+4c^2d$ & $4acd-p$ & $f\equiv-p\ (4cd)$\\
+I & $\{a,c\}$ & D & $ap+c$ & $4acd-p$ & $f\equiv-p\ (4ac)$\\
+I & $\{a,e\}$ & D & $(pe+1)/4a$ & $b$ & $f\equiv-a\ (e)$\\
+I & $\{d,e\}$ & D & $m=(pe+1)/4d$ & $a$ & $f^2\equiv-m\ (e)$, $(f,e)=1$\\
+I & $\{a,d\}$ & C & $4a^2d+1$ & $4acd-p$ & $p\equiv-f\ (4ad)$\\
+I & $\{a,b\},\{c,e\}$ & C & --- & --- & $p$ mod $4ab$, resp.\ $4a(ce-a)$\\
+II & $\{c,d\}$ & D & $4c^2dp+1$ & $4acd-1$ & $f\equiv-1\ (4cd)$\\
+II & $\{a,c\}$ & D & $cp+a$ & $4acd-1$ & $f\equiv-1\ (4ac)$\\
+II & $\{a,d\}$ & D & $p+4a^2d$ & $4acd-1$ & $f\equiv-1\ (4ad)$\\
+II & $\{a,e\}$ & D & $(p+e)/4a$ & $b$ & $f\equiv-a\ (e)$\\
+II & $\{d,e\}$ & D & $m=(p+e)/4d$ & $a$ & $f^2\equiv-m\ (e)$, $(f,e)=1$\\
+II & $\{a,b\},\{c,e\}$ & C & --- & --- & $p$ mod $4ab$, resp.\ $4a(ce-a)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+In the $\{a,e\}$ and $\{d,e\}$ rows, $N_\theta(p)$ is required to be an
+integer (otherwise the fibre is empty).
+\end{lemma}
+\begin{proof}
+Each D row is an identity plus a converse.
+\emph{I$\{c,d\}$} is Lemma~\ref{lem:typeI}(iii). For the converse, the
+cofactor $f'=N/f$ satisfies $f'\equiv p^2(-p)^{-1}\equiv-p\pmod{4cd}$; put
+$a=(f+p)/4cd$, $b=(f'+p)/4cd$; expanding $ff'=N$ gives
+$p(a+b)=c(4abd-1)$, so $c\mid a+b$ and $e=(a+b)/c=(4abd-1)/p$.
+\emph{II$\{c,d\}$} is Proposition~\ref{prop:typeII}(a).
+\emph{I$\{a,c\}$} is Lemma~\ref{lem:typeI}(ii).
+\emph{II$\{a,c\}$, II$\{a,d\}$}: with $f=4acd-1$ one has $ef=4a^2d+p$, and
+$c(4a^2d+p)=a(f+1)+cp$, so $f\mid cp+a$ (as $\gcd(f,c)=1$). Conversely put
+$d=(f+1)/4ac$, resp.\ $c=(f+1)/4ad$, then $e=(p+4a^2d)/f$ and $b=ce-a$.
+\emph{$\{a,e\}$, $\{d,e\}$}: with $M=pe+1$ (Type~I) or $M=p+e$ (Type~II)
+the defining equations read $bd=M/4a$, resp.\ $ab=M/4d$, together with
+$e\mid a+b$. For $\gcd(a,e)=1$, $e\mid a+m/a$ is equivalent to
+$e\mid a^2+m$, and every element has $\gcd(a,e)=1$: for Type~I since
+$a\mid pe+1$; for Type~II since $\gcd(a,e)\mid p$ and $p\nmid e$ (if
+$p\mid e$ then $4abd=p+e\le2e\le2(a+b)$ forces $a=b=d=1$ and then
+$4=p+e\ge2p$, impossible).
+\emph{C rows}: for I$\{a,d\}$ the fibre is $\{f\mid4a^2d+1: f\equiv-p\ (4ad)\}$,
+a condition on $p\bmod 4ad$; for $\{a,b\}$, $e$ runs over the divisors of
+$a+b$ and the condition is $4ab\mid pe+1$ (resp.\ $p+e$); for $\{c,e\}$,
+$a$ runs over $[1,ce-1]$ with condition $4a(ce-a)\mid pe+1$ (resp.\ $p+e$).
+\end{proof}
+All bijections were verified mechanically against a brute-force
+enumeration of $V_I(p)\cup V_{II}(p)$ for every prime $5\le p<200$
+(\status{certified}, \cite[Lemma~2.1]{RT2}; script
+\texttt{scripts/rt2\_slices.py}).
+
+\begin{theorem}[divisor-class reduction]\label{thm:reduction}
+Consider the encodings of \S\ref{sec:dict}:
+E1 the Type~I $\SL_2$/Heegner wedge (Proposition~\ref{prop:wedge},
+$\theta=\{c,d\}$; its $T_p$-translated form, per tube, $\theta=\{a,d\}$);
+E2 the Type~II shells (Proposition~\ref{prop:typeII}, $\theta=\{c,d\}$);
+E3 the quaternion order of Proposition~\ref{prop:quat} ($\theta=\{d,e\}$);
+E4 the $(-d,-p)$ factorisation of Lemma~\ref{lem:dp} ($\theta=\{d,e\}$;
+the norms of $2ai+j$ give $\theta=\{a,d\}$);
+E5 the CM torus (Proposition~\ref{prop:cm}, $\theta=\{c,d\}$);
+E6 the ternary form $Q_d$ (Proposition~\ref{prop:Qd}, $\theta=\{a,d\}$).
+\begin{enumerate}
+\item[(i)] \status{(proved)} The E-solutions with parameter $\theta$ are in
+bijection with $V_\theta(p)$. Hence they correspond to the divisors of the
+single integer $N_\theta(p)$ lying in $R_\theta(p)$, or (C rows) to a
+congruence condition on $p$.
+\item[(ii)] \status{(proved, relative to the cited internal statements)}
+Every representative-independent invariant of these objects is congruence
+or genus data. Specifically: for E5 only genus characters have non-zero
+coefficient (Proposition~\ref{prop:cm}). For E3 the collision datum is a
+function of $\theta$, of $p\bmod4d$, of $(-d/p)$ and of $(-d/\ell)$ for
+$\ell\mid e$, and it holds automatically on every admissible $\theta$
+\cite[Prop.~2.2]{O130}. For E1, E2 and E6 the property of being an ES point
+belongs to the representative, not to the CM point or $\Gamma$-orbit: each
+class has infinitely many representatives of the required shape and only
+finitely many good ones (\cite[Prop.~4.1]{O126}; \cite[Prop.~8.2]{O128}; the
+stabiliser of $S_c$ in $\SL_2(\Z)$ is $\pm I$). For E4 the ES elements lie
+on the line $\{2xi\pm j\}$, on which the reduced norm is the one-variable
+polynomial $4dx^2+p$ \cite[Prop.~3.2]{O130}.
+\item[(iii)] \status{(conditional on Hypothesis~H)} Let $\Theta_0$ be a finite
+set of slice parameters, of any types and rows, fixed independently of
+$p$. Any argument that certifies $\mathrm{ES}(p)$ by exhibiting an
+E-solution with parameter in $\Theta_0$ fails for infinitely many primes
+$p\equiv1\pmod{24}$. This holds whatever auxiliary automorphic, spectral
+or geometric information the argument uses.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(i) Each source file proves the exact lift from its object to $V_\theta(p)$
+(Propositions~\ref{prop:wedge}, \ref{prop:typeII}, \ref{prop:quat},
+\ref{prop:cm}, \ref{prop:Qd} and Lemma~\ref{lem:dp}); then apply
+Lemma~\ref{lem:slices}. (ii) is a collection of the cited statements.
+(iii) The argument can only succeed at primes with
+$\bigcup_{\theta\in\Theta_0}V_\theta(p)\ne\emptyset$. By Lemma~\ref{lem:slices}
+this predicate is decided, together with a witness, by the bounded and
+correct procedure ``for $\theta\in\Theta_0$: test $p\bmod q_\theta$; factor
+$N_\theta(p)$ (with floor division for the $\{\cdot,e\}$ rows); test each
+divisor against $R_\theta(p)$''. By \cite[Thm.~C]{PS}, under Hypothesis~H
+every such procedure fails for infinitely many $p\equiv1\pmod{24}$.
+\end{proof}
+
+\begin{remark}[scope]\label{rem:scope}
+Part (iii) says that whatever an automorphic input ``knows'', if it
+certifies ES through a fixed finite set of fibres it is no stronger than
+factoring finitely many fixed polynomials in $p$, and under H that fails.
+It does \emph{not} say that automorphic methods cannot aggregate over a
+parameter set $\Theta(p)$ that grows with $p$; Kuznetsov's formula and
+Heegner equidistribution aggregate over levels and discriminants in
+exactly this way. Aggregation over $\theta$ is legitimate, since $\theta$
+is a coordinate of the solution and not fixed by the problem. By
+Lemma~\ref{lem:slices} it amounts to controlling, at one prime $p$, the
+divisor events of a growing family $\{N_\theta(p)\}_{\theta\in\Theta(p)}$
+jointly. The quantitative obstacles to doing so are in
+\S\S\ref{sec:negative}--\ref{sec:gaps}, and the open routes in
+\S\ref{sec:open}. Unconditional quantitative versions of (iii) exist for
+specific growing boxes. For the Type~II box $\{acd\le T/4\}$ one uses
+$f=4acd-1\ge W(p)$ together with the $\Omega$-result
+$W(p)>\exp\bigl(c(\log p)^{1/4}(\log\log p)^{-1/4}\bigr)$ for infinitely
+many $p$ (\cite{PO}, modulo a theorem of Thorner and Zaman). For Type~I
+heights there is $ck_{\min}(p)\gg\log p\cdot\log\log\log p$ infinitely
+often (internal file \texttt{POINTWISE\_OMEGA.md}, Thm.~8.5, modulo
+Lau--Wu). Both are cited as summarised in \cite[\S2.2]{RT2}.
+\end{remark}
+
 %%CONTINUE
 
 \begin{thebibliography}{99}
