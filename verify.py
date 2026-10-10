@@ -121,6 +121,8 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
   (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111 + author), O112 §8.0 identities (reduced size), Lemma 6.1
        local transitivity / densities, Lemma 6.3 r(d) bound (R111);
   (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
+Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
+  (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23273,5 +23275,63 @@ def check_er():
 print("\n== (er) POINTWISE_TYPEI7: explicit families of Thm 2.1/2.4 + Lemma 1.1 on all small fibre certificates (R109) ==")
 check_er()
 
+
+
+# ---------------------------------------------------------------- (es)
+# POINTWISE_TERNARY.md (task O124-author, review R124 = reviews/pointwise-ternary-review.md; DISCOVERIES (I)1).
+# Uses R124's from-scratch scripts (not the author's tern_sweep.py / tern_qd.py).  Checked:
+# (1) Comp 6.1 (CERTIFIED): review_tern_sweep.py (sympy elimination on ET's (a,b,c,d) parametrisation of T^I, T^II)
+#     reproduces the stored log logs/review_tern_sweep.out.txt line for line: 30 four-subsets, 22 with n in Q(V),
+#     4 algebraically dependent, 4 with n quadratic over Q(V); 57 quadratic substructures with ranks
+#     {2: 54, 3: 1, 1: 2}, all 56 non-rank-3 ones isotropic; the unique rank-3 piece is Type II (a,d,e,f), d fixed:
+#     n = e*f - 4*a^2*d (= Q_d);
+# (2) Section 8 Step 4 (EVIDENCE, small sample): review_tern_qd.py (every hit checked as an exact ES identity) at
+#     N = 10^6, DMAX = 4, AMAX = 100: failures exactly {3361, 7681}; at N = 10^7, DMAX = 8, AMAX = 200: 20513
+#     Mordell-hard primes, histogram {1: 19634, 2: 682, 3: 160, 4: 21, 5: 11, 7: 1, 8: 2, 9: 1, 13: 1}, worst
+#     a_min(733321) = 13, no failure; spot value a_min(84525841) = 22 (with d = 3), the 10^8 worst case.
+
+def check_es():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TERNARY subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run(os.path.join(sdir, "review_tern_sweep.py"))
+    with open(os.path.join(root, "logs", "review_tern_sweep.out.txt")) as fh:
+        assert o == fh.read(), "TERNARY R124 sweep differs from logs/review_tern_sweep.out.txt"
+    lines = o.splitlines()
+    subsets = [ln for ln in lines if ln.startswith("(")]
+    rank3 = [ln for ln in lines if " rank 3 " in ln]
+    t2 = lines.index("===== Type II")
+    assert len(subsets) == 30 and sum(" : n = " in ln for ln in subsets) == 22 and \
+        sum("V dependent" in ln for ln in subsets) == 4 and sum("no eliminant" in ln for ln in subsets) == 4, \
+        ("TERNARY Comp 6.1 subset census", len(subsets))
+    assert "TOTAL 57 by rank {2: 54, 3: 1, 1: 2}" in o and o.count("isotropic True") == 56, "TERNARY Comp 6.1 ranks"
+    assert len(rank3) == 1 and "fix (d,) -> q = -4*a**2*d + e*f rank 3" in rank3[0] and \
+        lines.index(rank3[0]) > t2 and lines[lines.index(rank3[0]) - 2].startswith("(a, d, e, f) : n = "), \
+        ("TERNARY Comp 6.1 unique rank-3 piece", rank3)
+    qd = os.path.join(sdir, "review_tern_qd.py")
+    o = run(qd, "1000000", "4", "100")
+    assert "fails [3361, 7681] 2" in o, ("TERNARY Step 4 at 1e6 / DMAX 4", o)
+    o = run(qd, "10000000", "8", "200")
+    assert "primes 20513" in o and "hist {1: 19634, 2: 682, 3: 160, 4: 21, 5: 11, 7: 1, 8: 2, 9: 1, 13: 1} " \
+        "worst (13, 733321) fails [] 0" in o, ("TERNARY Step 4 at 1e7", o)
+    o = run("-c", "import review_tern_qd as r; print(r.amin(84525841, 8, 200))")
+    assert o.strip() == "(22, 3)", ("TERNARY a_min(84525841)", o)
+    print(f"es TERNARY R124: Comp 6.1 sweep = stored log (30 subsets, 57 quadratic pieces, ranks {{2: 54, 3: 1, 1: 2}}, "
+          f"unique rank 3 = Type II Q_d = ef - 4da^2); Step 4: fails {{3361, 7681}} at (1e6, 4, 100), 20513 hard primes "
+          f"<= 1e7 solved with worst a = 13 at 733321, a_min(84525841) = 22 (d = 3); seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep + Step 4 (Q_d) sample (R124) ==")
+check_es()
 
 print("\nall checks passed")
