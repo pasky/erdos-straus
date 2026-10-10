@@ -125,3 +125,67 @@ HR arXiv:1910.01360v2 **fetched and read** (`/tmp/hr.pdf`, not committed).
   believed (S², Heegner points): on S³ the all-centre asymptotic already **fails** at expected
   count `(#pts)^{1/4−o(1)}` (big holes, the author's own §7.1). Repair: add "(for S² / Heegner
   families; on S³ it is false, §7.1)".
+
+## 6. Theorem 6.1 — SOUND (trivial, as the author says)
+
+X_slice(p) is Lemma 1.1(3) at n = p; the solution `(bdp, cd, bcd)` is positive (§1). The dual
+form is equivalent (checked by hand and numerically, §1 above). **D5 (MINOR, §6 random-model
+Assessment).** "`P(S(p)=0) ≈ exp(−c log²p)`, summable": at Mordell-hard primes near 5·10⁶ the
+Poisson model with mean `0.1·log²p ≈ 24` predicts `P(S ≤ 1) ≈ 24e^{−24} ≈ 10⁻⁹`, yet five
+singletons occur among ≈ 2·10⁴ hard primes (§8, confirmed above). The model is *refuted* on
+the hard classes; the existing caveat ("only indicative") is too weak. Repair: add "(and it is
+contradicted at Mordell-hard primes by §8)".
+
+## 7. Propositions 7.1–7.3
+
+### Prop 7.1 — SOUND (with D1/D2 of §2 inherited)
+`#𝔗_p ≤ μ f(p) ≤ p^{ε/2+o(1)}` off the Lemma 2.1 exceptional set (δ = ε/2). Correct and trivial.
+The labels are honest: "natural ⇒ not power-deficient" and "artificial multiplicity reduces to
+the quotient" are marked Assessment.
+
+### Prop 7.2 — SOUND-AFTER-REPAIRS; statement fair as stated, but over-advertised in §0
+* Construction re-derived and **simulated from scratch** (`scripts/review_r127_diag.py`):
+  `M_j = 3, 6, 7, 12, 13, 18, 19`, Dirichlet primes `p_j = 59, 419, 55439, 1081079, 24504479`
+  (≡ −1 mod lcm(m ≤ M_j)), classes chosen greedily; **none of the p_j lies in any class with
+  m ≤ 20000** ✓. Edge case checked: if `m | p_i` the residue `p_i mod m` is a non-unit and costs
+  nothing; m = 3 has the single admissible class 1. ✓
+* **D6 (MINOR, wrong probability).** "hits with probability exactly `1/φ(m)`": under Haar measure
+  on Ẑ, `P(n ≡ r_m mod m | n ≡ b mod Q) = 1/m` for (m, Q) = 1, not `1/φ(m)` (that would be the
+  probability for a random *unit*, i.e. a prime-like model). The conclusion survives because
+  `Σ_{(m,Q)=1} 1/m = ∞`. Repair: replace `1/φ(m)` by `1/m` (or say "Haar-random unit").
+* **Fairness.** The refuted statement quantifies over *all* unit-class systems, including
+  adversarially chosen ones; nobody conjectures that, so Prop 7.2 refutes a deliberately general
+  statement, not a conjecture from the literature. The text draws the honest conclusion ("must
+  restrict the class of systems"), so §7.3 is fair. But **D7 (MINOR, overclaim in §0 and §7.5)**:
+  "every general Cramér-scale covering statement is false" reads as if natural Cramér-scale
+  conjectures were refuted. Repair: "every covering statement quantified over arbitrary
+  unit-class systems is false (diagonal); definable classes are tested only numerically". Note
+  also the system has expected count `Σ_{m≤X} 1/m ≈ log X` up to modulus X, i.e. it *is* at
+  Cramér scale with C = 1; with K classes per modulus (`φ(m) > j + K`) the diagonal gives any C, so
+  the result is robust in C ✓.
+
+### Prop 7.3 — SOUND as stated; GAP in its use (§7.3 consequence and §9)
+* R125 Lemma 5.1 re-checked against ET: ET line "a Type I solution if n divides x but is coprime
+  to y and z" and ET Prop 1.6 "for any odd perfect square n, f_I(n) = f_II(n) = 0" ✓; `4bd = gn+1`
+  gives `gcd(n, bd) = 1`, so `gcd(n,c) = 1` makes `(bdn, cd, bcd)` Type I ✓. Numerically (own C):
+  `S(m²) = 0` for all odd 3 ≤ m ≤ 61 (complete) ✓.
+* Proof: m odd, `m ≡ m₀ (mod 2Q)` (m₀ odd by CRT; automatic if Q even), count in
+  `(√X, √(2X)]` is `≈ 0.21 X^{1/2}/Q ≥ 0.2X^ε ≥ 1` for X ≥ X₀(ε) ✓. p prime > Q so the class is a
+  unit class ✓.
+* **D8 (MAJOR, §9 third bullet and the §9 closing paragraph; also report O127b (3)).** The text
+  says arguments using p "only through `(p mod q)_{q ≤ p^{1/2−ε}}` and size" give the same
+  output at an odd square, and that this "is PROVED … it is Prop 7.3 with H the argument's
+  hypothesis". **False.** Prop 7.3 is about a *single* modulus Q ≤ X^{1/2−ε}. The joint data
+  `(p mod q)_{q ≤ Q₀}` is `p mod lcm(1..Q₀)`, and `lcm(1..Q₀) = e^{(1+o(1))Q₀} ≫ X` for
+  `Q₀ = X^{1/2−ε}`; by CRT the only n ∈ (X, 2X] with these residues is p itself, which is not a
+  square. So there is **no** odd square sharing that data, and the argument fails. The same
+  applies to "L-function hypotheses about characters of moduli ≤ p see p only through p mod q":
+  characters of all moduli ≤ p jointly determine p. Correct scope: arguments that use p only
+  through `p mod Q` for a single Q (equivalently, a family of moduli with **lcm** ≤ `X^{1/2−ε}`)
+  and the dyadic size. Repair applied (R127 repair) in §9 and noted in §7.4.
+* **D9 (MINOR, §7.4 consequence).** "A true conjecture implying X_slice (or ES at square-mimicking
+  primes) must …": odd squares *do* satisfy ES (`ES(m) ⇒ ES(m²)` by scaling), so Prop 7.3 says
+  nothing against a hypothesis H(n) ⇒ ES(n). It refutes H(n) ⇒ S'(n) ≥ 1 and, by ET Prop 1.6,
+  H(n) ⇒ f_I(n)+f_II(n) ≥ 1. Repair: replace "(or ES at square-mimicking primes)" by "(or
+  `f_I + f_II ≥ 1`, which is ES at primes)". Also "use moduli `Q > n^{1/2}`" should read "use
+  local data whose total modulus (lcm) exceeds `n^{1/2−ε}`".
