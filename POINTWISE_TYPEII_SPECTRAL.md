@@ -33,9 +33,10 @@ toward ES is claimed.
 
 **Round 2 (§§7–10).**
 * §7 (PROVED): exact lattice data. `(Q, S_c)` spans `4[−dp, 1, c²]` in the ternary lattice of binary forms.
-  Type II solutions are unusually small Pell units `T + 2c√(d²m² + dp)`.
+  Type II solutions are Pell units `T + 2c√(d²m² + dp)` (unusually small only for c ≤ p^{o(1)}; R128b).
 * §8 (PROVED): there is no reduction-theory freedom, since `Stab(S_c) = ±I`. Type II is one class `k ≡ 1 (mod 2c)`
-  of the isotropic-type vector S, plus level data. All local, genus and spinor data hold for every n,
+  of the vector S (S^⊥ split), plus level data and positivity (Q positive definite; R128b). The problem is
+  everywhere locally soluble for every n,
   globally up to the sign at ∞ (`Q₀ = [−1,0,−dn]`). The problem collapses **exactly** to: `4c²dp+1` has a
   positive divisor ≡ −1 (mod 4cd). (R128b repair) The stabiliser of S_c is a split torus `𝔾_m`; local data only
   fix the class set `(ℤ/4cd)^×` (narrow ray classes mod `4cd·∞`), and the only class restriction forced by local
@@ -411,7 +412,7 @@ pointwise route:
 
 **Conclusion of round 2 (Assessment, with the PROVED reductions 7.1–9.2).** The algebraic/ternary route is
 exact but **not new information**. Type II(p) for a pair (c,d) is an embedding `4[−dp,1,c²] ↪ L` with a class
-condition on the isotropic-type vector `S_c`. This collapses to "N_{c,d} = 4c²dp+1 has a positive divisor ≡ −1
+condition on the vector `S_c` (with `S_c^⊥` split) and positivity of Q (R128b). This collapses to "N_{c,d} = 4c²dp+1 has a positive divisor ≡ −1
 (mod 4cd)" (Prop 8.1). The integral-point problem is everywhere locally soluble for every n (Prop 8.3; even globally up to the
 sign at ∞). The stabiliser of S_c is a split torus; local data fix only a class set `(ℤ/4cd)^×` (narrow ray classes
 mod `4cd·∞`), and the only locally forced class restriction is the genus character, active exactly at squares

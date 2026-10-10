@@ -1,5 +1,10 @@
 # AGENT_REPORT_O128b — round 2: the algebraic angle (ternary lattice, spinor, Kudla/GKZ) + 10⁸ numerics
 
+> **R128b note.** Hostile review in `reviews/pointwise-typeii-spectral-review-r2.md`; repairs E1–E10 applied in
+> `POINTWISE_TYPEII_SPECTRAL.md` (marked "R128b"). In particular: "local + spinor" → "everywhere locally soluble";
+> the "obstruction group = ray class group mod 4cd·∞" is a class set, not an obstruction (only the genus character is
+> locally forced); positivity is not the class choice k = ±1 (Prop 8.2(iii) corrected).
+
 Branch `side-agent/typeii-spectral`. New sections §§7–10 of `POINTWISE_TYPEII_SPECTRAL.md`. R128 repairs D1–D8 are
 applied and marked "(R128 repair Dk)". The review branch was merged. Scripts: `t2s_ternary.py` (+out: Gram, Pell,
 divisor identity for p < 160, squares s ≤ 21), `t2s_eis.py` (+out), `t2s_numerics_1e8.out.txt`.
