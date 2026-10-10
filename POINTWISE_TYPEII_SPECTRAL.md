@@ -25,7 +25,7 @@ into the level/discriminant (−4dp)** — a description of the table in §1, no
   Prop 1.6 (`f_II(s²) = 0`), and shows the shell main term is false at squares — any correct method must carry
   the genus character. At reachable scales the automorphic input cannot see square-mimicking primes.
 * §5 (EVIDENCE, p ≤ 10⁷): `f_II(p) ≥ 1` throughout; `min f_II/log³p ≈ 0.012–0.017`; hard primes are the
-  square classes mod 840; normalised lower tail `R ≈ 0.28` and slowly widening; the fixed-p random-root Heegner
+  square classes mod 840; normalised lower tail `R ≈ 0.28`, flat to slowly decreasing (R128b repair); the fixed-p random-root Heegner
   predictor does not track hard primes (actual/predicted 0.27–0.38 vs 0.9–3.5).
 **Net:** Type II has the hoped-for SL₂/Heegner structure, but for fixed p it is an exact-incidence problem at
 scale `|D|^{−1/2}`, out of reach of spectral equidistribution by a power `D^{1/3}` even under GLH. No step
@@ -37,8 +37,10 @@ toward ES is claimed.
 * §8 (PROVED): there is no reduction-theory freedom, since `Stab(S_c) = ±I`. Type II is one class `k ≡ 1 (mod 2c)`
   of the isotropic-type vector S, plus level data. All local, genus and spinor data hold for every n,
   globally up to the sign at ∞ (`Q₀ = [−1,0,−dn]`). The problem collapses **exactly** to: `4c²dp+1` has a
-  positive divisor ≡ −1 (mod 4cd). The obstruction group is the ray class group mod `4cd·∞` of a split
-  torus, so there is no strong approximation and no Gauss/three-squares mechanism.
+  positive divisor ≡ −1 (mod 4cd). (R128b repair) The stabiliser of S_c is a split torus `𝔾_m`; local data only
+  fix the class set `(ℤ/4cd)^×` (narrow ray classes mod `4cd·∞`), and the only class restriction forced by local
+  data is the genus character `χ_{−4d}·(n/·)` (the Brauer–Manin obstruction at odd squares). Whether divisors
+  of `4c²dp+1` hit the class −1 is a global question (Assessment). No Gauss/three-squares mechanism applies.
 * §9 (PROVED identities + Assessment): every generating series in sight is Eisenstein. Odd/even Eisenstein
   coefficients cancel exactly at odd squares. Kudla/GKZ gives no fixed modular form and no cusp part.
   **No automorphic pointwise route** comes out of this structure.
@@ -275,10 +277,11 @@ up to scaling: `[A,B,C] ↔ [[B, 2C],[−2A, −B]]` has `−det = B² − 4AC`)
 `T² − D'(2c)² = 1`. Conversely every solution `(T, 2c)` of `x² − D'y² = 1` with `D' = d²m² + dp` and
 `T ≡ −1 (mod 2cd)`, `(T+1)/2cd ≡ m (mod 2)`, `|m| < (T+1)/2cd` gives a Type II quadruple (up to gcd(a,c)).
 *Proof.* `T² − 4c²d²m² = (T − 2cdm)(T + 2cdm) = (4bcd − 1)(4acd − 1) = 1 + 4c²dp` (Lemma 1.1.3). ∎
-So Type II solutions are **unusually small units** `T + 2c√D'` (`T ≍ c√D'`) of the orders `ℤ[√(d²m² + dp)]` —
-the Type II analogue of TYPEI4's "fibre certificates are norm-1 units". Since `h(D')·log ε_{D'} ≍ √D'·L(1,χ)`,
-a small unit forces `log ε ≪ log(c√D')`, i.e. near-maximal class number of `ℚ(√D')`: one more way to see that
-Type II lives in a thin, arithmetically special set.
+So Type II solutions are units `T + 2c√D'` (`T ≍ c√D'`) of the orders `ℤ[√(d²m² + dp)]` —
+the Type II analogue of TYPEI4's "fibre certificates are norm-1 units". *(Assessment; R128b repair.)* For
+`c ≤ p^{o(1)}` the unit is unusually small: since `h·log ε ≍ √D'·L(1,χ)` (class number of the order `ℤ[√D']`),
+it forces `log ε ≪ log(c√D')`, i.e. a large class number of the order unless `L(1,χ)` is small. For `c` up to
+`≈ p/2` (Prop 8.1) this says nothing.
 
 ## 8. Reduction theory, invariance, and the collapse to the divisor condition
 
@@ -299,36 +302,49 @@ are `S_{c,k} = [0, 2c, k]`, `k ∈ (ℤ/2c)^×` (translation `X ↦ X + jY` shif
 are the Gram matrix `T`, the class k of S, and (with the level structure) the classes of `Q` mod `Γ⁰(d)`-type
 data. For class `k`, `b(Q, S_{c,k}) = 4(cB − kA)`, so the general condition `b = 4` reads `kA = cB − 1`;
 **Type II is the single class `k ≡ 1 (mod 2c)` together with the congruences `B ≡ 0 (4d)`, `d | C`** — these
-are not invariants of the Gram matrix. (iii) Positivity: `(−Q, −S_c)` has the same Gram matrix, and
-`−S_c ~ S_{c,−1}`; so "A > 0" is the choice `k = +1` vs `k = −1`, i.e. achieved inside the orbit exactly when
-the k-class is ±1; it is not an extra restriction beyond the class condition.
+are not invariants of the Gram matrix. (iii) Positivity (R128b repair; the earlier claim that positivity is
+the class choice k = ±1 was false — Q₀ of Prop 8.3 is in class k = +1 with A < 0). Since `q(Q) < 0`, Q is
+definite, and `A > 0` ⇔ Q is **positive** definite: the choice of sheet of the two-sheeted hyperboloid
+`q = −4dn`, an archimedean condition independent of k. The map `(Q,S) ↦ (−Q,−S)` preserves the Gram matrix
+and the level data, swaps the sheets, and sends class k to −k (`−S_c ~ S_{c,−1}`). For c = 1 the classes ±1
+coincide, so a positive definite Q′ with `b(Q′,S_1) = 4` always exists; the γ needed destroys the level data
+`B ≡ 0 (4d)`, `d | C`. So positivity is an extra condition, and for c = 1 the level data carry the content.
 
 **Prop 8.3 (everything except one sign is automatic; PROVED).** For every `n ≥ 1` (prime or not, including odd
 squares) and every `(c,d)`, the vector `Q₀ = [−1, 0, −dn] ∈ L` satisfies `q(Q₀) = −4dn`, `b(Q₀, S_c) = 4`,
 `B ≡ 0 (4d)`, `d | C`: a **global integral** solution of the whole embedding problem of Prop 7.1 except
 positivity `A > 0` (it is the trivial factorisation `N = (−1)(−N)`, i.e. `a = 0`). Equivalently `(−Q₀, −S_c)` =
-`([1,0,dn], S_{c,−1})` solves it with `A > 0` but in the class `k = −1`. So all local conditions (all ℓ-adic
-ones, and the archimedean one up to sign) and hence genus and spinor-genus data are satisfied **for every n**,
+`([1,0,dn], −S_c)`, `−S_c ~ S_{c,−1}`, solves it with `A > 0` but with S in the class `k = −1`. So the integral-point
+problem is everywhere locally soluble (ℓ-adic: Q₀; real: any positive definite real Q with `A = cB − 1`)
+**for every n** (R128b repair: there is no natural spinor genus for this pair problem; the Gram lattice `4T₀`
+itself is even globally represented by L for every n, by Q₀),
 in particular for `n = s²`, where `f_II(s²) = 0` (Cor 6.2). The entire content of Type II is: **N has a
 positive divisor in the class `−1 (mod M)`, while it always has the positive divisor `1` in the class `+1`** —
-the two differ exactly by the sign at ∞, i.e. by the ray class group mod `M·∞` (`(ℤ/M)^×`) versus mod M
-(`(ℤ/M)^×/±1`). Odd characters (`η(−1) = −1`) are what detect it (§9).
-*Consequence (PROVED, from 8.3 + Cor 6.2).* No statement of the form "locally represented + spinor
-condition ⇒ represented" can hold for the Type II embedding problem with its congruence data: the odd
-squares are a counterexample at every (c,d). The obstruction at squares is the quadratic-reciprocity
-(genus-character) obstruction of Lemma 6.1 — in the language of the ES surface, the integral Brauer–Manin
-obstruction (Bright–Loughran 2020, already cited in STATUS) — and it lives in the **split torus**: the
+the two differ exactly by the sign at ∞, i.e. by the narrow ray class group mod `M·∞` (`(ℤ/M)^×`) versus the
+wide one mod M (`(ℤ/M)^×/±1`): in the wide group every divisor ≡ ±1 is trivial. Odd characters (`η(−1) = −1`)
+are what detect it (§9).
+*Consequence (PROVED, from 8.3 + Cor 6.2).* No statement of the form "everywhere locally soluble ⇒ soluble"
+can hold for the Type II integral-point problem (positivity + congruence data): the odd squares are a
+counterexample at every (c,d). The obstruction at squares is the quadratic-reciprocity (genus-character)
+obstruction of Lemma 6.1 — in the language of the ES surface, the Brauer–Manin obstruction to strong
+approximation of Bright–Loughran 2020 Thm 1.2 / Cor 1.4. It obstructs only the Type II valuation pattern: by
+their Thm 1.1 there is **no** BM obstruction to ES itself (R128b repair). The setting is a **split torus**: the
 orthogonal complement of `S_c` in `L ⊗ ℚ` is split binary (q(S_c) is a square), and with S fixed the problem is
 `N = (T − U)(T + U)`, `(T, U) ≡ (−1, 0) (mod 2cd)`: representations of a number by the isotropic form
-`x² − y²` in a coset. For a split torus `𝔾_m` strong approximation fails; the obstruction group is
-`(ℤ/M)^×` and the question is exactly whether the divisors of N hit the class −1. **Answer to (iii): the
-ternary/spinor formulation collapses exactly to the divisor condition** (Prop 8.1), adds no information,
-and is not weaker; Gauss/three-squares-type local–global arguments do not apply because the relevant
-stabiliser is a split torus, not a semisimple group with strong approximation.
+`x² − y²` in a coset. (R128b repair; Assessment.) Local data only fix a class set `(ℤ/M)^×` (narrow ray classes
+mod `M·∞`). This is **not** an obstruction group: for non-square n no class is forbidden by local data. The only
+locally forced restriction is the genus character `χ_{−4d}·(n/·)` (Prop 9.2), a ℤ/2 quotient that is non-trivial
+exactly at squares. Whether the divisors of N hit the class −1 is a global equidistribution question.
+**Answer to (iii): the ternary formulation collapses exactly to the divisor condition** (Prop 8.1), adds no
+information, and is not weaker. Gauss/three-squares-type local–global arguments do not apply. There the
+local–global step is class number one of the ternary genus (strong approximation for Spin(3) plus a
+computation); here the problem is a divisor-in-a-class question on a split torus. Every torus, split or not,
+fails strong approximation, so that alone is not the distinction (R128b repair).
 
 *Remark 8.4 (why three squares works and this does not).* In the three-squares theorem the stabiliser of the
 represented vector is `SO(w^⊥)` for a positive definite binary `w^⊥`, i.e. an anisotropic torus whose class
-group is controlled by genus theory + Siegel. Here the class of `S` is the binding constraint and its
+group is controlled by genus theory + Siegel (the existence step itself is class number one of the ternary
+genus; R128b repair). Here the class of `S` is the binding constraint and its
 stabiliser is the split torus: the counting is not by class numbers but by divisors in residue classes.
 Choosing instead to fix `Q` and vary `S` (§9.2) brings back an anisotropic torus (the CM torus of ℚ(√−dp)),
 but the Type II sum then runs over the whole genus 𝔊⁻ of Q, which averages the class-group information away.
