@@ -354,13 +354,15 @@ but the Type II sum then runs over the whole genus 𝔊⁻ of Q, which averages 
 **Prop 9.1 (character expansion; PROVED).** With `M = 4cd`, `N = 4c²dn + 1` (so gcd(N, M) = 1),
 `#{f | N : f ≡ −1 (M)} = (1/φ(M)) Σ_{η mod M} η(−1) σ_η(N)`, `σ_η(N) = Σ_{f|N} η(f)`.
 (Orthogonality.) For odd η, `Σ_N σ_η(N) qᴺ` is the holomorphic weight-1 Eisenstein series `E₁(1, η)` of level
-M; for even η, `σ_η(N)` is (up to the factor `N^{0}K₀`) the N-th coefficient of the weight-0 Eisenstein series
-`E(z, ½; 1, η)`. So by Prop 8.1 `F(n) = Σ_{c,d} (1/φ(4cd)) Σ_η η(−1) σ_η(4c²dn + 1)`: **a finite sum, over
-≍ n log n levels `4cd`, of Eisenstein coefficients evaluated along the progressions `N ≡ 1 (4c²d)`. There is no
+M (up to the constant term); for even η, `σ_η(N)` is (up to the factor `√y·K₀(2πNy)`) the N-th coefficient of
+the weight-0 **completed** Eisenstein series `L(2s,η)E(z, s; 1, η)` at s = ½. For η = 1 the completion matters:
+the unnormalised `E(z,½)` has vanishing non-constant coefficients (R128b repair). So by Prop 8.1 `F(n) = Σ_{c,d} (1/φ(4cd)) Σ_η η(−1) σ_η(4c²dn + 1)`: **a finite sum, over
+≍ n log n pairs (c,d) (`2cd − 1 ≤ n`; ≍ n distinct levels `4cd`; R128b repair), of Eisenstein coefficients evaluated along the progressions `N ≡ 1 (4c²d)`. There is no
 cuspidal term at all.**
 
-**Prop 9.2 (genus pairing; PROVED).** Let `ψ = χ_{−4d}` (odd real character mod 4d | M). For n = p prime and
-f | N: `ψ(f) = (p/f)` (from `(−dp/f) = 1`, Lemma 6.1). Pairing η ↔ ηψ (opposite parities):
+**Prop 9.2 (genus pairing; PROVED).** Let `ψ = χ_{−4d}` (odd real character mod 4d | M). For **every** n and
+f | N: `ψ(f) = (n/f)` (from `−4c²dn ≡ 1 (mod f)`, so `(−dn/f) = 1`; Lemma 6.1; R128b repair: primality is not
+needed; checked from scratch for all n ≤ 500, `review_r128b_eis.py`). Below, n = p. Pairing η ↔ ηψ (opposite parities):
 `#{f | N : f ≡ −1 (M)} = (1/φ(M)) Σ_{η even} Σ_{f|N} η(f)(1 − (p/f))`.
 For `n = s²` (odd) every factor `1 − (s²/f)` vanishes: Cor 6.2 is **the exact cancellation of each even
 Eisenstein coefficient against its odd genus-twin**. The η = 1 part, `MT_{c,d}(p) = (2/φ(M))#{f | N : (p/f) = −1}`,
@@ -376,15 +378,19 @@ one genus character.
 **9.3 Fixing Q instead (CM theta series; Assessment with PROVED skeleton).** For fixed Q of discriminant −4dp,
 `Q^⊥ ⊂ L` is a positive definite binary lattice (q(Q) < 0, signature (2,1)) of discriminant `≍ dp`, and
 `{S : b(Q,S) = 4}` is a coset of it. Hence `Σ_S e(q(S)τ)` over this coset is a weight-1 **CM theta series** of
-`ℚ(√−dp)`, which does have cuspidal (Hecke-character) components. Type II asks for coefficients at `4c²`
-(squares) in the class `S ~ S_{c,1}`. But Type II sums over **all** Q in the genus 𝔊⁻_d (Lemma 6.1; nothing in
+`ℚ(√−dp)` (`S = −Q/(2dp) + w`, `q(S) = q(w) − 1/(dp)`), which does have cuspidal (Hecke-character) components.
+Type II asks for coefficients at `4c²` (squares) in the class `S ~ S_{c,1}`. (R128b repair: the theta coefficient
+at 4c² counts all S, of every class k and imprimitive ones; the restriction `S = S_c` with level data on Q is not a
+theta coefficient, so the following Siegel–Weil reading is heuristic.) But Type II sums over **all** Q in the genus 𝔊⁻_d (Lemma 6.1; nothing in
 the ES conditions selects a class within the genus — the conditions `B ≡ 0 (4d)`, `d | C` are level data, the
 k-class is a condition on S). By Siegel–Weil, the genus sum of these theta series is an Eisenstein series, and
 the class-group (non-genus) characters, which carry the cuspidal part, cancel identically. This is consistent
 with Prop 9.1: both orders of summation end up Eisenstein.
 
 **9.4 Kudla / Gross–Kohnen–Zagier (Assessment).** In Kudla's theory the generating series of special cycles
-`Z(T)` for the rank-2 lattice data `T = 4T₀ = 4[−dp, 1, c²]` is a genus-2 Siegel-type (here indefinite, weight
+`Z(T)` (R128b caveat: for signature (2,1) and indefinite rank-2 T, Z(T) is generically empty — a point and a
+geodesic in ℍ — and Type II is a fixed-*distance* incidence, Prop 2.4, not an intersection; so this is an analogy)
+for the rank-2 lattice data `T = 4T₀ = 4[−dp, 1, c²]` is a genus-2 Siegel-type (here indefinite, weight
 3/2) theta/Eisenstein object, and intersection numbers of CM cycles with geodesic cycles are its Fourier
 coefficients (GKZ-type). Prop 7.1 says `f_II(p)` is a sum of such coefficients `a(T)` over
 `T ∈ {4[−dp, 1, c²] : c, d ≥ 1}` with the extra class/level conditions. Three facts make this a dead end for a
@@ -394,7 +400,7 @@ pointwise route:
    `f_II(p)`. Restricting to bounded levels (c, d ≤ K) gives a fixed form (Prop 9.1 with finitely many levels),
    but then the count is `≈ log²K`-sized and vanishes for many p (§5: even the full d = 1 family is empty for
    ≈ 135 primes per dyadic block near 4·10⁶).
-2. **No cusp part.** The `S_c` with `q(S_c) = 4c²` (a square) are isotropic-type: `S_c^⊥` is split, and the Siegel–Weil
+2. **No cusp part.** The `S_c` with `q(S_c) = 4c²` (a square) are anisotropic but `S_c^⊥` is split (R128b wording), and the Siegel–Weil
    genus average kills the class-group characters (9.3). What remains is Eisenstein (Prop 9.1): divisor sums in
    residue classes.
 3. **Eisenstein coefficients do not have "pointwise" main terms.** `σ_η(N)` are multiplicative functions of
@@ -406,18 +412,20 @@ pointwise route:
 **Conclusion of round 2 (Assessment, with the PROVED reductions 7.1–9.2).** The algebraic/ternary route is
 exact but **not new information**. Type II(p) for a pair (c,d) is an embedding `4[−dp,1,c²] ↪ L` with a class
 condition on the isotropic-type vector `S_c`. This collapses to "N_{c,d} = 4c²dp+1 has a positive divisor ≡ −1
-(mod 4cd)" (Prop 8.1). All local, genus and spinor data hold for every n (Prop 8.3; even globally up to the sign
-at ∞). The obstruction group is the ray class group mod `4cd·∞` of a split torus, where strong approximation
-fails. The generating series are Eisenstein (Props 9.1–9.2), with no cuspidal component whose size could be
+(mod 4cd)" (Prop 8.1). The integral-point problem is everywhere locally soluble for every n (Prop 8.3; even globally up to the
+sign at ∞). The stabiliser of S_c is a split torus; local data fix only a class set `(ℤ/4cd)^×` (narrow ray classes
+mod `4cd·∞`), and the only locally forced class restriction is the genus character, active exactly at squares
+(R128b repair; Assessment). The generating series are Eisenstein (Props 9.1–9.2), with no cuspidal component whose size could be
 bounded. There is therefore no "real automorphic pointwise route" here. What survives is the reformulation
 "some `4c²dp + 1` has a divisor in a given class", together with its exact Eisenstein/genus bookkeeping.
 
 ## 10. Numerics to 10⁸ (EVIDENCE; `t2s_count 10⁸`, 1.35·10¹⁰ tuples; `scripts/t2s_numerics_1e8.out.txt`)
 * `f_II(p) ≥ 1` for all 5 761 453 primes `5 ≤ p ≤ 10⁸`. Dyadic minima: 62 (2²³, p = 12257281), 74 (2²⁴),
-  88 (2²⁵), 94 (2²⁶, p = 84525841). `min f_II/log³p` stays in 0.0143–0.0158 for blocks 2²³–2²⁶; overall minimum
+  88 (2²⁵), 94 (2²⁶ partial block p ≤ 10⁸, p = 84525841; R128b repair). Reproduced from scratch by R128b
+(`scripts/review_r128b_count.c`, `review_r128b_stats.py`). `min f_II/log³p` stays in 0.0143–0.0158 for blocks 2²³–2²⁶; overall minimum
   over p ≥ 10⁵ is still 0.0117 (p = 2031121). All 20 smallest normalised values are `≡ 1 (mod 24)`, except
   p = 1190701 (`≡ 13`). The six smallest mod-840 class means are again the six square classes.
-* `R(p)` (class-mean ratio mod 840, classes with ≥ 30 members; at these sizes the filter removes nothing): min 0.268 / 0.248 / 0.253 / 0.239 (2²³…2²⁶), slowly decreasing. The 0.1%
+* `R(p)` (class-mean ratio mod 840, classes with ≥ 30 members; at these sizes the filter removes nothing): min 0.268 / 0.248 / 0.253 / 0.239 (2²³…2²⁶, the last partial), slowly decreasing. The 0.1%
   quantile is stable at ≈ 0.37, the 1% quantile ≈ 0.505, and the sd grows slowly (0.307 → 0.323). The lower tail
   thickens very slowly, consistent with divisor-function-type fluctuation of `Σ_{c,d}` over small (c,d) (Assessment).
 * The d = 1 family (single discriminant −4p) is empty for 148–198 primes per block at 2²⁴–2²⁶.
