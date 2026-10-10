@@ -403,3 +403,129 @@ Poisson-scale cancellation requirement into a square-sensitive one (T1).
 | Cor 4.1 Heegner small scale | — | power main terms excluded | — | — | — | — | almost-all-centres = average leak (O127 notes it) | needs `μ ≤ p^{o(1)}` | **correct as stated**; qualifier missing in §5/report |
 | §3.2 GRH single-coefficient | — | power errors vs polylog mass | Chebotarev claim scoped wrongly for Type I | — | — | — | — | — | **conclusion correct, argument needs repair** (5.6a,b) |
 | Thm 6.1 X_slice ⇒ ES | — | — | — | — | — | — | — | exact | **correct, trivial, correctly labelled** |
+
+## 6. Phase 2, item 2: O124 (`POINTWISE_TERNARY.md`) — escape hatches left by Thm 4.1
+
+O124's Thm 4.1 / Cor 4.2 is about representations `Q(v) = κp+η` by a definite form (or line-free
+indefinite ternary form), with bounded-complexity recipes. The proofs are checked separately (R124);
+here I only map what lies outside that scope. Verdict, in short:
+* **(H5) is the live route** for automorphic input, and O124 does not list it: p enters through a
+  side condition rather than the level. Its quadratic object is the split `SL₂`/`Γ₀(d)` quadric,
+  which is O123's domain.
+* **(H2) is live only as a Planck-scale (cusp-height `≍ √p`) equidistribution problem**, which is
+  O128's domain.
+* (H1), (H3) and (H4) collapse.
+
+### 6.1 Two general facts (PROVED)
+
+**Proposition 6.1 (curves collapse to one solution).** Let `(S_j, Φ_j)` be a valid piece (O124
+Def 1.1) and let `C ⊆ E_m` be an irreducible curve over ℚ (a line, a conic, a Pell orbit closure)
+with `C ∩ S_j` infinite. Then `Φ_j` is constant on `C ∩ S_j` minus a finite set.
+*Proof.* `Φ_j|_C` is a rational function on the irreducible curve C. Its values on `C ∩ S_j` lie in
+`Sol(p)`, a finite set (`f(p) < ∞`). A non-constant rational function takes each value only finitely
+often. ∎
+*Consequence.* On split level sets (ℚ-lines) and on Pell-type orbits (O124's own example), the
+representation is a **coarse invariant**: one curve gives one solution. The infinite family of
+points is then wasted (my Prop 2.4 with infinite fibres), and the content of the route is the
+*existence of one good curve*.
+
+**Proposition 6.2 ((Q_d) points are Type II multiplier witnesses with modulus f).** Let
+`ef − 4da² = p` and `f + 1 = 4acd`. Then `f ≡ 3 (4)`, `(f+1)/4 = a·c·d`, and `p ≡ −a·c^{−1} (mod f)`.
+So `f` is a witness modulus in notes (51.1)–(51.2) (`k=1, ℓ=f, (u,v,w) = (a,c,d)`), and
+**`f ≥ W(p)`**. By X5, for infinitely many Mordell-hard p every (Q_d) point satisfying the side
+condition has `f ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})`.
+*Proof.* `p = ef − 4a²d ≡ −4a²d (mod f)`, and `4acd ≡ 1` gives `c^{−1} ≡ 4ad`. ∎
+(This is consistent with O124's numerics, where a ≤ 22 and d ≤ 8: f is the *large* cofactor of
+`p + 4a²d`.)
+
+### 6.2 The hatches
+
+**(H1) Growing families `t ≤ T(p)` (`Q_t, κ_t, η_t`, recipes `Φ_t`): COLLAPSES.**
+* *Mild pieces.* For each t, Thm 4.1 reduces the mild pieces to degenerate (polynomial-identity)
+  pieces, i.e. to ET classes (ET Prop 1.9). Uniformly in t, the route is an ET-class covering with
+  moduli growing with `T(p)`.
+* *Ω-results this inherits.*
+  * Type II families: X5 (`exp((log p)^{1/4})`).
+  * All seven ET families: the square class of one lies in no ET class. With Linnik, the least
+    modulus of an ET class containing p is `≫ log p` i.o. (PROVED, unconditional, linear).
+  * Under H: unbounded (Theorem C).
+* *Exceptional-level loophole* (O124 §9(i)). If p's level is exceptional for `(t,j)`, Lemma 1.3
+  makes `Φ_{t,j}` constant on a dense part of `E_{m_t}`. The representation then only certifies that
+  `S_{t,j} ∩ E_{m_t} ≠ ∅`; the solution is a predetermined function of `(t, m_t)`. For a uniform rule
+  in t, solving `m_t = κ_t p + η_t` for t given p is a parameter search with polynomial identities
+  (E1 + ET classes). Assessment: no representation content survives.
+* *Automorphic input.* Duke/Iwaniec uniform in the level supply only mild sets. Within Thm 4.1's
+  bounded-complexity scope, and modulo the uniformity in t that O124 §9 leaves open (Assessment), they
+  do no work. T8 fails.
+
+**(H2) Non-mild (thin) side conditions on a level set `Q = κp+η`: LIVE, but only at Planck scale.**
+This is where ES's own rank-3 piece sits: (Q_d) with `4ad | f+1`.
+* **Lemma 6.3 (PROVED; identity checked symbolically).** `(e,f,a) ↦ [de, 4ad, f]` maps (Q_d) points
+  to binary forms of discriminant `−4dp`. Their Heegner points are `z = (−2a + i√(p/d))/e`. The side
+  condition is `f ≡ −1 (mod B/d)`, with `B = 4ad` the middle coefficient.
+* *Assessment.* The condition depends on the representative of the form, not on its
+  `Γ₀(d)`-orbit: `z ↦ z+1` sends `B ↦ B+2A`. So it is not a function of the CM point. It selects
+  representatives of the orbit `Γ₀(d)z` in a region at cusp height `≍ e^{−1}√(p/d)`. That height is
+  `≍ √p` after the involution, for the small-a points that occur (§8 of O124), with a congruence on
+  the matrix entries. Roots ν of `4dX² ≡ −p (mod f)` that are small (`ν = a ≤ A ≪ f`) are the same
+  thing: the Duke–Friedlander–Iwaniec setting (roots of quadratic congruences, Annals 1995; cited from
+  memory, not archived), at fixed discriminant `≍ p`.
+* *Tests.*
+  * T2: for fixed (a,d), the piece is one divisor-in-progression question for the single integer
+    `p+4a²d`, with main term `τ(p+4a²d)/φ(4ad) < 1/2` once a is large. So the pieces must be grouped
+    over a (or d).
+  * T3: Prop 6.2 forces `f ≥ W(p)` (fine, since f is large anyway).
+  * T5: the grouped count `Σ_{a≤A, d}` is a Type II count, so on the X5 fibre it vanishes for all
+    witnesses with `f ≤ T`, `log T ≍ (log p)^{1/4}`.
+  * T1: every (Q_d) point gives a Type II solution, which BL Cor 1.4 / ET Prop 1.6 forbid at odd
+    squares with the coprimality condition.
+  * Prop 2.4: the target region (small root, height `√p`) has measure `≍ A/f`. The expected count is
+    `≍ Σ_{a,d} log p/(ad)`, which is polylog, while GLH-strength small-scale equidistribution needs
+    expected count `≥ |D|^{1/4−o(1)}` (O127 §4).
+* *Conclusion.* The live statement is the Planck-scale cusp-excursion count of the orbits
+  `Γ₀(d)·z_{−4dp}` with a congruence. Automorphic input enters via Kuznetsov for `Γ₀(4ad)`, as a
+  family over the level. This is the Type II spectral route (O128). It survives T8 (the lift is
+  Prop 6.2, exact) and must answer T2/T5/T7.
+
+**(H3) Split level sets of indefinite ternary forms: COLLAPSES.**
+* ℚ-lines occur only for `κp+η` in one square class (O124 Lemma 5.1). That is O(√N) primes, and
+  finitely many if `η = 0`. So no route covers all large p this way.
+* With a p-dependent form (`det Q_p ≍ p`, chosen so that `−(κp+η)det Q_p` is a square), Prop 6.1
+  reduces each line to one solution. The existence of a ℚ-line is Hasse–Minkowski, i.e. Hilbert
+  symbols (congruence/character data, inside X1/X4 at square-mimicking points). Integrality of the
+  resulting solution is a separate divisor condition. Assessment: E1 + congruence.
+
+**(H4) Indefinite `k ≥ 4`: COLLAPSES into (H5).** O124 Comp 6.1 (CERTIFIED) finds no rank-4
+quadratic substructure in ET's coordinates. A rank-4 form appears only after the nonlinear
+substitution `u = ad` in Type I: `ef − 4au = 1`, i.e. `det (e 2a; 2u f) = 1`, the split quadric `SL₂`.
+Its side condition `a | u` is thin. That is (H5).
+
+**(H5) Fixed level set, p in the side condition: LIVE; not in O124's scope.**
+* *Setup.* Type I: `ef − 4a²d = 1` (level 1 for every p), side condition `f ≡ −p (mod 4ad)`
+  (`4acd = p+f`). O124 Def 1.1 needs `Q(v) = κp+η`, so Thm 4.1 is silent here. This is exactly the
+  campaign's (D)32 Heegner/Kuznetsov set-up and O123's route.
+* *Tests.*
+  * T3: Type I heights below `n_p` are empty (`ck_min ≥ n_p`), and `≫ log p·log₃p` i.o.
+  * T6: x̂₉ is the binding sterile candidate. No Type I certificate at x̂₉ has `f < 10¹²` (TYPEI3,
+    CERTIFIED), and none at 2-adic level `L ≤ 22` (any height) (TYPEI4–7). So the SL₂ points used at
+    x̂₉-approximants are high (consistent with §3.3: the route sees fresh primes).
+  * T2: each `(a,d)` piece is sub-unit for large ad.
+  * T7: (D)32 averages over p; flipping it is O123's question.
+* *Status.* Live; to be judged on O123's checkpoint.
+
+### 6.3 Summary table
+
+| hatch | O124 status | automorphic input possible? | my verdict |
+|---|---|---|---|
+| H1 growing families, mild pieces | Assessment (§9.1) | Duke/Iwaniec uniform in level | **collapses** to ET-class coverings with growing moduli (X5; linear unconditional Ω; Thm C under H); exceptional levels = parameter search (Assessment) |
+| H2 thin side conditions (Q_d) | allowed by Thm 4.1(a), uncontrolled | Kuznetsov on `Γ₀(4ad)`, DFI roots, Heegner points of disc `−4dp` | **live only at Planck scale** (cusp height `√p`, expected count polylog); Type II spectral, O128; lift exact (Prop 6.2) |
+| H3 split ternary level sets | gap, O(√N) primes | none needed (lines) | **collapses** (Prop 6.1 + Hasse–Minkowski; sparse set) |
+| H4 indefinite k ≥ 4 | gap | — | **reduces to H5** (`u = ad` gives SL₂) |
+| H5 fixed level, p in side condition | **not in scope** | Heegner/Kuznetsov on `SL₂`, `Γ₀(d)` | **live**; O123's route; tests T2/T3/T6(x̂₉)/T7 pending |
+
+*Minor observations on O124 itself.*
+1. Cor 7.1's "no sterile point in the closure of `𝒫_R`" is about mild inputs only. It says nothing
+   about H2/H5, which is where the ES content lives; the report's ledger suggestion should say so.
+2. §8's numerics (`a ≤ 22`, `d ≤ 8` up to 10⁸) are a statement about the *small* parameters. By
+   Prop 6.2 the witness modulus is f, and X5 says f must be huge i.o. So these numerics are not
+   evidence about the pointwise difficulty in the W-scale.
