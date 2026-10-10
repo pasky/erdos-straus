@@ -277,8 +277,9 @@ So the Brauer–Manin obstruction **never** removes a level for Type II and remo
 ### 5.3 Fixed-level experiment (EVIDENCE; `scripts/geo_levels.py`, `a ≤ 3000`)
 Primes `p ≡ 1 (mod 24)`, `p < 1.5·10⁶` (14183 primes):
 * Type II at level `d = 1` (`∃a: p + 4a²` has a divisor `≡ −1 (mod 4a)`) **fails for 73 primes** (49 below
-  `3·10⁵`, 24 in `[3·10⁵, 1.5·10⁶]`, e.g. 97, 193, 673, …, 1456921). The `a`-range is complete: Type II
-  forces `a ≪ √p`. The failing primes show no square-mimicking pattern in their Legendre symbols mod
+  `3·10⁵`, 24 in `[3·10⁵, 1.5·10⁶]`, e.g. 97, 193, 673, …, 1456921). The `a`-range is complete: by the
+  reflection `a ↔ b` one may take `a ≤ b`, and then `4abcd = a + b + pc` gives `a² ≤ a/(2cd) + p/(4d)`, so
+  `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. The failing primes show no square-mimicking pattern in their Legendre symbols mod
   `q < 60`. The failure rate decreases (1.5% → 0.2%), as a Poisson heuristic with mean `≍ log²p/d` predicts.
 * Type I at level `d*(p)`: 79 + 257 "failures", but these are cap-limited (the largest minimal `a` found,
   2966, is at the cap; Type I allows `a` up to `≍ p`). No conclusion.
@@ -287,3 +288,37 @@ uniform version — Type I(p) at some level `d ≤ (log p)^K` with `(−d/p) = �
 statement on `X_d`** (Prop 4.1). With GRH (least such d `≪ log²p`) it would imply ES for large p. It is
 *not* a standard conjecture, and it is not implied by any known equidistribution theorem (Duke's theorem
 concerns `|D| → ∞` at a fixed level; here `D = −4d` is fixed and the target shrinks with p).
+
+## 6. Why the standard geometric machines do not apply, step by step
+
+| machine | what it needs | what ES offers | verdict |
+|---|---|---|---|
+| Strong approximation with BM on `𝒰_n` (Cao–Xu, Wei, CT–Xu) | integral points dense off S | `𝒰_n(ℤ)` finite off lines; SA fails even with Br (BL Thm 1.9) | impossible (PROVED, BL) |
+| Fibration method for integral points (CT–Xu quadric fibrations; Harpaz–Wittenberg) | fibres with SA (homogeneous / quadrics of dim ≥ 2) and a sieve-type input on the base | every fibration of `U_n` has finite fibres (Thm 3.1) | impossible on `U_n` (PROVED) |
+| Harpaz / Swinnerton-Dyer descent on conic log K3 (GTZ input) | conic bundle with **non-split** generic fibre `f x² + g y² = 1`, 2-Selmer groups of norm-one tori | all conic bundles of `U_n` are **split** (§3.1, Prop 3.2); for a split torus `H¹(k, G_m) = 0` (Hilbert 90) and the descent has nothing to work with: integral points on `XY = N` are a divisor problem | does not apply (PROVED that the fibres split; "nothing to work with" is an Assessment) |
+| Markoff-type (Ghosh–Sarnak, Whang): non-linear automorphism group with infinite orbits | Vieta involutions (toric model with 2 points per side) | toric model with 1 point per side (Prop 2.1); equation linear in each variable | no orbit structure (Assessment, supported by Thm 3.1) |
+| Strong approximation on the homogeneous spaces `X_d` / O128's level-`dp` space | adelic open target sets (fixed modulus) | point-dependent modulus `4da \| f+p` (Prop 4.1) | needs shrinking-target equidistribution, i.e. spectral input (Cor 4.2) |
+| Duke-type equidistribution of Heegner points | `|D| → ∞` at a fixed level | Type I: `D = −4d` fixed, target shrinks with p; Type II: `D = −4dp` grows, but the side condition `A ≡ −1 (mod B)` has a point-dependent modulus | not directly (Assessment) |
+
+**Target theorem that would suffice (CONJECTURE-level formulation, not claimed).** (SHT) There are
+`K, p₀` such that for every prime `p > p₀` there is `d ≤ (log p)^K` with `(−d/p) = −1` and an
+`x = (e,f,a) ∈ X_d(ℤ)`, `e,f,a > 0`, with `4da | f + p` and `gcd((f+p)/4da, p) = 1`.
+By Prop 2.2/ET Prop 2.3, (SHT) implies ES for `p > p₀` (unconditionally; GRH would only be needed to make
+the condition `d ≤ (log p)^K` compatible with `(−d/p) = −1` for every p, and (SHT) asserts the existence of such
+a d outright). (SHT) is a pointwise shrinking-target statement for integral points on a family of
+hyperboloids. No standard conjecture known to us implies it. Its averaged form over `p ≤ N` is the Type I
+mass bound of EXCEPTIONAL_TYPEI_LOGLOG.
+
+## 7. Test bench: square-mimicking primes and sterile candidates
+* Everything PROVED above holds for every n (Thms 3.1, Props 3.2, 4.1, 5.1, 5.2) or is a restatement. It is
+  therefore automatically compatible with the square-mimicking primes and with x** (POINTWISE_SIZE,
+  MORDELL13E). BL Thm 1.8 says the BM set is non-empty for **every** n, so the Brauer class can never certify
+  sterility: a sterile point, if one exists, is a failure of the integral Hasse principle **not explained by
+  BM** (cf. BL Thm 1.9 for strong approximation). (PROVED, from BL.)
+* Prop 5.1 says what a square-mimicking prime does to the geometry. If `(−d/p) = +1` for all `d < D`,
+  Type I solutions for p live only on hyperboloids `X_d` with `d ≥ D`. Type II levels are unaffected (Prop 5.2).
+  This is consistent with the campaign's Ω-results on witness sizes (Graham–Ringrose transport, POINTWISE_SIZE
+  §4). It adds no new lower bound.
+* The fixed-level failures of §5.3 are not square-mimicking (EVIDENCE). Fixed-level failure is a
+  "Poisson" phenomenon, not a reciprocity one; this agrees with Prop 5.2 (no Brauer condition at a fixed Type II
+  level).
