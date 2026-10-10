@@ -127,6 +127,7 @@ Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geomet
   (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
   (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1 forms vs raw brute force, geometry, genus, Props 7-9, f_II to 10^7 (R128/R128b).
   (ew) EXACT_FORMULA: Lemma 1.1 (brute = engine, n <= 3000), Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131).
+  (ex) EXACT_FORMULA: CERTIFIED exact Q-rank test (columns regenerated in a tempdir; ~2 min) (R131).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23655,6 +23656,75 @@ def check_ew():
 
 print("\n== (ew) EXACT_FORMULA: Lemma 1.1, Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131) ==")
 check_ew()
+
+
+# ---------------------------------------------------------------- (ex)
+# EXACT_FORMULA.md §6 rank test (CERTIFIED by R131 = reviews/exact-formula-review.md C8; DISCOVERIES (I)5).  The
+# column file data/exf/columns_2e4.npz is git-ignored, so it is regenerated here in a temporary directory with the
+# author's pipeline (exf_hurwitz.c to 1.4*10^6, exf_engine.c to 2*10^4 for both signs, exf_columns.py), and then
+# R131's from-scratch review_r131_rank.py (own brute-force tuples n <= 3000 from review_r131_brute.c, own Hurwitz
+# class numbers by reduced forms, own seeded random rows, fraction-free exact Bareiss) is run.  Checked (gcc needed):
+# (a) all 56 ES columns = R131 brute force for n <= 3000, 12H(D) table = own reduced-form count, classical spot
+#     columns: 0 mismatches;
+# (b) for the six row sets (all n >= 2, odd n, primes >= 5, p = 1 (4), p = 3 (4), p = 1 (24)) the exact Q-ranks
+#     (rk C, rk E, rk C u E) = (46,56,102), (41,52,93), (27,50,77), (22,47,69), (22,49,71), (18,45,63), so the
+#     intersection span E n span C is 0 on the sampled rows, and the kernel of E on the sample kills all rows of the
+#     set (injectivity of the restriction): no linear relation between the 56 ES count variants and the 54 classical
+#     columns on n <= 2*10^4 (scope: that finite dictionary on that range).
+
+def check_ex():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    cc = shutil.which("gcc")
+    if not cc:
+        print("ex EXACT_FORMULA rank test SKIPPED (no gcc)")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        os.makedirs(os.path.join(td, "data", "exf"))
+        exe = {}
+        for name in ("exf_hurwitz", "exf_engine", "review_r131_brute"):
+            exe[name] = os.path.join(td, name)
+            subprocess.run([cc, "-O2", "-o", exe[name], os.path.join(sdir, name + ".c"), "-lm"], check=True)
+        subprocess.run([exe["exf_hurwitz"], "1400000", "data/exf/H12_1p4e6.bin"], cwd=td, timeout=120, check=True)
+        for pre, s in (("n2e4", "1"), ("m2e4", "-1")):
+            subprocess.run([exe["exf_engine"], "20000", "data/exf/" + pre, s], cwd=td, capture_output=True,
+                           timeout=120, check=True)
+        sol = os.path.join(td, "sol3000.txt")
+        with open(sol, "w") as fh:
+            subprocess.run([exe["review_r131_brute"], "3000"], stdout=fh, timeout=120, check=True)
+
+        def run(*args):
+            r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True,
+                               text=True, timeout=600, env=env, cwd=td)
+            assert r.returncode == 0, ("EXACT_FORMULA rank subprocess", args, r.stderr[-2000:])
+            return r.stdout
+        o = run("exf_columns.py")
+        assert "56 ES columns, 54 classical columns" in o, ("EXACT_FORMULA columns", o[-500:])
+        o = run("review_r131_rank.py", sol)
+    assert "12H table mismatches (D<=3000 + 300 random up to 1.4e6): 0" in o and \
+        "ES (56 cols, n<=3000) + sample classical column mismatches: 0" in o, ("EXACT_FORMULA R131 spot checks", o)
+    rows = re.findall(r"^\[(.+?)\] rows=(\d+) exact rkC=(\d+) rkE=(\d+) rk\(C∪E\)=(\d+) dim∩=(\d+)  kerE\(sub\) "
+                      r"dim=\d+ kills all \d+ rows: (\w+)$", o, re.M)
+    want = [("all n>=2", "500", "46", "56", "102"), ("odd n", "500", "41", "52", "93"),
+            ("primes>=5", "500", "27", "50", "77"), ("p=1(4)", "500", "22", "47", "69"),
+            ("p=3(4)", "500", "22", "49", "71"), ("p=1(24)", "267", "18", "45", "63")]
+    assert [r[:5] for r in rows] == want and all(r[5] == "0" and r[6] == "True" for r in rows), \
+        ("EXACT_FORMULA R131 exact ranks", rows)
+    print(f"ex EXACT_FORMULA R131 rank test (columns regenerated): 56 ES columns = brute force (n <= 3000), 12H "
+          f"table OK; six row sets, exact ranks as certified, span E n span C = 0, restriction injective; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ex) EXACT_FORMULA: CERTIFIED exact-rank test, 56 ES variants vs 54 classical columns, n <= 2*10^4 (R131) ==")
+check_ex()
 
 
 print("\nall checks passed")
