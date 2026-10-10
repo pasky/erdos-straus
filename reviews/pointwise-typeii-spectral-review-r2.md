@@ -4,6 +4,18 @@ Reviewer: R128b side agent (branch `side-agent/review-typeii-r2`), merged `side-
 From-scratch scripts: `scripts/review_r128b_*.py` (no author code reused). Per the brief, repairs are applied
 directly in the author's document and marked "(R128b repair)".
 
+## Overall verdict
+
+The PROVED algebra of round 2 is correct: Props 7.1, 7.2, 8.1, 8.2(i–ii), 8.3 (core), 9.1, 9.2 all re-derived and
+checked from scratch (p < 300 / n ≤ 500, explicit character tables). Prop 9.2 holds for every n. The 10⁸ numerics
+reproduce exactly with an independent counter. No FATAL defect. Two MAJOR defects, both in the interpretation:
+**E3** (Prop 8.2(iii), positivity ≠ class choice; contradicted by the author's own Q₀) and **E4** (the "obstruction
+group = ray class group mod 4cd·∞ of a split torus" claim conflates the class set with an obstruction; only the
+genus character is locally forced; and "split torus ⇒ no SA" does not separate this from three squares). Plus
+eight MINOR defects. The negative conclusion ("no automorphic pointwise route from this structure; the problem
+is divisors of 4c²dp+1 in classes mod 4cd") is unaffected and stays an Assessment. All repairs are applied in
+the document, marked "R128b". The R128 D1–D8 repairs were correctly applied, except a stale phrase in §0 (E1).
+
 ## Summary verdicts
 
 | Claim | Verdict |
@@ -13,10 +25,10 @@ directly in the author's document and marked "(R128b repair)".
 | Prop 7.2 (Pell form) + "unusually small units" remark | SOUND (identity); remark MINOR overreach |
 | Prop 8.1 (exact reduction to divisors; F vs f_II) | SOUND |
 | Prop 8.2 (i)–(ii) (Stab = ±I; classes `[0,2c,k]`) | SOUND |
-| Prop 8.2 (iii) (positivity = class choice k = ±1) | GAP (false as stated; contradicted by Prop 8.3) → repaired |
+| Prop 8.2 (iii) (positivity = class choice k = ±1) | GAP (false as stated; contradicted by Prop 8.3) → SOUND-AFTER-REPAIRS |
 | Prop 8.3 (Q₀ global solution except sign; everywhere locally soluble for every n) | SOUND (core); "spinor" wording MINOR |
 | "Consequence" (no local+spinor ⇒ global; Bright–Loughran) | SOUND-AFTER-REPAIRS |
-| "obstruction group = ray class group mod 4cd·∞ of a split torus" | GAP (imprecise; conflates the class set with an obstruction) → repaired, relabelled Assessment |
+| "obstruction group = ray class group mod 4cd·∞ of a split torus" | GAP (imprecise; conflates the class set with an obstruction) → SOUND-AFTER-REPAIRS (relabelled Assessment) |
 | Remark 8.4 (three squares vs split torus) | MINOR inconsistency (both tori fail SA) → repaired |
 | Prop 9.1 (character expansion; Eisenstein reading) | SOUND (identity); Eisenstein normalisation MINOR |
 | Prop 9.2 (genus pairing, cancellation at odd squares) | SOUND (holds for all n, not only primes) |
