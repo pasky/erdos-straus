@@ -1,6 +1,6 @@
 # Paper draft status
 
-**New (O134): `es-automorphic-barrier-note.tex` / `.pdf`** (18 pp) — "Automorphic and geometric reformulations of
+**New (O134; refereed R134, ACCEPT (internal) after repairs, `reviews/es-automorphic-barrier-note-referee.md`): `es-automorphic-barrier-note.tex` / `.pdf`** (18 pp) — "Automorphic and geometric reformulations of
 the Erdős–Straus equation, and a divisor-class barrier". Writes up wave (I) of DISCOVERIES ((I)1–(I)8; sources
 POINTWISE_SPECTRAL, POINTWISE_TERNARY, CONDITIONAL_ES, POINTWISE_TYPEII_SPECTRAL, EXACT_FORMULA, QUATERNION_ES,
 GEOMETRY_ES, red teams O125/O132, LITERATURE_AUTOMORPHIC). §2 exact dictionaries (PROVED): Type I SL₂/Heegner wedge +
