@@ -207,7 +207,7 @@ integer points lie on the rational lines `e = const`. §6 shows that every quadr
 total spaces `T^I = {4abd = ne+1, ce = a+b, 4acd = n+f, ef = 4a²d+1}` and
 `T^II = {4abd = n+e, ce = a+b, 4acd = f+1, ef = n+4a²d}` (4-dimensional; `n` is a coordinate), for each of the 15
 four-element subsets `V ⊂ {a,…,f}` we eliminate the other two coordinates (lex Gröbner basis) and keep the `V` for
-which `n` is a rational function of `V` (18 of 30). For each such `V` and each choice of 0, 1 or 2 coordinates of `V`
+which `n` is a rational function of `V` (22 of 30). For each such `V` and each choice of 0, 1 or 2 coordinates of `V`
 treated as fixed parameters such that `n` is a **quadratic polynomial** in the free ones, we record the quadratic
 part. Result: 57 quadratic substructures; rank 1: 2, rank 2: 54, rank 3: 1, rank 4: 0. **Every one is isotropic over
 `ℚ(parameters)`**: all binary ones have discriminant a perfect square (e.g. `4ad·ce`, disc `16a²d²`; `−4ad(a − ce)`,
