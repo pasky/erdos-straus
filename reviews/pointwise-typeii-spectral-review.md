@@ -3,7 +3,18 @@
 Reviewer branch `side-agent/review-typeii-spec`; merged `side-agent/typeii-spectral` at review start.
 From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107.1010.pdf` (read via pdftotext).
 
-## Summary verdicts (filled in progressively)
+## Overall verdict
+
+**No FATAL or MAJOR defects.** Every PROVED claim (Lemma 1.1, Prop 2.1, Lemma 2.2, Prop 2.4/2.5, Prop 3.1,
+Lemma 6.1, Cor 6.2/6.3) was re-derived by hand and checked with from-scratch code; the §5 numerics were reproduced
+exactly to 10⁷ by an independent sieve that was itself validated against a brute force for all n ≤ 2000. The negative
+§4.4 conclusion is correctly labelled Assessment and the Young exponents (1/18, 1/6, 4/9, 1/3) check out against
+the arXiv text. Eight MINOR defects (D1–D8): one counting misstatement (D3: the shell also contains non-primitive
+points, ~18% extra), one hidden hypothesis (D4: genus phrasing needs p ≡ 1 mod 4), one misquoted ET average (D5), a
+numerics filter artefact (D6), and wording/hypothesis caveats in the Assessment (D2, D7, D8). Nothing is claimed
+toward ES, and nothing should be.
+
+## Summary verdicts
 
 | # | Claim | Verdict |
 |---|---|---|
@@ -135,7 +146,9 @@ author's min f_II, argmin, min f/log³p, argmin, #(d=1 empty), #(c=1 empty) exac
 f_II(p) ≥ 2 for all primes 5 ≤ p ≤ 10⁷ ✓. Smallest class means mod 840 (p ≥ 10⁵): 1, 121, 169, 361, 289, 529
 (0.0368–0.0411), then 673, 601 (0.045); class 839: 0.323 ✓. R(p) with the author's definition: k = 20, 22, 23 give
 min R 0.305, 0.297, 0.280 and sd 0.288, 0.301, 0.302 ✓ (see D6 for k = 16). Not re-run: the t2s_predict
-E_heeg / E_avg comparison (EVIDENCE feeding an Assessment only).
+E_heeg / E_avg comparison (EVIDENCE feeding an Assessment only). Also confirmed: 19 of the 20 smallest
+f/log³p (p ≥ 10⁵) have p ≡ 1 (24), one ≡ 13 ✓; #(d = 1 empty) ≥ 1 in every block k ≥ 6 ✓. Trivial: §4.1 "d = 1
+counts 0–98 for p ≈ 10⁶" is window-dependent (0–136 on [0.9, 1.1]·10⁶).
 
 ### Claim 5 — §4.4 gap
 
