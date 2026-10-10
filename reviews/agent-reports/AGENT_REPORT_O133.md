@@ -36,3 +36,26 @@ covers the §5.3 level data and the c = 0 family behind the Prop 4.1 repair. It 
 verify.py was not re-run after (ez).
 
 Part B (STATUS.md / CAMPAIGN_SUMMARY.md refresh) is waiting for the parent's go-ahead.
+
+## Part B (after merging main with O132): STATUS / CAMPAIGN_SUMMARY refresh
+
+* `STATUS.md`, refresh 9. There is a new top headline section, "automorphic/geometric attack on pointwise ES
+  (2026-10-10)". It covers:
+  * the aim;
+  * what was tried (O123–O132, with documents and reviews);
+  * the structural dictionaries: Type I SL₂/Heegner + Hecke, Type II shell/det-p, Brauer class = genus (folklore /
+    Yamamoto), the x = 2 collision in B_{p,∞} (formal analogy only), the (−d,−p) factorisation, Q_d;
+  * the negative results with labels: ternary Thm 4.1, the scale constraint, thickening = interval averaging, local +
+    spinor at odd squares, fibrations, the CERTIFIED rank test, and the divisor-class reduction (Lemma 2.1 / Thm 2.2
+    (i)–(ii) PROVED, (iii) CONDITIONAL on H);
+  * the barrier, explicitly labelled an Assessment with "by these routes / known technology" wording, as O132 §1.6(b)
+    requires;
+  * the escape hatches H-A and H-B (plus H-D/E, with H-F as a caution);
+  * the EVIDENCE and the replay blocks (es)–(ez);
+  * an explicit statement that ES is not solved.
+
+  The previous headline is kept verbatim, renamed "previous phase". "What a future attempt must respect" gains a short
+  link: every encoding is an ET slice, so the concrete E1 targets are H-A and H-B.
+* `CAMPAIGN_SUMMARY.md`: a new title refresh note, a §1 bullet, and a new §3.5 "The automorphic/geometric attack" with
+  dictionaries, negative results, Assessment, open doors and EVIDENCE. No labels were changed; all statements are taken
+  from ledger (I)1–(I)8 and reviews/redteam-automorphic-2.md.
