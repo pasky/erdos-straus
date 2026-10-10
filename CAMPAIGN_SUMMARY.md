@@ -1285,8 +1285,6 @@ half-set lemma, stacking, W1/W2 and exact orders, Prop P1, with the model
 and data as labelled remarks (refereed internally, R41 minor revision
 applied).
 
----
-
 ### 3.5 The automorphic/geometric attack (2026-10-10)
 
 **Why.** Theorems M, C, F and Prop A (§3.2) exclude every argument that uses only congruence data. So a pointwise
