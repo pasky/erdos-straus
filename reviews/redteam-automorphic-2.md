@@ -178,3 +178,67 @@ What is **Assessment**, and must stay labelled so:
   all three: `4 = 1/x'+1/y'+1/z'` has no solution), and ET §2 parametrises both cases by `(a,b,c,d)` with the
   identities used in §2. So the ET varieties carry *every* solution; "every encoding through a projection of
   them" is precise, and an encoding not through them would have to forget the parametrisation entirely.
+
+## 2. Synthesis: the divisor-class reduction
+
+### 2.0 Set-up
+For an odd prime p let
+`V_I(p) = {(a,b,c,d,e) ∈ ℕ⁵ : 4abd = pe + 1, a + b = ce}` and `V_II(p) = {(a,b,c,d,e) ∈ ℕ⁵ : 4abd = p + e, a + b = ce}`.
+An element gives the solution `(abdp, acd, bcd)` (Type I), resp. `(abd, acdp, bcdp)` (Type II). Check:
+`(c + p(a+b))/(abcdp) = c(1+pe)/(abcdp) = 4/p`, resp. `(cp + a + b)/(abcdp) = c(p+e)/(abcdp) = 4/p`. Conversely every
+solution arises this way (ET §2; for odd p, p divides exactly one or two denominators, §1.6(e)). So
+**ES(p) ⟺ V_I(p) ∪ V_II(p) ≠ ∅.** On V_I(p), `p ∤ cd` automatically (O130 Prop 2.1; EXACT_FORMULA §5(b)).
+
+A **slice** is a choice of two coordinates θ ⊂ {a,b,c,d,e}; the θ-fibre `V_θ(p)` is the set of elements with
+prescribed values of those coordinates. By the symmetry a ↔ b, the pairs are {a,b}, {a,c}, {a,d}, {a,e}, {c,d},
+{c,e}, {d,e}.
+
+### 2.1 The slice table
+
+**Lemma 2.1 (slice table; PROVED, elementary; machine check `scripts/rt2_slices.py`: all bijections verified
+for every prime 5 ≤ p < 110 against two independent brute-force enumerations of V(p), see log).**
+For each type and each slice θ, exactly one of the following holds.
+* **(C) congruence slice.** For fixed θ, `V_θ(p) ≠ ∅` iff p lies in an explicit finite union of residue
+  classes modulo a modulus depending only on θ. Then fixed θ is a polynomial-identity (ET-class) covering.
+* **(D) divisor slice.** There are `N_θ(p)` (a polynomial in p of degree ≤ 2, or such a polynomial divided by
+  a θ-constant), a modulus `q_θ` and a residue set `R_θ(p) ⊂ ℤ/q_θ` depending only on `p mod q_θ` and on θ (and,
+  in the (d,e) rows, on `N_θ(p) mod q_θ`) such that `V_θ(p)` is in bijection with
+  `{f ≥ 1 : f | N_θ(p), f mod q_θ ∈ R_θ(p)}`.
+
+| type | θ | kind | the integer `N_θ(p)` | divisor f | class condition | encoding that uses it |
+|---|---|---|---|---|---|---|
+| I | {c,d} | D | `p² + 4c²d` | `4acd − p` | `f ≡ −p (4cd)` | O123 L2.1 (SL₂/Heegner wedge), O131 Thm 5.2 (CM torus, `N = N(p+2c√−d)`) |
+| I | {a,c} | D | `ap + c` | `4acd − p` | `f ≡ −p (4ac)` | Type I multiplier form |
+| I | {a,e} | D | `(pe+1)/(4a)` | `b` | `f ≡ −a (e)` | O127 slice L1.1 (a = 1) |
+| I | {d,e} | D | `m = (pe+1)/(4d)` | `a` | `f² ≡ −m (e)`, `(f,e)=1` | O130 P2.1 (GZ collision in `B_{p,∞}`) |
+| I | {a,d} | C | `4a²d + 1` (no p) | `4acd − p` | `p ≡ −f (4ad)` | O123 Formulation A *per point*; SL₂ `ef − 4a²d = 1` (H5) |
+| I | {a,b}, {c,e} | C | — | — | p in classes mod `4ab`, resp. `4a(ce−a)` | ET polynomial classes |
+| II | {c,d} | D | `4c²dp + 1` | `4acd − 1` | `f ≡ −1 (4cd)` | O128 P8.1 (shells, level dp) |
+| II | {a,c} | D | `cp + a` | `4acd − 1` | `f ≡ −1 (4ac)` | multiplier witnesses, notes (51.1) (`f ≥ W(p)`) |
+| II | {a,d} | D | `p + 4a²d` | `4acd − 1` | `f ≡ −1 (4ad)` | ternary `Q_d` (O124; red team 1 P6.2); norm `N(2ai+j)` in `(−d,−p)` (O130 L3.1) |
+| II | {a,e} | D | `(p+e)/(4a)` | `b` | `f ≡ −a (e)` | — |
+| II | {d,e} | D | `m = (p+e)/(4d)` | `a` | `f² ≡ −m (e)`, `(f,e)=1` | O130 P3.2 (quaternion `(−d,−p)`) |
+| II | {a,b}, {c,e} | C | — | — | p in classes mod `4ab`, resp. `4a(ce−a)` | ET polynomial classes |
+
+*Proof.* Each D row is a one-line identity plus a converse.
+* **I{c,d}.** `(4acd−p)(4bcd−p) = 4c²d(4abd − pe) + p² = p² + 4c²d`. Converse: given `f | N`, `f ≡ −p (4cd)`, put
+  `f' = N/f`. Then `f' ≡ p²(−p)^{−1} ≡ −p (4cd)`, since `gcd(p, 4cd) = 1`. Put `a = (f+p)/4cd`, `b = (f'+p)/4cd`.
+  Expanding `ff' = N` gives `p(a+b) = c(4abd−1)`, so `c | a+b` (as `p ∤ c`), and `e = (a+b)/c = (4abd−1)/p ≥ 1`.
+* **II{c,d}.** `(4acd−1)(4bcd−1) = 4c²d(4abd − e) + 1 = 4c²dp + 1`. The converse is the same computation, with
+  `gcd(1, ·) = 1`.
+* **I{a,c}.** Let `f = 4acd − p`. Then `ef = 4a²d + 1` (expand `e(4acd−p) = 4ad(a+b) − (4abd−1)`), and
+  `c(4a²d+1) = a(f+p) + c ≡ ap + c (mod f)`. Since `gcd(f,c) | p` and `p ∤ c`, we get `f | ap + c`. Converse:
+  `d = (f+p)/4ac`; then `f | 4a²d+1` because `c(4a²d+1) = af + (ap+c)`; put `e = (4a²d+1)/f`, `b = ce − a`. Then
+  `4abd = e(f+p) − 4a²d = pe + 1`, so `b ≥ 1`.
+* **II{a,c}, II{a,d}.** Let `f = 4acd − 1`. Then `ef = 4a²d + p` (expand `e(4acd−1) = 4ad(a+b) − (4abd−p)`), and
+  `c(4a²d+p) = a(f+1) + cp`, so `f | cp + a` (`gcd(f,c) = 1`). The converses are as above: `d = (f+1)/4ac`, resp.
+  `c = (f+1)/4ad` and `e = (p+4a²d)/f`, then `b = ce − a`.
+* **{a,e}, {d,e} (both types).** Write `M = pe+1` (I) or `p+e` (II). Then `bd = M/(4a)`, resp. `ab = M/(4d)`,
+  and `e | a+b`; this is the row's statement verbatim. In the {d,e} row take `R_θ = {r : gcd(r,e) = 1,
+  r² ≡ −m (e)}`. For coprime `a`, `e | a + m/a ⟺ e | a² + m`, and every element of `V_θ(p)` has `gcd(a,e) = 1`:
+  * Type I: `a | pe+1`.
+  * Type II: `gcd(a,e) | p`, and `p ∤ e`. Indeed, `p | e` gives `4abd = p + e ≤ 2e ≤ 2(a+b)`, i.e. `2abd ≤ a+b`,
+    hence `(2a−1)(2b−1) ≤ 1`, `a = b = d = 1`, and then `4 = p + e ≥ 2p`, which is impossible.
+* **C rows.** For {a,d} Type I: the fibre is `{f | 4a²d+1 : f ≡ −p (4ad)}`, a condition on `p mod 4ad` only. For
+  {a,b}: e runs over the divisors of `a+b`, and the condition is `4ab | pe+1` (resp. `4ab | p + e`). For {c,e}:
+  a runs over `[1, ce−1]`, with condition `4a(ce−a) | pe+1` (resp. `p+e`). ∎
