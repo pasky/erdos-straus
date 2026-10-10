@@ -305,3 +305,116 @@ quantitative and stays Assessment:
 * integrality (red team 1 P2.1) forces polylogarithmic accuracy of the aggregated count;
 * every geometric realisation of the aggregate has targets at the Planck scale of its discriminant (O123 P5.4,
   O128 P2.4/2.5).
+
+## 3. Escape hatches: what the barrier does NOT exclude
+
+By Theorem 2.2(iii), any route that survives must do at least one of the following:
+* use a parameter set `Θ(p)` that grows with p (E1);
+* use non-formal integers (E2);
+* use non-abelian data (E3);
+* use a counting certificate with signed cancellation (E4).
+
+The hatches below are these, made concrete for ES. For each: why §2 and red team 1 do not close it, what
+technology is known (citations verified on 2026-10-10 by a research subagent against publisher/arXiv pages;
+statements limited to what the abstracts say), and a verdict (Assessment).
+
+**H-A. Joint factorisation of a growing family at one p (E1, "aggregate over θ").**
+*What is needed.* A lower bound at the single prime p for `Σ_{θ∈Θ(p)} #{f | N_θ(p) : f ∈ R_θ(p)}`. Example:
+`Σ_{a≤A, d≤D} #{f | p + 4a²d : f ≡ −1 (4ad)}` (row II{a,d}), or the Type I {c,d} family `p² + 4c²d`.
+*Why not excluded.* Thm 2.2(iii) and Thm C need Θ₀ finite. X5 and OMEGA Thm 8.5 exclude only boxes up to
+`log T ≍ 𝓛^{1/4}` (Type II), resp. heights `≪ log p·log₃p` (Type I).
+*Technology.*
+* For a *fixed* quadratic polynomial, divisor sums over its values are classical: Hooley, Acta Math. 110 (1963)
+  97–114. The research check found no result uniform in the constant term (here p) in the needed range.
+* Roots of quadratic congruences are equidistributed (Duke–Friedlander–Iwaniec, Ann. of Math. 141 (1995)
+  423–441), but on average over moduli.
+* Levels of distribution of quadratic polynomials: de la Bretèche–Drappeau, JEMS 22 (2020), arXiv:1703.03197.
+  Uniformity in the discriminant is *not verified*; do not cite it for that without reading the theorem.
+* All of these fix the modulus or average over it. ES needs the *moving* modulus `q = 4ad`, tied to the variable.
+  For `a ≳ √p` the modulus is `≍ N_θ^{1/2}`. Lenstra (Math. Comp. 42 (1984) 331–340) shows that once
+  `q > N^{1/3}` at most 11 divisors of N lie in a class. So each θ contributes O(1), and the family is a sum of
+  ≍ 𝓛³ O(1)-events, with no large-count sub-family (§3.1 below).
+*Verdict.* **Open; no known technology.** This is the main hatch. Any automorphic route lives here (Kuznetsov over
+the level is a way of aggregating over θ). Red team 1 P2.1 and O123 Thm 5.1 then demand polylog accuracy.
+
+**H-B. Parity-breaking sieve input for a single p.**
+*What is needed.* A slice is empty whenever `N_θ(p)` is prime (Lemma 1.2.1, O123 P5.3). More generally it is empty
+when all prime factors of `N_θ(p)` lie in classes generating a subgroup that misses `R_θ(p)`. So a fixed-p route
+must exclude a conspiracy in which all `N_θ(p)`, θ ∈ Θ(p), are "bad". Upper-bound sieves (pointwise in p for a
+polynomial family in θ) bound how many are prime. "Bad" is a multiplicative-class condition, a set of
+parity/sign-pattern type, which the parity problem forbids lower-bound sieves from detecting without bilinear
+input (Friedlander–Iwaniec, *Opera de Cribro*, AMS Coll. Publ. 57 (2010), ch. 16).
+*Technology.* Parity-breaking via Type II bilinear sums exists for thin polynomial sequences averaged over their
+variables:
+* Friedlander–Iwaniec, `X² + Y⁴`, Ann. of Math. 148 (1998) 945–1040;
+* Heath-Brown, `x³ + 2y³`, Acta Math. 186 (2001) 1–84;
+* Maynard, incomplete norm forms, Forum Math. Pi 8 (2020) e3.
+
+In ES at fixed p, the variables θ *are* free to average over, so this is not a T7 leak.
+
+The differences are the targets and the counts:
+* the target is "has a divisor in a moving class", not "is prime";
+* the family has only `≍ 𝓛³` effective members (H-A).
+
+*Verdict.* **Open; closest existing technology in spirit.** A "Friedlander–Iwaniec for divisor-in-moving-class
+over the ET family at fixed p" is the best-defined non-automorphic research target in this list. Assessment: the
+O(1)-per-dyadic-block mass makes bilinear-form methods (which need long sums) hard to apply.
+
+**H-C. Non-formal integers / E2 anchoring.**
+*What is needed.* Levels or parameters defined by `n_p`, `ord_p(2)`, `⌊p^θ⌋`, …, e.g. "take `d ∈ n_p·{small}`, so
+the genus condition holds automatically, then search a".
+*Why not excluded.* POINTWISE_SIZE E2. Also O123/SHT need this anyway (§1.1 T3: every Type I route with `p ≡ 1 (4)`
+has `d ≥ n_p`).
+*Technology.* Bounds on `n_p` (Burgess unconditionally; Bach under GRH: `n_p < 2 log²p`). Nothing then makes the
+divisor event at those levels happen.
+*Verdict.* **Open but only a reparametrisation.** The anchoring fixes the genus condition. The divisor event
+remains H-A at the anchored levels.
+
+**H-D. Non-abelian / higher-rank data (E3).**
+*What is needed.* Information not determined by congruences: Frobenius in non-abelian extensions, GL₃ or higher
+automorphic forms, cubic residuacity.
+*Why not excluded.* POINTWISE_SIZE §4.2 E3 is open, and wave (I) used only GL₂/quadratic objects.
+* By O131 Thm 5.2, in the Type I CM torus the dihedral data (the class of the ideal `(f, p + 2c√−d)` in the ring
+  class field, which is Frobenius data) have coefficient 0 in the count.
+* So E3 data could enter only by *choosing θ*, not by deciding a fibre.
+*Technology.* None specific. ET's varieties are toric/quadric (Lemma 2.1), so no natural higher-rank object is
+attached.
+*Verdict.* **Open; no candidate object known.** Low prior.
+
+**H-E. Signed counting certificates (E4).**
+*What is needed.* One expansion of the whole aggregated count, with cancellation between θ's that is not visible
+piecewise (red team 1 P2.1 option (b)).
+*Why not excluded.* Thm C concerns witness procedures, and P2.1 constrains only piecewise positivity.
+*Technology.*
+* Kuznetsov / sums of Kloosterman sums. The Linnik–Selberg conjecture `Σ_{c≤X} S(m,n;c)/c ≪ (mnX)^ε` is the
+  relevant uniform statement (Sarnak–Tsimerman, Progr. Math. 270 (2009) 619–635, prove partial results towards
+  it).
+* Even the conjecture loses `p^ε` against the polylog main term (O123 §5 reason 1).
+* The flipped (D)32 bound is the averaged version.
+*Verdict.* **Excluded for termwise use of all standard hypotheses** (O123, O128: Assessment, mechanism-level).
+**Open** for an exact identity with a positive main term. O131 searched for one (dictionary-scoped, CERTIFIED
+negative) and found none.
+
+**H-F. Integral-point geometry of the fixed-p variety beyond Brauer–Manin.**
+*What is needed.* ES(p) says that the affine 3-fold `{c(4abd − p) = a + b}` (Type II) or its Type I analogue has
+an integral point. Its expected number is polylogarithmic.
+*Why not excluded.*
+* BL (Bright–Loughran, Bull. LMS 52 (2020) 746–761, arXiv:1908.02526) show that BM is the only obstruction for
+  fixed n exactly when ES(n) holds (GEOMETRY_ES; R126 D1: n ≥ 2).
+* O126 closes strong approximation and fibration routes. Integral Hasse principles in polylog-count regimes are
+  not covered.
+*Technology / data point.* In the closest studied family (Markoff-type surfaces), the integral Hasse principle
+holds for almost all parameters but fails infinitely often (Ghosh–Sarnak, Invent. Math. 229 (2022) 689–749,
+arXiv:1706.06712). Those failures are analysed against BM by Colliot-Thélène–Wei–Xu (Ann. SNS Pisa (5) 21 (2020)
+1257–1313) and Loughran–Mitankin (IMRN 2021, 14086–14122).
+*Verdict.* **Open; cautionary.** In the one comparable family where the question has been settled, "almost all"
+is what geometry delivers, not "all".
+
+**H-G. Joint Type I ∪ Type II, and composite-n descent.**
+* Thm 2.2(iii) applies to unions of rows of both types. The union has the same 𝓛³ mass structure, so the union
+  alone is no escape.
+* Descent from ES(n), n < p, as an oracle is closed in its natural forms (notes §77.6; POINTWISE_SIZE E2).
+*Verdict.* **Not an escape** by itself.
+
+**Symmetry remark.** Every hatch above is equally a hatch for *disproof*. A sterile prime (if one exists) would be
+a non-BM failure (BL), and none of the encodings could detect it either (red team 1 §3.3).
