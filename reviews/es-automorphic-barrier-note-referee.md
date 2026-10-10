@@ -87,3 +87,60 @@ would force p | 2ad, whence f ≡ −1 (mod p))". (R134 repair applied.)
   2009, GZ 1985, Hooley 1963 (all standard and look right from memory, but unchecked).
 * Assessment 5.1: correctly labelled; n_p ≪ 𝓛² under GRH (Ankeny/Bach) and Burgess p^{1/(4√e)+ε} are classical ✓;
   the "(−d/p) = −1 ⇒ n_p ≤ D(p)" step for p ≡ 1 (4) re-derived ✓.
+
+### §6–§8, honesty, compile
+* §6 Problems/Remarks: correctly labelled Assessment/open. Lenstra (≤ 11 divisors in a class once q > N^{1/3},
+  gcd(r,q)=1) correctly stated. GS Thm 1.2 (infinitely many Hasse failures, almost-all Hasse) checked in
+  arXiv:1706.06712 ✓. Notation T_2^+ undefined (D10).
+* §7 EVIDENCE: two counts recomputed from scratch (`scripts/review_r134_counts.py`): 3630 primes p ≡ 5 (12) in
+  [10⁶,3·10⁶) with p²+12 prime ✓; 14183 primes p ≡ 1 (24) below 1.5·10⁶ ✓. The other numbers (f_I, f_II ≥ 1 to
+  10⁸, minima) were not recomputed (too costly for this pass); they are labelled EVIDENCE and attributed.
+* Honesty: abstract, §1 ("What this note does not contain") and §8 all say ES is not proved; negative statements are
+  scoped ("routes examined and known technology", "mechanism scope", Assessment 5.1 "by the routes of this note").
+  Novelty: Brauer = genus marked folklore/Yamamoto; quaternion dictionary "novelty unverified"; GZ "formal analogy
+  only"; no novelty overclaim found. One overclaimed *theorem* sentence (D9).
+* Sardari and BKS are not cited in the paper (nothing to check; LITERATURE_AUTOMORPHIC discusses Sardari but the
+  paper does not rely on it).
+* Compile: from a clean checkout (no .aux/.toc) two passes leave "Label(s) may have changed"; a third pass is clean
+  (0 errors, 0 LaTeX warnings, 0 overfull). 18 pp. (D11, cosmetic.)
+
+## Defects (continued)
+
+D3 (MINOR, Prop 2.11(i)). The side condition "(f+1)e/(4ad) > a" is automatic: with c = (f+1)/(4ad),
+ce − a = (fp + p + 4a²d)/(4adf) > 0. Repair: say "(the cofactor condition is automatic)". (R134 repair applied.)
+
+D4 (MINOR, Thm 3.2(iii) proof). The procedure enumerates all divisors of N_θ(p), a p-dependent number; one must
+check this is "bounded" in the sense of [PS]. It is: DIVISORS(r) and `for e in L` are primitive bounded
+instructions (P5),(P7) of POINTWISE_SIZE §1.2. Repair: add this sentence. (R134 repair applied.)
+
+D5 (MINOR, Prop 4.5 statement). t, m, m'' and c are undefined; c is (m''+1)/t (CONDITIONAL_ES Lemma 1.1).
+Repair: "(t ≥ 1, tn+1 = mm'', m ≡ m'' ≡ −1 (mod t), 4 | m, and c = (m''+1)/t)". (R134 repair applied.)
+
+D6 (MINOR, Prop 4.6). The sum carries a window "f ≤ 2p" and the width "≈ (2K+1)/p", both from O123
+Formulation A (size window f ∈ [1,2p], width 2/p + O(c√d/p²) for c√d ≪ p), neither defined in this paper; Prop 2.4
+states the width as ≈ 2/√(p²+4c²d), which is ≍ 1/p only when c√d ≪ p. Repair: restrict R_c^{(K)} explicitly to the
+window y ≥ √d/(2p) (i.e. f ≤ 2p) and say "width ≍ (2K+1)/p when c√d ≪ p"; likewise after Prop 2.4 say the target
+is at scale ≲ 1/p (≍ 1/p for c√d ≪ p). (R134 repair applied.)
+
+D7 (MINOR, §2.7 first paragraph). "α obstructs strong approximation [BL, Thms 1.8, 1.9]": Thm 1.9 says the
+opposite kind of thing (Q-points are not dense in the Brauer set, i.e. failures of SA *not* explained by BM). The
+SA obstruction by α is Thm 1.8 (1.5) with Thms 1.2, 1.5. Repair: cite "Thm 1.8 (1.5), Thms 1.2, 1.5", and add
+"(and by Thm 1.9 not every failure of strong approximation is explained by α)". (R134 repair applied.)
+
+D8 (MINOR, Prop 4.10 proof). "divisors f ≤ p of p²+12" — the bound f ≤ p is not part of Lemma 2.2(iii) and is not
+needed (N ≡ 1 mod 12 itself is not ≡ 7). Repair: drop "≤ p". (R134 repair applied.)
+
+D9 (MAJOR, abstract and Thm 3.2(ii) statement). "Every representative-independent invariant of these objects is
+congruence or genus data" is literally false: e.g. the ideal class of a Heegner point of discriminant −4d (E1) or
+of (f, α) in the ring class group (E5) is representative-independent and is not genus data. What (ii) actually
+proves (and what RT2 §2 means) is that such invariants do not enter, or do not decide, the ES count: E5 non-genus
+characters have coefficient 0; E3 the collision datum is genus/congruence data and automatic; E1/E2/E6 ES-goodness
+is not a class invariant; E4 reduces to a one-variable polynomial. Repair: rephrase as "The only
+representative-independent invariants of these objects that enter the ES count are congruence or genus data, in the
+following precise senses", and similarly in the abstract. (R134 repair applied.)
+
+D10 (MINOR, §6 H-E). T_2^+ is undefined. Repair: "the Type II count T_2^+(n) of EXACT_FORMULA (positive a, b; no
+coprimality conditions) vanishes at every square n = m², odd or even". (R134 repair applied.)
+
+D11 (MINOR, cosmetic). Report O134 says "pdflatex twice, 0 warnings"; from a clean checkout a third pass is needed
+(toc + hyperref). No action needed in the paper.
