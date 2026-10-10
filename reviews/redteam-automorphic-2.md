@@ -244,3 +244,64 @@ For each type and each slice θ, exactly one of the following holds.
 * **C rows.** For {a,d} Type I: the fibre is `{f | 4a²d+1 : f ≡ −p (4ad)}`, a condition on `p mod 4ad` only. For
   {a,b}: e runs over the divisors of `a+b`, and the condition is `4ab | pe+1` (resp. `4ab | p + e`). For {c,e}:
   a runs over `[1, ce−1]`, with condition `4a(ce−a) | pe+1` (resp. `p+e`). ∎
+
+### 2.2 The six encodings are slices; what the objects carry
+
+**Theorem 2.2 (divisor-class reduction; PROVED: (i) by Lemma 2.1 and the cited exact lifts, (ii) by the cited
+PROVED statements).** The encodings examined in wave (I) are listed with their slice:
+* E1: SL₂/Heegner Type I: O123 Formulation A, θ = {c,d}; Formulation B, per tube (a,d), θ = {a,d}.
+* E2: Type II shells, O128, θ = {c,d}.
+* E3: the x = 2 collision in `B_{p,∞}`, O130 §1–2, θ = {d,e}.
+* E4: the `(−d,−p)` factorisation, O130 §3, θ = {d,e}; the norms of `2ai + j` give θ = {a,d}.
+* E5: the CM torus, O131 §5, θ = {c,d}.
+* E6: the ternary form `Q_d`, O124 / red team 1 P6.2, θ = {a,d}.
+
+(i) **Reduction.** The E-solutions with parameter θ are in bijection with `V_θ(p)` (each source proves its exact
+  lift, T8). Hence (Lemma 2.1) they correspond to the divisors of the single integer `N_θ(p)` in `R_θ(p)`, or (rows
+  C) to a congruence condition on p.
+
+(ii) **What the object carries beyond that.**
+  * E5: the slice count is `φ(4cd)^{−1} Σ_{χ mod 4cd} χ̄(−p) σ_χ(p² + 4c²d)`. Every non-genus class-group or Hecke
+    character has coefficient 0 (O131 Thm 5.2).
+  * E3: the collision datum (`B ≅ B_{p,∞}`, `Λ_{d,m}` of reduced discriminant pe) is a function of θ, of
+    `p mod 4d`, `(−d/p)` and `(−d/ℓ)`, `ℓ | e`. It holds automatically on every admissible θ (O130 P2.2).
+  * E1, E2, E6: ES-goodness is a property of the representative, not of the CM point / Γ-orbit. Each class has
+    infinitely many representatives of the required shape, finitely many good ones (GEOMETRY_ES P4.1; O128 §8,
+    `Stab(S_c) = ±I`; red team 1 Lemma 6.3).
+  * E4: the ES elements lie on the line `{2xi ± j}`, where the reduced norm is the one-variable polynomial
+    `4dx² + p` (O130 P3.2).
+
+  In each case, every representative-independent invariant of the object is congruence or genus data.
+
+(iii) **Bounded parameter sets are inside Theorem C.** Let Θ₀ be a finite set of slice parameters, of any types
+  and rows, fixed independently of p. Any argument which, for the prime p, certifies ES(p) by exhibiting an
+  E-solution with parameter in Θ₀ succeeds only at primes with `⋃_{θ∈Θ₀} V_θ(p) ≠ ∅`. This holds *whatever
+  auxiliary automorphic, spectral or geometric information the argument uses*. That predicate is computed by the
+  bounded, correct, witness-producing procedure "for θ ∈ Θ₀: test `p mod q_θ`; factor `N_θ(p)` (floor division
+  for the {·,e} rows); test each divisor against `R_θ(p)`".
+  * Hence, **CONDITIONAL on Hypothesis H** (POINTWISE_SIZE Thm C), it fails for infinitely many primes
+    `p ≡ 1 (mod 24)`.
+  * Unconditional quantitative forms exist for specific growing boxes: X5 for the Type II box
+    `{acd ≤ T/4}`, since `f = 4acd − 1 ≥ W(p)`, and OMEGA Thm 8.5 for the Type I heights `ck ≤ T`.
+  * For a single fixed Type II `{c,d}` slice: Lemma 1.2.1 (Dickson). For a single fixed Type I `{c,d}` slice:
+    O123 Prop 5.3 (H).
+
+*Proof of (iii).* The witness produced lies in some `V_θ(p)` with `θ ∈ Θ₀`, by (i). The procedure is bounded (a
+finite loop over Θ₀, FACTOR of fixed polynomials, finite divisor lists) and correct (Lemma 2.1 converse). So
+Thm C applies. ∎
+
+**Reading.** Part (iii) is the precise sense of "the automorphic object carries only genus and congruence data
+plus one divisor-in-class event". Whatever an automorphic input "knows", if it certifies ES through finitely many
+fibres it is no stronger than factoring finitely many fixed polynomials in p, and that is refuted under H. The
+only freedom left is a **growing** parameter set `Θ(p)`, with `|Θ(p)| → ∞`. This is formally the escape (E1) of
+POINTWISE_SIZE §4.2. By Lemma 2.1 it means controlling the divisor events of a growing family of integers
+`{N_θ(p)}_{θ∈Θ(p)}` jointly, at the single prime p.
+
+**What this does *not* say.** It does not say that automorphic methods cannot aggregate over a growing `Θ(p)`.
+Aggregation over the level / discriminant is what Kuznetsov and Heegner equidistribution do. Aggregation over θ
+is *not* a T7 leak, since θ is a coordinate of the solution and not fixed by the problem. The obstruction to it is
+quantitative and stays Assessment:
+* the total mass is `≍ 𝓛³` (O123 Thm 5.1);
+* integrality (red team 1 P2.1) forces polylogarithmic accuracy of the aggregated count;
+* every geometric realisation of the aggregate has targets at the Planck scale of its discriminant (O123 P5.4,
+  O128 P2.4/2.5).
