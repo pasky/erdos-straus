@@ -401,7 +401,7 @@ bounded. There is therefore no "real automorphic pointwise route" here. What sur
   88 (2²⁵), 94 (2²⁶, p = 84525841). `min f_II/log³p` stays in 0.0143–0.0158 for blocks 2²³–2²⁶; overall minimum
   over p ≥ 10⁵ is still 0.0117 (p = 2031121). All 20 smallest normalised values are `≡ 1 (mod 24)`, except
   p = 1190701 (`≡ 13`). The six smallest mod-840 class means are again the six square classes.
-* `R(p)` (class-mean ratio mod 840): min 0.268 / 0.248 / 0.253 / 0.239 (2²³…2²⁶), slowly decreasing. The 0.1%
+* `R(p)` (class-mean ratio mod 840, classes with ≥ 30 members; at these sizes the filter removes nothing): min 0.268 / 0.248 / 0.253 / 0.239 (2²³…2²⁶), slowly decreasing. The 0.1%
   quantile is stable at ≈ 0.37, the 1% quantile ≈ 0.505, and the sd grows slowly (0.307 → 0.323). The lower tail
   thickens very slowly, consistent with divisor-function-type fluctuation of `Σ_{c,d}` over small (c,d) (Assessment).
 * The d = 1 family (single discriminant −4p) is empty for 148–198 primes per block at 2²⁴–2²⁶.
