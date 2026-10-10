@@ -447,6 +447,15 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Verdict (Assessment): no standard hypothesis (GRH, GLH in any aspect, Ramanujan, Selberg, twisted Linnik) suffices by this route. A sufficient statement must be Planck-scale, polylog-accurate and genus-aware, which is Type I restated.
    * EVIDENCE (reproduced to 10⁷ by R123): `f_I(p) ≥ 1` and `f_II(p) ≥ 1` for every prime `p ≤ 10⁸`. The dyadic minima of f_I grow and stay at 0.12–0.20 × the mean.
 
+4. **Type II automorphic structure; local, genus and spinor data hold even at odd squares (POINTWISE_TYPEII_SPECTRAL.md; reviews `reviews/pointwise-typeii-spectral-review.md` (R128, round 1: no FATAL/MAJOR, 8 minors) and `-review-r2.md` (R128b, round 2: two MAJOR interpretation defects E3/E4 and minors); all repairs applied).**
+   * PROVED, elementary. Type II(p) ⟺ `ff' − 4c²(dp) = 1` with `f ≡ f' ≡ −1 (mod 4cd)`. This is the Type I SL₂ identity with p moved from the congruence into the level; there is also a det-p / `T_p` form.
+   * PROVED, geometry. Type II solutions are Heegner points of disc −4dp, uniformly separated (cosh ≥ 3/2). They lie exactly on the shell ⟨u,v⟩ = −1 around the cuspidal geodesic (∞, −1/2c), equivalently they give embeddings of `4·[−dp, 1, c²]` into the trace-zero lattice of signature (2,1).
+   * PROVED, genus lemma: `(p/f) = −1`. This recovers ET Prop 1.6 for Type II.
+   * Prop 8.1: existence reduces exactly to "some `4c²dp+1` has a divisor ≡ −1 (mod 4cd)". Prop 8.3: `Q₀ = [−1, 0, −dn]` solves every condition except the sign, for every n including odd squares. So "local + spinor ⇒ global" is false here (R128b: only the genus character is locally forced; the "ray class group" phrasing was withdrawn).
+   * Props 9.1–9.2: generating series as sums of Eisenstein coefficients over ≍ n log n levels, with no cusp part. The genus pairing η ↔ ηχ_{−4d} cancels exactly at odd squares.
+   * Gap (Assessment): the shell width needed is D^{−1/2}, against D^{−1/18} reachable unconditionally (Young) and D^{−1/6} under Lindelöf; what is needed goes beyond GLH.
+   * EVIDENCE (reproduced independently to 10⁸): `f_II(p) ≥ 1` for all p ≤ 10⁸, and `min f_II/log³p ≈ 0.012`. The hardest primes lie in the square classes mod 840.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
