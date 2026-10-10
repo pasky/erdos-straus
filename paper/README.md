@@ -1,5 +1,17 @@
 # Paper draft status
 
+**New (O134): `es-automorphic-barrier-note.tex` / `.pdf`** (18 pp) — "Automorphic and geometric reformulations of
+the Erdős–Straus equation, and a divisor-class barrier". Writes up wave (I) of DISCOVERIES ((I)1–(I)8; sources
+POINTWISE_SPECTRAL, POINTWISE_TERNARY, CONDITIONAL_ES, POINTWISE_TYPEII_SPECTRAL, EXACT_FORMULA, QUATERNION_ES,
+GEOMETRY_ES, red teams O125/O132, LITERATURE_AUTOMORPHIC). §2 exact dictionaries (PROVED): Type I SL₂/Heegner wedge +
+T_p Hecke identity, Type II det-1 level-dp shells and Gram data, Brauer class = genus character (folklore; Yamamoto
+1965 via BL App. A — not new), B_{p,∞} order (GZ x = 2 a formal analogy only), (−d,−p) factorisation, CM torus, Q_d.
+§3 divisor-class reduction (slice table Lemma 3.1 PROVED; Thm 3.2 (i)/(ii) PROVED, (iii) CONDITIONAL on H).
+§4 negative results with exact scope (ternary embeddings, scale constraint merged with red-team Prop 2.4, thickening
+= averaging, local solubility at odd squares, geometry/BM-only ⟺ ES(n) for n ≥ 2, H/Dickson-conditional emptiness).
+§5 quantitative gaps (Assessment), §6 hatches H-A/B/D/E (+H-F cautionary), §7 EVIDENCE. **ES is not proved.**
+Internal only; awaits a referee pass (`reviews/agent-reports/AGENT_REPORT_O134.md`).
+
 **Update (O122): `es-typei-heegner-note.tex` / `.pdf` v3** (38 pp) — new title "The Elsholtz–Tao Type I sum is
 O(N log²N)". Main Theorem 1: `Σ_{p≤N} f_I(p) ≪ N log²N` (≍ with ET's lower bound), **PROVED relative to** the cited
 inputs and the classical black boxes (B1)–(B5) (trace formulae; Weil; twisted Weil with absolute constants; Selberg
