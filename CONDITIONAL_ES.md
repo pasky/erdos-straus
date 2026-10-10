@@ -203,3 +203,64 @@ are split (`(gc−1)(gf−1) = gp+1`: for fixed g a hyperbola `XY = N` with `τ(
 points) or have point-dependent moduli (ET's quadric `ef − dA² = 1`, A = 2a, with the condition
 `f ≡ −p (mod 2dA)`); no fixed anisotropic quadric with `≥ p^κ` points on which ES is a
 fixed-modulus congruence condition was found (Assessment).
+
+## 5. The standard hypotheses, ranked, with the exact gap
+
+"Driver" = Definition 2.2. "Prop 2.3 gap" = the mechanism's main term is a power of p, while a
+driver needs main term `p^{o(1)}` for almost all p.
+
+| H (weaker → stronger, roughly) | best mechanism toward ES(p), p fixed | outcome / exact gap |
+|---|---|---|
+| Selberg eigenvalue conj. (SEL) | Kuznetsov / DI spectral large sieve for the Type I SL₂ form `ef − 4a²d = 1` ((D)32) | gives `Σ_{p≤N} f_I(p) ≪ N log²N` (an average; now unconditional, (D)32b). At fixed p the Kloosterman-sum error terms are power-size in the level; Prop 2.3 gap. |
+| GRH (Dirichlet, Hecke) | (a) character expansion (3.2); (b) least prime with given Frobenius; (c) primes in APs on average over p | (a) trivial bound only, misses by `p^{1−o(1)}` (Prop 3.1.1); (b) witnesses of size `(log p)^{O(1)}`: multiplier mechanisms with moduli `≤ exp((log p)^{1/4−ε})` fail i.o. (OMEGA13 Thm 5.1); ES conditions are divisibility (ramification-type), not Frobenius, conditions (§3.2); (c) capped at saving `exp(−C(log N)^{3/4+o(1)})` in E(N) (PRIMELAW Cor 4.2). |
+| EH / GEH, BV, Montgomery's and Hooley's AP conjectures | prime-law / linear certificates | same as GRH (c); linear certificates capped at exponent 1/4 in the W(p) scale (OMEGA15/16). Averages over p never give finiteness of the exceptional set. |
+| GLH, Lindelöf in level–discriminant aspect, GRH for Rankin–Selberg | Weyl sums of Heegner/CM points, small-scale equidistribution | all-centre range: expected count `≥ |D|^{1/4−o(1)}`; almost-all range: `≥ |D|^{δ}` and wrong quantifier. Cor 4.1: no driver for families with `|D| ≥ p^κ`. |
+| Twisted Linnik / optimal strong approximation (covering exponent) | covering of balls on a quadric | escapes Prop 2.3 formally (existence, not asymptotic), but ES targets are not balls if the small-scale asymptotic holds (Remark 4.2, PROVED implication); the ES parameter varieties are split or have point-dependent moduli; no admissible quadric found (Assessment). Gap: structural, not a numerical exponent. |
+| Schinzel H / Bateman–Horn (not on the list; for comparison) | prime values of polynomials in p | works *against* ES-proofs: every bounded witness procedure fails i.o. under H (POINTWISE_SIZE Thm C). |
+
+**Contrast with a model success (Assessment, from LITERATURE_2026 (iii)).** For `xy+yz+zx = n`
+(Borwein–Choi 2000), GRH suffices to remove the one possible extra exception, because the
+representations are counted by a class number, `≍ n^{1/2±o(1)}`, and GRH is needed only to rule
+out a Siegel zero (a power-size lower bound for the count). ES is the opposite case: by
+Lemma 2.1 the full solution count is `p^{o(1)}` for almost all p, so no superfamily of ES
+solutions has a class-number-size count with bounded multiplicity. This is the structural
+reason why "GRH ⇒ ES" is not available by the Borwein–Choi template.
+
+## 6. A conditional theorem with a natural, ES-strength hypothesis
+
+**Conjecture X_slice.** For every sufficiently large prime p there are positive integers c, f
+with `cf | p + c + f` and `f·(p+c+f)/(cf) ≡ 1 (mod 4)`. Equivalently (Lemma 1.1, dual form):
+for some m ≡ 0 (mod 4) prime to p, the least positive residue g of `−p^{−1}` modulo m divides
+`m + 1`.
+
+**Theorem 6.1 (PROVED).** X_slice ⇒ ES(p) for all sufficiently large primes p, with an explicit
+solution `(bdp, cd, bcd)` (Lemma 1.1).
+
+X_slice is a single two-variable divisibility condition (a "Kloosterman fraction `−p̄/m` hits
+the divisor set of `m + 1`" statement), but it is **not** weaker in difficulty than ES restricted
+to Type I: it is one slice of it. **EVIDENCE:** X_slice holds for every prime 3 ≤ p < 3000 and
+every Mordell-hard prime below 2·10⁶ (§1); counts `S(p) ∈ [6, 42]` near 10⁵ (§3.1); in the
+random model `S(p)` is a sum of ≍ p rare events with mean `≍ log² p`, so
+`P(S(p) = 0) ≈ exp(−c log² p)`, summable (Assessment; the true lower tail is governed by the
+correlated small-modulus part, cf. the exponent-3 tail of W, so this model is only indicative).
+
+**Why no listed hypothesis implies X_slice (the negative result, with scope).**
+1. (PROVED, Prop 2.3) No hypothesis delivering a lower bound `≥ M/2` for a target with main
+   term `M ≥ p^η` and `p^{o(1)}`-to-one encoding can drive X_slice (or ES) for all large p.
+2. (PROVED, Cor 4.1) This covers every small-scale equidistribution theorem for Heegner/CM points
+   with `|D| ≥ p^κ` in the ranges known unconditionally or under GLH, and their `|D|^ε`-lossy
+   Planck-scale conjectures.
+3. (PROVED citations) Prime-law inputs (GRH/EH/BV/Montgomery/Hooley) through CRT majorants are
+   capped in the averaged problem (PRIMELAW), and multiplier mechanisms with witness moduli
+   `≤ exp((log p)^{1/4−ε})` (which is where GRH-Chebotarev witnesses live for fields of
+   discriminant `p^{O(1)}`) fail i.o. (OMEGA13).
+4. (Assessment) GRH says nothing about a single coefficient `τ_χ(n_g/4)`, and (3.2) uses each χ
+   once; what X_slice needs is Poisson-scale concentration, pointwise in p (Prop 3.1.2).
+5. (Assessment) Covering-type hypotheses would need an ES encoding as balls on a quadric with
+   power-many points; Remark 4.2 shows this is incompatible with the small-scale asymptotic, and
+   none was found.
+
+Scope of the negative result: items 1–3 are theorems about *mechanisms* (classes of arguments
+or outputs), not a proof that "GRH ⇏ ES", which cannot be proved by such means. Not covered:
+hypotheses producing lower bounds with power-small *relative* errors for polylog-size weighted
+counts (Remark 2.4), and genuinely new non-asymptotic mechanisms.
