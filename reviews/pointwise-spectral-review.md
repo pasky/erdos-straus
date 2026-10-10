@@ -63,3 +63,37 @@ no use of the width formula; hyperbolic widths by direct minimisation of arccosh
   ≈ 2/(p√(1+4a²d)) ≍ 1/(a√d·p), **not ≍ 1/p uniformly** — it shrinks with a. (R123 repair): replace "tube of hyperbolic
   width ≍ 1/p" by "≍ 1/(a√d p)", and "minimal width w ≍ 1/p" in §3/§4 by "width ≤ 1/p (≍ 1/p only for a√d ≍ 1)".
   This makes the targets *narrower*, so it strengthens, not weakens, the negative conclusion.
+
+## Claim 3 — §4 gap numbers
+
+**Verdict: SOUND as Assessment (labelling correct; one overstated sentence D4, one bookkeeping remark D5).**
+
+Sources: Young 2017 (arXiv 1405.5457) — abstract checked online, theorem content as recorded (parent-checked PDF) in
+`LITERATURE_AUTOMORPHIC.md` l. 72: Thm 2.1 error `‖φ‖₂ D^{5/12+ε} V^{1+ε}` (D^{1/4} under Lindelöf), odd fundamental
+D; balls V ≪ D^{1/24} (Lindelöf D^{1/8}); cusp strips V ≪ D^{1/18} (Prop 1.2: b ≈ D^η, η > 4/9 ⇔ width D^{−1/18}).
+Humphries–Radziwiłł (arXiv 1910.01360v2, PDF downloaded and read, p. 6–7): Thm 1.12(1) — unconditional, squarefree
+fundamental D, inner radius r ≫ |D|^{−1/12+δ}, µ(A_{r,R}) ≫ |D|^{−1/2+δ}, **almost all centres w**. The table row
+matches this exactly.
+
+Exponent arithmetic re-done with D = |D'| = 4dp² (d bounded, so D^{1/2} ≍ p): ball radius D^{−1/24} ⇒ area D^{−1/12}
+= p^{−1/6}, vs. µ ≈ L²/p: gap p^{5/6} ✓; width p^{−1/12} vs p^{−1}: p^{11/12} ✓; Lindelöf: D^{−1/8} ⇒ p^{−1/4}, area
+p^{−1/2}: gaps p^{1/2} ✓ / p^{3/4} ✓; cusp strip D^{−1/18} = p^{−1/9}: p^{8/9} ✓. Least d with (−d/p) = −1:
+p^{1/4+ε} is a valid (weaker than Burgess' p^{1/(4√e)+ε}) bound; ≪ L² under GRH (Ankeny/Bach) ✓. Hecke-orbit
+computation: with (p+1)·area ≈ L, ‖φ‖₂ ≈ (L/p)^{1/2}, T ≍ p, local Weyl Σ_{t_j≤T}|u_j(z₀)|² ≍ T²:
+√p·p·(L/p)^{1/2} = p√L ✓ (arithmetic correct).
+
+* **D4 (MINOR, overclaim in wording).** §0 "Even Ramanujan + Lindelöf Hecke-orbit bounds miss by ≈ p" and Verdict
+  reason 2 "even assuming Ramanujan + Lindelöf the Hecke-orbit spectral error exceeds the main term by ≈ p". The
+  displayed computation uses only |λ_j(p)| ≤ 2 and Cauchy–Schwarz over j; **Lindelöf enters nowhere**, and the
+  computation is an upper bound for one crude method (the report's "points for the reviewer" says so, the main
+  document does not). Under a random-wave heuristic for the signs of λ_j(p)u_j(z₀) the error would be ≈ √p‖φ‖₂ ≈ √L,
+  i.e. the *truth* is Poisson-scale, consistent with the observed empty rates. (R123 repair): replace by "the
+  Ramanujan-only, Cauchy–Schwarz-over-the-spectrum bound for one Hecke orbit exceeds the main term by ≈ p (a
+  limitation of termwise spectral bounds, not of the truth; Lindelöf does not improve this estimate)".
+* **D5 (MINOR, bookkeeping).** The table converts Young's *ball* thresholds into "gaps" for a *tube* target. Plugging
+  the tube data directly into Thm 2.1 (‖φ‖₁ ≈ L/p, ‖φ‖₂ ≈ (L/p)^{1/2}, V ≈ p, h ≈ p) gives error/main ≈
+  p^{5/6}·p·(L/p)^{1/2}/L ≈ p^{4/3}L^{−1/2} unconditionally and ≈ p·L^{−1/2} under Lindelöf — i.e. the honest
+  "power gap" depends on the metric chosen; the table should say "scale exponents for the ball-equivalent target"
+  and add the direct Thm 2.1 ratio. Also Young needs odd fundamental D; D' = −4dp² is neither odd nor fundamental and
+  the points Λ'_{d,p} are level-d (Γ₀(d)-type) points — the table already flags non-fundamentality; add "even" and
+  "level d". None of this changes the conclusion (all gaps are positive powers of p).
