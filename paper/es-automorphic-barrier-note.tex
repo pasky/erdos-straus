@@ -916,7 +916,148 @@ $d\le D(p)$ forces $n_p\le D(p)$; GRH gives $n_p\ll\cL^2$ (Ankeny, Bach) and
 Burgess gives $n_p\ll p^{1/(4\sqrt e)+\varepsilon}$ unconditionally.
 \end{assessment}
 
-%%CONTINUE
+\section{Open problems: the escape hatches}\label{sec:open}
+By Theorem~\ref{thm:reduction}(iii), a route that survives must use a
+parameter set growing with $p$, integers that are not formal polynomials
+in $p$, non-abelian data, or a signed counting certificate. We list the
+concrete forms \cite[\S3]{RT2}. The verdicts are \status{Assessments}. Each
+hatch is equally a hatch for \emph{disproof}: a sterile prime, if one
+exists, would be a failure not explained by Brauer--Manin
+(Proposition~\ref{prop:BMonly}), and none of the encodings above could
+detect it either.
+
+\begin{problem}[H-A: joint factorisation of a growing family]
+Prove, at a single large prime $p$, a lower bound for
+$\sum_{\theta\in\Theta(p)}\#\{f\mid N_\theta(p):\ f\bmod q_\theta\in R_\theta(p)\}$
+for a family $\Theta(p)$ growing with $p$; for example
+$\sum_{a\le A,\,d\le D}\#\{f\mid p+4a^2d:\ f\equiv-1\pmod{4ad}\}$ (row
+II$\{a,d\}$), or the Type~I family $p^2+4c^2d$.
+\end{problem}
+Divisor sums over the values of a \emph{fixed} quadratic polynomial are
+classical \cite{Ho}, and roots of quadratic congruences are equidistributed
+on average over the modulus \cite{DFI}. We know no result uniform in the
+constant term $p$ in the needed range. More seriously, ES needs a
+\emph{moving} modulus $q=4ad$ tied to the variable. Once $q>N^{1/3}$, at
+most $11$ divisors of $N$ lie in one class \cite{Le}, so each $\theta$
+contributes $O(1)$. The family is a sum of $\asymp\cL^3$ events of size
+$O(1)$, with no large sub-family (\S\ref{sec:numerics}). \emph{Verdict:} open;
+no known technology. This is the main hatch, and any automorphic route
+(Kuznetsov over the level) lives here, with the polylogarithmic accuracy
+demanded by Proposition~\ref{prop:scale}.
+
+\begin{problem}[H-B: parity-breaking for a divisor-in-moving-class event]
+A slice is empty when $N_\theta(p)$ is prime
+(Propositions~\ref{prop:emptyI}, \ref{prop:emptyII}). More generally it is
+empty when all prime factors of $N_\theta(p)$ lie in classes generating a
+subgroup that misses $R_\theta(p)$. Exclude, at a fixed $p$, the conspiracy
+in which every $N_\theta(p)$, $\theta\in\Theta(p)$, is bad in this sense.
+\end{problem}
+``Bad'' is a multiplicative-class condition of parity type, which
+lower-bound sieves cannot detect without bilinear input \cite[ch.~16]{FI}.
+Parity-breaking through bilinear sums exists for thin polynomial sequences
+averaged over their variables \cite{FI98,HB,Ma}. At fixed $p$ the variables
+$\theta$ are free to average over. The differences are the target (a divisor
+in a moving class, not primality) and the size of the family ($\asymp\cL^3$
+effective members). \emph{Verdict:} open; the closest existing technology in
+spirit. The best-defined non-automorphic research target in this list is
+a ``Friedlander--Iwaniec theorem for divisors in moving classes over the
+Elsholtz--Tao family at fixed $p$''. The $O(1)$-per-block mass makes
+bilinear methods, which need long sums, hard to apply.
+
+\begin{problem}[H-D: non-abelian or higher-rank data]
+Find an object carrying information not determined by congruences
+(Frobenius in non-abelian extensions, $\mathrm{GL}_3$ or higher automorphic
+forms) with non-zero coefficient in an ES count.
+\end{problem}
+By Proposition~\ref{prop:cm}(iii), in the Type~I CM torus the dihedral data
+have coefficient $0$, so such data could only enter through the choice of
+$\theta$, not by deciding a fibre. The varieties are toric or quadric
+(Lemma~\ref{lem:slices}), so no natural higher-rank object is attached.
+\emph{Verdict:} open, with no candidate object known.
+
+\begin{problem}[H-E: an exact identity with positive main term]
+Find one expansion of an aggregated ES count, with a positive main term
+and cancellation between different $\theta$ that is not visible
+piecewise.
+\end{problem}
+Termwise use of all standard hypotheses is excluded at the level of
+mechanism (\S\ref{sec:gaps}); even the Linnik--Selberg conjecture for sums of
+Kloosterman sums (partial results: \cite{ST}) loses $p^\varepsilon$. The
+search of \cite{O131} found no structurally positive identity. Its exact
+content: $T_2^+(m^2)=0$ for every $m$; for $cd\mid6$ the Type~II
+$(c,d)$-slice is an exact combination of binary theta coefficients at
+$4c^2dn+1$; the Type~II count is ``Eisenstein even/odd parts minus a
+boundary $-2$ per level'' \cite[Prop.~4.1]{O131}; and there is no linear
+relation between $56$ ES count variants and $54$ classical arithmetic
+functions on $n\le2\cdot10^4$ (\status{certified}, exact $\Q$-rank; the
+scope is that finite dictionary). In every case positivity is again ``a
+specific integer has a divisor in a residue class''. \emph{Verdict:} open.
+
+\begin{remark}[H-F: integral Hasse principles, a cautionary example]
+ES$(p)$ asks for an integral point on an affine variety whose expected
+number of points is polylogarithmic. In the closest family where the
+integral Hasse principle has been settled, the Markoff-type surfaces, it
+holds for almost all parameters but fails for infinitely many
+\cite[Thm.~1.2]{GS}. In that setting ``almost all'' is what geometry
+delivered, not ``all''.
+\end{remark}
+
+\begin{remark}[non-escapes]
+Anchoring the levels at the least non-residue $n_p$ (H-C) fixes the genus
+condition but leaves H-A at the anchored levels. Taking Type~I and Type~II
+together (H-G) has the same $\cL^3$ mass structure, and
+Theorem~\ref{thm:reduction}(iii) applies to unions of rows of both types
+\cite[\S3]{RT2}.
+\end{remark}
+
+\section{Numerical evidence}\label{sec:numerics}
+All statements here are \status{evidence}. The counts are exact
+enumerations, validated against brute force for $p\le400$ and reproduced
+independently by internal reviewers, as indicated.
+\begin{itemize}
+\item $f_I(p)\ge1$ and $f_{II}(p)\ge1$ for every prime $5\le p\le10^8$, and the
+$a=1$ Type~I slice is non-empty for each of them \cite[\S1]{O123},
+\cite[\S10]{O128}. This was reproduced to $10^7$ (Type~I) and to $10^8$
+(Type~II) by independent code.
+\item Dyadic minima of $f_I$ grow with $p$ and stay at $0.12$--$0.20$ times
+the dyadic mean. The mean is $\approx0.1\cL^3$. For example
+$\min f_I=105$ on $[2^{25},2^{26})$, at $p=37117609$. All window minimisers
+from $2^9$ on are Mordell-hard (in the six square classes modulo $840$).
+The $a=1$ slice alone has minimum $1$--$5$ throughout.
+\item $\min f_{II}/\log^3p\approx0.012$ over $p\ge10^5$, attained at
+$p=2031121$; dyadic minima of $f_{II}$ are $62,74,88,94$ on the blocks
+$2^{23},\dots,2^{26}$ (the last one partial). The hardest primes lie in
+the square classes modulo $840$; the $20$ smallest normalised values are all
+$\equiv1\pmod{24}$ except one.
+\item Single fixed targets are often empty: the $d=1$ Type~II family
+(the single discriminant $-4p$) is empty for $148$--$198$ primes per block
+at $2^{24}$--$2^{26}$. Among primes $p\equiv1\pmod{24}$, $p<10^5$, with
+$(-d/p)=-1$, Type~I at the single level $d=7$, $11$, $13$ fails for
+$42/612$, $23/611$, $88/608$ primes, while $d=5$ never fails. It is an
+``identity level'': a classical polynomial covering \cite[\S5.3]{O126}.
+Type~II at level $d=1$ fails for $73$ of the $14183$ primes
+$p\equiv1\pmod{24}$ below $1.5\cdot10^6$.
+\item The slice of \cite[Lemma~1.1]{O127} solves every Mordell-hard prime
+below $10^7$, but its count drops to $1$ at $p=5101441$, where
+$f_I=188$ and $f_{II}=78$.
+\item Type~II solutions near $10^6$ sit at about one per dyadic $(a,c,d)$
+block \cite[\S3.1]{RT2}: the mass is spread over $\asymp\cL^3$ small
+events, with no large sub-family.
+\end{itemize}
+
+\section{Summary}
+The automorphic and geometric objects naturally attached to
+\eqref{eq:es} at a fixed prime ($\SL_2$ matrices and Heegner points, $T_p$
+translates, shells, quaternion orders, CM tori, an isotropic ternary
+quadric, the Brauer class) are exact reformulations. For fixed $p$ each of
+them reduces to genus or congruence data plus divisor events of specific
+integers at the Planck scale, with polylogarithmic expected counts
+(Theorem~\ref{thm:reduction}). \status{Assessment:} by these routes and
+with known technology, no standard hypothesis is known to suffice. What
+remains open is the joint control of a growing family of divisor events at
+one prime (H-A, H-B), or a genuinely new object (H-D, H-E). The
+Erd\H{o}s--Straus conjecture remains open.
+
 
 \begin{thebibliography}{99}
 \bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
