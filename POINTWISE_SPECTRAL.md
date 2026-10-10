@@ -7,8 +7,8 @@ solutions (x,y,z) with y ≤ z (each once; normalisation a ≤ b, gcd(a,b,c) = 1
 
 ## 0. Summary
 
-* **Numerics (§1, EVIDENCE).** For every prime p ≤ 10⁷, f_I(p) ≥ 1 and f_II(p) ≥ 1; even the a = 1 slice of
-  Type I never fails. The window minimum of f_I grows (62 at X = 2²²) and stays ≈ 0.16–0.2 × the mean ≈ 0.1 L³.
+* **Numerics (§1, EVIDENCE).** For every prime p ≤ 10⁸, f_I(p) ≥ 1 and f_II(p) ≥ 1; even the a = 1 slice of
+  Type I never fails. The window minimum of f_I grows (62 at X = 2²², 105 at 2²⁵) and stays ≈ 0.16–0.2 × the mean ≈ 0.1 L³.
   So "Type I alone fails for infinitely many p" has no numerical support; Type I ∪ Type II is never needed.
 * **Exact fixed-p forms (§2, PROVED).** Type I ⇔ `f | p² + 4c²d`, `f ≡ −p (mod 4cd)` (Lemma 2.1). The disc −4dp²
   form of a solution is the T_p-Hecke translate `Q₋∘[[1,2bd],[0,p]]` of the level-d Heegner form (Lemma 2.2). The
@@ -35,6 +35,9 @@ a ≤ √N linear in d, a > √N quadratic in a), validated against brute force 
 all primes ≤ 400, both types, 0 mismatches). Statistics: `scripts/spec_stats.py`, output
 `data/spec/t1e7_stats.txt`.
 
+**Extension to 10⁸ (`data/spec/t1e8_stats.txt`; the 10⁸ arrays agree exactly with the 10⁷ run on n ≤ 10⁷):** all
+5 761 454 odd primes p ≤ 10⁸ have f_I(p) ≥ 1, f_II(p) ≥ 1 and a non-empty a = 1 slice.
+
 **Result (p ≤ 10⁷, all 664 578 odd primes):** `f_I(p) ≥ 1` and `f_II(p) ≥ 1` for every p; even the a = 1
 sub-family (`p = cef − c − f`, `ef ≡ 1 mod 4`, ET Remark 2.5) is non-empty for every p ≡ 1 (mod 4)
 (consistent with the literature check of that sub-family to 10¹⁴ cited by ET Remark 2.5). So **numerically Type I
@@ -49,6 +52,8 @@ Dyadic windows [X, 2X) (L = log(1.5X)):
 | 2¹⁸ | 35 (471241) | 220.8 | 1.33 | 2.72 | 17 | 3 |
 | 2²⁰ | 57 (1092961) | 291.5 | 1.43 | 3.99 | 18 | 2 |
 | 2²² | 62 (4889641) | 376.2 | 1.54 | 3.96 | 30 | 1 |
+| 2²⁴ | 98 (20322481) | 474.4 | 1.63 | 5.75 | 37 | 3 |
+| 2²⁵ | 105 (37117609) | 529.8 | 1.69 | 5.92 | 44 | 5 |
 
 * All window minimisers from 2⁹ on are Mordell-hard (p mod 840 ∈ {1,121,169,289,361,529}).
 * The minimum tracks the mean: min/mean ≈ 0.16–0.2, stable over 2¹² … 2²². mean f_I ≈ 0.1·L³ (ET: Σ_{p≤N} f_I ≍ N L²).

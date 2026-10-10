@@ -12,10 +12,10 @@ numbers.
 ## Deliverables
 1. **Numerics (EVIDENCE).** `spec_typecount.c` computes exact f_I, f_II for all n ≤ N by sieving the factorisations
    of 4a²d+1. It was validated by brute force (primes ≤ 400, 0 mismatches).
-   * For p ≤ 10⁷: f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime, and the a = 1 slice never fails.
-   * min_{[X,2X)} f_I grows (62 at 2²²) and stays at ≈ 0.16–0.2 × the mean (≈ 0.1 L³).
+   * For p ≤ 10⁸: f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime, and the a = 1 slice never fails.
+   * min_{[X,2X)} f_I grows (62 at 2²², 105 at 2²⁵) and stays at ≈ 0.16–0.2 × the mean (≈ 0.1 L³).
    * The minimisers are Mordell-hard.
-   * A 10⁸ run is included if it finished (see §1 of the main file).
+   * The 10⁸ run agrees exactly with the 10⁷ run on n ≤ 10⁷.
 2. **Exact fixed-p forms (PROVED, §2).**
    * Lemma 2.1: Type I ⇔ `f | p²+4c²d, f ≡ −p (mod 4cd)`.
    * Lemma 2.2: the SL₂ form with entry p, and the Hecke identity `Q' = Q₋∘[[1,2bd],[0,p]]`. Disc −4dp² solution forms are T_p-translates of level-d disc −4d forms.
