@@ -24,7 +24,7 @@ Scope notes (what is NOT covered):
 * Every block degrades gracefully without gcc (C parts skipped with a message). Without scipy, (eu) skips the areas part.
 
 Full `verify.py` run (`(ulimit -v 8000000; OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 timeout 3000 uv run --with scipy
---with mpmath python verify.py)`, nohup, about 17 min wall time): **`all checks passed`, exit 0**. There are 154 section headers, and no
+--with mpmath python verify.py)`, nohup, about 14 min wall time): **`all checks passed`, exit 0**. There are 154 section headers, and no
 block was SKIPPED. New-block seconds in the full run: es 7.2, et 4.3, eu 38.5, ev 72.3, ew 30.2, ex 118.1,
 ey 2.3, about 4.5 min in total.
 
