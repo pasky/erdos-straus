@@ -20,17 +20,22 @@ Notation (all n ≥ 1, not only primes). "Algebraic" counts, no coprimality filt
   coefficients `Σ_χ χ(−1)σ_χ(4c²dn+1)`, χ quadratic (§3.2);
   (b) every (c,d) slice is an exact finite Eisenstein combination (§3.1, = O128 Prop 9.1);
   (c) the signed decomposition: `2(T2⁻ ∓ T2⁺) − diag = Σ_{c,d}[(2/φ(4cd))·(odd resp. even Eisenstein part) − 2]`,
-  where the `−2` per level is a Kronecker–Hurwitz-type boundary term (§4.1; checked n ≤ 40);
+  where the `−2` per level is a Kronecker–Hurwitz-type boundary term (§4.1; checked n ≤ 40; *(R131 repair)*
+  re-checked from scratch for all n ≤ 3000 on the support and on the full (c,d) box for n ≤ 60);
   (d) T2⁺(m²) = 0 for all m, no gcd hypotheses (§2.1); T1±(2^k) = 0 (§4.2).
   **None has a structurally positive part.** In (a)–(c) positivity is "some 4c²dn + 1 has a divisor in a given
   class", which is the original problem.
-* **No identity with classical functions (§2; EVIDENCE, exact computation).** There is no exact Hecke relation (§2.2).
+* **No identity with the tested classical functions (§2; EVIDENCE; rank part CERTIFIED by R131).** *(R131 repair:
+  scope = the 54-column dictionary of §2.3 and n ≤ 2·10⁴; it says nothing about classical functions outside it.)*
+  There is no exact Hecke relation (§2.2).
   The rank test of 56 ES variants against 54 classical columns (Hurwitz class numbers, class-number convolutions
   Σ_x H(mn − x²) with twists, divisor and character sums) on six row sets gives intersection dimension 0 (§2.3).
   The best fit leaves ≈ 50–70 % of the fluctuation (§4.3).
 * **Siegel–Weil route (§3).** The ES orbit is not its genus. The genus average matches the slice only when
   genus = class (cd | 6); otherwise corr ≈ 0.5–0.75. The genus masses summed over c diverge (≍ log²C) while the
-  ES count is finite. Hence no "Eisenstein main term + small cusp error" formula exists for the total count.
+  ES count is finite. Hence (Assessment — *R131 repair*: the data show only that the untruncated genus mass
+  diverges and that per-slice errors are as large as the main term) no "Eisenstein main term + small cusp
+  error" formula exists for the total count.
 
 ## 1. Exact engine (step 1)
 
@@ -105,7 +110,14 @@ c = 1,2,3 slices, signs (−1)^{a+b}, (−1)^c, (−1)^d, d a square) against 54
 | primes ≡ 1 (24) | 18 | 45 | 63 | 0 |
 
 So **no ES variant, and no linear combination of them, is a linear combination of the classical columns** on
-any of these row sets (a single exact relation would make the intersection ≥ 1). Columns flagged as "in span C"
+any of these row sets (a single exact relation would make the intersection ≥ 1).
+*(R131 repair.)* The computation above is modular, not exact over ℚ (the `exf_nullspace.py` docstring's "exact
+verification" is not performed): rk_p is only a lower bound for rk_ℚ C and rk_ℚ E, so the mod-p intersection
+dimension is not a rigorous upper bound; and the random-row restriction is valid only if it is injective on
+span E; p ≡ 1 (24) has only 267 rows. R131 (`scripts/review_r131_rank.py`) recomputed exact ℚ-ranks
+(fraction-free) on independent random rows: intersection 0 on all six row sets, and the rational kernel of E on
+the subset vanishes on every row of the set (injectivity). With the columns spot-checked against independent
+code, the statement is **CERTIFIED for the 54-column dictionary and n ≤ 2·10⁴**. Columns flagged as "in span C"
 are identically zero there (e.g. the d = 1 slice of T1⁺ vanishes for p ≡ 1 (4): Lemma 2.4 of O123). The only
 pure-ES relations on primes are elementary: `(−1)^c = (−1)^{a+b}` (reduce the equation mod 2), and
 `T1⁺.diag(p) = T2⁺.diag(p) = #{a : 4a² | p + 1}` (both diagonals reduce to `p = 4a²d − 1`; similarly for T±⁻).
@@ -146,9 +158,11 @@ a combination of coefficients of weight-1 theta series of binary quadratic forms
 discriminants dividing 24), e.g. `A_{1,1}(n) = (τ(4n+1) − r₂(4n+1)/4)/2`. Checked on all primes p < 3000
 (`scripts/exf_genus.py`: mean|A − G| = 0.000 for (c,d) = (1,1),(1,2),(1,3),(2,1),(3,1),(2,3)).
 **These are genuine exact theta-coefficient identities for slices of f_II, but their positivity is not
-structural:** `A_{1,1}(p) > 0` iff `4p + 1` has a prime factor ≡ 3 (mod 4), etc. Every slice with cd | 6 vanishes
-exactly on a union of square classes (the Mordell/ET covering congruences), which is why all ES-hard primes are the
-square classes mod 840.
+structural:** `A_{1,1}(p) > 0` iff `4p + 1` has a prime factor ≡ 3 (mod 4), etc. *(R131 repair; the original
+said "vanishes exactly on a union of square classes", which is false: A_{1,1}(3) = 0 but A_{1,1}(12) > 0.)*
+Each slice with cd | 6 is forced positive on explicit residue classes (the Mordell/ET covering congruences),
+which is why all ES-hard primes lie in the square classes mod 840; outside those classes it can vanish, and its
+zero set is not a congruence set.
 
 **3.3 Other (c,d): the ES class is not its genus (EVIDENCE, primes 5 ≤ p < 3000).**
 
@@ -193,7 +207,9 @@ is what makes the sums finite. Thus ES Type II = (even part − odd part)/2 of a
 Eisenstein coefficients, *minus* a boundary. Neither part is sign-definite. On primes 5 ≤ p ≤ 2·10⁴,
 `T2⁻ − T2⁺` ranges over [−276, 288] (mean +22 for p ≡ 1 (4), −24 for p ≡ 3 (4); corr(T2⁻ − T2⁺, T2⁺) = −0.77):
 the "signed total" T2⁺ + T2⁻ does not dominate T2⁺ in any structural way. For Type I the signed manoeuvre gives
-nothing (Lemma 1.2); the sign-flipped family T1⁻ satisfies `T1⁻ − T1⁺ < 0` for 21 % of primes (2.8 % of p ≡ 1 (4)).
+nothing (Lemma 1.2). *(R131 repair: credit.)* The reading of the boundary as the trivial factorisation (a = 0,
+the divisor 1 in class +1, which differs from class −1 only by the sign at ∞) is O128 Prop 8.3. The
+sign-flipped family T1⁻ satisfies `T1⁻ − T1⁺ < 0` for 21 % of primes (2.8 % of p ≡ 1 (4)).
 
 **Prop 4.2 (zero sets of T1±; PROVED).** `T1⁺(2^k) = T1⁻(2^k) = 0` for all k. *Proof.* By Lemma 1.1 every
 solution of n is a k-scaling of a solution of an odd m = 4ac'd − h with h | 4a²d ± 1 (h odd), m | n. m = 1 is
@@ -213,6 +229,11 @@ Eisenstein picture (Prop 4.1) predicts (the low levels contribute σ_η at 4p+1,
 Setting: p prime, p ∤ 2cd, `K = ℚ(√−d)`, `α = α_{c,d}(p) = p + 2c√−d ∈ ℤ[√−d]`, `N(α) = p² + 4c²d`, q = 4cd.
 Type I solutions with this (c,d) (ordered, i.e. both a ≶ b) are the divisors `f | N(α)` with `f ≡ −p (mod q)`
 (O123 Lemma 2.1(iii)); only p inert in K contribute (O123 Lemma 2.4 / GEOMETRY_ES Prop 5.1).
+*(R131 repair.)* (a) Below, `T1_{c,d}(p)` is the **ordered** count `2T1⁺_{c,d}(p) − δ_{c,d}(p)` (diagonal
+solutions exist: c = 2a, p = 4a²d − 1). (b) The hypothesis p ∤ 2cd loses nothing for p ≥ 5: if p | d then
+p | c (since c = 4abcd − p(a+b)); and c = pc₁ gives 4abc₁d = a + b + c₁, a Type II solution for n = 1,
+impossible by Prop 2.1 (m = 1). (c) For non-squarefree d, "class group" in (iii) means the ring class group of
+ℤ[√−d]. R131 checked (i)–(iii) in divisor form for primes p ≤ 3000 (`scripts/review_r131_slices.py`).
 
 **Lemma 5.1 (ideal divisors of α = integer divisors of N(α); PROVED).** α is primitive (no rational integer
 m > 1 divides it, as gcd(p, 2c) = 1) and every prime ℓ | N(α) is odd, prime to d (ℓ | d ⇒ ℓ | p), hence prime to
@@ -236,6 +257,10 @@ the genus factor of O123 Lemma 2.4 as an exact identity.
 *Proof.* (i) Lemma 5.1. If 𝔞 ≡ 𝔞' in `Cl_{4cd}` then `𝔞 = 𝔞'(β)`, β ≡ 1 mod 4cd, so `N𝔞 ≡ N𝔞'`. (ii) orthogonality
 on the finite group `(ℤ/4cd)^×` after composing with N; then Lemma 5.1 turns `Σ_{𝔞|α} χ(N𝔞)` into `σ_χ(N(α))`.
 (iii) A character of Cl(K) is of the form χ∘N iff it is a genus character (genus theory). ∎
+
+*(R131 repair: credit.)* The same conclusion (class-group characters cancel, only genus data survive) was
+reached as an Assessment for the Type II CM theta series of ℚ(√−dp) in O128 §9.3; Thm 5.2 is the Type I analogue,
+with a proof.
 
 **Answer to the round-2 question.** The CM torus does **not** bring class-group structure into the count: the ES
 condition sees an ideal divisor 𝔞 of α only through `N𝔞 mod 4cd`. That loses exactly the information of the
