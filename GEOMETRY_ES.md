@@ -89,8 +89,9 @@ self-intersection 0) is a **Looijenga pair with toric model `(ℙ², triangle)` 
 the three points collinear. Compare: Markoff-type cubic surfaces have toric model with *two* points blown up on
 each side, which is what produces their Vieta involutions and infinite integral orbits. The ES surface has one
 point per side: no involutions, and the only automorphisms visible are `S₃` (and, over ℚ, the rescalings
-`U_n ≅ U_{n'}`). `V_n = Ũ_n \ (L₁₂ ∪ L₂₃ ∪ L₃₁)` is the torus `Π̄ \ (triangle ∪ ... )` together with
-`E^∘` — BL's `V_n ≅ G_m²`, characters `y_i/y_j = u_i/u_j = s_j/s_i`.
+`U_n ≅ U_{n'}`). `V_n = Ũ_n \ (L₁₂ ∪ L₂₃ ∪ L₃₁) = Π̄ \ (triangle)` (it contains `E^∘ = ℓ_∞ \ {V_k}`) — this is
+BL's `V_n ≅ G_m²`, with characters `y_i/y_j = u_i/u_j = s_j/s_i`. (Consistency: the tangent cone of `U_n` at
+`P` is the conic `y₁y₂+y₁y₃+y₂y₃ = 0`, which is `s₁+s₂+s₃ = 0`, i.e. `ℓ_∞`, in the `s`-coordinates.)
 
 Integral and positive points (PROVED; check (b)):
 `𝒰_n(ℤ) ∩ U_n^∘ = {s : 1/s_i ∈ ℤ}`, and `U_n(ℕ) ↔ {(s₁:s₂:s₃) primitive in ℕ³ : 4s_i | nS}`, `S = Σ s_i`,
@@ -111,3 +112,64 @@ With ET's coordinates `(a,b,c,d,e,f)` put `M = [[e, 2a],[2ad, f]]`, entries `(e,
 routine algebra; `π_n^I` gives the solution. Type II identically with `4abd = n + e > 0`. ∎
 The two types are exchanged by swapping the roles of `det M` and the shift (`det = 1, shift n` ↔
 `det = n, shift 1`): this is ET's dilation `Σ^I_n ≅ Σ^{II}_n`.
+
+## 3. Fibrations of `U_n`: fibres, degenerate fibres, restriction of α
+
+### 3.1 The three conic bundles coming from lines (PROVED; checks in `scripts/geo_fibrations.py`)
+Planes through a line of `S_n` cut residual conics. Up to `S₃` there are three types.
+
+**(F1) Planes through a boundary edge `x₀ = x₁ = 0`: the fibration `u₁ = t`.** With `r = (4t − n)/(nt)`:
+`(r u₂ − 1)(r u₃ − 1) = 1`; integrally, with `X = (4t−n)u₂ − nt`, `Y = (4t−n)u₃ − nt`:
+`XY = (nt)²`, `X ≡ Y ≡ −nt (mod 4t − n)`.
+The two points at infinity of the conic are the nodes `(0:0:1:0)`, `(0:0:0:1)` — rational, on different
+boundary components: **every fibre is a split torus `G_m`** (a hyperbola with rational asymptotes).
+Degenerate fibres: `t = 0` (`L₁₂ ∪ L₁₃`, meeting at `P`) and `t = n/4` (the line `M₁`). Every fibre meets
+`L₂₃` in the point `(t,0,0)`.
+**Restriction of α:** on the fibre, with `w = r u₂ − 1` (so `u₂/u₃ = w`),
+`α|_{u₁=t} = (n(n − 4t), −w)` in `Br ℚ(t)(w)` — proof: `α = (−w·tr/(1+w), −w)`, use `(x,x) = (x,−1)`
+and the Steinberg relation `(1+w, −w) = 0`. Checked at every place on 46044 (solution, fibre) pairs
+(`geo_models.py` (d)).
+**Vertical Brauer group:** all fibres over closed points of `A¹` are geometrically integral with a rational
+point, or (at `t = 0, n/4`) have only multiplicity-one components that are geometrically integral with rational
+points; so a class of `Br ℚ(t)` unramified on `Ũ_n` has zero residues on `A¹`: `Br_vert = Br ℚ`.
+α is **horizontal** (it restricts to the non-constant class `(n(n−4t), −w)` on the generic fibre).
+
+**(F2) Planes through `L₁₂`: the fibration `u₁ = λu₂`.** Residual conic, with `Z = 4λu₂ − n(λ+1)`,
+`W = 4λu₃ − nλ`: `ZW = n²λ(λ+1)` — again a split hyperbola. Degenerate at `λ ∈ {0, −1, ∞}`.
+`α|_λ = (−λ, −u₂/u₃) = (−λ, −nZ)`.
+
+**(F3) Planes through `M₁`: `4u₁ − n = λ(u₂+u₃)`.** The residual conic meets the boundary triangle in
+`(0:λ:0:4) ∈ {x₀=x₂=0}` and `(0:λ:4:0) ∈ {x₀=x₃=0}` — two rational points on different components:
+split again.
+
+In the toric model (Prop 2.1) the conic-bundle classes on `Bl_{V}Π̄` are the solutions of `F² = 0`,
+`−K·F = 2`, `F = aH − Σb_kV_k`, i.e. `a² = Σb_k²`, `3a − Σb_k = 2`: only `F = H − V_k` (lines through `V_k`;
+this is (F1), `s_k = 1/u_k` constant). (F2), (F3) live on toric blow-ups of the boundary corners, resp. use
+`M_k`; in all cases the two points at infinity lie on two *different* boundary components.
+
+### 3.2 Why no fibre can be a Pell conic (PROVED)
+**Theorem 3.1 (no infinite integral fibres).** Let `n ≥ 1` and `C ⊂ U_n` an irreducible curve over ℚ.
+If `C ∩ 𝒰_n(ℤ)` is infinite then `C` is one of the lines `L_ij` (all `n`) or `M_k` (only if `4 | n`; these
+carry only non-positive points). In particular: (i) for every dominant `φ : U_n → B` to a curve, all fibres
+except finitely many lines have finitely many integral points — no fibre is a non-split torus with infinitely
+many integral points, and no fibre has infinitely many positive integral points; (ii) `U_n(ℕ)` is finite.
+*Proof.* Points with a zero coordinate lie on the `L_ij` (§2.1). BL Lemma 3.10: integral points with
+`u₁u₂u₃ ≠ 0` and `u_i ≠ −u_j` are finite. Points with `u_i = −u_j` and `u₁u₂u₃ ≠ 0` satisfy (substitute)
+`u_k = n/4`, i.e. lie on `M_k`, and have a negative coordinate. ∎
+
+**Proposition 3.2 (structural reason: the torus is split).** `V_n ≅ G_m²` *over ℚ*, with characters
+`u_i/u_j`. Any morphism from a non-split one-dimensional torus `T = R¹_{K/ℚ}G_m` to `V_n` is constant
+(`X^*(T)^{Gal} = 0`, so `T` has no non-constant units, and a morphism to `G_m²` is a pair of units). Every
+subtorus of `V_n` and every translate of one is split. So the "Pell" mechanism (a non-split torus whose unit
+group makes integral points infinite as soon as one exists) is unavailable inside `V_n`; and Theorem 3.1
+shows nothing else rescues it. This is the geometric content of the classical fact that every two-variable
+slice of every ES parametrisation is a *split* binary problem `XY = N` with congruence conditions
+("divisors in residue classes"): e.g. (F1) `X | (nt)², X ≡ −nt (mod 4t−n)`; Type II with `a, d` fixed:
+`f | n + 4a²d, f ≡ −1 (mod 4ad)`; Type I with `a, d` fixed: `f | 4a²d+1, f ≡ −n (mod 4ad)`.
+
+**Corollary 3.3 (answer to aim (B) for fixed n).** There is no fibration of `U_n` (or of `Ũ_n`, or of any
+model birational to it over ℚ that preserves the integral points) on which the archimedean place is
+non-compact on fibres in the integral sense, i.e. whose fibres carry infinitely many positive integral points.
+The positivity region `U_n(ℝ)⁺` is non-compact, but its integral points are bounded (`u_i ≤ n²`-type bounds
+from `min u_i ≤ 3n/4`), so no strong-approximation statement involving `U_n(ℝ)⁺` and integrality at all finite
+places can be "non-compact". (PROVED; it is a reformulation of BL Lemma 3.10 plus Prop 3.2.)
