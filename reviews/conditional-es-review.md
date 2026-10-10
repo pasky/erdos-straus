@@ -96,3 +96,32 @@ brute force of §1 at 13, 29, 193. Output: `data/review_r127/counts.txt` (2.3 s 
   "almost all" is genuinely needed; a driver with power main term on a sparse set of p is not
   excluded — the text says "almost all", correctly.
 * "PROVED relative to ET Thm 1.1" — label honest; the result is elementary (Markov).
+
+## 4. Cor 4.1 / Remark 4.2 — SOUND-AFTER-REPAIRS (minor citation precision)
+
+HR arXiv:1910.01360v2 **fetched and read** (`/tmp/hr.pdf`, not committed).
+* HR Thm 1.12(1): `|D|^{−1/12+δ} ≪ r < R ≪ 1`, `|D|^{−1/2+δ} ≪ μ(A_{r,R}) ≪ 1`, D → −∞ through
+  squarefree fundamental discriminants, conclusion for all w outside a set of measure o_δ(1).
+  **Quoted correctly.** Expected count `μ(A)h(D) ≥ |D|^{δ−o(1)}` (the text says `≥ |D|^δ`; drop
+  of o(1), harmless).
+* HR Thm 1.6 (sphere, squarefree n ≡ 3 (8)): asymptotic for `n^{−δ} ≪ σ(B_R) ≪ 1`, **δ < 1/12
+  unconditionally, δ < 1/4 under GLH**. Quoted correctly for GLH. **D3 (MINOR).** HR Thm 1.6
+  is stated for a **fixed** centre w ("Fix w ∈ S²", n → ∞), not uniformly in w; the text's
+  bullet heading "All centres" overstates it (a uniform-in-w version is what one would need for a
+  p-dependent centre). Repair: "Fixed centre (HR Thm 1.6 is stated for fixed w; uniformity in w is
+  not asserted there)". Also mention the unconditional range δ < 1/12 (expected count
+  `≥ n^{5/12−o(1)}`). This only weakens the positive tool further, so Cor 4.1 is unaffected.
+* Young [You17 Thm 2.1] / Humphries [Hum18 Thm 1.24]: HR cite them as the Heegner-point
+  analogues of Thm 1.6 ✓; exponents not checked by me either (sources not accessed).
+* "HR §1 (end) … balls at radius `|D|^{−1/4+δ}` beyond their method": the passage is the
+  **closing paragraph of HR §6** (before the Acknowledgements), not §1; content ✓ (needs a
+  sub-Weyl subconvex bound). MINOR location fix.
+* Cor 4.1 logic re-derived: an asymptotic with expected count `M ≥ |D|^η ≥ p^{κη}` gives
+  `#𝔗_p ≥ M/2` for large p, then Prop 2.3 gives `p^{κη} ≤ 2μ f(p) ≤ p^{o(1)}` off a sparse set —
+  contradiction. Hence, unconditionally, for almost all p an ES target with such an encoding is
+  *not* an admissible region of the theorem. ✓ No upper bound on |D| is needed. ✓
+* Remark 4.2 "(PROVED implication)": ✓ as an implication. **D4 (MINOR).** "the (believed …)
+  asymptotic for balls at that scale" should be restricted to the families where it is
+  believed (S², Heegner points): on S³ the all-centre asymptotic already **fails** at expected
+  count `(#pts)^{1/4−o(1)}` (big holes, the author's own §7.1). Repair: add "(for S² / Heegner
+  families; on S³ it is false, §7.1)".
