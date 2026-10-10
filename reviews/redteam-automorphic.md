@@ -298,3 +298,108 @@ Each proposal will be run through these tests; a route that passes all of them i
 * **T8 Lifting (Prop 2.4).** Which coarse invariant does a detecting object see, what is the fibre
   size, and is the lift to a positive integer solution unconditional, or does it re-introduce
   `p mod q` (Prop 2.6) or a search (E1)?
+
+## 5. Phase 2, item 1: O127 (`CONDITIONAL_ES.md`, checkpoint 1)
+
+O127 claims no conditional proof; its outputs are an exact slice (Lemma 1.1), a scale constraint
+(Prop 2.3), Heegner/GLH exclusions (Cor 4.1, Remark 4.2), a GRH discussion (§3.2) and
+Theorem 6.1 (X_slice ⇒ ES). Overall verdict: **the negative conclusions survive; three scope /
+argument repairs are needed (5.6); one new fact strengthens Prop 3.1 (5.2).**
+Script `scripts/rt_slice_special.py`; data `data/rt/slice_special_*.txt`.
+
+### 5.1 Lemma 1.1 (slice `tp+1 = m·m''`) — T8 lifting: PASS
+Algebra re-checked (`(gc−1)(gf−1) = g(gcf−c−f)+1`; solution `(bdn, cd, bcd)`); 1358 slice
+solutions for primes p < 800 rebuilt and checked in exact arithmetic, 0 failures. The lift to a
+positive solution is exact and unconditional. It is ET's Type I at a = 1, as O127 says.
+
+### 5.2 T1 (odd squares) on the slice — new fact
+**Lemma 5.1 (PROVED).** For odd `n=m²`, no slice solution has `gcd(n, c) = 1`.
+*Proof.* `4bd = gn+1` gives `gcd(n, bd) = 1`, so with `gcd(n,c)=1` the solution
+`(bdn, cd, bcd)` has `n | x`, `gcd(n, yz) = 1`, excluded by ET Prop 1.6 / BL Cor 1.4. ∎
+**EVIDENCE.** No odd square `n = m²` with `m ≤ 61` has *any* slice solution (complete search,
+`g ≤ n+2`); none for `63 ≤ m ≤ 151` with `g ≤ 3000`.
+*Consequence for O127 Prop 3.1.* At odd squares `S(n) = 0` (EVIDENCE; PROVED for the coprime
+part) while the principal part `S_0(n) = Σ_g τ(n_g/4)/φ(g) > 0` is of the same size as at primes.
+So **any bound `|S_1| < S_0` must fail at every odd square**; an argument bounding the non-principal
+part must use that p is prime (not merely `p ≡ 1 (4)` or a size/coprimality condition shared by
+`m²`). Equivalently: the cancellation in `S_1` that O127 asks for is *exactly* square-sensitive,
+which rules out every bound depending only on the multiset of moduli and sizes.
+
+### 5.3 T4 (non-residue): where χ_p enters the slice — PASS (automatically)
+**Lemma 5.2 (PROVED).** For `p ≡ 1 (4)` every slice solution has `(d/p) = (b/p) = −1`.
+*Proof.* Dictionary with notes Lemma 77.6 / POINTWISE_SIZE Lemma CT: the Type I solution
+`(ack, bck, pabc)` with `a=1, b_ET=b, c_ET=d, k=c` is `(cd, bcd, pbd)`; Lemma 77.6 gives
+`(c_ET/p)=(d/p)=−1` and `(ab/p)=(b/p)=−1`. ∎
+EVIDENCE: all 748 slice solutions for `p ≡ 1 (4)`, `p < 1500`, have `(d/p)=(b/p)=−1`
+(`(c/p), (f/p), (g/p)` take both signs). So `m = 4d` always has a prime factor `≥ n_p`; in the
+dual form, a witness modulus m that is `n_p`-smooth is impossible. The slice sees χ_p through the
+*actual factorisation* of `gp+1` (E1), which is what Prop 2.5 requires.
+
+### 5.4 T3/T5/T6 on X_slice
+* **Under H, `g_min(p)` is unbounded (CONDITIONAL, Theorem C).** "For g ≤ G factor `gp+1`, test
+  the divisors" is a bounded correct witness-producing program, so for each G it fails for
+  infinitely many `p≡1 (24)`. No unconditional Ω-result for `g_min` is in the campaign; Type I
+  only has `ck_min ≫ log p·log₃p` i.o. (OMEGA Thm 8.5).
+* **T5 does not bind X_slice:** X5's fibre is a Type II statement.
+* **T6:** at approximants of the special points (p ≈ 10¹⁴–10³¹, `y ≤ 61`), the least slice
+  parameter is small (`g_min ∈ {3, 11, 15, 19}`), and `S_G(p)` (`G = 800`) is 37–124 against 78–99 for
+  controls (EVIDENCE, `data/rt/slice_special_G*_y*.txt`). As in §3.3, the special profinite points
+  are invisible to the slice: `gp+1` is a fresh integer whose factorisation is not controlled by
+  `p mod Q`.
+* **Status of X_slice:** a *surviving target*. It is E1 (search over g, with actual
+  factorisations), satisfies T1 (Lemma 5.1 + EVIDENCE), T4 (Lemma 5.2) and T8. **It is not a route.**
+  No mechanism for proving it is offered, and Thm 6.1 is the trivial implication, correctly labelled.
+
+### 5.5 Prop 2.3 (O127) vs Prop 2.4 (here): both correct, the same inequality
+Both rest on `#target ≤ μ(p)·f(p)`.
+* O127 makes the exceptional set **power-sparse**: `M ≤ 2μ p^δ` outside `O(N^{1−δ}log³N)` primes.
+  This is sharper than my "density o(1)" for power thresholds. (Minor: Markov gives
+  `f(p) ≤ N^δ` for `p ≤ N`; read it dyadically, `p ∈ (N/2,N]`, at the cost of a constant `2^δ`.)
+* Mine adds two things. First, an **every-p** bound `M ≤ 2μ p^{3/5+O(1/log log p)}` (ET Prop 1.7):
+  drivers with main term `≥ μ p^{3/5+ε}` fail at *every* large p, not just almost all. Second,
+  a polylog threshold `M ≤ 2μ ξ log³p log log p` on a density-1 set.
+* Merged statement: `M(p) ≤ 2μ(p)·f(p)`, with
+  * `f(p) ≤ p^{3/5+o(1)}` for every p,
+  * `f(p) ≤ p^δ` off `O(N^{1−δ}log³N)` primes,
+  * `f(p) ≤ ξ log³p log log p` off a density-o(1) set.
+* **Common blind spot (T8).** The constraint is on `M/μ`. Encodings with fibres `μ ≥ p^{η−o(1)}`
+  (the detecting object sees only a coarse invariant of a solution) escape both. O127 Cor 4.1
+  assumes `μ ≤ p^{o(1)}`, so it is correct as stated, but see 5.6(c).
+
+### 5.6 Repairs requested
+(a) **§3.2, "each χ occurs at one argument" is false as stated (MINOR; conclusion survives).**
+* *Why the premise fails.* Every divisor of `n_g = gp+1` is prime to g, so `τ_χ(n_g/4) = τ_{χ*}(n_g/4)`
+  for the primitive `χ*` (mod q) inducing χ. Hence each primitive `χ*` occurs at all `g ∈ qℕ`:
+  about `p/q` arguments `(qjp+1)/4`, an arithmetic progression of modulus `≍ qp` inside `[1, p²]`.
+* *Why the conclusion still holds.* GRH for `L(s, χ*ψ)` (ψ mod `≍ qp`) controls such an AP sum with
+  error `X^{1/2+ε} = p^{1+ε}`, which exceeds the number of terms `p/q`. So it gives only the
+  trivial bound (PROVED for this mechanism).
+* *Beyond square-root level.* Even a level-of-distribution input would face Prop 2.1 here: the
+  `1/φ(g)` weights put mass `≍ log p` per dyadic g-block, against power-size errors.
+* *Requested change.* Restate §3.2 with this reason.
+
+(b) **§3.2 / report item 4: "Chebotarev witnesses are polylog-size, and OMEGA13 kills those" is a
+scope error for the slice (MINOR–MAJOR).**
+* OMEGA13 Thm 5.1 is about **Type II multiplier** moduli. X_slice is Type I.
+* For Type I, the only unconditional Ω-result is `ck_min ≫ log p·log₃p` i.o. Under GRH,
+  Montgomery's `n_p ≫ log p log log p` i.o. and Lemma 8.1 give `ck_min ≫ log p log log p` i.o.
+  Nothing in the campaign excludes polylog Type I witnesses for all large p, except bounded ones
+  under H (Theorem C).
+* *Requested change.* Restrict the claim to Type II, or prove a Type I analogue.
+
+(c) **§5 table row "GLH…" and report item 3 drop Cor 4.1's hypothesis `μ ≤ p^{o(1)}` (MINOR).**
+"Cannot drive ES for families with `|D| ≥ p^κ`" must read "…through an encoding that is
+`p^{o(1)}`-to-one".
+
+(d) **Prop 3.1: add 5.2** (S vanishes at odd squares while `S_0` does not). This turns the
+Poisson-scale cancellation requirement into a square-sensitive one (T1).
+
+### 5.7 Test summary for O127
+
+| route | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| Lemma 1.1 slice / X_slice (target) | needs primality (5.2) | — | g_min unbounded under H | automatic via d (5.3) | n/a (Type I) | special points invisible | — | exact lift | **surviving target, no route** |
+| Prop 2.3 scale constraint | — | — | — | — | — | — | — | blind to coarse encodings | **correct**; = my Prop 2.4, merged in 5.5 |
+| Cor 4.1 Heegner small scale | — | power main terms excluded | — | — | — | — | almost-all-centres = average leak (O127 notes it) | needs `μ ≤ p^{o(1)}` | **correct as stated**; qualifier missing in §5/report |
+| §3.2 GRH single-coefficient | — | power errors vs polylog mass | Chebotarev claim scoped wrongly for Type I | — | — | — | — | — | **conclusion correct, argument needs repair** (5.6a,b) |
+| Thm 6.1 X_slice ⇒ ES | — | — | — | — | — | — | — | exact | **correct, trivial, correctly labelled** |
