@@ -37,7 +37,7 @@ Kloosterman/HKK, circle method) cannot prove ES through any embedding of bounded
 * **Not excluded (§9).** Recipes of unbounded complexity, families with growing parameters (reduced to growing
   congruence coverings, Assessment), and side conditions of density `≤ p^{−1/4}` that no representation theorem
   controls.
-* Novelty (Assessment): the counting heuristic is ET's own remark (§1.1, "circle method insufficient"); the
+* Novelty (Assessment): the counting heuristic is ET's own remark (after their Thm 1.1: analytic methods such as the circle method appear insufficient because f(p) is polylogarithmic); the
   formalisation as a theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems
   new but is a modest observation.
 
