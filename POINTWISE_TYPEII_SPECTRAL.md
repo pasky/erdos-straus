@@ -6,7 +6,29 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010 (`source
 
 ## 0. Summary
 
-(written at the end)
+Type II solutions of a fixed prime p carry an exact SL₂ structure: `ff' − 4c²(dp) = 1`, `f ≡ f' ≡ −1 (mod 4cd)`
+(Lemma 1.1.3). This is the Type I Heegner structure of TTL with **p moved from the congruence (`f ≡ −p mod 4ad`)
+into the level/discriminant (−4dp)** — ET's dilation Σᴵ → Σᴵᴵ on the SL₂ side (§1, PROVED). Consequences:
+* Prop 2.1/Lemma 2.2 (PROVED): for fixed (p,d), Type II points are Heegner points of discriminant −4dp at level
+  dp, uniformly separated (`cosh ≥ 3/2`). Remark 2.3: the det-p matrix `[[e,2a],[2ad,f]]` is a `T_p`-Hecke element.
+* Prop 2.4/2.5 (PROVED): the Type II condition is an **exact incidence**: the point lies at hyperbolic distance
+  exactly `arsinh(1/(c√|D|))` from the cuspidal geodesic `(∞, −1/(2c))` (`⟨u,v⟩_Q = −1`). The shells have width
+  `|D|^{−1/2}`, below the point spacing `|D|^{−1/4}`.
+* §3: averaging over p collapses the incidence to one progression mod f — the averaged sum `≍ N log³N` is a
+  BV/BT problem, no spectral input (PROVED reduction; constant ≈ 0.05 Assessment).
+* §4 (Assessment): the sufficient statement (TS) is a shell-incidence statement; Young's method reaches shells
+  of width `|D|^{−1/18}` (`|D|^{−1/6}` under GLH); Type II needs `|D|^{−1/2}`. Gap `D^{4/9}` (`D^{1/3}` under GLH),
+  not closed by averaging over c or d. Precise negative conclusion: no existing or GLH-conditional
+  equidistribution theorem implies `f_II(p) > 0`.
+* §6 Lemma 6.1 (PROVED): Type II points lie in the genus `χ_{−4d} = −1`, i.e. `(p/f) = −1`; this recovers ET
+  Prop 1.6 (`f_II(s²) = 0`), and shows the shell main term is false at squares — any correct method must carry
+  the genus character. At reachable scales the automorphic input cannot see square-mimicking primes.
+* §5 (EVIDENCE, p ≤ 10⁷): `f_II(p) ≥ 1` throughout; `min f_II/log³p ≈ 0.012–0.017`; hard primes are the
+  square classes mod 840; normalised lower tail `R ≈ 0.28` and slowly widening; the fixed-p random-root Heegner
+  predictor does not track hard primes (actual/predicted 0.27–0.38 vs 0.9–3.5).
+**Net:** Type II has the hoped-for SL₂/Heegner structure, but for fixed p it is an exact-incidence problem at
+scale `|D|^{−1/2}`, out of reach of spectral equidistribution by a power `D^{1/3}` even under GLH. No step
+toward ES is claimed.
 
 ## 1. Type II parametrisations (PROVED, elementary)
 
@@ -149,8 +171,8 @@ independent Python enumeration for all primes < 700 (which is validated against 
 * `f_II(p) > 0` for every prime `5 ≤ p ≤ 10⁷` (known: ES has been verified far beyond). Dyadic minima of
   `f_II` grow: 4 (2¹¹), 18 (2¹⁶), 36 (2²⁰), 60 (2²²), 72 (2²³, p = 9744001). `min f_II/log³p` is flat:
   0.0117–0.017 for p ≥ 10⁵ (smallest: p = 2031121, f_II = 36), against mean ≈ 0.068.
-* Subfamilies: `d = 1` and `c = 1` are each empty for some p in every block (e.g. 135 primes in 2²² have no
-  d = 1 solution): no single Heegner discriminant (d = 1) suffices numerically; the full d-family is needed.
+* Subfamilies: `d = 1` is empty for some p in every block ≥ 2⁶ (e.g. 135 primes in 2²² have no d = 1
+  solution); `c = 1` is empty for 0–3 primes per block: no single Heegner discriminant (d = 1) suffices numerically; the full d-family is needed.
 * Every one of the 20 smallest normalised values (p ≥ 10⁵) has `p ≡ 1 (mod 24)` except one (`p ≡ 13`); the six
   smallest class means mod 840 are exactly the six square classes `{1,121,169,289,361,529}` (≈ 0.037–0.042
   vs 0.32 for `p ≡ 839`): **square-mimicking primes are the hard ones for Type II.**
@@ -161,7 +183,7 @@ independent Python enumeration for all primes < 700 (which is validated against 
 * Per-family predictions (30 primes in [0.67, 2.1]·10⁶: the 10 hardest + 20 random). The fixed-p
   "random root" Heegner prediction `E_heeg = Σ w·ρ_{−dp}(f)/f` (chance that ν = 2ad is a root of
   `ν² ≡ −dp (mod f)`) and the averaged `E_avg = Σ w/φ(f)` are both ≈ 110–180 for **all** 30 primes; actual
-  `f_II` is 36–48 for the hard ten (actual/E_heeg 0.27–0.37) and 122–619 for the random twenty
+  `f_II` is 36–48 for the hard ten (actual/E_heeg 0.27–0.38) and 122–619 for the random twenty
   (0.9–3.5). By families (d = 1 | 2–7 | 8–63 | ≥ 64) the hard primes are depleted in every family, worst at
   d = 1 (0–8 vs predicted 12–21). **Assessment:** the Heegner/random-root model averages out exactly the
   information (p mod small moduli, through the factorisation of `4c²dp+1` at small c, d) that decides the
