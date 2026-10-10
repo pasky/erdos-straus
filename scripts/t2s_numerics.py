@@ -10,7 +10,7 @@ import numpy as np
 
 fn, N = sys.argv[1], int(sys.argv[2])
 arr = np.fromfile(fn, dtype=np.uint32).reshape(3, N + 1)
-tot, d1, c1 = arr[0].astype(np.int64), arr[1].astype(np.int64), arr[2].astype(np.int64)
+tot, d1, c1 = arr[0], arr[1], arr[2]  # uint32 views (memory)
 
 sieve = np.ones(N + 1, dtype=bool); sieve[:2] = False
 for q in range(2, int(N ** 0.5) + 1):
@@ -18,7 +18,7 @@ for q in range(2, int(N ** 0.5) + 1):
         sieve[q * q::q] = False
 P = np.nonzero(sieve)[0]
 P = P[P >= 5]
-f = tot[P]; L3 = np.log(P.astype(float)) ** 3
+f = tot[P].astype(np.int64); L3 = np.log(P.astype(float)) ** 3
 norm = f / L3
 print(f"primes 5..{N}: {len(P)};  f_II(p) = 0 for {int((f == 0).sum())} primes")
 print("\n== dyadic blocks [2^k, 2^{k+1}) ==")
