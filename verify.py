@@ -125,6 +125,7 @@ Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geomet
   (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
   (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
   (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
+  (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1 forms vs raw brute force, geometry, genus, Props 7-9, f_II to 10^7 (R128/R128b).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23483,6 +23484,97 @@ def check_eu():
 
 print("\n== (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4, Props 3.1/3.2, Prop 5.3 data, f_I/f_II to 10^6 (R123) ==")
 check_eu()
+
+
+# ---------------------------------------------------------------- (ev)
+# POINTWISE_TYPEII_SPECTRAL.md (reviews R128 = reviews/pointwise-typeii-spectral-review.md and R128b = ...-review-r2.md;
+# DISCOVERIES (I)4).  Uses the reviewers' from-scratch scripts review_t2s_* (R128) and review_r128b_* (R128b).
+# Checked:
+# (1) Lemma 1.1 (PROVED; the SL2 identity ff' - 4c^2(dp) = 1 and forms 1-5): review_t2s_brute.c (raw sorted-triple
+#     ES enumeration, gcc) at n <= 2000; review_t2s_param.py: form 1 = brute f_II for all 2 <= n <= 2000 (sum 30610),
+#     forms 2-5 for primes 5 <= p <= 150 (R128 ran 400), every triple exact, 0 mismatches; review_t2s_sieve.c (form 4
+#     AP sieve) = brute for all n <= 2000;
+# (2) Prop 2.1 / Lemma 2.2 / Props 2.4-2.5 (PROVED geometry): review_t2s_geom.py 250 (R128 ran 600): 671 primitive
+#     Heegner points, min same-level cosh = 3 (claim >= 3/2), det-p (cosh-1)*2p >= 4, incidence <v,u> = -1 to 1e-10;
+# (3) Lemma 6.1 / Cor 6.2 (genus lemma (p/f) = -1, f_II(odd square) = 0): review_t2s_genus.py 3000 (29678 moduli,
+#     0 violations); brute f_II(s^2) = 0 for every odd square s^2 <= 2000;
+# (4) Props 7.1, 7.2, 8.1, 8.2, 8.3 (R128b): review_r128b_lattice.py (p < 300: 990 solutions, 869 primitive; Q0 for
+#     n <= 50; -S_c ~ [0,2c,2c-1] for c <= 6);
+# (5) Props 9.1-9.2 (R128b): review_r128b_eis.py: 332176 triples (n,c,d), n <= 500, character-free form and
+#     psi(f) = (n/f); 40102 with explicit character tables (M <= 96); all counts 0 at odd squares;
+# (6) §10 EVIDENCE at 10^7 (gcc): review_r128b_count.c 10^7 and review_t2s_sieve.c 10^7 (two independent programs)
+#     reproduce their stored outputs scripts/review_r128b_count_1e7.out.txt, review_t2s_sieve.out.txt byte for byte
+#     (f_II(p) >= 1 for all primes 5 <= p <= 10^7, dyadic minima, min f/log^3 p over p >= 1e5 = 0.0117).
+
+def check_ev():
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("TYPEII_SPECTRAL subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    done = []
+    o = run("review_t2s_genus.py", "3000")
+    assert "primes < 3000: 29678 moduli f,f'; violations of (p/f)=-1: 0" in o, ("TYPEII genus lemma", o)
+    o = run("review_t2s_geom.py", "250")
+    assert "primes<250: primitive Type II points 671; min cosh (level dp, same d) = 3.000000" in o and \
+        "min (cosh-1)*2p in det-p coords = 4.000000" in o, ("TYPEII geometry", o)
+    err = float(o.split("max relative incidence error = ")[1].split(";")[0])
+    assert err < 1e-10, ("TYPEII incidence error", err)
+    o = run("review_r128b_lattice.py")
+    assert "p<300: all solutions 990, primitive 869; Props 7.1, 7.2, 8.1 identities OK" in o and \
+        "Prop 8.3 Q0 OK (n<=50, c,d<=5)" in o and \
+        all(f"c={c}: -S_c ~ [0,2c,k] for k mod 2c in [{2 * c - 1}]" in o for c in range(1, 7)), ("TYPEII R128b §7-8", o)
+    o = run("review_r128b_eis.py")
+    assert "n<=500: 332176 (n,c,d) triples checked (9.2 char-free form, psi=(n/.)); 40102 with explicit character " \
+           "tables (M<=96); odd squares: all counts 0. OK" in o, ("TYPEII R128b Props 9.1-9.2", o)
+    done.append("genus lemma (29678 moduli, p < 3000), geometry (671 points, min cosh 3), Props 7.1-8.3 (p < 300), "
+                "Props 9.1-9.2 (332176 triples, n <= 500)")
+    cc = shutil.which("gcc")
+    if not cc:
+        print(f"ev TYPEII_SPECTRAL R128/R128b: {done[0]}; Lemma 1.1 brute force and counts SKIPPED (no gcc); "
+              f"seconds = {perf_counter() - t0:.1f}")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        ex = {}
+        for name in ("review_t2s_brute", "review_t2s_sieve", "review_r128b_count"):
+            ex[name] = os.path.join(td, name)
+            subprocess.run([cc, "-O2", "-o", ex[name], os.path.join(sdir, name + ".c"), "-lm"], check=True)
+
+        def cout(name, *a):
+            return subprocess.run([ex[name], *map(str, a)], capture_output=True, text=True, timeout=300,
+                                  check=True).stdout
+        brute = cout("review_t2s_brute", 2000)
+        bf = os.path.join(td, "brute.txt")
+        with open(bf, "w") as fh:
+            fh.write(brute)
+        o = run("review_t2s_param.py", bf, "2000", "150")
+        assert "n<=2000: form1 vs brute; primes 5..150: forms 2-5; total f_II 30610; mismatches 0" in o, \
+            ("TYPEII Lemma 1.1 forms", o)
+        sv = cout("review_t2s_sieve", 2000).splitlines()
+        assert sv[:1999] == brute.splitlines() and len(sv) == 1999, "TYPEII sieve vs brute (n <= 2000)"
+        fb = {int(a): int(b) for a, b in (ln.split() for ln in brute.splitlines())}
+        assert all(fb[s * s] == 0 for s in range(3, 45, 2)), "TYPEII f_II(odd square) = 0"
+        for name, ref in (("review_r128b_count", "review_r128b_count_1e7.out.txt"),
+                          ("review_t2s_sieve", "review_t2s_sieve.out.txt")):
+            with open(os.path.join(sdir, ref)) as fh:
+                assert cout(name, 10 ** 7) == fh.read(), ("TYPEII §10 counts differ from stored", ref)
+    done.append("Lemma 1.1 forms 1-5 = raw brute force (n <= 2000; forms 2-5 p <= 150), sieve = brute, f_II(odd "
+                "square) = 0; f_II >= 1 to 1e7 by two programs = stored outputs")
+    print(f"ev TYPEII_SPECTRAL R128/R128b: {'; '.join(done)}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ev) POINTWISE_TYPEII_SPECTRAL: Lemma 1.1, geometry, genus, Props 7-9, f_II to 10^7 (R128, R128b) ==")
+check_ev()
 
 
 print("\nall checks passed")
