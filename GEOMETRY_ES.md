@@ -173,3 +173,63 @@ non-compact on fibres in the integral sense, i.e. whose fibres carry infinitely 
 The positivity region `U_n(ℝ)⁺` is non-compact, but its integral points are bounded (`u_i ≤ n²`-type bounds
 from `min u_i ≤ 3n/4`), so no strong-approximation statement involving `U_n(ℝ)⁺` and integrality at all finite
 places can be "non-compact". (PROVED; it is a reformulation of BL Lemma 3.10 plus Prop 3.2.)
+
+## 4. The total family, S-integral points, and the homogeneous spaces
+
+### 4.1 The total family (PROVED, elementary)
+Let `Y = {(u,n) : 4u₁u₂u₃ = n(u₁u₂+u₁u₃+u₂u₃)} ⊂ A⁴`. On `u₁u₂u₃e₂(u) ≠ 0`, `n = H(u) := 4/(1/u₁+1/u₂+1/u₃)`;
+in torus coordinates `Y^∘ ≅ {s ∈ G_m³ : s₁+s₂+s₃ ≠ 0}` with `n = 4/Σs_i`. ES is the statement that the
+rational function `H` takes every value `n ≥ 2` on `ℕ³`. Fibrewise, `Y_n = U_n` has finitely many positive
+integral points (§3), so on `Y` any argument must be a **representation (value-set) statement for a morphism
+`Y → A¹_n`**, like "every n is a sum of three cubes", not a strong-approximation statement on a fixed fibre.
+For a primitive `s ∈ ℕ³` the set of n with `s ∈ Y_n(ℕ)` is `m(s)ℤ_{>0}`,
+`m(s) = lcm_i 4s_i/gcd(4s_i, S)`; hence ES(p) ⟺ `∃ s : m(s) = p` (`m(s) = 1` is impossible since
+`Σ 1/u_i = 4` has no solution in ℕ).
+
+### 4.2 S-integral reformulations do not help (PROVED, elementary)
+Over ℚ, `U_n ≅ U₁`; ES(p) ⟺ `U₁(ℚ)` meets `W = U₁(ℝ)⁺ × {v_p(u_i) ≤ −1 ∀i} × ∏_{ℓ≠p} 𝒰₁(ℤ_ℓ)` (BL §1.2).
+The set `𝒰₁(ℤ[1/p])⁺` is infinite (it contains `p^{−k}·U_{p^k}(ℕ)` for all k), so for `S = {∞, p}` an
+S-integral strong-approximation statement is not excluded by finiteness. But such a statement constrains only
+the places off S, while ES imposes an open condition at **every** place, including both places of S; and
+`U₁(ℚ) ∩ W` is finite (it is `p^{−1}U_p(ℕ)`). In general `X(ℚ)` is discrete in `X(𝔸)` for affine X, so a
+condition at all places is a Hasse-principle question for a finite set, never an approximation question.
+The same applies to every `S`.
+
+### 4.3 The genuine homogeneous spaces: the hyperboloids `X_d` (PROVED; cf. O124, O128)
+Fix the ET parameter d. The Type I relation `ef − 4da² = 1` (ET (2.7)) defines the affine quadric
+`X_d = {q_d = 1}`, `q_d(e,f,a) = ef − 4da²`, a ternary form of signature (1,2): `X_d(ℝ)` is a **two-sheeted
+hyperboloid**, each sheet a copy of ℍ (the space of positive binary forms `[f, 4ad, de]` of discriminant −4d).
+`X_d = Spin(q_d)/T` with `T` the norm-one torus of `ℚ(√−d)` (anisotropic over ℝ). Its integral points are the
+level-d Heegner forms of discriminant −4d (the family 𝓕_d of EXCEPTIONAL_TYPEI_LOGLOG §2): finitely many
+`Γ`-orbits, each orbit infinite, the real place non-compact. **This is the parent's hoped-for structure, and it
+is honest**: strong approximation (Spin(q_d) is simply connected and ℝ-isotropic) holds on `X_d` up to the
+usual Brauer–Manin / spinor obstruction of Colliot-Thélène–Xu for the torus T.
+
+The ES condition sits on top of `X_d` as follows. Type I(p) at level d ⟺ there is `x = (e,f,a) ∈ X_d(ℤ)`,
+`e,f,a > 0`, with
+`κ_p(x) := (f + p)/(4da) ∈ ℤ_{≥1}` (and `gcd(κ_p, p) = 1`)   (ET (2.6), c = κ_p).
+`κ_p` is the pencil of planes `f + p = 4cd·a` through the line `ℓ_p = {a = 0, f = −p}`; each plane cuts
+`X_d` in the conic `e(4cda − p) − 4da² = 1`, whose quadratic part `4da(ce − a)` splits: **each member of
+the pencil is a split conic** with finitely many integral points (Prop 3.2 again). So
+
+**Proposition 4.1 (shape of the problem on the homogeneous space).** `Σ^I_{p,d} = {(a,c,e,f) :
+ef − 4da² = 1, f + p = 4cda}` maps injectively to `X_d`; it is the affine modification of `X_d` adjoining
+the rational function `κ_p`, whose polar divisor is `{a = 0}` and whose centre is the point
+`(e,f,a) = (−1/p, −p, 0)` (not ℤ_p-integral). `Σ^I_{p,d}(ℤ)` is finite for each `(p, d)`, while `X_d(ℤ)` is
+infinite. Hence: strong approximation on `X_d` gives integral points in every adelic open set defined by
+congruences modulo a **fixed** modulus, but the ES condition `4da | f + p` is a congruence modulo a
+**point-dependent** modulus (one coordinate of the point itself). It is a shrinking-target condition on an
+orbit of an arithmetic group, not an adelic open condition. (PROVED.)
+
+Type II has the same shape. ET (2.19) gives `ef − 4da² = p` (O124's `Q_d` with side condition
+`4ad | f+1`); O128 rewrites it as `ff' − 4c²(dp) = 1` with `f ≡ f' ≡ −1 (mod 4cd)` (ET (2.21)). That is,
+SL₂(ℤ) points of level `dp`: Heegner points of discriminant `−4dp` on the shell `⟨u,v⟩ = −1`. Again the
+modulus `4cd` (resp. `4ad`) is a coordinate of the point.
+
+**Corollary 4.2 (answer to aim (A)/(B) on the homogeneous spaces).** No strong-approximation, descent
+or fibration theorem whose output is "integral points in a prescribed adelic open set" can by itself produce
+ES solutions on `X_d` (or on O128's level-`dp` space). What is needed is a **pointwise shrinking-target
+statement**: an integral point `x` of the orbit with `x ≡ x₀ (mod N(x))`, where `N(x)` grows with `x`. The tools
+for that are equidistribution with power savings in the level (spectral: Duke, Iwaniec, Kloosterman sums).
+This is exactly the spectral agents' territory (O123/O127/O128). The geometric route **collapses into** the
+spectral route at this point. (Assessment for the "collapses" sentence; the rest is PROVED.)
