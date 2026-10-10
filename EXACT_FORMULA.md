@@ -89,3 +89,65 @@ any of these row sets (a single exact relation would make the intersection ≥ 1
 are identically zero there (e.g. the d = 1 slice of T1⁺ vanishes for p ≡ 1 (4): Lemma 2.4 of O123). The only
 pure-ES relations on primes are elementary: `(−1)^c = (−1)^{a+b}` (reduce the equation mod 2), and
 `T1⁺.diag(p) = T2⁺.diag(p) = #{a : 4a² | p + 1}` (both diagonals reduce to `p = 4a²d − 1`; similarly for T±⁻).
+
+## 3. The Siegel–Weil route at fixed (c,d), computed in divisor language (step 3)
+
+**3.1 Dictionary (PROVED, elementary).** Fix (c,d), q = 4cd, `M = 4c²dn + 1`. By O128 Prop 2.5 the Type II
+solutions with this (c,d) are the forms Q = [A,B,C] in the level lattice `L_d = {4d | B, d | C}` with
+disc −4dn, Q > 0, and `ℓ_c(Q) := A − cB = −1`, i.e. vectors Q with a prescribed Gram matrix T against the fixed
+split vector `w_c ↔ ℓ_c` (w_c^⊥ is the cuspidal geodesic (∞, −1/(2c))). Since the Γ-stabiliser of w_c is finite,
+this is, up to a bounded factor, the representation number of T by L_d **restricted to one SO(L_d)(ℤ)-orbit of
+second vectors**. In divisor language (A = X = 4acd − 1) it is
+
+  `A_{c,d}(n) := #{X | M : X ≡ −1 (mod q)} = 2·T2⁺_{c,d}(n) − [diagonal]`,
+
+and the other second vectors y with q(y) = q(w_c) (other orbits in the genus) correspond to the other residue
+classes r mod q. Character orthogonality gives the **exact** decomposition
+
+  `A_{c,d}(n) = (1/φ(q)) Σ_{χ mod q} χ(−1) σ_χ(M)`,  `σ_χ(M) = Σ_{X|M} χ(X)`  (= coefficient of the weight-1
+  Eisenstein series E₁(χ, 1) at M),
+
+whose χ = 1 term `τ(M)/φ(q)` is the naive local-density mass. The **genus average** (Siegel–Weil / Eisenstein part:
+mean over the classes of the coset `−1·(ℤ/q)^{×2}`, i.e. keep only the quadratic χ) is
+`G_{c,d}(n) = #{X | M : X ∈ −(ℤ/q)^{×2}} / |(ℤ/q)^{×2}|`.
+
+**3.2 Exact theta identities for cd | 6 (PROVED; checked).** If `(ℤ/q)^×` has exponent 2 — exactly q ∈ {4, 8, 12, 24},
+i.e. cd ∈ {1, 2, 3, 6} — the coset is the single class −1, so `A_{c,d} = G_{c,d}` identically:
+
+  `A_{c,d}(n) = 2^{−k} Σ_{χ quadratic mod q} χ(−1) σ_χ(4c²dn + 1)`,
+
+a combination of coefficients of weight-1 theta series of binary quadratic forms (genus characters of
+discriminants dividing 24), e.g. `A_{1,1}(n) = (τ(4n+1) − r₂(4n+1)/4)/2`. Checked on all primes p < 3000
+(`scripts/exf_genus.py`: mean|A − G| = 0.000 for (c,d) = (1,1),(1,2),(1,3),(2,1),(3,1),(2,3)).
+**These are genuine exact theta-coefficient identities for slices of f_II, but their positivity is not
+structural:** `A_{1,1}(p) > 0` iff `4p + 1` has a prime factor ≡ 3 (mod 4), etc. Every slice with cd | 6 vanishes
+exactly on a union of square classes (the Mordell/ET covering congruences), which is why all ES-hard primes are the
+square classes mod 840.
+
+**3.3 Other (c,d): the ES class is not its genus (EVIDENCE, primes 5 ≤ p < 3000).**
+
+| (c,d) | q | mean A | mean G | corr(A,G) | mean abs(A−G) | P(A = 0) | P(A = 0 given G ≥ 1) |
+|---|---|---|---|---|---|---|---|
+| (1,5) | 20 | 0.327 | 0.371 | 0.72 | 0.26 | 0.84 | 0.45 |
+| (1,7) | 28 | 0.229 | 0.551 | 0.50 | 0.49 | 0.89 | 0.54 |
+| (5,2) | 40 | 0.201 | 0.196 | 0.74 | 0.16 | 0.90 | 0.44 |
+
+The genus average predicts the slice only on average, and for (1,7) not even that (ratio 0.42). In about half the
+cases where the genus mass is ≥ 1 the actual slice is empty.
+
+**3.4 The genus mass is not summable over c, the ES count is (EVIDENCE + PROVED finiteness).** For fixed n,
+`A_{c,d}(n) = 0` once c is large (c ≤ a + b, ET; finitely many solutions). The genus masses do not decay:
+
+| p | Σ_{c≤C} A_{c,1}: C = 10, 100, 300, 1000, 2000 | Σ_{c≤C} G_{c,1} |
+|---|---|---|
+| 101 | 12, 12, 12, 12, 12 | 12.2, 21.1, 28.2, 38.2, 44.5 |
+| 1009 | 4, 4, 4, 4, 4 | 2.5, 9.0, 13.3, 19.1, 22.2 |
+| 2003 | 6, 8, 10, 12, 12 | 6.7, 12.8, 16.6, 21.8, 24.8 |
+
+(growth consistent with Σ_c τ(M_c)/φ(4c) ≍ log²C). *Interpretation (Assessment).* The ES class r = −1 is the
+"small residue" class: `X = qa − 1 | qcn + 1` forces `(4acd − 1) | cn + a`, a size condition that the other
+classes of the genus do not satisfy. So the total ES count is **not** a genus average (Siegel–Weil main term)
+plus a lower-order cuspidal error; the Eisenstein part summed over the ES range of (c,d) is infinite and must
+cancel exactly against the character parts. This is the representation-theoretic form of the "Planck-scale
+barrier": ES selects one orbit of second vectors, and orbit-level counts in a genus are governed by the
+non-principal characters, which are as large as the main term.
