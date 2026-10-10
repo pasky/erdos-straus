@@ -286,7 +286,7 @@ correlated small-modulus part, cf. the exponent-3 tail of W, so this model is on
    with `|D| ≥ p^κ` in the ranges known unconditionally or under GLH, and their `|D|^ε`-lossy
    Planck-scale conjectures.
 3. (PROVED citations) Prime-law inputs (GRH/EH/BV/Montgomery/Hooley) through CRT majorants are
-   capped in the averaged problem (PRIMELAW), and multiplier mechanisms with witness moduli
+   capped in the averaged problem (PRIMELAW), and Type II multiplier mechanisms (R125 repair: this does not bind X_slice, which is Type I) with witness moduli
    `≤ exp((log p)^{1/4−ε})` (which is where GRH-Chebotarev witnesses live for fields of
    discriminant `p^{O(1)}`) fail i.o. (OMEGA13).
 4. (Assessment) GRH says nothing about a single coefficient `τ_χ(n_g/4)`, and (3.2) uses each χ
