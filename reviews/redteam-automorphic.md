@@ -1,0 +1,110 @@
+# Red team for the automorphic / geometric attack on pointwise ES (task O125)
+
+Branch `side-agent/redteam-automorphic`. Labels as in DISCOVERIES.md (PROVED / CONDITIONAL /
+CERTIFIED / EVIDENCE / CONJECTURE / Assessment). ES is not solved here or anywhere; nothing in this
+file proves or refutes any case of it. This file is a *filter*: it states, as precisely as the
+campaign's theorems allow, what a pointwise route must supply, and then (Phase 2) tests the
+proposals O123 (spectral flip, Type I), O124 (ternary forms), O126 (Brauer–Manin / fibration),
+O127 (large p under GRH/Lindelöf/twisted Linnik), O128 (Type II spectral) against it.
+
+Notation. p prime, `f(p)=f_I(p)+f_II(p)` = number of positive solutions of `4/p=1/x+1/y+1/z`
+(Elsholtz–Tao (ET) counting convention), `χ_p=(·/p)`, `n_p` = least quadratic non-residue mod p.
+`W(p)` = least Type II multiplier modulus (notes (51.1)). "Square-mimicking" as in
+POINTWISE_SIZE §2. `𝓛=log T`.
+
+## 1. Admissibility checklist (Phase 1(a))
+
+Each item: what is excluded, the exact source and label, and the precise *scope* (what the
+theorem does not say). A route passes an item only by naming the input that lies outside that
+item's scope.
+
+### 1.1 Excluded (with exact scope)
+
+**X1. Bounded procedures on congruence + factorisation-shape data.** (POINTWISE_SIZE Thm M
+PROVED for (a); Thm C, Cor C1 CONDITIONAL on H for an explicit finite family.)
+Any correct witness-producing program built from ring ops, floor division, sign tests, full
+factorisations/divisor lists of the integers it meets, loops over lists so produced (P1–P8),
+fails at every admissible q near a square-mimicking point, e.g. infinitely many `p≡1 (24)`
+under H. *Scope:* (i) needs a *finite formal run* at the square-mimicking point; (ii) the
+infinitude of failures is conditional on H/Bateman–Horn (Dickson if linear; Dirichlet/Linnik if
+only p is factored, unconditional); (iii) it is about *witness-producing* procedures (E4 below
+is silent). Unconditional instance: no finite set of polynomial identities covers a square class
+(Mordell/Schinzel, as quoted in ET p. 8; POINTWISE_SIZE §4.2(E1)).
+
+**X2. Eventual-sign size comparisons.** (POINTWISE_SIZE Prop A, PROVED.) Comparisons of formal
+quantities with `c·p^θ`, `log p`, any Hardy-field threshold, "divisor in `[p^θ,2p^θ]`" etc. are
+inside X1. *"Using the size of p" is not an escape by itself.* *Scope:* oscillating
+archimedean tests (`{√p}<1/2`, parity of `⌊p^θ⌋`) are not covered (they are E2).
+
+**X3. Static shape predicates.** (Cor M1, PROVED / CONDITIONAL as M.) Any function — not
+necessarily computable — of `p mod M_0` and the factorisation shapes (valuations, primes mod m)
+of fixed `f_1(p),…,f_k(p)` takes its formal value at admissible p.
+
+**X4. Character trap.** (Lemma CT, PROVED; = Yamamoto / Bright–Loughran Cor 1.3.) For
+`p≡1 (4)`, in every positive solution some p-free denominator (or cofactor product) has a prime
+factor ℓ with `χ_p(ℓ)=−1`. Hence ℓ ≥ n_p. This is a *property of every solution*, not a
+statement about methods; it is the only ES-specific input of X1.
+
+**X5. Multiplier moduli below `exp((log p)^{1/4})`.** (POINTWISE_OMEGA13 Thm 5.1, PROVED modulo
+Gallagher's theorem, Nair–Tenenbaum and OMEGA10 Thm 3.4; unconditional, no H.)
+`W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many Mordell-hard p. So any
+certificate of the form "p lies in a Type II witness class `−4D mod M`, `D|((M+1)/4)²`, with
+`M≤T(p)`" fails i.o. if `T(p)≤exp(c(log p)^{1/4}(log log p)^{−1/4})`. *Scope:* only Type II
+multiplier witnesses (the `W_II` statistic); Type I slices have the weaker unconditional
+`ck_min ≫ log p·log₃p` i.o. (POINTWISE_OMEGA Thm 8.5, modulo Lau–Wu). The heuristic truth is
+`log W ≍ (log p)^{1/3}` (CONJECTURE LS ⇒ it, OMEGA16).
+
+**X6. Architecture ceilings at 1/4.** (OMEGA14, CEILINGS_UNIFIED Prop 4.2; OMEGA15 Wiener-norm
+barrier, PROVED within its definitions.) Haar-minorant + transfer-to-primes arguments, and every
+*linear certificate with full-orbit uniform accuracy* (one error term per modulus for all classes /
+characters), cannot certify `W(p)≤exp((log p)^{1/4+ε})` i.o.-failure-free; within that class
+GRH/EH-strength prime input is irrelevant by construction. *Scope (OMEGA15 §6, explicitly not
+covered):* certificates using atomicity/integrality/support of the prime measure, non-periodic
+structure, non-linear arguments. Support-aware certificates are reduced to Conj SAP (OMEGA17).
+
+**X7. Haar avoider density.** (CEILINGS_UNIFIED Prop 1.1 + OMEGA13 Thm 3.4.) The profinite set of
+units avoiding all ES witness classes of modulus ≤ T has Haar measure `exp(−Θ̃(𝓛³))`, positive
+for every T. *Consequence:* no finite-level congruence statement covers the Mordell-hard units;
+sterile *points* in the profinite sense are only known at square points (X1), candidates
+otherwise (x̂₉, x**, the 17-generic line; all CONJECTURE).
+
+**X8. Brauer–Manin.** (Bright–Loughran 2020, external, PROVED there.) `Br U_n/Br Q ≅ Z/2`
+generated by the transcendental quaternion algebra `(−u₁/u₃,−u₂/u₃)` (Thm 1.6); for every n
+`(U_n(R)₊×∏U_n(Z_p))^{Br} ≠ ∅` (Thm 1.8: **no BM obstruction to ES at any n**, but always an
+obstruction to strong approximation, which is X4 = their Thm 1.2); and `U_n(Q)→U_n(A)^{Br}_•`
+does **not** have dense image (Thm 1.9: integral points are not Zariski dense, by a real argument).
+All `U_n` are Q-isomorphic to `U_1` (rescaling); ES is a statement about *integral models* varying
+with n. *Consequence:* BM can neither prove nor disprove ES at any n; the only BM information is
+the one quadratic bit of X4, which Theorem C already shows is satisfied "formally" at
+square-mimicking points (i.e. BM-compatible adelic points exist there; BL Thm 1.8 at n = p²
+non-square-free analogues: ET Prop 1.6 / BL Cor 1.4 show the bit *does* obstruct Type I/II at odd
+squares).
+
+**X9. Polylog solution counts.** (ET Thm 1.1 + Markov, PROVED by ET; ET p. 5 already remark that
+circle-method-type methods are therefore insufficient.) `Σ_{p≤N} f(p) ≍ N log²N` up to `log log N`
+(Type I: `≪N log²N` is the campaign's (D)32b, internally PROVED), so a density-1 set of primes has
+`f(p)=O(ξ(p) log³p log log p)` for any `ξ→∞`. Pointwise upper bound `f(p) ≪ p^{3/5+O(1/log log p)}`
+(ET Prop 1.7). §2 turns this into quantitative constraints.
+
+### 1.2 Input types NOT covered by any campaign obstruction
+
+* **N1 (E1) growing search with actual factorisations.** Loops whose formal length is infinite
+  (windows `a≤p^θ`, "iterate until success"). Only *quantitative* lower bounds exist: X5 for
+  multiplier moduli, `ck_min` i.o. bounds for Type I, the restricted model Q2 for windows
+  (Assessment).
+* **N2 (E2) non-formal integers.** `⌊p^θ⌋`, `n_p`, `ord_p(2)`, discrete logs, primes in p-dependent
+  intervals, and their actual factorisations.
+* **N3 (E3) fixed non-abelian Frobenius data** (cubic residuacity, representation by non-principal
+  forms). *Open*: no theorem of the campaign covers or excludes it (POINTWISE_SIZE §4.2 E3).
+* **N4 (E4) Boolean/counting certificates.** "f(p)>0 because an asymptotic formula has positive main
+  term" is outside X1 by definition. X9 + §2 constrain it quantitatively instead.
+* **N5 Equidistribution of automorphic periods / Heegner points / Weyl sums at a single
+  discriminant.** Not a procedure in the sense of X1; the relevant data (e.g. distribution of
+  CM points of discriminant `−Dp` or of `p`-dependent Kloosterman sums) is not determined by
+  p mod a fixed modulus. *But* see §2: at fixed p it must be used at a scale where the expected
+  count is polylog, and every count must "see" a prime ≥ n_p (X4).
+* **N6 L-function bounds** (subconvexity, GRH, Lindelöf, zero-density, Siegel-zero-free regions) for
+  `L(s,χ_p)`, twists, or `L(s,f×χ)`: not congruence data. Within X6's class (full-orbit linear
+  certificates) they are provably irrelevant; outside it they are not excluded.
+* **N7 Integrality / support of the prime measure, non-linear certificates** (OMEGA15 §6, OMEGA17):
+  explicitly uncovered.
