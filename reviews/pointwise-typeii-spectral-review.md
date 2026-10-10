@@ -10,10 +10,10 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
 | 1 | Lemma 1.1 parametrisations, duality table | SOUND (bijection verified); MINOR wording defects D1, D2 |
 | 2 | Prop 2.1 / Lemma 2.2 Heegner + separation | SOUND (bound has slack: min cosh = 3 observed) |
 | 3 | Prop 2.4 / 2.5 exact incidence | SOUND-AFTER-REPAIRS (D3: shell also contains non-primitive points) |
-| 4 | §3 averaged check, constant 0.05 | |
+| 4 | §3 averaged check, constant 0.05 | SOUND (constant correctly labelled Assessment); D5 misquote of ET |
 | 5 | §4.4 gap (Young bookkeeping) | |
 | 6 | Lemma 6.1 / Cor 6.2 / 6.3 genus | SOUND as a statement about f; "equivalently genus χ_{−4d} = −1" needs p ≡ 1 (4) (D4) |
-| 7 | §5 numerics | |
+| 7 | §5 numerics | SOUND (reproduced exactly to 10⁷); D6 R-trend partly a filter artefact; predictor not re-run |
 
 ## Defects
 
@@ -43,6 +43,13 @@ From-scratch scripts: `scripts/review_t2s_*.py`. ET = `sources/elsholtz-tao-1107
   character is χ_{−p}, and the lemma reads χ_{−p}(f) = (f/p) = +1; the factorisation is `L(χ_{−p})L(χ_{4d})`.
   The arithmetic statement `(p/f) = −1` is correct for all p. Repair: add "for p ≡ 1 (mod 4)" (the only case that
   matters for ES) to the genus phrasing, Cor 6.2's genus remark and §6(ii).
+- **D5 (MINOR)** §3: "consistent with ET, who get ≍ N log³N for Type II". ET Thm 1.1 gives `Σ_{n≤N} f_II(n) ≍ N log³N`
+  over all n, but `Σ_{p≤N} f_II(p) ≍ N log²N` over primes — the sum in Prop 3.1. (Both say average f_II(p) ≍ log³p.)
+  Repair: quote the prime version.
+- **D6 (MINOR)** §5: "min R = 0.43 (2¹⁶), 0.31 (2²⁰), 0.28 (2²³) … slowly widening". `t2s_numerics.py` silently
+  drops classes with < 30 members, which at k = 16 (≈ 30 primes per class mod 840) removes many primes. Without
+  the filter min R at k = 16 is **0.333** (p = 76441), so the trend is 0.33 → 0.31 → 0.30 → 0.28: much flatter
+  than stated. Repair: state the ≥ 30 filter, or quote unfiltered values; soften "widening".
 
 ### Claim 1 — Lemma 1.1 (five forms), duality
 
@@ -93,3 +100,24 @@ only gcd(n,f)=1, which follows from gcd(abd,n)=1 ✓, giving f_II(s²) = 0 — t
 Type II details; the author's route via (2.19) is a valid fill-in). Cor 6.3 is immediate from multiplicativity
 of the Jacobi symbol ✓. From scratch (`scripts/review_t2s_genus.py`): 29678 moduli f, f' for primes p < 3000,
 0 violations; brute force (`review_t2s_brute.c`) gives f_II(s²) = 0 for every odd square ≤ 2000.
+
+### Claim 4 — §3 averaged check
+
+Prop 3.1 re-derived: for fixed (c,d,f), f ≡ −1 (4cd), gcd(f,2cd) = 1 and `f | 4c²dp+1` is one class mod f; f' ≡ −1
+follows from ff' ≡ 1 (4cd); gcd(a,c) is p-independent ✓. Volume: ∫∫_{2α+δ≤1}(1−α−δ) = ½∫₀^{1/2}(1−2α)dα = 1/8 ✓;
+`2·(1/4)·(1/8)·1.30·0.61 = 0.0496` ✓ (the 1/4 from f ≈ 4acd). Caveat (inside the Assessment): E[f/φ(f)] over
+f ≡ −1 (mod 4acd) omits primes dividing acd, so 1.30 is slightly high; immaterial. My sieve gives block means
+0.0779 (2¹⁶) / 0.0680 (2²³), matching the doc; a fit `0.05 + 0.29/log p` reproduces all three quoted means to ±0.008,
+so "limit near 0.05" is a fair weak EVIDENCE statement. Moduli f reach ≍ c√(dN) > √N, so "BV/BT problem" is
+meant in ET's sense (lower bound on a restricted range, BT for the upper bound) — fine as stated.
+
+### Claim 7 — §5 numerics
+
+From-scratch sieve `scripts/review_t2s_sieve.c` (form 4: AP in n for each (a,c,d), a ≤ b weighting — a different
+loop structure from the author's (a,c,d,e) engine), validated **exactly against the brute force for all n ≤ 2000**
+(composites included). Run to 10⁷ (10 s): `scripts/review_t2s_sieve.out.txt`. Every dyadic block reproduces the
+author's min f_II, argmin, min f/log³p, argmin, #(d=1 empty), #(c=1 empty) exactly; means agree to ±0.0001.
+f_II(p) ≥ 2 for all primes 5 ≤ p ≤ 10⁷ ✓. Smallest class means mod 840 (p ≥ 10⁵): 1, 121, 169, 361, 289, 529
+(0.0368–0.0411), then 673, 601 (0.045); class 839: 0.323 ✓. R(p) with the author's definition: k = 20, 22, 23 give
+min R 0.305, 0.297, 0.280 and sd 0.288, 0.301, 0.302 ✓ (see D6 for k = 16). Not re-run: the t2s_predict
+E_heeg / E_avg comparison (EVIDENCE feeding an Assessment only).
