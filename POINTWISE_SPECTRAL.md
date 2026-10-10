@@ -5,6 +5,29 @@ Labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010v6. Type I coord
 (c = (a+b)/e). Type II (ET Prop 2.6/2.7): `p + e = 4abd`, `e | a+b`. Throughout f_I(p), f_II(p) count
 solutions (x,y,z) with y ≤ z (each once; normalisation a ≤ b, gcd(a,b,c) = 1).
 
+## 0. Summary
+
+* **Numerics (§1, EVIDENCE).** For every prime p ≤ 10⁷, f_I(p) ≥ 1 and f_II(p) ≥ 1; even the a = 1 slice of
+  Type I never fails. The window minimum of f_I grows (62 at X = 2²²) and stays ≈ 0.16–0.2 × the mean ≈ 0.1 L³.
+  So "Type I alone fails for infinitely many p" has no numerical support; Type I ∪ Type II is never needed.
+* **Exact fixed-p forms (§2, PROVED).** Type I ⇔ `f | p² + 4c²d`, `f ≡ −p (mod 4cd)` (Lemma 2.1). The disc −4dp²
+  form of a solution is the T_p-Hecke translate `Q₋∘[[1,2bd],[0,p]]` of the level-d Heegner form (Lemma 2.2). The
+  genus condition `χ_{−4d}(−p) = +1` (Lemma 2.4) is the step that fails at every odd square (ET Prop 1.6).
+* **Targets (§3, PROVED geometry).** Formulation A: points of disc −4d in a wedge at the cusp 1/(2c), of hyperbolic
+  area `log(2p)/(c√d)`. It is a tube of width 2/p around a hypercycle of length ≈ pL/(c√d). Formulation B: disc
+  −4dp² (T_p-translated) points in a tube of width ≍ 1/p and area `log(2p)/(a√d p)`. In both, the expected count per
+  target is ≈ κ_d(1+χ_{−4d}(−p))L/(cd), and 13–89 % of the single targets are empty in the data.
+* **Gap (§4, Assessment).** In the best family the relative target measure is ≈ L²·|D'|^{−1/2} and the width is
+  |D'|^{−1/2}, i.e. Planck scale up to a polylog. That is p^{5/6} beyond Young unconditionally and p^{1/2} under
+  Lindelöf (in area), p^{8/9} beyond Young's cusp-strip existence theorem (in width). Even Ramanujan + Lindelöf
+  Hecke-orbit bounds miss by ≈ p.
+* **Step (5) (§5).** Thm 5.1 (PROVED rel. (D)32b): f_I(p) ≤ ψL³ outside a proportion O(1/ψ) of primes. Prop 5.3
+  (CONDITIONAL on H): single targets with expectation ≍ L are empty infinitely often. Prop 5.4 (PROVED): thickening
+  the target to width K/p is exactly averaging f_I over |n − p| ≤ K, so spectral scale V gives only averages over
+  intervals of length p/V. **Verdict (Assessment): no standard hypothesis (GRH, GLH/Lindelöf in any aspect,
+  Ramanujan, Selberg, twisted Linnik) suffices by this route.** The sufficient statement is a Planck-scale,
+  polylog-accuracy, genus-aware aggregate, i.e. Type I for large p restated. Negative result; ES not proved.
+
 ## 1. Numerics (EVIDENCE)
 
 Script `scripts/spec_typecount.c` (exact counts for all n ≤ N; sieve factorisation of 4a²d+1 in two regimes,
