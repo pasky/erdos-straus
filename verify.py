@@ -121,7 +121,7 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
   (em) EXCEPTIONAL_TYPEI_LOGLOG: Lemmas 2.1-2.2 (R111 + author), O112 §8.0 identities (reduced size), Lemma 6.1
        local transitivity / densities, Lemma 6.3 r(d) bound (R111);
   (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
-Blocks (es)..(ey) (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
+Blocks (es)..(ez) (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
   (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
   (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
   (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
@@ -129,6 +129,7 @@ Blocks (es)..(ey) (task O133) replay DISCOVERIES section (I), the automorphic/ge
   (ew) EXACT_FORMULA: Lemma 1.1 (brute = engine, n <= 3000), Props 2.1/4.2 zero sets, §3.2, Prop 4.1, Thm 5.2 (R131).
   (ex) EXACT_FORMULA: CERTIFIED exact Q-rank test (columns regenerated in a tempdir; ~2 min) (R131).
   (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols (p < 3000), brute force p < 200, Lemmas 1.2/3.1 symbolic, §3.4 (R130).
+  (ez) GEOMETRY_ES: toric model symbolic, Props 5.1/5.2 on all solutions p < 2000, §5.3 levels (R126).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23782,6 +23783,57 @@ def check_ey():
 
 print("\n== (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols, Lemma 1.1/3.2 brute force, Lemmas 1.2/3.1 symbolic (R130) ==")
 check_ey()
+
+
+# ---------------------------------------------------------------- (ez)
+# GEOMETRY_ES.md (review R126 = reviews/geometry-es-review.md; DISCOVERIES (I)7).  Uses R126's from-scratch scripts
+# (no author geo_* code); each output is compared byte for byte with the stored R126 log in logs/.  Checked:
+# (1) §2 toric model and lines, §3 fibrations (PROVED, symbolic): review_geo_sym.py: phi lands in S_n, sum 1/u_i = 4/n,
+#     base locus = the six points, each of multiplicity 1; the nine lines are rational; the F1/F2/F3 fibration identities;
+# (2) Props 5.1/5.2 (PROVED) and BL checks: review_geo_genus.py 2000: all 16622 solutions of 4/p (p < 2000; 11998
+#     Type I, 4624 Type II) via the divisor identity: BL Cor 1.3, Type I => (-d/p) = -1, Type II => (-d/f) = -1 and
+#     (f/p) = -(-1/p), product of Hilbert symbols over all places, §3.1 restrictions of alpha at every place, and the
+#     completeness bounds (max a/(sqrt p/2) = 1.1547, max 4ad/3p = 0.6522): 0 bad;
+# (3) §5.3 EVIDENCE and the Prop 4.1 repair (D8): review_geo_levels.py 1500000 100000: level sets of 73, 97, 193, 673;
+#     Type II level 1 fails for 73 of the 14183 primes p = 1 (24) below 1.5*10^6; Type I levels d = 5, 7, 11, 13 fail
+#     0/603, 42/612, 23/611, 88/608 (p < 10^5, (-d/p) = -1); the infinite c = 0 family on Sigma^I_{5,1}(Z).
+
+def check_ez():
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    out = {}
+    for args, log in ((("review_geo_sym.py",), "review_geo_sym.txt"),
+                      (("review_geo_genus.py", "2000"), "review_geo_genus_2000.txt"),
+                      (("review_geo_levels.py", "1500000", "100000"), "review_geo_levels.txt")):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("GEOMETRY subprocess", args, r.stderr[-2000:])
+        with open(os.path.join(root, "logs", log)) as fh:
+            assert r.stdout == fh.read(), ("GEOMETRY R126 output differs from stored log", log, r.stdout[-1500:])
+        out[log] = r.stdout
+    o = out["review_geo_sym.txt"]
+    assert "(A) phi lands in S_n: True" in o and "sum 1/u_i = 4/n: True" in o and "(B) nine lines on S_n: True" in o \
+        and o.count(" mult 1") == 6, ("GEOMETRY symbolic", o)
+    assert out["review_geo_genus_2000.txt"].strip() == "{'sol': 16622, 'I': 11998, 'II': 4624, 'bad': 0} max " \
+        "a/(sqrt p/2) TypeII: 1.1547 max 4ad/3p TypeI: 0.6522", ("GEOMETRY Props 5.1/5.2", out["review_geo_genus_2000.txt"])
+    o = out["review_geo_levels.txt"]
+    for s in ("levels 97 TypeI [5, 14, 17, 26] TypeII [2, 5]", "TypeII d=1: primes 14183 failures 73 ",
+              "TypeI d=5: primes 603 failures 0 []", "TypeI d=7: primes 612 failures 42 ",
+              "TypeI d=11: primes 611 failures 23 ", "TypeI d=13: primes 608 failures 88 "):
+        assert s in o, ("GEOMETRY §5.3 levels", s, o)
+    print(f"ez GEOMETRY R126: toric model / nine lines / fibrations symbolic; Props 5.1/5.2 + BL Hilbert-symbol checks "
+          f"on all 16622 solutions p < 2000 (0 bad); §5.3 level data (Type II d = 1: 73/14183 failures < 1.5e6; Type I "
+          f"d = 5, 7, 11, 13: 0, 42, 23, 88); all = stored R126 logs; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (ez) GEOMETRY_ES: toric model symbolic, Props 5.1/5.2 on all solutions p < 2000, §5.3 levels (R126) ==")
+check_ez()
 
 
 print("\nall checks passed")

@@ -28,4 +28,11 @@ Full `verify.py` run (`(ulimit -v 8000000; OMP_NUM_THREADS=2 OPENBLAS_NUM_THREAD
 block was SKIPPED. New-block seconds in the full run: es 7.2, et 4.3, eu 38.5, ev 72.3, ew 30.2, ex 118.1,
 ey 2.3, about 4.5 min in total.
 
+Addendum (after merging main): block **(ez)**, for (I)7 GEOMETRY_ES (R126), uses review_geo_sym,
+review_geo_genus 2000 and review_geo_levels 1500000 100000 (the parameters of the stored log). All three outputs are
+byte-identical to logs/review_geo_*.txt. The block covers the toric model, the nine lines and the fibration identities
+(symbolic), and Props 5.1/5.2 plus BL's Hilbert-symbol checks on all 16622 solutions with p < 2000 (0 bad). It also
+covers the §5.3 level data and the c = 0 family behind the Prop 4.1 repair. It took 37 s standalone. The full
+verify.py was not re-run after (ez).
+
 Part B (STATUS.md / CAMPAIGN_SUMMARY.md refresh) is waiting for the parent's go-ahead.
