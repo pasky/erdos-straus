@@ -851,6 +851,71 @@ with $p^2+12$ prime have the $(1,3)$ target empty, and among all
 genus-allowed primes near $10^6$, $13$--$89\%$ of the individual targets
 $(c,d)$ are empty \cite[\S3, \S5]{O123}.
 
+\section{Quantitative gaps to known equidistribution}\label{sec:gaps}
+Everything in this section is an \status{Assessment}: a comparison of
+exponents, not a theorem about what any method can do.
+
+\subsection{What is known}
+Young \cite[Thm.~2.1]{Yo} proves a hybrid subconvexity bound which gives,
+for Heegner points of discriminant $-D$, an error of the shape
+$\|\phi\|_2D^{5/12+\varepsilon}V^{1+\varepsilon}$ for a test function at Sobolev
+scale $V$. Consequently every fixed ball of radius $D^{-\delta}$ with
+$\delta<1/24$ receives its expected share of points, and $\delta<1/8$ under
+the Lindel\"of hypothesis; see also Humphries \cite{Hu}, who also gives the
+genus and closed-geodesic versions. Young's Prop.~1.2 is a
+\emph{single-discriminant existence theorem} proved spectrally:
+$b^2\equiv-D\pmod{4a}$ has solutions with $a\asymp\sqrt D$,
+$|b|\asymp\sqrt D/V$ for every large odd fundamental $D$, in the range
+$V\ll D^{1/18-\varepsilon}$. It is the model of what a spectral pointwise ES
+statement would have to look like \cite{LA}. Humphries and Radziwi\l\l
+\cite{HR} reach much smaller scales, but only for almost all centres. The
+ES targets are specific regions attached to cusps, not random ones.
+
+\subsection{What ES needs}
+\begin{itemize}
+\item \emph{Type~I.} In the $T_p$-translated picture the discriminant is
+$D'=4dp^2$ and the target tubes have width $\asymp1/p\asymp|D'|^{-1/2}$
+(Proposition~\ref{prop:wedge}; \cite[Prop.~3.2]{O123}): exactly the Planck
+scale. In the level-$d$ picture $D=4d$ is tiny and the large parameter
+enters only through the shape of the target. Proposition~\ref{prop:thick}
+shows that thickening to a reachable width $|D'|^{-\delta}$ produces
+averages over $n$ in intervals of length $p^{1-2\delta}$.
+\item \emph{Type~II.} The shells of Proposition~\ref{prop:typeII}(c) have
+width $\asymp D^{-1/2}/c$ with $D=4dp$. Young's method reaches shells of
+width $D^{-1/18}$ unconditionally and $D^{-1/6}$ under the Lindel\"of
+hypothesis \cite[\S4]{O128}. The gap is a factor $D^{4/9}$, resp.\
+$D^{1/3}$, so what is needed goes beyond GLH.
+\item \emph{Accuracy.} By Proposition~\ref{prop:scale} and
+\cite[Thm.~5.1]{O123}, the count to be certified is $\le\psi\cL^3$ for all but
+a proportion $O(1/\psi)$ of primes. Termwise use of GLH or of the
+Linnik--Selberg conjecture loses $p^\varepsilon$, which exceeds every power of
+$\cL$; individual central values are not polylogarithmically bounded.
+GRH can enter with only polylogarithmic losses in averaged form (moments,
+effective Siegel). But a Cauchy--Schwarz estimate over the spectrum at
+Planck scale still loses a factor $\approx p$ against the main term
+$\approx\cL$ \cite[\S5]{O123}.
+\item \emph{Termwise GRH on a character expansion.} Expanding the $a=1$
+slice count into Dirichlet characters and bounding each twisted divisor
+sum by a GRH-type estimate gives error $\ge p^{1-o(1)}$ against a main term
+$\asymp\log^2p$ \cite[Prop.~9.1]{O127} (\status{proved} bookkeeping, mechanism
+scope).
+\end{itemize}
+
+\begin{assessment}\label{ass:verdict}
+No standard hypothesis (GRH, GLH/Lindel\"of in any aspect,
+Ramanujan--Petersson, Selberg's eigenvalue conjecture, twisted
+Linnik--Selberg) is known to suffice, by the routes of this note, to prove
+ES, or the Type~I or Type~II part of ES, for all large primes. A sufficient
+statement would have to be at the Planck scale, of polylogarithmic accuracy,
+genus-aware (carrying $1+\chi_{-4d}(-p)$, without which it is false at
+$n=p^2$) and aggregated over a growing set of levels and cusps. Such a
+statement is ES restated, not a standard conjecture. Its level window must
+also be anchored at the least quadratic non-residue $n_p$. For
+$p\equiv1\pmod4$, Type~I at level $d$ needs $(-d/p)=-1$, so a window
+$d\le D(p)$ forces $n_p\le D(p)$; GRH gives $n_p\ll\cL^2$ (Ankeny, Bach) and
+Burgess gives $n_p\ll p^{1/(4\sqrt e)+\varepsilon}$ unconditionally.
+\end{assessment}
+
 %%CONTINUE
 
 \begin{thebibliography}{99}
