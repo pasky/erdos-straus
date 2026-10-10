@@ -132,3 +132,79 @@ f_I(n) = f_II(n) = 0" ✓. Type I(n): GEOMETRY 5.1's argument gives `(−4d/n) =
 ✓. "Symbol at p is `(−d/p)^{v_p(n)}`" again assumes p ∤ e (MINOR-1). Type II: `(n/f) = (−d/f) = −1` needs
 gcd(n,f) = 1, which holds since p ∤ abd. Square-mimicking: `(f/p) = −(−1/p) = −1` for p ≡ 1 (4) forces a prime
 ℓ | f with `(ℓ/p) = −1` ✓ (this is GEOMETRY Prop 5.2; "Lemma CT" not looked up).
+
+### §5 / Prop 5.1 — GAP (misapplied citation; conclusion repairable)
+1. The displayed sum and "F depends only on n and the genus characters ε at primes of n" is the shape of the
+   **coprime, fundamental** Gross–Zagier theorem. For `D₁ = −4d`, `D₂ = −4m` (never coprime) Lauter–Viray's
+   local factors for ℓ | gcd(D₁,D₂) (here ℓ = 2, and ℓ | gcd(d,m) if any) involve more than ε; so "PROVED modulo
+   the cited shape" rests on a shape that is not the one in the literature for these discriminants. (MAJOR-1.)
+2. Within Type I the ε-data are in fact *constant*: `(−d/p) = −1` and `(−d/ℓ) = +1` for all ℓ | e are forced
+   (Prop 1.3 proof). So in the claimed shape the term depends only on n = pe, and the (5,23) pair has different
+   n (313·23 vs 73·23). The argument therefore silently needs "the p-part of the term is a factor depending only
+   on p" (true in GZ: the ramified prime with v_p = 1 contributes a trivial/log p factor). Should be stated.
+3. **Concrete repair (my derivation; I recommend the author adopt it instead of the citation).** Fix Λ = Λ_{d,m}
+   ⊂ B = B_{p,∞} (all embeddings Λ → B are B^×-conjugate by Skolem–Noether, applied to the generating pair). The
+   x = 2 collision count, in the form `Σ_{[O]} #{Λ ↪ O}/|O^×|`, equals `#{maximal O ⊃ Λ}·(2/|Λ^×|)`-type mass,
+   and `#{maximal O ⊃ Λ} = ∏_ℓ #{maximal O_ℓ ⊃ Λ_ℓ}` (local–global for lattices). At ℓ = p: 1 (unique maximal
+   order). At ℓ ∥ e: Λ_ℓ has reduced disc ℓ, so has index ℓ in any maximal O_ℓ ⊃ Λ_ℓ, hence contains ℓO_ℓ and
+   `Λ_ℓ/ℓO_ℓ` is a 3-dimensional unital subalgebra of M₂(𝔽_ℓ), i.e. a Borel: Λ_ℓ is Eichler of level ℓ, contained
+   in exactly 2 maximal orders. So **for squarefree e the x = 2 count is `2^{ω(e)}` times a unit factor
+   (`|Λ^×| ∈ {2,4,6}`), independent of p and of m.** Since (5,23) has e = 23 prime, both p = 313 and p = 73 give the
+   same count while ES differs: Prop 5.1's conclusion becomes PROVED for these pairs without any GZ citation
+   (non-squarefree e needs the ℓ^k local count, also purely local; optimality conditions, if imposed, are local
+   too). Caveat: whether the GZ/Lauter–Viray "x-term" is exactly this embedding count (vs optimal embeddings of
+   O_{D₁}, O_{D₂}) should be stated explicitly; either way it is local data at primes of pe and 2.
+4. "Type I forces x = 2" is relative to the orders ℤ[√−d], ℤ[√−m]; if the optimally embedded orders are larger
+   (d or m ≡ 3 mod 4), the relevant (D₁, D₂, x) change. Minor wording (MINOR-3).
+5. *Assessment* paragraph ("class-number size comes from ≍ √(dm) values of x") is fine as Assessment.
+
+### §N — Novelty
+I searched (Jina web search, 3 queries: "Erdős–Straus quaternion order supersingular", "Erdos Straus 4/n
+Gross-Zagier singular moduli", "Erdős–Straus quaternion algebra Hilbert symbol 4abd−1"): no hit links ES to
+quaternion orders, supersingular curves or Gross–Zagier; I know of no such source from memory. The underlying
+identity `4abd − 1 = pe` is classical (Mordell/Yamamoto/ET), and its reading as `(D₁D₂ − x²)/4` is a one-line
+observation, so novelty is at most "presentation". **UNVERIFIABLE** — the document makes no novelty claim, which
+is correct; keep it that way.
+
+### Labels / scope
+* Report O130 item 3 calls Prop 2.2 a "Negative structural finding (PROVED)". The PROVED content is the trivial
+  congruence statement; the negative *interpretation* is Assessment (the doc's §2.2 does label it so). Align the
+  report (MINOR-2).
+* §6 scope paragraph is correctly limited to "these dictionaries"; the last sentence ("cannot come from any
+  quadratic map of the ES parameters (a,b) alone") is unproved — the isotropy of `X² − Y² = 4m` shows the
+  *given* binary form is split, not that no other quadratic map exists. Label it Assessment or weaken. (MINOR-5.)
+* Nothing is labelled CONDITIONAL that should be; no claim about ES itself. ✓
+
+## Numbered defects
+
+**MAJOR-1 (Prop 1.3 bold claim, §5 Prop 5.1, §6 first bullet).** Gross–Zagier "On singular moduli" is invoked for
+`D₁ = −4d`, `D₂ = −4ab`, which violate its hypotheses (coprime fundamental discriminants). The "x = 2" name is
+fine as notation, but Prop 5.1's "PROVED modulo the cited shape of the GZ local factor" relies on a shape that is
+not established for these discriminants. *Repair:* (a) in Prop 1.3 say "x = 2 in the sense of the order generated
+by ℤ[√−d], ℤ[√−ab] with relative trace 1 (the parameter of GZ/Lauter–Viray; GZ's theorem itself assumes coprime
+fundamental discriminants)"; (b) replace the citation in Prop 5.1 by the local embedding-count argument of §5
+item 3 above (Eichler-level-ℓ at ℓ ∥ e, 2^{ω(e)}), or cite Lauter–Viray precisely and check their x-term.
+
+**MINOR-1 (Prop 1.3 proof, "At p"; Remark after 1.3; Prop 2.1(i); §4 first bullet).** `(−d,−dpe)_p = (−d/p)`
+silently uses p ∤ e. *Repair:* add "p ∤ e, since p | e would give p | a+b and −d ≡ (2a)^{−2} (mod p),
+contradicting (−d/p) = −1"; in the Remark/Prop 2.1(i) (general m) add the hypothesis "v_p(pe) odd". Numerically
+p | e never occurs (p < 3000).
+
+**MINOR-2 (Prop 2.2 Siegel-theta sentence; AGENT_REPORT_O130 item 3).** Heuristic under a PROVED heading.
+*Repair:* move to the *Assessment* paragraph.
+
+**MINOR-3 (§5 "Type I forces x = 2"; Prop 1.3 parenthesis).** Relative to the non-maximal orders ℤ[√−d],
+ℤ[√−ab]. *Repair:* one clause noting dependence on the choice of orders.
+
+**MINOR-4 (Prop 1.3 check line; scripts/quat_typeI.py).** "All 19690 Type I solutions" counts gcd(a,b,c)=1-
+normalised triples (via `abcd()` with d = gcd); the tuples (a,b,c,d) satisfying the hypotheses of Prop 1.3 number
+26007 for 3 ≤ p < 3000 (dilates included). Prop 1.3 holds for all of them (my check), so no harm. *Repair:* say
+"triples (x,y,z)" and/or note ET Prop 2.2's normalisation.
+
+**MINOR-5 (§6 last sentence).** Over-stated impossibility. *Repair:* label Assessment or restrict to "the
+binary form in Prop 3.2 is isotropic".
+
+**MINOR-6 (Prop 3.2 ideal reading).** State that every ℓ | e satisfies ℓ ∤ 2dp (automatic), so the local
+description covers all of e.
+
+No FATAL defects. All identities and all numerical claims I could test are correct.
