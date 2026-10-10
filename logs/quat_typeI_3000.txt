@@ -1,0 +1,8 @@
+Type I unordered-in-(a,b) solutions, p<3000: 19690
+('1|abd', False) 8247
+('1|abd', True) 11443
+('ad|b', False) 5352
+('ad|b', True) 14338
+('bd|a', False) 7719
+('bd|a', True) 11971
+('d|ab', True) 19690

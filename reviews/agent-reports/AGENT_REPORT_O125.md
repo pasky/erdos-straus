@@ -76,3 +76,18 @@ T1/T4/T8), not a route.
     Def 1.1 entirely. It is the live automorphic route (O123 / (D)32); x̂₉ is its binding sterile candidate.
 * Minor points on O124: Cor 7.1 covers mild inputs only. The §8 numerics bound the small parameters, not the
   witness modulus f.
+
+## Phase 2, item 3: O126 (§7) and handover (§8)
+* O126's §6 closes SA/BM/fibration/descent routes and every fibration of a fixed U_n. Not closed by it:
+  - G1, total space Y → A¹_n with GTZ/Schinzel input: collapses. Its output is never a prescribed n (T7); the
+    prime input cuts both ways (Theorem C); counts are Planck-scale. Suggest adding a §6 row for it.
+  - G2, S-integral variants: closed (agree; the signed variant is closed by Theorem F).
+  - G3, quaternionic/supersingular reading (O130): the genus-level (Eichler) existence is exactly α = BM, with no
+    content beyond BL Thm 1.8. A Type I solution is a Gross–Zagier-type collision of CM discriminants −4d and
+    −4ab (Assessment; arithmetically tautological). It needs single-bin, Planck-scale equidistribution, since
+    h(−4d) is polylog against p/12 supersingular classes. It is pre-registered for O130 against T2/T3/T8.
+* SHT: Lemma 7.1, the character condition is redundant (Prop 5.1). Prop 7.2 (PROVED): SHT with constant K
+  implies n_p ≤ (log p)^K for all large p ≡ 1 (4), an open GRH-type bound. Checked numerically: min{d: (−d/p) = −1}
+  = n_p for p < 2·10⁵. With that caveat SHT is a surviving target: it passes T1/T4/T8, T2 at level-grouping, and T6
+  needs high witnesses at x̂₉. It should be restated under GRH or with an n_p-anchored level window.
+* §8 of the red-team file is a handover: test status per route, what to apply first to O123/O128, and the scripts.
