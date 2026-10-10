@@ -3,7 +3,23 @@
 Referee: R134 (hostile, independent). Branch `side-agent/referee-automorphic-note`, merged from
 `side-agent/automorphic-note`. ES is not proved anywhere; the paper says so (abstract, §1, §8).
 
-## Per-claim verdicts (filled in progressively)
+## Recommendation
+
+**ACCEPT (internal) after the R134 repairs, which are applied** (commit "R134 repairs D1-D10"). No FATAL defect.
+One MAJOR defect (D9: an overclaimed universal sentence in the abstract and in Thm 3.2(ii)) and ten MINOR ones,
+all local. Every key statement matches its source after the earlier review repairs: scale constraint (merged form,
+ET Prop 1.7 verified in the PDF), ternary theorem (fixed Q, κ, η, fixed-complexity recipes; thin-piece caution),
+thickening, odd-square wording ("locally soluble and globally soluble up to one sign"), BM-only ⟺ ES(n) for n ≥ 2
+(with a correct n = 1 remark against BL Thm 1.8 as printed), Thm 3.2(iii) CONDITIONAL on H, GZ formal analogy only,
+Brauer = genus folklore/Yamamoto. All short proofs re-derived; dictionaries and the full slice table re-checked by
+from-scratch code (`scripts/review_r134_slices.py`, `review_r134_dict.py`, `review_r134_counts.py`). The
+abstract, intro and summary state that ES is not proved.
+
+R134 repairs applied to the paper (marked here only, not in the PDF): D1, D2, D3, D4, D5, D6 (incl. Planck-scale
+sentence after Prop 2.4), D7, D8, D9 (abstract + Thm 3.2(ii)), D10. Recompiled: 3 passes from clean, 0 errors,
+0 LaTeX warnings, 0 overfull boxes, 18 pp.
+
+## Per-claim verdicts
 
 ### §2 Dictionaries
 * Lemma 2.2 (three shapes): **SOUND-AFTER-REPAIRS** (D1: quantifier of d resp. a in (ii)/(iii)). Proof re-derived line by
