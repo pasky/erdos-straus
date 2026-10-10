@@ -322,7 +322,7 @@ argument applies to O128's level-`dp` space.
 
 ## 5. The Brauer class is genus theory; quadratic-form structure (for O124 / O123 / O127 / O128)
 
-### 5.1 α on Type I and Type II solutions (PROVED; checked by `scripts/geo_genus.py` on all 31718 Type I and 12094 Type II ordered solutions, p < 2500)
+### 5.1 α on Type I and Type II solutions (PROVED; known, see R126 attribution notes; checked by `scripts/geo_genus.py` on all 31718 Type I and 12094 Type II ordered solutions, p < 2500)
 By BL Cor 1.3 a natural solution for a prime p satisfies `((−u_i/u_j)/p) = −1` for the pair with
 `u_i/u_j ∈ ℤ_p^*`. In ET coordinates (`u = (abdp, acd, bcd)`, Type I; `u = (abd, acdp, bcdp)`, Type II) that pair
 is `(a, b)`, and the condition reads `((−ab)/p) = −1`.
@@ -333,14 +333,26 @@ is `(a, b)`, and the condition reads `((−ab)/p) = −1`.
 Equivalence with BL: `4abd = pe + 1` (ET (2.1)) gives `(abd/p) = 1`. ∎
 So **the transcendental Brauer class, restricted to the Type I locus of level d, is the quadratic character of
 `ℚ(√−d)` at p**: the level-d hyperboloid `X_d` (§4.3) can contribute only if p is inert in `ℚ(√−d)`. This is the
-classical condition (Yamamoto / ET), now identified as BL's α.
+classical condition (Yamamoto / ET). (R126 repair, attribution: the statement is folklore — it is the two-line
+reason why the Mordell/ET families `{n ≡ −f (mod 4ad), f | 4a²d+1}` (ET Prop 1.9, first family) cover only
+non-residue classes mod 4d — and the derivation of Yamamoto's Type 1 condition `(p/4abq) = −1` from α is already in
+BL Appendix A. We only record it in ET coordinates; it is not new. Yamamoto 1965 itself was not accessed.)
+
+*Local form (R126 repair).* The obstruction is a genuine Brauer–Manin obstruction on the level-d chart. On
+`Σ^I_{p,d}(ℤ_p)`, `4abd = pe + 1` gives `(abd/p) = 1`, hence `inv_p α = ((−ab)/p) = (−d/p)` **locally**; with
+`inv_∞ α = −1` on the positive part and `inv_ℓ α = +1` for ℓ ≠ p (BL Lemmas 3.1, 3.5, 3.8), every positive adelic
+point of `Σ^I_{p,d}` has invariant product `−(−d/p)`. So for `(−d/p) = +1` the positive adelic Brauer set of the
+level-d chart is empty.
 
 **Proposition 5.2 (Type II: α is quadratic reciprocity for the divisor f, no condition on p at a fixed level).**
 For every Type II solution, `(f/p) = −(−1/p)` and `(−d/f) = −1`, and BL's condition `((−ab)/p) = −1` is
 *equivalent* to `(f/p) = −(−1/p)`, which holds automatically. Proof: `f ≡ −1 (mod 4ad)`, so `(−4d/f) =
 (−4d/−1) = −1`. `p ≡ −4a²d (mod f)` gives `(p/f) = (−d/f) = −1`, and reciprocity (f ≡ 3 mod 4) gives
 `(f/p) = (p/f)(−1/p)`. Equivalence: `e ≡ 4abd (mod p)` (ET (2.13)), so `(−ab/p) = (−de/p)`, and
-`ef ≡ 4a²d (mod p)` gives `(e/p) = (d/p)(f/p)`. ∎ (This is O128's genus lemma `(p/f) = −1`.)
+`ef ≡ 4a²d (mod p)` gives `(e/p) = (d/p)(f/p)`. ∎ (This is O128's genus lemma `(p/f) = −1`. R126 repair, attribution: it is **Yamamoto 1965, Lem. 4**. In
+Mordell's Type 2 notation `(u₁, u₂/p, u₃/p) = (bcd, abd, acd)`, Yamamoto's `q = 4abd − 1` satisfies `(p/q) = −1`.
+Under `(a,b,c)_Mordell = (c,a,b)_ET` this q is ET's `f = 4acd − 1`. BL Appendix A (pp. 15–16) already derives it
+from Cor 1.3, i.e. from α. Not new.)
 
 So the Brauer–Manin obstruction **never** removes a level for Type II and removes exactly the levels with
 `(−d/p) = +1` for Type I. For a "square-mimicking" p (`(−d/p) = +1` for all small d) Type I needs a level
@@ -364,7 +376,9 @@ Primes `p ≡ 1 (mod 24)`, `p < 1.5·10⁶` (14183 primes):
 * Type II at level `d = 1` (`∃a: p + 4a²` has a divisor `≡ −1 (mod 4a)`) **fails for 73 primes** (49 below
   `3·10⁵`, 24 in `[3·10⁵, 1.5·10⁶]`, e.g. 97, 193, 673, …, 1456921). The `a`-range is complete: by the
   reflection `a ↔ b` one may take `a ≤ b`, and then `4abcd = a + b + pc` gives `a² ≤ a/(2cd) + p/(4d)`, so
-  `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. The failing primes show no square-mimicking pattern in their Legendre symbols mod
+  `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. (R126: all §5.3
+counts and level sets were reproduced exactly by independent code, `scripts/review_geo_levels.py`; both completeness
+bounds were re-derived, and no solution with p < 2000 violates them.) The failing primes show no square-mimicking pattern in their Legendre symbols mod
   `q < 60`. The failure rate decreases (1.5% → 0.2%), as a Poisson heuristic with mean `≍ log²p/d` predicts.
 * Type I at a fixed level d, complete search (`scripts/geo_levelsI.py`; with `a ≤ b`, ET Lemma 2.8 gives
   `a ≤ 3p/4d`), primes `p ≡ 1 (24)`, `p < 10⁵`, `(−d/p) = −1`:
@@ -385,7 +399,7 @@ concerns `|D| → ∞` at a fixed level; here `D = −4d` is fixed and the targe
 |---|---|---|---|
 | Strong approximation with BM on `𝒰_n` (Cao–Xu, Wei, CT–Xu) | integral points dense off S | `𝒰_n(ℤ)` finite off lines; SA fails even with Br (BL Thm 1.9) | impossible (PROVED, BL) |
 | Fibration method for integral points (CT–Xu quadric fibrations; Harpaz–Wittenberg) | fibres with SA (homogeneous / quadrics of dim ≥ 2) and a sieve-type input on the base | every fibration of `U_n` has finite fibres (Thm 3.1) | impossible on `U_n` (PROVED) |
-| Harpaz / Swinnerton-Dyer descent on conic log K3 (GTZ input) | conic bundle with **non-split** generic fibre `f x² + g y² = 1`, 2-Selmer groups of norm-one tori | all conic bundles of `U_n` are **split** (§3.1, Prop 3.2); for a split torus `H¹(k, G_m) = 0` (Hilbert 90) and the descent has nothing to work with: integral points on `XY = N` are a divisor problem | does not apply (PROVED that the fibres split; "nothing to work with" is an Assessment) |
+| Harpaz / Swinnerton-Dyer descent on conic log K3 (GTZ input) | conic bundle with **non-split** generic fibre `f x² + g y² = 1`, 2-Selmer groups of norm-one tori | the plane-conic bundles (F1)–(F3) and all curves inside `V_n` are **split** (§3.1, Prop 3.2); R126 repair: splitness of *all* conic bundles of `U_n` is **not** proved (fibres meeting the lines can be punctured non-split tori), but every non-line curve has finitely many integral points anyway (Thm 3.1 = BL Lemma 3.10); for a split torus `H¹(k, G_m) = 0` (Hilbert 90) and the descent has nothing to work with: integral points on `XY = N` are a divisor problem | does not apply (PROVED: (F1)–(F3) split, and finiteness on every fibre by Thm 3.1; "nothing to work with" is an Assessment) |
 | Markoff-type (Ghosh–Sarnak, Whang): non-linear automorphism group with infinite orbits | Vieta involutions (toric model with 2 points per side) | toric model with 1 point per side (Prop 2.1); equation linear in each variable | no orbit structure (Assessment, supported by Thm 3.1) |
 | Strong approximation on the homogeneous spaces `X_d` / O128's level-`dp` space | adelic open target sets (fixed modulus) | point-dependent modulus `4da \| f+p` (Prop 4.1) | needs shrinking-target equidistribution, i.e. spectral input (Cor 4.2) |
 | Duke-type equidistribution of Heegner points | `|D| → ∞` at a fixed level | Type I: `D = −4d` fixed, target shrinks with p; Type II: `D = −4dp` grows, but the side condition `A ≡ −1 (mod B)` has a point-dependent modulus | not directly (Assessment) |
@@ -405,7 +419,7 @@ mass bound of EXCEPTIONAL_TYPEI_LOGLOG.
 ## 7. Test bench: square-mimicking primes and sterile candidates
 * Everything PROVED above holds for every n (Thms 3.1, Props 3.2, 4.1, 5.1, 5.2) or is a restatement. It is
   therefore automatically compatible with the square-mimicking primes and with x** (POINTWISE_SIZE,
-  MORDELL13E). BL Thm 1.8 says the BM set is non-empty for **every** n, so the Brauer class can never certify
+  MORDELL13E). BL Thm 1.8 says the BM set is non-empty for **every** n ≥ 2 (R126 repair: for n = 1 it is empty, §1), so the Brauer class can never certify
   sterility: a sterile point, if one exists, is a failure of the integral Hasse principle **not explained by
   BM** (cf. BL Thm 1.9 for strong approximation). (PROVED, from BL.)
 * Prop 5.1 says what a square-mimicking prime does to the geometry. If `(−d/p) = +1` for all `d < D`,
