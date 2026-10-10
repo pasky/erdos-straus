@@ -32,3 +32,54 @@ Dyadic windows [X, 2X) (L = log(1.5X)):
   So min f_I grows like a power of log p (fit ≈ L^{2.5}·const is indistinguishable from c·L³ here); the
   pointwise count is "polylog with a robust constant fraction of the mean".
 * The a = 1 sub-family alone has minimum 1–3 throughout: the full 3-parameter family is needed for growth.
+
+## 2. Exact fixed-p forms of Type I (PROVED, elementary)
+
+Fix a prime p ≥ 5. All variables are positive integers.
+
+**Lemma 2.1 (three equivalent shapes).** For a, c, d, f with p ∤ cd, the following are equivalent:
+(i) `p = 4acd − f` and `f | 4a²d + 1`;
+(ii) `f | ap + c` and `4ac | p + f` (then `d = (p+f)/(4ac)`);
+(iii) `f | p² + 4c²d` and `f ≡ −p (mod 4cd)` (then `a = (p+f)/(4cd)`).
+In each case `b := (ap+c)/f`, `e := (4a²d+1)/f`, `g := (p²+4c²d)/f = 4bcd − p` are integers with
+`4abd − pe = 1`, `a + b = ce`, and every Type I solution of p arises exactly once with `a ≤ b`, `gcd(a,b,c) = 1`
+(ET Prop 2.2).
+*Proof.* (i)⇒(ii): `c(4a²d+1) = a(4acd) + c = a(p+f) + c`, so `ap + c ≡ c(4a²d+1) ≡ 0 (mod f)`.
+(ii)⇒(i): with `4acd = p + f`, `c(4a²d+1) = a(p+f) + c ≡ ap + c ≡ 0 (mod f)` and `gcd(f, c) | gcd(4acd − p, c) | p`;
+if `p | f` and `p | c` then `p | cd`, excluded; so `f | 4a²d+1`. (i)⇔(iii): mod f we have `4acd ≡ p`, hence
+`4c²d·(4a²d+1) ≡ p² + 4c²d`; `gcd(f, 4c²d) | p` and is 1 unless `p | cd`. The identities are routine
+(`bf = ap + c`, ET (2.8), (2.9)). ∎ Checked: `scripts/spec_reform_check.py` (all primes ≤ 300 reproduce the exact
+counts f_I(p) of §1).
+
+**Lemma 2.2 (SL₂ with a fixed entry; Hecke form).** (a) `γ = [[4ad, p],[e, b]] ∈ SL₂(ℤ)`; conversely Type I is
+"γ ∈ SL₂(ℤ) with upper-right entry p, 4 | γ₁₁, and a divisor a of γ₁₁/4 with a ≡ −γ₂₂ (mod γ₂₁)".
+(b) With `Q₋ = [f, −4ad, de]` (disc −4d) and `Q' = [f, 4cd, dg]` (disc −4dp²):
+`Q'(x, y) = Q₋(x + 2bd·y, p·y)`, i.e. `Q' = Q₋ ∘ [[1, 2bd],[0, p]]`; so the disc −4dp² form of a solution is a
+**T_p-Hecke translate** of the level-d Heegner form of disc −4d; roots `z_{Q'} = p·z_{Q₋} − 2bd`.
+*Proof.* (a) det = 4abd − pe = 1. (b) Expand: middle coefficient `2f·2bd − 4adp = 4d(bf − ap) = 4cd`; last
+coefficient `4b²d²f − 8abd²p + dep² = d(4bd(ap+c) − 8abdp + ep²) = d(4bcd − p(4abd − pe)) = d(4bcd − p)`. ∎
+(Identity asserted for every solution in `spec_reform_check.py`.)
+
+**Lemma 2.3 (the a = 1 and Type II "hyperbola" forms).** (a) a = 1 Type I solutions of p ↔ `p = tuv − u − v` with
+`tv ≡ 1 (mod 4)` ↔ `(tu − 1)(tv − 1) = tp + 1` (t = e, u = c, v = f): divisors X of `tp+1` with `X ≡ −1 (mod t)`
+— this is candidate (c) of the brief, and it is only the a = 1 slice. In general (`t = e`): `tp + 1 = X·Y` with
+`X = b`, `Y = 4ad`, and a divisor a of Y/4 with `a ≡ −X (mod t)`.
+(b) Type II (ET (2.15), (2.21)): with `q = 4cd`, Type II solutions of p ↔ factorisations
+`c·q·p + 1 = (aq − 1)(bq − 1)` (a ≤ b, gcd(a,b,c) = 1, p ∤ abd). Same shape as (a) with p ↦ cp.
+*Proof.* (a) `p + c = f(ce − 1)` (ET Remark 2.5) and `(tu−1)(tv−1) = t(tuv − u − v) + 1`. (b) expand
+`(aq−1)(bq−1) = q(abq − a − b) + 1` and use `4abcd = a + b + cp`. ∎ (Type II form checked against the exact
+f_II(p), p ≤ 300, in `spec_reform_check.py`.)
+
+**Lemma 2.4 (genus condition; the step that fails at odd squares).** If (a,c,d,f) is a Type I solution of an odd n
+with `gcd(n, 2cd) = 1`, then `χ_{−4d}(−n) = +1`, where `χ_{−4d} = (−4d/·)` (Kronecker).
+*Proof.* f is odd and `gcd(f, 2cd) = 1`. Every prime q | f divides `n² + 4c²d`, so `−4c²d ≡ n²` is a non-zero square
+mod q, so `(−4d/q) = 1`; hence `χ_{−4d}(f) = 1`. As `f ≡ −n (mod 4cd)` and `χ_{−4d}` has period 4d,
+`χ_{−4d}(−n) = χ_{−4d}(f) = 1`. ∎
+*Consequences.* (1) For an odd square n = m², `χ_{−4d}(−m²) = χ_{−4d}(−1) = −1` for **every** d (the character of a
+negative discriminant is odd), so `f_I(m²) = 0` (gcd(m, 2cd) = 1 is automatic for c d small... and in general
+`gcd(f, cd) | m` handles the rest as in ET) — this recovers the Type I half of ET Prop 1.6. **Any fixed-p method
+must therefore carry the factor `(1 + χ_{−4d}(−p))/2` in its d-th main term**; an "area" main term that does not
+see χ_{−4d}(−p) is false (it would predict solutions for p²).
+(2) For p prime only the d with `(−4d/p)·(−1) = +1`, i.e. `(−d/p) = −1` (p inert in ℚ(√−d)) contribute; e.g.
+d = 1 contributes iff p ≡ 3 (mod 4). Check: `scripts/spec_genus_check.py` (all 1615 solutions for p ≤ 400: 0
+violations; shares by d: d=1 22% (all from p ≡ 3 mod 4), d=2 15%, d=3 8%, …).
