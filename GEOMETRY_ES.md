@@ -59,3 +59,55 @@ What BL leave open (and what this means for O126):
    proof of ES via a strong-approximation theorem *on the fixed surface* is impossible. (PROVED, by BL.)
 3. BL do not discuss the total family over the parameter n, fibrations of `U_n`, or the S-integral
    reformulation; these are §§3–7 below.
+
+## 2. Explicit models (all identities checked by `scripts/geo_models.py`)
+
+### 2.1 Lines, nodes, boundary (PROVED; symbolic check (a))
+`S_n : 4x₁x₂x₃ = n x₀(x₁x₂+x₁x₃+x₂x₃)` has its four nodes at the coordinate points and exactly the nine
+lines of the Cayley cubic, **all defined over ℚ**: the six edges `{x_i = x_j = 0}` and
+`M_k : 4x_k = n x₀, x_i + x_j = 0` (`{i,j,k} = {1,2,3}`). Relative to `U_n = S_n ∩ {x₀ ≠ 0}`:
+* boundary `S_n ∩ {x₀ = 0}` = the triangle of edges `x₀ = x_k = 0` (through the three nodes at infinity);
+* in `U_n`: the lines `L_ij = {u_i = u_j = 0}` through the node `P = 0`, and the lines
+  `M_k = {u_k = n/4, u_i = −u_j}` (integral iff `4 | n`).
+Every point of `U_n` with some `u_i = 0` lies on some `L_ij` (if `u₁ = 0` the equation gives `n u₂u₃ = 0`).
+
+### 2.2 The torus and the toric model (PROVED)
+On `U_n^∘ = U_n ∩ {u₁u₂u₃ ≠ 0}` put `s_i = 1/u_i`. Then
+`U_n^∘ ≅ {(s₁,s₂,s₃) ∈ G_m³ : s₁ + s₂ + s₃ = 4/n}`,
+the complement in the projective plane `Π̄ = closure of {Σ s_i = 4/n}` of the **complete quadrilateral**
+`{s₁ = 0} ∪ {s₂ = 0} ∪ {s₃ = 0} ∪ ℓ_∞`. Let `V_k = ℓ_∞ ∩ {s_k = 0}` (the direction `s_i = −s_j`).
+Approaching `L_ij` means `s_i, s_j → ∞` with `s_i + s_j = 4/n − 1/u_k` finite, i.e. approaching `V_k` along
+the line `s_k = 1/u_k`; approaching `P` means `s → ∞` in a direction off the three `V_k`. Hence:
+
+**Proposition 2.1 (toric model).** `Ũ_n ≅ Bl_{V₁,V₂,V₃}(Π̄) \ (strict transforms of the three lines s_k = 0)`.
+Under this isomorphism `L_ij` = exceptional curve over `V_k` minus its point on `s̃_k = 0` (coordinate `u_k`,
+meeting `E` at `u_k = 0`), and `E` = strict transform of `ℓ_∞` (self-intersection `1 − 3 = −2`: the node `P`
+is produced by the collinearity of `V₁, V₂, V₃`). `U_n` is obtained by contracting `Ẽ`.
+
+So `(Bl_V Π̄, D)` with `D` = the strict transform of the triangle `s₁s₂s₃ = 0` (a cycle of three curves of
+self-intersection 0) is a **Looijenga pair with toric model `(ℙ², triangle)` blown up at one point on each side**,
+the three points collinear. Compare: Markoff-type cubic surfaces have toric model with *two* points blown up on
+each side, which is what produces their Vieta involutions and infinite integral orbits. The ES surface has one
+point per side: no involutions, and the only automorphisms visible are `S₃` (and, over ℚ, the rescalings
+`U_n ≅ U_{n'}`). `V_n = Ũ_n \ (L₁₂ ∪ L₂₃ ∪ L₃₁)` is the torus `Π̄ \ (triangle ∪ ... )` together with
+`E^∘` — BL's `V_n ≅ G_m²`, characters `y_i/y_j = u_i/u_j = s_j/s_i`.
+
+Integral and positive points (PROVED; check (b)):
+`𝒰_n(ℤ) ∩ U_n^∘ = {s : 1/s_i ∈ ℤ}`, and `U_n(ℕ) ↔ {(s₁:s₂:s₃) primitive in ℕ³ : 4s_i | nS}`, `S = Σ s_i`,
+via `u_i = nS/(4s_i)`.
+
+### 2.3 Type I / Type II as integer matrices (PROVED from ET §2; check (c))
+With ET's coordinates `(a,b,c,d,e,f)` put `M = [[e, 2a],[2ad, f]]`, entries `(e,g;h,f)`, `g = 2a`, `h = 2ad`.
+* **Type I** (ET (2.6),(2.7)): `det M = ef − 4a²d = 1` and `f = 4acd − n`, i.e.
+  `n ≡ −f (mod 2h)` with `c = (n+f)/2h`.
+* **Type II** (ET (2.18),(2.19)): `det M = n` and `f = 4acd − 1`, i.e. `f ≡ −1 (mod 2h)`.
+
+**Proposition 2.2.** Type I(n) holds iff there is `M = [[e,g],[h,f]] ∈ SL₂(ℤ)` with positive entries,
+`g` even, `g | h`, `2h | n + f`, and `c = (n+f)/2h` prime to n. Type II(n) holds iff there is
+`M ∈ M₂(ℤ)`, `det M = n`, positive entries, `g` even, `g | h`, `2h | f + 1`, and `abd` prime to n.
+*Proof.* (⇒) is ET Props 2.2, 2.6 with (2.6)/(2.7) resp. (2.18)/(2.19). (⇐) Set `a = g/2`, `d = h/g`,
+`c = (n+f)/2h` resp. `(f+1)/2h`, `b = ce − a`. Type I: `4acde = e(n+f) = ne + 4a²d + 1`, so
+`4abd = 4acde − 4a²d = ne + 1 > 0`, whence `b > 0`, and the remaining identities (2.1)–(2.9) follow by ET's
+routine algebra; `π_n^I` gives the solution. Type II identically with `4abd = n + e > 0`. ∎
+The two types are exchanged by swapping the roles of `det M` and the shift (`det = 1, shift n` ↔
+`det = n, shift 1`): this is ET's dilation `Σ^I_n ≅ Σ^{II}_n`.
