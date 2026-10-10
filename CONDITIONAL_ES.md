@@ -1,6 +1,6 @@
 # ES for large primes conditional on a standard conjecture? (task O127)
 
-Status: CHECKPOINT 1 (not yet reviewed). Labels as in DISCOVERIES.md. ES is not proved here, and
+Status: CHECKPOINT 2 (round 2: §§7–9; R125 red-team repairs applied to §§3, 5, 6). Labels as in DISCOVERIES.md. ES is not proved here, and
 (checked against `LITERATURE_2026.md`, which has no such entry) ES is not known even under GRH.
 
 ## 0. Summary
@@ -24,6 +24,18 @@ negative result with exact scope, plus exact reformulations.
 * §5: ranked table of hypotheses with the exact gap. §6: Theorem 6.1, X_slice ⇒ ES (PROVED;
   X_slice is ES-strength, not a standard conjecture), with EVIDENCE and the list of what is and
   is not covered by the negative results.
+
+* **Round 2.** §7, covering paradigm:
+  * Prop 7.1 (PROVED): power-scale covering implies ES only at power-deficient targets, the
+    big-holes regime.
+  * Prop 7.2 (PROVED): every general Cramér-scale covering statement is false (diagonal).
+  * Prop 7.3 (PROVED): local-data hypotheses fail at odd squares.
+  * Bright–Loughran: the BM-refined version is ES itself.
+  * No natural covering conjecture implying ES was found. The survivor is the ES-specific
+    X_slice.
+  * §8 EVIDENCE: S(p) = 1 at the hard prime p = 5101441, and min S/log²p → 0.004 below 10⁷;
+    X_slice is fragile.
+  * §9: the single-coefficient claim is reduced to Prop 9.1 (mechanism) plus an Assessment.
 
 ## 1. Exact divisor-in-progression forms
 
@@ -462,7 +474,7 @@ is either true or false, and if ES is true it is implied by every true statement
 stated with exact scope is a statement about **mechanisms**. As repaired (R125), §3.2 proves one
 mechanism-level fact:
 
-**Proposition 9.1 (PROVED, mechanism scope).** Expand S_1(p) by (3.2) into primitive characters.
+**Proposition 9.1 (PROVED bookkeeping, mechanism scope).** Expand S_1(p) by (3.2) into primitive characters.
 Bound each resulting sum `Σ_{j ≤ p/q} τ_{χ*}((qjp+1)/4)` only through GRH-type estimates for
 `L(s, χ*ψ)ζ(s)` (ψ mod ≍ qp) of the form "main term + `O(X^{1/2}(qpX)^{ε})`" with `X ≍ p²`. Then
 the error is at least `p^{1−o(1)}` per primitive character class, which exceeds the length
