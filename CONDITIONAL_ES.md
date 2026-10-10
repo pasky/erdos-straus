@@ -91,6 +91,10 @@ hypotheses whose *errors* are power-small relative to a polylog main term (e.g. 
 `Σ w(x)` normalised so that `M ≍ log² p` and `R ≪ p^{−η}`). It excludes the standard mechanism
 "main term ≍ (size of family)×(measure of target), error ≪ (size of family)^{1−η}", because that
 mechanism needs `M ≥ (size)^{η}` and the family must have size `≥ p^{c}` to contain the
-witnesses, which have parameters up to p (§1: `gcf ≈ p`). Small families (size `p^{o(1)}`) are
-the congruence/bounded-witness regime and are excluded by POINTWISE_SIZE Thm C (under H) and
-POINTWISE_OMEGA13 Thm 5.1 (unconditionally, witness moduli `≥ exp((log p)^{1/4−o(1)})` i.o.).
+witnesses, which have parameters up to p (§1: `gcf ≈ p`). Families of size `p^{o(1)}` escape
+Prop 2.3 but meet the other two constraints: bounded families are excluded by POINTWISE_SIZE
+Thm C (under H), and families all of whose witness *moduli* (the q of the class `p ≡ r (mod q)`
+they test; `q = cf` for (I1)) are `≤ exp((log p)^{1/4−ε})` are excluded by POINTWISE_OMEGA13
+Thm 5.1 for the Type II multiplier witnesses (and by POINTWISE_OMEGA Thm 8.5,
+`ck_min ≫ log p·log₃p` i.o., for Type I slices). A family such as `{g ≤ G}` with G small but
+`c, f` unrestricted is not of either kind, and is not excluded by anything in this section.
