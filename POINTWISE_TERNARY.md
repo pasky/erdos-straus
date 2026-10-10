@@ -45,7 +45,7 @@ combined with an ES recipe of bounded algebraic complexity. Any ES content outsi
 * **Novelty (Assessment).** The counting heuristic is ET's own remark: after their Thm 1.1 they note that analytic
   methods such as the circle method appear insufficient because `f(p)` is polylogarithmic. Formalising it as a
   theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems new but is a
-  modest observation. An internal review (R124, codex deep) found one FATAL overclaim in the first draft of Cor 4.2
+  modest observation. An internal self-review (codex, deep mode) found one FATAL overclaim in the first draft of Cor 4.2
   and five MAJOR issues; all are repaired (§§4, 5, 7, 9).
 
 ## 1. Setting: what an "embedding" is
@@ -189,7 +189,7 @@ Then `𝒫_R ⊆ U` (as sets of classes mod `lcm(L, q*)`). Hence `𝒫_R` contai
 primes on which the representation input (R) delivers ES are exactly primes that a finite polynomial (Mordell-type)
 covering already handles.**
 
-*Caution (R124 review, FATAL in the first draft).* This does **not** say that the embedding proves ES only on `U`.
+*Caution (O124 self-review, FATAL in the first draft).* This does **not** say that the embedding proves ES only on `U`.
 A nondegenerate piece on a *thin* set can cover a positive-density set of primes outside `U`. Example: `Q = Σ_{i≤5} v_i²`,
 `κ = η = 1` (so `Q(v) = p + 1`), piece `S = {v₁ = 1, Q(v) ≡ 0 (mod 4)}` (so `p ≡ 3 (4)`), output
 `((p+1)/4 + v₁ − 1, p(p+1)/2, p(p+1)/2)`. It is nondegenerate (it involves `v₁`), and it covers every prime `p ≡ 3 (4)`
@@ -247,7 +247,7 @@ be as in Prop 5.2 and `G = (v_0 + Mℤ³) ∩ Γ ∩ E_m` with `Γ` an open cone
 `G` contains a positive-mass sector of a Zariski-dense orbit (Duke–Rudnick–Sarnak, Eskin–McMullen). Whether a given
 cone `Γ` provides one depends on `Γ` meeting `E_m(ℝ)` in an unbounded region; this is Assessment. So validity of the
 ES recipe (positivity of the output) forces `S_j ∩ E_m` to be **thin**, though **not necessarily bounded**. Example
-(R124 review): `Q = x² + y² − 2z²`, piece `{y = 1, Q ≡ 3 (4)}`, output `((Q+1)/4 + y − 1, Q(Q+1)/2, Q(Q+1)/2)`. It is
+(O124 self-review): `Q = x² + y² − 2z²`, piece `{y = 1, Q ≡ 3 (4)}`, output `((Q+1)/4 + y − 1, Q(Q+1)/2, Q(Q+1)/2)`. It is
 valid and nondegenerate, and at `p = 3` the Pell equation `x² − 2z² = 2` gives infinitely many admissible points, all
 mapping to `(1, 6, 6)`.
 (ii) Suppose the piece is mild only on a truncation `G ∩ {|v| ≤ T(p)}`, and the counting input gives
@@ -360,7 +360,7 @@ ES level `< 2.59·10¹⁰` contains x** (CERTIFIED there; not re-run here).
    is uniform in `Q_t` given `D`: Minkowski-reduce, and Pila's constant depends only on the degree. But two things
    are not controlled. (i) The exceptional levels `𝔐_{t,j}` are finite for each `t` (`|𝔐_{t,j}| ≤ C(D)`), yet their
    union over `t` is not: the recipe chosen for `p` can be one whose exceptional level is `κ_t p + η_t`, e.g. after a
-   perturbation by `(Q_t − m_t)v₁` (R124 review). (ii) The bounds are in `(κ_t p + η_t)`, not `p`, and the lower bound
+   perturbation by `(Q_t − m_t)v₁` (O124 self-review). (ii) The bounds are in `(κ_t p + η_t)`, not `p`, and the lower bound
    (R) is uniform in `disc Q_t` only up to `disc^{−O(1)}`. Heuristically, the nondegenerate parts are again useless,
    and what remains is a congruence covering whose moduli grow with `T(p)`. That is the multiplier mechanism of the
    OMEGA line, subject to its Ω-results.
