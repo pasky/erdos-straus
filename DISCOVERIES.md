@@ -473,6 +473,14 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Assessment: level-aspect equidistribution (Michel, Ellenberg–Michel–Venkatesh, Kane, Liu–Masri–Young) would only equidistribute data that is automatic here. The scope is these encodings, not every quaternionic encoding.
    * Novelty of the dictionary: unverified (no literature hits).
 
+7. **Arithmetic geometry of the ES surfaces: fibrations, descent and strong approximation cannot reach ES; the Brauer class is genus theory (GEOMETRY_ES.md; review `reviews/geometry-es-review.md` (R126): no FATAL; MAJOR D3 (the scope/causality of Prop 3.2 was overclaimed) and D8 (a false finiteness claim inside Prop 4.1), minors; all repaired by the reviewer, who also supplied a symbolic proof of the toric model).**
+   * For every n ≥ 2, "Brauer–Manin is the only obstruction to positive integral points on U_n" is literally ES(n), since BL Thm 1.8 makes the Brauer set non-empty. At n = 1 BM does obstruct, a sanity check found by R126.
+   * The nine lines are rational; the toric model is PROVED (symbolic).
+   * Thm 3.1 (BL Lemma 3.10 plus trivial cases): only lines carry infinitely many integral points. So no fibration of U_n gives infinitely many positive points in a fibre. The real place is the reason, not the splitness of the fibres (R126).
+   * On the homogeneous space X_d: ef − 4da² = 1 (Spin(2,1)/T, strong approximation holds), the ES condition 4da | f + p is a congruence modulo a coordinate of the point (Prop 4.1). Cor 4.2 is stated precisely after repair; that SA and descent are irrelevant is an Assessment.
+   * Props 5.1/5.2 (PROVED; checked on all solutions with p < 2000). On the Type I locus of level d, BL's class α is exactly (−d/p) = −1 (p inert in ℚ(√−d)); on Type II it is the genus character (f/p) = −(−1/p). Hence BM removes exactly the Type I levels with (−d/p) = +1, and never a Type II level. Not new: Prop 5.1 is folklore, and Prop 5.2 is Yamamoto 1965 Lem 4 (as reported in BL App. A).
+   * EVIDENCE: single fixed levels fail for a few percent of primes p ≡ 1 (24), except "identity levels" such as d = 5. The target (SHT) — Type I at some level d ≤ (log p)^K with (−d/p) = −1 — implies ES under GRH. It is not a standard conjecture.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
