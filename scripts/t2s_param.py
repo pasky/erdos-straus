@@ -100,4 +100,23 @@ for p in primerange(5, PMAX):
                 if ch < Fraction(3, 2) and (A, Bq, C) != (A2, B2, C2):
                     bad += 1; print("SEPARATION FAIL", p, d, forms[i], forms[j], ch)
 print(f"primes 5..{PMAX}: {tot} Type II solutions checked, failures = {bad}")
-sys.exit(1 if bad else 0)
+if bad: sys.exit(1)
+
+
+def genus_check(PM):
+    """Lemma 6.1: every Type II solution has (p/f) = (p/f') = -1 (Jacobi), f=4acd-1, f'=4bcd-1."""
+    from sympy import jacobi_symbol
+    bad = 0; n = 0
+    for p in primerange(5, PM):
+        for (a, b, c, d) in et_quads(p):
+            for g in (4 * a * c * d - 1, 4 * b * c * d - 1):
+                if math.gcd(g, p) == 1:
+                    n += 1
+                    if jacobi_symbol(p, g) != -1:
+                        bad += 1; print("GENUS FAIL", p, (a, b, c, d), g)
+    print(f"genus lemma: {n} moduli checked, failures = {bad}")
+    return bad
+
+
+if genus_check(PMAX):
+    sys.exit(1)
