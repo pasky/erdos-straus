@@ -1,0 +1,2 @@
+N 100000000 DMAX 8 AMAX 200 stride 20 primes 8974
+hist {1: 8745, 2: 185, 3: 35, 4: 7, 6: 2} worst (6, 60183841) fails [] 0
