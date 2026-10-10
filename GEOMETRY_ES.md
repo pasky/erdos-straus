@@ -281,8 +281,13 @@ Primes `p ≡ 1 (mod 24)`, `p < 1.5·10⁶` (14183 primes):
   reflection `a ↔ b` one may take `a ≤ b`, and then `4abcd = a + b + pc` gives `a² ≤ a/(2cd) + p/(4d)`, so
   `a ≤ √p/2 + 1`. Brute force agrees: the Type II levels of 97, 193 are {2, 5}, those of 673 are {2,3,5,17}. The failing primes show no square-mimicking pattern in their Legendre symbols mod
   `q < 60`. The failure rate decreases (1.5% → 0.2%), as a Poisson heuristic with mean `≍ log²p/d` predicts.
-* Type I at level `d*(p)`: 79 + 257 "failures", but these are cap-limited (the largest minimal `a` found,
-  2966, is at the cap; Type I allows `a` up to `≍ p`). No conclusion.
+* Type I at a fixed level d, complete search (`scripts/geo_levelsI.py`; with `a ≤ b`, ET Lemma 2.8 gives
+  `a ≤ 3p/4d`), primes `p ≡ 1 (24)`, `p < 10⁵`, `(−d/p) = −1`:
+  `d = 5`: 0 failures out of 603 — **an identity level**: `a = 1`, `4a²d+1 = 21`, and `−p mod 20 ∈ {3, 7}`
+  divides 21 whenever `(5/p) = −1` (a classical polynomial covering, inside Theorem M's scope);
+  `d = 7`: 42/612 failures (97, 433, 601, …); `d = 11`: 23/611 (193, 457, …); `d = 13`: 88/608 (73, 97, …).
+  Brute force over all solutions confirms, e.g., that the Type I levels of 97 are {5, 14, 17, 26} (no 7) and
+  those of 73 are {5, 7, 10, 11} (no 13). (The earlier capped run `geo_levels.py` at `d*(p)` is superseded.)
 Assessment: a "fixed level suffices" conjecture is not supported for small d at this range. The natural
 uniform version — Type I(p) at some level `d ≤ (log p)^K` with `(−d/p) = −1` — is a **shrinking-target
 statement on `X_d`** (Prop 4.1). With GRH (least such d `≪ log²p`) it would imply ES for large p. It is
@@ -303,10 +308,13 @@ concerns `|D| → ∞` at a fixed level; here `D = −4d` is fixed and the targe
 **Target theorem that would suffice (CONJECTURE-level formulation, not claimed).** (SHT) There are
 `K, p₀` such that for every prime `p > p₀` there is `d ≤ (log p)^K` with `(−d/p) = −1` and an
 `x = (e,f,a) ∈ X_d(ℤ)`, `e,f,a > 0`, with `4da | f + p` and `gcd((f+p)/4da, p) = 1`.
-By Prop 2.2/ET Prop 2.3, (SHT) implies ES for `p > p₀` (unconditionally; GRH would only be needed to make
-the condition `d ≤ (log p)^K` compatible with `(−d/p) = −1` for every p, and (SHT) asserts the existence of such
-a d outright). (SHT) is a pointwise shrinking-target statement for integral points on a family of
-hyperboloids. No standard conjecture known to us implies it. Its averaged form over `p ≤ N` is the Type I
+By Prop 2.2 / ET Prop 2.3, (SHT) implies ES for every `p > p₀`, unconditionally. Its plausibility has two
+parts: (i) a small level with `(−d/p) = −1` exists (`d ≪ log²p` under GRH, `d ≪ p^{0.152}` by Burgess);
+(ii) at such a level the shrinking target is hit. The heuristic count is `≍ log²p/d` (§5.3); §5.3 shows
+that (ii) fails at single fixed levels for a few percent of primes (Type I, d = 7, 11, 13; Type II, d = 1),
+so `K` must allow several levels. (SHT) is a
+pointwise shrinking-target statement for integral points on a family of hyperboloids. No standard conjecture
+known to us implies it. Its averaged form over `p ≤ N` is the Type I
 mass bound of EXCEPTIONAL_TYPEI_LOGLOG.
 
 ## 7. Test bench: square-mimicking primes and sterile candidates
