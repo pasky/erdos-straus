@@ -93,6 +93,3 @@ ES identity `4/p = 1/(abd) + 1/(acdp) + 1/(bcdp)`, ET (2.22)):
   worst 6. (Full 10⁸ run not repeated.)
 * Ratio claim (first 2000 hard primes, d = 1, a ≤ 50): 14109 / 562792 = 0.0251, identical.
 
-## Defects
-
-(see below)
