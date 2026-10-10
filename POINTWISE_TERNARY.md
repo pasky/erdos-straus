@@ -7,7 +7,13 @@ Status labels as in DISCOVERIES.md. ET = Elsholtz–Tao arXiv:1107.1010v6 (`sour
 
 **Outcome: a precise negative result.** Pointwise representation theorems for quadratic forms (Duke–Schulze-Pillot,
 Kloosterman/HKK, the circle method) contribute nothing beyond finite polynomial (Mordell-type) coverings when
-combined with an ES recipe of bounded algebraic complexity. Any ES content outside such a covering must come from
+combined with **one fixed** ES embedding of bounded algebraic complexity.
+
+> **Scope (R124 repair M1):** one fixed `(Q, κ, η)` and fixed complexity `(J, D)`, all independent of `p`. Not covered: families with a parameter growing with `p`. That includes every known ES parametrisation (ET Type I/II with `a, d` unbounded; §9.1, Assessment only).
+> Two further routes are outside the scope (R124 repair, red team §6): thin side conditions on a level set (H2, where
+> (Q_d) sits), and routes where `p` enters only through a side condition on a fixed level set (H5, e.g. Type I's
+> `ef − 4a²d = 1` with `f ≡ −p (mod 4ad)`). Thm 4.1 / Cor 7.1 say nothing about either.
+ Any ES content outside such a covering must come from
 *thin* sets of representations, which these theorems do not control.
 
 * **Theorem 4.1 (PROVED, given Pila's bound (P), Mordell–Schinzel (M) and ET Thm 1.1).** Let `Q` be positive definite
@@ -22,7 +28,7 @@ combined with an ES recipe of bounded algebraic complexity. Any ES content outsi
 * **Cor 4.2 (PROVED relative to the input (R)).** Suppose the representation theorems give
   `≫ p^{(k−2)/2−ε₀}` admissible representations (`ε₀ < 1/4`) on a congruence set of primes `𝒫_R`. Then `𝒫_R ⊆ U`.
   Caution: thin nondegenerate pieces *can* cover positive-density sets outside `U` (explicit example after
-  Cor 4.2), but no representation theorem certifies them.
+  Cor 4.2), but no representation theorem certifies them. This holds for one fixed embedding only (scope box above).
 * **Cor 7.1.** The closure of `𝒫_R` in `Ẑ^×` contains no sterile point. So it contains no square point, and it contains
   x** only through an ET class of ES level `≥ 2.59·10¹⁰` (by MORDELL13E).
 * **Step 3, the "sanity count".** The map from representations to ES solutions cannot be highly non-injective on a
@@ -42,10 +48,15 @@ combined with an ES recipe of bounded algebraic complexity. Any ES content outsi
   statement.
 * **Not excluded (§9).** Recipes of unbounded complexity; families with a growing parameter (only an Assessment, since
   exceptional levels are not uniformly controlled); thin side conditions; split level sets.
-* **Novelty (Assessment).** The counting heuristic is ET's own remark: after their Thm 1.1 they note that analytic
-  methods such as the circle method appear insufficient because `f(p)` is polylogarithmic. Formalising it as a
-  theorem about bounded-complexity embeddings, with the degenerate/nondegenerate dichotomy, seems new but is a
-  modest observation. An internal self-review (codex, deep mode) found one FATAL overclaim in the first draft of Cor 4.2
+* **Novelty (Assessment; R124 repair m6).** ET make two relevant remarks.
+  * p. 5, after Thm 1.1: analytic methods such as the circle method appear insufficient because `f(p)` is
+    polylogarithmic.
+  * p. 6, after Prop 1.6: vanishing at odd squares "rules out many strategies (e.g. a finite set of covering
+    congruence strategies, or the circle method)". The square-point parts of Cor 3.2 and Cor 7.1 restate this second
+    remark.
+
+  The additions are a version for methods valid only at primes, which ET's square argument does not directly
+  constrain, and the fibre-count formalisation (Lemma 2.1, Prop 2.2, Thm 4.1). Novelty is modest at most. An internal self-review (codex, deep mode) found one FATAL overclaim in the first draft of Cor 4.2
   and five MAJOR issues; all are repaired (§§4, 5, 7, 9).
 
 ## 1. Setting: what an "embedding" is
@@ -139,8 +150,10 @@ Lemma 2.1. ∎
 
 ## 3. Degenerate pieces are polynomial (Mordell-type) identities
 
-**Cited input (M) (Mordell, *Diophantine Equations* (1969) p. 287–290; Schinzel; restated in ET p. 8, and a
-consequence of ET Prop 1.6).** Call a primitive class `r mod q` *solvable by polynomials* if there are
+**Cited input (M) (Mordell [ET ref. 44], *Diophantine Equations* (1969) p. 287–290, and Schinzel [ET ref. 68]; restated
+in ET p. 8).** ET add that this "also follows from Prop 1.6". That deduction would also need the polynomial solution
+at a large odd square `n` to be of Type I/II, i.e. `gcd(P_i(n), n) = 1` for each `P_i` with a nonzero constant term.
+This is not automatic for composite `n`, so we rely on Mordell–Schinzel (R124 repair m2). Call a primitive class `r mod q` *solvable by polynomials* if there are
 `P_1,P_2,P_3 ∈ ℚ[n]` with `P_i(n) ∈ ℕ` for all large `n ≡ r (q)` and `4/n = Σ 1/P_i(n)` identically. A primitive
 class `r mod q` with `r ≡ s² (mod q)` is **not** solvable by polynomials.
 
@@ -186,8 +199,9 @@ input (R)).** Suppose in addition that the embedding is *mild* in the sense that
 > `p ∈ 𝒫_R ∖ ℰ`.
 
 Then `𝒫_R ⊆ U` (as sets of classes mod `lcm(L, q*)`). Hence `𝒫_R` contains no prime that is a square mod `q*`: **the
-primes on which the representation input (R) delivers ES are exactly primes that a finite polynomial (Mordell-type)
-covering already handles.**
+primes on which the representation input (R) delivers ES are among the primes that a finite polynomial (Mordell-type)
+covering already handles** (R124 repair m1: an inclusion). This is for one fixed embedding; see the scope box in §0
+(R124 repair M1).
 
 *Caution (O124 self-review, FATAL in the first draft).* This does **not** say that the embedding proves ES only on `U`.
 A nondegenerate piece on a *thin* set can cover a positive-density set of primes outside `U`. Example: `Q = Σ_{i≤5} v_i²`,
@@ -230,10 +244,14 @@ for `m = κp + η`, `E_m` contains a `ℚ`-line only for `p` in a set of size `O
 `B(v_0, w) = 0`, `Q(v_0) = m`, i.e. a 2-dimensional totally isotropic subspace `⟨(v_0,1), (w,0)⟩` of `Q ⊥ ⟨−m⟩`;
 conversely such a subspace not inside `{w_4 = 0}` (where `Q` alone, rank 3, has Witt index ≤ 1) gives a line. A
 4-dimensional form of Witt index 2 is `H ⊥ H`, of determinant `1` mod squares; `det(Q ⊥ ⟨−m⟩) = −m det Q`. ∎
+*Convention (R124 repair m4).* Here and below, `det Q` is the determinant of the Gram matrix of
+`B(x,y) = ½(Q(x+y) − Q(x) − Q(y))`. The Hessian determinant printed by `scripts/tern_sweep.py` is `2^k det Q`, so
+for `Q_d` the script shows `8d` while `det Q_d = d`. For k = 3 the two conventions differ by the square class of 2.
 
 **Proposition 5.2 (PROVED, given (P)).** Let `Q` be indefinite ternary, `m ≠ 0` with `E_m` line-free over `ℚ`, and
 `H` of degree `≤ D` not vanishing identically on `E_m`. Then for every `T ≥ 1`:
-`#{v ∈ ℤ³ : Q(v) = m, H(v) = 0, |v| ≤ T} ≤ C(D, ε)·T^{1/2+ε} + 4D²`.
+`#{v ∈ ℤ³ : Q(v) = m, H(v) = 0, |v| ≤ T} ≤ C(D, ε)·T^{1/2+ε} + 4D² + 2D`. The `+ 2D` term counts the real lines not
+defined over ℚ, each carrying `≤ 1` integer point (R124 repair m3).
 Consequently, for a nondegenerate piece of a valid embedding and `p` with `m = κp + η ∉ 𝔐_j`, `E_m` line-free:
 `#(R_j(p) ∩ {|v| ≤ T}) ≤ C f(p) T^{1/2+ε}`.
 *Proof.* As in Lemma 2.1 (k = 3): `≤ 2D` components; non-real components carry `≤ 4D²` real points in total; a line
@@ -259,7 +277,10 @@ of `m`, Lemma 5.1), a fibre of `Φ_j` can be a rational line carrying `≍ T` po
 nothing. The same can happen for indefinite forms in `k ≥ 4` variables, whose level sets often contain `ℚ`-lines
 (Assessment). **ES's own rank-3 piece (Q_d) is not in this gap.** `det Q_d = d`, and `−nd < 0` is never a square, so
 `E_n` is line-free. It is in fact a two-sheeted hyperboloid with no real lines. For fixed `(a, d)` its points lie on
-the hyperbola `ef = n + 4a²d`, a conic. Prop 5.2 applies to the Type II recipe on (Q_d). It is consistent only because
+the hyperbola `ef = n + 4a²d`, a conic. Prop 5.2 applies to the Type II recipe on (Q_d), but it says nothing there.
+For fixed `d`, the Type II map `(a,b,c,d,e,f) ↦ (abd, acdp, bcdp)` is injective (ET p. 14: injective modulo the
+dilation (2.10), and that dilation moves `d`). So `#R(p) ≤ f(p)` holds trivially for this piece, and the piece is a
+divisor problem, not a representation problem (R124 repair m7). It is consistent with Prop 5.2 because
 the side condition `4ad | f + 1` is thin (Prop 6.2). ES escapes the counting obstruction through **non-mild side
 conditions** (§9, item 3), not through rational lines.
 
@@ -282,21 +303,25 @@ degenerate. The only rank-3 one is
 `Q_d = ef − 4da²` is isotropic (it contains the hyperbolic plane `ef`), but its level sets `E_n`, `n > 0`, contain no
 rational (indeed no real) line (§5 Remark). Also the defining surface itself is split: fixing `x`,
 `4xyz = n(xy+yz+zx)` becomes `((4x−n)y − nx)((4x−n)z − nx) = n²x²`.
-So ES carries **no** positive definite (or anisotropic) quadratic substructure in ET's coordinates; its quadratic
-pieces are divisor problems.
+So ES carries **no** positive definite (or anisotropic) quadratic substructure in ET's coordinates, among the
+substructures in which `n` is a quadratic polynomial in the free coordinates. Its quadratic pieces are divisor
+problems. The sweep drops quadrics that do not involve `n`, for example Type I's `ef − 4da² = 1`, which is the same
+isotropic form `Q_d` at level 1 (R124 repair m8; this is the H5 route of §9).
 
 **Proposition 6.2 (the rank-3 piece; PROVED, elementary).**
 (i) `Q_d` represents every integer primitively over `ℤ` (`(e,f,a) = (n,1,0)`); so local representation
 conditions, genus and spinor genus impose nothing: all the arithmetic sits in the side condition `4ad | f + 1`.
-(ii) The side condition is not mild: `{(e,f,a) : 4ad | f+1}` is not a finite union of cosets of a lattice (its
-density in `{a ≍ A}` is `≍ 1/(dA)`), and positivity does not truncate `Q_d`: for fixed `n`, `E_n ∩ ℕ³` is
-infinite (`Σ_{a≤A} τ(n + 4da²) ≍ A log A` points with `a ≤ A`).
+(ii) The side condition is not mild: `S = {(e,f,a) : 4ad | f+1}` is not a finite union of lattice cosets. Positivity
+does not truncate `Q_d`: for fixed `n`, `E_n ∩ ℕ³` is infinite, with `≫ A` points having `a ≤ A` (each `a` gives at
+least the point `(e, f) = (n + 4da², 1)`).
 (iii) For fixed `(a, d)` the side condition becomes a fixed-modulus condition, but then the form drops to the split
 binary `ef = n + 4a²d`, `f ≡ −1 (mod 4ad)`: ES(n) via `(a,d)` iff `n + 4a²d` has a divisor `f ≡ −1 (mod 4ad)` with
 `(f+1)e/(4ad) > a`. This is ET's Type II criterion (Prop 2.7 / Prop 1.9 family `−4a²d mod f`), a divisor-in-progression
 problem, not a representation problem.
-*Proof.* (i) direct. (ii) The density: among `f` in a range, a proportion `1/(4ad)` satisfies the congruence; a finite
-union of lattice cosets has a fixed positive density or zero. The `τ` count is ET (A.5)-type standard. (iii) ET (2.18),
+*Proof.* (i) direct. (ii) Argue by slices (R124 repair m5). The slice `S ∩ {a = a₀}` is `{f ≡ −1 (mod 4a₀d)}`, whose
+`f`-period `4a₀d` is unbounded in `a₀`. For a finite union of cosets `v_i + L_i`, every slice `{a = a₀}` is a union of
+cosets of the finitely many lattices `L_i ∩ {a = 0}`, so its `f`-periods are bounded. The count `≫ A` is the explicit
+points. (iii) ET (2.18),
 (2.19), (2.14). ∎
 
 *Assessment.* Linear changes of variables preserve isotropy, and the coordinates `x, y, z, a, …, f` and their
@@ -324,7 +349,7 @@ and `x` lies in an ET class, a contradiction. ∎
 
 *Interpretation.* The campaign's formal obstruction (POINTWISE_SIZE Thms M, C) says that procedures using only
 congruence data fail at square-mimicking points; a representation-theorem argument is **not** congruence-only (it
-searches over `≍ p^{1/2}` representations, a search of growing length, type (E1)). Theorem 4.1 shows that this extra
+searches over `≍ p^{1/2}` representations, a search of growing length, type (E1)). For one fixed embedding (R124 repair M1), Theorem 4.1 shows that this extra
 length is wasted: on a mild representation set, a bounded-complexity ES recipe is constant on level sets except on a
 `p^{−1/4}f(p)`-thin subset, so it is a congruence covering in disguise and inherits the formal obstruction. To escape,
 an argument must use representation sets of relative density `≤ p^{−1/4+ε}f(p)` (non-mild side conditions, which no
