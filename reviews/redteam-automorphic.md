@@ -214,3 +214,61 @@ classes mod divisors of L of size `≤ T`, X5 applies with that T.
 is a covering statement at level `lcm S(p)`, which must beat the Haar avoider density
 `exp(−Θ̃(𝓛³))` of X7 inside each class), or (b) S(p) depends on p in a way not determined by the
 dyadic range (E1/E2: then the route must say how S(p) is chosen and why it is correct).
+
+## 3. Model test at the special points (Phase 1(c))
+
+### 3.1 What the special points are, and which routes they test
+
+* **Square-mimicking points** (`q*_univ`, the class of one `x=1`): every prime visible to a bounded
+  procedure is a residue (Theorem C). *Tests:* every route — but only through moduli/primes whose
+  local data the route fixes. **Lemma 3.1 (PROVED).** If `p≡1 (mod M)` then `N_M(p)=0`
+  (`1 ≡ −4D` with `D|A_M²` would make `−D·A_M^{-2}... `; directly: Lemma CT(a) applied to the Type II
+  solution that a witness at M produces). Hence at `p≡1 (mod Q)` every Type II witness modulus has a
+  prime-power factor not dividing Q, and `W(p) > ` (least prime `>y` in a usable class) when Q
+  contains all primes `≤ y`.
+* **x\*\*** (`x_11=2, x_13=15`, `x_q=1` otherwise; MORDELL13B Conj 5.2, CONJECTURE): a point with
+  *small* non-residues 11, 13 that (conjecturally) lies in no ET class of any level.
+  *Tests:* routes whose decisive extra input is "a small non-residue exists" (Prop 2.5's necessary
+  condition). x\*\* is the evidence that this condition is not sufficient for covering-type
+  routes: no class with ES level `< 2.59·10¹⁰` contains it (MORDELL13E, CERTIFIED).
+* **x̂₉** (`x_2=9, x_7=−1`, `x_q=1` otherwise; TYPEI2 Conj 3.4, CONJECTURE): Type I only.
+  *Tests:* Type I-only routes (O123). It is invisible to Type II routes: `W=7` at every
+  approximant (since `p≡−1≡−4·D (mod 7)` with `D=2|A_7²=4`; data below).
+* **17-generic line** (MORDELL17, Conj 4.3): analogous to x\*\* for `n_p=17`; the critical input is a
+  prime-power count `D_P(K)` (MORDELL17B/C). Not separately tested here (same structure as x\*\*).
+
+### 3.2 Computation (EVIDENCE; `scripts/rt_modeltest.py`, data `data/rt/`)
+
+For primes p approximating each point to precision Q (Q ≈ 10²¹–10⁴⁴: all primes `≤ y` fixed, 11, 13
+or 7 to the cube), and random Mordell-hard controls of the same size, with `T = 2·10⁵`:
+`N_T(p)` (exact Type II witness count), `W(p)`, the conditional-Haar main term `Mloc` (exact local
+data at the primes of Q, independence elsewhere — the best main term available to a route that
+sees only `p mod Q`), and the low-conductor main term `M0` (local data mod 840 only).
+
+| class (y=97, p≈10⁴⁰) | n_p | W(p) | N_T(p) | Mloc | M0 |
+|---|---|---|---|---|---|
+| one (6 primes) | 101–107 | 103–251 | 30–67 | 44.8–45.7 | 64–67 |
+| x\*\* (6) | 11 | 99–359 | 34–47 | 46.2–48.6 | 65–66 |
+| x̂₉ (6) | 7 | 7 | 50–65 | 51.8–55.8 | 71–77 |
+| control (6) | 11–17 | 11–71 | 55–69 | — | 64–67 |
+
+(y = 47, p ≈ 10²¹–10²⁵: same picture; `data/rt/modeltest_T2e5_y47.txt`.)
+
+### 3.3 What a route sees there (Assessment, supported by 3.2)
+
+1. **The special points are invisible to any route whose moduli contain fresh primes.** Sterility
+   of x\*\* / x̂₉ (if true) constrains only moduli supported on the approximated primes. At the
+   approximants, the count is carried by moduli with a prime factor outside Q; the conditional main
+   term drops by ≈30% relative to `M0` (the Q-smooth moduli are deleted), and the actual count
+   tracks `Mloc`. A spectral/automorphic route with a low-conductor main term `M0` overestimates
+   by a bounded factor here — harmless.
+2. Consequently sterility of a profinite point gives only a **linear** pointwise Ω-result
+   (`W(p) > T` at primes with `log p ≍ T` by Linnik), far weaker than X5. **The binding pointwise
+   test is X5's fibre primes** (`p≡r (mod Q)`, `log Q ≍ 𝓛⁴`, `N_T(p)=0` with `𝓛³ → ∞` mass), not the
+   sterile candidates. These primes are not computable (log p ≍ 𝓛⁴ with 𝓛 large); the test is
+   therefore a *paper* test: what does the route's main term and error term do on such a fibre?
+3. The sterile candidates remain the binding test for **covering-type** routes (finite unions of
+   identity classes, fibration arguments that produce integral points from finitely many families,
+   Brauer–Manin-type local-global statements): such a route must explain what it does at x\*\* /
+   x̂₉ / the 17-line, where finitely many families provably (at the square point) or conjecturally
+   (others) fail.
