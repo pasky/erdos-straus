@@ -22,6 +22,7 @@ directly in the author's document and marked "(R128b repair)".
 | Prop 9.2 (genus pairing, cancellation at odd squares) | SOUND (holds for all n, not only primes) |
 | §9 EVIDENCE (t2s_eis) | not re-run (reported numbers plausible; out of scope of from-scratch budget) |
 | §9.3, 9.4 (Siegel–Weil, Kudla/GKZ) | labels OK (Assessment); one MINOR overclaim |
+| §10 numerics to 10⁸ | SOUND (reproduced from scratch to 10⁸; one MINOR: 2²⁶ block partial) |
 
 ## Defects
 
@@ -90,6 +91,9 @@ directly in the author's document and marked "(R128b repair)".
   is a heuristic, not a skeleton. §9.4: for signature (2,1) and indefinite rank-2 T, Kudla's Z(T) is
   generically empty (a point and a geodesic in ℍ), and Type II is a fixed-*distance* incidence (Prop 2.4), not an
   intersection; "S_c … are isotropic-type" — S_c is anisotropic, S_c^⊥ is split. Repair (applied): wording.
+- **E10 (MINOR)** §10: "Dyadic minima: … 94 (2²⁶, p = 84525841)" and "min R … 0.239 (2²⁶)": the 2²⁶ block is
+  only partly covered (p ≤ 10⁸ < 2²⁷; 1 803 646 of its primes). Repair (applied): mark "(2²⁶, partial block
+  p ≤ 10⁸)".
 
 ## Claim-by-claim
 
@@ -134,3 +138,18 @@ trivial, so MT is the whole count ✓. E7, E8.
 ### §9.3–9.4
 Labels Assessment ✓ (report's Caveats agree). Coset-theta computation re-derived (E9). Point 1 of 9.4 (no fixed
 form; bounded-level truncations vanish for many p) ✓ as EVIDENCE.
+
+### §10 numerics (reproduced from scratch)
+`scripts/review_r128b_count.c` (own enumeration `p = ef − 4a²d`, `b = ce − a ≥ a`, weights 2/1, gcd(a,c) = 1;
+validated against the Python divisibility enumeration for all 301 primes < 2000, which is validated against a
+brute-force `4/p = 1/x+1/y+1/z` Type II count for p < 200). Outputs `review_r128b_count_1e7.out.txt`,
+`…_1e8.out.txt`; statistics `review_r128b_stats.py`.
+* 10⁷: 920 138 280 tuples (author: 9.2·10⁸ ✓); dyadic minima 18 (2¹⁶), 36 (2²⁰), 60 (2²²), 72 (2²³ partial,
+  p = 9744001); min f/log³p over p ≥ 10⁵ = 0.0117 at p = 2031121 (f_II = 36); d = 1 empty for 135 primes in 2²² ✓.
+* 10⁸ (2 min, 1.35·10¹⁰ tuples ✓): **f_II(p) ≥ 1 for all 5 761 453 primes 5 ≤ p ≤ 10⁸** ✓; minima 62 (2²³,
+  p = 12257281), 74 (2²⁴, p = 20180449), 88 (2²⁵, p = 34103161), 94 (2²⁶ partial, p = 84525841) ✓; min f/log³p per
+  block 0.0143/0.0153/0.0158/0.0155 ✓; d = 1 empty 144/198/189/148 ✓ (author: 148–198 at 2²⁴–2²⁶ ✓).
+* 20 smallest normalised (p ≥ 10⁵): all ≡ 1 (24) except p = 1190701 ≡ 13 ✓. Six smallest class means mod 840
+  (normalised by log³) in each block 2²³–2²⁶: exactly {1,121,169,289,361,529} ✓.
+* R (class-mean ratio, ≥ 30 filter removes nothing): min 0.268/0.248/0.252/0.238; 0.1% quantile 0.373→0.366;
+  1% quantile 0.505–0.507; sd 0.307→0.324 ✓ (author's 0.253/0.239/0.323 agree up to rounding).
