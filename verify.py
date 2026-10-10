@@ -124,6 +124,7 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
 Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
   (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
   (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
+  (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4 (n <= 1000), Props 3.1/3.2 numerics, Prop 5.3 data, f_I/f_II to 10^6 (R123).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23395,6 +23396,93 @@ def check_et():
 
 print("\n== (et) CONDITIONAL_ES: Lemma 1.1 brute force, Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127) ==")
 check_et()
+
+
+# ---------------------------------------------------------------- (eu)
+# POINTWISE_SPECTRAL.md (review R123 = reviews/pointwise-spectral-review.md; DISCOVERIES (I)3).  Uses R123's
+# from-scratch scripts (not the author's spec_*).  Checked:
+# (1) Lemmas 2.1-2.4 (PROVED) by review_r123_lemmas.py 1000 300 (R123 ran 3000 400, 10.6 min): route 1 (ET
+#     parametrisation, exact 4/n identity, (ii) f | an + c) vs route 2 (Lemma 2.1(iii) divisor form) identical for all
+#     primes <= 1000; Lemma 2.4: 11581 quadruples with gcd(n, 2cd) = 1, 0 violations of chi_{-4d}(-n) = 1, no odd square
+#     has a quadruple; Lemma 2.3(a) a = 1 slice; raw ES brute force = Type I count and Type II factorisation count for
+#     all primes <= 300;
+# (2) Props 3.1/3.2 + Prop 5.4 at K = 0 (scipy; skipped otherwise): review_r123_areas.py: point-in-wedge (float) =
+#     integer Type I test for p <= 400 (0 mismatches, 1962 hits); quadrature areas vs log(2p)/(c sqrt d) within 1% (A)
+#     and 0.1% (B); hyperbolic widths = arcsinh-difference / 2/sqrt(1+K^2) to 5 digits;
+# (3) Prop 5.3 data: review_r123_prop53.py: 3630 primes p = 5 (12) in [10^6, 3*10^6) with p^2+12 prime, target (1,3)
+#     empty for all;
+# (4) §8 EVIDENCE at reduced size (gcc; skipped otherwise): review_r123_count.c at N = 10^6: f_I(p) >= 1 and a Type II
+#     solution for all 78496 primes 5 <= p <= 10^6; review_r123_cmp.py: = independent Python count on the 428 primes
+#     <= 3000; review_r123_windows.py: dyadic minima 7 at 1201, 14 at 20521, 35 at 471241 (all in square classes
+#     mod 840), min/mean 0.163, 0.134, 0.122 at 2^12, 2^13, 2^14.
+
+def check_eu():
+    from time import perf_counter
+    import importlib.util
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SPECTRAL subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_r123_lemmas.py", "1000", "300")
+    for s in ("route1 done; (ii) divisibility failures: 0 ;", "route2 (Lemma 2.1(iii)) mismatches over primes <= 1000 : 0",
+              "Lemma 2.4: quadruples 11581 violations 0 odd-square hits 0", "odd squares with a route-1 quadruple: []",
+              "Lemma 2.3(a): a=1 slice matches for all primes <= 1000",
+              "raw ES brute force: TypeI mismatches 0 (p<=300); TypeII-factorisation mismatches 0 (p<=300)"):
+        assert s in o, ("SPECTRAL R123 Lemmas 2.1-2.4", s, o)
+    done = ["Lemmas 2.1-2.4 (n <= 1000, raw brute force p <= 300)"]
+    if importlib.util.find_spec("scipy"):
+        o = run("review_r123_areas.py")
+        assert "mismatches 0 hits 1962" in o, ("SPECTRAL point-in-wedge", o)
+        ar = re.findall(r"numeric ([\d.]+)  formula ([\d.]+)", o)
+        assert len(ar) == 8 and all(abs(float(x) / float(y) - 1) < (0.01 if i < 4 else 0.001)
+                                    for i, (x, y) in enumerate(ar)), ("SPECTRAL areas", ar)
+        wa = re.findall(r"width\*p = ([\d.]+)   arcsinh-difference\*p = ([\d.]+)", o)
+        wb = re.findall(r"width\*p = ([\d.]+)  \(2/sqrt\(1\+K\^2\) = ([\d.]+)\)", o)
+        assert len(wa) == 5 and len(wb) == 3 and all(x == y for x, y in wa + wb), ("SPECTRAL widths", wa, wb)
+        done.append("Props 3.1/3.2 areas, widths, point-in-wedge = Type I (p <= 400, 1962 hits)")
+    else:
+        done.append("Props 3.1/3.2 SKIPPED (no scipy)")
+    o = run("review_r123_prop53.py")
+    assert "count 3630 nonempty targets 0" in o, ("SPECTRAL Prop 5.3 data", o)
+    done.append("Prop 5.3 data (3630 primes, target (1,3) empty)")
+    cc = shutil.which("gcc")
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe, pre = os.path.join(td, "count"), os.path.join(td, "r123")
+            subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_r123_count.c"), "-lm"], check=True)
+            r = subprocess.run([exe, "1000000", pre], capture_output=True, text=True, timeout=300, check=True)
+            assert "N=1000000 primes(>=5)=78496  f_I=0: 0   no TypeII found: 0" in r.stdout, ("SPECTRAL count", r.stdout)
+            o = run("review_r123_cmp.py", "3000", pre + "_fI.bin")
+            assert "primes 428 mismatches 0 []" in o, ("SPECTRAL C vs Python count", o)
+            o = run("review_r123_windows.py", "1000000", pre + "_fI.bin", "10", "12", "13", "14", "18")
+        rows = {ln.split(":")[0]: ln for ln in o.splitlines()}
+        for k, head, ratio in (("2^10", "primes 137 min 7 at 1201 (mod 840 = 361) mean 52.2", None),
+                               ("2^12", "primes 464 min 13 at 4201 (mod 840 = 1)", "0.163"),
+                               ("2^13", "primes 872 min 13 at 14401 (mod 840 = 121) mean 96.9", "0.134"),
+                               ("2^14", "primes 1612 min 14 at 20521 (mod 840 = 361) mean 114.9", "0.122"),
+                               ("2^18", "primes 20390 min 35 at 471241 (mod 840 = 1) mean 220.8", None)):
+            ln = rows.get(k, "")
+            assert ln.startswith(f"{k}: {head}") and (ratio is None or ln.endswith(f"min/mean {ratio}")), \
+                ("SPECTRAL dyadic windows", k, o)
+        done.append("f_I >= 1 and Type II for all 78496 primes 5 <= p <= 1e6, C = Python on p <= 3000, dyadic minima")
+    else:
+        done.append("counts SKIPPED (no gcc)")
+    print(f"eu SPECTRAL R123: {'; '.join(done)}; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (eu) POINTWISE_SPECTRAL: Lemmas 2.1-2.4, Props 3.1/3.2, Prop 5.3 data, f_I/f_II to 10^6 (R123) ==")
+check_eu()
 
 
 print("\nall checks passed")
