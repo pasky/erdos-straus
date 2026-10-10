@@ -1,0 +1,19 @@
+  slice sol c=2 f=87 g=15  m=gf-1=1304 m''=gc-1=29
+n=2521 S=1
+n=2521 f=54  exactly0=0 one=36 two=18 three=0  f_I=12 f_II=6
+  slice sol c=17 f=7 g=47  m=gf-1=328 m''=gc-1=798
+n=5569 S=1
+n=5569 f=162  exactly0=0 one=102 two=60 three=0  f_I=34 f_II=20
+  slice sol c=4 f=31 g=171  m=gf-1=5300 m''=gc-1=683
+n=21169 S=1
+n=21169 f=222  exactly0=0 one=114 two=108 three=0  f_I=38 f_II=36
+  slice sol c=20 f=31 g=71  m=gf-1=2200 m''=gc-1=1419
+n=43969 S=1
+n=43969 f=300  exactly0=0 one=180 two=120 three=0  f_I=60 f_II=40
+  slice sol c=890 f=39 g=147  m=gf-1=5732 m''=gc-1=130829
+n=5101441 S=1
+n=5101441 f=798  exactly0=0 one=564 two=234 three=0  f_I=188 f_II=78
+
+real	0m2.346s
+user	0m2.342s
+sys	0m0.004s
