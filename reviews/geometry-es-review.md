@@ -5,7 +5,7 @@ Sources checked against the actual text: BL = `sources/bright-loughran-1908.0252
 ET = `sources/elsholtz-tao-1107.1010.pdf` (§2, Props 2.2/2.3/2.6, Lemma 2.8). Yamamoto 1965 NOT accessed.
 From-scratch scripts: `scripts/review_geo_*.py` (no author code reused).
 
-## Summary verdicts (filled in progressively)
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
@@ -21,6 +21,7 @@ From-scratch scripts: `scripts/review_geo_*.py` (no author code reused).
 | §3.1 "only conic-bundle class on Bl_V Π̄ is H − V_k" | SOUND |
 | Thm 3.1 | SOUND (= BL Lemma 3.10 + two trivial cases; no novelty, correctly attributed) |
 | Prop 3.2 (statement) | SOUND; its use as "the structural reason" / "all conic bundles split" is a GAP (D3) |
+| Cor 3.3 / "Aim (B) negative for every fibration" | SOUND for every fibration — but only via Thm 3.1 (real place), not via splitness; "n²-type bounds" wrong (D6) |
 | §4.1 total family, m(s), ES(p) ⟺ ∃s: m(s) = p | SOUND |
 | §4.2 S-integral reformulations | SOUND in substance; "𝒰₁(ℤ[1/p])⁺ infinite" unproved, "in general … finite set" overgeneralised (D7) |
 | §4.3 X_d: signature (1,2), forms [f,4ad,de] of disc −4d, Spin/T with T = R¹ℚ(√−d), CT–Xu SA | SOUND |
@@ -36,7 +37,6 @@ From-scratch scripts: `scripts/review_geo_*.py` (no author code reused).
 | §6 scope table | SOUND except the Harpaz/SwD row (D3) |
 | (SHT) ⇒ ES for p > p₀; labelled CONJECTURE-level, "not standard" | SOUND (label honest) |
 | §7 | SOUND for n ≥ 2 (D1) |
-| Cor 3.3 / "Aim (B) negative for every fibration" | SOUND for every fibration — but only via Thm 3.1 (real place), not via splitness; "n²-type bounds" wrong (D6) |
 
 ## Defects
 
