@@ -164,3 +164,40 @@ For `ℓ ∤ 2κηM·disc Q` this is automatic (a unimodular rank-≥3 lattice r
 primitively; at `ℓ = p ∤ η`, `κp + η` is a unit), and at the finitely many other `ℓ` it depends on `p` mod a power of
 `ℓ` — a congruence condition. Corollary 4.2 only needs that (R) holds on **some** primitive class, which is exactly
 what an application of these theorems would deliver.
+
+## 5. Indefinite forms: what positivity costs
+
+Now let `Q` be a nondegenerate **indefinite** ternary form (k = 3). Lemma 1.3 and §3 did not use definiteness.
+
+**Lemma 5.1 (line-free level sets; PROVED).** `E_m` (`m ≠ 0`) contains a line defined over `ℚ` iff the quaternary form
+`Q ⊥ ⟨−m⟩` has Witt index 2 over `ℚ`, which requires `−m·det(Q) ∈ ℚ^{×2}` (discriminant of `H ⊥ H` is a square). Hence
+for `m = κp + η`, `E_m` contains a `ℚ`-line only for `p` in a set of size `O(√N)` up to `N` (one square class).
+*Proof.* A `ℚ`-line in `{Q = m}` is the projective line through `(v_0 : 1)` and `(w : 0)` with `Q(w) = 0`,
+`B(v_0, w) = 0`, `Q(v_0) = m`, i.e. a 2-dimensional totally isotropic subspace `⟨(v_0,1), (w,0)⟩` of `Q ⊥ ⟨−m⟩`;
+conversely such a subspace not inside `{w_4 = 0}` (where `Q` alone, rank 3, has Witt index ≤ 1) gives a line. A
+4-dimensional form of Witt index 2 is `H ⊥ H`, of determinant `1` mod squares; `det(Q ⊥ ⟨−m⟩) = −m det Q`. ∎
+
+**Proposition 5.2 (PROVED, given (P)).** Let `Q` be indefinite ternary, `m ≠ 0` with `E_m` line-free over `ℚ`, and
+`H` of degree `≤ D` not vanishing identically on `E_m`. Then for every `T ≥ 1`:
+`#{v ∈ ℤ³ : Q(v) = m, H(v) = 0, |v| ≤ T} ≤ C(D, ε)·T^{1/2+ε} + 4D²`.
+Consequently, for a nondegenerate piece of a valid embedding and `p` with `m = κp + η ∉ 𝔐_j`, `E_m` line-free:
+`#(R_j(p) ∩ {|v| ≤ T}) ≤ C f(p) T^{1/2+ε}`.
+*Proof.* As in Lemma 2.1 (k = 3): `≤ 2D` components; non-real components carry `≤ 4D²` real points in total; a line
+containing two integer points is a `ℚ`-line, so each line carries `≤ 1`; real components of degree `≥ 2` carry
+`≪ T^{1/2+ε}` points by (P). The second part follows as in Prop 2.2. ∎
+
+**Corollary 5.3 (positivity is not mild; PROVED given (P), and given the cited counting input (DRS) for the
+last clause).** Let `p` be as in Prop 5.2 and `G = (v_0 + Mℤ³) ∩ Γ ∩ E_m` with `Γ` an open cone.
+(i) If `G ⊆ R_j(p)` for a nondegenerate piece `j`, then `#(G ∩ {|v| ≤ T}) ≪ f(p) T^{1/2+ε}` for all `T`. Since for a
+Zariski-dense orbit the count `#(G ∩ {|v| ≤ T})` grows like a positive multiple of `T` (Duke–Rudnick–Sarnak,
+Eskin–McMullen; in the ternary case up to log factors), **no valid nondegenerate piece contains an untruncated mild
+set**: validity of the ES recipe (positivity of the output!) forces `S_j ∩ E_m` to be thin.
+(ii) If the piece is mild only on a truncation `G ∩ {|v| ≤ T(p)}` and the counting input gives
+`#(G ∩ {|v| ≤ T(p)}) ≫ T(p)^{1−ε}`, then `f(p) ≫ T(p)^{1/2−2ε}`. With `T(p) ≥ p^{δ}` this is the analogue of
+Thm 4.1(b) (exceptional set `≪ N^{1−δ/2+ε}`) and Cor 4.2 follows verbatim.
+
+*Remark (the split case is a genuine gap).* When `E_m` contains `ℚ`-lines (a square class of `m`, Lemma 5.1), or for
+indefinite forms in `k ≥ 4` variables (whose level sets contain `ℚ`-lines and `ℚ`-planes for most `m` once `k ≥ 5` by
+Meyer's theorem), a fibre of `Φ_j` can be a rational line carrying `≍ T` points, and the counting argument gives
+nothing. This is the **divisor-problem** regime: `n + 4a²d = ef` with `(a, d)` fixed is a split binary form, whose
+integer points lie on the rational lines `e = const`. §6 shows that every quadratic substructure of ES is of this kind.
