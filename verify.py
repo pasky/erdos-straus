@@ -123,6 +123,7 @@ Blocks (el)..(en) (task O113) replay the 2026-10-09 round, part 2 (reviewers' co
   (en) POINTWISE_MORDELL13D: m13d_wit.c = m13c_witness on all units mod 9240, 10920 (all/first/req modes; gcc).
 Blocks (es).. (task O133) replay DISCOVERIES section (I), the automorphic/geometric phase (reviewers' code):
   (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep (= stored log), Step 4 (Q_d) sample to 10^7 (R124).
+  (et) CONDITIONAL_ES: Lemma 1.1 brute force (n < 200), Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23333,5 +23334,67 @@ def check_es():
 
 print("\n== (es) POINTWISE_TERNARY: Comp 6.1 elimination sweep + Step 4 (Q_d) sample (R124) ==")
 check_es()
+
+
+# ---------------------------------------------------------------- (et)
+# CONDITIONAL_ES.md (review R127 = reviews/conditional-es-review.md; DISCOVERIES (I)2).  Uses R127's from-scratch
+# scripts (not the author's cond_* scripts).  Checked:
+# (1) Lemma 1.1 (PROVED): review_r127_lemma11.py 200: for every 1 <= n < 200 the three forms of the slice give
+#     identical (c,f,g) solution sets, all 600 solutions rebuilt and 4/n checked exactly, 0 mismatches (incl. the §6
+#     dual form and the §7.5 remainder form for odd n), no solution with n | c (n > 3);
+# (2) Prop 7.2 (PROVED, diagonal construction): review_r127_diag.py: M_j = 3, 6, 7, 12, 13, 18, 19, primes
+#     p_j = 59, 419, 55439, 1081079, 24504479, none in any class of the system with m <= 20000;
+# (3) §8 EVIDENCE (gcc; skipped otherwise): review_r127_counts.c reproduces ET's f(2..8) = 3, 12, 10, 12, 39, 36, 46,
+#     the slice counts S(13, 29, 193) = 2, 3, 3, and at p = 5101441: S = 1 (the slice solution (c,f,g) =
+#     (890, 39, 147)) while f = 798, f_I = 188, f_II = 78.
+
+def check_et():
+    from time import perf_counter
+    import os
+    import re
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("CONDITIONAL_ES subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_r127_lemma11.py", "200")
+    assert "n< 200 slice solutions checked: 600 mismatches: 0 solutions with n|c (n>3): 0" in o and \
+        "MISMATCH" not in o, ("CONDITIONAL_ES R127 Lemma 1.1", o)
+    o = run("review_r127_diag.py")
+    assert "M_j: [3, 6, 7, 12, 13, 18, 19]" in o and "p_j: [59, 419, 55439, 1081079, 24504479]" in o and \
+        "hits of p_j in the system (m<=20000): []" in o, ("CONDITIONAL_ES R127 Prop 7.2", o)
+    cc = shutil.which("gcc")
+    if not cc:
+        print(f"et CONDITIONAL_ES R127: Lemma 1.1 (n < 200, 600 solutions) and Prop 7.2 diagonal OK; "
+              f"counts part SKIPPED (no gcc)")
+        return
+    with tempfile.TemporaryDirectory() as td:
+        exe = os.path.join(td, "counts")
+        subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_r127_counts.c")], check=True)
+        r = subprocess.run([exe, *map(str, (2, 3, 4, 5, 6, 7, 8, 13, 29, 193, 5101441))], capture_output=True,
+                           text=True, timeout=300, check=True)
+    o = r.stdout
+    f = {int(n): int(v) for n, v in re.findall(r"^n=(\d+) f=(\d+) ", o, re.M)}
+    S = {int(n): int(v) for n, v in re.findall(r"^n=(\d+) S=(\d+)$", o, re.M)}
+    assert [f[n] for n in range(2, 9)] == [3, 12, 10, 12, 39, 36, 46], ("CONDITIONAL_ES ET f(2..8)", f)
+    assert (S[13], S[29], S[193], S[5101441]) == (2, 3, 3, 1), ("CONDITIONAL_ES slice counts", S)
+    assert "slice sol c=890 f=39 g=147  m=gf-1=5732 m''=gc-1=130829" in o and \
+        "n=5101441 f=798  exactly0=0 one=564 two=234 three=0  f_I=188 f_II=78" in o, ("CONDITIONAL_ES 5101441", o)
+    print(f"et CONDITIONAL_ES R127: Lemma 1.1 three forms + dual + remainder (n < 200, 600 solutions, 0 mismatches); "
+          f"Prop 7.2 diagonal p_j avoid all classes m <= 20000; ET f(2..8) reproduced; S(5101441) = 1 with "
+          f"f = 798, f_I = 188, f_II = 78; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (et) CONDITIONAL_ES: Lemma 1.1 brute force, Prop 7.2 diagonal, S(5101441) = 1 vs f_I, f_II (R127) ==")
+check_et()
+
 
 print("\nall checks passed")
