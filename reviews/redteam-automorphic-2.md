@@ -418,3 +418,22 @@ is what geometry delivers, not "all".
 
 **Symmetry remark.** Every hatch above is equally a hatch for *disproof*. A sterile prime (if one exists) would be
 a non-BM failure (BL), and none of the encodings could detect it either (red team 1 §3.3).
+
+### 3.1 The mass has no large sub-family (EVIDENCE + Assessment; `scripts/rt2_blocks.py`, `logs/rt2_blocks.txt`)
+Type II solutions (a ≤ b, row II{a,d}) of five primes near 10⁶ and 4·10⁶, binned in dyadic blocks
+`(⌊log₂a⌋, ⌊log₂c⌋, ⌊log₂d⌋)`:
+
+| p | p mod 840 | f_II (a≤b) | nonempty blocks | max per block |
+|---|---|---|---|---|
+| 1000003 | 403 | 106 | 90 | 3 |
+| 1002121 | 1 | 94 | 93 | 2 |
+| 4000037 | 797 | 81 | 81 | 1 |
+| 4000081 | 1 | 97 | 86 | 3 |
+| 4002721 | 121 | 73 | 69 | 3 |
+
+The boxes `max(a,c,d) < 2⁶` carry only 15–34 of the solutions.
+* Solutions are spread essentially **one per dyadic block**, over all scales.
+* No block, and no product of short ranges, carries a count that grows with p.
+* *Assessment:* a fixed-p route cannot pick a sub-family where the expected count is large and prove an asymptotic
+  there. It must aggregate ≍ 𝓛³ blocks of expected size O(1). This is the arithmetic form of "Planck scale", the
+  reason H-A/H-B are hard, and the exact analogue of red team 1 P2.1 at the level of blocks.
