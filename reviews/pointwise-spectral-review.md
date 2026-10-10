@@ -39,3 +39,27 @@ Defects:
 * **D2 (MINOR) — window f ∈ [1,2p] vs a ≤ b.** The normalisation a ≤ b is exactly f ≤ g, i.e. f ≤ √(p²+4c²d),
   not f ≤ 2p. The window [1,2p] used for the areas in Props 3.1/3.2 also contains reflected copies (b, c, d, g)
   (ET Remark 2.4) whenever g ≤ 2p, so the region counts some solutions twice. Constant-factor only; state it.
+
+## Claim 2 — Props 3.1/3.2 (point-in-wedge ⇔ Type I; areas; widths)
+
+**Verdict: SOUND (minor imprecision D3 on widths).**
+
+Re-derived by hand: for z = (2ad + i√d)/f, (2c√d x − √d − p y)/y = 4acd − f − p; for z' = (−2cd + ip√d)/f (root of
+[f, 4cd, dg], since fg = p² + 4c²d gives disc. −4dp²), (p/y')(−2a√d x' − √d − y') = 4acd − f − p. Widths at height y:
+y/(c√d), resp. y'/(a√d p); areas log(2p)/(c√d), log(2p)/(a√d p) for the stated y-windows. All correct.
+
+Independent numerics `scripts/review_r123_areas.py` (2-D midpoint quadrature of the region's indicator in (x, log y),
+no use of the width formula; hyperbolic widths by direct minimisation of arccosh(1+|z−w|²/(2 Im z Im w))):
+* areas, A: (p,c,d) = (101,1,1): 5.3103 vs 5.3083; (101,2,3): 1.5329 vs 1.5324; (1009,3,2): 1.8035 vs 1.7937 (grid
+  resolution); (257,5,7): 0.4714 vs 0.4719. B: four cases agree to 4 digits.
+* point-in-wedge (floating test) vs 4acd − f = p (integer test), all primes ≤ 400, d, a, c < 60, f ≤ 2p: 0 mismatches,
+  1962 hits.
+* widths: A: p·width = 2.00000 (K = 2c√d = 2), 1.99961 (K = 20), 1.96183 (K = 200), 0.90085 (K = 2000, p = 1009);
+  exactly p·(arcsinh((p+1)/K) − arcsinh((p−1)/K)) ≈ 2p/√(p²+K²). B: p·width = 2/√(1+4a²d) to 5 digits.
+
+* **D3 (MINOR).** (a) Prop 3.1: "width 2/p + O(c√d/p²)" is true only for c√d ≪ p; the exact width is
+  ≈ 2/√(p² + 4c²d), so for c√d ≍ p (allowed: c ranges up to ≍ p/(ad)) the "tube" is a genuinely different shape. The
+  error term is actually O(c²d/p³) in the range c√d ≤ p. (b) Prop 3.2 and §4: the width of R'_a is
+  ≈ 2/(p√(1+4a²d)) ≍ 1/(a√d·p), **not ≍ 1/p uniformly** — it shrinks with a. (R123 repair): replace "tube of hyperbolic
+  width ≍ 1/p" by "≍ 1/(a√d p)", and "minimal width w ≍ 1/p" in §3/§4 by "width ≤ 1/p (≍ 1/p only for a√d ≍ 1)".
+  This makes the targets *narrower*, so it strengthens, not weakens, the negative conclusion.
