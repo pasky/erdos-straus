@@ -345,23 +345,17 @@ every unit-class system `𝒮 = {r_E mod m_E}` (any choice of classes) whose exp
 by a Haar-random n ∈ Ẑ, conditional on n mod Q, is infinite for every Q and every class of n
 mod Q, all sufficiently large primes lie in some class of 𝒮". Every such statement is false.
 
-*Proof.* Enumerate the moduli `m_1 < m_2 < …` (say all m ≥ 3, one class each) and build the
-system and primes `p_1 < p_2 < …` inductively. Suppose the classes for `m ≤ M_j` are fixed.
-Their avoider set in Ẑ has positive Haar measure, provided each class removes density
-`1/φ(m)` and the cumulative product `∏(1 − 1/φ(m))` restricted to the chosen moduli stays
-positive. To ensure this, use only moduli in a set with `Σ 1/φ(m) < ∞` up to `M_j`, and add the
-divergent part later. By Dirichlet, the avoider set (a union of classes mod `lcm(m ≤ M_j)`)
-contains a prime `p_j > M_j`. For every later modulus `m > M_j`, choose the class `r_m` different
-from `p_1, …, p_j mod m`. This removes at most j of the φ(m) admissible classes, so a choice
-exists for `φ(m) > j`, and `M_{j+1}` is chosen so large that `φ(m) > j+1` beyond it. Each `p_j`
-then avoids every class: those with `m ≤ M_j` by construction, the later ones by the exclusion.
-The conditional expected hits stay infinite, because all moduli `m > M_1` with `φ(m) > j` are
-used with one class each, and a class `r_m` meets the class of n mod Q with conditional
-probability `≥ 1/φ(m)` up to bounded factors for at least half of the admissible choices.
-To make this rigorous, choose `r_m` among the `φ(m) − j` allowed classes so that it is
-compatible with a prescribed class mod `gcd(m, Q)`, cycling over the classes. Then
-`Σ_m 1/φ(m) = ∞` over the used moduli gives infinite conditional expectation for each fixed Q
-and class. ∎
+*Proof.* Give every modulus m ≥ 3 one unit class `r_m`, never `r_m ≡ −1 (mod m)`, and build
+`M_0 = 3 < M_1 < …` and primes `p_1 < p_2 < …` inductively. Given the classes for `m ≤ M_j`, take
+by Dirichlet a prime `p_j > M_j` with `p_j ≡ −1 (mod lcm(m ≤ M_j))`. It avoids every class with
+`m ≤ M_j`, since `r_m ≢ −1`. Choose `M_{j+1}` with `φ(m) > j + 2` for all `m > M_{j+1}`, and for
+`M_j < m ≤ M_{j+1}` and beyond choose `r_m` outside `{−1, p_1, …, p_j} mod m`, which is possible
+once `φ(m) > j+1`. (For the finitely many small m of each block where this fails, choose any
+class except −1. The induction only needs it for `m > M_j`, and this holds by the choice of
+`M_{j+1}` at the previous step; re-index if necessary.) Then every `p_j` lies in no class of 𝒮.
+*Infinite expectation:* for any Q and any class b mod Q, every m coprime to Q carries a unit class
+that a Haar-random n with `n ≡ b (Q)` hits with probability exactly `1/φ(m)`, and
+`Σ_{(m,Q)=1} 1/φ(m) = ∞` (already over primes m). ∎
 
 So a true covering statement at Cramér scale must restrict the *class of systems* (definability).
 The natural restriction is "divisor targets": in the dual form of §6, `A_m = {d : d | P(m)}` for a
