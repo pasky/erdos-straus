@@ -75,3 +75,70 @@ In det-p coordinates `w₁ = (−2a + i√(p/d))/f` the same statement holds wit
 (as in TTL, where n was summed and the congruence `f ≡ −n (4ad)` was absorbed by the free c), but an
 exact incidence with a measure-zero set (a countable union of hypercycles). Any spectral counting must
 first thicken `H_{a,d}`; the natural thickening is the discreteness of Λ_{dp} itself (Lemma 2.2).
+
+**Prop 2.5 (level-1 form; PROVED).** The det-p forms `Q = [f, 4ad, de]` (Lemma 1.1.2) are level-1
+Heegner forms of discriminant `−4dp`, and the Type II condition is `A ≡ −1 (mod B)`, `B ≡ 0 (4d)`,
+`d | C`. With `u = (1,0)`, `v = (1,−2c)` and the bilinear form `⟨·,·⟩_Q` (Gram `[[A, B/2],[B/2, C]]`):
+`A − cB = ⟨u, v⟩_Q`, so the Type II condition with this c is **`⟨u,v⟩_Q = −1`**. Writing
+`Q(x,y) = √|D|·|x − z y|²/(2 Im z)` (z the root, `|D| = 4dp`) gives
+`⟨u,v⟩_Q = √|D|(1 + 2c·Re z)/(2 Im z)`, hence (since `sinh dist(z, {Re = x₀}) = |Re z − x₀|/Im z`):
+**a Type II point is a Heegner point of discriminant −4dp at hyperbolic distance exactly
+`arsinh(1/(c√|D|))` from the cuspidal geodesic `γ_c = (∞, −1/(2c))`, on its left.** Integrality of
+⟨u,v⟩ makes the shell `T_c = {z left of γ_c : sinh dist(z,γ_c) ∈ [½, 3/2]/(c√|D|)}` an honest region whose
+Heegner points (of disc −4dp with the B, C congruences) are exactly the Type II points with this c (and d).
+*Proof.* Direct substitution; `⟨u,v⟩_Q = A − cB` since `⟨e₁,e₂⟩ = B/2`. ∎ (Same as Prop 2.4, written
+intrinsically.)
+
+## 3. Averaged-over-p sanity check
+
+**Prop 3.1 (PROVED, elementary).** For fixed `(c, d, f)` with `f ≡ −1 (mod 4cd)`, the Type II condition
+`f | 4c²dp + 1` (Lemma 1.1.3; `f'` is then automatically `≡ −1 (4cd)`, since `ff' ≡ 1 (4cd)`) is the single
+residue class `p ≡ −(4c²d)^{−1} (mod f)` (note `gcd(f, 2cd) = 1`). Hence
+`Σ_{p≤N} f_II(p) = Σ_{c,d,a; gcd(a,c)=1} w·π(N; 4acd−1, r_{c,d}) ` (range/weights as in Lemma 2.8 of ET).
+So **averaging over p collapses the Heegner incidence of Prop 2.4 to one arithmetic progression mod f**:
+the averaged Type II sum is a Bombieri–Vinogradov/Brun–Titchmarsh problem, and no spectral input is
+needed (consistent with ET, who get `≍ N log³N` for Type II with no log log loss; the spectral input in TTL
+was needed only for Type I). The Heegner picture "reproduces" ET only in this trivial sense.
+
+*Heuristic constant (Assessment).* With `π(N;f,r) ≈ π(N)/φ(f)`, the region `a ≤ b` (`2α+δ ≤ 1`) and
+`e ≥ 1` (`γ ≤ 1−α−δ`) in log-coordinates (`a = p^α, d = p^δ, c = p^γ`) has volume 1/8, so
+`f_II(p) ≈ 2·(1/4)·(1/8)·κ·log³p`, `κ = E[f/φ(f)]·P(gcd(a,c)=1) ≈ 1.30·0.61`, i.e. `≈ 0.05 log³p`.
+Empirically the mean of `f_II(p)/log³p` is 0.0998 (p≈2¹⁰), 0.0779 (2¹⁶), 0.0679 (2²³), slowly decreasing
+(positive lower-order `log²` terms) — consistent with a limit near 0.05 (EVIDENCE, weak).
+
+## 4. Fixed p: the automorphic family, the target, and the gap
+
+**4.1 The family.** For fixed p: `{Λ_{dp}}_{d ≥ 1}` — Heegner points of discriminants `−4dp` (fields
+`ℚ(√−dp)`, varying with d), with the B ≡ 0 (4d), d | C level data (Prop 2.5) — or, uniformly separated, the
+level-dp sets of Prop 2.1/Lemma 2.2. **The single discriminant −4p (d = 1) already carries the d = 1 family**,
+which has expected size `≍ log²p` (§5: actual d=1 counts 0–98 for p ≈ 10⁶).
+
+**4.2 The target (Prop 2.5).** `T(p,d) = ⋃_{c} T_c ∩ {height range}`, a union of shells of width
+`w_c = 1/(c√|D|)` (`|D| = 4dp`) along cuspidal geodesics γ_c, of hyperbolic length `ℓ ≈ log(a_max) ≈ ½log(p/d)`.
+Area `≈ Σ_c ℓ/(c√|D|) ≈ log²(p/d)/√(dp)`; with `#Λ ≈ |D|^{1/2}` points on a curve of volume `≍ 1` (level 1),
+the expected count is `≈ log²(p/d)` per d … weighted by the level data, `≈ log²(p/d)/d` (§3), total `log³p`.
+**Typical spacing of Heegner points is `|D|^{−1/4}`; the shells have width `|D|^{−1/2}`** — the target is below
+the point spacing by `|D|^{1/4}`: an exact-incidence problem disguised as a region (integrality of ⟨u,v⟩).
+
+**4.3 The statement that would suffice.** (TS) *For every large prime p there are d, c ≤ p^{o(1)} such that
+the Heegner points of discriminant −4dp (with the level data of Prop 2.5) meet the shell `T_c` in the
+genus `𝔊⁻ = {χ_{−4d}(Q) = −1}`* (Lemma 6.1 below: Type II points automatically lie there). (TS) ⇒ f_II(p) > 0.
+A counting version: `#(Λ_{4dp} ∩ T_c) = h·area/vol·(1 + o(1))` on average over c ≤ C.
+
+**4.4 Gap to known results (Assessment, using `LITERATURE_AUTOMORPHIC.md`).** Young 2017 Thm 2.1 error
+`‖φ‖₂ D^{5/12+ε} V^{1+ε}` (Lindelöf: `D^{1/4+ε}`) against main `D^{1/2}‖φ‖₁`. For a shell of width w and length
+`ℓ ≈ log D`: `‖φ‖₁ ≈ wℓ`, `‖φ‖₂ ≈ (wℓ)^{1/2}`, `V ≈ w^{−1}`. Main beats error iff
+`w^{3/2} ≫ D^{−1/12+ε}`, i.e. **`w ≫ D^{−1/18}` (unconditional — exactly Young's cusp-strip range)**, and
+`w ≫ D^{−1/6}` under Lindelöf. Type II needs **`w ≍ D^{−1/2}/c`**: gap `D^{4/9}` unconditionally, `D^{1/3}`
+under GLH. Summing over c ≤ C does not change V (the c = 1 shell is the thinnest) and adds at most a factor
+`log C` to the main term. Summing over d ≤ D₀ (several discriminants, DI/Duke–Iwaniec style) gains at most
+`D₀^{1/2}` in the error (square-root cancellation across discriminants), needing `D₀ ≥ p^{2/3}` even under
+GLH, where the per-d main term `log²/d` is already `< 1`. Even optimal pointwise square-root cancellation
+over the class group (error `≈ (h·area)^{1/2}`) would be ≈ `log p` against main `log²p` — fine — but no
+spectral method gives that at Sobolev scale `V = D^{1/2}`: smoothing at the point-spacing scale `D^{−1/4}` is
+the natural limit of any equidistribution statement, and the target is `D^{1/4}` finer. Compare Young
+Prop 1.2 (existence of roots of `b² ≡ −D (mod 4a)` with `a ≍ √D`, `|b| ≍ √D/V`, `V ≪ D^{1/18}`): the Type II
+root condition is `ν = 2ad` with `ν² ≡ −dp (mod f)` **and `f ≡ −1 (mod 2ν)`**, i.e. ν is pinned to one residue
+(`ν ≡ (2c)^{−1} mod f`), not to an interval of length `f/V`. **Conclusion (Assessment): no existing or
+GLH-conditional equidistribution theorem reaches (TS); the obstruction is the exact-incidence nature of the
+Type II condition (Prop 2.4/2.5), not the strength of subconvexity.**
