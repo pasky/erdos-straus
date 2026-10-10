@@ -75,10 +75,13 @@ obstruction to strong approximation, which is X4 = their Thm 1.2); and `U_n(Q)�
 does **not** have dense image (Thm 1.9: integral points are not Zariski dense, by a real argument).
 All `U_n` are Q-isomorphic to `U_1` (rescaling); ES is a statement about *integral models* varying
 with n. *Consequence:* BM can neither prove nor disprove ES at any n; the only BM information is
-the one quadratic bit of X4, which Theorem C already shows is satisfied "formally" at
-square-mimicking points (i.e. BM-compatible adelic points exist there; BL Thm 1.8 at n = p²
-non-square-free analogues: ET Prop 1.6 / BL Cor 1.4 show the bit *does* obstruct Type I/II at odd
-squares).
+the one quadratic bit of X4. At an odd square n this bit kills all Type I/II-shaped solutions
+(BL Cor 1.4 = ET Prop 1.6); at a prime p the BM set is non-empty (Thm 1.8), and at a
+square-mimicking p every *formally visible* prime is a residue (Theorem C), so the bit is
+unusable by X1-type procedures. A geometric route must therefore supply integral points by a
+mechanism that is not BM and works on log K3 surfaces with non-Zariski-dense integral points
+(cf. Markoff-type log K3 surfaces, where integral Hasse failures not explained by BM are
+known — Ghosh–Sarnak; Loughran–Mitankin — citation from memory, sources not archived).
 
 **X9. Polylog solution counts.** (ET Thm 1.1 + Markov, PROVED by ET; ET p. 5 already remark that
 circle-method-type methods are therefore insufficient.) `Σ_{p≤N} f(p) ≍ N log²N` up to `log log N`
@@ -108,3 +111,106 @@ circle-method-type methods are therefore insufficient.) `Σ_{p≤N} f(p) ≍ N l
   certificates) they are provably irrelevant; outside it they are not excluded.
 * **N7 Integrality / support of the prime measure, non-linear certificates** (OMEGA15 §6, OMEGA17):
   explicitly uncovered.
+
+## 2. Quantitative constraints on any pointwise route (Phase 1(b))
+
+Conventions. A *counting route* at a fixed prime p writes a lower bound
+`f(p) ≥ Σ_{j∈J(p)} N_j(p)` with integers `N_j(p) ≥ 0` (counts of solutions of a given shape,
+e.g. one Type II modulus M, one Type I pair (c,k), one level d, one spectral/Heegner packet),
+and proves `N_j = M_j + E_j` with *main terms* `M_j ≥ 0` and *error bounds* `|E_j| ≤ B_j`.
+"Piecewise" means the positivity conclusion is drawn from `Σ_j (M_j − B_j) > 0`.
+
+### 2.1 The integrality barrier
+
+**Proposition 2.1 (PROVED).** In any correct piecewise counting route,
+`Σ_j (M_j − B_j) ≤ Σ_{j: M_j>1/2} (M_j − B_j)`. In particular a piecewise route can conclude
+`f(p)>0` only if some single piece has `M_j > 1/2` and the route proves `N_j ≥ 1` *for that piece
+alone* (up to grouping: a "piece" may be any union of shapes, with its own main term).
+
+*Proof.* If `M_j ≤ 1/2`: when `N_j=0`, `B_j ≥ |E_j| = M_j`; when `N_j ≥ 1`, `B_j ≥ N_j − M_j ≥
+1/2 ≥ M_j`. Either way `M_j − B_j ≤ 0`. ∎
+
+*Reading.* Pieces with expected count below 1/2 contribute nothing, however good their error
+bounds are, unless errors are summed *with signs* (cancellation between pieces). A route must
+therefore either (a) group shapes into pieces with main term ≳ 1, and then prove an asymptotic or
+lower bound for that grouped count at the single prime p, or (b) bound `Σ_j E_j` collectively
+(e.g. one spectral expansion of the whole sum). Option (b) is the same as (a) with the grouping
+`J(p)` itself.
+
+**Lemma 2.2 (Type II pieces are all sub-unit; PROVED).** For the multiplier pieces
+`N_M(p) = #{D | A_M² : p ≡ −4D (mod M)}` (`M≡3 (4)`, `A_M=(M+1)/4`), the natural main term
+`M_M ≤ τ(A_M²)/φ(M)`, so `M_M ≤ M^{−1+o(1)} → 0`; only `M ≤ C` (absolute) pieces can have main
+term > 1/2, and those are congruence conditions mod a bounded modulus (X1/X3).
+*Proof.* Divisor bound `τ(n)=n^{o(1)}` and `φ(M) ≫ M/log log M`. ∎
+So, by Prop 2.1, every Type II route is of kind (b): it must control the grouped count
+`N_T(p) := Σ_{M≤T} N_M(p) = #{(M,D) : M≤T, M≡3 (4), D|A_M², M | p+4D}` (the "flipped"
+divisor sum in shifted values `p+4D`), whose main term mass is `≍ 𝓛³` on average over p
+(cubic mass κ, CEILINGS_UNIFIED §0).
+
+### 2.2 The range of validity of any pointwise asymptotic
+
+**Proposition 2.3 (PROVED modulo the citations of X5).** There is c>0 such that for infinitely
+many Mordell-hard primes p, `N_T(p) = 0` with `log T = c(log p)^{1/4}(log log p)^{−1/4}`.
+Consequently:
+(i) no statement "`N_T(p) ≥ 1` for all large p with `log T ≥ (log p)^α`" holds with α < 1/4;
+(ii) every pointwise estimate `N_T(p) = 𝓜_T(p) + O(𝓔_T(p))` valid for all Mordell-hard p in this
+range has `𝓔_T(p) ≥ 𝓜_T(p)` at those primes.
+*Proof.* `N_T(p)=0` iff `W(p)>T` (notes (51.1)–(51.2), with ℓ not required prime). X5. ∎
+
+*Type I analogue (PROVED modulo Lau–Wu / Graham–Ringrose via OMEGA Thm 8.5 and Lemma 8.1).*
+The Type I count restricted to heights `ck ≤ T` vanishes i.o. with `T ≍ log p·log₃p`, and at every
+p with `T < n_p`.
+
+*Assessment (the main term must be high-conductor).* On average over Mordell-hard p the mass of
+`N_T` is `≍ 𝓛³ → ∞`. At the X5 primes the true count is 0. So a main term `𝓜_T(p)` that is a
+fixed function of `(log p, p mod q₀)` with `q₀` small (a low-conductor singular series, the
+typical constant-eigenfunction/Eisenstein term) is ≍ 𝓛³ at those primes as well, unless the
+X5 construction can be steered away from the classes where `𝓜_T` is large. The X5 primes are
+built inside a fibre `p ≡ r (mod Q)`, r a square, with `log Q ≪ 𝓛⁴(log 𝓛)^{O(1)}` ≍ log p at the
+critical T (OMEGA13 §3). Hence (Assessment, not a theorem): *at log T ≍ (log p)^{1/4} the main term
+must carry local information at moduli of size `p^{c}`*, i.e. the route works where "main term"
+and "error term" are not separated by conductor. This is the precise sense of "near-Planck".
+
+### 2.3 Non-injectivity
+
+**Proposition 2.4 (PROVED, from ET Prop 1.7 and ET Thm 1.1).** Suppose a route attaches to p a
+family `𝓕_p` with `|𝓕_p| ≥ p^δ`, proves that at least `c|𝓕_p|^{1−η}` members "detect" a solution,
+and each solution is detected by at most `m_p` members. Then
+`m_p ≥ c p^{δ(1−η) − 3/5 − O(1/log log p)}` for every p, and
+`m_p ≥ c p^{δ(1−η)}/(ξ(p) log³p log log p)` for all p outside a set of relative density o(1)
+(any ξ→∞). *Proof.* `c|𝓕_p|^{1−η} ≤ m_p f(p)`; ET Prop 1.7 and the Markov consequence of ET
+Thm 1.1 (ET (1.5)). ∎
+
+*Reading.* Any equidistribution statement with a power saving over a family of size `p^δ` detects
+solutions through a map with fibres of size `p^{δ(1−η)−o(1)}` at typical p. The route must then
+say *which coarse invariant* of a solution the family member detects, and prove that a detected
+invariant lifts to an actual positive integer solution (lifting step). In every proposal, the
+lifting step is where congruence data may re-enter (§4).
+
+### 2.4 Every solution sees a non-residue at least `n_p`
+
+**Proposition 2.5 (PROVED; X4).** Let `p≡1 (4)`. Every positive solution has a denominator (or
+cofactor product, Lemma CT(b),(c)) divisible by a prime `ℓ ≥ n_p` with `χ_p(ℓ)=−1`. Hence a
+route whose detecting objects only produce solutions with `y`-smooth denominators fails at every
+`p≡1 (4)` with `n_p > y`; such primes exist with `y ≥ (1/5.2 − o(1)) log p` (class
+`p≡1 (mod 8∏_{ℓ≤y}ℓ)` + Linnik–Xylouris, unconditional; G–R gives `y ≫ log p log₃p` i.o.).
+*Proof.* Lemma CT; reciprocity for the class. ∎
+
+*Reading.* Any detection mechanism must "see" `χ_p` at a prime `≥ n_p`. For a spectral route this
+means the relevant spectral data must depend on `χ_p` beyond its values at small primes, e.g.
+through `L(s,χ_p)`-type objects or a Heegner/CM set of discriminant divisible by p, not only
+through `p mod q` for small q.
+
+### 2.5 "p mod q for q in S(p)" is congruence data unless S(p) is controlled
+
+**Proposition 2.6 (PROVED, bookkeeping).** Suppose a route proves `Φ(p) ⇒ ES(p)` where `Φ(p)`
+depends only on `p mod L` for some `L = L(P)` depending only on the dyadic range `p ∈ (P,2P]`.
+Then the same argument proves ES for every prime `p' ≡ p (mod L)` in `(P,2P]`; i.e. it is a
+covering statement for each class mod L with `Φ` true. If moreover `Φ` is witness-producing via
+classes mod divisors of L of size `≤ T`, X5 applies with that T.
+*Proof.* Φ does not distinguish p from p'. ∎
+*Reading.* "Decisive input = p mod q, q ∈ S(p)" escapes X1/X5 only if (a) `lcm S(p)` exceeds
+`exp(c(log p)^{1/4})` *and* the argument is not a witness-class argument at that level (then it
+is a covering statement at level `lcm S(p)`, which must beat the Haar avoider density
+`exp(−Θ̃(𝓛³))` of X7 inside each class), or (b) S(p) depends on p in a way not determined by the
+dyadic range (E1/E2: then the route must say how S(p) is chosen and why it is correct).
