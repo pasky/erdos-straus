@@ -67,7 +67,7 @@ rational) recipe: the side conditions are the sets `S_j` (congruences mod a fixe
 conditions, or anything else — no restriction is imposed on `S_j`). Explicit recipes in the literature (Mordell,
 Schinzel, ET's parametrisations) are polynomial, hence of this form. What is **not** covered: recipes whose
 algebraic complexity is unbounded (e.g. dividing by `gcd`s of unbounded size, or a search over an unbounded
-auxiliary parameter); see §5.
+auxiliary parameter); see §9.
 
 **Definition 1.2.** Piece `j` is *degenerate* if `X_j, Y_j, Z_j ∈ ℚ(Q)`, i.e. each is a rational function of the
 single quantity `Q(v)` (so the ES solution depends on `v` only through `p`).
