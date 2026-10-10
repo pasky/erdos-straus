@@ -1,6 +1,6 @@
 # Spectral and geometric tools for pointwise representation by log-K3-type families (O129 literature scout)
 
-**Status: literature survey (2026-10-10), WORK IN PROGRESS.** Nothing here proves Erdős–Straus (ES) or any case of it.
+**Status: literature survey (2026-10-10).** Nothing here proves Erdős–Straus (ES) or any case of it.
 "Verified" for a link means that the page was fetched on 2026-10-10 and its title and authors matched. Each item ends with an
 **Assessment** label:
 * DIRECTLY USABLE INPUT: a theorem that can be quoted as a lemma;
@@ -10,6 +10,48 @@
 
 Cross-reference: `LITERATURE_2026.md` (§2 recent ES work, §3 global ideas incl. (iv) BM/fibration, (x) spectral). Not repeated here.
 PDFs: `sources/autgeo/`.
+
+## 0. Executive summary for the parallel agents (parent-checked items are marked ✔)
+
+**Bottom line.** No paper found proves pointwise ES, conditionally or not. No paper applies automorphic forms, Kuznetsov or Heegner-point equidistribution to `4/n`.
+
+* *Citers of Bright–Loughran.* Six verified citers (§4a). None proves a new result about integral points on `U_n`.
+* *Analytic work on 3-term unit fractions.* It is all mean-value or upper-bound work (§5): Browning–Elsholtz `f₃(m,n) ≪ (n/m)^{23/12}n^ε`, Jia 2012, Huang–Vaughan for 2 terms, plus Elsholtz–Tao and the campaign's own (D)32.
+* *Conditional results.* The conditional literature (§6) is about fixed ternary forms (Ono–Soundararajan, Rouse, Kane) and has no ES analogue.
+
+**Five points the follow-up agents should take from this file.**
+
+1. **(O123, O128) Spectral methods do give pointwise-in-the-discriminant existence, but only for large targets.**
+   * ✔ *Young.* Young 2017 Thm 2.1 gives an effective-shape error `‖φ‖₂ D^{5/12+ε}V^{1+ε}`, with ineffective constants through Siegel. Consequences:
+     * every fixed ball of radius `D^{−δ}` (`δ < 1/24`) contains the expected share of the Heegner points of discriminant `−D`; under Lindelöf, `δ < 1/8`. Humphries Thm 1.22 is the restatement, Thm 1.24 the genus/closed-geodesic version.
+     * Young Prop. 1.2 is a *single-D existence theorem* proved spectrally: `b² ≡ −D (mod 4a)` has solutions with `a ≍ √D`, `|b| ≍ √D/V` for every large odd fundamental `D`, in the range `V ≪ D^{1/18−ε}`.
+   * *Humphries–Radziwiłł.* They reach much smaller targets, but only for almost all centres.
+   * *What O123 must compute.* For a fixed prime `p`, find the discriminant and the target region in which an ES Type I solution corresponds to a Heegner point. Then compare the region's area with `D^{−1/12}` (unconditional) or `D^{−1/4}` (GLH).
+     * If the area is a fixed power of `D` above that threshold, the method would give a pointwise statement. It would be ineffective through Siegel; effective under GRH.
+     * If the area is below the threshold, the method is out of range. That would be the expected outcome, and it is a precise one.
+2. **(all) The odd-square sanity check.** Elsholtz–Tao Prop. 1.6 ✔ (p. 7 of arXiv:1107.1010): `f_I(n) = f_II(n) = 0` for every odd perfect square `n`.
+   * Any method that proves `f_I(p) > 0` must therefore fail at `n = p²`. ET note that this already rules out finite covering congruences and the circle method.
+   * A spectral/Heegner route passes this check only if its discriminant or target degenerates at squares. Check this first.
+3. **(O123, O124) Optimal lifting benchmarks.** Sardari ✔ (Duke 2019, arXiv:1510.00462):
+   * *Thm 1.2.* A quadratic form in `d ≥ 5` variables represents `N` in a prescribed class mod `m` and a prescribed cap of radius `r` once `N ≫ (m/r)^{4+δ}`. The exponent 4 is optimal.
+   * *`d = 4`.* The exponent is 6, for odd `N`; 4 is conjectured.
+   * *Determinant equations.* Cor. 1.1: `det H = m` with `H/√m` within `m^{−1/6+δ}` of any point of a compact set in `SL₂(ℝ)`.
+   * This is the right yardstick for "congruence class plus real cone at polynomial height". ES adds multiplicative constraints (the shape `4a²d`), which are not congruence conditions.
+4. **(O126) Integral points on log K3 surfaces: no real-place strong approximation in families.**
+   * ✔ *Harpaz (JEMS 2019).* Thm 1.0.1 is *existence* of S-integral points on conic log K3 surfaces under square-class independence. The proof uses Green–Tao–Ziegler, not approximation at the real place.
+   * *Cao–Xu and Wei.* These are toric results, "off ∞".
+   * ✔ *Markoff surfaces (Ghosh–Sarnak).* Hasse failures number at least `√K(log K)^{−1/2}` up to `K`, while almost all admissible `k` are fine. This is the standard "almost all versus every" gap.
+   * *Bright–Loughran.* BL Thm 1.9 says Brauer–Manin does not even control strong approximation on `U_n`.
+5. **(O127) GRH in the literature removes Siegel ineffectivity and nothing more.** Examples: Ono–Soundararajan ✔ (via Kane), Rouse Thm 7, Kane.
+   * In none of these examples does GRH turn an average result into a pointwise one.
+   * Combined with item 1, the realistic conditional target is "ES (Type I) for all `p > p₀`, effective under GRH/GLH, *if* the target area clears the Young/Humphries threshold". No such statement exists in the literature.
+
+**Corrections made by the parent to subagent drafts** (recorded for the reviewer):
+* Ghosh–Sarnak Thm 1.2(i): the count is `√K(log K)^{−1/2}`, not `K(log K)^{−1/2}`.
+* Young's ball scale: `V ≪ D^{1/24}`, not `D^{1/12}`.
+* Humphries Thm 1.22 is Young's theorem, over the full class group (not a genus).
+* Ono–Soundararajan: the 18 exceptions are conditional on GRH; the `2·10^{10}` is the GRH-conditional analytic bound.
+* Visit dates: several subagents wrote wrong visit dates; all were normalised to 2026-10-10, the date of the session.
 
 ## 1. Small-scale distribution: CM points, closed geodesics, and quadratic roots
 
@@ -559,7 +601,7 @@ The obstacle is structural: the standard covering criterion expresses ES as a pr
 
 ### Ken Ono and K. Soundararajan, “Ramanujan’s ternary quadratic form,” Inventiones Mathematicae 130 (1997), 415–454
 * Link(s): [author publication page and PDF](https://uva.theopenscholar.com/ken-ono/publications/ramanujans-ternary-quadratic-form), visited 2026-10-10; title/authors/journal metadata verified there. The paper’s full theorem text was not machine-readable in the retrieved scan; an indexed search snippet of the paper confirms the GRH conclusion described below, but precise eligible congruence classes should be checked against the original PDF before reuse.
-* Main theorem(s): Theorem 3 is reported as proving, **assuming GRH**, that there are no exceptional integers larger than `2×10^10` for representation by Ramanujan’s ternary form `x²+y²+10z²`, within the integers eligible for representation by that form. This is a result about a specific positive-definite ternary quadratic form, not an unconditional universality assertion; finite small exceptions remain. Full hypotheses/congruence-class list and effectiveness should be checked directly in the paper (source text not extractable here).
+* Main theorem(s): the theorem number has not been checked. As quoted in Kane's paper (`sources/autgeo/Kane-ternary-2010.pdf`, text inspected) and in sec. 3 above: **assuming GRH**, the *eligible* integers not represented by `x²+y²+10z²` are exactly 3, 7, 21, 31, 33, 43, 67, 79, 87, 133, 217, 219, 223, 253, 307, 391, 679 and 2719. Under GRH their analytic bound reduces the problem to n ≤ 2·10^10, and a computer check covers that range (Kane, p. 2). The GRH inputs are for Dirichlet L-functions and for weight-2 newform L-functions. The result is about one fixed form.
 * Summary: A relevant model of a conditional “finite test implies all” representation theorem: theta-series/modular-form coefficients and analytic bounds under GRH control representations by a fixed quadratic form. The shape of the argument is far from an Egyptian-fraction decomposition.
 * Relevance to pointwise ES: O124 may find the modular-forms proof strategy conceptually useful if an ES parametrization can be encoded by coefficients of a suitable theta series/form. There is currently no such fixed quadratic form whose represented integers exactly capture ES, and the theorem cannot imply ES. **Assessment: LANGUAGE-FRAMEWORK ONLY** — a conditional universality precedent, no known transfer to reciprocal-unit-fraction solutions.
 
