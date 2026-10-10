@@ -144,12 +144,13 @@ gcd(n,f) = 1, which holds since p ∤ abd. Square-mimicking: `(f/p) = −(−1/p
    on p" (true in GZ: the ramified prime with v_p = 1 contributes a trivial/log p factor). Should be stated.
 3. **Concrete repair (my derivation; I recommend the author adopt it instead of the citation).** Fix Λ = Λ_{d,m}
    ⊂ B = B_{p,∞} (all embeddings Λ → B are B^×-conjugate by Skolem–Noether, applied to the generating pair). The
-   x = 2 collision count, in the form `Σ_{[O]} #{Λ ↪ O}/|O^×|`, equals `#{maximal O ⊃ Λ}·(2/|Λ^×|)`-type mass,
-   and `#{maximal O ⊃ Λ} = ∏_ℓ #{maximal O_ℓ ⊃ Λ_ℓ}` (local–global for lattices). At ℓ = p: 1 (unique maximal
+   x = 2 collision count, in the form `Σ_{[O]} #{Λ ↪ O}/|O^×/±1|` (free action: the centraliser of Λ is ℚ^×), equals
+   `Σ_{O' ⊃ Λ} [N(O') : O'^×ℚ^×]·…`, i.e. `#{maximal O' ⊃ Λ}` up to a normalisation constant ≤ 2 independent of
+   (d,m,p) (Atkin–Lehner at p / the curve↔type correspondence for E vs E^{(p)}; fix the convention), and `#{maximal O ⊃ Λ} = ∏_ℓ #{maximal O_ℓ ⊃ Λ_ℓ}` (local–global for lattices). At ℓ = p: 1 (unique maximal
    order). At ℓ ∥ e: Λ_ℓ has reduced disc ℓ, so has index ℓ in any maximal O_ℓ ⊃ Λ_ℓ, hence contains ℓO_ℓ and
    `Λ_ℓ/ℓO_ℓ` is a 3-dimensional unital subalgebra of M₂(𝔽_ℓ), i.e. a Borel: Λ_ℓ is Eichler of level ℓ, contained
-   in exactly 2 maximal orders. So **for squarefree e the x = 2 count is `2^{ω(e)}` times a unit factor
-   (`|Λ^×| ∈ {2,4,6}`), independent of p and of m.** Since (5,23) has e = 23 prime, both p = 313 and p = 73 give the
+   in exactly 2 maximal orders. So **for squarefree e the x = 2 count is `2^{ω(e)}` (times the fixed
+   normalisation), independent of p and of m.** Since (5,23) has e = 23 prime, both p = 313 and p = 73 give the
    same count while ES differs: Prop 5.1's conclusion becomes PROVED for these pairs without any GZ citation
    (non-squarefree e needs the ℓ^k local count, also purely local; optimality conditions, if imposed, are local
    too). Caveat: whether the GZ/Lauter–Viray "x-term" is exactly this embedding count (vs optimal embeddings of
