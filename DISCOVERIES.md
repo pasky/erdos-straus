@@ -466,6 +466,13 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * In every case positivity is again "some specific integer has a divisor in a residue class".
    * CERTIFIED (exact ℚ-rank, R131): no linear relation between 56 ES count variants and 54 classical functions (Hurwitz class-number convolutions, divisor sums, …) on n ≤ 2·10⁴. The scope is that finite dictionary.
 
+6. **Quaternionic / supersingular reformulation: exact dictionaries, still congruence data (QUATERNION_ES.md; review `reviews/quaternion-es-review.md` (R130): no FATAL; one MAJOR (a Gross–Zagier citation whose hypotheses fail, now qualified) and minors, repaired by the reviewer).**
+   * Prop 1.3 (PROVED, Hilbert symbols; checked on all Type I solutions with p < 2000). Every Type I solution gives an order Λ = ℤ⟨u,v⟩ with u² = −d, v² = −ab, uv+vu = 1 and reduced discriminant `4abd − 1 = pe`, inside an algebra that is exactly `B_{p,∞}` (for p ∤ e). So CM points of discriminants −4d and −4ab have a common supersingular reduction mod p. The identity `(16abd − 4)/4 = pe` has the shape of Gross–Zagier's `(D₁D₂ − x²)/4` with x = 2, but GZ's hypotheses do not apply, so this is a formal analogy only.
+   * Lemma 3.1 (PROVED, verified symbolically): Type II ⟺ `(2ai + j)(2bi − j) = −e(1 + 2ck)` in the quaternion algebra (−d, −p).
+   * Props 2.2 and 3.2 (PROVED): for both types, once the level and e are fixed, the quaternionic data are congruence/genus data. The residual condition is the split divisor problem "m has a divisor a with `a + m/a ≡ 0 (mod e)`", with e a coordinate of the solution.
+   * Assessment: level-aspect equidistribution (Michel, Ellenberg–Michel–Venkatesh, Kane, Liu–Masri–Young) would only equidistribute data that is automatic here. The scope is these encodings, not every quaternionic encoding.
+   * Novelty of the dictionary: unverified (no literature hits).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
