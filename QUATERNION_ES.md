@@ -89,3 +89,84 @@ Norms: `N(2ai + j) = 4a²d + p = ef`, `N(2bi − j) = ef'`, `N(1 + 2ck) = 1 + 4c
 Compare Type I (Lemma 1.1): `(1 + 2ai)(1 + 2bi) = e(2ci + j²)` — commutative, inside `ℚ(i)`. ET's dilation swaps
 `1 ↔ j`. In Type II the product of two elements of the order `ℤ⟨i,j⟩` (reduced disc 4dp) lands in `e·ℤ[k]`:
 a statement about left/right ideals of norm e in a quaternion order of level `4dp` (to be developed: §3.2 ff.).
+
+### Proposition 3.2 (Type II residual condition is split — the Type II analogue of Prop 2.2; PROVED)
+Type II(p) at level d holds iff there is `e ≥ 1` with `4d | p + e` such that `m = (p+e)/(4d)` has a divisor a with
+`a + m/a ≡ 0 (mod e)`. (Then `b = m/a`, `c = (a+b)/e`; `gcd(abd, p) = 1` is automatic, since `p | e` would give
+`4abd = p + e ≤ 2(a+b)`, forcing `p = 2`.) *Proof.* ET (2.18)–(2.19): `4abd = p + e`, `a + b = ce`. ∎
+Again `X = a+b`, `Y = b−a`: `X² − Y² = 4m`, `e | X` — an isotropic (split) binary problem. Lemma 3.1 does not change
+this: the ES elements `2ai + j` run over the *line* `{2xi + j}` of `ℤ⟨i,j⟩`, on which `N = 4dx² + p` is a
+one-variable polynomial; the conditions `e | N(2ai+j)`, `e | N(2bi−j)`, `e | a+b` are divisor conditions on values
+of `4dx² + p` (Hooley-type), not representation numbers of a definite form.
+
+**Ideal reading of Lemma 3.1 (PROVED, local).** `R = ℤ⟨i,j⟩` has reduced discriminant `4dp`, so `R_ℓ ≅ M₂(ℤ_ℓ)`
+for `ℓ ∤ 2dp`. `α = 2ai + j` and `β = 2bi − j` are primitive (j-coefficient ±1). For `ℓ^k ∥ e`, `ℓ ∤ 2dp`, the
+reductions `ᾱ, β̄ ∈ M₂(ℤ/ℓ^k)` have rank one, and `αβ ∈ ℓ^k R_ℓ ⟺ im β̄ = ker ᾱ` in `ℙ¹(ℤ/ℓ^k)`. So Type II is:
+two elements of the line `{2xi ± j}` whose level-e structures (cyclic e-isogenies, Brandt/Hecke `T_e`
+adjacency) are composable, with `αβ/e = −(1 + 2ck) ∈ ℤ[√−dp]`. The matching is a congruence modulo e, and
+`e = 4abd − p` is a coordinate of the solution: again a shrinking target.
+
+### 3.3 Supersingular reading of Type II (Assessment; standard facts cited, not re-proved)
+The Type II form `[f, 4ad, de]` has discriminant `−4dp`. CM points of discriminant `−4dp` (p ramified) reduce mod p
+to supersingular curves E on which `√−dp` factors through Frobenius, i.e. E admits an isogeny of degree d to
+`E^{(p)}` (for d = 1: `j(E) ∈ 𝔽_p`; cf. Delfs–Galbraith). The reduction map sees the *class* of the form (the CM
+point), while the ES side condition `A ≡ −1 (mod B)` is a condition on the *representative*. Each class contains
+infinitely many representatives of the shape `[A, 4da, dE]` (orbit of a congruence subgroup containing
+`[[1,0],[2,1]]` and `[[1,2d],[0,1]]`), of which finitely many are ES-good (GEOMETRY_ES Prop 4.1). So ES-goodness is
+not a function of the CM point, still less of its reduction mod p. The same holds for Type I and its disc `−4d` points.
+
+### 3.4 Fixed-(d,e) test (EVIDENCE; `scripts/quat_residual.py 1500`)
+* (A) Lemma 3.1 holds, by explicit quaternion multiplication, on all 3303 ordered Type II solutions with p < 1500.
+* (B) Take `p ≡ 1 (24)`, `p < 1500`, `d ≤ 12`, `e < 60`, with all the collision/genus data in place. For Type I that
+  means `4d | pe+1`, `(−d/p) = −1` and `4r²d ≡ −1 (e)` solvable. For Type II it means `4d | p+e` and
+  `4r²d ≡ −p (e)` solvable. Under these conditions the divisor condition holds in only **40/93 (Type I)** and
+  **120/450 (Type II)** cases.
+* There are explicit pairs with the same `(d,e)` and opposite ES status:
+  * Type I: `(d,e) = (5,23)`, p = 313 (ES) vs 73 (no ES); `(10,7)`, 457 vs 97.
+  * Type II: `(1,7)`, 73 vs 97; `(1,11)`, 73 vs 193.
+
+## 4. Checks: ET Prop 1.6 (odd squares) and square-mimicking primes (PROVED)
+* *n = p².* Run the dictionaries with n in place of p.
+  * Type I: `Λ_{d,m}` lies in `(−d, −dne)`, and its symbol at p is `(−d/p)^{v_p(n)} = 1`. The collision is no longer
+    supersingular-at-p. Consistently, Type I(n) needs `(−4d/n) = −1` (proof of GEOMETRY Prop 5.1 verbatim with n),
+    and that is impossible for a square: f_I(p²) = 0.
+  * Type II: the proof of Prop 5.2 gives `(n/f) = (−d/f) = −1`, impossible for `n = p²`: f_II(p²) = 0.
+  * So both dictionaries fail at odd squares, as they must. They do so through the genus characters, i.e. through
+    congruence data (inside Theorem C's scope). Nothing in §§1–3 escapes POINTWISE_SIZE Thm M/C. The quaternionic
+    side of Props 1.3/2.2/3.2 is determined by `p mod 4d`, Legendre symbols and e. The non-congruence part (the
+    divisor condition) is the classical one.
+* *Square-mimicking p* (`(q/p) = 1` for all small primes q, `p ≡ 1 (24)`):
+  * Type I collisions need `(−d/p) = −1`, hence `d ≥ d*(p)`.
+  * Type II at a small level d lives in `(−d,−p)`, which splits at p; there is no constraint from the algebra.
+  * By Lemma CT, some prime factor ℓ of f has `(ℓ/p) = −1`, so ℓ is large.
+  * This adds nothing new and contradicts nothing.
+
+## 5. Summing over the Gross–Zagier parameter (question (3))
+For `D₁ = −4d`, `D₂ = −4m` the Gross–Zagier / Lauter–Viray count of supersingular collisions mod p is
+`Σ_{x² < D₁D₂, x ≡ D₁D₂ (2)} Σ_{n | (D₁D₂−x²)/4, ...}` (ε-weighted local factors; cited, not re-derived). Summed over
+all x and averaged over d, m, this is a class-number-product quantity: an intersection number of CM cycles, a
+coefficient of an Eisenstein series via Siegel–Weil / Gross–Kohnen–Zagier. Type I forces **x = 2**.
+**Proposition 5.1 (the x = 2 term does not see ES; PROVED modulo the cited shape of the GZ local factor).** The x = 2
+term depends only on `n = pe` and on the genus characters `ε` of `(D₁, D₂)` at the primes of n. Those are
+`(−d/ℓ)` for `ℓ | pe`. ES at `(d,e)` is not a function of these data: in the pairs of §3.4 (e.g. `(d,e) = (5,23)`,
+p = 313 vs 73) e is the same, the characters `(−5/23)` and `(−5/p) = −1` are the same, and ES differs.
+Summing over `(d,e)` therefore gives `Σ_{d,e: 4d | pe+1} F_ε(e)`, a congruence-weighted divisor sum in e, not a
+class-number product. The class-number size of the full GZ quantity comes from the ≍ `√(dm)` values of x. The
+restriction to the single value x = 2 removes it, and the ES weight (a divisor of `m = (pe+1)/4d` in the classes
+`±√(−m)` mod e) is an extra condition on top. *Assessment:* no GZ/GKZ coefficient reproduces `f_I(p)`; the x = 2
+restriction is exactly what kills the class-number structure.
+
+## 6. Verdict on the route (Assessment, with the PROVED content listed)
+* PROVED dictionaries: Type I ↔ an x = 2 GZ collision of CM points of discriminant −4d and −4ab in `B_{p,∞}`, plus a
+  divisor condition (Props 1.3, 2.1, 2.2). Type II ↔ a non-commutative factorisation in `(−d,−p)` with matched level-e
+  structures, plus the same divisor condition (Lemma 3.1, Prop 3.2).
+* In both, the quaternionic / supersingular / level-p object carries only congruence and genus data (Prop 2.2, §3.2,
+  §4). The ES content is the split divisor problem "m has a divisor in the square-root classes of −m mod e", where e
+  is a coordinate of the solution. No definite form appears whose representation numbers or theta coefficients
+  decide ES. So the level-aspect tools (Michel's equidistribution of supersingular reductions, EMV, Kane,
+  Liu–Masri–Young) have nothing to act on here. They would give equidistribution of the collision data, which is
+  automatic (congruence) in these dictionaries.
+* *Scope of the negative statement:* it concerns these dictionaries, i.e. encodings in which p enters only as the
+  ramified prime / Frobenius and the ES witness is a pair of CM endomorphisms with fixed relative trace. A hypothetical
+  encoding in which the divisor condition itself became a definite representation problem is not excluded. Prop 3.2's
+  isotropic `X² − Y² = 4m` shows it cannot come from any quadratic map of the ES parameters `(a, b)` alone.
