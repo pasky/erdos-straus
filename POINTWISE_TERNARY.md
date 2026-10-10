@@ -264,6 +264,29 @@ length is wasted: on a mild representation set, a bounded-complexity ES recipe i
 an argument must use representation sets of relative density `≤ p^{−1/4+ε}f(p)` (non-mild side conditions, which no
 representation theorem controls), or a recipe of unbounded algebraic complexity (§9).
 
+## 8. Numerics for the rank-3 piece (Q_d) (step 4; EVIDENCE)
+
+`scripts/tern_qd.py N DMAX AMAX` (outputs `logs/tern_qd_1e7.out.txt`, `logs/tern_qd_1e8.out.txt`; ≈10 s for N = 10⁸).
+For the Mordell-hard primes `p ≤ N` (`p mod 840 ∈ {1,121,169,289,361,529}`) it computes
+`a_min(p)` = least `a` such that some `d ≤ DMAX` gives a Type II solution through (Q_d), i.e. a divisor
+`f | p + 4a²d`, `f ≡ −1 (mod 4ad)`, with `b = ce − a ≥ 1`.
+
+| N | primes | a_min = 1 | 2 | 3 | 4 | ≥ 5 | max a_min (at p) |
+|---|---|---|---|---|---|---|---|
+| 10⁷ | 20513 | 19634 | 682 | 160 | 21 | 16 | 13 (733321) |
+| 10⁸ | 179468 | 174503 | 4076 | 731 | 99 | 59 | 22 (84525841) |
+
+(DMAX = 8, AMAX = 200; at N = 10⁶ with DMAX = 4, AMAX = 100 the two small primes 3361, 7681 are not covered — they
+need `d > 4`.) So every Mordell-hard prime below 10⁸ is reached by (Q_d) with `d ≤ 8`, `a ≤ 22` (EVIDENCE). This is
+a **divisor search of growing length** (the window regime of STATUS, `a_min ≍ log p/log log p` heuristically), not a
+representation statement: for a sample of 2000 such primes, `d = 1`, `a ≤ 50`, only 14109 of the 562792 points
+`(e, f, a) ∈ ℕ³` of `E_p` satisfy `4a | f + 1` (ratio 0.025, and the ratio → 0 as the `a`-range grows, Prop 6.2(ii)).
+
+*On the known hard candidates.* x** (r = 13) and `x̂_9` (Type I) are points of `Ẑ^×`, not primes; Cor 7.1 is the
+relevant statement (no mild embedding reaches a sterile point). The ET class `−4a²d mod f` (`4ad | f+1`) through which
+(Q_d) acts at a *fixed* `(a, d, f)` is one of the Type II families tested in MORDELL13E Comp 3.1, so no such class of
+ES level `< 2.59·10¹⁰` contains x** (CERTIFIED there; not re-run here).
+
 ## 9. Scope: what the theorem does not exclude
 
 1. **Families with a growing parameter** (`∃ t ≤ T(p)` such that `κ_t p + η_t` is represented by `Q_t` with
