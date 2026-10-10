@@ -161,3 +161,7 @@ cf. BL App. A / Yamamoto). Must-fix before citing: D3 (splitness ≠ the reason;
 proved), D8 (Prop 4.1 finiteness false without c ≠ 0), D1 (n = 1), D10 (attribution). The rest is cosmetic.
 Aim (B) "negative for every fibration" is right **for every fibration**, but because of BL Lemma 3.10 (real
 place), not because of splitness.
+
+## Round-1 repairs applied
+At the parent's request the reviewer applied D1–D10 and R2–R4 directly in `GEOMETRY_ES.md` and
+`reviews/agent-reports/AGENT_REPORT_O126.md`, each marked "(R126 repair)".
