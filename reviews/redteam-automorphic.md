@@ -271,3 +271,30 @@ sees only `p mod Q`), and the low-conductor main term `M0` (local data mod 840 o
    Brauer–Manin-type local-global statements): such a route must explain what it does at x\*\* /
    x̂₉ / the 17-line, where finitely many families provably (at the square point) or conjecturally
    (others) fail.
+
+## 4. Pre-registered collapse tests for Phase 2
+
+Each proposal will be run through these tests; a route that passes all of them is labelled
+**surviving** (which is not the same as correct).
+
+* **T1 Odd-square test (ET Prop 1.6; BL Cor 1.4; PROVED that it is necessary).** Odd squares
+  `n=m²` have no Type I/II solutions. A route claiming `f_I(n)+f_II(n)>0` must contain a step that is
+  false at `n=m²`. Name it. (At `n=m²`, `χ_n` is principal off m: Heegner/CM data of discriminant
+  built from n are non-fundamental; `L(s,χ_n)` is ζ times finitely many factors.)
+* **T2 Integrality (Prop 2.1).** Which pieces have main term > 1/2? If none, where is the collective
+  (signed) control of the error, and what is its size against total mass `≍ log³p`?
+* **T3 Range (Prop 2.3).** Does any claimed pointwise asymptotic or lower bound hold with Type II
+  moduli `log T < (log p)^{1/4}` (Type I heights `< n_p`)? If so, it contradicts X5 / OMEGA Thm 8.5.
+* **T4 Non-residue (Prop 2.5).** Where does `χ_p` at a prime `≥ n_p` enter?
+* **T5 Fibre (§2.2 Assessment, §3.3(2)).** What do the main and error terms do on the X5 fibre
+  `p≡r (mod Q)`, r square, `log Q ≍ 𝓛⁴`, where the true count up to T is 0?
+* **T6 Covering (§3.3(3)).** For routes that produce solutions from finitely many families (incl.
+  fibration/BM, finite unions of forms/genera): behaviour at the square point (provably fails), x\*\*,
+  x̂₉, the 17-line.
+* **T7 Average leak.** Does any cited estimate (spectral large sieve, DI Thm 7, Kuznetsov with
+  exceptional eigenvalues, Bombieri–Vinogradov, zero-density) average over a parameter that the
+  pointwise statement fixes (p, or the level/discriminant attached to p)? If so, what remains at a
+  single p?
+* **T8 Lifting (Prop 2.4).** Which coarse invariant does a detecting object see, what is the fibre
+  size, and is the lift to a positive integer solution unconditional, or does it re-introduce
+  `p mod q` (Prop 2.6) or a search (E1)?
