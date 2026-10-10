@@ -30,11 +30,11 @@ Defects:
   solutions. A quadruple with g = gcd(a,b,c) > 1 is the dilate `(a/g, c/g, g²d, f)` of a primitive one (ET (2.10))
   and gives the *same* (x,y,z). They are not rare: 6 315 non-primitive quadruples (a ≤ b) for primes ≤ 3000 (first
   at p = 19). So "point in R_c ⇔ Type I quadruple" is right, but "distinct points ⇒ distinct solutions" (used in
-  Cor 5.2) is false across d ↦ g²d. Repair (R123 repair): add to Lemma 2.1 "(iii) parametrises all quadruples; the
-  solution count f_I(p) is the number with gcd(a,b,c) = 1, and each solution has exactly τ-many dilates, one per
-  g with g | gcd(a,c)…"; in Cor 5.2 replace "distinct Type I solutions" by "Type I quadruples, whose number is
-  ≤ Σ_{g} f_I-type count ≪ f_I(p)·max multiplicity" — or simply restrict the targets to primitive quadruples.
-  Effect on conclusions: only constants (the Markov bound of Thm 5.1 applies to the quadruple count too since
+  Cor 5.2) is false across d ↦ g²d. Repair (R123 repair): add to Lemma 2.1 "(iii) parametrises all quadruples; f_I(p) counts those with
+  gcd(a,b,c) = 1 (b = (ap+c)/f). A primitive solution with parameter d₀ has exactly #{g ≥ 1 : g² | d₀} quadruples
+  (g·a, g·c, d₀/g², f)"; in Cor 5.2 replace "distinct points give distinct Type I solutions" by "the number of
+  points is the number of Type I quadruples, ≤ f_I(p)·max_d #{g : g² | d}", or restrict the targets to primitive
+  quadruples (an extra gcd condition, invisible to the spectral side). Effect on conclusions: only constants (the Markov bound of Thm 5.1 applies to the quadruple count too since
   Σ_p #quadruples ≪ N L² as well — ET's upper bound argument counts quadruples). No conclusion changes.
 * **D2 (MINOR) — window f ∈ [1,2p] vs a ≤ b.** The normalisation a ≤ b is exactly f ≤ g, i.e. f ≤ √(p²+4c²d),
   not f ≤ 2p. The window [1,2p] used for the areas in Props 3.1/3.2 also contains reflected copies (b, c, d, g)
