@@ -1,0 +1,89 @@
+===== Type I
+(a, b, c, d) : n = c*(4*a*b*d - 1)/(a + b)
+    fix (a, b) -> {'quad_part': 4*a*b*c*d/(a + b), 'rank': 2, 'disc': 16*a**2*b**2/(a + b)**2, 'isotropic': False, 'coord_isotropic': ['c', 'd']}
+(a, b, c, e) : n not a rational function of V
+(a, b, c, f) : n = (b*f - c)/a
+    fix (a,) -> {'quad_part': b*f/a, 'rank': 2, 'det': 0, 'coord_isotropic': ['b', 'c', 'f']}
+    fix (a, c) -> {'quad_part': b*f/a, 'rank': 2, 'disc': a**(-2), 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(a, b, d, e) : n = (4*a*b*d - 1)/e
+    fix (a, e) -> {'quad_part': 4*a*b*d/e, 'rank': 2, 'disc': 16*a**2/e**2, 'isotropic': False, 'coord_isotropic': ['b', 'd']}
+    fix (b, e) -> {'quad_part': 4*a*b*d/e, 'rank': 2, 'disc': 16*b**2/e**2, 'isotropic': False, 'coord_isotropic': ['a', 'd']}
+    fix (d, e) -> {'quad_part': 4*a*b*d/e, 'rank': 2, 'disc': 16*d**2/e**2, 'isotropic': False, 'coord_isotropic': ['a', 'b']}
+(a, b, d, f) : n = f*(4*a*b*d - 1)/(4*a**2*d + 1)
+    fix (a, d) -> {'quad_part': 4*a*b*d*f/(4*a**2*d + 1), 'rank': 2, 'disc': 16*a**2*d**2/(4*a**2*d + 1)**2, 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(a, b, e, f) : n = -(a - b*e*f + b)/(a*e)
+    fix (a, e) -> {'quad_part': b*f/a, 'rank': 2, 'disc': a**(-2), 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(a, c, d, e) : n = -(4*a**2*d - 4*a*c*d*e + 1)/e
+    fix (a, e) -> {'quad_part': 4*a*c*d, 'rank': 2, 'disc': 16*a**2, 'isotropic': True, 'coord_isotropic': ['c', 'd']}
+    fix (d, e) -> {'quad_part': -4*a*d*(a - c*e)/e, 'rank': 2, 'disc': 16*d**2, 'isotropic': True, 'coord_isotropic': ['c']}
+(a, c, d, f) : n = 4*a*c*d - f
+    fix (a,) -> {'quad_part': 4*a*c*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['c', 'd', 'f']}
+    fix (c,) -> {'quad_part': 4*a*c*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'd', 'f']}
+    fix (d,) -> {'quad_part': 4*a*c*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'c', 'f']}
+    fix (a, f) -> {'quad_part': 4*a*c*d, 'rank': 2, 'disc': 16*a**2, 'isotropic': True, 'coord_isotropic': ['c', 'd']}
+    fix (c, f) -> {'quad_part': 4*a*c*d, 'rank': 2, 'disc': 16*c**2, 'isotropic': True, 'coord_isotropic': ['a', 'd']}
+    fix (d, f) -> {'quad_part': 4*a*c*d, 'rank': 2, 'disc': 16*d**2, 'isotropic': True, 'coord_isotropic': ['a', 'c']}
+(a, c, e, f) : n = -(a*f - c*e*f + c)/a
+    fix (a, c) -> {'quad_part': c*e*f/a, 'rank': 2, 'disc': c**2/a**2, 'isotropic': False, 'coord_isotropic': ['e', 'f']}
+    fix (a, e) -> {'quad_part': c*e*f/a, 'rank': 2, 'disc': e**2/a**2, 'isotropic': False, 'coord_isotropic': ['c', 'f']}
+    fix (a, f) -> {'quad_part': c*e*f/a, 'rank': 2, 'disc': f**2/a**2, 'isotropic': False, 'coord_isotropic': ['c', 'e']}
+(a, d, e, f) : n not a rational function of V
+(b, c, d, e) : n = -(4*b**2*d - 4*b*c*d*e + 1)/e
+    fix (b, e) -> {'quad_part': 4*b*c*d, 'rank': 2, 'disc': 16*b**2, 'isotropic': True, 'coord_isotropic': ['c', 'd']}
+    fix (d, e) -> {'quad_part': -4*b*d*(b - c*e)/e, 'rank': 2, 'disc': 16*d**2, 'isotropic': True, 'coord_isotropic': ['c']}
+(b, c, d, f) : n not a rational function of V
+(b, c, e, f) : n = -(b*f - c)/(b - c*e)
+(b, d, e, f) : n not a rational function of V
+(c, d, e, f) : n not a rational function of V
+===== Type II
+(a, b, c, d) : n = (4*a*b*c*d - a - b)/c
+    fix (a, c) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*a**2, 'isotropic': True, 'coord_isotropic': ['b', 'd']}
+    fix (b, c) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*b**2, 'isotropic': True, 'coord_isotropic': ['a', 'd']}
+    fix (c, d) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*d**2, 'isotropic': True, 'coord_isotropic': ['a', 'b']}
+(a, b, c, e) : n not a rational function of V
+(a, b, c, f) : n = -(a - b*f)/c
+    fix (c,) -> {'quad_part': b*f/c, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'b', 'f']}
+    fix (a, c) -> {'quad_part': b*f/c, 'rank': 2, 'disc': c**(-2), 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(a, b, d, e) : n = 4*a*b*d - e
+    fix (a,) -> {'quad_part': 4*a*b*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['b', 'd', 'e']}
+    fix (b,) -> {'quad_part': 4*a*b*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'd', 'e']}
+    fix (d,) -> {'quad_part': 4*a*b*d, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'b', 'e']}
+    fix (a, e) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*a**2, 'isotropic': True, 'coord_isotropic': ['b', 'd']}
+    fix (b, e) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*b**2, 'isotropic': True, 'coord_isotropic': ['a', 'd']}
+    fix (d, e) -> {'quad_part': 4*a*b*d, 'rank': 2, 'disc': 16*d**2, 'isotropic': True, 'coord_isotropic': ['a', 'b']}
+(a, b, d, f) : n = -4*a*d*(a - b*f)/(f + 1)
+    fix (a, f) -> {'quad_part': 4*a*b*d*f/(f + 1), 'rank': 2, 'disc': 16*a**2*f**2/(f + 1)**2, 'isotropic': False, 'coord_isotropic': ['b', 'd']}
+    fix (d, f) -> {'quad_part': -4*a*d*(a - b*f)/(f + 1), 'rank': 2, 'disc': 16*d**2*f**2/(f + 1)**2, 'isotropic': False, 'coord_isotropic': ['b']}
+(a, b, e, f) : n = -e*(a - b*f)/(a + b)
+    fix (a, b) -> {'quad_part': b*e*f/(a + b), 'rank': 2, 'disc': b**2/(a + b)**2, 'isotropic': False, 'coord_isotropic': ['e', 'f']}
+(a, c, d, e) : n = -4*a**2*d + 4*a*c*d*e - e
+    fix (a, c) -> {'quad_part': 4*a*c*d*e, 'rank': 2, 'disc': 16*a**2*c**2, 'isotropic': True, 'coord_isotropic': ['d', 'e']}
+    fix (a, d) -> {'quad_part': 4*a*c*d*e, 'rank': 2, 'disc': 16*a**2*d**2, 'isotropic': True, 'coord_isotropic': ['c', 'e']}
+    fix (a, e) -> {'quad_part': 4*a*c*d*e, 'rank': 2, 'disc': 16*a**2*e**2, 'isotropic': True, 'coord_isotropic': ['c', 'd']}
+    fix (c, d) -> {'quad_part': -4*a*d*(a - c*e), 'rank': 2, 'disc': 16*c**2*d**2, 'isotropic': True, 'coord_isotropic': ['e']}
+    fix (d, e) -> {'quad_part': -4*a*d*(a - c*e), 'rank': 2, 'disc': 16*d**2*e**2, 'isotropic': True, 'coord_isotropic': ['c']}
+(a, c, d, f) : n not a rational function of V
+(a, c, e, f) : n = -(a*f + a - c*e*f)/c
+    fix (c,) -> {'quad_part': -f*(a - c*e)/c, 'rank': 2, 'det': 0, 'coord_isotropic': ['a', 'e', 'f']}
+    fix (a, c) -> {'quad_part': e*f, 'rank': 2, 'disc': 1, 'isotropic': True, 'coord_isotropic': ['e', 'f']}
+    fix (c, e) -> {'quad_part': -a*f/c, 'rank': 2, 'disc': c**(-2), 'isotropic': False, 'coord_isotropic': ['a', 'f']}
+(a, d, e, f) : n = -4*a**2*d + e*f
+    fix (a,) -> {'quad_part': e*f, 'rank': 2, 'det': 0, 'coord_isotropic': ['d', 'e', 'f']}
+    fix (d,) -> {'quad_part': -4*a**2*d + e*f, 'rank': 3, 'det': 8*d, 'coord_isotropic': ['e', 'f']}
+    fix (a, d) -> {'quad_part': e*f, 'rank': 2, 'disc': 1, 'isotropic': True, 'coord_isotropic': ['e', 'f']}
+    fix (d, e) -> {'quad_part': -4*a**2*d, 'rank': 1, 'disc': 0, 'isotropic': True, 'coord_isotropic': ['f']}
+    fix (d, f) -> {'quad_part': -4*a**2*d, 'rank': 1, 'disc': 0, 'isotropic': True, 'coord_isotropic': ['e']}
+(b, c, d, e) : n = -4*b**2*d + 4*b*c*d*e - e
+    fix (b, c) -> {'quad_part': 4*b*c*d*e, 'rank': 2, 'disc': 16*b**2*c**2, 'isotropic': True, 'coord_isotropic': ['d', 'e']}
+    fix (b, d) -> {'quad_part': 4*b*c*d*e, 'rank': 2, 'disc': 16*b**2*d**2, 'isotropic': True, 'coord_isotropic': ['c', 'e']}
+    fix (b, e) -> {'quad_part': 4*b*c*d*e, 'rank': 2, 'disc': 16*b**2*e**2, 'isotropic': True, 'coord_isotropic': ['c', 'd']}
+    fix (c, d) -> {'quad_part': -4*b*d*(b - c*e), 'rank': 2, 'disc': 16*c**2*d**2, 'isotropic': True, 'coord_isotropic': ['e']}
+    fix (d, e) -> {'quad_part': -4*b*d*(b - c*e), 'rank': 2, 'disc': 16*d**2*e**2, 'isotropic': True, 'coord_isotropic': ['c']}
+(b, c, d, f) : n = (4*b*c*d*f - f - 1)/(4*c**2*d)
+    fix (c, d) -> {'quad_part': b*f/c, 'rank': 2, 'disc': c**(-2), 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(b, c, e, f) : n = (b*f + b - c*e)/c
+    fix (c,) -> {'quad_part': b*f/c, 'rank': 2, 'det': 0, 'coord_isotropic': ['b', 'e', 'f']}
+    fix (c, e) -> {'quad_part': b*f/c, 'rank': 2, 'disc': c**(-2), 'isotropic': False, 'coord_isotropic': ['b', 'f']}
+(b, d, e, f) : n not a rational function of V
+(c, d, e, f) : n = (4*c**2*d*e*f - f**2 - 2*f - 1)/(4*c**2*d)
+    fix (c, d) -> {'quad_part': f*(4*c**2*d*e - f)/(4*c**2*d), 'rank': 2, 'disc': 1, 'isotropic': True, 'coord_isotropic': ['e']}
