@@ -166,3 +166,53 @@ union over d gives `Σ_d λ_d ≈ mean f_I ≈ 0.1 L³`. There is **no power of 
 solutions, and §5 shows `f_I(p) ≤ ψ L³` for all but a proportion O(1/ψ) of primes. Positivity ("one point in one
 of many targets") does not change the scale: it lowers the needed relative accuracy from o(1) to < 1, which at
 expected count L³ is still a Planck-scale statement.
+
+## 5. Conditional theorem? — why no standard hypothesis suffices (precise parts PROVED; verdict Assessment)
+
+**Theorem 5.1 (the count to be certified is polylogarithmic; PROVED relative to (D)32b).** There is an absolute C
+such that for every N ≥ 3 and ψ ≥ 1, `#{p ≤ N : f_I(p) > ψ L³} ≤ C·π(N)/ψ` (L = log N). With ET Thm 1.1 in place of
+(D)32b the same holds for the total ES count f(p) with ψ replaced by ψ·log log N.
+*Proof.* Markov's inequality applied to `Σ_{p≤N} f_I(p) ≪ N L²` ((D)32b; our f_I counts y ≤ z and is at most ET's
+f_I) and `π(N) ≫ N/L`. ∎
+**Corollary 5.2.** In Formulations A and B (and in any formulation where distinct points in the target give
+distinct Type I solutions) the targets attached to p contain ≤ ψL³ points in total, for all but a proportion C/ψ of
+primes. A certificate of `f_I(p) > 0` from an equidistribution statement with the local-density main term
+`M(p) = Σ λ_{c,d}(p)` (≈ 0.1 L³ on average, §1) therefore needs an additive error `< M(p) ≪ L³`: a **Planck-scale
+statement with polylogarithmic (not power) accuracy.**
+
+**Proposition 5.3 (single targets fail at expected count ≍ L; CONDITIONAL on Schinzel's Hypothesis H).** There are
+infinitely many primes p ≡ 5 (mod 12) for which the genus-allowed target (c, d) = (1, 3) (expectation `≈ 0.52 L`,
+§3) is empty.
+*Proof.* x(x² + 12) on the progression x ≡ 5 (mod 12) has no fixed prime divisor (mod 2, 3: x odd, x ≡ 2 (3) give
+x² + 12 ≡ 1; for q ≥ 5 at most 3 roots), so H gives infinitely many primes p ≡ 5 (12) with p² + 12 prime.
+`χ_{−12}(−p) = (−p/3)·[−p odd] = 1` since −p ≡ 1 (mod 3). By Lemma 2.1(iii) the target counts divisors f ≤ p of
+p² + 12 with f ≡ −p ≡ 7 (mod 12); the only divisor ≤ p is 1 ≢ 7. ∎ EVIDENCE: all 3630 such p in [10⁶, 3·10⁶) have
+this target empty (one-liner in the commit log of §5; `scripts/spec_target_mean.py` gives the 17 % empty rate among
+all allowed p). Applying H to several polynomials p² + 4c²d at once empties any fixed finite set of targets
+(this is the campaign's formal-obstruction mechanism, POINTWISE_SIZE Thms M/C, seen from the fixed-p side).
+
+**Proposition 5.4 (thickening = averaging over n; PROVED).** In Formulation A, for z ∈ Λ_d the integer
+`k(z) := (2c√d x − √d − p y)/y = 4acd − f − p` is the offset n − p of the integer n = 4acd − f for which (a,c,d,f) is a
+Type I quadruple. Hence the thickened target `R_c^{(K)} = {|2c√d x − √d − p y| ≤ K y}` (hyperbolic width
+≈ (2K+1)/p) counts exactly `Σ_{|n−p| ≤ K} #{Type I quadruples of n with this c, d}`. *Proof.* Prop 3.1 with ℤ ∋ k.
+∎ *Consequence (Assessment).* A spectral bound at Sobolev scale V (target width ≍ 1/V) controls only averages of
+f_I(n) over `|n − p| ≲ p/V`. Young's admissible V ≪ D^{1/24} (and V ≪ D^{1/8} under Lindelöf) — whatever the
+discriminant D of the family — therefore yields at best statements about intervals of length `p^{1−κ}`, a range where
+the campaign already has unconditional short-interval exceptional-set bounds (EXCEPTIONAL_SHORT, (D)30) and where
+nothing pointwise follows. The pointwise problem is exactly K = 0.
+
+**Verdict on step (5) (Assessment, with the precise reasons above).** No standard hypothesis — GRH, GLH/Lindelöf in
+the discriminant, level or joint aspect, Ramanujan–Petersson, Selberg's eigenvalue conjecture, or a twisted-Linnik
+Kloosterman bound `≪ (mnX)^ε` — suffices by itself to give ES (or Type I) for all large p by this route:
+1. the quantity to certify is ≤ ψL³ (Thm 5.1), while every such hypothesis enters with a loss `X^ε` (or, made
+   effective under GRH, `exp(c log X/log log X)`), which exceeds any power of log p; individual central values are
+   not polylogarithmically bounded (resonance Ω-results), so no termwise use of them can reach this scale;
+2. the target width is exactly the Planck width `1/p ≍ |D'|^{−1/2}` (Props 3.1/3.2, 5.4), and even assuming
+   Ramanujan + Lindelöf the Hecke-orbit spectral error exceeds the main term by ≈ p (§4);
+3. single targets at expected count ≍ L are empty for infinitely many p under H (Prop 5.3), so any sufficient
+   statement must aggregate ≳ L² targets, across different discriminants (d) and cusps (c or a), with the genus
+   factor `1 + χ_{−4d}(−p)` built in (Lemma 2.4; without it the statement is false at n = p²).
+A hypothesis that does suffice must be of "Planck-scale, polylogarithmic-accuracy, genus-aware, aggregated" type —
+e.g. `Σ_{d ≤ L²} #(T_p Heeg_d(−4d) ∩ ⋃_a R'_a) ≥ (1 − o(1))·M(p)` for all large p — which is ES-Type-I for large
+p restated, not a standard conjecture. The implication from such a statement is trivial (Prop 3.2) and is not
+claimed as a result.
