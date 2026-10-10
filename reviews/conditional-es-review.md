@@ -76,3 +76,23 @@ brute force of §1 at 13, 29, 193. Output: `data/review_r127/counts.txt` (2.3 s 
   margin" does **not** occur at these primes. This supports §8's own recommendation (state any
   conjecture for full Type I ∪ II) and weakens nothing else. (R127 repair: a sentence recording
   this has been added below §8's "Reading" — see repairs list.)
+
+## 2. Lemma 2.1 / Prop 2.3 (scale constraint) — SOUND-AFTER-REPAIRS (minor)
+
+* ET Thm 1.1 checked in the source: `Σ_{p≤N} f_I(p) ≪ N log²N log log N`, `Σ_{p≤N} f_II(p) ≪ N log²N`;
+  with ET (1.4) `f(p) = 3f_I(p)+3f_II(p)` this gives Lemma 2.1's bound for ordered solutions. ✓
+* Prop 2.3 proof `M/2 ≤ #𝔗_p ≤ μ f(p)` is correct and holds for *every* large p. ✓
+* **D1 (MINOR, dyadic).** Lemma 2.1 gives `f(p) ≤ N^δ` off an exceptional set; Prop 2.3 states
+  `M(p) ≤ 2μ p^δ`, i.e. the threshold `p^δ`, not `N^δ`. Repair: apply Markov on each dyadic block
+  `(N/2^{k+1}, N/2^k]` with λ = `(N/2^{k+1})^δ` and sum: `Σ_k (N/2^k)^{1−δ}log³N ≪_δ N^{1−δ}log³N`. The
+  implied constant depends on δ (fine for fixed δ < 1).
+* **D2 (MINOR, quantifier).** "μ ≤ p^{o(1)} ⇒ M(p) ≤ p^{o(1)} for almost all p" needs a diagonal
+  step: the exceptional set depends on δ. Correct statement: there is a function δ(p) → 0 with
+  `M(p) ≤ 2μ(p)p^{δ(p)}` outside a set of density 0 (choose N_k with exceptional count for δ = 1/k
+  below N/k for N ≥ N_k). Also "μ(p) ≤ p^{o(1)}" must be uniform in p (a single o(1) function).
+  The *consequence* actually used ("a main term `M(p) ≥ p^η` for all large p is excluded") is
+  unaffected, since it needs only one δ < η.
+* Note (not a defect): pointwise, only `f(p) ≪ p^{3/5+o(1)}` is known (ET Prop 1.7), so the
+  "almost all" is genuinely needed; a driver with power main term on a sparse set of p is not
+  excluded — the text says "almost all", correctly.
+* "PROVED relative to ET Thm 1.1" — label honest; the result is elementary (Markov).
