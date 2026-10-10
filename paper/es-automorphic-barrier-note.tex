@@ -1,0 +1,187 @@
+\documentclass[10pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{problem}{Problem}
+\numberwithin{equation}{section}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cT}{\mathcal T}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\Nm}{N}
+\newcommand{\status}[1]{\textup{\textsc{#1}}}
+\newcommand{\leg}[2]{\left(\frac{#1}{#2}\right)}
+\title[Automorphic and geometric reformulations of Erd\H{o}s--Straus]{Automorphic and geometric reformulations of the Erd\H{o}s--Straus equation, and a divisor-class barrier}
+\author{Anonymous}
+\date{Draft, October 2026; internal checks only, not externally refereed}
+\emergencystretch=3em
+\begin{document}
+\begin{abstract}
+For a prime $p$ we collect exact reformulations of the Erd\H{o}s--Straus
+equation $4/p=1/x+1/y+1/z$ in automorphic and arithmetic-geometric
+language. Type~I solutions are $\SL_2(\Z)$ matrices with a prescribed
+entry, equivalently Heegner points of discriminant $-4d$ in a thin wedge,
+whose discriminant-$(-4dp^2)$ forms are $T_p$-Hecke translates. Type~II
+solutions are Heegner points of discriminant $-4dp$ lying on an exact
+shell around a cuspidal geodesic. Further reformulations use orders in the
+quaternion algebra $B_{p,\infty}$, the algebra $(-d,-p)_\Q$, a CM torus,
+and an isotropic ternary form. The Bright--Loughran Brauer class is a
+genus character; this is folklore and goes back to Yamamoto. All these
+encodings reduce to one statement, which we prove: once two of the
+Elsholtz--Tao coordinates are fixed, the solutions are either a finite
+union of congruence classes of $p$, or the divisors of one explicit integer
+$N_\theta(p)$ in one residue class. Every representative-independent
+invariant of the automorphic objects is congruence or genus data. We then
+record negative results, each with an exact scope. Fixed ternary embeddings
+reduce to Mordell coverings. Any detector must work at main term
+$p^{o(1)}$. Thickening a target is the same as averaging over $n$. Local,
+genus and spinor solubility hold even at odd squares. Under Schinzel's
+Hypothesis~H, every argument that certifies the equation through a fixed
+finite set of slices fails infinitely often. We give the quantitative gaps
+to known equidistribution theorems, list the escape hatches that remain
+open, and report numerical evidence: $f_I(p)\ge1$ and $f_{II}(p)\ge1$ for
+all primes $p\le10^8$. The Erd\H{o}s--Straus conjecture is \emph{not}
+proved here. The negative statements concern the routes examined and known
+technology. They are not impossibility theorems for the conjecture.
+\end{abstract}
+\maketitle
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+The Erd\H{o}s--Straus conjecture (ES) asserts that for every integer
+$n\ge2$
+\begin{equation}\label{eq:es}
+ \frac4n=\frac1x+\frac1y+\frac1z,\qquad x,y,z\in\N,
+\end{equation}
+is soluble. It suffices to treat primes $n=p$, and by Mordell's
+identities only primes in six classes modulo $840$ (the squares) remain
+open. ES has been verified to very large bounds and holds for almost all
+$n$ in a strong quantitative sense, but it is open for an individual large
+prime.
+
+\subsection*{Why automorphic and geometric input}
+In earlier internal work of this campaign
+(\cite{PO}, and Theorems~M and~C of \cite{PS}) we proved that
+\emph{congruence-covering} arguments cannot settle ES pointwise. More
+precisely, under Schinzel's Hypothesis~H, every correct bounded
+witness-producing procedure built from ring operations, floor division,
+sign tests and factorisations of the integers it meets fails for
+infinitely many primes $p\equiv1\pmod{24}$ \cite[Thm~C]{PS}. This is the
+procedure-level form of the classical odd-square obstructions (Yamamoto,
+Mordell--Schinzel, Elsholtz--Tao \cite[Prop.~1.6]{ET}, Bright--Loughran
+\cite[Cor.~1.4]{BL}). It leaves room for input that is \emph{not}
+congruence data: spectral, automorphic or arithmetic-geometric
+information about a fixed prime $p$. This note collects what such input
+can see.
+
+\subsection*{What this note contains}
+\begin{enumerate}
+\item \emph{Exact dictionaries} (\S\ref{sec:dict}, \status{proved}). Type~I
+and Type~II solutions are rewritten as Heegner points, $\SL_2$ matrices,
+Hecke translates, shells around cuspidal geodesics, orders in definite
+quaternion algebras, divisors of an element of a CM field, and points on
+an isotropic ternary quadric. Several of these are folklore. We mark
+attributions explicitly; in particular, the identification of the
+Bright--Loughran Brauer class with a genus character is \emph{not} new
+(Yamamoto 1965, via \cite[App.~A]{BL}).
+\item \emph{The divisor-class reduction} (\S\ref{sec:reduction},
+\status{proved}). Each encoding is a ``slice'' of the Elsholtz--Tao
+variety. Fixing two coordinates leaves either a congruence condition on
+$p$ or the divisors of one integer $N_\theta(p)$ in one residue class
+(Lemma~\ref{lem:slices}, Theorem~\ref{thm:reduction}).
+\item \emph{Negative results with exact scope} (\S\ref{sec:negative}):
+ternary embeddings, the scale constraint, thickening, local solubility at
+odd squares, geometry, and Hypothesis-H-conditional emptiness of single
+targets.
+\item \emph{Quantitative gaps} to known equidistribution theorems
+(\S\ref{sec:gaps}, \status{Assessment}), \emph{open problems}
+(\S\ref{sec:open}), and \emph{numerical evidence} (\S\ref{sec:numerics}).
+\end{enumerate}
+
+\subsection*{What this note does not contain}
+ES is not proved here, conditionally or unconditionally. We know of no
+standard conjecture (GRH, GLH, Ramanujan, Selberg's eigenvalue conjecture,
+twisted Linnik--Selberg) that is known to imply ES. The literature survey
+behind this note \cite{LA} found no prior pointwise result for ES,
+conditional or not. Every negative statement below concerns the specific
+encodings and mechanisms analysed, or ``known technology''. None is a
+theorem that ES cannot be proved by automorphic methods. Words like
+``barrier'' are used in that mechanism-scoped sense; where they summarise
+more than a proved statement, they are labelled \status{Assessment}.
+
+\subsection*{Labels}
+Each statement carries one of the labels \status{proved} (a complete proof
+here, or in the cited internal file, relative to explicitly cited
+literature), \status{conditional} (proved assuming a named hypothesis),
+\status{certified} (an exact finite computation), \status{evidence}
+(numerics), or \status{Assessment} (a judgement that is not a theorem).
+Proofs of short items are given in full. For longer ones we give a sketch
+and a pointer to the internal source file, which also records its internal
+review. All internal files have been reviewed internally only; this note
+has not been externally refereed.
+
+\subsection*{Notation}
+$p\ge5$ is prime, $\cL=\log p$, and $\chi_{D}=\leg{D}{\cdot}$ is the
+Kronecker symbol. For a negative discriminant $D$, $\chi_D(-1)=-1$. We
+write $[A,B,C]$ for $AX^2+BXY+CY^2$, and $f_I(p)$, $f_{II}(p)$ for the
+numbers of Type~I and Type~II solutions in the normalisation of
+\cite[\S2]{ET}.
+
+%%CONTINUE
+
+\begin{thebibliography}{99}
+\bibitem[ET]{ET} C. Elsholtz and T. Tao, Counting the number of solutions to the Erd\H{o}s--Straus equation on unit fractions, \emph{J. Aust. Math. Soc.} \textbf{94} (2013), 50--105; arXiv:1107.1010.
+\bibitem[BL]{BL} M. Bright and D. Loughran, Brauer--Manin obstruction for Erd\H{o}s--Straus surfaces, \emph{Bull. Lond. Math. Soc.} \textbf{52} (2020), 746--761; arXiv:1908.02526.
+\bibitem[Ya]{Ya} K. Yamamoto, On the Diophantine equation $4/n=1/x+1/y+1/z$, \emph{Mem. Fac. Sci. Kyushu Univ. Ser. A} \textbf{19} (1965), 37--47. (Not accessed; cited through \cite[App.~A]{BL}.)
+\bibitem[Mo]{Mo} L. J. Mordell, \emph{Diophantine equations}, Academic Press, 1969, pp.~287--290.
+\bibitem[Sch]{Sch} A. Schinzel, On sums of three unit fractions with polynomial denominators, \emph{Funct. Approx. Comment. Math.} \textbf{28} (2000), 187--194.
+\bibitem[Pi]{Pi} J. Pila, Density of integral and rational points on varieties, \emph{Ast\'erisque} \textbf{228} (1995), 183--187.
+\bibitem[Du]{Du} W. Duke, Hyperbolic distribution problems and half-integral weight Maass forms, \emph{Invent. Math.} \textbf{92} (1988), 73--90.
+\bibitem[DSP]{DSP} W. Duke and R. Schulze-Pillot, Representation of integers by positive ternary quadratic forms and equidistribution of lattice points on ellipsoids, \emph{Invent. Math.} \textbf{99} (1990), 49--57.
+\bibitem[Yo]{Yo} M. P. Young, Weyl-type hybrid subconvexity bounds for twisted $L$-functions and Heegner points on shrinking sets, \emph{J. Eur. Math. Soc.} \textbf{19} (2017), 1545--1576; arXiv:1405.5457.
+\bibitem[Hu]{Hu} P. Humphries, Equidistribution in shrinking sets and $L^4$-norm bounds for automorphic forms, \emph{Math. Ann.} \textbf{371} (2018), 1497--1543.
+\bibitem[HR]{HR} P. Humphries and M. Radziwi\l\l, Optimal small scale equidistribution of lattice points on the sphere, Heegner points, and closed geodesics, \emph{Comm. Pure Appl. Math.} \textbf{75} (2022), 1936--1996; arXiv:1910.01360.
+\bibitem[GZ]{GZ} B. H. Gross and D. B. Zagier, On singular moduli, \emph{J. Reine Angew. Math.} \textbf{355} (1985), 191--220.
+\bibitem[GS]{GS} A. Ghosh and P. Sarnak, Integral points on Markoff type cubic surfaces, \emph{Invent. Math.} \textbf{229} (2022), 689--749; arXiv:1706.06712.
+\bibitem[Le]{Le} H. W. Lenstra, Jr., Divisors in residue classes, \emph{Math. Comp.} \textbf{42} (1984), 331--340.
+\bibitem[Ho]{Ho} C. Hooley, On the number of divisors of a quadratic polynomial, \emph{Acta Math.} \textbf{110} (1963), 97--114.
+\bibitem[DFI]{DFI} W. Duke, J. Friedlander and H. Iwaniec, Equidistribution of roots of a quadratic congruence to prime moduli, \emph{Ann. of Math.} \textbf{141} (1995), 423--441.
+\bibitem[FI]{FI} J. Friedlander and H. Iwaniec, \emph{Opera de cribro}, AMS Colloquium Publications \textbf{57}, 2010.
+\bibitem[FI98]{FI98} J. Friedlander and H. Iwaniec, The polynomial $X^2+Y^4$ captures its primes, \emph{Ann. of Math.} \textbf{148} (1998), 945--1040.
+\bibitem[HB]{HB} D. R. Heath-Brown, Primes represented by $x^3+2y^3$, \emph{Acta Math.} \textbf{186} (2001), 1--84.
+\bibitem[Ma]{Ma} J. Maynard, Primes represented by incomplete norm forms, \emph{Forum Math. Pi} \textbf{8} (2020), e3.
+\bibitem[ST]{ST} P. Sarnak and J. Tsimerman, On Linnik and Selberg's conjecture about sums of Kloosterman sums, in \emph{Algebra, Arithmetic, and Geometry}, Progr. Math. \textbf{270}, Birkh\"auser, 2009, 619--635.
+\bibitem[PO]{PO} \emph{Pointwise obstructions for the Erd\H{o}s--Straus seed-component programme}, internal note, \texttt{paper/pointwise-obstruction.tex}.
+\bibitem[PS]{PS} \emph{Formal genericity and pointwise $\Omega$-results}, internal note, \texttt{POINTWISE\_SIZE.md} (Theorems M and C), with internal review \texttt{reviews/pointwise-size-step1-review.md}.
+\bibitem[TH]{TH} \emph{The Elsholtz--Tao Type~I sum is $O(N\log^2N)$}, internal note, \texttt{paper/es-typei-heegner-note.tex} (the bound (D)32b).
+\bibitem[O123]{O123} \emph{Flip the average: fixed-$p$ spectral forms of Type~I}, internal note, \texttt{POINTWISE\_SPECTRAL.md}, review \texttt{reviews/pointwise-spectral-review.md}.
+\bibitem[O124]{O124} \emph{Embedding ES into representations by quadratic forms}, internal note, \texttt{POINTWISE\_TERNARY.md}, review \texttt{reviews/pointwise-ternary-review.md}.
+\bibitem[O126]{O126} \emph{Arithmetic geometry of the Erd\H{o}s--Straus surfaces}, internal note, \texttt{GEOMETRY\_ES.md}, review \texttt{reviews/geometry-es-review.md}.
+\bibitem[O127]{O127} \emph{ES for large primes conditional on a standard conjecture?}, internal note, \texttt{CONDITIONAL\_ES.md}, review \texttt{reviews/conditional-es-review.md}.
+\bibitem[O128]{O128} \emph{Automorphic structure of Type~II solutions for fixed $p$}, internal note, \texttt{POINTWISE\_TYPEII\_SPECTRAL.md}, reviews \texttt{reviews/pointwise-typeii-spectral-review.md}, \texttt{-review-r2.md}.
+\bibitem[O130]{O130} \emph{Quaternionic / supersingular reformulation}, internal note, \texttt{QUATERNION\_ES.md}, review \texttt{reviews/quaternion-es-review.md}.
+\bibitem[O131]{O131} \emph{Exact-formula search}, internal note, \texttt{EXACT\_FORMULA.md}, review \texttt{reviews/exact-formula-review.md}.
+\bibitem[RT1]{RT1} \emph{Red team for the automorphic/geometric attack}, internal report, \texttt{reviews/redteam-automorphic.md}.
+\bibitem[RT2]{RT2} \emph{Red team 2 and synthesis: the divisor-class reduction}, internal report, \texttt{reviews/redteam-automorphic-2.md}.
+\bibitem[LA]{LA} \emph{Spectral and geometric tools for pointwise representation (literature survey)}, internal file, \texttt{LITERATURE\_AUTOMORPHIC.md}.
+\end{thebibliography}
+\end{document}
