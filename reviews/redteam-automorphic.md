@@ -1,0 +1,531 @@
+# Red team for the automorphic / geometric attack on pointwise ES (task O125)
+
+Branch `side-agent/redteam-automorphic`. Labels as in DISCOVERIES.md (PROVED / CONDITIONAL /
+CERTIFIED / EVIDENCE / CONJECTURE / Assessment). ES is not solved here or anywhere; nothing in this
+file proves or refutes any case of it. This file is a *filter*: it states, as precisely as the
+campaign's theorems allow, what a pointwise route must supply, and then (Phase 2) tests the
+proposals O123 (spectral flip, Type I), O124 (ternary forms), O126 (Brauer–Manin / fibration),
+O127 (large p under GRH/Lindelöf/twisted Linnik), O128 (Type II spectral) against it.
+
+Notation. p prime, `f(p)=f_I(p)+f_II(p)` = number of positive solutions of `4/p=1/x+1/y+1/z`
+(Elsholtz–Tao (ET) counting convention), `χ_p=(·/p)`, `n_p` = least quadratic non-residue mod p.
+`W(p)` = least Type II multiplier modulus (notes (51.1)). "Square-mimicking" as in
+POINTWISE_SIZE §2. `𝓛=log T`.
+
+## 1. Admissibility checklist (Phase 1(a))
+
+Each item: what is excluded, the exact source and label, and the precise *scope* (what the
+theorem does not say). A route passes an item only by naming the input that lies outside that
+item's scope.
+
+### 1.1 Excluded (with exact scope)
+
+**X1. Bounded procedures on congruence + factorisation-shape data.** (POINTWISE_SIZE Thm M
+PROVED for (a); Thm C, Cor C1 CONDITIONAL on H for an explicit finite family.)
+Any correct witness-producing program built from ring ops, floor division, sign tests, full
+factorisations/divisor lists of the integers it meets, loops over lists so produced (P1–P8),
+fails at every admissible q near a square-mimicking point, e.g. infinitely many `p≡1 (24)`
+under H. *Scope:* (i) needs a *finite formal run* at the square-mimicking point; (ii) the
+infinitude of failures is conditional on H/Bateman–Horn (Dickson if linear; Dirichlet/Linnik if
+only p is factored, unconditional); (iii) it is about *witness-producing* procedures (E4 below
+is silent). Unconditional instance: no finite set of polynomial identities covers a square class
+(Mordell/Schinzel, as quoted in ET p. 8; POINTWISE_SIZE §4.2(E1)).
+
+**X2. Eventual-sign size comparisons.** (POINTWISE_SIZE Prop A, PROVED.) Comparisons of formal
+quantities with `c·p^θ`, `log p`, any Hardy-field threshold, "divisor in `[p^θ,2p^θ]`" etc. are
+inside X1. *"Using the size of p" is not an escape by itself.* *Scope:* oscillating
+archimedean tests (`{√p}<1/2`, parity of `⌊p^θ⌋`) are not covered (they are E2).
+
+**X3. Static shape predicates.** (Cor M1, PROVED / CONDITIONAL as M.) Any function — not
+necessarily computable — of `p mod M_0` and the factorisation shapes (valuations, primes mod m)
+of fixed `f_1(p),…,f_k(p)` takes its formal value at admissible p.
+
+**X4. Character trap.** (Lemma CT, PROVED; = Yamamoto / Bright–Loughran Cor 1.3.) For
+`p≡1 (4)`, in every positive solution some p-free denominator (or cofactor product) has a prime
+factor ℓ with `χ_p(ℓ)=−1`. Hence ℓ ≥ n_p. This is a *property of every solution*, not a
+statement about methods; it is the only ES-specific input of X1.
+
+**X5. Multiplier moduli below `exp((log p)^{1/4})`.** (POINTWISE_OMEGA13 Thm 5.1, PROVED modulo
+Gallagher's theorem, Nair–Tenenbaum and OMEGA10 Thm 3.4; unconditional, no H.)
+`W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})` for infinitely many Mordell-hard p. So any
+certificate of the form "p lies in a Type II witness class `−4D mod M`, `D|((M+1)/4)²`, with
+`M≤T(p)`" fails i.o. if `T(p)≤exp(c(log p)^{1/4}(log log p)^{−1/4})`. *Scope:* only Type II
+multiplier witnesses (the `W_II` statistic); Type I slices have the weaker unconditional
+`ck_min ≫ log p·log₃p` i.o. (POINTWISE_OMEGA Thm 8.5, modulo Lau–Wu). The heuristic truth is
+`log W ≍ (log p)^{1/3}` (CONJECTURE LS ⇒ it, OMEGA16).
+
+**X6. Architecture ceilings at 1/4.** (OMEGA14, CEILINGS_UNIFIED Prop 4.2; OMEGA15 Wiener-norm
+barrier, PROVED within its definitions.) Haar-minorant + transfer-to-primes arguments, and every
+*linear certificate with full-orbit uniform accuracy* (one error term per modulus for all classes /
+characters), cannot certify `W(p)≤exp((log p)^{1/4+ε})` i.o.-failure-free; within that class
+GRH/EH-strength prime input is irrelevant by construction. *Scope (OMEGA15 §6, explicitly not
+covered):* certificates using atomicity/integrality/support of the prime measure, non-periodic
+structure, non-linear arguments. Support-aware certificates are reduced to Conj SAP (OMEGA17).
+
+**X7. Haar avoider density.** (CEILINGS_UNIFIED Prop 1.1 + OMEGA13 Thm 3.4.) The profinite set of
+units avoiding all ES witness classes of modulus ≤ T has Haar measure `exp(−Θ̃(𝓛³))`, positive
+for every T. *Consequence:* no finite-level congruence statement covers the Mordell-hard units;
+sterile *points* in the profinite sense are only known at square points (X1), candidates
+otherwise (x̂₉, x**, the 17-generic line; all CONJECTURE).
+
+**X8. Brauer–Manin.** (Bright–Loughran 2020, external, PROVED there.) `Br U_n/Br Q ≅ Z/2`
+generated by the transcendental quaternion algebra `(−u₁/u₃,−u₂/u₃)` (Thm 1.6); for every n
+`(U_n(R)₊×∏U_n(Z_p))^{Br} ≠ ∅` (Thm 1.8: **no BM obstruction to ES at any n**, but always an
+obstruction to strong approximation, which is X4 = their Thm 1.2); and `U_n(Q)→U_n(A)^{Br}_•`
+does **not** have dense image (Thm 1.9: integral points are not Zariski dense, by a real argument).
+All `U_n` are Q-isomorphic to `U_1` (rescaling); ES is a statement about *integral models* varying
+with n. *Consequence:* BM can neither prove nor disprove ES at any n; the only BM information is
+the one quadratic bit of X4. At an odd square n this bit kills all Type I/II-shaped solutions
+(BL Cor 1.4 = ET Prop 1.6); at a prime p the BM set is non-empty (Thm 1.8), and at a
+square-mimicking p every *formally visible* prime is a residue (Theorem C), so the bit is
+unusable by X1-type procedures. A geometric route must therefore supply integral points by a
+mechanism that is not BM and works on log K3 surfaces with non-Zariski-dense integral points
+(cf. Markoff-type log K3 surfaces, where integral Hasse failures not explained by BM are
+known — Ghosh–Sarnak; Loughran–Mitankin — citation from memory, sources not archived).
+
+**X9. Polylog solution counts.** (ET Thm 1.1 + Markov, PROVED by ET; ET p. 5 already remark that
+circle-method-type methods are therefore insufficient.) `Σ_{p≤N} f(p) ≍ N log²N` up to `log log N`
+(Type I: `≪N log²N` is the campaign's (D)32b, internally PROVED), so a density-1 set of primes has
+`f(p)=O(ξ(p) log³p log log p)` for any `ξ→∞`. Pointwise upper bound `f(p) ≪ p^{3/5+O(1/log log p)}`
+(ET Prop 1.7). §2 turns this into quantitative constraints.
+
+### 1.2 Input types NOT covered by any campaign obstruction
+
+* **N1 (E1) growing search with actual factorisations.** Loops whose formal length is infinite
+  (windows `a≤p^θ`, "iterate until success"). Only *quantitative* lower bounds exist: X5 for
+  multiplier moduli, `ck_min` i.o. bounds for Type I, the restricted model Q2 for windows
+  (Assessment).
+* **N2 (E2) non-formal integers.** `⌊p^θ⌋`, `n_p`, `ord_p(2)`, discrete logs, primes in p-dependent
+  intervals, and their actual factorisations.
+* **N3 (E3) fixed non-abelian Frobenius data** (cubic residuacity, representation by non-principal
+  forms). *Open*: no theorem of the campaign covers or excludes it (POINTWISE_SIZE §4.2 E3).
+* **N4 (E4) Boolean/counting certificates.** "f(p)>0 because an asymptotic formula has positive main
+  term" is outside X1 by definition. X9 + §2 constrain it quantitatively instead.
+* **N5 Equidistribution of automorphic periods / Heegner points / Weyl sums at a single
+  discriminant.** Not a procedure in the sense of X1; the relevant data (e.g. distribution of
+  CM points of discriminant `−Dp` or of `p`-dependent Kloosterman sums) is not determined by
+  p mod a fixed modulus. *But* see §2: at fixed p it must be used at a scale where the expected
+  count is polylog, and every count must "see" a prime ≥ n_p (X4).
+* **N6 L-function bounds** (subconvexity, GRH, Lindelöf, zero-density, Siegel-zero-free regions) for
+  `L(s,χ_p)`, twists, or `L(s,f×χ)`: not congruence data. Within X6's class (full-orbit linear
+  certificates) they are provably irrelevant; outside it they are not excluded.
+* **N7 Integrality / support of the prime measure, non-linear certificates** (OMEGA15 §6, OMEGA17):
+  explicitly uncovered.
+
+## 2. Quantitative constraints on any pointwise route (Phase 1(b))
+
+Conventions. A *counting route* at a fixed prime p writes a lower bound
+`f(p) ≥ Σ_{j∈J(p)} N_j(p)` with integers `N_j(p) ≥ 0` (counts of solutions of a given shape,
+e.g. one Type II modulus M, one Type I pair (c,k), one level d, one spectral/Heegner packet),
+and proves `N_j = M_j + E_j` with *main terms* `M_j ≥ 0` and *error bounds* `|E_j| ≤ B_j`.
+"Piecewise" means the positivity conclusion is drawn from `Σ_j (M_j − B_j) > 0`.
+
+### 2.1 The integrality barrier
+
+**Proposition 2.1 (PROVED).** In any correct piecewise counting route,
+`Σ_j (M_j − B_j) ≤ Σ_{j: M_j>1/2} (M_j − B_j)`. In particular a piecewise route can conclude
+`f(p)>0` only if some single piece has `M_j > 1/2` and the route proves `N_j ≥ 1` *for that piece
+alone* (up to grouping: a "piece" may be any union of shapes, with its own main term).
+
+*Proof.* If `M_j ≤ 1/2`: when `N_j=0`, `B_j ≥ |E_j| = M_j`; when `N_j ≥ 1`, `B_j ≥ N_j − M_j ≥
+1/2 ≥ M_j`. Either way `M_j − B_j ≤ 0`. ∎
+
+*Reading.* Pieces with expected count below 1/2 contribute nothing, however good their error
+bounds are, unless errors are summed *with signs* (cancellation between pieces). A route must
+therefore either (a) group shapes into pieces with main term ≳ 1, and then prove an asymptotic or
+lower bound for that grouped count at the single prime p, or (b) bound `Σ_j E_j` collectively
+(e.g. one spectral expansion of the whole sum). Option (b) is the same as (a) with the grouping
+`J(p)` itself.
+
+**Lemma 2.2 (Type II pieces are all sub-unit; PROVED).** For the multiplier pieces
+`N_M(p) = #{D | A_M² : p ≡ −4D (mod M)}` (`M≡3 (4)`, `A_M=(M+1)/4`), the natural main term
+`M_M ≤ τ(A_M²)/φ(M)`, so `M_M ≤ M^{−1+o(1)} → 0`; only `M ≤ C` (absolute) pieces can have main
+term > 1/2, and those are congruence conditions mod a bounded modulus (X1/X3).
+*Proof.* Divisor bound `τ(n)=n^{o(1)}` and `φ(M) ≫ M/log log M`. ∎
+So, by Prop 2.1, every Type II route is of kind (b): it must control the grouped count
+`N_T(p) := Σ_{M≤T} N_M(p) = #{(M,D) : M≤T, M≡3 (4), D|A_M², M | p+4D}` (the "flipped"
+divisor sum in shifted values `p+4D`), whose main term mass is `≍ 𝓛³` on average over p
+(cubic mass κ, CEILINGS_UNIFIED §0).
+
+### 2.2 The range of validity of any pointwise asymptotic
+
+**Proposition 2.3 (PROVED modulo the citations of X5).** There is c>0 such that for infinitely
+many Mordell-hard primes p, `N_T(p) = 0` with `log T = c(log p)^{1/4}(log log p)^{−1/4}`.
+Consequently:
+(i) no statement "`N_T(p) ≥ 1` for all large p with `log T ≥ (log p)^α`" holds with α < 1/4;
+(ii) every pointwise estimate `N_T(p) = 𝓜_T(p) + O(𝓔_T(p))` valid for all Mordell-hard p in this
+range has `𝓔_T(p) ≥ 𝓜_T(p)` at those primes.
+*Proof.* `N_T(p)=0` iff `W(p)>T` (notes (51.1)–(51.2), with ℓ not required prime). X5. ∎
+
+*Type I analogue (PROVED modulo Lau–Wu / Graham–Ringrose via OMEGA Thm 8.5 and Lemma 8.1).*
+The Type I count restricted to heights `ck ≤ T` vanishes i.o. with `T ≍ log p·log₃p`, and at every
+p with `T < n_p`.
+
+*Assessment (the main term must be high-conductor).* On average over Mordell-hard p the mass of
+`N_T` is `≍ 𝓛³ → ∞`. At the X5 primes the true count is 0. So a main term `𝓜_T(p)` that is a
+fixed function of `(log p, p mod q₀)` with `q₀` small (a low-conductor singular series, the
+typical constant-eigenfunction/Eisenstein term) is ≍ 𝓛³ at those primes as well, unless the
+X5 construction can be steered away from the classes where `𝓜_T` is large. The X5 primes are
+built inside a fibre `p ≡ r (mod Q)`, r a square, with `log Q ≪ 𝓛⁴(log 𝓛)^{O(1)}` ≍ log p at the
+critical T (OMEGA13 §3). Hence (Assessment, not a theorem): *at log T ≍ (log p)^{1/4} the main term
+must carry local information at moduli of size `p^{c}`*, i.e. the route works where "main term"
+and "error term" are not separated by conductor. This is the precise sense of "near-Planck".
+
+### 2.3 Non-injectivity
+
+**Proposition 2.4 (PROVED, from ET Prop 1.7 and ET Thm 1.1).** Suppose a route attaches to p a
+family `𝓕_p` with `|𝓕_p| ≥ p^δ`, proves that at least `c|𝓕_p|^{1−η}` members "detect" a solution,
+and each solution is detected by at most `m_p` members. Then
+`m_p ≥ c p^{δ(1−η) − 3/5 − O(1/log log p)}` for every p, and
+`m_p ≥ c p^{δ(1−η)}/(ξ(p) log³p log log p)` for all p outside a set of relative density o(1)
+(any ξ→∞). *Proof.* `c|𝓕_p|^{1−η} ≤ m_p f(p)`; ET Prop 1.7 and the Markov consequence of ET
+Thm 1.1 (ET (1.5)). ∎
+
+*Reading.* Any equidistribution statement with a power saving over a family of size `p^δ` detects
+solutions through a map with fibres of size `p^{δ(1−η)−o(1)}` at typical p. The route must then
+say *which coarse invariant* of a solution the family member detects, and prove that a detected
+invariant lifts to an actual positive integer solution (lifting step). In every proposal, the
+lifting step is where congruence data may re-enter (§4).
+
+### 2.4 Every solution sees a non-residue at least `n_p`
+
+**Proposition 2.5 (PROVED; X4).** Let `p≡1 (4)`. Every positive solution has a denominator (or
+cofactor product, Lemma CT(b),(c)) divisible by a prime `ℓ ≥ n_p` with `χ_p(ℓ)=−1`. Hence a
+route whose detecting objects only produce solutions with `y`-smooth denominators fails at every
+`p≡1 (4)` with `n_p > y`; such primes exist with `y ≥ (1/5.2 − o(1)) log p` (class
+`p≡1 (mod 8∏_{ℓ≤y}ℓ)` + Linnik–Xylouris, unconditional; G–R gives `y ≫ log p log₃p` i.o.).
+*Proof.* Lemma CT; reciprocity for the class. ∎
+
+*Reading.* Any detection mechanism must "see" `χ_p` at a prime `≥ n_p`. For a spectral route this
+means the relevant spectral data must depend on `χ_p` beyond its values at small primes, e.g.
+through `L(s,χ_p)`-type objects or a Heegner/CM set of discriminant divisible by p, not only
+through `p mod q` for small q.
+
+### 2.5 "p mod q for q in S(p)" is congruence data unless S(p) is controlled
+
+**Proposition 2.6 (PROVED, bookkeeping).** Suppose a route proves `Φ(p) ⇒ ES(p)` where `Φ(p)`
+depends only on `p mod L` for some `L = L(P)` depending only on the dyadic range `p ∈ (P,2P]`.
+Then the same argument proves ES for every prime `p' ≡ p (mod L)` in `(P,2P]`; i.e. it is a
+covering statement for each class mod L with `Φ` true. If moreover `Φ` is witness-producing via
+classes mod divisors of L of size `≤ T`, X5 applies with that T.
+*Proof.* Φ does not distinguish p from p'. ∎
+*Reading.* "Decisive input = p mod q, q ∈ S(p)" escapes X1/X5 only if (a) `lcm S(p)` exceeds
+`exp(c(log p)^{1/4})` *and* the argument is not a witness-class argument at that level (then it
+is a covering statement at level `lcm S(p)`, which must beat the Haar avoider density
+`exp(−Θ̃(𝓛³))` of X7 inside each class), or (b) S(p) depends on p in a way not determined by the
+dyadic range (E1/E2: then the route must say how S(p) is chosen and why it is correct).
+
+## 3. Model test at the special points (Phase 1(c))
+
+### 3.1 What the special points are, and which routes they test
+
+* **Square-mimicking points** (`q*_univ`, the class of one `x=1`): every prime visible to a bounded
+  procedure is a residue (Theorem C). *Tests:* every route — but only through moduli/primes whose
+  local data the route fixes. **Lemma 3.1 (PROVED).** If `p≡1 (mod M)` then `N_M(p)=0`
+  (`1∉𝓡(M)`: POINTWISE_OMEGA Fact 1.1 = notes Thm 17.3(c)). Hence at `p≡1 (mod Q)` every Type II witness modulus has a
+  prime-power factor not dividing Q, and `W(p) > ` (least prime `>y` in a usable class) when Q
+  contains all primes `≤ y`.
+* **x\*\*** (`x_11=2, x_13=15`, `x_q=1` otherwise; MORDELL13B Conj 5.2, CONJECTURE): a point with
+  *small* non-residues 11, 13 that (conjecturally) lies in no ET class of any level.
+  *Tests:* routes whose decisive extra input is "a small non-residue exists" (Prop 2.5's necessary
+  condition). x\*\* is the evidence that this condition is not sufficient for covering-type
+  routes: no class with ES level `< 2.59·10¹⁰` contains it (MORDELL13E, CERTIFIED).
+* **x̂₉** (`x_2=9, x_7=−1`, `x_q=1` otherwise; TYPEI2 Conj 3.4, CONJECTURE): Type I only.
+  *Tests:* Type I-only routes (O123). It is invisible to Type II routes: `W=7` at every
+  approximant (since `p≡−1≡−4·D (mod 7)` with `D=2|A_7²=4`; data below).
+* **17-generic line** (MORDELL17, Conj 4.3): analogous to x\*\* for `n_p=17`; the critical input is a
+  prime-power count `D_P(K)` (MORDELL17B/C). Not separately tested here (same structure as x\*\*).
+
+### 3.2 Computation (EVIDENCE; `scripts/rt_modeltest.py`, data `data/rt/`)
+
+For primes p approximating each point to precision Q (Q ≈ 10²¹–10⁴⁴: all primes `≤ y` fixed, 11, 13
+or 7 to the cube), and random Mordell-hard controls of the same size, with `T = 2·10⁵`:
+`N_T(p)` (exact Type II witness count), `W(p)`, the conditional-Haar main term `Mloc` (exact local
+data at the primes of Q, independence elsewhere — the best main term available to a route that
+sees only `p mod Q`), and the low-conductor main term `M0` (local data mod 840 only).
+
+| class (y=97, p≈10⁴⁰) | n_p | W(p) | N_T(p) | Mloc | M0 |
+|---|---|---|---|---|---|
+| one (6 primes) | 101–107 | 103–251 | 30–67 | 44.8–45.7 | 64–67 |
+| x\*\* (6) | 11 | 99–359 | 34–47 | 46.2–48.6 | 65–66 |
+| x̂₉ (6) | 7 | 7 | 50–65 | 51.8–55.8 | 71–77 |
+| control (6) | 11–17 | 11–71 | 55–69 | — | 64–67 |
+
+(y = 47, p ≈ 10²¹–10²⁵: same picture; `data/rt/modeltest_T2e5_y47.txt`.)
+
+### 3.3 What a route sees there (Assessment, supported by 3.2)
+
+1. **The special points are invisible to any route whose moduli contain fresh primes.** Sterility
+   of x\*\* / x̂₉ (if true) constrains only moduli supported on the approximated primes. At the
+   approximants, the count is carried by moduli with a prime factor outside Q; the conditional main
+   term drops by ≈30% relative to `M0` (the Q-smooth moduli are deleted), and the actual count
+   tracks `Mloc`. A spectral/automorphic route with a low-conductor main term `M0` overestimates
+   by a bounded factor here — harmless.
+2. Consequently sterility of a profinite point gives only a **linear** pointwise Ω-result
+   (`W(p) > T` at primes with `log p ≍ T` by Linnik), far weaker than X5. **The binding pointwise
+   test is X5's fibre primes** (`p≡r (mod Q)`, `log Q ≍ 𝓛⁴`, `N_T(p)=0` with `𝓛³ → ∞` mass), not the
+   sterile candidates. These primes are not computable (log p ≍ 𝓛⁴ with 𝓛 large); the test is
+   therefore a *paper* test: what does the route's main term and error term do on such a fibre?
+3. The sterile candidates remain the binding test for **covering-type** routes (finite unions of
+   identity classes, fibration arguments that produce integral points from finitely many families,
+   Brauer–Manin-type local-global statements): such a route must explain what it does at x\*\* /
+   x̂₉ / the 17-line, where finitely many families provably (at the square point) or conjecturally
+   (others) fail.
+
+## 4. Pre-registered collapse tests for Phase 2
+
+Each proposal will be run through these tests; a route that passes all of them is labelled
+**surviving** (which is not the same as correct).
+
+* **T1 Odd-square test (ET Prop 1.6; BL Cor 1.4; PROVED that it is necessary).** Odd squares
+  `n=m²` have no Type I/II solutions. A route claiming `f_I(n)+f_II(n)>0` must contain a step that is
+  false at `n=m²`. Name it. (At `n=m²`, `χ_n` is principal off m: Heegner/CM data of discriminant
+  built from n are non-fundamental; `L(s,χ_n)` is ζ times finitely many factors.)
+* **T2 Integrality (Prop 2.1).** Which pieces have main term > 1/2? If none, where is the collective
+  (signed) control of the error, and what is its size against total mass `≍ log³p`?
+* **T3 Range (Prop 2.3).** Does any claimed pointwise asymptotic or lower bound hold with Type II
+  moduli `log T < (log p)^{1/4}` (Type I heights `< n_p`)? If so, it contradicts X5 / OMEGA Thm 8.5.
+* **T4 Non-residue (Prop 2.5).** Where does `χ_p` at a prime `≥ n_p` enter?
+* **T5 Fibre (§2.2 Assessment, §3.3(2)).** What do the main and error terms do on the X5 fibre
+  `p≡r (mod Q)`, r square, `log Q ≍ 𝓛⁴`, where the true count up to T is 0?
+* **T6 Covering (§3.3(3)).** For routes that produce solutions from finitely many families (incl.
+  fibration/BM, finite unions of forms/genera): behaviour at the square point (provably fails), x\*\*,
+  x̂₉, the 17-line.
+* **T7 Average leak.** Does any cited estimate (spectral large sieve, DI Thm 7, Kuznetsov with
+  exceptional eigenvalues, Bombieri–Vinogradov, zero-density) average over a parameter that the
+  pointwise statement fixes (p, or the level/discriminant attached to p)? If so, what remains at a
+  single p?
+* **T8 Lifting (Prop 2.4).** Which coarse invariant does a detecting object see, what is the fibre
+  size, and is the lift to a positive integer solution unconditional, or does it re-introduce
+  `p mod q` (Prop 2.6) or a search (E1)?
+
+## 5. Phase 2, item 1: O127 (`CONDITIONAL_ES.md`, checkpoint 1)
+
+O127 claims no conditional proof; its outputs are an exact slice (Lemma 1.1), a scale constraint
+(Prop 2.3), Heegner/GLH exclusions (Cor 4.1, Remark 4.2), a GRH discussion (§3.2) and
+Theorem 6.1 (X_slice ⇒ ES). Overall verdict: **the negative conclusions survive; three scope /
+argument repairs are needed (5.6); one new fact strengthens Prop 3.1 (5.2).**
+Script `scripts/rt_slice_special.py`; data `data/rt/slice_special_*.txt`.
+
+### 5.1 Lemma 1.1 (slice `tp+1 = m·m''`) — T8 lifting: PASS
+Algebra re-checked (`(gc−1)(gf−1) = g(gcf−c−f)+1`; solution `(bdn, cd, bcd)`); 1358 slice
+solutions for primes p < 800 rebuilt and checked in exact arithmetic, 0 failures. The lift to a
+positive solution is exact and unconditional. It is ET's Type I at a = 1, as O127 says.
+
+### 5.2 T1 (odd squares) on the slice — new fact
+**Lemma 5.1 (PROVED).** For odd `n=m²`, no slice solution has `gcd(n, c) = 1`.
+*Proof.* `4bd = gn+1` gives `gcd(n, bd) = 1`, so with `gcd(n,c)=1` the solution
+`(bdn, cd, bcd)` has `n | x`, `gcd(n, yz) = 1`, excluded by ET Prop 1.6 / BL Cor 1.4. ∎
+**EVIDENCE.** No odd square `n = m²` with `m ≤ 61` has *any* slice solution (complete search,
+`g ≤ n+2`); none for `63 ≤ m ≤ 151` with `g ≤ 3000`.
+*Consequence for O127 Prop 3.1.* At odd squares `S(n) = 0` (EVIDENCE; PROVED for the coprime
+part) while the principal part `S_0(n) = Σ_g τ(n_g/4)/φ(g) > 0` is of the same size as at primes.
+So **any bound `|S_1| < S_0` must fail at every odd square**; an argument bounding the non-principal
+part must use that p is prime (not merely `p ≡ 1 (4)` or a size/coprimality condition shared by
+`m²`). Equivalently: the cancellation in `S_1` that O127 asks for is *exactly* square-sensitive,
+which rules out every bound depending only on the multiset of moduli and sizes.
+
+### 5.3 T4 (non-residue): where χ_p enters the slice — PASS (automatically)
+**Lemma 5.2 (PROVED).** For `p ≡ 1 (4)` every slice solution has `(d/p) = (b/p) = −1`.
+*Proof.* Dictionary with notes Lemma 77.6 / POINTWISE_SIZE Lemma CT: the Type I solution
+`(ack, bck, pabc)` with `a=1, b_ET=b, c_ET=d, k=c` is `(cd, bcd, pbd)`; Lemma 77.6 gives
+`(c_ET/p)=(d/p)=−1` and `(ab/p)=(b/p)=−1`. ∎
+EVIDENCE: all 748 slice solutions for `p ≡ 1 (4)`, `p < 1500`, have `(d/p)=(b/p)=−1`
+(`(c/p), (f/p), (g/p)` take both signs). So `m = 4d` always has a prime factor `≥ n_p`; in the
+dual form, a witness modulus m that is `n_p`-smooth is impossible. The slice sees χ_p through the
+*actual factorisation* of `gp+1` (E1), which is what Prop 2.5 requires.
+
+### 5.4 T3/T5/T6 on X_slice
+* **Under H, `g_min(p)` is unbounded (CONDITIONAL, Theorem C).** "For g ≤ G factor `gp+1`, test
+  the divisors" is a bounded correct witness-producing program, so for each G it fails for
+  infinitely many `p≡1 (24)`. No unconditional Ω-result for `g_min` is in the campaign; Type I
+  only has `ck_min ≫ log p·log₃p` i.o. (OMEGA Thm 8.5).
+* **T5 does not bind X_slice:** X5's fibre is a Type II statement.
+* **T6:** at approximants of the special points (p ≈ 10¹⁴–10³¹, `y ≤ 61`), the least slice
+  parameter is small (`g_min ∈ {3, 11, 15, 19}`), and `S_G(p)` (`G = 800`) is 37–124 against 78–99 for
+  controls (EVIDENCE, `data/rt/slice_special_G*_y*.txt`). As in §3.3, the special profinite points
+  are invisible to the slice: `gp+1` is a fresh integer whose factorisation is not controlled by
+  `p mod Q`.
+* **Status of X_slice:** a *surviving target*. It is E1 (search over g, with actual
+  factorisations), satisfies T1 (Lemma 5.1 + EVIDENCE), T4 (Lemma 5.2) and T8. **It is not a route.**
+  No mechanism for proving it is offered, and Thm 6.1 is the trivial implication, correctly labelled.
+
+### 5.5 Prop 2.3 (O127) vs Prop 2.4 (here): both correct, the same inequality
+Both rest on `#target ≤ μ(p)·f(p)`.
+* O127 makes the exceptional set **power-sparse**: `M ≤ 2μ p^δ` outside `O(N^{1−δ}log³N)` primes.
+  This is sharper than my "density o(1)" for power thresholds. (Minor: Markov gives
+  `f(p) ≤ N^δ` for `p ≤ N`; read it dyadically, `p ∈ (N/2,N]`, at the cost of a constant `2^δ`.)
+* Mine adds two things. First, an **every-p** bound `M ≤ 2μ p^{3/5+O(1/log log p)}` (ET Prop 1.7):
+  drivers with main term `≥ μ p^{3/5+ε}` fail at *every* large p, not just almost all. Second,
+  a polylog threshold `M ≤ 2μ ξ log³p log log p` on a density-1 set.
+* Merged statement: `M(p) ≤ 2μ(p)·f(p)`, with
+  * `f(p) ≤ p^{3/5+o(1)}` for every p,
+  * `f(p) ≤ p^δ` off `O(N^{1−δ}log³N)` primes,
+  * `f(p) ≤ ξ log³p log log p` off a density-o(1) set.
+* **Common blind spot (T8).** The constraint is on `M/μ`. Encodings with fibres `μ ≥ p^{η−o(1)}`
+  (the detecting object sees only a coarse invariant of a solution) escape both. O127 Cor 4.1
+  assumes `μ ≤ p^{o(1)}`, so it is correct as stated, but see 5.6(c).
+
+### 5.6 Repairs requested
+(a) **§3.2, "each χ occurs at one argument" is false as stated (MINOR; conclusion survives).**
+* *Why the premise fails.* Every divisor of `n_g = gp+1` is prime to g, so `τ_χ(n_g/4) = τ_{χ*}(n_g/4)`
+  for the primitive `χ*` (mod q) inducing χ. Hence each primitive `χ*` occurs at all `g ∈ qℕ`:
+  about `p/q` arguments `(qjp+1)/4`, an arithmetic progression of modulus `≍ qp` inside `[1, p²]`.
+* *Why the conclusion still holds.* GRH for `L(s, χ*ψ)` (ψ mod `≍ qp`) controls such an AP sum with
+  error `X^{1/2+ε} = p^{1+ε}`, which exceeds the number of terms `p/q`. So it gives only the
+  trivial bound (PROVED for this mechanism).
+* *Beyond square-root level.* Even a level-of-distribution input would face Prop 2.1 here: the
+  `1/φ(g)` weights put mass `≍ log p` per dyadic g-block, against power-size errors.
+* *Requested change.* Restate §3.2 with this reason.
+
+(b) **§3.2 / report item 4: "Chebotarev witnesses are polylog-size, and OMEGA13 kills those" is a
+scope error for the slice (MINOR–MAJOR).**
+* OMEGA13 Thm 5.1 is about **Type II multiplier** moduli. X_slice is Type I.
+* For Type I, the only unconditional Ω-result is `ck_min ≫ log p·log₃p` i.o. Under GRH,
+  Montgomery's `n_p ≫ log p log log p` i.o. and Lemma 8.1 give `ck_min ≫ log p log log p` i.o.
+  Nothing in the campaign excludes polylog Type I witnesses for all large p, except bounded ones
+  under H (Theorem C).
+* *Requested change.* Restrict the claim to Type II, or prove a Type I analogue.
+
+(c) **§5 table row "GLH…" and report item 3 drop Cor 4.1's hypothesis `μ ≤ p^{o(1)}` (MINOR).**
+"Cannot drive ES for families with `|D| ≥ p^κ`" must read "…through an encoding that is
+`p^{o(1)}`-to-one".
+
+(d) **Prop 3.1: add 5.2** (S vanishes at odd squares while `S_0` does not). This turns the
+Poisson-scale cancellation requirement into a square-sensitive one (T1).
+
+### 5.7 Test summary for O127
+
+| route | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| Lemma 1.1 slice / X_slice (target) | needs primality (5.2) | — | g_min unbounded under H | automatic via d (5.3) | n/a (Type I) | special points invisible | — | exact lift | **surviving target, no route** |
+| Prop 2.3 scale constraint | — | — | — | — | — | — | — | blind to coarse encodings | **correct**; = my Prop 2.4, merged in 5.5 |
+| Cor 4.1 Heegner small scale | — | power main terms excluded | — | — | — | — | almost-all-centres = average leak (O127 notes it) | needs `μ ≤ p^{o(1)}` | **correct as stated**; qualifier missing in §5/report |
+| §3.2 GRH single-coefficient | — | power errors vs polylog mass | Chebotarev claim scoped wrongly for Type I | — | — | — | — | — | **conclusion correct, argument needs repair** (5.6a,b) |
+| Thm 6.1 X_slice ⇒ ES | — | — | — | — | — | — | — | exact | **correct, trivial, correctly labelled** |
+
+## 6. Phase 2, item 2: O124 (`POINTWISE_TERNARY.md`) — escape hatches left by Thm 4.1
+
+O124's Thm 4.1 / Cor 4.2 is about representations `Q(v) = κp+η` by a definite form (or line-free
+indefinite ternary form), with bounded-complexity recipes. The proofs are checked separately (R124);
+here I only map what lies outside that scope. Verdict, in short:
+* **(H5) is the live route** for automorphic input, and O124 does not list it: p enters through a
+  side condition rather than the level. Its quadratic object is the split `SL₂`/`Γ₀(d)` quadric,
+  which is O123's domain.
+* **(H2) is live only as a Planck-scale (cusp-height `≍ √p`) equidistribution problem**, which is
+  O128's domain.
+* (H1), (H3) and (H4) collapse.
+
+### 6.1 Two general facts (PROVED)
+
+**Proposition 6.1 (curves collapse to one solution).** Let `(S_j, Φ_j)` be a valid piece (O124
+Def 1.1) and let `C ⊆ E_m` be an irreducible curve over ℚ (a line, a conic, a Pell orbit closure)
+with `C ∩ S_j` infinite. Then `Φ_j` is constant on `C ∩ S_j` minus a finite set.
+*Proof.* `Φ_j|_C` is a rational function on the irreducible curve C. Its values on `C ∩ S_j` lie in
+`Sol(p)`, a finite set (`f(p) < ∞`). A non-constant rational function takes each value only finitely
+often. ∎
+*Consequence.* On split level sets (ℚ-lines) and on Pell-type orbits (O124's own example), the
+representation is a **coarse invariant**: one curve gives one solution. The infinite family of
+points is then wasted (my Prop 2.4 with infinite fibres), and the content of the route is the
+*existence of one good curve*.
+
+**Proposition 6.2 ((Q_d) points are Type II multiplier witnesses with modulus f).** Let
+`ef − 4da² = p` and `f + 1 = 4acd`. Then `f ≡ 3 (4)`, `(f+1)/4 = a·c·d`, and `p ≡ −a·c^{−1} (mod f)`.
+So `f` is a witness modulus in notes (51.1)–(51.2) (`k=1, ℓ=f, (u,v,w) = (a,c,d)`), and
+**`f ≥ W(p)`**. By X5, for infinitely many Mordell-hard p every (Q_d) point satisfying the side
+condition has `f ≥ exp(c(log p)^{1/4}(log log p)^{−1/4})`.
+*Proof.* `p = ef − 4a²d ≡ −4a²d (mod f)`, and `4acd ≡ 1` gives `c^{−1} ≡ 4ad`. ∎
+(This is consistent with O124's numerics, where a ≤ 22 and d ≤ 8: f is the *large* cofactor of
+`p + 4a²d`.)
+
+### 6.2 The hatches
+
+**(H1) Growing families `t ≤ T(p)` (`Q_t, κ_t, η_t`, recipes `Φ_t`): COLLAPSES.**
+* *Mild pieces.* For each t, Thm 4.1 reduces the mild pieces to degenerate (polynomial-identity)
+  pieces, i.e. to ET classes (ET Prop 1.9). Uniformly in t, the route is an ET-class covering with
+  moduli growing with `T(p)`.
+* *Ω-results this inherits.*
+  * Type II families: X5 (`exp((log p)^{1/4})`).
+  * All seven ET families: the square class of one lies in no ET class. With Linnik, the least
+    modulus of an ET class containing p is `≫ log p` i.o. (PROVED, unconditional, linear).
+  * Under H: unbounded (Theorem C).
+* *Exceptional-level loophole* (O124 §9(i)). If p's level is exceptional for `(t,j)`, Lemma 1.3
+  makes `Φ_{t,j}` constant on a dense part of `E_{m_t}`. The representation then only certifies that
+  `S_{t,j} ∩ E_{m_t} ≠ ∅`; the solution is a predetermined function of `(t, m_t)`. For a uniform rule
+  in t, solving `m_t = κ_t p + η_t` for t given p is a parameter search with polynomial identities
+  (E1 + ET classes). Assessment: no representation content survives.
+* *Automorphic input.* Duke/Iwaniec uniform in the level supply only mild sets. Within Thm 4.1's
+  bounded-complexity scope, and modulo the uniformity in t that O124 §9 leaves open (Assessment), they
+  do no work. T8 fails.
+
+**(H2) Non-mild (thin) side conditions on a level set `Q = κp+η`: LIVE, but only at Planck scale.**
+This is where ES's own rank-3 piece sits: (Q_d) with `4ad | f+1`.
+* **Lemma 6.3 (PROVED; identity checked symbolically).** `(e,f,a) ↦ [de, 4ad, f]` maps (Q_d) points
+  to binary forms of discriminant `−4dp`. Their Heegner points are `z = (−2a + i√(p/d))/e`. The side
+  condition is `f ≡ −1 (mod B/d)`, with `B = 4ad` the middle coefficient.
+* *Assessment.* The condition depends on the representative of the form, not on its
+  `Γ₀(d)`-orbit: `z ↦ z+1` sends `B ↦ B+2A`. So it is not a function of the CM point. It selects
+  representatives of the orbit `Γ₀(d)z` in a region at cusp height `≍ e^{−1}√(p/d)`. That height is
+  `≍ √p` after the involution, for the small-a points that occur (§8 of O124), with a congruence on
+  the matrix entries. Roots ν of `4dX² ≡ −p (mod f)` that are small (`ν = a ≤ A ≪ f`) are the same
+  thing: the Duke–Friedlander–Iwaniec setting (roots of quadratic congruences, Annals 1995; cited from
+  memory, not archived), at fixed discriminant `≍ p`.
+* *Tests.*
+  * T2: for fixed (a,d), the piece is one divisor-in-progression question for the single integer
+    `p+4a²d`, with main term `τ(p+4a²d)/φ(4ad) < 1/2` once a is large. So the pieces must be grouped
+    over a (or d).
+  * T3: Prop 6.2 forces `f ≥ W(p)` (fine, since f is large anyway).
+  * T5: the grouped count `Σ_{a≤A, d}` is a Type II count, so on the X5 fibre it vanishes for all
+    witnesses with `f ≤ T`, `log T ≍ (log p)^{1/4}`.
+  * T1: every (Q_d) point gives a Type II solution, which BL Cor 1.4 / ET Prop 1.6 forbid at odd
+    squares with the coprimality condition.
+  * Prop 2.4: the target region (small root, height `√p`) has measure `≍ A/f`. The expected count is
+    `≍ Σ_{a,d} log p/(ad)`, which is polylog, while GLH-strength small-scale equidistribution needs
+    expected count `≥ |D|^{1/4−o(1)}` (O127 §4).
+* *Conclusion.* The live statement is the Planck-scale cusp-excursion count of the orbits
+  `Γ₀(d)·z_{−4dp}` with a congruence. Automorphic input enters via Kuznetsov for `Γ₀(4ad)`, as a
+  family over the level. This is the Type II spectral route (O128). It survives T8 (the lift is
+  Prop 6.2, exact) and must answer T2/T5/T7.
+
+**(H3) Split level sets of indefinite ternary forms: COLLAPSES.**
+* ℚ-lines occur only for `κp+η` in one square class (O124 Lemma 5.1). That is O(√N) primes, and
+  finitely many if `η = 0`. So no route covers all large p this way.
+* With a p-dependent form (`det Q_p ≍ p`, chosen so that `−(κp+η)det Q_p` is a square), Prop 6.1
+  reduces each line to one solution. The existence of a ℚ-line is Hasse–Minkowski, i.e. Hilbert
+  symbols (congruence/character data, inside X1/X4 at square-mimicking points). Integrality of the
+  resulting solution is a separate divisor condition. Assessment: E1 + congruence.
+
+**(H4) Indefinite `k ≥ 4`: COLLAPSES into (H5).** O124 Comp 6.1 (CERTIFIED) finds no rank-4
+quadratic substructure in ET's coordinates. A rank-4 form appears only after the nonlinear
+substitution `u = ad` in Type I: `ef − 4au = 1`, i.e. `det (e 2a; 2u f) = 1`, the split quadric `SL₂`.
+Its side condition `a | u` is thin. That is (H5).
+
+**(H5) Fixed level set, p in the side condition: LIVE; not in O124's scope.**
+* *Setup.* Type I: `ef − 4a²d = 1` (level 1 for every p), side condition `f ≡ −p (mod 4ad)`
+  (`4acd = p+f`). O124 Def 1.1 needs `Q(v) = κp+η`, so Thm 4.1 is silent here. This is exactly the
+  campaign's (D)32 Heegner/Kuznetsov set-up and O123's route.
+* *Tests.*
+  * T3: Type I heights below `n_p` are empty (`ck_min ≥ n_p`), and `≫ log p·log₃p` i.o.
+  * T6: x̂₉ is the binding sterile candidate. No Type I certificate at x̂₉ has `f < 10¹²` (TYPEI3,
+    CERTIFIED), and none at 2-adic level `L ≤ 22` (any height) (TYPEI4–7). So the SL₂ points used at
+    x̂₉-approximants are high (consistent with §3.3: the route sees fresh primes).
+  * T2: each `(a,d)` piece is sub-unit for large ad.
+  * T7: (D)32 averages over p; flipping it is O123's question.
+* *Status.* Live; to be judged on O123's checkpoint.
+
+### 6.3 Summary table
+
+| hatch | O124 status | automorphic input possible? | my verdict |
+|---|---|---|---|
+| H1 growing families, mild pieces | Assessment (§9.1) | Duke/Iwaniec uniform in level | **collapses** to ET-class coverings with growing moduli (X5; linear unconditional Ω; Thm C under H); exceptional levels = parameter search (Assessment) |
+| H2 thin side conditions (Q_d) | allowed by Thm 4.1(a), uncontrolled | Kuznetsov on `Γ₀(4ad)`, DFI roots, Heegner points of disc `−4dp` | **live only at Planck scale** (cusp height `√p`, expected count polylog); Type II spectral, O128; lift exact (Prop 6.2) |
+| H3 split ternary level sets | gap, O(√N) primes | none needed (lines) | **collapses** (Prop 6.1 + Hasse–Minkowski; sparse set) |
+| H4 indefinite k ≥ 4 | gap | — | **reduces to H5** (`u = ad` gives SL₂) |
+| H5 fixed level, p in side condition | **not in scope** | Heegner/Kuznetsov on `SL₂`, `Γ₀(d)` | **live**; O123's route; tests T2/T3/T6(x̂₉)/T7 pending |
+
+*Minor observations on O124 itself.*
+1. Cor 7.1's "no sterile point in the closure of `𝒫_R`" is about mild inputs only. It says nothing
+   about H2/H5, which is where the ES content lives; the report's ledger suggestion should say so.
+2. §8's numerics (`a ≤ 22`, `d ≤ 8` up to 10⁸) are a statement about the *small* parameters. By
+   Prop 6.2 the witness modulus is f, and X5 says f must be huge i.o. So these numerics are not
+   evidence about the pointwise difficulty in the W-scale.
