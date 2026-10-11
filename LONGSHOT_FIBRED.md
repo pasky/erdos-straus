@@ -319,11 +319,11 @@ datum `4 | B`); `A = −1` is Q₀. For each orbit the script counts `#{γ ∈ P
 | n | `4n+1` | orbits (genus-full) | ES orbits | per-orbit counts (min–max) |
 |---|---|---|---|---|
 | 29 | 117 | 12 | 2 | 1792–1818 |
-| 41 | 165 | 16 | 4 | see file |
-| 53 | 213 | 8 | 2 | see file |
-| 9 = 3² | 37 | 4 | 0 | equal |
-| 25 = 5² | 101 | 4 | 0 | equal |
-| 49 = 7² | 197 | 4 | 0 | equal |
+| 41 | 165 | 16 | 4 | 1514–1526 |
+| 53 | 213 | 8 | 2 | 1322–1330 |
+| 9 = 3² | 37 | 4 | 0 | 3230 (all) |
+| 25 = 5² | 101 | 4 | 0 | 1918 (all) |
+| 49 = 7² | 197 | 4 | 0 | 1382 (all) |
 For each n, every orbit (ES or not) has the same count to within 1.5% (at H = 400 they were within 3%). This is
 Thm 3.1(b) in action: the fibre is a copy of `PSL₂(ℤ)` and carries no information. `#E_ES(≤H)` is `F_{1,1}(n)` times a
 common orbit count, i.e. `c(n) = κ(n)·F_{1,1}(n)` with `F_{1,1}(n) = #{f | 4n+1 : f ≡ 3 (4)}` (O128 Prop 8.1).
