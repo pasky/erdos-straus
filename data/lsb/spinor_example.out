@@ -1,0 +1,33 @@
+classes mod 72 generically represented: [1, 7, 13, 19, 25, 31, 37, 43, 49, 55, 61, 67]
+exceptions in those classes up to 50000 : 29
+1 {} m^2 with all primes of m = 1 mod 3
+49 {7: 2} m^2 with all primes of m = 1 mod 3
+169 {13: 2} m^2 with all primes of m = 1 mod 3
+361 {19: 2} m^2 with all primes of m = 1 mod 3
+961 {31: 2} m^2 with all primes of m = 1 mod 3
+1369 {37: 2} m^2 with all primes of m = 1 mod 3
+1849 {43: 2} m^2 with all primes of m = 1 mod 3
+2401 {7: 4} m^2 with all primes of m = 1 mod 3
+3721 {61: 2} m^2 with all primes of m = 1 mod 3
+4489 {67: 2} m^2 with all primes of m = 1 mod 3
+5329 {73: 2} m^2 with all primes of m = 1 mod 3
+6241 {79: 2} m^2 with all primes of m = 1 mod 3
+8281 {7: 2, 13: 2} m^2 with all primes of m = 1 mod 3
+9409 {97: 2} m^2 with all primes of m = 1 mod 3
+10609 {103: 2} m^2 with all primes of m = 1 mod 3
+11881 {109: 2} m^2 with all primes of m = 1 mod 3
+16129 {127: 2} m^2 with all primes of m = 1 mod 3
+17689 {7: 2, 19: 2} m^2 with all primes of m = 1 mod 3
+19321 {139: 2} m^2 with all primes of m = 1 mod 3
+22801 {151: 2} m^2 with all primes of m = 1 mod 3
+24649 {157: 2} m^2 with all primes of m = 1 mod 3
+26569 {163: 2} m^2 with all primes of m = 1 mod 3
+28561 {13: 4} m^2 with all primes of m = 1 mod 3
+32761 {181: 2} m^2 with all primes of m = 1 mod 3
+37249 {193: 2} m^2 with all primes of m = 1 mod 3
+39601 {199: 2} m^2 with all primes of m = 1 mod 3
+44521 {211: 2} m^2 with all primes of m = 1 mod 3
+47089 {7: 2, 31: 2} m^2 with all primes of m = 1 mod 3
+49729 {223: 2} m^2 with all primes of m = 1 mod 3
+all exceptions are m^2 with primes(m) = 1 mod 3: True
+such squares in range: 29  of which non-represented: 29

@@ -1,0 +1,54 @@
+n=29 N=4n+1=117  F_ES=2  orbits(genus-full)=12
+   A=  -117 ES=False count(H=3000)=1818  count/H=0.6060
+   A=   -39 ES=False count(H=3000)=1800  count/H=0.6000
+   A=   -13 ES=False count(H=3000)=1792  count/H=0.5973
+   A=    -9 ES=False count(H=3000)=1792  count/H=0.5973
+   A=    -3 ES=False count(H=3000)=1800  count/H=0.6000
+   A=    -1 ES=False count(H=3000)=1818  count/H=0.6060
+   A=     1 ES=False count(H=3000)=1818  count/H=0.6060
+   A=     3 ES=True  count(H=3000)=1800  count/H=0.6000
+   A=     9 ES=False count(H=3000)=1792  count/H=0.5973
+   A=    13 ES=False count(H=3000)=1792  count/H=0.5973
+   A=    39 ES=True  count(H=3000)=1800  count/H=0.6000
+   A=   117 ES=False count(H=3000)=1818  count/H=0.6060
+n=41 N=4n+1=165  F_ES=4  orbits(genus-full)=16
+   A=  -165 ES=False count(H=3000)=1518  count/H=0.5060
+   A=   -55 ES=False count(H=3000)=1520  count/H=0.5067
+   A=   -33 ES=False count(H=3000)=1526  count/H=0.5087
+   A=   -15 ES=False count(H=3000)=1514  count/H=0.5047
+   A=   -11 ES=False count(H=3000)=1514  count/H=0.5047
+   A=    -5 ES=False count(H=3000)=1526  count/H=0.5087
+   A=    -3 ES=False count(H=3000)=1520  count/H=0.5067
+   A=    -1 ES=False count(H=3000)=1518  count/H=0.5060
+   A=     1 ES=False count(H=3000)=1518  count/H=0.5060
+   A=     3 ES=True  count(H=3000)=1520  count/H=0.5067
+   A=     5 ES=False count(H=3000)=1526  count/H=0.5087
+   A=    11 ES=True  count(H=3000)=1514  count/H=0.5047
+   A=    15 ES=True  count(H=3000)=1514  count/H=0.5047
+   A=    33 ES=False count(H=3000)=1526  count/H=0.5087
+   A=    55 ES=True  count(H=3000)=1520  count/H=0.5067
+   A=   165 ES=False count(H=3000)=1518  count/H=0.5060
+n=53 N=4n+1=213  F_ES=2  orbits(genus-full)=8
+   A=  -213 ES=False count(H=3000)=1330  count/H=0.4433
+   A=   -71 ES=False count(H=3000)=1322  count/H=0.4407
+   A=    -3 ES=False count(H=3000)=1322  count/H=0.4407
+   A=    -1 ES=False count(H=3000)=1330  count/H=0.4433
+   A=     1 ES=False count(H=3000)=1330  count/H=0.4433
+   A=     3 ES=True  count(H=3000)=1322  count/H=0.4407
+   A=    71 ES=True  count(H=3000)=1322  count/H=0.4407
+   A=   213 ES=False count(H=3000)=1330  count/H=0.4433
+n=9 N=4n+1=37  F_ES=0  orbits(genus-full)=4
+   A=   -37 ES=False count(H=3000)=3230  count/H=1.0767
+   A=    -1 ES=False count(H=3000)=3230  count/H=1.0767
+   A=     1 ES=False count(H=3000)=3230  count/H=1.0767
+   A=    37 ES=False count(H=3000)=3230  count/H=1.0767
+n=25 N=4n+1=101  F_ES=0  orbits(genus-full)=4
+   A=  -101 ES=False count(H=3000)=1918  count/H=0.6393
+   A=    -1 ES=False count(H=3000)=1918  count/H=0.6393
+   A=     1 ES=False count(H=3000)=1918  count/H=0.6393
+   A=   101 ES=False count(H=3000)=1918  count/H=0.6393
+n=49 N=4n+1=197  F_ES=0  orbits(genus-full)=4
+   A=  -197 ES=False count(H=3000)=1382  count/H=0.4607
+   A=    -1 ES=False count(H=3000)=1382  count/H=0.4607
+   A=     1 ES=False count(H=3000)=1382  count/H=0.4607
+   A=   197 ES=False count(H=3000)=1382  count/H=0.4607
