@@ -10,7 +10,36 @@ For a prime p every solution is Type I or II, so `Sol(p) ≠ ∅ ⟺ f(p) > 0`.
 
 ## 0. Summary
 
-(written at the end)
+**Outcome: a negative result with exact scope. Fibring does not escape the scale constraint for any encoding of
+class X (Thm 5.4). The one T1-passing main term found is a genus character at the place p, and it belongs to an
+invalid encoding. ES is not proved.**
+* §1 (PROVED, trivial). For a power-fibred encoding, `c(n) = Σ_{s∈Sol(n)} c_s`. The H-asymptotic is free, and all
+  the content sits in the constant. Lemma 1.3 gives a weighted scale constraint, `c(n) ≤ f(n)·max_s c_s`.
+* §2 (PROVED). *Rigidity:* a rational recipe is constant on every Zariski-dense piece (Lemma 2.1; orbits of
+  arithmetic groups are Zariski-dense by Borel density, Lemma 2.2). So for algebraic recipes, counting is idle: each
+  piece carries its explicit solution, and with ℤ-polynomial recipes local solubility alone already forces the
+  point to be a solution (Thm 2.3). Uniform algebraic families of bounded complexity miss every large
+  `p ≡ 1 (mod D')` (Cor 2.4, self-contained proof from ET Prop 1.6; known in substance as Mordell–Schinzel).
+  Growing families reduce to the parameter search (Cor 2.5).
+* §3 (PROVED relative to the counting theorems, whose statements were checked). For orbit recipes,
+  `c(n) = Σ_orbits w_O`, with `w_O` a stabiliser covolume. Compact or finite stabilisers give bounded weight
+  ratios, so the scale constraint returns with multiplicity `C·μ(n)` (Thm 3.1).
+* §4 catalogue: F1 free parameters, F2 Pell orbits (not power-fibred; ES-dead after k = 1; regulators capped at
+  `O(log p)` because the solution *is* the unit), F3 Type I on X_d, F4 Type II as `SL₂(ℤ)`-orbits of Gram pairs
+  (H-linear fibres, trivial stabiliser, `c = κ·F_{c,d}`), F5 genus-full closures (computable mass, invalid, fail
+  T1 via Q₀), F6 definite quaternion orders (finite units).
+* §5 (T1). For mass-formula main terms, T1 can only be passed by local or Brauer data **at the primes dividing m**
+  (Prop 5.1). Such factors exist in nature: the spinor exceptions of `3x²+4y²+9z²` are exactly certain squares
+  (classical; re-checked numerically). The ES-natural one is the genus set `𝔊⁻_d` (`χ_{−4d}(Q) = −1`). It is empty at
+  odd squares and half the class group at primes `p ≡ 1 (4)` (PROVED, 5.3), so it passes T1 through the place p,
+  but it is not a valid encoding: it has `h/2 ≍ p^{1/2±ε}` classes against `F_d(p) = O(polylog)` ES points, and
+  often `F_d(p) = 0`.
+* Thm 5.4: the obstruction, with exact scope (class X = algebraic pieces, or lattice orbits with weight ratio R).
+  §5.5 lists what escapes: (E-a) power-varying weights not capped by the solution, none found; (E-b) a *valid*
+  genus-full criterion with a BM factor at p, which would make counting unnecessary (CTX) and would be a theorem of
+  ES strength; (E-c) non-algebraic, non-orbit recipes, which are in POINTWISE_SIZE Thm M's scope instead.
+* §6 EVIDENCE: F4 orbit counts are equal across orbits to within 1.5% at H = 3000; at the squares 9, 25, 49 there
+  are 4 genus-full orbits (including Q₀) and no ES orbit.
 
 ## 1. Fibred encodings: definition and the trivial decomposition
 
