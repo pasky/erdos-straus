@@ -7,6 +7,11 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Long-shot follow-up (2026-10-11; ledger (I)9–(I)10; both negative, hostile-reviewed):**
+* *Deterministic pigeonhole* (`LONGSHOT_PIGEONHOLE.md`, O135/R135). Covering certificates built from the prime factors below the modulus fail for a positive proportion of primes in every slice (Thm 2.2, PROVED relative to classical inputs). Pigeonhole collisions give only signed solutions. CONJECTURE PH: full-coset covers exist for every large p (EVIDENCE to 3.7·10⁷).
+* *Fibred (large-fibre) encodings* (`LONGSHOT_FIBRED.md`, O136/R136). For algebraic recipes and orbit recipes with a bounded covolume ratio, the fibre factor cancels and the scale constraint returns (PROVED relative to the cited counting theorems; one item CONDITIONAL).
+* What remains open is the per-slice lottery itself (H-A/H-B). ES is not solved.
+
 **Headline of the current phase: automorphic/geometric attack on pointwise ES (2026-10-10; tasks O123–O132,
 ledger (I)1–(I)8; all internal and hostile-reviewed, none externally refereed).** **Outcome: a precise negative
 map. ES is not solved, and no case of it is.** No automorphic, spectral, quaternionic or geometric input found here
