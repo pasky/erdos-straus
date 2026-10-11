@@ -144,7 +144,7 @@ fixed invariant measure on V(ℝ)).
 (b) If every stabiliser `H_y(ℝ)` is compact (e.g. V a two-sheeted hyperboloid / positive definite binary data,
 stabiliser a CM torus), then `w_O = κ/|Γ'_y|` with κ independent of O and `|Γ'_y| ≤ C(Γ')` (arithmetic groups
 have finitely many conjugacy classes of finite subgroups), so `w_max/w_min ≤ C(Γ')` and
-`c(n)/w_min ∈ [#orbits, C(Γ')·#orbits] ⊂ [f(n)·1_{f(n)>0}… , C(Γ')·μ(n)·f(n)]`.
+`#orbits ≤ c(n)/w_min ≤ C(Γ')·#orbits ≤ C(Γ')·μ(n)·f(n)` (#orbits = number of Γ'-orbits in E(n)).
 The scale constraint (Lemma 1.3) then holds verbatim with multiplicity `C(Γ')μ(n)`: a main term `M(n)` for
 `c(n)/w_min` with `M ≫ μ(n)·ξ log³n log log n` is impossible at density-one of primes.
 (c) If `H_y(ℝ)` is non-compact (a split torus factor), `w_O` is a regulator-type covolume and may vary by a
@@ -155,4 +155,4 @@ bound on finite subgroups: Borel–Harish-Chandra / Minkowski. (c) is a definiti
 
 *Reading.* Fibring under a lattice with compact stabilisers multiplies each solution by `≍ vol(B_H)` and does
 nothing else: `c(n)` is the solution count weighted by `1/|Γ'_y|`. Lemma 2.2 + Thm 2.3 forbid algebraic recipes,
-so the recipe sees only the orbit, and the orbit count is what the counting theorem returns.
+so the recipe sees only the orbit, and the orbit count is what the counting
