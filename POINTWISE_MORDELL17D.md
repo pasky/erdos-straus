@@ -129,3 +129,51 @@ units per level, and requires *equality* of the output with the set of listed da
 orders, from two independent engines, M17B Comp. 2.2) resp. listed boxes (Q: `m17_enum`, R83-confirmed). Result:
 **704 test points, 0 mismatches.** Remark 2.4's identity and divisibility were checked on all 6632 (datum, order)
 pairs of `p1–p13` (0 failures).
+
+**Computation 3.4 (CERTIFIED by Algorithms 3.1–3.2, validated as in 3.3).** For `u = 5` and for `u = −2/3`:
+no P-datum of level `L ≤ L_P*` and no Q-datum of level `k ≤ 15` has a box containing `u`.
+Candidates tested (P, both points): L = 8: 3.9·10⁹ / 4.2·10⁹; L = 9: 7.6·10¹⁰ / 8.1·10¹⁰ (8 min each).
+Q pairs `(a,d)` reaching the divisor test: 6, 26, 29, 51 (`u = 5`) and 34, 11, 22, 28 (`u = −2/3`) at k = 9, 11, 13, 15.
+`L_P* = 9` (L = 10 running, see Replay). Hence, as U ⊂ P, Q⁻¹ = Q and √Q = ∅ (M17B Lemma 1.1): **`5` and `−2/3`
+lie in no box of any of the seven ET families of level ≤ `L_P*`** (and in no Q-box of level ≤ 15). By inversion the same
+holds for `1/5`, `−3/2 ∈ C_7`. The cell-wide certified range is level 7 (M17B Comp. 3.1).
+
+## 4. The sharpened conditional statement
+
+**Theorem 4.1 (localized measure criterion; PROVED).** Let `u₀ ∈ C_5` lie in no box of level `≤ L*`, and
+`R = u₀ + 17^{L*}ℤ_17`. For `ℓ > L*` let `NB^R(ℓ)` be the number of distinct boxes of level `ℓ` contained in `R`
+(P-boxes of level `ℓ = (K+1)/2`, one per datum and order, and Q-boxes of level `ℓ = k`). If
+`Σ_{ℓ > L*} 17^{L*−ℓ}·NB^R(ℓ) < 1`, then `R` contains a sterile point. Hence (M17 Cor. 4.2) no finite set of ET
+Prop. 1.9 classes covers all sufficiently large primes `p ≡ 1 (24)` with `(p/17) = −1`, `(p/q) = 1` for `q = 5,7,11,13`.
+*Proof.* A box of level `≤ L*` meeting `R` contains `R` (ultrametric balls of larger or equal radius), hence `u₀`; there
+is none. A box of level `> L*` meeting `R` lies in `R`. By M17B Lemma 1.1 all boxes meeting `C_5` are P- or Q-boxes. The
+union of the boxes of level `> L*` inside `R` has measure `≤ Σ 17^{−ℓ}NB^R(ℓ) < 17^{−L*} = μ(R)`. ∎
+
+Fair-share normalisation: `R` is the fraction `17^{1−L*}` of `C_5`. Consider
+`(H_θ^R)`: `NB_P^R(K) ≤ C·17^{θK}·17^{1−L*}` for odd `K ≥ 2L*+1`, and `NB_Q^R(k) ≤ 2·17^{3k/5}·17^{1−L*}` for odd `k > L*`.
+Under it the criterion reads `C·Σ_{K≥2L*+1 odd} 17^{θK+(1−K)/2} + T_Q^R < 1`. Admissible C (box units, floor-rounded,
+`scripts/m17d_local_tail.py`); the first row is the global M17B criterion in the same units (`NB_P(K) ≤ C·17^{θK}`,
+K ≥ 15, base ρ₂; it equals 2× the D-unit constants of M17B/M17C):
+
+| criterion | θ = 0.30 | 0.35 | **0.40** | 0.45 |
+|---|---|---|---|---|
+| global, K ≥ 15 (ρ₂) | 545.9 | 55.06 | **4.969** | 0.3385 |
+| local, L* = 9 (K ≥ 19) | 7792 | 445.9 | **22.83** | 0.8827 |
+| local, L* = 10 (K ≥ 21) | 2.42·10⁴ | 1043 | **40.24** | 1.171 |
+
+**What this does and does not change (Assessment).** (a) The pointwise route raises the exact range around a chosen point
+by 2–3 levels for the cost of minutes to hours, which no cell-wide enumeration can do. The admissible constant at θ = 0.4
+grows ×4.6 (L* = 9) resp. ×8.1 (L* = 10). (b) The price is a different hypothesis: `(H_θ^R)` asks that P-centres not
+*concentrate* in `R` (at most C times the fair share), which is neither implied by nor implies (H_P). In the random
+discrete-log model of M17 §6 both hold with enormous margins. (c) No counting method of §1 proves either: proving
+`(H_θ^R)` needs the same `N^{2/5}`-without-log-loss count, now restricted to a residue class mod `17^{L*}`, i.e.
+additionally an equidistribution statement. So **the outcome stays CONDITIONAL**. The exact remaining gap is a bound
+on the number of P-boxes (ES solutions of `4/17^K` of type II, `17 ∤ cd`) whose centre `−a/b` falls in a fixed class
+mod `17^{L*}`: `≤ 40.24·17^{0.4K}·17^{1−L*}` for all odd `K ≥ 21` (L* = 10), plus the Q analogue with margin.
+
+**Conjecture 4.2 (CONJECTURE).** `u = 5` and `u = −2/3` are sterile. EVIDENCE: Computation 3.4; for `−2/3`, the
+resonant ray families are excluded at every level (Lemma 2.3, PROVED), and `5` has none. In the random model the expected
+number of boxes of level > 10 containing a fixed point is `≈ Σ_{ℓ>10} NB(ℓ)·17^{1−ℓ} < 10⁻⁸` (from the M17B
+increments), so Computation 3.4 is consistency evidence rather than strong evidence. A proof for a fixed rational point
+would have to exclude the `z ≠ 0` families of Lemma 2.2, which have no congruence obstruction visible: modulo any `m`
+prime to 17 the condition `qa − pb = zW` is void, as `z` is free (Assessment).
