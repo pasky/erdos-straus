@@ -121,3 +121,38 @@ ET Prop 1.6. (Type II pattern: `y = n y₁`, `z = n z₁`, `x(0) ≠ 0`, same ar
 *Reading.* Cor 2.4 is the classical "polynomial identities miss the square classes" obstruction, now valid for
 every algebraic fibred encoding of bounded complexity, however large its fibres. Cor 2.5 says that once a
 parameter growing with p is allowed (hatch H-A of RT2), fibring changes the normalisation, not the problem.
+
+## 3. Orbit recipes: c(n) is a weighted orbit count
+
+By §2, a recipe that is algebraic on a Zariski-dense piece is constant there. The only non-trivial power-fibred
+encodings therefore use *orbit recipes*: E is a union of orbits of an arithmetic group, and φ is invariant under
+the group, i.e. a function on the finite orbit set (computed, e.g., by reduction theory).
+
+**Setting (O).** G a connected semisimple ℚ-group, `G(ℝ)` without compact factors, acting ℚ-rationally on
+affine space; `V = \overline{G x₀}` a closed orbit; `Γ' ⊂ G(ℤ)` arithmetic; `E(n) ⊂ V(ℤ) ∩ Ω` a union of
+Γ'-orbits (by Borel–Harish-Chandra, `V(ℤ)` is a finite union of Γ'-orbits, so E is a finite union);
+`φ : Γ'\E(n) → Sol(n)` any map; `μ(n)` = max number of orbits over one solution.
+**Counting input (C)** (DRS 1993 for symmetric V; Eskin–McMullen 1993 Thm 1.4; Eskin–Mozes–Shah 1996 for
+reductive stabilisers; statements to be checked against the papers before any use beyond this file): for an
+orbit `O = Γ'y` with `Γ'_y` a lattice in `H_y(ℝ) = Stab_{G(ℝ)}(y)`, and a well-rounded family `B_H ⊂ V(ℝ)`,
+`#(O ∩ B_H) ~ w_O · vol(B_H)`, `w_O = vol(Γ'_y \ H_y(ℝ)) / vol(Γ' \ G(ℝ))` (Haar measures compatible with the
+fixed invariant measure on V(ℝ)).
+
+**Theorem 3.1 (orbit-weight principle; PROVED relative to (C)).** In setting (O) with (C):
+(a) `#E(n)(≤H) ~ c(n)·vol(B_H)` with `c(n) = Σ_{O ⊂ E(n)} w_O = Σ_{s ∈ Sol(n)} Σ_{O ↦ s} w_O`, hence
+`c(n) ≤ μ(n)·f(n)·max_O w_O`.
+(b) If every stabiliser `H_y(ℝ)` is compact (e.g. V a two-sheeted hyperboloid / positive definite binary data,
+stabiliser a CM torus), then `w_O = κ/|Γ'_y|` with κ independent of O and `|Γ'_y| ≤ C(Γ')` (arithmetic groups
+have finitely many conjugacy classes of finite subgroups), so `w_max/w_min ≤ C(Γ')` and
+`c(n)/w_min ∈ [#orbits, C(Γ')·#orbits] ⊂ [f(n)·1_{f(n)>0}… , C(Γ')·μ(n)·f(n)]`.
+The scale constraint (Lemma 1.3) then holds verbatim with multiplicity `C(Γ')μ(n)`: a main term `M(n)` for
+`c(n)/w_min` with `M ≫ μ(n)·ξ log³n log log n` is impossible at density-one of primes.
+(c) If `H_y(ℝ)` is non-compact (a split torus factor), `w_O` is a regulator-type covolume and may vary by a
+power of n across orbits. This is the only way the weights escape (a)–(b).
+*Proof.* (a) Lemma 1.2 over the finitely many orbits, with (C) for each. (b) For compact `H(ℝ)` the stabilisers
+`H_y(ℝ)` are conjugate in `G(ℝ)` to `H(ℝ)` (one closed orbit), with equal Haar volume, and `Γ'_y` is finite. The
+bound on finite subgroups: Borel–Harish-Chandra / Minkowski. (c) is a definition. ∎
+
+*Reading.* Fibring under a lattice with compact stabilisers multiplies each solution by `≍ vol(B_H)` and does
+nothing else: `c(n)` is the solution count weighted by `1/|Γ'_y|`. Lemma 2.2 + Thm 2.3 forbid algebraic recipes,
+so the recipe sees only the orbit, and the orbit count is what the counting theorem returns.
