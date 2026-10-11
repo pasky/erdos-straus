@@ -146,3 +146,56 @@ each `s` is its own X2 piece with its own `w_θ` (R = C). *(R136 repair)* replac
 `w_max = κ`)". Also note that this is a power-varying weight capped by the solution, which is exactly the (E-a)
 mechanism of §5.5. That bullet should say F3 is a second instance (besides F2), with weights capped *above* (≤ κ),
 which is the direction the scale constraint needs.
+
+### Prop 5.1 — SOUND under (U), with an incomplete disjunction (D12)
+Re-derived: under (U), and with `m ≡ m₀ (Q₀)`, `m₀² ≡ p`, every factor at `ℓ ∉ S₀ ∪ {ℓ | m} ∪ {p}` is the
+unit value (`m_ℓ > 0`, `E_ℓ = 1`), and every factor at `ℓ ∈ S₀` is the same at p and at m². Label "PROVED under (U)" is
+honest. (U) is a real hypothesis and is not verified for any concrete ES family in the file.
+**D12 (MINOR, Prop 5.1 conclusion).** The "either `m_ℓ(m²) = 0` for some ℓ | m, or some `E_ℓ(α,m²)`, ℓ | m, differs
+from its unit value" is not exhaustive. If every factor at ℓ | m takes its unit value, then
+`M(m²) = m_∞ ∏_{ℓ∈S₀} m_ℓ(p) · |B|⁻¹ Σ_α ∏_{ℓ∈S₀} E_ℓ(α,p) · (unit factors)` can still vanish, through
+cancellation in the α-sum. Meanwhile `M(p) > 0` because `E_p(α,p) ≠ 1` re-weights that sum. That is "T1 passed purely
+at the place p". *(R136 repair)* add a third alternative: "or `E_p(α,p)` (resp. `m_p(p)`) differs from its unit value, i.e.
+the place p alone separates p from m²". The Reading ("at the primes dividing m … for n = p the only such place is p")
+is unaffected. Also: §0's bullet for 5.1 drops "(U)"; add it. Rename `Q₀ = ∏ ℓ^k` (clashes with the form `Q₀`).
+
+### Thm 5.4 and §5.5 — the scope claim is overstated (D1, MAJOR); items 1, 2, 4 SOUND-AFTER-REPAIRS; item 3 CONDITIONAL
+**D1 (MAJOR, AGENT_REPORT l. 56; §0 "Fibring does not escape the scale constraint for any encoding of class X";
+§5.5 "exact list").** The red team's T8 blind spot (RT1 §5.5: "the constraint is on `M/μ`; encodings with fibres
+`μ ≥ p^{η−o(1)}` … escape") is **not** closed by Thm 5.4. Thm 5.4's bound is `M(n) ≤ 2R·μ(n)·f(n)`, with μ the
+number of pieces over one solution and R the weight ratio, both unrestricted in class X (Θ(n) is arbitrary, and R is
+*defined* as the ratio). When `Rμ ≥ p^η` the theorem gives no obstruction. That is the T8 situation, moved from "fibre
+size" to "number of pieces per solution". Thm 5.4 does prove something narrower and true: the *continuous* fibre
+factor `H^δ` contributes nothing. A power-fibred encoding gets past the scale constraint only through discrete
+multiplicity (many algebraic pieces or lattice orbits per solution, μ ≥ p^η) or through weight spread (R ≥ p^η), and
+never through the size of the fibres. The trivial example: split each F1 fibre `{s} × ℤ^r_{≥0}` into `p` translated
+cones. That is class X1 with μ = p. It is "rigged", but nothing in the definition of class X excludes it or its
+non-rigged relatives (encodings whose pieces are indexed by a coarse invariant with p^η preimages). *(R136 repair)*
+(i) §0: "Fibring does not escape the scale constraint: for every encoding of class X, `M ≤ 2Rμf`, with the fibre
+factor `H^δ` cancelling (Thm 5.4). The T8 blind spot (μ or R ≥ p^η) is not closed. It is relocated from fibre size to
+the number of pieces per solution and to the weight spread." (ii) §5.5: add **(E-d)** "class-X encodings with
+`μ(n) ≥ n^η` pieces over one solution (discrete multiplicity); Thm 5.4 is vacuous for them". (iii) Report l. 56:
+replace "answers RT1 §5.5's blind spot" by "shows that continuous (H^δ) fibring does not reach the T8 blind spot; the
+blind spot itself (μ ≥ p^η) remains open".
+
+**Is class X rigged?** Not in the bad sense: X1 is very broad (every algebraic piece), X2 is the natural lattice-orbit
+class, and the exclusions (E-c: floors/gcds/factorisations) are stated. But (a) X1 contains every set, decomposed into
+points (0-dim V_θ). The theorem has content only for decompositions with μ < ∞, i.e. with the `H^δ` growth *inside*
+positive-dimensional pieces, and this should be said. (b) R is defined to make item 1 true, so item 1 is a
+tautology. Its content is in Thm 3.1(b) (R = C) and F2 (R = O(log p)).
+**D13 (MINOR, item 1/2 normalisation).** A counting route proves a bound for `c(n) = Σ_θ c_θ`, not for
+`c̃ = Σ_θ c_θ/w_θ`. The w_θ can vary by powers across θ (F3: `w ∝ [G(ℤ):Γ(4da_s)]⁻¹`, D11), so item 2 must be stated as
+`M(n) ≤ 2·c(n) ≤ 2Rμ(n)f(n)·max_θ w_θ(n)`. Also, `w_θ := c_θ` for X1 makes `c_θ/w_θ = 0/0` for pieces of
+sub-maximal growth; restrict c̃ to pieces of maximal exponent δ*. *(R136 repair)* as stated.
+**D14 (MINOR→MAJOR for item 3's label, Thm 5.4(3), (E-b)).** CTX Thm 3.7 (per the author's own literature note)
+needs G semisimple simply connected **and H connected**. In F5, the ES-natural genus-full closure, these fail
+both ways. With `G = SO(L) ≅ PGL₂` the stabiliser of a pair is trivial but G is not simply connected; with
+`G = Spin = SL₂` the stabiliser is `{±I} = μ₂`, which is not connected. So "decided by local and BM data without
+counting (CTX)" is not established for F5 (or for F4-type pair spaces). It is established for X_d-type spaces with
+`Spin(2,1)` and a torus stabiliser (connected). The F5/𝔊⁻ refutations in item 3 do not use CTX, so they stand.
+*(R136 repair)* Label item 3 and (E-b) "CONDITIONAL on the CTX hypotheses (G s.c., H connected), which fail for F5's
+pair space (`H = μ₂` in `SL₂`). For representations of binary by indefinite ternary lattices, use instead the
+spinor-exception theory (e.g. Hsia–Shao–Xu 1998, *not checked by R136*)".
+**Item 4.** Correct via Cor 2.4, applied family by family (lcm of the D'). "Uniform" must mean: each X1 piece is the
+fibre `𝒱_{θ,n}` of one family `𝒱_θ → 𝔸¹_n` with geometrically irreducible generic fibre, and `E_θ(p)` is dense in it.
+Say so (MINOR).
