@@ -229,3 +229,43 @@ brief's: the transparent prime factors of N_e behave like the small prime factor
 certificates over all e is a convergent series `Σ_e (log e)^8 e^{2θ−2}`, **independent of p**. So transparent
 covering is a *bounded-mass* mechanism, whereas ES solutions have mass `≍ (log p)³`. This is a stronger form of the
 "log log loss" in the brief: it is not a near miss, the mass is O(1).
+
+### 2.3 The modulus ceiling, and why large-deviation supply is degenerate
+
+**Lemma 2.3 (modulus ceiling; PROVED).** If a coset `gH` with `|G_e:H| ≤ e^θ` (θ < 1/2) is contained in
+`Σ_e(N_e^T(p))` (any covering certificate, transparent or not), then `e ≤ exp((C_θ + o(1)) log p/log log p)`.
+*Proof.* `τ(N²) ≥ φ(e)e^{−θ}`; `N ≤ max(p, e)²`; `log τ(N²) ≤ 2 log τ(N) ≤ 2.14 log N/log log N` (Nicolas–Robin). If
+e ≥ p then `e^{1−θ−o(1)} ≤ exp(4.3 log e/log log e)`, false for large e; so e < p and
+`(1−θ−o(1)) log e ≤ 4.3 log p/log log p`. ∎
+
+So every pigeonhole certificate lives in a family of length `p^{o(1)}`: Type II e-slices are integers
+`N ∈ [p/4, p/4 + p^{o(1)}]` — a *specific* very short interval. (Sieve lower bounds need intervals of length `≥ N^δ`;
+Matomäki–Radziwiłł-type results hold for almost all short intervals, not a prescribed one. Assessment: no known
+technology supplies "an integer with prescribed rich factorisation in [x, x + x^{o(1)}]" pointwise.)
+
+Large deviations do not help either (PROVED, elementary): (i) many *distinct* primes are capped:
+`3^{ω(N)} ≤ N^{(log 3+o(1))/log log N} = p^{o(1)}`; (ii) large `Ω(N)` is achieved mainly through prime *powers*,
+and a prime power ℓ^v contributes the progression `{ℓ^t : |t| ≤ v}` inside the cyclic group ⟨ℓ⟩: by Prop 1.4
+(H = {1}) such contributions need `Σ_i min(2v_i+1, ord ℓ_i) ≥ φ(e)`, i.e. they count linearly, not
+exponentially. The covering-efficient resource is ω (distinct, independent-looking residues), and its supply in a
+window of length `p^{o(1)}` is the lottery of §2.4.
+
+### 2.4 Non-transparent primes: the "free generators" are the lottery
+
+The prime factors of N_e above the modulus have residues mod e that are not determined by any bounded data. Their
+genus is (Lemma 1.2) `χ_{−e}(ℓ) = (ℓ/p)`, and for Type II with `(e/p) = −1` at least one of them is a p-non-residue
+automatically (Lemma 1.2(ii)) — the only "free" structural fact. Beyond that:
+* their number is `ω_{>e}(N) ≈ Poisson(log(log N/log e))` for N random (Kubilius model), so they multiply the
+  residue-set size by `E[3^{ω_{>e}}] ≈ (log N/log e)²` on average: they turn the bounded transparent mass of
+  Theorem 2.2 into a mass growing like a power of log p (Assessment; numerics §3);
+* a certificate using them must know `ℓ mod e` for specific large primes ℓ | N_e(p); for p ranging over a class
+  mod `∏_{ℓ≤Y}ℓ` these are unconstrained, and Theorem C (POINTWISE_SIZE, under H) already shows that for any
+  bounded family of e the large factors can be prime-patterned to fail;
+* "general position" of these residues is an equidistribution statement for the prime factors of one specific
+  integer in classes mod e — exactly the per-slice divisor-in-class event of red team 2 Thm 2.2, i.e. the lottery
+  whose total expectation is polylogarithmic (CONDITIONAL_ES Prop 2.3 scale constraint applies to any lower bound
+  for it proportional to a main term).
+
+*Verdict (Assessment).* The covering mechanism splits cleanly: the part that is deterministic (transparent primes,
+Kneser/structure criteria) has bounded mass and fails on a positive-density set (Theorem 2.2); the part that has
+growing mass is a statement about residues of large prime factors of specific integers, i.e. H-A/H-B again.
