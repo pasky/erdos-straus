@@ -49,3 +49,27 @@ lists ✓.
 = z²W² − 17z²N = 0` using `4abd = N+e`, `c·e = a+b`) and numerically on all P-points K ≤ 5 with random lifts
 `p ≡ qa/b (W)`, `q ≤ 10⁶` (0 failures); the parenthetical (`X·N = ab(p²f* + q²f − 2pq)`, `f | 4c²dp² + 17x²`)
 checked on 1530 random instances (`scripts/review_r139_paren.py`), 0 failures.
+
+**§3 engines — code audit of the author's engines.** `m17d_pointP.c`: Part A/B split re-derived (`a > A ⇒ 4a−1 ≥ 4A+3
+⇒ 4b−1 ≤ ⌊(4N+1)/(4A+3)⌋`) ✓; `ACUT = ⌊W/√68⌋` ✓; Part B bump `a += ((A−a)/W+1)W` gives the least class member `> A` ✓;
+`e` unique because `4ab > a+b` ✓; skipping `17 | a` is valid (`a ≡ −ub`, `17∤b`) ✓. 128-bit: `N ≤ 17^19 < 2^79`,
+`4ab ≤ 4N + O(N)`, `N % m`, `(N+e)/m` never overflow; the `4abcd = a+b+Nc` recheck wraps mod 2^128 at L ≥ 9 but is
+an identity mod 2^128, so it can only abort, never drop a hit; box test reduces mod W first ✓. `m17d_pointQ.c`: loop
+A/D split by `min(a,d) ≤ H` with `a > H` in loop D ✓ (a datum with `a > H` has `d < (F+1)/(2a) ≤ H`); `d`, `a` are
+least residues because `ad ≤ (F+1)/2 < F` ✓; `gcd(F, 4ad) = 1` ✓; the fixed-derivative Hensel iteration gains one
+digit per step and is asserted (`r² ≡ y`) ✓; two-candidate divisor rule (M17C Lemma 2.1(iv), re-derived: `s² > t`,
+`gcd(t,s) = 1`) ✓; `t ≤ 2aF < 2^127` ✓. No defect found.
+
+**§3 independent engines (R139).** `scripts/review_r139_pengine.c`: different split (by `min(a,b) ≤ B0 =
+⌊(⌊√(4N+1)⌋+1)/4⌋`, which follows from `(4m−1)² ≤ (4a−1)(4b−1) ≤ 4N+1`), class representatives updated additively,
+all of `a, b` in u128. `scripts/review_r139_qengine.c`: own Hensel (Newton with recomputed derivative), own
+divisor-candidate code. Validation (`review_r139_pvalidate.py`, `review_r139_qvalidate.py`): P — exact *set*
+equality with own brute force (L ≤ 3) and with `data/m17b/p{K}.txt` (L = 4–7) at 198 in-cell box centres + 105
+random in-cell residues (+25 L=1 random), 328 tests, 0 mismatches (run for both the u64 and u128 versions).
+Q — 224 tests (k = 1, 3: set equality with own brute force; k = 5, 7: hit ⇔ listed box, vs m17_enum lists),
+0 mismatches.
+
+Results for `u = 5` and `u = −2/3` (all hits = 0):
+* P, L = 7: 1.98·10⁸ candidates; L = 8: 3.905·10⁹ (u = 5) and 4.210·10⁹ (u = −2/3) candidates, 0 hits
+  (author: 3.9·10⁹ / 4.2·10⁹ ✓ — same search space, different traversal).
+* Q, k = 9, 11, 13: 0 hits; pair counts 6, 26, 29 (u = 5) and 34, 11, 22 (u = −2/3) — identical to the author's.
