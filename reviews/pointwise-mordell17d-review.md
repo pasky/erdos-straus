@@ -4,11 +4,20 @@ Reviewer branch `side-agent/review-r17d`; author files merged from `side-agent/r
 From-scratch scripts: `scripts/review_r139_*.py`, `scripts/review_r139_*.c`. The author's document is not edited;
 suggested repairs are marked "(R139 repair)".
 
-## Summary verdicts (filled in claim by claim)
+## Overall verdict
+
+No FATAL defect. All mathematical claims (Lemma 1.1, Lemmas 2.1–2.3, Remark 2.4 with an added hypothesis, Theorem 4.1)
+re-derive; all tables recompute to the printed precision; Comp 3.4 is reproduced by independent engines for P up to
+L = 9 and Q up to k = 15 with identical search-space sizes, and L = 10 is sampled. One MAJOR (non-load-bearing) defect:
+the ray examples after Lemma 2.3 are all `z ≠ 0` coverings (one of them positive, so ray-free by Lemma 2.3(i)).
+Labels honest: CONDITIONAL outcome, "no unconditional sterile point".
+
+## Summary verdicts
 
 | claim | verdict |
 |---|---|
 | Lemma 1.1 (compactness) | SOUND |
+| Comp 3.4 (CERTIFIED: 5, −2/3 in no box of level ≤ 10; no Q-box ≤ 15) | SOUND: independently reproduced for P L ≤ 9 and Q k ≤ 15; L = 10 sampled (≈ 12 %) + code audit |
 | Comp 1.2 (C*(K₀) table) | SOUND (minor wording, m1, m2) |
 | Comp 1.3 (least K₀ table) | SOUND (minor, m2) |
 | Lemma 2.1 (membership = lattice condition) | SOUND |
@@ -77,6 +86,10 @@ Results for `u = 5` and `u = −2/3` (all hits = 0):
   (author: 3.9·10⁹ / 4.2·10⁹ ✓ — same search space, different traversal).
 * P, L = 9 (full, reviewer engine, < 10 min per point): 7.569·10¹⁰ (u = 5) and 8.087·10¹⁰ (u = −2/3) candidates,
   0 hits (author: 7.6·10¹⁰ / 8.1·10¹⁰ ✓).
+* P, L = 10 (sample only; full job not re-run): outer index (b in case 1, a in case 2) in [1, 6] — the densest
+  part, 1.731·10¹¹ candidates per point (≈ 11–12 % of the author's 1.44·10¹² / 1.53·10¹²) — and a random block
+  [41286975621, 42286975620] (1.57·10⁹ / 5.6·10⁸ candidates for u = 5 / −2/3): 0 hits. The remaining L = 10 range
+  rests on the author's run plus the code audit above.
 * Q, k = 9, 11, 13, 15: 0 hits; pair counts 6, 26, 29, 51 (u = 5) and 34, 11, 22, 28 (u = −2/3) — identical to the
   author's (k = 15: ≈ 35 min per point with the reviewer's slower i128 Euclid).
 * Levels below the new range (reviewer re-run, not claimed as new by the author): P, L = 1–7 and Q, k = 1, 3, 5, 7
