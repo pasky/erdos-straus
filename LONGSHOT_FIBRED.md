@@ -207,3 +207,60 @@ power-fibred.
 or trivial stabilisers, `c(n)` = weighted solution count by Thm 3.1(b)), or a genus-full closure F5 (computable
 main term, invalid recipe, fails T1). F2 and F6 are not power-fibred; F2 even with regulator weights stays
 polylog-weighted.
+
+*Literature check for (C) and §5 (research subagent, 2026-10-11; primary texts opened except DRS).*
+Eskin–McMullen 1993 **Thm 1.4** is exactly (C) for affine symmetric `G/H`, Γ a lattice (weakly irreducible),
+`Γ∩H` a lattice in H; norm balls are well-rounded (Thm 6.1). DRS 1993 Thm 1.2 (number quoted second-hand by EM
+and EMS). Eskin–Mozes–Shah 1996 **Thm 1.16** for reductive H, needing `H⁰` in no proper ℚ-parabolic (equivalently
+`(Z(H)∩Γ)\Z(H)` compact) and a non-focusing condition. Borovoi–Rudnick 1995 **Def 2.3, Thm 0.6**: under (C),
+`N(T; B∞×B_f) ~ ∫ δ dm` (Tamagawa measure), with `δ(x) = |C(H)|` if the Kottwitz invariant `κ(x) = 0` and 0
+otherwise (C(H) dual to Pic H); `δ ≡ 1` if H is simply connected. Colliot-Thélène–Xu 2009 **Thm 3.7**: G semisimple
+simply connected, H ⊂ G any connected subgroup (tori allowed), every almost simple factor non-compact at a place
+of S₀: Brauer–Manin is the only obstruction to strong approximation for S∪S₀-integral points of `G/H`;
+Borovoi–Demarche 2013 Thm 0.1 extends this. *Consequence for F4:* the stabiliser of `S_c` is a ℚ-split torus,
+which lies in a ℚ-parabolic, so EMS 1.16 does not apply to orbits of `S_c` alone; F4 uses the pair (Q,S), whose
+stabiliser is finite, and the count is the plain lattice-point count in `PSL₂(ℤ)`.
+
+## 5. The T1 test, and where a non-local factor can come from (Step 2)
+
+**5.1 Where T1 must act (PROVED, elementary, under the stated hypotheses).** Let a main term have the
+Borovoi–Rudnick/Siegel shape `M(n) = m_∞(n) · ∏_ℓ m_ℓ(n) · β(n)` for a family `(V_n, W(n))`, where `m_ℓ(n)` is
+the local density of `W_ℓ(n)` and `β(n) = |B|^{−1} Σ_{α∈B} ∏_ℓ E_ℓ(α,n)` with
+`E_ℓ(α,n) = m_ℓ(n)^{−1}∫_{W_ℓ(n)} e(inv_ℓ α(x)) dx` (the BR density averaged over the adelic set; B ⊂ Br V_n
+finite). Assume **(U)**: there are a finite set S₀ of primes and k ≥ 1 such that for `ℓ ∉ S₀`, `ℓ ∤ n`:
+`m_ℓ(n) > 0` and `E_ℓ(α,n) = 1`; for `ℓ ∈ S₀`, `ℓ ∤ n`: `m_ℓ(n)` and `E_ℓ(α,n)` depend only on `n mod ℓ^k`; and
+`m_∞(n) > 0` for large n. Let `Q₀ = ∏_{ℓ∈S₀} ℓ^k`. If `M(p) > 0` for a prime `p ∤ Q₀` and `M(m²) = 0` for an odd
+`m ≡ m₀ (mod Q₀)` with `m₀² ≡ p (mod Q₀)`, `gcd(m, Q₀) = 1`, then the two values differ only through the factors
+at the places `ℓ | m` (for `m²`) and `ℓ = p` (for p): either `m_ℓ(m²) = 0` for some `ℓ | m`, or some
+`E_ℓ(α, m²)`, `ℓ | m`, differs from its value at a unit.
+*Proof.* All other factors coincide by (U). ∎
+*Reading.* T1 cannot be passed by the S₀-part (it is the same at p and at a square in p's class mod Q₀; this is
+CONDITIONAL_ES Prop 7.3 in mass-formula form). A "global factor" passing T1 is a local density or a Brauer
+evaluation **at the primes dividing m**, coupled to the rest by reciprocity. For `n = p` the only such place is p.
+
+**5.2 Such factors exist in nature (classical; EVIDENCE check).** The ternary `3x² + 4y² + 9z²` (genus with two
+spinor genera) represents every integer it represents locally except `n = w²` with every prime factor of w
+`≡ 1 (mod 3)` (Earnest, arXiv:2203.02620, Prop 5.1(i); Jones–Pall 1939; Schulze-Pillot 1980 identifies these as the
+spinor exceptions; by CTX §8 these are Brauer–Manin obstructions). `scripts/lsb_spinor_example.py` (N = 5·10⁴,
+`data/lsb/spinor_example.out`): in the 12 generically represented classes mod 72 the only exceptions are the 29
+squares `w²` with all primes of `w ≡ 1 (3)`, and every such square is an exception. This is exactly the shape 5.1
+predicts: the factor `β(w²) = 0` is produced at the primes `ℓ | w` (through `(ℓ/3) = 1`). So "a main term that
+vanishes on a square class and is positive elsewhere" is not absurd for homogeneous counting problems.
+
+**5.3 The ES genus factor passes T1 and is invalid (PROVED; EVIDENCE table).** For Type II at level d (O128 Lemma
+6.1), the natural genus refinement of the F5 closure is `𝔊⁻_d(n)` = primitive positive definite forms of
+discriminant `−4dn` with `χ_{−4d}(Q) = −1` (χ evaluated at any represented integer prime to 4dn).
+(a) For odd `n = m²` with `gcd(m, 2d) = 1`, `𝔊⁻_d(m²) = ∅`. *Proof.* A represented k prime to `D = −4dm²` has
+`(D/k) = 1`, and `(D/k) = (−4d/k)(m/k)² = χ_{−4d}(k)`. ∎
+(b) For a prime `p ≡ 1 (4)`, `p ∤ 2d`, `χ_{−4d}(Q) = (k/p)` (since `(−4dp/k) = 1` and `(p/k) = (k/p)`), a genus
+character that is non-trivial on the form class group, so `#𝔊⁻_d(p) = h(−4dp)/2`. ∎ (Gauss: each genus
+character not identically 1 takes both values on exactly half of the classes; here `(k/p)` is non-trivial because
+`−4dp` has at least two prime divisors 2 and p.)
+So the genus-twisted mass `Σ_d (mass of 𝔊⁻_d(n))` vanishes at odd squares (coprime to the levels) and is
+`≍ Σ_d h(−4dn)` at primes: **it passes T1, through the place p**, as 5.1 says it must. But the encoding is not
+valid. A Type II point of level d is a form in `𝔊⁻_d(p)` lying on the shell `T_c` (O128 Prop 2.5) with level data;
+this is a class-level, Planck-scale condition, and the number of such forms is `F_d(p)`. EVIDENCE
+(`scripts/lsb_genus_minus.py` → `data/lsb/genus_minus.out`, 5 primes `p ≡ 1 (4)` in `[10³, 10⁴]` and 5 odd squares,
+`d ≤ 8`): `#𝔊⁻_d = h/2 ∈ [10, 144]` at every prime and level, `= 0` at every square; `F_d(p) ∈ [0, 22]`, and
+`F_d(p) = 0` at 23 of the 40 (prime, level) pairs where `𝔊⁻_d(p)` has 10–144 classes. The genus is nonempty
+at every prime and level, and the ES points occupy a vanishing fraction of it.
