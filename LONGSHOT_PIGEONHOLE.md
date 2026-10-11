@@ -138,3 +138,94 @@ Israel J. Math. 188 (2012) 405–429, Thm 5: `A ⊂ ℤ/p`, `A ∩ (−A) = ∅`
 `G_e` has even order φ(e), so it does not apply verbatim.
 For the two-coordinate rows the same three regimes hold with plain divisor sets (`|D_q(N)| ≤ τ(N)`, 2^k instead
 of 3^k, Kneser with `A_i = {1, g_i, …, g_i^{v_i}}`).
+
+## 2. Supply: where could the many prime factors come from?
+
+### 2.1 Forcing by congruences costs the modulus (the brief's estimate, made exact)
+
+In the e-slice, `ℓ | N_e^II(p)` iff `e ≡ −p (mod 4ℓ)` and `ℓ | N_e^I(p)` iff `e ≡ −p⁻¹ (mod 4ℓ)` (ℓ odd, ℓ ≠ p).
+Forcing a set S of k odd primes, `L = ∏S`, therefore puts e in one class mod 4L, whose least positive member
+`e_0(p) = (−p mod 4L)` (resp. `−p⁻¹`) is equidistributed in [1, 4L) as p varies.
+In each two-coordinate D row the same holds with e replaced by one of the coordinates (c, d or a), each of which
+divides `q_θ/4`, so `q_θ ≥ 4·(forced coordinate)`.
+
+**Lemma 2.1 (CRT forcing; PROVED).** Let S be k distinct odd primes, L = ∏S, and suppose the only factorisation
+data used at (p, e) are: the primes of S (with exponent 1) and the opaque cofactor M = N/L. If the resulting
+residue set `R = Σ_e(L)·{M⁻¹, 1, M}` contains a coset `gH` of a subgroup of index ≤ I, then
+`3^{k+1} ≥ φ(e)/I`. If moreover `e ≥ εL` ("honest forcing"), then `3^{k+1} ≥ c ε L/(I log log L)`, which fails
+for `k ≥ k_0(ε, I)`, since `L ≥ ∏_{i≤k} p_{i+1} = e^{(1+o(1))k log k}`.
+
+*Proof.* `|R| ≤ 3·3^k`, `|gH| ≥ φ(e)/I`, `φ(e) ≫ e/log log e`. ∎
+
+So the brief's estimate is right in this exact sense: `e^{k log k}` (forcing cost) against `3^k` (signed covering;
+`2^k` in the plain two-coordinate rows) — the loss is the factor log k in the exponent. Honest forcing is a
+bounded procedure for each k ≤ k_0, so it lands in POINTWISE_SIZE Thm C (finitely many slices, refuted i.o. under H;
+red team 2 Thm 2.2(iii)). The remaining freedom is **adaptive** choice of S and e ("luck": e small *and*
+`N_e` divisible by many small primes). Theorem 2.2 shows that this freedom is also insufficient, for a positive
+proportion of primes, as long as the covering primes are below the modulus.
+
+### 2.2 Transparent pigeonhole fails for a positive proportion of primes
+
+**Definition.** Let p ≡ 1 (4), e ≡ 3 (4), T ∈ {I, II}, N = N_e^T(p). The *transparent part* of N is
+`L := ∏_{ℓ^v ∥ N, ℓ < e} ℓ^v` (the prime factors below the modulus, whose residues mod e are just themselves),
+`M := N/L`, and the transparent residue set is `R := Σ_e(L)·{M⁻¹, 1, M}` (all prime powers below the modulus
+used with their full exponent range, and the rest of N as one opaque block). For `0 ≤ θ < 1/2`, a
+*transparent covering certificate of strength θ* (TCC_θ) at (p, e, T) is a subgroup `H ≤ G_e` with
+`|G_e : H| ≤ e^θ` and `−H ⊂ R`. (θ = 0 with H = K_e is "R covers the whole target coset −K_e"; −H ⊂ R with
+−1 ∈ −H gives an ES solution. TCC_θ is the most a p-blind covering argument can extract from the primes below the
+modulus.)
+
+**Theorem 2.2 (PROVED, relative to PNT in progressions to a fixed modulus, Brun–Titchmarsh (Montgomery–Vaughan,
+Mathematika 20 (1973) 119–134), Shiu's theorem (J. reine angew. Math. 313 (1980) 161–170, Thm 1) and the
+Nicolas–Robin bound `log τ(n) ≤ 1.5379 log 2 · log n/log log n`).** Fix `0 ≤ θ < 1/2` and ε > 0. There is
+`C = C(θ, ε)` such that for every `Y ≥ 3`, with `q_0 := 8∏_{3≤ℓ≤Y} ℓ`,
+```
+#{p ≤ x prime : p ≡ 1 (mod q_0), TCC_θ exists at some (e, T)}  ≤  (C·Y^{−1+2θ+ε} + o_{x→∞}(1)) · π(x; q_0, 1).
+```
+Here e ranges over **all** e ≡ 3 (mod 4) and T over {I, II}. Consequently, for Y large, a set of primes of lower
+relative density `≥ (1 − 2C·Y^{−1+2θ+ε})/φ(q_0) > 0` has no transparent covering certificate in any e-slice.
+
+*Proof.* Fix p ≡ 1 (q_0), p ≤ x. A TCC_θ forces `|R| ≥ |H| ≥ φ(e)e^{−θ}`, hence (Lemma 1.1(iv))
+`τ(L²) ≥ φ(e)e^{−θ}/3 =: B_e`. Split the e-range.
+
+*(a) e ≤ Y: no certificate at all.* Every prime ℓ < e ≤ Y satisfies `(ℓ/p) = 1` (p ≡ 1 mod 8ℓ), so by
+Lemma 1.2(i) `L ∈ K_e`. By Lemma 1.2(ii) `χ_{−e}(N) ∈ {1, (e/p)}` and `(e/p) = 1` because every prime factor of
+e is ≤ Y. So `χ_{−e}(M) = 1` and `R ⊂ K_e`, which misses `−K_e ∋ −1`: not even a transparent *witness* exists.
+
+*(b) Y < e ≤ E_1 := exp((log x)^{1/3}).* (b1) If `L > x^{1/2}`: all prime factors of L are `< e < x^{1/4}`, so
+multiplying them one at a time yields `u | N` with `x^{1/4} < u ≤ x^{1/2}`, `P⁺(u) < E_1`. The condition `u | N` puts
+p in one class mod 4u (`4u | p+e`, resp. `4u | pe+1`, gcd(u, e) = 1), so by Brun–Titchmarsh the number of such
+p is `≤ 2x/(φ(4u) log(x^{1/2}/4)) ≤ 5x/(φ(u) log x)`. By Rankin with `σ = 1/log E_1`,
+`Σ_{u > x^{1/4}, P⁺(u) < E_1} 1/φ(u) ≤ x^{−σ/4} ∏_{ℓ<E_1}(1 + Σ_v ℓ^{vσ}/φ(ℓ^v)) ≪ e^{−(log x)^{2/3}/4}(log x)^{O(1)}`.
+Summing over the ≤ 2E_1 pairs (e, T) gives `o(x/(φ(q_0) log x))`.
+(b2) If `L ≤ x^{1/2}`: let `f(n) = τ(n²)²` and `h = f * μ`, so `h ≥ 0` multiplicative, `h(ℓ^v) = 8v`. Then
+`1 ≤ B_e^{−2} τ(L²)² = B_e^{−2} Σ_{m | L} h(m)` with every such m `≤ x^{1/2}`, `P⁺(m) < e`, `m | N`. The condition
+`m | N` puts p in one class b mod 4m; with p ≡ 1 (q_0) it is consistent only if `b ≡ 1 (mod g)`,
+`g := gcd(4m, q_0)`, which (both types) forces every odd prime ℓ ≤ Y dividing m to divide `e+1`; then p lies in
+one class mod `lcm(4m, q_0) ≤ x^{2/3}`, and Brun–Titchmarsh gives `≤ 6x φ(g)/(φ(q_0)φ(4m) log x)`. Writing m = m_1 m_2
+(m_1 supported on primes ≤ Y, m_2 on (Y, e)),
+```
+Σ_m h(m) φ(g)/φ(4m) ≤ [Σ_{j≥0} 8j·2^{−max(j−1,0)} + 1] · ∏_{ℓ | e+1, 3≤ℓ≤Y} (1 + 8/(1−1/ℓ)²) · ∏_{Y<ℓ<e}(1 + 8ℓ²/(ℓ−1)³)
+                    ≤ 33 · 19^{ω(e+1)} · C_0 (log e)^8 .
+```
+Hence the (b2) count is `≤ (C_1 x/(φ(q_0) log x)) Σ_{e>Y} 19^{ω(e+1)}(log e)^8 B_e^{−2}`, and
+`B_e^{−2} ≪ e^{2θ−2}(log log e)²`, `19^{ω(n)} ≪_ε n^{ε/2}`; the sum is `≪ Y^{−1+2θ+ε}`. The constant does not
+depend on Y. PNT in progressions gives `π(x; q_0, 1) ≥ x/(2φ(q_0) log x)` for x ≥ x_0(Y).
+
+*(c) E_1 < e ≤ x.* Markov with `τ(L²) ≤ τ(N²)`: the count is `≤ B_e^{−2} Σ_{p ≤ x} f(N_e^T(p))`. p ↦ N is
+injective. Type II: N ≤ x/2, so `≤ B_e^{−2} Σ_{n ≤ x/2} f(n) ≪ B_e^{−2} x(log x)^8` (`f = 1*h`,
+`Σ_{n≤X} f ≤ X Σ_{d≤X} h(d)/d`). Type I: N lies in the progression `n ≡ 4⁻¹ (mod e)`, `n ≤ xe/4`; Shiu's theorem
+(f(ℓ^v) = (2v+1)² ≤ 9^v, modulus e ≤ (xe/4)^{1/2}) gives `≪ (xe/φ(e))(log x)^8`. Summing,
+`Σ_{e > E_1} B_e^{−2}·e/φ(e) ≪ E_1^{−1+2θ+ε}`, which beats every power of log x: `o(x/(φ(q_0) log x))`.
+
+*(d) e > x.* Then N ≤ e²/4 (both types), and by Nicolas–Robin `τ(N²) ≤ τ(N)² ≤ exp(4.3 log e/log log e) < B_e`
+for e ≥ e_0(θ); take x_0 ≥ e_0. No certificate. ∎
+
+*Reading.* Every ES solution lies in some e-slice (Lemma 1.1). Theorem 2.2 says that **a covering argument that only
+uses prime factors smaller than the modulus (plus one opaque cofactor) cannot prove ES, not even for almost all
+primes**: it fails on a set of positive density, uniformly over all e and both types. The mechanism is exactly the
+brief's: the transparent prime factors of N_e behave like the small prime factors of a random integer, whose
+`τ(·²)`-moment is `(log e)^{8}`, while a coset-covering needs `τ(L²) ≥ e^{1−θ−o(1)}`; the expected number of
+certificates over all e is a convergent series `Σ_e (log e)^8 e^{2θ−2}`, **independent of p**. So transparent
+covering is a *bounded-mass* mechanism, whereas ES solutions have mass `≍ (log p)³`. This is a stronger form of the
+"log log loss" in the brief: it is not a near miss, the mass is O(1).
