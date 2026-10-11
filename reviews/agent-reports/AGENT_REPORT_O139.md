@@ -24,8 +24,8 @@ pointwise extension of the exact range.
 4. **Pointwise engines (§3, CERTIFIED).** P at level L in `≈ (W/34) ln W` exact 128-bit tests (no factoring); Q at level k
    in `O(√F)` modular square roots. Both are validated against the certified complete lists at all levels ≤ 7:
    704 points, exact set equality, 0 mismatches.
-   **Comp. 3.4:** `5` and `−2/3` lie in no box of any ET family of level ≤ 9 (≤ 10 if the L = 10 runs finish, see
-   below), and in no Q-box of level ≤ 15. The cell-wide certified range is level 7.
+   **Comp. 3.4:** `5` and `−2/3` lie in no box of any ET family of level ≤ 10 (P L = 10: 1.4–1.5·10¹² exact tests, ≈ 3.3 h
+   per point), and in no Q-box of level ≤ 15. The cell-wide certified range is level 7.
 5. **Sharpened conditional (Theorem 4.1, PROVED reduction).** A ball R of level L* that is free through L* contains a sterile
    point if `Σ_{ℓ>L*} 17^{L*−ℓ}NB^R(ℓ) < 1`. Under the fair-share hypothesis `(H_θ^R)` the admissible constant at θ = 0.4
    is 22.83 (L* = 9) or 40.24 (L* = 10), against 4.969 for the global criterion (box units), i.e. ×4.6 resp. ×8.1. Honest

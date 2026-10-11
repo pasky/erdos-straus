@@ -132,10 +132,10 @@ pairs of `p1–p13` (0 failures).
 
 **Computation 3.4 (CERTIFIED by Algorithms 3.1–3.2, validated as in 3.3).** For `u = 5` and for `u = −2/3`:
 no P-datum of level `L ≤ L_P*` and no Q-datum of level `k ≤ 15` has a box containing `u`.
-Candidates tested (P, both points): L = 8: 3.9·10⁹ / 4.2·10⁹; L = 9: 7.6·10¹⁰ / 8.1·10¹⁰ (8 min each).
+Candidates tested (P, both points): L = 8: 3.9·10⁹ / 4.2·10⁹; L = 9: 7.6·10¹⁰ / 8.1·10¹⁰ (8 min each); L = 10: 1.44·10¹² / 1.53·10¹² (≈ 3.3 h each).
 Q pairs `(a,d)` reaching the divisor test: 6, 26, 29, 51 (`u = 5`) and 34, 11, 22, 28 (`u = −2/3`) at k = 9, 11, 13, 15.
-`L_P* = 9` (L = 10 running, see Replay). Hence, as U ⊂ P, Q⁻¹ = Q and √Q = ∅ (M17B Lemma 1.1): **`5` and `−2/3`
-lie in no box of any of the seven ET families of level ≤ `L_P*`** (and in no Q-box of level ≤ 15). By inversion the same
+`L_P* = 10`. Hence, as U ⊂ P, Q⁻¹ = Q and √Q = ∅ (M17B Lemma 1.1): **`5` and `−2/3`
+lie in no box of any of the seven ET families of level ≤ 10** (and in no Q-box of level ≤ 15). By inversion the same
 holds for `1/5`, `−3/2 ∈ C_7`. The cell-wide certified range is level 7 (M17B Comp. 3.1).
 
 ## 4. The sharpened conditional statement
@@ -190,6 +190,6 @@ python3 $W/scripts/m17d_points.py . 13 7 12                       # small-height
 gcc -O2 -o pointP $W/scripts/m17d_pointP.c; gcc -O2 -o pointQ $W/scripts/m17d_pointQ.c
 python3 $W/scripts/m17d_validate.py . . 7 7 20                    # Validation 3.3: 704 points, 0 mismatches (1 min)
 for u in "5 1" "-2 3"; do for k in 9 11 13 15; do ./pointQ $k $u; done; for L in 8 9 10; do ./pointP $L $u AB; done; done
-#   Comp. 3.4: hits=0 everywhere; P L=9 8 min, L=10 ~2.5 h per point (parts A, B can run separately)
+#   Comp. 3.4: hits=0 everywhere; P L=9 8 min, L=10 ~3.3 h per point (parts A, B can run separately)
 python3 $W/scripts/m17d_local_tail.py 9 10                        # §4 table
 ```
