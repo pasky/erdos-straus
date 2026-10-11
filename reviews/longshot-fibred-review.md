@@ -34,7 +34,7 @@ No FATAL defects. Two MAJOR (D1 scope/overclaim; D2 hidden hypothesis in Thm 2.3
 
 ## Defects
 
-Numbering is D1–D14, in order of appearance by section. There are no FATAL defects. The MAJOR ones are D1 and D2, and D14 needs a label change.
+Numbering is D1–D14 (D7 unused), not in order of appearance; D1 is in the Thm 5.4 section. There are no FATAL defects. The MAJOR ones are D1 and D2, and D14 needs a label change.
 
 ### Lemma 2.1 — SOUND
 Re-derived. Hypotheses used: V irreducible; E ⊂ V(ℚ) Zariski-dense; φ regular at every point of E (so E ⊂ U = dom φ,
