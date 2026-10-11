@@ -48,7 +48,7 @@ pointwise extension of the exact range.
 
 ## Self-review (reviewer subagent) — repairs applied
 * P-engine: `4acd−1` could exceed 2^128 on a genuine hit (L ≥ 9) → explicit abort, not a silent miss; fixed (reduce mod W).
-  All Comp. 3.4 runs had ended normally; L = 8, 9 re-run with the fixed engine.
+  All Comp. 3.4 runs had ended normally; L = 8, 9 re-run with the fixed engine: identical candidate counts, 0 hits.
 * `m17d_validate.py` now exits nonzero on mismatch; Q-level-7 sample raised to 20 (716 points).
 * "constant ≲ 1.5" corrected to ≲ 2.5 (K = 13 already certified).
 * Comp. 1.2/1.3: with base ρ₂ the C* values are ceilings and the K₀ values lower bounds (true base ≤ ρ₂); text fixed.
