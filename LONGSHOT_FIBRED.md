@@ -179,7 +179,8 @@ The scale constraint (Lemma 1.3) then holds verbatim with multiplicity `C(Γ')μ
 (c) If `H_y(ℝ)` is non-compact (a split torus factor), `w_O` is a regulator-type covolume and may vary by a
 power of n across orbits. This is the only way the weights escape (a)–(b).
 *Proof.* (a) Lemma 1.2 over the finitely many orbits, with (C) for each. (b) For compact `H(ℝ)` the stabilisers
-`H_y(ℝ)` are conjugate in `G(ℝ)` to `H(ℝ)` (one closed orbit), with equal Haar volume, and `Γ'_y` is finite. The
+`H_y(ℝ)` are conjugate in `G(ℝ)` to `H(ℝ)` (one closed orbit), with equal Haar volume, and `Γ'_y` is finite. (If `V(ℝ)` has several `G(ℝ)`-orbits, e.g. two sheets, κ
+depends on the real orbit of y; there are finitely many, so the ratio stays bounded.) The
 bound on finite subgroups: Borel–Harish-Chandra / Minkowski. (c) is a definition. ∎
 
 *Reading.* Fibring under a lattice with compact stabilisers multiplies each solution by `≍ vol(B_H)` and does
