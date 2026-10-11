@@ -249,7 +249,7 @@ uses prime factors smaller than the modulus (plus one opaque cofactor) cannot pr
 primes**: it fails on a set of positive density, uniformly over all e and both types. The mechanism is exactly the
 brief's: the transparent prime factors of N_e behave like the small prime factors of a random integer, whose
 `τ(·²)`-moment is `(log e)^{8}`, while a coset-covering needs `τ(L²) ≥ e^{1−θ−o(1)}`; the expected number of
-certificates over all e is a convergent series `Σ_e (log e)^8 e^{2θ−2}`, **independent of p**. So transparent
+certificates over all e is majorised by a convergent series `Σ_e (log e)^8 e^{2θ−2}`, **independent of p**. So transparent
 covering is a *bounded-mass* mechanism, whereas ES solutions have mass `≍ (log p)³`. This is a stronger form of the
 "log log loss" in the brief: it is not a near miss, the mass is O(1).
 
