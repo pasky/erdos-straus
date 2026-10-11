@@ -247,3 +247,89 @@ From-scratch code `scripts/review_r138_genus.py` (own reduced-form enumeration, 
 count): Prop 6.13(a) for all odd m < 60, d ≤ 12, gcd(m,2d) = 1 (𝔊⁻ empty); (b) #𝔊⁻_d(p) = h(−4dp)/2 for all
 p ≡ 1 (4), p < 700, d ≤ 12, p ∤ d; the five test primes 1009, 2689, 4729, 9601, 10009 are squares mod 120, and
 for d ≤ 8: #𝔊⁻ ∈ [10, 144], F_d(p) = 0 in exactly 19 of 40 pairs. Matches the paper.
+
+## Consistency with the rest of the paper (R134 version)
+
+Abstract, intro item, the sentence after Prop 4.4 (scale constraint), hatches intro, the non-escapes remark and the
+Summary were all checked against §6. H-A/H-B are unchanged; ES is stated as not proved in the abstract, §1, §6
+and §8. Cross-references: eq:VIVII, Prop 3.x (typeII)(c),(d), Prop locsq, Lemma slices, Prop scale all resolve
+and are used in the sense in which they are stated. The R134 D9 wording ("invariants that enter the ES count") is
+untouched. Two headline sentences over-reach (R138-8, R138-9); with those repaired, the labels are honest.
+
+## Defects (R138)
+
+No FATAL and no MAJOR defects. All repairs below are **applied** to `paper/es-automorphic-barrier-note.tex`
+(commit "barrier note: R138 repairs").
+
+* **R138-1 (MINOR, §6.1 set-up, Lemma 6.1 and the sentence after it).** The standing hypothesis "p ∤ e" was imposed
+  for both types. The claim "every element of V_I ∪ V_II has a value of e" was then left unjustified. The source's
+  justification for Type I ("p | 4abd = pe+1 is false") is a non sequitur: 4abd = pe+1 ≡ 1 (mod p) contradicts
+  nothing. For Type I, though, p ∤ e is not needed at all: 4N^I ≡ 1 (mod e), so gcd(N, e) = 1 anyway, and
+  Lemma 6.2 never uses ℓ = p. For Type II, e ≤ a+b ≤ ab+1 ≤ N+1 = (p+e)/4 + 1 gives e < p, so p ∤ e holds
+  automatically. *Repair applied:* "p ∤ e for Type II", plus the one-line reason in the parenthesis. (In my
+  runs, Type I slices with p | e were empty for p < 200 and e < 12p, but nothing relies on this.)
+* **R138-2 (MINOR, §6.1 Scope).** The phrase "expected number … bounded by Σ_e (log e)^8 e^{2θ−2}, independently
+  of p" mixes two things: the bound is an average over p ≤ x, and it is uniform in x. *Repair applied:*
+  "averaged over p ≤ x, … uniformly in x".
+* **R138-3 (MINOR, §6.2 set-up).** Sol(n) was defined as the whole solution set, but f(n) as the number of Type I
+  and II solutions. Thm 6.11(a) bounds Σ over Sol(n) by μ(n)f(n)max w. That inequality fails for composite n
+  with solutions of neither type. LF defines Sol = Sol_I ∪ Sol_II. *Repair applied:* Sol(n) is now the set of
+  Type I and II solutions (all solutions for n prime), and f(n) = #Sol(n). The consequence of Thm 2.3 now ends in
+  "s_i is a solution of (1.1)".
+* **R138-4 (MINOR, consequences of LF Thm 2.3).** The second half of R136 D2 had been dropped: the ℤ_ℓ-point must lie
+  in dom φ_i, with φ_i ℓ-integral there. "ℤ_ℓ-coefficients" alone does not give s_i ∈ ℤ_ℓ³, because a
+  denominator can vanish mod ℓ at the point. *Repair applied.*
+* **R138-5 (MINOR, Prop 6.12; inherited from LF §5.1 and missed by R136).** The proof read "every other factor takes
+  the same value at p and at m²". Under (U) this is false for m_ℓ with ℓ ∉ S₀, where only positivity is assumed.
+  Also, (U) never guaranteed that an Euler product of positive factors is positive. *Repair applied:* (U) now
+  includes "∏_ℓ m_ℓ(n) > 0 when all its factors are". The proof now argues: if every factor at ℓ | m and at p is a
+  unit, then by (U) the Brauer averages at p and m² agree and the remaining factors are positive, so M(p) > 0
+  gives M(m²) > 0. The statement, with the D12 third alternative, is unchanged and now correct.
+* **R138-6 (MINOR, Prop 6.13 evidence).** The test primes include 10009, which is not in [10³, 10⁴]. *Repair
+  applied:* "[10³, 1.1·10⁴]". The numbers themselves are reproduced exactly (19/40; #𝔊⁻ ∈ [10, 144]).
+* **R138-7 (MINOR, Thm 6.14 items 1 and 4).** (i) Item 1 listed "R = O(log n) for Pell orbits" inside a theorem
+  about power-fibred encodings, but Pell orbits are only logarithmically fibred (δ = 0); the author's report says
+  so too. *Repair applied:* removed from item 1. The Example paragraph after Thm 6.11 already covers the Pell
+  orbits correctly. (ii) Item 4 is a statement about X1 pieces only, via Cor 6.10. *Repair applied:* "Θ finite,
+  all pieces X1, and their data uniform".
+* **R138-8 (MINOR, abstract).** "covering certificates from the prime factors below the modulus fail for a
+  positive proportion of primes" drops the coset-size restriction. That is exactly R135 D5, the headline issue
+  that the §6.1 Scope paragraph handles correctly. Arguments that merely hit −1 are not excluded. *Repair
+  applied:* "covers of cosets of size ≥ e^δ in (ℤ/e)* by the prime factors below e fail …".
+* **R138-9 (MINOR, Remark "non-escapes").** The flat statement "Covering reduces to H-A/H-B (Theorem 6.6)" is an
+  Assessment: Thm 6.6 excludes only transparent covers of large cosets. *Repair applied:* the sentence is now
+  labelled Assessment, with that scope. The Summary sentence is already inside an Assessment paragraph.
+* **Layout.** The repairs pushed two bibliography lines onto a 25th page. I tightened four sentences (no content
+  change: the Thm 6.6 "hence" sentence, the definition of a TCC, the second-hand-citation sentence, and the
+  Assessment parenthesis in Scope) and put `\enlargethispage{3\baselineskip}` before [LA]. Result: 24 pp.
+
+Points checked and found correct, no action needed:
+* Thm 6.6 is stated for θ < 1/2 with C = C(θ, ε) independent of Y. The positive lower density follows for
+  Y ≥ Y₀(θ, ε).
+* The report's remark on Prop 6.4 sharpness is right: the conditions at the other subgroups H ∌ m are implied by
+  the one at H = {0}.
+* Earnest Prop 5.1 was checked by R136 against the PDF in `sources/r136`.
+* DRS, EM, EMS, BR and CTX are not in `sources/`. I could not access them either. The paper says the statements
+  were checked second-hand, which is the correct caveat. Thm 6.11 and Thm 6.14 item 2 are labelled "relative to
+  (C)", and item 3 is CONDITIONAL.
+
+## Compilation
+
+pdflatex, three passes from a clean directory: 0 errors, 0 undefined references, 0 overfull boxes, 24 pp.
+The 9 underfull boxes are the same as in O138 (bibliography URLs and one page break).
+
+## Recommendation (Round 2)
+
+**ACCEPT (internal) the O138 update, with the R138 repairs applied.**
+
+§6 is a faithful and correctly labelled condensation of LP/R135 and LF/R136. I re-derived every proof sketch,
+including the constant 19 and the (log e)^8 moments in Thm 6.6, the Kneser iteration, the genus symbols at ℓ = 2,
+the generic-flatness corollary and the 𝔊⁻ genus count. I also checked the small cases with from-scratch code
+(`scripts/review_r138_cover.py`, `scripts/review_r138_genus.py`).
+
+The scope statements are honest:
+* Thm 6.6 is restricted to transparent certificates of cosets of size ≥ e^δ.
+* Thm 6.14 is explicitly "not a theorem about all large-fibre encodings", with (E-a)–(E-d) left open.
+* Item 3 is CONDITIONAL, and the CTX hypotheses are shown to fail for the pair space.
+
+ES is not proved, and the paper says so.
