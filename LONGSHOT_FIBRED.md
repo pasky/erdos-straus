@@ -155,4 +155,55 @@ bound on finite subgroups: Borel–Harish-Chandra / Minkowski. (c) is a definiti
 
 *Reading.* Fibring under a lattice with compact stabilisers multiplies each solution by `≍ vol(B_H)` and does
 nothing else: `c(n)` is the solution count weighted by `1/|Γ'_y|`. Lemma 2.2 + Thm 2.3 forbid algebraic recipes,
-so the recipe sees only the orbit, and the orbit count is what the counting
+so the recipe sees only the orbit, and the orbit count is what the counting theorem returns.
+
+## 4. Catalogue of concrete fibred encodings (Step 1)
+
+Each entry: definition, fibre, growth, recipe class (§2 algebraic / §3 orbit), what survives. All PROVED unless
+labelled; references are to the reviewed sources.
+
+**F1 (free parameters).** `E = Sol(n) × ℤ^r_{≥0}`, `ht(s,k) = |k|`, φ = projection. Fibre `≍ H^r`.
+Algebraic, constant on each component (`{s} × 𝔸^r`); `c(n) = f(n)·vol`. Baseline: power fibres by fiat.
+
+**F2 (Pell orbits, Type II; O128 Prop 7.2).** A Type II quadruple gives the unit `ε_s = T + 2c√D'`,
+`D' = d²m² + dp`, `m = a − b`, `T = 2cd(a+b) − 1`. Fibre: `{ε_s^k : k ≥ 1}` on the conic `T² − D'U² = 1`.
+(i) *Growth is logarithmic*, `#{k : ε_s^k ≤ H} = log H/log ε_s + O(1)`: δ = 0, not power-fibred (rank-1 split
+torus). (ii) *The orbit is ES-dead after k = 1*: with `ε² = T₂ + U₂√D'`, `T₂ = 2T² − 1`, `U₂ = 4cT`, the Type II
+congruence would need `T₂ ≡ −1 (mod d·U₂)`, i.e. `4cdT | 2T²`, i.e. `2cd | T`, impossible since `T ≡ −1 (mod 2cd)`
+and `2cd ≥ 2`. (So an algebraic recipe on the conic is constant: RT1 Prop 6.1.) (iii) *Even regulator weights
+are polylog:* `Reg(ℤ[√D']) ≤ log ε_s ≤ log(2T) = O(log p)` because `a, b, c, d ≤ p²` (ET's bounds), while
+`Reg ≥ log((1+√5)/2)`. So a regulator-weighted count (Thm 3.1(c)) has `w_max/w_min = O(log p)`: the
+solution *is* the small unit, which caps the weight. Lemma 1.3 applies with an extra `O(log p)`.
+
+**F3 (Type I on the hyperboloid X_d; GEOMETRY_ES §4.3).** `X_d : ef − 4da² = 1`, two-sheeted, stabiliser the
+anisotropic CM torus of `ℚ(√−d)`, compact at ∞; `Γ' ⊂ SO(q_d)(ℤ)` congruence. Encoding: `E = ⋃_s Γ'_s·x_s`
+over the Type I points `x_s` at level d (e.g. `Γ'_s = Γ(4da_s)`, which keeps `f ≡ −p (mod 4da_s)` but moves a).
+Fibre `≍ H` (DRS: `#{x ∈ Γ'x_s : |x| ≤ H} ≍ H`). The level-d Type I set is finite (GEOMETRY Prop 4.1, `c ≠ 0`), so
+no infinite subgroup preserves it: an orbit contains finitely many solutions and the recipe is "orbit ↦ a
+solution in it" (orbit class). Thm 3.1(b) applies: `c(n) = κ·Σ_O 1/|Γ'_{x_O}|`, a weighted solution count.
+The intrinsic (non-circular) version replaces "orbit of a solution" by an adelic condition; see F5 and §5.
+
+**F4 (Type II as pair embeddings; O128 Props 7.1, 8.2).** `L` = binary forms with `q = B² − 4AC`; `E_{c,d}(n)` =
+pairs `(Q,S) ∈ L²` with Gram matrix `4T₀`, `T₀ = [−dn, 1, c²]`, Q positive definite, and `(Q,S)` in the
+`SL₂(ℤ)`-orbit of some `(Q', S_c)` with `B' ≡ 0 (4d)`, `d | C'`, `gcd(B'/4d, c) = 1`. `SL₂(ℤ)` acts on pairs;
+the stabiliser of `S_c` is `{±I}` (O128 Prop 8.2(i)), so each orbit is a copy of `PSL₂(ℤ)` and
+`#{γ : ‖(Q,S)γ‖ ≤ H} ≍ H²` (hyperbolic lattice-point count). Orbits ↔ Type II solutions with this (c,d), up to
+the gcd normalisation of Prop 8.1 (μ = 1). All stabilisers equal: Thm 3.1(b) gives `c(n) = κ_{c,d}·F_{c,d}(n)`,
+`F_{c,d}(n) = #{f | 4c²dn+1 : f ≡ −1 (mod 4cd)}` exactly (O128 Prop 8.1). The power fibre is the `SL₂(ℤ)`
+change of basis and carries no information.
+
+**F5 (drop one condition: the genus-full closures of F3/F4).** Replace the ES orbit set by the full adelic set it
+lies in: for F4, *all* embeddings of the binary lattice `4T₀` into L with Q of either sign and S of either class
+`k = ±1` (no positivity/class condition); for F3, all of `X_d(ℤ) ∩ W` for an adelic open W containing the Type I
+points. These are the encodings to which a mass formula (Siegel–Weil, Borovoi–Rudnick) applies, with a computable
+main term. But the recipe is no longer valid: F4's closure contains `Q₀ = [−1, 0, −dn]` for **every** n, incl. odd
+squares (O128 Prop 8.3), so its mass main term is positive at `n = m²` where `f = 0`: **T1 fails.**
+
+**F6 (definite quaternion orders; QUATERNION_ES).** Type I orders lie in `B_{p,∞}`, Type II factorisations in the
+definite algebra `(−d,−p)`: unit groups are finite, so there are no positive-dimensional fibres to count. Not
+power-fibred.
+
+*Summary of Step 1.* Every power-fibred encoding found is F1 (algebraic, idle by Thm 2.3), F3/F4 (orbit, compact
+or trivial stabilisers, `c(n)` = weighted solution count by Thm 3.1(b)), or a genus-full closure F5 (computable
+main term, invalid recipe, fails T1). F2 and F6 are not power-fibred; F2 even with regulator weights stays
+polylog-weighted.
