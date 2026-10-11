@@ -8,17 +8,33 @@ paste in are marked "(R136 repair)". From-scratch scripts: `scripts/review_lsb_*
 
 | claim | verdict |
 |---|---|
-| Lemma 1.2, 1.3 | SOUND (trivial) |
+| Lemma 1.2, 1.3 | SOUND (trivial; ET Prop 1.7 bound checked in PDF) |
 | Lemma 2.1 (rigidity) | SOUND |
-| Lemma 2.2 (Borel density) | SOUND (hypothesis wording: see D7) |
+| Lemma 2.2 (Borel density) | SOUND |
 | Thm 2.3 (a) | SOUND |
-| Thm 2.3 (b) | SOUND-AFTER-REPAIRS (D3: self-contradictory "else E_i = ∅") |
-| Thm 2.3 (c) | GAP → SOUND-AFTER-REPAIRS (D2: hidden hypothesis φ_i(V_i) ⊂ ES variety) |
-| Cor 2.4 | SOUND-AFTER-REPAIRS (D4: step (i) "finite fibres ⇒ curve" needs the generic-fibre-dimension argument; D' must be an lcm over patterns) |
+| Thm 2.3 (b) | SOUND-AFTER-REPAIRS (D3) |
+| Thm 2.3 (c) | GAP → SOUND-AFTER-REPAIRS (D2, MAJOR: hidden hypothesis `φ_i(V_i) ⊂ X_n`) |
+| Cor 2.4 | SOUND-AFTER-REPAIRS (D4, D4b, MINOR); transport-to-odd-square and Dirichlet steps verified |
+| Thm 3.1 (a), (b) | SOUND relative to (C); primary sources NOT accessible to R136 (EM, EMS, BR, CTX, DRS) |
+| Thm 3.1 (c) | SOUND-AFTER-REPAIRS (D9) |
+| F1, F6 | SOUND |
+| F2 | SOUND (identity + "ES-dead" re-checked, stronger form, p < 1500) |
+| F3 | SOUND-AFTER-REPAIRS (D11: weights use varying Γ'_s) |
+| F4 | SOUND-AFTER-REPAIRS (D8 citation, D10: growth ≍ H not H²); trivial stabiliser and `c = κ·F_{c,d}` OK |
+| F5 | SOUND (Q₀ at every n; orbit counts at 9, 25, 49 re-derived by hand from divisors of 4n+1) |
+| Prop 5.1 | SOUND under (U) after D12 |
+| §5.2 spinor control | SOUND (Earnest Prop 5.1(i) checked in source; 29 exceptions reproduced independently) |
+| Prop 5.3 (a), (b) | SOUND; numerics reproduced exactly (19/40); D5, D6 MINOR |
+| Thm 5.4 items 1, 2, 4 | SOUND-AFTER-REPAIRS (D13, item-4 wording) |
+| Thm 5.4 item 3, (E-b) | CONDITIONAL, not PROVED: CTX hypotheses fail for F5 (D14) |
+| Scope claim "answers T8 blind spot" / "exact list" §5.5 | **OVERCLAIM (D1, MAJOR)** |
+| Labels overall | honest apart from D1, D2, D14. "ES not solved" is stated everywhere. |
+
+No FATAL defects. Two MAJOR (D1 scope/overclaim; D2 hidden hypothesis in Thm 2.3(c)); D14 needs a label change.
 
 ## Defects
 
-(numbered below; FATAL / MAJOR / MINOR)
+Numbering is D1–D14, in order of appearance by section. There are no FATAL defects. The MAJOR ones are D1 and D2, and D14 needs a label change.
 
 ### Lemma 2.1 — SOUND
 Re-derived. Hypotheses used: V irreducible; E ⊂ V(ℚ) Zariski-dense; φ regular at every point of E (so E ⊂ U = dom φ,
@@ -199,3 +215,25 @@ spinor-exception theory (e.g. Hsia–Shao–Xu 1998, *not checked by R136*)".
 **Item 4.** Correct via Cor 2.4, applied family by family (lcm of the D'). "Uniform" must mean: each X1 piece is the
 fibre `𝒱_{θ,n}` of one family `𝒱_θ → 𝔸¹_n` with geometrically irreducible generic fibre, and `E_θ(p)` is dense in it.
 Say so (MINOR).
+
+### §6 numerics — SOUND
+F4 orbit bookkeeping re-derived by hand from the divisors of `4n+1`: n = 29 (117: 12 signed odd divisors, ES orbits
+A ∈ {3, 39}), 41 (165: 16; {3, 11, 15, 55}), 53 (213: 8; {3, 71}), 9/25/49 (37, 101, 197 prime: 4 orbits, all positive
+divisors ≡ 1 (4), so 0 ES orbits). All match the table. Per-orbit count level: own enumeration gives `0.60·H` for a
+29-orbit, against the author's 1792–1818 at H = 3000 (`≈ 0.60·H`). Consistent.
+
+### Minor remarks (no defect number)
+* Cor 2.4 attribution: the closest printed statement is ET §1 on congruences "solvable by polynomials" (ET Props
+  1.8–1.9, with the remark that Prop 1.6 implies the square-class obstruction). Cite those rather than "Mordell 1969 /
+  Schinzel 2000 as quoted in ET p. 8".
+* The author's report says the CTX/EM/EMS/BR statements were "checked against the primary texts by a research
+  subagent". Per house rules, research-subagent verdicts need a review, and R136 could not access any of these texts.
+  The theorem numbers remain unverified by an independent reader.
+
+## Scripts (all from scratch, R136)
+* `scripts/review_lsb_et16.py`: brute-force Type I/II for odd squares 9…225 (ET Prop 1.6) and primes.
+* `scripts/review_lsb_spinor.py`: spinor exceptions of 3x²+4y²+9z² to 5·10⁴ via the two genus classes.
+* `scripts/review_lsb_genus.py`: h, `#𝔊⁻_d`, `F_d` (reproduces `data/lsb/genus_minus.out` exactly).
+* `scripts/review_lsb_typeII_genus.py` → `data/review_lsb_typeII_genus.out`: genus of the f-form vs the e-form (D5).
+* `scripts/review_lsb_pell.py`: F2 identity and non-recurrence of powers across all Type II quadruples, p < 1500.
+* `scripts/review_lsb_f4growth.py`: F4 orbit growth exponent (D10).
