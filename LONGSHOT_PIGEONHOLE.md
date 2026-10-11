@@ -287,7 +287,7 @@ in their dyadic range ≤ 2²⁶ from `data/spec/t1e8_stats.txt`, 5101441, and t
 
 | sample | solution slices | P | TP | P20 | TP20 | #p with P20 = 0 | largest covered `φ(e)/2`: mean / min | max ω(N_e) |
 |---|---|---|---|---|---|---|---|---|
-| MH ≤ 10⁶ (E=2000) | 43.5 | 14.0 | 10.1 | 7.3 | 6.8 | 2 (3529, …) | 238 / 12 | 6.5 |
+| MH ≤ 10⁶ (E=2000) | 43.5 | 14.0 | 10.1 | 7.3 | 6.8 | 2 (3529, 110881) | 238 / 12 | 6.5 |
 | 10⁴ | 36.1 | 10.8 | 8.0 | 4.9 | 4.7 | 1 (110881) | 159 / 12 | 6.6 |
 | 10⁶ | 61.3 | 16.0 | 11.4 | 8.8 | 8.1 | 0 | 319 / 36 | 7.1 |
 | 10⁷ | 80.2 | 20.1 | 13.5 | 12.0 | 10.3 | 0 | 500 / 60 | 7.3 |
@@ -304,7 +304,7 @@ in their dyadic range ≤ 2²⁶ from `data/spec/t1e8_stats.txt`, 5101441, and t
 
 Readings (EVIDENCE, finite ranges):
 1. **Covering vs luck.** For e < 20 almost every solution slice is a full cover (|−K_e| ≤ 9, so "cover" and "hit"
-   nearly coincide). For e ≥ 500 covers are rare (≈ 5–7 % of solution slices at 10⁸, 1–2 % at 10⁴–10⁶): the bulk of
+   nearly coincide). For e ≥ 500 covers are rare (≈ 5 % of solution slices at 10⁸, ≈ 1.5–2 % at 10⁴–10⁶): the bulk of
    the growing solution mass at moderate e is *luck* (−1 is hit without the coset being covered).
 2. **The deep covers are transparent.** The largest covered coset per prime is attained by a transparent
    certificate for 2358/2370 primes ≤ 10⁶ and ≥ 297/300 in every sample; for e ≥ 100, P ≈ TP in every bin. Large
@@ -316,9 +316,9 @@ Readings (EVIDENCE, finite ranges):
    112.5 for the decades up to 10⁶ — a convergent but large series (the Markov bound in Thm 2.2 is far from sharp).
    So Theorem 2.2's positive-density failure set has density far too small to observe below 10⁸. Assessment: the
    theorem is qualitative.
-4. **Largest k.** max_e ω(N_e) over e ≤ 5000 is 7–8 at 10⁸ (`log₃` of the covered `φ(e)/2` is ≤ 6): the brief's
+4. **Largest k.** max_e ω(N_e) over e ≤ 5000 is 7–8 at 10⁸ (the largest covered `φ(e)/2` is 2339, `log₃ 2339 ≈ 7.1`): the brief's
    "≈ log₃ q" is what is attained, and it is attained with mostly *small* (transparent) primes.
-5. All sampled primes have covers with |−K_e| ≥ 20 except small ones (3529, 110881 and one more ≤ 10⁶); every
+5. All sampled primes have covers with |−K_e| ≥ 20 except 3529 and 110881; every
    sampled prime ≥ 10⁶ has ≥ 2. This is EVIDENCE for Conjecture 5.1 below, not for a mechanism.
 
 ## 4. Collapse tests T1–T8 (red team 1 §4) for the pigeonhole mechanism
@@ -342,3 +342,54 @@ Readings (EVIDENCE, finite ranges):
 * **T8 (lifting).** Exact: Lemma 1.1 is a bijection (validated numerically against brute force).
 Verdict: the mechanism survives T1/T4/T8 by construction; its deterministic part is killed by Thm 2.2, and its
 remaining part is the lottery (T2/T7).
+
+## 5. What is proved, what is conjectured, and the exact scope of the negative result
+
+**Theorem 5.0 (the deterministic pigeonhole mechanism cannot prove ES; PROVED, assembled from §§1–2).**
+(i) *Exact covering problem.* ES(p) (p ≡ 1 mod 4) holds iff for some e ≡ 3 (mod 4) the signed divisor-ratio set
+`Σ_e(N_e^T(p))` contains −1 (Lemma 1.1); −1 lies in the non-trivial coset of the genus subgroup K_e = ker χ_{−e},
+and prime factors fall into K_e or −K_e according to `(ℓ/p)` (Lemma 1.2).
+(ii) *Pigeonhole proper* (collisions, zero-sum theory) produces only target 1, i.e. signed solutions (Lemma 1.3).
+(iii) *Covering criteria.* Counting needs `τ(N²) ≥ |target set|`; structure-only criteria (Kneser) need a number of
+prime factors **linear** in |G:H| for every subgroup H ∌ −1, and this is sharp (Prop 1.4). Exponential efficiency
+(`3^ω ≈ φ(e)`) requires knowing the actual residues of the prime factors.
+(iv) *Forcing.* CRT-forcing of k primes costs `e ≥ e^{(1+o(1))k log k}` against `3^{k+1}` residues (Lemma 2.1);
+every covering certificate has `e ≤ p^{o(1)}` (Lemma 2.3).
+(v) *Transparent covering fails on a positive-density set.* For every θ < 1/2, a positive proportion of primes
+admits no certificate covering a coset of index ≤ e^θ in any e-slice (any e, both types) from the prime factors
+below the modulus plus one opaque cofactor (Theorem 2.2; inputs: PNT in APs to a fixed modulus, Brun–Titchmarsh,
+Shiu, Nicolas–Robin).
+*Scope.* (v) concerns certificates in the e-slices (which parametrise all solutions) whose residue information
+comes from prime factors `< e` and one opaque block. It says nothing about certificates that use the residues of
+specific prime factors `> e` of N_e(p); those are the per-slice divisor-in-class events of red team 2 §2, i.e.
+the lottery (hatches H-A/H-B), and nothing here excludes them. The two-coordinate rows ({c,d}, {a,c}, {a,d}) have
+the same structure with plain divisor sets and modulus `q_θ = 4·(coord)(coord)`; the analogue of Thm 2.2 should
+follow by the same proof with a two-parameter sum `Σ_{c,d} (log)^C/(cd)^{2−2θ}` (not written out: Assessment).
+
+**Conjecture 5.1 (PH, full-coset pigeonhole; CONJECTURE).** For every sufficiently large prime p there are
+e ≡ −p (mod 4) and T ∈ {I, II} with `φ(e) ≥ 40` and `Σ_e(N_e^T(p)) ⊇ −K_e`.
+PH implies ES(p) and is "probability-free" in its conclusion (the whole target coset is hit). EVIDENCE: every
+sampled Mordell-hard prime ≥ 10⁶ and every hard prime of §3 satisfies it with e ≤ 5000 (resp. 20000); exceptions
+below 10⁶: 3529, 110881. By Theorem 2.2, on a positive-density set any proof of PH must use prime factors above
+the modulus, so PH is not easier than the lottery it was meant to replace (Assessment).
+
+**Small explicit instances (PROVED by Prop 1.4; classical in flavour, recorded only as illustrations of "ES on a
+non-congruence-defined set").** For p ≡ 1 (mod 4): ES(p) holds if `(p+3)/4` has a prime factor ≡ 2 (mod 3)
+(e = 3); or if `(p+7)/4` has a prime factor ≡ 3, 5 or 6 (mod 7) and, counted with multiplicity, at least three prime
+factors ≢ ±1 (mod 7) (e = 7: subgroups ∌ −1 of G_7 ≅ C_6 are {1} and K_7 = {1,2,4}; Prop 1.4 gives the two
+conditions). These are sub-cases of single e-slices; under Hypothesis H each fails for infinitely many p
+(Thm C). They are not progress towards ES.
+
+**Answer to the brief's question.** The quick estimate is a theorem in the precise form of Lemma 2.1 (honest
+forcing) and, more strongly, Theorem 2.2 (adaptive "lucky" forcing included, as long as the covering primes lie
+below the modulus): the loss is not a log log near-miss but a change of regime — the deterministic certificates have
+**bounded mass** (a convergent series over e, independent of p), whereas solutions have mass ≍ (log p)³. No slice
+decouples the modulus from the forcing cost: in every D row the forced coordinate divides `q_θ/4` (or is e), prime
+powers count linearly (Prop 1.4), several slices do not combine (a certificate lives in one slice), and the large
+prime factors are the lottery.
+
+## Replay
+
+`sh scripts/lsa_run.sh && sh scripts/lsa_tables.sh` (≈ 2 min, 1 core; data in `data/lsa/`, tables in
+`logs/lsa_tables.txt`); `uv run python scripts/lsa_check_cover.py 400 < <primes>` (independent flag check);
+`uv run python scripts/lsa_model_limit.py 1000000` (§3 item 3, ≈ 12 s).
