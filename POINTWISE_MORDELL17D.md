@@ -64,3 +64,43 @@ weight `17^{−K/2}` then decays only like `17^{−(1/2−θ)K}`. **The cell-wid
 essentially no logarithmic loss and constant ≲ 1.5 at θ = 0.4. That is stronger than ET's theorem (`N^{2/5+o(1)}`, with
 non-explicit `o(1)`), and no known method gives it.** This makes the qualitative remarks of M17C §3 quantitative. It is
 not a theorem about all methods.
+
+## 2. A single rational point: lattice form, rays, thin families (PROVED)
+
+Fix `u = −p/q ∈ C_5` with `p, q ∈ ℤ`, `q ≥ 1`, `gcd(p,q) = 1`, `17 ∤ pq`. For the cell `C_7` use `1/u` (M17 Lemma 1.1).
+
+**Lemma 2.1 (membership = a lattice condition).** (i) *P.* `u` lies in the box `−f (mod W)` of a P-datum `(a,b,c,d)`
+of level `L` iff `17 ∤ b` and `qa ≡ pb (mod W)`. (ii) *Q.* `u` lies in the box `−4a²d (mod F)` of a Q-datum of level
+`k` iff `qa ≡ pb (mod F)`, iff `4a²d ≡ p/q (mod F)`. (The second box of a datum is the first box of the reflected datum
+`(b,a,c,d)`, which is again a datum; so "all boxes" = "first boxes of all data, both orders".)
+*Proof.* (i) If `17 | b`, then `4abcd = a+b+Nc` gives `17 | a`, so `f ≡ −1` and the box is `≡ 1 (mod 17)`, outside
+`C_5`. Otherwise `bf = cN + a ≡ a (mod W)` (ET (2.20); `2L−1 ≥ L`), so `−f ≡ −a/b`, and `−a/b ≡ −p/q ⟺ qa ≡ pb`.
+(ii) `4abd = eF + 1` (M17C Lemma 2.1(i)) gives `17 ∤ ab` and `4a²d ≡ a/b (mod F)`. ∎
+
+Write `qa − pb = zW` (P) resp. `= zF` (Q), `z ∈ ℤ`.
+
+**Lemma 2.2 (sizes).** (i) Every N-point of `Σ^II_N` has `4ab ≤ N + a + b`, i.e. `(4a−1)(4b−1) ≤ 4N+1`.
+(ii) Every N-point of `Σ^I_F` with `a ≤ b` has `acd ≤ (F+1)/2`; in particular `ad ≤ (F+1)/2`.
+(iii) If `z ≠ 0`, then `max(a,b) ≥ W/(|p|+q)` (P) resp. `≥ F/(|p|+q)` (Q).
+*Proof.* (i) `4abd = N + e`, `1 ≤ e ≤ a+b`, `d ≥ 1`. (ii) Dividing `4abcd = F(a+b)+c` by `4b`:
+`acd = F/4 + Fa/(4b) + c/(4b) ≤ F/2 + 1/2`, as `c ≤ a+b ≤ 2b`. (iii) `W ≤ |qa − pb| ≤ (|p|+q)·max(a,b)`. ∎
+So for `z ≠ 0` a covering P-datum is *unbalanced*: `min(a,b) ≤ (|p|+q)(N+a+b)/(4W) ≈ (|p|+q)·W/68`, whereas a typical
+P-datum has `a, b` anywhere in `ab ≤ N/2`.
+
+**Lemma 2.3 (rays).** `z = 0` means `(a,b) = λ(p,q)`, `λ ≥ 1`; this needs `p > 0`, i.e. `u < 0`.
+(i) For `u > 0` (e.g. `u = 5`) there are no rays.
+(ii) For `u = −2/3` no P-datum and no Q-datum of any level lies on the ray. So `−2/3` lies in a box of level `L` only
+through data with `z ≠ 0`.
+*Proof of (ii).* P: `(a,b) = (2λ,3λ)`, `e | a+b = 5λ`, `24λ²d = N + e`. If a prime `ℓ ≠ 5` divides `e`, then `ℓ | λ`,
+so `ℓ | N + e`, so `ℓ | N`, `ℓ = 17`, so `17 | λ`, excluded by Lemma 2.1(i). Hence `e = 5^j ≡ 1, 5 (mod 8)`. But
+`8 | 24λ²` and `N = 17^K ≡ 1 (mod 8)` force `e ≡ −1 (mod 8)`. Q: `24λ²d = eF + 1`, `e | 5λ`; a prime `ℓ ≠ 5`
+dividing `e` divides `λ` and hence `1`; so `e = 5^j`, while `eF + 1 ≡ e + 1 ≡ 0 (mod 8)`. ∎
+Rays are the *resonant* part: a ray datum has centre exactly `u`, so a single one covers `u` at all higher precision of
+its level. Rational points with an admissible ray are covered (e.g. `−9/5`, `−11/8`, `11/9` are covered at level 2,
+`−7/2` at level 5; `scripts/m17d_points.py`). Lemma 2.3 is what makes `−2/3` a good candidate.
+
+**Remark 2.4 (descent identity; PROVED, not used below).** For every N-point of `Σ^II_N`, `N = W²/17`, and every
+`p, q` with `qa − pb = zW`: `e·[c(p²b + q²a) + 17z²] = ab·[(p+q)² + 68dz²]`. (Expand: the difference is
+`(a+b)(p²b+q²a) − ab(p+q)² − 17z²·4abd + 17ez² = (qa−pb)² − 17z²N = 0`.) If moreover `qa ≡ pb (mod W)` with `z ∈ ℤ`, the
+bracket on the left is divisible by `ab` (it equals `ab·(p²f* + q²f − 2pq)/N` with `f* = 4bcd−1`, and
+`f | 4c²dp² + 17x²`, `x = (qf−p)/W`), so `e | (p+q)² + 68dz²`. For `z = 0` this is `e | (p+q)²`, the ray constraint.
