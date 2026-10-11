@@ -14,6 +14,7 @@ suggested repairs are marked "(R139 repair)".
 | Lemma 2.1 (membership = lattice condition) | SOUND |
 | Lemma 2.2 (sizes) | SOUND (m3: "≈ (|p|+q)W/68" heuristic) |
 | Lemma 2.3 (rays; mod-8 exclusion for −2/3) | SOUND (m4 wording) |
+| §2 text after Lemma 2.3 (ray examples) | WRONG (M1, non-load-bearing) |
 | Remark 2.4 (descent identity) | SOUND-AFTER-REPAIRS (m5: missing hypothesis 17 ∤ b; simpler proof) |
 | §4 constants 4.969 / 22.83 / 40.24 | SOUND (recomputed) |
 
@@ -73,3 +74,51 @@ Results for `u = 5` and `u = −2/3` (all hits = 0):
 * P, L = 7: 1.98·10⁸ candidates; L = 8: 3.905·10⁹ (u = 5) and 4.210·10⁹ (u = −2/3) candidates, 0 hits
   (author: 3.9·10⁹ / 4.2·10⁹ ✓ — same search space, different traversal).
 * Q, k = 9, 11, 13: 0 hits; pair counts 6, 26, 29 (u = 5) and 34, 11, 22 (u = −2/3) — identical to the author's.
+* Levels below the new range (reviewer re-run, not claimed as new by the author): P, L = 1–7 and Q, k = 1, 3, 5, 7
+  — 0 hits for both points, consistent with the cell-wide certified lists.
+
+**Ray examples after Lemma 2.3 (checked with the R139 engines).** The coverings of the four quoted examples are:
+`−9/5`: P level 2, `(a,b,c,d) = (410,3,59,1)`, `qa − pb = 2023 = 7W` (z = 7); `−11/8`: P level 2, `(182,1,1,7)`,
+z = 5; `11/9`: P level 2, `(1,78,1,16)`, `(2,156,2,4)`, `(4,312,4,1)` — `u > 0`, so by Lemma 2.3(i) it *cannot* be on a
+ray; `−7/2`: Q level 5, `(a,b,c,d) = (1,202837,2,177483)` (not proportional to (7,2)). No datum of `p1–p13` lies on the
+ray of any of these points (`a/b` reduced ∉ {9/5, 11/8, 7/2, 2/3, 11/9}, both orders). So none of the examples is a ray
+covering; all are `z ≠ 0` coverings. See M1.
+
+## Defects
+
+**M1 (MAJOR, non-load-bearing; §2, the paragraph after the proof of Lemma 2.3).** "Rational points with an admissible
+ray are covered (e.g. `−9/5`, `−11/8`, `11/9` are covered at level 2, `−7/2` at level 5)" is false as an illustration:
+all four examples are covered by `z ≠ 0` data (list above), and `11/9 > 0` has no rays at all by the document's own
+Lemma 2.3(i). `m17d_points.py` only tests box membership and never distinguishes rays from `z ≠ 0` data, so it cannot
+support the sentence. This also weakens the motivation "Lemma 2.3 is what makes `−2/3` a good candidate": at low levels
+the small-height rationals are knocked out by the *non-resonant* `z ≠ 0` families, exactly the ones §4/Conj. 4.2 say
+cannot be controlled. *(R139 repair)* Replace by: "Every rational box centre `−a/b` is trivially on a ray, so rays
+cover exactly the rational centres of boxes; the small-height rationals found covered by `m17d_points.py` (e.g.
+`−9/5`, `−11/8`, `11/9` at level 2, `−7/2` at Q-level 5) are all covered by `z ≠ 0` data. Lemma 2.3 removes only
+the resonant obstruction for `−2/3`; the `z ≠ 0` families remain the whole difficulty."
+
+**m1 (MINOR; Comp 1.2).** The "ceilings" argument holds for adding exact *P* levels with the Q tail kept from
+`k = 9` (as in the computation). If exact Q levels were also added, `T_Q` shrinks while `ρ` shrinks by the measure
+actually removed, which can be smaller than the removed part of the hypothetical `T_Q`; the effect is ≤ `T_Q(9) =
+1.4·10⁻³` relative to `ρ₂ ≈ 0.677` (≤ 0.21 %), so the table is a ceiling up to that. Also several entries are rounded
+to nearest (2.64 vs exact 2.6398, 8.199 vs 8.1988, 14.45 vs 14.449), while the companion tables are floor-rounded.
+*(R139 repair)* Add "(Q tail kept from k = 9; entries rounded to 4 significant digits, not floored)".
+
+**m2 (MINOR; Comp 1.3).** The search starts at `K₀ = 15`, so the entry 15 at `(0.40, 0, A = 1)` means "≤ 15".
+*(R139 repair)* footnote "15 = search floor".
+
+**m3 (MINOR; after Lemma 2.2).** `min(a,b) ≤ (|p|+q)(N+a+b)/(4W) ≈ (|p|+q)·W/68` drops `a + b`, which can be `≍ N`
+when `min(a,b)` is tiny; the correct reading is "`min(a,b) ≤ (|p|+q)(N + 2max)/(4W)`", harmless. *(R139 repair)*
+replace "≈" by the exact bound or "`≲` when `max(a,b) = o(N)`".
+
+**m4 (MINOR; Lemma 2.3(ii)).** "No P-datum ... lies on the ray": the argument excludes ray data with `17 ∤ λ`; ray data
+with `17 | λ` are not excluded, only shown irrelevant (their box is `≡ 1 (17)`). *(R139 repair)* "no P-datum on the
+ray has a box containing `u`".
+
+**m5 (MINOR; Remark 2.4).** The divisibility `ab | c(p²b + q²a) + 17z²` needs `17 ∤ b` (equivalently `17 ∤ a`); the
+remark says "for every N-point". Simpler and complete proof under `17 ∤ b`: from `4abd = N + e`, `gcd(e, ab) | N`, and
+`17 ∤ ab`, so `gcd(e, ab) = 1` and `e | (p+q)² + 68dz²` follows directly from the identity (then `ab | X` too).
+*(R139 repair)* add the hypothesis `17 ∤ b` and this one-line proof.
+
+**m6 (MINOR; §3 Validation 3.3 vs Replay).** Text says 716 test points; the Replay comment says 704. *(R139 repair)*
+update the Replay comment to 716.
