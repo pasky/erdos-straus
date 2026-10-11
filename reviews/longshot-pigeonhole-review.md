@@ -8,13 +8,17 @@ From-scratch scripts: `scripts/review_r135_*.py` (no author code reused).
 | claim | verdict |
 |---|---|
 | Lemma 1.1 (e-slice) | SOUND (fibre-of-V statement); MINOR wording on "bijection" (D1) |
-| Lemma 1.2 (genus incl. ℓ = 2) | (see below) |
-| Lemma 1.3 (collisions → signed solutions) | (see below) |
-| Prop 1.4 (Kneser criterion, sharpness) | (see below) |
-| Lemma 2.1 (forcing cost) | (see below) |
-| Theorem 2.2 | (see below) |
-| Lemma 2.3 | (see below) |
-| §3 numerics | (see below) |
+| Lemma 1.2 (genus incl. ℓ = 2) | SOUND |
+| Lemma 1.3 (collisions → signed solutions) | SOUND |
+| Prop 1.4 (Kneser criterion, sharpness) | SOUND; MINOR wording on reach of sharpness (D2) |
+| Lemma 2.1 (forcing cost) | SOUND |
+| Theorem 2.2 (main PROVED claim) | SOUND-AFTER-REPAIRS (MINOR D3, D4; summary wording D5); extends to all θ < 1 (D6) |
+| Lemma 2.3 | SOUND |
+| §3 numerics | SOUND (exact independent agreement on 6 primes incl. 3529, 110881) |
+| Labels (PROVED/EVIDENCE/CONJECTURE/Assessment) | appropriate |
+
+No FATAL or MAJOR defects. Repairs D1–D5 applied in LONGSHOT_PIGEONHOLE.md, marked "(R135 repair)"; D6 added as a
+marked remark.
 
 ## Lemma 1.1 — SOUND
 
@@ -147,7 +151,7 @@ correct; (ii) correctly labelled Assessment.
 **D1 (MINOR) — "bijection" vs. solutions.** §4 T8 ("Lemma 1.1 is a bijection (validated numerically against brute
 force)") and the §3 validation ("total fibre counts equal the brute-force |V_I(p)|, |V_II(p)|") are about the
 lifted variety V, not about ES solutions. The map V_T(p) → {solutions} is surjective but **not injective**
-(dilation `(a,b,c,d) ↦ (λa,λb,λc,λ⁻²d)`; p = 71: 210 Type I points vs 171 Type I ordered solutions/… ×3 normalisation;
+(dilation `(a,b,c,d) ↦ (λa,λb,λc,λ⁻²d)`; p = 71, Type I: 171 ordered solutions vs 3·70 = 210 (fibre points × 3 positions of the p-multiple);
 `(1,1,2,18;1)` and `(3,3,6,2;1)` give the same triple). With gcd(a,b) = 1 imposed, counts match exactly for all
 p < 110 (`scripts/review_r135_slices.py`). No proof is affected (all uses are existence or V-mass). *Repair:* in T8
 say "Lemma 1.1 is a bijection between the e-fibres of V_T(p) and the (a,b)-pairs; V → solutions is

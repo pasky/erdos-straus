@@ -19,7 +19,9 @@ reduction of the "highly composite slice" idea, and EVIDENCE.
 * **Supply (§2).** CRT forcing costs `e^{(1+o(1))k log k}` against `3^{k+1}` (Lemma 2.1 — the brief's estimate,
   confirmed); every certificate has `e ≤ p^{o(1)}` (Lemma 2.3); large Ω comes from prime powers, which count
   linearly. **Theorem 2.2 (PROVED, rel. PNT in APs, Brun–Titchmarsh, Shiu, Nicolas–Robin):** covering certificates
-  built from the prime factors *below the modulus* plus one opaque cofactor have bounded mass and **fail for a
+  built from the prime factors *below the modulus* plus one opaque cofactor, covering a coset of size
+  `≥ φ(e)e^{−θ}/2` with θ < 1/2 (R135 repair: the size restriction was missing here; R135 remark after Thm 2.2
+  extends it to every θ < 1), have bounded mass and **fail for a
   positive proportion of primes, in every e-slice of both types**. The remaining (non-transparent) part is the
   residue distribution of large prime factors of specific integers — the lottery (H-A/H-B), untouched here.
 * **Numerics (§3; EVIDENCE).** Validated engine. Full-coset covers exist at every sampled prime ≥ 10⁶ (largest
@@ -194,7 +196,7 @@ proportion of primes, as long as the covering primes are below the modulus.
 `M := N/L`, and the transparent residue set is `R := Σ_e(L)·{M⁻¹, 1, M}` (all prime powers below the modulus
 used with their full exponent range, and the rest of N as one opaque block). For `0 ≤ θ < 1/2`, a
 *transparent covering certificate of strength θ* (TCC_θ) at (p, e, T) is a subgroup `H ≤ G_e` with
-`|G_e : H| ≤ e^θ` and `−H ⊂ R`. (θ = 0 with H = K_e is "R covers the whole target coset −K_e"; −H ⊂ R with
+`|G_e : H| ≤ 2e^θ` (R135 repair: was `≤ e^θ`, which at θ = 0 excludes H = K_e) and `−H ⊂ R`. (θ = 0 with H = K_e is "R covers the whole target coset −K_e"; −H ⊂ R with
 −1 ∈ −H gives an ES solution. TCC_θ is the most a p-blind covering argument can extract from the primes below the
 modulus.)
 
@@ -208,8 +210,9 @@ Nicolas–Robin bound `log τ(n) ≤ 1.5379 log 2 · log n/log log n`).** Fix `0
 Here e ranges over **all** e ≡ 3 (mod 4) and T over {I, II}. Consequently, for Y large, a set of primes of lower
 relative density `≥ (1 − 2C·Y^{−1+2θ+ε})/φ(q_0) > 0` has no transparent covering certificate in any e-slice.
 
-*Proof.* Fix p ≡ 1 (q_0), p ≤ x. A TCC_θ forces `|R| ≥ |H| ≥ φ(e)e^{−θ}`, hence (Lemma 1.1(iv))
-`τ(L²) ≥ φ(e)e^{−θ}/3 =: B_e`. Split the e-range.
+*Proof.* Fix p ≡ 1 (q_0), p ≤ x. A TCC_θ forces `|R| ≥ |H| ≥ φ(e)e^{−θ}/2` (R135 repair), hence (Lemma 1.1(iv))
+`τ(L²) ≥ φ(e)e^{−θ}/6 =: B_e` (R135 repair: /6 instead of /3 after the index bound 2e^θ; all constants below
+change by bounded factors only). Split the e-range.
 
 *(a) e ≤ Y: no certificate at all.* Every prime ℓ < e ≤ Y satisfies `(ℓ/p) = 1` (p ≡ 1 mod 8ℓ), so by
 Lemma 1.2(i) `L ∈ K_e`. By Lemma 1.2(ii) `χ_{−e}(N) ∈ {1, (e/p)}` and `(e/p) = 1` because every prime factor of
@@ -238,14 +241,25 @@ depend on Y. PNT in progressions gives `π(x; q_0, 1) ≥ x/(2φ(q_0) log x)` fo
 *(c) E_1 < e ≤ x.* Markov with `τ(L²) ≤ τ(N²)`: the count is `≤ B_e^{−2} Σ_{p ≤ x} f(N_e^T(p))`. p ↦ N is
 injective. Type II: N ≤ x/2, so `≤ B_e^{−2} Σ_{n ≤ x/2} f(n) ≪ B_e^{−2} x(log x)^8` (`f = 1*h`,
 `Σ_{n≤X} f ≤ X Σ_{d≤X} h(d)/d`). Type I: N lies in the progression `n ≡ 4⁻¹ (mod e)`, `n ≤ xe/4`; Shiu's theorem
-(f(ℓ^v) = (2v+1)² ≤ 9^v, modulus e ≤ (xe/4)^{1/2}) gives `≪ (xe/φ(e))(log x)^8`. Summing,
+(f(ℓ^v) = (2v+1)² ≤ 9^v; Shiu needs modulus `k < y^{1−α}`, here y = X = (xe+1)/4, α = 1/4, and `e < X^{3/4}` holds
+for all e ≤ x — R135 repair: the earlier check `e ≤ (xe/4)^{1/2}` fails for e > x/4) gives `≪ (xe/φ(e))(log x)^8`. Summing,
 `Σ_{e > E_1} B_e^{−2}·e/φ(e) ≪ E_1^{−1+2θ+ε}`, which beats every power of log x: `o(x/(φ(q_0) log x))`.
 
 *(d) e > x.* Then N ≤ e²/4 (both types), and by Nicolas–Robin `τ(N²) ≤ τ(N)² ≤ exp(4.3 log e/log log e) < B_e`
 for e ≥ e_0(θ); take x_0 ≥ e_0. No certificate. ∎
 
+*Remark (R135 repair/extension; reviewer derivation, see reviews/longshot-pigeonhole-review.md D6).* The restriction
+θ < 1/2 comes only from using the second moment. With `f_r = τ(·²)^r`, r > 1/(1−θ): `h_r = f_r * μ ≥ 0`,
+`h_r(ℓ^v) = (2v+1)^r − (2v−1)^r ≪_r v^{r−1}`, so the 2-part and small-prime factors in (b2) are constants c_r
+(`c_r^{ω(e+1)} ≪ e^ε`), the product over Y < ℓ < e is `≪ (log e)^{3^r−1}`, Markov gives `B_e^{−r} ≪ e^{−r(1−θ)+ε}` (tail
+`≪ Y^{1−r(1−θ)+ε}`); (b1) is unchanged; (c) uses Shiu with `f_r(ℓ^v) ≤ (3^r)^v`; (d) holds for every θ < 1. So Theorem 2.2
+holds for every fixed θ < 1 (with `C·Y^{1−r(1−θ)+ε}` in place of `C·Y^{−1+2θ+ε}`): for every δ > 0, transparent
+certificates covering a coset of size ≥ e^δ fail on a positive-density set. Single witnesses (H = {1}) remain outside.
+
 *Reading.* Every ES solution lies in some e-slice (Lemma 1.1). Theorem 2.2 says that **a covering argument that only
-uses prime factors smaller than the modulus (plus one opaque cofactor) cannot prove ES, not even for almost all
+uses prime factors smaller than the modulus (plus one opaque cofactor) to cover a coset of size `≥ e^{1−θ}`, θ < 1/2
+(R135 repair: size restriction added; arguments that only hit −1 or cover smaller cosets are not excluded),
+cannot prove ES, not even for almost all
 primes**: it fails on a set of positive density, uniformly over all e and both types. The mechanism is exactly the
 brief's: the transparent prime factors of N_e behave like the small prime factors of a random integer, whose
 `τ(·²)`-moment is `(log e)^{8}`, while a coset-covering needs `τ(L²) ≥ e^{1−θ−o(1)}`; the expected number of
@@ -362,7 +376,10 @@ Readings (EVIDENCE, finite ranges):
   non-transparent part can act.
 * **T7 (average leak).** Theorem 2.2 averages over p, legitimately (it is a negative statement). A positive use of
   "general position of the residues of large prime factors" proved on average over p would be a T7 leak.
-* **T8 (lifting).** Exact: Lemma 1.1 is a bijection (validated numerically against brute force).
+* **T8 (lifting).** Exact: Lemma 1.1 is a bijection between the e-fibres of V_T(p) and the (a,b)-pairs (validated
+  numerically against brute force). (R135 repair: the map V_T(p) → solutions is surjective but not injective —
+  dilation `(a,b,c,d) ↦ (λa,λb,λc,λ⁻²d)`, ET Prop 2.2; it is a bijection once gcd(a,b) = 1 is imposed, checked for
+  p < 110 in `scripts/review_r135_slices.py`. No proof here is affected.)
 Verdict: the mechanism survives T1/T4/T8 by construction; its deterministic part is killed by Thm 2.2, and its
 remaining part is the lottery (T2/T7).
 
@@ -373,7 +390,8 @@ remaining part is the lottery (T2/T7).
 `Σ_e(N_e^T(p))` contains −1 (Lemma 1.1); −1 lies in the non-trivial coset of the genus subgroup K_e = ker χ_{−e},
 and prime factors fall into K_e or −K_e according to `(ℓ/p)` (Lemma 1.2).
 (ii) *Pigeonhole proper* (collisions, zero-sum theory) produces only target 1, i.e. signed solutions (Lemma 1.3).
-(iii) *Covering criteria.* Counting needs `τ(N²) ≥ |target set|`; structure-only criteria (Kneser) need a number of
+(iii) *Covering criteria.* Counting needs `τ(N²) ≥ |target set|`; structure-only criteria (Kneser; R135 repair: "structure-only" = depending only on orders/counts of the images in
+the quotients G/H — Prop 1.4(c) does not cover criteria using e.g. distinctness of residues) need a number of
 prime factors **linear** in |G:H| for every subgroup H ∌ −1, and this is sharp (Prop 1.4). Exponential efficiency
 (`3^ω ≈ φ(e)`) requires knowing the actual residues of the prime factors.
 (iv) *Forcing.* CRT-forcing of k primes costs `e ≥ e^{(1+o(1))k log k}` against `3^{k+1}` residues (Lemma 2.1);
