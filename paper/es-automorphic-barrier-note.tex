@@ -1063,7 +1063,7 @@ $-H\subset R$.
 Since $R\subset\Sigma_e(N)$ and $-1\in-H$, a certificate yields a solution.
 With $H=K_e$ it says that $R$ covers the whole target coset $-K_e$.
 
-\begin{theorem}[\status{proved}, relative to PNT in progressions to a fixed modulus, Brun--Titchmarsh \cite{MV}, Shiu \cite[Thm.~1]{Shiu} and Nicolas--Robin \cite{NR}; {\cite[Thm.~2.2]{LP}}]\label{thm:transparent}
+\begin{theorem}[\status{proved}, relative to PNT in progressions to a fixed modulus, Brun--Titchmarsh \cite{MV}, Shiu {\cite[Thm.~1]{Shiu}} and Nicolas--Robin \cite{NR}; {\cite[Thm.~2.2]{LP}}]\label{thm:transparent}
 Fix $0\le\theta<1/2$ and $\varepsilon>0$. There is $C=C(\theta,\varepsilon)$
 such that for every $Y\ge3$, with $q_0=8\prod_{3\le\ell\le Y}\ell$,
 \begin{multline*}
@@ -1157,6 +1157,215 @@ $10^8$, so the failure set of Theorem~\ref{thm:transparent} is not visible
 numerically; the theorem is qualitative. By Theorem~\ref{thm:transparent},
 any proof of PH must use prime factors above the modulus on a set of
 positive density, so PH is not easier than H-A/H-B
+(\status{Assessment}).
+
+\subsection{Fibred encodings}\label{ssec:fibred}
+Write $\mathrm{Sol}(n)$ for the (finite) set of solutions of \eqref{eq:es}
+and $f(n)$ for the number of Type~I and Type~II solutions. A \emph{fibred
+encoding} at $n$ is a countable set $E=E(n)$ with a height
+$\mathrm{ht}:E\to[0,\infty)$ ($E(\le H)$ finite) and a map
+$\varphi:E\to\mathrm{Sol}(n)$. It is \emph{power-fibred} if
+$\#E(\le H)=c(n)H^\delta(1+o(1))$ as $H\to\infty$, for some $\delta>0$. A
+\emph{counting route} proves this asymptotic with an independent formula
+for $c(n)$ and reads off $c(n)>0\Rightarrow\mathrm{Sol}(n)\ne\emptyset$. If each
+fibre $E_s=\varphi^{-1}(s)$ has a density $c_s$, then
+$c(n)=\sum_{s\in\mathrm{Sol}(n)}c_s$, a finite sum \cite[Lemma~1.2]{LF}. The
+$H$-asymptotic is free; all the content sits in the constant. The question
+is whether $c(n)$ can be evaluated without knowing $\mathrm{Sol}(n)$, and that
+depends on how $\varphi$ is computed.
+
+\begin{lemma}[rigidity; \status{proved}, elementary; {\cite[Lemma~2.1]{LF}}]\label{lem:rigid}
+Let $V/\Q$ be irreducible, $E\subset V(\Q)$ Zariski-dense, and
+$\varphi:V\dashrightarrow\mathbb A^3$ a rational map over $\Q$, regular on $E$,
+with $\varphi(E)$ finite. Then $\varphi$ is constant.
+\end{lemma}
+\begin{proof}
+On $U=\operatorname{dom}\varphi$ (irreducible), $E$ is dense and covered by
+the finitely many closed sets $\varphi^{-1}(s_i)$; so one of them is $U$.
+\end{proof}
+By Borel's density theorem, an orbit $\Gamma x$ of an arithmetic subgroup
+$\Gamma$ of a connected semisimple $\Q$-group without compact factors is
+Zariski-dense in $\overline{Gx}$ \cite[Lemma~2.2]{LF}. Hence every orbit
+of the kind counted by Duke--Rudnick--Sarnak \cite{DRS} or Eskin--McMullen
+\cite{EM} is covered by Lemma~\ref{lem:rigid}. Consequences
+(\status{proved}, \cite[Thm.~2.3]{LF}): if $E$ is a union of pieces $E_i$,
+each Zariski-dense in an irreducible $V_i$ with $\varphi|_{E_i}$ rational,
+then $\varphi\equiv s_i$ on $E_i$, and $s_i$ is the value of $\varphi_i$ at any
+point of its domain, so it can be read off the equations. If moreover
+$\varphi_i$ maps $V_i$ into the ES variety $4xyz=n(xy+yz+zx)$ and has
+$\Z_\ell$-coefficients, then one $\Z_\ell$-point for each $\ell$ and one real
+point in the counting region already force $s_i\in\mathrm{Sol}(n)$. A
+Siegel or Hardy--Littlewood main term carries no information beyond the
+explicit point $s_i$: for algebraic recipes counting is idle. (This holds
+for pieces as given. A candidate set $V_i(\Z)\cap\Omega$ that is not
+Zariski-dense must first be decomposed along the components of its
+closure.)
+
+\begin{corollary}[\status{proved}, relative to {\cite[Prop.~1.6]{ET}} and Dirichlet; {\cite[Cor.~2.4]{LF}}]\label{cor:uniformalg}
+Let $\mathcal V\to\mathbb A^1_n$ be an irreducible $\Q$-family with
+geometrically irreducible generic fibre, and $\varphi:\mathcal V\dashrightarrow\mathbb A^3$
+rational. Let $P_{\rm cov}$ be the set of primes $p$ for which a
+Zariski-dense $E(p)\subset\mathcal V_p(\Z)$ has $\varphi(E(p))\subset\mathrm{Sol}(p)$.
+There is $D'\ge1$ such that all but finitely many $p\in P_{\rm cov}$ are
+quadratic non-residues mod $D'$. In particular all large $p\equiv1\pmod{D'}$
+are missed.
+\end{corollary}
+\begin{proof}[Sketch]
+By Lemma~\ref{lem:rigid} and generic flatness, $\varphi$ is constant on the
+fibres over a dense open set, given by a point $s_0\in\Q(n)^3$ on the ES
+variety; integrality at infinitely many primes forces $s_0\in\Q[n]^3$. Fix
+the Type~I or Type~II pattern occurring infinitely often; e.g.\ for Type~I,
+$x=nx_1$ and $y(0)z(0)\neq0$. If $p$ is a square mod $D'$ (built from the
+denominators and $y(0)z(0)$), choose by Dirichlet a large prime
+$m\equiv m_0$ with $m_0^2\equiv p\pmod{D'}$; then $s_0(m^2)$ is a Type~I
+solution for the odd square $m^2$, contradicting \cite[Prop.~1.6]{ET}.
+\end{proof}
+This is the classical observation that polynomial identities miss the
+square classes (\cite[Props.~1.8--1.9]{ET}; Mordell--Schinzel), now for
+algebraic fibred encodings of bounded complexity, however large the
+fibres. With a parameter set growing with $p$ the fibring changes only the
+normalisation of the sum over the parameter \cite[Cor.~2.5]{LF}.
+
+The remaining power-fibred encodings use \emph{orbit recipes}: $E(n)$ is a
+finite union of $\Gamma'$-orbits in $V(\Z)\cap\Omega$, where $V=\overline{Gx_0}$
+is a closed orbit of a connected semisimple $\Q$-group $G$ with $G(\R)$
+without compact factors, $\Gamma'\subset G(\Z)$ is arithmetic, and $\varphi$
+is $\Gamma'$-invariant. Let $\mu(n)$ be the largest number of orbits over one
+solution. The \emph{counting input} (C) is the asymptotic
+$\#(\Gamma'y\cap B_H)\sim w_O\operatorname{vol}(B_H)$ for well-rounded $B_H$, with
+$w_O=\operatorname{vol}(\Gamma'_y\backslash H_y(\R))/\operatorname{vol}(\Gamma'\backslash G(\R))$,
+$H_y$ the stabiliser \cite{DRS,EM,EMS}. The statements of these counting
+theorems (and of \cite{BR,CTX} below) were checked only second-hand, by
+a research subagent of the source; the internal reviewer had no access to
+them.
+
+\begin{theorem}[orbit weights; \status{proved} relative to (C); {\cite[Thm.~3.1]{LF}}]\label{thm:orbitweight}
+\textup{(a)} $c(n)=\sum_Ow_O=\sum_{s\in\mathrm{Sol}(n)}\sum_{O\mapsto s}w_O\le\mu(n)f(n)\max_Ow_O$.
+\textup{(b)} If all stabilisers $H_y(\R)$ are compact, then $w_O=\kappa/|\Gamma'_y|$
+with $\kappa$ depending only on the real orbit of $y$, and
+$w_{\max}/w_{\min}\le C(\Gamma')$. So the number of orbits is at most
+$C(\Gamma')\mu(n)f(n)$, and Proposition~\ref{prop:scale} holds with
+multiplicity $C(\Gamma')\mu(n)$.
+\textup{(c)} Only non-compact stabilisers (tori or semisimple) can give
+weights that vary by a power of $n$.
+\end{theorem}
+\begin{proof}
+(a) is $c(n)=\sum_sc_s$ with (C) for each orbit. (b) Compact stabilisers in
+one real orbit are conjugate, so they have equal volume; $\Gamma'_y$ is finite,
+and $G(\Z)$ has finitely many conjugacy classes of finite subgroups.
+\end{proof}
+Examples \cite[\S4]{LF}. The Type~II pair embeddings $(Q,S_c)$ of
+Proposition~\ref{prop:typeII}(c), moved by $\SL_2(\Z)$, have stabiliser
+$\{\pm I\}$; each orbit contributes $\asymp H$ points of height $\le H$, and
+$c(n)=\kappa_{c,d}\cdot\#\{f\mid4c^2dn+1:\ f\equiv-1\ (4cd)\}$. Numerically
+every orbit, ES or not, has the same count to within $1.5\%$ at $H=3000$
+(\status{evidence}). The fibre is a copy of $\mathrm{PSL}_2(\Z)$ and carries
+no information. The Type~II Pell orbits $\{\varepsilon_s^k\}$ grow only
+logarithmically, contain no ES point after $k=1$, and have regulators
+$O(\log p)$, because the solution is the unit; the Type~I hyperboloids
+$X_d$ give weights bounded above by a constant. The quaternion encodings
+have finite unit groups.
+
+\emph{The odd-square test.} Suppose a main term has the Siegel or
+Borovoi--Rudnick shape \cite{BR}
+$M(n)=m_\infty(n)\prod_\ell m_\ell(n)\cdot|B|^{-1}\sum_{\alpha\in B}\prod_\ell E_\ell(\alpha,n)$
+(local densities, and local Brauer averages $E_\ell$ for a finite
+$B\subset\Br$), subject to \textup{(U)}: there are a finite set $S_0$ of primes
+and $k\ge1$ such that for $\ell\nmid n$, $m_\ell(n)>0$ and $E_\ell=1$ if
+$\ell\notin S_0$, while for $\ell\in S_0$ these factors depend only on
+$n\bmod\ell^k$; and $m_\infty(n)>0$ for large $n$.
+
+\begin{proposition}[\status{proved} under (U); {\cite[\S5.1]{LF}}]\label{prop:Utest}
+Let $Q_1=\prod_{\ell\in S_0}\ell^k$, $p\nmid Q_1$ prime with $M(p)>0$, and $m$ odd,
+$\gcd(m,Q_1)=1$, $m\equiv m_0\pmod{Q_1}$ with $m_0^2\equiv p$. If $M(m^2)=0$,
+then the two values are separated at a place $\ell\mid m$ (some $m_\ell(m^2)=0$,
+or some $E_\ell(\alpha,m^2)\ne1$), or at the place $p$ alone.
+\end{proposition}
+\begin{proof}
+By (U), every other factor takes the same value at $p$ and at $m^2$.
+\end{proof}
+So a main term can pass the odd-square test only through data at the
+primes dividing $m$, which for $n=p$ means the place $p$. Such factors do
+occur: the spinor exceptions of $3x^2+4y^2+9z^2$ are exactly the squares
+$w^2$ with all prime factors of $w$ $\equiv1\pmod3$ (Earnest \cite[Prop.~5.1]{Ea};
+reproduced numerically to $5\cdot10^4$). The ES-natural candidate is the
+genus set $\mathfrak G^-_d(n)$ of primitive positive forms of
+discriminant $-4dn$ with $\chi_{-4d}(Q)=-1$ (evaluated at any represented
+integer prime to $4dn$). The Type~II form $[f,4ad,de]$ of
+Proposition~\ref{prop:typeII}(c) lies in it (part (d)).
+
+\begin{proposition}[\status{proved}; {\cite[\S5.3]{LF}}]\label{prop:genusminus}
+\textup{(a)} For odd $n=m^2$ with $\gcd(m,2d)=1$, $\mathfrak G^-_d(m^2)=\emptyset$.
+\textup{(b)} For a prime $p\equiv1\pmod4$, $p\nmid2d$,
+$\#\mathfrak G^-_d(p)=h(-4dp)/2$.
+\end{proposition}
+\begin{proof}
+(a) A represented $k$ prime to $4dm^2$ has
+$1=(-4dm^2/k)=\chi_{-4d}(k)$. (b) On represented values $\chi_{-4d}=(\cdot/p)$,
+a genus character which is non-trivial on the class group (there is a
+second assigned character, at $2$ or at a prime $q\equiv3\pmod4$ dividing $d$),
+so it takes the value $-1$ on half of the classes.
+\end{proof}
+The mass of $\mathfrak G^-_d$ therefore passes the odd-square test, through
+the place $p$, as Proposition~\ref{prop:Utest} requires. But it is not a
+valid encoding: it has $h/2\asymp p^{1/2\pm\varepsilon}$ classes against
+$F_d(p)=\#\{\text{Type~II points at level }d\}=O(\text{polylog})$ on average.
+\status{evidence}: for $5$ primes $p\equiv1\pmod4$ in $[10^3,10^4]$, chosen
+in the square classes mod $120$ where Type~II is sparsest, and $d\le8$,
+$\#\mathfrak G^-_d(p)\in[10,144]$ while $F_d(p)=0$ in $19$ of the $40$ pairs
+(reproduced exactly by the reviewer; not a typical rate: $F_1(p)>0$ for
+$55$ of $60$ consecutive primes $p\equiv1\pmod4$ from $10^3$). So the
+per-level criterion ``$\mathfrak G^-_d(p)\ne\emptyset\Rightarrow F_d(p)>0$'' is
+false. The aggregate criterion ``$\exists d$: $\mathfrak G^-_d(p)\ne\emptyset$'' is
+not false but vacuous: by (b) it holds at every $p\equiv1\pmod4$, so as a
+criterion for ES it is ES itself. Likewise the genus-full closure of the
+pair embeddings contains $Q_0$ for every $n$
+(Proposition~\ref{prop:locsq}), so its mass is positive at odd squares.
+
+\begin{theorem}[fibred encodings, exact scope; {\cite[Thm.~5.4]{LF}}]\label{thm:fibred}
+Let $E(n)=\bigsqcup_{\theta\in\Theta(n)}E_\theta$ be power-fibred, with $\Theta(n)$
+arbitrary (it may grow with $n$), each piece either \textup{(X1)}
+Zariski-dense in an irreducible $V_\theta$ with $\varphi|_{E_\theta}$ rational,
+or \textup{(X2)} a finite union of orbits as above, with orbit weights in
+$[w_\theta,Rw_\theta]$. Let $\mu(n)$ be the largest number of pieces (X1
+pieces, X2 orbits) over one solution.
+\begin{enumerate}
+\item \status{(proved)} X1 pieces are constant; X2 pieces satisfy
+Theorem~\ref{thm:orbitweight}, with $R=C(\Gamma_\theta)$ for compact or finite
+stabilisers and $R=O(\log n)$ for the Pell orbits.
+\item \status{(proved relative to (C) and \cite[Thm.~1.1]{ET})} A counting
+route proving $c(n)\ge M(n)/2$ needs $M(n)\le2R\mu(n)f(n)\max_\theta w_\theta$.
+After normalising by $\max_\theta w_\theta$, Proposition~\ref{prop:scale}
+holds with multiplicity $R\mu(n)$. The factor $H^\delta$ cancels.
+\item \status{(conditional} on the hypotheses of Colliot-Th\'el\`ene--Xu
+\cite[Thm.~3.7]{CTX}: $G$ simply connected, stabiliser connected\status{)} A
+main term from a mass formula is the mass of a genus-full set; if that set
+is the encoding, its non-emptiness is decided by local and Brauer--Manin
+data without counting, and by Proposition~\ref{prop:Utest} the vanishing
+at odd squares must come from the places dividing $m$. These hypotheses
+fail for the pair space of Proposition~\ref{prop:typeII}(c) ($G=\SL_2$,
+stabiliser $\mu_2$). The refutations of the two ES-natural genus-full
+criteria above do not use \cite{CTX}.
+\item \status{(proved)} If $\Theta$ is finite and the X1 data are uniform in
+$n$ as in Corollary~\ref{cor:uniformalg}, all large $p\equiv1\pmod{D'}$ are
+missed.
+\end{enumerate}
+\end{theorem}
+\emph{Exact scope.} Theorem~\ref{thm:fibred} covers algebraic recipes and
+orbit recipes with bounded covolume ratio $R$. It shows that the
+\emph{continuous} fibre factor $H^\delta$ buys nothing. It is not a theorem
+about all large-fibre encodings. The red team's T8 blind spot is closed
+only partially: it moves from the size of the fibres to
+(E-d) the number $\mu(n)\ge n^\eta$ of pieces over one solution (discrete
+multiplicity; Theorem~\ref{thm:fibred} is then vacuous) and to
+(E-a) weight spread $R\ge n^\eta$ not capped by the solution (none found:
+the only split torus among ES encodings is the Pell unit, which is the
+solution itself). Also outside are (E-b) a \emph{valid} genus-full
+criterion with a Brauer or spinor factor at $p$, which would be a
+structural theorem of the strength of ES, and (E-c) recipes that are
+neither algebraic nor lattice-invariant (floors, gcds, factorisations),
+which fall under \cite[Thm.~M]{PS} instead. Bilinear sieves fibred over
+free parameters remain single-target counts with polylogarithmic mass
 (\status{Assessment}).
 
 \section{Open problems: the escape hatches}\label{sec:open}
@@ -1345,6 +1554,12 @@ Erd\H{o}s--Straus conjecture remains open.
 \bibitem[MV]{MV} H. L. Montgomery and R. C. Vaughan, The large sieve, \emph{Mathematika} \textbf{20} (1973), 119--134.
 \bibitem[Sh]{Shiu} P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions, \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
 \bibitem[NR]{NR} J.-L. Nicolas and G. Robin, Majorations explicites pour le nombre de diviseurs de $N$, \emph{Canad. Math. Bull.} \textbf{26} (1983), 485--492.
+\bibitem[DRS]{DRS} W. Duke, Z. Rudnick and P. Sarnak, Density of integer points on affine homogeneous varieties, \emph{Duke Math. J.} \textbf{71} (1993), 143--179. (Statement checked second-hand only.)
+\bibitem[EM]{EM} A. Eskin and C. McMullen, Mixing, counting, and equidistribution in Lie groups, \emph{Duke Math. J.} \textbf{71} (1993), 181--209. (Checked second-hand only.)
+\bibitem[EMS]{EMS} A. Eskin, S. Mozes and N. Shah, Unipotent flows and counting lattice points on homogeneous varieties, \emph{Ann. of Math.} \textbf{143} (1996), 253--299. (Checked second-hand only.)
+\bibitem[BR]{BR} M. Borovoi and Z. Rudnick, Hardy--Littlewood varieties and semisimple groups, \emph{Invent. Math.} \textbf{119} (1995), 37--66. (Checked second-hand only.)
+\bibitem[CTX]{CTX} J.-L. Colliot-Th\'el\`ene and F. Xu, Brauer--Manin obstruction for integral points of homogeneous spaces and representation by integral quadratic forms, \emph{Compos. Math.} \textbf{145} (2009), 309--363. (Checked second-hand only.)
+\bibitem[Ea]{Ea} A. G. Earnest, Exceptional sets for spinor regular ternary quadratic forms, arXiv:2203.02620 (2022).
 \bibitem[LA]{LA} \emph{Spectral and geometric tools for pointwise representation (literature survey)}, internal file, \texttt{LITERATURE\_AUTOMORPHIC.md}.
 \end{thebibliography}
 \end{document}
