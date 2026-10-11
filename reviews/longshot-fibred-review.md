@@ -107,3 +107,42 @@ is false. The aggregate criterion "∃d: 𝔊⁻_d(p) ≠ ∅ ⇒ ES(p)" is not 
 vacuous, because by (b) its hypothesis holds at every p ≡ 1 (4), so it *is* ES for p ≡ 1 (4). "Invalid" in §5.3 should
 mean "the mass is not the solution count (h/2 against F_d), and the per-level criterion fails". It should not be
 read as "the criterion is false".
+
+### Thm 3.1 — (a) SOUND rel. (C); (b) SOUND for a single Γ'; (c) wording too narrow (D9)
+(a) is Lemma 1.2 over the finitely many orbits (Borel–Harish-Chandra finiteness of `Γ'\V(ℤ)` for a closed orbit of a
+reductive group: correct use). (b): for compact `H(ℝ)` all stabilisers in one real orbit are `G(ℝ)`-conjugate, so
+their Haar volumes are equal; `|Γ'_y| ≤ C` holds uniformly for all subgroups of `G(ℤ)` (finitely many conjugacy
+classes of finite subgroups of `G(ℤ)`), so C can be taken independent of n and of Γ' ⊂ G(ℤ). Correct.
+**Citations.** I could not access Eskin–McMullen 1993, Eskin–Mozes–Shah 1996, Borovoi–Rudnick 1995, Colliot-Thélène–Xu
+2009 or DRS 1993 (no copies in `sources/`, none on arXiv). I could not verify the theorem numbers, and I rely on the
+author's subagent for them. What I could check: the *shape* of (C) (`w_O = vol(Γ'_y\H_y)/vol(Γ'\G)`) is the standard
+EM/DRS normalisation, and the only quantitative instance used (F4) I re-derived and checked independently (below).
+**D8 (MINOR, citation fit for F4).** EM Thm 1.4 is for affine *symmetric* `G/H`; F4 has finite stabiliser, so
+`V ≅ G/{±1}` is not of that form. The F4 count is the group case (`#{γ ∈ Γ : ‖v₀γ‖ ≤ H}`), which is classical
+(Selberg/Huber/Good; or DRS/EM applied to `(G×G)/Δ`, where `Γ×Γ` is not irreducible, so check that EM's
+"weakly irreducible" hypothesis is met or cite the group-case statement directly). *(R136 repair)* cite the group-case
+count explicitly. It is not needed for any conclusion, because F4's equal-weights claim follows from left-invariance
+of Haar measure (`vol{g : ‖y g₀ g‖ ≤ H} = vol{g : ‖y g‖ ≤ H}`) whenever an asymptotic exists.
+**D9 (MINOR, Thm 3.1(c)).** "non-compact (a split torus factor)" is too narrow. Any non-compact stabiliser, e.g. a
+semisimple `SO(2,1)` stabiliser of a point on a one-sheeted quaternary hyperboloid, gives arithmetic covolumes
+`vol(Γ'_y\H_y(ℝ))` that grow polynomially with the discriminant of y (Siegel), so the weights can vary by powers.
+*(R136 repair)* "(c) If `H_y(ℝ)` is non-compact (torus or semisimple), `w_O` is an arithmetic covolume…".
+
+### §4 catalogue — F1, F2, F4, F6 SOUND (F4 after D10); F3 has a weight error (D11)
+**F2 re-derived and checked** (`scripts/review_lsb_pell.py`; all 3303 Type II quadruples of all primes `p < 1500`, all
+d): `T² − D'(2c)² = 1` holds in every case (algebra: `T² − 4c²D' = 4cd(4abcd − a − b − pc) + 1 = 1`). No power `ε^k`,
+k = 2..5, is the unit of *any* Type II quadruple of the same p, for any `(c', d')`. This is stronger than (ii), which only
+treats the same d. Over these p, `log(2T)/log p ≤ 1.82`. The argument for (ii) is right as stated (T odd, `T ≡ −1 (2cd)`).
+**D10 (MINOR, F4 "`≍ H²`").** The count `#{γ ∈ PSL₂(ℤ) : ‖(Q,S)γ‖ ≤ H}` is `≍ H`, not `≍ H²`. Coefficients are
+quadratic in γ, so the condition is `‖γ‖ ≲ H^{1/2}`, and `#{‖γ‖ ≤ T} ≍ T²`. `scripts/review_lsb_f4growth.py` (own
+enumeration, Q = [3,4,11], disc −4·29; S = [0,2,1]): counts 152, 300, 602, 1206 at H = 250…2000, i.e. `0.60·H`. The
+author's own table (≈ 1800 at H = 3000) is consistent with H, not H². *(R136 repair)* "≍ H" (δ = 1).
+**D11 (MINOR, F3 "Thm 3.1(b) applies: c(n) = κ·Σ_O 1/|Γ'_{x_O}|").** F3 uses a *different* group `Γ'_s = Γ(4da_s)`
+for each solution, whereas Thm 3.1 assumes one Γ'. The weight of the orbit of `x_s` is
+`κ/(|Γ'_{s,x}|·[G(ℤ):Γ'_s])`, and the index `≍ (4da_s)^{dim G}` varies by a power of p across solutions. The
+conclusion survives in the form used later: all weights are `≤ κ`, so `c(n) ≤ κ·μ·f(n)` (Thm 3.1(a)), and in Thm 5.4
+each `s` is its own X2 piece with its own `w_θ` (R = C). *(R136 repair)* replace the formula by
+`c(n) = κ·Σ_O 1/(|Γ'_{s,x_O}|·[G(ℤ):Γ'_{s}])` and add "(weights vary with a_s, but are bounded above by κ; Lemma 1.3 applies with
+`w_max = κ`)". Also note that this is a power-varying weight capped by the solution, which is exactly the (E-a)
+mechanism of §5.5. That bullet should say F3 is a second instance (besides F2), with weights capped *above* (≤ κ),
+which is the direction the scale constraint needs.
