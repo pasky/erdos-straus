@@ -130,6 +130,11 @@ Blocks (es)..(ez) (task O133) replay DISCOVERIES section (I), the automorphic/ge
   (ex) EXACT_FORMULA: CERTIFIED exact Q-rank test (columns regenerated in a tempdir; ~2 min) (R131).
   (ey) QUATERNION_ES: Prop 1.3 Hilbert symbols (p < 3000), brute force p < 200, Lemmas 1.2/3.1 symbolic, §3.4 (R130).
   (ez) GEOMETRY_ES: toric model symbolic, Props 5.1/5.2 on all solutions p < 2000, §5.3 levels (R126).
+Blocks (fa)..(fb) (task O137) replay DISCOVERIES (I)9-(I)10, the two long shots (reviewers' code):
+  (fa) LONGSHOT_PIGEONHOLE: Lemma 1.1 vs direct solver (p < 2000), Lemmas 1.2/1.3, Prop 1.4, §3 covers incl.
+       3529 / 110881, Thm 2.2 (b2) constants (R135).
+  (fb) LONGSHOT_FIBRED: ET Prop 1.6 at odd squares, F2 Pell identity, F4 orbit counts (incl. squares 9, 25, 49),
+       spinor exceptions, G^-_d table with F_d(p) = 0 in 19/40, D5 (R136).
 """
 from fractions import Fraction
 from sympy import primerange, factorint, jacobi_symbol, primitive_root
@@ -23834,6 +23839,153 @@ def check_ez():
 
 print("\n== (ez) GEOMETRY_ES: toric model symbolic, Props 5.1/5.2 on all solutions p < 2000, §5.3 levels (R126) ==")
 check_ez()
+
+
+# ---------------------------------------------------------------- (fa)
+# LONGSHOT_PIGEONHOLE.md (task O135, review R135 = reviews/longshot-pigeonhole-review.md; DISCOVERIES (I)9).  Uses
+# R135's from-scratch scripts review_r135_{slices,genus_kneser,covers,constants}.py (no author lsa_* code).  Checked:
+# (1) Lemma 1.1 (PROVED): review_r135_slices.py 110: for all 27 primes 5 <= p < 110 the ordered solution triples split
+#     into Type I / Type II (none with 0 or 3 coordinates divisible by p) and equal 3 * the coprime fibre counts
+#     sum_e #{(a,b): ab | N_e, e | a+b, gcd(a,b) = 1}; without gcd(a,b) = 1 the fibre counts are strictly larger for
+#     18 of 27 primes (dilation symmetry; e.g. p = 71: Type I 171 vs 210); and for all primes 5 <= p < 2000: ES(p) by a
+#     direct solver <=> some e-slice has -1 in Sigma_e(N): 0 mismatches;
+# (2) Lemma 1.2 (genus, Kronecker symbol from the definition, incl. l = 2): 96524 prime-factor tests, 0 failures;
+#     Lemma 1.3 identities (p < 300, e < 60): 0 failures; Prop 1.4 (Kneser criterion, brute force over all subgroups,
+#     e < 64): 0 violations (silent on 5280 covered configurations); §5 e = 3, 7 instances (p < 2*10^5): 0 failures;
+# (3) §3 numerics (EVIDENCE): review_r135_covers.py 2000 at p = 3529, 5569, 21169, 110881 reproduces R135's table
+#     (and the author's data/lsa/cen_*): the two exceptions 3529 and 110881 have no full-coset cover with
+#     |-K_e| >= 20 for e <= 2000 (max covered 12), while 5569, 21169 have; P => solution, TP => P asserted inside;
+# (4) Thm 2.2 (b2) constants: review_r135_constants.py: 2-part factor 33, l = 3 factor 19, and
+#     prod_{3<=l<e}(1+8l^2/(l-1)^3)/(log e)^8 = 0.0713, 0.0648, 0.0634, 0.0629, 0.0628, 0.0627 at e = 10^2..10^7.
+
+def check_fa():
+    from time import perf_counter
+    import ast
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, os.path.join(sdir, args[0]), *args[1:]], capture_output=True, text=True,
+                           timeout=300, env=env, cwd=sdir)
+        assert r.returncode == 0, ("PIGEONHOLE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_r135_slices.py", "110")
+    rows = [ln for ln in o.splitlines() if ln.endswith(" OK") or ln.endswith("MISMATCH")]
+    t = {int(ln.split()[0]): ast.literal_eval(ln[ln.index("("):ln.index(")") + 1]) for ln in rows}
+    assert len(t) == 27 and all(ln.endswith(" OK") for ln in rows) and "count-check mismatches: 0" in o and \
+        "ES<=>slice mismatches (p<2000): 0" in o, ("PIGEONHOLE R135 Lemma 1.1", o[-1500:])
+    assert sum(r[5] > r[3] or r[6] > r[4] for r in t.values()) == 18 and t[71][0] == 171 and t[71][5] == 210, \
+        ("PIGEONHOLE non-coprime fibre excess", t)
+    o = run("review_r135_genus_kneser.py")
+    assert o.splitlines() == ["Lemma 1.2: prime-factor tests 96524 failures 0", "Lemma 1.3 identity failures: 0",
+                              "Prop 1.4 violations: 0 (cases covered but criterion silent: 5280 )",
+                              "explicit instance failures: 0"], ("PIGEONHOLE R135 Lemmas 1.2/1.3, Prop 1.4", o)
+    o = run("review_r135_covers.py", "2000", "3529", "5569", "21169", "110881")
+    assert o.splitlines() == [
+        "p=3529 E=2000 sol_slices=12 P=5 TP=4 P20=0 TP20=0 maxcovered=12 maxcoveredTP=12 maxomega=5",
+        "p=5569 E=2000 sol_slices=19 P=4 TP=3 P20=2 TP20=2 maxcovered=23 maxcoveredTP=23 maxomega=6",
+        "p=21169 E=2000 sol_slices=24 P=9 TP=9 P20=4 TP20=4 maxcovered=300 maxcoveredTP=300 maxomega=6",
+        "p=110881 E=2000 sol_slices=33 P=4 TP=1 P20=0 TP20=0 maxcovered=12 maxcoveredTP=11 maxomega=6"], \
+        ("PIGEONHOLE R135 §3 covers", o)
+    o = run("review_r135_constants.py")
+    rat = [ln.rsplit("= ", 1)[1] for ln in o.splitlines() if ln.startswith("e=")]
+    assert "2-part sum: 33.0" in o and "odd small-prime factor at l=3: 19.0 " in o and \
+        rat == ["0.0713", "0.0648", "0.0634", "0.0629", "0.0628", "0.0627"], ("PIGEONHOLE R135 (b2) constants", o)
+    print(f"fa PIGEONHOLE R135: Lemma 1.1 (Type I/II counts = 3 * coprime fibres for 27 primes < 110, non-coprime "
+          f"excess at 18; ES <=> slice for p < 2000, 0 mismatches); Lemma 1.2 (96524 tests), 1.3, Prop 1.4, §5 "
+          f"instances: 0 failures; covers at 3529, 5569, 21169, 110881 (E = 2000) = R135 table, exceptions 3529, 110881 "
+          f"confirmed; (b2) constants 33, 19, ratio -> 0.0627; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (fa) LONGSHOT_PIGEONHOLE: Lemma 1.1 vs direct solver, Lemmas 1.2/1.3, Prop 1.4, §3 covers, constants (R135) ==")
+check_fa()
+
+
+# ---------------------------------------------------------------- (fb)
+# LONGSHOT_FIBRED.md (task O136, review R136 = reviews/longshot-fibred-review.md; DISCOVERIES (I)10).  Uses R136's
+# from-scratch scripts review_lsb_*.py (no author lsb_* code is run; the author's stored outputs in data/lsb/ are only
+# compared against).  Checked:
+# (1) Cor 2.4 input (ET Prop 1.6): review_lsb_et16.py: all solutions of 4/m^2, m = 3..15 odd (incl. 9, 25, 49), none of
+#     Type I or II; every solution at p = 29, 41, 53, 73, 97 is Type I or II;
+# (2) F2 (Pell): review_lsb_pell.py: T^2 - D'(2c)^2 = 1 for all 3303 Type II quadruples of all primes p < 1500, no power
+#     eps^k (k = 2..5) is the unit of any Type II quadruple of the same p, max log(2T)/log p = 1.812;
+# (3) F4 orbit counts (§6.1 EVIDENCE, D10 repair): review_lsb_f4growth.py (Q = [3,4,11] = Q_3 at n = 29, S = [0,2,1]):
+#     #{g in PSL2(Z): max|coeff| <= H} = 152, 300, 602, 1206 at H = 250..2000 (~ 0.60 H, not H^2), and its count
+#     function at H = 3000 gives 1800 = the author's stored entry (n = 29, A = 3) in data/lsb/pair_orbits_H3000.out;
+#     at the squares n = 9, 25, 49, 4n+1 = 37, 101, 197 is prime = 1 (4): 4 genus-full orbits (A = +-1, +-(4n+1)), 0 ES
+#     orbits (A > 0, A = 3 (4)), as in the stored table;
+# (4) F5 / §5.2 spinor exceptions: review_lsb_spinor.py 50000: the n <= 5*10^4 represented by the genus mate (1,3,36)
+#     but not by 3x^2+4y^2+9z^2 are exactly the 29 squares w^2, w in M_3 (Earnest Prop 5.1(i)); nothing the other way;
+# (5) §5.3 / Prop 5.3 genus set G^-_d: review_lsb_genus.py reproduces data/lsb/genus_minus.out line for line: h^- = h/2
+#     at all 40 (prime, level) pairs, 0 at all 40 (square, level) pairs, F_d(p) = 0 in 19 of 40 pairs; D5:
+#     review_lsb_typeII_genus.py = data/review_lsb_typeII_genus.out (f-form always chi_{-4d} = -1, e-form = -(d/p)).
+
+def check_fb():
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    from sympy import isprime
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args, cwd=sdir):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=300, env=env, cwd=cwd)
+        assert r.returncode == 0, ("FIBRED subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_lsb_et16.py")
+    sq = re.findall(r"^n=(\d+): #sol=\d+ typeI=(\d+) typeII=(\d+)$", o, re.M)
+    assert [int(n) for n, _, _ in sq] == [m * m for m in range(3, 16, 2)] and all(a == b == "0" for _, a, b in sq) \
+        and o.count("allI/II=True") == 5, ("FIBRED R136 ET Prop 1.6", o)
+    o = run("review_lsb_pell.py")
+    assert o.strip() == "quadruples 3303 identity failures 0 power hits (k=2..5) 0 max log(2T)/log p 1.812", \
+        ("FIBRED R136 F2 Pell", o)
+    o = run("review_lsb_f4growth.py")
+    assert [ln.split()[:2] for ln in o.splitlines()] == [["250", "152"], ["500", "300"], ["1000", "602"],
+                                                         ["2000", "1206"]], ("FIBRED R136 F4 growth", o)
+    o = run("-c", "src = open('review_lsb_f4growth.py').read(); ns = {}; "
+                  "exec(src[:src.index('import sys')], ns); print(ns['count'](3000))")
+    with open(os.path.join(root, "data", "lsb", "pair_orbits_H3000.out")) as fh:
+        po = fh.read()
+    assert o.strip() == "1800" and "A=     3 ES=True  count(H=3000)=1800 " in po.split("n=41")[0], \
+        ("FIBRED F4 reviewer count at H = 3000 vs stored author orbit count (n = 29, A = 3)", o)
+    for n in (9, 25, 49):
+        N = 4 * n + 1
+        assert isprime(N) and N % 4 == 1 and f"n={n} N=4n+1={N}  F_ES=0  orbits(genus-full)=4" in po, \
+            ("FIBRED F4 at odd squares", n)
+    o = run("review_lsb_spinor.py", "50000")
+    assert "exceptions: 29 [1, 49, 169, 361, 961, 1369, 1849, 2401, 3721, 4489, 5329, 6241]" in o and \
+        "predicted M3^2: 29 " in o and "equal: True" in o and "A not B: 0" in o, ("FIBRED R136 spinor exceptions", o)
+    o = run("review_lsb_genus.py")
+    with open(os.path.join(root, "data", "lsb", "genus_minus.out")) as fh:
+        ref = [ln.split(" ", 1)[1] for ln in fh.read().splitlines()]
+    lines = o.splitlines()
+    assert lines[:10] == ref and lines[10] == "F_d(p)=0 in 19 of 40 (prime,level) pairs", \
+        ("FIBRED R136 genus G^-_d vs data/lsb/genus_minus.out", o[-1500:])
+    hh = [(int(h), int(hm)) for h, hm in re.findall(r"h=(\d+) h-=(\d+)", o)]
+    assert len(hh) == 80 and all(2 * hm == h for h, hm in hh[:40]) and all(hm == 0 for _, hm in hh[40:]), \
+        ("FIBRED h^- = h/2 at primes, 0 at squares", hh)
+    o = run(os.path.join(sdir, "review_lsb_typeII_genus.py"), cwd=root)
+    with open(os.path.join(root, "data", "review_lsb_typeII_genus.out")) as fh:
+        assert o == fh.read(), "FIBRED R136 D5 differs from data/review_lsb_typeII_genus.out"
+    for ln in o.splitlines():
+        leg = int(re.search(r"\(\d+, (-?1)\)", ln).group(1))
+        assert ln.endswith("{(True, 1, -1), (False, 1, %d)}" % -leg), ("FIBRED D5 f-form / e-form characters", ln)
+    print(f"fb FIBRED R136: ET Prop 1.6 at odd squares 9..225 (no Type I/II); F2 Pell identity on 3303 quadruples "
+          f"(p < 1500), no unit powers recur; F4 counts 152..1206 ~ 0.60 H, reviewer count(3000) = 1800 = stored author "
+          f"orbit count, squares 9, 25, 49: 4 orbits, 0 ES; 29 spinor exceptions = M_3^2 (<= 5e4); G^-_d table = "
+          f"stored (h^- = h/2, F_d(p) = 0 in 19/40); D5 f-form chi = -1; seconds = {perf_counter() - t0:.1f}")
+
+
+print("\n== (fb) LONGSHOT_FIBRED: ET 1.6, F2 Pell, F4 orbit counts, spinor exceptions, G^-_d 19/40 (R136) ==")
+check_fb()
 
 
 print("\nall checks passed")
