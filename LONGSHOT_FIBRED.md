@@ -198,8 +198,9 @@ have finitely many conjugacy classes of finite subgroups), so `w_max/w_min ≤ C
 `#orbits ≤ c(n)/w_min ≤ C(Γ')·#orbits ≤ C(Γ')·μ(n)·f(n)` (#orbits = number of Γ'-orbits in E(n)).
 The scale constraint (Lemma 1.3) then holds verbatim with multiplicity `C(Γ')μ(n)`: a main term `M(n)` for
 `c(n)/w_min` with `M ≫ μ(n)·ξ log³n log log n` is impossible at density-one of primes.
-(c) If `H_y(ℝ)` is non-compact (a split torus factor), `w_O` is a regulator-type covolume and may vary by a
-power of n across orbits. This is the only way the weights escape (a)–(b).
+(c) If `H_y(ℝ)` is non-compact (a torus, or semisimple, e.g. `SO(2,1)` for a point on a one-sheeted quaternary
+hyperboloid; R136 repair, D9), `w_O` is an arithmetic covolume (regulator-type, or Siegel-type, growing with the
+discriminant of y) and may vary by a power of n across orbits. This is the only way the weights escape (a)–(b).
 *Proof.* (a) Lemma 1.2 over the finitely many orbits, with (C) for each. (b) For compact `H(ℝ)` the stabilisers
 `H_y(ℝ)` are conjugate in `G(ℝ)` to `H(ℝ)` (one closed orbit), with equal Haar volume, and `Γ'_y` is finite. (If `V(ℝ)` has several `G(ℝ)`-orbits, e.g. two sheets, κ
 depends on the real orbit of y; there are finitely many, so the ratio stays bounded.) The
@@ -232,14 +233,19 @@ anisotropic CM torus of `ℚ(√−d)`, compact at ∞; `Γ' ⊂ SO(q_d)(ℤ)` c
 over the Type I points `x_s` at level d (e.g. `Γ'_s = Γ(4da_s)`, which keeps `f ≡ −p (mod 4da_s)` but moves a).
 Fibre `≍ H` (DRS: `#{x ∈ Γ'x_s : |x| ≤ H} ≍ H`). The level-d Type I set is finite (GEOMETRY Prop 4.1, `c ≠ 0`), so
 no infinite subgroup preserves it: an orbit contains finitely many solutions and the recipe is "orbit ↦ a
-solution in it" (orbit class). Thm 3.1(b) applies: `c(n) = κ·Σ_O 1/|Γ'_{x_O}|`, a weighted solution count.
+solution in it" (orbit class). *(R136 repair, D11)* Thm 3.1 assumes a single Γ', but F3 uses a different `Γ'_s` per solution. So
+`c(n) = κ·Σ_O 1/(|Γ'_{s,x_O}|·[G(ℤ):Γ'_s])`, a weighted solution count. The weights vary with `a_s` (the index is
+`≍ (4da_s)^{dim G}`) but are bounded above by κ, so Lemma 1.3 / Thm 3.1(a) apply with `w_max = κ`. In Thm 5.4 each s
+is its own X2 piece with R = C. This is a second instance of the (E-a) mechanism (power-varying weights capped by
+the solution), capped *above*, which is the direction the scale constraint needs.
 The intrinsic (non-circular) version replaces "orbit of a solution" by an adelic condition; see F5 and §5.
 
 **F4 (Type II as pair embeddings; O128 Props 7.1, 8.2).** `L` = binary forms with `q = B² − 4AC`; `E_{c,d}(n)` =
 pairs `(Q,S) ∈ L²` with Gram matrix `4T₀`, `T₀ = [−dn, 1, c²]`, Q positive definite, and `(Q,S)` in the
 `SL₂(ℤ)`-orbit of some `(Q', S_c)` with `B' ≡ 0 (4d)`, `d | C'`, `gcd(B'/4d, c) = 1`. `SL₂(ℤ)` acts on pairs;
 the stabiliser of `S_c` is `{±I}` (O128 Prop 8.2(i)), so each orbit is a copy of `PSL₂(ℤ)` and
-`#{γ : ‖(Q,S)γ‖ ≤ H} ≍ H²` (hyperbolic lattice-point count). Orbits ↔ Type II solutions with this (c,d), up to
+`#{γ : ‖(Q,S)γ‖ ≤ H} ≍ H` (R136 repair, D10: was "≍ H²"; the coefficients are quadratic in γ, so the condition is
+`‖γ‖ ≲ H^{1/2}`; R136's independent count gives `≈ 0.60·H`, matching §6.1). Orbits ↔ Type II solutions with this (c,d), up to
 the gcd normalisation of Prop 8.1 (μ = 1). All stabilisers equal: Thm 3.1(b) gives `c(n) = κ_{c,d}·F_{c,d}(n)`,
 `F_{c,d}(n) = #{f | 4c²dn+1 : f ≡ −1 (mod 4cd)}` exactly (O128 Prop 8.1). The power fibre is the `SL₂(ℤ)`
 change of basis and carries no information.
@@ -260,7 +266,13 @@ or trivial stabilisers, `c(n)` = weighted solution count by Thm 3.1(b)), or a ge
 main term, invalid recipe, fails T1). F2 and F6 are not power-fibred; F2 even with regulator weights stays
 polylog-weighted.
 
-*Literature check for (C) and §5 (research subagent, 2026-10-11; primary texts opened except DRS).*
+*Literature check for (C) and §5 (research subagent, 2026-10-11; primary texts opened except DRS).* **(R136 repair)
+These statements were checked only by the author's research subagent. The hostile reviewer could not access EM,
+EMS, BR, CTX or DRS, so the theorem numbers and hypotheses below are not independently verified.** (D8) F4 has a
+finite stabiliser, so `V ≅ G/{±1}` is not an affine *symmetric* space, and EM Thm 1.4 does not apply verbatim. The F4
+count is the group case `#{γ ∈ Γ : ‖v₀γ‖ ≤ H}` (classical: Selberg/Huber/Good; via `(G×G)/Δ` one must check EM's
+"weakly irreducible" hypothesis, since Γ×Γ is reducible). F4's equal-weights claim needs only left-invariance of Haar
+measure, once an asymptotic exists.
 Eskin–McMullen 1993 **Thm 1.4** is exactly (C) for affine symmetric `G/H`, Γ a lattice (weakly irreducible),
 `Γ∩H` a lattice in H; norm balls are well-rounded (Thm 6.1). DRS 1993 Thm 1.2 (number quoted second-hand by EM
 and EMS). Eskin–Mozes–Shah 1996 **Thm 1.16** for reductive H, needing `H⁰` in no proper ℚ-parabolic (equivalently
