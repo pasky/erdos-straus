@@ -173,7 +173,23 @@ mod `17^{L*}`: `≤ 40.24·17^{0.4K}·17^{1−L*}` for all odd `K ≥ 21` (L* = 
 
 **Conjecture 4.2 (CONJECTURE).** `u = 5` and `u = −2/3` are sterile. EVIDENCE: Computation 3.4; for `−2/3`, the
 resonant ray families are excluded at every level (Lemma 2.3, PROVED), and `5` has none. In the random model the expected
-number of boxes of level > 10 containing a fixed point is `≈ Σ_{ℓ>10} NB(ℓ)·17^{1−ℓ} < 10⁻⁸` (from the M17B
-increments), so Computation 3.4 is consistency evidence rather than strong evidence. A proof for a fixed rational point
+number of boxes of level > 10 containing a fixed point is `≈ Σ_{ℓ>10} NB(ℓ)·17^{1−ℓ} ≈ 10⁻⁸` (extrapolating the M17B
+increments 7.0·10⁻⁵, 1.1·10⁻⁵ at levels 6, 7, or the `2K³` model), so Computation 3.4 is consistency evidence rather than strong evidence. A proof for a fixed rational point
 would have to exclude the `z ≠ 0` families of Lemma 2.2, which have no congruence obstruction visible: modulo any `m`
 prime to 17 the condition `qa − pb = zW` is void, as `z` is free (Assessment).
+
+## Replay
+
+```
+W=<worktree>; mkdir -p /tmp/o139 && cd /tmp/o139
+python3 $W/scripts/m17d_nogo.py                                   # §1 tables (< 1 s)
+gcc -O2 -o m17_enum $W/scripts/m17_enum.c
+for m in Q U; do for k in 1 3 5; do ./m17_enum $m $k | sort -u > $m$k.txt; done; cp $W/data/m17b/qu7_o93/${m}7.txt .; done
+cp $W/data/m17b/p*.txt .
+python3 $W/scripts/m17d_points.py . 13 7 12                       # small-height rationals: covered / uncovered (§2)
+gcc -O2 -o pointP $W/scripts/m17d_pointP.c; gcc -O2 -o pointQ $W/scripts/m17d_pointQ.c
+python3 $W/scripts/m17d_validate.py . . 7 7 20                    # Validation 3.3: 704 points, 0 mismatches (1 min)
+for u in "5 1" "-2 3"; do for k in 9 11 13 15; do ./pointQ $k $u; done; for L in 8 9 10; do ./pointP $L $u AB; done; done
+#   Comp. 3.4: hits=0 everywhere; P L=9 8 min, L=10 ~2.5 h per point (parts A, B can run separately)
+python3 $W/scripts/m17d_local_tail.py 9 10                        # §4 table
+```
