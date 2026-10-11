@@ -104,3 +104,28 @@ its level. Rational points with an admissible ray are covered (e.g. `−9/5`, `�
 `(a+b)(p²b+q²a) − ab(p+q)² − 17z²·4abd + 17ez² = (qa−pb)² − 17z²N = 0`.) If moreover `qa ≡ pb (mod W)` with `z ∈ ℤ`, the
 bracket on the left is divisible by `ab` (it equals `ab·(p²f* + q²f − 2pq)/N` with `f* = 4bcd−1`, and
 `f | 4c²dp² + 17x²`, `x = (qf−p)/W`), so `e | (p+q)² + 68dz²`. For `z = 0` this is `e | (p+q)²`, the ray constraint.
+
+## 3. Pointwise certification (CERTIFIED, two engines vs. the certified lists)
+
+**Algorithm 3.1 (P, level L; complete by Lemmas 2.1(i), 2.2(i)).** `scripts/m17d_pointP.c L s t AB` lists every N-point
+`(a,b,c,d)` of `Σ^II_{17^{2L−1}}`, in both orders, with `17 ∤ bcd` and `a ≡ −u·b (mod W)`, `u = s/t`. Part A: `a ≤ A`
+(`A ≈ W/√68`), `b ≡ −a/u (mod W)`, all `b` with `(4a−1)(4b−1) ≤ 4N+1`. Part B: `b ≤ B := ⌊(⌊(4N+1)/(4A+3)⌋+1)/4⌋`,
+`a ≡ −ub`, `a > A`; a pair with `a > A` has `4b − 1 ≤ (4N+1)/(4A+3)`, so the two parts cover all pairs. Each pair is
+tested exactly (`e = (−N mod 4ab)`, `1 ≤ e ≤ a+b`, `e | a+b`, `c = (a+b)/e`, `d = (N+e)/4ab`, `17 ∤ cd`; equation and
+box membership rechecked in 128-bit). Work `≈ 0.24W + (W/34) ln(0.12W)` candidates; `L = 8`: 3.9·10⁹ candidates, 23 s.
+(Cell-wide enumeration needs `≍ 17^{0.4K} = 17^{0.8L−0.4}` *factorisations*. That is asymptotically fewer operations,
+but in practice the pointwise test reaches two to three levels further, since it needs no factoring.)
+
+**Algorithm 3.2 (Q, level k; complete by Lemmas 2.1(ii), 2.2(ii)).** `scripts/m17d_pointQ.c k s t` lists every
+N-point of `Σ^I_F` with `a ≤ b`, `17 ∤ e` and `4a²d ≡ w (mod F)`, `w ∈ {−u, −1/u}` (the second value accounts for the
+reflected box). As `ad ≤ (F+1)/2`, `min(a,d) ≤ √((F+1)/2)`: for small `a`, `d` is the least residue of `w/(4a²)`;
+for small `d`, `a` runs over the two square roots of `w/(4d) mod F` (Hensel). Each pair `(a,d)` has at most two data
+(M17C Lemma 2.1(iv)): `f` is the least residue of `−F (mod 4ad)`, or `t/f` is the least residue of `t·(−F)^{−1}`,
+`t = 4a²d+1`. Work `O(√F)` modular square roots; `k = 13` takes seconds, `k = 15` minutes.
+
+**Validation 3.3.** `scripts/m17d_validate.py` runs both engines at every level `≤ 7` on (i) every in-cell box centre
+(`C_5 ∪ C_7`) of the certified lists (all centres for levels ≤ 5, 20 per level at 6–7) and (ii) 20 random in-cell
+units per level, and requires *equality* of the output with the set of listed data (P: `data/m17b/p{K}.txt`, both
+orders, from two independent engines, M17B Comp. 2.2) resp. listed boxes (Q: `m17_enum`, R83-confirmed). Result:
+**704 test points, 0 mismatches.** Remark 2.4's identity and divisibility were checked on all 6632 (datum, order)
+pairs of `p1–p13` (0 failures).
