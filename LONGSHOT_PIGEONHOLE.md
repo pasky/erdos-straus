@@ -73,7 +73,7 @@ automatically; for Type I and for `(e/p) = +1` their number is even and may be 0
 
 **Lemma 1.3 (zero-sums are signed solutions; PROVED).** In the setting of Lemma 1.1, if `2^{ω(N)} > φ(e)`
 there are a ≠ b with `ab | N`, `gcd(a,b) = 1`, `a ≡ b (mod e)`, and then with `c = |a−b|/e`, `d = N/(ab)`:
-Type II: `4/p = 1/(abd) + 1/(acdp) − 1/(bcdp)` (a > b); Type I: `4/p = 1/(abdp) + 1/(acd) − 1/(bcd)` (a > b).
+Type II: `4/p = 1/(abd) − 1/(acdp) + 1/(bcdp)` (a > b); Type I: `4/p = 1/(abdp) − 1/(acd) + 1/(bcd)` (a > b).
 
 *Proof.* The `2^{ω(N)}` unitary divisors u of N have products `u` mod e in G_e; two coincide, `u ≡ u'`. Put
 `g = gcd(u,u')`, `a = u/g`, `b = u'/g`: coprime, `ab | N`, `a ≡ b`. The identities: Type II
@@ -85,3 +85,56 @@ i.e. on *signed* ES solutions, which exist trivially. Positivity is exactly the 
 non-trivial coset `−K_e` (Lemma 1.2), i.e. a **covering/translate** statement, not a collision statement.
 Zero-sum theory (Davenport, Olson, Erdős–Ginzburg–Ziv) is therefore not directly applicable; one needs
 covering theorems for a prescribed target.
+
+### 1.4 A deterministic covering criterion (Kneser) and its sharpness
+
+Let G be a finite abelian group (written multiplicatively), `g_1,…,g_k ∈ G`, `v_i ≥ 1`,
+`A_i := {g_i^t : |t| ≤ v_i}`, `Σ := A_1⋯A_k`, and a target `t_0 ∈ G`. For a subgroup H write `o_H(g)` for the order
+of gH in G/H. (For the e-slice: G = G_e, g_i the prime factors ℓ of N, v_i = v_ℓ(N), Σ = Σ_e(N), t_0 = −1.)
+
+Cited input (Kn): **Kneser's theorem** (M. Kneser, Math. Z. 58 (1953) 459–484; finite form as in Tao–Vu,
+*Additive Combinatorics*, CUP 2006, Thm 5.5): for finite non-empty A, B ⊂ G with `H = Stab(AB)`,
+`|AB| ≥ |AH| + |BH| − |H|`.
+
+**Proposition 1.4 (covering criterion; PROVED from (Kn)).** If `t_0 ∉ Σ`, there is a subgroup `H ≤ G` with
+`t_0 ∉ H` and
+```
+1 + Σ_i ( min(2v_i+1, o_H(g_i)) − 1 )  ≤  |G:H| − 1 .
+```
+Equivalently: if for every subgroup H with `t_0 ∉ H` one has `Σ_i (min(2v_i+1, o_H(g_i)) − 1) ≥ |G:H| − 1`, then
+`t_0 ∈ Σ`.
+
+*Proof.* Let `H = Stab(Σ)`. Since 1 ∈ A_i, 1 ∈ Σ and H ⊂ Σ; so t_0 ∉ Σ gives t_0 ∉ H and `t_0H ∩ Σ = ∅`, whence
+`|Σ/H| ≤ |G:H| − 1`. In G/H let X_i be the image of A_i; `Σ/H = X_1⋯X_k` has trivial stabiliser, and so does every
+partial product `X_1⋯X_j` (a stabiliser of a partial product stabilises the full product). Kneser with trivial
+stabiliser gives `|X_1⋯X_j| ≥ |X_1⋯X_{j−1}| + |X_j| − 1`, so `|Σ/H| ≥ 1 + Σ_i(|X_i| − 1)`, and
+`|X_i| = #{g_i^t H : |t| ≤ v_i} = min(2v_i+1, o_H(g_i))`. ∎
+
+*Checks.* (a) H = K_e (index 2, −1 ∉ K_e) in the e-slice: the condition reads "some prime factor ℓ ∉ K_e", i.e. the
+genus condition of Lemma 1.2 — necessary and, for G = G_3 = {±1}, also sufficient. (b) H = {1} is always admissible
+(e ≥ 3): one needs `Σ_i (min(2v_i+1, ord g_i) − 1) ≥ φ(e) − 1`, so in particular `Ω(N) ≥ (φ(e) − 1)/2`.
+(c) *Sharpness.* G = ℤ/2m (additive), all g_i = 1, v_i = 1, t_0 = m: Σ = [−k, k] ∋ m iff k ≥ m, and the criterion
+at H = 0 reads `2k ≥ 2m − 1`, i.e. k ≥ m. So no criterion that uses only the multiset of images of the g_i in the
+quotients G/H (orders and counts) can do better than linear in |G:H|: the example has all images "in general
+position" in this sense (each g_i generates G) yet needs k ≍ |G|.
+
+### 1.5 How many prime factors? The three regimes (exact statements and their status)
+
+Fix the e-slice, G = G_e, |G| = φ(e), target −1 ∈ −K_e, `k := ω(N)`, `Ω := Ω(N)`.
+* **Counting (PROVED, trivial).** `|Σ_e(N)| ≤ τ(N²) ≤ 3^Ω`. A *pigeonhole* (p-blind) certificate — one proving
+  `Σ_e(N) ⊇ −K_e` from structural data rather than locating −1 — needs `τ(N²) ≥ φ(e)/2`, so `Ω ≥ log₃(φ(e)/2)`.
+* **Deterministic, structure-only (PROVED, Prop 1.4; sharp by 1.4(c)).** Hypotheses on the residues of the prime
+  factors that are invariant under "re-labelling within each subgroup quotient" (orders, counts outside
+  subgroups) guarantee −1 ∈ Σ only when `Σ_i(min(2v_i+1, o_H(g_i)) − 1) ≥ |G:H| − 1` for all H ∌ −1, in
+  particular `Ω ≳ φ(e)/2`: **linear** in the modulus.
+* **Generic/random residues (heuristic; not cited as a theorem).** If the g_i were independent uniform in −K_e ∪ K_e
+  (with at least one in −K_e), the signed sums cover G once `3^k ≳ φ(e) log φ(e)` (coupon-collector heuristic; the
+  classical random-subset-product results go back to Erdős–Rényi, J. Analyse Math. 14 (1965) 127–138 — exact
+  threshold statement there UNVERIFIED by our citation check). This is the brief's "≈ log₃ q".
+Between log and linear there is no structure-only guarantee: the gap is bridged only by a *dissociativity /
+general-position* property of the actual residues `ℓ mod e`, i.e. by knowing where specific large primes fall
+mod e. For distinct residues in groups of prime order there is an intermediate quadratic regime (Balandraud,
+Israel J. Math. 188 (2012) 405–429, Thm 5: `A ⊂ ℤ/p`, `A ∩ (−A) = ∅` ⇒ `|Σ(A)| ≥ min(p, 1 + |A|(|A|+1)/2)`), but
+`G_e` has even order φ(e), so it does not apply verbatim.
+For the two-coordinate rows the same three regimes hold with plain divisor sets (`|D_q(N)| ≤ τ(N)`, 2^k instead
+of 3^k, Kneser with `A_i = {1, g_i, …, g_i^{v_i}}`).
