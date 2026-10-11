@@ -296,7 +296,10 @@ finite). Assume **(U)**: there are a finite set S₀ of primes and k ≥ 1 such 
 `m_∞(n) > 0` for large n. Let `Q₀ = ∏_{ℓ∈S₀} ℓ^k`. If `M(p) > 0` for a prime `p ∤ Q₀` and `M(m²) = 0` for an odd
 `m ≡ m₀ (mod Q₀)` with `m₀² ≡ p (mod Q₀)`, `gcd(m, Q₀) = 1`, then the two values differ only through the factors
 at the places `ℓ | m` (for `m²`) and `ℓ = p` (for p): either `m_ℓ(m²) = 0` for some `ℓ | m`, or some
-`E_ℓ(α, m²)`, `ℓ | m`, differs from its value at a unit.
+`E_ℓ(α, m²)`, `ℓ | m`, differs from its value at a unit; or *(R136 repair, D12)* the place p alone separates
+them. That is, every factor at `ℓ | m` takes its unit value, `M(m²)` vanishes through cancellation in the α-sum,
+and `E_p(α,p)` (or `m_p(p)`) differs from its unit value. (The modulus `Q₀ = ∏_{ℓ∈S₀} ℓ^k` here is unrelated to the
+form `Q₀` of F5.)
 *Proof.* All other factors coincide by (U). ∎
 *Reading.* T1 cannot be passed by the S₀-part (it is the same at p and at a square in p's class mod Q₀; this is
 CONDITIONAL_ES Prop 7.3 in mass-formula form). A "global factor" passing T1 is a local density or a Brauer
@@ -323,15 +326,27 @@ characters of disc `−4dp` include `(·/p)` and at least one more (a character 
 odd with a prime factor `q ≡ 3 (4)`, giving `(·/q)`; Cox Thm 3.15), and only the product of all of them is trivial.)
 So the genus-twisted mass `Σ_d (mass of 𝔊⁻_d(n))` vanishes at odd squares (coprime to the levels) and is
 `≍ Σ_d h(−4dn)` at primes: **it passes T1, through the place p**, as 5.1 says it must. But the encoding is not
-valid. A Type II point of level d is a form in `𝔊⁻_d(p)` lying on the shell `T_c` (O128 Prop 2.5) with level data;
+valid. A Type II point of level d is a form in `𝔊⁻_d(p)`, namely `[f, 4ad, de]` (O128 Lemma 6.1; R136 repair, D5: the other
+natural form `[e, 4ad, df]` has `χ_{−4d} = −(d/p)` and lies in `𝔊⁺_d` when `(d/p) = −1`), lying on the shell `T_c` (O128 Prop 2.5) with level data;
 this is a class-level, Planck-scale condition, and the number of such forms is `F_d(p)`. EVIDENCE
 (`scripts/lsb_genus_minus.py` → `data/lsb/genus_minus.out`, 5 primes `p ≡ 1 (4)` in `[10³, 10⁴]` and 5 odd squares,
 `d ≤ 8`): `#𝔊⁻_d = h/2 ∈ [10, 144]` at every prime and level, `= 0` at every square; `F_d(p) ∈ [0, 22]`, and
 `F_d(p) = 0` at 19 of the 40 (prime, level) pairs where `𝔊⁻_d(p)` has 10–144 classes. The genus is nonempty
-at every prime and level, and the ES points occupy a vanishing fraction of it.
+at every prime and level, and the ES points occupy a vanishing fraction of it. *(R136 repair, D6)* The five
+primes lie in the square classes mod 120, where Type II is sparsest, so 19/40 is not a typical rate. On 60
+consecutive primes `p ≡ 1 (4)` from 10³, `F₁(p) > 0` for 55. What is refuted is the *per-level* criterion
+"`𝔊⁻_d(p) ≠ ∅` ⇒ a Type II point at level d". The aggregate criterion "∃d: `𝔊⁻_d(p) ≠ ∅` ⇒ ES(p)" is not false. It is
+vacuous: by (b) its hypothesis holds at every `p ≡ 1 (4)`, so it is ES itself for those p. "Invalid" means that the
+mass is not the solution count and that the per-level criterion fails. R136 reproduced all numbers in this
+paragraph independently (`scripts/review_lsb_genus.py`).
 
-**Theorem 5.4 (obstruction for fibred encodings, exact scope; PROVED relative to (C), ET, and — for (iii) — CTX
-Thm 3.7).** *Class X:* power-fibred encodings `E(n) = ⨆_{θ∈Θ(n)} E_θ` (Θ(n) arbitrary, may grow with n, may be
+**Theorem 5.4 (obstruction for fibred encodings, exact scope; items 1, 2, 4 PROVED relative to (C) and ET; item 3
+CONDITIONAL on the CTX Thm 3.7 hypotheses, which fail for F5 — R136 repair, D14).** *(R136 repair, D1)* The
+theorem's bound is `M ≤ 2Rμf`, and μ and R are unrestricted in class X. So Thm 5.4 shows only that the continuous
+fibre factor `H^δ` buys nothing. The T8 blind spot (μ or R ≥ p^η) is **not** closed: it moves to the number of pieces
+per solution and to the weight spread. Class X also contains every set decomposed into points (0-dim V_θ, μ = ∞),
+so the theorem has content only for decompositions with μ < ∞, where the `H^δ` growth sits inside
+positive-dimensional pieces. *Class X:* power-fibred encodings `E(n) = ⨆_{θ∈Θ(n)} E_θ` (Θ(n) arbitrary, may grow with n, may be
 defined through factorisations), where each piece `E_θ` is either
 * (X1) Zariski-dense in an irreducible `V_θ/ℚ` with `φ|_{E_θ}` the restriction of a rational map; or
 * (X2) a finite union of `Γ_θ`-orbits in setting (O) with (C), `φ` `Γ_θ`-invariant, and orbit weights in
@@ -340,30 +355,41 @@ defined through factorisations), where each piece `E_θ` is either
 
 Let `μ(n)` be the maximal number of pieces (X1 pieces, X2 orbits) over one solution. Then:
 1. *(Idle or normalised.)* X1 pieces are constant (`φ ≡ s_θ`, Thm 2.3). The normalised count
-   `c̃(n) := Σ_θ c_θ/w_θ` (with `w_θ := c_θ` for X1 pieces) satisfies `#pieces ≤ c̃(n) ≤ R·μ(n)·f(n)`.
-2. *(Scale constraint returns.)* A counting route proving `c̃(n) ≥ M(n)/2` needs `M(n) ≤ 2Rμ(n)f(n)`; with ET
+   `c̃(n) := Σ_θ c_θ/w_θ` (with `w_θ := c_θ` for X1 pieces; the sum runs over pieces of maximal exponent δ*, R136
+   repair, D13) satisfies `#pieces ≤ c̃(n) ≤ R·μ(n)·f(n)`.
+2. *(Scale constraint returns.)* A counting route proves a bound for `c(n) = Σ_θ c_θ`, not for c̃ (R136 repair, D13).
+   Proving `c(n) ≥ M(n)/2` needs `M(n) ≤ 2Rμ(n)f(n)·max_θ w_θ(n)`. Equivalently, after normalising by `max_θ w_θ`,
+   `M(n) ≤ 2Rμ(n)f(n)`; with ET
    (RT1 §5.5) this is `≤ 2Rμ(n)ξ log³n log log n` outside a density-o(1) set of primes, for any ξ → ∞.
    The factor `H^δ` from the fibres cancels out of every such statement.
 3. *(Mass formulas.)* A main term computed by a mass formula (Siegel–Weil, Borovoi–Rudnick) is the mass of a
    genus-full set `V_θ(ℤ) ∩ W_θ(n) ∩ Ω` with `W_θ(n)` adelic-open. Either `E_θ` is that whole set, and then (G simply
    connected, connected stabiliser, CTX hypotheses) `E_θ ≠ ∅` is decided by local and Brauer–Manin data, without
-   counting; or `E_θ` is a proper subset, and the mass is not `c_θ`. In the first case the encoding is a criterion
+   counting. *(R136 repair, D14)* These hypotheses fail for F5's pair space: with `G = SO(L) ≅ PGL₂` the stabiliser is
+   trivial but G is not simply connected, and with `G = SL₂` the stabiliser is `μ₂`, which is not connected. For
+   representations of binary by indefinite ternary lattices, use spinor-exception theory instead (e.g.
+   Hsia–Shao–Xu 1998, not checked by R136). The F5 and `𝔊⁻_d` refutations below do not use CTX; or `E_θ` is a proper subset, and the mass is not `c_θ`. In the first case the encoding is a criterion
    "local + BM data at n ⇒ ES(n)", and by 5.1 its vanishing at odd squares must be produced at the places dividing
    m. For the ES-natural genus-full sets (F5: all Gram embeddings; 5.3: `𝔊⁻_d`) the criterion is false: F5 contains
    `Q₀` at every n, and `𝔊⁻_d(p) ≠ ∅` at primes with `F_d(p) = 0`.
 4. *(Bounded complexity.)* If Θ is finite and the X1 data are uniform in n (Cor 2.4), all large `p ≡ 1 (mod D')`
-   are missed.
+   are missed. ("Uniform": each X1 piece is the fibre `𝒱_{θ,n}` of one family `𝒱_θ → 𝔸¹_n` with geometrically
+   irreducible generic fibre, and `E_θ(p)` is dense in it; D' = lcm over θ. R136 repair.)
 *Proof.* 1: Thm 2.3 and Thm 3.1(a),(b) piece by piece; each piece lies over one solution, and each solution
 has ≤ μ pieces. 2: Lemma 1.3. 3: definitions, CTX Thm 3.7, Prop 5.1, F5 and 5.3. 4: Cor 2.4. ∎
 
 **5.5 What escapes Theorem 5.4 (exact list; Assessment).**
+* *(R136 repair, D1)* (E-d) Class-X encodings with `μ(n) ≥ n^η` pieces (algebraic pieces or lattice orbits) over one
+  solution, i.e. discrete multiplicity. Thm 5.4 is vacuous for them. This is the red team's T8 blind spot, and it
+  remains open. A trivial (rigged) example: split each F1 fibre into p translated cones (X1, μ = p). Non-rigged
+  relatives, with pieces indexed by a coarse invariant that has `p^η` preimages, are not excluded by anything here.
 * (E-a) Orbit encodings whose weights vary by a power of n *and* are not capped by the height of the solution:
   split-torus stabilisers whose regulators are not produced by the solution itself. Among ES encodings the only
   split torus that appears is the Type II Pell unit (F2), where the solution *is* the unit, which caps the weight at
   `O(log n)`. No other was found.
 * (E-b) A *valid* uniform genus-full criterion with a Brauer/spinor factor at the place p (the 5.2 mechanism moved
-  to ES). If it existed, ES(p) would follow from local + BM data of a homogeneous space (CTX), and counting would be
-  unnecessary. The natural candidates (F5, `𝔊⁻_d`) fail validity by a factor `≍ h(−4dp)/F_d(p)`. Nothing in the
+  to ES). If it existed, ES(p) would follow from local + BM data of a homogeneous space (CTX, *CONDITIONAL* on its
+  hypotheses; R136 repair, D14), and counting would be unnecessary. The natural candidates (F5, `𝔊⁻_d`) fail validity by a factor `≍ h(−4dp)/F_d(p)`. Nothing in the
   campaign excludes an unnatural one; it would be a structural theorem "a nonempty genus at p forces a Type I/II
   solution", which is of the same strength as ES.
 * (E-c) Recipes that are neither algebraic on dense pieces nor invariant under a lattice (for example procedures
@@ -396,7 +422,7 @@ of `4m²+1` is `≡ 1 (4)`. That is O128 Cor 6.2 at `c = d = 1`, the T1 mechanis
 set gives a positive main term at the squares too (F5).
 
 **6.2 Genus `𝔊⁻_d`** (§5.3): `#𝔊⁻_d = h/2` at all 40 (prime, level) pairs, `0` at all 40 (square, level) pairs; ES
-counts `F_d(p) ∈ [0, 22]`.
+counts `F_d(p) ∈ [0, 22]`. (Primes chosen in the square classes mod 120; reproduced exactly by R136. R136 repair, D6.)
 
 **6.3 Spinor-exception control** (§5.2): `3x²+4y²+9z²`, N = 5·10⁴: 29 exceptions in the generically represented
 classes, all of the predicted square shape, and all predicted squares are exceptions.
