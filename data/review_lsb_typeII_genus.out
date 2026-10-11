@@ -1,0 +1,14 @@
+d,(d/p)= (1, 1)  #p: 60  #p with F>0: 55  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (2, -1)  #p: 31  #p with F>0: 25  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (2, 1)  #p: 29  #p with F>0: 24  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (3, -1)  #p: 28  #p with F>0: 10  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (3, 1)  #p: 32  #p with F>0: 19  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (4, 1)  #p: 60  #p with F>0: 33  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (5, -1)  #p: 28  #p with F>0: 12  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (5, 1)  #p: 32  #p with F>0: 13  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (6, -1)  #p: 31  #p with F>0: 7  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (6, 1)  #p: 29  #p with F>0: 3  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (7, -1)  #p: 33  #p with F>0: 9  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (7, 1)  #p: 27  #p with F>0: 6  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
+d,(d/p)= (8, -1)  #p: 31  #p with F>0: 11  (gcd,chi) seen: {(True, 1, -1), (False, 1, 1)}
+d,(d/p)= (8, 1)  #p: 29  #p with F>0: 8  (gcd,chi) seen: {(True, 1, -1), (False, 1, -1)}
