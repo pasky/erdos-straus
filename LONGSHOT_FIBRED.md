@@ -254,13 +254,14 @@ discriminant `−4dn` with `χ_{−4d}(Q) = −1` (χ evaluated at any represent
 `(D/k) = 1`, and `(D/k) = (−4d/k)(m/k)² = χ_{−4d}(k)`. ∎
 (b) For a prime `p ≡ 1 (4)`, `p ∤ 2d`, `χ_{−4d}(Q) = (k/p)` (since `(−4dp/k) = 1` and `(p/k) = (k/p)`), a genus
 character that is non-trivial on the form class group, so `#𝔊⁻_d(p) = h(−4dp)/2`. ∎ (Gauss: each genus
-character not identically 1 takes both values on exactly half of the classes; here `(k/p)` is non-trivial because
-`−4dp` has at least two prime divisors 2 and p.)
+character not identically 1 takes both values on exactly half of the classes; here `(k/p)` is non-trivial on the class group: the assigned
+characters of disc `−4dp` include `(·/p)` and at least one more (a character at 2 if `dp ≢ 3 (4)`; otherwise d is
+odd with a prime factor `q ≡ 3 (4)`, giving `(·/q)`; Cox Thm 3.15), and only the product of all of them is trivial.)
 So the genus-twisted mass `Σ_d (mass of 𝔊⁻_d(n))` vanishes at odd squares (coprime to the levels) and is
 `≍ Σ_d h(−4dn)` at primes: **it passes T1, through the place p**, as 5.1 says it must. But the encoding is not
 valid. A Type II point of level d is a form in `𝔊⁻_d(p)` lying on the shell `T_c` (O128 Prop 2.5) with level data;
 this is a class-level, Planck-scale condition, and the number of such forms is `F_d(p)`. EVIDENCE
 (`scripts/lsb_genus_minus.py` → `data/lsb/genus_minus.out`, 5 primes `p ≡ 1 (4)` in `[10³, 10⁴]` and 5 odd squares,
 `d ≤ 8`): `#𝔊⁻_d = h/2 ∈ [10, 144]` at every prime and level, `= 0` at every square; `F_d(p) ∈ [0, 22]`, and
-`F_d(p) = 0` at 23 of the 40 (prime, level) pairs where `𝔊⁻_d(p)` has 10–144 classes. The genus is nonempty
+`F_d(p) = 0` at 19 of the 40 (prime, level) pairs where `𝔊⁻_d(p)` has 10–144 classes. The genus is nonempty
 at every prime and level, and the ES points occupy a vanishing fraction of it.
