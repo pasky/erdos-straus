@@ -75,7 +75,8 @@ Q — 224 tests (k = 1, 3: set equality with own brute force; k = 5, 7: hit ⇔ 
 Results for `u = 5` and `u = −2/3` (all hits = 0):
 * P, L = 7: 1.98·10⁸ candidates; L = 8: 3.905·10⁹ (u = 5) and 4.210·10⁹ (u = −2/3) candidates, 0 hits
   (author: 3.9·10⁹ / 4.2·10⁹ ✓ — same search space, different traversal).
-* Q, k = 9, 11, 13: 0 hits; pair counts 6, 26, 29 (u = 5) and 34, 11, 22 (u = −2/3) — identical to the author's.
+* Q, k = 9, 11, 13, 15: 0 hits; pair counts 6, 26, 29, 51 (u = 5) and 34, 11, 22, 28 (u = −2/3) — identical to the
+  author's (k = 15: ≈ 35 min per point with the reviewer's slower i128 Euclid).
 * Levels below the new range (reviewer re-run, not claimed as new by the author): P, L = 1–7 and Q, k = 1, 3, 5, 7
   — 0 hits for both points, consistent with the cell-wide certified lists.
 
