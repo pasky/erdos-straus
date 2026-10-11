@@ -82,3 +82,47 @@ Jacobi symbols, TP from the definition of §2.2 with θ = 0, H = K_e). Per-prime
 
 So the two exceptions 3529, 110881 (no cover with |−K_e| ≥ 20 for e ≤ 2000) are confirmed. The labels in §3
 (EVIDENCE) and §5 (Conjecture 5.1 = CONJECTURE) are appropriate. Item 3 (model-limit series) not re-run.
+
+## Theorem 2.2 — SOUND-AFTER-REPAIRS (two MINOR slips, D3–D4; one wording defect D5; a strengthening, D6)
+
+Every step re-derived. Checks of the points the author flagged:
+
+* **Definition not rigged.** R = Σ_e(L)·{M⁻¹,1,M} ⊂ Σ_e(N) (aM·b | N), so a TCC is a genuine ES certificate
+  (−1 ∈ −H ⊂ R). It is not vacuous: TP flags (H = K_e) occur ~10–16 times per prime in §3 (re-confirmed above).
+  The definition is the natural "p-blind coset covering from small primes" notion; its real limitation is the
+  coset size (θ < 1/2), see D5/D6. Slip: θ = 0 does **not** admit H = K_e (index 2 > e⁰) — D3.
+* **(a) e ≤ Y.** p ≡ 1 (mod 8ℓ) for every ℓ ≤ Y ⇒ (ℓ/p) = 1 (ℓ = 2 via p ≡ 1 (8)); Lemma 1.2(i) ⇒ L ∈ K_e;
+  (e/p) = 1 as all prime factors of e are ≤ Y; Lemma 1.2(ii) ⇒ χ(M) = 1; R ⊂ K_e ∌ −1. Correct, independent of θ.
+* **(b1).** Walking up the prime factors (with multiplicity, each < e < x^{1/4}) produces u | N in (x^{1/4}, x^{1/2}];
+  BT `π(x;4u,b) ≤ 2x/(φ(4u) log(x/4u))` with φ(4u) ≥ 2φ(u) gives ≤ 5x/(φ(u) log x) for large x; Rankin with
+  σ = (log x)^{−1/3}: ℓ^σ ≤ e for ℓ < E_1, product `(log x)^{O(1)}`; times 2E_1 pairs it is
+  `x(log x)^{O(1)} exp((log x)^{1/3} − (log x)^{2/3}/4)/log x = o(x/log x)`. Correct. Note this bounds pairs (p, e),
+  so it is also a mass bound.
+* **(b2) constants and compatibility with p ≡ 1 (q₀).** h(ℓ^v) = (2v+1)² − (2v−1)² = 8v ✓. Type II: m | N ⟺
+  p ≡ −e (4m); Type I: p ≡ −e⁻¹ (4m) (gcd(m,e) = 1 since m | N). Compatibility with p ≡ 1 (q₀) at odd ℓ ≤ Y
+  (ℓ | m) is ℓ | e+1 in both types ✓; at 2 it is automatic mod 4 and forces e ≡ 7 (8) if 2 | m (ignored — fine, upper
+  bound). `φ(lcm)φ(gcd) = φ(4m)φ(q₀)` ✓; lcm ≤ 4x^{1/2}q₀ ≤ x^{2/3} for x ≥ x₀(Y), giving the factor 6 ✓.
+  Local factors: 2-part `Σ_j h(2^j)·φ(gcd(2^{j+2},8))/φ(2^{j+2}) = 1 + 8 + 8Σ_{j≥2} j2^{1−j} = 33` ✓ (numerically
+  33.0); odd ℓ ≤ Y, ℓ | e+1 (q₀ has ℓ¹): `1 + Σ_v 8v ℓ^{1−v} = 1 + 8/(1−1/ℓ)² ≤ 19` ✓; Y < ℓ < e:
+  `1 + 8ℓ²/(ℓ−1)³` ✓; primes ℓ ≤ Y with ℓ ∤ e+1 contribute 1 ✓. `∏_{3≤ℓ<e}(1 + 8ℓ²/(ℓ−1)³) ≤ C₀(log e)⁸` with an
+  absolute C₀ (ratio computed: 0.071, 0.065, 0.063, 0.0629, 0.0628, 0.0627 at e = 10²…10⁷;
+  `scripts/review_r135_constants.py`). Dropping "L ≤ x^{1/2}" after restricting to m ≤ x^{1/2} is legitimate.
+* **Uniformity of C in Y.** C collects 6·33·C₀·9·2 (types) and the constant in
+  `Σ_{e>Y} 19^{ω(e+1)}(log e)⁸ e^{2θ−2}(log log e)² ≪_{θ,ε} Y^{−1+2θ+ε}`; none depends on Y (Y enters only through x₀(Y)
+  and the o(1)). ✓ (For −1+2θ+ε ≥ 0 the statement is trivially true, so no restriction on ε is needed.)
+* **(c) Shiu, Type I.** p ↦ N injective, N ≡ 4⁻¹ (mod e), N ≤ X := (xe+1)/4, f = τ(·²)² multiplicative,
+  f(ℓ^v) = (2v+1)² ≤ 9^v, f(n) ≪_ε n^ε. Shiu Thm 1 (checked in sources/shiu-1980.pdf, p. 163, OCR: needs
+  0 < α, β < 1/2, (a,k) = 1, `k < y^{1−α}`, `x^β < y ≤ x`) gives `≪ X/(φ(e) log X)·exp(Σ_{ℓ≤X} 9/ℓ) ≪ (xe/φ(e))(log x)⁸`
+  — but the stated range check "modulus e ≤ (xe/4)^{1/2}" is false for x/4 < e ≤ x: D4 (harmless).
+  Summation `Σ_{e>E₁} B_e^{−2} e/φ(e) ≪ E₁^{−1+2θ+ε}` (ε small) beats `(log x)⁹` ✓. Type II via `Σ_{n≤X} f ≪ X(log X)⁸` ✓.
+* **(d) e > x.** N < e²/4; `τ(N²) ≤ τ(N)²`; Nicolas–Robin `log τ(n) ≤ 1.5379 log 2 · log n/log log n` (n ≥ 3; the
+  standard constant, attained at n = 6 983 776 800) gives `τ(N²) ≤ exp((4.27+o(1)) log e/log log e) < B_e` for
+  e ≥ e₀(θ) ✓ (uses that log n/log log n is increasing for n ≥ e^e; N small is trivial).
+* **Quantifiers.** The theorem asserts one set of primes (relative lower density > 0) that has **no** TCC_θ in
+  **any** (e, T) simultaneously — stronger than "for each slice, a positive proportion fails"; the proof supports
+  exactly that (all e-ranges are unioned per prime). The density is ≈ (1 − O(Y^{−1+2θ+ε}))/φ(q₀) with Y
+  ineffective-large: "positive proportion" is purely qualitative, as §3 item 3 already concedes. The factor 2C in
+  the consequence is slack (C suffices once o(1) < C·Y^{…}); harmless.
+* **Inputs/labels.** PNT in APs to a fixed modulus, Montgomery–Vaughan BT (`π(x;q,a) ≤ 2x/(φ(q) log(x/q))`),
+  Shiu Thm 1, Nicolas–Robin: all used within their stated ranges (after D4). Label PROVED (relative to these
+  classical theorems) is justified.
