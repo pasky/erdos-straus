@@ -214,3 +214,36 @@ From-scratch code `scripts/review_r138_cover.py` (sympy): for all p ≡ 1 (4), p
 Lemma 6.3 identities verified exactly (Fractions) on every slice with 2^ω(N) > φ(e), p < 300, e < 400. Prop 6.4:
 criterion ⇒ t₀ ∈ Σ on 4853 random cyclic instances where it applies (no counterexample); sharpness example
 ℤ/2m (m < 15, k < 20): criterion ⟺ k ≥ m ⟺ m ∈ Σ.
+
+## §6.2 Fibred encodings — claim-by-claim
+
+| claim (paper numbering) | source | verdict |
+|---|---|---|
+| Setup, c(n) = Σ c_s | LF §1, Lemma 1.2 | SOUND-AFTER-REPAIRS (R138-3: Sol(n) vs f(n) for composite n) |
+| Lemma 6.9 (rigidity) + Borel density | LF Lemmas 2.1–2.2 | SOUND |
+| Thm 2.3 consequences (incl. R136 D2, D3) | LF Thm 2.3 | SOUND-AFTER-REPAIRS (R138-4: second half of D2 dropped) |
+| Cor 6.10 (generic flatness, D4/D4b) | LF Cor 2.4 | SOUND (sketch; single D′ = lcm is fine) |
+| Thm 6.11 (a)–(c) relative to (C), D9 | LF Thm 3.1 | SOUND relative to (C); second-hand citation caveat present and adequate |
+| F4 / Pell example (D10) | LF §4, §6 | SOUND (EVIDENCE label correct) |
+| Prop 6.12 odd-square test under (U), D12 | LF §5.1 | SOUND-AFTER-REPAIRS (R138-5: (U) too weak for the proof as written; inherited from LF, missed by R136) |
+| Earnest spinor example | LF §5.2, R136 | SOUND (R136 checked the PDF) |
+| Prop 6.13 (a), (b), D5, D6 | LF §5.3 | SOUND; numerics reproduced (MINOR R138-6: 10009 ∉ [10³,10⁴]) |
+| Thm 6.14 items 1, 2, 4 (D13) | LF Thm 5.4 | SOUND-AFTER-REPAIRS (R138-7: Pell orbits in item 1 are not power-fibred; item 4 must say "all pieces X1") |
+| Thm 6.14 item 3 | LF Thm 5.4(3), R136 D14 | CONDITIONAL — correctly labelled; CTX failure for the pair space stated |
+| Exact-scope paragraph (E-a)–(E-d), D1 | LF §5.5, R136 D1 | SOUND: "not a theorem about all large-fibre encodings", T8 blind spot only partly closed |
+
+Re-derivations. *Lemma 6.9*: U = dom φ irreducible, E ⊂ U dense, U = ⋃ φ⁻¹(sᵢ) finite closed cover ⇒ one piece.
+*Cor 6.10*: s₀ ∈ ℚ(n)³ integral at infinitely many integers ⇒ polynomial (division with remainder; the remainder
+term tends to 0); integrality of s₀(n) depends on n mod D′, so p ≡ m₀² (D′) and a Dirichlet prime m ≡ m₀ give a
+Type I solution for m², contradicting ET Prop 1.6. *Thm 6.11*: (a) is (C) orbit by orbit; (b) conjugate compact
+stabilisers have equal volume, finitely many real orbits, |Γ′_y| bounded (finitely many conjugacy classes of finite
+subgroups); (c) is the contrapositive of (b). *Item 2*: c ≤ #orbits·max_O w_O ≤ μ f · R max_θ w_θ, so c ≥ M/2
+forces M ≤ 2Rμf max_θ w_θ — the D13 normalisation is correct. *Prop 6.12*: see R138-5. *Prop 6.13*: (a) a
+represented k prime to 4dm² has (−4dm²/k) = 1, hence χ₋₄d(k) = 1. (b) on represented values χ₋₄d = (·/p), which is
+an assigned genus character; it is non-trivial on the class group iff there is a second assigned character
+(Cox Thm 3.15 for D = −4dp: at 2 unless dp ≡ 3 (4), in which case d has a prime q ≡ 3 (4)) — matches the paper.
+
+From-scratch code `scripts/review_r138_genus.py` (own reduced-form enumeration, own χ evaluation, own Type II
+count): Prop 6.13(a) for all odd m < 60, d ≤ 12, gcd(m,2d) = 1 (𝔊⁻ empty); (b) #𝔊⁻_d(p) = h(−4dp)/2 for all
+p ≡ 1 (4), p < 700, d ≤ 12, p ∤ d; the five test primes 1009, 2689, 4729, 9601, 10009 are squares mod 120, and
+for d ≤ 8: #𝔊⁻ ∈ [10, 144], F_d(p) = 0 in exactly 19 of 40 pairs. Matches the paper.
