@@ -171,7 +171,7 @@ Algebraic, constant on each component (`{s} × 𝔸^r`); `c(n) = f(n)·vol`. Bas
 torus). (ii) *The orbit is ES-dead after k = 1*: with `ε² = T₂ + U₂√D'`, `T₂ = 2T² − 1`, `U₂ = 4cT`, the Type II
 congruence would need `T₂ ≡ −1 (mod d·U₂)`, i.e. `4cdT | 2T²`, i.e. `2cd | T`, impossible since `T ≡ −1 (mod 2cd)`
 and `2cd ≥ 2`. (So an algebraic recipe on the conic is constant: RT1 Prop 6.1.) (iii) *Even regulator weights
-are polylog:* `Reg(ℤ[√D']) ≤ log ε_s ≤ log(2T) = O(log p)` because `a, b, c, d ≤ p²` (ET's bounds), while
+are polylog:* `Reg(ℤ[√D']) ≤ log ε_s ≤ log(2T) = O(log p)` because `a, b, c, d` divide coordinates of a positive solution, all of which are `≤ p^{O(1)}`, while
 `Reg ≥ log((1+√5)/2)`. So a regulator-weighted count (Thm 3.1(c)) has `w_max/w_min = O(log p)`: the
 solution *is* the small unit, which caps the weight. Lemma 1.3 applies with an extra `O(log p)`.
 
