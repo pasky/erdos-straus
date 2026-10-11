@@ -308,3 +308,31 @@ has ≤ μ pieces. 2: Lemma 1.3. 3: definitions, CTX Thm 3.7, Prop 5.1, F5 and 5
 * Bilinear/parity-breaking sieves (Friedlander–Iwaniec, Heath-Brown) act at fixed p on the base problem (divisors of
   `N_θ(p)` in a moving class; RT2 H-B). Fibring them over free parameters is F1. They stay single-target counts with
   polylog mass, so fibring gives them no extra room.
+
+## 6. Numerics (Step 4; EVIDENCE)
+
+**6.1 F4 fibre counts** (`scripts/lsb_pair_orbits.py 3000` → `data/lsb/pair_orbits_H3000.out`). At
+`(c,d) = (1,1)`, the `SL₂(ℤ)`-orbits of pairs `(Q,S)` with Gram matrix `4[−n,1,1]` have base points
+`(Q_A, S_1)`, `Q_A = [A, A+1, ((A+1)²+4n)/4A]`, one for each odd divisor `A` (of either sign) of `4n+1`
+(`b(Q,S_1) = 4B − 4A = 4`). The Type II orbits are those with `A > 0`, `A ≡ 3 (4)` (positivity plus the level
+datum `4 | B`); `A = −1` is Q₀. For each orbit the script counts `#{γ ∈ PSL₂(ℤ) : max|coeff((Q,S)γ)| ≤ 3000}`.
+| n | `4n+1` | orbits (genus-full) | ES orbits | per-orbit counts (min–max) |
+|---|---|---|---|---|
+| 29 | 117 | 12 | 2 | 1792–1818 |
+| 41 | 165 | 16 | 4 | see file |
+| 53 | 213 | 8 | 2 | see file |
+| 9 = 3² | 37 | 4 | 0 | equal |
+| 25 = 5² | 101 | 4 | 0 | equal |
+| 49 = 7² | 197 | 4 | 0 | equal |
+For each n, every orbit (ES or not) has the same count to within 1.5% (at H = 400 they were within 3%). This is
+Thm 3.1(b) in action: the fibre is a copy of `PSL₂(ℤ)` and carries no information. `#E_ES(≤H)` is `F_{1,1}(n)` times a
+common orbit count, i.e. `c(n) = κ(n)·F_{1,1}(n)` with `F_{1,1}(n) = #{f | 4n+1 : f ≡ 3 (4)}` (O128 Prop 8.1).
+At the odd squares the genus-full set still has 4 orbits, including Q₀, and the ES set is empty: every prime factor
+of `4m²+1` is `≡ 1 (4)`. That is O128 Cor 6.2 at `c = d = 1`, the T1 mechanism. A mass formula for the genus-full
+set gives a positive main term at the squares too (F5).
+
+**6.2 Genus `𝔊⁻_d`** (§5.3): `#𝔊⁻_d = h/2` at all 40 (prime, level) pairs, `0` at all 40 (square, level) pairs; ES
+counts `F_d(p) ∈ [0, 22]`.
+
+**6.3 Spinor-exception control** (§5.2): `3x²+4y²+9z²`, N = 5·10⁴: 29 exceptions in the generically represented
+classes, all of the predicted square shape, and all predicted squares are exceptions.
