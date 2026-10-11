@@ -166,3 +166,8 @@ constant with hypothesis from K ≥ 19 resp. K ≥ 21 (base ρ₂) would be 15.4
 localisation itself contributes ×1.48 (= 22.83/15.43 = 40.24/27.20 ≈ 1/ρ₂: base 1 instead of ρ₂, plus the tiny local
 T_Q). That is exactly the document's point (pointwise exact data reach 2–3 levels further), but say so.
 *(R139 repair)* add "(of which ×1/ρ₂ ≈ 1.48 is the fresh base; the rest is the later start K ≥ 2L*+1)".
+
+## Repairs applied (round 1, at the parent's request; the author has quit)
+
+M1 and m1–m8 were applied by the reviewer directly in `POINTWISE_MORDELL17D.md` (each marked "(R139 repair)"; status line
+updated). The ×4.6/×8.1 attribution and the ray-examples correction were also added to `AGENT_REPORT_O139.md` items 3 and 5.

@@ -1,6 +1,7 @@
 # POINTWISE_MORDELL17D — the r = 17 P-count: no-go quantified, rational points, pointwise certification (task O139)
 
-Status: O139 (branch `side-agent/r17-sterile`), checkpoint 1 (all computations finished), unreviewed. Builds on POINTWISE_MORDELL17.md (= M17),
+Status: O139 (branch `side-agent/r17-sterile`), checkpoint 1 (all computations finished); reviewed by R139
+(`reviews/pointwise-mordell17d-review.md`: no FATAL defect; M1 and m1–m8 applied by the reviewer, marked "(R139 repair)"). Builds on POINTWISE_MORDELL17.md (= M17),
 POINTWISE_MORDELL17B.md (= M17B), POINTWISE_MORDELL17C.md (= M17C) and their reviews. Labels as in DISCOVERIES.md.
 Notation as in M17: cell `C_5 = {u ∈ ℤ_17^× : u ≡ 5 (17)}`; a P-datum of level `L` is an N-point `(a,b,c,d)` of
 `Σ^II_N`, `N = 17^K`, `K = 2L−1`, `17 ∤ cd` (both orders of `(a,b)`), with box `−f (mod 17^L)`, `f = 4acd−1`;
@@ -31,7 +32,10 @@ argument showing that each finite level leaves a gap suffices. The measure bound
 Lemma 1.1 is only required for `K ≥ K₀` (all data with `K < K₀` exact), the admissible constant is `C*(K₀) = (ρ − T_Q)/(2·(16/17)·Σ_{K≥K₀ odd} 17^{θK+(1−K)/2})`, i.e. it grows by
 `17^{1−2θ}` per two steps of `K` (factor 1.76 at θ = 0.4). The true base `ρ` after more exact levels is `≤ ρ₂ = 961421/1419857`
 (added levels only remove measure, ≈ 10⁻⁵–10⁻⁶ per level so far), so the values below, computed with `ρ = ρ₂`, are
-*ceilings* (slightly optimistic) for what exact data through `K₀ − 2` can give (R-self-review repair). `scripts/m17d_nogo.py` (part a):
+*ceilings* (slightly optimistic) for what exact data through `K₀ − 2` can give (R-self-review repair). (R139 repair: this
+holds for added exact *P* levels with the Q tail kept from `k = 9`, as computed; if exact Q levels were added too, the
+ceiling holds up to `T_Q(9) = 1.4·10⁻³`, i.e. ≤ 0.21 % of `ρ₂`. Entries are rounded to 4 significant digits, not
+floored, e.g. 2.64 = 2.6398…, 8.199 = 8.1988…, 14.45 = 14.449….) `scripts/m17d_nogo.py` (part a):
 
 | K₀ | 15 | 17 | 19 | 21 | 23 | 25 | 27 | 29 | 31 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -46,7 +50,8 @@ enumeration buys at most one more column.
 **Computation 1.3 (explicit ET-type bounds would need exact data far beyond reach; Assessment on top of exact
 arithmetic).** Suppose an explicit bound `D_P(K) ≤ A·17^{θK}·(K ln 17)^B` were proved for all `K ≥ K₀`. The least odd
 `K₀` for which `T_P + T_Q < ρ₂` (M17B Thm 4.1, pointwise form) holds is given below. As the true base is `≤ ρ₂`, these are
-*lower bounds* for the exact range needed, which is the safe direction for a no-go (`m17d_nogo.py` part b):
+*lower bounds* for the exact range needed, which is the safe direction for a no-go (`m17d_nogo.py` part b; R139 repair:
+the search starts at `K₀ = 15`, so an entry 15 means "≤ 15"):
 
 | (θ, B) \ A | 1 | 11 | 44 | 1000 |
 |---|---|---|---|---|
@@ -86,23 +91,32 @@ Write `qa − pb = zW` (P) resp. `= zF` (Q), `z ∈ ℤ`.
 (iii) If `z ≠ 0`, then `max(a,b) ≥ W/(|p|+q)` (P) resp. `≥ F/(|p|+q)` (Q).
 *Proof.* (i) `4abd = N + e`, `1 ≤ e ≤ a+b`, `d ≥ 1`. (ii) Dividing `4abcd = F(a+b)+c` by `4b`:
 `acd = F/4 + Fa/(4b) + c/(4b) ≤ F/2 + 1/2`, as `c ≤ a+b ≤ 2b`. (iii) `W ≤ |qa − pb| ≤ (|p|+q)·max(a,b)`. ∎
-So for `z ≠ 0` a covering P-datum is *unbalanced*: `min(a,b) ≤ (|p|+q)(N+a+b)/(4W) ≈ (|p|+q)·W/68`, whereas a typical
+So for `z ≠ 0` a covering P-datum is *unbalanced*: `min(a,b) ≤ (|p|+q)(N+a+b)/(4W)`, which is `≲ (|p|+q)·W/68` when
+`max(a,b) = o(N)` (R139 repair: was "≈", which dropped `a + b`), whereas a typical
 P-datum has `a, b` anywhere in `ab ≤ N/2`.
 
 **Lemma 2.3 (rays).** `z = 0` means `(a,b) = λ(p,q)`, `λ ≥ 1`; this needs `p > 0`, i.e. `u < 0`.
 (i) For `u > 0` (e.g. `u = 5`) there are no rays.
-(ii) For `u = −2/3` no P-datum and no Q-datum of any level lies on the ray. So `−2/3` lies in a box of level `L` only
+(ii) For `u = −2/3` no P-datum on the ray has a box containing `u` (ray data with `17 | λ` are not excluded, but their
+box is `≡ 1 (17)`; R139 repair: was "no P-datum lies on the ray"), and no Q-datum of any level lies on the ray. So `−2/3` lies in a box of level `L` only
 through data with `z ≠ 0`.
 *Proof of (ii).* P: `(a,b) = (2λ,3λ)`, `e | a+b = 5λ`, `24λ²d = N + e`. If a prime `ℓ ≠ 5` divides `e`, then `ℓ | λ`,
 so `ℓ | N + e`, so `ℓ | N`, `ℓ = 17`, so `17 | λ`, excluded by Lemma 2.1(i). Hence `e = 5^j ≡ 1, 5 (mod 8)`. But
 `8 | 24λ²` and `N = 17^K ≡ 1 (mod 8)` force `e ≡ −1 (mod 8)`. Q: `24λ²d = eF + 1`, `e | 5λ`; a prime `ℓ ≠ 5`
 dividing `e` divides `λ` and hence `1`; so `e = 5^j`, while `eF + 1 ≡ e + 1 ≡ 0 (mod 8)`. ∎
 Rays are the *resonant* part: a ray datum has centre exactly `u`, so a single one covers `u` at all higher precision of
-its level. Rational points with an admissible ray are covered (e.g. `−9/5`, `−11/8`, `11/9` are covered at level 2,
-`−7/2` at level 5; `scripts/m17d_points.py`). Lemma 2.3 is what makes `−2/3` a good candidate.
+its level. (R139 repair: the previous sentence claimed that `−9/5`, `−11/8`, `11/9` (level 2) and `−7/2` (level 5) are
+covered via rays; that was false.) Every rational box centre `−a/b` is trivially on a ray, so rays cover exactly the
+rational centres of boxes. The small-height rationals found covered by `scripts/m17d_points.py` are all covered by
+`z ≠ 0` data: `−9/5` by `(a,b,c,d) = (410,3,59,1)` (z = 7), `−11/8` by `(182,1,1,7)` (z = 5), `11/9` (positive, hence
+ray-free by (i)) by `(1,78,1,16)` and two more, all at P-level 2; `−7/2` by the Q-datum `(1,202837,2,177483)` at
+level 5. Lemma 2.3 removes only the resonant obstruction for `−2/3`; the `z ≠ 0` families remain the whole difficulty.
 
 **Remark 2.4 (descent identity; PROVED, not used below).** For every N-point of `Σ^II_N`, `N = W²/17`, and every
-`p, q` with `qa − pb = zW`: `e·[c(p²b + q²a) + 17z²] = ab·[(p+q)² + 68dz²]`. (Expand: the difference is
+`p, q` with `qa − pb = zW`: `e·[c(p²b + q²a) + 17z²] = ab·[(p+q)² + 68dz²]`. (R139 repair: the divisibility statements
+below need `17 ∤ b`, equivalently `17 ∤ a`, which holds for every covering datum by Lemma 2.1(i); `p1–p13` contain no
+datum with `17 | ab`, so the numerical check does not test that case. Short proof under `17 ∤ b`: `4abd = N + e`
+gives `gcd(e, ab) | N`, hence `gcd(e, ab) = 1`, and `e | (p+q)² + 68dz²` follows directly from the identity.) (Expand: the difference is
 `(a+b)(p²b+q²a) − ab(p+q)² − 17z²·4abd + 17ez² = (qa−pb)² − 17z²N = 0`.) If moreover `qa ≡ pb (mod W)` with `z ∈ ℤ`, the
 bracket on the left is divisible by `ab` (it equals `ab·(p²f* + q²f − 2pq)/N` with `f* = 4bcd−1`, and
 `f | 4c²dp² + 17x²`, `x = (qf−p)/W`), so `e | (p+q)² + 68dz²`. For `z = 0` this is `e | (p+q)²`, the ray constraint.
@@ -147,7 +161,9 @@ holds for `1/5`, `−3/2 ∈ C_7`. The cell-wide certified range is level 7 (M17
 **Theorem 4.1 (localized measure criterion; PROVED).** Let `u₀ ∈ C_5` lie in no box of level `≤ L*`, and
 `R = u₀ + 17^{L*}ℤ_17`. For `ℓ > L*` let `NB^R(ℓ)` be the number of distinct boxes of level `ℓ` contained in `R`
 (P-boxes of level `ℓ = (K+1)/2`, one per datum and order, and Q-boxes of level `ℓ = k`). If
-`Σ_{ℓ > L*} 17^{L*−ℓ}·NB^R(ℓ) < 1`, then `R` contains a sterile point. Hence (M17 Cor. 4.2) no finite set of ET
+`Σ_{ℓ > L*} 17^{L*−ℓ}·NB^R(ℓ) < 1`, then `R` contains a sterile point. Hence, *if the displayed sum is `< 1` for some
+admissible `u₀, L*`* (R139 repair: this condition is unproved; previously the sentence read as unconditional),
+(M17 Cor. 4.2) no finite set of ET
 Prop. 1.9 classes covers all sufficiently large primes `p ≡ 1 (24)` with `(p/17) = −1`, `(p/q) = 1` for `q = 5,7,11,13`.
 *Proof.* A box of level `≤ L*` meeting `R` contains `R` (ultrametric balls of larger or equal radius), hence `u₀`; there
 is none. A box of level `> L*` meeting `R` lies in `R`. By M17B Lemma 1.1 all boxes meeting `C_5` are P- or Q-boxes. The
@@ -167,7 +183,10 @@ K ≥ 15, base ρ₂; it equals 2× the D-unit constants of M17B/M17C):
 
 **What this does and does not change (Assessment).** (a) The pointwise route raises the exact range around a chosen point
 by 2–3 levels for the cost of minutes to hours, which no cell-wide enumeration can do. The admissible constant at θ = 0.4
-grows ×4.6 (L* = 9) resp. ×8.1 (L* = 10). (b) The price is a different hypothesis: `(H_θ^R)` asks that P-centres not
+grows ×4.6 (L* = 9) resp. ×8.1 (L* = 10). (R139 repair: most of that comes from starting the hypothesis later, at
+`K ≥ 2L*+1`. The *global* box-unit constant with the hypothesis from K ≥ 19 resp. K ≥ 21 (base ρ₂) would already be
+15.43 resp. 27.20. Localisation itself contributes only ×1.48 ≈ 1/ρ₂ (fresh base 1 instead of ρ₂, plus the tiny
+local `T_Q`). That later start is exactly what the pointwise exact data buy.) (b) The price is a different hypothesis: `(H_θ^R)` asks that P-centres not
 *concentrate* in `R` (at most C times the fair share), which is neither implied by nor implies (H_P). In the random
 discrete-log model of M17 §6 both hold with enormous margins. (c) No counting method of §1 proves either: proving
 `(H_θ^R)` needs the same `N^{2/5}`-without-log-loss count, now restricted to a residue class mod `17^{L*}`, i.e.
@@ -192,7 +211,7 @@ for m in Q U; do for k in 1 3 5; do ./m17_enum $m $k | sort -u > $m$k.txt; done;
 cp $W/data/m17b/p*.txt .
 python3 $W/scripts/m17d_points.py . 13 7 12                       # small-height rationals: covered / uncovered (§2)
 gcc -O2 -o pointP $W/scripts/m17d_pointP.c; gcc -O2 -o pointQ $W/scripts/m17d_pointQ.c
-python3 $W/scripts/m17d_validate.py . . 7 7 20                    # Validation 3.3: 704 points, 0 mismatches (1 min)
+python3 $W/scripts/m17d_validate.py . . 7 7 20                    # Validation 3.3: 716 points, 0 mismatches (1 min) (R139 repair: was 704)
 for u in "5 1" "-2 3"; do for k in 9 11 13 15; do ./pointQ $k $u; done; for L in 8 9 10; do ./pointP $L $u AB; done; done
 #   Comp. 3.4: hits=0 everywhere; P L=9 8 min, L=10 ~3.3 h per point (parts A, B can run separately)
 python3 $W/scripts/m17d_local_tail.py 9 10                        # §4 table

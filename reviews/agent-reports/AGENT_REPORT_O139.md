@@ -19,7 +19,8 @@ pointwise extension of the exact range.
 3. **Rational points (§2, PROVED).** For `u = −p/q`, P/Q-box membership at level L is the lattice condition
    `qa − pb = zW` (Lemma 2.1). Covering data with `z ≠ 0` are unbalanced, `max(a,b) ≥ W/(|p|+q)` (Lemma 2.2). The
    resonant `z = 0` rays are excluded at **every level** for `u = −2/3`: by a mod-8 argument, `e` would be a power of 5
-   and `≡ −1 (8)` (Lemma 2.3). `u = 5` has no rays. Remark 2.4 gives an exact descent identity
+   and `≡ −1 (8)` (Lemma 2.3). `u = 5` has no rays. (R139 repair: the small-height rationals found covered are all covered by `z ≠ 0`
+   data, not rays; see 17D §2.) Remark 2.4 gives an exact descent identity
    `e | (p+q)² + 68dz²` (checked on 6632 instances).
 4. **Pointwise engines (§3, CERTIFIED).** P at level L in `≈ (W/34) ln W` exact 128-bit tests (no factoring); Q at level k
    in `O(√F)` modular square roots. Both are validated against the certified complete lists at all levels ≤ 7:
@@ -28,7 +29,9 @@ pointwise extension of the exact range.
    per point), and in no Q-box of level ≤ 15. The cell-wide certified range is level 7.
 5. **Sharpened conditional (Theorem 4.1, PROVED reduction).** A ball R of level L* that is free through L* contains a sterile
    point if `Σ_{ℓ>L*} 17^{L*−ℓ}NB^R(ℓ) < 1`. Under the fair-share hypothesis `(H_θ^R)` the admissible constant at θ = 0.4
-   is 22.83 (L* = 9) or 40.24 (L* = 10), against 4.969 for the global criterion (box units), i.e. ×4.6 resp. ×8.1. Honest
+   is 22.83 (L* = 9) or 40.24 (L* = 10), against 4.969 for the global criterion (box units), i.e. ×4.6 resp. ×8.1 (R139 repair: most of that comes from
+   starting the hypothesis later; the global constant from K ≥ 19 / 21 would be 15.43 / 27.20, so localisation itself
+   gives only ×1.48 ≈ 1/ρ₂). Honest
    caveat: `(H^R)` adds an equidistribution requirement and is not implied by (H_P). Both are unproved; neither is
    provable with known tools.
 
