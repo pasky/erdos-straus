@@ -237,3 +237,12 @@ divisors ≡ 1 (4), so 0 ES orbits). All match the table. Per-orbit count level:
 * `scripts/review_lsb_typeII_genus.py` → `data/review_lsb_typeII_genus.out`: genus of the f-form vs the e-form (D5).
 * `scripts/review_lsb_pell.py`: F2 identity and non-recurrence of powers across all Type II quadruples, p < 1500.
 * `scripts/review_lsb_f4growth.py`: F4 orbit growth exponent (D10).
+
+## Repairs applied (R136, after the author quit)
+At the parent's request, all of D1–D14 (including D4b and the item-4 wording) have been applied directly to
+`LONGSHOT_FIBRED.md` and `reviews/agent-reports/AGENT_REPORT_O136.md`, each marked "(R136 repair, Dn)":
+* the D1 scope rewording appears in §0, at the head of Thm 5.4, as a new (E-d) in §5.5, and in the report;
+* D2 adds a hypothesis to Thm 2.3(c);
+* D14 relabels Thm 5.4 item 3 and (E-b) as CONDITIONAL;
+* the "checked only by the author's research subagent" caveat for EM/EMS/BR/CTX/DRS appears in §0, in the §4
+  literature paragraph, and in the report.
