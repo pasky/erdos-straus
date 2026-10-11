@@ -16,7 +16,9 @@ suggested repairs are marked "(R139 repair)".
 | Lemma 2.3 (rays; mod-8 exclusion for −2/3) | SOUND (m4 wording) |
 | §2 text after Lemma 2.3 (ray examples) | WRONG (M1, non-load-bearing) |
 | Remark 2.4 (descent identity) | SOUND-AFTER-REPAIRS (m5: missing hypothesis 17 ∤ b; simpler proof) |
-| §4 constants 4.969 / 22.83 / 40.24 | SOUND (recomputed) |
+| Theorem 4.1 (localized criterion) | SOUND (m7 wording) |
+| §4 constants 4.969 / 22.83 / 40.24 | SOUND (recomputed); m8 on the "×4.6 / ×8.1" reading |
+| Conj. 4.2 + labels | SOUND; honest ("no unconditional sterile point") |
 
 ## Checks
 
@@ -84,6 +86,20 @@ ray; `−7/2`: Q level 5, `(a,b,c,d) = (1,202837,2,177483)` (not proportional to
 ray of any of these points (`a/b` reduced ∉ {9/5, 11/8, 7/2, 2/3, 11/9}, both orders). So none of the examples is a ray
 covering; all are `z ≠ 0` coverings. See M1.
 
+**Theorem 4.1.** Re-derived. Balls in `ℤ_17` are nested or disjoint; a box of level `≤ L*` meeting `R` contains `R ∋ u₀`;
+a box of level `> L*` meeting `R` lies in `R`. U-boxes meeting `C_5` lie in P-boxes (M17 Lemma 5.2), and a P-box
+containing a U-box of level `ℓ` has level `≤ ℓ`; Q⁻¹-boxes are Q-boxes of the same level. Hence "u₀ in no P/Q-box of level
+`≤ L*`" (what Comp 3.4 certifies) is the right hypothesis, and countable subadditivity gives the bound. `R ⊂ C_5` for
+`L* ≥ 1` ✓. Normalisation: `μ(R) = 17^{−L*}`, box of level ℓ: `17^{−ℓ}` ✓; under `(H_θ^R)` the P term is
+`C·17^{θK+(1−K)/2}` and the Q term `2·17^{3k/5+1−k}` (k ≥ L*+1 odd), matching `m17d_local_tail.py` and the reviewer's
+closed forms. Applied with L* = 10 the hypothesis is supplied by Comp 3.4 (P ≤ 10, Q ≤ 15 ⊇ Q ≤ 10) ✓. The criterion
+is conditional on `(H_θ^R)`, which is unproved; label CONDITIONAL in §4 is honest. No circularity.
+
+**Conjecture 4.2 / evidence.** Extrapolating M17B's increments 7.0·10⁻⁵, 1.1·10⁻⁵ (ratio ≈ 6.4/level) gives
+`Σ_{ℓ>10} ≈ 7.7·10⁻⁹`, consistent with "≈ 10⁻⁸". The document correctly calls Comp 3.4 consistency evidence only (a
+random point survives level ≤ 7 with probability `ρ₂ ≈ 0.68`). Labels: §0 / report state "No unconditional sterile
+point" ✓; nothing is labelled PROVED that is not.
+
 ## Defects
 
 **M1 (MAJOR, non-load-bearing; §2, the paragraph after the proof of Lemma 2.3).** "Rational points with an admissible
@@ -123,3 +139,14 @@ not test that case (nor could the reviewer's). Simpler and complete proof under 
 
 **m6 (MINOR; §3 Validation 3.3 vs Replay).** Text says 716 test points; the Replay comment says 704. *(R139 repair)*
 update the Replay comment to 716.
+
+**m7 (MINOR; Theorem 4.1, last sentence of the statement).** "Hence (M17 Cor. 4.2) no finite set of ET Prop. 1.9
+classes covers …" reads as an unconditional conclusion. *(R139 repair)* "Hence, *if the displayed sum is < 1 for some
+admissible `u₀, L*`*, (M17 Cor. 4.2) …".
+
+**m8 (MINOR; §4 Assessment (a)).** "The admissible constant at θ = 0.4 grows ×4.6 (L* = 9) resp. ×8.1 (L* = 10)" compares
+a K ≥ 19/21 constant with a K ≥ 15 one. Most of the gain is the later start, not localisation: the *global* box-unit
+constant with hypothesis from K ≥ 19 resp. K ≥ 21 (base ρ₂) would be 15.43 resp. 27.20 (reviewer computation), so the
+localisation itself contributes ×1.48 (= 22.83/15.43 = 40.24/27.20 ≈ 1/ρ₂: base 1 instead of ρ₂, plus the tiny local
+T_Q). That is exactly the document's point (pointwise exact data reach 2–3 levels further), but say so.
+*(R139 repair)* add "(of which ×1/ρ₂ ≈ 1.48 is the fresh base; the rest is the later start K ≥ 2L*+1)".
