@@ -1,6 +1,6 @@
 # POINTWISE_MORDELL17D — the r = 17 P-count: no-go quantified, rational points, pointwise certification (task O139)
 
-Status: O139 (branch `side-agent/r17-sterile`), in progress, unreviewed. Builds on POINTWISE_MORDELL17.md (= M17),
+Status: O139 (branch `side-agent/r17-sterile`), checkpoint 1 (all computations finished), unreviewed. Builds on POINTWISE_MORDELL17.md (= M17),
 POINTWISE_MORDELL17B.md (= M17B), POINTWISE_MORDELL17C.md (= M17C) and their reviews. Labels as in DISCOVERIES.md.
 Notation as in M17: cell `C_5 = {u ∈ ℤ_17^× : u ≡ 5 (17)}`; a P-datum of level `L` is an N-point `(a,b,c,d)` of
 `Σ^II_N`, `N = 17^K`, `K = 2L−1`, `17 ∤ cd` (both orders of `(a,b)`), with box `−f (mod 17^L)`, `f = 4acd−1`;
