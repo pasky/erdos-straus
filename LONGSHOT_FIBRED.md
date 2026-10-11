@@ -105,15 +105,23 @@ of orbits `Γx` of such Γ (the counting theorems are not needed for Lemma 2.2; 
 (for instance the generic point): it is computable from the defining equations of `(V_i, φ_i)` alone.
 (b) Hence any proof that `E ≠ ∅` (via a power asymptotic or otherwise) yields only "some `V_i(ℤ) ∩ Ω ≠ ∅`",
 and the solution produced is the explicit `s_i` written into the data. If `s_i ∈ ℕ³` solves `4/n`, ES(n) is
-already proved without any counting; if not, `E_i = ∅`.
-(c) If moreover `φ_i` is given by polynomials with coefficients in `ℤ_ℓ` (resp. a real-analytic map sending
+already proved without any counting. *(R136 repair, D3)* Read (b) for a *candidate* piece
+`E_i := V_i(ℤ) ∩ Ω ∩ dom φ_i`. If that set is Zariski-dense in `V_i`, then `φ_i ≡ s_i` on it. If `s_i ∉ Sol(n)`, then
+`E_i` is not Zariski-dense and lies in a proper closed subset. When `E_i` is not dense, Lemma 2.1 applies only to
+the components of its Zariski closure, which are not part of the data (e.g. `V = X_n × 𝔸¹`, φ = projection: F1).
+Such encodings stay in class X once they are decomposed along those components. But "the solution is written into
+the equations" holds only for X1 pieces *as given*, not for an a-priori chosen V.
+(c) *(R136 repair, D2: added hypothesis)* Assume moreover that `φ_i` maps `V_i` (as a rational map) into the ES
+variety `X_n : 4xyz = n(xy+yz+zx)`. Without this, the local data give only `s_i ∈ ℤ³_{>0}`; e.g. `φ_i ≡ (1,1,1)`.
+If moreover `φ_i` is given by polynomials with coefficients in `ℤ_ℓ` (resp. a real-analytic map sending
 the counting region `Ω` into the positive octant), then a single ℓ-adic point of `V_i` forces `s_i ∈ ℤ_ℓ³`
 (resp. a single real point in Ω forces `s_i > 0`). So with ℤ-polynomial `φ_i` the purely *local* statement
 "`V_i(ℤ_ℓ) ≠ ∅` for all ℓ, and `V_i(ℝ) ∩ Ω ≠ ∅`" already implies `s_i ∈ Sol(n)`: the Siegel/Hardy–Littlewood
 main term carries no information beyond the explicit point `s_i`.
 *Proof.* (a) Lemma 2.1 applied to `(V_i, E_i, φ_i)`. (b) is (a). (c) `s_i = φ_i(v)` for any `v ∈ dom φ_i`,
 in particular for an ℓ-adic or real point; ℤ_ℓ-coefficients map `ℤ_ℓ`-points to `ℤ_ℓ³`. `s_i ∈ ℤ_ℓ³` for all
-ℓ means `s_i ∈ ℤ³`. ∎
+ℓ means `s_i ∈ ℤ³`. With the added hypothesis (D2), `s_i ∈ X_n(ℚ) ∩ ℤ³_{>0} = Sol(n)`. ("`V_i(ℤ_ℓ) ≠ ∅`" means a
+ℤ_ℓ-point in `dom φ_i`, which is automatic for polynomial φ_i.) ∎
 
 *Reading.* For algebraic recipes, power fibres are an illusion of the parametrisation: each fibre is a whole
 component on which the recipe is constant, the component "knows" its solution, and counting its points
@@ -128,10 +136,12 @@ for which some `E(p) ⊂ 𝒱_p(ℤ)`, Zariski-dense in `𝒱_p` (irreducible), 
 is an integer `D' ≥ 1` (depending only on `(𝒱, φ)`) such that all but finitely many `p ∈ P_cov` are
 quadratic non-residues mod `D'`. In particular infinitely many primes (all large `p ≡ 1 mod D'`) are not covered.
 *Proof.* (i) *A section.* By Lemma 2.1, `φ|_{𝒱_p}` is constant for every `p ∈ P_cov`. If `P_cov` is finite there
-is nothing to prove. Otherwise the closure of the image of `(φ, n) : 𝒱 ⇢ 𝔸³ × 𝔸¹` has finite fibres over the
-infinite (hence Zariski-dense) set `P_cov`, so it is a curve dominating `𝔸¹`; its generic fibre is the image of
-the geometrically irreducible generic fibre of 𝒱, hence one Galois-stable point: `s₀ = (x,y,z) ∈ ℚ(n)³`, with
-`s₀(p) ∈ Sol(p)` for `p ∈ P_cov` (large). The identity `4xyz = n(xy+yz+zx)` holds at infinitely many n, hence in
+is nothing to prove. Otherwise *(R136 repair, D4)* let `U = dom φ`. By Chevalley and generic flatness applied to
+`U → (φ,n)(U) → 𝔸¹`, there is a dense open `𝔸¹° ⊂ 𝔸¹` over which `dim φ(U_n) = dim φ(U_η)` (η the generic point).
+For large `p ∈ P_cov`, `U_p` is irreducible (EGA IV 9.7.7) and φ is constant on it (Lemma 2.1, since `E(p)` is dense
+in `U_p`), so `dim φ(U_η) = 0`. `φ(U_η)` is irreducible and geometrically irreducible of dimension 0 over the
+characteristic-0 field ℚ(n), so it is a single point `s₀ = (x,y,z) ∈ ℚ(n)³`. Spreading out, `φ|_{U_p} ≡ s₀(p)`, so
+`s₀(p) ∈ Sol(p)` for all but finitely many `p ∈ P_cov`. The identity `4xyz = n(xy+yz+zx)` holds at infinitely many n, hence in
 `ℚ(n)`. (ii) *Polynomiality.* Write `x = A + r/Q` with `A ∈ ℚ[n]`, `deg r < deg Q`, and D a denominator of A.
 Then `D·r(p)/Q(p) = D·x(p) − D·A(p) ∈ ℤ` and tends to 0, so `r(p) = 0` for infinitely many p, `r = 0`.
 So `x, y, z ∈ ℚ[n]`, with positive leading coefficients. (iii) *The pattern is polynomial.* Each `s₀(p)`,
@@ -146,7 +156,10 @@ holds at `n = p`; so it holds at `n = m²`, and the values are positive for m la
 `ℤ_(m)` with `m ∤ D·num(y(0))`, so `m ∤ y(n)`; likewise for z. Thus `(n x₁(n), y(n), z(n))` is a positive
 solution of `4/m²` with `m² | x`, `gcd(m², yz) = 1`, a Type I solution of the odd square `m²`, contradicting
 ET Prop 1.6. (Type II pattern: `y = n y₁`, `z = n z₁`, `x(0) ≠ 0`, same argument.) Hence every `p ∈ P'` with
-`p > D'` is a non-square mod D'. There are finitely many patterns. ∎
+`p > D'` is a non-square mod D'. There are finitely many patterns. *(R136 repair, D4b)* The D' above depends on the
+pattern. The corollary's D' is the lcm over the patterns occurring infinitely often, because a non-square modulo a
+divisor is a non-square modulo the lcm. (Closest printed statement: ET §1, Props 1.8–1.9 on congruences "solvable by
+polynomials".) ∎
 
 **Corollary 2.5 (growing families reduce to the parameter search; PROVED from 2.3).** Let
 `E(p) = ⨆_{θ∈Θ(p)} E_θ`, each `E_θ` Zariski-dense in an irreducible `V_θ`, `φ|_{E_θ}` algebraic, with
