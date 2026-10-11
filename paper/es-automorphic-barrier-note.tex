@@ -1119,7 +1119,8 @@ internal reviewer's derivation, checked step by step; \cite[\S2.2]{LP}).
 
 \emph{Scope.} Theorem~\ref{thm:transparent} concerns certificates that use
 only the prime factors of $N_e^T(p)$ below the modulus, plus one opaque
-block, and that cover a coset of size $\ge e^\delta$. It says nothing about
+block, and that cover a coset of size $\ge\varphi(e)e^{-\theta}/2$ (any
+$\theta<1$ by Remark~\ref{rem:thetaone}). It says nothing about
 arguments that merely hit $-1$, or that use the residues mod $e$ of prime
 factors above the modulus: those are the per-slice divisor events of
 hatches H-A and H-B. The expected number of transparent certificates over
@@ -1325,7 +1326,8 @@ orbit recipes with bounded covolume ratio $R$: the \emph{continuous} fibre
 factor $H^\delta$ buys nothing. It is not a theorem about all large-fibre
 encodings. The T8 blind spot is closed only partially; it moves to
 (E-d) the number $\mu(n)\ge n^\eta$ of pieces over one solution (discrete
-multiplicity; Theorem~\ref{thm:fibred} is then vacuous) and to
+multiplicity; Theorem~\ref{thm:fibred} is then vacuous, as it is for a
+decomposition into points) and to
 (E-a) weight spread $R\ge n^\eta$ not capped by the solution (none found:
 the only split torus met among the ES encodings examined is the Pell unit,
 which is the solution itself). Also outside are (E-b) a \emph{valid} genus-full
