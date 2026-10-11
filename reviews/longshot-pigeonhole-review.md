@@ -126,3 +126,63 @@ Every step re-derived. Checks of the points the author flagged:
 * **Inputs/labels.** PNT in APs to a fixed modulus, Montgomery–Vaughan BT (`π(x;q,a) ≤ 2x/(φ(q) log(x/q))`),
   Shiu Thm 1, Nicolas–Robin: all used within their stated ranges (after D4). Label PROVED (relative to these
   classical theorems) is justified.
+
+## Lemma 2.1 — SOUND
+
+`|Σ_e(L)| ≤ 3^k` (L squarefree), `|R| ≤ 3^{k+1}`, a coset of index ≤ I has ≥ φ(e)/I elements ⇒ `3^{k+1} ≥ φ(e)/I`.
+With e ≥ εL (ε ≤ 1): `φ(e) ≥ c e/log log e ≥ c εL/log log L` (e/log log e increasing) and
+`L ≥ ∏_{i≤k} p_{i+1} = e^{(1+o(1))k log k}` (PNT), so the inequality fails for k ≥ k₀(ε, I). Correct. The forcing
+congruences (`ℓ | N^II ⟺ e ≡ −p (4ℓ)`, `ℓ | N^I ⟺ e ≡ −p⁻¹ (4ℓ)`) re-derived ✓. The link to POINTWISE_SIZE Thm C
+is a pointer, not re-checked here (Assessment-level sentence).
+
+## Lemma 2.3 — SOUND
+
+`τ(N²) ≥ |gH| ≥ φ(e)e^{−θ}`; `N ≤ max(p,e)²`; `τ(N²) ≤ τ(N)²`; Nicolas–Robin gives `log τ(N²) ≤ 2.14 log N/log log N`.
+e ≥ p is impossible for large p; for e < p, `(1−θ−o(1)) log e ≤ (4.3+o(1)) log p/log log p`, i.e. C_θ = 4.3/(1−θ)
+(could be stated). Note the lemma needs no restriction θ < 1/2: any θ < 1 works. §2.3 (i) (`3^{ω(N)} = p^{o(1)}`)
+correct; (ii) correctly labelled Assessment.
+
+## Defects
+
+**D1 (MINOR) — "bijection" vs. solutions.** §4 T8 ("Lemma 1.1 is a bijection (validated numerically against brute
+force)") and the §3 validation ("total fibre counts equal the brute-force |V_I(p)|, |V_II(p)|") are about the
+lifted variety V, not about ES solutions. The map V_T(p) → {solutions} is surjective but **not injective**
+(dilation `(a,b,c,d) ↦ (λa,λb,λc,λ⁻²d)`; p = 71: 210 Type I points vs 171 Type I ordered solutions/… ×3 normalisation;
+`(1,1,2,18;1)` and `(3,3,6,2;1)` give the same triple). With gcd(a,b) = 1 imposed, counts match exactly for all
+p < 110 (`scripts/review_r135_slices.py`). No proof is affected (all uses are existence or V-mass). *Repair:* in T8
+say "Lemma 1.1 is a bijection between the e-fibres of V_T(p) and the (a,b)-pairs; V → solutions is
+surjective, injective after imposing gcd(a,b) = 1 (ET Prop 2.2 dilation symmetry)". — applied (R135 repair).
+
+**D2 (MINOR) — reach of the sharpness remark.** Prop 1.4(c) shows optimality among criteria depending only on the
+orders of the images in all quotients G/H. It does not exclude structure-only criteria using other invariants
+(e.g. distinctness, as in Balandraud's theorem the author cites). §1.5 bullet 2 and Thm 5.0(iii) ("structure-only
+criteria … need a number of prime factors linear in |G:H|") should say "criteria depending only on orders/counts of
+images in the quotients". *Repair:* wording — applied in Thm 5.0(iii) (R135 repair).
+
+**D3 (MINOR) — θ = 0 and H = K_e.** Definition in §2.2: "θ = 0 with H = K_e is 'R covers the whole target coset'"
+— but `|G_e : K_e| = 2 > e⁰ = 1`, so TCC₀ only allows H = G_e. As written, the theorem at θ = 0 does not cover the
+TP flag of §3. *Repair:* define TCC_θ with `|G_e:H| ≤ 2e^θ`; the proof is unchanged with `B_e := φ(e)e^{−θ}/6`
+(constants double). — applied (R135 repair).
+
+**D4 (MINOR) — Shiu range in (c).** "modulus e ≤ (xe/4)^{1/2}" is equivalent to e ≤ x/4 and fails on (x/4, x]. Shiu's
+hypothesis is `k < y^{1−α}` for some fixed α ∈ (0, 1/2): take y = X = (xe+1)/4, α = 1/4; then `e < X^{3/4}` ⟸
+`e < (x/4)³`, true for all e ≤ x. *Repair:* applied (R135 repair).
+
+**D5 (MINOR, labelling/summary) — the θ-restriction is dropped in the headlines.** §0 ("covering certificates built
+from the prime factors below the modulus plus one opaque cofactor have bounded mass and fail…"), the §2.2
+*Reading* ("a covering argument that only uses prime factors smaller than the modulus … cannot prove ES") and
+the "Answer to the brief" omit that only cosets of size ≥ φ(e)e^{−θ}, θ < 1/2 (i.e. ≥ e^{1/2+o(1)}) are excluded.
+A transparent argument that covers a smaller coset, or just hits −1, is untouched (that is the lottery/Thm C
+regime). Thm 5.0(v) states it correctly. *Repair:* add "of size ≥ e^{1−θ}, θ < 1/2" (or, after D6, "of size ≥ e^δ")
+to §0 and the Reading — applied (R135 repair).
+
+**D6 (improvement, not a defect) — θ < 1/2 is an artefact of the second moment.** Replace f = τ(·²)² by
+`f_r = τ(·²)^r` with r > 1/(1−θ): h_r = f_r * μ ≥ 0, `h_r(ℓ^v) = (2v+1)^r − (2v−1)^r ≪_r v^{r−1}`, so the 2-part and
+small-prime local factors are bounded constants c_r (then `c_r^{ω(e+1)} ≪ e^ε`), the Y < ℓ < e product is
+`≪ (log e)^{3^r−1}`; Markov gives `B_e^{−r} ≪ e^{−r(1−θ)+ε}`, summable with tail `Y^{1−r(1−θ)+ε}`; (b1) is unchanged;
+(c) uses Shiu with `f_r(ℓ^v) ≤ (3^r)^v` and `Σ_{n≤X} f_r ≪ X(log X)^{3^r−1}`, still beaten by `E₁^{−δ}`; (d) holds for
+every θ < 1. Hence **Theorem 2.2 holds for every θ < 1**: for every δ > 0, certificates covering a coset of size
+≥ e^δ from transparent primes fail on a positive-density set. (Reviewer derivation; checked step by step against
+the author's proof; recorded as a remark in the document, marked R135, not as a replacement of the theorem.)
+
+No FATAL or MAJOR defects found.
