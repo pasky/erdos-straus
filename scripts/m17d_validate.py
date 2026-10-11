@@ -37,7 +37,7 @@ for k in range(1, KQ + 1, 2):
         r = int(line.split()[1]) % F; lb.add(r)
         if r % 17: lb.add(pow(r, -1, F))
     cen = sorted(r for r in lb if r % 17 in (5, 7))
-    pts = cen if k <= 5 else cen[:8]
+    pts = cen if k <= 5 else cen[:20]
     pts = pts + [random.randrange(0, F // 17) * 17 + random.choice((5, 7)) for _ in range(R)]
     for u in pts:
         got = runQ(k, u); tested += 1
@@ -46,3 +46,4 @@ for k in range(1, KQ + 1, 2):
         if gotbox != exp: bad += 1; print("Q MISMATCH", k, u, gotbox, exp)
     print(f"Q level {k}: {len(pts)} points, bad={bad}", flush=True)
 print(f"tested {tested}, mismatches {bad}")
+sys.exit(1 if bad else 0)

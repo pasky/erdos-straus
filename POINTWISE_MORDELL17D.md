@@ -28,9 +28,10 @@ So the measure criterion (M17 Thm 4.1, M17B Thm 4.1, M17C Lemma 1.1) is a suffic
 argument showing that each finite level leaves a gap suffices. The measure bound is just the only uniform tool we have.
 
 **Computation 1.2 (how C* grows with the exact range; arithmetic).** If the cumulative hypothesis (H_P^cum) of M17C
-Lemma 1.1 is only required for `K ≥ K₀` (all data with `K < K₀` exact and the base still `ρ ≥ ρ₂ = 961421/1419857`),
-the admissible constant is `C*(K₀) = (ρ − T_Q)/(2·(16/17)·Σ_{K≥K₀ odd} 17^{θK+(1−K)/2})`, i.e. it grows by
-`17^{1−2θ}` per two steps of `K` (factor 1.76 at θ = 0.4). `scripts/m17d_nogo.py` (part a):
+Lemma 1.1 is only required for `K ≥ K₀` (all data with `K < K₀` exact), the admissible constant is `C*(K₀) = (ρ − T_Q)/(2·(16/17)·Σ_{K≥K₀ odd} 17^{θK+(1−K)/2})`, i.e. it grows by
+`17^{1−2θ}` per two steps of `K` (factor 1.76 at θ = 0.4). The true base `ρ` after more exact levels is `≤ ρ₂ = 961421/1419857`
+(added levels only remove measure, ≈ 10⁻⁵–10⁻⁶ per level so far), so the values below, computed with `ρ = ρ₂`, are
+*ceilings* (slightly optimistic) for what exact data through `K₀ − 2` can give (R-self-review repair). `scripts/m17d_nogo.py` (part a):
 
 | K₀ | 15 | 17 | 19 | 21 | 23 | 25 | 27 | 29 | 31 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -44,8 +45,8 @@ enumeration buys at most one more column.
 
 **Computation 1.3 (explicit ET-type bounds would need exact data far beyond reach; Assessment on top of exact
 arithmetic).** Suppose an explicit bound `D_P(K) ≤ A·17^{θK}·(K ln 17)^B` were proved for all `K ≥ K₀`. The least odd
-`K₀` for which M17B Thm 4.1 then applies (`T_P + T_Q < ρ₂`, pointwise form, base ρ₂ kept although it would shrink) is
-(`m17d_nogo.py` part b):
+`K₀` for which `T_P + T_Q < ρ₂` (M17B Thm 4.1, pointwise form) holds is given below. As the true base is `≤ ρ₂`, these are
+*lower bounds* for the exact range needed, which is the safe direction for a no-go (`m17d_nogo.py` part b):
 
 | (θ, B) \ A | 1 | 11 | 44 | 1000 |
 |---|---|---|---|---|
@@ -61,7 +62,8 @@ Interpretation (Assessment). ET's cover (M17B Lemma 2.1) has three pair regimes,
 optimistic explicit outcome of that method is around `(θ,B,A) = (0.4, 1–2, ≥ 11)`, which needs exact data through
 `K ≈ 37–57` (`N ≈ 10^{46}–10^{70}`), against the reachable `K ≤ 15`. Larger θ makes it worse, not better, because the
 weight `17^{−K/2}` then decays only like `17^{−(1/2−θ)K}`. **The cell-wide measure route needs a bound on `D_P` with
-essentially no logarithmic loss and constant ≲ 1.5 at θ = 0.4. That is stronger than ET's theorem (`N^{2/5+o(1)}`, with
+essentially no logarithmic loss and constant ≲ 2.5 at θ = 0.4 from K = 15 on (pointwise 2.48, cumulative 2.64;
+self-review repair: was "≲ 1.5", the K ≥ 13 value, but K = 13 is already certified). That is stronger than ET's theorem (`N^{2/5+o(1)}`, with
 non-explicit `o(1)`), and no known method gives it.** This makes the qualitative remarks of M17C §3 quantitative. It is
 not a theorem about all methods.
 
@@ -112,7 +114,9 @@ bracket on the left is divisible by `ab` (it equals `ab·(p²f* + q²f − 2pq)/
 (`A ≈ W/√68`), `b ≡ −a/u (mod W)`, all `b` with `(4a−1)(4b−1) ≤ 4N+1`. Part B: `b ≤ B := ⌊(⌊(4N+1)/(4A+3)⌋+1)/4⌋`,
 `a ≡ −ub`, `a > A`; a pair with `a > A` has `4b − 1 ≤ (4N+1)/(4A+3)`, so the two parts cover all pairs. Each pair is
 tested exactly (`e = (−N mod 4ab)`, `1 ≤ e ≤ a+b`, `e | a+b`, `c = (a+b)/e`, `d = (N+e)/4ab`, `17 ∤ cd`; equation and
-box membership rechecked in 128-bit). Work `≈ 0.24W + (W/34) ln(0.12W)` candidates; `L = 8`: 3.9·10⁹ candidates, 23 s.
+box membership rechecked in 128-bit). Work `≈ 0.24W + (W/34) ln(0.12W)` candidates; `L = 8`: 3.9·10⁹ candidates, 23 s. The box check reduces `a, c, d` mod `W` first (self-review repair: `4acd−1`
+can exceed 2^128 already at L = 9; the earlier version aborted with an error on such a hit, so it could not miss one
+silently, and all runs of Comp. 3.4 ended normally; L = 8, 9 were re-run with the repaired engine).
 (Cell-wide enumeration needs `≍ 17^{0.4K} = 17^{0.8L−0.4}` *factorisations*. That is asymptotically fewer operations,
 but in practice the pointwise test reaches two to three levels further, since it needs no factoring.)
 
@@ -124,10 +128,10 @@ for small `d`, `a` runs over the two square roots of `w/(4d) mod F` (Hensel). Ea
 `t = 4a²d+1`. Work `O(√F)` modular square roots; `k = 13` takes seconds, `k = 15` minutes.
 
 **Validation 3.3.** `scripts/m17d_validate.py` runs both engines at every level `≤ 7` on (i) every in-cell box centre
-(`C_5 ∪ C_7`) of the certified lists (all centres for levels ≤ 5, 20 per level at 6–7) and (ii) 20 random in-cell
+(`C_5 ∪ C_7`) of the certified lists (all centres for levels ≤ 5, 20 per level at P-levels 6–7 and at Q-level 7) and (ii) 20 random in-cell
 units per level, and requires *equality* of the output with the set of listed data (P: `data/m17b/p{K}.txt`, both
 orders, from two independent engines, M17B Comp. 2.2) resp. listed boxes (Q: `m17_enum`, R83-confirmed). Result:
-**704 test points, 0 mismatches.** Remark 2.4's identity and divisibility were checked on all 6632 (datum, order)
+**716 test points, 0 mismatches** (the script exits nonzero on any mismatch). Remark 2.4's identity and divisibility were checked on all 6632 (datum, order)
 pairs of `p1–p13` (0 failures).
 
 **Computation 3.4 (CERTIFIED by Algorithms 3.1–3.2, validated as in 3.3).** For `u = 5` and for `u = −2/3`:

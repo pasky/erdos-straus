@@ -28,9 +28,10 @@ static void check(u128 a, u128 b) {
   if (e == 0 || e > a + b || (a + b) % e) return;
   u128 c = (a + b) / e, d = (N + e) / m;
   if (c % 17 == 0 || d % 17 == 0 || b % 17 == 0) return;
-  if (4 * a * b * c * d != a + b + N * c) { fprintf(stderr, "BUG\n"); exit(3); }
-  u128 f = 4 * a * c * d - 1;
-  if ((u64)((f + uW) % W) != 0) { fprintf(stderr, "BUG box\n"); exit(4); }
+  if (4 * a * b * c * d != a + b + N * c) { fprintf(stderr, "BUG\n"); exit(3); } /* mod 2^128 recheck */
+  /* f = 4acd-1 may exceed 2^128: reduce factors mod W first */
+  u64 fW = (u64)((u128)mulmod(mulmod(4 % W, (u64)(a % W), W), mulmod((u64)(c % W), (u64)(d % W), W), W) + W - 1) % W;
+  if ((fW + uW) % W != 0) { fprintf(stderr, "BUG box\n"); exit(4); }
   nhit++; printf("%d ", L); pr128(a); putchar(' '); pr128(b); putchar(' '); pr128(c); putchar(' '); pr128(d); putchar('\n');
 }
 int main(int argc, char **argv) {
