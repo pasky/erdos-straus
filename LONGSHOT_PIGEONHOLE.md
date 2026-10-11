@@ -269,3 +269,76 @@ automatically (Lemma 1.2(ii)) — the only "free" structural fact. Beyond that:
 *Verdict (Assessment).* The covering mechanism splits cleanly: the part that is deterministic (transparent primes,
 Kneser/structure criteria) has bounded mass and fails on a positive-density set (Theorem 2.2); the part that has
 growing mass is a statement about residues of large prime factors of specific integers, i.e. H-A/H-B again.
+
+## 3. Numerics (EVIDENCE)
+
+Engine `scripts/lsa_census.c` (e-slices e ≤ E, both types; factorisation by trial division + Miller–Rabin/Pollard;
+fibre count, full-coset flag P = `Σ_e(N) ⊇ −K_e`, transparent flag TP = `R ⊇ −K_e` with θ = 0). Validation:
+total fibre counts equal the brute-force `|V_I(p)|, |V_II(p)|` of `scripts/rt2_slices.py` for all 21 primes
+p ≡ 1 (4), p < 200 (E = 2400; Type I needs e up to ≈ 8.5p); P/TP/fibre flags re-derived independently
+(`scripts/lsa_check_cover.py`: Σ built from divisor pairs, −K_e from Jacobi symbols) on 13000 + 2000 slices,
+0 mismatches. Runs: `scripts/lsa_run.sh` (≈ 70 s), tables `scripts/lsa_tables.sh` → `logs/lsa_tables.txt`.
+Primes: all 2370 Mordell-hard primes (p mod 840 ∈ {1,121,169,289,361,529}) below 10⁶ (E = 2000); 300 consecutive
+Mordell-hard primes after 10^k, k = 4..8 (E = 5000; the 10⁴ and 10⁵ samples overlap); 15 hard primes (minimal f_I
+in their dyadic range ≤ 2²⁶ from `data/spec/t1e8_stats.txt`, 5101441, and the S(p) = 1 primes of
+`data/cond/scan_hard_1e7.txt`) with E = 20000.
+
+**Table 3.1 (per prime, means; P20/TP20 = number of P/TP slices with `|−K_e| = φ(e)/2 ≥ 20`).**
+
+| sample | solution slices | P | TP | P20 | TP20 | #p with P20 = 0 | largest covered `φ(e)/2`: mean / min | max ω(N_e) |
+|---|---|---|---|---|---|---|---|---|
+| MH ≤ 10⁶ (E=2000) | 43.5 | 14.0 | 10.1 | 7.3 | 6.8 | 2 (3529, …) | 238 / 12 | 6.5 |
+| 10⁴ | 36.1 | 10.8 | 8.0 | 4.9 | 4.7 | 1 (110881) | 159 / 12 | 6.6 |
+| 10⁶ | 61.3 | 16.0 | 11.4 | 8.8 | 8.1 | 0 | 319 / 36 | 7.1 |
+| 10⁷ | 80.2 | 20.1 | 13.5 | 12.0 | 10.3 | 0 | 500 / 60 | 7.3 |
+| 10⁸ | 100.6 | 25.2 | 16.0 | 16.1 | 12.7 | 0 | 697 / 95 | 7.6 |
+| 15 hard primes (E=20000) | 51.3 | 9.6 | 7.4 | 6.4 | 5.7 | 0 | 242 / 20 | 7.6 |
+
+**Table 3.2 (per prime, first 100 of each sample: solution slices / P / TP by e-range).**
+
+| sample | e < 20 | 20 ≤ e < 100 | 100 ≤ e < 500 | 500 ≤ e < 2000 | 2000 ≤ e < 5000 |
+|---|---|---|---|---|---|
+| 10⁴ | 3.27/3.10/1.06 | 8.02/4.79/4.33 | 10.12/1.89/1.88 | 6.07/0.13/0.13 | 2.76/0/0 |
+| 10⁶ | 4.02/3.82/0.98 | 10.53/6.92/5.38 | 18.24/4.46/4.36 | 17.50/0.60/0.60 | 10.92/0.02/0.02 |
+| 10⁸ | 4.61/4.41/0.84 | 13.05/9.43/5.60 | 26.89/8.57/6.91 | 33.13/2.36/2.31 | 23.22/0.27/0.27 |
+
+Readings (EVIDENCE, finite ranges):
+1. **Covering vs luck.** For e < 20 almost every solution slice is a full cover (|−K_e| ≤ 9, so "cover" and "hit"
+   nearly coincide). For e ≥ 500 covers are rare (≈ 5–7 % of solution slices at 10⁸, 1–2 % at 10⁴–10⁶): the bulk of
+   the growing solution mass at moderate e is *luck* (−1 is hit without the coset being covered).
+2. **The deep covers are transparent.** The largest covered coset per prime is attained by a transparent
+   certificate for 2358/2370 primes ≤ 10⁶ and ≥ 297/300 in every sample; for e ≥ 100, P ≈ TP in every bin. Large
+   prime factors ("free generators") add covers almost only at e < 100. This is the regime of Theorem 2.2.
+3. **Transparent counts still grow at p ≤ 10⁸** (TP 8 → 16 per prime), although Theorem 2.2 says the limit is
+   bounded: truncation (`L ≤ N_e`, and a cover at modulus e needs `L ≳ e^{log₃ e}`) has not saturated. The limiting
+   model (`scripts/lsa_model_limit.py`: exact p → ∞ law of the transparent part, CRT-independent divisibility)
+   gives, for the *necessary* size condition `3τ(L²) ≥ φ(e)/2`, per type: 2.0 (e < 10), 12.6, 41.1, 85.1, 116.6,
+   112.5 for the decades up to 10⁶ — a convergent but large series (the Markov bound in Thm 2.2 is far from sharp).
+   So Theorem 2.2's positive-density failure set has density far too small to observe below 10⁸. Assessment: the
+   theorem is qualitative.
+4. **Largest k.** max_e ω(N_e) over e ≤ 5000 is 7–8 at 10⁸ (`log₃` of the covered `φ(e)/2` is ≤ 6): the brief's
+   "≈ log₃ q" is what is attained, and it is attained with mostly *small* (transparent) primes.
+5. All sampled primes have covers with |−K_e| ≥ 20 except small ones (3529, 110881 and one more ≤ 10⁶); every
+   sampled prime ≥ 10⁶ has ≥ 2. This is EVIDENCE for Conjecture 5.1 below, not for a mechanism.
+
+## 4. Collapse tests T1–T8 (red team 1 §4) for the pigeonhole mechanism
+
+* **T1 (odd squares).** The step that fails at n = m² is named: a cover of the target coset `−K_e` needs a prime
+  factor outside K_e, i.e. with `(ℓ/n) = −1` (Lemma 1.2(i),(iii)); at odd squares every prime factor of N_e is in
+  K_e. Every covering criterion must carry this genus condition (Prop 1.4 at H = K_e). PASS (it is built in).
+* **T2 (integrality).** Not a counting route; certificates are witness-producing. But the *mass* of certificates
+  matters: transparent covers have bounded mass (Thm 2.2), so they cannot be "always present".
+* **T3 (range).** Lemma 2.3: all certificates have `e ≤ p^{o(1)}`. At e ≤ Y every transparent route fails at
+  primes p ≡ 1 (mod 8∏_{ℓ≤Y}ℓ) (Thm 2.2(a)) — the n_p phenomenon. No claim below n_p is made.
+* **T4 (non-residue).** χ_p enters exactly through `χ_{−e}(ℓ) = (ℓ/p)` (Lemma 1.2(i)); for Type II with
+  `(e/p) = −1` a non-residue factor is automatic. PASS.
+* **T5 (X5 fibre).** The Type II multiplier of an e-slice solution is `f = 4acd − 1 ≥ 4N/e > p/e`, so W(p) > T
+  constrains only e ≳ p/T: X5 does not bind the small-e slices where covers live. (No contradiction, no help.)
+* **T6 (covering / sterile points).** Bounded families of e: Thm C under H (red team 2 Thm 2.2(iii)). Transparent
+  covers over *all* e: Thm 2.2, unconditional, positive density. At sterile candidates (x**, x̂₉) only the
+  non-transparent part can act.
+* **T7 (average leak).** Theorem 2.2 averages over p, legitimately (it is a negative statement). A positive use of
+  "general position of the residues of large prime factors" proved on average over p would be a T7 leak.
+* **T8 (lifting).** Exact: Lemma 1.1 is a bijection (validated numerically against brute force).
+Verdict: the mechanism survives T1/T4/T8 by construction; its deterministic part is killed by Thm 2.2, and its
+remaining part is the lottery (T2/T7).
