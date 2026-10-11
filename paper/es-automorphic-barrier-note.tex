@@ -14,6 +14,7 @@
 \newtheorem{hypothesis}[theorem]{Hypothesis}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{problem}{Problem}
 \numberwithin{equation}{section}
 \newcommand{\Z}{\mathbb Z}
@@ -930,6 +931,234 @@ $d\le D(p)$ forces $n_p\le D(p)$; GRH gives $n_p\ll\cL^2$ (Ankeny, Bach) and
 Burgess gives $n_p\ll p^{1/(4\sqrt e)+\varepsilon}$ unconditionally.
 \end{assessment}
 
+\section{Two non-counting escapes that fail}\label{sec:longshots}
+Proposition~\ref{prop:scale} bounds every route that proves ES by
+counting a target against a main term. Two kinds of argument look
+different. A \emph{covering} (pigeonhole) argument would show that a whole
+coset of residues is hit, hence also the target residue, without locating
+or counting solutions. A \emph{fibred} encoding attaches to each solution a
+fibre that grows like a power of an auxiliary height $H$, so that the
+count is large although the number of solutions is small. This is the
+loophole ``fibres $\mu\ge p^{\eta-o(1)}$'' left open after
+Proposition~\ref{prop:scale} (the blind spot of the red team's test~T8,
+\cite[\S5.5]{RT1}). Both routes fail, each with an exact scope stated
+below. The sources are \cite{LP} (covering) and \cite{LF} (fibred), with
+their internal reviews.
+
+\subsection{Covering in the $e$-slices}\label{ssec:cover}
+Let $p$ be an odd prime and $e\ge1$ with $e\equiv-p\pmod4$, $p\nmid e$. Put
+\[N_e^{II}(p)=\frac{p+e}4,\qquad N_e^{I}(p)=\frac{pe+1}4,\]
+and for $\gcd(N,e)=1$ define the \emph{signed divisor-ratio set}
+$\Sigma_e(N)=\{ab^{-1}\bmod e:\ a,b\ge1,\ ab\mid N\}\subset G_e:=(\Z/e)^*$.
+
+\begin{lemma}[$e$-slices; \status{proved}, elementary; {\cite[Lemma~1.1]{LP}}]\label{lem:eslice}
+Let $T\in\{I,II\}$ and $N=N_e^T(p)$. \textup{(i)} $\gcd(N,e)=1$.
+\textup{(ii)} The elements of $V_T(p)$ with this value of $e$ are in
+bijection with the pairs $(a,b)$, $a,b\ge1$, $ab\mid N$, $e\mid a+b$, via
+$d=N/(ab)$, $c=(a+b)/e$. \textup{(iii)} So this fibre is non-empty iff
+$-1\in\Sigma_e(N)$. \textup{(iv)}
+$\Sigma_e(N)=\prod_{\ell^v\parallel N}\{\ell^t:|t|\le v\}$ (a product set in
+$G_e$); in particular $|\Sigma_e(N)|\le\tau(N^2)$.
+\end{lemma}
+\begin{proof}
+(i) $4N^I\equiv1$ and $4N^{II}\equiv p\pmod e$, and $e$ is odd. (ii) These are
+the defining equations $4abd=4N$, $a+b=ce$. (iii) By (i), $a$ and $b$ are
+units mod $e$, and $e\mid a+b$ iff $ab^{-1}\equiv-1$. (iv) With
+$a=\prod\ell^{\alpha_\ell}$, $b=\prod\ell^{\beta_\ell}$ the condition is
+$\alpha_\ell+\beta_\ell\le v_\ell$, and every $t=\alpha-\beta\in[-v,v]$ occurs.
+\end{proof}
+Every element of $V_I(p)\cup V_{II}(p)$ has a value of $e$, so by
+\eqref{eq:VIVII}, $\mathrm{ES}(p)$ holds iff $-1\in\Sigma_e(N_e^T(p))$ for some
+$e$ and $T$: the $e$-slices parametrise all solutions by one coordinate.
+(The map from $V_T(p)$ to solutions is onto, and injective once
+$\gcd(a,b)=1$ is imposed; existence is unaffected.) For Type~II,
+$N=N_e^{II}(p)$ runs over the consecutive integers above $p/4$.
+
+From now on $p\equiv1\pmod4$, so $e\equiv3\pmod4$. Then the Kronecker
+symbol $\chi_{-e}$ coincides with the Jacobi symbol $(\cdot/e)$; it is a
+character of $G_e$ with $\chi_{-e}(-1)=-1$. Let $K_e=\ker\chi_{-e}$, a
+subgroup of index~$2$ not containing $-1$.
+
+\begin{lemma}[genus inside a slice; \status{proved}; {\cite[Lemma~1.2]{LP}}]\label{lem:eslicegenus}
+Let $N=N_e^T(p)$. \textup{(i)} Every prime $\ell\mid N$, including
+$\ell=2$, has $\chi_{-e}(\ell)=(\ell/p)$. \textup{(ii)} $\chi_{-e}(N^I)=1$
+and $\chi_{-e}(N^{II})=(e/p)$. \textup{(iii)} Hence a point of the slice
+needs a prime $\ell\mid ab$ with $(\ell/p)=-1$. If $p$ is replaced by an odd
+square $m^2$ with $\gcd(m,e)=1$, then $\Sigma_e(N)\subset K_e\not\ni-1$.
+\end{lemma}
+\begin{proof}
+(i) For odd $\ell$, Type~II gives $-e\equiv p$ and Type~I gives
+$-e\equiv p^{-1}\pmod\ell$, so $(-e/\ell)=(p/\ell)=(\ell/p)$. If $2\mid N$
+then $8\mid p+e$ (resp.\ $8\mid pe+1$), so $-e\equiv p\pmod8$, and
+$(-e/2)=(p/2)=(2/p)$. (ii) Multiplying (i), $\chi_{-e}(N)=(N/p)$, and
+$4N^I\equiv1$, $4N^{II}\equiv e\pmod p$. (iii) $\chi_{-e}(ab^{-1})=-1$ and (i);
+at $m^2$ all the symbols are $+1$.
+\end{proof}
+The target $-1$ lies in the non-trivial coset $-K_e$, and only prime
+factors with $(\ell/p)=-1$ leave $K_e$. This is the odd-square obstruction
+\cite[Prop.~1.6]{ET} inside one slice, and the reason why small levels
+fail when $p$ is a residue of all small primes. The naive pigeonhole
+aims at the wrong coset:
+
+\begin{lemma}[collisions give signed solutions; \status{proved}; {\cite[Lemma~1.3]{LP}}]\label{lem:collide}
+If $2^{\omega(N)}>\varphi(e)$, there are coprime $a>b\ge1$ with $ab\mid N$ and
+$a\equiv b\pmod e$. With $c=(a-b)/e$ and $d=N/(ab)$,
+\[\tfrac4p=\tfrac1{abd}-\tfrac1{acdp}+\tfrac1{bcdp}\ \ (T=II),\qquad
+\tfrac4p=\tfrac1{abdp}-\tfrac1{acd}+\tfrac1{bcd}\ \ (T=I).\]
+\end{lemma}
+\begin{proof}
+Two of the $2^{\omega(N)}$ unitary divisors of $N$ agree mod $e$; divide
+both by their gcd. The identities are $c(p+e)/(abcdp)$ and
+$c(1+pe)/(abcdp)$, as for \eqref{eq:VIVII}.
+\end{proof}
+Collisions and zero-sum theory (Davenport, Olson, Erd\H{o}s--Ginzburg--Ziv)
+hit the target $1\in K_e$, i.e.\ signed solutions, which exist trivially.
+Positivity asks for a translate $-K_e$ to be hit: a covering statement.
+
+\begin{proposition}[covering criterion; \status{proved} from Kneser's theorem \cite{Kn}, {\cite[Thm.~5.5]{TV}}; {\cite[Prop.~1.4]{LP}}]\label{prop:kneser}
+Let $G$ be a finite abelian group, $g_1,\dots,g_k\in G$, $v_i\ge1$,
+$A_i=\{g_i^t:|t|\le v_i\}$, $\Sigma=A_1\cdots A_k$, $t_0\in G$, and let
+$o_H(g)$ be the order of $gH$ in $G/H$. If
+\[\textstyle\sum_i\bigl(\min(2v_i+1,o_H(g_i))-1\bigr)\ \ge\ |G:H|-1\]
+for every subgroup $H$ with $t_0\notin H$, then $t_0\in\Sigma$. Among
+criteria that depend only on the orders $o_H(g_i)$ (for all $H$) and on
+the $v_i$, this one is sharp: in $\Z/2m$ with all $g_i=1$, $v_i=1$, $t_0=m$
+it reads $2k\ge2m-1$ at $H=0$ (and is implied by it at the other $H$), and $\Sigma=[-k,k]$ contains $m$ iff $k\ge m$.
+\end{proposition}
+\begin{proof}
+Let $H=\mathrm{Stab}(\Sigma)$. As $1\in\Sigma$, $H\subset\Sigma$; if
+$t_0\notin\Sigma$ then $t_0\notin H$ and $|\Sigma/H|\le|G:H|-1$. In $G/H$ every
+partial product of the images $X_i$ of the $A_i$ has trivial stabiliser, so
+Kneser gives $|\Sigma/H|\ge1+\sum_i(|X_i|-1)$ with
+$|X_i|=\min(2v_i+1,o_H(g_i))$.
+\end{proof}
+In the slice ($G=G_e$, $g_i$ the primes $\ell\mid N$, $v_i=v_\ell(N)$,
+$t_0=-1$), $H=K_e$ recovers Lemma~\ref{lem:eslicegenus}, and $H=\{1\}$
+requires $\Omega(N)\ge(\varphi(e)-1)/2$. So there are three regimes. Counting:
+a certificate that $-K_e\subset\Sigma_e(N)$ needs $\tau(N^2)\ge\varphi(e)/2$,
+i.e.\ $\Omega(N)\ge\log_3(\varphi(e)/2)$. Structure-only criteria as above
+need $\Omega(N)$ linear in $\varphi(e)$. Random residues would need only
+$3^{\omega(N)}\gtrsim\varphi(e)\log\varphi(e)$ (a heuristic). To go from
+linear to logarithmic one must know the actual residues $\ell\bmod e$ of the
+prime factors. Forcing small primes into $N$ by congruences costs the
+modulus: $\ell\mid N_e^{II}(p)$ iff $e\equiv-p\pmod{4\ell}$, so forcing $k$ odd
+primes puts $e$ in one class modulo $4L\ge\exp((1+o(1))k\log k)$, against the
+$3^{k+1}$ residues available \cite[Lemma~2.1]{LP}. And by the
+Nicolas--Robin bound \cite{NR}, any coset of index $\le e^\theta$ ($\theta<1$)
+contained in $\Sigma_e(N_e^T(p))$ forces $e\le\exp(O_\theta(\log p/\log\log p))$
+\cite[Lemma~2.3]{LP}: covering certificates live in a window of length
+$p^{o(1)}$.
+
+The primes of $N$ below the modulus have known residues (themselves). The
+next theorem shows that they never suffice on a positive proportion of
+primes.
+
+\begin{definition}[{\cite[\S2.2]{LP}}]
+Let $N=N_e^T(p)$, $L=\prod_{\ell^v\parallel N,\ \ell<e}\ell^v$ (the
+\emph{transparent part}), $M=N/L$, and $R=\Sigma_e(L)\cdot\{M^{-1},1,M\}$.
+For $0\le\theta<1$, a \emph{transparent covering certificate of strength
+$\theta$} at $(p,e,T)$ is a subgroup $H\le G_e$ with $|G_e:H|\le2e^\theta$ and
+$-H\subset R$.
+\end{definition}
+Since $R\subset\Sigma_e(N)$ and $-1\in-H$, a certificate yields a solution.
+With $H=K_e$ it says that $R$ covers the whole target coset $-K_e$.
+
+\begin{theorem}[\status{proved}, relative to PNT in progressions to a fixed modulus, Brun--Titchmarsh \cite{MV}, Shiu \cite[Thm.~1]{Shiu} and Nicolas--Robin \cite{NR}; {\cite[Thm.~2.2]{LP}}]\label{thm:transparent}
+Fix $0\le\theta<1/2$ and $\varepsilon>0$. There is $C=C(\theta,\varepsilon)$
+such that for every $Y\ge3$, with $q_0=8\prod_{3\le\ell\le Y}\ell$,
+\begin{multline*}
+\#\{p\le x:\ p\equiv1\ (q_0),\ \text{a certificate of strength $\theta$
+exists at some }(e,T)\}\\
+\le\bigl(CY^{-1+2\theta+\varepsilon}+o_{x\to\infty}(1)\bigr)\,\pi(x;q_0,1),
+\end{multline*}
+where $e$ ranges over all $e\equiv3\pmod4$ and $T$ over $\{I,II\}$. Hence,
+for $Y$ large, a set of primes of positive lower density has no transparent
+covering certificate in any $e$-slice of either type.
+\end{theorem}
+\begin{proof}[Sketch]
+A certificate gives $|R|\ge\varphi(e)e^{-\theta}/2$, hence
+$\tau(L^2)\ge B_e:=\varphi(e)e^{-\theta}/6$. Fix $p\equiv1\pmod{q_0}$, $p\le x$.
+
+\emph{(a) $e\le Y$.} Every prime $\ell<e$ has $(\ell/p)=1$, so $L\in K_e$
+(Lemma~\ref{lem:eslicegenus}(i)); $(e/p)=1$ as all prime factors of $e$ are
+$\le Y$, so $\chi_{-e}(M)=1$ by Lemma~\ref{lem:eslicegenus}(ii). Thus
+$R\subset K_e\not\ni-1$: not even a transparent witness exists.
+
+\emph{(b) $Y<e\le E_1:=\exp((\log x)^{1/3})$.} If $L>x^{1/2}$, multiplying the
+prime factors of $L$ (all $<x^{1/4}$) one at a time gives $u\mid N$ with
+$x^{1/4}<u\le x^{1/2}$ and $P^+(u)<E_1$; then $p$ lies in one class mod
+$4u$, and Brun--Titchmarsh with Rankin's bound for
+$\sum_{u>x^{1/4},\,P^+(u)<E_1}1/\varphi(u)$, summed over the $\le2E_1$ pairs
+$(e,T)$, gives $o(x/(\varphi(q_0)\log x))$ primes. If $L\le x^{1/2}$, use
+Markov's inequality with the second moment:
+$1\le B_e^{-2}\tau(L^2)^2=B_e^{-2}\sum_{m\mid L}h(m)$, where
+$h=\tau(\cdot^2)^2*\mu\ge0$, $h(\ell^v)=8v$. Each $m\le x^{1/2}$ with $m\mid N$
+puts $p$ in one class mod $\mathrm{lcm}(4m,q_0)\le x^{2/3}$ (compatible with
+$p\equiv1\ (q_0)$ only if every odd $\ell\le Y$ dividing $m$ divides $e+1$).
+Brun--Titchmarsh and an Euler product bound the number of such $p$ by
+$\ll\frac{x}{\varphi(q_0)\log x}\,19^{\omega(e+1)}(\log e)^8B_e^{-2}$, and
+$\sum_{e>Y}19^{\omega(e+1)}(\log e)^8B_e^{-2}\ll Y^{-1+2\theta+\varepsilon}$ with
+a constant independent of $Y$.
+
+\emph{(c) $E_1<e\le x$.} Markov over all $p\le x$ (the map $p\mapsto N$ is
+injective): Type~II has $N\le x/2$ and $\sum_{n\le x/2}\tau(n^2)^2\ll x(\log x)^8$;
+Type~I has $N\equiv4^{-1}\pmod e$, $N\le X=(xe+1)/4$, and Shiu's theorem
+(modulus $e<X^{3/4}$) gives $\ll(xe/\varphi(e))(\log x)^8$. Since
+$\sum_{e>E_1}B_e^{-2}e/\varphi(e)\ll E_1^{-1+2\theta+\varepsilon}$, which beats every
+power of $\log x$, the count is $o(x/(\varphi(q_0)\log x))$.
+
+\emph{(d) $e>x$.} Then $N\le e^2/4$, and Nicolas--Robin gives
+$\tau(N^2)\le\tau(N)^2\le\exp(4.3\log e/\log\log e)<B_e$ for $e\ge e_0(\theta)$.
+
+Finally, PNT in progressions gives $\pi(x;q_0,1)\ge x/(2\varphi(q_0)\log x)$
+for $x\ge x_0(Y)$.
+\end{proof}
+
+\begin{remark}[all $\theta<1$]\label{rem:thetaone}
+The restriction $\theta<1/2$ comes only from the second moment. With
+$\tau(\cdot^2)^r$, $r>1/(1-\theta)$, the same four steps go through (local
+factors $\ll_rv^{r-1}$, Shiu with $(3^r)^v$, Markov with $B_e^{-r}$), so the
+theorem holds for every fixed $\theta<1$: transparent certificates
+covering a coset of size $\ge e^\delta$ fail on a positive-density set, for
+every $\delta>0$. This extension was derived by the internal reviewer and
+checked step by step against the proof above
+(\texttt{reviews/longshot-pigeonhole-review.md}, D6); it is recorded in
+\cite[\S2.2]{LP} as a remark.
+\end{remark}
+
+\emph{Scope.} Theorem~\ref{thm:transparent} concerns certificates that use
+only the prime factors of $N_e^T(p)$ below the modulus, plus the rest of
+$N$ as one opaque block, and that cover a coset of size $\ge e^\delta$. It
+says nothing about arguments that merely hit $-1$, or that use the residues
+mod $e$ of specific prime factors above the modulus. Those are the
+per-slice divisor events of \S\ref{sec:reduction}, i.e.\ hatches H-A and
+H-B below. The proof shows more than failure: the expected number of
+transparent certificates over all $e$ is bounded by a convergent series
+$\sum_e(\log e)^8e^{2\theta-2}$ independent of $p$, so this is a
+bounded-mass mechanism, not a near miss. The analogous statement for the
+two-coordinate rows of Lemma~\ref{lem:slices} should follow by the same
+proof (\status{Assessment}; not written out).
+
+\begin{conjecture}[PH, \status{conjecture}; {\cite[Conj.~5.1]{LP}}]\label{conj:PH}
+For every sufficiently large prime $p\equiv1\pmod4$ there are
+$e\equiv3\pmod4$ and $T$ with $\varphi(e)\ge40$ and
+$\Sigma_e(N_e^T(p))\supseteq-K_e$.
+\end{conjecture}
+PH implies ES$(p)$. \status{evidence} \cite[\S3]{LP} (independent engine
+for six primes in the review): every Mordell-hard prime below $10^6$ except
+$3529$ and $110881$ has such a cover with $e\le2000$; so do $300$
+consecutive Mordell-hard primes after each of $10^6,10^7,10^8$ (with
+$e\le5000$), and $15$ selected hard primes (with $e\le20000$). The
+largest covered cosets have $|{-K_e}|$ up to $2339$, and the deep covers are
+almost always transparent. For $e\ge500$, covers are about $5\%$ of the
+slices containing a solution at $10^8$: most solutions at moderate $e$
+hit $-1$ without covering $-K_e$. The transparent counts still grow up to
+$10^8$, so the failure set of Theorem~\ref{thm:transparent} is not visible
+numerically; the theorem is qualitative. By Theorem~\ref{thm:transparent},
+any proof of PH must use prime factors above the modulus on a set of
+positive density, so PH is not easier than H-A/H-B
+(\status{Assessment}).
+
 \section{Open problems: the escape hatches}\label{sec:open}
 By Theorem~\ref{thm:reduction}(iii), a route that survives must use a
 parameter set growing with $p$, integers that are not formal polynomials
@@ -1109,6 +1338,13 @@ Erd\H{o}s--Straus conjecture remains open.
 \bibitem[O131]{O131} \emph{Exact-formula search}, internal note, \texttt{EXACT\_FORMULA.md}, review \texttt{reviews/exact-formula-review.md}.
 \bibitem[RT1]{RT1} \emph{Red team for the automorphic/geometric attack}, internal report, \texttt{reviews/redteam-automorphic.md}.
 \bibitem[RT2]{RT2} \emph{Red team 2 and synthesis: the divisor-class reduction}, internal report, \texttt{reviews/redteam-automorphic-2.md}.
+\bibitem[LP]{LP} \emph{Long shot A: a deterministic pigeonhole mechanism}, internal note, \texttt{LONGSHOT\_PIGEONHOLE.md}, review \texttt{reviews/longshot-pigeonhole-review.md}.
+\bibitem[LF]{LF} \emph{Fibred encodings of Erd\H{o}s--Straus solutions}, internal note, \texttt{LONGSHOT\_FIBRED.md}, review \texttt{reviews/longshot-fibred-review.md}.
+\bibitem[Kn]{Kn} M. Kneser, Absch\"atzung der asymptotischen Dichte von Summenmengen, \emph{Math. Z.} \textbf{58} (1953), 459--484.
+\bibitem[TV]{TV} T. Tao and V. Vu, \emph{Additive Combinatorics}, Cambridge University Press, 2006.
+\bibitem[MV]{MV} H. L. Montgomery and R. C. Vaughan, The large sieve, \emph{Mathematika} \textbf{20} (1973), 119--134.
+\bibitem[Sh]{Shiu} P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions, \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[NR]{NR} J.-L. Nicolas and G. Robin, Majorations explicites pour le nombre de diviseurs de $N$, \emph{Canad. Math. Bull.} \textbf{26} (1983), 485--492.
 \bibitem[LA]{LA} \emph{Spectral and geometric tools for pointwise representation (literature survey)}, internal file, \texttt{LITERATURE\_AUTOMORPHIC.md}.
 \end{thebibliography}
 \end{document}
