@@ -3,9 +3,32 @@
 Status labels as in DISCOVERIES.md. **ES is not proved here, nor any new case of it.** Work in progress;
 §0 is filled in at the checkpoint.
 
-## 0. Summary (checkpoint)
+## 0. Summary (checkpoint 1)
 
-(to be written)
+**ES is not proved, nor any new case of it.** Outcome: a PROVED negative result with exact scope, a precise
+reduction of the "highly composite slice" idea, and EVIDENCE.
+* **Exact covering problem (§1; PROVED).** The single coordinate e parametrises all solutions: ES(p) ⟺ for some
+  e, −1 lies in the *signed* divisor-ratio set `Σ_e(N) = {ab⁻¹ mod e : ab | N}`, `N = (p+e)/4` (Type II, consecutive
+  integers above p/4) or `(pe+1)/4` (Type I) (Lemma 1.1). The target lies in the non-trivial coset of the genus
+  subgroup `K_e = ker χ_{−e}`, and each prime factor ℓ of N sits in K_e or −K_e according to `(ℓ/p)` (Lemma 1.2;
+  this is the odd-square step T1 and the n_p phenomenon T4).
+* **Pigeonhole proper gives the wrong sign** (Lemma 1.3): collisions/zero-sums produce *signed* solutions
+  `4/p = 1/x − 1/y + 1/z`. Positivity is a covering-of-a-translate statement.
+* **Covering thresholds (§1.4–1.5).** Counting: `τ(N²) ≥ |target|`. Structure-only (Kneser) criteria: linear in the
+  index, and sharp (Prop 1.4). The brief's `≈ log₃ q` needs the actual residues of the prime factors.
+* **Supply (§2).** CRT forcing costs `e^{(1+o(1))k log k}` against `3^{k+1}` (Lemma 2.1 — the brief's estimate,
+  confirmed); every certificate has `e ≤ p^{o(1)}` (Lemma 2.3); large Ω comes from prime powers, which count
+  linearly. **Theorem 2.2 (PROVED, rel. PNT in APs, Brun–Titchmarsh, Shiu, Nicolas–Robin):** covering certificates
+  built from the prime factors *below the modulus* plus one opaque cofactor have bounded mass and **fail for a
+  positive proportion of primes, in every e-slice of both types**. The remaining (non-transparent) part is the
+  residue distribution of large prime factors of specific integers — the lottery (H-A/H-B), untouched here.
+* **Numerics (§3; EVIDENCE).** Validated engine. Full-coset covers exist at every sampled prime ≥ 10⁶ (largest
+  covered |−K_e| up to 2339), the deep covers are almost always transparent, covers are a ≈ 5 % minority of
+  solution slices at e ≥ 500 (10⁸), and the transparent counts are still pre-asymptotic at 10⁸ (Theorem 2.2's
+  failure set is not observable numerically).
+* **Conjecture PH (§5)** (full-coset cover in some e-slice for all large p) is consistent with the data but, by
+  Theorem 2.2, needs the lottery input on a positive-density set.
+* **T1–T8 (§4):** passes T1/T4/T8 by construction; the deterministic part dies by Thm 2.2, the rest is T2/T7 lottery.
 
 ## 1. The covering problem, made exact
 
@@ -375,7 +398,7 @@ the modulus, so PH is not easier than the lottery it was meant to replace (Asses
 
 **Small explicit instances (PROVED by Prop 1.4; classical in flavour, recorded only as illustrations of "ES on a
 non-congruence-defined set").** For p ≡ 1 (mod 4): ES(p) holds if `(p+3)/4` has a prime factor ≡ 2 (mod 3)
-(e = 3); or if `(p+7)/4` has a prime factor ≡ 3, 5 or 6 (mod 7) and, counted with multiplicity, at least three prime
+(e = 3); or if `(p+7)/4` has a prime factor ≡ 3, 5 or 6 (mod 7) and at least three distinct prime
 factors ≢ ±1 (mod 7) (e = 7: subgroups ∌ −1 of G_7 ≅ C_6 are {1} and K_7 = {1,2,4}; Prop 1.4 gives the two
 conditions). These are sub-cases of single e-slices; under Hypothesis H each fails for infinitely many p
 (Thm C). They are not progress towards ES.
