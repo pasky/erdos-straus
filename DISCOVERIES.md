@@ -495,6 +495,23 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * H-F is cautionary: Markoff-type families satisfy the integral Hasse principle for almost all parameters but fail infinitely often (Ghosh–Sarnak).
    * **Wave verdict (Assessment): ES is not solved. Every automorphic or geometric encoding found here reduces, for fixed p, to genus/congruence data plus divisor events of specific integers at Planck scale, with polylogarithmic expected counts.**
 
+9. **Long shot A: no deterministic pigeonhole (LONGSHOT_PIGEONHOLE.md (O135); review `reviews/longshot-pigeonhole-review.md` (R135): no FATAL/MAJOR, minors repaired by the reviewer).**
+   * Lemma 1.1 (PROVED; checked against a direct solver for all primes < 2000): ES(p) ⟺ ∃ e ≡ −p (4) with −1 ∈ Σ_e(N) = {ab⁻¹ mod e : ab | N}, where N = (p+e)/4 (Type II) or (pe+1)/4 (Type I).
+   * Lemma 1.2 (PROVED): genus theory inside a slice, at every prime factor including ℓ = 2.
+   * Lemma 1.3 (PROVED): pigeonhole collisions give only *signed* solutions.
+   * Prop 1.4 (PROVED, from Kneser): structure-only covering needs a number of prime factors linear in the subgroup index.
+   * Lemma 2.1 (PROVED): forcing k prime factors costs e^{(1+o(1))k log k}, against 3^{k+1} needed. Lemma 2.3: every covering certificate has e ≤ p^{o(1)}.
+   * **Thm 2.2 (PROVED relative to PNT in APs, Brun–Titchmarsh, Shiu, Nicolas–Robin; R135: holds for all θ < 1).** Certificates built from the prime factors of N_e below the modulus, plus one opaque cofactor, fail for a positive proportion of primes in every e-slice of both types. This is a change of regime, not a log log near miss.
+   * Not excluded: certificates that use the residues of prime factors above the modulus. That is the per-slice lottery again (H-A/H-B).
+   * CONJECTURE PH: every large p has a full-coset cover with φ(e) ≥ 40. EVIDENCE: all hard primes up to 3.7·10⁷ have one; exceptions below 10⁶ are 3529 and 110881.
+
+10. **Long shot B: fibred encodings do not escape the scale constraint (LONGSHOT_FIBRED.md (O136); review `reviews/longshot-fibred-review.md` (R136): no FATAL; two MAJOR (D1 scope overclaim, D2 a hidden hypothesis in Thm 2.3(c)) and minors, repaired by the reviewer).**
+   * Lemma 2.1 / Thm 2.3 (PROVED): rational recipes are constant on Zariski-dense sets, and lattice orbits are Zariski-dense (Borel). So for algebraic recipes the counting is idle.
+   * Cor 2.4 (PROVED relative to ET Prop 1.6 and Dirichlet): uniform algebraic encodings of bounded complexity miss all large p ≡ 1 (mod D').
+   * Thm 3.1 (PROVED relative to the counting input (C); the EM/EMS/BR/CTX statements were checked only by the author's research subagent): for orbit recipes, the leading constant is c(n) = Σ_orbits (stabiliser covolume). With compact or finite stabilisers the scale constraint returns, so the fibre factor H^δ cancels.
+   * Odd-square test: mass-formula main terms pass it only at primes dividing m (Prop 5.1, under the stated uniformity hypothesis (U)). The natural genus-twisted criterion 𝔊⁻_d is not valid for ES: F_d(p) = 0 in 19 of 40 tested pairs.
+   * Thm 5.4 item 3 is CONDITIONAL (Colliot-Thélène–Xu hypotheses fail for F5). Scope: algebraic recipes and orbit recipes with bounded covolume ratio. This is not a theorem about all large-fibre encodings (R136, D1).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
