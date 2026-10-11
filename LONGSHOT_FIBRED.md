@@ -81,3 +81,43 @@ in particular for an ℓ-adic or real point; ℤ_ℓ-coefficients map `ℤ_ℓ`-
 component on which the recipe is constant, the component "knows" its solution, and counting its points
 certifies nothing about `Sol(n)` that is not visible from the equations. This is RT1 Prop 6.1 ("a whole curve
 maps to one solution") in every dimension, plus the observation that the count is then logically idle.
+
+**Corollary 2.4 (uniform algebraic encodings miss the square classes; PROVED relative to ET Prop 1.6 and
+Dirichlet; known in substance: Mordell 1969 / Schinzel 2000 as quoted in ET p. 8, and the unconditional
+instances of POINTWISE_SIZE Thm C).** Let `𝒱 ⊂ 𝔸^N × 𝔸¹_n` be an irreducible ℚ-variety whose generic fibre over
+`𝔸¹_n` is geometrically irreducible, and `φ : 𝒱 ⇢ 𝔸³` a rational map over ℚ. Let `P_cov` be the set of primes p
+for which some `E(p) ⊂ 𝒱_p(ℤ)`, Zariski-dense in `𝒱_p` (irreducible), satisfies `φ(E(p)) ⊂ Sol(p)`. Then there
+is an integer `D' ≥ 1` (depending only on `(𝒱, φ)`) such that all but finitely many `p ∈ P_cov` are
+quadratic non-residues mod `D'`. In particular infinitely many primes (all large `p ≡ 1 mod D'`) are not covered.
+*Proof.* (i) *A section.* By Lemma 2.1, `φ|_{𝒱_p}` is constant for every `p ∈ P_cov`. If `P_cov` is finite there
+is nothing to prove. Otherwise the closure of the image of `(φ, n) : 𝒱 ⇢ 𝔸³ × 𝔸¹` has finite fibres over the
+infinite (hence Zariski-dense) set `P_cov`, so it is a curve dominating `𝔸¹`; its generic fibre is the image of
+the geometrically irreducible generic fibre of 𝒱, hence one Galois-stable point: `s₀ = (x,y,z) ∈ ℚ(n)³`, with
+`s₀(p) ∈ Sol(p)` for `p ∈ P_cov` (large). The identity `4xyz = n(xy+yz+zx)` holds at infinitely many n, hence in
+`ℚ(n)`. (ii) *Polynomiality.* Write `x = A + r/Q` with `A ∈ ℚ[n]`, `deg r < deg Q`, and D a denominator of A.
+Then `D·r(p)/Q(p) = D·x(p) − D·A(p) ∈ ℤ` and tends to 0, so `r(p) = 0` for infinitely many p, `r = 0`.
+So `x, y, z ∈ ℚ[n]`, with positive leading coefficients. (iii) *The pattern is polynomial.* Each `s₀(p)`,
+`p ∈ P_cov`, is Type I or II at p; fix one of the six patterns (which coordinate(s) p divides) occurring for an
+infinite subset `P'`. Say Type I with `p | x(p)`, `p ∤ y(p)z(p)` (the other cases are identical). Let D be a common
+denominator of x, y, z. `D x(p) ≡ D x(0) (mod p)` gives `p | D x(0)` for all `p ∈ P'`, so `x(0) = 0`, `x = n x₁`.
+If `y(0) = 0` then `p | D y(p)`, so `p | y(p)` for `p ∤ D`, a contradiction; so `y(0)z(0) ≠ 0`.
+(iv) *Transport to a square.* Put `D' = D²·|num(y(0)z(0))|·2` (num = numerator) and suppose `p ∈ P'`, `p > D'`,
+is a square mod D', `p ≡ m₀² (mod D')`. Choose a prime `m ≡ m₀ (mod D')`, m large (Dirichlet; gcd(m₀, D') = 1
+because `gcd(p, D') = 1`), and `n = m²`. The integrality of `x₁(n), y(n), z(n)` depends only on `n mod D`, and
+holds at `n = p`; so it holds at `n = m²`, and the values are positive for m large. `y(n) ≡ y(0) (mod m)` in
+`ℤ_(m)` with `m ∤ D·num(y(0))`, so `m ∤ y(n)`; likewise for z. Thus `(n x₁(n), y(n), z(n))` is a positive
+solution of `4/m²` with `m² | x`, `gcd(m², yz) = 1`, a Type I solution of the odd square `m²`, contradicting
+ET Prop 1.6. (Type II pattern: `y = n y₁`, `z = n z₁`, `x(0) ≠ 0`, same argument.) Hence every `p ∈ P'` with
+`p > D'` is a non-square mod D'. There are finitely many patterns. ∎
+
+**Corollary 2.5 (growing families reduce to the parameter search; PROVED from 2.3).** Let
+`E(p) = ⨆_{θ∈Θ(p)} E_θ`, each `E_θ` Zariski-dense in an irreducible `V_θ`, `φ|_{E_θ}` algebraic, with
+`Θ(p)` any set (growing with p, defined through factorisations, etc.). Then `φ|_{E_θ} ≡ s_θ` (explicit), and
+`#E(p)(≤H) = Σ_{θ : E_θ ≠ ∅} #E_θ(≤H)`. If each `E_θ` has its own asymptotic `c_θ H^{δ_θ}`, the main term of
+`#E(p)(≤H)` is `Σ_{θ ∈ Θ_*(p)} c_θ · H^{δ*}` over the occupied θ of maximal exponent; occupied θ have
+`s_θ ∈ Sol(p)`, and the map `θ ↦ s_θ` has fibres of size `μ(p)`. So Lemma 1.3 applies to the θ-sum with weights
+`c_θ`: the fibring adds the factor `H^{δ*}` and nothing else. *Proof.* Lemma 1.2 with fibres grouped by θ. ∎
+
+*Reading.* Cor 2.4 is the classical "polynomial identities miss the square classes" obstruction, now valid for
+every algebraic fibred encoding of bounded complexity, however large its fibres. Cor 2.5 says that once a
+parameter growing with p is allowed (hatch H-A of RT2), fibring changes the normalisation, not the problem.
