@@ -11,6 +11,7 @@ proof has an identifiable gap.
 * *Deterministic pigeonhole* (`LONGSHOT_PIGEONHOLE.md`, O135/R135). Covering certificates built from the prime factors below the modulus fail for a positive proportion of primes in every slice (Thm 2.2, PROVED relative to classical inputs). Pigeonhole collisions give only signed solutions. CONJECTURE PH: full-coset covers exist for every large p (EVIDENCE to 3.7·10⁷).
 * *Fibred (large-fibre) encodings* (`LONGSHOT_FIBRED.md`, O136/R136). For algebraic recipes and orbit recipes with a bounded covolume ratio, the fibre factor cancels and the scale constraint returns (PROVED relative to the cited counting theorems; one item CONDITIONAL).
 * What remains open is the per-slice lottery itself (H-A/H-B). ES is not solved.
+* *Follow-ups (2026-10-11):* verify.py blocks (fa)/(fb) were added, and the full verify.py is green (O137). The barrier note now has a §6 on both long shots: 24 pp, refereed by R138, ACCEPT (internal). r = 17 (`POINTWISE_MORDELL17D.md`, O139/R139) is still CONDITIONAL. The cell-wide measure route would need a P-count stronger than Elsholtz–Tao's own theorem. The points 5 and −2/3 are CERTIFIED free through ET level 10 (Q-boxes through level 15).
 
 **Headline of the current phase: automorphic/geometric attack on pointwise ES (2026-10-10; tasks O123–O132,
 ledger (I)1–(I)8; all internal and hostile-reviewed, none externally refereed).** **Outcome: a precise negative
