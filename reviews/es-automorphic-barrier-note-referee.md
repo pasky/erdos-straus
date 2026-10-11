@@ -160,3 +160,176 @@ coprimality conditions) vanishes at every square n = m², odd or even". (R134 re
 
 D11 (MINOR, cosmetic). Report O134 says "pdflatex twice, 0 warnings"; from a clean checkout a third pass is needed
 (toc + hyperref). No action needed in the paper.
+
+---
+
+# Round 2 (R138) — the O138 update (§6 long shots; abstract/intro/summary/hatches)
+
+Referee: R138 (hostile, independent). Branch `side-agent/referee-note-r2`, merged from
+`side-agent/barrier-note-longshots` (O138, report `reviews/agent-reports/AGENT_REPORT_O138.md`). Sources checked:
+`LONGSHOT_PIGEONHOLE.md` [LP] + R135 (`reviews/longshot-pigeonhole-review.md`), `LONGSHOT_FIBRED.md` [LF] + R136
+(`reviews/longshot-fibred-review.md`, D1–D14). From-scratch code: `scripts/review_r138_*.py`.
+
+## §6.1 Covering in the e-slices — claim-by-claim
+
+| claim (paper numbering) | source | verdict |
+|---|---|---|
+| Lemma 6.1 (e-slices) | LP Lemma 1.1 | SOUND (MINOR R138-1: p ∤ e not justified in the "every element has a value of e" sentence) |
+| Lemma 6.2 (genus in a slice, ℓ = 2 incl.) | LP Lemma 1.2 | SOUND |
+| Lemma 6.3 (collisions → signed solutions) | LP Lemma 1.3 | SOUND |
+| Prop 6.4 (Kneser criterion + sharpness) | LP Prop 1.4, R135 D2 | SOUND |
+| regimes paragraph (LP Lemmas 2.1, 2.3) | LP §2.1, §2.3 | SOUND (θ < 1 in Lemma 2.3 is fine: the proof never uses θ < 1/2) |
+| Def 6.5 (TCC, index ≤ 2e^θ) | LP §2.2, R135 D3 | SOUND |
+| Thm 6.6 (θ < 1/2, positive lower density) | LP Thm 2.2, R135 D3–D5 | SOUND |
+| Remark 6.7 (all θ < 1) | R135 D6 | SOUND as a sketch, correctly attributed |
+| Scope paragraph | LP §2.2 Reading, R135 D5 | SOUND-AFTER-REPAIRS (MINOR R138-2) |
+| Conj 6.8 PH + EVIDENCE | LP Conj 5.1, §3, R135 §3 | SOUND; labels correct |
+
+Re-derivations. *Lemma 6.1*: (i) 4N^I ≡ 1, 4N^II ≡ p (mod e), e odd; (ii)–(iv) as in the paper; |Σ| ≤ ∏(2v+1) =
+τ(N²). *Lemma 6.2*: for odd ℓ | N, −e ≡ p (II) or p⁻¹ (I) mod ℓ, and for e ≡ 3 (4) Jacobi reciprocity gives
+(ℓ/e) = (−1/ℓ)(e/ℓ) = (−e/ℓ) = (p/ℓ) = (ℓ/p); for ℓ = 2, 8 | p+e resp. 8 | pe+1 gives −e ≡ p (mod 8) (p² ≡ 1),
+and (2/e) = Kronecker(−e/2) = (2/p). (ii) follows by multiplicativity. *Lemma 6.3*: two distinct unitary divisors
+u₁ ≡ u₂ (mod e); after dividing by g = gcd the supports are disjoint, so ab | N, gcd(a,b) = 1; the identities
+reduce to c(p+e)/(abcdp) and c(1+pe)/(abcdp). *Prop 6.4*: H = Stab(Σ) ⊂ Σ (1 ∈ Σ); any partial product with
+stabiliser K makes Σ K-periodic, so all partial products in G/H have trivial stabiliser and Kneser iterates to
+|Σ/H| ≥ 1 + Σ(|X_i| − 1) with |X_i| = min(2v_i+1, o_H(g_i)) (2v_i+1 consecutive powers). Sharpness: in ℤ/2m the
+relevant subgroups are dℤ/2m with d ∤ m, the condition at d = 2m is 2k ≥ 2m−1 ⟺ k ≥ m and implies the others.
+*Thm 6.6*: (a) all ℓ < e ≤ Y have (ℓ/p) = 1 (p ≡ 1 mod q₀, 8 | q₀), so R ⊂ K_e. (b) the greedy factor
+u ∈ (x^{1/4}, x^{1/2}] exists because all prime factors of L are < e ≤ E₁ < x^{1/4}; Rankin saves
+exp(−(1/4+o(1))(log x)^{2/3}) against 2E₁ = 2exp((log x)^{1/3}). h(ℓ^v) = (2v+1)² − (2v−1)² = 8v. Compatibility
+with p ≡ 1 (q₀): ℓ ≤ Y, ℓ | m forces −e ≡ 1 resp. −e⁻¹ ≡ 1 (mod ℓ), i.e. ℓ | e+1; the local factor is then
+1 + Σ_v 8v ℓ^{1−v} ≤ 1 + 8·(1−1/3)^{−2} = 19 — the constant 19 is right. The Y < ℓ < e product is ≍ (log e)^8 and
+B_e^{−2} ≪ e^{2θ−2+ε}, so the tail is ≪ Y^{−1+2θ+ε}. (c) Σ_{n≤x/2} τ(n²)² ≍ x(log x)^8 (τ(ℓ²)² = 9); Shiu with
+A = 9, k = e < X^{3/4} (X ≥ e²/4 for e ≤ x) gives X(log X)^8/φ(e); the E₁-tail beats (log x)^9. (d) e > x:
+N ≤ e²/4 and τ(N²) ≤ τ(N)² ≤ exp(2·1.538·log 2·log N/log log N) ≤ exp(4.3 log e/log log e) eventually, against
+B_e = e^{1−θ−o(1)}. Positive lower density: the complement has ≥ (1 − CY^{−1+2θ+ε} − o(1))π(x; q₀, 1)
+≍ π(x)/φ(q₀) elements. *Remark 6.7*: with f_r = τ(·²)^r the local factors are ≪_r v^{r−1}, Markov gives
+B_e^{−r} ≪ e^{−r(1−θ)+ε}, summable iff r(1−θ) > 1; (d) holds for every θ < 1. "coset of size ≥ e^δ" ⟺ θ = 1−δ.
+*PH evidence* matches LP Table 3.1 (P20 = 0 exactly for 3529, 110881 among the 2370 MH primes < 10⁶) and R135 §3
+(six primes re-run); "≈ 5% at 10⁸" matches LP §3 reading 1.
+
+From-scratch code `scripts/review_r138_cover.py` (sympy): for all p ≡ 1 (4), p < 400, all e ≤ 3p+50, both types:
+Σ_e(N) as a product set equals the ratio set; fibre non-empty ⟺ −1 ∈ Σ; every pair gives an ES solution; Lemma 6.2
+(i)–(ii) for every prime factor including 2; Type II slices with p | e are empty in this range (Type I: impossible).
+Lemma 6.3 identities verified exactly (Fractions) on every slice with 2^ω(N) > φ(e), p < 300, e < 400. Prop 6.4:
+criterion ⇒ t₀ ∈ Σ on 4853 random cyclic instances where it applies (no counterexample); sharpness example
+ℤ/2m (m < 15, k < 20): criterion ⟺ k ≥ m ⟺ m ∈ Σ.
+
+## §6.2 Fibred encodings — claim-by-claim
+
+| claim (paper numbering) | source | verdict |
+|---|---|---|
+| Setup, c(n) = Σ c_s | LF §1, Lemma 1.2 | SOUND-AFTER-REPAIRS (R138-3: Sol(n) vs f(n) for composite n) |
+| Lemma 6.9 (rigidity) + Borel density | LF Lemmas 2.1–2.2 | SOUND |
+| Thm 2.3 consequences (incl. R136 D2, D3) | LF Thm 2.3 | SOUND-AFTER-REPAIRS (R138-4: second half of D2 dropped) |
+| Cor 6.10 (generic flatness, D4/D4b) | LF Cor 2.4 | SOUND (sketch; single D′ = lcm is fine) |
+| Thm 6.11 (a)–(c) relative to (C), D9 | LF Thm 3.1 | SOUND relative to (C); second-hand citation caveat present and adequate |
+| F4 / Pell example (D10) | LF §4, §6 | SOUND (EVIDENCE label correct) |
+| Prop 6.12 odd-square test under (U), D12 | LF §5.1 | SOUND-AFTER-REPAIRS (R138-5: (U) too weak for the proof as written; inherited from LF, missed by R136) |
+| Earnest spinor example | LF §5.2, R136 | SOUND (R136 checked the PDF) |
+| Prop 6.13 (a), (b), D5, D6 | LF §5.3 | SOUND; numerics reproduced (MINOR R138-6: 10009 ∉ [10³,10⁴]) |
+| Thm 6.14 items 1, 2, 4 (D13) | LF Thm 5.4 | SOUND-AFTER-REPAIRS (R138-7: Pell orbits in item 1 are not power-fibred; item 4 must say "all pieces X1") |
+| Thm 6.14 item 3 | LF Thm 5.4(3), R136 D14 | CONDITIONAL — correctly labelled; CTX failure for the pair space stated |
+| Exact-scope paragraph (E-a)–(E-d), D1 | LF §5.5, R136 D1 | SOUND: "not a theorem about all large-fibre encodings", T8 blind spot only partly closed |
+
+Re-derivations. *Lemma 6.9*: U = dom φ irreducible, E ⊂ U dense, U = ⋃ φ⁻¹(sᵢ) finite closed cover ⇒ one piece.
+*Cor 6.10*: s₀ ∈ ℚ(n)³ integral at infinitely many integers ⇒ polynomial (division with remainder; the remainder
+term tends to 0); integrality of s₀(n) depends on n mod D′, so p ≡ m₀² (D′) and a Dirichlet prime m ≡ m₀ give a
+Type I solution for m², contradicting ET Prop 1.6. *Thm 6.11*: (a) is (C) orbit by orbit; (b) conjugate compact
+stabilisers have equal volume, finitely many real orbits, |Γ′_y| bounded (finitely many conjugacy classes of finite
+subgroups); (c) is the contrapositive of (b). *Item 2*: c ≤ #orbits·max_O w_O ≤ μ f · R max_θ w_θ, so c ≥ M/2
+forces M ≤ 2Rμf max_θ w_θ — the D13 normalisation is correct. *Prop 6.12*: see R138-5. *Prop 6.13*: (a) a
+represented k prime to 4dm² has (−4dm²/k) = 1, hence χ₋₄d(k) = 1. (b) on represented values χ₋₄d = (·/p), which is
+an assigned genus character; it is non-trivial on the class group iff there is a second assigned character
+(Cox Thm 3.15 for D = −4dp: at 2 unless dp ≡ 3 (4), in which case d has a prime q ≡ 3 (4)) — matches the paper.
+
+From-scratch code `scripts/review_r138_genus.py` (own reduced-form enumeration, own χ evaluation, own Type II
+count): Prop 6.13(a) for all odd m < 60, d ≤ 12, gcd(m,2d) = 1 (𝔊⁻ empty); (b) #𝔊⁻_d(p) = h(−4dp)/2 for all
+p ≡ 1 (4), p < 700, d ≤ 12, p ∤ d; the five test primes 1009, 2689, 4729, 9601, 10009 are squares mod 120, and
+for d ≤ 8: #𝔊⁻ ∈ [10, 144], F_d(p) = 0 in exactly 19 of 40 pairs. Matches the paper.
+
+## Consistency with the rest of the paper (R134 version)
+
+Abstract, intro item, the sentence after Prop 4.4 (scale constraint), hatches intro, the non-escapes remark and the
+Summary were all checked against §6. H-A/H-B are unchanged; ES is stated as not proved in the abstract, §1, §6
+and §8. Cross-references: eq:VIVII, Prop 3.x (typeII)(c),(d), Prop locsq, Lemma slices, Prop scale all resolve
+and are used in the sense in which they are stated. The R134 D9 wording ("invariants that enter the ES count") is
+untouched. Two headline sentences over-reach (R138-8, R138-9); with those repaired, the labels are honest.
+
+## Defects (R138)
+
+No FATAL and no MAJOR defects. All repairs below are **applied** to `paper/es-automorphic-barrier-note.tex`
+(commit "barrier note: R138 repairs").
+
+* **R138-1 (MINOR, §6.1 set-up, Lemma 6.1 and the sentence after it).** The standing hypothesis "p ∤ e" was imposed
+  for both types. The claim "every element of V_I ∪ V_II has a value of e" was then left unjustified. The source's
+  justification for Type I ("p | 4abd = pe+1 is false") is a non sequitur: 4abd = pe+1 ≡ 1 (mod p) contradicts
+  nothing. For Type I, though, p ∤ e is not needed at all: 4N^I ≡ 1 (mod e), so gcd(N, e) = 1 anyway, and
+  Lemma 6.2 never uses ℓ = p. For Type II, e ≤ a+b ≤ ab+1 ≤ N+1 = (p+e)/4 + 1 gives e < p, so p ∤ e holds
+  automatically. *Repair applied:* "p ∤ e for Type II", plus the one-line reason in the parenthesis. (In my
+  runs, Type I slices with p | e were empty for p < 200 and e < 12p, but nothing relies on this.)
+* **R138-2 (MINOR, §6.1 Scope).** The phrase "expected number … bounded by Σ_e (log e)^8 e^{2θ−2}, independently
+  of p" mixes two things: the bound is an average over p ≤ x, and it is uniform in x. *Repair applied:*
+  "averaged over p ≤ x, … uniformly in x".
+* **R138-3 (MINOR, §6.2 set-up).** Sol(n) was defined as the whole solution set, but f(n) as the number of Type I
+  and II solutions. Thm 6.11(a) bounds Σ over Sol(n) by μ(n)f(n)max w. That inequality fails for composite n
+  with solutions of neither type. LF defines Sol = Sol_I ∪ Sol_II. *Repair applied:* Sol(n) is now the set of
+  Type I and II solutions (all solutions for n prime), and f(n) = #Sol(n). The consequence of Thm 2.3 now ends in
+  "s_i is a solution of (1.1)".
+* **R138-4 (MINOR, consequences of LF Thm 2.3).** The second half of R136 D2 had been dropped: the ℤ_ℓ-point must lie
+  in dom φ_i, with φ_i ℓ-integral there. "ℤ_ℓ-coefficients" alone does not give s_i ∈ ℤ_ℓ³, because a
+  denominator can vanish mod ℓ at the point. *Repair applied.*
+* **R138-5 (MINOR, Prop 6.12; inherited from LF §5.1 and missed by R136).** The proof read "every other factor takes
+  the same value at p and at m²". Under (U) this is false for m_ℓ with ℓ ∉ S₀, where only positivity is assumed.
+  Also, (U) never guaranteed that an Euler product of positive factors is positive. *Repair applied:* (U) now
+  includes "∏_ℓ m_ℓ(n) > 0 when all its factors are". The proof now argues: if every factor at ℓ | m and at p is a
+  unit, then by (U) the Brauer averages at p and m² agree and the remaining factors are positive, so M(p) > 0
+  gives M(m²) > 0. The statement, with the D12 third alternative, is unchanged and now correct.
+* **R138-6 (MINOR, Prop 6.13 evidence).** The test primes include 10009, which is not in [10³, 10⁴]. *Repair
+  applied:* "[10³, 1.1·10⁴]". The numbers themselves are reproduced exactly (19/40; #𝔊⁻ ∈ [10, 144]).
+* **R138-7 (MINOR, Thm 6.14 items 1 and 4).** (i) Item 1 listed "R = O(log n) for Pell orbits" inside a theorem
+  about power-fibred encodings, but Pell orbits are only logarithmically fibred (δ = 0); the author's report says
+  so too. *Repair applied:* removed from item 1. The Example paragraph after Thm 6.11 already covers the Pell
+  orbits correctly. (ii) Item 4 is a statement about X1 pieces only, via Cor 6.10. *Repair applied:* "Θ finite,
+  all pieces X1, and their data uniform".
+* **R138-8 (MINOR, abstract).** "covering certificates from the prime factors below the modulus fail for a
+  positive proportion of primes" drops the coset-size restriction. That is exactly R135 D5, the headline issue
+  that the §6.1 Scope paragraph handles correctly. Arguments that merely hit −1 are not excluded. *Repair
+  applied:* "covers of cosets of size ≥ e^δ in (ℤ/e)* by the prime factors below e fail …".
+* **R138-9 (MINOR, Remark "non-escapes").** The flat statement "Covering reduces to H-A/H-B (Theorem 6.6)" is an
+  Assessment: Thm 6.6 excludes only transparent covers of large cosets. *Repair applied:* the sentence is now
+  labelled Assessment, with that scope. The Summary sentence is already inside an Assessment paragraph.
+* **Layout.** The repairs pushed two bibliography lines onto a 25th page. I tightened four sentences (no content
+  change: the Thm 6.6 "hence" sentence, the definition of a TCC, the second-hand-citation sentence, and the
+  Assessment parenthesis in Scope) and put `\enlargethispage{3\baselineskip}` before [LA]. Result: 24 pp.
+
+Points checked and found correct, no action needed:
+* Thm 6.6 is stated for θ < 1/2 with C = C(θ, ε) independent of Y. The positive lower density follows for
+  Y ≥ Y₀(θ, ε).
+* The report's remark on Prop 6.4 sharpness is right: the conditions at the other subgroups H ∌ m are implied by
+  the one at H = {0}.
+* Earnest Prop 5.1 was checked by R136 against the PDF in `sources/r136`.
+* DRS, EM, EMS, BR and CTX are not in `sources/`. I could not access them either. The paper says the statements
+  were checked second-hand, which is the correct caveat. Thm 6.11 and Thm 6.14 item 2 are labelled "relative to
+  (C)", and item 3 is CONDITIONAL.
+
+## Compilation
+
+pdflatex, three passes from a clean directory: 0 errors, 0 undefined references, 0 overfull boxes, 24 pp.
+The 9 underfull boxes are the same as in O138 (bibliography URLs and one page break).
+
+## Recommendation (Round 2)
+
+**ACCEPT (internal) the O138 update, with the R138 repairs applied.**
+
+§6 is a faithful and correctly labelled condensation of LP/R135 and LF/R136. I re-derived every proof sketch,
+including the constant 19 and the (log e)^8 moments in Thm 6.6, the Kneser iteration, the genus symbols at ℓ = 2,
+the generic-flatness corollary and the 𝔊⁻ genus count. I also checked the small cases with from-scratch code
+(`scripts/review_r138_cover.py`, `scripts/review_r138_genus.py`).
+
+The scope statements are honest:
+* Thm 6.6 is restricted to transparent certificates of cosets of size ≥ e^δ.
+* Thm 6.14 is explicitly "not a theorem about all large-fibre encodings", with (E-a)–(E-d) left open.
+* Item 3 is CONDITIONAL, and the CTX hypotheses are shown to fail for the pair space.
+
+ES is not proved, and the paper says so.

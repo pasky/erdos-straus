@@ -14,6 +14,7 @@
 \newtheorem{hypothesis}[theorem]{Hypothesis}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{assessment}[theorem]{Assessment}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{problem}{Problem}
 \numberwithin{equation}{section}
 \newcommand{\Z}{\mathbb Z}
@@ -57,7 +58,11 @@ $p^{o(1)}$. Thickening a target is the same as averaging over $n$. The
 Type~II lattice problem is everywhere locally soluble, and globally soluble
 up to one sign, even at odd squares. Under Schinzel's
 Hypothesis~H, every argument that certifies the equation through a fixed
-finite set of slices fails infinitely often. We give the quantitative gaps
+finite set of slices fails infinitely often. Two non-counting routes
+also fail, with exact scope: covers of cosets of size $\ge e^\delta$ in
+$(\Z/e)^*$ by the prime factors below $e$ fail for a positive proportion of primes, and
+power-size fibres (algebraic or bounded-weight orbit recipes) only rescale
+the count. We give the quantitative gaps
 to known equidistribution theorems, list the escape hatches that remain
 open, and report numerical evidence: $f_I(p)\ge1$ and $f_{II}(p)\ge1$ for
 all primes $p\le10^8$. The Erd\H{o}s--Straus conjecture is \emph{not}
@@ -114,6 +119,9 @@ $p$ or the divisors of one integer $N_\theta(p)$ in one residue class
 ternary embeddings, the scale constraint, thickening, local solubility at
 odd squares, geometry, and Hypothesis-H-conditional emptiness of single
 targets.
+\item \emph{Two non-counting escapes that fail} (\S\ref{sec:longshots}):
+deterministic covering in the $e$-slices (Theorem~\ref{thm:transparent})
+and fibred encodings (Theorem~\ref{thm:fibred}).
 \item \emph{Quantitative gaps} to known equidistribution theorems
 (\S\ref{sec:gaps}, \status{Assessment}), \emph{open problems}
 (\S\ref{sec:open}), and \emph{numerical evidence} (\S\ref{sec:numerics}).
@@ -694,7 +702,8 @@ bound. So any equidistribution statement whose main term for the target is
 a power of $p$ is excluded as a driver, unless it detects only a coarse
 invariant of solutions (fibres $\mu\ge p^{\eta-o(1)}$). In that case the
 lifting step from the invariant to an integer solution must be supplied
-separately. This applies in particular to small-scale equidistribution of
+separately. Fibres growing with an auxiliary height do not help for
+algebraic or bounded-weight orbit recipes (\S\ref{ssec:fibred}). This applies in particular to small-scale equidistribution of
 Heegner or CM points in families with $|D|\ge p^\kappa$ through a
 $p^{o(1)}$-to-one encoding \cite[Cor.~4.1]{O127}. With the Type~I bound of
 \cite{TH} in place of \cite[Thm.~1.1]{ET}, Markov's inequality gives
@@ -930,10 +939,410 @@ $d\le D(p)$ forces $n_p\le D(p)$; GRH gives $n_p\ll\cL^2$ (Ankeny, Bach) and
 Burgess gives $n_p\ll p^{1/(4\sqrt e)+\varepsilon}$ unconditionally.
 \end{assessment}
 
+\section{Two non-counting escapes that fail}\label{sec:longshots}
+Two kinds of argument seem to escape Proposition~\ref{prop:scale}. A
+\emph{covering} (pigeonhole) argument would show that a whole coset of
+residues is hit, hence the target too, without counting solutions. A
+\emph{fibred} encoding attaches to each solution a fibre growing like a
+power of an auxiliary height $H$; this is the loophole ``fibres
+$\mu\ge p^{\eta-o(1)}$'' left open after Proposition~\ref{prop:scale} (the
+blind spot of the red team's test~T8, \cite[\S5.5]{RT1}). Both fail, with
+the exact scopes stated below. Sources: \cite{LP} and \cite{LF}, with
+their internal reviews.
+
+\subsection{Covering in the $e$-slices}\label{ssec:cover}
+Let $p$ be an odd prime and $e\ge1$ with $e\equiv-p\pmod4$, and $p\nmid e$ for Type~II. Put
+\[N_e^{II}(p)=\frac{p+e}4,\qquad N_e^{I}(p)=\frac{pe+1}4,\]
+and for $\gcd(N,e)=1$ define the \emph{signed divisor-ratio set}
+$\Sigma_e(N)=\{ab^{-1}\bmod e:\ a,b\ge1,\ ab\mid N\}\subset G_e:=(\Z/e)^*$.
+
+\begin{lemma}[$e$-slices; \status{proved}, elementary; {\cite[Lemma~1.1]{LP}}]\label{lem:eslice}
+Let $T\in\{I,II\}$ and $N=N_e^T(p)$. \textup{(i)} $\gcd(N,e)=1$.
+\textup{(ii)} The elements of $V_T(p)$ with this value of $e$ are in
+bijection with the pairs $(a,b)$, $a,b\ge1$, $ab\mid N$, $e\mid a+b$, via
+$d=N/(ab)$, $c=(a+b)/e$. \textup{(iii)} So this fibre is non-empty iff
+$-1\in\Sigma_e(N)$. \textup{(iv)}
+$\Sigma_e(N)=\prod_{\ell^v\parallel N}\{\ell^t:|t|\le v\}$ (a product set in
+$G_e$); in particular $|\Sigma_e(N)|\le\tau(N^2)$.
+\end{lemma}
+\begin{proof}
+(i) $4N^I\equiv1$, $4N^{II}\equiv p\pmod e$. (ii) is the definition. (iii) $a,b$
+are units mod $e$. (iv) $ab\mid N$ iff $\alpha_\ell+\beta_\ell\le v_\ell$, and
+$t=\alpha_\ell-\beta_\ell$ takes every value in $[-v_\ell,v_\ell]$.
+\end{proof}
+Every element of $V_I(p)\cup V_{II}(p)$ has a value of $e$ ($e\le a+b\le ab+1\le N+1$ gives $e<p$ on $V_{II}(p)$), so by
+\eqref{eq:VIVII}, $\mathrm{ES}(p)$ holds iff $-1\in\Sigma_e(N_e^T(p))$ for some
+$e$ and $T$: the $e$-slices parametrise all solutions by one coordinate.
+(The map from $V_T(p)$ to solutions is onto, and injective once
+$\gcd(a,b)=1$ is imposed; existence is unaffected.) For Type~II,
+$N=N_e^{II}(p)$ runs over the consecutive integers above $p/4$.
+
+From now on $p\equiv1\pmod4$, so $e\equiv3\pmod4$. Then the Kronecker
+symbol $\chi_{-e}$ coincides with the Jacobi symbol $(\cdot/e)$; it is a
+character of $G_e$ with $\chi_{-e}(-1)=-1$. Let $K_e=\ker\chi_{-e}$, a
+subgroup of index~$2$ not containing $-1$.
+
+\begin{lemma}[genus inside a slice; \status{proved}; {\cite[Lemma~1.2]{LP}}]\label{lem:eslicegenus}
+Let $N=N_e^T(p)$. \textup{(i)} Every prime $\ell\mid N$, including
+$\ell=2$, has $\chi_{-e}(\ell)=(\ell/p)$. \textup{(ii)} $\chi_{-e}(N^I)=1$
+and $\chi_{-e}(N^{II})=(e/p)$. \textup{(iii)} Hence a point of the slice
+needs a prime $\ell\mid ab$ with $(\ell/p)=-1$. If $p$ is replaced by an odd
+square $m^2$ with $\gcd(m,e)=1$, then $\Sigma_e(N)\subset K_e\not\ni-1$.
+\end{lemma}
+\begin{proof}
+(i) For odd $\ell$, Type~II gives $-e\equiv p$ and Type~I gives
+$-e\equiv p^{-1}\pmod\ell$, so $(-e/\ell)=(p/\ell)=(\ell/p)$. If $2\mid N$
+then $8\mid p+e$ (resp.\ $8\mid pe+1$), so $-e\equiv p\pmod8$, and
+$(-e/2)=(p/2)=(2/p)$. (ii) Multiplying (i), $\chi_{-e}(N)=(N/p)$, and
+$4N^I\equiv1$, $4N^{II}\equiv e\pmod p$. (iii) $\chi_{-e}(ab^{-1})=-1$ and (i);
+at $m^2$ all the symbols are $+1$.
+\end{proof}
+The target $-1$ lies in the non-trivial coset $-K_e$, and only prime
+factors with $(\ell/p)=-1$ leave $K_e$. This is the odd-square obstruction
+\cite[Prop.~1.6]{ET} inside one slice, and the reason why small levels
+fail when $p$ is a residue of all small primes. The naive pigeonhole
+aims at the wrong coset:
+
+\begin{lemma}[collisions give signed solutions; \status{proved}; {\cite[Lemma~1.3]{LP}}]\label{lem:collide}
+If $2^{\omega(N)}>\varphi(e)$, there are coprime $a>b\ge1$ with $ab\mid N$ and
+$a\equiv b\pmod e$. With $c=(a-b)/e$ and $d=N/(ab)$,
+\[\tfrac4p=\tfrac1{abd}-\tfrac1{acdp}+\tfrac1{bcdp}\ \ (T=II),\qquad
+\tfrac4p=\tfrac1{abdp}-\tfrac1{acd}+\tfrac1{bcd}\ \ (T=I).\]
+\end{lemma}
+\begin{proof}
+Two of the $2^{\omega(N)}$ unitary divisors of $N$ agree mod $e$; divide
+both by their gcd. The identities are $c(p+e)/(abcdp)$ and
+$c(1+pe)/(abcdp)$, as for \eqref{eq:VIVII}.
+\end{proof}
+So collisions and zero-sum theory hit $1\in K_e$ (signed solutions).
+Positivity asks for the translate $-K_e$ to be hit: a covering statement.
+
+\begin{proposition}[covering criterion; \status{proved} from Kneser's theorem \cite{Kn}, {\cite[Thm.~5.5]{TV}}; {\cite[Prop.~1.4]{LP}}]\label{prop:kneser}
+Let $G$ be a finite abelian group, $g_1,\dots,g_k\in G$, $v_i\ge1$,
+$A_i=\{g_i^t:|t|\le v_i\}$, $\Sigma=A_1\cdots A_k$, $t_0\in G$, and let
+$o_H(g)$ be the order of $gH$ in $G/H$. If
+\[\textstyle\sum_i\bigl(\min(2v_i+1,o_H(g_i))-1\bigr)\ \ge\ |G:H|-1\]
+for every subgroup $H$ with $t_0\notin H$, then $t_0\in\Sigma$. Among
+criteria that depend only on the orders $o_H(g_i)$ (for all $H$) and on
+the $v_i$, this one is sharp: in $\Z/2m$ with all $g_i=1$, $v_i=1$, $t_0=m$
+it reads $k\ge m$, and $\Sigma=[-k,k]\ni m$ iff $k\ge m$.
+\end{proposition}
+\begin{proof}
+Let $H=\mathrm{Stab}(\Sigma)$. As $1\in\Sigma$, $H\subset\Sigma$; if
+$t_0\notin\Sigma$ then $t_0\notin H$ and $|\Sigma/H|\le|G:H|-1$. In $G/H$ every
+partial product of the images $X_i$ of the $A_i$ has trivial stabiliser, so
+Kneser gives $|\Sigma/H|\ge1+\sum_i(|X_i|-1)$ with
+$|X_i|=\min(2v_i+1,o_H(g_i))$.
+\end{proof}
+In the slice ($G=G_e$, $g_i$ the primes $\ell\mid N$, $v_i=v_\ell(N)$,
+$t_0=-1$), $H=K_e$ recovers Lemma~\ref{lem:eslicegenus}, and $H=\{1\}$
+requires $\Omega(N)\ge(\varphi(e)-1)/2$. Counting needs only
+$\tau(N^2)\ge\varphi(e)/2$ to cover $-K_e$, i.e.\ $\Omega(N)\ge\log_3(\varphi(e)/2)$;
+structure-only criteria need $\Omega(N)$ linear in $\varphi(e)$. Closing
+this gap requires the actual residues $\ell\bmod e$ of the prime factors.
+Forcing $k$ odd primes into $N_e^{II}(p)$ by congruences puts $e$ in one
+class mod $4L\ge\exp((1+o(1))k\log k)$, against $3^{k+1}$ residues
+\cite[Lemma~2.1]{LP}; and a covered coset of index $\le e^\theta$ ($\theta<1$)
+forces $e\le\exp(O_\theta(\log p/\log\log p))$ (Nicolas--Robin \cite{NR};
+\cite[Lemma~2.3]{LP}).
+
+The primes of $N$ below the modulus have known residues (themselves). The
+next theorem shows that they never suffice on a positive proportion of
+primes.
+
+\begin{definition}[{\cite[\S2.2]{LP}}]
+Let $N=N_e^T(p)$, $L=\prod_{\ell^v\parallel N,\ \ell<e}\ell^v$ (the
+\emph{transparent part}), $M=N/L$, and $R=\Sigma_e(L)\cdot\{M^{-1},1,M\}$.
+For $0\le\theta<1$, a \emph{transparent covering certificate of strength
+$\theta$} is a subgroup $H\le G_e$ with $|G_e:H|\le2e^\theta$ and $-H\subset R$.
+\end{definition}
+A certificate yields a solution ($R\subset\Sigma_e(N)$, $-1\in-H$); with $H=K_e$,
+$R$ covers the whole target coset.
+
+\begin{theorem}[\status{proved}, relative to PNT in progressions to a fixed modulus, Brun--Titchmarsh \cite{MV}, Shiu {\cite[Thm.~1]{Shiu}} and Nicolas--Robin \cite{NR}; {\cite[Thm.~2.2]{LP}}]\label{thm:transparent}
+Fix $0\le\theta<1/2$ and $\varepsilon>0$. There is $C=C(\theta,\varepsilon)$
+such that for every $Y\ge3$, with $q_0=8\prod_{3\le\ell\le Y}\ell$,
+\begin{multline*}
+\#\{p\le x:\ p\equiv1\ (q_0),\ \text{a certificate of strength $\theta$
+exists at some }(e,T)\}\\
+\le\bigl(CY^{-1+2\theta+\varepsilon}+o_{x\to\infty}(1)\bigr)\,\pi(x;q_0,1),
+\end{multline*}
+with $e\equiv3\pmod4$ and $T$ arbitrary. Hence, for large $Y$, a set of primes of positive lower density has no
+certificate in any $e$-slice of either type.
+\end{theorem}
+\begin{proof}[Sketch]
+A certificate gives $|R|\ge\varphi(e)e^{-\theta}/2$, hence
+$\tau(L^2)\ge B_e:=\varphi(e)e^{-\theta}/6$. Fix $p\equiv1\pmod{q_0}$, $p\le x$.
+
+\emph{(a) $e\le Y$.} Every prime $\ell<e$ has $(\ell/p)=1$, so $L\in K_e$
+(Lemma~\ref{lem:eslicegenus}(i)); $(e/p)=1$ as all prime factors of $e$ are
+$\le Y$, so $\chi_{-e}(M)=1$ by Lemma~\ref{lem:eslicegenus}(ii). Thus
+$R\subset K_e\not\ni-1$: not even a transparent witness exists.
+
+\emph{(b) $Y<e\le E_1:=\exp((\log x)^{1/3})$.} If $L>x^{1/2}$, multiplying the
+prime factors of $L$ (all $<x^{1/4}$) one at a time gives $u\mid N$ with
+$x^{1/4}<u\le x^{1/2}$ and $P^+(u)<E_1$; then $p$ lies in one class mod
+$4u$, and Brun--Titchmarsh with Rankin's bound for
+$\sum_{u>x^{1/4},\,P^+(u)<E_1}1/\varphi(u)$, summed over the $\le2E_1$ pairs
+$(e,T)$, gives $o(x/(\varphi(q_0)\log x))$ primes. If $L\le x^{1/2}$, use
+Markov's inequality with the second moment:
+$1\le B_e^{-2}\tau(L^2)^2=B_e^{-2}\sum_{m\mid L}h(m)$, where
+$h=\tau(\cdot^2)^2*\mu\ge0$, $h(\ell^v)=8v$. Each $m\le x^{1/2}$ with $m\mid N$
+puts $p$ in one class mod $\mathrm{lcm}(4m,q_0)\le x^{2/3}$ (compatible with
+$p\equiv1\ (q_0)$ only if every odd $\ell\le Y$ dividing $m$ divides $e+1$).
+Brun--Titchmarsh and an Euler product bound the number of such $p$ by
+$\ll\frac{x}{\varphi(q_0)\log x}\,19^{\omega(e+1)}(\log e)^8B_e^{-2}$, and
+$\sum_{e>Y}19^{\omega(e+1)}(\log e)^8B_e^{-2}\ll Y^{-1+2\theta+\varepsilon}$ with
+a constant independent of $Y$.
+
+\emph{(c) $E_1<e\le x$.} Markov over all $p\le x$ (the map $p\mapsto N$ is
+injective): Type~II has $N\le x/2$ and $\sum_{n\le x/2}\tau(n^2)^2\ll x(\log x)^8$;
+Type~I has $N\equiv4^{-1}\pmod e$, $N\le X=(xe+1)/4$, and Shiu's theorem
+(modulus $e<X^{3/4}$) gives $\ll(xe/\varphi(e))(\log x)^8$. Since
+$\sum_{e>E_1}B_e^{-2}e/\varphi(e)\ll E_1^{-1+2\theta+\varepsilon}$, which beats every
+power of $\log x$, the count is $o(x/(\varphi(q_0)\log x))$.
+
+\emph{(d) $e>x$.} Then $N\le e^2/4$, and Nicolas--Robin gives
+$\tau(N^2)\le\tau(N)^2\le\exp(4.3\log e/\log\log e)<B_e$ for $e\ge e_0(\theta)$.
+Finally, $\pi(x;q_0,1)\ge x/(2\varphi(q_0)\log x)$ for $x\ge x_0(Y)$ (PNT in
+progressions).
+\end{proof}
+
+\begin{remark}[all $\theta<1$]\label{rem:thetaone}
+With the $r$-th moment of $\tau(\cdot^2)$, $r>1/(1-\theta)$ (local factors
+$\ll_rv^{r-1}$, Shiu with $(3^r)^v$, Markov with $B_e^{-r}$), the same proof
+gives every fixed $\theta<1$: certificates covering a coset of size
+$\ge e^\delta$ fail on a positive-density set, for every $\delta>0$ (the
+internal reviewer's derivation, checked step by step; \cite[\S2.2]{LP}).
+\end{remark}
+
+\emph{Scope.} Theorem~\ref{thm:transparent} concerns certificates that use
+only the prime factors of $N_e^T(p)$ below the modulus, plus one opaque
+block, and that cover a coset of size $\ge\varphi(e)e^{-\theta}/2$ (any
+$\theta<1$ by Remark~\ref{rem:thetaone}). It says nothing about
+arguments that merely hit $-1$, or that use the residues mod $e$ of prime
+factors above the modulus: those are the per-slice divisor events of
+hatches H-A and H-B. The expected number of transparent certificates over
+all $e$, averaged over $p\le x$, is bounded by $\sum_e(\log e)^8e^{2\theta-2}$, uniformly in $x$: a
+bounded-mass mechanism, not a near miss. The analogous statement for the
+two-coordinate rows of Lemma~\ref{lem:slices} should follow by the same
+proof (\status{Assessment}).
+
+\begin{conjecture}[PH, \status{conjecture}; {\cite[Conj.~5.1]{LP}}]\label{conj:PH}
+For every sufficiently large prime $p\equiv1\pmod4$ there are
+$e\equiv3\pmod4$ and $T$ with $\varphi(e)\ge40$ and
+$\Sigma_e(N_e^T(p))\supseteq-K_e$.
+\end{conjecture}
+PH implies ES$(p)$. \status{evidence} \cite[\S3]{LP} (six primes
+re-run independently in the review): every Mordell-hard prime below $10^6$
+except $3529$ and $110881$ has such a cover with $e\le2000$; so do $300$
+consecutive Mordell-hard primes after each of $10^6,10^7,10^8$ ($e\le5000$)
+and $15$ selected hard primes ($e\le20000$). The deep covers are almost
+always transparent; for $e\ge500$ covers are only about $5\%$ of the
+slices containing a solution at $10^8$. Transparent counts still grow up to
+$10^8$, so Theorem~\ref{thm:transparent} is qualitative: its failure set is
+not visible numerically. By Theorem~\ref{thm:transparent},
+any proof of PH must use prime factors above the modulus on a set of
+positive density, so PH is not easier than H-A/H-B
+(\status{Assessment}).
+
+\subsection{Fibred encodings}\label{ssec:fibred}
+Let $\mathrm{Sol}(n)$ be the (finite) set of Type~I and~II solutions of
+\eqref{eq:es} (all solutions if $n$ is prime) and $f(n)=\#\mathrm{Sol}(n)$. A \emph{fibred encoding} is
+a countable set $E=E(n)$ with a height (finitely many points of height
+$\le H$) and a map $\varphi:E\to\mathrm{Sol}(n)$; it is \emph{power-fibred} if
+$\#E(\le H)\sim c(n)H^\delta$, $\delta>0$. A counting route evaluates $c(n)$
+independently and reads off $c(n)>0\Rightarrow\mathrm{Sol}(n)\ne\emptyset$. But
+$c(n)=\sum_{s\in\mathrm{Sol}(n)}c_s$ (fibre densities; \cite[Lemma~1.2]{LF}): the
+$H$-asymptotic is free, the content sits in the constant, and whether it
+can be evaluated without knowing $\mathrm{Sol}(n)$ depends on how $\varphi$
+is computed.
+
+\begin{lemma}[rigidity; \status{proved}, elementary; {\cite[Lemma~2.1]{LF}}]\label{lem:rigid}
+Let $V/\Q$ be irreducible, $E\subset V(\Q)$ Zariski-dense, and
+$\varphi:V\dashrightarrow\mathbb A^3$ a rational map over $\Q$, regular on $E$,
+with $\varphi(E)$ finite. Then $\varphi$ is constant.
+\end{lemma}
+\begin{proof}
+On $U=\operatorname{dom}\varphi$ (irreducible), $E$ is dense and covered by
+the finitely many closed sets $\varphi^{-1}(s_i)$; so one of them is $U$.
+\end{proof}
+By Borel's density theorem, an orbit $\Gamma x$ of an arithmetic subgroup
+$\Gamma$ of a connected semisimple $\Q$-group without compact factors is
+Zariski-dense in $\overline{Gx}$ \cite[Lemma~2.2]{LF}, so
+Lemma~\ref{lem:rigid} covers the orbits counted in \cite{DRS,EM}. Consequences
+(\status{proved}, \cite[Thm.~2.3]{LF}): if $E$ is a union of pieces $E_i$,
+each Zariski-dense in an irreducible $V_i$ with $\varphi|_{E_i}$ rational,
+then $\varphi\equiv s_i$ on $E_i$, readable off the equations. If moreover
+$\varphi_i$ maps $V_i$ into the ES variety $4xyz=n(xy+yz+zx)$ and has
+$\Z_\ell$-coefficients, then one $\Z_\ell$-point of $V_i$ for each $\ell$ at which
+$\varphi_i$ is $\ell$-integral (automatic for polynomial $\varphi_i$) and one real
+point in the counting region (mapped into the positive octant) already
+force $s_i$ to be a solution of \eqref{eq:es}. A
+Siegel or Hardy--Littlewood main term carries no information beyond the
+explicit point $s_i$: for algebraic recipes counting is idle. (This holds
+for pieces as given. A candidate set $V_i(\Z)\cap\Omega$ that is not
+Zariski-dense must first be decomposed along the components of its
+closure.)
+
+\begin{corollary}[\status{proved}, relative to {\cite[Prop.~1.6]{ET}} and Dirichlet; {\cite[Cor.~2.4]{LF}}]\label{cor:uniformalg}
+Let $\mathcal V\to\mathbb A^1_n$ be an irreducible $\Q$-family with
+geometrically irreducible generic fibre, and $\varphi:\mathcal V\dashrightarrow\mathbb A^3$
+rational. Let $P_{\rm cov}$ be the set of primes $p$ for which a
+Zariski-dense $E(p)\subset\mathcal V_p(\Z)$ has $\varphi(E(p))\subset\mathrm{Sol}(p)$.
+There is $D'\ge1$ such that all but finitely many $p\in P_{\rm cov}$ are
+quadratic non-residues mod $D'$.
+\end{corollary}
+\begin{proof}[Sketch]
+By Lemma~\ref{lem:rigid} and generic flatness, $\varphi$ is given on almost
+all fibres by one $s_0\in\Q[n]^3$ (polynomial by integrality), e.g.\ of
+Type~I shape $x=nx_1$, $y(0)z(0)\ne0$. If $p\equiv m_0^2\pmod{D'}$, a prime
+$m\equiv m_0$ (Dirichlet) makes $s_0(m^2)$ a Type~I solution for $m^2$,
+contradicting \cite[Prop.~1.6]{ET}.
+\end{proof}
+This is the classical fact that polynomial identities miss the square
+classes (\cite[Props.~1.8--1.9]{ET}; Mordell--Schinzel), for fibred
+encodings of bounded complexity, however large the fibres. With a
+parameter set growing with $p$, fibring only changes the normalisation
+\cite[Cor.~2.5]{LF}.
+
+The remaining power-fibred encodings use \emph{orbit recipes}: $E(n)$ is a
+finite union of $\Gamma'$-orbits in $V(\Z)\cap\Omega$, where $V=\overline{Gx_0}$
+is a closed orbit of a connected semisimple $\Q$-group $G$ with $G(\R)$
+without compact factors, $\Gamma'\subset G(\Z)$ is arithmetic, and $\varphi$
+is $\Gamma'$-invariant. Let $\mu(n)$ be the largest number of orbits over one
+solution. The \emph{counting input} (C) is the asymptotic
+$\#(\Gamma'y\cap B_H)\sim w_O\operatorname{vol}(B_H)$ for well-rounded $B_H$, with
+$w_O=\operatorname{vol}(\Gamma'_y\backslash H_y(\R))/\operatorname{vol}(\Gamma'\backslash G(\R))$,
+$H_y$ the stabiliser \cite{DRS,EM,EMS}. The statements of these counting
+theorems (and of \cite{BR,CTX} below) were checked only second-hand, by
+a research subagent of the source, not by the internal reviewer.
+
+\begin{theorem}[orbit weights; \status{proved} relative to (C); {\cite[Thm.~3.1]{LF}}]\label{thm:orbitweight}
+\textup{(a)} $c(n)=\sum_Ow_O=\sum_{s\in\mathrm{Sol}(n)}\sum_{O\mapsto s}w_O\le\mu(n)f(n)\max_Ow_O$.
+\textup{(b)} If all stabilisers $H_y(\R)$ are compact, then $w_O=\kappa/|\Gamma'_y|$
+with $\kappa$ depending only on the real orbit of $y$, and
+$w_{\max}/w_{\min}\le C(\Gamma')$. So the number of orbits is at most
+$C(\Gamma')\mu(n)f(n)$, and Proposition~\ref{prop:scale} holds with
+multiplicity $C(\Gamma')\mu(n)$.
+\textup{(c)} Only non-compact stabilisers (tori or semisimple) can give
+weights that vary by a power of $n$.
+\end{theorem}
+\begin{proof}
+(a) is $c(n)=\sum_sc_s$ with (C) for each orbit. (b) Compact stabilisers in
+one real orbit are conjugate, so they have equal volume; $\Gamma'_y$ is finite,
+and $G(\Z)$ has finitely many conjugacy classes of finite subgroups.
+\end{proof}
+Example \cite[\S4]{LF}: the Type~II pairs $(Q,S_c)$ of
+Proposition~\ref{prop:typeII}(c), moved by $\SL_2(\Z)$ (stabiliser $\pm I$),
+give $\asymp H$ points per orbit and
+$c(n)=\kappa_{c,d}\#\{f\mid4c^2dn+1:\ f\equiv-1\ (4cd)\}$; all orbit counts agree
+to $1.5\%$ at $H=3000$ (\status{evidence}). The Type~II Pell orbits $\{\varepsilon_s^k\}$ grow only
+logarithmically, contain no ES point after $k=1$, and have regulators
+$O(\log p)$, because the solution is the unit.
+
+\emph{The odd-square test.} Suppose a main term has the Siegel or
+Borovoi--Rudnick shape \cite{BR}
+$M(n)=m_\infty(n)\prod_\ell m_\ell(n)\cdot|B|^{-1}\sum_{\alpha\in B}\prod_\ell E_\ell(\alpha,n)$
+(local densities, and local Brauer averages $E_\ell$ for a finite
+$B\subset\Br$), subject to \textup{(U)}: there are a finite set $S_0$ of primes
+and $k\ge1$ such that for $\ell\nmid n$, $m_\ell(n)>0$ and $E_\ell=1$ if
+$\ell\notin S_0$, while for $\ell\in S_0$ these factors depend only on
+$n\bmod\ell^k$; $m_\infty(n)>0$ for large $n$; and $\prod_\ell m_\ell(n)>0$ when
+all its factors are.
+
+\begin{proposition}[\status{proved} under (U); {\cite[\S5.1]{LF}}]\label{prop:Utest}
+Let $Q_1=\prod_{\ell\in S_0}\ell^k$, $p\nmid Q_1$ prime with $M(p)>0$, and $m$ odd,
+$\gcd(m,Q_1)=1$, $m\equiv m_0\pmod{Q_1}$ with $m_0^2\equiv p$. If $M(m^2)=0$,
+then the two values are separated at a place $\ell\mid m$ (some $m_\ell(m^2)=0$,
+or some $E_\ell(\alpha,m^2)\ne1$), or at the place $p$ alone.
+\end{proposition}
+\begin{proof}
+If all factors at $\ell\mid m$ and at $p$ are units ($E_\ell=1$, $m_\ell>0$),
+then by (U) the Brauer averages at $p$ and $m^2$ agree and the other factors
+are positive, so $M(p)>0$ gives $M(m^2)>0$.
+\end{proof}
+So a main term passes the odd-square test only through the places
+dividing $m$, i.e.\ the place $p$ for $n=p$. Such factors occur: the spinor exceptions of $3x^2+4y^2+9z^2$ are exactly the squares
+$w^2$ with all prime factors of $w$ $\equiv1\pmod3$ (Earnest \cite[Prop.~5.1]{Ea};
+reproduced numerically to $5\cdot10^4$). The ES-natural candidate is the
+genus set $\mathfrak G^-_d(n)$ of primitive positive forms of
+discriminant $-4dn$ with $\chi_{-4d}(Q)=-1$ (evaluated at any represented
+integer prime to $4dn$). The Type~II form $[f,4ad,de]$ of
+Proposition~\ref{prop:typeII}(c) lies in it (part (d)).
+
+\begin{proposition}[\status{proved}; {\cite[\S5.3]{LF}}]\label{prop:genusminus}
+\textup{(a)} For odd $n=m^2$ with $\gcd(m,2d)=1$, $\mathfrak G^-_d(m^2)=\emptyset$.
+\textup{(b)} For a prime $p\equiv1\pmod4$, $p\nmid2d$,
+$\#\mathfrak G^-_d(p)=h(-4dp)/2$.
+\end{proposition}
+\begin{proof}
+(a) A represented $k$ prime to $4dm^2$ has
+$1=(-4dm^2/k)=\chi_{-4d}(k)$. (b) On represented values $\chi_{-4d}=(\cdot/p)$,
+a genus character which is non-trivial on the class group (there is a
+second assigned character, at $2$ or at a prime $q\equiv3\pmod4$ dividing $d$),
+so it takes the value $-1$ on half of the classes.
+\end{proof}
+The mass of $\mathfrak G^-_d$ therefore passes the odd-square test, through
+the place $p$, as Proposition~\ref{prop:Utest} requires. But it is not a
+valid encoding: it has $h/2\asymp p^{1/2\pm\varepsilon}$ classes against
+$F_d(p)=\#\{\text{Type~II points at level }d\}=O(\text{polylog})$ on average.
+\status{evidence} (reproduced by the reviewer): for $5$ primes
+$p\equiv1\pmod4$ in $[10^3,1.1\cdot10^4]$ in the square classes mod $120$ (where
+Type~II is sparsest; $19/40$ is not a typical rate) and $d\le8$,
+$\#\mathfrak G^-_d(p)\in[10,144]$ while $F_d(p)=0$ in $19$ of the $40$ pairs. So
+the per-level criterion ``$\mathfrak G^-_d(p)\ne\emptyset\Rightarrow F_d(p)>0$'' is
+false. The aggregate criterion ``$\exists d$: $\mathfrak G^-_d(p)\ne\emptyset$'' is
+not false but vacuous: by (b) it holds at every $p\equiv1\pmod4$, so as a
+criterion for ES it is ES itself. Likewise the genus-full closure of the
+pair embeddings contains $Q_0$ for every $n$
+(Proposition~\ref{prop:locsq}), so its mass is positive at odd squares.
+
+\begin{theorem}[fibred encodings, exact scope; {\cite[Thm.~5.4]{LF}}]\label{thm:fibred}
+Let $E(n)=\bigsqcup_{\theta\in\Theta(n)}E_\theta$ be power-fibred, with $\Theta(n)$
+arbitrary (it may grow with $n$), each piece either \textup{(X1)}
+Zariski-dense in an irreducible $V_\theta$ with $\varphi|_{E_\theta}$ rational,
+or \textup{(X2)} a finite union of orbits as above, with orbit weights in
+$[w_\theta,Rw_\theta]$. Let $\mu(n)$ be the largest number of pieces (X1
+pieces, X2 orbits) over one solution.
+\begin{enumerate}
+\item \status{(proved)} X1 pieces are constant; for X2,
+$R=C(\Gamma_\theta)$ with compact stabilisers.
+\item \status{(proved relative to (C) and \cite[Thm.~1.1]{ET})} Proving
+$c(n)\ge M(n)/2$ needs $M(n)\le2R\mu(n)f(n)\max_\theta w_\theta$: Proposition~\ref{prop:scale}
+with multiplicity $R\mu(n)$. The factor $H^\delta$ cancels.
+\item \status{(conditional} on the hypotheses of Colliot-Th\'el\`ene--Xu
+\cite[Thm.~3.7]{CTX}: $G$ simply connected, stabiliser connected\status{)} A
+main term from a mass formula is the mass of a genus-full set; if that set
+is the encoding, its non-emptiness is decided by local and Brauer--Manin
+data without counting. These hypotheses fail for the pair space of
+Proposition~\ref{prop:typeII}(c) ($G=\SL_2$, stabiliser $\mu_2$); the two
+refutations above do not use \cite{CTX}.
+\item \status{(proved)} If $\Theta$ is finite, all pieces are X1, and their data are uniform in
+$n$ as in Corollary~\ref{cor:uniformalg}, all large $p\equiv1\pmod{D'}$ are
+missed.
+\end{enumerate}
+\end{theorem}
+\emph{Exact scope.} Theorem~\ref{thm:fibred} covers algebraic recipes and
+orbit recipes with bounded covolume ratio $R$: the \emph{continuous} fibre
+factor $H^\delta$ buys nothing. It is not a theorem about all large-fibre
+encodings. The T8 blind spot is closed only partially; it moves to
+(E-d) the number $\mu(n)\ge n^\eta$ of pieces over one solution (discrete
+multiplicity; Theorem~\ref{thm:fibred} is then vacuous, as it is for a
+decomposition into points) and to
+(E-a) weight spread $R\ge n^\eta$ not capped by the solution (none found:
+the only split torus met among the ES encodings examined is the Pell unit,
+which is the solution itself). Also outside are (E-b) a \emph{valid} genus-full
+criterion with a Brauer or spinor factor at $p$, which would be a
+structural theorem of the strength of ES, and (E-c) recipes that are
+neither algebraic nor lattice-invariant (floors, gcds, factorisations),
+which fall under \cite[Thm.~M]{PS} instead.
+
 \section{Open problems: the escape hatches}\label{sec:open}
 By Theorem~\ref{thm:reduction}(iii), a route that survives must use a
 parameter set growing with $p$, integers that are not formal polynomials
-in $p$, non-abelian data, or a signed counting certificate. We list the
+in $p$, non-abelian data, or a signed counting certificate. Section~\ref{sec:longshots} removes two
+further candidates (Theorems~\ref{thm:transparent}, \ref{thm:fibred}). We list the
 concrete forms \cite[\S3]{RT2}. The verdicts are \status{Assessments}. Each
 hatch is equally a hatch for \emph{disproof}: a sterile prime, if one
 exists, would be a failure not explained by Brauer--Manin
@@ -1022,7 +1431,9 @@ Anchoring the levels at the least non-residue $n_p$ (H-C) fixes the genus
 condition but leaves H-A at the anchored levels. Taking Type~I and Type~II
 together (H-G) has the same $\cL^3$ mass structure, and
 Theorem~\ref{thm:reduction}(iii) applies to unions of rows of both types
-\cite[\S3]{RT2}.
+\cite[\S3]{RT2}. Covering reduces to H-A/H-B (\status{Assessment}, from
+Theorem~\ref{thm:transparent}, which excludes only transparent covers of large cosets);
+fibring leaves open (E-a)--(E-d) of \S\ref{ssec:fibred} (T8 blind spot).
 \end{remark}
 
 \section{Numerical evidence}\label{sec:numerics}
@@ -1070,7 +1481,8 @@ integers at the Planck scale, with polylogarithmic expected counts
 (Theorem~\ref{thm:reduction}). \status{Assessment:} by these routes and
 with known technology, no standard hypothesis is known to suffice. What
 remains open is the joint control of a growing family of divisor events at
-one prime (H-A, H-B), or a genuinely new object (H-D, H-E). The
+one prime (H-A, H-B), or a genuinely new object (H-D, H-E). Deterministic covering
+and continuous fibring do not open new routes (\S\ref{sec:longshots}). The
 Erd\H{o}s--Straus conjecture remains open.
 
 
@@ -1109,6 +1521,20 @@ Erd\H{o}s--Straus conjecture remains open.
 \bibitem[O131]{O131} \emph{Exact-formula search}, internal note, \texttt{EXACT\_FORMULA.md}, review \texttt{reviews/exact-formula-review.md}.
 \bibitem[RT1]{RT1} \emph{Red team for the automorphic/geometric attack}, internal report, \texttt{reviews/redteam-automorphic.md}.
 \bibitem[RT2]{RT2} \emph{Red team 2 and synthesis: the divisor-class reduction}, internal report, \texttt{reviews/redteam-automorphic-2.md}.
+\bibitem[LP]{LP} \emph{Long shot A: deterministic pigeonhole}, internal note, \texttt{LONGSHOT\_PIGEONHOLE.md}, review \texttt{reviews/longshot-pigeonhole-review.md}.
+\bibitem[LF]{LF} \emph{Long shot B: fibred encodings}, internal note, \texttt{LONGSHOT\_FIBRED.md}, review \texttt{reviews/longshot-fibred-review.md}.
+\bibitem[Kn]{Kn} M. Kneser, Absch\"atzung der asymptotischen Dichte von Summenmengen, \emph{Math. Z.} \textbf{58} (1953), 459--484.
+\bibitem[TV]{TV} T. Tao and V. Vu, \emph{Additive Combinatorics}, Cambridge University Press, 2006.
+\bibitem[MV]{MV} H. L. Montgomery and R. C. Vaughan, The large sieve, \emph{Mathematika} \textbf{20} (1973), 119--134.
+\bibitem[Sh]{Shiu} P. Shiu, A Brun--Titchmarsh theorem for multiplicative functions, \emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+\bibitem[NR]{NR} J.-L. Nicolas and G. Robin, Majorations explicites pour le nombre de diviseurs de $N$, \emph{Canad. Math. Bull.} \textbf{26} (1983), 485--492.
+\bibitem[DRS]{DRS} W. Duke, Z. Rudnick and P. Sarnak, Density of integer points on affine homogeneous varieties, \emph{Duke Math. J.} \textbf{71} (1993), 143--179.
+\bibitem[EM]{EM} A. Eskin and C. McMullen, Mixing, counting, and equidistribution in Lie groups, \emph{Duke Math. J.} \textbf{71} (1993), 181--209.
+\bibitem[EMS]{EMS} A. Eskin, S. Mozes and N. Shah, Unipotent flows and counting lattice points on homogeneous varieties, \emph{Ann. of Math.} \textbf{143} (1996), 253--299.
+\bibitem[BR]{BR} M. Borovoi and Z. Rudnick, Hardy--Littlewood varieties and semisimple groups, \emph{Invent. Math.} \textbf{119} (1995), 37--66.
+\bibitem[CTX]{CTX} J.-L. Colliot-Th\'el\`ene and F. Xu, Brauer--Manin obstruction for integral points of homogeneous spaces and representation by integral quadratic forms, \emph{Compos. Math.} \textbf{145} (2009), 309--363.
+\bibitem[Ea]{Ea} A. G. Earnest, Exceptional sets for spinor regular ternary quadratic forms, arXiv:2203.02620 (2022).
+\enlargethispage{3\baselineskip}
 \bibitem[LA]{LA} \emph{Spectral and geometric tools for pointwise representation (literature survey)}, internal file, \texttt{LITERATURE\_AUTOMORPHIC.md}.
 \end{thebibliography}
 \end{document}
