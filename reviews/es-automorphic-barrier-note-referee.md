@@ -160,3 +160,57 @@ coprimality conditions) vanishes at every square n = m², odd or even". (R134 re
 
 D11 (MINOR, cosmetic). Report O134 says "pdflatex twice, 0 warnings"; from a clean checkout a third pass is needed
 (toc + hyperref). No action needed in the paper.
+
+---
+
+# Round 2 (R138) — the O138 update (§6 long shots; abstract/intro/summary/hatches)
+
+Referee: R138 (hostile, independent). Branch `side-agent/referee-note-r2`, merged from
+`side-agent/barrier-note-longshots` (O138, report `reviews/agent-reports/AGENT_REPORT_O138.md`). Sources checked:
+`LONGSHOT_PIGEONHOLE.md` [LP] + R135 (`reviews/longshot-pigeonhole-review.md`), `LONGSHOT_FIBRED.md` [LF] + R136
+(`reviews/longshot-fibred-review.md`, D1–D14). From-scratch code: `scripts/review_r138_*.py`.
+
+## §6.1 Covering in the e-slices — claim-by-claim
+
+| claim (paper numbering) | source | verdict |
+|---|---|---|
+| Lemma 6.1 (e-slices) | LP Lemma 1.1 | SOUND (MINOR R138-1: p ∤ e not justified in the "every element has a value of e" sentence) |
+| Lemma 6.2 (genus in a slice, ℓ = 2 incl.) | LP Lemma 1.2 | SOUND |
+| Lemma 6.3 (collisions → signed solutions) | LP Lemma 1.3 | SOUND |
+| Prop 6.4 (Kneser criterion + sharpness) | LP Prop 1.4, R135 D2 | SOUND |
+| regimes paragraph (LP Lemmas 2.1, 2.3) | LP §2.1, §2.3 | SOUND (θ < 1 in Lemma 2.3 is fine: the proof never uses θ < 1/2) |
+| Def 6.5 (TCC, index ≤ 2e^θ) | LP §2.2, R135 D3 | SOUND |
+| Thm 6.6 (θ < 1/2, positive lower density) | LP Thm 2.2, R135 D3–D5 | SOUND |
+| Remark 6.7 (all θ < 1) | R135 D6 | SOUND as a sketch, correctly attributed |
+| Scope paragraph | LP §2.2 Reading, R135 D5 | SOUND-AFTER-REPAIRS (MINOR R138-2) |
+| Conj 6.8 PH + EVIDENCE | LP Conj 5.1, §3, R135 §3 | SOUND; labels correct |
+
+Re-derivations. *Lemma 6.1*: (i) 4N^I ≡ 1, 4N^II ≡ p (mod e), e odd; (ii)–(iv) as in the paper; |Σ| ≤ ∏(2v+1) =
+τ(N²). *Lemma 6.2*: for odd ℓ | N, −e ≡ p (II) or p⁻¹ (I) mod ℓ, and for e ≡ 3 (4) Jacobi reciprocity gives
+(ℓ/e) = (−1/ℓ)(e/ℓ) = (−e/ℓ) = (p/ℓ) = (ℓ/p); for ℓ = 2, 8 | p+e resp. 8 | pe+1 gives −e ≡ p (mod 8) (p² ≡ 1),
+and (2/e) = Kronecker(−e/2) = (2/p). (ii) follows by multiplicativity. *Lemma 6.3*: two distinct unitary divisors
+u₁ ≡ u₂ (mod e); after dividing by g = gcd the supports are disjoint, so ab | N, gcd(a,b) = 1; the identities
+reduce to c(p+e)/(abcdp) and c(1+pe)/(abcdp). *Prop 6.4*: H = Stab(Σ) ⊂ Σ (1 ∈ Σ); any partial product with
+stabiliser K makes Σ K-periodic, so all partial products in G/H have trivial stabiliser and Kneser iterates to
+|Σ/H| ≥ 1 + Σ(|X_i| − 1) with |X_i| = min(2v_i+1, o_H(g_i)) (2v_i+1 consecutive powers). Sharpness: in ℤ/2m the
+relevant subgroups are dℤ/2m with d ∤ m, the condition at d = 2m is 2k ≥ 2m−1 ⟺ k ≥ m and implies the others.
+*Thm 6.6*: (a) all ℓ < e ≤ Y have (ℓ/p) = 1 (p ≡ 1 mod q₀, 8 | q₀), so R ⊂ K_e. (b) the greedy factor
+u ∈ (x^{1/4}, x^{1/2}] exists because all prime factors of L are < e ≤ E₁ < x^{1/4}; Rankin saves
+exp(−(1/4+o(1))(log x)^{2/3}) against 2E₁ = 2exp((log x)^{1/3}). h(ℓ^v) = (2v+1)² − (2v−1)² = 8v. Compatibility
+with p ≡ 1 (q₀): ℓ ≤ Y, ℓ | m forces −e ≡ 1 resp. −e⁻¹ ≡ 1 (mod ℓ), i.e. ℓ | e+1; the local factor is then
+1 + Σ_v 8v ℓ^{1−v} ≤ 1 + 8·(1−1/3)^{−2} = 19 — the constant 19 is right. The Y < ℓ < e product is ≍ (log e)^8 and
+B_e^{−2} ≪ e^{2θ−2+ε}, so the tail is ≪ Y^{−1+2θ+ε}. (c) Σ_{n≤x/2} τ(n²)² ≍ x(log x)^8 (τ(ℓ²)² = 9); Shiu with
+A = 9, k = e < X^{3/4} (X ≥ e²/4 for e ≤ x) gives X(log X)^8/φ(e); the E₁-tail beats (log x)^9. (d) e > x:
+N ≤ e²/4 and τ(N²) ≤ τ(N)² ≤ exp(2·1.538·log 2·log N/log log N) ≤ exp(4.3 log e/log log e) eventually, against
+B_e = e^{1−θ−o(1)}. Positive lower density: the complement has ≥ (1 − CY^{−1+2θ+ε} − o(1))π(x; q₀, 1)
+≍ π(x)/φ(q₀) elements. *Remark 6.7*: with f_r = τ(·²)^r the local factors are ≪_r v^{r−1}, Markov gives
+B_e^{−r} ≪ e^{−r(1−θ)+ε}, summable iff r(1−θ) > 1; (d) holds for every θ < 1. "coset of size ≥ e^δ" ⟺ θ = 1−δ.
+*PH evidence* matches LP Table 3.1 (P20 = 0 exactly for 3529, 110881 among the 2370 MH primes < 10⁶) and R135 §3
+(six primes re-run); "≈ 5% at 10⁸" matches LP §3 reading 1.
+
+From-scratch code `scripts/review_r138_cover.py` (sympy): for all p ≡ 1 (4), p < 400, all e ≤ 3p+50, both types:
+Σ_e(N) as a product set equals the ratio set; fibre non-empty ⟺ −1 ∈ Σ; every pair gives an ES solution; Lemma 6.2
+(i)–(ii) for every prime factor including 2; Type II slices with p | e are empty in this range (Type I: impossible).
+Lemma 6.3 identities verified exactly (Fractions) on every slice with 2^ω(N) > φ(e), p < 300, e < 400. Prop 6.4:
+criterion ⇒ t₀ ∈ Σ on 4853 random cyclic instances where it applies (no counterexample); sharpness example
+ℤ/2m (m < 15, k < 20): criterion ⟺ k ≥ m ⟺ m ∈ Σ.
