@@ -243,7 +243,7 @@ So every pigeonhole certificate lives in a family of length `p^{o(1)}`: Type II 
 Matomäki–Radziwiłł-type results hold for almost all short intervals, not a prescribed one. Assessment: no known
 technology supplies "an integer with prescribed rich factorisation in [x, x + x^{o(1)}]" pointwise.)
 
-Large deviations do not help either (PROVED, elementary): (i) many *distinct* primes are capped:
+Large deviations do not help either ((i) PROVED, elementary; (ii) Assessment resting on Prop 1.4): (i) many *distinct* primes are capped:
 `3^{ω(N)} ≤ N^{(log 3+o(1))/log log N} = p^{o(1)}`; (ii) large `Ω(N)` is achieved mainly through prime *powers*,
 and a prime power ℓ^v contributes the progression `{ℓ^t : |t| ≤ v}` inside the cyclic group ⟨ℓ⟩: by Prop 1.4
 (H = {1}) such contributions need `Σ_i min(2v_i+1, ord ℓ_i) ≥ φ(e)`, i.e. they count linearly, not

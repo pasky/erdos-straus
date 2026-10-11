@@ -1,0 +1,14 @@
+== per-p summaries (cols: see scripts/lsa_census.c header)
+cen_mh_le1e6_E2000.txt n=2370 sol-slices=43.5 P=14.00 TP=10.07 P20=7.27 TP20=6.83 #(P20=0)=2 minP20=0@3529 maxPphi:mean=238,min=12@3529 [maxPphi attained transparently: 2358/2370] mean max omega=6.46
+cen_sample_1e4_E5000.txt n=300 sol-slices=36.1 P=10.80 TP=7.97 P20=4.86 TP20=4.73 #(P20=0)=1 minP20=0@110881 maxPphi:mean=159,min=12@110881 [maxPphi attained transparently: 296/300] mean max omega=6.62
+cen_sample_1e5_E5000.txt n=300 sol-slices=44.9 P=12.75 TP=9.34 P20=6.32 TP20=6.03 #(P20=0)=1 minP20=0@110881 maxPphi:mean=208,min=12@110881 [maxPphi attained transparently: 297/300] mean max omega=6.90
+cen_sample_1e6_E5000.txt n=300 sol-slices=61.3 P=16.03 TP=11.43 P20=8.78 TP20=8.08 #(P20=0)=0 minP20=2@1005481 maxPphi:mean=319,min=36@1109761 [maxPphi attained transparently: 300/300] mean max omega=7.08
+cen_sample_1e7_E5000.txt n=300 sol-slices=80.2 P=20.12 TP=13.50 P20=12.00 TP20=10.26 #(P20=0)=0 minP20=5@10148209 maxPphi:mean=500,min=60@10134721 [maxPphi attained transparently: 299/300] mean max omega=7.30
+cen_sample_1e8_E5000.txt n=300 sol-slices=100.6 P=25.17 TP=16.03 P20=16.11 TP20=12.67 #(P20=0)=0 minP20=6@100104481 maxPphi:mean=697,min=95@100057609 [maxPphi attained transparently: 297/300] mean max omega=7.61
+cen_hard_E20000.txt n=15 sol-slices=51.3 P=9.60 TP=7.40 P20=6.40 TP20=5.73 #(P20=0)=0 minP20=1@2521 maxPphi:mean=242,min=20@2521 [maxPphi attained transparently: 15/15] mean max omega=7.60
+== by e-bin, first 100 primes of each sample, E=5000: per p  sol-slices / P / TP  (P = full coset -K_e covered)
+1e4:  e<20 3.27/3.10/1.06  e<100 8.02/4.79/4.33  e<500 10.12/1.89/1.88  e<2000 6.07/0.13/0.13  e<5000 2.76/0.00/0.00
+1e5:  e<20 3.41/3.17/1.00  e<100 8.98/5.80/4.96  e<500 13.09/2.64/2.61  e<2000 10.82/0.23/0.23  e<5000 5.69/0.02/0.02
+1e6:  e<20 4.02/3.82/0.98  e<100 10.53/6.92/5.38  e<500 18.24/4.46/4.36  e<2000 17.50/0.60/0.60  e<5000 10.92/0.02/0.02
+1e7:  e<20 4.36/4.12/0.86  e<100 11.85/8.10/5.45  e<500 22.57/6.17/5.58  e<2000 24.91/1.35/1.35  e<5000 16.33/0.17/0.17
+1e8:  e<20 4.61/4.41/0.84  e<100 13.05/9.43/5.60  e<500 26.89/8.57/6.91  e<2000 33.13/2.36/2.31  e<5000 23.22/0.27/0.27
