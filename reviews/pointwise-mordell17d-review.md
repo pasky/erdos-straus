@@ -115,8 +115,9 @@ replace "≈" by the exact bound or "`≲` when `max(a,b) = o(N)`".
 with `17 | λ` are not excluded, only shown irrelevant (their box is `≡ 1 (17)`). *(R139 repair)* "no P-datum on the
 ray has a box containing `u`".
 
-**m5 (MINOR; Remark 2.4).** The divisibility `ab | c(p²b + q²a) + 17z²` needs `17 ∤ b` (equivalently `17 ∤ a`); the
-remark says "for every N-point". Simpler and complete proof under `17 ∤ b`: from `4abd = N + e`, `gcd(e, ab) | N`, and
+**m5 (MINOR; Remark 2.4).** The divisibility part is stated for every N-point, but its proof (`a | N·X` ⇒ `a | X`)
+needs `17 ∤ a` (equivalently `17 ∤ b`); `p1–p13` contain no datum with `17 | ab`, so the author's 6632-pair check does
+not test that case (nor could the reviewer's). Simpler and complete proof under `17 ∤ b`: from `4abd = N + e`, `gcd(e, ab) | N`, and
 `17 ∤ ab`, so `gcd(e, ab) = 1` and `e | (p+q)² + 68dz²` follows directly from the identity (then `ab | X` too).
 *(R139 repair)* add the hypothesis `17 ∤ b` and this one-line proof.
 
