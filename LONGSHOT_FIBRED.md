@@ -265,3 +265,46 @@ this is a class-level, Planck-scale condition, and the number of such forms is `
 `d ≤ 8`): `#𝔊⁻_d = h/2 ∈ [10, 144]` at every prime and level, `= 0` at every square; `F_d(p) ∈ [0, 22]`, and
 `F_d(p) = 0` at 19 of the 40 (prime, level) pairs where `𝔊⁻_d(p)` has 10–144 classes. The genus is nonempty
 at every prime and level, and the ES points occupy a vanishing fraction of it.
+
+**Theorem 5.4 (obstruction for fibred encodings, exact scope; PROVED relative to (C), ET, and — for (iii) — CTX
+Thm 3.7).** *Class X:* power-fibred encodings `E(n) = ⨆_{θ∈Θ(n)} E_θ` (Θ(n) arbitrary, may grow with n, may be
+defined through factorisations), where each piece `E_θ` is either
+* (X1) Zariski-dense in an irreducible `V_θ/ℚ` with `φ|_{E_θ}` the restriction of a rational map; or
+* (X2) a finite union of `Γ_θ`-orbits in setting (O) with (C), `φ` `Γ_θ`-invariant, and orbit weights in
+  `[w_θ, R·w_θ]`. (R = C(Γ_θ) for compact or finite stabilisers (Thm 3.1(b)); `R = O(log n)` for the
+  Pell/regulator encoding F2(iii).)
+
+Let `μ(n)` be the maximal number of pieces (X1 pieces, X2 orbits) over one solution. Then:
+1. *(Idle or normalised.)* X1 pieces are constant (`φ ≡ s_θ`, Thm 2.3). The normalised count
+   `c̃(n) := Σ_θ c_θ/w_θ` (with `w_θ := c_θ` for X1 pieces) satisfies `#pieces ≤ c̃(n) ≤ R·μ(n)·f(n)`.
+2. *(Scale constraint returns.)* A counting route proving `c̃(n) ≥ M(n)/2` needs `M(n) ≤ 2Rμ(n)f(n)`; with ET
+   (RT1 §5.5) this is `≤ 2Rμ(n)ξ log³n log log n` outside a density-o(1) set of primes, for any ξ → ∞.
+   The factor `H^δ` from the fibres cancels out of every such statement.
+3. *(Mass formulas.)* A main term computed by a mass formula (Siegel–Weil, Borovoi–Rudnick) is the mass of a
+   genus-full set `V_θ(ℤ) ∩ W_θ(n) ∩ Ω` with `W_θ(n)` adelic-open. Either `E_θ` is that whole set, and then (G simply
+   connected, connected stabiliser, CTX hypotheses) `E_θ ≠ ∅` is decided by local and Brauer–Manin data, without
+   counting; or `E_θ` is a proper subset, and the mass is not `c_θ`. In the first case the encoding is a criterion
+   "local + BM data at n ⇒ ES(n)", and by 5.1 its vanishing at odd squares must be produced at the places dividing
+   m. For the ES-natural genus-full sets (F5: all Gram embeddings; 5.3: `𝔊⁻_d`) the criterion is false: F5 contains
+   `Q₀` at every n, and `𝔊⁻_d(p) ≠ ∅` at primes with `F_d(p) = 0`.
+4. *(Bounded complexity.)* If Θ is finite and the X1 data are uniform in n (Cor 2.4), all large `p ≡ 1 (mod D')`
+   are missed.
+*Proof.* 1: Thm 2.3 and Thm 3.1(a),(b) piece by piece; each piece lies over one solution, and each solution
+has ≤ μ pieces. 2: Lemma 1.3. 3: definitions, CTX Thm 3.7, Prop 5.1, F5 and 5.3. 4: Cor 2.4. ∎
+
+**5.5 What escapes Theorem 5.4 (exact list; Assessment).**
+* (E-a) Orbit encodings whose weights vary by a power of n *and* are not capped by the height of the solution:
+  split-torus stabilisers whose regulators are not produced by the solution itself. Among ES encodings the only
+  split torus that appears is the Type II Pell unit (F2), where the solution *is* the unit, which caps the weight at
+  `O(log n)`. No other was found.
+* (E-b) A *valid* uniform genus-full criterion with a Brauer/spinor factor at the place p (the 5.2 mechanism moved
+  to ES). If it existed, ES(p) would follow from local + BM data of a homogeneous space (CTX), and counting would be
+  unnecessary. The natural candidates (F5, `𝔊⁻_d`) fail validity by a factor `≍ h(−4dp)/F_d(p)`. Nothing in the
+  campaign excludes an unnatural one; it would be a structural theorem "a nonempty genus at p forces a Type I/II
+  solution", which is of the same strength as ES.
+* (E-c) Recipes that are neither algebraic on dense pieces nor invariant under a lattice (for example procedures
+  with floors, gcds and factorisations on the points of a non-homogeneous variety). They are outside class X, and
+  in the scope of POINTWISE_SIZE Thm M (procedures) instead; counting theorems do not apply to them as such.
+* Bilinear/parity-breaking sieves (Friedlander–Iwaniec, Heath-Brown) act at fixed p on the base problem (divisors of
+  `N_θ(p)` in a moving class; RT2 H-B). Fibring them over free parameters is F1. They stay single-target counts with
+  polylog mass, so fibring gives them no extra room.
