@@ -11,6 +11,13 @@ T_p Hecke identity, Type II det-1 level-dp shells and Gram data, Brauer class = 
 = averaging, local solubility at odd squares, geometry/BM-only ⟺ ES(n) for n ≥ 2, H/Dickson-conditional emptiness).
 §5 quantitative gaps (Assessment), §6 hatches H-A/B/D/E (+H-F cautionary), §7 EVIDENCE. **ES is not proved.**
 Internal only; awaits a referee pass (`reviews/agent-reports/AGENT_REPORT_O134.md`).
+**Update O138 (24 pp; awaits referee):** new §6 "Two non-counting escapes that fail" (DISCOVERIES (I)9–(I)10;
+LONGSHOT_PIGEONHOLE/R135, LONGSHOT_FIBRED/R136). §6.1 covering in the e-slices: e-slice lemma, genus inside a slice,
+collisions = signed solutions, Kneser criterion, Thm 6.6 transparent covering fails on a positive-density set
+(PROVED rel. PNT in APs, BT, Shiu, Nicolas–Robin; all θ < 1 per R135 remark), Conjecture PH + EVIDENCE. §6.2 fibred
+encodings: rigidity, Cor 6.10, Thm 6.11 (rel. counting input, cited statements checked second-hand only), odd-square
+test under (U), invalid genus criterion (19/40), Thm 6.14 with exact scope (item 3 CONDITIONAL; T8 blind spot closed
+only for continuous fibres). Old §§6–7 are now §§7–8. Abstract/intro/hatches/summary updated. **ES is not proved.**
 
 **Update (O122): `es-typei-heegner-note.tex` / `.pdf` v3** (38 pp) — new title "The Elsholtz–Tao Type I sum is
 O(N log²N)". Main Theorem 1: `Σ_{p≤N} f_I(p) ≪ N log²N` (≍ with ET's lower bound), **PROVED relative to** the cited
