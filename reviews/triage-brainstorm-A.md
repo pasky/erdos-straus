@@ -289,3 +289,37 @@ noise, ≈ 2× overdispersed). The non-congruence remainder is small.
 Open sub-question: the memo's own suggested follow-up (residual vs Poisson after moduli ≤ 10³, at 10⁸, f_I too). It is
 cheap and gives a falsifiable "f = congruence factor × Poisson" form of the ET heuristic, but it is EVIDENCE only.
 Novelty: the numerics are plausibly new; the reading is the standard Haar + Poisson heuristic. **Promise 1.**
+
+**ident_form_families (O145b; memo: PARTIAL, COLLAPSES at coverage).** AGREE on the verdict. The by-products check
+out.
+* Prop 3.4's factorisation, by hand: (t²+2m²+k)² − 4m²t² = t⁴ + 2kt² + (k+2m²)² = P² + 4m²(m²+k).
+* The headline example, by script (`scripts/triage_tfamily.py`): p = 27830² + 21 = 774508921 is prime and
+  ≡ 361 (mod 840), a Mordell-hard class. Both f = t² ∓ 2t + 23 give genuine solutions of 4/p via the (c,d) = (1,22)
+  Type I slice (exact Fraction check).
+* So non-congruence polynomial families do solve Mordell-hard primes, outside Thm C's proved scope (linear
+  parameter).
+
+The verdict "density 0, no route" is right for one-variable families: ≪ x^{1/2} primes. The **false-negative risk sits
+in the two-variable question**, which the memo leaves UNCLEAR and which is the same gap canonical_invariants leaves
+UNCLEAR ("polynomial (u,v)-recipe … UNCLEAR as a theorem"):
+* Could a Type I identity in (u,v) solve every prime p = u² + kv² in some (u,v)-classes? That would be a
+  positive-density, non-congruence certificate.
+* Thm C does not apply as proved. Computing (u,v) from p needs a modular square root, which is the
+  gon_fermat_certificates escape from Theorem M.
+* The natural obstruction is the *Pythagorean specialisation*. Principal forms represent squares Q(u,v) = m², and
+  an identity holding in ℚ(u,v) specialises there. To contradict ET Prop 1.6 one must show that the Type I
+  coprimality/shape survives specialisation at a Zariski-dense set of square values.
+* The memo proves "no 2-variable extension" only for the constant-level shape.
+* A second, cheaper route: the Lemma 3.1(a) trap fails for one-variable t² + k (t − √−k is never ≡ a unit), but
+  in two variables (u,v) ≡ (1,0) profinitely makes u + v√−k ≡ 1. So a Thm C-style trap plausibly exists for
+  *every* k. This needs checking for non-homogeneous procedure values h(u,v).
+
+**Strongest open sub-question:** prove "no two-variable Type I identity on a binary quadratic form covers a set of
+primes containing a hard class", either by the Pythagorean specialisation or by the two-variable trap. A proof
+extends the barrier to Fermat + identity certificates; a counterexample would be a major positive find. Novelty:
+* Prop 3.2 (Type II families on positive-definite quadratics are old) and the classification in Prop 3.4: plausibly
+  new, elementary.
+* The k = 21/37 hard-prime families: plausibly new curiosities.
+* Lemma 3.1(a) (Thm C extends to t² + 1 under H): a genuine small extension of the barrier.
+
+**Promise 2** (bounded, well-posed obstruction question; good for a short depth task).
