@@ -295,3 +295,42 @@ one-variable identities already do the work.
 * Open: indefinite forms in cusp regions (4.3); (x,y,z)-only families (4.4(iv)); procedures with
   floor or factorisation in (u,v) (a two-variable Theorem C, would need H); unbounded families of
   forms (E1/B2); Type I analogue of O145 Prop 3.2.
+
+## 8. (O163) Families given only as (x,y,z) ∈ Q[u,v]³ — closing §4.4(iv)
+
+Setting as in §1–3: Q primitive positive definite, D < 0. An **(x,y,z)-family** is a triple
+F = (x,y,z) ∈ Q[u,v]³ with `4/Q = 1/x + 1/y + 1/z` identically; F is **valid** at P ∈ Z² if
+x(P), y(P), z(P) are positive integers. No ET coordinates are assumed. Q is irreducible in
+Q[u,v] (definite ⇒ no rational linear factor), so Q[u,v] being a UFD, "Q | g" is meaningful.
+For g ∈ Q[u,v] write g = Σ_j g_j (g_j homogeneous of degree j) and ord₀ g = min{j : g_j ≠ 0}.
+
+**Lemma 8.1 (shapes; PROVED, elementary).** Up to permuting x, y, z exactly one of:
+(0) Q divides all three; (I) Q | x, Q ∤ y, Q ∤ z ("Type I shape"); (II) Q | y, Q | z, Q ∤ x
+("Type II shape"). In case (0), F is valid at no P with gcd(Q(P), δ) = 1, where δ ∈ N clears
+the denominators of x/Q, y/Q, z/Q.
+*Proof.* `4xyz = Q(xy + yz + zx)`, so Q | xyz, so Q divides at least one coordinate. Case (0):
+write x = Qx₁ etc.; then `4 = 1/x₁ + 1/y₁ + 1/z₁`. If F is valid at P and n = Q(P) is prime to
+δ, then n·x₁(P) ∈ Z and δx₁(P) ∈ Z give x₁(P) ∈ Z, and x₁(P) = x(P)/n > 0. Three positive
+integers have reciprocal sum ≤ 3 < 4. ∎
+
+**Lemma 8.2 (structure at the origin; PROVED, elementary).**
+(I) Type I shape, x = Q·x̃. Either y + z = 0 (then F is never valid), or there is h ∈ Q[u,v]
+with `4x̃ − 1 = Qh` and `4yzh = (Qh + 1)(y + z)`. Consequently `x̃(0,0) = 1/4`;
+`k := ord₀ y = ord₀ z`; and if k ≥ 1 then `z_k = −y_k`.
+(II) Type II shape, y = Qỹ, z = Qz̃. There is h with `4ỹz̃ − ỹ − z̃ = Qh` and `xh = ỹz̃`.
+Consequently `(4ỹ(0) − 1)(4z̃(0) − 1) = 1`, and if `x(0,0) = 0` then `ỹ(0,0) = z̃(0,0) = 0`.
+*Proof.* (I) Multiply the identity by Qx̃yz: `yz(4x̃ − 1) = Qx̃(y + z)`. If 4x̃ = 1 then y = −z,
+and y(P), z(P) are never both positive. Otherwise Q ∤ yz forces Q | 4x̃ − 1 =: Qh, and dividing by
+Q gives `yzh = x̃(y+z)`, i.e. the stated identity (x̃ = (Qh+1)/4). At the origin Q = 0, so
+x̃(0) = 1/4. Let k = ord₀ y ≤ l = ord₀ z (WLOG). The RHS is `(y+z) + Qh(y+z)`; its second summand
+has order ≥ k + 2. If k < l, the degree-k part of the RHS is y_k ≠ 0, while the LHS has order
+≥ k + l > k: impossible. So k = l. If k ≥ 1 the LHS has order ≥ 2k > k, so the degree-k part of
+the RHS, y_k + z_k, vanishes.
+(II) Multiply by Qxỹz̃: `x(4ỹz̃ − ỹ − z̃) = Qỹz̃`; Q ∤ x gives Q | 4ỹz̃ − ỹ − z̃ =: Qh and
+`xh = ỹz̃`. At the origin `4ỹ₀z̃₀ = ỹ₀ + z̃₀`, equivalently `(4ỹ₀ − 1)(4z̃₀ − 1) = 1`. If x₀ = 0 then
+ỹ₀z̃₀ = x₀h₀ = 0, hence ỹ₀ + z̃₀ = 0, hence both vanish. ∎
+
+*Remark.* So in Type I shape y(0,0) = 0 ⇔ z(0,0) = 0, and the "bad" case of R159's route (Q(P)
+sharing the factor gcd(u,v) with y(P)z(P)) is exactly k ≥ 1. One-variable families composed with
+n = Q(u,v) always have k = 0 (Y(0) = 0 would mean n | Y in Q[n]), so k ≥ 1 needs a genuinely
+two-variable family. Lemma 8.2 is what makes k ≥ 1 harmless (Lemma 8.3).
