@@ -119,3 +119,20 @@ that BBMST Thm 3.1 fails on the raw system (removed mass = 1 at 2, 3, 5, 7) is r
 (c4), distortion inside the quarantined fibre to remove the (log𝓛)^5 in log 1/δ*(T). It is Haar-side only (it would
 settle POINTWISE_HAAR Conj 3.1 up to constants), so it is irrelevant to pointwise ES. Novelty: the dictionary is
 an exposition; nothing new. **Promise 0** for ES (1 for a Haar-side tidy-up).
+
+**elliptic_fibration_es (O143 memo 3; memo: COLLAPSES to integrality-vs-rationality and B2).** AGREE.
+* P1 (N = 4s/n = (Σu)(Σ1/u), so the pencil does not depend on n) is right.
+* The fibre bookkeeping is consistent: deg_N Δ = 6 gives an I₆ at ∞, Euler numbers 2+3+1+6 = 12, and Shioda–Tate
+  gives MW rank 8 − 8 = 0.
+* So ES points are never specialisations of sections over the N-line.
+* False-negative check: base changes N = N(t) with positive generic rank give sections. Their integral
+  specialisations are parametric families in which n is a function of t: polynomial-value families (density 0,
+  cf. ident_form_families) or congruence identities (Thm M). B1 applies either way.
+
+The Lang-scale point (ES points have ĥ ≪ log p while the conductor is p^{O(1)}) is Assessment but robust. Rank,
+Heegner or GZ technology produces points of height ≈ a power of the conductor, never existence of a small point,
+which is the same scale mismatch as B3. Minor correction: the per-point "non-torsion" in P3 is fully PROVED for
+each tested point. By Mazur, a torsion point has order ≤ 12, so the chord–tangent check up to order 12 settles it.
+The memo's worry about ℤ/12 and ℤ/2×ℤ/6 concerns only a general proof for all p ≡ 1 (4). Open sub-question:
+none for ES. "ES points ↔ rank-jump fibres" is a curiosity. Novelty: C_N is classical (Bremner–Guy–Nowakowski,
+cited from memory); the fibre table is probably known; the ES reading is plausibly new but inert. **Promise 1.**
