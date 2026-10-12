@@ -103,7 +103,16 @@ p≡1 (4) below 2·10⁴, a function of p mod L? L=24: none. L=120, 840: only th
 odd only at the single prime p=5 (artefact). (Complements WINDMILL §3.2, which tested constancy and
 Legendre/class-number bits.)
 
-Assessment of E1–E3 (EVIDENCE): no natural ES weight in this (fairly large) span has the parity
+**E4 (a Zagier-like odd set built from the divisor form; `scripts/bs_invol_uvt.py`).**
+`X(p)={(t,u,v)∈ℤ³_{≥1}: (tu−1)(tv−1)=tp+1}` (equivalently `p=uvt−u−v`) is finite (t ≤ p+2) and contains
+every divisor-form ES certificate (`m=tu−1`, 4 | m). The swap u↔v fixes `u(tu−2)=p`, i.e. only
+`(p+2,1,1)`; so **|X(p)| is odd for every prime p (PROVED, one line)**, and for general n,
+`|X(n)| ≡ #{n=u(tu−2)}` is divisor-type — a genuine windmill-shaped identity. But the odd point has
+`m=p+1≡2 (4)`: it is not an ES certificate, and the ES part `#{4 | tu−1}` is odd for only 36/61 primes
+p≡1 (24) below 4000. (Observed: no element ever has both `4 | tu−1` and `4 | tv−1`.) Same pattern as every
+always-odd set in WINDMILL §3.5: the parity sits on a central non-ES point.
+
+Assessment of E1–E4 (EVIDENCE): no natural ES weight in this (fairly large) span has the parity
 signature of a windmill identity, either uniformly in n or periodically on primes.
 
 ## 5. Viability
@@ -112,7 +121,7 @@ signature of a windmill identity, either uniformly in n or periodically on prime
 Precisely: a windmill/parity proof of ES evades B1, B3, B5, B6 and Theorem M for structural reasons
 (§1.2), so it is one of the few routes the barrier map does not exclude. Its entire content is an
 identity `W ≡ D_φ` (mod 2). (i) The algebraic source of such identities (an infinite integral symmetry
-group moving between slices) is absent for the multilinear ES equation (WINDMILL Prop 2). (ii) E1–E3 find
+group moving between slices) is absent for the multilinear ES equation (WINDMILL Prop 2). (ii) E1–E4 find
 no natural weight whose parity is divisor-type or binary-form-type over all n, nor periodic on primes.
 Status: **UNCLEAR → leaning COLLAPSES**; what would decide it is a *set-theoretic* cross-slice bijection
 between divisor sets of different `N_θ(p)` respecting the ES residue classes, which no one has.
