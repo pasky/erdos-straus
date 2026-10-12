@@ -46,8 +46,8 @@ Lemma 1.1. Logs: `logs/bs_prob_{model,euler,bulk,shifts}.txt`.
   carries **40%** of f. This part has CV 1.56 and correlation 0.98 with f. Its fluctuations are
   those of the divisor counts of four shifted integers `(p+e)/4`. The 200 hardest primes in
   [2²⁴, 2²⁵] have mean `Σ_{e≤16} τ((p+e)/4)` = 39, against 65 for random primes, and
-  `corr(log f/L³, log Στ) = 0.61`. Every record minimum checked has `(p+3)/4` with τ ≤ 4, often
-  τ = 2 (prime): 2031121, 20180449. **The hardest primes are near-prime-tuple shifts.**
+  `corr(log f/L³, log Στ) = 0.61`. Of the 8 dyadic record minima checked, 6 have
+  `τ((p+3)/4) ≤ 4`, and two have `(p+3)/4` prime: 2031121 and 20180449. **The hardest primes are near-prime-tuple shifts.**
 * *Large e (bulk).* e > 256 carries ≈ 36% (it grows with p). Its CV is 0.27 and its correlation
   with f is only 0.34.
 
@@ -100,6 +100,12 @@ regime. The bulk events are mildly **positively** clustered: several c share one
 one integer `p + 4a²d`. Any eigenvalue-repulsion analogue is empirically false for this
 lottery (EVIDENCE, scope ≤ 3·10⁷).
 
+**3.6 No conservation law between the types; a common driver (EVIDENCE).** One could hope that Type I
+and Type II are complementary (a "conservation law": when one is small the other is large).
+The data say the opposite. Exact `f_I` comes from R123's counter `scripts/review_r123_count.c`,
+over 1.29M primes in [2
+data]
+
 ## 4. Barrier screen
 
 * **B1/B5 (odd squares).** The model passes T1 only through its genus factor: at n = m², χ_n is
@@ -133,6 +139,6 @@ By-products (EVIDENCE; small, possibly useful for the barrier note or for future
 4. The calibrated model predicts ≈ 0.02 bulk-sterile primes in [2²⁰, 3·10⁷] and `≲ 10⁻⁸` beyond
    10⁸.
 
-None of these is a theorem. A precise conjecture of "Hardy–Littlewood type"
-(`f_II(p) ~ L³·𝔖(p)·(1 + o(1))` fails, because of the small-e heavy tail; the right form is
-`f_II(p) ≥ c·L³` for all large p) is just a strengthening of ES.
+None of these is a theorem. A Hardy–Littlewood-type asymptotic `f_II(p) ~ L³·𝔖(p)` is
+false in the data, because of the small-e heavy tail. The natural replacement CONJECTURE,
+`f_II(p) ≥ c·L³` for all large p, is just a strengthening of ES.
