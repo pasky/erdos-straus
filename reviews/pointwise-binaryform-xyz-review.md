@@ -68,3 +68,42 @@ decomposition n = λ²w², for all n = λ²w² ≤ **60 000** (185 pairs (λ,w),
 solutions). Hypotheses of (a): 7 969 times; of (b): 3 037 times (symbol checked for both y and z);
 Legendre symbol −1 every time; (c), (d), (e): 0 occurrences. 0 violations. This extends the
 author's n ≤ 12 000 check by 5×. CERTIFIED for n = λ²w² ≤ 60 000.
+
+### Lemma 8.4 (coprime square points on a prime dilate) — SOUND (minor presentation points)
+
+Re-derived step by step (numerical companion: `scripts/review_bf2_lemma84_construct.py`, below).
+* Step 1 ✓ (Lemma 2.1's proof: λ(u₁,v₁) ≡ (u₀,v₀) mod M whenever λμ ≡ 1; w₁ ≡ unit; the sign of w₁
+  is free since only w₁² enters).
+* Step 2 ✓: a class mod Mw₁ that is C mod M and has Q ≡ 1 mod ℓ^e ∥ w₁ exists by CRT (w₁ prime to
+  M ⊇ 2D, Q mod ℓ nondegenerate represents 1, Hensel); its Q-value is a unit square mod Mw₁, so Lemma
+  2.1 applies (8, 2D | Mw₁); the primitive triple's w₀ is prime to Mw₁ since λw₀ is.
+* Step 3 ✓: with β₀ = 2B(P₀,·), `Q(aP₀+bY) = a²w₀² + abβ₀ + b²Q(Y)`; a = Q(Y), b = −β₀ gives
+  Q(Y)²w₀². The line {sX₀ + t(Y,0)} meets the conic where t(sβ₀ + tQ(Y)) = 0, so the second point is
+  ψ(Y) ✓; conversely Y ∝ w₀P − wP₀ (tangent case Y ⊥ P₀) ✓. (ii): ℓ ∤ 2Dw₀, ℓ | ψ(Y), Y primitive
+  ⇒ ℓ | Q(Y), ℓ | β₀(Y) ⇒ Ȳ isotropic and Ȳ^⊥ = F_ℓȲ ∋ P̄₀ ⇒ ℓ | w₀² ✓. Hence primes of k₀ divide
+  2Dw₀; w₀Q(Y°) = k₀w₁ with gcd(w₀,w₁) = 1 ⇒ w₀ | k₀ ✓ (also fine in the degenerate case X₁ = X₀,
+  possible only if w₀ = w₁ = 1).
+* Step 4 ✓: each coordinate of ψ is an integral quadratic form, so ψ(Y°+NZ) = ψ(Y°) + N·Bψ(Y°,Z) +
+  N²ψ(Z) with Bψ integral bilinear; dividing by k₀ (N = k₀M) gives X_Z ≡ X₁, F₁ ≡ w₁ (mod M),
+  F₁ = w₁ + w₀M·β(Y°,Z) + w₀k₀M²Q(Z) ✓. All data (ψ, Y°, k₀, N) are fixed **before** λ, so "λ larger
+  than the constants" is legitimate (no circularity).
+* Step 5 ✓ (ψ₁₂(Y) ≠ 0 for real Y ≠ 0 because Q(ψ₁₂) = ψ₃² = w₀²Q(Y)² > 0).
+* Step 6 ✓: ℓ | M and ℓ | k₀, ℓ ∤ M (then ℓ | w₀ and F₁ ≡ w₁ mod w₀) give ρ_ℓ = 1; ℓ ∤ N:
+  ℓ | F₁ ⇔ ℓ | Q(Y_Z), ≤ 2ℓ−1 zeros. The O(1/ℓ²) bound: inert ℓ — only Y ≡ 0 (1 class); split ℓ —
+  on the line tȲ_ℓ, ψ₁₂ ≡ −t²β₀(Ȳ_ℓ)Ȳ_ℓ, β₀(Ȳ_ℓ) ≢ 0, and t ↦ G(−λt²β₀Ȳ_ℓ/k₀) has leading
+  coefficient G_j(V)(−λβ₀/k₀)^j ≢ 0 mod 𝔩 outside a λ-independent finite set of ℓ (G does not
+  vanish on the isotropic line KV: otherwise L₁ | G, then by conjugation L₂ | G, so Q | G) ✓.
+  ℓ = λ: H_i∘ψ₁₂ is a fixed nonzero integral form (ψ₁₂ is dominant), nonzero mod λ for λ large ✓;
+  ρ_λ ≥ 1 − (2+2Σdeg H_i)/λ > 0 for λ > 2+2Σdeg H_i ✓. ∑(1−ρ_ℓ) < ∞, every ρ_ℓ > 0 ⇒ ρ > 0 ✓.
+* Step 7 ✓: F₁ irreducible (invertible affine image of Q, times a constant), b²-coefficient
+  w₀N²Q(0,1)/k₀ constant ✓; F₁ ∤ G₁ because ψ₁₂(tV) = −t²β₀(V)V with β₀(V) ≠ 0 (P₀ anisotropic) and
+  t² covers C, so G would vanish on CV ⇒ Q | G ✓; hence ℛ = Res_b(F₁,G₁) ≢ 0 (if G₁ has b-degree 0,
+  ℛ = G₁² ≢ 0) ✓. Small primes by CRT (period ∏_{ℓ≤L}ℓ·λ; error O_L(T)); L < ℓ ≤ c₁T: ≤ 4degG+1
+  bad residues each, Σ O((T/ℓ+1)²) = O(T²/L + T) ✓; ℓ > c₁T: ℓ | ℛ(a), ω_{>c₁T}(ℛ(a)) = O(1),
+  ≤ 2 residues of b, interval length < ℓ ✓; roots of ℛ: O(T) ✓. Conclusion (3) also holds in the
+  degenerate case G₁(Z) = 0 (then goodness forces w = F₁(Z) = 1) — irrelevant in the application,
+  where y(P)z(P) > 0.
+Presentation points (MINOR m2): (i) Step 6 says "ρ_ℓ ≥ 1 − (4 deg G + 1)/ℓ²" for ℓ outside a finite
+set — correct, but the exceptional set also contains the primes 𝔩 at which V mod 𝔩 = 0 or V, V̄
+collide (ℓ | D, already excluded by ℓ ∤ N); worth one clause. (ii) the box B₀ must avoid 0 (it does,
+being inside the open cone Γ) — say so, since |Y_Z| ≫ T is used in Step 5.
