@@ -122,3 +122,49 @@ the fraction of good Z per box is ≥ 0.16 everywhere. (A first run with too sma
 missed 2 of 23 unit-orbits of square classes for 2u²+uv+3v² mod 184; the smallest primitive square
 points there are (−218,−367; 761) and (−746,769; 1521) — a search-box effect, confirming the
 author's similar remark, not a counterexample to Lemma 2.1.)
+Independent confirmation of the motivating claim (§8.5, check after 8.4):
+`scripts/review_bf2_primitive_classes.py` → `data/review_bf2/primitive_classes.txt`: the share of
+square classes mod M containing no primitive square point is 1/2 (u²+v² mod 8, 24; u²+uv+v² mod 24;
+u²+2v² mod 16; u²+5v² mod 40) or 3/4 (u²+v² mod 40; 2u²+uv+3v² mod 184). Hand check: for u²+v²
+mod 8, primitive Pythagorean points with 8 | v have u ≡ ±1 (8), so the square class (3,0) mod 8
+has only imprimitive square points. So R159's suggested route really does fail when G(0,0) = 0, and
+the λ-descent is genuinely needed. ✓
+
+### Theorem 3.2′ — SOUND (one MINOR hypothesis remark)
+
+All cases covered: shapes (0)/(I)/(II) are exhaustive (Lemma 8.1), and within (I), (II) the
+cases k = 0, 1, ≥ 2 are exhaustive. Re-derived each:
+* Setup ✓: δ | M and Q(C) a unit mod M ⇒ gcd(n,δ) = 1 ⇒ x̃(P) ∈ Z (resp. ỹ, z̃); integrality of
+  F is δ-periodic; Lemma 3.1 (it is stated for six coordinates but is a statement about any finite
+  list of nonzero polynomials) gives validity on C ∩ S beyond R; Lemma 8.4 then supplies P = λX.
+* Hypotheses of Lemma 8.4 ✓: G = δ²yz (resp. δx) ∈ Z[u,v], Q ∤ G because Q is prime and divides
+  none of the factors; H₁ = δy₁ (resp. δx₁) is a nonzero integral form when k = 1.
+* (I) k = 0 ✓ (λ > |G(0,0)| ≠ 0; gcd(w,yz) = 1 from (3); Type I for the odd square n; 8.3(e)).
+  k = 1 ✓: δy(λX) = Σ_{j≥1} λ^j δy_j(X) gives y(P)/λ ≡ y₁(X), z(P)/λ ≡ z₁(X) = −y₁(X) (mod λ, in
+  Z_(λ)), x̃(P) ≡ 1/4; −x̃(y/λ)(z/λ) ≡ (y₁(X)/2)² ≢ 0 by (4), so the Legendre symbol is +1 against
+  −1 from 8.3(a). k ≥ 2 ✓ (8.3(c)).
+* (II) k = 0 ✓; k = 1 ✓ (x(0,0) = 0 ⇒ ỹ(0,0) = 0 ⇒ 1 − 4ỹ(P) ≡ 1, symbol +1 against 8.3(b));
+  k ≥ 2 ✓ (8.3(d)).
+* (c′) quantifiers ✓: A_F = ∅ is a property of F alone; for each δ′ the exceptional bounded set
+  depends on (F, δ′) only (Lemma 3.1 on the compact arc-complement), not on C or P. No sign
+  dilation needed (validity is x, y, z > 0). ✓
+* Hidden-hypothesis check: Lemma 8.4 needs **2D | M** (Step 2: ℓ | w₁ ⇒ ℓ ∤ 2D; Step 3(ii) and
+  Step 6: ℓ | k₀, ℓ ∤ M ⇒ ℓ | w₀; ℓ ∤ N ⇒ Q nondegenerate mod ℓ). Thm 3.2 allowed "2D | M **or** Q in
+  the principal genus" (Lemma 2.1), and §4.2 uses the principal-genus clause to get a modulus
+  independent of s₀. Thm 3.2′ as stated requires 2D | M, so §0's "with the same hypotheses" is
+  slightly inaccurate. Easy repair (MINOR m3): since the conclusion A_F = ∅ does not depend on C,
+  for Q in the principal genus and a square class C mod M with 2D ∤ M, pass to a sub-class
+  C′ ⊂ C mod lcm(M,2D) on which Q is a unit square (exists: a principal-genus form represents
+  ℓ-adic unit squares at every ℓ | 2D, CRT), apply (b′) to C′, and conclude (c′) on C.
+
+### Modulus hypothesis "δ includes denominators of x/Q, y/Q, z/Q" — natural, harmless; even removable
+
+(i) Redundant: by Gauss's lemma (Q primitive), content(x) = content(x/Q)·content(Q) =
+content(x/Q), so the denominators of x/Q equal those of x. (ii) It does not weaken Cor 3.4′ relative
+to Cor 3.4: Thm 3.2 already used K_F := common denominator of the coordinates, so the joint modulus
+is of exactly the same kind. (iii) It can be weakened further (optional strengthening, not a
+defect): in the proof δ is used only through gcd(n,δ) = 1, i.e. Q(C) a *unit* at primes of δ.
+If F is integral on a square class C mod M₀ (8, 2D | M₀), C contains a square sub-class C′ mod
+lcm(M₀,δ) (Q ≡ 1 at the new primes ℓ ∤ M₀, ℓ ∤ 2D, by CRT); (b′) on C′ gives A_F = ∅ and then (c′)
+holds on all of Z². So the true hypothesis is "8, 2D | M and F integral on C" (integrality period
+instead of denominator), e.g. for integer-valued polynomials such as u(u+1)/2.
