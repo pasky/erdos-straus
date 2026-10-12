@@ -24071,4 +24071,38 @@ def check_fd():
 check_fd()
 
 
+def check_fe():
+    # (fe) FUNCTIONFIELD_ES (O161/R161): Thm 6.1 identity over F_2 (A = T^2), Thm 6.3 certificate (F_4, A = T,
+    # 81 unit classes mod T^4 - T), Thm 6.4 reviewer certificates (F_2, A = T^4, T^4 + 1), Prop 4.1 sign law.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FUNCTIONFIELD subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ffl_identities.py")
+    assert "Thm 6.1: identity + monic + NC verified for all 4717 irreducible P of degree 3..15 over F2" in o, \
+        ("FUNCTIONFIELD Thm 6.1", o)
+    for q, A, fn, nleaves, nchk, nf in ((4, "10", "cover_q4_A10.txt", 81, 6804, 4),
+                                        (2, "10000", "cover_q2_A10000_R161.txt", 696, 9744, 8),
+                                        (2, "10001", "cover_q2_A10001_R161.txt", 818, 11452, 11)):
+        o = run("review_ffl_cert.py", str(q), A, os.path.join(root, "data", "ffl", fn))
+        assert f"{nleaves} leaves" in o and "exact partition of units: True" in o and \
+            f"True; {nchk} P checked; max n_F = {nf}" in o, ("FUNCTIONFIELD certificate", q, A, o)
+    o = run("review_ffl_sign.py", "3:10:4", "3:100:5", "5:10:4")
+    assert o.count("mismatches 0") == 3 and "q=5 A=10 n=4: 955 Type II data" in o, ("FUNCTIONFIELD Prop 4.1", o)
+    print(f"(fe) FUNCTIONFIELD_ES: Thm 6.1 (F2, A=T^2, 4717 P), Thm 6.3 (F4, A=T, 81 classes), Thm 6.4 certificates "
+          f"(F2, A=T^4, T^4+1), Prop 4.1 sign law — OK ({perf_counter() - t0:.0f}s)")
+
+
+check_fe()
+
+
 print("\nall checks passed")
