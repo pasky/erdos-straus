@@ -15,6 +15,8 @@ ES is not solved; nothing below changes that.
 | Theorem 3.2 | SOUND-AFTER-REPAIRS (D2 minor) |
 | Lemma 3.3 | SOUND |
 | Corollary 3.4 | SOUND-AFTER-REPAIRS (D3, D4 minor) |
+| Prop 5.1 | SOUND (D5 minor wording) |
+| Prop 5.2 (+ O145 Prop 3.2 dependency) | SOUND |
 
 ## Claim-by-claim
 
@@ -148,4 +150,40 @@ Mordell-hard primes are missed" — for each fixed 𝔉, with the proportion dep
 * Not a defect but worth stating: the theorem is per fixed form Q; finitely many forms Q₁,…,Q_k
   (each with its own finite 𝔉ᵢ) are handled by taking M = lcm of all moduli — union of density-zero
   sets. §4.2 says this only for one-parameter families.
+
+### Prop 5.1 (constant level ⇒ one-variable) — SOUND (wording D5, MINOR)
+
+Re-derived. For any nonzero r, Q − r is irreducible over C (Q nondegenerate ⇒ the ternary form
+Q − r t² is nondegenerate). Hence for g ∈ Q[n] with g(0) ≠ 0, every divisor of g(Q) in Q[u,v] is,
+up to a constant, a product of Galois-stable sets of factors Q − rᵢ, i.e. lies in Q[n]. Apply to
+g = n² + 4c²d (Type I) and g = 4c²dn + 1 (Type II): f ∈ Q[n], then a, b, e (and in Type II a is
+constant) are in Q[n]. Correct.
+**D5 (MINOR):** the proof says "neither factor Q ± 2ic√d is defined over Q, so Q² + 4c²d is
+irreducible". That is true for d > 0 but false for d = −m² (Q² − 4c²m² = (Q − 2cm)(Q + 2cm)), and
+the proposition is stated for "every family" (d < 0 families are never valid but are families). The
+conclusion still holds with the argument above (every divisor of g(Q) lies in Q[n]); replace the
+irreducibility claim by that, or add "d > 0 (forced by validity)".
+
+### Prop 5.2 (Type II on a cone ⇒ one-variable) and its dependency O145 Prop 3.2 — SOUND
+
+*O145 Prop 3.2 (BRAINSTORM/ident_form_families.md §3), checked by me line by line.* With
+S = deg d + deg g + deg g′, G = max(deg g, deg g′): g + g′ = ch has no cancellation (positive leading
+coefficients), so G = deg c + m. In P = 4dgg′ − h cancellation *can* occur (both terms have positive
+leading coefficient) — the brainstorm's phrase "there is no cancellation" is inaccurate there — but
+the stated consequence S = max(2, m) is still right: S < m would give P a negative leading
+coefficient, S > m forces S = 2, and S = m forces m ≥ 2. Case m ≥ 2: S = m ≤ G ≤ S forces c, d and
+one of g, g′ constant, and h(4dcg′ − 1) = P + 4dg′² puts everything in Q[P] (4dcg′ − 1 ≠ 0 since
+P > 0). Cases m ≤ 1, S = 2: (2,0,0) trivial; (0,2,0) m = 0 trivial, m = 1 impossible (h's real root
+is a root of P + 4dg′² > 0); (1,1,0) and (0,1,1) impossible by the sign arguments as written (I
+re-did both). The g ↔ g′ symmetric cases are identical. So O145 Prop 3.2 is correct (PROVED).
+
+*Prop 5.2 itself.* For rational θ ∈ A_F and rational P₀ off the line Rθ, F∘ℓ ∈ Q[t]⁶ with leading
+coefficients H_j(θ) > 0, and Q∘ℓ is a positive definite quadratic, so Prop 3.2 applies (it only uses
+(2.13), (2.14)). G∘ℓ ∈ Q[Q∘ℓ] is symmetric about the vertex t* = −B(P₀,θ)/Q(θ), and the reflection
+t* + s ↦ t* − s on ℓ is x ↦ x − 2B(x,θ)θ/Q(θ) = σ_θ(x) (check: B(x,θ) = Q(θ)(t − t*)). The union of
+such lines is Zariski dense, so G∘σ_θ = G. Rational θ are dense in the arc, so the group generated
+contains Q-rotations by a dense set of angles; by continuity G is SO_Q(R)-invariant (−I included,
+so G restricted to a ray is even), hence G ∈ R[Q] ∩ Q[u,v] = Q[Q]. Correct. The same A_F⁻ remark
+as D2 applies (a family valid on a cone with sign pattern (−,−,−,+,+,+): apply the result to the
+dilate). Prop 5.2 does not use integrality or the principal genus; it is purely algebraic.
 
