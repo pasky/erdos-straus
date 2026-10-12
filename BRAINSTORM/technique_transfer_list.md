@@ -136,8 +136,8 @@ paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in bra
 
 * **Common frame (line 8): the equivalence "4AB | p+A+B ⇔ B | p+A, 4A | p+B, 4 | p+A+B" is false.** Counterexample
   [frame]: p = 73, (A,B) = (2,5): 4AB = 40 | 80 = p+A+B but 4A = 8 ∤ 78 = p+B. The direction ⇐ holds; ⇒ fails because
-  the factor 4 is shared. Correct dual forms: 4AB | p+A+B ⇔ A | p+B and 4B | p+A+B ⇔ B | p+A and 4A | p+A+B
-  (folklore; verified in scripts/triage_tech.py).
+  the factor 4 is shared. Correct form (elementary): 4AB | p+A+B ⇔ B | p+A and 4A | (p+A+B)/B (symmetrically in A, B);
+  checked by brute force in scripts/errata_check.py [frame].
 * **Item 13: "slice failure is exactly 'the primes of N generate a subgroup avoiding −1'" is false.** Avoidance is
   sufficient, not necessary. Counterexample [item13]: p = 73, e = 15, N = 22 = 2·11: the slice is empty (divisor
   residues {1,2,11,7} mod 15 miss −1), yet 2²·11 ≡ −1 (mod 15), so ⟨2,11⟩ ∋ −1. Correct statement: failure ⇔ no

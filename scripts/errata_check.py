@@ -67,7 +67,13 @@ ok("D3", f"p=433,e=19: N=113 prime, X_19=2 incl. (1,113,6,1); Sigma_19(113)={{1,
 # 2. technique_transfer_list common frame
 p, A, B = 73, 2, 5
 assert (p + A + B) % (4 * A * B) == 0 and (p + B) % (4 * A) != 0 and (p + A) % B == 0
-ok("frame", "p=73,(A,B)=(2,5): 40|80 but 8∤78 (the '=>' direction fails)")
+for p in range(1, 300):
+    for A in range(1, 30):
+        for B in range(1, 30):
+            lhs = (p + A + B) % (4 * A * B) == 0
+            assert lhs == ((p + A) % B == 0 and ((p + A + B) // B) % (4 * A) == 0)
+ok("frame", "p=73,(A,B)=(2,5): 40|80 but 8∤78 (the '=>' direction fails); "
+   "4AB|p+A+B <=> B|p+A & 4A|(p+A+B)/B brute-forced (p<300, A,B<30)")
 
 # 3. technique_transfer_list item 13: subgroup avoidance is sufficient, not necessary
 p, e = 73, 15
