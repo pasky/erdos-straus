@@ -4,9 +4,37 @@
 involution on X(p) with ES-only fixed points certifies ES(p) through `E(p) ∩ Z ≠ ∅`, for a fixed proper
 algebraic set Z ⊂ A³ (depending on the menu). Labels as in DISCOVERIES.md. Scripts: `scripts/inv2_*`.
 
-## 0. Summary
+## 0. Summary (outcome: the route is **barred under Bateman–Horn**, barred under H for cylinder surfaces, and
+barred **unconditionally** unless Z contains a "Siegel cylinder")
 
-(filled in at the end, §7)
+* **Axis lines (PROVED, Lemma 2.1).** On a line parallel to a coordinate axis, the E-values form finitely many
+  arithmetic progressions, none containing an odd square (INVOLUTION_ES Lemma 2.2 at `n = m²`). So every prime
+  that is a unit square modulo the moduli (e.g. `p ≡ 1 mod 8α`) misses them. No hypothesis needed.
+* **Non-cylindrical components are thin (PROVED, Prop 3.2, Cor 3.3).** An irreducible surface or curve that is
+  not a 2-dimensional axis cylinder `C × A¹` carries, off its finitely many axis lines, only `O(N^{2/3})` points
+  with `P ≤ N`. Axis cylinders over curves C with finitely many integer points (Siegel) reduce to lines
+  (Cor 3.4). So **unconditionally, for Z without "Siegel cylinder" components, `E(p) ∩ Z = ∅` for 100% of
+  the primes `p ≡ 1 (mod α₀)`** (Thm 6.1(b)), and the corresponding windmills are barred (Cor 6.2.1).
+* **Siegel cylinders: the slice divisor divides a fixed polynomial (PROVED, Lemma 4.1).** On `{f(t,u) = 0}`,
+  `A | R_f(p) := p^{deg_T f} f(−1/p, −p)`; on `{f(t,v) = 0}`, `B | R_f(p)`; on `{g(u,v) = 0}`, `u | g(0,−p)` and
+  `v | g(−p,0)`. So E(p) ∩ W is found by a *bounded* divisor search (Lemma 4.2). New **character lemma**
+  (PROVED, Lemma 5.1): for `p ≡ 1 (8)` and `x ∈ E(p)`, the odd parts of A, B **and uv** all have Jacobi symbol
+  −1 mod p.
+* **Siegel cylinders are barred under H (Thm 5.3, CONDITIONAL on H for the factors of `R_W(24X+1)`; the step
+  "admissible ⇒ E(p) ∩ W = ∅" is PROVED).** At the square-mimicking point of POINTWISE_SIZE Theorem C, every
+  prime factor of `R_W(p)` is a residue mod p (Lemma 5.2), contradicting Lemma 5.1. This includes the
+  coordinate planes: INVOLUTION_ES Cor 5.3 is now a complete conditional proof (Dickson) with a simpler family
+  (`24X+1`, `(24cX+c+1)/·`, `(24X+1+c)/·`). Example: if `q, 12q+1, 24q+1` are prime then `E(24q+1) ∩ {t=u} = ∅`.
+* **General Z (Thm 6.1).** Under Bateman–Horn (lower bound), for every proper closed Z, `≫ N/(log N)^k` primes
+  `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Under H alone: when all 2-dimensional components of Z are axis cylinders.
+  **Consequence (Cor 6.2): no finite-menu affine windmill on X (INVOLUTION_ES Thm 5.1 class) proves ES for all
+  large `p ≡ 1 (24)`, CONDITIONAL on Bateman–Horn.**
+* **Unconditional cylinder example (Prop 7.1, PROVED).** For `Z = {t = u}` (INVOLUTION_ES Remark 5.4), at least
+  72% of the primes `p ≡ 1 (24)` (lower density) have `E(p) ∩ Z = ∅` (Brun–Titchmarsh; mass `μ ≈ 0.1385`).
+* **Residue (§7).** Unconditionally: Siegel cylinders (in particular coordinate planes) — a half-dimensional
+  sieve problem with a prime variable per linear factor of `R_W`. Under H alone: non-cylindrical surfaces
+  (one needs an admissible prime outside an `O(N^{2/3})` set). Outside Thm 5.1's class (infinite menus,
+  non-affine maps, n-dependent SL₂, other auxiliary sets): open, as in INVOLUTION_ES §6.
 
 ## 1. Setup
 
