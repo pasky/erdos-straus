@@ -2,11 +2,28 @@
 
 Reviewer: R161. Document reviewed: `FUNCTIONFIELD_ES.md` as merged from `side-agent/ff-landscape`.
 From-scratch scripts: `scripts/review_ffl_*.py` (own F_q[T] arithmetic, no reuse of `ffl_*.c` / `ffl_*.py`).
-Status: IN PROGRESS.
+Status: round 1 complete (addendum may follow for running jobs).
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+| # | Claim | Verdict |
+|---|---|---|
+| C1 | Def 1.1 + Lemma 1.2 (NC, monic) | SOUND-AFTER-REPAIRS: (iii) is false for prime P; NC is automatic in all odd char (D1, D2, D3, D4) |
+| C2 | Lemma 1.3 (e-slice criterion, all char) | SOUND (state n ≥ k, P prime: D5) |
+| C3 | Prop 1.4 | SOUND (D6 minor wording) |
+| C4 | Thm 6.1 (F₂, A = T²) | SOUND; machine-checked for all 4717 prime P of degree 3..15 |
+| C5 | Prop 4.1 sign law | formula SOUND (11 558 data, 0 mismatches, incl. q = 9, 11) |
+| C5' | §4 "no obstruction class for any q" (PROVED) | GAP: ill-defined and overclaimed; nothing for char 2 (D7 MAJOR, D8) |
+| C6 | Fact 5.2 + Thm 5.3 | SOUND-AFTER-REPAIRS (error bookkeeping D10, proviso D9, Remark D11); Rosen not accessible |
+| C7 | Lemma 6.2 | SOUND |
+| C8 | Thm 6.3 (F₄, A = T) | SOUND, re-proved independently (certificate checked, max n_F = 4, n ≤ 7 exhaustive) |
+| C9a | Thm 6.4: q = 2, deg A ∈ {1, 2, 3}; q = 3, A = T | SOUND, deg 2/3 re-proved with my own certificates |
+| C9b | Thm 6.4: q = 2, deg A = 4 | GAP: certificates not archived, spot-verification shortfall (D13 MAJOR), statement points to a running job (D14 MAJOR) |
+| C10 | §3 EVIDENCE tables | all spot-checked failure lists MATCH exactly |
+| C11 | §7 labels; novelty | labels fine except D11/D17; novelty unverified, nothing found |
+
+No FATAL defects. Three MAJOR defects (D7, D13, D14), all about labels and certificates. None of them is an error
+in a proved statement.
 
 ## Claim-by-claim
 
