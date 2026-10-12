@@ -43,3 +43,42 @@ Defects:
 * **D3 (MINOR) — "faithful form".** Label the choice of definition as Assessment and add one sentence on
   alternatives (see above).
 
+* **D4 (MINOR) — Lemma 1.2(iv).** By the D1 argument, m = 3 is impossible for prime P (some denominator has
+  degree ≥ n > n − k). So under NC, m = 1 in every characteristic. State this. It simplifies §1 and the engine
+  description ("X = the unique denominator of degree n − k").
+
+### C2. Lemma 1.3 (e-slice criterion, all characteristics) — SOUND (minor hypothesis to state)
+
+Re-derived both directions independently.
+(⇐) 1/X + (a+b)/(κPX) = (P+E)/(PX) = A/P. κ = (a+b)/E is monic. The NC case split (P ∤ a; P | a, P ∤ b;
+P | a, b) is correct. The last case uses gcd(E, P) = 1, which holds because P is prime, P ∤ A, and P ∤ X
+(since deg X < n).
+(⇒) Write Y = g·y, Z = g·z with gcd(y, z) = 1 and all of them monic. Then yz | N := PX, and a := N/y, b := N/z,
+κ = g give back (Y, Z). y + z ≠ 0 except in char 2 with y = z = 1, and that case forces E = 0.
+Computational cross-check: the solver S2 (`scripts/review_ffl_solve.py`, built on this criterion) agrees with
+the criterion-free brute force S1 (enumerate X, Y, solve for Z) on every irreducible P for
+(q, A, n) ∈ {(5,T,2), (5,T,3), (7,T,2), (3,T²,3), (3,T²+1,3), (4,T²,3)}, with identical failure lists.
+* **D5 (MINOR).** The lemma (and §1 notation) should state n ≥ k (needed for deg X = n − k ≥ 0) and that P is
+  irreducible (used for gcd(E, P) = 1 and for P ∤ X). §1 says "P monic irreducible", but n > k is first
+  stated only in Thm 5.3 / 6.4.
+
+### C3. Proposition 1.4 — SOUND
+
+(i), (ii) are direct identities, re-verified by hand and on random monic P in the right classes for
+q ∈ {3, 4, 5, 7, 9} (`scripts/review_ffl_identities.py`, log `data/review_ffl_identities_log.txt`).
+(iii) The residue bookkeeping is correct: F₂: P(0) = 1 = −1. F₃: {1, 2} = {−2, −1}. F₄: −2 = 0, so only
+P(0) = 1 is free. F₅: {4, 3}.
+(iv) The identity is correct. The splitting "2·1/(−2X₀P/r)" is for odd characteristic. In char 2 one can use
+1/u = 1/(u+1) + 1/(u(u+1)) applied to u = X₀P/r. The document only says "e.g.", so this is acceptable.
+* **D6 (MINOR).** Line 31 says "Without any sign condition the problem degenerates (§1.4)". Prop 1.4(iv) proves
+  this only for k = 1. Say "for k = 1" or prove it for general k.
+
+### C4. Theorem 6.1 (F₂, A = T²) — SOUND
+
+Re-derived. P(0) = P(1) = 1. In the case P ≡ 1 + T (mod T²): R = (P+T+1)/T² is monic of degree n − 2 with
+R(1) = 1, so (T+1) | R + 1. Then cP + R + 1 = c(P + T + 1) = cT²R gives the identity. The degrees n − 2,
+2n − 3 ≥ n, 3n − 5 ≥ n hold for n ≥ 3. At n = 3, c = 1 and that is fine. The Type II datum (1, R, c, 1),
+E = T + 1, is consistent with P = T²R − E. Machine check: the explicit (X, Y, Z) of the proof satisfies
+A·XYZ = P(XY + YZ + ZX), is monic, and satisfies NC for **all 4717 irreducible P of degree 3..15** over F₂
+(`scripts/review_ffl_identities.py`). No defects.
+
