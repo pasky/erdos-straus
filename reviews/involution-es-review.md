@@ -17,7 +17,8 @@ ES is not solved here, and the document does not claim it is.
 | Thm 5.1 | SOUND |
 | Lemma 5.2 | SOUND |
 | Cor 5.3 | SOUND-AFTER-REPAIRS as a CONDITIONAL sketch (D6); label honest |
-| novelty / §6 framing | pending |
+| novelty | partly known precursors, must be cited (D7) |
+| §6 / "windmill = un-barriered route" framing after O158 | GAP: route narrowed, not barriered (D3) |
 
 ## Claim-by-claim
 
@@ -166,3 +167,108 @@ Dickson admissibility also holds. All forms are `α_i q + 1`; for ℓ ≤ #forms
 (mod ℓ); for larger ℓ, at most #forms classes are excluded. With this repair the sketch is a correct
 CONDITIONAL proof. The label "CONDITIONAL; sketch; needs review" is honest. Note that the corollary is
 conditional, so §4–§5 give **no unconditional exclusion** of any primes-only windmill (D3).
+
+### Novelty (sources checked)
+
+* **ET Prop 1.6.** Checked in `sources/elsholtz-tao-1107.1010.pdf`: "For any odd perfect square n,
+  f_I(n) = f_II(n) = 0". The paragraph after it says that any method that shows f_I(p) or f_II(p) is nonzero
+  "must necessarily fail when p is replaced by an odd square such as p²". Lemma 1.1 and Prop 2.3 are a direct
+  instance of this remark, and Lemma 2.2 is the parametric version of the Schinzel/Yamamoto reciprocity
+  argument. Correct, but not new in kind. The document does credit ET Prop 1.6 for Lemma 2.2; it should also
+  credit the ET remark for the T1 principle (Lemma 1.1).
+* **Elsholtz, "A combinatorial approach to sums of two squares and related problems"** (Additive Number
+  Theory, Springer 2010). Downloaded from the author's page and read §2–3. §2.1 derives Zagier's matrix
+  *uniquely* from three assumptions: linear with k-independent integer coefficients, preserving `x²+4yz`
+  identically, and having the prescribed unique fixed point. §3 does the same for `sx²+tyz` (fixed point
+  (m,n,k′)). This is the precursor of Prop 4.2's "uniform coefficients ⇒ symmetry of the form" mechanism and
+  should be cited. Elsholtz *assumes* identical preservation. I found nothing in Elsholtz like Lemma 4.1,
+  which **derives** identical preservation on a Zariski-dense set from "preserves the finite fibres, finite
+  menu". As far as I can tell that step is new.
+* I could not access Jackson (Tatra Mt. 2000, "Automorphs and involutions"), Generalov, or Shiu ("Involutions
+  associated with sums of two squares"). Classification-type statements there cannot be ruled out.
+* I know of no published ES-specific windmill/involution obstruction. Prop 3.1 (four-pattern T1 certificate)
+  and Thm 5.1 look new, with the caveat that literature search was limited to three web queries plus
+  Elsholtz's survey.
+
+### §6 and the "windmill = un-barriered route" framing
+
+O152a (`BRAINSTORM/invol_windmill_signature.md` §1.2, l.46) called the windmill route "a genuine gap in the
+barrier map". INVOLUTION_ES does **not** close it. After O158 the situation is as follows.
+
+Barred:
+* windmills on X, or on any certificate sets that are empty at odd squares, that must also work at odd
+  squares (T1; essentially the ET remark);
+* moving *generic* points across slices by finite affine menus in the listed coordinates.
+
+Still open:
+* every windmill defined on primes only whose action is supported on a fixed proper surface Z. By Thm 5.1
+  this is equivalent to a bounded-surface statement, refuted only conditionally (Dickson) and only for
+  coordinate-plane Z. The evidence above shows such Z already capture all p ≡ 1 (24) up to 40000;
+* infinite or p-growing menus, and non-affine maps;
+* the n-dependent SL₂ per-level group (4 parameters α, β, a₀, b₀ ∈ ℚ(n); only the integer unipotents are
+  done);
+* other auxiliary sets.
+
+§6's own "Not excluded" list is essentially accurate and honest. The **summary (§0) and §4 interpretation**
+are what overclaim (D3). The right one-line status: *"windmill route narrowed (T1 + generic rigidity); not
+barriered."*
+
+## Defects
+
+**D1 (MINOR) — §0 bullet 1; Prop 2.3(ii); AGENT_REPORT item 1.** "T1 kills the O152 odd set … no involution
+family … of any complexity" reads as if X were dead for windmills. The exclusion is pointwise at n = q² ("no
+involution of X(q²) has all fixed points in E(q²)"), and it leaves primes-only windmills on X untouched.
+*Repair:* "No involution of X(q²) has ES-only fixed points (odd set, empty ES part). Hence a windmill on X
+cannot be required to work on a unit square class. Windmills on X defined on primes only are not affected
+by T1 (§5)."
+
+**D2 (MINOR) — §0 bullet 2; §3 paragraph after Prop 3.1 ("the odd fixed point at primes can never come from
+the divisor part 1·p"); §6 Excluded item 2.** Prop 3.1 constrains a windmill only through Lemma 1.1. That
+requires the windmill (and the formula D for its σ-fixed count) to be valid at **every** odd m² of the class,
+including m with 25–48 digits and factors in the classes ā, a². The Zagier mechanism is not excluded for
+windmills defined on primes only. *Repair:* prefix these statements with "For a windmill family defined on
+the whole class h (squares included)".
+
+**D3 (MAJOR) — §0 bullets 3–4; §4 "Interpretation" paragraph ("closes the gap left by WINDMILL Prop 2"; "no
+such coupling … exists in the class of finite-menu … maps"); §6 Excluded items 3–4; AGENT_REPORT item 3.**
+The mathematics is correct. The framing hides that the exceptional set Z is arbitrary and menu-dependent,
+and that a windmill may act **only** on Z. Thm 5.1 shows that such windmills are equivalent to "E(p) ∩ Z ≠ ∅
+∀p" for one fixed surface. That statement is consistent with all data: 33 coordinate planes suffice for all
+501 primes p ≡ 1 (24) ≤ 40000 (`scripts/review_inv_planes.py`). It is refuted only conditionally, and only
+for coordinate planes (Cor 5.3). So §4–§5 exclude no primes-only windmill unconditionally.
+*Repair:*
+* Replace "closes the gap left by WINDMILL Prop 2" with "reduces the WINDMILL Prop 2 gap to windmills
+  supported on a fixed proper algebraic set Z, i.e. to a bounded-surface statement (Thm 5.1)".
+* Add to §0 and §6: "unconditionally, no windmill defined on primes only is excluded; the coordinate-plane
+  case is excluded under Dickson (Cor 5.3)".
+* Add the 40000-range evidence (or the author's own equivalent).
+
+**D4 (MINOR) — Lemma 4.1(ii).** "invertible symmetries … that can map a point of 𝒳 to a point of 𝒳 outside a
+proper algebraic set Z₃" is ambiguous. *Repair:* "the menu's invertible symmetries h for which there is
+x ∈ 𝒳 ∖ Z₃ with h(x) ∈ 𝒳".
+
+**D5 (MINOR) — Remark 4.5 and the last sentence of the §6 Assessment.**
+* In Remark 4.5 the clause "or t = 1" in the k ≤ −1 case is vacuous: it forces A = 0. Delete it.
+* The Assessment's "Remark 4.5 shows that the obvious candidate (the SL₂/quadric coordinates) fails exactly
+  there" overclaims. Remark 4.5 treats only `u_k` with fixed integer k. The per-level affine symmetry group of
+  `AB − nt = 1`, namely `(αA+a₀, βB+b₀, ·)` with α, β, a₀, b₀ ∈ ℚ(n), is infinite and changes the slice
+  integer, and it is explicitly not classified. *Repair:* "Remark 4.5 shows that the unipotents u_k act only on
+  two planes; the full n-dependent SL₂ symmetry group is open."
+
+**D6 (MINOR) — Cor 5.3 sketch, "with q in a class making every such prime ≡ 1 modulo 4·(all constants)".**
+When the modulus divides the q-coefficient, the class of q cannot change the residue of the prime. *Repair:*
+see §"Cor 5.3" above. Make M divisible by high powers of all constants, so that every form is
+`(const)·(α_i q + 1)` with `L | α_i`. Then the residue conditions are automatic. Also record that the
+B = d·r′ branch on `{v=c}` gives `cd·A = dp+c+1`, which is linear in q. This is the "branch bookkeeping" the
+author flagged.
+
+**D7 (MINOR) — citations.**
+* Lemma 1.1 should cite the ET paragraph after Prop 1.6 (methods must fail at p²).
+* §4 should cite Elsholtz (2010) §2.1/§3 for the "k-independent linear map + identical invariance ⇒ unique
+  (Zagier) matrix" derivation, and state that the new step is Lemma 4.1's derivation of identical invariance.
+
+No FATAL defects. Every PROVED statement I checked is correct as a mathematical statement. The problems are
+scope and framing (D1–D3, D5) and one fixable step in the conditional sketch (D6).
+
+Repairs to INVOLUTION_ES.md: **not applied by R158.** The author's branch was active 11 minutes before this
+review was finished, so the parent should forward D1–D7.
