@@ -15,7 +15,9 @@
 #include <string.h>
 #include <stdint.h>
 
+#ifndef MAXC
 #define MAXC 72
+#endif
 typedef struct { int d; uint8_t c[MAXC]; } poly;   /* d = -1 for zero */
 
 static int Q, PCH, RDEG;
@@ -170,6 +172,7 @@ static long decide(const poly *P, int count, poly *wX, poly *wa, poly *wb) {
     return tot;
 }
 
+#ifndef FFL_NO_MAIN
 /* ---------- main ---------- */
 static uint16_t *cnt; static uint8_t *red;
 static void cnt_cb(uint64_t idx, void *ctx) { (void)ctx; if (cnt[idx] < 65535) cnt[idx]++; }
@@ -235,3 +238,4 @@ int main(int argc, char **argv) {
     if (ff) fclose(ff);
     return 0;
 }
+#endif
