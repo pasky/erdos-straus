@@ -1,0 +1,5 @@
+k=21 m=1 c=1 d=22 sign=1: 24 hard t-classes mod 9240; prime example (27830, 774508921)
+k=21 m=1 c=1 d=22 sign=-1: 24 hard t-classes mod 9240; prime example (27830, 774508921)
+k=37 m=1 c=1 d=38 sign=1: 12 hard t-classes mod 15960; prime example (128478, 16506596521)
+k=37 m=1 c=1 d=38 sign=-1: 12 hard t-classes mod 15960; prime example (128478, 16506596521)
+families tested 1526, reaching Mordell-hard primes 4
