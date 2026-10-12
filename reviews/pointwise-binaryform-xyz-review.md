@@ -4,7 +4,9 @@ Reviewer: R163 (side-agent/review-binaryform-xyz). Reviewed: author branch `side
 (merged into this worktree), §8 and the "(O163 update)" lines in §0, §4.4(iv), §7; author report
 `reviews/agent-reports/AGENT_REPORT_O163.md`. ES is not solved; nothing reviewed here proves any case.
 
-Status: IN PROGRESS (written claim by claim).
+Status: COMPLETE (round 1). Author branch was quiet for 25 min at the end of the review, so the
+reviewer applied m1, m3, m4 and m5 directly to POINTWISE_BINARYFORM.md, each marked "(R163 repair)". m2 and m6
+were not applied: m2 is presentation only, and m6 is not a defect.
 
 ## Summary verdicts
 
