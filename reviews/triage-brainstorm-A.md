@@ -264,3 +264,28 @@ False-negative check: Remark B.3 states the dichotomy correctly. Fixed pruning i
 e-slice/window lottery, i.e. a growing parameter set Θ(p) of H-A type. An "algorithm" is just a witness procedure,
 and Thm C / Thm 2.2(iii) cover exactly the bounded-Θ ones. Open sub-question: X_win(C) (J(p) ≪ log p), already a
 named campaign conjecture. Novelty: folklore (B.1) plus a dictionary (B.2). **Promise 0.**
+
+**hardness_law (O153 W2; memo: PARTIAL as an EVIDENCE law / COLLAPSES as a route).** AGREE on the route. Both
+Siegel-world horns are screened correctly.
+* D unrelated to p: χ_D is orthogonal to the residues of the prime factors of N_θ(p) against p.
+* D = p (or −4p): the easy regime, since few small residues means large r.
+* The GRH horn is (I)2.
+
+**Cross-memo inconsistency to flag (hostile):**
+* *Exponent.* This memo fits r ∝ L₅₀(p)^{−0.37} on p ≡ 1 (24), 10⁶–2·10⁷, and extrapolates a structural cost of at most
+  L^{0.37} = (log log p)^{O(1)}. anal_euler_product_law fits the same exponent *decaying like 1/log p*
+  (β·log p ≈ 4.5 for f_II; at log p ≈ 15.5 that predicts β ≈ 0.29, consistent with 0.37 given the different class
+  mod 24 vs mod 8). The fixed-exponent extrapolation is therefore pessimistic; the true structural cost is likely a
+  relative O(log log p/log p). The conclusion "the danger is not χ_p" only gets stronger.
+* *Dispersion.* This memo finds the residual after one-hot moduli ≤ 97 only ≈ 2× Poisson in variance
+  (0.148² / 0.106²). anal_moments_structured finds 9–23× overdispersion after a coarser local fit, and attributes much
+  of it to τ₃ of shifts (p+e)/4.
+
+These are reconcilable, and the reconciliation matters. τ₃((p+e)/4) is heavily driven by the *small* prime factors
+of p + e, which are congruence data mod small q. The rich one-hot fit therefore absorbs most of the "shift" effect.
+The honest summary across both memos: at accessible p, log f ≈ (congruence data at moduli ≤ 100) + (near-Poisson
+noise, ≈ 2× overdispersed). The non-congruence remainder is small.
+
+Open sub-question: the memo's own suggested follow-up (residual vs Poisson after moduli ≤ 10³, at 10⁸, f_I too). It is
+cheap and gives a falsifiable "f = congruence factor × Poisson" form of the ET heuristic, but it is EVIDENCE only.
+Novelty: the numerics are plausibly new; the reading is the standard Haar + Poisson heuristic. **Promise 1.**
