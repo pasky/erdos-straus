@@ -60,3 +60,36 @@ All A of degree 1 are therefore equivalent to A = T. Scalings T ↦ αT do not p
 denominators have different degrees.
 
 So the data for q ∈ {2, 3} must use k ≥ 2. Below, "A = T" is studied for q ≥ 4 and "A = T²" for all q.
+
+## 2. Engine and validation
+
+`scripts/ffl_es.c` (C, 1 core): for given (q, A, n) it computes
+* N_II(P) for **all** monic P of degree n, by the Type II parametrisation (Elsholtz–Tao chart, transported):
+  Type II solutions (P | Y, Z) of A/P = 1/X+1/Y+1/Z with deg X = n − k are in bijection with monic (a, b, c, d),
+  gcd(a, b) = 1, c | a + b, P = A·a·b·d − E, E := (a+b)/c (then X = abd, Y = acdP, Z = bcdP). Each (a, b, c)
+  marks an arithmetic progression of P's (d monic of degree n − k − deg ab), so all of degree n are done at once;
+* for every irreducible P with N_II(P) = 0, the complete Lemma 1.3 decision (all X of degree n − k, all divisor
+  pairs of PX), which also finds Type I solutions (P divides exactly one denominator);
+* optionally, on sampled P, the full count N(P) = #{ordered (X, Y, Z): deg X = n − k} (canonical pairs
+  lcm(a, b) = PX in Lemma 1.3). This equals N_II + 2·N_I.
+Validation: (i) `scripts/ffl_brute.py`, an independent brute force (enumerate X, Y, solve for Z; no Lemma 1.3),
+gives the same N(P) for every irreducible P for (q, A, n) ∈ {(2,T,3..6), (2,T²,4), (2,T²+T,4), (3,T,3..4), (3,T²,4),
+(3,T²+T,4), (3,T²+T+2,4), (5,T,3), (5,T²,3), (7,T,3)}; (ii) on every sampled P, the Type II part of the full
+count equals the global N_II(P) (checked in-run, no mismatch ever); (iii) O140's table for A = T (q = 5, 7, 11;
+n ≤ 6) is reproduced exactly. Field tables: GF(p) and GF(4, 8, 9, 16, 25, 27) via fixed irreducible moduli.
+Results: `data/ffl/grid.txt` (one line per run), failure lists `data/ffl/fail_*.txt`.
+
+## 3. Data: A = T (k = 1)
+
+FAIL = #{irreducible P of degree n with no solution} / #irreducible (EVIDENCE: exhaustive, exact).
+q = 2, 3: no failures by Prop 1.4(iii) (q = 2 also run to n = 21: minimum N_II = 738 at n = 21).
+
+| q \ n | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 4 | 0/6 | 0/20 | 0/60 | 0/204 | 0/670 | 0 | 0 | 0 | 0 | 0/381300 |
+| 5 | 2/10 | 2/40 | 1/150 | 0/624 | 0 | 0 | 0 | 0 | 0 | 0/4438920 |
+| 7 | 6/21 | 21/112 | 25/588 | 16/3360 | 4/19544 | 0/117648 | 0/720300 | | | |
+| 8 | 15/28 | 15/168 | 12/1008 | | | | | | | |
+| 9 | 18/36 | 56/240 | 94/1620 | 68/11808 | | | | | | |
+| 16 | 92/120 | 540/1360 | 2192/16320 | | | | | | | |
+(table being extended; see grid.txt)

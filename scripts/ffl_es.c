@@ -207,15 +207,24 @@ int main(int argc, char **argv) {
         for (int t = 0; t < nd; t++) { poly E, mE; p_divmod(&E, NULL, &S, &dv[t]); p_neg(&mE, &E); prog(&f, &mE, n, cnt_cb, NULL); }
     }
     /* stats over irreducible P */
+    poly Mm = {.d = -1}; double *cs1 = NULL; uint64_t *csn = NULL, *cs0 = NULL;
+    if (getenv("FFL_MOD")) { char buf[256]; strncpy(buf, getenv("FFL_MOD"), 255); int cs[64], nc = 0; char *t = strtok(buf, ",");
+        while (t) { cs[nc++] = atoi(t); t = strtok(NULL, ","); } Mm.d = nc - 1; for (int i = 0; i < nc; i++) Mm.c[nc - 1 - i] = cs[i];
+        cs1 = calloc(qpow[Mm.d], 8); csn = calloc(qpow[Mm.d], 8); cs0 = calloc(qpow[Mm.d], 8); }
     uint64_t nirr = 0, nzero = 0, nfail = 0; double s1 = 0, s2 = 0; uint32_t mn = 1u << 30; uint64_t hist[8] = {0};
     for (uint64_t i = 0; i < NP; i++) { if (red[i >> 3] >> (i & 7) & 1) continue; poly P; p_from_idx(&P, n, i);
         if (!(K >= 1 && 1)) continue; /* P | A impossible: deg P = n > k */
-        nirr++; uint32_t c = cnt[i]; s1 += c; s2 += (double)c * c; if (c < mn) mn = c; if (c < 8) hist[c]++;
+        nirr++; uint32_t c = cnt[i];
+        if (cs1) { poly rr; p_divmod(NULL, &rr, &P, &Mm); uint64_t key = 0; for (int t = Mm.d - 1; t >= 0; t--) key = key * Q + (t <= rr.d ? rr.c[t] : 0); cs1[key] += c; csn[key]++; if (!c) cs0[key]++; } s1 += c; s2 += (double)c * c; if (c < mn) mn = c; if (c < 8) hist[c]++;
+        if (c == 0 && getenv("FFL_DUMP0") && nzero < 200) { printf("NII0 "); p_print(stdout, &P); printf("\n"); }
         if (c == 0) { nzero++; if (!decide(&P, 0, NULL, NULL, NULL)) { nfail++; if (ff) { p_print(ff, &P); fprintf(ff, "\n"); } } }
     }
     printf("q=%d A=", Q); p_print(stdout, &Apoly); printf(" n=%d irr=%llu NII0=%llu FAIL=%llu meanNII=%.3f sdNII=%.3f minNII=%u hist0-7:",
         n, (unsigned long long)nirr, (unsigned long long)nzero, (unsigned long long)nfail, s1 / nirr, s1 > 0 ? __builtin_sqrt(s2 / nirr - (s1 / nirr) * (s1 / nirr)) : 0, mn);
     for (int i = 0; i < 8; i++) printf(" %llu", (unsigned long long)hist[i]); printf("\n");
+    if (cs1) for (uint64_t key = 0; key < qpow[Mm.d]; key++) if (csn[key]) { printf("  class ");
+        for (int t = Mm.d - 1; t >= 0; t--) printf("%d%s", (int)(key / qpow[t] % Q), Q > 10 && t ? "," : "");
+        printf(" n=%llu mean=%.3f nii0=%llu\n", (unsigned long long)csn[key], cs1[key] / csn[key], (unsigned long long)cs0[key]); }
     /* sample: full counts N(P) on random irreducible P, check N_II consistency */
     if (nsample < 0) { for (uint64_t i = 0; i < NP; i++) { if (red[i >> 3] >> (i & 7) & 1) continue; poly P; p_from_idx(&P, n, i);
         p_print(stdout, &P); printf(" %ld\n", decide(&P, 1, NULL, NULL, NULL)); } }
