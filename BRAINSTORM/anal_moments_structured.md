@@ -55,7 +55,7 @@ dominated by the forced-class mass ≍ log³p. **Collapses to B1/B4.**
 **3.3 Anti-concentration at fixed p (EVIDENCE §4 + Assessment).** f(p) is **not** a CLT-type sum of weakly
 dependent O(1) events at accessible p: its log has variance ≈ 0.95/log p (not ≍ log^{−3}p), overdispersion
 against Poisson is 6–23× and growing. About half of the fluctuation is explained by (i) local data
-(p mod 8, (p/q) for q ≤ 13 — saturating, nothing from 13 < q ≤ 200) and (ii) the divisor functions
+(p mod 8, (p/q) for small q; < 0.01 more R² from 13 < q ≤ 200, as a 1/q-weighted law predicts) and (ii) the divisor functions
 `τ₃((p+e)/4)` of the first few Type II e-slices, with regression coefficients ≈ c/e (c ≈ 0.34 at p ≈ 3·10⁶,
 slowly decreasing, consistent with c ∝ 1/log p). Mechanism: the e-slice `(p+e)/4 = abd, e | a+b` contributes
 ≈ τ₃((p+e)/4)/e, and `log τ₃` of shifted primes has Erdős–Kac variance ≍ log log p. So at fixed p the
@@ -83,7 +83,11 @@ Shift coefficients at [2·10⁶,4·10⁶] for e = 3, 7, 11, 15, 19, 23: 0.114, 0
 for e ≤ 11). All primes in [2·10⁶,4·10⁶] (134213): residual var of log f after local data 0.087 (f_I), 0.093
 (f_II) against Poisson `mean(1/f)` = 0.0037, 0.0102: overdispersion 23×, 9× (at [2·10⁵,4·10⁵]: 15×, 6×).
 Square depth s(p) = least odd prime q with (p/q) = −1: mean f_II/log³p is 0.040 (s = 3), 0.029 (s = 5),
-then flat ≈ 0.026–0.028 for s = 13…31 and s > 31 (104 primes); minima 0.006–0.010 for every s ≥ 5.
+then ≈ 0.026–0.028 for s = 13…31 and s > 31 (104 primes); minima 0.006–0.011 for every s ≥ 5. Adding
+(p/q) for 13 < q ≤ 200 raises R² of the local fit by < 0.01 (0.383 → 0.393 for f_II, all primes).
+*Correction (same session):* this apparent flatness is an artefact of pooling the classes mod 8. Within
+p ≡ 1 (mod 8) the mean **decreases steadily** with depth and each (p/q) has an effect ≈ −β/q up to q = 61 —
+see `anal_euler_product_law.md`. The small R² gain is what a 1/q-weighted law predicts (Σ_{q>13} q^{−2} is small).
 
 ## 5. Viability Assessment
 
@@ -91,7 +95,9 @@ then flat ≈ 0.026–0.028 for s = 13…31 and s > 31 (104 primes); minima 0.00
 why the multiplicative structure does not extend beyond the nine exponent-2 slices); anti-concentration → B2
 (EVIDENCE that the fluctuation is carried by factorisations of a few shifts).
 By-products: Prop B.1 (PROVED, elementary, essentially known); EVIDENCE/Assessment: **relative variance law
-`Var(log f(p)) ≈ 0.95/log p`** for p ≡ 1 (4) on 2·10⁴ – 4·10⁶, with the e-slice τ₃ mechanism; and the
-**saturation** of the dependence on quadratic-residue depth beyond q = 13 — so the ES-hardness of a prime is not
-governed by its least non-residue (the minimal witness is, per POINTWISE_OMEGA/TYPEI; the total count is not).
-CONJECTURE (cheap, not pursued): `Var_{p≤N}(log f(p)) ~ C/log N`.
+`Var(log f(p)) ≈ 0.95/log p`** for p ≡ 1 (4) on 2·10⁴ – 4·10⁶, with the e-slice τ₃ mechanism. (The local part of
+the fluctuation follows an Euler-product law in the Legendre symbols: `anal_euler_product_law.md`.)
+Decomposition (f_II, p ≡ 1 (4), same three windows): the local part of var(log g) is 0.030, 0.021, 0.014, i.e.
+∝ 1/log²p (ratio 2.1 = (14.9/10.3)²); the shift-τ₃ part is ≈ 0.015 in all three windows; the unexplained rest is
+0.043, 0.039, 0.036. So the **non-local (lottery) part dominates and decays slower than 1/log p** at accessible p.
+CONJECTURE (cheap, not pursued): var(log f(p)) → 0, i.e. f(p) ~ μ(p) for almost all p (an averaged statement).
