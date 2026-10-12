@@ -11,7 +11,8 @@ does not apply. **Answer (§§1–5): the square specialisation kills every such
 coordinates (a,…,f) are polynomial or rational in (u,v), on every square class mod the joint modulus,
 unconditionally and in every degree.** (R159 repair: qualifier added; certificates given only as
 (x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) (O163 update: §8 closes
-§4.4(iv): Theorem 3.2′ / Cor 3.4′ cover (x,y,z)-families too, with the same hypotheses.) If the ET coordinates (a,…,f)
+§4.4(iv): Theorem 3.2′ / Cor 3.4′ cover (x,y,z)-families too, with the same hypotheses — R163 repair: M must contain 2D; for Q in
+the principal genus this is removable by passing to a sub-class, see the remark after Thm 3.2′.) If the ET coordinates (a,…,f)
 are polynomials (or rational functions) in (u,v), then on every coset C mod M (8, 2D and the
 families' denominators dividing M) with Q(C) a square unit mod M,
 the family is valid at only a density-zero set of the prime points of C. The reason is that
@@ -173,7 +174,7 @@ So **no Fermat + identity certificate** (compute a representation p = Q(u,v), th
 finitely many polynomial or rational ET identities in (u,v), i.e. families whose ET coordinates
 (a,…,f) are polynomial/rational) proves ES for all, or for a positive proportion of, the primes in
 any square class mod the joint modulus M. (R159 repair: both qualifiers added; (x,y,z)-only families
-are §4.4(iv), open.) The degree is unbounded and no hypothesis is used.
+are §4.4(iv), open. (R163 repair: closed by §8, Cor 3.4′.)) The degree is unbounded and no hypothesis is used.
 This is the two-variable analogue of Mordell–Schinzel (one-variable identities cannot cover square
 classes; ET p. 8). The proof is the same: odd squares in the parameter set.
 
@@ -455,7 +456,7 @@ Since (δy)(λX) = Σ_{j≥k} λ^j(δy_j)(X) and λ ∤ δ, `λ^k | y(P)`, `λ^k
 by (3).
 • k = 0: G(P) ≡ G(0,0) ≢ 0 mod λ, so gcd(n, y(P)z(P)) = 1: a Type I solution for the odd square n,
   contradicting Lemma 8.3(e).
-• k = 1: `y(P)/λ ≡ y₁(X)`, `z(P)/λ ≡ z₁(X) = −y₁(X)` (Lemma 8.2) and `x̃(P) ≡ x̃(0,0) = 1/4 (mod λ)`.
+• k = 1 (y + z ≠ 0 since F is valid somewhere, so Lemma 8.2(I) applies; R163 repair): `y(P)/λ ≡ y₁(X)`, `z(P)/λ ≡ z₁(X) = −y₁(X)` (Lemma 8.2) and `x̃(P) ≡ x̃(0,0) = 1/4 (mod λ)`.
   By (4) λ ∤ y₁(X), so λ ∥ y(P), λ ∥ z(P), and Lemma 8.3(a) gives `(−x̃(P)(y(P)/λ)(z(P)/λ)/λ) = −1`.
   But `−x̃(P)(y(P)/λ)(z(P)/λ) ≡ (y₁(X)/2)² ≢ 0 (mod λ)`, a nonzero square: contradiction.
 • k ≥ 2: λ² | y(P), z(P), contradicting Lemma 8.3(c).
@@ -467,12 +468,19 @@ n | z(P), λ^k | x(P), gcd(w, x(P)) = 1.
 • k ≥ 2: contradicts Lemma 8.3(d).
 So A_F = ∅. (c′) follows from (b′) and Lemma 3.1 as in Theorem 3.2(c); no sign dilation is needed,
 validity being x, y, z > 0. ∎
+*Remark (R163 repair, modulus).* Lemma 8.4 uses 2D | M (Steps 2, 3(ii), 6). Since A_F = ∅ is a
+property of F alone, the principal-genus alternative of Theorem 3.2 survives: if Q is in the principal
+genus and C is a square class mod M with 2D ∤ M, apply (b′) to a sub-class C′ ⊂ C mod lcm(M, 2D)
+on which Q is a unit square (Q represents ℓ-adic unit squares at every ℓ | 2D; CRT). By Gauss's lemma
+the denominators of x/Q equal those of x, so that clause in the definition of δ is automatic; and δ
+enters only via gcd(Q(C), δ) = 1, so the same sub-class argument lets one replace δ | M by "F integral
+on C".
 
 **Corollary 3.4′ (PROVED, relative to Hecke as in Cor 3.4).** Cor 3.4 holds verbatim for finite sets 𝔉
 of (x,y,z)-families with coordinates in Q[u,v] or Q(u,v): a family with a non-polynomial coordinate
 is valid at ≪ X^{1+ε} points of norm ≤ X (Lemma 3.3 applied to that coordinate), and polynomial ones
 are handled by Theorem 3.2′(c′). M must be divisible by 8, 2D and the δ's of the polynomial families.
-So **no "Fermat + identity" certificate whatsoever** — (x,y,z) or (a,…,f), polynomial or rational in
+So **no finite "Fermat + identity" certificate** (within the scope of §4.4/§8.5; R163 repair) — (x,y,z) or (a,…,f), polynomial or rational in
 (u,v) — covers a positive proportion of the primes of any square class mod the joint modulus M.
 This closes §4.4(iv) and R159 D6.
 
