@@ -1,0 +1,14 @@
+A=10 | q=2 A=10 rootW=1100 NTH=12: leaves=2 uncovered=0 maxleafdeg=3 maxdepth=0 verified=10 vfail=0 uncovered_density=0.00000 | exhaustive n=2..11 fails: none
+A=11 | q=2 A=11 rootW=1010 NTH=12: leaves=2 uncovered=0 maxleafdeg=3 maxdepth=0 verified=10 vfail=0 uncovered_density=0.00000 | exhaustive n=2..11 fails: none
+A=100 | q=2 A=100 rootW=11000 NTH=12: leaves=4 uncovered=0 maxleafdeg=4 maxdepth=0 verified=20 vfail=0 uncovered_density=0.00000 | exhaustive n=3..11 fails: none
+A=101 | q=2 A=101 rootW=11110 NTH=12: leaves=4 uncovered=0 maxleafdeg=4 maxdepth=0 verified=20 vfail=0 uncovered_density=0.00000 | exhaustive n=3..11 fails: none
+A=110 | q=2 A=110 rootW=10100 NTH=12: leaves=4 uncovered=0 maxleafdeg=4 maxdepth=0 verified=20 vfail=0 uncovered_density=0.00000 | exhaustive n=3..11 fails: none
+A=111 | q=2 A=111 rootW=10010 NTH=12: leaves=3 uncovered=0 maxleafdeg=4 maxdepth=0 verified=15 vfail=0 uncovered_density=0.00000 | exhaustive n=3..11 fails: none
+A=1000 | q=2 A=1000 rootW=110000 NTH=12: leaves=36 uncovered=0 maxleafdeg=9 maxdepth=3 verified=180 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1001 | q=2 A=1001 rootW=110110 NTH=12: leaves=8 uncovered=0 maxleafdeg=6 maxdepth=1 verified=40 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1010 | q=2 A=1010 rootW=111100 NTH=12: leaves=52 uncovered=0 maxleafdeg=9 maxdepth=3 verified=260 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1011 | q=2 A=1011 rootW=111010 NTH=12: leaves=12 uncovered=0 maxleafdeg=7 maxdepth=2 verified=60 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1100 | q=2 A=1100 rootW=101000 NTH=12: leaves=52 uncovered=0 maxleafdeg=9 maxdepth=3 verified=260 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1101 | q=2 A=1101 rootW=101110 NTH=12: leaves=14 uncovered=0 maxleafdeg=7 maxdepth=2 verified=70 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1110 | q=2 A=1110 rootW=100100 NTH=12: leaves=12 uncovered=0 maxleafdeg=7 maxdepth=2 verified=60 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
+A=1111 | q=2 A=1111 rootW=100010 NTH=12: leaves=32 uncovered=0 maxleafdeg=9 maxdepth=3 verified=160 vfail=0 uncovered_density=0.00000 | exhaustive n=4..11 fails: none
