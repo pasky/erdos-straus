@@ -57,7 +57,10 @@ feat['log tau(p+1)'] = [math.log(tau(x + 1)) for x in p]
 feat['log tau(2p+1)'] = [math.log(tau(2 * x + 1)) for x in p]
 feat['log tau(p+2)'] = [math.log(tau(x + 2)) for x in p]
 feat['log tau((3p+1)/4)'] = [math.log(tau((3 * x + 1) // 4)) for x in p]
-feat['log tau(p-1) smooth<=100 part'] = [math.log(math.prod(q**v for q, v in factorint(int(x) - 1).items() if q <= 100)) for x in p]
+# O160: this feature was labelled 'log tau(p-1) smooth<=100 part' but computes log of the 100-smooth PART of p-1
+# itself (log prod q^v, q <= 100), not log tau of it. Renamed; the O154 memo table row refers to this quantity.
+feat['log (p-1)_{100-smooth part}'] = [math.log(math.prod(q**v for q, v in factorint(int(x) - 1).items() if q <= 100)) for x in p]
+feat['log tau((p-1)_{100-smooth part})'] = [math.log(math.prod(v + 1 for q, v in factorint(int(x) - 1).items() if q <= 100)) for x in p]
 feat['deadmass(p-1)'] = [deadmass(x) for x in p]
 feat['v2(p-1)'] = [((int(x) - 1) & -(int(x) - 1)).bit_length() - 1 for x in p]
 feat['logL(1,chi_-4p) trunc'] = [chi_lsum(x, -4 * int(x)) for x in p]
@@ -85,10 +88,10 @@ for k, v in feat.items():
     cp = np.corrcoef(vr, res)[0, 1] if vr.std() > 1e-12 else float('nan')
     X2 = np.column_stack([X0, v]); r2 = y - X2 @ np.linalg.lstsq(X2, y, rcond=None)[0]
     print(f"{k:32s} {cy:+.3f} {c1:+.3f} {cp:+.3f} {res.var()/y.var()-r2.var()/y.var():.4f}")
-np.save('/tmp/bs_adv_drivers_feat.npy', np.column_stack([np.array(p, float), y, c120] + [np.array(v, float) for v in feat.values()]))
+np.save('/tmp/bs_adv_drivers_feat_o160.npy', np.column_stack([np.array(p, float), y, c120] + [np.array(v, float) for v in feat.values()]))
 # second stage: baseline + all local/lottery-type features; do the GLOBAL invariants add anything?
 loc = ['log tau(p-1)', 'log S16', 'log tau(2p+1)', 'log tau(p+2)', 'log tau(p+1)', 'v2(p-1)',
-       'log tau(p-1) smooth<=100 part', 'logL(1,chi_p) trunc', 'logL(1,chi_-4p) trunc', 'log n_p']
+       'log (p-1)_{100-smooth part}', 'logL(1,chi_p) trunc', 'logL(1,chi_-4p) trunc', 'log n_p']
 XB = np.column_stack([np.ones(ns), c120] + [np.array(feat[k], float) for k in loc])
 rb = y - XB @ np.linalg.lstsq(XB, y, rcond=None)[0]
 print(f"stage 2 baseline (cells + {len(loc)} local/shift features): R2={1-rb.var()/y.var():.3f}")
