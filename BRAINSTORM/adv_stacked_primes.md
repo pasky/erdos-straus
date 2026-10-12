@@ -105,3 +105,84 @@ Reference points from the 10⁸ dump (`logs/bs_adv_dyadic.txt`):
    47, 59 and 117 at y = 23, 29 and 37, against 7–11 for controls. This is the congruence mechanism of Lemma 3.1:
    W(p) is pushed beyond y. It scales linearly in `y ≍ log p` (Assessment: CRT supply). The count does not
    follow it.
+
+## 5. How far away would a counterexample have to be? (Assessment)
+
+**Model.** Use O142 §3.2: `f_II(p) ≈ κ·Poisson(λ(p)/κ)` with κ ≈ 3 (weight-2 units), plus a small-e part whose
+share decays. Here `λ(p) = c(p)·L³`, and `c(p)` is the quenched local factor.
+
+**What the data give for c(p).**
+* Constructible adversaries reach at best `c ≈ 0.030` on average, and `c = 0.025` at the extreme found.
+* The random `p ≡ 1 (24)` value is 0.046.
+* This is stable from 10⁸ to 10¹⁶ (§4.1.1).
+
+**Consequences.**
+* **The predicted f for a stacked adversary never drops below 1 at any size.** `c·L³ < 1` needs `L³ < 40`, i.e.
+  `p < 30`.
+* At Salez's verification bound 10¹⁷ (L³ ≈ 6·10⁴), the hardest constructible prime has predicted `f ≈ 1500–1800`.
+  Its model probability of sterility is `≈ exp(−c L³/κ) ≈ e^{−500}`.
+* Summed over all primes beyond 10¹⁷, `Σ_p exp(−0.01·log³p)` is astronomically small, as in O142 §3.4.
+
+**What would be needed.** To bring the model's expected count of sterile primes to order 1 near size x, the local
+factor would have to drop to `c ≲ κ·log(#candidates)/L³ ≈ 3/L²`. That is ≈ 0.002 at 10¹⁷, about 15× below
+anything constructible, and the gap widens like L².
+
+**What the available mechanisms do.**
+* *CRT / class of one.* It saturates at ≈ 0.73× (§4.1.1).
+* *Small-shift primality.* Its share decays like `L^{−1.2}` (§4.1.2).
+* *The X5 fibres* (`p ≡ r (mod Q)`, `log Q ≍ log p`). They kill witness moduli up to `T = exp(c(log p)^{1/4})`,
+  which is a mass fraction `≈ (log T/log p)³ ≍ (log p)^{−9/4}`. They move W(p), never the count.
+* *Square-mimicking at scale.* If `(q/p) = +1` for all `q ≤ y`, the killed fraction is `≈ log y/log p`
+  (O142 §3.3). Burgess gives `y ≤ p^{1/(4√e)+ε}`, so this is at most ≈ 0.15 of the log-mass. Even the impossible
+  ideal square-mimicker is far from sterile in the model.
+
+**Reading.** A counterexample would need a conspiracy among about `L³ ≈ 10⁴–10⁵` divisor events in specific
+shifted integers. That is exactly the residual lottery (H-A/H-B), and nothing visible at the level of p's local or
+global invariants can produce it (companion memo `adv_new_drivers.md`).
+
+**The model passes the stress test.** It predicts the adversaries' counts to within a few percent across eight
+orders of magnitude, from the 10⁸ cell mean alone. That rules out finding (α): **there is no H-A/H-E "missing
+positive force" signal.** The model is not missing a force. A hypothetical positive force would have to act on a
+scale that the model already over-satisfies by a factor `e^{cL³}`.
+
+## 6. Barrier screen
+
+* **B1.** Every effective adversary is CRT data (the class of one, QR conditions) or a selection on a finite set
+  of slices. This is the mirror image of Theorems M/C/F. Congruence data cannot prove ES, and **in the model it
+  cannot disprove it either**: it removes a saturating fraction (≈ 27%) of the mass. This quantifies the symmetry
+  remark of redteam-2.
+* **B2.** The adversary that empties the slices `e ≤ 31` (selection, share 0.008) still has ≥ 90% of its mass
+  in other slices. This illustrates "a fixed finite set of slices fails i.o." from the other side: emptying any
+  fixed finite set costs the count only O(share), and that share → 0.
+* **B3.** The main term is `c(p)L³ = p^{o(1)}`. Nothing here changes the scale constraint.
+* **B4.** The class-of-one primes are the population on which deterministic pigeonhole fails (LONGSHOT_PIGEONHOLE
+  Thm 2.2). They still have f ≈ 0.034 L³.
+* **B5 (odd squares).** At `n = m²` every prime is a residue, so the class-of-one mechanism is total and
+  `f_II = 0`. At primes it saturates at 0.73. The false step at squares is "a positive proportion of witness mass
+  has a genus character decided at primes beyond any y". The data show that the gap between the most
+  square-mimicking primes and squares does **not** close as y grows from 13 to 37.
+* **B6/T7.** Every statement about designs is an average over the design. The single-prime statements are only
+  for the 351 computed primes.
+
+## 7. Viability Assessment
+
+As a disproof direction: **COLLAPSES** at step "drive the predicted count below 1". The constructible drivers
+saturate at ≈ 0.65× (B1-type local data). Small-shift drivers decay like `L^{−1.2}`. The required depression,
+`c ≲ 3/L²`, is out of reach of every known mechanism, including idealised square-mimicking up to the Burgess
+range.
+
+As a stress test of the lottery model: **passed**, so finding (β). There is no H-A/H-E signal.
+
+By-products (EVIDENCE unless stated):
+1. **Scale invariance.** The mean of `f_II/log³p` is constant to within ±2% from 10⁵ to 10¹⁶ in each design:
+   0.046 for `p ≡ 1 (24)` and 0.034 for the class of one. Saturation of the local factor is confirmed at 10¹⁶.
+2. **Decay of the heavy tail.** The share of the small slices `e ≤ 31` decays from 0.22 (10⁸) to 0.10 (10¹⁶), and
+   the CV falls. Assessment: the CONJECTURE that `f_II(p) = (𝔖_loc(p) + o(1))·log³p` for almost all p is consistent
+   with the data. O142's objection (the small-e heavy tail) is a lower-order effect. The *pointwise* version for all
+   p is ES-strength and is not claimed.
+3. **Hardest prime found.** `p = 1180607468041`, with `f_II = 538 = 0.025 log³p`, empty slices `e < 47`, and
+   W(p) = 47. W(p) is the one quantity the adversary moves, linearly in y.
+4. **Tools.** `bs_adv_count.c` is an exact single-prime `f_II` counter, feasible to 10¹⁶ (≈ 8 min per prime).
+
+*Not done.* `f_I` for the adversaries. Its correlation with `f_II` is 0.85 within cells (O142), and existence
+was already certified via Type II.
