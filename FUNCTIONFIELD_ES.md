@@ -93,3 +93,58 @@ q = 2, 3: no failures by Prop 1.4(iii) (q = 2 also run to n = 21: minimum N_II =
 | 9 | 18/36 | 56/240 | 94/1620 | 68/11808 | | | | | | |
 | 16 | 92/120 | 540/1360 | 2192/16320 | | | | | | | |
 (table being extended; see grid.txt)
+
+## 5. Theorem: at fixed q the failures have density 0 (the rigorous counterpart of O140 Thm 2.1)
+
+**Lemma 5.1 (one-prime identity; PROVED).** Let A be monic of degree k ≥ 1, P monic of degree n > k, and let h, g
+be monic with g | P + 1, h | P + 1, gcd(g, h) = 1, and A·h·g | P + 1 + h·g, with deg(Ahg) ≤ n. Put
+d := (P + 1 + hg)/(Ahg) (monic). Then
+`A/P = 1/(hgd) + 1/(dP) + 1/(hgdP)`,
+and all three denominators are monic of degree ≥ n − k.
+*Proof.* The right side is (P + hg + 1)/(hgdP) = Ahgd/(hgdP). Monic: clear. Degrees: deg(hgd) = n − k. ∎
+(It is the Type II datum (a, b, c) = (1, hg, 1), E = 1 + hg.)
+
+**Fact 5.2 (prime polynomial theorem in progressions, RH for curves; standard).** For monic M of degree D ≥ 1 and
+r coprime to M, let π(n; M, r) be the number of monic irreducible P of degree n with P ≡ r (mod M). Then
+|π(n; M, r) − q^n/(n·Φ(M))| ≤ (D + 2)·q^{n/2}/n, where Φ(M) = |(F_q[T]/M)^*|.
+(Rosen, *Number Theory in Function Fields*, Ch. 4, Thm 4.8 and its proof: for each nontrivial χ mod M, L(u, χ)
+is a polynomial of degree ≤ D − 1 whose inverse roots have absolute value ≤ √q, by Weil. Hence
+|Σ_{deg f = n} Λ(f)χ(f)| ≤ (D − 1)q^{n/2}. Proper prime powers of degree n contribute ≤ 2q^{n/2}.)
+
+**Theorem 5.3 (PROVED, given Fact 5.2).** Fix q and a monic A of degree k ≥ 1. Then
+`#{P irreducible, deg P = n : ES_q(A, P) fails} / #{P irreducible, deg P = n} ≤ (Φ(A) + o(1))/log n` as n → ∞.
+In particular the failure proportion → 0. Contrast O140 Thm 2.1 (char ≥ 5): at fixed n it → 1 as q → ∞.
+
+*Proof.* Let H := ⌈log_q n⌉ and m₂ := ⌊n/5⌋. For irreducible P (P ∤ A, deg P = n > k) let h = h(P) be the
+A-part of P + 1, i.e. the largest monic divisor of P + 1 whose prime factors all divide A. Then v := (P+1)/h is
+coprime to A.
+(a) *Large A-part.* For fixed h, the P with h | P + 1 lie in one class mod h, so by Fact 5.2 their number is
+≤ q^n/(nΦ(h)) + (deg h + 2)q^{n/2}/n. Fix an A-supported monic h of degree D. Then Φ(h) ≥ |h|·∏_{ℓ|A}(1 − 1/|ℓ|)
+≥ q^D/2^{ω(A)}. The number of such h is ≤ (D + 1)^{ω(A)}. Summing over D ∈ (H, n] gives a proportion
+O_A(H^{ω(A)} q^{−H}) + O(n^{ω(A)+2}q^{−n/2}) = o(1/log n).
+(b) *Fixed small A-part.* Fix h (A-supported, deg h ≤ H) and v₀ ∈ (F_q[T]/A)^*. Consider the irreducible P in
+the class 𝒞 = {P ≡ −1 + h·v₀ (mod hA)}; there the A-part of P + 1 is exactly h, and (P+1)/h ≡ v₀ (mod A). (The
+factor gcd(h, A^∞)-structure makes "mod hA" the right modulus: v₀ is a unit mod every prime of A.) Let
+𝒢 := {g monic irreducible: 1 ≤ deg g ≤ m₂, g ∤ A, g ≡ −v₀ (mod A)}.
+For g ∈ 𝒢 with g | P + 1, Lemma 5.1 applies. We have gcd(g, h) = 1. Also A·h·g | P + 1 + hg, since
+h | P + 1, g | P + 1, and (P + 1 + hg)/h = v + g ≡ v₀ − v₀ ≡ 0 (mod A) (and A, g, h-cofactor coprimality is
+handled by CRT). Finally deg(Ahg) ≤ k + H + n/5 ≤ n for n large. So P ∈ 𝒞 is solvable unless
+N(P) := #{g ∈ 𝒢 : g | P + 1} = 0.
+First moment: P ∈ 𝒞 and g | P + 1 is one class r_g mod hAg, coprime to hAg. By Fact 5.2,
+Σ_{P∈𝒞} N(P) = Σ_{g∈𝒢} [q^n/(nΦ(hA)(|g| − 1)) + O(n·q^{n/2}/n)].
+Write Π := #𝒞 = q^n/(nΦ(hA)) + O(H q^{n/2}/n) and μ := Σ_{g∈𝒢} 1/(|g| − 1). By Fact 5.2 for the modulus A,
+#{g ∈ 𝒢, deg g = m} = q^m/(mΦ(A)) + O(k q^{m/2}/m). Hence μ = (1/Φ(A))·Σ_{m≤m₂} 1/m + O_A(1)
+= (log n)/Φ(A) + O_{A}(1).
+Second moment: for g₁ ≠ g₂ the conditions form one coprime class mod hAg₁g₂, of degree ≤ k + H + 2n/5. So
+Σ_{P∈𝒞} N(P)² = Σ N(P) + Σ_{g₁≠g₂} [q^n/(nΦ(hA)(|g₁|−1)(|g₂|−1)) + O(n q^{n/2}/n)] ≤ Π(μ + μ²) + R, where
+R ≪ |𝒢|²·q^{n/2} ≤ q^{2n/5 + 2 + n/2}. The first-moment error is similarly ≪ q^{n/5+1+n/2}. Both are
+o(Π) = o(q^{n−k−H}/n), because 2/5 + 1/2 < 1.
+So Σ_{P∈𝒞} (N(P) − μ)² ≤ Π·μ + o(Π)·(1 + μ), and Chebyshev gives #{P ∈ 𝒞 : N(P) = 0} ≤ Π·(1/μ + o(1)).
+The classes 𝒞 (over h with deg h ≤ H and v₀) partition the irreducible P with deg h(P) ≤ H. Summing,
+the failure proportion is ≤ 1/μ + o(1/log n) = (Φ(A) + o(1))/log n. ∎
+
+*Remarks.* (1) The bound 1/log n is an artefact of using one sparse family (prime g). The data (§3) show
+the failure proportion decaying like exp(−θ·n³/q^k) and vanishing identically from a finite degree on.
+(2) The same proof works over Z: "p + 1 has a prime factor g ≡ −(p+1)/h (mod 4)". It is the classical "almost all
+primes" mechanism. It says nothing about every P, which is the lottery (B2).
+(3) No characteristic-specific input is used. RH (Weil) only replaces Bombieri–Vinogradov.
