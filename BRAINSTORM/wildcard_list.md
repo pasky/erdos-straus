@@ -103,3 +103,18 @@ shift; any thermodynamic average over e is a legitimate fixed-p average but is e
 ---
 
 Selected for full memos: W1 (`canonical_invariants.md`), W2 (`hardness_law.md`), W3 (`noncounting_shapes.md`).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **W1 premise is false:** "(−d/p) = 1 ⇒ p = u² + dv²" fails unless the form class group of the order is trivial on
+  the relevant genus. Counterexample [W1]: (−19/73) = 1 (28² ≡ −19 mod 73), but 73 ≠ u² + 19v² (v ∈ {0,1} exhaust);
+  h(−76) = 3. Correct: p is represented by *some* form of discriminant −4d; by the principal form only if Frob_p is
+  trivial in the ring class field (non-abelian data).
+* Scope corrections (pre-screens over-excluded): W3 (H-G open; descent need not use a group law); W4/W15
+  (LONGSHOT_PIGEONHOLE Lemma 2.3/Thm 2.2 need large-coset/transparent covering; hitting −1 with targeted large prime
+  factors is not excluded); W5 (LONGSHOT_FIBRED Thm 3.1 is about arithmetic-group orbits); W6/W7/W18 (averaging θ at
+  fixed p is H-A/H-B, not B6); W10 (bounded integrality is polynomially encodable); W12; W14 (algorithms with proved
+  totality can prove existence). **Corrected verdict:** PARTIAL → H-A.

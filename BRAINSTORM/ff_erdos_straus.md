@@ -165,3 +165,15 @@ size alone), and the T1-absence (EVIDENCE + PROVED reciprocity computation, modu
 ET's Type II chart to F_q[t], which is gcd algebra but was not re-verified line by line).
 Next step if anyone pursues it: decide whether ES_q(t) holds for *all* n ≥ 5 at q = 5 (data: 0
 failures at n = 5, 6) — a function-field ES "theorem" would still need the lottery solved.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **B3 screen mis-statement:** "the q → ∞ regime is the only place with pointwise function-field technology" is too
+  strong: fixed q with n → ∞ has Sawin–Shusterman-type étale-cohomology results (Chowla/twin primes over F_q[t] for
+  fixed large q). The verdict still holds there, by B3 rather than by Thm 2.1 (square-root savings ≈ q^{cn/2} dwarf a
+  poly(n) main term; those results are averages over P anyway, B6).
+* See also padic_functionfield_igusa errata: over F₅[T] a monic Type II decomposition exists at a square P, consistent
+  with this memo's §3.2 (T1 obstruction absent in F_q[t]).

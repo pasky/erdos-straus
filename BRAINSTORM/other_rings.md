@@ -82,3 +82,14 @@ quadratic O_K with N(ε) = −1, for all rational n), EVIDENCE for D = 3, 6, 7. 
 the campaign: **ES over Z is hard because ℕ has no element below 1. The "missing" universal divisor
 pairs (η, 1) must be replaced by divisors of p-dependent integers (the B2 lottery).** Collapses (for
 Z) to B1 at the step "find universal divisors": in Z these are congruence-forced divisors only.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (per-memo paragraph).
+Scope corrections only; no computational counterexample is involved.
+
+* §4's "positive ES is a lottery problem exactly when …" (line 60) is an Assessment, not a result: arbitrarily small
+  positive elements alone do not show that the unit-sum mechanism covers the required residue classes.
+* Prop 3.3 is proved for rational integer inputs (not every totally positive element of O_K) and uses N(ε) = −1
+  (memo line 81); shortcut: η = ε^{ℓ+1} for an inert ℓ ≡ 3 (4) gives η ≡ N(ε) = −1 (mod ℓ), totally positive.
+* The norm-Euclidean theorem cited in §2 does not by itself establish the positivity claim.

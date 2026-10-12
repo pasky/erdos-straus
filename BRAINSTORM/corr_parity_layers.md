@@ -104,3 +104,16 @@ nothing about ES.
 By-products: the five-class decomposition (definitions; PROVED trivially to be a partition); the class
 table (EVIDENCE, 3 primes + 1 square control); "square ⇒ all composite slices are Q" (PROVED: every prime
 `ℓ ∤ 2adm` of `m² + 4a²d` has `χ₋₄d(ℓ) = 1`, while `χ₋₄d(−1) = −1`, which is ET Prop 1.6's argument).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§1 partition is not a partition as literally defined:** the classes "prime" and Q overlap. Example [parity]:
+  p = 13, a = d = 1: N = 17 is prime (and not a hit), q = 4, and χ₋₄(17) = 1 while χ₋₄(−1) = −1, so it is also Q.
+  Repair: define the classes by priority (hit > prime > Q > Q′ > A), as the implementation already does.
+* §4's √V error and pointwise f(p) ≪ log³p are methodological/heuristic assumptions, not consequences of B3:
+  CONDITIONAL_ES Prop 2.3 gives no lower bound on error, and its Remark 2.4 keeps "small main term + smaller
+  error" open. **Corrected verdict:** PARTIAL → H-B (sign-only oracles are insufficient; parity-breaking input coupled
+  to actual divisor incidence remains untested).

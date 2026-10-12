@@ -110,3 +110,31 @@ noise.
 
 By-products (EVIDENCE): the revised ranking of drivers (§4 table), with the square class at moderate primes
 largest; the {a,c}-slice reading of the `p − 1` driver as the signed slice (§3).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (per-memo paragraph) and
+a deep-review note on `scripts/bs_adv_drivers.py`.
+
+* **Feature mislabel (table row "`log τ(p−1)`, 100-smooth part", and §6 item 3).** `scripts/bs_adv_drivers.py`
+  (old line 60) computed **log of the 100-smooth part of p−1 itself**, log ∏_{q≤100} q^{v_q(p−1)}, not log τ of it.
+  Example: p = 50000161, p−1 = 2⁵·3·5·7·23·647: log(smooth part) = 11.2552 (the stored value), log τ(smooth part) =
+  4.5643. The script now names it `log (p-1)_{100-smooth part}` and adds the correctly computed
+  `log tau((p-1)_{100-smooth part})`. Re-run by O160 (same seed, n = 20 000, ≈ 2 min; output reproduces every other
+  number in §3 exactly):
+
+  | feature | corr with y | partial corr beyond baseline | R² gain |
+  |---|---|---|---|
+  | log (100-smooth part of p−1) — the memo's row | −0.263 | −0.060 | 0.0021 |
+  | log τ(100-smooth part of p−1) — corrected label | −0.322 | −0.038 | 0.0008 |
+
+  With the τ-version substituted in the stage-2 baseline: R² = 0.457 (was 0.458) and the global partial correlations
+  are +0.003, −0.009, −0.010 (unchanged). **Conclusions that change: none.** Both quantities are functions of the
+  valuations v_q(p−1), q ≤ 100, i.e. congruence data at prime powers, so §6 item 3 ("what survives is the smooth part
+  and v₂ … still congruence data") stands with "smooth part" read literally; the τ-version's residual effect is
+  smaller (−0.04). `prob_lottery_model.md` does not use this feature.
+* **§6 "fully explained" is an overclaim.** Supported: these three global features add little *linear* signal in this
+  sample. Not supported: completeness, independence or extreme-tail behaviour (leave-in cell means, modelled Poisson
+  floor). B2's actual exclusion (redteam-automorphic-2 Thm 2.2(iii)) concerns fixed finite slice sets under H, not
+  nonlinear global information or growing-family correlations. **Corrected verdict:** PARTIAL → H-A.
+* The PROVED {a,c} identity of §3 is already verbatim in Lemma 2.1's slice table (not new).

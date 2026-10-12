@@ -79,3 +79,19 @@ By-product (Assessment): the honest analogue of HKRS Conj 1.5 for ES is "Type I 
 non-squares except finitely many sporadic n". In ET coordinates (with the gcd(abd, n) = 1 convention for Type II), the sporadic set to 2·10⁷ is {105}, and
 even that is a convention artefact
 (BRAINSTORM/apollonian_reciprocity.md §4). For primes this is ES itself.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (per-memo paragraph).
+Scope corrections only; no computational counterexample is involved.
+
+* **§4 (line 50) "thinning forces per-target mass ≪ p^{−(1−δ′)} L³" is unsupported:** a smaller *global* orbit-growth
+  exponent gives no pointwise fibre estimate without a uniform disintegration theorem; a thin subgroup may retain
+  specially structured fibres disproportionately.
+* §3's finiteness conclusion only forbids infinite effective permutation images or infinite fixed-p orbits:
+  infinite groups can act through finite quotients.
+* CONDITIONAL_ES Prop 2.3 restricts main terms of bounded-multiplicity asymptotic detectors, not every
+  target-specific hitting theorem; LONGSHOT_FIBRED Thm 3.1 assumes arithmetic-group orbits with a covolume count.
+  **Corrected verdict:** PARTIAL → H-F (the affine sieve does not hit a prescribed prime fibre; a thin-orbit hitting
+  argument is not excluded, none constructed). The SL₂ identity (ef − 4da² = 1, p = 4acd − f, b = ce − a ⇒
+  4abd = pe+1) is correctly Type I.

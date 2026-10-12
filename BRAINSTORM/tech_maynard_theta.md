@@ -131,3 +131,23 @@ weights) is irrelevant for m = 1.
 
 *What would revive it:* a second-moment or bilinear identity in θ at fixed p whose main term contains the
 genus factor (vanishing at squares). That is H-A/H-B, with no technology known.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§2 (line 49) misquotes Maynard.** Maynard's Hypothesis 1 / Theorem 3.1 (arXiv:1405.2593) explicitly allow sparse
+  ambient sets; there is no requirement |𝒜 ∩ [x,2x]| ≥ x/(log x)^{O(1)}. The real obstacles are the distribution and
+  non-concentration hypotheses, which remain unestablished for ES. Hence "Hypothesis (iii) fails" (lines 49, 64) is not
+  the failing step.
+* **§2 (line 50) misquotes ET:** over primes Σ_{p≤N} f_II(p) ≍ N log²N (ET give N log²N ≪ Σ ≪ N log²N log log N; the
+  campaign's (D)32b removes the log log for Type I); N log³N is the sum over all integers n ≤ N. The average of
+  f(p) is ≍ log³p. Inherited from the brief template (see BRAINSTORM/README.md); harmless qualitatively.
+* §3 promotes available power-scale error *upper bounds* to a universal error lower bound; CONDITIONAL_ES Prop 2.3
+  constrains main terms of bounded-multiplicity detectors on almost all primes only. Remark 1.2 shows only that
+  positivity suffices when m = 1, not that optimised weights cannot make positivity provable.
+* Block-law check: the unrestricted C-cutoff gives the constant log(p/H); log(p/H²) needs an extra B ≥ A restriction
+  absent from the experiment, so the EVIDENCE does not verify the stated constant.
+* **Corrected verdict:** PARTIAL → H-A (displayed instantiation collapses; weights on a growing Type I∪II family with a
+  square-sensitive main term ≥ 1 and smaller uniform remainder are not excluded).

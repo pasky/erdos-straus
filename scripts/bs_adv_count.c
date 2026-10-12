@@ -8,6 +8,7 @@
        loop (a,d,c) with f <= F := 2p/E + 1, test f | p+4a^2 d, e > E, b = ce-a >= a.
    Output (one line): p fII partA partB X_e for e<=31 (e = 3,7,...,31 or 1,5,.. if p=3 mod 4)
                       emin (least e with X_e>0) Wmin (least f over all solutions) first solution (a,b,c,d,e)
+   Metadata caveat: with option A (part B skipped), fII/emin/Wmin/X_e cover only the slices e <= E.
    Usage: bs_adv_count p [E [A]]  (default E ~ 2*sqrt(p); third arg A = slices e<=E only, skip part B)
    Build: gcc -O2 -o /tmp/bs_adv_count scripts/bs_adv_count.c -lm */
 #include <stdio.h>
@@ -71,7 +72,11 @@ int main(int argc,char**argv){
   if(!(argc>3 && argv[3][0]=='A'))
   for(u64 a=1; 4*a-1<=F; a++) for(u64 d=1; 4*a*d-1<=F; d++){ u64 R = p + 4*a*a*d;
     for(u64 c=1; 4*a*c*d-1<=F; c++){ u64 f=4*a*c*d-1; if(R%f) continue; u64 e=R/f; if(e<=E) continue;
-      if(c*e < 2*a) continue; if(gcdu(a,c)!=1) continue; u64 b=c*e-a; u64 w=(b>a)?2:1; partB+=w; note(a,b,c,d,e,w); } }
+      if(c*e < 2*a) continue; if(gcdu(a,c)!=1) continue; u64 b=c*e-a; u64 w=(b>a)?2:1; partB+=w; note(a,b,c,d,e,w);
+      /* O160 fix: part-B solutions must also feed the emin / Xsmall metadata. Before this fix, emin stayed 0
+         when all slices e <= E were empty, and X_e for E < e <= 31 was reported as 0 when E < 31. Neither case
+         occurs in the O154 logs (default E ~ 2 sqrt(p) >> 64 there; all 351 records have partA > 0). */
+      if(!emin || e<emin) emin=e; if(e<64) Xsmall[e/4]+=w; } }
   printf("%llu %llu %llu %llu |", (unsigned long long)p,(unsigned long long)(partA+partB),(unsigned long long)partA,(unsigned long long)partB);
   for(int i=0;i<8;i++) printf(" %llu",(unsigned long long)Xsmall[i]);
   printf(" | emin %llu Wmin %llu sol %llu %llu %llu %llu %llu\n",(unsigned long long)emin,(unsigned long long)Wmin,

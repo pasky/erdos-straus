@@ -119,3 +119,18 @@ By-product: Lemma 3.1 / Prop 3.2 (PROVED, elementary). This is a clean statement
 LLL-type existence methods point **away** from ES. The campaign's successful uses of the local
 lemma (OMEGA2/3, Ω-results for W(p)) are exactly the avoider direction. Novelty: folklore-level
 logic, made explicit; not worth a paper on its own, but a useful line for the barrier note.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **Prop 3.2(a) / Remark 3.3 are false as general claims** (fixed-p choices cannot carry product randomness;
+  dependency inequalities need monotone events). Counterexample [LLL]: Θ = {0,1}⁶ uniform, B_i = {θ_{2i−1} = θ_{2i}},
+  i = 1,2,3: the B_i are independent and non-monotone, and LLL (here exactly) gives P(avoid all) = 1/8 > 0.
+  Determinism of each candidate's arithmetic outcome is no obstruction: the probability space is over solver
+  choices θ. The Janson/Suen monotonicity requirement applies to those inequalities, not to the symmetric/asymmetric LLL.
+* Lemma 3.1 (atoms) correctly limits what a measure bound alone says; it does not exclude probabilistic existence.
+* Redteam-automorphic-2 Thm 2.2(iii) excludes only Θ₀ fixed independently of p (CONDITIONAL on H).
+* **Corrected verdict:** PARTIAL → H-A (displayed instantiations collapse). Open: independent solver coordinates at
+  fixed p with arithmetic bounds P(B_i) ≤ x_i ∏_{j∼i}(1−x_j), uniformly in large p — none constructed.

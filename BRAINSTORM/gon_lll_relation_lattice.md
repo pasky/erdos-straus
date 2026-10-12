@@ -99,3 +99,14 @@ version is B2's lottery. By-product (PROVED, elementary, modest novelty — a re
 Next step if anyone pursues it: a covering-radius bound for L_e in ℓ^∞ that uses the *distribution* of the
 relation lattice (Ajtai–type random-lattice / Rogers mean-value input) would have to hold for one e at every p —
 that is H-A in lattice language, with no known technology.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **"The genus/matroid half of ES is a theorem" is mislabelled PROVED.** It needs, for every large prime p ≡ 1 (4), a
+  prime q ≡ 3 (mod 4) with (q/p) = −1 and q ≤ (p+4)/3; the memo flags the Linnik/Burgess-type input as "from memory,
+  not checked". This is almost certainly true unconditionally (a union of index-4 classes mod 4p; least-prime-in-a-
+  class bounds ≪ p^{1/4+ε} suffice), but the **label should be CONDITIONAL on that citation**. It is content-free for
+  ES either way: the membership half is a single congruence condition and was never the obstacle.

@@ -103,3 +103,19 @@ coordinate planes, ET Type I/II are the open 2-dimensional and 1-dimensional str
 empty. Novelty unverified; it is presumably implicit in ET/BL. It is a convenient language, not a lever.
 
 No experiment was needed: all statements are elementary identities.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **M3(b): "split or isotropic forms are never Euclidean in the DC sense" is false.** q(x,y) = xy with coordinatewise
+  nearest-integer rounding gives |q(x−a, y−b)| ≤ 1/4 < 1 [M3b]. Anisotropy can still matter because q(error) = 0
+  obstructs the descent formula; the displayed inequality itself is not the obstruction.
+* M4 invokes LONGSHOT_FIBRED Cor 2.4 without its hypotheses (geometrically irreducible fibres, Zariski-dense
+  integral solver subsets). Unbounded composition need not grow height: secant composition with a fixed point is
+  generically involutive. The polylog output bound is unsupported.
+* M2: the vertex is not empty as a scheme (it contains (0,0,0)); only reductions of positive ES(p) points avoid it.
+  The square extension needs care: ES(9) has (3,12,36), which reduces to the vertex mod 3.
+* **Corrected verdict:** PARTIAL → H-F (displayed instantiations collapse; a positivity-preserving descent with
+  strictly decreasing denominator is not excluded, though no candidate move exists).

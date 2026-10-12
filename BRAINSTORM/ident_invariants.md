@@ -86,3 +86,13 @@ congruence data (B1). The data show no non-congruence invariant predicting the E
 the QR pattern (EVIDENCE, 2.4·10⁴ hard primes ≤ 1.2·10⁷).
 By-products: Lemma 3.1 (PROVED, trivial; likely folklore). The null result on E3 bits is EVIDENCE
 for the Assessment that fixed non-abelian Frobenius information is irrelevant to ES success.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **Lemma 3.1 scope:** it shows only that the *diagonal* f = f′ of ff′ − 4c²dp = 1 is empty for p ≡ 1 (4). "Units of
+  ℚ(√p) never give Type II solutions" is true only for that dictionary (unit = diagonal point); units entering a
+  non-diagonal point via another order are not excluded. (The memo's "any unit-based rule must use other slices —
+  B2" already says this; wording fix only.)

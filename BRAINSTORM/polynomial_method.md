@@ -73,3 +73,18 @@ exp(c(log p)^{1/4−}) rate); (b4) to B2 (genus).
 By-product (Assessment, folklore-level): a clean slogan for why ES is not a zero-sum problem.
 The e-slice ratio set always contains +1 (signed ES is trivial). ES asks for a prescribed
 non-identity element, and only full-coverage (equidistribution) results can supply that.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **"Hitting −1 needs the full ratio set" (§§3(b2–b3), 5) is false.** Counterexample [D3]: p = 433, e = 19,
+  N = (p+e)/4 = 113 has divisor residues Σ₁₉(113) = {1, 18} ∋ −1, i.e. only 2 of the 18 units, and gives a genuine
+  Type II solution (a,b,c,d) = (1,113,6,1). A target-specific certificate need not cover a coset.
+* B4 (LONGSHOT_PIGEONHOLE Thm 2.2) concerns transparent coset-covering certificates (primes below e plus one opaque
+  cofactor); it does not exclude arguments using residues of individual large prime factors. The asserted CN
+  modulus ceiling has no general proof; the B1 inference confuses the e-window with W's witness modulus f = 4acd−1.
+* Prime and square slices do not have identical statistics (the genus character distinguishes them).
+* **Corrected verdict:** PARTIAL → H-A (the displayed CHN enumeration collapses). Open H-A sub-question: do absolute
+  A, C exist with e ≤ C(log p)^A, e ≡ 3 (4), p ∤ e and −1 ∈ Σ_e((p+e)/4) for every large prime p ≡ 1 (4)?
