@@ -1,0 +1,3 @@
+81 leaves
+(1) lcm modulus deg 4, 81 unit classes; covered exactly once: True []
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +3]: True; 27540 P checked; max n_F = 4

@@ -161,3 +161,31 @@ counts for 6 moduli (q = 2, 3, 4, 5), worst |error|/bound = 0.23.
 Labels: "PROVED, given Fact 5.2". Fact 5.2 is a standard consequence of Weil's theorem, so plain PROVED (citing
 Weil/Rosen) is fine once D9 is fixed.
 
+### C7. Lemma 6.2 (validity is a congruence condition for n ≥ n_F) — SOUND
+
+Re-derived the degree bookkeeping. Types have degrees δ₀ = deg a₀, δ₁ = n + deg a₀, δ₂ = n − k − deg a₀,
+δ₃ = 2n − k − deg a₀ (and the same with b₀). For t_a ≠ t_b, the six cross-coincidences are
+δ₀/δ₁: n = deg a₀ − deg b₀; δ₀/δ₂, δ₁/δ₃: n = k + deg a₀ + deg b₀; δ₀/δ₃: 2n = k + deg a₀ + deg b₀;
+δ₁/δ₂: impossible (k ≥ 1); δ₂/δ₃: n = deg b₀ − deg a₀. All are excluded by n > k + deg a₀ + deg b₀.
+All four terms are monic, so lc(s) = 1 and s ≠ 0. For t_a = t_b the factorisations through L = lcm(a₀, b₀) are
+right, and L | X follows from a₀, b₀ | X. X mod M is determined by P mod AM, so s mod E is determined by P mod
+A·E·L. deg E < n makes X monic of degree n − k. ✓ Also, for prime P of degree n ≥ n_F, P ∤ W_F
+(all factors of W_F have degree < n), so the Lemma 1.3 (⇐) step (gcd(E, P) = 1) applies.
+
+### C8. Theorem 6.3 (F₄, A = T, every P) — SOUND (independently re-verified)
+
+`scripts/review_ffl_cert.py` (own parser + own arithmetic; log `data/review_ffl_cert_q4_log.txt`) on
+`data/ffl/cover_q4_A10.txt`:
+(1) the 81 leaves are exactly the 81 unit classes mod T⁴ − T (each covered once);
+(2) W_F | W for every leaf;
+(3) for **every** monic P (irreducible or not) in each class, of every degree 5..8 (27 540 P), the family is
+valid and the resulting (X, Y, Z) satisfies A·XYZ = P(XY + YZ + ZX), is monic, and satisfies NC.
+**max n_F = 4**, not "< 9": by Lemma 6.2 (C7) the certificate settles every n ≥ 5 (indeed n ≥ 4).
+Small degrees: my exhaustive solver S2 finds 0 failures for n = 2, 3, 4, 5, 6, 7 (6, 20, 60, 204, 670, 2340
+irreducible P; log `data/review_ffl_failcmp_log.txt`). Together these give a complete independent proof of
+Thm 6.3 that does not depend on any author code.
+* **D12 (MINOR).** State the actual n_F (= 4). With it, the exhaustive range needed is only n ≤ 4 (or ≤ 8
+  as written, which is conservative but fine). In the proof, "For 2 ≤ n ≤ 13 the exhaustive run (§3 table)
+  finds no failure": the §3 table shows the q = 4 row only up to n = 11 ("0/381300"). Make the ranges
+  consistent.
+
