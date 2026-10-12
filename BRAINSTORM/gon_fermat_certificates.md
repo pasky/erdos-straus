@@ -49,6 +49,15 @@ Conversely X, Y in the cosets with XY = N give back (a,b) and the ET equations (
 standard ET computation (redteam-2 Lemma 2.1, POINTWISE_SPECTRAL Lemma 2.1, TYPEII_SPECTRAL); checked
 symbolically in `scripts/bs_gon_split.py`. ∎
 
+*Remark (the full cubic as a product of three linear forms; PROVED by expansion).* With X = 4x−n, Y = 4y−n,
+Z = 4z−n: 4/n = 1/x+1/y+1/z ⟺ **XYZ = n²(X+Y+Z+2n)**, X,Y,Z ≡ −n (4), X,Y,Z > −n (check: n = 5,
+(x,y,z) = (2,4,20) gives 3·11·75 = 2475 = 25·99). This is the Davenport/Minkowski-conjecture shape "product of
+three linear forms" — but again on the *rational* product coset (−n,−n,−n)+4ℤ³ (det 64), where the dimension-3
+inhomogeneous theorem (|XYZ| ≤ 64/8 = 8 somewhere on the coset) is satisfied by the trivial centred point and
+says nothing; and the target is an *equation* coupling XYZ to X+Y+Z, not a sublevel set. Unlike Markoff-type
+cubics, the equation is linear in each variable, so there are no Vieta involutions and no infinite automorphism
+orbits for strong-approximation/orbit methods to use (consistent with GEOMETRY_ES Thm 3.1).
+
 Consequences for (F-ES):
 * **The GoN step carries no information on split rational targets.** Minkowski / van der Corput / Hurwitz /
   Minkowski-inhomogeneous produce points with |L₁L₂| *small* (≤ Δ/4 on a coset of determinant Δ). To turn
