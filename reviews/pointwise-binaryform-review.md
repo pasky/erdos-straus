@@ -17,6 +17,8 @@ ES is not solved; nothing below changes that.
 | Corollary 3.4 | SOUND-AFTER-REPAIRS (D3, D4 minor) |
 | Prop 5.1 | SOUND (D5 minor wording) |
 | Prop 5.2 (+ O145 Prop 3.2 dependency) | SOUND |
+| §6 search | SOUND as EVIDENCE (independent e-slice: 0 genuine families) |
+| Headline scope (§0, §3 end, §7) | GAP (D6 MAJOR: (x,y,z)-families not covered) |
 
 ## Claim-by-claim
 
@@ -207,4 +209,48 @@ coordinates (a,…,f) are polynomial or rational in (u,v)"; same qualifier in th
 Cor 3.4 ("no Fermat + identity certificate …") and in the §7 Cor 3.4 bullet; and move §4.4(iv) up
 into §0 as the main open case. (The statement "a polynomial or rational ET identity" in the §3
 closing paragraph is fine if "ET identity" is defined there as an (a,…,f)-family.)
+
+### §6 search — SOUND as EVIDENCE (independent re-run agrees)
+
+I did not reuse `bf_search_typeI.py`. `scripts/review_bf_search_e.py` slices by **e** instead of
+(c, d): for e = κ·e₀ it factors n e + 1 = 4abd over Q, distributes the irreducible factors among
+a, b, d in all ways (dilation (2.10) fixes a's scalar; b's scalar β is solved from e | a + βb by
+division modulo the principal ideal (e₀)), sets c = (a+b)/e, f = 4acd − n, checks (2.1), (2.2),
+(2.6)–(2.9) symbolically, discards families with a zero coordinate, keeps those that are
+*sign-feasible* (abd, acd, bcd > 0 somewhere on a grid in [−25, 25]²), and tests membership in
+Q[n]⁶ by a method different from O159's (g ∈ Q[u²+v²] ⇔ g(t,0) even and g = h(u²+v²) with
+h(s) = g(√s, 0)).
+* Positive control: on u² + 21 with e = (u²+22)/22 it rediscovers the O145 k = 21 family
+  (a, b) = (u² ∓ u + 22, u² ± u + 22), c = 44, d = 1/88, f = u² ∓ 2u + 23 (a dilate of O145's).
+* Q = u² + v², e₀ = (quadratic form, coefficients in {−1,0,1}) + (linear form, coefficients in
+  {−1,0,1}) + ζ, ζ ∈ [−8, 8], κ ∈ {1, 1/2, …, 1/12, 2, 3}: 57 596 (e₀, κ) pairs, ≈ 57 600 formal
+  Σ-families (almost all with b, d negative constants — never valid), **50 sign-feasible families,
+  all in Q[n]⁶, 0 genuinely two-variable** (`data/review_bf/search_e_{neg,pos}.txt`, plus the ζ = 0
+  run quoted in the commit log: 3 388 pairs, 0 sign-feasible). The 50 one-variable hits are an
+  internal positive control for the Q[n] test.
+This is complementary to O159's (c, d)-slice and agrees with it. Caveat (MINOR, D7): O159's text
+should say explicitly that its box only contains *formal* identities and that a family integral
+only on a coset with non-polynomial a, b, e is outside the search (it does say so); my e-slice has
+the same limitation.
+
+### Novelty / literature
+
+* ET (sources/elsholtz-tao-1107.1010.pdf, read): p. 7 and §10 — one-variable polynomial
+  solvability, perfect-square classes unsolvable "(this also follows from Proposition 1.6)"; p. 6
+  remark that any method "must necessarily fail when p is replaced by an odd square". O159's
+  Thm 3.2 is exactly this principle transported to a binary-form parameter, with the conic
+  Q = w² supplying the squares. Assessment: folklore-level, as the author says; the proof is short
+  and correct.
+* Schinzel, "On sums of three unit fractions with polynomial denominators", Funct. Approx. 28
+  (2000) 187–194: **not accessible** (Project Euclid paywall); I could only confirm the bibliographic
+  data. From ET's and the campaign's secondary descriptions (Schuh arXiv:2404.01307 p. 2 via
+  BRAINSTORM/ident_form_families §2) it concerns one-variable linear parameters only. Mordell's
+  *Diophantine Equations*: not accessible here.
+* Elsholtz–Planitzer (sources/lit2026/arxiv-1805.02945, grepped): parametric families for counting,
+  no two-variable identity obstruction.
+* Ghermoul, arXiv:2508.07383 (abstract read): 3-variable polynomial families n = 4pᵢ(x,y,z)+1 with
+  explicit solutions; consistent with §4.1 (such n are never odd squares at valid points) and not
+  overlapping the binary-form result.
+* Web searches for two-variable / sum-of-two-squares ES identity obstructions found nothing
+  specific. Novelty status: **unverified, probably folklore**; the label in §7 is appropriate.
 
