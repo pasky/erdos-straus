@@ -1,0 +1,8 @@
+tau(p-1)                     corr w/ log fI -0.404  log fII -0.328
+tau(p+1)                     corr w/ log fI -0.066  log fII 0.023
+tau((p+3)/4)                 corr w/ log fI 0.275  log fII 0.262
+tau((3p+1)/4)                corr w/ log fI 0.180  log fII 0.019
+sum_e<=16 tau((p+e)/4)       corr w/ log fI 0.391  log fII 0.421
+sum_e<=16 tau((pe+1)/4)      corr w/ log fI 0.331  log fII 0.149
+tau((p-1)/24)                corr w/ log fI -0.363  log fII -0.303
+corr(log fI, log fII) in sample: 0.741

@@ -1,0 +1,16 @@
+share of f from e<=16: 0.402, e<=256: 0.644
+e<=16: mean 118.6 CV 1.559 corr(x,f) 0.978
+e<=256: mean 189.9 CV 0.977 corr(x,f) 0.990
+e>256: mean 104.8 CV 0.269 corr(x,f) 0.336
+kappa (number variance/mean, weight-2 units) = 3.06
+lower tail: model level 1e-02, observed fraction 7.83e-03
+lower tail: model level 1e-03, observed fraction 6.63e-04
+lower tail: model level 1e-04, observed fraction 5.07e-05
+lower tail: model level 1e-05, observed fraction 4.50e-06
+min bulk/L^3: observed 0.00196; model (20 sims) median 0.00209 range [0.00101, 0.00303]
+model expected #{bulk=0} over these primes: 0.0193
+2^20: min-cell lam/L^3 0.0075, median 0.0204
+2^21: min-cell lam/L^3 0.0114, median 0.0215
+2^22: min-cell lam/L^3 0.0141, median 0.0226
+2^23: min-cell lam/L^3 0.0164, median 0.0236
+2^24: min-cell lam/L^3 0.0175, median 0.0244

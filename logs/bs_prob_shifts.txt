@@ -1,0 +1,10 @@
+all 5465508 0.0661
+p=1 mod 24 682901 mean f/L^3 0.0464 ratio to all 0.702 min 0.0143
+p=1 mod 120 170705 mean f/L^3 0.0428 ratio to all 0.647 min 0.0143
+p=1 mod 840 28538 mean f/L^3 0.0382 ratio to all 0.579 min 0.0143
+p=1 mod 9240 2810 mean f/L^3 0.035 ratio to all 0.529 min 0.0169
+p=1 mod 120120 222 mean f/L^3 0.0333 ratio to all 0.505 min 0.0169
+p=1 mod 2042040 12 mean f/L^3 0.0326 ratio to all 0.493 min 0.0224
+p=1(24) square mod 840: 0.0403  non-square: 0.0484
+random 3000: mean sum_{e<=16} tau((p+e)/4) = 64.96866666666666  200 hardest: 39.05
+corr(log r, log D) on random sample: 0.6077398195988318

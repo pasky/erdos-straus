@@ -1,0 +1,12 @@
+raw corr(log f_I, log f_II) = 0.905
+within cells mod 24: corr = 0.874
+within cells mod 840: corr = 0.864
+within cells mod 120120: corr = 0.850
+CV: f_I 0.699  f_II 0.655  f_I+f_II 0.677
+argmin f_I: p=1092961 f_I=57 f_II=66 ; argmin f_II: p=2031121 f_I=96 f_II=36
+Y=30 corr(log f_I, log L_Y(1,chi_p)): raw 0.075, within mod-24 cells 0.052
+Y=30 corr(log f_II, log L_Y(1,chi_p)): raw 0.170, within mod-24 cells 0.129
+Y=300 corr(log f_I, log L_Y(1,chi_p)): raw 0.076, within mod-24 cells 0.056
+Y=300 corr(log f_II, log L_Y(1,chi_p)): raw 0.172, within mod-24 cells 0.133
+Y=3000 corr(log f_I, log L_Y(1,chi_p)): raw 0.076, within mod-24 cells 0.057
+Y=3000 corr(log f_II, log L_Y(1,chi_p)): raw 0.172, within mod-24 cells 0.134
