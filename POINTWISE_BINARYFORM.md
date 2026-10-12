@@ -10,7 +10,8 @@ is not a polynomial (or bounded procedure) in p, and Theorem C (POINTWISE_SIZE �
 does not apply. **Answer (§§1–5): the square specialisation kills every such certificate whose ET
 coordinates (a,…,f) are polynomial or rational in (u,v), on every square class mod the joint modulus,
 unconditionally and in every degree.** (R159 repair: qualifier added; certificates given only as
-(x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) If the ET coordinates (a,…,f)
+(x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) (O163 update: §8 closes
+§4.4(iv): Theorem 3.2′ / Cor 3.4′ cover (x,y,z)-families too, with the same hypotheses.) If the ET coordinates (a,…,f)
 are polynomials (or rational functions) in (u,v), then on every coset C mod M (8, 2D and the
 families' denominators dividing M) with Q(C) a square unit mod M,
 the family is valid at only a density-zero set of the prime points of C. The reason is that
@@ -215,6 +216,7 @@ certificates (p = u² + v², u² + 2v², …).
   coordinates are gcd-defined and need not be polynomial. At a square point the specialised (x,y,z) is
   a solution for m², but Lemma 1.1 needs the N-point. Reducing (iv) to the ET-coordinate case
   needs either polynomial gcds or square points P with `gcd(Q(P), y(P)z(P)) = 1`; not done.
+  (O163 update: done in §8, Theorem 3.2′; the residual case y(0,0) = 0 is handled by descent.)
 * **Non-square classes are not an escape worth having.** A family integral on a non-square class mod
   K_F exists trivially: any one-variable identity in n, composed with n = Q(u,v), works. So positive
   proportions of a Mordell-hard class mod 840 are certainly coverable by identities, e.g. the
@@ -292,7 +294,9 @@ one-variable identities already do the work.
   theorem. Novelty: two-variable analogue of Mordell–Schinzel, folklore-level; the proof is standard.
 * Prop 5.1 (constant level ⇒ one-variable, all forms): PROVED. Prop 5.2 (Type II on cones ⇒
   one-variable): PROVED (O145 Prop 3.2 dependency checked by R159).
-* Open: indefinite forms in cusp regions (4.3); (x,y,z)-only families (4.4(iv)); procedures with
+* (O163) Theorem 3.2′ / Cor 3.4′ — the same for families given only as (x,y,z) ∈ Q[u,v]³ or
+  Q(u,v)³, every square class mod M: PROVED (§8; Cor 3.4′ relative to Hecke).
+* Open: indefinite forms in cusp regions (4.3); procedures with
   floor or factorisation in (u,v) (a two-variable Theorem C, would need H); unbounded families of
   forms (E1/B2); Type I analogue of O145 Prop 3.2.
 
@@ -314,7 +318,8 @@ write x = Qx₁ etc.; then `4 = 1/x₁ + 1/y₁ + 1/z₁`. If F is valid at P an
 integers have reciprocal sum ≤ 3 < 4. ∎
 
 **Lemma 8.2 (structure at the origin; PROVED, elementary).**
-(I) Type I shape, x = Q·x̃. Either y + z = 0 (then F is never valid), or there is h ∈ Q[u,v]
+(I) Type I shape, x = Q·x̃. Either y + z = 0 (then F is never valid, and Theorem 3.2′ below is
+vacuous for it), or there is h ∈ Q[u,v]
 with `4x̃ − 1 = Qh` and `4yzh = (Qh + 1)(y + z)`. Consequently `x̃(0,0) = 1/4`;
 `k := ord₀ y = ord₀ z`; and if k ≥ 1 then `z_k = −y_k`.
 (II) Type II shape, y = Qỹ, z = Qz̃. There is h with `4ỹz̃ − ỹ − z̃ = Qh` and `xh = ỹz̃`.
@@ -469,3 +474,29 @@ are handled by Theorem 3.2′(c′). M must be divisible by 8, 2D and the δ's o
 So **no "Fermat + identity" certificate whatsoever** — (x,y,z) or (a,…,f), polynomial or rational in
 (u,v) — covers a positive proportion of the primes of any square class mod the joint modulus M.
 This closes §4.4(iv) and R159 D6.
+
+**8.5 Remarks and exact scope (O163).**
+* *Why R159's route alone does not suffice.* If y(0,0) = 0 (equivalently z(0,0) = 0, Lemma 8.2)
+  then gcd(u,v) divides gcd(Q(P), y(P)z(P)) at every point, and in 50–75% of the square classes of
+  the tested (Q, M) every square point is imprimitive (check after Lemma 8.4). So "square points with
+  gcd(Q(P), y(P)z(P)) = 1" do not exist there. The fix is to use square points λX with λ a prime in
+  the forced class mod M, descend by λ or λ² (Lemma 8.3), and use the identities at the origin
+  (Lemma 8.2: x̃(0) = 1/4, z₁ = −y₁; resp. ỹ(0) = 0) to show that the Legendre symbol that ET's
+  reciprocity argument forces to be −1 for the non-square λw² is in fact +1.
+* *Polynomial ET coordinates exist but are not needed.* In the UFD Q[u,v], ET's proof of Prop 2.2 /
+  2.6 runs verbatim with polynomial gcds (Q is prime and Q ∤ y′, z′), so every Type I/II-shaped family
+  has ET coordinates (a,…,f) ∈ Q[u,v]⁶. They need not be integral where x, y, z are, so Theorem 3.2
+  does not apply directly; §8 avoids them and works with the integer solution at each point.
+* *Where k ≥ 1 can occur.* Composed one-variable families have k = 0 (Remark after Lemma 8.2), so the
+  descent cases concern genuinely two-variable families only, none of which is known (§6). The k ≥ 1
+  part of Theorem 3.2′ may therefore be vacuous; it is proved anyway.
+* *Same scope as Theorem 3.2 otherwise.* Still not covered: procedures with floor/factorisation in
+  (u,v) (§4.4(i)), unbounded families of forms (§4.2), indefinite forms in cusps (§4.3), and
+  parametrisations n = N(u,v) other than a positive definite binary quadratic form in the principal
+  genus. (For x, y, z with n = Q(u,v)/g, g a fixed integer, apply the theorem to the form Q/g if
+  integral; otherwise not covered.) Novelty: folklore-level, like Theorem 3.2; the descent through a
+  non-square λw² and the Legendre-symbol evaluation at the origin are the only new ingredients.
+* Checks: `bf2_square_patterns.py` (gcd patterns, explains why one-sided coprimality is useless),
+  `bf2_pointwise_check.py` (Lemma 8.3, CERTIFIED for n ≤ 12 000), `bf2_sieve_check.py` (Lemma 8.4
+  existence, all tested class/octant pairs), `bf2_origin_check.py` (Lemma 8.2 algebra on formal power
+  series; sanity check only).
