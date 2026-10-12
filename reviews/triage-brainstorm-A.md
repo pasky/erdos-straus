@@ -338,3 +338,17 @@ independent null). False-negative check: the Chebotarev-independence Assessment 
 and H-D remains "choose θ, not decide a fibre". Open sub-question: none new. The unit-*residue* test missing from
 canonical_invariants is also absent here: the regulator enters only through log ε/√p (size), not through ε mod q.
 Novelty: Lemma 3.1 is folklore-level; the null regressions are new EVIDENCE. **Promise 0.**
+
+**ident_numerators (O145c; memo: COLLAPSES to B1 at the class of one, uniformly in m ≥ 4).** AGREE. Lemma 3.1
+(Type II: n ≡ 1 forces M | u+v but M = muvw−1 ≥ 4uv−1 > u+v) re-derived. It is TRANSFER 5.1(ii) / Schuh in substance,
+as the memo says. Hostile notes:
+* "4 is the least m with a sterile class of one" is vacuous, because the class of one is sterile iff m ≥ 4. The
+  substantive half of "why 4" is the 4 | m square-coset sterility (Schinzel; POINTWISE_MN 1.1(d)).
+* The Type I half of that for general 4 | m is EVIDENCE only (m = 8, 12), honestly labelled.
+
+False-negative check: for 4 ∤ m the odd-square T1 obstruction disappears, so one might hope m = 5 (Sierpiński) is
+"easier". The class-of-one point still kills finite identity sets, and the per-p lottery and scale constraint are
+m-uniform (EXCEPTIONAL_MN). So no numerator gives a provable toy model. The data point "hardness concentrates on the
+class of one for m = 5, 7" is a nice qualitative confirmation of that. Open sub-question: the memo's own unpursued
+"is the lottery genuinely easier for 4 ∤ m?" The answer is almost certainly no, since the B2/B3 mass is m-uniform.
+Novelty: folklore plus small new EVIDENCE (the m = 12 exception tail ≡ 1 (24)). **Promise 0.**
