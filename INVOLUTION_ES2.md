@@ -149,3 +149,79 @@ divides the listed nonzero integer, and t divides `A + 1` (resp. `B + 1`; in the
 
 (For a 2-dimensional set that is a cylinder in two directions, i.e. a coordinate plane, any one of the
 descriptions works.)
+
+## 5. Siegel cylinders are barred under Hypothesis H
+
+**Lemma 5.1 (character lemma; PROVED).** Let `p ≡ 1 (mod 8)` be prime, `p > 3`, and `x = (t,u,v) ∈ E(p)`. Write
+`y₀` for the odd part of an integer y. Then the Jacobi symbols satisfy
+
+  `(A₀/p) = (B₀/p) = ((uv)₀/p) = −1`.
+
+In particular each of `A`, `B`, `uv` has an odd prime factor ℓ with `(ℓ/p) = −1`; all of them are prime to p.
+
+*Proof.* `(A₀/p) = −1` is INVOLUTION_ES Lemma 5.2. In general `4 | A | tp+1` and `p ≡ 1 (4)` give
+`t ≡ 3 (mod 4)`.
+*B.* Write `B = 2^e β`. For a prime `ℓ | β`, `tp ≡ −1 (mod ℓ)`, so `(p/ℓ) = (−t/ℓ)`; hence
+`(β/p) = (p/β) = (−t/β)`. From `B ≡ −1 (mod t)`: `(2/t)^e(β/t) = (−1/t) = −1`. Reciprocity with
+`(t−1)/2` odd: `(t/β) = (β/t)(−1/β)`. So `(p/β) = (−1/β)(t/β) = (β/t) = −(2/t)^e`. If `e ≥ 1` then
+`8 | AB = tp + 1`, so `t ≡ 7 (mod 8)` and `(2/t) = 1`. Either way `(β/p) = −1`.
+*uv.* `u ≡ t (mod 4)` (as `tu ≡ 1`), so u is odd, `u ≡ 3 (mod 4)`. Write `v = 2^b v₀`. By Lemma 4.1(b),
+`p ≡ −v (mod ℓ)` for primes `ℓ | u` and `p ≡ −u (mod ℓ)` for primes `ℓ | v`. (A common prime of u and v, or
+`p | uv`, would force `p | u` and `p | v`, hence `tuv ≥ p·max(u,v) > p + u + v` for `p > 3`: impossible.)
+So `(p/u) = (−v/u) = (−1/u)(2/u)^b(v₀/u)` and `(p/v₀) = (−u/v₀) = (−1/v₀)(u/v₀)`. Multiplying and using
+reciprocity, `(p/uv₀) = (2/u)^b·(−1/u)(−1/v₀)(−1)^{(u−1)(v₀−1)/4}`, and with `u ≡ 3 (4)` the last three
+factors multiply to −1 for either class of `v₀` mod 4. If `b ≥ 1`: `Av = p + u` (Lemma 4.1(b)) and `4 | A`
+give `8 | p + u`, i.e. `u ≡ 7 (mod 8)`, so `(2/u) = 1`. Hence `(uv₀/p) = (p/uv₀) = −1`. ∎
+
+EVIDENCE: all three symbols are −1 on all 647 points of `E(p)`, `p ≡ 1 (8)`, `p < 3000` (the `t`, `u`, `v`
+symbols separately take both values) — `scripts/inv2_formal_check.py` re-runs this.
+
+**Lemma 5.2 (QR lemma; PROVED part of POINTWISE_SIZE Theorem C, made explicit).** Let `R ∈ ℤ[n]` be nonzero,
+`P := 24X + 1`, and let `h_1, …, h_k ∈ 𝒫` be the irreducible factors of `R(P(X))` other than P, so that
+`R(P(X)) = κ·P^{e₀}·∏ h_j^{e_j}`. Work at `q* = q*_univ` (every `q*_ℓ` a unit, every `h` nondegenerate,
+`24q*_ℓ + 1` a nonzero square unit). Let `Λ` contain 2, 3, the primes of every `C_{h_j}`, of
+`K := κ∏C_{h_j}^{e_j}` and of `H_j := 24^{deg h_j} h_j(−1/24)` (nonzero, as `P ∤ h_j`), with `E₂ ≥ 3`,
+`E_ℓ ≥ 1`. If q is admissible for `S = {P, h_1, …, h_k}` (i.e. `q ≡ q*_ℓ (mod ℓ^{E_ℓ})` for `ℓ ∈ Λ`,
+`p = P(q)` and all `r_j := h_j(q)/C_{h_j}` prime, q beyond the finitely many q with `r_j = p` or `p | H_j`),
+then **every prime `ℓ ≠ p` dividing `R(p)` has `(ℓ/p) = 1`**, and `p ≡ 1 (mod 24)`.
+
+*Proof.* This is the "characters" paragraph of the proof of Theorem C. The primes of `R(p)` other than p are
+the primes of K (in Λ) and the `r_j`. For odd `ℓ ∈ Λ`, `p ≡ P(q*_ℓ) (mod ℓ)` is a nonzero square, so
+`(ℓ/p) = (p/ℓ) = 1`; `(2/p) = (−1/p) = 1` as `p ≡ 1 (8)`. For `r_j`: `24q ≡ −1 (mod p)` gives
+`24^{deg h_j} h_j(q) ≡ H_j (mod p)`, so `(r_j/p) = (H_j/p)(24/p)^{−deg h_j}(C_{h_j}/p) = 1`, all primes
+involved lying in Λ. ∎
+
+**Theorem 5.3 (cylinders barred under H; CONDITIONAL on Hypothesis H for one explicit finite family).** Let
+`Z₁` be a finite union of axis cylinders (of any dimension, i.e. including axis lines), and of curves. Then
+there are infinitely many primes `p ≡ 1 (mod 24)` with `E(p) ∩ Z₁ = ∅`. Precisely: let `W_1, …, W_k` be the
+Siegel cylinders among the 2-dimensional cylinders used in the reduction below, and
+`R := ∏_i R_{W_i}`, where `R_W := R_f` (v- or u-cylinder over `{f = 0}`) or `R¹_g R²_g` (t-cylinder over
+`{g = 0}`). Enlarge Λ of Lemma 5.2 by the primes of the moduli α of Lemma 2.1 for the finitely many axis lines
+involved, with `E_ℓ ≥ v_ℓ(α)`. Then **(PROVED)** every admissible q (beyond a threshold) gives
+`E(P(q)) ∩ Z₁ = ∅`; **(CONDITIONAL)** under H for `{P, h_1, …, h_k}` (Theorem M(b)) there are infinitely
+many admissible q, and under Bateman–Horn `≫ N/(log N)^{k+1}` of them with `P(q) ≤ N`. If R splits into
+linear factors (e.g. coordinate planes) Dickson's conjecture suffices.
+
+*Reduction.* Every curve component D that is not an axis line lies in a 2-dimensional axis cylinder
+(`π_v⁻¹(π_v(D))` closure, which is 2-dimensional as D is not a v-line). Every 2-dimensional cylinder is Siegel
+or not; non-Siegel ones reduce to finitely many axis lines (Cor 3.4); axis lines are handled by Lemma 2.1.
+
+*Proof.* Let q be admissible, `p = P(q)`, with p beyond the roots of R and the thresholds of Lemmas 4.2,
+5.2. Axis lines: p is a unit square modulo `ℓ^{v_ℓ(α)}` for every `ℓ | α` and `p ≡ 1 (8)`, so Lemma 2.1 gives
+`E(p) ∩ ℓ = ∅`. Siegel cylinder `W_i`: if `x ∈ E(p) ∩ W_i`, Lemma 4.1(c)/(d) gives `A | R(p)` (v-cylinder),
+`B | R(p)` (u-cylinder) or `uv | R(p)` (t-cylinder), where `R(p) ≠ 0`. By Lemma 5.1 that divisor has an odd
+prime factor `ℓ ≠ p` with `(ℓ/p) = −1`, and `ℓ | R(p)`: this contradicts Lemma 5.2. ∎
+
+**Remarks.**
+1. *Relation to Theorem C.* Theorem 5.3 is Theorem C applied to the bounded program `Π_W` of Lemma 4.2; the
+   direct proof above needs only Lemma 5.2, and its H-family is just the factors of `R(24X+1)` (Theorem C would
+   also factor every `A+1`, `p+u`, … met by `Π_W`, a larger family).
+2. *Coordinate planes (Cor 5.3 of INVOLUTION_ES, simplified).* `{t = c}`: `R = −(cp+1)`; `{u = c}`:
+   `R = −(p+c)`; `{v = c}` as a t-cylinder over `g = V − c`: `R¹R² = c(p+c)`. So for the 33 planes
+   `t,u,v = c ≤ 11` the Dickson family is `{24X+1} ∪ {(24cX + c + 1)/gcd, (24X + 1 + c)/gcd : c ≤ 11}`, with
+   no A-dependent forms (`cd·A = (d+1)p + c`, … of the old sketch are not needed, because the `uv`-character
+   of Lemma 5.1 replaces the `A`-character on `{v = c}`). This upgrades Cor 5.3 from "sketch" to a complete
+   conditional proof.
+3. *Example `{t = u}` (Remark 5.4 of INVOLUTION_ES).* `R = p² − 1`, `R(24X+1) = 48·X·(12X+1)`; Λ = {2,3}
+   (`H_X = −1`, `H_{12X+1} = 12`). So: **if q, 12q+1, 24q+1 are all prime then `E(24q+1) ∩ {t=u} = ∅`**
+   (PROVED; infinitely many such q under Dickson).
