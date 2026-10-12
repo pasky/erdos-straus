@@ -420,11 +420,12 @@ b²-coefficient is the constant w₀N²Q(0,1)/k₀ ≠ 0, and F₁ ∤ G₁: oth
 λψ₁₂(isotropic line)/k₀, which is the whole isotropic line KV' (ψ₁₂(tV) = −t²β₀(V)V with β₀(V) ≠ 0
 because P₀ is not isotropic), forcing Q | G. So `Res_b(F₁, G₁) =: ℛ(a) ∈ Z[a]` is ≢ 0. Fix L. By CRT
 the Z ∈ TB₀ good at all ℓ ≤ L and at λ number `ρ_{≤L}·vol(B₀)T² + O_L(T)` with
-ρ_{≤L} ≥ ρ. Z ∈ TB₀ with ℓ | F₁, ℓ | G₁ for some prime ℓ > L, ℓ ≠ λ: for L < ℓ ≤ T, at most
-`O((T/ℓ + 1)²)` each (O(1) common zeros mod ℓ by Step 6), total `O(T²/L + T)`; for ℓ > T, ℓ | ℛ(a),
+ρ_{≤L} ≥ ρ. Z ∈ TB₀ with ℓ | F₁, ℓ | G₁ for some prime ℓ > L, ℓ ≠ λ: for L < ℓ ≤ c₁T (c₁ > the side of
+B₀), at most `O((T/ℓ + 1)²)` each (O(1) common zeros mod ℓ by Step 6), total `O(T²/L + T)`; for
+ℓ > c₁T, ℓ | ℛ(a),
 and for each of the O(T) values a with ℛ(a) ≠ 0 there are O(1) such ℓ (|ℛ(a)| ≤ T^{O(1)}), each
 leaving ≤ 2 residues of b mod ℓ (F₁(a, ·) mod ℓ has the constant leading coefficient), hence ≤ 2
-values in an interval of length O(T) < ℓ; the O(1) roots of ℛ add O(T). So the good Z in TB₀ number
+values in an interval of length < c₁T < ℓ; the O(1) roots of ℛ add O(T). So the good Z in TB₀ number
 ≥ `(ρ − O(1/L))vol(B₀)T² − O_L(T) > 0` for L, then T, large. Any good Z gives X = X_Z, w = F₁(Z):
 (1) by Steps 4–5, (2) by Step 4, (3) because no prime divides both F₁(Z) and G₁(Z) (including λ,
 since λ ∤ F₁(Z)), (4) by goodness at λ. ∎
