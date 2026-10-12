@@ -1,0 +1,2 @@
+partial mass (a<=200000, rounded up) = 0.138450457845; tail <= 1.465e-4; mu <= 0.138596946; 1-2mu >= 0.722807
+empirical: primes p=1(24) < 2000000: 18507, with E(p)∩{t=u}≠∅: 2439 (0.1318)

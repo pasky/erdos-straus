@@ -1,0 +1,5 @@
+compatible a mod 24: [15, 23]
+min phi(n)/n^0.9 for n<1e6: n=30, value=0.374698
+n < 1e6 violating phi(n) >= 0.375 n^0.9: [30]
+partial sum a<=200000: 0.1384504578 (float acc 0.1384504578); tail bound 1.278e-04; mu <= 0.1385782; 1-2mu >= 0.72284
+empirical: 2439/18507 primes p=1 (24) < 2000000 covered by {t=u} (0.1318)

@@ -1,0 +1,13 @@
+385 primes p=24q+1 <= 30000
+  t=u                          QR at  226, QR&nonempty 0, nonempty 52
+  t=3                          QR at  192, QR&nonempty 0, nonempty 193
+  t=7                          QR at  200, QR&nonempty 0, nonempty 185
+  u=3                          QR at  212, QR&nonempty 0, nonempty 173
+  u=t^2+2                      QR at  145, QR&nonempty 0, nonempty 3
+  u=3t+2                       QR at  212, QR&nonempty 0, nonempty 39
+  tu=u+2t+... (u(t-1)=2t+5)    QR at  129, QR&nonempty 0, nonempty 0
+  v=2t+1 (B-side)              QR at  176, QR&nonempty 0, nonempty 14
+  v=5                          QR at  121, QR&nonempty 0, nonempty 182
+  v=u+6                        QR at  131, QR&nonempty 0, nonempty 13
+  uv=3u+4v                     QR at  385, QR&nonempty 0, nonempty 0
+Remark 3: 17 q with q,12q+1,24q+1 prime; E∩{t=u} nonempty at 0 of them
