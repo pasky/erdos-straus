@@ -223,3 +223,62 @@ symmetries (swap; reparametrising or divisor-moving scalings) never change the s
 precise form of the O152 "level = own matrix entry" remark and closes the gap left by WINDMILL Prop 2 (which
 covered only maps preserving the equation identically): uniformity of the menu over n turns "preserves the
 finite point sets" into "preserves P on a Zariski-dense set", which is the identical-preservation case.
+
+**Remark 4.5 (the SL₂ unipotents; PROVED for this family).** For fixed n the quadric `AB − nt = 1` has the
+infinite group of affine symmetries `(A,B) ↦ (αA + a₀, βB + b₀)` (`αβ` and t adjusted), containing O152's
+unipotents `u_k : (A,B,t) ↦ (A, B + kn, t + kA)` (right multiplication of γ by `(1 k; 0 1)`). These have
+n-dependent coefficients and are not covered by Prop 4.2(d). For them integrality alone suffices: if
+`x ∈ 𝒳` and `u_k(x) ∈ 𝒳` with k ≠ 0, then (using `A ≥ t − 1 ≥ 0`, `t' = t + kA ≥ 1`, `t' | A + 1`): for k ≥ 1,
+`t + kA ≤ A + 1` forces `k = 1, t = 1`; for k ≤ −1, `t − |k|A ≥ 1` and `A ≥ t − 1` force `A = t − 1` (u = 1) and
+`|k| = 1`, or t = 1. So the unipotents act only on the planes `t = 1` and `u = 1` — the single degenerate
+bijection `AB = n+1 ↔ (t,u) = (A+1,1)` found in O152 E4. (The general per-level group with n-dependent
+`α, β, a₀, b₀` is not classified here.)
+
+## 5. Consequence for windmills on X defined on primes only
+
+Prop 2.3 kills every windmill on X that is defined on a whole congruence class. A construction may instead
+be defined only on primes (using primality in the choice of pieces). Theorem 4.4 still applies, because it
+needs no density over n beyond F itself.
+
+**Theorem 5.1 (PROVED).** Let F be any set of primes ≥ 5 and let `(τ_p)_{p∈F}` be involutions of X(p) forming a
+finite-menu family as in Theorem 4.4(1), with `Fix τ_p ⊆ E(p)` for all p ∈ F. Let Z be the proper algebraic
+subset of Theorem 4.4 for τ's menu. Then for every p ∈ F: the point `(p+2,1,1)` lies in Z, and
+`|Fix τ_p ∩ Z|` is odd; in particular **E(p) ∩ Z ≠ ∅**. (No second involution σ is needed: |X(p)| is odd.)
+
+*Proof.* On `G(p) = X(p) ∖ Z`, τ_p ∈ {id, ρ} pointwise and G(p) is τ_p- and ρ-invariant. If `(p+2,1,1) ∈ G(p)`,
+it is fixed by both id and ρ, hence by τ_p, but it is not in E(p) (`A = p+1 ≡ 2 (4)` for p ≡ 1 (4);
+`A = p+1 ≡ 0 (4)` for p ≡ 3 (4) is an ES element — so for p ≡ 3 (4) the statement is vacuous-friendly: the
+periodic point *is* a certificate, and the theorem is only of interest for p ≡ 1 (4); restrict F accordingly).
+So for p ≡ 1 (4) it lies in Z, ρ acts freely on G(p) (its only fixed point in X(p) is `(p+2,1,1)`, Lemma 2.1),
+`|G(p)|` is even, so `|Fix τ_p ∩ G(p)|` is even, while `|Fix τ_p| ≡ |X(p)| ≡ 1`. ∎
+
+So **a bounded-description involution on X can certify ES(p) only through ES elements lying on a fixed proper
+algebraic surface Z ⊂ ℚ³** (fixed = independent of p). Every such windmill is therefore no stronger than the
+statement "E(p) ∩ Z ≠ ∅ for all p ∈ F" for one fixed surface Z — a "finitely many slices" type statement in
+the sense of the barrier map, with "slice" generalised from coordinate planes to arbitrary fixed surfaces.
+
+**Lemma 5.2 (PROVED; Lemma 2.2 with p in place of m²).** Let `p ≡ 1 (8)` be prime and `(t,u,v) ∈ E(p)`,
+`A = tu − 1 = 4·2^s·δ₀` with δ₀ odd. Then the Jacobi symbol `(δ₀/p) = −1`; in particular A has a prime factor
+that is a quadratic non-residue mod p.
+*Proof.* The proof of Lemma 2.2 uses only `m² ≡ 1 (8)` up to the last line, which now reads
+`1 = (−tp/δ₀) = (−t/δ₀)(p/δ₀) = −(p/δ₀)`, and `(p/δ₀) = (δ₀/p)` as p ≡ 1 (4). ∎
+
+**Corollary 5.3 (CONDITIONAL on Dickson's prime k-tuples conjecture; proof sketched, needs review).** If Z is
+contained in a finite union of coordinate planes `{t=c}, {u=c}, {v=c}`, then infinitely many primes
+`p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Hence no finite-menu windmill on X whose exceptional set is of this form
+proves ES for all p ≡ 1 (24).
+*Sketch.* On `{t=c}`, `A | cp+1`; on `{u=c}`, `A | p+c`; on `{v=c}`, `B = tc − 1 | p + c` and
+`A = ((B+1)p + c)/(cB)` is determined by B. Take `p = Mq + 1` with M divisible by 8, 3, all relevant c, `c+1`
+and their prime factors, and impose (Dickson) that each of the finitely many integers `cp+1`, `p+c` is a fixed
+constant times one prime `r(q)`, and that each of the finitely many linear forms `A(B)` attached to the
+bounded set of divisors B is a constant times a prime, with q in a class making every such prime ≡ 1 modulo
+4·(all constants). By reciprocity every prime factor of every A that can occur is then a residue mod p,
+contradicting Lemma 5.2. This is the mechanism of POINTWISE_SIZE Theorem C (formal odd square) applied to the
+bounded program "test the finitely many planes"; I have not re-verified Theorem C's hypotheses line by line. ∎
+
+**Remark 5.4 (non-coordinate surfaces; Assessment).** For a surface Z not of this form, E(p) ∩ Z is typically
+sparse: e.g. on `Z = {t = u}`, `E(p) ∩ Z = {t odd : t² − 1 | p + t}`, and for p ≡ 1 (24) this needs
+`t ≡ 23 (24)`, `p ≡ −t (mod t² − 1)`; Brun–Titchmarsh plus a union bound shows (unconditionally, sketch) that a
+positive proportion of p ≡ 1 (24) have no such t. A general theorem "for every fixed proper surface Z, infinitely
+many hard p have E(p) ∩ Z = ∅" would need a classification of the surfaces carrying ≫ 1 points per prime on
+average (coordinate planes; possibly others) and is **not** proved here (CONJECTURE).
