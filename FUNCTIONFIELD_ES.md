@@ -283,3 +283,38 @@ obstruction (§4), and (for q = 2, 4) the smallness of (F_q^*)^q. Over Z each fa
 are not confined to few classes mod any m; odd squares are sterile. The function-field world with
 char ≥ 5 keeps exactly one of the two Z obstructions (size, P ≡ 1). There, as over Z, the conjecture is a
 lottery: the data (§3) show extinction of failures at a finite degree, but no proof mechanism is available.
+
+## 7. Counts, the lottery model, and the two thresholds (EVIDENCE + Assessment)
+
+**7.1 Mean count (EVIDENCE, exact over all irreducible P).** C(q, n) := q^k·mean N_II/n³ (`scripts/ffl_fit.py`):
+
+| n | q=4 | q=5 | q=7 | (q=2, A=T) | (q=2, A=T²) |
+|---|---|---|---|---|---|
+| 4 | 0.504 | 0.497 | 0.483 | | 0.333 |
+| 6 | 0.417 | 0.420 | 0.415 | | 0.337 |
+| 8 | 0.382 | 0.382 | 0.370 | | 0.315 |
+| 11 | 0.343 | 0.343 | | | 0.284 |
+| 13 | 0.326 | | | | 0.272 |
+| 20 | | | | 0.271 | 0.237 |
+
+At fixed n the constant does not depend on q (within ±3%). So **mean N_II ≈ C·n³/q^k with C ≈ 0.25–0.5, slowly
+decreasing in n**. This is the analogue of f(p) ≍ log³p: q^{−k} plays the role of 1/4 and n that of log p.
+The full count N = N_II + 2N_I is ≈ 3–4·N_II in the samples (q = 5, n ≤ 6: mean N = 3.4, 13.1, 20.4, 44.1, 75.9
+for n = 2..6).
+
+**7.2 Overdispersion (EVIDENCE).** The zero-probability is far above Poisson:
+P(N_II = 0) ≈ exp(−θ·mean N_II), with θ = 0.23–0.29 for q = 5, 7 and n ≥ 5 (Poisson would give θ = 1).
+Solutions come in clusters: (a,b) ↔ (b,a), several c | a + b, and one residue condition shared by many data.
+
+**7.3 Model and thresholds (Assessment).** Treat failure as an event of probability exp(−θ'·λ(n)) with
+λ(n) = C'·n³/q^k. Two scales follow:
+* *bulk transition* (failure fraction ≈ 1/2): n_{1/2} ≍ (q^k)^{1/3}. Below it, almost all P fail. This is O140
+  Thm 2.1's regime, n fixed and q → ∞.
+* *extinction* (expected number of failures (q^n/n)·e^{−θ'λ} drops below 1): n₀ ≍ q^{k/2}·(log q)^{1/2}, from
+  θ'C'n² ≈ q^k·log q.
+For N_II alone (θC ≈ 0.09): the last degree with some N_II(P) = 0 is predicted at ≈ 3.3·(q^k log q)^{1/2}. At
+q = 5, k = 1 this gives 9.4; observed: the last N_II = 0 is at n = 9 (one P), and n = 10, 11, 12 have none.
+For full failures, calibrating on q = 5 (last failure n = 4) and q = 7 (last failure n = 6) gives
+n₀ ≈ 1.5·(q log q)^{1/2}.
+**Predictions recorded before the runs (A = T):** last failing degree n₀ ≈ 6 (q = 8), 7 (q = 9), 8 (q = 11),
+9 (q = 13). Char 2 and 3 may do better, as q = 4 (n₀ = 1, i.e. never) suggests.
