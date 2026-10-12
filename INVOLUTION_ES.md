@@ -119,3 +119,91 @@ squares. Neither ingredient uses more about p than "p is not a square", so all t
 windmill sits in the identity `W ≡ D (mod 2)` at composite non-squares of the class, about which T1 says
 nothing. T1 alone is therefore no barrier to the windmill route; a barrier must come from the structure of
 the maps (§4).
+
+## 4. Finite-menu rigidity: uniform affine windmills cannot couple generic points
+
+**Setting.** A *parametrisation* is a set `𝒳 ⊆ ℤ^d` with a rational *level function* `P` (regular on 𝒳); the
+fibres are `X(n) = 𝒳 ∩ P⁻¹(n)`, n in a set F (all n of a class, or **only the primes** of a class). A
+*finite-menu family* is a family of maps `σ_n : X(n) → X(n)` (n ∈ F) such that for every x,
+`σ_n(x) ∈ {g_1(x), …, g_r(x)}` for a fixed finite list (the *menu*) of maps `g_i : ℚ^d → ℚ^d` that are affine
+with coefficients rational functions of n (i.e. `g_i(x) = A_i(n)x + β_i(n)` evaluated at `n = P(x)`).
+This contains every "piecewise-affine map with finitely many pieces" whatever the pieces are: polyhedra,
+congruence cosets, sets defined through the factorisation of n or of anything else. Zagier's windmill is a
+finite-menu family (three maps, n-independent) for `P = x² + 4yz`.
+
+**Lemma 4.1 (PROVED, elementary).** Let `Stab = {i : P∘g_i = P identically}` and
+`Z₀ = ⋃_{i∉Stab} {x : P(g_i(x)) = P(x)}` (a proper algebraic subset: each set is the zero locus of a nonzero
+rational function, plus indeterminacy loci). For every n ∈ F and every `x ∈ X(n) ∖ Z₀`, `σ_n(x) = g_i(x)` for
+some `i ∈ Stab`. ∎ (`σ_n(x) = g_i(x)` forces `P(g_i(x)) = P(x)`.)
+
+So the only maps that act on *generic* points are symmetries of the level function itself. In Zagier's case
+these form the infinite group `O(x²+4yz)(ℤ)`, which is what lets a windmill move points between slices.
+For n-dependent maps note: `P∘g = P` identically iff for generic n₀ the affine map `g(n₀)` maps the level set
+`{P = n₀}` into itself, so it suffices to know the affine automorphisms `Aut_aff(S_n)` of a generic level set.
+
+**Proposition 4.2 (PROVED). Symmetries of the level function in the standard coordinates.**
+
+(a) *ES coordinates*, `𝒳 = ` positive solutions, `P(x,y,z) = 4xyz/(xy+yz+zx)`. For generic n,
+`Aut_aff(S_n) = S₃` (coordinate permutations), so `Stab ⊆ S₃` even for n-dependent menus.
+
+(b) *O152 coordinates* `(t,u,v)`, `P = tuv − u − v`: `Aut_aff(S_n) = {id, ρ}` for every n ≠ 0.
+
+(c) *ET Type II coordinates* `(a,b,c,k)` (solutions `(abc, nkbc, nkac)`, level `n = 4abc − (a+b)/k`, level
+set `4abck − a − b − nk = 0`): `Aut_aff(S_n) = {(a,b,c,k) ↦ (λa, λb, c/λ², λk) : λ ∈ ℚ^×} ⋊ ⟨a↔b⟩`. The
+scalings give the *same* solution `(x,y,z)` (they are reparametrisations), so on solutions only the swap acts.
+
+(d) *Divisor / SL₂ coordinates of X*, `(A,B,t)` with `P = (AB−1)/t` (O152's `γ = (A t; n B) ∈ SL₂(ℤ)`),
+n-independent menus: `Stab ⊆ {(A,B,t) ↦ (αA, B/α, t)} ⋊ ⟨A↔B⟩`. The analogous statement holds for the Type II
+SL₂ coordinates `(f,f',c,d)` with `P = (ff'−1)/(4c²d)` ((I)4): `Stab ⊆ {(αf, f'/α, λc, d/λ²)} ⋊ ⟨f↔f'⟩`.
+
+*Proofs.* (a) Write `S_n : F = cxyz − (xy+yz+zx) = 0`, `c = 4/n`. If `F∘g = μF` with g affine, the cubic parts
+give `xyz∘A = μ' xyz` for the linear part A, so (unique factorisation) A is a permutation times
+`diag(λ₁,λ₂,λ₃)`. A translation β would create quadratic terms `cβ₃λ₁λ₂ xy` etc. that must equal `−μ xy`
+etc. *and* the ones coming from `−(xy+yz+zx)∘g`; comparing the coefficients of the three quadratic monomials
+and the linear terms (which F lacks) forces β = 0 (if β ≠ 0, the linear terms `−λ_iβ_j x_i …` survive), then
+`λ_iλ_j = μ` for all pairs and `λ₁λ₂λ₃ = μ`, so all `λ_i = 1`. An affine map with `g(S_n) ⊆ S_n` and
+`rank < 3` would map the irreducible surface onto a curve/point, impossible for `P∘g = P` on a dense set.
+(b) `F = tuv − u − v − n`. As in (a), the linear part is a monomial matrix; F has no quadratic terms, so β = 0
+(a translation by `β_t` creates `β_t uv` etc.); then `−(u+v)` and the constant `−n ≠ 0` force μ = 1, `{u,v}`
+mapped to `{u,v}` with coefficient 1, and t fixed with coefficient 1.
+(c) `F = 4abck − a − b − nk`. Linear part monomial; F has no cubic or quadratic terms, so β = 0 (a translation
+creates cubic monomials `β·(product of three variables)`, distinct for distinct coordinates, which cannot
+cancel). With `a ↦ λ_a a_π` etc.: the linear part `−a − b − nk` must be `μ(−a−b−nk)`; c does not occur in it, so
+π fixes c, maps `{a,b,k}` to itself, and since the coefficient of k is `n` (generic) and of a, b is 1, π
+preserves `{a,b}` and k; `λ_a = λ_b = λ_k = μ`, `λ_aλ_bλ_cλ_k = μ` ⇒ `λ_c = μ⁻²`. Then
+`(x,y,z) = (abc, nkbc, nkac)` is unchanged.
+(d) The polar divisor of `(AB−1)/t` is `{t = 0}`, so `t' = λt` (no translation: `{t=0}` is mapped to itself
+and fixed affine maps preserving the pole order); then `A'B' − 1 = λ(AB − 1)` as polynomials. The quadratic
+part forces `{A',B'}` to be `{αA + a₀, βB + b₀}` with `αβ = λ`; the linear terms force `a₀ = b₀ = 0`, the
+constant term `λ = 1`. For `(ff'−1)/(4c²d)` the polar divisor is `2{c=0} + {d=0}`; the two components have
+different multiplicities, so each is preserved: `c' = λc`, `d' = νd`; then `f'_new f_new − 1 = λ²ν(ff'−1)`,
+and the same argument gives `λ²ν = 1` and `f ↦ αf, f' ↦ f'/α` or the swap. ∎
+
+**Lemma 4.3 (PROVED). Scalings act only on finitely many slices.**
+(i) In (d) for X: if `α = r/s ≠ 1` (lowest terms) and both `(A,B,t)` and `(αA, B/α, t)` lie in 𝒳 (i.e.
+`t | A+1`, `t | αA+1`), then `t | r − s`. Hence the points where a non-trivial scaling is used lie on the
+finitely many planes `t = c`, `c | r − s`; the scaling maps each such plane to itself (it moves a factor
+between A and B: a *divisor-moving* map on the divisor pairs of `cn+1`, preserving the slice integer).
+(ii) In the Type II SL₂ coordinates, a scaling preserves `4c²d` and hence the slice integer `N = 4c²dn + 1`
+and the divisor pair; it changes `(c,d)` only to `(λc, d/λ²)` with the same N.
+*Proof.* (i) `sαA + s = rA + s ≡ s − r (mod t)` because `A ≡ −1`; and `t | αA + 1` means `t·s | rA + s`
+(as `s | A` for `αA ∈ ℤ`), so `t | s − r`. (ii) is immediate from (d). ∎
+
+**Theorem 4.4 (rigidity; PROVED).** Let `(σ_n)` be a finite-menu family on X(n) (O152 set), in either the
+`(t,u,v)` coordinates (menus with coefficients rational in n) or the `(A,B,t)` coordinates (n-independent
+menus), n ranging over any set F (e.g. only the primes ≡ 1 mod 24). Then there is a proper algebraic subset
+`Z ⊂ ℚ³`, depending only on the menu, which is a union of the exceptional set `Z₀` of Lemma 4.1 and finitely
+many planes `t = c`, such that for every `x ∈ X(n) ∖ Z`: `σ_n(x) ∈ {x, ρ(x)}`. In particular σ_n preserves the
+slice index t of every point outside Z. The same holds with `S₃` in ES coordinates and with
+`{id, a↔b}` (up to reparametrisation) in ET Type II coordinates.
+
+*Proof.* Lemma 4.1 + Prop 4.2 + Lemma 4.3. ∎
+
+Interpretation. The triage asked for a "set-theoretic cross-slice bijection between divisor sets of different
+`N_θ(p)` respecting the moving classes". Theorem 4.4 says: **no such coupling of generic points exists in the
+class of finite-menu (bounded-description) piecewise-affine maps** in any of the four natural coordinate
+systems — the menu maps that are not symmetries of P can only act on a fixed proper algebraic subset, and the
+symmetries (swap; reparametrising or divisor-moving scalings) never change the slice integer. This is the
+precise form of the O152 "level = own matrix entry" remark and closes the gap left by WINDMILL Prop 2 (which
+covered only maps preserving the equation identically): uniformity of the menu over n turns "preserves the
+finite point sets" into "preserves P on a Zariski-dense set", which is the identical-preservation case.
