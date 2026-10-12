@@ -9,6 +9,8 @@ ES is not solved; nothing below changes that.
 | Claim | Verdict |
 |---|---|
 | Lemma 1.1 | SOUND (MINOR framing defect D1) |
+| Lemma 2.1 | SOUND |
+| Lemma 2.2 | SOUND |
 
 ## Claim-by-claim
 
@@ -31,4 +33,38 @@ resp. (2.13)–(2.21) (ET p. 11), with no gcd(c, n) condition, and ET §4's proo
 (2.1), (2.2) and n ≡ 1 (8) for an arbitrary N-point of Σ^I_n. So "ET Prop 1.6 without coprimality"
 is not a strengthening; ET §4 already is the N-point statement. The genuinely extra bits are the
 Jacobi-symbol refinements `(−d/n) = −1`, `(n/f) = −1` and the Type II case for even squares.
+
+### Lemma 2.1 (odd squares dense in square-class cosets and sectors) — SOUND
+
+Re-derived. X: Q(u,v) = w² is a smooth conic (disc of ternary form ≠ 0). X(Q) ≠ ∅: if 2D | M, every
+ℓ ∤ M is a good prime and gets a point (Chevalley–Warning + Hensel), ℓ | M gets
+(u₀ : v₀ : √Q(u₀,v₀)) since Q(u₀,v₀) is an ℓ-adic unit square (ℓ = 2 uses 8 | M: unit square mod 8
+⇒ ≡ 1 (8) ⇒ square in Z₂), ∞ is fine (Q definite); Hasse–Minkowski. If instead Q is in the
+principal genus, Q is Q-equivalent to the principal form, which represents 1, so X(Q) ≠ ∅ directly.
+Then X ≅ P¹ and weak approximation on P¹ holds at any finite set of places. The scaling step is
+right: a primitive (u₁,v₁,w₁) that is ℓ-adically close to a primitive representative of P_ℓ is ≡
+μ_ℓ·(u₀,v₀,w_ℓ) mod ℓ^{k_ℓ}, the sign flip at ∞ multiplies every μ_ℓ by −1 consistently, and
+λ ≡ μ^{−1} (M), λ > 0 large, puts λ(u₁,v₁) in C ∩ S with Q = (λw₁)², λw₁ odd because Q(C) is odd.
+No hidden parameter dependence.
+
+Checked from scratch (`scripts/review_bf_lemma21.py`, `review_bf_lemma21b.py`): for
+Q ∈ {u²+v², u²+uv+v², u²+2v², u²+5v²} and M ∈ {8, 24, 40, 16, 40} every pair (square class mod M,
+octant) contains a point with Q = odd square (the first pass with a box of side 3000 missed 56 resp.
+96 pairs for M = 40; a targeted box of side 80 000 per class finds all of them — box effect, not a
+counterexample). The non-principal form 2u²+2uv+3v² (D = −20) has no square class mod 40 at all,
+consistent with Remark (1). M = 4 for u²+v²: 32 of 64 (class, octant) pairs have no square point,
+e.g. class (1,2) mod 4 (even leg of a Pythagorean triple is ≡ 0 mod 4) — Remark (2) is right.
+
+### Lemma 2.2 (Gaussian "class of one") — SOUND
+
+Re-derived: CRT splits G_M into local pieces modulo the diagonal i; for odd ℓ the local quotient is
+detected by Q mod ℓ (split: xy; inert: F_ℓ* ⊂ squares of F_{ℓ²}*, norm of a generator is a
+non-square) and i dies because N(i) = 1 is trivial there; at 2 (k ≥ 3), Z₂[i]*/□ ≅ (Z/2)³, ⟨5, i⟩
+has order 4 (5 ∉ ±Q₂*²; ζ₈ ∉ Q₂(i)), quotient Z/2 detected by Q mod 8. My independent brute force
+(`review_bf_lemma21.py`, group H = (Z/M)*·⟨i⟩·squares computed directly) gives 0 mismatches for
+M ∈ {8, 16, 32, 48, 72, 80, 104} and mismatches exactly when 8 ∤ M (M = 4: 4/8, M = 12: 16/64,
+M = 20: 32/128). So "8 | M is needed" is correct and necessary, and the reason is the 2-adic
+component: mod 4 the norm condition Q ≡ 1 (4) is automatic but does not see the class of 5·(unit)
+versus i in Z₂[i]*/□. Minor wording point only (proof says "i dies" for odd ℓ, and at ℓ = 2 it is
+i that is quotiented out — the text is correct but terse).
 
