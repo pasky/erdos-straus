@@ -6,9 +6,10 @@ POINTWISE_SIZE.md §1.2–1.3 (points, nondegeneracy, admissibility, Theorem M).
 From-scratch scripts: `scripts/review_inv2_*.py` (none of the author's `inv2_*` code reused).
 ES is not solved; nothing below changes that.
 
-## Verdict table
+## Summary
 
-(filled in claim by claim below)
+No FATAL or MAJOR defect. All PROVED claims re-derived; all key numerics reproduced from scratch. Seven MINOR
+text defects (D1–D7, end of file). Verdict table at the end.
 
 ## Claim-by-claim
 
@@ -143,3 +144,66 @@ recomputed by CRT: exactly `a ≡ 15, 23 (24)`. BT (Montgomery–Vaughan 1973, `
 `p^{0.1}(1−1/p) < 1`). The author's script actually uses `φ(n) ≥ n^{0.9}/3` (true), and only `n ≥ 4·10¹⁰` occur,
 so the certified constant stands (D1, text only).
 
+### §7 residue, labels, novelty
+
+* §7.1 `{t=3}`: the "data" equivalence `QR(p) ⇔ E(p) ∩ {t=3} = ∅` is in fact a one-line theorem: on `{t=3}`,
+  `E(p) ∩ W ≠ ∅` iff `3p+1` has a divisor `A = 3u−1 ≡ 0 (4)`, i.e. `(3p+1)/4` (odd, prime to 3) has a divisor
+  ≡ 2 (3), i.e. a prime factor ≡ 2 (3); and for odd ℓ | 3p+1, `(ℓ/p) = (−3/ℓ)`. Reproduced numerically (192/193).
+  The Iwaniec remark is correctly marked "not claimed".
+* Labels: every PROVED item was re-derived and holds; CONDITIONAL items name their hypothesis; the
+  ineffectivity of 6.1(b) is stated. No overclaim found in §0 or the report. "Barred unconditionally" in the §0
+  title means "fails on 100% of a residue class of primes", which is what is proved.
+* Novelty (Assessment; no literature search beyond sources/): Lemma 5.1 is the Schinzel–Yamamoto odd-square
+  argument (ET Prop 1.6, proof in ET §4: largest odd factor of `ab`, `e ≡ 3 (4)`, `e ≡ 7 (8)` when `ab` even) run
+  at a prime `p ≡ 1 (8)` instead of a square; the B and uv versions are routine variants. Lemma 2.1 is ET
+  Prop 1.6's "polynomial identities only cover non-square classes" for linear identities (author cites this).
+  The genuinely new pieces relative to the repo are the cylinder resultant `R_f` (Lemma 4.1), the
+  `N^{2/3}` thinness of non-cylindrical components (Prop 3.2), and their combination with Thm 5.1 and
+  Theorem M into the trichotomy of Thm 6.1. I know of no published analogue of Thm 6.1/Cor 6.2, but did not search.
+
+## Defects
+
+No FATAL, no MAJOR.
+
+* **D1 (MINOR) — Prop 7.1, statement parenthesis.** "`φ(n) ≥ 0.375·n^{0.9}`" is false at n = 30
+  (`φ(30) = 8 < 0.375·30^{0.9} = 8.007`; the global minimum of `φ(n)/n^{0.9}` is 0.374698 at n = 30). Repair:
+  write `φ(n) ≥ n^{0.9}/3` (what `scripts/inv2_bt_mass.py` actually uses) and note only `n ≥ 4·10¹⁰` occur. The
+  certified constants are unaffected (independent recomputation: μ ≤ 0.1385782, 1−2μ ≥ 0.72284).
+* **D2 (MINOR) — Thm 6.1(b) / Cor 6.2.1.** Add one sentence: "Z is independent of p: INVOLUTION_ES Lemma 4.1
+  substitutes `n := P(x)` in the menu coefficients, so `Z₀, Z₁, Z₂` are zero sets of fixed rational functions of
+  x and `Z₃ = ∅` (Prop 4.2(b)); hence Siegel's theorem is applied to finitely many fixed curves and no
+  uniformity in a family is needed." This is the first objection a reader will raise for ℚ(n)-coefficient menus.
+* **D3 (MINOR) — Thm 6.1(d), Cor 6.2.3, §0.** State the hypothesis actually used: for the explicit family
+  `{f_h}` of Theorem M(b), `#{y ≤ Y : all f_h(y) prime} > C_Z (24MY)^{2/3}` for large Y; this follows from the
+  Bateman–Horn conjecture (asymptotic form, `c_𝓕 > 0` because the family has no fixed prime divisor), and is
+  not implied by H. Calling it "Bateman–Horn (lower bound)" is acceptable but should say "of order
+  `Y/(log Y)^{|S|}`, or merely `≫ Y^{2/3+δ}`".
+* **D4 (MINOR) — Lemma 2.1 proof.** If the slope is 0, `α := 4·slope = 0` contradicts "α ≥ 1"; set `α = 1`,
+  `R_ℓ = ∅` in that case.
+* **D5 (MINOR) — Thm 6.1(b) wording.** `α₀` is defined in Cor 3.3 for `Z₀` only; in 6.1(b) it must also be a
+  multiple of `8α` for the axis lines produced by Cor 3.4 from the type-(ii) cylinders. Say so.
+* **D6 (MINOR, optional) — §7.1.** Replace "data: QR(p) ⇔ E(p) ∩ {t=3} = ∅" by the one-line proof above
+  (PROVED), keeping the data as a check.
+* **D7 (MINOR) — novelty.** Cite ET Prop 1.6 / Schinzel / Yamamoto as precursors of Lemma 5.1 itself (the B and
+  uv symbols), not only of Lemma 2.1.
+
+## Verdict table
+
+| claim | verdict |
+|---|---|
+| Lemma 2.1 (axis lines, no odd squares) | SOUND (D4 wording) |
+| Lemma 3.1 / Prop 3.2 / Cor 3.3 / Cor 3.4 (`P+1 ≥ tuv/2`; `O(N^{2/3})`) | SOUND |
+| Lemma 4.1 / Lemma 4.2 (slice divisor divides fixed polynomial; bounded search) | SOUND |
+| Lemma 5.1 (A, B, uv Jacobi symbols −1) | SOUND (re-derived; 5528 points brute-forced) |
+| Lemma 5.2 / Thm 5.3 ("admissible ⇒ empty" PROVED; infinitude CONDITIONAL on H) | SOUND, labels honest |
+| Thm 6.1(a) | SOUND |
+| Thm 6.1(b) (unconditional, 100% of `p ≡ 1 (α₀)`, ineffective) | SOUND (D2, D5 wording) |
+| Thm 6.1(c) (H, cylinder Z) | SOUND |
+| Thm 6.1(d) / Cor 6.2.3 (BH lower bound) | SOUND as CONDITIONAL; standard conjecture suffices (D3) |
+| Cor 6.2 class match with INVOLUTION_ES Thm 5.1 | SOUND |
+| Prop 7.1 (lower density > 72.28%) | SOUND (D1: misstated tail inequality, constant unaffected) |
+| Labels / overclaim | honest |
+| Novelty | Assessment above (D7) |
+
+Repairs were **not** applied to INVOLUTION_ES2.md (the author's branch received a commit minutes before this
+review was finished; all defects are MINOR and text-only). R162 can apply D1–D7 on request.
