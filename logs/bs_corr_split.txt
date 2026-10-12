@@ -1,0 +1,10 @@
+I_small   mean count 5.8  R2(M2)=0.674
+I_large   mean count 114.7  R2(M2)=0.582
+II_small  mean count 33.7  R2(M2)=0.395
+II_large  mean count 20.0  R2(M2)=0.394
+I_small   ~ I_large   raw corr 0.756   resid corr 0.484
+I_small   ~ II_small  raw corr 0.454   resid corr 0.257
+I_small   ~ II_large  raw corr 0.622   resid corr 0.419
+I_large   ~ II_small  raw corr 0.611   resid corr 0.470
+I_large   ~ II_large  raw corr 0.746   resid corr 0.621
+II_small  ~ II_large  raw corr 0.556   resid corr 0.412

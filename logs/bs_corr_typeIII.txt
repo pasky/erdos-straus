@@ -1,0 +1,32 @@
+primes 16405
+corr(fI, fII) = 0.972
+Spearman(fI, fII) = 0.776
+corr(fI,#nonres l<=29)=-0.158 corr(fII,#nonres l<=29)=-0.183
+corr(fI,n_p)=0.268 corr(fII,n_p)=0.289
+bottom-5% overlap: 416 of 820 (independent: 41.0)
+min (fI+fII)/log^3 = 0.0322 at p=115201 (fI=32 fII=19)
+== MOD=4,3
+primes 8208
+corr(fI, fII) = 0.988
+Spearman(fI, fII) = 0.876
+corr(fI,#nonres l<=29)=-0.334 corr(fII,#nonres l<=29)=-0.349
+corr(fI,n_p)=0.517 corr(fII,n_p)=0.513
+bottom-5% overlap: 129 of 410 (independent: 20.5)
+min (fI+fII)/log^3 = 0.0884 at p=201667 (fI=126 fII=35)
+== MOD=24,1
+primes 2021
+corr(fI, fII) = 0.724
+Spearman(fI, fII) = 0.721
+corr(fI,#nonres l<=29)=0.526 corr(fII,#nonres l<=29)=0.426
+corr(fI,n_p)=-0.601 corr(fII,n_p)=-0.453
+bottom-5% overlap: 53 of 101 (independent: 5.0)
+min (fI+fII)/log^3 = 0.0322 at p=115201 (fI=32 fII=19)
+== MOD=840,1
+primes 82
+corr(fI, fII) = 0.751
+Spearman(fI, fII) = 0.737
+corr(fI,#nonres l<=29)=0.475 corr(fII,#nonres l<=29)=0.412
+corr(fI,n_p)=-0.181 corr(fII,n_p)=-0.058
+bottom-5% overlap: 0 of 4 (independent: 0.2)
+min (fI+fII)/log^3 = 0.0323 at p=132721 (fI=34 fII=19)
+primes 2021 fI 243546 twinI 4158 fII 108581 twinII 4158

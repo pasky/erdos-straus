@@ -1,0 +1,4 @@
+M2                       cols=117 R2_Ilarge=0.582 R2_IIlarge=0.394 resid corr=0.621
++log p, loglog p         cols=119 R2_Ilarge=0.651 R2_IIlarge=0.425 resid corr=0.595
++S_1e3, S_1e4            cols=121 R2_Ilarge=0.665 R2_IIlarge=0.439 resid corr=0.583
++quartic/cubic symbols   cols=129 R2_Ilarge=0.667 R2_IIlarge=0.440 resid corr=0.583

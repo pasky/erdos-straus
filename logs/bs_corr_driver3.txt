@@ -1,0 +1,3 @@
+M2+log p               R2: I=0.68 II=0.52 I_large=0.65 II_large=0.42 | resid corr I~II 0.592, I_large~II_large 0.595
++C-slices M=200        R2: I=0.72 II=0.56 I_large=0.69 II_large=0.48 | resid corr I~II 0.542, I_large~II_large 0.546
++C-slices M=200,2000   R2: I=0.84 II=0.71 I_large=0.82 II_large=0.77 | resid corr I~II 0.336, I_large~II_large 0.329
