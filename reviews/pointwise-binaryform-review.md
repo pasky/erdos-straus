@@ -14,6 +14,7 @@ ES is not solved; nothing below changes that.
 | Lemma 3.1 | SOUND |
 | Theorem 3.2 | SOUND-AFTER-REPAIRS (D2 minor) |
 | Lemma 3.3 | SOUND |
+| Corollary 3.4 | SOUND-AFTER-REPAIRS (D3, D4 minor) |
 
 ## Claim-by-claim
 
@@ -109,4 +110,42 @@ counts 28 284 integral points of (u²+v²+1)/(u+2v) in [−2000, 2000]², growth
 counts for a definite denominator. Since prime points of a class number ≍ X²/log X in the disc of
 radius X, X^{1+ε} = o(X²/log X) — enough. (Note the comparison is points-in-disc vs points-in-disc,
 not primes ≤ X vs points; the author's "≍ X²/log X" is the right normalisation.)
+
+### Corollary 3.4 — SOUND-AFTER-REPAIRS (D3, D4, MINOR)
+
+Re-derived. #certified p ≤ X is at most the number of valid prime points P with Q(P) ≤ X. By
+Lemma 3.3 the non-polynomial families contribute ≪ X^{1/2+ε} such points (radius ≍ X^{1/2}); by
+Thm 3.2(c) (with D2) the polynomial ones lie, beyond R(F, δ), in ≤ |Z_F| cones of width 2δ. The
+number of represented primes p ≡ r (M), p ≤ X, is ≫ X/log X, and each has ≤ 2w(D) ≤ 12
+representations (r_D(p) = w(1 + (D/p)) summed over classes), so the comparison is legitimate. What
+is needed from Hecke is: *for an imaginary quadratic order O of discriminant D, a fixed proper ideal
+class (= the form Q), a fixed class mod M and a cone S in the (u,v)-plane, the prime points P ∈ C ∩ S
+with Q(P) ≤ X number (μ(S)/2π + o(1))·(#prime points of C with Q(P) ≤ X)*, where μ is the
+angle measure transported by the linear map (u,v) ↦ uω₁ + vω₂ (so a δ-cone in the (u,v)-plane has
+μ ≤ C_Q δ). This is a true classical theorem (Hecke 1918/1920, Grössencharacters of K with
+modulus f·M and infinity type (α/|α|)^k; e.g. Hecke, Math. Z. 1 (1918) 357–376 and 6 (1920) 11–51;
+Narkiewicz, *Elementary and Analytic Theory of Algebraic Numbers*, Ch. 7). I could not access these
+texts in sources/; the statement used is standard and the application is correct. "Unconditional"
+is justified (Hecke is a theorem, no GRH needed for a density-zero statement).
+
+The Mordell-hard part: 1, 121, 169, 289, 361, 529 are 1², 11², 13², 17², 19², 23² mod 840 and all ≡ 1
+(8); a prime ≡ r₀ (840) is a unit square mod M iff it is a QR mod each odd ℓ | M, ℓ ∤ 840 (the 2-, 3-,
+5-, 7-parts are automatic: ≡ 1 (8) is a square mod 2^k, a unit QR mod ℓ is a QR mod ℓ^k). Dirichlet
+gives relative density ∏ 1/2. Correct, including "infinitely many, indeed a positive proportion of
+Mordell-hard primes are missed" — for each fixed 𝔉, with the proportion depending on 𝔉 through M.
+
+* **D3 (MINOR, citation):** "Hecke's theorem" is cited with no reference and only in the
+  Gaussian form; give a precise reference and state the version used (order of discriminant D,
+  ray class mod M, cones transported by (u,v) ↦ uω₁ + vω₂). For non-maximal orders say that primes
+  dividing the conductor are excluded (they divide 2D | M anyway).
+* **D4 (MINOR, overstatement in prose):** the paragraph after Cor 3.4 says no certificate covers "a
+  positive proportion of the primes in any square class" and §0 says "on every coset C mod M (8D | M)".
+  Both are correct only for square classes *modulo the joint modulus M ⊇ K_F*; a finite 𝔉 *can*
+  cover a positive proportion of a Mordell-hard class mod 840 (one-variable identities on non-square
+  subclasses, as §4.4 itself says). Add "mod M, where M is divisible by the families' moduli" in §0,
+  §3 closing paragraph and the §7 bullet. Also §0's "8D | M" differs from the theorem's "8, 2D | M"
+  (harmless: 8D | M implies both; make them agree).
+* Not a defect but worth stating: the theorem is per fixed form Q; finitely many forms Q₁,…,Q_k
+  (each with its own finite 𝔉ᵢ) are handled by taking M = lcm of all moduli — union of density-zero
+  sets. §4.2 says this only for one-parameter families.
 
