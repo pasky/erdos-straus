@@ -24,7 +24,7 @@ barred **unconditionally** unless Z contains a "Siegel cylinder")
   "admissible ⇒ E(p) ∩ W = ∅" is PROVED).** At the square-mimicking point of POINTWISE_SIZE Theorem C, every
   prime factor of `R_W(p)` other than p itself is a residue mod p (Lemma 5.2), contradicting Lemma 5.1. This includes the
   coordinate planes: INVOLUTION_ES Cor 5.3 is now a complete conditional proof (Dickson) with a simpler family
-  (`24X+1`, `(24cX+c+1)/·`, `(24X+1+c)/·`). Example: if `q, 12q+1, 24q+1` are prime then `E(24q+1) ∩ {t=u} = ∅`.
+  (the linear forms `24X+1`, `24cX+c+1`, `24X+1+c`, normalised at `q*_univ` as in Theorem M). Example: if `q, 12q+1, 24q+1` are prime then `E(24q+1) ∩ {t=u} = ∅`.
 * **General Z (Thm 6.1).** Under Bateman–Horn (lower bound), for every proper closed Z, `≫ N/(log N)^{|S|}` primes
   `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Under H alone: when all 2-dimensional components of Z are axis cylinders.
   **Consequence (Cor 6.2): no finite-menu affine windmill on X (INVOLUTION_ES Thm 5.1 class) proves ES for all

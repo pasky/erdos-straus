@@ -15,7 +15,7 @@ The O158 status "narrowed, not barred" becomes:
 * **barred UNCONDITIONALLY (100% of primes `p ≡ 1 mod α₀` fail)** when Z has no *Siegel cylinder* component,
   i.e. no `C × A¹` with C carrying infinitely many positive integer points (Thm 6.1(b), Cor 6.2.1; ineffective
   through Siegel's theorem);
-* unconditional positive proportion (≥ 72%) for the non-plane Siegel cylinder `{t = u}` (Prop 7.1, makes
+* unconditional positive proportion (lower density > 72.28%, certified bound) for the non-plane Siegel cylinder `{t = u}` (Prop 7.1, makes
   INVOLUTION_ES Remark 5.4 rigorous).
 
 ## Key new ingredients (all PROVED, elementary)
@@ -42,3 +42,10 @@ The O158 status "narrowed, not barred" becomes:
 Evidence: `inv2_cylinder_check.py 2000` (Lemma 4.1 on 26031 incidences; bounded search = brute force on 4320
 (p,W) pairs); `inv2_formal_check.py 30000 3000` (11 cylinders; QR(p) ⇒ empty, admissible ⇒ QR, no exception);
 `inv2_bt_mass.py 200000 2000000`.
+
+## Self-review (reviewer subagent, deep) and repairs applied
+No FATAL. Repaired: (MAJOR) the displayed raw Dickson family for the 33 planes had a fixed prime divisor 5 —
+now stated as the Theorem M normalised family `h(My+q̃)/C_h` with `E_ℓ > max v_ℓ(C_h)`; (MAJOR) Prop 7.1 tail
+bound now certified (Decimal rounded-up partial sum + `φ(n) ≥ 0.375 n^{0.9}` tail), μ < 0.13860; (MINOR) BH
+exponent `|S|`, F ⊆ {p ≡ 1 (4)} in Cor 6.2, α₀ divisible by 24, "other than p" restored, Siegel-cylinder
+definition (condition on C), "truth ≈ 0.87" wording. Reviewer independently re-derived Lemma 5.1's symbols.
