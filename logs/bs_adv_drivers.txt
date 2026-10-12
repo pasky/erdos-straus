@@ -1,3 +1,4 @@
+n=20000  Var(y)=0.0360  R2(cell120120)=0.347  R2(baseline)=0.433  beta=[-1.087  0.823 -0.017  0.154]
 feature | corr with y | corr with cell residual | partial corr with baseline residual | R2 gain if added
 log tau(p-1)                     -0.310 -0.113 +nan 0.0000
 log S16                          +0.435 +0.343 +nan 0.0000
