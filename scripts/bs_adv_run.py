@@ -1,7 +1,7 @@
 """O154 driver: build primes of a design (scripts/bs_adv_construct.c), count exact f_II(p)
 (scripts/bs_adv_count.c), verify the reported Type II solution with exact fractions, record features.
 Usage: PYTHONPATH=scripts uv run python scripts/bs_adv_run.py TAG X M r K seed "S2" "S1" [E]
-Appends JSON lines to logs/bs_adv_TAG.jsonl (small)."""
+(X = @file: read the primes from file instead.) Appends JSON lines to logs/bs_adv_TAG.jsonl (small)."""
 import sys, subprocess, json, math
 from fractions import Fraction
 from concurrent.futures import ThreadPoolExecutor
@@ -11,7 +11,8 @@ tag, X, M, r, K, seed = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.
 S2 = sys.argv[7] if len(sys.argv) > 7 else ''
 S1 = sys.argv[8] if len(sys.argv) > 8 else ''
 Earg = sys.argv[9:10]
-ps = subprocess.run(['/tmp/bs_adv_construct', X, M, r, K, seed, S2, S1], capture_output=True, text=True).stdout.split()
+ps = (open(X[1:]).read().split() if X.startswith('@') else
+      subprocess.run(['/tmp/bs_adv_construct', X, M, r, K, seed, S2, S1], capture_output=True, text=True).stdout.split())
 
 
 def tau(n):

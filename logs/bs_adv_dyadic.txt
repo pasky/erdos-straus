@@ -1,0 +1,16 @@
+p=1 mod 24
+  2^18: n=   2548 mean 0.0469 CV 0.237 min 0.0153 min/mean 0.33 q01/mean 0.49
+  2^20: n=   9147 mean 0.0465 CV 0.220 min 0.0117 min/mean 0.25 q01/mean 0.52
+  2^22: n=  33433 mean 0.0465 CV 0.210 min 0.0157 min/mean 0.34 q01/mean 0.56
+  2^24: n= 123271 mean 0.0464 CV 0.200 min 0.0153 min/mean 0.33 q01/mean 0.59
+  2^26: n= 225462 mean 0.0464 CV 0.194 min 0.0155 min/mean 0.33 q01/mean 0.62
+p=1 mod 120120
+  2^22: n=      8 mean 0.0301 CV 0.320 min 0.0174 min/mean 0.58 q01/mean 0.59
+  2^24: n=     42 mean 0.0336 CV 0.203 min 0.0181 min/mean 0.54 q01/mean 0.57
+  2^26: n=     74 mean 0.0332 CV 0.168 min 0.0231 min/mean 0.69 q01/mean 0.71
+all primes
+  2^18: n=  20390 mean 0.0739 CV 0.601 min 0.0153 min/mean 0.21 q01/mean 0.41
+  2^20: n=  73586 mean 0.0711 CV 0.623 min 0.0117 min/mean 0.17 q01/mean 0.45
+  2^22: n= 268216 mean 0.0688 CV 0.636 min 0.0157 min/mean 0.23 q01/mean 0.47
+  2^24: n= 985818 mean 0.0667 CV 0.645 min 0.0153 min/mean 0.23 q01/mean 0.50
+  2^26: n=1803646 mean 0.0652 CV 0.656 min 0.0155 min/mean 0.24 q01/mean 0.52

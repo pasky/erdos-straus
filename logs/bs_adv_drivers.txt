@@ -19,3 +19,7 @@ stage 2 baseline (cells + 10 local/shift features): R2=0.458
   global   tail: exact - trunc            partial corr +0.003  (null s.e. ~0.007)
   global log(CF period sqrt p / sqrt p)   partial corr -0.009  (null s.e. ~0.007)
   global log(R_unit Z[sqrt p] / sqrt p)   partial corr -0.010  (null s.e. ~0.007)
+stage 3 (+27 shifted tau features): R2=0.555; residual var 0.0160; compound-Poisson floor ~0.0115 (= 0.32 of Var y)
+  global   tail: exact - trunc            partial corr +0.005
+  global log(CF period sqrt p / sqrt p)   partial corr -0.008
+  global log(R_unit Z[sqrt p] / sqrt p)   partial corr -0.008
