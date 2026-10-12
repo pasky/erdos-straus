@@ -22,10 +22,10 @@ barred **unconditionally** unless Z contains a "Siegel cylinder")
   −1 mod p.
 * **Siegel cylinders are barred under H (Thm 5.3, CONDITIONAL on H for the factors of `R_W(24X+1)`; the step
   "admissible ⇒ E(p) ∩ W = ∅" is PROVED).** At the square-mimicking point of POINTWISE_SIZE Theorem C, every
-  prime factor of `R_W(p)` is a residue mod p (Lemma 5.2), contradicting Lemma 5.1. This includes the
+  prime factor of `R_W(p)` other than p itself is a residue mod p (Lemma 5.2), contradicting Lemma 5.1. This includes the
   coordinate planes: INVOLUTION_ES Cor 5.3 is now a complete conditional proof (Dickson) with a simpler family
   (`24X+1`, `(24cX+c+1)/·`, `(24X+1+c)/·`). Example: if `q, 12q+1, 24q+1` are prime then `E(24q+1) ∩ {t=u} = ∅`.
-* **General Z (Thm 6.1).** Under Bateman–Horn (lower bound), for every proper closed Z, `≫ N/(log N)^k` primes
+* **General Z (Thm 6.1).** Under Bateman–Horn (lower bound), for every proper closed Z, `≫ N/(log N)^{|S|}` primes
   `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Under H alone: when all 2-dimensional components of Z are axis cylinders.
   **Consequence (Cor 6.2): no finite-menu affine windmill on X (INVOLUTION_ES Thm 5.1 class) proves ES for all
   large `p ≡ 1 (24)`, CONDITIONAL on Bateman–Horn.**
@@ -50,8 +50,9 @@ preimage of a proper closed set is proper closed, and it is a bijection on integ
 **Axis cylinders.** For an axis `e ∈ {t,u,v}`, an irreducible closed `W ⊆ A³` is an *e-cylinder* if
 `W + ℚ̄·e = W`, i.e. `W = π_e⁻¹(π_e(W))` with `π_e` the projection along e. A 1-dimensional e-cylinder is an
 *axis line* (`{(a,b)} × A¹` in suitable order). A 2-dimensional e-cylinder is `C × A¹` with C an irreducible
-plane curve in the other two coordinates; we call it a **Siegel cylinder** if C (equivalently W) contains
-infinitely many integer points with positive coordinates. Coordinate planes `{t=c}`, `{u=c}`, `{v=c}` are
+plane curve in the other two coordinates; we call it a **Siegel cylinder** if the curve C contains
+infinitely many integer points with positive coordinates (the condition is on C: one such point of C
+already gives infinitely many on W). Coordinate planes `{t=c}`, `{u=c}`, `{v=c}` are
 Siegel cylinders (in two directions).
 
 ## 2. Axis lines: congruence classes without odd squares (unconditional)
@@ -107,7 +108,7 @@ Count. Split the points x (not on an axis line of W) with `1 ≤ P(x) ≤ N`.
 
 **Corollary 3.3 (PROVED, unconditional; ineffective only through Siegel in Cor 3.4).** Let `Z₀` be a finite
 union of irreducible closed sets as in Prop 3.2 (no 2-dimensional axis cylinders). There is `α₀ ≥ 1`
-(lcm of `8α` over the finitely many axis lines of Lemma 2.1 inside the components) such that
+(lcm of 24 and of the `8α` over the finitely many axis lines of Lemma 2.1 inside the components) such that
 
   `#{p ≤ N prime : p ≡ 1 (mod α₀), E(p) ∩ Z₀ ≠ ∅} ≪_{Z₀} N^{2/3}`.
 
@@ -209,7 +210,7 @@ symbols separately take both values) — `scripts/inv2_formal_check.py` re-runs 
 `R(P(X)) = κ·P^{e₀}·∏ h_j^{e_j}`. Work at `q* = q*_univ` (every `q*_ℓ` a unit, every `h` nondegenerate,
 `24q*_ℓ + 1` a nonzero square unit). Let `Λ` contain 2, 3, the primes of every `C_{h_j}`, of
 `K := κ∏C_{h_j}^{e_j}` and of `H_j := 24^{deg h_j} h_j(−1/24)` (nonzero, as `P ∤ h_j`), with `E₂ ≥ 3`,
-`E_ℓ ≥ 1`. If q is admissible for `S = {P, h_1, …, h_k}` (i.e. `q ≡ q*_ℓ (mod ℓ^{E_ℓ})` for `ℓ ∈ Λ`,
+`E_ℓ ≥ 1` and `E_ℓ > max_j v_ℓ(C_{h_j})` (as in Theorem M; needed for its normalised family). If q is admissible for `S = {P, h_1, …, h_k}` (i.e. `q ≡ q*_ℓ (mod ℓ^{E_ℓ})` for `ℓ ∈ Λ`,
 `p = P(q)` and all `r_j := h_j(q)/C_{h_j}` prime, q beyond the finitely many q with `r_j = p` or `p | H_j`),
 then **every prime `ℓ ≠ p` dividing `R(p)` has `(ℓ/p) = 1`**, and `p ≡ 1 (mod 24)`.
 
@@ -227,8 +228,11 @@ Siegel cylinders among the 2-dimensional cylinders used in the reduction below, 
 `{g = 0}`). Enlarge Λ of Lemma 5.2 by the primes of the moduli α of Lemma 2.1 for the finitely many axis lines
 involved, with `E_ℓ ≥ v_ℓ(α)`. Then **(PROVED)** every admissible q (beyond a threshold) gives
 `E(P(q)) ∩ Z₁ = ∅`; **(CONDITIONAL)** under H for `{P, h_1, …, h_k}` (Theorem M(b)) there are infinitely
-many admissible q, and under Bateman–Horn `≫ N/(log N)^{k+1}` of them with `P(q) ≤ N`. If R splits into
-linear factors (e.g. coordinate planes) Dickson's conjecture suffices.
+many admissible q, and under Bateman–Horn `≫ N/(log N)^{|S|}` of them with `P(q) ≤ N`, `S = {P, h_1, …, h_k}`.
+The hypothesis is applied, exactly as in Theorem M(b), to the normalised family `f_h(y) = h(My + q̃)/C_h`
+(`M = ∏_{ℓ∈Λ} ℓ^{E_ℓ}`, `q̃ ≡ q*`, with `E_ℓ > max_h v_ℓ(C_h)`), **not** to the raw factors `h(X)`: the raw
+factors may have a fixed prime divisor (see Remark 2). If R splits into linear factors (e.g. coordinate planes)
+Dickson's conjecture suffices.
 
 *Reduction.* Every curve component D that is not an axis line lies in a 2-dimensional axis cylinder
 (`π_v⁻¹(π_v(D))` closure, which is 2-dimensional as D is not a v-line). Every 2-dimensional cylinder is Siegel
@@ -246,10 +250,12 @@ prime factor `ℓ ≠ p` with `(ℓ/p) = −1`, and `ℓ | R(p)`: this contradic
    also factor every `A+1`, `p+u`, … met by `Π_W`, a larger family).
 2. *Coordinate planes (Cor 5.3 of INVOLUTION_ES, simplified).* `{t = c}`: `R = −(cp+1)`; `{u = c}`:
    `R = −(p+c)`; `{v = c}` as a t-cylinder over `g = V − c`: `R¹R² = c(p+c)`. So for the 33 planes
-   `t,u,v = c ≤ 11` the Dickson family is `{24X+1} ∪ {(24cX + c + 1)/gcd, (24X + 1 + c)/gcd : c ≤ 11}`, with
+   `t,u,v = c ≤ 11` the linear forms are `24X+1`, `24cX + c + 1`, `24X + 1 + c` (c ≤ 11), with
    no A-dependent forms (`cd·A = (d+1)p + c`, … of the old sketch are not needed, because the `uv`-character
-   of Lemma 5.1 replaces the `A`-character on `{v = c}`). This upgrades Cor 5.3 from "sketch" to a complete
-   conditional proof.
+   of Lemma 5.1 replaces the `A`-character on `{v = c}`). The Dickson family is their normalisation
+   `h(My+q̃)/C_h` at `q*_univ` (self-review repair: the raw forms after removing contents are inadmissible, e.g. the
+   `{u = c}` forms `12X+1, 8X+1, 6X+1, 24X+5, 4X+1` (c = 1..5) cover all residues mod 5; at `q*_univ` the
+   offending power of 5 goes into `C_h`). This upgrades Cor 5.3 from "sketch" to a complete conditional proof.
 3. *Example `{t = u}` (Remark 5.4 of INVOLUTION_ES).* `R = p² − 1`, `R(24X+1) = 48·X·(12X+1)`; Λ = {2,3}
    (`H_X = −1`, `H_{12X+1} = 12`). So: **if q, 12q+1, 24q+1 are all prime then `E(24q+1) ∩ {t=u} = ∅`**
    (PROVED, for every such q: directly, `(q/p) = (p/q) = 1` and `(12q+1/p) = (2/p) = 1` as `2(12q+1) = p+1`;
@@ -289,7 +295,7 @@ definition of `𝔈_Z`. Components (ii): Cor 3.4 and Lemma 2.1 at admissible q. 
 Theorem 5.3. (d) By (a), since BH gives `≫ N/(log N)^{|S|}` admissible q, which exceeds `#𝔈_Z ≪ N^{2/3}`. ∎
 
 **Corollary 6.2 (finite-menu windmills on X; labels as in 6.1).** Let `(τ_p)_{p ∈ F}` be a finite-menu
-family of involutions of X(p) as in INVOLUTION_ES Theorem 4.4(1) ((t,u,v) coordinates with coefficients in
+family of involutions of X(p), F a set of primes `p ≡ 1 (mod 4)` (as INVOLUTION_ES Thm 5.1 requires), as in INVOLUTION_ES Theorem 4.4(1) ((t,u,v) coordinates with coefficients in
 ℚ(n), or (A,B,t) with n-independent menu), with `Fix τ_p ⊆ E(p)`, and let Z be the proper closed set of
 Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all but finitely many `p ∈ F`. Hence:
 1. (**PROVED, unconditional**) If Z has no Siegel-cylinder component, F omits 100% of the primes
@@ -297,8 +303,8 @@ Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all
    class.
 2. (**CONDITIONAL on H**) If every 2-dimensional component of Z is an axis cylinder, F omits infinitely many
    primes `p ≡ 1 (24)`.
-3. (**CONDITIONAL on Bateman–Horn**) For every finite menu, F omits `≫ N/(log N)^k` primes `p ≡ 1 (24)`,
-   `p ≤ N` (k depending on the menu). **So no finite-menu affine windmill on X proves ES for all large primes
+3. (**CONDITIONAL on Bateman–Horn**) For every finite menu, F omits `≫ N/(log N)^{|S|}` primes `p ≡ 1 (24)`,
+   `p ≤ N` (S as in Thm 6.1, depending on the menu). **So no finite-menu affine windmill on X proves ES for all large primes
    `p ≡ 1 (24)`: the route is barred under Bateman–Horn**, and under H for all menus whose exceptional
    surfaces are cylinders (in particular coordinate planes, the case of INVOLUTION_ES Cor 5.3). ∎
 
@@ -309,16 +315,19 @@ really a statement about the bounded-surface statement `E(p) ∩ Z ≠ ∅ ∀p`
 
 ## 7. What resists, and one unconditional cylinder
 
-**Proposition 7.1 (PROVED, unconditional; numerical constant CERTIFIED-style by `scripts/inv2_bt_mass.py`).**
+**Proposition 7.1 (PROVED, unconditional; the constant is a rounded-up partial sum plus an elementary tail bound, `scripts/inv2_bt_mass.py`, log `logs/inv2_bt_mass.txt`).**
 The primes `p ≡ 1 (mod 24)` with `E(p) ∩ {t = u} = ∅` have lower relative density `≥ 1 − 2μ ≥ 0.72`, where
 `μ := Σ φ(gcd(24, a²−1))/φ(a²−1)` over odd `a ≥ 3` whose class `−a mod (a²−1)` is compatible with `1 mod 24`
-(i.e. `a ≡ 15, 23 mod 24`); `μ = 0.13845… + (tail ≤ 2·10⁻⁴)`.
+(i.e. `a ≡ 15, 23 mod 24`); `μ ≤ 0.1384505 + 1.5·10⁻⁴ < 0.13860`, so `1 − 2μ > 0.7228`. (Partial sum to `a = 2·10⁵`
+in 40-digit decimal arithmetic rounded up; tail from `φ(n) ≥ 0.375·n^{0.9}` and `φ(gcd) ≤ 8`. For a given N only
+`a ≤ (1 + √(4N+5))/2` occur, since `a² − 1 ≤ p + a`.)
 *Proof.* `x ∈ E(p) ∩ {t=u}` iff `t = u = a` odd and `a² − 1 | p + a` (then `8 | A`, `v = (p+a)/(a²−1)`). For
 `a ≤ N^{θ/2}` apply Brun–Titchmarsh (Montgomery–Vaughan: `π(x;q,b) ≤ 2x/(φ(q) log(x/q))`) to the modulus
 `lcm(24, a²−1) ≤ 24N^θ`; relative to `π(N;24,1) ∼ N/(8 log N)` this gives `≤ (2/(1−θ) + o(1))·μ`, using
 `φ(lcm)φ(gcd) = φ(24)φ(a²−1)`. For `a > N^{θ/2}` the number of p is `≤ Σ_a ((N+a)/(a²−1) + 1) ≪ N^{1−θ/2} + N^{1/2}`.
 Let `θ → 0`. ∎ (The empirical covered fraction is 0.132 for `p < 2·10⁶`: 2439 of 18507 primes; so the bound
-0.72 is far from the truth ≈ 0.87, as expected from the factor 2 of Brun–Titchmarsh.)
+0.72 is well below the empirical uncovered fraction 0.868 for `p < 2·10⁶`; the factor 2 of Brun–Titchmarsh accounts for
+most of the gap.)
 The same argument works for any non-plane Siegel cylinder (the moduli then have `Σ 1/φ(m) < ∞`), but gives a
 positive proportion only when the mass satisfies `2μ < 1`; this is a numerical condition per cylinder, not a
 theorem for all cylinders (raising the modulus 24 to kill large early terms enlarges the gcd weights of the
@@ -328,7 +337,7 @@ later ones).
 1. **Unconditionally**, the only obstruction to barring a finite-menu windmill is a Siegel-cylinder component of
    its exceptional set Z: `C × A¹` with C an integral-point-rich (genus 0, ≤ 2 places at infinity) curve in two
    of the coordinates. On such W, `E(p) ∩ W ≠ ∅` is a divisor statement about the fixed polynomial `R_W(p)`
-   (Lemma 4.1), and failure is forced as soon as every prime factor of `R_W(p)` is a residue mod p (Lemmas 5.1,
+   (Lemma 4.1), and failure is forced as soon as every prime factor of `R_W(p)` other than p is a residue mod p (Lemmas 5.1,
    5.2). Producing infinitely many such p unconditionally is a sieve problem with a prime variable and
    half-dimensional conditions on each linear factor of `R_W`. Example: for the single plane `{t = 3}` the
    condition is exactly that `(3p+1)/4` has only prime factors `≡ 1 (mod 3)` (data: QR(p) ⇔ `E(p)∩{t=3} = ∅`
