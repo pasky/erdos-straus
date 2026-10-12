@@ -77,11 +77,12 @@ divisors of n (for odd n, `u | n/u + 2` forces `gcd(u, n/u) = 1`); `u = 1` alway
 *Proof.* Lemma 2.1: `u | q²` and `u | q²/u + 2`; u = q fails (`q ∤ q+2`), u = q² fails (`q² ∤ 3`), u = 1
 works (`t = q²+2`). So `|X(q²)| ≡ 1`. `E(q²) = ∅` by Lemma 2.2. (i), (ii) follow; (iii) is Lemma 2.1. ∎
 
-So the O152 set has the right parity at primes for the *wrong* reason: its odd point `(n+2,1,1)` exists for
-every n (a "periodic" fixed point), and nothing cancels it at squares. A windmill on X can therefore only
-work if it uses the primality of p in its very definition, which rules out every uniformly defined
-construction on a congruence class (in particular every piecewise-affine one whose pieces and maps do not
-depend on n). §4 treats constructions defined on primes only.
+(In (ii), h is a unit square class, `h ≡ a² (mod M)` with `gcd(a,M) = 1`, so that Dirichlet supplies primes
+`q ≡ a`.) So the O152 set has the right parity at primes for the *wrong* reason: its odd point `(n+2,1,1)`
+exists for every n (a "periodic" fixed point), and nothing cancels it at squares. Any involution family on X
+defined on a whole square class has non-ES fixed points at the members q² of the class; so a windmill on X
+must either be defined only on (a subset of) the non-squares, e.g. the primes, or have fixed points whose
+ES-ness is proved only at those n. §4–§5 treat constructions defined on primes only.
 
 EVIDENCE (`scripts/inv_x_squares.py 1500 90000`, 4 min): Lemma 2.1 checked for all odd n ≤ 1500; `E(m²) = ∅`
 for all odd m ≤ 300; `|X(m²)|` odd for 137 of the 149 odd m in [3,300], and for every odd prime m there.
@@ -111,8 +112,12 @@ it at every m². (For X(n) the periodic point is `(n+2,1,1)` and the square piec
 *Proof.* `D(p) = φ(1,h) + c(h)`. Choose primes `q_1 < q_2 < …`, prime to M, in prescribed classes, with
 `q_j > ∏_{i<j} q_i^{2e_i}` (Dirichlet). For `m = ∏ q_i^{e_i}` and `d | m²`, `d ≠ m`, the comparison
 `d < m²/d` is decided by the largest index where the exponents of d and m²/d differ (that `q_j^{±1}`
-dominates the rest). [The same holds for any fixed cone `λd < m²/d` once the q_j are large compared with
-λ^{±1}; the diagonal `d = m` is the ψ-term, so finitely many cones only change ψ.] Write `ā = a⁻¹`, and
+dominates the rest). [If D is defined with finitely many fixed homogeneous cones `λ_j u < v < μ_j u` instead of `u < v`,
+take the q_j also large compared with all `λ_j^{±1}, μ_j^{±1}`: at the specific m used below every pair
+`(d, m²/d)`, `d ≠ m`, has ratio `≥ q_1` or `≤ 1/q_1`, so `D(m²)` equals the model expression for suitable
+`(φ, ψ)` (φ records which cones contain the two limiting directions, ψ the diagonal). The proof below uses D
+only at these m, so it applies verbatim; cone-restricted counts are *not* claimed to be residue functions in
+general.] Write `ā = a⁻¹`, and
 `φ_r := φ(a^r, a^{2−r})`, `ψ := ψ(a)`. The patterns (classes; exponents)
 
 | pattern | m | expansion of `D(m²) − c(h)` |
@@ -153,22 +158,30 @@ This contains every "piecewise-affine map with finitely many pieces" whatever th
 congruence cosets, sets defined through the factorisation of n or of anything else. Zagier's windmill is a
 finite-menu family (three maps, n-independent) for `P = x² + 4yz`.
 
-**Lemma 4.1 (PROVED, elementary).** Call a menu map g a *symmetry* if `P∘g = P` identically (as rational
-functions of x, with `n := P(x)` substituted in the coefficients), and *invertible* if `g(n₀)` is invertible for
-generic n₀. Put
-* `Z₀ = ⋃_{g not a symmetry} {x : P(g(x)) = P(x)}` (zero sets of nonzero rational functions),
-* `Z₁ = ⋃_{g degenerate symmetry} {x : x ∈ g(P(x))(ℚ^d)}` (the image of a rank-deficient affine map is a
-  proper affine subspace, so this is a proper algebraic subset of the total space),
-* `Z₂ = ⋃_{g in menu} cl g(Z₁)` (proper: affine/rational images do not raise dimension).
+**Lemma 4.1 (PROVED, elementary).** Let `(σ_n)` be a finite-menu family of **involutions**. Assume the generic
+level set `S_{n₀} = cl{P = n₀}` is irreducible and not contained in an affine hyperplane (true for all P below).
+Call a menu map g a *symmetry* if `P∘g = P` identically (as rational functions of x, with `n := P(x)`
+substituted in the coefficients). A symmetry is *invertible* if `g(n₀)` is invertible for generic n₀, else
+*degenerate*. Let `E` be the finite set of levels n₀ at which some coefficient has a pole or the genericity
+statements below fail, and put
+* `Z₀ = ⋃_{g not a symmetry} cl{x : P(g(x)) = P(x)}` (zero sets of nonzero rational functions),
+* `Z₁ = ⋃_{g degenerate symmetry} cl{x : x ∈ g(P(x))(ℚ^d)}`: for generic n₀ the image `L(n₀)` of `g(n₀)` is a
+  proper affine subspace, and `S_{n₀} ⊄ L(n₀)`, so `Z₁ ∩ S_{n₀}` is a proper closed subset of `S_{n₀}` and Z₁ is
+  proper,
+* `Z₂ = ⋃_{g in menu} cl g(Z₁)` (proper: affine/rational images do not raise dimension), all closures Zariski
+  closures over ℚ̄.
 
-(i) For every n ∈ F and `x ∈ X(n) ∖ (Z₀ ∪ Z₂)`, `σ_n(x) = g(x)` for an invertible symmetry g of the menu.
+(i) For every `n ∈ F ∖ E` and `x ∈ X(n) ∖ (Z₀ ∪ Z₂)`, `σ_n(x) = g(x)` for an invertible symmetry g of the menu.
 (ii) Suppose moreover that the invertible symmetries of the menu that can map a point of 𝒳 to a point of 𝒳
 outside a proper algebraic set `Z₃` generate a finite group H. Then with `Z = H·(Z₀ ∪ Z₁ ∪ Z₂ ∪ Z₃)` (proper,
-algebraic, H-invariant), `G(n) := X(n) ∖ Z` is σ_n-invariant and `σ_n(x) ∈ H·x` for every `x ∈ G(n)`.
+algebraic, H-invariant), `G(n) := X(n) ∖ Z` is σ_n-invariant and `σ_n(x) ∈ H·x` for every `x ∈ G(n)`, n ∉ E.
 
 *Proof.* (i) Let g be the map used at x. As `P(σx) = P(x)` and `x ∉ Z₀`, g is a symmetry. If g were
-degenerate, `y = σ(x) ∈ Z₁`, and `x = σ(y) = g'(y)` for the map g' used at y, so `x ∈ Z₂`. (ii) By (i) and
-`x ∉ Z₃`, `σ(x) = h(x)` with `h ∈ H`; `σ(x) ∉ Z` because Z is H-invariant. ∎
+degenerate, `y = σ(x) ∈ Z₁`, and `x = σ(y) = g'(y)` (σ is an involution) for the map g' used at y, so
+`x ∈ Z₂`. (ii) By (i) and `x ∉ Z₃`, `σ(x) = h(x)` with `h ∈ H`; `σ(x) ∉ Z` because Z is H-invariant. ∎
+(The hyperplane hypothesis is needed: for `P(x,y) = x` the rank-1 maps `g(n)(x,y) = (n,y)` compose to the
+identity. Here the level sets are irreducible cubic surfaces in (a), (b) and irreducible hypersurfaces in
+(c), (d); none lies in a hyperplane.)
 
 So the only maps that act on *generic* points are invertible symmetries of the level function. In Zagier's
 case these form the infinite group `O(x²+4yz)(ℤ)`, which is what lets a windmill move points between slices.
@@ -219,15 +232,15 @@ function must map to itself: `t' = λt`. Then `A'B' − 1 = λ(AB−1)`; the qua
 `t | A+1`, `t | αA+1`), then `t | r − s`. Hence the points where a non-trivial scaling is used lie on the
 finitely many planes `t = c`, `c | r − s`; the scaling maps each such plane to itself (it moves a factor
 between A and B: a *divisor-moving* map on the divisor pairs of `cn+1`, preserving the slice integer).
-(ii) In the Type II SL₂ coordinates, a scaling preserves `4c²d` and hence the slice integer `N = 4c²dn + 1`
-and the divisor pair; it changes `(c,d)` only to `(λc, d/λ²)` with the same N.
-*Proof.* (i) `sαA + s = rA + s ≡ s − r (mod t)` because `A ≡ −1`; and `t | αA + 1` means `t·s | rA + s`
+(ii) In the Type II SL₂ coordinates, a scaling preserves `4c²d` and hence the slice integer
+`N = ff' = 4c²dn + 1`; it moves a factor α between f and f′ and changes `(c,d)` to `(λc, d/λ²)`, with the same N.
+*Proof.* (i) `rA + s ≡ s − r (mod t)` because `A ≡ −1`; and `t | αA + 1` means `t·s | rA + s`
 (as `s | A` for `αA ∈ ℤ`), so `t | s − r`. (ii) is immediate from (d). ∎
 
-**Theorem 4.4 (rigidity; PROVED).** (1) Let `(σ_n)` be a finite-menu family on the O152 sets X(n), n ranging
+**Theorem 4.4 (rigidity; PROVED).** (1) Let `(σ_n)` be a finite-menu family of involutions on the O152 sets X(n), n ranging
 over any set F (e.g. only the primes ≡ 1 mod 24), in the `(t,u,v)` coordinates (menu coefficients rational in
 n) or in the `(A,B,t)` coordinates (n-independent menu). Then there is a proper algebraic, ρ-invariant
-`Z ⊂ ℚ³`, depending only on the menu (in the `(A,B,t)` case it contains finitely many planes `t = c`), such that
+`Z ⊂ ℚ³`, depending only on the menu (in the `(A,B,t)` case it contains finitely many planes `t = c`), such that for all but finitely many n,
 `G(n) = X(n) ∖ Z` is σ_n-invariant and `σ_n(x) ∈ {x, ρ(x)}` on G(n). In particular σ_n preserves the slice
 index t (and the slice integer `tn+1`) of every point of G(n).
 (2) In ES coordinates the same holds with `S₃` (H acts by permuting the coordinates of the solution).
@@ -299,8 +312,9 @@ bounded program "test the finitely many planes"; I have not re-verified Theorem 
 
 **Remark 5.4 (non-coordinate surfaces; Assessment).** For a surface Z not of this form, E(p) ∩ Z is typically
 sparse: e.g. on `Z = {t = u}`, `E(p) ∩ Z = {t odd : t² − 1 | p + t}`, and for p ≡ 1 (24) this needs
-`t ≡ 23 (24)`, `p ≡ −t (mod t² − 1)`; Brun–Titchmarsh plus a union bound shows (unconditionally, sketch) that a
-positive proportion of p ≡ 1 (24) have no such t. A general theorem "for every fixed proper surface Z, infinitely
+`t ≡ 15` or `23 (mod 24)` and `p ≡ −t (mod t² − 1)` (e.g. p = 433, t = 15). Since `Σ_t 1/φ(t²−1)` converges, a
+Brun–Titchmarsh union bound *should* show that a positive proportion of p ≡ 1 (24) have no such t; I have not
+checked the constants (heuristic, not a claim). A general theorem "for every fixed proper surface Z, infinitely
 many hard p have E(p) ∩ Z = ∅" would need a classification of the surfaces carrying ≫ 1 points per prime on
 average (coordinate planes; possibly others) and is **not** proved here (CONJECTURE).
 
@@ -323,9 +337,10 @@ p ≡ 1 (8), p < 1500.
    in ES coordinates, in O152's (t,u,v) (coefficients may depend on n) and (A,B,t) coordinates, in ET Type II
    (a,b,c,k) and Type II SL₂ (f,f',c,d) coordinates (n-independent menus): Theorem 4.4. O152's SL₂ unipotents
    act only on two planes (Remark 4.5).
-4. Finite-menu windmills on X restricted to primes certify only on a fixed proper surface (Thm 5.1); if that
-   surface is a union of coordinate planes, they fail for infinitely many p ≡ 1 (24) under Dickson's
-   conjecture (Cor 5.3, CONDITIONAL, sketch).
+4. Finite-menu windmills on X restricted to primes certify only on a fixed proper surface (Thm 5.1).
+
+**Conditional:** if that surface is a union of coordinate planes, such windmills fail for infinitely many
+p ≡ 1 (24) under Dickson's conjecture (Cor 5.3, CONDITIONAL, sketch needing branch bookkeeping).
 
 **Not excluded (honest list of escapes):**
 * menus that are infinite or grow with p (e.g. divisor-moving scalings by every prime factor: unbounded
@@ -336,10 +351,11 @@ p ≡ 1 (8), p < 1500.
   compatible — Theorem 4.4 must be redone in each coordinate system;
 * windmills on X whose exceptional surface is not a union of coordinate planes (Remark 5.4: no theorem).
 
-**Assessment.** Every bounded-description windmill we can write down reduces, by Lemma 4.1, to the symmetry
-group of the level function in the chosen coordinates. For all natural ES coordinates that group is finite
+**Assessment.** Every finite-menu affine windmill in the coordinates above reduces, by Lemma 4.1, to the
+symmetry group of the level function on generic points (the exceptional-surface part is *not* excluded). For all natural ES coordinates that group is finite
 up to reparametrisation and divisor-moving scalings (Prop 4.2), and none of its elements changes the slice
-integer; this is the structural reason behind the O152/WINDMILL nulls. A windmill proof of ES would need a
-coordinate system in which ES certificates are the fixed points of an involution drawn from an *infinite*
-symmetry group of the level function (as `O(x²+4yz)` for Zagier), with the ES congruence preserved on generic
-points. Remark 4.5 shows that the obvious candidate (the SL₂/quadric coordinates) fails exactly there.
+integer; this is the structural reason behind the O152/WINDMILL nulls. Heuristically, a windmill proof of ES that
+couples generic points would need a coordinate system in which ES certificates are fixed points of an
+involution drawn from an *infinite* symmetry group of the level function (as `O(x²+4yz)` for Zagier), with the
+ES congruence preserved on generic points; constructions living on exceptional surfaces, infinite menus and
+non-affine maps remain open (list above). Remark 4.5 shows that the obvious candidate (the SL₂/quadric coordinates) fails exactly there.
