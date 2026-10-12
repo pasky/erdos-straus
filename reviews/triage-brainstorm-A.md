@@ -105,3 +105,17 @@ the Assessment-level orbit count in P5 (comparing height to norm on a rank-2 sub
 unimportant. Novelty: P1/P2 are classical (Cayley cubic = SU(2) character variety). P4, the CM parametrisation
 recovering ET's −4d / −4dp levels as the CM field of the character point, is a neat dictionary and plausibly new
 as a formulation, but it is only a relabelling (it is valid at odd squares too). **Promise 1.**
+
+**covering_distortion_dual (O150c; memo: COLLAPSES B1/B6).** AGREE. The dictionary is accurate:
+* Hough minimum modulus ↔ W(p);
+* BBMST uncovered density ↔ δ*(T);
+* Gale–Stewart/König ↔ TYPEI2 Thm A.
+
+Non-coverability by identity classes is unconditional via the odd-square classes (Mordell/Schinzel/Yamamoto), as
+(c1) says. False-negative check: the only conditional ingredient in the barrier family is Hypothesis H in Thm C /
+Thm 2.2(iii), and it concerns factorisation-shape steps. Covering technology is Haar-measure-only and parity-blind,
+so (c2) correctly sends that to the WINDOW/WINDOW2 parity line rather than to covering systems. The observation
+that BBMST Thm 3.1 fails on the raw system (removed mass = 1 at 2, 3, 5, 7) is right and trivial. Open sub-question:
+(c4), distortion inside the quarantined fibre to remove the (log𝓛)^5 in log 1/δ*(T). It is Haar-side only (it would
+settle POINTWISE_HAAR Conj 3.1 up to constants), so it is irrelevant to pointwise ES. Novelty: the dictionary is
+an exposition; nothing new. **Promise 0** for ES (1 for a Haar-side tidy-up).
