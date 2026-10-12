@@ -1,8 +1,8 @@
 # Triage red team A (O156): hostile triage of BRAINSTORM memos a–i
 
-Scope: the 22 files `BRAINSTORM/[a-i]*` (addcomb_… through invol_windmill_signature). None of them was written by
+Scope: the 24 files `BRAINSTORM/[a-i]*` (addcomb_… through invol_windmill_signature). None of them was written by
 O146 or O154 (checked: memo headers + `git log -- BRAINSTORM`; neither task has a memo or report on this branch), so all
-22 are triaged here. Labels as in DISCOVERIES.md. ES is not solved; nothing here proves any case of it.
+24 are triaged here. Labels as in DISCOVERIES.md. ES is not solved; nothing here proves any case of it.
 Spot-check scripts: `scripts/triage_*.py` (named per memo where used).
 
 Format per memo: **verdict-validity** (AGREE / DISAGREE / PARTIAL with the memo's own verdict) · overclaims ·
@@ -198,8 +198,8 @@ the *higher-dimensional* encodings, which the memo screens only for the three an
 
 So the verdict is right, with the precise obstacle "modulus depends on the unknown" (the same object as redteam-2
 E2/(I)1 Q_d). Hostile notes:
-* The B5 line relies on "Lemma CT" without a file pointer. Check that its scope (p ≡ 1 (24)?) matches "every ES
-  denominator prime to p".
+* The B5 line cites "Lemma CT" without a file pointer. Checked: it is POINTWISE_SIZE §2 / DISCOVERIES (A)2 (for
+  p ≡ 1 (4), every p-free denominator has a non-residue prime factor; PROVED), so the use is in scope.
 * The Theorem C extension to quadratic input P(q) = F(w₀+qw₁) is honestly marked unproved.
 
 Open sub-question (the best in the gon cluster): is there *any* lattice/body formulation in which the ES modulus is
@@ -395,3 +395,73 @@ respects the moving classes, or a theorem that none of bounded description compl
 genuine new barrier (parity routes are currently the main un-barriered family). Novelty: the (W) framing and the E4 set
 are plausibly new; the empirical nulls extend WINDMILL. **Promise 2** (theory-only; further weight-span searches are
 exhausted).
+
+## Summary of findings
+
+* **Verdicts.** AGREE on all 24 memos; no DISAGREE. No memo in this half has a "COLLAPSES to Bx" verdict whose
+  reduction is invalid. The closest to a false negative are the three cases where the memo itself leaves the
+  escape UNCLEAR:
+  * invol_windmill_signature (a parity identity);
+  * ident_form_families plus canonical_invariants (two-variable identities on binary forms);
+  * gon_fermat_certificates (Fermat-type GoN). Here the memo's B2 reduction is right, but only after one notes the
+    "modulus depends on the unknown" obstruction, which I made explicit above.
+* **Overclaims / mis-scopes (all minor; none affects a verdict):**
+  1. anal_dirichlet_series Prop A.2: "holomorphic on Re s > 0" needs f(p) ≤ p^{o(1)}. Only p^{3/5+o(1)} is known, so
+     as proved the statement holds on Re s > 3/5.
+  2. gon_lll_relation_lattice: "the genus half of ES is a theorem" (PROVED) depends on an uncited
+     least-prime-non-residue-in-a-class bound. The bound is true in all likelihood, but the label should carry the
+     citation gap.
+  3. ident_invariants Lemma 3.1: "units never give Type II solutions" is scoped to the diagonal f = f' only.
+  4. hardness_law vs anal_euler_product_law: the fixed exponent 0.37 conflicts with the 1/log p decay. Their
+     overdispersion figures (≈ 2× vs 9–23×) are reconcilable: the shift-τ₃ effect is mostly small-prime congruence
+     data.
+  5. elliptic_fibration_es under-claims: per-point non-torsion is PROVED by Mazur, not merely EVIDENCE.
+* **Novelty.** Most PROVED by-products are elementary reformulations, folklore or near-folklore (ET §2 / Prop 2.2
+  restatements, Mordell-era slice criteria, Lemma A sizes). Plausibly new but inert:
+  * ff Thm 2.1 and Prop 4.1;
+  * graph_cayley Thm A.1 (independently confirmed numerically);
+  * cayley P4 (the CM dictionary);
+  * ident_form_families Prop 3.2/3.4 with the k = 21/37 hard-prime families (example verified);
+  * invol Prop S and the X(p) parity.
+* **Independent checks run** (all cheap):
+  * `triage_cayley.py`: sympy identities;
+  * `triage_chord.py`: 2·10⁵ mixed-index random chords, 0 third points in Ω;
+  * `triage_tfamily.py`: the k = 21 hard-prime example;
+  * `triage_windmill_class.sh`: GF(2) signature test restricted to n ≡ 1 (24), still null.
+
+## Top 5 from half A (for depth work)
+
+1. **invol_windmill_signature — parity/cross-slice coupling (promise 2).** It is the only route here that is outside
+   *every* proved barrier: B1 and Thm C via the global factorisation, T1 at the correct step, and all slices coupled.
+   Empirical weight-span searches are now exhausted, including my restricted-class re-run. The depth task should be
+   *theoretical*. Either construct a set-theoretic cross-slice bijection respecting the moving classes, or prove an
+   obstruction theorem: "no involution of bounded description complexity on the ET solution set has an
+   odd-on-primes fixed set of ES points". The E4 SL₂ remark (level = own matrix entry) is the starting point. A
+   proved obstruction would close the last un-barriered family; that alone justifies it.
+2. **ident_form_families + canonical_invariants — two-variable identities on binary forms (promise 2).** A bounded,
+   well-posed question: does a Type I polynomial identity in (u,v) exist covering primes p = u² + kv² in some hard
+   class?
+   * It escapes Thm C as proved, since computing (u,v) needs a modular square root.
+   * Two candidate obstructions: (i) Pythagorean specialisation at Q(u,v) = m², contradicting ET Prop 1.6 once the
+     Type I shape is shown to survive; (ii) a two-variable version of the Lemma 3.1(a) trap at (u,v) ≡ (1,0)
+     profinitely, which exists for every k, unlike the one-variable case.
+   * Either gives a clean new barrier theorem for "Fermat + identity" certificates.
+   * Small and suitable for one agent.
+3. **gon_fermat_certificates — GoN with aggregation (promise 2).** GoN certificates pass B1 and B3 in principle
+   (exact existence, main term ≍ 1). The precise obstruction is the congruence modulo a coordinate (f ≡ −1 mod 4ad
+   with a unknown). Worth one focused attempt: a lattice formulation that fixes the product ad = m and aggregates
+   over factorisations of m, i.e. H-A with Minkowski-type exactness instead of a main term. Expect a negative
+   answer. If so, the deliverable is a short obstruction lemma ("no lattice/body encoding with modulus independent
+   of the point"), which would also cover canonical_invariants (R) and farey_ford_cf.
+4. **ff_erdos_straus — function-field ES at fixed q (promise 1–2).** Not an ES route; Thm 2.1 and the
+   degree-parity T1 absence settle that. But "ES_q(t) for all deg P ≥ 5 at q = 5", possibly via char-p
+   (Frobenius/additive-polynomial) identities, is a cleanly decidable side question. A *proof* there would show
+   exactly which ingredient (absence of the square obstruction) makes the lottery tractable, sharpening T1. Low
+   priority.
+5. **canonical_invariants (U) — the unit-residue test (promise 1).** It is the cheapest open item in the half: one
+   regression of e-slice success on ε_p mod q, or on power-residue bits of ε_p, within fixed congruence data. It is
+   the one non-abelian (H-D) input that no memo actually tested; the representation seeds and the quartic/cubic bits
+   of 2 and 3 were tested and are null. Prior: null. Even a positive bias would only reorder θ (H-A), so this is a
+   30-minute sanity item, not a research agent.
+
+Everything else in half A: promise 0–1; no further depth work recommended.
