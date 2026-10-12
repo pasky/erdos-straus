@@ -1,5 +1,7 @@
 # R158 — hostile review of INVOLUTION_ES.md (O158, branch side-agent/involution-depth)
 
+**Repairs applied (round 1, at the parent's request because O158 was near its context limit):** D1–D7 are applied directly in INVOLUTION_ES.md and AGENT_REPORT_O158.md, each marked "(R158 repair)". These cover §0 bullets 1–4 plus a route-status bullet, Prop 2.3(ii), Prop 3.1 and its framing, Lemma 1.1 (ET citation), Lemma 4.1(ii), the §4 "What this does not exclude" and "Precursor" (Elsholtz) paragraphs, Remark 4.5, the Cor 5.3 sketch, and a rewritten §6.
+
 Reviewer branch `side-agent/review-involution`. From-scratch scripts: `scripts/review_inv_*.py`.
 ES is not solved here, and the document does not claim it is.
 
@@ -270,5 +272,5 @@ author flagged.
 No FATAL defects. Every PROVED statement I checked is correct as a mathematical statement. The problems are
 scope and framing (D1–D3, D5) and one fixable step in the conditional sketch (D6).
 
-Repairs to INVOLUTION_ES.md: **not applied by R158.** The author's branch was active 11 minutes before this
-review was finished, so the parent should forward D1–D7.
+Repairs to INVOLUTION_ES.md: initially not applied, because the author was still active. They were applied later at the
+parent's request; see the note at the top.
