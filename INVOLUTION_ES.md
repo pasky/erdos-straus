@@ -6,25 +6,41 @@ Scripts: `scripts/inv_*`.
 
 ## 0. Summary (outcome: (B) — obstruction theorems with explicit scope; no construction)
 
-* **T1 kills the O152 odd set (PROVED, Prop 2.3).** `|X(q²)|` is odd for every odd prime q while its ES part
-  is empty (Lemma 2.2, a parametric form of ET Prop 1.6). So no involution family on X with ES-only fixed
-  points — of any complexity — exists on a square class. Lemma 1.1: any windmill family whose τ-fixed points
+* **T1 kills the O152 odd set on square classes (PROVED, Prop 2.3).** For every odd prime q, `|X(q²)|` is odd
+  while its ES part is empty (Lemma 2.2, a parametric form of ET Prop 1.6). So no involution of X(q²) has
+  ES-only fixed points. This is a pointwise statement, which is why it holds regardless of how the involution
+  is described. A windmill on X therefore cannot be required to work on a unit square class. Windmills on X
+  defined on primes only are not affected by T1 (§5). (R158 repair) Lemma 1.1 (an instance of the remark after ET Prop 1.6): any windmill family whose τ-fixed points
   are Type I/II-type certificates needs `|X(m²)|` even.
-* **T1 for divisor-type fixed counts (PROVED, Prop 3.1).** If the σ-fixed count is divisor-type mod M (with
+* **T1 for divisor-type fixed counts (PROVED, Prop 3.1).** For a windmill family defined on the whole class h,
+  squares included (R158 repair), if the σ-fixed count is divisor-type mod M (with
   cones, square terms, periodic terms), T1 forces the coefficient of the factorisation `1·p` to vanish: the
   odd point at primes must be a periodic point cancelled at squares by a square detector. A 4-pattern
   certificate in a free model works for every modulus. T1 alone is not a barrier (`1 + [n=□]` passes).
 * **Finite-menu rigidity (PROVED, Lemma 4.1, Prop 4.2, Thm 4.4).** If an involution family uses a fixed
   finite list of affine maps (pieces arbitrary, even prime-specific), then outside a fixed proper algebraic
-  set it acts by symmetries of the level function. In ES, O152 (t,u,v) [n-dependent coefficients allowed],
+  set Z it acts by symmetries of the level function. In ES, O152 (t,u,v) [n-dependent coefficients allowed],
   O152 SL₂ (A,B,t), ET Type II and Type II SL₂ coordinates [n-independent], these are the coordinate swap,
-  reparametrisations and divisor-moving scalings, and none changes the slice integer. **No cross-slice coupling
-  of generic points exists in this class.** This closes the gap left by WINDMILL Prop 2 ("pieces preserving
-  only the finite point set").
+  reparametrisations and divisor-moving scalings, and none changes the slice integer. So no cross-slice
+  coupling of *generic* points exists in this class. Z depends on the menu and is otherwise arbitrary, and a
+  windmill may act non-trivially **only on Z**, so this excludes nothing by itself. It **reduces** the gap left by
+  WINDMILL Prop 2 ("pieces preserving only the finite point set") to windmills supported on a fixed proper
+  algebraic set Z, i.e. to a bounded-slice statement (Thm 5.1). It does not close that gap. (R158 repair)
 * **Primes-only windmills on X (PROVED, Thm 5.1).** Any finite-menu involution on X(p), p ≡ 1 (4), with ES-only
-  fixed points certifies ES(p) through an ES element on a fixed proper surface Z. For Z a union of coordinate
-  planes, such windmills fail infinitely often under Dickson (Cor 5.3, CONDITIONAL, sketch). General Z: open.
-* Escapes left open: §6.
+  fixed points certifies ES(p) through an ES element on a fixed proper surface Z. So such a windmill is
+  equivalent to the **bounded-slice statement `E(p) ∩ Z ≠ ∅` for all p** (Z fixed). For Z a union of coordinate
+  planes, such windmills fail infinitely often under Dickson (Cor 5.3, CONDITIONAL). General Z: open.
+  **Unconditionally, no windmill defined on primes only is excluded.** The data are consistent with
+  coordinate-plane windmills: for every prime p ≡ 1 (24) up to 40000, E(p) meets the 33 planes `{t=c}`,
+  `{u=c}`, `{v=c}`, c ≤ 11 (EVIDENCE, `scripts/review_inv_planes.py 40000`). (R158 repair)
+* **Status of the route (R158 repair): narrowed, not barred.** What survives T1 and the rigidity results:
+  * finite-menu windmills on X defined on primes only, whose relevant fixed points live on a fixed proper
+    surface Z (excluded under Dickson when Z is a union of coordinate planes);
+  * infinite or growing menus, and non-affine maps;
+  * the n-dependent SL₂ symmetry group;
+  * other auxiliary sets.
+
+  See §6.
 
 Notation. ES(n): `4/n = 1/x+1/y+1/z` has a positive solution. For a finite set `S` and an involution ι,
 `|S| ≡ |Fix ι| (mod 2)`. A *windmill argument* for ES (WINDMILL Lemma 1) consists of finite sets `X(n)`,
@@ -43,6 +59,11 @@ with `A = tu−1`, `B = tv−1`. Its *ES part* is `E(n) = {4 | A}`; by CONDITION
 we are given `(X(n), τ_n, Φ_n)` as above with `Φ_n` taking values in a set `C(n)` of certificates that is
 empty whenever n is an odd square (e.g. ET Type I/II solutions, ET Prop 1.6; or `E(n)`, Lemma 2.2 below).
 Then `|X(m²)|` is even for every `m² ∈ F`. ∎ (`Fix τ_{m²} = ∅`.)
+
+(R158 repair) This is a direct instance of the remark after ET Prop 1.6 (Elsholtz–Tao, arXiv:1107.1010): any
+method showing `f_I(p)` or `f_II(p)` is nonzero "must necessarily fail when p is replaced by an odd square such
+as p²". The T1 principle is theirs (going back to Schinzel and Yamamoto); Lemma 1.1 only phrases it for
+involution families.
 
 So a windmill *family* that is defined on a congruence class `n ≡ h (mod M)` with h a square class must
 use sets with `|X(m²)|` even for all `m² ≡ h`; by Dirichlet such m² include `q²` for infinitely many primes
@@ -69,8 +90,10 @@ convention.)
 
 **Proposition 2.3 (PROVED).** For every odd prime q, `|X(q²)|` is odd and `E(q²) = ∅`. Consequently:
 (i) for every n = q², every involution of X(q²) has a fixed point outside the ES part;
-(ii) no family of involutions `τ_n` of `X(n)` with `Fix τ_n ⊆ E(n)`, of *any* description complexity, can be
-defined on all n of a square class `h (mod M)` (it fails at `n = q²` for every prime `q` with `q² ≡ h`);
+(ii) no family of involutions `τ_n` of `X(n)` with `Fix τ_n ⊆ E(n)` can be defined on all n of a square class
+`h (mod M)`: it fails at `n = q²` for every prime `q` with `q² ≡ h`. (R158 repair: this is pointwise. By (i), no
+involution of X(q²) whatsoever has ES-only fixed points, so the description complexity of the family is
+irrelevant. Windmills on X defined on primes only are not affected, see §5.)
 (iii) more generally, for odd n, `|X(n)| ≡ #{u | n : n/u ≡ −2 (mod u)}`, where u runs over unitary
 divisors of n (for odd n, `u | n/u + 2` forces `gcd(u, n/u) = 1`); `u = 1` always contributes.
 
@@ -100,11 +123,14 @@ finitely many homogeneous cones `λu < v` (see the proof), square loci (Zagier's
 isolated "periodic" fixed points (the `(1,1,(n−1)/4)` of Zagier, the `(n+2,1,1)` of X(n)).
 
 **Proposition 3.1 (PROVED).** Suppose `D(m²) ≡ 0` for every odd m with `m² ≡ h (mod M)` (Lemma 1.1 forces
-this when D is the σ-fixed count of a windmill family on the class h whose τ-fixed points are certificates
-that do not exist at odd squares). Then `φ(1,h) = 0`; hence `D(p) = c(h)` for every prime `p ≡ h`, and
+this when D is the σ-fixed count of a windmill family on the *whole* class h, squares included, with D valid
+at every odd m² of the class, and with τ-fixed points that are certificates which do not exist at odd squares
+(R158 repair)).
+In particular Prop 3.1 says nothing about windmills defined on primes only. Then `φ(1,h) = 0`; hence `D(p) = c(h)` for every prime `p ≡ h`, and
 `ψ(a') = c(h)` for every `a'` with `a'² ≡ h`. In particular, if `D(p)` is odd then `c(h) = 1` and `ψ(a') = 1`.
 
-So *the odd fixed point at primes can never come from the divisor part `1·p`* (as it does in Zagier's proof,
+So, *for a windmill family defined on the whole class h, squares included* (R158 repair), *the odd fixed point
+at primes can never come from the divisor part `1·p`* (as it does in Zagier's proof,
 where the fixed point `(1,1,(p−1)/4)` is the factorisation `p = 1·(1+4z)`); it must be a periodic point
 present for every n of the class, and then the fixed locus must contain a square-detecting piece that cancels
 it at every m². (For X(n) the periodic point is `(n+2,1,1)` and the square piece is missing: Prop 2.3.)
@@ -172,7 +198,8 @@ statements below fail, and put
   closures over ℚ̄.
 
 (i) For every `n ∈ F ∖ E` and `x ∈ X(n) ∖ (Z₀ ∪ Z₂)`, `σ_n(x) = g(x)` for an invertible symmetry g of the menu.
-(ii) Suppose moreover that the invertible symmetries of the menu that can map a point of 𝒳 to a point of 𝒳
+(ii) [R158 repair: precisely, H is generated by the menu's invertible symmetries h for which some point x of
+the integral set outside Z₃ has h(x) in the integral set.] Suppose moreover that the invertible symmetries of the menu that can map a point of 𝒳 to a point of 𝒳
 outside a proper algebraic set `Z₃` generate a finite group H. Then with `Z = H·(Z₀ ∪ Z₁ ∪ Z₂ ∪ Z₃)` (proper,
 algebraic, H-invariant), `G(n) := X(n) ∖ Z` is σ_n-invariant and `σ_n(x) ∈ H·x` for every `x ∈ G(n)`, n ∉ E.
 
@@ -255,9 +282,27 @@ Interpretation. The triage asked for a "set-theoretic cross-slice bijection betw
 class of finite-menu (bounded-description) piecewise-affine maps** in any of the four natural coordinate
 systems — the menu maps that are not symmetries of P can only act on a fixed proper algebraic subset, and the
 symmetries (swap; reparametrising or divisor-moving scalings) never change the slice integer. This is the
-precise form of the O152 "level = own matrix entry" remark and closes the gap left by WINDMILL Prop 2 (which
-covered only maps preserving the equation identically): uniformity of the menu over n turns "preserves the
-finite point sets" into "preserves P on a Zariski-dense set", which is the identical-preservation case.
+precise form of the O152 "level = own matrix entry" remark. Uniformity of the menu over n turns "preserves
+the finite point sets" into "preserves P on a Zariski-dense set", which is the identical-preservation case
+covered by WINDMILL Prop 2.
+
+(R158 repair) **What this does not exclude.** Z depends on the menu and is otherwise an arbitrary fixed proper
+algebraic set, and Theorem 4.4 says nothing about how σ acts on Z. A windmill may act non-trivially *only* on
+Z. Theorem 4.4 therefore **reduces** the WINDMILL Prop 2 gap to windmills supported on a fixed proper algebraic
+set; it does not close it. For X, Theorem 5.1 makes the reduction exact: such a windmill is equivalent to the
+bounded-slice statement `E(p) ∩ Z ≠ ∅` for all p. Nothing excludes this unconditionally. Cor 5.3 excludes it
+under Dickson's conjecture for coordinate-plane Z only, and the data are consistent with it.
+EVIDENCE (`scripts/review_inv_planes.py 40000`): for every prime p ≡ 1 (24) up to 40000, E(p) meets the
+33 planes `{t=c}`, `{u=c}`, `{v=c}`, c ≤ 11. In practice, ES certificates live on low slices; CONDITIONAL_ES
+records t ≤ 367 for all Mordell-hard primes below 2·10⁶.
+
+(R158 repair) *Precursor.* Elsholtz, "A combinatorial approach to sums of two squares and related problems"
+(Additive Number Theory, Springer 2010), §§2.1 and 3, derives Zagier's matrix (and its analogues for
+`sx² + tyz`) *uniquely* from three assumptions: a linear map with k-independent integer coefficients,
+identical invariance of the form, and a prescribed unique fixed point. That is the "uniform coefficients ⇒
+symmetry of the form" mechanism of Prop 4.2, with identical invariance *assumed*. The new step here is
+Lemma 4.1, which *derives* identical invariance off a fixed algebraic set from "finite menu + preserves the
+fibres". I could not check Jackson, Generalov or Shiu (cited there).
 
 **Remark 4.5 (the SL₂ unipotents; PROVED for this family).** For fixed n the quadric `AB − nt = 1` has the
 infinite group of affine symmetries `(A,B) ↦ (αA + a₀, βB + b₀)` (`αβ` and t adjusted), containing O152's
@@ -265,9 +310,11 @@ unipotents `u_k : (A,B,t) ↦ (A, B + kn, t + kA)` (right multiplication of γ b
 n-dependent coefficients and are not covered by Prop 4.2(d). For them integrality alone suffices: if
 `x ∈ 𝒳` and `u_k(x) ∈ 𝒳` with k ≠ 0, then (using `A ≥ t − 1 ≥ 0`, `t' = t + kA ≥ 1`, `t' | A + 1`): for k ≥ 1,
 `t + kA ≤ A + 1` forces `k = 1, t = 1`; for k ≤ −1, `t − |k|A ≥ 1` and `A ≥ t − 1` force `A = t − 1` (u = 1) and
-`|k| = 1`, or t = 1. So the unipotents act only on the planes `t = 1` and `u = 1` — the single degenerate
+`|k| = 1` (the case t = 1 would force A = 0, which is impossible; R158 repair). So the unipotents act only on the planes `t = 1` and `u = 1` — the single degenerate
 bijection `AB = n+1 ↔ (t,u) = (A+1,1)` found in O152 E4. (The general per-level group with n-dependent
-`α, β, a₀, b₀` is not classified here.)
+`α, β, a₀, b₀` is not classified here. (R158 repair) That group is infinite and its elements change the slice integer, so
+Remark 4.5 does **not** settle the SL2/quadric coordinates. Only the unipotents u_k with fixed integer k are
+shown to act on two planes; the full n-dependent SL2 symmetry group remains an open escape.)
 
 ## 5. Consequence for windmills on X defined on primes only
 
@@ -301,14 +348,31 @@ that is a quadratic non-residue mod p.
 contained in a finite union of coordinate planes `{t=c}, {u=c}, {v=c}`, then infinitely many primes
 `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Hence no finite-menu windmill on X whose exceptional set is of this form
 proves ES for all p ≡ 1 (24).
-*Sketch.* On `{t=c}`, `A | cp+1`; on `{u=c}`, `A | p+c`; on `{v=c}`, `B = tc − 1 | p + c` and
-`A = ((B+1)p + c)/(cB)` is determined by B. Take `p = Mq + 1` with M divisible by 8, 3, all relevant c, `c+1`
-and their prime factors, and impose (Dickson) that each of the finitely many integers `cp+1`, `p+c` is a fixed
-constant times one prime `r(q)`, and that each of the finitely many linear forms `A(B)` attached to the
-bounded set of divisors B is a constant times a prime, with q in a class making every such prime ≡ 1 modulo
-4·(all constants). By reciprocity every prime factor of every A that can occur is then a residue mod p,
-contradicting Lemma 5.2. This is the mechanism of POINTWISE_SIZE Theorem C (formal odd square) applied to the
-bounded program "test the finitely many planes"; I have not re-verified Theorem C's hypotheses line by line. ∎
+*Sketch (R158 repair: branch bookkeeping and the residue step corrected).* Take `p = Mq + 1`, with M divisible by
+8, by 3 and by high powers of every constant appearing below (all relevant c, c+1, d+1, c+d+1, …). The
+candidate values of A on each plane are:
+* `{t=c}`: A divides `cp+1 = (c+1)·r`, where `r = (cM/(c+1))q + 1`;
+* `{u=c}`: `A = tc − 1` divides `p+c = (c+1)·r'`, where `r' = (M/(c+1))q + 1`;
+* `{v=c}`: `B = tc − 1` divides `p + c = (c+1)r'`, so `B = d` or `B = d·r'` with `d | c+1`. A is determined by B,
+  and in both branches it is linear in q:
+  * `cd·A = (d+1)p + c` for `B = d`;
+  * `cd·A = dp + c + 1` for `B = d·r'` (use `p = (c+1)r' − c`, so that `(dr'+1)p + c = r'(dp+c+1)`).
+
+  Both identities were checked symbolically by R158.
+
+So every candidate A is a fixed integer K_i times a value of a linear form `α_i q + 1`. Dickson's conjecture
+applies to the finitely many forms `Mq+1`, `α_i q + 1`: they are admissible once every prime ℓ ≤ (number of
+forms) divides every α_i. So all of them are simultaneously prime for infinitely many q.
+
+The residue step: choose M so large that `L := 8·∏(c, d+1, c+1, …)` divides every α_i. Then each prime is
+automatically ≡ 1 (mod L). Choosing the class of q could not achieve this, since the residue of `α_i q + 1`
+mod L is fixed once `L | α_i`. Every prime factor of A is then a residue mod p:
+* the primes of K_i divide M, so p ≡ 1 mod them;
+* 2 is a residue because p ≡ 1 (8);
+* the big primes satisfy `(−c/r) = (−c(d+1)/s) = (−d(c+1)/s) = 1`.
+
+This contradicts Lemma 5.2. The label stays CONDITIONAL (Dickson); with these repairs the sketch is a complete
+conditional argument (R158 review, §"Cor 5.3"). ∎
 
 **Remark 5.4 (non-coordinate surfaces; Assessment).** For a surface Z not of this form, E(p) ∩ Z is typically
 sparse: e.g. on `Z = {t = u}`, `E(p) ∩ Z = {t odd : t² − 1 | p + t}`, and for p ≡ 1 (24) this needs
@@ -324,38 +388,65 @@ maps) reproduce Prop 4.2(a)–(c): ES: only the 6 permutations; X: only id and �
 Prop 4.2(c)). `scripts/inv_lemma52_check.py 1500`: Lemma 5.2 holds on all 275 E-elements of X(p),
 p ≡ 1 (8), p < 1500.
 
-## 6. Scope: what is excluded, what is left
+## 6. Scope: what is excluded, what is left (rewritten as an R158 repair)
+
+**Bottom line (R158 repair).** The windmill route is **narrowed, not barred**. Finite-menu windmills reduce to a
+bounded-slice statement `E(p) ∩ Z ≠ ∅` for a fixed proper surface Z (Thm 5.1). **Unconditionally, no windmill
+defined on primes only is excluded.** The surviving route consists of windmills whose relevant fixed points
+live on a fixed proper surface Z. For coordinate-plane Z these are excluded under Dickson's conjecture
+(Cor 5.3, CONDITIONAL). Infinite or growing menus, non-affine maps, the n-dependent SL₂ group and other
+auxiliary sets remain open as well.
 
 **Excluded (PROVED):**
-1. Any involution family on the O152 set X(n) with ES-only fixed points, of any complexity, defined on a
-   square class (Prop 2.3). Any windmill family on any sets whose τ-fixed points are certificates absent at
-   odd squares needs `|X(m²)|` even (Lemma 1.1).
-2. A divisor-type σ-fixed count whose odd point at primes is the factorisation `1·p` (the Zagier mechanism):
-   T1 forces `φ(1,h) = 0` (Prop 3.1). A T1-compatible divisor-type count must be "periodic point + square
-   detector" (Remark 3.2) — allowed, but it carries no information about p beyond non-squareness.
-3. Cross-slice coupling of generic points by finite-menu affine maps (pieces arbitrary, even prime-specific)
-   in ES coordinates, in O152's (t,u,v) (coefficients may depend on n) and (A,B,t) coordinates, in ET Type II
-   (a,b,c,k) and Type II SL₂ (f,f',c,d) coordinates (n-independent menus): Theorem 4.4. O152's SL₂ unipotents
-   act only on two planes (Remark 4.5).
-4. Finite-menu windmills on X restricted to primes certify only on a fixed proper surface (Thm 5.1).
+1. Windmills on the O152 set X(n) that are required to work at some n = q², q an odd prime: no involution of
+   X(q²) has ES-only fixed points (Prop 2.3; pointwise, so the description complexity is irrelevant). Hence a
+   windmill on X cannot be defined on a unit square class. More generally, any windmill on any sets whose
+   τ-fixed points are certificates absent at odd squares needs `|X(m²)|` even wherever it is defined at an odd
+   square (Lemma 1.1, an instance of the remark after ET Prop 1.6). Windmills defined on primes only are
+   **not** affected. (R158 repair)
+2. For windmill families defined on the *whole* class h, squares included: a divisor-type σ-fixed count
+   whose odd point at primes is the factorisation `1·p` (the Zagier mechanism). T1 forces `φ(1,h) = 0`
+   (Prop 3.1). A T1-compatible divisor-type count must be "periodic point + square detector" (Remark 3.2),
+   which is allowed but carries no information about p beyond non-squareness. Windmills defined on primes
+   only are **not** affected. (R158 repair)
+3. Moving *generic* points (outside a fixed proper algebraic set Z depending on the menu) across slices by
+   finite-menu affine maps (pieces arbitrary, even prime-specific). This covers ES coordinates, O152's
+   (t,u,v) with coefficients that may depend on n, and (A,B,t), ET Type II (a,b,c,k) and Type II SL₂
+   (f,f',c,d) with n-independent menus (Theorem 4.4). O152's SL₂ unipotents u_k (fixed integer k) act only on
+   two planes (Remark 4.5). This excludes no windmill by itself: the windmill may act only on Z. (R158 repair)
+4. Reduction (not exclusion): finite-menu windmills on X restricted to primes certify ES(p) only through
+   `E(p) ∩ Z` for a fixed proper surface Z (Thm 5.1). They are therefore equivalent to the bounded-slice
+   statement "`E(p) ∩ Z ≠ ∅` for all p". (R158 repair)
 
-**Conditional:** if that surface is a union of coordinate planes, such windmills fail for infinitely many
-p ≡ 1 (24) under Dickson's conjecture (Cor 5.3, CONDITIONAL, sketch needing branch bookkeeping).
+**Conditional:** if Z is a union of coordinate planes, such windmills fail for infinitely many p ≡ 1 (24)
+under Dickson's conjecture (Cor 5.3, CONDITIONAL; branch bookkeeping completed in the R158 repair). This is the
+only exclusion of a primes-only windmill in this file, and it is conditional. The data do not refute
+coordinate-plane windmills in any computed range: for all primes p ≡ 1 (24) up to 40000, E(p) meets the planes
+`{t,u,v = c}`, c ≤ 11 (EVIDENCE, `scripts/review_inv_planes.py`).
 
-**Not excluded (honest list of escapes):**
+**Not excluded (the surviving route):**
+* finite-menu windmills on X defined on primes only and supported on a fixed proper surface Z: unconditionally
+  for all Z, and also conditionally when Z is not a union of coordinate planes (Remark 5.4: no theorem);
 * menus that are infinite or grow with p (e.g. divisor-moving scalings by every prime factor: unbounded
   description complexity), and non-affine (polynomial/rational) maps beyond the n-dependent affine ones;
-* n-dependent menus in ET Type II and SL₂ coordinates beyond the families analysed (Prop 4.2(c), Rem 4.5);
+* n-dependent menus in ET Type II and SL₂ coordinates beyond the families analysed (Prop 4.2(c), Rem 4.5). In
+  particular, the full per-level affine group of `AB − nt = 1`, `(αA+a₀, βB+b₀, ·)` with α, β, a₀, b₀ ∈ ℚ(n),
+  is infinite, changes the slice integer and is not classified;
 * auxiliary sets other than X (e.g. sets built on a quadric with infinite orthogonal group whose fixed loci
   *map* to ES certificates), as long as their T1 behaviour (|X(m²)| even) and the image of the generic part are
-  compatible — Theorem 4.4 must be redone in each coordinate system;
-* windmills on X whose exceptional surface is not a union of coordinate planes (Remark 5.4: no theorem).
+  compatible. Theorem 4.4 must be redone in each coordinate system.
 
-**Assessment.** Every finite-menu affine windmill in the coordinates above reduces, by Lemma 4.1, to the
-symmetry group of the level function on generic points (the exceptional-surface part is *not* excluded). For all natural ES coordinates that group is finite
-up to reparametrisation and divisor-moving scalings (Prop 4.2), and none of its elements changes the slice
-integer; this is the structural reason behind the O152/WINDMILL nulls. Heuristically, a windmill proof of ES that
-couples generic points would need a coordinate system in which ES certificates are fixed points of an
-involution drawn from an *infinite* symmetry group of the level function (as `O(x²+4yz)` for Zagier), with the
-ES congruence preserved on generic points; constructions living on exceptional surfaces, infinite menus and
-non-affine maps remain open (list above). Remark 4.5 shows that the obvious candidate (the SL₂/quadric coordinates) fails exactly there.
+**Assessment.** By Lemma 4.1, every finite-menu affine windmill in the coordinates above acts on generic points
+only through the symmetry group of the level function; the exceptional-surface part is *not* excluded. For
+all natural ES coordinates (n-independent menus where stated) that group is finite up to reparametrisation and
+divisor-moving scalings (Prop 4.2), and none of its elements changes the slice integer. This is the structural
+reason behind the O152/WINDMILL nulls on generic points. A windmill proof of ES must therefore do one of the
+following:
+* live on a fixed exceptional surface, which is equivalent to a bounded-slice statement;
+* use an infinite or growing menu, or non-affine maps;
+* use a coordinate system with an *infinite* symmetry group of the level function (as `O(x²+4yz)` for
+  Zagier), with the ES congruence preserved on generic points.
+
+Remark 4.5 shows only that the integer unipotents of the SL₂/quadric coordinates act on two planes; the full
+n-dependent SL₂ group is open. (R158 repair: the earlier sentence "the obvious candidate fails exactly there"
+overclaimed.)
