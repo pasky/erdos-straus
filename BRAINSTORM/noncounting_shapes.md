@@ -25,8 +25,9 @@ Let 𝒞 be the set of all these classes (compact-open in Ẑ), and `K := Ẑ \ 
 cp + a + b`, which is ET's Type II equation. All parameters are positive, and ET's formulas give a positive
 solution. If `p ∈ C_I(a,b,e)`, put `d = (pe+1)/(4ab)` and `c = (a+b)/e`: this is ET's Type I datum (the e-slice
 form, LONGSHOT_PIGEONHOLE Lemma 1.1(ii)). The positivity threshold is automatic: membership already forces
-`d ≥ 1`. (⇒) For a prime p every solution is Type I or II (ET), and every Type I/II solution has e-slice
-coordinates (a, b, e) as above (Lemma 1.1(ii)); for Type II, e ≤ (p+4)/3 < p, so p ∤ e there. ∎
+`d ≥ 1`. (⇒) Use the e-slice form (LONGSHOT_PIGEONHOLE Lemma 1.1; stated as an equivalence in the brief). ES(p)
+gives some e ≡ −p (4) and a, b with ab | N and e | a+b, where N = (p+e)/4 or (pe+1)/4. Then
+p ≡ −e (mod 4ab), resp. pe ≡ −1 (mod 4ab), i.e. p ∈ C_II(a,b,e) or C_I(a,b,e). ∎
 *Remark.* There is no archimedean threshold to track: an integer p lies in a class `C(a,b,e)` only when that class
 already yields a positive solution. So "p ∉ K" is a purely profinite statement about the integer p.
 
@@ -80,8 +81,9 @@ composition law.
 
 **(d) "A sterile prime has property X" chains.** Every property derivable so far is profinite: p ∈ K, so p avoids
 all classes; through Mordell/Yamamoto/MORDELL13 Thm 3.1 that forces square classes mod 840, near-squares mod
-11 and 13, etc. Such chains end in "p is square-mimicking up to level Q". That is consistent with p being prime for
-Q up to `≍ log p log log p` (Graham–Ringrose type) and is no contradiction (POINTWISE_SIZE Thm C). Least
+11 and 13, etc. Such chains end in "p is square-mimicking up to level Q". That is consistent with p being prime: primes that are
+squares mod all q ≤ Q exist with Q ≫ log p·log₃p (Graham–Ringrose), or Q ≫ log p·log₂p under GRH (Montgomery). So
+there is no contradiction (POINTWISE_SIZE Thm C). Least
 non-residue bounds (Burgess; Bach under GRH) cap Q only at `≪ p^{1/(4√e)+ε}`, resp. `2 log²p`. To turn
 "QR modulo all q ≤ Q" into a contradiction one would need, *for every prime q*, a finite cover of the non-residue
 classes mod q (call it NR_q). By compactness, NR_q ⟺ K contains no point that is a non-residue mod q. The
