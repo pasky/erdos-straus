@@ -99,3 +99,53 @@ with `p ≡ 1 (8)`). ∎
 So, unconditionally, **only Siegel cylinders can carry E(p) for a positive proportion of primes in every
 square class**. These are `C × A¹` with C an integral-point-rich curve (genus 0, ≤ 2 places at infinity,
 by Siegel) in two of the three coordinates; they include the coordinate planes and e.g. `{t = u}`.
+
+## 4. Siegel cylinders: the slice divisor divides a fixed polynomial in p
+
+By Cor 3.4 we may assume `C` is defined over ℚ, with irreducible equation in `ℤ[·,·]`. The key point: on an
+axis cylinder, the integer that carries the ES congruence (`A`, `B`, or the pair `(u,v)`) **divides a fixed
+nonzero polynomial in n**, independent of the point. So E(n) ∩ W is found by a *bounded* search over divisors.
+
+**Lemma 4.1 (PROVED).** Let `x = (t,u,v) ∈ X(n)`, n ≥ 1. Then:
+(a) `gcd(t,A) = gcd(n,A) = 1`, `u ≡ −n` and `t·n ≡ −1 (mod A)`; likewise `v ≡ −n`, `t·n ≡ −1 (mod B)`.
+(b) `u | n + v` and `v | n + u`; precisely `uB = n + v` and `vA = n + u`.
+(c) For `f ∈ ℤ[T,U]` put `R_f(n) := n^{deg_T f}·f(−1/n, −n) ∈ ℤ[n]`. If `f(t,u) = 0` then `A | R_f(n)`;
+  if `f(t,v) = 0` then `B | R_f(n)`.
+(d) For `g ∈ ℤ[U,V]` put `R¹_g(n) := g(0,−n)`, `R²_g(n) := g(−n,0)`. If `g(u,v) = 0` then `u | R¹_g(n)` and
+  `v | R²_g(n)`.
+(e) `R_f ≡ 0` (as a polynomial) iff `f` vanishes on the hyperbola `TU = 1`; `R¹_g ≡ 0` iff `U | g`; `R²_g ≡ 0`
+  iff `V | g`. For irreducible f, g these are the curves `{TU = 1}`, `{U = 0}`, `{V = 0}`, which carry no
+  point of X (A = 0, resp. u = 0, v = 0).
+
+*Proof.* (a) `tu − A = 1`; `AB = tn + 1`. From `tu ≡ 1`, `tn ≡ −1 (mod A)`: `t(u+n) ≡ 0`, and t is a unit
+mod A. Same for B. (b) `u(tv−1) = tuv − u = n + v`; symmetric. (c) Modulo A, `t ≡ −n⁻¹` and `u ≡ −n`, so
+`n^{deg_T f} f(t,u) ≡ n^{deg_T f} f(−n⁻¹, −n) = R_f(n)`; the left side is 0. Same for B. (d) Modulo u,
+`v ≡ −n` by (b), so `0 = g(u,v) ≡ g(0,−n) (mod u)`; symmetric. (e) `f(−1/x, −x) ≡ 0` means f vanishes on the
+curve `(−1/x, −x)`, i.e. on `{TU = 1}` (irreducible). `g(0,y) ≡ 0` iff `U | g`. ∎
+
+(Examples: `f = T − U` (`W = {t = u}`): `R_f = n² − 1`, i.e. `t² − 1 | n² − 1`. `f = T − c` (the plane
+`t = c`): `R_f = −(cn+1)`, the slice integer. `f = U − c`: `R_f = −(n+c)`. `g = V − c`: `R¹_g = −(n+c)`,
+`R²_g = −c`. These recover the candidate lists of Cor 5.3 of INVOLUTION_ES.)
+
+**Lemma 4.2 (the bounded search; PROVED).** Let `W = C × A¹` be a Siegel cylinder over ℚ. There is a bounded
+program `Π_W` in the sense of POINTWISE_SIZE §1.1 (ring operations, divmod, DIVIDES, FACTOR/DIVISORS, finite
+loops over the resulting lists; no `while`) such that for every `n ≥ n₀(W)`, `Π_W(n)` outputs
+`(SUCCESS, x, y, z)` with a positive solution of `4/n = 1/x + 1/y + 1/z` if `E(n) ∩ W ≠ ∅`, and `FAIL`
+otherwise.
+
+*Proof.* Take `n₀` beyond the largest root of the relevant nonzero polynomial(s) of Lemma 4.1(e). Then:
+* *v-cylinder, `C = {f(t,u) = 0}`.* For each `A ∈ DIVISORS(R_f(n))` and each `t ∈ DIVISORS(A+1)`: put
+  `u := (A+1)/t`; test `f(t,u) = 0`, `4 | A`, `A | tn+1`; put `B := (tn+1)/A`; test `t | B+1`; put
+  `v := (B+1)/t`. On success output the Lemma 1.1 solution `(Bdn, vd, Bvd)`, `d = A/4`.
+* *u-cylinder, `C = {f(t,v) = 0}`.* For each `B ∈ DIVISORS(R_f(n))`, `t ∈ DIVISORS(B+1)`: `v := (B+1)/t`,
+  test `f(t,v) = 0` and `B | tn+1`, `A := (tn+1)/B`, test `4 | A` and `t | A + 1`, `u := (A+1)/t`; output.
+* *t-cylinder, `C = {g(u,v) = 0}`.* For each `u ∈ DIVISORS(R¹_g(n))`, `v ∈ DIVISORS(R²_g(n))`: test
+  `g(u,v) = 0` and `uv | n + u + v`, `t := (n+u+v)/(uv)`, test `4 | tu − 1`; output.
+
+Every candidate that passes the tests is a point of `E(n) ∩ W`, and the output is a solution (CONDITIONAL_ES
+Lemma 1.1). Conversely every `x ∈ E(n) ∩ W` is enumerated: by Lemma 4.1(c)/(d) its `A` (resp. B, resp. (u,v))
+divides the listed nonzero integer, and t divides `A + 1` (resp. `B + 1`; in the t-cylinder case
+`tuv = n + u + v`). ∎
+
+(For a 2-dimensional set that is a cylinder in two directions, i.e. a coordinate plane, any one of the
+descriptions works.)
