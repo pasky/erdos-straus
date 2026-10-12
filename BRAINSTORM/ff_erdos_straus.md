@@ -1,6 +1,6 @@
 # BRAINSTORM: Erdős–Straus over F_q[t] (O140, angle a)
 
-Status: in progress. Scripts: `scripts/bs_ff_*.py`.
+Status: complete (checkpoint for parent review). Scripts: `scripts/bs_ff_*.py`.
 
 ## 1. Idea — finding the faithful analogue
 
