@@ -86,12 +86,12 @@ Reference points from the 10⁸ dump (`logs/bs_adv_dyadic.txt`):
 
 ### 4.1 Readings
 
-1. **f/L³ is scale-invariant to within ±2% from 10⁵ to 10¹⁶, in every design.** The class-of-one mean at
+1. **f/L³ is scale-invariant to within ±3% from 2.6·10⁵ to 10¹⁶, in every design.** The class-of-one mean at
    10¹²–10¹⁶ (0.0335–0.0343) equals the mod-120120 class-of-one mean measured at 10⁸ (0.033), even though y grew
    from 13 to 37. The quenched local factor, about 0.73 relative to `p ≡ 1 (24)`, is **saturated**. That
    confirms O142 §3.3 at sizes 10⁸ times larger.
 2. **Small-slice prime shifts are nearly irrelevant at scale.** Forcing `N_3, N_19, N_27` prime changes nothing
-   (0.0461 vs 0.0449). The share of `e ≤ 31` falls from 0.22 at 10⁸ to 0.10 at 10¹⁶, roughly like `L^{−1.2}`.
+   (0.0461 vs 0.0449). The share of `e ≤ 31` falls from 0.22 at 10⁸ to 0.10 at 10¹⁶, roughly like `L^{−1.1}`.
    * Selecting the primes whose small slices are nearly empty (share 0.008) lowers f by only a further ≈ 10–17%.
    * Most of the mass sits in the bulk of the slices (log-uniform in e). The bulk is untouched by any small-shift
      or small-modulus constraint.
@@ -129,7 +129,7 @@ anything constructible, and the gap widens like L².
 
 **What the available mechanisms do.**
 * *CRT / class of one.* It saturates at ≈ 0.73× (§4.1.1).
-* *Small-shift primality.* Its share decays like `L^{−1.2}` (§4.1.2).
+* *Small-shift primality.* Its share decays like `L^{−1.1}` (§4.1.2).
 * *The X5 fibres* (`p ≡ r (mod Q)`, `log Q ≍ log p`). They kill witness moduli up to `T = exp(c(log p)^{1/4})`,
   which is a mass fraction `≈ (log T/log p)³ ≍ (log p)^{−9/4}`. They move W(p), never the count.
 * *Square-mimicking at scale.* If `(q/p) = +1` for all `q ≤ y`, the killed fraction is `≈ log y/log p`
@@ -167,14 +167,14 @@ scale that the model already over-satisfies by a factor `e^{cL³}`.
 ## 7. Viability Assessment
 
 As a disproof direction: **COLLAPSES** at step "drive the predicted count below 1". The constructible drivers
-saturate at ≈ 0.65× (B1-type local data). Small-shift drivers decay like `L^{−1.2}`. The required depression,
+saturate at ≈ 0.65× (B1-type local data). Small-shift drivers decay like `L^{−1.1}`. The required depression,
 `c ≲ 3/L²`, is out of reach of every known mechanism, including idealised square-mimicking up to the Burgess
 range.
 
 As a stress test of the lottery model: **passed**, so finding (β). There is no H-A/H-E signal.
 
 By-products (EVIDENCE unless stated):
-1. **Scale invariance.** The mean of `f_II/log³p` is constant to within ±2% from 10⁵ to 10¹⁶ in each design:
+1. **Scale invariance.** The mean of `f_II/log³p` is constant to within ±3% from 2.6·10⁵ to 10¹⁶ in each design:
    0.046 for `p ≡ 1 (24)` and 0.034 for the class of one. Saturation of the local factor is confirmed at 10¹⁶.
 2. **Decay of the heavy tail.** The share of the small slices `e ≤ 31` decays from 0.22 (10⁸) to 0.10 (10¹⁶), and
    the CV falls. Assessment: the CONJECTURE that `f_II(p) = (𝔖_loc(p) + o(1))·log³p` for almost all p is consistent
