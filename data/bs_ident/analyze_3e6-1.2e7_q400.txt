@@ -1,0 +1,22 @@
+n=17769 primes, p<= 11999929
+
+[log(1+S)] baseline (log p + QR-pattern mod 11..400) R^2 = 0.334
+  h/sqrtp        n=17769 t=+2.87  perm-p=0.005
+  logeps/sqrtp   n=17769 t=-0.67  perm-p=0.527
+  q2(2 quartic)  n=17769 t=+1.47  perm-p=0.124
+  c2(2 cubic)    n=17769 t=-0.07  perm-p=0.940
+  c3(3 cubic)    n=17769 t=+1.72  perm-p=0.075
+
+[log eII_min] baseline (log p + QR-pattern mod 11..400) R^2 = 0.054
+  h/sqrtp        n=17769 t=-2.10  perm-p=0.060
+  logeps/sqrtp   n=17769 t=+1.28  perm-p=0.204
+  q2(2 quartic)  n=17769 t=-0.26  perm-p=0.796
+  c2(2 cubic)    n=17769 t=-0.43  perm-p=0.726
+  c3(3 cubic)    n=17769 t=-0.91  perm-p=0.333
+
+[log eI_min] baseline (log p + QR-pattern mod 11..400) R^2 = 0.034
+  h/sqrtp        n=17769 t=+0.22  perm-p=0.826
+  logeps/sqrtp   n=17769 t=-0.23  perm-p=0.811
+  q2(2 quartic)  n=17769 t=-0.85  perm-p=0.368
+  c2(2 cubic)    n=17769 t=-0.37  perm-p=0.726
+  c3(3 cubic)    n=17769 t=+0.67  perm-p=0.488

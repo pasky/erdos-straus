@@ -1,0 +1,16 @@
+m=4
+  one : n=   17  mean f/log^2p=0.431  min=0.147  (argmin p=2521)
+  sq  : n=   66  mean f/log^2p=0.486  min=0.219  (argmin p=1201)
+  non : n= 2994  mean f/log^2p=1.525  min=0.292  (argmin p=3169)
+m=5
+  one : n=   17  mean f/log^2p=0.591  min=0.287  (argmin p=4201)
+  sq  : n=   66  mean f/log^2p=1.006  min=0.378  (argmin p=1201)
+  non : n= 2994  mean f/log^2p=1.393  min=0.254  (argmin p=8821)
+m=6
+  one : n=   17  mean f/log^2p=0.366  min=0.147  (argmin p=2521)
+  sq  : n=   66  mean f/log^2p=0.486  min=0.223  (argmin p=20521)
+  non : n= 2994  mean f/log^2p=0.958  min=0.109  (argmin p=1657)
+m=7
+  one : n=   17  mean f/log^2p=0.317  min=0.101  (argmin p=12601)
+  sq  : n=   66  mean f/log^2p=0.560  min=0.272  (argmin p=1009)
+  non : n= 2994  mean f/log^2p=0.941  min=0.150  (argmin p=1471)

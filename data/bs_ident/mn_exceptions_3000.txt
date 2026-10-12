@@ -1,0 +1,20 @@
+1  # m=4 N=3000 exceptions=1 
+
+1  # m=5 N=3000 exceptions=1 
+
+1  # m=6 N=3000 exceptions=1 
+
+1 2  # m=7 N=3000 exceptions=2 
+
+1 2 3 11 17 131 241  # m=8 N=3000 exceptions=7 
+
+1 2 5 11 19  # m=9 N=3000 exceptions=5 
+
+1 2 3 7 11 43 61 67 181  # m=10 N=3000 exceptions=9 
+
+1 2 3 4 37  # m=11 N=3000 exceptions=5 
+
+1 2 3 5 7 13 25 29 31 37 73 97 193 433 577 1129 1657 1873 2521 2593  # m=12 N=3000 exceptions=20 
+
+1 2 3 4 5 7 14 53 61 67 79 211 281  # m=13 N=3000 exceptions=13 
+
