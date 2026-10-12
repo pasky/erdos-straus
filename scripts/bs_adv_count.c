@@ -8,7 +8,7 @@
        loop (a,d,c) with f <= F := 2p/E + 1, test f | p+4a^2 d, e > E, b = ce-a >= a.
    Output (one line): p fII partA partB X_e for e<=31 (e = 3,7,...,31 or 1,5,.. if p=3 mod 4)
                       emin (least e with X_e>0) Wmin (least f over all solutions) first solution (a,b,c,d,e)
-   Usage: bs_adv_count p [E]      (default E ~ 2*sqrt(p))
+   Usage: bs_adv_count p [E [A]]  (default E ~ 2*sqrt(p); third arg A = slices e<=E only, skip part B)
    Build: gcc -O2 -o /tmp/bs_adv_count scripts/bs_adv_count.c -lm */
 #include <stdio.h>
 #include <stdlib.h>
@@ -68,6 +68,7 @@ int main(int argc,char**argv){
       if(x){ partA+=x; if(!emin) emin=e; if(e<64) Xsmall[e/4]=x; } }
   }
   /* Part B */
+  if(!(argc>3 && argv[3][0]=='A'))
   for(u64 a=1; 4*a-1<=F; a++) for(u64 d=1; 4*a*d-1<=F; d++){ u64 R = p + 4*a*a*d;
     for(u64 c=1; 4*a*c*d-1<=F; c++){ u64 f=4*a*c*d-1; if(R%f) continue; u64 e=R/f; if(e<=E) continue;
       if(c*e < 2*a) continue; if(gcdu(a,c)!=1) continue; u64 b=c*e-a; u64 w=(b>a)?2:1; partB+=w; note(a,b,c,d,e,w); } }
