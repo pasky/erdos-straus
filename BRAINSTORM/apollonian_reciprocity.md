@@ -78,8 +78,10 @@ imported**. The analogy only maps the open problem "sporadic set finite" ↔ "ES
   "exactly one/two of x,y,z divisible by n" (scripts/review_r127_counts.c) gives f_I(105) = 252 and
   f_II(105) = 18; it also gives f_I(81) = 82, so the naive definition does not even see ET 1.6. No quadratic
   family `u·m²` with u ≠ 1, and no quartic family, appears among the odd zeros. Even n: many zeros (6, 12, 22, …),
-  irrelevant because ES(even) is trivial. [2·10⁷ re-run: §4b.]
-* **Quartic-character test, primes p ≡ 1 (24), 10³ < p ≤ 10⁶ (9718 primes).** Since (2/p) = (3/p) = 1 here, the
+  irrelevant because ES(even) is trivial. **Re-run to 2·10⁷: identical — the odd zeros are the odd squares
+  (all of them) and 105 only; no prime.** (HKRS-style reading: "sporadic set" {105}, quadratic family {m²}.)
+* **Quartic-character test, primes p ≡ 1 (24), 10³ < p ≤ 10⁶ (9718 primes); re-run to 2·10⁷ (158 581 primes)
+  below the table.** Since (2/p) = (3/p) = 1 here, the
   quartic symbols are ±1. These are *not* congruence data (e.g. (2/p)₄ = 1 iff p = x² + 64y², Gauss).
 
   | split | n | mean F/L³ | mean F_I/L³ | min F/L³ | 5% quantile |
@@ -88,6 +90,8 @@ imported**. The analogy only maps the open problem "sporadic set finite" ↔ "ES
   | (3/p)₄ = +1 / −1 | 4837 / 4881 | 0.0742 / 0.0737 | 0.0507 / 0.0504 | 0.0187 / 0.0233 | 0.0455 / 0.0445 |
   | control p ≡ 1 / 25 (mod 48) | | 0.0717 / 0.0762 | | | |
 
+  To 2·10⁷: (2/p)₄ = ±1: mean F/L³ 0.0769 / 0.0768, mean F_I/L³ 0.0536 / 0.0536, 5% quantile 0.0517 / 0.0515;
+  (3/p)₄: 0.0769 / 0.0768, 5% quantile 0.0517 / 0.0514; control mod 48: 0.0749 / 0.0788.
   EVIDENCE: no quartic-character bias, even in the lower tail. The congruence control shows a larger split.
 
 ## 5. Viability Assessment
