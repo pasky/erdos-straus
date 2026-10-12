@@ -46,7 +46,7 @@ Exact counts f_I, f_II (a ≤ b) for all 2021 primes p ≡ 1 (24) in [10⁵, 3·
 | quadratic profile (ℓ/p), 5 ≤ ℓ ≤ 100 | 0.52 | 0.34 | 0.66 |
 | + residue classes of p mod 5,7,9,11,13,16,17,19,23 | 0.65 | 0.48 | 0.59 |
 | + log L(1,χ_p), shift richness Σ log τ((p+e)/4), … | 0.67 | 0.51 | 0.58 |
-| + quartic / cubic residue symbols of 2,3,5,7 (non-abelian Frobenius data) | — | — | 0.58 (no change) |
+| + quartic / cubic residue symbols of 2,3,5,7 (non-abelian Frobenius data) | — | — | 0.583 → 0.583 (no change; measured on the large-modulus parts, `driver2`) |
 | M2 + log p + C-slice counts with 4ab ≤ 200 | 0.72 | 0.56 | 0.54 |
 | M2 + log p + C-slice counts with 4ab ≤ 200 and ≤ 2000 | 0.84 | 0.71 | 0.34 |
 
