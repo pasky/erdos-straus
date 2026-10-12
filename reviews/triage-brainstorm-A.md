@@ -155,3 +155,27 @@ technology) could be designed so that the divisor event is built into the semigr
 depend on p through e ≡ −p⁻¹ (mod N), so the orbit is a moving family and the BK circle method (fixed semigroup,
 almost-all q) has no pointwise version. Open sub-question: none. Novelty: low (restatement); the
 "Ford-circle-of-denominator-p misses {5, 17, 41, 241}" census is a curiosity. **Promise 0.**
+
+**ff_erdos_straus (O140a; memo: PARTIAL, no route; collapses to B2/B3 at fixed P).** AGREE with the verdict; the
+by-products are correct as far as checked.
+* Lemma 1.1: the t^{−d₁} coefficient is the number m ∈ {1,2,3} of minimal-degree monic denominators, nonzero in
+  char ≥ 5, and must equal lc(A/P) = 1.
+* Prop 1.2(ii): 4 ∉ {1,2,3} mod char ≥ 5.
+* Thm 2.1 counting, re-derived. Case 1 is X, then a, b | X, then κ | a+b, and P = AX − E. Case 2 has E | AXa₁ + b,
+  which is nonzero since both terms are monic of different degree. This gives ≤ 2D(2n)³q^{n−k} against ≍ q^n/n
+  irreducibles.
+
+Thm 2.1 is the cleanest "B3 in its sharpest form" statement in the batch: the fixed-P solution variety has expected
+dimension −k. One mis-statement in the B3 screen: "the q → ∞ regime is the only place with pointwise function-field
+technology" is too strong. Fixed q with n → ∞ has Sawin–Shusterman-type étale-cohomology results (Chowla/twin
+primes over F_q[t] for fixed large q). The verdict still holds there, by B3 rather than by Thm 2.1. At a single P the
+H-A family has q^{cn} members with main term poly(n), so square-root (Deligne) savings, ≈ q^{cn/2}, dwarf the main
+term. Those results are averages over P anyway (B6).
+
+False-negative check: in F_q[t] the T1 square obstruction is absent (§3.2), and Prop 4.1 kills only *linear*
+families. So a function-field ES_q(t) *theorem* via char-p-specific identities (additive/Frobenius polynomials,
+P ↦ P^q) is not excluded. That is a genuinely open FF question. By construction it cannot transfer to ℤ, where odd
+squares are sterile, so it has no value for ES. Open sub-question (FF-only): does ES_q(t, P) hold for all P of degree
+≥ 5 at q = 5, and is there a Frobenius-identity proof? Novelty: Thm 2.1, Prop 4.1 and the degree-parity explanation
+of the missing T1 obstruction are plausibly new, elementary and inert for ES. **Promise 1** for ES (2 as a
+standalone function-field curiosity).
