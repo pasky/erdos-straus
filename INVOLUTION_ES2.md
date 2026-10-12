@@ -235,3 +235,46 @@ including 4 planes and `t = u`, `u = 2t+1`, `u = t²+2`, `v = 2t−1`, `v = u+4`
 p a residue mod the odd primes of Λ) has that QR property (Lemma 5.2). The cylinders are not vacuous: e.g.
 `E(p) ∩ {t=u} ≠ ∅` for 52, `{u = 2t+1}` for 158, `{t = 3}` for 193 of the 385 primes. (For the single plane
 `{t=3}` the QR property holds exactly at the other 192 primes.)
+
+## 6. General Z, and the consequence for windmills
+
+**Theorem 6.1 (fixed surfaces; parts as labelled).** Let `Z ⊂ A³` be any proper closed set. Split its
+irreducible components into
+* (i) 2-dimensional Siegel cylinders,
+* (ii) 2-dimensional non-Siegel axis cylinders and axis lines,
+* (iii) the rest: non-cylindrical surfaces, curves that are not axis lines, points.
+
+Let S, Λ be the data of Theorem 5.3 for the components (i) and the axis lines from (ii) and from (iii)
+(Prop 3.2: finitely many), and let `𝔈_Z` be the set of primes `P(x)`, x a point of a component (iii) on no
+axis line, so `#(𝔈_Z ∩ [1,N]) ≪ N^{2/3}` (Prop 3.2).
+(a) **PROVED.** Every admissible q with `P(q) ∉ 𝔈_Z` (beyond a threshold) has `E(P(q)) ∩ Z = ∅`.
+(b) **PROVED (unconditional), if Z has no component of type (i).** There is `α₀` with `E(p) ∩ Z = ∅` for all
+primes `p ≡ 1 (mod α₀)` outside a set of size `O(N^{2/3})`; i.e. for 100% of them (Cor 3.3, 3.4).
+(c) **CONDITIONAL on H** (for the family of Theorem 5.3), **if every 2-dimensional component of Z is an axis
+cylinder:** infinitely many primes `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. (Curves are absorbed into cylinders as in
+the reduction of Thm 5.3, so 𝔈 is not needed.)
+(d) **CONDITIONAL on the Bateman–Horn lower bound** for the family `{f_h : h ∈ S}` of Theorem M(b)–(c):
+for every proper closed Z, `#{p ≤ N : p ≡ 1 (24), E(p) ∩ Z = ∅} ≫ N/(log N)^{|S|}`; in particular infinitely
+many.
+*Proof.* (a) Components (i) and the axis lines: Theorem 5.3's proof. Components (iii) off axis lines: by
+definition of `𝔈_Z`. Components (ii): Cor 3.4 and Lemma 2.1 at admissible q. (b) Cor 3.3 + Cor 3.4. (c)
+Theorem 5.3. (d) By (a), since BH gives `≫ N/(log N)^{|S|}` admissible q, which exceeds `#𝔈_Z ≪ N^{2/3}`. ∎
+
+**Corollary 6.2 (finite-menu windmills on X; labels as in 6.1).** Let `(τ_p)_{p ∈ F}` be a finite-menu
+family of involutions of X(p) as in INVOLUTION_ES Theorem 4.4(1) ((t,u,v) coordinates with coefficients in
+ℚ(n), or (A,B,t) with n-independent menu), with `Fix τ_p ⊆ E(p)`, and let Z be the proper closed set of
+Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all but finitely many `p ∈ F`. Hence:
+1. (**PROVED, unconditional**) If Z has no Siegel-cylinder component, F omits 100% of the primes
+   `p ≡ 1 (mod α₀)`: no such windmill proves ES on any set of primes of positive relative density in that
+   class.
+2. (**CONDITIONAL on H**) If every 2-dimensional component of Z is an axis cylinder, F omits infinitely many
+   primes `p ≡ 1 (24)`.
+3. (**CONDITIONAL on Bateman–Horn**) For every finite menu, F omits `≫ N/(log N)^k` primes `p ≡ 1 (24)`,
+   `p ≤ N` (k depending on the menu). **So no finite-menu affine windmill on X proves ES for all large primes
+   `p ≡ 1 (24)`: the route is barred under Bateman–Horn**, and under H for all menus whose exceptional
+   surfaces are cylinders (in particular coordinate planes, the case of INVOLUTION_ES Cor 5.3). ∎
+
+*Scope.* This concerns the O158 set X and finite affine menus in the coordinates of Theorem 4.4(1). Not
+touched: infinite or p-growing menus, non-affine maps, the n-dependent SL₂ group, auxiliary sets other than X
+(INVOLUTION_ES §6, unchanged). Also, Cor 6.2 does not use the windmill beyond INVOLUTION_ES Thm 5.1: it is
+really a statement about the bounded-surface statement `E(p) ∩ Z ≠ ∅ ∀p`, which it refutes.
