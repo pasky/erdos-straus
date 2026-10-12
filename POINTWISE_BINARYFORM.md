@@ -52,3 +52,54 @@ Dirichlet character mod 4d (the Kronecker character of Q(√−d)), and ψ(−1)
 Remark. This is ET's quadratic-reciprocity proof (their §4), recorded for N-points because a
 polynomial family need not keep `gcd(c, n) = 1` at the specialisation points. Type I needs n odd;
 Type II needs nothing.
+
+## 2. Odd squares in every square-class coset and every sector
+
+A **sector** is an open cone `S = {r e^{iθ} : r > 0, θ ∈ I}` (I an open arc). A coset
+`C = (u₀,v₀) + MZ²` is a **square class** if `Q(u₀,v₀) ≡ s² (mod M)` with gcd(s, M) = 1.
+
+**Lemma 2.1 (square points are dense; PROVED, Hasse–Minkowski + weak approximation on P¹).**
+Let `2D | M`, `8 | M`, C a square class mod M, S a sector, R > 0. Then there is `(u,v) ∈ C ∩ S` with
+`u² + v² > R²` and `Q(u,v) = w²`, w odd.
+
+*Proof.* Let X ⊂ P² be the conic `Q(u,v) = w²`; it is smooth because the ternary form has
+determinant `−D/4 ≠ 0`. Local points: (i) for ℓ ∤ M, ℓ ∤ 2D, X has good reduction, a smooth conic
+over F_ℓ has ℓ + 1 points, and Hensel lifts them. (ii) For ℓ | M, `Q(u₀,v₀)` is an ℓ-adic unit that
+is a square mod ℓ (ℓ odd) or ≡ 1 mod 8 (ℓ = 2), hence a square `w_ℓ²` in Z_ℓ;
+`P_ℓ = (u₀ : v₀ : w_ℓ) ∈ X(Q_ℓ)`. (iii) `X(R) ∋ P_∞ = (cos θ₀ : sin θ₀ : Q(cos θ₀, sin θ₀)^{1/2})`,
+θ₀ ∈ I. By Hasse–Minkowski X(Q) ≠ ∅, so `X ≅ P¹_Q`, and X(Q) is dense in `∏_{v ∈ T} X(Q_v)` for
+`T = {∞} ∪ {ℓ | M}`. Take `x ∈ X(Q)` close to every P_v, written as a primitive integer triple
+(u₁, v₁, w₁). Since u₀ or v₀ is an ℓ-adic unit, closeness at ℓ means
+`(u₁,v₁,w₁) ≡ μ_ℓ (u₀,v₀,w_ℓ) (mod ℓ^{k_ℓ})` for some `μ_ℓ ∈ Z_ℓ*` (ℓ^{k_ℓ} ∥ M). Closeness at ∞
+means `(u₁,v₁) = t(cos θ, sin θ)` with θ ∈ I and t ≠ 0 real; replacing the triple by its negative
+(and μ_ℓ by −μ_ℓ) we may take t > 0. By CRT choose μ ∈ (Z/M)* with μ ≡ μ_ℓ (ℓ^{k_ℓ}) and an integer
+`λ > 0`, `λμ ≡ 1 (mod M)`, as large as we like. Then `(λu₁, λv₁) ∈ C ∩ S`, its norm exceeds R, and
+`Q(λu₁, λv₁) = (λw₁)²`. It is odd, since Q(C) is a unit mod M and 2 | M. ∎
+
+*Remarks.* (1) The hypothesis `D | M` cannot be dropped. If Q is not in the principal genus, it
+never represents a square prime to D (genus characters are trivial on squares), although `Q(C)` can
+be a square mod an M prime to D. Then the family question is the classical one-variable one, since
+p lies in a non-square class mod 4|D|. (2) Without `8 | M` the 2-adic condition is invisible: for
+`u² + v²` and M = 4, every unit class has `Q ≡ 1 (4)`, but only half are of the form below.
+
+**Lemma 2.2 (Gaussian case, profinite form; PROVED, + CERTIFIED table).** Let Q = u² + v² and
+8 | M. A unit class `u₀ + iv₀ ∈ (Z[i]/M)*` lies in `(Z/M)*·⟨i⟩·((Z[i]/M)*)²` iff `Q(u₀,v₀)` is a
+square mod M. Then `u + iv = λ i^j α²` (`λ ∈ N`, `α ∈ Z[i]`) gives Lemma 2.1 explicitly, with
+`Q = (λ N(α))²`.
+*Proof.* By CRT, `G_M := (Z[i]/M)* / ((Z/M)*·⟨i⟩·squares)` is the quotient of the product of the
+local groups `G_{ℓ^k} = (Z[i]/ℓ^k)*/((Z/ℓ^k)*·squares)` by the diagonal image of i. Odd ℓ: unit squares
+mod ℓ^k are detected mod ℓ (Hensel). For split ℓ, `(Z[i]/ℓ)* ≅ F_ℓ* × F_ℓ*`; modulo squares and the
+diagonal F_ℓ*, the class of (x, y) is the class of xy = Q mod ℓ. For inert ℓ, `F_{ℓ²}*` modulo squares
+has order 2 and contains F_ℓ*, and the class is that of the norm Q mod ℓ. In both cases
+`N(i) = 1`, so i dies. ℓ = 2, k ≥ 3: `Z₂[i]*/squares ≅ (Z/2)³` (`Z₂[i]* ≅ μ₄ × Z₂²`). The classes of
+5 and i are nontrivial and distinct (5 is not a square in Q₂(i) because −5 ≡ 3 (8); i is not a
+square because ζ₈ ∉ Q₂(i)), and both have square norm. The norm map onto `(1 + 4Z₂)/squares` has
+order 2, so the quotient is Z/2, detected by `Q mod 8`. (−1 = i² is already a square.) ∎
+`scripts/bf_reach_check.py` checks the equivalence by brute force for M = 8, 16, 24, 40, 56, 88,
+104, 120, 136, 168, 264 (0 mismatches). It fails for M = 4 (4 of 8 unit classes unreachable,
+`data/bf/reach_check.txt`).
+
+So "square class" is exactly the two-variable **class of one**: the trivial element of the
+profinite group `lim G_M`. Item (ii) of the brief (a profinite trap at `(u,v) ≡ (1,0)`-type points) is
+the same object. Unlike the one-variable trap of O145 Lemma 3.1, it contains genuine rational
+square points, so no Hypothesis H is needed.
