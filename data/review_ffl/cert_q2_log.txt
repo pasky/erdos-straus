@@ -1,0 +1,36 @@
+A=100
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 56 P checked; max n_F = 3
+A=101
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 56 P checked; max n_F = 3
+A=110
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 56 P checked; max n_F = 3
+A=111
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 42 P checked; max n_F = 3
+A=1000
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 504 P checked; max n_F = 4
+A=1001
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 112 P checked; max n_F = 4
+A=1010
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 728 P checked; max n_F = 4
+A=1011
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 168 P checked; max n_F = 4
+A=1100
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 728 P checked; max n_F = 4
+A=1101
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 196 P checked; max n_F = 4
+A=1110
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 168 P checked; max n_F = 4
+A=1111
+(1) density sum = 1, overlapping pairs = 0 -> exact partition of units: True
+(2)+(3) all leaves: W_F | W and valid on every P of the class for n in [max(n_F, deg W+1), +2]: True; 448 P checked; max n_F = 4

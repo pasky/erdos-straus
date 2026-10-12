@@ -1,0 +1,12 @@
+q=2 A=100 root=100*10*11 NTH=12: leaves=4 uncovered=0 maxleafdeg=4
+q=2 A=101 root=101*10*11 NTH=12: leaves=4 uncovered=0 maxleafdeg=4
+q=2 A=110 root=110*10*11 NTH=12: leaves=4 uncovered=0 maxleafdeg=4
+q=2 A=111 root=111*10*11 NTH=12: leaves=3 uncovered=0 maxleafdeg=4
+q=2 A=1000 root=1000*10*11 NTH=12: leaves=36 uncovered=0 maxleafdeg=9
+q=2 A=1001 root=1001*10*11 NTH=12: leaves=8 uncovered=0 maxleafdeg=6
+q=2 A=1010 root=1010*10*11 NTH=12: leaves=52 uncovered=0 maxleafdeg=9
+q=2 A=1011 root=1011*10*11 NTH=12: leaves=12 uncovered=0 maxleafdeg=7
+q=2 A=1100 root=1100*10*11 NTH=12: leaves=52 uncovered=0 maxleafdeg=9
+q=2 A=1101 root=1101*10*11 NTH=12: leaves=14 uncovered=0 maxleafdeg=7
+q=2 A=1110 root=1110*10*11 NTH=12: leaves=12 uncovered=0 maxleafdeg=7
+q=2 A=1111 root=1111*10*11 NTH=12: leaves=32 uncovered=0 maxleafdeg=9

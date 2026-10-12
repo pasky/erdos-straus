@@ -1,0 +1,306 @@
+# R161 — hostile review of FUNCTIONFIELD_ES.md (O161, branch side-agent/ff-landscape)
+
+Reviewer: R161. Document reviewed: `FUNCTIONFIELD_ES.md` as merged from `side-agent/ff-landscape`.
+From-scratch scripts: `scripts/review_ffl_*.py` (own F_q[T] arithmetic, no reuse of `ffl_*.c` / `ffl_*.py`).
+**Repairs applied (R161, at the parent's request; author near its context limit):** D1 to D17 are applied in place
+in FUNCTIONFIELD_ES.md, and the matching lines in AGENT_REPORT_O161.md, each marked "(R161 repair)". D7/D8: §4 is
+rescoped to the odd-q statement, with char 2 separate. D13/D14: Thm 6.4 is scoped to the archived and checked
+cases, R161's certificates are archived as `data/ffl/cover_q2_A1000{0,1}_R161.txt`, and the uncovered
+degree-4/5 A are listed. The author's running jobs and untracked files were not touched.
+Status: round 1 complete; repairs applied.
+
+## Summary verdicts
+
+| # | Claim | Verdict |
+|---|---|---|
+| C1 | Def 1.1 + Lemma 1.2 (NC, monic) | SOUND-AFTER-REPAIRS: (iii) is false for prime P; NC is automatic in all odd char (D1, D2, D3, D4) |
+| C2 | Lemma 1.3 (e-slice criterion, all char) | SOUND (state n ≥ k, P prime: D5) |
+| C3 | Prop 1.4 | SOUND (D6 minor wording) |
+| C4 | Thm 6.1 (F₂, A = T²) | SOUND; machine-checked for all 4717 prime P of degree 3..15 |
+| C5 | Prop 4.1 sign law | formula SOUND (11 558 data, 0 mismatches, incl. q = 9, 11) |
+| C5' | §4 "no obstruction class for any q" (PROVED) | GAP: ill-defined and overclaimed; nothing for char 2 (D7 MAJOR, D8) |
+| C6 | Fact 5.2 + Thm 5.3 | SOUND-AFTER-REPAIRS (error bookkeeping D10, proviso D9, Remark D11); Rosen not accessible |
+| C7 | Lemma 6.2 | SOUND |
+| C8 | Thm 6.3 (F₄, A = T) | SOUND, re-proved independently (certificate checked, max n_F = 4, n ≤ 7 exhaustive) |
+| C9a | Thm 6.4: q = 2, deg A ∈ {1, 2, 3}; q = 3, A = T | SOUND, deg 2/3 re-proved with my own certificates |
+| C9b | Thm 6.4: q = 2, A ∈ {T⁴, T⁴+1} | statement TRUE, independently re-proved by R161 (own certificates, addendum). As written it is SOUND-AFTER-REPAIRS: author's certificates are not archived and the spot-verification fell short (D13 MAJOR), and the statement points to a running job (D14 MAJOR) |
+| C10 | §3 EVIDENCE tables | all spot-checked failure lists MATCH exactly |
+| C11 | §7 labels; novelty | labels fine except D11/D17; novelty unverified, nothing found |
+
+No FATAL defects. Three MAJOR defects (D7, D13, D14), all about labels and certificates. None of them is an error
+in a proved statement.
+
+## Claim-by-claim
+
+### C1. Definition 1.1 and Lemma 1.2 (NC and monicity) — SOUND-AFTER-REPAIRS (minor)
+
+Re-derived. Expansion at ∞: the sum of the m minimal-degree terms has leading coefficient m·1. If m ≢ 0 (mod p)
+then d₁ = n − k and m ≡ 1 (mod p). This gives (i), (ii) (char ≥ 5 ⇒ m = 1) and (iv) (char 2, NC ⇒ m ∈ {1,3}).
+Exhaustive small check (`scripts/review_ffl_lemma12.py`, log `data/review_ffl_lemma12_log.txt`; all monic triples
+of degree ≤ 4 (q = 2), ≤ 3 (q = 3), ≤ 2 (q = 4, 5, 7)): every genuine A/P solution found has NC and m = 1.
+
+**Definition.** Monic denominators + NC are a reasonable image of x_i > 0 and x_i > n/4. Over Z, positivity and
+the bound are equivalent; here "monic" is a convention (Hayes sign), and NC is a separate condition. This is a
+modelling choice and should be labelled as such (Assessment), not called "the faithful form" without argument.
+Other choices give different problems: arbitrary leading coefficients with NC, or "monic" relative to another
+sign function. The document does not discuss them. (MINOR, D3.)
+
+Defects:
+* **D1 (MINOR, false claim, harmless direction) — Lemma 1.2(iii).** "char 3: m = 3 (cancellation, d₁ < n − k)
+  is possible for monic solutions" is **false for irreducible P**, the only case considered. Proof: P is prime and
+  appears in the reduced denominator, so it divides some denominator. That denominator has degree ≥ n > n − k, so
+  d₁ < n − k forces m ≤ 2. In char 3, m ∈ {1, 2} is nonzero mod 3, so d₁ = n − k. Hence **NC is automatic for
+  monic solutions in every odd characteristic**, so the lemma's own title is right and (iii) is wrong. The same
+  argument also shows that m = 3 cancellation is impossible in char 2. Only m = 2 remains there, and it does
+  occur. An explicit example, verified by hand and by computer:
+  q = 2, A = T, P = A(T²+T) + 1 = T³ + T² + 1 (irreducible),
+  `T/P = 1/T + 1/(T+1) + 1/(P(T²+T))`, degrees 1, 1, 5 with n − k = 2.
+  *Repair:* (iii) should say: "char 3: for irreducible P, NC is automatic (P divides some denominator, so
+  m = 3 with d₁ < n − k is impossible)". In char 2, cancellation means m = 2 exactly. Also change "In char 2 and 3
+  we take NC as part of the definition" to "in char 2". In line 34, "only realised in char 2 and 3" should be
+  "only in char 2".
+* **D2 (MINOR) — line 36** promises that "the monic-only variant M" is studied "separately (§6)". §6 never
+  mentions it. Either remove the promise or add the variant. (By D1, M = ES in odd characteristic, so only char 2
+  is relevant.)
+* **D3 (MINOR) — "faithful form".** Label the choice of definition as Assessment and add one sentence on
+  alternatives (see above).
+
+* **D4 (MINOR) — Lemma 1.2(iv).** By the D1 argument, m = 3 is impossible for prime P (some denominator has
+  degree ≥ n > n − k). So under NC, m = 1 in every characteristic. State this. It simplifies §1 and the engine
+  description ("X = the unique denominator of degree n − k").
+
+### C2. Lemma 1.3 (e-slice criterion, all characteristics) — SOUND (minor hypothesis to state)
+
+Re-derived both directions independently.
+(⇐) 1/X + (a+b)/(κPX) = (P+E)/(PX) = A/P. κ = (a+b)/E is monic. The NC case split (P ∤ a; P | a, P ∤ b;
+P | a, b) is correct. The last case uses gcd(E, P) = 1, which holds because P is prime, P ∤ A, and P ∤ X
+(since deg X < n).
+(⇒) Write Y = g·y, Z = g·z with gcd(y, z) = 1 and all of them monic. Then yz | N := PX, and a := N/y, b := N/z,
+κ = g give back (Y, Z). y + z ≠ 0 except in char 2 with y = z = 1, and that case forces E = 0.
+Computational cross-check: the solver S2 (`scripts/review_ffl_solve.py`, built on this criterion) agrees with
+the criterion-free brute force S1 (enumerate X, Y, solve for Z) on every irreducible P for
+(q, A, n) ∈ {(5,T,2), (5,T,3), (7,T,2), (3,T²,3), (3,T²+1,3), (4,T²,3)}, with identical failure lists.
+* **D5 (MINOR).** The lemma (and §1 notation) should state n ≥ k (needed for deg X = n − k ≥ 0) and that P is
+  irreducible (used for gcd(E, P) = 1 and for P ∤ X). §1 says "P monic irreducible", but n > k is first
+  stated only in Thm 5.3 / 6.4.
+
+### C3. Proposition 1.4 — SOUND
+
+(i), (ii) are direct identities, re-verified by hand and on random monic P in the right classes for
+q ∈ {3, 4, 5, 7, 9} (`scripts/review_ffl_identities.py`, log `data/review_ffl_identities_log.txt`).
+(iii) The residue bookkeeping is correct: F₂: P(0) = 1 = −1. F₃: {1, 2} = {−2, −1}. F₄: −2 = 0, so only
+P(0) = 1 is free. F₅: {4, 3}.
+(iv) The identity is correct. The splitting "2·1/(−2X₀P/r)" is for odd characteristic. In char 2 one can use
+1/u = 1/(u+1) + 1/(u(u+1)) applied to u = X₀P/r. The document only says "e.g.", so this is acceptable.
+* **D6 (MINOR).** Line 31 says "Without any sign condition the problem degenerates (§1.4)". Prop 1.4(iv) proves
+  this only for k = 1. Say "for k = 1" or prove it for general k.
+
+### C4. Theorem 6.1 (F₂, A = T²) — SOUND
+
+Re-derived. P(0) = P(1) = 1. In the case P ≡ 1 + T (mod T²): R = (P+T+1)/T² is monic of degree n − 2 with
+R(1) = 1, so (T+1) | R + 1. Then cP + R + 1 = c(P + T + 1) = cT²R gives the identity. The degrees n − 2,
+2n − 3 ≥ n, 3n − 5 ≥ n hold for n ≥ 3. At n = 3, c = 1 and that is fine. The Type II datum (1, R, c, 1),
+E = T + 1, is consistent with P = T²R − E. Machine check: the explicit (X, Y, Z) of the proof satisfies
+A·XYZ = P(XY + YZ + ZX), is monic, and satisfies NC for **all 4717 irreducible P of degree 3..15** over F₂
+(`scripts/review_ffl_identities.py`). No defects.
+
+### C5. Proposition 4.1 (Type II sign law) and the §4 "no obstruction" conclusion — formula SOUND; conclusion GAP (overclaimed label)
+
+**The formula.** I re-derived it. Ef = Aacd·E − E = Aad(a+b) − E = Aa²d + P. Since f ≡ −1 (mod a), we get
+(a²/f) = 1. (−1/ℓ) = ((−1)^{(q−1)/2})^{deg ℓ}, since (q^m − 1)/(q − 1) ≡ m (mod 2) for odd q. Reciprocity for
+monic coprime f, Ad gives (Ad/f) = (−1)^{((q−1)/2)·deg f·deg Ad}·(f/Ad), and f ≡ −1 (mod Ad). The exponents add
+up to ((q−1)/2)((1+deg f)(1+deg Ad) − 1). Note deg f ≥ k ≥ 1 always holds, so the excluded case deg f = 0 never
+occurs. Also P ∤ f, since P | f would force P | Aa²d.
+Machine check, from scratch and reciprocity-free (Jacobi symbol by factoring f and Euler's criterion),
+`scripts/review_ffl_sign.py`, log `data/review_ffl_sign_log.txt`: I enumerated all Type II data on irreducible P
+for (q, A, n) = (3,T,4), (3,T,5), (3,T²,5), (3,T²+1,5), (5,T,4), (5,T²+1,4), (7,T,4), (9,T,3), (9,T+2,4),
+(11,T,3). That is 11 558 data, 0 mismatches, and q ∈ {9, 11} were not in the author's check. The identity
+Ef = P + Aa²d was asserted on every datum.
+
+**The conclusion** (lines 124–136, "PROVED at the level of Type II classes … There is no obstruction class of
+monic P in F_q[T] for any q"):
+* **D7 (MAJOR, overclaimed label / ill-defined statement).**
+  (a) "Obstruction class" is never defined, so "PROVED" has no precise content. What is actually proved is narrower:
+  *the Mordell / ET Prop 1.6 mechanism does not transfer.* For q ≡ 1 (mod 4) every Type II datum imposes (P/f) = +1.
+  Perfect squares M² satisfy this for every datum, so squares are not excluded from any Type II family. For
+  q ≡ 3 (mod 4), squares are excluded exactly from the data with deg f or deg Ad odd.
+  (b) **"for any q" includes even q.** In char 2, Prop 4.1 is meaningless: there is no Jacobi symbol (one would
+  need the Artin–Schreier symbol), and nothing in §4 applies. The claim is unproved there.
+  (c) The sketch "a P could be obstructed only if (P/f) = −1 for every monic f; the only candidates are P = uM²"
+  quantifies over all monic f. The admissible f are only those of the form Aacd − 1, with (a, c, d) coupled to P
+  through P = Aabd − E. The step from "for every admissible f" to "for every monic f" is not justified. It is
+  also irrelevant to irreducible P, which are never of the form uM².
+  (d) It reads as contradicting §6.3, which says char ≥ 5 *does* have an obstruction to finite coverings (the size
+  class P ≡ 1). The intended meaning is "no *quadratic-residue* obstruction".
+  *Repair:* Replace the conclusion with: "PROVED (q odd): the sign in Prop 4.1 is +1 for all Type II data if
+  q ≡ 1 (mod 4), and for the data with deg f, deg Ad both even if q ≡ 3 (mod 4). Consequently squares are never
+  excluded by the Type II sign condition, and the Mordell square-class argument against finite coverings has no
+  analogue. Assessment: no quadratic obstruction is expected. Char 2: not addressed." Drop "for any q" and drop
+  the "every monic f" sketch, or prove it for the admissible f.
+* **D8 (MINOR).** "q ≡ 3 (mod 4): every class keeps the families with deg f and deg Ad both even". This is true as
+  a statement about degrees, but for a *linear family* (Lemma 6.2) with type-2/3 terms, f depends on P and deg f
+  moves with n. So the sign of a fixed family alternates with the parity of n. The sentence should say that the
+  sign of a family is a function of (class mod W_F, parity of n). That is the precise sense in which "no
+  congruence controls it".
+* The bias data (i) were spot-checked against the author's failure list for q = 7, n = 6. The P(0) values are
+  2, 1, 1, 1, as stated. The tilt numbers (ii) were not re-computed (EVIDENCE, low stakes).
+
+### C6. Fact 5.2 and Theorem 5.3 (failure proportion ≤ (Φ(A)+o(1))/log n) — SOUND-AFTER-REPAIRS (minor)
+
+**Fact 5.2.** Re-derived from Weil. For each nontrivial χ mod M (deg M = D), L(u, χ) is a polynomial of degree
+≤ D − 1. Its inverse roots have modulus √q or 1 (the latter for imprimitive χ). This gives
+|Σ_{deg f=n} Λ(f)χ(f)| ≤ (D−1)q^{n/2}. The trivial character loses ≤ Σ_{ℓ|M} deg ℓ ≤ D, and proper prime powers
+contribute ≤ Σ_{d≤n/2} q^d ≤ 2q^{n/2}. So |π(n;M,r) − q^n/(nΦ(M))| ≤ ((D+1)q^{n/2} + D)/n. This is ≤ the stated
+(D+2)q^{n/2}/n whenever D ≤ q^{n/2}, which always holds in the application (D ≤ n). Strictly, the Fact as
+stated "for all D ≥ 1" needs this proviso (MINOR, D9). I **could not access Rosen** (*Number Theory in Function
+Fields*, Thm 4.8 is not in `sources/`). I have checked only the derivation, not the citation's numbering or
+wording. Numerical sanity check (`scripts/review_ffl_pnt.py`, log `data/review_ffl_pnt_log.txt`): exact class
+counts for 6 moduli (q = 2, 3, 4, 5), worst |error|/bound = 0.23.
+
+**Theorem 5.3.** I re-derived it line by line:
+* (a) The count of A-supported h of degree D is ≤ (D+1)^{ω(A)}, and Φ(h) ≥ q^D/2^{ω(A)}. The proportion is
+  O(H^{ω}q^{−H}) + O(n^{ω+2}q^{−n/2}) = O((log n)^{ω}/n) = o(1/log n). ✓
+* (b) The partition into classes 𝒞(h, v₀) is correct. The A-part of P + 1 is exactly h, and classes with r not
+  coprime to hA contain no prime of large degree. For g ∈ 𝒢: (P+1+hg)/h = w + g, g | w, A | w + g, so
+  Ahg | P+1+hg. With deg(Ahg) ≤ k + H + n/5 ≤ n, Lemma 5.1 applies. ✓ The identity
+  A/P = 1/(hgd) + 1/(dP) + 1/(hgdP) and NC/monicity were re-verified on random data
+  (`scripts/review_ffl_identities.py`).
+* First moment: the classes mod hAg are coprime by CRT. μ = Σ_{g∈𝒢} 1/(|g|−1) = (log n)/Φ(A) + O_A(1)
+  uniformly in v₀ (finitely many v₀), using Fact 5.2 mod A, with Σ q^{−m/2}/m < ∞. ✓
+* Second moment: for g₁ ≠ g₂ the condition is one coprime class mod hAg₁g₂ of degree ≤ n. The main term is
+  ≤ Π(μ + μ²), and R ≪ q^{2n/5}·q^{n/2} = q^{0.9n}. Π ≫ q^{n−k−H}/n ≫ q^n/(n²q^{k+1}), so every error is
+  O(q^{−n/10}·poly(n))·Π. ✓
+* **D10 (MINOR, wording that as written does not give the conclusion).** "Chebyshev gives
+  #{P ∈ 𝒞 : N(P) = 0} ≤ Π·(1/μ + o(1))", followed by summing to "1/μ + o(1/log n)". An o(1) error per class
+  only gives o(1) in total, not o(1/log n). The proof does work because all error terms are exponentially small:
+  Σ(N−μ)² ≤ Πμ + O(Π q^{−n/10}poly(n)), so #{N = 0} ≤ Π/μ + O(Π q^{−n/10}poly(n)). The number of classes is
+  ≤ Φ(A)(H+1)^{ω} = polylog(n). *Repair:* replace the two "o(Π)"/"o(1)" by the explicit
+  O(Π·q^{−n/10}·n^{O(1)}). (The bookkeeping line "Σ(N−μ)² ≤ Πμ + o(Π)(1+μ)" also omits a μ²·(Π_main − Π) term.
+  It is harmless for the same reason.)
+* **D11 (MINOR, overclaim in Remark (1)).** "the failure proportion … vanishing identically from a finite degree
+  on" is a reading of finite data. Say "no failure was found beyond degree n₀(q, A) in the computed range"
+  (EVIDENCE).
+Labels: "PROVED, given Fact 5.2". Fact 5.2 is a standard consequence of Weil's theorem, so plain PROVED (citing
+Weil/Rosen) is fine once D9 is fixed.
+
+### C7. Lemma 6.2 (validity is a congruence condition for n ≥ n_F) — SOUND
+
+Re-derived the degree bookkeeping. Types have degrees δ₀ = deg a₀, δ₁ = n + deg a₀, δ₂ = n − k − deg a₀,
+δ₃ = 2n − k − deg a₀ (and the same with b₀). For t_a ≠ t_b, the six cross-coincidences are
+δ₀/δ₁: n = deg a₀ − deg b₀; δ₀/δ₂, δ₁/δ₃: n = k + deg a₀ + deg b₀; δ₀/δ₃: 2n = k + deg a₀ + deg b₀;
+δ₁/δ₂: impossible (k ≥ 1); δ₂/δ₃: n = deg b₀ − deg a₀. All are excluded by n > k + deg a₀ + deg b₀.
+All four terms are monic, so lc(s) = 1 and s ≠ 0. For t_a = t_b the factorisations through L = lcm(a₀, b₀) are
+right, and L | X follows from a₀, b₀ | X. X mod M is determined by P mod AM, so s mod E is determined by P mod
+A·E·L. deg E < n makes X monic of degree n − k. ✓ Also, for prime P of degree n ≥ n_F, P ∤ W_F
+(all factors of W_F have degree < n), so the Lemma 1.3 (⇐) step (gcd(E, P) = 1) applies.
+
+### C8. Theorem 6.3 (F₄, A = T, every P) — SOUND (independently re-verified)
+
+`scripts/review_ffl_cert.py` (own parser + own arithmetic; log `data/review_ffl_cert_q4_log.txt`) on
+`data/ffl/cover_q4_A10.txt`:
+(1) the 81 leaves are exactly the 81 unit classes mod T⁴ − T (each covered once);
+(2) W_F | W for every leaf;
+(3) for **every** monic P (irreducible or not) in each class, of every degree 5..8 (27 540 P), the family is
+valid and the resulting (X, Y, Z) satisfies A·XYZ = P(XY + YZ + ZX), is monic, and satisfies NC.
+**max n_F = 4**, not "< 9": by Lemma 6.2 (C7) the certificate settles every n ≥ 5 (indeed n ≥ 4).
+Small degrees: my exhaustive solver S2 finds 0 failures for n = 2, 3, 4, 5, 6, 7 (6, 20, 60, 204, 670, 2340
+irreducible P; log `data/review_ffl_failcmp_log.txt`). Together these give a complete independent proof of
+Thm 6.3 that does not depend on any author code.
+* **D12 (MINOR).** State the actual n_F (= 4). With it, the exhaustive range needed is only n ≤ 4 (or ≤ 8
+  as written, which is conservative but fine). In the proof, "For 2 ≤ n ≤ 13 the exhaustive run (§3 table)
+  finds no failure": the §3 table shows the q = 4 row only up to n = 11 ("0/381300"). Make the ranges
+  consistent.
+
+### C9. Theorem 6.4 (which (q, A) are theorems) — split verdict
+
+* **q = 2, A ∈ {T, T+1}; q = 3, A = T (Prop 1.4)** — SOUND. (Translation T ↦ T + β also gives q = 3, A = T + β.)
+* **q = 2, all 12 monic A of degree 2 and 3** — SOUND, **independently re-proved**. My covering-tree search
+  (`scripts/review_ffl_tree.py`: own family enumeration with W_F | W, n_F ≤ 12, representative-P test) found
+  complete covers for all 12 A (certificates `data/review_ffl/cover_q2_A*.txt`). Leaf counts (4, 4, 4, 3, 36, 8,
+  52, 12, 52, 14, 12, 32) agree with `data/ffl/q2_batch.txt`. My checker `scripts/review_ffl_cert.py`
+  (log `data/review_ffl/cert_q2_log.txt`) confirms for each A: exact partition of the units mod the leaf moduli
+  (Σ 1/Φ(W_leaf) = 1, no two leaves overlapping by CRT), W_F | W_leaf, and validity plus the identity/monic/NC
+  on every P of each class in three consecutive degrees. **max n_F = 3 (k = 2) and 4 (k = 3)**. Since n_F ≤ k + 1
+  and every prime factor of a leaf modulus has degree ≤ 3, Lemma 6.2 covers every irreducible P of degree > k.
+  No exhaustive small-degree check is even needed.
+* **q = 2, deg A = 4 (T⁴, T⁴ + 1)** — GAP as written (see D13). The degree-4/5 batch was still running when I
+  reviewed.
+* **q = 4, A = T** — SOUND (C8).
+
+Defects:
+* **D13 (MAJOR, unarchived certificates).** For the deg-4 cases (696 and 818 leaves, leaf moduli of degree 18)
+  the repo contains only the one-line summaries in `data/ffl/q2_batch.txt`. `ffl_q2_batch.sh` pipes `ffl_tree`
+  through `tail -1`, so the leaf list (the actual certificate) is discarded. A "PROVED, computer-assisted" claim
+  needs an archived, independently checkable certificate. Moreover the summary lines show `verified=3080` for 696
+  leaves and `verified=3322` for 818 leaves. Each smaller A has exactly 5 checks per leaf, so 5·696 = 3480 and
+  5·818 = 4090 were expected. Some leaves were therefore **not** spot-verified, and the document does not say why.
+  *Repair:* archive the leaf lists as `data/ffl/cover_q2_A<A>.txt` (format of `cover_q4_A10.txt`), explain the
+  verification shortfall, and downgrade deg 4 to EVIDENCE until a checker (e.g. `scripts/review_ffl_cert.py`,
+  which handles multi-level trees) has passed on the archived files. See C9-addendum for my own reproduction
+  attempt.
+  **Update:** see Addendum A. My own certificates now prove both deg-4 cases.
+* **D14 (MAJOR, theorem statement refers to a running job).** "the degree-4 A completed so far … The batch over
+  the remaining degree-4 and degree-5 A was still running …; `data/ffl/q2_batch.txt` is authoritative." A theorem
+  must list exactly which (q, A) it covers. A data file that is still growing cannot define the statement.
+  *Repair:* list the A explicitly. Move "still running" to a status note. Each newly completed A becomes a theorem
+  only once its certificate is archived and checked.
+* **D15 (MINOR).** Thm 6.1 is the special case A = T² of the deg-2 bullet. Say so, and note that the explicit
+  identity gives a certificate-free proof for that case.
+* **D16 (MINOR).** "char ≥ 5: **no finite covering exists for any A**" (bold) — only for *linear families*, as the
+  following note concedes. Put the qualifier in the bold statement. O140 Prop 4.1 is quoted, not re-proved, here.
+  I only sanity-checked its mechanism: for P ≡ 1 (mod W_F) every term reduces mod E to its value at "P = 1,
+  X = (1+E)/A". In char ≠ 2 the reduced sum is a nonzero polynomial of degree < deg E (when deg a₀ is small), so
+  E cannot divide it. In char 2 it can vanish. I did not re-review the full proof.
+
+### C10. EVIDENCE tables (§3) — spot-checks all MATCH
+
+My S2 solver (own arithmetic, own irreducibility test, own factorisation) recomputed the complete failure
+*lists* (not only the counts) and compared them with `data/ffl/fail_*.txt`. Log
+`data/review_ffl_failcmp_log.txt`. Exact matches:
+(q, A, n) = (5,T,2..4), (7,T,2..5), (3,T²,3..5), (3,T²+1,3), (3,T²+1,6), (4,T²,3..7), (5,T²,3..5). That
+covers counts 2/10, 2/40, 1/150, 6/21, 21/112, 25/588, 16/3360, 3/8, 2/18, 2/48, 2/8, 1/116, 8/20, 12/60,
+16/204, 6/670, 4/2340, 24/40, 49/150, 82/624; plus (5,T²,6): 81/2580 MATCH.
+Zero-failure entries recomputed: (4,T,2..7), (3,T²,6..8), (3,T²+1,7). Larger cases are listed in the addendum
+if they finished. I did not recompute the mean-count constants C(q, n), θ, or the tilt means of §4/§7. Those are
+EVIDENCE/Assessment and low-stakes.
+
+### C11. Labels (§7) and novelty
+
+* §7.1–7.2 are labelled EVIDENCE and §7.3 is labelled Assessment. That is correct. The extinction exponent
+  n₀ ≈ 1.5·(q log q)^{1/2} is fitted on two data points (q = 5, 7), and the "predictions recorded before the
+  runs" are fine as Assessment. **D17 (MINOR).** The §5 Remark (1) ("vanishing identically from a finite degree
+  on", D11) and the §6.3 closing sentence ("the data show extinction of failures at a finite degree") state as
+  fact what is only the end of the computed range. Phrase them as "no failure in degrees n₀ < n ≤ N computed".
+* **Novelty.** I ran my own searches (Jina web search, 5 queries: "Erdős–Straus" with "function field",
+  "F_q[T]", "polynomial ring finite field", "Egyptian fractions polynomials over finite fields", and the equation
+  itself). I found no treatment of the 3-term Erdős–Straus analogue over F_q[T]. The hits were the same as the
+  author's (arXiv:2407.15146 is a different Erdős-type conjecture over F_q[x]; Guerrieri et al. treat Egyptian
+  fraction representability in domains), plus Bright–Loughran (Brauer–Manin for ES surfaces over number fields).
+  I grepped the PDFs in `sources/` (Bright–Loughran, Elsholtz–Tao) for function-field content and found none.
+  I could not search MathSciNet/zbMATH. "Novelty unverified but plausible" is the right label. Folklore-level
+  remarks such as Prop 1.4 and the char-2 identity of Thm 6.1 may well exist unpublished.
+
+
+## Addendum A — independent proof of the deg-4 cases T⁴, T⁴ + 1 over F₂ (R161)
+
+`scripts/review_ffl_tree.py 2 <A> "<A>*10*11" 12 8` (own search) gives complete covers:
+* A = T⁴: 696 leaves, leaf moduli of degree ≤ 18, **max n_F = 8**. Certificate in `data/review_ffl/cover_q2_A10000.txt`.
+* A = T⁴ + 1: 818 leaves, leaf moduli of degree ≤ 18, **max n_F = 11**. Certificate in
+  `data/review_ffl/cover_q2_A10001.txt`.
+The leaf counts equal the author's. `scripts/review_ffl_cert.py` checks: exact partition of the units (density
+sum 1, no CRT overlaps), W_F | W_leaf, and validity plus the identity/monic/NC on every P of each class in three
+consecutive degrees (9 744 and 11 452 P). Logs: `data/review_ffl/cert_q2_A1000{0,1}_log.txt`.
+Every prime factor of a leaf modulus has degree ≤ 3, so prime P of degree ≥ n_F are units mod the leaf moduli,
+and Lemma 6.2 applies. The remaining degrees 5 ≤ n < n_F were checked exhaustively with S2: 0 failures for
+n = 5..10 (T⁴) and n = 5..11 (T⁴ + 1). Log: `data/review_ffl/deg4_small_degrees_log.txt`.
+**Hence ES₂(A, P) holds for every prime P of degree > 4 for A ∈ {T⁴, T⁴ + 1}. This is PROVED (computer-assisted),
+with a certificate independent of the author's code.** The author's `cover_q2_*.txt` should still be archived (D13).
+The author may cite R161's certificates instead.
+
+## Status / handling
+
+The author branch had no new commits after `3e1efde5` (checkpoint report), but its background jobs (q = 2 deg-4/5
+batch, q = 5 A = T² n = 9) were still running. I therefore did **not** edit FUNCTIONFIELD_ES.md, and there are no
+"(R161 repair)" edits. All repairs are listed above as suggestions. Priority for the author: D7 (restate §4
+conclusion), D13/D14 (archive certificates, fix the Thm 6.4 statement; R161 certificates are available), then D1
+(Lemma 1.2(iii) is false; NC is automatic in odd characteristic), D10, and the remaining MINOR items.

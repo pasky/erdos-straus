@@ -1,0 +1,10 @@
+q=3 A=10 n=4: 250 Type II data on irreducible P, mismatches 0, predicted signs {1: 54, -1: 196}
+q=3 A=10 n=5: 1082 Type II data on irreducible P, mismatches 0, predicted signs {1: 207, -1: 875}
+q=3 A=100 n=5: 210 Type II data on irreducible P, mismatches 0, predicted signs {1: 70, -1: 140}
+q=3 A=101 n=5: 230 Type II data on irreducible P, mismatches 0, predicted signs {1: 76, -1: 154}
+q=5 A=10 n=4: 955 Type II data on irreducible P, mismatches 0, predicted signs {1: 955, -1: 0}
+q=5 A=101 n=4: 97 Type II data on irreducible P, mismatches 0, predicted signs {1: 97, -1: 0}
+q=7 A=10 n=4: 2596 Type II data on irreducible P, mismatches 0, predicted signs {1: 584, -1: 2012}
+q=9 A=10 n=3: 386 Type II data on irreducible P, mismatches 0, predicted signs {1: 386, -1: 0}
+q=9 A=12 n=4: 5144 Type II data on irreducible P, mismatches 0, predicted signs {1: 5144, -1: 0}
+q=11 A=10 n=3: 608 Type II data on irreducible P, mismatches 0, predicted signs {1: 94, -1: 514}
