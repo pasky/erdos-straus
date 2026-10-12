@@ -240,17 +240,16 @@ Prop 2.3 kills every windmill on X that is defined on a whole congruence class. 
 be defined only on primes (using primality in the choice of pieces). Theorem 4.4 still applies, because it
 needs no density over n beyond F itself.
 
-**Theorem 5.1 (PROVED).** Let F be any set of primes ≥ 5 and let `(τ_p)_{p∈F}` be involutions of X(p) forming a
-finite-menu family as in Theorem 4.4(1), with `Fix τ_p ⊆ E(p)` for all p ∈ F. Let Z be the proper algebraic
-subset of Theorem 4.4 for τ's menu. Then for every p ∈ F: the point `(p+2,1,1)` lies in Z, and
+**Theorem 5.1 (PROVED).** Let F be any set of primes `p ≡ 1 (4)` and let `(τ_p)_{p∈F}` be involutions of X(p)
+forming a finite-menu family as in Theorem 4.4(1), with `Fix τ_p ⊆ E(p)` for all p ∈ F. Let Z be the proper
+algebraic subset of Theorem 4.4 for τ's menu. Then for every p ∈ F the point `(p+2,1,1)` lies in Z, and
 `|Fix τ_p ∩ Z|` is odd; in particular **E(p) ∩ Z ≠ ∅**. (No second involution σ is needed: |X(p)| is odd.)
 
-*Proof.* On `G(p) = X(p) ∖ Z`, τ_p ∈ {id, ρ} pointwise and G(p) is τ_p- and ρ-invariant. If `(p+2,1,1) ∈ G(p)`,
-it is fixed by both id and ρ, hence by τ_p, but it is not in E(p) (`A = p+1 ≡ 2 (4)` for p ≡ 1 (4);
-`A = p+1 ≡ 0 (4)` for p ≡ 3 (4) is an ES element — so for p ≡ 3 (4) the statement is vacuous-friendly: the
-periodic point *is* a certificate, and the theorem is only of interest for p ≡ 1 (4); restrict F accordingly).
-So for p ≡ 1 (4) it lies in Z, ρ acts freely on G(p) (its only fixed point in X(p) is `(p+2,1,1)`, Lemma 2.1),
-`|G(p)|` is even, so `|Fix τ_p ∩ G(p)|` is even, while `|Fix τ_p| ≡ |X(p)| ≡ 1`. ∎
+*Proof.* On `G(p) = X(p) ∖ Z`, `τ_p ∈ {id, ρ}` pointwise, and G(p) is τ_p- and ρ-invariant. The point
+`(p+2,1,1)` is fixed by id and by ρ, and is not in E(p) (`A = p+1 ≡ 2 (4)`); so it is not in G(p). Since it is
+the only fixed point of ρ on X(p) (Lemma 2.1), ρ acts freely on G(p), `|G(p)|` is even, hence
+`|Fix τ_p ∩ G(p)|` is even, while `|Fix τ_p| ≡ |X(p)| ≡ 1`. ∎
+(For p ≡ 3 (4) the periodic point `(p+2,1,1)` is itself an ES element, `4 | p+1`: the easy case.)
 
 So **a bounded-description involution on X can certify ES(p) only through ES elements lying on a fixed proper
 algebraic surface Z ⊂ ℚ³** (fixed = independent of p). Every such windmill is therefore no stronger than the
@@ -282,3 +281,43 @@ sparse: e.g. on `Z = {t = u}`, `E(p) ∩ Z = {t odd : t² − 1 | p + t}`, and f
 positive proportion of p ≡ 1 (24) have no such t. A general theorem "for every fixed proper surface Z, infinitely
 many hard p have E(p) ∩ Z = ∅" would need a classification of the surfaces carrying ≫ 1 points per prime on
 average (coordinate planes; possibly others) and is **not** proved here (CONJECTURE).
+
+Checks: `scripts/inv_stab_check.py 13` and `97` (sympy; all permutations, generic monomial-plus-translation
+maps) reproduce Prop 4.2(a)–(c): ES: only the 6 permutations; X: only id and ρ; Type II: the scalings
+`(λa, λb, c/λ², λk)` and the swap, plus solutions whose coefficients involve n (the n-dependent maps of
+Prop 4.2(c)). `scripts/inv_lemma52_check.py 1500`: Lemma 5.2 holds on all 275 E-elements of X(p),
+p ≡ 1 (8), p < 1500.
+
+## 6. Scope: what is excluded, what is left
+
+**Excluded (PROVED):**
+1. Any involution family on the O152 set X(n) with ES-only fixed points, of any complexity, defined on a
+   square class (Prop 2.3). Any windmill family on any sets whose τ-fixed points are certificates absent at
+   odd squares needs `|X(m²)|` even (Lemma 1.1).
+2. A divisor-type σ-fixed count whose odd point at primes is the factorisation `1·p` (the Zagier mechanism):
+   T1 forces `φ(1,h) = 0` (Prop 3.1). A T1-compatible divisor-type count must be "periodic point + square
+   detector" (Remark 3.2) — allowed, but it carries no information about p beyond non-squareness.
+3. Cross-slice coupling of generic points by finite-menu affine maps (pieces arbitrary, even prime-specific)
+   in ES coordinates, in O152's (t,u,v) (coefficients may depend on n) and (A,B,t) coordinates, in ET Type II
+   (a,b,c,k) and Type II SL₂ (f,f',c,d) coordinates (n-independent menus): Theorem 4.4. O152's SL₂ unipotents
+   act only on two planes (Remark 4.5).
+4. Finite-menu windmills on X restricted to primes certify only on a fixed proper surface (Thm 5.1); if that
+   surface is a union of coordinate planes, they fail for infinitely many p ≡ 1 (24) under Dickson's
+   conjecture (Cor 5.3, CONDITIONAL, sketch).
+
+**Not excluded (honest list of escapes):**
+* menus that are infinite or grow with p (e.g. divisor-moving scalings by every prime factor: unbounded
+  description complexity), and non-affine (polynomial/rational) maps beyond the n-dependent affine ones;
+* n-dependent menus in ET Type II and SL₂ coordinates beyond the families analysed (Prop 4.2(c), Rem 4.5);
+* auxiliary sets other than X (e.g. sets built on a quadric with infinite orthogonal group whose fixed loci
+  *map* to ES certificates), as long as their T1 behaviour (|X(m²)| even) and the image of the generic part are
+  compatible — Theorem 4.4 must be redone in each coordinate system;
+* windmills on X whose exceptional surface is not a union of coordinate planes (Remark 5.4: no theorem).
+
+**Assessment.** Every bounded-description windmill we can write down reduces, by Lemma 4.1, to the symmetry
+group of the level function in the chosen coordinates. For all natural ES coordinates that group is finite
+up to reparametrisation and divisor-moving scalings (Prop 4.2), and none of its elements changes the slice
+integer; this is the structural reason behind the O152/WINDMILL nulls. A windmill proof of ES would need a
+coordinate system in which ES certificates are the fixed points of an involution drawn from an *infinite*
+symmetry group of the level function (as `O(x²+4yz)` for Zagier), with the ES congruence preserved on generic
+points. Remark 4.5 shows that the obvious candidate (the SL₂/quadric coordinates) fails exactly there.
