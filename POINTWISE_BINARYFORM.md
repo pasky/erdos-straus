@@ -209,3 +209,33 @@ certificates (p = u² + v², u² + 2v², …).
   `(p/13) = −1` primes outside six classes mod 720720 (MORDELL Thm 3.1, ET Prop 1.9 classes). The
   invariant content of Cor 3.4 is: **after refining to the joint modulus, every square class is
   almost entirely uncovered**, exactly as in one variable.
+
+## 5. Structure of two-variable families (question (1) of the brief)
+
+Theorem 3.2 settles square classes. On non-square classes, which families are genuinely two-variable,
+i.e. not in `Q[n]⁶` with n = Q(u,v)?
+
+**Prop 5.1 (constant level gives nothing new; PROVED, any nondegenerate Q).** If c, d are constants,
+every Type I or Type II family for Q lies in `Q[n]⁶`.
+*Proof.* Type I: (2.9) reads `n² + 4c²d = f·f′` with `f′ = 4bcd − n`. Over C,
+`Q² + 4c²d = (Q − 2ic√d)(Q + 2ic√d)`, and each factor is a smooth affine conic `Q = const ≠ 0`, hence
+irreducible. Neither factor is defined over Q, so `Q² + 4c²d` is irreducible in Q[u,v]. Thus f or f′ is
+constant, and the other is `(n² + 4c²d)/const ∈ Q[n]`. Then `a = (n + f)/4cd`, `b = (n + f′)/4cd` and
+`e = (a + b)/c` lie in Q[n]. Type II: (2.21) reads `4c²dn + 1 = f·f′` with `f′ = 4bcd − 1`, an
+irreducible conic. Again one factor is constant and everything lies in Q[n]. ∎
+This extends O145's "no two-variable extension of the constant-level shape" (§5 there) to all
+constant-level families and all forms.
+
+**Prop 5.2 (Type II families valid on an open cone are one-variable; PROVED, using O145 Prop 3.2).**
+Let F be a Type II family for positive definite Q with `A_F ≠ ∅`. Then `F ∈ Q[n]⁶`.
+*Proof.* Fix θ ∈ A_F and a line `ℓ(t) = P₀ + tθ` not through 0. `P(t) = Q(ℓ(t)) > 0` on R, and all
+coordinates of `F∘ℓ` are positive for large t. O145 Prop 3.2 (Type II coordinates `p = 4dgg′ − h`,
+`g + g′ = ch` with (g, g′, h) = (a, b, e)) gives `G∘ℓ ∈ Q[P]` for every coordinate G. P(t) is
+symmetric about its vertex, so `G∘ℓ` is too. Hence `G∘σ_θ = G` on ℓ, where
+`σ_θ(x) = x − 2B(x,θ)θ/Q(θ)` is the Q-reflection along θ (B the bilinear form of Q). The lines ℓ are
+Zariski dense, so G is invariant under σ_θ for all θ in the open arc A_F. Products of two such
+reflections are Q-rotations through all small angles, so they generate SO_Q(R). Thus G is
+O_Q(R)-invariant, and `G ∈ R[Q] ∩ Q[u,v] = Q[Q]`. ∎
+So on cones Type II gives nothing new, and genuinely two-variable families, if any, are Type I with
+non-constant level. Prop 5.2's input for Type I (a Type I analogue of O145 Prop 3.2 for quadratic P)
+is O145's open question. §6 searches for them.
