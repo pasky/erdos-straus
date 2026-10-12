@@ -33,8 +33,8 @@ arithmetic at p", and a bound on the measure of the "all slices fail" set Z that
 
 **Lemma 3.1 (atom lemma; PROVED, trivial).** Let Z ⊆ Ω be measurable and let ω₀ ∈ Ω.
 (i) If `P({ω₀}) > β` and `P(Z) ≤ β`, then ω₀ ∉ Z.
-(ii) If `P({ω₀}) ≤ β`, the bound `P(Z) ≤ β` does not decide whether ω₀ ∈ Z:
-the set `Z ∪ {ω₀}` also satisfies it whenever `P(Z) + P({ω₀}) ≤ β`, and in general Z' = {ω₀} does.
+(ii) If `P({ω₀}) ≤ β`, the bound `P(Z) ≤ β` does not decide whether ω₀ ∈ Z, because the
+set Z' = {ω₀} also satisfies `P(Z') ≤ β`.
 So a probabilistic upper bound proves a pointwise statement **only through an atom heavier than
 the bound**. LLL-type lower bounds can only prove that Z ≠ ∅, which is the anti-ES direction.
 
@@ -61,8 +61,8 @@ Haar Z is never empty at any finite truncation. In this space the local lemma is
 (c) *Randomness over primes p ∈ (x, 2x], uniform.* Atoms have mass `1/π(x)`. Lemma 3.1(i) needs
 `#{p ∈ (x,2x] : ES(p) fails} < 1`, an exceptional-set bound **below 1**. Any Janson/Suen run
 in this space must input the joint distribution of primes in the classes `−4a²d (mod f)` for
-pairs of moduli. Unconditionally (BV) or under GRH the per-range error is at least `x^{1/2}`,
-summed over the moduli used, so it is never < 1. On the majorant side, CRT/Haar majorants save
+pairs of moduli. The best available error bounds are BV's `x/(log x)^A` and GRH's
+`x^{1/2}(log x)²` per modulus. Summed over the moduli used, neither is ever < 1. On the majorant side, CRT/Haar majorants save
 at most `C(log N)^{3/4}` against the `log N` needed to go below 1 (sieve-limit theorem,
 EXCEPTIONAL_THETA Thm 2.5 / Cor 3.4, DISCOVERIES (D)9). This is B6/T7: an average over p says
 nothing at a single p unless the total is < 1, and that is out of reach by a power of x.

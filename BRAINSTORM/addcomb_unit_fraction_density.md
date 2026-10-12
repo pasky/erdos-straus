@@ -66,8 +66,8 @@ congruence `f ≡ −1 (mod 4ad)` gives counts of size `p^{1+o(1)}` but loses ES
 **3.4 The additive structure is fake (PROVED, one line).** The e-slice condition (LONGSHOT_PIGEONHOLE
 Lemma 1.1) reads `a + b ≡ 0 (mod e)` with `ab | N`. That looks like a sum-product question
 (additive event on a multiplicatively structured set; Bourgain–Glibichuk–Konyagin-type sums of
-multiplicative subgroups). But a, b are units mod e (b ≡ −a forces `(a,e) = (b,e)`, and solutions
-need `gcd(a,e) = 1` after the standard reduction), so the condition is equivalent to
+multiplicative subgroups). But on the part with `gcd(a,e) = 1`, which is the part Lemma 1.1
+writes as ratios, b ≡ −a forces b to be a unit too, and the condition is equivalent to
 `a·b^{−1} ≡ −1` in `(ℤ/e)^×`. That is purely multiplicative: sum-product has no additive set to
 act on. The multiplicative covering version (Kneser) is already LONGSHOT_PIGEONHOLE Prop 1.4
 (needs a number of prime factors linear in the index).
@@ -86,10 +86,10 @@ Prop 2.5 of the red team (a denominator prime ℓ ≥ n_p with χ_p(ℓ) = −1)
 * **B2.** At k = 3 the local engine reproduces the parametrisation, i.e. the divisor-class form (§3.2).
 * **B3.** It fails decisively: the number of terms needed is `N^{1−o(1)}` against 3, and the
   representation count is `p^{o(1)}` against the power needed (§3.1, §3.3).
-* **B5.** At `n = m²` the q-adic cancellation is satisfiable by the trivial "solutions via m"
-  only when composite descent is allowed. For Type I/II proper, the step "major arcs positive"
-  (singular series > 0) would be the false step: the genus character cancels the local
-  densities exactly (O128 Props 9.1–9.2).
+* **B5.** At `n = m²` the local cancellation of §3.2 is still satisfiable, since local
+  solutions exist (B5). In a hypothetical k = 3 circle method, the step that is false at
+  squares would be "major arcs positive": the genus pairing cancels the local densities
+  exactly (O128 Props 9.1–9.2). But the method never reaches that step at k = 3.
 * **B6/T7.** Not reached: Bloom/Croot are pointwise in the target (1 or 1/d), but at density
   scale in the set A, which is the wrong axis for ES.
 
