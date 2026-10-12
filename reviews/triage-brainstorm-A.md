@@ -136,3 +136,22 @@ each tested point. By Mazur, a torsion point has order ≤ 12, so the chord–ta
 The memo's worry about ℤ/12 and ℤ/2×ℤ/6 concerns only a general proof for all p ≡ 1 (4). Open sub-question:
 none for ES. "ES points ↔ rank-jump fibres" is a curiosity. Novelty: C_N is classical (Bremner–Guy–Nowakowski,
 cited from memory); the fibre table is probably known; the ES reading is plausibly new but inert. **Promise 1.**
+
+**farey_chain_frieze (O144; memo: PARTIAL as a reformulation, COLLAPSES to B2 as a route).** AGREE. Lemma C.0 was
+re-derived by hand: k₁q₃ + q₀ = k₁k₂q₂ − (q₀+q₂) + q₀ = (k₁k₂−1)q₂. Prop C.1 is then nearly tautological. Any
+triple (dq₀q₁, dq₁q₂, dq₂q₃) with the two divisibilities sums to (1/d)·span. The Type I/II chain assignments check
+out. The "unscaled chain ⟺ g square" classification (EVIDENCE, p < 1500) and the L² mass heuristic for the unscaled
+sub-family are plausible. False-negative check: the frieze/Farey geometry is n-agnostic, and the only arithmetic is
+the span divisibility, which is the slice divisor event. Correctly B2. Open sub-question: the weak CONJECTURE that
+unscaled chains miss infinitely many primes. It is a sub-family failure, uninteresting. Novelty: a repackaging of
+ET's SL₂ matrices; probably folklore in frieze language. **Promise 0.**
+
+**farey_ford_cf (O144a; memo: COLLAPSES B2/B1).** AGREE. Lemma A.1 restates ET Prop 2.2 (bound N b = pe + 1 ≤ 2pb + 1
+⇒ N ≤ 2p + 1/b, consistent with the memo's N ≤ 2p + 2). B1 holds because, at fixed N, e₀ ≡ −p⁻¹ (mod N) is
+congruence data. The B5 line (the failing step at m² is the divisor event, never CF input) and the Zaremba screen
+(Zaremba controls the size of partial quotients, the divisor event does not see sizes, and bounded type *thins* the
+family by p^{2δ_A−2}) are correct. False-negative check: one could ask whether a *thin-semigroup* orbit (BK/Huang
+technology) could be designed so that the divisor event is built into the semigroup. The generators would have to
+depend on p through e ≡ −p⁻¹ (mod N), so the orbit is a moving family and the BK circle method (fixed semigroup,
+almost-all q) has no pointwise version. Open sub-question: none. Novelty: low (restatement); the
+"Ford-circle-of-denominator-p misses {5, 17, 41, 241}" census is a curiosity. **Promise 0.**
