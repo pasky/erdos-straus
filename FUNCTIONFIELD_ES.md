@@ -191,3 +191,29 @@ the failure proportion decaying like exp(−θ·n³/q^k) and vanishing identical
 (2) The same proof works over Z: "p + 1 has a prime factor g ≡ −(p+1)/h (mod 4)". It is the classical "almost all
 primes" mechanism. It says nothing about every P, which is the lottery (B2).
 (3) No characteristic-specific input is used. RH (Weil) only replaces Bombieri–Vinogradov.
+
+## 6. Small characteristic: both covering obstructions vanish, and uniform proofs exist
+
+**Theorem 6.1 (F₂, A = T²; PROVED).** Every irreducible P ∈ F₂[T] of degree n ≥ 3 satisfies ES₂(T², P), via
+an explicit identity.
+*Proof.* P has no root in F₂, so P(0) = P(1) = 1. If P ≡ 1 (mod T²), then P ≡ −1 and Prop 1.4(i) applies.
+Otherwise P ≡ 1 + T (mod T²). Then R := (P + T + 1)/T² is monic of degree n − 2 ≥ 1 with R(1) = P(1) = 1. Hence
+c := (R + 1)/(T + 1) is monic of degree n − 3, and
+`T²/P = 1/R + 1/(cP) + 1/(cRP)`,
+since cP + R + 1 = c(P + T + 1) = cT²R. The degrees are n − 2, ≥ n, ≥ n, so NC holds. ∎
+(Type II datum (a, b, c, d) = (1, R, c, 1), E = T + 1; the family is linear in P in O140's sense.)
+EVIDENCE consistent: the exhaustive run finds N_II(P) ≥ 1 for every irreducible P, n = 3..24.
+
+**Why this exists over F₂ and not over Z (PROVED analysis).** Two mechanisms, both absent over Z:
+(a) **Collapse of the size obstruction in char 2 and 3.** O140 Prop 4.1 (char ≥ 5) shows that no linear family
+is valid on P ≡ 1 (mod W_F). The proof excludes E = −1 because lc(E) ∈ {1, 2}. In char 2, 1 = −1, and in
+char 3, 1 = −2. So the "size-obstructed" class P ≡ 1 (mod A) *is* the trivially solvable class P ≡ −1 resp.
+−2 of Prop 1.4. Over Z, 1 ≢ −1, −2 (mod 4): the class n ≡ 1 stays uncoverable (it is the class of the hard
+primes).
+(b) **T^q − T confines primes.** Every irreducible P of degree ≥ 2 is a unit modulo T^q − T = ∏_{c∈F_q}(T − c),
+i.e. its class lies in (F_q^*)^q. For q = 2 this group is trivial, so *all* irreducible P lie in the single
+class P ≡ 1 (mod T² + T). Over Z there is no modulus m > 2 for which all large primes share one residue class.
+For q = 3 the group (F_3^*)^3 = {±1}^3 still has 8 classes.
+Combined with the absence of the square obstruction (§4), char 2 and 3 have **neither** of the two Z
+obstructions to a finite covering (Mordell/Theorem C: square classes; O140 Prop 4.1: the class 1). Whether a
+finite covering exists is then a finite question per (q, A); §6.2 examines it.
