@@ -240,3 +240,43 @@ O_Q(R)-invariant, and `G ∈ R[Q] ∩ Q[u,v] = Q[Q]`. ∎
 So on cones Type II gives nothing new, and genuinely two-variable families, if any, are Type I with
 non-constant level. Prop 5.2's input for Type I (a Type I analogue of O145 Prop 3.2 for quadratic P)
 is O145's open question. §6 searches for them.
+
+## 6. Search for genuinely two-variable Type I families (EVIDENCE)
+
+`scripts/bf_search_typeI.py`. For levels c ∈ {1, 2, 3} (`const`) or c ∈ {1, 2} ∪ {affine-linear
+αu + βv + γ, coefficients in {−1, 0, 1, 2}} (`lin`, 62 values), and d any nonzero polynomial of degree ≤ 2
+with coefficients in {−1, 0, 1} (728 values), it factors `N = n² + 4c²d` over Q (ET (2.9)). It tries
+every divisor `f = κf₀` (κ fixed by `4cd | n + f`; if κ is free, all ±m/n with m, n | 64·content)
+and keeps polynomial solutions. It verifies the ET equations symbolically and discards families in
+`Q[n]⁶`, i.e. those invariant under the infinite-order rational rotation (3/5, −4/5; 4/5, 3/5).
+* **Positive control:** on the degenerate form `u² + 21` (v a dummy) it rediscovers the O145 k = 21
+  family `(c, d) = (1, 22)`, `f = u² ∓ 2u + 23`.
+* **Q = u² + v²: 0 genuinely two-variable families** in both ranges (`data/bf/search_sum2_const.txt`,
+  `data/bf/search_sum2_lin.txt`; 3 × 728 and 62 × 728 level pairs).
+  For constant levels this is Prop 5.1. For linear c it is new, and only EVIDENCE: the search box is
+  small, κ is restricted, and a, b, e must come out polynomial (not merely integer-valued on a coset).
+* Engineering note: the integrality and square-class audit (an M² loop) is skipped when
+  `M = lcm(8, K, 2|D|) > 1500`. It did not trigger for u² + v², since no families were found.
+
+Assessment: genuinely two-variable ET families for a definite binary form are at least rare. Type II
+has none on cones (Prop 5.2), constant levels give none (Prop 5.1), and the small linear-level box
+gives none. Theorem 3.2 makes this moot on square classes. On non-square classes,
+one-variable identities already do the work.
+
+## 7. Summary and labels
+
+* Lemma 1.1 — square vanishing for arbitrary N-points (ET Prop 1.6 without coprimality): PROVED.
+* Lemma 2.1 — odd-square values of Q in every square-class coset and sector (Hasse–Minkowski + weak
+  approximation): PROVED. Lemma 2.2 — profinite "class of one" for u² + v²: PROVED, table CERTIFIED.
+* **Theorem 3.2** — no polynomial Type I/II family (any degree) is valid on a cone of a square
+  class; its valid points in square classes lie near finitely many directions: **PROVED,
+  unconditional.** Lemma 3.3 (rational families): PROVED.
+* **Cor 3.4** — every finite set of polynomial or rational "Fermat + identity" certificates misses
+  almost all primes of every square class mod the joint modulus. Hence it misses infinitely many
+  (indeed a positive proportion of) Mordell-hard primes. PROVED relative to Hecke's equidistribution
+  theorem. Novelty: two-variable analogue of Mordell–Schinzel, folklore-level; the proof is standard.
+* Prop 5.1 (constant level ⇒ one-variable, all forms): PROVED. Prop 5.2 (Type II on cones ⇒
+  one-variable): PROVED relative to O145 Prop 3.2.
+* Open: indefinite forms in cusp regions (4.3); (x,y,z)-only families (4.4(iv)); procedures with
+  floor or factorisation in (u,v) (a two-variable Theorem C, would need H); unbounded families of
+  forms (E1/B2); Type I analogue of O145 Prop 3.2.
