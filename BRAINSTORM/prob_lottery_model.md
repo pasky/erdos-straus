@@ -159,3 +159,18 @@ By-products (EVIDENCE; small, possibly useful for the barrier note or for future
 None of these is a theorem. A Hardy–Littlewood-type asymptotic `f_II(p) ~ L³·𝔖(p)` is
 false in the data, because of the small-e heavy tail. The natural replacement CONJECTURE,
 `f_II(p) ≥ c·L³` for all large p, is just a strengthening of ES.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§3.1: X_e(p) must count primitive factorisations (gcd(a,c) = 1, the counter's normalisation); the raw count
+  double-counts points.** Example [lottery]: p = 29, e = 3, N_e = 8: raw factorisation counting gives 6 ordered
+  tuples, only 4 primitive; (a,b,c,d) = (2,4,2,1) and (1,2,1,4) both give the solution (8,116,232). The genuine
+  empty slice p = 73, e = 3 is confirmed. (The counter itself normalises; only the text is wrong.)
+* §§3.5–3.6 inference: overdispersion and positive correlation do not exclude a positive floor (a count uniform on
+  {1,11} has variance/mean 25/6 but never vanishes; equal type counts give perfect correlation with a common floor).
+  The data stand; the inference to "no rigidity / no joint positivity" is withdrawn.
+* Calibration is in-sample; square-class saturation from twelve primes and the infinite-tail extrapolation are
+  EVIDENCE/heuristic only. See also the adv_new_drivers erratum on the "log τ(p−1)" feature (no conclusion here uses it).

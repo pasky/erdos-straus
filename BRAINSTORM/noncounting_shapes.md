@@ -119,3 +119,18 @@ By-products (PROVED, elementary; modest novelty):
 ultraproducts, Ramsey, overspill, minimal counterexample) is provably blind to ES, because primes accumulate on
 (Ẑ^×)² ⊆ K. A non-counting route must use the archimedean size of p against moduli ≍ p, and that is the regime of
 B2/B3.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§3 "modulus 4ab ≤ p+e, i.e. at the Planck scale Q ≍ p" is false:** the bound Q ≤ p+e does not give Q ≍ p.
+  Example [Q]: a = b = e = 1, c = 2, d = (p+1)/4 is a Type II solution with Q = 4ab = 4 for every prime p ≡ 3 (4).
+  Correct: some primes need large moduli (Thm M/C), not all.
+* §3(a): from "primes accumulate on K" it does not follow that every first-order/compactness argument is blind:
+  first-order arithmetic includes multiplication, order and primality; disjoint sets can share limit points. The
+  sentence "even a complete description of K would not decide whether primes lie in it" is false: an exact
+  description of K could exclude ordinary primes.
+* POINTWISE_SIZE Thms M/C need a defined finite formal run (§4.2 leaves non-formal primitives open).
+  **Corrected verdict:** PARTIAL → H-A (displayed shapes collapse).

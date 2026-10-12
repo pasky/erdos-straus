@@ -113,3 +113,15 @@ adelic. In ES the count is not adelic, so neither the GS failure mechanism nor t
 Possible next step (not taken): fit f(p) to Σ_e (slice main terms depending on p mod e) and check whether the
 residual is Poisson. That would quantify how much of the ES count is "slice-local" vs genuinely random. It is
 EVIDENCE-only work and does not lead to a proof.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **F5 (line 83) "no size bound confines d" is false:** Type II gives 4abd = p+e and e ≤ a+b ≤ 2ab, hence
+  ab(4d−2) ≤ p and d ≤ (p+2)/4 [F5: checked on all Type II solutions, p < 1500]. Correct statement: no
+  p-*independent* cutoff confines d.
+* F4's finite-window ratios establish neither an asymptotic main-term bias nor the impossibility of any adelic
+  comparison with heights, restrictions and the bad prime. GS's averaging over k is B6, but a growing slice family at
+  fixed p is not excluded by redteam-automorphic-2 Thm 2.2(iii). **Corrected verdict:** PARTIAL → H-F.
