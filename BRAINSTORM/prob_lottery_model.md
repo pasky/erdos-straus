@@ -103,8 +103,22 @@ lottery (EVIDENCE, scope ≤ 3·10⁷).
 **3.6 No conservation law between the types; a common driver (EVIDENCE).** One could hope that Type I
 and Type II are complementary (a "conservation law": when one is small the other is large).
 The data say the opposite. Exact `f_I` comes from R123's counter `scripts/review_r123_count.c`,
-over 1.29M primes in [2
-data]
+over 1.29M primes in [2²⁰, 3·10⁷]; see `logs/bs_prob_typecorr.txt` and `logs/bs_prob_drivers.txt`.
+* `corr(log f_I, log f_II)` = 0.905 raw, and 0.874 / 0.864 / 0.850 after removing the cell
+  means mod 24 / 840 / 120120. Type I and Type II are strongly **positively** correlated.
+* A common driver lies beyond any fixed modulus: the divisor structure of `p − 1`. On 2500
+  random primes `p ≡ 1 (24)`, `corr(log f/L³, log τ(p−1))` is −0.40 (f_I) and −0.33 (f_II).
+  Reading (Assessment): every witness modulus M | p − 1 is dead (redteam Lemma 3.1,
+  `p ≡ 1 (mod M) ⇒ N_M(p) = 0`), so a highly divisible `p − 1` is a "class of one" at
+  p-dependent moduli. This is quenched disorder that no fixed-Q cell captures.
+* The truncated `log L(1, χ_p)` (ℓ ≤ 3000) is only weakly correlated (+0.06 with f_I,
+  +0.13 with f_II, within mod-24 cells), and with the opposite sign to the naive "QR at small
+  primes ⇒ fewer witnesses" expectation.
+* Small-e shifts drive both types: `Σ_{e≤16} τ((p+e)/4)` correlates +0.39 with f_I and +0.42
+  with f_II.
+
+So the two lotteries share their quenched disorder: both are suppressed when `p − 1` is highly
+divisible and the shifts `(p+e)/4` are near-prime. No complementarity can rescue a single p.
 
 ## 4. Barrier screen
 
@@ -138,6 +152,9 @@ By-products (EVIDENCE; small, possibly useful for the barrier note or for future
    p → ∞ at fixed y).
 4. The calibrated model predicts ≈ 0.02 bulk-sterile primes in [2²⁰, 3·10⁷] and `≲ 10⁻⁸` beyond
    10⁸.
+5. f_I and f_II are strongly positively correlated (0.85 within cells mod 120120), so there is
+   no conservation law. A common quenched driver is the divisor structure of `p − 1`, since
+   every M | p − 1 is a dead witness modulus (§3.6).
 
 None of these is a theorem. A Hardy–Littlewood-type asymptotic `f_II(p) ~ L³·𝔖(p)` is
 false in the data, because of the small-e heavy tail. The natural replacement CONJECTURE,
