@@ -51,7 +51,7 @@ all hard primes. Both leave open set-theoretic pieces and identities valid on pr
 **1.3 New necessary condition, testable on composites.** If (W) holds for all n coprime to M (as every
 Zagier-type identity does), then the parity vector `(W(n) mod 2)_{n≤X}` lies in the F₂-span of the
 divisor-type vectors `D_{r,s}(n)=#{n=uv, u<v, u≡r, v≡s (M)}` and square vectors
-`Q_r(n)=[n=u², u≡r (M)]`. Over all n this is a **strong** constraint (≈X equations, 2φ(M)²... unknowns),
+`Q_r(n)=[n=u², u≡r (M)]`. Over all n this is a **strong** constraint (≈X equations, ≈φ(M)²+φ(M) unknowns),
 much stronger than "W(p) odd for p in a class", which needs only ≈φ(M) unknowns. The test is GF(2) linear
 algebra on the span of many candidate weights at once.
 
