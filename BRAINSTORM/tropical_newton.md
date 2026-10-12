@@ -92,3 +92,14 @@ pattern, and its liftability is the slice divisor event.
 
 By-product (PROVED, elementary, probably folklore): the exact p-adic patterns (0,0,1) / (0,1,1) for prime n.
 Pole order ≥ 2 at p is ruled out by the archimedean place alone.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (per-memo paragraph).
+Scope corrections only; no computational counterexample is involved.
+
+* **"A Newton polygon sees valuations, never residue classes" (line 66) holds for an individual local Newton
+  polygon, not for the complete adelic collection:** by T2 the full set of labelled finite valuations reconstructs
+  each positive rational, hence its residues. Neither POINTWISE_SIZE's finite-formal-run hypothesis nor
+  redteam-automorphic-2 Thm 2.2(iii)'s fixed-Θ₀ hypothesis applies to a growing-support adelic certificate.
+  **Corrected verdict:** PARTIAL → H-F (single Newton polygon collapses; the integral lift is the open problem).

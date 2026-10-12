@@ -61,3 +61,14 @@ None needed; the collapse is structural. The volume/boundary comparison is eleme
 
 ## 5. Viability Assessment: **COLLAPSES** to B3 (at the step "volume dominates boundary"), and (O1) is
 inapplicable (upper bounds, algebraic sets). There is no by-product theorem.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (per-memo paragraph).
+Scope corrections only; no computational counterexample is involved.
+
+* The failure shown is of the displayed hyperbola thickening and black-box discrepancy estimate (main-term/error
+  ratio ≍ δ log N/q forces δ ≫ q/log N, while exact-product thickness δN < 1/2 makes it negligible), not of every
+  o-minimal encoding. B3 (CONDITIONAL_ES Prop 2.3) does not exclude an exact encoding with sub-power main term and
+  smaller error. §1 should define the real solution surface; the integer-point family S_n is not thereby uniformly
+  semialgebraic. **Corrected verdict:** PARTIAL (promise 0; no construction approaches the open target).
