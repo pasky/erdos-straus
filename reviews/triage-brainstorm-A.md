@@ -222,3 +222,22 @@ reformulation again (a fixed finite e-set is Thm 2.2(iii)). Growing e-sets is H-
 D = divisors of N is not a subgroup and |D| ≤ p^{o(1)}. (c5) (Σ_e(N) = H_e when orders are small; only e = 3 for
 squarefree N) is correct and classical in effect. Open sub-question: none beyond H-A. Novelty: folklore-level
 reformulations; the box census is new EVIDENCE that a box-wise certificate cannot exist. **Promise 1.**
+
+**gon_lll_relation_lattice (O148b; memo: (b1) COLLAPSES, (b2) PARTIAL as a reformulation).** AGREE, with one
+**mild overclaim**. (b1) is right: Coppersmith/Lenstra/CHN give "root ⇒ root of h" and multiplicity *upper* bounds,
+and a short vector exists in every such lattice, odd squares included. The (b2) split of an e-slice into a membership
+half (−1 ∈ H_e) and a box half (coset of the relation lattice L_e meets ∏[−v_i, v_i]) is an exact, useful restatement
+of PIGEONHOLE Lemma 1.1. (i) (membership fails at odd squares) is correct.
+
+Overclaim: "the genus/matroid half of ES is a theorem" (stated as PROVED) needs, for every large prime p ≡ 1 (4), a
+prime q ≡ 3 (mod 4) with (q/p) = −1 and q ≤ (p+4)/3. The memo itself flags the needed Linnik/Burgess-type input as
+"from memory, not checked". This is almost certainly true unconditionally: the condition is a union of index-4
+classes mod 4p, and least-prime-in-a-non-residue-class results (Linnik–Vinogradov / Pollack-type bounds ≪ p^{1/4+ε})
+suffice. But it is a citation gap, so the label should be CONDITIONAL-on-citation, not PROVED. It is also
+content-free for ES: the membership half is a single congruence condition and was never the obstacle.
+
+The box half (ℓ^∞ inhomogeneous minimum; Kannan–Lovász useless since λ_i ≥ 1) is correctly reduced to B4
+(deterministic covering needs many prime factors) or B2 (probabilistic). The EVIDENCE table (membership stable at
+≈ 50 %, box success decaying like τ(N²)/|H_e|) is consistent. Open sub-question: the Rogers/Ajtai mean-value idea for
+the covering radius of L_e is H-A in lattice language. Novelty: a repackaging of PIGEONHOLE Lemmas 1.1/1.2; the
+two-half decomposition is a nice expository by-product. **Promise 1.**
