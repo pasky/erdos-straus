@@ -41,8 +41,9 @@ is a sporadic point of its own fibre.**
 * (PROVED) The transposition y ↔ z is an involution of C_N with fixed points (those with y = z), hence of the form
   P ↦ T − P; it fixes the torsion point (1:0:0), so T = 2·(1:0:0) is torsion. A point with two equal u_i satisfies
   2P = T and is therefore torsion.
-* (PROVED) For p ≡ 1 (mod 4), 4/p = 2/x + 1/z has no solution. Indeed (4x − 2p) | px forces 2x − p | p, so
-  x = (p+1)/2 and z = p(p+1)/4, which requires p ≡ 3 (mod 4).
+* (PROVED) For p ≡ 1 (mod 4), 4/p = 2/x + 1/z has no solution. If p ∤ x: z = px/(4x−2p) and
+  gcd(4x−2p, x) | 2 force (2x − p) | p, so x = (p+1)/2 and z = p(p+1)/4, which needs p ≡ 3 (mod 4). If x = pk:
+  z = pk/(4k−2) forces (2k−1) | p, so k = (p+1)/2, and then z = k/2 needs k even, again p ≡ 3 (mod 4).
 * (EVIDENCE) In all 441 solutions with p < 120, a point is torsion (order ≤ 12, tested by chord–tangent) **iff**
   two u_i coincide (28 points, all with p ≡ 3 (mod 4)). So every ES point of a prime p ≡ 1 (mod 4), and in
   particular of the hard core p ≡ 1 (24), is a non-torsion point. It witnesses **rank E_N(ℚ) ≥ 1 at N = 4s/p**.
