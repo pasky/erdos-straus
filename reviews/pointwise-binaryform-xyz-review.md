@@ -107,3 +107,18 @@ Presentation points (MINOR m2): (i) Step 6 says "ρ_ℓ ≥ 1 − (4 deg G + 1)/
 set — correct, but the exceptional set also contains the primes 𝔩 at which V mod 𝔩 = 0 or V, V̄
 collide (ℓ | D, already excluded by ℓ ∤ N); worth one clause. (ii) the box B₀ must avoid 0 (it does,
 being inside the open cone Γ) — say so, since |Y_Z| ≫ T is used in Step 5.
+
+**Numerical companion (from scratch, runs the proof's construction rather than a direct search):**
+`scripts/review_bf2_lemma84_construct.py` → `data/review_bf2/lemma84_construct.txt`. For
+Q ∈ {u²+v², u²+uv+v², u²+2v², u²+uv+2v², 2u²+uv+3v² (D = −23, h = 3, a non-principal form), u²+5v²},
+M ∈ {8, 24, 40, 16, 48, 56, 184}, every (square class mod M, octant) pair (24 832 pairs), it performs
+Step 1 (primitive X₁ ∈ unit·C, arg in a closed sub-arc), Step 2 (gcd(w₀,Mw₁) = 1), Step 3 (Y°, ψ(Y°) =
+k₀X₁; checks primes of k₀ | 2Dw₀ and w₀ | k₀), Step 4 symbolically in sympy (X_Z, F₁ integral,
+≡ X₁, w₁ mod M, non-constant coefficients of F₁ ≡ 0 mod w₀M, Q(X_Z) = F₁²), takes the first
+Dirichlet prime λ ≡ μ⁻¹ (M), λ > 50, λ ∤ N, and counts Z in a box around T·Y°/|Y°| (T = 60) with
+λX_Z in the open octant and (2)–(4) for G = (u−v)(2u+v−1)(u²−3v+2)·v·(u+2v) (G(0,0) = 0, Q ∤ G),
+H = (u−3v)(u+v)(2u−v). Result: 0 failures of every Step-3/4 claim, 0 pairs without a good Z;
+the fraction of good Z per box is ≥ 0.16 everywhere. (A first run with too small a point search
+missed 2 of 23 unit-orbits of square classes for 2u²+uv+3v² mod 184; the smallest primitive square
+points there are (−218,−367; 761) and (−746,769; 1521) — a search-box effect, confirming the
+author's similar remark, not a counterexample to Lemma 2.1.)

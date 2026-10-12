@@ -1,0 +1,9 @@
+(1, 0, 1) 8 {'pairs': 128, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.4791666666666667}
+(1, 0, 1) 24 {'pairs': 512, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.5510204081632653}
+(1, 0, 1) 40 {'pairs': 1024, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.6122448979591837}
+(1, 1, 1) 24 {'pairs': 576, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.5217391304347826}
+(1, 0, 2) 16 {'pairs': 512, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.20408163265306123}
+(1, 0, 2) 48 {'pairs': 1024, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.5918367346938775}
+(1, 1, 2) 56 {'pairs': 1344, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.5416666666666666}
+(2, 1, 3) 184 {'pairs': 16192, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.22448979591836735}
+(1, 0, 5) 40 {'pairs': 2560, 'fail_step1': 0, 'fail_k0': 0, 'fail_poly': 0, 'nogood': 0, 'minratio': 0.2}
