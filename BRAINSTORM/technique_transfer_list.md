@@ -82,9 +82,10 @@ first failing step (B1–B6, T1–T8 as in the brief).
 
 10. **Heath-Brown square sieve.** *Tempting:* T1 says ES Type I/II fails at squares, and sterile primes
     "mimic squares". If avoidance of all forced classes forced (p/q) = +1 for all q ≤ Q, Burgess-type
-    least-non-residue bounds would give ES. *Breaks:* the avoider set is not a square-class condition. Its
-    residue density decays like exp(−c(log)^{3/4}) ((D) chain), far more slowly than square classes
-    (2^{−ω}), and it is pure congruence data (**B1**, Thm M/Prop A). The square sieve is an upper-bound
+    least-non-residue bounds would give ES. *Breaks:* avoiding the forced classes modulo Q is a congruence
+    condition that *contains* the square classes mod Q, because forced classes contain no squares (T1).
+    No argument known to the campaign makes it *contained* in them. Each forced class excludes only a
+    few residues, while square classes have density 2^{−ω(Q)}. Avoidance is also pure congruence data (**B1**, Thm M/Prop A). The square sieve is an upper-bound
     tool besides. Collapses at "avoidance ⇒ quadratic residuosity".
 
 11. **Friedlander–Iwaniec / Heath-Brown asymptotic sieve with bilinear (Type II) input.** This is the
