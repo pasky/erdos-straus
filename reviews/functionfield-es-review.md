@@ -229,3 +229,31 @@ Defects:
   X = (1+E)/A". In char ≠ 2 the reduced sum is a nonzero polynomial of degree < deg E (when deg a₀ is small), so
   E cannot divide it. In char 2 it can vanish. I did not re-review the full proof.
 
+### C10. EVIDENCE tables (§3) — spot-checks all MATCH
+
+My S2 solver (own arithmetic, own irreducibility test, own factorisation) recomputed the complete failure
+*lists* (not only the counts) and compared them with `data/ffl/fail_*.txt`. Log
+`data/review_ffl_failcmp_log.txt`. Exact matches:
+(q, A, n) = (5,T,2..4), (7,T,2..5), (3,T²,3..5), (3,T²+1,3), (3,T²+1,6), (4,T²,3..7), (5,T²,3..5). That
+covers counts 2/10, 2/40, 1/150, 6/21, 21/112, 25/588, 16/3360, 3/8, 2/18, 2/48, 2/8, 1/116, 8/20, 12/60,
+16/204, 6/670, 4/2340, 24/40, 49/150 and 82/624.
+Zero-failure entries recomputed: (4,T,2..7), (3,T²,6..8), (3,T²+1,7). Larger cases are listed in the addendum
+if they finished. I did not recompute the mean-count constants C(q, n), θ, or the tilt means of §4/§7. Those are
+EVIDENCE/Assessment and low-stakes.
+
+### C11. Labels (§7) and novelty
+
+* §7.1–7.2 are labelled EVIDENCE and §7.3 is labelled Assessment. That is correct. The extinction exponent
+  n₀ ≈ 1.5·(q log q)^{1/2} is fitted on two data points (q = 5, 7), and the "predictions recorded before the
+  runs" are fine as Assessment. **D17 (MINOR).** The §5 Remark (1) ("vanishing identically from a finite degree
+  on", D11) and the §6.3 closing sentence ("the data show extinction of failures at a finite degree") state as
+  fact what is only the end of the computed range. Phrase them as "no failure in degrees n₀ < n ≤ N computed".
+* **Novelty.** I ran my own searches (Jina web search, 5 queries: "Erdős–Straus" with "function field",
+  "F_q[T]", "polynomial ring finite field", "Egyptian fractions polynomials over finite fields", and the equation
+  itself). I found no treatment of the 3-term Erdős–Straus analogue over F_q[T]. The hits were the same as the
+  author's (arXiv:2407.15146 is a different Erdős-type conjecture over F_q[x]; Guerrieri et al. treat Egyptian
+  fraction representability in domains), plus Bright–Loughran (Brauer–Manin for ES surfaces over number fields).
+  I grepped the PDFs in `sources/` (Bright–Loughran, Elsholtz–Tao) for function-field content and found none.
+  I could not search MathSciNet/zbMATH. "Novelty unverified but plausible" is the right label. Folklore-level
+  remarks such as Prop 1.4 and the char-2 identity of Thm 6.1 may well exist unpublished.
+
