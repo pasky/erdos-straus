@@ -94,3 +94,19 @@ condition) hold for all irreducible P of degree d and all large q?
 * If yes, the reason must be that the moduli reach degree d, the analogue of "Type II moduli must exceed
   exp(c(log p)^{1/4})".
 * Deciding it needs a brute-force search over 𝔽_q[T] for small q and d ≤ 4. This was not done (budget).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **The odd-square obstruction does not transfer to F_q[T] without extra hypotheses.** Counterexample [FF] (O157,
+  re-checked here with sympy): over F₅[T], A = T², P = (T²+2)², (a,b,c,d) = (1, T+1, T+2, T−1) satisfy
+  A·abcd = a+b+P·c, giving the monic Type II decomposition A/P = 1/X + 1/Y + 1/Z with X = abd, Y = acdP, Z = bcdP, at
+  a genuine square P. The ℤ obstruction uses that −1 is a non-residue mod 4; for q ≡ 1 (4) this fails.
+* Bounded degree does not mean finitely many slices independent of q (a coefficient family can have q^r members);
+  non-abelian Frobenius data are not automatically under POINTWISE_SIZE Thm C (§4.2, E3 excludes it).
+* §3.3(ii): with three monic denominators leading cancellation is possible only in characteristic 3, not throughout
+  odd characteristic.
+* **Corrected verdict:** PARTIAL → H-A; the F_q[T] analogue (fixed q, char ≥ 5, large-degree monic irreducible P) is
+  an open test bed.

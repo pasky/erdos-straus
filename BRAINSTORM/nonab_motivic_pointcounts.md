@@ -70,3 +70,16 @@ reciprocity remark in MORDELL13E §2).
 constant mixed Tate).** The cubic-residue sub-idea **collapses** too: there is no cubic T1 analogue (Prop 3.3).
 By-products: Prop 3.1 (PROVED, a crisp exact formula, `#U_n(𝔽_ℓ) = ℓ² + 1`; novelty: probably folklore,
 not found in BL from memory); Prop 3.3 (EVIDENCE).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **Prop 3.1 is false in characteristic 2** (it says "for every prime ℓ"). Over F_q with q = 2^k the coefficient 4
+  vanishes, so U_n reads n(xy+yz+zx) = 0: the counts are q² for n ≠ 0 and q³ for n = 0. Verified [motivic]:
+  #U₁(F₂) = 4 (not 5), #U₀(F₂) = 8 (not 7), #U₁(F₄) = 16, #U₀(F₄) = 64. **Corrected statement:** Prop 3.1 holds for
+  odd ℓ (re-checked at q = 3, 5, 7); Cor 3.2's constant-zeta assertion likewise needs characteristic 2 excluded.
+* Equal zeta functions determine only virtual cohomology; the mixed-Tate claim needs the split geometric model
+  (scaling gives an actual product family over n ≠ 0), which is the stronger and correct justification.
+* Six successful nonsquare cubes do not establish absence of all higher-residue obstructions (EVIDENCE only).

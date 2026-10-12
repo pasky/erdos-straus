@@ -107,3 +107,18 @@ The profinite reformulation (H4)/Prop P is a sharp but non-mechanistic restateme
 condition K ⊆ Sq̄ is falsified if x** is sterile (CONJECTURE), and otherwise it is B1.
 
 By-product: Prop P (PROVED, elementary; novelty low).
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **(H1) is mislabelled: "ef − 4da² = 1, 4da | f+p" encodes Type I, not Type II,** and the hyperboloid is
+  two-sheeted. With c = (f+p)/(4da), b = ce − a one gets 4abd = pe+1, the Type I relation. Example [H1]: p = 7,
+  (a,d,e,f) = (2,1,1,17) gives the Type I solution (3,6,14) of 4/7, with exactly one denominator divisible by 7.
+* Line 46 "Σ f_II ≍ N log³N" is correct only as a sum over integers n ≤ N; over primes ET give
+  N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N (brief-template error, see BRAINSTORM/README.md).
+* Lemma B shows the displayed power-error estimates cannot certify polylog targets; it is not an impossibility
+  theorem. CONDITIONAL_ES Prop 2.3 bounds main terms of bounded-multiplicity detectors on almost all primes;
+  Remark 2.4 keeps "small main term + smaller error" open. Summing levels d at fixed p is legitimate aggregation.
+  **Corrected verdict:** PARTIAL → H-A (displayed power-error instantiation collapses).

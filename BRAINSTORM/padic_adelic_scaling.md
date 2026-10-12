@@ -132,3 +132,21 @@ By-products:
 * Prop B (PROVED): ℓ-adic interpolation forces divisibility, not positivity, on the hard classes.
 * Prop C (PROVED, folklore in substance): ES as an M-point / denominator problem on a fixed surface. This is a
   possible bridge to the Campana/M-point literature, but every known theorem there is an average count.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **Prop B is false as stated.** Its proof takes K from continuity at one odd square m², but K depends on m, so no
+  uniform statement over all unit-square classes mod ℓ^K follows. Counterexample [PropB]: choose increasing primes
+  p_k ≡ −7 (mod 2^k) (38 found for k = 3..40) and let F = 1 on these primes, 0 elsewhere (so F(m²) = 0). F is continuous
+  at every odd square (v₂(p_k − m²) stays bounded, since the only 2-adic limit is −7, a 2-adic square that is not an
+  integer square), yet F(p_k) = 1 in arbitrarily deep unit-square classes. **Repair:** continuity on the complete
+  compact set of 2-adic (ℓ-adic) unit squares gives the uniform-K step.
+* **The parenthetical "any count of solutions with n dividing exactly one or exactly two denominators" vanishing at
+  odd squares is false:** 4/9 = 1/3 + 1/12 + 1/36 has exactly one denominator divisible by 9 [PropB]. The vanishing
+  needs ET's coprimality convention (n coprime to the other denominators).
+* Cor A1 removes the unit part only at a fixed place; moving places ℓ = p need an extra argument. §3's claim that
+  scaling fails to preserve α is false: BL Thm 1.6 gives α = (−x/z, −y/z), whose ratios are scale-invariant.
+* **Corrected verdict:** PARTIAL → H-F (displayed instantiation collapses).
