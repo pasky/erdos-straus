@@ -22,11 +22,23 @@ files; not searched exhaustively (Assessment: unverified novelty, probably folkl
 
 ## 3. Results
 
-**Lemma 3.1 (character trap fails for quadratic P; PROVED).** Let `p = t²+1` be prime and `r = t+2`.
-Then `(r/p) = (p/r) = (5/r) = ((t+2)/5)`. If p is a non-zero square mod 5 (as at every square-mimicking
-point), then `t ≡ 0 (5)` and `(r/p) = (2/5) = −1`. More generally `(t−2)(t+2) ≡ −5 (mod p)`, and a
-check of `t mod 5` shows: **for every prime p = t²+1 > 5, one of 5, t−2, t+2 is a non-residue mod p.**
-So Lemma CT never obstructs a formal run in t; Thm C's proof cannot be extended verbatim.
+**Lemma 3.1 (the character step for quadratic P).** Let `p = P(t)` be prime, `P = N_{K/Q}(t − θ)`
+with `K = Q(θ)` imaginary quadratic, and `𝔭 = (t − θ, p)`, a degree-1 prime of K. For h ∈ Z[t],
+`h(t) ≡ h(θ) (mod 𝔭)`, so `(h(t)/p) = (h(θ)/𝔭)_K` — a quadratic residue symbol of a *fixed* element
+γ = h(θ) of K at a *varying* prime (PROVED, trivial). Unlike the linear case (`h(q) ≡` a rational
+constant mod p), this is not a Legendre symbol of fixed rational primes; it is the Artin symbol of 𝔭
+in `K(√γ)/K`, i.e. ray-class data of 𝔭 mod 4γ.
+(a) **k = 1: the Gaussian class of one is a universal trap (PROVED).** For `P = t² + 1`, θ = i,
+`t − i = −i(1 + it)`. If `4N(γ) | t` then `1 + it ≡ 1 (mod 4γ)`, so 𝔭 is in the trivial ray class mod 4γ
+(K has no real place) and splits in `K(√γ)`: `(h(t)/p) = +1`. Also `(ℓ/p) = +1` for every fixed prime ℓ | t.
+Hence at the profinite point `t* = 0` every polynomial value met by a formal run is a residue mod p, and
+the proof of Thm C goes through verbatim in the parameter t: **every correct bounded procedure in t
+fails for infinitely many primes `p = t² + 1` (CONDITIONAL on Hypothesis H for the finite family met,
+now including P = t²+1 itself).** EVIDENCE: at `t ≡ 0 (mod 64·47#)`, 0 of the values `t + a` (|a| ≤ 7) and
+`t² + bt + c` (|b|,|c| ≤ 3) are non-residues mod p (6 primes p ≈ 10⁴⁰); shifts with |a| ≤ 60, whose
+`a² + 1` has primes > 47, give ≈ 1/3 non-residues, as the lemma predicts.
+(b) For general k there is no such point in general: `t − √−k` is never ≡ a unit mod N, and the
+families of Prop 3.4 below (k = 21, 37) show that the trap can indeed fail at Mordell-hard primes.
 
 **Prop 3.2 (Type II families are old; PROVED).** Let P ∈ Q[t] be quadratic with `P(t) > 0` for all
 real t. Use the Type II coordinates `p = 4dgg' − h`, `g+g' = ch` (equivalent to `ff' − 4c²dp = 1`,
@@ -72,7 +84,8 @@ quartic `P² + 4c²d` splits over Q iff `4c²d = 4m²(m²+k)` for an integer m �
 
 ## 5. Barrier screen
 
-* **B1/B5.** Thm C does not apply as proved (Lemma 3.1), and Prop 3.4 families do reach square classes
+* **B1/B5.** For k = 1 Thm C extends (Lemma 3.1(a), CONDITIONAL on H), matching Prop 3.4's 2-adic
+  miss. For other k Thm C does not apply as proved, and Prop 3.4 families do reach square classes
   mod 840 (k = 21). B5 test: `p = t² + 21` is never an odd square for t > 10 — the step "P² + 4c²d
   factors polynomially" is what is false at generic n; the families are thin rather than obstructed.
 * **Coverage / B3 (decisive).** One-variable families cover ≪ x^{1/2} primes up to x. Homogenising to
@@ -87,8 +100,9 @@ quartic `P² + 4c²d` splits over Q iff `4c²d = 4m²(m²+k)` for an integer m �
 
 ## 6. Viability Assessment
 
-**PARTIAL.** New small theorems, no route to ES: (i) Lemma 3.1 — the character trap of Thm C fails
-for quadratic parameters, so Thm C's Remark 2 gap is real (PROVED example); (ii) Prop 3.2 — Type II
+**PARTIAL.** New small theorems, no route to ES: (i) Lemma 3.1 — for quadratic parameters the
+character step of Thm C becomes ray-class data in Q(√−k); for k = 1 the Gaussian class of one is a
+universal trap, so Thm C extends to `p = t² + 1` (CONDITIONAL on H), closing Remark 2 there; (ii) Prop 3.2 — Type II
 identities on positive-definite quadratic values are all old (PROVED); (iii) Lemma 3.3 + Prop 3.4 —
 constant-level Type I identities on `t² + k` are classified; for k = 1 they miss p ≡ 1 (8), for k = 21, 37
 they solve explicit non-congruence sets of Mordell-hard primes (PROVED algebra; EVIDENCE for
