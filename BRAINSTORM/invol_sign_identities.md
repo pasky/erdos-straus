@@ -36,7 +36,8 @@ unverified). Campaign: WINDMILL.md §3.2 tested parities of f, f_I, f_II on 732 
 ## 3. Barrier screen, and Proposition S
 
 **Proposition S (PROVED, elementary).** Let `W(n)` be any weighted count of Type I and Type II solutions
-of 4/n (weights in ℤ). Suppose (S) holds for all n in a set containing the odd squares `m²` with
+of 4/n in Elsholtz–Tao's sense (n divides one, resp. two, denominators and is coprime to the rest;
+weights in ℤ). Suppose (S) holds for all n in a set containing the odd squares `m²` with
 `gcd(m,M)=1`, where ψ is ±1-valued with `ψ(m²)=1` (e.g. ψ completely multiplicative, or any real
 Dirichlet character mod M). Then:
 1. `ε=+1`, so (S) says: `W(n)` is odd ⟺ `ψ(n)=−1`.
@@ -63,7 +64,7 @@ Prop S.
 Liouville-type right sides are in the F₂-span of the completely additive functions
 `Ω_r(n) mod 2` (number of prime factors ≡ r (mod M), with multiplicity); I added these (and `ω_r`) to the
 all-n signature test (`scripts/bs_invol_signature2.py … forms additive`, rows: all 3333 n ≤ 2·10⁴,
-n≡1 (4), gcd(n,6)=1; 345 weight columns, rank 174). M=24: combined right-side rank 1131; M=120: 1919.
+n≡1 (4), gcd(n,6)=1; 385 weight columns incl. ET Type I/II × features, rank 200). M=24: combined right-side rank 1131; M=120: 1919.
 **Result: dim(W ∩ RHS) = 1 in both cases, spanned by the trivial repeated-denominator count (even on all
 hard primes).** No natural ES weight satisfies a Liouville-type, character-type, divisor-type or
 binary-form-type parity law on all n ≤ 2·10⁴ (EVIDENCE).

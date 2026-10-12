@@ -20,6 +20,11 @@ n, x, y, z = A.T
 F = {}
 k = (x % n == 0).astype(int) + (y % n == 0) + (z % n == 0)
 F['TI'], F['TII'], F['T0'] = k == 1, k == 2, k == 0
+# Elsholtz-Tao types: n divides one (resp. two) coordinates and is coprime to the others
+cx, cy, cz = np.gcd(n, x) == 1, np.gcd(n, y) == 1, np.gcd(n, z) == 1
+dx, dy, dz = x % n == 0, y % n == 0, z % n == 0
+F['ETI'] = (dx & cy & cz) | (dy & cx & cz) | (dz & cx & cy)
+F['ETII'] = (dy & dz & cx) | (dx & dz & cy) | (dx & dy & cz)
 for nm, c in (('x', x), ('y', y), ('z', z)):
     for m in (2, 3, 4, 5, 8):
         for r in range(m - 1):
@@ -45,7 +50,7 @@ for m in (3, 4, 8):
         F[f'Idiv%{m}={r}'] = (k == 1) & (ndiv % m == r)
 names = list(F)
 Fm = np.stack([F[c] for c in names], axis=1).astype(np.int64)
-core_sub = names[:3] + [c for c in names if c.startswith(('x%', 'y%', 'z%')) and ('%2' in c or '%4' in c)] + \
+core_sub = names[:5] + [c for c in names if c.startswith(('x%', 'y%', 'z%')) and ('%2' in c or '%4' in c)] + \
     ['x=y', 'y=z', 'x|y', 'y|z', 'gxy1', 'gyz1', 'q%3=0', 'q%8=3', 'q%8=7', 'gq1']
 core_sub = list(dict.fromkeys(core_sub))
 starts = np.flatnonzero(np.r_[True, n[1:] != n[:-1]])

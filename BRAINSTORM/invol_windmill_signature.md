@@ -82,8 +82,10 @@ algebra on the span of many candidate weights at once.
 ## 4. Experiments (`scripts/bs_invol_enum.cpp`, `scripts/bs_invol_signature{,2}.py`)
 
 Data: all unordered positive solutions of 4/n for every n ≤ X with gcd(n,6)=1 (composites included),
-enumerated exactly; checked against brute force for n ≤ 49 (f(5..49) = 2,7,9,4,…,18). Type of a solution
-= number of denominators divisible by n (ET's convention).
+enumerated exactly; checked against brute force for n ≤ 49 (f(5..49) = 2,7,9,4,…,18). Weights use both
+the crude type (number of denominators divisible by n) and Elsholtz–Tao's types (ETI: n divides one
+denominator and is coprime to the other two; ETII: n divides two and is coprime to the third). With ET's
+convention `f_I(m²)=f_II(m²)=0` (checked for all m² ≤ 7921, gcd(m,6)=1; ET Prop 1.6).
 
 **E1 (all n ≤ 8000, gcd(n,6)=1; 2666 rows; M=24).** 288 nonzero weighted counts (type × residues of
 x,y,z mod 2,3,4,5,8, divisibility, gcd, squareness, `4x−n` residues; rank 163) against the 72
@@ -91,14 +93,14 @@ divisor-type vectors. `dim(span W ∩ span D) = 1`, spanned by the count of solu
 denominator (`x=y=(n+1)/2`, n≡3 (4)) — a trivial fixed-point count, zero on primes p≡1 (4).
 Controls: Zagier's |S(n)| and `#{x²+4y²=n}` lie in span D (as (Z) predicts); a random vector does not.
 
-**E2 (all n ≤ 20000, n≡1 (4), gcd(n,6)=1; 3333 rows).** 345 weights incl. pairwise ANDs of 30 core
-features (rank 174). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 778, 1039), and in addition
+**E2 (all n ≤ 20000, n≡1 (4), gcd(n,6)=1; 3333 rows).** 385 weights incl. ET types and pairwise ANDs of
+32 core features (rank 200). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 778, 1039), and in addition
 parities of representation counts by all 1564 positive definite forms `ax²+bxy+cy²` (1≤a≤8, a≤c≤40, 0≤b≤a;
 x,y>0) — the possible fixed loci of a piecewise-affine involution with a non-split restricted form.
 With forms (M=24) rank D = 1115; combined rank ≤ 1289 ≪ 3333 rows, so a coincidental fit is impossible. **Result in every case:
 dim(W∩D)=1, the same trivial repeated-denominator count (0 on all 267 hard primes p ≡ 1 (24)).**
 
-**E3 (prime-only periodicity).** Is some F₂-combination of the 110 core weights, on the 1125 primes
+**E3 (prime-only periodicity).** Is some F₂-combination of the 112 core weights, on the 1125 primes
 p≡1 (4) below 2·10⁴, a function of p mod L? L=24: none. L=120, 840: only the `gcd(x,y)=1` count, which is
 odd only at the single prime p=5 (artefact). (Complements WINDMILL §3.2, which tested constancy and
 Legendre/class-number bits.)
