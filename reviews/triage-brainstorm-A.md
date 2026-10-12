@@ -323,3 +323,18 @@ extends the barrier to Fermat + identity certificates; a counterexample would be
 * Lemma 3.1(a) (Thm C extends to t² + 1 under H): a genuine small extension of the barrier.
 
 **Promise 2** (bounded, well-posed obstruction question; good for a short depth task).
+
+**ident_invariants (O145a; memo: COLLAPSES to B2, and B1 for h(−4p)).** AGREE. This memo overlaps heavily with
+canonical_invariants; the two should be read together. Lemma 3.1 re-derived: f+1 = 4cdk gives 2k(2cdk−1) = cp,
+then c | 2k, then j(2cdk−1) = p, so p = 4dk² − 1 ≡ 3 (4). Scope caveat: it shows only that the *diagonal* f = f' of
+ff' − 4c²dp = 1 is empty for p ≡ 1 (4). "Units of ℚ(√p) never give Type II solutions" is true only for that
+dictionary (unit = diagonal point). Units entering a non-diagonal point via another order are not excluded. The memo
+does say "any unit-based rule must use … other slices — B2", so this is wording, not substance.
+
+The class-number signal decaying 8.5 → 2.5 as the QR pattern enters the baseline is a good falsification design. It
+supports "h(−4p) = Euler product of congruence data". The E3 bits (2 quartic, 2/3 cubic) are null, with the quartic
+bit's sign flipping between independent samples. That matches the apollonian_reciprocity quartic test (an
+independent null). False-negative check: the Chebotarev-independence Assessment for E3 bits is the right heuristic,
+and H-D remains "choose θ, not decide a fibre". Open sub-question: none new. The unit-*residue* test missing from
+canonical_invariants is also absent here: the regulator enters only through log ε/√p (size), not through ε mod q.
+Novelty: Lemma 3.1 is folklore-level; the null regressions are new EVIDENCE. **Promise 0.**
