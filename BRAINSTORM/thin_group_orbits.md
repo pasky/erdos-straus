@@ -76,5 +76,6 @@ None needed beyond the companion memos. The orbit structures are the ones alread
 * No group acts on the solutions of a fixed p.
 
 By-product (Assessment): the honest analogue of HKRS Conj 1.5 for ES is "Type I ∪ II exists for all odd
-non-squares except finitely many sporadic n". In ET coordinates, the sporadic set to 2·10⁷ is {105}
+non-squares except finitely many sporadic n". In ET coordinates (with the gcd(abd, n) = 1 convention for Type II), the sporadic set to 2·10⁷ is {105}, and
+even that is a convention artefact
 (BRAINSTORM/apollonian_reciprocity.md §4). For primes this is ES itself.
