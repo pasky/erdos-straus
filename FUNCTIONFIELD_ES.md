@@ -217,3 +217,34 @@ For q = 3 the group (F_3^*)^3 = {±1}^3 still has 8 classes.
 Combined with the absence of the square obstruction (§4), char 2 and 3 have **neither** of the two Z
 obstructions to a finite covering (Mordell/Theorem C: square classes; O140 Prop 4.1: the class 1). Whether a
 finite covering exists is then a finite question per (q, A); §6.2 examines it.
+
+### 6.2 Finite coverings: ES₄(T) is a theorem
+
+A *linear family* F = (E; t_a, a₀; t_b, b₀) (O140 §4, all characteristics) consists of a nonzero E ∈ F_q[T],
+monic a₀, b₀, and types t ∈ {0, 1, 2, 3} meaning a = a₀, P·a₀, X/a₀, P·X/a₀ (similarly b), with X := (P+E)/A.
+F is *valid at P* if A | P + E, a₀ | X, b₀ | X, s := a + b ≠ 0, E | s and lc(s) = lc(E). Then Lemma 1.3 gives an
+NC solution: X, Y = κPX/a, Z = κPX/b with κ = s/E. Put W_F := A·E·lcm(a₀, b₀) (E made monic).
+
+**Lemma 6.2 (validity is a congruence condition; PROVED).** Let W_F | W, and let n_F be 1 + max(k + deg a₀ + deg b₀,
+deg E). For monic P of degree n ≥ n_F, the validity of F at P depends only on P mod W.
+*Proof.* A | P + E and a₀ | X ⇔ A·a₀ | P + E are conditions mod A·a₀ | W. The four types have degrees deg a₀,
+n + deg a₀, n − k − deg a₀ and 2n − k − deg a₀. For n ≥ n_F, a type-t_a term and a type-t_b term with t_a ≠ t_b
+have different degrees. Then s has the leading coefficient 1 of its higher term. If t_a = t_b, then
+s ∈ {a₀ + b₀, P(a₀ + b₀), (X/L)(L/a₀ + L/b₀), P(X/L)(L/a₀ + L/b₀)} with L = lcm(a₀, b₀), so lc(s) and
+"s ≠ 0" are fixed by (a₀, b₀). Finally s mod E is determined by P mod E and by X mod a₀E, b₀E, LE, i.e. by P
+mod A·E·L = W_F. ∎
+
+So a set of families whose classes cover all unit classes mod W proves ES_q(A, P) for every irreducible P of
+degree ≥ max n_F (P ∤ W). The finitely many smaller degrees are then checked exhaustively.
+
+**Theorem 6.3 (ES over F₄ with A = T; PROVED, computer-assisted).** For every monic irreducible P ∈ F₄[T] of degree
+n ≥ 2, `T/P = 1/X + 1/Y + 1/Z` has a solution in monic X, Y, Z (with NC).
+*Proof.* W = T⁴ − T = T(T+1)(T+ω)(T+ω²). Irreducible P of degree ≥ 2 lie in the 81 unit classes mod W, i.e.
+(P(0), P(1), P(ω), P(ω²)) ∈ (F₄^*)⁴. `scripts/ffl_tree.c` (`ffl_tree 4 10 "10*11*12*13" "10" 9 0 100`) finds for
+each class a linear family with W_F | W, k + deg a₀ + deg b₀ < 9 and deg E < 9. The certificate is
+`data/ffl/cover_q4_A10.txt`. By Lemma 6.2 this settles every n ≥ 9. For 2 ≤ n ≤ 13 the exhaustive run (§3 table)
+finds no failure. ∎
+Independent check: each of the 81 families was re-verified on 100 random P of its class (degrees 10–25,
+irreducible or not) by the direct identity A·XYZ = P(XY + YZ + ZX) with monic, NC denominators. That is 8100
+checks, 0 failures. The certificate needs E only among the units and the monic divisors of degree ≤ 1 of
+T⁴ − T (see the file).
