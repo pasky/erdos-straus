@@ -114,6 +114,13 @@ every divisor-form ES certificate (`m=tu−1`, 4 | m). The swap u↔v fixes `u(t
 p≡1 (24) below 4000. (Observed: no element ever has both `4 | tu−1` and `4 | tv−1`.) Same pattern as every
 always-odd set in WINDMILL §3.5: the parity sits on a central non-ES point.
 
+*Why no windmill on X(p) (remark).* Writing `A=tu−1`, `B=tv−1`, X(p) is the set of
+`γ=(A t; p B)∈SL₂(ℤ)` with A,B,t>0 and `γ ≡ −(1 0; p 1) (mod t)` — a congruence condition whose level is
+γ's *own* upper-right entry. The natural moves that preserve "lower-left entry = p" (left/right
+multiplication by `(1 k; 0 1)`) send t to `t+kB` resp. `t+kA` and destroy the condition (`t+kA | A+1`
+forces k=0). Only the transpose-type swap `A↔B` survives, whose fixed point is the non-ES point. This is
+the (I)4 "modulus is part of the solution" phenomenon seen from the parity side.
+
 Assessment of E1–E4 (EVIDENCE): no natural ES weight in this (fairly large) span has the parity
 signature of a windmill identity, either uniformly in n or periodically on primes.
 
