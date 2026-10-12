@@ -4,6 +4,28 @@
 (O152a), `invol_topological.md`, `invol_sign_identities.md` and `WINDMILL.md`. Labels as in DISCOVERIES.md.
 Scripts: `scripts/inv_*`.
 
+## 0. Summary (outcome: (B) — obstruction theorems with explicit scope; no construction)
+
+* **T1 kills the O152 odd set (PROVED, Prop 2.3).** `|X(q²)|` is odd for every odd prime q while its ES part
+  is empty (Lemma 2.2, a parametric form of ET Prop 1.6). So no involution family on X with ES-only fixed
+  points — of any complexity — exists on a square class. Lemma 1.1: any windmill family whose τ-fixed points
+  are Type I/II-type certificates needs `|X(m²)|` even.
+* **T1 for divisor-type fixed counts (PROVED, Prop 3.1).** If the σ-fixed count is divisor-type mod M (with
+  cones, square terms, periodic terms), T1 forces the coefficient of the factorisation `1·p` to vanish: the
+  odd point at primes must be a periodic point cancelled at squares by a square detector. A 4-pattern
+  certificate in a free model works for every modulus. T1 alone is not a barrier (`1 + [n=□]` passes).
+* **Finite-menu rigidity (PROVED, Lemma 4.1, Prop 4.2, Thm 4.4).** If an involution family uses a fixed
+  finite list of affine maps (pieces arbitrary, even prime-specific), then outside a fixed proper algebraic
+  set it acts by symmetries of the level function. In ES, O152 (t,u,v) [n-dependent coefficients allowed],
+  O152 SL₂ (A,B,t), ET Type II and Type II SL₂ coordinates [n-independent], these are the coordinate swap,
+  reparametrisations and divisor-moving scalings, and none changes the slice integer. **No cross-slice coupling
+  of generic points exists in this class.** This closes the gap left by WINDMILL Prop 2 ("pieces preserving
+  only the finite point set").
+* **Primes-only windmills on X (PROVED, Thm 5.1).** Any finite-menu involution on X(p), p ≡ 1 (4), with ES-only
+  fixed points certifies ES(p) through an ES element on a fixed proper surface Z. For Z a union of coordinate
+  planes, such windmills fail infinitely often under Dickson (Cor 5.3, CONDITIONAL, sketch). General Z: open.
+* Escapes left open: §6.
+
 Notation. ES(n): `4/n = 1/x+1/y+1/z` has a positive solution. For a finite set `S` and an involution ι,
 `|S| ≡ |Fix ι| (mod 2)`. A *windmill argument* for ES (WINDMILL Lemma 1) consists of finite sets `X(n)`,
 involutions `σ_n, τ_n` of `X(n)` and a map `Φ_n : Fix τ_n → {ES certificates of n}`, with `|Fix σ_n|` odd;
