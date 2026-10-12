@@ -1,5 +1,6 @@
 """O152(a): the odd set X(p) = {(t,u,v) >= 1 : (tu-1)(tv-1) = tp+1} (u<->v swap fixes only (p+2,1,1)).
-ES(p) <=> some element has 4 | tu-1 (divisor form, CONDITIONAL_ES Lemma 1.1).  Parities of ES-parts.
+Some element with 4 | tu-1 => ES(p) (sufficient condition, divisor form, CONDITIONAL_ES Lemma 1.1;
+not an equivalence).  |X(p)| is odd for every prime p >= 5 (swap u<->v fixes only (p+2,1,1)).  Parities of ES-parts.
 Usage: PYTHONPATH=scripts uv run python scripts/bs_invol_uvt.py 4000"""
 import sys
 from sympy import isprime, divisors

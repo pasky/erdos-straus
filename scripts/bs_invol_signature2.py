@@ -78,7 +78,7 @@ for a in range(len(idx)):
     rr = np.add.reduceat(prod, starts, axis=0)
     for b in range(prod.shape[1]):
         cols.append((f'{core_sub[a]}&{core_sub[a + 1 + b]}', tobits(rr[:, b])))
-ncore = 1 + len(names)
+coreset = {'ONE', *names}
 cols = [(c, v) for c, v in cols if v]
 
 Dv = defaultdict(int)
@@ -149,7 +149,8 @@ def intersect(Wc, Dc):
 
 
 rd, rw, rels = intersect(cols, Dcols)
-print(f'ALL-n test: X={X} M={M} rows={R} #cols={len(cols)} rankW={rw} rankD={len(Dcols)} '
+print(f'core_sub size {len(core_sub)}')
+print(f'ALL-n test: X={X} M={M} rows={R} #cols={len(cols)} rankW={rw} rankD={rd} '
       f'dim(W∩D)={len(rels) - (len(cols) - rw)}')
 hard = [p for p in NS.tolist() if p % 24 == 1 and isprime(p)]
 
@@ -180,7 +181,7 @@ for L in (24, 120, 840):
     P = [p for p in NS.tolist() if isprime(p)]
     prow = {p: i for i, p in enumerate(P)}
     Wc = []
-    for c, v in cols[:ncore]:
+    for c, v in [cv for cv in cols if cv[0] in coreset]:
         b = 0
         for p in P:
             if v >> row[p] & 1:

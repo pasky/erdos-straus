@@ -8,12 +8,14 @@ composite n (the earlier wave tested primes only).
 ## 1. Idea
 
 **1.1 What a windmill proof actually proves.** Zagier: `S(n)={(x,y,z)∈ℤ³_{>0}: x²+4yz=n}`, the
-windmill σ is piecewise in `O(x²+4yz)(ℤ)` and `τ:(x,y,z)↦(x,z,y)`. For *every* n (not only primes),
+windmill σ is piecewise in `O(x²+4yz)(ℤ)` and `τ:(x,y,z)↦(x,z,y)`. For every odd **non-square** n (not only primes),
 
   `#{x²+4y²=n, x,y>0} ≡ #Fix τ ≡ |S(n)| ≡ #Fix σ = #{n=u·v: u<v, u≡v (mod 4)}  (mod 2)`   (Z)
 
-(σ fixes exactly `x=y`, where `n=x(x+4z)`; squares `n=u²` contribute nothing since z>0). Primality is
-used **only** in evaluating the right side: for `n=p≡1 (4)` it has exactly one term `1·p`.
+(σ fixes exactly `x=y`, where `n=x(x+4z)`). At odd squares the windmill's boundary `x=y−z`
+(⟺ `n=(y+z)²`) is hit and (Z) fails as written (n=49: left side 0, right side 1 from `1·49`); a square
+correction term is needed, which is why the divisor-type span below includes square vectors `Q_r`.
+Primality is used **only** in evaluating the right side: for `n=p≡1 (4)` it has exactly one term `1·p`.
 
 General shape (folklore, elementary). If σ is piecewise integral-affine with pieces preserving a quadratic
 Q, each piece's fixed set is an affine sublattice L on which Q restricts to a form of lower rank; on a
@@ -74,8 +76,10 @@ algebra on the span of many candidate weights at once.
 * **B2 (per-slice lottery):** the *only* way a windmill escapes B2 is cross-slice coupling (a bijection
   between divisor sets of different slice integers `N_θ(p)`). For x²+4yz this coupling is the action of
   the infinite group `O(x²+4yz)(ℤ)`. For ES the equation is multilinear and its integral affine symmetry
-  group is finite (WINDMILL Prop 2), so there is no *algebraic* source of coupling; any coupling would have
-  to be an ad hoc set map. This is the real obstruction, but it is not a theorem.
+  group is finite (WINDMILL Prop 2), so the Zagier-type source of coupling (integral affine pieces
+  preserving the equation identically) is unavailable. Other couplings (pieces preserving only the finite
+  set, non-affine maps, auxiliary equations) are not excluded. This is the real obstruction, but it is
+  not a theorem.
 * **What remains testable:** whether the parity of some natural ES count *behaves like* the left side of
   a windmill identity. That is §4.
 
@@ -89,18 +93,22 @@ convention `f_I(m²)=f_II(m²)=0` (checked for all m² ≤ 7921, gcd(m,6)=1; ET 
 
 **E1 (all n ≤ 8000, gcd(n,6)=1; 2666 rows; M=24).** 288 nonzero weighted counts (type × residues of
 x,y,z mod 2,3,4,5,8, divisibility, gcd, squareness, `4x−n` residues; rank 163) against the 72
-divisor-type vectors. `dim(span W ∩ span D) = 1`, spanned by the count of solutions with a repeated
-denominator (`x=y=(n+1)/2`, n≡3 (4)) — a trivial fixed-point count, zero on primes p≡1 (4).
-Controls: Zagier's |S(n)| and `#{x²+4y²=n}` lie in span D (as (Z) predicts); a random vector does not.
+divisor-type vectors. `dim(span W ∩ span D) = 1`, spanned by `TI&x=y`: the count of solutions with x=y in
+which n divides exactly one denominator. (For prime n it is 1 if n≡3 (4) — the solution
+`((n+1)/2,(n+1)/2,n(n+1)/2)` — and 0 if n≡1 (4); `2/x+1/z=4/n` is a two-variable, factorisation-type
+equation, so its divisor-type parity is unsurprising.)
+Controls: Zagier's |S(n)| and `#{x²+4y²=n}` lie in span D (divisor + square vectors, as (Z) with its
+square correction predicts); a random vector does not.
 
 **E2 (all n ≤ 20000, n≡1 (4), gcd(n,6)=1; 3333 rows).** 385 weights incl. ET types and pairwise ANDs of
-32 core features (rank 200). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 778, 1039), and in addition
+27 core features (rank 200). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 760, 997), and in addition
 parities of representation counts by all 1564 positive definite forms `ax²+bxy+cy²` (1≤a≤8, a≤c≤40, 0≤b≤a;
 x,y>0) — the possible fixed loci of a piecewise-affine involution with a non-split restricted form.
-With forms (M=24) rank D = 1115; combined rank ≤ 1315 ≪ 3333 rows (with Ω_r columns, M=120: ≤ 2119), so a coincidental fit is impossible. **Result in every case:
-dim(W∩D)=1, the same trivial repeated-denominator count (0 on all 267 hard primes p ≡ 1 (24)).**
+With forms (M=24) the right-side rank is 1038; combined rank ≤ 1238 ≪ 3333 rows (with Ω_r columns, M=120:
+right-side rank 1795, combined ≤ 1995), so a coincidental fit has probability ≲ 2^{−1300}. **Result in every
+case: dim(W∩D)=1, the same `TI&x=y` count (0 on all 267 hard primes p ≡ 1 (24)).**
 
-**E3 (prime-only periodicity).** Is some F₂-combination of the 112 core weights, on the 1125 primes
+**E3 (prime-only periodicity).** Is some F₂-combination of the 103 nonzero core weights (no pairwise ANDs), on the 1125 primes
 p≡1 (4) below 2·10⁴, a function of p mod L? L=24: none. L=120, 840: only the `gcd(x,y)=1` count, which is
 odd only at the single prime p=5 (artefact). (Complements WINDMILL §3.2, which tested constancy and
 Legendre/class-number bits.)
@@ -108,14 +116,15 @@ Legendre/class-number bits.)
 **E4 (a Zagier-like odd set built from the divisor form; `scripts/bs_invol_uvt.py`).**
 `X(p)={(t,u,v)∈ℤ³_{≥1}: (tu−1)(tv−1)=tp+1}` (equivalently `p=uvt−u−v`) is finite (t ≤ p+2) and contains
 every divisor-form ES certificate (`m=tu−1`, 4 | m). The swap u↔v fixes `u(tu−2)=p`, i.e. only
-`(p+2,1,1)`; so **|X(p)| is odd for every prime p (PROVED, one line)**, and for general n,
-`|X(n)| ≡ #{n=u(tu−2)}` is divisor-type — a genuine windmill-shaped identity. But the odd point has
+`(p+2,1,1)` when p ≥ 5 is prime (for p=3 also `(1,3,3)`); so **|X(p)| is odd for every
+prime p ≥ 5 (PROVED, one line)**, and for general n,
+`|X(n)| ≡ #{n=u(tu−2)}` is divisor-type — a genuine windmill-shaped identity. But for p≡1 (4) the odd point has
 `m=p+1≡2 (4)`: it is not an ES certificate, and the ES part `#{4 | tu−1}` is odd for only 36/61 primes
 p≡1 (24) below 4000. (Observed: no element ever has both `4 | tu−1` and `4 | tv−1`.) Same pattern as every
 always-odd set in WINDMILL §3.5: the parity sits on a central non-ES point.
 
 *Why no windmill on X(p) (remark).* Writing `A=tu−1`, `B=tv−1`, X(p) is the set of
-`γ=(A t; p B)∈SL₂(ℤ)` with A,B,t>0 and `γ ≡ −(1 0; p 1) (mod t)` — a congruence condition whose level is
+`γ=(A t; p B)∈SL₂(ℤ)` with A,B,t>0 and `γ ≡ (−1 0; p −1) (mod t)` — a congruence condition whose level is
 γ's *own* upper-right entry. The natural moves that preserve "lower-left entry = p" (left/right
 multiplication by `(1 k; 0 1)`) send t to `t+kB` resp. `t+kA` and destroy the condition except in one degenerate
 case (`t+kA | A+1` forces k=0, or k=±1 between the slice t=1 and the elements with u=1 — a bijection
@@ -130,15 +139,17 @@ signature of a windmill identity, either uniformly in n or periodically on prime
 **COLLAPSES (as a research programme, not by a theorem) at the step "find the identity (W)".**
 Precisely: a windmill/parity proof of ES evades B1, B3, B5, B6 and Theorem M for structural reasons
 (§1.2), so it is one of the few routes the barrier map does not exclude. Its entire content is an
-identity `W ≡ D_φ` (mod 2). (i) The algebraic source of such identities (an infinite integral symmetry
-group moving between slices) is absent for the multilinear ES equation (WINDMILL Prop 2). (ii) E1–E4 find
+identity `W ≡ D_φ` (mod 2). (i) The Zagier-type source of such identities (integral affine pieces
+preserving the equation, i.e. an infinite integral symmetry group moving between slices) is unavailable
+for the multilinear ES equation (WINDMILL Prop 2); other sources are not excluded. (ii) E1–E4 find
 no natural weight whose parity is divisor-type or binary-form-type over all n, nor periodic on primes.
 Status: **UNCLEAR → leaning COLLAPSES**; what would decide it is a *set-theoretic* cross-slice bijection
 between divisor sets of different `N_θ(p)` respecting the ES residue classes, which no one has.
 
 By-products:
-* (Observation, PROVED, elementary) Any Zagier-type identity (W) with Type I/II weights forces
-  `D_φ(m²)` even for all odd m, and its failure point at n=m² is the evaluation of #Fix σ — so parity
+* (Observation, PROVED, elementary) Any Zagier-type identity (W) with ET Type I/II weights that holds at
+  the odd squares forces its right side (divisor-type part plus any square correction) to be even at
+  every such m², and its failure point at n=m² is the evaluation of #Fix σ — so parity
   arguments are *exactly* the kind of non-local input Theorem C leaves open. (This sharpens the meaning
   of T1 for parity routes.)
-* (EVIDENCE) E1–E3 above.
+* (PROVED) |X(p)| odd for primes p ≥ 5 (E4). (EVIDENCE) E1–E4 above.
