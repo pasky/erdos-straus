@@ -59,12 +59,13 @@ A **sector** is an open cone `S = {r e^{iθ} : r > 0, θ ∈ I}` (I an open arc)
 `C = (u₀,v₀) + MZ²` is a **square class** if `Q(u₀,v₀) ≡ s² (mod M)` with gcd(s, M) = 1.
 
 **Lemma 2.1 (square points are dense; PROVED, Hasse–Minkowski + weak approximation on P¹).**
-Let `2D | M`, `8 | M`, C a square class mod M, S a sector, R > 0. Then there is `(u,v) ∈ C ∩ S` with
+Let `8 | M` and either `2D | M` or Q in the principal genus. Let C be a square class mod M, S a sector, R > 0. Then there is `(u,v) ∈ C ∩ S` with
 `u² + v² > R²` and `Q(u,v) = w²`, w odd.
 
 *Proof.* Let X ⊂ P² be the conic `Q(u,v) = w²`; it is smooth because the ternary form has
 determinant `−D/4 ≠ 0`. Local points: (i) for ℓ ∤ M, ℓ ∤ 2D, X has good reduction, a smooth conic
-over F_ℓ has ℓ + 1 points, and Hensel lifts them. (ii) For ℓ | M, `Q(u₀,v₀)` is an ℓ-adic unit that
+over F_ℓ has ℓ + 1 points, and Hensel lifts them. (If instead Q is in the principal genus, Q
+represents a square prime to D rationally, so X(Q) ≠ ∅ directly and (i) is not needed.) (ii) For ℓ | M, `Q(u₀,v₀)` is an ℓ-adic unit that
 is a square mod ℓ (ℓ odd) or ≡ 1 mod 8 (ℓ = 2), hence a square `w_ℓ²` in Z_ℓ;
 `P_ℓ = (u₀ : v₀ : w_ℓ) ∈ X(Q_ℓ)`. (iii) `X(R) ∋ P_∞ = (cos θ₀ : sin θ₀ : Q(cos θ₀, sin θ₀)^{1/2})`,
 θ₀ ∈ I. By Hasse–Minkowski X(Q) ≠ ∅, so `X ≅ P¹_Q`, and X(Q) is dense in `∏_{v ∈ T} X(Q_v)` for
@@ -76,7 +77,7 @@ means `(u₁,v₁) = t(cos θ, sin θ)` with θ ∈ I and t ≠ 0 real; replacin
 `λ > 0`, `λμ ≡ 1 (mod M)`, as large as we like. Then `(λu₁, λv₁) ∈ C ∩ S`, its norm exceeds R, and
 `Q(λu₁, λv₁) = (λw₁)²`. It is odd, since Q(C) is a unit mod M and 2 | M. ∎
 
-*Remarks.* (1) The hypothesis `D | M` cannot be dropped. If Q is not in the principal genus, it
+*Remarks.* (1) Some hypothesis ensuring X(Q) ≠ ∅ is needed. If Q is not in the principal genus, it
 never represents a square prime to D (genus characters are trivial on squares), although `Q(C)` can
 be a square mod an M prime to D. Then the family question is the classical one-variable one, since
 p lies in a non-square class mod 4|D|. (2) Without `8 | M` the 2-adic condition is invisible: for
@@ -138,7 +139,7 @@ if F is not integral on C there is nothing to prove. ∎
 so `B₁(P) | κR(u)`. For each of the O(X) values u with `R(u) ≠ 0` and `B₁(u,·)` nonconstant,
 `B₁(u,v)` takes one of `≤ 2τ(κR(u)) ≪ X^ε` values, each at `≤ deg_v B₁` values v. The finitely many
 exceptional u contribute O(X). If B₁ = B₁(u), swap the roles of u and v. ∎
-Prime points number `≍ X²/log X` in every square class, by Hecke (below), so a rational-function
+Prime points number `≍ X²/log X` in every square class (Q in the principal genus), by Hecke (below), so a rational-function
 family with a non-polynomial coordinate is valid at a density-zero set of prime points.
 
 **Corollary 3.4 (finite certificate sets miss almost all primes of every square class; PROVED,
@@ -151,7 +152,7 @@ In particular, for every Mordell-hard class r₀ mod 840 (all are squares: 1, 12
 and every such 𝔉, almost all primes `p ≡ r₀ (mod 840)` that are squares mod M are not certified by 𝔉.
 These primes have relative density `∏_{ℓ | M, ℓ ∤ 840} 1/2 > 0` within the class.
 *Proof.* Every representation P of such a p lies in a square class mod M (`Q(P) = p ≡ r`). Each p
-has at most `w(D) ≤ 6` representations up to the 2 signs. By Lemma 3.3 and Theorem 3.2(c),
+has at most `2w(D) ≤ 12` representations (8 for u² + v²). By Lemma 3.3 and Theorem 3.2(c),
 the valid points of each F lie, up to a set of zero density among prime points, in `δ`-sectors around
 `|Z_F|` directions. By Hecke's theorem (Gaussian primes, resp. prime ideals of the order of
 discriminant D in a fixed ring class, equidistribute in angle within each ray class mod M), their
@@ -162,3 +163,49 @@ finitely many polynomial or rational ET identities in (u,v)) proves ES for all, 
 proportion of, the primes in any square class. The degree is unbounded and no hypothesis is used.
 This is the two-variable analogue of Mordell–Schinzel (one-variable identities cannot cover square
 classes; ET p. 8). The proof is the same: odd squares in the parameter set.
+
+## 4. Extensions and exact scope
+
+**4.1 Any polynomial parametrisation (PROVED, the abstract principle).** Lemma 1.1 is pointwise. If
+`N ∈ Z[x₁,…,x_k]` and F(x) is a polynomial ET family with `n = N(x)`, then F is invalid at every x
+with N(x) an odd square (Type I) or a square (Type II). Theorem 3.2 holds whenever the integral points
+of `{N(x) = w²}` meet every set on which F is valid "generically", i.e. every congruence class times
+open cone. Lemma 2.1 proves this for positive definite binary quadratic N.
+
+**4.2 One-parameter families of forms (PROVED for fixed s; scope).** Let
+`Q_s = A(s)u² + B(s)uv + C(s)v²` and let F(s, u, v) be polynomial with `n = Q_s(u,v)`. For every s₀
+with `Q_{s₀}` positive definite and in the principal genus, `F(s₀, ·, ·)` is a two-variable family
+for `Q_{s₀}`. Its integrality modulus divides `K_F`, independently of s₀, so Theorem 3.2 and
+Cor 3.4 apply with `M = lcm(8, K_F)`; the principal-genus clause of Lemma 2.1 removes `D(s₀) | M`.
+So for each fixed s₀, and for each bounded set of s, the certificate misses almost all primes of
+every square class. A certificate that lets s grow with p (pick, for each p, a form `Q_s` with s
+unbounded) is outside the theorem. It is the O145 "k unbounded" escape (E1): choosing s is choosing a
+divisor or class, i.e. B2. Forms outside the principal genus represent only primes in non-square
+classes mod 4|D| (genus characters), where the classical one-variable theory already applies.
+
+**4.3 Indefinite Q (partial).** Lemma 2.1 holds with S inside the cone `{Q > 0}`, and Theorem
+3.2(a),(b) hold verbatim, with A_F replaced by its intersection with that cone. Cor 3.4 does not
+follow. Each p has infinitely many representations, which accumulate at the two null directions of
+Q, and Lemma 3.1 says nothing in cusp regions `{0 < Q(P) ≤ g(|P|)}` with g = o(|P|²). Square points do
+reach the cusps: automorph orbits `γ^k P₀`, γ ≡ 1 (M), have fixed square value and |P| → ∞. Whether a
+family can be valid on a cusp is OPEN. The positive-definite case is the one relevant to Fermat
+certificates (p = u² + v², u² + 2v², …).
+
+**4.4 What Theorem 3.2 covers, and what it does not.**
+* Covered: finitely many polynomial or rational ET identities in (u,v) (or in (s,u,v), s bounded),
+  chosen by congruence conditions on (u,v) and by sign/semialgebraic conditions. A congruence-case
+  split is a finite set of families, and a semialgebraic validity region is absorbed by Lemma 3.1.
+  The choice among the ≤ 12 representations of p is also covered. Any degree; no hypothesis.
+* Not covered: (i) procedures with floor division by non-constants or with factorisation of values
+  in (u,v). That is the two-variable version of Theorem C, which would need a two-variable
+  Hypothesis H for binary forms; not attempted. (ii) Unbounded families of forms (4.2). (iii)
+  Indefinite forms in cusps (4.3). (iv) Families given only by (x,y,z) ∈ Q[u,v]³, whose canonical ET
+  coordinates are gcd-defined and need not be polynomial. At a square point the specialised (x,y,z) is
+  a solution for m², but Lemma 1.1 needs the N-point. Reducing (iv) to the ET-coordinate case
+  needs either polynomial gcds or square points P with `gcd(Q(P), y(P)z(P)) = 1`; not done.
+* **Non-square classes are not an escape worth having.** A family integral on a non-square class mod
+  K_F exists trivially: any one-variable identity in n, composed with n = Q(u,v), works. So positive
+  proportions of a Mordell-hard class mod 840 are certainly coverable by identities, e.g. the
+  `(p/13) = −1` primes outside six classes mod 720720 (MORDELL Thm 3.1, ET Prop 1.9 classes). The
+  invariant content of Cor 3.4 is: **after refining to the joint modulus, every square class is
+  almost entirely uncovered**, exactly as in one variable.
