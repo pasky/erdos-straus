@@ -1,0 +1,12 @@
+Lemma 5.1: all three symbols = -1 on 647 E-points, p = 1 (8), p < 3000
+W=t=u          R=n**2 - 1: factors of R(24X+1): [X, 12*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 52, QR(p) for 226 (all with E∩W=∅), Lambda=[2, 3], adm 57 (all QR)
+W=u=2t+1       R=-n**2 - n + 2: factors of R(24X+1): [X, 8*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 158, QR(p) for 176 (all with E∩W=∅), Lambda=[2, 3], adm 69 (all QR)
+W=u=t^2+2      R=-n**3 - 2*n**2 - 1: factors of R(24X+1): [3456*X**3 + 720*X**2 + 42*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 3, QR(p) for 145 (all with E∩W=∅), Lambda=[2, 3], adm 55 (all QR)
+W=t=3          R=-3*n - 1: factors of R(24X+1): [18*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 193, QR(p) for 192 (all with E∩W=∅), Lambda=[2, 3], adm 108 (all QR)
+W=u=3          R=-n - 3: factors of R(24X+1): [6*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 173, QR(p) for 212 (all with E∩W=∅), Lambda=[2, 3], adm 127 (all QR)
+W=v=t          R=n**2 - 1: factors of R(24X+1): [X, 12*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 9, QR(p) for 226 (all with E∩W=∅), Lambda=[2, 3], adm 57 (all QR)
+W=v=2t-1       R=-n**2 + n + 2: factors of R(24X+1): [12*X + 1, 24*X - 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 5, QR(p) for 95 (all with E∩W=∅), Lambda=[2, 3], adm 25 (all QR)
+W=v=u+1        R=1 - n**2: factors of R(24X+1): [X, 12*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 26, QR(p) for 226 (all with E∩W=∅), Lambda=[2, 3], adm 57 (all QR)
+W=v=u+4        R=16 - n**2: factors of R(24X+1): [8*X - 1, 24*X + 5]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 25, QR(p) for 212 (all with E∩W=∅), Lambda=[2, 3], adm 40 (all QR)
+W=v=2u+3       R=-2*n**2 - 3*n + 9: factors of R(24X+1): [6*X + 1, 48*X - 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 7, QR(p) for 99 (all with E∩W=∅), Lambda=[2, 3], adm 28 (all QR)
+W=v=3          R=3*n + 9: factors of R(24X+1): [6*X + 1]; p=24q+1<= 30000: 385 primes, E∩W≠∅ for 126, QR(p) for 212 (all with E∩W=∅), Lambda=[2, 3], adm 127 (all QR)

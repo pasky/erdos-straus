@@ -224,4 +224,14 @@ prime factor `ℓ ≠ p` with `(ℓ/p) = −1`, and `ℓ | R(p)`: this contradic
    conditional proof.
 3. *Example `{t = u}` (Remark 5.4 of INVOLUTION_ES).* `R = p² − 1`, `R(24X+1) = 48·X·(12X+1)`; Λ = {2,3}
    (`H_X = −1`, `H_{12X+1} = 12`). So: **if q, 12q+1, 24q+1 are all prime then `E(24q+1) ∩ {t=u} = ∅`**
-   (PROVED; infinitely many such q under Dickson).
+   (PROVED, for every such q: directly, `(q/p) = (p/q) = 1` and `(12q+1/p) = (2/p) = 1` as `2(12q+1) = p+1`;
+   infinitely many such q under Dickson).
+
+EVIDENCE (`scripts/inv2_formal_check.py 30000 3000`, log `logs/inv2_formal_check_30000.txt`, 3 min): Lemma 5.1
+on all 647 E-points with `p ≡ 1 (8)`, `p < 3000`. For 11 sample Siegel cylinders (v-, u- and t-cylinders,
+including 4 planes and `t = u`, `u = 2t+1`, `u = t²+2`, `v = 2t−1`, `v = u+4`, `v = 2u+3`) and all 385 primes
+`p = 24q+1 ≤ 30000`: whenever every prime `ℓ ≠ p` of `R_W(p)` is a residue mod p, the bounded search finds
+`E(p) ∩ W = ∅` (no exception); and every "admissible" p (each factor of `R_W(24q+1)` = Λ-unit × one prime,
+p a residue mod the odd primes of Λ) has that QR property (Lemma 5.2). The cylinders are not vacuous: e.g.
+`E(p) ∩ {t=u} ≠ ∅` for 52, `{u = 2t+1}` for 158, `{t = 3}` for 193 of the 385 primes. (For the single plane
+`{t=3}` the QR property holds exactly at the other 192 primes.)
