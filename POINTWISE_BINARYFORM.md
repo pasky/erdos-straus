@@ -493,8 +493,7 @@ This closes §4.4(iv) and R159 D6.
 * *Same scope as Theorem 3.2 otherwise.* Still not covered: procedures with floor/factorisation in
   (u,v) (§4.4(i)), unbounded families of forms (§4.2), indefinite forms in cusps (§4.3), and
   parametrisations n = N(u,v) other than a positive definite binary quadratic form in the principal
-  genus. (For x, y, z with n = Q(u,v)/g, g a fixed integer, apply the theorem to the form Q/g if
-  integral; otherwise not covered.) Novelty: folklore-level, like Theorem 3.2; the descent through a
+  genus. Novelty: folklore-level, like Theorem 3.2; the descent through a
   non-square λw² and the Legendre-symbol evaluation at the origin are the only new ingredients.
 * Checks: `bf2_square_patterns.py` (gcd patterns, explains why one-sided coprimality is useless),
   `bf2_pointwise_check.py` (Lemma 8.3, CERTIFIED for n ≤ 12 000), `bf2_sieve_check.py` (Lemma 8.4
