@@ -241,3 +241,17 @@ The box half (ℓ^∞ inhomogeneous minimum; Kannan–Lovász useless since λ_i
 ≈ 50 %, box success decaying like τ(N²)/|H_e|) is consistent. Open sub-question: the Rogers/Ajtai mean-value idea for
 the covering radius of L_e is H-A in lattice language. Novelty: a repackaging of PIGEONHOLE Lemmas 1.1/1.2; the
 two-half decomposition is a nice expository by-product. **Promise 1.**
+
+**graph_cayley_moves (O150a; memo: COLLAPSES to B1 (M1–M3) and B2 (M4)).** AGREE. Thm A.1 was checked independently
+(`scripts/triage_chord.py`). It draws 2·10⁵ random pairs of real points of Ω, with arbitrary special index and
+arbitrary projective sign, and computes the third chord point from the quadratic σ₃(P + tQ) = c₁t + c₂t². All
+2·10⁵ third points have type (2,2); none is in Ω. That is stronger than the memo's integral test, since the special
+indices are mixed. The arc-parity proof sketch is plausible; I did not re-run the 16-case enumeration.
+
+False-negative check on Cor A.3: projection from a fixed seed P₀ is the birational (Geiser-type) involution
+σ_{P₀} of 𝒞. Cor A.3 is therefore just "positive points of N = p ↔ their σ_{P₀}-images". The abundance of signed
+points is irrelevant: the conditions (integrality, level 4, N = p) transport through σ_{P₀} unchanged. Correctly B2,
+a bijective restatement. M2 (bounded ET translations) → B1 is right; Mordell's square classes make that part
+unconditional. Open sub-question: the tangent case of A.1 (EVIDENCE only). It is inert for ES. Novelty: A.1/A.2 (no
+real line meets the (1,3) sign locus of Σ1/X_i = 0 three times) is elementary and plausibly new. It explains why
+Mordell–Weil-style dynamics has no positivity mechanism, but it has no ES leverage. **Promise 0.**
