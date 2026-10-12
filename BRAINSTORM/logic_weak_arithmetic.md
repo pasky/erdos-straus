@@ -58,7 +58,9 @@ lie in M (constant terms a, b, c) and solve 4/n. (Script, (ii).)
 ### Corollaries (PROVED unless labelled).
 * **C1.** IOpen ⊬ ES_all. Indeed M ⊨ IOpen, 1+t ≥ 2, and 4/1 is not a sum of three positive unit fractions.
   The same witness defeats every formulation that restricts n by standard congruences. For example,
-  ES restricted to n ≡ 1 (mod 840) fails at 1 + 840t.
+  ES restricted to n ≡ 1 (mod 840) fails at 1 + 840t. Since M/mM ≅ Z/mZ for every standard m, this
+  also gives: **ES does not follow from IOpen plus all true congruence (residue-ring) facts.** This is a
+  model-theoretic counterpart of Theorem M's relativisation barrier.
 * **C2.** Every nonstandard element of M is a product of two nonstandard elements. Hence M has no
   nonstandard irreducibles (Shepherdson's original observation; reproved by factoring over R_alg after
   refining s and rescaling constant terms to 1 and n₀). Therefore M ⊨ ES_prime iff ES_prime holds in N.
@@ -129,6 +131,10 @@ at n = 1 + s⁴ = (s²+√2s+1)(s²−√2s+1); for the signed solution X has le
   Candidates are Mohsenipour's GCD model with cofinal primes and the Biljakovic–Kotchetov–Kuhlmann
   truncation IPs (where some elements are prime). If such a p exists in a "Puiseux-like" model, the
   sign lemma should give IOpen + GCD ⊬ ES_prime.
+  * Obstacle: the sign lemma needs real evaluation on [0,∞) and a ring map to Z. Truncation IPs
+    R((x^{R<0})) ⊕ Z, where Berarducci (TAMS 2000) and Pitteloud found irreducible and prime elements,
+    are formal series with infinite support. They have no pointwise evaluation, so a replacement for
+    the IVT step would be needed. UNCLEAR.
   * This is a logic result only. It cannot inform the analytic hard core, because every such
     counterexample sits over the standard unit 1, where ES fails trivially.
 * No route to ES: the angle collapses to Theorem M at the point 1 (B1) for every model of this shape.
