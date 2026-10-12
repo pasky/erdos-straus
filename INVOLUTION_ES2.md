@@ -278,3 +278,40 @@ Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all
 touched: infinite or p-growing menus, non-affine maps, the n-dependent SL₂ group, auxiliary sets other than X
 (INVOLUTION_ES §6, unchanged). Also, Cor 6.2 does not use the windmill beyond INVOLUTION_ES Thm 5.1: it is
 really a statement about the bounded-surface statement `E(p) ∩ Z ≠ ∅ ∀p`, which it refutes.
+
+## 7. What resists, and one unconditional cylinder
+
+**Proposition 7.1 (PROVED, unconditional; numerical constant CERTIFIED-style by `scripts/inv2_bt_mass.py`).**
+The primes `p ≡ 1 (mod 24)` with `E(p) ∩ {t = u} = ∅` have lower relative density `≥ 1 − 2μ ≥ 0.72`, where
+`μ := Σ φ(gcd(24, a²−1))/φ(a²−1)` over odd `a ≥ 3` whose class `−a mod (a²−1)` is compatible with `1 mod 24`
+(i.e. `a ≡ 15, 23 mod 24`); `μ = 0.13845… + (tail ≤ 2·10⁻⁴)`.
+*Proof.* `x ∈ E(p) ∩ {t=u}` iff `t = u = a` odd and `a² − 1 | p + a` (then `8 | A`, `v = (p+a)/(a²−1)`). For
+`a ≤ N^{θ/2}` apply Brun–Titchmarsh (Montgomery–Vaughan: `π(x;q,b) ≤ 2x/(φ(q) log(x/q))`) to the modulus
+`lcm(24, a²−1) ≤ 24N^θ`; relative to `π(N;24,1) ∼ N/(8 log N)` this gives `≤ (2/(1−θ) + o(1))·μ`, using
+`φ(lcm)φ(gcd) = φ(24)φ(a²−1)`. For `a > N^{θ/2}` the number of p is `≤ Σ_a ((N+a)/(a²−1) + 1) ≪ N^{1−θ/2} + N^{1/2}`.
+Let `θ → 0`. ∎ (The empirical covered fraction is 0.132 for `p < 2·10⁶`: 2439 of 18507 primes; so the bound
+0.72 is far from the truth ≈ 0.87, as expected from the factor 2 of Brun–Titchmarsh.)
+The same argument works for any non-plane Siegel cylinder (the moduli then have `Σ 1/φ(m) < ∞`), but gives a
+positive proportion only when the mass satisfies `2μ < 1`; this is a numerical condition per cylinder, not a
+theorem for all cylinders (raising the modulus 24 to kill large early terms enlarges the gcd weights of the
+later ones).
+
+**The honest residue of the windmill route on X (after O162).**
+1. **Unconditionally**, the only obstruction to barring a finite-menu windmill is a Siegel-cylinder component of
+   its exceptional set Z: `C × A¹` with C an integral-point-rich (genus 0, ≤ 2 places at infinity) curve in two
+   of the coordinates. On such W, `E(p) ∩ W ≠ ∅` is a divisor statement about the fixed polynomial `R_W(p)`
+   (Lemma 4.1), and failure is forced as soon as every prime factor of `R_W(p)` is a residue mod p (Lemmas 5.1,
+   5.2). Producing infinitely many such p unconditionally is a sieve problem with a prime variable and
+   half-dimensional conditions on each linear factor of `R_W`. Example: for the single plane `{t = 3}` the
+   condition is exactly that `(3p+1)/4` has only prime factors `≡ 1 (mod 3)` (data: QR(p) ⇔ `E(p)∩{t=3} = ∅`
+   on all 385 primes tested), i.e. `3p + 1 = 4(x² + xy + y²)` primitively. Iwaniec's theorem on primes
+   represented by binary quadratic polynomials (Acta Arith. 24, 1974) is the natural tool for one such
+   condition. I have not checked that it covers the primitivity and congruence side conditions (**not
+   claimed**). For several planes at once (k linear factors) this becomes a dimension-k/2 problem with a prime
+   variable, which I do not know how to do.
+2. **Under H alone**, non-cylindrical surface components are not handled: they need an admissible prime outside
+   the thin set `𝔈_Z` (`O(N^{2/3})`), which qualitative H does not supply. Bateman–Horn (lower bound) does.
+   One would like the formal mechanism to apply to non-cylindrical points directly. On such W the slice divisor
+   A is not tied to a fixed polynomial in p (the free coordinate enters `F(t,u,v) = 0`), so this is open.
+3. Everything outside the class of INVOLUTION_ES Thm 5.1 stays open as in INVOLUTION_ES §6: infinite/growing
+   menus, non-affine maps, the n-dependent SL₂ group, auxiliary sets other than X.
