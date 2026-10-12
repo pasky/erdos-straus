@@ -36,20 +36,30 @@ for line in open(fn):
     leaves.append((R.parse(f["W"]), R.parse(f["r"]), R.parse(f["E"]), int(ta[1]), R.parse(a0), int(tb[1]), R.parse(b0)))
 print(len(leaves), "leaves")
 
-# (1) partition check: lift all leaves to the lcm modulus L and check each unit mod L is covered exactly once
-L = (1,)
-for W, *_ in leaves:
-    L = lcm(L, W)
-dL = R.deg(L)
-assert q ** dL <= 2_000_000, "lcm modulus too large for brute partition check"
-units = [u for u in R.polys_below(dL) if u and R.gcd(u, L) == (1,)]
-cover = {u: 0 for u in units}
-for W, r, *_ in leaves:
-    for u in units:
-        if R.mod(u, W) == r:
-            cover[u] += 1
-bad = [R.show(u) for u, c in cover.items() if c != 1]
-print(f"(1) lcm modulus deg {dL}, {len(units)} unit classes; covered exactly once: {not bad}", bad[:5])
+# (1) partition check without enumerating the lcm modulus: leaves (W_i, r_i) are unit classes; they are pairwise
+# disjoint iff r_i != r_j mod gcd(W_i, W_j) (CRT), and they exhaust the units mod L iff sum_i 1/Phi(W_i) == 1.
+from fractions import Fraction
+
+
+def phi(W):
+    res = Fraction(R.q ** R.deg(W))
+    for l, e in R.factor(W):
+        res *= Fraction(R.q ** R.deg(l) - 1, R.q ** R.deg(l))
+    return res
+
+
+assert all(r and R.gcd(r, W) == (1,) and R.deg(r) < R.deg(W) for W, r, *_ in leaves), "leaf class not a unit"
+dens = sum(Fraction(1) / phi(W) for W, *_ in leaves)
+overlap = 0
+for i in range(len(leaves)):
+    Wi, ri = leaves[i][0], leaves[i][1]
+    for j in range(i + 1, len(leaves)):
+        Wj, rj = leaves[j][0], leaves[j][1]
+        g = R.gcd(Wi, Wj)
+        if R.mod(ri, g) == R.mod(rj, g):
+            overlap += 1
+print(f"(1) density sum = {dens}, overlapping pairs = {overlap} -> exact partition of units: {dens == 1 and overlap == 0}")
+# all leaf moduli must be multiples of a common root containing A*T*(T+1)... (checked by caller via root arg)
 
 
 def term(t, a0, P, X):
