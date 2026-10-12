@@ -104,3 +104,64 @@ reciprocity for monic f, g reads (g/f)(f/g) = (−1)^{((q−1)/2)·deg f·deg g}
 f ≡ −1 (mod Ad) controls. One finds (−Ad/f) = (−1)^{((q−1)/2)((1+deg f)(1+deg Ad)−1)}: never an
 obstruction for q ≡ 1 (mod 4); for q ≡ 3 (mod 4) only the sub-family deg f odd or deg(Ad) odd is
 obstructed. The analogue of "4" in the obstruction is the infinite place, not the numerator A.
+
+## 4. Covering (Theorem C analogue): does the missing T1 obstruction allow a covering proof?
+
+Since squares are not obstructed in F_q[t], Theorem C's argument (a family covering a square class
+would solve ES at m², contradiction) does not transfer. Question: can finitely many congruence
+families prove ES_q(A) for all P of large degree (a genuine function-field theorem)? Answer: no —
+a different, *size* obstruction survives.
+
+**Proposition 4.1 (PROVED, elementary; char ≥ 5, A monic, deg A = k ≥ 1).** Call a family *linear*
+if E is fixed and each of a, b is one of a₀, P·a₀, X/a₀, PX/a₀ with a₀ fixed (X = (P+E)/A); these
+are exactly the e-slice data that are polynomial of degree ≤ 1 in P (E = AX − P has degree < n,
+so it cannot depend on P linearly). The validity set of a linear family is a union of congruence
+classes mod W_F = A·lcm(a₀,b₀)·E. No linear family is valid on the class P ≡ 1 (mod W_F).
+
+*Proof.* Validity needs A·lcm(a₀,b₀) | P + E, so E ≡ −1 (mod A·lcm(a₀,b₀)), whence E = −1 or
+deg E ≥ k + deg lcm(a₀,b₀). E = −1 is excluded since lc(E) ∈ {1,2}. Mod E, a and b are
+u·P^i with i ∈ {0,1,2} and u ∈ {a₀, A⁻¹a₀⁻¹} (using X ≡ A⁻¹P mod E); at P ≡ 1 (mod E) the condition
+E | a + b becomes E | u_a + u_b, i.e. E divides one of a₀+b₀, 1 + A·a₀b₀ (up to the fixed unit
+factor A⁻¹a₀⁻¹ resp. A⁻¹b₀⁻¹), or A⁻¹(a₀⁻¹+b₀⁻¹) — i.e. a₀+b₀ again. deg(a₀+b₀) ≤ deg lcm < deg E kills
+the first and third. For E | 1 + A·a₀b₀ =: E·E′: reducing mod A·lcm(a₀,b₀) gives E′ ≡ −1 as well,
+so deg E + deg E′ ≥ 2k + 2·deg lcm(a₀,b₀) > k + deg a₀ + deg b₀ unless E′ is a unit; E′ = −1 makes
+lc(E) = −1. ∎
+
+This is word for word the Z argument for n ≡ 1 (mod 4·lcm): e ≡ −1 forces e > a + b. **So the
+covering core "P ≡ 1 modulo everything" survives in F_q[t] by positivity/size alone, independently
+of the quadratic (odd-square) obstruction.** Script `bs_ff_cover.py` (fixed-data families only,
+W = t·∏ linear primes): q = 5 covers 809/1024 unit classes, q = 7 covers 201155/279936; the
+uncovered set contains the class 1 and is *not* the square classes (EVIDENCE that the quadratic
+pattern of Mordell's 840-table has no analogue; fixed-data families are too weak to say more).
+
+## 5. Barrier screen
+
+* **B1** (coverings/identities): §4 — the class P ≡ 1 is uncoverable in F_q[t] too (size argument).
+  So no finite-covering proof of ES_q(A) exists; the function-field world does not escape B1.
+* **B2** (divisor lottery): Lemma 1.3 is literally the e-slice form; for fixed q the expected number
+  of solutions is ≍ poly(n)·q^{−k} (analogue of log³p). Weil/RH for curves supplies unconditional
+  GRH for all characters mod E, but GRH-type input is already known not to suffice (CONDITIONAL_ES,
+  (I)2) — function fields only make that hypothesis a theorem, they do not change the reduction.
+* **B3** (scale): the q → ∞ regime is the only place where function-field methods (Lang–Weil,
+  Katz equidistribution, Bary-Soroker) give pointwise statements at a fixed P; there the solution
+  variety at fixed P has expected dimension −k and Theorem 2.1 shows the analogue is *false* for
+  most P. Main term q^{−k}·poly(n) → 0: the scale constraint in its sharpest form.
+* **B5/T1**: absent in F_q[t] (§3.2) — the reason is that quadratic reciprocity's infinite-place twist
+  is degree parity, not a residue mod the numerator. Consequence for transfer: any proof of ES_q(A)
+  that uses Type I/II solutions at squares cannot transfer to Z, because at odd squares the Z
+  statement is false; so the function-field analogue is the *wrong* model for the T1 step.
+* **B6/T7**: the q → ∞ statements are averages over P (factorisation-type equidistribution);
+  at a single P they give nothing (and Theorem 2.1 says the pointwise statement is false there).
+* **B4** (pigeonhole): no new input; the same small-prime-factor covering issue applies to X.
+
+## 6. Viability Assessment: **PARTIAL** (no route to ES; sharp structural by-products)
+
+Collapses to B2/B3 at the step "pointwise count at fixed P": the only regime with pointwise
+function-field technology (q → ∞) is where the analogue is false (Thm 2.1).
+By-products: Prop 1.2 (unit numerators degenerate: 4/P with monic denominators is impossible in
+char ≥ 5 — "4 > 3" is archimedean), Lemma 1.3, **Theorem 2.1** (PROVED: ES_q(A,P) fails for a
+proportion → 1 of P as q → ∞, n fixed), Prop 4.1 (PROVED: the class P ≡ 1 obstructs coverings by
+size alone), and the T1-absence (EVIDENCE + PROVED reciprocity computation, modulo the transfer of
+ET's Type II chart to F_q[t], which is gcd algebra but was not re-verified line by line).
+Next step if anyone pursues it: decide whether ES_q(t) holds for *all* n ≥ 5 at q = 5 (data: 0
+failures at n = 5, 6) — a function-field ES "theorem" would still need the lottery solved.
