@@ -545,6 +545,14 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Thm 5.1 (PROVED): such a windmill on X(p) certifies ES(p) only through an ES element on a fixed proper surface Z, i.e. it is equivalent to a bounded-slice statement E(p) ∩ Z ≠ ∅. Cor 5.3 (CONDITIONAL on Dickson, sketch): fails i.o. when Z is a union of coordinate planes. **Unconditionally no primes-only windmill is excluded** (R158 D3); EVIDENCE: E(p) meets the 33 planes t, u or v = c ≤ 11 for every p ≡ 1 (24) up to 40000.
    * Open: infinite or p-growing menus, non-affine maps, auxiliary sets other than X, general Z. Novelty: partly anticipated by ET's remark after Prop 1.6 and Elsholtz's windmill work (cited per R158).
 
+3. **Fermat + identity certificates on binary forms (POINTWISE_BINARYFORM.md (O159); review `reviews/pointwise-binaryform-review.md` (R159): no FATAL; one MAJOR scope overclaim (D6) and minors, repaired by the reviewer).**
+   * Question: for p = Q(u,v) (Q positive definite), computing (u,v) needs a modular square root, so identity families "ET coordinates polynomial in (u,v)" escape POINTWISE_SIZE Thm C as proved.
+   * Lemma 1.1 (PROVED): ET Prop 1.6 for bare N-points, with no gcd(c,n) condition (checked on 289 597 small N-points).
+   * Lemmas 2.1/2.2 (PROVED): odd squares Q(u,v) = w² are dense in every square-class coset mod M and every open sector (Hasse–Minkowski + weak approximation); for u² + v² the square class is the trivial class of (Z[i]/M)^×/((Z/M)^×·⟨i⟩·squares), which needs 8 | M (M = 4 fails).
+   * **Thm 3.2 / Cor 3.4 (PROVED; Cor 3.4 relative to Hecke's equidistribution of prime ideals in sectors and ray classes): a family whose ET coordinates (a,…,f) are polynomial or rational in (u,v) is valid on a square-class coset only near finitely many directions. So every finite set of such certificates misses infinitely many primes of every square class mod M (8, 2D | M), unconditionally.** This is the two-variable analogue of Mordell–Schinzel (novelty: folklore-level; Schinzel 2000 and Mordell's book not accessed).
+   * Props 5.1/5.2 (PROVED): constant-level families and Type II families valid on a cone are one-variable. §6 search (EVIDENCE, two independent searches): no genuinely two-variable Type I family for u² + v² in the searched range.
+   * Open (R159 D6): families given only as (x,y,z) ∈ Q[u,v]³ (ET's one-variable reduction to (a,…,f) needs bounded value-gcds, which fail in two variables), indefinite forms near null directions, procedures with floor/factorisation, unbounded families of forms.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
