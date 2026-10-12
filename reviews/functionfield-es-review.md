@@ -18,7 +18,7 @@ Status: round 1 complete (addendum may follow for running jobs).
 | C7 | Lemma 6.2 | SOUND |
 | C8 | Thm 6.3 (F₄, A = T) | SOUND, re-proved independently (certificate checked, max n_F = 4, n ≤ 7 exhaustive) |
 | C9a | Thm 6.4: q = 2, deg A ∈ {1, 2, 3}; q = 3, A = T | SOUND, deg 2/3 re-proved with my own certificates |
-| C9b | Thm 6.4: q = 2, deg A = 4 | GAP: certificates not archived, spot-verification shortfall (D13 MAJOR), statement points to a running job (D14 MAJOR) |
+| C9b | Thm 6.4: q = 2, A ∈ {T⁴, T⁴+1} | statement TRUE, independently re-proved by R161 (own certificates, addendum). As written it is SOUND-AFTER-REPAIRS: author's certificates are not archived and the spot-verification fell short (D13 MAJOR), and the statement points to a running job (D14 MAJOR) |
 | C10 | §3 EVIDENCE tables | all spot-checked failure lists MATCH exactly |
 | C11 | §7 labels; novelty | labels fine except D11/D17; novelty unverified, nothing found |
 
@@ -233,6 +233,7 @@ Defects:
   verification shortfall, and downgrade deg 4 to EVIDENCE until a checker (e.g. `scripts/review_ffl_cert.py`,
   which handles multi-level trees) has passed on the archived files. See C9-addendum for my own reproduction
   attempt.
+  **Update:** see Addendum A. My own certificates now prove both deg-4 cases.
 * **D14 (MAJOR, theorem statement refers to a running job).** "the degree-4 A completed so far … The batch over
   the remaining degree-4 and degree-5 A was still running …; `data/ffl/q2_batch.txt` is authoritative." A theorem
   must list exactly which (q, A) it covers. A data file that is still growing cannot define the statement.
@@ -274,3 +275,19 @@ EVIDENCE/Assessment and low-stakes.
   I could not search MathSciNet/zbMATH. "Novelty unverified but plausible" is the right label. Folklore-level
   remarks such as Prop 1.4 and the char-2 identity of Thm 6.1 may well exist unpublished.
 
+
+## Addendum A — independent proof of the deg-4 cases T⁴, T⁴ + 1 over F₂ (R161)
+
+`scripts/review_ffl_tree.py 2 <A> "<A>*10*11" 12 8` (own search) gives complete covers:
+* A = T⁴: 696 leaves, leaf moduli of degree ≤ 18, **max n_F = 8**. Certificate in `data/review_ffl/cover_q2_A10000.txt`.
+* A = T⁴ + 1: 818 leaves, leaf moduli of degree ≤ 18, **max n_F = 11**. Certificate in
+  `data/review_ffl/cover_q2_A10001.txt`.
+The leaf counts equal the author's. `scripts/review_ffl_cert.py` checks: exact partition of the units (density
+sum 1, no CRT overlaps), W_F | W_leaf, and validity plus the identity/monic/NC on every P of each class in three
+consecutive degrees (9 744 and 11 452 P). Logs: `data/review_ffl/cert_q2_A1000{0,1}_log.txt`.
+Every prime factor of a leaf modulus has degree ≤ 3, so prime P of degree ≥ n_F are units mod the leaf moduli,
+and Lemma 6.2 applies. The remaining degrees 5 ≤ n < n_F were checked exhaustively with S2: 0 failures for
+n = 5..10 (T⁴) and n = 5..11 (T⁴ + 1). Log: `data/review_ffl/deg4_small_degrees_log.txt`.
+**Hence ES₂(A, P) holds for every prime P of degree > 4 for A ∈ {T⁴, T⁴ + 1}. This is PROVED (computer-assisted),
+with a certificate independent of the author's code.** The author's `cover_q2_*.txt` should still be archived (D13).
+The author may cite R161's certificates instead.
