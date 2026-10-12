@@ -133,3 +133,19 @@ By-products:
 * EVIDENCE §4: no non-abelian Frobenius effect on Type II abundance at the 2σ level.
 
 Novelty: modest. D3 is a straightforward combination of known tools.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **D2 is false as universalised.** Under the natural reading (a Frobenius condition at ℓ² is a condition on squares
+  g²), in A₅ — trivial abelianisation — the involution (12)(34) is not a square; only 45 of the 60 elements are
+  squares [A5]. So "every non-abelian Frobenius condition is realised at squares" fails; conjugacy classes with no
+  squares pass T1 automatically and are invisible to every character of the abelianisation (triage B §0.4). For
+  composite inputs there is no canonical non-abelian Frobenius anyway. D2's principal-genus composition argument
+  (ring class fields) is classical and fine in its own scope.
+* **D1 (line 45): the Type I congruence is p ≡ −e⁻¹ (mod ℓ), not p ≡ −e,** for ℓ | N_e = (pe+1)/4. Example [A5-typeI]:
+  p = 13, e = 3, ℓ = 5 | N_e = 10: p ≡ 3 ≡ −e⁻¹ but −e ≡ 2 (mod 5). (For Type II, N_e = (p+e)/4, p ≡ −e is right.)
+* D1 describes the witness predicate, not every proof of positivity; Thm 2.2(iii) needs a fixed finite Θ₀.
+  **Corrected verdict:** PARTIAL → H-D (polynomial gating collapses; non-abelian control of Type I/II open, no candidate).

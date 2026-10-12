@@ -186,3 +186,18 @@ By-products (EVIDENCE unless stated):
 
 *Not done.* `f_I` for the adversaries. Its correlation with `f_II` is 0.85 within cells (O142), and existence
 was already certified via Type II.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **D3 is false as stated** ("N_e = (p+e)/4 prime ⇒ X_e(p) = 0"). Counterexample [D3]: p = 433 ≡ 1 (24), e = 19,
+  N_19 = 113 prime, yet (a,b,c,d) = (1,113,6,1) is Type II (4·113 = 452 = p+e, a+b = 114 = 6·19), so X_19(433) = 2.
+  **Corrected statement (PROVED, elementary):** if N_e is prime and e ≥ 3, the only candidates are d = 1, {a,b} = {1,N_e}
+  (d = N_e forces a+b = 2), and they work iff N_e ≡ −1 (mod e). So a prime N_e kills the e-slice iff N_e ≢ −1 (mod e).
+  The script checks this rule on all 15 181 prime-N_e cases with p < 2·10⁴, 3 ≤ e < 200.
+* Data hygiene: the design log has 351 observations but 349 distinct primes.
+* The 10¹⁶ control mean (six observations) has SE ≈ 0.00163, i.e. 3.65 % of its mean; the "±3 % saturation" fit is
+  within 1–2 SE and is **not** evidence of asymptotic saturation (EVIDENCE claim withdrawn).
+* The "15 % ceiling" via Burgess assumes the unproved log-mass model; Burgess bounds the first non-residue only.

@@ -128,3 +128,20 @@ first failing step (B1–B6, T1–T8 as in the brief).
 
 **Strongest transfers chosen for full memos:** (1) Maynard–Tao with θ as the averaging variable,
 (2) smooth-moduli level of distribution. Both collapse; see the memos.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **Common frame (line 8): the equivalence "4AB | p+A+B ⇔ B | p+A, 4A | p+B, 4 | p+A+B" is false.** Counterexample
+  [frame]: p = 73, (A,B) = (2,5): 4AB = 40 | 80 = p+A+B but 4A = 8 ∤ 78 = p+B. The direction ⇐ holds; ⇒ fails because
+  the factor 4 is shared. Correct dual forms: 4AB | p+A+B ⇔ A | p+B and 4B | p+A+B ⇔ B | p+A and 4A | p+A+B
+  (folklore; verified in scripts/triage_tech.py).
+* **Item 13: "slice failure is exactly 'the primes of N generate a subgroup avoiding −1'" is false.** Avoidance is
+  sufficient, not necessary. Counterexample [item13]: p = 73, e = 15, N = 22 = 2·11: the slice is empty (divisor
+  residues {1,2,11,7} mod 15 miss −1), yet 2²·11 ≡ −1 (mod 15), so ⟨2,11⟩ ∋ −1. Correct statement: failure ⇔ no
+  divisor of N (exponents bounded by those of N) is ≡ −1 (mod e) — the (C)25 full-generation-block mechanism.
+* Items 3, 9, 16 (averaging over growing θ at fixed p is not T7; B2 leaves it open), 11 (already "open"), 18 (few
+  well-placed prime factors can suffice) are not excluded by the cited barriers. Items 1–2: see tech_maynard_theta
+  errata (density misquote, bilinear over-dismissal). **Corrected verdict:** PARTIAL → H-A/H-B.

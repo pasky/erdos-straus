@@ -102,3 +102,17 @@ script. So the LGP is false for Φ at every odd square.
 * A non-collapsing variant would need an LGP for divisibility systems *with* a size cycle under an
   extra archimedean hypothesis. At d = m² that hypothesis would have to fail, so it would amount to
   ES itself.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.3 and the per-memo
+paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§1 CRT substitution is false:** gcd(a,b) = 1 does not imply gcd(4a,b) = 1, so "4a | d+e ∧ b | d+e" does not give
+  4ab | d+e. Counterexample [lgp]: d = 9, (a,b,e) = (1,2,3) satisfies Φ₉ (3 | 3, 4 | 12, 2 | 12, x = 1), but
+  4ab = 8 ∤ 12, so no Type II solution results. At d = 1 the same tuple satisfies Φ₁ while (4a−1)(4b−1) = 21 > 5,
+  contradicting D1's bound. (The memo's script tests 4ab | d+e, a different, stronger formula.)
+* **Repair:** replace b | d+e by 4b | d+e; with gcd(a,b) = 1 the lcm is then 4ab. The syntactic cycle and D2's local
+  constructions survive, so the naive LGP remains unusable.
+* §4's second collapse is invalid: finitely many branches per input d need not be a fixed finite family
+  independent of d (redteam-automorphic-2 Thm 2.2(iii)). **Corrected verdict:** PARTIAL → H-A.
