@@ -1,0 +1,10 @@
+primes p=1 (24): 2021, profile primes 5..30 (8 regressors)
+R^2 (log fI ~ profile) = 0.514 ; R^2 (log fII ~ profile) = 0.309
+corr(log fI, log fII) raw = 0.749 ; corr of residuals = 0.660
+residual sd: I 0.220  II 0.243
+coefficients (l: beta_I, beta_II) for first 8 l: [(5, np.float64(-0.189), np.float64(-0.104)), (7, np.float64(-0.095), np.float64(-0.105)), (11, np.float64(-0.066), np.float64(-0.05)), (13, np.float64(-0.041), np.float64(-0.026)), (17, np.float64(-0.043), np.float64(-0.007)), (19, np.float64(-0.029), np.float64(-0.03)), (23, np.float64(-0.021), np.float64(-0.051)), (29, np.float64(-0.018), np.float64(-0.013))]
+primes p=1 (24): 2021, profile primes 5..100 (23 regressors)
+R^2 (log fI ~ profile) = 0.522 ; R^2 (log fII ~ profile) = 0.341
+corr(log fI, log fII) raw = 0.749 ; corr of residuals = 0.659
+residual sd: I 0.218  II 0.237
+coefficients (l: beta_I, beta_II) for first 8 l: [(5, np.float64(-0.189), np.float64(-0.104)), (7, np.float64(-0.095), np.float64(-0.104)), (11, np.float64(-0.065), np.float64(-0.048)), (13, np.float64(-0.041), np.float64(-0.026)), (17, np.float64(-0.043), np.float64(-0.008)), (19, np.float64(-0.03), np.float64(-0.032)), (23, np.float64(-0.021), np.float64(-0.051)), (29, np.float64(-0.018), np.float64(-0.012))]

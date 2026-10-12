@@ -1,0 +1,6 @@
+primes p=1 (24): 2021
+M0 intercept           cols=  1  R2_I=0.000 R2_II=0.000  resid corr=0.749
+M1 +profile l<=100     cols= 24  R2_I=0.522 R2_II=0.341  resid corr=0.659
+M2 +residue classes    cols=117  R2_I=0.650 R2_II=0.483  resid corr=0.592
+M3 +log L(1,chi_p)     cols=118  R2_I=0.659 R2_II=0.497  resid corr=0.581
+M4 +shift richness     cols=120  R2_I=0.670 R2_II=0.513  resid corr=0.579
