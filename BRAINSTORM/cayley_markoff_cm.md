@@ -35,7 +35,7 @@ one has `X²+Y²+Z²−XYZ−4 = −64 e₃(y)/e₁³` (check (A)). The nodes go
   **every rational point on an open face is a positive ES point for some n** (permute so that y₃ < 0, then scale).
 * (iii) The integral points of V_4 inside the open tetrahedron are the four points
   (1,1,−1) (and permutations) and (−1,−1,−1). Each is the face centre y ∝ (3,3,3,−1), i.e. the trivial
-  representation 4/(3k) = 3·1/(9k/4)-type point. Integral structures do not correspond:
+  point 4/n = 3·(4/(3n)), integral iff 4 | n. Integral structures do not correspond:
   V_4(ℤ) (traces of commuting SL₂(ℤ) matrices, Pell units, |X| ≥ 2) lies on the non-compact components, while
   the positive ES points lie in the compact one.
 
