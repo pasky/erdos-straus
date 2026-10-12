@@ -68,7 +68,8 @@ Exhaustive decision of V(n) = ∅ (with a ≤ b; bounds `4a²d ≤ n + 2a` (II) 
 Python enumeration agrees on 2 ≤ n ≤ 400.
 
 **EVIDENCE.** For 2 ≤ n ≤ 10⁶: V(n) = ∅ exactly for the perfect squares (odd **and** even) and for the two
-even non-squares n = 288 = 2⁵·3², 336 = 2⁴·3·7. **Every odd non-square n ≤ 10⁶ has V(n) ≠ ∅.**
+even non-squares n = 288 = 2⁵·3², 336 = 2⁴·3·7. **Every odd non-square n ≤ 10⁶ has V(n) ≠ ∅.** Extension (odd n only): all 4 498 919 odd non-squares
+in (10⁶, 10⁷] have V(n) ≠ ∅ (`logs/bs_corr_vempty_odd_1e7.txt`).
 
 Exact counts f = #V(n) (a ≤ b) for all odd n in [10⁵, 3·10⁵] (`scripts/bs_corr_count.c`,
 `scripts/bs_corr_nearsq.py`, `logs/bs_corr_nearsq.txt`):
@@ -83,7 +84,7 @@ Exact counts f = #V(n) (a ≤ b) for all odd n in [10⁵, 3·10⁵] (`scripts/bs
 The smallest non-square counts are composites with small prime factors (3, 5, 7), not near-squares: the
 count does not degrade as n approaches a square in the sense s(n) → small.
 
-**CONJECTURE SQ.** For odd n > 1: V(n) = ∅ ⟺ n is a perfect square. (EVIDENCE: n ≤ 10⁶.)
+**CONJECTURE SQ.** For odd n > 1: V(n) = ∅ ⟺ n is a perfect square. (EVIDENCE: all odd n ≤ 10⁷.)
 SQ implies ES for primes, and it is exactly the statement "genus (reciprocity at squares) is the only way all
 slices can be jointly empty".
 
@@ -101,6 +102,6 @@ slices can be jointly empty".
   only the character χ_n. Possible use: test proposed H-A mechanisms on composite non-squares and on
   near-squares s·m², where the genus character is a fixed small-conductor character; an argument that
   needs primality beyond non-squareness is suspicious (EVIDENCE says it is unnecessary).
-* By-products: Prop 3.1 (PROVED, trivial); identities (C1), (C2) (PROVED); SQ (CONJECTURE, EVIDENCE to
-  10⁶); the even exceptions 288, 336 (CERTIFIED by two independent enumerations at n ≤ 400 and the C
+* By-products: Prop 3.1 (PROVED, trivial); identities (C1), (C2) (PROVED); SQ (CONJECTURE, EVIDENCE for odd n ≤
+  10⁷); the even exceptions 288, 336 (CERTIFIED by two independent enumerations at n ≤ 400 and the C
   enumeration to 10⁶).

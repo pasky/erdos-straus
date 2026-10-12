@@ -48,5 +48,5 @@ H-G quantitatively).**
   `scripts/bs_corr_vempty_check.py`, ≤ 400.
 * SQ is a strengthening, not a route. Its use is as a test bed: an H-A mechanism that needs primality
   beyond non-squareness is suspicious.
-* The odd-n extension of the SQ scan to 10⁷ was started (`/tmp/vempty_1e7.txt`). Its result is appended to
-  memo (a) if it finished before this report was committed.
+* The odd-n extension of the SQ scan is done: all 4 498 919 odd non-squares in (10⁶, 10⁷] have V(n) ≠ ∅
+  (`logs/bs_corr_vempty_odd_1e7.txt`). So SQ is EVIDENCE for odd n ≤ 10⁷.
