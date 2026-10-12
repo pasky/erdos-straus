@@ -1,0 +1,5 @@
+Lemma 2.2: E(m^2) empty for all odd m < 200: True
+Lemma 2.1: random axis lines, odd-square classes hit: 0
+Lemma 3.1: P+1 >= tuv/2 (t>=2) and P+1=(u-1)(v-1) (t=1) for n<400: failures 0
+Lemma 4.1(a-d): 399 random (point, polynomial) trials, failures 0
+Lemma 5.1: 5528 E-points (p=1 mod 8, p<20000), failures 0; t,u,v symbols take {1, -1},{1, -1},{1, -1}
