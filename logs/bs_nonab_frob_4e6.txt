@@ -1,0 +1,23 @@
+PMAX=4000000 E0=400 primes p≡1(24) in [1000,PMAX): 35265
+all p≡1(24)
+  2quartic=T                   n= 17597 mean W/log^3p=0.0409 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  2quartic=F                   n= 17668 mean W/log^3p=0.0409 ±0.0001  min=0.0084  frac(emin>E0/4)=0.000
+  x2+32y2=T                    n= 17537 mean W/log^3p=0.0411 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  x2+32y2=F                    n= 17728 mean W/log^3p=0.0408 ±0.0001  min=0.0090  frac(emin>E0/4)=0.000
+  2cubic=T                     n= 11713 mean W/log^3p=0.0411 ±0.0001  min=0.0084  frac(emin>E0/4)=0.000
+  2cubic=F                     n= 23552 mean W/log^3p=0.0408 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  3quartic=T                   n= 17583 mean W/log^3p=0.0410 ±0.0001  min=0.0084  frac(emin>E0/4)=0.000
+  3quartic=F                   n= 17682 mean W/log^3p=0.0409 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  p=1(16)=T                    n= 17633 mean W/log^3p=0.0382 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  p=1(16)=F                    n= 17632 mean W/log^3p=0.0437 ±0.0001  min=0.0084  frac(emin>E0/4)=0.000
+square classes mod 840
+  2quartic=T                   n=  4295 mean W/log^3p=0.0322 ±0.0002  min=0.0075  frac(emin>E0/4)=0.000
+  2quartic=F                   n=  4415 mean W/log^3p=0.0319 ±0.0002  min=0.0084  frac(emin>E0/4)=0.000
+  x2+32y2=T                    n=  4330 mean W/log^3p=0.0321 ±0.0002  min=0.0075  frac(emin>E0/4)=0.000
+  x2+32y2=F                    n=  4380 mean W/log^3p=0.0320 ±0.0002  min=0.0090  frac(emin>E0/4)=0.000
+  2cubic=T                     n=  2856 mean W/log^3p=0.0323 ±0.0002  min=0.0084  frac(emin>E0/4)=0.000
+  2cubic=F                     n=  5854 mean W/log^3p=0.0320 ±0.0001  min=0.0075  frac(emin>E0/4)=0.000
+  3quartic=T                   n=  4350 mean W/log^3p=0.0320 ±0.0002  min=0.0084  frac(emin>E0/4)=0.000
+  3quartic=F                   n=  4360 mean W/log^3p=0.0321 ±0.0002  min=0.0075  frac(emin>E0/4)=0.000
+  p=1(16)=T                    n=  4349 mean W/log^3p=0.0311 ±0.0002  min=0.0075  frac(emin>E0/4)=0.000
+  p=1(16)=F                    n=  4361 mean W/log^3p=0.0331 ±0.0002  min=0.0084  frac(emin>E0/4)=0.000
