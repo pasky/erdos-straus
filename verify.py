@@ -23988,4 +23988,48 @@ print("\n== (fb) LONGSHOT_FIBRED: ET 1.6, F2 Pell, F4 orbit counts, spinor excep
 check_fb()
 
 
+def check_fc():
+    # (fc) Brainstorm phase (J): triage errata counterexamples (O160 errata_check.py), INVOLUTION_ES (R158
+    # from-scratch checks: Lemma 2.1/2.2, Prop 2.3, Lemma 5.2; Prop 3.1 free-model certificate) and
+    # POINTWISE_BINARYFORM (R159: ET Prop 1.6 for bare N-points, Lemma 2.2 square-class description).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("BRAINSTORM subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("errata_check.py")
+    lines = [ln for ln in o.splitlines() if ln.strip()]
+    assert len(lines) == 17 and all(ln.startswith("OK ") for ln in lines), ("BRAINSTORM errata", o)
+    o = run("review_inv_xsets.py", "1200", "151")
+    assert "L2.1 + E->ES check up to 1200 bad = 0" in o and \
+        "odd m<=151: E(m^2) nonempty for [] ; |X(m^2)| odd for 69 of 75 ; primes with even |X|: []" in o and \
+        "Lemma 5.2: E elements 213 violations 0" in o, ("INVOLUTION R158 X-sets", o)
+    o = run("review_inv_prop31.py")
+    assert "sum of 4 expansions: ['phi0'] (+4c = 0)" in o and o.count("identity True") == 4 and \
+        "span search classes [-1, 0, 1, 2] (exp<=3, len<=3): vectors=162, phi0 reachable=True" in o, \
+        ("INVOLUTION R158 Prop 3.1", o)
+    o = run("review_bf_lemma11.py")
+    assert "TypeI N-points 38827: Jacobi(-d/n)!=-1 (odd n>1): 0; odd squares: 0" in o and \
+        "TypeII N-points 250770: (n/f)!=-1: 0; squares n (any parity): 0" in o and \
+        "character periodicity/oddness violations: 0" in o, ("BINARYFORM R159 Lemma 1.1", o)
+    o = run("review_bf_lemma21.py")
+    for M in (8, 16, 32, 48, 72, 80, 104):
+        assert f"Lemma 2.2 M={M}: " in o and o.split(f"Lemma 2.2 M={M}: ")[1].split("\n")[0].endswith("mismatches 0"), \
+            ("BINARYFORM R159 Lemma 2.2 (8 | M)", M, o)
+    assert "Lemma 2.2 M=4: units 8, |H|=4, mismatches 4" in o, ("BINARYFORM R159: M = 4 is not enough", o)
+    print(f"(fc) brainstorm (J): 17 errata counterexamples; INVOLUTION_ES Lemma 2.2/Prop 2.3/Lemma 5.2/Prop 3.1; "
+          f"BINARYFORM Lemma 1.1 (289597 N-points) and Lemma 2.2 — OK ({perf_counter() - t0:.0f}s)")
+
+
+check_fc()
+
+
 print("\nall checks passed")
