@@ -14,8 +14,9 @@ ES is not solved here, and the document does not claim it is.
 | Prop 3.1 | SOUND (scope caveat D2) |
 | Lemma 4.1 / Prop 4.2 / Thm 4.4 (mathematics) | SOUND (minor D4, D5) |
 | §0/§4 interpretation ("closes the WINDMILL Prop 2 gap", "no cross-slice coupling") | GAP: overclaimed framing (D3, MAJOR) |
-| Thm 5.1 / Lemma 5.2 | pending |
-| Cor 5.3 | pending |
+| Thm 5.1 | SOUND |
+| Lemma 5.2 | SOUND |
+| Cor 5.3 | SOUND-AFTER-REPAIRS as a CONDITIONAL sketch (D6); label honest |
 | novelty / §6 framing | pending |
 
 ## Claim-by-claim
@@ -102,7 +103,7 @@ From-scratch check (`scripts/review_inv_sym.py`):
 * (b) a Groebner basis over all 6 permutations with symbolic n, and `λ₁λ₂λ₃n ≠ 0` imposed. It gives exactly
   id and ρ; the other 4 permutations give the ideal (1). Note: `sympy.solve` silently returns no solutions on
   this system, so I used Groebner.
-* (c) exactly the scalings `(λa, λb, a… c/λ², λk)` and the swap, for n-independent maps.
+* (c) exactly the scalings `(λa, λb, c/λ², λk)` and the swap, for n-independent maps.
 * (d) for **fully general** affine maps in (A,B,t) (12 unknowns, no monomiality assumed), only
   `(αA, B/α, t)` and `(αB, A/α, t)`. The other solutions have `t' = 0` and are not invertible.
 
@@ -130,3 +131,38 @@ So the "exceptional" set of a finite-menu windmill can contain the entire empiri
 §4 therefore does not show that finite-menu windmills fail. It shows that they reduce to a **bounded-slice
 statement** "E(p) ∩ Z ≠ ∅ ∀p", and for coordinate planes the only known refutation of that statement is
 conditional (Cor 5.3, Dickson). Unconditionally, §4–§5 exclude **no** windmill defined on primes.
+
+### Thm 5.1, Lemma 5.2, Cor 5.3
+
+**Thm 5.1.** Re-derived. On G(p), τ is pointwise id or ρ, and G(p) is τ- and ρ-invariant (Z is H-invariant).
+If `(p+2,1,1)` were in G(p), both id and ρ would fix it, which is impossible because it is not in E(p)
+(`A = p+1 ≡ 2 (4)`). So it lies in Z. It is the unique ρ-fixed point of X(p), so ρ is free on G(p), and
+`|Fix τ ∩ G(p)| ≡ |G(p)| ≡ 0`, while `|Fix τ| ≡ |X(p)| ≡ 1`. **SOUND.** A side remark worth adding: the
+conclusion forces the line `{u = v = 1}` into Z for every such menu.
+
+**Lemma 5.2.** Re-derived. `tp+1 ≡ t+1 (8)` gives `t ≡ 3 (4)`; primes of δ₀ divide `tp+1`, so `(−tp/δ₀) = 1`,
+and the Lemma 2.2 computation gives `(−t/δ₀) = −1`. Hence `(δ₀/p) = (p/δ₀) = −1`. Checked numerically: 213
+elements, 0 violations. **SOUND.**
+
+**Cor 5.3 (CONDITIONAL, sketch).** I redid the branch bookkeeping. The mechanism works, but one step of the
+sketch is wrong as written (D6). Take `p = Mq+1`, with M divisible by high powers of all relevant small
+integers.
+* `{t=c}`: A divides `cp+1 = (c+1)·r`, where `r = (cM/(c+1))q + 1`.
+* `{u=c}`: A divides `p+c = (c+1)·r'`, where `r' = (M/(c+1))q + 1`.
+* `{v=c}`: `B | p+c`, so B = d or B = d·r' with `d | c+1`. I checked that **both** branches give A linear in q:
+  `cd·A = (d+1)p + c` for B = d, and `cd·A = dp + c + 1` for B = d·r'. In the second branch use
+  `p = (c+1)r' − c`; then `(dr'+1)p + c = r'(dp+c+1)`.
+
+So every candidate A is a fixed integer times one value of a linear form `α_i q + 1`. The fixed integers are
+c+1, c+d+1, …, whose primes divide M and are therefore residues mod p, and 2 is a residue since p ≡ 1 (8).
+
+The sketch then says "with q in a class making every such prime ≡ 1 modulo 4·(all constants)". That cannot
+be done by choosing q when the modulus divides α_i, because the residue of `α_i q + 1` is then fixed.
+Correct version: take M so large that `L := 8·∏(c's, d+1's)` divides every α_i. Then each prime is
+automatically ≡ 1 (mod L), and its quadratic character at p is
+`(−c/r) = 1`, `(−c(d+1)/s) = 1`, `(−d(c+1)/s) = 1`, as required.
+
+Dickson admissibility also holds. All forms are `α_i q + 1`; for ℓ ≤ #forms, ℓ | α_i gives the value 1
+(mod ℓ); for larger ℓ, at most #forms classes are excluded. With this repair the sketch is a correct
+CONDITIONAL proof. The label "CONDITIONAL; sketch; needs review" is honest. Note that the corollary is
+conditional, so §4–§5 give **no unconditional exclusion** of any primes-only windmill (D3).
