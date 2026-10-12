@@ -223,7 +223,7 @@ h(s) = g(√s, 0)).
 * Positive control: on u² + 21 with e = (u²+22)/22 it rediscovers the O145 k = 21 family
   (a, b) = (u² ∓ u + 22, u² ± u + 22), c = 44, d = 1/88, f = u² ∓ 2u + 23 (a dilate of O145's).
 * Q = u² + v², e₀ = (quadratic form, coefficients in {−1,0,1}) + (linear form, coefficients in
-  {−1,0,1}) + ζ, ζ ∈ [−8, 8], κ ∈ {1, 1/2, …, 1/12, 2, 3}: 57 596 (e₀, κ) pairs, ≈ 57 600 formal
+  {−1,0,1}) + ζ, ζ ∈ [−8, 8], κ ∈ {1, 1/2, …, 1/12, 2, 3}: 57 596 (e₀, κ) pairs, 57 914 formal
   Σ-families (almost all with b, d negative constants — never valid), **50 sign-feasible families,
   all in Q[n]⁶, 0 genuinely two-variable** (`data/review_bf/search_e_{neg,pos}.txt`, plus the ζ = 0
   run quoted in the commit log: 3 388 pairs, 0 sign-feasible). The 50 one-variable hits are an
@@ -253,4 +253,43 @@ the same limitation.
   overlapping the binary-form result.
 * Web searches for two-variable / sum-of-two-squares ES identity obstructions found nothing
   specific. Novelty status: **unverified, probably folklore**; the label in §7 is appropriate.
+
+## Numbered defects
+
+1. **D6 (MAJOR, overclaimed scope).** §0 bold answer, paragraph after Cor 3.4, §7 Cor 3.4 bullet:
+   "every such certificate" / "no Fermat + identity certificate" read as covering families given by
+   (x,y,z) ∈ Q[u,v]³, which §4.4(iv) itself says are not covered; ET's one-variable reduction
+   (x,y,z) → (a,…,f) (ET §10) needs bounded value-gcds and a prime n, both unavailable here.
+   Repair: qualify every headline by "whose ET coordinates (a,…,f) are polynomial or rational in
+   (u,v)" and flag (iv) as the main open case. Possible route to close it (unverified): if Q | x and
+   Q ∤ yz in Q[u,v], it suffices to find, in each C ∩ S, square points with gcd(Q(P), y(P)z(P)) = 1
+   (then the specialised solution is Type I for m² and ET Prop 2.2 + Lemma 1.1 apply); on the
+   parametrised conic this is a coprimality sieve between w(s,t) and y∘φ(s,t), which works when
+   their resultant is nonzero and fails only if y vanishes at the isotropic points of Q.
+2. **D2 (MINOR).** Thm 3.2(c) deduction ignores the sign pattern (−,−,−,+,+,+) allowed by §1
+   (A_F⁻). Repair: apply (b) to the dilate (−a,−b,−c,d,e,f) as well (same in Prop 5.2).
+3. **D3 (MINOR).** Cor 3.4: give a precise Hecke reference and the exact version used (order of
+   discriminant D, ray class mod M, cones transported by (u,v) ↦ uω₁ + vω₂).
+4. **D4 (MINOR).** §0/§3/§7: "every square class" must read "every square class mod M, M divisible
+   by 8, 2D and the families' moduli"; §0's "8D | M" vs the theorem's "8, 2D | M".
+5. **D5 (MINOR).** Prop 5.1 proof: "neither factor is defined over Q" is false for d = −m²;
+   replace by "every divisor in Q[u,v] of g(Q), g ∈ Q[n], g(0) ≠ 0, lies in Q[n] (each Q − r is
+   C-irreducible)" or restrict to d > 0.
+6. **D1 (MINOR, framing).** Lemma 1.1 is not a strengthening of ET Prop 1.6 "without coprimality":
+   ET's Σ_n has no coprimality condition and ET §4 already argues for arbitrary N-points. The real
+   additions are the Jacobi refinements and even squares in Type II.
+7. **D8 (MINOR, dependency).** O145 Prop 3.2's proof says "there is no cancellation"; in
+   P = 4dgg′ − h cancellation can occur; the stated degree consequence is nevertheless right (see
+   above). Fix the sentence in BRAINSTORM/ident_form_families.md and upgrade the Prop 5.2 label
+   to "PROVED (dependency checked by R159)".
+
+## Overall verdict
+
+The mathematical core is **correct**: Lemma 1.1, Lemmas 2.1/2.2, Lemma 3.1, Lemma 3.3, Theorem 3.2
+(with the one-line D2 fix), Cor 3.4 (relative to the classical Hecke theorem, so unconditional),
+Props 5.1/5.2 and the O145 dependency all survive line-by-line re-derivation and from-scratch
+brute force. No FATAL defects. One MAJOR defect (D6): the headline claims more than is proved —
+the theorems cover ET-coordinate families, not arbitrary (x,y,z)-polynomial families. Novelty:
+folklore-level two-variable Mordell–Schinzel analogue; Schinzel 2000 and Mordell's book not
+accessible to me.
 
