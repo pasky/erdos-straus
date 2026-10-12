@@ -127,9 +127,10 @@ with N_II(P) = 0 at q = 5, n ≥ 8 has P(0) = 1. At q = 7, n = 6, 3 of the 4 fai
 P(0) = 2). The classes P(0) ∈ {−1, −2} never fail (Prop 1.4).
 (ii) *Quadratic tilt.* Prop 4.1 makes Type II classes prefer (−AP/f) = +1 (always for q ≡ 1 mod 4; for 3 of the 4
 parity patterns when q ≡ 3 mod 4). Class means of N_II by ℓ = T − c show it. Excluding the class P(c) = −1,
-mean N_II is higher when χ(−c·P(c)) = +1:
-q = 5, n = 8: c = 1: 35.6 vs 34.5; c = 2: 33.8 vs 38.2 (χ(2) = −1); c = 3: 34.1 vs 38.2; c = 4: 38.6 vs 34.9.
-q = 7, n = 7: c = 2: 17.2 vs 19.1; c = 3: 18.4 vs 17.6 (χ(3) = −1), and likewise for c = 4, 5, 6.
+mean N_II is higher when χ(−c·P(c)) = +1. Pairs below are (mean over χ = +1 classes, mean over χ = −1 classes):
+q = 5, n = 8: c = 1: 35.6, 34.5; c = 2: 38.2, 33.8; c = 3: 38.2, 34.1; c = 4: 38.6, 34.9.
+q = 7, n = 7: c = 1: 17.9, 16.9; c = 2: 19.1, 17.2; c = 3: 18.4, 17.6; c = 4: 19.1, 17.2; c = 5: 18.4, 17.5;
+c = 6: 18.4, 17.5.
 The tilt is ~5–15 % per ℓ. Over Z it is ×14 across classes mod 840, because there the sign is rigid and the
 small primes 3, 5, 7 have large weight 1/ℓ. Here each degree-1 ℓ has weight ~1/q, and the sign is not rigid
 for q ≡ 3 (mod 4).
