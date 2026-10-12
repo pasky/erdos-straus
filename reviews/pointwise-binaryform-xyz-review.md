@@ -168,3 +168,61 @@ If F is integral on a square class C mod M₀ (8, 2D | M₀), C contains a squar
 lcm(M₀,δ) (Q ≡ 1 at the new primes ℓ ∤ M₀, ℓ ∤ 2D, by CRT); (b′) on C′ gives A_F = ∅ and then (c′)
 holds on all of Z². So the true hypothesis is "8, 2D | M and F integral on C" (integrality period
 instead of denominator), e.g. for integer-valued polynomials such as u(u+1)/2.
+
+### Corollary 3.4′ — SOUND relative to Hecke (same status as Cor 3.4); one wording point
+
+Polynomial families: Thm 3.2′(c′) on each square class mod M (δ | M), then Cor 3.4's Hecke
+counting verbatim ✓. Rational families: a coordinate g = A/B in lowest terms with B nonconstant
+must be an integer at a valid point, so Lemma 3.3 gives ≪ X^{1+ε} valid points of norm ≤ X versus
+≍ X²/log X prime points ✓. The modulus is "8, 2D and the δ's" — of the same kind as Cor 3.4 (see
+above). Wording: "no 'Fermat + identity' certificate whatsoever" should keep the word *finite* and
+the standing scope (positive definite Q with a square class, no floor/factorisation steps, bounded
+families of forms) right in the sentence, since §8.5 lists exactly those exclusions (MINOR m5).
+
+### Is R159 D6 genuinely closed? — YES
+
+D6 was: the headline claimed all "ES solution = polynomial in (u,v)" certificates, but only
+families with polynomial/rational ET coordinates were covered; (x,y,z)-families were open because
+gcd(Q(P), y(P)z(P)) can be > 1 at every square point. §8 handles this. Lemma 8.1 removes shape (0).
+Lemma 8.4 controls all primes of w by a sieve. The only common factor left is the prime λ, which is
+harmless: Lemma 8.3 descends by λ or λ². The origin identities of Lemma 8.2 then turn the forced
+symbol −1 into +1 when k = 1. Every step re-derived; Lemma 8.3 brute-forced to n ≤ 60 000; Lemma
+8.4's construction run on 24 832 (class, octant) pairs, including a non-principal form of class
+number 3. No residual case: rational families via Lemma 3.3; shapes and k exhaustive. The
+stale sentence at §3 end (lines 175–176: "(x,y,z)-only families are §4.4(iv), open") must be
+updated (m4), and §0's "with the same hypotheses" needs the 2D | M nuance (m3).
+
+## Summary verdicts
+
+| Claim | Verdict |
+|---|---|
+| Lemma 8.1 (shapes; Q prime; shape (0) never valid when gcd(Q(P),δ) = 1) | SOUND |
+| Lemma 8.2 (origin identities, Types I/II) | SOUND (m1: y+z ≠ 0 branch implicit in Thm 3.2′) |
+| Lemma 8.3 (descent by λ / λ², Legendre symbols, reciprocity sign) | SOUND; brute force CERTIFIED to n ≤ 60 000 |
+| Lemma 8.4 (sieve: Steps 1–7, k₀, ℓ > T tail) | SOUND (m2 presentation) |
+| Theorem 3.2′ (cases k = 0, 1, ≥ 2; quantifiers in (c′)) | SOUND (m3: needs 2D \| M, not "same hypotheses") |
+| Cor 3.4′ (relative to Hecke) | SOUND relative to Hecke (m5 wording) |
+| Modulus hypothesis (δ incl. denominators of x/Q…) | natural; redundant by Gauss's lemma; removable (integrality on C suffices) |
+| D6 closed? | YES (after m4: stale "open" sentence at §3 end) |
+
+No FATAL, no MAJOR defects.
+
+## Defects
+
+1. **m1 (MINOR).** Thm 3.2′ proof, Shape (I), k = 1 bullet: uses z₁ = −y₁ from Lemma 8.2, which is
+   proved only in the branch y + z ≠ 0. Repair: add "(y + z ≠ 0, as F is valid somewhere)".
+2. **m2 (MINOR).** Lemma 8.4 Step 6: the "finite set" of exceptional ℓ should also list the primes
+   at which the isotropic vectors V, V̄ reduce to 0 (finitely many); Step 5: say B₀ avoids 0.
+3. **m3 (MINOR).** §0 "(O163 update … with the same hypotheses)" and §8 Thm 3.2′: Thm 3.2 allowed
+   "2D | M or Q in the principal genus"; Lemma 8.4 needs 2D | M. Repair: either say "M divisible by
+   8, 2D, δ" in §0, or add the one-line reduction: for principal-genus Q and 2D ∤ M, apply (b′) on a
+   sub-class C′ ⊂ C mod lcm(M,2D) with Q(C′) a unit square; A_F = ∅ is independent of C. (This also
+   restores §4.2's s₀-independent modulus for (x,y,z)-families.)
+4. **m4 (MINOR, stale text).** §3, paragraph after Cor 3.4 (lines 175–176): "(x,y,z)-only families
+   are §4.4(iv), open" contradicts §8. Repair: append "(O163 update: closed by §8, Cor 3.4′.)".
+5. **m5 (MINOR, wording).** Cor 3.4′ tail "no 'Fermat + identity' certificate whatsoever": insert
+   "finite" and "within the scope of §4.4/§8.5". Optional strengthening (not a defect): the
+   δ | M hypothesis may be replaced by "F integral on C" (see the modulus section).
+6. **m6 (cosmetic).** Lemma 8.3 check counts: my from-scratch counts at n ≤ 12 000 are (a) 1 962,
+   (b) 818 vs the author's 1 612 / 688; the difference comes from conventions (I count all λ ≤ √n,
+   every decomposition n = λ²w², y↔z orderings separately; the author caps λ ≤ 47). Not a defect.
