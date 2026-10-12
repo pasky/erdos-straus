@@ -187,3 +187,24 @@ so G restricted to a ray is even), hence G ∈ R[Q] ∩ Q[u,v] = Q[Q]. Correct. 
 as D2 applies (a family valid on a cone with sign pattern (−,−,−,+,+,+): apply the result to the
 dilate). Prop 5.2 does not use integrality or the principal genus; it is purely algebraic.
 
+### Scope of the headline (§0, §3 closing paragraph, §7) — GAP in the stated scope (D6, MAJOR)
+
+§0 frames the question as certificates "ES solution = polynomial in (u,v)" and then states in bold
+"the square specialisation kills **every such certificate** on every square class". The theorems,
+however, are proved only for families whose **ET coordinates (a,…,f)** are polynomial/rational in
+(u,v). A family given as (x,y,z) ∈ Q[u,v]³ (the literal "ES solution polynomial in (u,v)") is
+exactly case §4.4(iv), which the author correctly lists as *not done*. The gap is real, not
+cosmetic: at a square point n = m² the specialised (x,y,z) is a genuine positive solution of 4/m²
+(such solutions exist whenever ES holds for m), so Lemma 1.1 says nothing unless that solution is
+of ET Type I/II shape *with the polynomial ET coordinates specialising to it*; ET's one-variable
+reduction from (x,y,z)-polynomials to (a,…,f)-polynomials (ET §10, proof of Prop 1.9: "d(p) =
+q(p)·d̃(p) with q(p) taking finitely many values", then passing to subclasses) uses that gcds of
+values of coprime one-variable polynomials are bounded, which fails in two variables (gcd(u, v)
+is unbounded), and also uses p prime to fix the Type. So for the natural certificate shape the
+result is not proved.
+Repair (required): in §0 replace "every such certificate" by "every certificate whose ET
+coordinates (a,…,f) are polynomial or rational in (u,v)"; same qualifier in the paragraph after
+Cor 3.4 ("no Fermat + identity certificate …") and in the §7 Cor 3.4 bullet; and move §4.4(iv) up
+into §0 as the main open case. (The statement "a polynomial or rational ET identity" in the §3
+closing paragraph is fine if "ET identity" is defined there as an (a,…,f)-family.)
+
