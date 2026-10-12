@@ -261,9 +261,10 @@ n ≤ 11). Results in `data/ffl/q2_batch.txt`.
 **Theorem 6.4 (PROVED, computer-assisted).** ES_q(A, P) holds for **every** monic irreducible P of degree > deg A in
 the following cases:
 * q = 2, A = T or T + 1, and q = 3, A = T (Prop 1.4; no computation);
-* q = 2, every monic A of degree 2, 3 or 4 (all 28 of them; the degree-4 trees have up to 818 leaves with leaf
-  moduli of degree ≤ 18). No exceptions in degrees k < n ≤ 11 either. Degree 5: see the batch file
-  (running at the time of writing);
+* q = 2, every monic A of degree 2 or 3 (all 12 of them), and the degree-4 A completed so far (T⁴ and T⁴ + 1:
+  trees with 696 and 818 leaves, leaf moduli of degree ≤ 18). The batch over the remaining degree-4 and degree-5 A
+  was still running at the time of writing; `data/ffl/q2_batch.txt` is authoritative. The exhaustive
+  checks found no exception in degrees k < n ≤ 11;
 * q = 4, A = T (Theorem 6.3).
 
 **Not covered (status OPEN, with EVIDENCE).**
