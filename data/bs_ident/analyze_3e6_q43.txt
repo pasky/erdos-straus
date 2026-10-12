@@ -1,0 +1,22 @@
+n=6628 primes, p<= 2998921
+
+[log(1+S)] baseline (log p + QR-pattern mod 11..43) R^2 = 0.345
+  h/sqrtp        n= 6628 t=+8.47  perm-p=0.005
+  logeps/sqrtp   n= 6628 t=-0.86  perm-p=0.383
+  q2(2 quartic)  n= 6628 t=-1.65  perm-p=0.065
+  c2(2 cubic)    n= 6628 t=+0.95  perm-p=0.323
+  c3(3 cubic)    n= 6628 t=-0.11  perm-p=0.960
+
+[log eII_min] baseline (log p + QR-pattern mod 11..43) R^2 = 0.065
+  h/sqrtp        n= 6628 t=-1.03  perm-p=0.313
+  logeps/sqrtp   n= 6628 t=+0.16  perm-p=0.856
+  q2(2 quartic)  n= 6628 t=-0.26  perm-p=0.826
+  c2(2 cubic)    n= 6628 t=+0.31  perm-p=0.736
+  c3(3 cubic)    n= 6628 t=+1.61  perm-p=0.174
+
+[log eI_min] baseline (log p + QR-pattern mod 11..43) R^2 = 0.034
+  h/sqrtp        n= 6628 t=+0.82  perm-p=0.383
+  logeps/sqrtp   n= 6628 t=-1.43  perm-p=0.189
+  q2(2 quartic)  n= 6628 t=+0.57  perm-p=0.627
+  c2(2 cubic)    n= 6628 t=+0.55  perm-p=0.627
+  c3(3 cubic)    n= 6628 t=+0.32  perm-p=0.731
