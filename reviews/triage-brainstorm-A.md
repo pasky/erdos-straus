@@ -57,3 +57,35 @@ set stays finite (Thm 2.2(iii) / B4), so the verdict stands. The fixed-p "lotter
 (f(p) ~ μ(p) for almost all p). It is averaged and a plausible Turán–Kubilius-style exercise, but it gives nothing
 pointwise. Novelty: Prop B.1 is folklore (Mordell/Yamamoto-era "p + 4 has a prime factor ≡ 3 (4) ⇒ ES"). The
 variance-law numerics are plausibly new. **Promise 1.**
+
+**apollonian_reciprocity (O144b; memo: COLLAPSES as a route / PARTIAL as structure).** AGREE. Prop B.2 is a correct
+reading of BL Cor 2.7: Br U_n/Br ℚ ≅ ℤ/2 over ℚ, so no quartic BM obstruction exists over ℚ. Prop B.1 (the BM set
+stays non-empty after imposing the Type I or the Type II p-adic shape) I checked only at the level of the invariant
+bookkeeping. The Type II computation `inv_p = ((1 − 4/X)/p)`, with 1 − 4/X ranging over all residues ≠ 0, 1, is
+right. The decisive false-negative question is whether an HKRS-type *non-BM* (thin-orbit) invariant could hide in ES.
+The memo answers it correctly in two independent ways:
+* (i) at fixed n the integral points off the lines are finite (BL Lemma 3.10), so there is no infinite orbit to carry
+  an invariant;
+* (ii) every HKRS family {u·m^d}, d ≥ 2, contains at most one prime.
+
+What the memo understates: (ii) also kills the analogy as a *disproof* heuristic for primes. HKRS obstructions are
+multiplicative-shape sets, and primes avoid them trivially. The census "odd Type I/II zeros ≤ 2·10⁷ = odd squares ∪
+{105}", with 105 a convention artefact, is a nice T1 sanity check of the counting code. The quartic-symbol split
+is EVIDENCE with a proper congruence control. Open sub-question: none for ES. Novelty: Prop B.1/B.2 are low-novelty
+readings of BL. The quartic test is new but expected-null. **Promise 1.**
+
+**canonical_invariants (O153 W1; memo: COLLAPSES, B3 for unit size and B2 for representation seeds).** AGREE, with
+one untested sub-branch.
+* Lemma A (x ≤ 3n/4, y ≤ 2nx, z ≤ nxy ⇒ z ≤ 9n⁴/8): re-derived; folklore.
+* Prop B (the archimedean use of ε_p is confined to the power-sparse set {log ε_p ≪ log p}): correct, and the
+  cleanest B3 instance in the batch.
+* Prop C (a Cornacchia seed carries √−d mod p plus a Hecke angle): correct.
+
+Hostile point: the experiment (§4) tests only the *representation* seeds (e | u, e | v for p = u² + v²). The unit
+**residues** (ε_p mod q), which the memo itself classifies as non-abelian Frobenius data in ℚ(√p, ζ_m, ε_p^{1/m}),
+are dismissed by Assessment only ("can enter only by choosing θ", H-D). That is the right *logical* placement. A
+seed can at best steer θ; it cannot decide a fibre. Still, the cheap empirical test was not run: condition the e-slice
+success on ε_p mod e (or on ε_p being an m-th power residue mod small q). Prior: null, by the same CM-torus logic as
+EXF Thm 5.2 (but EXF covers dihedral data of ℚ(√−d), not unit residues of ℚ(√p)). Open sub-question: that unit-residue
+test. Even a positive bias would only be a better θ-ordering (H-A), not a proof. Novelty: Lemma A and Prop C are
+folklore. The power-sparsity count is a Hooley-heuristic replication. **Promise 1.**
