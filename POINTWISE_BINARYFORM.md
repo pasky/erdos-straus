@@ -334,3 +334,31 @@ the RHS, y_k + z_k, vanishes.
 sharing the factor gcd(u,v) with y(P)z(P)) is exactly k ≥ 1. One-variable families composed with
 n = Q(u,v) always have k = 0 (Y(0) = 0 would mean n | Y in Q[n]), so k ≥ 1 needs a genuinely
 two-variable family. Lemma 8.2 is what makes k ≥ 1 harmless (Lemma 8.3).
+
+**Lemma 8.3 (pointwise descent; PROVED from ET Props 1.6, 2.2, 2.6 and Lemma 1.1).** Let λ be an
+odd prime, w ≥ 1 odd, `n = λ²w²`, and (x,y,z) ∈ N³ with `4/n = 1/x + 1/y + 1/z`.
+(a) If n | x, λ ∥ y, λ ∥ z and gcd(w, yz) = 1, then `( −(x/n)(y/λ)(z/λ) / λ ) = −1` (Legendre).
+(b) If n | y, n | z, λ ∥ x and gcd(w, x) = 1, then `( (1 − 4y/n) / λ ) = −1`.
+(c) n | x, λ² | y, λ² | z, gcd(w, yz) = 1 is impossible. (d) n | y, n | z, λ² | x, gcd(w, x) = 1
+is impossible. (e) (ET Prop 1.6) n | x with gcd(n, yz) = 1, or n | y, z with gcd(n, x) = 1, is
+impossible.
+*Proof.* (a) Put `(x′,y′,z′) = (x,y,z)/λ` (λ | x as n | x) and `n′ = λw²`; then
+`4/n′ = 1/x′ + 1/y′ + 1/z′`, `x′ = n′·(x/n)`, and gcd(n′, y′z′) = 1 (λ ∤ y′z′, and
+gcd(w, y′z′) | gcd(w, yz) = 1). So (x′,y′,z′) is a Type I solution for the odd number n′. ET Prop
+2.2 gives (A,…,F) ∈ N⁶ ∩ Σ^I_{n′} with `x′ = n′DAB, y′ = DAC, z′ = DBC`; Lemma 1.1(I) gives
+`(−D/n′) = −1`. By (2.1) gcd(D, n′) = 1, so `(−D/n′) = (−D/λ)(−D/w)² = (−D/λ)`. Finally
+`(x′/n′)y′z′ = D·(DABC)²` with λ ∤ (x′/n′)y′z′ (x′/n′ = DAB is prime to n′ by (2.1)), so
+`(−D/λ) = (−(x′/n′)y′z′/λ) = (−(x/n)(y/λ)(z/λ)/λ)`.
+(b) Same descent: (x′,y′,z′) = (x,y,z)/λ is a Type II solution for n′ = λw² (n′ | y′ = n′·(y/n),
+n′ | z′, gcd(n′, x′) = 1). ET Prop 2.6 gives (A,…,F) ∈ N⁶ ∩ Σ^II_{n′} with y′ = ACDn′, and (2.18)
+gives `F = 4ACD − 1 = 4y/n − 1 ≡ 3 (mod 4)`, F > 0. Lemma 1.1(II): `(n′/F) = −1`. By (2.21)
+gcd(F, n′) = 1, so `(n′/F) = (λ/F)(w/F)² = (λ/F)`, and quadratic reciprocity with F ≡ 3 (4) gives
+`(λ/F) = (F/λ)(−1/λ) = (−F/λ) = ((1 − 4y/n)/λ)`.
+(c) `(x,y,z)/λ²` is a Type I solution for the odd square w² (w² | x/λ² = w²(x/n); gcd(w², yz/λ⁴) = 1);
+ET Prop 1.6 (for w = 1: 4 = Σ 1/xᵢ has no solutions). (d) Same with Type II. (e) is ET Prop 1.6. ∎
+*Check (CERTIFIED for the listed n).* `scripts/bf2_pointwise_check.py` enumerates all solutions for
+every n = λ²w² ≤ 12 000 (λ ≤ 47 prime, w odd) and every ordering: the hypotheses of (a) occur 1 612
+times and of (b) 688 times, the Legendre symbol is −1 every time, and (c), (d), (e) never occur
+(`data/bf2/pointwise_check.txt`, 0 violations).
+Note the symbols in (a), (b) are genuinely constraints, not tautologies: without them the descended
+solution is an ordinary Type I/II solution for the non-square λw², which exists in abundance.
