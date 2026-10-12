@@ -10,7 +10,9 @@ is not a polynomial (or bounded procedure) in p, and Theorem C (POINTWISE_SIZE �
 does not apply. **Answer (§§1–5): the square specialisation kills every such certificate whose ET
 coordinates (a,…,f) are polynomial or rational in (u,v), on every square class mod the joint modulus,
 unconditionally and in every degree.** (R159 repair: qualifier added; certificates given only as
-(x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) If the ET coordinates (a,…,f)
+(x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) (O163 update: §8 closes
+§4.4(iv): Theorem 3.2′ / Cor 3.4′ cover (x,y,z)-families too, with the same hypotheses — R163 repair: M must contain 2D; for Q in
+the principal genus this is removable by passing to a sub-class, see the remark after Thm 3.2′.) If the ET coordinates (a,…,f)
 are polynomials (or rational functions) in (u,v), then on every coset C mod M (8, 2D and the
 families' denominators dividing M) with Q(C) a square unit mod M,
 the family is valid at only a density-zero set of the prime points of C. The reason is that
@@ -172,7 +174,7 @@ So **no Fermat + identity certificate** (compute a representation p = Q(u,v), th
 finitely many polynomial or rational ET identities in (u,v), i.e. families whose ET coordinates
 (a,…,f) are polynomial/rational) proves ES for all, or for a positive proportion of, the primes in
 any square class mod the joint modulus M. (R159 repair: both qualifiers added; (x,y,z)-only families
-are §4.4(iv), open.) The degree is unbounded and no hypothesis is used.
+are §4.4(iv), open. (R163 repair: closed by §8, Cor 3.4′.)) The degree is unbounded and no hypothesis is used.
 This is the two-variable analogue of Mordell–Schinzel (one-variable identities cannot cover square
 classes; ET p. 8). The proof is the same: odd squares in the parameter set.
 
@@ -215,6 +217,7 @@ certificates (p = u² + v², u² + 2v², …).
   coordinates are gcd-defined and need not be polynomial. At a square point the specialised (x,y,z) is
   a solution for m², but Lemma 1.1 needs the N-point. Reducing (iv) to the ET-coordinate case
   needs either polynomial gcds or square points P with `gcd(Q(P), y(P)z(P)) = 1`; not done.
+  (O163 update: done in §8, Theorem 3.2′; the residual case y(0,0) = 0 is handled by descent.)
 * **Non-square classes are not an escape worth having.** A family integral on a non-square class mod
   K_F exists trivially: any one-variable identity in n, composed with n = Q(u,v), works. So positive
   proportions of a Mordell-hard class mod 840 are certainly coverable by identities, e.g. the
@@ -292,6 +295,216 @@ one-variable identities already do the work.
   theorem. Novelty: two-variable analogue of Mordell–Schinzel, folklore-level; the proof is standard.
 * Prop 5.1 (constant level ⇒ one-variable, all forms): PROVED. Prop 5.2 (Type II on cones ⇒
   one-variable): PROVED (O145 Prop 3.2 dependency checked by R159).
-* Open: indefinite forms in cusp regions (4.3); (x,y,z)-only families (4.4(iv)); procedures with
+* (O163) Theorem 3.2′ / Cor 3.4′ — the same for families given only as (x,y,z) ∈ Q[u,v]³ or
+  Q(u,v)³, every square class mod M: PROVED (§8; Cor 3.4′ relative to Hecke).
+* Open: indefinite forms in cusp regions (4.3); procedures with
   floor or factorisation in (u,v) (a two-variable Theorem C, would need H); unbounded families of
   forms (E1/B2); Type I analogue of O145 Prop 3.2.
+
+## 8. (O163) Families given only as (x,y,z) ∈ Q[u,v]³ — closing §4.4(iv)
+
+Setting as in §1–3: Q primitive positive definite, D < 0. An **(x,y,z)-family** is a triple
+F = (x,y,z) ∈ Q[u,v]³ with `4/Q = 1/x + 1/y + 1/z` identically; F is **valid** at P ∈ Z² if
+x(P), y(P), z(P) are positive integers. No ET coordinates are assumed. Q is irreducible in
+Q[u,v] (definite ⇒ no rational linear factor), so Q[u,v] being a UFD, "Q | g" is meaningful.
+For g ∈ Q[u,v] write g = Σ_j g_j (g_j homogeneous of degree j) and ord₀ g = min{j : g_j ≠ 0}.
+
+**Lemma 8.1 (shapes; PROVED, elementary).** Up to permuting x, y, z exactly one of:
+(0) Q divides all three; (I) Q | x, Q ∤ y, Q ∤ z ("Type I shape"); (II) Q | y, Q | z, Q ∤ x
+("Type II shape"). In case (0), F is valid at no P with gcd(Q(P), δ) = 1, where δ ∈ N clears
+the denominators of x/Q, y/Q, z/Q.
+*Proof.* `4xyz = Q(xy + yz + zx)`, so Q | xyz, so Q divides at least one coordinate. Case (0):
+write x = Qx₁ etc.; then `4 = 1/x₁ + 1/y₁ + 1/z₁`. If F is valid at P and n = Q(P) is prime to
+δ, then n·x₁(P) ∈ Z and δx₁(P) ∈ Z give x₁(P) ∈ Z, and x₁(P) = x(P)/n > 0. Three positive
+integers have reciprocal sum ≤ 3 < 4. ∎
+
+**Lemma 8.2 (structure at the origin; PROVED, elementary).**
+(I) Type I shape, x = Q·x̃. Either y + z = 0 (then F is never valid, and Theorem 3.2′ below is
+vacuous for it), or there is h ∈ Q[u,v]
+with `4x̃ − 1 = Qh` and `4yzh = (Qh + 1)(y + z)`. Consequently `x̃(0,0) = 1/4`;
+`k := ord₀ y = ord₀ z`; and if k ≥ 1 then `z_k = −y_k`.
+(II) Type II shape, y = Qỹ, z = Qz̃. There is h with `4ỹz̃ − ỹ − z̃ = Qh` and `xh = ỹz̃`.
+Consequently `(4ỹ(0) − 1)(4z̃(0) − 1) = 1`, and if `x(0,0) = 0` then `ỹ(0,0) = z̃(0,0) = 0`.
+*Proof.* (I) Multiply the identity by Qx̃yz: `yz(4x̃ − 1) = Qx̃(y + z)`. If 4x̃ = 1 then y = −z,
+and y(P), z(P) are never both positive. Otherwise Q ∤ yz forces Q | 4x̃ − 1 =: Qh, and dividing by
+Q gives `yzh = x̃(y+z)`, i.e. the stated identity (x̃ = (Qh+1)/4). At the origin Q = 0, so
+x̃(0) = 1/4. Let k = ord₀ y ≤ l = ord₀ z (WLOG). The RHS is `(y+z) + Qh(y+z)`; its second summand
+has order ≥ k + 2. If k < l, the degree-k part of the RHS is y_k ≠ 0, while the LHS has order
+≥ k + l > k: impossible. So k = l. If k ≥ 1 the LHS has order ≥ 2k > k, so the degree-k part of
+the RHS, y_k + z_k, vanishes.
+(II) Multiply by Qxỹz̃: `x(4ỹz̃ − ỹ − z̃) = Qỹz̃`; Q ∤ x gives Q | 4ỹz̃ − ỹ − z̃ =: Qh and
+`xh = ỹz̃`. At the origin `4ỹ₀z̃₀ = ỹ₀ + z̃₀`, equivalently `(4ỹ₀ − 1)(4z̃₀ − 1) = 1`. If x₀ = 0 then
+ỹ₀z̃₀ = x₀h₀ = 0, hence ỹ₀ + z̃₀ = 0, hence both vanish. ∎
+
+*Remark.* So in Type I shape y(0,0) = 0 ⇔ z(0,0) = 0, and the "bad" case of R159's route (Q(P)
+sharing the factor gcd(u,v) with y(P)z(P)) is exactly k ≥ 1. One-variable families composed with
+n = Q(u,v) always have k = 0 (Y(0) = 0 would mean n | Y in Q[n]), so k ≥ 1 needs a genuinely
+two-variable family. Lemma 8.2 is what makes k ≥ 1 harmless (Lemma 8.3).
+
+**Lemma 8.3 (pointwise descent; PROVED from ET Props 1.6, 2.2, 2.6 and Lemma 1.1).** Let λ be an
+odd prime, w ≥ 1 odd, `n = λ²w²`, and (x,y,z) ∈ N³ with `4/n = 1/x + 1/y + 1/z`.
+(a) If n | x, λ ∥ y, λ ∥ z and gcd(w, yz) = 1, then `( −(x/n)(y/λ)(z/λ) / λ ) = −1` (Legendre).
+(b) If n | y, n | z, λ ∥ x and gcd(w, x) = 1, then `( (1 − 4y/n) / λ ) = −1`.
+(c) n | x, λ² | y, λ² | z, gcd(w, yz) = 1 is impossible. (d) n | y, n | z, λ² | x, gcd(w, x) = 1
+is impossible. (e) (ET Prop 1.6) n | x with gcd(n, yz) = 1, or n | y, z with gcd(n, x) = 1, is
+impossible.
+*Proof.* (a) Put `(x′,y′,z′) = (x,y,z)/λ` (λ | x as n | x) and `n′ = λw²`; then
+`4/n′ = 1/x′ + 1/y′ + 1/z′`, `x′ = n′·(x/n)`, and gcd(n′, y′z′) = 1 (λ ∤ y′z′, and
+gcd(w, y′z′) | gcd(w, yz) = 1). So (x′,y′,z′) is a Type I solution for the odd number n′. ET Prop
+2.2 gives (A,…,F) ∈ N⁶ ∩ Σ^I_{n′} with `x′ = n′DAB, y′ = DAC, z′ = DBC`; Lemma 1.1(I) gives
+`(−D/n′) = −1`. By (2.1) gcd(D, n′) = 1, so `(−D/n′) = (−D/λ)(−D/w)² = (−D/λ)`. Finally
+`(x′/n′)y′z′ = D·(DABC)²` with λ ∤ (x′/n′)y′z′ (x′/n′ = DAB is prime to n′ by (2.1)), so
+`(−D/λ) = (−(x′/n′)y′z′/λ) = (−(x/n)(y/λ)(z/λ)/λ)`.
+(b) Same descent: (x′,y′,z′) = (x,y,z)/λ is a Type II solution for n′ = λw² (n′ | y′ = n′·(y/n),
+n′ | z′, gcd(n′, x′) = 1). ET Prop 2.6 gives (A,…,F) ∈ N⁶ ∩ Σ^II_{n′} with y′ = ACDn′, and (2.18)
+gives `F = 4ACD − 1 = 4y/n − 1 ≡ 3 (mod 4)`, F > 0. Lemma 1.1(II): `(n′/F) = −1`. By (2.21)
+gcd(F, n′) = 1, so `(n′/F) = (λ/F)(w/F)² = (λ/F)`, and quadratic reciprocity with F ≡ 3 (4) gives
+`(λ/F) = (F/λ)(−1/λ) = (−F/λ) = ((1 − 4y/n)/λ)`.
+(c) `(x,y,z)/λ²` is a Type I solution for the odd square w² (w² | x/λ² = w²(x/n); gcd(w², yz/λ⁴) = 1);
+ET Prop 1.6 (for w = 1: 4 = Σ 1/xᵢ has no solutions). (d) Same with Type II. (e) is ET Prop 1.6. ∎
+*Check (CERTIFIED for the listed n).* `scripts/bf2_pointwise_check.py` enumerates all solutions for
+every n = λ²w² ≤ 12 000 (λ ≤ 47 prime, w odd) and every ordering: the hypotheses of (a) occur 1 612
+times and of (b) 688 times, the Legendre symbol is −1 every time, and (c), (d), (e) never occur
+(`data/bf2/pointwise_check.txt`, 0 violations).
+Note the symbols in (a), (b) are genuinely constraints, not tautologies: without them the descended
+solution is an ordinary Type I/II solution for the non-square λw², which exists in abundance.
+
+**Lemma 8.4 (coprime square points on a prime dilate; PROVED: Hasse–Minkowski, Dirichlet, and an
+elementary two-variable coprimality sieve of Ekedahl type).** Let 8 | M, 2D | M, C a square class
+mod M, S an open sector, R, λ₁ > 0, G ∈ Z[u,v] with Q ∤ G, and H₁,…,H_r ∈ Z[u,v] nonzero forms.
+Then there are a prime λ > λ₁ and X ∈ Z² such that
+(1) λX ∈ C ∩ S and |λX| > R; (2) Q(X) = w² with w odd; (3) gcd(w, G(λX)) = 1;
+(4) λ ∤ w·H₁(X)⋯H_r(X).
+*Proof.* Step 1 (a primitive square point and its class). The proof of Lemma 2.1 (applied to a
+closed subsector S₁ ⋐ S) gives a primitive (u₁,v₁,w₁) ∈ Z³, w₁ > 0, `Q(X₁) = w₁²` for `X₁ = (u₁,v₁)`,
+arg X₁ ∈ S₁, and μ ∈ (Z/M)* such that λX₁ ∈ C for every integer λ ≡ μ⁻¹ (mod M). Then w₁ is
+prime to M (Q(C) is a unit) and odd.
+Step 2 (base point). Choose a primitive `X₀ = (P₀, w₀) ∈ Z³`, `Q(P₀) = w₀²`, w₀ > 0, with
+gcd(w₀, M w₁) = 1: apply Lemma 2.1 with modulus M w₁ to a class that is C mod M and has Q ≡ 1 mod
+each ℓ^e ∥ w₁ (ℓ ∤ 2D, so Q mod ℓ is nondegenerate, represents 1, and Hensel lifts), and take the
+primitive triple produced there.
+Step 3 (parametrisation). For Y ∈ Z² let `β₀(Y) = Q(P₀+Y) − Q(P₀) − Q(Y)` (= 2B(P₀,Y), B the
+bilinear form of Q) and `ψ(Y) = (Q(Y)P₀ − β₀(Y)Y, w₀Q(Y)) ∈ Z³`. Expanding,
+`Q(Q(Y)P₀ − β₀Y) = Q(Y)²Q(P₀) − Q(Y)β₀² + β₀²Q(Y) = ψ₃(Y)²`. ψ(Y) is the second intersection with
+the conic X: Q = w² of the line through X₀ and (Y, 0). Hence every X ∈ X(Q) is proportional to
+ψ(Y) for some primitive Y (Y ∝ w₀P − wP₀ if X ≁ X₀; Y ⊥_B P₀ if X ∼ X₀). ψ(Y) ≠ 0 for real Y ≠ 0,
+since ψ₃(Y) = 0 forces Q(Y) = 0. (ii) If Y is primitive and a prime ℓ ∤ 2Dw₀ divides all coordinates
+of ψ(Y), then ℓ | Q(Y) and ℓ | β₀(Y)Y, so ℓ | β₀(Y); over F_ℓ (Q nondegenerate) Y is isotropic and
+B-orthogonal to P₀, so P₀ ∈ F_ℓY and Q(P₀) ≡ 0, i.e. ℓ | w₀: contradiction.
+Take Y° primitive with ψ(Y°) ∝ X₁; as ψ₃ > 0, `ψ(Y°) = k₀·(u₁,v₁,w₁)` with k₀ ≥ 1. By (ii) the primes
+of k₀ divide 2Dw₀, and w₀ | k₀ because `w₀Q(Y°) = k₀w₁` with gcd(w₀,w₁) = 1.
+Step 4 (the family). Put N = k₀M and, for Z ∈ Z², `Y_Z = Y° + NZ`, `X_Z = ψ₁₂(Y_Z)/k₀`,
+`F₁(Z) = ψ₃(Y_Z)/k₀`. Expanding ψ(Y° + NZ) = ψ(Y°) + N·(bilinear) + N²ψ(Z) shows X_Z, F₁ ∈ Z[Z],
+`X_Z ≡ X₁` and `F₁ ≡ w₁ (mod M)`, `Q(X_Z) = F₁(Z)²`, F₁ > 0, and every non-constant coefficient of F₁
+is divisible by w₀M. By Dirichlet pick a prime λ ≡ μ⁻¹ (mod M) with λ > λ₁, λ ∤ N and λ larger than
+the finitely many constants named below. Then λX_Z ∈ C for all Z. Put `G₁(Z) = G(λX_Z) ∈ Z[Z]`.
+Step 5 (sector). Y ↦ arg ψ₁₂(Y) is continuous on R² ∖ 0 and arg ψ₁₂(Y°) = arg X₁ ∈ S₁, so there is
+an open cone Γ ∋ Y° with arg ψ₁₂(Γ) ⊂ S₁. Let B₀ be a closed box inside Γ. For T large and
+Z ∈ TB₀, Y_Z ∈ Γ, so λX_Z ∈ S, and `|λX_Z| ≥ c_ψ|Y_Z|²/k₀ > R`.
+Step 6 (local densities). For a prime ℓ let ρ_ℓ be the proportion of Z mod ℓ that are *good at ℓ*:
+not (ℓ | F₁(Z) and ℓ | G₁(Z)), and, for ℓ = λ, `λ ∤ F₁(Z)∏H_i(X_Z)`.
+ℓ | M: F₁ ≡ w₁ ≢ 0, ρ_ℓ = 1. ℓ | k₀, ℓ ∤ M: then ℓ | w₀, so F₁ ≡ w₁ ≢ 0 (mod ℓ), ρ_ℓ = 1.
+ℓ ∤ N: Z ↦ Y_Z is a bijection mod ℓ, ℓ ∤ k₀w₀, so ℓ | F₁ ⇔ ℓ | Q(Y_Z); ℓ ≥ 3 and Q mod ℓ is a
+nondegenerate form, vanishing on ≤ 2ℓ − 1 points, so ρ_ℓ ≥ 1 − (2ℓ−1)/ℓ² > 0. Moreover, for ℓ ∤ N
+outside a finite set, ρ_ℓ ≥ 1 − (4 deg G + 1)/ℓ²: the zeros of Q(Y) mod ℓ are 0 or two lines F_ℓY_ℓ
+(ℓ split), Y_ℓ the reduction of an isotropic vector V ∈ O_K² (K = Q(√D)) at a prime 𝔩 | ℓ; on such a
+line `ψ₁₂(tY_ℓ) = −t²β₀(Y_ℓ)Y_ℓ` with β₀(Y_ℓ) ≢ 0 (else ℓ | w₀), so G₁ restricts to
+`t ↦ G(−λt²β₀(Y_ℓ)Y_ℓ/k₀)`, which is ≢ 0 mod 𝔩 once 𝔩 does not divide the nonzero (as Q ∤ G, G does
+not vanish on the isotropic line KV) top coefficient `G_j(V) ≠ 0` of s ↦ G(sV); then it has
+≤ 2 deg G zeros t.
+ℓ = λ: λ ∤ N, bijection again; bad Y_Z have Q(Y_Z) ≡ 0 (≤ 2λ − 1 points) or `H_i(ψ₁₂(Y_Z)) ≡ 0`
+(H_i∘ψ₁₂ is a nonzero form of degree 2 deg H_i, ψ₁₂ having Zariski-dense image; for λ large it stays
+nonzero mod λ and vanishes on ≤ 2 deg H_i·λ points). So ρ_λ ≥ 1 − (2 + 2Σ deg H_i)/λ > 0.
+Hence `ρ := ∏_ℓ ρ_ℓ > 0`.
+Step 7 (sieve). Write Z = (a, b). F₁ is irreducible in Q[a,b] (an affine image of Q(Y)), its
+b²-coefficient is the constant w₀N²Q(0,1)/k₀ ≠ 0, and F₁ ∤ G₁: otherwise G vanishes on
+λψ₁₂(isotropic line)/k₀, which is the whole isotropic line KV' (ψ₁₂(tV) = −t²β₀(V)V with β₀(V) ≠ 0
+because P₀ is not isotropic), forcing Q | G. So `Res_b(F₁, G₁) =: ℛ(a) ∈ Z[a]` is ≢ 0. Fix L. By CRT
+the Z ∈ TB₀ good at all ℓ ≤ L and at λ number `ρ_{≤L}·vol(B₀)T² + O_L(T)` with
+ρ_{≤L} ≥ ρ. Z ∈ TB₀ with ℓ | F₁, ℓ | G₁ for some prime ℓ > L, ℓ ≠ λ: for L < ℓ ≤ c₁T (c₁ > the side of
+B₀), at most `O((T/ℓ + 1)²)` each (O(1) common zeros mod ℓ by Step 6), total `O(T²/L + T)`; for
+ℓ > c₁T, ℓ | ℛ(a),
+and for each of the O(T) values a with ℛ(a) ≠ 0 there are O(1) such ℓ (|ℛ(a)| ≤ T^{O(1)}), each
+leaving ≤ 2 residues of b mod ℓ (F₁(a, ·) mod ℓ has the constant leading coefficient), hence ≤ 2
+values in an interval of length < c₁T < ℓ; the O(1) roots of ℛ add O(T). So the good Z in TB₀ number
+≥ `(ρ − O(1/L))vol(B₀)T² − O_L(T) > 0` for L, then T, large. Any good Z gives X = X_Z, w = F₁(Z):
+(1) by Steps 4–5, (2) by Step 4, (3) because no prime divides both F₁(Z) and G₁(Z) (including λ,
+since λ ∤ F₁(Z)), (4) by goodness at λ. ∎
+*Check.* `scripts/bf2_sieve_check.py` (`data/bf2/sieve_check.txt`): G = u(u−2v+3)(v²+u−1)(u+v)
+(G(0,0) = 0, Q ∤ G), H = (u+2v)(3u−v), λ ≤ 200. For Q ∈ {u²+v², u²+uv+v², u²+2v², u²+5v²} and
+M ∈ {8, 24, 40, 16, 24, 40} (8, 2D | M), every (square class mod M, octant) pair contains a point
+λX with (2)–(4): 0 of 5 568 pairs missing (after enlarging the box for u²+2v², u²+5v²; the first
+pass missed 411 pairs, a box effect). Between 50% and 75% of the square classes contain *no*
+primitive square point; there every square point P has gcd(u,v) > 1 dividing gcd(Q(P), G(P)),
+so R159's direct route (coprimality at P itself) fails and the descent of Lemma 8.3 is needed.
+
+**Theorem 3.2′ ((x,y,z)-families; PROVED, unconditional, any degree).** Let F = (x,y,z) be a
+polynomial (x,y,z)-family for Q, δ ∈ N clearing the denominators of x, y, z and of every
+coordinate quotient by Q that is a polynomial, and M divisible by 8, 2D and δ. Let
+`A_F = {θ : x_top, y_top, z_top > 0 at (cos θ, sin θ)}` (top-degree forms).
+(b′) If F is integral at some point of a square class C mod M, then A_F = ∅.
+(c′) Hence for every square class C mod M and δ′ > 0 the points of C where F is valid lie, outside a
+bounded set, within angle δ′ of the finitely many zero directions of x_top, y_top, z_top.
+*Proof.* Integrality of F at P depends only on P mod δ, so F is integral on all of C. Suppose A_F
+contains an open arc; take a closed subarc I and S the open sector over a slightly smaller open arc. By
+Lemma 3.1 there is R with F valid at every P ∈ C ∩ S, |P| > R. For P ∈ C, n = Q(P) is prime to δ,
+so `x(P) = n·x̃(P)` with x̃(P) ∈ Z whenever x = Qx̃ (as in Lemma 8.1).
+Shape (0) is impossible by Lemma 8.1 (C ∩ S has points beyond R).
+Shape (I), x = Qx̃, `k = ord₀ y = ord₀ z` (Lemma 8.2). Apply Lemma 8.4 with `G = (δy)(δz)`, r = 1,
+`H₁ = δy₁` if k = 1 (H₁ = 1 otherwise), and λ₁ ≥ δ, |G(0,0)|. Let P = λX, n = λ²w². F is valid at P.
+Since (δy)(λX) = Σ_{j≥k} λ^j(δy_j)(X) and λ ∤ δ, `λ^k | y(P)`, `λ^k | z(P)`, and gcd(w, y(P)z(P)) = 1
+by (3).
+• k = 0: G(P) ≡ G(0,0) ≢ 0 mod λ, so gcd(n, y(P)z(P)) = 1: a Type I solution for the odd square n,
+  contradicting Lemma 8.3(e).
+• k = 1 (y + z ≠ 0 since F is valid somewhere, so Lemma 8.2(I) applies; R163 repair): `y(P)/λ ≡ y₁(X)`, `z(P)/λ ≡ z₁(X) = −y₁(X)` (Lemma 8.2) and `x̃(P) ≡ x̃(0,0) = 1/4 (mod λ)`.
+  By (4) λ ∤ y₁(X), so λ ∥ y(P), λ ∥ z(P), and Lemma 8.3(a) gives `(−x̃(P)(y(P)/λ)(z(P)/λ)/λ) = −1`.
+  But `−x̃(P)(y(P)/λ)(z(P)/λ) ≡ (y₁(X)/2)² ≢ 0 (mod λ)`, a nonzero square: contradiction.
+• k ≥ 2: λ² | y(P), z(P), contradicting Lemma 8.3(c).
+Shape (II), y = Qỹ, z = Qz̃, `k = ord₀ x`. Apply Lemma 8.4 with G = δx, H₁ = δx₁ if k = 1. Then n | y(P),
+n | z(P), λ^k | x(P), gcd(w, x(P)) = 1.
+• k = 0: λ ∤ x(P) ≡ x(0,0) ≠ 0: Type II for the odd square n, contradicting Lemma 8.3(e).
+• k = 1: λ ∥ x(P) by (4); Lemma 8.3(b) gives `((1 − 4ỹ(P))/λ) = −1`; but ỹ(0,0) = 0 (Lemma 8.2(II),
+  x(0,0) = 0), so 1 − 4ỹ(P) ≡ 1 (mod λ): contradiction.
+• k ≥ 2: contradicts Lemma 8.3(d).
+So A_F = ∅. (c′) follows from (b′) and Lemma 3.1 as in Theorem 3.2(c); no sign dilation is needed,
+validity being x, y, z > 0. ∎
+*Remark (R163 repair, modulus).* Lemma 8.4 uses 2D | M (Steps 2, 3(ii), 6). Since A_F = ∅ is a
+property of F alone, the principal-genus alternative of Theorem 3.2 survives: if Q is in the principal
+genus and C is a square class mod M with 2D ∤ M, apply (b′) to a sub-class C′ ⊂ C mod lcm(M, 2D)
+on which Q is a unit square (Q represents ℓ-adic unit squares at every ℓ | 2D; CRT). By Gauss's lemma
+the denominators of x/Q equal those of x, so that clause in the definition of δ is automatic; and δ
+enters only via gcd(Q(C), δ) = 1, so the same sub-class argument lets one replace δ | M by "F integral
+on C".
+
+**Corollary 3.4′ (PROVED, relative to Hecke as in Cor 3.4).** Cor 3.4 holds verbatim for finite sets 𝔉
+of (x,y,z)-families with coordinates in Q[u,v] or Q(u,v): a family with a non-polynomial coordinate
+is valid at ≪ X^{1+ε} points of norm ≤ X (Lemma 3.3 applied to that coordinate), and polynomial ones
+are handled by Theorem 3.2′(c′). M must be divisible by 8, 2D and the δ's of the polynomial families.
+So **no finite "Fermat + identity" certificate** (within the scope of §4.4/§8.5; R163 repair) — (x,y,z) or (a,…,f), polynomial or rational in
+(u,v) — covers a positive proportion of the primes of any square class mod the joint modulus M.
+This closes §4.4(iv) and R159 D6.
+
+**8.5 Remarks and exact scope (O163).**
+* *Why R159's route alone does not suffice.* If y(0,0) = 0 (equivalently z(0,0) = 0, Lemma 8.2)
+  then gcd(u,v) divides gcd(Q(P), y(P)z(P)) at every point, and in 50–75% of the square classes of
+  the tested (Q, M) every square point is imprimitive (check after Lemma 8.4). So "square points with
+  gcd(Q(P), y(P)z(P)) = 1" do not exist there. The fix is to use square points λX with λ a prime in
+  the forced class mod M, descend by λ or λ² (Lemma 8.3), and use the identities at the origin
+  (Lemma 8.2: x̃(0) = 1/4, z₁ = −y₁; resp. ỹ(0) = 0) to show that the Legendre symbol that ET's
+  reciprocity argument forces to be −1 for the non-square λw² is in fact +1.
+* *Polynomial ET coordinates exist but are not needed.* In the UFD Q[u,v], ET's proof of Prop 2.2 /
+  2.6 runs verbatim with polynomial gcds (Q is prime and Q ∤ y′, z′), so every Type I/II-shaped family
+  has ET coordinates (a,…,f) ∈ Q[u,v]⁶. They need not be integral where x, y, z are, so Theorem 3.2
+  does not apply directly; §8 avoids them and works with the integer solution at each point.
+* *Where k ≥ 1 can occur.* Composed one-variable families have k = 0 (Remark after Lemma 8.2), so the
+  descent cases concern genuinely two-variable families only, none of which is known (§6). The k ≥ 1
+  part of Theorem 3.2′ may therefore be vacuous; it is proved anyway.
+* *Same scope as Theorem 3.2 otherwise.* Still not covered: procedures with floor/factorisation in
+  (u,v) (§4.4(i)), unbounded families of forms (§4.2), indefinite forms in cusps (§4.3), and
+  parametrisations n = N(u,v) other than a positive definite binary quadratic form in the principal
+  genus. Novelty: folklore-level, like Theorem 3.2; the descent through a
+  non-square λw² and the Legendre-symbol evaluation at the origin are the only new ingredients.
+* Checks: `bf2_square_patterns.py` (gcd patterns, explains why one-sided coprimality is useless),
+  `bf2_pointwise_check.py` (Lemma 8.3, CERTIFIED for n ≤ 12 000), `bf2_sieve_check.py` (Lemma 8.4
+  existence, all tested class/octant pairs), `bf2_origin_check.py` (Lemma 8.2 algebra on formal power
+  series; sanity check only).

@@ -1,0 +1,7 @@
+(1, 0, 1) 8 square classes 16 with primitive square point 8 frac without 0.500
+(1, 0, 1) 24 square classes 64 with primitive square point 32 frac without 0.500
+(1, 0, 1) 40 square classes 128 with primitive square point 32 frac without 0.750
+(1, 1, 1) 24 square classes 72 with primitive square point 36 frac without 0.500
+(1, 0, 2) 16 square classes 64 with primitive square point 32 frac without 0.500
+(1, 0, 5) 40 square classes 320 with primitive square point 160 frac without 0.500
+(2, 1, 3) 184 square classes 2024 with primitive square point 506 frac without 0.750

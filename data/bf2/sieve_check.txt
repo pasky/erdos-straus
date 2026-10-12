@@ -1,0 +1,8 @@
+u2+v2 M=8: 16 square classes, 128 (class,octant) pairs; found 128, missing 0; classes with no primitive square point in box: 8
+u2+v2 M=24: 64 square classes, 512 (class,octant) pairs; found 512, missing 0; classes with no primitive square point in box: 32
+u2+v2 M=40: 128 square classes, 1024 (class,octant) pairs; found 1024, missing 0; classes with no primitive square point in box: 96
+u2+uv+v2 M=24: 72 square classes, 576 (class,octant) pairs; found 576, missing 0; classes with no primitive square point in box: 36
+u2+2v2 M=16: 64 square classes, 512 (class,octant) pairs; found 512, missing 0; classes with no primitive square point in box: 32
+u2+2v2 M=24: 32 square classes, 256 (class,octant) pairs; found 256, missing 0; classes with no primitive square point in box: 24
+u2+5v2 M=40: 320 square classes, 2560 (class,octant) pairs; found 2560, missing 0; classes with no primitive square point in box: 160
+TOTAL missing 0
