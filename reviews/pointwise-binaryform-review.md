@@ -11,6 +11,9 @@ ES is not solved; nothing below changes that.
 | Lemma 1.1 | SOUND (MINOR framing defect D1) |
 | Lemma 2.1 | SOUND |
 | Lemma 2.2 | SOUND |
+| Lemma 3.1 | SOUND |
+| Theorem 3.2 | SOUND-AFTER-REPAIRS (D2 minor) |
+| Lemma 3.3 | SOUND |
 
 ## Claim-by-claim
 
@@ -67,4 +70,43 @@ M = 20: 32/128). So "8 | M is needed" is correct and necessary, and the reason i
 component: mod 4 the norm condition Q ≡ 1 (4) is automatic but does not see the class of 5·(unit)
 versus i in Z₂[i]*/□. Minor wording point only (proof says "i dies" for odd ℓ, and at ℓ = 2 it is
 i that is quotiented out — the text is correct but terse).
+
+### Lemma 3.1 (signs at infinity) — SOUND
+
+Each H_j is a nonzero form, so H_j(cos θ, sin θ) has finitely many zeros; off a δ-neighbourhood
+|H_j| ≥ c_δ|P|^{deg} dominates the O(|P|^{deg−1}) tail. Constant coordinates are covered (H_j
+constant ≠ 0). R_δ depends on δ and F only — this is used correctly in Thm 3.2(c) (the bounded
+exceptional set depends on δ, which is harmless).
+
+### Theorem 3.2 — SOUND-AFTER-REPAIRS (D2, MINOR)
+
+(a) Valid ⇒ (after the λ = −1 dilation) an N-point of Σ_{Q(P)}; Lemma 1.1. Correct.
+(b) Integrality is a function of P mod K_F (δ·g ∈ Z[u,v] ⇒ g(P) ∈ Z ⇔ δg(P) ≡ 0 mod δ), so
+integral at one point of C ⇒ integral on C. Lemma 3.1 on a closed subarc of A_F + Lemma 2.1 (with
+2D | M) gives a valid point with Q(P) an odd square, contradicting (a). Correct.
+(c) **D2 (MINOR, logical gap in the deduction):** §1 defines validity up to the dilation
+(a,b,c) ↦ −(a,b,c), i.e. F(P) ∈ ±N³ × N³, but A_F only records the pattern (+,+,+,+,+,+). A point far
+out with arg P ∈ A_F⁻ := {H_a, H_b, H_c < 0 < H_d, H_e, H_f} is also valid, and (b) as stated says
+nothing about A_F⁻. Repair: apply (b) also to the dilate F⁻ = (−a,−b,−c,d,e,f), which is a
+polynomial family with the same K_F (ET (2.10) with λ = −1); then A_F ∪ A_F⁻ = ∅ and (c) follows.
+One line; the theorem is true.
+
+Quantifiers, made explicit (what "valid only near finitely many directions" means): for each fixed F,
+each square class C mod M (8, 2D, K_F | M) and each δ > 0 there is R(F, δ) such that every valid
+P ∈ C with |P| > R lies within angle δ of Z_F (|Z_F| ≤ 2·Σ_j deg H_j). Nothing is claimed about
+how many valid points lie in those thin regions (they can be infinite, e.g. parabolic regions around
+a zero direction of some H_j); only that their angular density is 0. That is exactly what Cor 3.4
+needs.
+
+### Lemma 3.3 (rational coordinates) — SOUND; exponent right and sufficient
+
+Re-derived: B = B₁B₂ in Z[u,v] (Gauss), so B₁(P) | B(P) | A(P); R(u) = Res_v(A, B₁) ∈ (A, B₁)∩Z[u]
+is ≢ 0 because A, B₁ are coprime and deg_v B₁ > 0 (if deg_v A = 0, R = A^{deg_v B₁}); B₁(P) | R(u);
+for the O(X) non-exceptional u there are ≤ 2τ(κR(u)) ≪ X^ε admissible values of B₁(u,·), each hit by
+≤ deg_v B₁ values of v; the finitely many u with R(u) = 0 or B₁(u,·) constant give O(X) each. So
+≪ X^{1+ε}. This is essentially sharp (linear B gives ≫ X log X): `scripts/review_bf_lemma33.py`
+counts 28 284 integral points of (u²+v²+1)/(u+2v) in [−2000, 2000]², growth ≈ X log X, and bounded
+counts for a definite denominator. Since prime points of a class number ≍ X²/log X in the disc of
+radius X, X^{1+ε} = o(X²/log X) — enough. (Note the comparison is points-in-disc vs points-in-disc,
+not primes ≤ X vs points; the author's "≍ X²/log X" is the right normalisation.)
 
