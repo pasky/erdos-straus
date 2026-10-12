@@ -277,7 +277,7 @@ needs no density over n beyond F itself.
 
 **Theorem 5.1 (PROVED).** Let F be any set of primes `p ≡ 1 (4)` and let `(τ_p)_{p∈F}` be involutions of X(p)
 forming a finite-menu family as in Theorem 4.4(1), with `Fix τ_p ⊆ E(p)` for all p ∈ F. Let Z be the proper
-algebraic subset of Theorem 4.4 for τ's menu. Then for every p ∈ F the point `(p+2,1,1)` lies in Z, and
+algebraic subset of Theorem 4.4 for τ's menu. Then for all but finitely many p ∈ F the point `(p+2,1,1)` lies in Z, and
 `|Fix τ_p ∩ Z|` is odd; in particular **E(p) ∩ Z ≠ ∅**. (No second involution σ is needed: |X(p)| is odd.)
 
 *Proof.* On `G(p) = X(p) ∖ Z`, `τ_p ∈ {id, ρ}` pointwise, and G(p) is τ_p- and ρ-invariant. The point
