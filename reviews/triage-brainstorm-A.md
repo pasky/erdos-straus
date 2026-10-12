@@ -352,3 +352,46 @@ m-uniform (EXCEPTIONAL_MN). So no numerator gives a provable toy model. The data
 class of one for m = 5, 7" is a nice qualitative confirmation of that. Open sub-question: the memo's own unpursued
 "is the lottery genuinely easier for 4 ∤ m?" The answer is almost certainly no, since the B2/B3 mass is m-uniform.
 Novelty: folklore plus small new EVIDENCE (the m = 12 exception tail ≡ 1 (24)). **Promise 0.**
+
+**invol_sign_identities (O152c; memo: COLLAPSES; Prop S).** AGREE. Prop S is correct and is the right T1 statement for
+sign/parity identities. With Type I/II weights (ET convention: n divides one, resp. two, denominators and is coprime to
+the rest), W(m²) = 0 forces ε = +1. A real character ψ then has ψ(p) = ψ(m²) = 1 on square classes, so W(p) is even
+there. Caveat for the record: Prop S needs the ET coprimality convention. apollonian_reciprocity found that the naive
+"n divides exactly one denominator" count gives f_I(81) = 82 ≠ 0. The memo states the right convention, so this is not
+an error. False-negative check: the escape the memo identifies (Liouville-type right side, e.g. ψ = λ, with
+λ(p) = −1 and λ(m²) = 1) is real. It is precisely the windmill route, so it is triaged there rather than here.
+Novelty: Prop S is elementary and plausibly new as a stated lemma. **Promise 0** on its own (the open part lives in
+invol_windmill_signature).
+
+**invol_topological (O152b; memo: COLLAPSES to memo (a) or to local data).** AGREE. Prop K re-derived: every edge
+lies in exactly one triangle (two denominators determine the third), so E = 3f, χ = V − 2f, and collapsing a free
+edge per triangle gives b₁ = 2f − V + c. Every Euler-characteristic/Smith argument on the canonical complex sees f
+only with weight 2. Lemma T (finite topological principles = weighted parity or signed counts) is standard
+bookkeeping. Grothendieck–Lefschetz/Chevalley–Warning are local (B1/B5) and the discrete IVT is not applicable, both
+correctly screened. Open sub-question: none beyond memo (a). Novelty: Prop K is trivial and new only as a
+statement. **Promise 0.**
+
+**invol_windmill_signature (O152a; memo: UNCLEAR → leaning COLLAPSES "as a programme, not by a theorem").** AGREE,
+and this is the one memo in the half whose route genuinely sits **outside** every proved barrier. The memo says so
+itself, correctly.
+* An identity W ≡ D_φ (mod 2) deduces W(p) odd from p's *global* factorisation, so it is not Thm C/M.
+* It fails at m² at the right step (the evaluation of #Fix σ).
+* It couples all slices, so it is neither B2-finite nor B3/B6.
+* The obstruction recorded (the integral affine symmetry group of the multilinear ES equation is finite, WINDMILL
+  Prop 2, so there is no Zagier-type source of cross-slice coupling) is a heuristic, not a theorem, as stated.
+
+Hostile check of the experiment: E1/E2 require (W) on *all* rows n ≡ 1 (4), gcd(n,6) = 1. The memo's own (W) need
+only hold "for n in a congruence-defined family", so an identity valid only on n ≡ 1 (24) would have been missed.
+**I re-ran the test restricted to n ≡ 1 (mod 24)** (`scripts/triage_windmill_class.sh`; 833 rows ≤ 2·10⁴, 376 weight
+columns of rank 176). With divisor-type vectors for M = 24, 120, 168 (ranks 16, 214, 274), the intersection is again
+1-dimensional, spanned by `TI&x=y` (0 on all 267 hard primes), and the prime-periodicity test is null for L = 24, 120,
+840. So the null survives the restriction. Combined rank ≤ 450 < 833 rows, so this is not underdetermined.
+
+E4 re-derived: the fixed points of u ↔ v on X(p) are u(ut−2) = p, i.e. only (p+2,1,1). So |X(p)| is odd, with the odd
+point a non-ES point. The SL₂ remark ("the congruence level is γ's own entry") is the cleanest statement in the batch of
+*why* windmills fail. It is the same "modulus depends on the unknown" obstruction found in gon_fermat_certificates.
+Strongest open sub-question: a *set-theoretic* cross-slice bijection between divisor sets of different N_θ(p) that
+respects the moving classes, or a theorem that none of bounded description complexity exists. The latter would be a
+genuine new barrier (parity routes are currently the main un-barriered family). Novelty: the (W) framing and the E4 set
+are plausibly new; the empirical nulls extend WINDMILL. **Promise 2** (theory-only; further weight-span searches are
+exhausted).
