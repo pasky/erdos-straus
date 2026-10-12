@@ -52,3 +52,74 @@ divisor-type vectors `D_{r,s}(n)=#{n=uv, u<v, u≡r, v≡s (M)}` and square vect
 `Q_r(n)=[n=u², u≡r (M)]`. Over all n this is a **strong** constraint (≈X equations, 2φ(M)²... unknowns),
 much stronger than "W(p) odd for p in a class", which needs only ≈φ(M) unknowns. The test is GF(2) linear
 algebra on the span of many candidate weights at once.
+
+## 2. Literature anchor
+
+* D. Zagier, "A one-sentence proof that every prime p ≡ 1 (mod 4) is a sum of two squares", Amer. Math.
+  Monthly 97 (1990) 144 (from memory; standard). Heath-Brown's earlier three-involution version
+  (Invariant, 1984) (from memory).
+* C. Elsholtz, "A combinatorial approach to sums of two squares and related problems" (2010): windmill
+  partitions close only for special forms (as summarised in WINDMILL.md §5; not re-verified here).
+* Campaign: `WINDMILL.md` (reduction Lemma 1; Prop 2: integral affine symmetries of the ES equation form a
+  group of order 4; §2.4: identities `#{x²+my²}≡#{uv, u≡v (m)}` hold exactly for m | 24; §3: ~7,000
+  weights tested on primes); Jiang arXiv:2609.09204 Thm 5.3(iii) (ordered f_I, f_II even), as cited there.
+* No published parity/involution approach to ES is known to me (from memory; LITERATURE_2026.md has none).
+
+## 3. Barrier screen
+
+* **B1 / Thm C, B3, B6, B2-finite (Thm M):** passed in principle (§1.2): the deduction uses p's global
+  factorisation, no main term, pointwise, all slices.
+* **B5 / T1 (odd squares):** passed in principle; the failing step at n=m² is the evaluation "#Fix σ is
+  odd", which needs primality.
+* **B2 (per-slice lottery):** the *only* way a windmill escapes B2 is cross-slice coupling (a bijection
+  between divisor sets of different slice integers `N_θ(p)`). For x²+4yz this coupling is the action of
+  the infinite group `O(x²+4yz)(ℤ)`. For ES the equation is multilinear and its integral affine symmetry
+  group is finite (WINDMILL Prop 2), so there is no *algebraic* source of coupling; any coupling would have
+  to be an ad hoc set map. This is the real obstruction, but it is not a theorem.
+* **What remains testable:** whether the parity of some natural ES count *behaves like* the left side of
+  a windmill identity. That is §4.
+
+## 4. Experiments (`scripts/bs_invol_enum.cpp`, `scripts/bs_invol_signature{,2}.py`)
+
+Data: all unordered positive solutions of 4/n for every n ≤ X with gcd(n,6)=1 (composites included),
+enumerated exactly; checked against brute force for n ≤ 49 (f(5..49) = 2,7,9,4,…,18). Type of a solution
+= number of denominators divisible by n (ET's convention).
+
+**E1 (all n ≤ 8000, gcd(n,6)=1; 2666 rows; M=24).** 288 nonzero weighted counts (type × residues of
+x,y,z mod 2,3,4,5,8, divisibility, gcd, squareness, `4x−n` residues; rank 163) against the 72
+divisor-type vectors. `dim(span W ∩ span D) = 1`, spanned by the count of solutions with a repeated
+denominator (`x=y=(n+1)/2`, n≡3 (4)) — a trivial fixed-point count, zero on primes p≡1 (4).
+Controls: Zagier's |S(n)| and `#{x²+4y²=n}` lie in span D (as (Z) predicts); a random vector does not.
+
+**E2 (all n ≤ 20000, n≡1 (4), gcd(n,6)=1; 3333 rows).** 345 weights incl. pairwise ANDs of 30 core
+features (rank 174). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 778, 1039), and in addition
+parities of representation counts by all 1075 reduced-ish binary forms `ax²+bxy+cy²` (a ≤ 8, c ≤ 40;
+x,y>0) — the possible fixed loci of a piecewise-affine involution with a non-split restricted form.
+Combined rank ≤ 1289 ≪ 3333 rows, so a coincidental fit is impossible. **Result in every case:
+dim(W∩D)=1, the same trivial repeated-denominator count (0 on all 267 hard primes p ≡ 1 (24)).**
+
+**E3 (prime-only periodicity).** Is some F₂-combination of the 110 core weights, on the 1125 primes
+p≡1 (4) below 2·10⁴, a function of p mod L? L=24: none. L=120, 840: only the `gcd(x,y)=1` count, which is
+odd only at the single prime p=5 (artefact). (Complements WINDMILL §3.2, which tested constancy and
+Legendre/class-number bits.)
+
+Assessment of E1–E3 (EVIDENCE): no natural ES weight in this (fairly large) span has the parity
+signature of a windmill identity, either uniformly in n or periodically on primes.
+
+## 5. Viability
+
+**COLLAPSES (as a research programme, not by a theorem) at the step "find the identity (W)".**
+Precisely: a windmill/parity proof of ES evades B1, B3, B5, B6 and Theorem M for structural reasons
+(§1.2), so it is one of the few routes the barrier map does not exclude. Its entire content is an
+identity `W ≡ D_φ` (mod 2). (i) The algebraic source of such identities (an infinite integral symmetry
+group moving between slices) is absent for the multilinear ES equation (WINDMILL Prop 2). (ii) E1–E3 find
+no natural weight whose parity is divisor-type or binary-form-type over all n, nor periodic on primes.
+Status: **UNCLEAR → leaning COLLAPSES**; what would decide it is a *set-theoretic* cross-slice bijection
+between divisor sets of different `N_θ(p)` respecting the ES residue classes, which no one has.
+
+By-products:
+* (Observation, PROVED, elementary) Any Zagier-type identity (W) with Type I/II weights forces
+  `D_φ(m²)` even for all odd m, and its failure point at n=m² is the evaluation of #Fix σ — so parity
+  arguments are *exactly* the kind of non-local input Theorem C leaves open. (This sharpens the meaning
+  of T1 for parity routes.)
+* (EVIDENCE) E1–E3 above.

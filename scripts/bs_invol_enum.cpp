@@ -1,5 +1,5 @@
 // O152: enumerate all unordered positive solutions x<=y<=z of 4/n=1/x+1/y+1/z
-// for ALL n in [lo,hi] with gcd(n,6)=1 (composites included).  Output "n x y z".
+// for ALL n in [lo,hi] with gcd(n,6)=1 and n%md==rs (optional args md rs; composites included).  Output "n x y z".
 // Build: g++ -O2 -std=c++17 scripts/bs_invol_enum.cpp -o /tmp/bsinv/enum
 #include <cstdio>
 #include <cstdlib>
@@ -10,11 +10,11 @@ typedef long long ll; typedef __int128 i128;
 static void pr(i128 v){ char b[64]; int k=0; if(v==0){putchar('0');return;} while(v){b[k++]='0'+(int)(v%10); v/=10;} while(k)putchar(b[--k]); }
 ll gcdl(ll a,ll b){ while(b){ll t=a%b;a=b;b=t;} return a; }
 int main(int argc,char**argv){
-  ll lo=atoll(argv[1]), hi=atoll(argv[2]); ll N=hi+1;
+  ll lo=atoll(argv[1]), hi=atoll(argv[2]); ll md=argc>3?atoll(argv[3]):1, rs=argc>4?atoll(argv[4]):0; ll N=hi+1;
   std::vector<int> spf(N+1,0);
   for(ll i=2;i<=N;i++) if(!spf[i]) for(ll j=i;j<=N;j+=i) if(!spf[j]) spf[j]=(int)i;
   for(ll n=lo;n<=hi;n++){
-    if(n%2==0||n%3==0||n<5) continue;
+    if(n%2==0||n%3==0||n<5||n%md!=rs) continue;
     for(ll x=n/4+1; 4*x<=3*n; x++){
       ll r0=4*x-n; ll s0=n*x; ll g=gcdl(r0,s0); ll r=r0/g; ll s=s0/g;
       std::map<ll,int> f; ll m=n; while(m>1){int q=spf[m]; while(m%q==0){m/=q;f[q]++;}}
