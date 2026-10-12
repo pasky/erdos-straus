@@ -57,8 +57,8 @@ lie in M (constant terms a, b, c) and solve 4/n. (Script, (ii).)
 
 ### Corollaries (PROVED unless labelled).
 * **C1.** IOpen ⊬ ES_all. Indeed M ⊨ IOpen, 1+t ≥ 2, and 4/1 is not a sum of three positive unit fractions.
-  The same witness defeats every formulation that restricts n by standard congruences, e.g.
-  "∀n ≡ 1 (mod 840)·…": take 1 + 840t.
+  The same witness defeats every formulation that restricts n by standard congruences. For example,
+  ES restricted to n ≡ 1 (mod 840) fails at 1 + 840t.
 * **C2.** Every nonstandard element of M is a product of two nonstandard elements. Hence M has no
   nonstandard irreducibles (Shepherdson's original observation; reproved by factoring over R_alg after
   refining s and rescaling constant terms to 1 and n₀). Therefore M ⊨ ES_prime iff ES_prime holds in N.
