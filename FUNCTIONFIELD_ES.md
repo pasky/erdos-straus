@@ -92,7 +92,17 @@ q = 2, 3: no failures by Prop 1.4(iii) (q = 2 also run to n = 21: minimum N_II =
 | 8 | 15/28 | 15/168 | 12/1008 | | | | | | | |
 | 9 | 18/36 | 56/240 | 94/1620 | 68/11808 | | | | | | |
 | 16 | 92/120 | 540/1360 | 2192/16320 | | | | | | | |
-(table being extended; see grid.txt)
+(rows end where the run stopped; `data/ffl/grid.txt` is authoritative.)
+
+**k = 2** (FAIL counts; exhaustive):
+
+| (q, A) \ n | 3 | 4 | 5 | 6 | 7 | 8 | 9–15 |
+|---|---|---|---|---|---|---|---|
+| (2, any A of deg 2) | 0 | 0 | 0 | 0 | 0 | 0 | 0 (T², T²+T+1 run to n = 22–23) |
+| (3, T²) | 3/8 | 2/18 | 2/48 | 0/116 | 0 | 0 | 0 (to n = 15, 956576 P) |
+| (3, T²+1) | 2/8 | 0 | 0 | 1/116 | 0 | 0 | 0 (to n = 15) |
+| (4, T²) | 8/20 | 12/60 | 16/204 | 6/670 | 4/2340 | 0/8160 | 0 (n = 9..11) |
+| (5, T²) | 24/40 | 49/150 | 82/624 | 81/2580 | 38/11160 | 15/48750 | running |
 
 ## 4. Obstruction structure: what replaces the odd-square obstruction
 
