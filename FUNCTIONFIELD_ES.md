@@ -94,6 +94,46 @@ q = 2, 3: no failures by Prop 1.4(iii) (q = 2 also run to n = 21: minimum N_II =
 | 16 | 92/120 | 540/1360 | 2192/16320 | | | | | | | |
 (table being extended; see grid.txt)
 
+## 4. Obstruction structure: what replaces the odd-square obstruction
+
+**Proposition 4.1 (sign of a Type II class; PROVED, O140 §3.2 made exact).** For a Type II datum (a, b, c, d) of P
+(P = Aabd − E, Ec = a + b, gcd(a, b) = 1) put f := A·a·c·d − 1 (monic, ≡ −1 mod Ad and mod a). Then
+E·f = P + A·a²·d, so P ≡ −A·a²·d (mod f), and the Jacobi symbol satisfies
+`(P/f) = (−Ad/f) = (−1)^{((q−1)/2)·((1 + deg f)(1 + deg Ad) − 1)}`.
+*Proof.* Ef = Aacd·E − E = Aad(a + b) − E = Aa²d + (Aabd − E). Quadratic reciprocity in F_q[T] for monic
+coprime f, g: (g/f) = (−1)^{((q−1)/2)·deg f·deg g}(f/g). With (f/Ad) = (−1/Ad) = (−1)^{((q−1)/2)deg Ad} and
+(−1/f) = (−1)^{((q−1)/2)deg f}, the exponents add up as stated. ∎
+Checked by `scripts/ffl_jacobi_check.py` (sympy): all 3953 Type II data on irreducible P with deg f ≥ 1, for
+(q, A, n) = (5, T, 4), (7, T, 4), (3, T², 5), (7, T², 4), with 0 mismatches.
+
+Over Z the corresponding sign is always −1, because f ≡ −1 (mod 4) fixes (−1/f). So every Type II class
+is a non-residue class mod its own modulus, and perfect squares (residues mod everything) are never Type II
+solvable. That is the T1/odd-square obstruction (ET Prop 1.6). Over F_q[T]:
+* **q ≡ 1 (mod 4): the sign is always +1.** Type II classes are *residue* classes mod f, the opposite of Z.
+  A P could be obstructed only if (P/f) = −1 for every monic f. For monic P the only candidates are
+  P = u·M² with u a non-square constant: then (P/f) = (−1)^{deg f}·1 ≠ −1 when deg f is even. Since u = lc(P) = 1,
+  no monic P is obstructed, squares included (cf. O157's example A = T², P = (T²+2)² over F₅).
+* **q ≡ 3 (mod 4): the sign is −1 iff deg f odd or deg(Ad) odd.** These are only the parity sub-families
+  (O140). Every class keeps the families with deg f and deg Ad both even, whose sign is +1, so again no monic P
+  is obstructed. The infinite place enters through degree parity, and a degree is never forced by a
+  congruence mod Ad. Over Z, "f > 0 and f ≡ −1 (mod 4)" forces the sign.
+* **Conclusion (PROVED at the level of Type II classes; EVIDENCE for full solvability).** There is no
+  obstruction class of monic P in F_q[T] for any q. Over Z, B5/T1 comes from the archimedean sign and the
+  2-adic class of 4. Over F_q[T] both are replaced by degree parity, which no congruence controls.
+
+**What survives (EVIDENCE).** Two biases, neither of them an obstruction:
+(i) *Size class P ≡ 1 (mod W)* (O140 Prop 4.1: uncoverable by linear families). In the data every irreducible P
+with N_II(P) = 0 at q = 5, n ≥ 8 has P(0) = 1. At q = 7, n = 6, 3 of the 4 failures have P(0) = 1 (the 4th has
+P(0) = 2). The classes P(0) ∈ {−1, −2} never fail (Prop 1.4).
+(ii) *Quadratic tilt.* Prop 4.1 makes Type II classes prefer (−AP/f) = +1 (always for q ≡ 1 mod 4; for 3 of the 4
+parity patterns when q ≡ 3 mod 4). Class means of N_II by ℓ = T − c show it. Excluding the class P(c) = −1,
+mean N_II is higher when χ(−c·P(c)) = +1:
+q = 5, n = 8: c = 1: 35.6 vs 34.5; c = 2: 33.8 vs 38.2 (χ(2) = −1); c = 3: 34.1 vs 38.2; c = 4: 38.6 vs 34.9.
+q = 7, n = 7: c = 2: 17.2 vs 19.1; c = 3: 18.4 vs 17.6 (χ(3) = −1), and likewise for c = 4, 5, 6.
+The tilt is ~5–15 % per ℓ. Over Z it is ×14 across classes mod 840, because there the sign is rigid and the
+small primes 3, 5, 7 have large weight 1/ℓ. Here each degree-1 ℓ has weight ~1/q, and the sign is not rigid
+for q ≡ 3 (mod 4).
+
 ## 5. Theorem: at fixed q the failures have density 0 (the rigorous counterpart of O140 Thm 2.1)
 
 **Lemma 5.1 (one-prime identity; PROVED).** Let A be monic of degree k ≥ 1, P monic of degree n > k, and let h, g
