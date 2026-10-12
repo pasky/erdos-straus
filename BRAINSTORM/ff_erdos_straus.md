@@ -70,3 +70,37 @@ and the q → ∞ limit (Katz / Bary-Soroker-type equidistribution of factorisat
 the regime where the analogue **fails**. The true analogue of "p → ∞" is q fixed, n → ∞, where the
 expected number of solutions is ≍ poly(n)·q^{−k} — the analogue of log³p (B2's lottery), not a
 positive-dimensional family. Consequence: any correct ES_q(A) has threshold n₀(q,k) ≥ c·k·log q.
+
+## 3. Experiments (scripts/bs_ff_es.py, bs_ff_check.py, bs_ff_squares.py)
+
+Decision procedure = Lemma 1.3 (complete); cross-checked against an independent brute force over
+(X, Y) with Z solved from the equation (q = 5, 7; n = 2, 3; all agree, all witnesses verified by
+`A·XYZ = P(XY+YZ+ZX)`).
+
+**3.1 A = t, fraction of irreducible P of degree n failing ES_q(t, P)** (EVIDENCE):
+
+| q \ n | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|
+| 5 | 2/10 | 2/40 | 1/150 | 0/624 | 0/2580 |
+| 7 | 6/21 | 21/112 | 25/588 | | |
+| 11 | 31/55 | 114/440 | | | |
+| 13 | 51/78 | 231/728 | | | |
+| 17 | 102/136 | 693/1632 | | | |
+| 19 | 127/171 | 1075/2280 | | | |
+
+Both regimes are visible: failures grow with q at fixed n (Theorem 2.1) and disappear with n at
+fixed q (the honest analogue of ES). Last failure for q = 5: P = t⁴ + t² + 2t + 2.
+
+**3.2 Odd-square test (B5/T1 analogue).** For P = M² (M monic irreducible, A = t) *every* M with
+deg M ≥ 2 tested has both Type I and Type II solutions (Type I/II = P divides exactly one/two
+denominators): q = 5, deg M = 2: 10/10 have Type II; q = 7, deg M = 2: 15/21; deg M = 3: 97/112
+(q = 7 ≡ 3 mod 4 included). **The odd-square obstruction (ET Prop 1.6) has no analogue here.**
+
+*Reason (PROVED sketch, via the Type II chart `A·abd = P + e, a + b = ce`, f := A·acd − 1,
+ef = P + A·a²d).* At P = M², M² ≡ −A·a²d (mod f) forces (−Ad / f) = 1. In Z the contradiction comes
+from f ≡ −1 (mod 4d), f > 0, which fixes (−1/f) = −1 through the residue of f mod 4. In F_q[t]
+reciprocity for monic f, g reads (g/f)(f/g) = (−1)^{((q−1)/2)·deg f·deg g}, and (−1/f) =
+(−1)^{((q−1)/2)·deg f}: the "sign at infinity" is carried by **degree parity**, which no congruence
+f ≡ −1 (mod Ad) controls. One finds (−Ad/f) = (−1)^{((q−1)/2)((1+deg f)(1+deg Ad)−1)}: never an
+obstruction for q ≡ 1 (mod 4); for q ≡ 3 (mod 4) only the sub-family deg f odd or deg(Ad) odd is
+obstructed. The analogue of "4" in the obstruction is the infinite place, not the numerator A.
