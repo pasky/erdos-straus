@@ -248,3 +248,37 @@ Independent check: each of the 81 families was re-verified on 100 random P of it
 irreducible or not) by the direct identity A·XYZ = P(XY + YZ + ZX) with monic, NC denominators. That is 8100
 checks, 0 failures. The certificate needs E only among the units and the monic divisors of degree ≤ 1 of
 T⁴ − T (see the file).
+
+### 6.3 Which (q, A) are theorems?
+
+`scripts/ffl_tree.c` builds adaptive covering trees: an uncovered unit class r mod W is refined into its unit
+subclasses mod W·ℓ along a fixed list of small primes ℓ. Each leaf carries a linear family with W_F | W_leaf and
+n_F ≤ NTH. Each leaf family is re-verified on random P of its class by the direct identity. The theorem for
+(q, A) follows from a complete tree plus an exhaustive check of degrees k < n < NTH (Lemma 6.2).
+`scripts/ffl_q2_batch.sh` does this for every monic A over F₂ (root W = A·T·(T+1), NTH = 12, exhaustive
+n ≤ 11). Results in `data/ffl/q2_batch.txt`.
+
+**Theorem 6.4 (PROVED, computer-assisted).** ES_q(A, P) holds for **every** monic irreducible P of degree > deg A in
+the following cases:
+* q = 2, A = T or T + 1, and q = 3, A = T (Prop 1.4; no computation);
+* q = 2, every monic A of degree 2, 3 or 4 (all 28 of them; the degree-4 trees have up to 818 leaves with leaf
+  moduli of degree ≤ 18). No exceptions in degrees k < n ≤ 11 either. Degree 5: see the batch file
+  (running at the time of writing);
+* q = 4, A = T (Theorem 6.3).
+
+**Not covered (status OPEN, with EVIDENCE).**
+* q = 3, A = T²: exhaustive failures only at n = 3, 4, 5 (3 + 2 + 2 polynomials; `data/ffl/fail_q3_A100_n*.txt`),
+  none for 6 ≤ n ≤ 13. Covering tree (root T²(T+1)(T+2), refinement by all primes of degree ≤ 2, NTH = 13):
+  uncovered density 0.375, 0.236, 0.199, 0.130, 0.082, 0.0115, 0.0111 at depths 1–7. The tree stalls when the
+  modulus degree reaches the family limit NTH. We do not know whether a finite covering exists. No obstruction
+  is known: the size class P ≡ 1 (mod A) is the E = 2 class in char 3, and §4 excludes quadratic obstructions.
+* q = 4, A = T²: uncovered density 0.43 at depth 3.
+* **char ≥ 5: no finite covering exists for any A** (O140 Prop 4.1: the class P ≡ 1 (mod W) is uncoverable by
+  linear families, and by Dirichlet it contains irreducible P of every large degree). Note: Prop 4.1 covers
+  linear families only. A proof for char ≥ 5 would need a non-congruence mechanism, i.e. the lottery (B2).
+
+**Why the theorems do not transfer to Z.** They rest on the two collapses of §6.1(a, b), the absence of the square
+obstruction (§4), and (for q = 2, 4) the smallness of (F_q^*)^q. Over Z each fails: 1 ≢ −1, −2 (mod 4); primes
+are not confined to few classes mod any m; odd squares are sterile. The function-field world with
+char ≥ 5 keeps exactly one of the two Z obstructions (size, P ≡ 1). There, as over Z, the conjecture is a
+lottery: the data (§3) show extinction of failures at a finite degree, but no proof mechanism is available.
