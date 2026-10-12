@@ -123,3 +123,41 @@ monic P in F_q[T] for any q"):
 * The bias data (i) were spot-checked against the author's failure list for q = 7, n = 6. The P(0) values are
   2, 1, 1, 1, as stated. The tilt numbers (ii) were not re-computed (EVIDENCE, low stakes).
 
+### C6. Fact 5.2 and Theorem 5.3 (failure proportion ≤ (Φ(A)+o(1))/log n) — SOUND-AFTER-REPAIRS (minor)
+
+**Fact 5.2.** Re-derived from Weil. For each nontrivial χ mod M (deg M = D), L(u, χ) is a polynomial of degree
+≤ D − 1. Its inverse roots have modulus √q or 1 (the latter for imprimitive χ). This gives
+|Σ_{deg f=n} Λ(f)χ(f)| ≤ (D−1)q^{n/2}. The trivial character loses ≤ Σ_{ℓ|M} deg ℓ ≤ D, and proper prime powers
+contribute ≤ Σ_{d≤n/2} q^d ≤ 2q^{n/2}. So |π(n;M,r) − q^n/(nΦ(M))| ≤ ((D+1)q^{n/2} + D)/n. This is ≤ the stated
+(D+2)q^{n/2}/n whenever D ≤ q^{n/2}, which always holds in the application (D ≤ n). Strictly, the Fact as
+stated "for all D ≥ 1" needs this proviso (MINOR, D9). I **could not access Rosen** (*Number Theory in Function
+Fields*, Thm 4.8 is not in `sources/`). I have checked only the derivation, not the citation's numbering or
+wording. Numerical sanity check (`scripts/review_ffl_pnt.py`, log `data/review_ffl_pnt_log.txt`): exact class
+counts for 6 moduli (q = 2, 3, 4, 5), worst |error|/bound = 0.23.
+
+**Theorem 5.3.** I re-derived it line by line:
+* (a) The count of A-supported h of degree D is ≤ (D+1)^{ω(A)}, and Φ(h) ≥ q^D/2^{ω(A)}. The proportion is
+  O(H^{ω}q^{−H}) + O(n^{ω+2}q^{−n/2}) = O((log n)^{ω}/n) = o(1/log n). ✓
+* (b) The partition into classes 𝒞(h, v₀) is correct. The A-part of P + 1 is exactly h, and classes with r not
+  coprime to hA contain no prime of large degree. For g ∈ 𝒢: (P+1+hg)/h = w + g, g | w, A | w + g, so
+  Ahg | P+1+hg. With deg(Ahg) ≤ k + H + n/5 ≤ n, Lemma 5.1 applies. ✓ The identity
+  A/P = 1/(hgd) + 1/(dP) + 1/(hgdP) and NC/monicity were re-verified on random data
+  (`scripts/review_ffl_identities.py`).
+* First moment: the classes mod hAg are coprime by CRT. μ = Σ_{g∈𝒢} 1/(|g|−1) = (log n)/Φ(A) + O_A(1)
+  uniformly in v₀ (finitely many v₀), using Fact 5.2 mod A, with Σ q^{−m/2}/m < ∞. ✓
+* Second moment: for g₁ ≠ g₂ the condition is one coprime class mod hAg₁g₂ of degree ≤ n. The main term is
+  ≤ Π(μ + μ²), and R ≪ q^{2n/5}·q^{n/2} = q^{0.9n}. Π ≫ q^{n−k−H}/n ≫ q^n/(n²q^{k+1}), so every error is
+  O(q^{−n/10}·poly(n))·Π. ✓
+* **D10 (MINOR, wording that as written does not give the conclusion).** "Chebyshev gives
+  #{P ∈ 𝒞 : N(P) = 0} ≤ Π·(1/μ + o(1))", followed by summing to "1/μ + o(1/log n)". An o(1) error per class
+  only gives o(1) in total, not o(1/log n). The proof does work because all error terms are exponentially small:
+  Σ(N−μ)² ≤ Πμ + O(Π q^{−n/10}poly(n)), so #{N = 0} ≤ Π/μ + O(Π q^{−n/10}poly(n)). The number of classes is
+  ≤ Φ(A)(H+1)^{ω} = polylog(n). *Repair:* replace the two "o(Π)"/"o(1)" by the explicit
+  O(Π·q^{−n/10}·n^{O(1)}). (The bookkeeping line "Σ(N−μ)² ≤ Πμ + o(Π)(1+μ)" also omits a μ²·(Π_main − Π) term.
+  It is harmless for the same reason.)
+* **D11 (MINOR, overclaim in Remark (1)).** "the failure proportion … vanishing identically from a finite degree
+  on" is a reading of finite data. Say "no failure was found beyond degree n₀(q, A) in the computed range"
+  (EVIDENCE).
+Labels: "PROVED, given Fact 5.2". Fact 5.2 is a standard consequence of Weil's theorem, so plain PROVED (citing
+Weil/Rosen) is fine once D9 is fixed.
+

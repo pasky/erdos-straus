@@ -1,0 +1,7 @@
+q=2 M=1011 D=3 Phi=7: max |error|/bound over n in 4..14: ok
+q=2 M=11000 D=4 Phi=4: max |error|/bound over n in 5..13: ok
+q=3 M=101 D=2 Phi=8: max |error|/bound over n in 3..9: ok
+q=3 M=1100 D=3 Phi=12: max |error|/bound over n in 4..9: ok
+q=5 M=1001 D=3 Phi=96: max |error|/bound over n in 4..6: ok
+q=4 M=10010 D=4 Phi=81: max |error|/bound over n in 3..6: ok
+worst ratio 0.229
