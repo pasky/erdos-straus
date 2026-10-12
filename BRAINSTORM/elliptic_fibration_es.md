@@ -111,3 +111,12 @@ By-products:
 Other genus-1 candidates: plane sections through P are nodal, hence genus 0. Fixing two of ET's coordinates gives
 hyperbolas (redteam-2 Lemma 2.1), also genus 0. So the s-pencil, and its pencils of other hyperplanes with N
 replaced by a weighted sum, is essentially the only genus-1 structure, and the screen above applies verbatim.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **Under-claim in P3:** per-point non-torsion is fully PROVED for each tested point, not merely EVIDENCE: by Mazur a
+  rational torsion point has order ≤ 12, so a chord–tangent check up to order 12 settles it. The memo's worry about
+  ℤ/12 and ℤ/2×ℤ/6 concerns only a general proof for all p ≡ 1 (4).

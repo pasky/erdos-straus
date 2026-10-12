@@ -90,3 +90,14 @@ Prop A.2 (Dirichlet-series data on Re s > 0 cannot see a zero set of convergence
 Open side question (UNCLEAR, low value for ES): does `D_II(s)` continue to Re s > 1/2, with the odd-square
 vanishing visible as a cancellation in the ζ(2s)-type part? It would give an asymptotic for Σ_{n≤N} f_II(n) with a
 power-saving error, which is an average and irrelevant to pointwise ES.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **Prop A.2 is overclaimed.** "D_g − D_f is holomorphic on Re s > 0" needs Σ_{p∈S} f(p)p^{−σ} < ∞ for all σ > 0, i.e.
+  f(p) ≤ p^{o(1)} on S, which is not known: the best pointwise bound is f(p) ≪ p^{3/5+O(1/log log p)} (ET; cf.
+  POINTWISE_MN3 Lemma 5.2). **Corrected statement (PROVED):** the invisibility holds on Re s > 3/5; on Re s > 0 only
+  conditionally on a sub-polynomial pointwise bound (or for S inside {p : f(p) ≤ p^ε}). The conclusion (linear
+  Dirichlet-series data leak exactly as T7) survives with 3/5 in place of 0.

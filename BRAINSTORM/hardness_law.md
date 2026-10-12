@@ -100,3 +100,15 @@ By-product (EVIDENCE, p ≡ 1 (24), 10⁶–2·10⁷):
 
 Suggested follow-up (cheap): repeat at 10⁸ with f_I as well, and test whether the residual is Poisson after adding
 moduli up to 10³. If it is, then "f(p) = congruence factor × Poisson" is a sharp, falsifiable form of the ET heuristic.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-A.md (per-memo paragraph and
+"Overclaims / mis-scopes" list). No computational counterexample is involved (scope/label corrections).
+
+* **Fixed-exponent extrapolation is pessimistic.** The fit r ∝ L₅₀(p)^{−0.37} (p ≡ 1 (24), 10⁶–2·10⁷) conflicts with
+  anal_euler_product_law, which finds the same exponent decaying like 1/log p (β·log p ≈ 4.5 for f_II, predicting
+  β ≈ 0.29 at log p ≈ 15.5). The structural cost is likely a relative O(log log p/log p), not L^{0.37}; the conclusion
+  "the danger is not χ_p" only gets stronger.
+* Overdispersion figures reconcile: ≈ 2× Poisson here (after one-hot moduli ≤ 97) vs 9–23× in
+  anal_moments_structured (coarser fit); the shift-τ₃ effect is mostly small-prime congruence data. EVIDENCE only.
