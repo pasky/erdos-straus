@@ -150,7 +150,7 @@ sketch is wrong as written (D6). Take `p = Mq+1`, with M divisible by high power
 integers.
 * `{t=c}`: A divides `cp+1 = (c+1)·r`, where `r = (cM/(c+1))q + 1`.
 * `{u=c}`: A divides `p+c = (c+1)·r'`, where `r' = (M/(c+1))q + 1`.
-* `{v=c}`: `B | p+c`, so B = d or B = d·r' with `d | c+1`. I checked that **both** branches give A linear in q:
+* `{v=c}`: `B | p+c`, so B = d or B = d·r' with `d | c+1`. I checked that **both** branches give A linear in q (verified symbolically with sympy):
   `cd·A = (d+1)p + c` for B = d, and `cd·A = dp + c + 1` for B = d·r'. In the second branch use
   `p = (c+1)r' − c`; then `(dr'+1)p + c = r'(dp+c+1)`.
 
