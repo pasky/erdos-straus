@@ -255,3 +255,12 @@ a bijective restatement. M2 (bounded ET translations) → B1 is right; Mordell's
 unconditional. Open sub-question: the tangent case of A.1 (EVIDENCE only). It is inert for ES. Novelty: A.1/A.2 (no
 real line meets the (1,3) sign locus of Σ1/X_i = 0 three times) is elementary and plausibly new. It explains why
 Mordell–Weil-style dynamics has no positivity mechanism, but it has no ES leverage. **Promise 0.**
+
+**greedy_algorithm_dynamics (O150b; memo: COLLAPSES to B1 and, for growing J, to the window frame = B2).** AGREE.
+Prop B.1 was re-derived by hand for all three algorithms. For greedy: x = (p+3)/4 is odd and ≡ 1 (3), the remainder
+is 3/(px), y = (px+2)/3 is odd, and the remainder 2/(pxy) has odd denominator. Engel leaves 3/p, 2/p, 1/p. Golomb
+leaves 2/b″ with b″ odd. Prop B.2 (J(p) = (a_min−3)/4, offset greedy = window statistic) is a correct dictionary.
+False-negative check: Remark B.3 states the dichotomy correctly. Fixed pruning is Thm M; growing pruning is the
+e-slice/window lottery, i.e. a growing parameter set Θ(p) of H-A type. An "algorithm" is just a witness procedure,
+and Thm C / Thm 2.2(iii) cover exactly the bounded-Θ ones. Open sub-question: X_win(C) (J(p) ≪ log p), already a
+named campaign conjecture. Novelty: folklore (B.1) plus a dictionary (B.2). **Promise 0.**
