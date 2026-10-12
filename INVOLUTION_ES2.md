@@ -50,3 +50,52 @@ CRT and Hensel (`p ≡ 1 (8)` is a 2-adic square) give an odd `m₀` with `m₀�
 This is the classical fact (Mordell, Schinzel; ET Prop 1.6) that polynomial identities only cover non-square
 classes, here for the linear identities carried by single axis lines. It needs no hypothesis because the
 "rational square point" `n = m²` is available.
+
+## 3. Non-cylindrical components carry few points (unconditional)
+
+**Lemma 3.1 (PROVED).** For `x ∈ ℤ³_{≥1}` with `t ≥ 2`: `P(x) + 1 ≥ tuv/2`.
+*Proof.* `tuv/2 − u − v + 1 ≥ uv − u − v + 1 = (u−1)(v−1) ≥ 0`. ∎ (For `t = 1`, `P + 1 = (u−1)(v−1)`.)
+
+**Proposition 3.2 (PROVED).** Let `W ⊂ A³` be irreducible closed of dimension ≤ 2 (over ℚ̄) that is not
+a 2-dimensional axis cylinder. Then W contains only finitely many axis lines, and
+
+  `#{x ∈ W ∩ ℤ³_{≥1} : 1 ≤ P(x) ≤ N, x on no axis line ⊂ W} ≪_W N^{2/3}`.
+
+*Proof.* Lines. Fix the axis v (the others are symmetric). If `W` is a surface `{F = 0}` (F irreducible) and
+F involves v, the set `L_v := {(a,b) : {(a,b)}×A¹ ⊆ W}` is the common zero set of the coefficients of F as a
+polynomial in v. If L_v contained a curve D, then `D × A¹ ⊆ W`, both irreducible surfaces, so `W = D × A¹`
+is a v-cylinder: excluded. So L_v is finite. If F does not involve v, W is a v-cylinder: excluded. If W is a
+curve, it contains at most one line (itself). So finitely many axis lines, and for `(a,b) ∉ L_v` the fibre
+`W ∩ ({(a,b)} × A¹)` has at most `D_W` points (`D_W` := degree bound, e.g. `deg F`, or the degree of W).
+
+Count. Split the points x (not on an axis line of W) with `1 ≤ P(x) ≤ N`.
+* `t = 1`: then `u, v ≥ 2` and `(u−1)(v−1) = P + 1 ≤ N + 1`, so `min(u,v) ≤ √(N+1) + 1`. For each value
+  `u = b` of the smaller coordinate the point lies in the fibre of W over `(t,u) = (1,b)` (≤ D_W points, as
+  x is on no v-line of W), similarly for v. Total `≤ 2 D_W (√(N+1) + 1)`.
+* `t ≥ 2`: by Lemma 3.1, `tuv ≤ 2N + 2`. Let `w` be a largest coordinate, and `(y₁,y₂)` the other two; then
+  `y₁y₂·max(y₁,y₂) ≤ tuv ≤ 2N+2`. The number of pairs `(y₁,y₂) ∈ ℤ²_{≥1}` with `y₁y₂ max(y₁,y₂) ≤ X` is
+  `≤ 2Σ_{y₁ ≤ X^{1/3}} √(X/y₁) ≤ 4X^{2/3}`. Each pair gives at most D_W points of W (fibre along the axis of
+  w, not a line of W). Over the 3 choices of w: `≤ 12 D_W (2N+2)^{2/3}`. ∎
+
+**Corollary 3.3 (PROVED, unconditional; ineffective only through Siegel in Cor 3.4).** Let `Z₀` be a finite
+union of irreducible closed sets as in Prop 3.2 (no 2-dimensional axis cylinders). There is `α₀ ≥ 1`
+(lcm of `8α` over the finitely many axis lines of Lemma 2.1 inside the components) such that
+
+  `#{p ≤ N prime : p ≡ 1 (mod α₀), E(p) ∩ Z₀ ≠ ∅} ≪_{Z₀} N^{2/3}`.
+
+So `E(p) ∩ Z₀ = ∅` for all primes `p ≡ 1 (mod α₀)` outside a set of relative density 0 (and of size
+`O(N^{2/3})`). More generally the same holds for all primes p that are unit squares modulo `ℓ^{v_ℓ(α₀)}` for
+every `ℓ | α₀`, with `p ≡ 1 (8)`.
+*Proof.* Points on axis lines: Lemma 2.1. The other points: Prop 3.2, each prime p with `E(p) ∩ Z₀ ≠ ∅` is
+`P(x)` for at least one counted x. ∎
+
+**Corollary 3.4 (PROVED; ineffective).** Let `W = C × A¹` be a 2-dimensional axis cylinder that is **not** a
+Siegel cylinder (C has only finitely many integer points with positive coordinates, e.g. by Siegel's theorem
+whenever C has genus ≥ 1, or genus 0 with ≥ 3 places at infinity, or C is not defined over ℚ). Then the
+positive integer points of W lie on finitely many axis lines, and Lemma 2.1 applies: there is α with
+`E(p) ∩ W = ∅` for every prime `p ≡ 1 (mod α)` (and every prime that is a unit square mod the prime powers of α
+with `p ≡ 1 (8)`). ∎
+
+So, unconditionally, **only Siegel cylinders can carry E(p) for a positive proportion of primes in every
+square class**. These are `C × A¹` with C an integral-point-rich curve (genus 0, ≤ 2 places at infinity,
+by Siegel) in two of the three coordinates; they include the coordinate planes and e.g. `{t = u}`.
