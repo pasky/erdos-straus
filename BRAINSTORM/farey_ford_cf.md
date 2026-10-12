@@ -55,16 +55,16 @@ continuants (N, e) satisfy the multiplicative event `e | aN + 1` with a | N/4. Z
   of p mod N once the integer part is removed. So any CF statement about finitely many N is a congruence
   covering (Thm M/C), and it fails at square-mimicking primes.
 * **B5 / T1.** At n = m² the step "e | aN + 1 with e ≡ −n⁻¹ (mod N)" has no solution, by ET 1.6. That is
-  genus: aN + 1 = 4a²d + 1 is a value of x² + d·(2y)²-type forms, so its prime divisors e satisfy (−d/e) = 1;
-  for e ≡ −m⁻² (mod 4ad) reciprocity forces a contradiction. A CF theorem applies equally to n = m² (the Farey
+  genus: every prime divisor of aN + 1 = (2a)²d + 1 has (−d/e) = 1. ET's proof of Prop 1.6 turns this, together
+  with e ≡ −m⁻² (mod 4ad), into a reciprocity contradiction. A CF theorem applies equally to n = m² (the Farey
   structure of m²/N has nothing special). So the step that must fail at odd squares is precisely the divisor
   event, never any CF/Zaremba input.
 * **B6 / H-F (Zaremba).** BK and Huang are "almost all q" statements. Even a Zaremba theorem for every prime p,
   which is open, would give one b with bounded quotients. Its parents (e, N) have no reason to satisfy
   e | aN + 1. Heuristic: e is spread over [1, N], so the chance is ≍ τ(N)/N·log N per N. The bounded-type
-  condition restricts to ≍ p^{2δ_A − 1} fractions b/p (Hausdorff dimension δ_A of bounded type). This makes the
-  expected count *smaller*, the opposite of what is needed. B3: the main term over a bounded-type family is
-  ≪ p^{2δ−1}·(log p)^{O(1)}/p^{1−o(1)} → 0 for any fixed A.
+  condition keeps only ≍ p^{2δ_A − 1} of the p − 1 fractions b/p, on average over p (Hensley; δ_A is the
+  Hausdorff dimension of A-bounded type). It only *thins* the family, so the expected count drops by a factor
+  p^{2δ_A − 2} relative to the L³ total, the opposite of what is needed (B3).
 * **B4.** Nothing new: small e are small-modulus coverings (e = 1 is p ≡ 3 (4); e = 3 is the classical mod-3
   slice).
 * **T7.** Kloosterman equidistribution of (N, N̄/p) (Weil) controls e₀(N) only on boxes of side ≥ p^{1/2+ε}. The

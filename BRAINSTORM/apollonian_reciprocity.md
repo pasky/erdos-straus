@@ -76,7 +76,10 @@ imported**. The analogy only maps the open problem "sporadic set finite" ↔ "ES
 * **Odd n with no Type I/II point (ET coordinates), n ≤ 10⁶.** They are exactly the odd squares, plus the single
   sporadic n = 105. ⚠ 105 is an artefact of the coordinate definition for composite n. A direct count of
   "exactly one/two of x,y,z divisible by n" (scripts/review_r127_counts.c) gives f_I(105) = 252 and
-  f_II(105) = 18; it also gives f_I(81) = 82, so the naive definition does not even see ET 1.6. No quadratic
+  f_II(105) = 18; it also gives f_I(81) = 82, so the naive definition does not even see ET 1.6. An independent
+  brute force in ET coordinates (`/tmp`-only check, re-runnable from the formulas) gives 0 Type I and 0 Type II
+  tuples for 105 with gcd(abd, n) = 1, but 2 Type II tuples once that convention is dropped. So "105" is a
+  convention artefact for composite n. No quadratic
   family `u·m²` with u ≠ 1, and no quartic family, appears among the odd zeros. Even n: many zeros (6, 12, 22, …),
   irrelevant because ES(even) is trivial. **Re-run to 2·10⁷: identical — the odd zeros are the odd squares
   (all of them) and 105 only; no prime.** (HKRS-style reading: "sporadic set" {105}, quadratic family {m²}.)
