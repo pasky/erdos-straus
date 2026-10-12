@@ -95,3 +95,15 @@ print(f"stage 2 baseline (cells + {len(loc)} local/shift features): R2={1-rb.var
 for k in ['  tail: exact - trunc', 'log(CF period sqrt p / sqrt p)', 'log(R_unit Z[sqrt p] / sqrt p)']:
     v = np.array(feat[k], float); vr = v - XB @ np.linalg.lstsq(XB, v, rcond=None)[0]
     print(f"  global {k:32s} partial corr {np.corrcoef(vr, rb)[0,1]:+.3f}  (null s.e. ~{1/math.sqrt(ns):.3f})")
+# stage 3: is the rest explained by MORE shifted-divisor (lottery) data?  compare with the compound-Poisson floor
+ex = [np.log([tau((x + e) // 4) for x in p]) for e in range(3, 64, 4)]
+ex += [np.log([tau(c * x + a) for x in p]) for a in range(1, 5) for c in range(1, 5) if math.gcd(a, c) == 1]
+X3 = np.column_stack([XB] + ex)
+r3 = y - X3 @ np.linalg.lstsq(X3, y, rcond=None)[0]
+fval = np.exp(y) * np.log(np.array(p, float))**3
+floor = np.mean(3.06 / fval)   # Var(log f) of a compound Poisson with kappa = 3.06 (weight-2 units, O142 3.2)
+print(f"stage 3 (+{len(ex)} shifted tau features): R2={1-r3.var()/y.var():.3f}; residual var {r3.var():.4f}; "
+      f"compound-Poisson floor ~{floor:.4f} (= {floor/y.var():.2f} of Var y)")
+for k in ['  tail: exact - trunc', 'log(CF period sqrt p / sqrt p)', 'log(R_unit Z[sqrt p] / sqrt p)']:
+    v = np.array(feat[k], float); vr = v - X3 @ np.linalg.lstsq(X3, v, rcond=None)[0]
+    print(f"  global {k:32s} partial corr {np.corrcoef(vr, r3)[0,1]:+.3f}")
