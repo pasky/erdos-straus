@@ -362,3 +362,64 @@ times and of (b) 688 times, the Legendre symbol is −1 every time, and (c), (d)
 (`data/bf2/pointwise_check.txt`, 0 violations).
 Note the symbols in (a), (b) are genuinely constraints, not tautologies: without them the descended
 solution is an ordinary Type I/II solution for the non-square λw², which exists in abundance.
+
+**Lemma 8.4 (coprime square points on a prime dilate; PROVED: Hasse–Minkowski, Dirichlet, and an
+elementary two-variable coprimality sieve of Ekedahl type).** Let 8 | M, 2D | M, C a square class
+mod M, S an open sector, R, λ₁ > 0, G ∈ Z[u,v] with Q ∤ G, and H₁,…,H_r ∈ Z[u,v] nonzero forms.
+Then there are a prime λ > λ₁ and X ∈ Z² such that
+(1) λX ∈ C ∩ S and |λX| > R; (2) Q(X) = w² with w odd; (3) gcd(w, G(λX)) = 1;
+(4) λ ∤ w·H₁(X)⋯H_r(X).
+*Proof.* Step 1 (a primitive square point and its class). The proof of Lemma 2.1 (applied to a
+closed subsector S₁ ⋐ S) gives a primitive (u₁,v₁,w₁) ∈ Z³, w₁ > 0, `Q(X₁) = w₁²` for `X₁ = (u₁,v₁)`,
+arg X₁ ∈ S₁, and μ ∈ (Z/M)* such that λX₁ ∈ C for every integer λ ≡ μ⁻¹ (mod M). Then w₁ is
+prime to M (Q(C) is a unit) and odd.
+Step 2 (base point). Choose a primitive `X₀ = (P₀, w₀) ∈ Z³`, `Q(P₀) = w₀²`, w₀ > 0, with
+gcd(w₀, M w₁) = 1: apply Lemma 2.1 with modulus M w₁ to a class that is C mod M and has Q ≡ 1 mod
+each ℓ^e ∥ w₁ (ℓ ∤ 2D, so Q mod ℓ is nondegenerate, represents 1, and Hensel lifts), and take the
+primitive triple produced there.
+Step 3 (parametrisation). For Y ∈ Z² let `β₀(Y) = Q(P₀+Y) − Q(P₀) − Q(Y)` (= 2B(P₀,Y), B the
+bilinear form of Q) and `ψ(Y) = (Q(Y)P₀ − β₀(Y)Y, w₀Q(Y)) ∈ Z³`. Expanding,
+`Q(Q(Y)P₀ − β₀Y) = Q(Y)²Q(P₀) − Q(Y)β₀² + β₀²Q(Y) = ψ₃(Y)²`. ψ(Y) is the second intersection with
+the conic X: Q = w² of the line through X₀ and (Y, 0). Hence every X ∈ X(Q) is proportional to
+ψ(Y) for some primitive Y (Y ∝ w₀P − wP₀ if X ≁ X₀; Y ⊥_B P₀ if X ∼ X₀). ψ(Y) ≠ 0 for real Y ≠ 0,
+since ψ₃(Y) = 0 forces Q(Y) = 0. (ii) If Y is primitive and a prime ℓ ∤ 2Dw₀ divides all coordinates
+of ψ(Y), then ℓ | Q(Y) and ℓ | β₀(Y)Y, so ℓ | β₀(Y); over F_ℓ (Q nondegenerate) Y is isotropic and
+B-orthogonal to P₀, so P₀ ∈ F_ℓY and Q(P₀) ≡ 0, i.e. ℓ | w₀: contradiction.
+Take Y° primitive with ψ(Y°) ∝ X₁; as ψ₃ > 0, `ψ(Y°) = k₀·(u₁,v₁,w₁)` with k₀ ≥ 1. By (ii) the primes
+of k₀ divide 2Dw₀, and w₀ | k₀ because `w₀Q(Y°) = k₀w₁` with gcd(w₀,w₁) = 1.
+Step 4 (the family). Put N = k₀M and, for Z ∈ Z², `Y_Z = Y° + NZ`, `X_Z = ψ₁₂(Y_Z)/k₀`,
+`F₁(Z) = ψ₃(Y_Z)/k₀`. Expanding ψ(Y° + NZ) = ψ(Y°) + N·(bilinear) + N²ψ(Z) shows X_Z, F₁ ∈ Z[Z],
+`X_Z ≡ X₁` and `F₁ ≡ w₁ (mod M)`, `Q(X_Z) = F₁(Z)²`, F₁ > 0, and every non-constant coefficient of F₁
+is divisible by w₀M. By Dirichlet pick a prime λ ≡ μ⁻¹ (mod M) with λ > λ₁, λ ∤ N and λ larger than
+the finitely many constants named below. Then λX_Z ∈ C for all Z. Put `G₁(Z) = G(λX_Z) ∈ Z[Z]`.
+Step 5 (sector). Y ↦ arg ψ₁₂(Y) is continuous on R² ∖ 0 and arg ψ₁₂(Y°) = arg X₁ ∈ S₁, so there is
+an open cone Γ ∋ Y° with arg ψ₁₂(Γ) ⊂ S₁. Let B₀ be a closed box inside Γ. For T large and
+Z ∈ TB₀, Y_Z ∈ Γ, so λX_Z ∈ S, and `|λX_Z| ≥ c_ψ|Y_Z|²/k₀ > R`.
+Step 6 (local densities). For a prime ℓ let ρ_ℓ be the proportion of Z mod ℓ that are *good at ℓ*:
+not (ℓ | F₁(Z) and ℓ | G₁(Z)), and, for ℓ = λ, `λ ∤ F₁(Z)∏H_i(X_Z)`.
+ℓ | M: F₁ ≡ w₁ ≢ 0, ρ_ℓ = 1. ℓ | k₀, ℓ ∤ M: then ℓ | w₀, so F₁ ≡ w₁ ≢ 0 (mod ℓ), ρ_ℓ = 1.
+ℓ ∤ N: Z ↦ Y_Z is a bijection mod ℓ, ℓ ∤ k₀w₀, so ℓ | F₁ ⇔ ℓ | Q(Y_Z); ℓ ≥ 3 and Q mod ℓ is a
+nondegenerate form, vanishing on ≤ 2ℓ − 1 points, so ρ_ℓ ≥ 1 − (2ℓ−1)/ℓ² > 0. Moreover, for ℓ ∤ N
+outside a finite set, ρ_ℓ ≥ 1 − (4 deg G + 1)/ℓ²: the zeros of Q(Y) mod ℓ are 0 or two lines F_ℓY_ℓ
+(ℓ split), Y_ℓ the reduction of an isotropic vector V ∈ O_K² (K = Q(√D)) at a prime 𝔩 | ℓ; on such a
+line `ψ₁₂(tY_ℓ) = −t²β₀(Y_ℓ)Y_ℓ` with β₀(Y_ℓ) ≢ 0 (else ℓ | w₀), so G₁ restricts to
+`t ↦ G(−λt²β₀(Y_ℓ)Y_ℓ/k₀)`, which is ≢ 0 mod 𝔩 once 𝔩 does not divide the nonzero (as Q ∤ G, G does
+not vanish on the isotropic line KV) top coefficient `G_j(V) ≠ 0` of s ↦ G(sV); then it has
+≤ 2 deg G zeros t.
+ℓ = λ: λ ∤ N, bijection again; bad Y_Z have Q(Y_Z) ≡ 0 (≤ 2λ − 1 points) or `H_i(ψ₁₂(Y_Z)) ≡ 0`
+(H_i∘ψ₁₂ is a nonzero form of degree 2 deg H_i, ψ₁₂ having Zariski-dense image; for λ large it stays
+nonzero mod λ and vanishes on ≤ 2 deg H_i·λ points). So ρ_λ ≥ 1 − (2 + 2Σ deg H_i)/λ > 0.
+Hence `ρ := ∏_ℓ ρ_ℓ > 0`.
+Step 7 (sieve). Write Z = (a, b). F₁ is irreducible in Q[a,b] (an affine image of Q(Y)), its
+b²-coefficient is the constant w₀N²Q(0,1)/k₀ ≠ 0, and F₁ ∤ G₁: otherwise G vanishes on
+λψ₁₂(isotropic line)/k₀, which is the whole isotropic line KV' (ψ₁₂(tV) = −t²β₀(V)V with β₀(V) ≠ 0
+because P₀ is not isotropic), forcing Q | G. So `Res_b(F₁, G₁) =: ℛ(a) ∈ Z[a]` is ≢ 0. Fix L. By CRT
+the Z ∈ TB₀ good at all ℓ ≤ L and at λ number `ρ_{≤L}·vol(B₀)T² + O_L(T)` with
+ρ_{≤L} ≥ ρ. Z ∈ TB₀ with ℓ | F₁, ℓ | G₁ for some prime ℓ > L, ℓ ≠ λ: for L < ℓ ≤ T, at most
+`O((T/ℓ + 1)²)` each (O(1) common zeros mod ℓ by Step 6), total `O(T²/L + T)`; for ℓ > T, ℓ | ℛ(a),
+and for each of the O(T) values a with ℛ(a) ≠ 0 there are O(1) such ℓ (|ℛ(a)| ≤ T^{O(1)}), each
+leaving ≤ 2 residues of b mod ℓ (F₁(a, ·) mod ℓ has the constant leading coefficient), hence ≤ 2
+values in an interval of length O(T) < ℓ; the O(1) roots of ℛ add O(T). So the good Z in TB₀ number
+≥ `(ρ − O(1/L))vol(B₀)T² − O_L(T) > 0` for L, then T, large. Any good Z gives X = X_Z, w = F₁(Z):
+(1) by Steps 4–5, (2) by Step 4, (3) because no prime divides both F₁(Z) and G₁(Z) (including λ,
+since λ ∤ F₁(Z)), (4) by goodness at λ. ∎
