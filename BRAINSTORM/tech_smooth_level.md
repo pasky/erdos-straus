@@ -86,3 +86,15 @@ constant and not the 3/4 exponent. No new partial theorem results.
 
 *By-product (EVIDENCE):* the (A)3 subsystem with N^{0.4}-smooth moduli covers all but 25 of the 9732 primes
 p ≡ 1 (24) up to 10⁶.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§2 conflates two estimates:** BFI's well-factorable *weighted* estimate is not the same absolute-discrepancy sum
+  as Zhang's smooth-moduli estimate.
+* §3(c) "no sum over p": this does not exclude bilinear summation over witness parameters at fixed p; small expected
+  success mass does not eliminate long ambient sums (H-B). Smoothness is not B4's transparent-coset-covering
+  hypothesis. EXCEPTIONAL_KARY3 Thm 4.1 / Cor 4.2 and EXCEPTIONAL_PRIMELAW Cor 4.2 have specific majorant
+  hypotheses; they are not universal prohibitions on signed dispersion. **Corrected verdict:** PARTIAL → H-B.

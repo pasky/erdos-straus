@@ -129,3 +129,15 @@ described above. Their outputs are small and reproduced in the tables.
 * As a route to ES, this collapses to B2 (H-A with a polylog moving slice set).
 * Next step, if anyone wants it: does S¹₂ + "FACTOR is total" prove ES under any natural extra axiom?
   That axiom would be FQ itself, so it is circular. No further work is recommended.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§5 "congruence-table search is not FP" does not follow:** a modulus of size exp((log p)^{1/4}) has only
+  O((log p)^{1/4}) bits; witness magnitude does not bound the number of adaptively chosen tests (POINTWISE_SIZE §0
+  separates these). Only exhaustive enumeration inherits that runtime lower bound.
+* FQ is an open H-A target, not excluded by B2 (Thm 2.2(iii) needs a parameter set fixed independently of p).
+  FQ ⇒ FP^FACTOR: valid, but the per-slice dynamic-programming cost is quadratic, not linear, in the slice cutoff
+  (still polynomial). NFS's L[1/3] runtime is heuristic. Factor-leakage data are finite EVIDENCE only.

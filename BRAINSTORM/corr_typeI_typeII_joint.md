@@ -77,3 +77,15 @@ union are those that are hard for each type (bottom-5% overlap is 10× the indep
 By-products: Lemma 3.1 (PROVED; checked on 2021 primes); EVIDENCE on the joint law of (f_I, f_II), including
 a residual correlation of ≈ 0.58 that is not explained by small-prime data and is largely explained by C-slice
 data at moduli ≤ 2000. Non-abelian residue symbols show no signal.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **§6 "COLLAPSES" and "No hedge exists" are withdrawn.** Lemma 3.1 identifies a shared success subset, not an
+  implication between failures of the full types. Correlation of f_I and f_II across primes, or over successful
+  primes, says nothing about the joint-zero event: X = Y taking values in {1,2} is perfectly correlated and never
+  zero. The twin slices are only 1.7 %/3.8 % of the counts; bottom-5 % statistics concern small positive values.
+* Redteam-automorphic-2 Thm 2.2(iii) excludes only fixed finite unions. **Corrected verdict:** PARTIAL → H-A (H-G);
+  the data remain EVIDENCE about positive values only.

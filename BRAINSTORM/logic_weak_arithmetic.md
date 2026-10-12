@@ -138,3 +138,16 @@ at n = 1 + s⁴ = (s²+√2s+1)(s²−√2s+1); for the signed solution X has le
   * This is a logic result only. It cannot inform the analytic hard core, because every such
     counterexample sits over the standard unit 1, where ES fails trivially.
 * No route to ES: the angle collapses to Theorem M at the point 1 (B1) for every model of this shape.
+
+## Errata (triage O156/O157)
+
+Appended by O160; the memo body above is unchanged. Source: reviews/triage-brainstorm-B.md (§0.2, §0.3 and the
+per-memo paragraph). Counterexamples, where computational, re-verified by `scripts/errata_check.py` (tag in brackets).
+
+* **C1** defeats congruence restrictions admitting the residue of 1, not "every" congruence restriction
+  (n ≡ 3 (mod 4) already has an elementary identity).
+* **C4:** the equivalence is sound, but the subsequent "unit-only" claim needs ES in the base model. Counter-model
+  (triage O157): Shepherdson's model M₀ with an infinite u, n₀ = 1+u, and t added above its real closure; then
+  n = n₀+t has no nonnegative zero and no ES solution although n₀ is a non-unit. Correspondingly §3's unconditional
+  handling of every n₀ ≥ 2 assumes the conjecture. (Model-theoretic; not machine-checked here.)
+* Thm S and the principal non-provability conclusion stand.
