@@ -2,7 +2,12 @@
 
 Reviewer: R161. Document reviewed: `FUNCTIONFIELD_ES.md` as merged from `side-agent/ff-landscape`.
 From-scratch scripts: `scripts/review_ffl_*.py` (own F_q[T] arithmetic, no reuse of `ffl_*.c` / `ffl_*.py`).
-Status: round 1 complete (addendum may follow for running jobs).
+**Repairs applied (R161, at the parent's request; author near its context limit):** D1 to D17 are applied in place
+in FUNCTIONFIELD_ES.md, and the matching lines in AGENT_REPORT_O161.md, each marked "(R161 repair)". D7/D8: §4 is
+rescoped to the odd-q statement, with char 2 separate. D13/D14: Thm 6.4 is scoped to the archived and checked
+cases, R161's certificates are archived as `data/ffl/cover_q2_A1000{0,1}_R161.txt`, and the uncovered
+degree-4/5 A are listed. The author's running jobs and untracked files were not touched.
+Status: round 1 complete; repairs applied.
 
 ## Summary verdicts
 

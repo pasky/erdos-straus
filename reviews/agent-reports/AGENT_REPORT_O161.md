@@ -8,14 +8,15 @@ Branch `side-agent/ff-landscape`. Main file `FUNCTIONFIELD_ES.md`. Scripts `scri
 ## Answers to the brief's questions
 
 **(1) The analogue.** Monic A of degree k ≥ 1. Monic X, Y, Z with every deg ≥ n − k ("no cancellation at ∞",
-the ultrametric image of x_i > n/4). Lemma 1.2 (PROVED): in char ≥ 5 monic already forces NC. In char 3, NC holds
-once one denominator has degree n − k. Cancellation is genuinely possible only in char 2 and 3 (this settles
-O149's worry, as triage B said). The e-slice criterion (Lemma 1.3) holds in all characteristics. Prop 1.4
+the ultrametric image of x_i > n/4). Lemma 1.2 (PROVED): in char ≥ 5 monic already forces NC; (R161 repair) the same holds in char 3, since P divides some denominator and so m = 3
+cancellation is impossible. (Superseded wording: "In char 3, NC holds
+once one denominator has degree n − k.") (R161 repair: cancellation is possible only in char 2, with m = 2, e.g.
+T/P = 1/T + 1/(T+1) + 1/(P(T^2+T)) with P = T^3+T^2+1; triage B's "char 2 and 3" was too broad.) The e-slice criterion (Lemma 1.3) holds in all characteristics. Prop 1.4
 (PROVED): the classes P ≡ −1, −2 (mod A) are always solvable, so q = 2, 3 with A = T are trivial (all
 P(0) ∈ {−1, −2}). Without a sign condition, k = 1 is trivial.
 
-**(2) Landscape at fixed q (EVIDENCE, exhaustive, exact).** Failures die out at a finite degree in every case
-computed:
+**(2) Landscape at fixed q (EVIDENCE, exhaustive, exact).** In every case computed, no failure occurs beyond
+a finite degree within the computed range (R161 repair: formerly "failures die out"):
 * A = T: q = 5 last failure at n = 4 (none for n = 5..12, 20.3M P at n = 12); q = 7 at n = 6 (none at 7, 8);
   q = 4 never fails (n ≤ 13).
 * A = T²: q = 3 last at n = 5 (none for n = 6..15); q = 4 last at n = 7 (none for 8..11); q = 5 still 15/48750 at
@@ -32,14 +33,18 @@ computed:
 **(3) Obstruction structure.** Prop 4.1 (PROVED, numerically checked on 3953 Type II data): every Type II
 class satisfies (P/f) = (−1)^{((q−1)/2)((1+deg f)(1+deg Ad)−1)}. Over Z the sign is rigidly −1, which is the
 odd-square obstruction. Over F_q[T] it is +1 for q ≡ 1 (mod 4), and for q ≡ 3 (mod 4) it depends on degree
-parity. **No monic P is obstructed for any q.** What remains:
+parity. (R161 repair, rescoped:) PROVED for odd q: squares are never excluded by the Type II sign condition, so the
+Mordell square-class argument has no analogue. Assessment: no quadratic-residue obstruction. Char 2 is not
+addressed by Prop 4.1, and the size class still obstructs linear coverings in char 5 and higher. What remains:
 (i) the size class P ≡ 1 (mod A): all N_II = 0 cases at q = 5, n ≥ 8 have P(0) = 1;
 (ii) a mild quadratic tilt toward (−AP/ℓ) = +1, about 5–15% per degree-1 ℓ (Z: ×14).
-There is no q with an obstruction class.
+(R161 repair: the former "there is no q with an obstruction class" is withdrawn as ill-defined; see the rescoped
+statement above and FUNCTIONFIELD_ES.md section 4.)
 
 **(4) Provable statements.**
 * **Thm 5.3 (PROVED, given the standard Weil/RH prime-polynomial theorem in progressions, cited from Rosen
-  Ch. 4 from memory):** at fixed q and any A, the failure proportion at degree n is ≤ (Φ(A) + o(1))/log n → 0.
+  Ch. 4 from memory; R161 repair: re-derived by R161 from Weil with the proviso D at most q^{n/2}, and the
+  Chebyshev error bookkeeping is made explicit, exponentially small):** at fixed q and any A, the failure proportion at degree n is ≤ (Φ(A) + o(1))/log n → 0.
   Method: second moment over the single family "P + 1 has a prime factor g ≡ −(P+1)/h (mod A)", with the
   identity A/P = 1/(hgd) + 1/(dP) + 1/(hgdP). This is the rigorous counterpart of O140 Thm 2.1 (proportion → 1
   as q → ∞). It is the classical almost-all mechanism and says nothing about every P.
@@ -48,9 +53,12 @@ There is no q with an obstruction class.
   for n ≥ n_F).
   * Thm 6.1 (pure proof): over F₂, A = T², every P. Identity T²/P = 1/R + 1/(cP) + 1/(cRP) with
     R = (P+T+1)/T² and c = (R+1)/(T+1).
-  * Thm 6.3: over F₄, A = T, every P. The 81 unit classes mod T⁴ − T are covered (certificate file).
-  * Thm 6.4: over F₂, every A of degree 2, 3, and the degree-4 A finished so far. The batch over the
-    remaining degree-4/5 A was still running; `q2_batch.txt` is authoritative.
+  * Thm 6.3: over F₄, A = T, every P. The 81 unit classes mod T⁴ − T are covered (certificate file; R161 repair: independently re-verified by R161, max n_F = 4).
+  * Thm 6.4: over F₂, every A of degree 2, 3, and A = T^4, T^4+1 (R161 repair: scoped to cases with archived, independently checked
+    certificates; deg 4 uses R161's `data/ffl/cover_q2_A1000{0,1}_R161.txt`). The other 14 degree-4 A and all
+    32 degree-5 A are NOT covered yet. The batch over the
+    remaining degree-4/5 A was still running; a `q2_batch.txt` line counts only as EVIDENCE until its leaf list
+    is archived and checked (R161 repair).
   **Mechanism (why it does not transfer):** (a) in char 2/3 the size-obstructed class P ≡ 1 coincides with the
   trivially solvable class −1 resp. −2. (b) T^q − T confines irreducible P to (F_q^*)^q classes (a single class
   for q = 2). (c) The square obstruction is absent (§4). Over Z all three fail. In char ≥ 5 O140 Prop 4.1

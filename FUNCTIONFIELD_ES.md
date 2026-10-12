@@ -1,6 +1,7 @@
 # FUNCTIONFIELD_ES — Erdős–Straus over F_q[T]: the landscape at fixed q, deg P → ∞ (O161)
 
-Status: checkpoint 1 (O161), report reviews/agent-reports/AGENT_REPORT_O161.md. Scripts `scripts/ffl_*`. Background: `BRAINSTORM/ff_erdos_straus.md` (O140; Lemma 1.1,
+Status: checkpoint 1 (O161) + hostile review R161 (`reviews/functionfield-es-review.md`), whose repairs are
+applied in place and marked "(R161 repair)". Report reviews/agent-reports/AGENT_REPORT_O161.md. Scripts `scripts/ffl_*`. Background: `BRAINSTORM/ff_erdos_straus.md` (O140; Lemma 1.1,
 Prop 1.2, Lemma 1.3, Thm 2.1), `BRAINSTORM/padic_functionfield_igusa.md` (+ errata), triage A/B. ES is not solved
 anywhere; nothing here bears on ES over Z except as a model ("toy universe").
 
@@ -14,28 +15,38 @@ Novelty therefore unverified but plausible.
 Notation: q = p^r, R = F_q[T], P monic irreducible of degree n, A monic of degree k ≥ 1 with P ∤ A.
 For a polynomial F write |F| = q^{deg F} (the place ∞).
 
-**Definition 1.1 (ES_q(A, P), the faithful form).** There are monic X, Y, Z ∈ R with
+**Definition 1.1 (ES_q(A, P)).** (R161 repair: the choice of this definition as "the faithful analogue" is an
+Assessment, not a theorem. Alternatives would give different problems, e.g. arbitrary leading coefficients with
+NC, or another sign function in place of "monic". They are not studied here.) Throughout, n ≥ k (R161 repair).
+There are monic X, Y, Z ∈ R with
 `A/P = 1/X + 1/Y + 1/Z` and `|1/X|, |1/Y|, |1/Z| ≤ |A/P|` (i.e. every denominator has degree ≥ n − k).
 
 The degree condition ("no cancellation at ∞", NC) is the ultrametric image of the archimedean fact that over Z,
 `4/n = 1/x+1/y+1/z` with x, y, z > 0 forces every 1/x_i < 4/n. "Monic" is Hayes' sign normalisation of
-positivity. Without any sign condition the problem degenerates (§1.4).
+positivity. Without any sign condition the problem degenerates, at least for k = 1 (Prop 1.4(iv); R161 repair:
+only k = 1 is proved).
 
-**Lemma 1.2 (NC is automatic in char ≥ 3; PROVED).** Let X, Y, Z be monic with A/P = 1/X + 1/Y + 1/Z, and let
+**Lemma 1.2 (NC is automatic in odd characteristic; PROVED).** Let X, Y, Z be monic with A/P = 1/X + 1/Y + 1/Z, and let
 m be the number of denominators of minimal degree d₁. The coefficient of T^{−d₁} in the expansion at ∞ is m·1.
 (i) If m ≢ 0 (mod p) then d₁ = n − k and m ≡ 1 (mod p). Then NC holds.
 (ii) char ≥ 5: m ∈ {1,2,3} is never 0 mod p, so every monic solution satisfies NC, with m = 1 (O140 Lemma 1.1).
-(iii) char 3: m = 3 (cancellation, d₁ < n − k) is possible for monic solutions. But a monic solution with
-some denominator of degree n − k satisfies NC: if deg Y < n − k, the minimal degree is attained by Y alone or by
-Y, Z (m ∈ {1,2}, nonzero), giving degree −deg Y ≠ k − n for the sum.
-(iv) char 2: m = 2 (cancellation) is possible; m ∈ {1,3} under NC.
-*Proof.* Leading-term bookkeeping, as in O140 Lemma 1.1. ∎
+(iii) (R161 repair; the earlier claim "char 3: m = 3 cancellation is possible" was false for prime P.) Since P is
+prime and P ∤ A, P divides some denominator, which therefore has degree ≥ n > n − k. Hence a cancellation
+(d₁ < n − k) has m ≤ 2 in every characteristic. In char 3, m ∈ {1, 2} is nonzero mod 3, so **NC is automatic
+for monic solutions in char 3 too**, with m = 1.
+(iv) char 2: cancellation occurs exactly with m = 2, and it does occur. Example: q = 2, A = T,
+P = T(T² + T) + 1 = T³ + T² + 1 (irreducible), `T/P = 1/T + 1/(T+1) + 1/(P(T²+T))`, degrees 1, 1, 5 with
+n − k = 2. Under NC, m is odd and ≤ 2, so m = 1 (R161 repair; formerly "m ∈ {1,3}").
+So in every characteristic an NC solution has exactly one denominator of degree n − k.
+*Proof.* Leading-term bookkeeping, as in O140 Lemma 1.1, plus the prime-divisor remark in (iii). ∎
 
-So "monic" alone already gives the faithful analogue in char ≥ 5 (O149's worry that monic allows cancellation is
-only realised in char 2 and 3, as triage B observed). In char 2 and 3 we take NC as part of the definition, and
-study the monic-only variant M separately (§6).
+So "monic" alone already forces NC in every odd characteristic (R161 repair: formerly "char ≥ 5"). O149's worry
+that monic allows cancellation is realised only in char 2 (triage B's "char 2 and 3" is corrected by Lemma 1.2(iii)).
+In char 2 we take NC as part of the definition. (R161 repair: the monic-only variant M, which differs from ES only
+in char 2, is not studied in this document; the earlier forward reference to §6 is withdrawn.)
 
-**Lemma 1.3 (e-slice criterion, all characteristics; PROVED).** ES_q(A, P) holds iff there exist a monic X of
+**Lemma 1.3 (e-slice criterion, all characteristics; PROVED).** (R161 repair: hypotheses P prime, P ∤ A, n ≥ k,
+which are used for gcd(E, P) = 1 and P ∤ X.) ES_q(A, P) holds iff there exist a monic X of
 degree n − k and monic a, b | PX with E := AX − P dividing a + b ≠ 0 and lc(a + b) = lc(E).
 *Proof.* O140 Lemma 1.3 verbatim; the char ≥ 5 restriction there was used only to locate X. Under NC some
 denominator has degree n − k; call it X. Then E ≠ 0 (else A/P = 1/X, impossible by degrees) and deg E < n (AX
@@ -120,16 +131,25 @@ Over Z the corresponding sign is always −1, because f ≡ −1 (mod 4) fixes (
 is a non-residue class mod its own modulus, and perfect squares (residues mod everything) are never Type II
 solvable. That is the T1/odd-square obstruction (ET Prop 1.6). Over F_q[T]:
 * **q ≡ 1 (mod 4): the sign is always +1.** Type II classes are *residue* classes mod f, the opposite of Z.
-  A P could be obstructed only if (P/f) = −1 for every monic f. For monic P the only candidates are
-  P = u·M² with u a non-square constant: then (P/f) = (−1)^{deg f}·1 ≠ −1 when deg f is even. Since u = lc(P) = 1,
-  no monic P is obstructed, squares included (cf. O157's example A = T², P = (T²+2)² over F₅).
+  In particular every perfect square M² satisfies the sign condition of every Type II datum, so squares are
+  never excluded from a Type II family (cf. O157's example A = T², P = (T²+2)² over F₅). (R161 repair: an earlier
+  sketch quantified over "every monic f". The admissible f are only those of the form Aacd − 1, with (a, c, d)
+  coupled to P, so the sketch is withdrawn. It was in any case irrelevant to prime P.)
 * **q ≡ 3 (mod 4): the sign is −1 iff deg f odd or deg(Ad) odd.** These are only the parity sub-families
-  (O140). Every class keeps the families with deg f and deg Ad both even, whose sign is +1, so again no monic P
-  is obstructed. The infinite place enters through degree parity, and a degree is never forced by a
-  congruence mod Ad. Over Z, "f > 0 and f ≡ −1 (mod 4)" forces the sign.
-* **Conclusion (PROVED at the level of Type II classes; EVIDENCE for full solvability).** There is no
-  obstruction class of monic P in F_q[T] for any q. Over Z, B5/T1 comes from the archimedean sign and the
-  2-adic class of 4. Over F_q[T] both are replaced by degree parity, which no congruence controls.
+  (O140). Squares are excluded exactly from the data with deg f or deg Ad odd, and not from the data with both
+  degrees even (sign +1). For a linear family (§6.2) whose terms involve X, f depends on P and deg f moves with
+  n. So the sign of a fixed family is a function of (class of P mod W_F, parity of n), not of the class alone.
+  This is the precise sense in which no congruence controls it (R161 repair). Over Z, "f > 0 and
+  f ≡ −1 (mod 4)" forces the sign.
+* **Conclusion (R161 repair; rescoped).** *PROVED (q odd):* the sign in Prop 4.1 is +1 for every Type II datum
+  if q ≡ 1 (mod 4), and for the data with deg f and deg Ad both even if q ≡ 3 (mod 4). Consequently squares are
+  never excluded by the Type II sign condition, and the Mordell / ET Prop 1.6 square-class argument against
+  finite coverings has no analogue over F_q[T] for odd q. *Assessment:* no quadratic-residue obstruction is
+  expected. This is **not** a claim that no obstruction of any kind exists: in char ≥ 5 the size class P ≡ 1
+  (mod W) obstructs finite coverings by linear families (§6.3). *Char 2:* Prop 4.1 does not apply (no Jacobi
+  symbol; the analogue would be an Artin–Schreier symbol) and nothing is claimed here. In char 2 the absence of a
+  covering obstruction is shown only case by case, through the finite coverings of §6. Over Z, B5/T1 comes from
+  the archimedean sign and the 2-adic class of 4. Over F_q[T] (q odd) both are replaced by degree parity.
 
 **What survives (EVIDENCE).** Two biases, neither of them an obstruction:
 (i) *Size class P ≡ 1 (mod W)* (O140 Prop 4.1: uncoverable by linear families). In the data every irreducible P
@@ -157,7 +177,9 @@ and all three denominators are monic of degree ≥ n − k.
 
 **Fact 5.2 (prime polynomial theorem in progressions, RH for curves; standard).** For monic M of degree D ≥ 1 and
 r coprime to M, let π(n; M, r) be the number of monic irreducible P of degree n with P ≡ r (mod M). Then
-|π(n; M, r) − q^n/(n·Φ(M))| ≤ (D + 2)·q^{n/2}/n, where Φ(M) = |(F_q[T]/M)^*|.
+|π(n; M, r) − q^n/(n·Φ(M))| ≤ (D + 2)·q^{n/2}/n, where Φ(M) = |(F_q[T]/M)^*|, provided
+D ≤ q^{n/2} (R161 repair: the derivation below gives ((D+1)q^{n/2} + D)/n; the proviso holds in all applications
+here, where D ≤ n. R161 re-derived this from Weil but could not access Rosen to check the citation).
 (Rosen, *Number Theory in Function Fields*, Ch. 4, Thm 4.8 and its proof: for each nontrivial χ mod M, L(u, χ)
 is a polynomial of degree ≤ D − 1 whose inverse roots have absolute value ≤ √q, by Weil. Hence
 |Σ_{deg f = n} Λ(f)χ(f)| ≤ (D − 1)q^{n/2}. Proper prime powers of degree n contribute ≤ 2q^{n/2}.)
@@ -192,12 +214,16 @@ Second moment: for g₁ ≠ g₂ the conditions form one coprime class mod hAg�
 Σ_{P∈𝒞} N(P)² = Σ N(P) + Σ_{g₁≠g₂} [q^n/(nΦ(hA)(|g₁|−1)(|g₂|−1)) + O(n q^{n/2}/n)] ≤ Π(μ + μ²) + R, where
 R ≪ |𝒢|²·q^{n/2} ≤ q^{2n/5 + 2 + n/2}. The first-moment error is similarly ≪ q^{n/5+1+n/2}. Both are
 o(Π) = o(q^{n−k−H}/n), because 2/5 + 1/2 < 1.
-So Σ_{P∈𝒞} (N(P) − μ)² ≤ Π·μ + o(Π)·(1 + μ), and Chebyshev gives #{P ∈ 𝒞 : N(P) = 0} ≤ Π·(1/μ + o(1)).
+So Σ_{P∈𝒞} (N(P) − μ)² ≤ Π·μ + O(Π·q^{−n/10}·n^{O(1)}), and Chebyshev gives
+#{P ∈ 𝒞 : N(P) = 0} ≤ Π/μ + O(Π·q^{−n/10}·n^{O(1)}). (R161 repair: formerly "o(Π)(1 + μ)" and "Π(1/μ + o(1))".
+An o(1) error per class would only give o(1) in total. All error terms, including μ²·(q^n/(nΦ(hA)) − Π), are
+exponentially small relative to Π, and there are only Φ(A)(H+1)^{ω(A)} = polylog(n) classes.)
 The classes 𝒞 (over h with deg h ≤ H and v₀) partition the irreducible P with deg h(P) ≤ H. Summing,
 the failure proportion is ≤ 1/μ + o(1/log n) = (Φ(A) + o(1))/log n. ∎
 
 *Remarks.* (1) The bound 1/log n is an artefact of using one sparse family (prime g). The data (§3) show
-the failure proportion decaying like exp(−θ·n³/q^k) and vanishing identically from a finite degree on.
+the failure proportion decaying like exp(−θ·n³/q^k), with no failure found beyond some degree n₀(q, A) in the
+computed range (EVIDENCE; R161 repair: formerly "vanishing identically from a finite degree on").
 (2) The same proof works over Z: "p + 1 has a prime factor g ≡ −(p+1)/h (mod 4)". It is the classical "almost all
 primes" mechanism. It says nothing about every P, which is the lottery (B2).
 (3) No characteristic-specific input is used. RH (Weil) only replaces Bombieri–Vinogradov.
@@ -213,6 +239,8 @@ c := (R + 1)/(T + 1) is monic of degree n − 3, and
 since cP + R + 1 = c(P + T + 1) = cT²R. The degrees are n − 2, ≥ n, ≥ n, so NC holds. ∎
 (Type II datum (a, b, c, d) = (1, R, c, 1), E = T + 1; the family is linear in P in O140's sense.)
 EVIDENCE consistent: the exhaustive run finds N_II(P) ≥ 1 for every irreducible P, n = 3..24.
+(R161 repair: Thm 6.1 is the case A = T² of the degree-2 bullet of Thm 6.4. For that case the identity gives a
+proof that needs no certificate.)
 
 **Why this exists over F₂ and not over Z (PROVED analysis).** Two mechanisms, both absent over Z:
 (a) **Collapse of the size obstruction in char 2 and 3.** O140 Prop 4.1 (char ≥ 5) shows that no linear family
@@ -224,8 +252,10 @@ primes).
 i.e. its class lies in (F_q^*)^q. For q = 2 this group is trivial, so *all* irreducible P lie in the single
 class P ≡ 1 (mod T² + T). Over Z there is no modulus m > 2 for which all large primes share one residue class.
 For q = 3 the group (F_3^*)^3 = {±1}^3 still has 8 classes.
-Combined with the absence of the square obstruction (§4), char 2 and 3 have **neither** of the two Z
-obstructions to a finite covering (Mordell/Theorem C: square classes; O140 Prop 4.1: the class 1). Whether a
+In char 3, (a) and the absence of a square-class obstruction (§4, PROVED for odd q) remove **both** Z
+obstructions to a finite covering (Mordell/Theorem C: square classes; O140 Prop 4.1: the class 1). In char 2, (a)
+removes the class-1 obstruction. §4 does not apply in char 2, so there the absence of a quadratic obstruction is
+shown only by the explicit coverings below (R161 repair). Whether a
 finite covering exists is then a finite question per (q, A); §6.2 examines it.
 
 ### 6.2 Finite coverings: ES₄(T) is a theorem
@@ -252,8 +282,11 @@ n ≥ 2, `T/P = 1/X + 1/Y + 1/Z` has a solution in monic X, Y, Z (with NC).
 *Proof.* W = T⁴ − T = T(T+1)(T+ω)(T+ω²). Irreducible P of degree ≥ 2 lie in the 81 unit classes mod W, i.e.
 (P(0), P(1), P(ω), P(ω²)) ∈ (F₄^*)⁴. `scripts/ffl_tree.c` (`ffl_tree 4 10 "10*11*12*13" "10" 9 0 100`) finds for
 each class a linear family with W_F | W, k + deg a₀ + deg b₀ < 9 and deg E < 9. The certificate is
-`data/ffl/cover_q4_A10.txt`. By Lemma 6.2 this settles every n ≥ 9. For 2 ≤ n ≤ 13 the exhaustive run (§3 table)
-finds no failure. ∎
+`data/ffl/cover_q4_A10.txt`. By Lemma 6.2 this settles every n ≥ 9; in fact the largest n_F in the certificate is 4, so it settles every
+n ≥ 4 (R161 repair). For 2 ≤ n ≤ 11 the exhaustive run (§3 table) finds no failure. ∎
+(R161 repair / independent re-proof: R161's own checker `scripts/review_ffl_cert.py` confirms that the 81 leaves
+partition the unit classes, that W_F | W, and that every P of each class in degrees 5..8 is valid. R161's own
+solver finds no failure for n = 2..7. Logs: `data/review_ffl_cert_q4_log.txt`, `data/review_ffl_failcmp_log.txt`.)
 Independent check: each of the 81 families was re-verified on 100 random P of its class (degrees 10–25,
 irreducible or not) by the direct identity A·XYZ = P(XY + YZ + ZX) with monic, NC denominators. That is 8100
 checks, 0 failures. The certificate needs E only among the units and the monic divisors of degree ≤ 1 of
@@ -271,11 +304,21 @@ n ≤ 11). Results in `data/ffl/q2_batch.txt`.
 **Theorem 6.4 (PROVED, computer-assisted).** ES_q(A, P) holds for **every** monic irreducible P of degree > deg A in
 the following cases:
 * q = 2, A = T or T + 1, and q = 3, A = T (Prop 1.4; no computation);
-* q = 2, every monic A of degree 2 or 3 (all 12 of them), and the degree-4 A completed so far (T⁴ and T⁴ + 1:
-  trees with 696 and 818 leaves, leaf moduli of degree ≤ 18). The batch over the remaining degree-4 and degree-5 A
-  was still running at the time of writing; `data/ffl/q2_batch.txt` is authoritative. The exhaustive
-  checks found no exception in degrees k < n ≤ 11;
+* q = 2, every monic A of degree 2 or 3 (all 12 of them). (R161 repair) R161 re-proved these independently with its own
+  certificates `data/review_ffl/cover_q2_A*.txt`, which are fully checked. Their max n_F ≤ k + 1, so no
+  small-degree check is needed;
+* q = 2, A ∈ {T⁴, T⁴ + 1} (R161 repair: scoped to cases with an archived, independently checked certificate).
+  The certificates are `data/ffl/cover_q2_A10000_R161.txt` (696 leaves, max n_F = 8) and
+  `data/ffl/cover_q2_A10001_R161.txt` (818 leaves, max n_F = 11). Both were produced by R161's own search
+  `scripts/review_ffl_tree.py`; the leaf counts agree with O161's `ffl_tree` runs, whose leaf lists were not
+  archived. They were verified by `scripts/review_ffl_cert.py` (exact partition, W_F | W, validity on every P of each class in
+  three degrees). R161 also exhaustively found no exception for 5 ≤ n ≤ 10 resp. 11. Logs in `data/review_ffl/`;
 * q = 4, A = T (Theorem 6.3).
+
+**Not yet covered over F₂ (R161 repair).** The other 14 monic A of degree 4 are not covered: T⁴ + T, T⁴ + T + 1,
+T⁴ + T², T⁴ + T² + 1, T⁴ + T² + T, T⁴ + T² + T + 1, and the eight with a T³ term. All 32 monic A of
+degree 5 are also not covered. O161's degree-4/5 batch was still running at review time. A completed
+`data/ffl/q2_batch.txt` line is EVIDENCE only, until its leaf list is archived and checked.
 
 **Not covered (status OPEN, with EVIDENCE).**
 * q = 3, A = T²: exhaustive failures only at n = 3, 4, 5 (3 + 2 + 2 polynomials; `data/ffl/fail_q3_A100_n*.txt`),
@@ -284,15 +327,16 @@ the following cases:
   modulus degree reaches the family limit NTH. We do not know whether a finite covering exists. No obstruction
   is known: the size class P ≡ 1 (mod A) is the E = 2 class in char 3, and §4 excludes quadratic obstructions.
 * q = 4, A = T²: uncovered density 0.43 at depth 3.
-* **char ≥ 5: no finite covering exists for any A** (O140 Prop 4.1: the class P ≡ 1 (mod W) is uncoverable by
+* **char ≥ 5: no finite covering by linear families exists for any A** (R161 repair: qualifier added; O140 Prop 4.1: the class P ≡ 1 (mod W) is uncoverable by
   linear families, and by Dirichlet it contains irreducible P of every large degree). Note: Prop 4.1 covers
   linear families only. A proof for char ≥ 5 would need a non-congruence mechanism, i.e. the lottery (B2).
 
-**Why the theorems do not transfer to Z.** They rest on the two collapses of §6.1(a, b), the absence of the square
-obstruction (§4), and (for q = 2, 4) the smallness of (F_q^*)^q. Over Z each fails: 1 ≢ −1, −2 (mod 4); primes
+**Why the theorems do not transfer to Z.** They rest on the two collapses of §6.1(a, b), the absence of a square-class
+obstruction (§4 for odd q; for q = 2, 4 shown only by the explicit coverings; R161 repair), and (for q = 2, 4) the smallness of (F_q^*)^q. Over Z each fails: 1 ≢ −1, −2 (mod 4); primes
 are not confined to few classes mod any m; odd squares are sterile. The function-field world with
 char ≥ 5 keeps exactly one of the two Z obstructions (size, P ≡ 1). There, as over Z, the conjecture is a
-lottery: the data (§3) show extinction of failures at a finite degree, but no proof mechanism is available.
+lottery: in the data (§3) no failure occurs beyond a finite degree within the computed range (EVIDENCE; R161
+repair), but no proof mechanism is available.
 
 ## 7. Counts, the lottery model, and the two thresholds (EVIDENCE + Assessment)
 
