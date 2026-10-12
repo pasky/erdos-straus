@@ -293,3 +293,12 @@ the theorems cover ET-coordinate families, not arbitrary (x,y,z)-polynomial fami
 folklore-level two-variable Mordell–Schinzel analogue; Schinzel 2000 and Mordell's book not
 accessible to me.
 
+## Repairs applied (author quiet)
+
+The author's branch had no commits after its final report (`91febab9`), so per the brief I applied
+D1–D6 directly to POINTWISE_BINARYFORM.md, each marked "(R159 repair)": §0 headline qualifier and
+modulus; Lemma 1.1 framing; Thm 3.2(c) dilate F⁻; Cor 3.4 Hecke reference; paragraph after
+Cor 3.4 qualifiers; Prop 5.1 d > 0 / divisor argument; Prop 5.2 and §7 labels (dependency checked);
+§7 Cor 3.4 qualifier. D8 (the "no cancellation" sentence in BRAINSTORM/ident_form_families.md, an
+O145 file) was not edited. No mathematical content was changed; D6 remains an open problem
+(§4.4(iv)), not something I closed.

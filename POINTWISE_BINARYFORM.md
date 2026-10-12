@@ -7,9 +7,12 @@ ES is not solved; nothing here proves any infinite case of it. Labels as in DISC
 A prime `p ≡ 1 (4)` is `p = u² + v²`; more generally `p = Q(u,v)` for a binary form of discriminant
 D. Computing (u,v) needs a modular square root, so a certificate "ES solution = polynomial in (u,v)"
 is not a polynomial (or bounded procedure) in p, and Theorem C (POINTWISE_SIZE §2, linear P only)
-does not apply. **Answer (§§1–5): the square specialisation kills every such certificate on every
-square class, unconditionally and in every degree.** If the ET coordinates (a,…,f) are polynomials
-(or rational functions) in (u,v), then on every coset C mod M (8D | M) with Q(C) a square unit mod M,
+does not apply. **Answer (§§1–5): the square specialisation kills every such certificate whose ET
+coordinates (a,…,f) are polynomial or rational in (u,v), on every square class mod the joint modulus,
+unconditionally and in every degree.** (R159 repair: qualifier added; certificates given only as
+(x,y,z) ∈ Q[u,v]³ are NOT covered, see §4.4(iv), the main open case.) If the ET coordinates (a,…,f)
+are polynomials (or rational functions) in (u,v), then on every coset C mod M (8, 2D and the
+families' denominators dividing M) with Q(C) a square unit mod M,
 the family is valid at only a density-zero set of the prime points of C. The reason is that
 `Q(u,v) = w²` is a conic with a rational point, so weak approximation puts odd-square values of Q in
 every square-class coset and every sector. At those points the identity would produce a Type I/II
@@ -33,7 +36,9 @@ validity is "F(P) ∈ ±N³×N³" up to the dilation `(a,b,c) ↦ −(a,b,c)` of
 `F(P) ∈ N⁶`. No coprimality condition (`gcd(c,n) = 1`) is imposed: Lemma 1.1 does not need one.
 This is the "(a,…,f) polynomial in (u,v)" certificate shape of the brief.
 
-**Lemma 1.1 (square vanishing for N-points; PROVED, = ET Prop 1.6 without coprimality).**
+**Lemma 1.1 (square vanishing for N-points; PROVED, = ET Prop 1.6 / ET §4 with Jacobi refinements).**
+(R159 repair: ET's Σ_n already carries no coprimality condition and ET §4 argues for arbitrary
+N-points; the additions here are the Jacobi statements and even squares in Type II.)
 Let n ≥ 1 and let `(a,…,f) ∈ N⁶` satisfy the equations above.
 (I) Type I with n odd: the Jacobi symbol `(−d/n) = −1`. In particular n is not a perfect square.
 (II) Type II: `(n/f) = −1` (Jacobi; f odd). In particular n is not a perfect square.
@@ -130,7 +135,9 @@ outside a bounded set, within angle δ of the finite set Z_F of directions.
 it contains an open arc I; by Lemma 3.1 (with δ smaller than the distance from a closed subarc to
 Z_F) F is valid at every point of C in the sector over that subarc and beyond some radius. Lemma 2.1
 gives such a point with Q(P) an odd square, contradicting (a). (c) follows from (b) and Lemma 3.1:
-if F is not integral on C there is nothing to prove. ∎
+if F is not integral on C there is nothing to prove. (R159 repair: validity allows the sign pattern
+(−,−,−,+,+,+) too; apply (b) also to the dilate F⁻ = (−a,−b,−c,d,e,f), a polynomial family with the
+same K_F, so that A_F ∪ A_{F⁻} = ∅.) ∎
 
 **Lemma 3.3 (rational-function families reduce to polynomial ones; PROVED, elementary).** Let
 `g = A/B` (A, B ∈ Z[u,v] coprime, B nonconstant). Then `#{P ∈ Z² : |P| ≤ X, B(P) ≠ 0, g(P) ∈ Z} ≪_{g,ε} X^{1+ε}`.
@@ -157,10 +164,15 @@ the valid points of each F lie, up to a set of zero density among prime points, 
 `|Z_F|` directions. By Hecke's theorem (Gaussian primes, resp. prime ideals of the order of
 discriminant D in a fixed ring class, equidistribute in angle within each ray class mod M), their
 share of prime points is `≤ C_𝔉 δ + o(1)`. Let δ → 0. ∎
+(R159 repair, reference: Hecke, Math. Z. 1 (1918) 357–376 and 6 (1920) 11–51, via Grössencharacters
+of K = Q(√D) of modulus f·M and infinity type (α/|α|)^k; the (u,v)-cones are transported by the
+linear map (u,v) ↦ uω₁ + vω₂, so a δ-cone has angular measure ≤ C_Q δ.)
 
 So **no Fermat + identity certificate** (compute a representation p = Q(u,v), then evaluate one of
-finitely many polynomial or rational ET identities in (u,v)) proves ES for all, or for a positive
-proportion of, the primes in any square class. The degree is unbounded and no hypothesis is used.
+finitely many polynomial or rational ET identities in (u,v), i.e. families whose ET coordinates
+(a,…,f) are polynomial/rational) proves ES for all, or for a positive proportion of, the primes in
+any square class mod the joint modulus M. (R159 repair: both qualifiers added; (x,y,z)-only families
+are §4.4(iv), open.) The degree is unbounded and no hypothesis is used.
 This is the two-variable analogue of Mordell–Schinzel (one-variable identities cannot cover square
 classes; ET p. 8). The proof is the same: odd squares in the parameter set.
 
@@ -220,14 +232,16 @@ every Type I or Type II family for Q lies in `Q[n]⁶`.
 *Proof.* Type I: (2.9) reads `n² + 4c²d = f·f′` with `f′ = 4bcd − n`. Over C,
 `Q² + 4c²d = (Q − 2ic√d)(Q + 2ic√d)`, and each factor is a smooth affine conic `Q = const ≠ 0`, hence
 irreducible. Neither factor is defined over Q, so `Q² + 4c²d` is irreducible in Q[u,v]. Thus f or f′ is
-constant, and the other is `(n² + 4c²d)/const ∈ Q[n]`. Then `a = (n + f)/4cd`, `b = (n + f′)/4cd` and
+constant, and the other is `(n² + 4c²d)/const ∈ Q[n]` (R159 repair: "neither factor is defined over Q"
+needs d > 0, which validity forces; for any d ≠ 0 it suffices that every divisor in Q[u,v] of g(Q),
+g ∈ Q[n], g(0) ≠ 0, lies in Q[n], because each Q − r, r ≠ 0, is irreducible over C). Then `a = (n + f)/4cd`, `b = (n + f′)/4cd` and
 `e = (a + b)/c` lie in Q[n]. Type II: (2.21) reads `4c²dn + 1 = f·f′` with `f′ = 4bcd − 1`, an
 irreducible conic. Again one factor is constant and everything lies in Q[n]. ∎
 This extends O145's "no two-variable extension of the constant-level shape" (§5 there) to all
 constant-level families and all forms.
 
-**Prop 5.2 (Type II families valid on an open cone are one-variable; PROVED relative to O145 Prop 3.2,
-which is brainstorm-level and not separately reviewed).**
+**Prop 5.2 (Type II families valid on an open cone are one-variable; PROVED; dependency O145 Prop 3.2
+re-derived and confirmed by R159 — R159 repair to the label).**
 Let F be a Type II family for positive definite Q with `A_F ≠ ∅`. Then `F ∈ Q[n]⁶`.
 *Proof.* Fix a rational direction θ ∈ A_F and a rational line `ℓ(t) = P₀ + tθ` not through 0. `P(t) = Q(ℓ(t)) > 0` on R, and all
 coordinates of `F∘ℓ` are positive for large t. O145 Prop 3.2 (Type II coordinates `p = 4dgg′ − h`,
@@ -271,12 +285,13 @@ one-variable identities already do the work.
 * **Theorem 3.2** — no polynomial Type I/II family (any degree) is valid on a cone of a square
   class; its valid points in square classes lie near finitely many directions: **PROVED,
   unconditional.** Lemma 3.3 (rational families): PROVED.
-* **Cor 3.4** — every finite set of polynomial or rational "Fermat + identity" certificates misses
-  almost all primes of every square class mod the joint modulus. Hence it misses infinitely many
+* **Cor 3.4** — every finite set of polynomial or rational "Fermat + identity" certificates (ET
+  coordinates polynomial/rational in (u,v); R159 repair) misses almost all primes of every square
+  class mod the joint modulus. Hence it misses infinitely many
   (indeed a positive proportion of) Mordell-hard primes. PROVED relative to Hecke's equidistribution
   theorem. Novelty: two-variable analogue of Mordell–Schinzel, folklore-level; the proof is standard.
 * Prop 5.1 (constant level ⇒ one-variable, all forms): PROVED. Prop 5.2 (Type II on cones ⇒
-  one-variable): PROVED relative to O145 Prop 3.2.
+  one-variable): PROVED (O145 Prop 3.2 dependency checked by R159).
 * Open: indefinite forms in cusp regions (4.3); (x,y,z)-only families (4.4(iv)); procedures with
   floor or factorisation in (u,v) (a two-variable Theorem C, would need H); unbounded families of
   forms (E1/B2); Type I analogue of O145 Prop 3.2.
