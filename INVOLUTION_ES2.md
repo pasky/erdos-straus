@@ -25,7 +25,8 @@ barred **unconditionally** unless Z contains a "Siegel cylinder")
   prime factor of `R_W(p)` other than p itself is a residue mod p (Lemma 5.2), contradicting Lemma 5.1. This includes the
   coordinate planes: INVOLUTION_ES Cor 5.3 is now a complete conditional proof (Dickson) with a simpler family
   (the linear forms `24X+1`, `24cX+c+1`, `24X+1+c`, normalised at `q*_univ` as in Theorem M). Example: if `q, 12q+1, 24q+1` are prime then `E(24q+1) ∩ {t=u} = ∅`.
-* **General Z (Thm 6.1).** Under Bateman–Horn (lower bound), for every proper closed Z, `≫ N/(log N)^{|S|}` primes
+* **General Z (Thm 6.1).** Under Bateman–Horn (lower bound; precisely: more than `C·Y^{2/3}` simultaneous prime values
+  `y ≤ Y` of an explicit admissible family, which BH implies and H does not — R162 repair), for every proper closed Z, `≫ N/(log N)^{|S|}` primes
   `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. Under H alone: when all 2-dimensional components of Z are axis cylinders.
   **Consequence (Cor 6.2): no finite-menu affine windmill on X (INVOLUTION_ES Thm 5.1 class) proves ES for all
   large `p ≡ 1 (24)`, CONDITIONAL on Bateman–Horn.**
@@ -68,7 +69,8 @@ square of an ℓ'-adic unit modulo `ℓ'^{v_{ℓ'}(α)}` for every prime `ℓ' |
 * `ℓ = {(a,u,c)}`: `P = (ac−1)u − c`, and `x ∈ E` iff `4 | au − 1`, a congruence condition on u mod 4.
 * `ℓ = {(t,b,c)}`: `P = bc·t − b − c`, and `x ∈ E` iff `4 | bt − 1`, a congruence condition on t mod 4.
 
-If the slope (`ab−1`, `ac−1`, resp. `bc`) is 0 then P ≡ −1 on ℓ and `E(n) ∩ ℓ = ∅` for n ≥ 1. Otherwise the
+If the slope (`ab−1`, `ac−1`, resp. `bc`) is 0 then P ≡ −1 on ℓ and `E(n) ∩ ℓ = ∅` for n ≥ 1; take `α := 1`,
+`R_ℓ := ∅` (R162 repair). Otherwise the
 values `{P(x) : x ∈ ℓ ∩ E, P(x) ≥ 1}` form the set `{n ≥ n₀ : n mod α ∈ R_ℓ}` up to finitely many elements,
 with `α := 4·slope` and `R_ℓ` the image of the admissible free coordinate mod 4. More precisely: every
 `n ≡ r ∈ R_ℓ (mod α)` with `n ≥ n₀(ℓ)` is `P(x)` for some `x ∈ ℓ ∩ E` with positive coordinates. If some odd
@@ -188,6 +190,10 @@ descriptions works.)
 
 In particular each of `A`, `B`, `uv` has an odd prime factor ℓ with `(ℓ/p) = −1`; all of them are prime to p.
 
+(R162 repair) *Precursor.* All three symbols are the Schinzel–Yamamoto odd-square argument (ET Prop 1.6, proof in
+ET §4: largest odd factor of `ab`, `e ≡ 3 (4)`, `e ≡ 7 (8)` when `ab` is even) run at a prime `p ≡ 1 (8)` instead
+of an odd square; the B and uv versions are routine variants of it.
+
 *Proof.* `(A₀/p) = −1` is INVOLUTION_ES Lemma 5.2. In general `4 | A | tp+1` and `p ≡ 1 (4)` give
 `t ≡ 3 (mod 4)`.
 *B.* Write `B = 2^e β`. For a prime `ℓ | β`, `tp ≡ −1 (mod ℓ)`, so `(p/ℓ) = (−t/ℓ)`; hence
@@ -283,11 +289,18 @@ Let S, Λ be the data of Theorem 5.3 for the components (i) and the axis lines f
 axis line, so `#(𝔈_Z ∩ [1,N]) ≪ N^{2/3}` (Prop 3.2).
 (a) **PROVED.** Every admissible q with `P(q) ∉ 𝔈_Z` (beyond a threshold) has `E(P(q)) ∩ Z = ∅`.
 (b) **PROVED (unconditional), if Z has no component of type (i).** There is `α₀` with `E(p) ∩ Z = ∅` for all
-primes `p ≡ 1 (mod α₀)` outside a set of size `O(N^{2/3})`; i.e. for 100% of them (Cor 3.3, 3.4).
+primes `p ≡ 1 (mod α₀)` outside a set of size `O(N^{2/3})`; i.e. for 100% of them (Cor 3.3, 3.4). Here (R162
+repair) `α₀` is the lcm of 24, of the `8α` for the axis lines inside the type-(ii)/(iii) components, **and** of
+the `8α` for the finitely many axis lines that Cor 3.4 produces from the type-(ii) cylinders.
 (c) **CONDITIONAL on H** (for the family of Theorem 5.3), **if every 2-dimensional component of Z is an axis
 cylinder:** infinitely many primes `p ≡ 1 (24)` have `E(p) ∩ Z = ∅`. (Curves are absorbed into cylinders as in
 the reduction of Thm 5.3, so 𝔈 is not needed.)
-(d) **CONDITIONAL on the Bateman–Horn lower bound** for the family `{f_h : h ∈ S}` of Theorem M(b)–(c):
+(d) **CONDITIONAL on the Bateman–Horn lower bound** for the family `{f_h : h ∈ S}` of Theorem M(b)–(c).
+(R162 repair) Precisely, the hypothesis used is `#{y ≤ Y : f_h(y) prime ∀h ∈ S} > C_Z·(24MY)^{2/3}` for all
+large Y, with `C_Z` the implied constant of Prop 3.2 summed over the type-(iii) components. The Bateman–Horn
+conjecture (asymptotic form) implies it, with count `∼ c Y/(log Y)^{|S|}` and `c > 0` because the family has no
+fixed prime divisor (Theorem M(b)). A bound `≫ Y^{2/3+δ}` would suffice. Qualitative H does not imply it: all
+admissible primes could lie in `𝔈_Z`. Conclusion:
 for every proper closed Z, `#{p ≤ N : p ≡ 1 (24), E(p) ∩ Z = ∅} ≫ N/(log N)^{|S|}`; in particular infinitely
 many.
 *Proof.* (a) Components (i) and the axis lines: Theorem 5.3's proof. Components (iii) off axis lines: by
@@ -297,13 +310,19 @@ Theorem 5.3. (d) By (a), since BH gives `≫ N/(log N)^{|S|}` admissible q, whic
 **Corollary 6.2 (finite-menu windmills on X; labels as in 6.1).** Let `(τ_p)_{p ∈ F}` be a finite-menu
 family of involutions of X(p), F a set of primes `p ≡ 1 (mod 4)` (as INVOLUTION_ES Thm 5.1 requires), as in INVOLUTION_ES Theorem 4.4(1) ((t,u,v) coordinates with coefficients in
 ℚ(n), or (A,B,t) with n-independent menu), with `Fix τ_p ⊆ E(p)`, and let Z be the proper closed set of
-Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all but finitely many `p ∈ F`. Hence:
+Theorem 4.4 for its menu. By INVOLUTION_ES Thm 5.1, `E(p) ∩ Z ≠ ∅` for all but finitely many `p ∈ F`.
+(R162 repair) **Z does not depend on p.** INVOLUTION_ES Lemma 4.1 substitutes `n := P(x)` into the menu
+coefficients, so `Z₀, Z₁, Z₂` are zero sets of fixed rational functions of x. `Z₃ = ∅` because `H = {id, ρ}`
+for every n ≠ 0 (Prop 4.2(b)). The only p-dependence is a finite set of exceptional levels, and that is
+absorbed in "all but finitely many p ∈ F". So the components of Z, and the curves C under its cylinders,
+are finitely many fixed curves. Siegel's theorem (Cor 3.4) is applied to each of them once, and no uniformity
+in a family of curves is needed. Hence:
 1. (**PROVED, unconditional**) If Z has no Siegel-cylinder component, F omits 100% of the primes
    `p ≡ 1 (mod α₀)`: no such windmill proves ES on any set of primes of positive relative density in that
    class.
 2. (**CONDITIONAL on H**) If every 2-dimensional component of Z is an axis cylinder, F omits infinitely many
    primes `p ≡ 1 (24)`.
-3. (**CONDITIONAL on Bateman–Horn**) For every finite menu, F omits `≫ N/(log N)^{|S|}` primes `p ≡ 1 (24)`,
+3. (**CONDITIONAL on Bateman–Horn**, in the precise form stated in Thm 6.1(d); R162 repair) For every finite menu, F omits `≫ N/(log N)^{|S|}` primes `p ≡ 1 (24)`,
    `p ≤ N` (S as in Thm 6.1, depending on the menu). **So no finite-menu affine windmill on X proves ES for all large primes
    `p ≡ 1 (24)`: the route is barred under Bateman–Horn**, and under H for all menus whose exceptional
    surfaces are cylinders (in particular coordinate planes, the case of INVOLUTION_ES Cor 5.3). ∎
@@ -319,7 +338,9 @@ really a statement about the bounded-surface statement `E(p) ∩ Z ≠ ∅ ∀p`
 The primes `p ≡ 1 (mod 24)` with `E(p) ∩ {t = u} = ∅` have lower relative density `≥ 1 − 2μ ≥ 0.72`, where
 `μ := Σ φ(gcd(24, a²−1))/φ(a²−1)` over odd `a ≥ 3` whose class `−a mod (a²−1)` is compatible with `1 mod 24`
 (i.e. `a ≡ 15, 23 mod 24`); `μ ≤ 0.1384505 + 1.5·10⁻⁴ < 0.13860`, so `1 − 2μ > 0.7228`. (Partial sum to `a = 2·10⁵`
-in 40-digit decimal arithmetic rounded up; tail from `φ(n) ≥ 0.375·n^{0.9}` and `φ(gcd) ≤ 8`. For a given N only
+in 40-digit decimal arithmetic rounded up; tail from `φ(n) ≥ n^{0.9}/3` and `φ(gcd) ≤ 8` (R162 repair: the earlier text said `φ(n) ≥ 0.375·n^{0.9}`,
+which is false at n = 30, the global minimum 0.374698 of `φ(n)/n^{0.9}`; the script always used `n^{0.9}/3`, and
+only `n ≥ 4·10¹⁰` occur in the tail, so the constant is unchanged). For a given N only
 `a ≤ (1 + √(4N+5))/2` occur, since `a² − 1 ≤ p + a`.)
 *Proof.* `x ∈ E(p) ∩ {t=u}` iff `t = u = a` odd and `a² − 1 | p + a` (then `8 | A`, `v = (p+a)/(a²−1)`). For
 `a ≤ N^{θ/2}` apply Brun–Titchmarsh (Montgomery–Vaughan: `π(x;q,b) ≤ 2x/(φ(q) log(x/q))`) to the modulus
@@ -340,8 +361,10 @@ later ones).
    (Lemma 4.1), and failure is forced as soon as every prime factor of `R_W(p)` other than p is a residue mod p (Lemmas 5.1,
    5.2). Producing infinitely many such p unconditionally is a sieve problem with a prime variable and
    half-dimensional conditions on each linear factor of `R_W`. Example: for the single plane `{t = 3}` the
-   condition is exactly that `(3p+1)/4` has only prime factors `≡ 1 (mod 3)` (data: QR(p) ⇔ `E(p)∩{t=3} = ∅`
-   on all 385 primes tested), i.e. `3p + 1 = 4(x² + xy + y²)` primitively. Iwaniec's theorem on primes
+   condition is exactly that `(3p+1)/4` has only prime factors `≡ 1 (mod 3)`. (R162 repair) This equivalence is
+   PROVED. On `{t=3}`, `E(p) ∩ W ≠ ∅` iff `3p+1` has a divisor `A = 3u−1` with `4 | A`. Since `(3p+1)/4` is odd
+   and prime to 3, that holds iff `(3p+1)/4` has a divisor `≡ 2 (3)`, i.e. a prime factor `≡ 2 (3)`. For odd
+   `ℓ | 3p+1`, `(ℓ/p) = (−3/ℓ)`. The data agree: QR(p) ⇔ `E(p)∩{t=3} = ∅` on all 385 primes tested. Equivalently, `3p + 1 = 4(x² + xy + y²)` primitively. Iwaniec's theorem on primes
    represented by binary quadratic polynomials (Acta Arith. 24, 1974) is the natural tool for one such
    condition. I have not checked that it covers the primitivity and congruence side conditions (**not
    claimed**). For several planes at once (k linear factors) this becomes a dimension-k/2 problem with a prime

@@ -1,5 +1,7 @@
 # Hostile review R162 of INVOLUTION_ES2.md (O162, branch side-agent/windmill-surface)
 
+**Repairs applied:** D1–D7 were applied by R162 directly in INVOLUTION_ES2.md (and AGENT_REPORT_O162.md), each marked "(R162 repair)", because the author is above 30% context.
+
 Reviewer: R162. Reviewed commit: `136b3d09` (merged into side-agent/review-windmill-surface).
 Background read: INVOLUTION_ES.md §4–5 (Lemma 4.1, Prop 4.2, Thm 4.4, Thm 5.1, Lemma 5.2, Cor 5.3),
 POINTWISE_SIZE.md §1.2–1.3 (points, nondegeneracy, admissibility, Theorem M).
@@ -205,5 +207,4 @@ No FATAL, no MAJOR.
 | Labels / overclaim | honest |
 | Novelty | Assessment above (D7) |
 
-Repairs were **not** applied to INVOLUTION_ES2.md (the author's branch received a commit minutes before this
-review was finished; all defects are MINOR and text-only). R162 can apply D1–D7 on request.
+At the parent's request, D1–D7 have now been applied in INVOLUTION_ES2.md, each marked "(R162 repair)".
