@@ -58,7 +58,7 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
 |---|---|---|---|---|---|---|---|---|---|
 | adv_new_drivers | O154 | new global drivers (character tail, regulator, CF period) of f_II | COLLAPSES B1+B2 | PARTIAL | PARTIAL → H-A (only linear signal tested) | 1 | H-A | {a,c} identity PROVED but already in Lemma 2.1; ranking EVIDENCE; feature mislabel (see errata) | ✓ |
 | adv_stacked_primes | O154 | adversarial primes with many small QR | COLLAPSES at "drive count below 1" | PARTIAL | PARTIAL → H-A (displayed adversaries collapse) | 2 | H-A | none PROVED; dataset/saturation EVIDENCE only; D3 false (see errata) | ✓ |
-| corr_joint_factorisation | O146 | joint factorisation correlations; SQ | COLLAPSES B5 at "forcing", PARTIAL | PARTIAL | PARTIAL → H-A (identity-only forcing collapses) | 2 | H-A | C1/C2 classical; Prop 3.1 folklore; V-emptiness at 288/336 plausibly new (CERTIFIED by enumeration); SQ CONJECTURE | — |
+| corr_joint_factorisation | O146 | joint factorisation correlations; SQ | COLLAPSES B5 at "forcing", PARTIAL | PARTIAL | PARTIAL → H-A (identity-only forcing collapses) | 2 | H-A | C1/C2 classical; Prop 3.1 folklore; V-emptiness certificates at 288/336 plausibly new for V (already W-escapes); SQ CONJECTURE | — |
 | corr_parity_layers | O146 | sign layer vs size layer of parity | B3 COLLAPSES in size layer | PARTIAL | PARTIAL → H-B (size-layer exclusion is heuristic) | 2 | H-B | partition folklore; table EVIDENCE; §1 partition overlap (see errata) | ✓ |
 | corr_typeI_typeII_joint | O146 | Type I/II joint emptiness via correlations | COLLAPSES ("no hedge exists") | DISAGREE | PARTIAL → H-A (displayed instantiation collapses); "no hedge" withdrawn | 1 | H-A (H-G) | Lemma 3.1 folklore; joint-count data EVIDENCE about positive values only | ✓ |
 | logic_complexity | O141 | computational complexity of ES witnesses | PARTIAL | PARTIAL | PARTIAL → H-A (FQ open) | 1 | H-A | FQ ⇒ FP^FACTOR folklore-valid; "not FP" upgrade unjustified (see errata) | ✓ |
@@ -85,6 +85,15 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
 | wildcard_list | O153 | wildcard pre-screens W1–W18 | pre-screens (Assessment) | PARTIAL | PARTIAL → H-A (W4/W15/W6/W7/W18 not excluded) | 2 | H-A | none; W1 premise false (see errata) | ✓ |
 
 ## Cross-cutting notes
+* **Brief-template error (B2 wording).** The briefs' barrier text said "a lottery with only polylog(p) expected
+  winners (Σ_{p≤N} f(p) ≍ N log³N)". Over **primes**, Elsholtz–Tao give N log²N ≪ Σ_{p≤N} f(p) ≪ N log²N log log N
+  (the campaign's (D)32b removes the log log for Type I). So the *average* of f(p) over p ≤ N is ≍ log³p, while
+  N log³N is the sum over all integers n ≤ N. Harmless for the qualitative barrier.
+  * Quotes the wrong form: `tech_maynard_theta.md` §2 (line 50: "Σ_{p≤N} f_II(p) ≍ N log³ N"; erratum appended).
+  * Ambiguous: `nonab_homogeneous_dynamics.md` line 46 ("Σ f_II ≍ N log³N", range unstated; correct only as a sum
+    over integers n ≤ N; noted in its erratum).
+  * Correct forms: `adv_stacked_primes.md` l.28, `prob_lottery_model.md` l.24, `anal_dirichlet_series.md` l.25,
+    `addcomb_unit_fraction_density.md` §3.3 (average log³p), `cayley_markoff_cm.md` l.98 (sum over n).
 * **Convergent sub-question (H-A).** polynomial_method, wildcard_list W4/W15, markoff_hasse and technique_transfer
   item 13 converge on: do absolute A, C exist such that every large prime p ≡ 1 (24) has e ≤ C(log p)^A with
   −1 ∈ Σ_e((p+e)/4)? B4 does not exclude a target-specific argument using residues of the large prime factors.

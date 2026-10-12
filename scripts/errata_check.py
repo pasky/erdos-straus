@@ -79,9 +79,10 @@ ok("frame", "p=73,(A,B)=(2,5): 40|80 but 8∤78 (the '=>' direction fails); "
 p, e = 73, 15
 N = (p + e) // 4
 assert N == 22 and slice_II(p, e, primitive=False) == []
-assert (e - 1) not in {dd % e for dd in divisors(N)}
+ratios = {aa * pow(bb, -1, e) % e for aa in divisors(N) for bb in divisors(N // aa)}
+assert ratios == {1, 2, 7, 8, 11, 13}
 assert (2 * 2 * 11) % e == e - 1  # -1 in <2,11> mod 15
-ok("item13", "p=73,e=15,N=22: slice empty, divisor residues {1,2,7,11}, yet 2^2*11 = -1 (15)")
+ok("item13", "p=73,e=15,N=22: slice empty, ratio set {1,2,7,8,11,13} misses -1, yet 2^2*11 = -1 (15)")
 
 # 4. logic_divisibility_lgp: gcd(a,b)=1 does not give gcd(4a,b)=1
 def Phi(d, a, b, e):

@@ -139,9 +139,10 @@ paragraph). Counterexamples re-verified by `scripts/errata_check.py` (tag in bra
   the factor 4 is shared. Correct form (elementary): 4AB | p+A+B ⇔ B | p+A and 4A | (p+A+B)/B (symmetrically in A, B);
   checked by brute force in scripts/errata_check.py [frame].
 * **Item 13: "slice failure is exactly 'the primes of N generate a subgroup avoiding −1'" is false.** Avoidance is
-  sufficient, not necessary. Counterexample [item13]: p = 73, e = 15, N = 22 = 2·11: the slice is empty (divisor
-  residues {1,2,11,7} mod 15 miss −1), yet 2²·11 ≡ −1 (mod 15), so ⟨2,11⟩ ∋ −1. Correct statement: failure ⇔ no
-  divisor of N (exponents bounded by those of N) is ≡ −1 (mod e) — the (C)25 full-generation-block mechanism.
+  sufficient, not necessary. Counterexample [item13]: p = 73, e = 15, N = 22 = 2·11: the slice is empty (the bounded
+  ratio set {a·b⁻¹ mod 15 : ab | 22} = {1,2,7,8,11,13} misses −1), yet 2²·11 ≡ −1 (mod 15), so ⟨2,11⟩ ∋ −1.
+  Correct statement (LONGSHOT_PIGEONHOLE Lemma 1.1 form): for gcd(N,e) = 1, slice failure ⇔ −1 ∉ {a·b⁻¹ mod e : ab | N},
+  where exponents are bounded by those of N; subgroup avoidance is only the sufficient extreme (cf. ledger (C)25).
 * Items 3, 9, 16 (averaging over growing θ at fixed p is not T7; B2 leaves it open), 11 (already "open"), 18 (few
   well-placed prime factors can suffice) are not excluded by the cited barriers. Items 1–2: see tech_maynard_theta
   errata (density misquote, bilinear over-dismissal). **Corrected verdict:** PARTIAL → H-A/H-B.
