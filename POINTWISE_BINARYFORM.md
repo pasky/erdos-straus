@@ -226,9 +226,10 @@ irreducible conic. Again one factor is constant and everything lies in Q[n]. ∎
 This extends O145's "no two-variable extension of the constant-level shape" (§5 there) to all
 constant-level families and all forms.
 
-**Prop 5.2 (Type II families valid on an open cone are one-variable; PROVED, using O145 Prop 3.2).**
+**Prop 5.2 (Type II families valid on an open cone are one-variable; PROVED relative to O145 Prop 3.2,
+which is brainstorm-level and not separately reviewed).**
 Let F be a Type II family for positive definite Q with `A_F ≠ ∅`. Then `F ∈ Q[n]⁶`.
-*Proof.* Fix θ ∈ A_F and a line `ℓ(t) = P₀ + tθ` not through 0. `P(t) = Q(ℓ(t)) > 0` on R, and all
+*Proof.* Fix a rational direction θ ∈ A_F and a rational line `ℓ(t) = P₀ + tθ` not through 0. `P(t) = Q(ℓ(t)) > 0` on R, and all
 coordinates of `F∘ℓ` are positive for large t. O145 Prop 3.2 (Type II coordinates `p = 4dgg′ − h`,
 `g + g′ = ch` with (g, g′, h) = (a, b, e)) gives `G∘ℓ ∈ Q[P]` for every coordinate G. P(t) is
 symmetric about its vertex, so `G∘ℓ` is too. Hence `G∘σ_θ = G` on ℓ, where
