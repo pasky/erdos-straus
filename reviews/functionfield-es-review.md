@@ -189,3 +189,43 @@ Thm 6.3 that does not depend on any author code.
   finds no failure": the §3 table shows the q = 4 row only up to n = 11 ("0/381300"). Make the ranges
   consistent.
 
+### C9. Theorem 6.4 (which (q, A) are theorems) — split verdict
+
+* **q = 2, A ∈ {T, T+1}; q = 3, A = T (Prop 1.4)** — SOUND. (Translation T ↦ T + β also gives q = 3, A = T + β.)
+* **q = 2, all 12 monic A of degree 2 and 3** — SOUND, **independently re-proved**. My covering-tree search
+  (`scripts/review_ffl_tree.py`: own family enumeration with W_F | W, n_F ≤ 12, representative-P test) found
+  complete covers for all 12 A (certificates `data/review_ffl/cover_q2_A*.txt`). Leaf counts (4, 4, 4, 3, 36, 8,
+  52, 12, 52, 14, 12, 32) agree with `data/ffl/q2_batch.txt`. My checker `scripts/review_ffl_cert.py`
+  (log `data/review_ffl/cert_q2_log.txt`) confirms for each A: exact partition of the units mod the leaf moduli
+  (Σ 1/Φ(W_leaf) = 1, no two leaves overlapping by CRT), W_F | W_leaf, and validity plus the identity/monic/NC
+  on every P of each class in three consecutive degrees. **max n_F = 3 (k = 2) and 4 (k = 3)**. Since n_F ≤ k + 1
+  and every prime factor of a leaf modulus has degree ≤ 3, Lemma 6.2 covers every irreducible P of degree > k.
+  No exhaustive small-degree check is even needed.
+* **q = 2, deg A = 4 (T⁴, T⁴ + 1)** — GAP as written (see D13). The degree-4/5 batch was still running when I
+  reviewed.
+* **q = 4, A = T** — SOUND (C8).
+
+Defects:
+* **D13 (MAJOR, unarchived certificates).** For the deg-4 cases (696 and 818 leaves, leaf moduli of degree 18)
+  the repo contains only the one-line summaries in `data/ffl/q2_batch.txt`. `ffl_q2_batch.sh` pipes `ffl_tree`
+  through `tail -1`, so the leaf list (the actual certificate) is discarded. A "PROVED, computer-assisted" claim
+  needs an archived, independently checkable certificate. Moreover the summary lines show `verified=3080` for 696
+  leaves and `verified=3322` for 818 leaves. Each smaller A has exactly 5 checks per leaf, so 5·696 = 3480 and
+  5·818 = 4090 were expected. Some leaves were therefore **not** spot-verified, and the document does not say why.
+  *Repair:* archive the leaf lists as `data/ffl/cover_q2_A<A>.txt` (format of `cover_q4_A10.txt`), explain the
+  verification shortfall, and downgrade deg 4 to EVIDENCE until a checker (e.g. `scripts/review_ffl_cert.py`,
+  which handles multi-level trees) has passed on the archived files. See C9-addendum for my own reproduction
+  attempt.
+* **D14 (MAJOR, theorem statement refers to a running job).** "the degree-4 A completed so far … The batch over
+  the remaining degree-4 and degree-5 A was still running …; `data/ffl/q2_batch.txt` is authoritative." A theorem
+  must list exactly which (q, A) it covers. A data file that is still growing cannot define the statement.
+  *Repair:* list the A explicitly. Move "still running" to a status note. Each newly completed A becomes a theorem
+  only once its certificate is archived and checked.
+* **D15 (MINOR).** Thm 6.1 is the special case A = T² of the deg-2 bullet. Say so, and note that the explicit
+  identity gives a certificate-free proof for that case.
+* **D16 (MINOR).** "char ≥ 5: **no finite covering exists for any A**" (bold) — only for *linear families*, as the
+  following note concedes. Put the qualifier in the bold statement. O140 Prop 4.1 is quoted, not re-proved, here.
+  I only sanity-checked its mechanism: for P ≡ 1 (mod W_F) every term reduces mod E to its value at "P = 1,
+  X = (1+E)/A". In char ≠ 2 the reduced sum is a nonzero polynomial of degree < deg E (when deg a₀ is small), so
+  E cannot divide it. In char 2 it can vanish. I did not re-review the full proof.
+
