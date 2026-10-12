@@ -4,7 +4,7 @@ Rows: n <= X, n = 1 (mod 4), gcd(n,6)=1 (composites included).  Columns: F2 pari
 W_j(n) (core features and pairwise ANDs of a core subset) and divisor-type vectors mod M.
 Reports dim(span W ∩ span D) and whether intersection elements are odd on hard primes.
 Also a prime-only test: is some F2-combination of core W_j a function of p mod L on primes p=1 (4)?
-Usage: PYTHONPATH=scripts uv run python scripts/bs_invol_signature2.py /tmp/bsinv/sol20k_1mod4.txt 20000 24 [forms]
+Usage: PYTHONPATH=scripts uv run python scripts/bs_invol_signature2.py /tmp/bsinv/sol20k_1mod4.txt 20000 24 [forms] [additive]
 (optional 4th arg: also allow parities of representation counts by binary forms a x^2+bxy+cy^2, a<=8, c<=40)
 """
 import sys
@@ -99,6 +99,14 @@ if len(sys.argv) > 4:  # add binary-form representation parities r_F(n), F = a x
                     if par:
                         Dv[('F', a_, b_, c_)] ^= 1 << row[m_]
     print('added binary-form columns')
+if len(sys.argv) > 5:  # add completely-additive mod-2 columns Omega_r(n), omega_r(n) (prime factors = r mod M)
+    from sympy import factorint
+    for m_ in NS.tolist():
+        for pr_, e_ in factorint(m_).items():
+            if e_ & 1:
+                Dv[('Om', pr_ % M)] ^= 1 << row[m_]
+            Dv[('om', pr_ % M)] ^= 1 << row[m_]
+    print('added Omega_r / omega_r columns')
 Dcols = [v for v in Dv.values() if v]
 
 
