@@ -179,3 +179,32 @@ squares are sterile, so it has no value for ES. Open sub-question (FF-only): doe
 ≥ 5 at q = 5, and is there a Frobenius-identity proof? Novelty: Thm 2.1, Prop 4.1 and the degree-parity explanation
 of the missing T1 obstruction are plausibly new, elementary and inert for ES. **Promise 1** for ES (2 as a
 standalone function-field curiosity).
+
+**gon_fermat_certificates (O148a; memo: COLLAPSES to B2 at "F ≡ t (M) ⇒ F = t").** AGREE, and this is the most
+instructive memo in the half.
+* Re-derived Lemma 3.1 (Type II): (4acd−1)(4bcd−1) = 4cd(4abcd − a − b) + 1 = 4c²dp + 1.
+* Re-derived the three-linear-forms remark: XYZ = n²(X+Y+Z+2n) (3·11·75 = 25·99 at n = 5).
+
+The memo correctly notes that Fermat-type GoN certificates pass B1 (a modular square root is not a Theorem-M
+operation) and B3 (exact existence with main term ≍ 1). They die at B2 because every ES slice is a level set of a
+*split* rational form, and on split forms the GoN step needs a known divisor of N_θ(p). False-negative check on
+the *higher-dimensional* encodings, which the memo screens only for the three anisotropic candidates:
+* The natural ternary object is the isotropic form Q(e,f,a) = ef − 4da² representing p, with f ≡ −1 (mod 4ad).
+* GoN/representation theory gives representations of p freely. The obstruction is the **congruence modulo a
+  coordinate** (the modulus 4ad moves with the unknown a). No convex body or lattice encodes "f ≡ −1 (mod 4ad)"
+  with a varying.
+* Fixing a makes it B2. Keeping a free gives a union over a of lattices, i.e. H-A.
+* Type I cannot even start Fermat-style: level d needs (−d/p) = −1, so there is no √−d mod p to build Λ from.
+
+So the verdict is right, with the precise obstacle "modulus depends on the unknown" (the same object as redteam-2
+E2/(I)1 Q_d). Hostile notes:
+* The B5 line relies on "Lemma CT" without a file pointer. Check that its scope (p ≡ 1 (24)?) matches "every ES
+  denominator prime to p".
+* The Theorem C extension to quadratic input P(q) = F(w₀+qw₁) is honestly marked unproved.
+
+Open sub-question (the best in the gon cluster): is there *any* lattice/body formulation in which the ES modulus is
+fixed while the unknown varies? For instance, a lattice in (a, f, e, k) with f = −1 + 4adk, linearised by fixing the
+product ad = m and summing over the factorisations of m. That is H-A in lattice clothing, but it is the one place
+where Minkowski-type exactness (main term ≍ 1, no error term) might combine with aggregation. Novelty: Lemma 3.1 is
+folklore. The "Fermat certificates escape B1/B3 but not B2" screen is a useful, plausibly new piece of barrier
+bookkeeping. **Promise 2.**
