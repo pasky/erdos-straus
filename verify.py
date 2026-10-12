@@ -24032,4 +24032,43 @@ def check_fc():
 check_fc()
 
 
+def check_fd():
+    # (fd) Brainstorm depth follow-ups: INVOLUTION_ES2 (O162/R162: axis lines, thin components, Lemma 4.1,
+    # character Lemma 5.1, cylinder "QR => empty" check) and POINTWISE_BINARYFORM §8 (O163/R163: Lemma 8.3
+    # pointwise descent at n = lambda^2 w^2, brute force).
+    from time import perf_counter
+    import os
+    import re
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=600, env=env, cwd=sdir)
+        assert r.returncode == 0, ("INV2/BF2 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_inv2_lemmas.py", "3000", "60")
+    for needle in ("Lemma 2.2: E(m^2) empty for all odd m < 60: True",
+                   "Lemma 2.1: random axis lines, odd-square classes hit: 0",
+                   "Lemma 3.1: P+1 >= tuv/2 (t>=2) and P+1=(u-1)(v-1) (t=1) for n<400: failures 0",
+                   "Lemma 4.1(a-d): 399 random (point, polynomial) trials, failures 0",
+                   "Lemma 5.1: 647 E-points (p=1 mod 8, p<3000), failures 0"):
+        assert needle in o, ("INVOLUTION_ES2 R162", needle, o)
+    o = run("review_inv2_cyl.py", "10000")
+    rows = re.findall(r"QR at\s+\d+, QR&nonempty (\d+), nonempty \d+", o)
+    assert "143 primes p=24q+1 <= 10000" in o and len(rows) == 11 and all(r == "0" for r in rows) and \
+        "Remark 3: 8 q with q,12q+1,24q+1 prime; E∩{t=u} nonempty at 0 of them" in o, ("INVOLUTION_ES2 cylinders", o)
+    o = run("review_bf2_lemma83_brute.py", "3000")
+    assert "NMAX 3000 {'a': 510, 'b': 206, 'c': 0, 'd': 0, 'e': 0, 'viol': 0, 'sols': 12441, 'ns': 33}" in o, \
+        ("BINARYFORM §8 R163 Lemma 8.3", o)
+    print(f"(fd) INVOLUTION_ES2 Lemmas 2.1/2.2/3.1/4.1/5.1 + 11 cylinders (QR => empty, p = 24q+1 <= 1e4); "
+          f"BINARYFORM Lemma 8.3 descent on 12441 solutions (n = l^2 w^2 <= 3000) — OK ({perf_counter() - t0:.0f}s)")
+
+
+check_fd()
+
+
 print("\nall checks passed")
