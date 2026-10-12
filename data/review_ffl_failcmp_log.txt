@@ -23,3 +23,8 @@ q=5 A=100 n=5: FAIL 82/624 [MATCH] (2s) mine=['100041', '100102', '100124', '100
 q=4 A=10 n=5: FAIL 0/204 [no author list] (1s) mine=[]
 q=4 A=10 n=6: FAIL 0/670 [no author list] (9s) mine=[]
 q=7 A=10 n=5: FAIL 16/3360 [MATCH] (130s) mine=['104631', '110604', '122022', '130411', '130661', '131561']
+q=4 A=10 n=7: FAIL 0/2340 [no author list] (129s) mine=[]
+q=4 A=100 n=7: FAIL 4/2340 [MATCH] (88s) mine=['12122022', '12302221', '13133033', '13203331']
+q=3 A=100 n=8: FAIL 0/810 [no author list] (23s) mine=[]
+q=3 A=101 n=7: FAIL 0/312 [no author list] (2s) mine=[]
+q=5 A=100 n=6: FAIL 81/2580 [MATCH] (52s) mine=['1001013', '1001031', '1002321', '1003021', '1003224', '1010232']

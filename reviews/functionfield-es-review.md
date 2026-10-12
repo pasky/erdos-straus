@@ -254,7 +254,7 @@ My S2 solver (own arithmetic, own irreducibility test, own factorisation) recomp
 `data/review_ffl_failcmp_log.txt`. Exact matches:
 (q, A, n) = (5,T,2..4), (7,T,2..5), (3,T²,3..5), (3,T²+1,3), (3,T²+1,6), (4,T²,3..7), (5,T²,3..5). That
 covers counts 2/10, 2/40, 1/150, 6/21, 21/112, 25/588, 16/3360, 3/8, 2/18, 2/48, 2/8, 1/116, 8/20, 12/60,
-16/204, 6/670, 4/2340, 24/40, 49/150 and 82/624.
+16/204, 6/670, 4/2340, 24/40, 49/150, 82/624; plus (5,T²,6): 81/2580 MATCH.
 Zero-failure entries recomputed: (4,T,2..7), (3,T²,6..8), (3,T²+1,7). Larger cases are listed in the addendum
 if they finished. I did not recompute the mean-count constants C(q, n), θ, or the tilt means of §4/§7. Those are
 EVIDENCE/Assessment and low-stakes.
@@ -291,3 +291,11 @@ n = 5..10 (T⁴) and n = 5..11 (T⁴ + 1). Log: `data/review_ffl/deg4_small_degr
 **Hence ES₂(A, P) holds for every prime P of degree > 4 for A ∈ {T⁴, T⁴ + 1}. This is PROVED (computer-assisted),
 with a certificate independent of the author's code.** The author's `cover_q2_*.txt` should still be archived (D13).
 The author may cite R161's certificates instead.
+
+## Status / handling
+
+The author branch had no new commits after `3e1efde5` (checkpoint report), but its background jobs (q = 2 deg-4/5
+batch, q = 5 A = T² n = 9) were still running. I therefore did **not** edit FUNCTIONFIELD_ES.md, and there are no
+"(R161 repair)" edits. All repairs are listed above as suggestions. Priority for the author: D7 (restate §4
+conclusion), D13/D14 (archive certificates, fix the Thm 6.4 statement; R161 certificates are available), then D1
+(Lemma 1.2(iii) is false; NC is automatic in odd characteristic), D10, and the remaining MINOR items.
