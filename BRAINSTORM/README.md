@@ -101,3 +101,15 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
 * **Top depth candidates** (all promise 2): invol_windmill_signature (H-E), ident_form_families + canonical_invariants
   (H-E), gon_fermat_certificates (H-A), corr_parity_layers (H-B), the small-e cluster above (H-A),
   nonab_frobenius_redei (H-D), padic_functionfield_igusa (FF test bed), adv_stacked_primes (H-A).
+
+## Script fixes (O160, from a deep-review note)
+* `scripts/bs_adv_count.c` (O154): part B (e > E) solutions did not update the `emin` / `X_e (e ≤ 31)` metadata, so
+  `emin` was reported 0 when every slice e ≤ E was empty, and X_e for E < e ≤ 31 was reported 0 when E < 31
+  (e.g. p = 433, E = 3: old output "emin 0", X_e all 0; fixed output "emin 7", X = 0 6 0 4 2 2 0 2, matching E = 1000).
+  The f_II totals were always correct. No O154 log is affected: all 351 records used the default E ≈ 2√p ≫ 64 and
+  have part A > 0. Option `A` (skip part B) is now documented as giving slice-limited metadata.
+* `scripts/bs_adv_drivers.py` (O154): the feature labelled "log τ(p−1), 100-smooth part" computed log of the smooth
+  part itself. Renamed, a correct log τ version added, re-run (≈ 2 min); no conclusion changes. See the
+  `adv_new_drivers.md` erratum.
+* `scripts/errata_check.py` (new): verifies every computational counterexample quoted in the errata sections
+  (17 checks, < 1 min).
