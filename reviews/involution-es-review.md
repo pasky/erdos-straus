@@ -11,7 +11,7 @@ ES is not solved here, and the document does not claim it is.
 | Lemma 2.2 | SOUND |
 | Prop 2.3 (parity) | SOUND |
 | Prop 2.3(ii) / summary inference | SOUND-AFTER-REPAIRS (wording; see D1) |
-| Prop 3.1 | pending |
+| Prop 3.1 | SOUND (scope caveat D2) |
 | Lemma 4.1 / Prop 4.2 / Thm 4.4 | pending |
 | Thm 5.1 / Lemma 5.2 | pending |
 | Cor 5.3 | pending |
@@ -50,3 +50,29 @@ It does **not** exclude windmills on X that are defined only for primes, or only
 the only ones ES needs, and §5 handles them. The text after Prop 2.3 says this, so the result is correctly
 scoped there. The §0 bullet "T1 kills the O152 odd set" overstates it, though: T1 kills only the extension of
 the O152 set to square classes. See D1.
+
+### Prop 3.1 (divisor-type fixed counts)
+
+I recomputed the four pattern expansions in a free model of my own (`scripts/review_inv_prop31.py`, part A).
+The rule is that the largest index with `f_i ≠ e_i` decides `d < m²/d`; this is valid as soon as
+`q_j > ∏_{i<j} q_i^{e_i}`. My expansions match the table row for row:
+P1 `{φ₀,φ₃,φ₋₁,φ₋₂,φ₋₄,ψ}`, P2 `{φ₀,φ₂,φ₋₁,φ₋₂,ψ}`, P3 `{φ₀,φ₁,ψ}`, P4 `{φ₁,φ₂,φ₃,φ₋₄,ψ}`. They sum to `φ₀`, and the
+`4c` and `4ψ` terms cancel. The conclusions follow:
+* `D(p) = φ(1,h)+c(h)` (p prime: the only pair is (1,p), and there is no square term);
+* `D(q²) = φ(1,h)+ψ(q)+c(h)`;
+* `ψ(a') = c(h)` for every unit square root a' of h (Dirichlet).
+
+Part B (actual integers): the identity `Σ_i D(m_i²) ≡ φ(1,h)` holds for random tables φ, ψ, c with
+(M,a) = (24,5), (120,7), (7,3), (40,3). These are real primes in the prescribed classes with the size
+condition, m up to 48 digits, and all divisors enumerated. This also confirms the author's remark that the
+classes ā and a² are needed. A GF(2) span search over all patterns of length ≤ 3 with exponents ≤ 3 cannot
+reach φ₀ with classes {0,1}, {−1,0,1} or {0,1,2}, but can with {−1,0,1,2}.
+
+The cone extension also checks out. The ratio of a pair is `∏ q_i^{2(e_i−f_i)}`, which is at least
+`q_j²/∏_{i<j}q_i^{2e_i}` or at most its inverse. Taking `q_j² > max(λ,μ)^{±1}·q₁·∏_{i<j}q_i^{2e_i}` puts every pair
+outside every finite cone, as claimed. Reversed-order contributions fold into the arbitrary φ.
+
+The scope is correct as written: Prop 3.1 is a statement about a formal count D, and it constrains a windmill
+only through Lemma 1.1. That requires the windmill to be defined at **every** odd m² of the class, including
+the 25–48-digit composite m with prime factors in the classes ā and a². Remark 3.2 is honest: `1+[n=□]` passes.
+**SOUND.** The one caveat is the framing (D2).
