@@ -115,8 +115,7 @@ certificate exists (`inv_t1_free.py 3 2 0 1`): the classes `ā, a²` are needed.
 **Remark 3.2 (what this does and does not exclude).** Prop 3.1 does **not** exclude divisor-type windmills:
 `D(n) = 1 + [n = □]` (`c = 1`, `ψ = 1`, `φ = 0`) satisfies all T1 constraints. What it shows is the *shape*
 any T1-compatible windmill must have: a periodic odd fixed point plus a fixed piece that sees exactly the
-squares. Neither ingredient uses the primality of p beyond "p is not a square"; so a windmill with a
-divisor-type σ-count proves, at best, "W(n) odd for every non-square n of the class with
-`Σ_{uv=n,u<v} φ = 0`", and the content is entirely in the identity `W ≡ D` at composite non-squares, where
-T1 gives no information. T1 alone is therefore no barrier to the windmill route; the barrier, if any, must
-come from the structure of the maps (§4).
+squares. Neither ingredient uses more about p than "p is not a square", so all the content of such a
+windmill sits in the identity `W ≡ D (mod 2)` at composite non-squares of the class, about which T1 says
+nothing. T1 alone is therefore no barrier to the windmill route; a barrier must come from the structure of
+the maps (§4).
