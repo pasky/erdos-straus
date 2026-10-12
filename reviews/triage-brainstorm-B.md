@@ -175,3 +175,47 @@ extension whose Frobenius *controls* Type I/II solvability, and no candidate exi
 
 **Verdict-validity: DISAGREE** with the blanket collapse; several natural instantiations genuinely fail, but M3/M4 overreach. M3(b)'s claim that isotropic forms are never Euclidean under its stated inequality is false: q(x,y)=xy and coordinatewise nearest-integer rounding give |q(x−a,y−b)| ≤ 1/4. `scripts/triage_prob.py` confirms this on rational grids. Anisotropy can still matter because q(error)=0 obstructs the descent formula; the displayed inequality itself is not the obstruction. M4 invokes `LONGSHOT_FIBRED.md` Cor. 2.4 without establishing its geometrically irreducible fibres and Zariski-dense integral solver subsets. Bounded algebraic complexity alone is insufficient. Nor does unbounded composition imply monotone multiplicative height growth: secant composition with a fixed point is generically involutive, so repeating it returns the original point. The asserted polylogarithmic output bound is unsupported. **Strongest open sub-question:** is there a positivity-preserving secant/rounding descent on Uₚ(ℚ) with strictly decreasing common denominator D until D=1, uniformly for primes p? **By-product novelty:** M2's PROVED reduction is probably folklore: for odd p the special fibre is three coordinate planes and type strata have the stated dimensions. But the vertex is not empty as a scheme—it contains (0,0,0); only reductions of positive global ES(p) points avoid it. The square extension needs care: ES(9) has (3,12,36), reducing to that vertex modulo 3. **Promise: 2/5.**
 
+
+## 2. O157 adjudication notes on the paragraphs above
+* **[O157] DISAGREE ≠ escape.** Per §0.1, read each DISAGREE as "verdict wording overreaches; residue = H-A/H-B/H-D/H-F".
+  The promise scores (none above 2/5) already reflect this; O157 endorses them.
+* **[O157] corr_typeI_typeII_joint.** The logical point is correct and important for the ledger: correlation of
+  f_I and f_II across primes (or over successful primes) says nothing about the joint-zero event. The memo's
+  "No hedge exists" should be withdrawn; its data remain EVIDENCE about positive values only. H-G stays open.
+* **[O157] other_rings Prop 3.3** assumes N(ε) = −1 (memo line 81); the sub-reviewer's shortcut η = ε^{ℓ+1}, ℓ inert,
+  ℓ ≡ 3 (4), uses exactly that (ε^{ℓ+1} ≡ N(ε) mod ℓ). Correct within that scope.
+* **[O157] Three memos converge on one sub-question** (polynomial_method, wildcard_list W4/W15, markoff_hasse, and
+  technique_transfer item 13): *do absolute A, C exist such that every large prime p ≡ 1 (24) has e ≤ C(log p)^A with
+  −1 ∈ Σ_e((p+e)/4)* (Σ_e(N) = residues mod e of divisors of N)? This is an H-A instance; B4 excludes only certificates
+  that cover a full coset using primes below e plus one opaque cofactor, so a target-specific argument using the
+  residues of the *large* prime factors of (p+e)/4 is not excluded. No such argument is proposed anywhere.
+* **[O157] Overclaims of novelty.** No by-product in this half is a plausibly new *theorem about ES*. Plausibly new
+  minor items: other_rings Prop 3.3 (totally positive ES over real quadratic O_K with N(ε) = −1, novelty unverified);
+  logic_weak_arithmetic Thm S / C1 / C4 (model-theoretic non-provability of ES in IOpen-type theories, elementary);
+  the V-emptiness certificates at 288/336 (corr_joint_factorisation, already W-escapes). Everything else is
+  folklore, ET repackaging, or ledger facts.
+
+## 3. Top-5 from half B (for depth work), with reasons
+1. **corr_parity_layers (H-B), 2/5.** The cleanest decomposition of H-B into a sign layer (passes T1, not excluded by
+   B3) and a size layer. Precise open target: at each large p ≡ 1 (24), a positive lower bound for
+   Σ_{4a²d ≤ p+2a} #{f ∣ p+4a²d : f ≡ −1 (4ad)} from joint sign-and-divisor bilinear information. Fix the §1 partition
+   overlap first (p=13, a=d=1). Best-defined target in this half, but no technology yet.
+2. **The small-e −1-hitting cluster (polynomial_method + wildcard W4/W15 + technique item 13), 2/5.** One precise
+   H-A statement (§2 bullet 4) that three memos dismissed via B4 beyond B4's actual scope. Cheap next step: numerics for
+   min{e : −1 ∈ Σ_e((p+e)/4)} vs log p on square-class primes (is it ≪ (log p)^A?), and a statement of what large-prime
+   residue input would prove it.
+3. **nonab_frobenius_redei (H-D), 2/5.** §0.4: square-free conjugacy classes in groups with trivial abelianisation pass T1
+   for free and are not congruence data. The only structural crack in this half; useful only if someone finds a
+   non-abelian extension that governs Type I/II solvability (none known; ET varieties are toric/quadric).
+4. **padic_functionfield_igusa, 2/5.** The F_q[T] analogue is a genuine test bed: the odd-square obstruction does *not*
+   transfer for q ≡ 1 (4) (explicit counterexample), and Weil-type tools are stronger there. Open question: at fixed q
+   of characteristic ≥ 5, does every large-degree monic irreducible P admit a monic decomposition of the analogue of
+   4/P? A theorem here would be a clean model result for H-A (literature check needed first: polynomial ES analogues
+   may exist).
+5. **adv_stacked_primes, 2/5.** Precise adversarial question: can primes with (p/q) = +1 for all q ≤ y(p), y → ∞,
+   have liminf f_II(p)/(log p)³ = 0? Answering it numerically/heuristically bounds how much H-A must aggregate.
+   (Fix D3 first; the 10¹⁶ "saturation" is within 1–2 SE and is not evidence of saturation.)
+Runners-up (2/5): prob_lll_fixed_p (an LLL at fixed p over solver choices is *not* excluded; needs an actual
+dependency graph with arithmetic probability bounds — essentially H-A again), rational_to_integral_cubic (positivity-
+preserving descent with decreasing denominator is not excluded; no candidate move), corr_joint_factorisation (SQ:
+V(n) ≠ ∅ for all odd non-square n — a clean conjecture, EVIDENCE only).
