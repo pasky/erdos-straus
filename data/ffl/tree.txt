@@ -1,0 +1,1 @@
+q=3 A=100 rootW=10200 NTH=13: leaves=26342 uncovered=11023 maxleafdeg=14 maxdepth=7 verified=0 vfail=0 uncovered_density=0.01107
