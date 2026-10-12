@@ -1,0 +1,26 @@
+n=20000  Var(y)=0.0360  R2(cell120120)=0.347  R2(baseline)=0.433  beta=[-1.087  0.823 -0.017  0.154]
+feature | corr with y | corr with cell residual | partial corr with baseline residual | R2 gain if added
+log tau(p-1)                     -0.310 -0.113 +nan 0.0000
+log S16                          +0.435 +0.343 +nan 0.0000
+log tau(p+1)                     +0.037 +0.030 +0.008 0.0000
+log tau(2p+1)                    +0.204 +0.059 +0.076 0.0033
+log tau(p+2)                     +0.127 +0.052 +0.041 0.0010
+log tau((3p+1)/4)                +0.027 +0.025 +0.015 0.0001
+log tau(p-1) smooth<=100 part    -0.263 -0.126 -0.060 0.0021
+deadmass(p-1)                    -0.350 -0.063 +0.044 0.0011
+v2(p-1)                          -0.089 -0.106 -0.064 0.0024
+logL(1,chi_-4p) trunc            +0.000 +0.040 +0.059 0.0019
+logL(1,chi_p) trunc              -0.491 -0.094 -0.140 0.0112
+log n_p                          -0.440 -0.009 -0.042 0.0010
+logL(1,chi_-4p) EXACT (h)        +0.000 +0.040 +0.059 0.0019
+  tail: exact - trunc            +0.016 +0.010 +0.004 0.0000
+log(CF period sqrt p / sqrt p)   -0.165 -0.035 -0.043 0.0011
+log(R_unit Z[sqrt p] / sqrt p)   -0.166 -0.036 -0.044 0.0011
+stage 2 baseline (cells + 10 local/shift features): R2=0.458
+  global   tail: exact - trunc            partial corr +0.003  (null s.e. ~0.007)
+  global log(CF period sqrt p / sqrt p)   partial corr -0.009  (null s.e. ~0.007)
+  global log(R_unit Z[sqrt p] / sqrt p)   partial corr -0.010  (null s.e. ~0.007)
+stage 3 (+27 shifted tau features): R2=0.555; residual var 0.0160; compound-Poisson floor ~0.0115 (= 0.32 of Var y)
+  global   tail: exact - trunc            partial corr +0.005
+  global log(CF period sqrt p / sqrt p)   partial corr -0.008
+  global log(R_unit Z[sqrt p] / sqrt p)   partial corr -0.008
