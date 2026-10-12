@@ -93,9 +93,9 @@ Controls: Zagier's |S(n)| and `#{x²+4y²=n}` lie in span D (as (Z) predicts); a
 
 **E2 (all n ≤ 20000, n≡1 (4), gcd(n,6)=1; 3333 rows).** 345 weights incl. pairwise ANDs of 30 core
 features (rank 174). Divisor-type vectors for M = 24, 120, 168 (ranks 40, 778, 1039), and in addition
-parities of representation counts by all 1075 reduced-ish binary forms `ax²+bxy+cy²` (a ≤ 8, c ≤ 40;
+parities of representation counts by all 1564 positive definite forms `ax²+bxy+cy²` (1≤a≤8, a≤c≤40, 0≤b≤a;
 x,y>0) — the possible fixed loci of a piecewise-affine involution with a non-split restricted form.
-Combined rank ≤ 1289 ≪ 3333 rows, so a coincidental fit is impossible. **Result in every case:
+With forms (M=24) rank D = 1115; combined rank ≤ 1289 ≪ 3333 rows, so a coincidental fit is impossible. **Result in every case:
 dim(W∩D)=1, the same trivial repeated-denominator count (0 on all 267 hard primes p ≡ 1 (24)).**
 
 **E3 (prime-only periodicity).** Is some F₂-combination of the 110 core weights, on the 1125 primes
