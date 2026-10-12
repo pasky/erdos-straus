@@ -89,3 +89,19 @@ success on ε_p mod e (or on ε_p being an m-th power residue mod small q). Prio
 EXF Thm 5.2 (but EXF covers dihedral data of ℚ(√−d), not unit residues of ℚ(√p)). Open sub-question: that unit-residue
 test. Even a positive bias would only be a better θ-ordering (H-A), not a proof. Novelty: Lemma A and Prop C are
 folklore. The power-sparsity count is a Hooley-heuristic replication. **Promise 1.**
+
+**cayley_markoff_cm (O143 memo 1; memo: PARTIAL / COLLAPSES to B2 at fixed (K, β)).** AGREE. Spot-checked
+(`scripts/triage_cayley.py`, sympy):
+* the P2 identity X²+Y²+Z²−XYZ−4 = −64e₃/e₁³;
+* X²−4 = −16(y₀+y₁)(y₂+y₃)/e₁².
+
+By hand, (u₁+u₂)(4u₃−n) = n·u₃(u₁+u₂)²/(u₁u₂) ≡ n·u₁u₂u₃ mod squares. This gives D ≡ d for Type I and D ≡ dn for
+Type II, as claimed. False-negative check on P5: the Markoff moves act *across* n, so the only way they could prove
+ES(p) is a descent ("every p is reached from some smaller n by a move"). Orbits contain ≪ (log N)² points below N,
+against ≍ N log³N solutions, so almost all points are orbit-singletons below N and no descent exists. The memo states
+this (B1/T6), and the verdict is right. P3 (U_n has no Vieta involution: there are no square terms, and the line
+through the node at infinity keeps one affine point) is correct and is the key structural reason. Open sub-question:
+the Assessment-level orbit count in P5 (comparing height to norm on a rank-2 subgroup of T_K¹(ℚ)) is unproved but
+unimportant. Novelty: P1/P2 are classical (Cayley cubic = SU(2) character variety). P4, the CM parametrisation
+recovering ET's −4d / −4dp levels as the CM field of the character point, is a neat dictionary and plausibly new
+as a formulation, but it is only a relabelling (it is valid at odd squares too). **Promise 1.**
