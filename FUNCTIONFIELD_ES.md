@@ -123,12 +123,14 @@ coprime to A.
 ≥ q^D/2^{ω(A)}. The number of such h is ≤ (D + 1)^{ω(A)}. Summing over D ∈ (H, n] gives a proportion
 O_A(H^{ω(A)} q^{−H}) + O(n^{ω(A)+2}q^{−n/2}) = o(1/log n).
 (b) *Fixed small A-part.* Fix h (A-supported, deg h ≤ H) and v₀ ∈ (F_q[T]/A)^*. Consider the irreducible P in
-the class 𝒞 = {P ≡ −1 + h·v₀ (mod hA)}; there the A-part of P + 1 is exactly h, and (P+1)/h ≡ v₀ (mod A). (The
-factor gcd(h, A^∞)-structure makes "mod hA" the right modulus: v₀ is a unit mod every prime of A.) Let
+the class 𝒞 = {P ≡ −1 + h·v₀ (mod hA)}. For P in it, h | P + 1 and (P+1)/h ≡ v₀ (mod A) is coprime to A, so
+the A-part of P + 1 is exactly h. Conversely every P with h(P) = h lies in exactly one such class. If
+r := −1 + h·v₀ is not coprime to hA (possible when a prime ℓ | A does not divide h), the class contains no
+irreducible P of degree n > k and can be dropped. Otherwise Fact 5.2 applies to it. Let
 𝒢 := {g monic irreducible: 1 ≤ deg g ≤ m₂, g ∤ A, g ≡ −v₀ (mod A)}.
 For g ∈ 𝒢 with g | P + 1, Lemma 5.1 applies. We have gcd(g, h) = 1. Also A·h·g | P + 1 + hg, since
-h | P + 1, g | P + 1, and (P + 1 + hg)/h = v + g ≡ v₀ − v₀ ≡ 0 (mod A) (and A, g, h-cofactor coprimality is
-handled by CRT). Finally deg(Ahg) ≤ k + H + n/5 ≤ n for n large. So P ∈ 𝒞 is solvable unless
+(P + 1 + hg)/h = w + g with w := (P+1)/h; g | w (as g | hw, gcd(g, h) = 1) and w + g ≡ v₀ − v₀ ≡ 0 (mod A),
+with gcd(A, g) = 1, so Ag | w + g. Finally deg(Ahg) ≤ k + H + n/5 ≤ n for n large. So P ∈ 𝒞 is solvable unless
 N(P) := #{g ∈ 𝒢 : g | P + 1} = 0.
 First moment: P ∈ 𝒞 and g | P + 1 is one class r_g mod hAg, coprime to hAg. By Fact 5.2,
 Σ_{P∈𝒞} N(P) = Σ_{g∈𝒢} [q^n/(nΦ(hA)(|g| − 1)) + O(n·q^{n/2}/n)].
