@@ -70,7 +70,7 @@ Readings (Assessment):
    with the truncation point. It is the same mechanism as square-mimicking.
    * *Correction to O142 §3.6.* O142 reported that the truncated `log L(1, χ_p)` correlates weakly and
      *positively* with f (+0.13 for f_II, within mod-24 cells). That is a Simpson's-paradox aggregate.
-   * Re-running O142's code on primes in `[2²⁰, 3·10⁷]` (Y = 300, `/tmp/chk.py`, logic copied from
+   * Re-running O142's code on primes in `[2²⁰, 3·10⁷]` (Y = 300, `scripts/bs_adv_simpson.py`, logic copied from
      `bs_prob_typecorr.py`) gives these within-cell correlations:
 
      | | value |
