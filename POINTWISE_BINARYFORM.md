@@ -423,3 +423,49 @@ values in an interval of length O(T) < ℓ; the O(1) roots of ℛ add O(T). So t
 ≥ `(ρ − O(1/L))vol(B₀)T² − O_L(T) > 0` for L, then T, large. Any good Z gives X = X_Z, w = F₁(Z):
 (1) by Steps 4–5, (2) by Step 4, (3) because no prime divides both F₁(Z) and G₁(Z) (including λ,
 since λ ∤ F₁(Z)), (4) by goodness at λ. ∎
+*Check.* `scripts/bf2_sieve_check.py` (`data/bf2/sieve_check.txt`): G = u(u−2v+3)(v²+u−1)(u+v)
+(G(0,0) = 0, Q ∤ G), H = (u+2v)(3u−v), λ ≤ 200. For Q ∈ {u²+v², u²+uv+v², u²+2v², u²+5v²} and
+M ∈ {8, 24, 40, 16, 24, 40} (8, 2D | M), every (square class mod M, octant) pair contains a point
+λX with (2)–(4): 0 of 5 568 pairs missing (after enlarging the box for u²+2v², u²+5v²; the first
+pass missed 411 pairs, a box effect). Between 50% and 75% of the square classes contain *no*
+primitive square point; there every square point P has gcd(u,v) > 1 dividing gcd(Q(P), G(P)),
+so R159's direct route (coprimality at P itself) fails and the descent of Lemma 8.3 is needed.
+
+**Theorem 3.2′ ((x,y,z)-families; PROVED, unconditional, any degree).** Let F = (x,y,z) be a
+polynomial (x,y,z)-family for Q, δ ∈ N clearing the denominators of x, y, z and of every
+coordinate quotient by Q that is a polynomial, and M divisible by 8, 2D and δ. Let
+`A_F = {θ : x_top, y_top, z_top > 0 at (cos θ, sin θ)}` (top-degree forms).
+(b′) If F is integral at some point of a square class C mod M, then A_F = ∅.
+(c′) Hence for every square class C mod M and δ′ > 0 the points of C where F is valid lie, outside a
+bounded set, within angle δ′ of the finitely many zero directions of x_top, y_top, z_top.
+*Proof.* Integrality of F at P depends only on P mod δ, so F is integral on all of C. Suppose A_F
+contains an open arc; take a closed subarc I and S the open sector over a slightly smaller open arc. By
+Lemma 3.1 there is R with F valid at every P ∈ C ∩ S, |P| > R. For P ∈ C, n = Q(P) is prime to δ,
+so `x(P) = n·x̃(P)` with x̃(P) ∈ Z whenever x = Qx̃ (as in Lemma 8.1).
+Shape (0) is impossible by Lemma 8.1 (C ∩ S has points beyond R).
+Shape (I), x = Qx̃, `k = ord₀ y = ord₀ z` (Lemma 8.2). Apply Lemma 8.4 with `G = (δy)(δz)`, r = 1,
+`H₁ = δy₁` if k = 1 (H₁ = 1 otherwise), and λ₁ ≥ δ, |G(0,0)|. Let P = λX, n = λ²w². F is valid at P.
+Since (δy)(λX) = Σ_{j≥k} λ^j(δy_j)(X) and λ ∤ δ, `λ^k | y(P)`, `λ^k | z(P)`, and gcd(w, y(P)z(P)) = 1
+by (3).
+• k = 0: G(P) ≡ G(0,0) ≢ 0 mod λ, so gcd(n, y(P)z(P)) = 1: a Type I solution for the odd square n,
+  contradicting Lemma 8.3(e).
+• k = 1: `y(P)/λ ≡ y₁(X)`, `z(P)/λ ≡ z₁(X) = −y₁(X)` (Lemma 8.2) and `x̃(P) ≡ x̃(0,0) = 1/4 (mod λ)`.
+  By (4) λ ∤ y₁(X), so λ ∥ y(P), λ ∥ z(P), and Lemma 8.3(a) gives `(−x̃(P)(y(P)/λ)(z(P)/λ)/λ) = −1`.
+  But `−x̃(P)(y(P)/λ)(z(P)/λ) ≡ (y₁(X)/2)² ≢ 0 (mod λ)`, a nonzero square: contradiction.
+• k ≥ 2: λ² | y(P), z(P), contradicting Lemma 8.3(c).
+Shape (II), y = Qỹ, z = Qz̃, `k = ord₀ x`. Apply Lemma 8.4 with G = δx, H₁ = δx₁ if k = 1. Then n | y(P),
+n | z(P), λ^k | x(P), gcd(w, x(P)) = 1.
+• k = 0: λ ∤ x(P) ≡ x(0,0) ≠ 0: Type II for the odd square n, contradicting Lemma 8.3(e).
+• k = 1: λ ∥ x(P) by (4); Lemma 8.3(b) gives `((1 − 4ỹ(P))/λ) = −1`; but ỹ(0,0) = 0 (Lemma 8.2(II),
+  x(0,0) = 0), so 1 − 4ỹ(P) ≡ 1 (mod λ): contradiction.
+• k ≥ 2: contradicts Lemma 8.3(d).
+So A_F = ∅. (c′) follows from (b′) and Lemma 3.1 as in Theorem 3.2(c); no sign dilation is needed,
+validity being x, y, z > 0. ∎
+
+**Corollary 3.4′ (PROVED, relative to Hecke as in Cor 3.4).** Cor 3.4 holds verbatim for finite sets 𝔉
+of (x,y,z)-families with coordinates in Q[u,v] or Q(u,v): a family with a non-polynomial coordinate
+is valid at ≪ X^{1+ε} points of norm ≤ X (Lemma 3.3 applied to that coordinate), and polynomial ones
+are handled by Theorem 3.2′(c′). M must be divisible by 8, 2D and the δ's of the polynomial families.
+So **no "Fermat + identity" certificate whatsoever** — (x,y,z) or (a,…,f), polynomial or rational in
+(u,v) — covers a positive proportion of the primes of any square class mod the joint modulus M.
+This closes §4.4(iv) and R159 D6.
