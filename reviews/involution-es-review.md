@@ -12,7 +12,8 @@ ES is not solved here, and the document does not claim it is.
 | Prop 2.3 (parity) | SOUND |
 | Prop 2.3(ii) / summary inference | SOUND-AFTER-REPAIRS (wording; see D1) |
 | Prop 3.1 | SOUND (scope caveat D2) |
-| Lemma 4.1 / Prop 4.2 / Thm 4.4 | pending |
+| Lemma 4.1 / Prop 4.2 / Thm 4.4 (mathematics) | SOUND (minor D4, D5) |
+| §0/§4 interpretation ("closes the WINDMILL Prop 2 gap", "no cross-slice coupling") | GAP: overclaimed framing (D3, MAJOR) |
 | Thm 5.1 / Lemma 5.2 | pending |
 | Cor 5.3 | pending |
 | novelty / §6 framing | pending |
@@ -76,3 +77,56 @@ The scope is correct as written: Prop 3.1 is a statement about a formal count D,
 only through Lemma 1.1. That requires the windmill to be defined at **every** odd m² of the class, including
 the 25–48-digit composite m with prime factors in the classes ā and a². Remark 3.2 is honest: `1+[n=□]` passes.
 **SOUND.** The one caveat is the framing (D2).
+
+### Lemma 4.1, Prop 4.2, Lemma 4.3, Thm 4.4, Remark 4.5
+
+**Lemma 4.1.** I went through it step by step.
+* (i) If σ(x) = g(x) for a non-symmetry g, then `P(g(x)) = P(x)`, so x ∈ Z₀.
+* If g is a degenerate symmetry, then `y = σx` lies in the image `L(P(y))`, so y ∈ Z₁, and `x = σy = g'(y)` lies
+  in Z₂.
+* Z₁ is proper. Its generic fibre `S_{n₀} ∩ L(n₀)` is proper because S_{n₀} is irreducible and not planar. A
+  constructible set with proper generic fibres has proper closure.
+* Z₂ is proper: a rational image does not raise dimension.
+* (ii) Z = H·(…) is H-invariant (H is a finite group of birational maps, all regular at points of 𝒳 off E),
+  so σ(x) = h(x) ∉ Z.
+
+The "symmetries" with ℚ(n)-coefficients are correctly reduced to per-level affine automorphisms of
+`S_{n₀}`. Note that "g(n₀) ∈ {id, ρ} for infinitely many n₀" gives `g = id` or `g = ρ` as rational maps.
+**SOUND.** Minor (D4): the phrase "invertible symmetries … that can map a point of 𝒳 to a point of 𝒳 outside
+Z₃" should say "map some x ∈ 𝒳 ∖ Z₃ into 𝒳".
+
+**Prop 4.2.** The reduction to monomial linear parts is the unique-factorisation argument on the top-degree
+part. It is correct for (a)–(c), and for (d) after the polar-divisor step `t' = λt`, which is also correct.
+From-scratch check (`scripts/review_inv_sym.py`):
+* (a) all 6 permutations, λ = 1, β = 0, for symbolic n.
+* (b) a Groebner basis over all 6 permutations with symbolic n, and `λ₁λ₂λ₃n ≠ 0` imposed. It gives exactly
+  id and ρ; the other 4 permutations give the ideal (1). Note: `sympy.solve` silently returns no solutions on
+  this system, so I used Groebner.
+* (c) exactly the scalings `(λa, λb, a… c/λ², λk)` and the swap, for n-independent maps.
+* (d) for **fully general** affine maps in (A,B,t) (12 unknowns, no monomiality assumed), only
+  `(αA, B/α, t)` and `(αB, A/α, t)`. The other solutions have `t' = 0` and are not invertible.
+
+I also checked by hand the n-dependent Type II example `(nk,b,c,a/n)`: it preserves F and maps (x,y,z) to
+(y,x,z). **SOUND.**
+
+**Lemma 4.3(i)** is re-derived: `s | A`, and `t·s | rA+s ≡ s−r (mod t)`. **Remark 4.5** is re-derived:
+`t' ≤ A+1` with `k ≥ 1` forces `k = t = 1`; for `k ≤ −1`, `|k|A ≤ t−1 ≤ A` forces `|k| = 1` and u = 1 (the clause
+"or t = 1" is vacuous, since it would force A = 0). Brute force for n ≤ 400 with α = r/s, r,s ≤ 7 and
+|k| ≤ 6: 0 violations of Lemma 4.3(i); 4938 unipotent moves found, all on t = 1 or u = 1. **SOUND.**
+
+**Thm 4.4** follows from the above as stated. **SOUND as a mathematical statement.**
+
+**Does "generic" hide the whole problem?** For the existence question, yes, and this is the main defect of
+the document (D3). Z is an arbitrary proper algebraic set that depends on the menu, and the theorem says
+nothing about what σ does on Z. A windmill may live entirely on Z. Thm 5.1 makes this explicit: the
+conclusion is `E(p) ∩ Z ≠ ∅`, which is not a contradiction. The empirical picture shows that ES certificates
+sit on a few low planes:
+
+EVIDENCE (`scripts/review_inv_planes.py 40000`, 69 s). For **every** prime `p ≡ 1 (24)` with p ≤ 40000 (501
+primes), E(p) meets the 33 planes `{t=c} ∪ {u=c} ∪ {v=c}`, c ≤ 11. The worst case is c = 11 at p = 12289.
+CONDITIONAL_ES already records t ≤ 367 for all 4519 Mordell-hard primes below 2·10⁶.
+
+So the "exceptional" set of a finite-menu windmill can contain the entire empirically used part of E(p).
+§4 therefore does not show that finite-menu windmills fail. It shows that they reduce to a **bounded-slice
+statement** "E(p) ∩ Z ≠ ∅ ∀p", and for coordinate planes the only known refutation of that statement is
+conditional (Cor 5.3, Dickson). Unconditionally, §4–§5 exclude **no** windmill defined on primes.
