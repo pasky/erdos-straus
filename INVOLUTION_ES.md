@@ -63,3 +63,60 @@ depend on n). §4 treats constructions defined on primes only.
 
 EVIDENCE (`scripts/inv_x_squares.py 1500 90000`, 4 min): Lemma 2.1 checked for all odd n ≤ 1500; `E(m²) = ∅`
 for all odd m ≤ 300; `|X(m²)|` odd for 137 of the 149 odd m in [3,300], and for every odd prime m there.
+
+## 3. Divisor-type fixed-point counts: what T1 forces
+
+In a Zagier-type windmill the σ-fixed count is evaluated through binary forms of square discriminant on
+the fixed loci (O152a §1.1), i.e. it is *divisor-type*. Fix a modulus M and a square class
+`h ≡ a² (mod M)`, `gcd(a,M)=1`. Consider
+
+  `D(n) = Σ_{uv=n, u<v} φ(u mod M, v mod M) + [n = u²]·ψ(u mod M) + c(n mod M)   (mod 2)`,        (D)
+
+with arbitrary `φ, ψ, c` (values in 𝔽₂). This covers divisor counts restricted by congruences mod M and by
+finitely many homogeneous cones `λu < v` (see the proof), square loci (Zagier's boundary correction) and
+isolated "periodic" fixed points (the `(1,1,(n−1)/4)` of Zagier, the `(n+2,1,1)` of X(n)).
+
+**Proposition 3.1 (PROVED).** Suppose `D(m²) ≡ 0` for every odd m with `m² ≡ h (mod M)` (Lemma 1.1 forces
+this when D is the σ-fixed count of a windmill family on the class h whose τ-fixed points are certificates
+that do not exist at odd squares). Then `φ(1,h) = 0`; hence `D(p) = c(h)` for every prime `p ≡ h`, and
+`ψ(a') = c(h)` for every `a'` with `a'² ≡ h`. In particular, if `D(p)` is odd then `c(h) = 1` and `ψ(a') = 1`.
+
+So *the odd fixed point at primes can never come from the divisor part `1·p`* (as it does in Zagier's proof,
+where the fixed point `(1,1,(p−1)/4)` is the factorisation `p = 1·(1+4z)`); it must be a periodic point
+present for every n of the class, and then the fixed locus must contain a square-detecting piece that cancels
+it at every m². (For X(n) the periodic point is `(n+2,1,1)` and the square piece is missing: Prop 2.3.)
+
+*Proof.* `D(p) = φ(1,h) + c(h)`. Choose primes `q_1 < q_2 < …`, prime to M, in prescribed classes, with
+`q_j > ∏_{i<j} q_i^{2e_i}` (Dirichlet). For `m = ∏ q_i^{e_i}` and `d | m²`, `d ≠ m`, the comparison
+`d < m²/d` is decided by the largest index where the exponents of d and m²/d differ (that `q_j^{±1}`
+dominates the rest). [The same holds for any fixed cone `λd < m²/d` once the q_j are large compared with
+λ^{±1}; the diagonal `d = m` is the ψ-term, so finitely many cones only change ψ.] Write `ā = a⁻¹`, and
+`φ_r := φ(a^r, a^{2−r})`, `ψ := ψ(a)`. The patterns (classes; exponents)
+
+| pattern | m | expansion of `D(m²) − c(h)` |
+|---|---|---|
+| P1 | `q₁²q₂³`, `q₁≡ā, q₂≡a` | `φ₀+φ₃+φ₋₁+φ₋₂+φ₋₄+ψ` |
+| P2 | `q₁q₂`, `q₁≡ā, q₂≡a²` | `φ₀+φ₂+φ₋₁+φ₋₂+ψ` |
+| P3 | `q₁q₂`, `q₁≡1, q₂≡a` | `φ₀+φ₁+ψ` |
+| P4 | `q₁²q₂q₃`, `q₁≡ā, q₂≡a, q₃≡a²` | `φ₁+φ₂+φ₃+φ₋₄+ψ` |
+
+all have `m ≡ a`, `m² ≡ h`. (E.g. P3: the smaller member of each pair `{d, m²/d}` is `1, q₁, q₁²` (residue 1,
+giving `3φ₀`) and `q₂` (pair `(q₂, q₁²q₂)`, giving `φ₁`).) The four expansions sum to `φ₀ = φ(1,h)` mod 2, so
+`0 = Σ D(m_i²) = φ(1,h) + 4c(h) = φ(1,h)`. Then `D(p) = c(h)`, and `m = q ≡ a'` gives
+`0 = D(q²) = φ(1,h) + ψ(a') + c(h)`. ∎
+
+The rows are computed in the *free model* (`a` of infinite order; `scripts/inv_t1_free.py 3 3 -1 2` finds this
+certificate); specialising to an actual `(M, a)` only identifies variables, so the cancellation persists for
+every M and every unit a. Independent check on actual integers (actual primes with the size condition,
+divisors enumerated, all variables cancel): `scripts/inv_t1_cert_check.py M a` for
+`(M,a) = (840,11), (24,5), (120,7), (1,1), (7,3)`. In the free model restricted to residues `{1, a}` no
+certificate exists (`inv_t1_free.py 3 2 0 1`): the classes `ā, a²` are needed.
+
+**Remark 3.2 (what this does and does not exclude).** Prop 3.1 does **not** exclude divisor-type windmills:
+`D(n) = 1 + [n = □]` (`c = 1`, `ψ = 1`, `φ = 0`) satisfies all T1 constraints. What it shows is the *shape*
+any T1-compatible windmill must have: a periodic odd fixed point plus a fixed piece that sees exactly the
+squares. Neither ingredient uses the primality of p beyond "p is not a square"; so a windmill with a
+divisor-type σ-count proves, at best, "W(n) odd for every non-square n of the class with
+`Σ_{uv=n,u<v} φ = 0`", and the content is entirely in the identity `W ≡ D` at composite non-squares, where
+T1 gives no information. T1 alone is therefore no barrier to the windmill route; the barrier, if any, must
+come from the structure of the maps (§4).
