@@ -103,3 +103,62 @@ So "square class" is exactly the two-variable **class of one**: the trivial elem
 profinite group `lim G_M`. Item (ii) of the brief (a profinite trap at `(u,v) ≡ (1,0)`-type points) is
 the same object. Unlike the one-variable trap of O145 Lemma 3.1, it contains genuine rational
 square points, so no Hypothesis H is needed.
+
+## 3. The obstruction theorem
+
+For a polynomial family F let `K_F` be a modulus such that `F(P) ∈ Z⁶` depends only on `P mod K_F`
+(take K_F = a common denominator of the coefficients: `δ·g ∈ Z[u,v]`, and `δg(P) mod δ` is
+`δ`-periodic). Let `H_j` be the top-degree form of the j-th coordinate (all coordinates are nonzero
+polynomials: ET Σ-points have no zero coordinate), and
+`A_F = {θ : H_j(cos θ, sin θ) > 0 for j = 1,…,6}` (an open subset of the circle).
+
+**Lemma 3.1 (signs at infinity; PROVED, elementary).** Let `Z_F` be the finite set of directions
+where some H_j vanishes. For every δ > 0 there is R_δ such that if `|P| > R_δ` and
+`dist(arg P, Z_F) > δ`, then all coordinates of F(P) are positive iff `arg P ∈ A_F`.
+*Proof.* On the compact set `{dist(θ, Z_F) ≥ δ}`, `|H_j| ≥ c_δ > 0`; the lower-degree terms are
+`O(|P|^{deg − 1})`. ∎
+
+**Theorem 3.2 (no two-variable identity on a square class; PROVED, unconditional, any degree).**
+Let F be a polynomial Type I or Type II family for Q (§1). Let M be divisible by 8, 2D and K_F.
+(a) F is valid at no point P with `Q(P)` an odd square.
+(b) If F is integral at some point of a square class C mod M, then `A_F = ∅`.
+(c) Hence, for every square class C mod M and every δ > 0, the points of C where F is valid lie,
+outside a bounded set, within angle δ of the finite set Z_F of directions.
+*Proof.* (a) is Lemma 1.1, since a valid F(P) is an N-point of Σ_I resp. Σ_II for `n = Q(P)` (§1).
+(b) If F is integral at one point of C, it is integral on all of C because K_F | M. If A_F ≠ ∅,
+it contains an open arc I; by Lemma 3.1 (with δ smaller than the distance from a closed subarc to
+Z_F) F is valid at every point of C in the sector over that subarc and beyond some radius. Lemma 2.1
+gives such a point with Q(P) an odd square, contradicting (a). (c) follows from (b) and Lemma 3.1:
+if F is not integral on C there is nothing to prove. ∎
+
+**Lemma 3.3 (rational-function families reduce to polynomial ones; PROVED, elementary).** Let
+`g = A/B` (A, B ∈ Z[u,v] coprime, B nonconstant). Then `#{P ∈ Z² : |P| ≤ X, B(P) ≠ 0, g(P) ∈ Z} ≪_{g,ε} X^{1+ε}`.
+*Proof.* Take an irreducible factor B₁ of B, of positive v-degree say. `R(u) = Res_v(A, B₁) ≢ 0`
+(Gauss's lemma), and `κR = αA + βB₁` with α, β ∈ Z[u,v], κ ∈ Z∖0. If `g(P) ∈ Z` then `B₁(P) | A(P)`,
+so `B₁(P) | κR(u)`. For each of the O(X) values u with `R(u) ≠ 0` and `B₁(u,·)` nonconstant,
+`B₁(u,v)` takes one of `≤ 2τ(κR(u)) ≪ X^ε` values, each at `≤ deg_v B₁` values v. The finitely many
+exceptional u contribute O(X). If B₁ = B₁(u), swap the roles of u and v. ∎
+Prime points number `≍ X²/log X` in every square class, by Hecke (below), so a rational-function
+family with a non-polynomial coordinate is valid at a density-zero set of prime points.
+
+**Corollary 3.4 (finite certificate sets miss almost all primes of every square class; PROVED,
+relative to Hecke's equidistribution of prime ideals in sectors and ray/ring classes).** Let 𝔉 be a
+finite set of polynomial or rational-function Type I/II families for Q. Let M be divisible by 8,
+2D and all K_F. Let r be a square unit mod M such that the primes `p ≡ r (M)` represented by Q have
+positive density (for Q = u² + v²: every r ≡ 1 (4)). Then the primes `p ≡ r (mod M)` with
+`p = Q(P)` for some P at which some F ∈ 𝔉 is valid have relative density 0 among these primes.
+In particular, for every Mordell-hard class r₀ mod 840 (all are squares: 1, 121, 169, 289, 361, 529)
+and every such 𝔉, almost all primes `p ≡ r₀ (mod 840)` that are squares mod M are not certified by 𝔉.
+These primes have relative density `∏_{ℓ | M, ℓ ∤ 840} 1/2 > 0` within the class.
+*Proof.* Every representation P of such a p lies in a square class mod M (`Q(P) = p ≡ r`). Each p
+has at most `w(D) ≤ 6` representations up to the 2 signs. By Lemma 3.3 and Theorem 3.2(c),
+the valid points of each F lie, up to a set of zero density among prime points, in `δ`-sectors around
+`|Z_F|` directions. By Hecke's theorem (Gaussian primes, resp. prime ideals of the order of
+discriminant D in a fixed ring class, equidistribute in angle within each ray class mod M), their
+share of prime points is `≤ C_𝔉 δ + o(1)`. Let δ → 0. ∎
+
+So **no Fermat + identity certificate** (compute a representation p = Q(u,v), then evaluate one of
+finitely many polynomial or rational ET identities in (u,v)) proves ES for all, or for a positive
+proportion of, the primes in any square class. The degree is unbounded and no hypothesis is used.
+This is the two-variable analogue of Mordell–Schinzel (one-variable identities cannot cover square
+classes; ET p. 8). The proof is the same: odd squares in the parameter set.
