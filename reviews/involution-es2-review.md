@@ -40,3 +40,42 @@ W, so the fibre bound applies. The constant depends only on W (degree), not on N
 The bound `N^{2/3}` is attained up to constants (e.g. `W = {t = u + v}` has ≍ `N^{2/3}` points with
 `P ≤ N`), so nothing better can be claimed from size alone; the author does not.
 
+### Lemma 4.1 / Lemma 4.2 (slice divisor divides a fixed polynomial; bounded search) — SOUND
+
+Re-derived. `u·B = tuv − u = n + v`, `v·A = n + u`; mod A: `tu ≡ 1`, `tn ≡ −1`, so t is a unit,
+`t ≡ −n⁻¹`, `u ≡ −n` (n is a unit mod A as `A | tn+1`). Then `n^{deg_T f} f(t,u) ≡ R_f(n)` and `R_f ∈ ℤ[n]`
+because each monomial `T^iU^j`, `i ≤ deg_T f`, becomes `±n^{d−i+j}`. Mod u: `v ≡ −n`, so `u | g(0,−n)`;
+symmetric for v. (e): `f(−1/x,−x) ≡ 0` iff f vanishes on the irreducible curve `TU = 1`. Lemma 4.2's three
+search loops enumerate exactly `E(n) ∩ W` (I re-checked the reconstruction `(tu−1)(tv−1) = tn+1 ⇒ P = n`).
+Check: 399 random (point of X(n), random polynomial through it) trials of (a)–(d), 0 failures
+(`scripts/review_inv2_lemmas.py`).
+
+### Lemma 5.1 (character lemma for A, B, uv) — SOUND
+
+Re-derived every symbol. A: INVOLUTION_ES Lemma 5.2 (R158-checked). B: for `ℓ | β`, `p ≡ −t⁻¹ (ℓ)`, so
+`(p/β) = (−t/β)`; `B ≡ −1 (t)` with `t ≡ 3 (4)` gives `(2/t)^e(β/t) = −1`; reciprocity with `(t−1)/2` odd gives
+`(t/β) = (β/t)(−1/β)`, so `(p/β) = (β/t) = −(2/t)^e`, and `e ≥ 1 ⇒ 8 | tp+1 ⇒ t ≡ 7 (8)`. uv: `u ≡ 3 (4)`;
+the coprimality argument (`p | u ⇒ p | v` via `vA = p+u`, `p ∤ A`; then `p·max(u,v) > p+u+v` for p > 3) is
+right; `(p/uv₀) = (2/u)^b(−1/u)(−1/v₀)(−1)^{(u−1)(v₀−1)/4} = −(2/u)^b` in both classes of `v₀ mod 4`, and
+`b ≥ 1 ⇒ 8 | p+u ⇒ (2/u) = 1`. Brute force (independent enumeration of X(p) over all (u,v)): **5528 E-points,
+all primes p ≡ 1 (8), p < 20000: all three symbols −1, 0 failures**; also `t ≡ u ≡ 3 (4)` on every point, and the
+individual t, u, v symbols take both values (so the statement is not a triviality about t, u, v separately).
+
+### Lemma 5.2 / Theorem 5.3 (cylinders barred under H) — SOUND ("admissible ⇒ empty" PROVED; infinitude CONDITIONAL, labels honest)
+
+Re-derived. `R(P(q)) = κ p^{e₀} ∏ (C_{h_j} r_j)^{e_j}`, κ ∈ ℤ (R ∈ ℤ[n]), so the primes ≠ p of `R(p)` are those of
+`K` (in Λ) and the `r_j`. Odd ℓ ∈ Λ: `p ≡ 24q*_ℓ+1 (ℓ)` is a nonzero square, `(ℓ/p) = (p/ℓ) = 1`; 2: `p ≡ 1 (8)`.
+`r_j`: `24q ≡ −1 (p)` ⇒ `24^{d}h_j(q) ≡ H_j (p)`, all primes of `H_j`, `C_{h_j}`, 24 in Λ, sign harmless as
+`(−1/p) = 1`. Then Thm 5.3: `A`, `B` or `uv` divides `R(p) ≠ 0` (Lemma 4.1), has a non-residue prime ≠ p
+(Lemma 5.1) — contradiction. The Lemma 2.1 enlargement of Λ (`E_ℓ ≥ v_ℓ(α)`) makes p a unit square mod
+`ℓ^{v_ℓ(α)}` since `24q*_ℓ+1` is a square unit. The H/BH hypothesis is applied to Theorem M(b)'s normalised
+family, which POINTWISE_SIZE Thm M(b) proves to be primitive, irreducible, with no fixed prime divisor; so the
+conditional parts invoke the standard form of H / BH. Remark 2's plane resultants (`−(cp+1)`, `−(p+c)`,
+`c(p+c)`) and Remark 3 (`p²−1 = 48q(12q+1)`, `H_X = −1`, `H_{12X+1} = 12`) recomputed.
+
+Independent check (`scripts/review_inv2_cyl.py 30000`, log `logs/review_inv2_cyl_30000.txt`): for 11 cylinders
+(5 differ from the author's: `t=7`, `u=t²+2` as v-cylinder, a B-side `v=2t+1` u-cylinder, `v=u+6`, and two
+finite curves as negative controls), all 385 primes `p = 24q+1 ≤ 30000`: "every prime ≠ p of `R_W(p)` is a
+residue" ⇒ `E(p) ∩ W = ∅`, **no exception**; author's counts reproduced (`{t=u}` nonempty at 52, `{t=3}` at 193,
+QR at exactly the other 192). Remark 3: 17 q with `q, 12q+1, 24q+1` prime, `E ∩ {t=u} = ∅` at all.
+
