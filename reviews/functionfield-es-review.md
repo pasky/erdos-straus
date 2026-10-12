@@ -82,3 +82,44 @@ E = T + 1, is consistent with P = T²R − E. Machine check: the explicit (X, Y,
 A·XYZ = P(XY + YZ + ZX), is monic, and satisfies NC for **all 4717 irreducible P of degree 3..15** over F₂
 (`scripts/review_ffl_identities.py`). No defects.
 
+### C5. Proposition 4.1 (Type II sign law) and the §4 "no obstruction" conclusion — formula SOUND; conclusion GAP (overclaimed label)
+
+**The formula.** I re-derived it. Ef = Aacd·E − E = Aad(a+b) − E = Aa²d + P. Since f ≡ −1 (mod a), we get
+(a²/f) = 1. (−1/ℓ) = ((−1)^{(q−1)/2})^{deg ℓ}, since (q^m − 1)/(q − 1) ≡ m (mod 2) for odd q. Reciprocity for
+monic coprime f, Ad gives (Ad/f) = (−1)^{((q−1)/2)·deg f·deg Ad}·(f/Ad), and f ≡ −1 (mod Ad). The exponents add
+up to ((q−1)/2)((1+deg f)(1+deg Ad) − 1). Note deg f ≥ k ≥ 1 always holds, so the excluded case deg f = 0 never
+occurs. Also P ∤ f, since P | f would force P | Aa²d.
+Machine check, from scratch and reciprocity-free (Jacobi symbol by factoring f and Euler's criterion),
+`scripts/review_ffl_sign.py`, log `data/review_ffl_sign_log.txt`: I enumerated all Type II data on irreducible P
+for (q, A, n) = (3,T,4), (3,T,5), (3,T²,5), (3,T²+1,5), (5,T,4), (5,T²+1,4), (7,T,4), (9,T,3), (9,T+2,4),
+(11,T,3). That is 11 558 data, 0 mismatches, and q ∈ {9, 11} were not in the author's check. The identity
+Ef = P + Aa²d was asserted on every datum.
+
+**The conclusion** (lines 124–136, "PROVED at the level of Type II classes … There is no obstruction class of
+monic P in F_q[T] for any q"):
+* **D7 (MAJOR, overclaimed label / ill-defined statement).**
+  (a) "Obstruction class" is never defined, so "PROVED" has no precise content. What is actually proved is narrower:
+  *the Mordell / ET Prop 1.6 mechanism does not transfer.* For q ≡ 1 (mod 4) every Type II datum imposes (P/f) = +1.
+  Perfect squares M² satisfy this for every datum, so squares are not excluded from any Type II family. For
+  q ≡ 3 (mod 4), squares are excluded exactly from the data with deg f or deg Ad odd.
+  (b) **"for any q" includes even q.** In char 2, Prop 4.1 is meaningless: there is no Jacobi symbol (one would
+  need the Artin–Schreier symbol), and nothing in §4 applies. The claim is unproved there.
+  (c) The sketch "a P could be obstructed only if (P/f) = −1 for every monic f; the only candidates are P = uM²"
+  quantifies over all monic f. The admissible f are only those of the form Aacd − 1, with (a, c, d) coupled to P
+  through P = Aabd − E. The step from "for every admissible f" to "for every monic f" is not justified. It is
+  also irrelevant to irreducible P, which are never of the form uM².
+  (d) It reads as contradicting §6.3, which says char ≥ 5 *does* have an obstruction to finite coverings (the size
+  class P ≡ 1). The intended meaning is "no *quadratic-residue* obstruction".
+  *Repair:* Replace the conclusion with: "PROVED (q odd): the sign in Prop 4.1 is +1 for all Type II data if
+  q ≡ 1 (mod 4), and for the data with deg f, deg Ad both even if q ≡ 3 (mod 4). Consequently squares are never
+  excluded by the Type II sign condition, and the Mordell square-class argument against finite coverings has no
+  analogue. Assessment: no quadratic obstruction is expected. Char 2: not addressed." Drop "for any q" and drop
+  the "every monic f" sketch, or prove it for the admissible f.
+* **D8 (MINOR).** "q ≡ 3 (mod 4): every class keeps the families with deg f and deg Ad both even". This is true as
+  a statement about degrees, but for a *linear family* (Lemma 6.2) with type-2/3 terms, f depends on P and deg f
+  moves with n. So the sign of a fixed family alternates with the parity of n. The sentence should say that the
+  sign of a family is a function of (class mod W_F, parity of n). That is the precise sense in which "no
+  congruence controls it".
+* The bias data (i) were spot-checked against the author's failure list for q = 7, n = 6. The P(0) values are
+  2, 1, 1, 1, as stated. The tilt numbers (ii) were not re-computed (EVIDENCE, low stakes).
+
