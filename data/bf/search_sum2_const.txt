@@ -1,0 +1,1 @@
+# Q=u**2 + v**2 cmode=const dcoef=[-1, 0, 1]: |C|=3 |D|=728 genuinely-2var families found: 0

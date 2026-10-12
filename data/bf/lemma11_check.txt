@@ -1,0 +1,1 @@
+NMAX=1500 B=30: TypeI(odd n) N-points 15556, TypeII N-points 20998; all checks passed
