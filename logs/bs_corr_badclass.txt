@@ -1,0 +1,50 @@
+p=100057 Qmax=30000  slices: hit=38 prime=3868 charexpl=12356 accidental=4358
+  of charexpl: explained only by higher-order (non-quadratic) characters: 413
+log2(q)  hit prime char acc
+ 2  1 0 0 0
+ 3  2 1 1 0
+ 4  3 1 6 1
+ 5  5 8 10 6
+ 6  2 12 31 23
+ 7  6 30 83 41
+ 8  5 62 198 99
+ 9  4 125 413 165
+10  3 252 720 247
+11  2 404 1260 422
+12  4 640 2134 691
+13  0 1054 3331 1136
+14  1 1279 4169 1527
+p=1002121 Qmax=30000  slices: hit=82 prime=6267 charexpl=24522 accidental=6551
+  of charexpl: explained only by higher-order (non-quadratic) characters: 760
+log2(q)  hit prime char acc
+ 2  0 0 1 0
+ 3  2 0 2 0
+ 4  3 1 7 0
+ 5  2 3 20 4
+ 6  9 12 38 9
+ 7  11 25 91 33
+ 8  11 52 214 87
+ 9  8 148 501 163
+10  10 278 1155 359
+11  8 548 2080 619
+12  8 1001 3776 1041
+13  8 1744 6785 1707
+14  2 2455 9852 2529
+p=4000081 Qmax=30000  slices: hit=74 prime=7268 charexpl=31789 accidental=7951
+  of charexpl: explained only by higher-order (non-quadratic) characters: 1117
+log2(q)  hit prime char acc
+ 2  1 0 0 0
+ 3  1 1 2 0
+ 4  2 2 7 0
+ 5  8 4 13 4
+ 6  7 9 45 7
+ 7  6 23 101 30
+ 8  8 54 219 83
+ 9  10 125 529 156
+10  7 267 1170 369
+11  11 582 2615 750
+12  7 1103 4899 1209
+13  3 2044 8886 2149
+14  3 3054 13303 3194
+p=1002001 Qmax=30000  slices: hit=0 prime=5459 charexpl=31962 accidental=0
+  of charexpl: explained only by higher-order (non-quadratic) characters: 0
