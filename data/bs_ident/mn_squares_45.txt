@@ -1,0 +1,10 @@
+m=4 odd s<=45 coprime to m: 22 squares, 22 with no TypeI/II, total TypeI 0 TypeII 0
+m=5 odd s<=45 coprime to m: 17 squares, 0 with no TypeI/II, total TypeI 269 TypeII 107
+m=6 odd s<=45 coprime to m: 14 squares, 0 with no TypeI/II, total TypeI 102 TypeII 46
+m=7 odd s<=45 coprime to m: 19 squares, 1 with no TypeI/II, total TypeI 121 TypeII 35
+m=8 odd s<=45 coprime to m: 22 squares, 22 with no TypeI/II, total TypeI 0 TypeII 0
+m=9 odd s<=45 coprime to m: 14 squares, 0 with no TypeI/II, total TypeI 87 TypeII 32
+m=10 odd s<=45 coprime to m: 17 squares, 2 with no TypeI/II, total TypeI 89 TypeII 33
+m=11 odd s<=45 coprime to m: 20 squares, 2 with no TypeI/II, total TypeI 95 TypeII 40
+m=12 odd s<=45 coprime to m: 14 squares, 14 with no TypeI/II, total TypeI 0 TypeII 0
+m=13 odd s<=45 coprime to m: 20 squares, 3 with no TypeI/II, total TypeI 79 TypeII 28
