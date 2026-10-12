@@ -208,3 +208,17 @@ product ad = m and summing over the factorisations of m. That is H-A in lattice 
 where Minkowski-type exactness (main term ≍ 1, no error term) might combine with aggregation. Novelty: Lemma 3.1 is
 folklore. The "Fermat certificates escape B1/B3 but not B2" screen is a useful, plausibly new piece of barrier
 bookkeeping. **Promise 2.**
+
+**gon_incidence_kloosterman (O148c; memo: all five sub-ideas COLLAPSE).** AGREE. Re-derived the compact forms.
+* Type I ⟺ (4abd−1) | p(a+b). Since 4abd − 1 > a + b, primality of p forces p | 4abd − 1.
+* Type II ⟺ r = (−p mod 4ab) divides a+b. Here e ≤ a+b < 4ab pins e = r.
+
+These are correct and folklore-level. (c1) is the key sub-idea, and the memo's diagnosis is exactly right. The Weil
+step controls the *fixed* modulus p and is idle. All the content is the moving-modulus event e | a+b, with
+expectation O(1) per dyadic box (EVIDENCE at p = 20161: ≈ 0.03 witnesses per box; 685/694 boxes with ≥ 100
+hyperbola points are empty). False-negative check: one could hope for a box shape adapted to the genus/e-structure,
+e.g. restricting to (a,b) with a + b ≡ 0 mod small e, so that boxes become "rich". That is the e-slice
+reformulation again (a fixed finite e-set is Thm 2.2(iii)). Growing e-sets is H-A. (c3)'s BGK screen is right:
+D = divisors of N is not a subgroup and |D| ≤ p^{o(1)}. (c5) (Σ_e(N) = H_e when orders are small; only e = 3 for
+squarefree N) is correct and classical in effect. Open sub-question: none beyond H-A. Novelty: folklore-level
+reformulations; the box census is new EVIDENCE that a box-wise certificate cannot exist. **Promise 1.**
