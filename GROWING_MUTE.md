@@ -73,3 +73,73 @@ bounded A) into an orbit problem: for B free, each (λ, D) carries a Pell orbit 
 sense in which bounded cap + growing mute set has NO archimedean wall (R200 M1). The difficulty does not disappear,
 it moves: existence of ONE representation of −D by the principal form of discriminant 4(λ²D² − n), for some (λ, D)
 — a class-group lottery over a 2-parameter family of real quadratic orders (§2).
+
+## 2. The growing-mute sieve: what it can and cannot see (task (2))
+
+(V4) Construction as briefed: sieve primes g ≡ −1 (mod 4P), g ≡ a (mod 4 rad n), P = product of a growing set of
+primes, P ≈ g^{1/4} (inside the Bombieri–Vinogradov range), and hope −n/4 ∈ {Q² : Q | K·rad K} (mod g).
+
+**Proposition 2.1 (for each fixed P the firing set is an explicit finite divisor set; PROVED).** Fix squarefree odd P
+prime to n. The primes g ≡ −1 (mod 4P) whose shot solution is ES^{(y,1)} with overflow Q₁ | P are exactly the prime
+divisors g ≡ −1 (mod 4P) of the integers nA² + Q₁², A even, Q₁ | P, with g ≡ −1 (mod 2AQ₁); all of them satisfy
+g ≤ 2nP²(n + P²) (EXPONENT_CAP Thm 2.1). Their number is ≤ Σ_{Q₁ | P} Σ_{A ≤ A_max} ω(nA² + Q₁²) = P^{O(1)}·0 + …,
+in any case finite, while the sieve supplies ≫ x/(φ(4P rad n) log x) primes g ≤ x in the progression.
+*Proof.* Prop 1.1(c) (B = Q₁ squarefree, A = 2k) and Thm 2.1. ∎
+*Consequence (Assessment).* Level of distribution (BV/BDH) and Chebotarev/Kummer inputs are irrelevant here: whether
+a prime g in the progression fires is not a Frobenius condition in any field fixed in advance — it is divisibility of
+one of finitely many explicit integers nA² + Q₁² by g, where A itself is tied to g by 2AQ₁ | g + 1. The ES^{(y)}
+proof (FROBENIUS_FIRING Thm 4.2) works because with FIXED S and unbounded exponents the firing condition
+"−n/4 ∈ ⟨S⟩²" is Kummer-type (a covering of (F_g^*)²); at bounded e every per-g box has size g^{o(1)}
+(EXPONENT_CAP Prop 3.1) and only hitting is possible, and hitting is the explicit divisor problem of Prop 1.1(c).
+
+**Proposition 2.2 (the e = 1 / growing-S problem is an integral-point problem on a 3-fold with no archimedean
+bound; PROVED as an equivalence).** For odd n, the following are equivalent:
+(i) ES^{(y,1)}(n) has a shot solution;
+(ii) **V_n : nA² + B² + D = 2λD·AB** has an integral point with A, λ, D ≥ 1, A even, B odd squarefree,
+gcd(A, B) = gcd(B, n) = 1;
+(iii) for some D ≥ 1 the affine Markoff-type cubic surface **S_{n,D} : nA² + B² + D = ABC** has an integral point with
+**2D | C** and the side conditions of (ii).
+ES's own shot family (the d = 1 slice of the certificate cube) is the curve B = 1 of V_n, on which A ≤ 3(n+1)/2
+(Thm 2.1); on V_n with B free, every point with μ² − n non-square (μ = λD) lies on an infinite Pell orbit
+(Prop 1.2(b)). Necessarily D ≡ 3 (mod 4) (mod 4: B² + D ≡ 0).
+*Proof.* Prop 1.1(c), Prop 1.2(a), C := 2λD. D ≡ 3 (4): A even, B odd gives nA² + B² + D ≡ 1 + D ≡ 0 (mod 4). ∎
+*Reading (Assessment).* Write E_n(X) := #{points of V_n with A, B ≤ X}. The naive expectation
+Σ_{A,B ≤ X} τ(nA² + B²)/(2AB) ≍ (log X)³ diverges, so the e = 1 problem at a FIXED n is an infinite lottery — B3
+(main term ≤ p^{o(1)} within an archimedean range) and B6 (averages over p) do not apply, because the family is
+infinite at fixed n. But the condition 2DAB | nA² + B² + D is a *thin* divisibility (for each D the solution set is
+O(log X) Pell/Vieta orbits), not a positive-density congruence condition, so no equidistribution/sieve input
+counts E_n(X): the count is a sum over D of integral points on Markoff-type surfaces, the setting of Ghosh–Sarnak
+(Invent. Math. 229 (2022), integral points on x² + y² + z² − xyz = k; their surfaces are different and fully
+Vieta-symmetric — citation from memory, not re-checked) where even the Hasse principle for integral points FAILS for
+a positive proportion of k (their result; I have not checked whether S_{n,D} behaves alike). Prop 1.2(c) shows our
+surfaces have only ONE integral Vieta involution when n ≡ 1 (mod 4), so the orbit-descent tools used for Markoff
+surfaces (descent to a finite set of fundamental solutions) are unavailable.
+
+## 3. Pushing e → 0: what exactly fails at ES (task (3))
+
+**Proposition 3.1 (the e-ladder in one equation; PROVED).** In the shot family, with (A, B) as in Prop 1.1(c) and
+K = (g+1)/4:
+* ES (e = 0): B = 1, D(2λA − 1) = nA² + 1 — the classical Type II line; A ≤ 3(n+1)/2, g ≤ 2n(n+1): a finite box;
+  the residue −n/4 must be Q² with Q | K, a divisor box of size τ(K) = g^{o(1)}.
+* ES^{(y,1)}: B squarefree, Q | K·rad K, box size ≤ τ(K)·2^{ω(K)} = g^{o(1)} per g, but g unbounded (g ≤ 2nB²(n + B²)
+  only).
+* ES^{[2]}: B free (Q | K²), box size τ(K²) = g^{o(1)}, g unbounded.
+* ES^{(y)} (e = ∞), S fixed: Q ∈ ⟨S⟩ with any exponents; box = ⟨S⟩² mod g, which is all of (F_g^*)² for sieved g.
+So between e = 0 and e = 1 NOTHING changes at a single modulus g (box g^{o(1)} in both); the entire difference is
+archimedean: B = 1 caps A (hence g), B free does not. Between e = 1 and e = ∞ the per-modulus box jumps from g^{o(1)}
+to ≍ g (covering becomes possible, EXPONENT_CAP Prop 3.1(c): e ≥ (log g)^{1−o(1)}).
+*Proof.* Prop 1.1, Prop 1.2, EXPONENT_CAP Thm 2.1 and Prop 3.1. A ≤ 3(n+1)/2: the proof of Thm 2.1 with Q₁ = 1 gives
+k ≤ (n+1)/4 + (n+1)/2. ∎
+
+**Smooth representatives (the brief's GHS question; Assessment with a PROVED count).** The e = 0 condition asks
+that −n/4 have a square root mod g of the special form Q | (g+1)/4 (Q < g), not merely a smooth one. Results on
+smooth numbers in residue classes (Harman; Granville–Harper–Soundararajan: q^ε-smooth representatives of every class
+mod q of size q^{O(1)}; citations from the brief, not re-checked) are statements about Ψ(x, y)-sized sets. The sets
+relevant here are tiny: **#{Q ≤ g^C : rad Q | K} ≤ (C log g/log 2 + 1)^{ω(K)}** (each exponent ≤ C log g/log 2),
+which is g^{o(1)} unless ω(K) ≫ log g/log log g, i.e. unless (g+1)/4 is essentially a primorial; and with the
+exponent cap e the count is ≤ τ(K)(e+2)^{ω(K)} (EXPONENT_CAP Prop 3.1(b)). So at every bounded e the relevant set
+of representatives is subpolynomial and smooth-number equidistribution says nothing; GHS-type inputs become
+relevant only at e ≍ log g with K primorial-like — the covering regime, which (EXPONENT_CAP Thm 2.1) forces
+overflow ≥ (g/4n)^{1/4} and is far from ES. For e = 0 the additional archimedean constraint g ≤ 2n(n+1) makes it the
+finite B3 lottery (expected count ≍ log³ n). Comparison with short-range smooth results: none of them restrict the
+support to the divisors of a prescribed integer, which is the actual constraint (it is B2).
