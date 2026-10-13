@@ -182,3 +182,35 @@ cube modulo **every** prime of f'". Cubic reciprocity gives (f/π)₃ = ∏_{ℓ
 the **product** of the symbols is 1, not that each factor is (the memo's "π is a cube modulo the prime factors of f" is
 ambiguous; LDP_DEEP's "every" is false — e.g. two prime factors with (π/ℓ₁)₃ = ω, (π/ℓ₂)₃ = ω² give a cube) (D6b,
 MINOR). The non-abelian "Kummer splitting" reading applies to the individual factors only.
+
+### Claim 9 — LDP_DEEP B.0 Gram form [[Ma−1, Ma],[Ma, Mce]], det = Mcp — SOUND
+By hand: with ⟨x,x⟩ = f = Ma − 1, ⟨x,y⟩ = 1, ⟨y,y⟩ = f′ = Mb − 1, the Gram of (x, x + y) is [[f, f+1],[f+1, f+f′+2]] =
+[[Ma−1, Ma],[Ma, M(a+b)]] and a + b = ce because 4abcd − a − b = cp. det is basis-invariant: ff′ − 1 = 4c²dp = Mcp;
+mod M it is diag(−1, 0). **From scratch** (`scripts/review_ld_gram.py 3000`, 1 s): all 8085 Type II tuples with
+cd ≤ 12 of all odd n < 3000 (primes and composites): e ∈ ℤ, Gram identity, det = Mcn, reduction diag(−1, 0), and the ES
+solution 4/n = 1/(abd) + 1/(acdn) + 1/(bcdn): 0 failures.
+
+### Claim 8 — bsD_genus_vacuity_LDp Prop 1 (genus vacuity) / LDP_DEEP B.1; Remark 2 / B.2 (fixed order) — Prop 1 SOUND (conditional on DIFF_DEEP Thm 1.1, under R176); Remark 2 SOUND as corrected, but its "O(1)" is mis-normalised (MINOR)
+**Re-derivation of Diff(T) = {p}.** B_T = (−f, −det T) = (−f, −dp) up to squares (det = 4c²dp). ∞: both negative,
+ramified. ℓ | f odd: −dp ≡ (2c)^{−2} is a square mod ℓ ⇒ split. ℓ | cd odd: −f ≡ 1 (mod ℓ) ⇒ split. ℓ = 2: −f ≡ 1
+(mod 4); if 8 | M then −f ≡ 1 (mod 8) is a 2-adic square; if M = 4·odd then −dp is a 2-adic unit and (u, w)₂ = 1 for
+u ≡ 1 (4). So only p can ramify among finite places, and Hilbert reciprocity forces it. ✓ (KUDLA_ES Thm 1.4.)
+**From scratch** (`scripts/review_ld_gram.py`, own Hilbert symbols incl. ℓ = 2, with a reciprocity self-check on
+every algebra): every prime n < 3000 and every Type II tuple with cd ≤ 12: Diff(T) = {n}, 0 failures. (For composite
+odd n the Diff set is a single prime divisor of n, varying with the tuple — printed for information.)
+**The vacuity argument.** If B_T ≅ B_{p,∞}, embed x, y; ℤ + ℤx + ℤy + ℤxy is an order (xy + yx = −2⟨x,y⟩ ∈ ℤ),
+contained in a maximal order O, so T is a Gram matrix in O⁰. The same argument ℓ-adically shows every local density
+is positive. So "∃ O" adds nothing to "∃ integer T". ✓ The labels are right: PROVED relative to DIFF_DEEP Thm 1.1 —
+note that this is itself only "CLAIMED, under review R176" per LDP_DEEP's header; the C-verdict "PROVED: … B.1"
+should carry that dependency (D8a, MINOR).
+**Remark 2 / B.2 (Assessment).** The correction of the first draft is right: Duke–Schulze-Pillot is about
+representations of *integers* by ternary forms (Invent. Math. 99 (1990), from memory — not in `sources/`); representing
+a *binary* form by a ternary one is a different (codimension-2, n − m = 1) problem with no local–global principle in
+general. But the replacement heuristic "a given T is represented O(1) times on average by a fixed O⁰" ignores the
+p-dependence: by Siegel's formula for (n, m) = (3, 2) the det(T)-exponent is (n − m − 1)/2 = 0, and the genus total
+Σ_O r(O⁰, T)/|O^×| is the Gross–Keating/Kudla–Rapoport–Yang degree of the 0-cycle Z(T), a divisor-type function
+ρ(T) = p^{o(1)} (reviewer's recollection; please verify before relying on it). Spread over ≈ p/12 orders, a *fixed*
+O⁰ represents a given T about 12ρ(T)/p times on average, not O(1). This makes the fixed-order lottery much sparser per
+T (consistent with O176 §2.5 only because the number of certificate-shaped T with f′ ≤ 4p grows); the
+"O(1) expected hits per T" in LDP_DEEP B.2 should read "O(ρ(T)) over the genus, O(ρ(T)/p) per fixed order" (D8b, MINOR;
+Assessment-level text).
