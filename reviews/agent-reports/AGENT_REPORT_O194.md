@@ -9,7 +9,7 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
    the real anchor and an order-2 T1 at odd squares (Prop 5.1; inv₂ vanishes because v₂(8) = 3), the Brauer group
    of BL (ℤ/2, ℚ-isomorphic surface), **no Brauer–Manin obstruction at n = 131, 241 (explicit adelic
    certificates, Thm 5.3), and no solution at n = 131, 241 (certified complete search, Thm 5.2)**. Failing n ≤ 299:
-   {2, 3, 11, 17, 131, 241}; failing primes ≤ 30000: {3, 11, 17, 131, 241}.
+   {2, 3, 11, 17, 131, 241}; failing primes ≤ 2·10⁵: {3, 11, 17, 131, 241}.
 2. **TES(π) is a finite search** (Prop 1.1: one archimedean place + triangle inequality + two-term divisor problem;
    positivity is NOT what makes ES(p) finite) and **TES fails at 16 primes** N(π) ∈ {7, 13, 19, 61, 79, 97, 103,
    151, 193, 211, 367, 409, 769, 2029, 2239, 26893} (complete census N ≤ 30000, two independent solvers), with
@@ -22,7 +22,7 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
 
 ## Results (labels)
 * Prop 1.1 / Cor 1.2 (PROVED, elementary): t/n = Σ c_i/x_i over ℤ or an imaginary quadratic O with c_i n/t ∉ O
-  has finitely many solutions; some N(x_i) ≤ 9N(c_i)N(n)/N(t)·… (TES: N(x), N(y) ≤ N(n)/9 or N(z) ≤ 4N(n)/9),
+  has finitely many solutions; some N(x_i) ≤ 9N(c_i)N(n)/N(t) (TES: N(x) ≤ N(n)/9 or N(y) ≤ N(n)/9 or N(z) ≤ 4N(n)/9),
   then a divisor problem. Infinite families exist iff a two-term subsum can vanish. Goal (3) of the brief is void.
   The O192 Q³-shot family lives in TES^{□₃} (z ∉ O), consistent.
 * Thm 2.1 (CERTIFIED): the 16 failures above; all other π, N(π) ≤ 30000 (split; inert p ≤ 173) solvable; all
@@ -49,7 +49,7 @@ Branch `side-agent/tes-finite` (merged `side-agent/synthesis-two` first). Main f
   excluded; Br U° (classes ramified along the lines) not considered (the integral BM set used is BL's).
   Assessment: failures thin out with the mean count ("lottery"), but TES's isolated zero at N = 26893 (mean ≈ 20)
   shows a heavy lower tail.
-* m = 8 census to 2·10⁵ was started at report time (`/tmp/tf_sch8_200k.txt`); result to be appended.
+* m = 8 census extended: failing primes ≤ 2·10⁵ are exactly {3, 11, 17, 131, 241} (`tf_schinzel.py 8 200000`).
 
 ## Suggested ledger entry
 (J)26 TES_FINITE (O194): Prop 1.1 finiteness (PROVED); TES insoluble at 16 primes N ≤ 30000 (CERTIFIED), not BM
