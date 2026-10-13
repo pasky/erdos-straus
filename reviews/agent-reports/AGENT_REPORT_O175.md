@@ -46,7 +46,7 @@ structural Shimura prediction fails numerically), Rédei/governing fields (prova
 `bsB_sign_dict.py 400` (352 certs, 0 viol.), `bsB_genus_pullback.py 200000` (9859, 0), `bsB_oddpart.py 100000 130000`
 (0 viol.), `bsB_typeII_mult.py 400` (472, 0), `bsB_orthant.py 300` (0), `bsB_wcount.c 2000000` (W table; T1 control:
 W(k²) = 0 for all odd k), `bsB_pretend.py`, `bsB_parity.py`, `bsB_caseB.c 17` + `bsB_caseB_cover.py` (counts in
-`data/bsB_caseB_K17_counts.txt`). A K ≤ 19 run was started (`/tmp/bsB/cb19.txt`); result to be appended.
+`data/bsB_caseB_K17_counts.txt`). K ≤ 19 run done: x* still uncovered, covered measure 0.4906 (`data/bsB_caseB_K19_counts.txt`).
 Caveat: Lemma 1.1 relies on FF2 §0.2's Case B reduction ("valid Case B family ⟺ D = EE' with the congruences"),
 which FF2/R166 state and use; I re-derived only the step from there.
 

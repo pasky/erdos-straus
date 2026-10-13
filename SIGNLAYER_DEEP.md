@@ -111,3 +111,9 @@ So the sum is non-zero and its degree ≤ max(a, b + 1) is ≥ N. Finally K = a 
 So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree): this is the "two-place
 approximation" shape of §3 made concrete, and it allows a targeted deep search at x* (enumerate the small
 factor, solve for the large one) — not done in this session.
+
+**Update (K ≤ 19, `bsB_caseB 19`, ≈ 25 min).** Solutions at K = 18, 19: 224, 192 (1036 in total). x*_{±1} still
+uncovered (complete through K = 19, i.e. all N ≤ 10 and all admissible L', g). Covered slice measure 0.4906
+(K ≤ 19; 0.489 at K ≤ 17); random slice points 48.9 % covered. Counts grow by ≈ 1.3–1.5 per two levels while each
+new cylinder has measure ≈ 3^{−K/2}, so the increments keep shrinking (EVIDENCE for a limit ≈ 0.5).
+Counts archived in `data/bsB_caseB_K19_counts.txt`.
