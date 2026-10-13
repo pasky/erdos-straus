@@ -109,3 +109,43 @@ I re-derived every implication.
 * Only CHI_FLIP Cor 1.3 (R198: SOUND) is imported.
 * The "Reading" (eigenline interpretation for odd ℓ | t) is correct when i, j ≢ ±1 (mod ℓ End E). The degenerate case
   should be mentioned or the claim softened to Assessment (D8).
+
+### Prop 3.1 (θ_L counts trace-zero endomorphisms of p-divisible norm) — SOUND
+There is a shorter global proof than the author's. In E⁰-coordinates, H := adj(G) and p(E⁰)^♯ = G·ℤ³.
+* G has rank 2 mod p, because v_p(det G) = 1. So H ≡ λww^T (mod p) with λw ≢ 0, and {x : p | x^T H x} = {x : w·x ≡ 0}
+  has index p.
+* G·ℤ³ also has index p and lies inside that set, since (Gy)^T H (Gy) = p·y^T G y. So the two sets are equal.
+* r_L(m) = #{ε : nrd ε = mp} follows.
+
+The author's local proof is also correct. Using this simpler argument would remove the need for the local p-adic forms.
+
+### Cor 3.2 (Frobenius distance) — SOUND-AFTER-REPAIRS (D4)
+These parts are correct:
+* the factorisation through Frobenius: a supersingular curve has no points of order p, so an isogeny whose degree is
+  divisible by p has inseparable degree divisible by p;
+* ε = −(1 + ij) has nrd ε = AA* − 1 = tp (checked);
+* t = 1 ⟹ the edge is 𝔽_p-rational. ε ∈ End(E, C) with ε² = −p means ε = ±(the Frobenius of an 𝔽_p-model), up to
+  Aut E, so C is stable under that Frobenius. Conversely, on the spine the 𝔽_p-Frobenius has trace 0 (p ≥ 5), so
+  min L = 1.
+
+Two wording errors:
+* (a) "min(L(E, C)) is the least m such that some isogeny E^{(p)} → E of degree m is compatible with C" omits the
+  trace-zero condition. An element x = ψπ of the ideal over p with trd x = pk ≠ 0 has m = nrd x/p ≥ pk²/4. Since
+  min L ≤ (2p)^{1/3} < p/4 for p ≥ 13, the statement is true for p ≥ 13, but only by this extra argument, which the text
+  does not give.
+* (b) The middle letter t is *a* Frobenius degree of the edge (e₂ has norm t), so the Frobenius distance min(L) is ≤ t,
+  not = t. The reading "certificate edges with small t sit at Frobenius distance t from the spine" should say "≤ t".
+  The data show this is not idle. At p = 2521, eight classes of 𝔊⁻ have min L = 1 (spine edges) and none is a
+  certificate. The two certificate classes have min L = 2, while their words have t = 15 and t = 44
+  (`review_ce_rank.py`).
+
+### Cor 3.3 (spine slice) — SOUND
+* Re-derived: (u − 1)(v − 1) = p + 1 and χ = (−(u−1)/p). For p ≡ 1 (8) the symbol is ((u−1)/p), and odd q | p + 1 gives
+  (q/p) = (p/q) = (−1/q).
+* Recount (`scripts/review_ce_spine.py`, sieve-based): for all 4466 primes p ≡ 1 (8) below 2·10⁵, the direct check
+  "some divisor d of p + 1 has (−d/p) = −1" agrees with the criterion, 0 mismatches. The direct check also confirms that
+  every p ≢ 1 (8) below 2·10⁵ has a spine certificate.
+* Of the 19 552 primes p ≡ 1 (8) below 10⁶, **5013** have no prime factor ≡ 3 (mod 4) in p + 1. Both of the author's
+  numbers are reproduced exactly.
+* The density remark (≍ (log p)^{−1/2}, a Landau-type count of integers built only from primes ≡ 1 mod 4) is heuristic
+  and labelled so. Fine.
