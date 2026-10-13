@@ -113,3 +113,18 @@ Index compiled by O160 from the memos, `reviews/triage-brainstorm-A.md` (O156, m
   `adv_new_drivers.md` erratum.
 * `scripts/errata_check.py` (new): verifies every computational counterexample quoted in the errata sections
   (17 checks, < 1 min).
+
+## Spark brainstorm B (O175): the sign layer, ray classes, SQ, function-field sterile point (`bsB_*`, not yet triaged)
+
+Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT_O175.md`. Promise = memo's own score.
+
+| file | angle | verdict (own) | labels | promise |
+|---|---|---|---|---|
+| bsB_zolotarev_transpose | ES sign = sign of the ℤ/n-half of the transpose of the m × m'' rectangle (Zolotarev) | dictionary; class-+1 elements generate only even permutations → B2 | PROVED (elementary, classical in spirit) | 0 |
+| bsB_theta_multiplier | ES sign = weight-½ theta multiplier of the certificate matrix; Waldspurger/Shimura screen | multiplier dictionary; Shimura zero-propagation **refuted** (W(105k²) > 0) | PROVED; EVIDENCE (W zeros ≤ 2·10⁶: squares + 26 composites, no prime) | 1 |
+| bsB_rayclass_norm_pullback | which characters of Cl_(t)(ℚ(√−tp)) the condition uses | only χ∘N (Eisenstein; L = L(χ)L(χχ_K)); ES sign = genus χ_p on G[1+σ] | PROVED (elementary/standard CFT) | 0 |
+| bsB_redei_oddpart | 2-power CFT (Rédei, governing fields, spins) vs the class condition | for prime t the 2-primary part IS the genus sign; fully 2-visible slices: t = 3·(Fermat products), finite | PROVED (items 1–3); Assessment (cubic spins) | 0–1 |
+| bsB_salie_duality | Type II with p as Kloosterman modulus; Salié exact evaluation | certificate set not Γ_∞-bi-invariant (moving modulus) → B2/B6 | PROVED dictionary; Assessment | 1 |
+| bsB_sterile_pretentious | FF sterile point as "Siegel zero" | inverted: sterile = maximally pretentious (anti-Siegel); Mordell transfer in F_q[T] gives only a degree-parity constraint | PROVED (items 1, 3); EVIDENCE corr = −0.49 | 1 |
+| bsB_orthant_sign | sign layer = real orthant of one cubic | class +1 = negative orthant of cfg − c − f = n; orthant-crossing maps barred (T1 / group level) | PROVED | 1 |
+| bsB_root_number_parity | BSD-parity template "sign forces a point" | rational points free, integral needs fixed module; parity of W(p) locally random | Assessment; EVIDENCE | 0 |
