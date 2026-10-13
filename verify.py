@@ -24504,5 +24504,35 @@ def check_fq():
 
 check_fq()
 
+def check_fr():
+    # (fr) FUNCTIONFIELD_ES3 (O173/R173) + FF_STERILE_PROOF (O179/R179): q = 3, A = T^2 sterile-point candidate x*_c:
+    # R173's independent Case B search (no family with deg L' <= 7 / 6 at c = 1 / 2); R179's one-sided enumeration
+    # of slice Case B solutions K <= 9 (genus parity lemma 2.1: 0 violations; none covers x*_c).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FF3 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ff3_search.py", "3", "2", "0", "7", "-1", "fast", "1", "1")
+    assert "l=7 families_l=0 total=0" in o, ("FF3 R173 x*_1", o)
+    o = run("review_ff3_search.py", "3", "2", "0", "6", "-1", "fast", "1", "2")
+    assert "l=6 families_l=0 total=0" in o, ("FF3 R173 x*_2", o)
+    o = run("review_fsp_enum.py", "9")
+    assert "KMAX 9 solutions 72 per K [(2, 2), (3, 4), (4, 10), (5, 8), (6, 8), (7, 4), (8, 24), (9, 12)]" in o and \
+        "violations 0" in o and "covers of x*_c (N0 = max(2, ceil(K/2)+1)): []" in o, ("FF_STERILE R179", o)
+    print(f"== (fr) FUNCTIONFIELD_ES3 R173 / FF_STERILE_PROOF R179: q = 3, A = T^2 — x*_1, x*_2 carry no Case B family "
+          f"(deg L' <= 7 / 6); 72 slice solutions K <= 9, genus parity 0 violations, none covers x*; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fr()
+
 
 print("\nall checks passed")
