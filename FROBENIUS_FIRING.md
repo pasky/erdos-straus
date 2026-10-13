@@ -51,7 +51,9 @@ where 𝔡_L is the ramification divisor of L/F (absolute constant c₀; with d 
 `g_L + |G|(1 + deg 𝔡_L) ≥ q^{n − k/2}/c₀`).
 *Proof.* Effective Chebotarev for function fields (Murty–Scherk, *C. R.* 319 (1994); Fried–Jarden, *Field Arithmetic*,
 Prop. 6.4.8; Rosen Thm 9.13B): the number of degree-d primes unramified in L with Frob in C is
-(|C|/|G|)·q^d/d + O((|C|/|G|)(g_L + |G|(1 + deg 𝔡_L))q^{d/2}/d). If q^{d/2} > c₀(g_L + |G|(1 + deg 𝔡_L)) this is > 0,
+(|C|/|G|)·q^d/d + O((|C|/|G|)(g_L + |G|(1 + deg 𝔡_L))q^{d/2}/d) (shape of the error term as I recall it from
+these sources; exact constants and the precise ramification term not re-checked — the conclusion only needs some
+bound polynomial in g_L, |G|, deg 𝔡_L times q^{d/2}). If q^{d/2} > c₀(g_L + |G|(1 + deg 𝔡_L)) this is > 0,
 but no prime of degree ≥ 2n − k + 1 fires (Prop 1.2(a)). ∎
 *Reading.* A sufficient Frobenius condition valid in the degree range just beyond the certificate range needs genus
 (or degree × ramification) exponential in n = deg P, i.e. polynomial in |P| = q^n. The mute field

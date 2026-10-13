@@ -104,4 +104,4 @@ for P, v in best.items():
 unsolved0 = [f"{show(P)}:{v}" for P, v in best.items() if v != 0]
 print(f"{'SQUARES ' if SQ else ''}q={q} A={show(A)} s={show(s)} n={n} D={D} emax={emax}: #P={len(Ps)} least-overflow histogram "
       f"{dict(sorted(hist.items(), key=lambda t: (t[0] is None, t[0] or 0)))}  (None = unsolved)")
-print("  P with no e=0 (Type II ES_q) hit, as P:least-e:", ' '.join(unsolved0[:40]), '...' if len(unsolved0) > 40 else '')
+print("  P with no e=0 (Type II ES_q) hit, as P:least-e:", ' '.join(unsolved0))
