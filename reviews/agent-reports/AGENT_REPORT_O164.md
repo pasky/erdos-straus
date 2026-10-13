@@ -79,3 +79,39 @@ Search over weights built from ⌊AĀ/p⌋ and ⌊kA/p⌋ (Dedekind-sum-like qua
 (2) Reflections whose fixed-point equation is bilinear, for example on pairs of forms (Bhargava cubes, where three forms of
 the same discriminant compose to 1). A cube-level involution could give "CM point + divisor" in one fixed-point equation.
 This is the most promising untested idea.
+
+---
+# Checkpoint 3 (spark 2: Bhargava cubes)
+
+**ES is not solved. No candidate was found.** New: WINDMILL_REDUCTION §10, `scripts/wr_cube_class.py`.
+
+- **Lemma 10.1 (PROVED).** Divisor-form certificates are exactly the forms `[m,2,m'']` of disc −4tp. Equivalently they are
+  ideal divisors 𝔪 of `(1+√−tp)` with `N𝔪 ≡ −1 (t)`, `4 | N𝔪`. As cubes they are the balanced triples
+  `(𝔪, 𝔪'', O; 1+√−tp)`.
+- **Computation 10.2 (CERTIFIED for p ≤ 5000, t ≤ 39).** The class map is injective on the divisors of `(1+√−tp)`, apart from
+  the trivial pairs {1,N} and {2,N/2}. So the divisors form an embedded Boolean hypercube in Cl(−4tp), and the complement
+  involution is class inversion.
+- **Proposition 10.3 (PROVED).** `N𝔞 mod ℓ` is a class invariant only modulo squares, because principal norms are
+  `≡ x² (mod ℓ)`. Cube classes are pairs of classes, since δ is absorbed by rescaling, and the S₃ ⋉ (ℤ/2)³ symmetries act on
+  them by automorphisms. So every class/cube mechanism, including its involution fixed-point counts, sees only the genus
+  shadow `(m/ℓ) = (−1/ℓ)` of the ES condition. The full condition is class data iff `t | 24`, i.e. t = 3 for odd
+  `t ≡ 3 (4)`. That is the congruence-covering regime (B1). This is an obstruction theorem with exact scope: it covers
+  mechanisms that factor through SL₂-classes of forms or SL₂³-classes of cubes.
+- **What escapes:** structures that remember the generator δ = 1+√−tp itself, for example balanced triples up to a smaller
+  equivalence, or non-maximal orders. I conjecture but have not proved that ring class groups don't help, because they
+  record residues of generators, not norms.
+- Spark 1 (a Gauss-lemma weight) was not attempted.
+
+**Overall O164 assessment (Assessment).**
+- The windmill/reduction programme separates cleanly into a part with CM/genus content (reflections, ambiguous forms,
+  classes, cubes) and the residue-class divisor part. Each of §§3, 4, 6, 7, 10 shows the first part reaching the second
+  only through quadratic characters.
+- A breakthrough along these lines would need an object that remembers *elements*, not ideal classes. Zagier's own set does
+  this: it lists simple forms, i.e. elements of the topograph, not classes. For definite discriminants no such finite
+  rotation-closed set is known (5.1).
+
+**Remaining sparks:**
+1. An element-level finite set for the definite discriminant −4tp: pairs (form, vector) in a box. A "definite topograph
+   walk" that is a rotation on vectors of norm ≤ X; its fixed points would be elements.
+2. The Gauss-lemma weight on H_p (spark 1).
+3. Balanced triples with δ fixed up to units, plus their natural involutions; check this against Prop 10.3's escape clause.
