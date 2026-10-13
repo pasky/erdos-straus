@@ -174,3 +174,52 @@ ij + ji = −2, deg i·deg j = tp + 1, (1 − i)(1 − j) ∈ t End E"; "some 2-
 of a length-3 linear plumbing, i.e. bounds a lens space L(p, A) with (A/p) = −1"; "λ(p) ≤ 3" (DEDEKIND, p ≡ 1 mod 8). It is
 **not** equivalent to "∃ non-residue", "∃ maximal order" or "∃ supersingular curve" (those hold for all p; the certificate
 needs the extra divisor/shape event), and it implies (with a polylog bound) deterministic QNR-finding modulo factoring.
+
+## 5. Existence side: screens, one spectral obstruction, numerics
+
+**5.1 Lattice operations cannot flip (PROVED; extends CHI_FLIP Cor 1.4(c)).** Any composition of finite-index sub/super-
+lattices (in particular Kneser ℓ-neighbours for every ℓ, including ℓ = 2), duals and rescalings preserves the rational
+similarity class of L ⊗ ℚ, hence C₀(L) ⊗ ℚ, hence χ. So the Kneser 2-neighbour graph on 𝔊⁻_p (= the line graph of the
+supersingular 2-isogeny graph, via Thm 2.1: each L has the two overlattices L⁺_{1,2}, each L⁺ has three classical index-2
+sublattices) and every Hecke correspondence stay inside 𝔊⁻_p, resp. 𝔊⁺_p. The always-available path class of 𝔊⁺_p,
+L_{(p+2,1,1)} ≅ ⟨1, 1, p⟩, has no lattice-theoretic route to 𝔊⁻_p: a flip must change the rational quadratic space.
+
+**5.2 The two Brandt modules share no cusp eigen-system (EVIDENCE; Assessment for the explanation).** Let T_ℓ be the
+ℓ-neighbour operator on ℂ[𝔊^±_p] (`scripts/ce_hecke.py`, explicit Kneser neighbours + canonical forms). For p = 97, 193,
+241, 313, 409 the T₃-spectra of ℂ[𝔊⁺_p] and ℂ[𝔊⁻_p] intersect only in the Eisenstein eigenvalue 4 = ℓ + 1 (also T₅ at
+p = 97, 193: only 6). *Explanation (from memory, not re-derived):* by Jacquet–Langlands ℂ[𝔊⁻_p] ↔ forms of level 2p
+seen by (B_{p,∞}, level 2), ℂ[𝔊⁺_p] ↔ (B_{2,∞}, level p); passing to types (isomorphism classes of orders) imposes
+Atkin–Lehner conditions, and the sign attached to a ramified prime is opposite to that at an unramified one, so the two
+sides see newforms of level 2p with opposite (w₂, w_p) sign patterns — the spectral shadow of χ = −ε₂.
+**Consequence (PROVED, given the computed spectra; elementary linear algebra).** At these p, every T₃-equivariant linear
+map Φ: ℂ[𝔊⁺_p] → ℂ[𝔊⁻_p] has image in the constants and kills the cuspidal part, so Φ(P⁺) depends only on the weighted
+total Σ_L P⁺(L)/|Aut L| (T₃ is self-adjoint for the mass inner product, so eigenspaces map to equal-eigenvalue eigenspaces).
+Hence **a Hecke-equivariant "χ-flip transfer" from the always-non-empty side carries only the main term** — B3/B6 in
+spectral form: it can at best predict the *number* of certificates on average, never force one at a given p. H-D needs a
+non-Hecke-equivariant (genuinely non-linear, word-level) map.
+
+**5.3 Shape screen (Assessment).** Path classes are near-orthogonal: a reduced basis with off-diagonal entries (−1, −1, 0).
+The ≈ p/12 classes of 𝔊⁻_p equidistribute in shape (Hecke/Ramanujan for the Brandt graph — standard heuristically,
+not re-proved here), but near-orthogonality at letters ~ p^{1/3} is a target of relative volume ≍ p^{−1}·polylog, so its
+expected population is the polylog |X_p|: any equidistribution statement with a power-saving error term is blind to it
+(the scale constraint B3). The "∃ curve" quantifier is vacuous (DIFF_DEEP Thm 1.1), so no counting over curves helps.
+Successive-minima theorems (Kaneko, Chevyrev–Galbraith) constrain the diagonal of a reduced Gram (products ≍ p², pairs of
+non-commuting CM orders d₁d₂ ≥ 4p — certificates satisfy 16AA* = 16(tp + 1), Kaneko-extremal up to 4t when t is small)
+but say nothing about the exact off-diagonal pattern, which is where the certificate lives.
+
+**5.4 T1 control (PROVED; Thm 1.2 at n = m²).** For odd n = m² every word has C₀(L_w) ⊂ B_{2,∞} (CHI_FLIP Cor 1.3), so
+E(L_w) is the maximal order of B_{2,∞} at 2 (Thm 1.2(b), anisotropic case: no maximal overorders of discrd n, CERTIFIED by
+`scripts/ce_t1_check.py` on all 49 words of n = 9, 25, 49: the 2-power overorder ladder is exactly [discrd 2n, 4n]), and there is no "𝔊⁻_{m²}": a definite algebra ramified exactly at the odd
+primes with v_ℓ(n) odd plus ∞ would have an odd ramification set. The whole supersingular/2-isogeny picture is empty at
+odd squares, as any correct reformulation must be; the statement "some 2-isogeny lattice of B_{n,∞} is path-shaped" is
+not even formulable there. (So the dictionary passes T1 for the trivial reason that its ambient object vanishes; it does
+not convert T1 into a theorem about primes.)
+
+**5.5 Numerics for goal (3) (EVIDENCE; `scripts/ce_rank.py`, `ce_rank2.py`).** Classes of 𝔊⁻_p were enumerated exactly
+for p ≡ 1 (24) ≤ 601 and for the five primes p ≡ 1 (24) < 2600 with least non-residue ≥ 11. Path classes are few:
+4–10 of 7–44 classes for p ≤ 601 (mostly Mordell-type, small A); at the hard primes 1009, 1129, 1201, 1801, 2521:
+5, 8, 5, 8, 2 path classes out of 69, 76, 82, 122, 166. Ranked by min(L) (Frobenius distance) the first path class has
+rank 12, 4, 15, 19, 9; ranked by min(E⁰) (smallest non-scalar endomorphism of the edge) rank 1, 1, 3, 1, 10. So
+**certificates are not among the "smallest" orders** at hard primes: at p = 2521 the ten classes with the smallest
+endomorphisms (min(E⁰) ≤ 23: CM by −4·11, −4·17, −4·19, …) are all non-certificates. No privileged-order effect
+(consistent with DIFF_DEEP's Ibukiyama test for Type II).
