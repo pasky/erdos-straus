@@ -205,3 +205,33 @@ An odd n > 1 is orbit-solved iff n ∉ T.
 K(√n) ⊄ K(i, √φ) (as in O183's check; K(√φ)/ℚ is not abelian). ∎
 **EVIDENCE (`scripts/uo_phi_all.py 10000 6`).** Among all odd 3 ≤ n < 10⁴, exactly 71 are not orbit-solved with |k| ≤ 6,
 and they are exactly the 71 elements of T below 10⁴.
+*Remark (R183 m4).* For n with (n/5) = −1 (e.g. primes p ≡ ±2 mod 5) V_φ(n) is unconditional by a congruence:
+(√5) | a_k for a suitable parity of k (φ ≡ 3 mod √5, and −4·3^{2k+1} runs through {2, 3} mod 5). The GRH/large-sieve
+content of Theorems 5.1–5.2 is the case (n/5) = 1.
+
+## 6. The ℤ-analogue question: what replaces the unit orbit over ℤ (S4)
+
+**Proposition 6.1 (ES-integrality of an orbit shot is a growing-modulus condition; PROVED).** In Prop 2.1 (any g | a
+with g ≡ −1 (mod 4), g > 0, in place of the prime r), the solution has z ∈ ℤ — i.e. is an ES solution — iff
+**g ≡ −1 (mod 4Q)**.
+*Proof.* For q | Q with c = v_q(Q), s = v_q(g + 1): if s < 2c then v_q(x) = s (from 4gx = n(g + 1) + 4Q²) and
+v_q(z) = 2s − 2c, which is ≥ 0 iff s ≥ c; if s ≥ 2c, v_q(z) ≥ 0. So z ∈ ℤ iff v_q(g + 1) ≥ v_q(Q) for all q | Q. ∎
+*Check (`scripts/uo_zint.py 3000 400 3 5 7 11`):* on all 51 558 shots (every n < 3000 coprime to 2·3·5·7·11, Q ≤ 400,
+every divisor g ≡ 3 (mod 4) of n + 4Q²), z ∈ ℤ in 3100 cases, and "g ≡ −1 (mod 4Q)" agrees in all 51 558.
+
+**Theorem 6.2 (the three ways to an infinite orbit over ℚ; PROVED, scope: the unit-Type-II recipe x = (n+e)/4,
+y' = (x+D)/e, z' = x(x+D)/(eD) with D in a multiplicative orbit).**
+(i) Over ℤ the orbit is {1} (units ±1, positivity): one shot, n + 4. Allowing D ∈ ℤ_{>0} arbitrary turns the shot
+condition into "n + 4D has a divisor g ≡ −1 (mod 4·(D-part))" — for D = Q², exactly Prop 6.1, i.e. B2's "divisor in a
+residue class whose modulus is part of the solution"; the expected number of successful shots Σ_Q τ(n+4Q²)/φ(4Q) is the
+usual polylog lottery (B3).
+(ii) Over ℤ[1/S] with no normalisation the orbit is infinite with fixed modulus 4, but the T1 dies: inv_q is free
+(Lemma 1.1 (i), w odd) and Type II solutions at squares exist (§2 example; control run of `uo_mute_t1.py`).
+(iii) Over ℤ[1/S] with the parity normalisation (ES^{(S)}) the orbit is infinite ({Q²}), the modulus is fixed (4), the
+T1 holds (Cor 1.2), and existence at all non-squares is a theorem (Thm 2.4). ES sits inside as the sub-condition
+g ≡ −1 (mod 4Q).
+So the precise ℤ-analogue of a mute place is a **finite prime muted by a parity normalisation**. It exists and
+behaves better than the real mute place of V_φ (no Kummer obstruction, §4). It is **not an opening for ES itself**
+(Assessment): passing from ES^{(S)} back to ES is exactly the growing-modulus condition of Prop 6.1, which is B2.
+What the construction isolates is that B2's growing modulus, and nothing else, separates ES from a T1-bearing equation
+that is provably solvable at every prime: **ES = ES^{(S)} + "g ≡ −1 (mod 4Q)"**.
