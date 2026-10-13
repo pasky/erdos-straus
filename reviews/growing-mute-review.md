@@ -92,5 +92,5 @@ Reading: the heuristic Σ τ(nA²+B²)/(2AB) ≍ log³X is a fair Assessment. "F
 Pell/Vieta orbits" is unsupported: for fixed D, μ = λD ranges over multiples of D up to ≍ nX, each with its own
 orbits (m6). **The Ghosh–Sarnak claim is WRONG** (M4): their abstract (arXiv:1706.06712, checked) says "for almost
 all k the Hasse Principle holds … and there are infinitely many k's for which it fails" — failures have density 0
-(lower bound ≫ K^{1/2}/(log K)^{1/4}), NOT "a positive proportion of k".
+(their Thm 1.2(i): at least √K (log K)^{−1/2} failures in 0 < k ≤ K; full text checked), NOT "a positive proportion of k".
 
