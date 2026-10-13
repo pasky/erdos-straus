@@ -89,3 +89,41 @@ find moduli via numbers m with small Carmichael λ(m) (Erdős–Pomerance–Schm
 same device. **So: ES on k·2^m + 1 by fixed slices ⟸ (EH_k) + "no sterile non-square point in Λ_k"; and ⟹ (EH_k).**
 The second condition is the campaign's sterile-set question (POINTWISE_TYPEI2, LORENZINI_W §4) restricted to a compact
 one-parameter set.
+
+## 4. Computations: certified exponent coverings (CERTIFIED by finite computation; PROVED infinite statements)
+Search `scripts/ec_cover.py k L Mmax` (greedy set cover of Z/L by ET classes from `mordell_lib` and divisor classes D_q, moduli
+M = 2^s M′ with M′ | 2^L − 1, M ≤ Mmax). Certificates `data/ec/cert_k*.json` list, per class, M, r and *explicit polynomials*
+x(n), y(n), z(n) ∈ Q[n]. The checker `scripts/ec_cert.py` uses only the certificate (no ES library) and verifies:
+(i) 4xyz = n(xy + yz + zx) in Q[n]; (ii) x, y, z integer-valued on r + MZ (all forward differences at t = 0..deg are integers);
+(iii) x, y, z > 0 for n ≥ n₀ (leading coefficient > 0, Cauchy root bound); (iv) M′ | 2^L − 1 and every m mod L is covered at
+representatives m₀ ≤ m < m₀ + L (Lemma 1.1 then covers all m ≥ m₀); (v) exact integer verification for m₀ ≤ m ≤ 2000;
+(vi) brute-force ES for m < m₀; (vii) T1 control: no ET class used contains an odd square s² (s < 20000).
+Runner `scripts/ec_batch.py` (re-generates certificates and calls the checker as a subprocess).
+
+**Theorem 4.1 (PROVED, computer-assisted; certificates checked).** ES holds for every n = k·2^m + 1, m ≥ 0, for
+k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
+| k | L | classes | note |
+|---|---|---|---|
+| 1 | 12 | 2 | Fermat-type 2^m + 1 (3 \| n for m odd; m even: n ≡ 2 mod 3 is impossible… see cert) |
+| 27 | 12 | 6 | m ≡ 2 (12): n ≡ 529 (840), Mordell-hard; II2 class n ≡ 31 (mod 39). Contains the FFT prime 27·2²⁶+1 |
+| 9 | 72 | 9 | needs I1 (3, 38737, 287), M = 464844, for m ≡ 41 (72) (see §4.3) |
+| 315 | 420 | 25 | **n ≡ 1 (mod 2520) for all m ≥ 3** (Mordell's class 1 mod 840 throughout) |
+| 15015 | 840 | 24 | **n ≡ 1 (mod 120120) for all m ≥ 3** — a square modulo every prime ≤ 13, Salez/Terzi level |
+(others in `data/ec/`). For 3 ∤ k the statement is trivial (n_m ≡ 0 or 2 mod 3), so only 3 | k is of interest; then n_m ≡ 1 (mod 24) for m ≥ 3.
+
+**4.2 Survey** (`scripts/ec_survey2.py 3 600 300000`, k ≡ 3 (mod 6), k ≤ 600; EVIDENCE): 78 covered (mostly L ∈ {12, 24, 36, 60}),
+4 obstructed by Cor 1.5 (k = 3, 15, 63, 255 — the k = 4^j − 1 points), 18 "OPEN" at the search limits (L ≤ 3000 from a fixed list,
+M ≤ 3·10⁵). Every OPEN k has an integer square point k·2^ℓ + 1 = s² or k + 4^j = s² with an odd prime q | s of large ord_q(2)
+(e.g. k = 33: 23²; 69: 47²; 105: 29², 41², 11², 13², 19²). k = 9 was OPEN at M ≤ 3·10⁵ and is covered at M = 464844, so OPEN means
+"search limits", not "obstructed". Other bases (`scripts/ec_bases.py`, k ≤ 40): b = 3, c = −1: all 14 covered; b = 3, c = +1: 11/14
+(k = 8 is the unit-square point 8 + 1 = 3²); b = 5: 15/16 (k = 24: 24 + 1 = 5²); b = 10: 32/36 (k = 3, 15, 24 are unit-square points;
+k = 36 OPEN at limits). Cor 1.5 generalises: integer unit-square points ⟺ k·b^ℓ + c = s² with every prime of s dividing b.
+
+**4.3 Near-square points and the cost of a covering (EVIDENCE + PROVED computation).** For k = 9 the integer point μ = 5
+(9·2⁵ + 1 = 17²) is a non-unit square, covered by D₁₇ = {m ≡ 5 (mod 8)}. Its neighbours X₂ = {μ : odd part of μ = 5, μ ≡ 1 (mod 8)}
+are NOT: there ν(μ)_q = 289 for every q with v₂(ord_q 2) ≤ 2, and ν(μ)_q = 9·2⁵·(−1) + 1 = −287 for every q with v₂(ord_q 2) = 3
+(PROVED: 2^{μ−5} is then the element of order 2). So the family is a unit square at every q ≢ 1 (mod 16) along X₂, and a covering
+must use a prime with v₂(ord_q 2) = 3 and (−287/q) = −1 (the first are 241, 353, 433, …; `scripts/ec_xstar.py`). The covering found
+uses q = 38737 (ord 72) in I1 (3, 38737, 287), whose residue is exactly −287 (f = 287 = 7·41). General shape: near an integer square
+point s², the family looks like s² at all primes of low "level" and like a fixed second integer at the next level, so coverings exist
+but their moduli grow with the level at which the second integer first becomes a non-residue — a quantitative shadow of B1.
