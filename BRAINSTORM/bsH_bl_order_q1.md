@@ -14,11 +14,13 @@ Steinberg identity: α_ζ(u) = (y, −1)_ζ + (x, y)_ζ, x = λu₁ − 1, y = �
 A/P = Σ1/u_i with P a prime power, every local invariant is 2-torsion; odd-order α_ζ(u) = 0 in Br F. For Type II
 points inv_P α_ζ = (−f/P)_m (the Kudla symbol), recovering bsH_kth_power_law as a reciprocity law.
 ## Barrier screen
-T1: the order-2 part is FF Prop 4.1 (degree-parity sign); odd part carries no information at all — stronger than
+T1: the order-2 part is FF Prop 4.1 (degree-parity sign); the odd-order **prime-to-p** part (classes α_ζ, ζ ∈ μ_{q−1};
+R181 repair D1: p-primary classes, also of odd order, are not addressed) carries no information at all — stronger than
 the number-field corestriction collapse (there the individual components were non-constant). B1–B6 not engaged.
 ## Cheap numerics (EVIDENCE)
 q = 7 (m = 3, 6), q = 13 (m = 3, 4), A ∈ {T, T², T²+1, T(T+1)}, n = 3, 4, P prime and P = Q³, Q²: 10 000+ solutions;
-Weil reciprocity holds on all; odd parts identically 0 at every place; 2-parts only at ∞ and P.
+Weil reciprocity holds on all; odd parts identically 0 at every place; 2-parts only at ∞ and P. (R181: reproduced
+independently by `scripts/review_dr_bl.py`; 15 934 solutions at odd m in DRINFELD_ES §2.)
 ## Assessment
 PROVED negative with exact scope (monic integral points, P a prime power, q odd). Promise 1; the decomposition
 pinpoints the two ES inputs (target −1, sign normalisation) — see bsH_twisted_targets.
