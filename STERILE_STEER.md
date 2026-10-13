@@ -149,7 +149,7 @@ non-squares mod 𝔮, i_𝔮 = [(O/𝔮)^{×2} : ⟨φ²⟩]. *Proof of (b).* �
 inside the non-squares (−φ a non-square, 4φ^{2k} a square). ∎
 *Reading (Assessment).* In V_φ, i_𝔮 = 1 for a positive proportion of 𝔮 under GRH (Artin for φ), and unconditionally
 Σ 1/i_𝔮 = ∞ (ord_𝔮 φ ≥ N𝔮^{1/2}/log N𝔮 for almost all 𝔮, by the elementary bound #{𝔮 : ord_𝔮 φ ≤ y} ≪ y²). So in V_φ
-every non-square pattern of positive density, in particular that of every non-square integer, is in the divergent
+every non-square pattern of positive density, in particular that of every positive integer that is a non-square in K = ℚ(√5) (i.e. outside {m², 5m²}; 5 is a square in K, so the pattern of 5m² is empty — correction from the O195 self-review, M5), restricted to the eligible primes χ_{−φ}(𝔮) = −1, is in the divergent
 regime of §3 (R188 repair: previously "every infinite non-square pattern", which is false: every infinite T has a
 thinned subset with Σ 1/i_𝔮 < ∞), and the analogue of an O178 sterile point (a sparse-pattern sterile point) cannot
 exist on lines through primes with i_𝔮 = 1: the line is fully covered at level 1. Over ℤ the per-prime coverage is

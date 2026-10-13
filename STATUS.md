@@ -7,7 +7,7 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
-**Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)28; tasks O172–O195, reviews R172–R193; every headline claim had two independent hostile reviews): ES is not solved.**
+**Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)28; tasks O172–O195, reviews R172–R193; headline claims had two independent hostile reviews ((J)20, (J)22, (J)23, (J)26); the others one): ES is not solved.**
 * *Standing rule (new).* Every sharp finding immediately spawned a fresh "spark relay" brainstorm agent, which is how the wave chained: Kudla → supersingular/LD_p → degree-2 accident → Drinfeld → twisted T1 → template → unit orbits → fixed-modulus shots.
 * *T1 understood structurally.*
   * T1 is Kudla's Diff-parity, i.e. Hilbert reciprocity, for the incoherent ternary collection; the arithmetic is ET Prop 1.6 ((J)13).
@@ -16,7 +16,7 @@ proof has an identifiable gap.
   * T1 belongs to a family of *anchor + wild partner* obstructions ((J)19). A genuine **order-3 T1 exists over ℤ[ω]**.
 * *T1-bearing variants become THEOREMS once they have infinitely many shots of fixed modulus.*
   * V_φ over ℤ[φ] is solvable at every prime under GRH, unconditional with a power-saving exceptional set ((J)21, (J)23).
-  * **ES^{(S)}: 4/n = 1/x + 1/y + Q²/Z over ℤ with mute primes S, |S| ≥ 4, is PROVED unconditionally for every n coprime to 2S** (Gupta–Murty sieve over primes r), while keeping T1 exactly ((J)23).
+  * **ES^{(S)}: 4/n = 1/x + 1/y + Q²/Z over ℤ with mute primes S, |S| ≥ 4, is PROVED unconditionally for every n coprime to 2S** (Gupta–Murty sieve over primes r), and its *shot mechanism* keeps T1 exactly (existence at squares follows by divisibility; (J)23).
   * **Recalibration ((J)28):** ES^□ (third denominator allowed to carry an odd square) is already elementary from one Dirichlet prime, so a provable T1-bearing variant is by itself weak evidence about ES. An order-3 analogue (TES^{□₃}) holds as well. But **ES itself is a finite search**: every certifying modulus is O(p²), and there is no infinite fixed-modulus shot family (scoped no-go, (J)25). The growing modulus of B2 is exactly what separates ES from ES^{(S)}.
 * *Barriers sharpened.*
   * **Sterile Mordell points exist for all large r** (no finite ET covering of primes with least QNR r; (J)26). Near them, primes behave like primes near squares ((J)27).

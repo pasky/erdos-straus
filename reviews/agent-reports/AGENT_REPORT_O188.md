@@ -34,7 +34,7 @@ only where marked.
   reproduced independently by R188) they escape at a single prime just beyond B, with Mordell height of order B
   (1.5B–3B; R188 repair of "≈ 2.5B"). No r-depth and no large prime is needed. The
   sterile point is not where hardness sits.
-* (2) Explicit r₀ (§6, Assessment): table of admissible ET constants C_adm(r, K₁) at θ = 2/5 (grows ≈ r^{0.1K₁+0.1}).
+* (2) Explicit r₀ (§6, Assessment): table of admissible ET constants C_adm(r, K₁) at θ = 2/5 (grows ≈ r^{0.1K₁+0.5}; corrected per R188, propagated after the O195 self-review).
   Nicolas–Robin divisor bounds give r₀ ≈ exp(exp(30–60)). No computer-assisted proof along the O178 union-bound route
   (R188 repair: scope) at r = 101 (or 10⁹) is possible without a new explicit Type II count of 4/r^K with no τ-loss, the bottleneck already isolated at r = 17
   (MORDELL17B–D). I did not attempt it.
