@@ -1,0 +1,34 @@
+pool 4|m [8, 12, 16, 20, 24]: bins of mu (primes p >= 100, up to 1e+07):
+pool 4!|m [5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23]: bins of mu (primes p >= 100, up to 1e+07):
+   LOO 4|m: m= 8 predicted failures (p>=100)   1.46, observed 2
+   LOO 4|m: m=12 predicted failures (p>=100)   8.96, observed 12
+   LOO 4|m: m=16 predicted failures (p>=100)  33.86, observed 27
+   LOO 4|m: m=20 predicted failures (p>=100)  55.54, observed 50
+   LOO 4|m: m=24 predicted failures (p>=100) 123.19, observed 140
+   LOO 4!|m: m= 5 predicted failures (p>=100)   0.01, observed 0
+   LOO 4!|m: m= 6 predicted failures (p>=100)   0.06, observed 0
+   LOO 4!|m: m= 7 predicted failures (p>=100)   0.10, observed 0
+   LOO 4!|m: m= 9 predicted failures (p>=100)   0.61, observed 0
+   LOO 4!|m: m=10 predicted failures (p>=100)   1.32, observed 1
+   LOO 4!|m: m=11 predicted failures (p>=100)   1.31, observed 0
+   LOO 4!|m: m=13 predicted failures (p>=100)   3.69, observed 2
+   LOO 4!|m: m=14 predicted failures (p>=100)   5.59, observed 2
+   LOO 4!|m: m=15 predicted failures (p>=100)   4.45, observed 15
+   LOO 4!|m: m=17 predicted failures (p>=100)   9.90, observed 5
+   LOO 4!|m: m=18 predicted failures (p>=100)  17.53, observed 33
+   LOO 4!|m: m=19 predicted failures (p>=100)  19.08, observed 5
+   LOO 4!|m: m=21 predicted failures (p>=100)  21.46, observed 17
+   LOO 4!|m: m=22 predicted failures (p>=100)  38.52, observed 37
+   LOO 4!|m: m=23 predicted failures (p>=100)  26.39, observed 34
+m=4: mu_m(p) = 0.0717 log^3 + 0.8179 log^2; mu(100) = 24.3
+   pooled rate of 4|m applied to m=4, primes 5..1e+07: expected failures 1.45 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 2.07)
+   pooled rate of 4!|m applied to m=4, primes 5..1e+07: expected failures 0.84 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 1.02)
+m=5: mu_m(p) = 0.0749 log^3 + 0.6790 log^2; mu(100) = 21.7
+   pooled rate of 4|m applied to m=5, primes 5..1e+07: expected failures 1.85 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 2.49)
+   pooled rate of 4!|m applied to m=5, primes 5..1e+07: expected failures 1.06 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 1.25)
+m=6: mu_m(p) = 0.0431 log^3 + 0.5342 log^2; mu(100) = 15.5
+   pooled rate of 4|m applied to m=6, primes 5..1e+07: expected failures 2.47 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 3.15)
+   pooled rate of 4!|m applied to m=6, primes 5..1e+07: expected failures 1.35 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 1.57)
+m=7: mu_m(p) = 0.0614 log^3 + 0.3517 log^2; mu(100) = 13.5
+   pooled rate of 4|m applied to m=7, primes 5..1e+07: expected failures 2.99 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 3.69)
+   pooled rate of 4!|m applied to m=7, primes 5..1e+07: expected failures 1.57 (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: 1.80)
