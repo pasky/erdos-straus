@@ -4,9 +4,64 @@ Reviewer: R182 (side agent). Status: in progress. **ES is not solved here.**
 From-scratch scripts: `scripts/review_tw_*.py` (own ℤ[ω] arithmetic, own cubic residue / tame / λ-adic symbols).
 
 ## Summary verdicts
-(filled in below, claim by claim)
+| claim | verdict |
+|---|---|
+| **Thm 3.2** (order-3 T1 for TES; (a) reciprocity law, (b) no Type I/II at π³ (and π^{3k}), (c)) | **SOUND** (minor D1–D5) |
+| Lemma 1.1 | SOUND |
+| Prop 1.2 | SOUND |
+| Cor 1.3 | SOUND (wording D8) |
+| Lemma 2.1 | SOUND (D6) |
+| Cor 2.2 (incl. (f) conductor bound) | SOUND — (f) verified by exact computation, citation downgraded (D7) |
+| Prop 2.3 | SOUND |
+| Lemma 3.1 | SOUND |
+| Thm 4.1 | SOUND-AFTER-REPAIRS ((c) is not a theorem, D10) |
+| **Prop 4.3** | **GAP** — number-field part sound; FF part outside the stated template and the "no odd-square obstruction over F_q[T]" attribution is wrong (m = 2 is outside the template) — MAJOR D11 |
+| §3 tables, exponent law, controls (EVIDENCE) | SOUND — reproduced exactly from scratch (t = 3 control within window rounding) |
+| §5 census (EVIDENCE) | SOUND-AFTER-REPAIRS — no inert primes were actually included (D12); 18 failures reproduced |
+| Labels / Assessments | D10, D11, D13 |
+
+No FATAL defect. One MAJOR (D11, scope/attribution). The headline is a genuine, correctly proved order-3
+T1; I independently confirmed the partner vanishing at λ by a direct local norm-group computation on every point.
 
 ## Defects
+1. **D1 (MINOR) Thm 3.2(b) statement.** States only n = π³; the report and bsI memo claim π^{3k}, which the proof
+   (and Thm 4.1(b)) gives. *Repair:* "n = π^{3k}, k ≥ 1".
+2. **D2 (MINOR) §3 numerics, validation of inv_λ.** inv_λ was only inferred as −Σ_tame; the "400 random pairs with
+   a ∈ U^{(4)}" check exercises only the case where the λ-symbol is trivial. *Repair:* cite R182's direct
+   norm-residue computation (inv_λ = 0 on all points; reciprocity cross-check with 189 non-trivial λ-symbols).
+3. **D3 (MINOR, framing) "2-primary is the analogue of positivity / monic".** It is a choice of associate only for x
+   prime to 2: the normalisation also **forbids denominators divisible by 2**, which positivity/monic never do.
+   *Repair:* say "kernel of reduction at the anchor (analogue of the kernel of sign); it also excludes denominators
+   divisible by the anchor prime".
+4. **D4 (MINOR) search window.** The text says N(X − c_i n/t) ≤ B; the code centres at the *rounded* c_i n/t and
+   bounds the offset. Same window for t = 9 rows (identical counts), slightly different for the t = 3 control
+   (660/299 vs exact 658/301, cubes 306/164/1493 vs 308/164/1504) and π⁶ (57 vs 56). *Repair:* state the window as
+   implemented.
+5. **D5 (MINOR) §3 wording.** "Every prime has Type I/II solutions" holds for the 8 tabulated primes only (the census
+   has 18 window failures); "TES(π³) is globally solvable" is EVIDENCE for the 5 cubes but PROVED whenever TES(π)
+   is solvable (π 2-primary ⇒ (π²x_i) solves TES(π³)). *Repair:* scope + add the one-line inheritance proof.
+6. **D6 (MINOR) dangling reference** "see Lemma 2.4" after Lemma 2.1: no Lemma 2.4 exists. *Repair:* point to the
+   Thm 3.2 proof at λ / Principle (β) (where the equation pins the partner invariant).
+7. **D7 (MINOR) Cor 2.2(f) citation from memory.** Not checkable against sources/. *Repair:* label "standard
+   (Fesenko–Vostokov / Serre XIV, not checked); the instance used is verified (R182: ⟨1+λ², 1+λ³⟩_λ = 0 by the
+   norm-residue definition; sharp: ⟨1+λ, 1+λ²⟩_λ ≠ 0)".
+8. **D8 (MINOR) Cor 1.3 "it is empty".** Means "vacuous"; and non-vacuity on realised degree vectors is DRINFELD's
+   EVIDENCE. *Repair:* reword.
+9. **D10 (MINOR, label) Thm 4.1(c)** "unconstrained" is not proved. *Repair:* move (c) to a remark.
+10. **D11 (MAJOR, scope/attribution) Prop 4.3(i).** See verdict above. *Repair:* (1) restrict Prop 4.3 to number
+    fields, add an FF corollary stating the FF template explicitly (∞ ∈ S, monic at ∞) whose proof is Cor 2.2(c) +
+    "every place tame"; (2) replace "the structural reason behind FUNCTIONFIELD_ES's 'no odd-square obstruction'"
+    by "the odd-m analogue of FUNCTIONFIELD_ES's absence of an odd-square obstruction; for m = 2 the reason is on the
+    anchor side ((−1, −1) split over F_q(T); for q ≡ 3 (4) the monic normalisation is not isotropic, giving the
+    degree-dependent sign of (J)4 Prop 4.1)"; (3) fix the μ_p parenthetical; same edits in report SHARP 2 and
+    bsI_anchor_calculus.
+11. **D12 (MINOR) census description.** "and inert p ≤ 77 (746 primes)": the script includes no inert primes
+    (746 = 2 × 373 split). *Repair:* correct the description and add R182's inert run (10 primes, all solved).
+12. **D13 (MINOR, label) Remark 4.1(4)** "ES's T1 is the m = 2 member of a family whose odd members are strictly
+    easier to prove": m = 2 is outside the template; label Assessment.
+
+(D9 withdrawn: I checked whether other degenerate degree configurations escape Lemma 1.1 — all three degrees equal
+D > n − k is impossible since then Σ c_i/X_i has no term of degree k − n.)
 
 ### Thm 3.2 (headline: order-3 T1 for TES over ℤ[ω]) — **SOUND** (minor repairs D1–D5)
 Re-derived from scratch, place by place (K = ℚ(ω): places (2) inert with k = F₄, λ = 1 − ω, primes π | n, other
