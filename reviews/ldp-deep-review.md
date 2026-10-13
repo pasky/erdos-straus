@@ -3,6 +3,12 @@
 Reviewer branch `side-agent/review-ldp-deep` (merged `side-agent/spark-higher-reciprocity`). From-scratch scripts:
 `scripts/review_ld_*.py`. Labels as in DISCOVERIES.md. **ES is not solved anywhere; nothing below changes that.**
 
+**Repairs applied (author quiet at end of review — no commits on `side-agent/spark-higher-reciprocity` after
+86bdc7b0):** D1, D2a–c, D3a–c, D4a–c, D5, D6a–b, D8a–b, D9, D10a–c applied directly to LDP_DEEP.md,
+BRAINSTORM/bsD_{eichler_degree_k,brauer_cores,genus_vacuity_LDp,missed_primes,metaplectic_cubic,artin_conjugation,
+frobenius_closure}.md and reviews/agent-reports/AGENT_REPORT_O177.md, each marked "(R177 repair …)". Also the
+R176-inheritance items below (D11). No numbers changed (all reproduced).
+
 ## Summary verdicts
 
 **Bottom line.** No FATAL defect. Every numerical claim reproduces exactly from independent code; every PROVED lemma
@@ -245,6 +251,20 @@ Assessment-level text).
   "Assessment" — the intro and AGENT_REPORT SHARP list should match (D10c, MINOR). A.6 (iii) depends on bsC Prop 1
   and bsC Cor 2 (O176, under R176) — state the dependency.
 
+### Inherited reliance on R176 defects (orchestrator request)
+* **R176 D1 (vacuous "level G ≥ 2√h" gloss).** LDP_DEEP's *question* (b) quoted the gloss ("level ≥ 2√(covolume/p)").
+  The analysis itself does not rely on it: bsD_genus_vacuity_LDp and LDP_DEEP B.1 use the exact condition
+  4h | gcd(h, G)² (DIFF_DEEP Thm 2.1). B.3's target "det ≤ pM²/4" is a *necessary* consequence of the exact
+  condition, so "Minkowski misses it" stands a fortiori. Repaired by a pointer in the question (D11a, MINOR).
+* **R176 D2 (bsC Prop 1 slogan "parity over any base is quadratic" false for F-rational data).** O177 is consistent
+  with — indeed independently found — this: LDP_DEEP A.4 and bsD_artin_conjugation's correction state that bsC
+  Prop 1 does not apply to F-rational data, and A.6 (iii) is scoped to "ℚ-rational data". Residual reliance: the
+  LDP_DEEP title/question phrase "parity sees only quadratic characters" (harmless as the *object* of the question),
+  bsD_metaplectic Prop 1 ("extends verbatim", with V rational — fine), bsD_eichler (iii) ("bsC Prop 1 applies" to
+  Landherr's ±1 — fine, the invariants are signs). A.6 (iii) now cites bsC Prop 1 "as literally stated" (D11b).
+* **R176 D4 (non-existent "ET f(p) ≪ p^{o(1)}").** Not used anywhere in O177 (grep: no occurrence).
+* DIFF_DEEP Thm 1.1 (basis of B.1) was judged SOUND by R176, so B.1's dependency is discharged (D8a updated).
+
 ## Defects (numbered; FATAL / MAJOR / MINOR) with locations and repairs
 
 None FATAL.
@@ -298,6 +318,8 @@ None FATAL.
 * **D10a** (bsD_metaplectic_cubic Props 1–2). PROVED from unverified, memory-based formulas ⇒ CONDITIONAL; soften
   "no dual-pair theta correspondence for n ≥ 3 covers".
 * **D10b** (bsD_artin_conjugation). K⁺-part ≠ "order-≥3 part" (it contains the even quadratic characters).
+* **D11** (LDP_DEEP question (b); A.6 (iii)). (a) Quoted the R176-D1 vacuous size gloss; (b) cite bsC Prop 1 "as
+  literally stated" (R176 D2). Both repaired.
 * **D10c** (LDP_DEEP one-paragraph answer; AGENT_REPORT verdict). "(a) No … each PROVED" — the "No" is an
   Assessment; match §C. State the dependency of A.6 (iii) on bsC Prop 1 / Cor 2 (O176, under R176).
 
