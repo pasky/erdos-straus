@@ -1,13 +1,17 @@
 # FF_STERILE_PROOF — towards an explicit sterile point of ES₃(T²) (O179, spark relay F)
 
-Status: in progress (O179). Labels as in DISCOVERIES.md. **ES over Z is not touched; this is the F₃[T] model.**
+Status: in progress (O179). Hostile review R179 (`reviews/ff-sterile-proof-review.md`): no FATAL, no MAJOR; Thm 3.2 and Lemma 2.1
+SOUND; minors D1–D10 applied in place, marked "(R179 repair)". Labels as in DISCOVERIES.md. **ES over Z is not touched; this is the F₃[T] model.**
 Inputs (treated as CLAIMED, re-derived where used): FUNCTIONFIELD_ES3.md (O173), SIGNLAYER_DEEP.md (O175),
 FUNCTIONFIELD_ES2.md (compactness criterion §0.1, Case A at x*_c §0.2). Scripts `scripts/fsp_*`.
 
 ## 0. Setting and notation
 
 q = 3, A = T². Slice point x_u: x ≡ 1 at every prime ≠ T, x ≡ u (mod T^∞), u = 1 + Tv, v(0) = c ∈ {1, 2}
-(u ≡ 1 mod T² is covered by the constant family E = −1, so these are the only interesting slice points).
+(u ≡ 1 mod T² is covered by the constant family E = −1, so these are the only interesting points of the sub-slice u ≡ 1 (T)).
+(R179 repair, D4: slice points with u(0) = 2 are not treated here. u ≡ 2 (mod T²) is covered by (1; 0, 1; 2, 1), but
+u = 2 + Tv with v(0) ≠ 0 is neither treated nor shown covered; FF2 §0.1 lists such lifts among the uncovered candidates.
+Lemma 2.1 below uses E(0) = −1, so it does not apply to them.)
 x*_c: u = 1 + cT. By O175 Lemma 1.1 (re-derived in §1) the Case B families valid on the slice are the tuples
 (H, H', g', L'', r, K) — H = h₁, H' = h₁' — with H, H', g', L'' monic, nonzero constant terms,
 * (I) H + H' = T g' r, (II) H H' L'' = T^K + r, L' := g'L'', l := deg L', a := deg H, b := deg H', λ := deg L'',
@@ -34,6 +38,9 @@ So a covering family is a rational approximation −H/H' of u to T-adic order N 
 almost divide T^K (∞-adic condition (II)), with a + b ≤ K ≤ 2N − 2: a *two-place* approximation problem.
 
 ## 2. The genus (sign-layer) constraint: degree parities (PROVED; checked on all 312 solutions K ≤ 14)
+(R179 repair, D1: the core statement, deg E, deg E′ (and deg D) even, is FUNCTIONFIELD_ES2 §0.2's reciprocity parity
+(R166-checked), re-derived here. New here are only the corollaries a ≡ b, l ≡ a + 1, λ ≡ K, deg r ≡ K (mod 2). R179 re-derived
+the proof and found 0 violations on its own, independently enumerated K ≤ 12 list.)
 
 **Lemma 2.1.** On the slice (u(0) = 1), every Case B solution has **deg E and deg E' even and λ ≡ K (mod 2)**;
 equivalently a ≡ b (mod 2), a + b ≡ 0, l ≡ a + 1 (mod 2).
@@ -49,7 +56,8 @@ Check (`fsp_enum.py 14`): parity classes (a, b, λ, K mod 2) of the 312 solution
 (0,0,1,1) 84, (1,1,1,1) 28; no violation.
 *Remark.* This is the full genus information: the local symbol at T of F₃(T)(√−M) only sees E(0) (1-units of
 F₃[[T]] are squares, the group 1 + TF₃[[T]] being pro-3), so quadratic characters see **no** T-adic digit of u
-beyond u(0). In particular no quadratic character (Legendre/genus) can split the slice into covered/uncovered
+beyond u(0). (R179 repair, D10: the next sentence is an Assessment. Global Jacobi symbols of u-dependent data, e.g.
+FF2's ((1 + cT)/E), are not local characters at T.) In particular no quadratic character (Legendre/genus) can split the slice into covered/uncovered
 halves; a "hidden character" explaining the 1/2 would have to be cubic (Artin–Schreier) or non-abelian.
 
 ## 3. Where sterile points can live: π-weights, and O(q, A) is Haar-null (PROVED)
@@ -77,6 +85,12 @@ components of x at distinct primes are independent, so the events B_ℓ = {x ≡
 are independent given κ, with μ(B_ℓ) = 1/(|ℓ| − 1). By the prime number theorem in arithmetic progressions of
 F_q[T], Σ_{deg ℓ = e, ℓ ≡ −κ (A)} 1/|ℓ| ~ 1/(Φ(A)·e), whose sum over e diverges. Borel–Cantelli II: a.s. infinitely
 many B_ℓ hold, and each gives a valid F_ℓ. ∎
+(R179 repair, D3: this is the profinite, measure-theoretic form of the classical almost-all mechanism of
+FUNCTIONFIELD_ES Thm 5.3: one prime in a progression dividing a shift of P. The prime polynomial theorem in progressions is
+Rosen Thm 4.8 / FUNCTIONFIELD_ES Fact 5.2; Dirichlet's theorem in analytic form already gives the divergence. Over Z the same
+argument gives only a statement weaker than Vaughan's "almost all n" theorem. R179 re-derived the proof: SOUND.)
+(R179 repair, D2: (a) settles R166 D11's R̂^* question. It does NOT settle FF2 §0.2's slice-measure alternative, since
+the slice is Haar-null, and it gives no rate: F_ℓ alone leaves uncovered mass ≍ e^{−1/6} at deg ℓ ≤ e.)
 *Consequences.* (a) Settles the open alternative of FUNCTIONFIELD_ES2 §0.2 (R166 D11): O(3, T²) is null in R̂^*,
 so the ≈ 1 % plateau of the `ffl_tree` covering tree is a truncation artefact, not a positive-measure obstruction.
 (b) A sterile point must avoid **every** event x ≡ −A (mod ℓ), ℓ ≡ −x (mod A) prime, and the conditions of every
@@ -89,6 +103,8 @@ other null sets are not excluded by anything proved here.
 ## 4. The point x*_c: what is proved, the exact residual problem, and a large-K cyclotomic search
 
 **What is proved at x*_c (all PROVED; the first two are O173/O175 results re-derived, the third is new).**
+(R179 repair, D5: the window in (ii) is O173 Lemma 2.3. It is CLAIMED pending R173 and is not re-derived here. The O175 Lemma 3.2 part
+is R175-checked.)
 (i) Case A is impossible (FUNCTIONFIELD_ES2 §0.2, R166 D1). (ii) Every Case B family covering x*_c is lopsided
 (O175 Lemma 3.2) and has (N + 1)/4 ≤ l ≤ 2N − k − 1 (O173 Lemma 2.3). (iii) With Lemma 2.1:
 deg E ≥ N + 1 and deg E' ≥ N + 1 — *Proof.* deg E ≤ N forces E = −(1 + cT) (degree 1, odd: Lemma 2.1). deg E' ≤ N
@@ -101,7 +117,7 @@ for no K ≥ 2 and no r with deg r < K is there an ordered factorisation T^K + r
 with H + H' = T g' r (g' monic, g'(0) ≠ 0) and **H·g'L'' ≡ −c (mod T^{N₀})**, N₀ = ⌈K/2⌉ + 1 (the covering condition
 v ≡ −HL' mod T^N at the weakest admissible N; it implies, but is not implied by, H + (1 + cT)H' ≡ 0 mod T^{N₀} — e.g.
 K = 2, H = T + 2, H' = T + 1 satisfies the latter and covers 1 + T + 2T², not x*_1) — i.e. "T^K + r has a divisor
-triple whose product HL' lies in a prescribed T-adic class of precision about half the degree": exactly the integer divisor-class problem B2 (a divisor of N_θ(p) in a residue
+triple whose product HL' lies in a prescribed T-adic class of precision about half the degree": (R179 repair, D6: Assessment, an analogy) exactly the integer divisor-class problem B2 (a divisor of N_θ(p) in a residue
 class whose modulus is part of the solution), with r playing the role of the moving modulus. The data of
 §1–§2 and Lemma 2.1 cut the parameters but leave this lottery intact; I found no step that is false for all K.
 
@@ -118,6 +134,10 @@ v_T(HL' + c) ≥ N₀) (first time levels
 K > 19 are touched at x*). Closest approach: v_T(HL' + c) = 12 against the needed 14 at K = 26 (a = b = 13, T^26 − 1);
 elsewhere ≤ 13 against needed ≥ 72. Observed: T^K + 1 has cyclotomic solutions at K = 4, 12, 20, 28, 36, 40, 44, 52, …, 136, 148 (mostly K ≡ 4 mod 8,
 not only).
+(R179 repair, D7: (a) 10 of the 47 SKIPped pairs are at odd K (91, 117, 121, 123, 143). Lemma 2.1 excludes them, so the
+unexamined set is 37 pairs at 29 even levels. (b) The T^K + 1 pattern is read off an incomplete list: r₀ = 1 is SKIPped at
+K = 60, 84, 120, 122, 130, 132, 140, 146. (c) "elsewhere" means: best z = 13 at K = 142 (needed 72), otherwise z ≤ 9.
+R179's own factorisation/enumeration (`scripts/review_fsp_cyclo.py`) reproduces the log field-by-field for 15 ≤ K ≤ 80.)
 
 ## 5. The "covered measure → 1/2": what it is and what it is not
 
@@ -132,16 +152,28 @@ v ∈ F₃[[T]]^*; recomputed from a fresh `bsB_caseB 19` run, agreeing with O17
   extrapolation gives a limit ≈ 0.493 (range 0.492–0.495 for ratios 0.5–0.7). Assessment (finite data +
   extrapolation, not a proof): **no sign of an exact 1/2**; "≈ 1/2" is 1/3 + 2/27 + 4/81 + (apparently small tail).
   C is the Case-B-covered set; its complement is sterile only where Case A is also excluded.
+  (R179 repair, D8: the successive two-level ratios are 0.74, 0.45, 0.85, 0.41. A geometric tail at the largest (0.85)
+  gives 0.4997, so the extrapolation range is 0.492–0.500. The data neither support nor exclude an exact 1/2; read
+  "no sign of an exact 1/2" as "no positive sign of an exact 1/2".)
 * **No quadratic group character produces it (PROVED).** 1 + T F₃[[T]] is pro-3, so it has no nontrivial ±1-valued
   group character (arbitrary continuous ±1-valued functions of higher digits are not excluded); the only such
   character of the slice is v(0) = c, and C is invariant under
   c ↦ −c (T ↦ −T; O175 Lemma 3.1(ii), whose sign bookkeeping is exactly Lemma 2.1 — this closes R175 D7).
   Cubic (Artin–Schreier) characters would give thirds, not halves.
+  (R179 repair, D10 and D1: PROVED here are only (i) the pro-3 group 1 + TF₃[[T]] has no nontrivial continuous ±1 character,
+  and (ii) local quadratic symbols at T see only u(0). u ↦ v(0) is an F₃-valued homomorphism, not a ±1 character, and the
+  sign of c is a function on the sub-slice v(0) ≠ 0, which is not a group. Read "the only such character … is v(0) = c" as "the
+  only ±1 invariant visible to quadratic symbols at T is the sign of c". Ruling out a genus mechanism in general is
+  an Assessment. On R175 D7: that gap was already repaired in SIGNLAYER_DEEP by citing FF2's parity. Lemma 2.1 is consistent
+  with that repair; it does not newly close it.)
 * **A homeomorphism swapping covered/uncovered forces C clopen (PROVED, topology).** C is open, U closed, so
   τ(C) = U makes both clopen (C a finite union of cylinders). C has not stabilised through K = 19 (every increment for
   10 ≤ K ≤ 19 is > 0); whether it does later is open, so this only says what such a τ would require.
 * Near x*_c coverage is zero up to the depth at which x*_c is known uncovered: a level-N family meeting
   {u ≡ 1 + cT mod T^{N+1}} covers x*_c itself (ultrametric triviality). This is all R175's "far below 49 %" says.
+  (R179 repair, D9: the last sentence is false for deeper families. Ultrametricity forces this only for cylinder depth
+  N + 1 ≤ 5, i.e. N ≤ 4. Families with K ≥ 7 have N₀ + 1 > 5, and their cylinders could lie inside u ≡ 1 + cT (mod T⁵)
+  without containing x*. That none does (K ≤ 13, R175; K ≤ 12 re-checked by R179) is a genuine local deficit (EVIDENCE).)
 
 ## 6. Why goal (1) is not reached: the square-root barrier for the slice (PROVED bounds; Assessment of scope)
 

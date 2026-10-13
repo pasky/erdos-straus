@@ -1,5 +1,9 @@
 # Review R179 of FF_STERILE_PROOF.md (O179) — hostile, round 1
 
+**Repairs applied:** D1–D10 applied directly to FF_STERILE_PROOF.md as "(R179 repair)" notes (author quiet since
+commit 714d5b7c). The author's text is otherwise unchanged; the report AGENT_REPORT_O179.md is not edited (its SHARP 1–3
+wordings are covered by D1–D3 and D8).
+
 Reviewer: R179. Document reviewed: FF_STERILE_PROOF.md at merge of side-agent/ff-sterile-proof (report
 reviews/agent-reports/AGENT_REPORT_O179.md). From-scratch scripts: `scripts/review_fsp_poly.py` (own F_q[T]
 arithmetic incl. irreducibility test and Cantor–Zassenhaus factorisation), `scripts/review_fsp_enum.py`,
@@ -22,7 +26,7 @@ further `scripts/review_fsp_*.py` listed per claim. Nothing here concerns ES ove
 | §5 "no sign of an exact 1/2" | overstated Assessment (D8) |
 | §5 "no quadratic-character mechanism (PROVED)" | SOUND-AFTER-REPAIRS: true only in the narrow group-character sense; wording/labels (D10) |
 | §5 clopen remark | SOUND (trivial) |
-| §5 "near-x* zero coverage is ultrametric triviality" | FALSE as stated for K ≥ 8 (D9) |
+| §5 "near-x* zero coverage is ultrametric triviality" | FALSE as stated for K ≥ 7 (D9) |
 | §6 counting bounds / square-root barrier | SOUND (as a statement about these parametrisations) |
 
 ## Lemma 1.1 / 1.2 — SOUND
@@ -210,10 +214,10 @@ ratios are 0.74, 0.45, 0.85, 0.41, which is erratic. A geometric tail at the lar
 **D9 (MINOR, false dismissal) — §5 last bullet, "Near x*_c coverage is zero up to the depth at which x*_c is known
 uncovered … ultrametric triviality. This is all R175's 'far below 49 %' says."** Ultrametricity only forces this
 for cylinders of depth ≤ the neighbourhood depth. R175's statement (zero coverage inside u ≡ 1 + cT (mod T⁵) for
-K ≤ 13) includes all families with N₀ + 1 > 5 (K ≥ 8). Their cylinders could lie inside the neighbourhood without
+K ≤ 13) includes all families with N₀ + 1 > 5 (K ≥ 7). Their cylinders could lie inside the neighbourhood without
 containing x*, so the emptiness is a genuine observation. Reviewer check: among the K ≤ 12 cylinders, those of
-depth 5 and 7 meet v ≡ c (mod T³) but none meets v ≡ c (mod T⁴). *Repair:* "for families of level N ≤ 3 this is
-ultrametric triviality; for deeper families (K ≥ 8) R175's observation is a genuine (EVIDENCE) local deficit near x*."
+depth 5 and 7 meet v ≡ c (mod T³) but none meets v ≡ c (mod T⁴). *Repair:* "for families of level N ≤ 4 (cylinder depth ≤ 5) this is
+ultrametric triviality; for deeper families (K ≥ 7) R175's observation is a genuine (EVIDENCE) local deficit near x*."
 
 **D10 (MINOR, wording/label) — §2 Remark and §5 "No quadratic group character produces it (PROVED)".** What is
 proved is narrow: (i) the pro-3 group 1 + TF₃[[T]] has no nontrivial continuous ±1-valued character; (ii) local
