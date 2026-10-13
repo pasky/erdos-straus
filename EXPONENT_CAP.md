@@ -13,7 +13,7 @@ is ≤ τ((r+1)/4) = r^{o(1)} — the divisor bound, B3. So the KEY OBSERVATION 
 hypothesis to violate is "box size r^{o(1)}" ⇒ allow overflow e and ask how large e must be (§3).
 (U2) Before the analytic question, an archimedean one: is the overflow problem at bounded e still a finite search?
 Yes (Thm 2.1, rigidity): a shot with overflow Q₁ (den z = Q₁²) has modulus g ≤ 2nQ₁²(n + Q₁²). So every bounded cap
-is a finite search like ES; the sieve regime r → ∞ *forces* log den(z) ≥ ½ log(r/4n) − O(1).
+with fixed S (bounded overflow; R200 repair M1) is a finite search like ES; the sieve regime r → ∞ *forces* log den(z) ≥ ½ log(r/4n) − O(1).
 (U3) The exact equation behind (U2) is a duality (Prop 1.3): overflow Q₁ and "growing modulus" 4k swap roles;
 ES = (Q₁ = 1, k free), ES^□ = (k = 1, Q₁ free).
 
@@ -62,7 +62,7 @@ divisors are ≡ 1 (mod 4), contradicting D ≡ −Q₁² ≡ 3 (mod 4): no shot
 
 **Corollary 1.4 (overflow = inflated box at the same modulus; PROVED).** Let h ≡ 3 (mod 4), K := (h+1)/4. A shot datum
 (Q, h) with overflow Q₁ exists iff −n ≡ c/j (mod h) for some c = Q₀Q₁², j with **c·j = K·Q₁²** and Q₀ | K (Q = Q₀Q₁,
-j = K/Q₀). So ES (Q₁ = 1) is the FIXED_MODULUS_SHOTS box criterion on Box(K) (d = 1 slice), and overflow Q₁ replaces
+j = K/Q₀), gcd(Q₁, K/Q₀) = 1 and gcd(Q, n) = 1 (R200 repair m2; this j is Prop 1.3's k, not its j). So ES (Q₁ = 1) is the FIXED_MODULUS_SHOTS box criterion on Box(K) (d = 1 slice), and overflow Q₁ replaces
 Box(K) by (a slice of) **Box(K·Q₁²) at the same modulus h** — in the certificate cube (c, d, j) of FIXED_MODULUS_SHOTS
 Lemma 1.1 it is the point (Q₀Q₁², Q₁^{−2}, K/Q₀): **ES^{(y)} is the certificate cube with d allowed to be the inverse
 of a square of primes dividing y**, ES^{(y,e)} caps the exponents of that inverse square at e.
@@ -71,7 +71,7 @@ h | p + 4c²d with (c, d) = (Q₀Q₁², Q₁^{−2}) is h | p + 4Q². ∎ (Asse
 *Reading.* Covering by an exponent box at h needs |Box(K·Q₁²)| ≥ (h−1)/2, i.e. τ₃-size of K·Q₁² ≳ h, while
 Thm 2.1 below caps h ≤ 2nQ₁²(n + Q₁²): a covering argument needs the cap e ≥ (log h)^{1−o(1)} (Prop 3.1), whereas the archimedean wall (Cor 2.2) only asks e·log rad(Q₁) ≥ ¼ log(h/4n) − O(1).
 
-## 2. Rigidity: every bounded cap is a finite search
+## 2. Rigidity: every bounded overflow (fixed S, bounded cap) is a finite search (R200 repair M1)
 
 **Theorem 2.1 (overflow rigidity; PROVED).** For every shot datum (Q, g) of n with overflow Q₁,
 `g ≤ max(Q₁⁴n + Q₁²,  n(n + 1)(Q₁² + ½) + 1) ≤ 2nQ₁²(n + Q₁²).`
@@ -84,7 +84,7 @@ The final bound: Q₁⁴n + Q₁² ≤ 2nQ₁⁴, and 2n²Q₁² + 2nQ₁⁴ −
 (expand, Q₁ ≥ 1). ∎
 *Check (`xc_rigidity.py 301 301`):* max g/(nQ₁²(n + Q₁²)) = 0.583 over the 46 084 shots (attained at n = 3, g = 7).
 *Sharpness of the Q₁⁴ term (PROVED, explicit family).* D = 3, j = 4, k = (Q₁² + 3)/4 (Q₁ odd, 3 ∤ Q₁, so 4 | Q₁² + 3 and 3 ∤ k), and
-n ≡ −1/k (mod 3): Q₀ = (kn + 1)/3, g = 4Q₀k − 1 = (4k²n + Q₁²)/3 ≈ Q₁⁴n/12. (E.g. Q₁ = 5, k = 7, n = 17: Q₀ = 40,
+n ≡ −1/k (mod 3), i.e. n ≡ 2 (mod 3) since k ≡ 1, and gcd(n, Q₁) = 1 (R200 repair m4): Q₀ = (kn + 1)/3, g = 4Q₀k − 1 = (4k²n + Q₁²)/3 ≈ Q₁⁴n/12. (E.g. Q₁ = 5, k = 7, n = 17: Q₀ = 40,
 Q = 200, g = 1119, 17 + 4·200² = 1119·143, and 4/17 = 1/40 + 1/4760 + 25/119 — an ES^{(y,1)} solution, 5 | y.) So the exponent 4 in g ≲ nQ₁⁴ cannot be lowered.
 
 **Corollary 2.2 (bounded caps are finite searches; PROVED).** Let S be a finite set of odd primes and e < ∞. Every
@@ -95,7 +95,8 @@ in n — the same situation as ES itself (e = 0: g ≤ 2n(n+1); cf. FIXED_MODULU
 **Consequently any argument that produces the certifying prime r by a sieve with r → ∞ (as Thm 4.2 of
 FROBENIUS_FIRING does, ineffectively) can only certify ES^{(y,e)} with e·log P ≥ log Q₁ ≥ ¼ log(r/(4n)) − O(1)**
 (for r ≥ 4n³, the Q₁⁴ branch); for fixed S this is e ≥ (log r)/(4 log P) − O_n(1). ∎ (Immediate from Thm 2.1.)
-*Reading (Assessment).* The exponent cap is not a parameter that a sieve can push down to 0. Between the sieve
+*Reading (Assessment).* With S fixed, the exponent cap is not a parameter that a sieve can push down to 0 (R200 repair M1: for S growing
+with r, see §6 item 2). Between the sieve
 regime and ES there is a sharp archimedean wall: the moment the overflow is bounded, the certifying moduli are
 bounded, and existence becomes a statement about one finite set (B2/B3). The rigidity is archimedean, not
 congruential: Q₀ | (g+1)/4 makes Q₀ ≤ g/4, so 4Q² ≤ 4Q₁²·g²/16 and the integer quotient m = (n + 4Q²)/g is forced into
@@ -122,6 +123,8 @@ overflow e alone, at the scale e ≈ log r with ≈ log r/log log r primes (all 
 product), or e ≈ r^{1/k} with k fixed primes. Combined with Cor 2.2 (necessary: log den z ≥ ¼ log(r/4n)), the
 *sieve window* for the overflow is
 `¼ log(r/4n) − O(1)  ≤  log den(z)  [necessary]      vs      log den(z) ≈ 2e·log P ≳ (log r)^{2−o(1)}  [coverage].`
+(Assessment, R200 repair m5: the right side is heuristic — den z ≤ P^{2e} bounds the hit from above; coverage says
+nothing about the den of the particular hit. Prop 3.1 obstructs covering arguments only.)
 
 **Theorem 3.2 (ES^{(y)} with sub-polynomial overflow exponent; PROVED relative to UNIT_ORBIT Lemma 2.2, as Thm 4.2 of
 FROBENIUS_FIRING; ineffective).** For every δ > 0 and every odd non-square n > 1 there is a shot solution of
@@ -151,13 +154,14 @@ necessary: ∏(κ_i + e + 1) ≥ (r−1)/2 (Prop 3.1).
 (b) The dual lattice Λ_r^* = {θ ∈ ℝ^k : θ·a ∈ ℤ ∀a ∈ Λ_r} is {(φ(s₁²), …, φ(s_k²)) + ℤ^k : χ a character of (F_r^*)²},
 where χ(u) = e^{2πiφ(u)}. A short dual vector is a nontrivial character χ with ‖φ(s_i²)‖ ≤ t for all i, i.e. χ
 "pretends to be 1 on S" in the sup-angle. Transference (Banaszczyk, Math. Ann. 296 (1993): μ₂(Λ)·λ₁^{(2)}(Λ^*) ≤ k/2, ℓ² covering radius and minimum;
-citation form not re-checked) gives: the box ∏[0, κ_i + e] contains an ℓ² ball of radius E/2, E := min κ_i + e, and every
+form verified by R200; later work sharpens the constant) gives: the box ∏[0, κ_i + e] contains an ℓ² ball of radius E/2, E := min κ_i + e, and every
 coset of Λ_r meets every ball of radius μ₂(Λ_r); so **coverage at overflow e holds once no nontrivial character χ of
-(F_r^*)² has ‖φ(s²)‖ < k/E for all s ∈ S** (if λ₁^{(2)}(Λ^*) < k/E, some dual vector has all coordinates < k/E).
+(F_r^*)² has ‖φ(s²)‖ < k/E for all s ∈ S** (if λ₁^{(2)}(Λ^*) < k/E, some dual vector θ ≠ 0 has all coordinates < k/E; for k/E ≤ 1 θ ∉ ℤ^k, so χ is
+nontrivial, and for k/E > 1/2 the criterion is vacuous — R200 repair m6).
 (c) Hence the ES-relevant regime (e ≈ polylog r, S ≈ all primes ≤ log r dividing (r+1)/4) asks for a
 **uniform small-prime discrete-log non-concentration statement**: for some (sieved) r, the discrete logs
 of the primes ≤ c log r are not simultaneously close to 0 after multiplication by any nonzero j ∈ ℤ/((r−1)/2).
-*Assessment.* This is beyond GRH: under GRH, character sums Σ_{s≤y} χ(s) log s ≪ √y log²(ry) are nontrivial only for
+*Assessment.* This is beyond known pointwise GRH inputs (averaged-over-r inputs not examined; R200 repair m6): under GRH, character sums Σ_{s≤y} χ(s) log s ≪ √y log²(ry) are nontrivial only for
 y ≫ log⁴ r, and the best GRH generation bound (Bach: primes ≤ 2 log² r generate F_r^*) already needs a product of
 primes ≈ e^{2 log² r} ≫ r — which cannot divide (r+1)/4. The radical constraint rad(Q) | (r+1)/4 confines S to
 primes of total size ≤ r, i.e. to the range where no known (or GRH-conditional) character-sum input exists.
@@ -166,9 +170,9 @@ primes of total size ≤ r, i.e. to the range where no known (or GRH-conditional
 
 **Proposition 4.1 (bounded multiplicity below overflow N^{1/4}; PROVED relative to the cited theorem).** For a shot
 Q (odd, prime to n), N := n + 4Q², the ES^{(y,e)} certificates with this Q are the divisors g ≡ −1 (mod q_e),
-q_e := 4Q^{(e)} ≥ 4Q/rad(Q)^e > 2√(N − n)/rad(Q)^e (Prop 1.2). If rad(Q)^e ≤ N^{1/4 − α}/C_n (α > 0), then q_e ≥ N^{1/4+α}
+q_e := 4Q^{(e)} ≥ 4Q/rad(Q)^e = 2√(N − n)/rad(Q)^e (Prop 1.2; R200 repair m7: equality, C_n := √(n+4)/4 works). If rad(Q)^e ≤ N^{1/4 − α}/C_n (α > 0), then q_e ≥ N^{1/4+α}
 and the number of such divisors is O(α^{−3/2}) (Coppersmith–Howgrave-Graham–Nagaraj, *Math. Comp.* 77 (2008),
-divisors in residue classes; Lenstra, *Math. Comp.* 42 (1984): ≤ 11 when q ≥ N^{1/3}; citation form not re-checked).
+divisors in residue classes; Lenstra, *Math. Comp.* 42 (1984): ≤ 11 when q ≥ N^{1/3}; statements verified by R200).
 *Reading (Assessment).* With overflow below N^{1/4}, each shot contributes O(1) certificates — the bounded-multiplicity
 hypothesis of B3 (CONDITIONAL_ES Prop 2.3) holds; the self-mute theorem lives at overflow ≫ N^{1/4} (Q = s^j with
 j ≫ log r, q_e = 4s), where a single N has unboundedly many admissible divisors and the problem is statistical.
@@ -189,7 +193,7 @@ is exact, larger values are exact when ≤ column 7 and upper bounds otherwise (
   13: 11, 14: 4, 15: 3, 16: 2, 19: 1 (p = 598 537: j = 20, g = 473 027 prime, κ = 1). Prime g only: max 19.
 * The tail is geometric, P(e ≥ t+1 | e ≥ t) ≈ 0.65, and nearly p-independent (p ≡ 1 mod 4: P(e ≥ 1) = 0.149, 0.122,
   0.113, 0.107 and P(e ≥ 6) = 0.019, 0.014, 0.016, 0.014 on [0, 10⁵), [10⁵, 3·10⁵), [3·10⁵, 6·10⁵), [6·10⁵, 10⁶)):
-  a lottery whose expected number of hits grows by a constant (≈ 0.4) per unit of cap — the "log log lottery" of a
+  (Assessment, R200 repair m8:) a lottery whose expected number of hits grows by a constant (≈ 0.4) per unit of cap — the "log log lottery" of a
   fixed-S family (Σ_r |B_r(e)|/r over the rigidity range), much thinner than ES's own polylog lottery.
 * Least K: at the best solution with e ≥ 1, κ = 1, 2, 3, 4, 5, 6, 7, 8 for 2 542, 1 306, 495, 166, 50, 19, 6, 2 primes.
   **Large K is never what helps**: the data use small κ and spend the overflow, as Prop 3.1 predicts (the box is
@@ -199,7 +203,8 @@ is exact, larger values are exact when ≤ column 7 and upper bounds otherwise (
 **5.2 Coverage scale, k = 2 (`scripts/xc_cover.py 3 5 200000`, `data/xc/cover_3_5.txt`).** For the 1 126 primes
 r ≡ −1 (mod 60) below 2·10⁵, 1 121 have ⟨9, 25⟩ = (F_r^*)²; for 1 101 of them the least L with
 {9^a 25^b : 0 ≤ a, b ≤ L} = (F_r^*)² is ≤ 4√r + 10, with L/√r between 0.65 (the bound of Prop 3.1(c) is
-√((r−1)/2) − 1) and 3.99, median 0.955; the remaining 20 have L > 4√r + 10 (short multiplicative relations — the
+√((r−1)/2) − 1) and 3.99, median 0.955 (statistics over these 1 101 only; R200 repair m8 — also xc_cover.py skips r = 59, so all
+three counts are one short); the remaining 20 have L > 4√r + 10 (short multiplicative relations — the
 exceptional set of Thm 3.2's proof). So covering needs and typically achieves e ≍ r^{1/k}; Thm 3.2's proof guarantees
 r^{2/(k+1)+ε}.
 
@@ -212,18 +217,24 @@ r^{2/(k+1)+ε}.
 2. **Archimedean wall (Thm 2.1, Cor 2.2; PROVED).** r ≤ 2nQ₁²(n + Q₁²), sharp in the Q₁⁴ term. Every bounded cap
    e < ∞ (fixed S) is a finite search with polynomially bounded moduli, exactly like ES; any sieve producing r → ∞
    certifies at best e·log rad(Q₁) ≥ ¼ log(r/4n) − O(1). The interpolation parameter does not reach ES continuously:
-   the sieve regime ends at e ≍ log r/log P, and below it there is nothing to sieve.
+   the sieve regime ends at e ≍ log r/log P, and below it there is nothing to sieve. *(R200 repair M1: all of this is
+   for FIXED S (bounded rad Q₁). With S growing with r the wall only asks rad(Q₁)^e ≥ (r/4n)^{1/4} − O(1), which is
+   no archimedean obstruction even at e = 1 (Q₁ a squarefree divisor of (r+1)/4 of size ≈ r^{1/4}); there the
+   obstruction is Prop 3.1, which excludes covering arguments only. Bounded e with growing S and a non-covering
+   argument is not ruled out here (open).)*
 3. **Coverage scale (Prop 3.1; PROVED).** The exponent box at r has ≤ τ((r+1)/4)(e+2)^{ω((r+1)/4)} elements; the KEY
    OBSERVATION (large κ via r ≡ −1 mod s^K) only buys a divisor-function factor. Covering (F_r^*)² needs
    e ≥ (log r)^{1−o(1)} (all small primes in (r+1)/4), or e ≥ r^{1/k}/2 with k fixed primes. (a)+(b) of the brief
-   are incompatible at e = 0 by the divisor bound, independently of the level of distribution.
+   are incompatible at e = 0 *for a covering argument* (R200 repair m5) by the divisor bound, independently of the
+   level of distribution.
 4. **Provable side (Thm 3.2; PROVED relative to the Thm 4.2 sieve).** ES^{(y)} with exponent cap y^δ, any δ > 0
    (geometry of numbers on the relation lattice Λ_r + the Lemma 2.3 count of short relations).
 5. **Named open problem (Dictionary 3.3).** Coverage at e = polylog(r) ⇔ (up to constants) no nontrivial character
    of (F_r^*)² is sup-angle-close to 1 on the primes dividing (r+1)/4 — a small-prime discrete-log
-   non-concentration statement on primes of total size ≤ r, a range where even GRH gives nothing. Even solving
+   non-concentration statement on primes of total size ≤ r, a range where no known pointwise character-sum input,
+   even under GRH, suffices (averaged-over-r inputs not examined; Assessment — R200 repair m6). Even solving
    it would prove ES^{(y, polylog)}, not ES (item 2).
 6. **Numerics (§5).** S = {3}: least overflow ≤ 4 for 98.9 % of primes < 10⁶, max ≤ 19, geometric tail, p-stable;
    squares: never (T1). Large κ is never used.
-Not an opening for ES (Assessment): the exponent cap is B2/B3 seen from the self-mute side — at bounded cap the
-archimedean wall makes it a finite search; at sieve-able caps the box must be inflated from r^{o(1)} to r.
+Not an opening for ES (Assessment): the exponent cap is B2/B3 seen from the self-mute side — at bounded cap and
+fixed S (R200 repair M1) the archimedean wall makes it a finite search; at sieve-able caps the box must be inflated from r^{o(1)} to r.

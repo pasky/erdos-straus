@@ -2,7 +2,11 @@
 
 Reviewer: R200 side agent. Document reviewed: EXPONENT_CAP.md as merged from side-agent/exponent-cap (checkpoint 1),
 AGENT_REPORT_O200.md. From-scratch scripts: `scripts/review_xc_algebra.py`, `scripts/review_xc_leaste.py`
-(none reuses `scripts/xc_*`).
+`scripts/review_xc_lattice.py` (none reuses `scripts/xc_*`).
+
+**Repairs applied** (author quiet after the checkpoint-1 report): M1, m2, m4, m5, m6, m7, m8 applied directly in
+EXPONENT_CAP.md and AGENT_REPORT_O200.md, each marked "(R200 repair …)". m1, m3 (wording/notation) left to the
+author; m3 is partly addressed by the parenthetical added with m2.
 
 ## Summary verdicts (filled in claim by claim)
 
