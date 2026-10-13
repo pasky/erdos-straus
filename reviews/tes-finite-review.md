@@ -43,3 +43,36 @@ checked in the cleared equation 9xyz = n(ωyz + ω²xz + 2xy)):
   coordinates (Type I / II shapes) ✓.
 * `one 179 36` (N = 26893, 3 s): 0 solutions ✓. `one 11 2` (N = 103): 0 ✓. Disk count for N = 103, z-disk N ≤ 45.8:
   162 non-zero lattice points, 42 of them 2-primary ✓.
+* Full range N ≤ 30000: from-scratch census running (`logs/review_tf_census30000.txt`); result recorded in §2b below.
+
+## 3. Thm 3.1 (no BM obstruction from Br U at the 16 failures) — SOUND (all 16 certificates re-verified)
+
+BL inputs over k = ℚ(ω), checked against the paper. BL §2 is explicitly "over a field k of characteristic 0", n ∈ k^*.
+(i) The K-linear change u_i = x_i/c_i turns TES into 9/n = Σ 1/u_i, i.e. BL's U_{n'} after u_i = (9/4)u'_i, n' = 16n/81 ✓
+(ratios, hence α_ζ, are scaling-invariant). (ii) Prop 2.5/2.6: Br Ũ/Br k ≅ (ℚ/ℤ(−1))^{G_k} ≅ μ(k), representatives
+α_ζ = (−u₁/u₃, −u₂/u₃)_ζ, ζ ∈ μ(k); for k = ℚ(ω), μ(k) = μ₆ ✓. α_ω ≠ 0 has order 3, α_{−1} ≠ 0 order 2, so they generate
+ℤ/6 ✓ (the bijection ζ ↦ α_ζ is not claimed to be a homomorphism, and isn't needed). Lemma 2.4 (Br₁Ũ = Br k) uses only
+Pic Ũ_k̄ = ℤ·L₁₂ with trivial action ✓ over any k. (iii) Cor 2.9 (Br U → Br Ũ iso): surjectivity Thm 1.7; injectivity
+from (2.8) with Pic Ũ → Pic E onto — E is the exceptional conic of the A₁ point, its tangent cone u₁u₂+u₁u₃+u₂u₃ = 0
+has the k-point (1:0:0), so E ≅ ℙ¹_k and L₁₂ (defined over k) meets it with intersection 1 ✓ — valid over K. So
+Br U/Br K ≅ ℤ/6 = ⟨α_ω, α_{−1}⟩ ✓, and orthogonality to Br U ⟺ Σ inv α_ω = Σ inv α_{−1} = 0 ✓ (Br K pairs to 0;
+Br ℂ = 0 at the complex place).
+
+Certificate logic ✓: Q_v = P₀ (v ≠ 𝔮), Q_𝔮 = P₁ is in W (P₀ ∈ W_v for v ∉ T(P₀) = {𝔮}; P₁ ∈ 𝒰(O_𝔮) ∩ U°), and
+Σ_v inv_v β(Q) = Σ_v inv_v β(P₀) + [inv_𝔮 β(P₁) − inv_𝔮 β(P₀)] = 0. Only the TAME place 𝔮 (∤ 6n) enters, so the
+wild invariants (computed by the author via reciprocity) are not needed for the certificate; and only equality of
+symbol values at 𝔮 is needed, so sign/inverse conventions are irrelevant.
+
+From-scratch check `scripts/review_tf_bm.py` (own valuations, residue fields, tame symbol, cubic and quadratic
+residue symbols; u = (x/ω, y/ω², z/2)): for each certificate it recomputes z₀ from (x₀, y₀), checks both points on U,
+recomputes T(P₀) by factoring the denominator of z₀ and testing x₀, y₀, z₀ ≡ 1 at (2) — T(P₀) = {𝔮} exactly — checks
+P₁ 𝔮-integral, and compares the symbols. Hand-entered: N = 7, 103, 151, 211, 26893 (data from the document /
+author's run); the other 11 parsed (data only) from the author's `tf_bm.py` output (`logs/review_tf_author_certs.txt`).
+**All 16 pass**; in every case (inv_𝔮 α_ω, inv_𝔮 α_{−1}) = (0, 0) for both P₀ and P₁. N = 103: P₀ = (−7−14ω, 5+4ω,
+(630−672ω)/(326−428ω)), T = {(49−33ω)}, N𝔮 = 5107; P₁'s only bad norm 7687 ✓ (as stated).
+Symbol code is not trivially-zero: `scripts/review_tf_symcheck.py` on complete TES sets at π (N = 307, 439, 601, 1009)
+gives the cubic exponent of α_ω at π constant = 2 ≠ 0 (order-3 T1 law of TWISTED_T1 Thm 3.2(a)), and the quadratic
+symbol at N = 439 split 27/27 ✓ (matches the author's convention check).
+
+Remaining caveats are correctly stated by the author (Br U° classes ramified along L_ij not considered; étale-BM /
+descent not excluded). See D3 for the wording of the theorem statement.
