@@ -278,11 +278,20 @@ has such a γ; no odd square has one (the matrix form of ET Prop 1.6). The split
 `σ(n; r, g) := Σ_{m | n, m ≡ r (g)} m = φ(g)^{−1} Σ_{χ (g)} χ̄(r) σ_χ(n)`, `σ_χ(n) := Σ_{m|n} χ(m) m`.
 The `σ_χ(n)` are Fourier coefficients of weight-2 Eisenstein series (`E₂^{χ,1}`-type; up to normalisation and
 the χ ↔ χ̄ convention, which we did not recheck), i.e. exactly the objects that the Siegel–Weil formula
-attaches to genera of *quaternary* forms of level ≍ g². Since `σ(n; r, g) > 0 ⟺ n` has a divisor `≡ r (g)`,
-Type II (CONDITIONAL_ES (3.1), with `n_g = gp + 1`, `4 | m`, `m ≡ −1 (g)`) is a positivity statement for rank-4
-genus coefficients — the rank-4 counterpart of the weight-1 (binary-form) expansion (3.2) used there.
+attaches to genera of *quaternary* forms of level ≍ g² — **for even χ only** *(R167 repair: `M_2(Γ₀(N), χ) = 0`
+unless `χ(−1) = 1`, and on Γ₁(N) the element −I acts trivially in weight 2, so every weight-2 form, in particular
+every (shifted) quaternary theta series, has only even-character components; for odd χ, `σ_χ` is not the
+coefficient sequence of any weight-2 form, and the σ_χ are linearly independent (compare values at primes)).* Since `σ(n; r, g) > 0 ⟺ n` has a divisor `≡ r (g)`,
+Type II (CONDITIONAL_ES (3.1), with `n_g = gp + 1`, `4 | m`, `m ≡ −1 (g)`) is a positivity statement for the
+divisor sums σ(n; −1, g). *(R167 repair: it is **not** a positivity statement for rank-4 genus coefficients.
+`σ(n; −1, g) = φ(g)^{−1}Σ_χ χ(−1)σ_χ(n)` contains the odd-χ part with full weight. Only the even part
+`(σ(n;1,g) + σ(n;−1,g))/2` is a weight-2 (rank-4) coefficient, and its positivity is trivial (divisor 1). The Type II
+content lives in the odd part, which no quaternary theta series sees. This strengthens the negative reading of §7;
+Thm 9.1 below is elementary and covers all χ.)* The weight-1 (binary-form) expansion (3.2) used there is the
+analogue at weight 1.
 
-**Corollary 7.2 (weighting does not escape; PROVED).** In `σ(n; r, g)` the divisor m carries weight m, a
+**Corollary 7.2 (weighting does not escape; Assessment — R167 repair: was PROVED; the "main term" `σ(n)/φ(g)` is a
+heuristic average over classes, not a theorem about σ(n; r, g) at fixed n; the cap `m ≤ n` is proved).** In `σ(n; r, g)` the divisor m carries weight m, a
 power-varying weight (LONGSHOT_FIBRED §5.5 (E-a)). But it is capped by the solution: every term is `≤ n`,
 while the main term is `σ(n)/φ(g) ≍ n/φ(g)` up to `n^{o(1)}`. The normalised main term is `≤ n^{o(1)}/φ(g)`,
 so FIBRED Lemma 1.3 (`M/w_max ≤ 2f`) returns the polylog scale. Equivalently: the weighted sum is
@@ -294,7 +303,7 @@ congruence `n ≡ r (g)` (B1). The rank-4 reading thus re-expresses the lottery 
 | barrier used here | hypothesis | what violating it requires |
 |---|---|---|
 | Thm 2.3 (rational recipes idle) | recipe piecewise rational, degree ≤ D uniformly | recipes of degree growing with p, or non-algebraic |
-| Prop 3.1 (invisibility) | recipe reads factorisation data coprime to q_p | `q_p` sharing the *unknown* divisor — impossible for fixed q_p (only `gcd(N_p, q_p^∞)`, known, is seen) |
+| Prop 3.1 (invisibility) | recipe reads factorisation data coprime to q_p (and only that); recipe valid on the whole unboxed class — boxed version UNPROVED (R167 repair) | `q_p` sharing the *unknown* divisor — impossible for fixed q_p (only `gcd(N_p, q_p^∞)`, known, is seen) |
 | Thm 4.1 (scale window) | SA range exponent `1+η`, η > 0; (A) `σ_p ≥ N_p^{−o(1)}` (R167 repair) | an SA statement at expected count `p^{o(1)}` (η = 0): ES-strength, not a known or conjectured SA |
 | Principle 3.3 / C4 | Φ factors through a projection whose image is an AP | an image that is *not* congruence-describable — then SA is not what supplies it |
 | Cor 7.2 | weights capped by the solution | uncapped weights (FIBRED (E-a)); none found |
@@ -329,7 +338,11 @@ and Jacobi's `r₄(n) = 8σ(n)` (n odd). Old-form shifts `σ(n/δ)` (δ > 1) van
 **Corollary 9.2.** Let `W(n) ≥ 0` be *any* weighted count of Type I/II certificates (so `W(m²) = 0` for odd m,
 ET Prop 1.6). No identity `W = E` and no minorant `W ≥ E` with E a finite Eisenstein combination can give
 `W(p) > 0` for the primes `p ≡ 1 (mod L)` (the Mordell-hard class, since 24 | L can be assumed). The same holds
-for every n-local object whose values at primes and at prime squares are quasi-polynomials in the prime.
+for every finite combination of divisor sums `Σ_{d|n} χ(d)ψ(n/d)d^k` (more generally, for every function whose values
+at p and at p² are given by the *same* coefficient data `C_k`, as in the proof of 9.1). *(R167 repair: the original
+"every n-local object whose values at primes and at prime squares are quasi-polynomials in the prime" is false:
+`h(n) = n·μ(n)²` has `h(p) = p > 0`, `h(ℓ²) = 0`. The proof uses the coupling of the two polynomials, not
+quasi-polynomiality.)*
 *Reading.* At primes, finite Eisenstein combinations are quasi-polynomials in p (Jacobi: `r₄(p) = 8(p+1)`).
 The only freedom is the shape of the polynomial; T1 at prime squares `ℓ² ≡ 1 (L)` pins it down
 coefficientwise. Exactness of r₄ is therefore not transferable: the positive closed form is
@@ -351,7 +364,11 @@ standard theorem provides), with E a finite Eisenstein combination. Then E does 
 `E(p) = O(p^K) = o(p^θ)`); so `E(p) ≤ C_K p^θ + O(p^{θ−1}) < 2Bp^θ` for large p (when C_K ≤ 0, E(p) is
 `O(p^{K−1})` or negative). ∎
 *Reading.* A rank-4 representation count at fixed level, with its genus (Eisenstein) main term and an
-n-uniform power error, is T1-dead on the Mordell-hard classes, whatever map to certificates is used. The only
+n-uniform power error, is T1-dead on the Mordell-hard classes, for every map to certificates that is defined and valid at all odd n
+(then `R(ℓ²) ≤ μ·W(ℓ²) = 0` and Cor 9.3 applies to R). *(R167 repair: the original "whatever map to certificates is
+used" overclaims. A map valid only at primes leaves `R(ℓ²) > 0` in general, and Cor 9.3 says nothing; that is the
+§5 situation, covered only by Thm 2.3/Prop 5.1 for bounded rational or congruence-validated maps, and otherwise by
+Thm 4.1's scale window.)* The only
 ways out: an error bound that uses primality of n, or a main term that is *not* n-local in this sense (a
 genus character at the place p — LONGSHOT_FIBRED §5.3 — or shifted arguments).
 
@@ -372,9 +389,12 @@ certificate g = 2, u = 1, v = n+1) and is not a closed form either.
 Type II(p) ⟺ `∃ M, a, b ≥ 1`: `abM − a − b = cp` with `c | M/4` (then `d = M/(4c)`, ET's a, b, c, d).
 *Second normalisation* (conjugate by `diag(1, c)`): Type II(p) ⟺ ∃ `γ' = [[f, cM],[p, f']] ∈ SL₂(ℤ)` with
 `−γ' ≡ u_p := [[1,0],[−p,1]] (mod M)` and `c | M/4`. Indeed `f ≡ f' ≡ −1 (M)` already forces `M | γ'₁₂`
-(`pγ'₁₂ = ff' − 1 ≡ 0`, p ∤ M), so the only non-congruence condition is **c := γ'₁₂/M divides M/4**.
+(`pγ'₁₂ = ff' − 1 ≡ 0`, p ∤ M; *R167 repair, proof of p ∤ M for odd prime p:* `p ∤ d`, since `p | d` gives
+`a + b = c(4abd − p) ≥ p(4ab − 1) > a + b`; and `p ∤ c`, since `c = pc'` gives `a + b = pc'(4abd − p) ≥ p` and
+`4abd ≤ p + (a+b)/p`, so with a ≤ b, `4b ≤ p + 2b/p`, `b < p/3` and `a + b < p`, a contradiction), so the only non-congruence condition is **c := γ'₁₂/M divides M/4**.
 
-**Proposition 10.2 (the divisibility cannot be absorbed into one level; PROVED).** For fixed `(c, M)` the
+**Proposition 10.2 (the divisibility cannot be absorbed into one level; PROVED: `M ↦ 1[c | M/4]` has exact period 4c.
+The reading in terms of what a congruence subgroup "can impose" is an Assessment — R167 repair).** For fixed `(c, M)` the
 condition is a congruence coset of level M on the fixed set `{γ ∈ SL₂(ℤ) : γ₂₁ = p}` plus the exact entry
 `γ₁₂ = cM`, i.e. the slice `ff' = cMp + 1, f ≡ −1 (M)` (B2). For fixed c and varying `M ∈ 4cℤ` the level
 is `M = γ₁₂/c`, a coordinate of γ. A congruence subgroup Γ' of level L can impose `c | M/4` only for the
@@ -383,7 +403,7 @@ only `c | L/4`, `M ≡ 0 (4c)`, a fixed finite menu of c; and each `(c, M)` with
 level M. *Proof.* `1[c | M/4]` as a function of M is `4c`-periodic and of exact period 4c; the self-referential
 level is Lemma 10.1. ∎
 
-**What equidistribution would be needed (Assessment, with the count PROVED).** For each M put
+**What equidistribution would be needed (Assessment; the shell areas are computed, the "expected counts" are heuristic density counts — R167 repair: was "count PROVED").** For each M put
 `H_M := {(f, f') ∈ ℕ² : f ≡ f' ≡ −1 (M), ff' ≡ 1 (p)}` (a modular hyperbola mod Mp, restricted to one class
 mod M). Each point determines `c' = (ff' − 1)/(Mp)`, and Type II at M ⟺ some point has `c' | M/4`. The shells
 `{c'Mp < ff' ≤ (c'+1)Mp}`, `c' ≤ M/4`, have hyperbolic area ≍ `Mp·log p` and expected `H_M`-count ≍
