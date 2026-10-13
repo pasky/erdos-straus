@@ -142,3 +142,34 @@ squares `|E| = 0`. `scripts/wr_parity_corr.py 20000`: `|E(p)| mod 2` is not dete
 non-empty constant-even ones are all explained by the swap `u ↔ v` on the sub-locus `4 | A, 4 | B` (for
 `p ≡ 1 (24)` and `4 | A` one has `t ≡ u ≡ 3 (4)`, so `v ≡ 3 (4)` ⟺ `4 | B`). So a Zolotarev-type parity identity, if it
 exists, must weight elements by non-congruence (size/lift) data; congruence-defined sub-counts are parity-random.
+
+## 7. Spark A: indefinite → definite transport via Atkin–Lehner reflections
+
+**Lemma 7.1 (PROVED, algebra).** On simple forms `[a,b,c]` (a > 0 > c) of discriminant Δ with `k | c`, the map
+`σ_k : [a,b,c] ↦ [−c/k, b, −ka]` is an involution preserving Δ and simplicity (it is `φ ↦ −φ∘g` with g the
+Atkin–Lehner/Fricke matrix `[[0,1],[k,0]]` up to scaling; σ₁ = Zagier's σ). Its fixed points are `[a, b, −ka]`, i.e.
+representations `Δ = b² + 4k a²` by the **definite** form `x² + 4ky²` (CM by ℚ(√−k)). So the "transport" available in
+the river picture is exactly: σ_k-fixed river edges of Δ ↔ points of `x² + 4ky²` above Δ.
+
+**Matching against ES (PROVED, algebra).** (i) Type I: `D = p² + 4dc²` *is* the σ_d-fixed edge `[c, p, −dc]`; the ES
+content is a *second* fixed point, an ambiguous edge `f | D`, `f ≡ −p (4cd)`, of the same discriminant. In a
+river invariant under both σ_d and the ambiguity reflection ι, the two fixed points sit at an offset fixed by
+the translation ισ_d. §4 measured that ambiguous points of this river are not enriched for ES. (ii) Type II
+(Lemma 2.4) with `e = k` ("diagonal"): `p = k² − 4gb²`, `k ≡ −1 (4gb)`. Here p is a face value of the principal
+river of disc 16g, and g is a growing parameter. The range `√p < k ≤ √(4p/3)+O(1)` is forced. `scripts/wr_diag.py 200000`:
+2093 of the 2212 primes `p ≡ 1 (24)` below 2·10⁵ have **no** diagonal certificate (EVIDENCE), and no odd square
+`< 2·10⁵` has a coprime one (T1 control). So the diagonal transport is a thin slice.
+
+**Assessment.** σ_k-fixed points always encode a sum `b² + 4ka²` (a CM point). ES certificates are CM points
+*plus* a divisor in a residue class whose modulus comes from the solution, so the ambiguous/σ fixed-point
+mechanism supplies the CM half but not the divisor half (B2 again). A successful transport would need a
+reflection whose fixed-point equation is itself bilinear in the right way. I found no such reflection in the
+GL₂ normaliser (σ_k, ι, and their products with class translations are the whole list for a single river).
+
+## 8. Spark C: T²−4 rivers do not give free joint factorisation (PROVED, algebra)
+
+By 5.2 an X-certificate is an ambiguous form `[−t, tβ, p]` of disc `T² − 4`, with `T + 2 = tτ`. Substituting:
+`4p = t(τ² − β²) − 4τ`, i.e. `t·uv = p + u + v` with `τ = u+v`, `β = v−u`. The factorisation actually used is
+`T + 2 = t·τ` together with `(p+τ)/t = uv`. Neither of these is the "free" splitting `(T−2)(T+2)`. Taking T in a
+p-dependent progression only moves the lottery into the factorisations of `T+2` and of `(p+τ)/t`. So spark C reduces
+to the e/t-slice problem with no H-A gain.
