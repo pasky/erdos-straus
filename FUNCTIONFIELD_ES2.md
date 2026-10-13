@@ -131,3 +131,7 @@ to n = 15) show no parity pattern.
 Independent brute-force check of Case A (`scripts/ff2_caseA_check.py`, all monic a0, b0 of degree ≤ 4, all E | a0+b0
 with the achievable leading coefficients): 0 Case A families at u = 1 + T and u = 1 + 2T; sanity: 6 hits at
 u = 2 + T (degree ≤ 3).
+Necessary condition from quadratic reciprocity (PROVED, q = 3): in Case B at x*, E(0) = E'(0) = −1 and
+T^{N+1+γ}L'g' ≡ −1 (mod E) give (deg E + 1)·deg D ≡ deg E (mod 2); hence deg D, deg E, deg E' are all even.
+All further Jacobi-symbol relations I tried (e.g. ((1 + cT)/E) computed via reciprocity and via
+1 + cT ≡ T^{N+1}Z mod E) are automatically consistent, so quadratic symbols alone will not kill Case B.
