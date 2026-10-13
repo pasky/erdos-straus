@@ -5,7 +5,10 @@ from side-agent/unit-orbit-es. From-scratch scripts: `scripts/review_uo2_*.py` (
 
 ## Summary verdicts
 
-(filled in progressively below)
+**Overall: the headline claims stand.** Thm 2.4(a) is a correct Gupta–Murty-type argument with the PRIME r as the
+sifted variable (not the S-units); the condition (n/r) = −1 is a congruence mod 4·rad(n) built into the progression,
+so only Bombieri–Vinogradov + the linear sieve are used, and no n-uniformity is needed. The T1 part and Thm 5.1 are
+correct. No FATAL or MAJOR defect found; 5 MINOR defects (m1–m6 below, wording/effectivity/citation).
 
 | Claim | Verdict |
 |---|---|
@@ -14,7 +17,8 @@ from side-agent/unit-orbit-es. From-scratch scripts: `scripts/review_uo2_*.py` (
 | Lemma 2.3 (few r with small ⟨S⟩ mod r) | SOUND (= Gupta–Murty Lemma 2, k generators) |
 | **Thm 2.4(a)** (|S| ≥ 4: every non-square n coprime to 2S solvable) | **SOUND** (minor wording/effectivity repairs m1–m3) |
 | Lemma 1.1 / Cor 1.2 / **Thm 2.4(b)** (T1 of ES^{(S)}) | SOUND-AFTER-REPAIRS (m4: quantifier in (b)) |
-| **Thm 5.1** (V_φ: ≪ X^{3/4} log²X exceptions) | see §3 |
+| **Thm 5.1** (V_φ: ≪ X^{3/4} log²X exceptions) | **SOUND** |
+| Remark (4) of §2, §3, §4, §6, Thm 5.2 | not reviewed in depth (outside R190 focus) |
 
 ## 1. Thm 2.4(a): what is sifted, and does it close?
 
@@ -145,3 +149,22 @@ bound.) Among the 2 244 split 𝔮 with ℓ ≤ 20 000, 1 127 (0.502) are good; 
   not checked; leave the X^{3/4} statement as is or flag the improvement as an Assessment.
 * **r2.** The "Contrast with ES" paragraph (|S_ℓ| ≍ ℓ ⇒ X^{1/2+o(1)}, "squares saturate the large sieve") is
   arithmetic-correct as a conditional remark; the reference to DISCOVERIES (A)19–20 was not re-checked here.
+
+## 4. Further minor point and sources
+
+* **m6 (MINOR, citation precision, Lemma 2.2).** "Rosser–Iwaniec; Halberstam–Richert Ch. 8" — give the exact
+  statement used (e.g. Iwaniec's linear-sieve lower bound S(𝒜, z) ≥ X V(z)(f(s) − o(1)) − Σ_{d<D}|r_d|, Halberstam–Richert
+  Thm 8.4 / Friedlander–Iwaniec *Opera de Cribro* Thm 11.13) and note that BV is used in its max-over-classes form for
+  moduli Md ≤ M x^{1/2}/log^B x. The content is right (re-derived above).
+* Sources: `sources/uo/gupta-murty-1984-invent.pdf` is an image-only GDZ scan (pdftotext returns no text); I did not
+  OCR it. Lemma 2.2 and Lemma 2.3 were instead re-derived from scratch (both are elementary given BV + linear sieve), so
+  the review does not depend on the exact wording of Gupta–Murty. Heath-Brown (Quart. J. Math. 37, 1986) was not
+  accessed (only relevant to Remark (2), m3).
+
+## 5. Scripts (all from scratch)
+* `scripts/review_uo2_brute.py [N] [QMAX]` — Prop 2.1 / Thm 2.4 brute force with exact verification (S = {3,5,7,11}).
+* `scripts/review_uo2_index.py [X] [n…]` — the proof's own route: class a mod 4·rad(n), rough (r−1)/2, index of ⟨S⟩ mod r,
+  explicit Q; plus Lemma 2.3 sanity count.
+* `scripts/review_uo2_t1.py mode XB YB n…` — bounded ES^{(S)} solution search, own Hilbert symbols, product formula,
+  shapes; mode `free` = parity normalisation dropped.
+* `scripts/review_uo2_phi.py X L L2` — Thm 5.1: local-criterion sieve of odd n ≤ X vs T, good-prime density, |S_ℓ| bound.
