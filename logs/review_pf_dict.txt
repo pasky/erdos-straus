@@ -1,0 +1,4 @@
+Lemma 1.1 n<=120 failures: 0
+Lemma 1.2 (box dk<=40), odd p<=60 failures: 0
+spin lemma (instances, violations): (20302, 0)
+(*) R1=R2=R3=hyperbola checked for odd p<80
