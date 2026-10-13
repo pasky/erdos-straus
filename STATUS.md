@@ -7,6 +7,31 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
+**Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)27; tasks O172–O192, reviews R172–R191; every headline claim had two independent hostile reviews): ES is not solved.**
+* *Standing rule (new).* Every sharp finding immediately spawned a fresh "spark relay" brainstorm agent, which is how the wave chained: Kudla → supersingular/LD_p → degree-2 accident → Drinfeld → twisted T1 → template → unit orbits → fixed-modulus shots.
+* *T1 understood structurally.*
+  * T1 is Kudla's Diff-parity, i.e. Hilbert reciprocity, for the incoherent ternary collection; the arithmetic is ET Prop 1.6 ((J)13).
+  * Every geometric/automorphic object sees only the genus layer ((J)13, (J)16, (J)17).
+  * Over ℚ, Diff-parity is a "degree-2 accident" of Br ℝ = ℤ/2 ((J)17, (J)18).
+  * T1 belongs to a family of *anchor + wild partner* obstructions ((J)19). A genuine **order-3 T1 exists over ℤ[ω]**.
+* *T1-bearing variants become THEOREMS once they have infinitely many shots of fixed modulus.*
+  * V_φ over ℤ[φ] is solvable at every prime under GRH, unconditional with a power-saving exceptional set ((J)21, (J)23).
+  * **ES^{(S)}: 4/n = 1/x + 1/y + Q²/Z over ℤ with mute primes S, |S| ≥ 4, is PROVED unconditionally for every n coprime to 2S** (Gupta–Murty sieve over primes r), while keeping T1 exactly ((J)23).
+  * But **ES itself is a finite search**: every certifying modulus is O(p²), and there is no infinite fixed-modulus shot family (scoped no-go, (J)25). The growing modulus of B2 is exactly what separates ES from ES^{(S)}.
+* *Barriers sharpened.*
+  * **Sterile Mordell points exist for all large r** (no finite ET covering of primes with least QNR r; (J)26). Near them, primes behave like primes near squares ((J)27).
+  * B1 disappears on exponential families: ES is certified for all n = k·2^m + 1 for 11 values of k, while 3·2^m + 1 is provably uncoverable ((J)22).
+  * Function fields ((J)14, (J)24, (J)26):
+    * the FF2 divergence heuristic is invalid;
+    * O(q,A) is Haar-null;
+    * for q = 3^r with r ≥ 27, ES_q(T^k) has no finite linear covering;
+    * x*_c ∈ F₃[T] is uncovered to deg L′ ≤ 13.
+* *Side results.*
+  * **The even half of Lorenzini's published A₃ question is settled** ((J)20; novelty checked by two reviewers; not about ES).
+  * SQ₅ = (W) ∧ (S), with (W) trivial at primes, so the content is the sign half ((J)15, (J)20).
+  * ES sign = Wu square / Zolotarev / theta multiplier dictionaries ((J)14, (J)15).
+* *Assessment.* The wave located the precise difference between ES and its provable cousins. ES^{(S)} and V_φ are provable because their search at fixed n is infinite with a fixed firing modulus. ES's search is finite (O(p²)) with moving moduli (B2/B3). A proof of ES needs either a way to transport ES^{(S)}/V_φ certificates back into the O(p²) box, or a genuinely new finite-search mechanism. Synthesis O192 is screening cross-combinations.
+
 **Spark phase: construction-first attacks on the residual hatches (2026-10-13; ledger (J)5–(J)12; tasks O164–O171, reviews R164–R170, R166): no route; ES is not solved.**
 * *Posture.* Each agent was told to construct first and to use the barrier map only as a steering wheel (look for the modification that violates a barrier's hypotheses). Six directions were taken to depth, each hostile-reviewed (no FATAL in any).
 * *Windmills beyond finite menus* (`WINDMILL_REDUCTION.md`, (J)5). Zagier's windmill is the dihedral symmetry of Conway rivers (exact dictionary). Every mechanism factoring through form classes or Bhargava cubes sees the ES residue condition only through its genus shadow (Prop 10.3); ray class groups mod t see it fully, which is an equivalent restatement.
