@@ -1,12 +1,27 @@
 # R185 — hostile review of O185 EXPONENT_COVERING.md (reviewer 1 of 2, full document)
 
 Reviewer branch `side-agent/review-expcover-1`. From-scratch scripts `scripts/review_ec_*.py`.
-Status: IN PROGRESS.
+Status: round 1 complete. **No FATAL defects. The headline infinite result (Thm 4.1) is SOUND**: all 11 certificates pass a
+from-scratch exact checker. 2 MAJOR (D3 proof gap for "squares are sterile", repairable by citation; D12 overclaimed scope of the
+Proth negative), 9 MINOR.
 
 ## Summary verdicts
-(filled in below as each claim is checked)
-
-## Defects
+| claim | verdict |
+|---|---|
+| Lemma 1.1 periodicity | SOUND |
+| Thm 1.2 equivalence (a)⟺(b) | SOUND |
+| Thm 1.2 square clause Sq ⊂ S | GAP as written → SOUND-AFTER-REPAIRS (D3) |
+| Thm 1.4 (ET + divisor classes) | SOUND-AFTER-REPAIRS (D3, D4) |
+| Cor 1.5 integer unit-square points | SOUND (proof wording D5); negative consequence needs D3 |
+| Prop 2.1 | SOUND-AFTER-REPAIRS (D6, D7); B1 reading = Assessment |
+| Prop 2.2, k = 27 table | SOUND (D8 editorial) |
+| §3 dictionary | SOUND as a restatement; Skolem/B–H "exactly" overstated (D9) |
+| **Thm 4.1 (ES for all k·2^m+1, 11 k)** | **SOUND** (D1, D2 wording) |
+| §4.2 survey | EVIDENCE, consistent with an independent screen (D10) |
+| §4.3 k = 9 near-square | SOUND |
+| §5.1 S-unit | SOUND; "B1 = limit" is Assessment (D11) |
+| §5.3 Proth negative | SOUND for ET/divisor (or polynomial-solvable) classes; scope overclaimed (D12) |
+| §5.4 novelty | plausible; no prior found by reviewer |
 
 ### Thm 4.1 (ES for all k·2^m + 1, k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}) — **SOUND** (minor wording defects)
 Independent checker `scripts/review_ec_cert.py` (sympy, exact; uses only (M, r, x(n), y(n), z(n)) from each certificate, ignores the
