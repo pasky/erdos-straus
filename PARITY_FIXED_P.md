@@ -130,10 +130,11 @@ the top block at p = 10⁹+7 (16; small (B,C), i.e. forced classes of p modulo s
 count grows with p.** Requirement on a Type I estimate over a block of length B: error ≤ 1/2 against trivial
 size B (or B log B counting divisor pairs) — a saving of B^{1−o(1)}.
 
-**3.4 The modular-hyperbola form and the pointwise ceiling (PROVED dictionary + Assessment).** Write
-m = 4BC − 1 (m ∤ 4p). From (4AC−1)(4BC−1) = 4Cp + 1: 4pC ≡ −1 (mod m), so with t := (4pC + 1)/m we get
-mt ≡ 1 (mod 4p), and success ⟺ (m, t) is a point of the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} lying
-on one of the curves Γ_A : x(tA... ) — explicitly t = 4AC − 1 with C = (mt−1)/(4p) dividing (m+1)/4. The
+**3.4 The modular-hyperbola form and the pointwise ceiling (PROVED dictionary + Assessment).** Solutions of
+4ABC − A − B = p ⟺ (4AC−1)(4BC−1) = 4Cp + 1. Hence (A)3(p) ⟺ ∃ (x, y) ∈ ℕ² with xy ≡ 1 (mod 4p) such
+that C := (xy − 1)/(4p) ≥ 1 satisfies 4C | x + 1 and 4C | y + 1 (then A = (x+1)/4C, B = (y+1)/4C). So the
+success set is a sparse subset of the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)}, cut out by a divisibility
+condition coupling the point to its own "height" C. The
 distribution of 𝓗 in boxes is controlled **pointwise in p** by Weil's bound for Kloosterman sums (error
 O(p^{1/2+ε}) per box). The target is a union of thin curves with O(1) expected 𝓗-points per curve-block
 (density of 𝓗 ≈ 1/(8p), strip area ≈ block length). So the strongest pointwise-in-p equidistribution tool
