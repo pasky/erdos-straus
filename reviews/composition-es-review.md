@@ -121,3 +121,39 @@ product of three principal negative-norm ideals each of norm | μ, D ∤ μ) occ
 reach the B = 1 element ε_μ itself even when N(ε_μ) ∤ μ (e.g. n = 11, μ = 18: ε = u·α³, N α = −3); it is the
 scalar condition N(ε_μ) | μ, not reachability, that fails.” This actually sharpens the paper's thesis (B = 1
 is reachable; the divisibility is the whole content).
+
+**m1 (MINOR). Cor 1.4(b)**, “obtained by composition … in the trivial sense ε_μ = ε^k·(ε^{−k}ε_μ)”: ε^k is a unit, not
+a V_n point, so this is “unit × ONE V_n point”, not a composition of V_n points. *Repair:* say so (“trivially, as a
+unit multiple of the B > 1 point ε^{−k}ε_μ of the same orbit”). Also “(longer chains likewise)” can be dropped: any
+r ≥ 3 decomposition yields an r = 3 chain via 𝔡₁ = (α₁), 𝔡₂ = (α₁α₂).
+
+**m2 (MINOR). Prop 2.1(a)** “The V_n points with α ∈ 𝔡 form, up to ι_B, one orbit of ε”: ι_B (α ↦ −ᾱ) maps generators
+of 𝔡 to generators of 𝔡̄ ≠ 𝔡. Correct statement: “the V_n points whose α GENERATES 𝔡 form exactly one ε-orbit
+(after the normalisation y > 0); ι_B maps it onto the orbit belonging to 𝔡̄.” (“α ∈ 𝔡” should be “(α) = 𝔡”.)
+
+**m3 (MINOR). Prop 4.1(a) proof**, “convex in t, maximal at t = n”: add the endpoint comparison t = 1 vs t = n
+((n + 1)(n + 4)/4 ≤ n² + n + (n + 1)/4).
+
+**m4 (MINOR). §5 Reading**, “i.e. (by norms) (4cdj − 1)(4sdj − 1) = 4dj²p + 1”: this identity is direct algebra from
+(i) (expand: 16csd²j² − 4dj(c + s) + 1 = 4dj·pj + 1); the norms of (ii) give a different identity,
+(4c²d + p)(4s²d + p)j² = (c + s)²(1 + 4j²pd). *Repair:* replace “(by norms)” by “(expanding with (i))”.
+
+**m5 (MINOR). §5 Reading**, “For d = 1 it is the real-quadratic slot ε_μ … (D = 4tj − 1 with t = c)”: under the
+Prop 4.1(b) map (λ = cd = c) one gets μ = c(4sj − 1) = pj + s, so **t = s**, D = 4sj − 1 (t = c holds for the
+mirror cube point (s, 1, j)). *Repair:* “t = s (or t = c for the mirror point (s, d, j))”.
+
+**m6 (MINOR). §5 EVIDENCE**: the size-matched random baseline is also 0, so the experiment cannot distinguish
+composition from chance; the sentence “Composition in ℤ[√−n] does not preserve V_n” should read “… was not observed
+to produce V_n points (0 hits, as for the random baseline)”.
+
+**m7 (MINOR). Data**: the report says “Data: data/cp/”, but data/cp/ is not in the branch (no census output
+committed; census_1000_3000.txt does not exist). The document itself relies only on the p ≤ 1000 run, which I
+reproduced exactly. *Repair:* commit the p ≤ 1000 census output (or drop the data/ reference) and delete the
+mention of the unfinished 1000–3000 run from the report, or mark it “not used”.
+
+**m8 (MINOR, label). §6 B3**: “composition cannot transfer the large ES^{[2]} main term to B = 1 because B = 1 is not a
+class/ideal condition” is a strategic reading, not a theorem (Prop 2.1(c) proves only that 𝔢_μ has class δ for every
+μ). *Repair:* prefix “(Assessment)”.
+
+**m9 (MINOR). Notation paragraph**, “all of Type II is covered by the slices V_{nd} (Prop 4.1(b))”: Prop 4.1(b) is
+stated for n = p prime (FIXED_MODULUS_SHOTS Lemma 1.1 needs p prime). *Repair:* “for n = p prime”.
