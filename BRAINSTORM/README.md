@@ -218,3 +218,11 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsE_large_r_sterile | sterile Mordell points for every large r | SHARP candidate, PROVED rel. cited, needs review | B1-side |
 | bsE_caseAB_shift | #Case A(α) = #Case B(α+1) | CONJECTURE (EVIDENCE) | — |
 | bsE_q3_explicit_constants | what is missing at q = 3, r = 13/17 | OPEN programme | — |
+
+## Spark relay M (O188): steering by sterile Mordell points (memos bsM_*, deep file STERILE_STEER.md; not yet triaged)
+
+| file | angle | own verdict | labels |
+|---|---|---|---|
+| bsM_boundary_escape | which classes certify primes near a sterile point | escape at the first primes beyond the trivial range; sterile ≡ square point | Lemma PROVED; EVIDENCE |
+| bsM_borel_cantelli_patterns | S closed, ES ⟺ ℙ ∩ S = ∅; non-square patterns | divergent patterns ν-a.e. covered, sparse ones carry sterile points; integers are on the divergent side | Props PROVED; sparse side Assessment — SHARP (language) |
+| bsM_shot_coverage | per-prime coverage, ℤ vs V_φ | sterile points = signature of finitely many shots | PROVED rel. ET; Assessment |
