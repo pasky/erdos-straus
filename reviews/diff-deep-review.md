@@ -20,6 +20,7 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 | Prop 1 "In particular…" sentence, Cor 2 second half, memo Assessment ("parity/incoherence mechanisms over any base field carry only quadratic information") | **GAP (MAJOR)**: slogan beyond the theorem; false for F-rational data (D2) |
 | Cor 2 first half (f ≡ −1 (M) is a Boolean function of quadratic characters ⟺ M ∣ 24) | SOUND |
 | EVIDENCE 71/9732 uncovered by the 9+9 slices | **SOUND** (reproduced exactly from scratch) |
+| bsC_valence_borcherds Prop 1 (Galois-orbit obstruction) | SOUND-AFTER-REPAIRS: the cited "ET f(p) ≪ p^{o(1)}" does not exist; the divisor bound suffices (D4) |
 | §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
@@ -116,3 +117,22 @@ Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; 
 * **EVIDENCE recomputed from scratch** (`scripts/review_dd_slices.c`, C, own sieve/factoring, 0.15 s): primes
   p ≡ 1 (24) uncovered by the 18 slices: 1/143 (< 10⁴), 8/1181 (< 10⁵), 33/3202 (< 3·10⁵), **71/9732 (< 10⁶)**;
   first 3361, 31081, 34897, 62497, 66889 — identical to the memo.
+
+### bsC_valence_borcherds Prop 1
+* Dictionary ✓: [f, 2, f'] is primitive (f odd), disc 4 − 4ff' = −16c²dp = −4Mcp; (X,Y) ↦ (X + Y, Y) gives
+  [f, 2f + 2, f + f' + 2] … the memo's [Mce, 2Mb, f'] is the same class with the roles of f, f' swapped
+  (f' + 2 + f = Mce, 2(1 + f') = 2Mb) ✓; C + 1 = f' + 1 = Mb = B/2 ✓.
+* Galois step ✓: τ a root of a primitive form of disc D has End = O_D, so ℚ(j(τ)) has degree h(D) over K and the
+  Gal(ℚ̄/LK)-orbit of the point on X₀(M) has size ≥ h(D)/[L:ℚ]; the zero divisor of F is defined over L
+  (q-expansion principle). Siegel for non-fundamental D ✓ (h(D) = h(D₀)·(conductor factor) ≫ |D|^{1/2−ε}).
+* **Citation defect:** "ET's f(p) ≪ p^{o(1)}" — ET (sources/elsholtz-tao-1107.1010.pdf, Prop 1.7) prove only
+  f_I(n) ≪ n^{3/5+O(1/log log n)}, f_II(n) ≪ n^{2/5+O(1/log log n)}, and say explicitly (after Prop 1.7) that
+  f(n) ≪ n^ε "seem[s] difficult to obtain". The argument does not need ET at all: D = −16c²dp fixes c²d, so the
+  certificate points on Z(D, r) number ≤ Σ_{c²d fixed} τ(1 + 4c²dp) ≪ p^{o(1)} by the divisor bound. With that
+  replacement Prop 1 is PROVED relative to Siegel (+ CM theory). (Using ET's actual f_II bound instead would weaken
+  the conclusion to [L:ℚ] ≫ p^{1/10−ε}.)
+* "Bruinier's converse theorem closes the loophole": Bruinier's converse theorem (LNM 1780) is proved for lattices
+  splitting hyperbolic planes, signature (2, l) with l ≥ 2 in the original form; X₀(M) is l = 1. I could not
+  verify a version covering l = 1 — cite one or drop the sentence (MINOR; the Prop does not use it).
+* EVIDENCE recomputed (`scripts/review_dd_orbit.py 3000`, own class-number count of reduced primitive forms):
+  max (#certificate pairs)/h(−16c²dp) over (c,d) ∈ {(1,1),(1,2),(1,3)}, p < 3000, is 0.25 at p = 5 ✓.
