@@ -74,3 +74,40 @@ and is empty at squares. Everything that Dedekind sums know *mod a fixed modulus
 `12 c s(a,c) ≡ a + a* (mod c)`, the residue of `12 c s(a,c)` mod `8c` is fixed by `c mod 8`, `(a/c)`, and
 `a + a* mod c`). By Prop S of BRAINSTORM/invol_sign_identities, such data cannot certify the square classes.
 A Dedekind route has to use the **real size** of s(A,p) (equivalently r − r', by (D3)), not its residues.
+
+## 4. The genus character on HJ words; boundary certificates; the vanishing set
+
+**Corollary 4.1 (PROVED, from (R) and (D2)).** For odd n and `n/A = [[b₁,…,b_r]]`, with `n = K(b₁..b_r)`,
+`A = K(b₂..b_r)`, `A* = K(b₁..b_{r−1})` (continuants):
+`2·(A/n) ≡ n + 1 − n·Σ(b_i − 3) − A − A*  (mod 8)`.
+So the Jacobi symbol `(A/n)` is a polynomial function of `(b₁,…,b_r) mod 8`: a **genus character on HJ words**
+(for each fixed length r). Prop 3.1 is the statement that on the length-3 cylinder with `4 | A` (or `4 | t`)
+this character is constant −1 when n ≡ 1 (4). (Jacobi symbols via the Euclidean algorithm are classical; this
+is the HJ/Dedekind packaging of that fact.)
+
+**4.2 Boundary certificates (PROVED, elementary).** The X-slice of WINDMILL_REDUCTION §6 / CONDITIONAL_ES
+Lemma 1.1 also allows t, u or v = 1, which fall outside `(0, n)`:
+* t = 1: `n + 1 = AA*`, `4 | A` — needs n ≡ 3 (4).
+* u = 1: `A = t − 1 | n + 1`, `4 | A` — needs n ≡ 3 (4).
+* v = 1: `A = n + u > n`, `A* = t − 1`, `u(t−1) = n + 1`, `tu ≡ 1 (4)`. For n ≡ 1 (4) this forces
+  `t ≡ u ≡ 3 (4)`, so it holds **iff (n+1)/2 has a prime factor ≡ 3 (mod 4)** (take u = that factor). At
+  `n = m²` (m odd), `(m²+1)/2 = ((m+1)/2)² + ((m−1)/2)²` is a sum of two coprime squares, so it has no such factor (T1
+  again).
+So for p ≡ 1 (4): **X-slice ES(p) ⟺ [some `A ≡ 0 (4)` has `r(p/A) = 3`] or [(p+1)/2 has a prime factor ≡ 3 (4)].**
+
+**4.3 Minimal HJ length in the class A ≡ 0 (4) (EVIDENCE, `/tmp` probe recorded here).** For n ≡ 1 (4) and
+`C₀ = {A ≡ 0 (4)}`: A = 4 gives `n/4 = [[(n+3)/4, 2, 2, 2]]` (length 4, `(4/n) = +1`), so min r over `C₀ ∩ QR`
+is ≤ 4, and lengths 1, 2 are impossible in C₀. All primes p ≡ 1 (4), 5 < p ≤ 6000: min r over `C₀ ∩ QR` = 4,
+min r over `C₀ ∩ QNR` = 3 except at p = 17, 241, 769, 1409, … (min 4; these primes are then solved by the
+boundary case 4.2). At all 38 odd squares ≤ 6000, min r over C₀ = 4 and C₀ ⊂ QR.
+
+**4.4 Vanishing set over all odd n (EVIDENCE, `scripts/dk_vanish.py 200000`).** Let `a₀(n)` resp. `a_T(n)` count
+`n/A = [[v,t,u]]` with `4 | A`, resp. `4 | t`. Among the **non-square** n ≡ 1 (4), n ≤ 2·10⁵ (primes and
+composites), `a₀(n) = 0` for 52 values (largest 156961), and `a₀(n) = a_T(n) = 0` for only 22 values, the largest
+being 28225 = 5²·1129. The full list is 5, 17, 65, 105, 241, 265, 321, 465, 545, 681, 769, 801, 1161, 1409, 2265, 2641,
+2929, 3705, 5105, 8865, 13041, 28225. At every odd square both vanish (Prop 3.1). **CONJECTURE (from this
+EVIDENCE):** for non-square n ≡ 1 (4), n > 28225, `a₀(n) + a_T(n) > 0`. Thus, empirically, the Jacobi
+obstruction of Prop 3.1 is the *only* obstruction to the two interior HJ-length-3 slices, for composite n as
+well as for primes. An exact formula for `a₀ + a_T` would have to vanish exactly on the squares (and on a
+finite set). The simplest objects with that property are counts of Jacobi −1 classes, such as
+`#{A ∈ (ℤ/n)^* : (A/n) = −1} = φ(n)/2·[n ≠ □]`.
