@@ -30,3 +30,25 @@ classes at depth 6 (`scripts/ff2_tree.c`, FFL_ALLUNC) concentrate on P ≡ 1 at 
 `scripts/ff2_point.c` test every u mod T^e against all linear families with W_F | T^e·W' (W' = (T+1)³(T+2)³
 (T²+1)(T²+T+2)(T²+2T+2)·four cubic primes, NTH = 20). For e = 5, **every** lift of u ≡ 1+T, 1+T+T², 1+2T,
 1+2T+T² (mod T³) is uncovered, as are most lifts of 2+T+T², 2+2T+T², 2+2T+2T². Candidate obstructed points.
+
+Slice tests for other (q, A) (same tool `scripts/ff2_slice.c`, x ≡ 1 off the A-primes): q = 3, A = T²+1: 28/72
+units u mod (T²+1)² uncovered; A = T³: 35/54 mod T⁴; A = T: 0/54 (consistent with Thm 6.4). q = 4, A = T²: 0/192
+mod T⁴ (W' = all primes of degree ≤ 2): the q = 4 obstruction, if any, is not in this slice.
+
+### 0.2 Towards a proof that x* ∈ O(3, T²) (work in progress)
+
+Point: x*_c ≡ 1 at every prime ℓ ≠ T, x*_c ≡ u := 1 + cT (mod T^∞) (u a polynomial; c ∈ F_q^*). q odd, A = T^k,
+k ≥ 2. A family F = (E; t_a, a0; t_b, b0) valid at x*, L = lcm(a0,b0) = T^j L', T ∤ L', g = gcd(a0,b0) = T^γ g'.
+(F1) T^{k+j}L' | P + E, so E ≡ −1 − cT (mod T^{k+j}) and E ≡ −1 (mod L'); T ∤ E; P ≡ 1 (mod E).
+(F2) mod E: P ≡ 1, X ≡ T^{−k}; a ≡ a0 (types 0,1) or (T^k a0)^{−1} (types 2,3). So E | a0 + b0 (Case A, both
+types on the same side) or E | T^k a0 b0 + 1 (Case B, mixed; then lc(E) = 1 since the two terms have distinct
+degrees).
+**Case A is impossible (PROVED, sketch to be written out):** with g removed (a1 = a0/g, b1 = b0/g, E | a1 + b1),
+E + 1 = T·L'·H forces deg E ≥ 1 + deg a1' + deg b1' (primes-to-T parts), hence T^α ∥ a1 with α ≥ 1 (WLOG) and
+T ∤ b1; comparing EF = a1 + b1 with E ≡ −(1 + cT) (mod T^{α+2}) forces b1 = 1, L' = a1' = 1, E = −(1 + cT) and
+(−c)^α = −1; then lc(E) = −c while all Case A sums have two terms of distinct degree (lc 1), so c = −1,
+contradicting (−c)^α = −1.
+**Case B** reduces to: for some L' (monic, T ∤ L'), j ≥ 0, g | T^j L' with T^γ ∥ g, γ ≤ j, N := k + j − 1, the
+polynomial D := 1 + T^{N+1}L'g has a monic divisor E with E ≡ −(1+cT) (mod T^{N+1}), E ≡ −1 (mod L') and monic
+cofactor. Since deg D < 2·deg(T^{N+1}L'), E or its cofactor is the least CRT representative (ρ resp. ρ'). Search:
+`scripts/ff2_caseB.py`.
