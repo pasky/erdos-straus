@@ -67,3 +67,83 @@ prime to m, m² + 4Q² has no prime factor ≡ 3 (mod 4) (0 found, as forced: a 
    needs Q | (r+1)/4, i.e. Q ≤ (r+1)/4 — a box condition (FIXED_MODULUS_SHOTS Cor 3.2) on the specific root
    Q ≡ √(−p/4) (mod r), the least-non-residue lottery in another dress. Minimal change: none exists between "z ∈ ℤ"
    and "denominator of z ∈ ⟨S⟩²"; the mute normalisation is all-or-nothing per prime.
+
+## 3. Attack B (seed (iii)): an explicit fixed-modulus shot family for the order-3 TES, and TES with cubic mute places
+
+Setting of TWISTED_T1 §3: O = ℤ[ω], λ = 1 − ω, TES(n): 9/n = ω/x + ω²/y + 2/z, x, y, z 2-primary (≡ 1 mod 2O);
+n 2-primary, gcd(n, 6) = 1; α(u) = (−u₁/u₃, −u₂/u₃)_ω, u = (x/ω, y/ω², z/2). Put **g₀ := 10 + ω** (the class mod 18 with
+g₀ ≡ −ω² (mod 9), g₀ ≡ ω (mod 2)).
+
+**Proposition 3.1 (TES shot identity; PROVED, elementary).** Let D ∈ O with D ≡ 1 (mod 2) and gcd(D, 6n) = 1, and let
+g ∈ O with g | n + 18D and g ≡ g₀ (mod 18). Put E := (n + 18D)/g, a := (g + ω²)/9, x := (ωn + E)/9, y := na, z := nxa/D.
+Then x, a ∈ O, 9/n = ω/x + ω²/y + 2/z, x and y are 2-primary, z = Z/D with Z = nxa ≡ 1 (mod 2), and for every prime
+π | n the solution has Type II shape at π (π ∤ x, v_π(y), v_π(z) ≥ v_π(n)).
+*Proof.* x ∈ O: −ω²E ≡ gE = n + 18D ≡ n (mod 9), so E ≡ −ωn and 9 | ωn + E. a ∈ O by g ≡ −ω² (mod 9). Since
+ωg + 1 = ω(g + ω²) = 9ωa: 9gx = ωng + n + 18D = 9ωna + 18D, i.e. **gx = ωna + 2D**. Then ω²x + 2D = x(g + ω²) − ωna
+= a(9x − ωn) = aE, so ω²/y + 2/z = (ω²x + 2D)/(nxa) = E/(nx) = (9x − ωn)/(nx) = 9/n − ω/x. Mod 2: g ≡ ω, so
+a ≡ ω + ω² ≡ 1, y ≡ 1, E ≡ g⁻¹ ≡ ω², x ≡ ω + ω² ≡ 1, Z ≡ 1. Shape: π ∤ 18D, so π ∤ n + 18D, π ∤ E, π ∤ x. ∎
+For D = 1 this is a single shot n + 18 (TES's analogue of Mordell's p + 4); for D = Q³ it is an orbit with FIXED
+modulus 18 (Q³ ≡ 1 (mod 2) automatically, as F₄^* has exponent 3 — the cube is invisible to the anchor).
+
+**Definition (cubic mute variant).** For a set S of primes of O not dividing 6, **TES^{(S)}(n)**: 9/n = ω/x + ω²/y + 2/z
+with x, y ∈ O 2-primary, z ∈ O[1/S] with z ∈ 1 + 2O₂, and for each q ∈ S the normalisation
+`(N_q)  if v_q(z) < 0 and q ∤ x, then 3 | v_q(z).`
+TES^{□₃} := TES^{(S)} with S = all primes not dividing 6n. (Shot solutions satisfy (N_q): q | Q, c = v_q(Q),
+s = v_q(a); q ∤ g, so gx = ωna + 2Q³ gives v_q(x) = s if s < 3c and v_q(x) ≥ 3c otherwise; then v_q(z) = 2s − 3c
+(s < 3c) and the case q ∤ x is s = 0, v_q(z) = −3c.)
+
+**Lemma 3.2 (cubic mute lemma; PROVED).** For q ∈ S, q ∤ n, every TES^{(S)} solution has inv_q α = 0 in ⅓ℤ/ℤ.
+*Proof.* If v_q(z) ≥ 0 all u_i are q-integral and TWISTED_T1 Thm 3.2's tame case applies. Let v_q(z) = −w < 0. Then
+2/z ≡ 0 (mod q^w) and 9/n is a unit, so ω/x + ω²/y is q-integral; with x, y ∈ O this forces v_q(x) = v_q(y) =: V
+(one of them positive and the other zero is impossible). A := −u₁/u₃, B := −u₂/u₃ have v(A) = v(B) = V + w =: v and
+A/B = ωx/y; the tame symbol is (−1)^{v²}(A/B)^v = (−1)^v(ωx/y)^v, and −1 is a cube. (i) V = 0: (N_q) gives 3 | w = v,
+so the symbol is a cube. (ii) V > 0: integrality of (ωy + ω²x)/(xy) gives v(ωy + ω²x) ≥ 2V, so y/x ≡ −ω (mod q^V) and
+ωx/y ≡ −1: the symbol is (−1)^{2v} = 1. ∎ (The same computation with ω ↦ 1 and cubes ↦ squares shows that
+UNIT_ORBIT_ES Lemma 1.1 needs its parity condition only when q ∤ x.)
+
+**Theorem 3.3 (T1₃ for TES^{(S)}; PROVED from TWISTED_T1 Thm 3.2's proof + Lemma 3.2).** For every solution of
+TES^{(S)}(n), Σ_{π|n} inv_π α = −⟨ω, 2⟩₂ ≠ 0. Hence at n = π^{3k} (π ∤ 6 prime, π ∉ S) no solution has Type I/II
+shape at π. *Proof.* The place-by-place computation of TWISTED_T1 Thm 3.2 needs: x, y, z ∈ 1 + 2O₂ (anchor; ✓), u_i
+λ-integral (partner; S ∌ λ ✓), integrality at tame v ∉ S, v ∤ n (✓); places in S contribute 0 (Lemma 3.2). ∎
+
+**Corollary 3.4 (a cubic-character identity forced by T1₃; PROVED relative to Hecke's theorem on prime ideals in ray
+classes).** For every prime element r ≡ 10 + ω (mod 18), 18 is not a cube modulo r.
+*Proof.* If −18 ≡ t³ (mod r) (−1 is a cube), pick (Hecke) a prime π ≡ t (mod r), π ≡ 1 (mod 2), π ∤ 6. Then
+r | π³ + 18, and Prop 3.1 (D = 1, g = r) gives a Type II-shaped solution of TES(π³), contradicting Thm 3.3. ∎
+(By the cubic supplementary laws (18/r)₃ depends only on r mod 18, so it is a constant ≠ 1 on the class; numerically
+(18/r)₃ = ω² for all 27 such r with N(r) ≤ 6000. A direct derivation from the supplements was not done.)
+
+**Theorem 3.5 (TES^{□₃} at every non-cube; PROVED relative to Chebotarev for the abelian extension L·K(∛n)/K, L the
+ray class field of K mod 18).** Let n ∈ O be 2-primary, gcd(n, 6) = 1, n not a cube. Then TES^{□₃}(n) has a solution
+of Type II shape at every prime of n; if n is a cube, none of Type I/II shape at every prime (Thm 3.3).
+*Proof.* As h_K = 1 and μ₆ → (O/18)^* is injective, "(𝔯) has a generator ≡ g₀ (mod 18)" is one class c₀ of the ray
+class group mod 18. If all v_π(n) were ≡ 0 (mod 3), n = u·m³ with a unit u ≡ 1 (mod 2), i.e. u = ±1, and n would be a
+cube; so some π | n (π ∤ 6) has 3 ∤ v_π(n), and M = K(∛n) is ramified at π while L is unramified outside 6. Hence
+L ∩ M = K, Gal(LM/K) = Gal(L/K) × Gal(M/K), and Chebotarev gives a degree-1 prime 𝔯 = (r), r ≡ g₀ (mod 18), r ∤ n,
+with (n/r)₃ = (18/r)₃. Then −n/18 ≡ Q³ (mod r) for some Q ∈ O, which may be taken ≡ 1 (mod 2) and prime to 6n (CRT),
+and Prop 3.1 with D = Q³, g = r gives the solution; it satisfies (N_q) (remark after the Definition). ∎
+
+**EVIDENCE (`scripts/syn2_tes_shots.py 6000 200`, 1.4 s; ℤ[ω] arithmetic from `scripts/tw_eis.py`, factorisation via sympy).**
+(1) All 27 prime elements r ≡ 10 + ω (mod 18) with N(r) ≤ 6000 have cubic class of 18 equal to ω² (Cor 3.4).
+(2) All 1536 2-primary split primes π (both 2-primary associates of each of the 768 split primes 7 ≤ N(π) ≤ 6000) are solved by
+Thm 3.5's recipe with the least admissible r (max N(r) = 3187, max Q = 3671 ∈ ℤ): equation verified exactly in O,
+2-primarity checked, Type II shape at π in all 1536, inv_π α = ω²-class "2" in all 1536 (matches TWISTED_T1's census
+value (1, 2, 0)), and the cubic tame invariant at every mute prime above every q | Q is 0 (2908 places; Lemma 3.2).
+(3) T1₃ control: for the 2-primary cubes π³, N(π) ≤ 200, and Q ≤ 39 prime to 6N(π) (267 shots), no divisor of
+π³ + 18Q³ (any associate) lies in the class g₀.
+(4) The plain single shot π + 18 (D = 1, TES itself) fires for only 52 of the 768 2-primary split primes with N(π) ≤ 6000.
+(TES itself is not claimed at any prime here.)
+
+**Reading (Assessment): the uniform principle and what it says about ES.**
+* Order 2 and order 3 now behave identically: anchor (positivity / 2-primary) + wild partner (4 = 2², 9 = λ⁴·unit) +
+  mute places normalised by m-th powers in the free slot. With infinitely many mute places, one Dirichlet/Hecke prime
+  proves the variant at every non-m-th-power (ES^□: Prop 2.2; TES^{□₃}: Thm 3.5); with a fixed finite S, it is an
+  Artin problem (m = 2: (J)23 for |S| ≥ 4, unconditional; m = 3: not attempted — a Gupta–Murty sieve over ℚ(ω) with
+  the condition −n/18 ∈ ⟨S⟩³ mod 𝔯 is the natural route, CONJECTURE); with S = ∅ it is a finite search ((J)25).
+* The T1 is never the difficulty: the T1-sensitive step is always a single character value ((n/r) = −1, resp.
+  (n/r)₃ = (18/r)₃ ≠ 1), and Chebotarev supplies it whenever n is not an m-th power. The entire difficulty of ES
+  is the size of the shot orbit, and over ℤ with S = ∅ it is one point plus the growing-modulus lines of the
+  certificate cube.
+* So the "exact obstruction for ES" in seed (iii) is not a missing mute place per se but the absence of any
+  equivalence ES ⟺ (variant with a mute place) + (cheap condition): the extra condition is O186 Prop 6.1's
+  g ≡ −1 (mod 4Q), which is B2. A T1-bearing variant being provable carries no information about ES.
