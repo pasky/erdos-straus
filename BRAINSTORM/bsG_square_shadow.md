@@ -5,7 +5,7 @@ HJ_DEEP calls (W) "T1-free". Test it: at n = m², every prime q | tn + 1 has (�
 On the word condition X ≡ −1 (mod t) this character is pinned down for some classes of t.
 **Lemma (PROVED; LORENZINI_W Lemma 3.1).** At n = m² the middle letter satisfies t ≢ 0 (4) and t ≢ 7 (8), and t ≢ 3 (4) if m is even.
 At n = k m², t ≢ 0 (mod 4k) (Remark 3.2). The t ≡ 0 (4) case is ES's T1 in HJ dress.
-**Prop (PROVED; Lemma 3.3).** Nevertheless every square except 1, 9 is a value: (2, n/4+1, 2) for even m, (2, 2, (n+2)/3) for 3 ∤ m,
+**Prop (PROVED; LORENZINI_W Prop 3.3).** Nevertheless every square except 1, 9 is a value: (2, n/4+1, 2) for even m, (2, 2, (n+2)/3) for 3 ∤ m,
 and (3, (k²+1)/2, 6) for m = 3k with k odd.
 
 ## Literature
