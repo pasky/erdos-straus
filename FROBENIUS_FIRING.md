@@ -247,3 +247,36 @@ turned into the generalised Prop 2.1 solution (Q = a s^j: E = (P + AQ²d)/f, X =
 verified exactly (identity, monic, NC, denominator s^{2t}, t ≤ e). e = 0 sees Type II only, so its unsolved set must
 contain the full ES_q failures of `data/ffl/fail_*` (consistency check).
 (results below)
+
+## 6. Verdict (O196 checkpoint 1)
+
+**Answer to the spark question.** ES firing is *not* a Frobenius condition, in a precise and scoped sense, and the
+reason is size, not abelianness:
+1. (Prop 1.2, PROVED, trivial.) Fire(p) is finite (moduli O(p²); degree ≤ 2n − k over F), so no finite Galois
+   extension, fixed or p-dependent, gives a sufficient Frobenius condition.
+2. (Thms 1.3, 1.4.) Range-restricted versions need exponentially complicated fields: over F_q[T]
+   (unconditional, effective Chebotarev) genus/degree·ramification ≥ q^{n−k/2}/c₀ for a condition sufficient one
+   degree beyond the certificate range; over ℤ (GRH) [L:ℚ] ≤ p^{1−ε} and log d_L ≤ p^{1−ε} are impossible for
+   a condition sufficient on all primes ≤ X, X ≥ 3p².
+3. (§2, PROVED over F_q[T].) Per modulus, the flip "condition on P mod f → condition on f" exists over F for
+   characters of every order (P mod f = P(α), Weil). Its threshold is size: a Weil/Frobenius certificate at modulus
+   degree d needs a fixed algebraic firing set of size ≳ n·q^{d/2} (Thm 2.1, Prop 2.2); the ES box has size
+   τ₃((f+1)/A) = q^{o(d)} and its generators move with f (Prop 2.3). Over ℤ only bounded-order reciprocity is
+   available (Remark 2.5), so the requirement is even bounded index.
+4. (F1–F2.) Heegner/CM and supersingular-torsion dictionaries: certificates are degree-one primes 𝔣 | 1 + 2c√−dp of
+   ℚ(√−dp) with N𝔣 ≡ −1 (4cd), and every certificate prime is supersingular for the CM-by-ℚ(√−d) curves with
+   #E(F_f) = f + 1 ≡ 0 (4cd). Both are exact, but the Frobenius part has a level moving with the shot; a non-abelian
+   (torsion) field of moving level does not help (H-D: no gain).
+5. (§4, the constructive find.) **The self-referential variant ES^{(y)} — z may carry even powers of primes dividing
+   y — is a theorem (unconditional with 4 mute primes, GRH with 1), exact-T1 like ES^{(S)}; and in the shot family
+   ES = ES^{(y)} + the exponent cap Q | (r + 1)/4 (Cor 4.3). So B2's "the modulus is part of the solution" is
+   harmless as long as only the radical is constrained; the obstruction is the exponent cap, which confines the
+   available s-exponents to ≤ log_s r, against the order ≍ r of ⟨s mod r⟩ (Frobenius firing) or the Weil threshold
+   ≍ √r·log (F_q[T]).** (Assessment: this sharpens (J)25/(J)28's "growing modulus" into "growing exponent".)
+6. (Task (3), §5.2.) Along the overflow scale ES_q^{(s,e)} the provable threshold (Weil, Prop 2.2) is e ≈ n²
+   (exponent interval ≳ d·n·q^{d/2} at d ≈ 2 log_q n), while numerically e ≤ 5 suffices and the needed e
+   *decreases* with n (lottery with more tickets): truth threshold and provability threshold move in opposite
+   directions.
+
+Not an opening for ES (Assessment): every route found to a Frobenius description passes through an unbounded
+exponent (or index-bounded subgroup) at a fixed mute place; ES's exponents are capped by v_s((f + 1)/A) ≤ d/deg s.
