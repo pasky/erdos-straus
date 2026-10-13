@@ -138,9 +138,10 @@ sieve at level beyond Bombieri–Vinogradov (the modulus P eats the whole BV lev
 necessary: ∏(κ_i + e + 1) ≥ (r−1)/2 (Prop 3.1).
 (b) The dual lattice Λ_r^* = {θ ∈ ℝ^k : θ·a ∈ ℤ ∀a ∈ Λ_r} is {(φ(s₁²), …, φ(s_k²)) + ℤ^k : χ a character of (F_r^*)²},
 where χ(u) = e^{2πiφ(u)}. A short dual vector is a nontrivial character χ with ‖φ(s_i²)‖ ≤ t for all i, i.e. χ
-"pretends to be 1 on S" in the sup-angle. Transference (Banaszczyk: λ_i(Λ)λ_{k+1−i}(Λ^*) ≤ k, ℓ² norms) turns
-"λ_k(Λ_r) small" into "λ₁(Λ_r^*) large": **coverage at overflow e holds once no nontrivial character of (F_r^*)² has
-‖φ(s²)‖ ≤ c·k^{3/2}/e for all s ∈ S** (constants from ℓ²/ℓ^∞ comparison, not optimised).
+"pretends to be 1 on S" in the sup-angle. Transference (Banaszczyk, Math. Ann. 296 (1993): μ₂(Λ)·λ₁^{(2)}(Λ^*) ≤ k/2, ℓ² covering radius and minimum;
+citation form not re-checked) gives: the box ∏[0, κ_i + e] contains an ℓ² ball of radius E/2, E := min κ_i + e, and every
+coset of Λ_r meets every ball of radius μ₂(Λ_r); so **coverage at overflow e holds once no nontrivial character χ of
+(F_r^*)² has ‖φ(s²)‖ < k/E for all s ∈ S** (if λ₁^{(2)}(Λ^*) < k/E, some dual vector has all coordinates < k/E).
 (c) Hence the ES-relevant regime (e ≈ polylog r, S ≈ all primes ≤ log r dividing (r+1)/4) asks for a
 **uniform small-prime discrete-log non-concentration statement**: for some (sieved) r, the discrete logs
 of the primes ≤ c log r are not simultaneously close to 0 after multiplication by any nonzero j ∈ ℤ/((r−1)/2).
