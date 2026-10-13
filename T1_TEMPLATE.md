@@ -137,3 +137,42 @@ which is a theorem for all n).
 For K = ℚ(√5), P = {σ₁}, M = {σ₂}: ES_{P,M} = V_φ. So **V_φ is a T1-bearing ES variant (PROVED)**, matching the
 evidence table of §1. Anchor = σ₁ (positivity), partner = 2 (numerator 4, Thm 2.1(c)), and σ₂ is a *sign-pattern
 place pinned to 0* — a third role ("mute place") that costs nothing in the reciprocity sum but frees the unit group.
+
+## 3. Existence at every prime: the unit orbit turns ES's lottery into an Artin problem
+
+**Dictionary (PROVED, Thm 1.3 with K = ℚ, η = 1).** Over ℤ the same construction with the only positive unit
+η = 1 is the classical ES family `e | p + 4`: ES(p) has a Type II solution with x = (p + e)/4 and D = 1 iff p + 4 has
+a prime factor q ≡ 3 (mod 4) — i.e. (p/q) = −1, the T1 character χ_{−1} (K = ℚ: n ≡ −4 mod q). It fails e.g. at
+p = 13 (p + 4 = 17). V_φ is this one-shot family **extended along the infinite unit orbit**
+a_k = p + 4φ^{2k+1}, k ∈ ℤ, with χ_{−1} replaced by χ_{−φ}: the sign pattern at the mute place σ₂ is what lets the
+odd powers φ^{2k+1} (signature (+, −)) act without breaking positivity at σ₁ or the T1.
+
+**Theorem 3.1 (V_φ(p) for every prime p; CONDITIONAL on GRH for the Kummer fields K(ζ_r, φ^{1/r}), via Lenstra's
+Artin theorem with Frobenius conditions).** For every odd prime p ≠ 5, V_φ(p) has a Type II solution of the form of
+Prop 1.2.
+*Proof.* Suppose 𝔮 is a degree-1 prime of K, N𝔮 = ℓ, with (i) ℓ ≡ 1 (mod 4), (ii) (p/ℓ) = −1, (iii) φ a primitive
+root mod 𝔮. Then (φ/𝔮) = −1, so t := −p/(4φ) has (t/𝔮) = (−1/ℓ)(p/ℓ)(φ/𝔮) = 1, i.e. t lies in the squares of
+F_ℓ^*, which by (iii) are ⟨φ²⟩; so t ≡ φ^{2k} for some k, i.e. 𝔮 | p + 4φ^{2k+1} = a_k, and χ(𝔮) = (p/𝔮) =
+(p/ℓ) = −1. Thm 1.3(b) gives the solution. Existence of 𝔮: by Lenstra (Invent. Math. 42 (1977), the Artin
+density theorem over number fields with a Frobenius condition in a finite Galois F/K; GRH), the primes 𝔮 with (iii)
+and Frob_𝔮 in a prescribed class of F = K(i, √p) have a density, positive unless the Frobenius condition is
+incompatible with "𝔮 does not split completely in K(ζ_r, φ^{1/r})" for some prime r. Compatibility
+(Assessment-level check, my own): r = 2 asks 𝔮 inert in K(√φ); K(√φ), K(i), K(√p) are independent quadratic
+extensions (φ, −1, p independent in K^*/K^{*2}: signatures (+,−), (−,−), (+,+) and p not a square in K for p ≠ 5);
+K(√φ)/ℚ is not Galois (x⁴ − x² − 1 has group D₄) so K(√φ) lies in no abelian extension; r = p is automatic
+(√p ∈ ℚ(ζ_p), and Frobenius moving √p moves ζ_p); odd r ≠ p impose Kummer conditions of degree r over K(ζ_r),
+independent of the 2-power conditions. Degree-1 primes have density 1. ∎
+*Status note.* GRH enters only through Artin's conjecture for the single unit φ (with two quadratic Frobenius
+conditions); the T1-sensitive step is condition (ii), a Chebotarev condition in the p-dependent field K(√p) — the
+step that is false at p = m² (every 𝔮 has (m²/𝔮) = 1). Unconditional variant: see §4.
+
+**Barrier screen of the mechanism.**
+* B5/T1: respected — the step false at m² is "some prime of the orbit has (n/𝔮) = −1" (Thm 1.3(a)).
+* B2 (divisor in a class whose modulus is part of the solution): **hypothesis violated.** For units D the condition
+  D | x² is void, and the residue condition reduces to a *fixed* modulus 4∞₁ (Lemma 1.1). Over ℤ the only such D
+  are ±1 (the one-shot family p + 4).
+* B3/B6 (bounded multiplicity, averages): the search is infinite at fixed p (k ∈ ℤ, N(a_k) ≍ 4p φ^{2|k|}); existence
+  is a *pointwise* Artin/Chebotarev statement at the fixed p, not an average.
+* B1 (congruence data): violated — the input is Chebotarev in K(√p) plus Artin for φ.
+**Assessment.** The obstruction to transplanting this to ES is exactly the absence over ℚ of a mute real place: a
+2-torsion T1 over ℚ needs the unique real place pinned, units are ±1, and the orbit is the single number p + 4.
