@@ -168,8 +168,8 @@ Kummer condition is mis-identified as the barrier; for V_φ the barrier is the u
 (−φ/𝔮)(−φ/𝔮') = (−φ²/𝔮) = (−1/ℓ) = −1: **exactly one prime above ℓ satisfies the forced Kummer condition**
 (verified for all split ℓ ≡ 3 (4) below 3000, `review_uo_misc.py` (d)). Hence the forced condition only *selects* 𝔮,
 and the full shot condition at ℓ ≡ 3 (mod 4) is a condition on ℓ alone: ℓ ≡ 3 (4), ℓ ≡ ±1 (5), (n/ℓ) = −1 (all
-congruences) and ⟨−1, φ⟩ = F_ℓ^* (i.e. ord_ℓ φ ≥ (ℓ−1)/2; independent of the choice of root of t² − t − 1, as the
-roots are t and −1/t). This is a **rank-1 Artin problem with congruence conditions** — open unconditionally because
+congruences) and ⟨−1, φ⟩ = F_ℓ^* (i.e. the root of t² − t − 1 that is a square mod ℓ has order exactly (ℓ−1)/2; the group
+⟨−1, t⟩ = ⟨−1, −1/t⟩ does not depend on the root). This is a **rank-1 Artin problem with congruence conditions** — open unconditionally because
 one generator is far below what Gupta–Murty (rank ≥ 4 at level ½) or Heath-Brown (3 independent generators, one of
 which works) can handle — and no non-norm Chebotarev condition is involved. So the statement in §0 (L2) "Hypothesis of the
 barrier that the variant satisfied: the orbit is a coset ηU² with η not a square (forced by a mute REAL place)", the
@@ -188,3 +188,42 @@ unconditional V_φ problem is the rank-1 Artin problem ⟨−1, φ⟩ = F_ℓ^* 
 for V_φ) and, for higher-rank r₁ = 1 fields, Kummer conditions when MP is applied over the base K; whether the
 Galois-closure/base-ℚ route avoids them is not checked". (c) Restate 4.2's conclusion as "with Murty–Petersen applied
 over base K".
+
+### MINOR
+**m1 (Cor 1.2, §1).** "Type I/II" is never defined for ES^{(S)}. *Repair:* add after the Definition: "At ℓ | n
+(ℓ ∉ S) write v_ℓ(z) = v_ℓ(Z); with v_ℓ(n) = 2s, Type I = one of x, y, z has v_ℓ ≥ 2s and two are ℓ-units, Type II =
+one ℓ-unit and two with v_ℓ ≥ 2s (T1_TEMPLATE Thm 2.1(d))", and note that Thm 2.1(a)–(d) are used in their local
+form (proofs need only v-integrality at the place in question).
+
+**m2 (Thm 2.4(b)).** "ES^{(S)}(n) has no solution of Type I/II shape at all" is literally false when m has two or more
+primes. Counterexample (`review_uo_twoprime.py`): n = (13·19)² = 61009, S = {3, 5, 7, 11}, partial box
+(n/4 < x < n/4 + 1500, x ≤ y ≤ 4n): 393 ES^{(S)} solutions, of which 105 are Type I at 19 (other at 13), 34 Type II at 19,
+83 Type I at 13, 22 Type II at 13; none Type I/II at both. *Repair:* "… no solution has Type I/II shape at every prime of
+n (Cor 1.2)".
+
+**m3 (Thm 2.4, Remark (2), report "Effective version").** The proof is ineffective (BV ⇒ Siegel–Walfisz): it gives
+no bound for the least Q in terms of n. *Repair:* add "(ineffective: no bound on Q)" to the theorem's label.
+
+**m4 (missed corollary; Remarks after Thm 2.4, AGENT_REPORT).** For |S| ≥ 4, **ES^{(S)}(n) holds for every n > 1
+coprime to 2S, squares included**: if 4/d = 1/x + 1/y + Q²/Z with gcd(Z, Q) = 1 and k is coprime to S, then
+4/(kd) = 1/(kx) + 1/(ky) + Q²/(kZ) with gcd(kZ, Q) = 1; write n = t^{2^j} with t > 1 a non-square and apply Thm 2.4(a)
+to t. (Consistent with the T1: the inherited solutions are "other"-shaped at the primes of n, as C2's box data show.)
+So ES^{(S)} is a *fully proved* variant for |S| ≥ 4, and the T1 is purely a statement about shapes. *Repair:* add
+as Cor 2.5 and make Remark (1) say "the *mechanism* is exact-T1; the *variant* holds everywhere".
+
+**m5 (Assessment 4.2).** The letter η denotes both an orbit element (§§2–5) and the Murty–Petersen level exponent.
+*Repair:* rename the latter (e.g. η_MP).
+
+**m6 (Prop 3.2, §0 (L1)).** The hypothesis n ≡ 1 (mod 8) is only a sufficient condition for n ∈ K_v^{*2}, v | 2. For
+K = ℚ (ES^{(S)}) the identity holds for all n ≡ 1 (mod 4) (Jacobi reciprocity, a > 0), and for K = ℚ(√5) also for
+n ≡ 5 (mod 8) (5 ∈ ℚ₄^{*2}); `review_uo_misc.py` (c) control: 7 000 / 7 000 shots with n ≡ 5 (8) over ℚ(√5) have total
+symbol +1. *Repair:* state "n ∈ K_v^{*2} for all v | 2 (e.g. n ≡ 1 (8))" and note that for ES^{(S)} and V_φ the no-reciprocity
+statement covers all n ≡ 1 (mod 4).
+
+**m7 (Thm 5.2 proof).** "Lenstra's theorem applies because K(√n) ≠ K and K(√n) ⊄ K(i, √φ)" is not Lenstra's
+criterion. *Repair:* cite Lenstra (1977) Cor. 4.8 as in R183 C7/m8: W = ⟨φ⟩, F = K(i, √n), L₂ = K(√φ) ⊄ F,
+L_l (l odd) non-abelian; and state GRH as GRH for ζ_{K(ζ_m, φ^{1/m})}, m squarefree.
+
+**m8 (§5 "Contrast with ES", bsL_sieve_saturation).** "DISCOVERIES (A)19–20" should be **(D)19** (large sieve cap; also
+(D)22 for prime-only majorants), and that cap is "PROVED, conditional on KARY2 Thm 5.1", not unconditionally "proved".
+*Repair:* fix the reference and the qualifier.
