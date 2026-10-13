@@ -10,7 +10,21 @@ From-scratch scripts: `scripts/review_sa_*.py` (none reuse the author's code).
 |---|---|
 | §1 literature | SOUND-AFTER-REPAIRS (D1 venue of BKS; D2 Sardari's primitivity hypothesis on the local ball omitted) |
 | §3 matrix dictionary, Lemma 10.1 | SOUND (re-derived; symbolic + brute force, `scripts/review_sa_typeII.py`) |
-| (pending) | |
+| Lemma 2.2 (no plane) | SOUND |
+| Thm 2.3 (rel. Pila Thm A) | SOUND |
+| Cor 2.4 | SOUND-AFTER-REPAIRS (D4: `σ_p ≥ N^{−o(1)}` must be an explicit hypothesis; gap near exponent 4 correctly recorded) |
+| Prop 3.1 | SOUND |
+| Cor 3.2 | GAP (D5 box restriction; D6 recipe must factor through g; D7 definite Eichler orders) |
+| Thm 4.1 | SOUND-AFTER-REPAIRS (D4: false as stated without a lower bound on σ_p; numerical counterexample) |
+| Cor 4.2 | SOUND-AFTER-REPAIRS (D8: label/contrapositive overclaimed) |
+| Prop 5.1 | SOUND-AFTER-REPAIRS (D3: "finitely many n with large v_ℓ(N_n)" is false; D10 Type I/II output) |
+| §5 EVIDENCE | SOUND (reproduced independently to n ≤ 3000) |
+| Prop 7.1 / Cor 7.2 | SOUND-AFTER-REPAIRS (D11: odd χ are not weight-2 Eisenstein coefficients; D13 label) |
+| Thm 9.1 | SOUND (re-derived; numerics `scripts/review_sa_eisen.py`) |
+| Cor 9.2 | SOUND-AFTER-REPAIRS (D12: last sentence false — counterexample n·μ²(n)) |
+| Cor 9.3 | SOUND; its *Reading* overclaims (D14: maps valid only at primes are not covered) |
+| Lemma 10.1 / Prop 10.2 | SOUND (10.2: only the periodicity statement is a theorem, D13) |
+| §11 | SOUND as Assessment |
 
 ## Checks performed
 
