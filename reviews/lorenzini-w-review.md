@@ -22,8 +22,10 @@ NOT accessible: T. Wang, EJC 33(3) #P80 (2026). The "open problem" and "new as f
 | §2, §5 EVIDENCE | reproduced exactly; §5 heuristic constant wrong (D5) |
 | Memos | spot-checked, no errors found |
 
-No FATAL or MAJOR defects. Six MINOR or cosmetic defects (D1–D6). Repairs were NOT applied: the author agent is still live, and its last commit was
-12 min before this review was finished.
+No FATAL or MAJOR defects. Six MINOR or cosmetic defects (D1–D6).
+
+**Repairs applied (by R180, at the orchestrator's request; the author O180 is parked):** D1–D6 were applied to LORENZINI_W.md and
+AGENT_REPORT_O180.md, each marked '(R180 repair, Dk)'. For D2, Cor 4.4 is now self-contained CERTIFIED via `scripts/review_lw_cor44.c` (16 s, 1 core).
 
 ## Claim-by-claim
 
