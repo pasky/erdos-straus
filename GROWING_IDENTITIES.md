@@ -48,10 +48,12 @@ Type I (a = 1) certificate, `tn + 1 = m·m''` with `4 | m`, `m'' ≡ −1 (t)`, 
 symbol `(m''/n) = −1`. Consequently
 `W(n) = Σ_t Σ_{m'' | tn+1, m'' ≡ −1 (t), 4 | (tn+1)/m''} (1 − (m''/n))/2`,
 and at n = k² every summand vanishes, `(m''/k²) = 1`.
-*Proof.* tn ≡ −1 (4) forces t ≡ 3 (4). For a prime ℓ | tn + 1, −t ≡ n⁻¹ (mod ℓ), so (−t/ℓ) = (n/ℓ) and
-(−t/m'') = (n/m'') = (m''/n) (Jacobi reciprocity, n ≡ 1 (4)). On the other hand
-(−t/m'') = (−1/m'')(t/m'') = (−1)^{ε(m'')}·(m''/t)(−1)^{ε(t)ε(m'')} with ε(x) = (x−1)/2, and
-(m''/t) = (−1/t) = −1; with ε(t) = 1 this is −1. ∎
+*Proof.* tn ≡ −1 (4) forces t ≡ 3 (4). Write m'' = 2^j u, u odd, ε(x) := (x−1)/2. For a prime ℓ | u,
+−t ≡ n⁻¹ (mod ℓ), so (−t/ℓ) = (n/ℓ); hence (n/u) = (−t/u), and (u/n) = (n/u) (reciprocity, n ≡ 1 (4)).
+From m'' ≡ −1 (t): u ≡ −2^{−j} (t), so (u/t) = (−1/t)(2/t)^j = −(2/t)^j, and
+(−t/u) = (−1)^{ε(u)}(u/t)(−1)^{ε(t)ε(u)} = −(2/t)^j. So (m''/n) = (2/n)^j (u/n) = −(2/(tn))^j. If j ≥ 1 then
+2^{j+2} | tn + 1, so tn ≡ 7 (8) and (2/(tn)) = 1. Hence (m''/n) = −1. ∎ (Checked: all 4901 certificates of
+n ≡ 1 (4), n ≤ 3000, `scripts/gi_spin_check.py`, 0 violations.)
 *Reading.* This is PARITY_FIXED_P Lemma 1.3 in slice a = 1. The only T1-respecting factor available is a
 genus character **at the place n** (the "main term with genus data at the place p" asked for in O167 §11);
 but here it is identically −1 on certificates, i.e. it carries no information beyond the class condition.
