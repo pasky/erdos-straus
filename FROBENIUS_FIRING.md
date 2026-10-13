@@ -226,3 +226,24 @@ fails for every odd ℓ | M by the choice of D (a ≢ 1 mod ℓ for ℓ | n, and
 to M contribute, the fields are linearly disjoint, [ℚ(ζ_m, s^{1/m}):ℚ] = mφ(m), and the sum factors as stated. ∎
 (Only odd ℓ are imposed, so the even-m entanglement ℚ(√s) ⊂ ℚ(ζ_{4s}) never enters. Status: the Lenstra/Hooley
 input is standard but I did not re-derive its error terms; CONDITIONAL on GRH, citation-level.)
+
+## 5. Numerics (EVIDENCE; every reported solution verified exactly)
+
+**5.1 One mute place over ℤ (Thms 4.2/4.4 with S = {3}; `scripts/ff_frob_selfmute.py`, `data/ff_frob/selfmute_*`).**
+For each n, least j ≥ 0 such that n + 4·9^j has a prime factor r ≡ 3 (4) [ES^{(3)}], resp. r ≡ 11 (12), i.e.
+also 3 | (r + 1)/4 | y [ES^{(y)}]; the UNIT_ORBIT Prop 2.1 solution is checked with exact rationals (equation,
+positivity, z-denominator a power 3^{2t}, 3 | y for ES^{(y)}).
+* All 78 496 primes 5 ≤ p < 10⁶, p ≠ 3: **0 unsolved** in both variants. ES^{(3)}: least j = 0 for 68 655 (ES's own
+  Mordell shot p + 4), max least j = 18. ES^{(y)}: least j = 0 for 34 972, max least j = 21.
+* T1 control: all 332 odd squares m² < 10⁶ with 3 ∤ m: **0 solved** in both variants up to j = 40 (as proved:
+  m² + 4·9^j is a sum of two coprime squares).
+So one mute place suffices in practice (Thm 4.4 proves it under GRH), and forcing the mute place into y costs only a
+few more shots.
+
+**5.2 The overflow scale over F_q[T] (ES_q^{(s,e)}; `scripts/ff_frob_overflow.py`, `data/ff_frob/overflow_*`).**
+ES_q^{(s,e)}(A, P): z may have denominator s^{2t} with t ≤ e (e = 0: ES_q; e = ∞: ES_q^{(s)}). Per-modulus
+enumeration over all f = Am − 1 of degree ≤ D, firing set −A·{a²d·s^{2j} : ad | m, j ≤ v_s(m/(ad)) + e}; each hit is
+turned into the generalised Prop 2.1 solution (Q = a s^j: E = (P + AQ²d)/f, X = (P + E)/A, Y = Pm, z = PXm/(Q²d)) and
+verified exactly (identity, monic, NC, denominator s^{2t}, t ≤ e). e = 0 sees Type II only, so its unsolved set must
+contain the full ES_q failures of `data/ffl/fail_*` (consistency check).
+(results below)
