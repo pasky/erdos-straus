@@ -1,7 +1,25 @@
 # STRONG_APPROX_ES — rank-4 quadratic encodings of ES with a fixed modulus (task O167, SPARK)
 
 **ES is not solved, here or anywhere. Nothing below proves ES(p) for any new p.**
-Labels as in DISCOVERIES.md. Work in progress; sections are added one at a time.
+Labels as in DISCOVERIES.md.
+
+## 0. Summary (checkpoint 1)
+
+**Outcome so far: negative, with exact scope; no construction survives. ES is not proved.**
+* §1: the only unconditional rank-4 SA with a congruence range is Sardari's `N ≫ q^{6+ε}` for a *fixed* form
+  (main term `≍ N/q³ ≥ N^{1/2}`); exponent 4 (≙ BKS covering 4/3) is conjectural.
+* Thm 2.3 (PROVED rel. Pila Thm A): for recipes that are piecewise rational of bounded degree, the
+  non-degenerate pieces carry `≪ f(p) (√N/q)^{3/2+ε}` points, so SA certifies ES only through a finite menu of
+  constant pieces (Mordell–Schinzel / B2). Any p-dependence of `Q_p, N_p, q_p` is allowed.
+* Prop 3.1 (PROVED): congruence data mod q cannot see any factorisation of N coprime to q — every
+  factorisation type occurs in every class. Factorisation recipes are idle.
+* Thm 4.1 (PROVED rel. ET): bounded multiplicity forces all data to be `p^{o(1)}` in any SA range with
+  exponent `1+η`; even the optimal conjectured exponent leaves `M ≥ q^{1−o(1)}`. The ES-natural quaternary
+  representations (QUATERNION_ES) have expected count O(1), i.e. η = 0.
+* §5 T1: for fixed data, local conditions at m² and at primes `p ≡ m²` coincide; the map fails at m²
+  (EVIDENCE: det-form Type II control to n ≤ 6000).
+* §6: six construction attempts (C1–C6) with the barrier hypothesis each tried to violate; §7: the rank-4
+  (weight-2 Eisenstein) dictionary for Type II and why fibre weights do not escape; §8 escape table.
 
 ## 1. Inputs (literature, as verified by a research subagent; statements only)
 
@@ -62,18 +80,22 @@ Sum over components, over the ≤ f(p) values s, and over j ≤ J. ∎
 `M_p > 2C(J,D,ε) f(p) H_p^{3/2+ε}`, then at least half of R_p lies in degenerate pieces; in particular some
 degenerate piece is nonempty and its constant value `s_j(p)` is an ES solution. In the (S4) model
 (`B_p ≍ √N_p`, `M_p ≍ σ_p N_p/q_p³`, `H_p ≍ √N_p/q_p`) the hypothesis reads
-`σ_p (√N_p/q_p)^{1/2−ε} ≫ f(p)`; in the (S4) range `N_p ≥ q_p^{6+ε}` one has `√N_p/q_p ≥ N_p^{1/3}`, so it
-holds as soon as `N_p^{1/6−ε} ≫ f(p)/σ_p`. With `σ_p ≥ N_p^{−o(1)}` (local densities of a quaternary form at
-a locally represented integer are `≫ N^{−ε}` away from anisotropic-prime blowups) and Lemma 2.1 of
-CONDITIONAL_ES (`f(p) ≤ p^{δ}` outside `O(N^{1−δ}log³N)` primes), it holds whenever `N_p ≥ p^{7δ}`, for all p
-outside that sparse set.
+`σ_p N_p^{1/4−ε} q_p^{−3/2} ≫ f(p)` (since `M/H^{3/2+ε} ≍ σ H^{1/2−ε}/q`). In the (S4) range
+`N_p ≥ q_p^{6+ε₀}` (ε₀ > 0 Sardari's fixed loss) one has `q^{3/2} ≤ N^{1/4−κ}`, `κ = ε₀/(24+4ε₀)`, so it holds as
+soon as `σ_p N_p^{κ−ε} ≫ f(p)`. *(Self-check repair: a first draft used `N/q²` for M and claimed exponent
+1/6; exactly at the boundary `N = q⁶` the two sides are of the same order `q³`, so the margin is only the
+fixed ε₀ of the range.)* With `σ_p ≥ N_p^{−o(1)}` (local densities of a quaternary form at a locally
+represented integer are `≫ N^{−ε}` away from anisotropic-prime blowups; not re-proved here) and Lemma 2.1 of
+CONDITIONAL_ES (`f(p) ≤ p^{δ}` outside `O(N^{1−δ}log³N)` primes), it holds whenever `N_p ≥ p^{2δ/κ}`, for all p
+outside that sparse set. **Gap:** an encoding using a *better* range (e.g. Sardari's conjectural `N ≫ q^{4+ε}`)
+near its boundary, `q⁴ ≤ N ≤ q⁶ f(p)⁴`, is not covered: there Pila's `H^{3/2}` per fibre is too weak.
 
 *Reading.* Every certificate of this shape reduces to a **finite menu** `{s_j(p) : j ≤ J}` of candidate
 solutions that do not depend on the lattice point at all; SA only certifies that some degenerate piece is
 nonempty, i.e. it contributes a local (congruence) fact. If the recipe is uniform in p (coefficients of `φ_j`
 rational functions of p, and degeneracy holding for all large p in a congruence class), then `s_j(p) ∈ ℚ(p)³`
 and "s_j(p) ∈ Sol(p)" is a polynomial identity on a residue class: Mordell–Schinzel, which misses every
-square class (POINTWISE_TERNARY Lemma 3.1/Cor 3.2; ET Prop 1.6). If `N_p < p^{7δ}` then all data
+square class (POINTWISE_TERNARY Lemma 3.1/Cor 3.2; ET Prop 1.6). If `N_p < p^{2δ/κ}` then all data
 `(N_p, q_p, λ_p, B_p)` are `p^{o(1)}`-bounded and the recipe is a bounded-slice search (B2, POINTWISE_SIZE Thm C).
 *Scope.* Bounded degree D and piece count J (uniform in p); arbitrary p-dependence of `Q_p, N_p, q_p, λ_p`
 and of the side conditions; definite or indefinite. This is the rank-4, explicit-SA analogue of
@@ -186,7 +208,8 @@ has such a γ; no odd square has one (the matrix form of ET Prop 1.6). The split
   `λ₁₁ ≡ −1`, hoping to make `γ₁₁ ≡ −1 (mod γ₁₂)` automatic whenever `γ₁₂ | q_p`. But `γ₁₂ | q_p` is not a
   congruence condition on γ: one must fix `γ₁₂ = M` exactly, which is a two-coordinate slice → B2 divisor-class
   form `f | 4c²dp + 1, f ≡ −1 (M)`, fixed finite menu of M → POINTWISE_SIZE Thm C (fails i.o. under H).
-  Also `γ₁₁ ≡ −1 (mod q_p)` forces `f ≥ q_p − 1`, while `f ≤ √(4c²dp+1)`: so `q_p ≤ 2c√(dp)`. Dead (B2).
+  Also `γ₁₁ ≡ γ₂₂ ≡ −1 (mod q_p)` forces `f, f' ≥ q_p − 1`, while `min(f, f') ≤ √(4c²dp+1)`: so
+  `q_p ≤ 2c√(dp) + 2`. Dead (B2).
 * **C2 — quaternion lines → full lattices.** QUATERNION_ES Lemma 3.1 puts Type II on the lines `2xi ± j` of
   `(−d,−p)` (a rank-2 object). Replacing the lines by the whole order makes it rank 4, but the ES content
   (`N(α) ≡ p (4d)`, the coupling `αβ ∈ e(1 + 2ℤk)`) lives on the lines; a general factorisation of
