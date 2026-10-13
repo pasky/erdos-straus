@@ -227,3 +227,17 @@ L_l (l odd) non-abelian; and state GRH as GRH for ζ_{K(ζ_m, φ^{1/m})}, m squa
 **m8 (§5 "Contrast with ES", bsL_sieve_saturation).** "DISCOVERIES (A)19–20" should be **(D)19** (large sieve cap; also
 (D)22 for prime-only majorants), and that cap is "PROVED, conditional on KARY2 Thm 5.1", not unconditionally "proved".
 *Repair:* fix the reference and the qualifier.
+
+## Labels
+PROVED labels on Lemma 1.1, Cor 1.2, Prop 2.1, Lemma 2.3, Props 3.1, 3.2, 4.1, 6.1 are justified; "PROVED relative to
+standard sieve theorems" for Lemma 2.2 / Thm 2.4 and "relative to the large sieve and Chebotarev" for Thm 5.1 are
+justified (both use only BV / Montgomery / unconditional Chebotarev density); Thm 5.2 CONDITIONAL (GRH) is right.
+Assessments 4.2, Galois paragraph, Remark (4), the Thm 6.2 lottery are correctly labelled, but 4.2's diagnosis needs M1.
+"ES is not solved, nor any infinite case of ES" — correct; nothing here bears on ES itself (Prop 6.1 / Thm 6.2 say so).
+
+## Process note
+No repairs applied: at the time of finishing (12:20) the author's worktree (side-agent/unit-orbit-es, last commit
+2f229f86 at 12:04, clean tree) was idle but present, so the defects are left for the parent to forward.
+Reproduce: `cd scripts; PYTHONPATH=. uv run --with sympy --with numpy python review_uo_evidence.py 200000 30000`
+(4 s), `… review_uo_squares.py 3 300 169 289 361` (+ `--noparity`, ~30 s each), `… review_uo_twoprime.py` (6 s),
+`… review_uo_misc.py` (~4 min).
