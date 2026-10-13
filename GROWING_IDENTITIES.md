@@ -91,31 +91,46 @@ term `−½ Σ_{dd' = N} min(d,d')^{k−1} Σ_{τ | q, …} φ((τ, q/τ)) χ(y_
 k = 2, χ = 1 term. Implemented in `scripts/gi_trace.py`; transcription checked: dim S₂(Γ₀(N)) = genus X₀(N)
 for N ≤ 30, Σ_{χ even} dim S₂(q,χ) = genus X₁(q) for q ≤ 18, dim S₃(Γ₁(7)) = 1, Tr T₂|S₁₂(1) = −24,
 Tr T_n|S₂(11) = a_n(11a), n ≤ 10.
+*(R170 repair, full form of the terms used.)* For (N, q) = 1: A₂'s inner factor is
+`μ(t,f,N) = ψ(q)/ψ(q/q_f) · Σ_{x mod q, x² − tx + N ≡ 0 (mod q_f·q)} χ(x)`, q_f := (q, f), with f running over
+f² | t² − 4N, (t² − 4N)/f² ≡ 0, 1 (4), and h_w = h/(w/2); A₃'s τ-sum runs over τ | q with
+`(τ, q/τ) | gcd(q/𝔣_χ, d − d')`, y_τ defined mod q/(τ, q/τ). (Independently re-implemented and tested by R170,
+incl. a non-trivial χ with N > 1: Tr T_n | S₃(Γ₀(7), (·/7)) = coefficients of η(z)³η(7z)³; `scripts/review_gi_trace.py`.)
 
 **Proposition 2.1 (ES slice = odd part of the cusp-fixed-point term).** Let q ≥ 3 and N ≡ 1 (mod q) (the Type II
 divisor form of O131 §1: q = 4cd, N = 4c²dn + 1, certificate = divisor of N in the class −1 mod q). In A₃ the τ = q and τ = 1
 summands contribute `χ(d) + χ(d') = χ(d) + χ̄(d)`. Summing over the characters of parity (−1)^k with weight
-χ̄(−1) isolates, in these summands,
-`(φ(q)/2)·Σ_{dd'=N} min(d,d')^{k−1} ( [d ≡ −1 (q)] + (−1)^k [d ≡ +1 (q)] )`   (×2 for d ↔ d').
+χ̄(−1) (a constant, = (−1)^k, on this family — it only fixes the global sign) gives, in these summands
+(including A₃'s prefactor −½; R170 repair of sign/normalisation),
+`−(φ(q)/2)·Σ_{dd'=N} min(d,d')^{k−1} ( [d ≡ −1 (q)] + (−1)^k [d ≡ +1 (q)] )`
+(the τ = 1 and τ = q summands each give half; checked numerically by R170, `scripts/review_gi_prop21.py`).
 So the ES class −1 appears **always together with the class +1**, with relative sign (−1)^k, and with the weight
 min(d,d')^{k−1}. The class +1 contains the trivial divisor d = 1 (O131 Prop 4.1's "−2 per level", = O128
 Prop 8.3's sign at ∞). Separating −1 from +1 needs both parities of k, i.e. two identities with different
-weights min^{k−1}. *Geometric reading:* A₃ is the contribution of the cusps of X₁(q) fixed by the Hecke
+weights min^{k−1}. (With weight min^{k−1} the trivial divisor d = 1 has weight 1, while an ES divisor
+d ≡ −1 (q) has weight ≥ (q−1)^{k−1}; R170 note.) *Geometric reading (Assessment — interpretation, not part of
+the proved statement; R170 repair):* A₃ is the contribution of the cusps of X₁(q) fixed by the Hecke
 correspondence T_N; the curve identifies P with −P, so it sees only the classes ±d. The sign — which is
 exactly the ES information (O128 Prop 8.3) — is invisible to the curve and visible only to odd-weight line
 bundles. *Proof.* Orthogonality of characters of fixed parity: `Σ_{χ(−1)=ε} χ(d) = (φ(q)/2)([d≡1] + ε[d≡−1])`. ∎
 
-**Proposition 2.2 (the ES term is subdominant; PROVED, trivial bounds).** In the identity
-`(ES-relevant part of A₃) = Tr(T_N⟨·⟩ | S_k(Γ₁(q))) − A₂ − (other τ in A₃) − A₄`, the left side is at most
-`τ(N)·N^{(k−1)/2}` per class, while Deligne's bound for the cusp trace is `dim S_k(Γ₁(q))·τ(N)N^{(k−1)/2} ≍
-k q² τ(N) N^{(k−1)/2}`. There is no independent way to evaluate the cusp trace at a single N (the trace formula
-*is* the evaluation), so a positivity proof for the ES class through this identity needs the cusp trace to
-better than **q²-fold cancellation below Deligne at one N**. At weight 1 the elliptic term vanishes formally
-(ρ⁰ − ρ̄⁰ = 0) and the identity degenerates to the weight-1 Eisenstein identities of O131 §3 (finite level,
-killed by STRONG_APPROX Thm 9.1). At fixed genus-0 level (S_k(Γ₁(q)) = 0: k = 2, q ≤ 10 or 12; k = 3, q ≤ 6)
+**Proposition 2.2 (trivial bounds; PROVED — R170 repair: everything beyond the two bounds is Assessment).** In
+the identity `Σ_{χ(−1)=(−1)^k} χ̄(−1)·Tr(T_N | S_k(q,χ)) = Σ_χ χ̄(−1)(A₁ + A₂ + A₃ + A₄)` (left side
+= (−1)^k Tr(T_N | S_k(Γ₁(q))) restricted to the parity-(−1)^k part), the ES-relevant part of A₃ is, by Prop 2.1,
+(φ(q)/2) times a class sum of absolute value ≤ `τ(N)·N^{(k−1)/2}`, while Deligne's bound for the cusp trace is
+`dim S_k(Γ₁(q))·τ(N)N^{(k−1)/2}`.
+*Assessment (R170 repair).* There is no known independent way to evaluate the cusp trace at a single N, so a
+positivity proof for the ES class through this identity would need the cusp trace to better than
+**dim S_k(Γ₁(q))/(φ(q)/2) ≍ kq-fold cancellation below Deligne at one N** (e.g. dim S₃(Γ₁(24)) = 20 vs
+φ(24)/2 = 4; earlier text said "q²-fold", which is off by ≍ φ(q)). The ES term is *typically* small compared
+with A₂, but not always: when S_k(Γ₁(q)) = 0 and N is not a square the identity reads A₂ = −A₃ (k = 3), resp.
+A₂ + A₄ = −A₃ (k = 2), exactly. Cohen's formula is valid only for k ≥ 2; setting k = 1 (where ρ⁰ − ρ̄⁰ = 0)
+proves nothing — heuristically the weight-1 analogue is the weight-1 Eisenstein identities of O131 §3 (finite
+level, killed by STRONG_APPROX Thm 9.1). At fixed genus-0 level (S_k(Γ₁(q)) = 0: k = 2, q ≤ 10 or 12; k = 3, q ≤ 6)
 the identities are exact class-number relations, but a finite menu of levels (B2).
 *Assessment.* KH/Eichler–Selberg identities are exact with a growing *range* (t² < 4N) but at fixed level;
-ES enters them only as the boundary (split-hyperbolic) term, which is the smallest term, and carries the sign
+ES enters them only as the boundary (split-hyperbolic) term, which is typically small (not always, see above;
+R170 repair), and carries the sign
 information only through odd weight. This is the trace-formula form of B3 (main term ≫ certificate).
 
 ## 3. What made Kronecker–Hurwitz work, and why the ES sum over g lacks it
