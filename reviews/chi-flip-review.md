@@ -112,7 +112,7 @@ an Assessment.
 {5, 105})" in DISCOVERIES (J)32 and MODEL_SPECIFIC C1 needs the same fix or an explicit "interior words" qualifier.
 (b) "There is no BM obstruction at non-square n" needs Ω₂ ∩ X_n(ℤ₂) ≠ ∅ for every odd n, which is not argued.
 Fix: for each class r mod 8, take one χ = −1 word with A odd (r ≡ 3 (4): (1, 2, n+2); r ≡ 5 (8): (4, 1, 2)₅; r ≡ 1 (8):
-any such word). Keep t and u, and set v = (n + u)/A ∈ ℤ₂, which stays in the same cell mod 8. Also say "Ω₂ = the
+(1, 4, 7)₁₇, A = 3, χ = (−3/17) = −1). Keep t and u, and set v = (n + u)/A ∈ ℤ₂, which stays in the same cell mod 8. Also say "Ω₂ = the
 ℤ₂-points of X_n in the 60 χ = −1 cells", not "the 60 cells". (c) The SQ₅ restatement is correct but holds *by
 definition*: the β-BM set is non-empty ⟺ n is a non-square. The doc already says "= C1 restated". Keep the label
 CONJECTURE and add "equivalent by definition; no new content". (d) Bright–Loughran Thm 1.9 concerns U_n (4/n = Σ 1/uᵢ),
