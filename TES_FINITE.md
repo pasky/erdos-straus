@@ -50,7 +50,7 @@ In particular for N(π) = 103 the first coordinate ranges over ≤ 40 lattice po
 TES^{□₃}, whose solution set at fixed n is infinite (the mute places q | Q supply the escape that (a) forbids for
 integral denominators). So TES and TES^{□₃} differ exactly as ES and ES^{(S)} do (FIXED_MODULUS_SHOTS Thm 6.2(iii)).
 
-## 2. Certified exhaustive search: TES fails at 15 primes outside its T1 set
+## 2. Certified exhaustive search: TES fails at 16 primes (N ≤ 30000) outside its T1 set
 
 Implementation. `scripts/tf_core.py` (ℤ[ω] arithmetic and factorisation written from scratch, not importing
 `tw_eis.py`), `scripts/tf_exact.py` (**method A**: Cor 1.2 disk for x_i + complete divisor enumeration of
@@ -66,10 +66,13 @@ in total). Cross-check with O182: for N(π) ∈ {307, 439, 601, 1009, 1213, 2011
 
 **Theorem 2.1 (non-T1 failures of TES; CERTIFIED = PROVED Cor 1.2 + two independent exhaustive computations).**
 TES(π) has **no solution** for the 2-primary primes π with
-`N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239}`
-(both conjugates, both signs), and for every other prime π of O with N(π) ≤ 6000, π ∤ 6 (split, or inert p ≤ 71),
-TES(π) has a solution. Every solution found at a prime has Type I or Type II shape (3126 Type I, 1034 Type II).
-Representatives: N = 103: π = 11 + 2ω; N = 151: −9 − 14ω; N = 7: −1 + 2ω.
+`N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239, 26893}`
+(both conjugates, both signs), and for every other prime π of O with N(π) ≤ 30000, π ∤ 6 (split, or inert
+p ≤ 173), TES(π) has a solution. Every solution found at a prime has Type I or Type II shape (N ≤ 30000: 21042
+Type I, 7038 Type II, 0 other). [Method B was run on all 16 failures — 0 solutions each, e.g. 13 s for
+N = 26893 — and agrees with method A on every prime N ≤ 6000 and on the 4 split primes just below 26893;
+`tf_exact.py census 30000`, 63 min, one core, gives the full list.]
+Representatives: N = 103: π = 11 + 2ω; N = 151: −9 − 14ω; N = 7: −1 + 2ω; N = 26893: 179 + 36ω.
 Since these n = π are primes, hence not cubes, and satisfy the necessary local condition n ≡ 1 (mod 2) of TWISTED_T1
 Lemma 3.1, **the TES-analogue of "T1 is the only obstruction" (the analogue of CONJECTURE SQ) is false**: TES is a
 T1-bearing ES analogue whose solvability set is not "everything except the T1 set (cubes)". This is the first
@@ -104,14 +107,14 @@ place per class (λ for α_ω, (2) for α_{−1}) by reciprocity. Convention che
 lies in W, and for β ∈ {α_ω, α_{−1}}: Σ_v inv_v β(Q) = Σ_v inv_v β(P₀) + [inv_𝔮 β(P₁) − inv_𝔮 β(P₀)] = 0 + 0.
 
 **Theorem 3.1 (no Brauer–Manin obstruction at the failures; PROVED for each listed π by an explicit certificate,
-modulo the BL citation).** For each of the 15 primes π of Thm 2.1, W^{Br U} ≠ ∅. In particular TES(π) is
+modulo the BL citation).** For each of the 16 primes π of Thm 2.1, W^{Br U} ≠ ∅. In particular TES(π) is
 everywhere locally solvable (with the 2-primary normalisation), the order-3 T1 class α_ω and the quaternion class
-α_{−1} impose no condition that fails, and **the 15 failures of Thm 2.1 are failures of the integral Hasse principle
+α_{−1} impose no condition that fails, and **the 16 failures of Thm 2.1 are failures of the integral Hasse principle
 not explained by the Brauer–Manin obstruction**. Certificate for N(π) = 103, π = 11 + 2ω:
 P₀ = (x, y) = (−7 − 14ω, 5 + 4ω), z = (630 − 672ω)/(326 − 428ω), T(P₀) = {𝔮 = (49 − 33ω)} (N𝔮 = 5107),
 P₁ = (−7 − 14ω, −11 − 12ω, z = (−2282 + 896ω)/(−858 + 548ω)); both have invariants (0, 0) at 𝔮 (cross-checked with O182's independent `tw_eis.tame_symbol`/`tame_symbol2`; P₁'s only bad place has norm 7687).
-N(π) = 151: P₀ = (−7 − 14ω, 1), T = {(132 + 13ω)}, P₁ = (−7 − 14ω, −7 − 12ω). All 15 certificates:
-`uv run python scripts/tf_bm.py <a b ...>` (≈ 2.5 min for all; each found with |T(P₀)| = 1).
+N(π) = 151: P₀ = (−7 − 14ω, 1), T = {(132 + 13ω)}, P₁ = (−7 − 14ω, −7 − 12ω). All 16 certificates:
+`uv run python scripts/tf_bm.py <a b ...>` (≈ 2.5 min for all; each found with |T(P₀)| = 1; N = 26893: T = {(527 − 121ω)}, invariants (0, 0)).
 *Scope/caveats.* (i) Br U is BL's group of the affine surface *including* the lines L_ij; classes of Br U° ramified
 along the lines are not considered (U°'s integral points are not the integral points of a model of U° — Type II
 solutions have π dividing two coordinates — so the standard integral BM set for this problem is the one above, as
@@ -126,8 +129,9 @@ N(π) = 7: 14 solutions, 13: 18, 19: 19, 31: 31, 37: 22, 43: 39 — **all of "ot
 although TES(π) is not (the solutions are not inherited from π; TWISTED_T1's inheritance only goes π ⇒ π³).
 
 **Counts (EVIDENCE).** Mean number of solutions of TES(π) (one π per pair): 5.96 (N ≤ 1000), 9.57 (1000–3000),
-13.46 (3000–6000); minimum over (3000, 6000] is 1. The failures are concentrated at small N and thin out as the
-mean grows (extended census to N ≤ 30000: §4a, when the run finishes). No congruence class explains them
+13.46 (3000–6000), 14.40 (3000–10000; min 1, 0 zeros among 408), 20.31 (10000–30000; **1 zero among 1007**:
+N = 26893, after a gap from 2239). The failures are concentrated at small N and thin out as the mean grows, but
+the lower tail is heavy (cf. ES's Mordell-hard classes): a mean of ≈ 20 does not prevent an isolated zero. No congruence class explains them
 (TWISTED_T1 §5: failures only for χ_π(ω), χ_π(2) ≠ 0, but most such π are solved).
 **Assessment.** The failures behave like the zero-count tail of a slowly growing count ("lottery" failures), the
 regime ES itself would be in were its counts smaller: no local, Brauer–Manin or T1 reason exists (§3). Whether

@@ -20,15 +20,18 @@ def m(x, y):
 def nrm(x): return x[0] * x[0] - x[0] * x[1] + x[1] * x[1]
 
 
-def lattice(R):
-    """arrays (a, b) of all nonzero a + b w with a^2 - ab + b^2 <= R, brute-force box."""
+def lattice(R, chunk=4_000_000):
+    """yield arrays (a, b) of all nonzero a + b w with a^2 - ab + b^2 <= R, in row chunks (memory-bounded)."""
     bm = int(math.sqrt(4 * R / 3)) + 2
+    rows = max(1, chunk // (2 * bm + 1))
     a = np.arange(-bm, bm + 1, dtype=np.int64)
-    A, B = np.meshgrid(a, a, indexing='ij')
-    A, B = A.ravel(), B.ravel()
-    N = A * A - A * B + B * B
-    keep = (N <= R) & (N > 0)
-    return A[keep], B[keep]
+    for b0 in range(-bm, bm + 1, rows):
+        bb = np.arange(b0, min(b0 + rows, bm + 1), dtype=np.int64)
+        A, B = np.meshgrid(a, bb, indexing='ij')
+        A, B = A.ravel(), B.ravel()
+        N = A * A - A * B + B * B
+        keep = (N <= R) & (N > 0)
+        yield A[keep], B[keep]
 
 
 def vmul(a, b, c, d):
@@ -40,7 +43,7 @@ def solve(n):
     sols = set()
     for i in range(3):
         others = [k for k in range(3) if k != i]
-        XA, XB = lattice(nrm(CS[i]) * Nn / 9)
+        XA, XB = [np.concatenate(t) for t in zip(*lattice(nrm(CS[i]) * Nn / 9))]
         for xa, xb in zip(XA.tolist(), XB.tolist()):
             if xa % 2 != 1 or xb % 2 != 0:
                 continue
@@ -52,37 +55,36 @@ def solve(n):
             for j in others:
                 k = [q for q in others if q != j][0]
                 R = 4 * nrm(CS[j]) * NB / NA
-                ja, jb = lattice(R + 1e-9)
-                assert R < 4e8
-                sel = (ja % 2 == 1) & (jb % 2 == 0)
-                ja, jb = ja[sel], jb[sel]
-                # den = A x_j - B c_j ; num = c_k B x_j
-                da, db = vmul(Ael[0], Ael[1], ja, jb)
-                Bc = m(Bel, CS[j])
-                da, db = da - Bc[0], db - Bc[1]
-                cB = m(CS[k], Bel)
-                na, nb = vmul(cB[0], cB[1], ja, jb)
-                # x_k = num/den: num * conj(den) / N(den)
-                Nd = da * da - da * db + db * db
-                ok = Nd != 0
-                ca, cb = da - db, -db  # conj
-                pa, pb = vmul(na, nb, ca, cb)
-                Ndn = np.where(ok, Nd, 1)
-                ok &= (pa % Ndn == 0) & (pb % Ndn == 0)
-                assert np.abs(pa).max(initial=0) < 2**62 and np.abs(pb).max(initial=0) < 2**62
-                for t in np.nonzero(ok)[0].tolist():
-                    xk = (int(pa[t] // Nd[t]), int(pb[t] // Nd[t]))
-                    if xk == (0, 0) or xk[0] % 2 != 1 or xk[1] % 2 != 0:
-                        continue
-                    xs = [None] * 3
-                    xs[i], xs[j], xs[k] = xi, (int(ja[t]), int(jb[t])), xk
-                    # exact verification in python ints
-                    x1, x2, x3 = xs
-                    lhs = m((9, 0), m(x1, m(x2, x3)))
-                    t1, t2, t3 = m(CS[0], m(x2, x3)), m(CS[1], m(x1, x3)), m(CS[2], m(x1, x2))
-                    rhs = m(n, (t1[0] + t2[0] + t3[0], t1[1] + t2[1] + t3[1]))
-                    assert lhs == rhs, xs
-                    sols.add(tuple(xs))
+                for ja, jb in lattice(R + 1e-9):
+                    sel = (ja % 2 == 1) & (jb % 2 == 0)
+                    ja, jb = ja[sel], jb[sel]
+                    # den = A x_j - B c_j ; num = c_k B x_j
+                    da, db = vmul(Ael[0], Ael[1], ja, jb)
+                    Bc = m(Bel, CS[j])
+                    da, db = da - Bc[0], db - Bc[1]
+                    cB = m(CS[k], Bel)
+                    na, nb = vmul(cB[0], cB[1], ja, jb)
+                    # x_k = num/den: num * conj(den) / N(den)
+                    Nd = da * da - da * db + db * db
+                    ok = Nd != 0
+                    ca, cb = da - db, -db  # conj
+                    pa, pb = vmul(na, nb, ca, cb)
+                    Ndn = np.where(ok, Nd, 1)
+                    ok &= (pa % Ndn == 0) & (pb % Ndn == 0)
+                    assert np.abs(pa).max(initial=0) < 2**62 and np.abs(pb).max(initial=0) < 2**62
+                    for t in np.nonzero(ok)[0].tolist():
+                        xk = (int(pa[t] // Nd[t]), int(pb[t] // Nd[t]))
+                        if xk == (0, 0) or xk[0] % 2 != 1 or xk[1] % 2 != 0:
+                            continue
+                        xs = [None] * 3
+                        xs[i], xs[j], xs[k] = xi, (int(ja[t]), int(jb[t])), xk
+                        # exact verification in python ints
+                        x1, x2, x3 = xs
+                        lhs = m((9, 0), m(x1, m(x2, x3)))
+                        t1, t2, t3 = m(CS[0], m(x2, x3)), m(CS[1], m(x1, x3)), m(CS[2], m(x1, x2))
+                        rhs = m(n, (t1[0] + t2[0] + t3[0], t1[1] + t2[1] + t3[1]))
+                        assert lhs == rhs, xs
+                        sols.add(tuple(xs))
     return sols
 
 
