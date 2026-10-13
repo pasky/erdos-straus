@@ -76,3 +76,42 @@ symbol at N = 439 split 27/27 ✓ (matches the author's convention check).
 
 Remaining caveats are correctly stated by the author (Br U° classes ramified along L_ij not considered; étale-BM /
 descent not excluded). See D3 for the wording of the theorem statement.
+
+## 4. §4 cubes — not independently re-run (low priority; EVIDENCE-level framing is fine). Statement that
+TES(π³) is solvable at N(π) ∈ {7, 13, 19} although TES(π) is not is consistent with TWISTED_T1 (inheritance only π ⇒ π³).
+
+## 5. Schinzel 8/n
+
+### Prop 5.1 (order-2 T1 at odd squares) — SOUND
+Re-derived. (a) 2-adic: for u ∈ 𝒰(ℤ₂), put a := −u₂/u₃, x := (8/n)u₁ − 1. From 1/u₂ + 1/u₃ = x/u₁ one gets
+−u₁/u₃ = x·a/(1 − a), so α = (xa/(1−a), a) = (x, a) + (a, a) − (1−a, a) = (x, a) + (−1, a) = (−x, a); −x = 1 − 8u₁/n ∈ 1 + 8ℤ₂
+is a square ⇒ inv₂ α ≡ 0 on all of 𝒰(ℤ₂) (u₂ + u₃ = 0 is impossible 2-adically: it forces u₁ = n/8 ∉ ℤ₂). This is the
+author's DRINFELD_ES Lemma 2.1 route, ✓. (b) Odd p: BL Lemmas 3.2, 3.4, 3.5, 3.9 re-read in the PDF. They are p-local
+and use "4" only through (1.2)/(2.5) as a p-adic unit; with 8/n = 4/(n/2), n/2 ∈ ℤ_p^* resp. v_p(n/2) = v_p(n), each
+proof goes through verbatim (Lemma 3.5's "p cannot divide only one u_i since p ∤ 2n" ✓; Lemma 3.9 Type 1 uses
+v_p(u₁) = v_p(n) via p ∤ m, ✓ as p is odd). (c) ∞: BL Lemma 3.1 (U(ℝ)₊ connected, inv = −1) is a statement about the
+real surface, ✓ after rescaling. Hence ∏_{p | n} inv_p α = −1, and at n = q^{2j} no Type I/II solution. ✓
+From scratch (`scripts/review_tf_schinzel.py` + `_run.py`, own Hilbert symbols incl. the 2-adic formula):
+`hilb 127 137 239 251 1009 1053 105`: all 679 positive solutions (23+6+58+7+7+482+96, = author's 679) satisfy
+∏_{p|n} = −1, inv₂ = +1, inv_∞ = −1, inv_p = +1 for p ∤ 2n, AND the full product over all places = +1 (symbol self-test).
+`t1 8 100`: 592 solutions at n = q², 0 Type I, 0 Type II ✓; m = 16: 211, 0/0 ✓.
+
+### Thm 5.2 (8/n insoluble at 131, 241) — SOUND as a computation; MAJOR literature defect (D2)
+Bounds re-proved: x ≤ y ≤ z ⇒ 8/n ≤ 3/x and 1/x < 8/n, so n/8 < x ≤ 3n/8; given x, A = 8x − n > 0, B = nx,
+(Ay − B)(Az − B) = B² with 0 < d = Ay − B ≤ B (y ≤ z), and for the brute force B/A < y ≤ 2B/A. Two from-scratch solvers
+(divisor / brute force) agree on every n ∈ [2, 299]; failures exactly {2, 3, 11, 17, 131, 241} ✓; counts 8/127: 23,
+8/239: 58, 4/131: 32, 4/241: 8 ✓. `primes 200000`: failing odd primes exactly {3, 11, 17, 131, 241} ✓ (a failing prime
+is certified by the complete divisor search; passing primes by an exhibited, exactly checked solution).
+`squares 20000`: every odd k² ≤ 20000, k ≥ 3, solvable ✓.
+**But this is known:** Pomerance–Weingartner, arXiv 2511.16817 (Ramanujan J. 2026), Table 1, row m = 8:
+"all exceptions n ≤ 10¹³: 1, 2, 3, 11, 17, 131, 241" — the PDF is in this repo (sources/pomerance-weingartner-2511.16817/),
+and the campaign cites PW heavily (DISCOVERIES (D)31, EXCEPTIONAL_MN*). PW Thm 3.1 moreover proves that for every m ≥ 8
+there are > exp(c φ(m)^{1/3}/(log m)^{2/3}) primes p with m/p insoluble. See D2.
+
+### Thm 5.3 (no BM obstruction at 3, 11, 17, 131, 241) — SOUND
+Certificates re-verified with own Hilbert symbols (`cert` mode): n = 131: P₀ = (23, 57, 171741/8) > 0, T(P₀) = {2},
+P₁ = (30, 36, −23580), inv₂ = +1 for both ✓; n = 241: P₀ = (36, 185, 1605060/19), T = {19}, P₁ = (36, 180, −7230),
+inv₁₉ = +1 for both ✓. The document gives certificates only for 131, 241; my own search found certificates for
+3, 11, 17 too (e.g. n = 17: P₀ = (3, 8, 408/5), T = {5}, P₁ = (−60, −60, 510/257); n = 11: P₀ = (2, 6, 33/2), T = {2}).
+Note (D4): this is BL Remark 1.10 ("versions of Theorems 1.5, 1.8, and 1.9 also hold in this case") — the Thm 1.8
+version gives W^{Br} ≠ ∅ for every n; the certificates are an explicit confirmation, not new content.
