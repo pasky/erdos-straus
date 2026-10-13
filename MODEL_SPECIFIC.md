@@ -104,7 +104,10 @@ but **not sufficient**: at n = 131 and 241 there are 22 resp. 7 words with χ = 
 certificates found by `ms_slices 4 131 one`), but no word in S_8 — and indeed no solution of 8/n at all.
 EVIDENCE (`data/ms/slices_1e5.txt`, primes ≤ 10⁵): S_m(p) = ∅ for **0** primes (m = 4), **0** (m = 5), 25 (m = 6,
 last 35911), 10 (m = 7, last 12601), 23 (m = 8, last 83449; true 8/p failures among them: 3, 11, 17, 131, 241),
-156 (m = 12). [m = 4 to 10⁸ for n ≡ 1 mod 4: DEDEKIND/HJ_DEEP SQ₅ evidence.]
+156 (m = 12). Extended to 10⁷ (`data/ms/slices{4,8}_1e7.txt`): S_4(p) ≠ ∅ for all 664 578 primes ≤ 10⁷; S_8(p) = ∅ at
+27 primes, the last four 211681, 215297, 252001, 259201, none in (259201, 10⁷]. So S_8 is itself a lottery that
+empirically wins eventually; the 4-specificity of Thm 3.1 is structural (what the obstruction *is*), not a claim that
+S_8 fails infinitely often. [m = 4 to 10⁸ for n ≡ 1 mod 4: DEDEKIND/HJ_DEEP SQ₅ evidence.]
 
 *Reading (the sharp point).* After the T1 character is accounted for, ES's five-slice lottery has **no residual
 congruence obstruction at all**: its success set is literally {χ = −1}. For 8/n (same surface, same T1) the success set
@@ -197,7 +200,7 @@ of 23450. m = 5: 14625/23450 of χ = −1 words and 6602/10980 of χ = +1 words 
 model-independent formulation holds at 131/241 although 8/n has no solution there.
 | condition (ES form) | ES record | 8/n analogue | 8/n record | verdict |
 |---|---|---|---|---|
-| five slices S_4 ⟺ some length-3 word with (−A/p) = −1 (λ ≤ 3) | no failure, primes ≤ 10⁵ (here), SQ₅ to 10⁸ (campaign) | S_8 | fails at 23 primes ≤ 10⁵ (113, 257, 353, …, 83449 beyond the 5 true failures); χ-form holds at 131, 241 | **4-specific (Thm 3.1)** — candidate |
+| five slices S_4 ⟺ some length-3 word with (−A/p) = −1 (λ ≤ 3) | no failure, primes ≤ 10⁷ (here), SQ₅ to 10⁸ (campaign) | S_8 | fails at 27 primes ≤ 10⁷ (113, 257, 353, …, 259201 beyond the 5 true failures); χ-form holds at 131, 241 | **4-specific (Thm 3.1)** — candidate |
 | one-odd sub-lottery (d odd) | no failure, primes ≤ 10⁸ | one-odd part of 8/n | fails at 3, 11, 17, **59**, 131, 241, **449** (≤ 10⁶) | 4-specific — candidate, but no structure known |
 | Type I alone | no failure 3 ≤ p ≤ 10⁶ (campaign: 10⁸) | Type I of 8/n | fails exactly at {3, 11, 17, 131, 241} (≤ 10⁶) | survives — not a discriminator |
 | Type II alone | no failure 3 ≤ p ≤ 10⁶ | Type II of 8/n | fails at 22 primes, last 35569 | fails |
