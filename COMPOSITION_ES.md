@@ -167,7 +167,7 @@ i.e. (by norms) (4cdj − 1)(4sdj − 1) = 4dj²p + 1 — the cube's (d, j)-line
 need r even ≥ 4 and encode longer Egyptian identities (not 3-term ES). The classical Størmer theory has no
 existence theorem to import: for two terms it is exactly "1 + c² has a divisor in the right place", i.e. B2 again
 (Todd's reducibility criterion, P(1 + m²) < 2m, is the closest analogue: it is a largest-prime-factor condition,
-the opposite direction from what ES needs).
+not a divisor-in-a-residue-class condition; quoted from memory (Todd 1949), not re-checked).
 
 **EVIDENCE (`scripts/cp_cross.py n X ntrip`, n = 13, 59, 97, 101; X = 40, 120).** Products β₁β₂, β₁β̄₂ of V_n
 points with A, B ≤ X (14 resp. 21 points for X = 120) and 20 000 random triple products: **0** of the admissible
