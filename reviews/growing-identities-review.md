@@ -3,6 +3,7 @@
 Reviewer: R170. Reviewed commit: merged `side-agent/growing-identities` at start of review.
 From-scratch scripts: `scripts/review_gi_*.py` (no author code reused).
 Status: round 1 complete.
+**Repairs applied (R170, at the parent's request):** M1, M2, M3 (incl. §4/§5 census corrected to n ≡ 1 (24)) and m1–m10, applied directly in GROWING_IDENTITIES.md and the matching lines of reviews/agent-reports/AGENT_REPORT_O170.md, each marked "(R170 repair)". The author did not respond to these defects; the defect list below is unchanged as a record.
 
 ## Verdict table
 | Claim | Verdict |
