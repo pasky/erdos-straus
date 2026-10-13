@@ -90,3 +90,53 @@ classes x₀ and x in the coset (≍ F^{3/2}/(M³) of them with nrd x ≤ F per 
 Σ_M Σ_{f ≡ −1 (M)} O(1/(Mf)) ≍ log²-type totals per M-range — the polylog lottery of ES, reproduced from the
 geometric side (B3). The congruence is free; the price is that the second endomorphism must hit a *specific* norm
 (a binary representation of one number), which is the shrinking target.
+
+**2.5 A canonical curve (EVIDENCE; `scripts/bsC_canonical_curve.py 20000 4`, 46 s).** Modification of (H2): fix ONE
+curve — the one with Ibukiyama's order O(q, r) (q the least prime ≡ 3 (8) with (p/q) = −1; a curve over 𝔽_p, i = Frobenius)
+— and search its Gross lattice O⁰ for pairs x, y with ⟨x,y⟩ = 1, nrd y ≤ 4p, satisfying Thm 2.1. Every pair found is
+a genuine certificate pair (asserted against the divisor criterion). Primes p ≡ 1 (24) < 2·10⁴: the canonical curve
+carries a Type II configuration (f' ≤ 4p) for **144 of 267** p; by range of p (5000-blocks): 47/76, 34/67, 30/57,
+33/67, while the number of certificate pairs of p with f' ≤ 4p grows (mean 7.9 → 14.1). Reading (Assessment): the
+certificates are spread over the ≈ h(−4p)/2 ≍ √p curves of the 𝔽_p-spine (and the d-spines for d > 1), and a fixed curve
+gets a ≈ (#certificates)/(#spine curves) share; the hit rate decays slowly, consistent with (H2) failing for a single
+canonical curve. No hidden "privileged curve" effect is visible.
+
+## 3. Type I: the same shape, with the Eichler orientation
+
+Λ_{d,m} (m = ab) is an Eichler order of level e (§1.3). By bsC_eichler_orientation Prop 1, **Type I(p) ⟺ there are a
+supersingular E, a cyclic C ⊂ E of order e and u, v ∈ End(E, C) with u² = −d, v² = −m, uv + vu = 1, 4dm − 1 = pe, and an
+integer a | m with v ≡ a on C** (then (v − a)(v + a) = −ace and v − a factors through E → E/C). The orientation χ(v)
+runs over all square roots of −m mod e as C varies, so the geometric datum is free (as in Prop 2.3); the cost is the
+*divisor* condition a | m, which — unlike Type II — is **not** a Gram-matrix condition at all: Type II is entirely a
+condition on the Gram matrix of a pair (Thm 2.1: entries + level), whereas Type I needs a factorisation of one entry
+(m = ab). In the Type II language the factorisation is hidden in G = gcd(f + 1, f' + 1) (M = 4cd | G). (PROVED
+dictionary; Assessment on the comparison.) This asymmetry is why Type II is the better test bed.
+
+## 4. What a positive result would have to prove (the open lattice problem)
+
+By Thm 2.1, ES Type II at p is equivalent to the following statement about the genus 𝒢_p of maximal orders of B_{p,∞}:
+
+> **(LD_p)** Some O ∈ 𝒢_p contains trace-zero x, y with ⟨x, y⟩ = 1 such that h := (nrd x · nrd y − 1)/p satisfies
+> 4h | gcd(h, G)², G = gcd(nrd x + 1, nrd y + 1).
+
+Known geometry gives, for every O and every M: x with nrd x ≡ −1 (M) (Prop 2.3), and pairs with det T ≥ p (Kaneko,
+sharp). (LD_p) asks for **level G ≥ 2√h** at determinant ph — "a pair of special endomorphisms whose congruence level
+is at least twice the square root of their normalised covolume". Generic pairs have G = O(1); the deterministic lift
+achieves level M only at h ≍ M²f^{3/2} (Prop 2.4, Assessment), a factor ≥ M^{3/2} short. No theorem in the reduction
+theory of definite quaternary/ternary lattices that we know produces "high level at low covolume" without a counting
+main term (B3), and any such theorem must fail at n = m² (Thm 2.1 holds verbatim for odd n, and has no solutions at odd
+squares — T1), so it must use that p is prime through Diff-parity (Thm 1.1 needs |Diff| = 1) — i.e. through the
+*existence* of the supersingular genus, which is exactly the part that is free. *Assessment:* (LD_p) is a faithful
+geometric restatement of the H-A core (moving modulus M = 4cd, now the level of a lattice pair), not an escape.
+
+## 5. Verdict
+
+* PROVED: supersingular transfer (1.1–1.2); ∀E false for Type I (1.3); Type II ⟺ level-vs-determinant (2.1, checked);
+  Gram form and involution structure (2.2); deterministic level lift (2.3); parity over any base is quadratic
+  (bsC_parity_quadratic_only); Galois-orbit obstruction to valence-formula arguments (bsC_valence_borcherds); Type II
+  commutative factorisation (bsC_typeII_commutative).
+* EVIDENCE: canonical-curve hit rate ≈ 50% and slowly decaying (2.5); quadratic slices (4cd | 24) miss 71/9732 primes
+  p ≡ 1 (24) below 10⁶.
+* Assessment: the supersingular/Deuring route is genus-vacuous at the level of curves and, once the ray condition is
+  put on the curve as a level structure, the obstruction re-appears as an exactness (size) condition with a gap factor
+  ≍ f^{3/2} — B3 in geometry-of-numbers form. **No route to ES.** The sharpest new object is (LD_p).
