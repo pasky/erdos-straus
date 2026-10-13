@@ -1,6 +1,6 @@
 # R195 — independent hostile review of FF_MUTE.md (O195)
 
-Reviewer: R195 side agent (independent of the author's self-review in reviews/synthesis-two-hostile-review.md).
+Reviewer: R195 side agent (independent of the author's self-review in reviews/ff-mute-selfreview.md).
 Document reviewed: FF_MUTE.md at merge of side-agent/ff-mute (commit 2f212a84 + parent repairs e60d4352).
 From-scratch scripts: `scripts/review_fm_*.py` (own GF(q) incl. q = 4, 8, 9, own F_q[T] arithmetic, own power-residue
 symbols by direct exponentiation; nothing imported from `fm_*`).
@@ -229,6 +229,6 @@ else is labelled correctly: Thm 3.5/4.2 PROVED (I agree), §6 EVIDENCE, Prop 5.3
   Thm 4.2 on all monic P.
 * `review_fm_minj.py`: least shot height via sympy factorisation, full vs strict regimes.
 * `review_fm_sterile.py`: counterexample for m6. `review_fm_char2cover.py`: finite covering in char 2 (M1).
-* Read the author's self-review (reviews/synthesis-two-hostile-review.md) only after finishing my own checks: its
+* Read the author's self-review (reviews/ff-mute-selfreview.md) only after finishing my own checks: its
   repairs M1 (4 log_q n), M3 (composite moduli in fm_minq), M4, M7, m1–m3, m7 are applied in FF_MUTE; its M2 repair
   introduced the error m6 above.
