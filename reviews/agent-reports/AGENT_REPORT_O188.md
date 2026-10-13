@@ -61,3 +61,12 @@ only where marked.
    and test whether "h(p) ≪ polylog p" is false.
 4. In V_φ, are there sterile points at all beyond the squares (the convergent regime needs Σ 1/i_𝔮 < ∞ along T, so it
    lives on primes where φ has tiny order)? A clean profinite T1-only statement would support O183's template.
+5. **(After O185's FYI) Sterile non-square points in Λ_k (e.g. k = 105).** A natural place to look is the
+   ℓ-adic exponent line μ ∈ ℤ_ℓ ⊂ Ẑ (other components 0). There ν(μ)_q = k + 1 for every odd q with
+   ℓ ∤ q(q − 1), so the point is the "integer" k + 1 (with 2-component 1) perturbed only at q = ℓ and q ≡ 1 (mod ℓ),
+   all driven by the single parameter μ_ℓ. If the base point ν(0) lies in a class of modulus M, a neighbourhood
+   of μ = 0 is covered, so candidates must sit away from 0. The perturbation set has density 1/(ℓ − 1), which is
+   divergent in the sense of §3. The coordinates are coupled through one ℓ-adic exponent, though, so Prop 3.2's
+   independence (and its conclusion) does not apply. This is the one-parameter analogue of the r-generic line inside
+   Λ_k, and the right object for an O178-style measure argument (Haar on ℤ_ℓ, class measure =
+   #{μ mod ℓ^j : …}/ℓ^j). Not pursued.
