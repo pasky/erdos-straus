@@ -175,5 +175,5 @@ n ≡ 5 (12) is trivial ((3,·,4)). Lorenzini (b) handles n odd with n + 2 compo
 **n ≡ 3, 9, 11 (mod 12) with n + 2 prime, and n ≡ 2, 6 (mod 12) with n + 2 = 2^m** (Lorenzini (a): m odd). On these (W) is a genuine
 divisor-in-moving-class problem. It is ES-irrelevant except for n ≡ 9 (12) composites through SQ₅ (for which see HJ_DEEP's (S)).
 **Assessment.** This deflates the "(W) as an ES test bed" motivation: what ES needs from (W) is trivial. The interest of (W) is now as Lorenzini's
-problem in its own right. For ES, the spark relay should redirect to (S) at primes p ≡ 1 (mod 24) (where also p ≢ 5 (12) families fail),
+problem in its own right. For ES, the spark relay should redirect to (S) at primes p ≡ 1 (mod 12) (ultimately Mordell's residual classes mod 840),
 which is the familiar sign/genus layer: Prop 4.1 of HJ_DEEP.
