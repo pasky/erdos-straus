@@ -136,3 +136,44 @@ input fixed. For m | (small fixed) this is reciprocity (a character of h mod 4p,
 growing m there is no such tool (it is the "Artin problem with moving order"; the large sieve controls it only on
 average over p — B6). So over ℤ Frobenius firing needs *bounded* index uniformly; over F index up to q^{d/2}/n is
 allowed. Even the F version leaves ES out by Prop 2.3.
+
+## 3. Construction attempts (task (1)): looking for a Frobenius sub-box
+
+Each entry: the idea, which hypothesis of §§1–2 it tries to violate, outcome (Assessments unless a result is cited).
+
+(F1) *Heegner/ideal dictionary.* Type II with a prime modulus f (campaign letters: ff′ − 4c²dp = 1, f ≡ f′ ≡ −1
+mod 4cd) ⟺ **some prime 𝔣 of K_d = ℚ(√−dp) of degree 1 divides α_{c,d} := 1 + 2c√−dp and has N𝔣 ≡ −1 (mod 4cd)**
+(PROVED: f | Nα = 1 + 4c²dp, f ∤ 2cdp, so f splits and exactly one 𝔣 | f divides α, as f ∤ 1; conversely
+f′ = Nα/f ≡ −1 automatically since Nα ≡ 1 mod 4cd). The second condition is a Frobenius condition (Artin symbol in
+K_d(ζ_{4cd})/K_d) but with conductor 4cd moving with the shot; the first is divisibility by a fixed element.
+Unioning the first over a *multiplicative group* of β's (𝔣 | 1 + β, β ∈ Γ) would give "−1 ∈ Γ mod 𝔣", a Kummer
+condition; here β = 2c√−dp ranges over a box (c | (f + 1)/4d), i.e. −1/(2√−dp) mod 𝔣 ∈ {divisors of (f+1)/4d}.
+Same box, new coordinates. Violates nothing.
+
+(F2) *Supersingular torsion ("divisors of f + 1" as torsion).* For a certificate (c, d) with prime f: (−d/f) = −1
+(FIXED_MODULUS_SHOTS Rem 2.5 with n = d), so f is inert in ℚ(√−d) and **every elliptic curve over ℚ with CM by an
+order of ℚ(√−d) (f ∤ conductor, f ≥ 5) is supersingular at f, with #E(F_f) = f + 1 and 4cd | #E(F_f)** (PROVED,
+standard: inert ⇒ a_f = 0). Over F_q[T] the same holds for rank-2 Drinfeld modules with CM by an imaginary
+quadratic F(√D) at inert f (characteristic polynomial X² + u·f, u ∈ F_q^*, Euler characteristic ∝ f + u). So
+"divisors of f + 1" are the orders of F_f-rational torsion subgroups of a supersingular reduction, and "4cd | f + 1"
+is a Frobenius condition in ℚ(E[4cd]) — but it is equivalent to the cyclotomic condition f ≡ −1 (4cd) at these f,
+with the SAME moving level 4cd. The obstruction of §2 is the moving level / small box, not abelianness: a non-abelian
+torsion field of growing level is as useless as a cyclotomic one of growing level. (H-D hatch: no gain here.)
+
+(F3) *Thue/Minkowski with an auxiliary prime (Ankeny-type template).* For a fixed prime h, Type II through h ⟺ the
+lattice Λ_h = {(c, j) ∈ ℤ² : c + pj ≡ 0 (h)} (covolume h) has a point with cj | (h + 1)/4 (FIXED_MODULUS_SHOTS
+Lemma 1.1). Thue's lemma gives (c, j) ∈ Λ_h with 0 < |c|, |j| < √h — exactly the right size (cj < h) — but the
+remaining condition is exact divisibility cj | (h + 1)/4; Λ_h has ≍ log h points under the hyperbola cj ≤ h/4 and
+τ₃((h+1)/4) admissible pairs, so a hit has "probability" h^{−1+o(1)} per h (the lottery, B3). Choosing h with very
+smooth (h + 1)/4 keeps τ₃ ≤ h^{O(1/log log h)}. The deterministic step (Minkowski) produces size, not divisibility.
+
+(F4) *Group-ify the box: let the mute places be the primes of the solution itself.* Box(k) ⊂ ⟨primes of k⟩ with
+the exponent cap |e_ℓ| ≤ v_ℓ(k) (FIXED_MODULUS_SHOTS Cor 3.2). Dropping the cap but keeping the *moving* generators
+gives the self-referential variant ES^{(y)} of §4: the mute places are the primes of y (part of the solution, as in
+B2), and yet it is a theorem. **Outcome: B2's "the modulus is part of the solution" is not by itself the
+obstruction; the exponent cap is.** (§4, PROVED relative to UNIT_ORBIT Thm 2.4's sieve.)
+
+(F5) *Exponent intervals.* Keep one fixed mute place s and cap the s-exponent overflow at e (ES^{(s,e)}, §5).
+Firing set at f: the ES box times {s^{2i} : i ≤ σ + e}. By Prop 2.2 the Weil threshold needs an interval of length
+≳ d·n·q^{d/2}, i.e. e ≈ n² at the optimal d ≈ 2 log_q n — consistent with FF_MUTE Thm 3.5 Remark 3 (shot height
+O(q^d + n)). Numerically a much smaller e suffices (§5): provability threshold ≫ truth threshold.
