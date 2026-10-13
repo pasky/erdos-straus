@@ -108,8 +108,8 @@ modulo the BL citation).** For each of the 15 primes π of Thm 2.1, W^{Br U} ≠
 everywhere locally solvable (with the 2-primary normalisation), the order-3 T1 class α_ω and the quaternion class
 α_{−1} impose no condition that fails, and **the 15 failures of Thm 2.1 are failures of the integral Hasse principle
 not explained by the Brauer–Manin obstruction**. Certificate for N(π) = 103, π = 11 + 2ω:
-P₀ = (x, y) = (−7 − 14ω, 5 + 4ω), z = (630 − 672ω)/(326 − 428ω), T(P₀) = {𝔮 = (49 − 33ω)} (N𝔮 = 5017),
-P₁ = (−7 − 14ω, −11 − 12ω, z = (−2282 + 896ω)/(−858 + 548ω)); both have invariants (0, 0) at 𝔮.
+P₀ = (x, y) = (−7 − 14ω, 5 + 4ω), z = (630 − 672ω)/(326 − 428ω), T(P₀) = {𝔮 = (49 − 33ω)} (N𝔮 = 5107),
+P₁ = (−7 − 14ω, −11 − 12ω, z = (−2282 + 896ω)/(−858 + 548ω)); both have invariants (0, 0) at 𝔮 (cross-checked with O182's independent `tw_eis.tame_symbol`/`tame_symbol2`; P₁'s only bad place has norm 7687).
 N(π) = 151: P₀ = (−7 − 14ω, 1), T = {(132 + 13ω)}, P₁ = (−7 − 14ω, −7 − 12ω). All 15 certificates:
 `uv run python scripts/tf_bm.py <a b ...>` (≈ 2.5 min for all; each found with |T(P₀)| = 1).
 *Scope/caveats.* (i) Br U is BL's group of the affine surface *including* the lines L_ij; classes of Br U° ramified
