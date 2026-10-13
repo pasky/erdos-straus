@@ -38,7 +38,10 @@ classes mod some M = 2^s M′. For m ≥ s, n_m ≡ ν(m) (mod M) (odd component
 (a)⇒(b): given μ, pick m_j ≥ m₀, m_j → ∞, m_j → μ in Ẑ. Then n_{m_j} → ν(μ) in Ẑ (the 2-components k2^{m_j} + c → c). All n_{m_j} lie in the
 closed set C, hence ν(μ) ∈ C ⊂ U. Squares: if an ET class r (mod M) contained x ∈ Sq then r is a square mod every prime power of M, so
 r ≡ s² (mod M); r is odd when M is even (all ET residues are ≡ −f, −e or −e⁻¹ with f, e odd), so there are odd integers s′ ≡ s (mod M)
-with s′² in the class, s′ large. But odd squares have no Type I/II solutions (ET Prop 1.6, campaign T1), while the class gives one. ∎
+with s′² in the class, s′ large. But no ET class contains an odd square: this is the Schinzel–Yamamoto quadratic-reciprocity fact behind
+ET Prop 1.6 (campaign T1; ET's f_I, f_II are defined with coprimality conditions, so for composite n we use the class-level form of the
+reciprocity argument rather than Prop 1.6 verbatim). Computational control: `scripts/ec_t1check.py 3000` — all 109121 ET classes of
+modulus ≤ 3000 avoid odd squares; the certificate checker re-tests every class it uses. ∎
 
 **Divisor classes.** D_q := {n ≡ 0 (mod q)} for an odd prime q: ES(n) follows from an explicit ES(q) scaled by n/q, and the
 coordinates are again polynomials in n, integer-valued on the class. Put U′ := U ∪ ⋃_q D_q, S′ := Ẑ \ U′ (closed).
@@ -135,7 +138,7 @@ point s², the family looks like s² at all primes of low "level" and like a fix
 but their moduli grow with the level at which the second integer first becomes a non-residue — a quantitative shadow of B1.
 
 ## 5. Push: polynomial, multi-parameter and uniform statements
-**5.1 S-unit families (PROVED).** Let S be a finite set of primes and F_S(k, c) = {k·u + c : u ∈ ⟨S⟩₊}. The parameter space is Ẑ^{|S|}
+**5.1 S-unit families (PROVED; Thm 1.4 transfers with "all members whose every exponent is ≥ m₀").** Let S be a finite set of primes and F_S(k, c) = {k·u + c : u ∈ ⟨S⟩₊}. The parameter space is Ẑ^{|S|}
 (one profinite exponent per generator), coupled through the orders as in Prop 2.2, and Theorem 1.4 holds verbatim (the S-components of
 the limit points are c). The *integer* unit-square points are exactly the solutions of k·u + c = v² with u, v ∈ ⟨S⟩ (v² a unit at every
 q ∉ S; same proof as Cor 1.5); by the S-unit equation theorem there are finitely many for each (k, S). Examples: S = {2}, c = 1: k = 4^j − 1;
