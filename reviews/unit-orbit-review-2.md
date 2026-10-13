@@ -168,3 +168,10 @@ bound.) Among the 2 244 split 𝔮 with ℓ ≤ 20 000, 1 127 (0.502) are good; 
 * `scripts/review_uo2_t1.py mode XB YB n…` — bounded ES^{(S)} solution search, own Hilbert symbols, product formula,
   shapes; mode `free` = parity normalisation dropped.
 * `scripts/review_uo2_phi.py X L L2` — Thm 5.1: local-criterion sieve of odd n ≤ X vs T, good-prime density, |S_ℓ| bound.
+
+## Repairs applied
+Repairs applied (after merging main, which carries R186's repaired version), marked "(R190 repair …)" in UNIT_ORBIT_ES.md:
+m2 (Lemma 2.2: uniform x^{1/4−ε} bound, small r, M-dependence), m3 (Remark (2): explicit |S| = 3 route via
+Heath-Brown + Lemma 2.3 with k = 3, still marked unchecked), m6 (Lemma 2.2: exact sieve/BV statements). Skipped as
+already fixed by R186: m1 (= R186 m3, ineffectivity in Thm 2.4 header), m4 (= R186 m2, quantifier in Thm 2.4(b)),
+m5 (= local-form sentence before Lemma 1.1). AGENT_REPORT_O186.md does not exist in this tree; nothing changed there.
