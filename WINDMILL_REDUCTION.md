@@ -130,3 +130,15 @@ some `A ∈ [1, p)` with `4 | A`, `B = A⁻¹ mod p`, has `t = (AB−1)/p` divid
 point* of the modular hyperbola `AB ≡ 1 (p)`. Involutions of the hyperbola that are algebraic over 𝔽_p (Möbius)
 have fixed points = square roots mod p (Legendre-symbol data); the ES condition is archimedean (sizes of lifts).
 A windmill here must mix the two, as Zagier's inequalities do.
+
+## 6. Spark B: parity of X-slice certificate counts (EVIDENCE, negative so far)
+
+`E(p) = {(t,u,v): tuv − u − v = p, 4 | tu−1}` (ordered). `scripts/wr_parity.py 30000`: on the 385 primes `p ≡ 1 (24)`,
+`p ≤ 30000`, `|E(p)|` is odd for 211 and even for 174, while `|X(p)|` is always odd (periodic point `(p+2,1,1)`); at odd
+squares `|E| = 0`. `scripts/wr_parity_corr.py 20000`: `|E(p)| mod 2` is not determined by `p mod 16, 5, 7`,
+`h(−4p) mod 16`, the two-squares coordinates mod 8/16, or the quartic character of 2 (all splits ≈ 45:55).
+`scripts/wr_parity_search.py 20000`: among 283 sub-counts of E(p) defined by ≤ 2 congruence literals on
+`(t mod 8, t mod 3, u mod 4/3, v mod 4, A mod 8, B mod 8, sign(u−v))`, **none has constant odd parity**; the 8
+non-empty constant-even ones are all explained by the swap `u ↔ v` on the sub-locus `4 | A, 4 | B` (for
+`p ≡ 1 (24)` and `4 | A` one has `t ≡ u ≡ 3 (4)`, so `v ≡ 3 (4)` ⟺ `4 | B`). So a Zolotarev-type parity identity, if it
+exists, must weight elements by non-congruence (size/lift) data; congruence-defined sub-counts are parity-random.
