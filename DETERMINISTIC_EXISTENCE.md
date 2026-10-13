@@ -121,3 +121,47 @@ So Jacobi forcing removes the whole group-level obstruction and doubles the slic
 slices still fail: the residue is "−1 ∈ ⟨ℓ⟩ but ℓ^{ord(ℓ)/2} ∤ N and no other combination of N's prime factors
 lands on −1", the multiplicity lottery (B4; LONGSHOT_PIGEONHOLE Thm 2.2 covers covering-by-prime-factors
 certificates).
+
+### 3.5 Verdict on "ES as isotropy" (Assessment, resting on Props 3.1–3.4)
+* The homogeneous quadratic structures *inside* ES are isotropic (TERNARY Comp 6.1); rational ES points are
+  free; so Legendre's existence direction has nothing to prove there.
+* The anisotropic conics attached to ES are obstruction conics: Type I of level d requires C_{d,p} anisotropic
+  (Prop 3.2); the e | 24 slices fail **exactly** when a norm-form representation exists (Prop 3.3(b)), and that
+  existence is what Legendre/Holzer certifies. Holzer's size-forcing (the "Z = 1" step) therefore certifies
+  *failures*, not solutions.
+* The only deterministic, primality-using consequence is Jacobi forcing (Prop 3.4): every prime slice e ≡ 3 (4)
+  with (p/e) = −1 passes the whole group-level test. The rest is a multiplicity condition on the specific integer
+  N_e (B2/B4). **Iteration record.** v1 "ES = isotropy of F_{p,θ}" dies at Comp 6.1 (split pieces). v2 "use the
+  anisotropic obstruction conics and their Legendre conditions" gives only character data (Prop 3.1) = the
+  group-level test. v3 "violate the fixed-slice hypothesis of redteam-2 Thm 2.2 by using *all* Jacobi-forced slices
+  (≈ half of all prime slices, for every p)" escapes Thm 2.2(iii) formally, but the union over slices is again a
+  count (per-slice success ≈ 0.37 decaying with e — the polylog lottery of B3/B6). No version gives a forced hit.
+
+## 4. Pell / units: Legendre's Pell-factor argument (rows 9–10)
+
+**The mechanism (classical).** For squarefree D > 1 and the fundamental solution of x² − Dy² = 1,
+(x−1)(x+1) = Dy² splits D = D₁D₂ (D₁ = gcd(D, x−1) for odd D) with D₂v² − D₁u² ∈ {1, 2} (after removing the
+gcd 1 or 2). Minimality of (x, y) excludes the splitting (D₁, D₂) = (D, 1); the splitting (1, D) gives negative
+Pell. For D = p prime this proves negative Pell (p ≡ 1 (4)) or x² − py² = ±2 (p ≡ 3 (4)): a genuinely
+deterministic, primality-using existence proof. For composite D it is a **deterministic factorisation of D**
+whenever negative Pell fails — exactly the kind of non-polynomial, p-specific factor-producing input that B1
+does not see.
+
+**ES test.** Apply it to D = N_e = (p+e)/4 (squarefree) and ask whether the produced pair is an e-slice pair
+(D₁ + D₂ ≡ 0, or D₁ ≡ −1, or D₂ ≡ −1 (mod e)). EVIDENCE (`scripts/de_pell_factor.py 30000 60`; p ≡ 1 (24),
+p < 3·10⁴, primes e ≡ 3 (4), e < 60, N_e squarefree with ω ≥ 2; 1681 slices): Pell-split trivial in 28.6%; the
+Pell pair solves the slice in **17.8%**, vs **14.3%** for a uniformly random coprime splitting of N_e (same test).
+So the Pell splitting is essentially a random splitting as far as residues mod e are concerned.
+
+**Why (Assessment, with a PROVED core).** The Pell splitting corresponds to the ambiguous principal ideal of
+ℚ(√D); the only arithmetic constraints it satisfies are the Rédei relations (D₂/ℓ) = 1 for ℓ | D₁ and
+(−D₁/ℓ) = 1 or (∓2D₁/ℓ) = 1 for ℓ | D₂ (PROVED: reduce D₂v² − D₁u² = 1, 2 mod ℓ). These are quadratic-character
+conditions among the prime factors of D, i.e. relations *inside* the genus structure of D, and say nothing about
+the residue of D₁ modulo the unrelated modulus e. The e-slice condition for e ∤ 24 is not a quadratic-character
+condition (Prop 3.3(b) fails), so it is invisible to every genus/Rédei/ambiguous-class mechanism. For e | 24 the
+condition is quadratic, but there the slice fails exactly on norm forms (Prop 3.3(b)) and Pell adds nothing.
+**Iteration record.** v1 D = N_e: random-like (above). v2 choose D so that the Pell relation D₂v² − D₁u² = 1 *is*
+the Type II equation ff' − 4c²dp = 1 (D₁ = dp, u = 2c, D₂v² = ff'): this needs v ≡ −1 and D₂ ≡ 1 (mod 2du), a
+lottery on the size-uncontrolled (u, v) of the fundamental unit. v3 D = tp+1 for the divisor form: the Pell
+splitting factors tp+1 but the class mod t is again uncontrolled. No forced hit. The mechanism survives T1
+(at D = m² Pell degenerates), but fails at the "right class" step (B2).
