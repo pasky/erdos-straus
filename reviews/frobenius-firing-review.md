@@ -42,6 +42,20 @@ imported from `ff_frob_*` or `fm_poly`).
   0 mismatches of either equivalence, and every shot is an ES^{(S)} solution. The interpretive tail ("exactly the
   B2 obstruction", Kummer–Chebotarev reading) is Assessment, not part of what is proved (m2).
 
+* **Thm 4.4 (GRH, one mute prime, ES^{(s)} and ES^{(y)}): SOUND as CONDITIONAL, citation-level** (label correct).
+  The set is exactly Lenstra's M(K = ℚ, F = ℚ(ζ_M), C = D, W = ⟨s⟩, d = 2): r ≡ 3 (4) forces 4 ∤ r − 1, so
+  "s is not an ℓ-th power residue for every odd ℓ | r − 1" ⇔ [F_r^* : ⟨s⟩] | 2 (Lenstra, Invent. Math. 42 (1977), as
+  summarised in Moree's survey §9.5, sources/uo/moree-artin-survey-2012.pdf; I could NOT access Lenstra's paper itself,
+  so the GRH density theorem is accepted at the level of that summary; Moree gives pages 202–224, the document 201–224).
+  Re-derived the Galois part: for m odd squarefree and s prime, Gal(ℚ(ζ_m, s^{1/m})/ℚ) = ℤ/m ⋊ (ℤ/m)^*, whose
+  commutator subgroup is all of ℤ/m (for each ℓ | m take u ≡ 2 mod ℓ: u − 1 a unit), so the maximal abelian
+  subfield is ℚ(ζ_m) and ℚ(ζ_M) ∩ ℚ(ζ_m, s^{1/m}) = ℚ(ζ_{gcd(m,M)}); c_m = 0 unless gcd(m, M) = 1 because every
+  a ∈ D has a ≢ 1 mod each odd ℓ | M; then linear disjointness gives the Euler product. Also checked that the
+  conditions are automatically met at odd ℓ | M (ℓ ∤ r − 1). **Numerical test of the density formula** (own code,
+  r < 3·10⁵, `scripts/review_frob_density.py`): (n, s) = (13, 3), (13, 5), (85, 3), (17, 7), both variants — predicted
+  δ vs observed: .1129/.1145, .0495/.0492, .1486/.1496, .0815/.0814, .0320/.0327, .1602/.1606; and for every counted
+  r, −n/4 ∈ ⟨s²⟩ mod r (0 exceptions). Only defect: the scope sentence (m3).
+
 ## Defects
 
 ## Checks performed
