@@ -62,3 +62,39 @@ All 11 certificates PASS. Additional from-scratch runs (`scripts/review_ec2_spot
 
 **Verdict on Thm 4.1: SOUND, CERTIFIED by independent check.** The `fam` labels and the T1 control (vii) of the
 author's checker are irrelevant to Thm 4.1 and need not be trusted.
+
+## 2. Corollary 1.5 and the Proth-type claim — independent argument
+
+### 2.1 The integer-point classification (Cor 1.5 as stated: ν(ℓ) ∈ Sq^× ⇔ ℓ = 0, k = 4^j − 1)
+Re-derived. ℓ ≥ 0: the odd components are the integer N = k2^ℓ + 1; "square in Z_q for all odd q" ⇒ N = s² (a non-square
+integer is a non-residue mod infinitely many primes), "unit at every odd q" ⇒ s = 2^j; s² − 1 = (2^j−1)(2^j+1) is odd, so
+ℓ = 0, k = 4^j − 1. ℓ = −a < 0: components (k + 2^a)·2^{−a}; square everywhere ⇒ 2^a(k + 2^a) = □; unit everywhere ⇒ the odd
+number k + 2^a has no odd prime factor ⇒ k + 2^a = 1, impossible. (The author's ℓ < 0 wording — "s a power of 2 … forces
+i = 0, i.e. ℓ = 0" — reaches the same contradiction in a confusing way; defect 5.)
+Brute force (`scripts/review_ec2_facts.py`): k odd ≤ 20001, |ℓ| ≤ 70 → exactly (k, ℓ) = (3,0), (15,0), (63,0), (255,0),
+(1023,0), (4095,0), (16383,0). ✓
+
+### 2.2 No finite ET/divisor covering of {(4^j − 1)·2^m + 1 : m ≥ m₀} — direct proof (no profinite machinery)
+Suppose finitely many classes r_i mod M_i cover all n_m, m ≥ m₀. Put M = lcm M_i = 2^s M′ (M′ odd), L = ord_{M′}(2), and take
+m = tL ≥ max(s, m₀, 3). Then n_m ≡ k + 1 = (2^j)² (mod M′) and n_m ≡ 1 (mod 2^s). Let σ ≡ 2^j (mod M′), σ ≡ 1 (mod 2^s):
+gcd(σ, M) = 1 and n_m ≡ σ² (mod M). So the class r_i ∋ n_m satisfies r_i ≡ σ² (mod M_i) with σ a unit, hence it is primitive
+and contains (σ + uM)² for all u (arbitrarily large squares of integers coprime to M). It is not a divisor class D_q (q | M′
+and σ² ≡ 4^j ≢ 0 mod q). So it is an ET class containing arbitrarily large unit squares, which is impossible:
+* **cited**: ET (arXiv:1107.1010, p. 7, checked in sources/elsholtz-tao-1107.1010.pdf): "a primitive congruence class n = r mod q
+  which is a perfect square cannot be solved by polynomials ([44] Mordell, [68] Schinzel)". I could NOT access Schinzel's paper
+  itself; I read "perfect square" as "r ≡ unit² mod q" (the only reading under which the 840 statement is consistent). If
+  Schinzel's statement is for x, y, z ∈ Z[t] only, pass to a sub-progression mod M·D (D clearing denominators) — it still
+  contains unit squares (choose u with σ + uM coprime to D).
+* **re-derived** at class level for the two families the certificates use most:
+  II1 (−e mod 4ab, e | a+b, (e,4ab)=1): ET's §4 reciprocity argument uses only n ≡ σ² (mod 4ab), so it is class-level.
+  II2 (−4a²d mod f, 4ad | f+1): σ² ≡ −4a²d (mod f) gives (−d/f) = 1 (Jacobi); f ≡ 3 (mod 4) so (d/f) = −1; with d = 2^v d′,
+  (d′/f) = (f/d′)(−1)^{((d′−1)/2)((f−1)/2)} = (−1/d′)(−1)^{(d′−1)/2} = 1, so (2/f)^v = −1, v odd ⇒ 8 | 4ad ⇒ f ≡ 7 (mod 8)
+  ⇒ (2/f) = 1, contradiction.
+* **EVIDENCE**: `scripts/review_ec2_t1.py 6000` transcribes the seven Prop 1.9 families from the ET PDF (not from `mordell_lib`)
+  and enumerates 255 735 classes (with multiplicity) of modulus ≤ 6000: every class is primitive and none is a unit-square
+  class mod its modulus.
+
+**Verdict: SOUND.** Moreover the argument above shows more than the note claims (§5.3 says "for general Theorem-M procedures
+… not checked"): no finite covering by *any* polynomial-solvable (ET Def., p. 7) classes plus arbitrary non-primitive classes
+exists — n_m is a unit mod M, so non-primitive classes never contain it. This is PROVED modulo the Mordell–Schinzel theorem
+as quoted by ET (suggested upgrade, defect 6).
