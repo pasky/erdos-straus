@@ -16,6 +16,10 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 | Prop 2.2 (Gram form, involutions, k² = −4c²dp) | SOUND; last sentence (commutative identity with *this* k) FALSE as written — notation clash (D3) |
 | Prop 2.3 (level free on one endomorphism, nrd x ≪ M²p) | **SOUND** (absolute constant; notation O⁰ clash, D5) |
 | Prop 2.4 (exactness gap) | identity SOUND; f^{3/2} gap and lottery sum are Assessment, with a bookkeeping slip (D6) |
+| bsC_parity_quadratic_only Prop 1 (as literally stated: η quadratic Hecke char., t ∈ ℚ^×, v_ℓ(t) = 1) | SOUND |
+| Prop 1 "In particular…" sentence, Cor 2 second half, memo Assessment ("parity/incoherence mechanisms over any base field carry only quadratic information") | **GAP (MAJOR)**: slogan beyond the theorem; false for F-rational data (D2) |
+| Cor 2 first half (f ≡ −1 (M) is a Boolean function of quadratic characters ⟺ M ∣ 24) | SOUND |
+| EVIDENCE 71/9732 uncovered by the 9+9 slices | **SOUND** (reproduced exactly from scratch) |
 | §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
@@ -84,3 +88,31 @@ y_⊥ = y − x/f, nrd y = 1/f + nrd y_⊥, det T = f·nrd y_⊥ ✓. {y ≡ y�
 x^⊥ ∩ MO⁰ ✓; det(x^⊥ ∩ L) = nrd(x)·det L/[L : ℤx ⊕ (x^⊥ ∩ L)]² (so "up to an index factor" is right, but the
 index can be as large as ≍ f for special x, which would cut the gap to ≍ f^{1/2}; this is why it must stay an
 Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; ratio f^{3/2} ✓; f ≥ M − 1 ✓.
+
+### bsC_parity_quadratic_only
+* **Prop 1 as stated is correct.** For λ | ℓ unramified (in F and for η), η_λ(t) = η(λ)^{v_λ(t)} = η(λ) (e = 1,
+  v_ℓ(t) = 1), so the count is ≡ [∏η(λ) = −1] = [η((ℓ)O_F) = −1], and ℓ ↦ η((ℓ)O_F) is the restriction of η to
+  𝔸_ℚ^×, a quadratic Dirichlet character (possibly trivial). Sanity example I computed by hand: F = ℚ(ζ₁₃)⁺,
+  E = ℚ(ζ₁₃), η = η_{E/F}; λ | ℓ is inert in E iff k = ord(ℓ mod 13) is even, g = 6/k' (k' = order mod ±1);
+  η((ℓ)) = (−1)^{g·[k even]} = −1 iff k ∈ {4, 12} iff (ℓ/13) = −1. ✓ quadratic.
+* **But the hypothesis t ∈ ℚ^× (Galois-invariant data at ℓ) is essential, and the memo's scope sentences drop it.**
+  Same F, E, η, a one-dimensional hermitian space ⟨π⟩ with π ∈ F generating one prime λ | ℓ (h(F) = 1): the local
+  invariants above ℓ are η_{λ'}(π) = −1 iff λ' = λ and k is even, i.e. iff ℓ is **not a 4th power** mod 13. ℓ = 3
+  (order 3) and ℓ = 17 ≡ 4 (order 6) are both quadratic residues mod 13, but give opposite local Diff at λ.
+  So a Diff-set built from local ±1 hermitian invariants over F *does* see order-4 information about ℓ once the data
+  are F-rational rather than ℚ-rational; only the parity over the whole fibre {λ | ℓ} is quadratic. The phrases "any
+  Diff-set built from local ±1 invariants … depends on ℓ only through one quadratic character", "(over any base, any
+  dimension)" and the Assessment "parity/incoherence mechanisms over any base field carry only quadratic
+  information about the divisor" are therefore **not** what Prop 1 proves. (In ES the certificate data are rational,
+  so the restricted statement is the relevant one; but a unitary/big-CM mechanism over ℚ(ζ_M)⁺ would naturally use
+  F-rational data, e.g. the prime factors of f in F — exactly the case spark 4 was about.)
+* Cor 2: (ℤ/M)^× has exponent ≤ 2 ⟺ M | 24 ✓; the slice descriptions are re-derived: Type II slice (c,d) ⟺
+  ∃ f | 1 + 4c²dp, f ≡ −1 (4cd) (Thm 2.1); Type I slice ⟺ ∃ f | p² + 4c²d, f ≡ −p (4cd) (f = 4acd − p, ef = 4a²d + 1,
+  converse needs gcd(f, 4c²d) = 1, true for p ∤ 6cd, and b = ce − a = (c + ap)/f > 0) — cross-checked against the
+  direct ET definition for all 9 slices and primes 5 ≤ p < 700 (`scripts/review_dd_slices_check.py`, 1107 tests, 0
+  mismatches). The step "so a mechanism … can certify ES only through slices with 4cd | 24" is not a theorem:
+  "mechanism whose information about f comes from Diff-parities" is undefined. It is a sound *Assessment*.
+  Citation redteam-automorphic-2 Thm 2.2(iii) (conditional on H) checked: says exactly that finite Θ₀ fails i.o.
+* **EVIDENCE recomputed from scratch** (`scripts/review_dd_slices.c`, C, own sieve/factoring, 0.15 s): primes
+  p ≡ 1 (24) uncovered by the 18 slices: 1/143 (< 10⁴), 8/1181 (< 10⁵), 33/3202 (< 3·10⁵), **71/9732 (< 10⁶)**;
+  first 3361, 31081, 34897, 62497, 66889 — identical to the memo.
