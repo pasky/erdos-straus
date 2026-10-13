@@ -25,8 +25,14 @@ def solutions(F, A, P, c, n):
                     t = rest
                     for _ in range(e_ + 1):
                         yield t; t = F.mul(t, l_)
+            lE = E[-1]; dN = len(N) - 1
             for dm in divisors(0):
-                for mu in range(1, F.p):
+                # Y = (c_j N + mu*dm)/E monic forces mu (leading-term bookkeeping; pure pruning)
+                dd = len(dm) - 1
+                if dd > dN: mus = [lE]
+                elif dd == dN: mus = sorted({mu_ for mu_ in ((lE - c[j]) % F.p, (-c[j]) % F.p) if mu_})  # incl. cancellation
+                else: mus = range(1, F.p) if c[j] == lE else []
+                for mu in mus:
                     D = F.scal(mu, dm)
                     q1, r1 = F.divmod(F.add(F.scal(c[j], N), D), E)
                     if r1 or not q1 or q1[-1] != 1 or len(q1) - 1 < d0: continue

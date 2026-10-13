@@ -96,3 +96,29 @@ twisted points of §3 are F-points of the *same* surface U_λ (u_i = X_i/c_i), a
 three values at Q and at ∞ (q = 7, my runs reproduce the author's table) — so α_ζ is non-constant on U_λ(F),
 hence of exact order 3 in Br U_λ/Br F. The author could state this; it removes any dependence of "order-m classes
 exist" on the BL transfer.
+
+### §3 Lemma 3.1 — SOUND. Lemma 3.2 — SOUND (hypothesis is vacuous; caveat can be deleted). Thm 3.3 — SOUND (one sentence over-labelled)
+* Lemma 3.1: Thm 2.2(i) uses only λ = Σ1/u_i and ℓ-integrality of u_i = X_i/c_i. Re-derived. From scratch:
+  every finite place ℓ ≠ Q has invariant 0 on all twisted points (c = (1,1,2), (1,2,4), (1,1,4); 6 116 points).
+* Lemma 3.2: re-derived: sgn x = 1/c₁, v_∞(x) = n − deg A − deg X₁, sgn y = −c₃/c₂, v_∞(y) = deg X₃ − deg X₂;
+  {x, y}_∞ = ±c₁^{deg X₂ − deg X₃}(c₃/c₂)^{deg A + deg X₁ − n}. ✓. From scratch, **for every admissible labelling**
+  (every permutation putting a denominator of degree > n − deg A first, with c permuted accordingly): formula
+  matches inv_∞ α_ζ on 20 464 (point, labelling) pairs, 0 mismatches, and α_{π} = sgn(π)·α on all of them
+  (`scripts/review_dr_checks.py`, check L / perm-sign).
+  **The hypothesis "some denominator has degree > n − deg A" is always satisfied** (for deg A ≥ 1, Q ∤ A): A/P is
+  in lowest terms, so Q^e divides lcm(X₁, X₂, X₃), i.e. some X_i has degree ≥ n > n − deg A. The caveat "automatic
+  unless c₁ + c₂ + c₃ = 1" (and AGENT_REPORT caveat 2) is therefore unnecessary. Consequence for the author's spark
+  "twisted ES with c₁ + c₂ + c₃ = 1 … the one place where a full order-m sterility could occur": **vacuous** —
+  all three denominators can never be of minimal degree; if no proper sub-sum of the c_i equals 1, the problem has no
+  solutions for trivial degree reasons (checked: c = (3,3,2), (2,2,4), q = 7: 0 solutions for all 112 primes and 6
+  cubes), otherwise Lemma 3.2 applies as usual.
+* Thm 3.3: re-derived. Type II: v_Q(x) = −m; 1/u₂ + 1/u₃ = x/u₁ has valuation −m with v₂, v₃ ≥ m forces
+  v₂ = v₃ (if v₂ ≠ v₃, the valuation would be −max < −m); y unit; symbol y^m. Type I: v(x) ≥ v₁ because
+  (u₂+u₃)/(u₂u₃) is Q-integral; v(x) = 0 ⇒ 1; v(x) > 0 ⇒ v₁ = m and either y ≡ 1 (v(x) > m) or symbol y^{−m}
+  (v(x) = m). (The "±" in "±y^{−m}" is superfluous: v(y) = 0.) Then reciprocity + Lemma 3.1. SOUND.
+  From scratch (q = 7, A = T, n = 3, P = Q³): all Type I/II-shaped points have (inv_Q, inv_∞) = (0, 0):
+  c = (1,1,2): 82 + 30; (1,2,4): 18 + 17; (1,1,4): 82 + 30; "other" shapes carry all three values (96/54/54,
+  28/25/26, 96/62/62). The author's table is reproduced exactly (incl. #P unsolvable 4 / 6 at primes, 0 at cubes,
+  and all six "(shape, inv_Q, inv_∞)" splits for c = (1,1,2), (1,2,4)).
+  Over-label (MINOR): "For prime P there is no such restriction" is EVIDENCE (q = 7 tables), not part of what is
+  proved; the proof only says the Type II symbol at prime P is y itself (unconstrained a priori).

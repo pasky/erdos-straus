@@ -40,11 +40,24 @@ def main():
                     sym = F.dlog(z[0], m); got = inv_a.get(P, 0)
                     st['C ok' if got == sym else ('C ok(inv conv)' if got == (-sym) % m else 'C FAIL')] += 1
                     st['C value', sym] += 1
-            if m % 2 and len(X[0]) - 1 > n - k:
-                d1, d2, d3 = (len(t) - 1 for t in X)
-                val = pow(c[0], (d2 - d3) % (p - 1), p) * pow(c[2] * ic[c[1]] % p, (k + d1 - n) % (p - 1), p) % p
-                pred = F.dlog(pow(val, (p - 1) // m, p), m); got = inv_a['inf']
-                st['L ok' if got == pred else ('L ok(inv conv)' if got == (-pred) % m else 'L FAIL')] += 1
+            if m % 2:
+                import itertools
+                base = inv_a['inf']
+                for perm in itertools.permutations(range(3)):
+                    i1, i2, i3 = perm
+                    if len(X[i1]) - 1 <= n - k: continue
+                    cp = (c[i1], c[i2], c[i3]); Xp = (X[i1], X[i2], X[i3])
+                    ap = (F.scal((-cp[2]) % p, Xp[0]), F.scal(cp[0], Xp[2]))
+                    bp = (F.scal((-cp[2]) % p, Xp[1]), F.scal(cp[1], Xp[2]))
+                    got = F.inv_inf(ap, bp, m)
+                    d1, d2, d3 = (len(t) - 1 for t in Xp)
+                    val = pow(cp[0], (d2 - d3) % (p - 1), p) * pow(cp[2] * ic[cp[1]] % p, (k + d1 - n) % (p - 1), p) % p
+                    pred = F.dlog(pow(val, (p - 1) // m, p), m)
+                    st['L ok' if got == pred else ('L ok(inv conv)' if got == (-pred) % m else 'L FAIL')] += 1
+                    # sign of permutation: alpha_perm = sgn * alpha
+                    inv_count = sum(1 for x_ in range(3) for y_ in range(x_ + 1, 3) if perm[x_] > perm[y_])
+                    sg = -1 if inv_count % 2 else 1
+                    st['perm-sign ok' if got == (sg * base) % m else 'perm-sign FAIL'] += 1
     print(f"p={p} m={m} A={A} n={n} {mode} c={c}:", dict(sorted(st.items(), key=str)))
 
 if __name__ == "__main__":
