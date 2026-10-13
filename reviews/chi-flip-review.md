@@ -65,6 +65,16 @@ AGENT_REPORT_O198 SHARP 3 wording (same as D1).
   census confirms N₋ even and |X_p| odd at every p ≡ 1 (4) ≤ 10⁶, and N₋/2 even/odd = 1162/1222 for p ≡ 1 (8) < 10⁵.
 * **§3.2, §4.2(c) "no closed formula", report NEGATIVE items** — Assessment, appropriately labelled.
 
+## V1. Re-derivation of Thm 1.1 (reviewer's own)
+det G_w = v(tu − 1) − u = n. Leading minors v, tv − 1 = A*, n. Positive because AA* = tn + 1 > 0 and A = tu − 1 ≥ 0, with
+A = 0 impossible, so ε_∞ = −1. For ℓ ∤ 2n: L ⊗ ℤ_ℓ is unimodular of rank 3, hence isotropic (Chevalley + Hensel), so
+ε_ℓ = 1. For ℓ | n: ⟨e₁, e₂⟩ has determinant A*, and A*·A = tn + 1 ≡ 1 (ℓ), so it is a unit. It splits off as ⟨1, A*⟩, and
+L ⊗ ℤ_ℓ ≅ ⟨1, A*, ℓ^k c⟩ with c a unit. For k odd this is anisotropic ⟺ ⟨1, A*⟩ is anisotropic mod ℓ ⟺ (−A*/ℓ) = −1
+⟺ (−A/ℓ) = −1. For k even it is unimodular up to a square, hence isotropic. Ternary isotropy at v ⟺ C₀ splits at v, so
+the number of anisotropic places is even, Π ε_v = 1, and ε₂ = −Π_{ℓ odd} ε_ℓ = −(−A/n). Sign conventions agree with
+the document. The argument uses only AA* = tn + 1, so it holds verbatim for ℤ_ℓ-points (needed in Prop 1.6).
+C₀(⟨a, b, c⟩) ≅ (−ab, −ac), and with ⟨v, vA*, nA*⟩ this gives (−A*, −vA*n), as claimed in Cor 1.3.
+
 ## Defects
 **No FATAL defects.** One MAJOR (ledger correctness of the "normalisation artefact" correction), minors.
 
