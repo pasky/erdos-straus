@@ -50,5 +50,52 @@ T | L'. So deg ρ ≥ l + 1; same for ρ'. Finally ρ | D ⟺ T^{N+1+γ}L'g' ≡
 So the exact Case B search at x_u is: for each monic L' (T ∤ L'), j, branch, compute ρ, require it monic, compute
 v = −(T^{N+1}L')^{−1} mod ρ, and for γ = 0..j test whether t_γ = v·T^{−γ} mod ρ is monic of degree ≤ l and
 divides L'. `scripts/ff3_caseB.c` does exactly this. Sanity: at u = 1 + T + 2T² it re-finds the O166 family
-E = T² + 2T + 2 (L' = 1, j = 2) and E = T² − T − 1 (j = 1, γ = 1); at random u it reproduces the O166 covered mass
-(51/300 random lifts of 1 + T (mod T³) hit with deg L' ≤ 5, j ≤ 5, against the exact union mass 0.185).
+E = T² + 2T + 2 = T² − T − 1 (L' = 1, both with j = 2, γ = 0 and with j = 1, γ = 1); at random u it reproduces the O166 covered mass
+(51/300 random lifts of 1 + T (mod T³) hit with deg L' ≤ 5, j ≤ 5, against the exact O166/R166 union mass 0.198 for deg L' ≤ 5, j ≤ 5; binomial sd 0.023).
+
+## 2. Structure of Case B: finitely many families per level, and the bound N ≤ 4 deg L' − 1 at x*
+
+**Lemma 2.1 (the (w, C, v) parametrisation; PROVED).** Let x_u be a slice point with u ≡ 1 + cT (mod T²),
+c ≠ 0 (q odd, k ≥ 2), and let (L', j, γ, g', E) be a Case B family valid at x_u; s := N + 1 + γ, L' = g'm'.
+Write E = L'w − 1, E' = L'C − 1 (possible as E ≡ E' ≡ −1 mod L'), a := deg w, b := deg C. Then
+(a) L'wC − w − C = T^s g', equivalently, with v := m'wC − T^s: **m'wC = T^s + v and w + C = g'v**;
+(b) T ∥ w, T ∥ C, T² | v, v ≠ 0, a, b ≥ 1, deg(m'wC) = s, deg v ≤ max(a, b) − deg g';
+(c) deg m' = s − a − b, deg g' ≤ max(a, b) − 2, hence **l = deg L' ≤ s − 2 − min(a, b) ≤ N + γ − 2 ≤ 2N − k − 1**.
+In particular for each N there are only finitely many such families, and N + γ ≥ 3 (for k = 2: j + γ ≥ 2; so
+j = 0 is impossible, which proves the O166 claim).
+*Proof.* (a) EE' = D expands to L'²wC − L'(w + C) + 1 = 1 + T^s L'g'; divide by L', then by g'.
+(b) E ≡ −u ≡ −1 − cT (mod T²) gives L'w ≡ −cT, so T ∥ w; E' ≡ −u^{−1} ≡ −1 + cT gives T ∥ C; then v ≡ 0
+(mod T²) because s ≥ 2. If v = 0 then E + E' = −2, impossible for monic E, E' of positive degree (q odd: equal
+degrees give lc 2 ≠ 0, unequal degrees give positive degree). If deg(m'wC) ≠ s then
+deg v ≥ deg(m'wC) ≥ a + b > max(a, b) ≥ deg(w + C) = deg(g'v) ≥ deg v, a contradiction (a, b ≥ 1).
+(c) is degree bookkeeping from (a), (b) and deg v ≥ 2; γ ≤ j = N + 1 − k. ∎
+*Remark (corrects the O166 heuristic).* FUNCTIONFIELD_ES2 §0.2 argued that the expected number of covering
+families diverges over ℓ = deg L'. That sum treated ℓ as free at fixed N; Lemma 2.1 shows ℓ ≤ 2N − k − 1.
+With this, the same heuristic gives, at a random slice point, an expected number ≈ Σ_N poly(N)·q^{−N} of covering
+Case B families of level N: a convergent sum (Assessment; §3 gives the numbers).
+
+**Lemma 2.2 (Z + Z' ≠ 0; PROVED, q odd).** In the normal form (****) of FUNCTIONFIELD_ES2 at x*_c
+(E = T^{N+1}Z − (1 + cT), (1 + cT)E' = T^{N+1}Z' − 1, Z monic, lc Z' = c), Z, Z' ≠ 0, L' | Z + Z', and Z + Z' ≠ 0.
+*Proof.* Z = 0 gives E = −(1 + cT); monic forces c = −1, E = T − 1, and E ≡ −1 (mod L') forces L' = 1; then
+T − 1 | 1 + T^s gives 2 = 0. Z' = 0 gives deg E' < 0. The congruences E ≡ E' ≡ −1 (mod L') read T^N Z ≡ c and
+T^N Z' ≡ −c (mod L'), so L' | T^N(Z + Z'), i.e. L' | Z + Z'. Suppose Z' = −Z; lc gives c = −1. Using
+c − T^N Z = −(E + 1)/T and E + 1 = T L'η (T ∥ E + 1 + … , η := w/T, T ∤ η), (****) becomes
+(1 + cT)T^{γ−1} g' = −Zη (so γ ≥ 1 and v_T(Z) = γ − 1). Put Z = T^{γ−1}Z1: Z1 η = (T − 1)g'. From
+L'η = T^N Z − c = T^{N+γ−1}Z1 + 1 and g' | L' we get gcd(g', Z1) = 1, so g' | η and Z1·(η/g') = T − 1. If
+Z1 = 1 then L'g'(T − 1) = T^{N+γ−1} + 1, false at T = 1. If Z1 = T − 1 then Z' = −T^{γ−1}(T − 1) and
+T^{N+1}Z' − 1 = −T^{N+γ}(T − 1) − 1 is not divisible by 1 + cT = 1 − T (value −1 at T = 1). ∎
+
+**Lemma 2.3 (degree window at x*_c; PROVED).** With z = deg Z, z' = deg Z', l = deg L' at x*_c:
+(i) γ + l + deg g' = N + z + z'; (ii) l ≤ max(z, z'), z ≠ z', |z − z'| ≥ N − γ ≥ k − 1;
+(iii) B0 := Z + (1 + cT)Z' has v_T(B0) = γ, so γ ≤ deg B0 ≤ max(z, z' + 1);
+(iv) consequently **N ≤ 2 max(z, z') − min(z, z') + 1 ≤ 4l − 1 − 3 min(z, z')**, and with Lemma 2.1:
+**(N + 1)/4 ≤ l ≤ 2N − k − 1** (here l ≥ 1 always: l = 0 is impossible).
+*Proof.* (i) is the degree of (****): its right side T^{N+1}ZZ' − B0 has degree N + 1 + z + z' > max(z, z' + 1)
+(N ≥ 1). (ii) L' | Z + Z' ≠ 0 (Lemma 2.2) gives l ≤ deg(Z + Z') ≤ max(z, z'). Then (i) with deg g' ≤ l gives
+2 max(z, z') ≥ 2l ≥ z + z' + N − γ, i.e. |z − z'| ≥ N − γ ≥ N − j = k − 1 ≥ 1. (iii) Reduce (****) mod T^{N+1}:
+(1 + cT)T^γ L'g' ≡ −B0 with γ ≤ N − 1 and T ∤ (1 + cT)L'g', so v_T(B0) = γ (in particular B0 ≠ 0).
+(iv) From (ii), γ ≥ N − |z − z'|; with (iii), N ≤ max(z, z' + 1) + |z − z'|, which is 2z − z' (z > z') or
+2z' − z + 1 (z' > z). Finally z + z' + 1 ≤ 2l by (i)–(ii), so max(z, z') ≤ 2l − 1 − min(z, z'). ∎
+*Use.* At x*_c a search over all j ≤ 4l − k for each l = deg L' ≤ L0 is a complete exclusion of every Case B
+family with deg L' ≤ L0, whatever N; by Lemma 2.1 it also excludes every family of level N ≤ (L0 + 3)/2 … more
+precisely every N with 2N − k − 1 ≤ L0.
