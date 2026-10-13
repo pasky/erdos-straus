@@ -10,11 +10,23 @@ author's scripts or `tw_eis.py`; sympy is used only for integer factoring and pr
 | claim | verdict |
 |---|---|
 | §2 definition of ES^□, Lemma 2.1 | SOUND |
-| §2 Prop 2.2 | SOUND (with a slack: Q < r, not just < 2r) |
-| §2 quantitative remark (GRH) | SOUND as Assessment |
-| §2 Reading 2 "r(p) > log p/2 for a positive proportion of p" | GAP (false as stated; see m2) |
+| §2 Prop 2.2 | SOUND (m1: actually Q < r) |
+| §2 quantitative remark (GRH), label Assessment | SOUND |
+| §2 Reading 2 ("positive proportion"; seed (ii) answer) | GAP — MINOR m2 |
+| §3 Prop 3.1 | SOUND |
+| §3 Definition + (N_q) remark | SOUND (m3) |
+| §3 Lemma 3.2 | SOUND |
+| §3 Thm 3.3 | SOUND (m4) |
+| §3 Cor 3.4 | SOUND; hedge removable (u1) |
+| §3 Thm 3.5 | SOUND |
+| §3 EVIDENCE (1)–(4) | reproduced from scratch (m5 on (4)) |
+| §4 (J)23 citation fix | SOUND (m6) |
+| §4 "W" clash | SOUND (m7) |
+| §1 dead verdicts X1, X5, X6, X9, X10 | SOUND as Assessments; X3 wording m8 |
+| Recalibration "T1-bearing variant ⇒ weak evidence" | FAIR (scope caveat m8) |
 
-(continued below, section by section)
+Overall: **SOUND-AFTER-REPAIRS (minor only)**. No FATAL, no MAJOR.
+
 
 ## §2 — ES^□
 
@@ -181,3 +193,44 @@ FATAL or MAJOR. Details:
   … my reading (Assessment)"). For ES the barrier ledger (B1, B5) says T1 is exactly what kills congruence-covering
   proofs, so "never" contradicts established ledger content unless scoped to shot/character mechanisms. Repair:
   "(in shot mechanisms of this shape the T1 step is one character value; the difficulty is orbit size — Assessment)".
+
+## Labels and the recalibration
+
+* Labels are accurate: Lemma 2.1, Prop 2.2, Prop 3.1, Lemma 3.2, Thm 3.3 PROVED; Cor 3.4 PROVED rel. Hecke (+ TWISTED_T1
+  Thm 3.2, itself reviewed); Thm 3.5 PROVED rel. Chebotarev; GRH remark Assessment; ω² value EVIDENCE (upgradeable to
+  "constant on the class: PROVED" by the conductor argument, value still EVIDENCE); seed answers Assessment. No label
+  claims a case of ES; the "ES is not solved" line is present.
+* **Recalibration "a T1-bearing variant being provable is, by itself, weak evidence about ES" — FAIR.** Prop 2.2 and
+  Thm 3.5 genuinely show that once the mute set is unrestricted the T1-bearing variant falls to one Dirichlet/Hecke
+  prime, so the existence of *some* provable T1-bearing variant carries little information; and (J)23's content is
+  correctly located in the fixed-S (Artin/sieve) restriction. Two caveats the author should keep visible: (a) this does
+  not devalue (J)23 Thm 2.4 as a theorem (fixed S is strictly harder, and is the regime nearest ES); (b) "the T1 is not
+  the difficulty" is true *inside shot/character mechanisms*, not for ES in general (m8) — for ES, B1/B5 say T1 is
+  precisely what any covering-type proof must evade, and (J)25 says ES has no infinite orbit for the character
+  mechanism to act on. The §3 Reading states it with the right scope; §1 X3 and the report's SHARP 1 phrase
+  ("all of (J)23's analytic content … is the restriction to a FIXED finite S") are fine.
+
+## Numbered defects
+
+No FATAL, no MAJOR.
+
+* **m1 (MINOR, §2 Prop 2.2(b) last sentence).** The proof gives Q < r(p) (odd one of s, r − s), and Q < p already
+  ensures gcd(Q, p) = 1; "Q < 2r(p) for p > 2r(p)" is true but slack. Repair: "one can take 0 < Q < r(p) (whenever
+  r(p) < p)".
+* **m2 (MINOR, §2 Reading 2; report SHARP 1).** "r(p) ≤ log p/2 … false for a positive proportion of p" is false:
+  the exceptional set has density 0 (≈ 2^{−π(y;4,3)} with y = (log p)/2 → ∞; numerics 0.50 at 10⁶, 0.25 at 10⁸).
+  Also the "would need" is specific to the Q < 2r construction; seed (ii) with arbitrary Q ∈ ⟨primes ≤ log p⟩ is OPEN,
+  not answered negatively. Repair text in §2 above.
+* **m3 (MINOR, §3 Definition remark / X11).** The weak normalisation (N_q) is *necessary* for the shot family at
+  order 3 (68/3044 mute places in the recipe solutions have v_q(z) < 0, 3 ∤ v_q(z), q | x), unlike order 2 where the
+  strong one holds automatically. Add one sentence; "slightly weaker" undersells it.
+* **m4 (MINOR, Thm 3.3 / Thm 3.5 last sentence).** Thm 3.3 is stated for π^{3k}; Thm 3.5 invokes it for arbitrary
+  cubes. State the (immediate) composite-cube version.
+* **m5 (MINOR, §3 EVIDENCE (4)).** "52 of 768" depends on the choice of 2-primary associate ±π; state the convention
+  or report 117/1536 (90 of 768 ideals for some associate).
+* **m6 (MINOR, DISCOVERIES (J)23 as fixed).** KARY2 condition belongs to (D)19 only.
+* **m7 (MINOR, §4).** (J)15 itself uses "W(n)" for the sign-free property; mention when proposing the rename.
+* **m8 (MINOR, §1 X3).** "T1 is never the difficulty" unscoped; scope to shot mechanisms (Assessment).
+* **Upgrade u1 (optional, §3 Cor 3.4 remark / Thm 3.5 proof).** K(∛18) ⊂ L (conductor of K(∛18)/K divides
+  2λ⁴ = (18)); so (18/·)₃ is a ray class character mod 18, constant on the class of g₀; the "not checked" hedge and the
+  L(∛18) device can be dropped (keeping L(∛18) is also harmless). Also note the T1₃ control (3) is forced a priori.
