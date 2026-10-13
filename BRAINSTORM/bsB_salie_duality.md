@@ -49,4 +49,6 @@ Salié, Math. Z. 36 (1932); Iwaniec, *Topics in classical automorphic forms* (AM
 Dictionary PROVED (elementary). The exact Salié evaluation does not apply because the certificate set is not a
 union of Γ_∞-double cosets (precise form of B2 for this route). Promise 1/5. A residual question (not pursued):
 is there *any* Γ_∞-bi-invariant weight on {γ̃ : c = 4p} whose positivity at p would imply a Type II certificate?
-Such a weight is a function of f' mod 4p only, i.e. congruence data at p — B1 (Thm M/C) says no.
+Such a weight is a function of f' mod 4p only, i.e. congruence data at p — B1 (Thm M/C) says no (R175: barrier citation, Assessment).
+(R175 note: (f'/p) = −1 on every certificate follows directly: 4c²dp ≡ −1 (mod f') gives (p/f') = −(d/f') = −1, using
+f' ≡ −1 (mod 4d) for odd d and (2/f') = 1 when 8 | 4cd.)

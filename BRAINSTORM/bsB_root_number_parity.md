@@ -19,8 +19,9 @@ mod 2 computable locally and odd at non-squares, (iii) an alternating pairing on
    A Cassels–Tate-type statement would be "#(class −1) ≡ (local formula) (mod 2)". **Test** (`scripts/bsB_parity.py`,
    primes p ≡ 1 (4) in [10⁵, 2·10⁶], W(p) from `scripts/bsB_wcount.c`): P(W(p) odd) lies in [0.473, 0.520] across
    all 32 local classes (p mod 8 and Legendre symbols at 3, 5, 7, 11); overall 0.499. **The parity of the
-   certificate count is not locally determined** (EVIDENCE; same verdict as WR §6, DK C5 on 1100 sub-counts).
-   There is no involution with locally-counted fixed points on the certificate set — consistent with INVOLUTION_ES
+   certificate count is not locally determined** (R175 repair, D18: precisely, not determined by p mod 8 and the
+   Legendre symbols at 3, 5, 7, 11; EVIDENCE; same verdict as WR §6, DK C5 on 1100 sub-counts).
+   (Assessment:) There is no involution with locally-counted fixed points on the certificate set — consistent with INVOLUTION_ES
    (finite-menu involutions barred) and DK C3 (reversal is fixed-point-free on L₃(p)).
 3. *Where the alternating pairing would have to live.* In parity theorems the square-order part (Ш) is a
    cohomology group of a *fixed* Galois module; here the would-be module changes with n (moving modulus t, the
@@ -30,7 +31,7 @@ mod 2 computable locally and odd at non-squares, (iii) an alternating pairing on
    2-Selmer controlled by the factorisation of tn + 1 (e.g. congruent-number-type curves y² = x(x − 1)(x + tn),
    whose 2-descent reads off divisors of tn + 1 and tn). 2-Selmer elements = divisors d with local
    solvability (Legendre/Hilbert-symbol conditions on d and its cofactor) — that is the **sign layer of all
-   divisors**, never "d ≡ −1 (mod t)" (an odd-order condition for prime t, `bsB_redei_oddpart` item 1). So even
+   divisors**, never "d ≡ −1 (mod t)" (an odd-order condition for prime t, `bsB_redei_oddpart` item 1; R175: for composite t the A₂-part can be finer). So even
    with growing families the parity engine sees exactly the genus shadow.
 
 ## Literature
