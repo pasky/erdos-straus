@@ -8,6 +8,15 @@ Sources checked: Elsholtz–Tao arXiv:1107.1010 (sources/elsholtz-tao-1107.1010.
 
 **ES is not solved; nothing in O188 claims otherwise, and nothing in this review changes that.**
 
+**Overall verdict: no FATAL defect.** All PROVED items (Lemma 1.1, Props 3.1, 3.2, Cor 3.3, Lemmas 4.1 (odd r),
+4.2, Prop 5.1) were re-derived and are SOUND, apart from a wrong ET citation (D1) and wording. The §2 EVIDENCE was
+reproduced qualitatively by an independent method on independent primes. Two MAJOR defects concern **framing**, not
+mathematics: D3 (integers do not lie in any G_T, so "ES lives on the divergent side" compares different slices)
+and D9 ("every infinite pattern is divergent in V_φ" is false as stated; "exactly the signature" overclaims).
+13 MINOR defects (D1, D2, D4–D8, D10–D15).
+**Repairs applied: none.** The author's last commit is 13 minutes before this review was finished, so the author is not
+quiet. Every repair below is a wording or citation fix and can be applied verbatim.
+
 ## Summary verdicts
 
 | Claim | Verdict |
@@ -205,7 +214,7 @@ prime"; keep the Assessment label.
 **D10 (MINOR; §5 Reading and AGENT_REPORT: "the unique ℤ-shot with bounded modulus 4 is Mordell's p + 4" /
 "Mordell's p + 4 is the unique bounded-modulus shot").** Every fixed II2 shot (a, d) ("p + 4a²d has a prime factor
 f ≡ −1 (mod 4ad)") has the bounded modulus 4ad; e.g. p + 8, p + 16 (modulus 8). The precise contrast is per prime:
-at a given q only the shots with 4ad | q + 1 are usable (at most f_II(q) ≤ τ((q+1)/4)²-many, each one residue mod q),
+at a given q only the shots with 4ad | q + 1 are usable (#{(a, d) : ad | (q+1)/4} = τ₃((q+1)/4) = q^{o(1)} of them, each one residue mod q),
 whereas in V_φ all shots k ∈ ℤ are usable at every 𝔮 with χ(𝔮) = −1. Mordell's (a, d) = (1, 1) is the unique II2 shot
 usable at **every** q ≡ 3 (mod 4) (the only one with 4ad = 4). *Repair:* state it this way.
 
