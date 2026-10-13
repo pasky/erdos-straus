@@ -122,8 +122,8 @@ The decade maxima from 10³ on are 12, 8, 7, 9, 11. The counts #{n in decade : x
 **Heuristic.** For fixed x, the integers m with no divisor ≡ −1 (mod x) have density ≍ (log m)^{−δ_x}. Here δ_x = 1 − |H_x|/φ(x), and H_x is a
 largest subgroup of (Z/x)^× not containing −1. Hence δ₂ = 1 (m prime or 2^k), δ_x = 1/2 for x = 3, 4, 6, 7, 8, 9, 11, 12, …, δ₅ = δ₁₀ = 3/4,
 and generally δ_x = 1 − 2^{−v₂(φ(x))} for cyclic (Z/x)^×. Treating the x-events as independent,
-#{n ≤ N : x*(n) > X} ≈ N (log N)^{−Σ_{x≤X} δ_x}, and Σ_{x ≤ X} δ_x ≈ X/2 + O(log X). This predicts
-**CONJECTURE 5.2 (short-block (W)).** x*(n) ≪ log n / log log n for n ∉ E_W. In particular all but finitely many n have x*(n) ≤ (2 + o(1)) log n / log log n.
+#{n ≤ N : x*(n) > X} ≈ N (log N)^{−Σ_{x≤X} δ_x}. Here Σ_{x ≤ X} δ_x ≥ X/2 − O(1), and in fact = (1 + o(1))X, because v₂(φ(x)) → ∞ for almost all x. This predicts
+**CONJECTURE 5.2 (short-block (W)).** x*(n) ≪ log n / log log n for n ∉ E_W. (The naive independence model gives the constant 1 + o(1); with δ_x ≥ 1/2 alone it gives ≤ 2 + o(1).)
 The observed decay of the X = 4 column (8.8, 4.9, 3.0, 1.95 ·10⁻⁴ per decade) gives an effective exponent ≈ 2.9 against the naive Σ_{x≤4} δ_x = 2.
 So the joint events are positively correlated, but in the predicted direction.
 **Why no deterministic block argument (PROVED, via §4).** Fix X and a divisor bound D. Every n in the clopen neighbourhood
