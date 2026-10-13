@@ -2,10 +2,22 @@
 
 Reviewer: R170. Reviewed commit: merged `side-agent/growing-identities` at start of review.
 From-scratch scripts: `scripts/review_gi_*.py` (no author code reused).
-Status: IN PROGRESS.
+Status: round 1 complete.
 
 ## Verdict table
-(filled in claim by claim below)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (continuant/HJ form; W-certificates ↔ 4 \| m, r(n/m) = 3) | SOUND-AFTER-REPAIRS (m1: qualifier "entries ≥ 2" must not be dropped) |
+| Lemma 1.2 (two fibrations; swap) | SOUND (m2 wording) |
+| Lemma 1.3 / Prop 4.1 ((m''/n) = ε) | SOUND (proof re-derived; brute force 0 failures) |
+| Identity W = Σ_{D(n)}(1−(m''/n))/2, "W = (S−O)/2" | SOUND-AFTER-REPAIRS (M1: D(n) infinite; use D*(n)) |
+| Consistency with DEDEKIND_ES Thm 4.5 | CONSISTENT (no discrepancy) |
+| Trace-formula transcription / gi_trace.py | SOUND (5 independent test families incl. non-trivial χ, n > 1) |
+| Prop 2.1 | SOUND-AFTER-REPAIRS (m4: sign/normalisation) |
+| Prop 2.2 | GAP (M2: "q²-fold" should be ≍ kq; "smallest term" unproved/false at genus-0 levels; label) |
+| §3 KH discussion | SOUND as Assessment (m7 label; m3/m8 details) |
+| §4 census, §5 EVIDENCE | GAP (M3: data are for n ≡ 17 (24), labelled ≡ 1 (24)) |
+| Overall "no positive identity; ES not solved" | SOUND (no overclaim of ES) |
 
 ### Lemma 1.1 (continuant / HJ form) — SOUND-AFTER-REPAIRS (wording only)
 Re-derived by hand: `S_cS_g = [[cg−1, −c],[g, −1]]`, `S_cS_gS_f = [[cgf−c−f, −(cg−1)],[gf−1, −g]]` ✓;
@@ -125,3 +137,69 @@ W(k²) = 0 is in fact PROVED by Prop 4.1 for every odd k. T2(k²) = 0 for all od
 * The qualitative conclusion (sign-blind total of the same size at primes and squares) survives with the
   correct class (30.0 vs 29.8); but at p ≡ 1 (24) — the class the brief is about — the class −1 share is
   markedly lower (mean 7.2 of 30.0) than in the doc's (wrong-class) data (11.2 of 27.4). → M3.
+
+## Numbered defects
+
+No FATAL defects.
+
+**M1 (MAJOR) — §4 Prop 4.1 "Consequently…" and *Reading*; Summary bullet 1; AGENT_REPORT item 2.** D(n) is
+infinite (m'' = 1 ∈ D(n) for every t ≡ 3 (4)), so S = #D(n) = ∞ and "W = (S − O)/2", "|Σ_{D(n)}(m''/n)| ≤ #D(n)
+with equality iff ES fails" are meaningless as written. *Repair:* define D*(n) := D(n) \ {m'' = 1}. Lemma (easy,
+add it): every (t, m'') ∈ D*(n) has t ≤ n + 2. Proof: m·m'' ≡ 1 (t) so m ≡ m'' ≡ ε (t); 4 | m ⇒ m ≠ 1 ⇒ m ≥ t − 1;
+m'' ≠ 1 ⇒ m'' ≥ t − 1; so (t−1)² ≤ tn + 1, t ≤ n + 2. Hence D*(n) is finite, W(n) = (S* − O*)/2 with
+S* = #D*(n), O* = Σ_{D*(n)}(m''/n), and the "truncation t ≤ n + 2" of the census is automatic, not a cutoff.
+(Checked: no non-trivial pair with t > n+2 for all n ≤ 300 up to t ≤ 3n+12, and sampled n ≈ 10⁴ up to 3n+2.)
+
+**M2 (MAJOR) — Prop 2.2, Summary bullet 2, construction-log item 2, AGENT_REPORT item 3.** (i) The required
+cancellation is dim S_k(Γ₁(q))/(φ(q)/2) ≍ kq (per character: dim S_k(q,χ) ≍ kq/12), not "q²-fold"; e.g.
+dim S₃(Γ₁(24)) = 20 vs φ(24)/2 = 4. (ii) "ES term is the smallest term" is not proved and fails at the
+genus-0 levels the Prop itself mentions (A2 = −A3 exactly when S_k(Γ₁(q)) = 0, N non-square). (iii) The weight-1
+sentence uses Cohen's formula outside its range k ≥ 2. *Repair:* PROVED part = the two trivial bounds; everything
+else → Assessment; replace q² by kq (or by the exact ratio).
+
+**M3 (MAJOR) — §4 census paragraph and §5 census paragraph.** The data are for n ≡ 17 (mod 24) (author's
+`range(10001, 12000, 24)` and evidently the same in the /tmp driver), labelled "≡ 1 (24)"; the square rows use
+odd squares ≡ 1 or 9 (24) incl. 63² outside [4001, 6000]. *Repair:* replace by the correct-class figures above
+(or relabel as ≡ 17 (24) and compare with a class-matched control), commit the /tmp driver as a script.
+
+**m1 (MINOR) — Lemma 1.1 vs Summary/AGENT_REPORT item 1.** "W-certificates ↔ m ≡ 0 (4) with n/m of HJ length 3"
+holds only for certificates with all entries ≥ 2. Boundary certificates (an entry = 1) exist and are the only
+ones at n = 5, 17, 41, 65, 209, 241, 265 (n ≤ 300, n ≡ 1 (4)). *Repair:* keep "(entries ≥ 2)" in every
+restatement and add: "boundary words (an entry 1) ⟺ DEDEKIND_ES §4.2".
+
+**m2 (MINOR) — Lemma 1.2, "(+ boundary)".** State it exactly: W(n) = #{4|m, (m,n)=1 : r_m | m+1} + #{4|m : m | n+1},
+r_m := −n⁻¹ mod m ∈ [1, m); second term = 0 for n ≡ 1 (4). (Checked n ≤ 120.)
+
+**m3 (MINOR) — §2 Input.** The prose A₂ omits the modulus N_f·q and the factor ψ(q)/ψ(q/N_f) in μ; A₃'s "…" hides
+the condition (τ, q/τ) | gcd(q/𝔣_χ, d − d'). The code is right; write the formula out fully (it is the object
+all of §2 rests on).
+
+**m4 (MINOR) — Prop 2.1 display.** Value is −(φ(q)/2)·Σ_{dd'=N} min^{k−1}([d≡−1] + (−1)^k[d≡1]) (sign −1 from
+A3's −½ × 2). Say that the weight χ̄(−1) is the constant (−1)^k on the family.
+
+**m5 (MINOR) — Prop 2.1 "geometric reading".** Interpretation (cusps fixed by T_N, P ↔ −P, odd-weight line
+bundles) inside a PROVED item; mark as Assessment.
+
+**m6 (MINOR) — Prop 2.2 weight 1.** See M2(iii).
+
+**m7 (MINOR) — §3 heading / Summary bullet 2.** Label §3 "Assessment"; fix "N-th" → "4N-th coefficient of ℋθ";
+define λ(N) = Σ_{d|N} min(d, N/d); replace σ(gN+1; −1, g) by τ_{−1,g}(gN+1).
+
+**m8 (MINOR) — §3 O167 Lemma 10.1 paraphrase.** Restore γ₂₁ = cp (or γ₁₂ = cM in the 2nd normalisation) and the
+condition c | M/4.
+
+**m9 (MINOR) — Lemma 1.3 *Reading*.** "This is PARITY_FIXED_P Lemma 1.3 in slice a = 1": O165 Lemma 1.3 is about
+primes ℓ | p + 4a²d (Type II) / p² + 4c²d with the character χ_{−4d}; Prop 4.1 uses the same reciprocity
+mechanism on a different family (tn + 1). Say "analogue of", not "is".
+
+**m10 (MINOR) — §5 items 1 and 4.** "Main term Σ_t τ'(tn+1)/φ(t) of size log²n with non-principal remainder of the
+same size" and "exact moments … involving h(−p), h(−4p) … of size ≍ √p" are unlabelled and unsupported here
+(no derivation, no script, no citation). Label CONJECTURE/Assessment or cite (O169?). The two HJ formulas in
+item 4 (12s(m,n) = Σ(a_i−3) + (m+m*)/n and r − s = (m+m*)/n − 1 − 12s(m,n)) are correct: re-checked from scratch
+for all coprime m < n < 90 (`review_gi_identities.py`).
+
+## Overall
+The mathematics that carries the document (Lemmas 1.1–1.3, Prop 4.1, the Prop 2.1 orthogonality computation,
+the trace-formula code) is correct and independently verified. The defects are a well-definedness slip in the
+headline identity (M1, easy repair), an overstated/mislabelled barrier proposition (M2), and EVIDENCE computed
+for the wrong residue class (M3). None affects the honest bottom line (no positive identity; ES not solved).
