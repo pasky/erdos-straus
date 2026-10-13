@@ -198,3 +198,25 @@ Euler product. **A2 reduces to B2/H-A; no sign-layer mechanism on the ball exist
 * Scope inconsistency found (not a mathematical error): **DE Cor 7.4 understates its own barrier.** By §2 (an
   instance of (H)3/(H)9), block witnesses fail at every Y-smooth slice whenever n_p > Y, giving scale n_p
   (≫ log p·log₃p i.o.) instead of c₀ log p. Recommend a one-line cross-reference in DE §7.
+
+## 4. What certifies the locally-square primes? (brief item (v); EVIDENCE, `scripts/syn_hard_witness.py`)
+
+By Thm 2.3, a prime with n_p > Y has no block witness at any Y-smooth slice. Its witnesses must either use a slice
+modulus with a prime factor > Y ("bigmod") or split the Y-rough part of N_e ("split"). Random primes p ≡ 1 (8)
+near 10^L were sampled (seeded), with the Legendre filter applied before primality. For each, Type II slices e ≡ 3 (4)
+were scanned upward to the first e with −1 ∈ Σ_e((p+e)/4).
+
+| sample | first-witness e: median / 90 % / max | kind of first witness |
+|---|---|---|
+| p ≈ 10⁹, n_p > 19 (150 p) | 7 / 23 / 55 | split 131, bigmod 19 |
+| control p ≈ 10⁹ (150 p) | 3 / 7 / 11 | split 150 (block witnesses included) |
+| p ≈ 10¹¹, n_p > 23 (120 p) | 7 / 19 / 35 | split 120, bigmod 0 |
+| control p ≈ 10¹¹ (120 p) | 3 / 7 / 11 | split 120 |
+
+*Reading (Assessment).* What replaces block witnesses is not a new structure. It is the same lottery one level
+down: N_e has typically 2–4 prime factors above Y, and a divisor pair *among the rough primes* lands in the class −1
+mod a tiny e. Local squareness moves the first witness from e ≈ 3 to e ≈ 7 (median), and it moves it into rough
+splits. It does not make the problem "large". So at these sizes the hardest primes are certified by the joint
+factorisation of p+3, p+7, p+11, …, i.e. exactly by hatch H-A. No structured family (single private prime in the
+class, Jacobi-forced slices) dominates: 87–100 % of first witnesses sit at Y-smooth slices, where Jacobi forcing
+carries no information beyond the Legendre symbols that local squareness has already set to +1.
