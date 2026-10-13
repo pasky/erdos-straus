@@ -11,3 +11,19 @@ s=11: 12 (L',g',E) triples, 4.0s
 s=12: 14 (L',g',E) triples, 16.0s
 s=13: 36 (L',g',E) triples, 60.0s
 s=14: 104 (L',g',E) triples, 243.6s
+s=15: 48 (L',g',E) triples, 899.6s
+# N complete for N <= 7
+# N  #fam(N)  #cyl(N)  maxl  #fam*q^-N  #cyl*q^-N (cylinder mass, slice u(0)=1 normalised)
+  2        2        2    0     0.2222     0.2222   union-relevant cyl 2
+  3       16        4    3     0.5926     0.1481   union-relevant cyl 4
+  4       30       10    4     0.3704     0.1235   union-relevant cyl 6
+  5       54       30    6     0.2222     0.1235   union-relevant cyl 20
+  6       70       36    8     0.0960     0.0494   union-relevant cyl 18
+  7      202       74   11     0.0924     0.0338   union-relevant cyl 48
+covered slice mass by Case B families of level <= 1: 0.0000
+covered slice mass by Case B families of level <= 2: 0.2222
+covered slice mass by Case B families of level <= 3: 0.2222
+covered slice mass by Case B families of level <= 4: 0.2716
+covered slice mass by Case B families of level <= 5: 0.3045
+covered slice mass by Case B families of level <= 6: 0.3100
+covered slice mass by Case B families of level <= 7: 0.3192
