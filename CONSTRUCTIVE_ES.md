@@ -133,3 +133,44 @@ at t = 1, while (2, 4, 11) certifies 73). CERTIFIED (`scripts/ce_spine.py`): cri
 extremal" orders O₀ ∋ √−q used as starting points by Pizer, Ibukiyama, Bröker and KLPT. A certificate is thus an edge
 that is simultaneously t-close to the spine and carries CM by −4A, −4A*, −4uv with AA* = tp + 1: three QNR-type
 discriminants coupled through one Diophantine identity (the (J)1 CM dictionary, now located on the 2-isogeny graph).
+
+## 4. Deterministic constructions of B_{p,∞}-data versus certificates (reductions, with labels)
+
+Literature used (from memory, statements not re-derived here except where marked): Pizer (1980) explicit maximal orders —
+(−1, −p) for p ≡ 3 (4), (−2, −p) for p ≡ 5 (8), and for p ≡ 1 (8) (−p, −q) with an auxiliary **prime q ≡ 3 (4),
+(p/q) = −1**; Ibukiyama (1982) orders O(q, r) for primes q ≡ 3 (8) with (p/q) = −1, r² ≡ −p (q); Bröker (2009): a
+supersingular j in time Õ(log³ p) under GRH, by finding the least prime q ≡ 3 (4) with (−q/p) = −1 and a root of
+H_{−q} mod p; KLPT (2014) and Eisenträger–Hallgren–Lauter–Morrison–Petit (2018) start from such "special extremal" orders
+O₀ ⊃ ℤ[√−q]; Kaneko (1989): two non-commuting embedded orders of discriminants d₁, d₂ force d₁d₂ ≥ 4p; Chevyrev–Galbraith
+(2014): successive minima of the Gross lattice determine the maximal order. All deterministic constructions need a
+quadratic non-residue (unconditionally the least one is only known to be ≪ p^{1/(4√e)+ε}).
+
+**Proposition 4.1 (certificate ⟹ explicit B_{p,∞}-data, deterministic polynomial time; PROVED).** From a word w with
+χ(w) = −1 one obtains in time poly(log p), without factoring and without any non-residue search: (a) the Eichler order
+E(L_w) of level 2 and two explicit maximal orders C₀(L⁺_{1,2}) of B_{p,∞} (index-2 overlattices: solve Q_w(x) ≡ 0 (mod 4),
+Lemma 1.1, and an exact 4×4 HNF); (b) a presentation B_{p,∞} ≅ (−A*, −A·?)… concretely ℚ⟨i, j⟩ with i² = −A*, j² = −A,
+ij + ji = −2; (c) three non-residues A, A*, uv of p (each is −nrd of a trace-zero element of an order of B_{p,∞} prime to
+p: indeed (−nrd x/p) ≠ 1 for every x ∈ B⁰_{p,∞} with p ∤ nrd x, since ℚ(x) embeds and p cannot split); (d) the
+Frobenius-distance element ε = −(1 + ij), ε² = −tp.
+*Converse direction (what is NOT available).* From any explicit maximal order one gets non-residues for free (c), but
+not certificates: a certificate edge is a path-shaped class among ≈ p/12, and the known constructions land on edges at the
+CM points of the auxiliary q, which are certificates only when the Mordell congruence t₀(q) | q + 1 holds (CHI_FLIP §3.1:
+always for q ≤ 7, i.e. exactly the non-□ classes mod 840). EVIDENCE (`scripts/ce_rank2.py`): at p = 2521 (least non-residue
+11) the two classes with min(E⁰) = 11 (edges at the CM(−11) curves) are not certificates; the certificates have
+min(E⁰) = 29, 58 (A = 29, t = 15; A = 87, t = 44). At p = 1201 (least non-residue 11) the first certificate uses A = 17,
+t = 3 | 18.
+
+**Proposition 4.2 (complexity reading; PROVED as an implication, Assessment otherwise).** If for all p some certificate has
+t ≤ (log p)^C (EVIDENCE: t_min ≤ 64 for p < 10⁶, DEDEKIND_ES), then with a factoring oracle a certificate — hence an
+explicit maximal order of B_{p,∞} and a non-residue — is found deterministically in poly(log p) time (factor tp + 1 for
+t ≤ (log p)^C and test divisor pairs A ≡ A* ≡ −1 (mod t)). So a polylog-t form of ES-five would yield deterministic
+construction of B_{p,∞} maximal orders (Pizer/Ibukiyama data) relative to factoring — a statement currently known only
+under GRH. This is DEDEKIND's complexity reading, now with the quaternionic output made explicit. There is no reduction
+in the other direction: a non-residue q (even a small prime one) does not produce a certificate unless t₀(q) | q + 1.
+*Equivalence question of the task (answer).* ES-five(p) is equivalent, by explicit polynomial-time maps in both
+directions (Cor 2.2, Thm 2.1, and recovery of (t, u, v) from the Gram), to each of: "some Eichler order of level 2 in
+B_{p,∞} has a trace-zero basis of Gram [[A, u, 1], [u, uv, v], [1, v, A*]]"; "some supersingular E has trace-zero i, j with
+ij + ji = −2, deg i·deg j = tp + 1, (1 − i)(1 − j) ∈ t End E"; "some 2-isogeny lattice is the (negated) intersection lattice
+of a length-3 linear plumbing, i.e. bounds a lens space L(p, A) with (A/p) = −1"; "λ(p) ≤ 3" (DEDEKIND, p ≡ 1 mod 8). It is
+**not** equivalent to "∃ non-residue", "∃ maximal order" or "∃ supersingular curve" (those hold for all p; the certificate
+needs the extra divisor/shape event), and it implies (with a polylog bound) deterministic QNR-finding modulo factoring.

@@ -17,18 +17,19 @@ def minvec(G):
     return short_vectors(G, c)[0][0]
 
 
-for p in map(int, sys.argv[1:]):
-    cl = classes(p)
-    minus = [k for k in cl if aniso_at(gram_of(k), p)]
-    paths = set(canon([[v, -1, 0], [-1, t, -1], [0, -1, u]]) for (t, u, v) in words(p))
-    rows = []
-    for k in minus:
-        G = gram_of(k)
-        rows.append((k[0], minvec(adj(G)), k in paths))
-    r1 = sorted(rows, key=lambda r: (r[0], r[1]))
-    r2 = sorted(rows, key=lambda r: (r[1], r[0]))
-    first1 = next((i for i, r in enumerate(r1) if r[2]), None)
-    first2 = next((i for i, r in enumerate(r2) if r[2]), None)
-    npath = sum(r[2] for r in rows)
-    print(p, '|G-|', len(minus), 'path classes', npath, 'rank of first path class by min(L):', first1,
-          'by min(E0):', first2, ' minL of paths', sorted(r[0] for r in rows if r[2])[:6])
+if __name__ == '__main__':
+  for p in map(int, sys.argv[1:]):
+      cl = classes(p)
+      minus = [k for k in cl if aniso_at(gram_of(k), p)]
+      paths = set(canon([[v, -1, 0], [-1, t, -1], [0, -1, u]]) for (t, u, v) in words(p))
+      rows = []
+      for k in minus:
+          G = gram_of(k)
+          rows.append((k[0], minvec(adj(G)), k in paths))
+      r1 = sorted(rows, key=lambda r: (r[0], r[1]))
+      r2 = sorted(rows, key=lambda r: (r[1], r[0]))
+      first1 = next((i for i, r in enumerate(r1) if r[2]), None)
+      first2 = next((i for i, r in enumerate(r2) if r[2]), None)
+      npath = sum(r[2] for r in rows)
+      print(p, '|G-|', len(minus), 'path classes', npath, 'rank of first path class by min(L):', first1,
+            'by min(E0):', first2, ' minL of paths', sorted(r[0] for r in rows if r[2])[:6])
