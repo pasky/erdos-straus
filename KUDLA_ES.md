@@ -131,3 +131,44 @@ matrices; what is class-invariant is "the class contains a certificate-shaped re
 identity of the form (ES count) = Σ_T w(T)·E'_T must have w(T) depending on the representative, not on the class —
 i.e. the weight is the certificate indicator itself; the Kudla coefficient contributes only the automatic factor of
 Prop 2.1. (Assessment: this is B2 in Kudla language.)
+
+## 3. Barrier screens and construction log (item (3)); each entry: hypothesis targeted → outcome
+
+**Lemma 3.1 (split discriminants admit no incoherent binary collection; PROVED, folklore).** A local binary quadratic
+space over ℚ_v with square discriminant (−det ∈ ℚ_v^{×2}) is the hyperbolic plane; hence for n = m² every collection of
+local binary spaces with discriminant field ℚ(√n) is coherent, and every "sign-odd" invariant built from ℚ(√n)
+(the character χ_n of GROWING_IDENTITIES Prop 4.1, the ε of a Gross–Zagier-type pair (d₁, d₂) = (−t, n)) is trivial.
+*Proof.* Isotropic binary spaces are hyperbolic. ∎ This is the binary-level form of T1; §1 is the ternary-level form
+(the ES congruences push Diff onto the primes of n).
+
+1. **Kudla genus-2 cycles on the modular curve (§1–2).** Target: STRONG_APPROX Thm 9.1's hypothesis "finite
+   Eisenstein combination evaluated at n" — Kudla's E'_T is a derivative (log ℓ weights, not quasi-polynomial) and is
+   indexed by T, not by n, so 9.1 does not apply. Outcome: the ES conditions are conditions on *which* index T occurs;
+   at certificate indices the coefficient is automatically p-supported (Prop 2.1); the Kudla-visible condition
+   "Diff ⊆ Odd(n)" is the genus shadow and is satisfiable deterministically at every prime (Prop 2.3). Killed by B2
+   (Prop 2.4: Kudla data are class functions; the certificate property is a representative property).
+2. **Level structure / coset Schwartz functions** (to see `f ≡ −1 (mod 4cd)`, i.e. the ray class, cf. WINDMILL Rem
+   10.4). Target: the class-function hypothesis of 2.4. Outcome: a coset function at level M = 4cd makes the certificate
+   indicator a Γ(M)-class function, but then the slice count is `#{T = [[f,1],[1,f']] : ff' = N, T ≡ T₀ (mod M)}` —
+   a count of *indices*, i.e. the representation number of N by the coset `(−1,−1) + Mℤ²` of the split plane
+   `(x, y) ↦ xy`, a weight-1/weight-0 Eisenstein coefficient (GROWING_IDENTITIES §2, split-hyperbolic term). Back to the
+   fixed-slice divisor sum (B2), and by Lemma 3.1 there is no incoherent partner for a split binary space.
+3. **Characters: what Siegel–Weil/Kudla can carry (Assessment, with an exact decomposition).** For M = 4cd and N ≡ 1
+   (mod M): `ES_{c,d}(n) = φ(M)^{−1} Σ_{χ mod M} χ(−1) S_χ(N)`, `S_χ(N) = Σ_{f|N} χ(f)`. Orthogonal Siegel–Weil/Kudla
+   Eisenstein series live in `I(s, χ_V)` with χ_V **quadratic**; the quadratic-χ part is
+   `Q_{c,d}(n) = #{f | N : f ∈ −(ℤ/M)^{×2}} / |(ℤ/M)^{×2}|` (genus count ÷ size of the square subgroup), which vanishes
+   at odd squares (it is ≤ G_{c,d}, Prop 2.2) and is the "Kudla-visible main term"; the remainder (characters of order
+   ≥ 3) has no orthogonal Siegel–Weil incarnation. Per slice Q ≍ τ(N)·2^{ω(M)}/φ(M) ≪ 1 for large M: a main-term
+   certificate fails B3 slice by slice, and summing slices is H-A.
+4. **Base change to F = ℚ(ζ_M)⁺** (make the ray character quadratic). Target: "quadratic χ_V only" in 3. Over F the
+   condition `f ≡ −1 (mod M)` for a rational prime f ≡ ±1 (M) becomes `η_{E/F}(𝔣) = −1`, E = ℚ(ζ_M) (CM), i.e. an
+   incoherent-type η_{E/F}-condition (Bruinier–Kudla–Yang / Howard–Yang setting of big CM points). Outcome (Assessment):
+   this only works on divisors whose prime factors are ≡ ±1 (M) (split completely in F); for composite f the ideal
+   (f)O_F has Artin symbol σ_f^{[F:ℚ]}, which loses the sign. On the sign-blind set it reproduces GROWING_IDENTITIES
+   Prop 4.1 (sign = quadratic character), with the level M = 4cd now in the base field — the moving modulus becomes a
+   moving base field (H-A in another guise). Not pursued further.
+5. **T1 screen of everything above.** Every Kudla-visible quantity (Diff, G, Q, E'_T at certificate indices) vanishes or
+   is undefined at odd squares for the *right* reason (oddness of Diff; Lemma 3.1) — so the program passes T1 *by
+   design* — but each is positive at primes for genus reasons that are deterministic (Prop 2.3) and far from the
+   ray-class event (B3/B2). B6: Kudla identities are exact per index (no averaging over p), so B6 is not the issue;
+   the issue is that the identities are about *values at given indices*, while ES asks for *existence of an index*.
