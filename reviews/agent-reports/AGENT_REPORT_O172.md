@@ -8,7 +8,7 @@ Branch `side-agent/kudla-incoherent`. Main file `KUDLA_ES.md` (§1–§3). Scrip
   (4abd = ne + 1, a + b = ce) give the genus-2 Fourier index `T(d,ab) = [[d,−1/2],[−1/2,ab]]` (det 2T = ne); Type II
   tuples give the Heegner Gram matrix `T' = [[f,1],[1,f']]` (ff' − 1 = 4c²dn, f ≡ f' ≡ −1 (4cd)). For Kudla's
   incoherent ternary collection of the modular curve, Diff(T) = Ram_fin(B_T) is odd, and the ES congruences
-  (`e | a+b`, resp. `f ≡ −1 (4cd)`) are *exactly* what clear every place except the primes of n:
+  (`e | a+b`, resp. `f ≡ −1 (4cd)`) are *exactly* (R172 repair: *sufficient*; only their genus shadow is necessary) what clear every place except the primes of n:
   `Diff = {ℓ | n : v_ℓ(n) odd, ℓ ∤ e, (−d/ℓ) = −1}` (I), `Diff = {ℓ | n : v_ℓ(n) odd, (−f/ℓ) = −1}` (II).
   Hence T1 (no tuples at odd squares) and, at n = p, Diff = {p}: certificates are supersingular points mod p of Z(T),
   i.e. lie in the support of E'(τ,0)'s T-th coefficient. Checked on all 882749 Type I and 336357 Type II tuples of all
@@ -26,13 +26,15 @@ Branch `side-agent/kudla-incoherent`. Main file `KUDLA_ES.md` (§1–§3). Scrip
 * §2 Prop 2.3 (PROVED rel. Dirichlet): Kudla-supported indices with Diff = {p} exist at every prime, deterministically
   (one Dirichlet prime q ≡ 3 (4) non-residue mod p, CRT choice of c). The incoherence layer is easy; ES is its
   ray-class upgrade `4c | q + 1` = the Type II divisor problem (B2).
-* §2 Prop 2.4: Kudla coefficients are GL₂(ℤ)-class functions of T; the certificate property is a representative
+* §2 Prop 2.4 (R172 repair: superseded by Prop 2.4′ — Kudla coefficients are *genus* functions of T, and genera mix
+  certificate/non-certificate indices in 582 of 2398 slices; the class-function argument below is vacuous): Kudla coefficients are GL₂(ℤ)-class functions of T; the certificate property is a representative
   property ⇒ any identity ES = Σ w(T)E'_T has w = the certificate indicator (B2 in Kudla language).
 * §3 Lemma 3.1: split discriminants admit no incoherent binary collection (binary form of T1). Construction log:
   (1) genus-2 Kudla → B2; (2) level structure/coset Schwartz functions → back to the split-plane divisor sum, which has
   no incoherent partner; (3) exact decomposition `ES = Q + R` with Q = quadratic-character (orthogonal Siegel–Weil /
   Kudla-visible) part = genus count/|(ℤ/M)^{×2}|, zero at squares, ≪ 1 per slice (B3), R = characters of order ≥ 3
-  (no orthogonal Siegel–Weil incarnation); (4) base change to F = ℚ(ζ_M)⁺ makes the ray character the quadratic
+  (no orthogonal Siegel–Weil incarnation — R172 repair: false as stated; level-M coset Schwartz functions see R, only
+  Kudla's K-invariant lattice functions are limited to Q); (4) base change to F = ℚ(ζ_M)⁺ makes the ray character the quadratic
   η_{E/F} (big-CM / Bruinier–Kudla–Yang setting) but only on divisors with all prime factors ≡ ±1 (M), and turns the
   moving modulus into a moving base field (H-A).
 

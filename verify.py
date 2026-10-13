@@ -24147,5 +24147,32 @@ def check_ff():
 
 check_ff()
 
+def check_fg():
+    # (fg) KUDLA_ES (O172/R172): Diff-parity dictionary — reviewer from-scratch Type I/II enumeration with own Hilbert
+    # symbols (Diff via Gram/Hasse route), all odd n <= 4000.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_kud_tuples.py", "4000"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("KUDLA R172 subprocess", r.stderr[-2000:])
+    o = r.stdout
+    for s in ["mismatches: 0", "I tuples 106431", "I Diff==P 106431", "I 2 in Diff 0", "I |Diff| odd 106431",
+              "I prime: Diff=={n} 36712", "II tuples 40838", "II Diff==P 40838", "II |Diff| odd 40838",
+              "II Diff(eT')==Diff(T') 22732", "I at odd squares 0", "II at odd squares 0",
+              "odd nonsq n<=N no I [105, 2961, 3705]", "odd nonsq n<=N no II []"]:
+        assert s in o, ("KUDLA R172 Thms 1.2/1.4", s, o)
+    print(f"== (fg) KUDLA_ES R172: Diff(T) = primes of n with odd valuation and (-d/l) or (-f/l) = -1, |Diff| odd, "
+          f"Diff = {{p}} at primes, 0 tuples at odd squares; 106431 Type I + 40838 Type II tuples, odd n <= 4000; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fg()
+
 
 print("\nall checks passed")
