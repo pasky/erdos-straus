@@ -12,13 +12,17 @@ combinations are T1-dead) does not apply when the level grows with n.
 ## Summary (checkpoint 1)
 
 * **Exact growing-level identities found (PROVED, elementary):** continuant/Hirzebruch–Jung form of Type I
-  (a = 1) and Type II (Lemma 1.1); two inequivalent growing-level divisor sums for the same cubic (Lemma 1.2);
-  the T1-respecting identity `W(n) = Σ_{D(n)} (1 − (m''/n))/2` over a sign-blind set, in which the
+  (a = 1) and Type II (Lemma 1.1; the HJ-length-3 description covers the certificates with all entries ≥ 2 —
+  boundary words with an entry 1 are extra, cf. DEDEKIND_ES §4.2 (R170 repair)); two inequivalent growing-level divisor sums for the same cubic (Lemma 1.2);
+  the T1-respecting identity `W(n) = Σ_{D*(n)} (1 − (m''/n))/2` over a finite sign-blind set (R170 repair: D*(n)
+  excludes the trivial m'' = 1, which makes it finite with t ≤ n + 2), in which the
   "sign at ∞" (class −1 vs +1 mod the level) is *exactly* the Jacobi symbol at n (Prop 4.1).
 * **Trace formulas (PROVED relative to Cohen's Eichler–Selberg formula, implemented and checked):** ES is the
-  sign-odd part of the split-hyperbolic term (Prop 2.1) — the smallest term; certifying positivity through the
-  identity needs the cusp trace q²-fold below Deligne at a single N (Prop 2.2). KH's re-summation mechanism
-  needs the shift to be a theta-series variable; ES shifts gN + 1 are multiplicative (§3).
+  sign-odd part of the split-hyperbolic term (Prop 2.1). *Assessment (R170 repair):* this term is typically
+  small compared with the a-priori size of the trace (not always: at genus-0 levels A₂ = −A₃ exactly), and
+  certifying positivity through the identity needs the cusp trace ≍ kq-fold (dim S_k(Γ₁(q))/(φ(q)/2)) below
+  Deligne at a single N (Prop 2.2). *Assessment (§3):* KH's re-summation mechanism needs the shift to be a
+  theta-series variable; ES shifts gN + 1 are multiplicative.
 * **No positive identity.** Every identity found either (i) is a relabelling of the divisor-in-class count,
   (ii) puts ES in a subdominant term, or (iii) reduces positivity to the H-B spin event (O165). ES is not solved.
 
@@ -42,8 +46,11 @@ Then
 * `T2(n) = #{(a,b,c,d) : K⁻(a, 4cd, b) = cn}` (since `K⁻(a,4cd,b) = 4abcd − a − b`);
 * `S_c S_g S_f = [[n, −(cg−1)],[gf−1, −g]]`, so a Type I (a = 1) certificate is an SL₂(ℤ) word of length 3 with
   (1,1) entry n; for c,g,f ≥ 2 the word is the Hirzebruch–Jung expansion `n/m = [[c,g,f]] = c − 1/(g − 1/f)`
-  with `m = gf − 1`. Hence (entries ≥ 2): **W-certificates ↔ residues m ∈ [1,n), 4 | m, (m,n) = 1, such that
-  n/m has Hirzebruch–Jung length exactly 3.** Words containing a 1 reduce by `S_a S_1 S_b = S_{a−1}S_{b−1}`.
+  with `m = gf − 1`. Hence (entries ≥ 2): **W-certificates with c, g, f ≥ 2 ↔ residues m ∈ [1,n), 4 | m,
+  (m,n) = 1, such that n/m has Hirzebruch–Jung length exactly 3.** Words containing a 1 reduce by
+  `S_a S_1 S_b = S_{a−1}S_{b−1}`. *(R170 repair)* The restriction is essential: boundary certificates (an entry
+  = 1; DEDEKIND_ES §4.2) exist, and for n ≡ 1 (4), n ≤ 300, they are the **only** W-certificates at
+  n = 5, 17, 41, 65, 209, 241, 265 (no HJ-length-3 m ≡ 0 (4) there; R170 `scripts/review_gi_identities.py`).
 *Proof.* Direct multiplication; uniqueness of HJ expansions with entries ≥ 2. ∎
 
 **Lemma 1.2 (fibration swap).** Fibring the cubic `cfg − c − f = n` by g, resp. by c, gives
@@ -52,7 +59,9 @@ and with the mod-4 condition `W(n) = Σ_{t} #{m | tn+1 : m ≡ −1 (t), 4 | m} 
 (n+c)/e · (e+1)/c ≡ 1 (4)}`. The two growing-level sums are **not** termwise equal (g = 2: τ(2n+1) vs
 τ_odd(n+2)). *Proof.* For fixed c: `f(cg−1) = n + c`, e := cg − 1. For fixed g: Lemma 1.1 of CONDITIONAL_ES. ∎
 This is the exact form of the brief's "swap the order of summation": summing over m first (the divisor) gives
-`#{t : t | m+1, tn ≡ −1 (m)} ∈ {0,1,2}`, i.e. `W(n) = #{m ≡ 0 (4) : (−n⁻¹ mod m) | m + 1} (+ boundary)`; the
+`#{t : t | m+1, tn ≡ −1 (m)} ∈ {0,1,2}`, i.e. *(R170 repair, exact form)* with r_m := −n⁻¹ mod m ∈ [1, m),
+`W(n) = #{4 | m, (m,n) = 1 : r_m | m + 1} + #{4 | m : m | n + 1}` (the second, boundary term is t = m + 1, i.e.
+r_m = 1; it vanishes for n ≡ 1 (4); checked n ≤ 120 by R170); the
 modulus of the inner congruence is the summation variable, so nothing telescopes — every exact re-summation of
 the cubic is again a divisor-in-class count (B2), now with the level as the summation variable.
 
@@ -67,7 +76,8 @@ From m'' ≡ −1 (t): u ≡ −2^{−j} (t), so (u/t) = (−1/t)(2/t)^j = −(2
 (−t/u) = (−1)^{ε(u)}(u/t)(−1)^{ε(t)ε(u)} = −(2/t)^j. So (m''/n) = (2/n)^j (u/n) = −(2/(tn))^j. If j ≥ 1 then
 2^{j+2} | tn + 1, so tn ≡ 7 (8) and (2/(tn)) = 1. Hence (m''/n) = −1. ∎ (Checked: all 4901 certificates of
 n ≡ 1 (4), n ≤ 3000, `scripts/gi_spin_check.py`, 0 violations.)
-*Reading.* This is PARITY_FIXED_P Lemma 1.3 in slice a = 1. The only T1-respecting factor available is a
+*Reading.* This is the analogue, for the family tn + 1, of PARITY_FIXED_P Lemma 1.3 (same reciprocity mechanism;
+O165's lemma concerns primes ℓ | p + 4a²d resp. p² + 4c²d with the character χ_{−4d}) (R170 repair). The only T1-respecting factor available is a
 genus character **at the place n** (the "main term with genus data at the place p" asked for in O167 §11);
 but here it is identically −1 on certificates, i.e. it carries no information beyond the class condition.
 
