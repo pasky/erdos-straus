@@ -213,15 +213,16 @@ N(p) with the firing condition at a fixed h needs every root of N mod h to be �
 coordinate direction of the cube this forces N(−c/j) ≡ 0 identically, i.e. N has a cube-line affine factor
 (Assessment; the non-uniform case is not classified here).
 (C7) *The orchestrator's sharpening* ("prime r in a fixed class + a discrete-log condition, bounded modulus"):
-answered exactly by Cor 3.2 (the discrete log must lie in the box of (r + 1)/4) and by Prop 6.1 below (r ≤ p²/4 + 2p).
+answered exactly by Cor 3.2 (the discrete log must lie in the box of (r + 1)/4) and by Prop 6.1 below (r ≤ p + (p+2)²/4).
 
 ## 6. The no-go theorem with exact scope
 
 **Proposition 6.1 (finiteness at fixed p; PROVED, elementary).** Every Type II certificate divisor of p satisfies
-h ≤ p + (p + 2)²/4, and every Type I divisor g ≤ (p + 2)²·... is bounded in terms of p (ES(p) has finitely many
-solutions and each determines its cube point). In contrast ES^{(S)}(p) has infinitely many solutions (Q unbounded) and
+h ≤ p + (p + 2)²/4, and every Type I divisor satisfies g < 3p². In contrast ES^{(S)}(p) has infinitely many solutions (Q unbounded) and
 the O186 sieve finds its certificate prime r in [X/2, X] with X → ∞.
-*Proof (Type II).* h | p + 4c²d and cd ≤ p/4 + 1/2 (Lemma 1.1), so h ≤ p + 4(cd)² ≤ p + (p + 2)²/4. ∎
+*Proof.* Type II: h | p + 4c²d and cd ≤ p/4 + 1/2 (Lemma 1.1), so h ≤ p + 4(cd)² ≤ p + (p + 2)²/4. Type I:
+p(u + v) = f(4uvw − 1) with u + v ≤ 2uv and 4uvw − 1 ≥ 3uvw gives wf ≤ 2p/3, and g | p² + 4wf², so
+g ≤ p² + 4(wf)² < 3p². ∎
 
 **Theorem 6.2 (no infinite fixed-modulus family for ES; PROVED, scope stated).** Let p be an odd prime.
 (i) (*Affine shots, any role of a single divisor.*) For every affine shot αp + β, the divisors h that certify Type II
@@ -229,9 +230,9 @@ solutions through it are exactly the h ≡ −1 (mod 4M), M ∈ 𝓜(α, β), up
 (Thm 2.1, Cor 2.2). Hence for a fixed modulus 4M₀ there are finitely many shots (height ≤ 4M₀²); for M₀ = 1 exactly
 p + 1, p + 4, 4p + 1 (Cor 2.3); for a fixed Chebotarev firing set of density δ there are finitely many (Cor 2.4).
 (ii) (*Per modulus, no family at all.*) For every h the set of residues p mod h certified by h (Type II) is the
-divisor box −Box((h + 1)/4), of size ≤ τ₃((h+1)/4) = h^{o(1)} and never a coset of a subgroup of index o(h^{1−ε});
+divisor box −Box((h + 1)/4), of size ≤ τ₃((h+1)/4) = h^{o(1)} (so it contains no coset of a subgroup of order > τ₃);
 Type I uses the box of (h + p)/4 (Thms 3.1, 4.2).
-(iii) (*Finiteness.*) The certifying moduli of p form a finite set bounded by O(p²) (Prop 6.1).
+(iii) (*Finiteness.*) The certifying moduli of p form a finite set bounded by O(p²) (Prop 6.1: Type II h ≤ p + (p+2)²/4, Type I g < 3p²).
 *Exact scope.* (i) covers certificates read off one divisor of one affine form (both the h-role and the cofactor
 role, since Thm 2.1 applies to any divisor coprime to 2αβ); (ii)–(iii) cover every Type I/II solution, i.e. every
 solution of ES(p) for p prime. Not covered: mechanisms whose certificate is a *joint* condition on several primes of
