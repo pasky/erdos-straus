@@ -272,7 +272,7 @@ n ≡ 1 (4)", and §0 item 2 / AGENT_REPORT "SQ₅ = (W) ∧ (S)". (W) as stated
 so the global conjunction (W) ∧ (S) is *strictly stronger* than interior SQ₅ on n ≡ 1 (4); only the pointwise statement
 interior-SQ₅(n) ⟺ W(n) ∧ S(n) (n ≡ 1 (4)) is an equivalence, and globally one must also exclude the (W)-exceptions 5, 105.
 Likewise "(W) is exactly Lorenzini's question" is true for the global (W), which is *more* than ES needs. Repair: write
-"interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{n ≡ 1 (4)} ∧ (S); Lorenzini's question is the global (W), a
+"interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{non-square n ≡ 1 (4)} ∧ (S) (squares ≥ 25 do have words, but that is not needed); Lorenzini's question is the global (W), a
 strengthening" (and for ES at primes only (W)|_{p ≡ 1 (4) prime} ∧ (S)|_{primes} is needed).
 
 **D2 (MINOR, citation).** HJ_DEEP §0 item 2 and §3 "Literature", bsA_selling_sandpile "Literature", AGENT_REPORT SHARP 1:

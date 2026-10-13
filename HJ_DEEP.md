@@ -163,11 +163,11 @@ Attempts. Each names the hypothesis it tried to violate, then the outcome.
   D1–D3 (Selling/sandpile/genus), F1–F2 (Fricke cubic, no Vieta route).
 * **EVIDENCE:** (W) with exceptional set E_W, and (S), both for all n < 10⁸. Hence interior SQ₅ for all non-square n ≡ 1 (4), n < 10⁸ (n ≠ 5, 105).
 * **CONJECTURE:** (W); (S). Together they imply interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105}, which implies ES for primes
-  p ≡ 1 (4). (R174 repair: the converse holds only with (W) restricted to n ≡ 1 (4); global (W) is strictly stronger.)
+  p ≡ 1 (4). (R174 repair: the converse holds only with (W) restricted to non-square n ≡ 1 (4); global (W) is strictly stronger.)
 * **Assessment.** The HJ reformulation is now as clean as I can make it: **one shape (length 3, equivalently t/n has a Type-II-shape
   expansion) and one sign (the Wu/Jacobi class)**. The two halves are separately simple: (W) is T1-free with finitely many
   exceptions, and (S) is "T1 is the only obstruction". Their *conjunction* is ES's class layer, and every mechanism I tried
   sees only one half at a time. No route to ES. The most useful outputs for the campaign are the (W)/(S) split (which isolates a
   T1-free sub-problem with a sharp exceptional set) and the 10⁸ verification.
-* (R174 repair, D1.) Precisely: interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{n ≡ 1 (4)} ∧ (S). Lorenzini's question is
+* (R174 repair, D1.) Precisely: interior SQ₅ on non-square n ≡ 1 (4), n ∉ {5, 105} ⟺ (W)|_{non-square n ≡ 1 (4)} ∧ (S). Lorenzini's question is
   the global (W), a strengthening (it also covers even n and n ≡ 3 (4)); ES at primes p ≡ 1 (4) needs only both halves at primes.
