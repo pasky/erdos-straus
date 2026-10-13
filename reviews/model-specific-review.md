@@ -85,6 +85,47 @@ S_m(p) = ∅ for primes ≤ 10⁵ (`review_ms_slices.c`, direct word enumeration
 7: 10 (last 12601), 8: 23 (last 83449, list contains 3, 11, 17, 131, 241), 12: 156 ✓ — all as in Cor 3.2's EVIDENCE.
 
 ## Defects
-(numbered; FATAL / MAJOR / MINOR)
+(numbered; FATAL / MAJOR / MINOR). No FATAL defect found.
+
+1. **MAJOR (overclaimed reading, wording repair).** §3 "*Reading (the sharp point)*": "for ES 'T1 is the only local
+   obstruction' is true on the length-3 ball as an identity", and "ES's five-slice lottery has **no residual congruence
+   obstruction at all**"; the same sentence is the SHARP headline of AGENT_REPORT_O197 ("on the length-3 ball, 'T1 is the
+   only obstruction' is an identity for ES"). What Thm 3.1(a) proves is S_4 = {χ = −1} as *sets of words*. It does not
+   say the χ = −1 fibre of X_n is non-empty whenever T1 does not apply: at the non-square n = 105 (≡ 1 mod 4) the fibre
+   is empty (λ(105) = 4, DEDEKIND §9.1; §7 (C1)/(C3) of this very document mention it). Read literally, the headline
+   says "S_4(n) = ∅ only at T1-obstructed n", which is CONJECTURE SQ₅ (false at 105, open for primes).
+   *Repair:* "on the length-3 ball the ES certificate set is exactly a χ-fibre: no congruence condition on the word
+   beyond the T1 character; whether the fibre is reached is SQ₅ (open; fails at the non-square 105)". Same edit in the
+   report's SHARP paragraph.
+2. **MINOR.** §5.3 Assessment (i) quotes "plug-in ≈ 0.02 failures" above p = 100 as "the expected outcome". The author's
+   own `tail_1e7.txt` sensitivity ((K+1)/N per bin) raises the m = 4 total from 1.45 to 2.07 (4 | m curve) and 0.84 → 1.02;
+   since bins with K ≥ 1 are large (the +1/N there is negligible), essentially all of the +0.62 / +0.18 sits in the
+   zero-failure bins μ ≥ 24, i.e. p ≥ 100. *Repair:* state "plug-in 0.02, sensitivity up to ≈ 0.2–0.6 above p = 100" so
+   the reader does not take 0.02 as an estimate with small error.
+3. **MINOR.** §5.3 "(iii) … m = 8 is the 4 | m pool's best-predicted member" — only in absolute error (1.46 vs 2). In
+   ratio terms it is the *worst* (obs/pred 1.37; 12: 1.34, 16: 0.80, 20: 0.90, 24: 1.14). *Repair:* replace by "and its
+   2 observed failures (p ≥ 100) are consistent with the leave-one-out prediction 1.46 (Poisson P(≥ 2) ≈ 0.43)".
+4. **MINOR (stale report).** AGENT_REPORT_O197 Honest caveats: "3.4–7.8 expected for m = 4..7 combined" — after the P1
+   binning repair the document (and `tail_1e7.txt`) give 4.82–8.76 ("4.8–8.8"). Report Results 1: "241 vs 2/19" (m = 7's
+   only PW exception n = 2 is outside the odd-prime population; the document says "none / 19"). *Repair:* update both.
+5. **MINOR.** §1: "PW also list n = 2 for m = 7 and 2, 3 for m = 12, outside this population" is incomplete — PW Table 1
+   lists n = 1 for every m, n = 2 for m = 7..15, n = 4 (m = 11, 13, 14), 14 (m = 13), 25 (m = 12), 841 (m = 14), and
+   composites 8, 16, 34, 122, 226 (m = 15), plus primes dividing m (3 for m = 12, 15; 5 for m = 10, 15; 7 for m = 14).
+   And "m = 12, all n ≤ 3000: the 19 failures of PW Table 1 below 3000" — PW has 20 entries ≤ 3000 (incl. n = 1).
+   *Repair:* "agreement on the odd primes p ∤ m (PW's remaining entries — n = 1, 2, 4, p | m, odd squares 25, 841 and
+   composites — are outside this population)"; "the 19 entries with 2 ≤ n ≤ 3000".
+6. **MINOR.** §7 (C1): "Hence 'the positive points of X_p reach every cell mod 8 allowed by χ' is false (at 27 primes
+   ≤ 10⁷ at least)". The statement is false for essentially *every* prime for a counting reason: per residue n mod 8 there
+   are 60 χ = −1 cells (and 35 S_8 cells), while X_p has only ≍ log² p points (43 at p = 131). The 27 primes are where the
+   much weaker "reach *some* S_8-cell" fails. *Repair:* say "'the positive points of X_p reach some S_8-cell' fails at
+   27 primes ≤ 10⁷", or drop the parenthesis.
+7. **MINOR (presentation).** Thm 3.1(c) "for 5 ≤ m ≤ 15 the slices fill the same fraction of the cells of both χ-halves":
+   for odd m this is automatic by CRT (cells mod 8m = cells mod 8 × cells mod m; χ lives on the first, S_m on the second);
+   I verified it for every 4 ∤ m ≤ 23 including m ≡ 2 (mod 4), where it is a genuine computation. Optional: say so.
+8. **MINOR (presentation).** "words with gcd(A, n) = 1" (§3 setting, §7 (C1)): gcd(A, n) = 1 is automatic from
+   AA* = tn + 1, so χ ∈ {±1} on all of X_n(ℤ_{>0}); worth one sentence, since (C1)'s "χ not identically +1" ⟺
+   "χ = −1 somewhere" relies on it. Also note that for n ≡ 1 (mod 4) the word (n+2, 1, 1) always has χ = +1, so
+   "χ constant" in (C1) can only mean "≡ +1" (the author's equivalence with SQ₅ is then correct; for n ≡ 3 (mod 4) the
+   same word has χ = −1, so S_4(n) ≠ ∅ trivially).
 
 ## Work log
