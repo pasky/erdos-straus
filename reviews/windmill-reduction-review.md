@@ -22,8 +22,17 @@ From-scratch scripts: `scripts/review_wr_*.py` (none of the author's `wr_*` code
 | §7 matching (ii) + `wr_diag` count | SOUND numerically (2093/2212 reproduced); "face of the principal river" false (D10 minor) |
 | §8 | SOUND algebra; "PROVED" should be "algebra PROVED + Assessment" (D11 minor) |
 | §9 | SOUND-AFTER-REPAIRS (inherits D5; identity piece omitted, D12 minor) |
+| §10 Lemma 10.1 | SOUND-AFTER-REPAIRS (D13 MAJOR: fails for content-2 forms, 134/320 certificates) |
+| §10 Comp. 10.2 | SOUND (reproduced; actually PROVABLE — proof supplied, D14) |
+| §10 Prop 10.3 core (norm mod ℓ is a class invariant only mod squares; t | 24) | SOUND |
+| §10 Prop 10.3 boxed scope "every mechanism that factors through classes" | GAP → SOUND-AFTER-REPAIRS (D15 MAJOR: contradicts 10.2 as worded) |
+| §10 ring-class remark | provable negative; mis-describes ray class groups, which *do* escape (D16) |
 
-(table extended below as the review proceeds)
+**Overall.** No FATAL defect. Four MAJOR defects (D3, D5, D13, D15), all with local repairs that leave every conclusion
+of the document (all negative / Assessment-level) intact. Labels are generally honest; the main over-reach is the boxed
+scope sentence of Prop 10.3. All key numbers (§1 to 20000, §2's 15/267 and 78, §4's six counts, §6's 211/174, §7's
+2093/2212, §10's 320 and zero collisions) were reproduced with independent code.
+
 
 ## §1 — Zagier windmill ↔ rivers
 
