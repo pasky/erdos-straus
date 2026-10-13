@@ -139,4 +139,41 @@ M (no explicit bound on k without effective Chebotarev/Artin; the document claim
 *Strengthening (see C4):* for p ≡ ±2 (mod 5) the theorem is unconditional (𝔮 = (√5), k ∈ {0, −1}); GRH is needed only
 for p ≡ ±1 (mod 5).
 
+### C8. §4: ES over ℤ[∛2] (EVIDENCE) — SOUND (evidence reproduced); unconditional-route plan — GAP (hidden Galois hypothesis)
+*Prop 1.2 transfer.* Correct verbatim with η = ε^k, ε = θ − 1 (N ε = 1, ε ≈ 0.26 > 0): only positivity at the one real
+place is needed, and σ(x), σ(y), σ(z) > 0 follow as in C3; no mute-place argument is needed. T1 for ES_{ℚ(∛2)}:
+PROVED by Cor 2.2 (2 = θ³ wildly ramified is covered by Thm 2.1(c); tested in C5).
+*From-scratch reproduction* (`scripts/review_t1t_cbrt2.py 3000 8 200`, log `logs/review_t1t_cbrt2.txt`; own ℤ[θ]
+arithmetic, Euclidean gcd with norm-decrease asserted, complete factorisation of (a_k), exact subset search in the ray
+class group). |Cl_{4∞}| = 4 and it is **(ℤ/2)²** (|(O/4)^*| = 32, image of ±ε^j of order 16); the class of (−1, +)
+has order 2, so the criterion is indeed "some sub-product of prime factors of a_k lies in (−1,+)" (single primes do
+not suffice). The document's example (p = 13, k = 2) verifies exactly. All 429 odd primes p < 3000 are solved
+(true min|k| = 0, 1, 2, 3, 4, 7 for 361, 48, 16, 2, 1, 1 primes; the author's 332/70/23/… come from a restricted search,
+cf. m3). No odd square m², m < 200, is solved by the mechanism for |k| ≤ 8 (complete factorisation).
+*Minor:* "Cl_{4∞}(K) (a 2-group …)" is true for ℚ(∛2) but not for r₁ = 1 fields in general ((O/4)^* has odd part
+∏_{𝔭|2}(N𝔭 − 1) when some 𝔭 | 2 has residue degree > 1) — defect m9.
+*Unconditional plan (labelled "Assessment / plan, not done" — label is correct).* Harper–Murty, Canad. J. Math. 56
+(2004), Theorem 1, assumes **K/ℚ Galois** with unit rank ≥ 4 (confirmed from the abstract: "Let K be a finite Galois
+extension of ℚ with unit rank greater than 3"). A Galois field has r₁ ∈ {0, [K:ℚ]}, so the proposed instance
+"r₁ = 1, r₂ = 4, degree 9" (and every r₁ = 1 field other than ℚ) is outside the cited result. The plan can only use
+totally real Galois fields with |P| odd and mute places M — which needs units of signature (+ at P, − at every
+v ∈ M) and a per-place version of the (−,−) exclusion of C3 — or a non-Galois extension of the Gupta–Murty sieve,
+which is not available off the shelf. Also "(p/ℓ) = −1 via Bombieri–Vinogradov for fixed p" is unexamined. The
+promise "4/5 as a theorem" in bsJ is not supported (defect M2).
+
+### C9. Barrier screen and Assessments of §3 — acceptable as Assessment
+B5/T1: correct (Thm 1.3(a), Cor 2.2). B2: the claim "hypothesis violated for unit divisors" is accurate in the
+stated sense — the class condition lives in the fixed group Cl_{4∞₁} because d₁ = η is a unit, whereas over ℤ the
+analogous modulus 4c is part of the solution; this is an Assessment, not a theorem, and should be labelled so
+(the screen carries no label). B3/B6: correct (infinite search at fixed p, pointwise Chebotarev/Artin input).
+"No transfer to ℤ" is labelled Assessment — fair. Dictionary (K = ℚ, η = 1): correct (p + 4 has a prime factor
+q ≡ 3 mod 4 ⟺ (p/q) = −1 for some q | p + 4, since p ≡ −4 mod q). §0 (J2, V_{3,4} over ℚ) was not re-checked
+(EVIDENCE, no headline claim).
+
+### C10. Labels
+§1–§2 PROVED labels: justified (after M1 repair for Prop 1.2). Thm 3.1 CONDITIONAL: justified (and partly
+unconditional, m4). §1 / §3 / §4 EVIDENCE: reproduced from scratch with stronger (complete) controls. AGENT_REPORT
+SHARP-2 "⟺ unit-Type-II solutions" and SHARP-3 "iff |P| odd": overstated (m2, m6). bsJ "Promise as a theorem 4/5":
+not supported (M2).
+
 ## Defects

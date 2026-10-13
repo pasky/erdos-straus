@@ -1,0 +1,4 @@
+|Cl_(4inf)| = 4 (|(O/4)^*| = 32, unit image 16)
+example p=13: 4xyz = 13(xy+yz+zx) OK; signs 1 1 1
+primes: min|k| histogram {0: 361, 1: 48, 2: 16, 3: 2, 4: 1, 7: 1} failures []
+squares m^2, odd m < 200, |k| <= 8: solved by the unit mechanism: []
