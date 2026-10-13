@@ -4,7 +4,12 @@ Reviewer branch side-agent/review-drinfeld (merged side-agent/drinfeld-degree-k)
 `scripts/review_dr_*.py` (own F_p[T] arithmetic, own Cantor–Zassenhaus factorisation, own power-residue /
 tame-symbol code; nothing imported from `scripts/bsH_*`). ES is not solved anywhere; nothing below changes that.
 
-Status: COMPLETE (round 1). Repairs applied: none (author active at time of writing; defects forwarded).
+Status: COMPLETE (round 1).
+**Repairs applied:** D1–D15, applied directly by the reviewer (author O181 parked, on orchestrator instruction), each
+marked "(R181 repair)" in DRINFELD_ES.md (D1–D12, D14), BRAINSTORM/bsH_{bl_order_q1, kth_power_law, twisted_targets,
+odd_descent, rank_k_genus, lubin_tate_sterile}.md (D1, D3, D6, D7, D8, D10, D12, D13) and
+reviews/agent-reports/AGENT_REPORT_O181.md (D1, D3, D4, D6, D7, D8, D10, D12, D13, D15). The author's scripts were not
+edited (D7's incomplete enumeration in scripts/bsH_descent.py is superseded by scripts/review_dr_descent.py).
 
 ## Summary verdicts
 | Claim | Verdict |
