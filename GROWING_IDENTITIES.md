@@ -193,11 +193,13 @@ constant on the sign-blind set — no exact identity tested evaluates O independ
    total. No telescoping: every re-summation of the cubic K⁻(c,g,f) = n is a divisor-in-class count (B2) with
    the level as a summation variable. The character expansion over t (principal + non-principal) gives a main
    term Σ_t τ'(tn+1)/φ(t) of the right size (log²n) with a non-principal remainder of the same size; no exact
-   cancellation was found or is suggested by the structure.
+   cancellation was found or is suggested by the structure. (Assessment/heuristic — the size claims are not derived
+   here; R170 repair: label.)
 2. **Kronecker–Hurwitz / Eichler–Selberg (ideas (b), (c)).** Target: fixed level (the trace formula has a
-   growing t-range). Outcome (§2): ES = sign-odd part of the split-hyperbolic (cusp fixed point) term; the
-   smallest term of the identity; the cusp trace must be known to q²-fold below Deligne at one N; weight 1
-   degenerates to O131's finite Eisenstein identities. KH's re-summation mechanism (theta series in the shift
+   growing t-range). Outcome (§2): ES = sign-odd part of the split-hyperbolic (cusp fixed point) term (PROVED);
+   *Assessment (R170 repair):* typically small (not at genus-0 levels, where A₂ = −A₃); the cusp trace would have
+   to be known ≍ kq-fold (not q²-fold) below Deligne at one N; heuristically weight 1 corresponds to O131's finite
+   Eisenstein identities (Cohen's formula itself needs k ≥ 2). KH's re-summation mechanism (theta series in the shift
    variable + holomorphic projection into a finite-dimensional space) has no analogue for multiplicative shifts
    gN + 1 (§3).
 3. **Main term with genus data at the place p (O167 §11).** Target: n-locality of Thm 9.1. Outcome (§4): the
@@ -205,17 +207,22 @@ constant on the sign-blind set — no exact identity tested evaluates O independ
    geometric count (class ±1); the resulting T1-respecting identity W = (S − O)/2 has level growing with n, but
    O < S is the H-B spin event — the same problem.
 4. **Continuants / Hirzebruch–Jung / Dedekind sums.** Target: "congruence-only data" (B1) — HJ data are
-   archimedean (sizes of partial quotients), Dedekind sums have exact reciprocity and exact moments over
-   m ≡ 0 (4) involving class numbers h(−p), h(−4p) (genus data at p, not quasi-polynomial in p). Outcome:
-   W-certificates are the m ≡ 0 (4) with HJ length 3 (Lemma 1.1). Dedekind sums determine only the
+   archimedean (sizes of partial quotients), Dedekind sums have exact reciprocity and (Assessment, not derived or
+   cited here — R170 repair: label) exact moments over m ≡ 0 (4) involving class numbers h(−p), h(−4p) (genus data
+   at p, not quasi-polynomial in p). Outcome: W-certificates with all entries ≥ 2 are the m ≡ 0 (4) with HJ
+   length 3 (Lemma 1.1; boundary words with an entry 1 are extra — R170 repair). Dedekind sums determine only the
    *difference* r(n/m) − r(n/(n−m)) of HJ lengths (Riemenschneider duality + Hirzebruch's formula
    12s(m,n) = Σ(a_i − 3) + (m + m*)/n give r − s = (m+m*)/n − 1 − 12 s(m,n)), not the length, and their exact
-   moments are of size ≍ √p (class numbers) — a main term a power larger than the certificate count with
-   capped multiplicity (B3). (Both formulas checked for all coprime 1 ≤ m < n < 120, `scripts/gi_hj_check.py`.)
+   moments are (Assessment) of size ≍ √p (class numbers) — a main term a power larger than the certificate count with
+   capped multiplicity (B3). (Both formulas checked for all coprime 1 ≤ m < n < 120, `scripts/gi_hj_check.py`; re-checked from scratch
+   for n < 90 by R170.)
 
-**Census of the sign-blind total (EVIDENCE, `scripts/gi_sign_census.py` via /tmp driver; n ≡ 1 (24),
-4001 ≤ n ≤ 6000, t ≤ n + 2, trivial m'' = 1 removed).** Means (class +1, class −1, total; sd of total):
-29 primes (16.2, 11.2, 27.4; 4.2); 55 composites (15.2, 9.2, 24.4; 4.9); 8 odd squares 63²…77² (25.1, 0, 25.1;
-9.4). The sign-blind total is of the same size at primes and squares (it is governed by local densities that
+**Census of the sign-blind total #D*(n) (EVIDENCE; R170 repair — corrected residue class; data from R170
+`scripts/review_gi_census.py doc5`; n ≡ 1 (24), 4001 ≤ n ≤ 6000).** Means (class +1, class −1, total; sd of
+total): 28 primes (22.8, 7.2, 30.0; 6.6); 50 composites (22.8, 6.2, 29.0; 8.0); 5 odd squares 65², 67², 71², 73²,
+77² (29.8, 0, 29.8; 8.7). (The earlier figures 29 primes (16.2, 11.2, 27.4; 4.2), 55 composites (15.2, 9.2, 24.4;
+4.9) are for n ≡ 17 (24), not 1 (24); the earlier squares row (25.1, 0, 25.1; 9.4) is for all 8 odd squares
+63²…77², which include 63² < 4001 and squares ≡ 9 (24).) Note that at n ≡ 1 (24) the class −1 share is lower
+(7.2 of 30.0) than at n ≡ 17 (24) (11.2 of 27.4). The sign-blind total is of the same size at primes and squares (it is governed by local densities that
 do not see the difference — cf. O128 Prop 8.3); at squares the class −1 mass reappears in class +1. No exact
 conservation law: the totals fluctuate (sd ≈ 4–9), so "S is local" is a heuristic, not an identity.
