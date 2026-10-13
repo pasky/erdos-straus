@@ -5,6 +5,10 @@ reviews/agent-reports/AGENT_REPORT_O183.md. From-scratch scripts: `scripts/revie
 arithmetic, own tame and 2-adic Hilbert symbols; none of the author's `t1t_*` code is used).
 
 Status: round 1 complete.
+**Repairs applied** (author quiet since checkpoint 1, 11:12): T1_TEMPLATE.md — M1 (Prop 1.2 σ₂ step), M2 (§4 plan:
+Galois hypothesis), m3 (§3 histogram note), m4 (Thm 1.3(b) addition, Thm 3.1 unconditional for p ≡ ±2 mod 5), m5, m6,
+m7 (Cor 2.2), m8 (Lenstra Cor 4.8, √p slip, GRH form), m9, m10; BRAINSTORM/bsJ — promise note. All marked
+"(R183 repair)". Not repaired: m1, m2 (AGENT_REPORT wording), m3 for §1/§4 tables (author to recompute or relabel).
 
 ## Summary verdicts
 
