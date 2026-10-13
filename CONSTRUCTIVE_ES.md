@@ -124,8 +124,9 @@ L ≅ ⟨1⟩ ⊥ M with M = [[v − 1, −1], [−1, u − 1]] a binary form of
 prime factor q ≡ 3 (mod 4). (Words (1, u, v) ⟺ (u − 1)(v − 1) = p + 1, χ = ((u − 1)/p); for an odd prime q | p + 1,
 (q/p) = (p/q) = (−1/q); (2/p) = 1.) For p ≡ 5 (8) (2/p) = −1 and a = 2 always works; p ≡ 3 (4) is trivial (a = 1).
 So the spine alone is Mordell-type congruence data plus one divisor event: it misses every p ≡ 1 (8) with
-(p + 1)/2 composed of primes ≡ 1 (mod 4) (a set of primes of relative density ≍ (log p)^{−1/2}, heuristically; e.g.
-p = 9 (p+1 = 10 = 2·5) is the square control, and p = 73: 74 = 2·37 fails at t = 1, while (2, 4, 11) certifies 73).
+(p + 1)/2 composed of primes ≡ 1 (mod 4) (relative density ≍ (log p)^{−1/2} heuristically; e.g. p = 73: 74 = 2·37 fails
+at t = 1, while (2, 4, 11) certifies 73). CERTIFIED (`scripts/ce_spine.py`): criterion = direct divisor check for all
+4466 primes p ≡ 1 (8) < 2·10⁵; 5013 of the 19 552 primes p ≡ 1 (8) < 10⁶ have no spine certificate.
 
 *Reading (Assessment).* Certificate edges with small t sit at Frobenius distance t from the spine; those with small A or A*
 (e.g. Mordell's A = q ∈ {2, 3, 5, 7}, CHI_FLIP §3.1) sit at the CM points of discriminant −4q, i.e. at the "special
