@@ -70,3 +70,72 @@ can be large (one needs only −p/4 ∈ ⟨S⟩² mod r for some prime r ≡ 3 (
 (density-zero set; Assessment); whether S = {primes ≤ log p} with larger Q ∈ ⟨S⟩ works is OPEN (an Artin-type
 question with |S| growing)". The same overstatement sits in the report's SHARP 1 ("weaker than seed (ii)'s log p")
 — fine if read as "we only proved the weaker form".
+
+## §3 — order-3 TES over ℤ[ω]
+
+All numerics below: `PYTHONPATH=scripts uv run --with sympy python scripts/review_syn2_eis.py 6000 100000 200 100`
+(1.8 s; own ℤ[ω] arithmetic, own cubic residue symbols via reduction to F_p / F_{q²}, own tame symbols
+((−1)^{v(A)v(B)}A^{v(B)}B^{−v(A)})^{(N−1)/3}, computed at **every** non-λ place, including the anchor 2).
+
+**Prop 3.1 — SOUND.** Re-derived line by line: g₀ = 10 + ω ≡ 1 + ω = −ω² (mod 9) and ≡ ω (mod 2); gE ≡ n (mod 9)
+⇒ E ≡ −ωn ⇒ 9 | ωn + E; ωg + 1 = ω(g + ω²) = 9ωa ⇒ gx = ωna + 2D ⇒ ω²x + 2D = x(g + ω²) − ωna = a(9x − ωn) = aE ⇒
+ω²/y + 2/z = E/(nx) = 9/n − ω/x. Mod 2: a ≡ ω + ω² = 1, E ≡ ω⁻¹ = ω², x ≡ 1, y ≡ Z ≡ 1. Shape: π | n ⇒ π ∤ n + 18D
+⇒ π ∤ E ⇒ π ∤ x. (Unstated but true: x ≠ 0, since x = 0 would give ωna = −2D, odd = even mod 2.) Numerically
+verified exactly in K on all 1536 recipe solutions (below).
+
+**Definition / remark on (N_q) — SOUND.** Re-derived: q | Q ⇒ q ∤ g, v_q(ωna) = s, v_q(2Q³) = 3c; s < 3c ⇒
+v_q(x) = s, v_q(z) = 2s − 3c; s ≥ 3c ⇒ v_q(z) ≥ 0; q ∤ x ⇔ s = 0 ⇒ v_q(z) = −3c. Note (MINOR m3) that the weaker
+normalisation is *necessary* for the shot family, not a cosmetic relaxation: on my 1536 recipe solutions, 68 of the
+3044 mute places have v_q(z) < 0 with 3 ∤ v_q(z) (all with q | x). At order 2 this never happens (v_q(z) = 2s − 2c is
+always even), so X11's "slightly weaker than O186's" undersells the asymmetry: at order 3 the strong normalisation would
+reject Thm 3.5's own solutions. Suggest one sentence saying so.
+
+**Lemma 3.2 — SOUND.** Re-derived: v_q(z) = −w < 0 ⇒ ω/x + ω²/y is q-integral ⇒ v_q(x) = v_q(y) = V;
+v(A) = v(B) = V + w; symbol (−1)^{v}(ωx/y)^{v}, −1 a cube. V = 0: (N_q) ⇒ 3 | w = v. V > 0: v(ωy + ω²x) ≥ 2V ⇒
+ω²y/x ≡ −1 (mod q^V) ⇒ ωx/y ≡ −1 ⇒ symbol (−1)^{2v} = 1. The order-2 parenthetical is UNIT_ORBIT_ES Lemma 1.1 case (ii),
+which indeed does not use parity. Numerically: tame symbol 0 at all 3044 mute places.
+
+**Thm 3.3 — SOUND.** The list of places in TWISTED_T1 Thm 3.2's proof: 2 (z ∈ 1 + 2O₂ since D ≡ 1 mod 2 — the
+anchor computation uses only u_i ∈ U^{(1)}·c_i^{-1}, ✓), λ (u_i ∈ O_λ as S ∌ λ, ✓), tame v ∉ S ∪ {primes of n}
+(integral ✓), v ∈ S (Lemma 3.2), π | n (π ∉ S so variables π-integral, DRINFELD_ES Thm 3.3's argument applies). ✓
+*Numerical cross-check of the whole place list:* on all 1536 solutions inv_π = ω² ("2"), inv₂ = ω ("1"), every other
+tame symbol 0, Σ_{non-λ} = 0 — hence inv_λ = 0 by reciprocity, independently confirming the partner step for
+non-integral z. MINOR m4: Thm 3.3 is stated for n = π^{3k}; Thm 3.5's last sentence ("if n is a cube, none of Type I/II
+shape at every prime (Thm 3.3)") needs the (immediate) extension to composite cubes: each π | n with 3 | v_π(n)
+and Type I/II shape contributes inv_π = 0, contradicting Σ ≠ 0. Say so.
+
+**Cor 3.4 — SOUND; and the hedge can be removed (upgrade).** The proof (Hecke prime π ≡ t (mod r), π ≡ 1 (mod 2)
+in the ray class mod 2r; r ∤ 18 since r ≡ 2 (mod λ) and ≡ ω (mod 2); Prop 3.1 with D = 1, g = r at n = π³;
+contradiction with TWISTED_T1 Thm 3.2(b)) is correct. The author's open point "K(∛18) ⊂ L (constancy on the class)
+plausible, not checked" is in fact true by a standard conductor computation: K(∛18)/K is tamely ramified at 2
+(v₂(18) = 1, conductor exponent 1) and at λ has v_λ(18) = 4 prime to 3, so the local Kummer extension of ℚ₃(ω)
+(e = 2) has upper ramification break e·p/(p−1) = 3 and conductor exponent 4; hence the conductor divides
+2λ⁴ = (18), K(∛18) ⊂ L, and (18/·)₃ is a character of the ray class group mod 18. *Numerics:* over all degree-1
+primes N ≤ 10⁵ (all 6 associates), (18/r)₃ is a well-defined function of r mod 18 (0 conflicts, 162 classes),
+consistent along μ₆-orbits; on the class g₀ it equals ω² for all 354 such r (author: 27 up to 6000, reproduced).
+Suggested repair: replace "(A direct derivation … was not done.)" by the conductor argument (still label the value ω²
+as EVIDENCE unless derived), and simplify Thm 3.5's proof (L' = L). A Cor-3.4-free remark worth adding: the
+T1₃ control (3) is forced a priori — every prime r | π³ + 18Q³ has (18/r)₃ = 1 (−18 ≡ (π/Q)³), so every divisor g has
+(18/g)₃ = 1 ≠ (18/g₀)₃.
+
+**Thm 3.5 — SOUND.** Re-derived: h_K = 1 and μ₆ ↪ (O/18)^* make "generator ≡ g₀" one ray class; non-cube ⇒ some
+π ∤ 6 with 3 ∤ v_π(n) (units ≡ 1 mod 2 are ±1, cubes); M = K(∛n) ramified at π, L' unramified outside 6 ⇒ L' ∩ M = K;
+Chebotarev in the abelian L'M/K gives 𝔯 = (r), r ≡ g₀, r ∤ 6n, with (n/r)₃ = (18/r)₃ ⇒ −n/18 ≡ Q³ (mod r), Q ≢ 0;
+CRT adjusts Q to be ≡ 1 (mod 2) and prime to 3n (all these primes ≠ r); Prop 3.1 with D = Q³ gives a TES^{□₃}
+solution with Type II shape at every π | n and (N_q) at every q | Q. No quantifier problems: S = all primes ∤ 6n is
+part of the definition of TES^{□₃}. *Numerics (from-scratch recipe):* all 1536 2-primary split primes N(π) ≤ 6000
+(both 2-primary associates of all 768 prime ideals) solved, 0 failures (exact equation in K, 2-primarity of x, y, Z,
+D, Type II shape at π, (N_q), tame census as above); least admissible r: max N(r) = 3187 (= author's figure);
+my Q choice differs from the author's (max Q = 5327 vs 3671; immaterial).
+
+**EVIDENCE items (3), (4).** (3) Extended: all 2-primary associates of all π with N(π) ≤ 200, D = Q³ for every
+2-primary Q ∈ O with N(Q) ≤ 100 prime to 6N(π): 1632 shots, **0** divisors in the class g₀. *Control* with D = Q
+(not a cube; Prop 3.1 still applies formally): 112 of 1632 shots have such a divisor — the cube in D is what carries
+T1₃. (4) MINOR m5: "fires for only 52 of the 768" depends on which of the two 2-primary associates ±π is taken
+(π + 18 and −π + 18 are different shots). Using the author's associate convention (`tw_eis.normalise` then the
+first 2-primary unit multiple) my own divisor search reproduces 52/768; over all 1536 2-primary associates it is
+117/1536, and 90 of the 768 prime ideals fire for at least one associate. Repair: state the convention, or report
+"117 of 1536 (90 of 768 ideals)".
+
+**§3 Reading — fair as Assessment**, with the m2-type caveat: "with a fixed finite S, it is an Artin problem (m = 3:
+… CONJECTURE)" is correctly labelled. "TES finiteness is OPEN" ✓.
