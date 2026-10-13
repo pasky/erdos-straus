@@ -204,8 +204,11 @@ def norm_group(a, rng=random.Random(1), tries=400):
     if not any(ca): return None
     key = ca
     if key in _ngcache: return _ngcache[key]
+    # the extension depends only on the class of a in V: use a small canonical representative
+    a = mul(pw(LAM, ca[0]), mul(pw(_basis[0], ca[1]), mul(pw(_basis[1], ca[2]), pw(_basis[2], ca[3]))))
+    assert vcoords(a) == ca
     a2 = mul(a, a); vecs = []
-    for t in range(tries):
+    for t in range(5 * tries):
         R = 3 + t // 50
         c = [(rng.randint(-R, R), rng.randint(-R, R)) for _ in range(3)]
         n = add(add(pw(c[0], 3), mul(a, pw(c[1], 3))), mul(a2, pw(c[2], 3)))

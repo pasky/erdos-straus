@@ -1,0 +1,1 @@
+ES n odd < 400: 74616 labelled solutions; inv_2 != 0 on 0; sum_(p|n) inv_p != 1/2 on 0
