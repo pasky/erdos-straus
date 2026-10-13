@@ -171,9 +171,13 @@ g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): �
 Also α > β forces deg a1 > deg b1, so lc(s) = 1 and E, F, K are monic. ∎
 
 **Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1
-(R178 repair: Lemma 3.1 is not needed, only γ ≤ j), R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
+(R178 repair: Lemma 3.1 is not needed, only γ ≤ j), R166's Case A steps (1)–(2) and the compactness criterion; (R187 repair) O173 has
+no hostile review on file, but R187 re-derived the parts of O173 Lemmas 1.1 and 2.1 used here (the Case A/B split against
+FUNCTIONFIELD_ES §6.2, and 2.1(a), (b) with deg(m'wC) = s, deg v ≤ max(a, b) − deg g') and found them correct, so for Thm 2.5
+this condition is discharged by `reviews/depth-aspect-review-2.md` §2.1, pending R173 for the rest of O173).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
 q = 3^r with r ≥ 27. Then for every c ∈ F_q^* the set of u ∈ 1 + cT + T²F_q[[T]] such that x_u lies in no validity set
-has positive Haar measure (relative measure ≥ 0.97 for q = 3^r, r ≥ 27). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
+has positive Haar measure (relative measure ≥ 0.97 for q = 3^r, r ≥ 27; (R187 repair) for r = 34, 35 this needs the pattern
+sums, see the proof). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
 For char q ≥ 5 this was known (O140 Prop 4.1: 1 ∈ O). For q = 3^r it is new; there the class-1 obstruction is absent
 (FUNCTIONFIELD_ES §6.1(a)).
 *Proof.* Relative to the c-slice (mass q^{−2}), a Case B tuple of parameter s covers q^{1−N(s)} and a Case A tuple of
@@ -182,10 +186,16 @@ Case B mass ≤ Σ_s Σ_patterns min(four bounds)·q^{1−⌈s/2⌉}, and per s 
 ⌊2(s−3)/5⌋ + 1 − ⌈s/2⌉ ≤ −max(1, s/10 + 1/5). Lemma 2.4 gives Case A mass ≤ Σ_α (α+1)^3 B_A q^{⌊(α−1)/2⌋−α}, exponent
 ≤ −(α+1)/2. With δ(n) ≤ 2^n and δ₃(n) ≤ 3^n (a degree-n polynomial has ≤ n irreducible factors), the crude closed
 form 4Σ_s(s+1)^4(16q^{−1/10})^s q^{−1/5} + 24Σ_α(α+1)^3(16q^{−1/2})^α q^{−1/2} is decreasing in q and is < 0.48 at
-q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates (in floating point; the margin
+q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. (R187 repair: both statements are true but loose. R187's recomputation
+`scripts/review_da2_largeq.py` gives 0.130 at 3^34, 0.061 at 3^35, 0.030 at 3^36, and the crude form equals 1 already at
+q ≈ 1.20·10^15. So the crude form alone gives relative measure ≥ 0.97 only for r ≥ 36. For r = 34, 35, 36 the pattern sums
+(same script, s, α ≤ 100) give totals ≤ 5.2·10^{−7} even with the uniform 16^s, so the 0.97 claim holds for all r ≥ 27.) For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates (in floating point; the margin
 is ≥ 38×, so rounding is irrelevant, but no outward-rounded certificate was made) the pattern-wise
 minimum exactly for s, α ≤ 100 and adds the crude tail beyond 100. The totals are 2.6·10^{−2} (r = 27),
-1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). (R178 repair: the script uses route-wise constants, i.e. δ evaluated at the
+1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). (R187 repair: at r = 27 the total is entirely the crude tail beyond s = 100;
+the exact part s, α ≤ 100 is 1.4·10^{−10}. `bsE_largeq.py` as committed stops at the first r with total < 1 (r = 27), so the
+r = 28..33 values need a modified loop. R187's independent `scripts/review_da2_largeq.py` reproduces 2.56·10^{−2} (r = 27),
+1.93·10^{−7} (r = 28) and 1.75·10^{−11} (r = 29).) (R178 repair: the script uses route-wise constants, i.e. δ evaluated at the
 exact degree of each reconstruction, 2·3^s, 2^{y+z}·2^{s+2y+z}, 2^{s+y}, 2^{max(s,z+2a)}; these are valid. With the uniform
 16^s stated above, R178's independent recomputation `scripts/review_da_thm25.py` gives 7.7·10^{−3} (r = 27), 4.0·10^{−4} (r = 28),
 1.6·10^{−6} (r = 33), so the conclusion is unchanged. Why only γ ≤ j is needed: families sharing a tuple have nested cylinders
@@ -197,6 +207,13 @@ n, with q → ∞. Theorem 2.5 is at *fixed q* and covers all degrees at once. I
 "a sterile point exists" (over ℤ open for every Mordell r; MORDELL13E, MORDELL17C). The constant 16 comes from crude
 divisor bounds. **The exponents are not the obstacle; the constants are.** At q = 3 the same union bound is > 1
 (§4; R178 repair: was §3), exactly as over ℤ, where MORDELL17B needs ET's exponent 2/5 *with an explicit constant C ≤ 1.40*.
+(R187 repair: "the exponents are not the obstacle" presumes a sharp divisor bound. With δ(n) ≤ 2^n the loss 2^s = q^{s log 2/log q}
+is itself an exponent at fixed q.)
+*Remark (R187 repair; suggestion, NOT a claim).* The threshold r ≥ 27 comes from truncating at s = 100 and using the crude tail
+with constant 16. With the route-wise four-bound minimum, the asymptotic per-s exponent max_pattern min(e1..e4) − 1/2 is already
+negative at q = 3^10 (grid search, `scripts/review_da2_rate.py`: −0.012 at 3^10, −0.025 at 3^12). Exact sums for s ≤ 150 are
+3.7·10^{−2} (3^10), 2.1·10^{−3} (3^12) and 5.4 (3^9), with decaying per-s terms (EVIDENCE). So the same lemmas very likely give
+r ≥ 10 once a rigorous tail is written (e.g. an exact LP bound on the pattern exponent beyond some s₀). This is unproved.
 
 ## 3. Transfer to ℤ: large Mordell primes r have sterile points
 
@@ -208,7 +225,8 @@ POINTWISE_MORDELL §2.1, which is for general T), the boxes are as follows. Leve
 √Q number ≤ 6·f(r^k), where f(n) is the number of ordered solutions of 4/n. (R178 repair: √Q gives ≤ 2 roots per Q-datum because
 r ∤ 4a²d, as f ≡ −1 (mod 4ad); Lemma 1.3 is not needed. EVIDENCE for the general-r box table: R178's brute force from the literal
 ET Prop 1.9 classes, `scripts/review_da_rgen.py`, r ≤ 31, levels ≤ 2, finds no box outside this description and no level-0 box.) P-boxes are N-points of Σ^II_{r^K}
-at half level ⌈K/2⌉, ≤ 2 per point. MORDELL17 §2, "Consequence (measure)", with 17 ↦ r, gives
+at half level ⌈K/2⌉, ≤ 2 per point ((R187 repair) 1 per point suffices: each N-point (a, b ordered) gives one P-ball
+−f_ET mod r^{⌈K/2⌉}, and the reflection is another N-point; 2 is a harmless overcount). MORDELL17 §2, "Consequence (measure)", with 17 ↦ r, gives
   μ(⋃ boxes) ≤ S(r) := Σ_{k≥1} 6 f(r^k) r^{−k} + Σ_{K≥1} 2 f_II^N(r^K) r^{−⌈K/2⌉},
 where f_II^N counts N-points of Σ^II modulo dilation. The ET exponent of the P-family is 2/5, against the weight
 N^{−1/2} (margin 1/10). This is the ℤ face of Lemma 2.2. At r = 17 the margin is eaten by constants (MORDELL17 §4:
@@ -223,7 +241,9 @@ of any of the seven ET families. Consequently **no finite set of ET Prop 1.9 cla
 primes p ≡ 1 (mod 24) whose least quadratic non-residue is r.** In fact the sterile set has measure
 ≥ (r − 1)/(2r) − S(r) → 1/2 in ℤ_r.
 *Proof.* Browning–Elsholtz bound f(r^k), and ET's proof of Prop 1.7 gives f_II^N(n) ≤ n^{2/5 + C/log log n} with an
-absolute (effective) C (MORDELL17 §2 for the N-point version). With n = r^K ≥ r, the exponent loss is ≤ CK log r/log log r.
+absolute (effective) C (MORDELL17 §2 for the N-point version). ((R187 repair) ET's argument gives ≪ with an absolute implied
+constant A; the displayed form without A holds for n ≥ n₀ after enlarging C, which is harmless as n = r^K ≥ r ≥ r₀; equivalently
+read "2Σ_K" below as "2AΣ_K".) With n = r^K ≥ r, the exponent loss is ≤ CK log r/log log r.
 Hence the Q/U part of S(r) is ≤ 6C_εΣ_k r^{−k(1/3−ε)} = O(Σ_k r^{−k/4}) with ε = 1/12 (all five
 non-P box types are ≤ f(r^k) by MORDELL17 Lemmas 2.1, 2.2). The P part is
 ≤ 2Σ_K r^{K(2/5 + C/log log r) − K/2} ≤ 2Σ_K r^{−K(1/10 − C/log log r)}. Once C/log log r < 1/20 every series is geometric with
@@ -239,8 +259,12 @@ cell lie inside P-boxes (MORDELL17 Lemma 5.2, whose proof is r-free; P is invers
 effective.
 *Remarks.* (1) The averaging over the (r − 1)/2 non-residue cells is essential. Low-level P-boxes (K = 1: ≤ 2f_II(r) ≪ r^{2/5+o(1)}
 of them) cover *whole* cells, but only r^{2/5+o(1)} of the r/2 cells. (2) r₀ is astronomically large (log log r₀ ≈ 20C), so
-this says nothing about r = 13, 17, where the sterile-point question stays open (MORDELL13E, MORDELL17C). What is new is
-the logical status: **sterile Mordell points exist**, for all large r. The campaign had none: the only proved sterile points were
+((R187 repair) at accessible r the binding constraint is already the level-1 term: 6f(r)/r + 2f_II^N(r)/r = 2.01 (r = 883),
+2.12 (r = 1999), 1.07 (r = 7019), 1.11 (r = 8423), 0.58 (r = 11171), EVIDENCE `scripts/review_da2_level1.py`; even this single term
+is > 1/2 for many r ≈ 10⁴) this says nothing about r = 13, 17, where the sterile-point question stays open (MORDELL13E, MORDELL17C). What is new is
+the logical status: **sterile Mordell points exist**, for all large r ((R187 repair) "sterile" here means: in no class of the seven
+ET Prop 1.9 families, as in MORDELL13E/17; TYPEI2/3 use the word for Type-I certificates only, and nothing is said about
+non-polynomial or growing-parameter identities). The campaign had none: the only proved sterile points were
 the square points, and x* was refuted. (3) Function-field twin: Theorem 2.5 (q large ↔ r large). There the constants are explicit
 (q ≥ 3^27), because the divisor bound 2^n is uniform in q; over ℤ the divisor bound n^{C/log log n} is what forces r₀ huge.
 (4) It does not touch ES itself. Sterility excludes finite *covering certificates*. The primes near x(u) may still satisfy ES,
@@ -251,6 +275,11 @@ Lemma 1.3 is used only as an emptiness statement, which is not needed for an upp
 O(1/log log n) for N-points that are not Type I/II solutions (MORDELL17 R83 repair m1 asserts it from ET §3). (iii) That U-boxes ≤ f(r^k)
 (MORDELL17 Lemma 2.2) holds for general r. *The O178 self-review (deep reviewer) re-checked (i)–(iii) and found that the
 transfer passes after the Browning–Elsholtz repair. This is internal; a hostile R-review is still needed.*
+*(R187 repair: the caveat is discharged. Two independent hostile reviews (R178, R187) found Thm 3.1 SOUND. R187 re-derived the
+reduction for general r; it uses only that r is odd, the gcd conditions of Prop 1.9, (ad)_r | a²d and the I2 change of variables,
+with no residue symbol at r and no size condition. R187 confirmed it by brute force from the literal Prop 1.9 classes for
+r = 11, 13, 17, 19, 23 (`scripts/review_da2_rgeneric.py`, 0 failures), and checked that ET's §3 Σ^II count uses only the
+defining equations. MORDELL17 Lemma 1.3 is not used; Lemma 5.2 is optional; see the R178 effectivity repair above.)*
 
 ## 4. Numerics for §2 (EVIDENCE; validation of the enumerations)
 
