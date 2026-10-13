@@ -133,3 +133,79 @@ A(4λκ − p) = 2(λ + κ), equivalently p + 4t² has a divisor d ≡ −p (mod
   widened family (M1).
 * §4.2 orbit numbers reproduced (see Prop 1.2), except "≤ 3 points per (λ, D)" (m4).
 
+### Literature and labels
+
+* Ghosh–Sarnak, "Integral points on Markoff type cubic surfaces", Invent. Math. 229 (2022) — exists; surfaces
+  x₁² + x₂² + x₃² − x₁x₂x₃ = k; result MISSTATED in §2 Reading (M4).
+* Colliot-Thélène–Wei–Xu, "Brauer–Manin obstruction for Markoff surfaces" (arXiv:1808.01584) and Loughran–Mitankin,
+  "Integral Hasse principle and strong approximation for Markoff surfaces" (IMRN 2021(18), arXiv:1807.10223) —
+  exist, both about the GS surfaces (GS's own intro: they explain part of GS's Hasse failures by integral BM, not
+  all). Cited only in the report as sparks; fine. Their relevance to S_{n,D} (no z² term, C linear — a conic bundle
+  over the C-line, not a Markoff-type surface with three Vieta involutions) is unargued; "Markoff-type" is loose
+  terminology (m5).
+* GHS/Harman: not re-checked by me (no source in sources/; the Soundararajan/Harper papers on smooth numbers in APs
+  exist); immaterial to the document's argument (m9: keep the "not re-checked" flag).
+* Labels: Prop 1.1, 1.2(a)(b)(c), 2.2 (equivalence), 3.1 (sizes) PROVED — fair after M1. Prop 2.1 PROVED — fair;
+  its "Consequence" is an Assessment that does not follow (M2). §1.2 Reading "precise sense … NO archimedean wall"
+  and §5 items 2, 3 overclaim (M3, m5). §4 EVIDENCE — fair. ES is not claimed solved anywhere — correct.
+
+## Numbered defects
+
+**M1 (MAJOR) — the (A, B) family is strictly larger than the shot family; "bijection" false as stated.**
+Location: Prop 1.1(c) ("Shot data with Q | K² are in bijection with triples (A, B, g) … (plus gcd(Q₀, n) = 1 …)"),
+Prop 2.2 (i) ⇔ (ii), §4.1 ("ES^{(y,1)} shot solutions", the 4/13 and 12433 examples), AGENT_REPORT SHARP 1.
+Problem: Q₀ = (g+1)/(2A) = λB and Q = λB²; triples with λ even give Q EVEN (370 of the author's own 816 test triples),
+excluded by the Notation "Q ≥ 1 odd"; the parenthetical mentions only gcd(Q₀, n) = 1 (35 triples). The doc's own
+p = 13 example has Q = 18. The solutions themselves remain valid (den z = B² odd, prime to n — verified on all 816).
+Repair: either (a) widen the shot convention to "Q ≥ 1, g ≡ 3 (4), g | n + 4Q²" and state den z = Q₁² for odd Q₁
+without parity assumption on Q₀ (needs a one-line 2-adic check replacing EXPONENT_CAP Prop 1.2's "Q odd"), or
+(b) add "λ odd, gcd(λ, n) = 1" to Prop 1.1(c)/2.2(ii) and in §4.1 replace "B ≤ 23" by the λ-odd data above
+(B ≤ 73 needed). (a) is cleaner; then §4.1 stands as written.
+
+**M2 (MAJOR) — Prop 2.1 "Consequence" (BV/BDH and Chebotarev irrelevant) does not follow.**
+Location: §2 Prop 2.1 Consequence; §5 item 2 ("for each fixed P … BV/BDH and Chebotarev contribute nothing");
+AGENT_REPORT SHARP 3. Problem: finiteness is proved only for FIXED P; the brief's sieve (V4) has P ≈ g^{1/4}
+growing with g, and then g ≤ 2nP²(n + P²) ≈ 2n·g is no constraint — exactly R200 M1's open regime. Nothing in §2
+shows that a level-of-distribution argument with modulus 4P ≈ g^{1/4} varying with g cannot produce a firing prime.
+Repair: restrict the Consequence to fixed P (= EXPONENT_CAP Cor 2.2), and say instead "with P = P(g) growing the
+firing condition is a hitting problem for a g^{o(1)}-size box (Prop 3.1/EXPONENT_CAP 3.1(b)); no Chebotarev field
+is fixed in advance, so standard BV/Chebotarev input does not directly apply (Assessment)".
+
+**M3 (MAJOR) — Pell orbits do not stay in ES^{(y,1)}; the "no archimedean wall at bounded cap" claim is unproved.**
+Location: §1 Prop 1.2 Reading ("this is the precise sense in which bounded cap + growing mute set has NO archimedean
+wall (R200 M1)"); Prop 2.2 ("on V_n with B free" while V_n is defined with B squarefree); Prop 3.1 ("B free does
+not"); §5 item 2 ("Every solution with B > 1 lies on an infinite Pell orbit (so no bound on g, confirming R200 M1)");
+AGENT_REPORT SHARP 2. Problem: automorphs preserve parity/gcd conditions but NOT squarefreeness (many images have
+r² | B, `review_gm_orbits.py`); the orbit lives in ES^{[2]}, which has UNBOUNDED exponent (q | y, any v_ℓ(q)) — not a
+bounded-cap variant. Infinitely many squarefree B on an orbit is a squarefree-values-of-a-binary-recurrence
+problem, open in general. Also the μ² − n non-square hypothesis is dropped in §5 (m3). R200 M1 was a "not proved"
+statement; it is not "confirmed" by this. Repair: say "for ES^{[2]} each (λ, D) with μ² − n non-square carries an
+infinite orbit (no wall); for ES^{(y,1)} the orbit gives infinitely many points iff it has infinitely many
+squarefree B (expected, unproved; EVIDENCE: …)", and change §5 item 2 accordingly.
+
+**M4 (MAJOR, citation) — Ghosh–Sarnak misstated.** Location: §2 Prop 2.2 Reading ("even the Hasse principle for
+integral points FAILS for a positive proportion of k (their result)"). Their theorem: HP holds for almost all k;
+failures infinitely many (≥ √K (log K)^{−1/2} up to K). Repair: replace by the correct statement; note their
+surfaces differ (all three variables quadratic, Markoff group action).
+
+**m1** Prop 1.1(c) proof, converse: "with Q₁ ≡ …" is a broken sentence. Repair: "D := (nA² + B²)/g ≡ −B²
+(mod 2A) because 2A | A² and g ≡ −1 (mod 2A); gcd(B, A/2) = 1; apply EXPONENT_CAP Prop 1.3 converse with k = A/2,
+Q₁ = B: Q₀ = (g+1)/(2A), overflow exactly B, and B | Q₀ by g ≡ −1 (mod 2AB)."
+**m2** Prop 1.2(c): n | λ is impossible for EVERY odd n > 1 (χ_{−4n} is odd: g ≡ −1 (mod 4n) ⇒ χ_{−4n}(g) = −1, while
+all prime factors of g have (−n/q) = +1). State it for all odd n; drop "for n ≡ 1 (mod 4)" in (c), §4.2, §5 item 3.
+Checked: 0 of 1912 points over all odd n ≤ 401.
+**m3** §5 item 2 drops "μ² − n non-square"; squares occur (e.g. n = 35, (A,B,λ,D) = (2,11,2,3), μ² − n = 1).
+**m4** §4.2 "Every (λ, D) pair carries ≤ 3 points": false — n = 29, (λ, D) = (2, 3): (2,7), (2,17), (14,47), (14,121).
+**m5** Prop 1.2(c) reading / §2 / §5 item 3: "never a Markov-type tree", "Markoff-style descent … unavailable".
+Both Vieta moves fix C; there is never a tree across C. What is lost is the Vieta-jumping bound on μ in terms of D.
+Rephrase; also call S_{n,D} a conic bundle (family of binary forms) rather than "Markoff-type".
+**m6** Prop 2.2 Reading: "for each D the solution set is O(log X) Pell/Vieta orbits" — unsupported (μ ranges over
+≍ nX/D multiples of D). Delete or replace by "for each (μ, D) finitely many orbits, each O(log X) points".
+**m7** Prop 3.1 labelled PROVED but contains Assessments ("NOTHING changes", "entire difference is archimedean").
+Split: PROVED (box sizes, B = 1 bound) / Assessment (interpretation).
+**m8** §3 "For e = 0 … expected count ≍ log³ n": should be log² n (B = 1 = d = 1 slice); data above.
+**m9** GHS/Harman: keep "not re-checked"; no defect in substance.
+**m10** §4.1 Completeness: "exact only for p < 400: 13, 37, 97" omits 181 and 193; with the complete criterion
+(A(4λκ − p) = 2(λ + κ), t ≤ (1+√(1+4p))/4) all 99 B = 1 failures below 10⁶ are exact. Replace the 116/"upper bound"
+statement by: "exactly 99 primes < 10⁶ have no B = 1 solution; all have ES^{(y,1)} solutions with B ≤ 23".
+
