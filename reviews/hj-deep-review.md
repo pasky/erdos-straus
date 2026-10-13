@@ -115,3 +115,24 @@ restatement — suggest "PROVED (reformulation)".
   hypothesis H one expects every fixed finite list of one-letter shapes to fail infinitely often (choose n with each n + u
   equal to a small cofactor times a prime in a suitable class), so finite shape lists are conditionally *refuted*, not
   merely unproved — while my data show u ≤ 12 suffices below 10⁹. This contrast is worth one sentence. MINOR (Assessment).
+
+### bsA_wu_rokhlin_sign Thm W (sign = Wu square) — SOUND (r ≤ 5 PROVED rel. DK Cor 4.1); Rokhlin reading GAP (orientation)
+* Re-checked from scratch (`scripts/review_hj_wu.py`, own continuants, own Jacobi, own mod-2 solve for ε):
+  exhaustive letters 2..9, r ≤ 5: **24 692 odd words, 0 failures** (same count as the author); random words r ≤ 10, letters
+  ≤ 200: 39 278 odd words, 0 failures (this does *not* use DK Cor 4.1, so it also tests Cor 4.1's mod-8 dependence);
+  w·w − n − r + 1 ∈ {0, 4} (mod 8) always ✓; odd squares m < 60, all A with r ≤ 9: 10 948 words, all have w·w ≡ n + r − 1
+  (W2 ✓).
+* The r ≤ 5 proof is valid: ε depends on letters mod 2, w·w = Σε_i b_i − 2Σε_iε_{i+1} and n mod 8 on letters mod 8, and
+  (A/n) on letters mod 8 for fixed r by DK Cor 4.1 (PROVED). (The same argument proves every fixed r by a 8^r check; the
+  limit 5 is arbitrary.)
+* Cor W1's second sentence ("the genus G⁻(p) is exactly {Λ : w·w ≡ p + 6 (8)}" for general ternary lattices) rests on the
+  general-lattice EVIDENCE / an unverified van der Blij–Milgram recollection, not on the r ≤ 5 proof. Label it EVIDENCE. MINOR.
+* **Rokhlin reading.** Kaplan's formula is μ(Y) ≡ σ(X) − L′·L′ + 8·Arf(L′) (mod 16) for a characteristic sublink L′ (Kaplan,
+  Trans. AMS 254 (1979), from my memory too — I could not access it); the memo drops the Arf term, so its "mod 16" is not
+  justified, but **mod 8 the Arf term vanishes**, so the mod-8 statement is robust. The sign convention is not: with the
+  common convention L(p,q) = −p/q surgery on the unknot (Gompf–Stipsicz §5.3), L(n,A) bounds the *negative*-definite plumbing
+  (σ = −r, w·w = −εᵀGε), giving μ(L(n,A)) ≡ εᵀGε − r, hence **(A/n) = +1 ⟺ μ(L(n,A)) ≡ n − 1 (mod 8)** (sanity: L(n,1) bounds
+  the Euler-number −n disc bundle, μ = n − 1; Poincaré sphere = ∂(−E₈) gives μ = −8 ≡ 8 ✓ for the σ − w² convention).
+  The memo's "1 − n" is the opposite orientation (+p/q surgery). For n ≡ 1 (mod 4) — the only ES case — 1 − n ≡ n − 1 (mod 8),
+  so the ES content is unaffected; for n ≡ 3 (4) the memo's statement is wrong under the standard convention. MINOR; repair:
+  state the orientation convention and "mod 8 only".
