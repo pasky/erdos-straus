@@ -1,0 +1,4 @@
+m= 4: chi=-1 words in S_m 23450, not 0; chi=+1 words in S_m 0, not 10980
+m= 5: chi=-1 words in S_m 14625, not 8825; chi=+1 words in S_m 6602, not 4378
+m= 8: chi=-1 words in S_m 11839, not 11611; chi=+1 words in S_m 0, not 10980
+m=12: chi=-1 words in S_m 6448, not 17002; chi=+1 words in S_m 0, not 10980

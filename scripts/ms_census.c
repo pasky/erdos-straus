@@ -6,7 +6,8 @@
  *   ms_census m N p        -> primes 3 <= p <= N, p !| m : list those with NO solution
  *   ms_census m N s        -> odd k, k^2 <= N, gcd(k,2m)=1: list k^2 with NO solution
  *   ms_census m N a        -> all n, 2 <= n <= N : list those with NO solution
- *   optional 4th arg (modes p,s,a): K -> only solutions with exactly K odd denominators count
+ *   optional 4th arg (modes p,s,a): K -> only solutions with exactly K odd denominators count (-1: no filter)
+ *   optional 5th arg: 1 -> only Type I (n divides exactly one denominator), 2 -> only Type II (exactly two)
  *   ms_census m LO c HI    -> primes LO <= p <= HI: print "p count count_alleven count_oneodd count_typeI count_typeII"
  */
 #include <stdio.h>
@@ -25,7 +26,8 @@ static int addf(u64 v,u64*pr,int*ex,int k,int mult){
     int i; for(i=0;i<k;i++) if(pr[i]==q){ex[i]+=e*mult;break;}
     if(i==k){pr[k]=q;ex[k]=e*mult;k++;} }
   return k; }
-static int PARFILT=-1; /* if >=0: only count solutions with exactly PARFILT odd denominators */
+static int PARFILT=-1; static int TYPFILT=0; /* 1: only n|exactly one denominator, 2: n|exactly two */
+static int PARFILT_dummy=0; /* if >=0: only count solutions with exactly PARFILT odd denominators */
 static long long count_n(int m,u64 n,int stop,long long*cnt_out){
   /* cnt_out: [0]=total [1]=alleven [2]=oneodd [3]=typeI(n|x only) [4]=typeII(n|y,z, n!|x) */
   long long c=0; if(cnt_out) memset(cnt_out,0,5*sizeof(long long));
@@ -50,6 +52,7 @@ static long long count_n(int m,u64 n,int stop,long long*cnt_out){
       u128 xy=(u128)x*y; u128 lhs = (u128)m*xy - (u128)n*y - (u128)n*x; /* > 0 */
       if(lhs*z != (u128)n*xy){ fprintf(stderr,"VERIFY FAIL n=%llu x=%llu\n",n,x); exit(2);} 
       if(PARFILT>=0){ int od=(x&1)+(int)(y&1)+(int)(z&1); if(od!=PARFILT) continue; }
+      if(TYPFILT){ int dv=(x%n==0)+(int)((y%n)==0)+(int)((z%n)==0); if(dv!=TYPFILT) continue; }
       c++;
       if(cnt_out){ cnt_out[0]++; int odd=(x&1)+(int)(y&1)+(int)(z&1);
         if(odd==0) cnt_out[1]++; else if(odd==1) cnt_out[2]++;
@@ -63,6 +66,7 @@ int main(int argc,char**argv){
   int m=atoi(argv[1]); u64 N=strtoull(argv[2],0,10); char mode=argv[3][0];
   u64 hi = (mode=='c')? strtoull(argv[4],0,10) : N;
   if(mode!='c' && argc>4) PARFILT=atoi(argv[4]);
+  if(mode!='c' && argc>5) TYPFILT=atoi(argv[5]);
   sieve((long)(hi+10));
   if(mode=='p'||mode=='a'){ long cnt=0,fails=0; printf("m=%d mode=%c N=%llu failures:",m,mode,N);
     for(u64 n=(mode=='p'?3:2);n<=N;n++){ if(mode=='p'&&(!isprime(n)||m%n==0)) continue; cnt++;

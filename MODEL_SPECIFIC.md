@@ -186,3 +186,27 @@ exist, not how many.
 **Last-failure fits.** Inverting P(fail) ≈ exp(−K(log p)³/m) (PW's Poisson form) at the observed last failures gives
 K_eff ≈ 0.27 (m = 8), 0.135 (12), 0.125 (16), 0.09 (20), 0.136 (24) — not constant, so the pure (log p)³/m form
 does not predict last failures to better than a factor ≈ 2 in log L(m); the binned μ-model above is the usable form.
+*Independent word-level check of Thm 3.1* (`scripts/ms_words_check.py 1500`, sympy Jacobi, every slice solution
+verified in exact rationals; `data/ms/words_check.txt`): all words of all odd n ≤ 1500 — m = 4: 23450 χ = −1 words, all
+in S_4; 10980 χ = +1 words, none in S_4. m = 8: 11839 of the 23450 χ = −1 words in S_8, no χ = +1 word. m = 12: 6448
+of 23450. m = 5: 14625/23450 of χ = −1 words and 6602/10980 of χ = +1 words (χ-blind).
+
+## 6. B7 screen: which ES sufficient conditions survive the passage to 8/n?
+
+"Survives" = the m = 8 analogue never fails beyond the true 8/n failures; "fails" = it fails at further primes, or the
+model-independent formulation holds at 131/241 although 8/n has no solution there.
+| condition (ES form) | ES record | 8/n analogue | 8/n record | verdict |
+|---|---|---|---|---|
+| five slices S_4 ⟺ some length-3 word with (−A/p) = −1 (λ ≤ 3) | no failure, primes ≤ 10⁵ (here), SQ₅ to 10⁸ (campaign) | S_8 | fails at 23 primes ≤ 10⁵ (113, 257, 353, …, 83449 beyond the 5 true failures); χ-form holds at 131, 241 | **4-specific (Thm 3.1)** — candidate |
+| one-odd sub-lottery (d odd) | no failure, primes ≤ 10⁸ | one-odd part of 8/n | fails at 3, 11, 17, **59**, 131, 241, **449** (≤ 10⁶) | 4-specific — candidate, but no structure known |
+| Type I alone | no failure 3 ≤ p ≤ 10⁶ (campaign: 10⁸) | Type I of 8/n | fails exactly at {3, 11, 17, 131, 241} (≤ 10⁶) | survives — not a discriminator |
+| Type II alone | no failure 3 ≤ p ≤ 10⁶ | Type II of 8/n | fails at 22 primes, last 35569 | fails |
+| three cube shots (1, 1, 1) | fails at 942 primes ≤ 10⁶ | p+1, p+8, 8p+1 | fails at 4308 | not a candidate for either |
+| identities mod 840 | uncovered = 6 square classes | same atoms, m = 8 | 35 uncovered, 29 non-square (131, 241 among them) | 4-specific, but finite-level (B1) |
+(`data/ms/type_only_1e6.txt`, `slices_1e5.txt`, `shots_1e6.txt`, `cover.txt`.)
+
+*Reading.* Two genuinely 4-specific never-failing conditions emerge. The first (five slices) comes with a reason
+(Thm 3.1: the certificate set on the length-3 ball is exactly the χ = −1 half, so the T1 character is the only
+congruence obstruction there); the second (one-odd half) is so far only a numerical fact. Type I alone is the most
+robust piece for **both** numerators (for 8/n, Type I fails only where 8/n fails), so it cannot carry 4-specific
+input by itself.

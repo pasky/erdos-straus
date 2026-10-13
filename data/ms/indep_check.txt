@@ -1,0 +1,6 @@
+m=8 p=241: solutions 0 (0s); next 20 primes solvable: 20/20
+m=12 p=12241: solutions 0 (0s); next 20 primes solvable: 20/20
+m=16 p=83449: solutions 0 (2s); next 20 primes solvable: 20/20
+m=15 p=20521: solutions 0 (0s); next 20 primes solvable: 20/20
+m=18 p=35281: solutions 0 (0s); next 20 primes solvable: 20/20
+m=24 p=620929: solutions 0 (12s); next 20 primes solvable: 20/20
