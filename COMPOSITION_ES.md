@@ -186,3 +186,46 @@ T1 control: odd squares 9 ≤ m² ≤ 1849: 0 ES points (Prop 2.1(d)). The "deco
 composite D whose prime-ideal factors happen to be principal in O'_μ (a wide-class-group statement, Cohen–Lenstra
 flavoured); it is consistent with R202's two V-decomposable cases among odd n ≤ 301, μ ≤ 6n (here: all μ, primes
 only). In every case the factorisation is a re-expression of an ES point that exists by Thm 1.3.
+
+## 6. Barrier screen and remaining modifications
+
+* **(ii) weaker target.** B ≡ 1 (mod n) ⟺ α ≡ 1 (mod η̄O) (O/η̄O ≅ ℤ/n, η̄ ↦ 0, so α = B − Aη̄ ↦ B): a ray-class
+  condition mod the norm-n ideal (η̄), which composition and pigeonhole CAN address (ray class groups, Davenport).
+  But B = 1 is this condition PLUS the archimedean condition B < n + 1, which singles out the depth-3 member of
+  one unit orbit (Thm 1.3); B ≡ 1 (mod n) with B > 1 gives only ES^{[2]}, den z = B² (GROWING_MUTE hierarchy).
+  Dead as a route to ES; recorded because it is the one place where a class-group statement touches B.
+* **B2 (moving modulus).** Thm 1.3/Prop 4.1: ES at μ is N(ε_μ) | μ; over all μ it is "n + 4t² has a divisor
+  ≡ −1 (mod 4t)", and over all d (Type II) "4dj²p + 1 has a divisor ≡ −1 (mod 4dj)". Composition changes none of
+  these moduli; in ℤ[√−n] it multiplies them (§5 numerics: 0 hits). Fully inside B2.
+* **B3 (main term).** The λ-direction main term (MARKOFF_ES §6, ≍ Λ/√log Λ) belongs to ES^{[2]} (B free). The
+  B = 1 locus is finite (Prop 4.1(a): μ ≤ n² + n + (n+1)/4), so its main term is the classical ≍ log³-type count;
+  composition cannot transfer the large ES^{[2]} main term to B = 1 because B = 1 is not a class/ideal condition
+  (Prop 2.1(c)).
+* **B5 (T1).** Prop 2.1(d): at n = m² the δ-fibre of every box is empty (χ₋₄ ≡ 1); census control: 0 ES points at
+  21 odd squares ≤ 1849. Every statement above is consistent with T1; none uses a step false at squares that is
+  claimed true for primes.
+* **B6.** Not applicable (fixed n throughout).
+* **Hatches.** H-A (joint factorisation): the R202 phenomenon IS a joint factorisation (𝔢_μ = 𝔡₁𝔡₂𝔡₃ with all 𝔡_i
+  principal of negative norm) but of an ideal whose relevant property (norm | μ) is fixed beforehand. H-E (exact
+  positive identities): Prop 5.1 is an exact identity, but it is equivalent to the Type II equation itself.
+
+## 7. Verdict (O203 checkpoint 1)
+
+1. **Composition law (PROVED, §1–2).** V_n points at μ = negative-norm primitive elements of O'_μ = ℤ[2√(μ² − n)]
+   whose norm divides μ; composition = ideal multiplication; a product of r points is a point iff r is odd, the
+   product is primitive (same prime above each shared ℓ) and ∏D_i | μ. V_n values at μ = the fibre over the
+   order-2 narrow class δ of the box 𝔅(μ) of primitive ideals of norm dividing μ. At squares the fibre is empty.
+2. **ES slot rigidity (PROVED, Thm 1.3, Cor 1.4, Prop 4.1).** At each μ > n the only possible B = 1 point is the
+   explicit element ε_μ = 1 − 2jη̄ (μ = nj + t), which exists for every μ and has class δ; ES at μ ⟺
+   N(ε_μ) = 4tj − 1 divides μ. B = 1 is not a class condition. So composition (or any operation on V_n points,
+   across μ or not) never creates an ES point: it is impossible where 4tj − 1 ∤ μ and superfluous elsewhere; the
+   whole B = 1 locus is a finite explicit set, and all of Type II is the d-sliced B = 1 locus of V_{pd}. The R202
+   M2 phenomenon (ES = unit × product of three deeper points) is real and common in the weaker sense
+   (27% of composite-D ES points for p ≤ 1000 have a principal proper divisor) but only re-expresses ES points.
+3. **Pigeonhole (PROVED negative, Prop 3.1).** Davenport-type pigeonhole in Cl⁺(O'_μ) produces positive-norm
+   elements; reaching δ is a target-sum question that no count of split primes forces; and it would give ES^{[2]}
+   only.
+4. **Across μ (§5).** Type II ⟺ two-term Machin/arccot relations (2cd + √−pd)(2sd + √−pd) ∝ 1 + 2j√−pd (PROVED, an
+   exact but equivalent dictionary); composition in ℤ[√−n] does not preserve V_n (EVIDENCE, 0 hits).
+5. **Status: ES untouched; the composition route to ES is closed with exact scope** (any mechanism whose output is
+   a B = 1 point of some V_{pd}). What survives is the ES^{[2]} class-group lottery of MARKOFF_ES §6, unchanged.
