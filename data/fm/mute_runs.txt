@@ -1,0 +1,9 @@
+q=3 A=100 s=11 n<=10: P=9379 unsolved/badverify=0 min-d histogram={3: 4724, 4: 3900, 5: 748, 6: 7} s-primitive-at-chosen-f=8596 j0=0(ES shot P+A)=495 max j0=180
+q=5 A=100 s=11 n<=7: P=14564 unsolved/badverify=0 min-d histogram={3: 9116, 4: 4333, 5: 1115} s-primitive-at-chosen-f=9728 j0=0(ES shot P+A)=238 max j0=1560
+q=7 A=10 s=11 n<=6: P=23630 unsolved/badverify=0 min-d histogram={1: 11851, 2: 8453, 3: 3326} s-primitive-at-chosen-f=18198 j0=0(ES shot P+A)=4651 max j0=170
+q=5 A=10 s=12 n<=6: P=3407 unsolved/badverify=0 min-d histogram={1: 1689, 2: 1064, 3: 648, 4: 6} s-primitive-at-chosen-f=2937 j0=0(ES shot P+A)=985 max j0=301
+q=3 A=10 s=1021 n<=9: P=3500 unsolved/badverify=0 min-d histogram={1: 1759, 2: 1321, 3: 375, 4: 44, 5: 1} s-primitive-at-chosen-f=3489 j0=0(ES shot P+A)=2125 max j0=39
+q=11 A=10 s=11 n<=4: P=4134 unsolved/badverify=0 min-d histogram={1: 2084, 2: 1886, 3: 164} s-primitive-at-chosen-f=3831 j0=0(ES shot P+A)=464 max j0=660
+q=2 A=1000 s=11 n<=14: P=2535 unsolved/badverify=0 min-d histogram={4: 841, 5: 1693, 6: 1} s-primitive-at-chosen-f=1694 j0=0(ES shot P+A)=220 max j0=47
+q=2 A=10011 s=111 n<=13: P=1371 unsolved/badverify=0 min-d histogram={7: 1371} s-primitive-at-chosen-f=1371 j0=0(ES shot P+A)=13 max j0=126
+# NOTE (R195 M4): the 's-primitive-at-chosen-f' column above was computed by 2*ord(s^2)==q^d-1, which is wrong when q^d-1 = 2 mod 4; fixed in fm_mute.py (exact ord(s)); column not used in FF_MUTE.

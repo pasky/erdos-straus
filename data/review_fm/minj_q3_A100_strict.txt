@@ -1,0 +1,20 @@
+q=3 A=(0, 0, 1) s=(1, 1) n=2: 3 P, least-j max 7, mean 4.67, j=0 share 0.00, none<=60: 0
+/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0024/.venv/lib/python3.12/site-packages/sympy/polys/polytools.py:6282: SymPyDeprecationWarning: 
+
+Ordered comparisons with modular integers are deprecated.
+
+            Use e.g. int(a) < int(b) instead of a < b.
+
+See https://docs.sympy.org/latest/explanation/active-deprecations.html#modularinteger-compare
+for details.
+
+This has been deprecated since SymPy version 1.13. It
+will be removed in a future version of SymPy.
+
+  return sorted(factors, key=key)
+q=3 A=(0, 0, 1) s=(1, 1) n=3: 8 P, least-j max 12, mean 3.62, j=0 share 0.38, none<=60: 0
+q=3 A=(0, 0, 1) s=(1, 1) n=4: 18 P, least-j max 15, mean 3.11, j=0 share 0.50, none<=60: 0
+q=3 A=(0, 0, 1) s=(1, 1) n=5: 48 P, least-j max 15, mean 3.29, j=0 share 0.50, none<=60: 0
+q=3 A=(0, 0, 1) s=(1, 1) n=6: 116 P, least-j max 15, mean 3.26, j=0 share 0.53, none<=60: 0
+q=3 A=(0, 0, 1) s=(1, 1) n=7: 312 P, least-j max 18, mean 2.54, j=0 share 0.59, none<=60: 0
+q=3 A=(0, 0, 1) s=(1, 1) n=8: 810 P, least-j max 18, mean 2.31, j=0 share 0.60, none<=60: 0
