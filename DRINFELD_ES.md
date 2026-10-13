@@ -117,6 +117,8 @@ every place incl. ∞, normalised by norms to F_q; Weil reciprocity checked on e
 | 7, 3, T, 3, irreducible | 112 | 801 | 0 | all 0 at every place |
 | 7, 3, T², 4 / T²+1, 4 / T(T+1), 4 | 588 each | 672 / 883 / 899 | 0 | all 0 |
 | 13, 3, T, 3 | 728 | 2829 | 0 | all 0 |
+| 7, 3, T, 4 | 588 | 9410 | 0 | all 0 |
+| 19, 9, T, 2 | 171 | 163 | 0 | all 0 |
 | 7, 3, T, 3, P = Q³ | 6 | 277 | 0 | all 0 |
 | 7, 6, T, 3 | 112 | 801 | 0 | only 0 and 3 (= ½), at ∞ and P only |
 | 13, 4, T, 3 | 728 | 2829 | 0 | only 0 and 2 (= ½), at ∞ and P only |
