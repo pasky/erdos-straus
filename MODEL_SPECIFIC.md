@@ -170,7 +170,7 @@ mean μ_m(p); the empirical failure rate F(μ) falls from 0.3–0.5 (μ < 4) to 
 throughout). Leave-one-out validation predicts each sibling's number of failures (p ≥ 100) within a factor ≈ 1.3
 in the 4 | m pool (m = 8: 1.5 predicted / 2 observed; 12: 9.0/12; 16: 33.9/27; 20: 55.5/50; 24: 123/140) and within a
 factor ≈ 3–4 in the 4 ∤ m pool (e.g. 15: 4.5/15, 19: 19.1/5).
-Applied to m = 4 (μ₄(p) from 2.4 at p = 5 to 24 at p = 97, ≈ 330 at 10⁷): **expected number of failing primes
+Applied to m = 4 (μ₄(p) from 2.4 at p = 5 to 24 at p = 97, ≈ 510 at 10⁷): **expected number of failing primes
 5 ≤ p ≤ 10⁷: 0.95 (4 | m curve) or 0.54 (4 ∤ m curve), of which ≤ 0.02 above p = 100**. Same for m = 5: 1.35 / 0.76;
 m = 6: 2.5 / 1.35; m = 7: 3.0 / 1.6 (all observed: 0 failing primes).
 **Assessment.** (i) Above p ≈ 100 ES's mean count is already ≥ 24 and its failure-free record is the expected
