@@ -1,0 +1,21 @@
+== 3 2 1,1 4
+pairs 7381 hits(any lc) 10
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 3 2 1,2 4
+pairs 7381 hits(any lc) 4
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 3 3 1,1 3
+pairs 820 hits(any lc) 4
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 5 2 1,1 3
+pairs 12246 hits(any lc) 5
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 5 2 1,4 3
+pairs 12246 hits(any lc) 1
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 5 3 1,2 2
+pairs 496 hits(any lc) 1
+hits with lc(E) in {1, lc(a0+b0)}: 0
+== 7 2 1,3 2
+pairs 1653 hits(any lc) 0
+hits with lc(E) in {1, lc(a0+b0)}: 0
