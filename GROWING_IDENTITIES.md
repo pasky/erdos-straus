@@ -9,6 +9,19 @@ Goal (brief): an exact identity (weighted ES count at n) = Σ_{g ≤ G(n)} (expl
 side has a provable sign at primes n ≡ 1 (24) and vanishes at odd squares. Thm 9.1 (finite Eisenstein
 combinations are T1-dead) does not apply when the level grows with n.
 
+## Summary (checkpoint 1)
+
+* **Exact growing-level identities found (PROVED, elementary):** continuant/Hirzebruch–Jung form of Type I
+  (a = 1) and Type II (Lemma 1.1); two inequivalent growing-level divisor sums for the same cubic (Lemma 1.2);
+  the T1-respecting identity `W(n) = Σ_{D(n)} (1 − (m''/n))/2` over a sign-blind set, in which the
+  "sign at ∞" (class −1 vs +1 mod the level) is *exactly* the Jacobi symbol at n (Prop 4.1).
+* **Trace formulas (PROVED relative to Cohen's Eichler–Selberg formula, implemented and checked):** ES is the
+  sign-odd part of the split-hyperbolic term (Prop 2.1) — the smallest term; certifying positivity through the
+  identity needs the cusp trace q²-fold below Deligne at a single N (Prop 2.2). KH's re-summation mechanism
+  needs the shift to be a theta-series variable; ES shifts gN + 1 are multiplicative (§3).
+* **No positive identity.** Every identity found either (i) is a relabelling of the divisor-in-class count,
+  (ii) puts ES in a subdominant term, or (iii) reduces positivity to the H-B spin event (O165). ES is not solved.
+
 ## 0. Notation
 
 For integers g ≥ 1, r and N ≥ 1 put `τ_{r,g}(N) := #{m ≥ 1 : m | N, m ≡ r (mod g)}`.
@@ -166,4 +179,4 @@ constant on the sign-blind set — no exact identity tested evaluates O independ
    *difference* r(n/m) − r(n/(n−m)) of HJ lengths (Riemenschneider duality + Hirzebruch's formula
    12s(m,n) = Σ(a_i − 3) + (m + m*)/n give r − s = (m+m*)/n − 1 − 12 s(m,n)), not the length, and their exact
    moments are of size ≍ √p (class numbers) — a main term a power larger than the certificate count with
-   capped multiplicity (B3). Not pursued numerically.
+   capped multiplicity (B3). (Both formulas checked for all coprime 1 ≤ m < n < 120, `scripts/gi_hj_check.py`.)
