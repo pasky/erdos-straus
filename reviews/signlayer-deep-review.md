@@ -15,7 +15,19 @@ Data: `data/review_sl_*`.
 | "x* orbit = the four height-1 slice points" | FALSE as stated (six height-1 points; two are covered) (D8) |
 | Lemma 3.2 (degree imbalance at x*) | SOUND; "necessarily lopsided" slightly overclaimed (D9) |
 
-(Memo verdicts follow in later sections.)
+| bsB_rayclass_norm_pullback | items 1–3 SOUND; headline scope GAP (D10, MAJOR for the ledger): a theorem about fixed-(t, p) character/L-function/Eisenstein detectors and about the target, not about all ray-class proof mechanisms; iteration 2 cites the wrong proposition |
+| bsB_redei_oddpart | items 1, 2 SOUND; item 3 SOUND, but the composite-t Assessment is false (D11); "least populated" false (D12) |
+| bsB_zolotarev_transpose | SOUND |
+| bsB_theta_multiplier | dictionary SOUND; W zeros (26 composites, no prime, ≤ 2·10⁶) and W(105k²) reproduced exactly; refutation SOUND but strawman-strength (D13) |
+| bsB_orthant_sign | dictionary SOUND (= Bright–Loughran Thm 1.2/1.5 on the slice, D14); construction-attempt claims unproved (D15) |
+| bsB_salie_duality | SOUND (multiplier sign proved by me; Salié checked numerically) |
+| bsB_sterile_pretentious | item 1 SOUND; item 3 SOUND-AFTER-REPAIRS (family → datum normalisation at reducible P unwritten, D16); numerics reproduced; GRH bound misquoted (D17) |
+| bsB_root_number_parity | SOUND as a screen; parity numerics reproduced exactly; overreach D18 |
+| Consistency with O173 | parametrisations, degree bounds and level reductions agree. O173 is more careful about the heuristic. O173's "count is poly(N)" is contradicted by the complete counts (≈ 3^{0.4N}); no conflict on x* |
+
+**No FATAL defects.** MAJOR: D4 (certified range overstated), D6 (convergence presented as a consequence of
+Lemma 1.1), D10 (scope of the ray-class pullback), D11 (composite t in the Rédei memo), D16 (unwritten step under a
+PROVED label). Everything numerical was reproduced from scratch.
 
 ## SIGNLAYER Lemma 1.1 — SOUND
 
@@ -71,8 +83,9 @@ correctness of one C implementation for K = 14..19.
 **identical** to the author's list. Exact union measures (Haar on v ∈ F₃[[T]]^*):
 1/3 (K ≤ 2..4), 11/27 = 0.4074 (K ≤ 5..7), 37/81 = 0.4568 (K ≤ 8, 9), 113/243 = 0.4650, 343/729 = 0.4705,
 349/729 = 0.4787, 1051/2187 = 0.4806 (K ≤ 10..13). These agree with the author's 0.333, 0.407, 0.457, 0.465, 0.471,
-0.479, 0.481. x*₁, x*₂ and ι(x*_c) = 1/(1 − cT) are uncovered for all K ≤ 13. (K ≤ 15 run: see the addendum below
-if it completed.) Sanity: the K = 2 pair is FF2's cylinder family, as the author says.
+0.479, 0.481. x*₁, x*₂ and ι(x*_c) = 1/(1 − cT) are uncovered for all K ≤ 13. *Addendum, K ≤ 15* (`data/review_sl_caseB_K15.log`, ≈ 25 min): K = 14, 15 give 38, 36 solutions (author:
+38, 36). Measures are 1057/2187 = 0.4833 and 1061/2187 = 0.4851 (author: 0.483, 0.485). x*_c and ι(x*_c) are still
+uncovered. So the author's §2 table is reproduced exactly through K = 15. Sanity: the K = 2 pair is FF2's cylinder family, as the author says.
 
 **D4 (MAJOR, overclaimed certified range).** §2, bullet 3: "x*₁ and x*₂ are not covered by any Case B family with
 K ≤ 17, **i.e. with N ≤ 18 (j ≤ 17) and every admissible L', g**". This is false as a translation.
