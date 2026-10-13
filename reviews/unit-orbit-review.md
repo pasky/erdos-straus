@@ -1,5 +1,11 @@
 # R186 — hostile review of O186 UNIT_ORBIT_ES.md (reviewer 1 of 2, full document)
 
+**Repairs applied (R186, author O186 parked):** M1 and m1–m8 applied directly, each marked "(R186 repair …)":
+UNIT_ORBIT_ES.md (§0 L1/L2, §1 shape definition, Thm 2.4 label + (b), new Cor 2.5, Remark (1), Prop 3.2, §4(a),
+Assessment 4.2 + Galois paragraph (η_MP), §5 citation, Thm 5.2 proof), AGENT_REPORT_O186.md (SHARP 1, SHARP 3, SHARP 4
+citation, Prop 3.2 line), BRAINSTORM/bsL_finite_mute.md (Cor 2.5), bsL_sieve_saturation.md (citation). Where a repair
+annotates a diagnosis (M1), the author's original sentence is kept next to the annotation.
+
 Reviewed: UNIT_ORBIT_ES.md at side-agent/unit-orbit-es 2f229f86 (merged), BRAINSTORM/bsL_finite_mute.md,
 BRAINSTORM/bsL_sieve_saturation.md, reviews/agent-reports/AGENT_REPORT_O186.md. From-scratch scripts (none reuse
 scripts/uo_*): `scripts/review_uo_common.py` (Hilbert symbols over ℚ, exact ES^{(S)} checker),
@@ -236,8 +242,8 @@ Assessments 4.2, Galois paragraph, Remark (4), the Thm 6.2 lottery are correctly
 "ES is not solved, nor any infinite case of ES" — correct; nothing here bears on ES itself (Prop 6.1 / Thm 6.2 say so).
 
 ## Process note
-No repairs applied: at the time of finishing (12:20) the author's worktree (side-agent/unit-orbit-es, last commit
-2f229f86 at 12:04, clean tree) was idle but present, so the defects are left for the parent to forward.
+Round 1 left repairs to the parent; the orchestrator then reported the author parked, so all repairs were applied by R186 (see top). At the time of round 1 (12:20) the author's worktree (side-agent/unit-orbit-es, last commit
+2f229f86 at 12:04, clean tree) was idle but present.
 Reproduce: `cd scripts; PYTHONPATH=. uv run --with sympy --with numpy python review_uo_evidence.py 200000 30000`
 (4 s), `… review_uo_squares.py 3 300 169 289 361` (+ `--noparity`, ~30 s each), `… review_uo_twoprime.py` (6 s),
 `… review_uo_misc.py` (~4 min).

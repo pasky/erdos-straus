@@ -16,7 +16,10 @@ ES is NOT solved, nor any infinite case of ES itself.
      succeeds iff n + 4Q² has a prime factor ≡ 3 (mod 4). B2 is violated.
    * **Main result.** For |S| ≥ 4, every non-square n coprime to 2S has a successful shot, and no square does. The
      theorem is exact-T1. The proof is a Gupta–Murty sieve (Bombieri–Vinogradov + linear sieve + a collision count)
-     and uses no GRH. The T1-sensitive step is the congruence (n/r) = −1.
+     and uses no GRH. The T1-sensitive step is the congruence (n/r) = −1. *(R186 repair m3/m4: the proof is
+     ineffective (no bound on Q); and by divisibility ES^{(S)}(n) holds for EVERY n > 1 coprime to 2S, squares
+     included (Cor 2.5) — the T1 constrains only the solution shapes: no square has a solution of Type I/II shape at
+     every prime of n.)*
    * **Evidence (S = {3,5,7,11}).** All 78 493 primes below 10⁶ outside S and all 62 224 odd non-squares below
      3·10⁵ are solved, with every solution verified exactly. A box search finds only "other" shapes at 13², 17², 19².
    * **Control.** Dropping the parity normalisation gives Type I/II solutions at squares, with inv_q = ½.
@@ -30,8 +33,13 @@ ES is NOT solved, nor any infinite case of ES itself.
    * With the Murty–Petersen levels, the Gupta–Murty closing condition 2η < r + 1 then never holds. This is a failure
      of the method, not an impossibility theorem.
    * Responsible hypothesis: a real mute place forces the orbit to be a non-square coset ηU².
+   * *(R186 repair M1: this diagnosis is wrong for V_φ. At split ℓ ≡ 3 (mod 4) exactly one 𝔮 | ℓ satisfies the
+     Kummer condition, so it costs nothing; the shot condition there is congruences on ℓ plus ⟨−1, φ⟩ = F_ℓ^*, a
+     rank-1 Artin problem. The barrier for V_φ is the unit rank (1 vs |S| ≥ 4), not the real mute place. The
+     "never closes" conclusion holds only for Murty–Petersen applied over the base K; sieving rational primes over
+     the Galois closure was not examined.)*
 4. **V_φ itself (Thm 5.1, PROVED unconditionally).** The number of odd n ≤ X with no successful shot is ≪ X^{3/4} log² X.
-   * This is a power saving. For ES, CRT large sieves are capped at a (log N)^{3/4} saving (DISCOVERIES (A)19).
+   * This is a power saving. For ES, CRT large sieves are capped at a (log N)^{3/4} saving (DISCOVERIES (D)19; R186 repair m8: was "(A)19"; PROVED conditional on KARY2 Thm 5.1).
    * The orbit forbids ≥ ℓ^{1/2−o(1)} residue classes per prime. With ≍ ℓ classes, the large-sieve barrier is X^{1/2},
      which is exactly the size of the T1 set {m², 5m²}: the squares saturate the large sieve.
    * Under GRH, the failure set is exactly the T1 set (Thm 5.2). EVIDENCE: for all odd n < 10⁴ the failure set equals
@@ -39,7 +47,7 @@ ES is NOT solved, nor any infinite case of ES itself.
 
 ## Other results
 * Prop 3.1: n ≡ 3 (mod 4) is free in every unit-orbit variant.
-* Prop 3.2 (PROVED identity): for n ≡ 1 (mod 8), the total Jacobi symbol of a shot is +1, the same as at m².
+* Prop 3.2 (PROVED identity): for n ≡ 1 (mod 8), the total Jacobi symbol of a shot is +1, the same as at m². *(R186 repair m6: for ES^{(S)} and V_φ this holds for every n ≡ 1 (mod 4); the hypothesis needed is n ∈ K_v^{*2} at v | 2.)*
 * Thm 6.2 lists the three ways to get an infinite orbit over ℚ:
   * ℤ: one shot.
   * ℤ[1/S] without normalisation: the T1 dies. Explicit example: 4/9 = 1/449 + 1/18 + 3125/8082.

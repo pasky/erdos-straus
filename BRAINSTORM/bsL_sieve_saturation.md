@@ -8,6 +8,6 @@ sieve problem (Helfgott–Venkatesh, Walsh, Green–Harper: sets this sparse in 
 quadratic/algebraic) predicts that such failure sets are ESSENTIALLY the squares — i.e. an inverse-sieve theorem
 would be an "exact T1" theorem up to a small exceptional set. Caveats: (1) inverse-sieve results bound sizes, never
 show a set contains no primes; (2) S_ℓ is only a subset of the non-residues unless φ is a primitive root mod 𝔮.
-Contrast: ES slices forbid O(1) classes per prime and large-sieve savings are capped at (log N)^{3/4} (DISCOVERIES (A)19).
+Contrast: ES slices forbid O(1) classes per prime and large-sieve savings are capped at (log N)^{3/4} (DISCOVERIES (D)19; R186 repair m8: was "(A)19"; that cap is PROVED conditional on KARY2 Thm 5.1).
 Spark: is there an ES-native family whose forbidden-class count per prime grows like a power of ℓ (other than unit
 orbits)? That is the quantitative signature of "infinitely many fixed-modulus shots".

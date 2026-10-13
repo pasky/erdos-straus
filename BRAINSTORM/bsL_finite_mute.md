@@ -4,7 +4,7 @@ Idea: the "mute place" of V_φ (a real place whose invariant is pinned to 0 by a
 q: allow q in the denominator of ONE variable, only to an even power. Lemma 1.1 of UNIT_ORBIT_ES.md: inv_q = 0 on all
 such points; with odd powers inv_q is the free symbol ((−y/x)/q). Consequences: ES^{(S)} (4/n = 1/x + 1/y + Q²/Z,
 gcd(Z, Q) = 1) is T1-bearing; the orbit {Q²} gives fixed-modulus shots n + 4Q²; with |S| ≥ 4, existence at every
-non-square n is unconditional (Gupta–Murty sieve). Along the orbit, ES-solutions = ES^{(S)}-solutions with g ≡ −1 (mod 4Q) (Prop 6.1).
+non-square n is unconditional (Gupta–Murty sieve) — and by divisibility ES^{(S)}(n) then holds for every n > 1 coprime to 2S (Cor 2.5, R186 repair m4). Along the orbit, ES-solutions = ES^{(S)}-solutions with g ≡ −1 (mod 4Q) (Prop 6.1).
 Open directions:
 * Mute primes in OTHER variables/shapes (Type I analogue: a = pe + 4Q²?) and the full set of normalisations pinning
   inv_q = 0 (anchor calculus, TWISTED_T1 §2, applied to non-integral points): which ones are "Lagrangian" here?
