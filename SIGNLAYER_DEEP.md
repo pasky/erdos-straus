@@ -99,3 +99,15 @@ K = 2 cylinder family E = T² + 2T + 2. (b) At the slice point u = 1 + T + T² +
 by a K = 10, N = 6 (j = 5) solution, and `ff2_caseB.py 3 2 1 4 5 1021201102111` indeed finds exactly the pair
 E/E' with L' = T⁴ + 2T³ + 2T² + 2T + 1, j = 5, g = T⁵(T² + 2T + 1). So FF2's "generic control points" are
 covered once j is large enough — consistent with the ≈ 49 % coverage, and confirming the reformulation.
+
+**Lemma 3.2 (degree imbalance at x*; PROVED, elementary).** Let a Case B solution (Lemma 1.1) cover x*_c at level N,
+a = deg h₁, b = deg h₁'. Then T^N | h₁ + (1 + cT)h₁' ≠ 0, hence **N ≤ max(a, b + 1)**, and with K ≤ 2N − 2:
+either a ≥ b + deg L'' + 2, or b ≥ a + deg L''.
+*Proof.* (III) at v = c: h₁L' = −c + T^N y. Insert in (*) T h₁h₁'L' − h₁ − h₁' = T^{K+1}g':
+−(1 + cT)h₁' − h₁ = T^{K+1}g' − T^{N+1}h₁'y ≡ 0 (mod T^N) since K + 1 ≥ N. If h₁ = −(1 + cT)h₁', comparing
+leading coefficients gives c = −1 and a = b + 1; (I) gives g'r = −ch₁' = h₁', and (II) gives
+h₁' | T^K + r with r | h₁', r(0) ≠ 0, so r = 1, h₁' = g', and (II) reads (T − 1)g'²L'' = T^K + 1, false at T = 1.
+So the sum is non-zero and its degree ≤ max(a, b + 1) is ≥ N. Finally K = a + b + deg L'' ≤ 2N − 2. ∎
+So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree): this is the "two-place
+approximation" shape of §3 made concrete, and it allows a targeted deep search at x* (enumerate the small
+factor, solve for the large one) — not done in this session.
