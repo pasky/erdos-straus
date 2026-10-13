@@ -4,7 +4,29 @@ Reviewer branch side-agent/review-drinfeld (merged side-agent/drinfeld-degree-k)
 `scripts/review_dr_*.py` (own F_p[T] arithmetic, own Cantor–Zassenhaus factorisation, own power-residue /
 tame-symbol code; nothing imported from `scripts/bsH_*`). ES is not solved anywhere; nothing below changes that.
 
-Status: IN PROGRESS.
+Status: COMPLETE (round 1). Repairs applied: none (author active at time of writing; defects forwarded).
+
+## Summary verdicts
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 | SOUND |
+| Prop 1.2 (k-th power law) | SOUND (58 362 random symbol tests, 0 mismatches) |
+| Thm 1.3 (Kummer data never embed in D^{(k)}_{P,∞}) | SOUND |
+| Lemma 2.1 (Steinberg identity) | SOUND (checked place by place on > 9 000 points) |
+| **Thm 2.2** (odd part of α_ζ vanishes on monic integral points) | **SOUND-AFTER-REPAIRS**: proof correct, all counts reproduced; headline overclaims "odd-order part of Br" (p-part, D1); citation fix D2 |
+| BL transfer to F_q(T) | SOUND as Assessment for the prime-to-p part; independent proof that order-m classes are non-trivial via twisted points |
+| Cor 2.3 (inv_P α_ζ = (−f/P)_m) | SOUND (non-vacuous tests at m = 6, 2) |
+| Lemma 3.1, Lemma 3.2 | SOUND (Lemma 3.2 hypothesis is always satisfied, D3) |
+| **Thm 3.3** (order-m reciprocity at m-th powers) | SOUND; one sentence over-labelled (D5); table reproduced exactly |
+| §3 "never sterilises" | Assessment, "never" over-labelled (D6) |
+| Prop 4.1 | SOUND; numerics incomplete — 222 pairs, not 81 (D7) |
+| Prop 4.2 | SOUND-AFTER-REPAIRS (positivity, D8) |
+| §5 genus vacuity | SOUND as Assessment; wrong supporting citation, elementary proof available (D10) |
+| §6 Kottwitz form | SOUND; one explanatory sentence imprecise (D11) |
+| bsH_lubin_tate_sterile | SOUND up to Artin-map normalisation (D13) |
+| Citations from memory | Wei–Yu and FYZ exist (verified); Rosen/Pierce/Reiner numbering unverifiable (D12) |
+
+No FATAL defects. One MAJOR (scope/label overclaim in the headline of Thm 2.2). The mathematics of O181 is correct.
 
 ## Per-claim verdicts (filled in incrementally)
 
@@ -69,7 +91,13 @@ author appearing 3 times — once per position of the minimal-degree denominator
 | 13, 3, T, 3, Q³ | 12 | 999 (new) | 0 | 0 |
 | 19, 9, T, 3, Q³ | 18 | 975 (new) | 0 | 0 |
 | 7, 6, T, 3 | 112 | 2403 | 0 | 2-part only: inv_∞ = inv_P ∈ {0, 3}; all other places 0 ✓ |
-(q = 13, n = 3 and q = 7, A = T, n = 4 rows: see addendum below once the runs finish.)
+| 13, 3, T, 3 | 728 (231 unsolvable) | 8487 (2829×3 ✓) | 0 | 0 |
+| 7, 3, T, 4 | 588 (25 unsolvable) | 28230 (9410×3 ✓) | 0 | 0 |
+| 13, 4, T, 3 | 728 | 8487 | 0 | 2-part only: inv_∞ = inv_P ∈ {0, 2}; all other places 0 ✓ |
+Total (author's counting): 801 + 672 + 883 + 899 + 163 + 277 + 2829 + 9410 = 15 934 at m = 3/9 plus the new cube rows
+(333 + 325) — the "> 20 000" of the report includes the m = 6/4 reruns; with those, 0 nonzero odd invariants is
+confirmed. Type II counts (positional II / 3) also reproduce the §1 table: 241, 2596, 192, 813, 42 (Q³, q = 7),
+38 (Q³, q = 13).
 The author's solution counts are reproduced exactly; every odd-order invariant is 0 at every place. EVIDENCE
 confirmed.
 
@@ -215,8 +243,8 @@ Diff_m(u) := {v : inv_v α_ζ(u) ≠ C_v} is the author's definition (flagged as
   Also state that the formula refers to the labelling with that denominator first; in a fixed labelling multiply by
   sgn(π) (verified numerically, perm-sign check).
 * **D4** (§1, "T1_k reversed (EVIDENCE + PROVED mechanism)"). The ×≈k enrichment mechanism (condition of
-  "probability ≈ 1/3" at primes) is a heuristic, not proved; Q³ also has extra non-primitive Type II data (Q can
-  divide a, b, d when deg Q < n − deg A). *Repair:* "EVIDENCE + heuristic mechanism".
+  "probability ≈ 1/3" at primes) is a heuristic, not proved; Q³ also admits non-primitive Type II data (Q | d is
+  possible when deg Q ≤ n − deg A; Q | a or Q | b is excluded since Q | E | a + b). *Repair:* "EVIDENCE + heuristic mechanism".
 * **D5** (Thm 3.3, sentence "For prime P there is no such restriction"). Not proved; EVIDENCE (q = 7 tables,
   reproduced). Also drop the superfluous "±" in "±y^{−m}".
 * **D6** (§3 "Why it never sterilises", "never all solutions"; bsH_twisted_targets "never"). Not proved that the
