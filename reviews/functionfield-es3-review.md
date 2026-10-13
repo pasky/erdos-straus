@@ -57,3 +57,37 @@ From-scratch scripts: `scripts/review_ff3_*.py` (own F_p[T] arithmetic, pure Pyt
   K = s − 2). The covered slice masses for levels ≤ 2..6 are 0.2222, 0.2222, 0.2716, 0.3045, 0.3100 (normalised to
   u(0) = 1), i.e. ×3/2 = 1/3, 1/3, 11/27, 37/81, 113/243 on the sub-slice c ≠ 0, which is R175's sequence. Every
   family satisfies Lemma 2.1(c) (asserted in the script).
+
+## Verdicts
+
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (Case B at slice points, converse) | SOUND |
+| Lemma 1.2 (E = ρ or E' = ρ'; deg ρ > l; g' forced) | SOUND (MINOR D2); empirically confirmed by brute force (no divisor outside ρ/ρ') |
+| Lemma 2.1 (m'wC = T^s + v, w + C = g'v; l ≤ N + γ − 2 ≤ 2N − k − 1; j = 0 impossible for k = 2) | SOUND-AFTER-REPAIRS (D1: the step "N + γ ≥ 3" is not proved as written; true) |
+| Lemma 2.2 (Z, Z' ≠ 0, L' ∣ Z + Z', Z + Z' ≠ 0) | SOUND |
+| Lemma 2.3 ((N+1)/4 ≤ l ≤ 2N − k − 1 at x*_c) and the completeness of the j-range | SOUND |
+| Lemma 3.1 (only j − γ ∈ {0, 1} matters) | SOUND |
+| EVIDENCE: no family with deg L' ≤ 13 / level ≤ 8 at x*_c (c = 1, 2); k = 3: deg L' ≤ 11 / level ≤ 7 | SOUND. Independently reproduced for deg L' ≤ 11 (k = 2) and ≤ 10 (k = 3) by a different code, with identical candidate counts. Label upgrade possible (D9) |
+| Elementary count ≤ q^{(N+1+γ)/2+o(N)} | SOUND as a sketch (MINOR D8) |
+| "O166/R166 divergent heuristic was wrong" | SOUND: the divergent sum ran over ℓ > 2N − k − 1, where Lemma 2.1 proves there are no families |
+| "Corrected heuristic: Σ_N poly(N)·q^{−N}, convergent" | GAP (D3, MAJOR for the narrative): poly(N) is unsupported. Convergence survives only as EVIDENCE/Assessment from exact counts |
+| Control (7/40, 1/40) and its wording | SOUND-AFTER-REPAIRS (D5, D6) |
+| Measure-route criterion U(m) > T(m) ⇒ O(3, T²) ≠ ∅ | SOUND (union bound; MINOR D10) |
+| Dictionary (Kloosterman / short-interval divisor problem) | acceptable as a labelled analogy (MINOR D4, D7) |
+
+**No FATAL defects.** The lemmas are correct, and the completeness logic behind the search claims holds. The one
+substantive problem is the heuristic family count (D3).
+
+## Completeness logic (checked)
+
+Every linear family valid at x*_c is of Case A (excluded by the ES2/R166 theorem, q odd, k ≥ 2, at u = 1 + cT
+exactly) or Case B (Lemma 1.1; mixed types). A Case B family is a tuple (L', j, γ, g', E). By Lemma 2.3, j ≤ 4l − k.
+By Lemma 1.2, E = ρ_{L',j} or D/E = ρ'_{L',j}, and g' is the unique residue of degree < deg ρ. `ff3_caseB.c`
+loops over all monic L' with L'(0) ≠ 0 and deg L' ≤ LMAX, all 0 ≤ j ≤ 4l − k (JMAX = −1), both branches, and all
+0 ≤ γ ≤ j. It accepts exactly the t_γ that are monic, of degree ≤ l, and divide L'. Checked in the code:
+`pinvmod` cannot fail (gcd(ρ, T·L') = 1 since ρ ≡ −1 mod L' and ρ(0) = −1); the WARN branch deg ρ ≤ l is
+unreachable (Lemma 1.2); the arrays are large enough (NMAX = k + 4·LMAX ≤ 54, products of degree ≤ 2·NMAX < 256);
+v·T^{−1} mod ρ is implemented correctly. So every possible family is captured by the enumerated
+(L', j, γ, branch). "No family with deg L' ≤ L0 at x*_c" plus Lemma 2.1 (l ≤ 2N − k − 1) gives "no family of level
+N ≤ (L0 + k + 1)/2". That is N ≤ 8 for (k, L0) = (2, 13) and N ≤ 7 for (3, 11), as stated.
