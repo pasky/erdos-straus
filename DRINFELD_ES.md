@@ -213,3 +213,38 @@ is untouched.
 (c) Ramanujan complexes (Lubotzky–Samuels–Vishne 2005, built from exactly these D) give expansion on the
 supersingular rank-k isogeny complex: path-existence at length ≍ log of the number of vertices, i.e. data of
 size |P|^{O(1)} — barrier B3, as for Pizer graphs (bsC_isogeny_ramanujan).
+
+## 6. Kottwitz form (R177 D2c) — the order-k incoherence group exists over F_q(T); ES_q's coupling to it is computed by §2
+
+R177 (reviews/ldp-deep-review.md, D2c) upgrades the "degree-2 accident" to: for a semisimple ℚ-group G compact at
+∞, complex conjugation acts on Z(Ĝ) by inversion, so the Kottwitz incoherence group π₀(Z(Ĝ)^Γ)^D is 2-torsion
+(reviewer's derivation, to be checked against Kottwitz, Math. Ann. 275 (1986) §1–2; not re-checked here).
+**The function-field object (PROVED, classical).** Over F = F_q(T) take G = PGL₁(D), D central of degree k with
+inv_∞ D = 1/k (anisotropic at ∞). G is an inner form of PGL_k, Ĝ = SL_k(ℂ), Z(Ĝ) = μ_k with trivial Galois
+action. Every place, including ∞, is non-archimedean, and H¹(F_v, PGL_k) = Br(F_v)[k] ≅ ℤ/k (local class field
+theory), so the sequence H¹(F, PGL_k) → ⊕_v ℤ/k → ℤ/k → 0 (sum of invariants; ABHN for Br[k]) is the Kottwitz
+sequence with an **incoherence group of order k**: the failure of D2c's mechanism is exactly that Γ_∞ acts
+trivially on μ_k because ∞ is not archimedean. So the object the orchestrator asked for is Br(F)[k] itself.
+**Coupling to ES_q.** An ES_q point u produces the coherent collection (inv_v α_ζ(u))_v (BL class, §2). Kudla's
+incoherent collection in order m is C = (split at finite v, invariant 1/m at ∞); define Diff_m(u) := {v : inv_v
+α_ζ(u) ≠ C_v}. Over ℚ (m = 2, Type II) Diff = {p} (KUDLA_ES Thm 1.4 ↔ Cor 2.3 above). Over F_q(T), m odd: by
+Theorem 2.2 α_ζ(u) = 0, so **Diff_m(u) = {∞} for every monic integral point and every odd m** — the order-m
+incoherence is never absorbed at a finite place; no supersingular (D_{P,∞}^{(m)}) locus is touched. In Kudla's
+language the ES_q data contribute only "archimedean" (here: ∞-adic, Drinfeld-upper-half-space) terms
+(Assessment: dictionary, no Kudla–Rapoport theory over function fields of this rank is invoked).
+For twisted targets (§3) Diff_m(u) ∈ {{∞}, {∞, Q}} varies with the degree class (Lemma 3.2): the order-m Kottwitz
+incoherence does couple, but only to the degree coordinate.
+
+## 7. Verdict (O181 checkpoint 1)
+* PROVED: Lemma 1.1, Prop 1.2, Thm 1.3 (Kummer CM data of Type II certificates split at P for odd k); Lemma 2.1
+  (Steinberg decomposition of the BL class); **Thm 2.2 (odd-order BL classes of the ES_q surface — which exist over
+  F_q(T) itself — vanish identically on monic integral points; only places ∞ and P could carry the 2-part)**;
+  Cor 2.3 (inv_P α = Kudla symbol (−f/P)_m); Lemmas 3.1–3.2, Thm 3.3 (twisted targets: order-m T1 on degree
+  classes); Props 4.1–4.2 (odd-degree descent closed over number fields); §6 Kottwitz form (classical).
+* EVIDENCE: all checks in §§1–3 (0 mismatches; Weil reciprocity on every point; Lemma 3.2 formula on 4074 twisted
+  solutions; k-th powers enriched ×≈k for ES_q, primitive solutions at cubes confined to inv = 0 for twisted ES).
+* Assessment: the "degree-2 accident" has an exact function-field anatomy. F_∞^*/U₁ = F_q^* × ℤ (sign × degree).
+  The order-k part of Br(F_∞) reaches sign-normalised data only through constants (sign) and degree. ES_q pins the
+  sign and its target −1 has order 2, so for odd k the coupling is identically zero (Thm 2.2); twisting the target
+  restores an order-k reciprocity, but it can only remove degree classes because no positivity can pin degree
+  (Thm 3.3). Forcing via rank-k class sets is genus-vacuous (§5). **No route to ES or ES_q; no obstruction either.**
