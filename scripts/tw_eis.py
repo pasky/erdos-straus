@@ -201,3 +201,49 @@ def tame_symbol(a, b, pi):
     # a'^{vb} b'^{-va}, with a' = an/ad, b' = bn/bd units
     j = (vb * (cubic_class(an, pi) - cubic_class(ad, pi)) - va * (cubic_class(bn, pi) - cubic_class(bd, pi))) % 3
     return j
+
+
+def quad_class(x, pi):
+    """x integral pi-unit, pi odd: 0 if square mod pi, 1 otherwise."""
+    q, (kind, p, r) = residue_data_any(pi)
+    s = rpow_any(reduce_any(x, pi), (q - 1) // 2, pi)
+    return 0 if s == one_any(pi) else 1
+
+
+@lru_cache(None)
+def residue_data_any(pi):
+    if norm(pi) == 3:  # lambda: residue field F_3, w = 1
+        return 3, ('split', 3, 1)
+    return residue_data(pi)
+
+
+def reduce_any(x, pi):
+    q, (kind, p, r) = residue_data_any(pi)
+    if kind == 'inert':
+        return (x[0] % p, x[1] % p)
+    return (x[0] + x[1] * r) % p
+
+
+def one_any(pi):
+    q, (kind, p, r) = residue_data_any(pi)
+    return (1, 0) if kind == 'inert' else 1
+
+
+def rpow_any(a, k, pi):
+    q, (kind, p, r) = residue_data_any(pi)
+    res = one_any(pi)
+    while k:
+        if k & 1:
+            res = (lambda m: (m[0] % p, m[1] % p))(mul(res, a)) if kind == 'inert' else res * a % p
+        a = (lambda m: (m[0] % p, m[1] % p))(mul(a, a)) if kind == 'inert' else a * a % p
+        k >>= 1
+    return res
+
+
+def tame_symbol2(a, b, pi):
+    """quadratic tame symbol at odd pi (incl. lambda), as 0/1, including the sign (-1)^{v(a)v(b)}."""
+    va, an, ad = frac_val(a[0], a[1], pi)
+    vb, bn, bd = frac_val(b[0], b[1], pi)
+    j = vb * (quad_class(an, pi) + quad_class(ad, pi)) + va * (quad_class(bn, pi) + quad_class(bd, pi))
+    j += va * vb * quad_class((-1, 0), pi)
+    return j % 2

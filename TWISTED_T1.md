@@ -209,5 +209,24 @@ m = 2 they may occur — the ES anchor). So the non-zero term is at some w | m. 
 every place is tame. ∎
 *Caveat (scope).* Prop 4.3 concerns the template (normalisation-only anchors + integral points with unit twists
 outside S). A T1 produced by a different mechanism (e.g. forced non-zero invariants at a place by the equation
-itself, as in ES at 2 for m = 2) is not excluded by it. In function fields, ∞ is never "tame with units": the
-denominators are not ∞-integral, and Lemma 1.2's degree character is exactly the non-template contribution.
+itself, as in ES at 2 for m = 2) is not excluded by it. In function fields ∞ must lie in S (denominators are
+not ∞-integral); (A) at ∞ for the monic normalisation holds iff sgn τ_i ∈ F_q^{*m}, and then A_S = 0 by the same
+reciprocity; otherwise inv_∞ is the degree character of Prop 1.2 — exactly the non-template contribution.
+
+## 5. Census of TES at primes (EVIDENCE) and the quadratic part
+
+**Census** (`scripts/tw_eis_census.py 60 6000`, log `logs/tw_census_60_6000.txt`): all 2-primary split primes π
+with 101 < N(π) ≤ 6000 and inert p ≤ 77 (746 primes): 5849 Type I + 1968 Type II solutions in the window
+N(X − c_i n/9) ≤ 60, **every one with invariants (inv₂, inv_π, inv_λ) = (1, 2, 0)** (Thm 3.2(c), and the partner
+vanishing, on 7817 points). 18 primes (9 conjugate pairs, N(π) ∈ {103, 151, 193, 211, 367, 409, 769, 2029, 2239})
+have no solution in the window; for N = 103, 151 none also with N(X − c_i n/9) ≤ 600 and with all X of
+N(X) ≤ 20000 (`run(..., wide=20000)`). The "wide" search adds **no** solution even for primes with many (N = 307,
+439): solutions live in the ES-like regime E = 9X − c_i n small, although TES has no size condition.
+`scripts/tw_eis_classify.py 60 3000`: the window failures occur only for π with χ_π(ω) ≠ 0 and χ_π(2) ≠ 0 (cubic
+characters), but most such π are solved (13–14 per class); no clean congruence obstruction. **Open:** is TES(π)
+solvable for all primes π ≡ 1 (mod 2), π ∤ 6? (EVIDENCE leans "not proven either way"; the analogue of ES.)
+**Quadratic part** (`scripts/tw_eis_quad.py 30`): μ(K) = μ₆, so BL's Br Ũ/Br K also has the quaternion class
+α_{−1}. On TES solutions at 7 primes its invariant at π takes both values 0 and ½ (e.g. N = 439: 27/27), inv_λ = 0,
+inv₂ = inv_π: no quadratic anchor (as Cor 2.2(e) predicts: U^{(1)} at (2) is not 2-divisible, normalisation does
+not pin the 2-part). So the window failures are not explained by the algebraic Brauer group (Assessment: BL's
+generator set; the integral model's further classes were not examined).

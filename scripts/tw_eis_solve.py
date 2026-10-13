@@ -15,7 +15,15 @@ def parse(s):
     return (int(a), int(b))
 
 
-def run(t, cs, pi, e, B, norm2=True, verbose=True):
+def _merge(*facs):
+    out = {}
+    for f, k in facs:
+        for p, v in f.items():
+            out[p] = out.get(p, 0) + k * v
+    return out
+
+
+def run(t, cs, pi, e, B, norm2=True, verbose=True, wide=0):
     n = E.power(pi, e)
     pin = E.normalise(pi)
     L = E.normalise(E.LAM)
@@ -28,6 +36,10 @@ def run(t, cs, pi, e, B, norm2=True, verbose=True):
         cx, cy = round(num[0] / nt), round(num[1] / nt)
         box = [(cx + a, cy + b) for a in range(-R, R + 1) for b in range(-R, R + 1)
                if E.norm((a, b)) <= B and (cx + a, cy + b) != E.ZERO]
+        if wide:  # also all X with N(X) <= wide (large-E regime)
+            Rw = int((4 * wide / 3) ** 0.5) + 1
+            box = list(set(box) | {(a, b) for a in range(-Rw, Rw + 1) for b in range(-Rw, Rw + 1)
+                                   if 0 < E.norm((a, b)) <= wide})
         for X in box:
             if norm2 and (X[0] % 2, X[1] % 2) != (1, 0):
                 continue
@@ -36,7 +48,8 @@ def run(t, cs, pi, e, B, norm2=True, verbose=True):
                 continue
             N = E.mul(n, X)
             M = E.mul(E.mul(cs[j], cs[l]), E.mul(N, N))
-            _, fac = E.factor(M)
+            fac = _merge((E.factor(cs[j])[1], 1), (E.factor(cs[l])[1], 1), (E.factor(pi)[1], 2 * e),
+                         (E.factor(X)[1], 2))
             for d in E.divisors(fac):
                 for u in E.UNITS:
                     U = E.mul(u, d)
