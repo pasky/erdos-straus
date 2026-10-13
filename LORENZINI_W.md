@@ -4,14 +4,16 @@ Status: internal research note, SPARK phase. **(W) is NOT proved here; ES is not
 Scripts `scripts/bsG_*`. Builds on HJ_DEEP.md (O174, reviewed R174) and DEDEKIND_ES.md.
 
 **(W)** (Lorenzini, *The critical polynomial of a graph*, J. Number Theory 257 (2024) 215–248, arXiv:2311.06367, Example 6.2(a);
-still open: T. Wang, EJC 33(3) #P80 (2026) calls finiteness "an open problem"): every n ≥ 2 outside
+still open: T. Wang and L. Lu, *The critical polynomials of simple connected graphs*, Electron. J. Combin. 33(3) (2026), #P3.80,
+doi:10.37236/13899, prove density 1 for every connected simple G and call finiteness of the complement, for general G, "an open problem" — R184 repair, D3): every n ≥ 2 outside
 E_W = {2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} is n = xyz − x − z with x, y, z ≥ 2. EVIDENCE to 10⁹ (O174/R174).
 Scope reminder (R174 D1): ES needs only (W) at primes p ≡ 1 (4) (plus (S)); global (W) is stronger.
 
 ## 0. Summary (updated as the work proceeds)
 0. **New partial answer to Lorenzini's question (§9, PROVED): every even n ≥ 16 except 510 is a value.** Lorenzini left n = 2^m − 2 (m odd)
    open. A Sierpiński-type covering of odd m mod 36 by six fixed-pair families settles it. (W) is now *exactly* the statement for odd n ≡ 3, 9, 11 (mod 12)
-   with n + 2 prime.
+   with n + 2 prime. (R184 repair, D8: novelty = not found in Lorenzini 2024, Wang–Lu 2026, the 7 Semantic-Scholar citers of Lorenzini's paper, or
+   Lorenzini's later preprints; a web search cannot exclude unindexed work — see reviews/lorenzini-w-review-2.md §2.)
 1. Four further elementary equivalent forms of (W) (§1, PROVED, checked against brute force for n < 700).
 2. **(W) is not T1-free: odd/even squares carry a partial genus obstruction ("square shadow", §3, PROVED).** At n = m² the
    middle letter y satisfies y ≢ 0 (mod 4), y ≢ 7 (mod 8), and y ≢ 3 (mod 4) if m is even. The record-low
@@ -183,7 +185,12 @@ slices (Defant 2016 bounds max s on fixed popcount; Stanley–Wilf refine by num
 In particular **(W) holds at every prime p ≡ 1 (mod 4), p ≥ 13.** (The ES-relevant scope noted by R174 D1.) ∎
 (R180 repair, D6a.) The first family alone shows more: **every n ≡ 1 (mod 3), n ≥ 4, is a value** ((2, 2, (n+2)/3)). That is not stated in Lorenzini's Prop 6.3,
 whose (c) is weaker, and it is used in the residue computations below.
+(R184 repair, D5: attribution.) Both families are slices Lorenzini already uses. (2,2,·) is his z = 2 slice (3 | n + 2, so n + 2 is neither prime nor a
+2-power; this is the z = 2 claim (i) in his proof of 6.3). (3,·,4) is his z = 4 slice with the divisor (n+4)/3 ≡ 3 (mod 4). So Prop 8.1 is a two-line
+strengthening of Lorenzini 6.3(c) (it drops his mod-9 condition), not a new idea.
 **Cor 8.2.** For primes p ≡ 1 (4), p ≥ 13: interior-SQ₅(p) ⟺ (S)(p), i.e. *L₃(p) (which is non-empty) contains a Jacobi −1 word*.
+(R184 repair, D4.) For p ≡ 5 (mod 12) the word (3, (p+7)/12, 4) is itself a −1 word (see below), so (S)(p) and interior-SQ₅(p) are PROVED there.
+Cor 8.2 has content only for p ≡ 1 (mod 12).
 The (W) half of HJ_DEEP's split carries no ES content at primes.
 **Signs of the two families.** For p ≡ 5 (mod 12) the word (3, (p+7)/12, 4) has A = 3t − 1 = (p+3)/4 and (A/p) = (3/p) = (p/3) = −1. This
 is the classical p ≡ 2 (mod 3) ES identity in HJ form. For p ≡ 1 (mod 12) the word (2, 2, (p+2)/3) has both A-values 3 and (2p+1)/3 ≡ 3⁻¹,
@@ -198,7 +205,7 @@ divisor-in-moving-class problem. It is ES-irrelevant except for n ≡ 9 (12) com
 problem in its own right. For ES, the spark relay should redirect to (S) at primes p ≡ 1 (mod 12) (ultimately Mordell's residual classes mod 840),
 which is the familiar sign/genus layer: Prop 4.1 of HJ_DEEP.
 
-## 9. The even half of Lorenzini's question is settled (PROVED; new as far as I can tell)
+## 9. The even half of Lorenzini's question is settled (PROVED; not found in the literature — R184 repair, D8: not in Lorenzini 2024, Wang–Lu 2026, the citing papers on Semantic Scholar, or Lorenzini's later preprints; Google Scholar lists 9 citers, of which 2 were not seen)
 **Theorem 9.1.** Every even n ≥ 16 with n ≠ 510 is a value of xyz − x − z with x, y, z ≥ 2. Equivalently, the even part of the complement of
 V_{A₃}(2) is exactly {0, 2, 6, 14, 510}.
 *Proof.* By Lorenzini Prop 6.3(a) it suffices to treat n = 2^m − 2 with m odd. (For other even n: z = 2 if n + 2 is not a 2-power, and
@@ -211,10 +218,13 @@ V_{A₃}(2) is exactly {0, 2, 6, 14, 510}.
 | (x,z) = (3,9) | 27 \| n + 12 | 2^m ≡ 17 (27) ⟺ m ≡ 15 (18) | 15, 33 |
 | (x,y) = (10,11) | 109 \| n + 10 | 2^m ≡ −8 (109) ⟺ m ≡ 21 (36) | 21 |
 | (x,z) = (8,74) | 592 = 16·37 \| n + 82 | m ≥ 4 and 2^m ≡ 31 (37) ⟺ m ≡ 9 (36) | 9 |
-The third letter is z = (n+x)/d for the (x,y) families and y = (n+x+z)/(xz) for the (x,z) families. It is ≥ 2 as soon as n ≥ 2·592, i.e. m ≥ 11.
-For m ∈ {1, 3, 5, 7, 9}: 0, 6 and 510 are exceptions, 30 = (3,4,3) and 126 = (6,2,12). ∎
+The third letter is z = (n+x)/d for the (x,y) families and y = (n+x+z)/(xz) for the (x,z) families. It is ≥ 2 for n ≥ 2·592 − 82 = 1102 (the worst family is (8,74)), in particular for all odd m ≥ 11 (R184 repair, D1).
+For m ∈ {1, 3, 5, 7, 9}: 0, 6 and 510 are exceptions, 30 = (3,4,3) and 126 = (6,2,12). (These two are caught by the (3,3) and (6,12) families, so only
+m = 1, 3, 9 are genuine exceptions to the covering.) ∎
 Certificate: `scripts/bsG_pow2_cert.py` (greedy cover found automatically; explicit solutions checked with exact integers for all odd 11 ≤ m ≤ 4001).
 `scripts/bsG_pow2.py 20000 L` shows that L = 36 is the least period among {12, 36, 60, …} that works; L = 12 misses m ≡ 9.
+(R184 repair, D2: more precisely, with all fixed-pair families of modulus ≤ 3000, no even period L < 36 works — 12 misses 9; 18 misses 3, 9; 24 misses 9, 21;
+30 misses 3, 9, 21 — and 36 is the least even period that works; `scripts/review_lw2_period.py 3000 72`.)
 The orders used are ord₉(2) = 6, ord₁₃(2) = 12, ord₂₇(2) = 18, ord₁₀₉(2) = ord₃₇(2) = 36. This is a Sierpiński-type covering, possible here because the
 family 2^m − 2 is a *one-parameter exponential* family: it is not dense in Ẑ, so the sterile set (§4) does not obstruct it.
 **What remains of (W) (exact).** By Lorenzini 6.3(b), Prop 8.1 and Thm 9.1, (W) is equivalent to: **every odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime,

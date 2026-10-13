@@ -135,3 +135,8 @@ not in Lorenzini 2024, Wang–Lu 2026, or the citing papers [list])".
 | Cor 8.2 | **SOUND** (D4: strengthen statement for p ≡ 5 (12)) |
 | "What remains of (W)" (§9) | **SOUND** |
 | Prop 6.1 | **SOUND-AFTER-REPAIRS** (D6 proof wording, D7 label/context; no mathematical gap) |
+
+**Repairs applied (R184, after merging main with R180 repairs).** In `LORENZINI_W.md` and `reviews/agent-reports/AGENT_REPORT_O180.md`, marked "(R184 repair, Dk)":
+D1 (threshold wording + m = 5, 7 remark), D2 (least even period, with the review_lw2_period result), D3 (Wang–Lu citation, header and report),
+D4 (Cor 8.2: (S)(p) proved for p ≡ 5 (12)), D5 (Prop 8.1 attribution to Lorenzini's z = 2/4 slices), D8 (modest novelty phrasing in §0, §9 title and the report).
+D6 and D7 had already been fixed by the R180 repairs (exact k!e_k bound with T → 0; Titchmarsh label; the ≪ N/log N baseline), so I skipped them.
