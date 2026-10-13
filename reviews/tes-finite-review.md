@@ -115,3 +115,24 @@ inv₁₉ = +1 for both ✓. The document gives certificates only for 131, 241; 
 3, 11, 17 too (e.g. n = 17: P₀ = (3, 8, 408/5), T = {5}, P₁ = (−60, −60, 510/257); n = 11: P₀ = (2, 6, 33/2), T = {2}).
 Note (D4): this is BL Remark 1.10 ("versions of Theorems 1.5, 1.8, and 1.9 also hold in this case") — the Thm 1.8
 version gives W^{Br} ≠ ∅ for every n; the certificates are an explicit confirmation, not new content.
+Count table (EVIDENCE) re-computed from scratch: m = 4: 32.8/6, 62.2/11; m = 8: 13.5/0 (2 zeros), 27.4/3;
+m = 12: 7.2/0 (1 zero), 15.2/0 (1 zero) — identical. (The m = 12 zeros, 193 and 1129, are in PW Table 1.)
+
+### Cor 5.4 / B7 — logic SOUND; novelty/significance OVERCLAIMED (MAJOR, D2/D3)
+Logic: Thm 5.3 (W^{Br} ≠ ∅) + Thm 5.2 (W ∩ 𝒰(ℤ) = ∅) at n = 131 refute the universally quantified principle
+"for every model of BL's family, W^{Br} ≠ ∅ ⇒ positive integral point". ✓ Scope of B7's PROVED part is correctly
+restricted (no claim about "p > p₀" arguments). However:
+(a) Both inputs are in the literature: insolubility = PW Table 1 (m = 8, to 10¹³); W^{Br} ≠ ∅ for all n = BL Remark 1.10
+(Thm 1.8 version). Cor 5.4 is therefore a two-citation consequence of known results, not a new theorem.
+(b) The principle is already refuted at n = 3, where Thm 5.3 holds (own certificate above) and insolubility is a
+two-line hand argument (x ≤ 3n/8 forces x = 1, then 1/y + 1/z = 5/3 forces y = 1, 1/z = 2/3). So the PROVED content of
+B7 does not need 131, 241 at all; what 131/241 add is that the failures are not just "m/n close to 3" size effects —
+an Assessment, not a theorem.
+(c) More substantively, PW Thm 3.1 already proves, for every m ≥ 8, more than exp(c φ(m)^{1/3}/(log m)^{2/3}) failing
+primes (by an Elsholtz–Tao-type sieve: primes avoiding all Type I/II classes of small modulus), i.e. *the "lottery"
+mechanism the author postulates is a theorem for large m*, and together with BL Rem 1.10 gives Cor 5.4-type
+statements for every m ≥ 8 with failures as large as exp(m^{1/3+o(1)}). This is the right context for B7 and for §4's
+"lottery" Assessment.
+(d) BL Thm 1.9 already shows (for all n) that U_n(ℚ) is not dense in U_n(𝔸)^{Br}_•: BM is known not to be the only
+obstruction to strong approximation on these surfaces. Cor 5.4's increment over BL 1.9 is that the failing open set is
+the *specific* W of the 8/n problem (not some smaller open); worth saying explicitly.
