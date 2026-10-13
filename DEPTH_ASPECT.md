@@ -168,7 +168,7 @@ deg z ≤ max(f, β) − λ ≤ α − 1. In particular T^α + z ≠ 0 (and T^α
 * f < β. Then deg z ≤ β − λ, and (A3) gives ≤ 2q^{β−λ}δ₃(α). (A4) gives ≤ 4q^{λ+κ−1+f} = 4q^{λ+α−β−1} with nothing
   further to choose. min(β − λ, λ + α − β − 1) ≤ (α − 1)/2.
 g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (R178 repair: garbled sentence rewritten.) In the case f ≥ β, deg(T^α + b1²K) ≤ α because 2β + κ = α + β − f ≤ α, so δ(α) suffices there (review repair).
-Also α > β forces deg a1 > deg b1, so lc(s) = 1 and E, F, K are monic.) ∎
+Also α > β forces deg a1 > deg b1, so lc(s) = 1 and E, F, K are monic. ∎
 
 **Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1
 (R178 repair: Lemma 3.1 is not needed, only γ ≤ j), R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
