@@ -1,0 +1,27 @@
+m=8 L=840: units 192, uncovered 35, of which squares 6; square classes 6
+  uncovered: [1, 11, 17, 107, 113, 121, 131, 137, 169, 233, 241, 257, 281, 289, 347, 353, 361, 401, 409, 443, 467, 473, 481, 521, 529, 563, 593, 611, 617, 641, 649, 683, 731, 737, 761]
+  n=131: class 131 uncovered
+  n=241: class 241 uncovered
+m=4 L=840: units 192, uncovered 6, of which squares 6; square classes 6
+m=4 L=9240: units 1920, uncovered 34, of which squares 30; square classes 30
+m=4 L=120120: units 23040, uncovered 204, of which squares 180; square classes 180
+m=5 L=840: units 192, uncovered 2, of which squares 1; square classes 6
+m=5 L=9240: units 1920, uncovered 10, of which squares 5; square classes 30
+m=5 L=120120: units 23040, uncovered 10, of which squares 5; square classes 180
+m=6 L=840: units 192, uncovered 12, of which squares 1; square classes 6
+m=6 L=9240: units 1920, uncovered 84, of which squares 3; square classes 30
+m=6 L=120120: units 23040, uncovered 372, of which squares 12; square classes 180
+m=7 L=840: units 192, uncovered 4, of which squares 1; square classes 6
+m=7 L=9240: units 1920, uncovered 10, of which squares 1; square classes 30
+m=7 L=120120: units 23040, uncovered 50, of which squares 5; square classes 180
+m=8 L=840: units 192, uncovered 35, of which squares 6; square classes 6
+m=8 L=9240: units 1920, uncovered 243, of which squares 30; square classes 30
+m=8 L=120120: units 23040, uncovered 1707, of which squares 180; square classes 180
+m=9 L=840: units 192, uncovered 114, of which squares 6; square classes 6
+m=9 L=9240: units 1920, uncovered 1006, of which squares 30; square classes 30
+m=9 L=120120: units 23040, uncovered 8390, of which squares 90; square classes 180
+m=12 L=840: units 192, uncovered 50, of which squares 6; square classes 6
+m=12 L=9240: units 1920, uncovered 381, of which squares 30; square classes 30
+m=12 L=120120: units 23040, uncovered 3392, of which squares 180; square classes 180
+  n=131: class 131 uncovered
+  n=241: class 241 uncovered

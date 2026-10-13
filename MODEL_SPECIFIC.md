@@ -114,3 +114,32 @@ already on the most structured piece of the solution set, and in a precise way: 
 obstruction" is true on the length-3 ball as an identity, for 8/n it is false on the same ball.** A proof of
 λ(p) ≤ 3 (a statement about quadratic non-residues in the Farey metric, with no reference to the numerator) would prove
 ES and would *not* prove 8/n — it is model-specific input of the kind B7 demands.
+
+## 4. Identities (Mordell classes) and the three cube shots for m/n
+
+**4.1 Covering by ET-shaped identities (CERTIFIED computation, `scripts/ms_cover.py`, `data/ms/cover.txt`).** Atoms:
+Type II (u, v, w), M = m·uvw − 1, class n ≡ −u·v⁻¹ (mod M); Type I (a, d, f), K = m·ad, f | ma²d + 1, class
+n ≡ −f (mod K) (PW Cor 2.2/2.4; every prime in the class has a solution). U_m(L) := unit classes mod L hit by no atom
+with modulus dividing L.
+| m | #U_m(840) (squares) | #U_m(9240) (squares) | #U_m(120120) (squares) |
+|---|---|---|---|
+| 4 | 6 (6) — exactly Mordell's {1, 121, 169, 289, 361, 529} | 34 (30) | 204 (180) |
+| 5 | 2 (1) | 10 (5) | 10 (5) |
+| 6 | 12 (1) | 84 (3) | 372 (12) |
+| 7 | 4 (1) | 10 (1) | 50 (5) |
+| 8 | 35 (6) | 243 (30) | 1707 (180) |
+| 9 | 114 (6) | 1006 (30) | 8390 (90) |
+| 12 | 50 (6) | 381 (30) | 3392 (180) |
+(Units: 192, 1920, 23040. L is tailored to the moduli 4k − 1 and 8; for odd m it is not the natural level, so only the
+4-vs-8 comparison is fair.) For m = 4 the uncovered set is the square coset plus a thin remainder (24 of 204 at
+120120); **for m = 8 the square coset is still uncovered (T1) but 1527 of the 1707 uncovered classes are non-squares**.
+131 (≡ 131 mod 840: non-residue mod 3 and 7) and 241 lie in uncovered *non-square* classes for m = 8 at every level
+tested, while for m = 4 both classes are covered at level 840. So: yes, the large 8/n failures sit in classes no
+small identity reaches — but the relevant fact is that for 8/n those classes are not T1 classes.
+
+**4.2 The three shots through the cube point (1, 1, 1) (`scripts/ms_shots.py`, `data/ms/shots_1e6.txt`).** With
+h = m·cdj − 1 the cube of FIXED_MODULUS_SHOTS §1 generalises verbatim (h | pj + c ⟺ h | p + mc²d ⟺ h | mdj²p + 1); the
+lines through (1, 1, 1) are the shots p + 1, p + m, mp + 1, firing iff they have a divisor h ≡ −1 (mod m), h > 1.
+Primes ≤ 10⁶ at which all three fail: **942 (m = 4**, reproducing (J)25), **102 (m = 5)**, 4308 (m = 8; including 131
+and 241), 11386 (m = 12). So the three shots are not a candidate never-failing condition even for ES; they are a
+measure of "first-ticket" strength, and here m = 5 beats m = 4 by a factor 9 (no T1 for m = 5).
