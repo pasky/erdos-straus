@@ -27,7 +27,8 @@ AGENT_REPORT_O200.md. From-scratch scripts: `scripts/review_xc_algebra.py`, `scr
 reproduce exactly with from-scratch code. One MAJOR defect (M1): the "archimedean wall" is proved only for
 bounded *overflow* Q₁ (fixed S and bounded e), but the summary language ("every bounded cap is a finite search",
 "no sieve can push the cap to any bounded e") drops that qualifier; with S allowed to grow with r the wall
-demands only rad(Q₁)^e ≥ (r/4n)^{1/4}, which a sieve at level r^{1/4} could meet. The real obstruction to
+demands only rad(Q₁)^e ≥ (r/4n)^{1/4}, which is not an archimedean obstruction at all (Q₁ a squarefree divisor
+of (r+1)/4 of size ≈ r^{1/4}). The real obstruction to
 bounded e with growing S is Prop 3.1, and it only rules out *covering* arguments.
 
 ## Claim-by-claim
@@ -205,7 +206,9 @@ ES^{(y,e)} (Def 1.1) does not bound rad(den z), and Cor 2.2's own "every S" clau
 finiteness. Concretely, for e = 1 the wall only requires a squarefree Q₁ | (r+1)/4 with Q₁ ≥ (r/4n)^{1/4} — e.g.
 r ≡ −1 (mod 4P) with P ≈ r^{1/4}, a modulus inside the Bombieri–Vinogradov range. So "no sieve can reach bounded
 e" is not proved; what is proved is (i) fixed S + bounded e ⇒ finite search (Cor 2.2), and (ii) no *covering*
-argument works at e = (log r)^{o(1)}·… (Prop 3.1(c): needs e ≥ (log r)^{1−o(1)}). The ES^{(y,e)}-for-bounded-e,
+argument works below e = (log r)^{1−o(1)} (Prop 3.1(c)). (Whether a sieve with modulus ≈ r^{1/4} varying with r is
+available is a separate uniformity question — Lemma 2.2 is stated for fixed M — but the wall itself does not
+exclude it.) The ES^{(y,e)}-for-bounded-e,
 growing-S question (hit −n/4, not cover) is left open by the document.
 Repair: in all listed places say "every bounded overflow (fixed S and bounded e) is a finite search"; replace "no
 sieve can push the cap to any bounded e" by "with S fixed no sieve can …; with S growing, the wall only asks
