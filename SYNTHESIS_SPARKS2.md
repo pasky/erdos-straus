@@ -34,7 +34,9 @@ recalibrates (J)21/(J)23 (§2 Reading). ATTACKED (§2).
 
 **X3 (seed (iii)) order-3 T1 [(J)19] × mute places [(J)23].** Explicit TES shot n + 18Q³ with fixed modulus 18; cubic
 mute lemma; TES^{□₃} at every non-cube by one Hecke prime (§3). Uniform principle confirmed at orders 2 and 3; its
-lesson is negative for ES (T1 is never the difficulty; orbit size is). ATTACKED (§3).
+lesson is negative for ES: *(R193 repair m8)* in shot/character mechanisms of this shape the T1 step is one character
+value and the difficulty is orbit size (Assessment; for ES in general B1/B5 say T1 is what kills covering proofs).
+ATTACKED (§3).
 
 **X4 (seed (iv)) exponent coverings [(J)22] × sterile points [O178 Thm 3.1, O188].** O188 Lemma 4.1 already shows the
 limit sets Λ_k never meet an r-generic line, so exponential families cannot approach O178's sterile points; the
@@ -84,7 +86,10 @@ DEPTH_ASPECT Lemma 1.3 (exponential witnesses serve only bounded depth). Dead (B
 
 **X11 T1_TEMPLATE Thm 2.1 [(J)21] × TWISTED_T1 Lemma 2.1 [(J)19]: which normalisations of the free slot keep T1.**
 Lemma 3.2 (§3) shows the mute condition is needed only when q ∤ x (case V > 0 is automatically trivial, at orders 2
-and 3). So the natural mute normalisation is "v_q(z) < 0 and q ∤ x ⇒ m | v_q(z)", slightly weaker than O186's. PROVED (§3), minor.
+and 3). So the natural mute normalisation is "v_q(z) < 0 and q ∤ x ⇒ m | v_q(z)", weaker than O186's. PROVED (§3), minor.
+*(R193 repair m3: at order 3 the weaker form is necessary, not cosmetic — the shot solutions of Thm 3.5 have
+v_q(z) = 2s − 3c, and in 68 of 3044 mute places of R193's census 3 ∤ v_q(z) < 0 with q | x; at order 2,
+v_q(z) = 2s − 2c is always even and O186's strong form holds automatically.)*
 
 **X12 internal-consistency audit of (J)13–(J)25.** §4.
 
@@ -105,6 +110,8 @@ odd and not a square.
 (b) If n ≡ 1 (mod 4), there is a prime r ≡ 3 (mod 4), r ∤ n, with Jacobi symbol (n/r) = −1. For the least such r
 (call it r(n)) there is an odd Q with gcd(Q, n) = 1 and 4Q² ≡ −n (mod r), and UNIT_ORBIT_ES Prop 2.1 with g = r gives an explicit ES^□ solution of Type II shape at every
 prime of n, with denominator of z dividing Q². If n = p is prime and p > 2r(p), one can take 0 < Q < 2r(p).
+*(R193 repair m1: the proof gives the sharper 0 < Q < r(p) whenever r(p) < p — the odd one of s, r − s is < r, and
+Q < p ensures gcd(Q, p) = 1; numerically max Q = 97 < r over all p ≤ 10⁶.)*
 *(Self-review repair: the bound Q < 2r is false for composite n — n = 825, r = 7: the odd roots 3, 11 below 14
 share factors with 825 and the least admissible Q is 17. For composite n only existence is claimed.)*
 *Proof of (b).* n = n₀m², n₀ > 1 squarefree, n₀ ≡ 1 (mod 4) (as n ≡ 1 (mod 4) and m odd). The Jacobi character
@@ -133,8 +140,10 @@ prime to m, m² + 4Q² has no prime factor ≡ 3 (mod 4) (0 found, as forced: a 
 2. The hierarchy ES = ES^{(∅)} ⊂ ES^{(S)} (fixed S, ineffective theorem) ⊂ ES^{(S_p)} (p prime, S_p = odd primes < 2r(p), elementary)
    ⊂ ES^□ (for S ⊆ S_p) is a scale of "how many mute places", and ES sits at the bottom, where the orbit is one
    point. Seed (ii)'s question "S = primes ≤ log p with Q ≤ p^{O(1)}" is answered only in a weaker form (under GRH,
-   S = primes ≪ log²p, Q ≪ log²p; primes ≤ log p would need r(p) ≤ log p/2, which is false for a positive proportion
-   of p by the usual least-non-residue statistics — Assessment). Within the orbit family of Prop 2.1, the conversion
+   S = primes ≪ log²p, Q ≪ log²p; *(R193 repair m2)* the Q < 2r(p) construction with primes ≤ log p would need
+   r(p) ≤ (log p)/2, which fails for infinitely many p (a density-zero set: the proportion is ≈ 2^{−π(y;4,3)},
+   y = (log p)/2, e.g. 0.50 near 10⁶ and 0.25 near 10⁸) — Assessment; whether S = {primes ≤ log p} works with larger
+   Q ∈ ⟨S⟩ (r then unrestricted) is OPEN, an Artin-type question with growing |S|). Within the orbit family of Prop 2.1, the conversion
    of the constructed triple to an ES triple is exactly "g ≡ −1 (mod 4Q)" (O186 Prop 6.1): for g = r(p) prime this
    needs Q | (r+1)/4, i.e. Q ≤ (r+1)/4 — a box condition (FIXED_MODULUS_SHOTS Cor 3.2) on the specific root
    Q ≡ √(−p/4) (mod r), the least-non-residue lottery in another dress. This is a statement about the constructed
@@ -177,6 +186,9 @@ UNIT_ORBIT_ES Lemma 1.1 needs its parity condition only when q ∤ x.)
 TES^{(S)}(n), Σ_{π|n} inv_π α = −⟨ω, 2⟩₂ ≠ 0. Hence at n = π^{3k} (π ∤ 6 prime, π ∉ S) no solution has Type I/II
 shape at π. *Proof.* The place-by-place computation of TWISTED_T1 Thm 3.2 needs: x, y, z ∈ 1 + 2O₂ (anchor; ✓), u_i
 λ-integral (partner; S ∌ λ ✓), integrality at tame v ∉ S, v ∤ n (✓); places in S contribute 0 (Lemma 3.2). ∎
+*(R193 repair m4: the same argument covers every cube n = m³ (m prime to 6, 2-primary): each π | n has 3 | v_π(n),
+so a solution of Type I/II shape at every π | n would give Σ_{π|n} inv_π = 0; hence no TES^{(S)} solution has Type I/II
+shape at every prime of a cube with no prime of n in S. Thm 3.5's last sentence uses this form.)*
 
 **Corollary 3.4 (a cubic-character identity forced by T1₃; PROVED relative to Hecke's theorem on prime ideals in ray
 classes).** For every prime element r ≡ 10 + ω (mod 18), 18 is not a cube modulo r.
@@ -184,6 +196,12 @@ classes).** For every prime element r ≡ 10 + ω (mod 18), 18 is not a cube mod
 r | π³ + 18, and Prop 3.1 (D = 1, g = r) gives a Type II-shaped solution of TES(π³), contradicting Thm 3.3. ∎
 (By the cubic supplementary laws (18/r)₃ depends only on r mod 18, so it is a constant ≠ 1 on the class; numerically
 (18/r)₃ = ω² for all 27 such r with N(r) ≤ 6000. A direct derivation from the supplements was not done.)
+*(R193 repair u1: constancy is PROVED by conductors: K(∛18)/K is tamely ramified at 2 (exponent 1) and, as
+v_λ(18) = 4 is prime to 3, has conductor exponent e·p/(p−1) + 1 = 4 at λ; so its conductor divides 2λ⁴ = (18),
+K(∛18) ⊂ L, and (18/·)₃ is a ray class character mod 18. R193 confirmed numerically: over all degree-1 primes
+N ≤ 10⁵ it is a function of r mod 18, and = ω² on all 354 r ≡ g₀; the value ω² remains EVIDENCE. Consequently the
+T1₃ control in EVIDENCE (3) is forced a priori: every prime r | π³ + 18Q³ has (18/r)₃ = 1, so every divisor g has
+(18/g)₃ = 1 ≠ (18/g₀)₃.)*
 
 **Theorem 3.5 (TES^{□₃} at every non-cube; PROVED relative to Chebotarev for the abelian extension L·K(∛n)/K, L the
 ray class field of K mod 18).** Let n ∈ O be 2-primary, gcd(n, 6) = 1, n not a cube. Then TES^{□₃}(n) has a solution
@@ -194,7 +212,8 @@ cube; so some π | n (π ∤ 6) has 3 ∤ v_π(n), and M = K(∛n) is ramified a
 Hence L' ∩ M = K ([M:K] = 3 prime) and Gal(L'M/K) = Gal(L'/K) × Gal(M/K). Pick σ ∈ Gal(L'/K) restricting to c₀ on L;
 σ fixes a value ζ = σ(∛18)/∛18 ∈ μ₃; pick τ ∈ Gal(M/K) with τ(∛n)/∛n = ζ. Chebotarev for (σ, τ) gives a degree-1 prime
 𝔯 = (r), r ≡ g₀ (mod 18), r ∤ 6n, with (n/r)₃ = ζ = (18/r)₃. *(Self-review repair: this avoids using that (18/·)₃ is
-constant on the class, i.e. K(∛18) ⊂ L, which is plausible from the supplementary laws but was not checked.)* Then −n/18 ≡ Q³ (mod r) for some Q ∈ O, which may be taken ≡ 1 (mod 2) and prime to 6n (CRT),
+constant on the class, i.e. K(∛18) ⊂ L, which is plausible from the supplementary laws but was not checked.)*
+*(R193 repair u1: K(∛18) ⊂ L does hold (remark after Cor 3.4), so L' = L; the argument above is unaffected.)* Then −n/18 ≡ Q³ (mod r) for some Q ∈ O, which may be taken ≡ 1 (mod 2) and prime to 6n (CRT),
 and Prop 3.1 with D = Q³, g = r gives the solution; it satisfies (N_q) (remark after the Definition). ∎
 
 **EVIDENCE (`scripts/syn2_tes_shots.py 6000 200`, 1.4 s; ℤ[ω] arithmetic from `scripts/tw_eis.py`, factorisation via sympy).**
@@ -206,6 +225,9 @@ value (1, 2, 0)), and the cubic tame invariant at every mute prime above every q
 (3) T1₃ control: for one 2-primary π above each split prime ≤ 200 (one associate, one of the two conjugates), and Q ≤ 39 prime to 6N(π) (267 shots), no divisor of
 π³ + 18Q³ (any associate) lies in the class g₀.
 (4) The plain single shot π + 18 (D = 1, TES itself) fires for only 52 of the 768 2-primary split primes with N(π) ≤ 6000.
+*(R193 repair m5: the count depends on which of the two 2-primary associates ±π is used — here the one from
+`tw_eis.normalise` then the first 2-primary unit multiple; over all 1536 2-primary associates it fires for 117, and
+for 90 of the 768 prime ideals at least one associate fires.)*
 (TES itself is not claimed at any prime here.)
 
 **Reading (Assessment): the uniform principle and what it says about ES.**
@@ -228,13 +250,17 @@ value (1, 2, 0)), and the cubic tame invariant at every mute prime above every q
 
 * **Citation error in DISCOVERIES (J)23** ("CRT large sieves for ES are capped at a (log N)^{3/4} saving ((A)19)"):
   section (A) has no item 19; the large-sieve cap is (D)19 (with (D)22 for prime laws; the form without the
-  (log log N)^{3/4} factor is (D)24), PROVED conditional on KARY2 Thm 5.1. UNIT_ORBIT_ES §5 already carries R186 repair
+  (log log N)^{3/4} factor is (D)24), PROVED conditional on KARY2 Thm 5.1. *(R193 repair m6: the KARY2 condition is
+(D)19's; (D)22 is PROVED and (D)24 PROVED given K2/EK, so cite "(D)19, conditional on KARY2 Thm 5.1; (D)22; (D)24".
+The DISCOVERIES (J)23 line (commit 65f155f1) attaches the condition to all three — ledger wording for the maintainer.)* UNIT_ORBIT_ES §5 already carries R186 repair
   m8 to this effect; the ledger did not inherit it. Fix: "(D)19, (D)22, (D)24".
 * **Notation clash "W"**: (J)10/(J)14 use W(n) for the *signed* single-slice certificate count
   (W(n) = Σ_{D(n)}(1 − (m″/n))/2, positivity = the sign event), while (J)15/(J)20 use (W) for the *sign-free*
   Lorenzini property n = xyz − x − z. So "(W) is trivial at primes" ((J)20 Prop 8.1) and "W(p) ≥ 1 for all primes
   ≤ 2·10⁶ is EVIDENCE" ((J)14) are about different objects and do not conflict; (H)19/(H)22 use W(p) for a third
-  quantity. Suggest renaming (J)10/(J)14's count W_sl(n).
+  quantity. Suggest renaming (J)10/(J)14's count W_sl(n). *(R193 repair m7: the clash is sharper — (J)15 itself writes
+"W(n) is sign-free: n = xyz − x − z", so the symbol W(n), not only (W), has two meanings in adjacent entries; also
+(A)8, (A)9, (C)16 use W(p) for the witness size. Rename (J)15/(J)20's property to Lor(n) as well.)*
 * Consistent on overlaps (checked by reading, and numerically where marked): (J)19's TES invariant (1, 2, 0) =
   the inv_π = 2 found on all 1536 shot solutions of §3 (numerical); (J)25 Remark 2.5 (A_h in the Jacobi −1 class)
   and (J)9 Thm 4.5 ((A/n) = −1) state the same sign; (J)25 Cor 2.3 (three modulus-4 shots) supersedes O188 §5's

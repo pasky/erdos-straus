@@ -1,5 +1,8 @@
 # R193 — hostile review of SYNTHESIS_SPARKS2.md (O192, spark synthesis II)
 
+**Repairs applied (R193, author parked):** m1–m8 and u1 applied directly in SYNTHESIS_SPARKS2.md (marked
+"(R193 repair …)") and summarised in AGENT_REPORT_O192.md; m6's DISCOVERIES wording is left to the maintainer.
+
 Reviewer branch side-agent/review-synthesis-two (merged side-agent/synthesis-two at the O192 checkpoint-1 commit).
 From-scratch scripts: `scripts/review_syn2_sqden.py` (§2, plain ℚ arithmetic + own Hilbert symbols),
 `scripts/review_syn2_eis.py` (§3, own ℤ[ω] arithmetic, own cubic residue / tame symbols). Neither imports the

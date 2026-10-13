@@ -7,7 +7,7 @@ Branch side-agent/synthesis-two. Main file `SYNTHESIS_SPARKS2.md` (§§0–4). S
 1. **The T1-bearing ES variant becomes elementary once the mute set may grow (§2, Prop 2.2, PROVED from Dirichlet
    only).** ES^□ (third denominator allowed to be an odd square prime to n) holds at every odd non-square n via ONE
    prime r ≡ 3 (mod 4) with (n/r) = −1 (for n = p prime, p > 2r: Q < 2r; for composite n only existence); the T1
-   (Lemma 2.1) is unchanged. For primes under GRH S = {primes ≪ log²p} suffices (weaker than seed (ii)'s log p). Consequence for steering: all of (J)23's analytic content (BV + linear sieve + Gupta–Murty) is the
+   (Lemma 2.1) is unchanged. For primes under GRH S = {primes ≪ log²p} suffices (weaker than seed (ii)'s log p; *(R193 repair m2)* S = {primes ≤ log p} with larger Q ∈ ⟨S⟩ is OPEN, not refuted, and r(p) > (log p)/2 holds only on a density-zero set of p). Consequence for steering: all of (J)23's analytic content (BV + linear sieve + Gupta–Murty) is the
    restriction to a FIXED finite S, and "a T1-bearing variant is provable" is by itself weak evidence about ES
    (Assessment). In these mechanisms the T1 step is one character value; my reading is that ES's difficulty is the
    size of the shot orbit (one point for S = ∅), within the orbit family.
@@ -33,7 +33,7 @@ Branch side-agent/synthesis-two. Main file `SYNTHESIS_SPARKS2.md` (§§0–4). S
   are unexplored sparks.
 * §2 Lemma 2.1, Prop 2.2 (PROVED); the quantitative remark (GRH bound on r(n)) is an Assessment from standard inputs.
 * §3 Prop 3.1, Lemma 3.2, Thm 3.3 (PROVED), Cor 3.4 (PROVED rel. Hecke), Thm 3.5 (PROVED rel. Chebotarev for the
-  abelian extension L·K(∛n)/K). The value ω² in Cor 3.4 is EVIDENCE (not derived from the supplementary laws).
+  abelian extension L·K(∛n)/K). The value ω² in Cor 3.4 is EVIDENCE (not derived from the supplementary laws). *(R193 repair u1: constancy of (18/·)₃ on the class is PROVED — K(∛18) has conductor dividing (18), so K(∛18) ⊂ L.)*
 * Seeds: (i) dead (no map ES^{(S)} → ES beyond Q | (r+1)/4, i.e. O186 Prop 6.1 / FMS Cor 3.2). (ii) answered: yes
   with S ≪ log²p (GRH), and the conversion is still B2. (iii) done (§3). (iv) answered by O188 Lemma 4.1.
   (v) shots are Heegner forms [r, 4Q, ·] of discriminant −4n; ES cube points are forms [h, 4cd, de] with "A ≡ −1 mod B";
@@ -49,6 +49,15 @@ now scoped to the five SQ₅ slices and Type II formal words. (4) global reading
 Minor: Thm 3.5 proof now uses L(∛18) so that constancy of (18/·)₃ on the class is not needed; (J)23 citation diagnosis
 corrected ((A)19 does not exist; cite (D)19, (D)22, (D)24); X11 wording; S ⊆ S_p; box size ≤ τ₃; scope of the cube
 control (one associate per split prime); scripts now assert their reported checks.
+
+## Review R193 (reviews/synthesis-sparks2-review.md)
+SOUND-AFTER-REPAIRS, minor only (no FATAL, no MAJOR); every claim re-derived, all numerics reproduced with
+from-scratch scripts (`scripts/review_syn2_sqden.py`, `scripts/review_syn2_eis.py`, own ℤ[ω] arithmetic). Repairs
+applied by R193 in SYNTHESIS_SPARKS2.md, marked "(R193 repair …)": m1 (Q < r(p)), m2 (density-zero, seed (ii) OPEN),
+m3 (weak mute normalisation necessary at order 3), m4 (T1₃ at composite cubes), m5 (associate convention in EVIDENCE (4)),
+m6 (KARY2 condition belongs to (D)19 only), m7 (W(n) clash inside (J)15), m8 (X3 scoped to shot mechanisms),
+u1 (K(∛18) ⊂ L by conductors; constancy of (18/·)₃ PROVED). Ledger note for the maintainer: DISCOVERIES (J)23's
+"(D)19/(D)22/(D)24, conditional on KARY2 Thm 5.1" should attach the condition to (D)19 only.
 
 ## Caveats for the reviewer
 * Prop 2.2 is deliberately easy; its value is the recalibration. Check that UNIT_ORBIT_ES Lemma 1.1 / Cor 1.2 really
