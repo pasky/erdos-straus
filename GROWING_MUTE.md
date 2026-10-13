@@ -132,7 +132,9 @@ Vieta-symmetric — citation from memory, not re-checked) where the integral Has
 infinitely many k (at least √K (log K)^{−1/2} up to K) (R201 repair M4: the earlier "fails for a positive proportion of k"
 was wrong; checked against arXiv:1706.06712; I have not checked whether S_{n,D} behaves alike). Prop 1.2(c) shows our
 surfaces have only ONE integral Vieta involution when n ≡ 1 (mod 4), so the orbit-descent tools used for Markoff
-surfaces (descent to a finite set of fundamental solutions) are unavailable.
+surfaces (descent to a finite set of fundamental solutions) are unavailable. (R201 repair m2/m5: for every odd n; and
+what is lost is the Vieta-jumping bound on μ = C/2 in terms of D — finitely many orbits per (μ, D) remain by reduction
+theory. S_{n,D} has no z² term and C enters linearly: it is a conic bundle over the C-line, "Markoff-type" only loosely.)
 
 ## 3. Pushing e → 0: what exactly fails at ES (task (3))
 
@@ -144,6 +146,8 @@ K = (g+1)/4:
   only).
 * ES^{[2]}: B free (Q | K²), box size τ(K²) = g^{o(1)}, g unbounded.
 * ES^{(y)} (e = ∞), S fixed: Q ∈ ⟨S⟩ with any exponents; box = ⟨S⟩² mod g, which is all of (F_g^*)² for sieved g.
+(R201 repair m7: the bullet sizes and the B = 1 bounds are PROVED; the next two sentences are Assessment "NOTHING" =
+both boxes g^{o(1)}, the e = 1 box being larger by a factor ≤ 2^{ω(K)}; "B free does not" = no cap is proved.)
 So between e = 0 and e = 1 NOTHING changes at a single modulus g (box g^{o(1)} in both); the entire difference is
 archimedean: B = 1 caps A (hence g), B free does not. Between e = 1 and e = ∞ the per-modulus box jumps from g^{o(1)}
 to ≍ g (covering becomes possible, EXPONENT_CAP Prop 3.1(c): e ≥ (log g)^{1−o(1)}).
@@ -160,7 +164,8 @@ exponent cap e the count is ≤ τ(K)(e+2)^{ω(K)} (EXPONENT_CAP Prop 3.1(b)). S
 of representatives is subpolynomial and smooth-number equidistribution says nothing; GHS-type inputs become
 relevant only at e ≍ log g with K primorial-like — the covering regime, which (EXPONENT_CAP Thm 2.1) forces
 overflow ≥ (g/4n)^{1/4} and is far from ES. For e = 0 the additional archimedean constraint g ≤ 2n(n+1) makes it the
-finite B3 lottery (expected count ≍ log³ n). Comparison with short-range smooth results: none of them restrict the
+finite B3 lottery (expected count ≍ log² n — R201 repair m8: B = 1 is the d = 1 slice; exact mean counts of B = 1 triples
+over primes near 10³…10⁶ track 0.23·log² p). Comparison with short-range smooth results: none of them restrict the
 support to the divisors of a prescribed integer, which is the actual constraint (it is B2).
 
 ## 4. Numerics (EVIDENCE; every reported solution re-verified with exact rationals or exact divisibility)
@@ -171,6 +176,12 @@ primes p ≡ 1 (mod 4), 5 ≤ p < 10⁶ (p ≡ 3 mod 4 is free), search the (A, 
 * Remaining 470: B = 1 with k ≤ 300 solves 354; **116 primes have no B = 1 solution with k ≤ 300**, and all of them
   have an ES^{(y,1)} shot solution with B squarefree: B = 3 (105 primes), 5 (6), 7 (3), 11 (p = 2293), 23
   (p = 12433: A = 26, g = 33487 = 2·26·23·28 − 1 | 12433·26² + 23²). Max k used ≤ 300 throughout.
+* (R201 repair m10, M1) A COMPLETE B = 1 test exists: with D = 2Aκ − 1 the slice is A(4λκ − p) = 2(λ + κ), i.e. p + 4t² has a
+  divisor d ≡ −p (mod 4t) for some t ≤ (1 + √(1+4p))/4 (scripts/review_gm_least.py). With it: **exactly 99 primes p < 10⁶
+  have no B = 1 solution** (the 116 above minus 17 solved at k > 300), all with ES^{(y,1)} solutions B ≤ 23 (89 with B = 3);
+  below 400 these are 13, 37, 97, 181, 193. Several listed solutions (13, 12433) have λ even, i.e. Q even (widened shot
+  family); under the strict Q-odd convention all p < 10⁶ still have one, but 541, 1297, 12433, 19273 need B = 73, 51, 51, 15
+  and k up to 1637 (R201 data/review_gm/).
 * Completeness: B = 1 needs k ≤ 3(p+1)/4 (Prop 3.1), so "no B = 1" is exact only for p < 400: **p = 13, 37, 97 have no
   shot-family ES solution at all** (they have other ES solutions, outside the d = 1 slice), but have ES^{(y,1)}
   shots: e.g. p = 13, (A, B, λ, D) = (10, 3, 2, 11), g = 119, Q = 18: **4/13 = 1/6 + 1/390 + 9/65**, 3 | 390.
@@ -181,7 +192,8 @@ primes p ≡ 1 (mod 4), 5 ≤ p < 10⁶ (p ≡ 3 mod 4 is free), search the (A, 
 
 **4.2 Orbit structure (`scripts/gm_orbits.py 300 13 17 29 73 9 25 49`, A, B ≤ 300).** Solutions of V_n (Prop 2.2):
 n = 13: 4 (all B > 1: (λ, D) = (2,11), (3,7), (9,7), (1,47)); 17: 19 (4 with B = 1); 29: 20; 73: 6. Every (λ, D)
-pair carries ≤ 3 points in the box (Pell orbits grow fast), so the count is dominated by NEW (λ, D) pairs — the
+pair carries ≤ 3 points in the box (R201 repair m4: false for all-B counts — n = 29, (λ, D) = (2, 3) has 4 points
+(2,7), (2,17), (14,47), (14,121); ≤ 3 holds for squarefree B) (Pell orbits grow fast), so the count is dominated by NEW (λ, D) pairs — the
 lottery is over the surfaces S_{n,D}, not along orbits. **n | λ never occurs** (Prop 1.2(c)). D ≡ 3 (mod 4) always.
 T1 control: **n = 9, 25, 49: no solution** (as proved, Prop 1.1 T1).
 
@@ -191,12 +203,17 @@ T1 control: **n = 9, 25, 49: no solution** (as proved, Prop 1.1 T1).
    problem "nA² + B² has a divisor ≡ −1 (mod 2AB)" (B = overflow, A = 2k), equivalently integral points on
    V_n : nA² + B² + D = 2λDAB, i.e. on Markoff-type cubic surfaces S_{n,D} : nA² + B² + D = ABC with 2D | C. ES's shot
    family is B = 1; ES^{(y,1)} is B squarefree; ES^{[2]} ("den z | y²") is B free. T1 = "sum of two coprime squares".
-2. **The growing mute set removes the archimedean wall and nothing else (Prop 1.2(b), 2.1, 3.1).** Every
+2. **The growing mute set removes the archimedean wall and nothing else (Prop 1.2(b), 2.1, 3.1).** (R201 repairs M2, M3,
+   m3: every ES^{[2]} solution with μ² − n non-square lies on an infinite Pell orbit, so ES^{[2]} has no wall; for the
+   bounded cap e = 1 this needs infinitely many squarefree B on an orbit — expected, unproved. For each FIXED P the
+   firing set is finite, but with P ≈ g^{1/4} growing (the actual construction) Prop 2.1 is vacuous, so whether a
+   BV-type argument can reach e = 1 is left OPEN, not refuted.) Original text: Every
    solution with B > 1 lies on an infinite Pell orbit (so no bound on g, confirming R200 M1), but the per-modulus box
    is g^{o(1)} at every bounded e, so the problem is pure hitting; and for each fixed P the sieve's progression meets
    the firing set only in an explicit finite divisor set — BV/BDH and Chebotarev contribute nothing.
 3. **No Markov tree (Prop 1.2(c); PROVED).** For n ≡ 1 (mod 4) only one Vieta involution is integral (reciprocity
-   forbids n | λ), so Markoff-style descent to finitely many fundamental solutions is unavailable.
+   forbids n | λ), so Markoff-style descent to finitely many fundamental solutions is unavailable. (R201 repair m2/m5:
+   true for every odd n; what is lost is a Vieta-jumping bound on μ in terms of D; there is no tree across C anyway.)
 4. **e → 0 (Prop 3.1).** e = 0 and e = 1 have the same per-modulus box size (g^{o(1)}); they differ only in that
    B = 1 bounds A ≤ 3(n+1)/2. Smooth-number results (GHS etc.) are irrelevant at every bounded e: the admissible
    representatives are divisors of (g+1)/4 (times a cap), a g^{o(1)}-set (B2).

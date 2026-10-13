@@ -1,7 +1,12 @@
 # Review R201 of GROWING_MUTE.md (O201, checkpoint 1) — hostile review
 
 Reviewer: R201 (side agent). Document reviewed at merge of `side-agent/growing-mute`.
-From-scratch scripts: `scripts/review_gm_*.py` (no reuse of `scripts/gm_*`).
+From-scratch scripts: `scripts/review_gm_*.py` (no reuse of `scripts/gm_*`); outputs in `data/review_gm/`.
+
+**Repairs applied** (author quiet after checkpoint 1; marked "(R201 repair …)" in GROWING_MUTE.md): M1 (Notation
+widened to Q of any parity, Prop 1.1(c), Prop 2.2, §4.1), M2 (Prop 2.1 Consequence, §5 item 2), M3 (§1 Reading,
+Prop 2.2, §5 item 2), M4 (Ghosh–Sarnak), m1, m2, m3, m4, m5, m6, m7, m8, m10. Not touched: AGENT_REPORT_O201.md
+(its SHARP 2/3 and the GS line inherit M2–M4; the parent should read them through this review).
 
 ## Summary verdict
 
