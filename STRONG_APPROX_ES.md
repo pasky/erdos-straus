@@ -323,3 +323,36 @@ e ≤ 2 (quasi-polynomials). Least squares on odd n ≤ N/2, tested on N/2 < n �
 N = 4000: no fit (test residual / mean: all 58.6/65.7; Type II 37.8/14.4; Type II weighted 1.0e4/1.36e4).
 Type II vanishes on every odd square (T1 control); the unrestricted count is ≥ 1 everywhere (trivial
 certificate g = 2, u = 1, v = n+1) and is not a closed form either.
+
+## 10. The double-coset picture of Type II, made precise
+
+**Lemma 10.1 (PROVED, direct computation).** Let `U⁻ = {[[1,0],[k,1]]}`, `U = {[[1,k],[0,1]]}`. Put
+`S := {γ ∈ SL₂(ℤ) : γ₁₂ = M > 0, γ₁₁ ≡ γ₂₂ ≡ −1 (mod M)}`. Then `S = ⊔_{M ≥ 1} U⁻ γ_M U⁻` with
+`γ_M = [[M−1, M],[M−2, M−1]]`, and `[[1,0],[b−1,1]] γ_M [[1,0],[a−1,1]] = [[aM−1, M],[abM−a−b, bM−1]]`.
+Type II(p) ⟺ `∃ M, a, b ≥ 1`: `abM − a − b = cp` with `c | M/4` (then `d = M/(4c)`, ET's a, b, c, d).
+*Second normalisation* (conjugate by `diag(1, c)`): Type II(p) ⟺ ∃ `γ' = [[f, cM],[p, f']] ∈ SL₂(ℤ)` with
+`−γ' ≡ u_p := [[1,0],[−p,1]] (mod M)` and `c | M/4`. Indeed `f ≡ f' ≡ −1 (M)` already forces `M | γ'₁₂`
+(`pγ'₁₂ = ff' − 1 ≡ 0`, p ∤ M), so the only non-congruence condition is **c := γ'₁₂/M divides M/4**.
+
+**Proposition 10.2 (the divisibility cannot be absorbed into one level; PROVED).** For fixed `(c, M)` the
+condition is a congruence coset of level M on the fixed set `{γ ∈ SL₂(ℤ) : γ₂₁ = p}` plus the exact entry
+`γ₁₂ = cM`, i.e. the slice `ff' = cMp + 1, f ≡ −1 (M)` (B2). For fixed c and varying `M ∈ 4cℤ` the level
+is `M = γ₁₂/c`, a coordinate of γ. A congruence subgroup Γ' of level L can impose `c | M/4` only for the
+finitely many M with `L`-periodic behaviour of `M ↦ 1[c | M/4]` — i.e. `4c | L` — so a single level covers
+only `c | L/4`, `M ≡ 0 (4c)`, a fixed finite menu of c; and each `(c, M)` with `M ≤ X` still needs its own
+level M. *Proof.* `1[c | M/4]` as a function of M is `4c`-periodic and of exact period 4c; the self-referential
+level is Lemma 10.1. ∎
+
+**What equidistribution would be needed (Assessment, with the count PROVED).** For each M put
+`H_M := {(f, f') ∈ ℕ² : f ≡ f' ≡ −1 (M), ff' ≡ 1 (p)}` (a modular hyperbola mod Mp, restricted to one class
+mod M). Each point determines `c' = (ff' − 1)/(Mp)`, and Type II at M ⟺ some point has `c' | M/4`. The shells
+`{c'Mp < ff' ≤ (c'+1)Mp}`, `c' ≤ M/4`, have hyperbolic area ≍ `Mp·log p` and expected `H_M`-count ≍
+`(log p)/M` each; the expected number of good points at M is ≍ `τ(M/4)·log p/M`, and `Σ_M` of this is the
+`log³ p` of ET. So a certificate needs, summed over a dyadic range `M ~ X`, positivity of
+`Σ_{M~X} Σ_{c'|M/4} #(H_M ∩ shell_{c'})`, whose main term is ≍ `log² p` (at `X ≍ p^{1/2}` as at any X), while
+the Weil/Kloosterman error for a single shell of the modular hyperbola mod Mp is `(Mp)^{1/2+o(1)}`. Unipotent
+(horocycle) equidistribution of `U⁻γ_M U⁻ ∩ Γ₀(p)` is the same statement in group language: the relevant
+horocycle pieces have length ≍ `Mp`, and we need their joint distribution against the *divisor-indexed*
+family of shells, at expected count `p^{o(1)}`. This is exactly the polylog regime (CONDITIONAL_ES Remark 2.4:
+not excluded by Prop 2.3, but no equidistribution theorem or standard conjecture reaches it). Converting the
+divisor-indexed family into congruence data would require Prop 10.2's impossible level.
