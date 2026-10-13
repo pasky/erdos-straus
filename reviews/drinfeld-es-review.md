@@ -189,3 +189,59 @@ Diff_m(u) := {v : inv_v α_ζ(u) ≠ C_v} is the author's definition (flagged as
   Invent. Math. (2024) ✓ (verified by search). Yun–Zhang Ann. of Math. 186 (2017) ✓ (my memory). Assessment only.
 * bsH_rank_k_genus: see §5 (D10). bsH_lsv_ramanujan, bsH_nagao_cf: Assessments/dictionaries, nothing to check
   beyond Nagao's theorem SL₂(F_q[T]) = SL₂(F_q) *_{B(F_q)} B(F_q[T]) (correct, Serre *Trees* II.1.6).
+
+## Numbered defects
+
+**FATAL** — none.
+
+**MAJOR**
+* **D1** (Thm 2.2 statement, last sentence "the odd-order part of the Brauer group of the ES_q surface carries no
+  information at all on monic integral points"; same in §7 bullet 1 and AGENT_REPORT SHARP 1 / bsH_bl_order_q1
+  "odd parts identically 0"). q is odd, so **p-primary classes are odd-order** and are not covered: BL's computation
+  of Br Ũ/Br k is characteristic 0, and its key step H¹(L_{i,j}, ℚ/ℤ) = 0 for L ≅ A¹ fails for the p-part in
+  characteristic p (Artin–Schreier), so Br Ũ{p} is not controlled (it may be large). What is PROVED is: α_ζ(u) = 0 in
+  Br F for every ζ ∈ μ_{q−1} of odd order. *Repair:* "…in particular, for every odd m | q − 1 the class α_ζ(u)
+  (ζ of order m) is zero in Br F: the odd-order **prime-to-p** classes of the ES_q surface (all of
+  Br Ũ{p′}[odd]/Br F, granting the BL transfer — Assessment) carry no information on monic integral points; the
+  p-primary part of Br Ũ is not addressed." Same edit in §7 and the report.
+
+**MINOR**
+* **D2** (Thm 2.2 proof (ii)) cites FUNCTIONFIELD_ES Lemma 1.2, which is stated for P prime (its (iii) uses
+  primality in char 3). For P = Q^e (Q ∤ A) use: Q^e | lcm(X, Y, Z), so some denominator has degree ≥ n > n − deg A
+  (deg A ≥ 1), and NC + leading coefficients (3 ≢ 1 mod p) give exactly one denominator of minimal degree.
+* **D3** (Lemma 3.2 hypothesis; AGENT_REPORT caveat 2; spark "c₁ + c₂ + c₃ = 1"). The hypothesis is always true
+  (same argument as D2), so delete "(automatic unless c₁ + c₂ + c₃ = 1 …)" and the caveat; the spark is vacuous
+  (if no proper sub-sum of the c_i is 1 there are no solutions at all — checked c = (3,3,2), (2,2,4), q = 7).
+  Also state that the formula refers to the labelling with that denominator first; in a fixed labelling multiply by
+  sgn(π) (verified numerically, perm-sign check).
+* **D4** (§1, "T1_k reversed (EVIDENCE + PROVED mechanism)"). The ×≈k enrichment mechanism (condition of
+  "probability ≈ 1/3" at primes) is a heuristic, not proved; Q³ also has extra non-primitive Type II data (Q can
+  divide a, b, d when deg Q < n − deg A). *Repair:* "EVIDENCE + heuristic mechanism".
+* **D5** (Thm 3.3, sentence "For prime P there is no such restriction"). Not proved; EVIDENCE (q = 7 tables,
+  reproduced). Also drop the superfluous "±" in "±y^{−m}".
+* **D6** (§3 "Why it never sterilises", "never all solutions"; bsH_twisted_targets "never"). Not proved that the
+  surviving degree classes are populated: EVIDENCE + Assessment.
+* **D7** (§4 numerics "81/81 pairs M ≤ 120"; bsH_odd_descent; AGENT_REPORT). `bsH_descent.py` enumerates only
+  ≤ 2-generated subgroups and wrongly claims this is exhaustive ((ℤ/24)^*, (ℤ/120)^* need 3 generators). Complete
+  count: 222 pairs, 0 with H ∖ H' = {−1} (`scripts/review_dr_descent.py`). *Repair:* replace 81/81 by 222/222 (or
+  say "all ≤ 2-generated H").
+* **D8** (Prop 4.2). A rational certificate needs N(β), N(β') > 0. *Repair:* add the positivity hypothesis (or note
+  that a negative pair is no certificate, which only strengthens the conclusion).
+* **D9** (Prop 4.1 proof) uses implicitly that every element of H is Art_{L/F'}(𝔞) for some 𝔞 prime to M
+  (Chebotarev) for the "iff". Add the word.
+* **D10** (§5(b), bsH_rank_k_genus). Wei–Yu (JNT 132 (2012), arXiv:1102.5465 — exists) is a mass formula, not an
+  optimal-embedding formula; "h(O) × ∏ local embedding numbers" is not a classical theorem in degree k ≥ 3.
+  *Repair:* replace by "every R-order of D lies in a maximal order, so containment of the datum in some maximal
+  order ⟺ K ↪ D (local conditions at Ram(D)) and integrality — PROVED, genus-vacuous"; keep Wei–Yu only as
+  background for the size of the class set.
+* **D11** (§6 "Γ_∞ acts trivially on μ_k because ∞ is not archimedean"). Γ acts trivially on Z(Ĝ) for every inner
+  form of PGL_k over any field. Reword: "because F_∞, unlike ℝ, has anisotropic inner forms of PGL_k for all k
+  (over ℝ the compact form PU(k) is outer for k ≥ 3)".
+* **D12** (citations from memory). Rosen "Thm 3.5" and Pierce "§13.3" / Reiner "Thm 32.15" numbering could not be
+  checked (no copies); the statements used are correct and the reciprocity law is confirmed numerically. Write
+  "Rosen Ch. 3 (d-th power reciprocity)" and "standard embedding criterion (e.g. Reiner, Maximal Orders, §32)".
+  Kottwitz 1986 remains unchecked (inherited from R177).
+* **D13** (bsH_lubin_tate_sterile) "x*_c = rec_T((1 + cT)^{−1})" holds for the normalisation in which rec_T(u) acts on
+  Λ_{T^e} by u^{−1}; add "with Hayes' normalisation of the Artin map".
+* **D14** (cosmetic, Thm 1.3) mention that for k | deg f the Kummer field also splits at ∞ (a second reason for
+  non-embedding) — optional.
