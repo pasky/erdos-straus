@@ -92,3 +92,10 @@ h₁h₁'L'' = T^K + r and small r — a **best rational approximation of T^K at
 approximation condition at 0. Covering x* thus asks for simultaneous good approximation at the two places 0
 and ∞ of P¹ by polynomials of controlled degree; for height-1 targets, the product formula (|·|₀|·|_∞ ≤ 1 for
 nonzero polynomials) is the natural tool. I have not turned this into a proof (next step if resumed).
+
+*Cross-validation with FF2's independent searcher (`scripts/ff2_caseB.py`).* (a) At u ≡ 1 + T + 2T² + … both find the
+K = 2 cylinder family E = T² + 2T + 2. (b) At the slice point u = 1 + T + T² + 2T³ + T⁵ + T⁶ + 2T⁸ + T⁹ + 2T¹⁰ + T¹²
+(digits `1021201102111`), FF2 reported 0 Case B families for deg L' ≤ 4, j ≤ 4; my enumeration predicts coverage
+by a K = 10, N = 6 (j = 5) solution, and `ff2_caseB.py 3 2 1 4 5 1021201102111` indeed finds exactly the pair
+E/E' with L' = T⁴ + 2T³ + 2T² + 2T + 1, j = 5, g = T⁵(T² + 2T + 1). So FF2's "generic control points" are
+covered once j is large enough — consistent with the ≈ 49 % coverage, and confirming the reformulation.
