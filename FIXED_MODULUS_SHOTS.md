@@ -131,6 +131,11 @@ i.e. p mod h ∈ A_h := −Box(k), Box(k) := {c/j : cj | k} ⊂ (ℤ/h)^*. |A_h|
 h^{O(1/log log h)}, and A_h lies in the Jacobi-symbol −1 class (Remark 2.5).
 *Proof.* Lemma 1.1 (with t = d) and h | pj + c ⟺ −p ≡ c/j (j is a unit mod h since j | k). ∎
 
+*Check (`scripts/fms_box.py 1000000`):* for primes r ≡ 3 (mod 4), 19 ≤ r < 3000, the box −Box((r+1)/4) equals the
+directly enumerated set {−4c²d : 4cd | r + 1} mod r. Over all 39 319 such r < 10⁶: mean |A_r| = 77.4, max 1977
+(r = 942479), i.e. r-density ≤ 0.2 %; on a sample of r < 2·10⁵ the ES^{(S)} coset −4⟨3,5,7,11⟩² is 14 to (median)
+1092 times larger than A_r.
+
 **Corollary 3.2 (ES = ES^{(S)} with bounded discrete logs; PROVED).** Let S be a finite set of odd primes and r a
 prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of ⟨S⟩ mod r as ∏ q^{e_q}. Then
 * ES (prime certificate h = r): p is certified iff −p ≡ ∏_{q∈S} q^{e_q} (mod r) with **|e_q| ≤ κ_q** for all q;
