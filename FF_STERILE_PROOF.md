@@ -62,7 +62,8 @@ P ≡ π, X ≡ π/A, so the four types are ≡ a₀, a₀π, π/(A a₀), π²/
 E | L/a₀ + L/b₀) and {1,2} (E | 1 + A a₀ b₀) — the condition E | s does not involve x mod E. In particular at
 **every** x ∈ R̂^* the families (E; 1, a₀; 2, b₀) with E monic, E | D = 1 + A a₀ b₀, E ≡ −x (mod A·L) are valid:
 the Case B system of the slice, with "E ≡ −1 mod L'" replaced by "E ≡ −x mod L'". If w(t_a) ≠ w(t_b) the
-condition is x ≡ ρ_F (mod E) for an explicit ρ_F (e.g. types (0,2): x ≡ −A a₀ b₀ mod E).
+condition is a polynomial congruence in x mod E: linear for weight difference 1 (e.g. types (0,2):
+x ≡ −A a₀ b₀ mod E), quadratic for (0,3) (x² ≡ −A a₀ b₀ mod E: 0, 1 or several roots).
 *Proof.* Direct from the residues listed (for (1,2): π a₀ + π/(A b₀) = π(1 + A a₀ b₀)/(A b₀); for (0,2):
 a₀ + π/(A b₀)). lc(s) = 1 for distinct types, so E is monic. ∎
 On the slice (π = 1 at all ℓ) every family is π-free; this is why the slice makes validity deterministic.
@@ -78,13 +79,12 @@ F_q[T], Σ_{deg ℓ = e, ℓ ≡ −κ (A)} 1/|ℓ| ~ 1/(Φ(A)·e), whose sum ov
 many B_ℓ hold, and each gives a valid F_ℓ. ∎
 *Consequences.* (a) Settles the open alternative of FUNCTIONFIELD_ES2 §0.2 (R166 D11): O(3, T²) is null in R̂^*,
 so the ≈ 1 % plateau of the `ffl_tree` covering tree is a truncation artefact, not a positive-measure obstruction.
-(b) A sterile point must be **non-generic at almost all primes**: it must avoid x ≡ −A (mod ℓ) for all but
-finitely many ℓ ≡ −x (mod A) — and likewise for every π-dependent family. Global points x ≡ θ (θ ∈ F_q(T)^*) at all
+(b) A sterile point must avoid **every** event x ≡ −A (mod ℓ), ℓ ≡ −x (mod A) prime, and the conditions of every
+π-dependent family; Haar-generic points fail this (Thm 3.2 says nothing about which null sets hold sterile points). Global points x ≡ θ (θ ∈ F_q(T)^*) at all
 ℓ outside a finite set make every family π-free (conditions become E | a fixed polynomial); θ = 1 (the slice)
-collapses the most type pairs (θ ≠ 1 adds E | a₀ + θb₀, E | Aa₀b₀ + θ, E | Aa₀b₀ + θ², …). So the slice is
-the natural (not merely convenient) home of sterile points, and on it the problem is the deterministic
-divisor lottery of §1. This is the function-field shadow of the integer picture: a prime p is "generic" in this
-sense, ES holds for it by a small-E family, and the hard cases are the non-generic residue patterns.
+collapses the most type pairs (θ ≠ 1 adds E | a₀ + θb₀, E | Aa₀b₀ + θ, E | Aa₀b₀ + θ², …). Assessment: the slice
+is a natural home for sterile-point candidates, and on it the problem is the deterministic divisor lottery of §1;
+other null sets are not excluded by anything proved here.
 
 ## 4. The point x*_c: what is proved, the exact residual problem, and a large-K cyclotomic search
 
@@ -98,9 +98,10 @@ because it is the genus lemma doing the work that the leading-coefficient sign d
 
 **The residual problem (exact; PROVED reformulation).** By Lemma 1.1 and the identities above, x*_c is sterile iff
 for no K ≥ 2 and no r with deg r < K is there an ordered factorisation T^K + r = H·H'·L'' into monic factors
-with H + H' = T g' r (g' monic, g'(0) ≠ 0) and **H + (1 + cT)H' ≡ 0 (mod T^N)** for some N ≥ ⌈K/2⌉ + 1 — i.e. "the
-polynomial T^K + r has two complementary divisors whose quotient −H/H' lies in a prescribed T-adic class whose
-precision is half the degree": exactly the integer divisor-class problem B2 (a divisor of N_θ(p) in a residue
+with H + H' = T g' r (g' monic, g'(0) ≠ 0) and **H·g'L'' ≡ −c (mod T^{N₀})**, N₀ = ⌈K/2⌉ + 1 (the covering condition
+v ≡ −HL' mod T^N at the weakest admissible N; it implies, but is not implied by, H + (1 + cT)H' ≡ 0 mod T^{N₀} — e.g.
+K = 2, H = T + 2, H' = T + 1 satisfies the latter and covers 1 + T + 2T², not x*_1) — i.e. "T^K + r has a divisor
+triple whose product HL' lies in a prescribed T-adic class of precision about half the degree": exactly the integer divisor-class problem B2 (a divisor of N_θ(p) in a residue
 class whose modulus is part of the solution), with r playing the role of the moving modulus. The data of
 §1–§2 and Lemma 2.1 cut the parameters but leave this lottery intact; I found no step that is false for all K.
 
@@ -111,10 +112,12 @@ only for even K. Then H H' L'' = T^K + r₀ and every ordered 3-factor split of 
 T^K − 1 highly factorable) and the dominant K = 2 cylinder (H = T ± c, HH' = T² − 1; it recurs for every even K
 with L'' = (T^K − 1)/(T² − 1), inside the same cylinder). `scripts/fsp_cyclo.py` (sympy factorisation; checked
 against `fsp_enum.py`: identical cyclotomic counts 2, 6, 8, 12, 4, 72, 4 for K = 2, …, 14) enumerates **all**
-cyclotomic solutions for 15 ≤ K ≤ 150 except 34 values of (K, r₀) with > 3·10⁵ splits (log
-`data/fsp_cyclo_K15_150.txt`): **no cyclotomic solution covers x*_{±1} at any of these levels** (first time levels
+cyclotomic solutions for 15 ≤ K ≤ 149 except 47 pairs (K, r₀) (at 34 levels) with > 3·10⁵ splits, marked SKIP in
+the log `data/fsp_cyclo_K15_150.txt`: **no enumerated cyclotomic solution covers x*_{±1}** (the test is exactly
+v_T(HL' + c) ≥ N₀) (first time levels
 K > 19 are touched at x*). Closest approach: v_T(HL' + c) = 12 against the needed 14 at K = 26 (a = b = 13, T^26 − 1);
-elsewhere ≤ 13 against needed ≥ 72. Observed (EVIDENCE): T^K + 1 has cyclotomic solutions only for K ≡ 4 (mod 8).
+elsewhere ≤ 13 against needed ≥ 72. Observed: T^K + 1 has cyclotomic solutions at K = 4, 12, 20, 28, 36, 40, 44, 52, …, 136, 148 (mostly K ≡ 4 mod 8,
+not only).
 
 ## 5. The "covered measure → 1/2": what it is and what it is not
 
@@ -126,27 +129,28 @@ v ∈ F₃[[T]]^*; recomputed from a fresh `bsB_caseB 19` run, agreeing with O17
 * **Decomposition (exact).** 1/3 is the single K = 2 cyclotomic family (prefix v ≡ (c, 2)); K = 5 adds 2/27 (four
   depth-4 cylinders), K = 8 adds 4/81; everything after K = 8 adds 0.034 so far. Two-level increments
   0.0137, 0.0101, 0.0046, 0.0039, 0.0016 (K = 10–11, …, 18–19) decay with ratio ≈ 0.6 per two levels; geometric
-  extrapolation gives a limit ≈ 0.493 (range 0.492–0.495 for ratios 0.5–0.7). Assessment: **there is no sign of
-  an exact 1/2**; "≈ 1/2" is 1/3 + 2/27 + 4/81 + (small convergent tail).
-* **No character can produce it (PROVED).** 1 + T F₃[[T]] is pro-3, so it has no nontrivial ±1-valued
-  character; the only ±1-valued continuous invariant of a slice point is v(0) = c, and C is invariant under
+  extrapolation gives a limit ≈ 0.493 (range 0.492–0.495 for ratios 0.5–0.7). Assessment (finite data +
+  extrapolation, not a proof): **no sign of an exact 1/2**; "≈ 1/2" is 1/3 + 2/27 + 4/81 + (apparently small tail).
+  C is the Case-B-covered set; its complement is sterile only where Case A is also excluded.
+* **No quadratic group character produces it (PROVED).** 1 + T F₃[[T]] is pro-3, so it has no nontrivial ±1-valued
+  group character (arbitrary continuous ±1-valued functions of higher digits are not excluded); the only such
+  character of the slice is v(0) = c, and C is invariant under
   c ↦ −c (T ↦ −T; O175 Lemma 3.1(ii), whose sign bookkeeping is exactly Lemma 2.1 — this closes R175 D7).
   Cubic (Artin–Schreier) characters would give thirds, not halves.
-* **No continuous involution swaps covered/uncovered unless C is clopen (PROVED, topology).** C is open, U closed;
-  a homeomorphism τ with τ(C) = U makes both clopen, i.e. C = a finite union of cylinders. Since level-K
-  cylinders keep adding new measure through K = 19 (every increment for 10 ≤ K ≤ 19 is > 0), such a τ would need C to stabilise at
-  some finite level — which would itself make every point of U sterile in a whole neighbourhood (and solve (1)).
+* **A homeomorphism swapping covered/uncovered forces C clopen (PROVED, topology).** C is open, U closed, so
+  τ(C) = U makes both clopen (C a finite union of cylinders). C has not stabilised through K = 19 (every increment for
+  10 ≤ K ≤ 19 is > 0); whether it does later is open, so this only says what such a τ would require.
 * Near x*_c coverage is zero up to the depth at which x*_c is known uncovered: a level-N family meeting
   {u ≡ 1 + cT mod T^{N+1}} covers x*_c itself (ultrametric triviality). This is all R175's "far below 49 %" says.
 
 ## 6. Why goal (1) is not reached: the square-root barrier for the slice (PROVED bounds; Assessment of scope)
 
-A sterile point exists on the slice iff for some finite K₀ the uncovered measure U(K₀) exceeds the tail
-Σ_{K > K₀} #cyl(K)·3^{−N₀(K)}/2 (compactness + union bound; Case A must also be excluded on the region used — proved only at x*_c, EVIDENCE elsewhere). U(19) = 0.5094, so a bound #sol(K) ≤ 3^{(1/2−δ)K}
-with any explicit constant would finish the existence proof (data: #sol(K) ≈ 3^{0.2K}, R175). Every elementary
-parametrisation gives exactly the square root: with ρ = deg r, a solution is fixed by r and a divisor triple of
-T^K + r (≤ 3^{ρ + o(K)}), or by (H', g', L'') through Lemma 1.1 (≤ 3^{K − 1 − ρ}), or by H alone when a ≥ b (r is then
-−(T^K mod H), ≤ 3^{a}, a ≥ K/2). min(3^ρ, 3^{K−ρ}) = 3^{K/2}: no decay against 3^{−K/2}. Beating it needs an
+A *sufficient* condition for a sterile point on the slice: for some finite K₀ the uncovered measure U(K₀) exceeds
+the tail Σ_{K > K₀} #cyl(K)/(2·3^{N₀(K)−1}) (union bound; a sterile set could also be nonempty and null; Case A must also be excluded on the region used — proved only at x*_c, EVIDENCE elsewhere). U(19) = 0.5094, so a bound #sol(K) ≤ C·3^{(1/2−δ)K}
+with explicit C, δ making the tail beyond a computed K₀ smaller than U(K₀) would finish the existence proof (data:
+#sol(K) ≈ 3^{0.2K}, R175). The elementary parametrisations I found do not beat the square root: with ρ = deg r, a
+solution is fixed by r and a divisor triple of T^K + r (≤ 3^{ρ + o(K)}), or by (H', g', L'') via Lemma 1.1
+(≤ 3^{K − 1 − ρ}); at ρ ≈ K/2 both give 3^{K/2 + o(K)}, no decay against the cylinder mass ≈ 3^{−K/2}. Beating it needs an
 equidistribution input for "T^K mod E' is a short polynomial" over the moving moduli E' = T H' L' − 1 — the
 function-field face of B3, matching O173 §3. The off-slice escape (choose x at the primes of L' to gain 1/Φ(L')
 rigorously) meets Theorem 3.2: at points that are random at the primes of L' the π-dependent families (whose E is unconstrained) make the first moment diverge (Assessment for partially random points; PROVED for Haar-random x).
