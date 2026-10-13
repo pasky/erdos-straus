@@ -301,3 +301,29 @@ correctly argued and correctly labelled (promise 1/5). The closing "residual que
 again a barrier citation, not a proof. MINOR: label it Assessment. No other defects. (Remark, not a defect: my
 enumeration caps c < 2p. The memo does not state a bound on c for Type II certificates at fixed p. Finiteness
 follows from ES solution finiteness, but an explicit bound would make the "472" count self-certifying.)
+
+## Memo bsB_sterile_pretentious — item 1 SOUND; item 3 SOUND-AFTER-REPAIRS (one unwritten step, D16); numerics reproduced; one misquoted bound (D17)
+
+*Item 1.* 1 + cT is a square in F_q[[T]] (Hensel; constant term 1), and x* ≡ 1 elsewhere, so x* is a profinite
+square. SOUND.
+*Item 3* (parity from the Mordell transfer). Re-derived as far as it is written. Lemma 6.2's proof never uses
+irreducibility of P, so validity at x passes to every monic P ≡ x (mod W_F) of large degree, in particular to
+P = Q². With a datum satisfying Ef = P + Aa²d, f ≡ −1 (mod Ad, a), a prime π | gcd(f, Q) would divide Aa²d, which is
+coprime to f. So f ⊥ P and (P/f) = 1, and Prop 4.1's exponent ((q − 1)/2)((1 + deg f)(1 + deg Ad) − 1) must be
+even. For q ≡ 3 (4) this means deg f and deg Ad both even; for q ≡ 1 (4) there is no constraint. Correct.
+**D16 (MINOR→MAJOR for the "PROVED" label).** The step "F yields Type II data (a, b, c, d) for P = Q², in the form
+of FF Prop 4.1 (P = Aabd − E, Ec = a + b, gcd(a, b) = 1)" is not written. FF §6.2 families produce an NC solution
+X, Y = κPX/a, Z = κPX/b with a, b among {a₀, Pa₀, X/a₀, PX/a₀}. The normalisation to a coprime Prop 4.1 datum is
+standard for irreducible P, and FF checked Prop 4.1 only on irreducible P. For P = Q², a common factor of P with
+a, b, X has to be handled. Repair: write out the family → (a, b, c, d) map and check that it does not use
+irreducibility, or prove the parity directly from the family data (E, a₀, b₀, types). Until then the label should
+be "PROVED modulo the family-to-datum normalisation at reducible P". The parity is also implied, on the slice and
+for Case B, by FF2's own QR parity (deg E, deg D even), which R166 checked. Cite that as a consistency check.
+*Item 2* (anti-Siegel orientation). The Assessment is reasonable. Numerics reproduced from scratch
+(`scripts/review_sl_pretend.py`, my own W array): 35241 primes p ≡ 1 (4) in [10⁶, 2·10⁶], y = 50:
+corr(W, log L_y) = −0.484, mean W/log²p = 0.18 (bottom decile) vs 0.10 (top decile). These match the author's
+−0.49 / 0.18 / 0.10.
+**D17 (MINOR, misquoted bound).** Barrier screen: "Granville–Soundararajan maximum log L(1, χ) ≤ log log p + O(1)
+(under GRH)". Under GRH the Littlewood bound is **L(1, χ) ≤ (2e^γ + o(1)) log log p**, i.e.
+log L(1, χ) ≤ log log log p + O(1), and G–S show that this is essentially attained. Fix the statement. Bach's
+2 log² p and Burgess' p^{1/(4√e)+ε} are quoted correctly.
