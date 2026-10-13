@@ -136,3 +136,32 @@ restatement — suggest "PROVED (reformulation)".
   The memo's "1 − n" is the opposite orientation (+p/q surgery). For n ≡ 1 (mod 4) — the only ES case — 1 − n ≡ n − 1 (mod 8),
   so the ES content is unaffected; for n ≡ 3 (4) the memo's statement is wrong under the standard convention. MINOR; repair:
   state the orientation convention and "mod 8 only".
+
+### bsA_minkowski_stern M1–M3 — SOUND (M1: proof sketch from two classical conversions + exhaustive check)
+* What is PROVED vs checked: M1's proof is a sketch combining (i) Salem's/Denjoy's binary expansion of ?, quoted from memory,
+  and (ii) the classical regular-CF → HJ-string conversion (the same as bsA_farey Lemma 2). Both inputs are classical and
+  correct; the terminal-block bookkeeping is the only original step. The "exhaustive check n < 200" is a check, not part of
+  the proof. Acceptable as PROVED (relative to classical facts); better to cite the conversion (e.g. Hirzebruch's/
+  Riemenschneider's duality, or Popescu-Pampu's "The geometry of continued fractions and the topology of surface
+  singularities") instead of "from memory".
+* Re-checked from scratch (`scripts/review_hj_minkowski.py 2000`; ? computed from the exact series
+  2Σ(−1)^{j+1}2^{−(a₁+…+a_j)} with big integers, HJ length by the direct ceiling algorithm): **M1 holds for all 1 215 787
+  coprime pairs with n < 2000, 0 failures.** M2 (?(s(m)/s(2^k+m)) = m/2^k and coprimality) for all 16 369 pairs k ≤ 13, 0
+  failures. M3 is then a correct transcription of DK Cor 4.6 (p ≡ 1 (8)), using that M2 is a bijection between reduced
+  A/p ∈ (0,1) and odd-or-reduced dyadics (classical Stern–Brocot fact; my k ≤ 13 check covers it numerically). ✓
+* MINOR: the barrier paragraph has a garbled sentence ("… is a heuristic guess only, with / with a bilinear continuant
+  structure …") — duplicated "with", dangling clause.
+
+### bsA_farey_lnr_pigeonhole Lemma 1, Lemma 2, Thm 3 — SOUND
+* Lemma 1: r(p/q) = 1 + r(q/c); any HJ word with all letters ≥ 2 and length r has numerator ≥ r + 1, so r(q/c) ≤ q − 1 ✓.
+  (Checked r(n/A) ≤ A for all coprime pairs n < 2000.) λ ≤ n_p uses that the least QNR is prime ✓.
+* Lemma 2 re-checked for all 1 215 786 coprime pairs 3 ≤ n < 2000: 0 failures ✓.
+* Thm 3: for p ≡ 1 (4), A ↦ p − A preserves QNR; min(r(p/A), r(p/(p−A))) ≤ S(A)/2; λ ≤ ½·avg_QNR S ≤ Σ_{A<p} S(A)/(p − 1).
+  ✓ (the step avg_QNR S ≤ 2·avg_all S uses S ≥ 0 only — correct, if wasteful).
+  **Citation verified** (PubMed abstract of Yao–Knuth, PNAS 72 (1975) 4720): "The sum of all partial quotients in the regular
+  continued fraction expansions of m/n, for 1 ≤ m ≤ n, is 6π⁻² n (ln n)² + O(n log n (log log n)²)." ✓ Hence
+  λ(p) ≤ (6/π²) ln²p + O(ln p (ln ln p)²) unconditionally ✓. Numerically Σ S/(p ln²p) = 0.773 (p = 10009), 0.741 (p = 100049),
+  converging slowly to 0.608, consistent with the error term.
+* The GRH comparison (Bach: n_p < 2 ln²p) is correct but is a comparison against a crude conversion; "first unconditional
+  polylog bound" is plausible but unsupported beyond a negative literature search (Assessment) — fine as labelled.
+* Rukavishnikova is flagged "NOT verified" ✓ (correctly conditional).
