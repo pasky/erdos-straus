@@ -39,7 +39,8 @@ with a ≥ b are found directly (bound b + deg g′ + λ ≤ K − 1 from deg r 
 solutions are their H ↔ H′ swaps. Result for K ≤ 12: 226 solutions, **set-identical** to `fsp_enum.py 12`
 (sorted line-by-line `cmp`), per-K counts 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104 (K = 2..12). Note: the
 document's "cyclotomic counts 2, 6, 8, 12, 4, 72, 4" are the r-constant subcounts, not these totals.
-(K ≤ 14 run: see below.)
+**K ≤ 14 run** (`review_fsp_enum.py 14`, log `data/review_fsp_enum14_log.txt`, list `data/review_fsp_enum14.txt`):
+312 solutions, set-identical to `fsp_enum.py 14` (the document's 312), per-K 48, 38 at K = 13, 14.
 
 ## Lemma 2.1 (genus parity) — SOUND; attribution needs repair
 Re-derived step by step: D = EE′ = 1 + T^{K+2}g′²L″ = 1 + MY² with (M, Y) as stated; for π | E, π ∤ MY (else
@@ -50,8 +51,9 @@ K even: (−1)^{deg E + λ + λ deg E} = 1 ⟺ (1 + deg E)(1 + λ) odd ⟺ deg E
 K odd: (−1)^{deg E + (deg E + 1) + λ + λ deg E} = 1 ⟺ λ(1 + deg E) odd ⟺ λ odd, deg E even. Same for E′.
 Consequences a ≡ b, a + b ≡ 0, l ≡ a + 1, λ ≡ K (mod 2) follow from deg E = 1 + a + l, deg E′ = 1 + b + l,
 K = a + b + λ. deg r ≡ K: re-derived (cases a > b, a = b (leading coefficient 1 + 1 = 2 ≠ 0), a < b).
-Check (from scratch, independent solution list): K ≤ 12, 226 solutions, **0 violations** of deg E, deg E′ even,
-λ ≡ K, deg r ≡ K; classes (a, b, λ, K mod 2): (0,0,0,0) 100, (1,1,0,0) 62, (0,0,1,1) 52, (1,1,1,1) 12.
+Check (from scratch, independent solution list): K ≤ 14, 312 solutions, **0 violations** of deg E, deg E′ even,
+λ ≡ K, deg r ≡ K; classes (a, b, λ, K mod 2): (0,0,0,0) 112, (1,1,0,0) 88, (0,0,1,1) 84, (1,1,1,1) 28 — exactly the
+document's numbers.
 Note that the hypothesis "on the slice (u(0) = 1)" is not used: E(0) = E′(0) = −1 holds for every solution of
 (I), (II) by definition of E, E′. Only the identification of solutions with families needs the slice.
 
@@ -121,7 +123,7 @@ N₀ = ⌈K/2⌉ + 1; Case A is excluded at x*_c (R166); at x*_c every family is
 terms of H, H′, L″ are forced by H g′L″ ≡ −c (mod T). The counterexample K = 2, H = T + 2, H′ = T + 1 checked by
 hand: H + (1 + T)H′ = T² ≡ 0 (mod T²), but HL′ + 1 = T, v_T = 1 < 2, and the family covers u ≡ 1 + T + 2T² (mod T³).
 SOUND. K = 1 has no solutions (checked by hand and in the enumeration), so "K ≥ 2" loses nothing.
-Covers of x*_c among the reviewer's own 226 solutions with K ≤ 12: **none** (consistent with R175/O175).
+Covers of x*_c among the reviewer's own 312 solutions with K ≤ 14: **none** (consistent with R175/O175).
 
 ## §4 cyclotomic sub-family
 Structure SOUND: deg r ≡ K (Lemma 2.1) ⇒ r constant only for even K; every split of T^K + r₀ with
@@ -138,7 +140,8 @@ accounting.
 ## §5 measure
 `review_fsp_measure.py` on the reviewer's own K ≤ 12 solution list (exact rationals, maximal cylinders,
 normalised Haar on v with v(0) ≠ 0): 1/3 (K ≤ 4), 11/27 (K = 5..7), 37/81 (K = 8, 9), 113/243 (10), 343/729 (11),
-349/729 = 0.4787 (12) — identical to the table; 1/3 = two depth-2 cylinders (prefix (c, 2)), +2/27 = four depth-4
+349/729 = 0.4787 (12), 1051/2187 = 0.4806 (13), 1057/2187 = 0.4833 (14; log `data/review_fsp_measure14_log.txt`) —
+identical to the table; 1/3 = two depth-2 cylinders (prefix (c, 2)), +2/27 = four depth-4
 cylinders, +4/81 = eight depth-5 cylinders. Extrapolation: the two-level increments 0.0137, 0.0101, 0.0045,
 0.0039, 0.0016 have successive ratios 0.74, 0.45, 0.85, 0.41; a geometric tail with ratio 0.5 / 0.6 / 0.7 / 0.85
 gives 0.4922 / 0.4930 / 0.4943 / 0.4997. The data do not distinguish 0.493 from 1/2 (D8).
