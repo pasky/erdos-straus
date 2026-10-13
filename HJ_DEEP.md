@@ -76,8 +76,8 @@ and (W) is a T1-free divisor problem.
 * (S): there are **0 violations** below 10⁸. No odd square < 10⁸ has a −1 word (Prop 3.1 control).
 * Hence interior five-slice ES holds for every non-square n ≡ 1 (4), 13 ≤ n < 10⁸, n ≠ 105. This extends DK 9.1 from 10⁶ to
   10⁸, and it explains DK's lone exception: **105 has no length-3 word at all** (105 ∈ E_W). The sign plays no role there.
-* Small-|L₃| census (`scripts/bsA_smallL3.py 200000`). Only 40 non-square n ≡ 1 (4) < 2·10⁵ have 1 ≤ |L₃(n)| ≤ 6, and
-  every one has a −1 word. 21 of the 40 are *all* −1, e.g. 17, 29, 41, 69 with |L₃| = 2, and 33, 45, 125, 189, 209 with |L₃| = 4.
+* Small-|L₃| census (`scripts/bsA_smallL3.py 200000`). Only 30 non-square n ≡ 1 (4) < 2·10⁵ have 1 ≤ |L₃(n)| ≤ 6, and
+  every one has a −1 word. 18 of the 30 are *all* −1, e.g. 17, 29, 41, 69 with |L₃| = 2, and 33, 45, 125, 189, 209 with |L₃| = 4.
   The independent-coin model with q = 0.7 per reversal pair predicts ≈ 2–3 all-(+1) cases among them. Observing 0 is mild
   evidence that signs within L₃(n) are positively correlated toward −1, but it is not significant.
 * No injection: N₊(n) > N₋(n) occurs at 1 385 non-square n ≡ 1 (4) < 2·10⁵ (first 97, 241, 265, …). The minimum of N₋/|L₃| is
