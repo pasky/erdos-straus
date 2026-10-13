@@ -172,8 +172,8 @@ modulus condition is the fixed f ≡ −1 (mod A); Cor 2.2 says a mute shot is a
 (a) (mute) The residues P mod f made solvable by a mute shot with modulus f form the coset −A·⟨s² mod f⟩, of size
 ord_f(s²) — equal to (q^d − 1)/2 (q odd) when s is a primitive root mod f.
 (b) (ES_q, Type II) The residues P mod f for which f is the modulus of some Type II datum lie in
-−A·{a²d : a, d monic, ad | (f + 1)/A} mod f, a set of size ≤ τ₂((f + 1)/A) ≤ τ₂-max(d − k) = q^{o(d)}
-(number of ordered pairs of monic divisors).
+−A·{a²d : a, d monic, ad | (f + 1)/A} mod f, a set of size ≤ τ₃((f + 1)/A) = q^{o(d)}
+(number of ordered monic factorisations (f + 1)/A = a·c·d).
 *Proof.* (a) Prop 2.1: P ≡ −AQ² (mod f), Q ∈ ⟨s⟩. (b) f = Aacd − 1 forces ad | (f + 1)/A, and P ≡ −Aa²d. ∎
 So a mute modulus fires on half of all classes, an ES_q modulus on a q^{−d+o(d)} fraction — FF form of (J)25's
 "Box ⊆ ES^{(S)} coset".
