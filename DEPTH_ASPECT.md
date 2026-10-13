@@ -185,3 +185,47 @@ n, with q → ∞. Theorem 2.5 is at *fixed q* and covers all degrees at once. I
 "a sterile point exists" (over ℤ open for every Mordell r; MORDELL13E, MORDELL17C). The constant 16 comes from crude
 divisor bounds. **The exponents are not the obstacle; the constants are.** At q = 3 the same union bound is > 1
 (§3), exactly as over ℤ, where MORDELL17B needs ET's exponent 2/5 *with an explicit constant C ≤ 1.40*.
+
+## 3. Transfer to ℤ: large Mordell primes r have sterile points
+
+The dictionary of §2 is exact on the ℤ side. A *T-generic point* (POINTWISE_MORDELL §2.1, MORDELL17 §1) is
+x(u) ∈ Ẑ^× with x_q = 1 for all q ≠ r and x_r = u. It is the analogue of the slice point x_u, with T ↦ r. The
+classes of the seven ET families meet the r-generic line in *boxes* u ≡ ρ (mod r^k). By MORDELL17 Lemmas 1.1,
+2.1–2.3 (stated for r = 17; the proofs use only that r is an odd prime and the r-generic table of
+POINTWISE_MORDELL §2.1, which is for general T), the boxes are as follows. Level-k boxes of types Q, Q⁻¹, U, U⁻¹,
+√Q number ≤ 6·f(r^k), where f(n) is the number of ordered solutions of 4/n. P-boxes are N-points of Σ^II_{r^K}
+at half level ⌈K/2⌉, ≤ 2 per point. MORDELL17 §2, "Consequence (measure)", with 17 ↦ r, gives
+  μ(⋃ boxes) ≤ S(r) := Σ_{k≥1} 6 f(r^k) r^{−k} + Σ_{K≥1} 2 f_II^N(r^K) r^{−⌈K/2⌉},
+where f_II^N counts N-points of Σ^II modulo dilation. The ET exponent of the P-family is 2/5, against the weight
+N^{−1/2} (margin 1/10). This is the ℤ face of Lemma 2.2. At r = 17 the margin is eaten by constants (MORDELL17 §4:
+even constant 1 gives a tail of 0.84 > 0.677).
+
+**Theorem 3.1 (sterile points for all large Mordell primes r; PROVED relative to ET Prop 1.7's proof applied to
+N-points (as in MORDELL17 §2, R83-reviewed), Browning–Elsholtz f(n) ≪_ε n^{2/3+ε}, and MORDELL17 Lemmas 1.1, 2.1–2.3,
+Cor 4.2 for general odd prime r).** There is an effectively computable r₀ such that for every prime r ≥ r₀ the
+r-generic line contains a sterile point x(u) with u a quadratic non-residue mod r. That is, x(u) lies in no class
+of any of the seven ET families. Consequently **no finite set of ET Prop 1.9 classes covers all sufficiently large
+primes p ≡ 1 (mod 24) whose least quadratic non-residue is r.** In fact the sterile set has measure
+≥ (r − 1)/(2r) − S(r) → 1/2 in ℤ_r.
+*Proof.* ET's proof of Prop 1.7 gives f(n) ≤ n^{3/5 + C/log log n} and f_II^N(n) ≤ n^{2/5 + C/log log n} with an
+absolute (effective) C (MORDELL17 §2 for the N-point version). With n = r^K ≥ r, the exponent loss is ≤ CK log r/log log r.
+Hence the Q/U part of S(r) is ≤ 6Σ_k r^{−k(2/5 − C/log log r)} + O_ε(Σ_k r^{−k(1/3−ε)}). The P part is
+≤ 2Σ_K r^{K(2/5 + C/log log r) − K/2} ≤ 2Σ_K r^{−K(1/10 − C/log log r)}. Once C/log log r < 1/20 every series is geometric with
+ratio ≤ r^{−1/20}, so S(r) → 0 as r → ∞. The non-residue cells have total measure (r − 1)/(2r). So for r ≥ r₀,
+S(r) < (r − 1)/(2r), and some u in a non-residue cell is in no box, i.e. x(u) is sterile. MORDELL17 Cor 4.2 (proof:
+a finite union of classes is clopen and misses a neighbourhood {x ≡ u mod r^L, x ≡ 1 mod Q} with
+840·∏_{q<r} q | Q, which contains infinitely many primes, all with p ≡ 1 (24) and least non-residue r) gives the
+consequence. ∎
+*Remarks.* (1) The averaging over the (r − 1)/2 non-residue cells is essential. Low-level P-boxes (K = 1: ≤ 2f_II(r) ≪ r^{2/5+o(1)}
+of them) cover *whole* cells, but only r^{2/5+o(1)} of the r/2 cells. (2) r₀ is astronomically large (log log r₀ ≈ 20C), so
+this says nothing about r = 13, 17, where the sterile-point question stays open (MORDELL13E, MORDELL17C). What is new is
+the logical status: **sterile Mordell points exist**, for all large r. The campaign had none: the only proved sterile points were
+the square points, and x* was refuted. (3) Function-field twin: Theorem 2.5 (q large ↔ r large). There the constants are explicit
+(q ≥ 3^27), because the divisor bound 2^n is uniform in q; over ℤ the divisor bound n^{C/log log n} is what forces r₀ huge.
+(4) It does not touch ES itself. Sterility excludes finite *covering certificates*. The primes near x(u) may still satisfy ES,
+and heuristically they do (the lottery, B2).
+(5) **Caveat for the reviewer:** this transfer was written in one pass at the end of the session. The steps to recheck
+are: (i) MORDELL17 Lemmas 1.1, 2.1–2.3 for general r, including whether any parity or reciprocity step used 17 specifically.
+Lemma 1.3 is used only as an emptiness statement, which is not needed for an upper bound. (ii) The uniformity of ET's
+O(1/log log n) for N-points that are not Type I/II solutions (MORDELL17 R83 repair m1 asserts it from ET §3). (iii) The
+U-family via Browning–Elsholtz (or MORDELL17 Lemma 5.2).
