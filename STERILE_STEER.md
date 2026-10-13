@@ -96,3 +96,22 @@ compactness) is open. Boxes whose T-part is a power of a single q ∈ T cut out 
 uncovered set is ∏_{q∈T} A_q; if every A_q ≠ ∅ (e.g. all q ∈ T have a sterile point on their q-line, as for q ≥ r₀)
 it is non-empty, and any covering of G_T must use solutions of 4/F with ≥ 2 primes of T in F. (For q = 13 the
 whole non-residue half of the 13-line is covered at level 1, POINTWISE_MORDELL §1, by boxes of modulus 3·13 and 11·13; so A_13 = ∅ whenever 3, 11 ∉ T.)
+
+## 4. Exponential families (goal 3; relative to EXPONENT_COVERING §1, O185)
+
+Λ_k ⊂ Ẑ is the limit set of n_m = k·2^m + c (c = ±1): ν(μ)_2 = c, ν(μ)_q = k·2^μ + c (q odd), μ ∈ Ẑ.
+**Lemma 4.1 (PROVED, elementary).** Λ_k meets no r-generic line {x_q = 1 for q ≠ r}, for any r, k, c.
+*Proof.* If c = −1 the 2-component is −1 ≠ 1. If c = +1, x_q = 1 forces k·2^μ = 0 in the domain ℤ_q, impossible. ∎
+So the O178 sterile points are invisible to exponential families: they neither obstruct nor are reached by
+exponent coverings. Sterile points of Λ_k (O185 Thm 1.2) must be found inside Λ_k itself.
+**Lemma 4.2 (why the O178 mechanism does not transfer; PROVED, elementary).** Push Haar measure on μ ∈ Ẑ forward to
+Λ_k. An ET class with modulus 2^s M' (M' odd, gcd(k, M') = 1, s ≤ the 2-adic compatibility) has measure 0 or
+1/ord_{M'}(2), not 1/M'. *Proof.* μ ↦ 2^μ mod M' is the uniform measure on the cyclic group ⟨2⟩ of order
+ord_{M'}(2), and k·g + c ≡ ρ (mod M') has at most one solution g. ∎
+Since ord_{M'}(2) can be as small as log₂ M' (M' | 2^L − 1), classes of huge modulus carry large measure on Λ_k. The
+O178 union bound (weights 1/M against ET counts ≪ M^{2/5+o(1)} at half level) has no analogue: on Λ_k the weights are
+1/ord, and Sierpiński-type finite coverings become possible, as O185 found for k = 9 and 27. *Steering (Assessment).*
+The convergent-measure mechanism that produces sterile points needs moduli to carry mass ≍ 1/M, i.e. a parameter
+space on which every prime coordinate moves independently (a line, or G_T of §3). Families whose residues are
+coupled across primes through one exponent (Λ_k) or one integer (ℤ ⊂ Ẑ) escape it, and that coupling is exactly
+what such families and ES itself have, and what sterile points lack.
