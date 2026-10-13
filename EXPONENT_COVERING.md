@@ -10,16 +10,17 @@ Scripts `scripts/ec_*`. Builds on LORENZINI_W.md §9 (Sierpiński-type exponent 
 * (§2) Why B1 disappears (PROVED, structural): for polynomial families the parameter space Ẑ = Π_q Z_q is a product over the target
   primes, so "a square at every q separately" glues to a profinite square point. For exponential families the exponent μ ∈ Ẑ couples the
   primes q through the orders ord_q(2), and local squares need not glue: this is a Sierpiński covering, but with quadratic characters.
-* (§1, Cor 1.5) Divisor classes kill non-unit squares; the only integer obstruction points of k·2^m + 1 are k = 4^j − 1 at μ = 0 (PROVED).
-  So ES for all Proth numbers 3·2^m + 1 is out of reach of finite coverings by ET/divisor classes (R185 repair: more generally by
+* (§1, Cor 1.5) Divisor classes kill non-unit squares; the only integer *unit-square* obstruction points of k·2^m + 1 are k = 4^j − 1 at μ = 0 (PROVED;
+  R189 repair: integer points in the sterile non-square part S′ \ Sq^× are not excluded — that is the open half of EC_k).
+  So ES for all numbers 3·2^m + 1 (the k = 3 Proth family; R189 repair) is out of reach of finite coverings by ET/divisor classes (R185 repair: more generally by
   congruence classes solvable by polynomials + divisor classes; nothing is claimed for other methods).
 * (§3, SHARP) Dictionary: coverability ⟺ a Skolem / Bertók–Hajdu-type exponential local–global principle for k·2^x + 1 = (unit)²
   plus absence of sterile non-square points.
-* (§4, PROVED computer-assisted; checked by ec_cert.py and independently re-checked by R185, scripts/review_ec_cert.py) ES holds for all n = k·2^m + 1 for k ∈ {9, 21, 27, 57, 171, 231, 315,
+* (§4, PROVED computer-assisted; checked by ec_cert.py and independently re-checked by R185, scripts/review_ec_cert.py, and by R189, scripts/review_ec2_check.py — R189 repair) ES holds for all n = k·2^m + 1 for k ∈ {9, 21, 27, 57, 171, 231, 315,
   393, 495, 15015}; e.g. all 315·2^m + 1 (≡ 1 mod 2520) and all 15015·2^m + 1 (≡ 1 mod 120120, squares mod every prime ≤ 13).
   27·2^m + 1 is ≡ 529 (mod 840) for m ≡ 2 (12), m ≥ 14 (R185 repair: not m = 2, n = 109), and contains the primes 27·2²⁶ + 1,
   27·2⁵⁰ + 1 in that class.
-* (§5) S-unit families: B1 is the S → all-primes limit of an S-unit obstruction (finitely many integer obstruction points for finite S).
+* (§5) S-unit families: B1 is the S → all-primes limit of an S-unit obstruction (finitely many integer unit-square obstruction points for finite S; R189 repair).
 
 ## 1. Setup and the compactness criterion
 Notation. k ≥ 1 odd, c ∈ {+1, −1}, n_m = k·2^m + c. An *ET class* is a residue class r (mod M) from one of the seven families of
@@ -57,7 +58,7 @@ used (explicit in every certificate); the topological equivalence of Thm 1.4 is 
 S′ ⊇ Sq^× := {x : x_2 ≡ 1 (8), x_q ∈ (Z_q^×)² for all odd q} (profinite *unit* squares): D_q contains no point that is a unit at q, and the
 ET part is Theorem 1.2. So non-unit square points (e.g. ν(ℓ) = s² with an odd prime q | s) are NOT obstructions: they lie in D_q.
 
-**Corollary 1.5 (integer obstruction points; PROVED).** Let b = 2, c = +1, k odd. For ℓ ∈ Z, ν(ℓ) ∈ Sq^× iff ℓ = 0 and k = 4^j − 1 (j ≥ 1).
+**Corollary 1.5 (integer unit-square obstruction points; PROVED; R189 repair: this does not classify integer points of S′ \ Sq^×).** Let b = 2, c = +1, k odd. For ℓ ∈ Z, ν(ℓ) ∈ Sq^× iff ℓ = 0 and k = 4^j − 1 (j ≥ 1).
 *Proof (R185 repair: rewritten).* ℓ ≥ 0: ν(ℓ) has odd components the integer N = k2^ℓ + 1 > 1; N is a square in every Z_q (q odd) iff
 N = s² (an integer that is a square modulo almost all primes is a square), and a unit at every odd q iff s = 2^j. For ℓ ≥ 1, N is odd,
 so s = 1, impossible; for ℓ = 0, k + 1 = 4^j. ℓ = −a < 0: components (k + 2^a)/2^a; a square everywhere iff 2^a(k + 2^a) = □; as
@@ -166,7 +167,7 @@ polynomiality per se: e.g. f(2^m) (m varying) is an exponential family again, an
 More to the point, the method fails for infinitely many k (k = 4^j − 1, Cor 1.5), and for those k the failing exponents are m ≡ 0
 (mod L) for *every* L: along them n_m = 4^j + (4^j − 1)(2^m − 1) mimics 4^j modulo 2^L − 1. Writing m = 2t, n = (4^j − 1)X² + 1 with
 X = 2^t, and X → 1 profinitely: the family degenerates to the polynomial family (4^j − 1)X² + 1 near X = 1, where Prop 2.1 applies.
-So e.g. **ES for all Proth numbers 3·2^m + 1 is out of reach of every finite covering by polynomial-solvable congruence classes and divisor
+So e.g. **ES for all numbers 3·2^m + 1 (the k = 3 Proth family; R189 repair) is out of reach of every finite covering by polynomial-solvable congruence classes and divisor
 classes** (R185 repair: scope stated precisely; PROVED by Cor 1.5 + Thm 1.4 + the Mordell/Schinzel step of Thm 1.2; for general Theorem-M procedures it is the usual H-conditional transfer at the point X̂ = 1, not checked here).
 For each fixed k ≠ 4^j − 1 the expected answer is "coverable" (CONJECTURE EC_k := (EH_k) + no sterile non-square point in Λ_k;
 EVIDENCE §4.2: no counterexample, all failures explained by search limits around non-unit square points).
@@ -180,7 +181,7 @@ ES identities. The covering idea is Sierpiński/Erdős (covering systems) and Be
 ## 6. Assessment
 * What is new and solid: an exact criterion (Thm 1.4) for fixed-slice coverings of any eventually-periodic family; the identification of
   the B1 mechanism as *product structure* of the parameter space (Prop 2.1) versus *coupling* for exponential/S-unit families (Prop 2.2, §5.1);
-  the complete list of integer obstruction points (Cor 1.5, §5.1, S-unit finiteness); certified infinite ES families inside Mordell's hardest
+  the complete list of integer *unit-square* obstruction points (Cor 1.5, §5.1, S-unit finiteness; R189 repair); certified infinite ES families inside Mordell's hardest
   classes (Thm 4.1: all 315·2^m + 1 ≡ 1 mod 2520, all 15015·2^m + 1 ≡ 1 mod 120120).
 * What it does not do: it says nothing about primes in square classes in general. A family is coverable precisely when its members are
   forced to be non-squares (or divisible) at a fixed finite set of primes — "classically easy" in a uniform way. The hard core of ES

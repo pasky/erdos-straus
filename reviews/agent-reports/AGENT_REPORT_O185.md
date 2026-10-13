@@ -12,20 +12,20 @@ memos `BRAINSTORM/bsK_skolem_dictionary.md`, `BRAINSTORM/bsK_sunit_limit.md`; sc
 2. **Why B1 disappears (PROVED, structural):** B1's square-mimicking point exists because the parameter space of a polynomial/progression
    family is Ẑ = Π_q Z_q, a product over target primes, so local squares glue (Prop 2.1). An exponent μ ∈ Ẑ couples the primes through
    ord_q(2), and local squares need not glue: a Sierpiński covering by quadratic characters. **B1 is the S → all-primes limit of an S-unit
-   obstruction** (§5.1): for {k·u + 1 : u ∈ ⟨S⟩}, the integer obstruction points are the finitely many S-unit solutions of k·u + 1 = v².
-3. **Certified infinite ES families inside Mordell's hardest classes (PROVED, computer-assisted, independent checker):** ES holds for every
+   obstruction** (§5.1): for {k·u + 1 : u ∈ ⟨S⟩}, the integer unit-square obstruction points (R189 repair) are the finitely many S-unit solutions of k·u + 1 = v².
+3. **Certified infinite ES families inside Mordell's hardest classes (PROVED, computer-assisted; author's checker ec_cert.py, independently re-certified by R185 and R189 — R189 repair):** ES holds for every
    n = k·2^m + 1 (all m ≥ 0) for k ∈ {9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}. In particular **all 315·2^m + 1 (≡ 1 mod 2520)** and
-   **all 15015·2^m + 1 (≡ 1 mod 120120, i.e. squares mod every prime ≤ 13)**. 27·2^m + 1 (6 classes, L = 12) is ≡ 529 (mod 840) for m ≡ 2 (12)
-   and contains the primes 109, 27·2²⁶+1, 27·2⁵⁰+1. No prior "ES for all n of the form k·2^m + 1" was found (web check, §5.4).
-4. **Exact negative (PROVED):** the only integer obstruction points for k·2^m + 1 are k = 4^j − 1 at μ = 0 (Cor 1.5). So **ES for all Proth
-   numbers 3·2^m + 1 cannot be proved by any finite set of ET/divisor classes**: along m ≡ 0 (mod L), n ≡ 4 (mod 2^L − 1) mimics 2².
+   **all 15015·2^m + 1 (≡ 1 mod 120120, i.e. squares mod every prime ≤ 13)**. 27·2^m + 1 (6 classes, L = 12) is ≡ 529 (mod 840) for m ≡ 2 (12), m ≥ 14
+   (R189 repair: not m = 2, n = 109) and contains the primes 109, 27·2²⁶+1, 27·2⁵⁰+1. No prior "ES for all n of the form k·2^m + 1" was found (web check, §5.4).
+4. **Exact negative (PROVED):** the only integer *unit-square* obstruction points for k·2^m + 1 are k = 4^j − 1 at μ = 0 (Cor 1.5; R189 repair:
+   sterile non-square integer points are not excluded). So **ES for all numbers 3·2^m + 1 (k = 3 Proth family; R189 repair) cannot be proved by any finite set of ET/divisor classes**: along m ≡ 0 (mod L), n ≡ 4 (mod 2^L − 1) mimics 2².
 
 ## What was done
 * Theory: §1 (periodicity, limit set, compactness criterion with ET classes, then with divisor classes D_q: obstruction = profinite
   *unit* squares, Cor 1.5), §2 (Prop 2.1 polynomial families glue local squares; Prop 2.2 exponential coupling; worked k = 27 character
   table), §3 Skolem/Bertók–Hajdu dictionary, §5 S-unit families, polynomial families, uniformity in k, literature, §6 assessment.
 * Computation: `ec_screen.py` (unit-square survivors mod L), `ec_cover.py` (greedy ET+divisor covering; writes certificates with explicit
-  polynomials x(n), y(n), z(n)), `ec_cert.py` (independent checker: polynomial identity, integer-valuedness via finite differences,
+  polynomials x(n), y(n), z(n)), `ec_cert.py` (author's checker (R189 repair: not independent; independent re-checks in R185/R189 reviews): polynomial identity, integer-valuedness via finite differences,
   positivity via Cauchy bound, periodicity hypotheses M′ | 2^L − 1, coverage of Z/L, exact check for m ≤ 2000, brute-force ES for small m,
   T1 control that no used ET class contains an odd square), `ec_batch.py` (re-generate + check 10 certificates as subprocesses),
   `ec_survey2.py` (k ≡ 3 mod 6, k ≤ 600: 78 covered, 4 obstructed = {3, 15, 63, 255}, 18 OPEN at search limits — each OPEN k has an

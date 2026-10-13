@@ -156,3 +156,10 @@ The infinite-family claims of Thm 4.1 are **CERTIFIED by my independent check** 
 full coverage of Z/L verified by per-prime-power exponent arithmetic with ord | L asserted, brute force for the few m < m*, plus
 brute force for all n_m ≤ 10⁸ and exact checks at random m up to 40 000. Cor 1.5 and its "no finite ET/divisor covering of
 (4^j − 1)·2^m + 1" consequence are SOUND by an independent direct argument. Only label/wording repairs are required (defects 1–8).
+
+## Repairs applied (round 1, after merging main with R185 repairs)
+Applied by the reviewer, marked "(R189 repair)": defect 1 (EXPONENT_COVERING §0 ×2, Cor 1.5 title, §6; AGENT_REPORT_O185 items 2, 4),
+defect 4 (§0 checker attribution; report item 3 and "What was done"), defect 7 (§0, §5.3; report item 4), defect 3 in AGENT_REPORT_O185
+item 3 (m ≥ 14). Already fixed by "(R185 repair)", skipped: defect 2 (primitivity + Mordell/Schinzel in Thm 1.2), defect 3 in
+EXPONENT_COVERING (§0, table), defect 5 (Cor 1.5 proof rewritten), defect 6 (scope = polynomial-solvable + divisor classes in §0/§5.3),
+defect 8 (Prop 2.1 clause (ii)). No mathematical content changed; Thm 4.1 remains CERTIFIED.
