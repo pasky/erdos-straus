@@ -94,9 +94,10 @@ author appearing 3 times — once per position of the minimal-degree denominator
 | 13, 3, T, 3 | 728 (231 unsolvable) | 8487 (2829×3 ✓) | 0 | 0 |
 | 7, 3, T, 4 | 588 (25 unsolvable) | 28230 (9410×3 ✓) | 0 | 0 |
 | 13, 4, T, 3 | 728 | 8487 | 0 | 2-part only: inv_∞ = inv_P ∈ {0, 2}; all other places 0 ✓ |
-Total (author's counting): 801 + 672 + 883 + 899 + 163 + 277 + 2829 + 9410 = 15 934 at m = 3/9 plus the new cube rows
-(333 + 325) — the "> 20 000" of the report includes the m = 6/4 reruns; with those, 0 nonzero odd invariants is
-confirmed. Type II counts (positional II / 3) also reproduce the §1 table: 241, 2596, 192, 813, 42 (Q³, q = 7),
+Total (author's counting): 801 + 672 + 883 + 899 + 163 + 277 + 2829 + 9410 = **15 934** solutions at odd m (19 564
+if the m = 6, 4 reruns are added). The report's "> 20 000 solutions (m = 3, 9)" is therefore an overcount (D15);
+with my two new cube rows (333 + 325) the odd-m total is 16 592, all with 0 nonzero odd invariants.
+Type II counts (positional II / 3) also reproduce the §1 table: 241, 2596, 192, 813, 42 (Q³, q = 7),
 38 (Q³, q = 13).
 The author's solution counts are reproduced exactly; every odd-order invariant is 0 at every place. EVIDENCE
 confirmed.
@@ -271,5 +272,8 @@ Diff_m(u) := {v : inv_v α_ζ(u) ≠ C_v} is the author's definition (flagged as
   Kottwitz 1986 remains unchecked (inherited from R177).
 * **D13** (bsH_lubin_tate_sterile) "x*_c = rec_T((1 + cT)^{−1})" holds for the normalisation in which rec_T(u) acts on
   Λ_{T^e} by u^{−1}; add "with Hayes' normalisation of the Artin map".
+* **D15** (AGENT_REPORT SHARP 1, "0 nonzero odd invariants on > 20 000 solutions (q = 7, 13, 19; m = 3, 9)").
+  The §2 table sums to 15 934 at odd m (19 564 with the even-m rows). *Repair:* "on 15 934 solutions" (or add the
+  reviewer's cube rows: 16 592).
 * **D14** (cosmetic, Thm 1.3) mention that for k | deg f the Kummer field also splits at ∞ (a second reason for
   non-embedding) — optional.
