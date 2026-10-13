@@ -24655,5 +24655,28 @@ def check_fv():
 
 check_fv()
 
+def check_fw():
+    # (fw) TES_FINITE (O194/R194): TES(pi): 9/pi = w/x + w^2/y + 2/z over Z[omega] (x,y,z = 1 mod 2) is a finite
+    # search (Prop 1.1); R194's independent complete solver finds no solution exactly at the 15 primes with N <= 2500
+    # listed below (26893 is the 16th, outside this range); all solutions at primes have Type I/II shape.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_tf_zomega.py", "census", "2500"], capture_output=True, text=True,
+                       timeout=900, env=env, cwd=sdir)
+    assert r.returncode == 0, ("TES_FINITE subprocess", r.stderr[-2000:])
+    o = r.stdout
+    assert "zeros: [7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239]" in o and \
+        "shapes (#coords divisible by pi): {1: 1138, 2: 382}" in o, ("TES_FINITE R194 census", o)
+    print(f"== (fw) TES_FINITE R194: TES insoluble exactly at N(pi) in {{7,13,19,61,79,97,103,151,193,211,367,409,769,"
+          f"2029,2239}} (complete, N <= 2500), 1520 solutions all of Type I/II shape; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fw()
+
 
 print("\nall checks passed")
