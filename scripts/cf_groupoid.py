@@ -28,7 +28,7 @@ for t in range(1, L + 1):
     for u in range(1, L + 1):
         for v in range(1, L + 1):
             w = (t, u, v)
-            if w in seen or not (1 <= K(w) <= NMAX):
+            if w in seen or not (1 <= K(w) <= NMAX) or (ODD and K(w) % 2 == 0):
                 continue
             comp += 1
             stack = [w]; seen[w] = comp; members = [w]

@@ -10,6 +10,10 @@ for t,u,v in product(range(1,33),repeat=3):
     if n2<1 or n2%2==0: continue
     D[(t%8,u%8,v%8)].add(chi((t,u,v),n)*chi(w2,n2))
 print(all(len(s)==1 for s in D.values()))
+for (t,u,v),s in D.items():
+    pred = -1 if (t%2 and u%2 and v%2 and (t-u)%4) else 1
+    assert s=={pred}, (t,u,v,s)
+print("rotation law asserted on", len(D), "cells mod 8")
 # test candidate laws: product == (-1/n)(-1/n')^? or (-1)^{(n-n')/2 * something}
 ok={}
 for key,s in D.items():
