@@ -1,0 +1,9 @@
+q=3 A=(0, 1) s=(1, 1) n=1: 1 P, least-j max 1, mean 1.00, j=0 share 0.00, none<=60: 0; regimes of the least shots {'n..n+d': 1}
+q=3 A=(0, 1) s=(1, 1) n=2: 3 P, least-j max 0, mean 0.00, j=0 share 1.00, none<=60: 0; regimes of the least shots {'<n': 3}
+q=3 A=(0, 1) s=(1, 1) n=3: 8 P, least-j max 1, mean 0.25, j=0 share 0.75, none<=60: 0; regimes of the least shots {'=n': 2, '<n': 6}
+q=3 A=(0, 1) s=(1, 1) n=4: 18 P, least-j max 7, mean 0.56, j=0 share 0.83, none<=60: 0; regimes of the least shots {'n..n+d': 1, '<n': 16, '>n+d': 1}
+q=3 A=(0, 1) s=(1, 1) n=5: 48 P, least-j max 2, mean 0.33, j=0 share 0.81, none<=60: 0; regimes of the least shots {'<n': 41, '=n': 7}
+q=3 A=(0, 1) s=(1, 1) n=6: 116 P, least-j max 4, mean 0.29, j=0 share 0.84, none<=60: 0; regimes of the least shots {'n..n+d': 5, '<n': 111}
+q=3 A=(0, 1) s=(1, 1) n=7: 312 P, least-j max 3, mean 0.34, j=0 share 0.83, none<=60: 0; regimes of the least shots {'<n': 291, '=n': 21}
+q=3 A=(0, 1) s=(1, 1) n=8: 810 P, least-j max 7, mean 0.32, j=0 share 0.85, none<=60: 0; regimes of the least shots {'n..n+d': 16, '<n': 794}
+q=3 A=(0, 1) s=(1, 1) n=9: 2184 P, least-j max 4, mean 0.30, j=0 share 0.85, none<=60: 0; regimes of the least shots {'<n': 2124, '=n': 60}
