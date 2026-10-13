@@ -53,6 +53,7 @@ def main():
             bad += 1
             print("MISMATCH", p, len(fwd), len(t1))
     print(f"primes <= {P}: mismatches {bad}; max wf over Type I solutions {maxwf}")
+    sys.exit(1 if bad else 0)
 
 
 if __name__ == "__main__":

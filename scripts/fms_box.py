@@ -31,13 +31,16 @@ def coset(r, S=(3, 5, 7, 11)):
 
 def main():
     R = int(sys.argv[1])
-    mx = (0, 0); tot = n = 0; ratios = []
+    mx = (0, 0); tot = n = 0; ratios = []; dens = {10**3: 0.0, 10**5: 0.0}
     for r in primerange(19, R):
         if r % 4 != 3:
             continue
         A = box(r)
         n += 1; tot += len(A)
         mx = max(mx, (len(A), r))
+        for T in dens:
+            if r > T:
+                dens[T] = max(dens[T], len(A) / r)
         if r < 3000:
             # brute: p mod r certified by h=r  <=>  exists c,d with 4cd | r+1 and r | p+4c^2 d
             k = (r + 1) // 4
@@ -49,7 +52,10 @@ def main():
         if r < 200000 and n % 50 == 0:
             ratios.append(len(coset(r)) / len(A))
     print(f"primes r=3 mod 4 in [19,{R}): {n}; mean |A_r| {tot/n:.1f}; max |A_r| = {mx[0]} at r = {mx[1]}")
+    print("max density |A_r|/r for r > 10^3, r > 10^5:", {T: round(v, 5) for T, v in dens.items()})
     ratios.sort()
+    if not ratios:
+        return
     print(f"sampled |ES^(S) coset| / |A_r| (S=3,5,7,11): min {ratios[0]:.0f}, median {ratios[len(ratios)//2]:.0f}")
 
 

@@ -53,7 +53,7 @@ def main():
     isprime = lambda n: spf[n] == n
     shots = {"p+1": lambda n: n + 1, "p+4": lambda n: n + 4, "4p+1": lambda n: 4 * n + 1}
     for label, pop in (("primes", [p for p in range(5, X) if isprime(p)]),
-                       ("odd squares", [m * m for m in range(3, int(X ** 0.5) + 1, 2)])):
+                       ("odd squares", [m * m for m in range(3, int(X ** 0.5) + 1, 2) if m * m < X])):
         fail = {s: 0 for s in shots}
         joint = []
         for n in pop:

@@ -3,7 +3,7 @@
 For every prime 5 <= p <= P:
   * brute force: all solutions 4/p = 1/x+1/y+1/z (x<=y<=z) via the divisor method;
     Type II := p divides exactly two of x, y, z.
-  * cube: all (c,d,j) >= 1 with h = 4cdj-1 | p+4c^2 d (equivalently h | pj+c), cd <= p/4+1;
+  * cube: all (c,d,j) >= 1 with h = 4cdj-1 | p+4c^2 d (equivalently h | pj+c), 3cd <= p+1;
     solution x=(p+e)/4, y=p*c*d*j, z=p*x*j/c with e=(p+4c^2 d)/h.
   * checks: the three divisibilities h | p+4c^2d, h | pj+c, h | 4dj^2p+1 agree; every cube triple is
     an exact Type II solution; the set of cube solutions equals the brute-force Type II set.
@@ -46,14 +46,16 @@ def _divs(f):
 def cube_solutions(p):
     out = set()
     ncert = 0
-    for c in range(1, p // 4 + 2):
-        for d in range(1, (p // 4 + 1) // c + 2):
+    # every cube point has 3cd <= 4cd - c <= p + 1 (from h <= pj + c)
+    for c in range(1, (p + 1) // 3 + 1):
+        for d in range(1, (p + 1) // (3 * c) + 1):
             N = p + 4 * c * c * d
             m = 4 * c * d
             for h in _divs(factorint(N)):
                 if (h + 1) % m:
                     continue
                 j = (h + 1) // m
+                assert 4 * h <= (p + 1) * (p + 5) - 4  # Prop 6.1
                 assert (p * j + c) % h == 0 and (4 * d * j * j * p + 1) % h == 0
                 e = N // h
                 assert (p + e) % 4 == 0
@@ -79,6 +81,7 @@ def main():
             bad += 1
             print("MISMATCH", p, len(cs), len(t2), sorted(cs ^ t2)[:5])
     print(f"primes checked: {tot}, mismatches: {bad}")
+    sys.exit(1 if bad else 0)
 
 
 if __name__ == "__main__":

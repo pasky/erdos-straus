@@ -23,12 +23,12 @@ Type II := p divides exactly two of x, y, z.
 and whenever this holds, with e := (p + 4c²d)/h,
 `x = (p + e)/4,   y = p·cdj,   z = p·x·j/c`
 is a Type II solution of 4/p = 1/x + 1/y + 1/z (p ∤ x). Conversely every Type II solution arises in this way
-(from at least one cube point (c, d, j)). Every cube point has cd ≤ p/4 + 1/2.
+(from at least one cube point (c, d, j)). Every cube point has 3cd ≤ p + 1.
 *Proof.* 4cdj ≡ 1 (mod h), so cdj is a unit mod h and 4cd(pj + c) ≡ p + 4c²d, 4dj(pj + c) ≡ 4dj²p + 1: the three
 divisibilities are equivalent. Since h ≡ −1 (mod 4cd) and p + 4c²d ≡ p (mod 4cd), e ≡ −p (mod 4cd): 4cd | p + e,
 so x ∈ ℤ and cd | x, in particular c | x and z ∈ ℤ. From 4(x + c²d) = p + e + 4c²d = e(h + 1) = 4cdj·e we get
-x + c²d = e·cdj, hence 1/y + 1/z = (x + c²d)/(p·cdj·x) = e/(px) = 4/p − 1/x. p ∤ x: cd ≤ p/4 + 1/2 (from
-h ≤ pj + c) gives p ∤ 4c²d, so p ∤ e and x ≡ e/4 ≢ 0 (mod p).
+x + c²d = e·cdj, hence 1/y + 1/z = (x + c²d)/(p·cdj·x) = e/(px) = 4/p − 1/x. p ∤ x: h ≤ pj + c gives 4cd ≤ p + (c + 1)/j ≤ p + c + 1,
+so 3cd ≤ 4cd − c ≤ p + 1 (R-O191 repair of a false bound cd ≤ p/4 + 1/2; e.g. p = 5, (c,d,j) = (2,1,1)) and p ∤ 4c²d, so p ∤ e and x ≡ e/4 ≢ 0 (mod p).
 Conversely let p ∤ x, y = py', z = pz'. Then e := 4x − p > 0 and e/x = 1/y' + 1/z'. Write y' = gu, z' = gv with
 gcd(u, v) = 1; then x(u + v) = eguv and gcd(u + v, uv) = 1 give x = uvw and eg = w(u + v). gcd(e, x) divides
 gcd(e, 4x) = gcd(e, p) = 1 (p | e would force p | x), so gcd(w, e) = 1 and w | g. Put c = u, d = w, j = g/w. Then
@@ -133,11 +133,12 @@ h^{O(1/log log h)}, and A_h lies in the Jacobi-symbol −1 class (Remark 2.5).
 
 *Check (`scripts/fms_box.py 1000000`):* for primes r ≡ 3 (mod 4), 19 ≤ r < 3000, the box −Box((r+1)/4) equals the
 directly enumerated set {−4c²d : 4cd | r + 1} mod r. Over all 39 319 such r < 10⁶: mean |A_r| = 77.4, max 1977
-(r = 942479), i.e. r-density ≤ 0.2 %; on a sample of r < 2·10⁵ the ES^{(S)} coset −4⟨3,5,7,11⟩² is 14 to (median)
+(r = 942479), max r-density |A_r|/r = 0.065 for r > 10³ and 0.008 for r > 10⁵ (small r can have large density, e.g.
+|A_19| = 3); on a sample of r < 2·10⁵ the ES^{(S)} coset −4⟨3,5,7,11⟩² is 14 to (median)
 1092 times larger than A_r.
 
-**Corollary 3.2 (ES = ES^{(S)} with bounded discrete logs; PROVED).** Let S be a finite set of odd primes and r a
-prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of ⟨S⟩ mod r as ∏ q^{e_q}. Then
+**Corollary 3.2 (ES box vs ES^{(S)} coset in exponent coordinates; PROVED).** Let S be a finite set of odd primes,
+p ∉ S, and r a prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of ⟨S⟩ mod r as ∏ q^{e_q}. Then
 * ES (prime certificate h = r): p is certified iff −p ≡ ∏_{q∈S} q^{e_q} (mod r) with **|e_q| ≤ κ_q** for all q;
 * ES^{(S)} (O186 Prop 2.1 with g = r): p is certified iff −p ≡ 4Q² = ∏ q^{e_q} (mod r) with **e_q ≡ κ_q (mod 2)**,
   no bound (4 ≡ k^{−1} = ∏ q^{−κ_q} mod r, and 4Q² ≡ ∏ q^{2s_q − κ_q});
@@ -145,16 +146,19 @@ prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of 
   D = Q² iff also |e_q| ≤ κ_q, i.e. 0 ≤ s_q ≤ κ_q, i.e. Q | k, i.e. r ≡ −1 (mod 4Q) — O186 Prop 6.1.
 *Proof.* First bullet: c/j has exponent vector e = v(c) − v(j) with c j | k; conversely for |e_q| ≤ κ_q take
 c = ∏ q^{max(e_q,0)}, j = ∏ q^{max(−e_q,0)} (cj | k). Second: O186 Prop 2.1. Third: |2s_q − κ_q| ≤ κ_q ⟺ 0 ≤ s_q ≤ κ_q. ∎
-So at the same prime r, ES^{(S)} sees the whole coset ∏q^{κ_q}·⟨S⟩² (size ≍ r when ⟨S⟩ is large mod r), while ES
-sees a box of ∏(2κ_q + 1) ≤ (2 log r + 1)^{|S|} elements: **the ES certificate is the ES^{(S)} discrete-log condition
-with every exponent bounded by the valuation of (r + 1)/4.** For general r the box Box(k) is the "orbit" of the
-divisors of k — never a group, size ≤ τ₃(k).
+So at the same prime r, ES^{(S)} sees the parity-restricted, unbounded exponent set e ≡ κ (mod 2) (residues: the
+whole coset ∏q^{κ_q}·⟨S⟩², size ≍ r when ⟨S⟩ is large mod r), while ES sees the bounded box |e_q| ≤ κ_q of all
+parities, ≤ ∏(2κ_q + 1) ≤ (2 log₃ r + 1)^{|S|} residues. Neither set contains the other in general (R-O191: r = 11,
+S = {3}, k = 3: ES box {1, 3, 4}, ES^{(S)} with |e| ≤ 1 only {3, 4}; p = 43 has −p ≡ 1 certified by ES only). Only
+their intersection, read per certificate with the same D = Q², is O186 Prop 6.1. For general r, Box(k) has size
+≤ τ₃(k); it can occasionally be a subgroup coset (r = 31: Box(8) = ⟨2⟩), but always of size h^{o(1)}.
 
 **Assessment 3.3 (consequence for Artin-type sieves).** A Gupta–Murty/Heath-Brown argument certifies a fixed p by
 finding ONE prime r in a fixed Chebotarev set such that p mod r lies in a structured set of r-density ≫ 1 (a coset of
-a subgroup of bounded index). In ES the set at r is A_r, of r-density ≤ τ₃(k)/r = r^{−1+o(1)} (Thm 3.1), and it is
-never a coset of a large subgroup (it is a bounded box). The expected number of certifying primes r ≤ R for a given
-p is Σ_r |A_r|/r ≍ (log R)³ — the polylog lottery (B3) — and restricted to r with S-smooth (r + 1)/4 it converges
+a subgroup of bounded index). In ES the set at r is A_r, of r-density ≤ τ₃(k)/r = r^{−1+o(1)} (Thm 3.1), so it
+contains no coset of a subgroup of size > τ₃(k). Heuristically the expected number of certifying primes r ≤ R for a
+given p is Σ_r |A_r|/r, a polylog quantity (the lottery, B3; the exact power of log for prime r is not derived
+here), and restricted to r with S-smooth (r + 1)/4 it converges
 (there are ≪ (log R)^{|S|} such r ≤ R, each of mass ≤ (log r)^{|S|}/r): the convergent S-lottery of O186 Thm 6.2(i),
 now as an exact statement about each r.
 
@@ -178,8 +182,9 @@ decomposes as in the converse.
 
 Lines (all with residue **−p**, not −1): (v, f) fixed: N = pv + f, divisor g ≡ −p (mod 4vf); (w, f) fixed:
 N = p² + 4wf² (the campaign's Type I form), g ≡ −p (mod 4wf); (v, w) fixed: N = 4v²w + 1 (independent of p),
-g ≡ −p (mod 4vw). Through (1,1,1): p + 1 (the same shot as Type II's (c, j) = (1,1) line), p² + 4 (never fires: a
-sum of two coprime squares has no divisor ≡ 3 mod 4), and the constant 5 (never fires for p ≡ 1 mod 4). So Type I
+g ≡ −p (mod 4vw). Through (1,1,1): p + 1 (the same shot as Type II's (c, j) = (1,1) line), p² + 4 (never fires for
+p ≡ 1 mod 4: then g ≡ −p ≡ 3 mod 4, and a sum of two coprime squares has no such divisor; for p ≡ 3 mod 4 it can,
+e.g. p = 7, g = 53), and the constant 5 (never fires for p ≡ 1 mod 4). So Type I
 adds no new modulus-4 shot, and every Type I line has modulus 4 × (product of the fixed pair).
 
 **Theorem 4.2 (unified box criterion).** For an odd prime p and Box(k) := {c·j^{−1} : c, j ≥ 1, cj | k}:
@@ -191,61 +196,67 @@ with w the cofactor. ∎ (The Type I bullet needs the side condition p ∤ uvwf 
 Type I; without it one still gets an ES solution.)
 So **every ES certificate of a prime is "−p lies in a divisor box modulo h"**, the box being that of (h + 1)/4
 (Type II) or (h + p)/4 (Type I). A box has ≤ τ₃ elements and no group structure; in ES^{(S)} the box is replaced by
-a coset of the group ⟨S⟩² (Cor 3.2). This is the precise form of B2 at the level of a single modulus.
+a coset of the group ⟨S⟩² (Cor 3.2). This is a precise form of B2 at the level of a single modulus (the obstruction
+is the size h^{o(1)} of the box, not the absence of group structure).
 
 ## 5. Construction attempts (each: which hypothesis of §2–§4 it tried to violate, and the outcome)
 
-(C1) *Cyclotomic / Lucas forcing.* Primes dividing Φ_m(a) are ≡ 1 (mod m); primitive divisors of Lucas sequences
-are ≡ (Δ/r) (mod m). Idea: choose the shot so that its prime factors are forced ≡ −1 (mod 4M) by a fixed quadratic
-Frobenius condition (a T-adic-forcing analogue). Outcome: fails. In the cube the certifying divisor must divide the
-specific number N = p + 4c²d (or pj + c, 4dj²p + 1), whose factorisation is fixed by p; Thm 2.1 shows that whether a
-divisor h of an affine shot certifies depends only on (α, β, h), and is the congruence h ≡ −1 (mod 4M). A forced
-congruence would have to come from N itself being a cyclotomic-type value, but N = αp + β with p arbitrary has no
-such structure, and making D = c²d a cyclotomic value (N = Φ_m(t) needs 4D = Φ_m(t) − p) forces only r ≡ 1 (mod m)
-with m ≍ log N, against the needed modulus 4cd ≥ 2√D ≍ √N.
-(C2) *p-dependent shots* (D' | p ± 1, so that N ≡ ∓1 mod D'). Then "h ≡ −1 (mod 4D')" becomes "the cofactor
-≡ ±1 (mod D')" — the same growing modulus on the other divisor. No gain (Thm 2.1 applies to h = N/e).
-(C3) *S-smooth (r + 1)/4* (to make the box a long orbit segment). Cor 3.2: the ES box is the ES^{(S)} coset with
-exponents |e_q| ≤ v_q((r+1)/4) ≤ log_q r; its size is polylog(r). Even when the box contains a whole subgroup
-⟨q⟩ mod r (possible only if ord_r(q) ≤ 2v_q((r+1)/4) + 1 = O(log r)), the subgroup has O(log r) elements.
-(C4) *Composite certificates h = r·u with u from a structured infinite set* (u ∈ ⟨S⟩, to recover a discrete log).
-h must divide the fixed shot N, so u ranges over divisors of N: finitely many. Moving the shot with u moves the
-modulus (Thm 2.1/Cor 2.2).
-(C5) *Type I* (residue −p, box of (g + p)/4, p-dependent): §4. Same cube structure, no new modulus-4 shot; the box
-still has ≤ τ₃ elements.
-(C6) *Non-affine shots.* All cube lines are affine in p except the Type I line p² + 4wf². A uniform polynomial shot
-N(p) with the firing condition at a fixed h needs every root of N mod h to be −c/j with cj | (h + 1)/4; along each
-coordinate direction of the cube this forces N(−c/j) ≡ 0 identically, i.e. N has a cube-line affine factor
-(Assessment; the non-uniform case is not classified here).
+(Labels: the outcomes below are Assessments unless they cite a theorem of §2–§4.)
+(C1) *Cyclotomic / Lucas forcing.* Primes dividing Φ_m(a) are ≡ 1 (mod m) apart from primes dividing m; primitive
+divisors of Lucas sequences are ≡ (Δ/r) (mod m). Idea: force the shot's prime factors ≡ −1 (mod 4M) by a fixed
+quadratic Frobenius condition (a T-adic-forcing analogue). Outcome: for a *fixed-coefficient* affine shot, whether a
+divisor certifies depends only on (α, β, h) and is the congruence of Thm 2.1, so no forcing can enlarge the certifying
+set. Making N itself a cyclotomic-type value (e.g. 4D = Φ_m(t) − p) forces only a congruence modulo m, and I see no
+choice where m reaches the needed 4cd ≥ 2√D; not proved impossible.
+(C2) *p-dependent shots* (D' | p ± 1, so N ≡ ∓1 mod D'). Then "h ≡ −1 (mod 4D')" becomes "the cofactor ≡ ±1
+(mod D')" — the same modulus on the other divisor. Caveat (R-O191): Thm 2.1 is a fixed-(α, β) statement; for
+coefficients depending on p its sporadic range h < 4μ⁵ can contain every certificate, so it does not settle C2.
+(C3) *S-smooth (r + 1)/4* (to make the box a long orbit segment). Cor 3.2: the ES box is the bounded exponent box
+|e_q| ≤ v_q((r+1)/4) ≤ log_q r; size polylog(r). Even when it contains a whole subgroup ⟨q⟩ mod r (needs
+ord_r(q) ≤ 2v_q((r+1)/4) + 1 = O(log r)) the subgroup has O(log r) elements.
+(C4) *Composite certificates h = r·u, u ∈ ⟨S⟩* (to recover a discrete log). For a fixed shot N, u ranges over
+divisors of N: finitely many; moving the shot with u moves the modulus (Cor 2.2).
+(C5) *Type I* (residue −p, box of (g + p)/4, p-dependent): §4. Same cube structure, no new modulus-4 shot through
+(1,1,1) for p ≡ 1 (mod 4); the box still has ≤ τ₃ elements. (No Type I analogue of Thm 2.1 is proved.)
+(C6) *Non-affine shots.* All cube lines are affine in p except the Type I line p² + 4wf². Polynomial shots of degree
+≥ 2 are NOT classified here (the certifying c, j may vary with h, so modular root containment does not force a
+rational root).
 (C7) *The orchestrator's sharpening* ("prime r in a fixed class + a discrete-log condition, bounded modulus"):
-answered exactly by Cor 3.2 (the discrete log must lie in the box of (r + 1)/4) and by Prop 6.1 below (r ≤ p + (p+2)²/4).
+Cor 3.2 describes exactly which exponent vectors certify at an S-smooth prime r (a bounded box, versus O186's
+parity coset), and Prop 6.1 bounds every certifying r by O(p²).
 
 ## 6. The no-go theorem with exact scope
 
 **Proposition 6.1 (finiteness at fixed p; PROVED, elementary).** Every Type II certificate divisor of p satisfies
-h ≤ p + (p + 2)²/4, and every Type I divisor satisfies g < 3p². In contrast ES^{(S)}(p) has infinitely many solutions (Q unbounded) and
+h ≤ (p + 1)(p + 5)/4, and every Type I divisor satisfies g < 3p². In contrast ES^{(S)}(p) has infinitely many solutions (Q unbounded) and
 the O186 sieve finds its certificate prime r in [X/2, X] with X → ∞.
-*Proof.* Type II: h | p + 4c²d and cd ≤ p/4 + 1/2 (Lemma 1.1), so h ≤ p + 4(cd)² ≤ p + (p + 2)²/4. Type I:
+*Proof.* Type II (R-O191 repair; the earlier proof used a false bound): in Lemma 1.1's converse, e = 4x − p ≥ 1 and
+x ≤ p/2 (if x > p/2 then e/x > 1 forces y' = 1 and z' = x/(3x − p) < 1). h = 4y' − 1 for the chosen order, and
+both y', z' ≤ x(x + D)/(eD) ≤ x(x + 1)/e with x = (p + e)/4; (p + e)(p + e + 4)/(4e) is maximal at e = 1 on
+1 ≤ e ≤ p, giving h ≤ (p + 1)(p + 5)/4 − 1. Type I:
 p(u + v) = f(4uvw − 1) with u + v ≤ 2uv and 4uvw − 1 ≥ 3uvw gives wf ≤ 2p/3, and g | p² + 4wf², so
 g ≤ p² + 4(wf)² < 3p². ∎
 
-**Theorem 6.2 (no infinite fixed-modulus family for ES; PROVED, scope stated).** Let p be an odd prime.
-(i) (*Affine shots, any role of a single divisor.*) For every affine shot αp + β, the divisors h that certify Type II
+**Theorem 6.2 (no infinite family of fixed-coefficient affine shots with a common firing condition; PROVED, scope stated).** Let p be an odd prime.
+(i) (*Fixed-coefficient affine shots, Type II, one divisor coprime to 2αβ.*) For every affine shot αp + β, the divisors h that certify Type II
 solutions through it are exactly the h ≡ −1 (mod 4M), M ∈ 𝓜(α, β), up to < 4μ⁵ sporadic ones; every M ≥ √H/2
 (Thm 2.1, Cor 2.2). Hence for a fixed modulus 4M₀ there are finitely many shots (height ≤ 4M₀²); for M₀ = 1 exactly
 p + 1, p + 4, 4p + 1 (Cor 2.3); for a fixed Chebotarev firing set of density δ there are finitely many (Cor 2.4).
-(ii) (*Per modulus, no family at all.*) For every h the set of residues p mod h certified by h (Type II) is the
+(ii) (*Per modulus, no family assumed.*) For every h the set of residues p mod h certified by h (Type II) is the
 divisor box −Box((h + 1)/4), of size ≤ τ₃((h+1)/4) = h^{o(1)} (so it contains no coset of a subgroup of order > τ₃);
 Type I uses the box of (h + p)/4 (Thms 3.1, 4.2).
-(iii) (*Finiteness.*) The certifying moduli of p form a finite set bounded by O(p²) (Prop 6.1: Type II h ≤ p + (p+2)²/4, Type I g < 3p²).
-*Exact scope.* (i) covers certificates read off one divisor of one affine form (both the h-role and the cofactor
-role, since Thm 2.1 applies to any divisor coprime to 2αβ); (ii)–(iii) cover every Type I/II solution, i.e. every
-solution of ES(p) for p prime. Not covered: mechanisms whose certificate is a *joint* condition on several primes of
-one or several shots (B4 territory: e.g. "−1 ∈ Σ_e(N)" with ≥ 2 primes), and non-uniform polynomial shots (C6).
-*Reading (Assessment).* O186's ES^{(S)} works because (a) it has infinitely many solutions at fixed n, so the
-certifying prime can be pushed to infinity where Gupta–Murty counts beat the exceptions, and (b) at each prime r the
-certified residues form a coset of ⟨S⟩², of density ≍ 1. ES fails both: (iii) and (ii). The "growing modulus" of B2
-and O186 Prop 6.1 is, at the level of one modulus, the replacement of a group (the S-orbit) by a divisor box, and at
-the level of one p, the finiteness of ES(p). Any Artin-type route to ES must therefore use joint multi-prime
-conditions (B4) or a non-Type-I/II encoding — neither of which is an "infinitely many fixed-modulus shots" mechanism.
+(iii) (*Finiteness.*) The certifying moduli of p form a finite set bounded by O(p²) (Prop 6.1: Type II h ≤ (p+1)(p+5)/4, Type I g < 3p²).
+*Exact scope.* (i) covers Type II certificates read off one divisor h (coprime to 2αβ) of one affine form αp + β
+whose coefficients do not depend on p, in the h-role or the cofactor role (Thm 2.1 applies to any such divisor); the
+finiteness statements use Dirichlet/Chebotarev densities. (ii)–(iii) are statements about every Type I/II solution,
+i.e. every solution of ES(p) for p prime, but they are size statements, not impossibility theorems: they do not
+exclude finding one certificate below O(p²) by stronger analytic input. Not covered: p-dependent coefficients (C2),
+polynomial shots of degree ≥ 2 (C6), Type I affine shots (no analogue of Thm 2.1 proved), and joint conditions on
+several primes (B4 territory: e.g. "−1 ∈ Σ_e(N)" with ≥ 2 primes).
+*Reading (Assessment, speculative).* O186's ES^{(S)} works because (a) it has infinitely many solutions at fixed n, so
+the certifying prime can be pushed to infinity where Gupta–Murty counts beat the exceptions, and (b) at each prime r
+the certified residues form a coset of ⟨S⟩², of density ≍ 1. ES lacks both: (iii) and (ii). The growing modulus of
+B2 / O186 Prop 6.1 appears at one modulus as the replacement of the S-orbit by a divisor box of size h^{o(1)}, and at
+one p as the finiteness of ES(p). My reading is that an Artin-type route to ES would need joint multi-prime conditions
+or an encoding outside the single-divisor affine framework; this is not a theorem.
 
