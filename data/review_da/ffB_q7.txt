@@ -1,0 +1,6 @@
+q=7 s=3 |F(s)|=0 patterns=0 max count/q^exponent=0.000
+q=7 s=4 |F(s)|=0 patterns=0 max count/q^exponent=0.000
+q=7 s=5 |F(s)|=0 patterns=0 max count/q^exponent=0.000
+q=7 s=6 |F(s)|=0 patterns=0 max count/q^exponent=0.000
+q=7 s=7 |F(s)|=4 patterns=1 max count/q^exponent=0.571
+q=7 s=8 |F(s)|=24 patterns=4 max count/q^exponent=8.000

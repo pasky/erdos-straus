@@ -1,0 +1,6 @@
+q=3 alpha=1 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000
+q=3 alpha=2 CaseA tuples (a1',b1,g',E)=0  (a1',b1,E)=0  distinct E=0  mass(distinct E)*q^-alpha=0.0000
+q=3 alpha=3 CaseA tuples (a1',b1,g',E)=2  (a1',b1,E)=2  distinct E=2  mass(distinct E)*q^-alpha=0.0741
+q=3 alpha=4 CaseA tuples (a1',b1,g',E)=8  (a1',b1,E)=4  distinct E=4  mass(distinct E)*q^-alpha=0.0494
+q=3 alpha=5 CaseA tuples (a1',b1,g',E)=16  (a1',b1,E)=10  distinct E=10  mass(distinct E)*q^-alpha=0.0412
+q=3 alpha=6 CaseA tuples (a1',b1,g',E)=16  (a1',b1,E)=8  distinct E=8  mass(distinct E)*q^-alpha=0.0110
