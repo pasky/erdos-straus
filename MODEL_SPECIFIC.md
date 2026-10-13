@@ -213,3 +213,28 @@ model-independent formulation holds at 131/241 although 8/n has no solution ther
 congruence obstruction there); the second (one-odd half) is so far only a numerical fact. Type I alone is the most
 robust piece for **both** numerators (for 8/n, Type I fails only where 8/n fails), so it cannot carry 4-specific
 input by itself.
+
+## 7. Construction notes: what Thm 3.1 asks a proof to do (Assessment)
+
+(C1) *Same surface, different targets.* For every m the five m-slices live on the same affine cubic
+X_n: tuv − u − v = n (positive integral points; t-fibres are the hyperbolas (tu − 1)(tv − 1) = tn + 1). Only the target
+set of cells mod lcm(8, m) changes. For m = 4 the target is a full fibre of χ = (−A/n), which is a function of the
+cell mod 8 (DEDEKIND Cor 4.1); for m = 8 it is a 7/12 part of that fibre. At n = 131 the image of X_131(ℤ_{>0}) in
+the cells mod 8 meets {χ = −1} (22 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach every
+cell mod 8 allowed by χ" is false** (at 27 primes ≤ 10⁷ at least), and an ES proof through X_p cannot be an
+equidistribution-mod-8 statement for its points without p-dependent error control (B3: the main term is only
+≍ log² p points); it must use that the ES target is a whole χ-fibre. ES-five-slices(n) ⟺ χ is not identically +1
+on X_n(ℤ_{>0}), and CONJECTURE SQ₅ ⟺ **χ is constant on X_n(ℤ_{>0}) only for n a square or n = 105.** This is a
+rigidity statement of the T1 kind, with the T1 locus as its only (conjectural) exception set — exactly the shape
+B7 leaves open.
+(C2) *Iteration (barrier hypotheses).* B1/B5: χ-constancy at squares is T1 itself, so no congruence argument proves
+SQ₅ (it is false at squares) — the statement must see n's factorisation, which X_n's points do (via tn + 1). B2: for
+each fixed t, "X_n has a t-point with χ = −1" is "tn + 1 has a divisor A ≡ −1 (mod t) with cofactor ≡ −1 (mod t)
+and (−t/A)·ε = −1", a divisor-in-a-character-half condition with modulus 4t: still a lottery per t, now with the
+modulus moving with t (H-A). For t = 3 and p ≡ 1 (mod 8) it reduces (computed in passing) to "(3p + 1)/4 has a
+prime factor ≡ 2 (mod 3)", a classical ET class, so small t give nothing new; the content is the union over t.
+B6: the χ-sum over X_p is a pointwise object (no averaging over p). B7: passed by construction (Thm 3.1).
+(C3) *A deterministic shape that would suffice.* A χ-flipping move on X_n — a map w ↦ w′ between positive points
+(possibly of bounded HJ length > 3, where the five-slice theorem has length-r analogues via Cor 4.1) with
+χ(w′) = −χ(w) for non-square n — would prove ES on the slices. Known moves preserve χ: u ↔ v (A ↔ A*, AA* ≡ 1),
+and multiplication by 4; DEDEKIND §8 found only a scaling flip needing composite n. Not found here either.
