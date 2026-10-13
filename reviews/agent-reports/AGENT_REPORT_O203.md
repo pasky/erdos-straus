@@ -1,15 +1,19 @@
 # AGENT REPORT O203 — composition as a generator of ES certificates on V_n (spark relay X)
 
 Main file: COMPOSITION_ES.md. Scripts: scripts/cp_law.py, cp_census.py, cp_cross.py, cp_typeii.py. Data: data/cp/.
-**ES not solved; no infinite case claimed.** Outcome: a precise negative theorem with exact scope, plus an exact
-dictionary.
+**ES not solved; no infinite case claimed.** Outcome: a precise fixed-μ negative theorem, an exact reduction of
+the across-μ question to the Type II divisor problem, and an exact (equivalent) Machin-type dictionary.
+Self-review (deep reviewer, R-O203) found 3 MAJOR + 3 MODERATE + minor defects; all repaired in place, marked
+"R-O203 #k" (main ones: fixed-μ scope of the no-go; primitivity in Prop 2.1(b); "decomposable" ≠ composition of
+V_n points; depth-1 case μ ≤ 2n; even n' = pd in Prop 4.1; no "log³ main term" claim).
 
 **SHARP: none of breakthrough type.** Two clean items worth a relay look:
 1. (negative, PROVED, elementary — Thm 1.3/Cor 1.4/Prop 4.1) **The B = 1 slot at μ is ONE explicit element**
    ε_μ = 1 − 2jη̄ ∈ ℤ[2√(μ² − n)] (μ = nj + t, 1 ≤ t ≤ n), existing for every μ > n, always of narrow class δ;
-   ES at μ ⟺ N(ε_μ) = 4tj − 1 divides μ. So B = 1 is not a class condition, and composition (or ANY operation on
-   V_n points, across μ or not) can never create an ES point — impossible where 4tj − 1 ∤ μ, superfluous elsewhere.
-   R202 M2 (ES = unit × product of three deeper points) is real but only a re-expression.
+   ES point at μ ⟺ |N(ε_μ)| = 4tj − 1 divides μ. So B = 1 is not a class condition, and at a fixed μ composition
+   (or any operation inside O'_μ) can never create an ES point — impossible where 4tj − 1 ∤ μ, superfluous
+   elsewhere. Across μ/d the question is exactly the Type II divisor problem (B2); that composition cannot help
+   select μ is an Assessment, not a theorem. R202 M2 (ES = unit × three deeper points) is real but a re-expression.
 2. (dictionary, PROVED, equivalent to the Type II cube — Prop 5.1) **Type II ⟺ two-term Machin/arccot relations**:
    (2cd + √−pd)(2sd + √−pd) = (d(c+s)/j)(1 + 2j√−pd) ⟺ arccot(2c√(d/p)) + arccot(2s√(d/p)) = arccot(1/(2j√(pd)))
    ⟺ 4csdj = pj + c + s, with 4/p = 1/(cds) + 1/(pdsj) + 1/(pdcj). New to the campaign (grep), but no existence

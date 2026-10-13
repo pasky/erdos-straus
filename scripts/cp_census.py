@@ -40,7 +40,8 @@ def principal_divisors(n, mu, D, j, cap):
             s = (-1) ** k
             if (p * j - xE * q) % d == 0 or (p * j + xE * q) % d == 0:
                 if d == D:
-                    seen_es = seen_es or s == -1
+                    if s == -1 and k == (3 if mu > 2 * n else 1):
+                        seen_es = True
                 else:
                     found.setdefault(d, set()).add(s)
         if d == 1 and k % 2 == 0:

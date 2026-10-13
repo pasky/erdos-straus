@@ -59,17 +59,22 @@ is determined by μ, and D = 4j(μ − nj) − 1 = 4tj − 1. Finally 4t(t + nj)
 gcd(4t, 4tj − 1) = 1. ∎
 (This re-proves, without continued fractions, MARKOFF_ES Thm 4.3 + R202 repair M1: B = 1 forces A = 2⌊(μ−1)/n⌋.)
 
-**Corollary 1.4 (composition is not a generator of ES; PROVED).** For every μ, the existence of an ES point at
+**Corollary 1.4 (composition is not a generator of ES at a fixed μ; PROVED).** For every μ, the existence of an ES point at
 μ is the scalar condition N(ε_μ) | μ on the element ε_μ, which exists in O'_μ for every μ > n regardless of any
 other point. Hence:
 (a) if 4tj − 1 ∤ μ, no element of O'_μ obtained by any operation (products, units, conjugation, quotients) from
 V_n points at μ has B = 1 — however many V_n points exist at μ (they typically do: MARKOFF_ES §6);
 (b) if 4tj − 1 | μ, the ES point already exists, and it is "obtained by composition" from V_n points at μ in the
 trivial sense ε_μ = ε^k·(ε^{−k}ε_μ) (ε the fundamental unit of O'; the factor ε^{−k}ε_μ is a B > 1 point of the
-same Pell orbit), and nontrivially iff the ideal (ε_μ) ⊂ O' has a proper divisor that is principal in O'.
-So the census question of the brief has the exact answer: **a deterministic recipe "any V_p point ↦ (compose)
-↦ B = 1" is impossible at every μ with 4tj − 1 ∤ μ, and superfluous at every other μ.** Composition can only
-re-express an existing ES certificate (as in R202's n = 59, μ = 126 instance), never create one.
+same Pell orbit). Nontrivially (r ≥ 3 V_n points, each of norm ≤ −3) iff there is a chain of principal divisors
+𝔡₁ | 𝔡₂ | (ε_μ), 1 < N𝔡₁ < N𝔡₂ < D = 4tj − 1, with negative-norm generator of 𝔡₁ and positive-norm generator of
+𝔡₂ (then 𝔡₁, 𝔡₂𝔡₁⁻¹, (ε_μ)𝔡₂⁻¹ all have negative-norm generators; longer chains likewise). A single principal
+proper divisor only gives ε_μ = u·α·β with one factor of POSITIVE norm, which is not a V_n point (R-O203 #3:
+n = 29, μ = 60, D = 15 has principal divisors of norms 3 and 5 but no composition of V_n points).
+So, at a FIXED μ, the census question of the brief has the exact answer: **a recipe "V_p points at μ ↦ (compose)
+↦ B = 1" is impossible at every μ with 4tj − 1 ∤ μ, and superfluous at every other μ.** (R-O203 #1: this is a
+fixed-μ statement. It does not exclude a mechanism that SELECTS a good μ or d, or proves that one exists — that is
+exactly the divisor problem N(ε_μ) | μ, see Prop 4.1(c).)
 *Proof.* Thm 1.3 and Prop 1.2. ∎
 
 ## 2. Class-group dictionary at fixed μ
@@ -85,7 +90,8 @@ negative norm. By Prop 1.2(c) O' has no unit of norm −1, so δ ≠ 1, δ² = 1
 some 𝔡 ∈ 𝔅(μ) with N𝔡 = D has [𝔡]⁺ = δ. The V_n points with α ∈ 𝔡 form, up to ι_B, one orbit of ε (fundamental
 unit of O'), whose members have unbounded A.
 (b) Composition (Prop 1.2) is ideal multiplication: [𝔡₁𝔡₂𝔡₃]⁺ = δ³ = δ, and the product is again in the box iff
-the norms multiply inside μ.
+the norms multiply inside μ AND the product is primitive (same prime above every shared ℓ; R-O203 #2: n = 53,
+μ = 54, α = −107 + 2√2863, N α = −3: α·(−ᾱ)·α = 3α is not primitive although 27 | 54).
 (c) (**ES is not a class condition.**) For μ > n, ε_μ = 1 − 2jη̄ generates the ideal 𝔢_μ := (4tj − 1, 2jη̄ − 1),
 whose class is δ for EVERY μ. ES at μ ⟺ 𝔢_μ ∈ 𝔅(μ) ⟺ N𝔢_μ | μ: membership of one prescribed principal ideal in the
 box. Among the ideals of the δ-fibre, 𝔢_μ is singled out by its generator (B = 1), not by any class datum.
@@ -96,11 +102,12 @@ empty for every μ: no V_n point at all (the class-group form of MARKOFF_ES Cor 
 A → ∞ along the orbit by MARKOFF_ES Prop 7.1(b)/GROWING_MUTE Prop 1.2(b). (b) Prop 1.2. (c) N(ε_μ) = −(4tj − 1) < 0
 (Thm 1.3), ε_μ is primitive; Thm 1.3 for the equivalence. (d) (−m²/ℓ) = (−1/ℓ). ∎
 
-**Remark 2.2 (where B = 1 sits in the principal cycle).** In the regular CF of √N, N = 4f, the principal
+**Remark 2.2 (where B = 1 sits in the principal cycle; μ > 2n).** (For n < μ ≤ 2n, j = 1, the ES element is
+2η̄ − 1 itself, at depth 1: MARKOFF_ES R202 repair M1.) In the regular CF of √N, N = 4f, the principal
 cycle of reduced ideals of O' begins 1, (2η̄ − 1), (2η̄), (2jη̄ − 1) = 𝔢_μ, … with norms 4μ − 1 − 4n, 4n, 4tj − 1
 (MARKOFF_ES Thm 4.3: p₀ − q₀√N = 2η̄ − 1, p₁ − q₁√N = 2η̄, p₂ − q₂√N = 2jη̄ − 1 — the recursion
-p₂ = a₂p₁ + p₀ reads 2jη̄ − 1 = (j − 1)·2η̄ + (2η̄ − 1)). So ES is "the third reduced principal ideal has norm
-dividing μ". The second one is 2η̄, i.e. 2× the element of norm n that defines the family; ε_μ ≡ 1 (mod 2η̄O).
+p₂ = a₂p₁ + p₀ reads 2jη̄ − 1 = (j − 1)·2η̄ + (2η̄ − 1)). So for μ > 2n ES at μ is "the third reduced principal
+ideal has norm dividing μ". The second one is 2η̄, i.e. 2× the element of norm n that defines the family; ε_μ ≡ 1 (mod 2η̄O).
 
 ## 3. Pigeonhole in Cl⁺(O'_μ) (modification 1: unbounded box, MARKOFF_ES spark 4)
 
@@ -124,15 +131,18 @@ Whether the example occurs in some O'_μ is not claimed; the point is that no co
 "even products" that Prop 1.2(c) excludes. Reaching δ is a target-sum problem whose answer depends on the actual
 classes, i.e. on h(O'_μ) and its structure. Even a full solution would give ES^{[2]}(n), not ES(n).
 
-## 4. Scope: the B = 1 locus is a finite explicit set — no generator on V_n can do better than the divisor problem
+## 4. Scope: the B = 1 locus is a finite explicit set — any generator on V_n must solve the divisor problem
 
-**Proposition 4.1 (PROVED, elementary).** (a) The ES points of V_n (all μ) are exactly
+**Proposition 4.1 (PROVED, elementary).** (Here V_{n'} is allowed for EVEN n' = pd too: Lemma 1.1, Prop 1.2,
+Thm 1.3 and GROWING_MUTE Prop 1.2(a) at B = 1 never use the parity of n; R-O203 #5, e.g. p = 13, (c, d, j) =
+(1, 2, 1) gives the V₂₆ point (A, B, D, μ) = (2, 1, 15, 30).) (a) The ES points of V_n (all μ) are exactly
 {(A, B, D, μ) = (2j, 1, D, nj + t) : 1 ≤ t ≤ n, D | n + 4t², D ≡ −1 (mod 4t), j = (D + 1)/(4t)}, a finite set; all
 have μ ≤ n² + n + (n + 1)/4.
 (b) (All of Type II.) For a prime p, the Type II cube points (c, d, j) of FIXED_MODULUS_SHOTS Lemma 1.1 are in
 bijection with the pairs (d, P), d ≤ (p + 1)/3, P an ES point of V_{pd} whose λ = μ/D is divisible by d, via
 A = 2j, λ = cd (and then g = 2λA − 1 = 4cdj − 1 = h).
-(c) Consequently, any mechanism whatsoever acting on V_{pd} points (composition, units, Vieta moves, class-group
+(c) Consequently (an exact equivalence, PROVED; its strategic reading is an Assessment, R-O203 #1), any mechanism
+acting on V_{pd} points (composition, units, Vieta moves, class-group
 pigeonhole, …) that outputs ES points outputs elements of this finite explicit set, and it succeeds at p iff
 some 4dj²p + 1 has a divisor ≡ −1 (mod 4dj) (cube (d, j)-line) — the moving-modulus divisor problem of B2. Confined
 to d = 1 (V_p itself) it is FALSE at exactly 99 primes p < 10⁶ (13, 37, 97, …; GROWING_MUTE R201).
@@ -159,13 +169,13 @@ c, d, j, s ≥ 1. The following are equivalent:
 and then **4/p = 1/(cds) + 1/(pdsj) + 1/(pdcj)**.
 *Proof.* (ii): the product is (4csd² − pd) + 2d(c + s)√−pd, proportional to 1 + 2j√−pd iff 2j(4csd² − pd) = 2d(c + s),
 i.e. (i). (iii): cot(θ₁ + θ₂) = (ab − 1)/(a + b) with a = 2c√(d/p), b = 2s√(d/p) gives (4csd − p)/(2(c+s)√(dp)),
-equal to 1/(2j√(dp)) iff (i) (all angles in (0, π/2)). The Egyptian identity is (i) divided by pcsj, times d. ∎
+equal to 1/(2j√(dp)) iff (i) (all angles in (0, π/2)). The Egyptian identity is (i) divided by pcdsj. ∎
 *Reading.* This is the arctangent/Gaussian-integer correspondence of Machin–Størmer, transported to ℤ[√−pd]: the
 ES point is the factorisation of the "target" 1 + 2j√−pd into two elements of the prescribed shape 2(·)d + √−pd,
 i.e. (by norms) (4cdj − 1)(4sdj − 1) = 4dj²p + 1 — the cube's (d, j)-line. For d = 1 it is the real-quadratic slot
 ε_μ of Thm 1.3 seen from the imaginary side (D = 4tj − 1 with t = c). Shape parity: a product of r elements
 (even) + (odd)·√−n has shape (odd) + (even)·√−n iff r is even, so longer compositions ∏(2t_i + √−n) ∝ 1 + 2j√−n
-need r even ≥ 4 and encode longer Egyptian identities (not 3-term ES). The classical Størmer theory has no
+need r even ≥ 4 (they no longer have the two-factor shape of (ii); whether they can encode 3-term ES identities is not examined). The classical Størmer theory has no
 existence theorem to import: for two terms it is exactly "1 + c² has a divisor in the right place", i.e. B2 again
 (Todd's reducibility criterion, P(1 + m²) < 2m, is the closest analogue: it is a largest-prime-factor condition,
 not a divisor-in-a-residue-class condition; quoted from memory (Todd 1949), not re-checked).
@@ -179,12 +189,14 @@ larger modulus (B2's "modulus part of the solution").
 **Census (EVIDENCE; `scripts/cp_census.py lo hi cap [sq]`).** For every ES point (μ, D = N(ε_μ)) of every prime
 5 ≤ p ≤ 1000, one full period of the CF of √(4(μ² − p)) was run and every proper divisor of the ES ideal 𝔢_μ
 tested for principality in O' (Lagrange: all primitive representations of |norm| < √N are convergents; orientation
-by p_{k−1}j ≡ ±(1 − 2μj)q_{k−1} mod d'; the ES convergent itself is asserted at k = 3, never failed):
+by p_{k−1}j ≡ ±(1 − 2μj)q_{k−1} mod d'; the script asserts that the ES element is the negative-norm convergent at k = 3 for μ > 2n and k = 1 for μ ≤ 2n —
+never failed (R-O203 #4: assertion sharpened after review); ES points with D prime are skipped, nothing to test):
 `  166 primes, 1736 ES points: D prime 690; D composite 1046, of which 284 (27%) have a principal proper divisor`
 `  ("decomposable": ε_μ = u·α·β with N α = ∓d', N β = ±D/d'); 41 are V-decomposable (unit × product of three`
 `  V_n points at the same μ, the R202 shape); 88 of 166 primes have ≥ 1 decomposable ES point.`
 T1 control: odd squares 9 ≤ m² ≤ 1849: 0 ES points (Prop 2.1(d)). The "decomposable" share is the share of
-composite D whose prime-ideal factors happen to be principal in O'_μ (a wide-class-group statement, Cohen–Lenstra
+composite D for which some proper divisor ideal of 𝔢_μ (not necessarily prime; e.g. n = 59, μ = 135: norms 9 and
+15 principal, 3 and 5 not) happens to be principal in O'_μ (a wide-class-group statement, Cohen–Lenstra
 flavoured); it is consistent with R202's two V-decomposable cases among odd n ≤ 301, μ ≤ 6n (here: all μ, primes
 only). In every case the factorisation is a re-expression of an ES point that exists by Thm 1.3.
 
@@ -199,7 +211,8 @@ only). In every case the factorisation is a re-expression of an ES point that ex
   ≡ −1 (mod 4t)", and over all d (Type II) "4dj²p + 1 has a divisor ≡ −1 (mod 4dj)". Composition changes none of
   these moduli; in ℤ[√−n] it multiplies them (§5 numerics: 0 hits). Fully inside B2.
 * **B3 (main term).** The λ-direction main term (MARKOFF_ES §6, ≍ Λ/√log Λ) belongs to ES^{[2]} (B free). The
-  B = 1 locus is finite (Prop 4.1(a): μ ≤ n² + n + (n+1)/4), so its main term is the classical ≍ log³-type count;
+  B = 1 locus is finite (Prop 4.1(a): μ ≤ n² + n + (n+1)/4), so for fixed n there is no growing parameter and no main term at all (the Type II count per
+prime is the classical one; no lower bound for it is known pointwise);
   composition cannot transfer the large ES^{[2]} main term to B = 1 because B = 1 is not a class/ideal condition
   (Prop 2.1(c)).
 * **B5 (T1).** Prop 2.1(d): at n = m² the δ-fibre of every box is empty (χ₋₄ ≡ 1); census control: 0 ES points at
@@ -210,23 +223,26 @@ only). In every case the factorisation is a re-expression of an ES point that ex
   principal of negative norm) but of an ideal whose relevant property (norm | μ) is fixed beforehand. H-E (exact
   positive identities): Prop 5.1 is an exact identity, but it is equivalent to the Type II equation itself.
 
-## 7. Verdict (O203 checkpoint 1)
+## 7. Verdict (O203 checkpoint 1, after self-review R-O203)
 
 1. **Composition law (PROVED, §1–2).** V_n points at μ = negative-norm primitive elements of O'_μ = ℤ[2√(μ² − n)]
    whose norm divides μ; composition = ideal multiplication; a product of r points is a point iff r is odd, the
    product is primitive (same prime above each shared ℓ) and ∏D_i | μ. V_n values at μ = the fibre over the
    order-2 narrow class δ of the box 𝔅(μ) of primitive ideals of norm dividing μ. At squares the fibre is empty.
-2. **ES slot rigidity (PROVED, Thm 1.3, Cor 1.4, Prop 4.1).** At each μ > n the only possible B = 1 point is the
+2. **ES slot rigidity (PROVED: Thm 1.3, Cor 1.4, Prop 4.1).** At each μ > n the only possible B = 1 point is the
    explicit element ε_μ = 1 − 2jη̄ (μ = nj + t), which exists for every μ and has class δ; ES at μ ⟺
-   N(ε_μ) = 4tj − 1 divides μ. B = 1 is not a class condition. So composition (or any operation on V_n points,
-   across μ or not) never creates an ES point: it is impossible where 4tj − 1 ∤ μ and superfluous elsewhere; the
-   whole B = 1 locus is a finite explicit set, and all of Type II is the d-sliced B = 1 locus of V_{pd}. The R202
-   M2 phenomenon (ES = unit × product of three deeper points) is real and common in the weaker sense
-   (27% of composite-D ES points for p ≤ 1000 have a principal proper divisor) but only re-expresses ES points.
+   |N(ε_μ)| = 4tj − 1 divides μ. B = 1 is not a class condition. So at a FIXED μ, composition (or any operation
+   inside O'_μ) cannot create an ES point: impossible where 4tj − 1 ∤ μ, superfluous elsewhere. The whole B = 1
+   locus is a finite explicit set, and all of Type II is the d-sliced B = 1 locus of V_{pd} (pd may be even).
+   The R202 M2 phenomenon is real: 41 of 1736 ES points (p ≤ 1000) are unit × three V_n points at the same μ, and
+   284 of the 1046 with composite D have some principal proper divisor (a weaker, two-element factorisation);
+   both only re-express ES points that exist anyway.
 3. **Pigeonhole (PROVED negative, Prop 3.1).** Davenport-type pigeonhole in Cl⁺(O'_μ) produces positive-norm
-   elements; reaching δ is a target-sum question that no count of split primes forces; and it would give ES^{[2]}
-   only.
+   elements; reaching δ is a target-sum question that no count of split primes forces (abstract group example,
+   not an arithmetic no-go theorem); and it would give ES^{[2]} only.
 4. **Across μ (§5).** Type II ⟺ two-term Machin/arccot relations (2cd + √−pd)(2sd + √−pd) ∝ 1 + 2j√−pd (PROVED, an
    exact but equivalent dictionary); composition in ℤ[√−n] does not preserve V_n (EVIDENCE, 0 hits).
-5. **Status: ES untouched; the composition route to ES is closed with exact scope** (any mechanism whose output is
-   a B = 1 point of some V_{pd}). What survives is the ES^{[2]} class-group lottery of MARKOFF_ES §6, unchanged.
+5. **Status: ES untouched.** The composition route is closed at fixed μ (PROVED). Across μ or d, any mechanism
+   that outputs B = 1 points succeeds at p iff it exhibits a divisor ≡ −1 (mod 4dj) of some 4dj²p + 1 (PROVED
+   equivalence, Prop 4.1(c)); that composition contributes nothing to that selection problem is an Assessment
+   (R-O203 #1), not a theorem. What survives is the ES^{[2]} class-group lottery of MARKOFF_ES §6, unchanged.
