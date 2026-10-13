@@ -15,7 +15,17 @@ Every proof below was re-derived by hand; every finite claim was re-checked with
 | Prop 5.1 | SOUND | — |
 | Cor 5.2 / §5 "closed for every quadric piece" | GAP (overclaimed scope) | D1 (MAJOR: "without positivity" is false — integral points exist), D2 ("every quadric piece") |
 
-(continued below as the review proceeds)
+| Prop 6.1 (box form) | SOUND | — |
+| Prop 6.2 (group-level forcing ⇔ −1 ∈ ⟨r_e⟩; 2-adic criterion) | SOUND (forward + criterion); converse SOUND only in the abstract-integer model | D7; criterion checked for all odd e < 400, all r: 0 mismatches |
+| Prop 6.3 (Σ = H ∀N ⇔ e \| 24; Σ-forcing ⇔ p ≡ −4 (e)) | SOUND-AFTER-REPAIRS | D8 (order-3 counterexample to the ⇒ proof step), D7 |
+| Prop 7.1 (sharing dichotomy) | SOUND | — |
+| Prop 7.2 (joint data force exactly block witnesses) | SOUND-AFTER-REPAIRS | D7 (model), D10 (the "therefore" sentence overreaches) |
+| Thm 7.3 | SOUND | from-scratch: E ∈ {7,11,15,19,23}, 12 primes each, s_e = (1+e)/4 and 0 block witnesses |
+| Cor 7.4 (Linnik) | SOUND | D11 (MINOR: say which E defines "block witness"; monotonicity) |
+| §7 EVIDENCE (block-witness rates) | SOUND (reproduced on p < 3·10⁵, E = 40) | — |
+| Prop 8.1 (Type I forcing side empty) | SOUND in the abstract-integer model | D7 |
+| §3.4 EVIDENCE (Jacobi table) | SOUND (reproduced qualitatively on p < 6·10⁴) | — |
+| §1 catalogue, rows 1, 4, 9, 23, 25 | SOUND for 1, 4, 9, 23; row 25 loosely paraphrased | D12, D13 (remarks inconsistent with ○ entries) |
 
 ## Defects
 
