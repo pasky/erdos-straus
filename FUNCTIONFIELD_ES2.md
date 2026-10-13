@@ -123,26 +123,40 @@ nothing proved here establishes that.
 
 ## 1. (a) Non-linear families in char ≥ 5: what they must look like
 
-**Proposition 1.1 (n-dependent linear families need moduli of degree ≥ n/2 − O(log n); PROVED, char ≥ 5).**
+**Proposition 1.1 (n-dependent linear families need a common modulus of degree ≥ n/2 − O(log n); PROVED,
+char ≥ 5).** (R166 repair, D9: title rescoped. The hypothesis bounds deg lcm_F W_F, not the individual W_F.)
 Fix q (char ≥ 5) and A of degree k. For each large n let 𝓕(n) be any collection (of any size) of linear families
 (E; t_a, a0; t_b, b0), whose data may depend on n, such that every W_F (F ∈ 𝓕(n)) divides one modulus W(n) with
 D(n) := deg W(n) ≤ n/2 − log_q(D(n) + 2) − 1. Then for every large n some irreducible P of degree n is not
 covered by 𝓕(n).
 *Proof.* By Fact 5.2 the number of irreducible P ≡ 1 (mod W(n)) of degree n is
 ≥ q^n/(nΦ(W)) − (D + 2)q^{n/2}/n > 0, because Φ(W) ≤ q^D and q^{n/2} > (D + 2)q^D. Fix such a P and F ∈ 𝓕(n).
-Since deg a0 + deg b0 + k ≤ D < n/2 and deg E ≤ D, the four types have pairwise distinct degrees and lc(s) is as
+Since k + deg a0 + deg b0 ≤ k + 2 deg L ≤ 2D − k < n (R166 repair, D8: formerly "deg a0 + deg b0 + k ≤ D",
+which is false in general because deg a0 + deg b0 = deg L + deg g) and deg E ≤ D, the four types have pairwise distinct degrees and lc(s) is as
 in Lemma 6.2, so F is valid at P iff it is valid on the class P ≡ 1 (mod W_F) — and O140 Prop 4.1 says it is
 not (its proof uses only W_F | W and the degree comparisons above). ∎
-So any proof of ES_q(A, ·) in char ≥ 5 through families whose validity is a congruence condition must use
-moduli of degree ≥ (1/2 − o(1))·n, i.e. of size ≥ |P|^{1/2 − o(1)}. At that scale a class mod W_F contains
-≤ q^{n/2} polynomials of degree n, and the families are individual Type II data in disguise: this is B2/B3
-(the lottery scale) proved, not assumed, in F_q[T]. It is the function-field form of "no covering with moduli
-below √p"; over Z the corresponding statement would need primes ≡ 1 (mod m) below p with m ≈ √p (Linnik/GRH),
-which Weil supplies here unconditionally.
+(R166 repair, D7: Fact 5.2 is needed with a constant uniform in W, i.e. only D = deg W enters. That uniform form
+follows from Rosen Prop 4.3 (L(u, χ) is a polynomial of degree ≤ D − 1 for χ ≠ χ0 mod W) and Weil's RH (Rosen
+Thm 5.10), as derived in FUNCTIONFIELD_ES §5. It gives |nπ(n; W, 1) − q^n/Φ(W)| ≤ (D + 1)q^{n/2} + D. The textbook
+Thm 4.8 is usually stated with an O-constant that depends on the modulus. R166 could not access Rosen and
+re-derived the bound.)
+(R166 repair, D9: the interpretation below is rescoped; the earlier text claimed a bound on individual moduli and
+"B2/B3 proved".) So any proof of ES_q(A, ·) in char ≥ 5 that certifies all P of degree n by families whose
+moduli divide **a common modulus** W(n) needs deg W(n) ≥ n/2 − O(log n). This is the common-modulus version of the
+size barrier, proved unconditionally (Weil supplies the needed prime P ≡ 1 mod W(n)). It says **nothing** about
+collections whose individual moduli are small but whose lcm has degree ≥ n/2. For example, families with
+deg W_F ≤ n/10 each and lcm of degree ≫ n are not covered by Prop 1.1, since no P ≡ 1 modulo the lcm need
+exist. The lottery-scale statement (B2/B3: individual data need moduli of size ≈ |P|^{1/2}) therefore remains
+unproved in F_q[T]. *Open question (CONJECTURE-level, not studied):* does every collection of linear families
+with max_F deg W_F ≤ (1/2 − ε)n miss some irreducible P of degree n, for large n?
+Over Z the common-modulus analogue would need a prime p ≡ 1 (mod m) with m ≈ √p. Unconditionally Linnik gives
+only p ≪ m^L (L ≈ 5), and GRH gives p ≪ m² log⁴ m, i.e. m ≈ √p up to log factors (R166 repair, D10: formerly
+"Linnik/GRH").
 
 **What a non-linear family would need (Assessment).** By Lemma 1.3 a, b | PX, so only P, X and divisors of X
-can occur; Frobenius twists P^σ (q = p^r) and powers P^m (m ≥ 2) cannot divide PX (degree n each, coprime to
-P). Non-formal input can therefore enter only (i) through E (deg E < n; e.g. E built from P − P^σ, or from the
+can occur; Frobenius twists P^σ ≠ P (q = p^r) and powers P^m (m ≥ 2) cannot divide PX (degree n each, coprime to
+P). (R166 repair, D13: if P has coefficients in a proper subfield then P^σ = P, which divides PX trivially and
+gives nothing new.) Non-formal input can therefore enter only (i) through E (deg E < n; e.g. E built from P − P^σ, or from the
 Frobenius residues T^{q^j} mod P), or (ii) through a factorisation of X = (P + E)/A that is forced by an identity.
 (ii) is the only deterministic source of divisors; I found no identity forcing X to factor for P ≡ 1 (mod W)
 other than congruences (which give back linear families). (i): with E | P^σ − P one has P ≡ P^σ (mod E), which
@@ -154,8 +168,8 @@ Exactly the number of Type II data with deg(Aab) ≤ n, ≈ n³ (per unit of q^{
 congruence of modulus degree ≈ n − deg d, so the solution count of a fixed P is a sum of ~q^{n} indicator
 functions with mean C·n³/q^k (FUNCTIONFIELD_ES §7). Any equidistribution/cohomological count at fixed P has an
 error at least the square root of the number of data it averages over, i.e. ≥ q^{cn}, against a main term
-poly(n): B3 in its sharpest form. Prop 1.1 shows the deterministic (congruence) alternative needs moduli of
-degree ≥ n/2. The only regimes left are a structural (non-counting, non-congruence) mechanism, or the special
+poly(n): B3 in its sharpest form. Prop 1.1 shows that the deterministic (congruence) alternative needs a common modulus (lcm of the moduli) of
+degree ≥ n/2 − O(log n) (R166 repair, D9: formerly "moduli of degree ≥ n/2"; the per-family version is open). The only regimes left are a structural (non-counting, non-congruence) mechanism, or the special
 small characteristics where O(q, A) = ∅ (§0).
 
 ## 3. (d) Degree parity for q ≡ 3 (mod 4)
