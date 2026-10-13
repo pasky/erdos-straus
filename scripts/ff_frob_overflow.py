@@ -43,10 +43,10 @@ def verify(P, f, m, a, d, j, e):
     N = F.add(P, F.mul(A, Q2d))
     E, r = F.divmod(N, f)
     if r or not E:
-        return False
+        return None
     X, r = F.divmod(F.add(P, E), A)
     if r or not X or X[-1] != 1:
-        return False
+        return None
     Y = F.mul(P, m)
     num = F.mul(F.mul(P, X), m); den = Q2d
     g = F.gcd(num, den)
@@ -54,15 +54,15 @@ def verify(P, f, m, a, d, j, e):
     c = den[-1]; ci = pow(c, q - 2, q)
     num = F.scal(ci, num); den = F.scal(ci, den)
     if num[-1] != 1:
-        return False
+        return None
     t2 = F.val(den, s)
     if den != pw(s, t2) or t2 % 2 or t2 // 2 > e:
-        return False
+        return None
     lhs = F.mul(F.mul(F.mul(A, X), Y), num)
     rhs = F.mul(P, F.add(F.add(F.mul(Y, num), F.mul(X, num)), F.mul(den, F.mul(X, Y))))
     if lhs != rhs:
-        return False
-    return min(len(X) - 1, len(Y) - 1, len(num) - len(den)) >= n - k
+        return None
+    return t2 // 2 if min(len(X) - 1, len(Y) - 1, len(num) - len(den)) >= n - k else None
 
 
 SQ = len(sys.argv) > 7 and sys.argv[7] == 'sq'  # T1 control: P = M^2, M irreducible of degree n/2
@@ -83,21 +83,32 @@ for dd in range(k, D + 1):
                     for de in range(E - al + 1):
                         new.append((F.mul(a, pw(g, al)), F.mul(d, pw(g, de)), F.mul(rest, pw(g, E - al - de))))
             opts = new
-        table = {}
+        table = {}  # residue -> all witnesses (ov, a, d, j); R196 #4: keep every witness until verification
         for a, d, rest in opts:
             sig = F.val(rest, s) if len(s) > 1 else 0
             for j in range(0, 1 if sf else sig + emax + 1):
                 ov = max(0, j - sig)
                 w = F.mod(F.neg(F.mul(A, F.mul(pw(F.mul(a, pw(s, j)), 2), d))), f)
-                if w not in table or table[w][0] > ov:
-                    table[w] = (ov, a, d, j)
-        for P in Ps:
-            r = F.mod(P, f)
-            if r in table:
-                ov, a, d, j = table[r]
-                if best[P] is None or ov < best[P]:
-                    if verify(P, f, m, a, d, j, ov):
-                        best[P] = ov
+                table.setdefault(w, []).append((ov, a, d, j))
+        for w, wits in table.items():
+            wits.sort(key=lambda t: t[0])
+            # all P = w (mod f) of degree n: P = w + c*t*f, deg t = n - dd (or P = w itself)
+            if n > dd:
+                cands = [F.add(w, F.mul(F.scal(c, t), f)) for t in F.monics(n - dd) for c in range(1, q)]
+            elif n == dd:
+                cands = [F.add(w, F.scal(c, f)) for c in range(0, q)]
+            else:
+                cands = [w]
+            for P in cands:
+                if P not in best:
+                    continue
+                for ov, a, d, j in wits:
+                    if best[P] is not None and ov >= best[P]:
+                        break
+                    t = verify(P, f, m, a, d, j, ov)
+                    if t is not None:
+                        best[P] = t
+                        break
 hist = {}
 for P, v in best.items():
     hist[v] = hist.get(v, 0) + 1

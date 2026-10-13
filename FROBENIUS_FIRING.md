@@ -13,15 +13,17 @@ P ∤ A. Over ℤ: p an odd prime, h a Type II modulus (h ≡ 3 mod 4), k_h = (h
 is finite (Prop 1.2). The meaningful questions are (a) *sufficient* Frobenius conditions with a range cut-off, which
 need an exponentially complicated field (Thm 1.4, effective no-go), and (b) the *per-modulus* structure: Frobenius
 firing is what you get by flipping a per-modulus firing set that is a union of cosets of a *bounded-index* subgroup
-(Lemma 1.5). §2 makes (b) quantitative over F_q[T]: Weil certifies firing through an algebraic family iff the
+(§2, Remark 2.4). §2 makes (b) quantitative over F_q[T]: the Weil expansion method certifies firing through a fixed algebraic set only if the
 firing set at a degree-d modulus has size ≳ n·q^{d/2} (square-root threshold); the ES box has size q^{o(d)}.
 
 ## 1. Framework, and the trivial and effective no-go theorems
 
 **Definition 1.1 (firing).** A *firing relation* is a set Fire ⊂ {inputs} × {moduli}. For ES (Type II, prime
 moduli; FIXED_MODULUS_SHOTS Thm 3.1/4.2): (p, h) ∈ Fire iff h ≡ 3 (mod 4) and −p ∈ Box(k_h) (mod h). For ES_q
-(Type II; FF_MUTE Prop 5.2(b)): (P, f) ∈ Fire iff f ≡ −1 (mod A) and P ≡ −A·a²d (mod f) for some monic a, d with
-ad | (f + 1)/A. For the mute variant ES_q^{(s)} (FF_MUTE Prop 5.2(a)): f ≡ −1 (mod A) and −P/A ∈ ⟨s² mod f⟩.
+(Type II): (P, f) ∈ Fire iff ES_q(A, P) has a Type II solution with modulus f (FF_MUTE Prop 5.1 datum); this forces
+f ≡ −1 (mod A) and P ≡ −A·a²d (mod f) for some monic a, d with ad | (f + 1)/A (FF_MUTE Prop 5.2(b)), but the
+congruence alone is only NECESSARY over F (monicity/degree conditions; R196 #1: q = 2, A = T, P = a = T + 1, d = 1,
+f = T² + T + 1 satisfies the congruence with X = 0). Over ℤ the box criterion is exact (FIXED_MODULUS_SHOTS Thm 3.1). For the mute variant ES_q^{(s)} (FF_MUTE Prop 5.2(a)): f ≡ −1 (mod A) and −P/A ∈ ⟨s² mod f⟩.
 Fire(P) := {f : (P, f) ∈ Fire} (per input); 𝔉(f) := {P mod f : (P, f) ∈ Fire} ⊂ (R/f)^* (per modulus).
 A *sufficient Frobenius condition* for P is a pair (L, C): L/K a finite Galois extension (K = ℚ or F), C ⊂ Gal(L/K)
 a nonempty union of conjugacy classes, such that every prime f unramified in L with Frob_f ∈ C lies in Fire(P).
@@ -42,7 +44,7 @@ deg f mod some e, satisfied by infinitely many degrees) gives infinitely many su
 So the literal question has a trivial answer; the content is quantitative. Two refinements: a *range-restricted*
 condition (only f in the range where certificates live), and the *per-modulus* structure.
 
-**Theorem 1.3 (effective no-go over F_q[T]; PROVED relative to the cited effective Chebotarev theorem).** Let L/F be
+**Theorem 1.3 (effective no-go over F_q[T]; CONDITIONAL on the cited effective Chebotarev theorem in the displayed shape — the shape is not re-checked).** Let L/F be
 a finite Galois extension with group G, constant field F_q (geometric), genus g_L, and let C ⊂ G be nonempty and
 conjugation-stable. If every prime f of degree d, unramified in L, with Frob_f ∈ C fires for ES_q(A, P) (Type II),
 for *one* degree d ≥ 2n − k + 1, then
@@ -70,8 +72,8 @@ log d_L ≤ p^{1−ε} (p ≫_ε 1).
 Serre 1981 Thm 4). Fire(p) has at most #(Type I/II solutions) ≤ p^{1+o(1)} elements (each solution has one modulus;
 Type II: x ≤ p/2 and (y′, z′) is determined by a divisor of x², Type I similarly — FIXED_MODULUS_SHOTS Lemmas 1.1, 4.1).
 So π_C(X) − π_C(X/2) ≤ p^{1+o(1)} + ω(d_L) ≤ p^{1+o(1)} + 2 log d_L. With the GRH formula (|C| ≥ 1),
-(|C|/|G|)[X/(3 log X) − 2c₁X^{1/2}(log d_L + |G| log X)] ≤ p^{1+o(1)} + 2 log d_L for large X. If the first
-alternative fails, the bracket is ≥ X/(6 log X), giving the second. For the last claim: X^{1/2} ≥ √3·p makes the
+(|C|/|G|)[X/(2 log X) − 2c₁X^{1/2}(log d_L + |G| log X)] ≤ p^{1+o(1)} + 2 log d_L (Li(X) − Li(X/2) ≥ X/(2 log X)). If the first
+alternative fails, the bracket is ≥ X/(2 log X) − X/(6 log X) ≥ X/(6 log X), giving the second (R196 #6). For the last claim: X^{1/2} ≥ √3·p makes the
 first alternative false, and |G|(p^{1+o(1)} + 2p^{1−ε}) ≤ p^{2−ε+o(1)} < X/(6 log X) makes the second false. ∎
 (Unconditionally, Thorner–Zaman-type lower bounds π_C(x) ≫ (|C|/|G|)Li(x), valid for x ≥ d_L^{c} with an absolute
 c, give the same contradiction for every L with d_L ≤ p^{2/c}; much weaker. Citation form not re-checked.)
@@ -90,39 +92,43 @@ curve; only bounded-order reciprocity is available. See Remark 2.5.)
 
 **Theorem 2.1 (Weil count for subgroup membership; PROVED).** Let d ≥ 1, m | q^d − 1, B ∈ R monic of degree b, and
 P ∈ R irreducible of degree n with P ∤ B. Then
-`N_m := #{α ∈ F_{q^d} : B(α)P(α) ≠ 0, P(α)/B(α) ∈ G_d^m}` satisfies `|N_m − (q^d − n − b)/m| ≤ (n + b − 1)q^{d/2}`.
+`N_m := #{α ∈ F_{q^d} : B(α)P(α) ≠ 0, P(α)/B(α) ∈ G_d^m}` satisfies `|N_m − (q^d − r)/m| ≤ (n + b − 1)q^{d/2}`,
+where r ≤ n + b is the number of distinct roots of PB in F_{q^d}; in particular N_m ≥ (q^d − n − b)/m − (n + b − 1)q^{d/2}
+(R196 #2: the main term is (q^d − r)/m, not (q^d − n − b)/m).
 *Proof.* 1_{G^m}(x) = (1/m)Σ_{χ^m = 1} χ(x). For χ ≠ 1 of order e | m, e > 1, χ(P/B) = χ(P·B^{e−1}); the polynomial
 P·B^{e−1} has the root set of P with multiplicity 1, so it is not a constant times an e-th power in F̄_q[T], and
 Weil's bound (Lidl–Niederreiter Thm 5.41) gives |Σ_α χ(P(α)B(α)^{e−1})| ≤ (#distinct roots of PB − 1)q^{d/2}
-≤ (n + b − 1)q^{d/2}. The trivial character contributes q^d − #{roots of PB in F_{q^d}} ∈ [q^d − n − b, q^d]. ∎
+≤ (n + b − 1)q^{d/2}. The trivial character contributes q^d − r. ∎
 (α of degree < d are ≤ 2q^{d/2} in number and can be discarded at that cost; each degree-d prime f contributes d
 values α, all with the same membership status since G^m is Frobenius-stable.)
 
 **Proposition 2.2 (the threshold for the expansion method; PROVED).** Let S ⊂ G_d be any subset and write
 1_S = Σ_χ ŝ(χ)χ on G_d (ŝ(χ) = |G_d|^{−1}Σ_{x∈S}χ̄(x)), ‖ŝ‖₁ := Σ_χ |ŝ(χ)|. Then for P, B as in Thm 2.1
-`|#{α : P(α)/B(α) ∈ S} − |S|·(q^d − n − b)/(q^d − 1)| ≤ (‖ŝ‖₁ − ŝ(1))·(n + b − 1)q^{d/2}`,
+`|#{α : P(α)/B(α) ∈ S} − |S|·(q^d − r)/(q^d − 1)| ≤ (‖ŝ‖₁ − ŝ(1))·(n + b − 1)q^{d/2}` (r as in Thm 2.1),
 and ‖ŝ‖₁ ≥ 1 (Fourier inversion at any x ∈ S). In particular this "character expansion + Weil" argument proves
 existence of α only if `|S| > (‖ŝ‖₁ − ŝ(1))(n + b − 1)q^{d/2}`; the necessary condition `|S| ≳ (n + b − 1)q^{d/2}`
 holds for every S with ‖ŝ‖₁ ≥ 2ŝ(1) (i.e. every S with |S| ≤ |G_d|/2, as ‖ŝ‖₁ ≥ 1 ≥ 2|S|/|G_d|).
 *Proof.* As in Thm 2.1, term by term. ∎
 Examples: S = coset of a subgroup of index m: ‖ŝ‖₁ = 1, threshold m < q^{d/2}/(n + b) (Thm 2.1). S = {s^{2j} :
-0 ≤ j < J} with s a primitive root (an exponent interval): ‖ŝ‖₁ ≪ log q^d, threshold J ≫ d·(n + b)q^{d/2}.
+0 ≤ j < J} with s ∈ G_d a FIXED primitive root (an exponent interval): ‖ŝ‖₁ ≪ log q^d, so J ≫ d·(n + b)q^{d/2}
+suffices (an upper bound for ‖ŝ‖₁ gives a sufficient condition only). NB: in the mute variants the base is s(α),
+which varies with α, so Prop 2.2 does NOT apply to {s(α)^{2j} : j < J} (R196 #3).
 S = a box {∏ g_i^{e_i} : |e_i| ≤ κ_i} in exponent coordinates (a generalised arithmetic progression of the
-discrete logs): ‖ŝ‖₁ ≪ ∏(1 + log(2κ_i + 1)), threshold |S| ≫ (n + b)q^{d/2}·∏ log.
-**So structure only buys a logarithmic Fourier norm; the binding constraint is size: Weil-type firing at modulus
-degree d requires a firing set of size ≳ n·q^{d/2} (square root of |G_d|), which must moreover be a FIXED algebraic
-datum (S, B independent of α).**
+discrete logs, fixed g_i ∈ G_d): ‖ŝ‖₁ ≪ ∏(1 + log(2κ_i + 1)), sufficient |S| ≫ (n + b)q^{d/2}·∏ log.
+**So, for this method, structure only buys a small Fourier norm and the binding constraint is size: certifying
+firing at modulus degree d through a FIXED set S (independent of α) needs |S| ≳ n·q^{d/2} (square root of |G_d|).**
+(Scope: a statement about the character-expansion + Weil method, not about every conceivable Frobenius argument.)
 
 **Proposition 2.3 (the ES box is below the threshold at every modulus degree; PROVED).** For ES_q Type II,
 𝔉(f) = −A·{a²d : ad | (f + 1)/A} has |𝔉(f)| ≤ τ₃((f + 1)/A) (FF_MUTE Prop 5.2(b)), where τ₃(N) = #{ordered monic
-factorisations N = abc}. For deg N = D: τ₃(N) ≤ 3^{Ω(N)} ≤ 3^D, and τ₃(N) ≤ τ(N)² ≤ q^{(2 log 2 + o(1))·D/log_q D}
+factorisations N = abc}. For deg N = D: τ₃(N) ≤ 3^{Ω(N)} ≤ 3^D, and τ₃(N) ≤ τ(N)² ≤ 4^{(1+o(1))·D/log_q D} = q^{o(D)}
 as D → ∞ (FF divisor bound). Hence |𝔉(f)| < (n + k − 1)q^{d/2}/2 for every d ≥ k when q ≥ 9 and n + k ≥ 3 (3^{d−k} ≤ q^{(d−k)/2} < q^{d/2}), and for every d ≥ d₀(q) when q < 9 (d₀ independent of n). So the expansion method of Prop 2.2
 cannot certify an ES_q firing at such d, even for a single P, with any fixed S ⊆ 𝔉(f); a fortiori the box, which
 moreover varies with f (its generators are the prime factors of f + 1, not fixed polynomials), is not a
 Weil-countable datum.
 *Proof of the bounds.* τ₃(N) = ∏_i C(e_i + 2, 2) over N = ∏ g_i^{e_i}, and C(e + 2, 2) ≤ 3^e. The asymptotic form is the
 divisor bound τ(N) ≤ |N|^{(log 2 + o(1))/log_q D} over F_q[T] (same proof as over ℤ: split primes by degree at
-log_q D) and τ₃(N) = Σ_{a|N} τ(N/a) ≤ τ(N)². ∎
+log_q D) and τ₃(N) = Σ_{a|N} τ(N/a) ≤ τ(N)². (R196 #5: normalisation τ(N) ≤ 2^{(1+o(1))D/log_q D}.) ∎
 (Small d: the box has O(1) elements while the threshold is ≥ n√q^k; for n large the comparison holds at every d.)
 
 **Remark 2.4 (mute place as a Weil-countable datum; reading of FF_MUTE Thm 3.5).** In ES_q^{(s)} the firing set is
@@ -154,7 +160,7 @@ Same box, new coordinates. Violates nothing.
 
 (F2) *Supersingular torsion ("divisors of f + 1" as torsion).* For a certificate (c, d) with prime f: (−d/f) = −1
 (FIXED_MODULUS_SHOTS Rem 2.5 with n = d), so f is inert in ℚ(√−d) and **every elliptic curve over ℚ with CM by an
-order of ℚ(√−d) (f ∤ conductor, f ≥ 5) is supersingular at f, with #E(F_f) = f + 1 and 4cd | #E(F_f)** (PROVED,
+order of ℚ(√−d) and GOOD reduction at f (f ≥ 5; R196 #7) is supersingular at f, with #E(F_f) = f + 1 and 4cd | #E(F_f)** (PROVED,
 standard: inert ⇒ a_f = 0). Over F_q[T] the same holds for rank-2 Drinfeld modules with CM by an imaginary
 quadratic F(√D) at inert f (characteristic polynomial X² + u·f, u ∈ F_q^*, Euler characteristic ∝ f + u). So
 "divisors of f + 1" are the orders of F_f-rational torsion subgroups of a supersingular reduction, and "4cd | f + 1"
@@ -165,7 +171,7 @@ torsion field of growing level is as useless as a cyclotomic one of growing leve
 (F3) *Thue/Minkowski with an auxiliary prime (Ankeny-type template).* For a fixed prime h, Type II through h ⟺ the
 lattice Λ_h = {(c, j) ∈ ℤ² : c + pj ≡ 0 (h)} (covolume h) has a point with cj | (h + 1)/4 (FIXED_MODULUS_SHOTS
 Lemma 1.1). Thue's lemma gives (c, j) ∈ Λ_h with 0 < |c|, |j| < √h — exactly the right size (cj < h) — but the
-remaining condition is exact divisibility cj | (h + 1)/4; Λ_h has ≍ log h points under the hyperbola cj ≤ h/4 and
+remaining condition is exact divisibility cj | (h + 1)/4; Λ_h typically has ≍ log h points under the hyperbola cj ≤ h/4 (not uniformly: p ≡ −1 mod h gives ≍ √h diagonal points; R196 #7) and
 τ₃((h+1)/4) admissible pairs, so a hit has "probability" h^{−1+o(1)} per h (the lottery, B3). Choosing h with very
 smooth (h + 1)/4 keeps τ₃ ≤ h^{O(1/log log h)}. The deterministic step (Minkowski) produces size, not divisibility.
 
@@ -176,9 +182,10 @@ B2), and yet it is a theorem. **Outcome: B2's "the modulus is part of the soluti
 obstruction; the exponent cap is.** (§4, PROVED relative to UNIT_ORBIT Thm 2.4's sieve.)
 
 (F5) *Exponent intervals.* Keep one fixed mute place s and cap the s-exponent overflow at e (ES^{(s,e)}, §5).
-Firing set at f: the ES box times {s^{2i} : i ≤ σ + e}. By Prop 2.2 the Weil threshold needs an interval of length
-≳ d·n·q^{d/2}, i.e. e ≈ n² at the optimal d ≈ 2 log_q n — consistent with FF_MUTE Thm 3.5 Remark 3 (shot height
-O(q^d + n)). Numerically a much smaller e suffices (§5): provability threshold ≫ truth threshold.
+Firing set at f: the ES box times {s^{2i} : i ≤ σ + e}. The only known proof (FF_MUTE Thm 3.5) uses the full coset −A⟨s(α)²⟩,
+i.e. shot height j < 2q^d + O(n), overflow e of size n^{2+o(1)} (PNT) at d ≈ 2 log_q n (FF_MUTE Thm 3.5 Remark 3).
+Prop 2.2 does not apply to exponent intervals with the varying base s(α) (R196 #3), so whether a smaller overflow is
+provable is OPEN. Numerically e ≤ 5 suffices (§5.2): the known provable overflow is ≫ the observed one.
 
 ## 4. The self-mute variant ES^{(y)}: moving mute places are harmless, the exponent cap is the obstruction
 
@@ -270,12 +277,13 @@ reason is size, not abelianness:
 1. (Prop 1.2, PROVED, trivial.) Fire(p) is finite (moduli O(p²); degree ≤ 2n − k over F), so no finite Galois
    extension, fixed or p-dependent, gives a sufficient Frobenius condition.
 2. (Thms 1.3, 1.4.) Range-restricted versions need exponentially complicated fields: over F_q[T]
-   (unconditional, effective Chebotarev) genus/degree·ramification ≥ q^{n−k/2}/c₀ for a condition sufficient one
+   (relative to the cited effective Chebotarev shape) genus/degree·ramification ≥ q^{n−k/2}/c₀ for a condition sufficient one
    degree beyond the certificate range; over ℤ (GRH) [L:ℚ] ≤ p^{1−ε} and log d_L ≤ p^{1−ε} are impossible for
    a condition sufficient on all primes ≤ X, X ≥ 3p².
 3. (§2, PROVED over F_q[T].) Per modulus, the flip "condition on P mod f → condition on f" exists over F for
    characters of every order (P mod f = P(α), Weil). Its threshold is size: a Weil/Frobenius certificate at modulus
-   degree d needs a fixed algebraic firing set of size ≳ n·q^{d/2} (Thm 2.1, Prop 2.2); the ES box has size
+   degree d by character expansion + Weil needs a fixed algebraic firing set of size ≳ n·q^{d/2} (Thm 2.1,
+   Prop 2.2; a statement about this method); the ES box has size
    τ₃((f+1)/A) = q^{o(d)} and its generators move with f (Prop 2.3). Over ℤ only bounded-order reciprocity is
    available (Remark 2.5), so the requirement is even bounded index.
 4. (F1–F2.) Heegner/CM and supersingular-torsion dictionaries: certificates are degree-one primes 𝔣 | 1 + 2c√−dp of
@@ -286,12 +294,11 @@ reason is size, not abelianness:
    y — is a theorem (unconditional with 4 mute primes, GRH with 1), exact-T1 like ES^{(S)}; and in the shot family
    ES = ES^{(y)} + the exponent cap Q | (r + 1)/4 (Cor 4.3). So B2's "the modulus is part of the solution" is
    harmless as long as only the radical is constrained; the obstruction is the exponent cap, which confines the
-   available s-exponents to ≤ log_s r, against the order ≍ r of ⟨s mod r⟩ (Frobenius firing) or the Weil threshold
-   ≍ √r·log (F_q[T]).** (Assessment: this sharpens (J)25/(J)28's "growing modulus" into "growing exponent".)
-6. (Task (3), §5.2.) Along the overflow scale ES_q^{(s,e)} the provable threshold (Weil, Prop 2.2) is e ≈ n²
-   (exponent interval ≳ d·n·q^{d/2} at d ≈ 2 log_q n), while numerically e ≤ 5 suffices and the needed e
-   *decreases* with n (lottery with more tickets): truth threshold and provability threshold move in opposite
-   directions.
+   available s-exponents to ≤ log_s r, against the order of ⟨s mod r⟩, which is ≍ r for the r used by the
+   Kummer–Chebotarev firing.** (Assessment: this sharpens (J)25/(J)28's "growing modulus" into "growing exponent".)
+6. (Task (3), §5.2.) Along the overflow scale ES_q^{(s,e)} the only known proof needs overflow e = n^{2+o(1)}
+   (the full coset, FF_MUTE Thm 3.5 Rem 3; a smaller provable e is open — Prop 2.2 does not cover a varying base),
+   while numerically e ≤ 5 suffices and the needed e does not grow with n (lottery with more tickets).
 
 Not an opening for ES (Assessment): every route found to a Frobenius description passes through an unbounded
 exponent (or index-bounded subgroup) at a fixed mute place; ES's exponents are capped by v_s((f + 1)/A) ≤ d/deg s.
