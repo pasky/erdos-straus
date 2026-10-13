@@ -51,8 +51,8 @@ So (−t/X) = −1, a contradiction. (This is the HJ form of ES's T1.)
 (X₁/t) = (−1/t)(2/t)^a = −(2/t)^a. For this to equal +1 we need a odd and (2/t) = −1, i.e. t ≡ 3 (mod 8). If m is even, tn + 1
 is odd, so a = 0 and t ≡ 3 (mod 4) is impossible. If t ≡ 3 (mod 8) and m is odd, then n ≡ 1 (mod 8), so v₂(tn+1) = v₂(t+1) = 2. Both
 X and Z need an odd 2-adic valuation, so a_X = a_Z = 1. ∎
-**Remark 3.2 (n = k m²).** The same argument gives: if n = k m², no word has middle t ≡ 0 (mod 4k). Here q | tn + 1 forces
-(−t/(4k)… ) i.e. (−s/q) = 1 for t = 4ks, and X ≡ −1 (mod 4s) gives (−s/X) = −1. EVIDENCE (`scripts/bsG_kshadow.py`):
+**Remark 3.2 (n = k m²).** The same argument gives: if n = k m², no word has middle t ≡ 0 (mod 4k). Indeed, for t = 4ks, q | tn + 1 gives −s·(2km)² ≡ 1 (mod q), i.e.
+(−s/q) = 1, while X ≡ −1 (mod 4s) gives (−s/X) = −1 as in (i). EVIDENCE (`scripts/bsG_kshadow.py`):
 35 372 words at n = k m² (k ∈ {1,2,3,5,6,7}, m < 160), 0 violations of Lemma 3.1 / Remark 3.2.
 `scripts/bsG_sqslices.py 300`: middle letters mod 8 at odd squares {1,2,3,5,6}, at even squares {1,2,5,6}, and at the control
 n = m² + 2 all eight classes occur.
@@ -60,8 +60,8 @@ n = m² + 2 all eight classes occur.
 genus character that kills ES (the t ≡ 0 (mod 4) slices) also kills the slices t ≡ 3 (mod 4) (mostly). Squares of smooth
 numbers additionally lose all small prime factors of tn + 1 (tn + 1 ≡ 1 mod every prime dividing m). This explains the record lows of §2.
 **Barrier consequence (B5 for (W), PROVED by Lemma 3.1).** Any argument for (W) that uses only middle letters t ≡ 0 (mod 4), or only
-t ≡ 3 (mod 4) for even n, gives nothing at squares. This applies to Lorenzini's z = 4 slice read as a middle letter… (no: z is an outer
-letter; the shadow constrains only the middle letter). A route must use t ≡ 1, 2 (mod 4) at squares.
+t ≡ 3 (mod 4) for even n, gives nothing at squares. The shadow constrains only the middle letter: outer-letter slices such as Lorenzini's z = 2, 4 are
+not directly affected. A route must use middle letters t ≡ 1, 2 (mod 4) (or t ≡ 3 (mod 8) at odd squares).
 
 **Prop 3.3 (squares; PROVED).** Every square n = m² ∉ {1, 9} is a value of xyz − x − z with x, y, z ≥ 2.
 *Proof.* m even: n ≡ 0 (mod 4) and (2, n/4 + 1, 2) works. 3 ∤ m: n ≡ 1 (mod 3) and (2, 2, (n+2)/3) works, with (n+2)/3 ≥ 2 for n ≥ 4.
@@ -72,3 +72,43 @@ odd m < 20001.) So the shadow lowers R(m²) but never empties it. This contrasts
 genus characters go. However the shadow is partial (two of four middle classes mod 4 survive), and the surviving slices
 (t = 2, (x,z) = (3,6)) already cover squares by congruences, because −1 is not a square mod 3 or 4. The class n ≡ −1 (mod M) that defeats every
 finite covering (HJ_DEEP Lemma 3.2) contains no squares.
+
+## 4. The profinite sterile set of (W) (PROVED parts + EVIDENCE)
+A *fixed-pair family* is a class c + dZ of one of two kinds: (x,y) fixed, d = xy − 1, c = −x (then z = (n+x)/d); or (x,z) fixed,
+d = xz, c = −(x+z) (then y = (n+x+z)/(xz)). The (y,z) kind is the (x,y) kind mirrored. Each family certifies (W)(n) for every
+n ≡ c (mod d) above a size threshold (≤ 2d). Let C ⊂ Ẑ be the union of the open sets c + dẐ, and let the **sterile set** be S := Ẑ \ C (closed).
+By compactness, a finite fixed-pair covering of all n outside a clopen set V exists iff S ⊂ V.
+**Prop 4.1.** S ∩ Z = {−1}.
+*Proof.* −1 ∈ S is HJ_DEEP Lemma 3.2. If ν ≤ −2, take x = −ν (any y): d | ν + x = 0. If ν = 0, take (x,z) = (2,2): 4 | 0 + 4.
+If ν ≥ 1, take (x,y) = (ν+1, 2): d = 2ν + 1 = ν + x. ∎ (Integers fail (W) only through the size thresholds.)
+**Theorem 4.2 (S is infinite and accumulates at −1; PROVED).** For a prime ℓ let ν(ℓ, c) ∈ Ẑ be the point with ν ≡ −1 in Z_q for every
+q ≠ ℓ and ν = c in Z_ℓ. For every prime ℓ ≥ 3, ν(ℓ, ℓ−1) ∈ S. Since ν(ℓ, ℓ−1) → −1 as ℓ → ∞, −1 is not isolated in S.
+*Proof.* Write m_ℓ for the ℓ-part and m_{ℓ'} for the prime-to-ℓ part. Then d | ν + x ⟺ d_{ℓ'} | x − 1 and d_ℓ | x + ℓ − 1.
+(x,y) kind: d = ℓ^j e (e prime to ℓ), with e | x − 1, ℓ^j | x + ℓ − 1, x | d + 1, d ≥ 2x − 1. Since e < 2x − 1 we have j ≥ 1. Then ℓ | x − 1, so x ≥ ℓ + 1. Put
+x − 1 = ef. From ef ≡ −1 ≡ ℓ^j e (mod x) and gcd(e,x) = 1 we get ℓ^j ≡ f (mod x). Since 1 ≤ f < x and ℓ^j ≤ x + ℓ − 1 < f + 2x, we get ℓ^j ∈ {f, f + x}.
+If ℓ^j = f, then ℓ^j divides both x − 1 and x + ℓ − 1, so j = 1, f = ℓ and d = x − 1 < 2x − 1. ✗. If ℓ^j = f + x > x, then ℓ^j | x + ℓ − 1 < 2ℓ^j
+forces x + ℓ − 1 = ℓ^j, so f = ℓ − 1 and e = (ℓ^j − ℓ)/(ℓ − 1). This is divisible by ℓ if j ≥ 2, and gives x = 1 if j = 1. ✗.
+(x,z) kind: x = ℓ^a u, z = ℓ^b v (u, v prime to ℓ). The conditions are uv | x + z − 1 and ℓ^{a+b} | x + z + ℓ − 1. If a = b = 0 then xz | x + z − 1 < xz. ✗.
+If a, b ≥ 1, then x + z + ℓ − 1 ≡ ℓ − 1 ≢ 0 (mod ℓ). ✗. So w.l.o.g. a ≥ 1 and b = 0. Then u | v − 1, v | ℓ^a u − 1, and ℓ^a | v + ℓ − 1. Put v + ℓ − 1 = ℓ^a m
+and ℓ^a u − 1 = vk. Then v(km − u) = (ℓ − 1)u − m =: vs, with 0 ≤ s ≤ ℓ − 2 (use u ≤ v − 1 and m < v).
+* s = 0 gives k(ℓ − 1) = 1, impossible for ℓ ≥ 3.
+* s ≥ 1: substituting u = km − s gives sℓ^a = (ℓ − 1)k − 1. Then s(v − 1) = s(ℓ^a m − ℓ) = (ℓ − 1)u − m − s, so u | v − 1 forces u | m + s, hence (k − 1)m ≤ 2s.
+  * If a ≥ 2, this forces m = 1, and then u = k − s ≤ s + 1 needs s(ℓ^a − 2ℓ + 2) ≤ ℓ − 2, which is false. ✗.
+  * If a = 1, integrality of k forces s = ℓ − 2, k = ℓ − 1, m ≤ 2. Then m = 1 gives v = 1, and m = 2 gives u = ℓ. ✗. ∎
+
+**EVIDENCE 4.3 (`scripts/bsG_dev.c`, `scripts/bsG_devT.c`, `scripts/bsG_sterile.py`).**
+* Single-prime deviations ν(ℓ, c) with integer 0 ≤ c ≤ 60 that no family of modulus ≤ 2·10⁵ covers. For ℓ = 2: c = 3, 7, 15, 19, 23, 31, 35, 39, 47. For ℓ = 3: c = 2, 8, 11, 17,
+  26, …. For ℓ = 5: c = 4, 9, 14, 24, …. For ℓ = 7: c = 6, 13, 20, …. For ℓ = 11: c = 10, 21, 25, 32, 33, …. Mostly c ≡ −1 (mod ℓ), but not only.
+* Multi-prime deviations: ν = c at every prime ≤ P and −1 elsewhere, integer c ≤ 2000, moduli ≤ 10⁵. Uncovered: 287 values for P = 2,
+  34 for P = 3, and 3 for P = 5 (c = 899, 1439, 1799, all ≡ −1 (mod 30)). For P = 7, 11, …, 31 there are **none**.
+  So in this probe every sterile point found is ≡ −1 at all but a few small primes.
+* Finite levels: |U_M| (classes mod M missed by all families with modulus | M) is 0.161 % (M = 720720), 0.0852 % (12252240),
+  0.0225 % (73513440), 0.00763 % (151351200 = 2⁵3³5²7²·11·13). The projections to mod 12 stay {3, 6, 9, 11} at every level tested.
+* Integers *near* sterile points are not hard. n = 3·L′ − 1 and 5·L″ − 1, with L′, L″ the 3-free and 5-free parts of lcm(1..30), have
+  R = 264 and 288 (block mean ≈ 300). Large-modulus families do the work.
+**Consequences (Assessment).** (a) Compactness cannot prove (W). Exceptions to every finite fixed-pair covering are integers near S, and S is
+infinite with −1 as an accumulation point. (b) A *finite-level computer-assisted* strengthening of Lorenzini's Prop 6.3 is available.
+**Cor 4.4 (CERTIFIED modulo the 10⁹ enumeration of R174).** Every n ∉ E_W whose class mod M = 151351200 lies outside U_M (11 550 classes,
+density 7.6·10⁻⁵) satisfies (W). *Proof.* Thresholds are ≤ 2M < 10⁹. Below 10⁹ use the exhaustive enumeration (`scripts/review_hj_ws.c`, R174).
+Above it use the covering family. ∎ This is a density statement only. Lorenzini/Wang already have density 1, so the novelty is the explicit
+level and the explicit residual classes.
