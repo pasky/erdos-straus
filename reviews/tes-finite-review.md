@@ -6,7 +6,19 @@ no import of `tf_*`, `tw_*`). Source checked: Bright–Loughran arXiv 1908.02526
 read in full for §2–§3).
 
 ## Summary verdicts
-(filled in claim by claim below)
+| Claim | Verdict |
+|---|---|
+| Prop 1.1 / Cor 1.2 (finiteness, explicit bound, "infinite iff vanishing two-term subsum") | SOUND (D1: over ℤ = BL Lemma 3.10) |
+| Thm 2.1 (TES fails at exactly the 16 primes, N ≤ 30000) | SOUND — fully reproduced by an independent solver (D7 minor) |
+| Thm 3.1 (no BM obstruction from Br U ≅ Br K ⊕ ℤ/6 at the 16 failures) | SOUND — BL inputs valid over ℚ(ω); all 16 certificates re-verified (D5 wording) |
+| §4 cubes / characters | characters re-verified; cubes not re-run |
+| Prop 5.1 (order-2 T1 for 8/n at odd squares) | SOUND (2-adic step re-derived; BL Lemmas 3.2/3.4/3.5/3.9 transfer checked) (D6) |
+| Thm 5.2 (8/n insoluble at 131, 241; list ≤ 299; primes ≤ 2·10⁵) | SOUND computation, but KNOWN: PW Table 1 (D2, MAJOR) |
+| Thm 5.3 (no BM obstruction at 3, 11, 17, 131, 241) | SOUND (certificates re-verified; 3, 11, 17 supplied by reviewer); = BL Rem 1.10 (D4) |
+| Cor 5.4 / B7 | logic SOUND; novelty/significance overclaimed — SOUND-AFTER-REPAIRS (D3, MAJOR) |
+
+No FATAL defects. Two MAJOR (D2, D3: literature/attribution for §5, affecting SHARP #1 and #3), six MINOR. The TES
+half (§1–§3) is new, correct, and fully reproduced.
 
 ## 1. Prop 1.1 / Cor 1.2 (finiteness) — SOUND (minor attribution / wording defects)
 
@@ -43,7 +55,10 @@ checked in the cleared equation 9xyz = n(ωyz + ω²xz + 2xy)):
   coordinates (Type I / II shapes) ✓.
 * `one 179 36` (N = 26893, 3 s): 0 solutions ✓. `one 11 2` (N = 103): 0 ✓. Disk count for N = 103, z-disk N ≤ 45.8:
   162 non-zero lattice points, 42 of them 2-primary ✓.
-* Full range N ≤ 30000: from-scratch census running (`logs/review_tf_census30000.txt`); result recorded in §2b below.
+* **Full range `census 30000`** (39 min, one core, `logs/review_tf_census30000.txt`): 1630 primes (one per conjugate
+  pair; split N ≤ 30000 and inert p ≤ 173); zeros **exactly** the 16 listed; solutions by shape 21042 (π divides one
+  coordinate) / 7038 (two) — identical to the author's; band (3000, 30000]: 1415 primes, 26329 solutions, 1 zero
+  (26893), consistent with the author's 14.40·408 + 20.31·1007 ≈ 26327. **Thm 2.1 independently reproduced in full.**
 
 ## 3. Thm 3.1 (no BM obstruction from Br U at the 16 failures) — SOUND (all 16 certificates re-verified)
 
