@@ -8,7 +8,7 @@ Scripts `scripts/bsE_*`. Memos `BRAINSTORM/bsE_*.md`.
 
 * (I1) Over ℤ, restrict ET's moduli to powers of one prime q (§1). There is a parity kill (q ≡ 1 mod 4 never
   helps p ≡ 1 mod 4) and a mass kill: slice q^s carries mass ≈ log²p/q^s, so the family is a fixed finite slice set
-  plus a geometrically small tail (B2). Numerics: for q = 3 the family misses 1233 of the 78496 primes below 10⁶.
+  plus a geometrically small tail (B2). Numerics: for q = 3 the family misses 1233 of the 78496 primes 5 ≤ p ≤ 10⁶ (R178 repair: wording), all ≡ 1 (mod 24).
   The p-adic structure of s ↦ q^s p + 1 does not help (Lemma 1.3).
 * (I2) Steering: which barrier hypothesis did (I1) satisfy? It satisfied "mass per modulus ≍ 1/M, so a thin set of
   moduli carries vanishing mass". The function-field sterile-point problem violates this. There the point is
@@ -31,8 +31,9 @@ be a power of a fixed prime q, and the integer then moves with the modulus:
 | (II-e) e = q^s | (n + q^s)/4 | q^s | ab ∣ N, a ≡ −b (mod q^s) |
 | (I-cd) c = q^u, d = q^v | n² + 4q^{2u+v} | 4q^{u+v} | f ∣ N, f ≡ −n |
 | (II-cd) c = q^u, d = q^v | 4q^{2u+v} n + 1 | 4q^{u+v} | f ∣ N, f ≡ −1 |
-Parity: (I-t) needs q^s n ≡ 3 (mod 4) and (II-e) needs n + q^s ≡ 0 (mod 4). So q = 2 is impossible, and for
-n ≡ 1 (mod 4) a prime q ≡ 1 (mod 4) never contributes. For q ≡ 3 (mod 4) only odd s contribute.
+Parity: (I-t) needs q^s n ≡ 3 (mod 4) and (II-e) needs n + q^s ≡ 0 (mod 4). So for the t- and e-rows q = 2 is impossible
+(R178 repair: the cd-rows have no parity obstruction at q = 2), and for
+n ≡ 1 (mod 4) a prime q ≡ 1 (mod 4) never contributes. For n ≡ 1 (mod 4) and q ≡ 3 (mod 4) only odd s contribute.
 So for the hard primes the depth families are t, e ∈ {q, q³, q⁵, …} with q ≡ 3 (mod 4).
 
 **1.2 Mass (heuristic, Assessment; numerics EVIDENCE).** For a fixed modulus M the expected number of (a,b) is
@@ -127,7 +128,7 @@ three pairwise sums of (x', y, z) is ≤ 2σ/3. So min ≤ min(s − 3 − σ, 2
 *Remark.* This is Elsholtz–Tao's divisor casework (their n^{3/5} bound) transplanted. The square-root count of O173
 used only (R1) and the cylinder count; the two "small-variable" identities (R3), (R4) are what beat it. Over ℤ the same
 identities bound the a = 1 Type I slice: #{(c,f,g) ∈ ℕ³: cfg − c − f = n} ≪ n^{1/3+o(1)}. *Proof:* for g ≤ n^{1/3},
-(gc − 1)(gf − 1) = gn + 1 leaves ≤ τ(gn + 1) choices. For g > n^{1/3} and c ≤ f we have cf ≤ 2n^{2/3}, so c ≤ 2n^{1/3}, and
+(gc − 1)(gf − 1) = gn + 1 leaves ≤ τ(gn + 1) choices. For g > n^{1/3} and c ≤ f, cfg = n + c + f ≤ n + 2f gives f(cg − 2) ≤ n, and cg ≥ 4 (n ≥ 27), so cf ≤ 2n/g < 2n^{2/3} (R178 repair: line added), so c ≤ 2n^{1/3}, and
 (gc − 1) | n + c leaves ≤ τ(n + c) choices of g. (PROVED, elementary; very likely folklore. Over ℤ there is no
 depth, and this bound plays no role in ES.)
 
@@ -161,16 +162,16 @@ that are valid somewhere on the c-slice is at most (α + 1)^3·B_A·q^{⌊(α−
 *Proof.* lc(E) ∈ {1, 2} (validity: lc(E) = lc(s) ∈ {1, lc(a0 + b0), lc(L/a0 + L/b0)} ⊂ {1, 2}), and so lc F, lc K take ≤ 2
 values each. Monic K with T | K of degree κ: ≤ q^{κ−1} choices. Since a1 + b1 has degree α + λ ≥ β, f ≤ α − 1 and
 deg z ≤ max(f, β) − λ ≤ α − 1. In particular T^α + z ≠ 0 (and T^α + b1²K ≠ 0, since z ≠ 0 by (A0)). Two cases.
+(R178 repair) Since T | K, (A3) gives z = b1KF − T^α ≡ 0 (mod T), so a z of degree ≤ m has ≤ q^m choices (not q^{m+1}).
 * f ≥ β. Then deg z ≤ f − λ ≤ f, and by (A3) there are ≤ 2q^{f}·δ₃(α) tuples. By (A2), given (b1, K) there are
   ≤ 2q^{β+κ−1} choices, times δ(α + 2β + κ) ≤ δ(3α) for E; and β + κ − 1 = α − f − 1. min(f, α − f − 1) ≤ (α − 1)/2.
 * f < β. Then deg z ≤ β − λ, and (A3) gives ≤ 2q^{β−λ}δ₃(α). (A4) gives ≤ 4q^{λ+κ−1+f} = 4q^{λ+α−β−1} with nothing
   further to choose. min(β − λ, λ + α − β − 1) ≤ (α − 1)/2.
-g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (Here δ(3α) ≤ δ(α)·… is absorbed
-is not needed: in the case f ≥ β, deg(T^α + b1²K) ≤ α because 2β + κ = α + β − f ≤ α, so δ(α) suffices there (review repair).
+g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (R178 repair: garbled sentence rewritten.) In the case f ≥ β, deg(T^α + b1²K) ≤ α because 2β + κ = α + β − f ≤ α, so δ(α) suffices there (review repair).
 Also α > β forces deg a1 > deg b1, so lc(s) = 1 and E, F, K are monic.) ∎
 
-**Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1,
-3.1, R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
+**Theorem 2.5 (large q in characteristic 3: no finite linear covering of ES_q(T^k); PROVED, given O173 Lemmas 1.1, 2.1
+(R178 repair: Lemma 3.1 is not needed, only γ ≤ j), R166's Case A steps (1)–(2) and the compactness criterion).** Let k ≥ 2 and let q be odd with q ≥ 1.3·10^16, or
 q = 3^r with r ≥ 27. Then for every c ∈ F_q^* the set of u ∈ 1 + cT + T²F_q[[T]] such that x_u lies in no validity set
 has positive Haar measure (relative measure ≥ 0.97 for q = 3^r, r ≥ 27). Hence O(q, T^k) ≠ ∅, and **ES_q(T^k, ·) has no finite linear covering**.
 For char q ≥ 5 this was known (O140 Prop 4.1: 1 ∈ O). For q = 3^r it is new; there the class-1 obstruction is absent
@@ -184,14 +185,18 @@ form 4Σ_s(s+1)^4(16q^{−1/10})^s q^{−1/5} + 24Σ_α(α+1)^3(16q^{−1/2})^α
 q = 3^{34}; it is < 1 for q ≥ 1.3·10^16. For 3^27 ≤ q ≤ 3^33, `scripts/bsE_largeq.py` evaluates (in floating point; the margin
 is ≥ 38×, so rounding is irrelevant, but no outward-rounded certificate was made) the pattern-wise
 minimum exactly for s, α ≤ 100 and adds the crude tail beyond 100. The totals are 2.6·10^{−2} (r = 27),
-1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). Any covered set has measure ≤ these sums, so the uncovered set has
+1.9·10^{−7} (r = 28), < 2·10^{−11} (r = 29..33). (R178 repair: the script uses route-wise constants, i.e. δ evaluated at the
+exact degree of each reconstruction, 2·3^s, 2^{y+z}·2^{s+2y+z}, 2^{s+y}, 2^{max(s,z+2a)}; these are valid. With the uniform
+16^s stated above, R178's independent recomputation `scripts/review_da_thm25.py` gives 7.7·10^{−3} (r = 27), 4.0·10^{−4} (r = 28),
+1.6·10^{−6} (r = 33), so the conclusion is unchanged. Why only γ ≤ j is needed: families sharing a tuple have nested cylinders
+u ≡ −E mod T^{N+1}, N ≥ N(s).) Any covered set has measure ≤ these sums, so the uncovered set has
 positive measure. Points of the uncovered set are in O(q, T^k) by definition, and O ≠ ∅ excludes a finite covering
 (FUNCTIONFIELD_ES2 §0.1). ∎
 *What this does and does not say.* Every truly large-q statement known before (O140 Thm 2.1) was at *fixed degree*
 n, with q → ∞. Theorem 2.5 is at *fixed q* and covers all degrees at once. It is the function-field analogue of
 "a sterile point exists" (over ℤ open for every Mordell r; MORDELL13E, MORDELL17C). The constant 16 comes from crude
 divisor bounds. **The exponents are not the obstacle; the constants are.** At q = 3 the same union bound is > 1
-(§3), exactly as over ℤ, where MORDELL17B needs ET's exponent 2/5 *with an explicit constant C ≤ 1.40*.
+(§4; R178 repair: was §3), exactly as over ℤ, where MORDELL17B needs ET's exponent 2/5 *with an explicit constant C ≤ 1.40*.
 
 ## 3. Transfer to ℤ: large Mordell primes r have sterile points
 
@@ -200,7 +205,9 @@ x(u) ∈ Ẑ^× with x_q = 1 for all q ≠ r and x_r = u. It is the analogue of 
 classes of the seven ET families meet the r-generic line in *boxes* u ≡ ρ (mod r^k). By MORDELL17 Lemmas 1.1,
 2.1–2.3 (stated for r = 17; the proofs use only that r is an odd prime and the r-generic table of
 POINTWISE_MORDELL §2.1, which is for general T), the boxes are as follows. Level-k boxes of types Q, Q⁻¹, U, U⁻¹,
-√Q number ≤ 6·f(r^k), where f(n) is the number of ordered solutions of 4/n. P-boxes are N-points of Σ^II_{r^K}
+√Q number ≤ 6·f(r^k), where f(n) is the number of ordered solutions of 4/n. (R178 repair: √Q gives ≤ 2 roots per Q-datum because
+r ∤ 4a²d, as f ≡ −1 (mod 4ad); Lemma 1.3 is not needed. EVIDENCE for the general-r box table: R178's brute force from the literal
+ET Prop 1.9 classes, `scripts/review_da_rgen.py`, r ≤ 31, levels ≤ 2, finds no box outside this description and no level-0 box.) P-boxes are N-points of Σ^II_{r^K}
 at half level ⌈K/2⌉, ≤ 2 per point. MORDELL17 §2, "Consequence (measure)", with 17 ↦ r, gives
   μ(⋃ boxes) ≤ S(r) := Σ_{k≥1} 6 f(r^k) r^{−k} + Σ_{K≥1} 2 f_II^N(r^K) r^{−⌈K/2⌉},
 where f_II^N counts N-points of Σ^II modulo dilation. The ET exponent of the P-family is 2/5, against the weight
@@ -225,6 +232,11 @@ S(r) < (r − 1)/(2r), and some u in a non-residue cell is in no box, i.e. x(u) 
 a finite union of classes is clopen and misses a neighbourhood {x ≡ u mod r^L, x ≡ 1 mod Q} with
 840·∏_{q<r} q | Q, which contains infinitely many primes, all with p ≡ 1 (24) and least non-residue r) gives the
 consequence. ∎
+*(R178 repair: effectivity.)* Browning–Elsholtz was checked only through ET's quotation (the paper is not in sources/), so the
+effectivity of its constant is unverified. It can be avoided. Q, Q⁻¹ and √Q boxes come from N-points of Σ^I_{r^k} (MORDELL17
+Lemma 2.1), which ET's §3 proof counts by n^{3/5+O(1/log log n)} with effective constants. U and U⁻¹ boxes meeting a non-residue
+cell lie inside P-boxes (MORDELL17 Lemma 5.2, whose proof is r-free; P is inversion-closed). With these ET-only inputs, r₀ is
+effective.
 *Remarks.* (1) The averaging over the (r − 1)/2 non-residue cells is essential. Low-level P-boxes (K = 1: ≤ 2f_II(r) ≪ r^{2/5+o(1)}
 of them) cover *whole* cells, but only r^{2/5+o(1)} of the r/2 cells. (2) r₀ is astronomically large (log log r₀ ≈ 20C), so
 this says nothing about r = 13, 17, where the sterile-point question stays open (MORDELL13E, MORDELL17C). What is new is
@@ -251,6 +263,8 @@ transfer passes after the Browning–Elsholtz repair. This is internal; a hostil
   j ≤ 5, s ≤ 12): every ff3_caseB hit is a famcount tuple, and every famcount tuple whose maximal cylinder contains the point is
   found by ff3_caseB. 1064 hits, 446 covering tuples, 0 mismatches.
 * Case A (`scripts/bsE_caseA.py`): route (A4) (enumerate a1', K, F; Lemma 2.3) and route (A1) (sympy factorisation of
-  T^α a1' + b1) give identical tuple sets. q = 3, α = 1..6: 0, 0, 2, 4, 10, 8 tuples (union-bound mass 0.088); q = 5, α ≤ 4: 0.
+  T^α a1' + b1) give identical tuple sets. q = 3, α = 1..6: 0, 0, 2, 4, 10, 8 tuples (a1', b1, E) (union-bound mass 0.088 per c-slice, i.e.
+  total/(q − 1); R178 repair: counting g' too, as Lemma 2.4 does, gives 0, 0, 2, 8, 16, 16); q = 5, α ≤ 4: 0.
   Every identity of Lemma 2.3 was asserted on every tuple.
-* Observation (CONJECTURE, bsE_caseAB_shift): #Case A(α) = #Case B(α + 1) on all computed data.
+* Observation (CONJECTURE, bsE_caseAB_shift): #Case A(α) = #Case B(α + 1) on all computed data, with Case A counted as triples
+  (a1', b1, E) (R178 repair: it fails if g' is included).
