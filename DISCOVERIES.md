@@ -851,6 +851,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Insolubility at 131 and 241 is KNOWN (Pomerance–Weingartner). The absence of a BM obstruction is BL Rem 1.10. Cor 5.4 ("BM incl. T1 is not the only obstruction for ES-type models") is immediate from these and is already witnessed at n = 3 (R194 D3).
      * Meaningful form (known, BL Rem 1.10 + PW Thm 3.1): no principle "BM is the only obstruction for n ≥ n₀" holds uniformly in m. An ES proof must use something specific to the numerator 4 (Assessment; see (J)32).
 
+32. **Spark relay R: what makes 4/n special — 4 is the unique numerator whose five HJ slices are a character fibre (MODEL_SPECIFIC.md (O197); review `reviews/model-specific-review.md` (R197): no FATAL; MAJOR D1 (wording of the "identity" reading) and D9 (attribution of the 8/n failures: PW Table 1, BL Rem 1.10), minors; repaired by the reviewer).**
+   * **Thm 3.1 (PROVED: a finite cell check relative to DEDEKIND Cor 4.1, extended to boundary words by Lemma 3.0′).** For odd n, take positive points (t,u,v) of X_n: tuv − u − v = n and set χ = (−(tu−1)/n). Lemma 3.0: the five m-slices (m | tu−1, m | tv−1, m | t, m | u, m | v) give explicit solutions of m/n.
+     * (a) S_4 = {χ = −1} exactly, for all odd n.
+     * (b) For 4 | m ≥ 8, ∅ ≠ S_m ⊊ {χ = −1}.
+     * (c) For 4 ∤ m, S_m contains both χ = +1 members and χ = +1 non-members.
+     * Independent word-level checks: all words of odd n ≤ 1500 (O197) and ≤ 600 (R197), 0 mismatches.
+     * At n = 131 and 241 there are χ = −1 words (29 and 12) but none in S_8.
+     * **So m = 4 is the unique numerator m ≥ 4 for which the length-3 slice set is exactly a quadratic-character fibre.** SQ₅ ⟺ "χ is non-constant on X_n(ℤ_{>0}) unless n is a square (or n ∈ {5, 105})". This is numerator-free, implies ES on these slices, and does not imply 8/n: it is model-specific input of the kind (J)31 demands.
+   * Lemma 2.1 (PROVED). For odd n, every ES solution is all-even or has exactly one odd denominator. All-even solutions ⟺ solutions of 8/n (a bijection), so f_4 = f_8 + f_4^{odd}. EVIDENCE: the one-odd half alone never fails at primes ≤ 10⁸.
+   * §1 censuses (CERTIFIED; R197 re-ran them independently).
+     * Failing odd primes for m = 4..24 up to 10⁸ / 10⁷. These agree with Pomerance–Weingartner Table 1 for m ≤ 15; the complete lists for m = 16–24 are new, though PW §6 checked existence for every m ≤ 30000.
+     * Examples: m = 20 fails at the prime 2 763 601; m = 24 at 620 929.
+     * m = 4 is the only multiple of 4 with no failure.
+   * §5 count law (EVIDENCE + Assessment). Mean f_m ≈ c_m log³p/m. A pooled tail model predicts ≈ 1 ES failure among primes ≤ 10⁷; the observed 0 is mildly lucky. The 4-vs-8 difference in failures is consistent with mean counts alone; the 4-specificity of Thm 3.1 concerns *which* certificates exist.
+   * Open (pursued by O198): χ-flipping moves on X_n. Any map between positive points flipping χ at prime n proves ES on the slices, and must fail at 105 and at squares.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
