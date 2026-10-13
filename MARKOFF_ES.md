@@ -141,3 +141,70 @@ the way on any admissible fibre; existence is a pure "integral Hasse principle i
 Note this is a statement about the FIBRE surfaces, whose integral points (if any) lie on infinitely many
 λ-conics; unlike GS Thm 1.1 there is no compact fundamental set, so emptiness of S_{n,D}^{adm}(ℤ) is not even
 known to be decidable for a single D.
+
+(Notation note after R201: GROWING_MUTE's (A, B) form now allows Q of any parity (R201 M1); V_n and everything
+below are unchanged — they never use the parity of Q. R201 m2: "only one integral Vieta involution" holds for
+every odd n > 1; consistent with §4 below, where no hit with n | λ ever occurs.)
+
+## 4. The continued-fraction dictionary: ES is depth 3
+
+**Theorem 4.1 (norm-form dictionary; PROVED).** Fix n odd, μ ≥ 1, N := 4(μ² − n), and D ≥ 1 odd with
+gcd(D, n) = 1, D | μ, λ := μ/D. The admissible points of V_n with this (λ, D) are in bijection with pairs
+{±x}, z ≥ 1, gcd(x, z) = 1 and x² − N z² = −D, via A = 2z, B = μA ∓ x (the two signs are the ι_B-pair).
+D ≡ 3 (mod 4) and x odd are then automatic.
+*Proof.* (μA − B)² − (μ² − n)A² = B² − 2μAB + nA², so the V_n equation is x² − (μ² − n)(2z)² = −D. D odd ⇒ x odd,
+x² ≡ 1 (8) ⇒ D ≡ 3 (4). A even, B ≡ x odd, gcd(A, B) = gcd(2z, x) = 1. B·B' = (μA)² − x² = nA² + D, so for q | n,
+BB' ≡ D ≢ 0 (mod q): gcd(B, n) = 1. B > 0 since x² < μ²A². ∎
+
+**Theorem 4.2 (CF dictionary; PROVED).** Let Q_k (k ≥ 1) be the complete-quotient denominators of the regular CF of
+√N (p_{k−1}² − N q_{k−1}² = (−1)^k Q_k). If μ² > 4n/3, then: admissible points of V_n with λD = μ ⟷ odd k with
+Q_k odd, gcd(Q_k, n) = 1 and **Q_k | μ** (point: D = Q_k, A = 2q_{k−1}, B = μA ∓ p_{k−1}). Hence
+`  ES^{[2]}(n) ⟺ ∃ μ (> √(4n/3)) ∃ odd k : Q_k(√(4μ² − 4n)) is odd, prime to n, and divides μ`
+(up to the finitely many μ ≤ √(4n/3), whose Pell equations must be checked separately; ⇐ holds for all μ).
+*Proof.* ⇐: Thm 4.1 with (x, z) = (p_{k−1}, q_{k−1}) (convergents are coprime). ⇒: D ≤ μ < 2√(μ² − n) = √N
+when μ² > 4n/3, so by Lagrange's criterion (|x² − Nz²| < √N, gcd = 1 ⇒ x/z is a convergent) |x|/z = p_{k−1}/q_{k−1},
+and the sign of −D forces k odd. ∎
+
+**Theorem 4.3 (ES's shot family is exactly depth 3; PROVED).** Let μ > 2n, and write μ = t + nj with
+t ∈ {1, …, n}, j ≥ 2. Then a₀ = 2μ − 1, a₁ = 1, a₂ = j − 1 and
+`  Q₁ = 4μ − 1 − 4n,   Q₂ = 4n,   Q₃ = 4tj − 1,   (p₂, q₂) = (2μj − 1, j).`
+Q₁ > μ never divides μ. The depth-3 point is (A, B) = (2j, 1) (and its ι_B-partner B = 4μj − 1), so for μ > 2n:
+**B = 1 ⟺ k = 3**, and the depth-3 condition Q₃ | μ reads (4tj − 1) | (t + nj) ⟺ (4tj − 1) | n + 4t² (as
+gcd(4tj − 1, 4t) = 1 and 4t(t + nj) ≡ 4t² + n) — the classical shot family "n + 4t² has a divisor ≡ −1 (mod 4t)".
+All hits at k ≥ 5 are overflow solutions (B > 1).
+*Proof.* √N ∈ (2μ − 1, 2μ) iff μ > n + 1/4. Then m₁ = 2μ − 1, Q₁ = N − (2μ − 1)², a₁ = ⌊(√N + 2μ − 1)/Q₁⌋ = 1 as
+4μ − 1 < 2Q₁ for μ > 2n. m₂ = Q₁ − m₁ = 2μ − 4n, Q₂ = (N − m₂²)/Q₁ = 4n(4μ − 1 − 4n)/Q₁ = 4n. a₂ =
+⌊(√N + m₂)/4n⌋ = ⌊(4μ − 1 − 4n)/4n⌋ (the numerator lies in (4μ − 1 − 4n, 4μ − 4n), and 4n ∤ 4μ − 1 − 4n + θ for
+θ ∈ (0, 1)) = j − 1, remainder 4t − 1. m₃ = 4n a₂ − m₂ = 2μ − 4t, Q₃ = (N − m₃²)/4n = (4t(μ − t) − n)/n = 4tj − 1.
+Convergents: (p₀, q₀) = (2μ − 1, 1), (p₁, q₁) = (2μ, 1), (p₂, q₂) = (a₂·2μ + 2μ − 1, a₂ + 1) = (2μj − 1, j), so
+B = 2μq₂ ∓ p₂ ∈ {1, 4μj − 1}. Conversely B = 1 means x = 2μz − 1, i.e. x/z = [2μ − 1; 1, z − 1], a convergent of
+index 2 (k = 3); the alternative expansion has index 3 and the wrong sign. ∎
+*Check (`scripts/mk_depth3.py 3000 13 17 29 37 41 73 97 101 105 21`):* the Q₁..Q₃ formulas for all 2n < μ ≤ 3000;
+every B = 1 hit is at k = 3 (B = 1 counts: 0, 2, 4, 0, 2, 4, 0, 8, 2, 0 branches); no hit has n | λ. And
+`scripts/mk_depth.py n 400 400` (n = 13, 17, 29, 73, 97): every V_n point found by brute force (A, B ≤ 400,
+μ ≤ 400) is a CF hit, and every CF hit satisfies V_n and all side conditions; n = 9, 25: 0 hits (T1 control).
+
+*Reading.* In the CF of √(4μ² − 4n) the first three steps are polynomial in (t, j) and produce ES's finite shot
+family (a finite search: Q₃ | μ forces t ≲ n/4, λ ≈ n/(4t) bounded). Overflow solutions are the same divisibility
+"Q_k | μ" at greater depth. For large j at fixed t the CF keeps following a polynomial pattern whose partial
+quotients run through the Euclidean algorithm of (n, t) (computed: a₃ = ⌊n/t⌋, Q₄ = 4a₃(n mod t)·j + O(1)), with
+odd-position Q_k ≈ c_k·j; a hit Q_k | t + nj then forces λ ≲ n/c_k and finitely many j. When the Euclidean pattern
+ends, some even-position Q becomes constant and the expansion branches by j modulo that constant — the moving
+modulus of B2 appearing as CF branching. (This last paragraph is an Assessment from the computed first steps,
+not a proved structure theorem.) The parallel with DEDEKIND_ES (J)9 — ES certificates are HJ length-3 words — is
+striking: in both continued-fraction languages ES is "length/depth 3".
+
+## 5. No parametric families in the λ-direction
+
+**Theorem 5.1 (PROVED).** Let n > 0 be a non-square and D ≥ 1. There is no triple of polynomials
+(A(s), B(s), λ(s)) ∈ ℚ[s]³ with λ non-constant and nA² + B² + D = 2Dλ·AB identically.
+*Proof.* Put μ = Dλ, f = μ² − n ∈ ℚ[s], R = ℚ[s][√f]. f = (μ − √n)(μ + √n) with coprime non-constant factors, so f
+is not a constant times a square and R is the coordinate ring of the affine curve y² = f(s), with exactly two
+places at infinity (leading coefficient D²·lc(λ)² is a square). Hence R^* = ℚ^* × ⟨ε⟩ (rank ≤ 1 = #places at ∞ − 1).
+η = μ + √f has norm n (a unit, non-constant), and α = B − μA + A√f has norm −D (a unit). Write η = c ε^b (b ≠ 0)
+and α = c' ε^a. Norms: n = c²N(ε)^b and −D = c'²N(ε)^a. If b is odd, N(ε) > 0 (as n > 0), so N(α) > 0,
+contradiction. If b is even, n = (c N(ε)^{b/2})² is a square, contradiction. ∎
+*Reading.* Fixed-D solutions are sporadic in λ: each λ is a separate arithmetic event in the real quadratic
+order O_λ = ℤ[2√(λ²D² − n)] (Thm 4.1: "the prime ideal(s) above D are principal"; the sign of the generator is
+automatic because x² − 4dz² ≢ 3 mod 4). Contrast GS (1.5): Markoff V_k has polynomial curves iff k = 4 + ν². So B1
+(identities) is closed in the λ-direction too, and existence is a class-group question.
