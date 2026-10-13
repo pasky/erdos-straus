@@ -14,7 +14,7 @@ ES(p) is a triple (c, d, j) with h := 4cdj − 1 dividing pj + c. The three coor
 families of "shots" (affine forms in p), each with modulus 4 × (product of the two fixed coordinates). Mordell's
 p + 4 is the (c, d) = (1, 1) line; the other two lines through (1, 1, 1) give p + 1 and 4p + 1.
 (N2) Hypothesis to violate: "the modulus is part of the solution" (B2). For fixed-coefficient affine shots it cannot
-be violated: Thm 2.1 classifies the certifying divisors exactly (modulus ≥ √height/2).
+be violated: Thm 2.1 classifies the certifying divisors exactly up to sporadic h < 4μ⁵ (modulus ≥ √height/2).
 (N3) Drop families altogether and look at one modulus h: the certified residues form a divisor box (Thm 3.1/4.2),
 the ES counterpart of O186's S-orbit coset (Cor 3.2). Size h^{o(1)} vs ≍ h.
 (N4) Construction attempts C1–C7 (§5); deep self-review R-O191 repairs folded in (marked).
@@ -88,14 +88,14 @@ E = j²t, M := jt = E/j ∈ 𝓜, h ≡ −1 (mod 4M). ∎
 to 2αβ): (a) never fails; the 5766 exceptions of (b) all satisfy h ≤ 8.5μ² (well inside 4μ⁵). For the lines
 through (1,1,1) — (α, β) = (1, 1), (1, 4), (4, 1) — there are no exceptions at all below 6·10⁴.
 
-**Corollary 2.2 (modulus ≥ √height).** Every M ∈ 𝓜(α, β) satisfies M ≥ √H/2, and |𝓜(α, β)| ≤ 1 + 2τ(H).
+**Corollary 2.2 (modulus ≥ √height).** Every M ∈ 𝓜(α, β) satisfies M ≥ √H/2, and |𝓜(α, β)| ≤ 1 + 2τ(H) (indeed ≤ 1 + τ(H): the D- and E-cases exclude each other; R191).
 (c₀j₀ ≥ H; if β = 4αD then H = 4D and D/c ≥ √D since c² | D; symmetrically for E.) So outside the < 4μ⁵
 sporadic divisors, a shot of height H fires only through divisors in classes −1 mod 4M with M ≥ √H/2.
 *Example (O186 Prop 6.1 recovered and completed).* N = p + 4Q²: 𝓜 = {4Q²} ∪ {Q²/c : c | Q}, all multiples of Q, so
 h certifies iff h ≡ −1 (mod 4Q) or h is one of the finitely many sporadic divisors (which come from other cube
 points (c, d) with c²d ≡ Q² mod h).
 
-**Corollary 2.3 (exactly three modulus-4 shots; refutes "p + 4 is the unique bounded-modulus shot").** A shot fires
+**Corollary 2.3 (exactly three modulus-4 Type II shots; extends O188 §5's "p + 4 is the unique bounded-modulus shot" — true within the (c, d)-line family p + 4c²d — to all fixed-coefficient affine shots; R191 repair of "refutes").** A shot fires
 through every h ≡ 3 (mod 4) coprime to 2αβ (up to finitely many h) iff 1 ∈ 𝓜(α, β) iff β/α ∈ {1, 4, ¼}, i.e.
 N ∝ p + 1, p + 4 or 4p + 1. More generally the shots having some M ∈ 𝓜 dividing a given M₀ have height ≤ 4M₀² —
 finitely many up to scaling.
@@ -137,7 +137,7 @@ h^{O(1/log log h)}, and A_h lies in the Jacobi-symbol −1 class (Remark 2.5).
 *Proof.* Lemma 1.1 (with t = d) and h | pj + c ⟺ −p ≡ c/j (j is a unit mod h since j | k). ∎
 
 *Check (`scripts/fms_box.py 1000000`):* for primes r ≡ 3 (mod 4), 19 ≤ r < 3000, the box −Box((r+1)/4) equals the
-directly enumerated set {−4c²d : 4cd | r + 1} mod r. Over all 39 319 such r < 10⁶: mean |A_r| = 77.4, max 1977
+directly enumerated set {−4c²d : 4cd | r + 1} mod r. Over all 39 319 such r < 10⁶ (R191 recount: 39 321 primes r ≡ 3 mod 4 in [7, 10⁶); same mean/max): mean |A_r| = 77.4, max 1977
 (r = 942479), max r-density |A_r|/r = 0.065 for r > 10³ and 0.008 for r > 10⁵ (small r can have large density, e.g.
 |A_19| = 3); on a sample of r < 2·10⁵ the ES^{(S)} coset −4⟨3,5,7,11⟩² is 14 to (median)
 1092 times larger than A_r.
@@ -146,16 +146,20 @@ directly enumerated set {−4c²d : 4cd | r + 1} mod r. Over all 39 319 such r <
 p ∉ S, and r a prime with k = (r + 1)/4 an S-unit, k = ∏_{q∈S} q^{κ_q}. Write residues of ⟨S⟩ mod r as ∏ q^{e_q}. Then
 * ES (prime certificate h = r): p is certified iff −p ≡ ∏_{q∈S} q^{e_q} (mod r) with **|e_q| ≤ κ_q** for all q;
 * ES^{(S)} (O186 Prop 2.1 with g = r): p is certified iff −p ≡ 4Q² = ∏ q^{e_q} (mod r) with **e_q ≡ κ_q (mod 2)**,
-  no bound (4 ≡ k^{−1} = ∏ q^{−κ_q} mod r, and 4Q² ≡ ∏ q^{2s_q − κ_q});
+  bounded below by −κ_q (O186's ⟨S⟩ is a monoid), unbounded above — R191 repair (4 ≡ k^{−1} = ∏ q^{−κ_q} mod r, and 4Q² ≡ ∏ q^{2s_q − κ_q});
 * a given ES^{(S)} certificate (Q, r), Q = ∏q^{s_q}, has vector e = 2s − κ; it is an ES certificate with the same
   D = Q² iff also |e_q| ≤ κ_q, i.e. 0 ≤ s_q ≤ κ_q, i.e. Q | k, i.e. r ≡ −1 (mod 4Q) — O186 Prop 6.1.
 *Proof.* First bullet: c/j has exponent vector e = v(c) − v(j) with c j | k; conversely for |e_q| ≤ κ_q take
 c = ∏ q^{max(e_q,0)}, j = ∏ q^{max(−e_q,0)} (cj | k). Second: O186 Prop 2.1. Third: |2s_q − κ_q| ≤ κ_q ⟺ 0 ≤ s_q ≤ κ_q. ∎
 So at the same prime r, ES^{(S)} sees the parity-restricted, unbounded exponent set e ≡ κ (mod 2) (residues: the
 whole coset ∏q^{κ_q}·⟨S⟩², size ≍ r when ⟨S⟩ is large mod r), while ES sees the bounded box |e_q| ≤ κ_q of all
-parities, ≤ ∏(2κ_q + 1) ≤ (2 log₃ r + 1)^{|S|} residues. Neither set contains the other in general (R-O191: r = 11,
-S = {3}, k = 3: ES box {1, 3, 4}, ES^{(S)} with |e| ≤ 1 only {3, 4}; p = 43 has −p ≡ 1 certified by ES only). Only
-their intersection, read per certificate with the same D = Q², is O186 Prop 6.1. For general r, Box(k) has size
+parities, ≤ ∏(2κ_q + 1) ≤ (2 log₃ r + 1)^{|S|} residues. (R191 repair: the earlier sentence "neither set contains the
+other; p = 43 certified at r = 11 by ES only" was false.) **As residue sets Box(k) ⊆ 4⟨S⟩² (mod r) always:** for
+cjt = k, c/j ≡ 4cjt·c/j = 4c²t, (t/r) = 1 (Remark 2.5), and since r − 1 = 2·odd, ⟨S⟩ ∩ (F_r^*)² = ⟨S⟩², so t = s² with
+s ∈ ⟨S⟩ and c/j ≡ 4(cs)². E.g. r = 11, S = {3}: 4⟨3⟩² = {1, 3, 4, 5, 9} ⊋ Box(3) = {1, 3, 4}, and p = 43 is also
+ES^{(S)}-certified at 11 (Q = 27: 43 + 4·27² = 11·269). The exponent descriptions differ (bounded box of all parities
+vs parity class; box residues also have parity-class representatives), the residue sets are nested, and the size gap
+τ₃(k) vs |⟨S⟩²| is the point. Per certificate with the same D = Q², the overlap is O186 Prop 6.1. For general r, Box(k) has size
 ≤ τ₃(k); it can occasionally be a subgroup coset (r = 31: Box(8) = ⟨2⟩), but always of size h^{o(1)}.
 
 **Assessment 3.3 (consequence for Artin-type sieves).** A Gupta–Murty/Heath-Brown argument certifies a fixed p by
@@ -176,6 +180,8 @@ Type I := p divides exactly one of x, y, z.
 solve 4/p = 1/x + 1/y + 1/z (p | x); this is a Type I solution iff p ∤ uvwf. Conversely every Type I solution
 arises so. For Type I points gcd(g, 2pvwf) = 1, and
 `g | pv + f  ⟺  g | p² + 4wf²  ⟺  g | 4v²w + 1.`
+(R191 repair: for arbitrary (v, w, f) with g > 0 the equivalences need p ∤ g, i.e. p ∤ vwf, which gives
+gcd(g, 2pvwf) = 1 — a hypothesis for the ⟸ directions, not a consequence.)
 *Proof.* 1/y + 1/z = (u + v)/(wfuv) and 4/p − 1/x = (4uvw − 1)/(puvw); they agree iff p(u + v) = f(4uvw − 1) iff
 u(4vwf − p) = pv + f. Converse: x = px′, y = Gu, z = Gv, gcd(u, v) = 1; then px′(u + v) = (4x′ − 1)Guv, and
 gcd(uv, (u + v)p) = 1 (p ∤ yz) gives x′ = uvw; then pw(u + v) = (4x′ − 1)G with gcd(w, 4x′ − 1) = 1 gives G = wf, so
@@ -198,7 +204,8 @@ adds no new modulus-4 shot, and every Type I line has modulus 4 × (product of t
   (realised by some (v, f) with p ∤ uvwf).
 *Proof.* Type II: Thm 3.1. Type I: g | pv + f ⟺ −p ≡ f/v (mod g) (gcd(g, v) = 1), and 4vwf = g + p ⟺ vf | (g+p)/4
 with w the cofactor. ∎ (The Type I bullet needs the side condition p ∤ uvwf of Lemma 4.1 for the solution to be of
-Type I; without it one still gets an ES solution.)
+Type I; without it one still gets an ES solution, then of Type II. R191 repair: read ⟸ of the Type I bullet as
+"… and some realising (v, f) has p ∤ uvwf".)
 So **every ES certificate of a prime is "−p lies in a divisor box modulo h"**, the box being that of (h + 1)/4
 (Type II) or (h + p)/4 (Type I). A box has ≤ τ₃ elements and no group structure; in ES^{(S)} the box is replaced by
 a coset of the group ⟨S⟩² (Cor 3.2). This is a precise form of B2 at the level of a single modulus (the obstruction
@@ -237,14 +244,15 @@ h ≤ (p + 1)(p + 5)/4, and every Type I divisor satisfies g < 3p². In contrast
 the O186 sieve finds its certificate prime r in [X/2, X] with X → ∞.
 *Proof.* Type II (R-O191 repair; the earlier proof used a false bound): in Lemma 1.1's converse, e = 4x − p ≥ 1 and
 x ≤ p/2 (if x > p/2 then e/x > 1 forces y' = 1 and z' = x/(3x − p) < 1). h = 4y' − 1 for the chosen order, and
-both y', z' ≤ x(x + D)/(eD) ≤ x(x + 1)/e with x = (p + e)/4; (p + e)(p + e + 4)/(4e) is maximal at e = 1 on
+max(y', z') = x(x + D₀)/(eD₀) ≤ x(x + 1)/e, D₀ = min(D, D'), D' = ez' − x, DD' = x² (R191 repair of "both
+y', z' ≤ x(x + D)/(eD)", false for the chosen order when D > x) with x = (p + e)/4; (p + e)(p + e + 4)/(4e) is maximal at e = 1 on
 1 ≤ e ≤ p, giving h ≤ (p + 1)(p + 5)/4 − 1. Type I:
 p(u + v) = f(4uvw − 1) with u + v ≤ 2uv and 4uvw − 1 ≥ 3uvw gives wf ≤ 2p/3, and g | p² + 4wf², so
 g ≤ p² + 4(wf)² < 3p². ∎
 
 **Theorem 6.2 (no infinite family of fixed-coefficient affine shots with a common firing condition; PROVED, scope stated).** Let p be an odd prime.
 (i) (*Fixed-coefficient affine shots, Type II, one divisor coprime to 2αβ.*) For every affine shot αp + β, the divisors h that certify Type II
-solutions through it are exactly the h ≡ −1 (mod 4M), M ∈ 𝓜(α, β), up to < 4μ⁵ sporadic ones; every M ≥ √H/2
+solutions through it are exactly the h ≡ −1 (mod 4M), M ∈ 𝓜(α, β), apart from sporadic divisors h < 4μ⁵ (R191 wording); every M ≥ √H/2
 (Thm 2.1, Cor 2.2). Hence for a fixed modulus 4M₀ there are finitely many shots (height ≤ 4M₀²); for M₀ = 1 exactly
 p + 1, p + 4, 4p + 1 (Cor 2.3); for a fixed Chebotarev firing set of density δ there are finitely many (Cor 2.4).
 (ii) (*Per modulus, no family assumed.*) For every h the set of residues p mod h certified by h (Type II) is the

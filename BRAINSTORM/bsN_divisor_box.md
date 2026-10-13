@@ -4,7 +4,7 @@ Source: FIXED_MODULUS_SHOTS.md §3–§4 (PROVED there). Box(k) := {c/j : c, j �
 * Type II: ES(p) has a solution with divisor h ⟺ h ≡ 3 (4) and −p ∈ Box((h+1)/4) mod h.
 * Type I: ⟺ −p ∈ Box((h+p)/4) mod h (h ≡ −p mod 4).
 * ES^{(S)} (O186): the box is replaced by the coset ∏q^{κ_q}·⟨S⟩²; for S-smooth (h+1)/4 the ES box is the bounded
-  exponent box |e_q| ≤ κ_q (all parities) vs the unbounded parity coset e ≡ κ (2) — incomparable sets (Cor 3.2).
+  exponent box |e_q| ≤ κ_q (all parities) vs the unbounded parity coset e ≡ κ (2) — as residue sets the box is INSIDE the coset (Box(k) ⊆ 4⟨S⟩², R191 repair of "incomparable"; Cor 3.2), with size τ₃(k) vs |⟨S⟩²|.
 
 Why it matters: an Artin/Gupta–Murty route needs, at a prime r of a fixed Chebotarev set, a certified residue set of
 density ≫ 1 with group structure. Boxes have ≤ τ₃ elements (mean 77 for r < 10⁶; occasionally a small subgroup coset, e.g. ⟨2⟩ mod 31); and ES(p)

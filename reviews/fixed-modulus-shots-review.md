@@ -1,5 +1,9 @@
 # R191 — hostile review of FIXED_MODULUS_SHOTS.md (O191)
 
+**Repairs applied (author quiet after final report):** M1 (Cor 3.2 inclusion Box(k) ⊆ 4⟨S⟩², in FIXED_MODULUS_SHOTS §3,
+bsN memo, AGENT_REPORT_O191), m1, m2, m3, m4, m5, m6 (count only), m7 — all marked "(R191 repair)" / "R191" in place.
+Not applied: m6's unspecified "sample" (only the author can state it).
+
 Reviewer: R191 side agent. Documents: FIXED_MODULUS_SHOTS.md, BRAINSTORM/bsN_divisor_box.md, reviews/agent-reports/AGENT_REPORT_O191.md
 (as merged from side-agent/fixed-modulus-shots). All checks below use from-scratch code `scripts/review_fms_*.py`; the
 author's `scripts/fms_*` were not used.

@@ -10,7 +10,7 @@ shots, multi-prime conditions) nothing is proved; the per-modulus box size h^{o(
 size facts, not impossibility theorems.
 Self-review (deep reviewer, R-O191) found and I repaired: a false bound in Lemma 1.1 (cd ≤ p/4 + 1/2 → 3cd ≤ p + 1;
 Prop 6.1 re-proved, h ≤ (p+1)(p+5)/4), an overstated "ES = ES^{(S)} with bounded discrete logs" (the box and the parity
-coset are incomparable), "boxes are never groups" (false: Box(8) = ⟨2⟩ mod 31), a wrong density figure, and the
+coset are incomparable — itself false, see R191: as residue sets Box(k) ⊆ 4⟨S⟩²), "boxes are never groups" (false: Box(8) = ⟨2⟩ mod 31), a wrong density figure, and the
 overbroad scope of Thm 6.2 (now narrowed).
 
 SHARP:
@@ -21,7 +21,7 @@ SHARP:
 2. **Unified box criterion (Thms 3.1, 4.2) and the exponent-coordinate comparison with ES^{(S)} (Cor 3.2).**
    ES(p) ⟺ ∃h: −p ∈ Box((h+1)/4) (Type II) or −p ∈ Box((h+p)/4) (Type I) mod h, Box(k) = {c/j : cj | k}. For S-smooth
    k = (r+1)/4 (p ∉ S) ES certifies via the bounded box |e_q| ≤ v_q(k) (all parities), ES^{(S)} via the unbounded parity
-   coset e ≡ κ (mod 2); the sets are incomparable, and per certificate their overlap is O186 Prop 6.1.
+   coset e ≡ κ (mod 2); as residue sets Box(k) ⊆ 4⟨S⟩² (R191 repair of "incomparable"), and per certificate their overlap is O186 Prop 6.1.
 3. **Exactly three modulus-4 shots (Cor 2.3): p + 1, p + 4, 4p + 1** — refutes "Mordell's p + 4 is the unique
    bounded-modulus shot" (O188). E.g. p = 13 is fired by p + 1 = 14 only. They fail jointly at 942 primes < 10⁶.
 
