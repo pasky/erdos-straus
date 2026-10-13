@@ -753,7 +753,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Corollary (R186 m4): ES^{(S)}(n) holds for EVERY n > 1 coprime to 2S, squares included, by divisibility from a prime factor.
      * EVIDENCE (both reviewers, independent code; S = {3, 5, 7, 11}): all primes 13 ≤ p < 5·10⁴ and all non-squares < 2·10⁴ coprime to 2S are solved. The squares have no shot.
    * **Prop 6.1 (PROVED).** Within the orbit family, a shot solution is a genuine ES solution iff g ≡ −1 (mod 4Q). The growing modulus of B2 is *exactly* what separates ES from the provable ES^{(S)}. Along an S-orbit ES gets only a convergent lottery (Assessment).
-   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((D)19/(D)22/(D)24, conditional on KARY2 Thm 5.1; citation corrected per O192). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
+   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((D)19, conditional on KARY2 Thm 5.1; see also (D)22, (D)24; citation corrected per O192/R193). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
      * Thm 5.2 (CONDITIONAL, GRH via Lenstra Cor 4.8): the V_φ failure set is exactly the T1 set.
    * Assessment (Thm 6.2 and the overall picture). This is the first unconditional proof, for every non-square, of an ES-type equation that keeps T1 exactly. The mechanism is infinitely many shots of FIXED modulus, which over ℤ requires the mute S-normalisation. Whether ES itself admits an infinite fixed-modulus shot family is the open question (pursued by O191).
 
@@ -803,6 +803,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * EVIDENCE (r = 17, reproduced independently by R188). Primes near the sterile point x(5) and primes near the square point 1 behave identically: they escape at a single prime just beyond the depth B, with Mordell height about 2.5B. Neither r-depth nor large primes are needed. The sterile point is not where hardness sits.
    * Lemmas 4.1/4.2 (PROVED for odd r). Exponential limit sets Λ_k never meet an r-generic line, and ET classes have pushed-forward measure 1/ord_{M′}(2) on them. So (J)26's measure mechanism does not transfer to (J)22's families.
    * Prop 5.1 (PROVED relative to stated inputs). Per-prime level-1 coverage is ≪ q^{−2/5+o(1)} for ET classes and 1/i_𝔮 for V_φ unit shots. The "unique bounded-modulus shot" reading is refuted by (J)25 (three modulus-4 shots).
+
+28. **Synthesis II: recalibration of (J)23 and an order-3 analogue (SYNTHESIS_SPARKS2.md (O192); review `reviews/synthesis-sparks2-review.md` (R193): no FATAL or MAJOR; minors repaired by the reviewer).**
+   * **Prop 2.2 (PROVED, from Dirichlet only).** Define ES^□ as ES with the third denominator allowed to carry an odd square factor prime to n. ES^□ holds at every odd non-square n via ONE prime r ≡ 3 (mod 4) with (n/r) = −1, and T1 is unchanged (Lemma 2.1).
+     * For n = p prime, p > 2r, the multiplier satisfies Q < r (R193 m1).
+     * EVIDENCE (R193): all 17 982 primes < 2·10⁵ are solved and verified. Odd squares have no Type I/II-shaped ES^□ solutions.
+     * **Recalibration (Assessment, judged fair by R193): a T1-bearing variant being provable is by itself weak evidence about ES.** All the analytic content of (J)23 is the restriction to a FIXED finite S. In these mechanisms the T1 step is a single character value. The difficulty of ES is the size of its shot orbit (one point for S = ∅), within the orbit family. ES's T1 is still what defeats covering proofs (B1/B5), so "T1 is never the difficulty" holds only for shot mechanisms (R193 m8).
+   * §3, order 3 over ℤ[ω] (PROVED).
+     * Prop 3.1: an explicit fixed-modulus Type II shot family for TES: g | n + 18Q³ with g ≡ 10 + ω (mod 18).
+     * Lemma 3.2: a cubic mute normalisation.
+     * Thm 3.3: T1₃ at cubes.
+     * Thm 3.5: TES^{□₃} holds at every 2-primary non-cube, via one Chebotarev prime in L(∛18)·K(∛n)/K.
+     * Cor 3.4 (rel. Hecke, with R193's conductor argument): (18/r)₃ is constant ≠ 1 on r ≡ 10 + ω (mod 18). Its value ω² is EVIDENCE (83/83).
+     * EVIDENCE (R193 from scratch): all 1536 2-primary split primes N ≤ 6000 are solved. Cubes have 0 anchor-class shot divisors in 1632 shots, against 112 for the non-cube control.
+     * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), while the finiteness of TES is open (O194).
+   * Ledger fixes: the (J)23 large-sieve citation, and the three meanings of "W" ((J)10/(J)14 signed count, (J)15/(J)20 Lorenzini property, (H)19/(H)22 W(p)).
 
 ## Items to verify by the maintainer
 

@@ -24592,5 +24592,37 @@ def check_ft():
 
 check_ft()
 
+def check_fu():
+    # (fu) SYNTHESIS_SPARKS2 (O192/R193): ES^box (third denominator an odd square) solved at all primes < 2e5 by one
+    # prime r = 3 (4), (p/r) = -1, with no Type I/II solutions at odd squares; TES^{box_3} over Z[omega] solved at all
+    # 1536 2-primary split primes N <= 6000; cubes have no shot divisor in the anchor class (control: non-cubes do).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SYN2 subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_syn2_sqden.py")
+    for s in ["(A) primes 5..200000: 17982 solved & verified;", "Q<2r violations (p>2r): 0",
+              "(C) n=9: 72 ES^□ solutions (x<= 2n, y<= 30n); Type I/II at every prime of m: 0",
+              "(C) n=225: 5313 ES^□ solutions (x<= 2n, y<= 30n); Type I/II at every prime of m: 0"]:
+        assert s in o, ("SYN2 R193 ES^box", s, o)
+    o = run("review_syn2_eis.py")
+    for s in ["values of (18/r)_3 as ω^k: {2: 83}", "(2) 2-primary split primes N ≤ 6000: 1536 solved; failures 0",
+              "1632 shots, 0 with a divisor ≡ g0 (mod 18)", "1632 shots, 112 with a divisor ≡ g0 (mod 18)"]:
+        assert s in o, ("SYN2 R193 TES^box3", s, o)
+    print(f"== (fu) SYNTHESIS_SPARKS2 R193: ES^box at all 17982 primes < 2e5, 0 Type I/II at odd squares; TES^box3 at "
+          f"1536 split primes, 0 anchor-class shot divisors at cubes (112 for non-cube control); "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fu()
+
 
 print("\nall checks passed")
