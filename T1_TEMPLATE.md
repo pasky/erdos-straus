@@ -66,8 +66,8 @@ k ∈ ℤ, the hypothesis of Prop 1.2 holds iff a_k = n + 4φ^{2k+1} has a prime
 𝔮 | a_k, 𝔮 ∤ 2n: `χ(𝔮) = (n/𝔮)` (quadratic residue symbol in O/𝔮). Hence:
 (a) **(T1 for the mechanism.)** If n = m² (m ∈ ℤ odd, or m ∈ O), no k works: every prime 𝔮 | a_k has
 (m²/𝔮) = 1 (𝔮 ∤ m, since 𝔮 | m would give 𝔮 | 4η).
-(b) V_φ(n) holds as soon as **some** a_k (k ∈ ℤ) has a prime factor 𝔮 with (n/𝔮) = −1; only split primes
-(N𝔮 = ℓ ≡ ±1 mod 5, (n/ℓ) = −1) can qualify, since n ∈ ℤ is a square in O/ℓ = F_{ℓ²} for inert ℓ.
+(b) V_φ(n) holds as soon as **some** a_k (k ∈ ℤ) has a prime factor 𝔮 with (n/𝔮) = −1; for n ∈ ℤ inert primes
+never qualify (n is a square in O/ℓ = F_{ℓ²}); split 𝔮 (N𝔮 = ℓ ≡ ±1 mod 5) qualify iff (n/ℓ) = −1, and 𝔮 = (√5) iff (n/5) = −1.
 *Proof.* χ is multiplicative on ideals prime to 2. If g | a_k has χ(g) = −1, normalise g by Lemma 1.1; then
 σ₁(e) = σ₁(a_k)/σ₁(g) > 0 as σ₁(a_k) = n + 4σ₁η > 0. Conversely such g has χ(g) = −1 by Lemma 1.1, so some prime
 factor of g has χ = −1. For 𝔮 | a_k, 𝔮 ∤ 2: n ≡ −4φ^{2k+1} = −φ·(2φ^k)² (mod 𝔮), so (n/𝔮) = (−φ/𝔮) = χ(𝔮)
