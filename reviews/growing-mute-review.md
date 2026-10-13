@@ -94,3 +94,42 @@ orbits (m6). **The Ghosh–Sarnak claim is WRONG** (M4): their abstract (arXiv:1
 all k the Hasse Principle holds … and there are infinitely many k's for which it fails" — failures have density 0
 (their Thm 1.2(i): at least √K (log K)^{−1/2} failures in 0 < k ≤ K; full text checked), NOT "a positive proportion of k".
 
+### Prop 3.1 (e-ladder) and "Smooth representatives" — factual parts SOUND; label mixing (m7); one wrong heuristic (m8)
+
+Factual content re-derived: box sizes τ(K), ≤ τ(K)·2^{ω(K)} (#{Q | K rad K} = ∏(v_ℓ(K) + 2)), τ(K²) — correct;
+#{Q ≤ g^C : rad Q | K} ≤ (C log g/log 2 + 1)^{ω(K)} — correct; A ≤ 3(n+1)/2, g ≤ 2n(n+1) on B = 1 — correct (checked,
+see Prop 2.2). But the PROVED label covers sentences that are Assessments ("NOTHING changes at a single modulus",
+"the entire difference is archimedean": the e = 1 box is larger by a factor up to 2^{ω(K)} — still g^{o(1)}, but not
+"nothing"; and "B free does not [cap A]" is only "no cap is proved", see M3). The ES^{(y)} line "all of (F_g^*)² for
+sieved g" is FROBENIUS_FIRING's mechanism stated loosely (true for the g the sieve produces, not "box = everything").
+**"For e = 0 … expected count ≍ log³ n" is wrong** (m8): the B = 1 slice is the d = 1 slice, not all of Type II;
+its heuristic count is Σ_{A ≲ n} τ(nA² + 1)/(2A) ≍ log² n, and my exact counts agree: mean number of B = 1 triples
+over 400 primes p ≡ 1 (4) near 10³, 10⁴, 10⁵, 10⁶ is 11.6, 20.5, 30.1, 43.0, i.e. /log²p = 0.243, 0.242, 0.227,
+0.225 (flat) vs /log³p = 0.035 → 0.016 (decaying). (Elsholtz–Tao's log³ is for all Type II solutions.)
+GHS/Harman: unverified citations, honestly labelled as such; the argument does not depend on them (the point is
+only that the admissible set is a divisor-type set of size g^{o(1)}), so no defect beyond m9.
+
+### §4 Numerics (EVIDENCE) — SOUND; reproduced exactly and strengthened
+
+From-scratch `scripts/review_gm_least.py 1000000 300 51` (data/review_gm/least_1e6.txt; 2·10⁵ run in
+least_2e5.txt) uses a COMPLETE test for the B = 1 slice (no k-bound): with D = 2Aκ − 1 the slice is
+A(4λκ − p) = 2(λ + κ), equivalently p + 4t² has a divisor d ≡ −p (mod 4t) for some t ≤ (1 + √(1+4p))/4
+(cross-checked against brute force over all odd n ≤ 1201, `review_gm_b1check.py`). Results to 10⁶:
+* 39 175 primes; B = 1 with k ≤ 20: 38 705; least-k histogram identical to the author's (1: 29 666, 2: 4 223, …,
+  20: 21) — data/review_gm/least_k_hist_1e6.txt.
+* **Exactly 99 primes < 10⁶ have no B = 1 triple at all** (provably, complete test); the author's 116 is a superset
+  (the other 17 have B = 1 only at k > 300, e.g. 90313: k = 324; 187417: k = 1674). So the author's "exact only for
+  p < 400: p = 13, 37, 97" is too weak AND incomplete: 181 and 193 (< 400, also covered by k ≤ 300 ≥ 3(p+1)/4) also
+  have no B = 1 solution, and with the complete test all 99 are exact (m10).
+* All 99 have ES^{(y,1)} (A, B) solutions with k ≤ 300: B = 3 (89), 5 (5), 7 (3), 11 (p = 2293), 23 (p = 12433);
+  each verified with exact rationals AND classified directly per Def 1.0 (den z = B², B odd, prime to p, B | y).
+* **4/13 = 1/6 + 1/390 + 9/65**: 1/6 + 1/390 = 11/65, + 9/65 = 4/13 ✓; den z = 9 = 3², 3 odd, 3 ∤ 13, 3 squarefree,
+  3 | 390 ✓ — a genuine ES^{(y,1)} solution per Def 1.0 (and EXPONENT_CAP Def 1.1, e = 1). BUT it has λ = 2,
+  Q = 18 (the doc itself prints Q = 18): not a shot datum in the Notation (Q odd). Same for p = 12433 (λ = 28).
+* Under the strict shot convention (λ odd, gcd(λ, p) = 1): 204 primes < 10⁶ lack a λ-odd B = 1 triple; within
+  k ≤ 300, B ≤ 51 all but 4 have a λ-odd ES^{(y,1)} triple; the 4 (541, 1297, 12433, 19273) have one with a larger
+  window: (B, k, g, λ) = (73, 304, 266303, 3), (51, 343, 4268291, 61), (51, 1442, 32652647, 111),
+  (15, 1637, 7955819, 81). So the EVIDENCE claim survives under either convention, but "B ≤ 23" holds only for the
+  widened family (M1).
+* §4.2 orbit numbers reproduced (see Prop 1.2), except "≤ 3 points per (λ, D)" (m4).
+
