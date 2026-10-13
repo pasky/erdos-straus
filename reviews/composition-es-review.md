@@ -99,6 +99,10 @@ n = 59, μ = 135: principal divisors exactly {9, 15} ✓. Lagrange is applicable
 The document does NOT use data/cp/census_1000_3000.txt (only the agent report mentions an unfinished run);
 however the directory data/cp/ does not exist in the branch at all (m7). R202's “two V-decomposable cases among
 odd n ≤ 301, μ ≤ 6n” not rechecked.
+Extension (reviewer's own run, EVIDENCE, not used by the document; `review_cp_census.py 1000 3000`, 51 s, log
+`logs/review_cp_census_1000_3000.txt`): 262 primes, 4314 ES points, D prime 1393, composite 2921, decomposable 827
+(28%), V-decomposable 124, primes with ≥ 1 decomposable 175/262, ES-element index check 0 mismatches — same picture.
+(The author's own 1000–3000 run was still in progress with an empty output file when this review was written.)
 
 ### §6 barrier screen, §7 verdict, labels — SOUND-AFTER-REPAIRS (m8)
 §6(ii): O/η̄O ≅ ℤ/n via √f ↦ μ (η̄ primitive, index = |N η̄| = n) and α = B − Aη̄ ↦ B ✓; B = 1 ⟺ B ≡ 1 (mod n) and
