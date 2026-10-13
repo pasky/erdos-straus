@@ -135,3 +135,11 @@ Necessary condition from quadratic reciprocity (PROVED, q = 3): in Case B at x*,
 T^{N+1+γ}L'g' ≡ −1 (mod E) give (deg E + 1)·deg D ≡ deg E (mod 2); hence deg D, deg E, deg E' are all even.
 All further Jacobi-symbol relations I tried (e.g. ((1 + cT)/E) computed via reciprocity and via
 1 + cT ≡ T^{N+1}Z mod E) are automatically consistent, so quadratic symbols alone will not kill Case B.
+Control (EVIDENCE): two *generic* lifts in the same cylinders, u = 1 + T + T³ + 2T⁴ + ... (digits
+10120120121011) and u = 1 + 2T + T³ + ... (digits 20211012201021), also get **0** Case B families for
+deg L' ≤ 6, j ≤ 8. So x* is not visibly special inside its cylinder: within the searched range the whole
+cylinders u ≡ 1 + cT + dT² (mod T³), d ∈ {0, 1}, are almost entirely uncovered at x ≡ 1 off T, while
+individual lifts are covered by sporadic large families (e.g. L' = T² − 1, g' = T − 1, N = 6). If the number
+of covering families of a generic u is finite on average, O(3, T²) has positive Haar measure inside this slice and
+the ≈ 1 % tree plateau would be genuine; if it diverges, O may be empty or null. Both are open (Assessment:
+the measure question is the right next computation — count covered cylinder mass by (N, deg L')).
