@@ -4,6 +4,10 @@ Reviewer branch `side-agent/review-windmill-reduction`; merged `side-agent/windm
 From-scratch scripts: `scripts/review_wr_*.py` (none of the author's `wr_*` code reused).
 **ES is not solved; nothing in O164 claims otherwise.**
 
+**Repairs applied:** all defects D1–D16 have been repaired by R164 directly in `WINDMILL_REDUCTION.md`, each marked
+"(R164 repair)"; the author is parked. Remark 10.4 is new and states that ray class groups mod t do see the full condition,
+which is the precise remaining escape from Prop 10.3. It is summarised in `AGENT_REPORT_O164.md`.
+
 ## Summary verdicts
 
 | item | verdict |
@@ -265,5 +269,5 @@ not progress.
 The author's last commit (checkpoint report 3) was ~15 min before this review finished, so the MAJOR repairs were applied
 directly to `WINDMILL_REDUCTION.md` on the reviewer branch. Each one is marked "(R164 repair)": D3 (Lemma 2.4 positivity
 plus the `g | c` reason), D5 (§5.3 box bound and v = 1 family, §9 first sentence), D13 (Lemma 10.1 content-2 case),
-D15 (Prop 10.3 scope), and D16 (ring vs ray class groups). MINOR defects D1, D2, D4, D6–D12, D14 are left to the author.
-If the author pushes its own repairs, keep theirs and drop these.
+D15 (Prop 10.3 scope), and D16 (ring vs ray class groups). In round 1b, at the parent's request, the MINOR defects D1, D2, D4, D6–D12 and the D14 proof were also applied. D16 was
+promoted to a stand-alone Remark 10.4 (PROVED) in §10 and added to `AGENT_REPORT_O164.md`.

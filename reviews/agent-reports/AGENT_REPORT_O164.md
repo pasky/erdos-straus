@@ -115,3 +115,24 @@ This is the most promising untested idea.
    walk" that is a rotation on vectors of norm ≤ X; its fixed points would be elements.
 2. The Gauss-lemma weight on H_p (spark 1).
 3. Balanced triples with δ fixed up to units, plus their natural involutions; check this against Prop 10.3's escape clause.
+
+---
+# R164 repairs (applied by the reviewer R164 while the author is parked)
+
+All repairs in `WINDMILL_REDUCTION.md` are marked "(R164 repair)"; the review is `reviews/windmill-reduction-review.md`.
+- Lemma 2.4 needs **positive definite** forms. Without that it is false: `[−1, 4g, −g(p+4g)]` satisfies the other conditions.
+- §5.3/§9: the box bound is `max(A,B) ≤ p + (p+1)/min(A,B)`. The v = 1 family `u(t−1) = p+1` lies outside the box, and
+  p = 241, 769, 20521, 21841 have only such certificates.
+- Lemma 10.1: when m and m'' are both even (134 of the 320 certificates), the form has content 2 and lives in Cl(−tp)
+  via `O_K`. Computation 10.2 is now **PROVED** for all p, t, with a short proof added.
+- Prop 10.3's scope is narrowed. No class function equals `[N𝔞 ≡ −1 (t)]` on *every* ideal of the class. On the divisor
+  hypercube the class does determine m (10.2), and using that is B2.
+- **Ray class groups mod t DO see the full condition** (new Remark 10.4, PROVED). `𝔞 ↦ N𝔞 mod t` is a homomorphism on
+  `Cl_{(t)}(K)`, so `N𝔪 ≡ −1 (t)` is ray-class data for every t. Ring class groups provably do not see it: they carry
+  only the genus shadow. The precise remaining escape from Prop 10.3 is therefore a mechanism on *ray* classes mod t,
+  i.e. one that remembers δ = 1+√−tp modulo a congruence subgroup. In that language the problem is whether the divisor
+  hypercube of (1+√−tp) meets the norm-preimage of −1 in `Cl_{(t)}(K)`. This restates the problem equivalently and is not
+  progress, but it is where sparks 1–3 above should aim.
+- Minor: Obs 1.1/Lemma 7.1 matrix signs; the §1 Reading label is CONDITIONAL on 1.2 for general p (1.2 re-certified to
+  20000); §1 odd half-period is deduced from Zagier; §4 pair convention; §5.1 label split; §5.2 needs t odd; §6 X'(p);
+  §7 p is not a river face; §8 label; §9 identity piece, 2(p−1) maps; INVOLUTION_ES.md references.

@@ -14,7 +14,7 @@ Zagier's set `X(p) = {(x,y,z) ∈ ℤ³_{>0} : x² + 4yz = p}` is identified wit
 since D is not a square). σ = swap `y ↔ z` (= `[a,b,c] ↦ [−c,b,−a]`), ζ = Zagier's 3-piece windmill.
 
 **Observation 1.1 (algebra, PROVED by direct substitution).** Each piece of ζ is `φ ↦ −φ∘g` for an explicit
-`g ∈ GL₂(ℤ)`; e.g. on `x < y − z`, `ζ(φ) = −φ∘g` with basis `(e₂, e₂ − e₁)`. Likewise `σ(φ) = −φ∘(e₂, e₁)`.
+`g ∈ GL₂(ℤ)`; e.g. on `x < y − z`, `ζ(φ) = −φ∘g` with basis `(e₂, e₂ − e₁)`. Likewise `σ(φ) = −φ∘(e₂, −e₁)` (R164 repair: `(e₂, e₁)` would give `[−c, −b, −a]`).
 So ζ and σ map a form to an equivalent form of its *negative*; they never leave the topograph of φ up to sign.
 
 **Computation 1.2 (CERTIFIED for all primes p ≡ 1 (4), p ≤ 1300; `scripts/wr_zagier_river.py 1300`).**
@@ -24,11 +24,15 @@ So ζ and σ map a form to an equivalent form of its *negative*; they never leav
 (p prime, so h⁺(p) is odd and the principal class is the only ambiguous one).
 Example p = 1297: h⁺ = 11, river lengths `[22,22,22,22,26,26,34,34,42,42,74]`, ζσ-cycles `[11,…,37]`.
 
-**Reading (dictionary; PROVED given 1.2's structure, elementary).** ζ and σ both conjugate the rotation ρ = ζσ to
+**Reading (dictionary; PROVED given 1.2's structure, elementary).** (R164 repair, label: 1.2 is CERTIFIED only for
+p ≤ 1300 here — re-certified by R164 for all p < 20000, `scripts/review_wr_zagier.py` — so for general p this Reading is
+CONDITIONAL on 1.2, which is the folklore "Zagier = reduction" theorem. It is not proved in this document.) ζ and σ both conjugate the rotation ρ = ζσ to
 its inverse (`σρσ = σζ = ρ⁻¹`, same for ζ). Hence on each ρ-cycle they act as reflections of a polygon, or swap
 two cycles. Paired classes `C ≠ C⁻¹` are swapped (no fixed points). The principal cycle has odd length
 `L_1/2` (because `|X(p)| = Σ_C L_C/2` and the non-principal terms pair up), so each of ζ, σ has exactly **one**
-fixed point on it. ζ's is the principal form `[1,1,−(p−1)/4]`; σ's is `[a,b,−a]`, i.e. `p = b² + 4a²`.
+fixed point on it. (R164 repair: `|X(p)|` is odd *because* ζ has a unique fixed point, which is Zagier's argument. So here
+the odd half-period is deduced from Zagier, and the next sentence is a reformulation, not an independent proof. An
+independent route to the odd half-period is the Smith/Legendre continuant-palindrome argument.) ζ's is the principal form `[1,1,−(p−1)/4]`; σ's is `[a,b,−a]`, i.e. `p = b² + 4a²`.
 So Zagier's proof is the statement *"the principal river has odd half-period, and the reflection σ of an odd
 polygon has a fixed vertex"* — this is H. J. S. Smith's (1855) palindromic-continuant proof and Legendre's
 period-parity argument in topograph language. (I make no claim of novelty for this dictionary; it is the
@@ -93,7 +97,11 @@ in these discriminants the forced ambiguous form is a lottery ticket like any ot
 
 Type I ⟺ `f | D = p² + 4c²d`, `f ≡ −p (mod 4cd)` ((I)3). In discriminant D the simple form `[c, p, −cd]` lies on
 a river; for d = 1 it is σ-fixed (`[c,p,−c]`, the windmill's "two-squares" point `D = p² + (2c)²`). Ambiguous forms
-on a river ↔ factor pairs of D, so the natural Legendre-type hope is: *the ambiguous points on the river of
+on a river correspond to factor pairs of D (R164 repair: not a bijection. A coprime pair `{f, D/f}` carries up to four
+ambiguous forms `[±f,f,·]`, `[±D/f,D/f,·]`, which can lie in two narrow classes. Convention used: a pair is "on the river"
+if any of them is. Non-primitive pairs, 688 of the 5896, lie on no primitive river. With primitive pairs only the rates
+are 37.3% of pairs against 30.8% of certificate pairs, and at p ≤ 20000 they are 31.4% against 23.9%;
+`scripts/review_wr_typeI.py`), so the natural Legendre-type hope is: *the ambiguous points on the river of
 `[c,p,−cd]` are ES divisors.* `scripts/wr_typeI_river.py 3000 6 6` (46 primes `p ≡ 1 (24)`, c, d ≤ 6, 1655 pairs):
 the class is ambiguous in 1244 cases; its river holds 1941 of all 5896 factor pairs (33%) and 20 of all 82
 certificate pairs (24%). **No enrichment** (Assessment: the class of `[c,p,−cd]` sees divisors through genus/class
@@ -101,13 +109,15 @@ data only, and the ES condition mod 4cd is not class data).
 
 ## 5. Structural observations (dictionary items)
 
-**5.1 Positive ES is definite (CM); signed ES is indefinite (rivers). (PROVED for the Type II slices of Lemma 2.4;
-cf. the CM dictionary of (J)1.)** Replacing p by −p in Lemma 2.1/2.4 turns `ke = p + 4gb²` (forms of disc −4gp,
+**5.1 Positive ES is definite (CM); signed ES is indefinite (rivers). (PROVED: only the sign flip p ↦ −p below;
+the rest of this item is Assessment — R164 repair. Cf. the CM dictionary of (J)1.)** Replacing p by −p in Lemma 2.1/2.4 turns `ke = p + 4gb²` (forms of disc −4gp,
 definite) into `ke = 4gb² − p` (disc +4gp, indefinite), and the formula yields `4/p = −1/N + 1/|y| + 1/|z|`, a
-*signed* solution (always available). Zagier's set `x² + 4yz = p` is the indefinite side (`yz = (p − x²)/4`:
+*signed* solution (signed solutions always exist, e.g. by elementary identities. That they come from this formula is
+not claimed — R164 repair). Zagier's set `x² + 4yz = p` is the indefinite side (`yz = (p − x²)/4`:
 divisors of *downward* shifts of p); ES needs divisors of *upward* shifts `p + 4gb²`. On definite discriminants
-the topograph has a well and no river: Gauss reduction has no cycles, a finite reduction-closed set of forms is a
-union of classes, and the reduction-type involutions available are class-group involutions (`φ ↦ ψφ⁻¹`), whose
+the topograph has a well and no river: Gauss reduction has no cycles, and a class has a single reduced form (R164
+repair: the earlier "a finite reduction-closed set of forms is a union of classes" was false or vacuous, since definite
+classes are infinite). Assessment: the natural reduction-type involutions are class-group involutions (`φ ↦ ψφ⁻¹`), whose
 fixed points are ambiguous forms or square roots in Cl — genus data of the fixed discriminant −4gp, i.e.
 factorisations of g. **Consequence (Assessment, stated precisely):** ingredient (W1) of §1 (a rotation with long
 cycles) is unavailable on the Heegner side; a Zagier-type windmill for ES must live on an *indefinite* auxiliary
@@ -116,7 +126,7 @@ definite form x² + 4y²).
 
 **5.2 X-slice certificates are faces adjacent to ambiguous edges (PROVED, algebra).** `γ = [[A,t],[p,B]] ∈ SL₂(ℤ)`,
 `AB − pt = 1` ↔ the simple form `[p, B−A, −t]` of discriminant `T² − 4`, `T = A+B`. The ES conditions
-`A ≡ B ≡ −1 (mod t)` are equivalent to `T ≡ −2 (mod t)` and `t | B − A`, i.e. `[−t, A−B, p]` is an **ambiguous**
+`A ≡ B ≡ −1 (mod t)` are equivalent (for odd t. R164 repair: `4 | A` and p ≡ 1 (4) force t ≡ 3 (4)) to `T ≡ −2 (mod t)` and `t | B − A`, i.e. `[−t, A−B, p]` is an **ambiguous**
 form (`a | b`) of discriminant `T² − 4 = (T−2)(T+2)`, and p is the face across that ambiguous edge. So ES(p) via X
 ⟺ for some T, some ambiguous river of discriminant `T² − 4` has p as the face adjacent to an ambiguous edge whose
 other face −t divides T+2 (plus `4 | A`). Ambiguous rivers are exactly the reflection-symmetric ones; this is the
@@ -125,7 +135,7 @@ certificate (T is part of the solution — B2 in reflection language).
 
 **5.3 Modular-hyperbola form (PROVED, elementary).** The per-level quadric `AB − pt = 1` has the integral unipotent
 symmetries `A += kp`, `B += lp` (t adjusted), which commute (a group ℤ², not hyperbolic like `O(x²+4yz)`; with the
-swap and the non-integral scalings of Prop 4.2(d)), and in
+swap and the non-integral scalings of INVOLUTION_ES.md Prop 4.2(d)), and in
 each orbit only one representative can satisfy `t | A+1`, `t | B+1`; it has `max(A,B) ≤ p + (p+1)/min(A,B)`
 (R164 repair: not `p + O(1)`). If `A ≥ p` then `t = B+1`, `A = p + (p+1)/B`: the **v = 1 family** `u(t−1) = p+1`, which for
 p ≡ 1 (24) exists iff `(p+1)/2` has a divisor ≡ 3 (4) (`B ≥ p` is impossible there). So X-slice ES(p) ⟺ [some
@@ -138,7 +148,8 @@ A windmill here must mix the two, as Zagier's inequalities do.
 ## 6. Spark B: parity of X-slice certificate counts (EVIDENCE, negative so far)
 
 `E(p) = {(t,u,v): tuv − u − v = p, 4 | tu−1}` (ordered). `scripts/wr_parity.py 30000`: on the 385 primes `p ≡ 1 (24)`,
-`p ≤ 30000`, `|E(p)|` is odd for 211 and even for 174, while `|X(p)|` is always odd (periodic point `(p+2,1,1)`); at odd
+`p ≤ 30000`, `|E(p)|` is odd for 211 and even for 174, while `|X'(p)|` is always odd, where `X'(p) = {(t,u,v) : tuv − u − v = p}`. This is not §1's X(p) (R164 repair).
+The reason: `(p+2,1,1)` is the only fixed point of u ↔ v; at odd
 squares `|E| = 0`. `scripts/wr_parity_corr.py 20000`: `|E(p)| mod 2` is not determined by `p mod 16, 5, 7`,
 `h(−4p) mod 16`, the two-squares coordinates mod 8/16, or the quartic character of 2 (all splits ≈ 45:55).
 `scripts/wr_parity_search.py 20000`: among 283 sub-counts of E(p) defined by ≤ 2 congruence literals on
@@ -151,7 +162,8 @@ exists, must weight elements by non-congruence (size/lift) data; congruence-defi
 
 **Lemma 7.1 (PROVED, algebra).** On simple forms `[a,b,c]` (a > 0 > c) of discriminant Δ with `k | c`, the map
 `σ_k : [a,b,c] ↦ [−c/k, b, −ka]` is an involution preserving Δ and simplicity (it is `φ ↦ −φ∘g` with g the
-Atkin–Lehner/Fricke matrix `[[0,1],[k,0]]` up to scaling; σ₁ = Zagier's σ). Its fixed points are `[a, b, −ka]`, i.e.
+Atkin–Lehner/Fricke matrix `[[0,−1],[k,0]]`: `σ_k(φ) = −(1/k)·φ∘[[0,−1],[k,0]]`. R164 repair: `[[0,1],[k,0]]` flips the
+sign of b; σ₁ = Zagier's σ). Its fixed points are `[a, b, −ka]`, i.e.
 representations `Δ = b² + 4k a²` by the **definite** form `x² + 4ky²` (CM by ℚ(√−k)). So the "transport" available in
 the river picture is exactly: σ_k-fixed river edges of Δ ↔ points of `x² + 4ky²` above Δ.
 
@@ -159,8 +171,9 @@ the river picture is exactly: σ_k-fixed river edges of Δ ↔ points of `x² + 
 content is a *second* fixed point, an ambiguous edge `f | D`, `f ≡ −p (4cd)`, of the same discriminant. In a
 river invariant under both σ_d and the ambiguity reflection ι, the two fixed points sit at an offset fixed by
 the translation ισ_d. §4 measured that ambiguous points of this river are not enriched for ES. (ii) Type II
-(Lemma 2.4) with `e = k` ("diagonal"): `p = k² − 4gb²`, `k ≡ −1 (4gb)`. Here p is a face value of the principal
-river of disc 16g, and g is a growing parameter. The range `√p < k ≤ √(4p/3)+O(1)` is forced. `scripts/wr_diag.py 200000`:
+(Lemma 2.4) with `e = k` ("diagonal"): `p = k² − 4gb²`, `k ≡ −1 (4gb)`. Here p is a value of the principal form
+`x² − 4gy²` of disc 16g, and g is a growing parameter. (R164 repair: p is *not* a face on the river. River faces have values
+`≤ 16g/4 = 4g`, while the k-range below forces `4gb² ≤ p/3`, hence `p > 4g`.) The range `√p < k ≤ √(4p/3)+O(1)` is forced. `scripts/wr_diag.py 200000`:
 2093 of the 2212 primes `p ≡ 1 (24)` below 2·10⁵ have **no** diagonal certificate (EVIDENCE), and no odd square
 `< 2·10⁵` has a coprime one (T1 control). So the diagonal transport is a thin slice.
 
@@ -170,7 +183,7 @@ mechanism supplies the CM half but not the divisor half (B2 again). A successful
 reflection whose fixed-point equation is itself bilinear in the right way. Among the reflections I examined, namely
 σ_k, ι, and their products with class translations, none has this property. This is not a classification of the normaliser.
 
-## 8. Spark C: T²−4 rivers do not give free joint factorisation (PROVED, algebra)
+## 8. Spark C: T²−4 rivers do not give free joint factorisation (algebra PROVED; the "no H-A gain" reading is Assessment — R164 repair)
 
 By 5.2 an X-certificate is an ambiguous form `[−t, tβ, p]` of disc `T² − 4`, with `T + 2 = tτ`. Substituting:
 `4p = t(τ² − β²) − 4τ`, i.e. `t·uv = p + u + v` with `τ = u+v`, `β = v−u`. The factorisation actually used is
@@ -183,11 +196,13 @@ to the e/t-slice problem with no H-A gain.
 By 5.3 every X-certificate outside the explicit v = 1 family (R164 repair) is the unique box representative
 `1 ≤ A, B < p` of its orbit under the per-level translations. Any windmill on certificates is therefore, up to the swap, a self-map of the box modular hyperbola
 `H_p = {(A, Ā) : 1 ≤ A < p}`. Its natural "infinite menu" is the group of 𝔽_p-automorphisms of the hyperbola,
-`A ↦ cA^{±1}` and `A ↦ −cA^{±1}`, with `c ∈ 𝔽_p^*` (p−1 pieces, a menu that grows with p), chosen piecewise by lift regions.
+`A ↦ cA^{±1}` with `c ∈ 𝔽_p^*` (2(p−1) maps, a menu that grows with p. R164 repair: the `−c` variants are already
+included), chosen piecewise by lift regions.
 An involution `A ↦ c/A` has as its fixed points the square roots of c (Legendre data). An ES certificate is the
-archimedean condition `t = (AĀ−1)/p | A+1, Ā+1`. Lemma 4.1 does not apply because the menu is infinite. The one structural
-constraint I can prove is negative: on each piece the map is 𝔽_p-algebraic, so any fixed point it creates is a root of
-a fixed quadratic mod p. A fixed point that is a certificate would therefore need `A² ≡ c` with t small, and that is a
+archimedean condition `t = (AĀ−1)/p | A+1, Ā+1`. INVOLUTION_ES.md Lemma 4.1 does not apply because the menu is infinite. The one structural
+constraint I can prove is negative: on each piece the map is 𝔽_p-algebraic, so any fixed point created by a
+*non-identity* piece is a root of a fixed quadratic mod p. (R164 repair: an identity piece, with c = 1 and exponent +1,
+fixes its whole region. Also, the v = 1 family of 5.3 lies outside H_p and is an explicit divisor family of p+1.) A fixed point that is a certificate would therefore need `A² ≡ c` with t small, and that is a
 divisor condition again. No search was run for (D) beyond this reformulation.
 
 ## 10. Spark 2: Bhargava cubes / composition triples see only the genus shadow of the ES condition
@@ -201,11 +216,23 @@ both even — 134 of the 320 certificates of 10.2 — `[m,2,m'']` has content 2,
 `(m/2, (1+√−tp)/2)` and `δ = (1+√−tp)/2`. Everything below applies verbatim in Cl(−tp).) In Bhargava's language the triple
 `(𝔪, 𝔪'', O; δ = 1+√−tp)` is a balanced triple, i.e. a 2×2×2 cube with `Q₁ = [m,2,m'']`, `Q₂ = [m'',2,m]`, `Q₃` principal.
 
-**Computation 10.2 (CERTIFIED, `scripts/wr_cube_class.py 5000 40`).** For p ≡ 1 (24) with p ≤ 5000 and t ≡ 3 (4) with t ≤ 39,
+**Computation 10.2 (CERTIFIED, `scripts/wr_cube_class.py 5000 40`; upgraded to PROVED for all p, t — see the R164 proof
+below).** For p ≡ 1 (24) with p ≤ 5000 and t ≡ 3 (4) with t ≤ 39,
 distinct factorisations of tp+1 lie in distinct classes of `Cl(−4tp)`. The only exceptions are the trivial ambiguous pairs
 `{1, N}` and `{2, N/2}`. So the 320 classes that contain a certificate contain nothing else. On the divisor set the class
 map is injective: the set `{[𝔪] : 𝔪 | (1+√−tp)}` is an embedded Boolean "hypercube" `∏ 𝔮_i^{ε_i}` in Cl(−4tp), and the
 complement involution `𝔪 ↦ 𝔪''` is class inversion.
+
+*Proof of the injectivity, all p and t (R164 repair; valid for forms of any content, so it also covers the content-2
+case of 10.1).* Put `N = tp + 1`, `Q_m = [m, 2, N/m]` for m | N, so `m·Q_m(x,y) = (mx + y)² + tp·y²`. Suppose
+`Q_{m₁} ~ Q_{m₂}`. Then Q_{m₁} primitively represents m₂, so `(m₁x + y)² + tp·y² = m₁m₂` with gcd(x,y) = 1.
+(a) If `m₁m₂ < tp`, then y = 0 and x = ±1, so m₂ = m₁.
+(b) `Q_{m''} = [m'', 2, m] ~ Q_m∘diag(1,−1)`, and conjugating by diag(1,−1) preserves equivalence, so
+`Q_{m₁''} ~ Q_{m₂''}`. Hence (a) applies whenever `m₁''m₂'' = N²/(m₁m₂) < tp`.
+(c) Otherwise `tp ≤ m₁m₂ ≤ N²/tp < tp + 3`. The m_i divide N and so are coprime to tp and to N + 1; this forces
+`m₁m₂ = N`, i.e. `m₂ = m₁''`. Now `y = ±1` and `(m₁x ± 1)² = 1`, so x = 0 or m₁ ∈ {1, 2}. For x = 0, completing (0, 1) to
+a basis of SL₂(ℤ) gives middle coefficient `≡ −2 (mod 2m₁'')`, while `[m₁'', 2, ·]` needs `2`. So `2m₁'' | 4`, i.e.
+m₁'' ∈ {1, 2}. Thus the only collisions are {1, N} and {2, N/2}. ∎
 
 **Proposition 10.3 (PROVED, elementary).** Let ℓ be an odd prime, `ℓ | t`. On ideals of `O = ℤ[√−tp]` coprime to ℓ, the
 map `𝔞 ↦ N𝔞 mod ℓ` is constant on ideal classes only modulo squares. Principal ideals have norms `x² + tpy² ≡ x²
@@ -220,6 +247,17 @@ h and the 2- and 3-ranks), can test the certificate condition `m ≡ −1 (mod t
 determine m; a mechanism that uses this — i.e. knows the labelled hypercube, equivalently the factorisation of tp+1 —
 escapes 10.3 and is B2.) The full condition is a class invariant of norms only when `(ℤ/t)^*` has exponent 2, i.e. `t | 24`. For odd `t ≡ 3 (4)` that leaves only `t = 3`,
 which is the congruence-covering regime (B1). ∎
+
+**Remark 10.4 (R164 repair; PROVED, elementary). Ray class groups mod t DO see the full condition: this is the precise
+remaining escape from Prop 10.3.** Let K = ℚ(√−tp) and let `Cl_{(t)}(K) = I^{(t)}/P_{(t),1}` be the ray class group mod t.
+If `α ≡ 1 (mod* t)` then `ᾱ ≡ 1` as well, so `Nα ≡ 1 (mod t)`. Hence `𝔞 ↦ N𝔞 mod t` is a well-defined homomorphism
+`Cl_{(t)}(K) → (ℤ/t)^*`, and "`N𝔪 ≡ −1 (mod t)`" is a union of ray classes. So it is genuinely ray-class data for every t, not
+only t | 24. Ring class groups do not escape. Their kernel `(O/f)^*/((ℤ/f)^*·O^*)` is taken modulo rational residues, and in
+every order of K, principal norms prime to ℓ are squares mod ℓ (ℓ | tp is ramified), with all squares occurring; so they
+see only the genus shadow, exactly as in 10.3. In ray-class language the X/divisor slice reads: *does the divisor hypercube
+`{[𝔪] : 𝔪 | (1+√−tp)}` (pushed into `Cl_{(t)}(K)`) meet the preimage of −1 under the norm homomorphism?* This restates the
+problem equivalently and is not progress, but it is the minimal class-type structure on which a windmill/cube mechanism
+is not blind to the certificate condition. It is the precise form of "κ_i restricted to a congruence subgroup" below.
 
 **Assessment.** The cube route reproduces B2 together with genus theory. What would escape Prop 10.3 is any structure
 that remembers δ (the element `1+√−tp` itself, not its ideal), such as balanced triples *with* δ up to a smaller
