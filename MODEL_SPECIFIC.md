@@ -44,3 +44,26 @@ m = 20 fails at the prime 2763601 ≡ 1 (mod 840), after a gap from 90001.
 **Observation 1.1 (EVIDENCE).** The multiples of 4 have far longer failure tails than their neighbours:
 last failure 241 (m = 8) vs 2 / 19 (m = 7, 9); 12241 (12) vs 37 / 281 (11, 13); 83449 (16) vs 20521 / 2081;
 2763601 (20) vs 353 / 14051; 620929 (24) vs 31771 (23). Among m ≡ 0 (mod 4), m = 4 is the only one with no failure.
+
+## 2. 8/n is the all-even half of 4/n (PROVED, elementary) — the "parity sub-lottery"
+
+**Lemma 2.1.** Let n be odd. (a) Every solution of 4/n = 1/x + 1/y + 1/z has either all of x, y, z even or exactly one
+of them odd. (b) (x, y, z) ↦ (2x, 2y, 2z) is a bijection from the solutions of 8/n onto the all-even solutions of 4/n;
+hence f_4(n) = f_8(n) + f_4^{odd}(n), f_4^{odd} := number of solutions with exactly one odd denominator.
+(c) For a prime p ∤ 6 in ET/PW coordinates (Type I: x, y, z = abdp, acd, bcd, 4abd = pe + 1, a + b = ce; Type II:
+abd, acdp, bcdp, 4abd = p + e, a + b = ce; a, b, c pairwise coprime) a solution is all-even ⟺ d is even.
+*Proof.* (a) v₂(4/n) = 2. Three odd denominators: the sum has odd numerator over odd denominator, v₂ = 0. Two odd
+(x, y), z even: v₂(1/x + 1/y) ≥ 1 > −v₂(z) = v₂(1/z), so v₂(sum) = −v₂(z) < 0. (b) 8/n = Σ 1/u_i ⟺ 4/n = Σ 1/(2u_i).
+(c) If d is even all three are even. If d is odd, all-even needs two of a, b, c even (each denominator is a product of
+two of a, b, c times d, p odd), impossible for pairwise coprime a, b, c. (Pairwise coprimality: PW Prop 2.1/2.3
+proof, a = gcd(x′, y′) etc. with gcd(x′, y′, z′) = 1.) ∎
+EVIDENCE (`ms_census` parity filter): the all-even filter of 4/p reproduces the 8/p failure list {3, 11, 17, 131, 241}
+exactly (p ≤ 10⁵), and per prime f_4^{even}(p) = f_8(p) for all 2261 primes ≤ 2·10⁴ (0 mismatches); 2 or 3 odd
+denominators: 0 solutions at every prime. The all-even share of ES solutions is 0.444 (p ≤ 2·10⁴), 0.448 on
+(10⁴, 2·10⁴]. **The one-odd sub-lottery alone never fails: f_4^{odd}(p) ≥ 1 for every prime 3 ≤ p ≤ 10⁸ (5 761 454
+primes), and every odd square ≤ 10⁸ has a one-odd solution and an all-even one.** (For p ≡ 3 mod 4 this is trivial:
+e = 1, x = (p+1)/4; the content is p ≡ 1 mod 4.)
+*Reading.* ES(p) = [8/p] ∨ [one-odd 4/p]. At 131 and 241 ES lives entirely on the one-odd half (32 and 8
+solutions). The sibling 8/n is not a "different equation with the same surface", it is literally a sub-lottery of ES
+at the same n (d even), of about 45% of ES's mean, and B7 says this sub-lottery has non-T1 failures. The parity split
+is m-specific (for m = 8 the analogous decomposition is into 16/n and the rest).
