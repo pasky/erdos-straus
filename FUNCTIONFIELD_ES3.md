@@ -142,3 +142,16 @@ min(deg E, deg E') = s − t, so their cylinders number ≤ q^{s−t}. Hence the
 regime γ ≈ j = N + 1 − k, i.e. a0 and b0 both divisible by almost the full power T^j**, where s ≈ 2N, deg v ≈ N
 and deg E ≈ N. A proof of Conjecture 0.2's conclusion needs a count of factorisations T^{2N} + v = m'wC with
 v | w + C, deg v ≈ N, beating q^{N} by q^{−δN}. (Heuristically the count is poly(N).)
+
+**Lemma 3.1 (only j − γ ∈ {0, 1} matters; PROVED).** If (L', j, γ, g', E) is a Case B family valid at x_u with
+γ ≤ j − 2, then (L', j − 1, γ + 1, g', E) is also one, and its cylinder (E ≡ −u mod T^{k+j−1}) contains the first
+one's. *Proof.* D = 1 + T^{k+j+γ}L'g' is unchanged, g = T^{γ+1}g' still divides L = T^{j−1}L', and the congruences
+of Lemma 1.1(i) only weaken. ∎
+So the union of the covered cylinders comes from families with s = k + j + γ ∈ {2N − k + 1, 2N − k + 2}: exactly
+the regime where the elementary count of §3 gives q^{s/2} ≈ q^{N + 1 − k/2} cylinders at level N, i.e. mass
+≈ q^{−k/2}·q^{o(N)} per level — no decay. **Dictionary (Assessment).** In this regime a family is a factorisation
+E·E' = 1 + T^s·L'g' with E ≡ E' ≡ −1 (mod L'), i.e. a point on the hyperbola EE' ≡ 1 (mod T^s) in a box
+(deg E + deg E' = s + l + deg g'). Counting such points is a Kloosterman problem modulo T^s, and the Weil/
+square-root bound q^{s/2} is exactly the bound above. Deciding whether ES₃(T², ·) has a finite linear covering
+(through the measure route) therefore needs a count that beats square root by q^{−δN} — the function-field
+face of barrier B3. For fixed q = 3 no beyond-square-root input for this shape is known to me.
