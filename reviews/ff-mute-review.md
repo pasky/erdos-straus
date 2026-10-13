@@ -89,6 +89,46 @@ symbols by direct exponentiation; nothing imported from `fm_*`).
   Numerics (`review_fm_search.py t1`, all monic P coprime to sA; squares searched exhaustively over the bounded
   (j, f) box *and* by the unbounded discrete-log route): see §6 below.
   The §7 "reverse question" claim "for every choice of s (and every S)" needs S coprime to P (m5).
+* **Prop 5.1: SOUND.** Ef = Aacd·E − E = Aad(a + b) − E = Aa²d + P. deg X = n − k is forced (P | Y, Z ⇒ deg Y, Z ≥ n >
+  n − k, so X is the unique least-degree term), hence deg(Aa²d) ≤ 2n − k and deg f ≤ 2n − k.
+* **Prop 5.2: SOUND.** (a) P ≡ −AQ² (mod f), Q ∈ ⟨s⟩ ⇔ P ∈ −A⟨s² mod f⟩. (b) f = Aacd − 1 ⇒ ad | (f+1)/A and
+  P ≡ −Aa²d; #{(a, d)} = τ₃((f+1)/A) = q^{O(d/log d)}. ("Half of all classes": of the unit classes, q odd; **all** unit
+  classes in characteristic 2 — see M1.)
+* **Prop 5.3: (a) SOUND, (b) correctly labelled Assessment.**
+* **Prop 5.4: SOUND as stated (q odd).** CRT over the g_i; g_i ∤ Q ⇒ −PA ≡ (AQ)² square; g_i | Q ⇒ g_i = s ⇒ s | P,
+  contradicting "−PA a unit non-square mod s"; Dirichlet in F_q[T] gives irreducibles of every large degree in the
+  unit classes. Validity of each family for large deg P uses the low-shot regime (deg AQ² < n) of the remark — fine.
+  **What is precisely proved:** for q odd, (i) every finite set of shot families misses irreducible P of every large
+  degree; (ii) Thm 3.5 nevertheless solves every admissible irreducible P. So "no finite shot covering" does not
+  preclude a theorem — *for this mechanism, whose sterile set is Haar-null*. Three scope defects in the surrounding
+  prose: the 'Reading' sterile set is wrong as written (m6: f = s^m with Q = 1 fires on it; counterexample
+  `review_fm_sterile.py`); the moral does not transfer to characteristic 2, where the mute mechanism **has** a
+  finite covering (M1); and the comparison with DEPTH_ASPECT Thm 2.5 omits that the ES_q sterile set there has
+  *positive* Haar measure, whereas the mute one is null (M2).
+* **§6 EVIDENCE: SOUND after the minor repairs below.** Independently recomputed with my own code (`review_fm_search.py`:
+  bounded divisor search + unbounded discrete-log route of Lemma 3.1, every reported solution verified exactly):
+  - **all irreducible P solved**, 0 verification failures: q = 3, A = T, n ≤ 8 (1316 P); q = 3, A = T², n ≤ 8; q = 3,
+    A = T² + 1, n ≤ 7; q = 5, A = T, n ≤ 5; **q = 4** (char 2, non-prime field), A = T², n ≤ 7 (3302 P); **q = 8**, A = T,
+    n ≤ 4 (1210 P); **q = 9** (char 3, non-prime, ε = +1), A = T, n ≤ 4 (1903 P); q = 2, A = T³, n ≤ 13; q = 2,
+    A = T⁴ + T + 1, s = T² + T + 1, n ≤ 12 (`data/review_fm/search_[AB].txt`);
+  - **every known ES_q failure** from `data/ffl/fail_*` re-solved: q = 3, A = T² (n = 3, 4, 5) and A = T² + 1 (n = 3, 6);
+    q = 5, A = T (n = 2–4); q = 5, A = T² (n = 3–8 — **including the 15 failures at n = 8, beyond the author's range**);
+    q = 7, A = T (n = 2–6); and, not covered by the author, all q = 4, A = T² failures (n = 3–7; inside my full q = 4 run)
+    and the q = 8 and q = 9, A = T failures of FUNCTIONFIELD_ES §3 with n ≤ 4 (inside the full runs).
+  - **Thm 4.2** (`review_fm_search.py t1`; squares searched over the bounded box *and* the unbounded discrete-log
+    route): q = 3, A = T, deg P ≤ 6: 0/17 squares, 468/468 non-squares; A = T³: same; q = 7, A = T, deg ≤ 4: 0/41,
+    2016/2016; q = 3, A = T² (k even): 17/17 squares, moduli degrees used {4, 6} only (even ✓); q = 5, A = T and T²:
+    19/19 squares, 480/480 non-squares; additionally q = 9, A = T (ε = +1): 7/7 squares, 640/640 non-squares; q = 3,
+    A = T, s = T² + 1 (h = 2): 0/23 squares, 624/624 non-squares. All author counts reproduced exactly.
+  - **Least shot height**: recomputed with sympy factorisation of the shots and my own exact verification —
+    q = 3, A = T, n = 1..9 and q = 3, A = T², n = 2..8: **identical** max / mean / j = 0 share to `data/fm/minq_runs.txt`.
+    BUT the author's least shots use degree regimes **outside Prop 2.1's stated hypothesis**: deg AQ² = n and
+    n < deg AQ² < n + d (e.g. q = 3, A = T², n = 8: 106 + 57 of the 810 least shots). Restricting to the stated regimes
+    (deg AQ² > n + d or < n; `--strict`) gives larger heights (A = T², n = 8: max 18, mean 2.31; `minj_q3_A100_strict.txt`).
+    The solutions are valid (I re-derived that Prop 2.1 holds iff deg AQ² ≠ n + d, see m1), so this is a
+    statement-scope defect, not a false number.
+  - Population counts of §6 (506, 9379, 3500, 3407, 14 564, 23 630, 4134, 2535, 1371 P) re-derived from the Gauss
+    formula minus excluded P: all correct.
 
 ## Defects
 
