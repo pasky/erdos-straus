@@ -62,4 +62,5 @@ g = T·H'·Z − (Z + Z')/L' where E' = −1 + T L' H'. No contradiction in gene
 Search (`scripts/ff2_caseB.py`, sanity-checked: it re-finds the family E = T²+2T+2, a0 = 1, b0 = T² for
 u = 1+T+2T²): **no Case B family for u = 1 + cT, c = ±1, with deg L' ≤ 5, j ≤ 5** (EVIDENCE).
 Observation: the covered T²-digit is d = 2 = −c² in u ≡ 1 + cT + dT² (mod T³), via the single family
-E = −u mod T³ = T² − cT + 2... (a0 = b0 = T, j = 1), which covers the whole cylinder.
+E = T² − cT − 1 = −(1 + cT − T²) (a0 = b0 = T, j = 1, D = 1 + T⁴ = (T²+T−1)(T²−T−1)), which covers the whole
+cylinder.
