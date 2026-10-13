@@ -3,24 +3,28 @@
 Reviewer branch `side-agent/review-ldp-deep` (merged `side-agent/spark-higher-reciprocity`). From-scratch scripts:
 `scripts/review_ld_*.py`. Labels as in DISCOVERIES.md. **ES is not solved anywhere; nothing below changes that.**
 
-## Summary verdicts (filled in claim by claim)
+## Summary verdicts
+
+**Bottom line.** No FATAL defect. Every numerical claim reproduces exactly from independent code; every PROVED lemma
+re-derives. The defects are one false-as-written statement (D1, intended content correct), one wording error that
+flips the F-Gram construction (D4a), and several label/scope overreaches — chiefly that the global "closed" verdicts
+(degree-2 accident, F-rational loophole) are Assessments built on PROVED, scoped pieces (D2c, D4c, D10c). The
+"degree-2 accident" can be upgraded to a precise statement about all ℚ-groups compact at ∞ (D2c).
 
 | # | Claim | Verdict |
 |---|---|---|
-| 1 | bsD_eichler_degree_k Prop 1 / LDP_DEEP Prop A.3.1 | (pending) |
-| 2 | bsD_eichler_degree_k Prop 2 / LDP_DEEP Prop A.3.2 + "degree-2 accident" slogan | (pending) |
-| 3 | bsD_brauer_cores Thm 1 / LDP_DEEP Thm A.1 | (pending) |
-| 4 | LDP_DEEP Prop A.4.1, A.4.2, F-Gram construction | (pending) |
-| 5 | EVIDENCE: split-supported Type II certificates, cd ≤ 30 | (pending) |
-| 6 | bsD_frobenius_closure Thm 2 (+ cubic dictionary) | (pending) |
-| 7 | bsD_missed_primes numbers (71; layers 2/12/0) | (pending) |
-| 8 | bsD_genus_vacuity_LDp Prop 1, Remark 2 / LDP_DEEP B.1–B.2 | (pending) |
-| 9 | LDP_DEEP B.0 Gram form | (pending) |
-| 10 | spot checks: bsD_metaplectic_cubic, bsD_drinfeld_rank_k, bsD_artin_conjugation | (pending) |
+| 1 | bsD_eichler_degree_k Prop 1 / LDP_DEEP Prop A.3.1 | **SOUND-AFTER-REPAIRS** (RHS as written gives f ≡ +1; D1) |
+| 2 | bsD_eichler_degree_k Prop 2 / LDP_DEEP Prop A.3.2 + "degree-2 accident" slogan | (i)–(ii) **SOUND** for maximal orders; slogan **SOUND-AFTER-REPAIRS** (scope/label; precise Kottwitz-type form offered; D2) |
+| 3 | bsD_brauer_cores Thm 1 / LDP_DEEP Thm A.1 | **SOUND** (BL citations verified in sources/; numerics reproduced) |
+| 4 | LDP_DEEP Prop A.4.1, A.4.2, F-Gram construction | A.4.1 **SOUND**; construction **SOUND-AFTER-REPAIRS** ("definite" → "positive definite", uses r even); A.4.2 identity SOUND, "closed" **GAP** as a PROVED claim (D4) |
+| 5 | EVIDENCE: split-supported Type II certificates, cd ≤ 30 | **SOUND** (reproduced exactly to 10⁶; caveat: 54% of certificates have a prime side, which is automatically an F-norm; D5) |
+| 6 | bsD_frobenius_closure Thm 2 (+ cubic dictionary) | **SOUND** (19934 closure tests); LDP_DEEP wording overreaches (D6) |
+| 7 | bsD_missed_primes numbers (71; layers 2/12/0) | **SOUND** (all reproduced exactly) |
+| 8 | bsD_genus_vacuity_LDp Prop 1, Remark 2 / LDP_DEEP B.1–B.2 | Prop 1 **SOUND** (rel. DIFF_DEEP Thm 1.1); Remark 2 SOUND as corrected, "O(1) per fixed order" mis-normalised (D8) |
+| 9 | LDP_DEEP B.0 Gram form | **SOUND** |
+| 10 | spot checks: bsD_metaplectic_cubic, bsD_drinfeld_rank_k, bsD_artin_conjugation | metaplectic: label GAP (PROVED from memory); drinfeld SOUND (Assessment); artin SOUND-AFTER-REPAIRS (D10) |
 
 ## Detailed findings
-
-## Defects
 
 ### Claim 5 — EVIDENCE "all but 5 of 9732 primes p ≡ 1 (24) < 10⁶ have a cd ≤ 30 Type II certificate whose f or f′ is an F-norm" — SOUND (numbers reproduced exactly; interpretation needs a caveat)
 From scratch (`scripts/review_ld_split.py X 30`; own divisor enumeration from the factorisation; **every certificate is
@@ -240,3 +244,63 @@ Assessment-level text).
   A.3 about inner forms of GL_k (+ unitary), and the A.4 door is closed only for norm-descent (D4c). §C already says
   "Assessment" — the intro and AGENT_REPORT SHARP list should match (D10c, MINOR). A.6 (iii) depends on bsC Prop 1
   and bsC Cor 2 (O176, under R176) — state the dependency.
+
+## Defects (numbered; FATAL / MAJOR / MINOR) with locations and repairs
+
+None FATAL.
+
+**MAJOR**
+* **D2c** (bsD_eichler_degree_k Prop 2 last sentence + Assessment; LDP_DEEP A.3.2 bold sentence and A.6 (iv);
+  AGENT_REPORT SHARP 1). "Diff-parity and supersingular geometry are a degree-2 accident of Br ℝ = ℤ/2" is tagged
+  PROVED but only inner forms of GL_k and unitary groups are treated; compact-at-∞ ℚ-groups exist in every rank.
+  *Repair:* label the slogan Assessment, or replace it by the precise statement in Claim 2(c) (G semisimple,
+  anisotropic at ∞ ⇒ complex conjugation acts on Z(Ĝ) by inversion ⇒ Kottwitz's incoherence group is 2-torsion),
+  after checking it against Kottwitz 1986.
+* **D4c** (LDP_DEEP A.4.2 "(where it breaks; PROVED)" and "Closed."; §C "PROVED: … A.4.1–A.4.2"; AGENT_REPORT
+  SHARP 3 "It closes because …"). Only the identity N(−1) = (−1)^r = +1 (r even) is proved; that no descent
+  mechanism exists is an Assessment. *Repair:* "PROVED: N_{F/ℚ}(−1) = +1 for every ES modulus M = 4cd > 4, so norm
+  descent of an O_F-certificate loses the target. Assessment: no other descent is known (open: trace forms /
+  restriction of scalars, odd-degree subfields F′ — Spark 1)."
+
+**MINOR**
+* **D1** (bsD_eichler_degree_k Prop 1; LDP_DEEP A.3.1). Σ_{ℓ∤M} inv_ℓ A(χ, −1) = 0 for every χ, so "equals that of
+  A(χ, −1)" characterises f ≡ +1. *Repair:* include ∞ in the sum, or write "= inv_∞ A(χ, −1) (0 for χ even, 1/2 for
+  χ odd)".
+* **D2a** (Prop 2(i); A.3.2 "one type and one locally free class"). True for maximal orders; false for the
+  locally-free class set of general orders (ℤ + ℓM₂(ℤ): class number 2). *Repair:* say "maximal orders", and state the
+  general fact as "class sets are ray class groups via nrd ⇒ congruence data".
+* **D2b** (Prop 2(ii); A.3.2). "Definiteness is exactly what makes … the class set non-trivial": necessary, not
+  sufficient (p = 2, 3, 5, 7, 13). *Repair:* "necessary".
+* **D3a** (bsD_brauer_cores numerics). "the sum over w | p is identically 0" is automatic (the two embeddings read
+  the same 𝔽_p element against ω, ω²); not evidence. *Repair:* drop or flag as a sanity identity.
+* **D3b** (bsD_brauer_cores Thm 1 scope sentence). Applies to unramified classes on U_{n,K}; ramified classes on
+  opens are excluded and should be dismissed by Harari's formal lemma explicitly.
+* **D3c** (bsD_brauer_cores numerics). Cubic class counts depend on the ordering convention (u₁ ≤ u₂ ≤ u₃) since
+  (a,b)_ζ = −(b,a)_ζ. *Repair:* state the convention.
+* **D4a** (LDP_DEEP A.4 "Construction attempt"). "ramified at the real places where T_F is definite" + "det T_F
+  totally positive" makes the count r for every β. *Repair:* "positive definite"; note the parity identity
+  #ram_∞ = r − #neg ≡ #neg uses r even.
+* **D4b** (LDP_DEEP A.4 normalisation; AGENT_REPORT SHARP 3). β ≡ 1 (𝔪) in the construction vs β ≡ −1 (4cd O_F) in
+  A.4.2; "f = N_{F/ℚ}(β)" must be the ideal norm |N(β)| (the element norm is ≡ +1 always).
+* **D5** (LDP_DEEP A.4 EVIDENCE; Spark 4). 53.6% of all certificates have f or f′ prime, and a prime f ≡ −1 is
+  automatically an F-norm; the "F-norm" statistic is ≈ "a prime side exists". *Repair:* add this sentence; with the
+  exact F-norm criterion (residue degrees) the exception list is the same 5 primes.
+* **D6a** (LDP_DEEP A.2 "So the only local–global obstruction is quadratic"). Thm 2 covers only the Chebotarev-closure
+  mechanism. *Repair:* use the memo's scoped phrase.
+* **D6b** (LDP_DEEP A.2 last sentence). "π is a cube modulo every prime of f" is false; the condition is
+  ∏_{ℓ|f}(π/ℓ)₃^{v_ℓ(f)} = 1. *Repair:* "the product of the cubic symbols (π/ℓ)₃ over ℓ | f is 1".
+* **D8a** (LDP_DEEP §C "PROVED: … B.1"). Add "relative to DIFF_DEEP Thm 1.1 (O176, under R176)".
+* **D8b** (LDP_DEEP B.2; bsD_genus_vacuity Remark 2). "O(1) expected hits per T" at a fixed order ignores the
+  ≈ p/12 orders sharing a genus total ρ(T) = p^{o(1)}. *Repair:* "O(ρ(T)) over the genus, O(ρ(T)/p) per fixed order
+  (heuristic)".
+* **D9** (bsD_missed_primes layer table). Broken markdown ("cd | 6" inside cells). *Repair:* write "cd ∣ 6" or
+  "cd divides 6".
+* **D10a** (bsD_metaplectic_cubic Props 1–2). PROVED from unverified, memory-based formulas ⇒ CONDITIONAL; soften
+  "no dual-pair theta correspondence for n ≥ 3 covers".
+* **D10b** (bsD_artin_conjugation). K⁺-part ≠ "order-≥3 part" (it contains the even quadratic characters).
+* **D10c** (LDP_DEEP one-paragraph answer; AGENT_REPORT verdict). "(a) No … each PROVED" — the "No" is an
+  Assessment; match §C. State the dependency of A.6 (iii) on bsC Prop 1 / Cor 2 (O176, under R176).
+
+## Scripts (all from scratch, ≤ 2 min each, ulimit -v 8 GB)
+`review_ld_split.py` (claim 5), `review_ld_missed.py` (claim 7), `review_ld_ray.py` (claim 4),
+`review_ld_cubic.py` (claim 3), `review_ld_frob.py`, `review_ld_kummer.py` (claim 6), `review_ld_gram.py` (claims 8–9).
