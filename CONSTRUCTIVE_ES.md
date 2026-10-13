@@ -148,8 +148,8 @@ quadratic non-residue (unconditionally the least one is only known to be ≪ p^{
 **Proposition 4.1 (certificate ⟹ explicit B_{p,∞}-data, deterministic polynomial time; PROVED).** From a word w with
 χ(w) = −1 one obtains in time poly(log p), without factoring and without any non-residue search: (a) the Eichler order
 E(L_w) of level 2 and two explicit maximal orders C₀(L⁺_{1,2}) of B_{p,∞} (index-2 overlattices: solve Q_w(x) ≡ 0 (mod 4),
-Lemma 1.1, and an exact 4×4 HNF); (b) a presentation B_{p,∞} ≅ (−A*, −A·?)… concretely ℚ⟨i, j⟩ with i² = −A*, j² = −A,
-ij + ji = −2; (c) three non-residues A, A*, uv of p (each is −nrd of a trace-zero element of an order of B_{p,∞} prime to
+Lemma 1.1, and an exact 4×4 HNF); (b) a presentation B_{p,∞} = ℚ⟨i, j⟩, i² = −A*, j² = −A, ij + ji = −2, i.e. (−A*, −tpA*) (orthogonalise
+j′ = j − i/A*, nrd j′ = tp/A*; equals CHI_FLIP's (−A*, −vpA*) since (−A*, tv) = (−A*, 1 + A*) = 1); (c) three non-residues A, A*, uv of p (each is −nrd of a trace-zero element of an order of B_{p,∞} prime to
 p: indeed (−nrd x/p) ≠ 1 for every x ∈ B⁰_{p,∞} with p ∤ nrd x, since ℚ(x) embeds and p cannot split); (d) the
 Frobenius-distance element ε = −(1 + ij), ε² = −tp.
 *Converse direction (what is NOT available).* From any explicit maximal order one gets non-residues for free (c), but
