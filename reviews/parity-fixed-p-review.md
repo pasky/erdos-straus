@@ -1,6 +1,11 @@
 # R165 — hostile review of O165 `PARITY_FIXED_P.md` (branch side-agent/parity-fixed-p)
 
-Reviewer: R165. Status: round 1 complete. **ES is not solved anywhere; nothing here changes that.**
+Reviewer: R165. Status: round 1 complete.
+
+**Repairs applied (R165, on parent's instruction; the author is parked):** D1–D11, including the MAJOR D5 and the
+cosmetic (★) note. They are now in `PARITY_FIXED_P.md` and in the matching lines of
+`reviews/agent-reports/AGENT_REPORT_O165.md`, each marked '(R165 repair)'. The paragraph below about not applying
+repairs describes the state at the end of round 1. **ES is not solved anywhere; nothing here changes that.**
 From-scratch scripts: `scripts/review_pf_*.py` (none of the author's `pf_*` code reused).
 
 ## Summary verdicts
