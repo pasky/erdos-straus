@@ -38,14 +38,15 @@ barrier (✗), an unproved technical obstacle (?), or open (○). All entries ar
 | 22 | Linnik's least prime in AP | prime ≡ a (q) below q^L | prime divisor b ≡ −1 (e) of (p+e)/4 | primes in [1,X] ≠ divisors of a specific N; reduces to a congruence covering — B1 | ✗ |
 | 23 | Croot / Bloom unit-fraction density & colouring | dense or monochromatic sets contain S with Σ 1/x = 1 | 3-term 4/p | number of terms unbounded (Fourier on smooth numbers); 3 terms is the lottery (addcomb_unit_fraction_density) | ✗ |
 | 24 | Greedy / Fibonacci–Sylvester, Erdős–Graham | Egyptian fractions exist deterministically | 3 terms | unbounded length (greedy_algorithm_dynamics) | ✗ |
-| 25 | Euclid-type proofs of Dirichlet (Schur, M. R. Murty) | if N ≡ a (k) with a² ≡ 1, some prime factor of N lies in a non-trivial class | divisor ≡ −1 (e) of N from N's residue | "congruence-forced divisors" = B1 (other_rings, LONGSHOT_PIGEONHOLE) | ✗ |
+| 25 | Euclid-type proofs of Dirichlet (Schur, M. R. Murty) | a "Euclidean proof" for primes ≡ a (mod k) exists iff a² ≡ 1 (mod k): a polynomial whose prime divisors lie (up to finitely many) in the classes 1, a (R168 repair) | divisor ≡ −1 (e) of N from N's residue | "congruence-forced divisors" = B1 (other_rings, LONGSHOT_PIGEONHOLE) | ✗ |
 | 26 | Weil / Lang–Weil / Deligne | F_q-points of varieties | ES mod q | local solubility is trivial; integrality needed — B1 | ✗ |
 | 27 | Polynomial method (Dvir, Croot–Lev–Pach) | sets avoiding a pattern are small | Σ_e(N) ∌ −1 ⇒ τ(N) small | divisor sets already have polylog size, far below any CLP bound — B4 | ✗ |
 | 28 | Compactness / overspill / minimal counterexample | — | p ∉ K ⊂ Ẑ | primes accumulate on (Ẑ^×)² ⊆ K (noncounting_shapes Props 1–3) — B1/B5 | ✗ (as displayed) |
 | 29 | Gauss's 3-squares / class-number-one ternary genera | n = Q(x) for genus with one class | p-linear quantity represented by a ternary form | fixed recipes reduce to finite Mordell coverings (TERNARY Thm 4.1) — B1 | ○ growing parameters |
 
 Remarks on the table.
-* Rows 1, 4, 6, 9, 10 are the only rows whose failing step is not a proved barrier theorem *as stated*. Rows 1
+* Rows 1, 4, 6, 9, 10 (and the ○ rows 11, 16, 18, 29, open for infinite menus / growing parameters) are the only rows
+  whose failing step is not a proved barrier theorem *as stated* (R168 repair: the ○ rows were omitted). Rows 1
   and 6 fail at a concrete structural fact (ES has no definite/anisotropic quadratic piece; side conditions with
   moving moduli); rows 4 and 9–10 are attacked below. Row 11 is open but was studied in depth (INVOLUTION_ES2).
 * Every mechanism that *uses primality of p in an essential way* is automatically T1-safe at the first step:
@@ -62,21 +63,23 @@ three are attacked in §3 (row 4), §4 (rows 9–10), §5 (row 6).
 
 ### 3.1 The Fermat–Holzer template (classical)
 Legendre: for squarefree, pairwise coprime a, b, c > 0, aX² + bY² = cZ² has a non-trivial integer zero iff −ab is a
-square mod c, bc... (the three QR conditions). Holzer (Mordell's form): then there is a zero with
+square mod c, bc is a square mod a and ac is a square mod b (the three QR conditions; R168 repair: statement completed). Holzer (Mordell's form): then there is a zero with
 |X| ≤ √(bc), |Y| ≤ √(ac), |Z| ≤ √(ab). If ab ≤ 3 this forces |Z| = 1 (Z = 0 is impossible by definiteness), so
 c = aX² + bY²: with (a,b) = (1,1), (1,2), (1,3) this is Fermat's two-squares theorem and its x²+2y², x²+3y²
 analogues. In general Holzer only gives cZ² = aX² + bY² with Z² ≤ ab, i.e. *representation by the genus*.
 **Two ingredients make the template work: a definite (anisotropic) form, and a size bound small enough to force
 the "denominator" Z to be 1.** We now check both against ES.
 
-### 3.2 What isotropy can know (PROVED; Legendre restated)
-**Prop 3.1.** Let F_θ = a X² + b Y² − c Z² with a, b, c ∈ ℤ depending on p and a parameter θ (reduce to the
-squarefree, pairwise coprime case in the standard way). Then "F_θ is isotropic" is equivalent to finitely many
+### 3.2 What isotropy can know (PROVED, restatement of Legendre under the stated reductions; R168 repair)
+**Prop 3.1.** Let F_θ = a X² + b Y² − c Z² with a, b, c ∈ ℤ depending on p and a parameter θ, already reduced to the
+squarefree, pairwise coprime case with a, b free of p (R168 repair: the reduction itself needs the squarefree kernels
+and gcd's of a(p,θ), b(p,θ), c(p,θ), i.e. factorisation data, and may move p-dependent factors between coefficients;
+the conditions at ℓ | ab involve c(p,θ) mod ℓ, which are congruences on p only when c is polynomial in p). Then "F_θ is isotropic" is equivalent to finitely many
 quadratic-residue conditions: at primes ℓ dividing p-free coefficients they are congruence conditions on p mod ℓ
 (B1 data); at primes ℓ | c(p,θ) they say "−ab is a square mod ℓ for every ℓ | c(p,θ)", i.e. a Hasse-norm
 condition on the **factorisation** of the specific integer c(p,θ). ∎
 So isotropy carries exactly two kinds of information: congruences of p, and a *splitting condition on all prime
-factors* of a p-dependent integer. The second is strictly stronger than the ES-type condition "has one divisor
+factors* of a p-dependent integer. The second is (Assessment, not proved; R168 repair) stronger than the ES-type condition "has one divisor
 in a class" (B2), and of the opposite logical shape (∀ prime factors vs ∃ divisor). §3.3 shows the shapes match
 exactly — but on the **failure** side.
 
@@ -92,19 +95,22 @@ exists" — is used by ES in the contrapositive direction only.
 
 **Prop 3.3 (slice failure is a norm/isotropy condition; PROVED, elementary).** Fix e and N coprime to e; let
 H_e(N) = ⟨ℓ mod e : ℓ | N prime⟩ ≤ (ℤ/e)^×. Then Σ_e(N) ⊆ H_e(N), and
-(a) −1 ∉ H_e(N) ⇔ there is an odd character χ mod e with χ(ℓ) = 1 for all primes ℓ | N ⇔ every prime factor of N
-splits completely in some imaginary cyclic subfield K_χ ⊂ ℚ(ζ_e);
+(a) −1 ∉ H_e(N) ⇔ there is an odd character χ mod e with χ(ℓ) = 1 for all primes ℓ | N ⇔ there is one imaginary
+cyclic subfield K_χ ⊂ ℚ(ζ_e) in which every prime factor of N splits completely (R168 repair: quantifier order);
 (b) if (ℤ/e)^× is an elementary 2-group (e | 24), then Σ_e(N) = H_e(N), so the e-slice fails ⇔ (a) holds. For the
 only such slice available at p ≡ 1 (4), e = 3: the slice fails ⇔ every prime factor of N is ≡ 1 (mod 3) ⇔ N is
 primitively represented by X² + XY + Y² (class number 1).
 *Proof.* (a) is duality for finite abelian groups. (b): in an elementary 2-group ab⁻¹ = ab, and H_e(N) is the set
 of classes of divisors of N (squares are trivial), so a·1 with a | N realises every element. ∎
-Thus the e | 24 Mordell slices fail **exactly** when a quadratic norm-form representation exists (an isotropy
+Thus the e | 24 Mordell slices fail **exactly** when N is represented by one of the forms of discriminant −3, −4, −8
+(class number 1: a norm-form representation) or by a form of discriminant −24 (ℚ(√−6) has class number 2: N is then an
+ideal norm, x² + 6y² or 2x² + 3y², not necessarily a norm-form value) (R168 repair; for e = 3 it is exactly a norm form) (an isotropy
 statement, decidable by Legendre/Holzer); for general e the *group-level* part of the failure is an
 "all primes split in K_χ" condition (Hasse norm theorem for cyclic K_χ).
 
 ### 3.4 The T1-safe deterministic residue: Jacobi forcing (PROVED + EVIDENCE)
-**Prop 3.4.** Let p be prime and e ≡ 3 (mod 4) prime with (p/e) = −1, N_e = (p+e)/4. Then −1 ∈ H_e(N_e): N_e has
+**Prop 3.4.** Let p ≡ 1 (mod 4) be prime and e < p, e ≡ 3 (mod 4) prime with (p/e) = −1 (R168 repair: hypotheses p ≡ 1 (4),
+e < p added, needed for N_e ∈ ℤ and gcd(N_e, e) = 1), N_e = (p+e)/4. Then −1 ∈ H_e(N_e): N_e has
 a prime factor ℓ with (ℓ/e) = −1, and −1 is a power of ℓ mod e.
 *Proof.* (N_e/e) = (4⁻¹p/e) = (p/e) = −1, so some ℓ | N_e has (ℓ/e) = −1; ℓ has even order in the cyclic group
 (ℤ/e)^× of order 2·odd, so −1 ∈ ⟨ℓ⟩. ∎
@@ -126,7 +132,7 @@ certificates).
 * The homogeneous quadratic structures *inside* ES are isotropic (TERNARY Comp 6.1); rational ES points are
   free; so Legendre's existence direction has nothing to prove there.
 * The anisotropic conics attached to ES are obstruction conics: Type I of level d requires C_{d,p} anisotropic
-  (Prop 3.2); the e | 24 slices fail **exactly** when a norm-form representation exists (Prop 3.3(b)), and that
+  (Prop 3.2); the e | 24 slices fail **exactly** when a norm-form (for e = 24 possibly: genus/ideal-norm; R168 repair) representation exists (Prop 3.3(b)), and that
   existence is what Legendre/Holzer certifies. Holzer's size-forcing (the "Z = 1" step) therefore certifies
   *failures*, not solutions.
 * The only deterministic, primality-using consequence is Jacobi forcing (Prop 3.4): every prime slice e ≡ 3 (4)
@@ -151,14 +157,20 @@ does not see.
 (D₁ + D₂ ≡ 0, or D₁ ≡ −1, or D₂ ≡ −1 (mod e)). EVIDENCE (`scripts/de_pell_factor.py 30000 60`; p ≡ 1 (24),
 p < 3·10⁴, primes e ≡ 3 (4), e < 60, N_e squarefree with ω ≥ 2; 1681 slices): Pell-split trivial in 28.6%; the
 Pell pair solves the slice in **17.8%**, vs **14.3%** for a uniformly random coprime splitting of N_e (same test).
-So the Pell splitting is essentially a random splitting as far as residues mod e are concerned.
+(R168 repair) The raw gap 17.8% vs 14.3% is ≈ 4 binomial standard errors (s.e. 0.85%); it is a composition effect
+(28.6% trivial Pell splits vs weight 2/2^ω for trivial splittings in the baseline): restricted to non-trivial Pell
+splittings (1201 slices) the hit rate is 20.7% vs 19.5% for a uniformly random non-trivial splitting (< 1 s.e.;
+R168 `scripts/review_de_evidence.py`). For even N_e, D₁ = gcd(N_e, x−1) always contains 2 (x odd; Legendre's
+"each prime divides exactly one of x ± 1" fails at 2), so the assignment of 2 is a convention.
+So, conditionally on non-triviality, the Pell splitting is essentially a random splitting as far as residues mod e are concerned.
 
 **Why (Assessment, with a PROVED core).** The Pell splitting corresponds to the ambiguous principal ideal of
 ℚ(√D); the only arithmetic constraints it satisfies are the Rédei relations (D₂/ℓ) = 1 (resp. (2D₂/ℓ) = 1) for ℓ | D₁ and
-(−D₁/ℓ) = 1 (resp. (−2D₁/ℓ) = 1) for ℓ | D₂, in the case D₂v² − D₁u² = 1 (resp. 2) (PROVED: reduce D₂v² − D₁u² = 1, 2 mod ℓ). These are quadratic-character
+(−D₁/ℓ) = 1 (resp. (−2D₁/ℓ) = 1) for ℓ | D₂, in the case D₂v² − D₁u² = 1 (resp. 2) (PROVED for odd ℓ: reduce D₂v² − D₁u² = 1, 2 mod ℓ; R168 repair: odd ℓ). These are quadratic-character
 conditions among the prime factors of D, i.e. relations *inside* the genus structure of D, and say nothing about
 the residue of D₁ modulo the unrelated modulus e. The e-slice condition for e ∤ 24 is not a quadratic-character
-condition (Prop 3.3(b) fails), so it is invisible to every genus/Rédei/ambiguous-class mechanism. For e | 24 the
+condition (Prop 3.3(b) fails), so it is invisible to every genus/Rédei/ambiguous-class mechanism (Assessment, not a
+consequence of Prop 3.3(b), which concerns Σ vs H; R168 repair). For e | 24 the
 condition is quadratic, but there the slice fails exactly on norm forms (Prop 3.3(b)) and Pell adds nothing.
 **Iteration record.** v1 D = N_e: random-like (above). v2 choose D so that the Pell relation D₂v² − D₁u² = 1 *is*
 the Type II equation ff' − 4c²dp = 1 (D₁ = dp, u = 2c, D₂v² = ff'): this needs v ≡ −1 and D₂ ≡ 1 (mod 2du), a
