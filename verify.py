@@ -24476,5 +24476,33 @@ def check_fp():
 
 check_fp()
 
+def check_fq():
+    # (fq) UNIT_ORBIT_ES (O186/R186/R190): the T1-bearing variant ES^(S): 4/n = 1/x + 1/y + Q^2/Z (Q in <S>,
+    # S = {3,5,7,11}, mute-prime parity normalisation): shots n + 4Q^2 solve every prime 13 <= p < 5e4 and every odd
+    # non-square n < 2e4 coprime to 2S; no shot at odd squares (T1 control). Two reviewers' independent scripts.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("UNIT_ORBIT subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_uo_evidence.py", "50000", "5000")
+    assert "Hilbert product formula OK" in o and "primes 13<=p<50000: 5128 solved" in o and \
+        "odd non-squares n<5000 coprime to 2S: 1024 solved" in o and "squares: no shot" in o, ("UNIT_ORBIT R186", o)
+    o = run("review_uo2_brute.py", "20000", "2000")
+    assert "non-squares coprime to 2S: 4127, failures: 0 []" in o and \
+        "squares coprime to 2S: 29, squares with a hit for Q <= 2000: 0" in o, ("UNIT_ORBIT R190", o)
+    print(f"== (fq) UNIT_ORBIT_ES R186/R190: ES^(S), S = {{3,5,7,11}} — all 5128 primes 13 <= p < 5e4 and all 4127 odd "
+          f"non-squares < 2e4 coprime to 2S solved by shots n + 4Q^2; 0 of 29 squares; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fq()
+
 
 print("\nall checks passed")

@@ -742,6 +742,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Prop 2.1/2.2 (PROVED; the B1 reading is an Assessment). B1's square-mimicking points exist because a polynomial/progression family is parametrised by Ẑ = Π_q ℤ_q, so local squares glue. An exponent μ ∈ Ẑ couples the primes through ord_q(2), and local squares need not glue. B1 is the S → all-primes limit of an S-unit obstruction (Assessment).
    * Assessment: B1 is not violated, only its hypothesis is absent. The hard core of ES (n a unit square modulo everything small) is untouched.
 
+23. **Spark relay L: an UNCONDITIONAL T1-bearing ES variant over ℤ, via infinitely many fixed-modulus shots (UNIT_ORBIT_ES.md + BRAINSTORM/bsL_* (O186); two independent hostile reviews `reviews/unit-orbit-review.md` (R186) and `reviews/unit-orbit-review-2.md` (R190): both find Thm 2.4 SOUND; no FATAL; one MAJOR (R186 M1: misdiagnosis in §4 — for V_φ the barrier is the unit rank, not "a real mute place"); minors; all repaired by the reviewers).**
+   * Variant ES^{(S)}: 4/n = 1/x + 1/y + Q²/Z with x, y, Z > 0, Q ∈ ⟨S⟩ and gcd(Z, Q) = 1. Each q ∈ S is a "mute prime": it may appear in only one denominator, and only to an even power. ES^{(S)} contains ES (Q = 1).
+     * Lemma 1.1 (PROVED): the mute normalisation forces inv_q = 0.
+     * Cor 1.2 (PROVED): T1 holds, i.e. no Type I/II-shaped solutions at odd squares.
+     * Control: without the parity normalisation, squares acquire Type I/II solutions.
+   * **Thm 2.4(a) (PROVED, unconditional; relative to Bombieri–Vinogradov and the Rosser–Iwaniec linear sieve, reconstructed in full by both reviewers).** For |S| ≥ 4, every non-square n coprime to 2S is solvable in ES^{(S)}.
+     * The proof is a Gupta–Murty argument. The sifted variable is the PRIME r ≡ 3 (mod 4) with (n/r) = −1 (a congruence mod 4·rad(n), so no n-uniformity is needed). For such r with [F_r^* : ⟨S⟩] ≤ 2, −n/4 ≡ Q² mod r for some Q ∈ ⟨S⟩, and the shot n + 4Q² has the prime factor r.
+     * T1 enters only through (n/r) = −1. The result is ineffective.
+     * Corollary (R186 m4): ES^{(S)}(n) holds for EVERY n > 1 coprime to 2S, squares included, by divisibility from a prime factor.
+     * EVIDENCE (both reviewers, independent code; S = {3, 5, 7, 11}): all primes 13 ≤ p < 5·10⁴ and all non-squares < 2·10⁴ coprime to 2S are solved. The squares have no shot.
+   * **Prop 6.1 (PROVED).** Within the orbit family, a shot solution is a genuine ES solution iff g ≡ −1 (mod 4Q). The growing modulus of B2 is *exactly* what separates ES from the provable ES^{(S)}. Along an S-orbit ES gets only a convergent lottery (Assessment).
+   * Thm 5.1 (PROVED, unconditional: large sieve + Chebotarev). For V_φ ((J)21), #{odd n ≤ X with no successful shot} ≪ X^{3/4} log²X: a power saving. CRT large sieves for ES are capped at a (log N)^{3/4} saving ((A)19). The squares {m², 5m²} saturate the large-sieve barrier X^{1/2}.
+     * Thm 5.2 (CONDITIONAL, GRH via Lenstra Cor 4.8): the V_φ failure set is exactly the T1 set.
+   * Assessment (Thm 6.2 and the overall picture). This is the first unconditional proof, for every non-square, of an ES-type equation that keeps T1 exactly. The mechanism is infinitely many shots of FIXED modulus, which over ℤ requires the mute S-normalisation. Whether ES itself admits an infinite fixed-modulus shot family is the open question (pursued by O191).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
