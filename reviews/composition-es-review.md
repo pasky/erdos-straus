@@ -5,6 +5,10 @@ side-agent/composition-es @ 75ad4b51. From-scratch scripts: `scripts/review_cp_*
 
 Status: round 1 complete.
 
+**Repairs applied** (author quiet at end of review; all marked “(R203 repair …)” in COMPOSITION_ES.md / the O203
+report): M1 (Cor 1.4(a) wording + counterexample), m1, m2, m3, m4, m5, m6, m7 (report), m8, m9. No mathematical
+claim changed except narrowing Cor 1.4(a) to what is proved.
+
 ## Summary verdicts
 
 | Claim | Verdict |

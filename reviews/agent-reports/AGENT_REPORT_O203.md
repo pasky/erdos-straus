@@ -1,6 +1,6 @@
 # AGENT REPORT O203 — composition as a generator of ES certificates on V_n (spark relay X)
 
-Main file: COMPOSITION_ES.md. Scripts: scripts/cp_law.py, cp_census.py, cp_cross.py, cp_typeii.py. Data: data/cp/.
+Main file: COMPOSITION_ES.md. Scripts: scripts/cp_law.py, cp_census.py, cp_cross.py, cp_typeii.py. Data: none committed (R203 repair m7: data/cp/ is not in the branch; the p ≤ 1000 census was reproduced exactly by R203, logs/review_cp_census_5_1000.txt).
 **ES not solved; no infinite case claimed.** Outcome: a precise fixed-μ negative theorem, an exact reduction of
 the across-μ question to the Type II divisor problem, and an exact (equivalent) Machin-type dictionary.
 Self-review (deep reviewer, R-O203) found 3 MAJOR + 3 MODERATE + minor defects; all repaired in place, marked
@@ -33,7 +33,7 @@ V_n points; depth-1 case μ ≤ 2n; even n' = pd in Prop 4.1; no "log³ main ter
 * Census (EVIDENCE, cp_census 5 1000): 166 primes, 1736 ES points, 690 with D prime; 284 of 1046 composite-D ES
   ideals have a principal proper divisor; 41 are unit × three V_n points at the same μ (R202 shape); 88/166 primes
   have ≥ 1 decomposable ES point. T1: 0 ES points at 21 odd squares ≤ 1849. (A p ∈ [1000, 3000] run was started,
-  output data/cp/census_1000_3000.txt, may not have finished.)
+  output data/cp/census_1000_3000.txt, may not have finished; NOT used by the document — R203 ran 1000 < p ≤ 3000 independently: logs/review_cp_census_1000_3000.txt.)
 * §5 (EVIDENCE): composition in ℤ[√−n] (sees all μ) maps V_n points to V_n points 0 times (pairs and 20 000
   triples, n = 13, 59, 97, 101), same as size-matched random baseline.
 * §6 Barrier screen: fully inside B2; B3's large ES^{[2]} main term cannot be transported to B = 1 since B = 1 is

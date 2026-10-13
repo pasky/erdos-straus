@@ -9,7 +9,7 @@ Notation. n > 1 odd; μ > √n an integer with f := μ² − n not a square; K =
 V_n : nA² + B² + D = 2μAB, D | μ, A even, B odd, gcd(A, B) = gcd(B, n) = 1, A, B, D > 0 ("a V_n point at μ").
 "ES point" := V_n point with B = 1 = a solution of ES's d = 1 Type II shot family ("4k²n + 1 has a divisor
 ≡ −1 (mod 4k)", GROWING_MUTE Prop 1.1(c)). ES(n) itself can hold without any ES point (e.g. n = 13, 37, 97; exactly
-99 primes < 10⁶, GROWING_MUTE R201); all of Type II is covered by the slices V_{nd} (Prop 4.1(b)).
+99 primes < 10⁶, GROWING_MUTE R201); for n = p prime all of Type II is covered by the slices V_{pd} (Prop 4.1(b); R203 repair m9).
 
 ## 0. Iteration log
 
@@ -63,10 +63,13 @@ gcd(4t, 4tj − 1) = 1. ∎
 μ is the scalar condition N(ε_μ) | μ on the element ε_μ, which exists in O'_μ for every μ > n regardless of any
 other point. Hence:
 (a) if 4tj − 1 ∤ μ, no element of O'_μ obtained by any operation (products, units, conjugation, quotients) from
-V_n points at μ has B = 1 — however many V_n points exist at μ (they typically do: MARKOFF_ES §6);
+V_n points at μ is a V_n point with B = 1 (an ES point) — however many V_n points exist at μ (they typically do:
+MARKOFF_ES §6). (R203 repair M1: the B = 1 ELEMENT ε_μ itself can be such a composition even when N(ε_μ) ∤ μ, e.g.
+n = 11, μ = 18, D = 27 ∤ 18: ε₁₈ = u·α³ with α the V₁₁ point (A, B, D) = (46766, 14413, 3), u a unit of O'
+(`scripts/review_cp_cor14.py`); it is the scalar condition N(ε_μ) | μ, not reachability, that fails.)
 (b) if 4tj − 1 | μ, the ES point already exists, and it is "obtained by composition" from V_n points at μ in the
 trivial sense ε_μ = ε^k·(ε^{−k}ε_μ) (ε the fundamental unit of O'; the factor ε^{−k}ε_μ is a B > 1 point of the
-same Pell orbit). Nontrivially (r ≥ 3 V_n points, each of norm ≤ −3) iff there is a chain of principal divisors
+same Pell orbit — i.e. a unit times ONE V_n point, R203 repair m1). Nontrivially (r ≥ 3 V_n points, each of norm ≤ −3) iff there is a chain of principal divisors
 𝔡₁ | 𝔡₂ | (ε_μ), 1 < N𝔡₁ < N𝔡₂ < D = 4tj − 1, with negative-norm generator of 𝔡₁ and positive-norm generator of
 𝔡₂ (then 𝔡₁, 𝔡₂𝔡₁⁻¹, (ε_μ)𝔡₂⁻¹ all have negative-norm generators; longer chains likewise). A single principal
 proper divisor only gives ε_μ = u·α·β with one factor of POSITIVE norm, which is not a V_n point (R-O203 #3:
@@ -87,8 +90,8 @@ negative norm. By Prop 1.2(c) O' has no unit of norm −1, so δ ≠ 1, δ² = 1
 χ₋₄ : 𝔞 ↦ (−4/N𝔞) is a character of Cl⁺(O') (on ideals prime to 2) with χ₋₄(δ) = −1 (Prop 1.2(c)).
 
 **Proposition 2.1 (V_n values are the δ-fibre of the box; PROVED).** (a) D is the D-value of a V_n point at μ iff
-some 𝔡 ∈ 𝔅(μ) with N𝔡 = D has [𝔡]⁺ = δ. The V_n points with α ∈ 𝔡 form, up to ι_B, one orbit of ε (fundamental
-unit of O'), whose members have unbounded A.
+some 𝔡 ∈ 𝔅(μ) with N𝔡 = D has [𝔡]⁺ = δ. The V_n points with (α) = 𝔡 form exactly one orbit of ε (fundamental
+unit of O'), whose members have unbounded A; ι_B maps it onto the orbit of 𝔡̄ (R203 repair m2).
 (b) Composition (Prop 1.2) is ideal multiplication: [𝔡₁𝔡₂𝔡₃]⁺ = δ³ = δ, and the product is again in the box iff
 the norms multiply inside μ AND the product is primitive (same prime above every shared ℓ; R-O203 #2: n = 53,
 μ = 54, α = −107 + 2√2863, N α = −3: α·(−ᾱ)·α = 3α is not primitive although 27 | 54).
@@ -147,7 +150,7 @@ pigeonhole, …) that outputs ES points outputs elements of this finite explicit
 some 4dj²p + 1 has a divisor ≡ −1 (mod 4dj) (cube (d, j)-line) — the moving-modulus divisor problem of B2. Confined
 to d = 1 (V_p itself) it is FALSE at exactly 99 primes p < 10⁶ (13, 37, 97, …; GROWING_MUTE R201).
 *Proof.* (a) Thm 1.3; the bound from j ≤ (n + 4t² + 1)/(4t) = t + (n + 1)/(4t), μ = nj + t convex in t, maximal at
-t = n. (b) For n' = pd, A = 2j: n'A² + 1 = 4dj²p + 1 = D·g with g = 2λA − 1 = 4λj − 1. A cube point is a divisor
+t = n (R203 repair m3: endpoint t = 1 gives (n + 1)(n + 4)/4, which is smaller). (b) For n' = pd, A = 2j: n'A² + 1 = 4dj²p + 1 = D·g with g = 2λA − 1 = 4λj − 1. A cube point is a divisor
 h ≡ −1 (mod 4dj) of 4dj²p + 1; take h = g, c = λ/d: g ≡ −1 (mod 4dj) ⟺ d | λ. Conversely from h put g := h,
 λ := (g + 1)/(2A) = cd ∈ ℤ, D := (n'A² + 1)/g; by GROWING_MUTE Prop 1.2(a) (g | n'A² + B², g ≡ −1 mod 2AB, B = 1)
 this is a V_{n'} point with μ = λD, and d | λ. (c) (a), (b) and FIXED_MODULUS_SHOTS Lemma 1.1. ∎
@@ -172,8 +175,8 @@ i.e. (i). (iii): cot(θ₁ + θ₂) = (ab − 1)/(a + b) with a = 2c√(d/p), b 
 equal to 1/(2j√(dp)) iff (i) (all angles in (0, π/2)). The Egyptian identity is (i) divided by pcdsj. ∎
 *Reading.* This is the arctangent/Gaussian-integer correspondence of Machin–Størmer, transported to ℤ[√−pd]: the
 ES point is the factorisation of the "target" 1 + 2j√−pd into two elements of the prescribed shape 2(·)d + √−pd,
-i.e. (by norms) (4cdj − 1)(4sdj − 1) = 4dj²p + 1 — the cube's (d, j)-line. For d = 1 it is the real-quadratic slot
-ε_μ of Thm 1.3 seen from the imaginary side (D = 4tj − 1 with t = c). Shape parity: a product of r elements
+i.e. (expanding with (i); R203 repair m4) (4cdj − 1)(4sdj − 1) = 4dj²p + 1 — the cube's (d, j)-line. For d = 1 it is the real-quadratic slot
+ε_μ of Thm 1.3 seen from the imaginary side (D = 4tj − 1 with t = s under Prop 4.1(b), t = c for the mirror point (s, d, j); R203 repair m5). Shape parity: a product of r elements
 (even) + (odd)·√−n has shape (odd) + (even)·√−n iff r is even, so longer compositions ∏(2t_i + √−n) ∝ 1 + 2j√−n
 need r even ≥ 4 (they no longer have the two-factor shape of (ii); whether they can encode 3-term ES identities is not examined). The classical Størmer theory has no
 existence theorem to import: for two terms it is exactly "1 + c² has a divisor in the right place", i.e. B2 again
@@ -183,7 +186,8 @@ not a divisor-in-a-residue-class condition; quoted from memory (Todd 1949), not 
 **EVIDENCE (`scripts/cp_cross.py n X ntrip`, n = 13, 59, 97, 101; X = 40, 120).** Products β₁β₂, β₁β̄₂ of V_n
 points with A, B ≤ X (14 resp. 21 points for X = 120) and 20 000 random triple products: **0** of the admissible
 products are V_n points (pair: 0/123, 0/199; triple: 0/6001, 0/2904), and 0 in the size-matched random baseline.
-Composition in ℤ[√−n] does not preserve V_n: the congruence modulus 2AB of the product is a new, multiplicatively
+Composition in ℤ[√−n] was not observed to produce V_n points (0 hits, as for the baseline, so the test cannot
+separate composition from chance; R203 repair m6): the congruence modulus 2AB of the product is a new, multiplicatively
 larger modulus (B2's "modulus part of the solution").
 
 **Census (EVIDENCE; `scripts/cp_census.py lo hi cap [sq]`).** For every ES point (μ, D = N(ε_μ)) of every prime
@@ -213,7 +217,7 @@ only). In every case the factorisation is a re-expression of an ES point that ex
 * **B3 (main term).** The λ-direction main term (MARKOFF_ES §6, ≍ Λ/√log Λ) belongs to ES^{[2]} (B free). The
   B = 1 locus is finite (Prop 4.1(a): μ ≤ n² + n + (n+1)/4), so for fixed n there is no growing parameter and no main term at all (the Type II count per
 prime is the classical one; no lower bound for it is known pointwise);
-  composition cannot transfer the large ES^{[2]} main term to B = 1 because B = 1 is not a class/ideal condition
+  (Assessment, R203 repair m8) composition cannot transfer the large ES^{[2]} main term to B = 1 because B = 1 is not a class/ideal condition
   (Prop 2.1(c)).
 * **B5 (T1).** Prop 2.1(d): at n = m² the δ-fibre of every box is empty (χ₋₄ ≡ 1); census control: 0 ES points at
   21 odd squares ≤ 1849. Every statement above is consistent with T1; none uses a step false at squares that is
