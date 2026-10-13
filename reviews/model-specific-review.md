@@ -57,6 +57,33 @@ Own enumeration: n = 131: 43 words, 29 with χ = −1 (all in S_4), 0 in S_8; n 
   m = 8..15 are exactly the document's lists/counts (8: 5, 9: 3, 10: 7, 11: 2, 12: 20 up to 12241, 13: 9 up to 281,
   14: 8 up to 353, 15: 23 up to 20521). PW's ranges (10¹²–10¹⁸) are as quoted.
 
+### §2 Lemma 2.1 (parity) — **SOUND**
+Re-derived: v₂(4/n) = 2 for odd n. Three odd denominators → v₂(sum) = 0 (odd numerator xy+yz+zx over odd xyz).
+Exactly two odd (x, y), z even: v₂(1/x + 1/y) ≥ 1 > v₂(1/z) = −v₂(z), so v₂(sum) = −v₂(z) < 0. Hence all even or
+exactly one odd ✓. (b) is scaling; sorted order is preserved ✓. (c) In ET/PW coordinates each denominator is (product of
+two of a, b, c)·d·(p or 1); with d odd, all three even forces two of a, b, c even, contradicting pairwise coprimality ✓.
+p ≡ 3 (mod 4) construction: 1/(k+1) + 1/(k(k+1)) = 1/k, 1/(kp) + 1/k = (p+1)/(kp) = 4/p; whichever of k, k+1 is odd
+gives the unique odd denominator ✓.
+EVIDENCE re-run (own engine, `review_ms_census m N oneodd|alleven`): one-odd 4/p never fails for primes 3 ≤ p ≤ 10⁷
+(664 578 primes; the 10⁸ claim not re-run); counts 4/131: 32 one-odd, 0 even; 4/241: 8 one-odd ✓. All-even share of
+f_4 on primes (10⁴, 2·10⁴): 0.448 ✓. No 2- or 3-odd solutions occur in any count I ran (as proved).
+
+### §5 count law — numbers **SOUND**, labels **SOUND-AFTER-REPAIRS** (minor wording)
+* §5.1 recomputed (`review_ms_stats.py`, own counts, 1033 primes in [10⁴, 2·10⁴)): m·mean f_m/(4 mean f_4) =
+  1.157 (m=5), 0.895 (8), 0.798 (12), 0.737 (16), 0.767 (20) — document 1.16, 0.90, 0.80, 0.74, 0.77 ✓.
+  mean f_8 on primes in [150, 260): 15.2 (document "≈ 13 at p ≈ 200" from the fit — fine).
+* §5.3 numbers agree with the author's `data/ms/tail_1e7.txt` (1.45/0.84 for m = 4; 1.85/1.06; 2.47/1.35; 2.99/1.57;
+  combined 4.82–8.76 ✓; e^{−1.45} = 0.235, e^{−0.84} = 0.43 ✓). I did not re-implement the binned F(μ) model
+  (it is an Assessment; the inputs — counts and census — were re-verified above).
+* Labels: §5 is "EVIDENCE + Assessment"; the luck statements are inside an explicit Assessment with the Poisson
+  assumption and the small-p miscalibration stated. Not overclaimed in substance. Defects D2–D4 below are wording.
+
+### §6 B7 screen — **SOUND** (all spot-checked rows reproduced exactly)
+Own engine, primes ≤ 10⁶: 8/p one-odd part fails at {3, 11, 17, 59, 131, 241, 449} ✓; 8/p Type I alone fails at
+{3, 11, 17, 131, 241} ✓; 8/p Type II alone at 22 primes, last 35569 ✓; 4/p Type I alone and Type II alone: 0 failures ✓.
+S_m(p) = ∅ for primes ≤ 10⁵ (`review_ms_slices.c`, direct word enumeration): m = 4: 0, 5: 0, 6: 25 (last 35911),
+7: 10 (last 12601), 8: 23 (last 83449, list contains 3, 11, 17, 131, 241), 12: 156 ✓ — all as in Cor 3.2's EVIDENCE.
+
 ## Defects
 (numbered; FATAL / MAJOR / MINOR)
 
