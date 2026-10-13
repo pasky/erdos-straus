@@ -38,9 +38,10 @@ adv_stacked_primes, hardness_law); the new point is the orientation of the analo
 * B5/T1: item 3 is T1 itself in profinite form; over ℤ it obstructs, over F_q[T] it leaves a parity constraint.
 * B1: "pretentiousness" is congruence data (χ_p(ℓ) for ℓ ≤ y), so it can only modulate the main term (B3), never
   certify. The Granville–Soundararajan maximum log L(1, χ) ≤ log log p + O(1) bounds how pretentious a prime can be
-  — **this is the one place where a pretentious-character theorem says something at a single p**: the number of
-  ℓ ≤ y with χ_p(ℓ) = +1 cannot be all ℓ ≤ (log p)^{1+δ}... (under GRH, least QNR ≪ log²p). That bounds the
-  "squareness" of p by a polylog modulus — exactly the scale where B4 (pigeonhole on small primes) already fails.
+  (under GRH) — this is the one place where a pretentious-character theorem says something at a single p. Under
+  GRH the least QNR is ≤ 2 log²p (Bach), so p cannot be a square modulo all ℓ ≤ 2 log²p; unconditionally only
+  ℓ ≤ p^{1/(4√e)+o(1)} (Burgess). That bounds the "squareness" of p at a polylog modulus — exactly the scale where
+  B4 (pigeonhole on small primes) already fails.
 * H-A: unchanged.
 
 ## Literature
