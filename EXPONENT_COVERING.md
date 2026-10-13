@@ -51,3 +51,41 @@ n_m ≡ 4^j (mod 2^L − 1) mimics the even square 4^j (the "2²-mimicking" form
 
 Remark 1.3. The same holds verbatim for k·b^m + c (2 replaced by the primes of b) and for any sequence whose reduction modulo every M
 is eventually periodic (Lucas sequences etc.), with Ẑ replaced by the appropriate profinite exponent space.
+
+## 2. Why B1 does not apply: product vs. coupled parameter spaces (PROVED)
+**Proposition 2.1 (polynomial families).** Let f ∈ Z[t] be non-constant and F = {f(t) : t ∈ Z, t ≡ t₀ (mod T)}. The closure of F in Ẑ is
+f(t₀ + TẐ), computed componentwise: f(t)_q = f(t_q). Hence F̄ ∩ Sq^× ≠ ∅ iff for every prime q (q = 2 included, with "≡ 1 mod 8") there is
+t_q ∈ t₀ + TZ_q with f(t_q) a unit square in Z_q. Consequently a finite ET/divisor covering of F exists only if (i) some *single* prime power
+q^e makes f(t) a non-(unit square) mod q^e for all t ≡ t₀ (T) — a one-prime local obstruction — or (ii) F̄ avoids Sq^× because of (i) after all.
+Only finitely many q can do (i) (for q ∤ 2T·lc(f)·disc(f) large, y² = f(t) has a smooth F_q-point with y ≠ 0 by Weil, which lifts by Hensel).
+*Proof.* Ẑ = Π_q Z_q and f commutes with the projections, so independent local choices t_q glue to t̂ ∈ Ẑ; then f(t̂) ∈ Sq^× and
+Theorem 1.4 (whose proof is family-agnostic: any compact closure + clopen classes) excludes a covering. ∎
+This is the mechanism behind B1 (Mordell/Schinzel; POINTWISE_SIZE Thm C at the rational point q*_univ): the prime/integer family is
+"locally a unit square at each prime separately", and the product structure glues the local points into a profinite square-mimicking point.
+
+**Proposition 2.2 (exponential families: the coupling).** For n_m = k·2^m + c the q-component of ν(μ) depends on μ through
+μ mod ord_q(2)·q^∞ only, and these quotients of Ẑ are *not independent* as q varies (they share the prime factors of the orders).
+Let A_q := {μ ∈ Ẑ : ν(μ)_q ∈ (Z_q^×)²}, a clopen set (for q ∤ k: A_q ≠ ∅ iff ... it is a union of classes mod ord_q(2)·q^{e}).
+Then Λ_k ∩ Sq^× = ⋂_q A_q (the 2-component c = 1 is a square), and by compactness it is empty iff ⋂_{q ∈ Q} A_q = ∅ for a finite set Q.
+That finite emptiness statement is a **Sierpiński covering of the exponents by quadratic characters (and divisibilities)**: for every
+m mod L = lcm_{q∈Q} ord_q(2), some q ∈ Q has q | n_m or (n_m/q) = −1. Unlike the polynomial case, each A_q can be non-empty
+(every single prime is locally harmless) while the intersection is empty. So the hypothesis of B1 that fails is *product structure of
+the parameter space over the target primes*. (PROVED: this is a restatement of Theorem 1.4 plus compactness.)
+
+Example (k = 27, Q = {5, 7, 13}, L = 12): writing (χ₅, χ₇, χ₁₃) for the Legendre symbols of n_m (0 = divisible):
+m ≡ 0,3,6,9 → 7 | n_m; m ≡ 1,5,9 → 5 | n_m; m ≡ 4,7,10 → (n_m/7) = −1 (n_m ≡ 6 mod 7); m ≡ 8, 11 → (n/5) = −1;
+m ≡ 2 → n_m ≡ 5 (mod 13), (5/13) = −1, while (n_m/3) = (n_m/5) = (n_m/7) = +1 — this is the class where n_m ≡ 529 (mod 840),
+Mordell's hard class. Each A_q alone is non-empty; A₅ ∩ A₇ ∩ A₁₃ = ∅.
+
+## 3. The Skolem / Bertók–Hajdu dictionary (SHARP; dictionary PROVED, the principle CONJECTURE)
+By Theorem 1.4 and Prop 2.2, the square half of the covering problem for n_m = k·2^m + 1 is exactly:
+> (EH_k) *If the equation k·2^x + 1 = y² has no solution with x ∈ Z and y ∈ Z a unit at every odd prime (i.e. y = ±2^j), then it has
+> no solution modulo some M: there is M such that k·2^x + 1 ≢ (unit)² (mod M) for every x ≥ v₂(M).*
+Equivalently Λ_k ∩ Sq^× = ∅ for every k ≠ 4^j − 1 (Cor 1.5 identifies the global solutions). (EH_k) is an *exponential local–global
+principle* of exactly the type of Skolem's conjecture and of the Hasse-type principle of Bertók–Hajdu (arXiv:1407.6499, Math. Comp. 2016;
+extension Monatsh. Math. 2018, doi 10.1007/s00605-018-1169-8), with one twist: the unknown y ranges over a non-finitely-generated
+group of units, so it is a *mixed* (exponential + square) principle. Bertók–Hajdu prove their principle for "almost all" equations and
+find moduli via numbers m with small Carmichael λ(m) (Erdős–Pomerance–Schmutz); our moduli M | 2^L − 1 with L highly composite are the
+same device. **So: ES on k·2^m + 1 by fixed slices ⟸ (EH_k) + "no sterile non-square point in Λ_k"; and ⟹ (EH_k).**
+The second condition is the campaign's sterile-set question (POINTWISE_TYPEI2, LORENZINI_W §4) restricted to a compact
+one-parameter set.
