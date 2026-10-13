@@ -128,3 +128,6 @@ subset of R̂^* with no degree data. The Jacobi sign of Prop 4.1 (FUNCTIONFIELD_
 a property of the individual Type II datum, not a validity condition, so it cannot obstruct a congruence family.
 EVIDENCE: failures for q = 7, A = T (6, 21, 25, 16, 4, 0 at n = 2..7) and q = 3, A = T² (3, 2, 2, 0 at n = 3..6, 0
 to n = 15) show no parity pattern.
+Independent brute-force check of Case A (`scripts/ff2_caseA_check.py`, all monic a0, b0 of degree ≤ 4, all E | a0+b0
+with the achievable leading coefficients): 0 Case A families at u = 1 + T and u = 1 + 2T; sanity: 6 hits at
+u = 2 + T (degree ≤ 3).
