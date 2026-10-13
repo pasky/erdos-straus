@@ -37,7 +37,7 @@ for g in [A]:
     pass
 # Phi(A) by brute count of units mod A
 PhiA = sum(1 for a in range(p ** k) if len(F.gcd(A, F.trim([(a // p ** i) % p for i in range(k)]) or (0,))) == 1) if k else 1
-delta = math.prod(1 - 1 / l for l in lq) / (2 * PhiA)
+delta = math.prod(1 - 1 / l for l in lq) / ((2 if p % 2 else 1) * PhiA)  # c_q = 1 in char 2 (R195 M4)
 minus1 = F.mod((p - 1,), A)
 
 fs = [f for f in F.irreducibles(d) if F.mod(f, A) == minus1]
@@ -52,10 +52,13 @@ for Pstr in sys.argv[5:]:
         tested += 1
         Ainv = F.egcd_inv(A, f)
         t = F.mod(F.neg(F.mul(P, Ainv)), f)
-        sq = F.powmod(t, (Qd - 1) // 2, f) == (1,)
-        leg = F.powmod(f, (p ** n - 1) // 2, P)
-        legv = 1 if leg == (1,) else -1
-        mism += (sq != (legv == tau))
+        if p % 2:
+            sq = F.powmod(t, (Qd - 1) // 2, f) == (1,)
+            leg = F.powmod(f, (p ** n - 1) // 2, P)
+            legv = 1 if leg == (1,) else -1
+            mism += (sq != (legv == tau))
+        else:
+            sq = True  # char 2: every element of F_{2^d} is a square
         for l in lq:
             pw = F.powmod(s, (Qd - 1) // l, f) == (1,)
             sym = F.powmod(f, (p ** h - 1) // l, s)

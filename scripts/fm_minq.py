@@ -1,5 +1,5 @@
 """FF_MUTE (O195): minimal mute shot height.  For every irreducible P of degree n (n1..n2), P coprime to sA, find the
-least j >= 0 such that P + A s^{2j} has a monic irreducible factor f = -1 (mod A) giving a VALID solution of Prop 2.1's
+least j >= 0 such that P + A s^{2j} has a monic divisor f (prime or composite) = -1 (mod A), deg f >= 1, giving a VALID solution of Prop 2.1's
 formulas (X, Y, Zn monic, identity, parity, NC), checked exactly.  Factorisation by sympy (independent of fm_poly's
 orbit/discrete-log search in fm_mute.py).  Reports per n: #P, #(j=0), max least j, mean least j, #unsolved (j<=jmax).
 
@@ -63,9 +63,17 @@ for n in range(n1, n2 + 1):
         Q2 = (1,)
         for j in range(jmax + 1):
             shot = F.add(P, F.mul(A, Q2))
-            for fac, _ in to_sym(shot).factor_list()[1]:
-                f = from_sym(fac.monic())
-                if len(f) > 1 and f != s and F.mod(f, A) == minus1 and valid(P, f, j):
+            facs = [(from_sym(fc.monic()), e) for fc, e in to_sym(shot).factor_list()[1]]
+            divs = [(1,)]
+            for g, e in facs:  # all monic divisors (R195 M3: composite moduli are allowed by Prop 2.1)
+                new = []
+                for dv in divs:
+                    x = dv
+                    for _ in range(e + 1):
+                        new.append(x); x = F.mul(x, g)
+                divs = new
+            for f in sorted(divs, key=len):
+                if len(f) > 1 and F.mod(f, A) == minus1 and valid(P, f, j):
                     found = (j, f); break
             if found:
                 break

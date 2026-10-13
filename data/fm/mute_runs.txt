@@ -6,3 +6,4 @@ q=3 A=10 s=1021 n<=9: P=3500 unsolved/badverify=0 min-d histogram={1: 1759, 2: 1
 q=11 A=10 s=11 n<=4: P=4134 unsolved/badverify=0 min-d histogram={1: 2084, 2: 1886, 3: 164} s-primitive-at-chosen-f=3831 j0=0(ES shot P+A)=464 max j0=660
 q=2 A=1000 s=11 n<=14: P=2535 unsolved/badverify=0 min-d histogram={4: 841, 5: 1693, 6: 1} s-primitive-at-chosen-f=1694 j0=0(ES shot P+A)=220 max j0=47
 q=2 A=10011 s=111 n<=13: P=1371 unsolved/badverify=0 min-d histogram={7: 1371} s-primitive-at-chosen-f=1371 j0=0(ES shot P+A)=13 max j0=126
+# NOTE (R195 M4): the 's-primitive-at-chosen-f' column above was computed by 2*ord(s^2)==q^d-1, which is wrong when q^d-1 = 2 mod 4; fixed in fm_mute.py (exact ord(s)); column not used in FF_MUTE.

@@ -1,7 +1,7 @@
 """FF_MUTE (O195): solve ES_q^{(s)}(A,P) by the mute shot (Prop 2.1) for every irreducible P of degree <= N,
 and verify every solution exactly.
 
-usage: fm_mute.py p A s N [maxd]
+usage: fm_mute.py p A s N [maxd] [nmin]
   p prime, A and s as digit strings high->low (e.g. A=100 is T^2, s=11 is T+1).
 For each P: search moduli f (monic irreducible, f = -1 mod A, f not s, f != P) by increasing degree d <= maxd;
 for each, test whether -P/A lies in <s^2> mod f (discrete log by enumeration of the orbit). Records the least d,
@@ -16,6 +16,7 @@ from fm_poly import Fp, parse, show
 p = int(sys.argv[1]); F = Fp(p)
 A = parse(sys.argv[2]); s = parse(sys.argv[3]); N = int(sys.argv[4])
 maxd = int(sys.argv[5]) if len(sys.argv) > 5 else 8
+nmin = int(sys.argv[6]) if len(sys.argv) > 6 else None  # default: max(1, deg A)
 k = len(A) - 1
 minus1 = F.mod((p - 1,), A) if k >= 1 else ()
 assert F.mod(A, s), "s | A"
@@ -37,7 +38,11 @@ def moduli(d):
                 orb[x] = j
                 x = F.mulmod(x, s2, f); j += 1
             ords = len(orb)  # order of s^2
-            prim = (2 * ords == p ** d - 1) if p % 2 else (ords == p ** d - 1)
+            # order of s itself (R195 M4: 2*ord(s^2) = q^d-1 does not imply s primitive)
+            x = s1 = F.mod(s, f); os_ = 1
+            while x != (1,):
+                x = F.mulmod(x, s1, f); os_ += 1
+            prim = (os_ == p ** d - 1)
             L.append((f, orb, ords, prim))
         fcache[d] = L
     return fcache[d]
@@ -89,7 +94,7 @@ def build_verify(P, f, j0, ords):
 
 def main():
     tot = 0; bad = []; hist = {}; nprim = 0; nes = 0; maxj = 0; nq1 = 0
-    for n in range(max(1, k), N + 1):
+    for n in range(nmin if nmin is not None else max(1, k), N + 1):
         for P in F.irreducibles(n):
             if not F.mod(A, P) or P == s:
                 continue
