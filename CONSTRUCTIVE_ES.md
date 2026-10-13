@@ -1,0 +1,264 @@
+# CONSTRUCTIVE_ES — five-slice ES certificates as Eichler orders / supersingular 2-isogenies (task O199, spark relay T)
+
+Status: checkpoint in progress (O199). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Builds on CHI_FLIP.md (O198, CLAIMED, under review R198: Thm 1.1, Cor 1.3), MODEL_SPECIFIC Thm 3.1, DEDEKIND_ES Thm 4.5,
+DIFF_DEEP (supersingular transfer), KUDLA_ES. Scripts `scripts/ce_*` (library `ce_lib.py`: even Clifford orders,
+overorders, reduced discriminants, exact arithmetic).
+
+**Summary.** (1) Exact dictionary (PROVED): positive classical ternary lattices of determinant p anisotropic at p are
+in bijection with Eichler orders of level 2 in B_{p,∞}, i.e. with supersingular 2-isogenies modulo ⟨Frob, w₂⟩
+(Thm 1.2, Thm 2.1; class counts CERTIFIED for 8 primes); five-slice ES certificates are exactly the *path-shaped* classes
+(Cor 2.2), equivalently pairs of trace-zero endomorphisms i, j with ij + ji = −2, deg i·deg j = tp + 1 and a level-t ring
+condition. The middle letter t is a Frobenius distance (ε = −(1 + ij), ε² = −tp; t = 1 ⟺ 𝔽_p-rational spine edge, Cor 3.2–3.3).
+(2) Certificates give explicit maximal orders and non-residues deterministically (Prop 4.1); the converse fails, and no
+known deterministic construction (Pizer, Ibukiyama, Bröker, KLPT) is *guaranteed* to land on certificates beyond Mordell's q ≤ 7 (R199 repair: they do land on one
+whenever the Mordell-type congruence for the auxiliary q holds, e.g. q = 11 at p = 1009, 1129, 1801). (3) Lattice
+operations and Hecke-equivariant maps cannot transfer the always-present χ = +1 path class to the χ = −1 side beyond the
+main term (5.1, 5.2: the two Brandt modules share no cusp eigen-system, EVIDENCE at 5 primes). (4) (R199 repair) Certificates are
+not systematically among the smallest orders at hard primes: at 3 of 5 hard primes a certificate sits at a CM(−n_p)
+edge, at the other 2 it does not; the congruence data of the CM discriminant decide (5.5, EVIDENCE). Net (Assessment): an exact, illuminating relocation of ES onto
+the supersingular 2-isogeny graph; no existence mechanism; the content is again the divisor/shape lottery (B2/B3).
+
+## 0. Iteration log
+(I1) Dictionary target: certificate ⟹ which order? Found C₀(L_w) ⊂ unique Eichler order of level 2 (Thm 1.2) → edges of
+the 2-isogeny graph (Thm 2.1). (I2) "∃ curve" is vacuous (supersingular transfer); so look for a privileged curve/edge:
+spine (t = 1) gives only the classical slice p + 1 ∋ prime ≡ 3 (4) (Cor 3.3); CM(−q) edges of the deterministic
+constructions are certificates only under Mordell's congruence (Prop 4.1, 5.5). (I3) Barrier hypothesis targeted: "fixed
+slice / congruence data" — violated by moving to the full graph (all ≈ p/16 edge classes, R199 repair); then the obstruction is that path-ness
+is an exact shape condition (5.3). (I4) Try to flip from the always-non-empty side 𝔊⁺ (word (p+2,1,1)): lattice moves
+preserve χ (5.1); Hecke-equivariant transfers see only the Eisenstein part (5.2) — the barrier hypothesis "linear /
+Hecke-equivariant" is what a flip must violate (H-D needs a non-linear map). (I5) Smallest-order heuristic: refuted
+numerically at hard primes (5.5).
+
+Notation (as in CHI_FLIP). Word w = (t, u, v) ∈ ℤ³_{≥1}, tuv − u − v = n odd; A = tu − 1, A* = tv − 1, AA* = tn + 1;
+χ(w) = (−A/n). Path lattice L_w = ℤ³ with Gram G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (det n), classical
+(B(e_i, e_j) = G_ij, Q(x) = B(x, x)). C₀(L) = even Clifford order (Gross–Lucianovic: Gorenstein, reduced discriminant
+N(Q) = 4·det G). For n = p prime, ES five-slice certificate ⟺ χ(w) = −1 ⟺ C₀(L_w) ⊂ B_{p,∞} (CHI_FLIP Cor 1.3).
+
+## 1. The overorder ladder of C₀(L): Eichler orders of level 2 (PROVED + CERTIFIED)
+
+**Lemma 1.1 (2-adic isotropy test; PROVED, elementary).** An odd unimodular ternary ℤ₂-lattice L ≅ ⟨a₁, a₂, a₃⟩
+(a_i ∈ ℤ₂^*) is isotropic ⟺ not all a_i are congruent mod 4 ⟺ Q(x) ≡ 0 (mod 4) for some primitive x. In that case
+there are exactly two classes x mod 2L with Q(x) ≡ 0 (mod 4).
+*Proof.* Odd unimodular ℤ₂-lattices are diagonalisable. For x primitive with odd-coordinate set S ≠ ∅,
+Q(x) ≡ Σ_{i∈S} a_i (mod 4) (odd squares ≡ 1 mod 8; even coordinates contribute 0 mod 4); |S| ∈ {1, 3} gives an odd
+value, so Q(x) ≡ 0 (4) ⟺ |S| = 2 with a_i ≢ a_j (4); if the residues mod 4 are not all equal exactly two pairs qualify.
+The isotropy criterion depends only on a_i mod 8 (unit square classes) and is a finite Hilbert-symbol check:
+CERTIFIED for all 64 triples (`scripts/ce_check_lemma11.py`, 0 failures). ∎
+
+**Theorem 1.2 (the Eichler ladder; PROVED, with CERTIFIED numerics).** Let L be a positive classical ternary lattice of
+odd determinant n, Λ = C₀(L) (discrd 4n). Then:
+(a) every element of Λ has even reduced trace, and Λ has a unique overorder E(L) of index 2; E(L) has discrd 2n and
+Λ = E(L)^{ev} := {x ∈ E(L) : trd x ∈ 2ℤ};
+(b) if L ⊗ ℤ₂ is isotropic, E(L) ⊗ ℤ₂ is an Eichler order of level 2 in M₂(ℚ₂), contained in exactly two maximal
+orders, namely C₀(L⁺₁), C₀(L⁺₂) for the two overlattices L⁺_i = L + ℤ·x_i/2 of Lemma 1.1 (on which Q is integral,
+N(Q|L⁺_i) = n); if L ⊗ ℤ₂ is anisotropic, E(L) ⊗ ℤ₂ is the maximal order of the ramified algebra;
+(c) for n = p prime and χ(w) = −1 (L = L_w), **E(L_w) is an Eichler order of level 2 in B_{p,∞}**; for χ(w) = +1,
+E(L_w) is an Eichler order of level p in B_{2,∞}.
+*Proof.* trd(e_ie_j) = 2B(e_i, e_j) and trd 1 = 2, so trd(Λ) ⊂ 2ℤ. At odd ℓ, overorders of 2-power index change
+nothing, so everything is a statement about Λ₂ = C₀(L ⊗ ℤ₂), which depends only on the ℤ₂-isometry class of the
+diagonalisable lattice L ⊗ ℤ₂ ≅ ⟨a₁, a₂, a₃⟩, a_i ∈ {1, 3, 5, 7}. Finite check (`scripts/ce_check_thm12.py`, exact
+arithmetic on the ℤ-orders C₀(⟨a₁,a₂,a₃⟩), all 64 triples, 0 failures): unique index-2 overorder E, discrd(E) = discrd(Λ)/2,
+E contains an element of odd trace (so Λ = E^{ev}, both of index 2 in E), and the 2-power overorders of minimal
+discriminant are two of discrd discrd(Λ)/4 (isotropic) resp. E itself (anisotropic). An order of discrd 2 in M₂(ℚ₂)
+is hereditary, i.e. Eichler of level 2; in the division algebra discrd 2 is maximal. The two maximal overorders in the
+isotropic case are C₀(L⁺_i): L ⊂ L⁺_i gives C₀(L) ⊂ C₀(L⁺_i), and N(Q|L⁺_i) = N(Q|L)/4 = n.
+Conceptually Λ₂ = ℤ₂ + J(E₂): for E₂ = [[ℤ₂, ℤ₂], [2ℤ₂, ℤ₂]], ℤ₂ + J(E₂) = {[[a, b], [2c, d]] : a ≡ d (2)} = {x ∈ E₂ : trd x
+even}; for the ramified maximal order, ℤ₂ + πO₂ = {trd even} (trd mod π is the trace 𝔽₄ → 𝔽₂). (c) follows from
+CHI_FLIP Cor 1.3 (C₀(L_w) ⊂ B_{p,∞} iff χ = −1, else ⊂ B_{2,∞}) and (b): discrd 2p, so Eichler level 2 at 2 inside
+B_{p,∞}, resp. maximal at 2 and level p at p inside B_{2,∞}. ∎
+CERTIFIED (`scripts/ce_test1.py`, `ce_test2.py`): every word of p ∈ {41, 73, 89, 97, 113} (151 words): unique overorder
+of discrd 2p, 2E ⊂ Λ, and #maximal overorders of discrd p = 2 exactly when χ = −1 (72 words), 0 when χ = +1 (79 words).
+
+## 2. The bijection with supersingular 2-isogenies, and the exact ES dictionary
+
+Write 𝔊⁻_p (resp. 𝔊⁺_p) for the set of isometry classes of positive classical ternary lattices of determinant p
+anisotropic (resp. isotropic) at p, i.e. with C₀(L) ⊂ B_{p,∞} (resp. ⊂ B_{2,∞}). Each is a single genus (the p-adic class
+⟨1, a, pb⟩ is fixed by (−ab/p) = ∓1, the 2-adic class by the determinant and the Hasse invariant via Lemma 1.1).
+
+**Theorem 2.1 (PROVED; CERTIFIED class counts; R199 repair: known in substance — Brzezinski, Lehman, Gross–Lucianovic,
+Ponomarev; the packaging and the ES identification are new. Class-count equality independently re-CERTIFIED by R199 for
+all primes 5 ≤ p ≤ 139 and the eight primes below, via the X₀(2) Hauptmodul).** L ↦ E(L) is a bijection
+𝔊⁻_p ⟷ {isomorphism classes of Eichler orders of level 2 in B_{p,∞}} ⟷ X₀(2)^{ss}(𝔽̄_p) / ⟨Frob_p, w₂⟩,
+with inverse E ↦ E^{ev} = C₀(L). Moreover L(E) ≅ (E⁰)^#(p): the dual of the trace-zero lattice E⁰ = {x ∈ E : trd x = 0}
+(form nrd, bilinear ⟨x, y⟩ = trd(xȳ)/2), rescaled by p. Likewise 𝔊⁺_p ⟷ Eichler orders of level p in B_{2,∞}.
+*Proof.* Injectivity and well-definedness: Thm 1.2(a),(c) (E(L) is canonical, and L ≅ L′ ⟺ C₀(L) ≅ C₀(L′) by
+Gross–Lucianovic: twisted-similarity classes of ternary forms ⟷ isomorphism classes of Gorenstein orders; for positive
+forms of equal determinant twisted similarity is isometry up to sign). Surjectivity: let E be Eichler of level 2 in
+B_{p,∞}; E^{ev} is an order (locally at 2 it is ℤ₂ + J(E₂)), of discrd 4p. Every order of discrd 4p is Gorenstein: its
+Gross–Lucianovic form q has N(q) = 4p, and q = c·q′ would give c³ | 4p, so c = 1. Hence E^{ev} = C₀(q) with N(q) = 4p.
+Since all Eichler orders of level 2 are locally conjugate, E^{ev} ⊗ ℤ₂ ≅ C₀(⟨1, 1, 3⟩ ⊗ ℤ₂) (R199 repair: use the purely
+local Thm 1.2(b) for the isotropic odd unimodular ℤ₂-lattice ⟨1, 1, 3⟩, not a certificate word, which would presuppose
+ES-five(p)), so q ⊗ ℤ₂ is twisted-similar to a classical form; twisted similarity q ↦ u·det(g)⁻¹·q∘g preserves "classical"
+(even cross terms), so q is classical with Gram of determinant N/4 = p, positive after a sign; C₀ ⊂ B_{p,∞} gives
+anisotropy at p. Then E(L) = E by uniqueness in Thm 1.2(a). The Deuring correspondence sends (E, C), C ⊂ E[2] of order 2,
+to End(E, C) = {x ∈ End E : x(C) ⊂ C}, an Eichler order of level 2; every such order arises, and End(E, C) ≅ End(E′, C′)
+iff (E′, C′) is in the ⟨Frob_p, w₂⟩-orbit of (E, C) (Frob_p: conjugate data; w₂: (E/C, E[2]/C), the same order seen from
+the other endpoint). Finally C₀(L)⁰ = E⁰ (trace-zero elements of E have even trace), and C₀(L)⁰ has Gram adj(G) = p·G⁻¹
+in the basis dual to e₁, e₂, e₃ (cofactor computation below), so L ≅ (E⁰)^#(p). ∎
+CERTIFIED (`scripts/ce_classes.py` canonical Minkowski forms; `scripts/ce_ss2.py`: supersingular j over 𝔽_{p²}, the three
+2-torsion x-coordinates of the canonical model, Vélu for w₂): |𝔊⁻_p| = #(X₀(2)^{ss}/⟨Frob, w₂⟩) for p = 37, 61, 73, 97,
+109, 157, 181, 193 (values 4, 6, 7, 9, 9, 14, 15, 15; p ≡ 1 mod 12 so that j = 0, 1728 are ordinary).
+
+**Explicit gram.** For the path lattice, adj(G_w) = [[A, u, 1], [u, uv, v], [1, v, A*]] (A = tu − 1, A* = tv − 1). In C₀(L_w):
+α = e₁e₂, β = e₂e₃, γ = e₁e₃ have trd α = trd β = −2, trd γ = 0, nrd α = tv, nrd β = tu, nrd γ = uv, and αβ = tγ.
+So i := 1 + α, j := 1 + β are trace zero with i² = −A*, j² = −A, ij + ji = −2 (⟨i, j⟩ = 1), and
+C₀(L_w) = ℤ⟨1, α, β, αβ/t⟩.
+
+**Corollary 2.2 (ES five-slice dictionary; PROVED).** For a prime p, TFAE:
+(i) p has an ES five-slice certificate (a word w ∈ X_p with χ(w) = −1; MODEL_SPECIFIC Thm 3.1, CHI_FLIP Cor 1.3);
+(ii) some class of 𝔊⁻_p has a *path basis*: Gram [[v, −1, 0], [−1, t, −1], [0, −1, u]] with t, u, v ≥ 1;
+(iii) some supersingular 2-isogeny (E, C) over 𝔽̄_p has (End(E, C)⁰)^#(p) with a path basis; equivalently End(E, C)⁰ has a
+basis of Gram [[A, u, 1], [u, uv, v], [1, v, A*]];
+(iv) some supersingular E/𝔽̄_p, some t ≥ 1 and trace-zero i, j ∈ End E satisfy
+  ij + ji = −2, deg i · deg j = tp + 1, (1 − i)(1 − j) ∈ t·End E.
+*Proof.* (i)⟺(ii): CHI_FLIP Cor 1.3 (any positive path lattice of det p is some L_w, letters ≥ 1 automatic: det > 0
+forces t > (u + v)/(uv) > 0 once u, v ≥ 1). (ii)⟺(iii): Thm 2.1. (i)⟹(iv): take a maximal order containing C₀(L_w)
+(Thm 1.2(b)), i = 1 + α, j = 1 + β; (1 − i)(1 − j) = αβ = tγ. (iv)⟹(i): put a = deg i, b = deg j. Since
+(1 + a)(1 + b) = nrd((1 − i)(1 − j)) ≡ 0 (mod t²) and ab ≡ 1 (mod t), for each ℓ^k ‖ t one gets ℓ^k | 1 + a and
+ℓ^k | 1 + b (if x = v_ℓ(1 + a) ≤ y = v_ℓ(1 + b) and x < k, then ℓ^x a′ + ℓ^y b′ ≡ 0 (mod ℓ^k) forces x = y, and then 2x ≥ 2k).
+So v := (1 + a)/t, u := (1 + b)/t are integers and (tv − 1)(tu − 1) = tp + 1 gives tuv − u − v = p. The pure quaternions
+i, j (non-commuting, since det [[a, 1], [1, b]] = tp ≠ 0) generate B_{p,∞}, and e₁e₂ ↦ i − 1, e₂e₃ ↦ j − 1 extends to an
+algebra embedding C₀(L_w) ⊗ ℚ → B_{p,∞} (the structure constants of C₀ are determined by traces, norms and ⟨i, j⟩),
+with e₁e₃ ↦ (i − 1)(j − 1)/t ∈ End E. So C₀(L_w) ⊂ End E ⊂ B_{p,∞}, i.e. χ(w) = −1. ∎
+
+*Reading (Assessment).* (iv) is the five-slice analogue of DIFF_DEEP Thm 2.1 (Type II: trace-zero x, y with ⟨x, y⟩ = 1
+plus a numerical divisibility); here the extra condition is a **ring condition at level t**: for odd prime ℓ | t,
+i and j act on E[ℓ] as involutions (i² = −a ≡ 1) and (1 − i)(1 − j) ≡ 0 (mod ℓ) says that the −1-eigenline of j equals the
++1-eigenline of i: i and j jointly preserve a cyclic subgroup C_ℓ, acting on it by +1 and −1. As always, the quantifier
+"∃ E" adds nothing (supersingular transfer): (iv) holds for some E iff a word with χ = −1 exists. The content is the
+**shape**: among the |𝔊⁻_p| ≈ p/16 classes (R199 repair: ≈ p/4 points of X₀(2)^ss in ⟨Frob, w₂⟩-orbits of size ≤ 4) (EVIDENCE: 15 at p = 193, 166 at p = 2521), the path classes are the *near-orthogonal*
+ones (off-diagonal entries −1, 0, −1), of which there are ≤ |X_p| ≍ log² p on average.
+
+## 3. The middle letter is a Frobenius distance; t = 1 is the spine (PROVED)
+
+**Proposition 3.1.** For an Eichler order E of level 2 in B_{p,∞} and L = L(E) = (E⁰)^#(p):
+p(E⁰)^# = {x ∈ E⁰ : p | nrd x}, hence r_L(m) = #{ε ∈ E⁰ : nrd ε = mp} for all m ≥ 1, i.e.
+θ_L(q) = Σ_{ε ∈ E⁰, p | nrd ε} q^{nrd(ε)/p}.
+*Proof.* Away from p, E⁰ is self-dual up to units (L is unimodular at ℓ ≠ p, including ℓ = 2, and E⁰ ≅ pL^# there). At p,
+L_p ≅ ⟨1, a, pb⟩, so E⁰_p ≅ ⟨p, pa, b⟩ (units a, b); there both sides equal {(x, y, z) : p | z}. ∎
+CERTIFIED (`scripts/ce_check_prop31.py`): r_L(m) = #{ε : nrd ε = mp} for m ≤ 12 on 456 path lattices, p < 400, 0 failures.
+
+**Corollary 3.2 (Frobenius distance).** A trace-zero ε ∈ End E with p | deg ε factors as ε = ψ ∘ π, π: E → E^{(p)}
+Frobenius, ψ: E^{(p)} → E of degree deg(ε)/p (every isogeny of p-divisible degree between supersingular curves factors
+through Frobenius). So min(L(E, C)) is the least m such that some isogeny E^{(p)} → E of degree m is compatible with C
+(the Frobenius distance of the edge, measured inside the Eichler order). For a certificate word w = (t, u, v):
+**ε := −(1 + ij) ∈ C₀(L_w)⁰ has nrd ε = AA* − 1 = tp** (it is the element dual to e₂, ε = −(i + j + tγ)); so the middle
+letter t is a Frobenius distance of the certificate edge. In particular **t = 1 ⟺ ε² = −p**: both ends are defined over
+𝔽_p (Z[√−p] ⊂ End E ⟺ j(E) ∈ 𝔽_p) and C is 𝔽_p-rational — the *spine* of the 2-isogeny graph — and then
+L ≅ ⟨1⟩ ⊥ M with M = [[v − 1, −1], [−1, u − 1]] a binary form of discriminant −4p. (R199 repair: min(L) is the least m for a *trace-zero* ψ∘π; non-trace-zero x ∈ E with p | nrd x have
+nrd x / p ≥ p/4 > (2p)^{1/3} ≥ min L for p ≥ 13, so the restriction is harmless. The letter t is the degree of one compatible
+Frobenius factor, so the Frobenius distance min(L) is ≤ t, not = t: at p = 2521 the certificates have min L = 2, t = 15, 44.)
+
+**Corollary 3.3 (the spine slice; PROVED, elementary).** For p ≡ 1 (mod 8), there is a certificate with t = 1 ⟺ p + 1 has a
+prime factor q ≡ 3 (mod 4). (Words (1, u, v) ⟺ (u − 1)(v − 1) = p + 1, χ = ((u − 1)/p); for an odd prime q | p + 1,
+(q/p) = (p/q) = (−1/q); (2/p) = 1.) For p ≡ 5 (8) (2/p) = −1 and a = 2 always works; p ≡ 3 (4) is trivial (a = 1).
+So the spine alone is Mordell-type congruence data plus one divisor event: it misses every p ≡ 1 (8) with
+(p + 1)/2 composed of primes ≡ 1 (mod 4) (relative density ≍ (log p)^{−1/2} heuristically; e.g. p = 73: 74 = 2·37 fails
+at t = 1, while (2, 4, 11) certifies 73). CERTIFIED (`scripts/ce_spine.py`): criterion = direct divisor check for all
+4466 primes p ≡ 1 (8) < 2·10⁵; 5013 of the 19 552 primes p ≡ 1 (8) < 10⁶ have no spine certificate.
+
+*Reading (Assessment).* Certificate edges with small t sit at Frobenius distance ≤ t from the spine; those with small A or A*
+(e.g. Mordell's A = q ∈ {2, 3, 5, 7}, CHI_FLIP §3.1) sit at the CM points of discriminant −4q, i.e. at the "special
+extremal" orders O₀ ∋ √−q used as starting points by Pizer, Ibukiyama, Bröker and KLPT. A certificate is thus an edge
+that is simultaneously t-close to the spine and carries CM by −4A, −4A*, −4uv with AA* = tp + 1: three QNR-type
+discriminants coupled through one Diophantine identity (the (J)1 CM dictionary, now located on the 2-isogeny graph).
+
+## 4. Deterministic constructions of B_{p,∞}-data versus certificates (reductions, with labels)
+
+Literature used (from memory, statements not re-derived here except where marked): Pizer (1980) explicit maximal orders —
+(−1, −p) for p ≡ 3 (4), (−2, −p) for p ≡ 5 (8), and for p ≡ 1 (8) (−p, −q) with an auxiliary **prime q ≡ 3 (4),
+(p/q) = −1**; Ibukiyama (1982) orders O(q, r) for primes q ≡ 3 (8) with (p/q) = −1, r² ≡ −p (q); Bröker (2009): a
+supersingular j in time Õ(log³ p) under GRH, by finding the least prime q ≡ 3 (4) with (−q/p) = −1 and a root of
+H_{−q} mod p; KLPT (2014) and Eisenträger–Hallgren–Lauter–Morrison–Petit (2018) start from such "special extremal" orders
+O₀ ⊃ ℤ[√−q]; Kaneko (1989): two non-commuting embedded orders of discriminants d₁, d₂ force d₁d₂ ≥ 4p; Chevyrev–Galbraith
+(2014): successive minima of the Gross lattice determine the maximal order. All deterministic constructions need a
+quadratic non-residue (unconditionally the least one is only known to be ≪ p^{1/(4√e)+ε}).
+
+**Proposition 4.1 (certificate ⟹ explicit B_{p,∞}-data, deterministic polynomial time; PROVED).** From a word w with
+χ(w) = −1 one obtains in time poly(log p), without factoring and without any non-residue search: (a) the Eichler order
+E(L_w) of level 2 and two explicit maximal orders C₀(L⁺_{1,2}) of B_{p,∞} (index-2 overlattices: solve Q_w(x) ≡ 0 (mod 4),
+Lemma 1.1, and an exact 4×4 HNF); (b) a presentation B_{p,∞} = ℚ⟨i, j⟩, i² = −A*, j² = −A, ij + ji = −2, i.e. (−A*, −tpA*) (orthogonalise
+j′ = j − i/A*, nrd j′ = tp/A*; equals CHI_FLIP's (−A*, −vpA*) since (−A*, tv) = (−A*, 1 + A*) = 1); (c) three non-residues −A, −A*, −uv of p, i.e. (−A/p) = (−A*/p) = (−uv/p) = −1 (R199 repair: these are A, A*, uv only for
+p ≡ 1 (4); p ∤ uv) (each is −nrd of a trace-zero element of an order of B_{p,∞} prime to
+p: indeed (−nrd x/p) ≠ 1 for every x ∈ B⁰_{p,∞} with p ∤ nrd x, since ℚ(x) embeds and p cannot split); (d) the
+Frobenius-distance element ε = −(1 + ij), ε² = −tp.
+*Converse direction (what is NOT available).* From any explicit maximal order one gets non-residues for free (c), but
+not certificates: a certificate edge is a path-shaped class among ≈ p/16 (R199 repair), and the known constructions land on edges at the
+CM points of the auxiliary q, which are certificates only when the Mordell congruence t₀(q) | q + 1 holds (CHI_FLIP §3.1:
+always for q ≤ 7, i.e. exactly the non-□ classes mod 840). EVIDENCE (`scripts/ce_rank2.py`): at p = 2521 (least non-residue
+11) the two classes with min(E⁰) = 11 (edges at the CM(−11) curves) are not certificates (R199 repair: but at the other
+hard primes 1009, 1129, 1801, also with least non-residue 11, one of the two CM(−11) classes IS a certificate, e.g.
+1009: word (4, 3, 92), A = 11, t = 4 | 12 — exactly when the Mordell-type congruence for q = 11 holds); the certificates have
+min(E⁰) = 29, 58 (A = 29, t = 15; A = 87, t = 44). At p = 1201 (least non-residue 11) the first certificate uses A = 17,
+t = 3 | 18.
+
+**Proposition 4.2 (complexity reading; PROVED as an implication, Assessment otherwise).** If for all p some certificate has
+t ≤ (log p)^C (EVIDENCE: t_min ≤ 64 for p < 10⁶, DEDEKIND_ES), then with a factoring oracle a certificate — hence an
+explicit maximal order of B_{p,∞} and a non-residue — is found deterministically in time
+(log p)^{O(1)}·max_{t ≤ (log p)^C} d(tp + 1) = p^{o(1)} (R199 repair: was "poly(log p)"; the divisor enumeration is not polylog
+in the worst case, d(n) can be exp(c log n/log log n)) (factor tp + 1 for
+t ≤ (log p)^C and test divisor pairs A ≡ A* ≡ −1 (mod t)). So a polylog-t form of ES-five would yield deterministic
+p^{o(1)}-time construction of B_{p,∞} maximal orders (Pizer/Ibukiyama data) relative to factoring (R199 repair: not
+polynomial time) — polynomial time is currently known only under GRH. This is DEDEKIND's complexity reading, now with the quaternionic output made explicit. There is no reduction
+in the other direction: a non-residue q (even a small prime one) does not produce a certificate unless t₀(q) | q + 1.
+*Equivalence question of the task (answer).* ES-five(p) is equivalent, by explicit polynomial-time maps in both
+directions (Cor 2.2, Thm 2.1, and recovery of (t, u, v) from the Gram), to each of: "some Eichler order of level 2 in
+B_{p,∞} has a trace-zero basis of Gram [[A, u, 1], [u, uv, v], [1, v, A*]]"; "some supersingular E has trace-zero i, j with
+ij + ji = −2, deg i·deg j = tp + 1, (1 − i)(1 − j) ∈ t End E"; "some 2-isogeny lattice is the (negated) intersection lattice
+of a length-3 linear plumbing, i.e. bounds a lens space L(p, A) with (−A/p) = −1" (R199 repair: sign); "λ(p) ≤ 3" (DEDEKIND, p ≡ 1 mod 8). It is
+**not** equivalent to "∃ non-residue", "∃ maximal order" or "∃ supersingular curve" (those hold for all p; the certificate
+needs the extra divisor/shape event), and it implies (with a polylog bound) deterministic p^{o(1)}-time QNR-finding modulo factoring (R199 repair).
+
+## 5. Existence side: screens, one spectral obstruction, numerics
+
+**5.1 Lattice operations cannot flip (PROVED; extends CHI_FLIP Cor 1.4(c)).** Any composition of finite-index sub/super-
+lattices (in particular Kneser ℓ-neighbours for every ℓ, including ℓ = 2), duals and rescalings preserves the rational
+similarity class of L ⊗ ℚ, hence C₀(L) ⊗ ℚ, hence χ. So the Kneser 2-neighbour graph on 𝔊⁻_p (= the line graph of the
+supersingular 2-isogeny graph, via Thm 2.1: each L has the two overlattices L⁺_{1,2}, each L⁺ has three classical index-2
+sublattices — R199 repair: Assessment, not proved; the vertices are ⟨Frob, w₂⟩-orbits, so at best a quotient of a line graph) and every Hecke correspondence stay inside 𝔊⁻_p, resp. 𝔊⁺_p. The always-available path class of 𝔊⁺_p,
+L_{(p+2,1,1)} ≅ ⟨1, 1, p⟩, has no lattice-theoretic route to 𝔊⁻_p: a flip must change the rational quadratic space.
+
+**5.2 The two Brandt modules share no cusp eigen-system (EVIDENCE; Assessment for the explanation).** Let T_ℓ be the
+ℓ-neighbour operator on ℂ[𝔊^±_p] (`scripts/ce_hecke.py`, explicit Kneser neighbours + canonical forms). For p = 97, 193,
+241, 313, 409 the T₃-spectra of ℂ[𝔊⁺_p] and ℂ[𝔊⁻_p] intersect only in the Eisenstein eigenvalue 4 = ℓ + 1 (also T₅ at
+p = 97, 193: only 6). *Explanation (from memory, not re-derived):* by Jacquet–Langlands ℂ[𝔊⁻_p] ↔ forms of level 2p
+seen by (B_{p,∞}, level 2), ℂ[𝔊⁺_p] ↔ (B_{2,∞}, level p); passing to types (isomorphism classes of orders) imposes
+Atkin–Lehner conditions, and the sign attached to a ramified prime is opposite to that at an unramified one, so the two
+sides see newforms of level 2p with opposite (w₂, w_p) sign patterns — the spectral shadow of χ = −ε₂.
+**Consequence (PROVED, given the computed spectra; elementary linear algebra).** (R199 repair: uses that ℓ + 1 is a
+simple eigenvalue on both sides — Ramanujan–Deligne |a_ℓ| ≤ 2√ℓ < ℓ + 1, confirmed by the characteristic polynomials;
+spectra independently reproduced in R199 `scripts/review_ce_hecke.py`.) At these p, every T₃-equivariant linear
+map Φ: ℂ[𝔊⁺_p] → ℂ[𝔊⁻_p] has image in the constants and kills the cuspidal part, so Φ(P⁺) depends only on the weighted
+total Σ_L P⁺(L)/|Aut L| (T₃ is self-adjoint for the mass inner product, so eigenspaces map to equal-eigenvalue eigenspaces).
+Hence **a Hecke-equivariant "χ-flip transfer" from the always-non-empty side carries only the main term** — B3/B6 in
+spectral form: it can at best predict the *number* of certificates on average, never force one at a given p. H-D needs a
+non-Hecke-equivariant (genuinely non-linear, word-level) map.
+
+**5.3 Shape screen (Assessment).** Path classes are near-orthogonal: a reduced basis with off-diagonal entries (−1, −1, 0).
+The ≈ p/16 classes (R199 repair) of 𝔊⁻_p equidistribute in shape (Hecke/Ramanujan for the Brandt graph — standard heuristically,
+not re-proved here), but near-orthogonality at letters ~ p^{1/3} is a target of relative volume ≍ p^{−1}·polylog, so its
+expected population is the polylog |X_p|: any equidistribution statement with a power-saving error term is blind to it
+(the scale constraint B3). The "∃ curve" quantifier is vacuous (DIFF_DEEP Thm 1.1), so no counting over curves helps.
+Successive-minima theorems (Kaneko, Chevyrev–Galbraith) constrain the diagonal of a reduced Gram (products ≍ p², pairs of
+non-commuting CM orders d₁d₂ ≥ 4p — certificates satisfy 16AA* = 16(tp + 1), Kaneko-extremal up to 4t when t is small)
+but say nothing about the exact off-diagonal pattern, which is where the certificate lives.
+
+**5.4 T1 control (PROVED; Thm 1.2 at n = m²).** For odd n = m² every word has C₀(L_w) ⊂ B_{2,∞} (CHI_FLIP Cor 1.3), so
+E(L_w) is the maximal order of B_{2,∞} at 2 (Thm 1.2(b), anisotropic case: no maximal overorders of discrd n, CERTIFIED by
+`scripts/ce_t1_check.py` on all 49 words of n = 9, 25, 49: the 2-power overorder ladder is exactly [discrd 2n, 4n]), and there is no "𝔊⁻_{m²}": a definite algebra ramified exactly at the odd
+primes with v_ℓ(n) odd plus ∞ would have an odd ramification set. The whole supersingular/2-isogeny picture is empty at
+odd squares, as any correct reformulation must be; the statement "some 2-isogeny lattice of B_{n,∞} is path-shaped" is
+not even formulable there. (So the dictionary passes T1 for the trivial reason that its ambient object vanishes; it does
+not convert T1 into a theorem about primes.)
+
+**5.5 Numerics for goal (3) (EVIDENCE; `scripts/ce_rank.py`, `ce_rank2.py`).** Classes of 𝔊⁻_p were enumerated exactly
+for p ≡ 1 (24) ≤ 601 and for the five primes p ≡ 1 (24) < 2600 with least non-residue ≥ 11. Path classes are few:
+4–10 of 7–44 classes for p ≤ 601 (mostly Mordell-type, small A); at the hard primes 1009, 1129, 1201, 1801, 2521:
+5, 8, 5, 8, 2 path classes out of 69, 76, 82, 122, 166. Ranked by min(L) (Frobenius distance) the first path class has
+rank 12, 4, 15, 19, 9; ranked by min(E⁰) (smallest non-scalar endomorphism of the edge) rank 1, 1, 3, 1, 10. (R199 repair: these ranks are 0-indexed; 1-indexed by min(E⁰) they are 2, 2, 4, 2, 11, and at 1009, 1129, 1801 the
+first path class has min(E⁰) = 11 = n_p, tied for the smallest value: a certificate sits at a CM(−n_p) edge exactly
+when the Mordell-type congruence for q = n_p holds. The min(L) ranking is tie-dominated. The original bold claim
+"certificates are not among the smallest orders at hard primes" holds only at 1201 and 2521.) At 1201 and 2521: at p = 2521 the ten classes with the smallest
+endomorphisms (min(E⁰) ≤ 23: CM by −4·11, −4·17, −4·19, …) are all non-certificates. No privileged-order effect beyond
+the congruence data of the CM discriminant (R199 repair; consistent with DIFF_DEEP's Ibukiyama test for Type II).
