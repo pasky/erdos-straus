@@ -36,12 +36,17 @@ So ε_ℓ = (−A/ℓ)^k in all cases. Multiplicativity of the Jacobi symbol: χ
 Π_{ℓ odd} ε_ℓ(Q_w). By (F1), Π_{all ℓ} ε_ℓ = 1, i.e. ε₂ · (−1) · Π_{ℓ odd} ε_ℓ = 1. ∎
 CERTIFIED (`scripts/cf_lib.py` Hilbert symbols, diagonal form ⟨v, vA*, A*n⟩): χ = −ε₂ on all 39 921 words with letters
 ≤ 40 and n odd; for prime n < 1200, χ = −1 ⟺ Q_w anisotropic at n on all 9 924 words (0 exceptions; R-O198 repair of the count —
-26 750 is the number of words over all odd n < 1200 scanned).
+26 750 is the number of words over all odd n < 1200 scanned; R198 repair: 26 750 counts 3 ≤ n < 1200; with the five words of n = 1 it is 26 755).
 
 **Corollary 1.2 (conceptual reason for the mod-8 sign law).** ε₂(Q_w) depends only on the ℤ₂-isometry class of L_w,
 which (det odd, so L_w ⊗ ℤ₂ unimodular) is 2-adically locally constant in G_w (Hensel); so χ is a 2-adically locally
 constant function of the word, **independent of n** and uniform over boundary words. That the period is 8 is DK Cor 4.1 /
-MODEL_SPECIFIC Lemma 3.0′ (also seen directly: χ is constant on each of the 320 odd-n cells mod 8, letters ≤ 40). Thm 1.1
+MODEL_SPECIFIC Lemma 3.0′ (also seen directly: χ is constant on each of the 320 odd-n cells mod 8, letters ≤ 40).
+(R198 repair — self-contained period 8, PROVED: if det G is odd, Q is ℚ₂-isotropic iff some primitive x mod 8 has
+Q(x) ≡ 0 (mod 8); ⇐ by Hensel, since ∇Q = 2Gx with Gx primitive has a coordinate of valuation exactly 1. Q_w(x) mod 8
+depends only on (t, u, v) mod 8, so by Thm 1.1 χ is a cell function mod 8 with no appeal to DK Cor 4.1. With it,
+Prop 1.5 and MODEL_SPECIFIC Thm 3.1(a) — the five 4-slices are exactly the 240 χ = −1 cells (cell enumeration by R198,
+reviews/chi-flip-review.md D2) — become self-contained finite checks.) Thm 1.1
 explains *why* a Jacobi symbol at n is a function of 2-adic data: it is the 2-adic local invariant of a Brauer class,
 transported by reciprocity. [Conway–Sloane's oddity formula is the same fact
 for lattices: oddity(L₂) − Σ p-excess ≡ 3 (mod 8).]
@@ -50,29 +55,35 @@ for lattices: oddity(L₂) − Σ p-excess ≡ 3 (mod 8).]
 certificate (MODEL_SPECIFIC Thm 3.1(a)); (ii) χ(w) = −1; (iii) Q_w is anisotropic over ℚ_p; (iv) **Q_w is isotropic over
 ℚ₂**; (v) the conic Q_w = 0 has ℚ₂-points (and ℚ_ℓ-points for every finite prime ℓ ≠ p); (vi) **C₀(Q_w) ≅ B_{p,∞}**, the definite
 quaternion algebra ramified at p (the endomorphism algebra of supersingular curves in characteristic p); explicitly
-B_{p,∞} ≅ (−A*, −vA*p). Otherwise C₀(Q_w) ≅ B_{2,∞} (Hurwitz quaternions).
+B_{p,∞} ≅ (−A*, −vA*p). Otherwise C₀(Q_w) ≅ B_{2,∞} = (−1, −1)_ℚ (the algebra of the Hurwitz order; R198 repair of wording).
 At n = m² (odd): every ε_ℓ = +1 for odd ℓ (v_ℓ(n) even), so every word has C₀(Q_w) ≅ B_{2,∞}: **T1 = "a positive ternary
 lattice with cyclic discriminant group of square order cannot ramify at an odd prime".** (Cyclicity is essential: the
 2×2 minor of G_w equal to 1 forces discriminant group ℤ/n; non-cyclic lattices of determinant m² can ramify at q | m.)
 *Reading.* ES five-slice(p) ⟺ the cubic surface X_p has a positive integral point whose path form is 2-adically
 isotropic; equivalently, whose even Clifford order (a Gorenstein order of reduced discriminant 4p, Gross–Lucianovic) lies
-in B_{p,∞}. This is the bsA_selling_sandpile D3 genus statement upgraded from the p-adic genus to the rational class,
-and extended uniformly to all odd n.
+in B_{p,∞}. This is the bsA_selling_sandpile D3 genus statement transported from p to 2 by reciprocity (R198 repair: ramification of C₀
+is local, i.e. genus, data), and extended uniformly to all odd n. *Novelty (Assessment, R198 repair):* known in substance —
+the word-level form of Bright–Loughran Thm 1.2 (∏_{p|n}(−u₁/u₃, −u₂/u₃)_p = −1), KUDLA Thm 1.2 (Diff-parity) and DIFF_DEEP's
+supersingular transfer (Diff = {p} ⟺ B_{p,∞}); new here is the uniform path-lattice form and the 2-adic reading. T1 here means
+T1 on the five slices.
 
 **Corollary 1.4 (χ is n-free; scaling preserves χ; PROVED).** (a) For words w ∈ X_n, w′ ∈ X_{n′} (n, n′ odd):
 χ(w)χ(w′) = ε₂(Q_w)ε₂(Q_{w′}). So whether a move "flips" is a property of the two 2-adic lattices only; leaving X_n
 through odd composite numerators confers no extra power per se.
 (b) Scaling DK 8.3: (v′, at, u′) ↦ (av′, t, au′) (numerator m ↦ am, a odd). Then Q′(x, y, z) = a·Q(x, y/a, z), a rational
 similarity, so ε₂ (indeed every ε_ℓ) is unchanged and **χ(w′) = χ(w)**. Direct check: χ_{am}(A) = (−A/a)(−A/m) =
-(1)·χ_m(A) since −A ≡ 1 (mod a). DK 8.3/HJ_DEEP C3 called scaling "the only flip" because they used (A/n), which differs
-from χ by (−1/n); the a ≡ 3 (mod 4) condition there is exactly that normalisation. CERTIFIED: 43 200 scalings (a < 12,
+(1)·χ_m(A) since −A ≡ 1 (mod a). DK 8.3 uses (A/n) (at m ≡ 3 (4)), which differs from χ by (−1/n); the a ≡ 3 (mod 4)
+condition there is exactly that normalisation. (R198 repair: the word "only" is in DISCOVERIES (J)9, HJ_DEEP C3 and
+MODEL_SPECIFIC C3, not in DK 8.3. Also in the (A/n) normalisation rotations flip when n ≢ n′ (4) and not all letters are
+odd, e.g. (1,3,4)₅ ↦ (3,4,1)₇: (2/5) = −1, (11/7) = +1, χ = −1 on both sides; DK 8.2 is scoped to n, n′ ≡ 1 (4). So
+"scaling is the only flip" was false in both normalisations; in either, no single classical move changes the sign at fixed n (chains can, §2.1).) CERTIFIED: 43 200 scalings (a < 12,
 letters < 25), χ never changes. **So in the uniform normalisation χ = (−A/n), scaling preserves χ**; DK's formula is correct, its
 "flip" is normalisation-dependent. (R-O198 repair: the earlier blanket "no known move flips χ" was wrong — rotation does,
 Prop 1.5, e.g. (3,5,3)₃₇, χ = −1 ↦ (5,3,3)₃₉, χ = +1 — but rotation changes n.)
 (c) More generally any move with Q_{w′} rationally similar to Q_w preserves χ and the whole ramification set of C₀; any
 move with L_{w′} ⊗ ℤ₂ similar to L_w ⊗ ℤ₂ preserves χ.
 
-**Proposition 1.5 (rotation law; PROVED by finite cell check, `scripts/cf_rotation_law.py`, asserted on all 192 cells).** Rotation w = (t, u, v) ↦ w′ = (u, v, t)
+**Proposition 1.5 (rotation law; PROVED by finite cell check — self-contained via the mod-8 lemma of Cor 1.2, R198 repair — `scripts/cf_rotation_law.py`, asserted on all 192 cells).** Rotation w = (t, u, v) ↦ w′ = (u, v, t)
 ([[v, t, u]] ↦ [[t, u, v]], n′ = n + u − t), both numerators odd: χ(w′) = −χ(w) **iff t, u, v are all odd and t ≢ u (mod 4)**
 (then n ≢ n′ mod 4). Otherwise χ is preserved (in particular whenever n ≡ n′ (mod 4), recovering DK 8.2). The flip is not a
 function of (n, n′) mod 8. Since rotation changes n, it is not a move on X_n.
@@ -87,16 +98,21 @@ inv_∞ β(w) = ½ on the positive cone (positive definite), and Thm 1.1 is lite
   formula: ε_ℓ = (−A/ℓ)^{v_ℓ(n)} with v_ℓ(n) even). So on the positive real cone, BM reciprocity forces inv₂ β = ½: the 2-adic
   "certificate region" Ω₂ := {w₂ ∈ X_n(ℤ₂) : inv₂ β(w₂) = 0} (for fixed n mod 8: the 60 χ = −1 cells mod 8 of that class; 240 over the four odd classes) carries a Brauer–Manin obstruction
   to positive integral points. At non-square n some ℓ has v_ℓ(n) odd and inv_ℓ takes both values on X_n(ℤ_ℓ) (A ranges over
-  all units mod ℓ), so **there is no BM obstruction** (from β) to a positive integral point in Ω₂.
-* **SQ₅ in this language (CONJECTURE, = MODEL_SPECIFIC C1 restated):** for odd non-square n ∉ {5, 105} (plus the
+  all units mod ℓ), so **there is no BM obstruction** (from β) to a positive integral point in Ω₂. (R198 repair: this needs
+  Ω₂ ≠ ∅ for every odd n. Take a χ = −1 word with A odd in each class n mod 8 — (1, 2, n+2) for n ≡ 3 (4), (4, 1, 2)₅,
+  (1, 4, 7)₁₇. Keep t and u, and put v = (n + u)/A ∈ ℤ₂, which stays in the same cell mod 8. Precisely, Ω₂ is the set of
+  ℤ₂-points of X_n in the 60 cells.)
+* **SQ₅ in this language (CONJECTURE, = MODEL_SPECIFIC C1 restated):** for odd non-square n ≠ 105 (R198 repair: 5 removed — with boundary words (4, 1, 2)₅ has χ = −1, §4.1) (plus the
   n ≡ 3 (4) cases, which are trivial), *the Brauer–Manin obstruction from β is the only obstruction to positive integral
-  points of X_n lying in the 2-adic region Ω₂.* (n = 105: X_105 has no interior point at all, HJ_DEEP (W).)
+  points of X_n lying in the 2-adic region Ω₂.* (R198 repair: equivalent *by definition* to C1, since the β-BM set is non-empty
+  ⟺ n is a non-square; no new content beyond the language.) (n = 105: X_105 has no interior point at all, HJ_DEEP (W).)
 * *Assessment.* (R-O198 repair: X_n(ℤ_{>0}) is finite, so this is an *existence statement with a prescribed 2-adic
   congruence condition*, not strong approximation.) It is akin to integral Hasse-principle-with-BM statements for a Markoff-type
   affine cubic (projective closure tuv = w²(u + v + nw), boundary triangle at w = 0). Statements of this exact shape are
   known to **fail** in general for Markoff-type log K3 surfaces (Ghosh–Sarnak integral Hasse failures; Loughran–Mitankin,
   failures not explained by BM — from memory, not re-checked here), and Bright–Loughran Thm 1.9 (LITERATURE_AUTOMORPHIC)
-  says BM does not control SA on the ES surfaces U_n. So no general theorem applies; SQ₅ would be a *specific* existence statement
+  says BM does not control SA on the ES surfaces U_n (R198 repair: U_n ≠ X_n, so this is an analogy only; the closer analogue
+  is BL Cor 1.4, BM excluding divisibility patterns at odd squares). So no general theorem applies; SQ₅ would be a *specific* existence statement
   with an exceptional set {105} ∪ squares (boundary words included). Proved here: β supplies the T1 obstruction; that it is
   the *only* obstruction is the conjecture. The reformulation makes "χ-flip" = "change of inv₂ β", a 2-adic local quantity.
 
@@ -128,7 +144,8 @@ not covered.) (The example chain of 2.1 is Φ(t, u, v) = (8v, t/2, 2u/9), and
   the path lattice, which classical moves effect only at odd-letter rotations or through even determinants; in the boxes
   searched such composites return to the same n rarely. Proved scope: no *fixed* chain of classical moves is an
   n-preserving flip on all of X_n (2.3); general maps are not excluded.
-  This sharpens HJ_DEEP C3 / MODEL_SPECIFIC C3: the earlier "scaling is the only flip" was a normalisation artefact.
+  This sharpens HJ_DEEP C3 / MODEL_SPECIFIC C3: the earlier "scaling is the only flip" was a normalisation artefact
+  (R198 repair: and a misreading of DK 8.2's scope; in the (A/n) normalisation rotations with n ≢ n′ (4) flip too, Cor 1.4(b)).
 
 ## 3. Constructions tried against the 2-adic form of the problem
 

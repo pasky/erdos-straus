@@ -274,7 +274,7 @@ B6: the χ-sum over X_p is a pointwise object (no averaging over p). B7: passed 
 of X_n with χ(w′) = −χ(w) whenever n is prime — would prove ES on the slices. (R-O197 repair: an earlier version
 allowed w′ of HJ length > 3 "via Cor 4.1"; that is wrong — Cor 4.1 gives χ on longer words, not certificates, and
 n = 105 has λ = 4 but no five-slice certificate. A universal flip for all non-squares is impossible at 105.) Known moves preserve χ: u ↔ v (A ↔ A*, AA* ≡ 1),
-and multiplication by 4; DEDEKIND §8 found only a scaling flip needing composite n. Not found here either.
+and multiplication by 4; DEDEKIND §8 reported only a scaling flip needing composite n (corrected by R198 D1 / CHI_FLIP Cor 1.4, Prop 1.5: no classical move flips χ at fixed n). Not found here either.
 
 ## 8. Repair log (self-review R-O197, deep reviewer; all findings accepted)
 * P1 `ms_tail.py` dropped p = 5 (exclusive first bin + integer truncation of thresholds): fixed with real thresholds;

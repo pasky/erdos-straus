@@ -594,7 +594,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
 9. **Spark phase V: Hirzebruch–Jung / Dedekind-sum dictionary (DEDEKIND_ES.md (O169); review `reviews/dedekind-es-review.md` (R169): no FATAL/MAJOR; D1–D10 minor, repaired by the reviewer).**
    * Lemma 1.1 (PROVED): X-slice certificates tuv − u − v = n are exactly the fractions n/A with Hirzebruch–Jung continued fraction [[v,t,u]] of length 3 (A = tu − 1), i.e. the matrices T^vST^tST^uS with top-left entry n; on them 12 s(A,n) = t+u+v−9 + (A+A*)/n (Hirzebruch–Zagier). Dedekind sums determine only the difference of HJ lengths of A and n − A.
    * **Thm 4.5 (PROVED: finite mod-8 cell check relative to Rademacher–Grosswald and (D2); brute force over 21 430 357 words to 10⁶ by R169): for n ≡ 1 (4), a length-3 HJ fraction n/A is an ES certificate of one of five slices iff (A/n) = −1.** In HJ coordinates the moving moduli disappear. Cor 4.6: for p ≡ 1 (8), these slices hold ⟺ λ(p) ≤ 3, where λ(p) is the least HJ length of a quadratic non-residue ("least non-residue in the Farey metric"). This is the exact converse of the T4 test on these slices (the 4 | A case is redteam-automorphic Lemma 5.2).
-   * The sign is a mod-4 function of (t,u,v), +1 exactly on 5 of the 20 occupied classes (§8.1); the Klein group and rotations preserve it; the only sign-flipping transfer found (scaling) needs composite n. So the reformulation is congruence data plus the length-3 lottery (B2).
+   * The sign is a mod-4 function of (t,u,v), +1 exactly on 5 of the 20 occupied classes (§8.1); the Klein group preserves it. (Corrected per R198 D1: "rotations preserve it" and "scaling is the only flip" hold only within n ≡ 1 (4). In the uniform normalisation χ = (−A/n) of (J)33, scaling preserves χ, and a rotation flips χ iff all letters are odd and t ≢ u (mod 4), which changes n. No classical move changes the sign at fixed n.) So the reformulation is congruence data plus the length-3 lottery (B2).
    * EVIDENCE: λ(p) ≤ 3 for all 19 552 primes p ≡ 1 (8) ≤ 10⁶; t_min(p) ≤ 64; no odd square ≤ 10⁶ has a hit. CONJECTURE SQ₅: for n ≡ 1 (4), n ≠ 105, the five slices are non-empty ⟺ n is not a square (EVIDENCE to 10⁶, reproduced by R169; strengthens O146's SQ).
    * Complexity reading (Assessment): a polylog-height version (t_min ≤ (log p)^C) would give deterministic QNR-finding with a factoring oracle, which is not known.
 
@@ -858,7 +858,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * (c) For 4 ∤ m, S_m contains both χ = +1 members and χ = +1 non-members.
      * Independent word-level checks: all words of odd n ≤ 1500 (O197) and ≤ 600 (R197), 0 mismatches.
      * At n = 131 and 241 there are χ = −1 words (29 and 12) but none in S_8.
-     * **So m = 4 is the unique numerator m ≥ 4 for which the length-3 slice set is exactly a quadratic-character fibre.** SQ₅ ⟺ "χ is not identically +1 on X_n(ℤ_{>0}) unless n is a square (or n ∈ {5, 105})". χ ≡ −1 does occur, at 38 values n ≡ 3 (mod 4) ≤ 10⁶, e.g. 15 and 311 (O198 census), so "non-constant" is the wrong reading. This is numerator-free, implies ES on these slices, and does not imply 8/n: it is model-specific input of the kind (J)31 demands.
+     * **So m = 4 is the unique numerator m ≥ 4 for which the length-3 slice set is exactly a quadratic-character fibre.** SQ₅ ⟺ "χ is not identically +1 on X_n(ℤ_{>0}) unless n is a square (or n = 105)". On interior words the exception set is {5, 105}, as in HJ_DEEP (R198 D4). χ ≡ −1 does occur, at 38 values n ≡ 3 (mod 4) ≤ 10⁶, e.g. 15 and 311 (O198 census), so "non-constant" is the wrong reading. This is numerator-free, implies ES on these slices, and does not imply 8/n: it is model-specific input of the kind (J)31 demands.
    * Lemma 2.1 (PROVED). For odd n, every ES solution is all-even or has exactly one odd denominator. All-even solutions ⟺ solutions of 8/n (a bijection), so f_4 = f_8 + f_4^{odd}. EVIDENCE: the one-odd half alone never fails at primes ≤ 10⁸.
    * §1 censuses (CERTIFIED; R197 re-ran them independently).
      * Failing odd primes for m = 4..24 up to 10⁸ / 10⁷. These agree with Pomerance–Weingartner Table 1 for m ≤ 15; the complete lists for m = 16–24 are new, though PW §6 checked existence for every m ≤ 30000.
@@ -866,6 +866,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * m = 4 is the only multiple of 4 with no failure.
    * §5 count law (EVIDENCE + Assessment). Mean f_m ≈ c_m log³p/m. A pooled tail model predicts ≈ 1 ES failure among primes ≤ 10⁷; the observed 0 is mildly lucky. The 4-vs-8 difference in failures is consistent with mean counts alone; the 4-specificity of Thm 3.1 concerns *which* certificates exist.
    * Open (pursued by O198): χ-flipping moves on X_n. Any map between positive points flipping χ at prime n proves ES on the slices, and must fail at 105 and at squares.
+
+33. **Spark relay S: the ES sign is a 2-adic isotropy sign, and certificates are supersingular quaternion orders (CHI_FLIP.md (O198); review `reviews/chi-flip-review.md` (R198): no FATAL; one MAJOR (D1: the correction of "scaling is the only flip" was incomplete — rotations with n ≢ n′ (mod 4) also flip (A/n)), minors; repaired, ledger lines in (J)9, HJ_DEEP and MODEL_SPECIFIC corrected).**
+   * **Thm 1.1 (PROVED by Hilbert reciprocity alone; R198 re-derived every local invariant and checked all 50 008 words of odd n ≤ 2000, computing ε₂ two independent ways).** For every positive word w of every odd n, χ = (−A/n) = −ε₂(Q_w), where Q_w = vx² + ty² + uz² − 2xy − 2yz is the path form, of determinant n.
+   * Cor 1.3 (PROVED). For n = p, the following are equivalent:
+     * w is a five-slice ES certificate;
+     * Q_w is isotropic over ℚ₂;
+     * C₀(Q_w) ≅ B_{p,∞} ≅ (−A*, −vA*p), the supersingular quaternion algebra.
+     Non-certificates give the Hurwitz algebra B_{2,∞}. The certificate provides an explicit Gorenstein order of reduced discriminant 4p (Gross–Lucianovic).
+     * T1 reads: "a positive ternary lattice with cyclic discriminant group of square order cannot ramify at an odd prime".
+     * This gives a citation-free proof of the mod-8 sign law of (J)9 / (J)32.
+   * Cor 1.4 / Prop 1.5 (PROVED). χ depends on the word alone (it is n-free), and scaling preserves χ. A rotation flips χ iff all letters are odd and t ≢ u (mod 4), which changes n. No classical move flips the sign at fixed n.
+     * Algebraic and lattice moves (Kneser neighbours, similarity, Clifford) preserve the rational class, hence χ.
+     * A flip must change B_{2,∞} ↔ B_{p,∞}, i.e. it must produce a non-residue mod p.
+   * Prop 1.6 (PROVED; the reading is an Assessment). C₀(Q) is an Azumaya class β on X_n[1/2n]. T1 at squares is a Brauer–Manin obstruction to positive integral points in the 2-adic certificate region Ω₂. SQ₅ ⟺ "BM from β is the only obstruction to positive integral points of X_n in Ω₂" (non-square n ≠ 105).
+   * §3.1 (PROVED; CERTIFIED to 10⁶). For q ∈ {3, 5, 7} a non-residue mod p, A = q gives a certificate word; this is Mordell's 840 again.
+   * EVIDENCE: census of all odd n ≤ 10⁶. χ ≡ +1 only at n = 105 and at odd squares; χ ≡ −1 at 38 values n ≡ 3 (mod 4).
 
 ## Items to verify by the maintainer
 

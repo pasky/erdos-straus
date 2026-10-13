@@ -138,8 +138,8 @@ Attempts. Each names the hypothesis it tried to violate, then the outcome.
   reading of longer words.)
 * **C2. Multiplier growth (violates "fixed numerator").** Allow cp (Prop 2.1). The sign is now automatic (Prop 2.2), but the
   class condition becomes 4c | t with a moving modulus. The union over c is the full Type II count, ≍ log³p *on average* over p (no pointwise lower bound is known). **Reduces to H-A.**
-* **C3. Sign-flipping transfers (violates "symmetries preserve the sign").** Scaling is the only flip (DK 8.3). At fixed p it is a
-  reparametrisation (Lemma 2.3), rotations preserve the sign (DK 8.2), and Vieta moves act on the wrong space (bsA_fricke_vieta F2).
+* **C3. Sign-flipping transfers (violates "symmetries preserve the sign").** Scaling was believed the only flip (DK 8.3; corrected by R198 D1 — rotations with n ≢ n′ (mod 4) also flip (A/n), while in the uniform χ = (−A/n) scaling preserves χ and rotations flip iff all letters are odd and t ≢ u (mod 4); no classical move flips at fixed n). At fixed p scaling is a
+  reparametrisation (Lemma 2.3), rotations within n ≡ 1 (4) preserve the sign (DK 8.2), and Vieta moves act on the wrong space (bsA_fricke_vieta F2).
   **Dead (PROVED as stated).**
 * **C4. Genus/lattice moves (violates "abelian data only").** By bsA_selling_sandpile D3 and Thm W, the sign is the Wu class.
   Kneser neighbours at primes q ∤ n preserve all local data at n, hence the Wu class. Passing from G⁺ to G⁻ needs a change at the
