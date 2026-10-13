@@ -1,6 +1,6 @@
 # SIGNLAYER_DEEP — deep dive of spark brainstorm B (task O175)
 
-Status: in progress. **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O175), awaiting review. **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Memos: `BRAINSTORM/bsB_*.md`; scripts `scripts/bsB_*`.
 
 Chosen topic (from the memos): the function-field sterile point x*_c (FUNCTIONFIELD_ES2 §0.2, Conjecture 0.2),

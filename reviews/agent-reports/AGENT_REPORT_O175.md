@@ -8,9 +8,10 @@ Branch `side-agent/spark-signlayer`. **ES is not solved; no case of it is claime
    is covered** (`SIGNLAYER_DEEP.md` Lemma 1.1, §2). For q = 3, A = T², a Case B family valid at x_u is the same
    as monic h₁, h₁' with `h₁ + h₁' = T g' r`, `h₁h₁'L'' = T^K + r` and one T-adic congruence; L'', r are forced
    by (h₁, h₁', K), so each level K is a finite search (PROVED). This **refutes the divergence heuristic** of
-   FUNCTIONFIELD_ES2 §0.2 (it summed over unbounded deg L'). Complete enumeration through K = 17 (N ≤ 18;
-   CERTIFIED by exhaustive search, 620 solutions): x*_{±1} uncovered; covered Haar measure of the slice
-   0.333 → 0.489, increments shrinking (≈ 0.002/level) — EVIDENCE that ≈ 50 % of the slice is never covered.
+   FUNCTIONFIELD_ES2 §0.2 (it summed over unbounded deg L'). Complete enumeration through K = 19 (CERTIFIED by exhaustive
+   search, 1036 solutions; cross-validated against FF2's independent searcher): x*_{±1} uncovered; covered Haar
+   measure of the slice 0.333 → 0.4906, increments shrinking (≈ 0.001/level); any family covering x* must be
+   degree-lopsided (Lemma 3.2, PROVED) — EVIDENCE that ≈ 50 % of the slice is never covered.
    Case A: 0 hits at 4 further slice points (FF2's checker, deg ≤ 3). If this holds, O(3, T²) has positive
    measure on the slice and "no finite linear covering for q = 3, A = T²" holds for a *convergent-lottery*
    reason; x* is special only as a height-1 point (Lemma 3.1: covered set invariant under u ↦ u⁻¹,
