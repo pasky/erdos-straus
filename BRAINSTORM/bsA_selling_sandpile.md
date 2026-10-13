@@ -22,6 +22,9 @@ At n = m², Thm 4.5 is about the Jacobi symbol, not the genus. Both discriminant
 symbol (A/m²) is always +1, and that is all the slices see. So the genus reading is literally right only at primes.
 
 ## Literature
+**Lorenzini, *The critical polynomial of a graph* (preprint, 4 Dec 2022; text checked): the chain determinant
+xyz − x − z is his critical polynomial d_{A₃}. The sign-free existence half of SQ₅ is his open question, Example 6.2(a)
+(see HJ_DEEP §3).** Lorenzini, *Arithmetical graphs* (Math. Ann. 1989; from memory): critical groups of arithmetical graphs.
 Selling (1874) / Conway–Sloane, *Low-dimensional lattices VI: Voronoi reduction of three-dimensional lattices* (Proc.
 R. Soc. A 1992; from memory): obtuse superbases, conorms. Greene, *Lattices, graphs, and Conway mutation* (Invent.
 Math. 2013; from memory): graph lattices, linear lattices. Bosch–Lorenzini (2002) and Shokrieh (2010) on the monodromy

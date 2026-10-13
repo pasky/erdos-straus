@@ -92,9 +92,19 @@ So (W), like ES, needs moving moduli. The escaping class n ≡ −1 is exactly w
 ((u−1)(v−1) = n+1) would work, just as ES's escaping class (squares) is where the sign is trivial.
 Numerically (`scripts/bsA_cover2.py M`), the uncovered fraction of ℤ/M is 0.16 % (M = 720720) and 0.09 % (M = 12252240), and
 it contains 105, 366, 510, 1806, 1905, … and M − 1.
-*Reading.* (W) behaves like a "Type-II-shape Erdős–Straus for a free numerator". It has a clean finite exceptional set
-and no local obstruction except the moving-modulus one of Lemma 3.2. I do not know whether (W) is in the literature
-(not searched). It is the natural first target for any H-A technology, since T1 does not apply to it.
+**Literature: (W) is an open question of Lorenzini.** D. Lorenzini, *The critical polynomial of a graph* (preprint dated
+4 Dec 2022; PDF at dinolorenzini.franklinresearch.uga.edu, text checked by me). For a graph G, d_G = det(Diag(x) − A_G). For G = A₃
+this is d_{A₃} = xyz − x − z, which is exactly our chain Gram determinant (bsA_selling_sandpile). Example 6.2(a) says that
+"computations indicate" the complement of V_{A₃}(2) is contained in L_{A₃} = [0,1,2,3,5,6,9,11,14,15,35,105,510], and the text
+continues: "It is natural to wonder whether d_{A₃} takes every non-negative value when x, y, z ≥ 2, except for the values listed
+in L_{A₃}. We have not been able to answer this question beyond the following remarks". Prop 6.3 (partial results) covers even
+n ≠ 2^m − 2 (m odd), odd n with n + 2 composite, and n ≡ 1 (4) with n ≡ 2, 8 (9). His proof uses the z = 2 and z = 4 slices, i.e.
+our u = 2, 4 shapes. **So (W) is precisely Lorenzini's A₃ question**, and EVIDENCE 3.1 checks it to 10⁸. His computational range
+is not stated in the text I read. Remark 6.4 notes that 510 = 2⁹ − 2 is the only power-of-two-minus-2 exception found.
+*Reading.* SQ₅ on n ≡ 1 (4) = Lorenzini's A₃ critical-polynomial question + the pure-sign statement (S). ES's five slices are
+"the critical polynomial of the path A₃ takes the value p at a point where the critical group's pairing is non-square"
+(bsA_selling_sandpile D2–D3). (W) is T1-free, has a published status (open), and is the natural first target for any H-A
+technology. Lemma 3.2 shows why Lorenzini's congruence arguments (Prop 6.3) cannot finish it.
 
 ## 4. Construction log (barrier as steering wheel)
 **Prop 4.1 (exact reduction of (S); PROVED, elementary).** Fix n odd and t ≥ 2. The words with middle t are the factorisations
