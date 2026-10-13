@@ -54,3 +54,40 @@ Independent EVIDENCE (`scripts/review_ff2_caseA.py`, all monic a0, b0 of degree 
 (q = 7), all divisors E with every leading coefficient): congruence-valid Case A divisors exist (10, 4, 4, 5, 1, 1,
 0 for the runs in `data/review_ff2_caseA_log.txt`), but **none** with admissible lc; sanity: u = 2 + T (q = 3)
 yields admissible hits (e.g. a0 = T, b0 = T + 1, E = 2T + 1 with lc(a0 + b0) = 2).
+
+### Claim §0.1 compactness criterion — SOUND (two MINOR wording defects)
+
+Re-derivation. R̂ = lim R/W (W ≠ 0 ordered by divisibility) is profinite, R̂^* = lim (R/W)^* is a closed, hence
+compact, subset. For a linear family F the validity set V_F ⊂ R̂^* is the preimage of a subset of (R/W_F)^*, so it is
+clopen. That V_F is well defined needs validity at P to be independent of n ≥ n_F, not only "a function of P mod W"
+(the literal statement of FUNCTIONFIELD_ES Lemma 6.2). R166 checked this from the proof of Lemma 6.2. The congruences
+A·a0, A·b0 | P + E, the residue of s mod E (built from P mod E and X mod a0E, b0E, LE), the leading coefficient of s
+(1 for distinct types, lc of a0 + b0 or of L/a0 + L/b0 for equal types) and "s ≠ 0" contain no n. So
+O = R̂^* \ ∪_F V_F is closed. (⇐) If O = ∅, compactness gives a finite subcover. With W = lcm W_F, every
+irreducible P of degree n ≥ max n_F has P ∤ W, so its class mod W is a unit class lying in some V_F, and F is valid
+at P. (⇒) If x ∈ O and {F_i} is finite, put W = lcm W_{F_i}. The unit class x mod W meets no V_{F_i} and contains
+monic irreducibles of every large degree (Fact 5.2, error term ≤ (D + 2)q^{n/2}/n). None of them is covered. ∎
+Every step holds.
+
+**D2 (MINOR).** §0.1 says a finite covering gives "hence a proof of ES_q(A,·) by Lemma 6.2 + a finite check". The
+finite check can fail: for q = 3, A = T², ES fails at n = 3, 4, 5 (FUNCTIONFIELD_ES §6.3). Repair: "a proof of
+ES_q(A, P) for all P of degree ≥ max n_F; the smaller degrees need a finite check, which may find failures".
+
+**D3 (MINOR).** Make explicit that V_F does not depend on n ≥ n_F (the argument above). Lemma 6.2 as stated only
+gives "depends on P mod W". Prop 3.1 rests on the same point.
+
+### Claim §0.1 "the q = 3, A = T² tree plateau is (at least partly) an artefact" — SOUND as an Assessment (label it)
+
+R166 confirmed from the code (`scripts/ff2_tree.c`, `find_family`, lines 36–55) that a leaf class r mod W is tested
+only against families whose E is a unit multiple of a divisor of W/A and whose a0, b0 divide W/(A·E). So
+W_F | W_leaf. With a fixed refinement list, a family whose E has a prime factor outside the list can never certify
+a leaf. The plateau therefore bounds only the restricted search. The positive evidence is weak: the slice
+x ≡ 1 off T has Haar measure 0, so Case B families found there show only that such families exist and cover some
+classes. They do not show that the 1 % uncovered mass of the tree shrinks once large-prime E are allowed. The
+author's own covered-mass numbers (§3: 0.04 → 0.23 of one cylinder, increments ≈ 0.01) fit either answer.
+
+**D4 (MINOR, labels).** "the plateau ... is (at least partly) an artefact of E | W, not evidence of an obstruction
+of positive measure" carries no label and reads as a finding. Repair: label it Assessment, and add "the tree data
+are then neither evidence for nor against O(3, T²) having positive measure". Also, "families with E having large
+prime factors are valid deterministically (P ≡ 1 mod E)" holds only on the measure-0 slice x ≡ 1 off T. At a
+generic point of an uncovered leaf such a family is valid on a sub-class mod ℓ, not deterministically. Say so.
