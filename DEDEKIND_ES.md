@@ -173,3 +173,56 @@ where circle-method/expander methods give only density-type averages (B6).
 PARITY_FIXED_P (★). Dedekind reciprocity is the r-independent part of this recursion (it evaluates the
 alternating sum). The r-dependent part is the backward-CF (Rényi) transfer operator, which has an indifferent fixed
 point. Pointwise-in-n counts for it are fixed-denominator counts, so again B6 for averages and B2 for slices.
+
+## 6. Construction log (which barrier hypothesis each attempt violated, and the outcome)
+
+* **C1. Dedekind sums modulo a fixed modulus.** (Escapes "congruence data on n" by using p's CF.) Outcome: by (R)
+  and `12cs ≡ a + a* (mod c)`, these data are (A/p), A + A* mod p and p mod 8. On the certificate locus they are
+  exactly the genus character (Prop 3.1, Thm 4.5). Prop S (invol_sign_identities) then kills every parity law of
+  this kind on square classes. **Dead (PROVED reduction).**
+* **C2. The real value of s(A,p).** (Violates "congruence-only data".) Outcome: (D3) shows that s(A,p) determines
+  `r − r'` exactly, while ES needs r = 3. The second invariant needed is `r + r'` (Stern–Brocot depth, equal to the
+  total of regular partial quotients up to a constant). It satisfies no reciprocity law. Its sum over A is the
+  Yao–Knuth count of `xy' − x'y = p`, a shifted divisor convolution (B6/H-A). **Reduces to H-A.**
+* **C3. Smith-type palindrome mechanism.** (Smith's CF proof of p = a² + b² uses the fixed point of
+  `A ↦ −A*` and reads the archimedean conclusion off the CF symmetry; this violates "𝔽_p-algebraic data only
+  see square roots", because the CF converts a square root into sizes.) The CF-compatible symmetries of
+  `{A : 0 < A < p}` that I know are the Klein group {id, A*, p−A, p−A*} (reversal, Riemenschneider duality).
+  On L₃(p), reversal is free (u = v forces p = u(tu−2), not prime), and duality sends length 3 to length
+  t+u+v−5. So no fixed-point mechanism lands in L₃. The fixed points of `−A*` give s(A,p) = 0 (two squares), which is
+  information about L_r with r = r', not about short words. **No mechanism found** (no classification of
+  CF-compatible maps attempted).
+* **C4. Hecke–Knopp exact family.** (Violates "finite fixed-level identity" by an unbounded family of levels t.)
+  By Thm 4.5 the certificate count is Σ over the 120 cells of the counts `#{(t,u,v) ∈ cell : (tu−1)(tv−1) = tp+1}`.
+  For fixed t this is a twisted divisor sum at `N = tp+1` modulo 8t: a fixed-level Eisenstein coefficient,
+  expressible through Knopp-type Hecke identities for generalized Dedekind sums. Each such identity sums over all
+  `ad = N, b mod d`, so it carries exactly σ(N)-type information (SA Thm 9.1 per level). The t-family is
+  PARITY_FIXED_P (★). I found no telescoping and no sign in the family. **Reduces to H-A (Assessment).**
+* **C5. Size-literal parity laws** (the brief's Gauss-lemma spark, with weights that use sizes of lifts).
+  `scripts/dk_parity_size.py 30000`: 820 sub-counts of `E_X(p)` (≤ 2 literals among orderings of t,u,v,A,A*,
+  p^{1/2}, p^{1/3} thresholds, floor parities of 12s(A,p), (A+A*)/p, A/√p, 4A/p) — **none** is odd for all
+  385 primes p ≡ 1 (24) ≤ 3·10⁴ (EVIDENCE, negative; extends WINDMILL_REDUCTION §6 from congruence literals to size
+  literals).
+* **C6. Archimedean least non-residues → Farey least non-residues.** (Burgess and Vinogradov give QNRs q ≪ p^{0.152}.)
+  For small q, `r(p/q) = 1 + r(q/(−p mod q))`, so λ(p) ≤ 3 via A = q needs `(−p mod q) | q + 1`. That is one
+  (★)-event per q, and a QNR prime q is no likelier to satisfy it than any other q. **Lottery (B3).**
+
+## 7. Verdict (Assessment) and exact scope
+
+* **PROVED:** Lemma 1.1, Cor 1.2 (X-certificates = HJ fractions of length 3); (D3); Prop 3.1 (T1 via Rademacher's
+  mod-8 law, relative to the classical (R) and (D2)); Cor 4.1; 4.2; **Theorem 4.5** (for n ≡ 1 (4), a length-3
+  HJ fraction is an ES certificate of one of five slices ⟺ its Jacobi symbol is −1); Cor 4.6 (the five slices ⟺
+  λ(p) ≤ 3); 5.1, 5.4.
+* **EVIDENCE:** λ(p) ≤ 3 for all primes p ≡ 1 (8) ≤ 2·10⁴. The two interior slices 4|A, 4|t vanish at only 22
+  non-square n ≡ 1 (4) ≤ 2·10⁵ (largest 28225). No size-literal parity law (C5).
+* **CONJECTURE:** for non-square n ≡ 1 (4), n > 28225, `a₀(n) + a_T(n) > 0`. Equivalently, the Jacobi symbol is
+  the only obstruction to the interior length-3 slices for all n, composite included.
+* **Answer to the brief's question.** Can the moving-modulus ES conditions be encoded by finitely many
+  Dedekind-type sums? **Yes, and the moving modulus disappears.** In HJ coordinates the ES conditions on the
+  length-3 locus are one fixed character: the Jacobi symbol, i.e. Dedekind sums mod 8. The whole difficulty
+  moves into the archimedean condition "HJ length = 3". Dedekind sums see only the antisymmetric part `r − r'`
+  of that condition. The symmetric part `r + r'` obeys no reciprocity law, and its exact sums are shifted
+  convolutions. T1 is fully explained: at m² the Jacobi symbol is +1 on every class, so no length-3 fraction is a
+  certificate. Any reciprocity-forced positivity would therefore have to produce a *non-residue at Farey
+  distance ≤ 3*. I found no mechanism that does this. The nearest classical analogue, Smith's palindrome proof,
+  produces fixed points only for r = r'.
