@@ -61,3 +61,37 @@ moves between parametrisations of one solution and creates nothing at fixed p.
 *Remark (Type I, general a).* The same computation for ET Type I (4abd = tn + 1, a + b = ct) gives
 K(a, 4cd, b) = c(t(n−1) + 1). The numerator is not a multiple of n, so general Type I has no fixed-numerator word form. (Only
 a = 1, Lemma 1.1 at n with 4 | A, is a word of n.) I found no better HJ encoding of Type I with a > 1.
+
+## 3. SQ₅ = (W) ∧ (S): a sign-free half and a pure-sign half
+For n ≡ 1 (4), the interior five-slice condition is "L₃(n) contains a Jacobi −1 word" (DK Thm 4.5). Split it as follows.
+* **(W) (sign-free existence; CONJECTURE).** Every integer n ∉ E_W := {2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} is
+  tuv − u − v with t, u, v ≥ 2. By Lemma 1.1 this says t/n has a Type-II-shape expansion for *some* t ≥ 2.
+* **(S) (pure sign; CONJECTURE).** If n ≡ 1 (4) is not a square and L₃(n) ≠ ∅, then some word of L₃(n) has (A/n) = −1.
+Trivially, for n ≡ 1 (4): interior-SQ₅(n) ⟺ (W)(n) ∧ (S)(n). At odd squares (W) holds (n ≥ 25) and (S) fails *by
+design*: Jacobi is +1 on all of L₃(m²). So **(S) is precisely the statement "T1 is the only obstruction for words"**,
+and (W) is a T1-free divisor problem.
+
+**EVIDENCE 3.1 (`scripts/bsA_ws.c`, exhaustive enumeration of all words with tuv − u − v < N; 54 s for N = 10⁸).**
+* (W): the exceptions below 10⁸ are exactly E_W. This was cross-checked independently by the HJ algorithm over all A for n < 3000.
+* (S): there are **0 violations** below 10⁸. No odd square < 10⁸ has a −1 word (Prop 3.1 control).
+* Hence interior five-slice ES holds for every non-square n ≡ 1 (4), 13 ≤ n < 10⁸, n ≠ 105. This extends DK 9.1 from 10⁶ to
+  10⁸, and it explains DK's lone exception: **105 has no length-3 word at all** (105 ∈ E_W). The sign plays no role there.
+* Small-|L₃| census (`scripts/bsA_smallL3.py 200000`). Only 40 non-square n ≡ 1 (4) < 2·10⁵ have 1 ≤ |L₃(n)| ≤ 6, and
+  every one has a −1 word. 21 of the 40 are *all* −1, e.g. 17, 29, 41, 69 with |L₃| = 2, and 33, 45, 125, 189, 209 with |L₃| = 4.
+  The independent-coin model with q = 0.7 per reversal pair predicts ≈ 2–3 all-(+1) cases among them. Observing 0 is mild
+  evidence that signs within L₃(n) are positively correlated toward −1, but it is not significant.
+* No injection: N₊(n) > N₋(n) occurs at 1 385 non-square n ≡ 1 (4) < 2·10⁵ (first 97, 241, 265, …). The minimum of N₋/|L₃| is
+  1/12, at n = 111969. So (S) cannot be proved by a sign-reversing injection L₃⁺ → L₃⁻.
+
+**Lemma 3.2 ((W) has no finite-covering proof; PROVED).** A word with two letters fixed holds on a residue class:
+(t,u) fixed ⟺ n ≡ −u (mod tu − 1) (then v = (n+u)/(tu−1)), and similarly for (t,v); (u,v) fixed ⟺ n ≡ −(u+v) (mod uv).
+For any finite family of such pairs, let M be the lcm of the moduli. Then **the class n ≡ −1 (mod M) meets none of them**.
+Type (t,u) would need tu − 1 | u − 1, and type (u,v) would need uv | u + v − 1, both impossible for letters ≥ 2 since
+0 < u − 1 < tu − 1 and 0 < u + v − 1 < uv. ∎
+So (W), like ES, needs moving moduli. The escaping class n ≡ −1 is exactly where the excluded boundary t = 1
+((u−1)(v−1) = n+1) would work, just as ES's escaping class (squares) is where the sign is trivial.
+Numerically (`scripts/bsA_cover2.py M`), the uncovered fraction of ℤ/M is 0.16 % (M = 720720) and 0.09 % (M = 12252240), and
+it contains 105, 366, 510, 1806, 1905, … and M − 1.
+*Reading.* (W) behaves like a "Type-II-shape Erdős–Straus for a free numerator". It has a clean finite exceptional set
+and no local obstruction except the moving-modulus one of Lemma 3.2. I do not know whether (W) is in the literature
+(not searched). It is the natural first target for any H-A technology, since T1 does not apply to it.
