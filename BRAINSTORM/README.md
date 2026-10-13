@@ -142,3 +142,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsA_toric_ksb_wahl | cyclic quotient singularities, KSB T-singularities | certificates never ℚ-Gorenstein smoothable | K2 PROVED rel. KSB |
 | bsA_minkowski_stern | HJ length = popcount of Minkowski ?; ES via Stern's diatomic sequence | dictionary; divisor event | M1–M3 PROVED — SHARP |
 | HJ_DEEP.md (deep) | master identity t/n = 1/(uv)+1/(un)+1/(vn); Type II = words of cp; SQ₅ = (W) ∧ (S) | no route; (W) = Lorenzini's open A₃ question | (W), (S) EVIDENCE to 10⁸ |
+
+## Spark relay G on Lorenzini's A₃ question (O180; memos bsG_*, deep file LORENZINI_W.md; not yet triaged)
+| file | angle | verdict (own) | label of main items |
+|---|---|---|---|
+| bsG_primes_trivial | (W) where ES needs it (primes p ≡ 1 (4)) | trivial by (2,2,·), (3,·,4); interior SQ₅(p) ⟺ (S)(p) | PROVED — SHARP (deflationary) |
+| bsG_square_shadow | genus character at n = m² on the middle letter | T1 acts partially on (W); squares still all values except 1, 9 | Lemma 3.1, Prop 3.3 PROVED — SHARP |
+| bsG_sterile_set | profinite set missed by all fixed-pair families | infinite, accumulates at −1 → compactness route closed | Prop 4.1, Thm 4.2 PROVED; EVIDENCE |
+| bsG_short_block | least outer letter x*(n) (consecutive n + x) | x* ≤ 12 below 10⁸; CONJ x* ≪ log n/log log n | EVIDENCE; CONJECTURE |
+| bsG_large_sieve_rate | large sieve with growing dimension | #exceptions ≪ N exp(−c√log N) | PROVED rel. Titchmarsh divisor thm |
+| bsG_sister_Ak_stern | Stern popcount slices = V_{A_k}(2); Lorenzini's A₄–A₆ lists | dictionary; lists reproduced | Prop 7.1 PROVED; EVIDENCE to 10⁷–10⁸ |
+| bsG_ternary_weinberger | Borwein–Choi/Weinberger analogue | no fixed class group → no exponent law | Assessment (negative) |
+| bsG_lens_dinv | lens spaces / d-invariants / Dedekind sums | Floer invariants see Σ letters, not length | identity checked; Assessment |
+| bsG_modular_hyperbola | (W) on aā ≡ 1 (n), Kloosterman | B3 gap n^{1/2} | Assessment |
+| LORENZINI_W.md (deep) | forms F1–F4, shadow, sterile set, short blocks, rate, Stern, primes | (W) open; ES content of SQ₅ at primes is (S) alone | see file |
