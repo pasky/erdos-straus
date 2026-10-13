@@ -188,3 +188,48 @@ restatement — suggest "PROVED (reformulation)".
   Tillmann, J. Topology 2009, p even)" is from memory and, to my recollection, inaccurate in scope: JRT J. Topol. 2 (2009)
   treat the family L(2n,1) (and a few related families); the general even-p cases came in later JRT papers (ℤ₂-Thurston norm).
   I could not verify either. MINOR: mark "from memory, scope unverified" or cite precisely.
+
+### Prop 2.1/2.2 EVIDENCE recount — SOUND
+`scripts/review_hj_typeII.py 3000` (own enumeration: a ≤ b, then the d-window (n+1)/(4ab) ≤ d ≤ (n+a+b)/(4ab)): 9 431 Type II
+tuples at primes < 3000, 0 identity failures (exact rationals), sign table {p ≡ 1 (4): 6 376 × (−1); p ≡ 3 (4): 12 486 × (+1)}
+— identical to the note. Extra: the sign law holds for all 55 532 oriented words at **all odd non-square n < 3000** (composites
+included), confirming the remark under Prop 2.2; 0 tuples at odd squares ✓.
+Note on wording: the evidence line says the HJ expansion "(cp)/A = [[v,4cd,u]] (letters ≥ 2)" was checked — the author's script
+checks it only for a, b ≥ 2 (correct, since outer letter 1 is not an HJ word); the sentence should say "when a, b ≥ 2". MINOR.
+
+### bsA_toric_ksb_wahl K1–K3 — SOUND, but K2's sign framing is vacuous (MINOR)
+K2 re-derived: T-singularities are 1/(dm²)(1, dma − 1) (KSB 1988 Prop 3.10; plus the A_k, which are the m = 1 case); at prime
+index p = dm² forces m = 1, A ≡ −1, i.e. A_{p−1} = [[2,…,2]] of length p − 1. **But this already excludes every length-3 word at
+every prime p ≥ 5, QR or QNR**, since length 3 ≠ p − 1. The sentence "(−1/p) = +1 for p ≡ 1 (4). So for p ≡ 1 (4) no ES
+certificate singularity is ℚ-Gorenstein smoothable" suggests a sign mechanism where there is none; no length-3 singularity of
+prime index is ℚ-Gorenstein smoothable. Repair: state K2 as a length statement; the "complement of the QR side" reading
+should be dropped. K1, K3 (dual string [[2^{v−2},3,2^{t−3},3,2^{u−2}]], Christophersen–Stevens from memory) fine as labelled.
+
+### bsA_fricke_vieta F1–F3 — SOUND (F2's "precise negative answer" is scoped to this embedding)
+`scripts/review_hj_fricke.py`: for all 1 331 words with v,t,u ≤ 12: γ = M(v)M(t)M(u) = [[n,−A*],[A,−t]], T = tuv − t − u − v,
+(x,y,z) = (A*−1, A−1, uv−2), and the displayed Fricke cubic all hold exactly (0 failures). F2 is correct as a statement about
+this embedding (Vieta moves fix the boundary traces (v,t,u,T), which carry all ES data). "Precise negative answer to the
+Markoff question" is too strong: it rules out Vieta moves *in this particular character-variety embedding*, not every
+Markoff-type encoding of ES words. MINOR: say "for the Fricke embedding by boundary traces". F3 with the R-self repair
+(T ≥ 3, "three-letter periodic presentation") is fine; the ⟺ there is DK Thm 4.5 restated.
+
+### bsA_selling_sandpile D1–D3 — SOUND (one understatement)
+D1 conorms (v−1, t−2, u−1, 1, 1, 0) and D2 (reduced Laplacian; tree number = det = n) verified symbolically and for all
+v,t,u ≤ 12 (`scripts/review_hj_fricke.py`). D2 says the sandpile group is ℤ/n "when that group is cyclic (always so when n is
+prime)": in fact it is **always** cyclic for a linear chain (the 2×2 minor on rows {1,2}, columns {2,3} is 1; checked). MINOR.
+D3: (G⁻¹)₁₁ = A/n, (G⁻¹)₃₃ = A*/n ✓; the p-adic symbol of an odd ternary lattice of determinant p is ⟨unimodular rank 2⟩ ⊕ ⟨pε⟩,
+two values distinguished by the square class of ε ✓. "Siegel mass formula, ≍ p classes (from memory)" — plausible
+(mass ≍ p for ternary determinant p), unverified. The Lorenzini citation repeats "preprint, 4 Dec 2022" (see defect list).
+
+### bsA_hecke_cusp_excursions H1–H3 — SOUND as labelled
+H1 (torus diag(k,k⁻¹) acts on P¹(𝔽_p) by A ↦ k²A; orbits on 𝔽_p^* are QR, QNR) ✓. H2 correctly labelled heuristic; the
+Gauss-sum line is right (Σ_A χ(A)e(mA/p) = χ(m)G(χ) for real χ). H3's dictionary is DK's; the size statement is labelled
+average-only ✓. No defects beyond style.
+
+### bsA_farey_graph_metric — SOUND, but the main "EVIDENCE/CONJECTURE λ_F = λ" is essentially trivial (MINOR)
+The memo's own distance-2 bullet (d_F(∞, p/A) ≤ 2 ⟺ A | p ± 1, and divisors of p − 1 are QRs for p ≡ 1 (8)), together with
+d_F = 1 only at A = 1, **proves** λ_F(p) = 2 ⟺ λ(p) = 2. Since λ_F ≤ λ, it follows that λ_F(p) = λ(p) for every p with λ(p) ≤ 3,
+i.e. for every p ≡ 1 (8) where five-slice ES holds (all p < 10⁶ by DK). The BFS evidence for p < 6000 is therefore implied,
+and "CONJECTURE λ_F = λ" is only open when λ(p) ≥ 4, which never happens in range. Repair: state this as a PROVED remark; the
+"my expectation was wrong / sign freedom does not trivialise anything" reading should be weakened accordingly (the distance-3
+signed words were never needed).
