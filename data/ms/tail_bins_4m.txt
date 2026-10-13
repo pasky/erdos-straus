@@ -1,0 +1,16 @@
+   mu in [2,3): primes 12, failures 6, rate 5.00e-01
+   mu in [3,4): primes 39, failures 12, rate 3.08e-01
+   mu in [4,5): primes 56, failures 16, rate 2.86e-01
+   mu in [5,6): primes 75, failures 9, rate 1.20e-01
+   mu in [6,8): primes 237, failures 27, rate 1.14e-01
+   mu in [8,10): primes 343, failures 28, rate 8.16e-02
+   mu in [10,12): primes 500, failures 23, rate 4.60e-02
+   mu in [12,15): primes 1166, failures 29, rate 2.49e-02
+   mu in [15,20): primes 3538, failures 41, rate 1.16e-02
+   mu in [20,25): primes 6808, failures 17, rate 2.50e-03
+   mu in [25,30): primes 12199, failures 7, rate 5.74e-04
+   mu in [30,40): primes 54386, failures 14, rate 2.57e-04
+   mu in [40,50): primes 134126, failures 1, rate 7.46e-06
+   mu in [50,70): primes 816755, failures 1, rate 1.22e-06
+   mu in [70,100): primes 906864, failures 0, rate 0.00e+00
+   mu in [100,1000000000.0): primes 1385666, failures 0, rate 0.00e+00

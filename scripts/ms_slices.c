@@ -32,15 +32,19 @@ static long slices(u64 n,long*fl,int stop,int show){ long hits=0; if(fl) memset(
           if(!ok[2]){fprintf(stderr,"slice T verify FAIL n=%llu\n",n);exit(2);} }
         if(U%M==0){ u64 w=U/M, f=As; ok[3]=verify(n,(u128)w*f,(u128)t*n*w,(u128)t*n*w*f);
           if(!ok[3]&&f){fprintf(stderr,"slice U verify FAIL n=%llu t=%llu u=%llu v=%llu\n",n,t,U,V);exit(2);} }
-        /* (I') and (V) are the u<->v images: counted via sw loop as slots 0 and 3 of the swapped triple */
-        int any=ok[0]||ok[2]||ok[3];
-        if(fl){ fl[0]+=ok[0]; fl[2]+=ok[2]; fl[3]+=ok[3]; }
-        if(any){ hits++; if(show) printf("  t=%llu u=%llu v=%llu A=%llu  I:%d T:%d U:%d\n",t,U,V,A,ok[0],ok[2],ok[3]); if(stop) return hits; }
+        /* R-O197 repair: also test (I') m | tv-1 and (V) m | v on this ordered word, so that word COUNTS are complete */
+        if(As%M==0){ u64 d=As/M; ok[1]=verify(n,(u128)A*d*n,(u128)U*d,(u128)A*U*d);
+          if(!ok[1]&&d&&A){fprintf(stderr,"slice I' verify FAIL n=%llu\n",n);exit(2);} }
+        if(V%M==0){ u64 w=V/M, f=A; ok[4]=verify(n,(u128)w*f,(u128)t*n*w,(u128)t*n*w*f);
+          if(!ok[4]&&f){fprintf(stderr,"slice V verify FAIL n=%llu\n",n);exit(2);} }
+        int any=ok[0]||ok[1]||ok[2]||ok[3]||ok[4];
+        if(fl){ for(int q=0;q<5;q++) fl[q]+=ok[q]; }
+        if(any){ hits++; if(show) printf("  t=%llu u=%llu v=%llu A=%llu  I:%d I':%d T:%d U:%d V:%d\n",t,U,V,A,ok[0],ok[1],ok[2],ok[3],ok[4]); if(stop) return hits; }
       } } }
   return hits; }
 static int isprime(u64 n){ if(n<2) return 0; for(u64 q=2;q*q<=n;q++) if(n%q==0) return 0; return 1; }
 int main(int argc,char**argv){ M=atoi(argv[1]); u64 N=strtoull(argv[2],0,10); char mode=argv[3][0];
-  if(mode=='o'){ long fl[5]; long h=slices(N,fl,0,1); printf("n=%llu m=%d hits=%ld (I:%ld T:%ld U:%ld)\n",N,M,h,fl[0],fl[2],fl[3]); return 0; }
+  if(mode=='o'){ long fl[5]; long h=slices(N,fl,0,1); printf("n=%llu m=%d words in S_m=%ld (I:%ld I':%ld T:%ld U:%ld V:%ld)\n",N,M,h,fl[0],fl[1],fl[2],fl[3],fl[4]); return 0; }
   if(mode=='P'){ long cnt=0,fails=0; printf("m=%d primes<=%llu with no five-slice hit:",M,N);
     for(u64 p=3;p<=N;p++){ if(!isprime(p)||M%p==0) continue; cnt++; if(!slices(p,0,1,0)){ fails++; if(fails<=400) printf(" %llu",p);} }
     printf("\nchecked %ld primes, no-hit %ld, degenerate %ld\n",cnt,fails,degenerate); }

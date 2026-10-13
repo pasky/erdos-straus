@@ -37,8 +37,9 @@ static long long count_n(int m,u64 n,int stop,long long*cnt_out){
     u64 pr[64]; int ex[64]; int k=0;
     k=addf(n,pr,ex,k,1); k=addf(x,pr,ex,k,1);
     /* subtract g */
-    { u64 v=g; while(v>1){ u64 q=(u64)spf[v]; int e=0; while(v%q==0){v/=q;e++;}
-        for(int i=0;i<k;i++) if(pr[i]==q){ex[i]-=e;break;} } }
+    /* R-O197 repair: g | n*x, so its primes are among pr[]; divide them out directly (g may exceed the sieve) */
+    { u64 v=g; for(int i=0;i<k && v>1;i++) while(v%pr[i]==0){v/=pr[i];ex[i]--;}
+      if(v!=1){fprintf(stderr,"g factor FAIL n=%llu x=%llu\n",n,x);exit(3);} }
     /* enumerate divisors of Bp^2 that are <= Bp */
     u64 Bpu=(u64)Bp; u64 negB = (Ap - (u64)(Bp % Ap)) % Ap;
     static u64 divs[2000000]; int nd=1; divs[0]=1;

@@ -22,7 +22,7 @@ re-verified in 128-bit integers ((mxy − ny − nx)·z = nxy). Complete for eve
 Checks: 4/131 = 32, 4/241 = 8, 8/127 = 23, 8/239 = 58 solutions (TES_FINITE's numbers); m = 12, all n ≤ 3000: the
 19 failures of PW Table 1 below 3000.
 
-**Failing primes p ≤ 10⁸ (m ≤ 20, m = 24; `data/ms/prime_fail_1e8.txt`; m = 21–23 to 10⁷ in `prime_fail_1e7.txt`).**
+**Failing odd primes p ∤ m, p ≤ 10⁸ (R-O197: p = 2 and p | m are excluded by the engine; m ≤ 20, m = 24; `data/ms/prime_fail_1e8.txt`; m = 21–23 to 10⁷ in `prime_fail_1e7.txt`).**
 | m | # failing primes | largest failing prime ≤ 10⁸ | | m | # | largest |
 |---|---|---|---|---|---|---|
 | 4 | 0 | — | | 15 | 23 | 20521 |
@@ -36,13 +36,14 @@ Checks: 4/131 = 32, 4/241 = 8, 8/127 = 23, 8/239 = 58 solutions (TES_FINITE's nu
 | 12 | 20 | 12241 | | 23 | 45 | 31771 (≤10⁷) |
 | 13 | 9 | 281 | | 24 | 154 | 620929 |
 | 14 | 8 | 353 | | | | |
-Agreement with PW Table 1 (prime entries, m ≤ 15) is exact. New here (to my knowledge; PW stop at 15): m = 16–24 lists;
+Agreement with PW Table 1 (its odd prime entries p ∤ m, m ≤ 15) is exact (PW also list n = 2 for m = 7 and
+2, 3 for m = 12, outside this population). New here (to my knowledge; PW stop at 15): m = 16–24 lists;
 m = 20 fails at the prime 2763601 ≡ 1 (mod 840), after a gap from 90001.
 **T1 control (odd squares k² ≤ 10⁸, gcd(k, 2m) = 1):** all solvable for m = 4–11, 13, 15; exceptions 25 (m = 12),
 841 = 29² (m = 14), 9, 121 (m = 16) — all in PW's table or small. (Squares are solvable by "other-shape" solutions.)
 
 **Observation 1.1 (EVIDENCE).** The multiples of 4 have far longer failure tails than their neighbours:
-last failure 241 (m = 8) vs 2 / 19 (m = 7, 9); 12241 (12) vs 37 / 281 (11, 13); 83449 (16) vs 20521 / 2081;
+last failing odd prime 241 (m = 8) vs none / 19 (m = 7, 9); 12241 (12) vs 37 / 281 (11, 13); 83449 (16) vs 20521 / 2081;
 2763601 (20) vs 353 / 14051; 620929 (24) vs 31771 (23). Among m ≡ 0 (mod 4), m = 4 is the only one with no failure.
 
 ## 2. 8/n is the all-even half of 4/n (PROVED, elementary) — the "parity sub-lottery"
@@ -62,7 +63,8 @@ exactly (p ≤ 10⁵), and per prime f_4^{even}(p) = f_8(p) for all 2261 primes 
 denominators: 0 solutions at every prime. The all-even share of ES solutions is 0.444 (p ≤ 2·10⁴), 0.448 on
 (10⁴, 2·10⁴]. **The one-odd sub-lottery alone never fails: f_4^{odd}(p) ≥ 1 for every prime 3 ≤ p ≤ 10⁸ (5 761 454
 primes), and every odd square ≤ 10⁸ has a one-odd solution and an all-even one.** (For p ≡ 3 mod 4 this is trivial:
-e = 1, x = (p+1)/4; the content is p ≡ 1 mod 4.)
+with k = (p+1)/4, 4/p = 1/(kp) + 1/(k+1) + 1/(k(k+1)) has exactly one odd denominator (R-O197 repair: the
+Type II e = 1 solution is all-even when p ≡ 7 mod 8); the content is p ≡ 1 mod 4.)
 *Reading.* ES(p) = [8/p] ∨ [one-odd 4/p]. At 131 and 241 ES lives entirely on the one-odd half (32 and 8
 solutions). The sibling 8/n is not a "different equation with the same surface", it is literally a sub-lottery of ES
 at the same n (d even), of about 45% of ES's mean, and B7 says this sub-lottery has non-T1 failures. The parity split
@@ -80,27 +82,43 @@ c + n(b+1) = mbcd reads v(1 + nt) = A·A*·v]; (I′) u ↔ v; (T) t = mc: m/n =
 mcuv]; (U) u = mw, f = tv − 1: m/n = 1/(wf) + 1/(tnw) + 1/(tnwf) [n + v = mw·f]; (V) u ↔ v. ∎ (Every hit found in
 the runs below was verified exactly in 128-bit arithmetic; no degenerate denominators occurred.)
 
-**Theorem 3.1 (PROVED: finite cell computation, relative to DEDEKIND Cor 4.1 = Rademacher's congruence).**
+**Lemma 3.0′ (cell formula on all words; PROVED relative to DEDEKIND Cor 4.1).** For every word (incl. boundary words)
+`2·(A/n) ≡ n + 1 − n(t + u + v − 9) − A − A*  (mod 8)`. *Proof (R-O197 repair: Cor 4.1 is stated for HJ expansions with
+all entries ≥ 2).* Interior words: Cor 4.1 with r = 3. The right side is symmetric under u ↔ v (A ↔ A*), and so is the
+left, as AA* = tn + 1 ≡ 1 (mod n) gives (A/n) = (A*/n); so v = 1 reduces to u = 1. *t = 1:* (u − 1)(v − 1) = n + 1,
+A = u − 1, A* = v − 1, and n/A = [[v − 1, u − 1]] (length 2, same A, and K(b₁) = v − 1 = A*); Cor 4.1 at r = 2 has
+Σ(b_i − 3) = u + v − 8 = t + u + v − 9: identical formula. *u = 1 (t ≥ 2):* n = (t − 1)v − 1, A = t − 1, A* = tv − 1 =
+n + v, n/A = [[v, t − 1]] with K(b₁) = v; Cor 4.1 at r = 2 gives n + 1 − n(t + v − 7) − A − v, which equals the
+length-3 expression n + 1 − n(t + v − 8) − A − (n + v). Remaining corners (a length-2 entry equal to 1, i.e. A = 1,
+or (t, u, v) = (t, 1, 1)): (A/n) = 1 directly ((t,1,1): A = n + 1), and the right side is −n² + 4n − 1 ≡ 2 (mod 8)
+for (t,1,1), (1,2,v), (1,u,2), (2,1,v) by direct substitution (n odd, n² ≡ 1). (u = v = 1 with t = 1 gives n < 0.) ∎
+Re-checked against sympy's Jacobi symbol on all 129 538 words with t, u, v < 60 (`ms_cells.py`), 0 mismatches.
+
+**Theorem 3.1 (PROVED: finite cell computation, relative to Lemma 3.0′, i.e. DEDEKIND Cor 4.1 = Hirzebruch–Zagier
+(D2) + Rademacher's congruence (R)).**
 (a) **m = 4: a word lies in S_4 ⟺ χ(w) = −1**, for every odd n (for n ≡ 1 mod 4 this is DEDEKIND Thm 4.5; for
 n ≡ 3 mod 4 it is new in this form, with χ = (−A/n) = −(A/n)).
-(b) 4 | m, m ≥ 8: S_m ⊊ {χ = −1}. The inclusion is (a) since m | X ⇒ 4 | X; it is proper for every such m: the word
-(t, u, v) = (4, 1, 2) (n = 5, A = 3, χ = −1) is in S_4 but in no S_m (3, 7, 4, 1, 2 are not divisible by m), and
-by (a)+(Cor 4.1) its whole cell mod 8 is χ = −1. Cell fractions mod lcm(8, m): S_m fills 140/240 = 7/12 of the χ = −1
+(b) 4 | m, m ≥ 8: ∅ ≠ S_m ⊊ {χ = −1}. The inclusion is (a) since m | X ⇒ 4 | X; non-empty: (m, 1, 2) ∈ S_m (n = 2m − 3);
+proper for every such m: the word (t, u, v) = (4, 1, 2) (n = 5, A = 3, χ = −1) is in S_4 but in no S_m (3, 7, 4, 1, 2
+are not divisible by m). So within the χ = −1 words both members and non-members of S_m occur. Cell fractions mod lcm(8, m): S_m fills 140/240 = 7/12 of the χ = −1
 cells for m = 8, 2304/6480 = 16/45 for m = 12, 600/1920 = 5/16 for m = 16.
 (c) 4 ∤ m, m ≥ 5: S_m contains χ = +1 words, namely t = m and (u, v) = (2, 3) if m ≡ 1, 5 (mod 8), (1, 2) if
 m ≡ 2, 6, (1, 1) if m ≡ 3, 7 (gcd(A, n) = 1 holds identically: for u = 1, n = (m − 1)v − 1 ≡ −1 mod A; for (2, 3),
-n = 3A − 2 with A odd). For 5 ≤ m ≤ 15 the slices fill the same fraction of both χ-halves (0.712, 0.489, 0.563,
-0.421, 0.333, 0.391, 0.339, 0.251, 0.251 for m = 5, 6, 7, 9, 10, 11, 13, 14, 15): S_m is χ-blind.
-Hence **m = 4 is the only numerator m ≥ 4 for which "the word certifies m/n" is a function of χ alone.**
-*Proof.* Cor 4.1 makes χ a function of (t, u, v) mod 8 (with n mod 8 determined by the cell); slice membership is a
+n = 3A − 2 with A odd); and χ = +1 non-members: (3, 1, 2) (n = 3, A = 2, χ = (−2/3) = +1; 2, 5, 3, 1, 2 not divisible by
+m) for m ≥ 6, and (3, 1, 6) (n = 11, A = 2, χ = (−2/11) = +1; 2, 17, 3, 1, 6) for m = 5 (R-O197 repair: members alone
+do not exclude S_m = {χ = +1}). For 5 ≤ m ≤ 15 the slices fill the same fraction of the *cells* of both χ-halves
+(0.712, 0.489, 0.563, 0.421, 0.333, 0.391, 0.339, 0.251, 0.251 for m = 5, 6, 7, 9, 10, 11, 13, 14, 15) — equal cell
+proportions, not a statement about the distribution of actual words.
+Hence **m = 4 is the only numerator m ≥ 4 for which slice membership of a word is determined by the Jacobi character
+χ = (−A/n)** (no other description of S_m by other characters is excluded).
+*Proof.* Lemma 3.0′ makes χ a function of (t, u, v) mod 8 (with n mod 8 determined by the cell); slice membership is a
 function of (t, u, v) mod m; enumerate all cells mod lcm(8, m) (`scripts/ms_cells.py`, output `data/ms/cells.txt`).
-(a): 240/240 χ = −1 cells in S_4, 0/80 χ = +1 cells. (b), (c) as stated. Cor 4.1 itself was re-checked against
-sympy's Jacobi symbol on all 129 538 words with t, u, v < 60 (interior and boundary), 0 mismatches. ∎
+(a): 240/240 χ = −1 cells in S_4, 0/80 χ = +1 cells. (b), (c): the explicit words above (valid for all m in range). ∎
 
 **Corollary 3.2 (the length-3 lottery: character for 4, sub-character for 8).** For odd n:
 `[S_4(n) ≠ ∅] ⟺ [some length-3 word of n has (−A/n) = −1]` ("a quadratic non-residue −A in the Farey ball of
 radius 3"; = λ(p) ≤ 3 of DEDEKIND Cor 4.6 for p ≡ 1 mod 8). For m = 8 the same character condition is necessary
-but **not sufficient**: at n = 131 and 241 there are 22 resp. 7 words with χ = −1 (they are the ES five-slice
+but **not sufficient**: at n = 131 and 241 there are 29 resp. 12 words with χ = −1 (R-O197 repair: 22/7 was an undercount) (they are the ES five-slice
 certificates found by `ms_slices 4 131 one`), but no word in S_8 — and indeed no solution of 8/n at all.
 EVIDENCE (`data/ms/slices_1e5.txt`, primes ≤ 10⁵): S_m(p) = ∅ for **0** primes (m = 4), **0** (m = 5), 25 (m = 6,
 last 35911), 10 (m = 7, last 12601), 23 (m = 8, last 83449; true 8/p failures among them: 3, 11, 17, 131, 241),
@@ -174,25 +192,32 @@ throughout). Leave-one-out validation predicts each sibling's number of failures
 in the 4 | m pool (m = 8: 1.5 predicted / 2 observed; 12: 9.0/12; 16: 33.9/27; 20: 55.5/50; 24: 123/140) and within a
 factor ≈ 3–4 in the 4 ∤ m pool (e.g. 15: 4.5/15, 19: 19.1/5).
 Applied to m = 4 (μ₄(p) from 2.4 at p = 5 to 24 at p = 97, ≈ 510 at 10⁷): **expected number of failing primes
-5 ≤ p ≤ 10⁷: 0.95 (4 | m curve) or 0.54 (4 ∤ m curve), of which ≤ 0.02 above p = 100**. Same for m = 5: 1.35 / 0.76;
-m = 6: 2.5 / 1.35; m = 7: 3.0 / 1.6 (all observed: 0 failing primes).
-**Assessment.** (i) Above p ≈ 100 ES's mean count is already ≥ 24 and its failure-free record is the expected
-outcome (expected ≤ 0.02 failures, uniformly whichever pool is used). (ii) The whole "luck" of 4 is at p < 100, where
-the model expects ≈ 0.5–1 failure, i.e. P(no failure) ≈ 0.4–0.6 — not remarkable — and m = 5, 6, 7 are equally (or
-more) lucky there, so this small-p luck is not 4-specific (combined m = 4–7: 3.4–7.8 expected, 0 observed: the
-pooled curve, built from large-m data at p ≥ 100, overestimates failures at tiny p for small m). (iii) 8/n's failures
+5 ≤ p ≤ 10⁷: 1.45 (4 | m curve) or 0.84 (4 ∤ m curve), of which a plug-in 0.02 / 0.00 above p = 100**
+(R-O197 repair: the first version dropped p = 5 by a binning bug and reported 0.95 / 0.54). Same for m = 5: 1.85 / 1.06;
+m = 6: 2.5 / 1.35; m = 7: 3.0 / 1.6 (all observed: 0 failing odd primes). Caveats: bins without pooled support
+(μ < 2, reached by m = 6, 7 at tiny p) are skipped; bins with zero pooled failures contribute exactly 0, so the
+"above 100" figure is a plug-in point estimate, not an uncertainty bound; turning expectations into probabilities
+assumes Poisson/independence.
+**Assessment.** (i) Above p ≈ 100 ES's mean count is already ≥ 24, in the range where the pooled siblings fail at rate
+≤ 2.5·10⁻³ per prime and falling; its failure-free record there is the expected outcome (plug-in ≈ 0.02 failures).
+(ii) The model's "luck" of 4 sits at p < 100: ≈ 0.8–1.5 expected failures, i.e. P(no failure) ≈ 0.23–0.43 under a
+Poisson assumption — mildly lucky, not remarkable — and m = 5, 6, 7 are luckier still by the same yardstick
+(combined m = 4–7: 4.8–8.8 expected, 0 observed). That combined miss (P ≈ 10⁻² even on the gentler curve) says the
+pooled curve, built from large-m data at p ≥ 100, overestimates failures at tiny p for small m; leave-one-out
+validation at p ≥ 100 does not validate extrapolation to p ≈ 5. So the small-p record of 4 is not evidence for
+4-specific structure: it is shared by 5, 6, 7. (iii) 8/n's failures
 at 131 and 241 are the expected outcome of its mean (≈ 13 at p ≈ 200) and its T1-suppressed square coset; m = 8 is the
-4 | m pool's best-predicted member. **So the count model explains why ES and 8/n differ empirically without any
-4-specific structure: B7's sibling fails because its lottery is ≈ 2.2× smaller, and ES passes because its lottery is
-large from p ≈ 100 on.** The structural 4-specificity of §3 is a different matter: it concerns which certificates
+4 | m pool's best-predicted member. **So the empirical 4-vs-8 difference is consistent with a mean-count explanation
+needing no 4-specific structure: B7's sibling has a lottery ≈ 2.2× smaller, ES's lottery is large from p ≈ 100 on.** The structural 4-specificity of §3 is a different matter: it concerns which certificates
 exist, not how many.
 **Last-failure fits.** Inverting P(fail) ≈ exp(−K(log p)³/m) (PW's Poisson form) at the observed last failures gives
 K_eff ≈ 0.27 (m = 8), 0.135 (12), 0.125 (16), 0.09 (20), 0.136 (24) — not constant, so the pure (log p)³/m form
 does not predict last failures to better than a factor ≈ 2 in log L(m); the binned μ-model above is the usable form.
 *Independent word-level check of Thm 3.1* (`scripts/ms_words_check.py 1500`, sympy Jacobi, every slice solution
-verified in exact rationals; `data/ms/words_check.txt`): all words of all odd n ≤ 1500 — m = 4: 23450 χ = −1 words, all
-in S_4; 10980 χ = +1 words, none in S_4. m = 8: 11839 of the 23450 χ = −1 words in S_8, no χ = +1 word. m = 12: 6448
-of 23450. m = 5: 14625/23450 of χ = −1 words and 6602/10980 of χ = +1 words (χ-blind).
+verified in exact rationals; `data/ms/words_check.txt`): all 35 179 words of all odd n ≤ 1500 (R-O197 repair: the first run omitted the 749 boundary words (1, n + 2, 2))
+— m = 4: 23825 χ = −1 words, all
+in S_4; 11354 χ = +1 words, none in S_4. m = 8: 12026 of the 23825 χ = −1 words in S_8, no χ = +1 word. m = 12: 6573
+of 23825. m = 5: 14775/23825 of χ = −1 words and 6752/11354 of χ = +1 words (both halves split).
 
 ## 6. B7 screen: which ES sufficient conditions survive the passage to 8/n?
 
@@ -220,7 +245,7 @@ input by itself.
 X_n: tuv − u − v = n (positive integral points; t-fibres are the hyperbolas (tu − 1)(tv − 1) = tn + 1). Only the target
 set of cells mod lcm(8, m) changes. For m = 4 the target is a full fibre of χ = (−A/n), which is a function of the
 cell mod 8 (DEDEKIND Cor 4.1); for m = 8 it is a 7/12 part of that fibre. At n = 131 the image of X_131(ℤ_{>0}) in
-the cells mod 8 meets {χ = −1} (22 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach every
+the cells mod 8 meets {χ = −1} (29 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach every
 cell mod 8 allowed by χ" is false** (at 27 primes ≤ 10⁷ at least), and an ES proof through X_p cannot be an
 equidistribution-mod-8 statement for its points without p-dependent error control (B3: the main term is only
 ≍ log² p points); it must use that the ES target is a whole χ-fibre. ES-five-slices(n) ⟺ χ is not identically +1
@@ -236,6 +261,21 @@ modulus moving with t (H-A). For t = 3 and p ≡ 1 (mod 8) it reduces (computed 
 prime factor ≡ 2 (mod 3)", a classical ET class, so small t give nothing new; the content is the union over t.
 B6: the χ-sum over X_p is a pointwise object (no averaging over p). B7: passed by construction (Thm 3.1).
 (C3) *A deterministic shape that would suffice.* A χ-flipping move on X_n — a map w ↦ w′ between positive points
-(possibly of bounded HJ length > 3, where the five-slice theorem has length-r analogues via Cor 4.1) with
-χ(w′) = −χ(w) for non-square n — would prove ES on the slices. Known moves preserve χ: u ↔ v (A ↔ A*, AA* ≡ 1),
+of X_n with χ(w′) = −χ(w) whenever n is prime — would prove ES on the slices. (R-O197 repair: an earlier version
+allowed w′ of HJ length > 3 "via Cor 4.1"; that is wrong — Cor 4.1 gives χ on longer words, not certificates, and
+n = 105 has λ = 4 but no five-slice certificate. A universal flip for all non-squares is impossible at 105.) Known moves preserve χ: u ↔ v (A ↔ A*, AA* ≡ 1),
 and multiplication by 4; DEDEKIND §8 found only a scaling flip needing composite n. Not found here either.
+
+## 8. Repair log (self-review R-O197, deep reviewer; all findings accepted)
+* P1 `ms_tail.py` dropped p = 5 (exclusive first bin + integer truncation of thresholds): fixed with real thresholds;
+  ES expectation 0.95/0.54 → **1.45/0.84** (§5.3 rewritten, Poisson assumption stated, "explains" → "consistent with").
+* P1 `ms_census.c` factored g = gcd(A, nx) with the sieve, which g can exceed (crash at `ms_census 4 225 s 3`): g is now
+  divided out of the known primes of nx. For prime n, g = 1 identically (gcd(mx − p, px) = 1 as p ∤ mx, x < p), so the
+  prime censuses were unaffected; both the 10⁸ prime census (m = 4–20) and the 10⁸ odd-square census were re-run with
+  the fixed engine: byte-identical outputs.
+* P2 `ms_slices.c` counted only slices I, T, U per ordered word (existence unaffected, counts low): fixed; 131/241 have
+  29/12 χ = −1 words (not 22/7). P2 `ms_words_check.py` missed the boundary words (1, n + 2, 2): fixed, numbers in §3.
+* P2 Thm 3.1 used Cor 4.1 on boundary words: Lemma 3.0′ now proves the cell formula there by reduction to length 2.
+* P2 uniqueness needed χ = +1 non-members (4 ∤ m) and non-emptiness (4 | m): added; heading narrowed to "determined by
+  the Jacobi character χ". P1 (C3) length-r claim withdrawn. P2 census population is odd primes p ∤ m. §2 trivial
+  construction for p ≡ 3 mod 4 corrected.

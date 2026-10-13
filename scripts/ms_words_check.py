@@ -10,7 +10,7 @@ N = int(sys.argv[1])
 stats = {m: {(1, True): 0, (1, False): 0, (-1, True): 0, (-1, False): 0} for m in (4, 5, 8, 12)}
 for n in range(3, N + 1, 2):
     for t in range(1, n + 3):
-        for u in range(1, n + 2):
+        for u in range(1, n + 3):   # R-O197 repair: t = 1 allows u = n + 2
             A = t * u - 1
             if A < 1: continue
             if A > n + u: break

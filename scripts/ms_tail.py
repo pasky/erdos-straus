@@ -42,21 +42,23 @@ def binned(m, coef, fails, lim, pmin):
     mu = lambda p: a * math.log(p) ** 3 + b * math.log(p) ** 2
     hi = min(lim, PMAX)
     # invert mu on [pmin, hi] by bisection in log p
-    def p_of(mu_t):
+    def P_of(mu_t):
+        """real threshold P with mu(P) = mu_t (clamped to [pmin - 0.5, hi]); prime p is in bin [e0, e1) iff
+        P_of(e0) < p <= P_of(e1) (R-O197 repair: real thresholds + floor, so p = pmin is binned by mu(pmin))"""
+        if mu(pmin) >= mu_t: return pmin - 0.5
+        if mu(hi) < mu_t: return float(hi)
         lo_, hi_ = math.log(pmin), math.log(hi)
-        if mu(pmin) >= mu_t: return pmin
-        if mu(hi) < mu_t: return hi
-        for _ in range(80):
+        for _ in range(100):
             mid = (lo_ + hi_) / 2
             if mu(math.exp(mid)) < mu_t: lo_ = mid
             else: hi_ = mid
-        return int(math.exp(hi_))
+        return math.exp(lo_)
     out = []
     for e0, e1 in zip(EDGES, EDGES[1:]):
-        p0, p1 = p_of(e0), p_of(e1)
-        if p1 <= p0: out.append((0, 0)); continue
-        n = int(primepi(p1) - primepi(p0))
-        k = sum(1 for q in fails if p0 < q <= p1)
+        q0, q1 = math.floor(P_of(e0)), math.floor(P_of(e1))
+        if q1 <= q0: out.append((0, 0)); continue
+        n = int(primepi(q1) - primepi(q0))
+        k = sum(1 for q in fails if q0 < q <= q1)
         out.append((n, k))
     return out
 
@@ -93,4 +95,4 @@ if __name__ == '__main__':
                 if n and N:
                     exp_ += n * K / N; ub += n * (K + 1) / N
             print(f"   pooled rate of {name} applied to m={m}, primes 5..{PMAX:.0e}: expected failures {exp_:.2f}"
-                  f" (rule-of-three-ish upper, (K+1)/N per bin: {ub:.2f})")
+                  f" (crude sensitivity, (K+1)/N per bin — NOT a confidence bound: {ub:.2f})")
