@@ -71,9 +71,9 @@ g ≤ 4k²n + Q₁² < Q₁⁴n + Q₁². *Case kj ≥ 2Q₁²:* D = kj − Q₁
 4Q₀k − 1 ≤ n + 4Q₀²Q₁², so k ≤ (n + 1)/(4Q₀) + Q₀Q₁² ≤ (n + 1)/4 + (n + 1)Q₁²/2, and g ≤ 2kn + 1 ≤ n(n+1)(Q₁² + ½) + 1.
 The final bound: Q₁⁴n + Q₁² ≤ 2nQ₁²(n + Q₁²), and n(n+1)(Q₁² + ½) + 1 ≤ 2n²Q₁² for n ≥ 3. ∎
 *Check (`xc_rigidity.py 301 301`):* max g/(nQ₁²(n + Q₁²)) = 0.583 over the 46 084 shots (attained at n = 3, g = 7).
-*Sharpness of the Q₁⁴ term (PROVED, explicit family).* D = 3, j = 4, k = (Q₁² + 3)/4 (Q₁ odd, so 4 | Q₁² + 3), and
-n ≡ −1/k (mod 3): Q₀ = (kn + 1)/3, g = 4Q₀k − 1 = (4k²n + Q₁²)/3 ≈ Q₁⁴n/12. (E.g. Q₁ = 5, k = 7, n = 5: Q₀ = 12,
-Q = 60, g = 335, 5 + 4·60² = 14405 = 335·43, den(z) = 25.) So the exponent 4 in g ≲ nQ₁⁴ cannot be lowered.
+*Sharpness of the Q₁⁴ term (PROVED, explicit family).* D = 3, j = 4, k = (Q₁² + 3)/4 (Q₁ odd, 3 ∤ Q₁, so 4 | Q₁² + 3 and 3 ∤ k), and
+n ≡ −1/k (mod 3): Q₀ = (kn + 1)/3, g = 4Q₀k − 1 = (4k²n + Q₁²)/3 ≈ Q₁⁴n/12. (E.g. Q₁ = 5, k = 7, n = 17: Q₀ = 40,
+Q = 200, g = 1119, 17 + 4·200² = 1119·143, and 4/17 = 1/40 + 1/4760 + 25/119 — an ES^{(y,1)} solution, 5 | y.) So the exponent 4 in g ≲ nQ₁⁴ cannot be lowered.
 
 **Corollary 2.2 (bounded caps are finite searches; PROVED).** Let S be a finite set of odd primes and e < ∞. Every
 shot solution of ES^{(y,e)}(n) with Q ∈ ⟨S⟩ has g ≤ 2nQ₁²(n + Q₁²) ≤ 2n·P^{2e}(n + P^{2e}), P := ∏_{s∈S} s; the
@@ -88,3 +88,63 @@ regime and ES there is a sharp archimedean wall: the moment the overflow is boun
 bounded, and existence becomes a statement about one finite set (B2/B3). The rigidity is archimedean, not
 congruential: Q₀ | (g+1)/4 makes Q₀ ≤ g/4, so 4Q² ≤ 4Q₁²·g²/16 and the integer quotient m = (n + 4Q²)/g is forced into
 the class −n mod Q₀ with m ≈ Q₀Q₁²/k — for Q₁ = 1 this pins everything down (g ≤ 2n(n+1)).
+
+## 3. The exponent box at a fixed prime r: coverage scale, a provable upgrade, and the dictionary
+
+Setup. S = {s₁, …, s_k} odd primes, r a prime ≡ 3 (mod 4) with P := ∏ s_i | (r+1)/4, κ_i := v_{s_i}((r+1)/4) ≥ 1.
+Λ_r := {a ∈ ℤ^k : ∏ s_i^{2a_i} ≡ 1 (mod r)}, so ℤ^k/Λ_r ≅ Γ_r² := ⟨s_i² mod r⟩. By Prop 1.2, r fires for
+ES^{(y,e)}(n) with Q ∈ ⟨S⟩ iff −n/4 ∈ **B_r(e) := {∏ s_i^{2a_i} : 0 ≤ a_i ≤ κ_i + e} (mod r)** (the exponent box).
+(e = ∞: B_r = Γ_r²; FROBENIUS_FIRING Thm 4.2 makes Γ_r² = (F_r^*)² for a sieved r.)
+
+**Proposition 3.1 (size of the exponent box; PROVED).** (a) |B_r(e)| ≤ ∏(κ_i + e + 1).
+(b) For every r and every S as above, |B_r(e)| ≤ τ((r+1)/4)·(e + 2)^{ω((r+1)/4)} ≤ r^{(1+o(1))·log(e+2)/log log r + o(1)}.
+In particular B_r(0) ⊆ the ES box, of size ≤ τ((r+1)/4) = r^{o(1)} (the KEY OBSERVATION's box at e = 0).
+(c) Hence B_r(e) ⊇ (F_r^*)² (coverage) forces e ≥ (log r)^{1−o(1)}; and for |S| = k fixed it forces
+(log₃ r + e + 1)^k ≥ (r−1)/2, i.e. e ≥ r^{1/k}/2 for large r.
+*Proof.* (a) count exponent vectors. (b) κ + e + 1 ≤ κ(e + 2) for κ ≥ 1, so ∏(κ_i + e + 1) ≤ (e+2)^k ∏ κ_i
+≤ (e+2)^k τ(∏ s_i^{κ_i}) ≤ (e+2)^{ω((r+1)/4)} τ((r+1)/4); then ω(N) ≤ (1+o(1)) log N/log log N and τ(N) = N^{o(1)}.
+(c) (r−1)/2 ≤ r^{(1+o(1))log(e+2)/log log r + o(1)} needs log(e+2) ≥ (1 − o(1)) log log r. Fixed k: κ_i ≤ log₃ r. ∎
+*Reading.* The KEY OBSERVATION (enlarge κ_i by r ≡ −1 mod s_i^{K_i}) buys nothing for coverage: the box is
+multiplicative in (κ_i + 1) and ∏ s_i^{κ_i} ≤ r, so its size is a divisor function, r^{o(1)}. Coverage is a matter of the
+overflow e alone, at the scale e ≈ log r with ≈ log r/log log r primes (all the small primes, r ≡ −1 mod their
+product), or e ≈ r^{1/k} with k fixed primes. Combined with Cor 2.2 (necessary: log den z ≥ ¼ log(r/4n)), the
+*sieve window* for the overflow is
+`¼ log(r/4n) − O(1)  ≤  log den(z)  [necessary]      vs      log den(z) ≈ 2e·log P ≳ (log r)^{2−o(1)}  [coverage].`
+
+**Theorem 3.2 (ES^{(y)} with sub-polynomial overflow exponent; PROVED relative to UNIT_ORBIT Lemma 2.2, as Thm 4.2 of
+FROBENIUS_FIRING; ineffective).** For every δ > 0 and every odd non-square n > 1 there is a shot solution of
+ES^{(y)}(n) with Q ∈ ⟨S⟩ for a fixed set S of k ≥ 2/δ + 1 odd primes prime to n, with
+**v_s(Q₁) ≤ v_s(Q) ≤ r^{δ}** for every s, r = the certifying prime (so den(z) ≤ P^{2r^δ}; y = n(r+1)/4). I.e.
+ES^{(y, e)} holds with e = y^{δ} (exponent cap polynomially small against ord ≍ r used by Thm 4.2).
+*Proof.* Take k ≥ 4 primes and the sieve of FROBENIUS_FIRING Thm 4.2 (modulus M = 4 rad(n) P, r ≡ −1 mod each s_i,
+(n/r) = −1, (r−1)/2 with all prime factors ≥ x^{1/4−ε}): ≫ x/log²x primes r ≤ x, all but o(x/log²x) of which have
+Γ_r² = (F_r^*)²; and ≤ x^{1−ε} of them are < x^{1−ε}. *Exceptional set:* λ₁(Λ_r) ≤ B (ℓ^∞ successive minimum) means
+r | N_c := ∏_{c_i>0} s_i^{2c_i} − ∏_{c_i<0} s_i^{−2c_i} for some c ≠ 0 with |c_i| ≤ B; N_c ≠ 0 has ≪_S B prime factors,
+so #{r : λ₁(Λ_r) ≤ B} ≪_S B^{k+1} (as in UNIT_ORBIT Lemma 2.3). With B = x^{1/(k+1) − η}, this is o(x/log²x). So some
+sieved r ∈ [x^{1−ε}, x] has Γ_r² = (F_r^*)² and λ₁ > B. *Covering:* Minkowski's second theorem for the ℓ^∞ ball
+(volume 2^k) gives λ₁⋯λ_k ≤ det Λ_r = (r−1)/2, so λ_k ≤ x/B^{k−1} = x^{2/(k+1) + (k−1)η}. If v₁, …, v_k ∈ Λ_r are
+independent with |v_i|_∞ = λ_i, every class of ℤ^k/⟨v_i⟩ — hence of ℤ^k/Λ_r — has a representative Σ t_i v_i,
+t ∈ [0,1)^k, with sup-norm ≤ Σλ_i ≤ kλ_k =: L. Represent the class of (−n/4)·∏ s_i^{−2L} by a with |a_i| ≤ L; then
+Q := ∏ s_i^{a_i + L} has exponents in [0, 2L] and Q² ≡ −n/4 (mod r). With ε, η small, 2L ≤ r^{2/(k+1) + δ'} ≤ r^δ.
+The shot solution is ES^{(y)} (s_i | (r+1)/4) with v_s(Q) ≤ 2L. ∎
+*Remarks.* (1) The gain over Thm 4.2 is only in the exponent's size (r^δ instead of r); by Prop 3.1(c) any
+covering argument with fixed k needs e ≥ r^{1/k}/2, so with fixed S this is optimal up to the factor 2 in the exponent
+(2/(k+1) vs 1/k). (2) Letting k → ∞ with x requires the sieve modulus M = 4 rad(n)·P to stay ≤ x^{o(1)}, which caps
+k at o(log x/log log x) and leaves e ≥ x^{1/k} superpolylogarithmic; e = polylog(r) would need P ≈ r^{1/2}, i.e. a
+sieve at level beyond Bombieri–Vinogradov (the modulus P eats the whole BV level). (Assessment, not proved.)
+
+**Dictionary 3.3 (coverage = geometry of numbers = non-pretentiousness of characters on S; PROVED as stated).**
+(a) B_r(e) ⊇ (F_r^*)² iff every coset of Λ_r meets the box ∏[0, κ_i + e]; sufficient: kλ_k(Λ_r) ≤ (min κ_i + e)/2;
+necessary: ∏(κ_i + e + 1) ≥ (r−1)/2 (Prop 3.1).
+(b) The dual lattice Λ_r^* = {θ ∈ ℝ^k : θ·a ∈ ℤ ∀a ∈ Λ_r} is {(φ(s₁²), …, φ(s_k²)) + ℤ^k : χ a character of (F_r^*)²},
+where χ(u) = e^{2πiφ(u)}. A short dual vector is a nontrivial character χ with ‖φ(s_i²)‖ ≤ t for all i, i.e. χ
+"pretends to be 1 on S" in the sup-angle. Transference (Banaszczyk: λ_i(Λ)λ_{k+1−i}(Λ^*) ≤ k, ℓ² norms) turns
+"λ_k(Λ_r) small" into "λ₁(Λ_r^*) large": **coverage at overflow e holds once no nontrivial character of (F_r^*)² has
+‖φ(s²)‖ ≤ c·k^{3/2}/e for all s ∈ S** (constants from ℓ²/ℓ^∞ comparison, not optimised).
+(c) Hence the ES-relevant regime (e ≈ polylog r, S ≈ all primes ≤ log r dividing (r+1)/4) asks for a
+**uniform small-prime discrete-log non-concentration statement**: for some (sieved) r, the discrete logs
+of the primes ≤ c log r are not simultaneously close to 0 after multiplication by any nonzero j ∈ ℤ/((r−1)/2).
+*Assessment.* This is beyond GRH: under GRH, character sums Σ_{s≤y} χ(s) log s ≪ √y log²(ry) are nontrivial only for
+y ≫ log⁴ r, and the best GRH generation bound (Bach: primes ≤ 2 log² r generate F_r^*) already needs a product of
+primes ≈ e^{2 log² r} ≫ r — which cannot divide (r+1)/4. The radical constraint rad(Q) | (r+1)/4 confines S to
+primes of total size ≤ r, i.e. to the range where no known (or GRH-conditional) character-sum input exists.
