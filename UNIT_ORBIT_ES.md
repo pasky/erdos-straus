@@ -122,3 +122,11 @@ infinite S-orbit with fixed modulus.
 solution verified exactly (equation, positivity, parity of v_q(z), Type II shape); smallest Q = 1 for 68 652 primes
 (ES's own family), largest needed Q = 81. All 62 224 odd non-squares n < 3·10⁵ coprime to 3·5·7·11 are solved
 (largest Q = 99); no square has a hit (as proved).
+
+**EVIDENCE for the T1 of ES^{(S)} (`scripts/uo_mute_t1.py 3 300 n…`, S = {3,5,7,11}; box x ≤ 3n, y ≤ 300n; local
+invariants by Hilbert symbols at ∞, 2, q ∈ S, ℓ | n).** n = 13, 29, 37: 121, 186, 174 solutions (most with z ∉ ℤ),
+all Type I or II, invariants (inv_∞, inv_p) = (½, ½). n = 13², 17², 19²: 491, 566, 745 solutions, **all of "other"
+shape**, (½, ½). On all 2283 solutions inv_q = 0 for q ∈ S (Lemma 1.1) and the product formula holds.
+*Control (`uo_mute_t1.py -3 300 169 289`: parity normalisation dropped):* 4002 / 4922 solutions, of which
+1344 + 428 / 1860 + 527 have Type I/II shape at the square, with inv_{13} resp. inv_{17} = 0 and some inv_q = ½
+(3004 / 3710 solutions have a nonzero q-invariant): the mute normalisation is exactly what keeps the T1.
