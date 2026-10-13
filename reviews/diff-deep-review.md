@@ -13,6 +13,9 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 | Thm 2.1 geometric reading | SOUND-AFTER-REPAIRS (see D-list) |
 | Thm 1.1 / Cor 1.2 (supersingular transfer; ∃E vacuous) | SOUND (Diff(T') = {p} re-checked from scratch) |
 | Prop 1.3 (∀E false; τ(e) maximal orders) | SOUND-AFTER-REPAIRS (τ(e) correct for all e; ET citation wrong) |
+| Prop 2.2 (Gram form, involutions, k² = −4c²dp) | SOUND; last sentence (commutative identity with *this* k) FALSE as written — notation clash (D3) |
+| Prop 2.3 (level free on one endomorphism, nrd x ≪ M²p) | **SOUND** (absolute constant; notation O⁰ clash, D5) |
+| Prop 2.4 (exactness gap) | identity SOUND; f^{3/2} gap and lottery sum are Assessment, with a bookkeeping slip (D6) |
 | §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
@@ -55,3 +58,29 @@ existence of c, 0 disagreements, and no predicate-true pair beyond h ≤ (n+5)²
   p = 97: (20, 34), h = 7, G = 7; p = 1201: (39, 154), h = 5, G = 5. Per-pair counterexamples with small p:
   (f,f') = (4,9) at p = 7 (h = 5, G = 5). Thm 2.1's displayed condition is the correct one; the glosses are wrong
   (see D1).
+
+### Prop 2.2 (`scripts/review_dd_identities.py 3001`, 27 788 Type II tuples of odd n ≤ 3001, own enumerator)
+* Gram form: f = aM − 1, f' = bM − 1 ⇒ fX² + 2XY + f'Y² = M(aX² + bY²) − (X − Y)². ✓ (0 failures).
+* x² = −f ≡ 1, (x + y)² = −(f + f' + 2) = −M(a + b) = −Mce ✓; trd(xy) = −2 so k = xy + 1 is trace-zero and
+  nrd k = ff' − 2 + 1 = 4c²dp, k² = −4c²dp ✓ — verified in an explicit model x = i, y = i/f + j/f of (−f, −f·det T)
+  (0 failures).
+* bsC_typeII_commutative Lemma 1 `(2ad + k)(2bd + k) = de(1 + 2ck)` with **k² = −dn** ✓ (0 failures; re-derived:
+  LHS = d(4abd − n) + 2(a+b)d·k, coefficient comparison gives exactly 4abd = n + e, a + b = ce; norms ✓ since
+  ef = 4a²d + n). But DIFF_DEEP Prop 2.2 states the identity right after defining k := xy + 1 with k² = −4c²dp: **with
+  that k the identity fails for all 27 788 tuples** (it forces 4abd − 4c²n = e). The memo's k is
+  (xy + 1)/(2c). See D3.
+
+### Prop 2.3 (re-derived)
+O/MO ≅ M₂(ℤ/M) (p ∤ M); trd(O) = ℤ (contains 2, and O ⊗ ℤ₂ ≅ M₂(ℤ₂) has odd traces); x = x' + Mz is trace-zero
+and ≡ x₀; MO ∩ B⁰ = M(O ∩ B⁰); the coset contains y with nrd y ≤ M²ρ²; y² = −nrd y ≡ 1 in O/MO and ℤ ∩ MO = Mℤ give
+nrd y ≡ −1 (M); y ≠ 0 since x₀ ≢ 0. Constants: with λ_i the successive minima (squared, nrd) of O ∩ B⁰,
+λ₁λ₂λ₃ ≪ det ≍ p² (Minkowski II), Kaneko (two non-commuting trace-zero elements: (−4λ₁)(−4λ₂) ≥ 4p) gives
+λ₁λ₂ ≥ p/4, so λ₃ ≪ p and ρ² ≤ ¼Σλ_i ≪ p (in dimension 3 minimal vectors form a basis). **The implied constant is
+absolute** (no dependence on M, x₀ or the order). SOUND. Remark: the statement is weak by design (one vector in a
+coset of covolume ≍ M³p); it does not touch the second congruence or the exact-norm condition.
+
+### Prop 2.4
+y_⊥ = y − x/f, nrd y = 1/f + nrd y_⊥, det T = f·nrd y_⊥ ✓. {y ≡ y₀ (M), ⟨x,y⟩ = 1} is an affine coset of
+x^⊥ ∩ MO⁰ ✓; det(x^⊥ ∩ L) = nrd(x)·det L/[L : ℤx ⊕ (x^⊥ ∩ L)]² (so "up to an index factor" is right, but the
+index can be as large as ≍ f for special x, which would cut the gap to ≍ f^{1/2}; this is why it must stay an
+Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; ratio f^{3/2} ✓; f ≥ M − 1 ✓.

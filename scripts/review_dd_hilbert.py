@@ -39,23 +39,24 @@ def typeII(n):
             d+=1
         a+=1
     return out
-P=int(sys.argv[1])
-bad=0; tot=0
-for p in primerange(3,P):
-    for f,g,c in typeII(p):
-        tot+=1
-        r=ram(-f,-f*(f*g-1))
-        if r!=[p]: bad+=1; print("ram mismatch",p,f,g,r)
-print(f"(1) Type II pairs p<{P}: {tot}, ramification != {{p}}: {bad}")
-# (2) counterexamples to 'G >= 2 sqrt h suffices'
-ex=0
-for p in primerange(3,200):
-    for h in range(1,60):
-        N=1+p*h
-        for f in range(1,isqrt(N)+1):
-            if N%f: continue
-            g2=N//f; G=gcd(f+1,g2+1); gg=gcd(h,G)
-            if G*G>=4*h and (gg*gg)%(4*h)!=0 and ram(-f,-f*(N-1))==[p]:
-                ex+=1
-                if ex<=5: print("  example: p",p,"f,f'",f,g2,"h",h,"G",G,"gcd(h,G)",gg)
-print(f"(2) pairs with G>=2sqrt(h), 4h !| gcd(h,G)^2, B_T ramified exactly at p (p<200,h<60): {ex}")
+if __name__=='__main__':
+    P=int(sys.argv[1])
+    bad=0; tot=0
+    for p in primerange(3,P):
+        for f,g,c in typeII(p):
+            tot+=1
+            r=ram(-f,-f*(f*g-1))
+            if r!=[p]: bad+=1; print("ram mismatch",p,f,g,r)
+    print(f"(1) Type II pairs p<{P}: {tot}, ramification != {{p}}: {bad}")
+    # (2) counterexamples to 'G >= 2 sqrt h suffices'
+    ex=0
+    for p in primerange(3,200):
+        for h in range(1,60):
+            N=1+p*h
+            for f in range(1,isqrt(N)+1):
+                if N%f: continue
+                g2=N//f; G=gcd(f+1,g2+1); gg=gcd(h,G)
+                if G*G>=4*h and (gg*gg)%(4*h)!=0 and ram(-f,-f*(N-1))==[p]:
+                    ex+=1
+                    if ex<=5: print("  example: p",p,"f,f'",f,g2,"h",h,"G",G,"gcd(h,G)",gg)
+    print(f"(2) pairs with G>=2sqrt(h), 4h !| gcd(h,G)^2, B_T ramified exactly at p (p<200,h<60): {ex}")
