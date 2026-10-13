@@ -48,7 +48,7 @@ of nonzero x mod 2 with Q(x) ≡ 0 (mod 4), which should be 2 if isotropic and 0
 from memory). Minor: the proof's sentence about isotropy depending only on a_i mod 8 is a remark, not a step;
 the brute-force check above is what actually closes the equivalence.
 
-### Thm 1.2 (Eichler ladder) — SOUND-AFTER-REPAIRS (minor wording only)
+### Thm 1.2 (Eichler ladder) — SOUND (minor wording D7)
 I re-derived it and re-checked it with a stronger computation than the author's. The author's check climbs index-2
 overorders one at a time. Mine (`scripts/review_ce_lib.py`, `review_ce_local.py`) lists **every** overorder of
 2-power index exactly, as Λ + H with H a subgroup of the 2-part of Λ^♯/Λ (Λ^♯ is the trace dual; every overorder
@@ -271,7 +271,7 @@ is correct: T_ℓ is self-adjoint for the mass inner product, so constants map t
   n = 9, where C₀ ⊂ B_{3,∞}. The sentence "the whole supersingular/2-isogeny picture is empty at odd squares" is true
   only for the χ-dictionary of path words. Reword (MINOR, folded into D9).
 
-### 5.5 (numerics) — counts reproduced; interpretation FATAL-to-the-claim as worded → D2
+### 5.5 (numerics) — counts reproduced; bold conclusion false at 3 of 5 primes (MAJOR, D2)
 `scripts/review_ce_rank.py` reproduces the counts:
 * |𝔊⁻_p| = 69, 76, 82, 122, 166 at the five hard primes, with 5, 8, 5, 8, 2 path classes;
 * 4–10 path classes out of 7–44 classes for p ≡ 1 (24) ≤ 601.
