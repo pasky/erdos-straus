@@ -14,7 +14,7 @@ ff2_caseB.py (exact Case B search at x*), ff2_polyq.py (tiny F_p[T] library).
 3. **Candidate obstructed point x*_c (x ≡ 1 at every prime ≠ T, x ≡ 1 + cT at T), q = 3, A = T².**
    Case A families (E | a0 + b0) are impossible there (PROVED sketch in §0.2, valid for every odd q, A = T^k,
    k ≥ 2). Case B reduces to an explicit divisor problem (normal form (****)); exact search finds no family for
-   deg L' ≤ 7, j ≤ 8 (c = 1) and deg L' ≤ 5, j ≤ 5 (c = 2). **Conjecture 0.2** (EVIDENCE only): x* ∈ O(3,T²), so
+   deg L' ≤ 7, j ≤ 8 (c = 1 and c = 2); Case A also brute-force checked (deg a0, b0 ≤ 4). **Conjecture 0.2** (EVIDENCE only): x* ∈ O(3,T²), so
    ES₃(T²) has no finite linear covering. Not proved: Case B for all L' remains open.
 4. **Proposition 1.1 (PROVED, char ≥ 5):** even n-dependent collections of linear families fail unless their
    moduli reach degree ≥ n/2 − O(log n) (Weil gives a prime P ≡ 1 mod W(n); O140 Prop 4.1 applies). This is the

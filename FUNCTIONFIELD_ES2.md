@@ -72,7 +72,7 @@ E = T² − cT − 1 = −(1 + cT − T²) (a0 = b0 = T, j = 1, D = 1 + T⁴ = (
 cylinder.
 
 **Status of x* (CONJECTURE + EVIDENCE).** For the exact point u = 1 + cT, `ff2_caseB.py 3 2 c 7 8` finds **no**
-Case B family with deg L' ≤ 7, j ≤ 8 (both c = 1 and c = 2 to deg L' ≤ 5, j ≤ 5; c = 1 to 7/8). With Case A
+Case B family with deg L' ≤ 7, j ≤ 8, for both c = 1 and c = 2 (`ff2_caseB.py 3 2 c 7 8`). With Case A
 excluded (proved), this is evidence for **Conjecture 0.2: x*_c ∈ O(3, T²); hence ES₃(T², ·) has no finite linear
 covering** (char 3 would then share the "lottery" status of char ≥ 5 for k = 2, although its failures die out
 at n = 6 in the data). A proof needs: no monic E ≡ −(1 + cT) (mod T^{N+1}), E ≡ −1 (mod L') dividing
