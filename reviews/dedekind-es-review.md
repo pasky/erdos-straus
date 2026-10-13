@@ -133,3 +133,39 @@ symbol, and is cross-checked against full HJ expansion for n ≤ 3000):
 * SQ₅ remarks: for n ≡ 5 (8) it is trivial (A = 2), so its content is n ≡ 1 (8) ✓. "Implies ES for all p ≡ 1 (4)" ✓.
   "Strengthening of O146's SQ": strictly, SQ₅ says nothing at n = 105, where SQ must be checked separately
   (MINOR, D4, wording).
+
+## 8. §10.1 complexity reading — Assessment label honest; two repairs
+
+* Literature, from my own knowledge (no source in sources/ checked): Burgess gives `n_p ≪ p^{1/(4√e)+ε}`, and
+  1/(4√e) = 0.1516… ✓. Ankeny gives O(log²p) under GRH, and Bach (Math. Comp. 1990) gives `n_p < 2 log²p` ✓.
+  Deterministic polynomial-time QNR finding is open unconditionally ✓. I also know of no result that a factoring
+  oracle makes it easier. The author flags this as "from memory; not checked", which is honest.
+* **Algorithm as stated is not polylog (MINOR, D5).** "Factor tp+1 for t ≤ T, test the words" enumerates the
+  divisors A ≡ −1 (mod t) of tp+1, and τ(tp+1) can be `p^{c/log log p}`, which is super-polylogarithmic. The
+  fix is easy and makes the claim stronger: if A | tp+1 and `(A/p) = −1`, then some *prime* factor q of A has
+  `(q/p) = −1`. So the algorithm only has to test the O(log p) prime factors of each tp+1. That gives poly(log p)
+  time plus (log p)^C oracle calls, as claimed. State it this way.
+* **Mis-citation (MINOR, D6).** "CONDITIONAL_ES Thm C" does not exist. The H-conditional result is POINTWISE_SIZE
+  Thm C / Cor C1, which CONDITIONAL_ES only cites (CONDITIONAL_ES l.139–144, l.205–207). As used it gives "for every
+  fixed T, t ≤ T fails i.o." (bounded programs), not anything about polylog T. The sentence should say exactly that.
+* EVIDENCE `t_min(p) ≤ 64` reproduced: records (17,2), (41,4), (769,6), (1049,7), (2521,15), (21841,64) for
+  p ≡ 1 (8) ≤ 10⁶ (`review_dk_lambda.py`), exactly as stated.
+* §10.2 coin statistics: not re-verified (outside the brief's checklist). It is labelled EVIDENCE/heuristic, which
+  is appropriate.
+
+## 9. Other items noticed in passing
+
+* §3 "Reading": `12c·s(a,c) ≡ a + a* (mod c)` verified for all odd c < 120 by the defining sum. Combined with (R),
+  this makes the mod-8c residue depend only on the stated data ✓.
+* §3, numerical side-remark after Prop 3.1 (**MINOR, D7, false as stated**): "equidistributed (≈ 50:50) on the
+  other residue classes of (A, t) mod 4". `review_dk_p31stats.py 20000` shows several other classes are
+  **deterministic**. For p ≡ 1 (4): (A,t) ≡ (1,1) is always +1 (2650:0); (1,3) and (3,1) are always −1; and (3,3) is
+  always −1. Only (1,2), (2,1), (2,3), (3,2) are mixed. This is just Thm 4.5/8.1 seen coarsely. Repair: replace the
+  sentence by a pointer to the mod-4 table of 8.1.
+* §2 last sentence (**MINOR, D8, wording**): "odd-indexed regular partial quotients … all 1 except …" is garbled.
+  Correct statement: `r(n/A) = 1 + Σ_{i odd} a_i` for the regular CF `[a₀; a₁, …]` of n/A, so r = 3 ⟺ the
+  odd-indexed regular partial quotients sum to 2 (the pattern `[v−1; 1, t−2, 1, u−1]`, or `[v−1; 2, u−1]` when t = 2).
+* §5.2 (outside the brief, **MINOR, D9, overclaim**): "these are *exactly* the short-plumbing lens spaces that are
+  not integral surgeries on knots in S³". The linking-form condition (±q a square mod p) is only *necessary* for
+  L(p,q) to be a p-surgery. Greene's classification leaves only Berge-type lens spaces, so many QR short-plumbing
+  lens spaces are also not surgeries. Repair: "are among the …" / "cannot be integral surgeries".
