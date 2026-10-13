@@ -94,3 +94,48 @@ inv_∞ β(w) = ½ on the positive cone (positive definite), and Thm 1.1 is lite
   says BM does not control SA on the ES surfaces U_n. So no general theorem applies; SQ₅ would be a *specific* SA statement
   with an exceptional set {5, 105} ∪ squares. The value of the reformulation is that it isolates the only obstruction
   as Brauer–Manin, and makes "χ-flip" = "change of inv₂ β", a 2-adic local quantity.
+
+## 2. The move groupoid: what flips, and where (EVIDENCE + elementary PROVED statements)
+
+Moves considered (`scripts/cf_groupoid.py L NMAX [odd]`): reversal (t, u, v) ↦ (t, v, u) (same n); rotation and inverse
+rotation (n ↦ n + u − t etc.); scaling down (a | u, v: (t, u, v) ↦ (at, u/a, v/a), n ↦ n/a) and up. By Cor 1.4 and
+Prop 1.5, along any chain χ changes only at rotations with all letters odd and t ≢ u (mod 4), or across a step whose
+numerator is even (χ undefined there, ε₂ of an even-determinant lattice is unconstrained).
+* **2.1 (EVIDENCE).** Letters ≤ 60, numerators ≤ 10⁵, all moves: 20 284 components; 7 numerators n have two words of
+  different χ in one component: n = 11, 79, 89, 93, 233, 419, 439 (89, 233 primes ≡ 1 mod 8). Example (BFS path):
+  (6,18,1)₈₉ → (18,1,6)₁₀₁ → (9,2,12)₂₀₂ → (2,12,9)₁₉₅ → (6,4,3)₆₅ → (4,3,6)₆₃ → (12,1,2)₂₁ → (3,4,8)₈₄ → (8,3,4)₈₉,
+  χ: +1 → … → −1 (subscript = numerator). Every flip chain found passes through an even numerator.
+* **2.2 (EVIDENCE).** Restricting to odd numerators: 0 flips with letters ≤ 60 / n ≤ 10⁵; with letters ≤ 130 / n ≤ 10⁶,
+  967 703 components and exactly 2 flips, at the *composites* n = 125 = 5³ and 1119 = 3·373, both via the odd-letter
+  rotation flip of Prop 1.5. (At the cell level mod 8 the odd-move groupoid admits a consistent ±1 labelling g with
+  χg invariant, but g is not a function of n mod 8 — 29 cell components, 12 component/n-class pairs carry both labels —
+  so the absence of odd flips is not a congruence theorem, just rarity of chains closing up at the same n.)
+* **2.3 (PROVED, elementary): fixed chains are surface-restricted cell maps.** A fixed finite chain of these moves (fixed
+  factors a_i) is a map Φ(w) = D·P·w (P a permutation matrix, D a diagonal matrix of fixed positive rationals) on a
+  congruence-defined domain. Unless D·P is the identity or the reversal, K(Φ(w)) = K(w) is a nontrivial cubic equation
+  (the monomial tuv is multiplied by det D, the linear part −u − v is permuted/rescaled), so Φ preserves n only on the
+  curve Z_Φ ∩ X_n. On that curve, whether Φ flips χ is a function of w modulo 8·(denominators of D) (Cor 1.2). Hence a
+  fixed chain is an ES mechanism only through the Diophantine event "X_p ∩ Z_Φ has a positive point in a flipping cell" —
+  a lottery of the B2 type, never a deterministic map. (The example chain of 2.1 is Φ(t, u, v) = (8v, t/2, 2u/9), and
+  Z_Φ: tuv = 7u + 9v − 9t/2; it passes through (6, 18, 1).)
+* *Reading.* "Leaving X_n" is not what flips χ (χ is n-free, Cor 1.4(a)); what flips it is a change of the 2-adic class of
+  the path lattice, which classical moves effect only at odd-letter rotations or through even determinants, and the
+  composite returns to the same n only by coincidence. **No n-preserving move with a deterministic domain flips χ.**
+  This sharpens HJ_DEEP C3 / MODEL_SPECIFIC C3: the earlier "scaling is the only flip" was a normalisation artefact.
+
+## 3. Constructions tried against the 2-adic form of the problem
+
+**3.1 Mordell's moduli inside the HJ ball (PROVED, elementary; known in substance).** Let p ≡ 1 (mod 4) be prime and q
+prime with (q/p) = −1. The integer A = q is the A-value of a word of p iff t₀ := (−p⁻¹ mod q) ∈ [1, q] divides q + 1 (then
+t = t₀, u = (q + 1)/t₀, v = ((tp + 1)/q + 1)/t ≥ 1; A* = (tp+1)/q ≡ −1 (mod t) automatically since AA* ≡ 1). Such a word
+has χ = (−q/p) = −1, an ES certificate. Since (p/q) = −1, t₀ runs over the quadratic non-residues (q ≡ 1 mod 4) resp.
+residues (q ≡ 3 mod 4) of q. **Exactly for q ∈ {3, 5, 7} every such class divides q + 1** (q = 3: {1} | 4; q = 5: {2, 3} | 6;
+q = 7: {1, 2, 4} | 8); for q = 11 the class 5 fails, q = 13 fails, and for q ≥ 17, d(q + 1) ≤ 2√(q + 1) < (q − 1)/2.
+So: *if 3, 5 or 7 is a non-residue mod p, the word (t₀, (q+1)/t₀, ·) is a certificate* — Mordell's 840 (= 8·3·5·7) in HJ form;
+the residual primes are p ≡ □ (mod 840), the T1 classes. No new content (B1), but it locates where a "Vinogradov-type"
+argument would have to start: the least non-residue q_p ≥ 11 is the hard case.
+**3.2 Vinogradov's trick does not transfer (Assessment).** Vinogradov's q_p < √p + 1 uses that the set of "small" integers
+is closed under the operation m ↦ ⌈p/q⌉q − p and that χ is multiplicative on it. The A-set of X_p is L(p) = {A : t₀(A) | A + 1},
+t₀(A) = −p⁻¹ mod A; it is not closed under products or under any Euclid step (A ∈ L(p), A′ ∈ L(p) ⇏ AA′ mod p ∈ L(p)), and
+the only operations on it that are uniform in p are the Klein symmetries and the cell-preserving maps of §2. Given a
+non-residue q ≥ 11, a certificate with A = qk needs t₀(qk) | qk + 1, a divisor-in-class event (H-A).
