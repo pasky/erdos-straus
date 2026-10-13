@@ -344,3 +344,41 @@ Items 3–4: Assessment, correctly labelled ("the general statement '2-Selmer co
 conditions' is standard"). In item 4 the inference "Hilbert-symbol conditions ⇒ never d ≡ −1 (mod t)" uses
 `bsB_redei_oddpart` item 1. It is valid for prime t only, and for composite t the A₂-part can be finer than genus
 (see D11). Add "for prime t".
+
+## Consistency with O173 (FUNCTIONFIELD_ES3.md on side-agent/ff-sterile-point; read only, not reviewed here)
+
+*Parametrisations agree.* O173 Lemma 2.1 writes E = L'w − 1, E' = L'C − 1, s = N + 1 + γ, L' = g'm', with
+m'wC = T^s + v and w + C = g'v. Substituting w = Th₁, C = Th₁', m' = L'', v = T²r, s = K + 2 gives exactly O175's
+(I)–(II). O173's T ∥ w, C is O175's h₁(0), h₁'(0) ≠ 0. O173's bound l ≤ s − 2 − min(a, b) is my sharp bound
+deg L' ≤ K − 1 − min(deg h₁, deg h₁') (D3). O173's l ≤ 2N − k − 1 is the same as l ≤ K − 1 ≤ 2N − 3 for k = 2.
+O173 Lemma 3.1 (only j − γ ∈ {0, 1} matters) is equivalent to O175's "the union over N is the N₀ cylinder":
+j − γ = 2N − K − 2 ∈ {0, 1} ⟺ N = ⌈K/2⌉ + 1. Both derive "j = 0 impossible".
+*Divergence heuristic.* Both say FF2's sum over deg L' is truncated. **O173 is the more careful of the two.** It
+records that the elementary count gives ≈ q^{s/2} cylinders per level, i.e. **no decay per level a priori**. It
+says that a summable count is needed and is not proved (its §3, "the whole difficulty sits in γ ≈ j"). It
+formulates the correct sufficient criterion U(m) > T(m) for O(3, T²) ≠ ∅. O175's "Σ_K poly(K)·3^{−K}-type,
+convergent" (D6a) should be brought in line with O173: convergence is heuristic and data-driven.
+*Small tension to record.* O173 writes "Heuristically the count is poly(N)". O175's complete counts (reproduced by
+me through K = 13) give, per level N (K ∈ {2N − 3, 2N − 2}): N = 3..10 → 14, 16, 28, 26, 140, 86, 184, 348. That is
+roughly ×1.5 per level, ≈ 3^{0.4N}, **exponential, not polynomial**, though far below the critical 3^{N}. Both
+agents' convergence assessments survive, since 3^{0.4N}·3^{−N} is summable, but O173's "poly(N)" is not what the
+data show. Forward this to R173 / O173.
+*Search ranges at x*.* O173: 0 families for deg L' ≤ 13 at any level (via its N ≤ 4l − 1 at x*), hence all
+N ≤ 8. O175: 0 families for K ≤ 19, hence all N ≤ 10 (not N ≤ 18 for every g; D4). The ranges are incomparable,
+both are empty, and they do not conflict. Lemma 3.2 (O175: N ≤ max(deg h₁, deg h₁' + 1)) and Lemma 2.3 (O173:
+v_T(Z + (1 + cT)Z') = γ, N ≤ 2max(z, z') − min(z, z') + 1) are different consequences of the same congruence
+at x*. I re-derived O175's. I did not re-derive O173's (R173's task).
+*Claims about x*.* Both conclude "lottery" and that x* is not visibly special. My cylinder computation
+(`scripts/review_sl_cylcov.py`) agrees with O173's control table: inside u ≡ 1 + cT (mod T⁴), the K ≤ 13 covered
+fraction is 0.235 (O173: 7/40 at its truncated range). Inside u ≡ 1 + cT (mod T⁵) it is **0** for K ≤ 13, and
+coverage first appears at K = 14 (O175 §3 check). So x*'s immediate neighbourhood is markedly *less* covered than
+the 49 % average. That is consistent with O173's 1/40 at mod T⁶, and a point both documents could state more
+sharply. O175's "height 1" speciality is withdrawn by D8. Neither document claims more than CONJECTURE for x*.
+
+## AGENT_REPORT_O175 — knock-on repairs
+**D19 (MINOR).** Report item 1: "any family covering x* must be degree-lopsided (Lemma 3.2, PROVED) — EVIDENCE that
+≈ 50 % of the slice is never covered". This is a non-sequitur, since Lemma 3.2 concerns x* only. Split the
+sentence. "x* is special only as a height-1 point … x*-orbit = {1 ± T, 1/(1 ± T)}" must follow D8. "Ray-class/Hecke
+inputs use only χ∘N, so WR Remark 10.4's ray-class 'escape' is pulled back from ℚ" must carry D10's scope
+("for fixed-(t, p) character/L-function detectors"). "ES class is the *least* populated non-residue class" (table)
+must follow D12. "orthant-crossing maps barred … PROVED" must follow D15.
