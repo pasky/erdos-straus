@@ -54,3 +54,31 @@ QNR 11.96 vs 7.54; (p/5) = (p/7) = 1: 0.676 vs 0.244; 2 cubic residue 0.380 vs 0
 Exponent bookkeeping checked by hand: 4cd | 240 ⇒ exp (ℤ/4cd)^× | 4; 4cd | 504 ⇒ exp | 6; 4cd | 65520 ⇒ exp | 12;
 Σ_{m|60} τ(m) = Σ_{m|126} τ(m) = 54. Only presentation defects (D9: the table in the memo is broken markdown — "cd | 6"
 inside a table cell splits the column; the layer counts are pairs (c,d), each carrying a Type I and a Type II slice).
+
+### Claim 4 — LDP_DEEP Prop A.4.1, the F-Gram construction, Prop A.4.2 — A.4.1 SOUND; construction SOUND-AFTER-REPAIRS (wording makes it false as written); A.4.2 SOUND as an identity, "closed" is an overclaimed label (GAP in the PROVED tag)
+**Re-derivation.** K = ℚ(ζ_M), F = K⁺, r = [F:ℚ] = φ(M)/2, O_F = ℤ[θ], θ = 2cos(2π/M). Gal(K/F) = {±1} ⊂ (ℤ/M)^×; for a
+prime 𝔭 ∤ M of F over ℓ, N𝔭 = ℓ^g with g = ord of ℓ in (ℤ/M)^×/{±1}, and Art_{K/F}(𝔭) = Frob_ℓ^g = ℓ^g mod M ∈ {±1};
+multiplicativity gives Art_{K/F}(𝔞) = N𝔞 mod M. Hence for f = N𝔞: f ≡ −1 ⟺ η(𝔞) = −1 (A.4.1) — correct and, as the
+author says, a dictionary. If 𝔞 = (β), β ≡ 1 (mod M O_F): every conjugate σβ ≡ 1 (mod M O_F) (the ideal is Galois
+stable), so the *element* norm N(β) ≡ 1 (mod M O_F ∩ ℤ = Mℤ); and f = N𝔞 = |N(β)| = (−1)^{#neg} N(β) ≡ (−1)^{#neg}.
+So f ≡ −1 ⟺ odd number of negative conjugates. ✓. For β ≡ −1 (mod M O_F): N(β) ≡ (−1)^r. ✓.
+r odd ⟺ φ(M) ≡ 2 (mod 4) ⟺ M ∈ {4, q^k, 2q^k : q ≡ 3 (4)} (this includes 3, 6), so M = 4cd > 4 ⇒ r even. ✓
+**From scratch** (`scripts/review_ld_ray.py`, 6 s): for 16 moduli M = 4cd ∈ {8,…,120} (r up to 16), 60 random
+β = 1 + Mγ and 60 random β = −1 + Mγ (γ ∈ ℤ[θ]), exact norms by resultant against the integer minimal polynomial of
+θ, signs of the r real conjugates at 80 digits: 0 failures of N(β) ≡ 1, |N(β)| ≡ (−1)^{#neg}, and N(−1 + Mγ) ≡
+(−1)^r. Residue degrees: the minimal polynomial of θ factors mod every prime ℓ < 400, ℓ ∤ M, into irreducibles of
+degree exactly g_ℓ and ℓ^{g_ℓ} ≡ ±1 (M): 0 mismatches. The r-parity characterisation: 0 mismatches for 3 ≤ M ≤ 5000;
+no M = 4cd > 4 has r odd.
+**Defects.** (i) The F-Gram paragraph says (−β, −det T_F) "is ramified at the real places where T_F is *definite*"
+and then assumes det T_F totally positive. Under that assumption T_F is definite at **every** real place, so the
+count would be r (even) for every β and the parity would carry no information. The correct statement: (−β, −det)
+ramifies at v ⟺ σ_v β > 0 and σ_v det > 0, i.e. T_F **positive** definite at v; the count is r − #neg ≡ #neg
+(mod 2) **because r is even** — so the construction also silently uses r even (D4a). (ii) Sign normalisation drifts:
+the construction uses β ≡ 1 (𝔪), the certificate in A.4.2 uses β ≡ −1 (mod 4cd O_F), and AGENT_REPORT's SHARP bullet
+writes "f = N_{F/ℚ}(β)" — with the element norm, N(β) ≡ +1 always, so f ≡ −1 is impossible; it must be the ideal
+norm |N(β)| (D4b). (iii) A.4.2 is tagged "PROVED" and the section ends "Closed". What is proved is the one-line
+identity N(−1) = (−1)^r = +1 (r even); that *the loophole is closed* is an Assessment: it shows only that the
+specific descent "take N_{F/ℚ} of an O_F-certificate" loses the target. Other descents (trace forms, restriction of
+scalars of the F-Gram lattice to a ℤ-lattice of rank 2r, choosing F′ ⊂ F of odd degree — the author's own Spark 1)
+are not excluded (D4c). The SHARP-list phrase "It closes because …" in AGENT_REPORT_O177 should be downgraded
+accordingly.
