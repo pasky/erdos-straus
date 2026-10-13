@@ -91,3 +91,89 @@ unreachable (Lemma 1.2); the arrays are large enough (NMAX = k + 4·LMAX ≤ 54,
 v·T^{−1} mod ρ is implemented correctly. So every possible family is captured by the enumerated
 (L', j, γ, branch). "No family with deg L' ≤ L0 at x*_c" plus Lemma 2.1 (l ≤ 2N − k − 1) gives "no family of level
 N ≤ (L0 + k + 1)/2". That is N ≤ 8 for (k, L0) = (2, 13) and N ≤ 7 for (3, 11), as stated.
+
+## Defects
+
+**D1 (MINOR) — Lemma 2.1, "N + γ ≥ 3".** Location: Lemma 2.1, last sentence of the statement, and the report
+("N + γ ≤ 2 impossible"). Part (c) only gives l ≤ s − 3, i.e. N + γ ≥ 2 (from l ≥ 0). N + γ = 2 (s = 3) needs a
+separate argument. Here it is. (c) forces l = 0, min(a, b) = 1, a + b = 3, so L' = g' = m' = 1 and v = λT². With
+a = 1 we get w = T and C = T(T + β), and w + C = λT² gives λ = 1, β = −1. Then wC = T³ − T² ≠ T³ + T² (q odd), a
+contradiction. Repair: add these two lines to the proof. Only "j = 0 impossible for k = 2" (s = 2) follows directly
+from (c). The k = 2 case j = 1, γ = 0 (s = 3) needs the extra argument.
+
+**D2 (MINOR) — Lemma 1.2, "deg ρ, deg ρ' > deg L'".** This is false if u ≡ 1 (mod T^{N+1}): then ρ = −1, or
+ρ' = −1 for the other branch. The proof mentions this in a parenthesis, but the statement does not. It is harmless:
+that branch then has no monic candidate, it never happens at x*_c, and the C code skips non-monic ρ. Repair:
+"… > deg L' whenever ρ (resp. ρ') is monic of positive degree; otherwise that branch is empty."
+
+**D3 (MAJOR for the narrative; labels) — the "corrected heuristic" Σ_N poly(N)·q^{−N}.** Locations: §2 Remark after
+Lemma 2.1 ("expected number ≈ Σ_N poly(N)·q^{−N}"); §3 Control paragraph ("≈ poly(N)·3^{−N}"); §3 Assessment
+("(Heuristically the count is poly(N).)"); report SHARP 1 and the Results bullet "(B) looks unlikely … poly(N)·3^{−N}".
+(a) What is right. FF2's argument summed poly(N + ℓ)·q^{−N} over all ℓ = deg L' at fixed N. Lemma 2.1 proves that
+every term with ℓ > 2N − k − 1 is zero, so the *divergence argument* is invalid. Flipping the (J)12 sentence "generic
+lifts are heuristically covered (divergent expected count)" is justified to that extent.
+(b) What is not supported. The replacement count "poly(N) families per level" is asserted with no derivation. The
+only proved bound is the elementary one, ≈ q^{N+1−k/2+o(N)} cylinders per level (§3), and it gives **no** decay of
+the expected count. Exact data, R173 census (Lemma 2.1 enumeration over all u, s ≤ 15, `data/review_ff3_census_s15.txt`),
+reproducing R175/O175 counts:
+  #(L', g', E) at s = 4..15: 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104, 48 (R175 continues K = 14, 15: 38, 36);
+  #fam(N) (all γ) for N = 2..7: 2, 16, 30, 54, 70, 202; #fam(N)·3^{−N}: 0.22, 0.59, 0.37, 0.22, 0.096, 0.092;
+  #cyl(N)·3^{−N}: 0.22, 0.15, 0.12, 0.12, 0.049, 0.034.
+A least-squares fit of log₃ #sol over K = s − 2 = 2..15 gives slope 0.21, i.e. ≈ 3^{0.21K} ≈ 3^{0.42N}, which is R175's
+"3^{0.4N}". **But the same 14 noisy points fit a power law K^{1.6} equally well.** #fam(N) = 16 → 202 for N = 3 → 7
+also matches N³. So the data neither confirm poly(N) nor establish exponential growth. R175's word "contradicted"
+is itself an extrapolation.
+(c) Answer to the orchestrator's question: does convergence survive with 3^{0.4N} families of mass ≈ 3^{−N}? **Yes,
+as EVIDENCE.** The relevant sum is Σ_N #fam(N)·q^{−N}, more precisely the union-relevant (Lemma 3.1) cylinders,
+Σ_s #(L', g', E)(s)·q^{−⌈(s−k)/2⌉−1}. It converges iff the growth exponent per level is < 1, with a summable excess
+(#fam(N) = o(q^N/N^{1+ε}) suffices). With 3^{0.4N} the terms decay like 3^{−0.6N}; with K^{1.6} they decay like
+3^{−N/2}. The observed per-level expected counts do decay (0.59 → 0.09 over N = 3..7), but **much more slowly than
+the claimed poly(N)·3^{−N}**. The covered sub-slice mass rises 1/3, 11/27, 37/81, 113/243, 349/729 (N ≤ 3..7, R173 =
+R175), with increments 0.074, 0.049, 0.008, 0.014, and is 0.4906 at K ≤ 19 (R175). This is consistent with a limit
+well below 1. None of this is proved, and the a priori bound allows growth q^{N+o(N)}, at which the sum diverges.
+Repair: replace each occurrence of "≈ poly(N)·q^{−N}" by "Σ_N #fam(N)·q^{−N}, which converges iff #fam(N) grows
+slower than q^N (summably). Exact counts to s ≤ 17 (R173/R175) give per-level expected counts decaying roughly like
+3^{−0.4N}…3^{−0.6N}, i.e. #fam(N) ≈ 3^{0.4–0.6N} or a power of N (the data cannot tell). Convergence is EVIDENCE,
+not a consequence of Lemma 2.1." Delete "(Heuristically the count is poly(N).)". (J)12 should record: "FF2's divergence
+argument is invalid (Lemma 2.1); convergence of the expected count is data-driven (Assessment)".
+
+**D4 (MINOR) — "mass ≈ q^{−k/2}·q^{o(N)} per level — no decay".** Location: §3 after Lemma 3.1; report SHARP 2
+("i.e. mass ≈ q^{−k/2} per level, no decay"). This is the elementary *upper bound*, not the mass. The census shows
+the actual union-relevant mass per level decaying (D3). Repair: "the elementary bound only gives mass ≤ q^{−k/2+o(N)}
+per level, which does not decay."
+
+**D5 (MINOR) — Control wording.** "this settles R166 D6 in the negative direction" overclaims for a 40-point
+experiment with a truncated j-range. Note also the direction of the truncation bias: control points are searched
+only with j ≤ 4l − 2, which is complete only at x*. Their counts are lower bounds, which makes them look *more* like
+the empty x*. The bias is probably small, because a family with large N at fixed l has cylinder mass q^{−N−1}, but it
+should be stated. Repair: "is consistent with R166 D6: x*_c is not distinguishable from points of its T⁶-cylinder in
+this range". The rest of the paragraph's wording ("consistent with … typical", "does not prove there is none") is
+honest.
+
+**D6 (MINOR) — unlogged numbers.** No data file backs (I2) (200 random slice points, "hits at large deg L' all have
+large N and γ close to j"), the §1 sanity "51/300", or the control table (7/40, 0.35; 1/40, 0.025). Repair: commit
+the outputs (`data/ff3_ctl_m4.txt`, `_m6.txt`, `data/ff3_I2.txt`, …).
+
+**D7 (MINOR) — "Under T ↦ 1/T this becomes a factorisation T^s + v = m'wC"** (report SHARP 2; Sparks "Reversal
+T ↦ 1/T"). The parametrisation of Lemma 2.1 is direct algebra (EE' = D divided by L'g'); no reversal is involved.
+T^s + v with deg v ≤ s/2 is already a short-interval polynomial. Repair the wording.
+
+**D8 (MINOR) — elementary count.** The q^{o(N)} needs the divisor bound d₃(f) ≤ q^{O(deg f/ log deg f)} in F_q[T].
+This is standard (analogue of Wigert's bound) but should be cited or stated, together with the factor ≤ s from
+summing over t. The number of v with deg v = t and T² | v is (q − 1)q^{t−2} ≤ q^{t−1} (fine). The cylinder count
+uses min(deg E, deg E') = s − t exactly. R173 checked this (deg(w + C) = max(a, b) also when a = b, since
+lc = 2 ≠ 0, q odd). The report's label "PROVED, sketched" should read "PROVED (sketch; standard divisor bound)".
+
+**D9 (MINOR, label) — search claims.** As written ("EVIDENCE, computer search with independent cross-check"), the
+"independent cross-check" (`ff3_check.py`) covers only deg L' ≤ 5, j ≤ 9 at x*. State that range. After R173 the
+finite statements "no Case B family with deg L' ≤ 11 at x*_c, c = 1, 2 (k = 2), hence no linear family of level
+N ≤ 7", and "deg L' ≤ 10 for k = 3 (levels N ≤ 7)", are reproduced by two independent programs with identical
+candidate counts. They may be labelled CERTIFIED (computer, two independent codes, given Lemmas 1.1–2.3 and the
+ES2 Case A theorem). The deg L' = 12, 13 layers (level N = 8 for k = 2) and deg L' = 11 for k = 3 remain single-code
+(EVIDENCE, or CERTIFIED (single code) if the campaign's convention allows).
+
+**D10 (MINOR) — measure-route Assessment.** T(m) should sum over N > m (families of level > m). The Haar
+normalisation should be fixed once: a cylinder mod T^{N+1} has mass q^{−N} relative to {u(0) = 1}, or q^{−(N+1)} in
+F_q[[T]]. U(m) and T(m) must use the same normalisation. The criterion itself (union bound: uncovered mass
+≥ U(m) − T(m) > 0 ⇒ some slice point is uncovered ⇒ O(3, T²) ≠ ∅) is correct. It needs Case A families on the
+slice in T(m) and in U(m), as the text says.
