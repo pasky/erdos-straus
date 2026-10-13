@@ -208,3 +208,58 @@ contradiction. If b is even, n = (c N(ε)^{b/2})² is a square, contradiction. �
 order O_λ = ℤ[2√(λ²D² − n)] (Thm 4.1: "the prime ideal(s) above D are principal"; the sign of the generator is
 automatic because x² − 4dz² ≢ 3 mod 4). Contrast GS (1.5): Markoff V_k has polynomial curves iff k = 4 + ν². So B1
 (identities) is closed in the λ-direction too, and existence is a class-group question.
+
+## 6. The fibrewise integral Hasse principle in λ: a large main term, blocked by class groups
+
+Fix n non-square and an admissible D (Lemma 3.1). For each λ, Thm 4.1 asks whether x² − N_λ z² = −D
+(N_λ = 4(λ²D² − n)) has a primitive solution. Split the event in two layers:
+* **local (genus) layer**: primitive solubility at every p. For odd p | λ²D² − n it says (−D/p) = 1; at 2 it says
+  D ≡ 7 (8) or λ even (x odd, so −D + N z² must be ≡ 1 mod 8, and only z mod 2 matters). So λ must avoid the two
+  roots of λ²D² ≡ n mod p for every p with (n/p) = 1, (−D/p) = −1: a half-dimensional sieve condition, expected
+  density ≍ (log Λ)^{−1/2} (Assessment; a lower bound of this order is what Iwaniec's half-dimensional sieve gives
+  for such quadratic-polynomial conditions — not re-derived here);
+* **global (class) layer**: the genus-admissible ideal above D is actually principal in O_λ.
+
+**EVIDENCE (`scripts/mk_fibreHP.py 300 1,3000,30000 <n…>`, every reported hit re-checked by the convergent
+identity; assertion "global ⇒ local" never failed).** Entries hit/locally-ok for λ in [L₀, L₀ + 300), L₀ = 1, 3000,
+30000, three smallest admissible primes D:
+`  n=13:  D=7: 49/63 30/48 37/49 | D=11: 49/83 34/66 41/72 | D=19: 21/32 16/22 10/19`
+`  n=17:  D=3: 79/104 58/87 51/74 | D=7: 104/163 95/142 68/116 | D=11: 60/80 47/63 40/60`
+`  n=21:  D=11: 57/76 41/65 37/59 | D=19: 42/64 45/64 29/54 | D=23: 76/99 47/73 51/73`
+`  n=29:  D=3: 42/62 39/52 28/44 | D=11: 45/65 34/57 28/41 | D=19: 56/85 42/66 40/64`
+`  n=33:  D=7: 88/131 72/104 59/95 | D=19: 44/60 39/56 36/52 | D=23: 96/165 81/147 66/130`
+`  n=37:  D=19: 22/31 19/31 12/26 | D=23: 81/125 68/110 63/100 | D=31: 40/60 30/44 29/41`
+`  n=41:  D=3: 52/70 41/56 35/54 | D=7: 73/127 76/114 55/86 | D=11: 72/108 47/89 62/86`
+`  n=53:  D=3: 50/80 46/68 41/68 | D=19: 41/85 38/71 42/64 | D=23: 75/106 66/97 53/80`
+`  n=57:  D=11: 53/70 43/60 27/47 | D=23: 96/144 89/123 66/118 | D=31: 74/127 53/105 54/92`
+`  n=61:  D=7: 23/34 20/25 22/28 | D=11: 45/86 46/72 26/61 | D=23: 80/125 58/100 54/94`
+`  n=73:  D=7: 46/69 25/52 30/50 | D=11: 59/105 53/84 39/70 | D=31: 37/60 29/50 19/40`
+`  n=89:  D=3: 39/47 28/42 18/31 | D=7: 85/123 51/102 56/86 | D=19: 64/104 55/86 39/77`
+`  n=97:  D=7: 50/72 27/52 28/53 | D=19: 25/37 20/27 20/26 | D=23: 89/168 72/141 61/127`
+`  n=101: D=3: 42/63 31/50 25/41 | D=7: 71/97 63/77 54/76 | D=11: 56/79 39/67 37/59`
+`  n=105: D=11: 46/80 40/60 27/58 | D=19: 35/51 28/45 34/45 | D=31: 81/117 53/90 56/95`
+`  n=113: D=3: 75/98 57/84 58/78 | D=19: 55/87 45/70 40/64 | D=23: 83/132 67/106 50/97`
+So P(global | local) ≈ 0.45–0.8 and drifts down only slowly with λ (to 10⁵: n = 13, D = 7: 11/15; n = 17, D = 3:
+11/25 in [10⁵, 10⁵ + 100)). T1 controls: n = 9, 25 have no admissible D; with the non-admissible D = 7, 11 (n = 9)
+and 3, 7 (n = 25), 0/300 locally ok and 0 global (`scripts/mk_genus.py 300 9 7 9 11 25 3 25 7`).
+Interpretation (Assessment): the regulators are large (e.g. n = 13, D = 7, λ = 10005: period 21 012 for
+√N ≈ 1.4·10⁵), so class numbers are small, as Cohen–Lenstra predicts for real quadratic orders; given the genus,
+the class is principal with probability bounded below. Hit depths k are deep inside the period (k = 2329 of 21 012
+in that example), i.e. these are not bounded-depth (ES-like) solutions.
+
+**Proposition 6.1 (what the λ-direction does to the barrier map; Assessment built on PROVED Thms 4.1–5.1).**
+(a) B6 does not apply (n fixed) and **B3 does not apply**: the heuristic number of λ ≤ Λ with a point on a single
+admissible fibre is ≍ Λ/(log Λ)^{1/2} — a polynomially large main term, against log³ p for ES (the price: the
+solutions have size exp(Λ^{1−o(1)})). The local layer of this main term is a provable half-dimensional sieve
+statement.
+(b) B1 is closed in this direction (Thm 5.1: no parametric families at fixed D), and every bounded-depth piece of
+the CF is a finite search (depth 3 = ES, Thm 4.3).
+(c) The residual step is: **for some genus-admissible λ, the ideal above D is principal in ℤ[2√(λ²D² − n)].** This is
+a Gauss/Cohen–Lenstra-type class-group statement in a one-parameter quadratic family of real quadratic orders. No
+unconditional technique proves even that some real quadratic family contains infinitely many orders with a given
+split prime principal outside Richaud–Degert-type families — and the RD subfamily here (n | λ) is exactly the one
+killed by reciprocity (GROWING_MUTE Prop 1.2(c); observed: no hit with n | λ). So the λ-direction trades ES's
+divisor-in-a-moving-class lottery for a class-group lottery: a different, famous open problem, not a proof.
+(d) A pigeonhole variant (fix λ, let D run over divisors of a highly composite μ, Davenport constant of Cl(O_μ))
+needs h(O_μ) ≲ ω(μ) and a target (not zero-sum) element of the narrow class group, so it reduces to the same
+class-number input.
