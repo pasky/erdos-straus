@@ -115,3 +115,27 @@ The convergent-measure mechanism that produces sterile points needs moduli to ca
 space on which every prime coordinate moves independently (a line, or G_T of §3). Families whose residues are
 coupled across primes through one exponent (Λ_k) or one integer (ℤ ⊂ Ẑ) escape it, and that coupling is exactly
 what such families and ES itself have, and what sterile points lack.
+
+## 5. Infinitely many shots: what sterile points measure (goal 4; relative to T1_TEMPLATE §1, O183, CLAIMED)
+
+The O183 golden variant V_φ (O = ℤ[φ], η_k = φ^{2k+1}) succeeds at n via a shot k: a_k = n + 4η_k has a prime 𝔮 with
+(n/𝔮) = −1. Read on the 𝔮-generic line (x ≡ 1 at every other prime) a shot is the class x ≡ −4η_k (mod 𝔮), 𝔮 with
+χ_{−φ}(𝔮) = −1 (then −4η_k is a non-square mod 𝔮, and the classes for all k cover the coset −4φ·⟨φ²⟩).
+
+**Prop 5.1 (level-1 coverage per prime; PROVED relative to ET Prop 1.7 (f(q) ≪ q^{3/5+o(1)} for primes q) and
+MORDELL17 Lemmas 1.1–2.3, 1.3 for general r, as used in DEPTH_ASPECT §3).**
+(a) ℤ (ET classes): the q-level-1 boxes on the q-generic line cover a fraction ≤ (6f(q) + 2f_II(q))/q
+≪ q^{−2/5+o(1)} of ℤ_q^× (P-boxes need odd ES level, so K = 2 contributes nothing; K = 1 gives f_II(q) ≤ f(q) boxes).
+(b) V_φ (unit shots): at every prime 𝔮 with χ_{−φ}(𝔮) = −1 the shot classes cover the fraction 1/i_𝔮 of the
+non-squares mod 𝔮, i_𝔮 = [(O/𝔮)^{×2} : ⟨φ²⟩]. *Proof of (b).* −4φ^{2k+1} ranges over −4φ⟨φ²⟩, a coset of ⟨φ²⟩
+inside the non-squares (−φ a non-square, 4φ^{2k} a square). ∎
+*Reading (Assessment).* In V_φ, i_𝔮 = 1 for a positive proportion of 𝔮 under GRH (Artin for φ), and unconditionally
+Σ 1/i_𝔮 = ∞ (ord_𝔮 φ ≥ N𝔮^{1/2} for almost all 𝔮, Erdős–Murty type). So in V_φ every infinite non-square pattern
+is in the divergent regime of §3, and the analogue of an O178 sterile point (a sparse-pattern sterile point) cannot
+exist on lines through primes with i_𝔮 = 1: the line is fully covered at level 1. Over ℤ the per-prime coverage is
+≪ q^{−2/5+o(1)} (truth ≈ log³q/q), and O178 turns this summability into sterile points. **The O178 sterile points
+are exactly the profinite signature of "finitely many shots":** a ℤ-mechanism with infinitely many shots in the V_φ
+sense would need, at a positive proportion of primes q, families of classes of q-level 1 covering ≫ 1 of the
+non-residues mod q. ET classes cannot (Prop 5.1(a)), because over ℤ the shot modulus 4ad grows with the shot (a²d is
+not a unit); the unique ℤ-shot with bounded modulus 4 is Mordell's p + 4. This is O183's spark S4 made precise at
+the level of per-prime coverage.
