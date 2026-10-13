@@ -1,0 +1,22 @@
+NON-CF small-mu point 35 6 2 13 3 sqN
+NON-CF small-mu point 35 6 2 11 3 sqN
+NON-CF small-mu point 45 7 2 11 7 sqN
+NON-CF small-mu point 45 7 2 17 7 sqN
+NON-CF small-mu point 47 7 4 33 7 
+NON-CF small-mu point 47 7 8 45 7 
+NON-CF small-mu point 47 7 8 67 7 
+NON-CF small-mu point 47 7 2 13 7 
+NON-CF small-mu point 47 7 4 23 7 
+NON-CF small-mu point 47 7 2 15 7 
+NON-CF small-mu point 143 12 2 25 3 sqN
+NON-CF small-mu point 143 12 2 23 3 sqN
+NON-CF small-mu point 195 14 4 53 7 sqN
+NON-CF small-mu point 195 14 4 59 7 sqN
+NON-CF small-mu point 209 15 2 37 15 sqN
+NON-CF small-mu point 209 15 2 23 15 sqN
+NON-CF small-mu point 221 15 4 53 15 sqN
+NON-CF small-mu point 221 15 2 29 15 sqN
+NON-CF small-mu point 221 15 4 67 15 sqN
+NON-CF small-mu point 221 15 2 31 15 sqN
+{'brute': 1049, 'cfmiss': 0, 'cfextra': 0, 'small_mu_pts': 50, 'sqN_mu': 268, 'b1_by_depth': {('>2n', 3): 154, ('<=2n', 1): 208}, 'f43_bad': 0, 'nlam': 0, 'Dmod4': 0}
+small-mu examples (n, mu, A, B, D): [(29, 6, 2, 17, 3), (29, 6, 14, 47, 3), (29, 6, 2, 7, 3), (35, 6, 2, 13, 3), (35, 6, 2, 11, 3), (41, 7, 2, 19, 7), (41, 7, 4, 39, 7), (41, 7, 4, 17, 7), (41, 7, 2, 9, 7), (45, 7, 2, 11, 7), (45, 7, 2, 17, 7), (47, 7, 4, 33, 7)]

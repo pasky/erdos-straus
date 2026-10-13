@@ -102,3 +102,42 @@ gives (B/ℓ) = ±(r/ℓ)(A/ℓ) and (−1/ℓ) = −1 ⇒ all four pairs ✔ (n
 at ℓ, adelic points with Σ inv α₁ = 1/2 exist and are NOT in the BM set. What is proved (and all that is used) is
 (∏_v W_v)^{Br} ≠ ∅ (indeed it meets every fibre of the projection forgetting the ℓ-component). Repair: replace "="
 by "≠ ∅", also in §8 item 2 wording ("empty BM obstruction" is fine).
+
+## Thm 4.1 (norm form) — SOUND (wording)
+Identity (μA − B)² − (μ² − n)A² = nA² − 2μAB + B² ✔; B·B' = nA² + D gives gcd(B, n) = 1 ✔; |x| < μA gives B > 0 ✔.
+Wording (m5): the bijection is points ↔ (x, z) with x ∈ ℤ (B = μA − x); each unordered {±x} gives the ι_B-pair of TWO
+points. "in bijection with pairs {±x}, z" should read "in 2-to-1 correspondence … / in bijection with (x, z), x ∈ ℤ".
+
+## Thm 4.2 (CF dictionary) — SOUND-AFTER-REPAIRS (hidden non-square hypothesis; small-μ caveat confirmed)
+Lagrange/Legendre (|x² − Nz²| < √N, gcd 1 ⇒ convergent) and the sign rule ✔; D ≤ μ < √N ⇔ 3μ² > 4n ✔.
+**Brute force** (`scripts/review_mk_cf.py 3 299 100 4`, own code; log `logs/review_mk_cf_299.log`): all odd
+3 ≤ n ≤ 299, V_n points with A, B ≤ 100 and μ ≤ 4n found by divisor search (1049 points) vs CF hits:
+**0 misses, 0 extras**; the excluded range 3μ² ≤ 4n and the square-N values were solved exhaustively
+(Nagell-bound class representatives + orbit walk, resp. factorisation): 50 points there.
+* m6 (MINOR): Thm 4.2 needs N = 4(μ² − n) non-square (else there is no infinite CF / "Q_k"). It is harmless for
+  3μ² > 4n: if μ² − n = s², a point needs (x − 2sz)(x + 2sz) = −D with z ≥ 1, so 4s ≤ D + 1 ≤ μ + 1, whence
+  4n/3 ≥ (15μ² − 2μ − 1)/12 > μ² — i.e. square-N points live only in the excluded range. They do occur there
+  (e.g. n = 35, μ = 6, N = 4: (A, B, D) = (2, 11, 3), (2, 13, 3); 14 such points for n ≤ 299). Add the hypothesis
+  and this one-line remark.
+* The exclusion μ ≤ √(4n/3) is genuinely needed (author's caveat confirmed): n = 47, μ = 7, N = 8, D = 7 > √8 has
+  the points (A, B) = (2, 13), (2, 15), (4, 23), (4, 33), (8, 45), (8, 67), none of which is a convergent.
+
+## Thm 4.3 (depth 3) — formulas SOUND; headline "ES is exactly depth 3" FALSE as stated (MAJOR, easy repair)
+CF steps re-derived by hand (a₀ = 2μ − 1 iff μ > n + 1/4; a₁ = 1 iff μ > 2n + 1/4; m₂ = 2μ − 4n, Q₂ = 4n,
+a₂ = j − 1 with remainder 4t − 1, m₃ = 2nj − 2t, Q₃ = 4tj − 1; p₂² − Nq₂² = 1 − 4tj ✔) and checked: formulas hold
+for every odd n ≤ 299 and 2n < μ ≤ 5n (0 failures); every B = 1 point with μ > 2n is at k = 3 (154 points).
+**Defect M1 (MAJOR, scope).** The theorem itself is restricted to μ > 2n, but §4's title ("ES is depth 3"), the
+theorem title ("ES's shot family is exactly depth 3"), §8 item 3, §7 Reading and report SHARP 1 assert it for the
+whole shot family. That is false: if B = 1 and A ≥ 4 then 2μA = nA² + 1 + D gives μ > 2n, so the B = 1 points with
+μ ≤ 2n are exactly A = 2, and there x/z = (2μ − 1)/1 = a₀ is the convergent of index 0, **depth k = 1**, with
+D = Q₁ = 4μ − 1 − 4n = 4t − 1 (μ = n + t). These are the j = 1 shots "(4t − 1) | 4n + 1" — the most classical ES
+shots of all. Data (`scripts/review_mk_depthtally.py`): 208 B = 1 points with μ ≤ 2n, all at k = 1 (n ≤ 299).
+Repair: "ES's shot family = depth 1 (A = 2, j = 1) ∪ depth 3 (A = 2j, j ≥ 2); uniformly: the B = 1 point with
+A = 2j is the convergent (2μj − 1)/j, of index 0 for j = 1 and index 2 for j ≥ 2; the divisibility is
+(4tj − 1) | n + 4t² for all j ≥ 1 (for j = 1 this is (4t − 1) | 4n + 1)." The parallel with DEDEKIND (J)9
+("length 3") should be re-stated accordingly or dropped.
+**Defect m7 (MINOR).** "every B > 1 solution at depth ≥ 5" (report SHARP 1: "every overflow solution (B > 1) is at
+depth k ≥ 5") is false even for μ > 2n: the ι_B-partner B = 4μj − 1 of every ES point is at depth 3 (154 cases).
+For μ ≤ 2n, B > 1 points occur at depth 1 (172 non-partner) and 3 (546). Repair: "for μ > 2n, every point at depth
+k ≥ 5 has B > 1, and the only B > 1 points at depth ≤ 3 are the ι_B-partners B = 4μj − 1 of ES points".
+* §4 "Reading" (Euclid pattern) is correctly labelled Assessment; not checked further.
