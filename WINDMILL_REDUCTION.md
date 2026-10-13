@@ -85,3 +85,45 @@ The forced object in Legendre's argument is the second ambiguous form of the pri
 
 The midpoint succeeds at roughly (any-rate)/(number of factor pairs): no forcing, no bias. **Assessment:**
 in these discriminants the forced ambiguous form is a lottery ticket like any other divisor.
+
+## 4. Type I: the σ-symmetric river does not prefer ES divisors (EVIDENCE, negative)
+
+Type I ⟺ `f | D = p² + 4c²d`, `f ≡ −p (mod 4cd)` ((I)3). In discriminant D the simple form `[c, p, −cd]` lies on
+a river; for d = 1 it is σ-fixed (`[c,p,−c]`, the windmill's "two-squares" point `D = p² + (2c)²`). Ambiguous forms
+on a river ↔ factor pairs of D, so the natural Legendre-type hope is: *the ambiguous points on the river of
+`[c,p,−cd]` are ES divisors.* `scripts/wr_typeI_river.py 3000 6 6` (46 primes `p ≡ 1 (24)`, c, d ≤ 6, 1655 pairs):
+the class is ambiguous in 1244 cases; its river holds 1941 of all 5896 factor pairs (33%) and 20 of all 82
+certificate pairs (24%). **No enrichment** (Assessment: the class of `[c,p,−cd]` sees divisors through genus/class
+data only, and the ES condition mod 4cd is not class data).
+
+## 5. Structural observations (dictionary items)
+
+**5.1 Positive ES is definite (CM); signed ES is indefinite (rivers). (PROVED for the Type II slices of Lemma 2.4;
+cf. the CM dictionary of (J)1.)** Replacing p by −p in Lemma 2.1/2.4 turns `ke = p + 4gb²` (forms of disc −4gp,
+definite) into `ke = 4gb² − p` (disc +4gp, indefinite), and the formula yields `4/p = −1/N + 1/|y| + 1/|z|`, a
+*signed* solution (always available). Zagier's set `x² + 4yz = p` is the indefinite side (`yz = (p − x²)/4`:
+divisors of *downward* shifts of p); ES needs divisors of *upward* shifts `p + 4gb²`. On definite discriminants
+the topograph has a well and no river: Gauss reduction has no cycles, a finite reduction-closed set of forms is a
+union of classes, and the reduction-type involutions available are class-group involutions (`φ ↦ ψφ⁻¹`), whose
+fixed points are ambiguous forms or square roots in Cl — genus data of the fixed discriminant −4gp, i.e.
+factorisations of g. **Consequence (Assessment, stated precisely):** ingredient (W1) of §1 (a rotation with long
+cycles) is unavailable on the Heegner side; a Zagier-type windmill for ES must live on an *indefinite* auxiliary
+discriminant and transport fixed points to definite (CM) data, as σ does in Zagier (σ-fixed river edges ↔ the
+definite form x² + 4y²).
+
+**5.2 X-slice certificates are faces adjacent to ambiguous edges (PROVED, algebra).** `γ = [[A,t],[p,B]] ∈ SL₂(ℤ)`,
+`AB − pt = 1` ↔ the simple form `[p, B−A, −t]` of discriminant `T² − 4`, `T = A+B`. The ES conditions
+`A ≡ B ≡ −1 (mod t)` are equivalent to `T ≡ −2 (mod t)` and `t | B − A`, i.e. `[−t, A−B, p]` is an **ambiguous**
+form (`a | b`) of discriminant `T² − 4 = (T−2)(T+2)`, and p is the face across that ambiguous edge. So ES(p) via X
+⟺ for some T, some ambiguous river of discriminant `T² − 4` has p as the face adjacent to an ambiguous edge whose
+other face −t divides T+2 (plus `4 | A`). Ambiguous rivers are exactly the reflection-symmetric ones; this is the
+precise sense in which ES certificates are "fixed points of a reflection", but on a discriminant chosen per
+certificate (T is part of the solution — B2 in reflection language).
+
+**5.3 Modular-hyperbola form (PROVED, elementary).** The per-level quadric `AB − pt = 1` has symmetry group
+`ℤ² ⋊ ⟨A↔B⟩` (translations `A += kp`, `B += lp`, t adjusted; abelian, so not hyperbolic like `O(x²+4yz)`), and in
+each orbit only the representative with `A, B ≤ p + O(1)` can satisfy `t | A+1`, `t | B+1`. So X-slice ES(p) ⟺
+some `A ∈ [1, p)` with `4 | A`, `B = A⁻¹ mod p`, has `t = (AB−1)/p` dividing `A+1` and `B+1`: a *small-product
+point* of the modular hyperbola `AB ≡ 1 (p)`. Involutions of the hyperbola that are algebraic over 𝔽_p (Möbius)
+have fixed points = square roots mod p (Legendre-symbol data); the ES condition is archimedean (sizes of lifts).
+A windmill here must mix the two, as Zagier's inequalities do.
