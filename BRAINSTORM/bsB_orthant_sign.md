@@ -11,9 +11,8 @@ Hilbert-reciprocity terms; look for a map from the always-populated class to the
 Let n ≡ 1 (4) and X_n : `cfg − c − f = n`, with the 2-adic condition fg ≡ 1 (mod 4) and g ≥ 1.
 1. gn + 1 = (cg − 1)(fg − 1), so the points of X_n with c, f ≥ 1 are the Type I (a = 1) certificates
    (class −1 of D*(n), m'' = cg − 1), and the points with **c, f ≤ −1** are exactly the class +1 elements of
-   D*(n) (m'' = |c|g + 1, m = |f|g + 1; the substitution (c, f) ↦ (−c, −f) turns X_n into `cfg + c + f = n`).
-   No point has c, f of opposite signs and |c|, |f| ≥ 1 with g ≥ 1 large... (not needed; D* is the union of the
-   two same-sign orthants by construction).
+   D*(n) (m'' = |c|g + 1, m = |f|g + 1; the substitution (c, f) ↦ (−c, −f) turns X_n into `cfg + c + f = n`). (Mixed-sign orthants are not
+   part of D*(n) and are not used.)
 2. **Sign = orthant**: `((cg − 1)/n) = −sgn(c)` on X_n(ℤ) ∩ {cf > 0} (GI Prop 4.1 restated). So the genus
    character at the place n equals the archimedean "orthant character" — Hilbert reciprocity with the two
    relevant places ∞ and n (the 2-adic place is fixed by fg ≡ 1 (4); the places dividing g contribute (−1/g)·…,
