@@ -63,3 +63,21 @@ What I checked:
 Limits: I could not query MathSciNet/zbMATH/Google Scholar "cited by" directly (Google Scholar reports 9 citations, S2 lists 7; two unseen).
 **Assessment:** the even half appears new as far as an open-web search can tell. "Settles the even half of Lorenzini's question" is accurate in substance; the proof is
 so short (a 36-periodic covering) that I would phrase the novelty claim modestly ("we could not find this in the literature").
+
+## 3. Prop 8.1 and Cor 8.2 (SOUND; one attribution/scope remark)
+**Prop 8.1 re-derived.** (2,2,z): 4z − 2 − z = 3z − 2, so z = (n+2)/3 ∈ Z ⟺ n ≡ 1 (3), z ≥ 2 ⟺ n ≥ 4. (3,y,4): 12y − 7 = n ⟺ n ≡ 5 (12),
+y ≥ 2 ⟺ n ≥ 17. n ≡ 1 (4), 3 ∤ n splits into n ≡ 1 (12) and n ≡ 5 (12); the only such n < 13 failing is 5 (no word; checked). ✓
+`scripts/review_lw2_prop81.py 2·10⁶`: all n ≡ 1 (4), 3 ∤ n, 13 ≤ n < 2·10⁶: 0 bad words. For the 74 415 primes in range I computed the HJ
+continued fraction of p/A, A = xy − 1, with my own HJ routine: it is exactly [[z, y, x]] (length 3; consistent with DK Lemma 1.1, A·A* = yp + 1),
+and the Legendre census is: p ≡ 1 (12): (A/p) = +1 for all 37 180; p ≡ 5 (12): (A/p) = −1 for all 37 235. This matches the author's sign paragraph
+((p+3)/4 ≡ 3·4⁻¹, (3/p) = (p/3) by QR since p ≡ 1 (4)).
+**Cor 8.2 logic.** HJ_DEEP §3: for n ≡ 1 (4), interior-SQ₅(n) ⟺ "L₃(n) contains a −1 word" (DK Thm 4.5) ⟺ (W)(n) ∧ (S)(n), where (W)(n) ⟺ L₃(n) ≠ ∅
+by DK Lemma 1.1 and (S) carries the non-square hypothesis (primes are non-squares). With (W)(p) proved, interior-SQ₅(p) ⟺ (S)(p). ✓ The statement is a
+tautological consequence, correctly labelled; it inherits DK Thm 4.5 (not re-reviewed here; reviewed earlier in the campaign).
+Remarks (MINOR, see D4–D5): (i) for p ≡ 5 (12) the (3,·,4) word *is* a −1 word, so (S)(p) and interior-SQ₅(p) are outright PROVED there; Cor 8.2 is
+informative only for p ≡ 1 (12). The note says this in prose but the Cor should state it. (ii) Attribution: (2,2,·) is the z = 2 slice of Lorenzini
+6.3(b) (3 | n + 2), and (3,·,4) is his z = 4 slice with divisor (n+4)/3 ≡ 3 (mod 4); so Prop 8.1 is a two-line extension of Lorenzini 6.3(c) (it drops his
+mod-9 condition). "SHARP/deflationary" is fair; "new" would not be.
+**"What remains" (§9, last paragraph) re-derived.** Odd n: n ≡ 1 (3) ⇒ 3 | n + 2 (6.3(b)); n ≡ 5 (12) ⇒ Prop 8.1; left: n ≡ 3, 9, 11 (12) with n + 2
+prime (n + 2 odd, so never a 2-power). Odd exceptions 3, 9, 11, 15, 35, 105 all lie there (5 ≡ 5 (12) is in E_W). Even n: Thm 9.1. ✓ The density remark
+(Dirichlet for primes ≡ 1 (mod M) gives n ≡ −1 (mod M) with n + 2 prime) is correct.
