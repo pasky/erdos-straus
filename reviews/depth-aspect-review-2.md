@@ -59,3 +59,45 @@ commit c1cf4de8. Did not read `reviews/depth-aspect-review.md`. From-scratch scr
    kind (ET's remark p. 6 only gives the square obstruction, which lives in the residue cells, not the non-residue
    cells); I did not run a fresh literature search, so this part is Assessment.
 
+### 1.2 Defects in Thm 3.1 (no FATAL, no MAJOR)
+
+**D1 (MINOR) — Browning–Elsholtz is unchecked and makes "effectively computable r₀" depend on an unverified
+constant.** Location: Thm 3.1 header ("Browning–Elsholtz f(n) ≪_ε n^{2/3+ε} for all n") and proof line "Hence the Q/U part
+of S(r) is ≤ 6C_ε Σ_k …". The original (Browning–Elsholtz, Illinois J. Math. 2011) is not in `sources/`; I could only
+check ET's paraphrase (p. 6: "the recent result in [8], which gives the bound f(n) ≪_ε n^{2/3+ε} for all n"), and I could
+not check whether its implied constant is effective. The citation is not needed. *Repair:* (i) Q, Q⁻¹, √Q: Q-data are
+N-points of Σ^I_{r^k} with r ∤ e (MORDELL17 Lemma 2.1), and ET §3's Σ^I argument (Type I bounds of Lemma 2.8, whose proof
+uses only (2.1)–(2.9) and ef ≥ 5, then the four regimes e, f, cd, ac ≪ n^{3/5}) counts them by n^{3/5+O(1/log log n)} with the
+same absolute effective constant as in §1.1 item 4; this gives ≤ 4·r^{k(3/5 + C/log log r)} Q-type boxes at level k. (ii) U,
+U⁻¹: MORDELL17 Lemma 5.2 (proof r-general: it uses only e ≡ −1 when r | i, Lemma 5.1(ii) and the reciprocity step of
+Lemma 1.3) puts every U-box meeting a non-residue cell inside a P-ball of the same centre; U⁻¹ follows by the inversion
+symmetry of P (Lemma 1.1). So the U types add no measure in the non-residue cells and S(r) can omit them. Then r₀ is
+effective via Nicolas–Robin alone. Alternatively keep BE and drop "effectively".
+
+**D2 (MINOR) — normalisation of the N-point bound.** Location: proof, "f_II^N(n) ≤ n^{2/5 + C/log log n} with an absolute
+(effective) C". ET's argument gives ≪ (an absolute implied constant A) and an O(1/log log n); the displayed inequality without
+A holds only for n ≥ n₀ after enlarging C. Harmless here (n = r^K ≥ r ≥ r₀), but say so, or carry A (the proof's
+"2Σ_K" should read "2AΣ_K"). Also "≤ 2 per point" in §3's preamble is an overcount: each N-point of Σ^II_{r^K} (a, b
+ordered) gives one P-ball −f_ET mod r^{⌈K/2⌉}; the reflection is another N-point. Not wrong.
+
+**D3 (MINOR) — the caveat paragraph is now stale / the scope sentence should be precise.** Location: Remark (5) and the §3
+preamble "the proofs use only that r is an odd prime". The reduction I re-derived uses: r odd (so the 2-part sits in the
+r-free modulus), the gcd conditions of Prop 1.9, (ad)_r | a²d, and the I2 change of variables. No step uses r = 17, any
+residue symbol at r, or the size of r (my brute force for r = 11, 13, 17, 19, 23 agrees). Repair: replace Remark (5)'s
+"a hostile R-review is still needed" by a pointer to this review and list explicitly that MORDELL17 Lemma 1.3 is not
+used (already noted) and Lemma 5.2 is optional (D1).
+
+**D4 (MINOR, presentation) — how large r₀ is.** Remark (2) says log log r₀ ≈ 20C. The binding constraint at accessible r
+is not the log log loss but the level-1 terms themselves: `scripts/review_da2_level1.py` (EVIDENCE) gives
+6f(r)/r + 2f_II^N(r)/r = 2.01 (r = 883), 2.12 (r = 1999), 1.07 (r = 7019), 1.11 (r = 8423), 0.58 (r = 11171); even this
+single term is > 1/2 for many r ~ 10⁴. So the remark is right that the theorem says nothing at computable r; suggest adding
+this one line so nobody reads Thm 3.1 as "r ≳ 10⁴".
+
+**D5 (MINOR, wording) — "sterile".** Thm 3.1 uses sterile = "in no class of any of the seven ET Prop 1.9 families" (as in
+MORDELL13E/17), whereas TYPEI2/3 use it for Type-I certificates only. The theorem body states the meaning, but the
+headline "sterile Mordell points exist" in Remark (2) and any DISCOVERIES entry should keep "for the seven ET families"
+attached; it says nothing about non-polynomial or growing-parameter identities (Remark (4) already notes ES is untouched).
+
+**Verdict Thm 3.1: SOUND.** The proof is short and every imported step holds for general odd r with absolute
+constants; I found no quantifier or uniformity error. Repairs D1–D5 are presentational / robustness.
+
