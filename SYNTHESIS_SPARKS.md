@@ -98,3 +98,45 @@ Pre-screen: H-A (DK C4). Not attacked.
 **X12. Internal consistency audit (brief).** Cross-check of numerical/structural claims that two documents
 state about the same object: GI's W(n) (Type I a = 1, t ≡ 3 (4) divisor form) vs DK's a₀(n) + boundary words;
 DK Thm 4.5 cells vs INV2 Lemma 5.1 (odd parts of A, B, uv have Jacobi −1). **Done in §5.**
+
+## 2. Attack A1 (X5): block witnesses are witnesses of the locally-equal square
+
+Setting as DE §6–7. For a Type II slice e (e ≡ 3 (4), N_e(n) = (n+e)/4) and a bound Y ≥ every prime factor of e,
+write `N_e(n) = s_Y(n)·P_Y(n)` with s_Y the Y-smooth part. A **Y-block witness** at (n, e) is a representation
+`−1 ∈ Σ_e(s_Y(n))·{1, P_Y(n)^{±1}}` (the rough part used as one indivisible block). DE Prop 7.2 shows these are
+exactly the witnesses that congruence/sharing data can certify; DE uses Y = (E+1)/4.
+
+**Lemma 2.1 (transfer; PROVED, elementary).** Let n₁, n₂ be positive integers coprime to e, with `n₁ ≡ n₂ (mod 4e·∏_{ℓ ≤ Y} ℓ^{K_ℓ})`,
+where `K_ℓ > v_ℓ(N_e(n₁)) + 2·[ℓ = 2]`. Then `s_Y(n₁) = s_Y(n₂)`, `P_Y(n₁) ≡ P_Y(n₂) (mod e)`, and n₁ has a Y-block
+witness at e iff n₂ has one.
+*Proof.* `4(N_e(n₁) − N_e(n₂)) = n₁ − n₂`, so `N_e(n₁) ≡ N_e(n₂) (mod ℓ^{K_ℓ − 2[ℓ=2]})`, hence equal ℓ-valuations
+for ℓ ≤ Y (the valuation of N_e(n₁) is below the modulus exponent). So s_Y agree. N_e(n_i) is coprime to e (a prime
+ℓ | e dividing N_e(n_i) divides n_i), so s is invertible mod e and `P_Y(n₁) ≡ P_Y(n₂) (mod e)` from
+`N_e(n₁) ≡ N_e(n₂) (mod e)`. The block-witness condition depends only on (s_Y, P_Y mod e). ∎
+
+**Lemma 2.2 (T1 for e-slices; PROVED relative to ET Prop 1.6, re-checked numerically in §2.4).** For odd m and every
+e ≡ 3 (4) coprime to m, `−1 ∉ Σ_e((m² + e)/4)`. (A pair a ≡ −b (e), ab | N gives the Type II solution
+`4/m² = 1/N + 1/(K/a) + 1/(K/b)`, `K = m²N(a+b)/e`, contradicting ET Prop 1.6 / BF Lemma 1.1.)
+
+**Theorem 2.3 (square-mimic; PROVED from 2.1, 2.2).** Let Y ≥ 3 and p > Y a prime with p ≡ 1 (mod 8) and
+`(ℓ/p) = 1` for every odd prime ℓ ≤ Y (equivalently, since p ≡ 1 (8): every n ≤ Y is a QR mod p, i.e. the least
+non-residue n_p > Y). Then **for every Y-smooth e ≡ 3 (4) with e < p (of any size), slice e has no Y-block witness.**
+*Proof.* p is a square mod every ℓ^K (ℓ odd ≤ Y, Hensel) and mod 2^K (p ≡ 1 (8)), so by CRT `p ≡ m² (mod 4e·∏ℓ^{K_ℓ})`
+for some odd m, which we may take coprime to e (e | modulus and p ⊥ e). A Y-block witness at (p, e) would, by
+Lemma 2.1, give one at (m², e), and a block witness is a witness (P_Y(m²) | N_e(m²) and is coprime to s_Y), contradicting 2.2. ∎
+
+*Comparison with DE Thm 7.3.* DE's case is n₂ = 1 (p ≡ 1 mod M_E), with the size argument a + b < e in place of T1.
+Thm 2.3 replaces the single class 1 mod M_E (density 1/φ(M_E) ≈ e^{−1.5E}) by **all square classes** mod the
+Y-smooth modulus, i.e. by the Legendre condition n_p > Y (density 2^{−π(Y)} among primes ≡ 1 (8)), and it
+covers every Y-smooth slice, not only e ≤ E. With Graham–Ringrose (n_p ≫ log p·log₃p i.o.; cited from memory,
+and a version inside p ≡ 1 (8) is assumed), infinitely many primes have no block witness at any Y-smooth slice,
+Y ≍ log p·log₃p, versus Y = c₀ log p (c₀ = 1/(1.5L)) from Linnik in DE Cor 7.4. **The same proof applies verbatim to
+Type I slices** (divisor form `tn + 1 = m·m''`, m ≡ m'' ≡ −1 (t), 4 | m, t Y-smooth; level (c,d) with
+`N = n² + 4c²d`, 4cd Y-smooth: transfer by n ↦ m² and T1 for Type I), and hence to all five HJ slices of DK Thm 4.5.
+
+*Reading (Assessment).* "Congruence/sharing data" of p at a Y-smooth modulus are *literally* the data of a square
+m² ≡ p, as soon as p is a QR mod every ℓ ≤ Y. This is B5 made exact at the level of witnesses, and it explains the
+(J)1 hardness law (hardness grows with log L(1,χ_p), i.e. with how many small ℓ are QRs mod p): the more small
+primes are QRs, the more of the witness space is square-equivalent. Every witness of such a p must either use a
+slice modulus with a prime factor > Y, or split the Y-rough part of N_θ(p). This is the precise answer to the brief's
+question (v) on the theory side.
