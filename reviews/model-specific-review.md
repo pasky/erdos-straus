@@ -4,7 +4,22 @@ Reviewer: R197 (side-agent/review-model-specific). Author branch merged: side-ag
 From-scratch scripts: `scripts/review_ms_*`. ES is not solved; nothing below changes that.
 
 ## Summary verdicts
-(filled in progressively)
+**Overall: no FATAL, one MAJOR (wording of the headline reading of Thm 3.1), seven MINOR.** Every numerical claim I
+re-ran from scratch reproduced exactly.
+
+| claim | verdict |
+|---|---|
+| Lemma 3.0 (five m-slices → explicit m/n solutions) | SOUND |
+| Lemma 3.0′ (cell formula incl. boundary words; relative to DEDEKIND Cor 4.1) | SOUND |
+| Thm 3.1 (a) S_4 = {χ = −1}, all odd n; (b) 4 \| m ≥ 8: ∅ ≠ S_m ⊊ {χ = −1}; (c) 4 ∤ m: χ = +1 members and non-members | SOUND |
+| Cor 3.2, 131/241: 29 resp. 12 χ = −1 words, none in S_8 | SOUND |
+| §3 "Reading" / report SHARP: "T1 is the only obstruction on the length-3 ball, as an identity" | SOUND-AFTER-REPAIRS (D1, MAJOR wording) |
+| §7 (C1) reformulation of SQ₅ | SOUND-AFTER-REPAIRS (D1, D6, D8 minor) |
+| Lemma 2.1 (parity; all-even ⟺ 8/n) | SOUND |
+| §1 censuses (CERTIFIED), PW Table 1 agreement, 2763601, 620929 | SOUND (D5 minor wording) |
+| §4 coverings and cube shots | SOUND |
+| §5 count law / luck (EVIDENCE + Assessment) | SOUND-AFTER-REPAIRS (D2, D3, D4 minor) |
+| §6 B7 screen numbers | SOUND |
 
 ### Lemma 3.0 (five m-slices give m/n solutions) — **SOUND**
 Re-derived by hand: (I) 1/(vd)+1/(A*vd) = t/(A*d), plus 1/(A*dn) gives (tn+1)/(A*dn) = AA*/(A*dn) = m/n;
