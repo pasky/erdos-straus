@@ -3,7 +3,22 @@
 Reviewer: R201 (side agent). Document reviewed at merge of `side-agent/growing-mute`.
 From-scratch scripts: `scripts/review_gm_*.py` (no reuse of `scripts/gm_*`).
 
-(in progress)
+## Summary verdict
+
+| Claim | Verdict |
+|---|---|
+| Def 1.0 + Prop 1.1 (hierarchy; (a), (b); T1) | SOUND (re-derived; 30 443 shots + 816 triples checked from scratch) |
+| Prop 1.1(c) (A, B) form / "bijection" with shot data | SOUND-AFTER-REPAIRS — M1 (λ even ⇒ Q even, outside the shot convention), m1 |
+| Prop 1.2(a)(b) Markov-type equation, Pell automorphs | SOUND (366 automorph images re-verified); but orbits do not preserve B squarefree (M3) |
+| Prop 1.2(c) only one integral Vieta involution | SOUND, in fact true for EVERY odd n (m2); reading mis-worded (m5) |
+| Prop 2.1 finite firing set for fixed P | SOUND as stated; "Consequence"/§5 item 2 OVERCLAIMED (M2) |
+| Prop 2.2 V_n / S_{n,D} equivalence | SOUND-AFTER-REPAIRS (M1, M3, m6); Ghosh–Sarnak MISSTATED (M4) |
+| Prop 3.1 e-ladder; smooth representatives | factual parts SOUND; label mixing (m7); "log³ n" should be log² n (m8) |
+| §4 EVIDENCE (39 175 primes; 13/37/97; 4/13 example; orbits) | SOUND, reproduced exactly to 10⁶; strengthened: exactly 99 primes < 10⁶ lack B = 1 (m10); 4/13 example is a valid ES^{(y,1)} solution but has Q = 18 even (M1); m4 |
+| Literature (GS, CTWX, LM, GHS) | GS wrong (M4); CTWX, LM exist and are about GS surfaces; GHS not checked (immaterial) |
+| Labels / verdict | fair after M1–M4; ES nowhere claimed |
+
+No FATAL defect. Four MAJOR (M1 definitional scope; M2, M3 overclaimed consequences/readings; M4 citation), ten minor.
 
 ## Claim-by-claim
 
@@ -157,8 +172,9 @@ Prop 2.2 (i) ⇔ (ii), §4.1 ("ES^{(y,1)} shot solutions", the 4/13 and 12433 ex
 Problem: Q₀ = (g+1)/(2A) = λB and Q = λB²; triples with λ even give Q EVEN (370 of the author's own 816 test triples),
 excluded by the Notation "Q ≥ 1 odd"; the parenthetical mentions only gcd(Q₀, n) = 1 (35 triples). The doc's own
 p = 13 example has Q = 18. The solutions themselves remain valid (den z = B² odd, prime to n — verified on all 816).
-Repair: either (a) widen the shot convention to "Q ≥ 1, g ≡ 3 (4), g | n + 4Q²" and state den z = Q₁² for odd Q₁
-without parity assumption on Q₀ (needs a one-line 2-adic check replacing EXPONENT_CAP Prop 1.2's "Q odd"), or
+Repair: either (a) widen the shot convention to "Q ≥ 1 (any parity), gcd(Q₁, n) = 1, g ≡ 3 (4), g | n + 4Q²";
+den z = Q₁² still holds (EXPONENT_CAP Prop 1.2's computation is prime-by-prime; R201 check: all 30 166 shots with
+EVEN Q ≤ 300, odd n ≤ 201, gcd(Q, n) = 1 have den z = Q₁² exactly), and the cap conditions just require Q₁ odd; or
 (b) add "λ odd, gcd(λ, n) = 1" to Prop 1.1(c)/2.2(ii) and in §4.1 replace "B ≤ 23" by the λ-odd data above
 (B ≤ 73 needed). (a) is cleaner; then §4.1 stands as written.
 
