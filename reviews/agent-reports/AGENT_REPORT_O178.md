@@ -27,8 +27,8 @@ Branch side-agent/spark-depth-aspect (merged side-agent/ff-sterile-point first).
 * §1 (ℤ, prime-power moduli). Exact table of which ET moduli can be q^s (PROVED, elementary). Parity kill: q = 2 is impossible,
   and q ≡ 1 (4) never helps p ≡ 1 (4). Mass ≍ log²p/q^s per slice (Assessment), measured decay ≈ 1/3 per s at q = 3.
   **EVIDENCE: the q = 3 family misses 1233 of the 78496 primes ≤ 10⁶** (q = 7: 3518; first failures 5, 13, 29, …). Two engines agree to 7400, all solutions
-  rebuilt exactly, odd squares all empty (T1 control). Lemma 1.3 (PROVED): exponential-polynomial / q-adically analytic
-  witnesses serve only bounded depth. Verdict: over ℤ, prime-power moduli give a thin H-A family dominated by bounded moduli,
+  rebuilt exactly, odd squares all empty (T1 control). Lemma 1.3 (PROVED): witnesses affine in q^s (R178 repair: the "q-adically analytic" scope was withdrawn)
+  serve only bounded depth. Verdict: over ℤ, prime-power moduli give a thin H-A family dominated by bounded moduli,
   i.e. B2. Depth-aspect character sums have no entry point at fixed p, since there is no interval (Assessment).
 * §2 Lemmas 2.1–2.4 (PROVED), Thm 2.5 (PROVED, relative to O173 Lemmas 1.1/2.1/3.1, R166 Case A steps (1)–(2) and the ES2
   compactness criterion).

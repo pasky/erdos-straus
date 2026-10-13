@@ -13,7 +13,7 @@ modulus is ≍ log²p/q^s, so the family is a fixed finite slice set (s = O(1)) 
 i.o. under a uniform Hardy–Littlewood heuristic (CONJECTURE), and the fixed part fails i.o. under H. B3/B6: depth tools need
 intervals, and the divisors of one integer are not one. T1: trivially respected.
 ## Cheap numerics (`scripts/bsE_qpow.c`, checker `scripts/bsE_qpow_check.py`)
-q = 3: 1233 of the 78496 primes ≤ 10⁶ have no solution in the family (first 241, 409, 769, …). q = 7: 3518. Odd squares: all empty
+q = 3: 1233 of the 78496 primes 5 ≤ p ≤ 10⁶ (R178 repair: wording) have no solution in the family (first 241, 409, 769, …). q = 7: 3518. Odd squares: all empty
 (T1 control). The mean count per s decays by ≈ 1/3 per step.
 ## Assessment
 COLLAPSES (B2), with explicit counterexamples. The depth aspect matters only where the problem is *forced* to a

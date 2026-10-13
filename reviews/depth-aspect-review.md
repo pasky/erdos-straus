@@ -1,5 +1,9 @@
 # R178 — hostile review of O178 DEPTH_ASPECT.md (reviewer 1 of 2, full document)
 
+**Repairs applied (author quiet since 11:25):** m1, m2, m3, m4, m5, m6, m7, m8, m10, m11 (as an added effectivity note), m12,
+m13, m14 are applied directly in DEPTH_ASPECT.md, BRAINSTORM/bsE_sierpinski_moving_integer.md, bsE_qpower_moduli_Z.md and
+AGENT_REPORT_O178.md, each marked "(R178 repair)". m9 (r ≥ 26) was not applied; it is optional.
+
 Reviewer branch: side-agent/review-depth-1 (merged side-agent/spark-depth-aspect at 0c6e57d2 basis).
 From-scratch scripts: `scripts/review_da_*.py`; outputs `data/review_da/`.
 
