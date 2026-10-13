@@ -24774,5 +24774,34 @@ def check_fz():
 
 check_fz()
 
+def check_fA():
+    # (fA) CONSTRUCTIVE_ES (O199/R199): Thm 2.1 class-count equality |G^-_p| = #orbits of <Frob, w2> on X0(2)^ss
+    # (reviewer's own enumeration; p = 37, 61, 73), and the spine criterion of Cor 3.3 (p = 1 mod 8 < 2e5).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("CONSTRUCTIVE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ce_classes.py", "37", "61", "73")
+    for s in ["p=37: classes det p = 7, G^- = 4, G^+ = 3; #ss j = 3, #X0(2)^ss = 9, orbits <Frob,w2> = 4",
+              "p=61: classes det p = 10, G^- = 6, G^+ = 4; #ss j = 5, #X0(2)^ss = 15, orbits <Frob,w2> = 6",
+              "p=73: classes det p = 12, G^- = 7, G^+ = 5; #ss j = 6, #X0(2)^ss = 18, orbits <Frob,w2> = 7"]:
+        assert s in o, ("CONSTRUCTIVE R199 Thm 2.1", s, o)
+    o = run("review_ce_spine.py")
+    assert "p=1(8) < 2e5: 4466 mismatches (all residues): 0" in o and \
+        "p=1(8) < 1e6: 19552 with no prime factor 3 mod 4 in p+1: 5013" in o, ("CONSTRUCTIVE R199 spine", o)
+    print(f"== (fA) CONSTRUCTIVE_ES R199: |G^-_p| = #<Frob,w2>-orbits on X0(2)^ss at p = 37, 61, 73; spine criterion "
+          f"0 mismatches on 4466 primes; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fA()
+
 
 print("\nall checks passed")
