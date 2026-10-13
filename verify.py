@@ -24857,5 +24857,27 @@ def check_fC():
 
 check_fC()
 
+def check_fD():
+    # (fD) COMPOSITION_ES (O203/R203): census of ES points on V_p (5 <= p <= 1000): 1736 points, all with the B = 1
+    # slot equal to the single element eps_mu (0 index mismatches); 41 are unit x three V_p points at the same mu.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_cp_census.py", "5", "1000"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("COMPOSITION subprocess", r.stderr[-2000:])
+    s = ("primes 166; ES points 1736; D prime 690; D composite 1046; decomposable 284; V-decomposable 41; "
+         "primes with >=1 decomposable 88; eps index mismatches 0")
+    assert s in r.stdout, ("COMPOSITION R203 census", r.stdout[-2000:])
+    print(f"== (fD) COMPOSITION_ES R203: 1736 ES points on V_p (p <= 1000), B = 1 slot = eps_mu always; 41 composed "
+          f"from three V_p points; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fD()
+
 
 print("\nall checks passed")

@@ -944,6 +944,18 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * EVIDENCE (reproduced on 3 cells). On a single admissible fibre, a locally admissible λ is globally solvable 45–80 % of the time. The heuristic main term is polynomial, so B3/B6 do not bite, and the problem reduces to a class-group statement for the family ℤ[2√(λ²D² − n)] (Assessment).
    * Open spark: composition as a generator of ES points from deeper ones.
 
+38. **Spark relay X: composition does not generate ES certificates — the B = 1 slot is a single element (COMPOSITION_ES.md (O203); review `reviews/composition-es-review.md` (R203): no FATAL; one MAJOR (M1: Cor 1.4(a) as worded was false — ε_μ CAN be a composition of V_n points when N(ε_μ) ∤ μ; only "is an ES point" is excluded), minors; repaired by the reviewer).**
+   * Lemma 1.1 / Prop 1.2, the composition law (PROVED). V_n points at μ are the primitive negative-norm elements of O′_μ = ℤ[2√(μ² − n)] with norm dividing μ.
+     * Product formula: A₃ = A₁B₂ + A₂B₁ − 2μA₁A₂, B₃ = B₁B₂ − nA₁A₂.
+     * An r-fold product is a point iff r is odd, the product is primitive, and ∏D_i | μ.
+   * **Thm 1.3 (PROVED, incl. the depth-1 case μ ≤ 2n).** Write μ = nj + t with 1 ≤ t ≤ n. The B = 1 slot at μ is ONE explicit element ε_μ = 1 − 2jη̄, always of narrow class δ. There is an ES point at μ ⟺ |N ε_μ| = 4tj − 1 divides μ.
+     * So B = 1 is not a class condition. At fixed μ no operation inside O′_μ (composition, Davenport pigeonhole) can create an ES point: it is impossible where 4tj − 1 ∤ μ and superfluous elsewhere.
+     * Selecting μ is exactly the Type II divisor problem (B2). That composition cannot help select μ is an Assessment.
+     * R202 M2's composed ES point is real but a re-expression.
+   * Prop 4.1 (PROVED). The B = 1 locus is finite (μ ≤ n² + n + (n+1)/4), and every Type II solution is a d-sliced B = 1 point of V_{pd}.
+   * **Prop 5.1 (PROVED; a new dictionary, equivalent to the Type II cube).** Type II ⟺ the two-term Machin/arccot relation arccot(2c√(d/p)) + arccot(2s√(d/p)) = arccot(1/(2j√(pd))) ⟺ 4csdj = pj + c + s. No existence theorem from Størmer theory transfers: two-term relations correspond to divisors of 1 + c², which is B2.
+   * EVIDENCE (R203 reproduced all figures; extended to p ≤ 3000). Among primes p ≤ 1000: 1736 ES points, 284 of the 1046 composite-D ES ideals have a principal proper divisor, and 41 are a unit times three V_p points at the same μ. T1: no ES points at odd squares.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
