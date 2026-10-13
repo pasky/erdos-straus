@@ -53,6 +53,9 @@ def is_sq(r, q, Q):
     return pow(r, (q - 1) // 2, q) == 1
 
 
+UNIT_ONLY = [True]   # obstruction = unit squares (n = 0 mod q is handled by divisor classes)
+
+
 def survivors(k, b, c, L, pps, base=None):
     base = base if base is not None else 10 * L + 64   # representative exponent >= 2-adic thresholds
     S = []
@@ -60,7 +63,8 @@ def survivors(k, b, c, L, pps, base=None):
         mm = base + ((m - base) % L)
         ok = True
         for q, Q in pps:
-            if not is_sq(k * pow(b, mm, Q) + c, q, Q):
+            v = k * pow(b, mm, Q) + c
+            if (UNIT_ONLY[0] and v % q == 0) or not is_sq(v, q, Q):
                 ok = False
                 break
         if ok:

@@ -43,10 +43,22 @@ def covered_exponents(k, b, c, L, M, R, base):
     return out
 
 
-def search(k, L, Mmax, b=2, c=1, verbose=True):
+def search(k, L, Mmax, b=2, c=1, verbose=True, divisor_classes=True, restrict=None, Mfilter=None):
+    """restrict: optional (L0, set of residues mod L0) — only cover m whose residue mod L0 is in the set."""
     base = 10 * L + 64
+    target = set(range(L)) if restrict is None else {m for m in range(L) if m % restrict[0] in restrict[1]}
     Ms = candidate_moduli(k, b, c, L, Mmax)
+    if Mfilter:
+        Ms = [M for M in Ms if Mfilter(M)]
     sets = []
+    if divisor_classes:
+        # 'D' classes: n = 0 (mod q), q odd prime; ES(n) from ES(q) scaled by n/q
+        for q, Q in admissible_prime_powers(b, L, QMAX=Mmax):
+            if q == 2 or b % q == 0:
+                continue
+            s = {m for m in target if (k * pow(b, base + ((m - base) % L), q) + c) % q == 0}
+            if s:
+                sets.append((q, ('D', (q,)), s))
     for M in Ms:
         if M % 4 and M % 4 != 3:
             # only II2 has M not divisible by 4 (M = 3 mod 4)
@@ -55,14 +67,14 @@ def search(k, L, Mmax, b=2, c=1, verbose=True):
         if not W:
             continue
         cov = {}
-        for m in range(L):
+        for m in target:
             mm = base + ((m - base) % L)
             r = (k * pow(b, mm, M) + c) % M
             if r in W:
                 cov.setdefault(W[r], set()).add(m)
         for cls, s in cov.items():
             sets.append((M, cls, s))
-    unc = set(range(L))
+    unc = set(target)
     allcov = set().union(*[s for _, _, s in sets]) if sets else set()
     if unc - allcov:
         if verbose:
@@ -107,6 +119,14 @@ def certificate(k, L, chosen, b=2, c=1):
     out = {'k': k, 'b': b, 'c': c, 'L': L, 'classes': []}
     for M, cls, s in chosen:
         fam, P = cls
+        if fam == 'D':
+            q = P[0]
+            from fractions import Fraction as F
+            xq = next((x, y, (q * x * y) // (4 * x * y - q * (x + y))) for x in range(1, 2 * q) for y in range(x, 4 * q * q)
+                      if 4 * x * y - q * (x + y) > 0 and (q * x * y) % (4 * x * y - q * (x + y)) == 0)
+            out['classes'].append({'M': q, 'r': 0, 'fam': 'D', 'params': [q], 'exps': s,
+                                   'xyz': [['0', str(F(v, q))] for v in xq]})
+            continue
         MM, R = ML.cls_modulus_residues(fam, P)
         base = 10 * L + 64
         mm = base + ((s[0] - base) % L)
