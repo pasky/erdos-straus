@@ -56,17 +56,17 @@ def typeII_moduli(p):
 
 
 def F1_set(p, bound):
+    """{f prime <= bound : exists c, d >= 1 with f | 1 + 4c^2 d p and f = -1 mod 4cd}; f = -1 mod 4cd forces
+    cd | (f+1)/4, so (c, d) runs over divisor pairs of (f+1)/4."""
     out = {}
-    c = 1
-    while 4 * c * c * p + 1 <= 10 ** 12 and 4 * c - 1 <= bound:
-        d = 1
-        while 4 * c * d - 1 <= bound:
-            N = 1 + 4 * c * c * d * p
-            for f in divisors(N):
-                if f > 2 and (f + 1) % (4 * c * d) == 0 and is_prime(f):
+    for f in range(3, bound + 1, 4):
+        if not is_prime(f):
+            continue
+        k = (f + 1) // 4
+        for c in divisors(k):
+            for d in divisors(k // c):
+                if (1 + 4 * c * c * d * p) % f == 0:
                     out.setdefault(f, []).append((c, d))
-            d += 1
-        c += 1
     return out
 
 

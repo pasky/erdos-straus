@@ -1,0 +1,1 @@
+primes 5<=p<1000: 166; F1 set mismatches vs brute-force prime Type II moduli: 0; root non-uniqueness: 0; (-d/f) != -1: 0; CM point counts checked 646, #E != f+1: 0; Type II modulus > (p+1)(p+5)/4: 0

@@ -59,7 +59,7 @@ imported from `ff_frob_*` or `fm_poly`).
 * **Prop 1.2 (Fire(p) finite ⇒ no sufficient Frobenius condition): (a), (b) SOUND; (c) GAP (not a statement).**
   (a) is cited (FIXED_MODULUS_SHOTS Prop 6.1, FF_MUTE Prop 5.1, both reviewed); I re-derived the Type I bound
   (wf ≤ 2p/3, g | p² + 4wf² ⇒ g ≤ 25p²/9 < 3p²) and brute-forced the Type II bound h ≤ (p+1)(p+5)/4 for all primes
-  p < 400 (0 violations, `review_frob_heegner.py`). (b) is immediate from Chebotarev (constant-field part handled
+  p < 1000 (0 violations, `review_frob_heegner.py`). (b) is immediate from Chebotarev (constant-field part handled
   correctly: infinitely many degrees in any residue class mod e). (c) names no (L, C) — "C = {Frob restricted as in
   Lemma 3.2}" plus "s primitive root" is a heuristic description, yet sits inside a PROVED proposition (m4).
 * **Thm 1.3 (FF effective no-go): SOUND, CONDITIONAL label acceptable (could be PROVED-relative-to-citation).**
@@ -94,17 +94,90 @@ imported from `ff_frob_*` or `fm_poly`).
   in ℚ(√−dp) (−dp ≡ (2c)^{−2}); 𝔣 | αᾱ ⇒ 𝔣 or 𝔣̄ divides α, not both (else f | α, impossible as α/f ∉ O_K);
   conversely N𝔣 = f prime ≡ −1 (4cd) and Nα ≡ 1 (4cd) give f′ ≡ −1. The campaign-letter certificate
   (f | 4c²dp + 1, f ≡ −1 mod 4cd) is the (d, j)-line of the FIXED_MODULUS cube with c ↔ j, so it is exactly
-  "Type II with modulus f". Brute force (own code, all primes 5 ≤ p < 400): the F1 set {f prime : ∃ c, d} equals the
+  "Type II with modulus f". Brute force (own code, all 166 primes 5 ≤ p < 1000): the F1 set {f prime : ∃ c, d} equals the
   set of prime moduli 4y′ − 1, 4z′ − 1 of a brute-force Type II enumeration, 0 mismatches; exactly one of the two
   roots t of t² ≡ −dp works every time. (It is a tautological repackaging, which the text admits: "Violates nothing".)
-* **F2 (supersingular torsion): SOUND-AFTER-REPAIRS (m8).** (−d/f) = −1 re-derived (f ≡ −1 mod 4d, (r−1)/2 odd;
-  2 | d ⇒ f ≡ 7 mod 8) and confirmed at every certificate for p < 400; Deuring ⇒ supersingular ⇒ a_f = 0 for
-  f ≥ 5 ✓; point counts of the CM curves for d = 1, 2, 3, 7, 11 at all certificate primes f < 400: #E(F_f) = f + 1
+* **F2 (supersingular torsion): SOUND-AFTER-REPAIRS (m8).** (−d/f) = −1 re-derived (f ≡ −1 mod 4d, (f−1)/2 odd;
+  2 | d ⇒ f ≡ 7 mod 8) and confirmed at every certificate for p < 1000; Deuring ⇒ supersingular ⇒ a_f = 0 for
+  f ≥ 5 ✓; point counts of the CM curves for d = 1, 2, 3, 7, 11 at all certificate primes f < 400 (646 counts): #E(F_f) = f + 1
   in every case. But "elliptic curve over ℚ with CM by an order of ℚ(√−d)" exists only for the 13 class-number-one
   orders (d ∈ {1, 2, 3, 7, 11, 19, 43, 67, 163} up to the orders of disc −12, −16, −27, −28), so for generic d the
   statement is vacuous; and the Drinfeld clause is unreferenced and slightly off (m8).
 * **F3–F5: Assessments, acceptable**, with a sign caveat in F3 (m9).
 
+* **EVIDENCE §5.1 (S = {3}): ES^{(3)} REPRODUCED exactly; ES^{(y)} REPRODUCED but mis-described (m1); squares
+  control REPRODUCED.** Own solver (`review_frob_selfmute.py`: Miller–Rabin + Pollard rho; every candidate solution
+  rebuilt with Fractions and checked: 4/n = 1/x + 1/y + 1/z, x, y ∈ ℤ_{>0}, z > 0, every prime of den(z) divides y,
+  is ∤ 2n and has even exponent; for ES^{(3)}: den(z) a power of 9), run to 10⁶ (brief asked 2·10⁵; both done,
+  data/review_frob/selfmute_{2e5,1e6}.txt). All 78 496 primes solved in both variants. ES^{(3)} least-j histogram
+  identical to the author's ({0: 68 655, …, 18: 1}). For ES^{(y)} the author's histogram ({0: 34 972, …, 21: 1}) is
+  reproduced **only** with the stricter rule "r ≡ 11 (mod 12) at every j, including j = 0" (my variant `y12`); with
+  the actual Definition 4.1 a j = 0 shot (Q = 1, z ∈ ℤ) is an ES solution, hence ES^{(y)}, for any r ≡ 3 (4), and the
+  true least-j histogram is {0: 68 655, 1: 3053, 2: 2271, …, 19: 1, 20: 1, 21: 1} (max still 21). 332 odd squares
+  m² < 10⁶ (3 ∤ m): no n + 4·9^j (j ≤ 15) has a prime factor ≡ 3 (4) (the proof is the two-squares argument, so
+  j ≤ 15 vs the author's 40 is immaterial).
+* **EVIDENCE §5.2 (FF overflow table): spot-check REPRODUCED.** Own F_q[T] code (`review_frob_overflow.py`), own
+  search (all f = Am − 1 of degree ≤ D, all (a, d) with ad | m, all j ≤ (D − k)/deg s + 8, solution accepted only after
+  a direct check of A/P = 1/X + 1/Y + 1/z, monicity, NC and den(z) = s^{2t}, t ≤ e — no use of the author's j-cap
+  formula). Rows re-run: see Checks; every per-P least e coincides with the author's, and every data/ffl full
+  ES_q failure in those rows is solved with the author's e (e.g. q = 7, n = 2: 101:5, 113:1, 122:1, 131:2, 152:2,
+  164:3). Caveat (already stated by the author): e-values are upper bounds within the Prop 2.1 family and modulus
+  degree ≤ D, not the least overflow over all solutions.
+
 ## Defects
+
+No FATAL and no MAJOR defect found. MINOR:
+
+**m1 (§5.1 and AGENT_REPORT SHARP 3: ES^{(y)} numerics describe a stricter variant).** "ES^{(y)}: least j = 0 for
+34 972, max least j = 21" uses r ≡ 11 (mod 12) even at j = 0, i.e. it forces 3 | y also when z is integral; under
+Definition 4.1 the j = 0 count is 68 655 (= ES^{(3)}'s), the max least j is still 21. *Repair:* either report the
+true histogram or rename the statistic "ES^{(y)} with 3 | y forced" (the report's parenthetical "3 | y forced" is
+the accurate description; §5.1's "[ES^{(y)}]" bracket and Definition-4.1 wording are not).
+
+**m2 (Cor 4.3, F4, §4 title, §6 item 5: interpretation labelled as PROVED).** The equivalences are proved; the
+sentences "exactly the B2 obstruction; the solution-dependence of the allowed primes is not", "moving mute places are
+harmless" are Assessments. Moreover, in the proof of Thm 4.2 the mute places do NOT move: S is a fixed set of four
+primes and "s_i | y" is enforced by the fixed congruence r ≡ −1 (mod s_i). And "exponent cap Q | (r+1)/4" is the
+same thing as (J)25's growing modulus 4Q (the report's "sharpens 'growing modulus' into 'growing exponent'" is a
+rephrasing, not a sharpening). *Repair:* mark these sentences (Assessment); retitle §4 e.g. "a variant whose
+allowed denominators depend on the solution is still a theorem".
+
+**m3 (Thm 4.4 scope).** Stated for n ≡ 1 (4) non-square with s ∤ n, but titled "|S| = 1 suffices under GRH, for
+ES^{(s)} and for ES^{(y)}". *Repair:* add "for every odd n with s ∤ n (n ≡ 3 (4): Q = 1; squares: scaling as in
+Thm 4.2(c))" to the statement, and cite Lenstra's d = 2 index condition explicitly (index of ⟨s⟩ divides 2).
+Also page range: Moree's bibliography gives Invent. Math. 42 (1977) 202–224.
+
+**m4 (Prop 1.2(c) inside a PROVED proposition).** It names no pair (L, C) and is a description of FF_MUTE Thm 3.5's
+mechanism. *Repair:* move (c) to a Remark labelled Assessment.
+
+**m5 (AGENT_REPORT vs document label of Thm 1.3).** The report says "Thm 1.3 (F_q[T], effective Chebotarev,
+unconditional)", the document says CONDITIONAL on the cited shape. *Repair:* make the report match (or upgrade
+both to "PROVED relative to the cited effective Chebotarev theorem" after reading Fried–Jarden Prop 6.4.8).
+
+**m6 (Thm 1.4: "fires (Type I or II)" undefined; window contains only Type I moduli).** Definition 1.1 defines
+firing only for Type II. Since X ≥ 3p² and Type II moduli are ≤ (p+1)(p+5)/4 < X/2, the counted window (X/2, X]
+contains only Type I moduli. *Repair:* add the Type I firing relation (FIXED_MODULUS_SHOTS Lemma 4.1: g = 4vwf − p,
+g | pv + f) to Def 1.1 and note the remark.
+
+**m7 (Prop 2.2 examples).** (i) Exponent interval: ‖ŝ‖₁ ≪ log q^d = d log q, so "J ≫ d(n + b)q^{d/2}" silently
+absorbs log q (fine for fixed q; say so). (ii) The GAP bound ‖ŝ‖₁ ≪ ∏(1 + log(2κ_i + 1)) is asserted without proof and
+needs the box to be proper (injective); my numerics support it for proper 2-dim GAPs, but as written it is not
+PROVED. *Repair:* add "proper" and label the GAP example heuristic/Assessment (it is not used downstream).
+
+**m8 (F2 wording).** "Every elliptic curve over ℚ with CM by an order of ℚ(√−d)" is vacuous unless the order has class
+number one. *Repair:* "every elliptic curve E over a number field with CM by an order of ℚ(√−d), at any prime above
+f of good reduction (f ≥ 5), is supersingular; when E/F_f is defined over the prime field, #E(F_f) = f + 1" (for
+class-number-one orders: CM curves over ℚ, checked numerically here). Drinfeld clause: for characteristic polynomial
+X² + u·f, P(1) = 1 + uf = u(f + u^{−1}), so "∝ f + u^{−1}"; give a reference (Gekeler) or label it Assessment.
+
+**m9 (F3 signs).** Thue's lemma gives (c, j) ∈ Λ_h with 0 < |c|, |j| < √h but not c, j > 0; a mixed-sign point
+gives nothing. *Repair:* add "with c, j > 0" to the certificate condition and note that Thue does not control the sign
+(one more reason the deterministic step fails).
+
+**m10 (§5.2 last sentence contradicts the R196 #3 withdrawal).** "Contrast with Prop 2.2: the Weil-provable overflow is
+an exponent interval of length ≳ d·n·q^{d/2}, i.e. e ≈ n² at d ≈ 2 log_q n" restates the withdrawn "threshold e ≈ n²";
+F5 and §6 item 6 correctly say Prop 2.2 does not apply to the varying base s(α). *Repair:* replace by "the only
+known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}; whether a smaller overflow is provable is open (Prop 2.2 does
+not apply to the varying base s(α))".
 
 ## Checks performed
