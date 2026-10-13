@@ -97,11 +97,14 @@ S_m(p) = ∅ for primes ≤ 10⁵ (`review_ms_slices.c`, direct word enumeration
    *Repair:* "on the length-3 ball the ES certificate set is exactly a χ-fibre: no congruence condition on the word
    beyond the T1 character; whether the fibre is reached is SQ₅ (open; fails at the non-square 105)". Same edit in the
    report's SHARP paragraph.
-2. **MINOR.** §5.3 Assessment (i) quotes "plug-in ≈ 0.02 failures" above p = 100 as "the expected outcome". The author's
-   own `tail_1e7.txt` sensitivity ((K+1)/N per bin) raises the m = 4 total from 1.45 to 2.07 (4 | m curve) and 0.84 → 1.02;
-   since bins with K ≥ 1 are large (the +1/N there is negligible), essentially all of the +0.62 / +0.18 sits in the
-   zero-failure bins μ ≥ 24, i.e. p ≥ 100. *Repair:* state "plug-in 0.02, sensitivity up to ≈ 0.2–0.6 above p = 100" so
-   the reader does not take 0.02 as an estimate with small error.
+2. **MINOR.** §5.3 Assessment (i) quotes "plug-in ≈ 0.02 failures" above p = 100 as "the expected outcome". Re-splitting
+   the author's own bin table (obtained by re-running `ms_tail.py 1e7`; the bin table itself is **missing from the
+   committed `data/ms/tail_1e7.txt`**, which only has the headers) with the m = 4 fit: p < 100 contributes 1.435 (K/N) /
+   1.575 ((K+1)/N) on the 4 | m curve and 0.832 / 0.915 on the 4 ∤ m curve; **p ≥ 100 contributes 0.017 / 0.499 resp.
+   0.005 / 0.107**. So above p = 100 the model pins the expectation only to "≲ 0.1–0.5", not 0.02 (zero-failure bins with
+   N ≈ 10⁵–10⁶ primes carry all of it). *Repair:* quote "plug-in 0.02, (K+1)/N sensitivity 0.1–0.5", and commit the full
+   `ms_tail.py` output (bin table) to `data/ms/tail_1e7.txt` — the rates 2.5·10⁻², 2.5·10⁻³, 2.6·10⁻⁴, ≤ 10⁻⁵ quoted in
+   §5.3 are currently not in any committed data file (they do match the re-run).
 3. **MINOR.** §5.3 "(iii) … m = 8 is the 4 | m pool's best-predicted member" — only in absolute error (1.46 vs 2). In
    ratio terms it is the *worst* (obs/pred 1.37; 12: 1.34, 16: 0.80, 20: 0.90, 24: 1.14). *Repair:* replace by "and its
    2 observed failures (p ≥ 100) are consistent with the leave-one-out prediction 1.46 (Poisson P(≥ 2) ≈ 0.43)".
