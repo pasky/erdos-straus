@@ -263,3 +263,40 @@ congruence `n ≡ r (g)` (B1). The rank-4 reading thus re-expresses the lottery 
 counts, but in every encoding found the *map back* to ES solutions turns the power-size count into either a
 finite menu (Thm 2.3), a factorisation-blind statement (Prop 3.1), or an AP lottery (C4/Cor 7.2). The quaternary
 objects that do carry ES solutions sit at expected count O(1) (§4), exactly where SA says nothing.
+
+# Part II (checkpoint 2): sparks — exact identities, double cosets, uncapped weights
+
+## 9. Exact positive identities (H-E): finite Eisenstein combinations are killed by T1
+
+Let `E(n) = Σ_i c_i σ_{k_i}(n; χ_i, ψ_i)`, `σ_k(n; χ, ψ) := Σ_{d | n} χ(d) ψ(n/d) d^k`, a finite combination
+(k_i ≥ 0 integers, χ_i, ψ_i Dirichlet characters of conductor dividing L, c_i ∈ ℂ). This contains every
+Eisenstein part of every integral-weight theta series, in particular all rank-4 one-class genera (Siegel–Weil),
+and Jacobi's `r₄(n) = 8σ(n)` (n odd). Old-form shifts `σ(n/δ)` (δ > 1) vanish at large primes and at `ℓ²`
+(ℓ ∤ δ), so they change nothing below.
+
+**Theorem 9.1 (T1 kills finite Eisenstein identities; PROVED, elementary).**
+(a) If `E(ℓ²) = 0` for infinitely many primes `ℓ ≡ 1 (mod L)`, then `E(p) = 0` for every prime `p ≡ 1 (mod L)`.
+(b) If `E(ℓ²) ≤ 0` for all large primes `ℓ ≡ 1 (mod L)` (E real), then `E(p) ≤ 0` for all large primes
+`p ≡ 1 (mod L)`.
+*Proof.* For primes ℓ, p ≡ 1 (L) all character values are 1, so with `C_k := Σ_{i: k_i = k} c_i`:
+`E(ℓ²) = P(ℓ) := Σ_k C_k(1 + ℓ^k + ℓ^{2k})` and `E(p) = Σ_k C_k(1 + p^k)`. Let K be the largest k with
+`C_k ≠ 0`. If K ≥ 1, the monomial `x^{2K}` of P comes only from k = K (a term `x^{k'}` with k' = 2K would need
+`C_{2K} ≠ 0`), so P has leading coefficient `C_K`. (a) P vanishes at infinitely many points, so `P ≡ 0`, so
+`C_K = 0`, contradiction; hence K = 0 or no K, and then `P = 3C_0 ≡ 0` forces `C_0 = 0`; so `E(p) = 0`.
+(b) `P(ℓ) ≤ 0` for large ℓ forces `C_K < 0` if K ≥ 1, and then `E(p) = C_K p^K + O(p^{K−1}) < 0`; if K = 0 then
+`3C_0 ≤ 0`, so `E(p) = 2C_0 ≤ 0`. ∎
+
+**Corollary 9.2.** Let `W(n) ≥ 0` be *any* weighted count of Type I/II certificates (so `W(m²) = 0` for odd m,
+ET Prop 1.6). No identity `W = E` and no minorant `W ≥ E` with E a finite Eisenstein combination can give
+`W(p) > 0` for the primes `p ≡ 1 (mod L)` (the Mordell-hard class, since 24 | L can be assumed). The same holds
+for every n-local object whose values at primes and at prime squares are quasi-polynomials in the prime.
+*Reading.* At primes, finite Eisenstein combinations are quasi-polynomials in p (Jacobi: `r₄(p) = 8(p+1)`).
+The only freedom is the shape of the polynomial; T1 at prime squares `ℓ² ≡ 1 (L)` pins it down
+coefficientwise. Exactness of r₄ is therefore not transferable: the positive closed form is
+congruence-plus-size data, i.e. B1.
+
+**Escape (the hypothesis to violate).** *Shifted* arguments: `E(A_i n + B_i)`, e.g. `σ(gn+1; −1, g)` (§7). At
+primes these are not quasi-polynomial. But a *finite* set of shifts `(A_i, B_i)` is a fixed finite set of
+slices (B2: POINTWISE_SIZE Thm C, fails i.o. under H), and Type II needs all g ≤ n. So an exact identity must
+involve an *unbounded* family of shifts, and its closed form would be a shifted-convolution identity. §9.1
+tests this numerically.
