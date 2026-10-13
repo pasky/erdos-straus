@@ -180,7 +180,7 @@ F' ⊂ ℚ(ζ_M) with H = Gal(ℚ(ζ_M)/F'), K' ⊃ F' quadratic inside ℚ(ζ_M
 η the character of K'/F'. If 𝔞 is an ideal of F' prime to M with N𝔞 = f, then f mod M ∈ H and η(𝔞) = −1 ⟺
 f mod M ∈ H ∖ H'. Hence "η(𝔞) = −1 ⟺ f ≡ −1 (mod M)" holds for all such 𝔞 iff H ∖ H' = {−1}, i.e. H = {±1},
 F' = ℚ(ζ_M)⁺, K' = ℚ(ζ_M), [F' : ℚ] = φ(M)/2 — even for every ES modulus M = 4cd > 4.
-*Proof.* Art_{ℚ(ζ_M)/ℚ}(N𝔞) = Art_{ℚ(ζ_M)/F'}(𝔞)|… ∈ H (norm compatibility of Artin maps), and η(𝔞) is the image
+*Proof.* Art_{ℚ(ζ_M)/ℚ}(N𝔞) = Art_{ℚ(ζ_M)/F'}(𝔞) ∈ H (norm compatibility of Artin maps), and η(𝔞) is the image
 of Art_{ℚ(ζ_M)/F'}(𝔞) in H/H'. ∎
 So an odd-degree F' (spark 1) sees f only modulo H' with |H ∖ H'| = φ(M)/(2[F':ℚ]) ≥ 2: a coset condition plus the
 splitting condition f ∈ H (which the certificate does not force). The full ray condition needs F' = ℚ(ζ_M)⁺.

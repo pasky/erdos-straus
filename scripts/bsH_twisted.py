@@ -58,6 +58,9 @@ def solutions(P):
     return sols
 
 
+STAT = Counter()
+
+
 def invariants(t, Qs):
     # u_i = X_i / c_i ; a = -u1/u3 = -(c3/c1) X1/X3 ; b = -(c3/c2) X2/X3  as (num, den)
     X1, X2, X3 = t
@@ -71,6 +74,19 @@ def invariants(t, Qs):
         out[l] = s
     si = BL.sym_inf(a, b)
     tot += si
+    # Lemma 3.2 prediction (odd part): rotate so that u1 has degree > n - kA (cyclic shifts preserve alpha)
+    degs = [len(X) - 1 for X in t]
+    for r in range(3):
+        i1, i2, i3 = r, (r + 1) % 3, (r + 2) % 3
+        if degs[i1] > n - kA:
+            break
+    else:
+        i1 = None
+    if i1 is not None and m % 2 == 1:
+        c1, c2, c3 = cs[i1], cs[i2], cs[i3]
+        val_ = pow(c1, (degs[i2] - degs[i3]) % (p - 1), p) * pow(c3 * inv(c2) % p, (kA + degs[i1] - n) % (p - 1), p) % p
+        pred = BL.LOG[pow(val_, (p - 1) // m, p)]
+        STAT['pred_ok' if pred == si else 'pred_bad'] += 1
     iQ = sum(out.get(Q, 0) for Q in Qs) % m
     other = sum(v for l, v in out.items() if l not in Qs) % m
     vs = []
@@ -108,7 +124,7 @@ def run():
     for v in res.values():
         agg.update(v[1])
     print(f"q={p} m={m} A={Adig} n={n} c={cs} P=Q^{powe}: #P={nP} #P_no_solution={nzero} "
-          f"#sol={sum(v[0] for v in res.values())} (shape, inv_Q, inv_inf) dist [inv_other = 0, total = 0 asserted]={sorted(agg.items())}")
+          f"#sol={sum(v[0] for v in res.values())} Lemma3.2 check={dict(STAT)} (shape, inv_Q, inv_inf) dist [inv_other = 0, total = 0 asserted]={sorted(agg.items())}")
 
 
 if __name__ == '__main__':
