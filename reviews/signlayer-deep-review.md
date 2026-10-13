@@ -248,3 +248,17 @@ divisor-type count that grows like log² n. "Refuted (EVIDENCE)" is an honest la
 that this was a strawman-strength test. It refutes eigenform-like zero propagation, not a Waldspurger-type
 mechanism in which W is a *sum* over forms or periods. (c) The 26-zero list duplicates known data. "Consistent
 with DK §9" was not checked by me.
+
+## Memo bsB_zolotarev_transpose — SOUND (classical; labels honest)
+
+Re-derived items 1–3. Row-major k = i·m'' + j ↦ j·m + i ≡ k·m (mod mm'' − 1), with the last index fixed. The
+transpose sign is (−1)^{C(m,2)C(m'',2)} = +1 because 4 | m. Zolotarev–Frobenius gives sign(×m on ℤ/gn) = (m/gn). CRT
+gives sign(σ × τ) = sgn σ^{n}·sgn τ^{g} = sgn σ·sgn τ (g, n odd). m ≡ −1 (mod g) with g ≡ 3 (4) gives (m/g) = −1,
+so (m/n) = −1 = (m''/n). On the slice, n ≡ 1 (4) forces f ≡ g ≡ 3 (4). Item 4 is a tautology, honestly presented.
+The "construction attempt" is correct: by GI Prop 4.1 with ε = +1, class-+1 elements act evenly on ℤ/n, so they
+generate only even permutations. Independent check (`scripts/review_sl_zolo.py 600`): 606 certificates with
+n ≡ 1 (4) ≤ 600. The certificate count for n ≤ 400 is **352, the same as the author's**. Explicit cycle-sign
+computation of ×m on ℤ/n and ℤ/g and of ×m'' on ℤ/n, plus 328 explicit rectangle transposes (mm'' ≤ 2000) checked
+against k ↦ km and the inversion formula: 0 violations. No defects. (Optional: the memo itself says item 3 is
+Jacobi multiplicativity plus Zolotarev, so "re-derived GI Prop 4.1" is a re-reading. The real content is
+(m/(mm'' − 1)) = 1 for 4 | m, which is reciprocity. Fine as stated.)
