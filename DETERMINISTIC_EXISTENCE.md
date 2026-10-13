@@ -287,7 +287,7 @@ edge of the success graph, whose existence is a 0/1 question that these theorems
 condition ⇐ counting. v3 "joint data over a slice family" — exactly block witnesses (Prop 7.2), which miss a
 congruence class for every E and all slices up to c log p infinitely often (Thm 7.3, Cor 7.4).
 
-## 8. The Type I forcing side is empty (PROVED)
+## 8. The Type I forcing side is empty (PROVED in the abstract-integer model of "forcing", Convention before Prop 6.1; R168 repair)
 
 **Prop 8.1.** Let p ≡ 1 (4). (i) Type I at level (c, d), target f | N = p² + 4c²d with f ≡ −p (mod 4cd): residue
 data never force even group-level success. (ii) Type I e-slices N'_e = (pe+1)/4: the same.
@@ -302,8 +302,9 @@ Check of Thm 7.3: `scripts/de_thm73_check.py 7 11 15 23 31` — the first 20 pri
 
 ## 9. Summary (checkpoint 2)
 
-* §1 catalogue: 29 mechanisms; after §5 the only rows not closed by a proved statement are 4 (now §3), 9–10 (§4),
-  11 (INVOLUTION_ES2, open for infinite/non-affine menus).
+* §1 catalogue: 29 mechanisms; after §5 the rows not closed by a proved statement are 1 (?), 4 (now §3), 9–10 (§4),
+  11 (INVOLUTION_ES2, open for infinite/non-affine menus), 16, 18, 29 (○, growing parameters / H5); row 6 is closed
+  by §5 for positivity-preserving rules (R168 repair: list made consistent with the table's ○ entries).
 * Legendre/Holzer (§3): ES uses isotropy only contrapositively (Props 3.1–3.3); T1-safe residue = Jacobi forcing
   (Prop 3.4).
 * Pell (§4): deterministic factorisation, random-like mod e (EVIDENCE); constraints = Rédei relations (PROVED).
@@ -316,5 +317,6 @@ Check of Thm 7.3: `scripts/de_thm73_check.py 7 11 15 23 31` — the first 20 pri
   (Prop 7.2); block witnesses over e ≤ E miss the class 1 (mod M_E) (Thm 7.3), hence over e ≤ c₀ log p infinitely
   often (Cor 7.4, Linnik). Hall/König add nothing (numerics + iteration record).
 * Type I (§8): no forcing side at all for p ≡ 1 (4) (Prop 8.1).
-* Net: the deterministic (residue + sharing) content of the slice structure is now characterised exactly; what lies
+* Net: the deterministic (residue + sharing) content of the slice structure is now characterised exactly (in the abstract-integer model of "forcing";
+  converses are about integers in residue classes, not about primes p — R168 repair); what lies
   beyond it is the factorisation of the private cofactors P_e — the H-A/H-B hatches. No route to ES.
