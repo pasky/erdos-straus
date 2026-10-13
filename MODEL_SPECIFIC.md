@@ -1,6 +1,6 @@
 # MODEL_SPECIFIC — what makes 4/n special among m/n? (task O197, spark relay R, after B7)
 
-Status: in progress (O197). **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O197), report reviews/agent-reports/AGENT_REPORT_O197.md. **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Builds on TES_FINITE.md §5 (O194: Schinzel 8/n has the same ℚ-surface, real anchor and order-2 T1 as ES, no BM
 obstruction at 131, 241, yet no solution there — barrier B7), BRAINSTORM/ident_numerators.md (O145),
 POINTWISE_MN.md (Jacobi lemma for 4 | m), DEDEKIND_ES.md (five HJ slices), FIXED_MODULUS_SHOTS.md (certificate cube).
