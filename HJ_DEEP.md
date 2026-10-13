@@ -10,7 +10,7 @@ length of a Jacobi non-residue.
    ES's (A)3 slice is the case t = 4c. All of Type II is the same identity at the numerator cp with 4c | t, and the
    sign is then automatic: (A/p) = −(−1/p) (§2, PROVED, elementary).
 2. **SQ₅ splits into a sign-free half and a pure-sign half (§3, EVIDENCE to 10⁸).**
-   * (W) Every n ∉ E_W = {2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} has a length-3 word. The SQ₅ exception 105 is a
+   * (W) Every n ≥ 2 with n ∉ E_W = {2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510} has a length-3 word. The SQ₅ exception 105 is a
      (W)-exception, i.e. 105 has no length-3 word at all.
    * (S) For non-square n ≡ 1 (4), L₃(n) ≠ ∅ ⟹ L₃(n) contains a Jacobi −1 word.
    Both hold for all n < 10⁸ (`scripts/bsA_ws.c`). So SQ₅ (interior five slices) holds for every non-square n ≡ 1 (4),
