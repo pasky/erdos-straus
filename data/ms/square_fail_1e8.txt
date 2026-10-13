@@ -1,0 +1,26 @@
+m=4 odd squares <= 100000000 failures:
+checked 4999, failures 0
+m=5 odd squares <= 100000000 failures:
+checked 3999, failures 0
+m=6 odd squares <= 100000000 failures:
+checked 3332, failures 0
+m=7 odd squares <= 100000000 failures:
+checked 4285, failures 0
+m=8 odd squares <= 100000000 failures:
+checked 4999, failures 0
+m=9 odd squares <= 100000000 failures:
+checked 3332, failures 0
+m=10 odd squares <= 100000000 failures:
+checked 3999, failures 0
+m=11 odd squares <= 100000000 failures:
+checked 4544, failures 0
+m=12 odd squares <= 100000000 failures: 25
+checked 3332, failures 1
+m=13 odd squares <= 100000000 failures:
+checked 4614, failures 0
+m=14 odd squares <= 100000000 failures: 841
+checked 4285, failures 1
+m=15 odd squares <= 100000000 failures:
+checked 2665, failures 0
+m=16 odd squares <= 100000000 failures: 9 121
+checked 4999, failures 2

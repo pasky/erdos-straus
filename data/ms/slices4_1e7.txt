@@ -1,0 +1,2 @@
+m=4 primes<=10000000 with no five-slice hit:
+checked 664578 primes, no-hit 0, degenerate 0
