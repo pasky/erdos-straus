@@ -1,0 +1,3 @@
+q=7: Prop2.1/Cor2.2 shots 20 bad 0 (ES_q-integral with j>0: 1); Lemma3.2 sign cases 112 bad 0; Lemma4.1 composite f 17 bad 0
+q=8: Prop2.1/Cor2.2 shots 9 bad 0 (ES_q-integral with j>0: 0); Lemma3.2 sign cases 97 bad 0; Lemma4.1 composite f 0 bad 0
+q=9: Prop2.1/Cor2.2 shots 22 bad 0 (ES_q-integral with j>0: 0); Lemma3.2 sign cases 102 bad 0; Lemma4.1 composite f 14 bad 0
