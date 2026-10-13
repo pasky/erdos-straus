@@ -77,3 +77,49 @@ periodic in s (Sierpiński/covering-congruence structure). Periodic data are con
 * **Verdict (Assessment): over ℤ, prime-power moduli give a thin H-A family, dominated by bounded moduli. Dead.**
   What the Z-side shows: the depth aspect can only matter where the problem is *forced* to a prime power, as in the
   function-field sterile point, where every non-T place is trivialised. That is §2.
+
+## 2. F_q[T]: the depth-aspect count at slice points is *not* square-root
+
+Setting (FUNCTIONFIELD_ES3 §§1–3): q odd, A = T^k, k ≥ 2, c ∈ F_q^*. The *c-slice* is the set of slice points x_u
+(x ≡ 1 at every prime ≠ T, x ≡ u mod T^∞) with u ∈ 1 + cT + T²F_q[[T]], with Haar measure on u (total mass q^{−2}).
+A linear family valid at some x_u is valid exactly on a cylinder u ≡ −E (mod T^{N+1}) (Lemma 1.1 there), of mass
+q^{−(N+1)}. If the total mass of all cylinders is < q^{−2}, then some x_u lies in O(q, T^k). By the compactness
+criterion (FUNCTIONFIELD_ES2 §0.1), ES_q(T^k, ·) then has **no finite linear covering**.
+O173 bounded the Case B families at level N by q^{(N+1+γ)/2+o(N)}, i.e. square-root size ≈ q^N in the critical regime
+γ ≈ j, which gives mass ≈ q^{−k/2} per level, with no decay. O173 called this "a Kloosterman-type problem mod T^s".
+
+**2.1 Case B tuples.** By O173 Lemma 2.1 a Case B family with parameter s = N + 1 + γ is a tuple (m', g', w, C)
+of monic polynomials with
+  m'wC = T^s + v,  w + C = g'v,  T ∥ w, T ∥ C, T ∤ m'g', v ≠ 0,  (B)
+and L' = g'm', E = L'w − 1, E' = L'C − 1, EE' = 1 + T^s L'g'. The family (up to the choice of types, ≤ 4 choices,
+same cylinder) is determined by (N, γ, m', g', w, C). By O173 Lemma 3.1 the union of its cylinders over (N, γ) with
+N + 1 + γ = s is the single cylinder with j − γ ∈ {0, 1}, i.e. **N = N(s) := ⌈(s + k − 2)/2⌉**. Write 𝓕(s) for the
+set of tuples (B). Degrees: a = deg w, b = deg C, z = deg m', y = deg g', t = deg v; a, b ≥ 1, a + b + z = s,
+y + t ≤ max(a, b) (because g'v = w + C).
+
+**Lemma 2.1 (four reconstruction identities; PROVED).** For every tuple (B), with E = L'w − 1:
+(R1) (m', w, C) is an ordered factorisation of T^s + v, and g' = (w + C)/v;
+(R2) E is a monic divisor of D = 1 + T^s L'g', g' | L';
+(R3) **E | g'T^s + w**, and C = (g'T^s + w)/E, L' = (E + 1)/w;
+(R4) **E | T^s + m'w²**, and L' = (E + 1)/w, g' = L'/m', C = (g'T^s + w)/E.
+The same holds with (w, E) replaced by (C, E'). The polynomials g'T^s + w and T^s + m'w² are nonzero.
+*Proof.* (R1), (R2) are (B) and O173 Lemma 2.1. Multiply m'wC = T^s + v by g' and use g'v = w + C:
+g'm'wC = g'T^s + w + C, i.e. C(L'w − 1) = g'T^s + w. This is (R3). Multiply it by m'w:
+CEm'w = g'm'w·T^s + m'w² = (E + 1)T^s + m'w², so E | T^s + m'w². This is (R4). Nonvanishing: deg(g'T^s) > a = deg w,
+and v_T(m'w²) = 2 < s (T ∤ m'; s ≥ 3 by O173 Lemma 2.1). ∎
+
+**Lemma 2.2 (Case B count beats square root; PROVED).** Let δ(n) be the maximum number of monic divisors of a
+nonzero polynomial of degree ≤ n over F_q, and δ₃(n) the maximum number of ordered monic triple factorisations.
+For every degree pattern (a, b, z, y, t) with a ≤ b, the number of tuples in 𝓕(s) with that pattern is at most
+  B·q^{min(t − 2, y + z, (a − 1) + y, (a − 1) + z)},  with B = max(2δ₃(s), δ(s)·δ(3s), δ(2s)),
+and min(t − 2, y + z, a − 1 + y, a − 1 + z) ≤ **2(s − 3)/5**. Hence |𝓕(s)| ≤ (s + 1)^4·B·q^{⌊2(s−3)/5⌋}.
+(For a > b, use the C-versions of (R3), (R4).)
+*Proof.* Count the data that determine the tuple. A monic w with T ∥ w and deg w = a has ≤ q^{a−1} choices. v has
+T² | v (O173 Lemma 2.1(b)) and lc(v) = lc(w + C) ∈ {1, 2}, so ≤ 2q^{t−2} choices. Then:
+by (R1), ≤ 2q^{t−2}·δ₃(s) tuples; by (R2), given L' (≤ q^{y+z} choices), g' | L' and E | D give ≤ δ(s)·δ(3s);
+by (R3), given (w, g'), E | g'T^s + w gives ≤ δ(2s); by (R4), given (m', w), E | T^s + m'w² gives ≤ δ(2s).
+For the minimum put x' = a − 1, σ = x' + y + z. Since t + y ≤ b = s − a − z, we get t − 2 ≤ s − 3 − σ. The least of the
+three pairwise sums of (x', y, z) is ≤ 2σ/3. So min ≤ min(s − 3 − σ, 2σ/3) ≤ 2(s − 3)/5. ∎
+*Remark.* This is Elsholtz–Tao's divisor casework (their n^{3/5} bound) transplanted. The square-root count of O173
+used only (R1) and the cylinder count; the two "small-variable" identities (R3), (R4) are what beat it. Over ℤ the same
+identities give #{(c,f,g): cfg − c − f = n} ≪ n^{2/5+o(1)} for the a = 1 Type I slice (same proof).
