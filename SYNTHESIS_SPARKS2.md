@@ -17,7 +17,74 @@ STERILE_STEER read from their branches (under review); SYNTHESIS_SPARKS.md (O171
 
 ## 1. Cross-combinations (≥ 8), each with a sketch and a barrier pre-screen
 
-(filled in below, one entry per step)
+Screens: B1–B6, T1 (= B5), F = (J)25's finiteness (every certificate of ES(p) has modulus O(p²)), D2 = (J)17's
+degree-2 accident (over ℚ every Diff-parity / class invariant is quadratic). Verdicts are Assessments unless a
+section below proves them.
+
+**X1 (seed (i)) ES^{(S)} certificates [(J)23] × HJ/Lorenzini words [(J)15, (J)20]: "average" ES^{(S)} solutions at many
+r into one ES word.** A length-3 word is tuv − u − v = n, i.e. t/n = 1/(uv) + 1/(un) + 1/(vn); an ES^{(S)} solution
+with Q ≠ 1 is a *twisted* word (third numerator Q²). Two twisted words at r₁, r₂ combine only additively (six terms)
+or by CRT on Q (Q leaves ⟨S⟩). Screen: F (any ES word has t, u, v ≤ O(p²)) and B2 via FIXED_MODULUS_SHOTS Cor 3.2
+(same-D overlap is the bounded box |e_q| ≤ κ_q). Dead; no map ES^{(S)} → ES exists beyond Q | (r + 1)/4.
+
+**X2 (seed (ii)) ES^{(S)} with growing S [(J)23] × least-non-residue scale [(J)9 Cor 4.6].** S = primes < 2r(p):
+**elementary** (§2, Prop 2.2), Q ≪ log²p under GRH. Conversion to ES = box condition (B2). Not an ES route, but it
+recalibrates (J)21/(J)23 (§2 Reading). ATTACKED (§2).
+
+**X3 (seed (iii)) order-3 T1 [(J)19] × mute places [(J)23].** Explicit TES shot n + 18Q³ with fixed modulus 18; cubic
+mute lemma; TES^{□₃} at every non-cube by one Hecke prime (§3). Uniform principle confirmed at orders 2 and 3; its
+lesson is negative for ES (T1 is never the difficulty; orbit size is). ATTACKED (§3).
+
+**X4 (seed (iv)) exponent coverings [(J)22] × sterile points [O178 Thm 3.1, O188].** O188 Lemma 4.1 already shows the
+limit sets Λ_k never meet an r-generic line, so exponential families cannot approach O178's sterile points; the
+pushed-forward class measure is 1/ord_{M'}(2) (O188 Lemma 4.2), so O178's convergent-measure mechanism does not
+transfer. Primes p ≡ 1 (24) "near sterile points" are therefore not visible inside any k·2^m + 1. Remaining live
+question (O188 spark 5): sterile points of Λ_k on ℓ-adic exponent lines. Screen: B1 hypothesis absent, but B5 (the
+k = 4^j − 1 obstruction is the square 4^j) — Not pursued.
+
+**X5 (seed (v)) Kudla Diff-parity [(J)13] × shots [(J)23, (J)25].** A shot (Q, r), r | n + 4Q², r ≡ 3 (mod 4), is the
+binary form [r, 4Q, (n + 4Q²)/r] of discriminant −4n, i.e. r satisfies the Heegner hypothesis for ℚ(√−n) and the
+"(n/r) = −1" condition is (−n/r) = +1 together with χ₋₄(r) = −1. An ES cube point (c, d, j) is the form
+[h, 4cd, de] of discriminant −4dp with h ≡ −1 (mod 4cd), i.e. "first coefficient ≡ −1 modulo the middle one". The
+T1 reads: ℚ(√−m²) = ℚ(i), where no prime ≡ 3 (mod 4) splits. Screen: (J)5 Prop 10.3 / (J)13 Prop 2.4′ — form classes
+see "A ≡ −1 (mod B)" only through its genus shadow; Kudla is genus-invariant. A geometric reason for shots to fire
+is just Chebotarev for ℚ(√−n, i). Dead as an ES mechanism; the dictionary is the (J)1 CM dictionary with a level.
+
+**X6 (seed (vi)) SQ₅ sign half (S) [(J)15, (J)20] × longer HJ words / Lorenzini A_r.** ES certificates are exactly
+length-3 words (DEDEKIND_ES Lemma 1.1: X-slice points ⟺ HJ length 3; HJ_DEEP Prop 2.1: Type II = formal 3-letter
+words). A length-r word with r ≥ 4 is an ES certificate only if letter-1 contractions reduce it to length 3, so
+growing the word length gives no new ES certificates; it changes the problem (A_r critical values). At p ≡ 1 (12),
+(S)(p) unwinds to "tp + 1 = m·m″, m ≡ m″ ≡ −1 (mod t), m in the ES residue class mod 4": ES itself in divisor form.
+Screen: B2. Dead.
+
+**X7 (new) totally positive ES over K = ℚ(√p) [(J)1 Prop 3.3] × anchor calculus [(J)19, (J)21 Thm 2.1] × involutions
+[(J)2].** In K, p = (√p)² is a square, yet the two real places both carry ½, so Σ_{π|p} inv_π = 0: no T1 at p over K
+(an even number of anchors cancels). ES(p) solutions are the σ-fixed (Galois-fixed) points of the totally positive
+O_K-solutions of 4/p; the other σ-stable points have the shape 4/p = 1/z + Tr_{K/ℚ}(1/x) (a "quadratic Egyptian"
+certificate: 4/p − 1/z = T/N with T² − 4N ∈ p·ℚ^{*2}). A parity/fixed-point argument needs a finite σ-stable set of
+odd size whose non-rational σ-fixed points are excluded; the O_K-solution set is infinite (units), and no finite
+σ-stable quotient with an odd count is in sight. Screen: (J)2 Thm 5.1 (finite-menu involutions), B6. Not pursued
+beyond the sketch; the cancellation of the two anchors is the only new observation (Assessment).
+
+**X8 (new) Drinfeld order-m classes [(J)18 Thm 2.2] × mute places [(J)23] in F_q[T].** Over F_q(T) the Artin problem
+for a single mute prime is a theorem (Bilharz, RH for curves), so a function-field ES^{(S)} with |S| = 1 should be
+provable unconditionally, whereas O178 Thm 2.5 gives sterile points for ES_q itself (large q, char 3). That would be a
+clean model where "one mute place" provably separates a theorem from a problem with sterile points. Screen: model
+only (no ℤ content); the anchor at ∞ needs a degree/sign normalisation compatible with NC. Not pursued (spark).
+
+**X9 ES^{(S)} [(J)23] × exponent coverings [(J)22]: Q in an exponential orbit (Q = 3^m).** The shots n + 4·9^m: an
+Artin problem of rank 1 (Hooley/GRH); the ES version needs r ≡ −1 (mod 4·3^m) (Prop 6.1), a growing modulus;
+DEPTH_ASPECT Lemma 1.3 (exponential witnesses serve only bounded depth). Dead (B2).
+
+**X10 DIFF_DEEP Prop 2.3 (ray condition free on one endomorphism) [(J)16] × divisor box [(J)25 Thm 3.1].** The box
+−Box((h+1)/4) is exactly the constraint on the *second* endomorphism; per modulus it has size τ₃ = h^{o(1)}, which is
+(J)16's "B3 in geometry-of-numbers form" made exact. Consistent; nothing new (screen B2/B3).
+
+**X11 T1_TEMPLATE Thm 2.1 [(J)21] × TWISTED_T1 Lemma 2.1 [(J)19]: which normalisations of the free slot keep T1.**
+Lemma 3.2 (§3) shows the mute condition is needed only when q ∤ x (case V > 0 is automatically trivial, at orders 2
+and 3). So the natural mute normalisation is "q ∤ x ⇒ m | v_q(z)", slightly weaker than O186's. PROVED (§3), minor.
+
+**X12 internal-consistency audit of (J)13–(J)25.** §4.
 
 ## 2. Attack A (seed (ii) pushed to the end): with a growing mute set the T1-bearing variant is elementary
 
@@ -147,3 +214,21 @@ value (1, 2, 0)), and the cubic tame invariant at every mute prime above every q
 * So the "exact obstruction for ES" in seed (iii) is not a missing mute place per se but the absence of any
   equivalence ES ⟺ (variant with a mute place) + (cheap condition): the extra condition is O186 Prop 6.1's
   g ≡ −1 (mod 4Q), which is B2. A T1-bearing variant being provable carries no information about ES.
+
+## 4. Internal consistency audit (X12)
+
+* **Citation error in DISCOVERIES (J)23** ("CRT large sieves for ES are capped at a (log N)^{3/4} saving ((A)19)"):
+  (A)19 is the quotient-row cancellation theorem; the large-sieve cap is (D)19 (with (D)22 for prime laws), PROVED
+  conditional on KARY2 Thm 5.1. UNIT_ORBIT_ES §5 already carries R186 repair m8 to this effect; the ledger did not
+  inherit it. Fix: "(D)19, (D)22; conditional on KARY2 Thm 5.1".
+* **Notation clash "W"**: (J)10/(J)14 use W(n) for the *signed* single-slice certificate count
+  (W(n) = Σ_{D(n)}(1 − (m″/n))/2, positivity = the sign event), while (J)15/(J)20 use (W) for the *sign-free*
+  Lorenzini property n = xyz − x − z. So "(W) is trivial at primes" ((J)20 Prop 8.1) and "W(p) ≥ 1 for all primes
+  ≤ 2·10⁶ is EVIDENCE" ((J)14) are about different objects and do not conflict; (H)19/(H)22 use W(p) for a third
+  quantity. Suggest renaming (J)10/(J)14's count W_sl(n).
+* Consistent on overlaps (checked by reading, and numerically where marked): (J)19's TES invariant (1, 2, 0) =
+  the inv_π = 2 found on all 1536 shot solutions of §3 (numerical); (J)25 Remark 2.5 (A_h in the Jacobi −1 class)
+  and (J)9 Thm 4.5 ((A/n) = −1) state the same sign; (J)25 Cor 2.3 (three modulus-4 shots) supersedes O188 §5's
+  "p + 4 unique" (marked in both); (J)23 Cor 2.5 (ES^{(S)} at every n) and §2 here (ES^□ elementary) are consistent
+  (ES^{(S)} ⊂ ES^□); (J)22 Cor 1.5 (k = 4^j − 1 obstruction at μ = 0) and O188 Lemma 4.1 (Λ_k avoids r-generic
+  lines) do not conflict; (J)20 Prop 8.1 needs p ≥ 13 and 5 is on Lorenzini's list.
