@@ -102,3 +102,40 @@ for the divisor incidences at Planck scale — hatch H-A.
 Supporting EVIDENCE (`scripts/pf_mass.py`, `logs/pf_mass_h1.txt`): over the (A)3 successes at fixed p the
 Liouville sums Σ λ(b), Σ λ(p+A) are of size O(√R) (e.g. p = 100000007: R = 62, Σλ(b) = 8, Σλ(p+A) = 4;
 p = 100004521: R = 44, 10, 0); no parity bias in the solutions themselves.
+
+## 3. What an FI-type theorem would have to deliver (the size layer)
+
+**3.1 The FI template** (FI 1998; *Opera de Cribro* ch. 16–22; schematic). Input: a sequence a_n ≥ 0 of total mass
+X; Type I: Σ_{r | n} a_n = g(r)X + R_r with Σ_{r≤D}|R_r| ≪ X𝓛^{−A}; Type II: Σ_{m∼M}Σ_n α_mβ_n a_{mn} ≪ X𝓛^{−A}
+for β Möbius-like. Output: Σ_ℓ a_ℓ ~ 𝔖X/𝓛. The target is a ≥ 𝓛^{−O(1)} fraction of the mass, and errors are
+𝓛^{−A}-fractions of the mass.
+
+**3.2 Mass conservation (trivial, PROVED).** If certificates map at most M-to-one onto ES solutions, their number
+is ≤ M·f(p). Heuristically f(p) ≍ 𝓛³ (EVIDENCE); proved: f(p) ≪ p^{3/5+o(1)} (Elsholtz–Tao). So in any
+parent sequence of mass X built from bounded-multiplicity certificates, the target fraction is ≤ f(p)/X, and
+the FI template applies only if X ≤ f(p)𝓛^{O(1)} — a polylog-length family, with no power-length bilinear
+ranges. A "positive main term ≥ p^δ" (brief) therefore needs either unbounded multiplicity (fibred encodings;
+LONGSHOT_FIBRED) or a parent count of *non*-certificates plus a deterministic upgrade (§4).
+
+**3.3 The canonical size-layer object.** By Lemma 1.1 (h = 1) and its symmetric forms,
+(★) R(p) = #{(j, f) : f | p + j, f ≡ −1 (mod 4j)} = #{b ≥ 3 : 4·(−p mod b) | b + 1}
+(Type I with k = 1 in Lemma 1.2 is the same shape with f ≡ −p (mod 4j)). So the size layer is: *divisors of
+the shifted primes p + j in a class modulo 4j* — a Titchmarsh-type divisor problem with fixed prime and
+varying shift whose modulus is tied to the shift. Swapping, j = (−p mod f) must divide (f+1)/4: one Planck-scale
+event per b. Heuristic main term per dyadic block b ∼ B: M(B) ≈ Σ_{n∼B/4} τ(n)/(4n) ≈ (log 2/4)·log(B/4)
+(≈ 2.2 at B = 2²⁰) times local factors at small primes.
+EVIDENCE (`logs/pf_mass_h1.txt`, complete b-range, p ≡ 1 (840) and generic): R = 44, 52 at p ≈ 10⁸, 10⁹
+(p ≡ 1 mod 840); 62, 70 generic. Dyadic profiles: 0–6 successes per block across all 25–30 blocks, except
+the top block at p = 10⁹+7 (16; small (B,C), i.e. forced classes of p modulo small 4BC−1). **No block's
+count grows with p.** Requirement on a Type I estimate over a block of length B: error ≤ 1/2 against trivial
+size B (or B log B counting divisor pairs) — a saving of B^{1−o(1)}.
+
+**3.4 The modular-hyperbola form and the pointwise ceiling (PROVED dictionary + Assessment).** Write
+m = 4BC − 1 (m ∤ 4p). From (4AC−1)(4BC−1) = 4Cp + 1: 4pC ≡ −1 (mod m), so with t := (4pC + 1)/m we get
+mt ≡ 1 (mod 4p), and success ⟺ (m, t) is a point of the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} lying
+on one of the curves Γ_A : x(tA... ) — explicitly t = 4AC − 1 with C = (mt−1)/(4p) dividing (m+1)/4. The
+distribution of 𝓗 in boxes is controlled **pointwise in p** by Weil's bound for Kloosterman sums (error
+O(p^{1/2+ε}) per box). The target is a union of thin curves with O(1) expected 𝓗-points per curve-block
+(density of 𝓗 ≈ 1/(8p), strip area ≈ block length). So the strongest pointwise-in-p equidistribution tool
+falls short by p^{1/2}: B3 in Kloosterman form. Assessment: an FI/Kloosterman-type theorem would need
+**beyond-square-root** cancellation on a union of algebraic curves — not a parity statement.
