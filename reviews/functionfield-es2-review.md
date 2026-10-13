@@ -91,3 +91,43 @@ of positive measure" carries no label and reads as a finding. Repair: label it A
 are then neither evidence for nor against O(3, T²) having positive measure". Also, "families with E having large
 prime factors are valid deterministically (P ≡ 1 mod E)" holds only on the measure-0 slice x ≡ 1 off T. At a
 generic point of an uncovered leaf such a family is valid on a sub-class mod ℓ, not deterministically. Say so.
+
+### Claim §0.2 Case B normal form and exact searches — SOUND (normal form); "consequences" GAP (unproved as written)
+
+*Reduction (re-derived).* At x*, x ≡ 1 (mod E) and X ≡ T^{−k} (mod E). Mixed types give
+E | a0 + (T^k b0)^{−1}, i.e. E | D := 1 + T^k a0 b0 = 1 + T^{k+j} g L'. lc(s) = 1 (distinct degrees), so E and
+E' = D/E are monic. With M = T^{k+j}L', D ≡ 1 (mod M) and deg D ≤ k + 2j + 2 deg L' < 2 deg M. Hence E or E' is
+the least residue of its class mod M (classes −u and (−u)^{−1} at T, −1 at L'). This is the author's ρ/ρ'
+reduction, and it is correct. Every g | L occurs (a0 = L, b0 = g).
+*Normal form (****) (re-derived).* E = T^{N+1}Z − (1 + cT) and (1 + cT)E' = T^{N+1}Z' − 1 with N + 1 = k + j.
+Expanding (1 + cT)·D = E·(1 + cT)E' and dividing by T^{N+1} gives (1 + cT)L'g = T^{N+1}ZZ' − Z − (1 + cT)Z'
+exactly. lc Z = 1, lc Z' = c. Correct.
+*Independent search.* `scripts/review_ff2_caseB.py` uses its own arithmetic and enumerates (L', j, g) directly, not
+via (****). A `brute` mode enumerates **all** monic divisors of D and asserts agreement with the ρ/ρ' reduction. It
+agrees on every case with deg L' ≤ 2, j ≤ 3 for u = 1 + T, 1 + 2T, 1 + T + 2T². Sanity: at u = 1 + T + 2T² it
+re-finds E = T² + 2T + 2 (L' = 1, j = 2, g = 1, D = T⁴ + 1) plus 7 other families. Full runs:
+**0 Case B families at u = 1 + T and u = 1 + 2T for deg L' ≤ 7, j ≤ 8, all g | L** (557685 (L', j, g) cases each;
+`data/review_ff2_caseB_log.txt`). This reproduces the author's search.
+
+**D5 (MINOR).** "Consequences proved so far: j = 0 impossible; Z + Z' = 0 impossible; L' | Z + Z';
+z ≠ z' ...; g = T·H'·Z − (Z + Z')/L'". No proofs are written. R166 did not re-derive them. They are used nowhere
+else in the document. Repair: either write the proofs or relabel them "claimed (proof not written)".
+
+*Quadratic-reciprocity parity (§3 paragraph, labelled PROVED, q = 3) — SOUND.* Re-derived: with E monic, E(0) = −1,
+E ≡ −1 (mod L'), G := L'g' (T-free) and m := N + 1 + γ, T^m G ≡ −1 (mod E) gives (T/E)^m (G/E) = (−1/E) = (−1)^{deg E}.
+Reciprocity (q ≡ 3 mod 4) gives (T/E) = (−1)^{deg E}(E(0)/T) = (−1)^{deg E + 1} and (G/E) = (−1)^{deg G·deg E}(E/G)
+= (−1)^{deg G (deg E + 1)}. So (deg E + 1)·deg D ≡ deg E (mod 2), hence deg E and deg D are even. The argument
+uses only u(0) = 1, so it holds at every slice point x ≡ 1 off T. Consistent with all 8 sanity families above
+(deg E ∈ {2, 4, 6}, deg D ∈ {4, 6, 8}). This paragraph sits in §3 ("(d) Degree parity") although it belongs to
+§0.2 (MINOR, placement).
+
+### Conjecture 0.2 — labels SOUND (CONJECTURE + EVIDENCE)
+
+The document labels it CONJECTURE/EVIDENCE consistently in §0.2, §3 and the report. **D6 (MINOR, framing).** The
+author's own control (§3: two generic lifts in the same cylinders also get 0 Case B families in the same range)
+shows that the search range does not distinguish x* from generic points. The "EVIDENCE" for Conjecture 0.2 is
+therefore only "no counterexample in a range where generic points also have none". Repair: say this next to the
+conjecture in §0.2, not only in §3. Also, "x*_c ∈ O(3, T²)" needs Case A (proved, see the repair above) **and**
+Case B for all (L', j, g). The heuristic "expected number of covering Case B families diverges over ℓ" (§0.2, end)
+points *against* the conjecture for generic u. The text should state that the conjecture asserts x* is
+non-generic.
