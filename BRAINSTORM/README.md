@@ -128,3 +128,17 @@ Deep-dive file: `SIGNLAYER_DEEP.md`. Report: `reviews/agent-reports/AGENT_REPORT
 | bsB_sterile_pretentious | FF sterile point as "Siegel zero" | inverted: sterile = maximally pretentious (anti-Siegel); Mordell transfer in F_q[T] gives only a degree-parity constraint | PROVED (items 1, 3); EVIDENCE corr = −0.49 | 1 |
 | bsB_orthant_sign | sign layer = real orthant of one cubic | class +1 = negative orthant of cfg − c − f = n; orthant-crossing maps barred (T1 / group level) | PROVED | 1 |
 | bsB_root_number_parity | BSD-parity template "sign forces a point" | rational points free, integral needs fixed module; parity of W(p) locally random | Assessment; EVIDENCE | 0 |
+
+## Spark brainstorm A on the HJ/Farey reformulation (O174; memos bsA_*, deep file HJ_DEEP.md; not yet triaged)
+| file | angle | verdict (own) | label of main items |
+|---|---|---|---|
+| bsA_farey_lnr_pigeonhole | Farey least non-residue λ(p): unconditional bounds | no ES content (B3 gap from ≍ ln²p to 3) | Lemmas 1–2, Thm 3 PROVED (λ ≤ (6/π²+o(1))ln²p, rel. Yao–Knuth) |
+| bsA_selling_sandpile | words = Selling-reduced ternary lattices = 4-vertex multigraphs; genus G⁻(p) | dictionary; class layer = B2 | D1–D3 PROVED; links to Lorenzini's critical polynomial |
+| bsA_lens_homotopy_surgery | lens spaces: homotopy type, Greene surgery, 2-bridge knots, Matveev | complement of classified (QR) world; no existence | P1–P2 PROVED rel. classical; T1 = "coarser than homotopy" |
+| bsA_farey_graph_metric | true Farey-graph (signed CF) metric | sign freedom adds nothing | λ_F = λ EVIDENCE p < 6000 |
+| bsA_fricke_vieta | Markoff/Vieta/BGS: word as point of the 4-holed-sphere Fricke cubic | Vieta acts on the fibre, ES lives on the base | F1–F3 PROVED |
+| bsA_hecke_cusp_excursions | QNR = split-torus orbit of Hecke points; 3-excursion large deviation | dynamics blind at measure p^{−1} | H1, H3 dictionary; H2 expected |
+| bsA_wu_rokhlin_sign | ES sign = Wu-square of the plumbing (Rokhlin mod 8) | clean sign formula; sign layer only | Thm W PROVED r ≤ 5 (EVIDENCE general lattices) — SHARP |
+| bsA_toric_ksb_wahl | cyclic quotient singularities, KSB T-singularities | certificates never ℚ-Gorenstein smoothable | K2 PROVED rel. KSB |
+| bsA_minkowski_stern | HJ length = popcount of Minkowski ?; ES via Stern's diatomic sequence | dictionary; divisor event | M1–M3 PROVED — SHARP |
+| HJ_DEEP.md (deep) | master identity t/n = 1/(uv)+1/(un)+1/(vn); Type II = words of cp; SQ₅ = (W) ∧ (S) | no route; (W) = Lorenzini's open A₃ question | (W), (S) EVIDENCE to 10⁸ |
