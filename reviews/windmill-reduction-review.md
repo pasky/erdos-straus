@@ -203,3 +203,50 @@ sentence (e.g. "a finite set of reduced forms carries no SL₂(ℤ)-action, so r
 
 **D8 (MINOR, §6 "|X(p)| is always odd").** X(p) here means `{(t,u,v): tuv − u − v = p}`, not §1's Zagier set; rename
 (e.g. `X'(p)`) or define it.
+
+**D9 (MINOR, §7 Lemma 7.1 "Atkin–Lehner/Fricke matrix `[[0,1],[k,0]]`"; §1 Obs. 1.1 "σ(φ) = −φ∘(e₂, e₁)").** Sign slip:
+`−φ∘(e₂,e₁) = [−c,−b,−a]`, but σ is `[−c, b, −a]`; use `(e₂, −e₁)` (det 1). Likewise σ_k = `−(1/k)·φ∘[[0,−1],[k,0]]`
+(the standard Fricke matrix). The "equivalent to the negative" conclusion is unaffected.
+
+**D10 (MINOR, §7 (ii) "Here p is a face value of the principal river of disc 16g").** False: river faces of disc 16g have
+values ≤ 4g, while every diagonal certificate has `p > 4g` (k-range ⇒ `4gb² ≤ p/3`; checked: 0 exceptions below 2·10⁵).
+Repair: "p is a value of the principal form x² − 4gy² of disc 16g (off the river)".
+
+**D11 (MINOR, §8 header "PROVED, algebra").** The algebra is proved; "no free joint factorisation / no H-A gain" is an
+Assessment. Relabel.
+
+**D12 (MINOR, §9).** (a) inherits D5; (b) the −c variants duplicate `A ↦ cA^{±1}`; (c) the identity piece fixes everything
+on its region, so "any fixed point it creates is a root of a fixed quadratic" needs "non-identity pieces"; (d) "Lemma 4.1",
+"Prop 4.2(d)" are INVOLUTION_ES.md references — cite the file.
+
+**D13 (MAJOR, §10 Lemma 10.1 "`𝔪𝔪'' = (1+√−tp)`", "certificates are exactly ideal divisors … (Heegner discriminant
+−4tp)"; Computation 10.2 "the 320 classes … of Cl(−4tp)"; Bhargava "balanced triple").** When m and m'' are both even
+(134 of the 320 certificates in the doc's own range) the form `[m,2,m'']` has content 2, 𝔪 is a non-invertible ideal of
+ℤ[√−tp], `𝔪𝔪'' = (1+ω)(2,1+ω) ≠ (1+ω)`, the cube is not projective, and the class is not in Cl(−4tp). Repair: split by
+the parity of m'': for m'' odd keep the statement; for m'' even use `O_K = ℤ[(1+ω)/2]`, the form `[m/2, 1, m''/2]` of
+disc −tp, the ideal `(m/2, (1+ω)/2)` and `δ = (1+ω)/2`. Prop 10.3's argument applies verbatim in Cl(−tp) (norm form
+`x² + xy + ((1+tp)/4)y² ≡ ((2x+y)/2)² (mod ℓ)`), so §10's conclusions survive.
+
+**D14 (MINOR, §10 Computation 10.2 label).** CERTIFIED undersells it: the injectivity (with exactly the exceptions {1,N},
+{2,N/2}) has a short general proof (given in the §10 body above). Relabel PROVED and include the proof; keep the
+computation as a check.
+
+**D15 (MAJOR, §10 Prop 10.3 boxed conclusion "every mechanism that factors through classes of forms or cubes … can test
+`m ≡ −1 (mod t)` only through its quadratic shadow"; "The full condition is class data only when t | 24").** As stated this
+contradicts 10.2: on the divisor set the class map is injective, so `[m ≡ −1 (t)]` *is* a function of the class there. The
+correct (and proved) content is: (i) no function F on Cl(−4tp) satisfies `F([𝔞]) = [N𝔞 ≡ −1 (t)]` for all ideals 𝔞 ⊥ t of
+the class unless `(ℤ/t)^*` has exponent 2; equivalently (ii) any test that depends on the ideal only through its class and
+must be correct for *every* ideal of that class sees only the genus characters `(·/ℓ)`, ℓ | t. A mechanism that uses the
+class *together with the labelled divisor hypercube* (equivalently, the factorisation of tp+1) escapes, and is B2. Also the
+parenthetical "fixed-point counts (which are 2- and 3-rank data of Cl)" omits counts like h (the transposition on
+`{ΣC_i = 0}` fixes h triples). Repair: restate the boxed sentence as (i)/(ii) and add one sentence on the hypercube.
+
+**D16 (MINOR, but important for direction; §10 Assessment "ring class group … records the residues of generators. It does
+not record norms beyond squares, so I do not expect it to help, but I have not proved that").** (a) The negative statement
+for ring class groups is provable in two lines (every order: principal norms prime to ℓ are squares mod ℓ since ℓ | tp is
+ramified; all squares occur). Upgrade to PROVED. (b) "records the residues of generators" is the description of *ray*
+class groups; and for those the conclusion flips: in `Cl_{(t)}(K)` the map `𝔞 ↦ N𝔞 mod t` is a well-defined homomorphism
+(α ≡ 1 mod* t ⇒ Nα ≡ 1 (t)), so the certificate condition is ray-class data. Say explicitly that ray class groups mod t
+(= the doc's "κ_i restricted to a congruence subgroup") are the minimal class-type structure that escapes 10.3, and that
+on them the problem is "does the divisor hypercube of (1+ω) meet the coset `N ≡ −1 (t)`" — an equivalent restatement,
+not progress.
