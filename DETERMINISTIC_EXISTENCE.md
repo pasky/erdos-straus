@@ -185,13 +185,18 @@ On the Type I hyperboloid X_d : ef − 4da² = 1 the ES side condition is f + p 
 **Prop 5.1.** For every p and c, d ≥ 1, C_{c,d,p} has positive rational points: e = (1+4da²)/(4cda − p) for every
 rational a > p/(4cd), with f = 4cda − p > 0. Its positive integral points are the Type I solutions of level (c, d),
 which do not exist when χ_{−4d}(p) = +1 (Prop 3.2). ∎
-**Cor 5.2.** No "rational ⇒ integral" principle — Davenport–Cassels/Aubry rounding with any rounding rule, with or
-without positivity, with or without decreasing-denominator descent — holds on the family {C_{c,d,p}}; the same
+**Cor 5.2.** No "rational ⇒ integral" principle — Davenport–Cassels/Aubry rounding with any rounding rule that outputs
+**positive** integral points (in particular any positivity-preserving descent), with or without decreasing-denominator
+descent — holds on the family {C_{c,d,p}} (R168 repair: "with or without positivity" was false — without positivity
+integral points can exist when χ_{−4d}(p) = +1, e.g. p = 5, c = d = 1, (a, e) = (1, −5); in general f = −1 when
+4cd | p − 1, since Prop 3.2 excludes only f > 0; the obstruction is the sign, not integrality); the same
 argument applies to the Type II hyperbolas (4cdu−1)(4cdv−1) = 4c²dp + 1 (positive rational points for every p,
 integral ones lottery). On the full ES cubic there is no DC move at all (a secant meets S twice; rational_to_integral
 M3(a)). So row 6 is ✗: the triage-errata loophole "a positivity-preserving descent with strictly decreasing
-denominator is not excluded" is closed for every quadric piece, because the descent would have to manufacture integral
-points that provably do not exist. (Elementary; the point of the statement is the exact scope.)
+denominator is not excluded" is closed on every Type I level conic C_{c,d,p} and every Type II hyperbola (R168 repair:
+not "every quadric piece" — the other quadric substructures of POINTWISE_TERNARY Comp 6.1 and the surface X_d itself,
+which has integral points e = f = 1, a = 0, are not covered), because the descent would have to manufacture *positive*
+integral points that provably do not exist. (Elementary; the point of the statement is the exact scope.)
 
 ## 6. Higher-order forcing: exactly what residue data force (Type II)
 
@@ -290,8 +295,9 @@ Check of Thm 7.3: `scripts/de_thm73_check.py 7 11 15 23 31` — the first 20 pri
 * Legendre/Holzer (§3): ES uses isotropy only contrapositively (Props 3.1–3.3); T1-safe residue = Jacobi forcing
   (Prop 3.4).
 * Pell (§4): deterministic factorisation, random-like mod e (EVIDENCE); constraints = Rédei relations (PROVED).
-* Davenport–Cassels/Aubry (§5): impossible on every quadric piece — positive rational points exist for all p
-  (Prop 5.1, Cor 5.2).
+* Davenport–Cassels/Aubry (§5): positivity-preserving versions impossible on every Type I level conic and Type II
+  hyperbola — positive rational points exist for all p (Prop 5.1, Cor 5.2) (R168 repair: scope narrowed from "every
+  quadric piece" and to positive integral points).
 * Forcing (§6): group-level success forced ⇔ −1 ∈ ⟨p·4⁻¹ mod e⟩ (Prop 6.2); Σ-level forced by residues ⇔
   p ≡ −4 (e) (Prop 6.3; Σ = H ⇔ e | 24); gap = box image vs subgroup (Prop 6.1).
 * Joint forcing (§7): slice coupling only through primes < E/4 (Prop 7.1); joint data force exactly block witnesses
