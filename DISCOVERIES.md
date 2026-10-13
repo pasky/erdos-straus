@@ -703,6 +703,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * EVIDENCE: census of 746 split primes, all solutions with invariants (1, 2, 0). 18 primes have no TES solution in the search window (N = 103 and 151 also none in much larger windows); the 10 inert primes ≤ 71 are all solved (R182 D12).
    * Assessment: T1/B5 sits in a family of anchor+partner obstructions whose order is the order of the anchor symbol. A provable T1-bearing variant would be a template for circumventing B5 (pursued by O183).
 
+20. **Spark relay G: the even half of Lorenzini's A₃ question (LORENZINI_W.md + 10 memos BRAINSTORM/bsG_* (O180); two independent hostile reviews `reviews/lorenzini-w-review.md` (R180) and `reviews/lorenzini-w-review-2.md` (R184): both SOUND on the headline, no FATAL or MAJOR defects; minors repaired by the reviewers).**
+   * **Thm 9.1 (PROVED; re-derived end to end by both reviewers).** Every even n ≥ 16 with n ≠ 510 has the form xyz − x − z with x, y, z ≥ 2.
+     * Lorenzini (JNT 257 (2024), Prop 6.3(a)) had left open n = 2^m − 2 with m odd.
+     * These are covered by six fixed-pair families with moduli 9, 72, 13, 27, 109, 592. Together they cover all odd exponents m mod 36: a Sierpiński-type covering *of the exponent*.
+     * Explicit solutions are verified for all odd m ≤ 4001. The non-values ≤ 10⁸ are exactly Lorenzini's list (R184 brute force).
+     * Novelty (Assessment, R184 literature search): not found in Lorenzini 2024, in Wang & Lu (EJC 33(3) #P3.80, 2026), or in the other citing works. This is the campaign's first result settling part of a published open question; it is not about ES.
+   * What remains of (W) (exact): the odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime.
+   * Prop 8.1 (PROVED, trivial in hindsight). (W) holds at every prime p ≡ 1 (4), p ≥ 13, via the words (2, 2, (p+2)/3) and (3, (p+7)/12, 4). Hence interior-SQ₅(p) ⟺ (S)(p): the sign-free half of (J)15 carries no ES content at primes, and future work should target (S) at p ≡ 1 (12).
+   * Other results.
+     * Square shadow (Lemma 3.1, PROVED): T1 constrains the *middle letter* at squares but not existence.
+     * Sterile set (Thm 4.2, PROVED): infinite, accumulating at −1. Hence no compactness argument proves (W).
+     * Prop 6.1 (PROVED, relative to the Titchmarsh divisor theorem, which is unconditional): #exceptions ≤ N is ≪ N exp(−c√log N). Lorenzini's Prop 6.3 already gives ≪ N/log N.
+     * Stern coding: V_{A_k}(2) = {s(N) : popcount N = k+1}.
+   * EVIDENCE: every n < 10⁸ outside the exceptional set has a solution with an outer letter ≤ 12.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
