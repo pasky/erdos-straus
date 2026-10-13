@@ -80,3 +80,14 @@ F2 as literally stated is **false at n = 3, 15, 35** (D1).
 including the exceptions 3 = 3·1, 15 = 5·3 and 35 = 7·5. *Repair:* write "x | n, x | n/x + 2 and n/x + 2 ≥ 2x". With this repair, 0 mismatches
 for n < 1500 (`review_lw_forms.py`, function `F2_fixed`). Presumably `bsG_forms.py` implements the correct condition, since it reports 0
 mismatches; the text should match the script.
+
+### Prop 4.1, Thm 4.2 (sterile set) — SOUND (re-derived by hand; numeric check below)
+Re-derivation notes (all steps of the author's proof verified; no gaps):
+* Prop 4.1: ν ≤ −2 → x = −ν; ν = 0 → (2,2) (x,z)-kind; ν ≥ 1 → (ν+1, 2). Compactness statement fine (Ẑ∖V compact).
+* Thm 4.2, (x,y)-kind: j = 0 gives d = e ≤ x−1 < 2x−1. j ≥ 1 ⇒ ℓ | x−1, x ≥ ℓ+1; ℓ^j ≡ f (mod x) with 0 < ℓ^j ≤ x+ℓ−1 < f+2x ⇒ ℓ^j ∈ {f, f+x}.
+  f = ℓ^j ⇒ ℓ^j | ℓ ⇒ d = x−1. f + x = ℓ^j ⇒ x + ℓ − 1 = ℓ^j (as x+ℓ−1 < 2ℓ^j) ⇒ e = (ℓ^j−ℓ)/(ℓ−1), ℓ | e for j ≥ 2, x = 1 for j = 1. ✓ The mirrored (y,z)-kind is identical.
+* (x,z)-kind: identity v(km−u) = (ℓ−1)u − m checked by expansion; 0 ≤ s ≤ ℓ−2 needs m < v, which holds since v ≥ 2 (I add: s ≥ 0 because vs > −m > −v).
+  s(v−1) = (ℓ−1)u − m − s ✓ (expanded), so u | m+s and (k−1)m ≤ 2s. For a ≥ 2, k−1 = (sℓ^a − ℓ + 2)/(ℓ−1) > 2s already, so even m = 1 is impossible
+  (the author's route via u ≤ s+1 gives the same inequality s(ℓ^a−2ℓ+2) ≤ ℓ−2, false for ℓ ≥ 3). For a = 1, ℓ−1 | s+1 ⇒ s = ℓ−2, k = ℓ−1, m ≤ 2;
+  m = 1 ⇒ v = 1, m = 2 ⇒ u = ℓ, contradicting ℓ ∤ u. ✓ (ℓ ≥ 3 is used at s = 0 and in the last inequality; at ℓ = 2 the point ν(2,1) is in fact covered.)
+* ν(ℓ, ℓ−1) → −1 in Ẑ: for every M, ν ≡ −1 (mod M) once ℓ ∤ M. ✓
