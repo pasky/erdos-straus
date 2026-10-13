@@ -117,6 +117,9 @@ for every admissible class); |S| = 3 should follow from Heath-Brown's sieve (Qua
 (3) The variant is weaker than ES (more solutions); the point is the *mechanism*: a T1-respecting existence proof
 whose T1-sensitive step is the Chebotarev condition (n/r) = −1 and whose "infinitely many shots" come from the
 infinite S-orbit with fixed modulus.
+(4) (Assessment) No congruence-covering proof of ES^{(S)}(p) for all p can exist in Type I/II shapes: a covering of the
+primes covers the class 1 mod M, which contains squares m², and a Type I/II-shaped polynomial family on that class would
+contradict Cor 1.2 at m² (B1 for ES^{(S)}, by its T1). The sieve proof is necessarily non-congruence.
 
 **EVIDENCE (`scripts/uo_mute.py`, S = {3, 5, 7, 11}).** All 78 493 primes 13 ≤ p < 10⁶ are solved by Prop 2.1, every
 solution verified exactly (equation, positivity, parity of v_q(z), Type II shape); smallest Q = 1 for 68 652 primes
