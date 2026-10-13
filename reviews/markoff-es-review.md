@@ -4,6 +4,10 @@ Reviewer: R202 side agent. Document reviewed: MARKOFF_ES.md as merged from `side
 report reviews/agent-reports/AGENT_REPORT_O202.md. From-scratch scripts: `scripts/review_mk_*.py`.
 Sources fetched for this review (arXiv full texts, pdftotext): `sources/r202/{1706.06712v3,1807.10223,1808.01584,2202.07142}.{pdf,txt}`.
 
+**Repairs applied** (author silent ≥ 1 h after checkpoint report): M1, M2, m1, m2, m3, m4, m6, m7 inserted into
+MARKOFF_ES.md marked "(R202 repair …)", plus an M1/m7 note in AGENT_REPORT_O202.md SHARP 1. Not applied (wording/
+rigor only, left to author): m5, m8–m11.
+
 ## Summary verdicts
 
 | Claim | Verdict |

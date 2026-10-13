@@ -8,6 +8,8 @@ ES is not solved; ES^{[2]}/ES^{(y,1)} for all non-squares remain OPEN.
    denominator Q_k of √(4μ² − 4n) is odd, prime to n and divides μ. For μ = t + nj > 2n one has Q₁ = 4μ − 1 − 4n,
    Q₂ = 4n, Q₃ = 4tj − 1, and the depth-3 condition Q₃ | μ is exactly the classical shot family
    "n + 4t² has a divisor ≡ −1 (mod 4t)" with B = 1; every overflow solution (B > 1) is at depth k ≥ 5.
+   (R202 repair M1/m7: this holds for μ > 2n; for μ ≤ 2n the ES points (A = 2, j = 1) are at depth 1, and the
+   ι_B-partners B = 4μj − 1 of ES points are B > 1 points at depth 3.)
    Parallel to DEDEKIND (J)9 (ES = HJ length-3 words). Checked against brute force (no misses).
 2. **On a single admissible fibre D, a locally admissible λ is globally solvable ≈ 45–80 % of the time (EVIDENCE,
    16 non-square n incl. 105, three D each, λ to 3·10⁴, spot checks at 10⁵; T1 controls give 0).** So ES^{[2]}(n) has
