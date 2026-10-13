@@ -198,8 +198,9 @@ Control (EVIDENCE): two *generic* lifts in the same cylinders, u = 1 + T + T³ +
 deg L' ≤ 6, j ≤ 8. So x* is not visibly special inside its cylinder: within the searched range the whole
 cylinders u ≡ 1 + cT + dT² (mod T³), d ∈ {0, 1}, are almost entirely uncovered at x ≡ 1 off T, while
 individual lifts are covered by sporadic large families (e.g. L' = T² − 1, g' = T − 1, N = 6). If the number
-of covering families of a generic u is finite on average, O(3, T²) has positive Haar measure inside this slice and
-the ≈ 1 % tree plateau would be genuine; if it diverges, O may be empty or null. Both are open (Assessment:
+of covering families of a generic u is finite on average, O(3, T²) has positive Haar measure inside this slice
+(R166 repair, D11: the slice itself has Haar measure 0 in R̂^*, so this would not by itself make the ≈ 1 % tree
+plateau genuine; that is a mass in R̂^*); if it diverges, O may be empty or null. Both are open (Assessment:
 the measure question is the right next computation — count covered cylinder mass by (N, deg L')).
 **Covered mass (EVIDENCE, `scripts/ff2_caseB_measure.py 3 1 0 LMAX 5`).** Fraction of the cylinder
 C = {u ≡ 1 + T (mod T³)} covered by Case B families (union of the cylinders u ≡ −E mod T^{N+1}), j ≤ 5:
@@ -207,6 +208,10 @@ deg L' ≤ 1: 0.037; ≤ 2: 0.111; ≤ 3: 0.185; ≤ 4: 0.198; ≤ 5: 0.198 (sum
 So generic lifts are covered with probability ≈ 0.2 at this size; whether the union tends to full mass as
 deg L', j → ∞ decides whether O(3, T²) ∩ slice has positive measure. (Case A cannot cover this slice for u near
 1 + cT by the §0.2 argument only at u = 1 + cT exactly; for general lifts Case A is checked by ff2_caseA_check.)
+(R166 repair, D11: the §0.2 Case A proof uses u = 1 + cT exactly, through T^{α+2} | E + 1 + cT. For other lifts
+Case A families are not excluded, so these masses are **lower bounds** for the covered mass, even within the
+searched range. R166 reproduced the Case B union masses 0.037, 0.111, 0.185, 0.198 (deg L' at most 1..4, j at
+most 5) with `scripts/review_ff2_mass.py`; see `data/review_ff2_mass_log.txt`.)
 Extended run (j ≤ 8): union mass 0.042, 0.117, 0.195, 0.210, 0.219, 0.229 for deg L' ≤ 1..6 (sums with
 multiplicity 0.06 … 0.53; 58 cylinders). Increments for deg L' = 4, 5, 6: 0.015, 0.009, 0.010 — not clearly
 decaying, not clearly summable. Undecided (EVIDENCE either way is weak).
