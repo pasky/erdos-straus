@@ -16,6 +16,11 @@ firing is what you get by flipping a per-modulus firing set that is a union of c
 (§2, Remark 2.4). §2 makes (b) quantitative over F_q[T]: the Weil expansion method certifies firing through a fixed algebraic set only if the
 firing set at a degree-d modulus has size ≳ n·q^{d/2} (square-root threshold); the ES box has size q^{o(d)}.
 
+(Q2) After R195 (reviews/ff-mute-review.md): FF_MUTE's "no finite covering yet a theorem" moral holds only in odd
+characteristic (M1), and ES_q's sterile set has positive Haar measure while the mute one is null (M2). Nothing here
+uses those morals; the separation used here is the per-modulus one (Frobenius coset vs divisor box), FF_MUTE Thm 3.5
+and Prop 5.2, which R195 left intact.
+
 ## 1. Framework, and the trivial and effective no-go theorems
 
 **Definition 1.1 (firing).** A *firing relation* is a set Fire ⊂ {inputs} × {moduli}. For ES (Type II, prime
