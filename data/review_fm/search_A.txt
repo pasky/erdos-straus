@@ -1,0 +1,47 @@
+q=3 A=(0, 1) s=(1, 1) n=1: 1 irreducible P, unsolved 0 (max j 3, max deg f 4)
+q=3 A=(0, 1) s=(1, 1) n=2: 3 irreducible P, unsolved 0 (max j 0, max deg f 2)
+q=3 A=(0, 1) s=(1, 1) n=3: 8 irreducible P, unsolved 0 (max j 4, max deg f 4)
+q=3 A=(0, 1) s=(1, 1) n=4: 18 irreducible P, unsolved 0 (max j 7, max deg f 4)
+q=3 A=(0, 1) s=(1, 1) n=5: 48 irreducible P, unsolved 0 (max j 8, max deg f 6)
+q=3 A=(0, 1) s=(1, 1) n=6: 116 irreducible P, unsolved 0 (max j 12, max deg f 6)
+q=3 A=(0, 1) s=(1, 1) n=7: 312 irreducible P, unsolved 0 (max j 9, max deg f 7)
+q=3 A=(0, 1) s=(1, 1) n=8: 810 irreducible P, unsolved 0 (max j 12, max deg f 7)
+q=3 A=(0, 0, 1) s=(1, 1) n=1: 1 irreducible P, unsolved 0 (max j 9, max deg f 3)
+q=3 A=(0, 0, 1) s=(1, 1) n=2: 3 irreducible P, unsolved 0 (max j 26, max deg f 6)
+q=3 A=(0, 0, 1) s=(1, 1) n=3: 8 irreducible P, unsolved 0 (max j 12, max deg f 4)
+q=3 A=(0, 0, 1) s=(1, 1) n=4: 18 irreducible P, unsolved 0 (max j 21, max deg f 6)
+q=3 A=(0, 0, 1) s=(1, 1) n=5: 48 irreducible P, unsolved 0 (max j 33, max deg f 7)
+q=3 A=(0, 0, 1) s=(1, 1) n=6: 116 irreducible P, unsolved 0 (max j 35, max deg f 7)
+q=3 A=(0, 0, 1) s=(1, 1) n=7: 312 irreducible P, unsolved 0 (max j 36, max deg f 7)
+q=3 A=(0, 0, 1) s=(1, 1) n=8: 810 irreducible P, unsolved 0 (max j 96, max deg f 7)
+q=3 A=(1, 0, 1) s=(1, 1) n=1: 2 irreducible P, unsolved 0 (max j 8, max deg f 3)
+q=3 A=(1, 0, 1) s=(1, 1) n=2: 2 irreducible P, unsolved 0 (max j 2, max deg f 3)
+q=3 A=(1, 0, 1) s=(1, 1) n=3: 8 irreducible P, unsolved 0 (max j 35, max deg f 7)
+q=3 A=(1, 0, 1) s=(1, 1) n=4: 18 irreducible P, unsolved 0 (max j 17, max deg f 5)
+q=3 A=(1, 0, 1) s=(1, 1) n=5: 48 irreducible P, unsolved 0 (max j 52, max deg f 6)
+q=3 A=(1, 0, 1) s=(1, 1) n=6: 116 irreducible P, unsolved 0 (max j 42, max deg f 7)
+q=3 A=(1, 0, 1) s=(1, 1) n=7: 312 irreducible P, unsolved 0 (max j 81, max deg f 7)
+q=5 A=(0, 1) s=(1, 1) n=1: 3 irreducible P, unsolved 0 (max j 8, max deg f 3)
+q=5 A=(0, 1) s=(1, 1) n=2: 10 irreducible P, unsolved 0 (max j 4, max deg f 5)
+q=5 A=(0, 1) s=(1, 1) n=3: 40 irreducible P, unsolved 0 (max j 12, max deg f 3)
+q=5 A=(0, 1) s=(1, 1) n=4: 150 irreducible P, unsolved 0 (max j 15, max deg f 5)
+q=5 A=(0, 1) s=(1, 1) n=5: 624 irreducible P, unsolved 0 (max j 21, max deg f 5)
+q=7 A=(0, 1) s=(1, 1) list data/ffl/fail_q7_A10_n2.txt: 6 P, unsolved 0
+q=7 A=(0, 1) s=(1, 1) list data/ffl/fail_q7_A10_n3.txt: 21 P, unsolved 0
+q=7 A=(0, 1) s=(1, 1) list data/ffl/fail_q7_A10_n4.txt: 25 P, unsolved 0
+q=7 A=(0, 1) s=(1, 1) list data/ffl/fail_q7_A10_n5.txt: 16 P, unsolved 0
+q=7 A=(0, 1) s=(1, 1) list data/ffl/fail_q7_A10_n6.txt: 4 P, unsolved 0
+q=5 A=(0, 1) s=(1, 1) list data/ffl/fail_q5_A10_n2.txt: 2 P, unsolved 0
+q=5 A=(0, 1) s=(1, 1) list data/ffl/fail_q5_A10_n3.txt: 2 P, unsolved 0
+q=5 A=(0, 1) s=(1, 1) list data/ffl/fail_q5_A10_n4.txt: 1 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n3.txt: 24 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n4.txt: 49 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n5.txt: 82 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n6.txt: 81 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n7.txt: 38 P, unsolved 0
+q=5 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q5_A100_n8.txt: 15 P, unsolved 0
+q=3 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q3_A100_n3.txt: 3 P, unsolved 0
+q=3 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q3_A100_n4.txt: 2 P, unsolved 0
+q=3 A=(0, 0, 1) s=(1, 1) list data/ffl/fail_q3_A100_n5.txt: 2 P, unsolved 0
+q=3 A=(1, 0, 1) s=(1, 1) list data/ffl/fail_q3_A101_n3.txt: 2 P, unsolved 0
+q=3 A=(1, 0, 1) s=(1, 1) list data/ffl/fail_q3_A101_n6.txt: 1 P, unsolved 0

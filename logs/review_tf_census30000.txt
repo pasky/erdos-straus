@@ -1,0 +1,21 @@
+ZERO 7 (-1, 2)
+ZERO 13 (-3, -4)
+ZERO 19 (5, 2)
+ZERO 61 (9, 4)
+ZERO 79 (-7, -10)
+ZERO 97 (-3, 8)
+ZERO 103 (11, 2)
+ZERO 151 (-9, -14)
+ZERO 193 (-9, -16)
+ZERO 211 (-1, 14)
+ZERO 367 (-13, -22)
+ZERO 409 (23, 8)
+ZERO 769 (-17, -32)
+ZERO 2029 (-27, -52)
+ZERO 2239 (-15, 38)
+ZERO 26893 (179, 36)
+zeros: [7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239, 26893]
+band 0 primes 85 sols 507 mean 5.96 zeros 13
+band 1 primes 130 sols 1244 mean 9.57 zeros 2
+band 2 primes 1415 sols 26329 mean 18.61 zeros 1
+shapes (#coords divisible by pi): {1: 21042, 2: 7038} time 2331s

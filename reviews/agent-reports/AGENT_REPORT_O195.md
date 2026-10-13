@@ -60,7 +60,7 @@ scripts/fm_*.py; outputs data/fm/*.txt (tiny).
    ES's non-square sterile set (e.g. (J)26 points) of the same "non-global" type, i.e. excluded at global points by a
    hidden character? (Assessment: no character is known — B2 — but this is the right question to ask.)
 
-## Self-review (R195, reviewer subagent; `reviews/synthesis-two-hostile-review.md`)
+## Self-review (R195, reviewer subagent; `reviews/ff-mute-selfreview.md`)
 No fatal defect in Thm 3.5. Repaired in FF_MUTE.md / scripts (marked "R195"): M1 (certificate degree: Bertrand
 4 log_q n, not 2 log_q n + O(1); shot height O(q^d + n)), M2 (Prop 5.4 for composite moduli; profinite reading scoped),
 M3 (fm_minq now enumerates all divisor moduli; numbers updated), M4 (fm_mute primitivity flag; fm_count char 2),

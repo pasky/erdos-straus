@@ -816,8 +816,40 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Thm 3.5: TES^{□₃} holds at every 2-primary non-cube, via one Chebotarev prime in L(∛18)·K(∛n)/K.
      * Cor 3.4 (rel. Hecke, with R193's conductor argument): (18/r)₃ is constant ≠ 1 on r ≡ 10 + ω (mod 18). Its value ω² is EVIDENCE (83/83).
      * EVIDENCE (R193 from scratch): all 1536 2-primary split primes N ≤ 6000 are solved. Cubes have 0 anchor-class shot divisors in 1632 shots, against 112 for the non-cube control.
-     * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), while the finiteness of TES is open (O194).
+     * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), and TES is a finite search too ((J)31, Prop 1.1).
    * Ledger fixes: the (J)23 large-sieve citation, and the three meanings of "W" ((J)10/(J)14 signed count, (J)15/(J)20 Lorenzini property, (H)19/(H)22 W(p)).
+
+29. **Function-field landscape, final data (FUNCTIONFIELD_ES.md "Final data" (O161); EVIDENCE only, not separately reviewed; the PROVED scope of Thm 6.4 remains the R161-certified list of (J)4).**
+   * q = 2. All 14 A of degree ≤ 3 have no exceptions for n ≤ 11.
+     * Of the 16 degree-4 A, 12 trees completed. 7 of these have no exceptions; 5 fail at 1–2 irreducible P of degree 5. The other 4 trees timed out and have exceptions at n = 5–6.
+     * Every degree-5 A has exceptions, with the last failing degree 7–10.
+     * So exceptions appear at k = 4 and their last degree grows with k: the lottery threshold n₀ ≍ q^{k/2}, even where finite coverings exist.
+   * A = T, last failing degree (exhaustive). q = 8: n = 6, as predicted. q = 9: still 2 failures at n = 7, so the prediction 7 is exceeded. q = 11 and q = 13 are undetermined (extinction ≥ 7 and ≥ 6).
+
+30. **Spark relay P: ONE mute place makes the function-field ES variant a theorem (FF_MUTE.md (O195); self-review `reviews/ff-mute-selfreview.md` plus independent hostile review `reviews/ff-mute-review.md` (R195): no FATAL; Thm 3.5 and Thm 4.2 SOUND; two MAJOR framing/scope defects (M1: in characteristic 2 the mute mechanism HAS a finite covering; M2: measure asymmetry — ES_q's sterile set (J)26 has positive Haar measure, the mute one is null) and minors; repaired).**
+   * **Thm 3.5 (PROVED, unconditional and effective).** Over F_q[T], ONE mute prime s ∤ A suffices: ES_q^{(s)}(A, P): A/P = 1/X + 1/Y + Q²/Z with Q ∈ ⟨s⟩ and the mute parity normalisation holds for every monic irreducible P ∤ sA. This holds for every q, including q = 3^r with r ≥ 27, where ES_q(T^k) itself has no finite linear covering ((J)26).
+     * The proof is Bilharz-type at a fixed prime degree d of the modulus. The Kummer conditions for ℓ | q − 1 become Dirichlet characters mod s by power reciprocity, the square condition becomes (f/P) = sign, and Weil's bound handles ℓ | q^d − 1 with ℓ ∤ q − 1.
+     * The certificate modulus has degree ≤ 4 log_q n + C. The explicit bound is positive for d ≥ 17 (q = 3, A = T), and small degrees are covered computationally.
+     * Contrast over ℤ: (J)23 needs |S| ≥ 4 and is ineffective.
+   * Thm 4.2 (PROVED), the exact-T1 dichotomy. It is decided by the anchor character ε = χ(−1): (−A/f) = ε^{d(1+k)+k} for f ≡ −1 (mod A).
+     * q ≡ 3 (mod 4), k odd: the mechanism solves P iff P is not a square.
+     * k even: squares can be reached only via even-degree moduli.
+     * q ≡ 1 (mod 4): there is no mechanism T1.
+   * Props 5.1–5.4 (PROVED; the "Reading" was corrected by R195 m6).
+     * The mute mechanism admits no finite covering by its own shot families in odd characteristic, yet it is a theorem at every admissible P. **A global reciprocity argument can prove a statement that has no finite covering by its own families.**
+     * The separation from ES_q (Assessment) is this. Mute firing at modulus f is a Frobenius condition whose P-dependence is the global character (f/P). ES_q firing is membership in the box −A·{a²d : ad | (f+1)/A}, which depends on the factorisation of f + 1 and has no known Frobenius description (not proved impossible).
+     * The mute place replaces "divisors of f + 1" by "a finitely generated group reduced mod f".
+   * EVIDENCE (R195, own code). With one mute prime, every irreducible P is solved in many (q, A, s) ranges (q = 2, 3, 4, 5, 7, 8, 9), including every known ES_q failure.
+   * Open (pursued by O196): is ES firing a Frobenius condition in any fixed extension?
+
+31. **Spark relay O: TES is a finite search with genuine non-T1 failures not explained by Brauer–Manin (TES_FINITE.md (O194); review `reviews/tes-finite-review.md` (R194): no FATAL; two MAJOR attribution defects (D2: the 8/n failures are KNOWN, Pomerance–Weingartner Table 1; D3: Cor 5.4/B7 follows from Bright–Loughran Rem 1.10 + PW), repaired by the reviewer).**
+   * Prop 1.1 / Cor 1.2 (PROVED). t/n = Σ c_i/x_i over ℤ or an imaginary quadratic O, with c_i n/t ∉ O, has finitely many solutions: some N(x_i) ≤ 9N(c_i)N(n)/N(t), and then a two-term divisor problem remains. Over ℤ this is BL Lemma 3.10. Finiteness needs only one archimedean place, not positivity. Infinite families exist iff a two-term subsum can vanish.
+   * **Thm 2.1 (CERTIFIED; two independent complete solvers, R194 reproduced the full census).** TES fails at exactly 16 primes with N(π) ≤ 30000: N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239, 26893}. Every solution at a prime has Type I/II shape (a one-line theorem, R194 D7). At N = 26893 all small data are cubes mod π, so O182's character restriction is refuted.
+   * **Thm 3.1 (PROVED per π by certificate, relative to BL Prop 2.6 / Cor 2.9 over ℚ(ω): Br U/Br K ≅ ℤ/6).** None of the 16 failures is a Brauer–Manin obstruction. R194 re-verified all 16 certificates. TES is the first T1-bearing ES analogue with certified failures outside its T1 set that BM does not explain (novel; no literature for TES).
+   * §5, Schinzel's 8/n (attribution corrected).
+     * Prop 5.1 (PROVED): order-2 T1 at odd squares; BL's local lemmas transfer.
+     * Insolubility at 131 and 241 is KNOWN (Pomerance–Weingartner). The absence of a BM obstruction is BL Rem 1.10. Cor 5.4 ("BM incl. T1 is not the only obstruction for ES-type models") is immediate from these and is already witnessed at n = 3 (R194 D3).
+     * Meaningful form (known, BL Rem 1.10 + PW Thm 3.1): no principle "BM is the only obstruction for n ≥ n₀" holds uniformly in m. An ES proof must use something specific to the numerator 4 (Assessment; see (J)32).
 
 ## Items to verify by the maintainer
 
