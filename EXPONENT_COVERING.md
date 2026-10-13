@@ -104,7 +104,7 @@ Runner `scripts/ec_batch.py` (re-generates certificates and calls the checker as
 k ∈ {1, 9, 21, 27, 57, 171, 231, 315, 393, 495, 15015}.
 | k | L | classes | note |
 |---|---|---|---|
-| 1 | 12 | 2 | Fermat-type 2^m + 1 (3 \| n for m odd; m even: n ≡ 2 mod 3 is impossible… see cert) |
+| 1 | 12 | 2 | 2^m + 1: trivial (3 \| n for m odd, n ≡ 2 mod 3 for m even); listed as a sanity check |
 | 27 | 12 | 6 | m ≡ 2 (12): n ≡ 529 (840), Mordell-hard; II2 class n ≡ 31 (mod 39). Contains the FFT prime 27·2²⁶+1 |
 | 9 | 72 | 9 | needs I1 (3, 38737, 287), M = 464844, for m ≡ 41 (72) (see §4.3) |
 | 315 | 420 | 25 | **n ≡ 1 (mod 2520) for all m ≥ 3** (Mordell's class 1 mod 840 throughout) |
