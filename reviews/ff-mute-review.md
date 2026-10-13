@@ -76,6 +76,19 @@ symbols by direct exponentiation; nothing imported from `fm_*`).
     polynomial in q^{−s} of degree ≤ deg m − 1 ✓; Lidl–Niederreiter Thm 5.41: |Σ_c ψ(a·g(c))| ≤ (e − 1)q^{1/2} for
     ψ of order m > 1 and monic g not an m-th power with e distinct roots ✓ (applied over F_{q^d} with s monic).
     The RH for the L-functions (|α| ∈ {1, √q}) is Weil; correctly attributed. (m4: cite Thm 3.5 / multiplicativity.)
+* **Lemma 4.1: SOUND** (also for composite f, via multiplicativity of the Jacobi symbol in f). Checked by direct
+  exponentiation/factorisation for prime f (q = 3, 5, 7, 9) and composite f (q = 3, 5, 7, 9; "Lemma4.1 composite" in
+  data/review_fm/signs_*.txt): 0 mismatches.
+* **Thm 4.2: SOUND** (one minor scope point, m5). Re-derived:
+  (a) the only P-inputs of Lemmas 3.1–3.2/Thm 3.5 are: (·/P) nontrivial (⇔ monic P not a square: the Jacobi
+  symbol is ∏(·/P_i)^{e_i}, trivial iff all e_i even), Jacobi reciprocity for monic coprime P, f (fine), and f ∤ M
+  (gives gcd(f, P) = 1 for prime f). D = k + deg P + h unchanged. ✓
+  (b)/(c) for f' | f prime: f' | Q ⇒ f' = s ⇒ s | M², excluded; f' | M would give f' | AQ², impossible; so
+  −A ≡ (M/Q)² (mod f') and (−A/f) = 1 ≠ ε^{d(1+k)+k} = −1 when q ≡ 3 (4) and d(1+k)+k odd. Covers both degree
+  regimes, every j, prime or composite f. ✓ (d) ε = 1 ⇒ τ = 1 = (f/M²): condition (ii) automatic, main term 2δ. ✓
+  Numerics (`review_fm_search.py t1`, all monic P coprime to sA; squares searched exhaustively over the bounded
+  (j, f) box *and* by the unbounded discrete-log route): see §6 below.
+  The §7 "reverse question" claim "for every choice of s (and every S)" needs S coprime to P (m5).
 
 ## Defects
 

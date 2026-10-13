@@ -1,0 +1,22 @@
+q=3 A=(0, 1) s=(1, 1) deg P=1: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 1/1
+q=3 A=(0, 1) s=(1, 1) deg P=2: squares shot-solved 0/1 (deg f used: []); non-squares shot-solved 3/3
+q=3 A=(0, 1) s=(1, 1) deg P=3: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 12/12
+q=3 A=(0, 1) s=(1, 1) deg P=4: squares shot-solved 0/4 (deg f used: []); non-squares shot-solved 32/32
+q=3 A=(0, 1) s=(1, 1) deg P=5: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 108/108
+q=3 A=(0, 1) s=(1, 1) deg P=6: squares shot-solved 0/12 (deg f used: []); non-squares shot-solved 312/312
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=1: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 1/1
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=2: squares shot-solved 0/1 (deg f used: []); non-squares shot-solved 3/3
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=3: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 12/12
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=4: squares shot-solved 0/4 (deg f used: []); non-squares shot-solved 32/32
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=5: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 108/108
+q=3 A=(0, 0, 0, 1) s=(1, 1) deg P=6: squares shot-solved 0/12 (deg f used: []); non-squares shot-solved 312/312
+q=3 A=(0, 0, 1) s=(1, 1) deg P=1: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 1/1
+q=3 A=(0, 0, 1) s=(1, 1) deg P=2: squares shot-solved 1/1 (deg f used: [6]); non-squares shot-solved 3/3
+q=3 A=(0, 0, 1) s=(1, 1) deg P=3: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 12/12
+q=3 A=(0, 0, 1) s=(1, 1) deg P=4: squares shot-solved 4/4 (deg f used: [4, 6]); non-squares shot-solved 32/32
+q=3 A=(0, 0, 1) s=(1, 1) deg P=5: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 108/108
+q=3 A=(0, 0, 1) s=(1, 1) deg P=6: squares shot-solved 12/12 (deg f used: [4, 6]); non-squares shot-solved 312/312
+q=7 A=(0, 1) s=(1, 1) deg P=1: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 5/5
+q=7 A=(0, 1) s=(1, 1) deg P=2: squares shot-solved 0/5 (deg f used: []); non-squares shot-solved 31/31
+q=7 A=(0, 1) s=(1, 1) deg P=3: squares shot-solved 0/0 (deg f used: []); non-squares shot-solved 252/252
+q=7 A=(0, 1) s=(1, 1) deg P=4: squares shot-solved 0/36 (deg f used: []); non-squares shot-solved 1728/1728
