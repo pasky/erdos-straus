@@ -129,5 +129,72 @@ Assessment. (ii) Thm 4.1 says "μ ≤ p^{o(1)} ⇒ data p^{o(1)} off density 0";
 
 **D9 (MINOR) Lemma 10.1, "p ∤ M".** Used to deduce `M | γ'₁₂`, but not proved. `p ∤ d` is easy
 (`p | d ⇒ a+b = c(4abd−p) ≥ p(4ab−1) > a+b`); `p | c` is not excluded in the text. Numerically never happens for
-primes ≤ 3000 (`review_sa_typeII.py`). *Repair:* prove `p ∤ c` or add "(for M with p ∤ M)"; the equivalence
-itself does not need it because γ'₁₂ = cM by construction.
+primes ≤ 3000 (`review_sa_typeII.py`). *Repair (R167 proof, two lines):* if `c = pc'` then `a + b = pc'(4abd − p) ≥ p`
+and `4abd ≤ p + (a+b)/p`; with a ≤ b this gives `4b ≤ p + 2b/p`, so `b < p/3` and `a + b < p`, contradiction. Hence
+`p ∤ M` for odd primes p; insert this.
+
+
+**D10 (MINOR) Prop 5.1, "would therefore give a Type I/II solution of 4/m²".** `Sol(m²)` is nonempty (e.g. from any
+solution for m), so the contradiction needs the recipe's output to be a Type I/II certificate (ET parameters
+(a,b,c,d) with n entering linearly), not an arbitrary element of Sol(n). *Repair:* say so; with Sol(n) replaced by
+the Type I/II certificate set the argument is correct (ET Prop 1.6; reproduced: no odd square ≤ 3000 has a
+Type II quadruple).
+
+**D11 (MAJOR, interpretive) Prop 7.1: "The σ_χ(n) are Fourier coefficients of weight-2 Eisenstein series … exactly
+the objects that the Siegel–Weil formula attaches to genera of quaternary forms".** False for **odd** χ:
+`M_2(Γ₀(N), χ) = 0` unless `χ(−1) = (−1)² = 1`, and on Γ₁(N) the diamond operator ⟨−1⟩ = −I acts trivially in even
+weight, so every weight-2 form (in particular every quaternary theta series, shifted or not) has only even-character
+components. `σ(n; −1, g) = φ(g)^{−1}Σ_χ χ(−1)σ_χ(n)` contains the odd-χ part with full weight, and the
+σ_χ for distinct χ are linearly independent; so `σ(n; −1, g)` is **not** a combination of rank-4 genus/theta
+coefficients (only its even part `(σ(n;1,g)+σ(n;−1,g))/2` is, and that is trivially positive: divisor 1). Thus the
+§7 heading "the rank-4 dictionary for Type II" is wrong as stated: the Type II positivity statement lives in the odd
+part, which no quaternary theta series sees. *Repair:* restrict the Siegel–Weil sentence to even χ, and record that
+the Type II indicator needs odd-character divisor sums (weight-1/3-type parity), i.e. it is not a rank-4 genus
+statement. This **strengthens** the document's negative reading; Thm 9.1 (elementary, all χ) is unaffected.
+
+**D12 (MAJOR, overclaim) Cor 9.2, last sentence: "The same holds for every n-local object whose values at primes and
+at prime squares are quasi-polynomials in the prime."** Counterexample: `h(n) = n·μ(n)²`. `h(p) = p > 0`,
+`h(ℓ²) = 0` (and h vanishes at every square > 1): quasi-polynomial at primes and at prime squares, vanishes at all
+odd squares, positive at all primes. The proof of 9.1 uses the specific *coupling* between the value at ℓ² and at p
+(`E(ℓ²) = Σ C_k(1+ℓ^k+ℓ^{2k})` vs `E(p) = Σ C_k(1+p^k)`, same C_k), not quasi-polynomiality. *Repair:* replace by
+"every finite combination of divisor sums `Σ_{d|n} χ(d)ψ(n/d)d^k` (more generally, every function whose value at
+p² and at p are given by the same Satake-type polynomial data)".
+
+**D13 (MINOR, labels) Cor 7.2, Prop 10.2, §10 "count PROVED".** Cor 7.2 is labelled PROVED but its "main term
+σ(n)/φ(g)" is a heuristic average, not a theorem about σ(n; r, g) at a fixed n; Prop 10.2's proved content is only
+"`M ↦ 1[c | M/4]` has exact period 4c"; the sentence about what a congruence subgroup "can impose" is an Assessment;
+§10's "expected number of good points ≍ τ(M/4) log p/M" is a heuristic density count. *Repair:* relabel those
+sentences Assessment/heuristic; the PROVED parts stand.
+
+**D14 (MAJOR, overclaim in a Reading) Cor 9.3 Reading: "A rank-4 representation count at fixed level … is T1-dead on
+the Mordell-hard classes, whatever map to certificates is used."** Cor 9.3 applies to a function W that vanishes at
+odd squares, i.e. to the certificate count itself. A representation count R(n) (with `|R − E| ≤ Bn^θ`) that is
+mapped to certificates by a map **valid only at primes** has `R(ℓ²) > 0` in general, and Cor 9.3 says nothing about
+it; that case is exactly the §5 situation ("the map fails at m²"), handled by Thm 2.3/Prop 5.1 only for bounded
+rational or congruence-validated maps. The Reading is correct for maps defined and valid at all odd n (then
+`R(ℓ²) ≤ μ·W(ℓ²) = 0`). *Repair:* add "for maps valid at all odd n (so that R vanishes at odd squares)"; maps whose
+validity uses primality are not covered (they are §4/Thm 4.1's business). §11 bullet 1 is fine because there the
+count is of certificates.
+
+## Re-derivations (brief)
+
+* **Lemma 2.2.** Projective closure `Q(x) − N x₀²` has rank 5 (N ≠ 0, Q nondegenerate) ⇒ smooth quadric threefold;
+  maximal linear subspaces have dimension 1. Correct.
+* **Thm 2.3.** Fibre `F_s` over each `s ∈ Sol(p)` is a proper closed subset (nondegeneracy + irreducibility of V_p),
+  ≤ C(D) components of degree ≤ C(D) (Bézout); affine change `x = λ̃ + q y` preserves dimension/degree/planarity;
+  non-real components have real points in a lower-dimensional intersection; real 2-dimensional components have
+  degree ≥ 2 by Lemma 2.2, so Pila gives `H^{1+1/2+ε}`. Constants depend only on (J, D, ε) because Pila's is uniform
+  in the variety. Correct.
+* **Cor 2.4 arithmetic.** `M/H^{3/2} ≍ σN^{1/4}q^{−3/2}`; with `q ≤ N^{1/(6+ε₀)}`, `1/4 − 3/(12+2ε₀) = ε₀/(24+4ε₀)` = κ.
+  Correct. The recorded gap (range `q⁴ ≤ N ≤ q⁶f⁴`) is exactly where `σN^{1/4}q^{−3/2} < f`; correctly stated.
+* **Prop 3.1.** `γ = AδD`: `γ ≡ A₀D = λ (q)`, det n, first column `g·(Aδ)e₁` with `(Aδ)e₁` primitive. Correct.
+* **Thm 4.1 arithmetic.** In range `N/(√D q³) ≥ N^{η/(1+η)}`; rest as stated, modulo D4.
+* **Thm 9.1 / Cor 9.3.** For ℓ, p ≡ 1 (L) all characters of conductor | L are 1; `E(ℓ²) = P(ℓ)`,
+  `E(p) = Σ C_k(1+p^k)`; the coefficient of `x^{2K}` in P is C_K (a contribution from k' = 2K would need C_{2K} ≠ 0,
+  contradicting maximality of K when K ≥ 1). (a), (b) and the three cases K > θ, K = θ, K < θ of 9.3 check out
+  (K = θ: `C_K ≤ B`, so `E(p) ≤ Bp^θ + O(p^{θ−1}) < 2Bp^θ`). Numerically (`scripts/review_sa_eisen.py`, L = 35, 24
+  characters, complex random combinations, k ≤ 3): `E(ℓ²) = P(ℓ)` and `E(p) = ΣC_k(1+p^k)` to 5e−16 relative; a
+  nontrivial combination with all C_k = 0 vanishes at all p ≡ 1 (35) and at ℓ² but is nonzero at 50/50 other primes
+  (so the scope restriction to p ≡ 1 (L) is genuine); for 200 random real combinations sign E(ℓ²) = sign E(p) at
+  large ℓ, p ≡ 1 (35); the counting version had 0/200 violations.
+* **Lemma 10.1.** Symbolic product verified; `S → (M, a, b)` bijective.
