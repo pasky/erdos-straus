@@ -1,5 +1,8 @@
 # R172 — hostile review of O172 `KUDLA_ES.md` (Kudla program / incoherent Eisenstein series vs ES)
 
+**Repairs applied** (author quiet since checkpoint 1, 08:49): D1–D10 inserted into `KUDLA_ES.md` and the report D4/D8/D9
+bullets, each marked *(R172 repair)*; Prop 2.4 kept for the record but superseded by Prop 2.4′ (genus version).
+
 Reviewer branch `side-agent/review-kudla` (merged `side-agent/kudla-incoherent` at the start). From-scratch scripts:
 `scripts/review_kud_tuples.py` (own Type I / II enumeration, own Hilbert symbol validated against brute-force ℚ_p
 solvability, Diff computed from the **Gram matrix** of T via the Hasse invariant of `U ⊕ ⟨det U⟩`, i.e. *not* via the

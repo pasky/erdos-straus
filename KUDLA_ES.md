@@ -15,7 +15,8 @@ is just the product formula for the Hasse invariant of the unique local completi
 The central value of the incoherent Siegel Eisenstein series E(τ, s, Φ_𝒞) vanishes, and the T-th coefficient of
 E'(τ, 0, Φ_𝒞) is supported on T with |Diff(T)| = 1 = {ℓ}; for ℓ < ∞ it equals (up to normalisation) log ℓ times a
 Gross–Keating local multiplicity times a count of supersingular points (Kudla 1997 for Shimura curves; Gross–Keating
-1993; Kudla–Rapoport–Yang, *Modular forms and special cycles on Shimura curves*, 2006). These deep identities are
+1993; Kudla–Rapoport–Yang, *Modular forms and special cycles on Shimura curves*, 2006). *(R172 repair: Kudla 1997 is stated for D(B) > 1; for B = M₂(ℚ) and positive definite T the relevant identity is the
+local one at the unique ℓ ∈ Diff(T) (Gross–Keating); these sources are not in `sources/` and were not checked.)* These deep identities are
 **cited, not used**: every PROVED statement below is elementary (Hilbert symbols); the cited identities only give
 the geometric reading.
 
@@ -29,6 +30,8 @@ modular curve: 𝒞_ℓ = (M₂(ℚ_ℓ)⁰, det) for ℓ < ∞, 𝒞_∞ = posi
 splits at ℓ (a binary space U ⊂ B⁰ determines its completion U ⊕ ⟨disc⟩ and hence B), so
 `Diff(T(d,m), 𝒞) = Ram_fin(B_{d,m})`, and |Ram_fin| is odd because B_T is definite. Geometrically, a point of the
 special cycle Z(T) is a supersingular E/𝔽̄_ℓ (ℓ ∈ Diff(T)) with two special (trace-zero) endomorphisms of Gram T.
+*(R172 repair: Z(T) ≠ ∅ iff Diff(T) = {ℓ}; if |Diff(T)| ≥ 3 both Z(T) and the T-th coefficient of E'(τ,0,Φ_𝒞) vanish —
+this happens for some composite-n certificates, e.g. 4543 of 95347 Type I tuples at composite odd n ≤ 5000.)*
 
 **Lemma 1.1 (2 is never in Diff; PROVED).** `det(2T) = 4dm − 1` is odd, so Λ_{d,m} ⊗ ℤ₂ has reduced discriminant a
 2-adic unit, hence is a maximal order of B_T ⊗ ℚ₂ of discriminant 1; so B_T splits at 2. ∎
@@ -51,11 +54,12 @@ the finite set: product formula. (a), (b) are immediate. ∎
 
 *Check* (`scripts/kud_typeI_diff.py 20000`, ~60 s): all 882749 Type I tuples (a ≤ b) of all odd n ≤ 20000: Ram_fin(B_T)
 computed from Hilbert symbols equals the predicted set in every case, 2 ∉ Ram, |Ram_fin| odd; 0 tuples at odd squares;
-3 odd non-squares n ≤ 20000 have no tuple at all (EVIDENCE only; composite n is outside ES's prime reduction).
+3 odd non-squares n ≤ 20000 have no tuple at all (n = 105, 2961, 3705 *(R172 repair)*; EVIDENCE only; composite n is outside ES's prime reduction).
 
 **Reading (Assessment).** This is the precise form of the brief's thesis for Type I: the certificate's Gram matrix
 T lives in Kudla's *incoherent* ternary collection, whose Diff(T) must be odd; the ES congruence `e | a + b` makes
-every place ℓ | e represent T, so Diff(T) is carried by the primes of n alone, with odd exponent and `(−d/ℓ) = −1`.
+every place ℓ | e represent T (*(R172 repair)* 2 and ℓ | d are cleared by the shape of T and the equation 4abd = ne + 1,
+∞ by positivity; and only the genus shadow (−d/ℓ) = 1 of e | a + b is needed), so Diff(T) is carried by the primes of n alone, with odd exponent and `(−d/ℓ) = −1`.
 At n = m² no such prime exists — **T1 is the oddness of Diff(T) for the incoherent collection** (equivalently: at
 squares the ES local conditions would make the collection {𝒞_ℓ} represent T everywhere, i.e. behave coherently,
 which a definite B_T cannot). Mathematically this is Hilbert reciprocity, i.e. the same content as ET Prop 1.6 /
@@ -74,16 +78,20 @@ the Bright–Loughran/Yamamoto condition `(f/p) = −(−1/p)`, (I)7) and Diff(T
 anyway). At 2: `−f ≡ 1 (mod 4)` gives `(−f, −1)_2 = 1` and `(−f, u)_2 = 1` for odd u; if 2 | dn then 2 | d (n odd), so
 `8 | 4cd` and `−f ≡ 1 (mod 8)`, giving `(−f, 2)_2 = 1`. At ∞: −1. Product formula. ∎
 *Check* (`scripts/kud_typeII_diff.py 20000`, 26 s): all 336357 Type II tuples (a ≤ b) of all odd n ≤ 20000: Ram_fin(B_{T'})
-= predicted set, 2 ∉ Ram, odd cardinality, 0 tuples at odd squares (1 odd non-square n ≤ 20000 has none).
+= predicted set, 2 ∉ Ram, odd cardinality, 0 tuples at odd squares (1 odd non-square n ≤ 20000 has none: n = 4545 *(R172 repair)*).
 *Remark.* The ambient algebra `(−d, −n)` of QUATERNION_ES's Type II identity `(2ai + j)(2bi − j) = −e(1 + 2ck)` is the
 algebra of the pair (x, y) = (2ai + j, 2bi − j), whose Gram matrix is `e·T'`; it differs from B_{T'} (it agrees for only
 1460 of the first 3000 tuples in the check) — scaling a binary space changes its Hasse invariant. The T1-relevant Kudla
-index is T', not eT'.
+index is T', not eT'. *(R172 repair: T' is a chosen index — it is not the Gram matrix of a pair attached to the
+certificate; the certificate's own pair has Gram e·T', and at prime n ≤ 5000 Diff(e·T') = {p} for only 10976/17435 Type II
+tuples (p ∉ Diff(e·T') for 5555, |Diff(e·T')| ≥ 3 for 904). So for Type II "certificate ⇒ point of Z(T') mod p" means only:
+the certificate determines an index T' with Z(T')(𝔽̄_p) ≠ ∅ — a property shared by every T with Diff(T) = {p}.)*
 
 **Summary of §1 (the dictionary; answers brief item (1)).** Both certificate types are *Fourier indices of Kudla's
 incoherent genus-2 weight-3/2 Siegel Eisenstein series for the modular curve* (Type I: `T(d, ab)`, det(2T) = ne; Type
 II: `T' = [[f,1],[1,f']]`, det(2T') = 16c²dn), and the ES congruence conditions (`e | a + b`, resp. `f ≡ −1 (mod 4cd)`)
-are exactly what clears every place except the primes of n from Diff(T). Oddness of Diff (= incoherence) then forces a
+are exactly what clears every place except the primes of n from Diff(T) *(R172 repair: read "suffice to clear"; see the
+repaired Reading above — the genus shadow is what is necessary)*. Oddness of Diff (= incoherence) then forces a
 prime of n to odd exponent: **T1 ⟺ incoherence parity**. At n = p, Diff = {p}: certificates are supersingular points mod
 p of the special cycle Z(T), i.e. lie in the support of the T-th coefficient of E'(τ, 0, Φ_𝒞) (geometric reading via the
 cited Kudla/Gross–Keating/KRY identities).
@@ -111,7 +119,7 @@ Prop 10.3), and it does not see c at all.
 G total 51591, ES ≤ G in every slice (0 violations); slices with ES > 0: 2398 of 14980, with G > 0: 10489; odd squares
 m² ≤ 60000: ES = G = 0.
 
-**Proposition 2.3 (Kudla-supported indices exist at every prime, deterministically; PROVED relative to Dirichlet).**
+**Proposition 2.3 (Kudla-supported indices exist at every prime, deterministically; PROVED, using Dirichlet's theorem *(R172 repair: label)*).**
 For every prime p ≥ 5 there are c ≥ 1, d = 1 and f | 1 + 4c²p with Diff(T'_f) = {p}.
 *Proof.* p ≡ 3 (4): c = 1, f = 1: Diff(T'_1) = Ram_fin(−1, −p) = {p} (`(−1, −p)_p = (−1/p) = −1`, `(−1,−p)_2 = 1` since
 `−p ≡ 1 (mod 4)`). p ≡ 1 (4): take a prime q ≡ 3 (mod 4) with `(q/p) = −1` (Dirichlet in the classes q ≡ 3 (4),
@@ -123,7 +131,17 @@ like the "sign layer" of PARITY_FIXED_P. The certificate needs the **ray-class u
 genus condition; for the f = q constructed above this reads `4c | q + 1` with `q | 1 + 4c²p` — the Type II divisor
 problem itself (B2).
 
-**Proposition 2.4 (Kudla data are class functions; the certificate property is not; PROVED).** Kudla's coefficients
+*(R172 repair: Prop 2.4 as originally stated is retained below for the record but is superseded. The GL₂(ℤ)-translate
+argument is vacuous on the actual candidate set {T'_f : f | N}: in all 14980 slices of the Prop 2.2 check, no GL₂(ℤ)-class
+of [f, 2, N/f] contains two swap-pairs {f, N/f}, so certificate-ness IS a class property there; and the "Consequence" is
+false literally (w(𝒦) = #certificates in 𝒦 / E'_𝒦 is a class function). Replacement:* **Proposition 2.4′ (R172 repair).**
+(PROVED, standard factorisation; cited) For Diff(T) = {p}, E'_T(τ,0,Φ_𝒞) = W'_{T,p}(0)·∏_{v≠p} W_{T,v}(0); each finite factor
+depends only on the ℤ_ℓ-class of T and the archimedean one only on det T, so Kudla's coefficient and deg Z(T) are functions
+of the **genus** of T. (EVIDENCE, `scripts/review_kud_genus.py`) Genus does not determine certificate-ness: in 582 of the
+2398 slices with ES > 0 (p < 3000, cd ≤ 12) the genus of the certificates also contains non-certificate indices T'_f.
+(Assessment) Kudla's degrees see only G_{c,d} (a sum over genera, Prop 2.2); ES is the genus → ray-class upgrade (B2).*)*
+
+**Proposition 2.4 (Kudla data are class functions; the certificate property is not; ~~PROVED~~ superseded by 2.4′).** Kudla's coefficients
 E'_T(τ,0) and deg Z(T) depend on T only through its GL₂(ℤ)-class `{ᵗγTγ}` (level-one Siegel Eisenstein series; Z(T)
 is defined by the lattice generated by the special endomorphisms). Being a certificate index (`T = [[f,1],[1,f']]` with
 `ff' − 1 = 4c²dn`, `f ≡ −1 (4cd)`) is not a class property: `[[f,1],[1,f']] ~ [[f', 1],[1, f]]` (swap) and
@@ -148,7 +166,7 @@ local binary spaces with discriminant field ℚ(√n) is coherent, and every "si
    indexed by T, not by n, so 9.1 does not apply. Outcome: the ES conditions are conditions on *which* index T occurs;
    at certificate indices the coefficient is automatically p-supported (Prop 2.1); the Kudla-visible condition
    "Diff ⊆ Odd(n)" is the genus shadow and is satisfiable deterministically at every prime (Prop 2.3). Killed by B2
-   (Prop 2.4: Kudla data are class functions; the certificate property is a representative property).
+   (Prop 2.4′ *(R172 repair)*: Kudla data are genus functions; genera mix certificate and non-certificate indices).
 2. **Level structure / coset Schwartz functions** (to see `f ≡ −1 (mod 4cd)`, i.e. the ray class, cf. WINDMILL Rem
    10.4). Target: the class-function hypothesis of 2.4. Outcome: a coset function at level M = 4cd makes the certificate
    indicator a Γ(M)-class function, but then the slice count is `#{T = [[f,1],[1,f']] : ff' = N, T ≡ T₀ (mod M)}` —
@@ -157,10 +175,13 @@ local binary spaces with discriminant field ℚ(√n) is coherent, and every "si
    fixed-slice divisor sum (B2), and by Lemma 3.1 there is no incoherent partner for a split binary space.
 3. **Characters: what Siegel–Weil/Kudla can carry (Assessment, with an exact decomposition).** For M = 4cd and N ≡ 1
    (mod M): `ES_{c,d}(n) = φ(M)^{−1} Σ_{χ mod M} χ(−1) S_χ(N)`, `S_χ(N) = Σ_{f|N} χ(f)`. Orthogonal Siegel–Weil/Kudla
-   Eisenstein series live in `I(s, χ_V)` with χ_V **quadratic**; the quadratic-χ part is
+   Eisenstein series live in `I(s, χ_V)` with χ_V **quadratic** *(R172 repair: but with non-K-invariant Schwartz functions
+they see all characters — item 2's coset function on the split plane gives ES_{c,d}(n) exactly; the correct statement is
+that Kudla's lattice (K-invariant) Schwartz functions see only the quadratic/genus part)*; the quadratic-χ part is
    `Q_{c,d}(n) = #{f | N : f ∈ −(ℤ/M)^{×2}} / |(ℤ/M)^{×2}|` (genus count ÷ size of the square subgroup), which vanishes
    at odd squares (it is ≤ G_{c,d}, Prop 2.2) and is the "Kudla-visible main term"; the remainder (characters of order
-   ≥ 3) has no orthogonal Siegel–Weil incarnation. Per slice Q ≍ τ(N)·2^{ω(M)}/φ(M) ≪ 1 for large M: a main-term
+   ≥ 3) has no orthogonal Siegel–Weil incarnation. Per slice Q ≍ τ(N)·2^{ω(M)}/φ(M) *(R172 repair: Q ≈ κ·τ(N)/φ(M), no 2^{ω(M)}; empirically κ = 0.68, 0.55, 0.46 for
+ω(M) = 1, 2, 3, `scripts/review_kud_qomega.py`)* ≪ 1 for large M: a main-term
    certificate fails B3 slice by slice, and summing slices is H-A.
 4. **Base change to F = ℚ(ζ_M)⁺** (make the ray character quadratic). Target: "quadratic χ_V only" in 3. Over F the
    condition `f ≡ −1 (mod M)` for a rational prime f ≡ ±1 (M) becomes `η_{E/F}(𝔣) = −1`, E = ℚ(ζ_M) (CM), i.e. an
