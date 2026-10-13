@@ -688,6 +688,21 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Rank-k forcing is genus-vacuous, since every order lies in a maximal order (R181 D10). x*_c = rec_T((1 + cT)^{−1}) is a wild-inertia element and a profinite square: the FF analogue of a T1-obstructed point with T1 removed (bsH_lubin_tate_sterile).
    * Open spark: the twisted case c₁ + c₂ + c₃ = 1, where the degree character degenerates (pursued by O182).
 
+19. **Spark relay I: a genuine order-3 T1 and the "anchor calculus" (TWISTED_T1.md + BRAINSTORM/bsI_* (O182); review `reviews/twisted-t1-review.md` (R182): no FATAL; one MAJOR scope/attribution defect in Prop 4.3 (D11) and minors, repaired by the reviewer).**
+   * **Thm 3.2 (PROVED; tables reproduced from scratch by R182 with its own ℤ[ω] arithmetic and λ-adic symbols).** Over O = ℤ[ω], let TES(n) be 9/n = ω/x + ω²/y + 2/z with x, y, z ≡ 1 (mod 2). This normalisation is the kernel of reduction at the anchor; it also excludes denominators divisible by 2 (R182 D3).
+     * For (n, 6) = 1, every solution satisfies the cubic reciprocity law Σ_{π|n} inv_π α = −⟨ω, 2⟩₂ ≠ 0.
+     * Hence at n = π^{3k} there is NO Type I/II-shaped solution, although TES(π³) is solvable in other shapes. Primes have Type I/II solutions with forced cubic invariant.
+     * Controls: removing the anchor (coefficients 1, 1, 1) or the partner (numerator 3) restores Type I/II solutions at cubes. Squares and 4th powers are not special.
+     * This is an order-3 analogue of T1 (B5).
+   * Anchor calculus (§2, PROVED).
+     * T1-type obstructions consist of an *anchor* (a place whose normalisation pins inv α ≠ 0), a *partner* (a place where the constant algebra ramifies but the equation forces inv α = 0) and tame vanishing.
+     * Pinning ⟺ the normalisation image is isotropic with τ ⊥ it (Lemma 2.1). Natural normalisations (monic, unit, primary) are Lagrangian and pin only 0.
+     * For odd m a single target never anchors (Prop 2.3).
+     * ES is (anchor = real place via positivity, wild partner = 2 via numerator 4). TES is (tame congruence anchor 2, wild partner λ via 9 = λ⁴·unit).
+   * Prop 4.3 (number-field part PROVED): within the template, the partner must be wild. The function-field extension and the attribution of "no odd-square obstruction over F_q[T]" to it are outside the template (R182 D11; m = 2 is not covered).
+   * EVIDENCE: census of 746 split primes, all solutions with invariants (1, 2, 0). 18 primes have no TES solution in the search window (N = 103 and 151 also none in much larger windows); the 10 inert primes ≤ 71 are all solved (R182 D12).
+   * Assessment: T1/B5 sits in a family of anchor+partner obstructions whose order is the order of the anchor symbol. A provable T1-bearing variant would be a template for circumventing B5 (pursued by O183).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
