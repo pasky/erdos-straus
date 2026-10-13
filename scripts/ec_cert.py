@@ -123,6 +123,13 @@ def main(path, MMAX=3000):
             sol = es_brute(n)
             assert sol is not None, ('ES fails?!', n)
             small.append((m, n, sol))
+    # (vii) T1 control: no non-divisor class contains an odd square s^2 (s < 20000); divisor classes contain q^2 by design
+    for cl in C['classes']:
+        if cl['fam'] == 'D':
+            continue
+        M, r = cl['M'], cl['r']
+        bad_sq = [s for s in range(1, 20000, 2) if (s * s - r) % M == 0]
+        assert not bad_sq, ('class contains odd square', cl['M'], cl['r'], bad_sq[:3])
     print('CERTIFIED: ES holds for all n = %d*%d^m %+d, m >= 0 (classes: %d, L = %d, m0 = %d, exact check to m = %d)'
           % (k, b, c, len(C['classes']), L, m0, MMAX))
     print('  small members by brute force:', small)
