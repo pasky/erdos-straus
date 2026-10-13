@@ -92,3 +92,59 @@ My web searches (Jina; "Erdős–Straus" with Fermat/Proth/k·2^n+1/exponential 
 only congruence-class results. Not exhaustive (no MathSciNet/zbMATH access). The author's own caveat (novelty is in form, each family
 lies in finitely many solvable classes) is accurate. Thm 1.2's compactness argument is standard (Sierpiński-type covering + profinite
 compactness); presenting it as new is fine only as "new in the ES context".
+
+## Numbered defects (no FATAL)
+**D3 (MAJOR, repairable; Thm 1.2 square clause, line "Squares: if an ET class r (mod M) contained x ∈ Sq …").** The proof leans on an
+unstated "class-level form" of ET Prop 1.6 (which is about Type I/II solution counts of a single odd square n, with coprimality
+conditions) plus a finite computation (M ≤ 3000) that cannot prove an infinite statement. Everything negative in the note (Thm 1.4
+S′ ⊇ Sq^×, Cor 1.5 consequence, §3 "⟹ (EH_k)", §5.1 obstructions, §5.3 Proth) depends on it. *Repair:* replace by: "All seven ET
+families are primitive classes (from their side conditions: f | 4a²d+1; (4ac,f) = 1; (4cd,f) = 1 with n² ≡ −4c²d a unit mod f;
+(e,4ab) = 1; 4ad | f+1; (4ad,e) = 1). If x ∈ Sq lies in such a class r + MZ, x_q is a unit for q | M, hence r is a unit square mod
+every prime power of M, r ≡ s² (mod M) with gcd(s, M) = 1, and the class is a primitive class represented by the perfect square s².
+By Mordell (Diophantine Equations 1969) / Schinzel (Funct. Approx. 2000), as quoted in ET p. 7–8, such a class is not solvable by
+polynomials, while every ET class is (ET Prop 1.9, converse). For Sq^× primitivity is automatic, so Sq^× avoids EVERY class solvable
+by polynomials." Keep ec_t1check.py as computational control only. Then strengthen Cor 1.5/§5.3 accordingly (no finite covering
+of 3·2^m+1 by polynomial-solvable congruence classes + divisor classes). [Reviewer could not access Mordell's book / Schinzel 2000;
+reliance on ET's quotation, as already in POINTWISE_SIZE's novelty note.]
+
+**D12 (MAJOR-wording; §5.3 bold "ES for all Proth numbers 3·2^m + 1 is out of reach of every fixed-slice / congruence method"; also §0
+bullet 3, report SHARP 4).** PROVED only for coverings by ET/divisor classes (after D3: all polynomial-solvable congruence classes +
+divisor classes). "every fixed-slice / congruence method" is not proved. *Repair:* state the precise class of methods in the bold
+sentence; keep the Theorem-M transfer explicitly "not checked".
+
+**D9 (MINOR-moderate; §3 and bsK_skolem_dictionary, "exactly of the type of Skolem's conjecture and … Bertók–Hajdu").** (EH_k)'s
+local condition (≡ some unit square mod M) is not the reduction of a global exponential equation; it is strictly stronger than the
+B–H principle for k2^x + 1 = 4^y. *Repair:* "an exponential local–global statement analogous to (not an instance of) Skolem / B–H";
+drop "SHARP" or justify it.
+
+**D1 (MINOR; §0 bullet 4, Thm 4.1 table row k = 27, report SHARP 3).** "27·2^m+1 ≡ 529 (mod 840) for m ≡ 2 (12)" fails at m = 2
+(n = 109 ≡ 109 mod 840; mod 8 periodicity needs m ≥ 3). Listing 109 next to it suggests it is in the hard class. *Repair:* "for
+m ≡ 2 (12), m ≥ 14"; list 109 separately.
+
+**D2 (MINOR; §0 bullet 4, §4 "certified by an independent checker").** ec_cert.py is independent of the ES library but written by
+the same author/session. *Repair:* "checked by ec_cert.py and independently re-checked by R185 (scripts/review_ec_cert.py)".
+
+**D4 (MINOR; Thm 1.4, "Divisor classes").** D_q is ES-solvable only given ES(q). *Repair:* add "for the finitely many q used,
+ES(q) is verified (explicit in the certificate); the topological equivalence itself is unconditional".
+
+**D5 (MINOR; Cor 1.5 proof, ℓ < 0).** "s a power of 2: k = 4^j − 4^i odd forces i = 0" is muddled: k + 2^a is odd, so s is odd and
+a unit at every odd prime, hence s = 1, impossible. Same for ℓ ≥ 1 (s odd ⇒ s = 1). *Repair:* rewrite the two lines.
+
+**D6 (MINOR; Prop 2.1 "Consequently … (i) … or (ii) …").** (ii) is circular; non-unit-squareness at q is detected mod q (mod 8 for
+q = 2), so (i) can take e = 1 (3). *Repair:* "a finite covering exists only if some single prime q has f(t) ∈ {0} ∪ non-residues
+(mod q) for all t ≡ t₀ (T)".
+
+**D7 (MINOR; Prop 2.1 last sentence "Only finitely many q can do (i)").** False for f = c·g² with c a non-square (infinitely many q
+with (c/q) = −1). *Repair:* add "unless f is a constant times a square in Q[t]" (Weil applies to y² = f(t) only when absolutely
+irreducible).
+
+**D8 (MINOR; Prop 2.2).** Unfinished sentence "(for q ∤ k: A_q ≠ ∅ iff ... it is a union of classes …)"; "Λ_k ∩ Sq^× = ⋂_q A_q"
+conflates exponent space and target (should be ν(⋂_q A_q)). *Repair:* finish/trim the parenthesis ("a union of classes mod
+ord_q(2)"); write ν(⋂ A_q).
+
+**D10 (MINOR; §4.2 survey).** Output not stored in data/ (only certificates for the 11 headline k), so 78/4/18 is reproducible only by a
+re-run. *Repair:* commit the survey log (data/ec/survey2_k600.txt). [R185 re-ran ec_survey2.py — see below.]
+
+**D11 (MINOR; §5.1 bold sentence, bsK_sunit_limit).** "B1 is the S → all-primes limit of an S-unit obstruction" is a heuristic; the
+"(Assessment: …)" parenthesis comments on style. *Repair:* label it Assessment explicitly, and give the precise version: for S = all
+primes, F_S(k) = {n ≡ 1 (mod k)} is a progression and Prop 2.1 applies.
