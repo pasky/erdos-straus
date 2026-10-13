@@ -156,3 +156,11 @@ E·E' = 1 + T^s·L'g' with E ≡ E' ≡ −1 (mod L'), i.e. a point on the hyper
 square-root bound q^{s/2} is exactly the bound above. Deciding whether ES₃(T², ·) has a finite linear covering
 (through the measure route) therefore needs a count that beats square root by q^{−δN} — the function-field
 face of barrier B3. For fixed q = 3 no beyond-square-root input for this shape is known to me.
+
+## 4. Other k (q = 3)
+
+All lemmas above hold for every k ≥ 2 (q odd); the ES2 Case A theorem also covers k ≥ 2.
+**A = T³ (EVIDENCE, complete range):** `ff3_caseB 3 3 0 11 -1 1 c` finds **0 Case B families at x*_c, c = 1, 2,
+for deg L' ≤ 11 and all j ≤ 4 deg L' − 3** (`data/ff3_caseB_xstar_k3_c*.txt`). By Lemma 2.1 (deg L' ≤ 2N − 4)
+this excludes every family of level N ≤ 7. The same lottery assessment applies.
+q = 4 (needs F₄ arithmetic) was not done in this checkpoint.
