@@ -51,3 +51,73 @@ Remarks on the table.
 * Every mechanism that *uses primality of p in an essential way* is automatically T1-safe at the first step:
   rows 1 (p | x²+y², 0 < x²+y² < 2p), 4 (Legendre condition at p), 9 (D = p prime has only trivial splittings).
   Everything else on the list sees p only through congruences or sizes, and B1/B5 apply.
+
+## 2. Selection
+
+The failing step of rows 4 (Legendre/Holzer), 9–10 (Pell/units) and 6 (Davenport–Cassels/Aubry) is not a proved
+barrier theorem as stated, and rows 4 and 9 use primality of p in an essential way (T1-safe first step). These
+three are attacked in §3 (row 4), §4 (rows 9–10), §5 (row 6).
+
+## 3. Legendre / Holzer: is ES an isotropy problem?
+
+### 3.1 The Fermat–Holzer template (classical)
+Legendre: for squarefree, pairwise coprime a, b, c > 0, aX² + bY² = cZ² has a non-trivial integer zero iff −ab is a
+square mod c, bc... (the three QR conditions). Holzer (Mordell's form): then there is a zero with
+|X| ≤ √(bc), |Y| ≤ √(ac), |Z| ≤ √(ab). If ab ≤ 3 this forces |Z| = 1 (Z = 0 is impossible by definiteness), so
+c = aX² + bY²: with (a,b) = (1,1), (1,2), (1,3) this is Fermat's two-squares theorem and its x²+2y², x²+3y²
+analogues. In general Holzer only gives cZ² = aX² + bY² with Z² ≤ ab, i.e. *representation by the genus*.
+**Two ingredients make the template work: a definite (anisotropic) form, and a size bound small enough to force
+the "denominator" Z to be 1.** We now check both against ES.
+
+### 3.2 What isotropy can know (PROVED; Legendre restated)
+**Prop 3.1.** Let F_θ = a X² + b Y² − c Z² with a, b, c ∈ ℤ depending on p and a parameter θ (reduce to the
+squarefree, pairwise coprime case in the standard way). Then "F_θ is isotropic" is equivalent to finitely many
+quadratic-residue conditions: at primes ℓ dividing p-free coefficients they are congruence conditions on p mod ℓ
+(B1 data); at primes ℓ | c(p,θ) they say "−ab is a square mod ℓ for every ℓ | c(p,θ)", i.e. a Hasse-norm
+condition on the **factorisation** of the specific integer c(p,θ). ∎
+So isotropy carries exactly two kinds of information: congruences of p, and a *splitting condition on all prime
+factors* of a p-dependent integer. The second is strictly stronger than the ES-type condition "has one divisor
+in a class" (B2), and of the opposite logical shape (∀ prime factors vs ∃ divisor). §3.3 shows the shapes match
+exactly — but on the **failure** side.
+
+### 3.3 Anisotropic conics in ES sit on the obstruction side (PROVED, elementary)
+**Prop 3.2 (Type I needs an anisotropic conic).** If p ∤ 2cd and f | p² + 4c²d with f ≡ −p (mod 4cd), then
+χ_{−4d}(p) = −1; equivalently the conic C_{d,p}: X² + dY² = pZ² is anisotropic over ℚ_p (hence over ℚ).
+*Proof.* f is odd and coprime to dp. For every prime ℓ | f, −d ≡ (p/(2c))² (mod ℓ), so χ_{−4d}(ℓ) = 1; hence
+χ_{−4d}(f) = 1. As f ≡ −p (mod 4d) and χ_{−4d} is odd, χ_{−4d}(p) = −χ_{−4d}(f) = −1. Then −d is a non-residue
+mod p, and X² + dY² ≡ 0 (p) forces p | X, Y, then p | Z: no primitive ℚ_p-zero. ∎
+(This is the Bright–Loughran/genus statement (I)7 in conic language.) **So every Type I solution of level d lives
+on a conic X² + dY² = pZ² that has no rational point.** Legendre's theorem — whose content is "local ⇒ a point
+exists" — is used by ES in the contrapositive direction only.
+
+**Prop 3.3 (slice failure is a norm/isotropy condition; PROVED, elementary).** Fix e and N coprime to e; let
+H_e(N) = ⟨ℓ mod e : ℓ | N prime⟩ ≤ (ℤ/e)^×. Then Σ_e(N) ⊆ H_e(N), and
+(a) −1 ∉ H_e(N) ⇔ there is an odd character χ mod e with χ(ℓ) = 1 for all primes ℓ | N ⇔ every prime factor of N
+splits completely in some imaginary cyclic subfield K_χ ⊂ ℚ(ζ_e);
+(b) if (ℤ/e)^× is an elementary 2-group (e | 24), then Σ_e(N) = H_e(N), so the e-slice fails ⇔ (a) holds. For the
+only such slice available at p ≡ 1 (4), e = 3: the slice fails ⇔ every prime factor of N is ≡ 1 (mod 3) ⇔ N is
+primitively represented by X² + XY + Y² (class number 1).
+*Proof.* (a) is duality for finite abelian groups. (b): in an elementary 2-group ab⁻¹ = ab, and H_e(N) is the set
+of classes of divisors of N (squares are trivial), so a·1 with a | N realises every element. ∎
+Thus the e | 24 Mordell slices fail **exactly** when a quadratic norm-form representation exists (an isotropy
+statement, decidable by Legendre/Holzer); for general e the *group-level* part of the failure is an
+"all primes split in K_χ" condition (Hasse norm theorem for cyclic K_χ).
+
+### 3.4 The T1-safe deterministic residue: Jacobi forcing (PROVED + EVIDENCE)
+**Prop 3.4.** Let p be prime and e ≡ 3 (mod 4) prime with (p/e) = −1, N_e = (p+e)/4. Then −1 ∈ H_e(N_e): N_e has
+a prime factor ℓ with (ℓ/e) = −1, and −1 is a power of ℓ mod e.
+*Proof.* (N_e/e) = (4⁻¹p/e) = (p/e) = −1, so some ℓ | N_e has (ℓ/e) = −1; ℓ has even order in the cyclic group
+(ℤ/e)^× of order 2·odd, so −1 ∈ ⟨ℓ⟩. ∎
+*T1:* for n = m², (N_e/e) = (m²/e) = +1 — Prop 3.4 never fires, consistent with ET Prop 1.6. For Type I slices,
+(N'_e/e) = ((pe+1)/4 / e) = +1 always: Jacobi gives nothing there.
+EVIDENCE (`scripts/de_jacobi_slices.py 200000 200`; p ≡ 1 (24), p < 2·10⁵, primes e ≡ 3 (4), e < 200):
+
+| (p/e) | slices | −1 ∈ H_e(N_e) | −1 ∈ Σ_e(N_e) (slice solves) |
+|---|---|---|---|
+| +1 | 27127 | 0.4145 | 0.1688 |
+| −1 | 25961 | 1.0000 (forced) | 0.3728 |
+
+So Jacobi forcing removes the whole group-level obstruction and doubles the slice success rate — but 63% of forced
+slices still fail: the residue is "−1 ∈ ⟨ℓ⟩ but ℓ^{ord(ℓ)/2} ∤ N and no other combination of N's prime factors
+lands on −1", the multiplicity lottery (B4; LONGSHOT_PIGEONHOLE Thm 2.2 covers covering-by-prime-factors
+certificates).
