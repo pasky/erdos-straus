@@ -67,7 +67,8 @@ odd number of negative real conjugates** — an archimedean anchor at the r real
 **Construction attempt (F-Gram matrices).** Put T_F = [[β, 1],[1, β′]] with β, β′ ∈ O_F. The F-quaternion algebra
 (−β, −det T_F) is ramified at the real places where T_F is definite; Hilbert reciprocity over F gives
 |Diff_F(T_F)| ≡ #(definite real places) (mod 2), so for β ≡ 1 (𝔪) the parity of the finite Diff over F *is* η(β):
-a genuine "F-Diff-parity" carrying the full ray condition, with T1-analogue at squares when r is even.
+a genuine "F-Diff-parity" carrying the full ray condition (here β ≡ 1 (𝔪) generates the ideal of norm f, and
+det T_F is assumed totally positive; Assessment-level construction, not checked numerically).
 **Prop A.4.2 (where it breaks; PROVED).** An F-Gram certificate ββ′ − 4c²dp = 1, β ≡ β′ ≡ −1 (mod 4cd O_F) is an ES
 Type II certificate **over O_F**, not over ℤ. Taking norms gives N(β)N(β′) ≡ 1 and N(β) ≡ (−1)^r ≡ +1 (mod M) for r
 even: the norm does not descend the target −1. The rational certificates that *are* F-norms (split-supported f) are a
@@ -95,7 +96,7 @@ surface evaluated at ℚ-points, (ii) Frobenius closures of the certificate's sp
 Weil indices with ℚ-rational data, or (iv) class sets of definite forms of inner forms of GL_k, sees f only through
 quadratic characters; for (ℤ/M)^× of exponent > 2 (M ∤ 24) the ray condition is not such a function (bsC Cor 2).
 Unviolated hypotheses — the only doors left: F-rational data *with* a descent mechanism for −1 (A.4.2 shows norms fail
-for r even; odd r means M ∈ {q^k, 2q^k : q ≡ 3 (4)} ∪ {3, 4, 6}); non-archimedean anchors (a target equal to a finite
+for r even; r = φ(M)/2 is odd only for M ∈ {3, 4, 6, q^k, 2q^k : q ≡ 3 (4)}, so for ES moduli M = 4cd > 4 it is always even); non-archimedean anchors (a target equal to a finite
 Frobenius, not −1); function fields (A.3).
 
 ## B. (LD_p) as geometry of numbers (bsD_genus_vacuity_LDp)
