@@ -1,5 +1,7 @@
 # AGENT REPORT O177 — spark relay brainstorm D: higher-order reciprocity escape, (LD_p) geometry, checkpoint 1
 
+(Reviewed by R177: reviews/ldp-deep-review.md — no FATAL; repairs marked "R177 repair".)
+
 Branch `side-agent/spark-higher-reciprocity` (merged `side-agent/spark-diff-parity` = O176, CLAIMED/unreviewed). Deep file
 `LDP_DEEP.md`; 8 memos `BRAINSTORM/bsD_*.md` (indexed in BRAINSTORM/README.md); scripts `scripts/bsD_*` (each ≤ 75 s).
 **ES is not solved; no infinite case of ES is claimed.** No positive ES statement is made, so no 10⁶ triple-check of a
@@ -7,7 +9,8 @@ positive claim was needed; the numerics below are EVIDENCE with odd squares as T
 
 ## SHARP:
 * **Diff-parity and the supersingular geometry are a degree-2 accident of Br ℝ = ℤ/2 (bsD_eichler_degree_k Prop 2;
-  LDP_DEEP §A.3; PROVED from classical inputs).** Over ℚ only *definite quaternion* algebras violate Eichler's condition;
+  LDP_DEEP §A.3; PROVED from classical inputs for inner forms of GL_k and unitary groups; the general slogan is an
+  Assessment — R177 repair).** Over ℚ only *definite quaternion* algebras violate Eichler's condition;
   every central simple algebra of degree ≥ 3 has one type / one locally free class (strong approximation), so all its
   local–global content is congruence data (B1). inv_∞ = 1/2 is simultaneously what makes |Diff| odd and what makes the
   ≈ p/12 class set non-trivial. The ES ray condition *is* a family of degree-k Diff-sum identities (Prop 1), but only
@@ -18,9 +21,9 @@ positive claim was needed; the numerics below are EVIDENCE with odd squares as T
   ℚ-points every class over every number field corestricts to Br ℚ ⊕ ⟨α⟩, so no cubic/quintic reciprocity on the surface.
   The individual cubic symbols are non-constant on solutions (all 50 primes p ≡ 1 (3) < 600) but obey no law.
 * **The F-rational loophole (LDP_DEEP §A.4; bsD_artin_conjugation correction).** Over F = ℚ(ζ_M)⁺ the ES ray condition
-  is a *quadratic* ray-class character η_{K/F} (conductor 𝔪·all real places): for f = N_{F/ℚ}(β), β ≡ 1 (𝔪),
+  is a *quadratic* ray-class character η_{K/F} (conductor 𝔪·all real places): for f = |N_{F/ℚ}(β)| (ideal norm; R177 repair), β ≡ 1 (𝔪),
   **f ≡ −1 (mod M) ⟺ β has an odd number of negative real conjugates** — an archimedean anchor, outside bsC Prop 1
-  (which assumes ℚ-rational data). It closes because F-Gram certificates are ES certificates over O_F and the target
+  (which assumes ℚ-rational data). It closes (Assessment; only norm descent is excluded — R177 repair) because F-Gram certificates are ES certificates over O_F and the target
   does not descend: N(−1) = (−1)^{φ(M)/2} = +1 for every ES modulus M = 4cd > 4 (Prop A.4.2). EVIDENCE: all but 5 of
   the 9732 primes p ≡ 1 (24) < 10⁶ have a Type II certificate with cd ≤ 30 whose f or f′ is an F-norm (split-supported).
 
@@ -44,7 +47,7 @@ positive claim was needed; the numerics below are EVIDENCE with odd squares as T
   only via the Dirichlet character mod q (cubic reciprocity) — no Siegel–Weil route for the R-part.
 
 ## Verdict (Assessment)
-Direction (a), the orchestrator's top pick, is **closed over number fields** by three independent PROVED mechanisms
+Direction (a), the orchestrator's top pick, is **closed over number fields** (Assessment — R177 repair) by three independent PROVED mechanisms
 (surface Brauer corestriction, Chebotarev closure, Eichler/Br ℝ), each with exact scope; (c) confirms it numerically;
 (b) collapses to the arithmetic of T (genus vacuity). The one new door (F-rational data over ℚ(ζ_M)⁺) is real as a
 dictionary but fails at descent. No route to ES.
