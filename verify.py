@@ -24829,5 +24829,33 @@ def check_fB():
 
 check_fB()
 
+def check_fC():
+    # (fC) MARKOFF_ES (O202/R202): CF dictionary for ES^[2] (Thm 4.2: 0 misses / 0 extras vs brute force, odd n <= 151)
+    # with B = 1 (ES shot family) exactly at CF depth 3 for mu > 2n and depth 1 for mu <= 2n (R202 M1), and the
+    # composition instance (R202 M2): the ES point at n = 59, mu = 126, D = 63 is a unit times a product of three
+    # deeper V_n points.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("MARKOFF subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_mk_cf.py", "3", "151", "50", "4")
+    assert "'brute': 367, 'cfmiss': 0, 'cfextra': 0" in o and "'b1_by_depth': {('>2n', 3): 65, ('<=2n', 1): 92}" in o \
+        and "'f43_bad': 0" in o, ("MARKOFF R202 CF", o)
+    o = run("review_mk_compose.py", "61", "3")
+    assert "ES point reached by composition: n 59 mu 126 D 63 = 3 * 3 * 7" in o, ("MARKOFF R202 composition", o)
+    print(f"== (fC) MARKOFF_ES R202: CF dictionary 0 misses/extras (odd n <= 151), B = 1 at depth 3 (mu > 2n) / 1; "
+          f"composition reaches the ES point at n = 59; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fC()
+
 
 print("\nall checks passed")

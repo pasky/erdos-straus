@@ -925,6 +925,25 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * p = 13, 37, 97 provably have no shot-family ES solution but do have ES^{(y,1)} ones, e.g. 4/13 = 1/6 + 1/390 + 9/65.
    * Assessment. At fixed n, ES^{(y,1)} is an infinite thin lottery of integral points with no equidistribution handle; it is not an opening for ES. Its integral-point theory is being examined by O202 (the Ghosh–Sarnak surfaces differ from S_{n,D}; Ghosh–Sarnak prove the integral Hasse principle for almost all k).
 
+37. **Spark relay W: Markoff-type surfaces, continued fractions, and composition (MARKOFF_ES.md (O202); review `reviews/markoff-es-review.md` (R202; literature checked against the arXiv full texts): no FATAL; two MAJOR (M1: "ES's shot family is exactly depth 3" is false as stated — the j = 1 shots are at depth 1; M2: "composition never reaches ES" was labelled PROVED but is false — see below); minors; repaired by the reviewer).**
+   * Literature (verified). Ghosh–Sarnak, Loughran–Mitankin, Colliot-Thélène–Wei–Xu and Dao concern the Markoff surfaces x² + y² + z² − xyz = k. GS-type counting does not transfer: the form ABC − nA² − B² represents every level trivially, and the ES content is "level divides a coordinate" (2D | C), which is B2. Erratum: arXiv 2202.07142 is by Quang-Duc Dao.
+   * Geometry and Brauer group of S_{n,D}: nA² + B² + D = ABC.
+     * Prop 2.1 (PROVED): smooth; one A₂ point at infinity; a conic bundle over the C-line; both Vieta involutions fix C.
+     * Prop 2.2 (PROVED after R202 repairs): Br/Br ℚ = (ℤ/2)² = ⟨(A, −D), (B, −nD)⟩, with no transcendental part for D non-square.
+     * Lemma 3.1: admissible D ⟺ D ≡ 3 (4), gcd(D, n) = 1, and every ℓ | D has (−n/ℓ) = 1.
+   * Props 3.3/3.4 (PROVED after repairs).
+     * T1 is a fibrewise LOCAL obstruction.
+     * The family BM class (−1, D) on V_n is unramified iff n is a square.
+     * For non-square n, every admissible fibre has a non-empty BM set.
+   * **Thms 4.1–4.3 (PROVED; R202 brute force odd n ≤ 299: 0 misses, 0 extras).** ES^{[2]}(n) ⟺ some odd-index continued-fraction denominator Q_k of √(4μ² − 4n) is odd, prime to n, and divides μ.
+     * For μ = t + nj > 2n: Q₁ = 4μ − 1 − 4n, Q₂ = 4n, Q₃ = 4tj − 1. The B = 1 (ES shot) points are exactly at depth 3 for μ > 2n and at depth 1 for μ ≤ 2n (R202 M1).
+     * This parallels the HJ length-3 statement of (J)9.
+   * Thm 5.1 (PROVED): there are no polynomial families at fixed D for non-square n.
+   * Prop 7.1(a,b) (PROVED for μ > 2n): the B = 1 locus is finite per fibre, and each Pell orbit meets it at most once.
+   * **R202 M2 (CERTIFIED example): composition DOES reach ES.** At n = 59, μ = 126 the ES point (A, B, D) = (4, 1, 63) equals a unit times a product of three deeper V_n points of norms −3, −3, −7.
+   * EVIDENCE (reproduced on 3 cells). On a single admissible fibre, a locally admissible λ is globally solvable 45–80 % of the time. The heuristic main term is polynomial, so B3/B6 do not bite, and the problem reduces to a class-group statement for the family ℤ[2√(λ²D² − n)] (Assessment).
+   * Open spark: composition as a generator of ES points from deeper ones.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
