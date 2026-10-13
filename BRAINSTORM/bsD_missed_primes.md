@@ -24,10 +24,11 @@ are BM-removed).
 * **Layers by exponent of (ℤ/4cd)^×** (each layer contains the quadratic one):
   | layer | moduli | #slices (c,d) | missed of 9732 |
   |---|---|---|---|
-  | exponent 2 (quadratic) | cd | 6 | 9 (+9 Type I, all blocked) | 71 |
-  | exponent 4 (quartic) | cd | 60 | 54 | **2** (76441, 950401) |
-  | exponent 6 (cubic/sextic) | cd | 126 | 54 | 12 (3361, 62497, 83449, …) |
-  | exponent 12 | cd | 16380 | many | 0 |
+  | exponent 2 (quadratic) | cd ∣ 6 | 9 (+9 Type I, all blocked) | 71 |
+  | exponent 4 (quartic) | cd ∣ 60 | 54 | **2** (76441, 950401) |
+  | exponent 6 (cubic/sextic) | cd ∣ 126 | 54 | 12 (3361, 62497, 83449, …) |
+  | exponent 12 | cd ∣ 16380 | 972 | 0 |
+  (R177 repair: table cells fixed; all numbers reproduced by `scripts/review_ld_missed.py`.)
   The least covering slice of a missed prime is (c,d) = (2,2) (M = 16) or (1,5)/(5,1) (M = 20), Type II, in most cases.
 
 ## Barrier screen

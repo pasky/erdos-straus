@@ -32,7 +32,7 @@ contradiction "χ(f) forced ≠ χ(target)" for Type II needs χ odd, and by (a)
 exactly the elements trivial on K ∩ ℚ(ζ_M), each hit by infinitely many ℓ; K ∩ ℚ(ζ_M) is ℚ or K. ∎
 **Cubic dictionary (PROVED via cubic reciprocity, for orientation).** For a prime q ≡ 1 (3), q = ππ̄ in ℤ[ζ₃], and
 rational f ≡ ±1 (3) prime to q: (f/π)₃ = ∏_{ℓ | f} (π/ℓ)₃^{v_ℓ(f)} (cubic reciprocity, f primary up to sign; −1 is a
-cube). So the cubic part of "f ≡ −1 (mod q)" is "π is a cube modulo the prime factors of f" — a **Kummer splitting**
+cube). So the cubic part of "f ≡ −1 (mod q)" is "∏_{ℓ|f}(π/ℓ)₃^{v_ℓ(f)} = 1" (R177 repair: a product condition, not each factor) — a **Kummer splitting**
 condition in ℚ(ζ₃, π^{1/3}), non-abelian over ℚ. ES's N are values of *quadratic* norm forms, whose prime factors
 carry no Kummer-cubic constraint; so cubic reciprocity can enter ES only through auxiliary data, never forced.
 

@@ -48,7 +48,8 @@ What is *not* free is the exact equation `ff' − 1 = cMp` with d = M/4c (a sing
 
 ## Cheap numerics
 None beyond identities (Props 1–2 are algebra; QUATERNION_ES §3.4 already shows admissible (d,e) with opposite ES
-status). The deterministic lift of Prop 2 is tested in DIFF_DEEP §2 (`scripts/bsC_involution_lift.py`).
+status). The deterministic lift of Prop 2 is sanity-checked in `scripts/review_dd_lift.py` (R176; the previously cited
+`scripts/bsC_involution_lift.py` does not exist — R176 repair D8).
 
 ## Assessment
 **Exact dictionary (PROVED), COLLAPSES to B2 for Type I; Type II is the live thread** — the ray condition is free on

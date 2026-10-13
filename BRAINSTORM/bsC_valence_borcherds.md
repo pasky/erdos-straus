@@ -19,17 +19,19 @@ divisors are Borcherds products); Shimura reciprocity / CM theory (Galois acts o
 simply transitively on each (D, r)-family through Cl(D)).
 
 ## Barrier screen
-**Prop 1 (Galois-orbit obstruction; PROVED relative to Siegel's h(D) ≫_ε |D|^{1/2−ε} and ET's f(p) ≪ p^{o(1)}).**
+**Prop 1 (Galois-orbit obstruction; PROVED relative to Siegel's h(D) ≫_ε |D|^{1/2−ε}; R176 repair D4: the
+certificate count on a fixed Z(D, r) is bounded by the divisor bound, not by a (non-existent) ET bound f(p) ≪ p^{o(1)}).**
 Let F be a modular form on Γ₀(M) with Fourier coefficients in a number field L, and suppose every zero of F in Z(D, r)
 (D = −4Mcp) is a certificate point. The zeros of F form a Gal(ℚ̄/L)-stable set, and Gal(ℚ̄/LK) acts on Z(D, r) with
-orbits of size ≥ h(D)/[L:ℚ]. Since #(certificate points) ≤ f_II(p) ≪ p^{o(1)} and h(D) ≫ p^{1/2−ε}, F has **no** zero
+orbits of size ≥ h(D)/[L:ℚ]. Since #(certificate points on Z(D, r)) ≤ Σ_{c²d = |D|/16p} τ(1 + 4c²dp) ≪ p^{o(1)} (divisor bound; D fixes c²d) and h(D) ≫ p^{1/2−ε}, F has **no** zero
 on Z(D, r) unless [L:ℚ] ≫ p^{1/2−ε}. So a valence-formula argument must use forms whose field of definition grows with
 p (≈ a ring class field), i.e. forms built from the certificates themselves (circular), or full Heegner divisors —
 which are non-empty for genus reasons and contain ≫ p^{1/2−ε} non-certificate points. ∎
 * **B2.** Heegner divisors are Γ₀(M)-class (indeed Galois-orbit) objects; the certificate shape `C + 1 = B/2` is a
   representative condition (cf. R172 D8: Kudla/Borcherds data are genus/orbit functions). Bruinier's converse theorem
   closes the loophole "some other form with CM-supported divisor": any such form is a Borcherds product with
-  Heegner-divisor support.
+  Heegner-divisor support. *(R176 D9: Bruinier's converse theorem is stated for lattices splitting hyperbolic planes;
+  a version covering X₀(M) (signature (2,1)) still needs a reference. Prop 1 does not use this sentence.)*
 * **B3.** The only forms whose zero sets are small enough (≈ p^{o(1)} points) have degree-p^{1/2} fields of definition;
   counting their zeros is the per-slice lottery again.
 * **T1.** At n = m² the analogous D = −4Mcm² Heegner divisors are non-empty (local conditions hold; QUATERNION_ES §4),

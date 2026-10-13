@@ -48,7 +48,10 @@ no global law constrains it.
 ## Cheap numerics (EVIDENCE)
 `scripts/bsD_cubic_symbol.py 600` (0.5 s): for all 50 primes p ≡ 1 (3), 7 ≤ p < 600, the cubic tame symbol of
 (−x/z, −y/z) at a prime above p is **non-constant** over the ES solutions (all three cube classes occur, e.g. p = 79:
-13/12/12), while the sum over w | p is identically 0 (Theorem 1).
+13/12/12, with the ordering u₁ ≤ u₂ ≤ u₃ — counts depend on it since (a,b)_ζ = −(b,a)_ζ), while the sum over w | p is
+identically 0 (R177 repair: automatic at a split prime — the two embeddings read the same 𝔽_p element against ω and
+ω² — so this is a sanity identity, not evidence for Theorem 1; Theorem 1 is about unramified classes, ramified
+classes on opens being dismissed by Harari's formal lemma).
 
 ## Assessment
 PROVED obstruction with exact scope: **no higher-order reciprocity on the ES surface over any number field beyond

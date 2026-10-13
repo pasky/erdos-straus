@@ -617,6 +617,62 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §2 (PROVED). Positivity of E′(τ,0)_T is automatic at certificate indices. Diff = {p} indices exist at every prime deterministically (Dirichlet). Kudla data are genus-invariant (Prop 2.4′, R172), so the Kudla-visible count is a T1-respecting genus majorant. ES is its ray-class upgrade (4c | q + 1), i.e. B2. Exact split ES = Q + R: Q is the quadratic-character part (≈ κ·τ(N)/φ(M), zero at squares), R is the part from characters of order ≥ 3, which has no orthogonal Siegel–Weil incarnation (R172 D9 corrected a false visibility claim).
    * Assessment: the Kudla program sees exactly the genus/sign layer of (J)11; no existence mechanism. Open sparks: a uniform-in-M big-CM/unitary aggregate over ℚ(ζ_{4cd})⁺, and unitary U(1,1) Siegel–Weil for the order-≥3 part R (pursued by spark relay O176).
 
+14. **Sign-layer brainstorm B and the F₃[T] slice census (SIGNLAYER_DEEP.md + 8 memos BRAINSTORM/bsB_* (O175); review `reviews/signlayer-deep-review.md` (R175): no FATAL; 5 MAJOR (D4, D6, D10, D11, D16) and minors, repaired by the reviewer).**
+   * Lemma 1.1 (PROVED, relative to the FF2 §0.2 Case B reduction; R175 verified it against direct factorisation). On the sub-slice u ≡ 1 (T), u ≢ 1 (T²) of points x ≡ 1 off T (q = 3, A = T²), Case B families of level K are the monic h₁, h₁′ with h₁ + h₁′ = T g′ r, h₁h₁′L″ = T^K + r, plus one T-adic congruence. Each level is therefore a finite search. This refutes the FF2 divergence heuristic, independently of O173.
+   * CERTIFIED (exhaustive; exact rationals reproduced independently by R175 through K = 15): covered measure of the sub-slice (normalised Haar measure of the T-adic digit space of the slice, NOT Haar measure on R̂^*, where the whole slice is null — cf. O179 Thm 3.2) is 1/3, 11/27, 37/81, 113/243, 343/729, … → 0.4906 at K = 19. The search is complete for N + γ ≤ K + 1, i.e. all levels N ≤ 10 with every g (R175 D4 corrected an "N ≤ 18" overclaim). x*_{±1} = 1 ± T is uncovered throughout.
+   * Coverage near x* is far below average: zero inside u ≡ 1 + cT (mod T⁵) for K ≤ 13. Symmetries u ↦ u⁻¹ and u(T) ↦ u(−T) (PROVED; (ii) needs FF2's degree parity). Of the six height-1 slice points, (1 ± T)/(1 ∓ T) are covered (R175 D8), so height 1 alone does not explain sterility. EVIDENCE/Assessment: about half the sub-slice stays uncovered, so O(3, T²) ∩ slice would have positive slice measure (O(3, T²) itself is Haar-null in R̂^*: O179 Thm 3.2).
+   * Sign-layer dictionaries (PROVED, elementary). The ES sign is the ℤ/n-half of a Zolotarev transpose permutation, the weight-½ theta multiplier of the certificate matrix, the real orthant of one cubic (= Bright–Loughran Thm 1.2/1.5 on the slice), and the genus character on the anti-invariant part of the ray class group.
+   * Ray-class pullback (bsB_rayclass_norm_pullback). Fixed-(t,p) Hecke-character / L-function / Eisenstein detectors use only χ∘N, so they see the ray-class condition only through characters pulled back from ℚ. Scope (R175 D10): this does not cover all ray-class proof mechanisms, so the (J)5 Remark 10.4 hatch is narrowed, not closed. For prime t ≡ 3 (4), the 2-primary (Rédei/governing-field) part of the class condition is exactly the genus sign; the remainder is odd-order (H-D residue).
+   * EVIDENCE (R175 reproduced): single-slice W(n) ≥ 1 for all primes p ≡ 1 (4) ≤ 2·10⁶. The non-square zeros are 26 composites with small factors. W(105·k²) > 0, so a Shimura-type zero propagation fails.
+
+15. **HJ/Farey brainstorm A: SQ₅ splits into Lorenzini's A₃ question and a sign half (HJ_DEEP.md + 9 memos BRAINSTORM/bsA_* (O174); review `reviews/hj-deep-review.md` (R174): no FATAL; one MAJOR quantifier error (D1) and ~16 minors, repaired by the reviewer).**
+   * Lemma 1.1 (PROVED). Master identity: tuv − u − v = n ⟺ t/n = 1/(uv) + 1/(un) + 1/(vn).
+   * Prop 2.1/2.2 (PROVED). All of Type II = *formal* three-letter words K(a, 4cd, b) = cn; outer letters may be 1, e.g. 4/5 = 1/2 + 1/5 + 1/10. The sign is automatic: (A/n) = −(−1/n) for every odd n. This is the HJ dress of Yamamoto's lemma.
+   * §3 (PROVED, pointwise, given (J)9 Thm 4.5). For n ≡ 1 (4): interior-SQ₅(n) ⟺ W(n) ∧ S(n).
+     * W(n) is sign-free: n = xyz − x − z for some x, y, z ≥ 2.
+     * S(n) is the sign half: if n is a non-square with a length-3 word, some word has Jacobi symbol −1.
+   * **The global (W) is exactly the open question of Lorenzini on the critical polynomial of the path graph A₃** (arXiv:2311.06367 / JNT 2024, Example 6.2(a), quotation verified by R174). Its conjectured exceptional set is {0,1,2,3,5,6,9,11,14,15,35,105,510}. The global (W) is *stronger* than what ES needs (R174 D1). EVIDENCE (R174, independent algorithm, to 10⁹): the (W)-exceptions are exactly Lorenzini's list, (S) has 0 violations, and no odd square has a −1 word. DK's lone SQ₅ exception 105 is a (W)-exception: it has no length-3 word at all.
+   * Lemma 3.2 (PROVED): no finite fixed-pair congruence covering proves (W).
+   * Prop 4.1 (PROVED, a reformulation): (S) fails at n ⟺ for all t, every admissible divisor X ≡ −1 (t) of tn + 1 lies in the kernel of q ↦ (q/n).
+   * Memos (PROVED unless noted).
+     * The ES sign is the Wu square of the plumbing lattice, (A/n) = +1 ⟺ w·w ≡ n + r − 1 (mod 8) (Thm W, r ≤ 5 by mod-8 check). The Rokhlin reading is corrected by R174 for n ≡ 3 (4).
+     * HJ length = popcount ∘ Minkowski ? (M1, checked to n < 2000), so five-slice ES(p) is a statement about Stern's diatomic sequence.
+     * λ(p) ≤ (6/π² + o(1)) ln²p unconditionally, relative to Yao–Knuth (no ES content).
+     * (A/p) = −1 ⟺ L(p,A) is not homotopy-equivalent to L(p,1).
+     * Fricke/Markoff: Vieta dynamics acts on the fibre and ES lives on the base.
+   * Assessment: no route to ES. (W) is a published, T1-free, sign-free sub-problem with a clean exceptional set; it is the natural test bed for H-A ideas (pursued by spark relay O180).
+
+16. **Spark relay C on the Kudla dictionary: supersingular transfer and Type II as a two-endomorphism lattice condition (DIFF_DEEP.md + 8 memos BRAINSTORM/bsC_* (O176); review `reviews/diff-deep-review.md` (R176): no FATAL; 3 MAJOR (D1, D2, D4) and 8 minors, repaired by the reviewer).**
+   * Thm 2.1 (PROVED; exact brute force for all odd n ≤ 2001 by R176). For odd n, Type II tuples correspond bijectively to triples (f, f′, c) with n | ff′ − 1, 4c² | h and h | cG, where h = (ff′ − 1)/n and G = gcd(f+1, f′+1). Such a c exists iff 4h | gcd(h, G)².
+     * Geometric form (LD_p): some supersingular E/F̄_p carries trace-zero x, y ∈ End E with ⟨x, y⟩ = 1 satisfying this exact divisibility.
+     * The slice parameters disappear. This is a restatement of (I)4, not new arithmetic.
+     * The relaxed gloss "level G ≥ 2√h" is vacuous: it holds for non-certificate pairs at 437/438 primes (R176 D1).
+   * Supersingular transfer (PROVED). A configuration of Gram T exists on some supersingular curve iff Diff(T) = {p}.
+     * Hence "∃ curve" is genus-vacuous.
+     * "∀ curve" is false: Λ_{d,ab} is an Eichler order of level e and lies in exactly τ(e) maximal orders.
+   * Prop 2.3 (PROVED, absolute constant): the ray condition is free on one endomorphism. For every maximal order O of B_{p,∞}, every M and every involution x₀ mod M, some x ∈ O⁰ has x ≡ x₀ (mod MO) and nrd x ≪ M²p. The B2 cost moves to the exactness of the second endomorphism (B3 in geometry-of-numbers form; Assessment).
+   * Type II is commutative (PROVED; 27 788 tuples): (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dn], k = √−dn. The "non-commutative" label of QUATERNION_ES §3 is presentational.
+   * bsC_parity_quadratic_only Prop 1 (PROVED as literally stated). For a quadratic Hecke character η and ℚ-rational data t, Diff-parity sees a rational prime only through one quadratic Dirichlet character.
+     * Cor 2: "f ≡ −1 (mod M)" is a Boolean function of quadratic characters ⟺ M | 24.
+     * The slogan "parity over any base carries only quadratic information" is FALSE for F-rational data (R176 D2: over ℚ(ζ₁₃)⁺ hermitian invariants detect 4th powers mod 13). This is the opening O177 pursued.
+     * EVIDENCE (reproduced): the 9 + 9 quadratic slices (cd | 6) miss 71 of the 9732 primes p ≡ 1 (24) < 10⁶.
+   * Further results.
+     * Galois-orbit obstruction for Heegner-point readings of Type II (PROVED relative to Siegel and the divisor bound; R176 D4 replaced a non-existent ET citation).
+     * Ibukiyama's canonical curve carries a Type II configuration for 144/267 primes p ≡ 1 (24) < 2·10⁴ (EVIDENCE, reproduced). There is no privileged-curve effect.
+
+17. **Spark relay D: higher-order reciprocity is closed over number fields; the "degree-2 accident" (LDP_DEEP.md + 8 memos BRAINSTORM/bsD_* (O177); review `reviews/ldp-deep-review.md` (R177): no FATAL; one false-as-written statement (D1, intended content right), one sign-flipping wording error (D4a), and label/scope overreaches, all repaired by the reviewer).**
+   * bsD_brauer_cores Thm 1 (PROVED relative to Bright–Loughran Thm 1.6; citations checked in sources/). Order-m transcendental Brauer classes exist on the ES surface over ℚ(μ_m). On ℚ-points, every class over every number field corestricts to Br ℚ ⊕ ⟨α⟩, so the surface carries no cubic or quintic reciprocity law.
+   * bsD_frobenius_closure Thm 2 (PROVED; 19 934 closure tests). The primes that can divide a slice's N generate (ℤ/M)^× or an index-2 subgroup (ψ of ℚ(√−dn), resp. ℚ(√−d)). This recovers T1, the BL Type I level condition, and "no Type II level is obstructed at primes".
+   * Degree-2 accident (Prop A.3.1–2 PROVED for maximal orders; the global slogan is an Assessment, R177 D2c).
+     * Over ℚ only definite quaternion algebras violate Eichler's condition. Under Eichler's condition, class sets are ray class groups via nrd, so class invariants are functions of finitely many Dirichlet characters.
+     * Precise form offered by R177 (reviewer's derivation, to be checked against Kottwitz 1986 before it is labelled PROVED): for a semisimple ℚ-group compact at ∞, the Kottwitz incoherence group π₀(Z(Ĝ)^Γ)^D is 2-torsion. In this form, Diff-parity is 2-torsion because the archimedean place is.
+     * The loophole is F_q(T), where Br(F_∞) = ℚ/ℤ (pursued by O181).
+   * F-rational loophole, §A.4 (Prop A.4.1 PROVED; "closed" is an Assessment, R177 D4c). Over F = ℚ(ζ_M)⁺, f ≡ −1 (mod M) is a quadratic ray-class condition: β has an odd number of negative real conjugates. It does not descend, because N(−1) = +1 for every M = 4cd > 4.
+     * EVIDENCE (reproduced exactly): all but 5 of the 9732 primes p ≡ 1 (24) < 10⁶ have a cd ≤ 30 Type II certificate with f or f′ an F-norm.
+     * Caveat (R177 D5): 54% of certificates have a prime side, and a prime side is automatically an F-norm.
+   * EVIDENCE (reproduced). Of the primes p ≡ 1 (24) < 10⁶, the slice layers miss 71 (cd | 6), 2 (cd | 60), 12 (cd | 126) and 0 (cd | 16380). The misses are locally square (68% have (p/5) = (p/7) = 1, against 24% overall), and their cubic data are unbiased. There is no cubic layer; ordering by modulus size is a lottery.
+   * Assessment: direction (a) (higher-order Diff-parity over number fields) is closed by three scoped PROVED mechanisms. The function-field loophole remains open.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

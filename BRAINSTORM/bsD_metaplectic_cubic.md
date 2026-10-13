@@ -19,13 +19,13 @@ arguments*, J. reine angew. Math. 310 (1979); Kazhdan–Patterson, *Metaplectic 
 details unverified in this session.
 
 ## Analysis
-**Prop 1 (the μ₈ of the Weil index adds no order ≥ 3 information about ℓ; PROVED from the explicit formula).** For
+**Prop 1 (the μ₈ of the Weil index adds no order ≥ 3 information about ℓ; CONDITIONAL on the explicit formula as recalled — R177 repair).** For
 odd ℓ and a non-degenerate quadratic space V over ℚ_ℓ, γ_ℓ(V) is a product of ε_ℓ^{k} (ε_ℓ = 1 if ℓ ≡ 1 (4), i if
 ℓ ≡ 3 (4)), Legendre symbols of unit parts of det V, and the Hasse invariant (Rao, Thm A.4-type formula). As a
 function of the rational prime ℓ (V fixed rational data), ℓ ↦ ε_ℓ is a function of ℓ mod 4, i.e. of the quadratic
 character (−1/ℓ). So the parity mechanism of bsC_parity_quadratic_only Prop 1 extends verbatim to Weil indices:
 **μ₈-valued incoherence still sees ℓ only through quadratic characters** (ℓ = 2 is a fixed place).
-**Prop 2 (cubic theta sees only Dirichlet data of f; PROVED from cubic reciprocity).** Patterson's cubic theta function
+**Prop 2 (cubic theta sees only Dirichlet data of f; CONDITIONAL on the recalled form of Patterson's coefficients — R177 repair).** Patterson's cubic theta function
 on the cubic cover of GL₂/ℚ(ζ₃) has coefficients τ(m) built from cubic Gauss sums g(m), which depend on m through
 cubic residue symbols (·/m)₃. For the ES divisor f (rational, prime to 3q) and π | q (q ≡ 1 mod 3), cubic
 reciprocity gives (π/f)₃ = (f/π)₃ = a cubic Dirichlet character of f mod q. So any cubic-theta weighting of
@@ -43,6 +43,7 @@ information (B6).
   **T1** passes (no forcing claimed).
 
 ## Assessment
-Negative (PROVED reductions, Prop 1–2; literature statements from memory). The "cubic Siegel–Weil" world exists
+Negative (CONDITIONAL reductions, Prop 1–2 — R177 repair; the "no dual-pair theta correspondence for n ≥ 3" bullet
+should read "no Siegel–Weil identity ingesting a quadratic Gram matrix is known"; literature statements from memory). The "cubic Siegel–Weil" world exists
 (Kubota–Patterson) but its coefficients see the ES divisor only through the Dirichlet character mod q (by cubic
 reciprocity) or through averaged Gauss-sum arguments; and it cannot ingest ES's quadratic Gram data. Promise 0–1.

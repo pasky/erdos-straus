@@ -11,14 +11,15 @@ T1 control (0 solutions throughout).
   PROVED, elementary; brute-force checked for all primes and odd squares n ≤ 300).** For odd n: Type II tuples ↔ (f, f', c)
   with n | ff' − 1, 4c² | h, h | cG, where h = (ff' − 1)/n and G = gcd(f + 1, f' + 1); a c exists iff
   **4h | gcd(h, G)²**. Geometrically: ES Type II(p) ⟺ some supersingular E/𝔽̄_p has trace-zero x, y ∈ End E with
-  ⟨x, y⟩ = 1 whose Gram "level" G is ≥ 2√h, h = det/p. Kaneko gives h ≥ 1; the slice parameters (c, d) disappear
+  ⟨x, y⟩ = 1 with 4h | gcd(h, G)², h = det/p. *(R176 repair D1: the earlier gloss "level G ≥ 2√h" is only necessary,
+  and vacuous — non-certificate pairs with G ≥ 2√h and Diff = {p} exist for 437/438 primes 5 < p < 3000.)* Kaneko gives h ≥ 1; the slice parameters (c, d) disappear
   (they are recovered from h and G). Caveat: an exact restatement of (I)4, not new arithmetic.
 * **The ray condition is free on one endomorphism (DIFF_DEEP Prop 2.3, PROVED).** For every maximal order O of B_{p,∞},
   every M (p ∤ M) and every involution x₀ mod M there is x ∈ O⁰ with x ≡ x₀ (mod MO), so nrd x ≡ −1 (mod M), with
   nrd x ≪ M²p. The B2 core moves into an *exactness* condition on the second endomorphism, with a gap factor ≍ f^{3/2} ≥
   M^{3/2} in the determinant (Prop 2.4, Assessment) — B3 in geometry-of-numbers form.
 * **Diff-parity over ANY base field sees a rational prime only through one quadratic Dirichlet character
-  (bsC_parity_quadratic_only Prop 1, PROVED).** Hence unitary / big-CM incoherence (O172 spark 4) cannot carry order-≥3
+  (bsC_parity_quadratic_only Prop 1, PROVED for ℚ-rational Diff data; F-rational data escape it — R176 D2).** Hence unitary / big-CM incoherence (O172 spark 4) cannot carry order-≥3
   characters; parity can certify the ES ray condition only on slices with 4cd | 24 (Cor 2). EVIDENCE: those 9+9
   quadratic slices cover all but 71 of the 9732 primes p ≡ 1 (24) below 10⁶ (first misses 3361, 31081, 34897, …).
 
@@ -26,13 +27,13 @@ T1 control (0 solutions throughout).
 * §1 (DIFF_DEEP; bsC_supersingular_transfer): **supersingular transfer** — a configuration of Gram T exists on some
   supersingular curve iff Diff(T) = {p}; so "∃ curve" is genus-vacuous (answers the orchestrator's main question:
   no). "∀ curve" is false: Λ_{d,ab} is an Eichler order of level e, lies in exactly τ(e) maximal orders, e ≤ (p+1)²+1,
-  so Type I certificates sit on ≪ p^{o(1)} curves (PROVED rel. ET; asymptotic only — at p ≈ 10⁴ f_I(p) still ≥ p/12).
+  so Type I certificates sit on ≪ p^{3/5+o(1)} curves (PROVED rel. ET Prop 1.7; R176 D4; asymptotic only — at p ≈ 10⁴ f_I(p) still ≥ p/12).
 * §2.5 canonical curve (EVIDENCE): Ibukiyama's curve O(q, r) carries a Type II configuration (f' ≤ 4p) for 144/267 primes
   p ≡ 1 (24) < 2·10⁴, slowly decaying by block (47/76 → 33/67) while certificates per p grow; no privileged-curve effect.
 * §3: Type I via Eichler orientation (the orientation runs over all roots of −m, so it is free); unlike Type II, Type I
   needs a factorisation m = ab, which is not a Gram-matrix condition — Type II is the better test bed.
 * bsC_valence_borcherds: Type II certificate = Heegner point of Z(−4Mcp, 0) on X₀(M) with representative shape
-  C + 1 = B/2; Galois-orbit obstruction (orbits ≫ p^{1/2−ε} vs p^{o(1)} certificates; PROVED rel. Siegel + ET).
+  C + 1 = B/2; Galois-orbit obstruction (orbits ≫ p^{1/2−ε} vs p^{o(1)} certificates on a fixed Z(D,r) by the divisor bound; PROVED rel. Siegel — R176 D4).
 * bsC_typeII_commutative: Type II ⟺ (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dn] (checked on 336357 tuples) — the
   "non-commutative" label of QUATERNION_ES §3 is presentational.
 * bsC_fourier_jacobi (B1/B6/B2), bsC_isogeny_ramanujan (B3/B2), bsC_arithmetic_topology (dictionary only).

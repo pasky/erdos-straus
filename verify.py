@@ -24174,5 +24174,154 @@ def check_fg():
 
 check_fg()
 
+def check_fh():
+    # (fh) SIGNLAYER_DEEP (O175/R175): reviewer from-scratch F_3[T] Case B enumeration on the slice x = 1 off T
+    # (exact covered measures, x* uncovered), the single-slice W table (T1 control, non-square zeros), Zolotarev.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SIGNLAYER subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_sl_caseB.py", "enum", "11")
+    for s in ["K<= 2: union measure 0.333333 = 1/3", "K<= 5: union measure 0.407407 = 11/27",
+              "K<= 8: union measure 0.456790 = 37/81", "K<= 10: union measure 0.465021 = 113/243",
+              "K<= 11: union measure 0.470508 = 343/729  x*_1,x*_2 covered [False, False]"]:
+        assert s in o, ("SIGNLAYER R175 Case B measures", s, o)
+    assert "covered [True" not in o, ("SIGNLAYER R175 x* covered?", o)
+    o = run("review_sl_wcount.py", "200000")
+    assert "odd squares with W != 0: []" in o and "prime zeros: []" in o and \
+        "non-square zeros n = 1 mod 4: 20 [105, 465, 585, 801," in o, ("SIGNLAYER R175 W table", o)
+    o = run("review_sl_zolo.py", "300")
+    assert "certificates 237 explicit transposes 170 violations 0" in o, ("SIGNLAYER R175 Zolotarev", o)
+    print(f"== (fh) SIGNLAYER_DEEP R175: F_3[T] Case B slice covered measure 1/3, 11/27, 37/81, 113/243, 343/729 "
+          f"(K <= 11), x* uncovered; W(n) = 0 at all odd squares, no prime zero, 20 non-square zeros <= 2e5; "
+          f"Zolotarev sign 0 violations; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fh()
+
+def check_fi():
+    # (fi) HJ_DEEP (O174/R174): Lorenzini's A_3 question (W) exceptions and the sign half (S) of SQ5 (reviewer's own
+    # per-n divisor search, C), Wu-square sign law Thm W, Type II = formal words K(a,4cd,b) = cn with sign law.
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("HJ_DEEP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "(W)/(S) C check skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "review_hj_ws")
+            r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_hj_ws.c"), "-lm"],
+                               capture_output=True, text=True, timeout=120)
+            assert r.returncode == 0, ("HJ_DEEP: compile failed", r.stderr[-1000:])
+            r = subprocess.run([exe, str(10 ** 7)], capture_output=True, text=True, timeout=300)
+            assert r.returncode == 0, ("HJ_DEEP review_hj_ws failed", r.stderr[-500:])
+            o = r.stdout
+            assert "(W) exceptions: 2 3 5 6 9 11 14 15 35 105 510" in o and "#S violations=0" in o and \
+                "with -1 word=0" in o, ("HJ_DEEP R174 (W)/(S)", o)
+            cmsg = "(W) exceptions <= 1e7 = Lorenzini list, (S) 0 violations"
+    o = run("review_hj_wu.py")
+    assert "24692 odd words, 0 failures" in o and "39278 odd words, 0 failures" in o and "10948 words, 0 failures" in o, \
+        ("HJ_DEEP R174 Thm W", o)
+    o = run("review_hj_typeII.py", "3000")
+    assert "Type II tuples (a<=b) 9431; identity failures 0" in o and "sign-law failures 0; tuples at odd squares: 0" in o, \
+        ("HJ_DEEP R174 Prop 2.1/2.2", o)
+    print(f"== (fi) HJ_DEEP R174: {cmsg}; Wu-square sign law 0 failures; Type II = formal HJ words, sign law "
+          f"(A/n) = -(-1/n), 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fi()
+
+def check_fj():
+    # (fj) DIFF_DEEP (O176/R176): Thm 2.1 (Type II <-> (f,f') with 4h | gcd(h,G)^2, brute force, odd n <= 2001),
+    # the 71/9732 primes p = 1 (24) < 1e6 missed by the 9+9 quadratic slices, Type II commutative identity.
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_dd_identities.py", "3001"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("DIFF_DEEP subprocess", r.stderr[-2000:])
+    assert "Type II tuples, odd n<=3001: 27788; failures (a) 0, (b) 0" in r.stdout and "(d) 0" in r.stdout, \
+        ("DIFF_DEEP R176 identities", r.stdout)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C checks skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            outs = {}
+            for name, arg in (("review_dd_thm21", 2001), ("review_dd_slices", 10 ** 6)):
+                exe = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, name + ".c"), "-lm"],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("DIFF_DEEP: compile failed", name, r.stderr[-1000:])
+                r = subprocess.run([exe, str(arg)], capture_output=True, text=True, timeout=300)
+                assert r.returncode == 0, ("DIFF_DEEP checker failed", name, r.stderr[-500:])
+                outs[name] = r.stdout
+            assert "total tuples 16054, mismatching n: 0, odd squares 21 (with solutions: 0)" in outs["review_dd_thm21"], \
+                ("DIFF_DEEP R176 Thm 2.1", outs["review_dd_thm21"])
+            assert "9732 primes, 71 uncovered by the 9+9 slices cd|6" in outs["review_dd_slices"], \
+                ("DIFF_DEEP R176 quadratic slices", outs["review_dd_slices"])
+            cmsg = "Thm 2.1 exact on 16054 tuples (odd n <= 2001); 9+9 quadratic slices miss 71/9732 primes = 1 (24) < 1e6"
+    print(f"== (fj) DIFF_DEEP R176: {cmsg}; Type II commutative identity on 27788 tuples; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fj()
+
+def check_fk():
+    # (fk) LDP_DEEP (O177/R177): quadratic/quartic/sextic slice layers on primes p = 1 (24) < 1e6 (71 / 2 / 12 / 0
+    # missed), split-supported (F-norm) Type II certificates with cd <= 30 to 2e5, T1 control.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("LDP_DEEP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_ld_missed.py", "1000000")
+    for s in ["primes 9732  Type I hits in cd|6 slices (should be 0, BM-blocked): 0", "missed by cd|6: 71",
+              "missed by cd|60: 2 [76441, 950401]", "missed by cd|126: 12 [3361, 62497,",
+              "missed by cd|16380 (checked on the cd|60 and cd|126 survivors; others are covered a fortiori): []"]:
+        assert s in o, ("LDP_DEEP R177 missed primes", s, o)
+    o = run("review_ld_split.py", "200000", "30")
+    for s in ["no Type II cert: 0 []", "no cert with f or f' in S2 (exact F-ideal norm): 3 [3361, 53089, 76441]",
+              "odd squares < 4e4: Type II divisor hits (cd <= 30 ): 0"]:
+        assert s in o, ("LDP_DEEP R177 split-supported", s, o)
+    print(f"== (fk) LDP_DEEP R177: p = 1 (24) < 1e6 missed by slices cd|6 / cd|60 / cd|126 / cd|16380: 71 / 2 / 12 / 0; "
+          f"F-norm Type II certificates (cd <= 30) for all but 3 primes p = 1 (24) < 2e5, 0 at odd squares; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fk()
+
 
 print("\nall checks passed")
