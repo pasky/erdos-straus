@@ -1,0 +1,12 @@
+done l=0 hits_l=0 total=0 tested=0
+done l=1 hits_l=0 total=0 tested=1
+done l=2 hits_l=0 total=0 tested=26
+done l=3 hits_l=0 total=0 tested=168
+done l=4 hits_l=0 total=0 tested=860
+done l=5 hits_l=0 total=0 tested=3594
+done l=6 hits_l=0 total=0 tested=13995
+done l=7 hits_l=0 total=0 tested=51032
+done l=8 hits_l=0 total=0 tested=181031
+done l=9 hits_l=0 total=0 tested=623431
+done l=10 hits_l=0 total=0 tested=2114532
+done l=11 hits_l=0 total=0 tested=7064824
