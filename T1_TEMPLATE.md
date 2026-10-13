@@ -176,3 +176,32 @@ step that is false at p = m² (every 𝔮 has (m²/𝔮) = 1). Unconditional var
 * B1 (congruence data): violated — the input is Chebotarev in K(√p) plus Artin for φ.
 **Assessment.** The obstruction to transplanting this to ES is exactly the absence over ℚ of a mute real place: a
 2-torsion T1 over ℚ needs the unique real place pinned, units are ±1, and the orbit is the single number p + 4.
+
+**EVIDENCE (`scripts/t1t_phi_scan.py 1000000 12 2000`, log `logs/t1t_phi_scan_1e6.txt`).** All 78 496 primes
+3 ≤ p < 10⁶, p ≠ 5, have V_φ(p) solved by Prop 1.2 (every solution verified exactly): min |k| = 0, 1, …, 8 for
+42589, 29024, 5727, 925, 180, 41, 8, 1, 1 primes. T1 control: no odd square m², m < 2000, 5 ∤ m, has a k with
+|k| ≤ 12 (as Thm 1.3(a) proves).
+
+## 4. The natural version: ES over a ring with ONE real place and infinite units
+
+Cor 2.2 needs only F = ∅ and |P| odd. A field with exactly one real place (r₁ = 1, r₂ ≥ 1) satisfies this with
+plain positivity and no sign pattern: **ES_K(n): 4/n = 1/x + 1/y + 1/z, x, y, z ∈ O_K positive at the real place**
+is T1-bearing (PROVED, Cor 2.2), and O_K^* has rank r₂ ≥ 1. Example K = ℚ(θ), θ³ = 2, O = ℤ[θ] (h = 1,
+norm-Euclidean), ε = θ − 1 > 0 a unit. Prop 1.2 holds verbatim with η = ε^k (any k ∈ ℤ, η > 0; no mute place
+needed), a_k = n + 4ε^k = e·g, g ≡ −1 (mod 4), g > 0, e > 0.
+**EVIDENCE (`scripts/t1t_cbrt2.py 3000 8 200`).** All primes 3 ≤ p < 3000 are solved (min |k| = 0, 1, 2, 3, 4, 7
+for 332, 70, 23, 2, 1, 1 primes; e.g. p = 13, k = 2: x = 7 + 3θ + 2θ², y = 13(θ² − θ), z = 312 + 221θ + 182θ²);
+no odd square m², m < 200, has a unit solution with |k| ≤ 8 (T1 control).
+*Status:* the T1 for ES_{ℚ(∛2)} is PROVED (Cor 2.2); the unit mechanism's character criterion is the analogue of
+Thm 1.3 with Cl_{4∞}(K) (a 2-group, possibly larger than ℤ/2: a sub-product of prime factors of a_k must land in the
+class of (−1, +)) — not yet written out (spark S1).
+**Route to an UNCONDITIONAL theorem (Assessment / plan, not done).** Theorem 3.1's only GRH input is "the units
+generate (O/𝔮)^* (or at least contain −n/(4η₀)·U^{+2}) for some degree-1 prime 𝔮 satisfying two quadratic
+Chebotarev conditions". For unit groups of rank ≥ 4 there are unconditional results of exactly this type
+(Gupta–Murty's method as used by Harper–Murty, *Euclidean rings of algebraic integers*, Canad. J. Math. 56 (2004):
+≫ x/log²x degree-1 primes with O^* ↠ (O/𝔮)^*; the rank threshold comes from the count x^{3(r+1)/(4r)} < x of
+primes where the unit image is small, given a sieve producing ℓ − 1 with odd prime factors > ℓ^{1/4}). If that
+sieve accepts the extra congruence condition (p/ℓ) = −1 (a condition on ℓ mod 4p, which Bombieri–Vinogradov-type
+inputs handle for fixed p), then **ES_K(p) would hold for every rational prime p unconditionally** for any field K
+with r₁ = 1 (or any |P| odd, M with a unit of the right signature), h_K = 1 (or a ray-class version) and unit rank
+≥ 4 (e.g. r₁ = 1, r₂ = 4, degree 9) — a T1-bearing ES variant proved at all primes. This is the next step.
