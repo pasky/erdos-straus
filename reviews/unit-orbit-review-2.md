@@ -15,7 +15,7 @@ correct. No FATAL or MAJOR defect found; 6 MINOR defects (m1–m6 below, wording
 | Prop 2.1 (orbit-shot ⇒ ES^{(S)} solution, Type II shape, parity) | SOUND |
 | Lemma 2.2 (linear sieve on (r−1)/2 in a progression) | SOUND (standard) |
 | Lemma 2.3 (few r with small ⟨S⟩ mod r) | SOUND (= Gupta–Murty Lemma 2, k generators) |
-| **Thm 2.4(a)** (|S| ≥ 4: every non-square n coprime to 2S solvable) | **SOUND** (minor wording/effectivity repairs m1–m3) |
+| **Thm 2.4(a)** (#S ≥ 4: every non-square n coprime to 2S solvable) | **SOUND** (minor wording/effectivity repairs m1–m3) |
 | Lemma 1.1 / Cor 1.2 / **Thm 2.4(b)** (T1 of ES^{(S)}) | SOUND-AFTER-REPAIRS (m4: quantifier in (b)) |
 | **Thm 5.1** (V_φ: ≪ X^{3/4} log²X exceptions) | **SOUND** |
 | Remark (4) of §2, §3, §4, §6, Thm 5.2 | not reviewed in depth (outside R190 focus) |
