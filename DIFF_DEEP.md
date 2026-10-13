@@ -40,3 +40,54 @@ certificate. (bsC_supersingular_transfer Prop 3; asymptotic only — numerically
   which turn the count into the split-plane coset count (B2);
 * (H4) *parity sees quadratic data* — over every base field (bsC_parity_quadratic_only Prop 1); the ray condition
   is quadratic only for M | 24.
+
+## 2. Type II as a level-versus-determinant condition on a pair of special endomorphisms
+
+Notation: for trace-zero x, y in a maximal order O ⊂ B_{p,∞}, ⟨x,y⟩ := trd(xȳ)/2, T(x,y) its Gram matrix. For an
+odd n ≥ 3 and integers f, f' ≥ 1 put `h := (ff' − 1)/n`, `G := gcd(f+1, f'+1)` (the *level* of [[f,1],[1,f']]: the
+largest G with `fX² + 2XY + f'Y² ≡ −(X − Y)² (mod G)`).
+
+**Theorem 2.1 (Type II = level vs determinant; PROVED, elementary).** Let n ≥ 3 be odd. Type II tuples (a,b,c,d) of n
+with a ≤ b are in bijection with triples (f, f', c), f ≤ f', such that
+`n | ff' − 1`, `4c² | h`, `h | c·G`,
+via f = 4acd − 1, f' = 4bcd − 1 and, conversely, d = h/(4c²), M := 4cd = h/c, a = (f+1)/M, b = (f'+1)/M. A valid c
+exists iff **`4h | gcd(h, G)²`** (take c = h/gcd(h,G)). In particular, for n = p:
+**Type II(p) ⟺ some supersingular E/𝔽̄_p has trace-zero x, y ∈ End E with ⟨x,y⟩ = 1 whose Gram determinant
+ph = nrd(x)nrd(y) − 1 satisfies 4h | gcd(h, level)².**
+*Proof.* (⇒) ff' = 1 + 4c²dn (O131/(I)4), so h = 4c²d = cM, and M | f+1, f'+1, so M | G, i.e. h | cG. (⇐) M := h/c is an
+integer divisible by 4c·(h/4c²)/… — precisely M = 4c·d with d = h/(4c²) ∈ ℤ; M | G gives a, b ∈ ℤ_{≥1}; then
+ff' = 1 + nh = 1 + 4c²dn and f ≡ f' ≡ −1 (M), which is (I)4's Type II criterion. Minimal c: h | cG ⟺ (h/g) | c with
+g = gcd(h,G); 4c² | h is then weakest at c = h/g, giving 4h²/g² | h ⟺ 4h | g². Geometric form: Thm 1.1 applied to
+T = [[f,1],[1,f']], whose Diff is {p} by KUDLA_ES Thm 1.4. ∎
+*Check* (`scripts/bsC_level_det.py 300`, 13 s): for every prime and odd square n ≤ 300, brute-force enumeration of
+(f, f', c) with ff' up to the largest certificate value reproduces the tuple count exactly (68 values of n, 0
+mismatches; 0 solutions at the odd squares, the T1 control).
+
+**Proposition 2.2 (the Gram form; PROVED).** With M = 4cd: `fX² + 2XY + f'Y² = M(aX² + bY²) − (X − Y)²`, so the
+binary lattice ℤx + ℤy is "a scaled diagonal lattice minus a square". On E[M] (p ∤ M), x and y act as involutions
+(x² = −f ≡ 1), x + y is nilpotent ((x+y)² = −Mce), and k := xy + 1 is trace-zero with k² = −4c²dp (bsC_eichler_
+orientation Prop 2). Type II is the commutative identity (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dp]
+(bsC_typeII_commutative Lemma 1).
+
+**Proposition 2.3 (the level is free on one endomorphism; PROVED).** Let O be any maximal order of B_{p,∞}, M ≥ 2
+with p ∤ M, and x₀ ∈ M₂(ℤ/M) with tr x₀ = 0, x₀² = 1. Then there is x ∈ O⁰ with x ≡ x₀ (mod MO), hence
+`nrd(x) ≡ −1 (mod M)`, and with `nrd(x) ≤ M²·ρ(O⁰)²`, ρ the covering radius of O⁰ (in the nrd-norm); ρ(O⁰)² ≪ p
+(successive minima λ₁λ₂λ₃ ≍ p² and λ₁λ₂ ≥ p/4 by Kaneko, so λ₃ ≪ p).
+*Proof.* O/MO ≅ M₂(ℤ/M); lift x₀ to x' ∈ O; trd(x') ≡ 0 (M); since trd(O) = ℤ pick z ∈ O with trd z = −trd(x')/M and
+put x = x' + Mz ∈ O⁰. The coset x + MO⁰ (MO ∩ O⁰ = MO⁰) contains a vector within M·ρ of 0. x² ≡ x₀² = 1 gives
+nrd x = −x² ≡ −1. ∎ So the ray condition `f ≡ −1 (mod M)` — the B2 core of Type II — is *deterministically* realised on
+every supersingular curve, for every M, at size f ≪ M²p.
+
+**Proposition 2.4 (where the cost goes: the exactness gap; PROVED identity + Assessment).** Fix x ∈ O⁰, nrd x = f.
+Every y ∈ O⁰ with ⟨x,y⟩ = 1 is y = x/f + y_⊥ with y_⊥ ⊥ x, and
+`det T(x,y) = ff' − 1 = f·nrd(y_⊥)` (PROVED: nrd(y) = 1/f + nrd(y_⊥)).
+Imposing y ≡ y₀ (mod M) puts y_⊥ in an affine coset of the rank-2 lattice Λ_x = x^⊥ ∩ MO⁰, det Λ_x ≍ M⁴·p²f/16 up to
+an index factor. Theorem 2.1 needs `det T = ph ≤ pG²/4`, i.e. **nrd(y_⊥) ≤ pM²/(4f)** at level G = M. *Assessment
+(typical lattices, λ₁ ≍ λ₂):* the coset's smallest vector has nrd ≍ (det Λ_x)^{1/2} ≍ M²p·f^{1/2}/4, so the
+deterministic choice misses by the factor
+`(M²p f^{1/2}) / (pM²/f) ≍ f^{3/2} ≥ (M − 1)^{3/2}`,
+and the probability that a given (O, x) admits a good y is ≍ f^{−3/2}. Summing over the p/12 orders, the ≍ M² involution
+classes x₀ and x in the coset (≍ F^{3/2}/(M³) of them with nrd x ≤ F per order, up to the mass normalisation) gives
+Σ_M Σ_{f ≡ −1 (M)} O(1/(Mf)) ≍ log²-type totals per M-range — the polylog lottery of ES, reproduced from the
+geometric side (B3). The congruence is free; the price is that the second endomorphism must hit a *specific* norm
+(a binary representation of one number), which is the shrinking target.
