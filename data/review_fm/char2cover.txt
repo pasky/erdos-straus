@@ -1,0 +1,4 @@
+q=2 A=(0, 1) s=(1, 1): the 10 families (f1=(1, 1, 1), f2=(1, 0, 1, 1), j < ord) cover all 1161 irreducible P of degree 14 (verified exactly)
+q=2 A=(0, 1) s=(1, 1): the 10 families (f1=(1, 1, 1), f2=(1, 0, 1, 1), j < ord) cover all 2182 irreducible P of degree 15 (verified exactly)
+q=2 A=(0, 1) s=(1, 1): the 10 families (f1=(1, 1, 1), f2=(1, 0, 1, 1), j < ord) cover all 4080 irreducible P of degree 16 (verified exactly)
+q=2 A=(0, 1) s=(1, 1): the 10 families (f1=(1, 1, 1), f2=(1, 0, 1, 1), j < ord) cover all 7710 irreducible P of degree 17 (verified exactly)
