@@ -6,7 +6,22 @@ author's `scripts/fms_*` were not used.
 
 ## Summary verdicts
 
-(filled in progressively; see §§ below)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1 (Type II cube, explicit x, y, z, 3cd ≤ p + 1) | **SOUND** (brute-force bijection, all 428 primes ≤ 3000) |
+| Lemma 4.1 (Type I cube) | **SOUND-AFTER-REPAIRS** (m1; brute force all primes ≤ 1500) |
+| Thm 3.1, Thm 4.2 (box criterion) | **SOUND** (Type I bullet: m3) |
+| Cor 3.2 (box vs ES^{(S)} coset) | **GAP — M1**: "incomparable" is false; Box ⊆ ES^{(S)} coset always (proved below) |
+| Thm 2.1 (affine shots, sporadic h < 4μ⁵) | **SOUND** (proof re-derived; 979 pairs × h ≤ 6·10⁴ reproduced) |
+| Cor 2.2, Cor 2.4 | **SOUND** (|𝓜| ≤ 1 + τ(H) suffices, m5) |
+| Cor 2.3 (exactly three modulus-4 shots; 942 joint failures) | **SOUND** (all counts reproduced exactly; scope wording m4) |
+| Remark 2.5 ((p/h) = −1) | **SOUND** |
+| Prop 6.1 (h ≤ (p+1)(p+5)/4, g < 3p²) | **SOUND** (proof sentence m2; Type II bound attained at every p ≡ 3 mod 4) |
+| Thm 6.2 scope, §5 labels | **SOUND-AFTER-REPAIRS** (m4, m5) |
+| Labels overall | appropriate; no overclaim of ES progress. Cor 3.2's "PROVED" covers a false sentence (M1) |
+
+No FATAL defect. The headline result (scoped no-go for fixed-coefficient affine Type II shots; exactly three
+modulus-4 Type II shots) stands.
 
 ## A. Lemma 1.1 (Type II certificate cube) — SOUND
 
@@ -113,3 +128,42 @@ multi-prime conditions excluded; (ii)–(iii) flagged as size statements, not im
 Assessment. §5 outcomes are declared Assessments unless citing a theorem; C1/C3/C4/C7 cite Thm 2.1/Cor 2.2/Cor 3.2/
 Prop 6.1 correctly; C2/C6 are honestly left open. C3's "needs ord_r(q) ≤ 2v_q + 1" holds for |S| = 1 (with more primes
 the box could contain ⟨q⟩ via mixed vectors; still O(polylog)), fine as an Assessment.
+
+## Defects
+
+**M1 (MAJOR) — Cor 3.2 "neither set contains the other" is false.** Locations: FIXED_MODULUS_SHOTS.md §3, paragraph
+after Cor 3.2's proof ("Neither set contains the other in general (R-O191: r = 11 … certified by ES only)"); §4 end
+("in ES^{(S)} the box is replaced by a coset" — fine) ; BRAINSTORM/bsN_divisor_box.md bullet 3 ("incomparable sets");
+AGENT_REPORT_O191 SHARP 2 ("the sets are incomparable") and the self-review line ("the box and the parity coset are
+incomparable"). Fact: Box(k) ⊆ 4⟨S⟩² mod r always (proof in §G; p = 43 is ES^{(S)}-certified at r = 11 with Q = 27).
+Repair: replace by "As residue sets A_r ⊆ −4⟨S⟩² (every ES certificate (c, t, j) at r is an ES^{(S)} certificate with
+Q ≡ c·√t ∈ ⟨S⟩); the exponent-vector descriptions differ (bounded box of all parities vs parity class) but the box's
+residues all have parity-class representatives. The inclusion is strict and the size gap τ₃(k) vs |⟨S⟩²| is the point."
+
+**m1 (MINOR) — Lemma 4.1 equivalence chain has a hidden hypothesis.** "For Type I points gcd(g, 2pvwf) = 1, and g | pv + f
+⟺ g | p² + 4wf² ⟺ g | 4v²w + 1": the ⟸ directions (used when the (w, f) and (v, w) lines are read as shots) need
+gcd(g, 2pwf) = 1 resp. gcd(g, p) = 1 as a hypothesis, not as a consequence. Repair: "For g = 4vwf − p > 0 with
+p ∤ g (equivalently p ∤ vwf), gcd(g, 2vwf) = 1 and the three divisibilities are equivalent." (Numerically harmless on
+wf ≤ 2p/3.)
+
+**m2 (MINOR) — Prop 6.1 proof sentence.** "both y′, z′ ≤ x(x + D)/(eD)" is false for the chosen order when D > x.
+Repair: "with D′ = ez′ − x, DD′ = x², max(y′, z′) = x(x + D₀)/(eD₀), D₀ = min(D, D′) ≥ 1, so max(y′, z′) ≤ x(x + 1)/e".
+
+**m3 (MINOR) — Thm 4.2 Type I bullet** states ⟺ but ⟸ yields a Type I solution only when p ∤ uvwf (else a Type II
+one). Repair: move the side condition into the statement ("… ⟺ … with some (v, f) realising it having p ∤ uvwf").
+
+**m4 (MINOR) — scope of Cor 2.3's title/"refutes".** "Exactly three modulus-4 shots" is a Type II statement (Thm 2.1
+does not cover Type I certification, whose condition is not a residue condition mod g). And O188's sentence ("the unique
+ℤ-shot with bounded modulus 4 is Mordell's p + 4") is made inside the ET (a, d)-family p + 4a²d, where it is TRUE (Cor 2.2
+Example); Cor 2.3 extends it to all affine shots rather than refutes it. Repair: "exactly three modulus-4 Type II shots;
+extends O188 §5 (true within the (c, d)-line family) to all fixed-coefficient affine shots."
+
+**m5 (MINOR) — wording.** Cor 2.2 "|𝓜| ≤ 1 + 2τ(H)" can be 1 + τ(H) (D- and E-cases exclusive). Thm 6.2(i) "up to < 4μ⁵
+sporadic ones" reads as a count; say "apart from sporadic divisors h < 4μ⁵". (N2) "classifies the certifying divisors
+exactly" → "… exactly, up to sporadic h < 4μ⁵".
+
+**m6 (MINOR) — reproducibility of §3 check.** 39 319 vs 39 321 primes r ≡ 3 (mod 4) in [7, 10⁶) (state the range); the
+"14 to (median) 1092 times larger … on a sample" needs the sample (sizes, r-range) stated or be dropped.
+
+**m7 (MINOR) — Cor 3.2 bullet 2 "no bound".** O186's ⟨S⟩ is a monoid: per certificate e_q = 2s_q − κ_q ≥ −κ_q.
+Irrelevant for residues; say "bounded below by −κ_q, unbounded above".
