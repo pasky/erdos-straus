@@ -31,3 +31,37 @@ From-scratch check (`scripts/review_gm_dict.py 201 301 60`, exact rationals, sol
   Q = λB², these give Q even or gcd(Q, n) > 1 — NOT shot data in the paper's Notation (Q odd, gcd(Q, n) = 1).
   The solutions are nevertheless valid (den z = B², odd, prime to n). See M1.
 
+### Prop 1.2 (Markov-type equation, Pell automorphs, "no Markov tree") — (a), (b) SOUND; (c) SOUND but under-stated, its reading OVERCLAIMED (m2, m3, M3)
+
+(a) g·D = nA² + B² with g = 2ABλ − 1 ⇔ nA² + B² + D = 2λD·AB; (B − μA)² − (μ² − n)A² = B² − 2μAB + nA² = −D. Correct.
+(b) For the form [n, −2μ, 1] (disc 4(μ² − n)) the automorph attached to T² − (μ² − n)u² = 1 is
+[[T + μu, −u], [nu, T − μu]] — exactly the paper's matrix. u even ⇒ T odd ⇒ A' even, B' ≡ TB odd;
+(T − μu)(T + μu) = 1 − nu² ≡ 1 (mod n) ⇒ gcd(B', n) = 1; unimodular ⇒ gcd(A', B') = 1. Positivity: f < 0 forces
+μ² > n and B/A between the two positive roots; T > 0 ⇒ both eigenvalues positive ⇒ each half-cone preserved.
+Correct. B-involution B ↦ 2μA − B: root product nA² + D > 0, so B' > 0; gcd(B', n) = 1 because gcd(D, n) = 1 (a
+common prime would divide B); the paper asserts "always available" without this one-line check (fine).
+(c) A ↦ 2μB/n − A integral ⇔ n | 2μB ⇔ n | λ (gcd(B, n) = gcd(D, n) = 1). Reciprocity argument re-derived and
+correct. **Stronger and simpler (m2):** n | λ gives g ≡ −1 (mod 4n), and every prime q | g has (−n/q) = 1, so the
+Kronecker character χ_{−4n} (odd, χ(−1) = −1) gives χ_{−4n}(g) = χ_{−4n}(−1) = −1 vs +1: n | λ is impossible for
+EVERY odd n > 1, not only n ≡ 1 (mod 4). (For n ≡ 3 (mod 4): (n/g) = −(g/n) = −(−1/n) = 1, (−n/g) = −1.)
+Check `scripts/review_gm_orbits.py nlam 401 60`: 1912 points over all odd n ≤ 401 (both classes mod 4), n | λ in 0.
+
+From-scratch numerics (`review_gm_orbits.py 300 …`, data/review_gm/orbits_300.txt): n = 13: 4 points
+[(10,3,2,11), (16,5,3,7), (36,5,1,47), (184,19,9,7)] — matches; 17: 19 (4 with B = 1); 29: 20; 73: 6; 9, 25, 49: 0 —
+all match. Every point: D ≡ 3 (mod 4); 3 automorph images forward and 3 backward each re-verified as V_n points
+(366 images in all) and the B-involution image re-verified. Two deviations:
+* **"Every (λ, D) pair carries ≤ 3 points in the box" is false**: n = 29, (λ, D) = (2, 3) has 4 points
+  (2,7), (2,17), (14,47), (14,121) (m4). (B = 121 is not squarefree; the claim may have meant squarefree B.)
+* **Squarefreeness is NOT preserved** by automorphs: of the images of squarefree-B points, many have r² | B
+  (e.g. 14 of 114 at n = 17, 16 of 120 at n = 29, all 3 at n = 37 — counting only r < 1000). So Prop 1.2(b)'s
+  infinite orbits live in ES^{[2]}, not in ES^{(y,1)}. See M3.
+* μ² − n IS sometimes a square (15 points with A, B ≤ 60, n ≤ 401, e.g. n = 35, (A,B,λ,D) = (2,11,2,3), μ = 6);
+  then the (λ, D)-fibre is finite. Prop 2.2 states the "μ² − n non-square" hypothesis, but §5 item 2 ("Every
+  solution with B > 1 lies on an infinite Pell orbit") drops it (m3).
+
+Reading of (c) (Assessment) is off: on S_{n,D} both Vieta moves (in A and in B) fix C = 2μ, and their composite is a
+Pell automorph of the same conic f_μ = −D. So even if both involutions were integral one would only get the dihedral
+group of ONE conic — there is never a "Markoff tree" across different C (C enters linearly; no third involution), and
+"finitely many fundamental solutions per (μ, D)" holds anyway by reduction theory of indefinite binary forms. (c) is
+therefore true but does not carry the weight §2/§5 put on it ("orbit-descent tools … unavailable"). See M3.
+
