@@ -139,3 +139,31 @@ the Legendre-symbol-on-prime-factors problem. D(n) is infinite (the trivial m'' 
 (33,0), (38,0), (24,0), (26,0). So the sign-blind total S is of the same size at primes and at squares, and
 at squares the whole of it sits in class +1. ES is the statement that the genus character at n is not
 constant on the sign-blind set — no exact identity tested evaluates O independently of the lottery.
+
+## 5. Construction log (each entry: barrier hypothesis targeted → outcome)
+
+1. **Swap the order of summation (brief idea (a)).** Target: Thm 9.1's "fixed level". Outcome (Lemma 1.2):
+   summing over the divisor first gives a count of t in a congruence class modulo the summation variable;
+   the fibrations by g and by c give two different growing-level divisor-in-class sums that agree only in
+   total. No telescoping: every re-summation of the cubic K⁻(c,g,f) = n is a divisor-in-class count (B2) with
+   the level as a summation variable. The character expansion over t (principal + non-principal) gives a main
+   term Σ_t τ'(tn+1)/φ(t) of the right size (log²n) with a non-principal remainder of the same size; no exact
+   cancellation was found or is suggested by the structure.
+2. **Kronecker–Hurwitz / Eichler–Selberg (ideas (b), (c)).** Target: fixed level (the trace formula has a
+   growing t-range). Outcome (§2): ES = sign-odd part of the split-hyperbolic (cusp fixed point) term; the
+   smallest term of the identity; the cusp trace must be known to q²-fold below Deligne at one N; weight 1
+   degenerates to O131's finite Eisenstein identities. KH's re-summation mechanism (theta series in the shift
+   variable + holomorphic projection into a finite-dimensional space) has no analogue for multiplicative shifts
+   gN + 1 (§3).
+3. **Main term with genus data at the place p (O167 §11).** Target: n-locality of Thm 9.1. Outcome (§4): the
+   genus character at n exists and is *exactly* the sign that separates ES (class −1) from the sign-blind
+   geometric count (class ±1); the resulting T1-respecting identity W = (S − O)/2 has level growing with n, but
+   O < S is the H-B spin event — the same problem.
+4. **Continuants / Hirzebruch–Jung / Dedekind sums.** Target: "congruence-only data" (B1) — HJ data are
+   archimedean (sizes of partial quotients), Dedekind sums have exact reciprocity and exact moments over
+   m ≡ 0 (4) involving class numbers h(−p), h(−4p) (genus data at p, not quasi-polynomial in p). Outcome:
+   W-certificates are the m ≡ 0 (4) with HJ length 3 (Lemma 1.1). Dedekind sums determine only the
+   *difference* r(n/m) − r(n/(n−m)) of HJ lengths (Riemenschneider duality + Hirzebruch's formula
+   12s(m,n) = Σ(a_i − 3) + (m + m*)/n give r − s = (m+m*)/n − 1 − 12 s(m,n)), not the length, and their exact
+   moments are of size ≍ √p (class numbers) — a main term a power larger than the certificate count with
+   capped multiplicity (B3). Not pursued numerically.
