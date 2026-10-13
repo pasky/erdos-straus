@@ -56,6 +56,55 @@ imported from `ff_frob_*` or `fm_poly`).
   δ vs observed: .1129/.1145, .0495/.0492, .1486/.1496, .0815/.0814, .0320/.0327, .1602/.1606; and for every counted
   r, −n/4 ∈ ⟨s²⟩ mod r (0 exceptions). Only defect: the scope sentence (m3).
 
+* **Prop 1.2 (Fire(p) finite ⇒ no sufficient Frobenius condition): (a), (b) SOUND; (c) GAP (not a statement).**
+  (a) is cited (FIXED_MODULUS_SHOTS Prop 6.1, FF_MUTE Prop 5.1, both reviewed); I re-derived the Type I bound
+  (wf ≤ 2p/3, g | p² + 4wf² ⇒ g ≤ 25p²/9 < 3p²) and brute-forced the Type II bound h ≤ (p+1)(p+5)/4 for all primes
+  p < 400 (0 violations, `review_frob_heegner.py`). (b) is immediate from Chebotarev (constant-field part handled
+  correctly: infinitely many degrees in any residue class mod e). (c) names no (L, C) — "C = {Frob restricted as in
+  Lemma 3.2}" plus "s primitive root" is a heuristic description, yet sits inside a PROVED proposition (m4).
+* **Thm 1.3 (FF effective no-go): SOUND, CONDITIONAL label acceptable (could be PROVED-relative-to-citation).**
+  Logic re-checked: geometric L ⇒ the Chebotarev count at every degree d has main term (|C|/|G|)q^d/d with error
+  ≪ (|C|/|G|)(g_L + |G|(1 + deg 𝔡_L))q^{d/2}/d + (ramified primes, ≤ deg 𝔡_L/d) — the shape is the standard one
+  (Murty–Scherk; Fried–Jarden Prop 6.4.8 has an extra |G|(2g_F + 1)q^{d/4} term, harmless with g_F = 0); sources
+  not in sources/, not re-read. Every degree-d prime fires only if the count vanishes, impossible for
+  q^{d/2} > c₀(…) as no prime of degree ≥ 2n − k + 1 is a Type II modulus. AGENT_REPORT calls it "unconditional"
+  (m5).
+* **Thm 1.4 (ℤ, GRH, range-restricted no-go): SOUND as CONDITIONAL.** Re-derived the arithmetic: with the Serre
+  (1981, Thm 4) GRH form, Li(X) − Li(X/2) ≥ X/(2 log X), the first alternative failing gives bracket ≥ X/(6 log X);
+  |Fire(p)| ≤ p^{1+o(1)} (Type II: Σ_{x ≤ p/2} τ(x²); Type I: (w, f) with wf ≤ 2p/3 times τ(p² + 4wf²)) — fine (Elsholtz–Tao
+  give even p^{3/5+o(1)} for all solutions). The final "in particular" checks out: X^{1/2}/log²X ≥ √3p/log²(3p²) ≫
+  p^{1−ε}, and X/(6 log X) ≥ p^{2−o(1)} > p^{2−ε+o(1)}. Note: for X ≥ 3p² the window (X/2, X] contains no Type II
+  modulus at all, so the theorem is really about Type I moduli, and "fires (Type I)" is never defined (m6).
+
+* **Thm 2.1 (Weil count for subgroup membership): SOUND.** χ(P/B) = χ(P B^{e−1}); P irreducible, P ∤ B ⇒ the
+  roots of P are simple in P B^{e−1} ⇒ not c·g^e; Lidl–Niederreiter 5.41 gives (#distinct roots − 1)q^{d/2}; the
+  trivial character gives q^d − r. The 2q^{d/2} bound for elements of proper subfields is right
+  (Σ_{e ≤ d/2} q^e ≤ q^{d/2}·q/(q − 1)). Brute force over F_{q^d} (own arithmetic; (q, d) ∈ {(3,4), (3,5), (3,6),
+  (5,3), (5,4), (7,3), (2,8)}, all m | q^d − 1, random P, B): 0 violations, worst |dev|/bound = 0.61.
+* **Prop 2.2 (expansion threshold): SOUND (scoped to the method, as stated).** Re-derived (term-by-term, ŝ(1) =
+  |S|/|G_d|; ‖ŝ‖₁ ≥ 1 by inversion at x ∈ S; |S| ≤ |G_d|/2 ⇒ ‖ŝ‖₁ − ŝ(1) ≥ 1/2). Numerically (random S of sizes 1
+  … N/2, exact FFT coefficients): 0 violations. Examples: coset ‖ŝ‖₁ = 1 ✓; exponent intervals ‖ŝ‖₁ ≤ 4.2 for
+  N ≈ 1.6·10⁴ ✓ (but a log q factor is dropped, m7); the GAP bound is unproved and needs properness (m7) — my FFT
+  test of 2-dim proper GAPs in ℤ/(3⁹−1) gives ‖ŝ‖₁/∏(1 + log(2κ_i + 1)) ≤ 0.34, so it is plausible.
+* **Prop 2.3 (ES box below threshold): SOUND.** |𝔉(f)| ≤ τ₃(m) (ordered triples adc = m); C(e+2, 2) ≤ 3^e ✓;
+  τ₃ ≤ τ² ✓; q ≥ 9 comparison checked for q ∈ {9, 11, 13, 16, 25}, k ≤ 4, n ≤ 7, d < 30 (0 failures). The phrase
+  "any fixed S ⊆ 𝔉(f)" must be read as S ⊆ ⋂ 𝔉(f_α) over the α counted (then |S| ≤ min |𝔉| ≤ τ₃) — fine.
+
+* **F1 (Heegner/ideal dictionary): SOUND.** Re-derived both directions: f | Nα = 1 + 4c²dp, f ∤ 2cdp ⇒ f splits
+  in ℚ(√−dp) (−dp ≡ (2c)^{−2}); 𝔣 | αᾱ ⇒ 𝔣 or 𝔣̄ divides α, not both (else f | α, impossible as α/f ∉ O_K);
+  conversely N𝔣 = f prime ≡ −1 (4cd) and Nα ≡ 1 (4cd) give f′ ≡ −1. The campaign-letter certificate
+  (f | 4c²dp + 1, f ≡ −1 mod 4cd) is the (d, j)-line of the FIXED_MODULUS cube with c ↔ j, so it is exactly
+  "Type II with modulus f". Brute force (own code, all primes 5 ≤ p < 400): the F1 set {f prime : ∃ c, d} equals the
+  set of prime moduli 4y′ − 1, 4z′ − 1 of a brute-force Type II enumeration, 0 mismatches; exactly one of the two
+  roots t of t² ≡ −dp works every time. (It is a tautological repackaging, which the text admits: "Violates nothing".)
+* **F2 (supersingular torsion): SOUND-AFTER-REPAIRS (m8).** (−d/f) = −1 re-derived (f ≡ −1 mod 4d, (r−1)/2 odd;
+  2 | d ⇒ f ≡ 7 mod 8) and confirmed at every certificate for p < 400; Deuring ⇒ supersingular ⇒ a_f = 0 for
+  f ≥ 5 ✓; point counts of the CM curves for d = 1, 2, 3, 7, 11 at all certificate primes f < 400: #E(F_f) = f + 1
+  in every case. But "elliptic curve over ℚ with CM by an order of ℚ(√−d)" exists only for the 13 class-number-one
+  orders (d ∈ {1, 2, 3, 7, 11, 19, 43, 67, 163} up to the orders of disc −12, −16, −27, −28), so for generic d the
+  statement is vacuous; and the Drinfeld clause is unreferenced and slightly off (m8).
+* **F3–F5: Assessments, acceptable**, with a sign caveat in F3 (m9).
+
 ## Defects
 
 ## Checks performed
