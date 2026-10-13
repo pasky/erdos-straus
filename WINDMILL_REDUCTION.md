@@ -185,3 +185,35 @@ archimedean condition `t = (AĀ−1)/p | A+1, Ā+1`. Lemma 4.1 does not apply be
 constraint I can prove is negative: on each piece the map is 𝔽_p-algebraic, so any fixed point it creates is a root of
 a fixed quadratic mod p. A fixed point that is a certificate would therefore need `A² ≡ c` with t small, and that is a
 divisor condition again. No search was run for (D) beyond this reformulation.
+
+## 10. Spark 2: Bhargava cubes / composition triples see only the genus shadow of the ES condition
+
+**Lemma 10.1 (PROVED, algebra).** `tp + 1 = m·m''` ⟺ `[m, 2, m'']` is a form of discriminant `−4tp`. This is the norm
+form of the ideal `𝔪 = (m, 1 + √−tp)` of `O = ℤ[√−tp]`, and `𝔪𝔪'' = (1 + √−tp)`. So divisor-form certificates
+(CONDITIONAL_ES Lemma 1.1) are exactly **ideal divisors 𝔪 of the principal ideal `(1+√−tp)` with `N𝔪 ≡ −1 (mod t)`,
+`4 | N𝔪`** (Heegner discriminant −4tp, i.e. (I)4 with d = t). In Bhargava's language the triple
+`(𝔪, 𝔪'', O; δ = 1+√−tp)` is a balanced triple, i.e. a 2×2×2 cube with `Q₁ = [m,2,m'']`, `Q₂ = [m'',2,m]`, `Q₃` principal.
+
+**Computation 10.2 (CERTIFIED, `scripts/wr_cube_class.py 5000 40`).** For p ≡ 1 (24) with p ≤ 5000 and t ≡ 3 (4) with t ≤ 39,
+distinct factorisations of tp+1 lie in distinct classes of `Cl(−4tp)`. The only exceptions are the trivial ambiguous pairs
+`{1, N}` and `{2, N/2}`. So the 320 classes that contain a certificate contain nothing else. On the divisor set the class
+map is injective: the set `{[𝔪] : 𝔪 | (1+√−tp)}` is an embedded Boolean "hypercube" `∏ 𝔮_i^{ε_i}` in Cl(−4tp), and the
+complement involution `𝔪 ↦ 𝔪''` is class inversion.
+
+**Proposition 10.3 (PROVED, elementary).** Let ℓ be an odd prime, `ℓ | t`. On ideals of `O = ℤ[√−tp]` coprime to ℓ, the
+map `𝔞 ↦ N𝔞 mod ℓ` is constant on ideal classes only modulo squares. Principal ideals have norms `x² + tpy² ≡ x²
+(mod ℓ)`, and every nonzero square occurs. So `[𝔞] ↦ N𝔞 · (ℤ/ℓ)^{*2}` is well defined (this is the genus character `(·/ℓ)`),
+and no finer function of `N𝔞 mod ℓ` is a class invariant. Bhargava cubes up to `SL₂(ℤ)³` correspond to pairs of classes,
+because the generator δ of a balanced triple is absorbed by the rescaling `δ ↦ κ₁κ₂κ₃δ`. The `S₃ ⋉ (ℤ/2)³` symmetries act on
+these pairs by group automorphisms (permutation and inversion). Hence **every mechanism that factors through classes of
+forms or cubes, including their symmetry involutions and fixed-point counts (which are 2- and 3-rank data of Cl),
+can test the certificate condition `m ≡ −1 (mod t)` only through its quadratic shadow `(m/ℓ) = (−1/ℓ)`, ℓ | t.** The full
+condition is class data only when `(ℤ/t)^*` has exponent 2, i.e. `t | 24`. For odd `t ≡ 3 (4)` that leaves only `t = 3`,
+which is the congruence-covering regime (B1). ∎
+
+**Assessment.** The cube route reproduces B2 together with genus theory. What would escape Prop 10.3 is any structure
+that remembers δ (the element `1+√−tp` itself, not its ideal), such as balanced triples *with* δ up to a smaller
+equivalence (κ_i restricted to units or to a congruence subgroup), or cubes over the order of conductor t.
+The ring class group of conductor f adds the kernel `(O/f)^*/(ℤ/f)^*`, which records the residues of *generators*. It
+does not record norms beyond squares, so I do not expect it to help, but I have not proved that. Spark 1 (a Gauss-lemma
+weight) was not attempted in this round.
