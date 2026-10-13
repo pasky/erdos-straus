@@ -1,0 +1,28 @@
+== x*_c, c=1, deg L' <= 5, j <= 9
+families: 0  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 0  equal sets: True  missing in C: 0  extra in C: 0
+end-to-end checked: 0
+== x*_c, c=2, deg L' <= 5, j <= 9
+families: 0  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 0  equal sets: True  missing in C: 0  extra in C: 0
+end-to-end checked: 0
+== random u = 1 2 2 1 1 2 2 0 0 2 1 2 2 0 0 1, deg L' <= 4, j <= 7
+families: 1  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 1  equal sets: True  missing in C: 0  extra in C: 0
+E2E (0, 1, 1, (1,), (1,), (2, 1, 1)) deg P 11 identity+monic+NC: True
+end-to-end checked: 1
+== random u = 1 2 1 2 2 2 1 0 1 0 1 1 1 2 1 2, deg L' <= 4, j <= 7
+families: 0  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 0  equal sets: True  missing in C: 0  extra in C: 0
+end-to-end checked: 0
+== random u = 1 2 1 2 2 0 2 0 2 0 0 2 2 0 0 0, deg L' <= 4, j <= 7
+families: 0  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 0  equal sets: True  missing in C: 0  extra in C: 0
+end-to-end checked: 0
+== u = 1 1 2 2 0 1 0 0 1 1 2 0 2 1, deg L' <= 4, j <= 5
+families: 3  Lemma 2.1 violations (only meaningful if u = 1 + cT mod T^2, c != 0): 0
+C-search families in range: 3  equal sets: True  missing in C: 0  extra in C: 0
+E2E (0, 1, 1, (1,), (1,), (2, 2, 1)) deg P 11 identity+monic+NC: True
+E2E (4, 4, 4, (1, 0, 2, 0, 1), (1, 0, 1), (2, 2, 1, 1, 0, 2, 0, 0, 1)) deg P 24 identity+monic+NC: True
+E2E (4, 5, 3, (1, 0, 2, 0, 1), (1, 0, 1), (2, 2, 1, 1, 0, 2, 0, 0, 1)) deg P 25 identity+monic+NC: True
+end-to-end checked: 3
