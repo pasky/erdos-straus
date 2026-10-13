@@ -21,6 +21,7 @@ Reviewer: side-agent/review-diff-deep. Merged `side-agent/spark-diff-parity` at 
 | Cor 2 first half (f ≡ −1 (M) is a Boolean function of quadratic characters ⟺ M ∣ 24) | SOUND |
 | EVIDENCE 71/9732 uncovered by the 9+9 slices | **SOUND** (reproduced exactly from scratch) |
 | bsC_valence_borcherds Prop 1 (Galois-orbit obstruction) | SOUND-AFTER-REPAIRS: the cited "ET f(p) ≪ p^{o(1)}" does not exist; the divisor bound suffices (D4) |
+| §2.5 canonical curve EVIDENCE (144/267; 47/76, 34/67, 30/57, 33/67) | **SOUND** (reproduced exactly; order O(q,r) verified maximal) |
 | §4 / report gloss "level G ≥ 2√h" as the content of (LD_p) | **GAP (MAJOR)**: the relaxed condition is vacuous |
 
 ## Checks performed
@@ -119,9 +120,8 @@ Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; 
   first 3361, 31081, 34897, 62497, 66889 — identical to the memo.
 
 ### bsC_valence_borcherds Prop 1
-* Dictionary ✓: [f, 2, f'] is primitive (f odd), disc 4 − 4ff' = −16c²dp = −4Mcp; (X,Y) ↦ (X + Y, Y) gives
-  [f, 2f + 2, f + f' + 2] … the memo's [Mce, 2Mb, f'] is the same class with the roles of f, f' swapped
-  (f' + 2 + f = Mce, 2(1 + f') = 2Mb) ✓; C + 1 = f' + 1 = Mb = B/2 ✓.
+* Dictionary ✓: [f, 2, f'] is primitive (f odd), disc 4 − 4ff' = −16c²dp = −4Mcp; (X,Y) ↦ (X, X + Y) gives
+  [f + f' + 2, 2 + 2f', f'] = [Mce, 2Mb, f'] ✓ (unimodular); C + 1 = f' + 1 = Mb = B/2 ✓.
 * Galois step ✓: τ a root of a primitive form of disc D has End = O_D, so ℚ(j(τ)) has degree h(D) over K and the
   Gal(ℚ̄/LK)-orbit of the point on X₀(M) has size ≥ h(D)/[L:ℚ]; the zero divisor of F is defined over L
   (q-expansion principle). Siegel for non-fundamental D ✓ (h(D) = h(D₀)·(conductor factor) ≫ |D|^{1/2−ε}).
@@ -136,3 +136,9 @@ Assessment). Thm 2.1 ⇒ h ≤ g²/4 ≤ G²/4 ⇒ nrd y_⊥ ≤ pM²/(4f) ✓; 
   verify a version covering l = 1 — cite one or drop the sentence (MINOR; the Prop does not use it).
 * EVIDENCE recomputed (`scripts/review_dd_orbit.py 3000`, own class-number count of reduced primitive forms):
   max (#certificate pairs)/h(−16c²dp) over (c,d) ∈ {(1,1),(1,2),(1,3)}, p < 3000, is 0.25 at p = 5 ✓.
+
+### §2.5 canonical curve (`scripts/review_dd_canonical.py`, own lattice enumeration in integer coordinates)
+For every p ≡ 1 (24) < 2·10⁴ I verified that Ibukiyama's O(q, r) is closed under multiplication (integral structure
+constants) and has det(trd(e_a ē_b)) = p², i.e. it is a maximal order of (−p, −q). Searching O ∩ B⁰ for x, y with
+⟨x,y⟩ = 1, f ≤ f' ≤ 4p and the Thm 2.1 condition: **47/76, 34/67, 30/57, 33/67 = 144/267**, identical to §2.5; every
+pair found has p | ff' − 1 (asserted). (Note O⁰ here is O ∩ B⁰, not the Gross lattice; see D5.)
