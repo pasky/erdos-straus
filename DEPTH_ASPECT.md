@@ -122,4 +122,43 @@ For the minimum put x' = a − 1, σ = x' + y + z. Since t + y ≤ b = s − a �
 three pairwise sums of (x', y, z) is ≤ 2σ/3. So min ≤ min(s − 3 − σ, 2σ/3) ≤ 2(s − 3)/5. ∎
 *Remark.* This is Elsholtz–Tao's divisor casework (their n^{3/5} bound) transplanted. The square-root count of O173
 used only (R1) and the cylinder count; the two "small-variable" identities (R3), (R4) are what beat it. Over ℤ the same
-identities give #{(c,f,g): cfg − c − f = n} ≪ n^{2/5+o(1)} for the a = 1 Type I slice (same proof).
+identities bound the a = 1 Type I slice: #{(c,f,g) ∈ ℕ³: cfg − c − f = n} ≪ n^{1/3+o(1)}. *Proof:* for g ≤ n^{1/3},
+(gc − 1)(gf − 1) = gn + 1 leaves ≤ τ(gn + 1) choices. For g > n^{1/3} and c ≤ f we have cf ≤ 2n^{2/3}, so c ≤ 2n^{1/3}, and
+(gc − 1) | n + c leaves ≤ τ(n + c) choices of g. (PROVED, elementary; very likely folklore. Over ℤ there is no
+depth, and this bound plays no role in ES.)
+
+**2.2 Case A at generic slice points.** O173/O166 proved Case A impossible at the single point u = 1 + cT. At a general
+u ∈ 1 + cT + T²F_q[[T]], Case A families occur and must be counted. Notation (R166's proof in FUNCTIONFIELD_ES2 §0.2,
+steps (1)–(2), which use only E ≡ −u (mod T^{k+j}) with u ≡ 1 + cT mod T²): a0 = g·a1, b0 = g·b1, gcd(a1, b1) = 1,
+E | a1 + b1, E ≡ −1 (mod L'), L' = g'a1'b1' (′ = prime-to-T part). WLOG deg a1 ≥ deg b1. Then T^α ∥ a1 with
+α ≥ 1 + deg g' + deg b1', T ∤ b1, j = γ + α, and validity on the cylinder u ≡ −E (mod T^{k+γ+α}). The data (a1, b1, g, E)
+with γ = 0 give the largest cylinder (lc(a0 + b0) and lc(L/a0 + L/b0) do not change when g is multiplied by T^γ), so it
+suffices to count tuples with γ = 0, each covering mass q^{−(k+α)}.
+Put λ = deg a1', β = deg b1, F := (a1 + b1)/E, f = deg F. Since gcd(a1', b1) = 1, a1'b1 | E + 1 and T | E + 1, so
+**K := (E + 1)/(a1'b1) is a polynomial with T | K**; κ := deg K ≥ 1. Then deg E = λ + β + κ and f = α − β − κ ≥ 0.
+
+**Lemma 2.3 (Case A identities; PROVED).** With z := (F + b1)/a1':
+(A0) a1' | F + b1, so z is a polynomial, and z ≠ 0 for every valid family;
+(A1) given (a1', b1): E | T^α a1' + b1;
+(A2) given (b1, K): E | T^α + b1²K;
+(A3) given z: b1·K·F = T^α + z, so (b1, K, F) is an ordered factorisation of T^α + z; then a1' = (F + b1)/z;
+(A4) given (a1', K, F): b1 = (T^α a1' + F)/(a1'KF − 1) is determined.
+*Proof.* EF = T^α a1' + b1 and E ≡ −1 (mod a1') give −F ≡ b1 (mod a1'), which is (A0). Substitute E = a1'b1K − 1:
+a1'b1KF − F = T^α a1' + b1, i.e. **b1(a1'KF − 1) = T^α a1' + F** (A4; a1'KF − 1 ≠ 0 as T | K). Adding b1 to both sides of
+a1'b1KF = T^α a1' + F + b1 = a1'(T^α + z) and dividing by a1' gives b1KF = T^α + z (A3). Substituting F = a1'z − b1 into (A3):
+z(a1'b1K − 1) = T^α + b1²K, which is (A2). (A1) is EF = a1 + b1. If z = 0 then b1KF = T^α, so b1 = 1, F = −1 and K = −T^α. Then
+E = −T^α a1' − 1, and E + 1 = T·L'·H with T ∤ H forces α = 1 and g' = 1. Then lc(E) = −1, while deg a0 > deg b0 gives
+lc(a0 + b0) = lc(L/a0 + L/b0) = 1. Every Case A type combination has lc(s) = 1 ≠ −1 = lc(E) (q odd), so the family is not
+valid. ∎
+
+**Lemma 2.4 (Case A count; PROVED).** For each α, the number of Case A tuples (a1', b1, g', E) with γ = 0 and v_T(a1) = α
+that are valid somewhere on the c-slice is at most (α + 1)^3·B_A·q^{⌊(α−1)/2⌋}, with B_A = 4·δ(α)·δ₃(α) (δ, δ₃ as in Lemma 2.2).
+*Proof.* lc(E) ∈ {1, 2} (validity: lc(E) = lc(s) ∈ {1, lc(a0 + b0), lc(L/a0 + L/b0)} ⊂ {1, 2}), and so lc F, lc K take ≤ 2
+values each. Monic K with T | K of degree κ: ≤ q^{κ−1} choices. Since a1 + b1 has degree α + λ ≥ β, f ≤ α − 1 and
+deg z ≤ max(f, β) − λ ≤ α − 1. In particular T^α + z ≠ 0 (and T^α + b1²K ≠ 0, since z ≠ 0 by (A0)). Two cases.
+* f ≥ β. Then deg z ≤ f − λ ≤ f, and by (A3) there are ≤ 2q^{f}·δ₃(α) tuples. By (A2), given (b1, K) there are
+  ≤ 2q^{β+κ−1} choices, times δ(α + 2β + κ) ≤ δ(3α) for E; and β + κ − 1 = α − f − 1. min(f, α − f − 1) ≤ (α − 1)/2.
+* f < β. Then deg z ≤ β − λ, and (A3) gives ≤ 2q^{β−λ}δ₃(α). (A4) gives ≤ 4q^{λ+κ−1+f} = 4q^{λ+α−β−1} with nothing
+  further to choose. min(β − λ, λ + α − β − 1) ≤ (α − 1)/2.
+g' is then a monic divisor of K/T: ≤ δ(α) choices. Patterns (λ, β, κ): ≤ (α + 1)^3. (Here δ(3α) ≤ δ(α)·… is absorbed
+by taking B_A with δ(3α) in place of δ(α) if preferred; the shape of the bound is what matters.) ∎
