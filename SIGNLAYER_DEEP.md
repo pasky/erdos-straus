@@ -1,6 +1,7 @@
 # SIGNLAYER_DEEP — deep dive of spark brainstorm B (task O175)
 
-Status: checkpoint 1 (O175), awaiting review. **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
+Status: checkpoint 1 (O175). Hostile review R175 (`reviews/signlayer-deep-review.md`) found no FATAL defects. Its
+repairs are applied in place, marked "(R175 repair)". **ES is not solved here, nor any infinite case of it.** Labels as in DISCOVERIES.md.
 Memos: `BRAINSTORM/bsB_*.md`; scripts `scripts/bsB_*`.
 
 Chosen topic (from the memos): the function-field sterile point x*_c (FUNCTIONFIELD_ES2 §0.2, Conjecture 0.2),
@@ -15,20 +16,25 @@ is x_u (≡ 1 at every prime ≠ T, ≡ u mod T^∞), u = 1 + Tv, v(0) ≠ 0. FF
 (T ∤ L'), j ≥ 1, g = T^γ g' (g' | L' monic, 0 ≤ γ ≤ j), N := j + 1, D := 1 + T^{N+1}L'g, a Case B family valid at
 x_u exists iff D = E·E' with E, E' monic, E ≡ −u (mod T^{N+1}), E ≡ −1 (mod L').
 
-**Lemma 1.1.** Put K := N + γ − 1 (so N − 1 ≤ K ≤ 2N − 2) and L' = g'L''. Case B families valid at x_u with
-these (N, γ) correspond bijectively to tuples (h₁, h₁', g', L'', r) of polynomials, h₁, h₁', g', L'' monic with
+(R175 repair, D5: "the slice" in §§1–3 means the sub-slice u ≡ 1 + cT (mod T²), c ≠ 0, i.e. v(0) ≠ 0. All measures
+are normalised to 1 on it. Points with u(0) = 2 or u ≡ 1 (mod T²) are not treated.)
+
+**Lemma 1.1.** Put K := N + γ − 1 (so N − 1 ≤ K ≤ 2N − 2) and L' = g'L''. Case B divisor data (N, γ, L', g', E)
+valid at x_u (R175 repair, D1: many families (a0, b0, types) share the same data) correspond bijectively to tuples (h₁, h₁', g', L'', r) of polynomials, h₁, h₁', g', L'' monic with
 nonzero constant term, such that
 * (I) `h₁ + h₁' = T·g'·r`,
 * (II) `h₁·h₁'·L'' = T^K + r`,
 * (III) `h₁·L' ≡ −v (mod T^N)`, L' = g'L''
 (E = −1 + T h₁ L', E' = −1 + T h₁' L'). Moreover deg r < deg(h₁h₁'), so **L'' = quo(T^K, h₁h₁') and
-r = L''h₁h₁' − T^K are determined by (h₁, h₁', K)**, and deg h₁ + deg h₁' + deg L'' = K. In particular, for each
-K the set of Case B families on the slice is finite (deg L' ≤ K + max deg h ≤ 2K), and each family covers the
+r = L''h₁h₁' − T^K are determined by (h₁, h₁', K)**, and so is g' = (h₁ + h₁')/(T r) (R175 repair, D1). Also
+deg h₁ + deg h₁' + deg L'' = K. In particular, for each K the set of Case B families on the slice is finite
+(deg L' ≤ K − 1 − min(deg h₁, deg h₁'); R175 repair D3, the sharp form of the earlier ≤ 2K), and each family covers the
 cylinder `u ≡ 1 − T·h₁·L' (mod T^{N+1})`.
 
 *Proof.* E ≡ −1 (mod L') ⟺ E = −1 + L'h; E monic and deg(L'h) ≥ 1 (else E = 1, impossible mod T²) give
 lc h = 1; same for E' = −1 + L'h'. EE' = D ⟺ L'hh' − h − h' = T^{N+1}g (cancel L'). E ≡ −u (mod T^{N+1}) ⟺
-L'h ≡ −Tv; so h = Th₁ with h₁L' ≡ −v (mod T^N) (III), h₁(0) ≠ 0. Then T h₁h₁'L' − h₁ − h₁' = T^{K+1}g' (*).
+L'h ≡ −Tv; so h = Th₁ with h₁L' ≡ −v (mod T^N) (III), h₁(0) ≠ 0. Reducing L'hh' − h − h' = T^{N+1}g mod T
+gives T | h', so h' = Th₁' (R175 repair, D2). Then T h₁h₁'L' − h₁ − h₁' = T^{K+1}g' (*).
 Mod T: h₁'(0) = −h₁(0) ≠ 0. Leading terms: the left side has degree 1 + a + b + deg L' (a, b = degrees of
 h₁, h₁') because h₁ + h₁' has degree ≤ max(a, b); so a + b + deg L'' = K. Writing (*) as
 g'(T h₁h₁'L'' − T^{K+1}) = h₁ + h₁' shows g' | h₁ + h₁' and T | h₁ + h₁'; define r by (I); dividing (*) by Tg' gives
@@ -42,7 +48,11 @@ h₁ = T − c, h₁' = T + c, g' = L'' = 1, r = −1, K = 2, N = 2, covering u 
 *Consequence for the heuristic (Assessment).* FF2 §0.2 argued that the expected number of covering Case B
 families diverges (sum over deg L'). Lemma 1.1 shows deg L' ≤ 2K is forced, so at fixed level the count is
 finite, and the naive expected number of solutions at a fixed point is Σ_K poly(K)·3^{−K}-type, **convergent**.
-So the heuristic no longer predicts that x* (or a generic slice point) is covered: sterility of individual
+(R175 repair, D6a: this overstates it. A level-K solution covers a cylinder of measure (1/2)·3^{−⌈K/2⌉}, so the
+expected number of covering families is Σ_K #sol(K)·3^{−K/2}. Lemma 1.1 bounds #sol(K) only by the ≈ K·3^K pairs
+(h₁, h₁'), which would *not* give convergence. Convergence rests on the observed growth #sol(K) ≈ 3^{K/4} (§2), so
+it is EVIDENCE, not a consequence of the lemma. Cf. FUNCTIONFIELD_ES3 §3 (O173): the a priori count shows no decay
+per level, and the criterion U(m) > T(m) needs a proved tail bound.) So the heuristic no longer predicts that x* (or a generic slice point) is covered: sterility of individual
 slice points is the heuristically expected behaviour, and Conjecture 0.2 is a "convergent lottery" statement.
 
 ## 2. Complete enumeration through level K = 17 (CERTIFIED by exhaustive computation; EVIDENCE beyond)
@@ -55,18 +65,22 @@ admissible N ∈ [N₀, K + 1]). `scripts/bsB_caseB_cover.py` takes the union. R
   in size, nothing like 3^K;
 * sanity: the two K = 2 solutions are FF2's cylinder family (v ≡ c + 2T, i.e. u ≡ 1 + cT + 2T²), and FF2's
   check family E = T² + 2T + 2 (a0 = 1, b0 = T²) is the K = 2, N = 3 instance of h₁ = T + 2;
-* **x*_1 and x*_2 (v = c) are not covered by any Case B family with K ≤ 17**, i.e. with N ≤ 18 (j ≤ 17) and every
-  admissible L', g — by Lemma 1.1 this search is *complete* through K = 17 (FF2's search was deg L' ≤ 7, j ≤ 8, and
+* **x*_1 and x*_2 (v = c) are not covered by any Case B family with K ≤ 17**, i.e. with N + γ ≤ 18; in particular
+  for every N ≤ 9 (j ≤ 8) with every admissible L', g (R175 repair, D4: earlier "N ≤ 18 (j ≤ 17) and every
+  admissible L', g" was wrong, since γ ranges up to N − 1). By Lemma 1.1 this search is *complete* through K = 17 (FF2's search was deg L' ≤ 7, j ≤ 8, and
   incomplete in L' for j ≥ 4). Closest approach: the first nonzero digit of w − w₀ sits at index z with
   max z = 1, 1, 1, 2, 1, 1, 3, 2, 2, 2, 3, 3, 4, 5, 6, 4 for K = 2..17, versus the required z ≥ N₀ = 2..10.
 * **Covered measure of the slice** (Haar measure on v ∈ F₃[[T]]^*, cumulative in K): 0.333 (K ≤ 4), 0.407 (≤ 7),
   0.457 (≤ 9), 0.465, 0.471, 0.479, 0.481, 0.483, 0.485, 0.488, **0.489 (K ≤ 17)**. Increments ≈ 0.002–0.003 per
-  level and decreasing: the Case B-covered part of the slice appears to converge to ≈ 0.5, not 1. Random slice
+  level and decreasing: the Case B-covered part of the slice appears to converge to ≈ 0.5, not 1. (R175 repair, D6b:
+  an extrapolation. The increments are consistent with a limit well below 1, but they are not shown to be summable.
+  Independently reproduced through K = 15 by R175, exact rationals 1/3, 11/27, 37/81, …, 1061/2187.) Random slice
   points: 48.7 % covered (20000 samples). By digit prefix (v₀, v₁): (c, 2) is fully covered (the K = 2 family);
   (c, 0) and (c, 1) only 23.4 % each. Symmetry T ↦ −T (v(T) ↦ −v(−T)) is visible in the table.
 * Case A on the slice: FF2's brute-force checker `ff2_caseA_check.py 3 2 3 u` finds **0** Case A families at four
   further slice points (u low digits 1 + T + T² + T³ + …, 1 + T + 2T² …, 1 + 2T + …; deg a0, b0 ≤ 3) — EVIDENCE that
-  Case A is absent on the whole slice, not only at x* (FF2 proves it at x* only).
+  Case A is absent on the whole slice, not only at x* (FF2 proves it at x* only). (R175 repair, D6b: very weak
+  evidence, four points at degree ≤ 3.)
 
 **Reading (Assessment).** With Lemma 1.1 the old divergence heuristic is gone; the data say the slice is split
 roughly half/half by Case B, and Case A seems absent. If both persist, O(3, T²) ∩ slice has positive measure and
@@ -81,12 +95,22 @@ still needs one explicit point excluded at every level K; §3 tries to find a po
 ≡ −u⁻¹ (mod T^{N+1}) (EE' = D ≡ 1), so the swapped solution covers u⁻¹ with the same (K, N). (ii) T ↦ −T is a
 ring automorphism of F₃[T] fixing A = T², the slice condition and monicity up to the sign (−1)^{deg}, which is
 restored by multiplying h₁, h₁', g', L'', r by the units (−1)^{deg}; (I)–(II) are homogeneous under this. ∎
+(R175 repair, D7: the homogeneity is not automatic. The rescaled (I) survives only if deg h₁ ≡ deg h₁' (mod 2),
+and matching r against (II) needs deg E even. Both follow from FF2's quadratic-reciprocity parity (deg E, deg E',
+deg D even; q ≡ 3 mod 4). Cleaner: deg D even gives σD = 1 + T^{K+2}(±σL')(±σg') with monic factors, and
+deg E, deg E' even make σE, σE' monic. So (ii) is proved for q = 3 (q ≡ 3 mod 4), not for all odd q.)
 *Check:* on the K ≤ 17 data the length-4 prefixes (1, 0, x, y) and (1, 1, x + 1, 1 − x − y) carry identical
 K-lists (e.g. (1,0,0,0) and (1,1,1,1): K ∈ {14, 15, 16, 17}), which is the composite ι(u) := 1/u(−T).
 So x*_c = 1 + cT is paired with ι(x*_c) = 1/(1 − cT) = Σ (cT)^k (v = (c, c², c³, …)); both are uncovered through
 K = 17. The x* orbit is {1 ± T, 1/(1 ± T)}: the four slice points whose u is a **rational function of height 1**.
+(R175 repair, D8: false as stated. There are six height-1 slice points (1 + αT)/(1 + βT), α ≠ β. The extra two,
+(1 ± T)/(1 ∓ T), lie in the K = 2 cylinder and are covered. So the orbit consists of the height-1 points with u or
+1/u a polynomial, and "height 1" alone does not make a point sterile.)
 
-*Assessment.* The only visible special feature of x* in the Case B system is "height 1" (a degree-1 rational
+*Assessment* (R175 repair, D8: read "height 1" below as "height 1 with u or 1/u a polynomial"; the extra height-1
+points (1 ± T)/(1 ∓ T) are covered, so a product-formula argument must tell them apart. Also, by R175's cylinder
+count, x*'s neighbourhood u ≡ 1 + cT (mod T⁵) is uncovered for K ≤ 13, far below the 49 % average). The only
+visible special feature of x* in the Case B system is "height 1" (a degree-1 rational
 point of the T-adic slice). Lemma 1.1 says a covering family at level K is a pair of monic h₁, h₁' with
 h₁h₁'L'' = T^K + r and small r — a **best rational approximation of T^K at ∞** — while (III) is a T-adic
 approximation condition at 0. Covering x* thus asks for simultaneous good approximation at the two places 0
@@ -108,7 +132,8 @@ either a ≥ b + deg L'' + 2, or b ≥ a + deg L''.
 leading coefficients gives c = −1 and a = b + 1; (I) gives g'r = −ch₁' = h₁', and (II) gives
 h₁' | T^K + r with r | h₁', r(0) ≠ 0, so r = 1, h₁' = g', and (II) reads (T − 1)g'²L'' = T^K + 1, false at T = 1.
 So the sum is non-zero and its degree ≤ max(a, b + 1) is ≥ N. Finally K = a + b + deg L'' ≤ 2N − 2. ∎
-So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree): this is the "two-place
+So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree), unless L'' = 1 and
+a = b (R175 repair, D9): this is the "two-place
 approximation" shape of §3 made concrete, and it allows a targeted deep search at x* (enumerate the small
 factor, solve for the large one) — not done in this session.
 
