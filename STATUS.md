@@ -7,7 +7,7 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
-**Spark phase: construction-first attacks on the residual hatches (2026-10-13; ledger (J)5–(J)10; tasks O164–O170, reviews R164–R170): no route; ES is not solved.**
+**Spark phase: construction-first attacks on the residual hatches (2026-10-13; ledger (J)5–(J)12; tasks O164–O171, reviews R164–R170, R166): no route; ES is not solved.**
 * *Posture.* Each agent was told to construct first and to use the barrier map only as a steering wheel (look for the modification that violates a barrier's hypotheses). Six directions were taken to depth, each hostile-reviewed (no FATAL in any).
 * *Windmills beyond finite menus* (`WINDMILL_REDUCTION.md`, (J)5). Zagier's windmill is the dihedral symmetry of Conway rivers (exact dictionary). Every mechanism factoring through form classes or Bhargava cubes sees the ES residue condition only through its genus shadow (Prop 10.3); ray class groups mod t see it fully, which is an equivalent restatement.
 * *H-B at a fixed prime* (`PARITY_FIXED_P.md`, (J)6). The parity/sign layer needs only upper bounds, which sieves already give; the bottleneck is the size layer, a unit-coefficient divisor sum R(p) where Weil falls short by p^{1/2}. H-B collapses into H-A (Assessment).
@@ -15,6 +15,7 @@ proof has an identifiable gap.
 * *Deterministic existence mechanisms* (`DETERMINISTIC_EXISTENCE.md`, (J)8). There is a 29-mechanism catalogue. Legendre/Holzer certify slice failures, not successes. Jacobi forcing gives group-level success; block witnesses miss a congruence class (Thm 7.3), so the deterministic content of the slice structure is characterised.
 * *Hirzebruch–Jung / Dedekind sums* (`DEDEKIND_ES.md`, (J)9). **On the HJ length-3 locus the moving moduli disappear: a length-3 fraction p/A is an ES certificate (five slices) iff (A/p) = −1 (Thm 4.5).** For p ≡ 1 (8) this is "the least HJ length of a quadratic non-residue is ≤ 3" (EVIDENCE to 10⁶). The sign is a mod-4 function of the word, so this is an exact reformulation, still a lottery.
 * *Growing-level exact identities* (`GROWING_IDENTITIES.md`, (J)10). This gives a T1-respecting exact identity W(n) = Σ_{D(n)} (1 − (m″/n))/2 (Prop 4.1); positivity is the spin event. Unifying observation: every geometric count is sign-blind, and the sign is the quadratic character at n.
+* *Synthesis and function fields* ((J)11–(J)12). Twelve cross-combinations of these insights were screened and none escapes (O171). In F_q[T], a finite linear covering exists iff a profinite obstructed set is empty; for q = 3, A = T² there is a candidate obstructed ("sterile") point (CONJECTURE 0.2, EVIDENCE). No extinction proof in char ≥ 5.
 * *Assessment.* All six directions reduce to the same core: the existence of a divisor of a specific integer in a moving residue class at Planck scale (H-A). The sign/genus layer is always easy and the size layer is the obstruction. New CONJECTURE SQ₅ (EVIDENCE to 10⁶) strengthens O146's SQ.
 
 **Wide-breadth brainstorm of exotic angles (2026-10-12; ledger (J)1–(J)4; tasks O140–O163, reviews R158–R163): no live route; ES is not solved.**
