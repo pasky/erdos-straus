@@ -17,14 +17,16 @@ scripts scripts/ff_frob_selfmute.py, scripts/ff_frob_overflow.py; data data/ff_f
    order ≍ r of ⟨s mod r⟩.
 2. **Square-root threshold over F_q[T] (§2, PROVED).** Over F the flip from "P mod f ∈ S" to a condition on f is
    geometric (P mod f = P(α)), valid for characters of every order via Weil, not only reciprocity orders m | q − 1.
-   Thm 2.1/Prop 2.2: character-expansion + Weil certifies firing at modulus degree d iff the (fixed, algebraic)
-   firing set has size ≳ n·q^{d/2}·‖ŝ‖₁; subgroups ‖ŝ‖₁ = 1, exponent intervals/boxes only logarithmic. The ES
+   Thm 2.1/Prop 2.2: character-expansion + Weil certifies firing at modulus degree d through a FIXED set S only if
+   |S| ≳ n·q^{d/2} (and if |S| ≳ n·q^{d/2}·‖ŝ‖₁); subgroups ‖ŝ‖₁ = 1, fixed-base exponent intervals/boxes logarithmic.
+   (Scope: this method; varying bases s(α) are not covered.) The ES
    box has size q^{o(d)} and moving generators (Prop 2.3). This is "how mute must a place be": a fixed algebraic
    sub-structure of size ≥ √|(R/f)^*|·n.
 3. EVIDENCE: one mute place S = {3} solves all 78 496 primes < 10⁶ in ES^{(3)} (max shot 9^{18}) and in ES^{(y)}
    (3 | y forced; max shot 9^{21}); 0/332 odd squares (T1 control). Overflow scale ES_q^{(s,e)} (z-denominator
-   s^{2t}, t ≤ e): all P solved with e ≤ 5, and the needed e decreases with n (q = 7: max e = 5, 4, 3, 2 at
-   n = 2..5), while the Weil-provable e grows like n².
+   s^{2t}, t ≤ e): all P solved with small e (see §5.2 table, rerun after the R196 search-completeness fix), and
+   the needed e does not grow with n, while the only known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}
+   (whether less is provable is open).
 
 ## Answer to the question (scoped no-go; §1, §3, §6)
 * Literal form: Fire(p) is finite (O(p²) moduli), so no finite Galois extension (fixed or p-dependent) gives a
@@ -37,9 +39,16 @@ scripts scripts/ff_frob_selfmute.py, scripts/ff_frob_overflow.py; data data/ff_f
   divisibility), self-mute (§4), exponent intervals (§5.2). Non-abelian (torsion) fields of moving level give nothing
   over cyclotomic ones: the obstruction is the moving level/small box, not abelianness.
 
+## Self-review (review tool, deep) and repairs, all folded in, marked "R196 #k" in the file
+#1 ES_q firing = actual Type II solution (box congruence only necessary over F); #2 Weil main term (q^d − r)/m;
+#3 overflow "threshold e ≈ n²" withdrawn (Prop 2.2 needs a fixed base) — replaced by "known proof needs n^{2+o(1)},
+smaller open"; #4 overflow search kept only one witness per residue (could miss valid ones) — fixed, grid rerun;
+#5 divisor-bound constant; #6 Thm 1.4 constant; #7 CM needs good reduction, lattice count not uniform; #8 Thm 1.3
+relabelled CONDITIONAL on the cited Chebotarev shape. The reviewer confirmed Thm 4.2, Cor 4.3, Thm 4.4's disjointness/
+Euler product, verify(), and the solution-count bound p^{1+o(1)} (incl. Type I).
+
 ## Caveats for the reviewer
 * Thm 1.3 cites effective function-field Chebotarev by shape (constants/ramification term not re-checked).
-* Thm 1.4 uses the trivial bound #Type I/II solutions ≤ p^{1+o(1)} — please check the Type I count.
 * Thm 4.4 is a citation-level GRH sketch (Lenstra 1977); the density formula's disjointness argument is mine.
 * Prop 2.3 compares box size to the threshold; the claim "the method cannot certify" is about the expansion method
   of Prop 2.2 with a FIXED S, not a general impossibility.
