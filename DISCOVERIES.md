@@ -604,6 +604,8 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Prop 2.1 / 2.2 (PROVED relative to Cohen's Eichler–Selberg formula, transcription checked): ES is the sign-odd part of the split-hyperbolic term; the sign is visible only in odd weight; the ES term is the smallest in the identity. Kronecker–Hurwitz-type re-summation has no analogue for the multiplicative shifts gN + 1 (Assessment).
    * Unifying observation (Assessment): every geometric count found is sign-blind, and the sign is exactly the quadratic character at n. This unifies O128 Prop 8.3, O131 Prop 4.1, O165's spin lemma and (J)9.
 
+11. **Spark synthesis (SYNTHESIS_SPARKS.md (O171); not separately reviewed, no headline claim).** Twelve cross-combinations of the (J)1–(J)10 insights were screened; none escapes. Common skeleton: a *sign layer* (genus characters on prime factors of N_θ(p), whose product is one Legendre symbol) and a *class layer* (an individual divisor in a class); every route dies in the class layer (H-A). Thm 2.3 (PROVED; known in substance as an instance of (H)3 Thm C / (H)9 Lemma 8.1): if p ≡ 1 (8) and n_p > Y, no slice with Y-smooth modulus has a Y-block witness. This corrected the scope of (J)8 Cor 7.4 (scale n_p, not c₀ log p; repaired in DETERMINISTIC_EXISTENCE §7). Internal consistency of (J)9/(J)10/(J)2-follow-up CERTIFIED on the overlaps. EVIDENCE: locally-square primes (n_p > 23 at 10¹¹) have their first Type II witness at median e = 7 (control 3), mostly at smooth slices; nothing structured replaces block witnesses.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
