@@ -4,6 +4,14 @@ Reviewer: R198 (side agent). Document reviewed: CHI_FLIP.md at side-agent/chi-fl
 reviews/agent-reports/AGENT_REPORT_O198.md. From-scratch scripts: scripts/review_cf_*.py (none reuse cf_*).
 **ES is not solved here, nor any infinite case of it.**
 
+**Repairs applied** (author quiet since 42909547; all marked "(R198 repair)" in CHI_FLIP.md): D1 (Cor 1.4(b) attribution
++ rotation flips in the (A/n) normalisation; §2 Reading), D2 (mod-8 isotropy lemma in Cor 1.2; Prop 1.5 label),
+D3 (B_{2,∞} wording; "transported" instead of "upgraded"; novelty/attribution Assessment), D4 (5 removed from the SQ₅
+exception list; Ω₂ ≠ ∅ argument; "equivalent by definition"; BL Thm 1.9 analogy), D5 (count). NOT applied — for the
+parent (other files): the D1 ledger repairs in DISCOVERIES (J)9 bullet 3, HJ_DEEP C3 (line 141), MODEL_SPECIFIC C3; D4(a)
+"(or n ∈ {5, 105})" in DISCOVERIES (J)32 / MODEL_SPECIFIC C1 (needs "interior words" or deletion of 5); the report
+AGENT_REPORT_O198 SHARP 3 wording (same as D1).
+
 ## Summary verdicts
 * **Thm 1.1** (χ = −ε₂(Q_w); local formulas) — **SOUND.** Re-derived every local invariant (see V1). From-scratch check
   `scripts/review_cf_hasse.py 2000`: all 50 008 positive words of all odd n ≤ 2000 (17 503 with n prime): det G_w = n,
