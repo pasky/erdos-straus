@@ -78,3 +78,17 @@ non-square sterile point or simply a search-limit case; matches Spark 2).
 Recomputed (`review_ec_xstar_check.py`): along X₂, ν_q = 289 (unit square for every q with v₂(ord_q 2) ≤ 2 — none fails for q < 5000)
 and ν_q = −287 when v₂(ord_q 2) = 3. Such q are automatically ≡ 1 (mod 16) (q ≡ 9 mod 16 ⇒ 2 is a QR ⇒ v₂(ord) ≤ 2), so the claim
 "unit square at every q ≢ 1 (16)" is right; first bad primes 241, 353, 433 ✓. The I1 (3, 38737, 287) class verified by my checker.
+Supporting check for D3: `scripts/review_ec_etsq.py` (own implementation of the seven ET Prop 1.9 families from the ET text, not
+mordell_lib; I1 restricted to 4a²d+1 ≤ 10⁶): all 51173 distinct classes of modulus ≤ 3000 are primitive and none has a square residue.
+
+### §5.1 S-unit families — classification **SOUND** (multi-exponent Thm 1.4 transfer only sketched but routine); "B1 is the S → all-primes limit" is **Assessment/heuristic, not PROVED** (D11)
+Re-derived: for u = Π p^{a_p} with all a_p ≥ v_p(M), n mod M is periodic in (a_p mod ord_{M′}(p)); integer unit-square points ⟺ k·u + c = v²
+with u, v S-units (a two-term S-unit equation, finitely many solutions); S = {2,3}, k = 1: 2³+1 = 3² and 3+1 = 2² ✓.
+
+### §5.3 uniformity / Proth — **SOUND for ET+divisor classes** (and, after D3, for all polynomial-solvable classes); bold "every fixed-slice / congruence method" **overclaimed** (D12)
+
+### §5.4 literature / novelty — **plausible**
+My web searches (Jina; "Erdős–Straus" with Fermat/Proth/k·2^n+1/exponential family) found no prior "ES for all k·2^m + 1" statement;
+only congruence-class results. Not exhaustive (no MathSciNet/zbMATH access). The author's own caveat (novelty is in form, each family
+lies in finitely many solvable classes) is accurate. Thm 1.2's compactness argument is standard (Sierpiński-type covering + profinite
+compactness); presenting it as new is fine only as "new in the ES context".
