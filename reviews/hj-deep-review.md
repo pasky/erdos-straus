@@ -83,3 +83,35 @@ author used; the arXiv text agrees verbatim on every quoted point:
 * Small inaccuracy: Lorenzini's proof of 6.3(a) uses the fixed pair (x,z) = (4,6) (for 2^m − 2, m even ≥ 6) in addition to
   the z = 2 and z = 4 slices; the note says "His proof uses the z = 2 and z = 4 slices". MINOR.
 * "His computational range is not stated" — correct for the arXiv text too.
+
+### Lemma 3.2 (no finite fixed-pair covering of (W)) — SOUND (with a residue-level caveat)
+Re-derived: (t,u) fixed ⇒ n + u = v(tu−1) ⇒ n ≡ −u (mod tu−1); (u,v) fixed ⇒ n ≡ −(u+v) (mod uv). In the class
+n ≡ −1 (mod M), a (t,u)-family would need tu−1 | u−1 with 0 < u−1 < tu−1 (impossible), a (u,v)-family uv | u+v−1 with
+0 < u+v−1 < uv (since uv − u − v + 1 = (u−1)(v−1) ≥ 1; impossible). ✓
+Caveat (MINOR): "(t,u) fixed ⟺ n ≡ −u (mod tu−1)" is only "⟹"; the converse needs the third letter ≥ 2
+(n ≥ 2tu − u − 2). Irrelevant for the lemma (which only uses ⟹).
+Scope: the lemma says nothing about one-letter families (u fixed, t and v free — a moving-modulus divisor condition),
+and empirically those already suffice for (W) to 10⁹ with u ≤ 12 (above). The note correctly says "other congruence
+constructions are not classified there"; the §0 phrase "admits no proof by a finite covering with fixed-pair families" is
+accurate. Numerics re-done from scratch (`scripts/review_hj_cover.py`): uncovered fraction 0.1607 % (M = 720720; first
+uncovered residues 15, 105, 366, 510, 1455, 1806, 1905, …) and 0.0852 % (M = 12252240; 105, 366, 510, 1806, 1905, …),
+M − 1 uncovered in both. ✓ (the note's "0.09 %" is a rounding of 0.085 %; fine).
+
+### Prop 4.1 (exact reduction of (S)) — SOUND (but it is a tautological restatement; label it so)
+Words with middle t ⟷ factorisations tn+1 = XY, X ≡ Y ≡ −1 (mod t), X, Y ≥ 2t−1: (X+1)(Y+1)/t² = uv and
+XY = t(tuv − u − v) + 1 ✓ both ways. (X/n) = Π σ_n(q)^k by multiplicativity of the Jacobi symbol in the top argument ✓;
+((tn+1)/n) = (1/n) = 1 ⇒ (Y/n) = (X/n) ✓. The displayed "⟺" is then the definition of (S) rewritten. σ_n = (·/n) is a
+non-trivial Dirichlet character mod n iff n is not a square ✓. Nothing is wrong; but "PROVED" + "sharpest form" oversells a
+restatement — suggest "PROVED (reformulation)".
+
+### §4 construction log — spot checks
+* C2: "Type II count ≍ log³p on average" — ET Thm 1.1 gives Σ_{p≤N} f_II(p) ≍ N log²N, i.e. average ≍ log³N over primes ✓.
+* C5: "product of signs over L₃(p) is +1 at primes (reversal pairs)": correct, but the reason is incomplete — one also needs
+  that there are no palindromes u = v at primes (A = A* ⇒ A² ≡ 1 (p) ⇒ A = p − 1, whose HJ length is p − 1 ≠ 3). At composite
+  n palindromes exist (n = 21 has |L₃| = 1). MINOR.
+* C6 shape claims re-derived: u = 2 fails ⟺ n + 2 is an odd prime or a power of 2 ✓; t = 2 fails ⟺ 2n + 1 prime ✓
+  ((2u−1)(2v−1) = 2n+1); u = 3 as stated ✓. The concluding sentence "A finite list of shapes would have to exclude infinitely
+  many prime constellations … That is not known unconditionally" understates the heuristic situation: under Schinzel's
+  hypothesis H one expects every fixed finite list of one-letter shapes to fail infinitely often (choose n with each n + u
+  equal to a small cofactor times a prime in a suitable class), so finite shape lists are conditionally *refuted*, not
+  merely unproved — while my data show u ≤ 12 suffices below 10⁹. This contrast is worth one sentence. MINOR (Assessment).
