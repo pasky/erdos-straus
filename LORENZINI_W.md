@@ -177,3 +177,27 @@ divisor-in-moving-class problem. It is ES-irrelevant except for n ≡ 9 (12) com
 **Assessment.** This deflates the "(W) as an ES test bed" motivation: what ES needs from (W) is trivial. The interest of (W) is now as Lorenzini's
 problem in its own right. For ES, the spark relay should redirect to (S) at primes p ≡ 1 (mod 12) (ultimately Mordell's residual classes mod 840),
 which is the familiar sign/genus layer: Prop 4.1 of HJ_DEEP.
+
+## 9. The even half of Lorenzini's question is settled (PROVED; new as far as I can tell)
+**Theorem 9.1.** Every even n ≥ 16 with n ≠ 510 is a value of xyz − x − z with x, y, z ≥ 2. Equivalently, the even part of the complement of
+V_{A₃}(2) is exactly {0, 2, 6, 14, 510}.
+*Proof.* By Lorenzini Prop 6.3(a) it suffices to treat n = 2^m − 2 with m odd. (For other even n: z = 2 if n + 2 is not a 2-power, and
+(4, (2^{m−3}+1)/3, 6) if m ≥ 6 is even.) For odd m the following six fixed-pair families cover every odd class of m mod 36:
+| family | condition on n | in terms of m | covers odd m (mod 36) |
+|---|---|---|---|
+| (x,z) = (3,3) | 9 \| n + 6 | 2^m ≡ 5 (9) ⟺ m ≡ 5 (6) | 5, 11, 17, 23, 29, 35 |
+| (x,z) = (6,12) | 72 \| n + 18 | m ≥ 3 and 2^m ≡ 2 (9) ⟺ m ≡ 1 (6) | 1, 7, 13, 19, 25, 31 |
+| (x,y) = (7,2) | 13 \| n + 7 | 2^m ≡ 8 (13) ⟺ m ≡ 3 (12) | 3, 15, 27 |
+| (x,z) = (3,9) | 27 \| n + 12 | 2^m ≡ 17 (27) ⟺ m ≡ 15 (18) | 15, 33 |
+| (x,y) = (10,11) | 109 \| n + 10 | 2^m ≡ −8 (109) ⟺ m ≡ 21 (36) | 21 |
+| (x,z) = (8,74) | 592 = 16·37 \| n + 82 | m ≥ 4 and 2^m ≡ 31 (37) ⟺ m ≡ 9 (36) | 9 |
+The third letter is z = (n+x)/d for the (x,y) families and y = (n+x+z)/(xz) for the (x,z) families. It is ≥ 2 as soon as n ≥ 2·592, i.e. m ≥ 11.
+For m ∈ {1, 3, 5, 7, 9}: 0, 6 and 510 are exceptions, 30 = (3,4,3) and 126 = (6,2,12). ∎
+Certificate: `scripts/bsG_pow2_cert.py` (greedy cover found automatically; explicit solutions checked with exact integers for all odd 11 ≤ m ≤ 4001).
+`scripts/bsG_pow2.py 20000 L` shows that L = 36 is the least period among {12, 36, 60, …} that works; L = 12 misses m ≡ 9.
+The orders used are ord₉(2) = 6, ord₁₃(2) = 12, ord₂₇(2) = 18, ord₁₀₉(2) = ord₃₇(2) = 36. This is a Sierpiński-type covering, possible here because the
+family 2^m − 2 is a *one-parameter exponential* family: it is not dense in Ẑ, so the sterile set (§4) does not obstruct it.
+**What remains of (W) (exact).** By Lorenzini 6.3(b), Prop 8.1 and Thm 9.1, (W) is equivalent to: **every odd n ≡ 3, 9, 11 (mod 12) with n + 2 prime,
+n ∉ {3, 9, 11, 15, 35, 105}, is a value.** Here the residue is a prime-shift set, dense in every congruence class compatible with it (n ≡ −1 (mod M) is
+compatible). So no finite covering can finish it (HJ_DEEP Lemma 3.2 restricted to n + 2 prime: the classes n ≡ −1 mod M with M odd contain
+infinitely many n with n + 2 prime by Dirichlet).
