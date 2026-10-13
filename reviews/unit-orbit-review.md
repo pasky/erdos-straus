@@ -106,3 +106,52 @@ discarded ✓. T1-sensitive step: for n = m², (a/n) = 1 for every a, so no admi
 *Evidence (independent):* `review_uo_evidence.py 200000 30000`: all 17 979 primes 13 ≤ p < 2·10⁵ (p ∉ S) solved,
 max Q = 81, Q = 1 for 15 592; all 6 197 odd non-squares n < 3·10⁴ coprime to 2S solved (max Q = 81); every solution
 verified exactly; squares have no shot for the first 40 Q (as proved).
+
+### C7. Proposition 3.1 — SOUND
+g = a = n + 4η ≡ −1 (mod 4), e = 1, σ_anchor(a) = n + 4σ(η) > 0 for orbit elements positive at the anchor
+(φ^{2k+1} at σ₁; Q² in ES^{(S)}); x = (n + 1)/4. Trivial and correct.
+
+### C8. Proposition 3.2 — SOUND (m6)
+Re-derived: Hilbert reciprocity for coprime n, a (both prime to 2): (n/a)(a/n) = ∏_{v|2∞}(n, a)_v = 1 because n > 0 and
+n ∈ K_v^{*2} at v | 2; (a/n) = (η/n) = ∏_{ℓ|n} (N_{K/ℚ}η/ℓ)^{v_ℓ(n)} (norm compatibility of residue symbols, incl.
+ramified ℓ) = (±1/n) = 1. *Check* (`review_uo_misc.py` (c)): 13 944 shots a = n + 4η, η = ±φ^j (ℚ(√5)) and
+η = ±(1 + √2)^j (ℚ(√2)), n ≡ 1 (mod 8), n < 2000, j ≤ 13: the total symbol (n/|N a|) = 1 in all cases.
+
+### C9. Proposition 4.1 — SOUND
+Re-derived. K(√u)/K for a unit u is unramified outside 2∞, 2-conductor | 4, ramified at real v iff σ_v(u) < 0, and
+u ∈ U_𝔪 restricts that to v ∈ P; so χ_u factors through Cl_𝔪. χ_u((g)) = ∏_{v|2∞}(u, g)_v (product formula; odd
+v ∤ g contribute 1); real factors are 1 (u > 0 off P, g > 0 on P); at v | 2, (u, g)_v = (u, −1)_v(u, −g)_v and
+−g ≡ 1 (mod 4) gives an unramified (or trivial) K_v(√−g), so (u, −g)_v = 1; ∏_{v|2}(u, −1)_v = ∏_{v real}(u, −1)_v.
+Consequence (a): U_𝔪 = ⟨−φ⟩ (σ₂(−φ) > 0) and the forced condition (−φ/𝔮) = −1 agrees with T1_TEMPLATE Thm 1.3 (χ = χ_{−φ}).
+K(√−φ)/ℚ is not Galois (σ(−φ)/(−φ) = −φ^{−2} ∉ K^{*2}). The identity is correct; its *interpretation* is not — see M1.
+
+### C10. Theorem 5.1 — SOUND
+Re-derived. (1) If n mod ℓ ∈ S_ℓ then −n/4 ≡ φ^{2k+1} (mod 𝔮) for some k, so 𝔮 | a_k with (n/𝔮) = (n/ℓ) = −1 ⇒
+orbit-solved (T1_TEMPLATE Thm 1.3(b)). (2) Good 𝔮: ℓ ≡ 1 (4), φ non-square ⇒ ord φ even and C = φ⟨φ²⟩ = non-squares in
+⟨φ⟩, so (n/ℓ) = (−1/ℓ)((−n/4)/ℓ) = −1 automatically; ℓ ≡ 3 (4), φ square ⇒ C ⊂ squares and (−1/ℓ) = −1. |C| ≥ m/2.
+(3) [K(i, √φ) : K] = 4 (K(√φ)/ℚ non-Galois, K(i)/ℚ abelian), so good 𝔮 have density ½ among primes of K and
+rational primes with a good 𝔮 above them have lower density ≥ ¼. (4) ord_𝔮(φ) ≤ y ⇒ ℓ | N(φ^j − 1) for some j ≤ y;
+Σ_{j≤y} log|N(φ^j − 1)| ≪ y², so ≪ y² such ℓ; with y = ℓ^{1/2}/log ℓ this is O(x/log²x) in [x/2, x]. (5) Montgomery's
+arithmetic large sieve: |𝒩| ≤ (X + L²)/J, J ≥ Σ_{ℓ∈𝒫, ℓ≤L} ω(ℓ)/ℓ ≫ Σ_{dyadic x≤L} (x/log x)(x^{−1/2}/log x) ≍
+L^{1/2}/log²L; L = X^{1/2} gives ≪ X^{3/4}log²X. Only the unconditional Chebotarev density theorem is used. ✓
+*Check* (`review_uo_misc.py` (d)): for all split ℓ < 3000 and both 𝔮 | ℓ: |S_ℓ| = |C| ≥ ord/2 for every good 𝔮, and
+"n ∈ S_ℓ ⟺ (∃k: 𝔮 | a_k) ∧ (n/ℓ) = −1" on all 574 004 pairs (𝔮, n).
+
+### C11. Theorem 5.2 — SOUND (CONDITIONAL; m7)
+Algebra re-derived as in R183 C7 with p → n: (t/𝔮) = (−1/ℓ)(n/ℓ)(φ/𝔮) = 1 for t = −n/(4φ), squares = ⟨φ²⟩. Lenstra
+(1977) Cor. 4.8 with W = ⟨φ⟩, F = K(i, √n), C = {σ(i) = i, σ(√n) = −√n}: F/K is biquadratic because −1, n, −n ∉ K^{*2}
+exactly when n ∉ T (−n < 0 at both real places); L₂ = K(√φ) ⊄ F (signature of φ is (+, −), of −1, ±n: (−,−), (±,±));
+L_l non-abelian for odd l. So d(M) > 0 under GRH. The author's stated check "K(√n) ⊄ K(i, √φ)" is not Lenstra's
+criterion (the relevant one is L_l ⊄ F) — the conclusion is right, the justification should be replaced (m7).
+EVIDENCE (71 = |T ∩ [3, 10⁴)| non-solved odd n) not re-run by me; T1_TEMPLATE-level analogue was checked in R183.
+
+### C12. Proposition 6.1 — SOUND
+Re-derived: v_q(z) = 2s − 2c ≥ 0 ⟺ s ≥ c when s < 2c; v_q(z) ≥ 0 when s ≥ 2c; 2-adically 4 | g + 1. Hence z ∈ ℤ ⟺
+Q | g + 1 ⟺ 4Q | g + 1. *Check* (`review_uo_misc.py` (b)): 51 558 shots, z ∈ ℤ in 3 100, criterion agrees in all —
+identical totals to the author's.
+
+### C13. Theorem 6.2 — SOUND (as scoped)
+(i) Over ℤ the only positive unit is 1 ✓; the Assessment "Σ_{Q∈⟨S⟩} τ(n + 4Q²)/φ(4Q) converges" is correct as a
+heuristic (Σ_{Q∈⟨S⟩} Q^{ε−1} = ∏_{q∈S}(1 − q^{ε−1})^{−1} < ∞). (ii) example verified. (iii) ✓. The equality "ES-solutions
+= ES^{(S)}-solutions + g ≡ −1 (4Q)" is correctly restricted to the orbit family; the ES solution
+4/169 = 1/52 + 1/234 + 1/6084 checks.
