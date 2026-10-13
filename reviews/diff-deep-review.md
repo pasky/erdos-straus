@@ -15,7 +15,8 @@ bound cited, conclusions survive with repairs) and eight MINOR. All numerical cl
 | Claim | Verdict |
 |---|---|
 | DIFF_DEEP Thm 2.1 (algebraic bijection + `4h ∣ gcd(h,G)²`) | **SOUND** (re-derived; brute force exact for all odd n ≤ 2001) |
-| Thm 2.1 geometric reading | SOUND-AFTER-REPAIRS (see D-list) |
+| Thm 2.1 geometric reading (exact divisibility form) | SOUND-AFTER-REPAIRS (add p ∣ det T line, D11; size gloss D1) |
+| bsC_typeII_commutative Lemma 1 (k = √−dn) | **SOUND** (re-derived; 27 788 tuples, 0 failures) |
 | Thm 1.1 / Cor 1.2 (supersingular transfer; ∃E vacuous) | SOUND (Diff(T') = {p} re-checked from scratch) |
 | Prop 1.3 (∀E false; τ(e) maximal orders) | SOUND-AFTER-REPAIRS (τ(e) correct for all e; ET citation wrong) |
 | Prop 2.2 (Gram form, involutions, k² = −4c²dp) | SOUND; last sentence (commutative identity with *this* k) FALSE as written — notation clash (D3) |
