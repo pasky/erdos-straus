@@ -86,7 +86,8 @@ and σ² ≡ 4^j ≢ 0 mod q). So it is an ET class containing arbitrarily large
   Schinzel's statement is for x, y, z ∈ Z[t] only, pass to a sub-progression mod M·D (D clearing denominators) — it still
   contains unit squares (choose u with σ + uM coprime to D).
 * **re-derived** at class level for the two families the certificates use most:
-  II1 (−e mod 4ab, e | a+b, (e,4ab)=1): ET's §4 reciprocity argument uses only n ≡ σ² (mod 4ab), so it is class-level.
+  II1 (−e mod 4ab, e | a+b, (e,4ab)=1): σ² ≡ −e (mod 4ab) ⇒ e ≡ 3 (mod 4); with ab = 2^v q, q odd, (−e/q) = 1 ⇒ (q/e) = 1 by
+  reciprocity; a ≡ −b (mod e) ⇒ (ab/e) = (−1/e) = −1 ⇒ (2/e)^v = −1 ⇒ v ≥ 1 ⇒ 8 | 4ab ⇒ e ≡ 7 (mod 8) ⇒ (2/e) = 1, contradiction.
   II2 (−4a²d mod f, 4ad | f+1): σ² ≡ −4a²d (mod f) gives (−d/f) = 1 (Jacobi); f ≡ 3 (mod 4) so (d/f) = −1; with d = 2^v d′,
   (d′/f) = (f/d′)(−1)^{((d′−1)/2)((f−1)/2)} = (−1/d′)(−1)^{(d′−1)/2} = 1, so (2/f)^v = −1, v odd ⇒ 8 | 4ad ⇒ f ≡ 7 (mod 8)
   ⇒ (2/f) = 1, contradiction.
@@ -98,3 +99,60 @@ and σ² ≡ 4^j ≢ 0 mod q). So it is an ET class containing arbitrarily large
 … not checked"): no finite covering by *any* polynomial-solvable (ET Def., p. 7) classes plus arbitrary non-primitive classes
 exists — n_m is a unit mod M, so non-primitive classes never contain it. This is PROVED modulo the Mordell–Schinzel theorem
 as quoted by ET (suggested upgrade, defect 6).
+
+## 3. Numbered defects
+
+**1 (MAJOR — overclaimed label/paraphrase; no mathematical change needed).** §0 bullet 3 ("the only integer obstruction points
+of k·2^m + 1 are k = 4^j − 1 at μ = 0 (PROVED)") and §6 bullet 1 ("the complete list of integer obstruction points (Cor 1.5 …)").
+Cor 1.5 classifies integer points in Sq^× (unit-square points) only. An integer point ν(ℓ) can also be an obstruction by lying in
+the sterile part S′ \ Sq^× — whether such points exist is exactly the open "no sterile non-square point" half of EC_k (§3, §5.3).
+Repair: "the only integer *unit-square* obstruction points are …", and in §6 "complete list of integer unit-square points".
+
+**2 (MINOR — proof hygiene in Thm 1.2 square part).** "r is odd when M is even … there are odd integers s′ ≡ s (mod M) with s′² in the
+class … no ET class contains an odd square: Schinzel–Yamamoto … ET Prop 1.6 … class-level form". (a) What is actually needed and true
+is that every ET class is *primitive* (all seven families: verified by derivation from the defining conditions and numerically,
+`review_ec2_t1.py`), so any square point is a unit square at the primes of M and the class is a primitive quadratic-residue class.
+(b) The right citation is ET p. 7 (Mordell [44] / Schinzel [68]: primitive square classes are not solvable by polynomials), not
+Prop 1.6 (which is about f_I, f_II of an odd square n and, as the author notes, does not apply verbatim to composite n).
+(c) `ec_t1check.py 3000` is EVIDENCE, not part of a proof; the proof should rest on (b) or on a class-level reciprocity lemma for all
+seven families (I re-derived II1, II2 above; I1–I4, II3 still to be written out). Repair: state "ET classes are primitive" as a
+lemma, cite ET p. 7 / Schinzel, keep the computation as a control.
+
+**3 (MINOR — false for one small m).** §0 bullet 5 and §2 example: "27·2^m + 1 is ≡ 529 (mod 840) for m ≡ 2 (12)". For m = 2,
+n = 109 ≡ 109 (mod 840). True for m ≡ 2 (12), m ≥ 14 (needs m ≥ 3 for the 2-part). Repair: add "m ≥ 3" (as already done for 315,
+15015). (The §2 Legendre table itself is correct: `review_ec2_facts.py`.)
+
+**4 (MINOR — "certified by an independent checker").** §0 bullet 6 / §4: `ec_cert.py` is written by the author in the same session
+as the generator; it is a separate program, not an independent check in the review sense. Now independently confirmed (§1 above);
+suggest wording "certificate checker `ec_cert.py`; independently re-certified in R189".
+
+**5 (MINOR — wording in Cor 1.5 proof, ℓ < 0).** "s a power of 2: k = 4^j − 4^i odd forces i = 0, i.e. ℓ = 0" — in the ℓ < 0 branch
+|ℓ| = 2i ≥ 2, so the correct conclusion is "no solution"; also k + 2^{|ℓ|} is odd, so s = 1 directly. Repair: "k + 2^{|ℓ|} is odd
+and has no odd prime factor, so equals 1: impossible."
+
+**6 (MINOR — undersold; suggested upgrade).** §5.3 "(for general Theorem-M procedures it is the usual H-conditional transfer … not
+checked here)". The direct argument of §2.2 above proves, modulo the Mordell–Schinzel theorem as quoted in ET p. 7, that no finite
+union of polynomial-solvable classes and non-primitive classes covers (4^j − 1)·2^m + 1 for m ≥ m₀ (the bad exponents are
+m ≡ 0 mod L and there n_m is a unit square mod M). Repair: add this as a remark (CONDITIONAL on/citing Schinzel [68], which I could
+not access).
+
+**7 (MINOR — terminology).** "Proth numbers 3·2^m + 1" (§0, §5.3): Proth numbers are k·2^m + 1 with odd k < 2^m; the family meant is
+the k = 3 subfamily. Repair: "numbers 3·2^m + 1 (the k = 3 Proth family)".
+
+**8 (MINOR — garbled sentence, outside main scope).** Prop 2.1: "exists only if (i) … or (ii) F̄ avoids Sq^× because of (i) after all" —
+(ii) is (i). Repair: delete (ii) or state what is meant (e.g. a one-prime obstruction at q = 2).
+
+## 4. Other checks (all ✓, `scripts/review_ec2_facts.py`)
+* 109, 27·2²⁶ + 1, 27·2⁵⁰ + 1 are prime; 315·2^m + 1 ≡ 1 (mod 2520) and 15015·2^m + 1 ≡ 1 (mod 120120) for m ≥ 3 (120120 = 2³·3·5·7·11·13).
+* §4.3 (k = 9): 9·2⁵ + 1 = 17², ord₁₇2 = 8, ord₃₈₇₃₇2 = 72, M = 464844 = 4·3·38737, class residue ≡ −287 (mod 38737),
+  287 | 4·3²·38737 + 1 (I1 condition), the class is used only for m ≡ 41 (72); first primes with v₂(ord_q 2) = 3 and (−287/q) = −1 are
+  241, 353, 433 (then 977, 1297) as claimed.
+* Lemma 1.1 and Thm 1.2 (a)⇔(b) re-read: correct (C is a finite union of clopen sets; n_m ≡ c mod 2^s for m ≥ s).
+* Not checked: §4.2 survey numbers (EVIDENCE), §5.1 S-unit and §5.2 claims, §3 literature claims (Bertók–Hajdu), §5.4 literature search.
+
+## 5. Bottom line
+The infinite-family claims of Thm 4.1 are **CERTIFIED by my independent check** for all eleven k (including the required k = 27,
+315, 15015): exact polynomial identities, integer coefficients after n = r + Mt (no denominators at all), positivity for all n ≥ 1,
+full coverage of Z/L verified by per-prime-power exponent arithmetic with ord | L asserted, brute force for the few m < m*, plus
+brute force for all n_m ≤ 10⁸ and exact checks at random m up to 40 000. Cor 1.5 and its "no finite ET/divisor covering of
+(4^j − 1)·2^m + 1" consequence are SOUND by an independent direct argument. Only label/wording repairs are required (defects 1–8).
