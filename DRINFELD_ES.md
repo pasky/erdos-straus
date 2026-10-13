@@ -142,12 +142,12 @@ of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*
 Q-shape is Type I (v_Q = (≥ m, 0, 0) up to order) or Type II ((0, ≥ m, ≥ m)). Then inv_Q α_ζ(u) = 0 for ζ of
 order m. Hence (Lemma 3.1, reciprocity) the odd part of inv_∞ α_ζ(u) vanishes: **primitive solutions at m-th powers
 lie in the degree classes where the character of Lemma 3.2 is trivial**. For prime P there is no such restriction.
-*Proof.* Type II, label u₁ = the Q-free one: v_Q(x) = −m (λ has v_Q = −m). 1/u₂ + 1/u₃ = x/u₁ has v_Q = −m; if
-v_Q(u₂) ≠ v_Q(u₃) the sum would have v_Q = −max < −m... precisely −max(v₂, v₃) = −m with min ≥ m forces
-v₂ = v₃, so y is a Q-unit and {x, y}_Q = ±y^m ∈ k(Q)^{*m}·{±1}. Type I, label u₁ = the Q-divisible one:
-v(λu₁) = v₁ − m ≥ 0, y is a unit. If v(x) = 0 the symbol is 1. If v(x) > 0 then 1/u₂ + 1/u₃ = x/u₁ forces
-v_Q(u₂ + u₃) = v(x) − v₁ ≥ 0... so v(x) ≥ v₁ ≥ m; if v(x) = m (then v₁ = m) the symbol y^{−m} is an m-th
-power; if v(x) > v₁ then u₂ ≡ −u₃, y ≡ 1. (v(x) strictly between impossible as v(u₂+u₃) ≥ 0.) ∎
+*Proof.* Write v_i = v_Q(u_i). Type II, label u₁ = the Q-free one: v_Q(x) = −m. Since 1/u₂ + 1/u₃ = x/u₁ has
+valuation −m, and v₂, v₃ ≥ m: if v₂ ≠ v₃ the sum would have valuation −max(v₂, v₃) < −m. So v₂ = v₃, y is a
+Q-unit, and {x, y}_Q = ±y^m ∈ ±k(Q)^{*m}. Type I, label u₁ = the Q-divisible one (v₁ ≥ m, v₂ = v₃ = 0): y is a unit,
+v(λu₁) = v₁ − m ≥ 0. If v(x) = 0 the symbol is 1. If v(x) > 0, then x/u₁ = (u₂ + u₃)/(u₂u₃) has valuation
+v(x) − v₁ ≥ 0. If v(x) > v₁, u₂ ≡ −u₃ and y ≡ 1; if v(x) = v₁ then v(λu₁) = 0 forces v₁ = m and the symbol
+±y^{−m} is an m-th power up to sign. Odd part: 0 in both cases. ∎
 For c = (1,1,1) the character of Lemma 3.2 is trivial on the odd part, so Theorem 3.3 is empty — consistent with
 Theorem 2.2.
 
