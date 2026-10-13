@@ -625,6 +625,23 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * Ray-class pullback (bsB_rayclass_norm_pullback). Fixed-(t,p) Hecke-character / L-function / Eisenstein detectors use only χ∘N, so they see the ray-class condition only through characters pulled back from ℚ. Scope (R175 D10): this does not cover all ray-class proof mechanisms, so the (J)5 Remark 10.4 hatch is narrowed, not closed. For prime t ≡ 3 (4), the 2-primary (Rédei/governing-field) part of the class condition is exactly the genus sign; the remainder is odd-order (H-D residue).
    * EVIDENCE (R175 reproduced): single-slice W(n) ≥ 1 for all primes p ≡ 1 (4) ≤ 2·10⁶. The non-square zeros are 26 composites with small factors. W(105·k²) > 0, so a Shimura-type zero propagation fails.
 
+15. **HJ/Farey brainstorm A: SQ₅ splits into Lorenzini's A₃ question and a sign half (HJ_DEEP.md + 9 memos BRAINSTORM/bsA_* (O174); review `reviews/hj-deep-review.md` (R174): no FATAL; one MAJOR quantifier error (D1) and ~16 minors, repaired by the reviewer).**
+   * Lemma 1.1 (PROVED). Master identity: tuv − u − v = n ⟺ t/n = 1/(uv) + 1/(un) + 1/(vn).
+   * Prop 2.1/2.2 (PROVED). All of Type II = *formal* three-letter words K(a, 4cd, b) = cn; outer letters may be 1, e.g. 4/5 = 1/2 + 1/5 + 1/10. The sign is automatic: (A/n) = −(−1/n) for every odd n. This is the HJ dress of Yamamoto's lemma.
+   * §3 (PROVED, pointwise, given (J)9 Thm 4.5). For n ≡ 1 (4): interior-SQ₅(n) ⟺ W(n) ∧ S(n).
+     * W(n) is sign-free: n = xyz − x − z for some x, y, z ≥ 2.
+     * S(n) is the sign half: if n is a non-square with a length-3 word, some word has Jacobi symbol −1.
+   * **The global (W) is exactly the open question of Lorenzini on the critical polynomial of the path graph A₃** (arXiv:2311.06367 / JNT 2024, Example 6.2(a), quotation verified by R174). Its conjectured exceptional set is {0,1,2,3,5,6,9,11,14,15,35,105,510}. The global (W) is *stronger* than what ES needs (R174 D1). EVIDENCE (R174, independent algorithm, to 10⁹): the (W)-exceptions are exactly Lorenzini's list, (S) has 0 violations, and no odd square has a −1 word. DK's lone SQ₅ exception 105 is a (W)-exception: it has no length-3 word at all.
+   * Lemma 3.2 (PROVED): no finite fixed-pair congruence covering proves (W).
+   * Prop 4.1 (PROVED, a reformulation): (S) fails at n ⟺ for all t, every admissible divisor X ≡ −1 (t) of tn + 1 lies in the kernel of q ↦ (q/n).
+   * Memos (PROVED unless noted).
+     * The ES sign is the Wu square of the plumbing lattice, (A/n) = +1 ⟺ w·w ≡ n + r − 1 (mod 8) (Thm W, r ≤ 5 by mod-8 check). The Rokhlin reading is corrected by R174 for n ≡ 3 (4).
+     * HJ length = popcount ∘ Minkowski ? (M1, checked to n < 2000), so five-slice ES(p) is a statement about Stern's diatomic sequence.
+     * λ(p) ≤ (6/π² + o(1)) ln²p unconditionally, relative to Yao–Knuth (no ES content).
+     * (A/p) = −1 ⟺ L(p,A) is not homotopy-equivalent to L(p,1).
+     * Fricke/Markoff: Vieta dynamics acts on the fibre and ES lives on the base.
+   * Assessment: no route to ES. (W) is a published, T1-free, sign-free sub-problem with a clean exceptional set; it is the natural test bed for H-A ideas (pursued by spark relay O180).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

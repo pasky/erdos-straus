@@ -24208,5 +24208,48 @@ def check_fh():
 
 check_fh()
 
+def check_fi():
+    # (fi) HJ_DEEP (O174/R174): Lorenzini's A_3 question (W) exceptions and the sign half (S) of SQ5 (reviewer's own
+    # per-n divisor search, C), Wu-square sign law Thm W, Type II = formal words K(a,4cd,b) = cn with sign law.
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("HJ_DEEP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "(W)/(S) C check skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "review_hj_ws")
+            r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_hj_ws.c"), "-lm"],
+                               capture_output=True, text=True, timeout=120)
+            assert r.returncode == 0, ("HJ_DEEP: compile failed", r.stderr[-1000:])
+            r = subprocess.run([exe, str(10 ** 7)], capture_output=True, text=True, timeout=300)
+            assert r.returncode == 0, ("HJ_DEEP review_hj_ws failed", r.stderr[-500:])
+            o = r.stdout
+            assert "(W) exceptions: 2 3 5 6 9 11 14 15 35 105 510" in o and "#S violations=0" in o and \
+                "with -1 word=0" in o, ("HJ_DEEP R174 (W)/(S)", o)
+            cmsg = "(W) exceptions <= 1e7 = Lorenzini list, (S) 0 violations"
+    o = run("review_hj_wu.py")
+    assert "24692 odd words, 0 failures" in o and "39278 odd words, 0 failures" in o and "10948 words, 0 failures" in o, \
+        ("HJ_DEEP R174 Thm W", o)
+    o = run("review_hj_typeII.py", "3000")
+    assert "Type II tuples (a<=b) 9431; identity failures 0" in o and "sign-law failures 0; tuples at odd squares: 0" in o, \
+        ("HJ_DEEP R174 Prop 2.1/2.2", o)
+    print(f"== (fi) HJ_DEEP R174: {cmsg}; Wu-square sign law 0 failures; Type II = formal HJ words, sign law "
+          f"(A/n) = -(-1/n), 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fi()
+
 
 print("\nall checks passed")
