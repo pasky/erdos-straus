@@ -80,7 +80,8 @@ In particular Q₁ ≥ min(√g/(2n), (g/(4n))^{1/4}), i.e. **den(z) = Q₁² �
 g ≤ 4k²n + Q₁² < Q₁⁴n + Q₁². *Case kj ≥ 2Q₁²:* D = kj − Q₁² ≥ kj/2, so by (a) Q₀ = (4kn + j)/(4D) ≤ 2n/j + 1/(2k)
 ≤ (n + 1)/2, and by (b) g ≤ (4k²n + Q₁²)/(kj/2) ≤ 2kn + 1 (j ≥ 4, Q₁² ≤ kj/2). Since g = 4Q₀k − 1 divides n + 4Q₀²Q₁²,
 4Q₀k − 1 ≤ n + 4Q₀²Q₁², so k ≤ (n + 1)/(4Q₀) + Q₀Q₁² ≤ (n + 1)/4 + (n + 1)Q₁²/2, and g ≤ 2kn + 1 ≤ n(n+1)(Q₁² + ½) + 1.
-The final bound: Q₁⁴n + Q₁² ≤ 2nQ₁²(n + Q₁²), and n(n+1)(Q₁² + ½) + 1 ≤ 2n²Q₁² for n ≥ 3. ∎
+The final bound: Q₁⁴n + Q₁² ≤ 2nQ₁⁴, and 2n²Q₁² + 2nQ₁⁴ − n(n+1)(Q₁² + ½) − 1 ≥ n²/2 + n/2 − 1 > 0
+(expand, Q₁ ≥ 1). ∎
 *Check (`xc_rigidity.py 301 301`):* max g/(nQ₁²(n + Q₁²)) = 0.583 over the 46 084 shots (attained at n = 3, g = 7).
 *Sharpness of the Q₁⁴ term (PROVED, explicit family).* D = 3, j = 4, k = (Q₁² + 3)/4 (Q₁ odd, 3 ∤ Q₁, so 4 | Q₁² + 3 and 3 ∤ k), and
 n ≡ −1/k (mod 3): Q₀ = (kn + 1)/3, g = 4Q₀k − 1 = (4k²n + Q₁²)/3 ≈ Q₁⁴n/12. (E.g. Q₁ = 5, k = 7, n = 17: Q₀ = 40,
@@ -222,7 +223,7 @@ r^{2/(k+1)+ε}.
    of (F_r^*)² is sup-angle-close to 1 on the primes dividing (r+1)/4 — a small-prime discrete-log
    non-concentration statement on primes of total size ≤ r, a range where even GRH gives nothing. Even solving
    it would prove ES^{(y, polylog)}, not ES (item 2).
-6. **Numerics (§5).** S = {3}: least overflow ≤ 4 for 99.0 % of primes < 10⁶, max ≤ 19, geometric tail, p-stable;
+6. **Numerics (§5).** S = {3}: least overflow ≤ 4 for 98.9 % of primes < 10⁶, max ≤ 19, geometric tail, p-stable;
    squares: never (T1). Large κ is never used.
 Not an opening for ES (Assessment): the exponent cap is B2/B3 seen from the self-mute side — at bounded cap the
 archimedean wall makes it a finite search; at sieve-able caps the box must be inflated from r^{o(1)} to r.
