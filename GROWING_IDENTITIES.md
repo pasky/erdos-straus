@@ -69,8 +69,8 @@ k = 2, χ = 1 term. Implemented in `scripts/gi_trace.py`; transcription checked:
 for N ≤ 30, Σ_{χ even} dim S₂(q,χ) = genus X₁(q) for q ≤ 18, dim S₃(Γ₁(7)) = 1, Tr T₂|S₁₂(1) = −24,
 Tr T_n|S₂(11) = a_n(11a), n ≤ 10.
 
-**Proposition 2.1 (ES slice = odd part of the cusp-fixed-point term).** Let q ≥ 3 and N ≡ 1 (mod q) (Type II
-slice: q = 4ad, N = n + 4a²d ≡ n; or q = 4cd, N = 4c²dn + 1 in the divisor form). In A₃ the τ = q and τ = 1
+**Proposition 2.1 (ES slice = odd part of the cusp-fixed-point term).** Let q ≥ 3 and N ≡ 1 (mod q) (the Type II
+divisor form of O131 §1: q = 4cd, N = 4c²dn + 1, certificate = divisor of N in the class −1 mod q). In A₃ the τ = q and τ = 1
 summands contribute `χ(d) + χ(d') = χ(d) + χ̄(d)`. Summing over the characters of parity (−1)^k with weight
 χ̄(−1) isolates, in these summands,
 `(φ(q)/2)·Σ_{dd'=N} min(d,d')^{k−1} ( [d ≡ −1 (q)] + (−1)^k [d ≡ +1 (q)] )`   (×2 for d ↔ d').
@@ -108,3 +108,29 @@ product of two forms of fixed level: no finite-dimensional target space, hence n
 re-summation. (Sums over a growing *modulus* of level-g data are Poincaré-series/Kloosterman objects; in that
 language the ES set is the Bruhat cell `{γ ∈ SL₂(ℤ) : γ₂₁ = n}` with the self-referential condition
 `γ₁₁ ≡ γ₂₂ ≡ −1 (mod γ₁₂)` — O167 Lemma 10.1 — and the Kloosterman modulus is n itself, fixed.)
+
+## 4. The sign at ∞ *is* the genus character at the place n (PROVED, elementary)
+
+Props 2.1 (trace formula), O128 Prop 8.3 (Siegel–Weil / local+spinor), O131 Prop 4.1 (Eisenstein) all meet the
+same wall: geometric counts see the classes ±1 (mod level) together; ES is the −1 class. The following makes
+the separating datum explicit in slice a = 1.
+
+**Proposition 4.1.** Let n ≡ 1 (4), t ≡ 3 (4), `tn + 1 = m·m''` with 4 | m, and `m'' ≡ ε (mod t)`, ε = ±1.
+Then the Jacobi symbol `(m''/n) = ε`. Consequently, with the sign-blind set
+`D(n) := {(t, m'') : t ≡ 3 (4), m'' | tn+1, 4 | (tn+1)/m'', m'' ≡ ±1 (mod t)}`,
+`W(n) = Σ_{(t,m'') ∈ D(n)} (1 − (m''/n))/2`,
+i.e. **ES (Type I, a = 1) at n ⟺ D(n) contains a quadratic non-residue mod n** (Jacobi sense), and the
+trivial elements (m'' = 1 etc., class +1) are automatically residues.
+*Proof.* As in Lemma 1.3 with −1 replaced by ε: m'' = 2^j u, u ≡ ε·2^{−j} (t), (u/t) = (ε/t)(2/t)^j; since
+t ≡ 3 (4), (−t/u) = (u/t); primes ℓ | u have (−t/ℓ) = (n/ℓ); so (m''/n) = (2/n)^j (n/u) = (ε/t)(2/(tn))^j = ε,
+using (−1/t) = −1 and tn ≡ 7 (8) when j ≥ 1. ∎ (`scripts/gi_sign_check.py`: n ≡ 1 (4), n ≤ 4000, all
+t ≡ 3 (4): 512464 class-(+1) pairs all with symbol +1, 7044 class-(−1) pairs all with symbol −1.)
+
+*Reading.* `|Σ_{D(n)} (m''/n)| ≤ #D(n)` with equality iff ES fails in this slice; at odd squares equality
+holds for the trivial reason (m''/k²) = 1. So the T1-respecting growing-level identity the brief asks for
+exists in the form `W = (S − O)/2`, S = #D(n) a sign-blind (geometric, X₁(t)-visible) count, O a
+character sum with the **quadratic character mod n** over the sign-blind set — the level of O is n·t, growing
+with n, so STRONG_APPROX Thm 9.1 does not apply. But the positivity statement "O < S" is literally the
+H-B spin event of PARITY_FIXED_P Lemma 1.3 (a non-residue among the divisors of a sign-blind family), i.e.
+the Legendre-symbol-on-prime-factors problem. No cancellation in O is available: O ≈ S up to the ES count,
+which is ≍ log²n against S ≍ (#D(n)) — see the census below.
