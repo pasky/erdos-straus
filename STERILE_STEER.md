@@ -139,3 +139,25 @@ sense would need, at a positive proportion of primes q, families of classes of q
 non-residues mod q. ET classes cannot (Prop 5.1(a)), because over ℤ the shot modulus 4ad grows with the shot (a²d is
 not a unit); the unique ℤ-shot with bounded modulus 4 is Mordell's p + 4. This is O183's spark S4 made precise at
 the level of per-prime coverage.
+
+## 6. Making r₀ explicit (goal 2): what a computer-assisted proof at moderate r would need (Assessment)
+
+The P-tail is the only critical term. Suppose an explicit bound D_P(K) ≤ C·r^{2K/5} for odd K ≥ K₁ (D_P = Type II
+N-points of 4/r^K with r ∤ cd, MORDELL17 §4) and that ≈ 0.45 of the non-residue mass is left for it (the Q/U part and
+the exact census below K₁ eating the rest). The admissible constant C_adm(r, K₁) = 0.45 / Σ_{K≥K₁ odd} 2r^{2K/5−(K+1)/2}:
+
+| r | 17 | 101 | 1009 | 10007 | 10⁶+3 | 10⁹+7 |
+|---|---|---|---|---|---|---|
+| K₁ = 1 (no census) | 0.53 | 2.2 | 10.7 | 48 | 839 | 5.6·10⁴ |
+| K₁ = 7 (census K ≤ 5) | 2.9 | 34 | 678 | 1.2·10⁴ | 3.3·10⁶ | 1.4·10¹⁰ |
+
+(C_adm ≈ r^{0.1K₁+0.1}.) What is available: ET's proof gives D_P(K) ≤ r^{K(2/5 + c/log log r^K)} with τ-type losses.
+With Nicolas–Robin, τ(m) ≤ m^{1.0661/log log m}, so every τ factor costs r^{K·1.07/log(K log r)}. This loss
+is below the margin 1/10 only once log log r ≳ 10·(number of τ factors in ET's casework). That is
+r₀ ≈ exp(exp(30–60)): explicit, but doubly exponential, matching DEPTH_ASPECT Remark (2).
+The table shows that the requirement weakens polynomially in r, while the available bound has a loss that is
+superpolynomial at every computable scale. So **no computer-assisted proof at r = 101 or 10⁹ is possible without a new
+explicit count of Type II solutions of 4/r^K with no divisor-function loss**, the bottleneck already isolated at
+r = 17 (MORDELL17B–D). The true counts are polylogarithmic (D_P(13) = 1463 at r = 17), so the gap is in the method,
+not the arithmetic. Averaging over r does not help pointwise in r. It would give "sterile points for almost all r in
+[R, 2R]" only via uniform averages of τ(A r^K + 1) over r with K unbounded, which are not available either.
