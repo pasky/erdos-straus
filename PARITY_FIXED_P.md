@@ -140,3 +140,49 @@ O(p^{1/2+ε}) per box). The target is a union of thin curves with O(1) expected 
 (density of 𝓗 ≈ 1/(8p), strip area ≈ block length). So the strongest pointwise-in-p equidistribution tool
 falls short by p^{1/2}: B3 in Kloosterman form. Assessment: an FI/Kloosterman-type theorem would need
 **beyond-square-root** cancellation on a union of algebraic curves — not a parity statement.
+
+## 4. Construction log (each attempt: which barrier hypothesis it violates, and the outcome)
+
+* **I1 — weights q_θ** (violates "bounded weights" in B3): Σ_θ q_θ·#{f | N_θ : f ≡ −1 (q_θ)} has heuristic
+  main term ≍ Σ_θ τ(N_θ) ≍ p𝓛. Fails: it is still a sum of O(1)-per-block events, now with weights up to p;
+  relative fluctuation is unchanged and the L² mass grows by the factor Q, which every Cauchy–Schwarz Type II
+  bound pays back. (Assessment.)
+* **I2 — unbounded multiplicity via norm composition** (violates "bounded multiplicity"). In Q(√−d),
+  (p + 2c√−d)(1 + 2cdt + pt√−d) = p + 2c′√−d with c′ = c + tN/2, N = p² + 4c²d, so Type I lines are closed under
+  multiplication by these elements and N | N′. But the target class moves from −p mod 4cd to −p mod 4c′d, so
+  solutions are not transported; no fibres form. Fails (PROVED identity; failure elementary).
+* **I3 — partial certificates + deterministic upgrade by subset products** (violates "congruence-only data";
+  the upgrade is an Olson/Davenport-type covering of −1 by subset products of the prime factors of N_θ). Needs
+  ω(N_θ) ≳ log₂ q_θ, forcing q_θ ≤ exp(O(𝓛/log 𝓛)) and N_θ near-maximally composite; such θ are rarer
+  (probability superpolynomially small in q) than the lottery itself. Fails quantitatively (cf. B4).
+* **I4 — modular hyperbola mod 4p with Weil** (§3.4): the only fixed-p object found with power-length family,
+  power-size main term and a *pointwise-in-p* asymptotic. The ES target is a curve-incidence inside it; short by
+  p^{1/2}. Fails (Assessment); it is the precise form of "what FI/Kloosterman would need".
+* **I5 — sign layer** (Prop 2.1): a genuine fixed-p, T1-passing, positive-proportion theorem — by an upper-bound
+  sieve, no parity breaking. Insufficient for ES (corr memo §4; the size layer remains).
+* **I6 — joint sign-and-divisor** (the triage's open sub-question): conditioning on sign-compatible slices
+  raises the per-slice hit probability by a bounded factor (≈ 1/0.2 at p ≈ 10⁶ by the corr table; Prop 2.1 caps the
+  gain from the χ_{−4d}-layer at 8/3); mass stays polylog. The joint count is the (★)-type divisor sum with
+  coefficients 1 — Type I/dispersion, not Type II. Reduces to H-A.
+* **I7 — Möbius/Liouville of N_θ** (brief lead (c)): "N_θ prime ⇒ empty" is ≤ (2+o(1))/𝓛 of slices by an
+  upper-bound sieve; Σ λ over successes shows no bias (§2). The proposed second half ("structural lower bound on
+  non-prime, non-obstructed slices") is exactly H-A.
+* **I8 — short window of n around p with a dual detector** (brief lead (b)): thickening = interval averaging
+  (POINTWISE_SPECTRAL Prop 5.4) — B6.
+
+## 5. Verdict (Assessment) and exact scope
+
+* **PROVED**: Lemmas 1.1–1.3 (dictionaries; the spin lemma χ_{−4d}(ℓ) = (ℓ/p) on Type II slices), Prop 2.1
+  (relative to Burgess), the composition identity of I2, the (★) and modular-hyperbola forms.
+* **Main finding (Assessment, mechanism-level).** H-B as posed is mis-targeted: every multiplicative-class
+  ("parity/sign-pattern") obstruction in the slice partition — prime, Q, Q′ — enters a fixed-p argument only
+  through an **upper** bound on bad slices, which sieves give without parity breaking (Prop 2.1 is the model case,
+  and it passes T1). The irreducible part is the size layer: divisor incidences in a moving class at O(1) expected
+  events per dyadic block, a Type I/dispersion object with unit coefficients (★), whose natural pointwise tool
+  (Weil on the modular hyperbola mod 4p) is short by p^{1/2}. So H-B collapses into H-A; no Friedlander–Iwaniec
+  Type II input is even *requested* by the problem. This sharpens corr_parity_layers §4 and answers the triage's
+  "untested coupling" question negatively at the level of mechanisms (not a theorem: CONDITIONAL_ES Remark 2.4 still
+  allows an exact-accuracy argument with small main term).
+* **What a positive route would need** (stated precisely): a lower bound R(p) ≥ 1 for (★), i.e. an
+  "exact-incidence" theorem for the curves {4C | x+1, 4C | y+1, xy = 4Cp+1} on 𝓗 mod 4p, or a Type I estimate
+  for Σ_j Σ_{f | p+j} 1[f ≡ −1 (4j)] over a dyadic block with error < 1/2 — saving B^{1−o(1)} over trivial.
