@@ -149,3 +149,46 @@ Two wording errors:
   numbers are reproduced exactly.
 * The density remark (≍ (log p)^{−1/2}, a Landau-type count of integers built only from primes ≡ 1 mod 4) is heuristic
   and labelled so. Fine.
+
+### Prop 4.1 (certificate ⟹ explicit B_{p,∞}-data) — SOUND-AFTER-REPAIRS (D3)
+* (a), (b), (d): correct and deterministic.
+  - Finding E(L_w) means testing 15 candidates; finding L⁺_{1,2} means testing 7 vectors x mod 2. Both are trivially
+    polynomial.
+  - For (b) I checked j′ = j − i/A*, nrd j′ = tp/A*, and (−A*, tv) = (−A*, 1 + A*) = 1.
+* (c) is wrong as worded. Here −A, −A*, −uv are the non-residues, since (−nrd x / p) = −1. These coincide with
+  A, A*, uv as non-residues only for p ≡ 1 (mod 4); for p ≡ 3 (mod 4), A is a residue. The same slip appears in
+  Prop 4.2 ("lens space L(p, A) with (A/p) = −1"; the dictionary actually gives (−A/p) = −1).
+  Also, p ∤ uv should be stated; it is easy, since p | u forces v(tu − 1) = p + u ≡ 0 (mod p) and leads to a size
+  contradiction.
+* The EVIDENCE line is selective. At p = 2521 the two classes with min(E⁰) = 11 are indeed non-certificates
+  (reproduced). But at the other hard primes 1009, 1129 and 1801 (all with least non-residue 11) one of the two
+  min(E⁰) = 11 classes **is** a certificate (`review_ce_rank.py`).
+  Example: p = 1009 has the Mordell-type word (4, 3, 92), with A = 11, t = 4 | 12 = q + 1.
+  This is consistent with the author's own "t₀(q) | q + 1" criterion, but it contradicts §5.5 (see D2).
+
+### Prop 4.2 (polylog-t ES-five ⟹ deterministic maximal orders / QNR modulo factoring) — GAP (D5)
+* The implication runs: factor tp + 1 for each t ≤ (log p)^C, then enumerate divisor pairs. Enumerating the divisor
+  pairs costs d(tp + 1), which in the worst case is exp((log 2 + o(1)) log p / log log p). That is p^{o(1)}, not
+  poly(log p).
+* Under the stated hypothesis the honest conclusion is a deterministic p^{o(1)}-time algorithm relative to a factoring
+  oracle. That would still beat the unconditional Burgess-type deterministic bound, but it is not "poly(log p)".
+  Getting poly(log p) needs a stronger hypothesis, e.g. a certificate whose A is reachable within polylog divisor tests.
+* The "equivalence question" paragraph inherits the same error ("polynomial-time maps in both directions" is fine; the
+  QNR-complexity clause is not).
+* "Known only under GRH" (deterministic maximal orders, via Pizer's data plus a bound on the least prime q) is
+  correct to my knowledge, from memory.
+
+### Literature statements in §4 (all from memory; no sources available) — acceptable as flagged
+These match my recollection:
+* Pizer 1980: (−1, −p), (−2, −p), and for p ≡ 1 (8) (−p, −q) with q ≡ 3 (4), (p/q) = −1;
+* Ibukiyama 1982: q ≡ 3 (8), (p/q) = −1 ⟺ (−p/q) = 1, r² ≡ −p (q);
+* Bröker 2009: Õ(log³ p) under GRH, with (−q/p) = (p/q) for q ≡ 3 (4), consistent with Pizer;
+* KLPT 2014 and EHLMP 2018: special extremal O₀ ∋ √−q;
+* Kaneko 1989: d₁d₂ ≥ 4p;
+* Burgess-type bound p^{1/(4√e)+ε}.
+
+Two caveats:
+* The Chevyrev–Galbraith attribution is uncertain. My recollection is that they *conjectured* (with evidence) that
+  the successive minima determine the order, and that this was later proved by Goren–Love. Either confirm the
+  attribution or reword as "(Chevyrev–Galbraith; Goren–Love)".
+* None of these statements is used in a proof, so mis-recollection would not break any PROVED claim.
