@@ -1,0 +1,8 @@
+s=2 tuples=0 (bad identities 0, nonmonic g' 0) N(s)=1  per-c: 0 0 0 0 0 0  mean rel. mass in a c-slice 0.00000, cumulative 0.00000
+s=3 tuples=0 (bad identities 0, nonmonic g' 2) N(s)=2  per-c: 0 0 0 0 0 0  mean rel. mass in a c-slice 0.00000, cumulative 0.00000
+s=4 tuples=0 (bad identities 0, nonmonic g' 8) N(s)=2  per-c: 0 0 0 0 0 0  mean rel. mass in a c-slice 0.00000, cumulative 0.00000
+s=5 tuples=0 (bad identities 0, nonmonic g' 16) N(s)=3  per-c: 0 0 0 0 0 0  mean rel. mass in a c-slice 0.00000, cumulative 0.00000
+s=6 tuples=0 (bad identities 0, nonmonic g' 30) N(s)=3  per-c: 0 0 0 0 0 0  mean rel. mass in a c-slice 0.00000, cumulative 0.00000
+s=7 tuples=4 (bad identities 0, nonmonic g' 46) N(s)=4  per-c: 0 0 2 2 0 0  mean rel. mass in a c-slice 0.00194, cumulative 0.00194
+s=8 tuples=24 (bad identities 0, nonmonic g' 144) N(s)=4  per-c: 2 0 10 10 0 2  mean rel. mass in a c-slice 0.01166, cumulative 0.01361
+s=9 tuples=24 (bad identities 0, nonmonic g' 182) N(s)=5  per-c: 4 0 8 8 0 4  mean rel. mass in a c-slice 0.00167, cumulative 0.01527
