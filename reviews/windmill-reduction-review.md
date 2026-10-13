@@ -18,6 +18,10 @@ From-scratch scripts: `scripts/review_wr_*.py` (none of the author's `wr_*` code
 | §5.2 | SOUND (t odd needed for "⇐"; automatic in the 4 | A slice — D7 minor) |
 | §5.3 | GAP → SOUND-AFTER-REPAIRS (D5 MAJOR: box bound false; equivalence fails at p = 241, 769, 20521, 21841) |
 | §6 (EVIDENCE) | SOUND — 211 odd / 174 even reproduced; congruence facts re-derived |
+| §7 Lemma 7.1 | SOUND (matrix sign slip, D9 minor) |
+| §7 matching (ii) + `wr_diag` count | SOUND numerically (2093/2212 reproduced); "face of the principal river" false (D10 minor) |
+| §8 | SOUND algebra; "PROVED" should be "algebra PROVED + Assessment" (D11 minor) |
+| §9 | SOUND-AFTER-REPAIRS (inherits D5; identity piece omitted, D12 minor) |
 
 (table extended below as the review proceeds)
 
@@ -97,6 +101,59 @@ for odd m < 300 (doc: odd squares). "|X(p)| always odd": the involution u ↔ v 
 `u(tu−2) = p` ⇒ only `(p+2,1,1)`; correct (but note the symbol clash: this X is not §1's Zagier set X(p) — D8). For
 p ≡ 1 (24), `4 | A` ⇒ `t ≡ u ≡ 3 (4)`, and `v ≡ 3 (4) ⇔ 4 | B`: re-derived, correct. The 283-sub-count search was not
 re-run (EVIDENCE, negative; low stakes).
+
+## §7–§9
+
+**Lemma 7.1.** `σ_k[a,b,c] = [−c/k, b, −ka]`: disc `b² − 4ac` preserved, simple, involution (`k | −ka`), fixed points
+`[a,b,−ka]`, `Δ = b² + 4ka²`. Correct. The matrix description is off by a sign: `−(1/k)·φ(ky, x) = [−c/k, −b, −ka]`; the map
+is `−(1/k)·φ∘W` with the Fricke matrix `W = [[0,−1],[k,0]]` (det k), not `[[0,1],[k,0]]` (D9; same slip in Obs. 1.1 for σ).
+
+**Diagonal transport (ii).** Re-derived the k-range: `(k+1)² ≥ 16g²b² = 4g(k² − p) ≥ 4(k²−p)` ⇒ `3k² − 2k − 1 ≤ 4p`. Correct.
+`scripts/review_wr_diag.py 200000`: **2093 of 2212** primes p ≡ 1 (24) < 2·10⁵ have no diagonal certificate; no odd square
+< 2·10⁵ has a coprime one — both reproduced. But every certificate has `p > 4g = disc/4`, while river faces of disc 16g have
+values `≤ 16g/4 = 4g` (`a|c| = (D − b²)/4`); so p is a value of the principal form, never a face *on the river* (D10).
+
+**§8.** With `A = tu−1`, `B = tv−1`: `A − B = t(u−v)`, `T + 2 = t(u+v)`, `4p = t(τ² − β²) − 4τ` ⇔ `p = tuv − u − v`. Correct.
+
+**§9.** Inherits D5 (box). Automorphisms of the curve `xy = 1` over 𝔽_p are `A ↦ cA^{±1}` (the `−c` variants are already
+included; 2(p−1) maps, not "p−1 pieces"). "Any fixed point it creates is a root of a fixed quadratic" omits the identity piece
+(c = 1, exponent +1), which fixes its whole region (D12). "Lemma 4.1" and (§5.3) "Prop 4.2(d)" refer to INVOLUTION_ES.md, not
+this file — say so.
+
+## §10 — Bhargava cubes / class shadow
+
+**Lemma 10.1.** `[m,2,m'']` has disc `4 − 4(tp+1) = −4tp`; `𝔪 = ℤm + ℤ(1+ω)` (ω = √−tp) is an O-module of index m with norm
+form `[m,2,m'']`; `𝔪𝔪'' ⊆ (1+ω)` always, and `𝔪𝔪'' = (1+ω)·(m, m'', 2, 1+ω)`. **Equality fails when m and m'' are both
+even**: then `[m,2,m'']` is non-primitive (content 2), 𝔪 is not invertible in `O = ℤ[√−tp]` (conductor 2 since
+`−tp ≡ 1 (4)`), and the form is not in Cl(−4tp). This is not a corner case: `scripts/review_wr_cube.py 5000 39` finds
+**134 of the 320 certificates** have m'' even (m ≡ 0 (4), tp+1 ≡ 0 (8)). They are `2·[m/2, 1, m''/2]`, i.e. classes of
+Cl(−tp) for the maximal order, with generator (1+ω)/2. See D13.
+
+**Computation 10.2 — reproduced, and in fact PROVABLE.** Independent definite reduction: 760 (p,t) cases, **0 non-trivial
+collisions**, exceptions only {1,N}, {2,N/2}, 320 certificates in 320 distinct classes — matches. A general proof (valid for
+forms of any content, all p, t): if `Q₁ = [m₁,2,m₁'']` ~ `Q₂`, then Q₁ primitively represents m₂: `(m₁x+y)² + tp·y² = m₁m₂`.
+If `m₁m₂ < tp` then y = 0, x = ±1, m₂ = m₁. Since Q ↦ Q'' = [m'',2,m] ~ Q∘diag(1,−1) preserves equivalence, the same holds if
+`m₁''m₂'' = N²/(m₁m₂) < tp`. Otherwise `tp ≤ m₁m₂ ≤ N²/tp < tp + 3`, and as m₁, m₂ | N = tp+1 this forces `m₁m₂ = N`,
+`m₂ = m₁''`; then the representation of m₁'' with the right root needs `y = ±1`, `(m₁x ± 1)² = 1`, and checking the middle
+coefficient (`≡ −2` vs `2 (mod 2m₁'')`) leaves only `m₁ or m₁'' ∈ {1, 2}`. ∎ So 10.2 can be relabelled PROVED (D14).
+
+**Proposition 10.3.** The core computation is right: principal norms are `x² + tpy² ≡ x² (mod ℓ)`, every nonzero square occurs
+(y = 0), hence `[𝔞] ↦ N𝔞·(ℤ/ℓ)^{*2}` is the only norm-residue class invariant; for composite odd t the shadow is
+`N𝔞 mod (ℤ/t)^{*2}`, i.e. the tuple of `(m/ℓ)`, and `m ≡ −1 (t)` is a class predicate iff `(ℤ/t)^*` has exponent 2 iff `t | 24`.
+`review_wr_cube.py` part (b) confirms for 5 (p,t,ℓ) that each primitive class of disc −4tp, *and of disc −4tp·ℓ² (ring class
+group of conductor ℓ)*, takes exactly one square class of values mod ℓ. Bhargava's parametrisation (projective cubes mod
+SL₂(ℤ)³ ↔ balanced triples mod `(I_i, δ) ↦ (κ_iI_i, κ₁κ₂κ₃δ)`, group ≅ Cl × Cl) is quoted correctly from memory (source PDF
+not in `sources/`; not checked against the paper). **But the boxed scope claim is overstated** (D15, D16):
+(1) by 10.2 the class map is injective on the divisor set, so on that set *any* function of 𝔪 — including `[m ≡ −1 (t)]` —
+*is* a function of `[𝔪]`. What 10.3 proves is narrower: no function F on Cl satisfies `F([𝔞]) = [N𝔞 ≡ −1 (t)]` for *all*
+ideals 𝔞 coprime to t (unless t | 24); a class mechanism that knows the labelled hypercube `∏𝔮_i^{ε_i}` (i.e. the factorisation
+of tp+1) escapes, and that is B2 again. (2) Fixed-point counts of the `S₃ ⋉ (ℤ/2)³` action on `{(C₁,C₂,C₃): ΣC_i = 0}` are
+not only 2-/3-rank data: e.g. the transposition fixes `C₁ = C₂`, a set of size h. (3) The ring-class remark: "I do not expect
+it to help, but I have not proved that" — it **is** provable by the same two lines: in any order of K, principal norms of
+elements prime to ℓ are squares mod ℓ (ℓ ramified in K, norm form `≡ (x + y·(trace)/2)²`), and all squares occur. But the
+description "(O/f)^*/(ℤ/f)^* records the residues of generators" is what *ray* class groups do: in `Cl_{(t)}(K)`, 
+`𝔞 ↦ N𝔞 mod t` is a well-defined homomorphism onto a subgroup of `(ℤ/t)^*` (α ≡ 1 mod* t ⇒ Nα ≡ 1 (t)), so ray class
+groups *do* see the full condition. This is the correct form of the doc's own "κ_i restricted to a congruence subgroup".
 
 ## Defects (numbered; FATAL / MAJOR / MINOR)
 
