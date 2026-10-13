@@ -66,8 +66,9 @@ sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-fo
 `b ≤ (p+1)/3` forced by `k ≥ 4b−1`, `e ≥ 4b−p`), e.g. 97, 193, 673, 1033, 1297; 78 have no *reduced* ES-form.
 
 **Lemma 2.4 (PROVED; the full Type II e-slice as forms of discriminant −4gp, cf. STATUS (I)4).** ES(p) holds if for some
-`g ≥ 1` there is a form `[k, B, c]` of discriminant `−4gp` with `B > 0`, `4g | B`, `B | k+1`. Proof: write
-`B = 4gb`; then `c = ge`, `ke = p + 4gb²`, and `k ≡ −1 (mod 4gb)` gives `4bg | p + e`; with `N = (p+e)/4 = αβg`,
+`g ≥ 1` there is a **positive definite** (k > 0) form `[k, B, c]` of discriminant `−4gp` with `B > 0`, `4g | B`, `B | k+1`.
+(R164 repair: positivity is necessary — `[−1, 4g, −g(p+4g)]` has disc −4gp, `4g | B`, `B | k+1 = 0`.) Proof: write
+`B = 4gb`; then `c = ge` (as `k ≡ −1 (mod g)` gives `gcd(k,g) = 1`), `ke = p + 4gb²`, and `k ≡ −1 (mod 4gb)` gives `4bg | p + e`; with `N = (p+e)/4 = αβg`,
 `β = b`, `α = N/(bg)`, one has `e | α + β` (as `4N ≡ −4gb² (mod e)`), and Lemma 2.1's formula with `x = N`,
 `y = pN(α+β)/(eα)`, `z = pN(α+β)/(eβ)` works verbatim (checked on 4360 instances, p < 3000, g ≤ 5; α, β | N; `e | α+β` uses `gcd(e, bg) = 1`, which holds because a common prime divides
 `ke − 4gb² = p`, while `e ≥ 4bg − p` and `e ≤ (p+4gb²)/(4gb−1)` force `bg < p`). ∎ So the windmill question for Type II is a
@@ -125,9 +126,12 @@ certificate (T is part of the solution — B2 in reflection language).
 **5.3 Modular-hyperbola form (PROVED, elementary).** The per-level quadric `AB − pt = 1` has the integral unipotent
 symmetries `A += kp`, `B += lp` (t adjusted), which commute (a group ℤ², not hyperbolic like `O(x²+4yz)`; with the
 swap and the non-integral scalings of Prop 4.2(d)), and in
-each orbit only the representative with `A, B ≤ p + O(1)` can satisfy `t | A+1`, `t | B+1`. So X-slice ES(p) ⟺
-some `A ∈ [1, p)` with `4 | A`, `B = A⁻¹ mod p`, has `t = (AB−1)/p` dividing `A+1` and `B+1`: a *small-product
-point* of the modular hyperbola `AB ≡ 1 (p)`. Involutions of the hyperbola that are algebraic over 𝔽_p (Möbius)
+each orbit only one representative can satisfy `t | A+1`, `t | B+1`; it has `max(A,B) ≤ p + (p+1)/min(A,B)`
+(R164 repair: not `p + O(1)`). If `A ≥ p` then `t = B+1`, `A = p + (p+1)/B`: the **v = 1 family** `u(t−1) = p+1`, which for
+p ≡ 1 (24) exists iff `(p+1)/2` has a divisor ≡ 3 (4) (`B ≥ p` is impossible there). So X-slice ES(p) ⟺ [some
+`A ∈ [1, p)` with `4 | A`, `B = A⁻¹ mod p`, has `t = (AB−1)/p` dividing `A+1` and `B+1`: a *small-product
+point* of the modular hyperbola `AB ≡ 1 (p)`] **or** [the v = 1 family]. (R164: p = 241, 769, 20521, 21841 have only
+v = 1 certificates; `scripts/review_wr_Eset.py`.) Involutions of the hyperbola that are algebraic over 𝔽_p (Möbius)
 have fixed points = square roots mod p (Legendre-symbol data); the ES condition is archimedean (sizes of lifts).
 A windmill here must mix the two, as Zagier's inequalities do.
 
@@ -176,8 +180,8 @@ to the e/t-slice problem with no H-A gain.
 
 ## 9. Spark D: what an infinite-menu windmill on X-certificates must look like (reformulation; PROVED, elementary)
 
-By 5.3 every X-certificate is the unique box representative `A, B ≤ p + O(1)` of its orbit under the per-level
-translations. Any windmill on certificates is therefore, up to the swap, a self-map of the box modular hyperbola
+By 5.3 every X-certificate outside the explicit v = 1 family (R164 repair) is the unique box representative
+`1 ≤ A, B < p` of its orbit under the per-level translations. Any windmill on certificates is therefore, up to the swap, a self-map of the box modular hyperbola
 `H_p = {(A, Ā) : 1 ≤ A < p}`. Its natural "infinite menu" is the group of 𝔽_p-automorphisms of the hyperbola,
 `A ↦ cA^{±1}` and `A ↦ −cA^{±1}`, with `c ∈ 𝔽_p^*` (p−1 pieces, a menu that grows with p), chosen piecewise by lift regions.
 An involution `A ↦ c/A` has as its fixed points the square roots of c (Legendre data). An ES certificate is the
@@ -191,7 +195,10 @@ divisor condition again. No search was run for (D) beyond this reformulation.
 **Lemma 10.1 (PROVED, algebra).** `tp + 1 = m·m''` ⟺ `[m, 2, m'']` is a form of discriminant `−4tp`. This is the norm
 form of the ideal `𝔪 = (m, 1 + √−tp)` of `O = ℤ[√−tp]`, and `𝔪𝔪'' = (1 + √−tp)`. So divisor-form certificates
 (CONDITIONAL_ES Lemma 1.1) are exactly **ideal divisors 𝔪 of the principal ideal `(1+√−tp)` with `N𝔪 ≡ −1 (mod t)`,
-`4 | N𝔪`** (Heegner discriminant −4tp, i.e. (I)4 with d = t). In Bhargava's language the triple
+`4 | N𝔪`** (Heegner discriminant −4tp, i.e. (I)4 with d = t). (R164 repair: this holds when m'' is odd. If m and m'' are
+both even — 134 of the 320 certificates of 10.2 — `[m,2,m'']` has content 2, 𝔪 is not invertible in ℤ[√−tp] and
+`𝔪𝔪'' = (1+√−tp)(2, 1+√−tp)`; use instead `O_K = ℤ[(1+√−tp)/2]`, the form `[m/2, 1, m''/2]` of disc −tp, the ideal
+`(m/2, (1+√−tp)/2)` and `δ = (1+√−tp)/2`. Everything below applies verbatim in Cl(−tp).) In Bhargava's language the triple
 `(𝔪, 𝔪'', O; δ = 1+√−tp)` is a balanced triple, i.e. a 2×2×2 cube with `Q₁ = [m,2,m'']`, `Q₂ = [m'',2,m]`, `Q₃` principal.
 
 **Computation 10.2 (CERTIFIED, `scripts/wr_cube_class.py 5000 40`).** For p ≡ 1 (24) with p ≤ 5000 and t ≡ 3 (4) with t ≤ 39,
@@ -206,14 +213,22 @@ map `𝔞 ↦ N𝔞 mod ℓ` is constant on ideal classes only modulo squares. P
 and no finer function of `N𝔞 mod ℓ` is a class invariant. Bhargava cubes up to `SL₂(ℤ)³` correspond to pairs of classes,
 because the generator δ of a balanced triple is absorbed by the rescaling `δ ↦ κ₁κ₂κ₃δ`. The `S₃ ⋉ (ℤ/2)³` symmetries act on
 these pairs by group automorphisms (permutation and inversion). Hence **every mechanism that factors through classes of
-forms or cubes, including their symmetry involutions and fixed-point counts (which are 2- and 3-rank data of Cl),
-can test the certificate condition `m ≡ −1 (mod t)` only through its quadratic shadow `(m/ℓ) = (−1/ℓ)`, ℓ | t.** The full
-condition is class data only when `(ℤ/t)^*` has exponent 2, i.e. `t | 24`. For odd `t ≡ 3 (4)` that leaves only `t = 3`,
+forms or cubes, including their symmetry involutions and fixed-point counts (which are class-group invariants such as
+h and the 2- and 3-ranks), can test the certificate condition `m ≡ −1 (mod t)` only through its quadratic shadow
+`(m/ℓ) = (−1/ℓ)`, ℓ | t.** (R164 repair, precise meaning: no function F on Cl satisfies `F([𝔞]) = [N𝔞 ≡ −1 (t)]` for
+*every* ideal 𝔞 ⊥ t of the class. On the divisor set alone the class map is injective (10.2), so there the class does
+determine m; a mechanism that uses this — i.e. knows the labelled hypercube, equivalently the factorisation of tp+1 —
+escapes 10.3 and is B2.) The full condition is a class invariant of norms only when `(ℤ/t)^*` has exponent 2, i.e. `t | 24`. For odd `t ≡ 3 (4)` that leaves only `t = 3`,
 which is the congruence-covering regime (B1). ∎
 
 **Assessment.** The cube route reproduces B2 together with genus theory. What would escape Prop 10.3 is any structure
 that remembers δ (the element `1+√−tp` itself, not its ideal), such as balanced triples *with* δ up to a smaller
 equivalence (κ_i restricted to units or to a congruence subgroup), or cubes over the order of conductor t.
 The ring class group of conductor f adds the kernel `(O/f)^*/(ℤ/f)^*`, which records the residues of *generators*. It
-does not record norms beyond squares, so I do not expect it to help, but I have not proved that. Spark 1 (a Gauss-lemma
+does not record norms beyond squares, so I do not expect it to help, but I have not proved that. (R164 repair: this *is*
+provable — in every order of K principal norms prime to ℓ are squares mod ℓ, ℓ | tp being ramified, and all squares occur;
+the kernel above is modulo `(ℤ/f)^*`, which kills norm information. By contrast the *ray* class group `Cl_{(t)}(K)` does
+see the full condition: `𝔞 ↦ N𝔞 mod t` is a homomorphism on it. That is the precise form of "κ_i restricted to a
+congruence subgroup"; on it the problem reads "does the divisor hypercube of (1+√−tp) meet the coset N ≡ −1 (t)", an
+equivalent restatement.) Spark 1 (a Gauss-lemma
 weight) was not attempted in this round.

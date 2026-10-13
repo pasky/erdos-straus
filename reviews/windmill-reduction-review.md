@@ -259,3 +259,11 @@ class groups; and for those the conclusion flips: in `Cl_{(t)}(K)` the map `𝔞
 (= the doc's "κ_i restricted to a congruence subgroup") are the minimal class-type structure that escapes 10.3, and that
 on them the problem is "does the divisor hypercube of (1+ω) meet the coset `N ≡ −1 (t)`" — an equivalent restatement,
 not progress.
+
+## Repairs applied by R164
+
+The author's last commit (checkpoint report 3) was ~15 min before this review finished, so the MAJOR repairs were applied
+directly to `WINDMILL_REDUCTION.md` on the reviewer branch. Each one is marked "(R164 repair)": D3 (Lemma 2.4 positivity
+plus the `g | c` reason), D5 (§5.3 box bound and v = 1 family, §9 first sentence), D13 (Lemma 10.1 content-2 case),
+D15 (Prop 10.3 scope), and D16 (ring vs ray class groups). MINOR defects D1, D2, D4, D6–D12, D14 are left to the author.
+If the author pushes its own repairs, keep theirs and drop these.
