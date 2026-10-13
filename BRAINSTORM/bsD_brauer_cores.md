@@ -30,8 +30,7 @@ Apply inv_ℓ and inv_ℓ ∘ cores_{K_w/ℚ_ℓ} = inv_w. By BL Thm 1.6 `cores 
 m, cores β is killed by m, so its α-component (2-torsion) vanishes. ∎
 **Explicit form (PROVED, elementary).** For K = ℚ(ζ_m), m odd, ℓ ≡ 1 (m) and u rational, BL's relation
 `a·α_ζ = α_{ζ^{a⁻¹}}` and Galois-equivariance give `inv_{σ_a w} α_ζ(u) = a·inv_w α_ζ(u)`, so the ℓ-total is
-`x·Σ_{a∈(ℤ/m)^×} a ≡ 0`; at inert/partially split ℓ the symbol of a rational element is a (ℓ^f − 1)/m-th power of an
-𝔽_ℓ^×-element with m | (ℓ^f − 1)/(ℓ − 1)·…, trivial when the residue degree f > 1 is forced. The individual value
+`x·Σ_{a∈(ℤ/m)^×} a ≡ 0 (mod 1)` (as Σ a = mφ(m)/2 and φ(m) is even for m ≥ 3); other ℓ are covered by Theorem 1. The individual value
 x = inv_{w₀} α_ζ(u) is a genuine, non-constant function on solutions (numerics below) — the information exists, but
 no global law constrains it.
 
