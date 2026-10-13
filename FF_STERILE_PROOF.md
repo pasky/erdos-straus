@@ -40,7 +40,7 @@ almost divide T^K (∞-adic condition (II)), with a + b ≤ K ≤ 2N − 2: a *t
 ## 2. The genus (sign-layer) constraint: degree parities (PROVED; checked on all 312 solutions K ≤ 14)
 (R179 repair, D1: the core statement, deg E, deg E′ (and deg D) even, is FUNCTIONFIELD_ES2 §0.2's reciprocity parity
 (R166-checked), re-derived here. New here are only the corollaries a ≡ b, l ≡ a + 1, λ ≡ K, deg r ≡ K (mod 2). R179 re-derived
-the proof and found 0 violations on its own, independently enumerated K ≤ 12 list.)
+the proof and found 0 violations on its own, independently enumerated K ≤ 14 list (312 solutions).)
 
 **Lemma 2.1.** On the slice (u(0) = 1), every Case B solution has **deg E and deg E' even and λ ≡ K (mod 2)**;
 equivalently a ≡ b (mod 2), a + b ≡ 0, l ≡ a + 1 (mod 2).
