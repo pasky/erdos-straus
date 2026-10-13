@@ -41,3 +41,19 @@ From-scratch scripts: `scripts/review_ff3_*.py` (own F_p[T] arithmetic, pure Pyt
   was extended 6–8 beyond the Lemma 2.3 window so that a family violating the window would show up. **0 families
   in every case**, so this test of Lemma 2.3 is vacuous (no family exists at x*_c in these ranges for q = 5, 7
   either). Lemma 2.3 therefore rests on the proof, which R173 re-derived line by line (above).
+* **Independent x*_c search (complete j-range, R173 algorithm):** `review_ff3_search.py 3 2 0 11 -1 fast 1 c` for
+  c = 1, 2 and `review_ff3_search.py 3 3 0 10 -1 fast 1 c` (k = 3). Result: **0 Case B families** for deg L' ≤ 11 (k = 2)
+  and deg L' ≤ 10 (k = 3), with every j ≤ 4l − k, every γ ≤ j, both branches, and every monic g' | L'. Logs:
+  `data/review_ff3_xstar_k{2,3}_c{1,2}.txt` (k = 2, l = 11 layer ≈ 35 min per c). The cumulative counts of monic ρ
+  agree exactly with the author's logs in every layer: c = 1: 7, 44, …, 2 185 650, 7 267 442; c = 2: …, 2 173 580,
+  7 241 970; k = 3: 2 126 602 and 2 114 532 at l = 10. Two codes with different inner loops and arithmetic therefore
+  enumerate the same candidate set and find nothing. The deg L' = 12, 13 layers (k = 2) and l = 11 (k = 3) were
+  **not** re-run (≈ 2 h and ≈ 7 h per c in Python). They rest on `ff3_caseB.c` alone, which R173 read line by line
+  (see "Completeness logic").
+* **Census of all Case B families on the slice** (`scripts/review_ff3_census.py`): this enumerates the Lemma 2.1
+  parametrisation (s, v, m', w, C) over all u. Every (L', g', E) with s = 4..14 was found
+  (`data/review_ff3_census_s12.txt`, `_s15.txt`): 2, 4, 10, 8, 8, 4, 24, 12, 14, 36, 104 triples for s = 4..14.
+  These counts agree exactly with R175's independent O175 enumeration (main: `data/review_sl_caseB_K15.txt`,
+  K = s − 2). The covered slice masses for levels ≤ 2..6 are 0.2222, 0.2222, 0.2716, 0.3045, 0.3100 (normalised to
+  u(0) = 1), i.e. ×3/2 = 1/3, 1/3, 11/27, 37/81, 113/243 on the sub-slice c ≠ 0, which is R175's sequence. Every
+  family satisfies Lemma 2.1(c) (asserted in the script).
