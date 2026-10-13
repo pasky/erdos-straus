@@ -201,3 +201,51 @@ by a global argument (reciprocity + Weil) that is invisible to every congruence/
 sterile profinite points are excluded only because a global P carries a global quadratic character. In q ≡ 3 (mod 4),
 k odd, the squares M² are exactly the global points at which this character is trivial — and they are exactly the
 non-shot-solved P (Thm 4.2). This is the FF version of B1 + B5 for the mute variant, with the theorem on the other side.
+
+## 6. Numerics (EVIDENCE; all solutions verified exactly)
+
+Scripts: `fm_poly.py` (F_p[T] arithmetic), `fm_mute.py` (orbit/discrete-log search + exact verification),
+`fm_count.py` (Lemma 3.2 sign formulas and G(d) vs Thm 3.5), `fm_t1.py` (Thm 4.2 on all monic P), `fm_minq.py`
+(least shot height, factorisation by sympy — independent of the orbit search). Outputs `data/fm/*.txt`.
+Verification of every reported solution: A·X·Y·Zn = P(Y·Zn + X·Zn + Q²·X·Y), X, Y, Zn monic, v_s(Zn/Q²) even when
+negative, NC degrees (min = n − k), Type II at P.
+
+* **All irreducible P solved** (`fm_mute.py`, s = T + 1 unless noted; P ∤ sA): q = 3, A = T, n ≤ 7 (506 P); q = 3,
+  A = T², n ≤ 10 (9379 P); q = 3, A = T² + 1, n ≤ 7; q = 3, A = T, s = T³ + 2T + 1, n ≤ 9 (3500 P); q = 5, A = T, s = T + 2,
+  n ≤ 6 (3407 P); q = 5, A = T², n ≤ 7 (14 564 P); q = 7, A = T, n ≤ 6 (23 630 P); q = 11, A = T, n ≤ 4 (4134 P);
+  q = 2, A = T³, n ≤ 14 (2535 P); q = 2, A = T⁴ + T + 1, s = T² + T + 1, n ≤ 13 (1371 P). 0 unsolved, 0 verification
+  failures. This includes **every known ES_q failure** in these ranges (FUNCTIONFIELD_ES §3: q = 3, A = T², n = 3, 4, 5;
+  q = 5, A = T, n ≤ 4; q = 5, A = T², n ≤ 7; q = 7, A = T, n ≤ 6). Least modulus degree d ≤ 7 throughout.
+* **Lemma 3.2** (`fm_count.py`): 0 mismatches of both sign formulas on every f ≡ −1 (mod A) of degree d (q = 3, A = T,
+  d = 7; q = 3, A = T², d = 7; q = 5, A = T, d = 5; q = 3, A = T, s = T³ + 2T + 1, d = 9; several P each).
+  **G(d) tracks δq^d/d**: e.g. q = 3, A = T, d = 7: G = 40, 33, 36, 40 against 39.1; q = 3, A = T², d = 7: 13, 15, 11
+  against 13.0; q = 5, A = T, d = 5: 31, 37 against 39.1. (The explicit lower bound of Thm 3.5 is negative at these
+  small d — RH error terms dominate — so the small cases are covered by computation, not by the bound. For q = 3, A = T,
+  h = 1 the bound becomes positive at the prime d = 23 for every n ≤ ~9600.)
+* **Thm 4.2** (`fm_t1.py`, all monic P coprime to sA): q = 3, A = T (deg P ≤ 6, f-deg ≤ 7): 0/17 squares, 468/468
+  non-squares shot-solved; q = 3, A = T³: same; q = 7, A = T (deg ≤ 4): 0/41 squares, 2016/2016 non-squares;
+  q = 3, A = T² (k even): 17/17 squares, all via even d only; q = 5, A = T and A = T²: 19/19 squares, 480/480 non-squares.
+* **Least shot height** (`fm_minq.py`): the least j with P + A s^{2j} giving a valid shot is small and does not grow
+  with n: q = 3, A = T, n ≤ 9: max 7, mean 0.30 at n = 9 (85% use j = 0, ES's own shot P + A); q = 3, A = T², n ≤ 8:
+  max 19, mean 3.8; q = 5, A = T, n ≤ 6: max 15, mean 1.45. Thm 3.5 needs j up to ≈ q^d ≈ n²; the data say a few
+  shots suffice (lottery with a large main term, not a proof). Of the least shots, 2–8% beyond j = 0 are ES_q-integral
+  (Cor 2.2: f ≡ −1 mod A·s^j).
+
+## 7. Verdict (O195 checkpoint 1)
+
+PROVED: (Thm 3.5) for every q, A, and one mute prime s ∤ A, ES_q^{(s)}(A, P) holds for **every** monic irreducible
+P ∤ sA, unconditionally and effectively (certificate modulus of degree ≤ 2 log_q n + C(q, A, deg s)); (Thm 4.2) the
+mechanism is exact-T1 iff ε = χ(−1) = −1 and k odd (k even: on odd-degree moduli), with no T1 for q ≡ 1 (mod 4);
+(Prop 5.4) the mechanism has profinite sterile points and no finite covering, yet is a theorem.
+
+**Correction to the X8 framing (Assessment).** X8 hoped for "sterile points (ES_q) vs none (mute)". That is not the
+separation: the mute mechanism *also* has profinite sterile points (Prop 5.4), and DEPTH_ASPECT Thm 2.5 is a statement
+about profinite points (no finite linear covering), not about actual failing P. The true separation is:
+**mute: the firing condition at a modulus f is a Frobenius condition whose P-dependence is a global character
+((f/P) by reciprocity), so Chebotarev + RH force firing at every global P; ES_q (S = ∅): the firing set of f is the
+box −A·{a²d : ad | (f+1)/A} (Prop 5.2(b)), a q^{−d+o(d)} fraction defined by the factorisation of f + 1, with no
+Frobenius description.** The mute place is exactly the device that replaces "divisors of f + 1" by "a finitely
+generated group reduced mod f" (Kummer theory), and that is what converts the lottery into a theorem.
+
+Not an opening for ES (Assessment): the passage back to ES_q is Cor 2.2's growing modulus f ≡ −1 (mod A·Q) — B2,
+exactly as over ℤ (UNIT_ORBIT Prop 6.1). The FF model makes no claim about ES_q(A, P) for actual P.
