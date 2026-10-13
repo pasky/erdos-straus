@@ -8,7 +8,7 @@ from side-agent/unit-orbit-es. From-scratch scripts: `scripts/review_uo2_*.py` (
 **Overall: the headline claims stand.** Thm 2.4(a) is a correct Gupta–Murty-type argument with the PRIME r as the
 sifted variable (not the S-units); the condition (n/r) = −1 is a congruence mod 4·rad(n) built into the progression,
 so only Bombieri–Vinogradov + the linear sieve are used, and no n-uniformity is needed. The T1 part and Thm 5.1 are
-correct. No FATAL or MAJOR defect found; 5 MINOR defects (m1–m6 below, wording/effectivity/citation).
+correct. No FATAL or MAJOR defect found; 6 MINOR defects (m1–m6 below, wording/effectivity/citation).
 
 | Claim | Verdict |
 |---|---|
