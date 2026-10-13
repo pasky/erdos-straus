@@ -144,3 +144,33 @@ this is a V_{n'} point with μ = λD, and d | λ. (c) (a), (b) and FIXED_MODULUS
 Thm 1.3 prediction (804 points, 0 mismatches); Prop 1.2(a) product formula on 172 random pairs.
 *Check (`scripts/cp_typeii.py 200`):* for all primes 5 ≤ p ≤ 200, cube points = d-sliced ES points of V_{pd}
 (602 points, 0 mismatching primes).
+
+## 5. Across μ (modification 2: violate "one order O_μ")
+
+Different μ give different real orders, so the only ring seeing all μ at once is the imaginary order ℤ[√−n]
+(V_n point ⟷ β = B + A√−n with N(β) = nA² + B² = D·g, g ≡ −1 mod 2AB; GROWING_MUTE Prop 1.1(c)).
+
+**Proposition 5.1 (Type II = two-term "Machin" composition in ℤ[√−nd]; PROVED, elementary).** Let p be prime,
+c, d, j, s ≥ 1. The following are equivalent:
+(i) 4csdj = pj + c + s (Type II cube point (c, d, j) with partner s = (pj + c)/(4cdj − 1));
+(ii) **(2cd + √−pd)(2sd + √−pd) = (d(c + s)/j)·(1 + 2j√−pd)** in ℚ(√−pd);
+(iii) arccot(2c√(d/p)) + arccot(2s√(d/p)) = arccot(1/(2j√(pd))) (a two-term Machin-type relation);
+and then **4/p = 1/(cds) + 1/(pdsj) + 1/(pdcj)**.
+*Proof.* (ii): the product is (4csd² − pd) + 2d(c + s)√−pd, proportional to 1 + 2j√−pd iff 2j(4csd² − pd) = 2d(c + s),
+i.e. (i). (iii): cot(θ₁ + θ₂) = (ab − 1)/(a + b) with a = 2c√(d/p), b = 2s√(d/p) gives (4csd − p)/(2(c+s)√(dp)),
+equal to 1/(2j√(dp)) iff (i) (all angles in (0, π/2)). The Egyptian identity is (i) divided by pcsj, times d. ∎
+*Reading.* This is the arctangent/Gaussian-integer correspondence of Machin–Størmer, transported to ℤ[√−pd]: the
+ES point is the factorisation of the "target" 1 + 2j√−pd into two elements of the prescribed shape 2(·)d + √−pd,
+i.e. (by norms) (4cdj − 1)(4sdj − 1) = 4dj²p + 1 — the cube's (d, j)-line. For d = 1 it is the real-quadratic slot
+ε_μ of Thm 1.3 seen from the imaginary side (D = 4tj − 1 with t = c). Shape parity: a product of r elements
+(even) + (odd)·√−n has shape (odd) + (even)·√−n iff r is even, so longer compositions ∏(2t_i + √−n) ∝ 1 + 2j√−n
+need r even ≥ 4 and encode longer Egyptian identities (not 3-term ES). The classical Størmer theory has no
+existence theorem to import: for two terms it is exactly "1 + c² has a divisor in the right place", i.e. B2 again
+(Todd's reducibility criterion, P(1 + m²) < 2m, is the closest analogue: it is a largest-prime-factor condition,
+the opposite direction from what ES needs).
+
+**EVIDENCE (`scripts/cp_cross.py n X ntrip`, n = 13, 59, 97, 101; X = 40, 120).** Products β₁β₂, β₁β̄₂ of V_n
+points with A, B ≤ X (14 resp. 21 points for X = 120) and 20 000 random triple products: **0** of the admissible
+products are V_n points (pair: 0/123, 0/199; triple: 0/6001, 0/2904), and 0 in the size-matched random baseline.
+Composition in ℤ[√−n] does not preserve V_n: the congruence modulus 2AB of the product is a new, multiplicatively
+larger modulus (B2's "modulus part of the solution").
