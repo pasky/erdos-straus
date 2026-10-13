@@ -24624,5 +24624,36 @@ def check_fu():
 
 check_fu()
 
+def check_fv():
+    # (fv) FF_MUTE (O195/R195): one mute prime s = T+1 makes ES_q^{(s)}(A,P) solvable at every irreducible P
+    # (R195's own search: q = 3, A = T, n <= 6), re-solves known ES_q failures (q = 3, A = T^2, n = 5; q = 5, A = T,
+    # n = 4), and the exact-T1 dichotomy of Thm 4.2 (q = 3, A = T: squares never shot-solved, non-squares always).
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("FF_MUTE subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_fm_search.py", "irr", "3", "0,1", "1,1", "1", "6", "30", "10")
+    assert "UNSOLVED" not in o and "n=6: 116 irreducible P, unsolved 0" in o, ("FF_MUTE R195 Thm 3.5", o)
+    o = run("review_fm_search.py", "list", "3", "0,0,1", "1,1", "../data/ffl/fail_q3_A100_n5.txt", "30", "10")
+    assert "2 P, unsolved 0" in o, ("FF_MUTE R195 ES_q failures", o)
+    o = run("review_fm_search.py", "list", "5", "0,1", "1,1", "../data/ffl/fail_q5_A10_n4.txt", "30", "10")
+    assert "1 P, unsolved 0" in o, ("FF_MUTE R195 ES_q failures q=5", o)
+    o = run("review_fm_search.py", "t1", "3", "0,1", "1,1", "4", "12", "8")
+    assert "squares shot-solved 0/4 (deg f used: []); non-squares shot-solved 32/32" in o, ("FF_MUTE R195 Thm 4.2", o)
+    print(f"== (fv) FF_MUTE R195: ES_3^(T+1)(T, P) at all irreducible P, deg <= 6; known ES_q failures re-solved with "
+          f"one mute prime; Thm 4.2 exact T1 (q = 3, A = T): squares 0/4, non-squares all; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fv()
+
 
 print("\nall checks passed")

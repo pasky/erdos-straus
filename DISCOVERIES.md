@@ -826,6 +826,22 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * So exceptions appear at k = 4 and their last degree grows with k: the lottery threshold n₀ ≍ q^{k/2}, even where finite coverings exist.
    * A = T, last failing degree (exhaustive). q = 8: n = 6, as predicted. q = 9: still 2 failures at n = 7, so the prediction 7 is exceeded. q = 11 and q = 13 are undetermined (extinction ≥ 7 and ≥ 6).
 
+30. **Spark relay P: ONE mute place makes the function-field ES variant a theorem (FF_MUTE.md (O195); self-review `reviews/ff-mute-selfreview.md` plus independent hostile review `reviews/ff-mute-review.md` (R195): no FATAL; Thm 3.5 and Thm 4.2 SOUND; two MAJOR framing/scope defects (M1: in characteristic 2 the mute mechanism HAS a finite covering; M2: measure asymmetry — ES_q's sterile set (J)26 has positive Haar measure, the mute one is null) and minors; repaired).**
+   * **Thm 3.5 (PROVED, unconditional and effective).** Over F_q[T], ONE mute prime s ∤ A suffices: ES_q^{(s)}(A, P): A/P = 1/X + 1/Y + Q²/Z with Q ∈ ⟨s⟩ and the mute parity normalisation holds for every monic irreducible P ∤ sA. This holds for every q, including q = 3^r with r ≥ 27, where ES_q(T^k) itself has no finite linear covering ((J)26).
+     * The proof is Bilharz-type at a fixed prime degree d of the modulus. The Kummer conditions for ℓ | q − 1 become Dirichlet characters mod s by power reciprocity, the square condition becomes (f/P) = sign, and Weil's bound handles ℓ | q^d − 1 with ℓ ∤ q − 1.
+     * The certificate modulus has degree ≤ 4 log_q n + C. The explicit bound is positive for d ≥ 17 (q = 3, A = T), and small degrees are covered computationally.
+     * Contrast over ℤ: (J)23 needs |S| ≥ 4 and is ineffective.
+   * Thm 4.2 (PROVED), the exact-T1 dichotomy. It is decided by the anchor character ε = χ(−1): (−A/f) = ε^{d(1+k)+k} for f ≡ −1 (mod A).
+     * q ≡ 3 (mod 4), k odd: the mechanism solves P iff P is not a square.
+     * k even: squares can be reached only via even-degree moduli.
+     * q ≡ 1 (mod 4): there is no mechanism T1.
+   * Props 5.1–5.4 (PROVED; the "Reading" was corrected by R195 m6).
+     * The mute mechanism admits no finite covering by its own shot families in odd characteristic, yet it is a theorem at every admissible P. **A global reciprocity argument can prove a statement that has no finite covering by its own families.**
+     * The separation from ES_q (Assessment) is this. Mute firing at modulus f is a Frobenius condition whose P-dependence is the global character (f/P). ES_q firing is membership in the box −A·{a²d : ad | (f+1)/A}, which depends on the factorisation of f + 1 and has no known Frobenius description (not proved impossible).
+     * The mute place replaces "divisors of f + 1" by "a finitely generated group reduced mod f".
+   * EVIDENCE (R195, own code). With one mute prime, every irreducible P is solved in many (q, A, s) ranges (q = 2, 3, 4, 5, 7, 8, 9), including every known ES_q failure.
+   * Open (pursued by O196): is ES firing a Frobenius condition in any fixed extension?
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.
