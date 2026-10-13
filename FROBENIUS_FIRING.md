@@ -177,3 +177,52 @@ obstruction; the exponent cap is.** (§4, PROVED relative to UNIT_ORBIT Thm 2.4'
 Firing set at f: the ES box times {s^{2i} : i ≤ σ + e}. By Prop 2.2 the Weil threshold needs an interval of length
 ≳ d·n·q^{d/2}, i.e. e ≈ n² at the optimal d ≈ 2 log_q n — consistent with FF_MUTE Thm 3.5 Remark 3 (shot height
 O(q^d + n)). Numerically a much smaller e suffices (§5): provability threshold ≫ truth threshold.
+
+## 4. The self-mute variant ES^{(y)}: moving mute places are harmless, the exponent cap is the obstruction
+
+**Definition 4.1.** For odd n > 1, ES^{(y)}(n): 4/n = 1/x + 1/y + 1/z with x, y ∈ ℤ_{>0}, z ∈ ℚ_{>0}, and every prime ℓ
+with v_ℓ(z) < 0 satisfies **ℓ | y**, ℓ ∤ 2n, and v_ℓ(z) even. (ES ⇒ ES^{(y)}; the allowed denominators depend on the
+solution, exactly as the certificate modulus does in B2.)
+
+**Theorem 4.2 (ES^{(y)} for every n; PROVED relative to UNIT_ORBIT Lemma 2.2 (linear sieve + Bombieri–Vinogradov);
+ineffective).** (a) For every odd non-square n > 1, ES^{(y)}(n) has a solution of Type II shape at every prime of n.
+(b) For n = m², no ES^{(y)} solution has Type I/II shape at every prime of m. (c) ES^{(y)}(n) holds for every odd n > 1.
+*Proof.* (a) If n ≡ 3 (4), n + 4 has a prime factor r ≡ 3 (4) and Prop 2.1 of UNIT_ORBIT with Q = 1 gives an ES
+solution. Let n ≡ 1 (4); fix four odd primes S = {s₁, …, s₄} ∤ n. Run the proof of UNIT_ORBIT Thm 2.4(a) with
+M = 4·rad(n)·s₁s₂s₃s₄ and the class a mod M chosen there, additionally a ≡ −1 (mod s_i) (allowed by Lemma 2.2:
+−1 ≢ 1 mod s_i). For r ≡ a (M): r ≡ 3 (4), (n/r) = −1, so −n/4 is a square mod r; and, since (r − 1)/2 is odd and
+r ≡ −1 (s_i), (s_i/r) = (r/s_i)(−1)^{(s_i−1)/2} = (−1/s_i)(−1)^{(s_i−1)/2} = 1: each s_i is a square mod r, so
+Γ_r := ⟨S mod r⟩ ⊆ (F_r^*)², a group of odd order (r − 1)/2. If Γ_r ≠ (F_r^*)², the index [(F_r^*)² : Γ_r] has an odd
+prime factor dividing (r−1)/2, hence ≥ x^{1/4−ε} for the sieved r, so |Γ_r| ≤ x^{3/4+ε}, and Lemma 2.3 (k = 4) leaves
+o(x/log²x) such r. So some sieved r has Γ_r = (F_r^*)² and, squaring being bijective on this odd-order group,
+{Q² : Q ∈ ⟨S⟩} ∋ −n/4 mod r: r | n + 4Q². UNIT_ORBIT Prop 2.1 gives x, y = n(r + 1)/4, z with v_ℓ(z) ≥ 0 for ℓ ∉ S and
+v_{s_i}(z) even when negative; and s_i | (r + 1)/4 | y. (b) An ES^{(y)} solution is an ES^{(S′)} solution with S′ the
+(odd, prime to n) primes where v(z) < 0; UNIT_ORBIT Cor 1.2. (c) Scaling as in UNIT_ORBIT Cor 2.5:
+4/(kd) = 1/(kx) + 1/(ky) + 1/(kz) keeps ℓ | ky, and S was chosen prime to n. ∎
+
+**Corollary 4.3 (what separates ES from ES^{(y)}; PROVED, from UNIT_ORBIT Prop 2.1/6.1).** In the shot family of
+Prop 2.1 (r | n + 4Q², Q ∈ ⟨S⟩) the solution satisfies ES^{(y)} iff **rad(Q) | (r + 1)/4** and is an ES solution iff
+**Q | (r + 1)/4**. In Frobenius terms: rad(Q) | (r + 1)/4 is a Dirichlet condition of FIXED modulus 4·∏S
+(independent of the exponents of Q), and with it the firing condition "−n/4 ∈ ⟨S⟩² mod r" is a Kummer–Chebotarev
+condition; Q | (r + 1)/4 is a Dirichlet condition of modulus 4Q, which moves with the exponents. **The exponent cap
+v_s(Q) ≤ v_s((r + 1)/4) is exactly the B2 obstruction; the solution-dependence of the allowed primes is not.**
+*Proof.* v_s(z) = 2σ − 2c for σ := v_s(r + 1) < 2c (c = v_s(Q)) and ≥ 0 otherwise (UNIT_ORBIT Prop 2.1). So
+z ∈ ℤ_{(s)} iff σ ≥ c; and v_s(z) < 0 is allowed in ES^{(y)} iff s | y = n(r + 1)/4, i.e. iff s | (r + 1)/4. ∎
+
+**Theorem 4.4 (|S| = 1 suffices under GRH, for ES^{(s)} and for ES^{(y)}; CONDITIONAL on GRH for the Kummer fields
+ℚ(ζ_m, s^{1/m}); task (4), O195 spark 1).** Let s be an odd prime and n ≡ 1 (4) a non-square with s ∤ n. Let D be the
+set of residues a mod M = 4·rad(n)·s used above (for ES^{(y)}: a ≡ −1 mod 4s; for ES^{(s)}: no condition mod s,
+but a ≢ 0, 1 mod s), and ask for primes r ≡ a (M) such that s is not an ℓ-th power residue mod r for every odd prime
+ℓ | r − 1. Under GRH the set of such r has density
+`δ = (|D|/φ(M))·∏_{ℓ odd, ℓ ∤ M}(1 − 1/(ℓ(ℓ − 1))) > 0;`
+for every such r, ⟨s⟩ ⊇ (F_r^*)² (r ≡ 3 (4)), so as in Thm 4.2 r | n + 4·s^{2j} for some j, giving ES^{(s)}(n), resp.
+(with r ≡ −1 mod s) ES^{(y)}(n), with Type II shape.
+*Proof sketch.* Hooley's GRH argument in Lenstra's form (H. W. Lenstra, *Invent. Math.* 42 (1977) 201–224: density of
+primes with prescribed Frobenius in a finite Galois field and prescribed Kummer behaviour of a fixed element) gives
+δ = Σ_{m odd squarefree} μ(m)·c_m/[ℚ(ζ_M, ζ_m, s^{1/m}) : ℚ], where c_m counts σ restricting to a ∈ D on ℚ(ζ_M) and
+to the identity on ℚ(ζ_m, s^{1/m}). For odd m the maximal abelian subfield of ℚ(ζ_m, s^{1/m}) is ℚ(ζ_m) (s prime,
+ℓ odd: Gal = ℤ/ℓ ⋊ (ℤ/ℓ)^*), so ℚ(ζ_M) ∩ ℚ(ζ_m, s^{1/m}) = ℚ(ζ_{gcd(m,M)}); c_m = 0 unless a ≡ 1 mod gcd(m, M), which
+fails for every odd ℓ | M by the choice of D (a ≢ 1 mod ℓ for ℓ | n, and a ≡ −1 or a ≢ 1 mod s). Hence only m coprime
+to M contribute, the fields are linearly disjoint, [ℚ(ζ_m, s^{1/m}):ℚ] = mφ(m), and the sum factors as stated. ∎
+(Only odd ℓ are imposed, so the even-m entanglement ℚ(√s) ⊂ ℚ(ζ_{4s}) never enters. Status: the Lenstra/Hooley
+input is standard but I did not re-derive its error terms; CONDITIONAL on GRH, citation-level.)
