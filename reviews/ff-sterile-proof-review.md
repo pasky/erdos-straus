@@ -13,7 +13,17 @@ further `scripts/review_fsp_*.py` listed per claim. Nothing here concerns ES ove
 | Lemma 2.1 (genus parity) | SOUND (but not new: it is FF2 §3's R166-checked parity plus arithmetic; see D-list) |
 | Lemma 3.1 (π-weights, π-free families) | SOUND |
 | **Thm 3.2 (O(q, A) Haar-null)** | **SOUND** (true, short, essentially the classical almost-all mechanism of FUNCTIONFIELD_ES Thm 5.3 in profinite form; consequence (a) needs a scope sentence) |
-| (in progress) | |
+| §0 "u ≡ 1 (T²) covered by E = −1; these are the only interesting slice points" | first half SOUND; second half GAP (D4) |
+| §4 (i)–(iii) at x*_c | (i) SOUND (R166); (ii) CLAIMED from O173, not re-derived (D5); (iii) SOUND |
+| §4 residual problem (exact reformulation) | SOUND (the "exactly B2" gloss is Assessment, D6) |
+| §4 cyclotomic structure (r const ⇒ K even; splits ⇒ solutions) | SOUND |
+| §4 cyclotomic EVIDENCE K ≤ 149 | SOUND-AFTER-REPAIRS (reproduced exactly for 15 ≤ K ≤ 80; SKIP accounting/pattern wording, D7) |
+| §5 measure table and 1/3 + 2/27 + 4/81 decomposition | SOUND (reproduced exactly K ≤ 12 from own solution list) |
+| §5 "no sign of an exact 1/2" | overstated Assessment (D8) |
+| §5 "no quadratic-character mechanism (PROVED)" | SOUND-AFTER-REPAIRS: true only in the narrow group-character sense; wording/labels (D10) |
+| §5 clopen remark | SOUND (trivial) |
+| §5 "near-x* zero coverage is ultrametric triviality" | FALSE as stated for K ≥ 8 (D9) |
+| §6 counting bounds / square-root barrier | SOUND (as a statement about these parametrisations) |
 
 ## Lemma 1.1 / 1.2 — SOUND
 Re-derived. (⇒) E′r = TH′L′r − r = H′L″(H + H′) − r = HH′L″ + H′²L″ − r = T^K + H′²L″ using (I), (II) and
@@ -89,3 +99,54 @@ is null. ∎ Correct as stated, including "for every q and every monic A of posi
 known "almost all n" theorems (Vaughan 1970: exceptions ≤ N exp(−c(log N)^{2/3})) and says nothing about every
 prime. The document makes no integer claim; the report's spark correctly guesses "probably just a restatement".
 No overclaim.
+
+## §0 remark on slice points
+u ≡ 1 (mod T²): the family (−1; 0, 1; 0, 1) (a = b = 1, s = 2 = lc E, κ = 1, Y = Z = PX) gives
+1/X + 2/(PX) = (P − 1)/(PX) = T²/P in char 3 — SOUND. But "so these [u = 1 + Tv, v(0) ≠ 0] are the only
+interesting slice points" ignores u(0) = 2. The family (1; 0, 1; 2, 1) covers u ≡ 2 (mod T²) (A | P + 1, s = 1 + X),
+leaving u = 2 + Tv, v(0) ≠ 0, which FF2 §0.1 listed among the uncovered candidates (2 + T + T², 2 + 2T + T², …).
+Lemma 2.1 does not apply there (E(0) = +1 changes (T/E)). See D4.
+
+## §4 at x*_c
+(iii) re-derived: covering gives E ≡ −(1 + cT) (mod T^{N+1}); deg E ≤ N forces E = −(1 + cT), non-monic for c = 1
+and of odd degree 1 for c = 2. deg E′ ≤ N: E′ ≡ −(1 + cT)^{−1}, so (1 + cT)E′ + 1 = μT^{N+1}; deg E′ < N is
+impossible ((1 + cT)E′ = −1), so deg E′ = N, μ = c, and the root T = −c gives c(−c)^{N+1} = 1, i.e. c = 1, N odd,
+deg E′ = N odd — excluded by Lemma 2.1. SOUND.
+Residual problem: the covering condition at level N is v ≡ −HL′ (mod T^N) (Lemma 1.2), weakest at
+N₀ = ⌈K/2⌉ + 1; Case A is excluded at x*_c (R166); at x*_c every family is Case A or B (FF2 (F2)). Nonzero constant
+terms of H, H′, L″ are forced by H g′L″ ≡ −c (mod T). The counterexample K = 2, H = T + 2, H′ = T + 1 checked by
+hand: H + (1 + T)H′ = T² ≡ 0 (mod T²), but HL′ + 1 = T, v_T = 1 < 2, and the family covers u ≡ 1 + T + 2T² (mod T³).
+SOUND. K = 1 has no solutions (checked by hand and in the enumeration), so "K ≥ 2" loses nothing.
+Covers of x*_c among the reviewer's own 226 solutions with K ≤ 12: **none** (consistent with R175/O175).
+
+## §4 cyclotomic sub-family
+Structure SOUND: deg r ≡ K (Lemma 2.1) ⇒ r constant only for even K; every split of T^K + r₀ with
+H + H′ = r₀Tg′ (g′ monic, g′(0) ≠ 0) is a solution ((II) is the split, (I) by construction). Own counts
+(`review_fsp_cyclo.py 2 14`, own Cantor–Zassenhaus factorisation, every factor re-tested irreducible and the
+product re-multiplied): 2, 6, 8, 12, 4, 72, 4 for K = 2, 4, …, 14, matching the deg r = 0 rows of the reviewer's
+independent full enumeration (K ≤ 12) and the document. Odd K: 0, as predicted.
+**Independent re-run of a subrange** (`review_fsp_cyclo.py 15 80 300000`, log `data/review_fsp_cyclo_K15_80.txt`):
+all 66 levels 15 ≤ K ≤ 80 agree with `data/fsp_cyclo_K15_150.txt` field-by-field (n and best z for c = 1, 2, and
+the same SKIP pattern at cap 3·10⁵); no hit; best z = 12 vs N₀ = 14 at K = 26 (r₀ = 2), reproduced. Over the full
+author log the maximum elsewhere is 13 at K = 142 (needed 72), then 9 (K = 148); see D7 for wording and SKIP
+accounting.
+
+## §5 measure
+`review_fsp_measure.py` on the reviewer's own K ≤ 12 solution list (exact rationals, maximal cylinders,
+normalised Haar on v with v(0) ≠ 0): 1/3 (K ≤ 4), 11/27 (K = 5..7), 37/81 (K = 8, 9), 113/243 (10), 343/729 (11),
+349/729 = 0.4787 (12) — identical to the table; 1/3 = two depth-2 cylinders (prefix (c, 2)), +2/27 = four depth-4
+cylinders, +4/81 = eight depth-5 cylinders. Extrapolation: the two-level increments 0.0137, 0.0101, 0.0045,
+0.0039, 0.0016 have successive ratios 0.74, 0.45, 0.85, 0.41; a geometric tail with ratio 0.5 / 0.6 / 0.7 / 0.85
+gives 0.4922 / 0.4930 / 0.4943 / 0.4997. The data do not distinguish 0.493 from 1/2 (D8).
+Near x*: on the reviewer's K ≤ 12 data, the neighbourhood v ≡ c (mod T⁴) (i.e. u ≡ 1 + cT mod T⁵) meets **no**
+cylinder, although cylinders of depth 5 and 7 (K = 8, 12) meet v ≡ c (mod T³). Since depth-5..7 cylinders could
+sit inside the T⁴-neighbourhood without containing x*, this emptiness is a genuine observation, not
+ultrametric triviality (D9).
+
+## §6 counting
+Re-derived: with ρ = deg r, (a) r (≈ 3^ρ choices) and a divisor triple of T^K + r (3^{o(K)} by the divisor
+bound) fix the solution; (b) for a ≥ b, b + deg g′ + λ = K − 1 − ρ, so (H′, g′, L″) ranges over ≤ 3^{K−1−ρ}·K²
+triples (this is the bound the reviewer's enumerator uses); a < b by the H ↔ H′ swap. min(ρ, K − 1 − ρ) ≤ K/2,
+against cylinder mass 1/(2·3^{N₀−1}) ≈ 3^{−K/2}: no decay. The tail formula and the union-bound sufficient condition
+are correct, and the document correctly notes that Case A must also be excluded on the region used. SOUND as a
+statement about these two parametrisations (it is not a lower bound on #sol).
