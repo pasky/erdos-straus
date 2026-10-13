@@ -5,6 +5,29 @@ Builds on CHI_FLIP.md (O198, CLAIMED, under review R198: Thm 1.1, Cor 1.3), MODE
 DIFF_DEEP (supersingular transfer), KUDLA_ES. Scripts `scripts/ce_*` (library `ce_lib.py`: even Clifford orders,
 overorders, reduced discriminants, exact arithmetic).
 
+**Summary.** (1) Exact dictionary (PROVED): positive classical ternary lattices of determinant p anisotropic at p are
+in bijection with Eichler orders of level 2 in B_{p,∞}, i.e. with supersingular 2-isogenies modulo ⟨Frob, w₂⟩
+(Thm 1.2, Thm 2.1; class counts CERTIFIED for 8 primes); five-slice ES certificates are exactly the *path-shaped* classes
+(Cor 2.2), equivalently pairs of trace-zero endomorphisms i, j with ij + ji = −2, deg i·deg j = tp + 1 and a level-t ring
+condition. The middle letter t is a Frobenius distance (ε = −(1 + ij), ε² = −tp; t = 1 ⟺ 𝔽_p-rational spine edge, Cor 3.2–3.3).
+(2) Certificates give explicit maximal orders and non-residues deterministically (Prop 4.1); the converse fails, and no
+known deterministic construction (Pizer, Ibukiyama, Bröker, KLPT) lands on certificates beyond Mordell's q ≤ 7. (3) Lattice
+operations and Hecke-equivariant maps cannot transfer the always-present χ = +1 path class to the χ = −1 side beyond the
+main term (5.1, 5.2: the two Brandt modules share no cusp eigen-system, EVIDENCE at 5 primes). (4) Certificates are not
+among the smallest orders at hard primes (5.5, EVIDENCE). Net (Assessment): an exact, illuminating relocation of ES onto
+the supersingular 2-isogeny graph; no existence mechanism; the content is again the divisor/shape lottery (B2/B3).
+
+## 0. Iteration log
+(I1) Dictionary target: certificate ⟹ which order? Found C₀(L_w) ⊂ unique Eichler order of level 2 (Thm 1.2) → edges of
+the 2-isogeny graph (Thm 2.1). (I2) "∃ curve" is vacuous (supersingular transfer); so look for a privileged curve/edge:
+spine (t = 1) gives only the classical slice p + 1 ∋ prime ≡ 3 (4) (Cor 3.3); CM(−q) edges of the deterministic
+constructions are certificates only under Mordell's congruence (Prop 4.1, 5.5). (I3) Barrier hypothesis targeted: "fixed
+slice / congruence data" — violated by moving to the full graph (all p/12 edges); then the obstruction is that path-ness
+is an exact shape condition (5.3). (I4) Try to flip from the always-non-empty side 𝔊⁺ (word (p+2,1,1)): lattice moves
+preserve χ (5.1); Hecke-equivariant transfers see only the Eisenstein part (5.2) — the barrier hypothesis "linear /
+Hecke-equivariant" is what a flip must violate (H-D needs a non-linear map). (I5) Smallest-order heuristic: refuted
+numerically at hard primes (5.5).
+
 Notation (as in CHI_FLIP). Word w = (t, u, v) ∈ ℤ³_{≥1}, tuv − u − v = n odd; A = tu − 1, A* = tv − 1, AA* = tn + 1;
 χ(w) = (−A/n). Path lattice L_w = ℤ³ with Gram G_w = [[v, −1, 0], [−1, t, −1], [0, −1, u]] (det n), classical
 (B(e_i, e_j) = G_ij, Q(x) = B(x, x)). C₀(L) = even Clifford order (Gross–Lucianovic: Gorenstein, reduced discriminant
