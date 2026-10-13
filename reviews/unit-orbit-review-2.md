@@ -113,3 +113,35 @@ inv_2 = 0 on every solution of both modes. The author's counts (121/186/491/566,
 * **m5 (MINOR, presentation, Cor 1.2 proof).** T1_TEMPLATE Thm 2.1 is stated for u ∈ O_K³, but here z ∉ ℤ in general.
   The proofs of 2.1(b),(c),(d) are local and only use v-integrality, which holds at v = 2, ℓ ∉ S. Say so once
   ("Thm 2.1(b)–(d) are local: they hold for u ∈ O_v³") instead of relying on the parenthetical remarks.
+
+## 3. Thm 5.1 (V_φ: #{odd n ≤ X not orbit-solved} ≪ X^{3/4} log²X) — SOUND
+
+**Re-derivation.** For a degree-1 𝔮 ∤ 10 (ℓ = N𝔮) and n with ℓ ∤ n: 𝔮 | a_k ⟺ −n/4 ≡ φ^{2k+1} (mod 𝔮), k ∈ ℤ, so
+"some a_k has a prime factor 𝔮 with (n/𝔮) = −1" holds whenever n mod ℓ ∈ S_ℓ = {n : −n/4 ∈ C, (n/ℓ) = −1},
+C = φ⟨φ²⟩ (|C| = m if m = ord(φ) is odd, m/2 if even, so |C| ≥ m/2); (n/𝔮) = (n/ℓ) for degree 1, and 𝔮 ∤ 2n, so
+T1_TEMPLATE Thm 1.3(b) applies. |S_ℓ| = #{c ∈ C : (−c/ℓ) = −1}; for good 𝔮 every c qualifies (ℓ ≡ 1 (4), C ⊂
+non-squares; or ℓ ≡ 3 (4), C ⊂ squares), and for non-good 𝔮 S_ℓ = ∅ (so restricting to good 𝔮 loses nothing).
+[K(i, √φ) : K] = 4 (i ∈ K(√φ) is impossible: K(√φ) has a real place above σ₁), so good 𝔮 have Chebotarev density ½
+among degree-1 primes. 𝔮 with m ≤ y divide ∏_{j ≤ y} N(φ^j − 1) (all non-zero), log ≪ y², so ≪ y² such ℓ; with
+y = x^{1/2}/log x this is ≪ x/log²x = o(π(x)) per dyadic block. Hence ≫ x/log x primes ℓ ∈ [x/2, x] carry a good 𝔮
+with |S_ℓ| ≥ ℓ^{1/2}/(2 log ℓ) (≤ (ℓ−1)/2 < ℓ). Montgomery's large sieve, restricted to prime moduli:
+|𝒩| ≤ (X + L²)/J, J ≥ Σ_{ℓ ∈ 𝒫, ℓ ≤ L} ω(ℓ)/(ℓ − ω(ℓ)) ≥ Σ ℓ^{−1/2}/(2 log ℓ) ≫ L^{1/2}/log²L (partial summation over
+dyadic blocks). L = X^{1/2} ⇒ |𝒩| ≪ X^{3/4} log²X. Every step checks; no uniformity issue (φ fixed, constants absolute).
+The label "PROVED relative to the arithmetic large sieve and Chebotarev" is accurate (both are theorems, so plain
+PROVED would also be fair).
+
+**From-scratch check** (`scripts/review_uo2_phi.py 100000 3000 20000`): sieving all odd n ≤ 10⁵ by the local criterion
+over every split 𝔮 with ℓ ≤ 3000 plus 𝔮 = (√5) (φ ≡ 3) leaves exactly 228 survivors, which are exactly T ∩ [3, 10⁵]
+(T = {m², 5m²}, m odd). (The survivors of a finite sieve are a superset of the true exceptional set, and T ⊆ exceptions
+by Thm 1.3(a), so the exceptional set below 10⁵ is exactly T — consistent with Thm 5.2, much stronger than 5.1's
+bound.) Among the 2 244 split 𝔮 with ℓ ≤ 20 000, 1 127 (0.502) are good; on every good 𝔮, |S_ℓ| = |C| ≥ m/2 holds and
+|S_ℓ| ≥ 4.65 · ℓ^{1/2}/(2 log ℓ). The final remark of §5 ((√5) | a_k for n ≡ ±2 mod 5) re-derived: φ ≡ 3 (mod √5),
+−4·3^{2k+1} ∈ {2, 3} = the non-residues mod 5.
+
+### Remarks on Thm 5.1 (no defects)
+* **r1 (suggestion, not a defect).** The order bound m ≥ ℓ^{1/2}/log ℓ is the weakest available; any positive-density
+  set of good primes with ord_𝔮(φ) ≥ ℓ^θ gives ≪ X^{1−θ/2+o(1)}. Large-prime-factor-of-ℓ−1 results (Baker–Harman type,
+  θ ≈ 0.677) would need to be available inside the Chebotarev class "good" of the non-abelian field K(i, √φ, √φ̄) —
+  not checked; leave the X^{3/4} statement as is or flag the improvement as an Assessment.
+* **r2.** The "Contrast with ES" paragraph (|S_ℓ| ≍ ℓ ⇒ X^{1/2+o(1)}, "squares saturate the large sieve") is
+  arithmetic-correct as a conditional remark; the reference to DISCOVERIES (A)19–20 was not re-checked here.
