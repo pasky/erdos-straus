@@ -73,3 +73,22 @@ roughly half/half by Case B, and Case A seems absent. If both persist, O(3, T²)
 x*_c is just one of uncountably many sterile slice points; FF2's Conjecture 0.2 ("no finite linear covering for
 q = 3, A = T²") would then hold for a "convergent-lottery" reason, not for a structural property of x*. A *proof*
 still needs one explicit point excluded at every level K; §3 tries to find a point where this is provable.
+
+## 3. Symmetries of the covered set; the orbit of x* (PROVED, elementary; checked on the K ≤ 17 data)
+
+**Lemma 3.1.** The set C ⊂ slice of Case-B-covered points is invariant under (i) u ↦ u⁻¹ and (ii) u(T) ↦ u(−T).
+*Proof.* (i) (I)–(II) are symmetric in (h₁, h₁'); swapping them swaps E = −1 + Th₁L' and E' = −1 + Th₁'L', and E'
+≡ −u⁻¹ (mod T^{N+1}) (EE' = D ≡ 1), so the swapped solution covers u⁻¹ with the same (K, N). (ii) T ↦ −T is a
+ring automorphism of F₃[T] fixing A = T², the slice condition and monicity up to the sign (−1)^{deg}, which is
+restored by multiplying h₁, h₁', g', L'', r by the units (−1)^{deg}; (I)–(II) are homogeneous under this. ∎
+*Check:* on the K ≤ 17 data the length-4 prefixes (1, 0, x, y) and (1, 1, x + 1, 1 − x − y) carry identical
+K-lists (e.g. (1,0,0,0) and (1,1,1,1): K ∈ {14, 15, 16, 17}), which is the composite ι(u) := 1/u(−T).
+So x*_c = 1 + cT is paired with ι(x*_c) = 1/(1 − cT) = Σ (cT)^k (v = (c, c², c³, …)); both are uncovered through
+K = 17. The x* orbit is {1 ± T, 1/(1 ± T)}: the four slice points whose u is a **rational function of height 1**.
+
+*Assessment.* The only visible special feature of x* in the Case B system is "height 1" (a degree-1 rational
+point of the T-adic slice). Lemma 1.1 says a covering family at level K is a pair of monic h₁, h₁' with
+h₁h₁'L'' = T^K + r and small r — a **best rational approximation of T^K at ∞** — while (III) is a T-adic
+approximation condition at 0. Covering x* thus asks for simultaneous good approximation at the two places 0
+and ∞ of P¹ by polynomials of controlled degree; for height-1 targets, the product formula (|·|₀|·|_∞ ≤ 1 for
+nonzero polynomials) is the natural tool. I have not turned this into a proof (next step if resumed).
