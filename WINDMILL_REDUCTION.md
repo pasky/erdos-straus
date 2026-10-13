@@ -163,8 +163,8 @@ river of disc 16g, and g is a growing parameter. The range `√p < k ≤ √(4p/
 **Assessment.** σ_k-fixed points always encode a sum `b² + 4ka²` (a CM point). ES certificates are CM points
 *plus* a divisor in a residue class whose modulus comes from the solution, so the ambiguous/σ fixed-point
 mechanism supplies the CM half but not the divisor half (B2 again). A successful transport would need a
-reflection whose fixed-point equation is itself bilinear in the right way. I found no such reflection in the
-GL₂ normaliser (σ_k, ι, and their products with class translations are the whole list for a single river).
+reflection whose fixed-point equation is itself bilinear in the right way. Among the reflections I examined, namely
+σ_k, ι, and their products with class translations, none has this property. This is not a classification of the normaliser.
 
 ## 8. Spark C: T²−4 rivers do not give free joint factorisation (PROVED, algebra)
 
@@ -173,3 +173,15 @@ By 5.2 an X-certificate is an ambiguous form `[−t, tβ, p]` of disc `T² − 4
 `T + 2 = t·τ` together with `(p+τ)/t = uv`. Neither of these is the "free" splitting `(T−2)(T+2)`. Taking T in a
 p-dependent progression only moves the lottery into the factorisations of `T+2` and of `(p+τ)/t`. So spark C reduces
 to the e/t-slice problem with no H-A gain.
+
+## 9. Spark D: what an infinite-menu windmill on X-certificates must look like (reformulation; PROVED, elementary)
+
+By 5.3 every X-certificate is the unique box representative `A, B ≤ p + O(1)` of its orbit under the per-level
+translations. Any windmill on certificates is therefore, up to the swap, a self-map of the box modular hyperbola
+`H_p = {(A, Ā) : 1 ≤ A < p}`. Its natural "infinite menu" is the group of 𝔽_p-automorphisms of the hyperbola,
+`A ↦ cA^{±1}` and `A ↦ −cA^{±1}`, with `c ∈ 𝔽_p^*` (p−1 pieces, a menu that grows with p), chosen piecewise by lift regions.
+An involution `A ↦ c/A` has as its fixed points the square roots of c (Legendre data). An ES certificate is the
+archimedean condition `t = (AĀ−1)/p | A+1, Ā+1`. Lemma 4.1 does not apply because the menu is infinite. The one structural
+constraint I can prove is negative: on each piece the map is 𝔽_p-algebraic, so any fixed point it creates is a root of
+a fixed quadratic mod p. A fixed point that is a certificate would therefore need `A² ≡ c` with t small, and that is a
+divisor condition again. No search was run for (D) beyond this reformulation.
