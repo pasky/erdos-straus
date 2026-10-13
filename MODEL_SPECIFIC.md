@@ -224,7 +224,8 @@ the cells mod 8 meets {χ = −1} (22 words) but misses all 35 S_8-cells. Hence 
 cell mod 8 allowed by χ" is false** (at 27 primes ≤ 10⁷ at least), and an ES proof through X_p cannot be an
 equidistribution-mod-8 statement for its points without p-dependent error control (B3: the main term is only
 ≍ log² p points); it must use that the ES target is a whole χ-fibre. ES-five-slices(n) ⟺ χ is not identically +1
-on X_n(ℤ_{>0}), and CONJECTURE SQ₅ ⟺ **χ is constant on X_n(ℤ_{>0}) only for n a square or n = 105.** This is a
+on X_n(ℤ_{>0}), and (for n ≡ 1 mod 4, words with gcd(A, n) = 1) CONJECTURE SQ₅ ⟺ **χ is constant on X_n(ℤ_{>0}) only for n a
+square or n = 105.** This is a
 rigidity statement of the T1 kind, with the T1 locus as its only (conjectural) exception set — exactly the shape
 B7 leaves open.
 (C2) *Iteration (barrier hypotheses).* B1/B5: χ-constancy at squares is T1 itself, so no congruence argument proves
