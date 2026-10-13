@@ -34,5 +34,20 @@ closed set C, hence ν(μ) ∈ C ⊂ U. Squares: if an ET class r (mod M) contai
 r ≡ s² (mod M); r is odd when M is even (all ET residues are ≡ −f, −e or −e⁻¹ with f, e odd), so there are odd integers s′ ≡ s (mod M)
 with s′² in the class, s′ large. But odd squares have no Type I/II solutions (ET Prop 1.6, campaign T1), while the class gives one. ∎
 
+**Divisor classes.** D_q := {n ≡ 0 (mod q)} for an odd prime q: ES(n) follows from an explicit ES(q) scaled by n/q, and the
+coordinates are again polynomials in n, integer-valued on the class. Put U′ := U ∪ ⋃_q D_q, S′ := Ẑ \ U′ (closed).
+
+**Theorem 1.4 (PROVED; same proof as 1.2).** A finite covering of {n_m : m ≥ m₀} by ET and divisor classes exists iff Λ_k ∩ S′ = ∅.
+S′ ⊇ Sq^× := {x : x_2 ≡ 1 (8), x_q ∈ (Z_q^×)² for all odd q} (profinite *unit* squares): D_q contains no point that is a unit at q, and the
+ET part is Theorem 1.2. So non-unit square points (e.g. ν(ℓ) = s² with an odd prime q | s) are NOT obstructions: they lie in D_q.
+
+**Corollary 1.5 (integer obstruction points; PROVED).** Let b = 2, c = +1, k odd. For ℓ ∈ Z, ν(ℓ) ∈ Sq^× iff ℓ = 0 and k = 4^j − 1 (j ≥ 1).
+*Proof.* ℓ ≥ 0: ν(ℓ) has odd components the integer N = k2^ℓ + 1 > 1; N is a square in every Z_q (q odd) iff N = s² (an integer that is a
+square modulo almost all primes is a square), and a unit at every odd q iff s is a power of 2. Then k2^ℓ = (s−1)(s+1) with s = 2^j forces
+ℓ = 0 (k2^ℓ is odd·2^ℓ, s ± 1 odd), k = 4^j − 1. ℓ < 0: components (k + 2^{|ℓ|})/2^{|ℓ|}; a square everywhere iff 2^{|ℓ|}(k + 2^{|ℓ|}) = □,
+so |ℓ| even and k + 2^{|ℓ|} = s² with s a power of 2: k = 4^j − 4^i odd forces i = 0, i.e. ℓ = 0. ∎
+So **3·2^m + 1, 15·2^m + 1, 63·2^m + 1, … (k = 4^j − 1) admit no finite exponent covering by ET/divisor classes**: along m ≡ 0 (mod L),
+n_m ≡ 4^j (mod 2^L − 1) mimics the even square 4^j (the "2²-mimicking" form of B5/T1; note T1 itself is about odd squares).
+
 Remark 1.3. The same holds verbatim for k·b^m + c (2 replaced by the primes of b) and for any sequence whose reduction modulo every M
 is eventually periodic (Lucas sequences etc.), with Ẑ replaced by the appropriate profinite exponent space.
