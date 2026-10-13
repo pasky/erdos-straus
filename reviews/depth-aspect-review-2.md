@@ -141,7 +141,8 @@ constants; I found no quantifier or uniformity error. Repairs D1–D5 are presen
    | 27 | 1.33·10⁻³ / 1.39·10⁻¹⁰ | 3.1·10⁻¹² | 2.56·10⁻² | 2.70·10⁻² / 2.56·10⁻² | 2.6·10⁻² |
    | 33 | 1.56·10⁻⁶ / 1.90·10⁻¹³ | 4.3·10⁻¹⁵ | 2·10⁻³² | 1.56·10⁻⁶ / 1.9·10⁻¹³ | < 2·10⁻¹¹ |
 
-   (r = 28, 29, 34–36: see §2.3.) The author's fine in-range Case B value at r = 27 (1.385·10⁻¹⁰) is reproduced to
+   Further rows (fine / stated totals): r = 28: 1.93·10⁻⁷ / 3.99·10⁻⁴ (author 1.9·10⁻⁷); r = 29: 1.75·10⁻¹¹ / 1.29·10⁻⁴
+   (author < 2·10⁻¹¹); r = 34, 35, 36: 6.5·10⁻¹⁴, 2.2·10⁻¹⁴, 7.2·10⁻¹⁵ / 5.2·10⁻⁷, 1.7·10⁻⁷, 5.8·10⁻⁸. The author's fine in-range Case B value at r = 27 (1.385·10⁻¹⁰) is reproduced to
    4 digits; my Case A is slightly smaller than the author's (3.1 vs 4.2·10⁻¹²: bsE_largeq.py uses larger prefactors
    24·3^α, 2^{3α}·2^κ, which is conservative). **At r = 27 the total is entirely the crude tail beyond s = 100**; the
    exact part is 10⁻¹⁰. Both versions give < 1, so the theorem holds even with Lemma 2.2's *stated* constant.
@@ -150,3 +151,67 @@ constants; I found no quantifier or uniformity error. Repairs D1–D5 are presen
    0.290 at 3^33, 0.155 at 1.3·10^16, **0.130 at 3^34** (claimed "< 0.48": true), 0.061 at 3^35, 0.030 at 3^36; it equals 1 at
    q ≈ 1.20·10^15 (log₃ q ≈ 31.6). So "< 1 for q ≥ 1.3·10^16" is true with a factor ≈ 10 to spare.
 
+8. **Exhaustiveness / logic.** Lemma 1.1 of O173 checked against the definition of linear families and Lemma 6.2 in
+   FUNCTIONFIELD_ES §6.2 (A·a0, A·b0 | P + E ⟺ T^k L | P + E; at x_u, P ≡ 1 mod E because T ∤ E, so X ≡ T^{−k}; the four
+   type residues). Countable union of cylinders of total relative mass < 1 ⇒ the uncovered part of the c-slice has
+   positive Haar measure; its points are in O(q, T^k); O ≠ ∅ ⇒ no finite covering (FUNCTIONFIELD_ES2 §0.1, R166-reviewed).
+   No quantifier problem: the counts are uniform in q (only δ(n) ≤ 2^n, δ₃(n) ≤ 3^n and q odd are used) and in c.
+
+### 2.2 Defects in Thm 2.5 (no FATAL, no MAJOR)
+
+**E1 (MINOR) — "relative measure ≥ 0.97 for q = 3^r, r ≥ 27" is not supported as written for r = 34, 35.** Location:
+Thm 2.5 statement and proof. The proof evaluates the pattern sums only for 27 ≤ r ≤ 33 and uses the crude closed form
+for r ≥ 34, for which it states "< 0.48 at q = 3^34"; that gives only ≥ 0.52. The crude form is 0.130 (r = 34) and
+0.061 (r = 35), and drops below 0.03 only at log₃ q ≈ 36.0. The claim is nevertheless true: my pattern sums give totals
+≤ 5.2·10⁻⁷ for r = 34, 35, 36 even with Lemma 2.2's stated constant. *Repair:* extend the `bsE_largeq.py` table to
+r ≤ 36 and cite it (or weaken to "≥ 0.97 for 27 ≤ r ≤ 33, ≥ 0.87 for r ≥ 34"). Also note that `bsE_largeq.py` as
+committed stops at the first r with total < 1 (r = 27), so the quoted r = 28..33 values are not reproducible by its
+documented invocation; add an option to continue.
+
+**E2 (MINOR) — which constant is evaluated.** Location: proof, "evaluates … the pattern-wise minimum exactly". The script
+uses the four bounds of the *proof* of Lemma 2.2 with their own divisor prefactors (2·3^s, 2^{y+z}·2^{s+2y+z}, 2^{s+y},
+2^{max(s,z+2a)}), not Lemma 2.2's stated B·q^{min}. Both are valid, both give < 1 (§2.1 item 6), but the text should say
+which one is used, and state that at r = 27 the total 2.6·10⁻² is entirely the crude tail beyond s = 100 (the exact part
+is 1.4·10⁻¹⁰).
+
+**E3 (MINOR) — loose numerical statements.** "< 0.48 at q = 3^34" (actual 0.130) and "< 1 for q ≥ 1.3·10^16" (the crude form
+already equals 1 at q ≈ 1.20·10^15). Both are true upper statements; the second can be sharpened to q ≥ 1.3·10^15 if wanted.
+
+**E4 (MINOR, label hygiene) — dependence on the unreviewed O173 lemmas.** The theorem is "PROVED, given O173 Lemmas 1.1,
+2.1, 3.1, …", and DEPTH_ASPECT's header says O173 is "CLAIMED, under review R173"; there is no
+`reviews/functionfield-es3-review.md` on this branch or on main. I re-derived the three lemmas as used here (§2.1 items
+1, 2, 8; Lemma 2.1 (a), (b) and the degree count deg v ≤ max(a, b) − deg g', deg(m'wC) = s) and found them correct, so for
+the purposes of Thm 2.5 this condition can be recorded as discharged by R187 (pending R173 for the rest of O173).
+
+**E5 (not a defect; Assessment + EVIDENCE) — the threshold r ≥ 27 is an artefact of the truncation, not of the method.**
+With the proof-level four-bound minimum the per-s Case B sum decays geometrically much earlier than the crude rate
+16q^{−1/10} suggests. `scripts/review_da2_rate.py` (grid search of the asymptotic exponent max_pattern min(e1..e4) − 1/2 per
+unit s, in units of log q) gives rate −0.012 (q = 3^10), −0.025 (3^12), −0.046 (3^16), −0.071 (3^27); the stated-B rate
+4 log 2/log q − 1/10 is negative only for r ≥ 26. Exact sums for s ≤ 150: 3.7·10⁻² (q = 3^10), 2.1·10⁻³ (3^12), 2.5·10⁻⁵
+(3^16), with per-s terms at s = 150 of order 10⁻⁹, 10⁻²⁴, 10⁻⁵²; at q = 3^9 the sum is 5.4 and at 3^8 it is 3.6·10⁷. Case A
+(≈ (6q^{−1/2})^α) is negligible for all these q. So the same lemmas very likely give **no finite linear covering of
+ES_{3^r}(T^k) for every r ≥ 10** (q ≥ 59049), once a rigorous tail is written (e.g. bound the pattern exponent beyond
+s₀ by the exact LP max of min(e1, …, e4), splitting the max(1, z + 2m) term, times (s+1)⁴ patterns). Recommended as a
+cheap follow-up; it does not affect the soundness of Thm 2.5 as stated. (The remark "the exponents are not the obstacle;
+the constants are" is fair only with a sharp divisor bound: with δ(n) ≤ 2^n the loss 2^s = q^{s·log 2/log q} is itself an
+exponent at fixed q, which is why q = 3^9 fails above.)
+
+**Verdict Thm 2.5: SOUND** (E1 is a mis-supported side claim about the size of the uncovered set, true on recomputation;
+E2–E4 presentational/label).
+
+## 3. Overall
+
+* Thm 3.1: **SOUND**. Repairs D1 (avoid or qualify Browning–Elsholtz for effectivity), D2–D5 (presentation).
+* Thm 2.5: **SOUND**. Repairs E1 (extend the table to r ≤ 36 or weaken 0.97), E2–E4. Suggestion E5 (likely r ≥ 10).
+* Novelty (Assessment): Thm 3.1 is, as far as the campaign files show, the first unconditional sterile point for the
+  seven ET families outside the square classes; it is a genuinely new logical status, but it is an r → ∞ statement with
+  an astronomically large, effectively computable r₀ and says nothing about r = 13, 17.
+
+Replay:
+```
+PYTHONPATH=scripts uv run python scripts/review_da2_rgeneric.py 19 200000 2     # (also 11 ... 3, 13/23 ... 2, 17 20000 2); ~1-3 min each
+uv run --with sympy python scripts/review_da2_level1.py 5 20000 150             # D4 numbers
+uv run python scripts/review_da2_caseB_enum.py 3 13                             # §2.1 item 5, ~1 min
+uv run python scripts/review_da2_largeq.py 100 27,28,29,33,34,35,36             # §2.1 items 6-7, ~5 min per r
+uv run python scripts/review_da2_rate.py; uv run python scripts/review_da2_rate.py 150 10,12,16   # E5
+```

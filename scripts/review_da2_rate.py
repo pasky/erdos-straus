@@ -7,7 +7,7 @@ rate(q) = max over patterns of min(e1..e4) - 1/2 (the cylinder weight q^{-s/2}).
 import numpy as np
 from math import log
 G = 120
-for r in [10, 12, 14, 16, 18, 20, 22, 24, 26, 27]:
+for r in ([] if __import__("sys").argv[1:] else [10, 12, 14, 16, 18, 20, 22, 24, 26, 27]):
     l2, l3 = log(2) / (r * log(3)), log(3) / (r * log(3))
     best = -9
     g = np.linspace(0, 1, G + 1)
