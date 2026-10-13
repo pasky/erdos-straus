@@ -1,5 +1,37 @@
 pool 4|m [8, 12, 16, 20, 24]: bins of mu (primes p >= 100, up to 1e+07):
+   mu in [2,3): primes 12, failures 6, rate 5.00e-01
+   mu in [3,4): primes 39, failures 12, rate 3.08e-01
+   mu in [4,5): primes 56, failures 16, rate 2.86e-01
+   mu in [5,6): primes 75, failures 9, rate 1.20e-01
+   mu in [6,8): primes 237, failures 27, rate 1.14e-01
+   mu in [8,10): primes 343, failures 28, rate 8.16e-02
+   mu in [10,12): primes 500, failures 23, rate 4.60e-02
+   mu in [12,15): primes 1166, failures 29, rate 2.49e-02
+   mu in [15,20): primes 3538, failures 41, rate 1.16e-02
+   mu in [20,25): primes 6808, failures 17, rate 2.50e-03
+   mu in [25,30): primes 12199, failures 7, rate 5.74e-04
+   mu in [30,40): primes 54386, failures 14, rate 2.57e-04
+   mu in [40,50): primes 134126, failures 1, rate 7.46e-06
+   mu in [50,70): primes 816755, failures 1, rate 1.22e-06
+   mu in [70,100): primes 906864, failures 0, rate 0.00e+00
+   mu in [100,1000000000.0): primes 1385666, failures 0, rate 0.00e+00
 pool 4!|m [5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 23]: bins of mu (primes p >= 100, up to 1e+07):
+   mu in [2,3): primes 20, failures 6, rate 3.00e-01
+   mu in [3,4): primes 67, failures 15, rate 2.24e-01
+   mu in [4,5): primes 106, failures 19, rate 1.79e-01
+   mu in [5,6): primes 145, failures 14, rate 9.66e-02
+   mu in [6,8): primes 407, failures 28, rate 6.88e-02
+   mu in [8,10): primes 597, failures 27, rate 4.52e-02
+   mu in [10,12): primes 816, failures 8, rate 9.80e-03
+   mu in [12,15): primes 1757, failures 11, rate 6.26e-03
+   mu in [15,20): primes 4946, failures 12, rate 2.43e-03
+   mu in [20,25): primes 8729, failures 4, rate 4.58e-04
+   mu in [25,30): primes 14516, failures 4, rate 2.76e-04
+   mu in [30,40): primes 58631, failures 3, rate 5.12e-05
+   mu in [40,50): primes 130432, failures 0, rate 0.00e+00
+   mu in [50,70): primes 773780, failures 0, rate 0.00e+00
+   mu in [70,100): primes 2391171, failures 0, rate 0.00e+00
+   mu in [100,1000000000.0): primes 6582190, failures 0, rate 0.00e+00
    LOO 4|m: m= 8 predicted failures (p>=100)   1.46, observed 2
    LOO 4|m: m=12 predicted failures (p>=100)   8.96, observed 12
    LOO 4|m: m=16 predicted failures (p>=100)  33.86, observed 27

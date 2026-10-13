@@ -3,6 +3,11 @@
 Reviewer: R197 (side-agent/review-model-specific). Author branch merged: side-agent/model-specific.
 From-scratch scripts: `scripts/review_ms_*`. ES is not solved; nothing below changes that.
 
+**Repairs applied** (author silent since the R-O197 repair commit acc1a387; all marked '(R197 repair …)'):
+D1, D2, D3, D5, D6, D9, D10 in MODEL_SPECIFIC.md; D1, D4, D9, D10 in AGENT_REPORT_O197.md; `data/ms/tail_1e7.txt`
+regenerated with the author's `ms_tail.py 1e7` so it now contains the bin table (non-bin lines byte-identical).
+D7, D8 are optional presentation notes, not applied.
+
 ## Summary verdicts
 **Overall: no FATAL, two MAJOR (D1 wording of the headline reading of Thm 3.1; D9 inherited 8/n novelty — PW Table 1 + Bright–Loughran Rem 1.10), eight MINOR.** Every numerical claim I
 re-ran from scratch reproduced exactly.
@@ -196,3 +201,12 @@ No PROVED/CERTIFIED claim was found to be over-labelled.
    below 10⁸ (m = 16–20, 24) / 10⁷ (21–23) are new here, to my knowledge."
 
 ## Work log
+* Merged side-agent/model-specific (acc1a387). Own code only for every check: `review_ms_words.py` (word enumeration,
+  own Jacobi, exact rationals; brute-force-validated for n ≤ 81), `review_ms_cells.py` (cells mod lcm(8, m), m = 4..24,
+  example words for 5 ≤ m < 2000), `review_ms_census.c` (complete m/p search, modes all/t1/t2/oneodd/alleven/count),
+  `review_ms_naive.py` (Fraction brute force, cross-check of the C counts and odd-square exceptions 25, 841, 9, 121),
+  `review_ms_stats.py` (§5.1 means), `review_ms_slices.c` (S_m(p) = ∅, to 10⁷ for m = 4, 8), `review_ms_shots.py`,
+  `review_ms_cover.py`, `review_ms_atoms.py`. Author's `ms_tail.py` run only to read its bin table (D2).
+* Censuses ≤ 10⁷ re-run for m = 8, 12, 16, 17, 19, 20, 23, 24: identical lists to the author's data.
+* Sources read: PW arXiv 2511.16817v2 (Table 1 p. 13; §6 p. 12; Cor 2.2/2.4); R194 review on main for the BL Rem 1.10
+  attribution (BL PDF itself not re-read here — R194 did).

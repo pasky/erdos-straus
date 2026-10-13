@@ -10,9 +10,10 @@ tuv − u − v = n, A = tu − 1, put χ = (−A/n). The five m-slices (m | tu�
 an explicit solution of m/n (Lemma 3.0). Then: S_4 = {χ = −1} exactly (all odd n; for n ≡ 3 mod 4 new in this form);
 for 4 | m, m ≥ 8: S_m ⊊ {χ = −1} (7/12 of the χ = −1 cells for m = 8, 16/45 for 12, 5/16 for 16; properness proved
 for every such m); for 4 ∤ m: S_m contains χ = +1 members and χ = +1 non-members (explicit words, all m). Consequence: **on the
-length-3 ball, "T1 is the only obstruction" is an identity for ES and false for 8/n** — the same surface
+length-3 ball the ES certificate set is exactly the T1-character fibre, for 8/n a proper part of it** (R197 repair D1:
+whether the fibre is non-empty is SQ₅ — open for primes, false at the non-square 105) — the same surface
 X_n: tuv − u − v = n carries both, and at n = 131, 241 it has χ = −1 points (29 resp. 12) but none in the 8-target
-cells (and 8/n has no solution). So λ(p) ≤ 3 / CONJECTURE SQ₅ is a numerator-free statement (non-residues in the
+cells (and 8/n has no solution — a KNOWN failure, PW Table 1; not BM, Bright–Loughran Rem 1.10; R197 repair D9). So λ(p) ≤ 3 / CONJECTURE SQ₅ is a numerator-free statement (non-residues in the
 Farey ball) that implies ES and does not imply 8/n: genuinely model-specific input of the kind B7 demands.
 Equivalently (C1): SQ₅ ⟺ "χ is constant on the positive integral points of X_n only for squares (and 105)".
 Boundary words handled by Lemma 3.0′ (reduction to length 2). Checked independently on all 35 179 words of odd n ≤ 1500 (sympy Jacobi, every slice solution verified in exact
@@ -20,10 +21,11 @@ rationals).
 
 ## Results
 1. **Censuses (CERTIFIED, complete search, `ms_census.c`)**: failing odd primes p ∤ m ≤ 10⁸ for m = 4..20, 24 (21–23 to 10⁷).
-   Exact agreement with Pomerance–Weingartner Table 1 (m ≤ 15); new lists m = 16–24, incl. m = 20 failing at the prime
+   Exact agreement with Pomerance–Weingartner Table 1 (m ≤ 15); complete lists m = 16–24 new to my knowledge (PW §6 already verify a failing prime in (m², 2m²) for every
+m ∈ [16, 30000] except 19; R197 repair D10), incl. m = 20 failing at the prime
    **2763601** (≡ 1 mod 840; gap from 90001) and m = 24 at 620929. Largest failures independently re-confirmed by
    O194's `tf_schinzel.count` (0 solutions; next 20 primes solvable). Odd squares ≤ 10⁸ as T1 control.
-   Observation (EVIDENCE): multiples of 4 have much longer tails than neighbours (241 vs 2/19; 12241 vs 37/281;
+   Observation (EVIDENCE): multiples of 4 have much longer tails than neighbours (241 vs none/19; 12241 vs 37/281;
    2763601 vs 353/14051); m = 4 is the only multiple of 4 without failures.
 2. **Parity (PROVED, Lemma 2.1)**: for odd n every ES solution is all-even or has exactly one odd denominator;
    all-even ⟺ 8/n (bijection), ⟺ d even in ET coordinates. f_4 = f_8 + f_4^{odd}; all-even share ≈ 0.45.
@@ -51,7 +53,7 @@ rationals).
   (numbers above corrected), an out-of-sieve read in ms_census (prime censuses provably unaffected, all re-run
   identical), undercounted slice words, boundary words, a withdrawn length-r claim in §7.
 * §5's model is an Assessment: μ is a 2-parameter fit extrapolated below p = 100 for m = 4..7; the pooled curve
-  overestimates small-p failures for small m (3.4–7.8 expected for m = 4..7 combined, 0 observed).
+  overestimates small-p failures for small m (4.8–8.8 expected for m = 4..7 combined, 0 observed; R197 repair D4).
 * Thm 3.1 does not make SQ₅ easier per se; it pins down that a proof via X_n must exploit the χ-fibre target
   (an equidistribution-mod-8 statement for X_p's points is false at 27 primes).
 
