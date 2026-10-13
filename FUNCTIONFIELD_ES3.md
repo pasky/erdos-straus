@@ -79,8 +79,9 @@ Case B families of level N: a convergent sum (Assessment; §3 gives the numbers)
 *Proof.* Z = 0 gives E = −(1 + cT); monic forces c = −1, E = T − 1, and E ≡ −1 (mod L') forces L' = 1; then
 T − 1 | 1 + T^s gives 2 = 0. Z' = 0 gives deg E' < 0. The congruences E ≡ E' ≡ −1 (mod L') read T^N Z ≡ c and
 T^N Z' ≡ −c (mod L'), so L' | T^N(Z + Z'), i.e. L' | Z + Z'. Suppose Z' = −Z; lc gives c = −1. Using
-c − T^N Z = −(E + 1)/T and E + 1 = T L'η (T ∥ E + 1 + … , η := w/T, T ∤ η), (****) becomes
-(1 + cT)T^{γ−1} g' = −Zη (so γ ≥ 1 and v_T(Z) = γ − 1). Put Z = T^{γ−1}Z1: Z1 η = (T − 1)g'. From
+E + 1 = T(T^N Z − c) and E + 1 = L'w = TL'η (η := w/T, T ∤ η by Lemma 2.1(b)), we get c − T^N Z = −L'η, and the
+right side of (****) is −T^{N+1}Z² + cTZ = TZ(c − T^N Z) = −TZL'η. So (1 + cT)T^{γ−1} g' = −Zη; as T ∤ η and
+T ∤ (1 + cT)g', γ ≥ 1 and v_T(Z) = γ − 1. Put Z = T^{γ−1}Z1: Z1 η = (T − 1)g'. From
 L'η = T^N Z − c = T^{N+γ−1}Z1 + 1 and g' | L' we get gcd(g', Z1) = 1, so g' | η and Z1·(η/g') = T − 1. If
 Z1 = 1 then L'g'(T − 1) = T^{N+γ−1} + 1, false at T = 1. If Z1 = T − 1 then Z' = −T^{γ−1}(T − 1) and
 T^{N+1}Z' − 1 = −T^{N+γ}(T − 1) − 1 is not divisible by 1 + cT = 1 − T (value −1 at T = 1). ∎
@@ -97,5 +98,5 @@ T^{N+1}Z' − 1 = −T^{N+γ}(T − 1) − 1 is not divisible by 1 + cT = 1 − 
 (iv) From (ii), γ ≥ N − |z − z'|; with (iii), N ≤ max(z, z' + 1) + |z − z'|, which is 2z − z' (z > z') or
 2z' − z + 1 (z' > z). Finally z + z' + 1 ≤ 2l by (i)–(ii), so max(z, z') ≤ 2l − 1 − min(z, z'). ∎
 *Use.* At x*_c a search over all j ≤ 4l − k for each l = deg L' ≤ L0 is a complete exclusion of every Case B
-family with deg L' ≤ L0, whatever N; by Lemma 2.1 it also excludes every family of level N ≤ (L0 + 3)/2 … more
-precisely every N with 2N − k − 1 ≤ L0.
+family with deg L' ≤ L0, whatever N; by Lemma 2.1 it then also excludes every family of every level N with
+2N − k − 1 ≤ L0.
