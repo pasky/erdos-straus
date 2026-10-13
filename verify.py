@@ -24655,5 +24655,73 @@ def check_fv():
 
 check_fv()
 
+def check_fw():
+    # (fw) TES_FINITE (O194/R194): TES(pi): 9/pi = w/x + w^2/y + 2/z over Z[omega] (x,y,z = 1 mod 2) is a finite
+    # search (Prop 1.1); R194's independent complete solver finds no solution exactly at the 15 primes with N <= 2500
+    # listed below (26893 is the 16th, outside this range); all solutions at primes have Type I/II shape.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_tf_zomega.py", "census", "2500"], capture_output=True, text=True,
+                       timeout=900, env=env, cwd=sdir)
+    assert r.returncode == 0, ("TES_FINITE subprocess", r.stderr[-2000:])
+    o = r.stdout
+    assert "zeros: [7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239]" in o and \
+        "shapes (#coords divisible by pi): {1: 1138, 2: 382}" in o, ("TES_FINITE R194 census", o)
+    print(f"== (fw) TES_FINITE R194: TES insoluble exactly at N(pi) in {{7,13,19,61,79,97,103,151,193,211,367,409,769,"
+          f"2029,2239}} (complete, N <= 2500), 1520 solutions all of Type I/II shape; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fw()
+
+def check_fx():
+    # (fx) MODEL_SPECIFIC (O197/R197): Thm 3.1 word-level check (odd n <= 600: S_4 = chi = -1 fibre exactly, S_8 a
+    # proper subset; 131/241 have chi = -1 words but none in S_8), and R197's own m/n censuses (m = 4: no failing prime
+    # <= 1e6; m = 8: 3, 11, 17, 131, 241 (PW Table 1); m = 20: last failure 2763601 <= 3e6).
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_ms_words.py", "600"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("MODEL_SPECIFIC subprocess", r.stderr[-2000:])
+    o = r.stdout
+    for s in ["cell-formula mismatches: 0  bad slice solutions: 0  Thm3.1(a) word mismatches: 0",
+              "m= 4  S_m among chi=-1:   7553  among chi=+1:      0", "m= 8  S_m among chi=-1:   3718  among chi=+1:      0",
+              "n=131 words=43 chi=-1:29 in S_4:29 in S_8:0", "n=241 words=31 chi=-1:12 in S_4:12 in S_8:0"]:
+        assert s in o, ("MODEL_SPECIFIC R197 Thm 3.1", s, o)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "censuses skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "rmc")
+            r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_ms_census.c"), "-lm"],
+                               capture_output=True, text=True, timeout=120)
+            assert r.returncode == 0, ("MODEL_SPECIFIC compile", r.stderr[-1000:])
+
+            def cen(m, N):
+                rr = subprocess.run([exe, str(m), str(N), "all"], capture_output=True, text=True, timeout=600)
+                assert rr.returncode == 0, ("census", m, rr.stderr[-500:])
+                return rr.stdout + rr.stderr
+            o4, o8, o20 = cen(4, 10 ** 6), cen(8, 10 ** 6), cen(20, 3 * 10 ** 6)
+            assert "failing=0" in o4, ("m=4 census", o4)
+            assert "failing=5" in o8 and [t for t in o8.split() if t.isdigit()] == ["3", "11", "17", "131", "241"], ("m=8 census", o8)
+            assert [t for t in o20.split() if t.isdigit()][-1] == "2763601", ("m=20 census", o20)
+            cmsg = "censuses: 4/p never fails <= 1e6; 8/p fails at 3,11,17,131,241; 20/p last failure 2763601"
+    print(f"== (fx) MODEL_SPECIFIC R197: Thm 3.1 cells (odd n <= 600, 0 mismatches; S_4 = chi=-1 fibre, S_8 proper); "
+          f"{cmsg}; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fx()
+
 
 print("\nall checks passed")

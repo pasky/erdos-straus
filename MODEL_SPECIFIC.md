@@ -4,6 +4,9 @@ Status: checkpoint 1 (O197), report reviews/agent-reports/AGENT_REPORT_O197.md. 
 Builds on TES_FINITE.md §5 (O194: Schinzel 8/n has the same ℚ-surface, real anchor and order-2 T1 as ES, no BM
 obstruction at 131, 241, yet no solution there — barrier B7), BRAINSTORM/ident_numerators.md (O145),
 POINTWISE_MN.md (Jacobi lemma for 4 | m), DEDEKIND_ES.md (five HJ slices), FIXED_MODULUS_SHOTS.md (certificate cube).
+(R197 repair, D9: the inputs behind B7 are KNOWN — the failures of 8/n at 3, 11, 17, 131, 241 are Pomerance–Weingartner
+Table 1 (row m = 8, complete to 10¹³); the absence of a BM obstruction for these surfaces is Bright–Loughran Remark 1.10;
+B7 = TES_FINITE Cor 5.4 is their immediate consequence (R194). "B7" below is used as a label for that known fact.)
 Scripts `scripts/ms_*`, data `data/ms/`.
 
 Notation. f_m(n) = #{(x, y, z) ∈ ℕ³ : x ≤ y ≤ z, m/n = 1/x + 1/y + 1/z}. "m fails at n" ⟺ f_m(n) = 0.
@@ -20,7 +23,7 @@ Engine `scripts/ms_census.c` (written from scratch): x ≤ y ≤ z, n/m < x ≤ 
 g = gcd(A, B), (A'y − B')(A'z − B') = B'², all divisors d ≤ B' of B'² with d ≡ −B' (mod A'); every solution is
 re-verified in 128-bit integers ((mxy − ny − nx)·z = nxy). Complete for every n (Prop 1.1 of TES_FINITE).
 Checks: 4/131 = 32, 4/241 = 8, 8/127 = 23, 8/239 = 58 solutions (TES_FINITE's numbers); m = 12, all n ≤ 3000: the
-19 failures of PW Table 1 below 3000.
+19 entries of PW Table 1 with 2 ≤ n ≤ 3000 (R197 repair: PW's 20th entry is n = 1).
 
 **Failing odd primes p ∤ m, p ≤ 10⁸ (R-O197: p = 2 and p | m are excluded by the engine; m ≤ 20, m = 24; `data/ms/prime_fail_1e8.txt`; m = 21–23 to 10⁷ in `prime_fail_1e7.txt`).**
 | m | # failing primes | largest failing prime ≤ 10⁸ | | m | # | largest |
@@ -36,8 +39,10 @@ Checks: 4/131 = 32, 4/241 = 8, 8/127 = 23, 8/239 = 58 solutions (TES_FINITE's nu
 | 12 | 20 | 12241 | | 23 | 45 | 31771 (≤10⁷) |
 | 13 | 9 | 281 | | 24 | 154 | 620929 |
 | 14 | 8 | 353 | | | | |
-Agreement with PW Table 1 (its odd prime entries p ∤ m, m ≤ 15) is exact (PW also list n = 2 for m = 7 and
-2, 3 for m = 12, outside this population). New here (to my knowledge; PW stop at 15): m = 16–24 lists;
+Agreement with PW Table 1 (its odd prime entries p ∤ m, m ≤ 15) is exact (PW's remaining entries — n = 1, 2, 4, primes p | m,
+odd squares 25, 841 and composites — are outside this population; R197 repair D5). PW §6 verify by computer that every
+m ∈ [16, 30000] except m = 19 has a failing prime in (m², 2m²) — consistent with the lists here (m = 19's failures all lie
+below 361). New here (to my knowledge; PW publish no lists beyond m = 15): the *complete* m = 16–24 lists (R197 repair D10);
 m = 20 fails at the prime 2763601 ≡ 1 (mod 840), after a gap from 90001.
 **T1 control (odd squares k² ≤ 10⁸, gcd(k, 2m) = 1):** all solvable for m = 4–11, 13, 15; exceptions 25 (m = 12),
 841 = 29² (m = 14), 9, 121 (m = 16) — all in PW's table or small. (Squares are solvable by "other-shape" solutions.)
@@ -67,7 +72,7 @@ with k = (p+1)/4, 4/p = 1/(kp) + 1/(k+1) + 1/(k(k+1)) has exactly one odd denomi
 Type II e = 1 solution is all-even when p ≡ 7 mod 8); the content is p ≡ 1 mod 4.)
 *Reading.* ES(p) = [8/p] ∨ [one-odd 4/p]. At 131 and 241 ES lives entirely on the one-odd half (32 and 8
 solutions). The sibling 8/n is not a "different equation with the same surface", it is literally a sub-lottery of ES
-at the same n (d even), of about 45% of ES's mean, and B7 says this sub-lottery has non-T1 failures. The parity split
+at the same n (d even), of about 45% of ES's mean, and PW Table 1 shows this sub-lottery has non-T1 failures (not BM: Bright–Loughran Rem 1.10; R197 repair D9). The parity split
 is m-specific (for m = 8 the analogous decomposition is into 16/n and the rest).
 
 ## 3. The five length-3 slices: m = 4 is the unique numerator whose slices are cut out by a character
@@ -127,12 +132,13 @@ last 35911), 10 (m = 7, last 12601), 23 (m = 8, last 83449; true 8/p failures am
 empirically wins eventually; the 4-specificity of Thm 3.1 is structural (what the obstruction *is*), not a claim that
 S_8 fails infinitely often. [m = 4 to 10⁸ for n ≡ 1 mod 4: DEDEKIND/HJ_DEEP SQ₅ evidence.]
 
-*Reading (the sharp point).* After the T1 character is accounted for, ES's five-slice lottery has **no residual
-congruence obstruction at all**: its success set is literally {χ = −1}. For 8/n (same surface, same T1) the success set
+*Reading (the sharp point).* After the T1 character is accounted for, ES's five-slice certificate set has **no residual
+congruence condition at all**: its success set is literally {χ = −1}. (R197 repair D1: this is a statement about the
+target set; whether the χ = −1 fibre of X_n is non-empty is CONJECTURE SQ₅ — open for primes, false at the non-square 105.) For 8/n (same surface, same T1) the success set
 is a 7/12 sub-union of χ = −1 cells — a second, non-character condition on (t, u, v) mod 8, which is exactly what fails
 at 131 and 241 (and at 113, 257, 353, … where 8/p survives through other shapes). So the B7 sibling 8/n differs from ES
-already on the most structured piece of the solution set, and in a precise way: **for ES "T1 is the only local
-obstruction" is true on the length-3 ball as an identity, for 8/n it is false on the same ball.** A proof of
+already on the most structured piece of the solution set, and in a precise way: **for ES the certificate set on the length-3 ball is exactly the
+T1-character fibre (no further congruence condition), for 8/n it is a proper sub-union of that fibre.** A proof of
 λ(p) ≤ 3 (a statement about quadratic non-residues in the Farey metric, with no reference to the numerator) would prove
 ES and would *not* prove 8/n — it is model-specific input of the kind B7 demands.
 
@@ -199,15 +205,18 @@ m = 6: 2.5 / 1.35; m = 7: 3.0 / 1.6 (all observed: 0 failing odd primes). Caveat
 "above 100" figure is a plug-in point estimate, not an uncertainty bound; turning expectations into probabilities
 assumes Poisson/independence.
 **Assessment.** (i) Above p ≈ 100 ES's mean count is already ≥ 24, in the range where the pooled siblings fail at rate
-≤ 2.5·10⁻³ per prime and falling; its failure-free record there is the expected outcome (plug-in ≈ 0.02 failures).
+≤ 2.5·10⁻³ per prime and falling; its failure-free record there is the expected outcome (plug-in ≈ 0.02 failures; R197 repair D2: the (K+1)/N
+sensitivity of the zero-failure bins puts the p ≥ 100 part at up to ≈ 0.1 (4 ∤ m curve) – 0.5 (4 | m curve), so 0.02 is
+not an estimate with small error).
 (ii) The model's "luck" of 4 sits at p < 100: ≈ 0.8–1.5 expected failures, i.e. P(no failure) ≈ 0.23–0.43 under a
 Poisson assumption — mildly lucky, not remarkable — and m = 5, 6, 7 are luckier still by the same yardstick
 (combined m = 4–7: 4.8–8.8 expected, 0 observed). That combined miss (P ≈ 10⁻² even on the gentler curve) says the
 pooled curve, built from large-m data at p ≥ 100, overestimates failures at tiny p for small m; leave-one-out
 validation at p ≥ 100 does not validate extrapolation to p ≈ 5. So the small-p record of 4 is not evidence for
 4-specific structure: it is shared by 5, 6, 7. (iii) 8/n's failures
-at 131 and 241 are the expected outcome of its mean (≈ 13 at p ≈ 200) and its T1-suppressed square coset; m = 8 is the
-4 | m pool's best-predicted member. **So the empirical 4-vs-8 difference is consistent with a mean-count explanation
+at 131 and 241 are the expected outcome of its mean (≈ 13 at p ≈ 200) and its T1-suppressed square coset; its 2
+observed failures (p ≥ 100) are consistent with the leave-one-out prediction 1.46 (Poisson P(≥ 2) ≈ 0.43; R197 repair D3:
+"best-predicted member" held only in absolute error). **So the empirical 4-vs-8 difference is consistent with a mean-count explanation
 needing no 4-specific structure: B7's sibling has a lottery ≈ 2.2× smaller, ES's lottery is large from p ≈ 100 on.** The structural 4-specificity of §3 is a different matter: it concerns which certificates
 exist, not how many.
 **Last-failure fits.** Inverting P(fail) ≈ exp(−K(log p)³/m) (PW's Poisson form) at the observed last failures gives
@@ -245,8 +254,9 @@ input by itself.
 X_n: tuv − u − v = n (positive integral points; t-fibres are the hyperbolas (tu − 1)(tv − 1) = tn + 1). Only the target
 set of cells mod lcm(8, m) changes. For m = 4 the target is a full fibre of χ = (−A/n), which is a function of the
 cell mod 8 (DEDEKIND Cor 4.1); for m = 8 it is a 7/12 part of that fibre. At n = 131 the image of X_131(ℤ_{>0}) in
-the cells mod 8 meets {χ = −1} (29 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach every
-cell mod 8 allowed by χ" is false** (at 27 primes ≤ 10⁷ at least), and an ES proof through X_p cannot be an
+the cells mod 8 meets {χ = −1} (29 words) but misses all 35 S_8-cells. Hence **"the positive points of X_p reach some
+S_8-cell" is false** at 27 primes ≤ 10⁷ (R197 repair D6: "reach every χ-allowed cell" fails for essentially every p by
+counting — 60 χ = −1 cells per class of n mod 8 vs ≍ log² p points), and an ES proof through X_p cannot be an
 equidistribution-mod-8 statement for its points without p-dependent error control (B3: the main term is only
 ≍ log² p points); it must use that the ES target is a whole χ-fibre. ES-five-slices(n) ⟺ χ is not identically +1
 on X_n(ℤ_{>0}), and (for n ≡ 1 mod 4, words with gcd(A, n) = 1) CONJECTURE SQ₅ ⟺ **χ is constant on X_n(ℤ_{>0}) only for n a

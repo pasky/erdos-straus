@@ -816,7 +816,7 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Thm 3.5: TES^{□₃} holds at every 2-primary non-cube, via one Chebotarev prime in L(∛18)·K(∛n)/K.
      * Cor 3.4 (rel. Hecke, with R193's conductor argument): (18/r)₃ is constant ≠ 1 on r ≡ 10 + ω (mod 18). Its value ω² is EVIDENCE (83/83).
      * EVIDENCE (R193 from scratch): all 1536 2-primary split primes N ≤ 6000 are solved. Cubes have 0 anchor-class shot divisors in 1632 shots, against 112 for the non-cube control.
-     * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), while the finiteness of TES is open (O194).
+     * So "anchor + wild partner + mute places" holds at orders 2 and 3. It is elementary with infinitely many mute places and an Artin problem with finitely many; with none, ES is a finite search ((J)25), and TES is a finite search too ((J)31, Prop 1.1).
    * Ledger fixes: the (J)23 large-sieve citation, and the three meanings of "W" ((J)10/(J)14 signed count, (J)15/(J)20 Lorenzini property, (H)19/(H)22 W(p)).
 
 29. **Function-field landscape, final data (FUNCTIONFIELD_ES.md "Final data" (O161); EVIDENCE only, not separately reviewed; the PROVED scope of Thm 6.4 remains the R161-certified list of (J)4).**
@@ -841,6 +841,31 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * The mute place replaces "divisors of f + 1" by "a finitely generated group reduced mod f".
    * EVIDENCE (R195, own code). With one mute prime, every irreducible P is solved in many (q, A, s) ranges (q = 2, 3, 4, 5, 7, 8, 9), including every known ES_q failure.
    * Open (pursued by O196): is ES firing a Frobenius condition in any fixed extension?
+
+31. **Spark relay O: TES is a finite search with genuine non-T1 failures not explained by Brauer–Manin (TES_FINITE.md (O194); review `reviews/tes-finite-review.md` (R194): no FATAL; two MAJOR attribution defects (D2: the 8/n failures are KNOWN, Pomerance–Weingartner Table 1; D3: Cor 5.4/B7 follows from Bright–Loughran Rem 1.10 + PW), repaired by the reviewer).**
+   * Prop 1.1 / Cor 1.2 (PROVED). t/n = Σ c_i/x_i over ℤ or an imaginary quadratic O, with c_i n/t ∉ O, has finitely many solutions: some N(x_i) ≤ 9N(c_i)N(n)/N(t), and then a two-term divisor problem remains. Over ℤ this is BL Lemma 3.10. Finiteness needs only one archimedean place, not positivity. Infinite families exist iff a two-term subsum can vanish.
+   * **Thm 2.1 (CERTIFIED; two independent complete solvers, R194 reproduced the full census).** TES fails at exactly 16 primes with N(π) ≤ 30000: N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239, 26893}. Every solution at a prime has Type I/II shape (a one-line theorem, R194 D7). At N = 26893 all small data are cubes mod π, so O182's character restriction is refuted.
+   * **Thm 3.1 (PROVED per π by certificate, relative to BL Prop 2.6 / Cor 2.9 over ℚ(ω): Br U/Br K ≅ ℤ/6).** None of the 16 failures is a Brauer–Manin obstruction. R194 re-verified all 16 certificates. TES is the first T1-bearing ES analogue with certified failures outside its T1 set that BM does not explain (novel; no literature for TES).
+   * §5, Schinzel's 8/n (attribution corrected).
+     * Prop 5.1 (PROVED): order-2 T1 at odd squares; BL's local lemmas transfer.
+     * Insolubility at 131 and 241 is KNOWN (Pomerance–Weingartner). The absence of a BM obstruction is BL Rem 1.10. Cor 5.4 ("BM incl. T1 is not the only obstruction for ES-type models") is immediate from these and is already witnessed at n = 3 (R194 D3).
+     * Meaningful form (known, BL Rem 1.10 + PW Thm 3.1): no principle "BM is the only obstruction for n ≥ n₀" holds uniformly in m. An ES proof must use something specific to the numerator 4 (Assessment; see (J)32).
+
+32. **Spark relay R: what makes 4/n special — 4 is the unique numerator whose five HJ slices are a character fibre (MODEL_SPECIFIC.md (O197); review `reviews/model-specific-review.md` (R197): no FATAL; MAJOR D1 (wording of the "identity" reading) and D9 (attribution of the 8/n failures: PW Table 1, BL Rem 1.10), minors; repaired by the reviewer).**
+   * **Thm 3.1 (PROVED: a finite cell check relative to DEDEKIND Cor 4.1, extended to boundary words by Lemma 3.0′).** For odd n, take positive points (t,u,v) of X_n: tuv − u − v = n and set χ = (−(tu−1)/n). Lemma 3.0: the five m-slices (m | tu−1, m | tv−1, m | t, m | u, m | v) give explicit solutions of m/n.
+     * (a) S_4 = {χ = −1} exactly, for all odd n.
+     * (b) For 4 | m ≥ 8, ∅ ≠ S_m ⊊ {χ = −1}.
+     * (c) For 4 ∤ m, S_m contains both χ = +1 members and χ = +1 non-members.
+     * Independent word-level checks: all words of odd n ≤ 1500 (O197) and ≤ 600 (R197), 0 mismatches.
+     * At n = 131 and 241 there are χ = −1 words (29 and 12) but none in S_8.
+     * **So m = 4 is the unique numerator m ≥ 4 for which the length-3 slice set is exactly a quadratic-character fibre.** SQ₅ ⟺ "χ is non-constant on X_n(ℤ_{>0}) unless n is a square (or n ∈ {5, 105})". This is numerator-free, implies ES on these slices, and does not imply 8/n: it is model-specific input of the kind (J)31 demands.
+   * Lemma 2.1 (PROVED). For odd n, every ES solution is all-even or has exactly one odd denominator. All-even solutions ⟺ solutions of 8/n (a bijection), so f_4 = f_8 + f_4^{odd}. EVIDENCE: the one-odd half alone never fails at primes ≤ 10⁸.
+   * §1 censuses (CERTIFIED; R197 re-ran them independently).
+     * Failing odd primes for m = 4..24 up to 10⁸ / 10⁷. These agree with Pomerance–Weingartner Table 1 for m ≤ 15; the complete lists for m = 16–24 are new, though PW §6 checked existence for every m ≤ 30000.
+     * Examples: m = 20 fails at the prime 2 763 601; m = 24 at 620 929.
+     * m = 4 is the only multiple of 4 with no failure.
+   * §5 count law (EVIDENCE + Assessment). Mean f_m ≈ c_m log³p/m. A pooled tail model predicts ≈ 1 ES failure among primes ≤ 10⁷; the observed 0 is mildly lucky. The 4-vs-8 difference in failures is consistent with mean counts alone; the 4-specificity of Thm 3.1 concerns *which* certificates exist.
+   * Open (pursued by O198): χ-flipping moves on X_n. Any map between positive points flipping χ at prime n proves ES on the slices, and must fail at 105 and at squares.
 
 ## Items to verify by the maintainer
 

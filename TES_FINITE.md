@@ -32,6 +32,9 @@ c_j/x_j + c_k/x_k = r = A/B with A, B ∈ O ∖ 0; clearing denominators, A x_j 
 (A x_j − B c_j)(A x_k − B c_k) = B² c_j c_k. The left factors are divisors of the fixed non-zero B² c_j c_k, finitely
 many up to units, and O^* is finite; each factorisation determines (x_j, x_k). The min-bound is (a)'s argument for
 two terms: |r| ≤ 2 max(|c_j|/|x_j|, |c_k|/|x_k|). Finitely many x_i in the disk (a) (O is a lattice). ∎
+*Attribution (R194 repair, D1).* Over ℤ this is Bright–Loughran Lemma 3.10 (same argument: min |u_i| ≤ 3n/4, then the
+two-term problem; the vanishing-subsum family u_i = −u_j is BL's excluded set). New here: imaginary quadratic O and
+coefficients c_i.
 *Remarks.* (1) Positivity is not used. For ES over ℤ with signs allowed (4/n = Σ 1/x_i, x_i ∈ ℤ ∖ 0, n odd > 1)
 the same proof gives finiteness. (2) The proof needs exactly one archimedean place with O discrete in it: over a
 real quadratic O the disk (a) contains infinitely many integers (units), and the argument fails. (3) If some
@@ -69,8 +72,9 @@ in total). Cross-check with O182: for N(π) ∈ {307, 439, 601, 1009, 1213, 2011
 TES(π) has **no solution** for the 2-primary primes π with
 `N(π) ∈ {7, 13, 19, 61, 79, 97, 103, 151, 193, 211, 367, 409, 769, 2029, 2239, 26893}`
 (both conjugates, both signs), and for every other prime π of O with N(π) ≤ 30000, π ∤ 6 (split, or inert
-p ≤ 173), TES(π) has a solution. Every solution found at a prime has Type I or Type II shape (N ≤ 30000: 21042
-Type I, 7038 Type II, 0 other). [Method B was run on all 16 failures — 0 solutions each, e.g. 13 s for
+p ≤ 173), TES(π) has a solution. Every solution at a prime has Type I or Type II shape — PROVED (R194 repair, D7):
+π | 9xyz forces π to divide a coordinate, and π dividing all three would give 9 = ω/x′ + ω²/y′ + 2/z′ with
+|9| > 1 + 1 + 2 (N ≤ 30000: 21042 Type I, 7038 Type II; only the proportions are EVIDENCE). [Method B was run on all 16 failures — 0 solutions each, e.g. 13 s for
 N = 26893 — and agrees with method A on every prime N ≤ 6000 and on the 4 split primes just below 26893;
 `tf_exact.py census 30000`, 63 min, one core, gives the full list.]
 Representatives: N = 103: π = 11 + 2ω; N = 151: −9 − 14ω; N = 7: −1 + 2ω; N = 26893: 179 + 36ω.
@@ -114,7 +118,8 @@ lies in W, and for β ∈ {α_ω, α_{−1}}: Σ_v inv_v β(Q) = Σ_v inv_v β(P
 modulo the BL citation).** For each of the 16 primes π of Thm 2.1, W^{Br U} ≠ ∅. In particular TES(π) is
 everywhere locally solvable (with the 2-primary normalisation), the order-3 T1 class α_ω and the quaternion class
 α_{−1} impose no condition that fails, and **the 16 failures of Thm 2.1 are failures of the integral Hasse principle
-not explained by the Brauer–Manin obstruction**. Certificate for N(π) = 103, π = 11 + 2ω:
+not explained by the Brauer–Manin obstruction from Br U** (R194 repair, D5: BL's group of the affine surface; Br U°
+and étale-BM not considered, see Scope). Certificate for N(π) = 103, π = 11 + 2ω:
 P₀ = (x, y) = (−7 − 14ω, 5 + 4ω), z = (630 − 672ω)/(326 − 428ω), T(P₀) = {𝔮 = (49 − 33ω)} (N𝔮 = 5107),
 P₁ = (−7 − 14ω, −11 − 12ω, z = (−2282 + 896ω)/(−858 + 548ω)); both have invariants (0, 0) at 𝔮 (cross-checked with O182's independent `tw_eis.tame_symbol`/`tame_symbol2`; P₁'s only bad place has norm 7687).
 N(π) = 151: P₀ = (−7 − 14ω, 1), T = {(132 + 13ω)}, P₁ = (−7 − 14ω, −7 − 12ω). All 16 certificates:
@@ -167,23 +172,34 @@ only as a p-adic unit, via (1.2) and (2.5); they hold verbatim with 8 in place o
 EVIDENCE: `scripts/tf_schinzel_bm.py` Hilbert symbols (explicit formulas, reciprocity asserted at every point):
 on all 679 positive solutions of 8/n for n ∈ {127, 137, 239, 251, 1009, 1053, 105}, ∏_{p|n} = −1, inv₂ = +1,
 inv_∞ = −1; `scripts/tf_schinzel_t1.py 8 100`: n = q² (q ≤ 100 prime): 592 solutions, **0 Type I, 0 Type II**.
-Controls: m = 16, 12 likewise 0/0 (211, 124 solutions); m = 5, 6 (no T1): 351/135 resp. 147/63 Type I/II.
+Controls: m = 16 (q ≤ 100) 0/0 (211 solutions); m = 12 0/0 (124 solutions); m = 5, 6 (no T1): 351/135 resp. 147/63
+Type I/II — the last three for q ≤ 60 (R194 repair, D6; at q ≤ 100: m = 12 271, 0/0; m = 5 696/269; m = 6 306/120).
 
 **Theorem 5.2 (non-T1 failures of 8/n; CERTIFIED).** 8/n = 1/x + 1/y + 1/z has **no** solution in positive
 integers for n ∈ {2, 3, 11, 17, 131, 241}; these are all such n with 2 ≤ n ≤ 299, and 3, 11, 17, 131, 241 are all such odd primes
 ≤ 2·10⁵ (`tf_schinzel.py 8 200000`). Every odd square k² ≤ 20000 (k odd, k ≥ 3) is solvable.
+**Known (R194 repair, D2):** this reproduces Pomerance–Weingartner (arXiv 2511.16817, Ramanujan J. 69 (2026) Paper 31;
+`sources/pomerance-weingartner-2511.16817/`), Table 1, row m = 8: all exceptions n ≤ 10¹³ are 1, 2, 3, 11, 17, 131, 241.
+PW Thm 3.1 proves that for every m ≥ 8 more than exp(c φ(m)^{1/3}/(log m)^{2/3}) primes p have m/p insoluble (an
+Elsholtz–Tao-type sieve: the "lottery" failures are a theorem for large m). Our computation is an independent check.
 *Certification.* Positivity gives x ≤ y ≤ z, n/8 < x ≤ 3n/8 and the divisor equation (Ay − B)(Az − B) = B²
 (`scripts/tf_schinzel.py`, divisor enumeration) — the classical ES finiteness; independently
 `scripts/tf_schinzel_brute.py` (Fractions, y ≤ 2/r, no divisors): 0 solutions at 3, 11, 17, 131, 241, and the same
 counts as method A at controls (e.g. 8/127: 23, 8/239: 58; 4/131: 32, 4/241: 8).
 
-**Theorem 5.3 (not Brauer–Manin; PROVED by certificate, modulo BL Thm 1.6).** For n ∈ {3, 11, 17, 131, 241},
+**Theorem 5.3 (not Brauer–Manin; PROVED by certificate, modulo BL Thm 1.6; also BL Remark 1.10, which states the
+Thm 1.8 version for m/n — R194 repair, D4).** For n ∈ {3, 11, 17, 131, 241},
 (U(ℝ)₊ × ∏_p 𝒰(ℤ_p))^{Br U} ≠ ∅ for the model 𝒰: 8xyz = n(xy + yz + zx). Certificates (`tf_schinzel_bm.py 8 …`):
 n = 131: P₀ = (23, 57, 171741/8) > 0, bad only at 2, P₁ = (30, 36, −23580) (2-integral), inv₂α = +1 for both;
 n = 241: P₀ = (36, 185, 1605060/19) > 0, bad only at 19, P₁ = (36, 180, −7230), inv₁₉ α = +1 for both.
 (Adelic point: P₀ at ∞ and p ≠ q, P₁ at q; its invariant sum equals that of the global P₀, i.e. 0.)
+(R194 repair, D4; reviewer's certificates, `scripts/review_tf_schinzel_run.py cert`) n = 3: P₀ = (1, 1, 3/2), T = {2},
+P₁ = (−60, −60, 10/27); n = 11: P₀ = (2, 6, 33/2), T = {2}, P₁ = (−60, −60, 330/251); n = 17: P₀ = (3, 8, 408/5), T = {5},
+P₁ = (−60, −60, 510/257); equal invariants at q in each case.
 
-**Corollary 5.4 (PROVED, modulo the BL citations above).** In BL's family of Erdős–Straus-type models of the *same*
+**Corollary 5.4 (PROVED, modulo the BL citations above; R194 repair, D3: immediate from BL Remark 1.10 + PW Table 1,
+and already witnessed at n = 3, where insolubility is elementary — x ≤ 3n/8 forces x = 1, then y = 1, 1/z = 2/3; what
+131, 241 add is that the failure is not a "m/n close to 3" size effect, which is Assessment).** In BL's family of Erdős–Straus-type models of the *same*
 ℚ-surface, the member 8/n has (i) the same real anchor and an order-2 T1 at odd squares (Prop 5.1), (ii) no
 Brauer–Manin obstruction at n = 131, 241 (Thm 5.3), (iii) no positive integral point at n = 131, 241 (Thm 5.2).
 So **"Brauer–Manin + T1 is the only obstruction" is false for Erdős–Straus-type integral models**, already over ℚ
@@ -204,6 +220,10 @@ numerator 4.
 **Barrier (B7, "sibling barrier").** *Precise content (PROVED = Cor 5.4):* no theorem of the form "for every model
 in BL's Erdős–Straus/Schinzel family, (W)^{Br} ≠ ∅ ⇒ a positive integral point exists" (BM is the only obstruction to
 the integral Hasse principle, T1 included) is true; so ES cannot be deduced from such a family-uniform principle.
+*Context (R194 repair, D3):* nobody would posit the principle for all n (Schinzel's conjecture carries n > n₀(m)); the
+meaningful family version — n₀ uniform in m — is refuted by PW Thm 3.1 + BL Rem 1.10 (failures up to exp(m^{1/3+o(1)})).
+BL Thm 1.9 already shows U_n(ℚ) is not dense in U_n(𝔸)^{Br}_• for every n; Cor 5.4's increment is that the failing open
+set is the specific W of the 8/n problem. The genuinely new part of this document is the TES half (§1–§3).
 *Assessment (R-O194 repair: formerly stated as a near-consequence; it is not one):* arguments that use only the data
 shared by 4/n and 8/n — local/congruence data, the Brauer class and reciprocity, auxiliary primes with prescribed
 symbols — would, if they proved solvability at every prime, also prove it for 8/n, which is false; an ES proof
