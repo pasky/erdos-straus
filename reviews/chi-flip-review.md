@@ -9,7 +9,7 @@ reviews/agent-reports/AGENT_REPORT_O198.md. From-scratch scripts: scripts/review
 D3 (B_{2,∞} wording; "transported" instead of "upgraded"; novelty/attribution Assessment), D4 (5 removed from the SQ₅
 exception list; Ω₂ ≠ ∅ argument; "equivalent by definition"; BL Thm 1.9 analogy), D5 (count). NOT applied — for the
 parent (other files): the D1 ledger repairs in DISCOVERIES (J)9 bullet 3, HJ_DEEP C3 (line 141), MODEL_SPECIFIC C3; D4(a)
-"(or n ∈ {5, 105})" in DISCOVERIES (J)32 / MODEL_SPECIFIC C1 (needs "interior words" or deletion of 5); the report
+"(or n ∈ {5, 105})" in DISCOVERIES (J)32 line 861 (stated for X_n(ℤ_{>0}), boundary included; {5, 105} is HJ_DEEP's *interior* exception set — delete 5 or say "interior"); the report
 AGENT_REPORT_O198 SHARP 3 wording (same as D1).
 
 ## Summary verdicts
@@ -117,7 +117,7 @@ an Assessment.
 
 **D4 (MINOR) — Prop 1.6.** (a) "odd non-square n ∉ {5, 105}" contradicts §4.1 and the same bullet's "exceptional set
 {105} ∪ squares (boundary words included)": with boundary words n = 5 has (4,1,2), χ = −1. Delete 5 here. The "(or n ∈
-{5, 105})" in DISCOVERIES (J)32 and MODEL_SPECIFIC C1 needs the same fix or an explicit "interior words" qualifier.
+{5, 105})" in DISCOVERIES (J)32 needs the same fix. {5, 105} is HJ_DEEP's *interior*-word exception set, so the alternative is an explicit "interior words" qualifier.
 (b) "There is no BM obstruction at non-square n" needs Ω₂ ∩ X_n(ℤ₂) ≠ ∅ for every odd n, which is not argued.
 Fix: for each class r mod 8, take one χ = −1 word with A odd (r ≡ 3 (4): (1, 2, n+2); r ≡ 5 (8): (4, 1, 2)₅; r ≡ 1 (8):
 (1, 4, 7)₁₇, A = 3, χ = (−3/17) = −1). Keep t and u, and set v = (n + u)/A ∈ ℤ₂, which stays in the same cell mod 8. Also say "Ω₂ = the
