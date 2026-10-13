@@ -88,11 +88,17 @@ Type II solution at a square. Lemma 1.1 case (i) with w odd: the sign ((−18/44
 **Lemma 2.2 (shifted primes with rough (r−1)/2 in a progression; PROVED, standard).** Let 4 | M and let a mod M be a
 class with gcd(a, M) = 1, a ≡ 3 (mod 4), a ≢ 1 (mod ℓ) for every odd prime ℓ | M. For every ε > 0 there are
 ≫_{M,ε} x/log²x primes r ≤ x with r ≡ a (mod M) and every prime factor of (r − 1)/2 at least x^{1/4−ε}.
+*(R190 repair m2: the bound x^{1/4−ε} is uniform over all counted r ≤ x, not r^{1/4−ε}; for r ≤ x^{1/4−ε} it forces
+(r − 1)/2 = 1, so small r contribute O(1). The implied constant depends on M, i.e. on n in Thm 2.4.)*
 *Proof.* Linear lower-bound sieve (Rosser–Iwaniec; Halberstam–Richert Ch. 8) on 𝒜 = {(r−1)/2 : r ≤ x, r ≡ a (M)},
 sifting by primes ℓ ∤ M, ℓ < z = x^{1/4−ε} (primes ℓ | M never divide (r−1)/2: ℓ = 2 by r ≡ 3 (4), odd ℓ by
 a ≢ 1 (ℓ)). Local density g(ℓ) = 1/(ℓ − 1), dimension 1. The remainders Σ_{d ≤ D} μ²(d)|π(x; Md, ·) − π(x)/φ(Md)| are
 ≪ x/log^A x for D = x^{1/2}/log^B x by Bombieri–Vinogradov (moduli Md ≤ M x^{1/2}/log^B x). With s = log D/log z
 → 2/(1 − 4ε) > 2 the lower sieve function f(s) is positive, giving S(𝒜, z) ≫ (x/log x)·(1/log z). ∎
+*(R190 repair m6: precise inputs — Iwaniec's linear-sieve lower bound S(𝒜, z) ≥ X·V(z)(f(s) − o(1)) − Σ_{d < D, d | P(z)} |r_d|
+(Halberstam–Richert Thm 8.4; Friedlander–Iwaniec, Opera de Cribro Thm 11.13) with X = li(x)/φ(M), V(z) ≍_M 1/log z,
+f(s) = 2e^γ log(s − 1)/s on 2 ≤ s ≤ 4; and Bombieri–Vinogradov in its max-over-residue-classes form, applied to the
+single class mod Md (CRT, gcd(d, M) = 1) cut out by r ≡ a (M), r ≡ 1 (d).)*
 (This is the sieve input of Gupta–Murty, Invent. Math. 78 (1984), with an extra fixed congruence; see
 sources/uo/LITERATURE.md Q2.)
 
@@ -129,7 +135,10 @@ proved for |S| ≥ 4; its T1 is purely a statement about solution shapes.)
 
 *Remarks.* (1) The theorem is "exact-T1": the mechanism succeeds at n iff n is not a square *(R186 repair m4: the
 mechanism is exact-T1; the variant itself holds at every n, Cor 2.5)*. (2) The only analytic
-inputs are Bombieri–Vinogradov and the linear sieve; no GRH. |S| = 3 should follow from Heath-Brown's sieve (Quart. J. Math. 37 (1986)), not checked.
+inputs are Bombieri–Vinogradov and the linear sieve; no GRH. |S| = 3 should follow from Heath-Brown's sieve (Quart. J. Math. 37 (1986)), not checked. *(R190 repair m3: the route —
+if ≫ x/log²x primes r ≡ a (mod M) have (r − 1)/2 = P or P₁P₂ with all P_i > x^{1/4+δ} (Heath-Brown's lemma, needed in
+its congruence-class version, not checked), then [F_r^* : Γ_r] ∈ {1, 2} or ≥ x^{1/4+δ}, so |Γ_r| ≤ x^{3/4−δ}, and Lemma 2.3
+with k = 3 bounds these r by ≪ x^{(3/4−δ)(4/3)} = x^{1−4δ/3} = o(x/log²x). Still unverified; label unchanged.)*
 (3) The variant is weaker than ES (more solutions); the point is the *mechanism*: a T1-respecting existence proof
 whose T1-sensitive step is the Chebotarev condition (n/r) = −1 and whose "infinitely many shots" come from the
 infinite S-orbit with fixed modulus.
