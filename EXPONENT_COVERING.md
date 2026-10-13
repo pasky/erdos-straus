@@ -10,8 +10,14 @@ Scripts `scripts/ec_*`. Builds on LORENZINI_W.md §9 (Sierpiński-type exponent 
 * (§2) Why B1 disappears (PROVED, structural): for polynomial families the parameter space Ẑ = Π_q Z_q is a product over the target
   primes, so "a square at every q separately" glues to a profinite square point. For exponential families the exponent μ ∈ Ẑ couples the
   primes q through the orders ord_q(2), and local squares need not glue: this is a Sierpiński covering, but with quadratic characters.
-* (§3) First instance (search result; certification in progress): n = 27·2^m + 1, which lies in Mordell's hard class 529 (mod 840) for all
-  m ≡ 2 (mod 12) and contains the primes 109, 1811939329 (m = 26), 30399297484750849 (m = 50).
+* (§1, Cor 1.5) Divisor classes kill non-unit squares; the only integer obstruction points of k·2^m + 1 are k = 4^j − 1 at μ = 0 (PROVED).
+  So ES for all Proth numbers 3·2^m + 1 is out of reach of fixed slices.
+* (§3, SHARP) Dictionary: coverability ⟺ a Skolem / Bertók–Hajdu-type exponential local–global principle for k·2^x + 1 = (unit)²
+  plus absence of sterile non-square points.
+* (§4, PROVED computer-assisted, certified by an independent checker) ES holds for all n = k·2^m + 1 for k ∈ {9, 21, 27, 57, 171, 231, 315,
+  393, 495, 15015}; e.g. all 315·2^m + 1 (≡ 1 mod 2520) and all 15015·2^m + 1 (≡ 1 mod 120120, squares mod every prime ≤ 13).
+  27·2^m + 1 is ≡ 529 (mod 840) for m ≡ 2 (12) and contains the primes 109, 27·2²⁶ + 1, 27·2⁵⁰ + 1.
+* (§5) S-unit families: B1 is the S → all-primes limit of an S-unit obstruction (finitely many integer obstruction points for finite S).
 
 ## 1. Setup and the compactness criterion
 Notation. k ≥ 1 odd, c ∈ {+1, −1}, n_m = k·2^m + c. An *ET class* is a residue class r (mod M) from one of the seven families of
@@ -127,3 +133,43 @@ must use a prime with v₂(ord_q 2) = 3 and (−287/q) = −1 (the first are 241
 uses q = 38737 (ord 72) in I1 (3, 38737, 287), whose residue is exactly −287 (f = 287 = 7·41). General shape: near an integer square
 point s², the family looks like s² at all primes of low "level" and like a fixed second integer at the next level, so coverings exist
 but their moduli grow with the level at which the second integer first becomes a non-residue — a quantitative shadow of B1.
+
+## 5. Push: polynomial, multi-parameter and uniform statements
+**5.1 S-unit families (PROVED).** Let S be a finite set of primes and F_S(k, c) = {k·u + c : u ∈ ⟨S⟩₊}. The parameter space is Ẑ^{|S|}
+(one profinite exponent per generator), coupled through the orders as in Prop 2.2, and Theorem 1.4 holds verbatim (the S-components of
+the limit points are c). The *integer* unit-square points are exactly the solutions of k·u + c = v² with u, v ∈ ⟨S⟩ (v² a unit at every
+q ∉ S; same proof as Cor 1.5); by the S-unit equation theorem there are finitely many for each (k, S). Examples: S = {2}, c = 1: k = 4^j − 1;
+S = {2, 3}: k = 1 is obstructed (1·2³ + 1 = 3²), so "ES for all 2^a 3^b + 1 by fixed slices" is impossible although "all 2^a + 1" is trivial.
+As S grows to all primes, k·u + 1 = v² becomes solvable for every k and the coupling disappears (Ẑ^{|S|} → product structure):
+**B1 is the S → {all primes} limit of the S-unit obstruction.** (Assessment: this is the cleanest single sentence of this note.)
+
+**5.2 Polynomial families (PROVED, Prop 2.1).** n = f(t) on an arithmetic progression is coverable by fixed slices only through a
+one-prime local obstruction. This is the hypothesis exponential families violate (product structure over target primes), not
+polynomiality per se: e.g. f(2^m) (m varying) is an exponential family again, and its limit set is f(2^Ẑ), coupled.
+
+**5.3 Uniformity in k (PROVED, negative).** {k·2^m + 1 : k odd, m ≥ 1} is the set of all odd n ≥ 3, so "for every k" is ES for odd n.
+More to the point, the method fails for infinitely many k (k = 4^j − 1, Cor 1.5), and for those k the failing exponents are m ≡ 0
+(mod L) for *every* L: along them n_m = 4^j + (4^j − 1)(2^m − 1) mimics 4^j modulo 2^L − 1. Writing m = 2t, n = (4^j − 1)X² + 1 with
+X = 2^t, and X → 1 profinitely: the family degenerates to the polynomial family (4^j − 1)X² + 1 near X = 1, where Prop 2.1 applies.
+So e.g. **ES for all Proth numbers 3·2^m + 1 is out of reach of every fixed-slice / congruence method** (PROVED for ET + divisor classes by
+Cor 1.5 + Thm 1.4; for general Theorem-M procedures it is the usual H-conditional transfer at the point X̂ = 1, not checked here).
+For each fixed k ≠ 4^j − 1 the expected answer is "coverable" (CONJECTURE EC_k := (EH_k) + no sterile non-square point in Λ_k;
+EVIDENCE §4.2: no counterexample, all failures explained by search limits around non-unit square points).
+
+**5.4 Literature (checked 2026-10-13, web search; not exhaustive).** No prior statement "ES holds for all n = k·2^m + 1" (or any
+exponential family beyond congruence classes) was found; the ES literature on special n concerns congruence classes (Mordell, Yamamoto,
+Terzi, Ionascu–Wilson, Salez, ET). Since each family is contained in a finite union of ES-solvable congruence classes, the novelty is in the
+*form* (Sierpiński coverings of exponents by ES classes) and in the obstruction theory (Thm 1.4, Cor 1.5, Prop 2.1, §5.1), not in new
+ES identities. The covering idea is Sierpiński/Erdős (covering systems) and Bertók–Hajdu (moduli with small λ).
+
+## 6. Assessment
+* What is new and solid: an exact criterion (Thm 1.4) for fixed-slice coverings of any eventually-periodic family; the identification of
+  the B1 mechanism as *product structure* of the parameter space (Prop 2.1) versus *coupling* for exponential/S-unit families (Prop 2.2, §5.1);
+  the complete list of integer obstruction points (Cor 1.5, §5.1, S-unit finiteness); certified infinite ES families inside Mordell's hardest
+  classes (Thm 4.1: all 315·2^m + 1 ≡ 1 mod 2520, all 15015·2^m + 1 ≡ 1 mod 120120).
+* What it does not do: it says nothing about primes in square classes in general. A family is coverable precisely when its members are
+  forced to be non-squares (or divisible) at a fixed finite set of primes — "classically easy" in a uniform way. The hard core of ES
+  (n a unit square modulo everything small, B1/B5) is untouched; the exponent coupling only *removes* such n from the family.
+* Barrier status: B1 is not violated; its hypothesis (product structure / density in a square class) is simply absent. The residual
+  obstruction on exponential families is a Skolem-type exponential local–global principle (EH_k), which is an open problem in general
+  but a *different* open problem from H-A — it is about exponents, not divisors.
