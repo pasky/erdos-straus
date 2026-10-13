@@ -21,8 +21,11 @@ ff2_caseB.py (exact Case B search at x*), ff2_polyq.py (tiny F_p[T] library).
    lottery scale proved in F_q[T]. (a)/(b): no non-linear deterministic mechanism found; Assessment in §§1–2.
 5. **(d) Proposition 3.1:** linear-family validity is independent of deg P (Lemma 6.2), so no degree-parity
    obstruction classes exist for linear coverings; data show no parity pattern.
-6. q = 4, A = T²: slice x ≡ 1 off T is fully covered (0/192 mod T⁴); a deeper ffl tree (NTH 13, depth 6) was
-   started — see FUNCTIONFIELD_ES2.md for its result if it finished.
+6. q = 4, A = T²: slice x ≡ 1 off T is fully covered (0/192 mod T⁴); deeper tree (NTH 13, depth 6): uncovered
+   density 0.259 (O161: 0.43 at depth 3). OPEN.
+7. Covered mass of the slice cylinder u ≡ 1 + T (mod T³) by Case B families: 0.04 → 0.23 as deg L' ≤ 1 → 6
+   (j ≤ 8); increments ≈ 0.01 per degree at the end. Whether O(3,T²) has positive measure is undecided; generic
+   lifts in the cylinder are as uncovered as x* itself in the searched range (so x* is not visibly special).
 
 ## Not achieved
 No proof of extinction in char ≥ 5 (the prize). No settlement of q = 3 or q = 4 with A = T². Conjecture 0.2 is

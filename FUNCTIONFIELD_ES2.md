@@ -149,3 +149,12 @@ deg L' ≤ 1: 0.037; ≤ 2: 0.111; ≤ 3: 0.185; ≤ 4: 0.198; ≤ 5: 0.198 (sum
 So generic lifts are covered with probability ≈ 0.2 at this size; whether the union tends to full mass as
 deg L', j → ∞ decides whether O(3, T²) ∩ slice has positive measure. (Case A cannot cover this slice for u near
 1 + cT by the §0.2 argument only at u = 1 + cT exactly; for general lifts Case A is checked by ff2_caseA_check.)
+Extended run (j ≤ 8): union mass 0.042, 0.117, 0.195, 0.210, 0.219, 0.229 for deg L' ≤ 1..6 (sums with
+multiplicity 0.06 … 0.53; 58 cylinders). Increments for deg L' = 4, 5, 6: 0.015, 0.009, 0.010 — not clearly
+decaying, not clearly summable. Undecided (EVIDENCE either way is weak).
+
+### 0.3 q = 4, A = T² (EVIDENCE)
+`ff2_tree 4 100 "100*11*12*13" refine T, T+1, T+ω, T+ω², then the six monic irreducible quadratics, NTH = 13,
+depth 6`: 672277 leaves, uncovered density 0.259 (vs 0.43 at depth 3 in O161). Still far from a covering, and
+subject to the same E | W limitation; the slice x ≡ 1 off T is fully covered (§0.1), so if O(4, T²) ≠ ∅ its
+points are elsewhere. Status: OPEN.
