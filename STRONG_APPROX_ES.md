@@ -155,3 +155,56 @@ fibre cancellation). *Scope:* Prop 2.3 needs nothing about the recipe; 2.3/3.1 a
 recipes of p-growing algebraic degree, and non-algebraic non-factorisation recipes (lattice reduction of an
 x-dependent lattice, continued fractions of ratios of coordinates, …), which are `POINTWISE_SIZE` Thm M's
 "arbitrary search" territory.
+
+## 5. The T1 test (odd squares)
+
+**Proposition 5.1 (T1 for fixed data; PROVED relative to the SA input and ET Prop 1.6).** Let `Q, q, λ` be fixed
+and `N_n = κn + η`. Local solubility of `Q(x) = N_n, x ≡ λ (q)` at primes `ℓ ∤ 2q·disc Q` is automatic (rank 4,
+ℓ-unimodular), and at the finitely many `ℓ | 2q·disc Q` it depends only on `n mod L` for a fixed L (away from
+the finitely many n with large `v_ℓ(N_n)` at anisotropic ℓ). So for every odd `m` and every prime `p ≡ m² (L)`
+the local conditions at `n = m²` and `n = p` coincide, and SA produces points of `R_{m²}` as soon as it produces
+points of `R_p`. Any recipe whose validity proof uses p only through `p mod L` would therefore give a Type I/II
+solution of `4/m²`, which does not exist (ET Prop 1.6). *Which step fails at m²:* the **map** — the validity
+of Φ must use primality of p; the local conditions and the range do not fail. With Thm 2.3, a bounded rational
+recipe is valid only via identities on classes mod L, hence certifies no prime in a square class mod L.
+
+For p-dependent data (`q_p = p`, `p | disc Q_p`, …) the local conditions can differ at n = p and n = m²
+only at the place p itself or at the primes `ℓ | m`, by LONGSHOT_FIBRED Prop 5.1 (proved there for
+mass-formula main terms under its uniformity hypothesis (U)).
+
+**EVIDENCE / control (`scripts/sa_typeII_matrix.py 6000`, ~10 min).** For every odd n ≤ 6000 that is a prime
+or a square, all γ = [[f, 4cd],[cn, f']] ∈ SL₂(ℤ) with `f ≡ f' ≡ −1 (mod 4cd)` were enumerated; det γ = 1
+and `4/n = 1/(abd) + 1/(acdn) + 1/(bcdn)` were checked in exact rationals for each. Every prime 5 ≤ p ≤ 6000
+has such a γ; no odd square has one (the matrix form of ET Prop 1.6). The split quaternary form `det` with
+`γ ∈ Γ₀(n)` satisfies all local conditions at `n = m²`; what fails is the self-referential congruence
+`γ₁₁ ≡ −1 (mod γ₁₂)`.
+
+## 6. Construction attempts (iteration log; each entry names the barrier hypothesis it tried to violate)
+
+* **C1 — det-form Type II, fix the modulus by a universal level.** Encoding §3: `γ ∈ SL₂(ℤ) ∩ Γ₀(p)`,
+  `γ₁₁ ≡ −1 (mod γ₁₂)`. Variable modulus = γ₁₂. *Iteration:* impose `γ ≡ λ (mod q_p)` with `q_p = lcm(1..L)` and
+  `λ₁₁ ≡ −1`, hoping to make `γ₁₁ ≡ −1 (mod γ₁₂)` automatic whenever `γ₁₂ | q_p`. But `γ₁₂ | q_p` is not a
+  congruence condition on γ: one must fix `γ₁₂ = M` exactly, which is a two-coordinate slice → B2 divisor-class
+  form `f | 4c²dp + 1, f ≡ −1 (M)`, fixed finite menu of M → POINTWISE_SIZE Thm C (fails i.o. under H).
+  Also `γ₁₁ ≡ −1 (mod q_p)` forces `f ≥ q_p − 1`, while `f ≤ √(4c²dp+1)`: so `q_p ≤ 2c√(dp)`. Dead (B2).
+* **C2 — quaternion lines → full lattices.** QUATERNION_ES Lemma 3.1 puts Type II on the lines `2xi ± j` of
+  `(−d,−p)` (a rank-2 object). Replacing the lines by the whole order makes it rank 4, but the ES content
+  (`N(α) ≡ p (4d)`, the coupling `αβ ∈ e(1 + 2ℤk)`) lives on the lines; a general factorisation of
+  `e(1 + 2ck)` carries no congruence on `N(α)`. And the window: these norms are at expected count O(1)
+  (§4). Dead (scale window, η = 0).
+* **C3 — Hurwitz/Eichler factorisation recipe** (`x ↦` the left ideal of norm g containing x, `g | N_p`):
+  violates "algebraic recipe" (it is arithmetic), so Thm 2.3 does not apply; but all factorisation types occur
+  in every class mod q (Prop 3.1). Dead (invisibility).
+* **C4 — projection recipe** `Φ = ψ(x₁)`, ψ arithmetic: fibres `{x₁ = c}` have `≍ √N/q²` points (power
+  multiplicity, the brief's escape route); but `π(R_p)` is an AP up to local conditions, so the certificate is
+  the lottery over an AP and the fibre factor cancels (LONGSHOT_FIBRED Thm 5.4). Dead (B6/fibred).
+* **C5 — Thue/Minkowski (non-algebraic, deterministic).** Type II with d fixed: find `(a,b) ≡ (r,−r) (e)` with
+  `p < 4abd < p + 2e` (then `4abd − p = e` is forced). The region is a thin *hyperbolic* strip (not convex),
+  expected lattice count `≍ log p/(de)`: no Minkowski body. Convexifying (allowing `|4abd − p| < 2e`) admits
+  `e ↦ −e`, i.e. signed solutions; equivalently a divisor `≡ ±1 (mod 4c)` of `4c²p + 1`, where `+1` is the
+  trivial divisor. Dead → H-B (sign/parity), as LONGSHOT_PIGEONHOLE.
+* **C6 — LPS with p as the generator norm.** Paths of length k in the `(p+1)`-tree mod q ↔ norm-`p^k`
+  elements mod q; covering at `k ≈ (4/3…2)·log_p|G|`. In the split model these are det-`p^k` matrices; Type II
+  is det-p `[[e, 2a],[2ad, f]]` with `2a | 2ad`, `f ≡ −1 (mod 4ad)` — the variable modulus again. In the ES
+  quaternion algebras `(−d,−p)`, `B_{p,∞}` the prime p is *ramified*, so there is no p-adic tree at all.
+  Dead (B2 + wrong place).
