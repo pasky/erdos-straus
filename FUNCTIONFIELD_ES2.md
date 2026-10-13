@@ -81,3 +81,50 @@ with L'H'(1 + cT) ≡ c (mod T^N), lc H' = 1. Why u = 1 + cT is special: x ≡ 1
 validity of every family a deterministic (non-lottery) condition, and the T-adic class −(1 + cT) is "small"
 (as −1 is in O140 Prop 4.1); generic lifts u are heuristically covered (expected number of covering Case B
 families Σ_{N,ℓ} poly(N+ℓ)·q^{−N} diverges over ℓ).
+
+## 1. (a) Non-linear families in char ≥ 5: what they must look like
+
+**Proposition 1.1 (n-dependent linear families need moduli of degree ≥ n/2 − O(log n); PROVED, char ≥ 5).**
+Fix q (char ≥ 5) and A of degree k. For each large n let 𝓕(n) be any collection (of any size) of linear families
+(E; t_a, a0; t_b, b0), whose data may depend on n, such that every W_F (F ∈ 𝓕(n)) divides one modulus W(n) with
+D(n) := deg W(n) ≤ n/2 − log_q(D(n) + 2) − 1. Then for every large n some irreducible P of degree n is not
+covered by 𝓕(n).
+*Proof.* By Fact 5.2 the number of irreducible P ≡ 1 (mod W(n)) of degree n is
+≥ q^n/(nΦ(W)) − (D + 2)q^{n/2}/n > 0, because Φ(W) ≤ q^D and q^{n/2} > (D + 2)q^D. Fix such a P and F ∈ 𝓕(n).
+Since deg a0 + deg b0 + k ≤ D < n/2 and deg E ≤ D, the four types have pairwise distinct degrees and lc(s) is as
+in Lemma 6.2, so F is valid at P iff it is valid on the class P ≡ 1 (mod W_F) — and O140 Prop 4.1 says it is
+not (its proof uses only W_F | W and the degree comparisons above). ∎
+So any proof of ES_q(A, ·) in char ≥ 5 through families whose validity is a congruence condition must use
+moduli of degree ≥ (1/2 − o(1))·n, i.e. of size ≥ |P|^{1/2 − o(1)}. At that scale a class mod W_F contains
+≤ q^{n/2} polynomials of degree n, and the families are individual Type II data in disguise: this is B2/B3
+(the lottery scale) proved, not assumed, in F_q[T]. It is the function-field form of "no covering with moduli
+below √p"; over Z the corresponding statement would need primes ≡ 1 (mod m) below p with m ≈ √p (Linnik/GRH),
+which Weil supplies here unconditionally.
+
+**What a non-linear family would need (Assessment).** By Lemma 1.3 a, b | PX, so only P, X and divisors of X
+can occur; Frobenius twists P^σ (q = p^r) and powers P^m (m ≥ 2) cannot divide PX (degree n each, coprime to
+P). Non-formal input can therefore enter only (i) through E (deg E < n; e.g. E built from P − P^σ, or from the
+Frobenius residues T^{q^j} mod P), or (ii) through a factorisation of X = (P + E)/A that is forced by an identity.
+(ii) is the only deterministic source of divisors; I found no identity forcing X to factor for P ≡ 1 (mod W)
+other than congruences (which give back linear families). (i): with E | P^σ − P one has P ≡ P^σ (mod E), which
+gives nothing at P ≡ 1. Recorded as sparks, not pursued.
+
+## 2. (b) What grows with n (Assessment)
+
+Exactly the number of Type II data with deg(Aab) ≤ n, ≈ n³ (per unit of q^{−k} weight); each datum is a
+congruence of modulus degree ≈ n − deg d, so the solution count of a fixed P is a sum of ~q^{n} indicator
+functions with mean C·n³/q^k (FUNCTIONFIELD_ES §7). Any equidistribution/cohomological count at fixed P has an
+error at least the square root of the number of data it averages over, i.e. ≥ q^{cn}, against a main term
+poly(n): B3 in its sharpest form. Prop 1.1 shows the deterministic (congruence) alternative needs moduli of
+degree ≥ n/2. The only regimes left are a structural (non-counting, non-congruence) mechanism, or the special
+small characteristics where O(q, A) = ∅ (§0).
+
+## 3. (d) Degree parity for q ≡ 3 (mod 4)
+
+**Proposition 3.1 (PROVED).** No finite linear covering can distinguish degree parities: by Lemma 6.2 the
+validity of a linear family at P depends only on P mod W_F once n ≥ n_F. Hence "parity obstruction classes"
+(a class mod W covered for one parity of n and not the other) do not exist for linear coverings; O(q, A) is a
+subset of R̂^* with no degree data. The Jacobi sign of Prop 4.1 (FUNCTIONFIELD_ES) does depend on n, but it is
+a property of the individual Type II datum, not a validity condition, so it cannot obstruct a congruence family.
+EVIDENCE: failures for q = 7, A = T (6, 21, 25, 16, 4, 0 at n = 2..7) and q = 3, A = T² (3, 2, 2, 0 at n = 3..6, 0
+to n = 15) show no parity pattern.
