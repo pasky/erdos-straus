@@ -248,7 +248,20 @@ enumeration over all f = Am − 1 of degree ≤ D, firing set −A·{a²d·s^{2j
 turned into the generalised Prop 2.1 solution (Q = a s^j: E = (P + AQ²d)/f, X = (P + E)/A, Y = Pm, z = PXm/(Q²d)) and
 verified exactly (identity, monic, NC, denominator s^{2t}, t ≤ e). e = 0 sees Type II only, so its unsolved set must
 contain the full ES_q failures of `data/ffl/fail_*` (consistency check).
-(results below)
+
+| (q, A, s) | n | D | #P | least-e histogram (e: count) | full ES_q failures: their least e |
+|---|---|---|---|---|---|
+| (5, T, T+2) | 2 / 3 / 4 / 5 | 3 / 5 / 7 / 9 | 10 / 40 / 150 / 624 | {0:6,1:4} / {0:32,1:8} / {0:132,1:18} / {0:602,1:22} | 1,1 / 1,1 / 1 / — |
+| (7, T, T+1) | 2 / 3 / 4 / 5 | 3 / 5 / 7 / 7 | 21 / 112 / 588 / 3360 | {0:11,1:4,2:3,3:2,5:1} / {0:67,1:32,2:11,4:2} / {0:472,1:104,2:11,3:1} / {0:3069,1:280,2:11} | max 5 / max 4 / max 3 / all 1 |
+| (3, T², T+1) | 3 / 4 / 5 / 6 / 7 / 8 | 4 / 6 / 8 / 10 / 10 / 10 | 8 / 18 / 48 / 116 / 312 / 810 | {0:4,1:2,2:1,3:1} / {0:13,1:3,2:2} / {0:38,1:7,2:2,5:1} / {0:106,1:7,2:3} / {0:303,1:9} / {0:799,1:11} | 1,2,3 / 1,1 / 1,1 / — |
+
+(D = 2n − k is the full ES_q Type II modulus range; rows with smaller D are truncated searches, so their e-values are
+upper bounds for the least overflow.) **0 unsolved P in every row; every full ES_q failure of data/ffl lies in the
+e = 0-unsolved set (consistency) and is solved with overflow e ≤ 5.** The maximal least overflow decreases with n
+(q = 7: 5, 4, 3, 2), the lottery effect: mean N_II ≍ n³/q^k (FUNCTIONFIELD_ES §7). Squares are not a T1 control
+here (FF ES_q has no square-class obstruction, FUNCTIONFIELD_ES §4; a run on the 8 squares M², deg M = 3, q = 3,
+A = T found all solved at e = 0). Contrast with Prop 2.2: the Weil-provable overflow is an exponent interval of
+length ≳ d·n·q^{d/2}, i.e. e ≈ n² at d ≈ 2 log_q n.
 
 ## 6. Verdict (O196 checkpoint 1)
 
