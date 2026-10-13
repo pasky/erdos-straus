@@ -66,7 +66,9 @@ an odd square** (then `(A/n) = 1` for every A coprime to n): this is ET Prop 1.6
 only on (t,u,v) mod 8. The finite check over all 512 triples (`dk_t1mod8.py`: 32 admissible triples per slice)
 shows the right side ≡ −2 (mod 8) whenever `tuv − u − v ≡ 1 (4)` and `4 | tu−1` (resp. `4 | t`). ∎
 Numerically (all primes < 2·10⁴): on L₃(p) the symbol `(A/p)` is −1 on both slices when p ≡ 1 (4), +1 when
-p ≡ 3 (4), and equidistributed (≈ 50:50) on the other residue classes of (A, t) mod 4.
+p ≡ 3 (4). *(R169 repair: the earlier "equidistributed (≈ 50:50) on the other classes of (A,t) mod 4" was false.
+Several other classes are deterministic, e.g. (A,t) ≡ (1,1) is always +1 and (1,3), (3,1), (3,3) are always −1 for
+p ≡ 1 (4); the exact law is the mod-4 table of §8.1.)*
 
 *Credit.* For the 4|A slice this is the same fact as reviews/redteam-automorphic.md Lemma 5.2 (`(d/p) = −1`,
 d = A/4, via notes Lemma 77.6); what is new here is the derivation from Dedekind sums and its extension in Thm 4.5.
@@ -120,19 +122,21 @@ finite set). The simplest objects with that property are counts of Jacobi −1 c
 `(A/n) = −1  ⟺  4 | tu−1 (Type I, a = 1)  or  4 | tv−1 (its reversal)  or  4 | t ((A)3)  or  4 | u  or  4 | v`.
 Each of the five conditions gives an ES solution of 4/n: the first three by Cor 1.2. For `4 | u = 4w`:
 `n + v = 4w(tv − 1)`, so `f = tv − 1 ≡ −1 (mod v)` divides `N = (n+v)/4`. This is the Type II e-slice
-`−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal.
+`−1 ∈ Σ_e(N)` with `e = v`, `(a,b) = (f,1)`; `4 | v` is its reversal. Explicitly (R169 repair): `4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`.
 *Proof.* By Cor 4.1, `(A/n)` depends only on `(t,u,v) mod 8`. `scripts/dk_cells.py` enumerates all 512 cells: of
 those with `n ≡ 1 (4)`, the 120 cells with value −1 are exactly the cells satisfying one of the five conditions,
 and the 40 cells with value +1 satisfy none. ∎ (Brute-force check, `scripts/dk_thm45_check.py 1000000`: all
 21 430 357 length-3 words with n ≡ 1 (4), n ≤ 10⁶, 0 failures; 0 slice words at odd squares.)
 
 **Corollary 4.6 (a "least non-residue in the Farey metric" form of ES; PROVED).** For a prime p ≡ 1 (mod 8) let
-`λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is the number of left turns of the positive Farey path from ∞
+`λ(p) := min{ r(p/A) : (A/p) = −1 }` (the HJ length is 1 + the number of L-steps of the Stern–Brocot path, i.e. 1 + Σ_{i odd} a_i for the regular CF
+— R169 repair of "number of left turns"; path from ∞
 to p/A). Then `λ(p) ≥ 2` (L₁ = {1}), and
 * `λ(p) = 2` ⟺ some divisor b of p+1 is a QNR ⟺ (p+1)/2 has a prime factor ≡ 3 (4) (since `(b/p) = (−1/b)` for
   odd b | p+1, and (2/p) = 1). This is exactly the boundary certificate of 4.2.
 * `λ(p) = 3` ⟹ an interior X/e-slice certificate (Thm 4.5).
-So **the five X/e-slices of ES(p) together hold ⟺ λ(p) ≤ 3**: *some quadratic non-residue mod p is reached
+So **the five X/e-slices of ES(p) together hold ⟺ λ(p) ≤ 3** (R169 repair: slice parameters t,u,v ≥ 1 allowed;
+every degenerate case at p ≡ 1 (4) is either impossible or gives λ = 2): *some quadratic non-residue mod p is reached
 from ∞ by at most three left turns in the Farey graph.* At n = m² there are no non-residues (Jacobi), which is
 the T1 obstruction in its barest form. EVIDENCE: λ(p) ∈ {2, 3} for all 556 primes p ≡ 1 (8), p ≤ 2·10⁴
 (395 with λ = 2, 161 with λ = 3; `dk_qnr.py 20000`). Moreover all 19 552 primes p ≡ 1 (8), p ≤ 10⁶, have an
@@ -161,7 +165,7 @@ negative-definite linear plumbing of r spheres with Euler numbers `−b_i`. (D2)
 Casson–Walker form of the Dedekind sum, and Cor 4.1 is van der Blij–Milgram–type for the linking form `A/p`.
 So: **X/e-slice ES(p) ⟺ some L(p,A) with non-residue linking form bounds a linear plumbing of ≤ 3 spheres.**
 By the Fintushel–Stern/Greene linking-form constraint (integral p-surgery on a knot in S³ gives L(p,q) only with
-±q a square mod p), these are exactly the short-plumbing lens spaces that are **not** integral surgeries on knots
+±q a square mod p), these are *among* (R169 repair: not "exactly"; the QR condition is only necessary) the short-plumbing lens spaces that are **not** integral surgeries on knots
 in S³. At n = m², T1 corresponds to the fact that the linking-form invariant that matters, the Jacobi symbol,
 is trivial. (Rational-homology-ball lens spaces, Lisca's classification, live at squares as well, e.g. the Wahl
 fraction 25/14 = [[2,5,3]], but with A ≢ 0 (4) and Jacobi +1.) Assessment: gauge/Floer theory gives
@@ -265,7 +269,8 @@ primes, which have no factor a.
 **8.4 The signed sum.** `S(n) := Σ_{A∈L₃(n)} (A/n) = N₊ − N₋`. By 8.1 it is a weighted count of the cubic's
 solutions with weights ±1 given by the class mod 4. For fixed t this is a twisted divisor sum at `tn + 1` with
 a mod-8 weight, and the sum over t is the (★)-type family again. No closed form was found (Assessment; cf.
-STRONG_APPROX §9.1 for the analogous negative test on cubic counts). The only exact facts are that N₋ is even
+STRONG_APPROX §9.1 for the analogous negative test on cubic counts). The only exact facts are that N₋ is even *at primes* (R169 repair: at composite n a self-reversed word u = v can
+be −1, e.g. N₋(21) = 1 from [[3,3,3]])
 (reversal pairs) and N₋(m²) = 0.
 
 ## 9. Composites, and the five-slice square conjecture
@@ -304,12 +309,14 @@ excluded).
   so there is no algorithmic consequence. One can find a QNR in time p^{0.152+o(1)} anyway (Burgess search).
 * The **bounded-height** version `t_min(p) ≤ (log p)^C`, where t_min is the least middle entry of a −1 word, would
   give a deterministic algorithm that finds a QNR mod p with `(log p)^C` calls to a factoring oracle (factor
-  tp+1 for t ≤ T, test the words). Deterministic polynomial-time QNR finding is a well-known open problem.
+  tp+1 for t ≤ T, and test its O(log p) *prime* factors: a −1 word A | tp+1 has a QNR prime factor — R169 repair,
+  since enumerating all divisor words is not polylog). Deterministic polynomial-time QNR finding is a well-known open problem.
   Unconditionally nothing better than `p^{1/(4√e)+o(1)}` search is known; under GRH the least QNR is ≤ 2 log²p
   (Ankeny/Bach; from memory). I know of no result that makes it easier with a factoring oracle (from memory; not
   checked). So a proof of the polylog-height version would be an unconditional derandomisation result of a
   kind not currently available. That is a precise sense in which it is hard. Full ES (unbounded t) carries no
-  such complexity implication. Under H, CONDITIONAL_ES Thm C already shows that t_min is unbounded i.o. for the
+  such complexity implication. Under H, POINTWISE_SIZE Thm C / Cor C1 (R169 repair of the citation "CONDITIONAL_ES Thm C") shows that for
+  every fixed T the bound t ≤ T fails i.o. (t_min unbounded) for the
   4|A slice. EVIDENCE: for all primes p ≡ 1 (8) ≤ 10⁶, `t_min(p) ≤ 64` (records 2, 4, 6, 7, 15, 64 at p = 17, 41,
   769, 1049, 2521, 21841; `scripts/dk_tmin.py`).
 

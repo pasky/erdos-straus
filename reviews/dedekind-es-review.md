@@ -7,18 +7,36 @@ From-scratch scripts: `scripts/review_dk_*.py` (none of the author's `dk_*` code
 
 | Claim | Verdict |
 |---|---|
-| Lemma 1.1 (+ Cor 1.2, D2, D3) | pending |
-| Prop 3.1 | pending |
-| Thm 4.5 | pending |
-| Cor 4.6 | pending |
-| §8 (sign mod 4, Klein, rotation, scaling) | pending |
-| §9.2 lemma | pending |
-| CONJECTURE SQ₅ / §9.1 evidence | pending |
-| §10.1 complexity | pending |
+| Lemma 1.1 (+ Cor 1.2, D2, D3) | **SOUND** (D8 wording) |
+| Prop 3.1 | **SOUND** (D7: false side-remark) |
+| Thm 4.5 (+ slice identification) | **SOUND** (D10: write out e-slice ES identity) |
+| Cor 4.6 | **SOUND-AFTER-REPAIRS** (D1 convention, D2 Farey wording) |
+| §8.1, §8.2, §8.3 | **SOUND**; §8.4 **SOUND-AFTER-REPAIRS** (D3: "N₋ even" false at composites) |
+| §9.2 lemma | **SOUND** |
+| §4.4 / §9.1 EVIDENCE, CONJECTURE SQ₅ | **EVIDENCE reproduced to 10⁶** with independent code; labels correct (D4 wording) |
+| §10.1 complexity | **Assessment honest, SOUND-AFTER-REPAIRS** (D5 algorithm, D6 citation) |
 
-## Defects
+**Bottom line.** No FATAL or MAJOR defect. The core result (Thm 4.5 / Cor 4.6) is correct and checked from scratch:
+the polynomial mod-8 cell table, 21 430 357 words to 10⁶ (0 failures), and (R) checked against the actual
+Rademacher–Grosswald text. All numerical claims I re-ran (counts, lists, records) reproduce *exactly*. Nothing is
+overclaimed at the level of the main labels. ES is not solved, and the document says so.
 
-(numbered below as found)
+## Defects (all MINOR)
+
+* **D1** Cor 4.6: "five slices ⟺ λ ≤ 3" needs the convention that slice parameters may equal 1 (§4).
+* **D2** Cor 4.6 / §4: the HJ length is 1 + (number of L-steps in the Stern–Brocot path), not "number of left turns" (§4).
+* **D3** §8.4: "N₋ is even" holds only at primes; N₋(21) = 1 (§5).
+* **D4** §9.1: "SQ₅ strengthens SQ" except at n = 105 (§7).
+* **D5** §10.1: the algorithm must test the prime factors of tp+1, not enumerate divisor words (§8).
+* **D6** §10.1: "CONDITIONAL_ES Thm C" should be POINTWISE_SIZE Thm C / Cor C1, which gives the fixed-T statement only (§8).
+* **D7** §3: "equidistributed (≈ 50:50) on other (A,t) mod 4 classes" is false (§9).
+* **D8** §2: the "odd-indexed partial quotients" sentence is garbled; correct form `r = 1 + Σ_{i odd} a_i` (§9).
+* **D9** §5.2: "exactly the … not integral surgeries" is an overclaim; should be "among" (§9).
+* **D10** Thm 4.5: the 4|u, 4|v slices are asserted to give ES solutions without an explicit triple. One is
+  `4/n = 1/(wf) + 1/(tnw) + 1/(tnwf)`, verified for all n ≤ 5000 (§3).
+
+**Repairs applied.** The author had made no commits since the checkpoint-2 report, so I applied D1, D2, D3, D5, D6,
+D7, D9 and D10 directly in `DEDEKIND_ES.md`, each marked "(R169 repair)". D4 and D8 are wording and left to the author.
 
 ## 1. Lemma 1.1, Cor 1.2, (D2), (D3) — SOUND (minor citation/wording repairs)
 
