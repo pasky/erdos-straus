@@ -71,8 +71,8 @@ in the repo — state that explicitly.
 **D3 (MINOR) — §1 setting, last sentence ("a point of the special cycle Z(T) is a supersingular E/𝔽̄_ℓ (ℓ ∈ Diff(T))").**
 For positive definite T, Z(T) is non-empty iff |Diff(T)| = 1 (it is then supported in characteristic ℓ, Diff(T) = {ℓ});
 if |Diff(T)| ≥ 3 the algebra B_T is ramified at ≥ 3 finite places, no End(E)⊗ℚ contains it, and Z(T) = ∅. Thm 1.2/1.4 are
-stated for all odd n, and for composite n the certificate indices typically have |Diff| ≥ 3 (they are then *not* in the
-support of E'(τ,0,Φ)_T; that coefficient is 0 when |Diff| ≥ 3). *Repair:* "Z(T) ≠ ∅ iff Diff(T) = {ℓ}, and then Z(T) is
+stated for all odd n, and for composite n some certificate indices have |Diff| ≥ 3 (Type I, composite odd n ≤ 5000:
+4543 of 95347 tuples; they are then *not* in the support of E'(τ,0,Φ)_T, which vanishes when |Diff| ≥ 3). *Repair:* "Z(T) ≠ ∅ iff Diff(T) = {ℓ}, and then Z(T) is
 supported at supersingular points in characteristic ℓ; for |Diff(T)| ≥ 3 both Z(T) and the T-th coefficient of
 E'(τ,0,Φ_𝒞) vanish."
 
