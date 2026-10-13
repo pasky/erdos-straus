@@ -1,0 +1,1 @@
+q=3: 1233 reported empty, 0 rescued by t > n+2, 1233 still empty (first: [241, 409, 769, 1249, 1321, 1489, 2089, 2161, 2689, 3049, 3169, 3529])

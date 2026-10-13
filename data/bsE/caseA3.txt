@@ -1,0 +1,6 @@
+q=3 alpha=1: A4 tuples 0, A1 tuples 0, agree True, distinct cylinders 0, bound q^floor((a-1)/2)=1, mean rel. mass 0.00000 (cum 0.00000)
+q=3 alpha=2: A4 tuples 0, A1 tuples 0, agree True, distinct cylinders 0, bound q^floor((a-1)/2)=1, mean rel. mass 0.00000 (cum 0.00000)
+q=3 alpha=3: A4 tuples 2, A1 tuples 2, agree True, distinct cylinders 2, bound q^floor((a-1)/2)=3, mean rel. mass 0.03704 (cum 0.03704)
+q=3 alpha=4: A4 tuples 4, A1 tuples 4, agree True, distinct cylinders 4, bound q^floor((a-1)/2)=3, mean rel. mass 0.02469 (cum 0.06173)
+q=3 alpha=5: A4 tuples 10, A1 tuples 10, agree True, distinct cylinders 10, bound q^floor((a-1)/2)=9, mean rel. mass 0.02058 (cum 0.08230)
+q=3 alpha=6: A4 tuples 8, A1 tuples 8, agree True, distinct cylinders 8, bound q^floor((a-1)/2)=9, mean rel. mass 0.00549 (cum 0.08779)
