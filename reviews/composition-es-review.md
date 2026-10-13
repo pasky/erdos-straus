@@ -3,11 +3,25 @@
 Reviewer: R203 side agent (branch side-agent/review-composition). Document reviewed at merge of
 side-agent/composition-es @ 75ad4b51. From-scratch scripts: `scripts/review_cp_*.py`.
 
-Status: IN PROGRESS.
+Status: round 1 complete.
 
 ## Summary verdicts
 
-(filled in claim by claim below)
+| Claim | Verdict |
+|---|---|
+| Lemma 1.1, Prop 1.2 (composition law, r odd/primitive/∏D \| μ, sign(Nα) = χ₋₄(\|Nα\|), no norm −1 unit) | SOUND |
+| Thm 1.3 (B = 1 slot = ε_μ = 1 − 2jη̄, D = 4tj − 1, incl. depth-1 μ ≤ 2n, primitivity) | SOUND |
+| Cor 1.4 (fixed-μ no-go for composition) | SOUND-AFTER-REPAIRS (M1: (a) false as worded; m1) |
+| Prop 2.1 (box, δ-fibre, 𝔢_μ always of class δ, T1 at squares), Remark 2.2 (third reduced ideal) | SOUND (m2 wording) |
+| Prop 3.1 (Davenport gives wrong sign; (ℤ/2)² target-sum example) | SOUND (abstract group statement, labelled as such) |
+| Prop 4.1 (finite B = 1 locus, μ ≤ n² + n + (n+1)/4; Type II = d-sliced B = 1 points of V_{pd}; 99 primes) | SOUND (m3, m9) |
+| Prop 5.1 (Type II ⟺ two-term Machin/arccot relation ⟺ 4csdj = pj + c + s) | SOUND (m4, m5 in the Reading) |
+| §5 cross-composition EVIDENCE | SOUND as EVIDENCE (m6) |
+| Census EVIDENCE (cp_census 5 1000) | SOUND — all 7 figures reproduced exactly from scratch; does not use the 1000–3000 file (m7) |
+| Labels (“composition cannot help select μ” = Assessment) | SOUND-AFTER-REPAIRS (m8) |
+
+No FATAL defect. One MAJOR (M1: a PROVED corollary false as literally worded — the B = 1 element ε_μ CAN be a
+composition of V_n points at μ when N(ε_μ) ∤ μ; only “is an ES point” is excluded). ES is not claimed solved.
 
 ## Claim-by-claim
 
