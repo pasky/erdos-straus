@@ -129,3 +129,29 @@ Over F the analogue of GRH is a theorem and |S| = 1 suffices, with an explicit d
 Over ℤ the same argument would give ES^{(S)} with |S| = 1 under GRH (Assessment; not checked in detail).
 (3) The degree of the *shot* is large: Q = s^j with j < q^d ≈ n²·C, so deg Q may be ≍ n² (vs. ES_q certificates of
 degree ≤ 2n − k, §5). See §5 for whether this can be shortened.
+
+## 4. The T1 question: anchor at ∞ = the character ε = χ(−1)
+
+**Lemma 4.1 (sign of the shot modulus; PROVED).** Let q be odd and f monic of degree d with f ≡ −1 (mod A). Then
+`(−A/f) = ε^{d(1+k)+k}.`
+*Proof.* (−1/f) = ε^d; (A/f) = ε^{kd}(f/A) = ε^{kd}(−1/A) = ε^{kd+k} (reciprocity as in Lemma 3.2). ∎
+(Over ℤ the analogue is (−1/r) = −1 for r ≡ −1 (mod 4): "−4 is a non-residue mod every shot modulus". This is the
+mechanism T1 of UNIT_ORBIT §2. Here it holds iff ε = −1 and d(1+k)+k is odd.)
+
+**Theorem 4.2 (exact-T1 dichotomy for the mute shot mechanism; PROVED).** Let q be odd, s ∤ A as in §3, and P any monic
+polynomial of degree ≥ 1 coprime to sA. Call P *shot-solved* if some f, Q as in Prop 2.1 (with gcd(f, P) = 1) exist.
+(a) If P is not a square, P is shot-solved (with f of every large prime degree d, as in Thm 3.5).
+(b) If q ≡ 3 (mod 4) and k = deg A is odd, a square P = M² is never shot-solved.
+(c) If q ≡ 3 (mod 4) and k is even, a square is shot-solved only through moduli f of even degree; with d odd
+(e.g. the prime d of Thm 3.5) it is never shot-solved.
+(d) If q ≡ 1 (mod 4), squares are shot-solved (Thm 3.5's argument with condition (ii) automatic, main term 2δ).
+*Proof.* (a) Lemmas 3.1, 3.2 and Thm 3.5 used P prime only through: (·/P) is a nontrivial character mod P (true for the
+Jacobi symbol iff the monic P is not a square), Jacobi reciprocity (valid for monic coprime P, f), and f ≠ P, P ∤ X in
+Prop 2.1 (replace by gcd(f, P) = 1, which Prop 2.1's identity needs only for the Type II shape; the identity itself holds
+for any P coprime to f... in fact gcd(f, P) = 1 is forced as f | P + AQ² and gcd(f, AQ) = 1 would give f | P ⇒ f | AQ²).
+(b), (c) If a prime f' | f divides M² + AQ² with f' ∤ Q (f' ∤ Q since f' | Q would give f' = s | M, excluded), then
+−A ≡ (M/Q)² (mod f'), so (−A/f') = 1 for every prime f' | f, hence (−A/f) = 1, contradicting Lemma 4.1 (= −1 when
+ε = −1 and d(1+k)+k odd, i.e. k odd, or k even and d odd). (d) For P = M², (ii) reads (f/M²) = 1 = τ (ε = 1). ∎
+Over ℤ the ES^{(S)} mechanism had exactly this dichotomy (UNIT_ORBIT Thm 2.4(a)/(b)); over F it holds with |S| = 1,
+effectively, and **the T1 exists iff the anchor is alive: ε = χ(−1) = −1**. For q ≡ 1 (mod 4) the monic normalisation
+at ∞ pins nothing (−1 is a square in F_q), consistent with FUNCTIONFIELD_ES §4 (no square-class obstruction).
