@@ -131,3 +131,46 @@ conjecture in §0.2, not only in §3. Also, "x*_c ∈ O(3, T²)" needs Case A (p
 Case B for all (L', j, g). The heuristic "expected number of covering Case B families diverges over ℓ" (§0.2, end)
 points *against* the conjecture for generic u. The text should state that the conjecture asserts x* is
 non-generic.
+
+### Prop 1.1 (PROVED, char ≥ 5) — formal statement SOUND-AFTER-REPAIRS; its headline reading is a MAJOR overclaim
+
+*Weil input.* Need: #{P monic irreducible, deg P = n, P ≡ 1 (mod W)} > 0 when deg W = D ≤ n/2 − log_q(D + 2) − 1.
+R166 re-derived the uniform bound from scratch. For χ ≠ χ0 mod W, L(u, χ) is a polynomial of degree ≤ D − 1 with
+inverse roots of modulus ≤ √q (Weil), so |Σ_{deg f = n} Λ(f)χ(f)| ≤ (D − 1)q^{n/2}. Prime powers of degree n
+contribute ≤ Σ_{d ≤ n/2} q^d ≤ 2q^{n/2}. The χ0 term loses ≤ D (primes dividing W). Hence
+|nπ(n; W, 1) − q^n/Φ(W)| ≤ (D + 1)q^{n/2} + D ≤ (D + 2)q^{n/2}. This is Fact 5.2 as repaired by R161, with a
+constant **uniform in W** (only D enters), and the uniformity is what Prop 1.1 needs. The positivity arithmetic
+also holds: Φ(W) < q^D, and q^{n/2 − D} ≥ q^{log_q(D+2)+1} > D + 2. Citation: R166 could not access Rosen
+(GTM 210). The textbook statement (Ch. 4, Thm 4.8) is usually quoted with an O(q^{n/2}/n) whose constant depends
+on the modulus. The uniform form should be attributed to "Rosen Prop 4.3 (L(u, χ) has degree ≤ deg W − 1) +
+Weil's RH (Rosen Thm 5.10)", or simply to the derivation above. **D7 (MINOR):** state this.
+*Application of O140 Prop 4.1 (re-derived).* At P ≡ 1 (mod W_F) validity forces E ≡ −1 (mod A·L). E = −1 is
+excluded because lc(E) = lc(s) ∈ {1, 2} and −1 ∉ {1, 2} in char ≥ 5. So deg E ≥ k + deg L. Case A then gives
+E | a0 + b0, which is impossible by degree. Case B gives E·E' = 1 + A a0 b0 with E' ≡ −1 (mod A·L), and degrees
+force E' = −1, so lc(E) = −1, a contradiction. The proof needs P ≡ 1 (mod W_F) and n ≥ n_F (distinct type
+degrees, lc(s) ∈ {1, 2}), nothing more. Independent check `scripts/review_ff2_prop41.py`: all families with
+deg a0, deg b0 ≤ 2 (≤ 1 for q = 7) and deg E ≤ 2, every lc of E and all 16 type pairs give 0 valid
+family-instances at P = 1 + W_F T^m (q = 5, A = T: 17920; q = 5, A = T²: 16000; q = 7, A = T² + 1: 1344).
+Control q = 3, A = T²: 416 valid, all from the E = 2 = −1 class, as expected in char 3.
+
+**D8 (MINOR, proof text).** "Since deg a0 + deg b0 + k ≤ D" is false in general. W_F | W gives
+k + deg E + deg L ≤ D, but deg a0 + deg b0 = deg L + deg g can reach 2 deg L. Repair:
+k + deg a0 + deg b0 ≤ k + 2 deg L ≤ 2D − k < n, so n ≥ n_F still holds and the conclusion is unaffected.
+
+**D9 (MAJOR, overclaim of scope).** The hypothesis is that **all** W_F (F ∈ 𝓕(n)) divide **one** W(n) of degree
+≤ n/2 − O(log n), i.e. deg lcm_F W_F ≤ n/2 − O(log n). The headline in §1 ("n-dependent collections of linear
+families fail unless their moduli reach degree ≥ n/2 − O(log n)"), report item 4, and the corollary sentence
+("any proof ... must use moduli of degree ≥ (1/2 − o(1))·n, i.e. of size ≥ |P|^{1/2−o(1)}") all read as a bound on
+the **individual** moduli. That is not proved. A collection of families, each with deg W_F ≤ n/10 but with lcm of
+degree ≫ n, is outside Prop 1.1: no P ≡ 1 modulo the lcm need exist, and the theorem says nothing about it. The
+proof is one line (Weil prime ≡ 1 mod the common modulus + Prop 4.1), and the true content is "a covering argument
+that certifies everything modulo a single modulus needs that modulus of degree ≥ n/2 − O(log n)". Consequently
+"this is B2/B3 (the lottery scale) proved, not assumed, in F_q[T]" is an overclaim. The lottery-scale statement
+concerns individual data, and it remains unproved. Repair: restate the headline and corollary with
+"lcm of the moduli" / "a common modulus", and replace "B2/B3 proved" with "the common-modulus version of the size
+barrier, proved (Weil supplies the needed prime unconditionally)". Optionally add the open per-family question as a
+CONJECTURE.
+
+**D10 (MINOR).** Over Z, the corresponding statement "would need primes ≡ 1 (mod m) below p with m ≈ √p
+(Linnik/GRH)". Linnik gives p ≪ m^L with L ≈ 5, far above m²; GRH gives roughly p ≪ m² log⁴ m. So m ≈ √p is
+reached only up to log factors under GRH and not at all unconditionally. Say "GRH (up to log factors)".
