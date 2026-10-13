@@ -6,7 +6,15 @@ Document reviewed: FROBENIUS_FIRING.md at merge of side-agent/frobenius-firing.
 From-scratch scripts: `scripts/review_frob_*.py` (own integer factorisation/primality, own F_q arithmetic; nothing
 imported from `ff_frob_*` or `fm_poly`).
 
-(Review in progress — sections are filled in one claim at a time.)
+**Overall: no FATAL, no MAJOR defect. Thm 4.2 SOUND, Cor 4.3 SOUND, Thm 4.4 SOUND (CONDITIONAL, citation-level),
+§2 Thm 2.1 / Props 2.2–2.3 SOUND (scoped), Prop 1.2 (a)(b) SOUND, Thms 1.3/1.4 SOUND as conditional, F1 SOUND,
+F2 SOUND-AFTER-REPAIRS; all numerics reproduced; ten MINOR defects (labels, one mis-described statistic, one stale
+sentence contradicting an earlier withdrawal).**
+
+Repairs applied: the author's last commit (a03d84f9, "final report numbers") preceded this review's end by > 20 min, so
+m1–m10 were applied directly in FROBENIUS_FIRING.md (and m1, m5 in AGENT_REPORT_O196.md), each marked "R196 repair mk"
+(distinct from the author's own "R196 #k" self-review markers). No theorem statement was weakened; only labels,
+scope sentences, one statistic's description and one stale sentence changed.
 
 ## Summary verdicts
 
@@ -180,4 +188,17 @@ F5 and §6 item 6 correctly say Prop 2.2 does not apply to the varying base s(α
 known proof (FF_MUTE Thm 3.5) uses overflow n^{2+o(1)}; whether a smaller overflow is provable is open (Prop 2.2 does
 not apply to the varying base s(α))".
 
-## Checks performed
+## Checks performed (all from scratch, scripts/review_frob_*.py, outputs data/review_frob/)
+
+* `review_frob_selfmute.py 1000000 40` and `… 200000 40`: §5.1 (ES^{(3)}, ES^{(y)} true and stricter rule, squares).
+  `review_frob_selfmute.py cor43 3000`: Cor 4.3 on 1568 random shots, S = {3,5,7,11}: 0 mismatches.
+* `review_frob_density.py 300000`: Thm 4.4 density formula, 4 (n, s) pairs × 2 variants.
+* `review_frob_weil.py`: Thm 2.1 brute force (8 (q, d, n, b) cases, all m | q^d − 1), Prop 2.2 with random S,
+  exponent-interval and proper-GAP Fourier ℓ¹ norms, τ₃ bounds and the q ≥ 9 comparison.
+* `review_frob_heegner.py 1000`: F1 dictionary vs brute-force Type II moduli, uniqueness of the dividing prime,
+  (−d/f) = −1, CM point counts (d = 1, 2, 3, 7, 11), Type II modulus bound of Prop 1.2(a).
+* `review_frob_overflow.py`: §5.2 rows (q, A, s, n, D) = (5, T, T+2, 2, 3), (5, T, T+2, 3, 5), (7, T, T+1, 2, 3)
+  [further rows below if finished]: per-P least e identical to the author's; data/ffl failures solved with the stated e.
+* Not checked: Lenstra 1977 itself (not in sources/; used Moree's survey §9.5 summary), Fried–Jarden/Murty–Scherk
+  error-term shapes, Serre 1981 Thm 4 (standard; not re-read), FF overflow rows with q^{D−k} ≥ 7⁴ (too slow in pure
+  Python within budget).
