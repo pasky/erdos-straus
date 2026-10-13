@@ -172,3 +172,36 @@ the Gupta–Murty argument is 2η < r + 1 with r ≤ [K:ℚ] − 1 the unit rank
 for [K:ℚ] ≥ 5 it needs 2[K:ℚ] − 4 < r + 1 ≤ [K:ℚ]. It never closes. Hypothesis responsible: the mute place is REAL,
 which forces η < 0 there, so the orbit is a non-square coset ηU² and a non-norm quadratic character enters. Making the
 mute place FINITE (§1) removes exactly this hypothesis.
+
+## 5. What can be proved for V_φ itself: power-saving almost-all, and an exact-T1 failure set under GRH
+
+Notation of T1_TEMPLATE §1 (K = ℚ(√5), a_k = n + 4φ^{2k+1}). Call odd n > 1 *orbit-solved* if some a_k has a prime factor
+𝔮 with (n/𝔮) = −1 (then V_φ(n) holds, T1_TEMPLATE Thm 1.3(b)). Let T = {m², 5m² : m odd} (the odd n that are squares
+in O; 5 = (2φ − 1)²). By Thm 1.3(a) no n ∈ T is orbit-solved.
+
+**Theorem 5.1 (unconditional, power saving; PROVED relative to the arithmetic large sieve and Chebotarev).**
+#{odd n ≤ X : n not orbit-solved} ≪ X^{3/4} log²X. In particular V_φ(p) holds for all primes p ≤ X with ≪ X^{3/4}log²X
+exceptions. (The exceptional set contains T, of size ≍ X^{1/2}.)
+*Proof.* Let 𝔮 be a degree-1 prime, 𝔮 ∤ 10, ℓ = N𝔮, m = ord_𝔮(φ), C = φ⟨φ²⟩ ⊂ F_ℓ^*, and
+S_ℓ = {n mod ℓ : −n/4 ∈ C, (n/ℓ) = −1}. If n mod ℓ ∈ S_ℓ then 𝔮 | a_k for some k and (n/𝔮) = (n/ℓ) = −1, so n is
+orbit-solved. Call 𝔮 *good* if [ℓ ≡ 1 (4) and (φ/𝔮) = −1] or [ℓ ≡ 3 (4) and (φ/𝔮) = 1]. For good 𝔮 every element of C
+qualifies (in the first case C consists of non-squares and (n/ℓ) = (−1/ℓ)(−n/4 /ℓ) = −1; in the second C consists of
+squares and (−1/ℓ) = −1), so |S_ℓ| = |C| ≥ m/2. Good primes have density ½ among degree-1 primes (Chebotarev in
+K(i, √φ), [K(i,√φ):K] = 4). Primes with m ≤ y divide ∏_{j ≤ y} N(φ^j − 1), whose logarithm is ≪ y², so there are ≪ y² of
+them; with y = ℓ^{1/2}/log ℓ this is o(π(x)) in [x/2, x]. Hence a set 𝒫 of rational primes of positive lower density
+has |S_ℓ| ≥ ℓ^{1/2}/(2 log ℓ) (choose one good 𝔮 above each). The arithmetic large sieve (Montgomery) gives, for any set
+𝒩 ⊂ [1, X] avoiding S_ℓ mod every ℓ ∈ 𝒫, ℓ ≤ L: |𝒩| ≤ (X + L²)/J, J ≥ Σ_{ℓ ∈ 𝒫, ℓ ≤ L} |S_ℓ|/(ℓ − |S_ℓ|) ≫ L^{1/2}/log²L.
+The non-orbit-solved odd n avoid all S_ℓ; take L = X^{1/2}. ∎
+*Contrast with ES.* For ES the campaign proved that every CRT-admissible large-sieve bound saves at most
+C(log N)^{3/4}(log log N)^{3/4} (DISCOVERIES (A)19–20; ES slices forbid boundedly many classes per prime). The unit orbit
+forbids ≍ ord_𝔮(φ) ≥ ℓ^{1/2−o(1)} classes per prime, and the saving becomes a power. With |S_ℓ| ≍ ℓ (e.g. φ a primitive root
+for a positive proportion of ℓ, known under GRH) the same sieve gives ≪ X^{1/2+o(1)}: the large-sieve barrier X^{1/2}
+coincides with the size of the T1 set T. The squares *saturate* the large sieve.
+
+**Theorem 5.2 (exact-T1 failure set; CONDITIONAL on GRH, same input and compatibility check as T1_TEMPLATE Thm 3.1).**
+An odd n > 1 is orbit-solved iff n ∉ T.
+*Proof.* "Only if": Thm 1.3(a). "If": as in T1_TEMPLATE Thm 3.1 with p replaced by n: a degree-1 𝔮 with ℓ ≡ 1 (4),
+(n/ℓ) = −1 and φ a primitive root mod 𝔮 gives −n/(4φ) ∈ ⟨φ²⟩. Lenstra's theorem applies because K(√n) ≠ K (n ∉ T) and
+K(√n) ⊄ K(i, √φ) (as in O183's check; K(√φ)/ℚ is not abelian). ∎
+**EVIDENCE (`scripts/uo_phi_all.py 10000 6`).** Among all odd 3 ≤ n < 10⁴, exactly 71 are not orbit-solved with |k| ≤ 6,
+and they are exactly the 71 elements of T below 10⁴.
