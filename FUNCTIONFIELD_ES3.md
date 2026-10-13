@@ -100,3 +100,43 @@ T^{N+1}Z' − 1 = −T^{N+γ}(T − 1) − 1 is not divisible by 1 + cT = 1 − 
 *Use.* At x*_c a search over all j ≤ 4l − k for each l = deg L' ≤ L0 is a complete exclusion of every Case B
 family with deg L' ≤ L0, whatever N; by Lemma 2.1 it then also excludes every family of every level N with
 2N − k − 1 ≤ L0.
+
+## 3. Searches, controls, and what x*_c really is
+
+**Complete-range search at x*_c (EVIDENCE, computer search with independent cross-check).**
+`ff3_caseB 3 2 0 13 -1 1 c` (all monic L' with T ∤ L', deg L' ≤ 13; for each, every j ≤ 4 deg L' − 2, which is
+the complete range by Lemma 2.3; every γ ≤ j, both branches): **0 Case B families for c = 1 and c = 2**
+(logs `data/ff3_caseB_xstar_c1.txt`, `_c2.txt`). With Lemma 2.3 this excludes every Case B family with
+deg L' ≤ 13 at any level N, and by Lemma 2.1 every family of level N ≤ 8 (j ≤ 7). Earlier (I1): also 0 for
+deg L' ≤ 13, j ≤ 14. [l = 13 line: see log; filled in at the end of the run.]
+Cross-check: `scripts/ff3_check.py` (sympy factorisation of D, all monic divisors, no CRT shortcut) reproduces
+the family sets of ff3_caseB exactly on small ranges, at x*_c and at random slice points, and verifies the found
+families end to end (explicit irreducible P in the class, X, Y, Z monic with T²/P = 1/X + 1/Y + 1/Z and NC);
+log `data/ff3_check_log.txt`.
+
+**Control: x*_c is not visibly special (EVIDENCE; this settles R166 D6 in the negative direction).**
+Random slice points that agree with x*_1 to a given T-adic precision, searched with the same complete j-range
+and deg L' ≤ 9 (`/tmp` driver, 40 points each):
+| agreement with 1 + T | points with ≥ 1 family | mean number of families |
+|---|---|---|
+| mod T^4 | 7/40 | 0.35 |
+| mod T^6 | 1/40 | 0.025 |
+So a point that merely shares x*'s first six T-adic digits is expected to carry ≈ 0.03 Case B families of size
+deg L' ≤ 9. The empty search at x*_c is exactly what a generic point of its T⁶-cylinder shows. There is no sign
+of a structural obstruction at x*_c. Conjecture 0.2 looks like a *lottery statement with a convergent expected
+count*: the expected number of Case B families of level N at a point is ≈ poly(N)·3^{−N}, and x*_c has none
+of small level.
+
+**Assessment (the right target is O(3, T²) ≠ ∅, not x*_c).** By Lemma 2.1 each level N carries finitely many
+family-cylinders, each of Haar mass q^{−(N+1)} in the slice. If the number of level-N cylinders is
+≪ q^{(1−δ)N}, then inside a cylinder C around x*_c that no low-level family touches, the high-level families
+have total mass < mass(C); by compactness (König) some slice point is uncovered, so O(3, T²) ≠ ∅ and no finite
+linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. Case A families at
+generic slice points need the same bound.
+What the parametrisation of Lemma 2.1 gives (PROVED, elementary): with t := deg v, the family is determined by v
+and an ordered factorisation T^s + v = m'·w·C (all monic), so there are ≤ q^{t−1}·d₃(T^s + v) of them; and
+min(deg E, deg E') = s − t, so their cylinders number ≤ q^{s−t}. Hence the level-N, given-γ cylinders number
+≤ q^{(N+1+γ)/2 + o(N)}. This beats the needed q^{N} only for γ ≤ (1 − 2δ)N. **The whole difficulty sits in the
+regime γ ≈ j = N + 1 − k, i.e. a0 and b0 both divisible by almost the full power T^j**, where s ≈ 2N, deg v ≈ N
+and deg E ≈ N. A proof of Conjecture 0.2's conclusion needs a count of factorisations T^{2N} + v = m'wC with
+v | w + C, deg v ≈ N, beating q^{N} by q^{−δN}. (Heuristically the count is poly(N).)
