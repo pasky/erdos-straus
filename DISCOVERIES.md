@@ -642,6 +642,24 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
      * Fricke/Markoff: Vieta dynamics acts on the fibre and ES lives on the base.
    * Assessment: no route to ES. (W) is a published, T1-free, sign-free sub-problem with a clean exceptional set; it is the natural test bed for H-A ideas (pursued by spark relay O180).
 
+16. **Spark relay C on the Kudla dictionary: supersingular transfer and Type II as a two-endomorphism lattice condition (DIFF_DEEP.md + 8 memos BRAINSTORM/bsC_* (O176); review `reviews/diff-deep-review.md` (R176): no FATAL; 3 MAJOR (D1, D2, D4) and 8 minors, repaired by the reviewer).**
+   * Thm 2.1 (PROVED; exact brute force for all odd n ≤ 2001 by R176). For odd n, Type II tuples correspond bijectively to triples (f, f′, c) with n | ff′ − 1, 4c² | h and h | cG, where h = (ff′ − 1)/n and G = gcd(f+1, f′+1). Such a c exists iff 4h | gcd(h, G)².
+     * Geometric form (LD_p): some supersingular E/F̄_p carries trace-zero x, y ∈ End E with ⟨x, y⟩ = 1 satisfying this exact divisibility.
+     * The slice parameters disappear. This is a restatement of (I)4, not new arithmetic.
+     * The relaxed gloss "level G ≥ 2√h" is vacuous: it holds for non-certificate pairs at 437/438 primes (R176 D1).
+   * Supersingular transfer (PROVED). A configuration of Gram T exists on some supersingular curve iff Diff(T) = {p}.
+     * Hence "∃ curve" is genus-vacuous.
+     * "∀ curve" is false: Λ_{d,ab} is an Eichler order of level e and lies in exactly τ(e) maximal orders.
+   * Prop 2.3 (PROVED, absolute constant): the ray condition is free on one endomorphism. For every maximal order O of B_{p,∞}, every M and every involution x₀ mod M, some x ∈ O⁰ has x ≡ x₀ (mod MO) and nrd x ≪ M²p. The B2 cost moves to the exactness of the second endomorphism (B3 in geometry-of-numbers form; Assessment).
+   * Type II is commutative (PROVED; 27 788 tuples): (2ad + k)(2bd + k) = de(1 + 2ck) in ℤ[√−dn], k = √−dn. The "non-commutative" label of QUATERNION_ES §3 is presentational.
+   * bsC_parity_quadratic_only Prop 1 (PROVED as literally stated). For a quadratic Hecke character η and ℚ-rational data t, Diff-parity sees a rational prime only through one quadratic Dirichlet character.
+     * Cor 2: "f ≡ −1 (mod M)" is a Boolean function of quadratic characters ⟺ M | 24.
+     * The slogan "parity over any base carries only quadratic information" is FALSE for F-rational data (R176 D2: over ℚ(ζ₁₃)⁺ hermitian invariants detect 4th powers mod 13). This is the opening O177 pursued.
+     * EVIDENCE (reproduced): the 9 + 9 quadratic slices (cd | 6) miss 71 of the 9732 primes p ≡ 1 (24) < 10⁶.
+   * Further results.
+     * Galois-orbit obstruction for Heegner-point readings of Type II (PROVED relative to Siegel and the divisor bound; R176 D4 replaced a non-existent ET citation).
+     * Ibukiyama's canonical curve carries a Type II configuration for 144/267 primes p ≡ 1 (24) < 2·10⁴ (EVIDENCE, reproduced). There is no privileged-curve effect.
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

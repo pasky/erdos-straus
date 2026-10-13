@@ -24251,5 +24251,46 @@ def check_fi():
 
 check_fi()
 
+def check_fj():
+    # (fj) DIFF_DEEP (O176/R176): Thm 2.1 (Type II <-> (f,f') with 4h | gcd(h,G)^2, brute force, odd n <= 2001),
+    # the 71/9732 primes p = 1 (24) < 1e6 missed by the 9+9 quadratic slices, Type II commutative identity.
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+    r = subprocess.run([sys.executable, "review_dd_identities.py", "3001"], capture_output=True, text=True, timeout=900,
+                       env=env, cwd=sdir)
+    assert r.returncode == 0, ("DIFF_DEEP subprocess", r.stderr[-2000:])
+    assert "Type II tuples, odd n<=3001: 27788; failures (a) 0, (b) 0" in r.stdout and "(d) 0" in r.stdout, \
+        ("DIFF_DEEP R176 identities", r.stdout)
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "C checks skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            outs = {}
+            for name, arg in (("review_dd_thm21", 2001), ("review_dd_slices", 10 ** 6)):
+                exe = os.path.join(td, name)
+                r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, name + ".c"), "-lm"],
+                                   capture_output=True, text=True, timeout=120)
+                assert r.returncode == 0, ("DIFF_DEEP: compile failed", name, r.stderr[-1000:])
+                r = subprocess.run([exe, str(arg)], capture_output=True, text=True, timeout=300)
+                assert r.returncode == 0, ("DIFF_DEEP checker failed", name, r.stderr[-500:])
+                outs[name] = r.stdout
+            assert "total tuples 16054, mismatching n: 0, odd squares 21 (with solutions: 0)" in outs["review_dd_thm21"], \
+                ("DIFF_DEEP R176 Thm 2.1", outs["review_dd_thm21"])
+            assert "9732 primes, 71 uncovered by the 9+9 slices cd|6" in outs["review_dd_slices"], \
+                ("DIFF_DEEP R176 quadratic slices", outs["review_dd_slices"])
+            cmsg = "Thm 2.1 exact on 16054 tuples (odd n <= 2001); 9+9 quadratic slices miss 71/9732 primes = 1 (24) < 1e6"
+    print(f"== (fj) DIFF_DEEP R176: {cmsg}; Type II commutative identity on 27788 tuples; "
+          f"seconds = {perf_counter() - t0:.1f}")
+
+
+check_fj()
+
 
 print("\nall checks passed")
