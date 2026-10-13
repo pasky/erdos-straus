@@ -5,19 +5,23 @@ Main file: `STRONG_APPROX_ES.md`. Script: `scripts/sa_typeII_matrix.py`. ES is n
 **Results (labels as in the file).**
 1. Literature (§1, research subagent, not re-read by me except Pila): unconditional rank-4 SA = Sardari
    Thm 1.2, `N ≫ q^{6+ε}`, fixed form, odd N; exponent 4 conjectural (Sardari Conj 1.3; BKS covering 4/3
-   under Twisted Linnik). No disc-uniform version found.
+   under Twisted Linnik; BKS is IMRN, not Duke; Sardari Thm 1.6 needs λ primitive — R167 repair). No disc-uniform
+   version found.
 2. Thm 2.3 (PROVED rel. Pila, Astérisque 228 Thm A — statement checked in the PDF): bounded-degree piecewise
    rational recipes on `{Q_p = N_p} ∩ (λ + q ℤ⁴)` are SA-idle; only constant pieces matter (finite menu).
    Uses Lemma 2.2: the affine quaternary quadric contains no plane. Rank-4/p-dependent analogue of
    POINTWISE_TERNARY Thm 4.1.
 3. Prop 3.1 (PROVED): det-n matrices in any class mod q (gcd(n,q)=1) realise every factorisation of n;
-   Cor 3.2: factorisation recipes are idle.
-4. Thm 4.1 (PROVED rel. ET/Prop 2.3): bounded multiplicity + any SA range exponent > 1 ⇒ all data p^{o(1)};
+   Cor 3.2: factorisation recipes valid on the whole unboxed class are idle (R167 repair: for recipes valid only
+   on the boxed R_p this is UNPROVED; indefinite Eichler orders only; recipe must factor through g).
+4. Thm 4.1 (PROVED rel. ET/Prop 2.3, under (A) σ_p ≥ N_p^{−o(1)} — R167 repair: false without (A), e.g.
+   x²+y²+3z²+3w² at N = 9^k): bounded multiplicity + any SA range exponent > 1 ⇒ all data p^{o(1)};
    the ES-natural quaternary representations (QUATERNION_ES Lemma 3.1 norms 4a²d+p in a form of √D = dp)
    sit at expected count O(1).
 5. Matrix dictionary: Type II(p) ⟺ γ = [[f,4cd],[cp,f']] ∈ SL₂(ℤ), f ≡ f' ≡ −1 (mod γ₁₂); the solution set
    is a union of `U⁻`-double cosets, one per M = γ₁₂. EVIDENCE: control to n ≤ 6000 (primes yes, odd squares no).
-6. §7: Type II = positivity of weight-2 Eisenstein (rank-4 genus) coefficients σ(n; −1, g); weights are capped
+6. §7: Type II = positivity of the divisor sums σ(n; −1, g) (R167 repair: these are NOT rank-4 genus coefficients —
+   the Type II content is in the odd-character part, which has no weight-2 form; Cor 7.2 relabelled Assessment); weights are capped
    by the solution, so the polylog scale returns (Cor 7.2).
 
 **Honest verdict.** Every rank-4 SA route found collapses to B1/B2/B6 via the map back to ES solutions. The
@@ -26,6 +30,9 @@ fallback (scoped obstruction) is written; the "break-through" part produced no l
 recorded in §2). Weakest points
 for a hostile reviewer: Thm 2.3's use of σ_p ≥ N^{−o(1)} (anisotropic primes), Prop 5.1's "depends only on
 n mod L" (needs bounded `v_ℓ(N_n)`), and the §1 literature statements (subagent-verified only).
+*(R167 repair: all three confirmed by R167 and repaired in the file — (A) made an explicit hypothesis of Cor 2.4/
+Thm 4.1; Prop 5.1 restricted to m in suitable classes and to Type I/II-valued recipes; §1 citations fixed. Cor 4.2
+relabelled Assessment.)*
 
 **Sparks (not pursued).**
 * Uncapped fibre weights (FIBRED (E-a)): is there any rank-4 theta-type identity where an ES solution's
@@ -45,11 +52,15 @@ n mod L" (needs bounded `v_ℓ(N_n)`), and the §1 literature statements (subage
    kind exists for Type I/II certificate counts (which vanish at odd squares), whatever the weights. Proof:
    compare top monomials of `P(ℓ) = Σ C_k(1+ℓ^k+ℓ^{2k})` and `E(p) = Σ C_k(1+p^k)`.
    Scope: only the class p ≡ 1 (L) is claimed; for other square classes the induction is not clean (not needed).
+   *(R167 repair: Cor 9.2's extension to "every n-local quasi-polynomial object" was false (h(n) = n·μ(n)²) and is
+   restricted to divisor-sum combinations; Cor 9.3's Reading holds only for maps valid at all odd n, not for maps
+   valid only at primes.)*
 2. **EVIDENCE (`scripts/sa_exact_fit.py 10000`).** I tested 150 basis functions: σ_k at n, n+1, n+2 with
    characters mod 3, 4, 8, plus quasi-polynomials mod 24. None fits the cubic certificate counts
    `guv − u − v = n` (all / Type II / weighted by m; test residual ≈ mean). The Type II counts vanish on all odd
    squares ≤ 10⁴.
-3. **Double cosets (Lemma 10.1, Prop 10.2; PROVED).** Type II = `⊔_M U⁻γ_M U⁻ ∩ {γ₂₁ = cp}`. After
+3. **Double cosets (Lemma 10.1, Prop 10.2; PROVED — R167 repair: p ∤ M now proved; Prop 10.2's "what a level can
+   impose" reading and the §10 expected counts are Assessment/heuristic).** Type II = `⊔_M U⁻γ_M U⁻ ∩ {γ₂₁ = cp}`. After
    conjugating by diag(1,c), the only non-congruence condition is `c = γ₁₂/M | M/4`. One level can absorb it only
    for a fixed finite menu of c, and each M still needs its own level. The needed statement is the distribution
    of the modular hyperbola mod Mp in hyperbolic shells, each with expected count `log p/M`, against the

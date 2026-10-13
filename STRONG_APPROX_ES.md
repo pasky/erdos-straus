@@ -12,14 +12,17 @@ Labels as in DISCOVERIES.md.
   non-degenerate pieces carry `≪ f(p) (√N/q)^{3/2+ε}` points, so SA certifies ES only through a finite menu of
   constant pieces (Mordell–Schinzel / B2). Any p-dependence of `Q_p, N_p, q_p` is allowed.
 * Prop 3.1 (PROVED): congruence data mod q cannot see any factorisation of N coprime to q — every
-  factorisation type occurs in every class. Factorisation recipes are idle.
-* Thm 4.1 (PROVED rel. ET): bounded multiplicity forces all data to be `p^{o(1)}` in any SA range with
+  factorisation type occurs in every (unboxed) class. Factorisation recipes valid on the whole class are idle; for
+  recipes valid only on the boxed `R_p` this is UNPROVED (R167 repair, Cor 3.2).
+* Thm 4.1 (PROVED rel. ET, under (A) `σ_p ≥ N_p^{−o(1)}` — R167 repair: false without (A)): bounded multiplicity forces all data to be `p^{o(1)}` in any SA range with
   exponent `1+η`; even the optimal conjectured exponent leaves `M ≥ q^{1−o(1)}`. The ES-natural quaternary
   representations (QUATERNION_ES) have expected count O(1), i.e. η = 0.
 * §5 T1: for fixed data, local conditions at m² and at primes `p ≡ m²` coincide; the map fails at m²
-  (EVIDENCE: det-form Type II control to n ≤ 6000).
-* §6: six construction attempts (C1–C6) with the barrier hypothesis each tried to violate; §7: the rank-4
-  (weight-2 Eisenstein) dictionary for Type II and why fibre weights do not escape; §8 escape table.
+  (EVIDENCE: det-form Type II control to n ≤ 6000). R167 repair: for m in suitable classes (bounded `v_ℓ(N_{m²})`)
+  and for Type I/II-valued recipes.
+* §6: six construction attempts (C1–C6) with the barrier hypothesis each tried to violate; §7: the weight-2
+  divisor-sum dictionary for Type II (R167 repair: Type II lives in the odd-character part, which is *not* rank-4/
+  weight-2; only the trivially positive even part is) and why fibre weights do not escape; §8 escape table.
 
 **Checkpoint 2 (Part II, §§9–11).** Thm 9.1 / Cor 9.3 (PROVED, elementary): finite Eisenstein
 combinations, which cover every rank-4 one-class genus and Jacobi's `r₄`, are quasi-polynomials at primes. T1 at the
