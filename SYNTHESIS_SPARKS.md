@@ -159,3 +159,42 @@ the five HJ slices together. This is a repair of DE's scope statement, not a new
 Y-smooth block witness") is the Mordell-covering question for non-residue classes. POINTWISE_MORDELL13–17D
 studied it in depth: there is no finite covering of Σ_13 (open leaves at all computed depths), and sterile points are
 conjectured in Σ_17. So the 2.4 control rates are a finite-range effect, and I do not pursue the converse.
+
+## 3. Attack A2 (X6): a sign-layer (index-2) mechanism on the Farey ball — precise reduction (negative)
+
+*Idea (T1-safe by construction).* Five-slice ES(p) ⟺ `L_{≤3}(p) ⊄ QR_p` (DK Cor 4.6). If the ball lay in QR_p, then
+so would its multiplicative closure with the squares. So it would suffice to show that the closure has more than
+(p−1)/2 elements, or that it contains a known non-residue. At n = m² the Jacobi-(+1) set is all of (ℤ/n)^*, so the
+argument is vacuous there and B5 does not apply to it.
+
+**Prop 3.1 (PROVED, elementary; the reduction).** For p ≡ 1 (4) and 2 ≤ A < p with A odd:
+`A ∈ L₃(p) ⟺ c := (−p mod A) ≥ 2 and c | A + 1` (and then `p/A = [[⌈p/A⌉, (A+1)/c, c]]`), and for such A,
+`(A/p) = (−c/A)`, which depends only on (A mod 4, c mod 4), because A ≡ −1 (mod c).
+*Proof.* The HJ step gives `r(p/A) = 1 + r(A/c)`, and `r(A/c) = 2` ⟺ `A/c = [[x,y]] = (xy−1)/y` ⟺ `c = y | A+1`
+(with y ≥ 2, x ≥ 2). Reciprocity gives `(A/p) = (p/A) = (−c/A)`. Since A ≡ −1 (mod c), the symbol `(−c/A)` is fixed
+by A mod 4 and c mod 4 (quadratic reciprocity for the odd part of c, plus the 2-part via A mod 8, which is
+determined because c | A+1 fixes A mod 8 once v₂(c) ≥ 3; the finite case split is checked in DK §8.1). ∎
+(For even A use the same with the (2/p) = 1 convention when p ≡ 1 (8).)
+
+*Consequence (Assessment, precise).* Each candidate A carries a sign that is congruence data of the letters, and its
+membership in the ball is the event `p ≡ −c (mod A)` for one of the τ(A+1) divisors c. So "the closure contains a
+non-residue" needs a multiplicative relation mod p between ball elements and a known non-residue q. Such a relation
+is either a membership event of this kind (DK C6: A = q·k² ∈ L₃(p) forces t to be the unique residue −p⁻¹ mod qk²
+dividing qk²+1, a 1-in-qk²/τ lottery) or a factorisation of a shifted integer (B2). Product-set growth cannot
+replace it. The ball has only ≍ log²p elements, and a set of that size can lie in any index-2 subgroup; growth
+theorems (Bourgain–Glibichuk–Konyagin type) need |S| ≥ p^δ. *Bach's scale coincidence* (GRH: a QNR ≤ 2 log²p, the
+same size as the ball) is real but structural only in appearance. Bach's argument needs the full interval, through
+the explicit formula for L(s, χ_p). The ball is a union over A of congruence events and is not the support of an
+Euler product. **A2 reduces to B2/H-A; no sign-layer mechanism on the ball exists beyond DK's.**
+
+## 5. Internal consistency audit (X12; CERTIFIED as stated, `scripts/syn_consistency.py 3000`)
+
+* GI Prop 4.1's W(n) (Type I a = 1, divisor form over t ≡ 3 (4)) equals DK's interior count a₀(n) plus DK's v = 1
+  boundary words (4.2), for all 749 n ≡ 1 (4) ≤ 3000 (0 mismatches). So the two documents' Type I slice counts agree,
+  including GI's finiteness bound t ≤ n+2.
+* GI §4 census reproduced: (class +1, class −1) = (19, 13) at p = 10009 and (26, 14) at 10177.
+* INV2 Lemma 5.1 (for p ≡ 1 (8), the odd parts of A, B and uv all have Jacobi −1) holds on all 647 E(p)-points for
+  p ≡ 1 (8), p ≤ 3000. It is consistent with DK Thm 4.5, of which its A, B part is the 4 | A slice.
+* Scope inconsistency found (not a mathematical error): **DE Cor 7.4 understates its own barrier.** By §2 (an
+  instance of (H)3/(H)9), block witnesses fail at every Y-smooth slice whenever n_p > Y, giving scale n_p
+  (≫ log p·log₃p i.o.) instead of c₀ log p. Recommend a one-line cross-reference in DE §7.
