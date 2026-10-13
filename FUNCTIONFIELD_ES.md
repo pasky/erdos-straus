@@ -334,7 +334,7 @@ n₀ ≈ 1.5·(q log q)^{1/2}.
 **§7 predictions vs observed (A = T, exhaustive FAIL counts).**
 * q = 8: n = 4: 12, n = 5: 0, n = 6: 3, n = 7: 0, n = 8: 0. Last failure at n = 6, as predicted (6). The sequence
   is non-monotone.
-* q = 9: n = 5: 68, n = 6: 32, n = 7: 2/4.78M. n ≥ 8 was not run (time cap), so extinction is ≥ 8. **Prediction 7
+* q = 9: n = 5: 68, n = 6: 32, n = 7: 2/683280. n ≥ 8 was not run (time cap), so extinction is ≥ 8. **Prediction 7
   is already exceeded by at least 1.**
 * q = 11: n = 4: 305, n = 5: 433, n = 6: 319/295020. Extinction ≥ 7; prediction 8; undetermined.
 * q = 13: n = 4: 737, n = 5: 1333/74256 (n = 6 timed out). Extinction ≥ 6; prediction 9; undetermined.
