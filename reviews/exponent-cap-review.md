@@ -12,6 +12,8 @@ AGENT_REPORT_O200.md. From-scratch scripts: `scripts/review_xc_algebra.py`, `scr
 | Prop 1.3 (duality D·g = 4k²n + Q₁², both directions) | SOUND |
 | Cor 1.4 (overflow = inflated box) | SOUND-AFTER-REPAIRS (m2, m3) |
 | T1 in (Q₁, k) coordinates | SOUND |
+| Thm 2.1 (g ≤ 2nQ₁²(n + Q₁²), sharp in Q₁⁴) | SOUND (sharpness family needs m4) |
+| Cor 2.2 / "archimedean wall" consequences | SOUND as stated; SCOPE OVERCLAIMED elsewhere (M1) |
 
 ## Claim-by-claim
 
@@ -58,3 +60,33 @@ At n = m²: gcd(Q₁, k) = 1 (from Q₀ = gcd(Q, Q₀k)) and gcd(Q₁, m) = 1, s
 (Q₁ odd), all divisors ≡ 1 (4), contradicting D ≡ −Q₁² ≡ 3 (4) ✓. (For Q₁ even the shot cannot be ES^{(y,e)}
 anyway; and in fact n + 4Q² = m² + (2Q)² with gcd(m, 2Q) = 1 already has no divisor ≡ 3 (4), so there is no shot
 datum at all at a square — the (Q₁, k) reading is a restatement, not new information.)
+
+### Thm 2.1 — SOUND
+Re-derived both cases (notation of Prop 1.3, j ≥ 4).
+*Case kj < 2Q₁²:* then k < Q₁²/2 and, by (b) with D ≥ 1, g ≤ 4k²n + Q₁² < Q₁⁴n + Q₁² ✓.
+*Case kj ≥ 2Q₁²:* D ≥ kj/2; (a) gives Q₀ = (4kn + j)/(4D) ≤ 2n/j + 1/(2k) ≤ (n+1)/2 ✓; (b) gives
+g ≤ (4k²n + kj/2)/(kj/2) = 8kn/j + 1 ≤ 2kn + 1 ✓; g = 4Q₀k − 1 ≤ n + 4Q₀²Q₁² (g divides a positive number) gives
+k ≤ (n+1)/(4Q₀) + Q₀Q₁² ≤ (n+1)/4 + (n+1)Q₁²/2 ✓, so g ≤ n(n+1)(Q₁² + ½) + 1 ✓.
+Final inequality: 2n²Q₁² + 2nQ₁⁴ − n(n+1)(Q₁² + ½) − 1 is increasing in Q₁² and equals n²/2 + n/2 − 1 at Q₁ = 1 ✓.
+"In particular": g ≤ 4n·max(nQ₁², Q₁⁴) ✓. No hidden parameter dependence: all constants absolute.
+*Numerics (`review_xc_algebra.py`, 203 360 shots incl. even Q):* both case bounds hold separately (case split
+counts 42 008 / 49 819 on the n, Q ≤ 301 range), Q₀ ≤ (n+1)/2 in case 2, and max g/(nQ₁²(n + Q₁²)) = 0.5833 at
+(n, Q, g) = (3, 1, 7), as the author reports.
+*Sharpness family:* D = 3, j = 4, k = (Q₁² + 3)/4: D ≡ −Q₁² (mod 4k) ✓, Q₀ = (kn + 1)/3, g = (4k²n + Q₁²)/3 ✓
+(I checked g | n + 4Q², gcd(Q, (g+1)/4) = Q₀ for all Q₁ ≤ 61, n < 200), g/(nQ₁⁴) → 1/12 ✓. The worked example
+(n, Q, g) = (17, 200, 1119) is correct: x = 40, y = 4760, z = 119/25, ES^{(y,1)} but not ES (direct Def 1.1 test). Note
+Q = 200 is even — fine for a shot datum, but outside Prop 1.2's "Q odd" (harmless: den z = Q₁² holds for even Q too,
+see above).
+* (m4) The family's congruence is stated as "n ≡ −1/k (mod 3)"; since 3 ∤ Q₁ forces Q₁² ≡ 1, k ≡ 1 (mod 3), so this
+  is simply **n ≡ 2 (mod 3)**; sharpness is thus exhibited only for n ≡ 2 (mod 3) (fine for "the exponent 4 cannot
+  be lowered" as a uniform statement, but say so). Also the family must require **gcd(Q₁, n) = 1** to be a shot
+  datum: e.g. Q₁ = 5, n = 5, 35, 65 satisfy the stated conditions but gcd(Q, n) > 1 (59 such (Q₁, n) pairs in my
+  range). Repair: "Q₁ odd, 3 ∤ Q₁, n ≡ 2 (mod 3), gcd(n, Q₁) = 1".
+
+### Cor 2.2 and the "archimedean wall" — SOUND as stated, but its SCOPE is overclaimed (M1)
+Cor 2.2's displayed inequalities are immediate from Thm 2.1 ✓; for r ≥ 4n³ the min is the Q₁⁴ branch
+(√r/(2n) ≥ (r/4n)^{1/4} ⇔ r ≥ 4n³ ✓), so log Q₁ ≥ ¼ log(r/4n) and with Q₁ ≤ rad(Q₁)^e, e·log rad(Q₁) ≥ ¼ log(r/4n) ✓.
+**But finiteness needs Q₁ bounded, i.e. fixed S (bounded rad Q₁) *and* bounded e.** ES^{(y,e)} as defined in
+Def 1.1 restricts only the *exponents* of den z, not its radical, and the second clause of Cor 2.2 ("the same
+bound holds for every S … with P := rad(Q₁) ≤ g") gives no finiteness at all (P ≤ g is circular). See M1 below:
+several summary statements drop the "fixed S" qualifier.
