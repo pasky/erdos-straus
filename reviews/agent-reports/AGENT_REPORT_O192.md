@@ -6,10 +6,11 @@ Branch side-agent/synthesis-two. Main file `SYNTHESIS_SPARKS2.md` (§§0–4). S
 ## SHARP:
 1. **The T1-bearing ES variant becomes elementary once the mute set may grow (§2, Prop 2.2, PROVED from Dirichlet
    only).** ES^□ (third denominator allowed to be an odd square prime to n) holds at every odd non-square n via ONE
-   prime r ≡ 3 (mod 4) with (n/r) = −1 and Q < 2r; the T1 (Lemma 2.1) is unchanged. Under GRH S = {primes ≪ log²n}
-   suffices. Consequence for steering: all of (J)23's analytic content (BV + linear sieve + Gupta–Murty) is the
-   restriction to a FIXED finite S, and "a T1-bearing variant is provable" carries no information about ES. The
-   difficulty is never the T1; it is the size of the shot orbit, and for ES that orbit is one point (S = ∅).
+   prime r ≡ 3 (mod 4) with (n/r) = −1 (for n = p prime, p > 2r: Q < 2r; for composite n only existence); the T1
+   (Lemma 2.1) is unchanged. For primes under GRH S = {primes ≪ log²p} suffices (weaker than seed (ii)'s log p). Consequence for steering: all of (J)23's analytic content (BV + linear sieve + Gupta–Murty) is the
+   restriction to a FIXED finite S, and "a T1-bearing variant is provable" is by itself weak evidence about ES
+   (Assessment). In these mechanisms the T1 step is one character value; my reading is that ES's difficulty is the
+   size of the shot orbit (one point for S = ∅), within the orbit family.
    EVIDENCE: all 78 496 primes ≤ 10⁶ solved and checked exactly, max r(p) = 131; odd squares give no shot.
 2. **An explicit fixed-modulus Type II shot family for the order-3 TES over ℤ[ω] (§3, Prop 3.1, PROVED):**
    g | n + 18Q³ with g ≡ 10 + ω (mod 18) gives x = (ωn + E)/9, y = n(g + ω²)/9, z = nx(g + ω²)/(9Q³); cubes are
@@ -20,8 +21,8 @@ Branch side-agent/synthesis-two. Main file `SYNTHESIS_SPARKS2.md` (§§0–4). S
    1536 2-primary split primes with N ≤ 6000 solved exactly, Type II shape, inv_π = 2 (= TWISTED_T1's census value),
    mute invariants 0 on 2908 places; cubes: 0 class-g₀ divisors in 267 shots. So the "uniform principle" (seed (iii))
    holds at orders 2 and 3: anchor + wild partner + m-th-power mute places ⇒ elementary with infinitely many mute
-   places, Artin problem with finitely many, finite search with none.
-3. **Ledger fixes (§4):** (J)23 cites "(A)19" for the large-sieve cap; it is (D)19/(D)22, conditional on KARY2 Thm 5.1
+   places, Artin problem with finitely many; with none, ES is a finite search ((J)25) while TES finiteness is open.
+3. **Ledger fixes (§4):** (J)23 cites "(A)19" (nonexistent) for the large-sieve cap; it is (D)19/(D)22/(D)24, conditional on KARY2 Thm 5.1
    (UNIT_ORBIT_ES repair m8 not propagated). "W" means three different things: the signed slice count W(n) of
    (J)10/(J)14, the sign-free Lorenzini property (W) of (J)15/(J)20, and W(p) of (H)19/(H)22.
 
@@ -36,7 +37,18 @@ Branch side-agent/synthesis-two. Main file `SYNTHESIS_SPARKS2.md` (§§0–4). S
 * Seeds: (i) dead (no map ES^{(S)} → ES beyond Q | (r+1)/4, i.e. O186 Prop 6.1 / FMS Cor 3.2). (ii) answered: yes
   with S ≪ log²p (GRH), and the conversion is still B2. (iii) done (§3). (iv) answered by O188 Lemma 4.1.
   (v) shots are Heegner forms [r, 4Q, ·] of discriminant −4n; ES cube points are forms [h, 4cd, de] with "A ≡ −1 mod B";
-  genus-only (dead). (vi) longer words give no ES certificates (length 3 is forced).
+  genus-only (dead). (vi) not settled: the five SQ₅ slices are length-3 words; other longer-word encodings unchecked.
+
+## Self-review (deep reviewer subagent) and repairs
+No FATAL; Prop 3.1, Lemma 3.2, Thm 3.3, Cor 3.4, Thm 3.5 judged SOUND (identities and tame symbols re-derived, scripts
+re-run, solutions spot-checked independently). MAJOR, all repaired in place (marked "Self-review repair"):
+(1) Prop 2.2's bound Q < 2r is false for composite n (n = 825 needs Q = 17): now only for primes p > 2r(p).
+(2) seed (ii) answered only in the weaker GRH form S ≪ log²p. (3) X6 overstated "length 3 is forced for all ES";
+now scoped to the five SQ₅ slices and Type II formal words. (4) global readings ("no information", "entire difficulty",
+"TES finite search") restored to Assessments / "within the orbit family"; TES finiteness marked OPEN.
+Minor: Thm 3.5 proof now uses L(∛18) so that constancy of (18/·)₃ on the class is not needed; (J)23 citation diagnosis
+corrected ((A)19 does not exist; cite (D)19, (D)22, (D)24); X11 wording; S ⊆ S_p; box size ≤ τ₃; scope of the cube
+control (one associate per split prime); scripts now assert their reported checks.
 
 ## Caveats for the reviewer
 * Prop 2.2 is deliberately easy; its value is the recalibration. Check that UNIT_ORBIT_ES Lemma 1.1 / Cor 1.2 really

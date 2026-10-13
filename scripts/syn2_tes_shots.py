@@ -110,6 +110,7 @@ def main():
     for l, r in CP:
         c = E.cubic_class(rat(18), r)
         vals[c] = vals.get(c, 0) + 1
+    assert set(vals) == {2}, vals
     print(f"(1) prime elements r ≡ 10+w (18), N(r) ≤ {max(3000, X)}: {len(CP)}; cubic class of 18 mod r: {vals}", flush=True)
     if "2" not in parts:
         X2 = 0
@@ -163,6 +164,7 @@ def main():
                     invmute[inv[pl]] = invmute.get(inv[pl], 0) + 1
                 nsol += 1
                 maxl, maxQ = max(maxl, lr), max(maxQ, Q)
+    assert bad == 0 and shapes == nsol and set(invpi) <= {2} and set(invmute) <= {0}
     print(flush=True); print(f"(2) 2-primary split primes pi, 7 ≤ N(pi) ≤ {X}: {nsol} solved (equation exact, 2-primary), {bad} unsolved;"
           f" Type II shape at pi: {shapes}; max N(r) = {maxl}, max Q = {maxQ};"
           f" inv_pi values {invpi}; mute-place invariants {invmute}")
@@ -186,7 +188,8 @@ def main():
                     if in_class(E.mul(u, d)):
                         hits += 1
             tested += 1
-    print(f"(3) cubes pi^3, N(pi) ≤ {Ncube}, Q ≤ 39: {tested} shots, divisors in class g0: {hits}")
+    assert hits == 0
+    print(f"(3) cubes (one 2-primary associate above one prime per split l) pi^3, N(pi) ≤ {Ncube}, Q ≤ 39: {tested} shots, divisors in class g0: {hits}")
 
     # (4) plain TES shot pi + 18
     fire, tot, fails = 0, 0, []

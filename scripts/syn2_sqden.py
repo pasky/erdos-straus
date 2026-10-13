@@ -5,6 +5,8 @@ ES^□(n): 4/n = 1/x + 1/y + 1/z, x, y ∈ Z_{>0}, z ∈ Q_{>0} whose denominato
 Mechanism: r = least prime ≡ 3 (mod 4) with Jacobi (n/r) = -1 (n ≡ 1 mod 4); Q odd, 0 < Q < 2r, 4Q² ≡ -n (mod r);
 UNIT_ORBIT_ES Prop 2.1 with g = r.  For n ≡ 3 (mod 4): Q = 1, g = n + 4.
 Checks every solution exactly (Fractions), Type II shape at every prime of n, and the T1 control on odd squares.
+(solve() handles primes; for composite n it tries one CRT lift of Q only and is not a general implementation of
+Prop 2.2's existence proof.)
 Usage: PYTHONPATH=scripts uv run python scripts/syn2_sqden.py N
 """
 import sys
@@ -100,6 +102,8 @@ def main():
         res = solve(p, rprimes)
         assert res is not None, p
         Q, g, r = res
+        if r is not None and p > 2 * r:
+            assert Q < 2 * r, (p, Q, r)
         x, y, z = build(p, Q, g)
         check(p, x, y, z)
         cnt += 1
