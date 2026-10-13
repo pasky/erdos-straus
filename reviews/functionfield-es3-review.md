@@ -21,3 +21,23 @@ From-scratch scripts: `scripts/review_ff3_*.py` (own F_p[T] arithmetic, pure Pyt
 * Lemma 2.3: re-derived (i)–(iv). Degree of (****): deg(T^{N+1}ZZ') = N+1+z+z' > max(z, z'+1) since N ≥ 1.
   z + z' = γ + l + deg g' − N ≤ 2l − 1 (γ ≤ N − 1); N ≤ max(z, z'+1) + |z − z'|; hence N ≤ 4l − 1 − 3 min(z, z').
 * Lemma 3.1: re-derived (needs γ + 1 ≤ j − 1, i.e. γ ≤ j − 2; D unchanged; cylinder mod T^{k+j−1} ⊇ mod T^{k+j}).
+
+## Computations (from scratch)
+
+* `scripts/review_ff3_poly.py`: own F_p[T] arithmetic (lists; trial-division factorisation; irreducible counts over
+  F_3 for degree 1..8 = 3, 3, 8, 18, 48, 116, 312, 810, correct).
+* `scripts/review_ff3_search.py`: independent Case B search at a slice point. Different algorithm from
+  `ff3_caseB.c`. ρ_N = L'·h_N − 1 is read off one power series h = (1 − w)/L' per (L', branch). Every monic divisor
+  g' of L' (found by factoring L') and every γ ≤ j is then tested directly via T^{N+1+γ}L'g' ≡ −1 (mod ρ). There is
+  no modular inverse and no solving for g'. Mode `brute`: factor D completely for every (L', j, γ, g' | L') and test
+  every monic divisor E. This mode needs neither Lemma 1.2 nor a CRT step.
+* `scripts/review_ff3_cross.py` part 1 (`data/review_ff3_cross1_log.txt`): 19 *planted* slice points (each lies
+  in the cylinder of a random Case B family; p = 3, 5, 7; k = 2, 3). Fast and brute family sets agree exactly
+  (110 families). This confirms Lemma 1.2 empirically: there are no families outside {E = ρ} ∪ {E' = ρ'}.
+* Part 2 (`data/review_ff3_cross2_log.txt`): 84 families at 50 random slice points (p = 3, k = 2, 3; p = 5). There are
+  0 violations of Lemma 2.1(c) (l ≤ N + γ − 2 ≤ 2N − k − 1, N + γ ≥ 3). There are also 0 violations of Lemma 3.1:
+  each family with γ ≤ j − 2 has its (j − 1, γ + 1) partner in the set.
+* Part 3 (`data/review_ff3_cross3_log.txt`): x*_c for p = 3 (l ≤ 5), p = 5, 7 (l ≤ 3, every c), and k = 2, 3. The j-range
+  was extended 6–8 beyond the Lemma 2.3 window so that a family violating the window would show up. **0 families
+  in every case**, so this test of Lemma 2.3 is vacuous (no family exists at x*_c in these ranges for q = 5, 7
+  either). Lemma 2.3 therefore rests on the proof, which R173 re-derived line by line (above).
