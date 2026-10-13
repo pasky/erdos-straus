@@ -1,0 +1,3 @@
+(11, 2) e= 1 N(pi)= 103 B= 600 wide= 0 0 sols {} 0s
+(-9, -14) e= 1 N(pi)= 151 B= 600 wide= 0 0 sols {} 0s
+(11, 2) e= 1 N(pi)= 103 B= 60 wide= 20000 0 sols {} 20s
