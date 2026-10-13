@@ -71,3 +71,17 @@ sufficient: among the 267 primes `p ≡ 1 (24)`, `p ≤ 20000`, 15 have no ES-fo
 `ke − 4gb² = p`, while `e ≥ 4bg − p` and `e ≤ (p+4gb²)/(4gb−1)` force `bg < p`). ∎ So the windmill question for Type II is a
 question about forms in the class groups `Cl(−4gp)`, g ≥ 1 (the Heegner discriminants of (I)4), and an "ES-form" is the
 non-genus condition `B | k+1` on (class, represented value k, root).
+
+## 3. Legendre/SQUFOF midpoints carry no ES bias (EVIDENCE, negative)
+
+The forced object in Legendre's argument is the second ambiguous form of the principal cycle of √N
+(the "midpoint"; for even period it yields a divisor `g = gcd(N, Q_{l/2−1})` — Legendre's / Shanks' factor).
+`scripts/wr_legendre.py 20000 40` tests it as an ES certificate on all 267 primes `p ≡ 1 (24)`, `p ≤ 20000`:
+
+| slice | trials | midpoint is a certificate | some divisor pair is a certificate | primes with no success |
+|---|---|---|---|---|
+| F1: `N = tp+1`, t odd ≤ 39, `A ≡ −1 (t)`, `4 | A` | 5073 | 113 (2.2%) | 740 (14.6%) | mid 175 / any 1 |
+| F2: `N = (p+e)/4`, e ≤ 159, `e | g + N/g` | 10680 | 178 (1.7%) | 789 (7.4%) | mid 138 / any 16 |
+
+The midpoint succeeds at roughly (any-rate)/(number of factor pairs): no forcing, no bias. **Assessment:**
+in these discriminants the forced ambiguous form is a lottery ticket like any other divisor.
