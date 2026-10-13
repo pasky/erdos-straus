@@ -7,7 +7,7 @@
 been checked through 2026-09-28 (`LITERATURE_2026.md`). Every recent claimed
 proof has an identifiable gap.
 
-**Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)36; tasks O172–O202, reviews R172–R201; headline claims had two independent hostile reviews ((J)20, (J)22, (J)23, (J)26); the others one): ES is not solved.**
+**Spark-relay wave: T1 as a family of obstructions, provable T1-bearing variants, and why ES itself stays finite (2026-10-13; ledger (J)13–(J)38; tasks O172–O203, reviews R172–R203; headline claims had two independent hostile reviews ((J)20, (J)22, (J)23, (J)26); the others one): ES is not solved.**
 * *Standing rule (new).* Every sharp finding immediately spawned a fresh "spark relay" brainstorm agent, which is how the wave chained: Kudla → supersingular/LD_p → degree-2 accident → Drinfeld → twisted T1 → template → unit orbits → fixed-modulus shots.
 * *T1 understood structurally.*
   * T1 is Kudla's Diff-parity, i.e. Hilbert reciprocity, for the incoherent ternary collection; the arithmetic is ET Prop 1.6 ((J)13).
@@ -32,7 +32,7 @@ proof has an identifiable gap.
   * ES sign = Wu square / Zolotarev / theta multiplier dictionaries ((J)14, (J)15).
 * *Second half of the wave ((J)29–(J)36).*
   * **Function fields: ONE mute place makes the ES variant a theorem at every P, unconditionally and effectively** (Bilharz/Weil; (J)30). This is true even where ES_q itself has no finite covering, so a global reciprocity argument can prove a statement that has no finite covering by its own families.
-  * **The gap between theorem and ES is an exponent cap** ((J)34). The self-mute ES^{(y)} is PROVED, and a shot is an ES solution iff Q | (r+1)/4 instead of rad(Q) | (r+1)/4. For a fixed mute set, bounded caps are finite searches (archimedean wall). With a growing set, cap 1 becomes an integral-point problem on Markoff-type cubic surfaces ((J)36; O202 is studying it).
+  * **The gap between theorem and ES is an exponent cap** ((J)34). The self-mute ES^{(y)} is PROVED, and a shot is an ES solution iff Q | (r+1)/4 instead of rad(Q) | (r+1)/4. For a fixed mute set, bounded caps are finite searches (archimedean wall). With a growing set, cap 1 becomes an integral-point problem on Markoff-type cubic surfaces ((J)36). There ES^{[2]} is a continued-fraction condition, with ES at CF depth 3 (μ > 2n; (J)37). On V_n the B = 1 slot is a single explicit element, so composition cannot create ES points at fixed μ ((J)38).
   * Model-specific input ((J)31–(J)33, (J)35).
     * TES is a finite search with 16 certified non-Brauer–Manin failures. The 8/n analogue was already known (Pomerance–Weingartner; Bright–Loughran Rem 1.10).
     * **m = 4 is the unique numerator whose five HJ slices are exactly a quadratic-character fibre** ((J)32).
