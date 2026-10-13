@@ -22,12 +22,14 @@ T = [[f,1],[1,f′]] > 0 with p | ff′ − 1 and 4h | gcd(h, G)² (the arithmet
 O⁰. ∎ So no reduction-theoretic or mass-formula statement about the genus can add information: the Siegel mass
 Σ_O r(O⁰, T)/|O^×| is a positive local-density product for **every** certificate-shaped T (Diff = {p} ⇔ all local
 densities positive), and the genus-level problem is *exactly* the existence of the integer matrix T — the slice lottery.
-**Prop 2 (a fixed order; PROVED relative to Duke–Schulze-Pillot, ineffective).** A binary T ↪ O⁰ (primitively) iff the
-orthogonal complement gives a vector v ∈ (O⁰)^# with Q(v) ≍ det T (up to the lattice discriminant ≍ p²); by Duke–
-Schulze-Pillot, for det T ≥ p^{C} (C absolute, ineffective via Siegel) every T in the spinor genus is represented
-by every O⁰ in that spinor genus. Hence "∀ O" fails only for small h (bsC_supersingular_transfer Prop 3, O176 §2.5's
-≈ 50% canonical-curve hit rate) and becomes automatic for certificates with h ≥ p^{C−1}. Neither regime contains an
-existence mechanism: small h is a fixed-lattice lottery, large h is again the arithmetic existence of T.
+**Remark 2 (a fixed order is a lottery at every determinant; Assessment, with a corrected first draft).** A primitive
+binary T ↪ O⁰ corresponds to a primitive v ∈ (O⁰)^# (orthogonal complement) with Q(v) determined by det T, *and*
+the isometry class of v^⊥ must be T. Duke–Schulze-Pillot controls only the first (representation of the number);
+the second is a "mixed" equidistribution problem (Aka–Einsiedler–Wieser, *Joint equidistribution of CM points*, Ann.
+Math. 195 (2022), and its sublattice versions): the ≍ h(−4 det T)·(local factors) vectors v spread their complements
+over ≍ h(−4 det T) binary classes, so a *given* T is represented O(1) times on average by a fixed O⁰. [First draft
+claimed "every T is represented by every O⁰ for det T ≥ p^C" via Duke–Schulze-Pillot — **false**: DSP represents the
+number, not the binary form.] So "∀ O" and "a fixed O" are lotteries at all determinants (consistent with O176 §2.5).
 **Prop 3 (Minkowski/Siegel-lemma constructions miss by f^{3/2}; = DIFF_DEEP Prop 2.3–2.4).** Successive minima of
 the 6-dimensional lattice of pairs (x, y) ≡ (x₀, y₀) (mod M O⁰) give pairs with level M and nrd ≪ M²p, but the
 *exact* condition ⟨x, y⟩ = 1 plus det T ≤ pM²/4 is a codimension-2 exactness condition on a 6-dim lattice — the scale
@@ -45,5 +47,4 @@ barrier B3 in lattice form (gap ≍ f^{3/2}).
 
 ## Assessment
 PROVED reduction: **(LD_p) has no geometric content at the level of the genus** (Prop 1); at a fixed order it is
-decided by ternary representation theory, automatic only at large determinant (Prop 2, ineffective), a lottery at
-small determinant. Direction (b) collapses to the H-A core. Promise 1.
+a lottery at every determinant (Remark 2, joint-equidistribution heuristics). Direction (b) collapses to the H-A core. Promise 1.
