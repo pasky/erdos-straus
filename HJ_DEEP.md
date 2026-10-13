@@ -95,3 +95,47 @@ it contains 105, 366, 510, 1806, 1905, … and M − 1.
 *Reading.* (W) behaves like a "Type-II-shape Erdős–Straus for a free numerator". It has a clean finite exceptional set
 and no local obstruction except the moving-modulus one of Lemma 3.2. I do not know whether (W) is in the literature
 (not searched). It is the natural first target for any H-A technology, since T1 does not apply to it.
+
+## 4. Construction log (barrier as steering wheel)
+**Prop 4.1 (exact reduction of (S); PROVED, elementary).** Fix n odd and t ≥ 2. The words with middle t are the factorisations
+tn + 1 = X·Y with X ≡ Y ≡ −1 (mod t) and X, Y ≥ 2t − 1 (X = A). Give each prime q | tn + 1 the sign σ_n(q) := (q/n). Then
+sign(word) = Π_{q^k ‖ X} σ_n(q)^k, and the product over all prime factors of tn + 1 is ((tn+1)/n) = 1. So the complementary
+divisor Y has the same sign, which is the reversal symmetry. Hence
+**(S) fails at n ⟺ for every t, every admissible divisor X of tn + 1 lies in the kernel of the character σ_n on the divisor group.**
+At n = m², σ_n ≡ 1 (T1). At non-squares σ_n is a non-trivial character, but the admissible divisors form a sparse set,
+whose structure is the moving-modulus class condition X ≡ −1 (mod t). This is the SYNTHESIS_SPARKS skeleton (sign layer
+= genus character on prime factors; class layer = individual divisor in a class) in its sharpest form.
+
+Attempts. Each names the hypothesis it tried to violate, then the outcome.
+* **C1. Radius growth (violates "fixed finite slice set").** Let the HJ radius R grow. Pigeonhole gives
+  λ(p) ≤ (6/π²) ln²p unconditionally (bsA_farey_lnr_pigeonhole Thm 3). But there is no ES meaning for R ≥ 4: the divisor form is
+  *exactly* length 3 (Lemma 1.1). **Dead (B3).**
+* **C2. Multiplier growth (violates "fixed numerator").** Allow cp (Prop 2.1). The sign is now automatic (Prop 2.2), but the
+  class condition becomes 4c | t with a moving modulus. The union over c is the full Type II count ≍ log³p. **Reduces to H-A.**
+* **C3. Sign-flipping transfers (violates "symmetries preserve the sign").** Scaling is the only flip (DK 8.3). At fixed p it is a
+  reparametrisation (Lemma 2.3), rotations preserve the sign (DK 8.2), and Vieta moves act on the wrong space (bsA_fricke_vieta F2).
+  **Dead (PROVED as stated).**
+* **C4. Genus/lattice moves (violates "abelian data only").** By bsA_selling_sandpile D3 and Thm W, the sign is the Wu class.
+  Kneser neighbours at primes q ∤ n preserve all local data at n, hence the Wu class. Passing from G⁺ to G⁻ needs a change at the
+  primes dividing n, which is the sign layer again. **Dead.**
+* **C5. Injections and parity (H-B).** There is no sign-reversing injection L₃⁺ → L₃⁻ (1 385 counterexamples, §3). The product of
+  signs over L₃(p) is +1 at primes (reversal pairs). Parity laws of sub-counts were already screened by DK C5 (820 sub-counts,
+  none odd for all p ≡ 1 (24)). **No mechanism.**
+* **C6. Prove the sign-free half (W) first (violates "T1 blocks every route": T1 does not apply to (W)).** Explicit shapes give the
+  following. u = 2 works unless n + 2 is prime or a power of 2. t = 2 works unless 2n + 1 is prime. u = 3 works unless n + 3 has no
+  proper divisor ≡ 2 (mod 3) that is ≥ 5, and so on. A finite list of shapes would have to exclude infinitely many prime
+  constellations (n + 2, 2n + 1, … all prime). That is not provable unconditionally and, by Lemma 3.2, not provable by congruences.
+  **(W) needs H-A too, but it is the cleanest T1-free test bed** for a moving-modulus argument.
+
+## 5. Verdict (Assessment) and exact scope
+* **PROVED:** Lemma 1.1 (master identity), Prop 2.1 (Type II = multiplier words), Prop 2.2 (sign law (A/p) = −(−1/p), the HJ form
+  of (I)7), Lemma 2.3 (scaling = reparametrisation), Lemma 3.2 (no finite covering for (W)), Prop 4.1 (exact reduction of (S)).
+  From the memos: Thm W (sign = Wu-square, r ≤ 5), M1 (HJ length = popcount ∘ ?), Thm 3 (Farey least non-residue ≪ ln²p),
+  D1–D3 (Selling/sandpile/genus), F1–F2 (Fricke cubic, no Vieta route).
+* **EVIDENCE:** (W) with exceptional set E_W, and (S), both for all n < 10⁸. Hence interior SQ₅ for n < 10⁸ (n ≠ 5, 105).
+* **CONJECTURE:** (W); (S). Together they are equivalent to interior SQ₅ on n ≡ 1 (4), which implies ES for primes p ≡ 1 (4).
+* **Assessment.** The HJ reformulation is now as clean as I can make it: **one shape (length 3, equivalently t/n has a Type-II-shape
+  expansion) and one sign (the Wu/Jacobi class)**. The two halves are separately simple: (W) is T1-free with finitely many
+  exceptions, and (S) is "T1 is the only obstruction". Their *conjunction* is ES's class layer, and every mechanism I tried
+  sees only one half at a time. No route to ES. The most useful outputs for the campaign are the (W)/(S) split (which isolates a
+  T1-free sub-problem with a sharp exceptional set) and the 10⁸ verification.
