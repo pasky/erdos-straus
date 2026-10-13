@@ -284,3 +284,20 @@ integral automorphisms. Label it Assessment or prove it. (b) The closing dichoto
 mechanism is either uniform in n (killed by T1) or uses an auxiliary non-residue (group level only, B2)" is a
 barrier Assessment, but it sits under "PROVED (elementary)". Separate the labels. The T1 argument is valid only for
 maps that send integral points to integral points for every n, including squares. Say so.
+
+## Memo bsB_salie_duality — dictionary SOUND; negative result honestly labelled
+
+*Dictionary re-derived.* det γ = ff' − 4c²dp = 1, and conjugation puts the 4 into the lower-left entry:
+γ̃ = [[f, c²d], [4p, f']] ∈ Γ₀(4). (With the usual D γ D⁻¹ convention the conjugating matrix is diag(½, 2), not
+diag(2, ½); this is cosmetic.) f' ≡ −1 (mod 4cd) gives f' ≡ 3 (4), ε_{f'}⁻¹ = −i, and (4p/f') = (p/f') = (f'/p).
+**Proof that (f'/p) = −1 on every certificate** (the memo only cites (I)7): 4c²dp ≡ −1 (mod f') gives
+(p/f') = (−d/f') = −(d/f'). For odd d, f' ≡ −1 (mod 4d) gives (d/f') = (−1/d)(−1)^{(d−1)/2} = 1. If 2 | d then
+8 | 4cd, so (2/f') = 1. Hence (f'/p) = −1 and the multiplier is +i. SOUND. Independent check
+(`scripts/review_sl_salie.py 400`): **472 ordered certificates** at primes p ≡ 1 (4) < 400, the author's count;
+0 violations. The Salié formula as quoted was verified numerically for all prime c ≤ 23 and all units a, b (max
+error 10⁻¹³).
+*Construction attempt* (items 1–3): an Assessment of non-invariance under Γ_∞, i.e. the moving modulus 4cd. It is
+correctly argued and correctly labelled (promise 1/5). The closing "residual question … B1 (Thm M/C) says no" is
+again a barrier citation, not a proof. MINOR: label it Assessment. No other defects. (Remark, not a defect: my
+enumeration caps c < 2p. The memo does not state a bound on c for Type II certificates at fixed p. Finiteness
+follows from ES solution finiteness, but an explicit bound would make the "472" count self-certifying.)
