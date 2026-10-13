@@ -1,0 +1,1349 @@
+                                                            THE CRITICAL POLYNOMIAL OF A GRAPH
+arXiv:2311.06367v1 [math.NT] 10 Nov 2023
+
+
+
+
+                                                                                       DINO LORENZINI
+
+                                                                                        14 November 2023
+
+                                                  Abstract. Let G be a connected graph on n vertices with adjacency matrix AG . As-
+                                                  sociated to G is a polynomial dG (x1 , . . . , xn ) of degree n in n variables, obtained as the
+                                                  determinant of the matrix MG (x1 , . . . , xn ), where MG = Diag(x1 , . . . , xn ) − AG . We
+                                                  investigate in this article the set VdG (r) of non-negative values taken by this polynomial
+                                                  when x1 , . . . , xn ≥ r ≥ 1. We show that VdG (1) = Z≥0 . We show that for a large class of
+                                                  graphs one also has VdG (2) = Z≥0 . When VdG (2) 6= Z≥0 , we show that for many graphs
+                                                  VdG (2) is dense in Z≥0 . We give numerical evidence that in many cases, the complement
+                                                  of VdG (2) in Z≥0 might in fact be finite. As a byproduct of our results, we show that
+                                                  every graph can be endowed with an arithmetical structure whose associated group is
+                                                  trivial.
+
+
+
+                                                                                      1. Introduction
+                                              Given any integer r, we let as usual Z≥r denote the set of integers greater than or equal
+                                           to r. For any polynomial f ∈ Z[x1 , . . . , xn ] and integer r ≥ 1, consider the following set
+                                           of non-negative values
+                                                                  Vf (r) := {f (a1 , . . . , an ) | a1 , . . . , an ∈ Z≥r } ∩ Z≥0 .
+                                           Given a polynomial f , we do not know of any general results that quantify the difference
+                                           between Vf (1) and Vf (2), and more generally, provide insights on the decreasing chain of
+                                           sets Vf (1) ⊇ Vf (2) ⊇ Vf (3) ⊇ . . . . It is clear that Vf (1) ⊃ Vf (2) can be strictly decreasing.
+                                           As the example below of the path A2 on two vertices shows, the complement of Vf (2) in
+                                           Vf (1) can be infinite. In this article, inspired by questions in algebraic geometry, we
+                                           describe the sets Vf (1) ⊇ Vf (2) for a large class of polynomials f associated to graphs,
+                                           and give evidence that in many cases, the complement of Vf (2) in Vf (1) is finite for such
+                                           polynomials.
+                                              Let G denote a connected undirected graph on n vertices v1 , . . . , vn , with no self-loops.
+                                           Let AG denote the associated symmetric adjacency matrix. Let MG denote the matrix
+                                           with coefficients in the polynomial ring Z[x1 , . . . , xn ] defined as:
+                                                                              MG := Diag(x1 , . . . , xn ) − AG .
+                                           Let
+                                                                dG (x1 , . . . , xn ) := determinant(MG ) ∈ Z[x1 , . . . , xn ].
+                                              2010 Mathematics Subject Classification. 05C50, 11C20.
+                                              Key words and phrases. Graph; Critical polynomial; Cyclic critical group; Sandpile group; Jacobian
+                                           group; Arithmetical structure; Dynkin diagram; Positive definite matrix.
+                                                                                                 1
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                       2
+
+The matrix MG is considered in [14], where the principal ideal of Z[x1 , . . . , xn ] generated
+by dG (x1 , . . . , xn ) is called the n-th critical ideal of the graph G. We will call dG the critical
+polynomial of G. Since the adjacency matrix A′G associated with a different ordering of the
+vertices of G is of the form A′G = P −1 AG P for some permutation matrix P , the polynomial
+dG is indeed independent of the choice of the ordering of the vertices of G. The polynomial
+dG is also considered in [19], Proposition 1, where it is shown that two simple graphs G
+and G′ on n vertices are isomorphic if and only if there is an ordering of the vertices
+of G and of the vertices of G′ such that the associated polynomials dG (x1 , . . . , xn ) and
+dG′ (x1 , . . . , xn ) are equal.
+   When G is a graph, it is well-known that the set VdG (1) always contains the value 0.
+Indeed, recall that the degree di of the vertex vi in a graph G is the number of edges of G
+attached to vi . The Laplacian of the graph is obtained by evaluating MG at xi = di for
+i = 1, . . . , n. The Laplacian of G has determinant 0 since the columns of the Laplacian
+add to zero, and so are linearly dependent. We show in this article in Theorem 1.1 (i)
+that the set VdG (1) can be completely described, and is always equal to Z≥0 .
+   Motivated by geometric questions recalled in 1.4, we also investigate in this article the
+properties of the set VdG (2). Consider for instance the example of the path A2 on two
+vertices. In this case,
+                                                
+                                       x1 −1
+                            MA2 =                   and dA2 (x1 , x2 ) = x1 x2 − 1.
+                                       −1 x2
+It is clear that VdA2 (1) = Z≥0 . The complement of VdA2 (2) in VdA2 (1) is infinite since
+                               VdA2 (2) = Z≥1 \ {p − 1 | p prime}.
+   To state our results on VdG (2), we first recall the following concepts. Let a1 , . . . , an ∈
+Z>0 . Let us denote by MG (a1 , . . . , an ) the integer matrix obtained from MG by evaluating
+MG at xi = ai , i = 1, . . . , n. Such matrices play a considerable role in geometry, where
+they might be in addition endowed with a positivity property. Recall that a symmetric
+integer matrix B ∈ Mn (Z) is positive semi-definite (resp. positive definite) if for every
+non-zero vector X ∈ Zn , we have t XBX ≥ 0 (resp. t XBX > 0). When matrices of the
+form MG (a1 , . . . , an ) are positive definite, they are M-matrices ([33], Definition).
+   In some geometric contexts, such as when MG (a1 , . . . , an ) is obtained as the intersection
+matrix associated with a finite set of curves on a surface, the following finite abelian group
+ΦMG is of interest. Let M ∈ Mn (Z). Then
+(a) If det(M) 6= 0, the discriminant group ΦM := Zn /Im(M) has order | det(M)|.
+(b) More generally, when rank(M) = ρ < n, then Zn /Im(M) is isomorphic to the product
+    of Zn−ρ by a finite abelian group that we will denote ΦM . In other words, ΦM is
+    isomorphic to the torsion subgroup of Zn /Im(M).
+  For instance, given a connected graph G, consider its Laplacian L = MG (d1 , . . . , dn ).
+The kernel of L is generated by the vector tR = (1, . . . , 1) and the group ΦL can be
+identified with the group Ker(tR)/Im(L). Its order is the number of spanning trees of the
+graph G. The group ΦL is found under various names in the literature (see for instance
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                      3
+
+the introduction to [27], and [25], [4], [5]); in this article, we will call ΦL the critical group
+of the graph.
+    The pair (L, R) attached to G can be generalized as follows. An arithmetical structure
+on G (see [25], Theorem 1.4) is a pair (M, R) such that M = MG (a1 , . . . , an ) for some
+a1 , . . . , an ∈ Z≥1 and such that tR = (r1 , . . . , rn ) is an integer vector with positive coeffi-
+cients and gcd(r1 , . . . , rn ) = 1 satisfying MR = 0. It turns out that then M is positive
+semi-definite of rank n − 1. The associated group ΦM is isomorphic to Ker(tR)/Im(M).
+Such arithmetical structures arise in algebraic geometry, and much is known about the
+associated group ΦM (see, e.g., [26]).
+    Define now a subset VG (r) ⊆ VdG (r) as follows: u ∈ Z≥0 belongs to VG (r) if and only if
+there exists a1 , . . . , an ∈ Z≥r such that:
+   (i) u = det(MG (a1 , . . . , an )).
+  (ii) The matrix MG (a1 , . . . , an ) is positive definite when det(MG ) 6= 0, and positive
+         semi-definite of rank n − 1 when det(MG ) = 0.
+ (iii) The associated group ΦMG (a1 ,...,an ) is cyclic.
+    Recall that a graph H is an induced subgraph of G if it can be obtained by removing
+from G a non-empty set of vertices of G along with all the edges of G attached to any of
+these vertices. We are now ready to state our main theorems.
+Theorem 1.1. (proved in 2.9) Let G be a connected graph. Then
+(a) VG (1) = Z≥0 .
+(b) Suppose that G contains an induced connected subgraph H such that 1 ∈ VH (2). Then
+      (i) VG (2) contains Z>0 .
+     (ii) If G is obtained from H through a sequence of induced subgraphs H = H1 ⊂
+          H2 ⊂ Hk = G such that for each i = 1, . . . , k − 1, Hi+1 is constructed from Hi
+          by adding exactly one vertex of degree at least 2, then VG (2) = Z≥0 .
+   As noted above, we always have 0 ∈ VdG (1) because the determinant of the Laplacian
+L of G is 0. On the other hand, the critical group ΦL associated with L is not always
+cyclic. The question of determining the proportion of connected graphs having cyclic
+critical groups was raised for instance in [27], section 4, and progress on this question for
+random graphs can be found in [35]. Part (a) of Theorem 1.1 implies that 0 ∈ VG (1), and
+in particular that on any graph G, there always exists an arithmetical structure (M, R)
+whose associated group ΦM is cyclic (in fact, even trivial, see 2.10).
+   Recall that a graph is simple if there is at most one edge between any two vertices of
+G. The smallest simple graphs H with 1 ∈ VH (2) both have 4 vertices: the extended
+cycle C3+ (see 3.1) and the cone C(A3 ) on the path A3 on 3 vertices (see 3.5). Part (b) of
+Theorem 1.1 allows us to prove the following general theorem.
+Theorem 1.2. (proved in 3.7) Let G be a connected simple graph. Then VG (2) ⊃ Z>0 ,
+except possibly if G is a tree, a cycle Cn , a complete bipartite graph K(p, q), a complete
+graph Kn , n ≤ 13, an extended cycle Cn+ , n ≤ 7, or the cone C(A3 ).
+  Whether the value 1 belongs to VG (2) when G is a tree was investigated in [8, 9, 10, 11,
+12]. Corollary 11 in [10] gives a list of trees H such that if a tree G of diameter at least
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                      4
+
+4 contains such H, then 1 ∈ VG (2). The smallest such trees have 8 vertices, starting with
+the Dynkin diagram E8 .
+   Recall that the star Sn on n ≥ 4 vertices is a tree with a vertex of degree n − 1. It is
+shown in [9], Proposition 6, that 1 ∈ / VSn (2) when n ≤ 59. No integer n ≥ 4 is known
+such that 1 ∈ VSn (2).
+   Denote by Sn+ the graph obtained by adjoining a single vertex to the star Sn and linking
+it with a single edge to a vertex of degree 1 in Sn . The family Sn+ , n ≥ 4, is another
+family of graphs where none of its members are known to have 1 ∈ VSn+ (2).
+   When Part (b) of Theorem 1.1 does not apply, the set VG (2) seems very difficult to
+describe precisely. An example where the complement of VG (2) in VdG (2) is infinite is
+given in 2.5. Theorem 4.2 can often be used to prove that, at least, VdG (2) is dense in
+Z≥0 (the definition of dense in this context is recalled in 4.1). We state below an explicit
+consequence of Theorem 4.2 which complements Theorem 1.2. It would be interesting to
+determine whether VdG (2) is always dense in Z≥0 .
+Theorem 1.3. (proved in 4.4) Let G be one of the following graphs:
+(a) G is a Dynkin diagram, an extended Dynkin diagram, a star Sn , or an extended star
+    Sn+ .
+(b) G is a cycle Cn or an extended cycle Cn+ .
+(c) G is the cone C(A3 ), the complete graph Kn , the complete bipartite graph K(2, n) or
+    K(3, n).
+Then the set VdG (2) is dense in Z≥0 .
+   The only examples of graphs where the complement of VdG (2) in Z≥0 is known to be
+infinite are the banana graphs, the graphs on two vertices linked by e ≥ 1 edges. Thus it
+is also natural to wonder whether the complement of VdG (2) in Z≥0 is not only of density
+0 but in fact is finite for most graphs.
+   Our study was motivated by considerations from algebraic geometry. In the next re-
+mark, we give a brief exposition of how the results of this article pertain to this field of
+research.
+Remark 1.4. Matrices of the form MG (a1 , . . . , an ) with a1 , . . . , an ≥ 1 arise in algebraic
+geometry when considering a finite collection of curves {Ci , i = 1, . . . , n}, on a non-
+singular surface S. Attached to each pair of distinct curves Ci and Cj is an intersection
+number (Ci ·Cj ) ≥ 0 which counts (with multiplicities) how many times Ci and Cj intersect
+(see, e.g., [24], 9.1). The dual graph G attached to the configuration of curves is the graph
+on n vertices v1 , . . . , vn such that when i 6= j, vi is linked to vj by (Ci · Cj ) edges.
+   Each curve Ci on S has a self-intersection number (Ci · Ci ), and these numbers are
+known to be strictly negative when the configuration ∪ni=1 Ci occurs as the exceptional
+divisor of the resolution of a singularity. The intersection matrix ((Ci · Cj ))1≤i,j≤n is then
+of the form −MG (a1 , . . . , an ) with a1 , . . . , an ≥ 1, and is known to be negative-definite. It
+is often the case that a minimal resolution of singularities leads to a matrix MG (a1 , . . . , an )
+with a1 , . . . , an ≥ 2, which explains our interest in understanding the possible values of
+the determinants of such matrices when a1 , . . . , an ≥ 2.
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                      5
+
+   Matrices MG (a1 , . . . , an ) which are only positive semi-definite arise from configuration
+of curves associated with a degeneration of a non-singular curve, and in this case minimal
+special fibers of degenerating curves generally also lead to matrices MG (a1 , . . . , an ) with
+a1 , . . . , an ≥ 2.
+   The collection of curves {Ci , i = 1, . . . , n} attached to the resolution of a surface sin-
+gularity, and its associated intersection matrix, play an important role in understanding
+the singularity. It is still an open problem to completely characterize the matrices that
+can occur as intersection matrices associated to Z/pZ-quotient surface singularities in
+prime characteristic p. In previous works on such singularities, the author showed that
+the intersection matrix M associated with the resolution of such quotient singularity can
+only have determinant equal to a power of p, and that the finite group ΦM associated to
+M is killed by p (see [29], 3.18, and [30], 6.3, 7.1, for examples). The results of this article
+indicate that matrices MG (a1 , . . . , an ) of prime determinant p are plentiful.
+   Motivated by the problem of classifying resolutions of cyclic quotient singularities,
+it is natural to wonder, given a graph G, whether, for all but finitely many primes p,
+there always exists a set of diagonal elements a1 , . . . , an ≥ 2 (depending on p) such that
+MG (a1 , . . . , an ) has determinant p. The answer to this question would be positive if it
+were possible to show, more generally, that the complement of the set VG (2) in Z≥0 is
+finite.
+
+Remark 1.5. It is a classical problem in number theory to study the integer values taken
+by an integer polynomial f (x1 , . . . , xn ). When G is a graph, the polynomial dG (x1 , . . . , xn )
+is a polynomial of degree n in n variables consisting only of squarefree monomials. A fa-
+mous polynomial in number theory, f := xn1 +· · ·+xnn , is also of degree n in n variables but
+is indeed as far as having squarefree monomials as possible. The problem of determining
+the set Vf (1) in this case is related to the classical Waring’s problem. When n = 2, the set
+Vf (1) has positive density in Z≥0 , but does not contain any integer that is congruent to
+3 modulo 4. When n = 3, the set Vf (1) is infinite, but does not contain any integer that
+is congruent to 4 or 5 modulo 9. It is an open problem in this case to determine whether
+the set Vf (1) has positive density (see [16] for positive evidence towards this question).
+   Let us mention here another analogous question in number theory where the set Vg (1)
+in this case misses only finitely many values, but where it is still an open question to
+completely determine Vg (1). The polynomial g := xy + yz + zx consists only of squarefree
+monomials. When i > 0 is any integer, the equation xy + yz + zx = i always has solutions
+in positive integers except for at most 19 values of i ([6] Theorem 1.1). The first 18 such
+values are known explicitly and are in the interval [1, 462]. If the Generalized Riemann
+Hypothesis is assumed, the complement of the set Vg (1) in Z>0 consists exactly of these
+18 known values.
+
+
+   This article exhibits many graphs G where the set VdG (2) misses some positive val-
+ues, but computations nevertheless suggest that it contains all positive values except
+for finitely many (see, e.g., 3.1, 5.4, 6.2). It would be interesting to determine if these
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                        6
+
+polynomials dG (x1 , . . . , xn ) indeed have this property. The easiest example of such poly-
+nomial is dA3 (x, y, z) = xyz − x − z, associated with the path A3 on 3 vertices. Com-
+putations suggest that the complement of the set VA3 (2) in Z≥0 is contained in the set
+[0, 1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510] (see Proposition 6.3).
+
+                                    2. First Main Theorem
+   Let M ∈ Mn (Z). We will use the following standard notation. Let Mij denote the
+submatrix obtained by removing from M its i-th row and its j-th column. Let M ∗
+denote the adjoint of M, with MM ∗ = (M ∗ )M = det(M)Idn . By definition, (M ∗ )ij =
+(−1)i+j det(Mji ). The matrix M is a positive matrix if all the entries of M are positive.
+   The group ΦM is isomorphic by definition to the torsion subgroup of Zn /Im(M). If
+0 < rank(M) = ρ < n, then there exist two matrices P and Q in GLn (Z) such that P MQ
+is a diagonal matrix of the form Diag(0, . . . , 0, f1, . . . , fρ ), with f1 | f2 | · · · | fρ . This
+diagonal
+Qρ        matrix is called the Smith Normal Form of M. The group ΦM is isomorphic to
+   i=1 Z/fi Z, and thus ΦM is cyclic if and only if ρ = 1 or fρ−1 = 1.
+
+2.1. Let G be a connected graph on n vertices. The matrices M = MG (a1 , . . . , an ) ∈
+Mn (Z) with a1 , . . . , an ≥ 1 have several very useful properties when they are positive
+semi-definite.
+(a) Assume that det(M) 6= 0 and that M is positive definite. Then the inverse M −1 of
+    M is a positive matrix.
+(b) Assume that det(M) = 0 and that M is positive semi-definite of rank n − 1. Then
+    there exists a unique vector R in Zn>0 with coprime coefficients and such that MR = 0.
+    We have M ∗ = |ΦM |R(tR).
+(c) Assume that MG (a1 , . . . , an ) is as in (a) or (b). For any non-zero vector (b1 , . . . , bn ) ∈
+    Zn≥0 , the matrix MG (a1 + b1 , . . . , an + bn ) is positive definite, and
+                      det MG (a1 , . . . , an ) < det MG (a1 + b1 , . . . , an + bn ).
+  Property (a) is F15, page 180 of [33]. Property (b) follows from Proposition 1.1 and
+Theorem 1.4 in [25]. Property (c) is A3, page 179 of [33], when MG (a1 , . . . , an ) is positive
+definite. If it is only positive semi-definite, show first that MG (a1 , . . . , ai + 1, . . . , an ) is
+definite positive for any i, and apply A3 to these n positive definite matrices.
+Remark 2.2. When M = MG (a1 , . . . , an ) is positive definite as in (a), there exists a
+unique positive vector R minimal with the property that MR is positive ([3], page 132).
+This vector is called the fundamental vector of the matrix M. The quantity (t R)MR
+is an important numerical invariant associated with M. When M = MG (a1 , . . . , an ) is
+positive semi-definite of rank n − 1, numerical invariants associated with the arithmetical
+structure (M, R) described in (b) are discussed in [28], 2.1 and 4.1.
+Remark 2.3. Let w ∈ Z≥0 . It is known that there are only finitely many points
+(a1 , . . . , an ) ∈ Zn≥1 such that MG (a1 , . . . , an ) is positive semi-definite and has determi-
+nant w. This statement is proved in [23], Theorem 1, when w > 0 and the matrix is
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                     7
+
+positive definite, and in [25], 1.6, when w = 0 and the matrix is positive semi-definite of
+rank n − 1.
+   Counting explicitly the number of distinct arithmetical structures on certain graphs
+is addressed for instance in [2], [7], and [15]. Counting the number of solutions to
+dG (x1 , . . . , xn ) = 1 when G is the path An is found in [23].
+  Our next proposition shows that the existence of an arithmetical structure on G implies
+that infinitely many values in VdG (1) are known explicitly. We denote by κ the number of
+spanning trees of a graph G.
+Proposition 2.4. Let G be a connected graph on n vertices.
+(a) Suppose that every vertex in G has degree at least d. Then VdG (d) contains all positive
+    multiples of κ. Moreover, for each ℓ > 0, there exists a positive definite matrix
+    MG (a1 , . . . , an ) with ai ≥ d such that dG (a1 , . . . , an ) = ℓκ.
+(b) More generally, let (M, R) be any arithmetical structure on G. Write tR = (r1 , . . . , rn )
+    with gcd(r1 , . . . , rn ) = 1, M = Diag(a1 , . . . , an )−AG , and let ΦM denote the associated
+    group. Let amin denote the minimum of the integers a1 , . . . , an . Then VdG (amin )
+    contains every integer of the form ℓ|ΦM |ri2 for any integer ℓ ≥ 0 and any i = 1, . . . , n.
+Proof. (a) Recall that MG (d1 , d2 , . . . , dn ) is the Laplacian of G. It is well-known that
+the determinant of any principal submatrix of size n − 1 of the Laplacian is equal to κ.
+Consider the matrix MG (t, d2 , . . . , dn ) ∈ Z[t]. Its determinant is κ(t − d1 ). Indeed, it is
+clear that this determinant is a linear polynomial in t. The coefficient of t is κ, and t = d1
+must be a root of the polynomial.
+   For every value ℓ + d1 > d1 ≥ d, we have MG (ℓ + d1 , d2 , . . . , dn ) positive definite since
+MG (d1 , d2, . . . , dn ) is positive semi-definite of rank n − 1 (2.1 (c)).
+   (b) Recall that for an arithmetical structure (M, R), we have M ∗ = |Φ|R(tR) (2.1
+(b)). Consider the matrix MG (t, a2 , . . . , an ). Its determinant is |ΦM |r12 (t − a1 ). For every
+value ℓ + a1 > a1 ≥ amin , we have MG (a1 + ℓ, a2 , . . . , an ) positive definite of determinant
+|ΦM |r12 ℓ.                                                                                       
+Remark 2.5. Let MG (a1 , . . . , an ) be a positive definite matrix with ai ≥ 2 such that
+dG (a1 , . . . , an ) = ℓκ, as in Proposition 2.4 (a) with d = 2. It is not always possible to find
+such matrix such that its associated group ΦMG is cyclic. Indeed, in the case of the cycle
+C2 on n = 2 vertices, which has κ = 2, the matrix
+                                                              
+                                                       x −2
+                                       MC2 (x, y) =
+                                                       −2 y
+has determinant xy − 4. When xy − 4 = 2ℓ, and 2ℓ + 4 is a power of 2 and x, y ≥ 2,
+this equation has only solutions with both x and y even. In this case, ℓ is even, and the
+associated group Φ = Z/2Z × Z/ℓZ is not cyclic.
+   In particular, G = C2 is an example where the complement of VG (2) in VdG (2) is infinite,
+since this complement contains every integer of the form 2ℓ with ℓ = 2m − 2.
+Corollary 2.6. Let G be a tree. Then VdG (1) = Z≥0 .
+                               THE CRITICAL POLYNOMIAL OF A GRAPH                                 8
+
+Proof. The corollary follows immediately from Proposition 2.4 (a) since κ = 1 when G is
+a tree.                                                                              
+  The following lemma is needed in the proof of our next proposition.
+Lemma 2.7. Let N denote a n−1×n−1 square matrix with coefficients in a commutative
+ring A. Let M denote the following n × n matrix in A[t, t2 , . . . , tn ]:
+                                       t t2 · · · tn
+                                                    
+                                    t2              
+                              M =  ...
+                                                     .
+                                             N       
+                                      tn
+Let t T := (t2 , . . . , tn ). Then
+                                      det(M) = det(N)t − (t T )(N ∗ )T.
+Proof. Recall that by definition, (N ∗ )ij = (−1)i+j det(Nji ). The lemma follows by ex-
+panding det(M) using the first row of M.                                              
+  Given a vertex v of G, let Gv denote the subgraph of G obtained by removing from G
+the vertex v and all the edges attached to v.
+Proposition 2.8. Let G be a connected graph. Let v be a vertex such that Gv is connected
+and 1 ∈ VGv (r). Then
+(a) VG (r) ⊇ Z>0 when r = 1 or 2. In general, VG (r) ⊇ Z≥r−1 .
+(b) There exists on G an arithmetical structure such that the associated group Φ is trivial
+    and, hence, cyclic. In particular, 0 ∈ VG (1).
+(c) If the degree of v is at least 2 and 1 ∈ VGv (2), then 0 ∈ VG (2). More precisely,
+    there exists on G an arithmetical structure (M, R) with M = MG (a1 , . . . , an ) and
+    a1 , . . . , an ≥ 2 such that the associated group ΦM is trivial.
+Proof. Without loss of generality, we may assume that v = v1 . By hypothesis we can
+find a2 , . . . , an ≥ r such that the matrix N := MGv (a2 , . . . , an ) has determinant 1 and is
+positive definite. Consider then the determinant of the matrix MG (t, a2 , . . . , an ), which
+has N in its lower right corner. Since N is positive definite by hypothesis, we find that N ∗
+is a positive matrix (use 2.1 (a)). Hence, Lemma 2.7 applied to MG (t, a2 , . . . , an ) shows
+that
+                                      det MG (t, a2 , . . . , an ) = t − a
+with a > 0.
+   (a) Let a1 > a. Since N is positive definite and det MG (a1 , a2 , . . . , an ) > 0, we find that
+the matrix MG (a1 , a2 , . . . , an ) is positive definite. In addition, its associated group Φ is
+cyclic. Indeed, MG (a1 , a2 , . . . , an ) contains the square submatrix N of size n − 1 × n − 1,
+which has determinant 1. It is well-known that the group Φ is cyclic if and only if the
+greatest common divisor of all the minors of size n − 1 is equal to 1.
+   Suppose that r ≥ a + 1. Then VG (r) ⊇ Z≥r−a . Suppose now that r ≤ a + 1. Then
+VG (r) ⊇ Z≥1 . This proves (a).
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                      9
+
+  (b) Consider now the matrix M := MG (a, a2 , . . . , an ), of determinant 0. We claim that
+this matrix is positive semi-definite. We prove this claim by exhibiting a positive vector
+R ∈ Zn , of the form tR = (1,t R0 ), with MR = 0. Recall that the matrix M has the form
+                                        a −s2 · · · −sn
+                                                              
+                                     −s2                      
+                            M =     ...                      ,
+                                                 N             
+                                         −sn
+for some non-negative integers s2 , . . . , sn . Since the graph G is connected, one at least of
+the integers s2 , . . . , sn must be positive. Write tS = (s2 , . . . , sn ). Since det(N) = 1, we can
+find an integer vector R0 such that −S + NR0 = 0. Since S is a non-negative vector and
+N ∗ is a positive matrix, we find that R0 = N ∗ S is a positive vector. Lemma 2.7 shows
+that det(N)a = (tS)N ∗ S. It follows that MR = 0, as desired. Now suppose that X ∈ Zn .
+To show that t XMX ≥ 0, we note that it is always possible to write X = X0 + αR, with
+X0 ∈ Zn of the form tX0 = (0,t X1 ) and α ∈ Z. Therefore, tXMX = tX1 NX1 ≥ 0 since
+N is positive definite by construction.
+   Since det(N) = 1 and the first coefficient of R is 1, we find that the group ΦM associated
+with M is trivial (use 2.1 (b)) and, hence, cyclic. This shows that 0 ∈ VG (1).
+   (c) Consider again the structure (M, R) introduced in (b). It is clear that when 1 ∈
+VGv (2) and a ≥ 2, then 0 ∈ VG (2). The integer a is obtained as a = (tS)N ∗ S. The
+hypothesis that the degree of v is at least 2 implies that if v is linked to only one vertex
+w of Gv , then the number of edges between v and w is at least 2. Thus, since the matrix
+N ∗ is positive, we must have a = (tS)N ∗ S ≥ 2.                                                     
+2.9. Proof of Theorem 1.1.
+   In Part (a), the graph G contains a connected induced subgraph H on two vertices
+linked by a ≥ 1 edges. The polynomial dH (x, y) = xy − a2 takes all non-negative values
+when x, y ≥ 1. In particular, the value 1 is taken with x = a2 + 1 and y = 1 and so,
+1 ∈ VH (1).
+   Let now H be any connected induced subgraph of G. Let w1 , . . . , wk denote the vertices
+of G that do not belong to H. Since G is connected, at least one of the vertices w1 , . . . , wk
+is connected by an edge with a vertex of H. Up to renumbering w1 , . . . , wk , we may assume
+that w1 is connected by an edge with a vertex of H. Let H1 denote the connected induced
+subgraph of G on the vertices of H and w1 . Repeating this procedure, we can assume
+that we have a chain of connected induced subgraphs H ⊂ H1 ⊂ · · · ⊂ Hk = G, where
+Hj is the (connected) induced subgraph of G on the vertices of Hj−1 and wj .
+   Assume that 1 ∈ VH (r), with r = 1 or 2. Then Proposition 2.8 (a) can be applied
+successively to each pair H ⊂ H1 , H1 ⊂ H2 , . . . , Hk−2 ⊂ Hk−1 to show that 1 ∈ VHk−1 (r).
+   When 1 ∈ VHk−1 (1), we use Proposition 2.8 (a) and (b) to conclude that VHk (1) = Z≥0 .
+This proves Theorem 1.1 (a).
+   When 1 ∈ VHk−1 (2), we use Proposition 2.8 (a) to conclude that VHk (2) ⊇ Z>0 . We
+then use Proposition 2.8 (c) to conclude the proof of Theorem 1.1 (b).                        
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                     10
+
+Corollary 2.10. Let G be a connected graph. Then there exists on G an arithmetical
+structure (M, R) such that its associated group ΦM is trivial.
+Proof. In the proof of Theorem 1.1 (a) above in 2.9, we find that the graph G is such
+that 1 ∈ VHk−1 (1). Proposition 2.8 (b) applied to Hk−1 ⊂ G immediately implies the
+corollary.                                                                         
+Remark 2.11. While 0 ∈ VG (1), it may happen that 0 ∈              / VG (2). Indeed, 0 ∈
+                                                                                       / VdG (2) when
+G is a Dynkin diagram (Proposition 5.3). Three additional such examples (the extended
+cycles Cn+ for n = 2, 3, 5) are found in Remark 3.4, and it would be interesting to classify
+the graphs where 0 ∈      / VdG (2).
+   It is also possible to have 0 ∈ VdG (2) but 0 ∈       / VG (2). Indeed, this happens for instance
+for the extended Dynkin diagram D̃n with n even (5.1): The graph D̃n has only one
+arithmetical structure, with matrix MD˜n (2, . . . , 2), and its associated group Φ is Z/2Z ×
+Z/2Z when n is even.
+   One may wonder whether it is possible to have 0 ∈ VG (2), but no arithmetical structure
+MG (a1 , . . . , an ) with a1 , . . . , an ≥ 2 such that the associated group Φ is trivial. One such
+example might be C6+ (see Remark 3.4). Another example might be the bipartite graph
+K(4, 4).
+Remark 2.12. Modified appropriately, the proof of Theorem 1.1 does produce some
+information on the set VG (3) when 1 ∈ VH (3). We do not investigate the properties of
+the sets VG (r) any further in this article when r ≥ 3.
+                                 3. Second Main Theorem
+  Let us denote by Cn+ the graph on n + 1 vertices obtained by attaching a single vertex
+using a single edge to the cycle Cn on n vertices. Such graph is sometimes called a pan,
+and is a type of tadpole graph.
+Example 3.1. Let G = Cn+ . In the table below, we provide a set L which computations
+indicate contains the complement of VdG (2) in Z≥0 .
+                          n L
+                          2 [0] (see 6.7, graph A3 (2, 1))
+                          3 [0, 2, 14, 20, 26, 38, 44, 68, 254]
+                          4 [2, 3, 7, 10, 19, 39, 79, 154 ]
+                          5 [0, 2, 8, 12, 18 ]
+                          6 empty
+                          7 [6, 66, 94 ]
+  We note here the fact that 1 ∈ VG (2). Indeed, with the choice of labeling used below,
+we find that det MG (t, 2, . . . , 2) = (n + 1)t − (3n + 2):
+                                             t   2    2
+
+
+                                            2    2
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                       11
+
+Thus, choosing t = 3 produces 1 ∈ VdG (2) when G = Cn+ . To show that 1 ∈ VG (2), it
+suffices to note that MG (3, 2, . . . , 2) is positive definite. This follows from the fact that
+removing the first row and first column of the matrix MG leaves a submatrix equal to the
+Dynkin diagram An . This submatrix is known to be positive definite. Hence, Silvester’s
+criterion shows that MG (3, 2, . . . , 2) is positive definite.
+Proposition 3.2. Let G = Cn+ . Then 1 ∈ VG (2), and if n ≥ 8, then VG (2) = Z≥0 .
+Proof. We showed in Example 3.1 that 1 ∈ VG (2) when n ≤ 7. The tree E8
+
+                                        v                                       w
+
+
+has 1 ∈ VE8 (2) (see 5.3). The graph G = C8+ is obtained by attaching a new vertex v0 to
+both v and w with one edge. To get all graphs Cn+ with n > 8, we first lengthen the chain
+at v, so that the resulting graph has n − 1 vertices, and then add a vertex v0 as above.
+Theorem 1.1 (b) then implies that VG (2) ⊇ Z>0 . To prove that 0 ∈ VG (2), we use the
+following lemma.                                                                       
+Lemma 3.3. Let G = Cn+ with n ≥ 7. Then G has the following arithmetical structure
+(M, R). There are k ≥ 0 white vertices in the graphs below. The vertices of the left graph
+are adorned with the corresponding coefficient of the diagonal of M, and the vertices of
+the right graph are adorned with the corresponding coefficient of R:
+                  2    2    2       2       3       2       2       4       3           2   1   1
+
+
+                       2    2       3       2       2               3       2           1   1   1
+
+The associated group Φ is cyclic of order 2k + 5.
+Proof. We leave it to the reader to verify that (M, R) is an arithmetical structure. Con-
+sider the submatrix M ′ of M obtained by removing the row and column corresponding to
+the unique vertex v of degree 3. Its determinant is 16(2k+5). This shows that |Φ| = 2k+5
+since the coefficient of R corresponding to v is 4 and M ∗ = |Φ|R(tR) (see 2.1 (b)).
+   To show that Φ is cyclic, it suffices to compute the determinant of a well-chosen n − 2 ×
+n − 2 submatrix, and show that it is coprime to |Φ|. For this, one can use the submatrix
+of M ′ where the row and column corresponding to a vertex of degree 2 adjacent to v have
+been removed. Its determinant is 2(12k + 29). We leave the details to the reader.          
+Remark 3.4. When n = 4 and 6, the following are arithmetical structures on G = Cn+ ,
+with groups Φ of order 1 and 3 (the vertices are adorned with the corresponding elements
+on the diagonal of the matrix). This shows that 0 ∈ VG (2) when G = C4+ and C6+ .
+                                2       2       2       2       2       2           2
+
+
+                                        2       3               2       2           4
+                          THE CRITICAL POLYNOMIAL OF A GRAPH                                    12
+
+                    / VdG (2) when G = C3+ and C5+ . For C2+ , this statement is proved in
+It is likely that 0 ∈
+Proposition 6.5. Preliminary computations did not find any arithmetical structure (M, R)
+on C4+ and C6+ where all coefficients of the diagonal of M are at least 2, other than the
+ones given above.
+Example 3.5. Consider the cone G = C(A3 ) on the path A3 (sometimes called the
+diamond graph). Computations suggest that the complement of VG (2) in Z≥0 is finite, and
+contained in the set L := [5, 17, 29, 71, 77, 101, 137, 551]. Note that det MG (2, 2, 5, 3) = 1,
+and the graph G below is adorned with the corresponding coefficients of the diagonal.
+
+                                           2    2    3
+
+                                                5
+
+Theorem 3.6. Let G be a connected simple graph which is not isomorphic to either Cn+ ,
+n ≥ 3, or to the cone C(A3 ), and does not contain an induced subgraph H isomorphic to
+either Cn+ , n ≥ 3, or C(A3 ). Then G is either a tree, or a cycle Cn , n ≥ 3, or a complete
+graph Kn , n ≥ 4, or a complete bipartite graph K(p, q), p, q ≥ 2.
+Proof. Assume that G is neither a tree nor a cycle. Let m denote the length of the shortest
+cycle in G. Since we assume that G is simple and not a tree, m ≥ 3. Consider such a
+cycle C of length m in G, with consecutive vertices w1 , . . . , wm . For i = 1, . . . , m − 1,
+the vertex wi is linked to the vertex wi+1 by exactly one edge, and wm is linked to w1
+be one edge. This cycle has to be an induced subgraph of G. Indeed, if there existed an
+edge between two vertices of C that are not consecutive, the graph G would have a cycle
+of length smaller than m. We show below that the case m ≥ 5 is impossible, that when
+m = 4, the graph G is of the form K(p, q), and that when m = 3, the graph G is of the
+form Kn .
+   Since G 6= C, let w be a vertex of G not contained in C, but connected by an edge to a
+vertex of C. Without loss of generality, we can assume that w is connected to w1 . If w is
+                                                                     +                +
+not connected to any other vertices of C, then G is equal to Cm        , or contains Cm as induced
+subgraph, contradicting our hypothesis. Let us then assume that w is also connected by
+an edge to a vertex wi with i > 1. This is not possible if m ≥ 5. Indeed, if m ≥ 5, then
+G would contain a cycle of length smaller than m.
+   Assume now that m = 4, with the cycle C having vertices w1 , w2 , w3 , w4 , and with a
+vertex w of G not on C connected to w1 . In order for G not to have cycles of length 3, the
+vertex w can only be connected to w3 . Let w ′ be any other vertex of G connected to a
+vertex of C. We claim that w ′ is then only connected to both w1 and w3 . Indeed, assume
+that w ′ is connected to w2 . Then it must be connected to w4 , otherwise G contains a cycle
+of length 3 or has C4+ as induced subgraph. But now we again find a contradiction by
+considering the cycle {w2 , w ′ , w4 , w3 } with w attached to w3 . This is an induced subgraph
+isomorphic to C4+ , contradicting our hypothesis. We have shown so far that G contains a
+bipartite graph K(2, q) for some q ≥ 3, with {w1 , w3 } being the first set of 2 vertices in
+the partition, and {w2 , w4 , w, w ′, . . . } the second set of q ≥ 3 vertices.
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                    13
+
+   Consider now a maximal subgraph of G of the form K(r, s), with r ≥ 2 and s ≥ q.
+By maximal we mean that G does not contain a subgraph of the form K(r + 1, s) or
+K(r, s+1). We claim then that G = K(r, s). For convenience, let us denote by {u1 , . . . , ur }
+and {t1 , . . . , ts } the vertices of the bipartite graph K(r, s), so that in K(r, s), there are no
+edges between vertices in {u1 , . . . , ur } and no edges between vertices in {t1 , . . . , ts }.
+   Suppose that G 6= K(r, s). There cannot exist an edge of G that links two vertices of
+K(r, s) that is not already an edge of K(r, s), since otherwise the graph G would contain
+a cycle of length 3. Thus there exists a vertex v of G that is not a vertex of K(r, s), and
+is linked by at least one edge to a vertex of K(r, s). Without loss of generality, we can
+assume that v is linked to u1 . If v is not linked to any other vertex of K(r, s), then G
+contains an induced subgraph of the form C4+ , which is a contradiction. If v is linked to
+any of the vertices {t1 , . . . , ts }, then G contains a cycle of length 3, again a contradiction.
+Suppose now that v is linked to u2 , but that for some i ≤ r, v is not linked to ui . Then
+{v, u1, t1 , u2} are the vertices of a 4-cycle, and adding ui to it gives an induced subgraph
+of G of the form C4+ , again a contradiction. Thus we find that G contains a graph of the
+form K(r, s + 1), and this is not possible by maximality of the graph K(r, s). Therefore,
+G = K(r, s).
+   Let us consider now the case m = 3, with the cycle C having vertices w1 , w2 , w3, and
+with a vertex w of G not on C connected to w1 . Since G is not equal to C3+ , and does
+not contain C3+ as induced subgraph, w is connected to a second vertex of C, say, without
+loss of generality, w2 . If w is not connected to w3 , then G contains the cone C(A3 ) as
+induced subgraph, contradicting our hypothesis. Hence, w is also connected to w3 , and
+so G contains K4 as induced subgraph.
+   Consider now a subgraph of G that is of the form Kr for some r ≥ 4 and which is
+maximal, in the sense that G does not contain a subgraph isomorphic to Kr+1 . We claim
+then that G = Kr .
+   Assume that G 6= Kr . Since G is simple, there must then exist a vertex v of G that is
+not a vertex of Kr . For convenience, let us denote by {u1 , . . . , ur } the vertices of Kr , and
+assume that v is linked to u1 . If v is not linked to any other vertex of Kr , then G contains
+an induced subgraph of the form C3+ , which is a contradiction. Suppose then that v is
+linked to u2 , and that there exists some ui which is not linked to v. Then {v, u1 , u2, ui }
+are the vertices of an induced subgraph of G of the form C(A3 ), again a contradiction.
+Suppose then that v is linked in G to all vertices of Kr . This is impossible since G would
+then contain a subgraph of the form Kr+1 , contradicting the maximality of Kr . Hence,
+G = Kr .                                                                                          
+
+
+3.7. Proof of Theorem 1.2. Let G be a connected simple graph that is neither a tree, a
+cycle, a complete bipartite graph K(p, q), a complete graph Kn , nor Cn+ , n ≥ 3, or the
+cone C(A3 ). Theorem 3.6 shows then that G has to contain an induced subgraph H of
+the form C(A3 ) or Cn+ for some n ≥ 3. All these graphs H are such that 1 ∈ VH (2) (see
+Proposition 3.2 and Example 3.5). We can thus apply Theorem 1.1 (b) to obtain that
+VG (2) contains Z>0 for such G.
+                         THE CRITICAL POLYNOMIAL OF A GRAPH                              14
+
+  When n ≥ 14, the graph Kn has the property that VKn (2) contains Z>0 (see Corollary
+7.3 (b)). When n ≥ 8, the graph Cn+ has the property that VCn+ (2) contains Z>0 (see
+Proposition 3.2).                                                                  
+  Let Kn+ denote the graph obtained from the complete graph Kn on n vertices by adding
+one vertex and linking it to Kn by exactly one edge. Such graph is a type of lollipop
+graph. Recall that the wheel Wn is the cone on the cycle Cn . In particular, W3 is the
+complete graph K4 on 4 vertices.
+Corollary 3.8. Let n ≥ 4. We have VG (2) = Z≥0 when G is one of the following graphs:
+(a) G = Kn+ .
+(b) G is the cone C(An ) on the path An on n vertices.
+(c) G is the wheel Wn .
+(d) G is the graph on n ≥ 5 vertices obtained from the cycle Cn by adding a new edge
+    linking two vertices which are not already connected in the cycle.
+Proof. We can apply Theorem 1.2 to each graph in the statement of the corollary to obtain
+that VG (2) ⊃ Z>0 . In each case, we can further strengthen this result by showing that
+0 ∈ VG (2) as follows.
+   (a) Since Kn is the cone on Kn−1 , Theorem 1.1 (b) (ii) can be used to show that
+0 ∈ VG (2).
+   (b) and (d) To show that 0 ∈ VG (2), we take the usual Laplacian of G, and note that
+its associated critical group is always cyclic ([27], Corollary 6.7).
+   (c) The wheel Wn is the cone on the cycle Cn . By removing a vertex v on the wheel
+that belongs to the original cycle, we obtain an induced subgraph isomorphic to the cone
+C(An−1 ). We have shown above that 1 ∈ VC(An−1 ) (2) when n − 1 ≥ 3. It follows then
+immediately from Theorem 1.1 (b) (ii) that VG (2) = Z≥0 .                              
+Example 3.9. Let G = Wn . The critical group Φ associated to the Laplacian of Wn
+is not cyclic (see [5], 9.2). Starting with the extended cycle C3+ , Theorem 1.1 (b) lets
+us construct on G a different arithmetical structure (M, R) whose associated group Φ is
+trivial.
+   We note below on the example of W6 that the coefficients of the diagonal of M quickly
+become very large with this construction. In the wheel W6 on the left below, the vertices
+of the original C3+ are indicated in white. We then constructed W6 by adding in sequence
+three vertices, whose corresponding coefficients on the diagonal are 46, 1478, and 1548583.
+                         3           46                2        2
+
+                    2          2             2    2        28       2
+
+
+                        1478       1548583             3        3
+
+   We describe in Lemma 3.10 a different arithmetical structure on W2k , where Φ is cyclic
+of order 6k − 1, and where the coefficients on the diagonal do not grow as fast. We have
+illustrated the case k = 3 on the right above.
+                             THE CRITICAL POLYNOMIAL OF A GRAPH                                          15
+
+   Arithmetical structures on the wheel W6 are plentiful. For instance, looking only among
+structures with MG (a1 , . . . , a7 ) having ai ∈ [2, 30] for all i = 1, . . . , 7, we found structures
+with 198 different group orders for their associated group Φ. Among the orders found, 94
+are squarefree, so that the corresponding groups are cyclic.
+Lemma 3.10. Order the vertices of W2k as follows. The first vertex in our enumer-
+ation is u, the unique vertex of degree 2k. Then we let v1 , . . . , vk , wk , wk−1, . . . , w1 de-
+note the consecutive vertices on the cycle, all of degree 3. The transpose of the vec-
+tor R is (1, r1 , . . . , rk , sk , . . . , s1 ), with ri = si for all i = 1, . . . , k. We set sk = k,
+sk−1 = k + (k − 1), and so on, until we get to s1 = k + · · · + 2 + 1 = k(k + 1)/2. Note that
+a := 2 ki=1 si = 2 ki=1 i2 = k(k + 1)(2k + 1)/3. The diagonal of the matrix M of the
+       P                 P
+structure is (a, 2, . . . , 2, 3, 3, 2, . . . , 2). Then (M, R) is an arithmetical structure on W2k
+whose associated group Φ is cyclic of order 6k − 1.
+Proof. It is easy to check that MR = 0. The computation of Φ can be done as follows.
+First, since the first coefficient of R is 1, we can find an integer linear combination of the
+columns to add to the first column so that the resulting first column is the zero-column.
+The same operations on the lines produces a new matrix whose first line is the zero-line
+and whose first column is the zero-column. Let M ′ denote the bottom right 2k × 2k
+square submatrix of this matrix. The group Φ is obtained by doing a row and column
+reduction of the matrix M ′ . In particular, the determinant of this matrix gives us |Φ|. It
+follows that |Φ| = dC2k (2 . . . , 2, 3, 3, 2, . . . , 2) = 6k − 1. Choose now a row and column of
+M ′ where the diagonal element is 3. To show that the group is cyclic, we consider the
+submatrix M ′′ of M ′ obtained by removing the chosen row and column. The matrix M ′′
+has determinant 4k − 1. Since 6k − 1 and 4k − 1 are always coprime, we find that Φ is
+cyclic. We leave the details to the reader.                                                     
+Remark 3.11. We note here an arithmetical structure on W2k+1 very similar to the
+structure described in Lemma 3.10, with the exception that this new structure has its
+group Φ isomorphic to (Z/(2k + 1)Z)2 .
+   Order the vertices of W2k+1 as follows. As before, the first vertex in our enumeration is
+u, the unique vertex of degree 2k + 1. Then we let v1 , . . . , vk , u′, wk , wk−1 , . . . , w1 denote
+the consecutive vertices on the cycle, all of degree 3. The transpose of the vector R is
+(1, r1 , . . . , rk , 1, sk , . . . , s1 ), with ri = si for all i = 1, . . . , k. We set sk = 1 + k, sk−1 =
+1+k +(k −1), and so on, until we get to s1 = 1+k +· · ·+2+1 = 1+k(k +1)/2. Note that
+a := 1 + 2 ki=1 si = 1 + 2k + 2 ki=1 i2 = 1 + 2k + k(k + 1)(2k + 1)/3. The diagonal of the
+                 P                             P
+matrix M of the structure is (a, 2, . . . , 2, 2k + 3, 2, . . . , 2). It is easy to check that MR = 0.
+We can obtain in a similar way that |Φ| = dC2k+1 (2 . . . , 2, 2k + 3, 2, . . . , 2) = (2k + 1)2 .
+
+
+                                    4. Third Main Theorem
+  We first recall the following definitions needed for the proof of Theorem 4.2, the main
+theorem of this section.
+                          THE CRITICAL POLYNOMIAL OF A GRAPH                                  16
+
+4.1. Let S ⊂ Z≥0 be any subset. Let S(ℓ) := {0, 1, 2, . . . , ℓ} ∩ S and s(ℓ) := |S(ℓ)|. Recall
+that the lower density d(S) of S is defined as
+                                                       s(ℓ)
+                                     d(S) := lim inf        .
+                                                ℓ→∞     ℓ
+Similarly, the upper density d(S) of S is given by d(S) := lim supℓ→∞ s(ℓ)
+                                                                         ℓ
+                                                                           . If both d(S)
+and d(S) exist and are equal, the natural density d(S) of S is defined as d(S) := d(S).
+  We say that S is dense in Z≥0 if d(S) = 1. When S is dense, its complement in Z≥0
+has density 0. Any finite set has density 0. Let a, b ∈ Z≥0 , a 6= 0. A set of the form
+{am + b | m ≥ 0} is called an arithmetic progression and has density 1/a.
+  For later use, we note here the following facts. Consider a set S of positive integers
+which contains a union                                         !
+                                  [k   ri
+                                       [
+                            U :=          {ai t + bij | t ≥ 0}
+                                    i=1   j=1
+
+of arithmetic progressions. Then the lower density d(S) of S satisfies d(S) ≥ d(U). When
+the ai are pairwise coprime, and for each i, the ri arithmetic progressions are distinct, we
+find that
+                                              k          
+                                             Y         ri
+                               d(U) = 1 −         1−        .
+                                             i=1
+                                                       ai
+
+Theorem 4.2. Let G be a connected graph. Let v ∈ G be a vertex such that the subgraph
+Gv has one of the following properties:
+(a) The complement of VdGv (2) in Z≥0 is finite.
+(b) Up to possibly reordering the vertices of Gv , there exist a2 , . . . , an−1 ∈ Z≥2 such that
+    dGv (t, a2 , . . . , an−1 ) = αt − β with α ∈ Z>0 , β ∈ Z, and gcd(α, β) = 1.
+(c) VdGv (2) contains an infinite subset of pairwise coprime values {u1, u2 , . . . } such that
+    limj→∞ ji=1 (1 − 1/ui ) = 0.
+             Q
+
+Then VdG (2) is dense in Z≥0 .
+Proof. We claim that Assumption (a) implies Assumption (c). Indeed, since the comple-
+ment of VdGv (2) is finite, it must contain all but finitely many prime numbers. Listing
+                                                                          Pj
+the prime numbers in the complement as {pi }∞   i=1 , we find that limj→∞  i=1 1/pi diverges,
+since by Euler’s theorem the sum of the reciprocals of all primes diverges ([22], page 21),
+and our set of primes misses only finitely many primes by hypothesis. Lemma 5.1.1 in [1]
+can be used to deduce that limj→∞ ji=1 (1 − 1/pi ) = 0, as desired.
+                                       Q
+
+   We claim that Assumption (b) also implies Assumption (c). Indeed, our assumption
+that gcd(α, β) = 1 allows us to use Dirichlet’s Theorem on primes in arithmetic progres-
+sion: The set P of primes in the arithmetic progression {αt − β | t ∈ Z≥0 } is infinite
+because
+P        the Dirichlet density of the primes in P is equal to 1/α. This in turn implies that
+   p∈P 1/p isQ
+             infinite (see [22], page 251). As before, we conclude using Lemma 5.1.1 in [1]
+that limp∈P p (1 − 1/p) = 0, as desired.
+                             THE CRITICAL POLYNOMIAL OF A GRAPH                                          17
+
+   Let us now prove the theorem when Assumption (c) holds. Without loss of general-
+ity, we can assume that v = v1 . For each value ui , choose ai,2 , . . . , ai,n ≥ 2 such that
+dGv (ai,2 , . . . , ai,n ) = ui . Consider the polynomial dG (t, ai,2 , . . . , ai,n ). By hypothesis, the
+matrix MG (t, ai,2 , . . . , ai,n ) has a lower right n − 1 × n − 1 submatrix MGv (ai,2 , . . . , ai,n )
+of determinant ui . Thus dG (t, ai,2 , . . . , ai,n ) = ui t − wi for some wi ∈ Z.
+   Let Ui denote the set of positive values taken by ui t − wi when t ≥ 2 if wi ≤ 0, and
+when t ≥ 2 + wi /ui if wi ≥ 0. It is clear that, since up to finitely many values the set
+Ui is an arithmetic progression, the density of Ui is 1/ui . By construction, Ui ⊆ VdG (2).
+Since the elements of the set {u1 , u2 , . . . } are pairwise coprime, we find that the union
+∪ji=1 Ui has lower density equal to 1 − ji=1 (1 − 1/ui ). Clearly, VdG (2) contains ∪∞
+                                                Q
+                                                                                                    i=1 Ui ,
+and taking now the limiting value as j → ∞, we find that d(VdG (2)) ≥ 1. It follows that
+d(VdG (2)) = 1 and VdG (2) is dense in Z≥0 .                                                             
+   In our next corollary, the symbols An and Dn denote Dynkin diagrams, whose definition
+is recalled in 5.1.
+Corollary 4.3. Suppose that a graph G on n + 1 vertices contains an induced subgraph
+H on n vertices of the form Gv such that H is either An , Cn , Dn , Sn , Kn , or K(2, n − 2).
+Then VdG (2) is dense in Z≥0 .
+Proof. We exhibit for each graph H a choice of diagonal elements (t, a2 , . . . , an ) with
+ai ≥ 2 such that dH (t, a2 , . . . , an ) = αt − β with gcd(α, β) = 1. We can then use Theorem
+4.2 (b) to conclude that VdG (2) is dense in Z≥0 .
+   (i) H = An . Assume that v1 is a vertex of degree 1. We find that
+                                   dH (t, 2, . . . , 2) = nt − (n − 1).
+Clearly gcd(n, n − 1) = 1.
+  (ii) H = Cn . Label the vertices consecutively along the cycle. Recall that n is the
+number of spanning trees of H, and it follows from the proof of Proposition 2.4 (a) that
+dH (t, 2, . . . , 2, 2) = n(t − 2). We find that
+          dH (t, 2, . . . , 2, 3) = n(t − 2) + (n − 1)t − (n − 2) = (2n − 1)t − (3n − 2).
+Again, we find that gcd(2n − 1, 3n − 2) = 1.
+  (iii) H = Dn . This star-shaped graph has a single vertex of degree 3, and three terminal
+chains, each ending with a vertex of degree 1. Assume that v1 is the vertex of degree 1
+on the chain of length n − 3 in H, and that vn is another vertex of degree 1. We find that
+                             dH (t, 2, . . . , 2, 2, 3) = (n + 3)t − (n + 2),
+and clearly gcd(n + 3, n + 2) = 1. To compute the coefficient of t in this expression,
+note that it equals dHv1 (2, . . . , 2, 3), which is 4 + (n − 1), with 4 = dDn−1 (2, . . . , 2) and
+n − 1 = dAn−2 (2, . . . , 2). The constant coefficient is similarly obtained as 4 + (n − 2).
+  (iv) H = Sn . Assume that the vertex v1 has degree n − 1. We use (t, a2 , . . . , an ) with
+a2 = 2 and ai+1 = i-th prime number. We find that
+                                                                           1         1
+               dH (t, a2 , . . . , an ) = (a2 · · · an )t − (a2 · · · an )( + · · · + ).
+                                                                           a2        an
+                               THE CRITICAL POLYNOMIAL OF A GRAPH                                              18
+
+Since a2 , . . . , an are distinct primes, we find that (a2 · · · an )( a12 + · · · + a1n ) is coprime to
+(a2 · · · an ).
+  (v) H = Kn . Set ai + 1 = bi and choose a2 + 1 = 3, and ai + 1 = i-th prime number.
+We find using (7.2) that
+         dH (t, a2 , . . . , an ) = (t + 1)(b2 · · · bn ) − (t + 1)(b2 · · · bn )( ni=2 b1i ) − (b2 · · · bn )
+                                                                                   P
+
+                                  = t(b2 · · · bn )(1 − ni=2 b1i ) − (b2 · · · bn )( ni=2 b1i ).
+                                                        P                           P
+
+Since b2 , . . . , bn are distinct primes, (b2 · · · bn ) is coprime to (b2 · · · bn )( b12 + · · · + b1n ).
+  (vi) H = K(2, n − 2). We compute the determinant of
+                                                            t    0 −1 . . . −1
+                                                                                          
+                                                        0       x −1 . . . −1 
+                                                           −1   −1   y1 0            0 .
+                                                                                          
+                    M = MH (t, x, y1 , . . . , yn−2) = 
+                                                       
+                                                        ...     ..       ..               
+                                                                  .   0      .       0 
+                                                           −1 −1 0                yn−2
+Subtracting the second row from the first, and the resulting second column from the first,
+we obtain
+                              t + x −x 0 . . .              0
+                                                               
+                            −x       x −1 . . . −1 
+                            0       −1 y1 0                0 .
+                                                               
+                            .         ..           ..
+                            ..
+                                                                
+                                        .     0        .    0 
+                                0    −1 0                  yn−2
+Expanding the determinant along the first row gives
+                                                   n−2
+                                                            !                     n−2
+                                                   X     1                        X   1
+         det(M) = xy1 · · · yn−2 − y1 · · · yn−2 (         ) t − xy1 · · · yn−2 (       ).
+                                                   i=1 i
+                                                         y                            y
+                                                                                  i=1 i
+We choose y1 ,P  . . . , yn−2 to be the first n − 2 prime numbers. We choose x to be coprime
+                    n−2 1
+to y1 · · · yn−2( i=1     yi
+                             ).                                                            
+4.4. Proof of Theorem 1.3. We proceed with a case-by-case verification.
+   (1) Let G be a Dynkin diagram, an extended Dynkin diagram, or the cone C(A3 ). Then
+G contains an induced subgraph of the form Gv = An for some n. Corollary 4.3 applies.
+   (2) Let G be a complete graph Kn , or an extended complete graph Kn+ . Then G contains
+an induced subgraph of the form Gv = Kn−1 (resp. Kn ). Corollary 4.3 applies. Let G be a
+cycle Cn , an extended cycle Cn+ , or the wheel Wn . Then G contains an induced subgraph
+of the form Gv = An (resp. An+1 , resp. Cn ). Corollary 4.3 applies.
+   (3) Let G be a star Sn , an extended star Sn+ , or the complete bipartite K(2, n) or
+K(3, n). Then G contains an induced subgraph of the form Gv = Sn−1 (resp. Sn , resp.
+Sn+1 , resp. K(2, n)). Corollary 4.3 applies.
+  It is natural to wonder whether a vertex v such that Hypothesis (b) in Theorem 4.2
+holds might exist for all graphs. We have not been able to answer this question beyond
+the following extension result.
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                    19
+
+Lemma 4.5. Suppose that G is a graph on n vertices such that for some choice of
+a2 , . . . , an ≥ 2, we have dG (t, a2 , . . . , an ) = αt − β with gcd(α, β) = 1. Let G+ denote the
+graph obtained by attaching a new vertex v0 with e ≥ 1 edges to the vertex v1 . Let q ≥ 1
+denote any integer coprime to eαβ. Then dG+ (q, t, a2 , . . . , an ) is of the form α′ t − β ′ with
+gcd(α′ , β ′ ) = 1.
+Proof. An explicit computation shows that dG+ (q, t, a2 , . . . , an ) = q(αt − β) − e2 α =
+qαt − (qβ + e2 α). It follows from our hypotheses that qα is coprime to (qβ + e2 α).      
+Remark 4.6. The connected simple graphs on four vertices consist of the path A4 , the
+star D4 , the two graphs C3+ and C4 with Betti number equal to 1, the cone on A3 , and
+the complete graph K4 . Theorem 1.3 and Corollary 4.3 show that for such graph G,
+the set VdG (2) is dense in Z≥0 . Computations suggest that except possibly for K4 , the
+complement of VdG (2) in Z≥0 might be finite.
+                                     5. Dynkin diagrams
+5.1. Recall the following terminology.
+   An , n ≥ 2: the path (or chain), on n vertices.
+   D̃n , n ≥ 4: a chain on n − 1 vertices, with two additional vertices, attached to the two
+vertices of degree 2 of the chain that are linked to a vertex of degree 1 (when n = 4, there
+is only one such vertex, and in this case both new vertices are attached to this vertex).
+The graph Dn , n ≥ 4, is obtained from D̃n by removing one of the two additional vertices.
+Such vertex is indicated in white below.
+
+
+
+                                D̃n
+    ˜
+   En , n = 6, 7, 8: a tree on n + 1 vertices described below. Removing one vertex from
+E˜n produces the tree En on n vertices. The vertex that needs to be removed is marked
+in white below.
+
+
+
+            Ẽ6                                  Ẽ7
+
+
+                             Ẽ8
+The graphs An (n ≥ 2), Dn (n ≥ 4), and En , n = 6, 7, 8, are called Dynkin diagrams and
+have n vertices. The graphs D̃n , n ≥ 4, and E˜n , n = 6, 7, 8, are called extended Dynkin
+diagrams or affine Dynkin diagrams, and have n + 1 vertices. In the context of elliptic
+curves, they are called Kodaira types, and are denoted by I∗n , n ≥ 0, and IV∗ , III∗ , and
+II∗ , respectively (see for instance [34], page 46). The notation In refers in this context to
+the cycle Cn .
+                             THE CRITICAL POLYNOMIAL OF A GRAPH                                        20
+
+  The following proposition is well-known. Part (a) is found in [18], Lemma 3.1, with
+proof and a reference to [21], Satz page 219. Part (b) is stated in [21], page 228.
+Proposition 5.2. Let G be a connected graph on n vertices.
+(a) If MG (2, . . . , 2) is positive definite, then G is either An with n ≥ 2, Dn with n ≥ 4,
+    or En , n = 6, 7, 8.
+(b) If MG (2, . . . , 2) is positive semi-definite and det MG (2, . . . , 2) = 0, then G is either Cn
+    with n ≥ 2, D̃n with n ≥ 4, or E˜n , n = 6, 7, 8.
+  When G is a Dynkin diagram, computations indicate that the complement of VdG (2) in
+Z≥0 is finite, except when G = A2 . We present below some data for the Dynkin diagrams
+Dn and En . The data for the chains An is presented in Example 6.2.
+Proposition 5.3. (a) If G = An , n ≥ 2, then VdG (2) ⊆ Z≥n+1 .
+(b) If G = Dn , n ≥ 4, then VdG (2) ⊆ Z≥4 .
+(c) If G = E6 , then VdG (2) ⊆ Z≥3 . Computations indicate that the complement of VdG (2)
+    in Z≥0 is contained in
+                      [0, 1, 2, 4, 5, 6, 8, 10, 12, 14, 16, 17, 20, 24, 26, 28, 30, 32, 34, 38,
+            LE6 :=
+                           44, 46, 48, 56, 60, 64, 74, 80, 88, 92, 98, 132, 158, 170].
+(d) If G = E7 , then VdG (2) ⊆ Z≥2 . Computations indicate that the complement of VdG (2)
+    in Z≥0 is contained in
+                                 LE7 := [0, 1, 3, 4, 7, 12, 15, 25, 28].
+(e) If G = E8 , then VdG (2) ⊆ Z>0 . Computations indicate that the complement of VdG (2)
+    in Z≥0 is contained in
+                         [0, 2, 3, 4, 6, 8, 10, 11, 14, 16, 18, 22, 23, 24, 28, 34, 38, 40,
+               LE8 :=
+                                         46, 58, 60, 62, 88, 94, 134, 178].
+Proof. Since each of the graphs G = An , Dn , and En , is such that MG (2, . . . , 2) is positive
+definite (see 5.2 (a)), we find from 2.1 (c) that the smallest value taken by dG (x1 , . . . , xn )
+when xi ≥ 2 is dG (2, . . . , 2). It is classical that dAn (2, . . . , 2) = n + 1, dDn (2, . . . , 2) = 4,
+dE6 (2, . . . , 2) = 3, dE7 (2, . . . , 2) = 2, and dE8 (2, . . . , 2) = 1.                             
+Remark 5.4. (a) Let G = D4 . Computations indicate that the complement of VdG (2) in
+  Z≥0 is contained in the following set
+        [0, 1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14, 17, 18, 19, 21, 23, 25, 26, 30, 31, 34, 35, 37, 38, 41,
+          45, 47, 49, 53, 58, 61, 65, 66, 67, 74, 77, 79, 83, 86, 91, 93, 97, 101, 103, 109, 110,
+         114, 115, 121, 125, 126, 129, 130, 131, 143, 145, 153, 167, 173, 178, 181, 187, 199,
+ LD4 :=
+            206, 210, 223, 229, 247, 251, 258, 265, 301, 325, 343, 391, 417, 426, 437, 451,
+                  517, 593, 595, 606, 633, 637, 649, 671, 763, 823, 859, 871, 937, 977,
+                              1027, 1087, 1330, 1517, 1661, 4477, 4585, 5273].
+(b) Let G = D5 . Computations indicate that the complement of VdG (2) in Z≥0 is contained
+    in
+ LD5 := [0, 1, 2, 3, 5, 6, 7, 10, 11, 13, 15, 21, 22, 30, 31, 37, 43, 46, 55, 58, 75, 91, 102, 165, 330].
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                          21
+
+(c) Let G = D6 . Computations indicate that the complement of VdG (2) in Z≥0 is contained
+    in
+                 [0, 1, 2, 3, 5, 6, 7, 9, 11, 13, 14, 15, 17, 18, 23, 25, 27, 29, 33, 35, 38,
+         LD6 :=
+                       45, 47, 49, 50, 53, 69, 71, 78, 95, 97, 105, 133, 203, 245].
+(d) Let G = D7 . Computations indicate that the complement of VdG (2) in Z≥0 is contained
+    in
+                       [0, 1, 2, 3, 5, 6, 7, 9, 10, 13, 14, 15, 17, 19, 22, 23, 26, 27, 30,
+             LD7 :=
+                                  33, 38, 42, 43, 49, 55, 57, 62, 78, 79, 110].
+(e) Let G = D8 . Computations indicate that the complement of VdG (2) in Z≥0 is contained
+    in
+                [0, 1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19, 21, 22, 25, 26, 29, 30,
+        LD8 := 31, 33, 35, 37, 41, 43, 46, 49, 50, 54, 55, 58, 59, 61, 63, 65, 71, 73, 90,
+                            91, 94, 101, 105, 118, 121, 138, 169, 183, 205, 250].
+   Let now G be an extended Dynkin diagram. The data below for E˜n , n = 6, 7, 8,
+suggests that the complement of the set VG (2) in Z≥0 might be finite. The available data
+for G = D̃n , n = 5, 6, 7, seems to support the same assertion for these graphs. The data
+in the case of G = D̃4 , the star on 5 vertices, is less clear.
+   Let G be the cycle Cn , n ≥ 3. The available data when n = 4, 5, 6 also seems to suggest
+that the complement of the set VG (2) is finite. The case of G = C3 is less clear (see
+Example 6.8).
+Proposition 5.5. (a) If G = Cn , n ≥ 2, then VdG (2) ⊆ {0} ⊔ Z≥n , and VdG (2) contains
+    all positive multiples of n.
+(b) If G = D̃n , n ≥ 4, then VdG (2) ⊆ {0} ⊔ Z≥4 . Moreover, VdG (2) contains all positive
+    multiples of 4.
+(c) If G = Ẽ6 , then VdG (2) ⊆ {0} ⊔ Z≥3 . Moreover, VdG (2) contains all positive multiples
+    of 3. Computations indicate that the complement of VdG (2) in Z≥0 is contained in
+           [1, 2, 4, 5, 7, 8, 11, 13, 14, 16, 19, 20, 22, 23, 26, 29, 32, 34, 35, 37, 41, 44, 46, 49,
+   LE˜6 := 53, 56, 58, 62, 71, 74, 82, 89, 95, 104, 106, 118, 128, 137, 140, 167, 172, 184, 188,
+                                        212, 218, 271, 287, 302, 386].
+(d) If G = Ẽ7 , then VdG (2) ⊆ {0} ⊔ Z≥2 . Moreover, VdG (2) contains all even positive
+    integers. Computations indicate that the complement of VdG (2) in Z≥0 is contained in
+                            [1, 3, 5, 9, 11, 13, 15, 19, 21, 23, 25, 29, 33, 43, 45, 49,
+                  LE˜7 :=
+                                 51, 59, 75, 81, 115, 121, 141, 145, 159, 189].
+(e) If G = Ẽ8 , then VG (2) = Z≥0 .
+Proof. Since each of the graphs G = Cn , D̃n , and E˜n , is such that MG (2, . . . , 2) is definite
+semi-positive, the smallest value taken by dG (x1 , . . . , xn ) when xi ≥ 2 is dG (2, . . . , 2) = 0.
+  (a) When G = Cn , the matrix MG (2, . . . , 2) is the usual Laplacian. Recall that
+dG (t, 2, . . . , 2) = n(t − 2). We conclude from Proposition 2.4 (b) that every multiple
+                                THE CRITICAL POLYNOMIAL OF A GRAPH                                  22
+
+of n is in the set VdG (2) and that n is the smallest non-zero value in VdG (2). Since the
+critical group of Cn is known to be cyclic, we find that 0 ∈ VG (2).
+   (b) When G = D̃n , the matrix MG (2, . . . , 2) is the matrix associated with an arithmeti-
+cal structure with |Φ| = 4. The group is cyclic of order 4 when n odd, and it is (Z/2Z)2
+when n is even. The matrix MG (2, . . . , 2) is the unique arithmetical structure on G of the
+form MG (a1 , . . . , an ) with a1 , . . . , an ≥ 2. Thus 0 ∈ VG (2) when n is odd, and 0 ∈
+                                                                                          / VG (2)
+when n is even. Proposition 2.4 (b) shows that every multiple of 4 is in VdG (2)
+   (c) and (d) When G = E˜n , n = 6 (resp. 7), the matrix MG (2, . . . , 2) is the matrix
+associated with an arithmetical structure with |Φ| = 3 (resp. 2). Proposition 2.4 (b) can
+be applied again.
+   (d) Since 1 ∈ VE8 (2), Theorem 1.1 (b) implies that VE˜8 (2) = Z≥0 .                         
+Remark 5.6. In view of Proposition 5.2, it is natural to wonder whether it is possi-
+ble to list all the graphs G such that MG (3, 2, . . . , 2) is either positive definite or posi-
+tive semi-definite. Examples of such graphs which are not Dynkin diagrams and where
+MG (3, 2, . . . , 2) is positive definite can be found among the rational triple points described
+in [3], page 135. We note below two constructions that use the classical extended Dynkin
+diagrams and produce infinite families of graphs G where MG (3, 2, . . . , 2) is positive semi-
+definite with determinant 0. A more sporadic example on 5 vertices is presented in Remark
+3.4. One may wonder whether, in the positive semi-definite case with determinant 0, all
+such graphs have to appear in the list given in [32].
+   Let H be an extended Dynkin diagram on n + 1 vertices, or a cycle. Denote by
+(MH , RH ) its associated arithmetical structure. Thus, MH = MH (2, . . . , 2). Fix a vertex
+v of H, and without loss of generality, assume that v is the first vertex of H. If the
+coefficient of RH associated with v is 1 or 2, we construct a graph G on n + 3 vertices
+by attaching two new vertices to v, each by a single edge. Label the vertices of G by
+w, w ′, v1 , . . . , vn+1 . We claim that MG (2, 2, 3, 2, . . . , 2) has determinant 0. To show this,
+note the following. If RH = (2, . . . ), then consider the vector tRG := (1, 1,t RH ). It is
+easy to check that MG (2, 2, 3, 2, . . . , 2)RG = 0. If RH = (1, . . . ), then consider the vector
+t
+  RG := (1, 1, 2(t RH )). It is easy to check that in this case also, MG (2, 2, 3, 2, . . . , 2)RG = 0.
+   We illustrate this construction with two examples. First on the left below, we use H =
+D̃6 to obtain a graph G1 on 9 vertices. The old vertex of D̃6 chosen for the construction
+is indicated in white.
+                       15       5       3
+
+                   4        2   2   2       4
+
+              G1                2                          G2
+The graph G1 is denoted (15) in Table 1, page 521 in [8]. It is minimal in the sense
+that 1 ∈ VG1 (2) but 1 ∈       / VT (2) if T is any subtree of G1 . Computations indicate that
+VdG1 (2) = Z≥0 . We have labeled the graph with a set of coefficients on the diagonal that
+give det MG1 (a1 , . . . , a9 ) = 1.
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                        23
+
+  The graph G2 above on the right has 8 vertices and is obtained from the construction
+with H = D̃5 . The old vertex of D̃5 chosen for the construction is indicated in white. The
+graph G2 is a subgraph of G1 . Computations indicate that the complement of VdG2 (2) in
+Z≥0 is contained in
+                              [1, 5, 23, 25, 31, 53, 61, 71, 73, 145, 163, 199,
+              LG2 =                                                                  .
+                       211, 229, 275, 289, 365, 379, 383, 421, 451, 493, 799, 1153].
+   A different construction is as follows. Start with an extended Dynkin diagram H = D̃n
+with n ≥ 4. Fix a pair of vertices of degree 1 attached to the same vertex in H. Without
+loss of generality, we can assume that these vertices of degree 1 are v1 and v2 , attached to
+a vertex v3 . Consider the graph G obtained by linking a new vertex w to v1 by a single
+edge. Order the vertices of G as w, v1 , v2 , v3 , . . . . Then we claim that MG (2, 2, 3, 2, . . . , 2)
+has determinant 0. The vector t RG := (2, 4, 2, 6, . . . , 6, 3, 3) is such that MG RG = 0. Here
+we have ordered the vertices of H such that the last two vertices again have degree 1,
+and the antepenultimate vertex has degree 3 in H. When n = 4, note that all vertices of
+degree 1 are linked to the same vertex of degree 4. The construction produces the graph
+S5+ in this case
+   We illustrate this second construction with the example of H = D̃5 , obtaining a graph
+on 7 vertices. The old vertex of D̃5 chosen for the construction is indicated in white:
+
+
+                                      G3
+The graph G3 is a subgraph of the previous examples. Computations indicate that the
+complement of VdG3 (2) in Z≥0 is contained in LG3 = [1, 21, 25, 37, 75].
+
+                         6. The graphs An and small variations
+   We discuss in this section the paths An , n ≥ 3, and some graphs A3 (e, f ) on three
+vertices generalizing A3 . We also consider the cycle C3 and generalizations at the end of
+the section. Let us note here again that when G = An , then 0 ∈           / VdG (2) since the matrix
+MG (2, . . . , 2) is positive definite. We also note that the group Φ associated to any matrix
+of the form MG (a1 , . . . , an ) with a1 , . . . , an ≥ 2 is always cyclic (see [29], Lemma 3.13).
+Thus we have VG (2) = VdG (2) when G = An .
+   Theorem 4.2 shows that the complement of VAn (2) in Z≥0 is dense. The data below in
+Example 6.2 suggests that this complement might always be finite. The smallest values
+in the complement can be explicitly described using the next lemma, and there are at
+least 4n − 6 such values.
+Lemma 6.1. Let G = An , n ≥ 3. The set VG (2) starts with the following values:
+           [n + 1, 2n + 1, 3n − 1, 3n + 1, 4n − 5, 4n, 4n + 1, 5n − 11, 5n + 1, . . . ].
+Proof. We have dAn (t, 2, . . . , 2) = n(t − 1) + 1. This shows that VG (2) contains n + 1, 2n +
+1, 3n + 1, . . . . We have dAn (2, . . . , 2, 3, 2) = 3n − 1 and dAn (3, 2, . . . , 2, 3) = 4n. Moreover,
+dAn = (2, 2, . . . , 3, 2, 2) = 4n − 5. More generally, placing 3 on the i-th column from the
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                               24
+
+end (with 2i ≤ n): the determinant is n + 1 + i(n − i + 1) = (i + 1)n − (i2 − i − 1). With
+i = 4, we obtain 5n − 11.                                                               
+Example 6.2. (a) Computations indicate that the complement of VA3 (2) in Z≥0 is con-
+   tained in the following set
+                        LA3 := [0, 1, 2, 3, 5, 6, 9, 11, 14, 15, 35, 105, 510].
+(b) Computations indicate that the complement of VA4 (2) in Z≥0 is contained in
+               [0, 1, 2, 3, 4, 6, 7, 8, 10, 12, 14, 15, 20, 22, 24, 26, 28, 38, 40, 42, 48, 52, 68,
+      LA4 :=
+                                             104, 132, 150, 188, 314].
+(c) Computations indicate that the complement of VA5 (2) in Z≥0 is contained in
+        LA5 := [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 17, 18, 19, 27, 28, 34, 40, 52, 63, 88].
+(d) Computations indicate that the complement of VA6 (2) in Z≥0 is contained in
+          [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 21, 22, 23, 26, 29, 30, 32, 36, 38,
+ LA6 :=
+          42, 44, 48, 52, 54, 56, 62, 70, 80, 81, 86, 96, 102, 108, 110, 122, 126, 140, 180, 236].
+  It is natural to wonder whether dA3 (x, y, z) = xyz − x − z takes every non-negative
+value when x, y, z ≥ 2, except for the values listed in LA3 . We have not been able to
+answer this question beyond the following remarks.
+Proposition 6.3. The set VA3 (2) contains:
+(a) All even positive integers n, except possibly those of the form n = 2m − 2 with m odd
+    or m = 2, 4.
+(b) All odd positive integers n such that n + 2 is not prime.
+(c) All odd positive integers congruent to 1 modulo 4 and congruent to 2 or 8 modulo 9.
+Proof. We claim that the complement of VA3 (2) in Z≥0 consists only of integers n such
+that (i) either n + 2 is prime or n + 2 is a power of 2, and (ii) such that n + 4 is prime,
+or n + 4 is not divisible by a prime p ≥ 7 congruent to 3 modulo 4.
+   Indeed, writing xyz − x − z = n, we find that when z = 2, we have x(2y − 1) = n + 2.
+This can be solved with x, y ≥ 2 when n + 2 is not prime, and not a power of 2. When
+z = 4, we have x(4y − 1) = n + 4. This can be solved with x, y ≥ 2 when n + 4 is not
+prime and when at least one divisor of n + 4 is congruent to 3 modulo 4 and greater than
+3.
+   Suppose now that m > 4 is even. Set x = 4, z = 6, and y = (2m−3 + 1)/3 ≥ 2. It is
+clear that xyz − x − z = 2m − 2. When m ≥ 4 is even, 2m−3 + 1 is always divisible by 3.
+   Suppose now that n is congruent to 1 modulo 4 and congruent to 2 or 8 modulo 9.
+Then in particular n is not divisible by 3. Hence, one of n + 2 or n + 4 has to be divisible
+by 3. Suppose that n + 2 is divisible by 3. Then n is in VA3 (2) since n + 2 is neither prime
+nor a power of 2. Suppose now that n + 4 is divisible by 3. Then n is in VA3 (2) unless
+(n + 4)/3 is only divisible by primes congruent to 1 modulo 4 and by a power of 3. Our
+hypothesis implies that n + 4 is congruent to 3 or 6 modulo 9 and so is exactly divisible
+by 3. Since the power of 3 is odd in n + 4, then n has to be congruent to 3 modulo 4 when
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                     25
+
+(n + 4)/3 is only divisible by primes congruent to 1 modulo 4. Since we assume that n is
+congruent to 1 modulo 4, we find that n ∈ VA3 (2).                                    
+Remark 6.4. The first values of 22m+1 −2 are 0, 6, 30, 126, 510, 2046, 8190, . . . . The values
+0, 6, and 510 are not achieved by xyz − x − z with x, y, z ≥ 2. The values 30 and 126 are
+achieved exactly once, with (x, y, z) = (3, 4, 3) and (12, 2, 6), respectively.
+   Consider more generally the polynomial f (x, y, z) = xyz − ax − bz with a, b ∈ Z≥1 . It
+is clear that Vf (1) = Z≥0 since f (1, N + a + b, 1) = N for any integer N.
+   If an integer p divides a, then Vf (2) contains all non-negative multiples of p. Indeed,
+assume that p divides N. Set z = p, y = a/p + 1, and x = N/p + b ≥ 2. Then
+xyz − ax − bz = N.
+Proposition 6.5. Let f (x, y, z) = xyz − ax − bz with a ≥ b ≥ 1. We have Vf (2) ⊇ Z>0
+in the following cases:
+(a) a + 1 or b + 1 is not prime.
+(b) a is divisible by 4 and b = 1.
+Moreover, 0 ∈ Vf (2) when (a, b) 6= (1, 1), (2, 1), and (4, 1).
+Proof. (a) Without loss of generality, we can assume that b + 1 is not prime. Consider
+the equation xyz − ax − bz = N, which we rewrite as (xy − b)z = N + ax. Under
+our hypothesis, the equation xy − b = 1 can be solved with x, y ≥ 2, and so setting
+z = N + ax ≥ 2 shows that N ∈ Vf (2).
+   (b) Assume now that b = 1. If N is even, we use the case p = 2 just above to conclude
+that since 2 divides a, xyz − ax − z takes all possible even values when x, y, z ≥ 2. If N
+is odd and a = 4c, set y = 2 and z = 2c + 1 ≥ 2. Since z is then odd and N is odd, we
+can set x = (N + z)/2 ≥ 2, to get xyz − 4cx − z = N.
+   The equation xyz − ax − bz = 0 always has the solution (x, y, z) = (b, 2, a), so that
+0 ∈ Vf (1), and when a, b > 1, 0 ∈ Vf (2). Suppose now that b = 1, and let us show that
+we can solve xyz − ax − z = 0 with x, y, z ≥ 2 if and only if a 6= 1, 2, 4. If we can solve
+this equation, then (xy − 1)z = ax and x must divide z. Write z = cx. We need to solve
+(xy − 1)c = a, so c divide a. This equation can be solved if we can find integers x, y ≥ 2
+such that xy = 1 + a/c. We claim that given any integer m > 1, m 6= 2, 4, we can find
+a divisor d of m such that d + 1 is not prime. This is clear if m is divisible by an odd
+prime. When m is a power of 2, this is true as soon as 8 divides m. We apply this claim
+to a, and we find c which divides a such that 1 + a/c is not prime, unless a = 1, 2, 4, as
+desired.                                                                                 
+Example 6.6. Computations indicate that in the case of f = xyz−2x−z, the complement
+in Z≥0 of the set Vf (2) might be reduced to {0, 1, 3, 7, 15}.
+Remark 6.7. Fix e1 , . . . , en−1 ≥ 1. Consider the graph An (e1 , . . . , en−1 ) with multiple
+edges obtained as follows. Given n vertices v1 , . . . , vn , link vi to vi+1 by ei edges, for each
+i = 1, . . . , n − 1.
+   The matrix MAn (e1 ,...,en−1 ) (x1 , . . . , xn ) is a tridiagonal matrix, and such matrices occur
+in the following context. Recall that two symmetric matrices M and N in Mn (Z) are
+                          THE CRITICAL POLYNOMIAL OF A GRAPH                                   26
+
+congruent if there exists T ∈ GLn (Z) such that N = (t T )MT . Newman ([31], Theorem 1)
+showed that any positive definite matrix M ∈ Mn (Z) is congruent to a tridiagonal matrix
+with certain specified properties. When det(M) = 1, the tridiagonal matrix is of the form
+MAn (1,...,1,en−1 ) (a1 , . . . , an ). Such matrices are further studied in [17] and [20].
+   In the case n = 3, the graph G = A3 (e, f ) has matrix MA3 (e,f ) (x, y, z) with determinant
+dG (x, y, z) = xyz − f 2 x − e2 z. As we saw in Proposition 6.5, the determination of VdG (2)
+is not immediate when both e2 + 1 and f 2 + 1 are prime.
+   Let G = A3 (2, 1), with dG (x, y, z) = xyz − x − 4z, and dG (3, 2, 2) = 1. The graph G is
+the graph with the fewest vertices and edges such that 1 ∈ VG (2). See Examples 3.1 and
+3.5 for examples on 4 vertices. Proposition 6.5 shows that VdG (2) = Z>0 .
+   Let G = A3 (2, 2), with dG (x, y, z) = xyz − 4x − 4z. The set VdG (2) contains all even
+positive integers, but it is not immediately clear from computations that the complement
+of VdG (2) in Z≥0 is finite. The situation is similar for Vh (2) when h := xyz − 2x − 2z. The
+integer N = 538641 belongs to the complement of both VdG (2) and Vh (2).
+Example 6.8. Consider the cycle G = C3 on n = 3 vertices. Then
+                              dG (x, y, z) = xyz − x − y − z − 2.
+We noted in Proposition 5.5 (a) that VdG (2) contains all multiples of 3. It is not com-
+putationally clear in this example that the complement of VdG (2) in Z≥0 is finite. This
+complement is likely to contain 2201 values in the interval [1, 2 · 106 ].
+   Theorem 1.1 shows that VdG (1) = Z≥0 . The recent preprint [13] studies the set Vf (1) of
+values taken by the related polynomial f (x, y, z) = xyz + x + y + z. The authors suggest
+on page 3 that the complement of Vf (1) in Z≥0 is infinite.
+   Consider more generally the polynomial f (x, y, z) = xyz − ax − by − cz, where a ≥ b ≥
+c > 0 are fixed integers. Then Vf (2) = Z≥0 if one of the integers a + 1, b + 1, or c + 1, is
+not prime. Indeed, assume without loss of generality that c + 1 is not prime. Then the
+equation xy − c = 1 can be solved with integers x0 , y0 ≥ 2. For any integer N ≥ 0, set
+z0 := N + ax0 + by0 . Then f (x0 , y0 , z0 ) = N.
+   When (a, b, c) = (2, 1, 1), the set of values in the complement of Vf (2) in Z≥0 might
+consist only of {1, 2, 5, 61}. When (a, b, c) = (2, 2, 1), the set of values in the complement
+of Vf (2) in Z≥0 might consist only of {3, 11, 27, 251}. When (a, b, c) = (10, 1, 1), (6, 1, 1),
+or (4, 2, 1), it is likely that Vf (2) = Z≥0 .
+   Add edges to C3 to obtain the graph G = C3 (e1 , e2 , e3 ) with matrix
+                                   
+                    x −e3 −e2
+     MG =  −e3 y −e1  and dG (x, y, z) = xyz − e21 x − e22 y − e23 z − 2e1 e2 e3 .
+                  −e2 −e1 z
+When (e1 , e2 , e3 ) = (2, 1, 1), computations indicate that the set of values in the comple-
+ment of VdG (2) in Z≥0 is very small and might consist only of {8, 56, 248}.
+  When (e1 , e2 , e3 ) = (2, 2, 2), the set VdG (2) contains all even values. Indeed, (x, y, z) =
+(2, 4, z) produces all values divisible by 4, and (x, y, z) = (2, 3, z) produces all values of
+the form 4m + 2. It is not computationally clear in this case that the set of values in the
+complement of VdG (2) in Z≥0 is finite. Theorem 4.2 (b) shows that VdG (2) is dense in Z≥0 .
+                           THE CRITICAL POLYNOMIAL OF A GRAPH                                    27
+
+                                     7. Complete Graphs
+Proposition 7.1. Let G = Kn , the complete graph on n ≥ 2 vertices. Then 1 ∈ VG (2) if
+and only if the equation
+                                 n
+                               X    1        1
+(7.1)                                 +             =1
+                                   y
+                                i=1 i
+                                        y1 · · · yn
+can be solved with positive integers y1 , . . . , yn ≥ 3.
+Proof. Consider the square matrix
+                                      1 0      ...              0
+                                                                 
+                                     0                           
+                             M ′ :=   .
+                                     ..
+                                                                  
+                                          MG (x1 , . . . , xn )   
+                                      0
+This matrix clearly has the same determinant as MG (x1 , . . . , xn ), and is row and column
+equivalent to the matrix
+                                    1   −1     ...   −1
+                                                               
+                                  −1 x1 + 1 0        0         
+                         M ′′ :=   .
+                                  ..          . ..
+                                                                .
+                                         0            0         
+                                        −1      0       0   xn + 1
+Indeed, letting
+                                                1 0 ... 0
+                                                                
+                                             −1 1            0 
+                                    T :=    .. .       . ..
+                                                                 ,
+                                                                 
+                                               −1 0           1
+we find that M ′′ = T M ′ (t T ). Note that if H denote the star on n + 1 vertices w0 , . . . , wn ,
+then the matrix M ′′ is MH (1, x1 + 1, . . . , xn + 1). It is clear that M is positive definite
+if and only if M ′ , and hence M ′′ , is positive definite. Expanding the determinant of M ′′
+using its first row, we obtain that
+                                                  n              n Qn
+                                                                    j=1 (xj + 1)
+                                                Y               X
+(7.2)              det(MG (x1 , . . . , xn )) =     (xj + 1) −                   .
+                                                j=1             i=1
+                                                                      xi + 1
+   Assume
+     Qn now that 1 ∈ VG (2). Then we can find integers x1 , . . . , xn ≥ 2 such that, setting
+ℓ := j=1 (xj + 1), we have
+                                      Xn
+                              1=ℓ−        ℓ/(xi + 1).
+                                                i=1
+Setting yi = xi + 1, so that ℓ = ni=1 yi , we find that 1/ℓ = 1 − ni=1 1/yi with yi ≥ 3 for
+                                 Q                                      P
+all i, as desired.
+   Reciprocally, assume that there exist y1 , . . . , yn ≥ 3 such that 1 = nj=1 yj − ni=1 ( nj=1 yj )/yi .
+                                                                           Q            P     Q
+
+Setting xi = yi − 1, we obtain x1 , . . . , xn ≥ 2 such that det(MG (x1 , . . . , xn )) = 1. To show
+                            THE CRITICAL POLYNOMIAL OF A GRAPH                                 28
+
+that 1 ∈ VG (2), it remains to show that MG (x1 , . . . , xn ) is positive definite. For this, it
+suffices, as noted above, to argue that M ′′ is positive definite, and this can be obtained
+using Sylvester’s Criterium on the positivity of the leading principal minors. This is clear
+since det(M ′′ ) = 1 > 0 in our case, and all the diagonal elements of M ′′ are positive. 
+Remark 7.2. In a solution (y1 , . . . , yn ) to Equation (7.1), the integers yi are pairwise
+coprime. In particular, they are all distinct. When n is odd, any solution (y1 , . . . , yn ) to
+Equation (7.1) must have at least one yi even.
+   When n = 13, one finds in [11], page 8, a solution to Equation (7.1) in pairwise coprime
+integers obtained by Girgensohn with 3 = y1 < 4 < 5 < 7 < 29 < · · · < yn . The integer
+y13 has 172 digits. This solution has exactly one even entry, y2 = 4. Note that the same
+solution is given in [10], page 393, but in that article the given solution has typos.
+   Once we have a solution (y1 , . . . , yn ) to Equation (7.1), it is possible to extend it to a
+solution (y1 , . . . , yn , x) satisfying
+                                      n
+                                      X 1            1       1
+                                                 +     +             =1
+                                      i=1
+                                            yi       x y1 · · · yn x
+
+by setting x := (y1 · · · yn ) + 1.
+Corollary 7.3. Let G = Kn be the complete graph on n ≥ 2 vertices.
+(a) If n = 13, then 1 ∈ VG (2).
+(b) If n ≥ 14, then VG (2) = Z≥0 .
+(c) If n ≤ 7, then 1 ∈
+                     / VG (2).
+Proof. (a) In view of Proposition 7.1, it suffice to show that the equation (7.1) can be
+solved with y1 , . . . , yn ≥ 3. When n = 13, we use the solution provided in [11], page 8,
+and mentioned in the previous remark.
+  (b) The graph Kn+1 is the cone on the graph Kn . Therefore, Theorem 1.1 (b) shows
+that if 1 ∈ VKn (2), then VKn+1 (2) = Z≥0 .
+  (c) It is mentioned in [11], page 8, that all solutions y1 ≤ · · · ≤ yn to Equation (7.1)
+with n ≤ 9 have y1 = 2. We have not been able to retrieve the list of known solutions for
+n = 8, 9 to verify this claim. The list of solutions with n ≤ 7 is provided in [9], page 50
+and Appendix. The claim (c) then follows from Proposition 7.1.                           
+Remark 7.4. Let G = Kn be a complete graph with 3 ≤ n ≤ 13. Corollary 4.3 shows
+that the complement of VdG (2) in Z≥0 has density 0. It is natural to wonder whether
+the complement is finite. We discussed already the case n = 3 in 6.8. Computations in
+the case n = 4 also seem to indicate that the complement in this case might be quite
+substantial.
+Acknowledgement. The author gratefully acknowledge funding support from the Si-
+mons Collaboration Grant 245522. He also thanks the referee for a thoughtful report,
+and Carlos Alfaro and Joshua Stucky for bringing to his attention the references [19] and
+[13], respectively.
+                          THE CRITICAL POLYNOMIAL OF A GRAPH                                         29
+
+                                          References
+ [1] S. Aletheia-Zomlefer, L. Fukshansky, and S. Garcia, The Bateman-Horn conjecture: heuristic,
+     history, and applications, Expo. Math. 38 (2020), no. 4, 430–479. 16
+ [2] K. Archer, A. Bishop, A. Diaz-Lopez, L. Garcı́a Puente, D. Glass, and J. Louwsma, Arithmetical
+     structures on bidents, Discrete Math. 343 (2020), no. 7, 111850, 23 pp. 7
+ [3] M. Artin, On isolated rational singularities of surfaces, Amer. J. Math. 88 (1966), 129–136. 6, 22
+ [4] R. Bacher, P. de la Harpe, T. Nagnibeda, The lattice of integral flows and the lattice of integral
+     cuts on a finite graph, Bull. Soc. Math. France 125 (1997) 167–198. 3
+ [5] N. Biggs, Chip-firing and the critical group of a graph, J. Algebraic Combin. 9 (1999), no. 1,
+     25–45. 3, 14
+ [6] J. Borwein and K.-K. Choi, On the representations of xy + yz + zx, Experiment. Math. 9 (2000),
+     no. 1, 153–158. 5
+ [7] B. Braun, H. Corrales, S. Corry, L. Garcı́a Puente, D. Glass, N. Kaplan, J. Martin, G. Musiker,
+     and C. Valencia, Counting arithmetical structures on paths and cycles, Discrete Math. 341 (2018),
+     no. 10, 2949–2963. 7
+ [8] L. Brenton and D. Drucker, Perfect graphs and complex surface singularities with perfect local
+     fundamental group, Tohoku Math. J. (2) 41 (1989), no. 4, 507–525.P 3, 22 Q
+ [9] L. Brenton and R. Hill, On the Diophantine equation 1 =            1/ni + 1/ ni and a class of
+     homologically trivial complex surface singularities, Pacific J. Math. 133 (1988), no. 1, 41–67. 3,
+     4, 28
+[10] L. Brenton and L. Jaje, Perfectly weighted graphs, Graphs Combin. 17 (2001), no. 3, 389–407. 3,
+     28
+[11] L. Brenton and A. Vasiliu, Znam’s problem, Math. Mag. P    75 (2002), no. 1, 3–11. 3, 28
+[12] W. Butske, L. Jaje, and D. Mayernik, On the equation p|N (1/p) + (1/N ) = 1, pseudoperfect
+     numbers, and perfectly weighted graphs, Math. Comp. 69 (2000), no. 229, 407–420. 3
+[13] B. Conrey and N. Shah, Which numbers are not the sum plus the product of three positive integers,
+     Preprint 2021. 26, 28
+[14] H. Corrales and C. Valencia, On the critical ideals of graphs, Linear Algebra Appl. 439 (2013),
+     no. 12, 3870–3892. 2
+[15] H. Corrales and C. Valencia, Arithmetical structures on graphs, Linear Algebra Appl. 536 (2018),
+     120–151. 7
+[16] J.-M. Deshouillers, F. Hennecart, and B. Landreau, On the density of sums of three cubes, (English
+     summary) Algorithmic number theory, 141–155, Lecture Notes in Comput. Sci., 4076, Springer,
+     Berlin, 2006. 5
+[17] M. Duggan and L. Gerstein, Unimodular embeddings, J. Number Theory 133 (2013), no. 8, 2715–
+     2721. 26
+[18] A. Durfee, Fifteen characterizations of rational double points and simple critical points, Enseign.
+     Math. (2) 25 (1979), no. 1–2, 131–163. 20
+[19] N. Ghareghani, F. Ramezani, and B. Tayfeh-Rezaie, Graphs cospectral with starlike trees, Linear
+     Algebra Appl. 429 (2008), no. 11–12, 2691–2701. 2, 28
+[20] L. Gerstein, Nearly unimodular quadratic forms, Ann. of Math. (2) 142 (1995), no. 3, 597–610.
+     26
+[21] F. Hirzebruch, Über Singularitäten komplexer Flächen, Rend. Mat. e Appl. (5) 25 (1966), 213–232.
+     20
+[22] K. Ireland and M. Rosen, A classical introduction to modern number theory, Second edition.
+     Graduate Texts in Mathematics, 84. Springer-Verlag, New York, 1990. 16
+[23] F. Leighton and M. Newman, Positive definite matrices and Catalan numbers, Proc. Amer. Math.
+     Soc. 79 (1980), no. 2, 177–181. 6, 7
+                          THE CRITICAL POLYNOMIAL OF A GRAPH                                         30
+
+[24] Q. Liu, Algebraic geometry and arithmetic curves, Oxford Graduate Texts in Mathematics 6,
+     Oxford University Press, paperback new edition (2006). 4
+[25] D. Lorenzini, Arithmetical graphs, Math. Ann. 285 (1989), no. 3, 481–501. 3, 6, 7
+[26] D. Lorenzini, Groups of components of Néron models of Jacobians, Compositio Math. 73 (1990),
+     no. 2, 145-–160. 3
+[27] D. Lorenzini, Smith normal form and Laplacians, J. Combin. Theory Ser. B 98 (2008), no. 6,
+     1271–1300. 3, 14
+[28] D. Lorenzini, Two-variable zeta-functions on graphs and Riemann-Roch theorems, Int. Math. Res.
+     Not. IMRN 2012, no. 22, 5100–5131. 6
+[29] D. Lorenzini, Wild quotient singularities of surfaces, Math. Z. 275 (2013), no. 1-2, 211–232. 5, 23
+[30] D. Lorenzini and S. Schroeer, Discriminant group of wild cyclic quotient singularities, Algebra
+     Number Theory 17 (2023), no. 5, 1017–1068. 5
+[31] M. Newman, Tridiagonal matrices, Linear Algebra Appl. 201 (1994), 51–55. 26
+[32] A. Ogg, On pencils of curves of genus two, Topology 5 (1966), 355–362. 22
+[33] R. Plemmons, M-matrix characterizations. I. Nonsingular M-matrices, Linear Algebra Appl. 18
+     (1977), no. 2, 175–188. 2, 6
+[34] J. Tate, Algorithm for determining the type of a singular fiber in an elliptic pencil, Modular
+     functions of one variable, IV (Proc. Internat. Summer School, Univ. Antwerp, Antwerp, 1972),
+     pp. 33-52. Lecture Notes in Math., Vol. 476, Springer, Berlin, 1975. 19
+[35] M. Wood, The distribution of sandpile groups of random graphs, J. Amer. Math. Soc. 30 (2017),
+     no. 4, 915–958. 3
+
+Department of Mathematics, University of Georgia, Athens, GA 30602, USA
+Email address: lorenzin@uga.edu
+

@@ -30,8 +30,8 @@ from memory).
 ## Barrier screen
 * **Burgess in the Farey metric.** The natural analytic question is a character sum of χ_p over ?⁻¹(weight ≤ R dyadics) ∩ (1/p)ℤ.
   For R ≍ ln² p the set has density ≥ 1/2 (PROVED, bsA_farey_lnr_pigeonhole Thm 3). The same holds for R ≍ ln p ln ln p
-  *conditionally* on the unverified fixed-denominator law of large numbers. For R ≍ C ln p the size p^{1−ε(C)} is a heuristic guess only, with
-  with a bilinear continuant structure K(b₁…b_r) = K(b₁…b_j)K(b_{j+1}…b_r) − K(b₁…b_{j−1})K(b_{j+2}…b_r). Bourgain–Kontorovich-type
+  *conditionally* on the unverified fixed-denominator law of large numbers. For R ≍ C ln p the size p^{1−ε(C)} is a heuristic guess only. There is
+  a bilinear continuant structure K(b₁…b_r) = K(b₁…b_j)K(b_{j+1}…b_r) − K(b₁…b_{j−1})K(b_{j+2}…b_r). Bourgain–Kontorovich-type
   bilinear methods might give λ(p) ≪ ln p (Assessment, not attempted). For R = 3 the set has polylog size. Any polylog set
   can lie in QR_p, so cardinality-only arguments cannot work (B3/B6). A character-sum argument would have to exploit the
   specific structure of the ball, and I know none that does.

@@ -24174,5 +24174,82 @@ def check_fg():
 
 check_fg()
 
+def check_fh():
+    # (fh) SIGNLAYER_DEEP (O175/R175): reviewer from-scratch F_3[T] Case B enumeration on the slice x = 1 off T
+    # (exact covered measures, x* uncovered), the single-slice W table (T1 control, non-square zeros), Zolotarev.
+    from time import perf_counter
+    import os
+    import subprocess
+    import sys
+    t0 = perf_counter()
+    root = os.path.dirname(os.path.abspath(__file__))
+    sdir = os.path.join(root, "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("SIGNLAYER subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    o = run("review_sl_caseB.py", "enum", "11")
+    for s in ["K<= 2: union measure 0.333333 = 1/3", "K<= 5: union measure 0.407407 = 11/27",
+              "K<= 8: union measure 0.456790 = 37/81", "K<= 10: union measure 0.465021 = 113/243",
+              "K<= 11: union measure 0.470508 = 343/729  x*_1,x*_2 covered [False, False]"]:
+        assert s in o, ("SIGNLAYER R175 Case B measures", s, o)
+    assert "covered [True" not in o, ("SIGNLAYER R175 x* covered?", o)
+    o = run("review_sl_wcount.py", "200000")
+    assert "odd squares with W != 0: []" in o and "prime zeros: []" in o and \
+        "non-square zeros n = 1 mod 4: 20 [105, 465, 585, 801," in o, ("SIGNLAYER R175 W table", o)
+    o = run("review_sl_zolo.py", "300")
+    assert "certificates 237 explicit transposes 170 violations 0" in o, ("SIGNLAYER R175 Zolotarev", o)
+    print(f"== (fh) SIGNLAYER_DEEP R175: F_3[T] Case B slice covered measure 1/3, 11/27, 37/81, 113/243, 343/729 "
+          f"(K <= 11), x* uncovered; W(n) = 0 at all odd squares, no prime zero, 20 non-square zeros <= 2e5; "
+          f"Zolotarev sign 0 violations; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fh()
+
+def check_fi():
+    # (fi) HJ_DEEP (O174/R174): Lorenzini's A_3 question (W) exceptions and the sign half (S) of SQ5 (reviewer's own
+    # per-n divisor search, C), Wu-square sign law Thm W, Type II = formal words K(a,4cd,b) = cn with sign law.
+    from time import perf_counter
+    import os
+    import shutil
+    import subprocess
+    import sys
+    import tempfile
+    t0 = perf_counter()
+    sdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "scripts")
+    env = dict(os.environ, PYTHONPATH=sdir, OMP_NUM_THREADS="2", OPENBLAS_NUM_THREADS="2")
+
+    def run(*args):
+        r = subprocess.run([sys.executable, *args], capture_output=True, text=True, timeout=900, env=env, cwd=sdir)
+        assert r.returncode == 0, ("HJ_DEEP subprocess", args, r.stderr[-2000:])
+        return r.stdout
+    cc = shutil.which("gcc") or shutil.which("cc")
+    cmsg = "(W)/(S) C check skipped (no compiler)"
+    if cc:
+        with tempfile.TemporaryDirectory() as td:
+            exe = os.path.join(td, "review_hj_ws")
+            r = subprocess.run([cc, "-O2", "-o", exe, os.path.join(sdir, "review_hj_ws.c"), "-lm"],
+                               capture_output=True, text=True, timeout=120)
+            assert r.returncode == 0, ("HJ_DEEP: compile failed", r.stderr[-1000:])
+            r = subprocess.run([exe, str(10 ** 7)], capture_output=True, text=True, timeout=300)
+            assert r.returncode == 0, ("HJ_DEEP review_hj_ws failed", r.stderr[-500:])
+            o = r.stdout
+            assert "(W) exceptions: 2 3 5 6 9 11 14 15 35 105 510" in o and "#S violations=0" in o and \
+                "with -1 word=0" in o, ("HJ_DEEP R174 (W)/(S)", o)
+            cmsg = "(W) exceptions <= 1e7 = Lorenzini list, (S) 0 violations"
+    o = run("review_hj_wu.py")
+    assert "24692 odd words, 0 failures" in o and "39278 odd words, 0 failures" in o and "10948 words, 0 failures" in o, \
+        ("HJ_DEEP R174 Thm W", o)
+    o = run("review_hj_typeII.py", "3000")
+    assert "Type II tuples (a<=b) 9431; identity failures 0" in o and "sign-law failures 0; tuples at odd squares: 0" in o, \
+        ("HJ_DEEP R174 Prop 2.1/2.2", o)
+    print(f"== (fi) HJ_DEEP R174: {cmsg}; Wu-square sign law 0 failures; Type II = formal HJ words, sign law "
+          f"(A/n) = -(-1/n), 0 failures; seconds = {perf_counter() - t0:.1f}")
+
+
+check_fi()
+
 
 print("\nall checks passed")

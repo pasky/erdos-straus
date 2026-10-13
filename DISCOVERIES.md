@@ -617,6 +617,31 @@ Aim: bring non-congruence input (spectral, automorphic, arithmetic-geometric) to
    * §2 (PROVED). Positivity of E′(τ,0)_T is automatic at certificate indices. Diff = {p} indices exist at every prime deterministically (Dirichlet). Kudla data are genus-invariant (Prop 2.4′, R172), so the Kudla-visible count is a T1-respecting genus majorant. ES is its ray-class upgrade (4c | q + 1), i.e. B2. Exact split ES = Q + R: Q is the quadratic-character part (≈ κ·τ(N)/φ(M), zero at squares), R is the part from characters of order ≥ 3, which has no orthogonal Siegel–Weil incarnation (R172 D9 corrected a false visibility claim).
    * Assessment: the Kudla program sees exactly the genus/sign layer of (J)11; no existence mechanism. Open sparks: a uniform-in-M big-CM/unitary aggregate over ℚ(ζ_{4cd})⁺, and unitary U(1,1) Siegel–Weil for the order-≥3 part R (pursued by spark relay O176).
 
+14. **Sign-layer brainstorm B and the F₃[T] slice census (SIGNLAYER_DEEP.md + 8 memos BRAINSTORM/bsB_* (O175); review `reviews/signlayer-deep-review.md` (R175): no FATAL; 5 MAJOR (D4, D6, D10, D11, D16) and minors, repaired by the reviewer).**
+   * Lemma 1.1 (PROVED, relative to the FF2 §0.2 Case B reduction; R175 verified it against direct factorisation). On the sub-slice u ≡ 1 (T), u ≢ 1 (T²) of points x ≡ 1 off T (q = 3, A = T²), Case B families of level K are the monic h₁, h₁′ with h₁ + h₁′ = T g′ r, h₁h₁′L″ = T^K + r, plus one T-adic congruence. Each level is therefore a finite search. This refutes the FF2 divergence heuristic, independently of O173.
+   * CERTIFIED (exhaustive; exact rationals reproduced independently by R175 through K = 15): covered Haar measure of the sub-slice is 1/3, 11/27, 37/81, 113/243, 343/729, … → 0.4906 at K = 19. The search is complete for N + γ ≤ K + 1, i.e. all levels N ≤ 10 with every g (R175 D4 corrected an "N ≤ 18" overclaim). x*_{±1} = 1 ± T is uncovered throughout.
+   * Coverage near x* is far below average: zero inside u ≡ 1 + cT (mod T⁵) for K ≤ 13. Symmetries u ↦ u⁻¹ and u(T) ↦ u(−T) (PROVED; (ii) needs FF2's degree parity). Of the six height-1 slice points, (1 ± T)/(1 ∓ T) are covered (R175 D8), so height 1 alone does not explain sterility. EVIDENCE/Assessment: about half the sub-slice stays uncovered, so O(3, T²) would have positive measure.
+   * Sign-layer dictionaries (PROVED, elementary). The ES sign is the ℤ/n-half of a Zolotarev transpose permutation, the weight-½ theta multiplier of the certificate matrix, the real orthant of one cubic (= Bright–Loughran Thm 1.2/1.5 on the slice), and the genus character on the anti-invariant part of the ray class group.
+   * Ray-class pullback (bsB_rayclass_norm_pullback). Fixed-(t,p) Hecke-character / L-function / Eisenstein detectors use only χ∘N, so they see the ray-class condition only through characters pulled back from ℚ. Scope (R175 D10): this does not cover all ray-class proof mechanisms, so the (J)5 Remark 10.4 hatch is narrowed, not closed. For prime t ≡ 3 (4), the 2-primary (Rédei/governing-field) part of the class condition is exactly the genus sign; the remainder is odd-order (H-D residue).
+   * EVIDENCE (R175 reproduced): single-slice W(n) ≥ 1 for all primes p ≡ 1 (4) ≤ 2·10⁶. The non-square zeros are 26 composites with small factors. W(105·k²) > 0, so a Shimura-type zero propagation fails.
+
+15. **HJ/Farey brainstorm A: SQ₅ splits into Lorenzini's A₃ question and a sign half (HJ_DEEP.md + 9 memos BRAINSTORM/bsA_* (O174); review `reviews/hj-deep-review.md` (R174): no FATAL; one MAJOR quantifier error (D1) and ~16 minors, repaired by the reviewer).**
+   * Lemma 1.1 (PROVED). Master identity: tuv − u − v = n ⟺ t/n = 1/(uv) + 1/(un) + 1/(vn).
+   * Prop 2.1/2.2 (PROVED). All of Type II = *formal* three-letter words K(a, 4cd, b) = cn; outer letters may be 1, e.g. 4/5 = 1/2 + 1/5 + 1/10. The sign is automatic: (A/n) = −(−1/n) for every odd n. This is the HJ dress of Yamamoto's lemma.
+   * §3 (PROVED, pointwise, given (J)9 Thm 4.5). For n ≡ 1 (4): interior-SQ₅(n) ⟺ W(n) ∧ S(n).
+     * W(n) is sign-free: n = xyz − x − z for some x, y, z ≥ 2.
+     * S(n) is the sign half: if n is a non-square with a length-3 word, some word has Jacobi symbol −1.
+   * **The global (W) is exactly the open question of Lorenzini on the critical polynomial of the path graph A₃** (arXiv:2311.06367 / JNT 2024, Example 6.2(a), quotation verified by R174). Its conjectured exceptional set is {0,1,2,3,5,6,9,11,14,15,35,105,510}. The global (W) is *stronger* than what ES needs (R174 D1). EVIDENCE (R174, independent algorithm, to 10⁹): the (W)-exceptions are exactly Lorenzini's list, (S) has 0 violations, and no odd square has a −1 word. DK's lone SQ₅ exception 105 is a (W)-exception: it has no length-3 word at all.
+   * Lemma 3.2 (PROVED): no finite fixed-pair congruence covering proves (W).
+   * Prop 4.1 (PROVED, a reformulation): (S) fails at n ⟺ for all t, every admissible divisor X ≡ −1 (t) of tn + 1 lies in the kernel of q ↦ (q/n).
+   * Memos (PROVED unless noted).
+     * The ES sign is the Wu square of the plumbing lattice, (A/n) = +1 ⟺ w·w ≡ n + r − 1 (mod 8) (Thm W, r ≤ 5 by mod-8 check). The Rokhlin reading is corrected by R174 for n ≡ 3 (4).
+     * HJ length = popcount ∘ Minkowski ? (M1, checked to n < 2000), so five-slice ES(p) is a statement about Stern's diatomic sequence.
+     * λ(p) ≤ (6/π² + o(1)) ln²p unconditionally, relative to Yao–Knuth (no ES content).
+     * (A/p) = −1 ⟺ L(p,A) is not homotopy-equivalent to L(p,1).
+     * Fricke/Markoff: Vieta dynamics acts on the fibre and ES lives on the base.
+   * Assessment: no route to ES. (W) is a published, T1-free, sign-free sub-problem with a clean exceptional set; it is the natural test bed for H-A ideas (pursued by spark relay O180).
+
 ## Items to verify by the maintainer
 
 - Confirm whether the exact preferred label for the §14.4 correction is `REFUTED`, `WITHDRAWN`, or only the source’s prose “false”; the ledger intentionally marks it unclear.

@@ -28,6 +28,10 @@ the script).
   p − 1). The ES difficulty is therefore not positivity of the CF entries. It is the requirement of a QNR at distance 3,
   which both metrics share. (I did not prove λ_F = λ in general. A proof would go through the BHS normal form of
   geodesic CFs: entries |b_i| ≥ 2, with the sign patterns that produce p > 0 reducing to HJ words of A or p − A.)
+* (R174 repair.) The distance-2 bullet already *proves* λ_F(p) = 2 ⟺ λ(p) = 2 (d_F = 1 only at A = 1, a QR; distance 2 ⟺
+  A | p ± 1; divisors of p − 1 are QRs). With λ_F ≤ λ this gives **λ_F(p) = λ(p) whenever λ(p) ≤ 3 (PROVED)**, i.e. at every
+  p ≡ 1 (8) where five-slice ES holds (all p < 10⁶ by DK). So the BFS evidence is implied, the conjecture λ_F = λ is open
+  only when λ ≥ 4, and the reading below should be taken as weak: distance-3 signed words never enter.
 * B1–B6 unchanged. T1: at squares both metrics see only Jacobi +1.
 
 ## Cheap numerics

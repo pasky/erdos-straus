@@ -11,7 +11,7 @@ Gram matrix is the tridiagonal `G = [[v,−1,0],[−1,t,−1],[0,−1,u]]`, det 
 **D2 (Kirchhoff / sandpile, PROVED).** A Selling-reduced integral ternary lattice is the reduced Laplacian of the
 multigraph on {0,1,2,3} with p_ij parallel edges. So a length-3 word is the **4-vertex multigraph** "hub 0 joined to a
 path 1–2–3 by v−1, t−2, u−1 parallel edges". Its spanning-tree number is n, and its sandpile (critical) group is
-Λ*/Λ ≅ ℤ/n when that group is cyclic (always so when n is prime). Every positive integral ternary lattice is of this form for some
+Λ*/Λ ≅ ℤ/n (R174 repair: always cyclic for a linear chain, since a 2×2 minor of G equals 1). Every positive integral ternary lattice is of this form for some
 weighted K₄ (Selling reduction works over ℤ).
 **D3 (genus, PROVED for n = p prime).** The discriminant form of Λ (equivalently the sandpile monodromy pairing
 of Bosch–Lorenzini / Shokrieh) is ⟨A*/p⟩ on ℤ/p, and its square class is (A/p). For odd positive ternary lattices
@@ -22,7 +22,7 @@ At n = m², Thm 4.5 is about the Jacobi symbol, not the genus. Both discriminant
 symbol (A/m²) is always +1, and that is all the slices see. So the genus reading is literally right only at primes.
 
 ## Literature
-**Lorenzini, *The critical polynomial of a graph* (preprint, 4 Dec 2022; text checked): the chain determinant
+**Lorenzini, *The critical polynomial of a graph* (preprint, 4 Dec 2022; text checked; published J. Number Theory 257 (2024) 215–248, arXiv:2311.06367 — R174): the chain determinant
 xyz − x − z is his critical polynomial d_{A₃}. The sign-free existence half of SQ₅ is his open question, Example 6.2(a)
 (see HJ_DEEP §3).** Lorenzini, *Arithmetical graphs* (Math. Ann. 1989; from memory): critical groups of arithmetical graphs.
 Selling (1874) / Conway–Sloane, *Low-dimensional lattices VI: Voronoi reduction of three-dimensional lattices* (Proc.
