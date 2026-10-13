@@ -1,6 +1,8 @@
 # R182 — hostile review of O182 (TWISTED_T1.md, BRAINSTORM/bsI_*.md)
 
-Reviewer: R182 (side agent). Status: in progress. **ES is not solved here.**
+Reviewer: R182 (side agent). Status: round 1 complete.
+**Repairs applied** (author quiet since the checkpoint commit): D1–D8, D10–D13 applied directly as marked
+'(R182 repair …)' in TWISTED_T1.md, BRAINSTORM/bsI_anchor_calculus.md and reviews/agent-reports/AGENT_REPORT_O182.md. **ES is not solved here.**
 From-scratch scripts: `scripts/review_tw_*.py` (own ℤ[ω] arithmetic, own cubic residue / tame / λ-adic symbols).
 
 ## Summary verdicts

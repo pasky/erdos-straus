@@ -12,14 +12,15 @@
    Pinning ⟺ normalisation image isotropic with τ ⊥ it (Lemma 2.1). Natural normalisations — monic, unit, primary —
    are **Lagrangian**, hence pin only 0. For odd m a single target never anchors (⟨t, t⟩ = 0), so "ζ₃ as an order-3
    target" with unit twists fails over ℤ[ω] (Prop 2.3(ii)); ES's T1 order 2 = non-alternating ⟨−1, −1⟩_ℝ.
-   **The partner must be wild (Prop 4.3)** ⇒ no template T1 of any odd order over function fields — the structural
-   reason for "no odd-square obstruction over F_q[T]". ES = (real anchor ∞, wild partner 2 with numerator 4);
+   **The partner must be wild (Prop 4.3)** ⇒ no template T1 of any odd order over function fields — the odd-m
+   analogue of "no odd-square obstruction over F_q[T]" (R182 repair D11: not the reason for that m = 2 statement,
+   which lies on the anchor side; see TWISTED_T1 Prop 4.3). ES = (real anchor ∞, wild partner 2 with numerator 4);
    TES = (tame congruence anchor 2, wild partner λ with numerator 9 = λ⁴·unit).
 
 ## Results (labels)
 * PROVED: Lemma 1.1 (c₁+c₂+c₃ = 1 "all minimal" configuration never occurs for deg A ≥ 1 — the brief's candidate is
   empty); Prop 1.2 (F_q(T) ∞-invariant = det(1, w, d) mod m); Cor 1.3; Lemma 2.1; Cor 2.2 (catalogue; (f) uses the
-  standard conductor bound for the cubic Hilbert symbol, from memory, numerically consistent: ⟨U², U²⟩_λ = 0 on 300
+  standard conductor bound for the cubic Hilbert symbol, from memory; the instance used is verified exactly by R182 from the norm-residue definition; author check: numerically consistent: ⟨U², U²⟩_λ = 0 on 300
   pairs, ⟨ω, U²⟩, ⟨λ, U²⟩ non-trivial); Prop 2.3; Lemma 3.1; **Thm 3.2**; Thm 4.1 (template, odd m); Prop 4.3.
 * EVIDENCE: §3/§5 tables (all solutions exactly verified; λ-invariant obtained by reciprocity from tame symbols,
   reciprocity code checked); census of 746 primes: 7817 solutions, invariants always (1, 2, 0); 18 primes with no
