@@ -144,3 +144,49 @@ N ≤ deg(h₁ + (1 + cT)h₁') ≤ max(a, b + 1), and K = a + b + deg L'' ≤ 2
 **D9 (MINOR).** "So a covering family at x* is necessarily lopsided (one of E, E' has much larger degree)". The
 second branch b ≥ a + deg L'' allows a = b when L'' = 1. In that case deg E = deg E'. Repair: "lopsided unless
 L'' = 1 and a = b".
+
+## Memo bsB_rayclass_norm_pullback — items 1–3 SOUND; scope of the headline GAP (D10, MAJOR for the campaign ledger)
+
+*Item 1* (hypercube = divisor lattice of N = (tp + 1)/4). Re-derived. d_K = −tp ≡ 1 (mod 4) is fundamental.
+ω = (1 + √−tp)/2 has coordinate 1 on the basis element ω, so no rational prime divides it. A prime ℓ | N has
+−tp ≡ 1 (mod ℓ) (for ℓ = 2: tp ≡ 7 mod 8, which is exactly when N is even), so ℓ splits, and only one of the two
+primes above ℓ divides (ω). SOUND. *Small mismatch:* WR Remark 10.4 speaks of the divisors of (1 + √−tp) = (2)(ω).
+When tp ≡ 3 (mod 8), (2) is inert and those divisors have norms d and 4d. The memo's ω-version is the one
+matching GI Prop 4.1 (m'' | (tn + 1)/4·…), so this is fine, but say that it is a different (better) normalisation.
+
+*Item 2* (only χ∘N enters). As a statement about detectors it is correct, and essentially tautological. The
+indicator of {𝔪 : N𝔪 ≡ −1 (t)} is f∘N for a function f on (ℤ/t)^*. Its Fourier support on G is therefore
+contained in the characters trivial on ker N, i.e. {χ∘N}. L(s, χ∘N_{K/ℚ}) = L(s, χ)L(s, χχ_K) (Artin induction
+of a restricted character), and θ_{χ∘N} = Σ_n χ(n)(Σ_{d|n} χ_K(d)) qⁿ is a twisted weight-1 Eisenstein series.
+SOUND.
+
+*Item 3* (on G[1+σ] the norm is the genus character χ_p). Re-derived. 𝔞𝔞̄ = (N𝔞) with generators ±N𝔞 (units ±1;
+−tp ≠ −3, −4), so [𝔞]^{1+σ} = 1 in G ⟺ N𝔞 ≡ ±1 (mod t). The genus product formula on norms coprime to tp
+(product over the prime discriminants of −tp) gives (N𝔞/t) = (N𝔞/p), and (−1/t) = −1. SOUND. Independent
+check (`scripts/review_sl_rayclass.py`): for all reduced forms of discriminant −tp, t ∈ {3, 7, 11, 15, 19, 23, 31,
+35, 39, 43} and p ∈ {5, …, 61}, 2.83·10⁶ represented m coprime to tp, 3.97·10⁵ of them ≡ ±1 (mod t): 0 violations
+of (m/t) = (m/p) or of (m/p) = ±1. This covers non-principal classes too, unlike the author's check of random
+norms.
+
+**D10 (MAJOR as a ledger statement; the memo text is partly careful).** The brief asks whether this is a theorem
+about *all* ray-class mechanisms or only about Hecke-L/Eisenstein inputs. **It is only the latter, plus a
+reduction of the target.** What is proved is:
+(a) the truth value of the hypercube event at fixed (t, p) is a function of the residues mod t of the prime
+factors of N (with exponents), so the *target statement* contains no ray-class information beyond N; and
+(b) any *linear character detector* of the event (Fourier expansion on G, Hecke L-functions, theta series,
+Chebotarev densities of the event) uses only χ∘N, i.e. Dirichlet data mod t and mod 4tp.
+It does **not** show that ray-class arithmetic is useless as a *proof method* when p varies. A Chebotarev or
+equidistribution argument in the ray class fields of the varying K_p = ℚ(√−tp), used to force a *family* of N's
+to have prime factors in prescribed classes, is not a detector of the event at fixed (t, p) and is untouched by
+item 2. Iteration 1 dismisses this only by "no common field, B6/H-A", which is a barrier citation, not a proof.
+Iteration 2 ("class ⇒ norm … WR Prop 10.3 shows is genus-shadow only") **cites the wrong result**. Prop 10.3 is
+about classes in Cl(O), where the norm mod ℓ is a class invariant only up to squares. In the ray class group G the
+norm mod t *is* a class invariant (that is Remark 10.4's whole point), so a "class ⇒ norm" mechanism in G is not
+genus-shadow-only. It is useless only because, by (a), anything it proves about the event can be pushed forward
+along N to a statement about residues mod t. That push-forward argument is the correct reason, and the memo
+should give it.
+Repair: (1) state the theorem as "(a) + (b) at fixed (t, p)"; (2) replace the Prop 10.3 citation in iteration 2 by
+the push-forward argument; (3) in DISCOVERIES/ledger, record Remark 10.4's escape as "closed for fixed-(t, p)
+character/L-function/Eisenstein inputs; varying-p ray-class Chebotarev arguments remain classified under
+B6/H-A (barrier, not theorem)". "Promise 0/5" is acceptable as an Assessment.
+Minor: T1 bullet "at p = k²" is outside the memo's own hypothesis (p prime). Say "at n = k² in GI Prop 4.1".
