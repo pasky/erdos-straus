@@ -21,6 +21,15 @@ Labels as in DISCOVERIES.md.
 * §6: six construction attempts (C1–C6) with the barrier hypothesis each tried to violate; §7: the rank-4
   (weight-2 Eisenstein) dictionary for Type II and why fibre weights do not escape; §8 escape table.
 
+**Checkpoint 2 (Part II, §§9–11).** Thm 9.1 / Cor 9.3 (PROVED, elementary): finite Eisenstein
+combinations, which cover every rank-4 one-class genus and Jacobi's `r₄`, are quasi-polynomials at primes. T1 at the
+prime squares `ℓ² ≡ 1 (L)` forces them to vanish (or to be ≤ 0) at primes `p ≡ 1 (L)`. This holds both for exact
+identities and for asymptotics with n-uniform errors. Shifted forms with finitely many shifts are B2 slices.
+EVIDENCE: no closed form for the shifted cubic counts at n ≤ 10⁴ (§9.1). §10: Type II = `⊔_M U⁻γ_M U⁻` with
+`c | M/4` as the only non-congruence condition. It cannot be absorbed into one level (Prop 10.2). The needed
+equidistribution is shells of a modular hyperbola mod Mp at expected count `log p/M`. §11: uncapped weights
+do not escape Cor 9.3.
+
 ## 1. Inputs (literature, as verified by a research subagent; statements only)
 
 * (S4) Sardari, *Optimal strong approximation for quadratic forms*, Duke 168 (2019), arXiv:1510.00462,
@@ -356,3 +365,21 @@ horocycle pieces have length ≍ `Mp`, and we need their joint distribution agai
 family of shells, at expected count `p^{o(1)}`. This is exactly the polylog regime (CONDITIONAL_ES Remark 2.4:
 not excluded by Prop 2.3, but no equidistribution theorem or standard conjecture reaches it). Converting the
 divisor-indexed family into congruence data would require Prop 10.2's impossible level.
+
+## 11. Uncapped fibre weights
+
+FIBRED Lemma 1.3 is a tautology, `c(n) = Σ_s c_s ≤ f(n)·max_s c_s`, so it never forbids a power main term. It
+forbids one only when the weights are capped (`max c_s ≤ n^{o(1)}·M/…`). Uncapped weights (E-a), meaning `c_s`
+varying by a power of n across solutions, would let a power main term M coexist with `f(n) = polylog`. Then
+the question becomes **where M comes from and how it behaves at T1**:
+* If M is a fixed-level genus (Eisenstein) main term and the error is n-uniform, Cor 9.3 kills the route on
+  `p ≡ 1 (L)`, *independently of the weights*. Uncapping the weights does not help.
+* The rank-4 weights found here are capped. In §7 the weight is `m ≤ n`. In §3/C4 the fibres are hyperplane
+  sections with `≍ √N/q²` points each, uniform across solutions.
+  Natural uncapped weights come from orbits with stabilisers of power-varying covolume. This is FIBRED §3, where
+  the stabilisers are compact or finite, so the weights are bounded. Pell-type stabilisers carry regulators
+  `≤ O(log p)` (FIBRED F2), because the solution is itself the unit.
+* **What is still open (Assessment).** We need a main term that is *not* n-local at the place p, such as a
+  genus character at p (FIBRED 5.3), together with weights uncapped by the solution. No candidate was found.
+  Thm 9.1/Cor 9.3 show the main term cannot be a fixed-level Eisenstein combination, however the weights are
+  arranged.
