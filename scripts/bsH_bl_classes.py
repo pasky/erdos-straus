@@ -11,7 +11,7 @@ from bsH_ff import FF
 
 p, gen, m = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 Adig, n = sys.argv[4], int(sys.argv[5])
-pw = len(sys.argv) > 6
+pw = len(sys.argv) > 6 and sys.argv[6] == 'pow'
 F = FF(p)
 A = tuple(int(c) for c in reversed(Adig))
 kA = len(A) - 1
@@ -123,17 +123,18 @@ def run(lab, Ps):
           f"(inv_P, inv_A) dist={sorted(joint.items())}")
 
 
-if not pw:
-    run('irr', [P for P in F.irreds(n) if F.mod(P, A)])
-else:
-    for e in sorted({3, 2}):
-        if n % e:
-            continue
-        Ps = []
-        for Q in F.irreds(n // e):
-            P = (1,)
-            for _ in range(e):
-                P = F.mul(P, Q)
-            if F.mod(P, A):
-                Ps.append(P)
-        run('Q^%d' % e, Ps)
+if __name__ == '__main__':
+    if not pw:
+        run('irr', [P for P in F.irreds(n) if F.mod(P, A)])
+    else:
+        for e in sorted({3, 2}):
+            if n % e:
+                continue
+            Ps = []
+            for Q in F.irreds(n // e):
+                P = (1,)
+                for _ in range(e):
+                    P = F.mul(P, Q)
+                if F.mod(P, A):
+                    Ps.append(P)
+            run('Q^%d' % e, Ps)

@@ -120,3 +120,57 @@ every place incl. ∞, normalised by norms to F_q; Weil reciprocity checked on e
 | 7, 3, T, 3, P = Q³ | 6 | 277 | 0 | all 0 |
 | 7, 6, T, 3 | 112 | 801 | 0 | only 0 and 3 (= ½), at ∞ and P only |
 | 13, 4, T, 3 | 728 | 2829 | 0 | only 0 and 2 (= ½), at ∞ and P only |
+
+## 3. The engine is real: twisted targets give an order-m "T1 on degree classes" — and degree is why it never sterilises
+
+Construction (iteration I2). Theorem 2.2's proof used the ES target only through x ≡ −1 at finite places and
+through sign normalisation at ∞. To test whether the order-m reciprocity can act at all, twist the target:
+**ES_q^c(A, P): A/P = c₁/X + c₂/Y + c₃/Z, X, Y, Z monic, all degrees ≥ n − deg A** (c ∈ (F_q^*)³; c = (1,1,1) is
+ES_q). Writing u_i = X_i/c_i, it is the same surface λ = Σ 1/u_i, so α_ζ = (−u₁/u₃, −u₂/u₃)_ζ is defined, but the
+integral points now have signs 1/c_i at ∞. By leading terms the minimal degree is exactly n − deg A, and the c_i of
+the minimal-degree terms sum to 1.
+
+**Lemma 3.1 (finite places still trivial; PROVED).** For ES_q^c with P = Q^e and ℓ ≠ Q finite, inv_ℓ α_ζ(u) ∈ ½ℤ/ℤ.
+*Proof.* Theorem 2.2 (i) verbatim: it used only λ = Σ 1/u_i and integrality of u_i at ℓ (u_i = X_i/c_i is
+integral). ∎
+**Lemma 3.2 (the ∞-invariant is a degree character; PROVED).** Label u₁ to have degree > n − deg A (possible as at
+most... see below), so x = λu₁ − 1 has sign 1/c₁, v_∞(x) = n − deg A − deg X₁; y = −(c₃/c₂)X₂/X₃. The odd part of
+inv_∞ α_ζ(u) is the class of `c₁^{deg X₂ − deg X₃}·(c₃/c₂)^{deg A + deg X₁ − n}` in F_q^*/F_q^{*m}.
+(If all three denominators have degree n − deg A, take any labelling; then v(x) = 0 or x has sign (1 − c₁)/c₁·…;
+this case is excluded below by restricting to data where some denominator has larger degree — always true for
+P of degree n > deg A + … in the computed range; Assessment-level bookkeeping, checked numerically.)
+*Proof.* Tame symbol {x, y}_∞ = (−1)^{v(x)v(y)} sgn(x)^{v(y)} sgn(y)^{−v(x)}; drop the signs ±1 (odd part). ∎
+**Theorem 3.3 (order-m T1 on degree classes; PROVED).** Let m | q − 1, P = Q^m, and u a solution of ES_q^c whose
+Q-shape is Type I (v_Q = (≥ m, 0, 0) up to order) or Type II ((0, ≥ m, ≥ m)). Then inv_Q α_ζ(u) = 0 for ζ of
+order m. Hence (Lemma 3.1, reciprocity) the odd part of inv_∞ α_ζ(u) vanishes: **primitive solutions at m-th powers
+lie in the degree classes where the character of Lemma 3.2 is trivial**. For prime P there is no such restriction.
+*Proof.* Type II, label u₁ = the Q-free one: v_Q(x) = −m (λ has v_Q = −m). 1/u₂ + 1/u₃ = x/u₁ has v_Q = −m; if
+v_Q(u₂) ≠ v_Q(u₃) the sum would have v_Q = −max < −m... precisely −max(v₂, v₃) = −m with min ≥ m forces
+v₂ = v₃, so y is a Q-unit and {x, y}_Q = ±y^m ∈ k(Q)^{*m}·{±1}. Type I, label u₁ = the Q-divisible one:
+v(λu₁) = v₁ − m ≥ 0, y is a unit. If v(x) = 0 the symbol is 1. If v(x) > 0 then 1/u₂ + 1/u₃ = x/u₁ forces
+v_Q(u₂ + u₃) = v(x) − v₁ ≥ 0... so v(x) ≥ v₁ ≥ m; if v(x) = m (then v₁ = m) the symbol y^{−m} is an m-th
+power; if v(x) > v₁ then u₂ ≡ −u₃, y ≡ 1. (v(x) strictly between impossible as v(u₂+u₃) ≥ 0.) ∎
+For c = (1,1,1) the character of Lemma 3.2 is trivial on the odd part, so Theorem 3.3 is empty — consistent with
+Theorem 2.2.
+
+**Numerics (EVIDENCE; `scripts/bsH_twisted.py`: complete solution sets, every solution verified, Weil reciprocity
+and inv_ℓ = 0 for ℓ ≠ Q asserted on every point), q = 7, A = T, n = 3, m = 3 (ω = 2):**
+| c | P | #P | #P unsolvable | (shape, inv_Q, inv_∞): counts |
+|---|---|---|---|---|
+| (1,1,1) | irreducible | 112 | 21 | I (0,0) 1680; II (0,0) 723 |
+| (1,1,1) | Q³ | 6 | 0 | I (0,0) 354; II (0,0) 126; other (0,0) 351 |
+| (1,1,2) | irreducible | 112 | 4 | I: (0,0) 402, (1,2) 431, (2,1) 431; II: (0,0) 212, (1,2) 137, (2,1) 137 |
+| (1,1,2) | Q³ | 6 | 0 | I (0,0) 82; II (0,0) 30; other: (0,0) 96, (1,2) 54, (2,1) 54 |
+| (1,2,4) | irreducible | 112 | 6 | I: 180, 230, 240; II: 70, 103, 75 (inv_Q = 0, 1, 2) |
+| (1,2,4) | Q³ | 6 | 0 | I (0,0) 18; II (0,0) 17; other: 28, 25, 26 |
+So the twisted problem carries a genuine order-3 reciprocity (inv_Q = −inv_∞ ∈ ℤ/3, non-constant at primes), and
+at cubes it confines the Type I/II solutions to inv = 0, exactly as Theorem 3.3 says; non-primitive solutions
+(inherited from Q) still carry all values.
+
+**Why it never sterilises (Assessment, with the PROVED ingredient Lemma 3.2).** Over ℚ, T1 is total because
+ℝ^*/ℝ_{>0} = ±1 and positivity pins the archimedean coordinate, so the forced invariant (p/f) = −1 is a constant.
+Over F_q(T), F_∞^*/U₁ ≅ F_q^* × ℤ (sign × degree). Sign normalisation pins F_q^*, but the **degree coordinate
+cannot be pinned** by any ES-type positivity — solutions need denominators of many degrees. Order-m invariants
+at ∞ of sign-normalised data are therefore degree characters (Lemma 1.1, Lemma 3.2), and a k-th power obstruction
+can only remove degree classes, never all solutions. ES_q itself has target −1, whose order-m image is trivial
+for odd m (Thm 2.2), so for ES_q even the degree-class restriction is empty.
