@@ -107,8 +107,9 @@ family with deg L' ≤ L0, whatever N; by Lemma 2.1 it then also excludes every 
 `ff3_caseB 3 2 0 13 -1 1 c` (all monic L' with T ∤ L', deg L' ≤ 13; for each, every j ≤ 4 deg L' − 2, which is
 the complete range by Lemma 2.3; every γ ≤ j, both branches): **0 Case B families for c = 1 and c = 2**
 (logs `data/ff3_caseB_xstar_c1.txt`, `_c2.txt`). With Lemma 2.3 this excludes every Case B family with
-deg L' ≤ 13 at any level N, and by Lemma 2.1 every family of level N ≤ 8 (j ≤ 7). Earlier (I1): also 0 for
-deg L' ≤ 13, j ≤ 14. [l = 13 line: see log; filled in at the end of the run.]
+deg L' ≤ 13 at any level N, and by Lemma 2.1 every family of level N ≤ 8 (j ≤ 7). With the Case A theorem
+(FUNCTIONFIELD_ES2 §0.2): **no linear family of level ≤ 8 and no family with deg L' ≤ 13 is valid at x*_c.** Earlier (I1): also 0 for
+deg L' ≤ 13, j ≤ 14. The deg L' = 13 layer alone tested 7.8·10⁷ monic residues ρ per c (about 25 min per c on one core).
 Cross-check: `scripts/ff3_check.py` (sympy factorisation of D, all monic divisors, no CRT shortcut) reproduces
 the family sets of ff3_caseB exactly on small ranges, at x*_c and at random slice points, and verifies the found
 families end to end (explicit irreducible P in the class, X, Y, Z monic with T²/P = 1/X + 1/Y + 1/Z and NC);
