@@ -128,10 +128,12 @@ count*: the expected number of Case B families of level N at a point is ≈ poly
 of small level.
 
 **Assessment (the right target is O(3, T²) ≠ ∅, not x*_c).** By Lemma 2.1 each level N carries finitely many
-family-cylinders, each of Haar mass q^{−(N+1)} in the slice. If the number of level-N cylinders is
-≪ q^{(1−δ)N}, then inside a cylinder C around x*_c that no low-level family touches, the high-level families
-have total mass < mass(C); by compactness (König) some slice point is uncovered, so O(3, T²) ≠ ∅ and no finite
-linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. Case A families at
+family-cylinders, each of Haar mass q^{−(N+1)} in the slice. Let U(m) be the slice mass not covered by
+families of level ≤ m (a finite computation) and T(m) := Σ_{N ≥ m} #cyl(N)·q^{−(N+1)}. If U(m) > T(m) for one m,
+some slice point is uncovered (the uncovered set is closed, and its mass is ≥ U(m) − T(m) > 0), so O(3, T²) ≠ ∅
+and no finite linear covering exists — the conclusion of Conjecture 0.2, without deciding x*_c itself. An
+explicit bound #cyl(N) ≤ K q^{(1−δ)N} gives T(m) ≤ K q^{−δm}/(q^{δ} − 1)·q^{δ−1}, so it suffices together with a
+census showing U(m) stays above that for one moderate m (heuristically U(m) tends to a positive limit). Case A families at
 generic slice points need the same bound.
 What the parametrisation of Lemma 2.1 gives (PROVED, elementary): with t := deg v, the family is determined by v
 and an ordered factorisation T^s + v = m'·w·C (all monic), so there are ≤ q^{t−1}·d₃(T^s + v) of them; and
